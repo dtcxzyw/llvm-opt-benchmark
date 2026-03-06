@@ -163,7 +163,7 @@ _ZN6icu_7713UnicodeString6appendENS_14ConstChar16PtrEi.exit: ; preds = %38
   tail call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %42) #6, !srcloc !33
   %44 = load ptr, ptr %7, align 8, !tbaa !16
   %45 = zext nneg i32 %.0 to i64
-  %46 = getelementptr inbounds nuw i16, ptr %44, i64 %45
+  %46 = getelementptr inbounds nuw [2 x i8], ptr %44, i64 %45
   store ptr %46, ptr %7, align 8, !tbaa !16
   %47 = load i32, ptr %11, align 8, !tbaa !18
   %48 = sub nsw i32 %47, %.0
@@ -270,7 +270,7 @@ _ZN6icu_7713UnicodeString8truncateEi.exit:        ; preds = %17, %19, %29, %33
   %35 = phi i32 [ %.pre6, %17 ], [ %6, %19 ], [ %6, %29 ], [ %6, %33 ]
   %36 = phi ptr [ %.pre, %17 ], [ %3, %19 ], [ %3, %29 ], [ %3, %33 ]
   %37 = sext i32 %.0 to i64
-  %38 = getelementptr inbounds i16, ptr %36, i64 %37
+  %38 = getelementptr inbounds [2 x i8], ptr %36, i64 %37
   store ptr %38, ptr %4, align 8, !tbaa !16
   %39 = sub nsw i32 %35, %.0
   store i32 %39, ptr %7, align 8, !tbaa !18
@@ -337,7 +337,7 @@ _ZNK6icu_779UVector3210elementAtiEi.exit:         ; preds = %15
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %20 = load ptr, ptr %19, align 8, !tbaa !37
   %21 = zext nneg i32 %14 to i64
-  %22 = getelementptr i32, ptr %20, i64 %21
+  %22 = getelementptr [4 x i8], ptr %20, i64 %21
   %23 = getelementptr i8, ptr %22, i64 -4
   %24 = load i32, ptr %23, align 4, !tbaa !38
   %25 = load ptr, ptr %0, align 8, !tbaa !9
@@ -349,7 +349,7 @@ _ZNK6icu_779UVector3210elementAtiEi.exit:         ; preds = %15
   %28 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %29 = load ptr, ptr %28, align 8, !tbaa !37
   %30 = zext nneg i32 %27 to i64
-  %31 = getelementptr inbounds nuw i32, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !38
   %33 = sext i32 %32 to i64
   br label %_ZNK6icu_779UVector3210elementAtiEi.exit75
@@ -359,7 +359,7 @@ _ZNK6icu_779UVector3210elementAtiEi.exit75:       ; preds = %_ZNK6icu_779UVector
   %35 = phi ptr [ %25, %26 ], [ %25, %_ZNK6icu_779UVector3210elementAtiEi.exit ], [ %17, %_ZNK6icu_779UVector3210elementAtiEi.exit.thread ]
   %36 = phi i32 [ %24, %26 ], [ %24, %_ZNK6icu_779UVector3210elementAtiEi.exit ], [ 0, %_ZNK6icu_779UVector3210elementAtiEi.exit.thread ]
   %37 = phi i64 [ %33, %26 ], [ 0, %_ZNK6icu_779UVector3210elementAtiEi.exit ], [ 0, %_ZNK6icu_779UVector3210elementAtiEi.exit.thread ]
-  %38 = getelementptr inbounds i16, ptr %35, i64 %37
+  %38 = getelementptr inbounds [2 x i8], ptr %35, i64 %37
   tail call void @_ZN6icu_779UVector327setSizeEi(ptr noundef nonnull align 8 dereferenceable(32) %12, i32 noundef %34)
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %40 = and i32 %36, 65535
@@ -655,7 +655,7 @@ _ZN6icu_7710UCharsTrie13skipNodeValueEPKDsi.exit: ; preds = %89, %93, %95
 .thread88:                                        ; preds = %191
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %.454) #6, !srcloc !33
   %194 = zext nneg i32 %192 to i64
-  %195 = getelementptr inbounds nuw i16, ptr %.454, i64 %194
+  %195 = getelementptr inbounds nuw [2 x i8], ptr %.454, i64 %194
   br label %.backedge
 
 196:                                              ; preds = %186
@@ -746,7 +746,7 @@ _ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread.i: ; preds = %_Z
   %36 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %37 = load ptr, ptr %36, align 8, !tbaa !37
   %38 = sext i32 %35 to i64
-  %39 = getelementptr inbounds i32, ptr %37, i64 %38
+  %39 = getelementptr inbounds [4 x i8], ptr %37, i64 %38
   store i32 %27, ptr %39, align 4, !tbaa !38
   %40 = load i32, ptr %28, align 8, !tbaa !34
   %41 = add nsw i32 %40, 1
@@ -789,7 +789,7 @@ _ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread.i30: ; preds = %
   %61 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %62 = load ptr, ptr %61, align 8, !tbaa !37
   %63 = sext i32 %60 to i64
-  %64 = getelementptr inbounds i32, ptr %62, i64 %63
+  %64 = getelementptr inbounds [4 x i8], ptr %62, i64 %63
   store i32 %52, ptr %64, align 4, !tbaa !38
   %65 = load i32, ptr %53, align 8, !tbaa !34
   %66 = add nsw i32 %65, 1
@@ -830,7 +830,7 @@ _ZN6icu_7710UCharsTrie11jumpByDeltaEPKDs.exit:    ; preds = %_ZN6icu_779UVector3
   %.09.i = phi ptr [ %80, %72 ], [ %84, %81 ], [ %13, %_ZN6icu_779UVector3210addElementEiR10UErrorCode.exit35 ]
   %.0.i36 = phi i32 [ %79, %72 ], [ %87, %81 ], [ %68, %_ZN6icu_779UVector3210addElementEiR10UErrorCode.exit35 ]
   %88 = sext i32 %.0.i36 to i64
-  %89 = getelementptr inbounds i16, ptr %.09.i, i64 %88
+  %89 = getelementptr inbounds [2 x i8], ptr %.09.i, i64 %88
   %90 = icmp samesign ugt i32 %.02761, 11
   br i1 %90, label %10, label %._crit_edge, !llvm.loop !43
 
@@ -905,7 +905,7 @@ _ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread.i41: ; preds = %
   %131 = getelementptr inbounds nuw i8, ptr %116, i64 24
   %132 = load ptr, ptr %131, align 8, !tbaa !37
   %133 = sext i32 %130 to i64
-  %134 = getelementptr inbounds i32, ptr %132, i64 %133
+  %134 = getelementptr inbounds [4 x i8], ptr %132, i64 %133
   store i32 %122, ptr %134, align 4, !tbaa !38
   %135 = load i32, ptr %123, align 8, !tbaa !34
   %136 = add nsw i32 %135, 1
@@ -950,7 +950,7 @@ _ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread.i49: ; preds = %
   %158 = getelementptr inbounds nuw i8, ptr %137, i64 24
   %159 = load ptr, ptr %158, align 8, !tbaa !37
   %160 = sext i32 %157 to i64
-  %161 = getelementptr inbounds i32, ptr %159, i64 %160
+  %161 = getelementptr inbounds [4 x i8], ptr %159, i64 %160
   store i32 %149, ptr %161, align 4, !tbaa !38
   %162 = load i32, ptr %150, align 8, !tbaa !34
   %163 = add nsw i32 %162, 1
@@ -974,7 +974,7 @@ _ZN6icu_779UVector3210addElementEiR10UErrorCode.exit54: ; preds = %_ZN6icu_779UV
 
 168:                                              ; preds = %_ZN6icu_779UVector3210addElementEiR10UErrorCode.exit54
   %169 = sext i32 %.0.i3756 to i64
-  %170 = getelementptr inbounds i16, ptr %.0.i38, i64 %169
+  %170 = getelementptr inbounds [2 x i8], ptr %.0.i38, i64 %169
   br label %171
 
 171:                                              ; preds = %168, %165

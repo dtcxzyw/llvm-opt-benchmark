@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.zxing::Ref" = type { ptr }
 %"class.zxing::ArrayRef" = type { %"class.zxing::Counted.base", ptr }
 %"class.zxing::Counted.base" = type <{ ptr, i32 }>
-%"class.zxing::Ref.4" = type { ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -1105,7 +1104,7 @@ define hidden void @_ZN5zxing6Result19enlargeResultPointsEi(ptr noundef nonnull 
   %17 = phi ptr [ %5, %.lr.ph ], [ %66, %_ZN5zxing3RefINS_11ResultPointEED2Ev.exit ]
   %18 = tail call noalias noundef nonnull dereferenceable(24) ptr @_Znwm(i64 noundef 24) #11
   %19 = load ptr, ptr %17, align 8, !tbaa !37
-  %20 = getelementptr inbounds nuw %"class.zxing::Ref.4", ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !38
   %22 = load ptr, ptr %21, align 8, !tbaa !8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
@@ -1117,7 +1116,7 @@ define hidden void @_ZN5zxing6Result19enlargeResultPointsEi(ptr noundef nonnull 
   %27 = load ptr, ptr %3, align 8, !tbaa !17
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load ptr, ptr %28, align 8, !tbaa !37
-  %30 = getelementptr inbounds nuw %"class.zxing::Ref.4", ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8, !tbaa !38
   %32 = load ptr, ptr %31, align 8, !tbaa !8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
@@ -1137,7 +1136,7 @@ define hidden void @_ZN5zxing6Result19enlargeResultPointsEi(ptr noundef nonnull 
   %42 = load ptr, ptr %3, align 8, !tbaa !17
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load ptr, ptr %43, align 8, !tbaa !37
-  %45 = getelementptr inbounds nuw %"class.zxing::Ref.4", ptr %44, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv
   %46 = add i32 %41, 2
   store i32 %46, ptr %40, align 8, !tbaa !3
   %47 = load ptr, ptr %45, align 8, !tbaa !38

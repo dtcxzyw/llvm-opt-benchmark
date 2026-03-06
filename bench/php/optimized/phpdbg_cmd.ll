@@ -86,7 +86,7 @@ define dso_local noundef nonnull ptr @phpdbg_get_param_type(ptr noundef readonly
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.phpdbg_get_param_type, i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.phpdbg_get_param_type, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %5
 
@@ -1815,7 +1815,7 @@ define dso_local ptr @phpdbg_stack_resolve(ptr noundef %0, ptr noundef readonly 
   br i1 %.not194, label %.thread208, label %36
 
 .thread208:                                       ; preds = %31
-  %34 = getelementptr inbounds nuw ptr, ptr %4, i64 %.0179213244
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.0179213244
   store ptr %.0182212245, ptr %34, align 8, !tbaa !44
   %35 = add nuw nsw i64 %.0179213244, 1
   br label %.critedge
@@ -1824,7 +1824,7 @@ define dso_local ptr @phpdbg_stack_resolve(ptr noundef %0, ptr noundef readonly 
   br i1 %.not193202, label %.thread206, label %.thread206.sink.split
 
 .thread206.sink.split:                            ; preds = %36, %23
-  %37 = getelementptr inbounds nuw ptr, ptr %4, i64 %.0179213244
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.0179213244
   store ptr %.0182212245, ptr %37, align 8, !tbaa !44
   %38 = add i64 %.0179213244, 1
   br label %.thread206
@@ -1879,7 +1879,7 @@ define dso_local ptr @phpdbg_stack_resolve(ptr noundef %0, ptr noundef readonly 
   %.0176221 = phi i32 [ %62, %84 ], [ 0, %.critedge ]
   %.0177220 = phi ptr [ %.1178, %84 ], [ null, %.critedge ]
   %.not199 = icmp eq ptr %.0177220, null
-  %58 = getelementptr inbounds nuw ptr, ptr %4, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %57
   %59 = load ptr, ptr %58, align 8, !tbaa !44
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load i64, ptr %60, align 8, !tbaa !41
@@ -2127,7 +2127,7 @@ define dso_local ptr @phpdbg_read_input(ptr noundef %0) local_unnamed_addr #1 {
   %18 = load ptr, ptr %17, align 8, !tbaa !74
   %19 = load i8, ptr %.016, align 1, !tbaa !36
   %20 = sext i8 %19 to i64
-  %21 = getelementptr inbounds i16, ptr %18, i64 %20
+  %21 = getelementptr inbounds [2 x i8], ptr %18, i64 %20
   %22 = load i16, ptr %21, align 2, !tbaa !76
   %23 = and i16 %22, 8192
   %.not20 = icmp eq i16 %23, 0
@@ -2137,7 +2137,7 @@ define dso_local ptr @phpdbg_read_input(ptr noundef %0) local_unnamed_addr #1 {
   %.0 = phi ptr [ %29, %.preheader ], [ %.016, %16 ]
   %24 = load i8, ptr %.0, align 1, !tbaa !36
   %25 = sext i8 %24 to i64
-  %26 = getelementptr inbounds i16, ptr %18, i64 %25
+  %26 = getelementptr inbounds [2 x i8], ptr %18, i64 %25
   %27 = load i16, ptr %26, align 2, !tbaa !76
   %28 = and i16 %27, 8192
   %.not21 = icmp eq i16 %28, 0

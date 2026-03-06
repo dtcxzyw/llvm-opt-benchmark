@@ -734,7 +734,7 @@ add_stringlist_item.exit.backedge:                ; preds = %140, %137, %124, %1
 .lr.ph:                                           ; preds = %.preheader198, %add_stringlist_item.exit142
   %154 = phi i32 [ %169, %add_stringlist_item.exit142 ], [ %56, %.preheader198 ]
   %155 = sext i32 %154 to i64
-  %156 = getelementptr inbounds ptr, ptr %1, i64 %155
+  %156 = getelementptr inbounds [8 x i8], ptr %1, i64 %155
   %157 = load ptr, ptr %156, align 8
   %158 = call ptr @pg_malloc(i64 noundef 16) #23
   %159 = call ptr @pg_strdup(ptr noundef %157) #23
@@ -1136,7 +1136,7 @@ make_temp_sockdir.exit.i:                         ; preds = %291
   %352 = getelementptr i8, ptr %351, i64 -1
   %353 = load i8, ptr %352, align 1
   %354 = zext i8 %353 to i64
-  %355 = getelementptr inbounds nuw i16, ptr %349, i64 %354
+  %355 = getelementptr inbounds nuw [2 x i8], ptr %349, i64 %354
   %356 = load i16, ptr %355, align 2
   %357 = and i16 %356, 8192
   %.not22.i.i = icmp eq i16 %357, 0
@@ -1900,7 +1900,7 @@ create_role.exit:                                 ; preds = %._crit_edge.i
   %652 = getelementptr i8, ptr %651, i64 -1
   %653 = load i8, ptr %652, align 1
   %654 = zext i8 %653 to i64
-  %655 = getelementptr inbounds nuw i16, ptr %649, i64 %654
+  %655 = getelementptr inbounds nuw [2 x i8], ptr %649, i64 %654
   %656 = load i16, ptr %655, align 2
   %657 = and i16 %656, 8192
   %.not148.i = icmp eq i16 %657, 0
@@ -1943,7 +1943,7 @@ create_role.exit:                                 ; preds = %._crit_edge.i
   %670 = tail call ptr @__ctype_b_loc() #26
   %671 = load ptr, ptr %670, align 8
   %672 = zext i8 %667 to i64
-  %673 = getelementptr inbounds nuw i16, ptr %671, i64 %672
+  %673 = getelementptr inbounds nuw [2 x i8], ptr %671, i64 %672
   %674 = load i16, ptr %673, align 2
   %675 = and i16 %674, 8192
   %.not149.i = icmp eq i16 %675, 0
@@ -1965,7 +1965,7 @@ create_role.exit:                                 ; preds = %._crit_edge.i
   store i8 0, ptr %.0131.i, align 1
   %682 = call ptr @pg_strdup(ptr noundef %.1.i) #23
   %683 = sext i32 %.0134.i to i64
-  %684 = getelementptr inbounds ptr, ptr %24, i64 %683
+  %684 = getelementptr inbounds [8 x i8], ptr %24, i64 %683
   store ptr %682, ptr %684, align 8
   %685 = add nsw i32 %.0134.i, 1
   store i8 %667, ptr %.0131.i, align 1
@@ -2063,10 +2063,10 @@ thread-pre-split.i:                               ; preds = %681, %676
 
 717:                                              ; preds = %.lr.ph245.i
   %718 = zext nneg i32 %.0132243.i to i64
-  %719 = getelementptr inbounds nuw i32, ptr %28, i64 %718
-  %720 = getelementptr inbounds nuw i32, ptr %31, i64 %718
-  %721 = getelementptr inbounds nuw %struct.instr_time, ptr %30, i64 %718
-  %722 = getelementptr inbounds nuw ptr, ptr %24, i64 %718
+  %719 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %718
+  %720 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %718
+  %721 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %718
+  %722 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %718
   %723 = icmp sgt i32 %715, 0
   br i1 %723, label %.lr.ph24.i.i, label %wait_for_tests.exit165.i
 
@@ -2088,18 +2088,18 @@ thread-pre-split.i:                               ; preds = %681, %676
 
 .preheader.us.i.i:                                ; preds = %.lr.ph24.split.us.split.i.i, %726
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %726 ], [ 0, %.lr.ph24.split.us.split.i.i ]
-  %727 = getelementptr inbounds nuw i32, ptr %719, i64 %indvars.iv.i.i
+  %727 = getelementptr inbounds nuw [4 x i8], ptr %719, i64 %indvars.iv.i.i
   %728 = load i32, ptr %727, align 4
   %729 = icmp eq i32 %724, %728
   br i1 %729, label %730, label %726
 
 730:                                              ; preds = %.preheader.us.i.i
-  %731 = getelementptr inbounds nuw i32, ptr %719, i64 %indvars.iv.i.i
+  %731 = getelementptr inbounds nuw [4 x i8], ptr %719, i64 %indvars.iv.i.i
   store i32 -1, ptr %731, align 4
   %732 = load i32, ptr %20, align 4
-  %733 = getelementptr inbounds nuw i32, ptr %720, i64 %indvars.iv.i.i
+  %733 = getelementptr inbounds nuw [4 x i8], ptr %720, i64 %indvars.iv.i.i
   store i32 %732, ptr %733, align 4
-  %734 = getelementptr inbounds nuw %struct.instr_time, ptr %721, i64 %indvars.iv.i.i
+  %734 = getelementptr inbounds nuw [8 x i8], ptr %721, i64 %indvars.iv.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %735 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %19) #23
   %736 = load i64, ptr %19, align 8
@@ -2108,7 +2108,7 @@ thread-pre-split.i:                               ; preds = %681, %676
   %739 = add i64 %737, %738
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   store i64 %739, ptr %734, align 8
-  %740 = getelementptr inbounds nuw ptr, ptr %722, i64 %indvars.iv.i.i
+  %740 = getelementptr inbounds nuw [8 x i8], ptr %722, i64 %indvars.iv.i.i
   %741 = load ptr, ptr %740, align 8
   call void (i32, ptr, ...) @emit_tap_output(i32 noundef 3, ptr noundef nonnull @.str.51, ptr noundef %741)
   %742 = add nsw i32 %.023.us.i.i, -1
@@ -2126,15 +2126,15 @@ thread-pre-split.i:                               ; preds = %681, %676
 
 wait_for_tests.exit165.i:                         ; preds = %..loopexit_crit_edge.us.i.i, %717, %.lr.ph245.i
   %.1133.i = phi i32 [ %.0132243.i, %.lr.ph245.i ], [ %714, %717 ], [ %714, %..loopexit_crit_edge.us.i.i ]
-  %744 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv292.i
+  %744 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv292.i
   %745 = load ptr, ptr %744, align 8
-  %746 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv292.i
-  %747 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv292.i
-  %748 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv292.i
+  %746 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv292.i
+  %747 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv292.i
+  %748 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv292.i
   %749 = call i32 %3(ptr noundef %745, ptr noundef nonnull %746, ptr noundef nonnull %747, ptr noundef nonnull %748) #23
-  %750 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv292.i
+  %750 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv292.i
   store i32 %749, ptr %750, align 4
-  %751 = getelementptr inbounds nuw %struct.instr_time, ptr %29, i64 %indvars.iv292.i
+  %751 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv292.i
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %752 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %18) #23
   %753 = load i64, ptr %18, align 8
@@ -2149,10 +2149,10 @@ wait_for_tests.exit165.i:                         ; preds = %..loopexit_crit_edg
 
 ._crit_edge246.i:                                 ; preds = %wait_for_tests.exit165.i
   %757 = zext nneg i32 %.1133.i to i64
-  %758 = getelementptr inbounds nuw i32, ptr %28, i64 %757
-  %759 = getelementptr inbounds nuw i32, ptr %31, i64 %757
-  %760 = getelementptr inbounds nuw %struct.instr_time, ptr %30, i64 %757
-  %761 = getelementptr inbounds nuw ptr, ptr %24, i64 %757
+  %758 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %757
+  %759 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %757
+  %760 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %757
+  %761 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %757
   %762 = sub nsw i32 %.1135.i, %.1133.i
   %763 = icmp sgt i32 %762, 0
   br i1 %763, label %.lr.ph24.i166.i, label %wait_for_tests.exit185.i
@@ -2175,18 +2175,18 @@ wait_for_tests.exit165.i:                         ; preds = %..loopexit_crit_edg
 
 .preheader.us.i170.i:                             ; preds = %.lr.ph24.split.us.split.i168.i, %766
   %indvars.iv.i171.i = phi i64 [ %indvars.iv.next.i172.i, %766 ], [ 0, %.lr.ph24.split.us.split.i168.i ]
-  %767 = getelementptr inbounds nuw i32, ptr %758, i64 %indvars.iv.i171.i
+  %767 = getelementptr inbounds nuw [4 x i8], ptr %758, i64 %indvars.iv.i171.i
   %768 = load i32, ptr %767, align 4
   %769 = icmp eq i32 %764, %768
   br i1 %769, label %770, label %766
 
 770:                                              ; preds = %.preheader.us.i170.i
-  %771 = getelementptr inbounds nuw i32, ptr %758, i64 %indvars.iv.i171.i
+  %771 = getelementptr inbounds nuw [4 x i8], ptr %758, i64 %indvars.iv.i171.i
   store i32 -1, ptr %771, align 4
   %772 = load i32, ptr %17, align 4
-  %773 = getelementptr inbounds nuw i32, ptr %759, i64 %indvars.iv.i171.i
+  %773 = getelementptr inbounds nuw [4 x i8], ptr %759, i64 %indvars.iv.i171.i
   store i32 %772, ptr %773, align 4
-  %774 = getelementptr inbounds nuw %struct.instr_time, ptr %760, i64 %indvars.iv.i171.i
+  %774 = getelementptr inbounds nuw [8 x i8], ptr %760, i64 %indvars.iv.i171.i
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %775 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %16) #23
   %776 = load i64, ptr %16, align 8
@@ -2195,7 +2195,7 @@ wait_for_tests.exit165.i:                         ; preds = %..loopexit_crit_edg
   %779 = add i64 %777, %778
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   store i64 %779, ptr %774, align 8
-  %780 = getelementptr inbounds nuw ptr, ptr %761, i64 %indvars.iv.i171.i
+  %780 = getelementptr inbounds nuw [8 x i8], ptr %761, i64 %indvars.iv.i171.i
   %781 = load ptr, ptr %780, align 8
   call void (i32, ptr, ...) @emit_tap_output(i32 noundef 3, ptr noundef nonnull @.str.51, ptr noundef %781)
   %782 = add nsw i32 %.023.us.i169.i, -1
@@ -2226,15 +2226,15 @@ wait_for_tests.exit185.i:                         ; preds = %..loopexit_crit_edg
 
 .lr.ph239.i:                                      ; preds = %.lr.ph239.i, %.lr.ph239.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph239.preheader.i ], [ %indvars.iv.next.i, %.lr.ph239.i ]
-  %786 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv.i
+  %786 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv.i
   %787 = load ptr, ptr %786, align 8
-  %788 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv.i
-  %789 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv.i
-  %790 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv.i
+  %788 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv.i
+  %789 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv.i
+  %790 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv.i
   %791 = call i32 %3(ptr noundef %787, ptr noundef nonnull %788, ptr noundef nonnull %789, ptr noundef nonnull %790) #23
-  %792 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv.i
+  %792 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv.i
   store i32 %791, ptr %792, align 4
-  %793 = getelementptr inbounds nuw %struct.instr_time, ptr %29, i64 %indvars.iv.i
+  %793 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv.i
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %794 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %15) #23
   %795 = load i64, ptr %15, align 8
@@ -2261,18 +2261,18 @@ wait_for_tests.exit185.i:                         ; preds = %..loopexit_crit_edg
 
 .preheader.us.i190.i:                             ; preds = %.lr.ph24.split.us.split.i188.i, %801
   %indvars.iv.i191.i = phi i64 [ %indvars.iv.next.i192.i, %801 ], [ 0, %.lr.ph24.split.us.split.i188.i ]
-  %802 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv.i191.i
+  %802 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv.i191.i
   %803 = load i32, ptr %802, align 4
   %804 = icmp eq i32 %799, %803
   br i1 %804, label %805, label %801
 
 805:                                              ; preds = %.preheader.us.i190.i
-  %806 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv.i191.i
+  %806 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv.i191.i
   store i32 -1, ptr %806, align 4
   %807 = load i32, ptr %14, align 4
-  %808 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv.i191.i
+  %808 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv.i191.i
   store i32 %807, ptr %808, align 4
-  %809 = getelementptr inbounds nuw %struct.instr_time, ptr %30, i64 %indvars.iv.i191.i
+  %809 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv.i191.i
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %810 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %13) #23
   %811 = load i64, ptr %13, align 8
@@ -2281,7 +2281,7 @@ wait_for_tests.exit185.i:                         ; preds = %..loopexit_crit_edg
   %814 = add i64 %812, %813
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   store i64 %814, ptr %809, align 8
-  %815 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv.i191.i
+  %815 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv.i191.i
   %816 = load ptr, ptr %815, align 8
   call void (i32, ptr, ...) @emit_tap_output(i32 noundef 3, ptr noundef nonnull @.str.51, ptr noundef %816)
   %817 = add nsw i32 %.023.us.i189.i, -1
@@ -2328,23 +2328,23 @@ wait_for_tests.exit.i:                            ; preds = %wait_for_tests.exit
 
 827:                                              ; preds = %log_child_failure.exit.i, %.lr.ph259.i
   %indvars.iv298.i = phi i64 [ 0, %.lr.ph259.i ], [ %indvars.iv.next299.i, %log_child_failure.exit.i ]
-  %828 = getelementptr inbounds nuw %struct.instr_time, ptr %29, i64 %indvars.iv298.i
+  %828 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv298.i
   %829 = load i64, ptr %828, align 8
-  %830 = getelementptr inbounds nuw %struct.instr_time, ptr %30, i64 %indvars.iv298.i
+  %830 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv298.i
   %831 = load i64, ptr %830, align 8
   %832 = sub i64 %831, %829
   store i64 %832, ptr %830, align 8
-  %833 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv298.i
+  %833 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv298.i
   %834 = load ptr, ptr %833, align 8
-  %835 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv298.i
+  %835 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv298.i
   %836 = load ptr, ptr %835, align 8
-  %837 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv298.i
+  %837 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv298.i
   %838 = load ptr, ptr %837, align 8
   %.not151249.i = icmp eq ptr %834, null
   br i1 %.not151249.i, label %._crit_edge256.thread.i, label %.lr.ph255.i
 
 .lr.ph255.i:                                      ; preds = %827
-  %839 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv298.i
+  %839 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv298.i
   br i1 %.not153.i, label %.lr.ph255.split.us.i, label %.lr.ph255.split.i
 
 .lr.ph255.split.us.i:                             ; preds = %.lr.ph255.i
@@ -2447,16 +2447,16 @@ wait_for_tests.exit.i:                            ; preds = %wait_for_tests.exit
 ._crit_edge256.i:                                 ; preds = %891, %863
   %896 = phi ptr [ %840, %863 ], [ %869, %891 ]
   %.0126.lcssa.i = phi i1 [ %866, %863 ], [ %894, %891 ]
-  %897 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv298.i
+  %897 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv298.i
   %898 = load i32, ptr %897, align 4
   %.not152.i = icmp eq i32 %898, 0
   br i1 %.not152.i, label %921, label %._crit_edge256.thread.i._crit_edge
 
 ._crit_edge256.thread.i:                          ; preds = %827
-  %899 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv298.i
+  %899 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv298.i
   %900 = load i32, ptr %899, align 4
   %.not152334.i = icmp eq i32 %900, 0
-  %.phi.trans.insert336 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv298.i
+  %.phi.trans.insert336 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv298.i
   %.pre337 = load ptr, ptr %.phi.trans.insert336, align 8
   br i1 %.not152334.i, label %.thread336.i, label %._crit_edge256.thread.i._crit_edge
 
@@ -2559,15 +2559,15 @@ log_child_failure.exit.i:                         ; preds = %.thread336.i, %test
 
 .lr.ph261.i:                                      ; preds = %log_child_failure.exit.i, %.lr.ph261.i
   %indvars.iv304.i = phi i64 [ %indvars.iv.next305.i, %.lr.ph261.i ], [ 0, %log_child_failure.exit.i ]
-  %941 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv304.i
+  %941 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv304.i
   %942 = load ptr, ptr %941, align 8
   call void @pg_free(ptr noundef %942) #23
   store ptr null, ptr %941, align 8
-  %943 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv304.i
+  %943 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv304.i
   call fastcc void @free_stringlist(ptr noundef nonnull %943)
-  %944 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv304.i
+  %944 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv304.i
   call fastcc void @free_stringlist(ptr noundef nonnull %944)
-  %945 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv304.i
+  %945 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv304.i
   call fastcc void @free_stringlist(ptr noundef nonnull %945)
   %indvars.iv.next305.i = add nuw nsw i64 %indvars.iv304.i, 1
   %exitcond309.not.i = icmp eq i64 %indvars.iv.next305.i, %wide.trip.count302.i

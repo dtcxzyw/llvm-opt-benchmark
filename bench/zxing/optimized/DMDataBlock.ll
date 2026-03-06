@@ -209,7 +209,7 @@ _ZN5ZXing10DataMatrix9DataBlockD2Ev.exit82:       ; preds = %60, %57, %55
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 %indvars.iv118
   %78 = load i8, ptr %77, align 1, !tbaa !25
   %79 = load ptr, ptr %7, align 8, !tbaa !8
-  %80 = getelementptr inbounds nuw %"struct.ZXing::DataMatrix::DataBlock", ptr %79, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw [32 x i8], ptr %79, i64 %indvars.iv
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %82 = load ptr, ptr %81, align 8, !tbaa !15
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 %indvars.iv123
@@ -240,7 +240,7 @@ _ZN5ZXing10DataMatrix9DataBlockD2Ev.exit82:       ; preds = %60, %57, %55
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 %indvars.iv128
   %90 = load i8, ptr %89, align 1, !tbaa !25
   %91 = load ptr, ptr %7, align 8, !tbaa !8
-  %92 = getelementptr inbounds nuw %"struct.ZXing::DataMatrix::DataBlock", ptr %91, i64 %indvars.iv126
+  %92 = getelementptr inbounds nuw [32 x i8], ptr %91, i64 %indvars.iv126
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %94 = load ptr, ptr %93, align 8, !tbaa !15
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 %71
@@ -302,7 +302,7 @@ _ZN5ZXing10DataMatrix9DataBlockD2Ev.exit82:       ; preds = %60, %57, %55
   %117 = load i8, ptr %116, align 1, !tbaa !25
   %118 = sext i32 %111 to i64
   %119 = load ptr, ptr %7, align 8, !tbaa !8
-  %120 = getelementptr inbounds nuw %"struct.ZXing::DataMatrix::DataBlock", ptr %119, i64 %118
+  %120 = getelementptr inbounds nuw [32 x i8], ptr %119, i64 %118
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
   %122 = sext i32 %114 to i64
   %123 = load ptr, ptr %121, align 8, !tbaa !15
@@ -416,7 +416,7 @@ _ZNSt12_Vector_baseIN5ZXing10DataMatrix9DataBlockESaIS2_EE13_M_deallocateEPS2_m.
   store ptr %18, ptr %0, align 8, !tbaa !8
   %39 = getelementptr inbounds nuw i8, ptr %18, i64 %17
   store ptr %39, ptr %14, align 8, !tbaa !36
-  %40 = getelementptr inbounds nuw %"struct.ZXing::DataMatrix::DataBlock", ptr %18, i64 %1
+  %40 = getelementptr inbounds nuw [32 x i8], ptr %18, i64 %1
   store ptr %40, ptr %6, align 8, !tbaa !37
   br label %41
 
@@ -663,7 +663,7 @@ _ZNSt6vectorIN5ZXing10DataMatrix9DataBlockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
 _ZNSt12_Vector_baseIN5ZXing10DataMatrix9DataBlockESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN5ZXing10DataMatrix9DataBlockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22, %48
   store ptr %10, ptr %0, align 8, !tbaa !8
   store ptr %.0.lcssa.i.i.i21, ptr %5, align 8, !tbaa !36
-  %52 = getelementptr inbounds nuw %"struct.ZXing::DataMatrix::DataBlock", ptr %10, i64 %3
+  %52 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %3
   store ptr %52, ptr %47, align 8, !tbaa !37
   ret void
 }

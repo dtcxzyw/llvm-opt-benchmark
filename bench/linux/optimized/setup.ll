@@ -208,7 +208,7 @@ define dso_local void @reserve_standard_io_resources() local_unnamed_addr #0 sec
 
 1:                                                ; preds = %1, %0
   %2 = phi i64 [ 0, %0 ], [ %5, %1 ]
-  %3 = getelementptr %struct.resource, ptr @standard_io_resources, i64 %2
+  %3 = getelementptr [64 x i8], ptr @standard_io_resources, i64 %2
   %4 = tail call i32 @request_resource(ptr noundef nonnull @ioport_resource, ptr noundef %3) #11
   %5 = add nuw nsw i64 %2, 1
   %6 = icmp eq i64 %5, 10
@@ -1104,7 +1104,7 @@ define internal fastcc void @trim_snb_memory() unnamed_addr #0 section ".init.te
 
 4:                                                ; preds = %12, %2
   %5 = phi i64 [ 0, %2 ], [ %13, %12 ]
-  %6 = getelementptr i64, ptr @trim_snb_memory.bad_pages, i64 %5
+  %6 = getelementptr [8 x i8], ptr @trim_snb_memory.bad_pages, i64 %5
   %7 = load i64, ptr %6, align 8
   %8 = tail call i32 @memblock_reserve(i64 noundef %7, i64 noundef 4096) #11
   %9 = icmp eq i32 %8, 0
@@ -1146,7 +1146,7 @@ define internal fastcc zeroext i1 @snb_gfx_workaround_needed() unnamed_addr #0 s
 
 8:                                                ; preds = %8, %6
   %9 = phi i64 [ 0, %6 ], [ %13, %8 ]
-  %10 = getelementptr i16, ptr @snb_gfx_workaround_needed.snb_ids, i64 %9
+  %10 = getelementptr [2 x i8], ptr @snb_gfx_workaround_needed.snb_ids, i64 %9
   %11 = load i16, ptr %10, align 2
   %12 = icmp eq i16 %7, %11
   %13 = add nuw nsw i64 %9, 1

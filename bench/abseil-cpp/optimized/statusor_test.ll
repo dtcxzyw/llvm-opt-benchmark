@@ -469,14 +469,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.1373" = type { %"struct.std::_Vector_base<absl::StatusOr<std::vector<std::unique_ptr<int>>>, std::allocator<absl::StatusOr<std::vector<std::unique_ptr<int>>>>>::_Vector_impl" }
 %"struct.std::_Vector_base<absl::StatusOr<std::vector<std::unique_ptr<int>>>, std::allocator<absl::StatusOr<std::vector<std::unique_ptr<int>>>>>::_Vector_impl" = type { %"struct.std::_Vector_base<absl::StatusOr<std::vector<std::unique_ptr<int>>>, std::allocator<absl::StatusOr<std::vector<std::unique_ptr<int>>>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<absl::StatusOr<std::vector<std::unique_ptr<int>>>, std::allocator<absl::StatusOr<std::vector<std::unique_ptr<int>>>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.absl::StatusOr.1377" = type { %"class.absl::internal_statusor::StatusOrData.1378" }
-%"class.absl::internal_statusor::StatusOrData.1378" = type { %union.anon.1379, %union.anon.1380 }
-%union.anon.1379 = type { %"class.absl::Status" }
-%union.anon.1380 = type { %"class.std::vector.1381" }
-%"class.std::vector.1381" = type { %"struct.std::_Vector_base.1382" }
-%"struct.std::_Vector_base.1382" = type { %"struct.std::_Vector_base<std::unique_ptr<int>, std::allocator<std::unique_ptr<int>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::unique_ptr<int>, std::allocator<std::unique_ptr<int>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::unique_ptr<int>, std::allocator<std::unique_ptr<int>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::unique_ptr<int>, std::allocator<std::unique_ptr<int>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.absl::StatusOr.1390" = type { %"class.absl::internal_statusor::StatusOrData.base.1394", [4 x i8] }
 %"class.absl::internal_statusor::StatusOrData.base.1394" = type <{ %union.anon.1392, %union.anon.1393 }>
 %union.anon.1392 = type { %"class.absl::Status" }
@@ -9215,7 +9207,7 @@ _ZNSt6vectorIN4absl8StatusOrISt10unique_ptrIiSt14default_deleteIiEEEESaIS6_EE11_
 _ZNSt12_Vector_baseIN4absl8StatusOrISt10unique_ptrIiSt14default_deleteIiEEEESaIS6_EE13_M_deallocateEPS6_m.exit: ; preds = %_ZNSt6vectorIN4absl8StatusOrISt10unique_ptrIiSt14default_deleteIiEEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit25, %47
   store ptr %22, ptr %0, align 8, !tbaa !138
   store ptr %.0.lcssa.i.i.i23, ptr %4, align 8, !tbaa !135
-  %51 = getelementptr inbounds nuw %"class.absl::StatusOr", ptr %22, i64 %16
+  %51 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %16
   store ptr %51, ptr %46, align 8, !tbaa !141
   ret void
 }
@@ -9335,9 +9327,9 @@ _ZNSt6vectorIN4absl8StatusOrISt10unique_ptrIiSt14default_deleteIiEEEESaIS6_EE11_
 
 _ZNSt12_Vector_baseIN4absl8StatusOrISt10unique_ptrIiSt14default_deleteIiEEEESaIS6_EE13_M_deallocateEPS6_m.exit31: ; preds = %_ZNSt6vectorIN4absl8StatusOrISt10unique_ptrIiSt14default_deleteIiEEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit, %43
   store ptr %27, ptr %0, align 8, !tbaa !138
-  %47 = getelementptr inbounds nuw %"class.absl::StatusOr", ptr %28, i64 %1
+  %47 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %1
   store ptr %47, ptr %4, align 8, !tbaa !135
-  %48 = getelementptr inbounds nuw %"class.absl::StatusOr", ptr %27, i64 %25
+  %48 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %25
   store ptr %48, ptr %11, align 8, !tbaa !141
   br label %49
 
@@ -30335,7 +30327,7 @@ _ZSt8_DestroyIPN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEES6_EvT_S8_RSa
 _ZNSt6vectorIN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i: ; preds = %57, %_ZSt8_DestroyIPN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEES6_EvT_S8_RSaIT0_E.exit.i.i
   store ptr %29, ptr %0, align 8, !tbaa !463
   store ptr %56, ptr %3, align 8, !tbaa !466
-  %61 = getelementptr inbounds nuw %"class.testing::Matcher.234", ptr %29, i64 %27
+  %61 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %27
   store ptr %61, ptr %5, align 8, !tbaa !467
   br label %_ZNSt6vectorIN7testing7MatcherIRKN12_GLOBAL__N_112CopyDetectorEEESaIS6_EE12emplace_backIJS6_EEERS6_DpOT_.exit
 
@@ -31659,7 +31651,7 @@ define internal void @_ZNK7testing8internal16AllOfMatcherImplIRKN12_GLOBAL__N_11
 .split9:                                          ; preds = %.lr.ph
   %8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.322, i64 noundef 7)
   %.val11 = load ptr, ptr %5, align 8, !tbaa !463
-  %9 = getelementptr inbounds nuw %"class.testing::Matcher.234", ptr %.val11, i64 %.015
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %.val11, i64 %.015
   br label %.split
 
 .split:                                           ; preds = %.lr.ph, %.split9
@@ -31728,7 +31720,7 @@ define internal void @_ZNK7testing8internal16AllOfMatcherImplIRKN12_GLOBAL__N_11
 .split9:                                          ; preds = %.lr.ph
   %8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.323, i64 noundef 6)
   %.val11 = load ptr, ptr %5, align 8, !tbaa !463
-  %9 = getelementptr inbounds nuw %"class.testing::Matcher.234", ptr %.val11, i64 %.015
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %.val11, i64 %.015
   br label %.split
 
 .split:                                           ; preds = %.lr.ph, %.split9
@@ -41906,7 +41898,7 @@ _ZSt8_DestroyIPN7testing7MatcherIRKiEES4_EvT_S6_RSaIT0_E.exit: ; preds = %.lr.ph
 _ZNSt12_Vector_baseIN7testing7MatcherIRKiEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZSt8_DestroyIPN7testing7MatcherIRKiEES4_EvT_S6_RSaIT0_E.exit, %61
   store ptr %20, ptr %0, align 8, !tbaa !920
   store ptr %.0.lcssa.i.i.i.i.i36, ptr %4, align 8, !tbaa !923
-  %65 = getelementptr inbounds nuw %"class.testing::Matcher.249", ptr %20, i64 %16
+  %65 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %65, ptr %60, align 8, !tbaa !924
   ret void
 }
@@ -42219,7 +42211,7 @@ _ZN7testing7MessageD2Ev.exit17:                   ; preds = %.body, %_ZNKSt14def
   %93 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %.021)
   %94 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %93, ptr noundef nonnull @.str.315, i64 noundef 1)
   %95 = load ptr, ptr %8, align 8, !tbaa !920
-  %96 = getelementptr inbounds nuw %"class.testing::Matcher.249", ptr %95, i64 %.021
+  %96 = getelementptr inbounds nuw [24 x i8], ptr %95, i64 %.021
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %98 = load ptr, ptr %97, align 8, !tbaa !418
   %99 = icmp ne ptr %98, null
@@ -42462,7 +42454,7 @@ _ZN7testing7MessageD2Ev.exit15:                   ; preds = %.body, %_ZNKSt14def
   %75 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1, i64 noundef %.017)
   %76 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %75, ptr noundef nonnull @.str.315, i64 noundef 1)
   %77 = load ptr, ptr %7, align 8, !tbaa !920
-  %78 = getelementptr inbounds nuw %"class.testing::Matcher.249", ptr %77, i64 %.017
+  %78 = getelementptr inbounds nuw [24 x i8], ptr %77, i64 %.017
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load ptr, ptr %79, align 8, !tbaa !418
   %81 = icmp ne ptr %80, null
@@ -42564,7 +42556,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %25 = shl nuw nsw i64 %23, 5
   %26 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %25) #33
   store ptr %26, ptr %9, align 8, !tbaa !985
-  %27 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %26, i64 %23
+  %27 = getelementptr inbounds nuw [32 x i8], ptr %26, i64 %23
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %27, ptr %28, align 8, !tbaa !987
   br label %.lr.ph.i.i.i.i.i
@@ -42638,7 +42630,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 
 _ZN7testing25StringMatchResultListenerC2Ev.exit.us: ; preds = %65
   %66 = load ptr, ptr %16, align 8, !tbaa !920
-  %67 = getelementptr inbounds nuw %"class.testing::Matcher.249", ptr %66, i64 %storemerge164.us
+  %67 = getelementptr inbounds nuw [24 x i8], ptr %66, i64 %storemerge164.us
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %69 = load ptr, ptr %68, align 8, !tbaa !418
   %70 = icmp ne ptr %69, null
@@ -42699,7 +42691,7 @@ _ZNK7testing8internal11MatcherBaseIRKiE15MatchAndExplainES3_PNS_19MatchResultLis
 
 _ZNK7testing25StringMatchResultListener3strB5cxx11Ev.exit.us: ; preds = %87, %81
   %88 = load ptr, ptr %9, align 8, !tbaa !985
-  %89 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %88, i64 %storemerge164.us
+  %89 = getelementptr inbounds nuw [32 x i8], ptr %88, i64 %storemerge164.us
   %90 = load ptr, ptr %89, align 8, !tbaa !43
   %91 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %92 = icmp eq ptr %90, %91
@@ -42863,7 +42855,7 @@ _ZN7testing25StringMatchResultListenerD2Ev.exit.us: ; preds = %_ZNSt7__cxx1112ba
   br i1 %.not, label %.critedge, label %144
 
 144:                                              ; preds = %.lr.ph.split
-  %145 = getelementptr inbounds nuw %"class.testing::Matcher.249", ptr %139, i64 %storemerge164
+  %145 = getelementptr inbounds nuw [24 x i8], ptr %139, i64 %storemerge164
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr null, ptr %37, align 8, !tbaa !264
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN7testing8internal24DummyMatchResultListenerE, i64 16), ptr %7, align 8, !tbaa !4
@@ -43184,7 +43176,7 @@ _ZN7testing19MatchResultListenerlsImEERS0_RKT_.exit: ; preds = %246
 _ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit: ; preds = %248
   %.pre216 = load ptr, ptr %13, align 8, !tbaa !264
   %250 = load ptr, ptr %9, align 8, !tbaa !985
-  %251 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %250, i64 %storemerge.lcssa
+  %251 = getelementptr inbounds nuw [32 x i8], ptr %250, i64 %storemerge.lcssa
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 8
   %253 = load i64, ptr %252, align 8, !tbaa !74
   %254 = icmp eq i64 %253, 0
@@ -43214,7 +43206,7 @@ _ZN7testing19MatchResultListenerlsIA15_cEERS0_RKT_.exit: ; preds = %248
 .lr.ph206:                                        ; preds = %.lr.ph206.preheader, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit
   %.028205 = phi i1 [ %.1, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit ], [ false, %.lr.ph206.preheader ]
   %storemerge48204 = phi i64 [ %282, %_ZN7testing19MatchResultListenerlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERS0_RKT_.exit ], [ 0, %.lr.ph206.preheader ]
-  %262 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre, i64 %storemerge48204
+  %262 = getelementptr inbounds nuw [32 x i8], ptr %.pre, i64 %storemerge48204
   %263 = getelementptr inbounds nuw i8, ptr %262, i64 8
   %264 = load i64, ptr %263, align 8, !tbaa !74
   %265 = icmp eq i64 %264, 0
@@ -44626,7 +44618,7 @@ _ZSt8_DestroyIPN7testing7MatcherIRKN12_GLOBAL__N_113InPlaceHelperEEES6_EvT_S8_RS
 _ZNSt6vectorIN7testing7MatcherIRKN12_GLOBAL__N_113InPlaceHelperEEESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i: ; preds = %57, %_ZSt8_DestroyIPN7testing7MatcherIRKN12_GLOBAL__N_113InPlaceHelperEEES6_EvT_S8_RSaIT0_E.exit.i.i
   store ptr %29, ptr %0, align 8, !tbaa !876
   store ptr %56, ptr %3, align 8, !tbaa !879
-  %61 = getelementptr inbounds nuw %"class.testing::Matcher.472", ptr %29, i64 %27
+  %61 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %27
   store ptr %61, ptr %5, align 8, !tbaa !880
   br label %_ZNSt6vectorIN7testing7MatcherIRKN12_GLOBAL__N_113InPlaceHelperEEESaIS6_EE12emplace_backIJS6_EEERS6_DpOT_.exit
 
@@ -46211,7 +46203,7 @@ define internal void @_ZNK7testing8internal16AllOfMatcherImplIRKN12_GLOBAL__N_11
 .split9:                                          ; preds = %.lr.ph
   %8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.322, i64 noundef 7)
   %.val11 = load ptr, ptr %5, align 8, !tbaa !876
-  %9 = getelementptr inbounds nuw %"class.testing::Matcher.472", ptr %.val11, i64 %.015
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %.val11, i64 %.015
   br label %.split
 
 .split:                                           ; preds = %.lr.ph, %.split9
@@ -46280,7 +46272,7 @@ define internal void @_ZNK7testing8internal16AllOfMatcherImplIRKN12_GLOBAL__N_11
 .split9:                                          ; preds = %.lr.ph
   %8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.323, i64 noundef 6)
   %.val11 = load ptr, ptr %5, align 8, !tbaa !876
-  %9 = getelementptr inbounds nuw %"class.testing::Matcher.472", ptr %.val11, i64 %.015
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %.val11, i64 %.015
   br label %.split
 
 .split:                                           ; preds = %.lr.ph, %.split9
@@ -65945,7 +65937,7 @@ _ZSt8_DestroyIPN7testing7MatcherIRKN12_GLOBAL__N_126ImplicitConstructibleFromAEE
 _ZNSt6vectorIN7testing7MatcherIRKN12_GLOBAL__N_126ImplicitConstructibleFromAEEESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i: ; preds = %57, %_ZSt8_DestroyIPN7testing7MatcherIRKN12_GLOBAL__N_126ImplicitConstructibleFromAEEES6_EvT_S8_RSaIT0_E.exit.i.i
   store ptr %29, ptr %0, align 8, !tbaa !1361
   store ptr %56, ptr %3, align 8, !tbaa !1364
-  %61 = getelementptr inbounds nuw %"class.testing::Matcher.618", ptr %29, i64 %27
+  %61 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %27
   store ptr %61, ptr %5, align 8, !tbaa !1365
   br label %_ZNSt6vectorIN7testing7MatcherIRKN12_GLOBAL__N_126ImplicitConstructibleFromAEEESaIS6_EE12emplace_backIJS6_EEERS6_DpOT_.exit
 
@@ -66702,7 +66694,7 @@ define internal void @_ZNK7testing8internal16AllOfMatcherImplIRKN12_GLOBAL__N_12
 .split9:                                          ; preds = %.lr.ph
   %8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.322, i64 noundef 7)
   %.val11 = load ptr, ptr %5, align 8, !tbaa !1361
-  %9 = getelementptr inbounds nuw %"class.testing::Matcher.618", ptr %.val11, i64 %.015
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %.val11, i64 %.015
   br label %.split
 
 .split:                                           ; preds = %.lr.ph, %.split9
@@ -66771,7 +66763,7 @@ define internal void @_ZNK7testing8internal16AllOfMatcherImplIRKN12_GLOBAL__N_12
 .split9:                                          ; preds = %.lr.ph
   %8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.323, i64 noundef 6)
   %.val11 = load ptr, ptr %5, align 8, !tbaa !1361
-  %9 = getelementptr inbounds nuw %"class.testing::Matcher.618", ptr %.val11, i64 %.015
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %.val11, i64 %.015
   br label %.split
 
 .split:                                           ; preds = %.lr.ph, %.split9
@@ -72227,7 +72219,7 @@ _ZSt8_DestroyIPN7testing7MatcherIRKN12_GLOBAL__N_126ExplicitConstructibleFromAEE
 _ZNSt6vectorIN7testing7MatcherIRKN12_GLOBAL__N_126ExplicitConstructibleFromAEEESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i: ; preds = %57, %_ZSt8_DestroyIPN7testing7MatcherIRKN12_GLOBAL__N_126ExplicitConstructibleFromAEEES6_EvT_S8_RSaIT0_E.exit.i.i
   store ptr %29, ptr %0, align 8, !tbaa !1541
   store ptr %56, ptr %3, align 8, !tbaa !1544
-  %61 = getelementptr inbounds nuw %"class.testing::Matcher.693", ptr %29, i64 %27
+  %61 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %27
   store ptr %61, ptr %5, align 8, !tbaa !1545
   br label %_ZNSt6vectorIN7testing7MatcherIRKN12_GLOBAL__N_126ExplicitConstructibleFromAEEESaIS6_EE12emplace_backIJS6_EEERS6_DpOT_.exit
 
@@ -72984,7 +72976,7 @@ define internal void @_ZNK7testing8internal16AllOfMatcherImplIRKN12_GLOBAL__N_12
 .split9:                                          ; preds = %.lr.ph
   %8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.322, i64 noundef 7)
   %.val11 = load ptr, ptr %5, align 8, !tbaa !1541
-  %9 = getelementptr inbounds nuw %"class.testing::Matcher.693", ptr %.val11, i64 %.015
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %.val11, i64 %.015
   br label %.split
 
 .split:                                           ; preds = %.lr.ph, %.split9
@@ -73053,7 +73045,7 @@ define internal void @_ZNK7testing8internal16AllOfMatcherImplIRKN12_GLOBAL__N_12
 .split9:                                          ; preds = %.lr.ph
   %8 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.323, i64 noundef 6)
   %.val11 = load ptr, ptr %5, align 8, !tbaa !1541
-  %9 = getelementptr inbounds nuw %"class.testing::Matcher.693", ptr %.val11, i64 %.015
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %.val11, i64 %.015
   br label %.split
 
 .split:                                           ; preds = %.lr.ph, %.split9
@@ -77784,10 +77776,10 @@ _ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i: ; preds = %
 
 switch.lookup:                                    ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i
   %20 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE, i64 %20
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE, i64 %20
   %switch.load = load ptr, ptr %switch.gep, align 8
   %21 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep14 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.868, i64 %21
+  %switch.gep14 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.868, i64 %21
   %switch.load15 = load i64, ptr %switch.gep14, align 8
   br label %_ZN4absl17internal_statusor15StringifyRandom12OpenBracketsEv.exit
 
@@ -77821,10 +77813,10 @@ _ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i8: ; preds = 
 
 switch.lookup17:                                  ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i8
   %34 = zext nneg i32 %switch.tableidx16 to i64
-  %switch.gep18 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.867, i64 %34
+  %switch.gep18 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.867, i64 %34
   %switch.load19 = load ptr, ptr %switch.gep18, align 8
   %35 = zext nneg i32 %switch.tableidx16 to i64
-  %switch.gep20 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.868, i64 %35
+  %switch.gep20 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.868, i64 %35
   %switch.load21 = load i64, ptr %switch.gep20, align 8
   br label %_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit
 
@@ -87157,10 +87149,10 @@ _ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i: ; preds = %
 
 switch.lookup:                                    ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i
   %20 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE, i64 %20
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE, i64 %20
   %switch.load = load ptr, ptr %switch.gep, align 8
   %21 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep14 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.868, i64 %21
+  %switch.gep14 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.868, i64 %21
   %switch.load15 = load i64, ptr %switch.gep14, align 8
   br label %_ZN4absl17internal_statusor15StringifyRandom12OpenBracketsEv.exit
 
@@ -87194,10 +87186,10 @@ _ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i8: ; preds = 
 
 switch.lookup17:                                  ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i8
   %34 = zext nneg i32 %switch.tableidx16 to i64
-  %switch.gep18 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.867, i64 %34
+  %switch.gep18 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.867, i64 %34
   %switch.load19 = load ptr, ptr %switch.gep18, align 8
   %35 = zext nneg i32 %switch.tableidx16 to i64
-  %switch.gep20 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.868, i64 %35
+  %switch.gep20 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.868, i64 %35
   %switch.load21 = load i64, ptr %switch.gep20, align 8
   br label %_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit
 
@@ -88052,10 +88044,10 @@ _ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i: ; preds = %
 
 switch.lookup:                                    ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i
   %21 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE, i64 %21
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE, i64 %21
   %switch.load = load ptr, ptr %switch.gep, align 8
   %22 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep14 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.868, i64 %22
+  %switch.gep14 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.868, i64 %22
   %switch.load15 = load i64, ptr %switch.gep14, align 8
   br label %_ZN4absl17internal_statusor15StringifyRandom12OpenBracketsEv.exit
 
@@ -88089,10 +88081,10 @@ _ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i8: ; preds = 
 
 switch.lookup17:                                  ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i8
   %35 = zext nneg i32 %switch.tableidx16 to i64
-  %switch.gep18 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.867, i64 %35
+  %switch.gep18 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.867, i64 %35
   %switch.load19 = load ptr, ptr %switch.gep18, align 8
   %36 = zext nneg i32 %switch.tableidx16 to i64
-  %switch.gep20 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.868, i64 %36
+  %switch.gep20 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.868, i64 %36
   %switch.load21 = load i64, ptr %switch.gep20, align 8
   br label %_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit
 
@@ -88945,10 +88937,10 @@ _ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i: ; preds = %
 
 switch.lookup:                                    ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i
   %21 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE, i64 %21
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE, i64 %21
   %switch.load = load ptr, ptr %switch.gep, align 8
   %22 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep14 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.868, i64 %22
+  %switch.gep14 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.868, i64 %22
   %switch.load15 = load i64, ptr %switch.gep14, align 8
   br label %_ZN4absl17internal_statusor15StringifyRandom12OpenBracketsEv.exit
 
@@ -88982,10 +88974,10 @@ _ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i8: ; preds = 
 
 switch.lookup17:                                  ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i8
   %35 = zext nneg i32 %switch.tableidx16 to i64
-  %switch.gep18 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.867, i64 %35
+  %switch.gep18 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.867, i64 %35
   %switch.load19 = load ptr, ptr %switch.gep18, align 8
   %36 = zext nneg i32 %switch.tableidx16 to i64
-  %switch.gep20 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.868, i64 %36
+  %switch.gep20 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.868, i64 %36
   %switch.load21 = load i64, ptr %switch.gep20, align 8
   br label %_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit
 
@@ -90666,10 +90658,10 @@ _ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i: ; preds = %
 
 switch.lookup:                                    ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i
   %19 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE, i64 %19
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE, i64 %19
   %switch.load = load ptr, ptr %switch.gep, align 8
   %20 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep14 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.868, i64 %20
+  %switch.gep14 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.868, i64 %20
   %switch.load15 = load i64, ptr %switch.gep14, align 8
   br label %_ZN4absl17internal_statusor15StringifyRandom12OpenBracketsEv.exit
 
@@ -90703,10 +90695,10 @@ _ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i8: ; preds = 
 
 switch.lookup17:                                  ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i8
   %33 = zext nneg i32 %switch.tableidx16 to i64
-  %switch.gep18 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.867, i64 %33
+  %switch.gep18 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.867, i64 %33
   %switch.load19 = load ptr, ptr %switch.gep18, align 8
   %34 = zext nneg i32 %switch.tableidx16 to i64
-  %switch.gep20 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.868, i64 %34
+  %switch.gep20 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.868, i64 %34
   %switch.load21 = load i64, ptr %switch.gep20, align 8
   br label %_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit
 
@@ -137757,7 +137749,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIN4absl8StatusOrIS_ISt10unique_p
   br i1 %14, label %15, label %_ZNSt6vectorIN4absl8StatusOrIS_ISt10unique_ptrIiSt14default_deleteIiEESaIS5_EEEESaIS8_EE15_M_erase_at_endEPS8_.exit
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds nuw %"class.absl::StatusOr.1377", ptr %5, i64 %1
+  %16 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %1
   %.not.i = icmp eq ptr %4, %16
   br i1 %.not.i, label %_ZNSt6vectorIN4absl8StatusOrIS_ISt10unique_ptrIiSt14default_deleteIiEESaIS5_EEEESaIS8_EE15_M_erase_at_endEPS8_.exit, label %.lr.ph.i.i.i.i
 
@@ -138231,9 +138223,9 @@ _ZNSt6vectorIN4absl8StatusOrIS_ISt10unique_ptrIiSt14default_deleteIiEESaIS5_EEEE
 
 _ZNSt12_Vector_baseIN4absl8StatusOrISt6vectorISt10unique_ptrIiSt14default_deleteIiEESaIS6_EEEESaIS9_EE13_M_deallocateEPS9_m.exit31: ; preds = %_ZNSt6vectorIN4absl8StatusOrIS_ISt10unique_ptrIiSt14default_deleteIiEESaIS5_EEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit, %49
   store ptr %27, ptr %0, align 8, !tbaa !3200
-  %53 = getelementptr inbounds nuw %"class.absl::StatusOr.1377", ptr %28, i64 %1
+  %53 = getelementptr inbounds nuw [32 x i8], ptr %28, i64 %1
   store ptr %53, ptr %4, align 8, !tbaa !3204
-  %54 = getelementptr inbounds nuw %"class.absl::StatusOr.1377", ptr %27, i64 %25
+  %54 = getelementptr inbounds nuw [32 x i8], ptr %27, i64 %25
   store ptr %54, ptr %11, align 8, !tbaa !3203
   br label %55
 
@@ -140227,9 +140219,9 @@ _ZN4absl6StatusD2Ev.exit107:                      ; preds = %_ZN4absl6StatusD2Ev
 
 .preheader:                                       ; preds = %_ZN4absl6StatusD2Ev.exit107, %141
   %.023231 = phi i64 [ 0, %_ZN4absl6StatusD2Ev.exit107 ], [ %142, %141 ]
-  %91 = getelementptr inbounds nuw %"class.absl::StatusOr.169", ptr %2, i64 %.023231
+  %91 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %.023231
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
-  %93 = getelementptr inbounds nuw %"class.absl::StatusOr.169", ptr %5, i64 %.023231
+  %93 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %.023231
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %95 = getelementptr inbounds nuw i8, ptr %93, i64 8
   br label %143
@@ -140732,7 +140724,7 @@ _ZN7testing15AssertionResultD2Ev.exit134:         ; preds = %212, %221, %_ZNKR4a
 
 265:                                              ; preds = %143
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  %266 = getelementptr inbounds nuw %"class.absl::StatusOr.169", ptr %5, i64 %.0230
+  %266 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %.0230
   %267 = load i64, ptr %91, align 8, !tbaa !29
   %268 = icmp eq i64 %267, 1
   %269 = load i64, ptr %266, align 8
@@ -150615,10 +150607,10 @@ _ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i: ; preds = %
 
 switch.lookup:                                    ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i
   %16 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE, i64 %16
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE, i64 %16
   %switch.load = load ptr, ptr %switch.gep, align 8
   %17 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep14 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.868, i64 %17
+  %switch.gep14 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.868, i64 %17
   %switch.load15 = load i64, ptr %switch.gep14, align 8
   br label %_ZN4absl17internal_statusor15StringifyRandom12OpenBracketsEv.exit
 
@@ -150652,10 +150644,10 @@ _ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i8: ; preds = 
 
 switch.lookup17:                                  ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i8
   %30 = zext nneg i32 %switch.tableidx16 to i64
-  %switch.gep18 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.867, i64 %30
+  %switch.gep18 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.867, i64 %30
   %switch.load19 = load ptr, ptr %switch.gep18, align 8
   %31 = zext nneg i32 %switch.tableidx16 to i64
-  %switch.gep20 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.868, i64 %31
+  %switch.gep20 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.868, i64 %31
   %switch.load21 = load i64, ptr %switch.gep20, align 8
   br label %_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit
 
@@ -150716,10 +150708,10 @@ _ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i.i.i: ; preds
 
 switch.lookup:                                    ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i.i.i
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE, i64 %23
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE, i64 %23
   %switch.load = load ptr, ptr %switch.gep, align 8
   %24 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep3 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.868, i64 %24
+  %switch.gep3 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.868, i64 %24
   %switch.load4 = load i64, ptr %switch.gep3, align 8
   br label %_ZN4absl17internal_statusor15StringifyRandom12OpenBracketsEv.exit.i.i
 
@@ -150755,10 +150747,10 @@ _ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i7.i.i: ; pred
 
 switch.lookup6:                                   ; preds = %_ZN4absl17internal_statusor15StringifyRandom12RandomBracesEv.exit.i7.i.i
   %36 = zext nneg i32 %switch.tableidx5 to i64
-  %switch.gep7 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.867, i64 %36
+  %switch.gep7 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.867, i64 %36
   %switch.load8 = load ptr, ptr %switch.gep7, align 8
   %37 = zext nneg i32 %switch.tableidx5 to i64
-  %switch.gep9 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.868, i64 %37
+  %switch.gep9 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4absl8AlphaNumC2INS_8StatusOrIN12_GLOBAL__N_115PrintTestStructEEEvEERKT_ONS_16strings_internal13StringifySinkE.868, i64 %37
   %switch.load10 = load i64, ptr %switch.gep9, align 8
   br label %_ZN4absl17internal_statusor15StringifyRandom13CloseBracketsEv.exit.i.i
 
@@ -155394,7 +155386,7 @@ _ZSt8_DestroyIPN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcE
 _ZNSt12_Vector_baseIN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESaISA_EE13_M_deallocateEPSA_m.exit: ; preds = %_ZSt8_DestroyIPN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESA_EvT_SC_RSaIT0_E.exit, %61
   store ptr %20, ptr %0, align 8, !tbaa !3519
   store ptr %.0.lcssa.i.i.i.i.i36, ptr %4, align 8, !tbaa !3522
-  %65 = getelementptr inbounds nuw %"class.testing::Matcher.205", ptr %20, i64 %16
+  %65 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %65, ptr %60, align 8, !tbaa !3523
   ret void
 }
@@ -156881,7 +156873,7 @@ define linkonce_odr dso_local void @_ZNK7testing8internal16AnyOfMatcherImplIRKNS
 .split9:                                          ; preds = %.lr.ph
   %11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.323, i64 noundef 6)
   %12 = load ptr, ptr %5, align 8, !tbaa !3519
-  %13 = getelementptr inbounds nuw %"class.testing::Matcher.205", ptr %12, i64 %.010
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %.010
   br label %.split
 
 .split:                                           ; preds = %.lr.ph, %.split9
@@ -156950,7 +156942,7 @@ define linkonce_odr dso_local void @_ZNK7testing8internal16AnyOfMatcherImplIRKNS
 .split9:                                          ; preds = %.lr.ph
   %11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.322, i64 noundef 7)
   %12 = load ptr, ptr %5, align 8, !tbaa !3519
-  %13 = getelementptr inbounds nuw %"class.testing::Matcher.205", ptr %12, i64 %.010
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %.010
   br label %.split
 
 .split:                                           ; preds = %.lr.ph, %.split9
@@ -157993,7 +157985,7 @@ define linkonce_odr dso_local void @_ZNK7testing8internal16AllOfMatcherImplIRKNS
 .split9:                                          ; preds = %.lr.ph
   %11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.322, i64 noundef 7)
   %12 = load ptr, ptr %5, align 8, !tbaa !3519
-  %13 = getelementptr inbounds nuw %"class.testing::Matcher.205", ptr %12, i64 %.010
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %.010
   br label %.split
 
 .split:                                           ; preds = %.lr.ph, %.split9
@@ -158062,7 +158054,7 @@ define linkonce_odr dso_local void @_ZNK7testing8internal16AllOfMatcherImplIRKNS
 .split9:                                          ; preds = %.lr.ph
   %11 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull @.str.323, i64 noundef 6)
   %12 = load ptr, ptr %5, align 8, !tbaa !3519
-  %13 = getelementptr inbounds nuw %"class.testing::Matcher.205", ptr %12, i64 %.010
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %.010
   br label %.split
 
 .split:                                           ; preds = %.lr.ph, %.split9

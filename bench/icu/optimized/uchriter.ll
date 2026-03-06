@@ -307,7 +307,7 @@ define noundef zeroext i16 @_ZN6icu_7722UCharCharacterIterator5firstEv(ptr nound
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !6
   %11 = sext i32 %3 to i64
-  %12 = getelementptr inbounds i16, ptr %10, i64 %11
+  %12 = getelementptr inbounds [2 x i8], ptr %10, i64 %11
   %13 = load i16, ptr %12, align 2, !tbaa !25
   br label %14
 
@@ -333,7 +333,7 @@ define noundef zeroext i16 @_ZN6icu_7722UCharCharacterIterator12firstPostIncEv(p
   %11 = add nsw i32 %3, 1
   store i32 %11, ptr %4, align 4, !tbaa !22
   %12 = sext i32 %3 to i64
-  %13 = getelementptr inbounds i16, ptr %10, i64 %12
+  %13 = getelementptr inbounds [2 x i8], ptr %10, i64 %12
   %14 = load i16, ptr %13, align 2, !tbaa !25
   br label %15
 
@@ -359,7 +359,7 @@ define noundef zeroext i16 @_ZN6icu_7722UCharCharacterIterator4lastEv(ptr nounde
   %11 = add nsw i32 %3, -1
   store i32 %11, ptr %4, align 4, !tbaa !22
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds i16, ptr %10, i64 %12
+  %13 = getelementptr inbounds [2 x i8], ptr %10, i64 %12
   %14 = load i16, ptr %13, align 2, !tbaa !25
   br label %15
 
@@ -407,7 +407,7 @@ define noundef zeroext i16 @_ZN6icu_7722UCharCharacterIterator8setIndexEi(ptr no
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load ptr, ptr %19, align 8, !tbaa !6
   %21 = sext i32 %16 to i64
-  %22 = getelementptr inbounds i16, ptr %20, i64 %21
+  %22 = getelementptr inbounds [2 x i8], ptr %20, i64 %21
   %23 = load i16, ptr %22, align 2, !tbaa !25
   br label %24
 
@@ -433,7 +433,7 @@ define noundef zeroext i16 @_ZNK6icu_7722UCharCharacterIterator7currentEv(ptr no
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !6
   %12 = sext i32 %3 to i64
-  %13 = getelementptr inbounds i16, ptr %11, i64 %12
+  %13 = getelementptr inbounds [2 x i8], ptr %11, i64 %12
   %14 = load i16, ptr %13, align 2, !tbaa !25
   br label %15
 
@@ -456,7 +456,7 @@ define noundef zeroext i16 @_ZN6icu_7722UCharCharacterIterator4nextEv(ptr nounde
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !6
   %11 = sext i32 %4 to i64
-  %12 = getelementptr inbounds i16, ptr %10, i64 %11
+  %12 = getelementptr inbounds [2 x i8], ptr %10, i64 %11
   %13 = load i16, ptr %12, align 2, !tbaa !25
   br label %14
 
@@ -482,7 +482,7 @@ define noundef zeroext i16 @_ZN6icu_7722UCharCharacterIterator11nextPostIncEv(pt
   %10 = add nsw i32 %3, 1
   store i32 %10, ptr %2, align 4, !tbaa !22
   %11 = sext i32 %3 to i64
-  %12 = getelementptr inbounds i16, ptr %9, i64 %11
+  %12 = getelementptr inbounds [2 x i8], ptr %9, i64 %11
   %13 = load i16, ptr %12, align 2, !tbaa !25
   br label %14
 
@@ -517,7 +517,7 @@ define noundef zeroext i16 @_ZN6icu_7722UCharCharacterIterator8previousEv(ptr no
   %10 = add nsw i32 %3, -1
   store i32 %10, ptr %2, align 4, !tbaa !22
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds i16, ptr %9, i64 %11
+  %12 = getelementptr inbounds [2 x i8], ptr %9, i64 %11
   %13 = load i16, ptr %12, align 2, !tbaa !25
   br label %14
 
@@ -553,7 +553,7 @@ define noundef range(i32 0, 10559488) i32 @_ZN6icu_7722UCharCharacterIterator7fi
   %10 = load ptr, ptr %9, align 8, !tbaa !6
   %11 = add nsw i32 %3, 1
   %12 = sext i32 %3 to i64
-  %13 = getelementptr inbounds i16, ptr %10, i64 %12
+  %13 = getelementptr inbounds [2 x i8], ptr %10, i64 %12
   %14 = load i16, ptr %13, align 2, !tbaa !25
   %15 = zext i16 %14 to i32
   %16 = and i32 %15, 64512
@@ -564,7 +564,7 @@ define noundef range(i32 0, 10559488) i32 @_ZN6icu_7722UCharCharacterIterator7fi
 
 18:                                               ; preds = %8
   %19 = sext i32 %11 to i64
-  %20 = getelementptr inbounds i16, ptr %10, i64 %19
+  %20 = getelementptr inbounds [2 x i8], ptr %10, i64 %19
   %21 = load i16, ptr %20, align 2, !tbaa !25
   %22 = zext i16 %21 to i32
   %23 = and i32 %22, 64512
@@ -599,7 +599,7 @@ define noundef range(i32 0, 10559488) i32 @_ZN6icu_7722UCharCharacterIterator14f
   %11 = add nsw i32 %3, 1
   store i32 %11, ptr %4, align 4, !tbaa !22
   %12 = sext i32 %3 to i64
-  %13 = getelementptr inbounds i16, ptr %10, i64 %12
+  %13 = getelementptr inbounds [2 x i8], ptr %10, i64 %12
   %14 = load i16, ptr %13, align 2, !tbaa !25
   %15 = zext i16 %14 to i32
   %16 = and i32 %15, 64512
@@ -610,7 +610,7 @@ define noundef range(i32 0, 10559488) i32 @_ZN6icu_7722UCharCharacterIterator14f
 
 18:                                               ; preds = %8
   %19 = sext i32 %11 to i64
-  %20 = getelementptr inbounds i16, ptr %10, i64 %19
+  %20 = getelementptr inbounds [2 x i8], ptr %10, i64 %19
   %21 = load i16, ptr %20, align 2, !tbaa !25
   %22 = zext i16 %21 to i32
   %23 = and i32 %22, 64512
@@ -647,7 +647,7 @@ define noundef range(i32 0, 10559488) i32 @_ZN6icu_7722UCharCharacterIterator6la
   %11 = add nsw i32 %3, -1
   store i32 %11, ptr %4, align 4, !tbaa !22
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds i16, ptr %10, i64 %12
+  %13 = getelementptr inbounds [2 x i8], ptr %10, i64 %12
   %14 = load i16, ptr %13, align 2, !tbaa !25
   %15 = zext i16 %14 to i32
   %16 = and i32 %15, 64512
@@ -658,7 +658,7 @@ define noundef range(i32 0, 10559488) i32 @_ZN6icu_7722UCharCharacterIterator6la
 
 19:                                               ; preds = %8
   %20 = sext i32 %3 to i64
-  %21 = getelementptr i16, ptr %10, i64 %20
+  %21 = getelementptr [2 x i8], ptr %10, i64 %20
   %22 = getelementptr i8, ptr %21, i64 -4
   %23 = load i16, ptr %22, align 2, !tbaa !25
   %24 = zext i16 %23 to i32
@@ -695,7 +695,7 @@ define noundef range(i32 0, 10559488) i32 @_ZN6icu_7722UCharCharacterIterator10s
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !6
   %12 = sext i32 %.019 to i64
-  %13 = getelementptr inbounds i16, ptr %11, i64 %12
+  %13 = getelementptr inbounds [2 x i8], ptr %11, i64 %12
   %14 = load i16, ptr %13, align 2, !tbaa !25
   %15 = and i16 %14, -1024
   %16 = icmp eq i16 %15, -9216
@@ -711,7 +711,7 @@ define noundef range(i32 0, 10559488) i32 @_ZN6icu_7722UCharCharacterIterator10s
   %23 = sext i1 %22 to i32
   %spec.select26 = add nsw i32 %.019, %23
   %.pre = sext i32 %spec.select26 to i64
-  %.phi.trans.insert = getelementptr inbounds i16, ptr %11, i64 %.pre
+  %.phi.trans.insert = getelementptr inbounds [2 x i8], ptr %11, i64 %.pre
   %.pre28 = load i16, ptr %.phi.trans.insert, align 2, !tbaa !25
   br label %24
 
@@ -730,7 +730,7 @@ define noundef range(i32 0, 10559488) i32 @_ZN6icu_7722UCharCharacterIterator10s
 
 31:                                               ; preds = %24
   %32 = sext i32 %27 to i64
-  %33 = getelementptr inbounds i16, ptr %11, i64 %32
+  %33 = getelementptr inbounds [2 x i8], ptr %11, i64 %32
   %34 = load i16, ptr %33, align 2, !tbaa !25
   %35 = zext i16 %34 to i32
   %36 = and i32 %35, 64512
@@ -772,7 +772,7 @@ define noundef range(i32 0, 10559488) i32 @_ZNK6icu_7722UCharCharacterIterator9c
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !6
   %13 = sext i32 %3 to i64
-  %14 = getelementptr inbounds i16, ptr %12, i64 %13
+  %14 = getelementptr inbounds [2 x i8], ptr %12, i64 %13
   %15 = load i16, ptr %14, align 2, !tbaa !25
   %16 = zext i16 %15 to i32
   %17 = and i32 %16, 63488
@@ -791,7 +791,7 @@ define noundef range(i32 0, 10559488) i32 @_ZNK6icu_7722UCharCharacterIterator9c
 
 24:                                               ; preds = %22
   %25 = sext i32 %23 to i64
-  %26 = getelementptr inbounds i16, ptr %12, i64 %25
+  %26 = getelementptr inbounds [2 x i8], ptr %12, i64 %25
   %27 = load i16, ptr %26, align 2, !tbaa !25
   %28 = zext i16 %27 to i32
   %29 = and i32 %28, 64512
@@ -842,7 +842,7 @@ define noundef range(i32 0, 10559488) i32 @_ZN6icu_7722UCharCharacterIterator6ne
   %10 = add nsw i32 %3, 1
   store i32 %10, ptr %2, align 4, !tbaa !22
   %11 = sext i32 %3 to i64
-  %12 = getelementptr inbounds i16, ptr %9, i64 %11
+  %12 = getelementptr inbounds [2 x i8], ptr %9, i64 %11
   %13 = load i16, ptr %12, align 2, !tbaa !25
   %14 = and i16 %13, -1024
   %15 = icmp ne i16 %14, -10240
@@ -852,7 +852,7 @@ define noundef range(i32 0, 10559488) i32 @_ZN6icu_7722UCharCharacterIterator6ne
 
 16:                                               ; preds = %7
   %17 = sext i32 %10 to i64
-  %18 = getelementptr inbounds i16, ptr %9, i64 %17
+  %18 = getelementptr inbounds [2 x i8], ptr %9, i64 %17
   %19 = load i16, ptr %18, align 2, !tbaa !25
   %20 = and i16 %19, -1024
   %21 = icmp eq i16 %20, -9216
@@ -871,7 +871,7 @@ define noundef range(i32 0, 10559488) i32 @_ZN6icu_7722UCharCharacterIterator6ne
 27:                                               ; preds = %24
   %28 = add nsw i32 %25, 1
   %29 = sext i32 %25 to i64
-  %30 = getelementptr inbounds i16, ptr %9, i64 %29
+  %30 = getelementptr inbounds [2 x i8], ptr %9, i64 %29
   %31 = load i16, ptr %30, align 2, !tbaa !25
   %32 = zext i16 %31 to i32
   %33 = and i32 %32, 64512
@@ -882,7 +882,7 @@ define noundef range(i32 0, 10559488) i32 @_ZN6icu_7722UCharCharacterIterator6ne
 
 35:                                               ; preds = %27
   %36 = sext i32 %28 to i64
-  %37 = getelementptr inbounds i16, ptr %9, i64 %36
+  %37 = getelementptr inbounds [2 x i8], ptr %9, i64 %36
   %38 = load i16, ptr %37, align 2, !tbaa !25
   %39 = zext i16 %38 to i32
   %40 = and i32 %39, 64512
@@ -919,7 +919,7 @@ define noundef range(i32 0, 10559488) i32 @_ZN6icu_7722UCharCharacterIterator13n
   %10 = add nsw i32 %3, 1
   store i32 %10, ptr %2, align 4, !tbaa !22
   %11 = sext i32 %3 to i64
-  %12 = getelementptr inbounds i16, ptr %9, i64 %11
+  %12 = getelementptr inbounds [2 x i8], ptr %9, i64 %11
   %13 = load i16, ptr %12, align 2, !tbaa !25
   %14 = zext i16 %13 to i32
   %15 = and i32 %14, 64512
@@ -930,7 +930,7 @@ define noundef range(i32 0, 10559488) i32 @_ZN6icu_7722UCharCharacterIterator13n
 
 17:                                               ; preds = %7
   %18 = sext i32 %10 to i64
-  %19 = getelementptr inbounds i16, ptr %9, i64 %18
+  %19 = getelementptr inbounds [2 x i8], ptr %9, i64 %18
   %20 = load i16, ptr %19, align 2, !tbaa !25
   %21 = zext i16 %20 to i32
   %22 = and i32 %21, 64512
@@ -965,7 +965,7 @@ define noundef range(i32 0, 10559488) i32 @_ZN6icu_7722UCharCharacterIterator10p
   %10 = add nsw i32 %3, -1
   store i32 %10, ptr %2, align 4, !tbaa !22
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds i16, ptr %9, i64 %11
+  %12 = getelementptr inbounds [2 x i8], ptr %9, i64 %11
   %13 = load i16, ptr %12, align 2, !tbaa !25
   %14 = zext i16 %13 to i32
   %15 = and i32 %14, 64512
@@ -976,7 +976,7 @@ define noundef range(i32 0, 10559488) i32 @_ZN6icu_7722UCharCharacterIterator10p
 
 18:                                               ; preds = %7
   %19 = sext i32 %3 to i64
-  %20 = getelementptr i16, ptr %9, i64 %19
+  %20 = getelementptr [2 x i8], ptr %9, i64 %19
   %21 = getelementptr i8, ptr %20, i64 -4
   %22 = load i16, ptr %21, align 2, !tbaa !25
   %23 = zext i16 %22 to i32
@@ -1087,7 +1087,7 @@ define noundef i32 @_ZN6icu_7722UCharCharacterIterator6move32EiNS_17CharacterIte
   %14 = phi i32 [ %28, %27 ], [ %6, %.preheader ]
   %15 = icmp sge i32 %14, %.fr
   %.phi.trans.insert68 = sext i32 %14 to i64
-  %.phi.trans.insert69 = getelementptr inbounds i16, ptr %13, i64 %.phi.trans.insert68
+  %.phi.trans.insert69 = getelementptr inbounds [2 x i8], ptr %13, i64 %.phi.trans.insert68
   %.pre70 = load i16, ptr %.phi.trans.insert69, align 2, !tbaa !25
   %.not41.us = icmp eq i16 %.pre70, 0
   %or.cond95 = select i1 %15, i1 %.not41.us, i1 false
@@ -1104,7 +1104,7 @@ define noundef i32 @_ZN6icu_7722UCharCharacterIterator6move32EiNS_17CharacterIte
 
 19:                                               ; preds = %.critedge2.us
   %20 = sext i32 %16 to i64
-  %21 = getelementptr inbounds i16, ptr %13, i64 %20
+  %21 = getelementptr inbounds [2 x i8], ptr %13, i64 %20
   %22 = load i16, ptr %21, align 2, !tbaa !25
   %23 = and i16 %22, -1024
   %24 = icmp eq i16 %23, -9216
@@ -1131,7 +1131,7 @@ define noundef i32 @_ZN6icu_7722UCharCharacterIterator6move32EiNS_17CharacterIte
   %33 = add nsw i32 %31, 1
   store i32 %33, ptr %7, align 4, !tbaa !22
   %34 = sext i32 %31 to i64
-  %35 = getelementptr inbounds i16, ptr %13, i64 %34
+  %35 = getelementptr inbounds [2 x i8], ptr %13, i64 %34
   %36 = load i16, ptr %35, align 2, !tbaa !25
   %37 = and i16 %36, -1024
   %38 = icmp ne i16 %37, -10240
@@ -1141,7 +1141,7 @@ define noundef i32 @_ZN6icu_7722UCharCharacterIterator6move32EiNS_17CharacterIte
 
 39:                                               ; preds = %.critedge2
   %40 = sext i32 %33 to i64
-  %41 = getelementptr inbounds i16, ptr %13, i64 %40
+  %41 = getelementptr inbounds [2 x i8], ptr %13, i64 %40
   %42 = load i16, ptr %41, align 2, !tbaa !25
   %43 = and i16 %42, -1024
   %44 = icmp eq i16 %43, -9216
@@ -1178,7 +1178,7 @@ define noundef i32 @_ZN6icu_7722UCharCharacterIterator6move32EiNS_17CharacterIte
   %.02756.us = phi i32 [ %74, %72 ], [ %1, %.preheader48 ]
   %60 = icmp sge i32 %59, %.fr61
   %.phi.trans.insert = sext i32 %59 to i64
-  %.phi.trans.insert67 = getelementptr inbounds i16, ptr %58, i64 %.phi.trans.insert
+  %.phi.trans.insert67 = getelementptr inbounds [2 x i8], ptr %58, i64 %.phi.trans.insert
   %.pre = load i16, ptr %.phi.trans.insert67, align 2, !tbaa !25
   %.not.us = icmp eq i16 %.pre, 0
   %or.cond96 = select i1 %60, i1 %.not.us, i1 false
@@ -1195,7 +1195,7 @@ define noundef i32 @_ZN6icu_7722UCharCharacterIterator6move32EiNS_17CharacterIte
 
 64:                                               ; preds = %.critedge6.us
   %65 = sext i32 %61 to i64
-  %66 = getelementptr inbounds i16, ptr %58, i64 %65
+  %66 = getelementptr inbounds [2 x i8], ptr %58, i64 %65
   %67 = load i16, ptr %66, align 2, !tbaa !25
   %68 = and i16 %67, -1024
   %69 = icmp eq i16 %68, -9216
@@ -1222,7 +1222,7 @@ define noundef i32 @_ZN6icu_7722UCharCharacterIterator6move32EiNS_17CharacterIte
   %78 = add nsw i32 %76, 1
   store i32 %78, ptr %54, align 4, !tbaa !22
   %79 = sext i32 %76 to i64
-  %80 = getelementptr inbounds i16, ptr %58, i64 %79
+  %80 = getelementptr inbounds [2 x i8], ptr %58, i64 %79
   %81 = load i16, ptr %80, align 2, !tbaa !25
   %82 = and i16 %81, -1024
   %83 = icmp ne i16 %82, -10240
@@ -1232,7 +1232,7 @@ define noundef i32 @_ZN6icu_7722UCharCharacterIterator6move32EiNS_17CharacterIte
 
 84:                                               ; preds = %.critedge6
   %85 = sext i32 %78 to i64
-  %86 = getelementptr inbounds i16, ptr %58, i64 %85
+  %86 = getelementptr inbounds [2 x i8], ptr %58, i64 %85
   %87 = load i16, ptr %86, align 2, !tbaa !25
   %88 = and i16 %87, -1024
   %89 = icmp eq i16 %88, -9216
@@ -1273,7 +1273,7 @@ define noundef i32 @_ZN6icu_7722UCharCharacterIterator6move32EiNS_17CharacterIte
   %108 = add nsw i32 %105, -1
   store i32 %108, ptr %97, align 4, !tbaa !22
   %109 = sext i32 %108 to i64
-  %110 = getelementptr inbounds i16, ptr %103, i64 %109
+  %110 = getelementptr inbounds [2 x i8], ptr %103, i64 %109
   %111 = load i16, ptr %110, align 2, !tbaa !25
   %112 = and i16 %111, -1024
   %113 = icmp eq i16 %112, -9216
@@ -1283,7 +1283,7 @@ define noundef i32 @_ZN6icu_7722UCharCharacterIterator6move32EiNS_17CharacterIte
 
 115:                                              ; preds = %107
   %116 = sext i32 %105 to i64
-  %117 = getelementptr i16, ptr %103, i64 %116
+  %117 = getelementptr [2 x i8], ptr %103, i64 %116
   %118 = getelementptr i8, ptr %117, i64 -4
   %119 = load i16, ptr %118, align 2, !tbaa !25
   %120 = and i16 %119, -1024
@@ -1327,7 +1327,7 @@ define noundef i32 @_ZN6icu_7722UCharCharacterIterator6move32EiNS_17CharacterIte
   %143 = add nsw i32 %140, -1
   store i32 %143, ptr %131, align 4, !tbaa !22
   %144 = sext i32 %143 to i64
-  %145 = getelementptr inbounds i16, ptr %138, i64 %144
+  %145 = getelementptr inbounds [2 x i8], ptr %138, i64 %144
   %146 = load i16, ptr %145, align 2, !tbaa !25
   %147 = and i16 %146, -1024
   %148 = icmp eq i16 %147, -9216
@@ -1337,7 +1337,7 @@ define noundef i32 @_ZN6icu_7722UCharCharacterIterator6move32EiNS_17CharacterIte
 
 150:                                              ; preds = %142
   %151 = sext i32 %140 to i64
-  %152 = getelementptr i16, ptr %138, i64 %151
+  %152 = getelementptr [2 x i8], ptr %138, i64 %151
   %153 = getelementptr i8, ptr %152, i64 -4
   %154 = load i16, ptr %153, align 2, !tbaa !25
   %155 = and i16 %154, -1024

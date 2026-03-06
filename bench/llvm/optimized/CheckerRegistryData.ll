@@ -388,10 +388,10 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %25, %27
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %32 = load i32, ptr %31, align 4, !tbaa !21
   %33 = zext nneg i32 %32 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK5clang4ento11CheckerInfo12dumpToStreamERN4llvm11raw_ostreamE, i64 %33
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang4ento11CheckerInfo12dumpToStreamERN4llvm11raw_ostreamE, i64 %33
   %switch.load = load i64, ptr %switch.gep, align 8
   %34 = zext nneg i32 %32 to i64
-  %switch.gep112 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5clang4ento11CheckerInfo12dumpToStreamERN4llvm11raw_ostreamE.4, i64 %34
+  %switch.gep112 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang4ento11CheckerInfo12dumpToStreamERN4llvm11raw_ostreamE.4, i64 %34
   %switch.load113 = load ptr, ptr %switch.gep112, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
   %36 = load ptr, ptr %35, align 8, !tbaa !10
@@ -960,7 +960,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang4ento11CheckerInfoESt6vector
   %.016.i.i.i.i = phi i64 [ %26, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang4ento11CheckerInfoESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i.i.i.i ], [ %.1.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang4ento16checker_registry10FullNameLTINS3_11CheckerInfoEEEEclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEKS6_EEbT_RT0_.exit.thread.i.i.i.i ]
   %.sroa.011.015.i.i.i.i = phi ptr [ %19, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang4ento11CheckerInfoESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.lr.ph.i.i.i.i ], [ %.sroa.011.1.i.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5clang4ento16checker_registry10FullNameLTINS3_11CheckerInfoEEEEclINS_17__normal_iteratorIPS6_St6vectorIS6_SaIS6_EEEEKS6_EEbT_RT0_.exit.thread.i.i.i.i ]
   %27 = lshr i64 %.016.i.i.i.i, 1
-  %28 = getelementptr inbounds nuw %"struct.clang::ento::CheckerInfo", ptr %.sroa.011.015.i.i.i.i, i64 %27
+  %28 = getelementptr inbounds nuw [120 x i8], ptr %.sroa.011.015.i.i.i.i, i64 %27
   %.sroa.22.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %28, i64 24
   %.sroa.22.0.copyload.i.i.i.i.i.i = load i64, ptr %.sroa.22.0..sroa_idx.i.i.i.i.i.i, align 8, !tbaa !8
   %.sroa.speculated.i.i.i.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %2, i64 %.sroa.22.0.copyload.i.i.i.i.i.i)
@@ -1039,7 +1039,7 @@ _ZL11isInPackageRKN5clang4ento11CheckerInfoEN4llvm9StringRefE.exit.thread22: ; p
 
 55:                                               ; preds = %_ZL11isInPackageRKN5clang4ento11CheckerInfoEN4llvm9StringRefE.exit.thread22
   %56 = load ptr, ptr %47, align 8
-  %.sroa.0.0.i.i = getelementptr inbounds ptr, ptr %56, i64 %54
+  %.sroa.0.0.i.i = getelementptr inbounds [8 x i8], ptr %56, i64 %54
   %57 = load ptr, ptr %.sroa.0.0.i.i, align 8, !tbaa !44
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load i64, ptr %58, align 8, !tbaa !8
@@ -1047,7 +1047,7 @@ _ZL11isInPackageRKN5clang4ento11CheckerInfoEN4llvm9StringRefE.exit.thread22: ; p
 
 60:                                               ; preds = %55, %_ZL11isInPackageRKN5clang4ento11CheckerInfoEN4llvm9StringRefE.exit.thread22
   %.0 = phi i64 [ %59, %55 ], [ 1, %_ZL11isInPackageRKN5clang4ento11CheckerInfoEN4llvm9StringRefE.exit.thread22 ]
-  %61 = getelementptr inbounds %"struct.clang::ento::CheckerInfo", ptr %.sroa.011.0.lcssa.i.i.i.i, i64 %.0
+  %61 = getelementptr inbounds [120 x i8], ptr %.sroa.011.0.lcssa.i.i.i.i, i64 %.0
   br label %_ZL11isInPackageRKN5clang4ento11CheckerInfoEN4llvm9StringRefE.exit.thread
 
 _ZL11isInPackageRKN5clang4ento11CheckerInfoEN4llvm9StringRefE.exit.thread: ; preds = %_ZN5clang4ento16checker_registry10binaryFindISt6vectorINS0_11CheckerInfoESaIS4_EEEENSt11conditionalIXsr3std8is_constIT_EE5valueENS8_14const_iteratorENS8_8iteratorEE4typeERS8_N4llvm9StringRefE.exit, %_ZNK4llvm9StringRef11starts_withES0_.exit.i, %_ZL11isInPackageRKN5clang4ento11CheckerInfoEN4llvm9StringRefE.exit, %60

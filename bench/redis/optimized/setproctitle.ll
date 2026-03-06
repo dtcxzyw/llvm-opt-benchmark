@@ -69,7 +69,7 @@ define dso_local void @spt_init(i32 noundef %0, ptr noundef captures(none) %1) l
   %.1 = phi ptr [ %.0120, %.critedge ], [ %spec.select, %13 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv119, 1
   %18 = icmp sge i64 %indvars.iv.next, %9
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.next
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.next
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !10
   %.not72 = icmp eq ptr %.pre, null
   %or.cond = select i1 %18, i1 %.not72, i1 false
@@ -91,7 +91,7 @@ define dso_local void @spt_init(i32 noundef %0, ptr noundef captures(none) %1) l
 .critedge2:                                       ; preds = %20, %.lr.ph
   %.3 = phi ptr [ %.296, %.lr.ph ], [ %23, %20 ]
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
-  %24 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.next100
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.next100
   %25 = load ptr, ptr %24, align 8, !tbaa !10
   %.not73 = icmp eq ptr %25, null
   br i1 %.not73, label %.critedge2._crit_edge.loopexit, label %.lr.ph, !llvm.loop !14
@@ -177,7 +177,7 @@ define dso_local void @spt_init(i32 noundef %0, ptr noundef captures(none) %1) l
 
 52:                                               ; preds = %48, %.thread.i, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %53 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv.next.i
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv.next.i
   %54 = load ptr, ptr %53, align 8, !tbaa !10
   %.not33.i = icmp eq ptr %54, null
   br i1 %.not33.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !21
@@ -189,7 +189,7 @@ define dso_local void @spt_init(i32 noundef %0, ptr noundef captures(none) %1) l
 55:                                               ; preds = %60, %.loopexit
   %indvars.iv.i87 = phi i64 [ %indvars.iv.next.i89, %60 ], [ 1, %.loopexit ]
   %56 = icmp slt i64 %indvars.iv.i87, %9
-  %.phi.trans.insert.i = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i87
+  %.phi.trans.insert.i = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i87
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !10
   %.not19.i = icmp eq ptr %.pre.i, null
   br i1 %56, label %.critedge.i, label %57

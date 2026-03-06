@@ -304,7 +304,7 @@ define dso_local void @_ZN25ONDISK_make_invlists_Test8TestBodyEv(ptr nonnull rea
 37:                                               ; preds = %37, %36
   %store_forwarded = phi i64 [ 5489, %36 ], [ %43, %37 ]
   %.011.i.i.i = phi i64 [ 1, %36 ], [ %44, %37 ]
-  %38 = getelementptr i64, ptr %12, i64 %.011.i.i.i
+  %38 = getelementptr [8 x i8], ptr %12, i64 %.011.i.i.i
   %39 = lshr i64 %store_forwarded, 30
   %40 = xor i64 %39, %store_forwarded
   %41 = mul nuw nsw i64 %40, 1812433253
@@ -394,10 +394,10 @@ select.unfold.i.i.i.i:                            ; preds = %.noexc, %73
 81:                                               ; preds = %81, %80
   %82 = phi i64 [ %.pre.i.i, %80 ], [ %87, %81 ]
   %.021.i.i = phi i64 [ 0, %80 ], [ %85, %81 ]
-  %83 = getelementptr inbounds nuw i64, ptr %12, i64 %.021.i.i
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.021.i.i
   %84 = and i64 %82, -2147483648
   %85 = add nuw nsw i64 %.021.i.i, 1
-  %86 = getelementptr inbounds nuw i64, ptr %12, i64 %85
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %85
   %87 = load i64, ptr %86, align 8, !tbaa !24
   %88 = and i64 %87, 2147483646
   %89 = or disjoint i64 %88, %84
@@ -420,10 +420,10 @@ select.unfold.i.i.i.i:                            ; preds = %.noexc, %73
 .preheader.i.i:                                   ; preds = %.preheader.i.i, %.preheader.preheader.i.i
   %97 = phi i64 [ %102, %.preheader.i.i ], [ %.pre24.i.i, %.preheader.preheader.i.i ]
   %.01822.i.i = phi i64 [ %100, %.preheader.i.i ], [ 227, %.preheader.preheader.i.i ]
-  %98 = getelementptr inbounds nuw i64, ptr %12, i64 %.01822.i.i
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.01822.i.i
   %99 = and i64 %97, -2147483648
   %100 = add nuw nsw i64 %.01822.i.i, 1
-  %101 = getelementptr inbounds nuw i64, ptr %12, i64 %100
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %100
   %102 = load i64, ptr %101, align 8, !tbaa !24
   %103 = and i64 %102, 2147483646
   %104 = or disjoint i64 %103, %99
@@ -459,7 +459,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %123 = phi i64 [ 0, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i ], [ %78, %select.unfold.i.i.i.i ]
   %124 = add nuw nsw i64 %123, 1
   store i64 %124, ptr %46, align 8, !tbaa !27
-  %125 = getelementptr inbounds nuw i64, ptr %12, i64 %123
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %123
   %126 = load i64, ptr %125, align 8, !tbaa !24
   %127 = lshr i64 %126, 11
   %128 = and i64 %127, 4294967295
@@ -502,7 +502,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %155 = load i64, ptr %29, align 8, !tbaa !18
   %156 = urem i64 %indvars.iv, %155
   %157 = load ptr, ptr %9, align 8, !tbaa !9
-  %158 = getelementptr inbounds nuw ptr, ptr %157, i64 %156
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %157, i64 %156
   %159 = load ptr, ptr %158, align 8, !tbaa !33
   %.not.i.i.i.i77 = icmp eq ptr %159, null
   br i1 %.not.i.i.i.i77, label %.loopexit.i.i, label %160
@@ -645,7 +645,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit82:                  ; preds = %183, %_ZNSt10_Hasht
 .lr.ph209:                                        ; preds = %.lr.ph209.preheader, %_ZN7testing15AssertionResultD2Ev.exit134
   %indvars.iv220 = phi i64 [ 0, %.lr.ph209.preheader ], [ %indvars.iv.next221, %_ZN7testing15AssertionResultD2Ev.exit134 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %213 = getelementptr inbounds nuw i64, ptr %198, i64 %indvars.iv220
+  %213 = getelementptr inbounds nuw [8 x i8], ptr %198, i64 %indvars.iv220
   %214 = load i64, ptr %213, align 8, !tbaa !24
   store i64 %214, ptr %15, align 8, !tbaa !24
   %215 = shl nsw i64 %indvars.iv220, 5
@@ -1058,7 +1058,7 @@ _ZN7testing15AssertionResultD2Ev.exit105:         ; preds = %332, %_ZNKSt14defau
   %343 = load i64, ptr %29, align 8, !tbaa !18
   %344 = urem i64 %342, %343
   %345 = load ptr, ptr %9, align 8, !tbaa !9
-  %346 = getelementptr inbounds nuw ptr, ptr %345, i64 %344
+  %346 = getelementptr inbounds nuw [8 x i8], ptr %345, i64 %344
   %347 = load ptr, ptr %346, align 8, !tbaa !33
   %.not.i.i.i.i106 = icmp eq ptr %347, null
   br i1 %.not.i.i.i.i106, label %.loopexit.i.i112, label %348
@@ -2891,7 +2891,7 @@ define dso_local void @_ZN34ONDISK_make_invlists_threaded_Test8TestBodyEv(ptr no
 35:                                               ; preds = %35, %30
   %store_forwarded = phi i64 [ 5489, %30 ], [ %41, %35 ]
   %.011.i.i.i = phi i64 [ 1, %30 ], [ %42, %35 ]
-  %36 = getelementptr i64, ptr %12, i64 %.011.i.i.i
+  %36 = getelementptr [8 x i8], ptr %12, i64 %.011.i.i.i
   %37 = lshr i64 %store_forwarded, 30
   %38 = xor i64 %37, %store_forwarded
   %39 = mul nuw nsw i64 %38, 1812433253
@@ -2969,10 +2969,10 @@ select.unfold.i.i.i.i:                            ; preds = %.noexc71, %65
 73:                                               ; preds = %73, %72
   %74 = phi i64 [ %.pre.i.i, %72 ], [ %79, %73 ]
   %.021.i.i = phi i64 [ 0, %72 ], [ %77, %73 ]
-  %75 = getelementptr inbounds nuw i64, ptr %12, i64 %.021.i.i
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.021.i.i
   %76 = and i64 %74, -2147483648
   %77 = add nuw nsw i64 %.021.i.i, 1
-  %78 = getelementptr inbounds nuw i64, ptr %12, i64 %77
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %77
   %79 = load i64, ptr %78, align 8, !tbaa !24
   %80 = and i64 %79, 2147483646
   %81 = or disjoint i64 %80, %76
@@ -2995,10 +2995,10 @@ select.unfold.i.i.i.i:                            ; preds = %.noexc71, %65
 .preheader.i.i:                                   ; preds = %.preheader.i.i, %.preheader.preheader.i.i
   %89 = phi i64 [ %94, %.preheader.i.i ], [ %.pre24.i.i, %.preheader.preheader.i.i ]
   %.01822.i.i = phi i64 [ %92, %.preheader.i.i ], [ 227, %.preheader.preheader.i.i ]
-  %90 = getelementptr inbounds nuw i64, ptr %12, i64 %.01822.i.i
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.01822.i.i
   %91 = and i64 %89, -2147483648
   %92 = add nuw nsw i64 %.01822.i.i, 1
-  %93 = getelementptr inbounds nuw i64, ptr %12, i64 %92
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %92
   %94 = load i64, ptr %93, align 8, !tbaa !24
   %95 = and i64 %94, 2147483646
   %96 = or disjoint i64 %95, %91
@@ -3034,7 +3034,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %115 = phi i64 [ 0, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit.i ], [ %70, %select.unfold.i.i.i.i ]
   %116 = add nuw nsw i64 %115, 1
   store i64 %116, ptr %43, align 8, !tbaa !27
-  %117 = getelementptr inbounds nuw i64, ptr %12, i64 %115
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %115
   %118 = load i64, ptr %117, align 8, !tbaa !24
   %119 = lshr i64 %118, 11
   %120 = and i64 %119, 4294967295
@@ -3066,7 +3066,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %140 = fmul double %139, 1.000000e+02
   %141 = fmul double %139, %140
   %142 = fptosi double %141 to i32
-  %143 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv
+  %143 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv
   store i32 %142, ptr %143, align 4, !tbaa !5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %144 = icmp samesign ult i64 %indvars.iv, 999999
@@ -3140,7 +3140,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
 .lr.ph168:                                        ; preds = %.lr.ph168.preheader, %_ZN7testing15AssertionResultD2Ev.exit112
   %indvars.iv173 = phi i64 [ 0, %.lr.ph168.preheader ], [ %indvars.iv.next174, %_ZN7testing15AssertionResultD2Ev.exit112 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %173 = getelementptr inbounds nuw i64, ptr %158, i64 %indvars.iv173
+  %173 = getelementptr inbounds nuw [8 x i8], ptr %158, i64 %indvars.iv173
   %174 = load i64, ptr %173, align 8, !tbaa !24
   store i64 %174, ptr %15, align 8, !tbaa !24
   %175 = shl nsw i64 %indvars.iv173, 5
@@ -3548,7 +3548,7 @@ _ZN7testing15AssertionResultD2Ev.exit96:          ; preds = %292, %_ZNKSt14defau
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %300 = load i64, ptr %15, align 8, !tbaa !24
   %301 = load ptr, ptr %11, align 8, !tbaa !143
-  %302 = getelementptr inbounds nuw i32, ptr %301, i64 %300
+  %302 = getelementptr inbounds nuw [4 x i8], ptr %301, i64 %300
   %303 = load i32, ptr %302, align 4, !tbaa !5, !noalias !171
   %304 = load i32, ptr %14, align 4, !tbaa !5, !noalias !171
   %305 = icmp eq i32 %303, %304
@@ -4413,7 +4413,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
 31:                                               ; preds = %_ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit ], [ %1, %5 ]
   %32 = load ptr, ptr %0, align 8, !tbaa !9
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0
   %34 = load ptr, ptr %33, align 8, !tbaa !33
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %38, label %35
@@ -4440,7 +4440,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %45 = load i32, ptr %43, align 4, !tbaa !5
   %46 = sext i32 %45 to i64
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %32, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !33
   br label %49
 
@@ -4509,7 +4509,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %16 = load i32, ptr %15, align 8, !tbaa !5
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
-  %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !33
   %.not27 = icmp eq ptr %20, null
   br i1 %.not27, label %21, label %26
@@ -4524,7 +4524,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   br i1 %.not28, label %29, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %25, align 8, !tbaa !33
   br label %29
 
@@ -5731,7 +5731,7 @@ define internal void @_ZN34ONDISK_make_invlists_threaded_Test8TestBodyEv.omp_out
 21:                                               ; preds = %.lr.ph, %28
   %indvars.iv = phi i64 [ %20, %.lr.ph ], [ %indvars.iv.next, %28 ]
   %22 = load ptr, ptr %3, align 8, !tbaa !143
-  %23 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv
   %24 = load i32, ptr %23, align 4, !tbaa !5
   %25 = trunc nsw i64 %indvars.iv to i32
   store i32 %25, ptr %10, align 4, !tbaa !5

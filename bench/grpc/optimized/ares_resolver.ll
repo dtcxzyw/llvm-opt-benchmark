@@ -74,18 +74,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<grpc_event_engine::experimental::EventEngine::ResolvedAddress, std::allocator<grpc_event_engine::experimental::EventEngine::ResolvedAddress>>::_Vector_impl" = type { %"struct.std::_Vector_base<grpc_event_engine::experimental::EventEngine::ResolvedAddress, std::allocator<grpc_event_engine::experimental::EventEngine::ResolvedAddress>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<grpc_event_engine::experimental::EventEngine::ResolvedAddress, std::allocator<grpc_event_engine::experimental::EventEngine::ResolvedAddress>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %class.anon.59 = type { %"class.absl::lts_20240722::AnyInvocable", %"class.std::vector", [8 x i8] }
-%"union.absl::lts_20240722::container_internal::map_slot_type" = type { %"struct.std::pair.154" }
-%"struct.std::pair.154" = type { i32, [12 x i8], %"class.std::variant" }
-%"class.std::variant" = type { %"struct.std::__detail::__variant::_Variant_base.base", [15 x i8] }
-%"struct.std::__detail::__variant::_Variant_base.base" = type { %"struct.std::__detail::__variant::_Move_assign_base.base" }
-%"struct.std::__detail::__variant::_Move_assign_base.base" = type { %"struct.std::__detail::__variant::_Copy_assign_base.base" }
-%"struct.std::__detail::__variant::_Copy_assign_base.base" = type { %"struct.std::__detail::__variant::_Move_ctor_base.base" }
-%"struct.std::__detail::__variant::_Move_ctor_base.base" = type { %"struct.std::__detail::__variant::_Copy_ctor_base.base" }
-%"struct.std::__detail::__variant::_Copy_ctor_base.base" = type { %"struct.std::__detail::__variant::_Variant_storage.base" }
-%"struct.std::__detail::__variant::_Variant_storage.base" = type { %"union.std::__detail::__variant::_Variadic_union", i8 }
-%"union.std::__detail::__variant::_Variadic_union" = type { %"struct.std::__detail::__variant::_Uninitialized" }
-%"struct.std::__detail::__variant::_Uninitialized" = type { %"struct.__gnu_cxx::__aligned_membuf" }
-%"struct.__gnu_cxx::__aligned_membuf" = type { [32 x i8] }
 %struct.sockaddr_in6 = type { i16, i16, i32, %struct.in6_addr, i32 }
 %struct.in6_addr = type { %union.anon.87 }
 %union.anon.87 = type { [4 x i32] }
@@ -99,9 +87,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Optional_payload_base.94" = type { i8, i8 }
 %class.anon.104 = type { %"class.absl::lts_20240722::AnyInvocable", %"class.std::vector", [8 x i8] }
 %class.anon.106 = type { %"class.absl::lts_20240722::AnyInvocable", %"class.absl::lts_20240722::Status", [8 x i8] }
-%"class.grpc_event_engine::experimental::EventEngine::ResolvedAddress" = type { [128 x i8], i32 }
-%struct.address_sorting_sortable = type { %struct.address_sorting_address, ptr, %struct.address_sorting_address, i8, i64 }
-%struct.address_sorting_address = type { [128 x i8], i64 }
 %"class.std::__cxx11::list" = type { %"class.std::__cxx11::_List_base" }
 %"class.std::__cxx11::_List_base" = type { %"struct.std::__cxx11::_List_base<std::unique_ptr<grpc_event_engine::experimental::AresResolver::FdNode>, std::allocator<std::unique_ptr<grpc_event_engine::experimental::AresResolver::FdNode>>>::_List_impl" }
 %"struct.std::__cxx11::_List_base<std::unique_ptr<grpc_event_engine::experimental::AresResolver::FdNode>, std::allocator<std::unique_ptr<grpc_event_engine::experimental::AresResolver::FdNode>>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
@@ -2620,7 +2605,7 @@ _ZN4absl12lts_202407229MutexLockC2EPNS0_5MutexE.exit: ; preds = %404
   %435 = zext nneg i16 %434 to i64
   %436 = add i64 %.sroa.7.0.i, %435
   %437 = and i64 %436, %419
-  %438 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i, i64 %437
+  %438 = getelementptr inbounds nuw [64 x i8], ptr %.sroa.0.0.copyload.i.i.i.i, i64 %437
   %439 = load i32, ptr %438, align 4, !tbaa !9, !noalias !128
   %440 = icmp eq i32 %439, %409
   br i1 %440, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiSt7variantIJNS0_12AnyInvocableIFvNS0_8StatusOrISt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaISB_EEEEEEENS5_IFvNS6_IS7_INSA_11DNSResolver9SRVRecordESaISI_EEEEEEENS5_IFvNS6_IS7_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIST_EEEEEEEEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiSZ_EEE7emplaceIJRiSG_ETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEES16_INS1A_8iteratorEbEDpOS1E_.exit, label %.critedge.i, !prof !96
@@ -2652,7 +2637,7 @@ _ZN4absl12lts_202407229MutexLockC2EPNS0_5MutexE.exit: ; preds = %404
 
 453:                                              ; preds = %.thread.i
   %.sroa.0.0.copyload.i.i.i.i22.i = load ptr, ptr %428, align 8, !tbaa !21, !noalias !128
-  %454 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i22.i, i64 %449
+  %454 = getelementptr inbounds nuw [64 x i8], ptr %.sroa.0.0.copyload.i.i.i.i22.i, i64 %449
   %455 = load i32, ptr %407, align 8, !tbaa !9, !noalias !135
   store i32 %455, ptr %454, align 16, !tbaa !144
   %456 = getelementptr inbounds nuw i8, ptr %454, i64 16
@@ -3835,7 +3820,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit140: ; preds = %19
 200:                                              ; preds = %.critedge110, %.critedge113
   %201 = add i64 %.081186, 1
   %202 = load ptr, ptr %109, align 8, !tbaa !167
-  %203 = getelementptr inbounds nuw ptr, ptr %202, i64 %201
+  %203 = getelementptr inbounds nuw [8 x i8], ptr %202, i64 %201
   %204 = load ptr, ptr %203, align 8, !tbaa !36
   %.not89 = icmp eq ptr %204, null
   br i1 %.not89, label %.loopexit178, label %124, !llvm.loop !185
@@ -4039,8 +4024,8 @@ _ZNSt12_Vector_baseIN17grpc_event_engine12experimental11EventEngine15ResolvedAdd
 .lr.ph.i:                                         ; preds = %.noexc144, %.noexc148
   %287 = phi ptr [ %303, %.noexc148 ], [ %273, %.noexc144 ]
   %.03138.i = phi i64 [ %301, %.noexc148 ], [ 0, %.noexc144 ]
-  %288 = getelementptr inbounds nuw %"class.grpc_event_engine::experimental::EventEngine::ResolvedAddress", ptr %287, i64 %.03138.i
-  %289 = getelementptr inbounds nuw %struct.address_sorting_sortable, ptr %271, i64 %.03138.i
+  %288 = getelementptr inbounds nuw [132 x i8], ptr %287, i64 %.03138.i
+  %289 = getelementptr inbounds nuw [296 x i8], ptr %271, i64 %.03138.i
   %290 = getelementptr inbounds nuw i8, ptr %289, i64 136
   store ptr %288, ptr %290, align 8, !tbaa !197, !noalias !194
   %291 = invoke noundef ptr @_ZNK17grpc_event_engine12experimental11EventEngine15ResolvedAddress7addressEv(ptr noundef nonnull align 4 dereferenceable(132) %288)
@@ -4048,7 +4033,7 @@ _ZNSt12_Vector_baseIN17grpc_event_engine12experimental11EventEngine15ResolvedAdd
 
 .noexc146:                                        ; preds = %.lr.ph.i
   %292 = load ptr, ptr %246, align 8, !tbaa !123, !noalias !194
-  %293 = getelementptr inbounds nuw %"class.grpc_event_engine::experimental::EventEngine::ResolvedAddress", ptr %292, i64 %.03138.i
+  %293 = getelementptr inbounds nuw [132 x i8], ptr %292, i64 %.03138.i
   %294 = invoke noundef i32 @_ZNK17grpc_event_engine12experimental11EventEngine15ResolvedAddress4sizeEv(ptr noundef nonnull align 4 dereferenceable(132) %293)
           to label %.noexc147 unwind label %.loopexit
 
@@ -4056,7 +4041,7 @@ _ZNSt12_Vector_baseIN17grpc_event_engine12experimental11EventEngine15ResolvedAdd
   %295 = zext i32 %294 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %289, ptr align 2 %291, i64 %295, i1 false), !noalias !194
   %296 = load ptr, ptr %246, align 8, !tbaa !123, !noalias !194
-  %297 = getelementptr inbounds nuw %"class.grpc_event_engine::experimental::EventEngine::ResolvedAddress", ptr %296, i64 %.03138.i
+  %297 = getelementptr inbounds nuw [132 x i8], ptr %296, i64 %.03138.i
   %298 = invoke noundef i32 @_ZNK17grpc_event_engine12experimental11EventEngine15ResolvedAddress4sizeEv(ptr noundef nonnull align 4 dereferenceable(132) %297)
           to label %.noexc148 unwind label %.loopexit
 
@@ -4092,7 +4077,7 @@ _ZNSt12_Vector_baseIN17grpc_event_engine12experimental11EventEngine15ResolvedAdd
   %315 = phi ptr [ %286, %.lr.ph40.i ], [ %341, %_ZNSt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaIS3_EE12emplace_backIJRS3_EEES7_DpOT_.exit.i ]
   %316 = phi ptr [ %284, %.lr.ph40.i ], [ %342, %_ZNSt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaIS3_EE12emplace_backIJRS3_EEES7_DpOT_.exit.i ]
   %.039.i = phi i64 [ 0, %.lr.ph40.i ], [ %343, %_ZNSt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaIS3_EE12emplace_backIJRS3_EEES7_DpOT_.exit.i ]
-  %317 = getelementptr inbounds nuw %struct.address_sorting_sortable, ptr %271, i64 %.039.i
+  %317 = getelementptr inbounds nuw [296 x i8], ptr %271, i64 %.039.i
   %318 = getelementptr inbounds nuw i8, ptr %317, i64 136
   %319 = load ptr, ptr %318, align 8, !tbaa !197, !noalias !194
   %.not.i.i = icmp eq ptr %316, %315
@@ -4152,7 +4137,7 @@ _ZNSt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESa
   call void @_ZdlPvm(ptr noundef nonnull %314, i64 noundef %325) #38, !noalias !194
   store ptr %334, ptr %263, align 16, !tbaa !123, !alias.scope !194
   store ptr %338, ptr %285, align 8, !tbaa !126, !alias.scope !194
-  %339 = getelementptr inbounds nuw %"class.grpc_event_engine::experimental::EventEngine::ResolvedAddress", ptr %334, i64 %332
+  %339 = getelementptr inbounds nuw [132 x i8], ptr %334, i64 %332
   store ptr %339, ptr %283, align 16, !tbaa !127, !alias.scope !194
   br label %_ZNSt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaIS3_EE12emplace_backIJRS3_EEES7_DpOT_.exit.i
 
@@ -4581,7 +4566,7 @@ define void @_ZN17grpc_event_engine12experimental12AresResolver18CheckSocketsLoc
 
 61:                                               ; preds = %58, %54
   %62 = load ptr, ptr %37, align 8, !tbaa !86
-  %63 = getelementptr inbounds nuw i32, ptr %7, i64 %.0101235
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.0101235
   %64 = load i32, ptr %63, align 4, !tbaa !9
   %.not5.i.i.i = icmp eq ptr %62, %37
   br i1 %.not5.i.i.i, label %"_ZSt7find_ifISt14_List_iteratorISt10unique_ptrIN17grpc_event_engine12experimental12AresResolver6FdNodeESt14default_deleteIS5_EEEZNS4_18CheckSocketsLockedEvE3$_3ET_SB_SB_T0_.exit", label %.lr.ph.i.i.i
@@ -6069,7 +6054,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i65
   %224 = zext nneg i16 %223 to i64
   %225 = add i64 %.sroa.7.0.i, %224
   %226 = and i64 %225, %208
-  %227 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i, i64 %226
+  %227 = getelementptr inbounds nuw [64 x i8], ptr %.sroa.0.0.copyload.i.i.i.i, i64 %226
   %228 = load i32, ptr %227, align 4, !tbaa !9, !noalias !250
   %229 = icmp eq i32 %228, %198
   br i1 %229, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiSt7variantIJNS0_12AnyInvocableIFvNS0_8StatusOrISt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaISB_EEEEEEENS5_IFvNS6_IS7_INSA_11DNSResolver9SRVRecordESaISI_EEEEEEENS5_IFvNS6_IS7_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIST_EEEEEEEEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiSZ_EEE7emplaceIJRiSN_ETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEES16_INS1A_8iteratorEbEDpOS1E_.exit, label %.critedge.i, !prof !96
@@ -6101,7 +6086,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i65
 
 242:                                              ; preds = %.thread.i
   %.sroa.0.0.copyload.i.i.i.i22.i = load ptr, ptr %217, align 8, !tbaa !21, !noalias !250
-  %243 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i22.i, i64 %238
+  %243 = getelementptr inbounds nuw [64 x i8], ptr %.sroa.0.0.copyload.i.i.i.i22.i, i64 %238
   %244 = load i32, ptr %196, align 8, !tbaa !9, !noalias !256
   store i32 %244, ptr %243, align 16, !tbaa !144
   %245 = getelementptr inbounds nuw i8, ptr %243, i64 16
@@ -7635,7 +7620,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i65
   %224 = zext nneg i16 %223 to i64
   %225 = add i64 %.sroa.7.0.i, %224
   %226 = and i64 %225, %208
-  %227 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i, i64 %226
+  %227 = getelementptr inbounds nuw [64 x i8], ptr %.sroa.0.0.copyload.i.i.i.i, i64 %226
   %228 = load i32, ptr %227, align 4, !tbaa !9, !noalias !297
   %229 = icmp eq i32 %228, %198
   br i1 %229, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiSt7variantIJNS0_12AnyInvocableIFvNS0_8StatusOrISt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaISB_EEEEEEENS5_IFvNS6_IS7_INSA_11DNSResolver9SRVRecordESaISI_EEEEEEENS5_IFvNS6_IS7_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIST_EEEEEEEEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiSZ_EEE7emplaceIJRiSY_ETnNSt9enable_ifIXsr14IsDecomposableIDpT_EE5valueEiE4typeELi0EEES16_INS1A_8iteratorEbEDpOS1E_.exit, label %.critedge.i, !prof !96
@@ -7667,7 +7652,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i65
 
 242:                                              ; preds = %.thread.i
   %.sroa.0.0.copyload.i.i.i.i22.i = load ptr, ptr %217, align 8, !tbaa !21, !noalias !297
-  %243 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i22.i, i64 %238
+  %243 = getelementptr inbounds nuw [64 x i8], ptr %.sroa.0.0.copyload.i.i.i.i22.i, i64 %238
   %244 = load i32, ptr %196, align 8, !tbaa !9, !noalias !303
   store i32 %244, ptr %243, align 16, !tbaa !144
   %245 = getelementptr inbounds nuw i8, ptr %243, i64 16
@@ -9510,7 +9495,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   %30 = zext nneg i16 %29 to i64
   %31 = add i64 %.sroa.6.0.i.i, %30
   %32 = and i64 %31, %14
-  %33 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i.i, i64 %32
+  %33 = getelementptr inbounds nuw [64 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i, i64 %32
   %34 = load i32, ptr %33, align 4, !tbaa !9
   %35 = icmp eq i32 %34, %6
   br i1 %35, label %46, label %36, !prof !96
@@ -10618,7 +10603,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   %.sroa.010.029.i = phi i64 [ %24, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiSt7variantIJNS0_12AnyInvocableIFvNS0_8StatusOrISt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaISB_EEEEEEENS5_IFvNS6_IS7_INSA_11DNSResolver9SRVRecordESaISI_EEEEEEENS5_IFvNS6_IS7_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIST_EEEEEEEEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiSZ_EEE7destroyEPNS1_13map_slot_typeIiSZ_EE.exit.i ], [ %13, %.lr.ph31.preheader.i ]
   %14 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.sroa.010.029.i, i1 true)
   %15 = lshr i64 %14, 3
-  %16 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %12, i64 %15
+  %16 = getelementptr inbounds nuw [64 x i8], ptr %12, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %18 = load i8, ptr %17, align 16, !tbaa !153
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i8 %18, -1
@@ -10667,7 +10652,7 @@ _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicy
   %.sroa.04.020.i = phi i16 [ %45, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyIiSt7variantIJNS0_12AnyInvocableIFvNS0_8StatusOrISt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaISB_EEEEEEENS5_IFvNS6_IS7_INSA_11DNSResolver9SRVRecordESaISI_EEEEEEENS5_IFvNS6_IS7_INSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIST_EEEEEEEEEEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiSZ_EEE7destroyEPNS1_13map_slot_typeIiSZ_EE.exit3.i ], [ %31, %.lr.ph27.i ]
   %34 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.04.020.i, i1 true)
   %35 = zext nneg i16 %34 to i64
-  %36 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %.0.i25.i, i64 %35
+  %36 = getelementptr inbounds nuw [64 x i8], ptr %.0.i25.i, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 48
   %38 = load i8, ptr %37, align 16, !tbaa !153
   %.not.i.i.i.i.i.i.i.i.i2.i = icmp eq i8 %38, -1
@@ -11953,7 +11938,7 @@ _ZNSt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESa
 _ZNSt12_Vector_baseIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit33, %31
   store ptr %21, ptr %0, align 8, !tbaa !123
   store ptr %.0.lcssa.i.i.i32, ptr %5, align 8, !tbaa !126
-  %35 = getelementptr inbounds nuw %"class.grpc_event_engine::experimental::EventEngine::ResolvedAddress", ptr %21, i64 %17
+  %35 = getelementptr inbounds nuw [132 x i8], ptr %21, i64 %17
   store ptr %35, ptr %30, align 8, !tbaa !127
   ret void
 
@@ -12151,8 +12136,8 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
 
 25:                                               ; preds = %.lr.ph.i
   %26 = xor i64 %.015.i, %20
-  %27 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i, i64 %26
-  %28 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i14.i, i64 %.015.i
+  %27 = getelementptr inbounds nuw [64 x i8], ptr %.sroa.0.0.copyload.i.i.i, i64 %26
+  %28 = getelementptr inbounds nuw [64 x i8], ptr %.sroa.0.0.copyload.i.i14.i, i64 %.015.i
   %29 = load i32, ptr %28, align 16, !tbaa !144
   store i32 %29, ptr %27, align 16, !tbaa !144
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 48
@@ -12211,7 +12196,7 @@ _ZN4absl12lts_2024072218container_internal20common_policy_traitsINS1_17FlatHashM
   br i1 %56, label %57, label %119
 
 57:                                               ; preds = %.lr.ph
-  %58 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i14.i, i64 %.084
+  %58 = getelementptr inbounds nuw [64 x i8], ptr %.sroa.0.0.copyload.i.i14.i, i64 %.084
   %59 = load i32, ptr %58, align 4, !tbaa !9
   %60 = zext i32 %59 to i64
   %61 = add i64 %60, ptrtoint (ptr @_ZN4absl12lts_2024072213hash_internal15MixingHashState5kSeedE to i64)
@@ -12273,7 +12258,7 @@ _ZN4absl12lts_2024072218container_internal19find_first_non_fullIvEENS1_8FindInfo
   %97 = getelementptr i8, ptr %67, i64 %95
   %98 = getelementptr i8, ptr %97, i64 %96
   store i8 %92, ptr %98, align 1, !tbaa !378
-  %99 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.011.0.i.i55
+  %99 = getelementptr inbounds nuw [64 x i8], ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.011.0.i.i55
   store i32 %59, ptr %99, align 16, !tbaa !144
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 48
   store i8 -1, ptr %100, align 16, !tbaa !153
@@ -13785,7 +13770,7 @@ _ZNSt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESa
 _ZNSt12_Vector_baseIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN17grpc_event_engine12experimental11EventEngine15ResolvedAddressESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit33, %32
   store ptr %21, ptr %0, align 8, !tbaa !123
   store ptr %.0.lcssa.i.i.i32, ptr %5, align 8, !tbaa !126
-  %36 = getelementptr inbounds nuw %"class.grpc_event_engine::experimental::EventEngine::ResolvedAddress", ptr %21, i64 %17
+  %36 = getelementptr inbounds nuw [132 x i8], ptr %21, i64 %17
   store ptr %36, ptr %31, align 8, !tbaa !127
   ret void
 
@@ -14242,7 +14227,7 @@ _ZNSt6vectorIN17grpc_event_engine12experimental11EventEngine11DNSResolver9SRVRec
 _ZNSt12_Vector_baseIN17grpc_event_engine12experimental11EventEngine11DNSResolver9SRVRecordESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorIN17grpc_event_engine12experimental11EventEngine11DNSResolver9SRVRecordESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit26, %75
   store ptr %22, ptr %0, align 8, !tbaa !281
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !278
-  %79 = getelementptr inbounds nuw %"struct.grpc_event_engine::experimental::EventEngine::DNSResolver::SRVRecord", ptr %22, i64 %16
+  %79 = getelementptr inbounds nuw [48 x i8], ptr %22, i64 %16
   store ptr %79, ptr %74, align 8, !tbaa !291
   ret void
 }
@@ -14613,7 +14598,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit38, %76
   store ptr %24, ptr %0, align 8, !tbaa !326
   store ptr %.0.lcssa.i.i.i37, ptr %6, align 8, !tbaa !324
-  %80 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %24, i64 %18
+  %80 = getelementptr inbounds nuw [32 x i8], ptr %24, i64 %18
   store ptr %80, ptr %75, align 8, !tbaa !327
   ret void
 

@@ -3,7 +3,6 @@ source_filename = "bench/luau/original/Def.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.Luau::NotNull" = type { ptr }
 %"struct.Luau::Def" = type { %"class.Luau::Variant" }
 %"class.Luau::Variant" = type { i32, [4 x i8], [24 x i8] }
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
@@ -344,7 +343,7 @@ _ZNSt6vectorIN4Luau7NotNullIKNS0_3DefEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exi
 _ZNSt6vectorIN4Luau7NotNullIKNS0_3DefEEESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %70, %_ZNSt6vectorIN4Luau7NotNullIKNS0_3DefEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i
   store ptr %63, ptr %1, align 8, !tbaa !33
   store ptr %69, ptr %4, align 8, !tbaa !26
-  %71 = getelementptr inbounds nuw %"struct.Luau::NotNull", ptr %63, i64 %61
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %61
   store ptr %71, ptr %49, align 8, !tbaa !24
   br label %_ZNSt6vectorIN4Luau7NotNullIKNS0_3DefEEESaIS4_EE9push_backERKS4_.exit
 
@@ -419,7 +418,7 @@ _ZNSt6vectorIN4Luau7NotNullIKNS0_3DefEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exi
 _ZNSt6vectorIN4Luau7NotNullIKNS0_3DefEEESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i29: ; preds = %99, %_ZNSt6vectorIN4Luau7NotNullIKNS0_3DefEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i26
   store ptr %92, ptr %1, align 8, !tbaa !33
   store ptr %98, ptr %4, align 8, !tbaa !26
-  %100 = getelementptr inbounds nuw %"struct.Luau::NotNull", ptr %92, i64 %90
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %90
   store ptr %100, ptr %78, align 8, !tbaa !24
   br label %_ZNSt6vectorIN4Luau7NotNullIKNS0_3DefEEESaIS4_EE9push_backERKS4_.exit
 
@@ -464,10 +463,10 @@ define dso_local noundef ptr @_ZN4Luau8DefArena9freshCellEb(ptr noundef nonnull 
   %14 = load ptr, ptr %13, align 8, !tbaa !49
   %15 = getelementptr inbounds i8, ptr %14, i64 -8
   %16 = load ptr, ptr %15, align 8, !tbaa !17
-  %17 = getelementptr inbounds nuw %"struct.Luau::Def", ptr %16, i64 %12
+  %17 = getelementptr inbounds nuw [32 x i8], ptr %16, i64 %12
   store i32 %11, ptr %17, align 8, !tbaa !4
   %18 = sext i32 %11 to i64
-  %19 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_4CellENS_3PhiEEE9tableMoveE, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_4CellENS_3PhiEEE9tableMoveE, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !50
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 8
   invoke void %20(ptr noundef nonnull %21, ptr noundef nonnull %5)
@@ -479,7 +478,7 @@ define dso_local noundef ptr @_ZN4Luau8DefArena9freshCellEb(ptr noundef nonnull 
   store i64 %24, ptr %6, align 8, !tbaa !40
   %25 = load i32, ptr %3, align 8, !tbaa !4
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_4CellENS_3PhiEEE9tableDtorE, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_4CellENS_3PhiEEE9tableDtorE, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !50
   invoke void %28(ptr noundef nonnull %5)
           to label %_ZN4Luau3DefD2Ev.exit unwind label %29
@@ -500,7 +499,7 @@ _ZN4Luau3DefD2Ev.exit:                            ; preds = %22
           cleanup
   %34 = load i32, ptr %3, align 8, !tbaa !4
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_4CellENS_3PhiEEE9tableDtorE, i64 %35
+  %36 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_4CellENS_3PhiEEE9tableDtorE, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !50
   invoke void %37(ptr noundef nonnull %5)
           to label %_ZN4Luau3DefD2Ev.exit4 unwind label %38
@@ -616,10 +615,10 @@ define dso_local ptr @_ZN4Luau8DefArena3phiERKSt6vectorINS_7NotNullIKNS_3DefEEES
   %29 = load ptr, ptr %28, align 8, !tbaa !49
   %30 = getelementptr inbounds i8, ptr %29, i64 -8
   %31 = load ptr, ptr %30, align 8, !tbaa !17
-  %32 = getelementptr inbounds nuw %"struct.Luau::Def", ptr %31, i64 %27
+  %32 = getelementptr inbounds nuw [32 x i8], ptr %31, i64 %27
   store i32 %26, ptr %32, align 8, !tbaa !4
   %33 = sext i32 %26 to i64
-  %34 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_4CellENS_3PhiEEE9tableMoveE, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_4CellENS_3PhiEEE9tableMoveE, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !50
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 8
   invoke void %35(ptr noundef nonnull %36, ptr noundef nonnull %18)
@@ -631,7 +630,7 @@ define dso_local ptr @_ZN4Luau8DefArena3phiERKSt6vectorINS_7NotNullIKNS_3DefEEES
   store i64 %39, ptr %21, align 8, !tbaa !40
   %40 = load i32, ptr %4, align 8, !tbaa !4
   %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_4CellENS_3PhiEEE9tableDtorE, i64 %41
+  %42 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_4CellENS_3PhiEEE9tableDtorE, i64 %41
   %43 = load ptr, ptr %42, align 8, !tbaa !50
   invoke void %43(ptr noundef nonnull %18)
           to label %.thread unwind label %44
@@ -652,7 +651,7 @@ define dso_local ptr @_ZN4Luau8DefArena3phiERKSt6vectorINS_7NotNullIKNS_3DefEEES
           cleanup
   %49 = load i32, ptr %4, align 8, !tbaa !4
   %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJNS_4CellENS_3PhiEEE9tableDtorE, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr @_ZN4Luau7VariantIJNS_4CellENS_3PhiEEE9tableDtorE, i64 %50
   %52 = load ptr, ptr %51, align 8, !tbaa !50
   invoke void %52(ptr noundef nonnull %18)
           to label %.thread39 unwind label %53
@@ -822,7 +821,7 @@ _ZNSt6vectorIPN4Luau3DefESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; pred
 _ZNSt6vectorIPN4Luau3DefESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %31, %_ZNSt6vectorIPN4Luau3DefESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %26, ptr %6, align 8, !tbaa !55
   store ptr %30, ptr %7, align 8, !tbaa !53
-  %32 = getelementptr inbounds nuw ptr, ptr %26, i64 %24
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %24
   store ptr %32, ptr %9, align 8, !tbaa !54
   br label %_ZNSt6vectorIPN4Luau3DefESaIS2_EE12emplace_backIJS2_EEERS2_DpOT_.exit
 

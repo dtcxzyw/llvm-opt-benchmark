@@ -61,7 +61,7 @@ define internal noundef zeroext i1 @HIDAPI_DriverLg4ff_IsSupportedDevice(ptr nou
 
 18:                                               ; preds = %.preheader, %22
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %22 ]
-  %19 = getelementptr inbounds nuw i32, ptr @supported_device_ids, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [4 x i8], ptr @supported_device_ids, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %20, %17
   br i1 %21, label %.thread, label %22
@@ -286,13 +286,13 @@ define internal zeroext i1 @HIDAPI_DriverLg4ff_InitDevice(ptr noundef %0) #0 {
 
 14:                                               ; preds = %13, %7
   %indvars.iv.i = phi i64 [ 0, %7 ], [ %indvars.iv.next.i, %13 ]
-  %15 = getelementptr inbounds nuw i32, ptr @supported_device_ids, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw [4 x i8], ptr @supported_device_ids, i64 %indvars.iv.i
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, %12
   br i1 %17, label %18, label %13
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds nuw ptr, ptr @supported_device_names, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr @supported_device_names, i64 %indvars.iv.i
   %20 = load ptr, ptr %19, align 8
   br label %HIDAPI_DriverLg4ff_GetDeviceName.exit
 

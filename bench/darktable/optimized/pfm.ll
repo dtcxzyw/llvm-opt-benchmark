@@ -142,7 +142,7 @@ define dso_local ptr @read_pfm(ptr noundef readonly captures(none) %0, ptr nound
 
 70:                                               ; preds = %.preheader, %70
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %70 ]
-  %71 = getelementptr float, ptr %67, i64 %indvars.iv
+  %71 = getelementptr [4 x i8], ptr %67, i64 %indvars.iv
   %72 = load i32, ptr %71, align 4, !tbaa !15
   %73 = call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %72) #11, !srcloc !17
   store i32 %73, ptr %71, align 4, !tbaa !15
@@ -354,7 +354,7 @@ define dso_local void @write_pfm(ptr noundef readonly captures(none) %0, i32 nou
   %15 = xor i64 %indvars.iv, -1
   %16 = add nsw i64 %14, %15
   %17 = mul i64 %9, %16
-  %18 = getelementptr inbounds nuw float, ptr %3, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %17
   br label %19
 
 19:                                               ; preds = %.lr.ph.us, %19

@@ -29,8 +29,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
 %"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
 %"struct.Imf_3_4::Slice" = type <{ i32, [4 x i8], ptr, i64, i64, i32, i32, double, i8, i8, [6 x i8] }>
-%"struct.Imf_3_4::Rgba" = type { %"class.Imath_3_2::half", %"class.Imath_3_2::half", %"class.Imath_3_2::half", %"class.Imath_3_2::half" }
-%"class.Imath_3_2::half" = type { i16 }
 %"class.Imf_3_4::Header" = type <{ %"class.std::map", i8, [7 x i8] }>
 %"class.std::map" = type { %"class.std::_Rb_tree" }
 %"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<Imf_3_4::Name, std::pair<const Imf_3_4::Name, Imf_3_4::Attribute *>, std::_Select1st<std::pair<const Imf_3_4::Name, Imf_3_4::Attribute *>>, std::less<Imf_3_4::Name>>::_Rb_tree_impl" }
@@ -421,10 +419,10 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit37: ; preds = %22
   %63 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %64 = load i64, ptr %63, align 8, !tbaa !32
   %65 = mul nsw i64 %64, %60
-  %66 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %62, i64 %65
+  %66 = getelementptr inbounds [8 x i8], ptr %62, i64 %65
   %67 = sub nsw i32 0, %52
   %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %66, i64 %68
+  %69 = getelementptr inbounds [8 x i8], ptr %66, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 2
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %72 = load i32, ptr %71, align 4, !tbaa !23
@@ -451,7 +449,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit37: ; preds = %22
   %81 = load ptr, ptr %47, align 8, !tbaa !30
   %82 = load i64, ptr %48, align 8, !tbaa !32
   %83 = mul nsw i64 %82, %indvars.iv52
-  %84 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %81, i64 %83
+  %84 = getelementptr inbounds [8 x i8], ptr %81, i64 %83
   call void @_ZN7Imf_3_47RgbaYca9RGBAtoYCAERKN9Imath_3_24Vec3IfEEibPKNS_4RgbaEPS6_(ptr noundef nonnull align 4 dereferenceable(12) %49, i32 noundef %38, i1 noundef zeroext %80, ptr noundef %84, ptr noundef %84)
   %indvars.iv.next55 = add nsw i64 %indvars.iv54, 1
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
@@ -474,8 +472,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit37: ; preds = %22
   %96 = load ptr, ptr %47, align 8, !tbaa !30
   %97 = load i64, ptr %48, align 8, !tbaa !32
   %98 = mul nsw i64 %97, %indvars.iv52
-  %99 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %96, i64 %98
-  %100 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %99, i64 %indvars.iv
+  %99 = getelementptr inbounds [8 x i8], ptr %96, i64 %98
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %indvars.iv
   %101 = load i64, ptr %95, align 2
   store i64 %101, ptr %100, align 2
   %indvars.iv.next48 = add nsw i64 %indvars.iv47, 1
@@ -498,11 +496,11 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit37: ; preds = %22
   %109 = load ptr, ptr %61, align 8, !tbaa !30
   %110 = load i64, ptr %63, align 8, !tbaa !32
   %111 = mul nsw i64 %110, %108
-  %112 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %109, i64 %111
+  %112 = getelementptr inbounds [8 x i8], ptr %109, i64 %111
   %113 = load i32, ptr %7, align 4, !tbaa !42
   %114 = sub nsw i32 0, %113
   %115 = sext i32 %114 to i64
-  %116 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %112, i64 %115
+  %116 = getelementptr inbounds [8 x i8], ptr %112, i64 %115
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 6
   %118 = load i32, ptr %71, align 4, !tbaa !23
   %119 = zext i32 %118 to i64
@@ -3012,7 +3010,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit42: ; preds = %19
   %52 = load ptr, ptr %43, align 8, !tbaa !30
   %53 = load i64, ptr %44, align 8, !tbaa !32
   %54 = mul nsw i64 %53, %indvars.iv78
-  %55 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %52, i64 %54
+  %55 = getelementptr inbounds [8 x i8], ptr %52, i64 %54
   call void @_ZN7Imf_3_47RgbaYca9YCAtoRGBAERKN9Imath_3_24Vec3IfEEiPKNS_4RgbaEPS6_(ptr noundef nonnull align 4 dereferenceable(12) %45, i32 noundef %36, ptr noundef %55, ptr noundef %55)
   %56 = load i32, ptr %7, align 4, !tbaa !42
   %57 = load i32, ptr %32, align 4, !tbaa !39
@@ -3033,8 +3031,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit42: ; preds = %19
   %67 = load ptr, ptr %43, align 8, !tbaa !30
   %68 = load i64, ptr %44, align 8, !tbaa !32
   %69 = mul nsw i64 %68, %indvars.iv78
-  %70 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %67, i64 %69
-  %71 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %70, i64 %indvars.iv71
+  %70 = getelementptr inbounds [8 x i8], ptr %67, i64 %69
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %indvars.iv71
   %72 = load i64, ptr %71, align 2
   store i64 %72, ptr %66, align 2
   %indvars.iv.next74 = add nsw i64 %indvars.iv73, 1
@@ -3062,7 +3060,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit42: ; preds = %19
   %78 = load ptr, ptr %43, align 8, !tbaa !30
   %79 = load i64, ptr %44, align 8, !tbaa !32
   %80 = mul nsw i64 %79, %indvars.iv64
-  %81 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %78, i64 %80
+  %81 = getelementptr inbounds [8 x i8], ptr %78, i64 %80
   br label %85
 
 ._crit_edge54:                                    ; preds = %._crit_edge50, %._crit_edge50.us, %28
@@ -3082,7 +3080,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit42: ; preds = %19
 
 85:                                               ; preds = %.preheader, %85
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %85 ]
-  %86 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %81, i64 %indvars.iv
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %indvars.iv
   store i16 0, ptr %86, align 2, !tbaa !114
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 4
   store i16 0, ptr %87, align 2, !tbaa !114
@@ -3112,8 +3110,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit42: ; preds = %19
   %99 = load ptr, ptr %43, align 8, !tbaa !30
   %100 = load i64, ptr %44, align 8, !tbaa !32
   %101 = mul nsw i64 %100, %indvars.iv64
-  %102 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %99, i64 %101
-  %103 = getelementptr inbounds nuw %"struct.Imf_3_4::Rgba", ptr %102, i64 %indvars.iv57
+  %102 = getelementptr inbounds [8 x i8], ptr %99, i64 %101
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 %indvars.iv57
   %104 = load i64, ptr %103, align 2
   store i64 %104, ptr %98, align 2
   %indvars.iv.next60 = add nsw i64 %indvars.iv59, 1

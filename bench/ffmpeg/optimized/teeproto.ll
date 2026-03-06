@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.URLProtocol = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ChildContext = type { ptr }
 
 @.str = private unnamed_addr constant [4 x i8] c"tee\00", align 1
 @.str.1 = private unnamed_addr constant [46 x i8] c"crypto,file,http,https,httpproxy,rtmp,tcp,tls\00", align 1
@@ -62,7 +61,7 @@ define internal range(i32 -2147483648, 1) i32 @tee_open(ptr noundef %0, ptr noun
   store ptr %24, ptr %13, align 8, !tbaa !22
   %26 = load i32, ptr %9, align 8, !tbaa !17
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds %struct.ChildContext, ptr %24, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %24, i64 %27
   store i64 0, ptr %28, align 8
   %29 = load ptr, ptr %5, align 8, !tbaa !4
   %30 = call i32 @ff_tee_parse_slave_options(ptr noundef %0, ptr noundef %29, ptr noundef nonnull %7, ptr noundef nonnull %6) #4
@@ -73,7 +72,7 @@ define internal range(i32 -2147483648, 1) i32 @tee_open(ptr noundef %0, ptr noun
   %33 = load ptr, ptr %13, align 8, !tbaa !22
   %34 = load i32, ptr %9, align 8, !tbaa !17
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds %struct.ChildContext, ptr %33, i64 %35
+  %36 = getelementptr inbounds [8 x i8], ptr %33, i64 %35
   %37 = load ptr, ptr %6, align 8, !tbaa !4
   %38 = load ptr, ptr %15, align 8, !tbaa !23
   %39 = load ptr, ptr %16, align 8, !tbaa !24
@@ -126,7 +125,7 @@ define internal range(i32 -2147483648, 1) i32 @tee_open(ptr noundef %0, ptr noun
 58:                                               ; preds = %.lr.ph63, %58
   %indvars.iv = phi i64 [ 0, %.lr.ph63 ], [ %indvars.iv.next, %58 ]
   %59 = phi i32 [ 0, %.lr.ph63 ], [ %64, %58 ]
-  %60 = getelementptr inbounds nuw %struct.ChildContext, ptr %57, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %indvars.iv
   %61 = load ptr, ptr %60, align 8, !tbaa !26
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 40
   %63 = load i32, ptr %62, align 8, !tbaa !25
@@ -152,7 +151,7 @@ define internal range(i32 -2147483648, 1) i32 @tee_open(ptr noundef %0, ptr noun
 69:                                               ; preds = %.lr.ph67, %77
   %70 = phi i32 [ 0, %.lr.ph67 ], [ %78, %77 ]
   %indvars.iv69 = phi i64 [ 0, %.lr.ph67 ], [ %indvars.iv.next70, %77 ]
-  %71 = getelementptr inbounds nuw %struct.ChildContext, ptr %68, i64 %indvars.iv69
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %indvars.iv69
   %72 = load ptr, ptr %71, align 8, !tbaa !26
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 36
   %74 = load i32, ptr %73, align 4, !tbaa !31
@@ -192,7 +191,7 @@ define internal range(i32 -2147483648, 1) i32 @tee_open(ptr noundef %0, ptr noun
 84:                                               ; preds = %84, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %84 ]
   %85 = load ptr, ptr %83, align 8, !tbaa !22
-  %86 = getelementptr inbounds nuw %struct.ChildContext, ptr %85, i64 %indvars.iv.i
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %indvars.iv.i
   %87 = call i32 @ffurl_closep(ptr noundef %86) #4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %88 = load i32, ptr %80, align 8, !tbaa !17
@@ -227,7 +226,7 @@ define internal i32 @tee_write(ptr noundef readonly captures(none) %0, ptr nound
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %.01113 = phi i32 [ %2, %.lr.ph ], [ %spec.select, %9 ]
   %10 = load ptr, ptr %8, align 8, !tbaa !22
-  %11 = getelementptr inbounds nuw %struct.ChildContext, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !26
   %13 = tail call i32 @ffurl_write2(ptr noundef %12, ptr noundef %1, i32 noundef %2) #4
   %14 = icmp slt i32 %13, 0
@@ -259,7 +258,7 @@ define internal range(i32 -2147483648, 1) i32 @tee_close(ptr noundef readonly ca
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
   %.01012 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %7 ]
   %8 = load ptr, ptr %6, align 8, !tbaa !22
-  %9 = getelementptr inbounds nuw %struct.ChildContext, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %10 = tail call i32 @ffurl_closep(ptr noundef %9) #4
   %11 = icmp slt i32 %10, 0
   %spec.select = select i1 %11, i32 %10, i32 %.01012

@@ -821,7 +821,7 @@ _ZN4absl13base_internalL18LLA_SkiplistLevelsEmmPj.exit: ; preds = %_ZN4absl13bas
 44:                                               ; preds = %44, %.preheader.i.i
   %.1.i.i = phi ptr [ %47, %44 ], [ %.016.i.i, %.preheader.i.i ]
   %45 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 40
-  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv.next.i.i
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv.next.i.i
   %47 = load ptr, ptr %46, align 8, !tbaa !36
   %48 = icmp ne ptr %47, null
   %49 = icmp ult ptr %47, %4
@@ -829,7 +829,7 @@ _ZN4absl13base_internalL18LLA_SkiplistLevelsEmmPj.exit: ; preds = %_ZN4absl13bas
   br i1 %50, label %44, label %51, !llvm.loop !48
 
 51:                                               ; preds = %44
-  %52 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.next.i.i
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.next.i.i
   store ptr %.1.i.i, ptr %52, align 8, !tbaa !36
   %53 = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %53, label %.preheader.i.i, label %._crit_edge.i.i, !llvm.loop !49
@@ -846,7 +846,7 @@ _ZN4absl13base_internalL18LLA_SkiplistLevelsEmmPj.exit: ; preds = %_ZN4absl13bas
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %43, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %56 = getelementptr inbounds ptr, ptr %3, i64 %indvars.iv.i
+  %56 = getelementptr inbounds [8 x i8], ptr %3, i64 %indvars.iv.i
   store ptr %37, ptr %56, align 8, !tbaa !36
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %57 = trunc nsw i64 %indvars.iv.next.i to i32
@@ -858,12 +858,12 @@ _ZN4absl13base_internalL18LLA_SkiplistLevelsEmmPj.exit: ; preds = %_ZN4absl13bas
 
 61:                                               ; preds = %61, %.lr.ph23.i
   %indvars.iv26.i = phi i64 [ 0, %.lr.ph23.i ], [ %indvars.iv.next27.i, %61 ]
-  %62 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv26.i
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv26.i
   %63 = load ptr, ptr %62, align 8, !tbaa !36
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 40
-  %65 = getelementptr inbounds nuw ptr, ptr %64, i64 %indvars.iv26.i
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %indvars.iv26.i
   %66 = load ptr, ptr %65, align 8, !tbaa !36
-  %67 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv26.i
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %indvars.iv26.i
   store ptr %66, ptr %67, align 8, !tbaa !36
   store ptr %4, ptr %65, align 8, !tbaa !36
   %indvars.iv.next27.i = add nuw nsw i64 %indvars.iv26.i, 1
@@ -1029,7 +1029,7 @@ _ZN4absl13base_internalL7IntLog2Emm.exit.i:       ; preds = %_ZN4absl13base_inte
   br i1 %.not.i91.not, label %.invoke205, label %57, !prof !27
 
 57:                                               ; preds = %54
-  %58 = getelementptr ptr, ptr %.071, i64 %53
+  %58 = getelementptr [8 x i8], ptr %.071, i64 %53
   %59 = getelementptr i8, ptr %58, i64 32
   %60 = load ptr, ptr %59, align 8, !tbaa !36
   %.not17.i = icmp eq ptr %60, null
@@ -1215,7 +1215,7 @@ _ZN4absl13base_internal8SpinLock4LockEv.exit:     ; preds = %_ZN4absl13base_inte
 129:                                              ; preds = %129, %.preheader.i.i
   %.1.i.i = phi ptr [ %132, %129 ], [ %.016.i.i, %.preheader.i.i ]
   %130 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 40
-  %131 = getelementptr inbounds nuw ptr, ptr %130, i64 %indvars.iv.next.i.i
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %130, i64 %indvars.iv.next.i.i
   %132 = load ptr, ptr %131, align 8, !tbaa !36
   %133 = icmp ne ptr %132, null
   %134 = icmp ult ptr %132, %60
@@ -1223,7 +1223,7 @@ _ZN4absl13base_internal8SpinLock4LockEv.exit:     ; preds = %_ZN4absl13base_inte
   br i1 %135, label %129, label %136, !llvm.loop !48
 
 136:                                              ; preds = %129
-  %137 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.next.i.i
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.next.i.i
   store ptr %.1.i.i, ptr %137, align 8, !tbaa !36
   %138 = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %138, label %.preheader.i.i, label %_ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit.i, !llvm.loop !49
@@ -1248,16 +1248,16 @@ _ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS
 
 147:                                              ; preds = %154, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %154 ]
-  %148 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i
   %149 = load ptr, ptr %148, align 8, !tbaa !36
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 40
-  %151 = getelementptr inbounds nuw ptr, ptr %150, i64 %indvars.iv.i
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %150, i64 %indvars.iv.i
   %152 = load ptr, ptr %151, align 8, !tbaa !36
   %153 = icmp eq ptr %152, %60
   br i1 %153, label %154, label %.lr.ph28.i.preheader
 
 154:                                              ; preds = %147
-  %155 = getelementptr inbounds nuw ptr, ptr %145, i64 %indvars.iv.i
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %145, i64 %indvars.iv.i
   %156 = load ptr, ptr %155, align 8, !tbaa !36
   store ptr %156, ptr %151, align 8, !tbaa !36
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1270,7 +1270,7 @@ _ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS
 .lr.ph28.i:                                       ; preds = %.lr.ph28.i.preheader, %163
   %157 = phi i32 [ %164, %163 ], [ %52, %.lr.ph28.i.preheader ]
   %158 = zext nneg i32 %157 to i64
-  %159 = getelementptr ptr, ptr %36, i64 %158
+  %159 = getelementptr [8 x i8], ptr %36, i64 %158
   %160 = getelementptr i8, ptr %159, i64 32
   %161 = load ptr, ptr %160, align 8, !tbaa !36
   %162 = icmp eq ptr %161, null
@@ -1482,7 +1482,7 @@ define internal fastcc void @_ZN4absl13base_internalL8CoalesceEPNS0_12_GLOBAL__N
 21:                                               ; preds = %21, %.preheader.i.i
   %.1.i.i = phi ptr [ %24, %21 ], [ %.016.i.i, %.preheader.i.i ]
   %22 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 40
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv.next.i.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv.next.i.i
   %24 = load ptr, ptr %23, align 8, !tbaa !36
   %25 = icmp ne ptr %24, null
   %26 = icmp ult ptr %24, %4
@@ -1490,7 +1490,7 @@ define internal fastcc void @_ZN4absl13base_internalL8CoalesceEPNS0_12_GLOBAL__N
   br i1 %27, label %21, label %28, !llvm.loop !48
 
 28:                                               ; preds = %21
-  %29 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next.i.i
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.next.i.i
   store ptr %.1.i.i, ptr %29, align 8, !tbaa !36
   %30 = icmp samesign ugt i64 %indvars.iv.i.i, 1
   br i1 %30, label %.preheader.i.i, label %._crit_edge.i.i, !llvm.loop !49
@@ -1519,10 +1519,10 @@ _ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS
 
 39:                                               ; preds = %46, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %46 ]
-  %40 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i
   %41 = load ptr, ptr %40, align 8, !tbaa !36
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 40
-  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv.i
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv.i
   %44 = load ptr, ptr %43, align 8, !tbaa !36
   %45 = icmp eq ptr %44, %4
   br i1 %45, label %46, label %.critedge.i
@@ -1531,7 +1531,7 @@ _ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS
   br i1 %18, label %.lr.ph28.i, label %._crit_edge.i.i20
 
 46:                                               ; preds = %39
-  %47 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv.i
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv.i
   %48 = load ptr, ptr %47, align 8, !tbaa !36
   store ptr %48, ptr %43, align 8, !tbaa !36
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1541,7 +1541,7 @@ _ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS
 .lr.ph28.i:                                       ; preds = %.critedge.i, %55
   %49 = phi i32 [ %56, %55 ], [ %17, %.critedge.i ]
   %50 = zext nneg i32 %49 to i64
-  %51 = getelementptr ptr, ptr %15, i64 %50
+  %51 = getelementptr [8 x i8], ptr %15, i64 %50
   %52 = getelementptr i8, ptr %51, i64 32
   %53 = load ptr, ptr %52, align 8, !tbaa !36
   %54 = icmp eq ptr %53, null
@@ -1571,7 +1571,7 @@ _ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS
 61:                                               ; preds = %61, %.preheader.i.i32
   %.1.i.i36 = phi ptr [ %64, %61 ], [ %.016.i.i34, %.preheader.i.i32 ]
   %62 = getelementptr inbounds nuw i8, ptr %.1.i.i36, i64 40
-  %63 = getelementptr inbounds nuw ptr, ptr %62, i64 %indvars.iv.next.i.i35
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %indvars.iv.next.i.i35
   %64 = load ptr, ptr %63, align 8, !tbaa !36
   %65 = icmp ne ptr %64, null
   %66 = icmp ult ptr %64, %0
@@ -1579,7 +1579,7 @@ _ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS
   br i1 %67, label %61, label %68, !llvm.loop !48
 
 68:                                               ; preds = %61
-  %69 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next.i.i35
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.next.i.i35
   store ptr %.1.i.i36, ptr %69, align 8, !tbaa !36
   %70 = icmp samesign ugt i64 %indvars.iv.i.i33, 1
   br i1 %70, label %.preheader.i.i32, label %._crit_edge.i.i20, !llvm.loop !49
@@ -1607,10 +1607,10 @@ _ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS
 
 78:                                               ; preds = %85, %.lr.ph.i25
   %indvars.iv.i26 = phi i64 [ 0, %.lr.ph.i25 ], [ %indvars.iv.next.i29, %85 ]
-  %79 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i26
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i26
   %80 = load ptr, ptr %79, align 8, !tbaa !36
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 40
-  %82 = getelementptr inbounds nuw ptr, ptr %81, i64 %indvars.iv.i26
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %indvars.iv.i26
   %83 = load ptr, ptr %82, align 8, !tbaa !36
   %84 = icmp eq ptr %83, %0
   br i1 %84, label %85, label %.critedge.i27
@@ -1619,7 +1619,7 @@ _ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS
   br i1 %18, label %.lr.ph28.i28, label %_ZN4absl13base_internalL18LLA_SkiplistDeleteEPNS0_12_GLOBAL__N_19AllocListES3_PS3_.exit37
 
 85:                                               ; preds = %78
-  %86 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i26
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i26
   %87 = load ptr, ptr %86, align 8, !tbaa !36
   store ptr %87, ptr %82, align 8, !tbaa !36
   %indvars.iv.next.i29 = add nuw nsw i64 %indvars.iv.i26, 1
@@ -1629,7 +1629,7 @@ _ZN4absl13base_internalL18LLA_SkiplistSearchEPNS0_12_GLOBAL__N_19AllocListES3_PS
 .lr.ph28.i28:                                     ; preds = %.critedge.i27, %94
   %88 = phi i32 [ %95, %94 ], [ %59, %.critedge.i27 ]
   %89 = zext nneg i32 %88 to i64
-  %90 = getelementptr ptr, ptr %15, i64 %89
+  %90 = getelementptr [8 x i8], ptr %15, i64 %89
   %91 = getelementptr i8, ptr %90, i64 32
   %92 = load ptr, ptr %91, align 8, !tbaa !36
   %93 = icmp eq ptr %92, null
@@ -1714,7 +1714,7 @@ _ZN4absl13base_internalL18LLA_SkiplistLevelsEmmPj.exit: ; preds = %_ZN4absl13bas
 123:                                              ; preds = %123, %.preheader.i.i46
   %.1.i.i50 = phi ptr [ %126, %123 ], [ %.016.i.i48, %.preheader.i.i46 ]
   %124 = getelementptr inbounds nuw i8, ptr %.1.i.i50, i64 40
-  %125 = getelementptr inbounds nuw ptr, ptr %124, i64 %indvars.iv.next.i.i49
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %indvars.iv.next.i.i49
   %126 = load ptr, ptr %125, align 8, !tbaa !36
   %127 = icmp ne ptr %126, null
   %128 = icmp ult ptr %126, %0
@@ -1722,7 +1722,7 @@ _ZN4absl13base_internalL18LLA_SkiplistLevelsEmmPj.exit: ; preds = %_ZN4absl13bas
   br i1 %129, label %123, label %130, !llvm.loop !48
 
 130:                                              ; preds = %123
-  %131 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next.i.i49
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.next.i.i49
   store ptr %.1.i.i50, ptr %131, align 8, !tbaa !36
   %132 = icmp samesign ugt i64 %indvars.iv.i.i47, 1
   br i1 %132, label %.preheader.i.i46, label %._crit_edge.i.i39, !llvm.loop !49
@@ -1738,7 +1738,7 @@ _ZN4absl13base_internalL18LLA_SkiplistLevelsEmmPj.exit: ; preds = %_ZN4absl13bas
 
 .lr.ph.i42:                                       ; preds = %.lr.ph.i42, %.lr.ph.preheader.i
   %indvars.iv.i43 = phi i64 [ %122, %.lr.ph.preheader.i ], [ %indvars.iv.next.i44, %.lr.ph.i42 ]
-  %134 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv.i43
+  %134 = getelementptr inbounds [8 x i8], ptr %2, i64 %indvars.iv.i43
   store ptr %15, ptr %134, align 8, !tbaa !36
   %indvars.iv.next.i44 = add nsw i64 %indvars.iv.i43, 1
   %135 = trunc nsw i64 %indvars.iv.next.i44 to i32
@@ -1750,12 +1750,12 @@ _ZN4absl13base_internalL18LLA_SkiplistLevelsEmmPj.exit: ; preds = %_ZN4absl13bas
 
 139:                                              ; preds = %139, %.lr.ph23.i
   %indvars.iv26.i = phi i64 [ 0, %.lr.ph23.i ], [ %indvars.iv.next27.i, %139 ]
-  %140 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv26.i
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv26.i
   %141 = load ptr, ptr %140, align 8, !tbaa !36
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 40
-  %143 = getelementptr inbounds nuw ptr, ptr %142, i64 %indvars.iv26.i
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %142, i64 %indvars.iv26.i
   %144 = load ptr, ptr %143, align 8, !tbaa !36
-  %145 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv26.i
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv26.i
   store ptr %144, ptr %145, align 8, !tbaa !36
   store ptr %0, ptr %143, align 8, !tbaa !36
   %indvars.iv.next27.i = add nuw nsw i64 %indvars.iv26.i, 1

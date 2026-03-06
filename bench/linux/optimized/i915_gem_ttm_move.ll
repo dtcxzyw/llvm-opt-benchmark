@@ -110,7 +110,7 @@ define dso_local void @i915_ttm_adjust_gem_after_move(ptr noundef %0) local_unna
 40:                                               ; preds = %51, %38
   %41 = phi i64 [ 0, %38 ], [ %52, %51 ]
   %42 = load ptr, ptr %39, align 8
-  %43 = getelementptr ptr, ptr %42, i64 %41
+  %43 = getelementptr [8 x i8], ptr %42, i64 %41
   %44 = load ptr, ptr %43, align 8
   %45 = tail call i32 @intel_region_to_ttm_type(ptr noundef %44) #9
   %46 = icmp eq i32 %45, %29
@@ -187,7 +187,7 @@ define dso_local i32 @i915_ttm_move(ptr noundef %0, i1 noundef zeroext %1, ptr n
   %11 = load ptr, ptr %8, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 144
   %13 = sext i32 %10 to i64
-  %14 = getelementptr ptr, ptr %12, i64 %13
+  %14 = getelementptr [8 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %17 = load ptr, ptr %16, align 8
@@ -1527,7 +1527,7 @@ define internal void @__memcpy_work(ptr noundef %0) #1 align 16 {
   %9 = phi i64 [ 0, %5 ], [ 1, %16 ]
   %10 = load ptr, ptr %6, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 9304
-  %12 = getelementptr ptr, ptr %11, i64 %9
+  %12 = getelementptr [8 x i8], ptr %11, i64 %9
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %16, label %15

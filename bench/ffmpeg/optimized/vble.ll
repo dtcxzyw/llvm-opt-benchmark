@@ -251,12 +251,12 @@ define internal fastcc void @vble_restore_plane(ptr noundef readonly captures(no
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = zext nneg i32 %3 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %1, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !51
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %14 = load ptr, ptr %13, align 8, !tbaa !36
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  %16 = getelementptr inbounds nuw i32, ptr %15, i64 %10
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %10
   %17 = load i32, ptr %16, align 4, !tbaa !50
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)

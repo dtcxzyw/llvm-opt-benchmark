@@ -2269,7 +2269,7 @@ _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE2atEm.
   %.043204 = phi i64 [ 0, %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE2atEm.exit.lr.ph ], [ %151, %149 ]
   %.145203 = phi i64 [ %.044, %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE2atEm.exit.lr.ph ], [ %62, %149 ]
   %.047202 = phi i1 [ undef, %_ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE2atEm.exit.lr.ph ], [ %.350, %149 ]
-  %45 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %44, i64 %.043204
+  %45 = getelementptr inbounds nuw [32 x i8], ptr %44, i64 %.043204
   %46 = load ptr, ptr %45, align 8, !tbaa !25
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %48 = load i64, ptr %47, align 8, !tbaa !26
@@ -2292,7 +2292,7 @@ _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE2atEm.
   unreachable
 
 _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE2atEm.exit63: ; preds = %51
-  %59 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %53, i64 %.043204
+  %59 = getelementptr inbounds nuw [32 x i8], ptr %53, i64 %.043204
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load i64, ptr %60, align 8, !tbaa !26
   %62 = add i64 %61, %49
@@ -2904,7 +2904,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE5clearE
   %spec.select.i.i37 = select i1 %.not.i.i36, ptr null, ptr %107
   %108 = load i32, ptr %41, align 8, !tbaa !120
   %109 = sext i32 %108 to i64
-  %110 = getelementptr inbounds ptr, ptr %spec.select.i.i37, i64 %109
+  %110 = getelementptr inbounds [8 x i8], ptr %spec.select.i.i37, i64 %109
   %.not66 = icmp eq ptr %105, %110
   br i1 %.not66, label %.critedge, label %50, !llvm.loop !124
 
@@ -3171,7 +3171,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   br i1 %.not.i.i, label %74, label %.invoke
 
 74:                                               ; preds = %71
-  %75 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %66, i64 %73
+  %75 = getelementptr inbounds nuw [32 x i8], ptr %66, i64 %73
   %76 = load ptr, ptr %9, align 8, !tbaa !25
   %77 = load i64, ptr %63, align 8, !tbaa !26
   %78 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm(ptr noundef nonnull align 8 dereferenceable(32) %75, ptr noundef %76, i64 noundef 0, i64 noundef %77) #23
@@ -3217,7 +3217,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   br i1 %.not.i.i37.first_iter, label %102, label %.invoke129
 
 102:                                              ; preds = %101
-  %103 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %94, i64 %indvars.iv90
+  %103 = getelementptr inbounds nuw [32 x i8], ptr %94, i64 %indvars.iv90
   %.not.i.i40 = icmp ugt i64 %88, %indvars.iv
   br i1 %.not.i.i40, label %106, label %.invoke129
 
@@ -3231,7 +3231,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   unreachable
 
 106:                                              ; preds = %102
-  %107 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %84, i64 %indvars.iv
+  %107 = getelementptr inbounds nuw [32 x i8], ptr %84, i64 %indvars.iv
   %108 = getelementptr inbounds nuw i8, ptr %103, i64 8
   %109 = load i64, ptr %108, align 8, !tbaa !26
   %110 = getelementptr inbounds nuw i8, ptr %107, i64 8
@@ -3293,7 +3293,7 @@ _ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.
   unreachable
 
 _ZNKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE2atEm.exit47: ; preds = %129
-  %132 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %124, i64 %122
+  %132 = getelementptr inbounds nuw [32 x i8], ptr %124, i64 %122
   %133 = invoke noundef zeroext i1 @_ZN4i18n12phonenumbers15HasSuffixStringERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_(ptr noundef nonnull align 8 dereferenceable(32) %132, ptr noundef nonnull align 8 dereferenceable(32) %84)
           to label %_ZStneIcSt11char_traitsIcESaIcEEbRKNSt7__cxx1112basic_stringIT_T0_T1_EESA_.exit.thread unwind label %79
 
@@ -6168,7 +6168,7 @@ _ZNSt6vectorIPKN4i18n12phonenumbers6RegExpESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.
 _ZNSt6vectorIPKN4i18n12phonenumbers6RegExpESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i: ; preds = %348, %_ZNSt6vectorIPKN4i18n12phonenumbers6RegExpESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i.i
   store ptr %343, ptr %314, align 8, !tbaa !164
   store ptr %347, ptr %324, align 8, !tbaa !161
-  %349 = getelementptr inbounds nuw ptr, ptr %343, i64 %341
+  %349 = getelementptr inbounds nuw [8 x i8], ptr %343, i64 %341
   store ptr %349, ptr %326, align 8, !tbaa !163
   br label %_ZNSt6vectorIPKN4i18n12phonenumbers6RegExpESaIS4_EE9push_backEOS4_.exit
 
@@ -6265,7 +6265,7 @@ _ZNSt6vectorIPKN4i18n12phonenumbers6RegExpESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.
 _ZNSt6vectorIPKN4i18n12phonenumbers6RegExpESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i288: ; preds = %388, %_ZNSt6vectorIPKN4i18n12phonenumbers6RegExpESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i.i286
   store ptr %383, ptr %354, align 8, !tbaa !164
   store ptr %387, ptr %364, align 8, !tbaa !161
-  %389 = getelementptr inbounds nuw ptr, ptr %383, i64 %381
+  %389 = getelementptr inbounds nuw [8 x i8], ptr %383, i64 %381
   store ptr %389, ptr %366, align 8, !tbaa !163
   br label %_ZNSt6vectorIPKN4i18n12phonenumbers6RegExpESaIS4_EE9push_backEOS4_.exit291
 
@@ -6373,7 +6373,7 @@ _ZNSt6vectorIPKN4i18n12phonenumbers6RegExpESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.
 _ZNSt6vectorIPKN4i18n12phonenumbers6RegExpESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i305: ; preds = %431, %_ZNSt6vectorIPKN4i18n12phonenumbers6RegExpESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i.i303
   store ptr %426, ptr %394, align 8, !tbaa !164
   store ptr %430, ptr %407, align 8, !tbaa !161
-  %432 = getelementptr inbounds nuw ptr, ptr %426, i64 %424
+  %432 = getelementptr inbounds nuw [8 x i8], ptr %426, i64 %424
   store ptr %432, ptr %409, align 8, !tbaa !163
   br label %_ZNSt6vectorIPKN4i18n12phonenumbers6RegExpESaIS4_EE9push_backEOS4_.exit308
 
@@ -6481,7 +6481,7 @@ _ZNSt6vectorIPKN4i18n12phonenumbers6RegExpESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.
 _ZNSt6vectorIPKN4i18n12phonenumbers6RegExpESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i322: ; preds = %474, %_ZNSt6vectorIPKN4i18n12phonenumbers6RegExpESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i.i320
   store ptr %469, ptr %437, align 8, !tbaa !164
   store ptr %473, ptr %450, align 8, !tbaa !161
-  %475 = getelementptr inbounds nuw ptr, ptr %469, i64 %467
+  %475 = getelementptr inbounds nuw [8 x i8], ptr %469, i64 %467
   store ptr %475, ptr %452, align 8, !tbaa !163
   br label %_ZNSt6vectorIPKN4i18n12phonenumbers6RegExpESaIS4_EE9push_backEOS4_.exit325
 
@@ -6589,7 +6589,7 @@ _ZNSt6vectorIPKN4i18n12phonenumbers6RegExpESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.
 _ZNSt6vectorIPKN4i18n12phonenumbers6RegExpESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i339: ; preds = %517, %_ZNSt6vectorIPKN4i18n12phonenumbers6RegExpESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i.i337
   store ptr %512, ptr %480, align 8, !tbaa !164
   store ptr %516, ptr %493, align 8, !tbaa !161
-  %518 = getelementptr inbounds nuw ptr, ptr %512, i64 %510
+  %518 = getelementptr inbounds nuw [8 x i8], ptr %512, i64 %510
   store ptr %518, ptr %495, align 8, !tbaa !163
   br label %_ZNSt6vectorIPKN4i18n12phonenumbers6RegExpESaIS4_EE9push_backEOS4_.exit342
 
@@ -6686,7 +6686,7 @@ _ZNSt6vectorIPKN4i18n12phonenumbers6RegExpESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.
 _ZNSt6vectorIPKN4i18n12phonenumbers6RegExpESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i356: ; preds = %557, %_ZNSt6vectorIPKN4i18n12phonenumbers6RegExpESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i.i354
   store ptr %552, ptr %523, align 8, !tbaa !164
   store ptr %556, ptr %533, align 8, !tbaa !161
-  %558 = getelementptr inbounds nuw ptr, ptr %552, i64 %550
+  %558 = getelementptr inbounds nuw [8 x i8], ptr %552, i64 %550
   store ptr %558, ptr %535, align 8, !tbaa !163
   br label %_ZNSt6vectorIPKN4i18n12phonenumbers6RegExpESaIS4_EE9push_backEOS4_.exit359
 
@@ -8813,7 +8813,7 @@ _ZNSt8_Rb_treeIiSt4pairIKiPKN4i18n12phonenumbers13PhoneMetadataEESt10_Select1stI
   %spec.select.i.i19 = select i1 %.not.i.i18, ptr null, ptr %117
   %118 = load i32, ptr %79, align 8, !tbaa !120
   %119 = sext i32 %118 to i64
-  %120 = getelementptr inbounds ptr, ptr %spec.select.i.i19, i64 %119
+  %120 = getelementptr inbounds [8 x i8], ptr %spec.select.i.i19, i64 %119
   %.not = icmp eq ptr %115, %120
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !180
 
@@ -9670,7 +9670,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !102
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !100
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !125
   ret void
 

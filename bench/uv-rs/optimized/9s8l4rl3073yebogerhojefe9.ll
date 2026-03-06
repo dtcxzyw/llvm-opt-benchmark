@@ -544,7 +544,7 @@ _ZN9uv_pep4407version12VersionSmall12push_release17h02d96fd89e4e4274E.exit: ; pr
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hda888f7614147de9E.exit": ; preds = %93, %87
   %94 = getelementptr inbounds nuw i8, ptr %86, i64 72
   %95 = load ptr, ptr %94, align 8, !alias.scope !94, !nonnull !3, !noundef !3
-  %96 = getelementptr inbounds i64, ptr %95, i64 %90
+  %96 = getelementptr inbounds [8 x i8], ptr %95, i64 %90
   store i64 %64, ptr %96, align 8
   %97 = add i64 %90, 1
   store i64 %97, ptr %89, align 8, !alias.scope !94
@@ -1903,7 +1903,7 @@ _ZN9uv_pep4407version12VersionSmall7set_pre17h59801bf34769d7f2E.exit.i: ; preds 
   store i64 %.sroa.7.0.i157, ptr %.sroa.6.0..sroa_idx.i, align 8, !alias.scope !345, !noalias !350
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   %.not108 = icmp eq i64 %.sroa.7.0.i157, 0
-  %329 = getelementptr i64, ptr %326, i64 %.sroa.7.0.i157
+  %329 = getelementptr [8 x i8], ptr %326, i64 %.sroa.7.0.i157
   %330 = getelementptr i8, ptr %329, i64 -8
   %331 = icmp eq ptr %330, null
   %332 = or i1 %.not108, %331
@@ -2375,7 +2375,7 @@ _ZN9uv_pep4407version12VersionSmall7set_pre17h59801bf34769d7f2E.exit.i181: ; pre
   store i64 %.sroa.7.0.i204, ptr %.sroa.6.0..sroa_idx.i210, align 8, !alias.scope !435, !noalias !440
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %.not106 = icmp eq i64 %.sroa.7.0.i204, 0
-  %492 = getelementptr i64, ptr %489, i64 %.sroa.7.0.i204
+  %492 = getelementptr [8 x i8], ptr %489, i64 %.sroa.7.0.i204
   %493 = getelementptr i8, ptr %492, i64 -8
   %494 = icmp eq ptr %493, null
   %495 = or i1 %.not106, %494
@@ -2558,7 +2558,7 @@ _ZN9uv_pep4407version12VersionSmall7set_pre17h59801bf34769d7f2E.exit.i181: ; pre
   %.sroa.7.0.i224743 = phi i64 [ %544, %539 ], [ %.sroa.7.0.i224743.ph, %.thread740.sink.split ]
   call void @llvm.lifetime.start.p0(ptr nonnull %54)
   call void @llvm.lifetime.start.p0(ptr nonnull %53)
-  %547 = getelementptr i64, ptr %.sroa.0.0.i225744, i64 %.sroa.7.0.i224743
+  %547 = getelementptr [8 x i8], ptr %.sroa.0.0.i225744, i64 %.sroa.7.0.i224743
   %548 = getelementptr i8, ptr %547, i64 -16
   %549 = load i64, ptr %548, align 8, !noundef !3
   %550 = add i64 %549, 1
@@ -2714,7 +2714,7 @@ _ZN9uv_pep4407version12VersionSmall12push_release17h02d96fd89e4e4274E.exit.i: ; 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hda888f7614147de9E.exit.i": ; preds = %596, %590
   %597 = getelementptr inbounds nuw i8, ptr %589, i64 72
   %598 = load ptr, ptr %597, align 8, !alias.scope !489, !noalias !475, !nonnull !3, !noundef !3
-  %599 = getelementptr inbounds i64, ptr %598, i64 %593
+  %599 = getelementptr inbounds [8 x i8], ptr %598, i64 %593
   store i64 %.sroa.02.0.i.i.i.sroa.speculated, ptr %599, align 8, !noalias !475
   %600 = add i64 %593, 1
   store i64 %600, ptr %592, align 8, !alias.scope !489, !noalias !475

@@ -55,7 +55,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.212" = type { %"struct.std::_Vector_base<std::shared_ptr<pxrInternal_v0_24__pxrReserved__::ArResolverContext::_Untyped>, std::allocator<std::shared_ptr<pxrInternal_v0_24__pxrReserved__::ArResolverContext::_Untyped>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::shared_ptr<pxrInternal_v0_24__pxrReserved__::ArResolverContext::_Untyped>, std::allocator<std::shared_ptr<pxrInternal_v0_24__pxrReserved__::ArResolverContext::_Untyped>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::shared_ptr<pxrInternal_v0_24__pxrReserved__::ArResolverContext::_Untyped>, std::allocator<std::shared_ptr<pxrInternal_v0_24__pxrReserved__::ArResolverContext::_Untyped>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::shared_ptr<pxrInternal_v0_24__pxrReserved__::ArResolverContext::_Untyped>, std::allocator<std::shared_ptr<pxrInternal_v0_24__pxrReserved__::ArResolverContext::_Untyped>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.pxrInternal_v0_24__pxrReserved__::(anonymous namespace)::Entry" = type { %"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr", %"struct.pxrInternal_v0_24__pxrReserved__::UsdStageCache::Id" }
 %"struct.std::_Hashtable<pxrInternal_v0_24__pxrReserved__::TfRefPtr<pxrInternal_v0_24__pxrReserved__::UsdStage>, std::pair<const pxrInternal_v0_24__pxrReserved__::TfRefPtr<pxrInternal_v0_24__pxrReserved__::UsdStage>, pxrInternal_v0_24__pxrReserved__::UsdStageCache::Id>, std::allocator<std::pair<const pxrInternal_v0_24__pxrReserved__::TfRefPtr<pxrInternal_v0_24__pxrReserved__::UsdStage>, pxrInternal_v0_24__pxrReserved__::UsdStageCache::Id>>, std::__detail::_Select1st, std::equal_to<pxrInternal_v0_24__pxrReserved__::TfRefPtr<pxrInternal_v0_24__pxrReserved__::UsdStage>>, pxrInternal_v0_24__pxrReserved__::TfHash, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true>>::_Scoped_node" = type { ptr, ptr }
 %"struct.std::_Hashtable<pxrInternal_v0_24__pxrReserved__::UsdStageCache::Id, std::pair<const pxrInternal_v0_24__pxrReserved__::UsdStageCache::Id, pxrInternal_v0_24__pxrReserved__::TfRefPtr<pxrInternal_v0_24__pxrReserved__::UsdStage>>, std::allocator<std::pair<const pxrInternal_v0_24__pxrReserved__::UsdStageCache::Id, pxrInternal_v0_24__pxrReserved__::TfRefPtr<pxrInternal_v0_24__pxrReserved__::UsdStage>>>, std::__detail::_Select1st, std::equal_to<pxrInternal_v0_24__pxrReserved__::UsdStageCache::Id>, pxrInternal_v0_24__pxrReserved__::TfHash, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true>>::_Scoped_node" = type { ptr, ptr }
 %"struct.std::_Hashtable<pxrInternal_v0_24__pxrReserved__::TfWeakPtr<pxrInternal_v0_24__pxrReserved__::SdfLayer>, std::pair<const pxrInternal_v0_24__pxrReserved__::TfWeakPtr<pxrInternal_v0_24__pxrReserved__::SdfLayer>, pxrInternal_v0_24__pxrReserved__::TfRefPtr<pxrInternal_v0_24__pxrReserved__::UsdStage>>, std::allocator<std::pair<const pxrInternal_v0_24__pxrReserved__::TfWeakPtr<pxrInternal_v0_24__pxrReserved__::SdfLayer>, pxrInternal_v0_24__pxrReserved__::TfRefPtr<pxrInternal_v0_24__pxrReserved__::UsdStage>>>, std::__detail::_Select1st, std::equal_to<pxrInternal_v0_24__pxrReserved__::TfWeakPtr<pxrInternal_v0_24__pxrReserved__::SdfLayer>>, pxrInternal_v0_24__pxrReserved__::TfHash, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, false>>::_Scoped_node" = type { ptr, ptr }
@@ -964,7 +963,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_8UsdStageEE
 
 .noexc10:                                         ; preds = %.lr.ph.preheader.i.i.i.i.i
   store ptr %12, ptr %0, align 8
-  %13 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr", ptr %12, i64 %.val
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.val
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %12, i8 0, i64 %11, i1 false)
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %12, i64 %11
   br label %14
@@ -1475,7 +1474,7 @@ _ZNSt6vectorIPN32pxrInternal_v0_24__pxrReserved__20UsdStageCacheRequestESaIS2_EE
 _ZNSt6vectorIPN32pxrInternal_v0_24__pxrReserved__20UsdStageCacheRequestESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %87, %_ZNSt6vectorIPN32pxrInternal_v0_24__pxrReserved__20UsdStageCacheRequestESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
   store ptr %82, ptr %61, align 8
   store ptr %86, ptr %62, align 8
-  %88 = getelementptr inbounds nuw ptr, ptr %82, i64 %80
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %80
   store ptr %88, ptr %64, align 8
   br label %_ZNSt6vectorIPN32pxrInternal_v0_24__pxrReserved__20UsdStageCacheRequestESaIS2_EE9push_backEOS2_.exit
 
@@ -2143,7 +2142,7 @@ _ZNSt6vectorIPN32pxrInternal_v0_24__pxrReserved__20UsdStageCacheRequest8_Mailbox
 _ZNSt6vectorIPN32pxrInternal_v0_24__pxrReserved__20UsdStageCacheRequest8_MailboxESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %33, %_ZNSt6vectorIPN32pxrInternal_v0_24__pxrReserved__20UsdStageCacheRequest8_MailboxESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
   store ptr %28, ptr %7, align 8
   store ptr %32, ptr %8, align 8
-  %34 = getelementptr inbounds nuw ptr, ptr %28, i64 %26
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %26
   store ptr %34, ptr %10, align 8
   br label %_ZNSt6vectorIPN32pxrInternal_v0_24__pxrReserved__20UsdStageCacheRequest8_MailboxESaIS3_EE9push_backERKS3_.exit
 
@@ -2324,7 +2323,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %_ZN32pxrInternal_v0
   %50 = load i64, ptr %49, align 8
   %51 = urem i64 %48, %50
   %52 = load ptr, ptr %33, align 8
-  %53 = getelementptr inbounds ptr, ptr %52, i64 %51
+  %53 = getelementptr inbounds [8 x i8], ptr %52, i64 %51
   %54 = load ptr, ptr %53, align 8
   %.not.i.i.i.i.i = icmp eq ptr %54, null
   br i1 %.not.i.i.i.i.i, label %.loopexit.i, label %55
@@ -2653,7 +2652,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %3
   %28 = load i64, ptr %27, align 8
   %29 = urem i64 %26, %28
   %30 = load ptr, ptr %13, align 8
-  %31 = getelementptr inbounds ptr, ptr %30, i64 %29
+  %31 = getelementptr inbounds [8 x i8], ptr %30, i64 %29
   %32 = load ptr, ptr %31, align 8
   %.not.i.i.i.i = icmp eq ptr %32, null
   br i1 %.not.i.i.i.i, label %.loopexit, label %33
@@ -6408,7 +6407,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %2
   %23 = load i64, ptr %22, align 8
   %24 = urem i64 %21, %23
   %25 = load ptr, ptr %18, align 8
-  %26 = getelementptr inbounds ptr, ptr %25, i64 %24
+  %26 = getelementptr inbounds [8 x i8], ptr %25, i64 %24
   %27 = load ptr, ptr %26, align 8
   %.not.i.i.i.i = icmp eq ptr %27, null
   br i1 %.not.i.i.i.i, label %.loopexit, label %28
@@ -6700,7 +6699,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_15EntryES2_EvT_S4
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_15EntryESaIS2_EE17_M_realloc_insertIJRKNS0_8TfRefPtrINS0_8UsdStageEEERKNS0_13UsdStageCache2IdEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %86, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_15EntryES2_EvT_S4_RSaIT0_E.exit.i.i
   store ptr %42, ptr %0, align 8
   store ptr %61, ptr %6, align 8
-  %105 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::(anonymous namespace)::Entry", ptr %42, i64 %38
+  %105 = getelementptr inbounds nuw [16 x i8], ptr %42, i64 %38
   store ptr %105, ptr %8, align 8
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_15EntryESaIS2_EE12emplace_backIJRKNS0_8TfRefPtrINS0_8UsdStageEEERKNS0_13UsdStageCache2IdEEEERS2_DpOT_.exit
 
@@ -7160,7 +7159,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %_ZN32pxrInternal_v0
   %34 = load i64, ptr %33, align 8
   %35 = urem i64 %32, %34
   %36 = load ptr, ptr %.pre59, align 8
-  %37 = getelementptr inbounds ptr, ptr %36, i64 %35
+  %37 = getelementptr inbounds [8 x i8], ptr %36, i64 %35
   %38 = load ptr, ptr %37, align 8
   %.not.i.i.i.i = icmp eq ptr %38, null
   br i1 %.not.i.i.i.i, label %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__13UsdStageCache2IdENS0_8TfRefPtrINS0_8UsdStageEEENS0_6TfHashESt8equal_toIS2_ESaISt4pairIKS2_S5_EEE4findERSA_.exit.thread, label %39
@@ -7254,7 +7253,7 @@ _ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__13UsdStageCache2IdENS0_
   %80 = load i64, ptr %79, align 8
   %81 = urem i64 %78, %80
   %82 = load ptr, ptr %65, align 8
-  %83 = getelementptr inbounds ptr, ptr %82, i64 %81
+  %83 = getelementptr inbounds [8 x i8], ptr %82, i64 %81
   %84 = load ptr, ptr %83, align 8
   %.not.i.i.i.i.i = icmp eq ptr %84, null
   br i1 %.not.i.i.i.i.i, label %.loopexit, label %85
@@ -7351,7 +7350,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_8UsdStageEEES
   %133 = load i64, ptr %132, align 8
   %134 = urem i64 %131, %133
   %135 = load ptr, ptr %106, align 8
-  %136 = getelementptr inbounds ptr, ptr %135, i64 %134
+  %136 = getelementptr inbounds [8 x i8], ptr %135, i64 %134
   %137 = load ptr, ptr %136, align 8
   %.not.i22.i.i.i.i = icmp eq ptr %137, null
   br i1 %.not.i22.i.i.i.i, label %.loopexit.i, label %138
@@ -7418,7 +7417,7 @@ _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_8UsdStageE
   %167 = load i64, ptr %166, align 8
   %168 = urem i64 %167, %165
   %169 = load ptr, ptr %65, align 8
-  %170 = getelementptr inbounds ptr, ptr %169, i64 %168
+  %170 = getelementptr inbounds [8 x i8], ptr %169, i64 %168
   %171 = load ptr, ptr %170, align 8
   br label %172
 
@@ -7530,7 +7529,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %_ZN32pxrInternal_v0
   %36 = load i64, ptr %35, align 8
   %37 = urem i64 %34, %36
   %38 = load ptr, ptr %31, align 8
-  %39 = getelementptr inbounds ptr, ptr %38, i64 %37
+  %39 = getelementptr inbounds [8 x i8], ptr %38, i64 %37
   %40 = load ptr, ptr %39, align 8
   %.not.i.i.i.i = icmp eq ptr %40, null
   br i1 %.not.i.i.i.i, label %_ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_8UsdStageEEENS0_13UsdStageCache2IdENS0_6TfHashESt8equal_toIS3_ESaISt4pairIKS3_S5_EEE4findERSA_.exit.thread, label %41
@@ -7628,7 +7627,7 @@ _ZNKSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_8UsdStage
   %85 = load i64, ptr %84, align 8
   %86 = urem i64 %83, %85
   %87 = load ptr, ptr %68, align 8
-  %88 = getelementptr inbounds ptr, ptr %87, i64 %86
+  %88 = getelementptr inbounds [8 x i8], ptr %87, i64 %86
   %89 = load ptr, ptr %88, align 8
   %.not.i.i.i.i.i = icmp eq ptr %89, null
   br i1 %.not.i.i.i.i.i, label %.loopexit, label %90
@@ -7702,7 +7701,7 @@ _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_8UsdStageE
   %122 = load i64, ptr %121, align 8
   %123 = urem i64 %122, %120
   %124 = load ptr, ptr %68, align 8
-  %125 = getelementptr inbounds ptr, ptr %124, i64 %123
+  %125 = getelementptr inbounds [8 x i8], ptr %124, i64 %123
   %126 = load ptr, ptr %125, align 8
   br label %127
 
@@ -7890,7 +7889,7 @@ _ZNSt18unordered_multimapIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_8Sdf
   %72 = load i64, ptr %49, align 8
   %73 = urem i64 %71, %72
   %74 = load ptr, ptr %47, align 8
-  %75 = getelementptr inbounds ptr, ptr %74, i64 %73
+  %75 = getelementptr inbounds [8 x i8], ptr %74, i64 %73
   %76 = load ptr, ptr %75, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %76, null
   br i1 %.not.i.i.i.i.i.i, label %.loopexit.i.i, label %77
@@ -7990,7 +7989,7 @@ _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_8UsdStageE
   %111 = load i64, ptr %110, align 8
   %112 = urem i64 %111, %109
   %113 = load ptr, ptr %47, align 8
-  %114 = getelementptr inbounds ptr, ptr %113, i64 %112
+  %114 = getelementptr inbounds [8 x i8], ptr %113, i64 %112
   %115 = load ptr, ptr %114, align 8
   br label %116
 
@@ -8010,7 +8009,7 @@ _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_8UsdStageE
   %121 = load i64, ptr %120, align 8
   %122 = urem i64 %121, %119
   %123 = load ptr, ptr %22, align 8
-  %124 = getelementptr inbounds ptr, ptr %123, i64 %122
+  %124 = getelementptr inbounds [8 x i8], ptr %123, i64 %122
   %125 = load ptr, ptr %124, align 8
   br label %126
 
@@ -8336,7 +8335,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114StageContainer8EraseAllERK
   %115 = load i64, ptr %54, align 8
   %116 = urem i64 %114, %115
   %117 = load ptr, ptr %52, align 8
-  %118 = getelementptr inbounds ptr, ptr %117, i64 %116
+  %118 = getelementptr inbounds [8 x i8], ptr %117, i64 %116
   %119 = load ptr, ptr %118, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %119, null
   br i1 %.not.i.i.i.i.i.i, label %.loopexit.i.i, label %120
@@ -8436,7 +8435,7 @@ _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_8UsdStageE
   %154 = load i64, ptr %153, align 8
   %155 = urem i64 %154, %152
   %156 = load ptr, ptr %52, align 8
-  %157 = getelementptr inbounds ptr, ptr %156, i64 %155
+  %157 = getelementptr inbounds [8 x i8], ptr %156, i64 %155
   %158 = load ptr, ptr %157, align 8
   br label %159
 
@@ -8456,7 +8455,7 @@ _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_8UsdStageE
   %164 = load i64, ptr %163, align 8
   %165 = urem i64 %164, %162
   %166 = load ptr, ptr %25, align 8
-  %167 = getelementptr inbounds ptr, ptr %166, i64 %165
+  %167 = getelementptr inbounds [8 x i8], ptr %166, i64 %165
   %168 = load ptr, ptr %167, align 8
   br label %169
 
@@ -8945,7 +8944,7 @@ _ZZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_114StageContainer8EraseAllERK
   %179 = load i64, ptr %59, align 8
   %180 = urem i64 %178, %179
   %181 = load ptr, ptr %57, align 8
-  %182 = getelementptr inbounds ptr, ptr %181, i64 %180
+  %182 = getelementptr inbounds [8 x i8], ptr %181, i64 %180
   %183 = load ptr, ptr %182, align 8
   %.not.i.i.i.i.i.i = icmp eq ptr %183, null
   br i1 %.not.i.i.i.i.i.i, label %.loopexit.i.i, label %184
@@ -9045,7 +9044,7 @@ _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_8UsdStageE
   %218 = load i64, ptr %217, align 8
   %219 = urem i64 %218, %216
   %220 = load ptr, ptr %57, align 8
-  %221 = getelementptr inbounds ptr, ptr %220, i64 %219
+  %221 = getelementptr inbounds [8 x i8], ptr %220, i64 %219
   %222 = load ptr, ptr %221, align 8
   br label %223
 
@@ -9065,7 +9064,7 @@ _ZNSt13unordered_mapIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_8UsdStageE
   %228 = load i64, ptr %227, align 8
   %229 = urem i64 %228, %226
   %230 = load ptr, ptr %28, align 8
-  %231 = getelementptr inbounds ptr, ptr %230, i64 %229
+  %231 = getelementptr inbounds [8 x i8], ptr %230, i64 %229
   %232 = load ptr, ptr %231, align 8
   br label %233
 
@@ -9480,7 +9479,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__13UsdStageCache2IdESt4pairI
   %31 = load i64, ptr %30, align 8
   %32 = load i64, ptr %25, align 8
   %33 = urem i64 %32, %31
-  %34 = getelementptr inbounds ptr, ptr %29, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %29, i64 %33
   store ptr %28, ptr %34, align 8
   %.02734 = load ptr, ptr %19, align 8
   %.not2935 = icmp eq ptr %.02734, null
@@ -9503,7 +9502,7 @@ _ZNKSt8__detail10_AllocNodeISaINS_10_Hash_nodeISt4pairIKN32pxrInternal_v0_24__px
   %41 = load i64, ptr %30, align 8
   %42 = urem i64 %40, %41
   %43 = load ptr, ptr %0, align 8
-  %44 = getelementptr inbounds ptr, ptr %43, i64 %42
+  %44 = getelementptr inbounds [8 x i8], ptr %43, i64 %42
   %45 = load ptr, ptr %44, align 8
   %.not31 = icmp eq ptr %45, null
   br i1 %.not31, label %46, label %58
@@ -9802,7 +9801,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_8UsdStageEEES
   %31 = load i64, ptr %30, align 8
   %32 = load i64, ptr %25, align 8
   %33 = urem i64 %32, %31
-  %34 = getelementptr inbounds ptr, ptr %29, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %29, i64 %33
   store ptr %28, ptr %34, align 8
   %.02734 = load ptr, ptr %19, align 8
   %.not2935 = icmp eq ptr %.02734, null
@@ -9825,7 +9824,7 @@ _ZNKSt8__detail10_AllocNodeISaINS_10_Hash_nodeISt4pairIKN32pxrInternal_v0_24__px
   %41 = load i64, ptr %30, align 8
   %42 = urem i64 %40, %41
   %43 = load ptr, ptr %0, align 8
-  %44 = getelementptr inbounds ptr, ptr %43, i64 %42
+  %44 = getelementptr inbounds [8 x i8], ptr %43, i64 %42
   %45 = load ptr, ptr %44, align 8
   %.not31 = icmp eq ptr %45, null
   br i1 %.not31, label %46, label %58
@@ -10114,7 +10113,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_8SdfLayerEEE
   %31 = load i64, ptr %30, align 8
   %32 = load i64, ptr %25, align 8
   %33 = urem i64 %32, %31
-  %34 = getelementptr inbounds ptr, ptr %29, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %29, i64 %33
   store ptr %28, ptr %34, align 8
   %.02734 = load ptr, ptr %19, align 8
   %.not2935 = icmp eq ptr %.02734, null
@@ -10137,7 +10136,7 @@ _ZNKSt8__detail10_AllocNodeISaINS_10_Hash_nodeISt4pairIKN32pxrInternal_v0_24__px
   %41 = load i64, ptr %30, align 8
   %42 = urem i64 %40, %41
   %43 = load ptr, ptr %0, align 8
-  %44 = getelementptr inbounds ptr, ptr %43, i64 %42
+  %44 = getelementptr inbounds [8 x i8], ptr %43, i64 %42
   %45 = load ptr, ptr %44, align 8
   %.not31 = icmp eq ptr %45, null
   br i1 %.not31, label %46, label %58
@@ -10872,7 +10871,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrRese
   %15 = load i64, ptr %14, align 8
   %16 = urem i64 %13, %15
   %17 = load ptr, ptr %0, align 8
-  %18 = getelementptr inbounds ptr, ptr %17, i64 %16
+  %18 = getelementptr inbounds [8 x i8], ptr %17, i64 %16
   %19 = load ptr, ptr %18, align 8
   %.not.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_8UsdStageEEESt4pairIKS3_NS0_13UsdStageCache2IdEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS3_ENS0_6TfHashENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS5_m.exit.thread, label %38
@@ -11078,7 +11077,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_8UsdStageEEES
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2, ptr %32, align 8
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %41, label %36
@@ -11087,7 +11086,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_8UsdStageEEES
   %37 = load ptr, ptr %35, align 8
   store ptr %37, ptr %3, align 8
   %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds ptr, ptr %38, i64 %.0
+  %39 = getelementptr inbounds [8 x i8], ptr %38, i64 %.0
   %40 = load ptr, ptr %39, align 8
   store ptr %3, ptr %40, align 8
   br label %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_8UsdStageEEESt4pairIKS3_NS0_13UsdStageCache2IdEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS3_ENS0_6TfHashENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE22_M_insert_bucket_beginEmPNSA_10_Hash_nodeIS8_Lb1EEE.exit
@@ -11107,13 +11106,13 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_8UsdStageEEES
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %49 = load i64, ptr %48, align 8
   %50 = urem i64 %49, %47
-  %51 = getelementptr inbounds ptr, ptr %46, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %46, i64 %50
   store ptr %3, ptr %51, align 8
   br label %52
 
 52:                                               ; preds = %45, %41
   %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds ptr, ptr %53, i64 %.0
+  %54 = getelementptr inbounds [8 x i8], ptr %53, i64 %.0
   store ptr %42, ptr %54, align 8
   br label %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_8UsdStageEEESt4pairIKS3_NS0_13UsdStageCache2IdEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS3_ENS0_6TfHashENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE22_M_insert_bucket_beginEmPNSA_10_Hash_nodeIS8_Lb1EEE.exit
 
@@ -11313,7 +11312,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_8UsdStageEEES
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 24
   %16 = load i64, ptr %15, align 8
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -11328,7 +11327,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_8UsdStageEEES
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8
   br label %28
 
@@ -11412,7 +11411,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrRese
 
 26:                                               ; preds = %.loopexit
   %27 = load ptr, ptr %0, align 8
-  %28 = getelementptr inbounds ptr, ptr %27, i64 %25
+  %28 = getelementptr inbounds [8 x i8], ptr %27, i64 %25
   %29 = load ptr, ptr %28, align 8
   %.not.i.i = icmp eq ptr %29, null
   br i1 %.not.i.i, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__13UsdStageCache2IdESt4pairIKS2_NS0_8TfRefPtrINS0_8UsdStageEEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS2_ENS0_6TfHashENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS4_m.exit.thread, label %30
@@ -11584,7 +11583,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__13UsdStageCache2IdESt4pairI
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2, ptr %32, align 8
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %41, label %36
@@ -11593,7 +11592,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__13UsdStageCache2IdESt4pairI
   %37 = load ptr, ptr %35, align 8
   store ptr %37, ptr %3, align 8
   %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds ptr, ptr %38, i64 %.0
+  %39 = getelementptr inbounds [8 x i8], ptr %38, i64 %.0
   %40 = load ptr, ptr %39, align 8
   store ptr %3, ptr %40, align 8
   br label %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__13UsdStageCache2IdESt4pairIKS2_NS0_8TfRefPtrINS0_8UsdStageEEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS2_ENS0_6TfHashENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE22_M_insert_bucket_beginEmPNSA_10_Hash_nodeIS8_Lb1EEE.exit
@@ -11613,13 +11612,13 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__13UsdStageCache2IdESt4pairI
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %49 = load i64, ptr %48, align 8
   %50 = urem i64 %49, %47
-  %51 = getelementptr inbounds ptr, ptr %46, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %46, i64 %50
   store ptr %3, ptr %51, align 8
   br label %52
 
 52:                                               ; preds = %45, %41
   %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds ptr, ptr %53, i64 %.0
+  %54 = getelementptr inbounds [8 x i8], ptr %53, i64 %.0
   store ptr %42, ptr %54, align 8
   br label %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__13UsdStageCache2IdESt4pairIKS2_NS0_8TfRefPtrINS0_8UsdStageEEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS2_ENS0_6TfHashENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE22_M_insert_bucket_beginEmPNSA_10_Hash_nodeIS8_Lb1EEE.exit
 
@@ -11817,7 +11816,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__13UsdStageCache2IdESt4pairI
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 24
   %16 = load i64, ptr %15, align 8
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -11832,7 +11831,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__13UsdStageCache2IdESt4pairI
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8
   br label %28
 
@@ -12130,7 +12129,7 @@ _ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_8SdfLayerEE
 
 _ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS1_8SdfLayerEEESt4pairIKS4_NS1_8TfRefPtrINS1_8UsdStageEEEENS_10_Select1stESt8equal_toIS4_ENS1_6TfHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb0EEEE9_M_equalsERS6_mRKNS_16_Hash_node_valueISA_Lb1EEE.exit.thread: ; preds = %31, %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS1_8SdfLayerEEESt4pairIKS4_NS1_8TfRefPtrINS1_8UsdStageEEEENS_10_Select1stESt8equal_toIS4_ENS1_6TfHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb0EEEE9_M_equalsERS6_mRKNS_16_Hash_node_valueISA_Lb1EEE.exit, %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_8SdfLayerEEESt4pairIKS3_NS0_8TfRefPtrINS0_8UsdStageEEEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS3_ENS0_6TfHashENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb0EEEE9_M_rehashEmRKm.exit
   %52 = load ptr, ptr %0, align 8
-  %53 = getelementptr inbounds ptr, ptr %52, i64 %30
+  %53 = getelementptr inbounds [8 x i8], ptr %52, i64 %30
   %54 = load ptr, ptr %53, align 8
   %.not.i = icmp eq ptr %54, null
   br i1 %.not.i, label %.loopexit.thread, label %55
@@ -12258,13 +12257,13 @@ _ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIN
 
 109:                                              ; preds = %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS1_8SdfLayerEEESt4pairIKS4_NS1_8TfRefPtrINS1_8UsdStageEEEENS_10_Select1stESt8equal_toIS4_ENS1_6TfHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb0EEEE9_M_equalsERS6_mRKNS_16_Hash_node_valueISA_Lb1EEE.exit43.thread
   %110 = load ptr, ptr %0, align 8
-  %111 = getelementptr inbounds ptr, ptr %110, i64 %108
+  %111 = getelementptr inbounds [8 x i8], ptr %110, i64 %108
   store ptr %3, ptr %111, align 8
   br label %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_8SdfLayerEEESt4pairIKS3_NS0_8TfRefPtrINS0_8UsdStageEEEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS3_ENS0_6TfHashENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb0EEEE22_M_insert_bucket_beginEmPNSB_10_Hash_nodeIS9_Lb1EEE.exit
 
 .loopexit:                                        ; preds = %77, %_ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS1_8SdfLayerEEESt4pairIKS4_NS1_8TfRefPtrINS1_8UsdStageEEEENS_10_Select1stESt8equal_toIS4_ENS1_6TfHashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb0EEEE9_M_equalsERS6_mRKNS_16_Hash_node_valueISA_Lb1EEE.exit.thread.i
   %.pre50 = load ptr, ptr %0, align 8
-  %.phi.trans.insert51 = getelementptr inbounds ptr, ptr %.pre50, i64 %30
+  %.phi.trans.insert51 = getelementptr inbounds [8 x i8], ptr %.pre50, i64 %30
   %.pre52 = load ptr, ptr %.phi.trans.insert51, align 8
   %.not.i44 = icmp eq ptr %.pre52, null
   br i1 %.not.i44, label %.loopexit.thread, label %112
@@ -12273,7 +12272,7 @@ _ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIN
   %113 = load ptr, ptr %.pre52, align 8
   store ptr %113, ptr %3, align 8
   %114 = load ptr, ptr %0, align 8
-  %115 = getelementptr inbounds ptr, ptr %114, i64 %30
+  %115 = getelementptr inbounds [8 x i8], ptr %114, i64 %30
   %116 = load ptr, ptr %115, align 8
   store ptr %3, ptr %116, align 8
   br label %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_8SdfLayerEEESt4pairIKS3_NS0_8TfRefPtrINS0_8UsdStageEEEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS3_ENS0_6TfHashENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb0EEEE22_M_insert_bucket_beginEmPNSB_10_Hash_nodeIS9_Lb1EEE.exit
@@ -12293,13 +12292,13 @@ _ZNKSt8__detail15_Hashtable_baseIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIN
   %123 = getelementptr inbounds nuw i8, ptr %119, i64 32
   %124 = load i64, ptr %123, align 8
   %125 = urem i64 %124, %122
-  %126 = getelementptr inbounds ptr, ptr %121, i64 %125
+  %126 = getelementptr inbounds [8 x i8], ptr %121, i64 %125
   store ptr %3, ptr %126, align 8
   br label %127
 
 127:                                              ; preds = %120, %.loopexit.thread
   %128 = load ptr, ptr %0, align 8
-  %129 = getelementptr inbounds ptr, ptr %128, i64 %30
+  %129 = getelementptr inbounds [8 x i8], ptr %128, i64 %30
   store ptr %117, ptr %129, align 8
   br label %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_8SdfLayerEEESt4pairIKS3_NS0_8TfRefPtrINS0_8UsdStageEEEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS3_ENS0_6TfHashENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb0EEEE22_M_insert_bucket_beginEmPNSB_10_Hash_nodeIS9_Lb1EEE.exit
 
@@ -12572,12 +12571,12 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_8SdfLayerEEE
   br i1 %.not64, label %31, label %29
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds ptr, ptr %.0.i, i64 %28
+  %30 = getelementptr inbounds [8 x i8], ptr %.0.i, i64 %28
   store ptr %.05469, ptr %30, align 8
   br label %31
 
 31:                                               ; preds = %23, %29, %25, %21
-  %32 = getelementptr inbounds ptr, ptr %.0.i, i64 %17
+  %32 = getelementptr inbounds [8 x i8], ptr %.0.i, i64 %17
   %33 = load ptr, ptr %32, align 8
   %.not65 = icmp eq ptr %33, null
   br i1 %.not65, label %34, label %39
@@ -12592,7 +12591,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_8SdfLayerEEE
   br i1 %.not66, label %42, label %37
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds ptr, ptr %.0.i, i64 %.05271
+  %38 = getelementptr inbounds [8 x i8], ptr %.0.i, i64 %.05271
   store ptr %.072, ptr %38, align 8
   br label %42
 
@@ -12626,7 +12625,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_8SdfLayerEEE
   br i1 %.not61, label %._crit_edge.thread, label %50
 
 50:                                               ; preds = %46
-  %51 = getelementptr inbounds ptr, ptr %.0.i, i64 %49
+  %51 = getelementptr inbounds [8 x i8], ptr %.0.i, i64 %49
   store ptr %.072, ptr %51, align 8
   br label %._crit_edge.thread
 
@@ -12925,7 +12924,7 @@ _ZSt7find_ifINSt8__detail14_Node_iteratorISt4pairIKN32pxrInternal_v0_24__pxrRese
   %55 = load i64, ptr %54, align 8
   %56 = urem i64 %55, %53
   %57 = load ptr, ptr %7, align 8
-  %58 = getelementptr inbounds ptr, ptr %57, i64 %56
+  %58 = getelementptr inbounds [8 x i8], ptr %57, i64 %56
   %59 = load ptr, ptr %58, align 8
   br label %60
 
@@ -13073,7 +13072,7 @@ _ZNKSt8__detail15_Hash_code_baseIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIN
   %36 = load i64, ptr %35, align 8
   %37 = urem i64 %34, %36
   %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds ptr, ptr %38, i64 %37
+  %39 = getelementptr inbounds [8 x i8], ptr %38, i64 %37
   %40 = load ptr, ptr %39, align 8
   %.not.i.i = icmp eq ptr %40, null
   br i1 %.not.i.i, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_8SdfLayerEEESt4pairIKS3_NS0_8TfRefPtrINS0_8UsdStageEEEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS3_ENS0_6TfHashENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb0EEEE12_M_find_nodeEmRS5_m.exit, label %41
@@ -13147,7 +13146,7 @@ _ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_8SdfLayerEE
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr ptr @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_8SdfLayerEEESt4pairIKS3_NS0_8TfRefPtrINS0_8UsdStageEEEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS3_ENS0_6TfHashENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb0EEEE8_M_eraseEmPNSB_15_Hash_node_baseEPNSB_10_Hash_nodeIS9_Lb1EEE(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds ptr, ptr %5, i64 %1
+  %6 = getelementptr inbounds [8 x i8], ptr %5, i64 %1
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %2, %7
   %9 = load ptr, ptr %3, align 8
@@ -13167,10 +13166,10 @@ define linkonce_odr ptr @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__9T
   br i1 %.not9.i, label %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_8SdfLayerEEESt4pairIKS3_NS0_8TfRefPtrINS0_8UsdStageEEEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS3_ENS0_6TfHashENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb0EEEE22_M_remove_bucket_beginEmPNSB_10_Hash_nodeIS9_Lb1EEEm.exit, label %17
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds ptr, ptr %5, i64 %16
+  %18 = getelementptr inbounds [8 x i8], ptr %5, i64 %16
   store ptr %7, ptr %18, align 8
   %.pre = load ptr, ptr %0, align 8
-  %.phi.trans.insert = getelementptr inbounds ptr, ptr %.pre, i64 %1
+  %.phi.trans.insert = getelementptr inbounds [8 x i8], ptr %.pre, i64 %1
   %.pre25 = load ptr, ptr %.phi.trans.insert, align 8
   br label %.thread23
 
@@ -13178,7 +13177,7 @@ define linkonce_odr ptr @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__9T
   %19 = phi ptr [ %2, %10 ], [ %.pre25, %17 ]
   %20 = phi ptr [ %5, %10 ], [ %.pre, %17 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %22 = getelementptr inbounds ptr, ptr %20, i64 %1
+  %22 = getelementptr inbounds [8 x i8], ptr %20, i64 %1
   %23 = icmp eq ptr %21, %19
   br i1 %23, label %24, label %25
 
@@ -13203,7 +13202,7 @@ define linkonce_odr ptr @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__9T
   br i1 %.not17, label %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_8SdfLayerEEESt4pairIKS3_NS0_8TfRefPtrINS0_8UsdStageEEEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS3_ENS0_6TfHashENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb0EEEE22_M_remove_bucket_beginEmPNSB_10_Hash_nodeIS9_Lb1EEEm.exit, label %33
 
 33:                                               ; preds = %27
-  %34 = getelementptr inbounds ptr, ptr %5, i64 %32
+  %34 = getelementptr inbounds [8 x i8], ptr %5, i64 %32
   store ptr %2, ptr %34, align 8
   br label %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_8SdfLayerEEESt4pairIKS3_NS0_8TfRefPtrINS0_8UsdStageEEEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS3_ENS0_6TfHashENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb0EEEE22_M_remove_bucket_beginEmPNSB_10_Hash_nodeIS9_Lb1EEEm.exit
 
@@ -13294,7 +13293,7 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN32pxrInternal_v0_2
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr ptr @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_8UsdStageEEESt4pairIKS3_NS0_13UsdStageCache2IdEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS3_ENS0_6TfHashENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE8_M_eraseEmPNSA_15_Hash_node_baseEPNSA_10_Hash_nodeIS8_Lb1EEE(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds ptr, ptr %5, i64 %1
+  %6 = getelementptr inbounds [8 x i8], ptr %5, i64 %1
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %2, %7
   %9 = load ptr, ptr %3, align 8
@@ -13314,10 +13313,10 @@ define linkonce_odr ptr @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__8T
   br i1 %.not9.i, label %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_8UsdStageEEESt4pairIKS3_NS0_13UsdStageCache2IdEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS3_ENS0_6TfHashENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE22_M_remove_bucket_beginEmPNSA_10_Hash_nodeIS8_Lb1EEEm.exit, label %17
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds ptr, ptr %5, i64 %16
+  %18 = getelementptr inbounds [8 x i8], ptr %5, i64 %16
   store ptr %7, ptr %18, align 8
   %.pre = load ptr, ptr %0, align 8
-  %.phi.trans.insert = getelementptr inbounds ptr, ptr %.pre, i64 %1
+  %.phi.trans.insert = getelementptr inbounds [8 x i8], ptr %.pre, i64 %1
   %.pre25 = load ptr, ptr %.phi.trans.insert, align 8
   br label %.thread23
 
@@ -13325,7 +13324,7 @@ define linkonce_odr ptr @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__8T
   %19 = phi ptr [ %2, %10 ], [ %.pre25, %17 ]
   %20 = phi ptr [ %5, %10 ], [ %.pre, %17 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %22 = getelementptr inbounds ptr, ptr %20, i64 %1
+  %22 = getelementptr inbounds [8 x i8], ptr %20, i64 %1
   %23 = icmp eq ptr %21, %19
   br i1 %23, label %24, label %25
 
@@ -13350,7 +13349,7 @@ define linkonce_odr ptr @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__8T
   br i1 %.not17, label %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_8UsdStageEEESt4pairIKS3_NS0_13UsdStageCache2IdEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS3_ENS0_6TfHashENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE22_M_remove_bucket_beginEmPNSA_10_Hash_nodeIS8_Lb1EEEm.exit, label %33
 
 33:                                               ; preds = %27
-  %34 = getelementptr inbounds ptr, ptr %5, i64 %32
+  %34 = getelementptr inbounds [8 x i8], ptr %5, i64 %32
   store ptr %2, ptr %34, align 8
   br label %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_8UsdStageEEESt4pairIKS3_NS0_13UsdStageCache2IdEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS3_ENS0_6TfHashENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE22_M_remove_bucket_beginEmPNSA_10_Hash_nodeIS8_Lb1EEEm.exit
 
@@ -13422,7 +13421,7 @@ _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN32pxrInternal_v0_2
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr ptr @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__13UsdStageCache2IdESt4pairIKS2_NS0_8TfRefPtrINS0_8UsdStageEEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS2_ENS0_6TfHashENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE8_M_eraseEmPNSA_15_Hash_node_baseEPNSA_10_Hash_nodeIS8_Lb1EEE(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds ptr, ptr %5, i64 %1
+  %6 = getelementptr inbounds [8 x i8], ptr %5, i64 %1
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %2, %7
   %9 = load ptr, ptr %3, align 8
@@ -13442,10 +13441,10 @@ define linkonce_odr ptr @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__13
   br i1 %.not9.i, label %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__13UsdStageCache2IdESt4pairIKS2_NS0_8TfRefPtrINS0_8UsdStageEEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS2_ENS0_6TfHashENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE22_M_remove_bucket_beginEmPNSA_10_Hash_nodeIS8_Lb1EEEm.exit, label %17
 
 17:                                               ; preds = %11
-  %18 = getelementptr inbounds ptr, ptr %5, i64 %16
+  %18 = getelementptr inbounds [8 x i8], ptr %5, i64 %16
   store ptr %7, ptr %18, align 8
   %.pre = load ptr, ptr %0, align 8
-  %.phi.trans.insert = getelementptr inbounds ptr, ptr %.pre, i64 %1
+  %.phi.trans.insert = getelementptr inbounds [8 x i8], ptr %.pre, i64 %1
   %.pre25 = load ptr, ptr %.phi.trans.insert, align 8
   br label %.thread23
 
@@ -13453,7 +13452,7 @@ define linkonce_odr ptr @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__13
   %19 = phi ptr [ %2, %10 ], [ %.pre25, %17 ]
   %20 = phi ptr [ %5, %10 ], [ %.pre, %17 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %22 = getelementptr inbounds ptr, ptr %20, i64 %1
+  %22 = getelementptr inbounds [8 x i8], ptr %20, i64 %1
   %23 = icmp eq ptr %21, %19
   br i1 %23, label %24, label %25
 
@@ -13478,7 +13477,7 @@ define linkonce_odr ptr @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__13
   br i1 %.not17, label %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__13UsdStageCache2IdESt4pairIKS2_NS0_8TfRefPtrINS0_8UsdStageEEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS2_ENS0_6TfHashENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE22_M_remove_bucket_beginEmPNSA_10_Hash_nodeIS8_Lb1EEEm.exit, label %33
 
 33:                                               ; preds = %27
-  %34 = getelementptr inbounds ptr, ptr %5, i64 %32
+  %34 = getelementptr inbounds [8 x i8], ptr %5, i64 %32
   store ptr %2, ptr %34, align 8
   br label %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__13UsdStageCache2IdESt4pairIKS2_NS0_8TfRefPtrINS0_8UsdStageEEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS2_ENS0_6TfHashENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE22_M_remove_bucket_beginEmPNSA_10_Hash_nodeIS8_Lb1EEEm.exit
 
@@ -13598,7 +13597,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__13UsdStageCache2IdESt4pairI
   %28 = load i64, ptr %27, align 8
   %29 = urem i64 %26, %28
   %30 = load ptr, ptr %0, align 8
-  %31 = getelementptr inbounds ptr, ptr %30, i64 %29
+  %31 = getelementptr inbounds [8 x i8], ptr %30, i64 %29
   %32 = load ptr, ptr %31, align 8
   %.not.i22 = icmp eq ptr %32, null
   br i1 %.not.i22, label %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__13UsdStageCache2IdESt4pairIKS2_NS0_8TfRefPtrINS0_8UsdStageEEEESaIS8_ENSt8__detail10_Select1stESt8equal_toIS2_ENS0_6TfHashENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_find_before_nodeERS4_.exit.thread, label %33
@@ -13889,7 +13888,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_15EntryES2_EvT_S4
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_15EntryESaIS2_EE17_M_realloc_insertIJRKNS0_8TfRefPtrINS0_8UsdStageEEERNS0_13UsdStageCache2IdEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit: ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_15EntryES2_EvT_S4_RSaIT0_E.exit.i, %84
   store ptr %38, ptr %0, align 8
   store ptr %58, ptr %2, align 8
-  %103 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::(anonymous namespace)::Entry", ptr %38, i64 %34
+  %103 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %34
   store ptr %103, ptr %4, align 8
   br label %104
 
@@ -14176,7 +14175,7 @@ _ZNKSt8__detail15_Hash_code_baseIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrIN
   %36 = load i64, ptr %35, align 8
   %37 = urem i64 %34, %36
   %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds ptr, ptr %38, i64 %37
+  %39 = getelementptr inbounds [8 x i8], ptr %38, i64 %37
   %40 = load ptr, ptr %39, align 8
   %.not.i.i = icmp eq ptr %40, null
   br i1 %.not.i.i, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS0_8SdfLayerEEESt4pairIKS3_NS0_8TfRefPtrINS0_8UsdStageEEEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS3_ENS0_6TfHashENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb0EEEE12_M_find_nodeEmRS5_m.exit, label %41
@@ -14400,7 +14399,7 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_8UsdStageEEES3_E
 _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_8UsdStageEEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS0_8UsdStageEEES3_EvT_S5_RSaIT0_E.exit, %67
   store ptr %22, ptr %0, align 8
   store ptr %40, ptr %4, align 8
-  %71 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr", ptr %22, i64 %16
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %16
   store ptr %71, ptr %66, align 8
   ret void
 

@@ -54,7 +54,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<const jsonnet::internal::Identifier *, std::allocator<const jsonnet::internal::Identifier *>>::_Vector_impl" = type { %"struct.std::_Vector_base<const jsonnet::internal::Identifier *, std::allocator<const jsonnet::internal::Identifier *>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<const jsonnet::internal::Identifier *, std::allocator<const jsonnet::internal::Identifier *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %class.anon = type { %"struct.jsonnet::internal::BuiltinDecl" }
-%"struct.jsonnet::internal::DesugaredObject::Field" = type { i32, ptr, ptr }
 %"class.std::vector.104" = type { %"struct.std::_Vector_base.105" }
 %"struct.std::_Vector_base.105" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
@@ -84,7 +83,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.79" = type { %"struct.std::_Vector_base<jsonnet::internal::Array::Element, std::allocator<jsonnet::internal::Array::Element>>::_Vector_impl" }
 %"struct.std::_Vector_base<jsonnet::internal::Array::Element, std::allocator<jsonnet::internal::Array::Element>>::_Vector_impl" = type { %"struct.std::_Vector_base<jsonnet::internal::Array::Element, std::allocator<jsonnet::internal::Array::Element>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<jsonnet::internal::Array::Element, std::allocator<jsonnet::internal::Array::Element>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.jsonnet::internal::ComprehensionSpec" = type { i32, %"class.std::vector", %"class.std::vector", ptr, %"class.std::vector", ptr }
 %"struct.jsonnet::internal::ObjectField" = type { i32, %"class.std::vector", %"class.std::vector", %"class.std::vector", %"class.std::vector", i32, i8, i8, ptr, ptr, %"struct.jsonnet::internal::LocationRange", %"class.std::vector.72", i8, %"class.std::vector", ptr, ptr, %"class.std::vector" }
 %"class.std::vector.124" = type { %"struct.std::_Vector_base.125" }
 %"struct.std::_Vector_base.125" = type { %"struct.std::_Vector_base<std::pair<const jsonnet::internal::Identifier *, jsonnet::internal::AST *>, std::allocator<std::pair<const jsonnet::internal::Identifier *, jsonnet::internal::AST *>>>::_Vector_impl" }
@@ -110,7 +108,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<jsonnet::internal::ObjectField, std::allocator<jsonnet::internal::ObjectField>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %class.SubstituteSelfSuper = type { %"class.jsonnet::internal::CompilerPass", ptr, ptr, ptr, ptr }
 %"class.jsonnet::internal::CompilerPass" = type { ptr, ptr }
-%"struct.std::pair.131" = type { ptr, ptr }
 
 $_ZNSt3mapIN7jsonnet8internal8BinaryOpEiSt4lessIS2_ESaISt4pairIKS2_iEEED2Ev = comdat any
 
@@ -5601,8 +5598,8 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE9_M_createERmm.exit.i.i:
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %.lr.ph.i.i.i.i, %88
   %.01216.i.i.i.i.i.i.i.i = phi i64 [ %89, %88 ], [ 0, %.lr.ph.i.i.i.i ]
-  %90 = getelementptr inbounds nuw i32, ptr %87, i64 %.01216.i.i.i.i.i.i.i.i
-  %91 = getelementptr inbounds nuw i32, ptr %.pre.i, i64 %.01216.i.i.i.i.i.i.i.i
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %.01216.i.i.i.i.i.i.i.i
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %.pre.i, i64 %.01216.i.i.i.i.i.i.i.i
   %92 = load i32, ptr %90, align 4, !tbaa !38
   %93 = load i32, ptr %91, align 4, !tbaa !38
   %94 = icmp ult i32 %92, %93
@@ -5648,8 +5645,8 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEESt4pairIKS
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %101, %106
   %.01216.i.i.i.i.i.i.i = phi i64 [ %107, %106 ], [ 0, %101 ]
-  %108 = getelementptr inbounds nuw i32, ptr %.pre.i, i64 %.01216.i.i.i.i.i.i.i
-  %109 = getelementptr inbounds nuw i32, ptr %105, i64 %.01216.i.i.i.i.i.i.i
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %.pre.i, i64 %.01216.i.i.i.i.i.i.i
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %105, i64 %.01216.i.i.i.i.i.i.i
   %110 = load i32, ptr %108, align 4, !tbaa !38
   %111 = load i32, ptr %109, align 4, !tbaa !38
   %112 = icmp ult i32 %110, %111
@@ -5749,8 +5746,8 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE9_M_createERmm.exit.i.i.
 
 .lr.ph.i.i.i.i.i.i.i.i134:                        ; preds = %135, %140
   %.01216.i.i.i.i.i.i.i.i135 = phi i64 [ %141, %140 ], [ 0, %135 ]
-  %142 = getelementptr inbounds nuw i32, ptr %139, i64 %.01216.i.i.i.i.i.i.i.i135
-  %143 = getelementptr inbounds nuw i32, ptr %134, i64 %.01216.i.i.i.i.i.i.i.i135
+  %142 = getelementptr inbounds nuw [4 x i8], ptr %139, i64 %.01216.i.i.i.i.i.i.i.i135
+  %143 = getelementptr inbounds nuw [4 x i8], ptr %134, i64 %.01216.i.i.i.i.i.i.i.i135
   %144 = load i32, ptr %142, align 4, !tbaa !38
   %145 = load i32, ptr %143, align 4, !tbaa !38
   %146 = icmp ult i32 %144, %145
@@ -5796,8 +5793,8 @@ _ZNSt3mapINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEEPKN7jsonnet8int
 
 .lr.ph.i.i.i.i.i145:                              ; preds = %153, %158
   %.01216.i.i.i.i.i = phi i64 [ %159, %158 ], [ 0, %153 ]
-  %160 = getelementptr inbounds nuw i32, ptr %134, i64 %.01216.i.i.i.i.i
-  %161 = getelementptr inbounds nuw i32, ptr %157, i64 %.01216.i.i.i.i.i
+  %160 = getelementptr inbounds nuw [4 x i8], ptr %134, i64 %.01216.i.i.i.i.i
+  %161 = getelementptr inbounds nuw [4 x i8], ptr %157, i64 %.01216.i.i.i.i.i
   %162 = load i32, ptr %160, align 4, !tbaa !38
   %163 = load i32, ptr %161, align 4, !tbaa !38
   %164 = icmp ult i32 %162, %163
@@ -5863,8 +5860,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEEEclERKS5_S8_.
 
 .lr.ph.i.i.i.i.i.i.i152:                          ; preds = %177, %185
   %.01216.i.i.i.i.i.i.i153 = phi i64 [ %186, %185 ], [ 0, %177 ]
-  %187 = getelementptr inbounds nuw i32, ptr %183, i64 %.01216.i.i.i.i.i.i.i153
-  %188 = getelementptr inbounds nuw i32, ptr %184, i64 %.01216.i.i.i.i.i.i.i153
+  %187 = getelementptr inbounds nuw [4 x i8], ptr %183, i64 %.01216.i.i.i.i.i.i.i153
+  %188 = getelementptr inbounds nuw [4 x i8], ptr %184, i64 %.01216.i.i.i.i.i.i.i153
   %189 = load i32, ptr %187, align 4, !tbaa !38
   %190 = load i32, ptr %188, align 4, !tbaa !38
   %or.cond.not = icmp eq i32 %190, %189
@@ -6008,7 +6005,7 @@ _ZNSt6vectorIPKN7jsonnet8internal10IdentifierESaIS4_EE11_S_relocateEPS4_S7_S7_RS
 _ZNSt6vectorIPKN7jsonnet8internal10IdentifierESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i: ; preds = %231, %_ZNSt6vectorIPKN7jsonnet8internal10IdentifierESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i.i
   store ptr %226, ptr %12, align 8, !tbaa !77
   store ptr %230, ptr %51, align 8, !tbaa !71
-  %232 = getelementptr inbounds nuw ptr, ptr %226, i64 %224
+  %232 = getelementptr inbounds nuw [8 x i8], ptr %226, i64 %224
   store ptr %232, ptr %52, align 8, !tbaa !75
   br label %_ZNSt6vectorIPKN7jsonnet8internal10IdentifierESaIS4_EE9push_backEOS4_.exit
 
@@ -6657,7 +6654,7 @@ _ZNSt6vectorIN7jsonnet8internal15DesugaredObject5FieldESaIS3_EE11_S_relocateEPS3
 _ZNSt6vectorIN7jsonnet8internal15DesugaredObject5FieldESaIS3_EE17_M_realloc_insertIJNS1_11ObjectField4HideERPNS1_13LiteralStringERPNS1_15BuiltinFunctionEEEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %495, %_ZNSt6vectorIN7jsonnet8internal15DesugaredObject5FieldESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit34.i.i
   store ptr %488, ptr %47, align 8, !tbaa !98
   store ptr %494, ptr %56, align 8, !tbaa !97
-  %496 = getelementptr inbounds nuw %"struct.jsonnet::internal::DesugaredObject::Field", ptr %488, i64 %486
+  %496 = getelementptr inbounds nuw [24 x i8], ptr %488, i64 %486
   store ptr %496, ptr %61, align 8, !tbaa !93
   br label %_ZNSt6vectorIN7jsonnet8internal15DesugaredObject5FieldESaIS3_EE12emplace_backIJNS1_11ObjectField4HideERPNS1_13LiteralStringERPNS1_15BuiltinFunctionEEEERS3_DpOT_.exit
 
@@ -6855,7 +6852,7 @@ _ZNSt6vectorIN7jsonnet8internal15DesugaredObject5FieldESaIS3_EE11_S_relocateEPS3
 _ZNSt6vectorIN7jsonnet8internal15DesugaredObject5FieldESaIS3_EE17_M_realloc_insertIJNS1_11ObjectField4HideEPNS1_13LiteralStringESA_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %561, %_ZNSt6vectorIN7jsonnet8internal15DesugaredObject5FieldESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit34.i.i105
   store ptr %554, ptr %47, align 8, !tbaa !98
   store ptr %560, ptr %56, align 8, !tbaa !97
-  %562 = getelementptr inbounds nuw %"struct.jsonnet::internal::DesugaredObject::Field", ptr %554, i64 %552
+  %562 = getelementptr inbounds nuw [24 x i8], ptr %554, i64 %552
   store ptr %562, ptr %61, align 8, !tbaa !93
   br label %_ZNSt6vectorIN7jsonnet8internal15DesugaredObject5FieldESaIS3_EE12emplace_backIJNS1_11ObjectField4HideEPNS1_13LiteralStringESA_EEERS3_DpOT_.exit
 
@@ -12201,10 +12198,10 @@ _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i: ; p
 92:                                               ; preds = %.noexc, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i
   %93 = phi i64 [ %.pre, %.noexc ], [ %7, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i ]
   %94 = phi ptr [ %.pre.i, %.noexc ], [ %8, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i ]
-  %95 = getelementptr inbounds nuw i32, ptr %94, i64 %9
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %9
   store i32 %.0.i, ptr %95, align 4, !tbaa !38
   store i64 %84, ptr %4, align 8, !tbaa !37
-  %96 = getelementptr inbounds nuw i32, ptr %94, i64 %84
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %84
   store i32 0, ptr %96, align 4, !tbaa !38
   %97 = add i64 %.0, 1
   %98 = icmp ult i64 %97, %93
@@ -12359,7 +12356,7 @@ _ZNSt6vectorIPKN7jsonnet8internal10IdentifierESaIS4_EE17_S_check_init_lenEmRKS5_
 .noexc246:                                        ; preds = %_ZNSt6vectorIPKN7jsonnet8internal10IdentifierESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i
   %65 = ashr exact i64 %sext, 29
   %66 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %65) #28
-  %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %63
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %63
   store ptr null, ptr %66, align 8, !tbaa !76
   %68 = add nsw i64 %63, -1
   %69 = icmp eq i64 %68, 0
@@ -12395,7 +12392,7 @@ _ZNSt6vectorIPKN7jsonnet8internal10IdentifierESaIS4_EE17_S_check_init_lenEmRKS5_
           to label %.noexc254 unwind label %148
 
 .noexc254:                                        ; preds = %77
-  %80 = getelementptr inbounds nuw ptr, ptr %79, i64 %63
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %63
   store ptr null, ptr %79, align 8, !tbaa !76
   %81 = add nsw i64 %63, -1
   %82 = icmp eq i64 %81, 0
@@ -12510,7 +12507,7 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE9_M_createERmm.exit.i.i.
           to label %_ZN7jsonnet8internal9Desugarer2idERKNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEE.exit267 unwind label %128
 
 _ZN7jsonnet8internal9Desugarer2idERKNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEE.exit267: ; preds = %111
-  %115 = getelementptr inbounds nuw ptr, ptr %.sroa.0696.0, i64 %indvars.iv
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0696.0, i64 %indvars.iv
   store ptr %114, ptr %115, align 8, !tbaa !76
   %116 = load ptr, ptr %11, align 8, !tbaa !33
   %117 = icmp eq ptr %116, %74
@@ -12691,7 +12688,7 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE9_M_createERmm.exit.i.i.
           to label %_ZN7jsonnet8internal9Desugarer2idERKNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEE.exit295 unwind label %183
 
 _ZN7jsonnet8internal9Desugarer2idERKNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEE.exit295: ; preds = %166
-  %170 = getelementptr inbounds nuw ptr, ptr %.sroa.0687.0, i64 %indvars.iv2089
+  %170 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0687.0, i64 %indvars.iv2089
   store ptr %169, ptr %170, align 8, !tbaa !76
   %171 = load ptr, ptr %13, align 8, !tbaa !33
   %172 = icmp eq ptr %171, %143
@@ -12776,7 +12773,7 @@ _ZN7jsonnet8internal13UStringStreamD2Ev.exit307:  ; preds = %190, %_ZNKSt7__cxx1
 
 196:                                              ; preds = %196, %._crit_edge
   %indvars.iv2094 = phi i64 [ %indvars.iv.next2095, %196 ], [ %147, %._crit_edge ]
-  %197 = getelementptr inbounds nuw %"struct.jsonnet::internal::ComprehensionSpec", ptr %146, i64 %indvars.iv2094
+  %197 = getelementptr inbounds nuw [96 x i8], ptr %146, i64 %indvars.iv2094
   %198 = load i32, ptr %197, align 8, !tbaa !257
   %.not177 = icmp eq i32 %198, 0
   %indvars.iv.next2095 = add nsw i64 %indvars.iv2094, -1
@@ -12787,7 +12784,7 @@ _ZN7jsonnet8internal13UStringStreamD2Ev.exit307:  ; preds = %190, %_ZNKSt7__cxx1
   %200 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %201 = load ptr, ptr %200, align 8, !tbaa !261
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 8
-  %203 = getelementptr inbounds nuw ptr, ptr %.sroa.0687.0, i64 %indvars.iv2094
+  %203 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0687.0, i64 %indvars.iv2094
   %204 = load ptr, ptr %203, align 8, !tbaa !76
   %205 = load ptr, ptr %0, align 8, !tbaa !46
   %206 = invoke noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #28
@@ -12821,7 +12818,7 @@ _ZN7jsonnet8internal9Desugarer4makeINS0_3VarEJRKNS0_13LocationRangeERKSt6vectorI
   store i64 %216, ptr %214, align 8, !tbaa !81
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  %217 = getelementptr inbounds nuw ptr, ptr %.sroa.0696.0, i64 %indvars.iv2094
+  %217 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0696.0, i64 %indvars.iv2094
   %218 = load ptr, ptr %217, align 8, !tbaa !76
   %219 = load ptr, ptr %0, align 8, !tbaa !46
   %220 = invoke noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #28
@@ -13236,20 +13233,20 @@ _ZNSt6vectorIPKN7jsonnet8internal10IdentifierESaIS4_EED2Ev.exit342: ; preds = %_
   %indvars.iv2097.in = phi i64 [ %353, %.lr.ph ], [ %indvars.iv2097, %957 ]
   %indvars.iv2097 = add nsw i64 %indvars.iv2097.in, -1
   %381 = load ptr, ptr %30, align 8, !tbaa !248
-  %382 = getelementptr inbounds nuw %"struct.jsonnet::internal::ComprehensionSpec", ptr %381, i64 %indvars.iv2102
+  %382 = getelementptr inbounds nuw [96 x i8], ptr %381, i64 %indvars.iv2102
   %.not = icmp eq i64 %indvars.iv2102, 0
   br i1 %.not, label %493, label %.preheader759
 
 .preheader759:                                    ; preds = %380, %.preheader759
   %indvars.iv2099 = phi i64 [ %indvars.iv.next2100, %.preheader759 ], [ %indvars.iv2097, %380 ]
   %indvars.iv.next2100 = add nsw i64 %indvars.iv2099, -1
-  %383 = getelementptr inbounds nuw %"struct.jsonnet::internal::ComprehensionSpec", ptr %381, i64 %indvars.iv.next2100
+  %383 = getelementptr inbounds nuw [96 x i8], ptr %381, i64 %indvars.iv.next2100
   %384 = load i32, ptr %383, align 8, !tbaa !257
   %.not185 = icmp eq i32 %384, 0
   br i1 %.not185, label %385, label %.preheader759, !llvm.loop !267
 
 385:                                              ; preds = %.preheader759
-  %386 = getelementptr inbounds nuw ptr, ptr %.sroa.0687.0, i64 %indvars.iv.next2100
+  %386 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0687.0, i64 %indvars.iv.next2100
   %387 = load ptr, ptr %386, align 8, !tbaa !76
   %388 = load ptr, ptr %0, align 8, !tbaa !46
   %389 = invoke noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #28
@@ -13283,7 +13280,7 @@ _ZN7jsonnet8internal9Desugarer4makeINS0_3VarEJRKNS0_13LocationRangeERKSt6vectorI
   store i64 %399, ptr %397, align 8, !tbaa !81
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  %400 = getelementptr inbounds nuw ptr, ptr %.sroa.0696.0, i64 %indvars.iv.next2100
+  %400 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0696.0, i64 %indvars.iv.next2100
   %401 = load ptr, ptr %400, align 8, !tbaa !76
   %402 = load ptr, ptr %0, align 8, !tbaa !46
   %403 = invoke noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #28
@@ -13710,11 +13707,11 @@ _ZSt8_DestroyIPN7jsonnet8internal8ArgParamES2_EvT_S4_RSaIT0_E.exit.i.i: ; preds 
 
 540:                                              ; preds = %533, %_ZSt8_DestroyIPN7jsonnet8internal8ArgParamES2_EvT_S4_RSaIT0_E.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !269
-  %541 = getelementptr inbounds nuw ptr, ptr %.sroa.0687.0, i64 %indvars.iv2102
+  %541 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0687.0, i64 %indvars.iv2102
   %542 = load ptr, ptr %541, align 8, !tbaa !76
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
-  %543 = getelementptr inbounds nuw ptr, ptr %.sroa.0696.0, i64 %indvars.iv2102
+  %543 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0696.0, i64 %indvars.iv2102
   %544 = load ptr, ptr %543, align 8, !tbaa !76
   invoke void @_ZN7jsonnet8internal8ArgParamC2ERKSt6vectorINS0_13FodderElementESaIS3_EEPKNS0_10IdentifierES7_(ptr noundef nonnull align 8 dereferenceable(88) %22, ptr noundef nonnull align 8 dereferenceable(24) @_ZN7jsonnet8internalL2EFE, ptr noundef %544, ptr noundef nonnull align 8 dereferenceable(24) @_ZN7jsonnet8internalL2EFE)
           to label %546 unwind label %.thread
@@ -15583,7 +15580,7 @@ _ZNSt6vectorIN7jsonnet8internal13FodderElementESaIS2_EED2Ev.exit42: ; preds = %_
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt6vectorIN7jsonnet8internal8ArgParamESaIS2_EEC2ESt16initializer_listIS2_ERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, ptr noundef nonnull align 1 dereferenceable(1) %3) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  %5 = getelementptr inbounds nuw %"struct.jsonnet::internal::ArgParam", ptr %1, i64 %2
+  %5 = getelementptr inbounds nuw [88 x i8], ptr %1, i64 %2
   invoke void @_ZNSt6vectorIN7jsonnet8internal8ArgParamESaIS2_EE19_M_range_initializeIPKS2_EEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1, ptr noundef %5)
           to label %6 unwind label %7
 
@@ -16107,7 +16104,7 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE7_S_copyEPDiPKDim.exit: 
   %19 = phi i64 [ %.pre, %16 ], [ 1, %14 ], [ %11, %13 ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %19, ptr %20, align 8, !tbaa !37
-  %21 = getelementptr inbounds nuw i32, ptr %18, i64 %19
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %19
   store i32 0, ptr %21, align 4, !tbaa !38
   br label %33
 
@@ -16577,7 +16574,7 @@ _ZNSt6vectorIN7jsonnet8internal15DesugaredObject5FieldESaIS3_EE11_S_relocateEPS3
 _ZNSt6vectorIN7jsonnet8internal15DesugaredObject5FieldESaIS3_EE17_M_realloc_insertIJRKNS1_11ObjectField4HideERKPNS1_3ASTESE_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %203, %_ZNSt6vectorIN7jsonnet8internal15DesugaredObject5FieldESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit34.i.i
   store ptr %193, ptr %9, align 8, !tbaa !98
   store ptr %202, ptr %150, align 8, !tbaa !97
-  %204 = getelementptr inbounds nuw %"struct.jsonnet::internal::DesugaredObject::Field", ptr %193, i64 %191
+  %204 = getelementptr inbounds nuw [24 x i8], ptr %193, i64 %191
   store ptr %204, ptr %151, align 8, !tbaa !93
   br label %_ZNSt6vectorIN7jsonnet8internal15DesugaredObject5FieldESaIS3_EE12emplace_backIJRKNS1_11ObjectField4HideERKPNS1_3ASTESE_EEERS3_DpOT_.exit
 
@@ -19197,10 +19194,10 @@ _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i: ; p
 
 75:                                               ; preds = %.noexc, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i
   %76 = phi ptr [ %.pre.i, %.noexc ], [ %63, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i ]
-  %77 = getelementptr inbounds nuw i32, ptr %76, i64 %64
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %64
   store i32 %66, ptr %77, align 4, !tbaa !38
   store i64 %67, ptr %33, align 8, !tbaa !37
-  %78 = getelementptr inbounds nuw i32, ptr %76, i64 %67
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %67
   store i32 0, ptr %78, align 4, !tbaa !38
   %79 = getelementptr inbounds nuw i8, ptr %.sroa.013.017, i64 1
   %.not = icmp eq ptr %79, %32
@@ -20540,7 +20537,7 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE7_S_copyEPDiPKDim.exit: 
   br i1 %or.cond, label %36, label %_ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE7_S_copyEPDiPKDim.exit26
 
 36:                                               ; preds = %_ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE7_S_copyEPDiPKDim.exit
-  %37 = getelementptr inbounds nuw i32, ptr %29, i64 %1
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %1
   %cond = icmp eq i64 %4, 1
   br i1 %cond, label %38, label %40
 
@@ -20559,10 +20556,10 @@ _ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE7_S_copyEPDiPKDim.exit26
   br i1 %.not25, label %_ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE7_S_copyEPDiPKDim.exit27, label %42
 
 42:                                               ; preds = %_ZNSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE7_S_copyEPDiPKDim.exit26
-  %43 = getelementptr inbounds nuw i32, ptr %29, i64 %1
-  %44 = getelementptr inbounds nuw i32, ptr %43, i64 %4
-  %45 = getelementptr inbounds nuw i32, ptr %12, i64 %1
-  %46 = getelementptr inbounds nuw i32, ptr %45, i64 %2
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %1
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %4
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %1
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %2
   %cond29 = icmp eq i64 %9, 1
   br i1 %cond29, label %47, label %49
 
@@ -27217,7 +27214,7 @@ _ZNSt6vectorIN7jsonnet8internal11ObjectFieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3
 _ZNSt12_Vector_baseIN7jsonnet8internal11ObjectFieldESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN7jsonnet8internal11ObjectFieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22, %30
   store ptr %22, ptr %0, align 8, !tbaa !406
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !286
-  %34 = getelementptr inbounds nuw %"struct.jsonnet::internal::ObjectField", ptr %22, i64 %16
+  %34 = getelementptr inbounds nuw [288 x i8], ptr %22, i64 %16
   store ptr %34, ptr %29, align 8, !tbaa !289
   ret void
 }
@@ -28594,7 +28591,7 @@ _ZNSt6vectorIN7jsonnet8internal11ObjectFieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3
 _ZNSt12_Vector_baseIN7jsonnet8internal11ObjectFieldESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN7jsonnet8internal11ObjectFieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32, %28
   store ptr %20, ptr %0, align 8, !tbaa !406
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8, !tbaa !286
-  %32 = getelementptr inbounds nuw %"struct.jsonnet::internal::ObjectField", ptr %20, i64 %16
+  %32 = getelementptr inbounds nuw [288 x i8], ptr %20, i64 %16
   store ptr %32, ptr %27, align 8, !tbaa !289
   ret void
 
@@ -28856,7 +28853,7 @@ _ZNSt6vectorISt4pairIPKN7jsonnet8internal10IdentifierEPNS2_3ASTEESaIS8_EE11_S_re
 _ZNSt6vectorISt4pairIPKN7jsonnet8internal10IdentifierEPNS2_3ASTEESaIS8_EE17_M_realloc_insertIJRS5_DnEEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i: ; preds = %60, %_ZNSt6vectorISt4pairIPKN7jsonnet8internal10IdentifierEPNS2_3ASTEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit33.i.i
   store ptr %53, ptr %31, align 8, !tbaa !325
   store ptr %59, ptr %32, align 8, !tbaa !322
-  %61 = getelementptr inbounds nuw %"struct.std::pair.131", ptr %53, i64 %51
+  %61 = getelementptr inbounds nuw [16 x i8], ptr %53, i64 %51
   store ptr %61, ptr %34, align 8, !tbaa !336
   br label %_ZNSt6vectorISt4pairIPKN7jsonnet8internal10IdentifierEPNS2_3ASTEESaIS8_EE12emplace_backIJRS5_DnEEERS8_DpOT_.exit
 
@@ -29097,7 +29094,7 @@ _ZNSt6vectorISt4pairIPKN7jsonnet8internal10IdentifierEPNS2_3ASTEESaIS8_EE11_S_re
 _ZNSt6vectorISt4pairIPKN7jsonnet8internal10IdentifierEPNS2_3ASTEESaIS8_EE17_M_realloc_insertIJRS5_RPNS2_10SuperIndexEEEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i: ; preds = %151, %_ZNSt6vectorISt4pairIPKN7jsonnet8internal10IdentifierEPNS2_3ASTEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit33.i.i66
   store ptr %145, ptr %124, align 8, !tbaa !325
   store ptr %150, ptr %125, align 8, !tbaa !322
-  %152 = getelementptr inbounds nuw %"struct.std::pair.131", ptr %145, i64 %143
+  %152 = getelementptr inbounds nuw [16 x i8], ptr %145, i64 %143
   store ptr %152, ptr %127, align 8, !tbaa !336
   br label %_ZNSt6vectorISt4pairIPKN7jsonnet8internal10IdentifierEPNS2_3ASTEESaIS8_EE12emplace_backIJRS5_RPNS2_10SuperIndexEEEERS8_DpOT_.exit
 
@@ -29379,7 +29376,7 @@ _ZNSt6vectorISt4pairIPKN7jsonnet8internal10IdentifierEPNS2_3ASTEESaIS8_EE11_S_re
 _ZNSt6vectorISt4pairIPKN7jsonnet8internal10IdentifierEPNS2_3ASTEESaIS8_EE17_M_realloc_insertIJRS5_RPNS2_7InSuperEEEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i: ; preds = %257, %_ZNSt6vectorISt4pairIPKN7jsonnet8internal10IdentifierEPNS2_3ASTEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit33.i.i111
   store ptr %251, ptr %230, align 8, !tbaa !325
   store ptr %256, ptr %231, align 8, !tbaa !322
-  %258 = getelementptr inbounds nuw %"struct.std::pair.131", ptr %251, i64 %249
+  %258 = getelementptr inbounds nuw [16 x i8], ptr %251, i64 %249
   store ptr %258, ptr %233, align 8, !tbaa !336
   br label %_ZNSt6vectorISt4pairIPKN7jsonnet8internal10IdentifierEPNS2_3ASTEESaIS8_EE12emplace_backIJRS5_RPNS2_7InSuperEEEERS8_DpOT_.exit
 
@@ -29658,10 +29655,10 @@ _ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i: ; p
 
 75:                                               ; preds = %.noexc, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i
   %76 = phi ptr [ %.pre.i, %.noexc ], [ %63, %_ZNKSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEE8capacityEv.exit.i ]
-  %77 = getelementptr inbounds nuw i32, ptr %76, i64 %64
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %64
   store i32 %66, ptr %77, align 4, !tbaa !38
   store i64 %67, ptr %33, align 8, !tbaa !37
-  %78 = getelementptr inbounds nuw i32, ptr %76, i64 %67
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %67
   store i32 0, ptr %78, align 4, !tbaa !38
   %79 = getelementptr inbounds nuw i8, ptr %.sroa.013.017, i64 1
   %.not = icmp eq ptr %79, %32
@@ -31050,7 +31047,7 @@ _ZNSt6vectorIN7jsonnet8internal5Local4BindESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.
 _ZNSt12_Vector_baseIN7jsonnet8internal5Local4BindESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN7jsonnet8internal5Local4BindESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, %208
   store ptr %20, ptr %0, align 8, !tbaa !148
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !151
-  %212 = getelementptr inbounds nuw %"struct.jsonnet::internal::Local::Bind", ptr %20, i64 %16
+  %212 = getelementptr inbounds nuw [176 x i8], ptr %20, i64 %16
   store ptr %212, ptr %207, align 8, !tbaa !153
   ret void
 }
@@ -31345,7 +31342,7 @@ _ZNSt6vectorIN7jsonnet8internal5Array7ElementESaIS3_EE11_S_relocateEPS3_S6_S6_RS
 _ZNSt12_Vector_baseIN7jsonnet8internal5Array7ElementESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN7jsonnet8internal5Array7ElementESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit34, %75
   store ptr %21, ptr %0, align 8, !tbaa !341
   store ptr %.0.lcssa.i.i.i33, ptr %5, align 8, !tbaa !344
-  %79 = getelementptr inbounds nuw %"struct.jsonnet::internal::Array::Element", ptr %21, i64 %17
+  %79 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 %17
   store ptr %79, ptr %74, align 8, !tbaa !343
   ret void
 
@@ -32582,8 +32579,8 @@ define linkonce_odr noundef ptr @_ZN7jsonnet8internal9Allocator14makeIdentifierE
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %.lr.ph.i.i.i, %10
   %.01216.i.i.i.i.i.i.i = phi i64 [ %11, %10 ], [ 0, %.lr.ph.i.i.i ]
-  %12 = getelementptr inbounds nuw i32, ptr %9, i64 %.01216.i.i.i.i.i.i.i
-  %13 = getelementptr inbounds nuw i32, ptr %.pre, i64 %.01216.i.i.i.i.i.i.i
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %.01216.i.i.i.i.i.i.i
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %.01216.i.i.i.i.i.i.i
   %14 = load i32, ptr %12, align 4, !tbaa !38
   %15 = load i32, ptr %13, align 4, !tbaa !38
   %16 = icmp ult i32 %14, %15
@@ -32629,8 +32626,8 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEESt4pairIKS
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %23, %28
   %.01216.i.i.i.i.i.i = phi i64 [ %29, %28 ], [ 0, %23 ]
-  %30 = getelementptr inbounds nuw i32, ptr %.pre, i64 %.01216.i.i.i.i.i.i
-  %31 = getelementptr inbounds nuw i32, ptr %27, i64 %.01216.i.i.i.i.i.i
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %.01216.i.i.i.i.i.i
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %.01216.i.i.i.i.i.i
   %32 = load i32, ptr %30, align 4, !tbaa !38
   %33 = load i32, ptr %31, align 4, !tbaa !38
   %34 = icmp ult i32 %32, %33
@@ -32749,8 +32746,8 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapINS
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %11, %16
   %.01216.i.i.i.i.i.i.i = phi i64 [ %17, %16 ], [ 0, %11 ]
-  %18 = getelementptr inbounds nuw i32, ptr %15, i64 %.01216.i.i.i.i.i.i.i
-  %19 = getelementptr inbounds nuw i32, ptr %10, i64 %.01216.i.i.i.i.i.i.i
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %.01216.i.i.i.i.i.i.i
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.01216.i.i.i.i.i.i.i
   %20 = load i32, ptr %18, align 4, !tbaa !38
   %21 = load i32, ptr %19, align 4, !tbaa !38
   %22 = icmp ult i32 %20, %21
@@ -32796,8 +32793,8 @@ _ZNSt3mapINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEEPKN7jsonnet8int
 
 .lr.ph.i.i.i.i:                                   ; preds = %29, %34
   %.01216.i.i.i.i = phi i64 [ %35, %34 ], [ 0, %29 ]
-  %36 = getelementptr inbounds nuw i32, ptr %10, i64 %.01216.i.i.i.i
-  %37 = getelementptr inbounds nuw i32, ptr %33, i64 %.01216.i.i.i.i
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.01216.i.i.i.i
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %.01216.i.i.i.i
   %38 = load i32, ptr %36, align 4, !tbaa !38
   %39 = load i32, ptr %37, align 4, !tbaa !38
   %40 = icmp ult i32 %38, %39
@@ -32873,8 +32870,8 @@ define linkonce_odr ptr @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIDiSt11char_tra
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %17, %25
   %.01216.i.i.i.i.i.i = phi i64 [ %26, %25 ], [ 0, %17 ]
-  %27 = getelementptr inbounds nuw i32, ptr %23, i64 %.01216.i.i.i.i.i.i
-  %28 = getelementptr inbounds nuw i32, ptr %24, i64 %.01216.i.i.i.i.i.i
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %.01216.i.i.i.i.i.i
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %.01216.i.i.i.i.i.i
   %29 = load i32, ptr %27, align 4, !tbaa !38
   %30 = load i32, ptr %28, align 4, !tbaa !38
   %or.cond.not = icmp eq i32 %30, %29
@@ -32961,8 +32958,8 @@ define linkonce_odr { ptr, ptr } @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIDiSt1
 
 .lr.ph.i.i.i.i:                                   ; preds = %9, %19
   %.01216.i.i.i.i = phi i64 [ %20, %19 ], [ 0, %9 ]
-  %21 = getelementptr inbounds nuw i32, ptr %17, i64 %.01216.i.i.i.i
-  %22 = getelementptr inbounds nuw i32, ptr %18, i64 %.01216.i.i.i.i
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %.01216.i.i.i.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %.01216.i.i.i.i
   %23 = load i32, ptr %21, align 4, !tbaa !38
   %24 = load i32, ptr %22, align 4, !tbaa !38
   %25 = icmp ult i32 %23, %24
@@ -33006,8 +33003,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEEEclERKS5_S8_.
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.backedge, %38
   %.01216.i.i.i.i.i = phi i64 [ %39, %38 ], [ 0, %.backedge ]
-  %40 = getelementptr inbounds nuw i32, ptr %33, i64 %.01216.i.i.i.i.i
-  %41 = getelementptr inbounds nuw i32, ptr %37, i64 %.01216.i.i.i.i.i
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %.01216.i.i.i.i.i
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %.01216.i.i.i.i.i
   %42 = load i32, ptr %40, align 4, !tbaa !38
   %43 = load i32, ptr %41, align 4, !tbaa !38
   %44 = icmp ult i32 %42, %43
@@ -33075,8 +33072,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEEEclERKS5_S8_.
 
 .lr.ph.i.i.i.i7.i:                                ; preds = %._crit_edge.i.thread, %60
   %.01216.i.i.i.i8.i = phi i64 [ %61, %60 ], [ 0, %._crit_edge.i.thread ]
-  %62 = getelementptr inbounds nuw i32, ptr %57, i64 %.01216.i.i.i.i8.i
-  %63 = getelementptr inbounds nuw i32, ptr %56, i64 %.01216.i.i.i.i8.i
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %.01216.i.i.i.i8.i
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %.01216.i.i.i.i8.i
   %64 = load i32, ptr %62, align 4, !tbaa !38
   %65 = load i32, ptr %63, align 4, !tbaa !38
   %66 = icmp ult i32 %64, %65
@@ -33113,8 +33110,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEEEclERKS5_S8_.
 
 .lr.ph.i.i.i.i12:                                 ; preds = %71, %79
   %.01216.i.i.i.i13 = phi i64 [ %80, %79 ], [ 0, %71 ]
-  %81 = getelementptr inbounds nuw i32, ptr %77, i64 %.01216.i.i.i.i13
-  %82 = getelementptr inbounds nuw i32, ptr %78, i64 %.01216.i.i.i.i13
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %.01216.i.i.i.i13
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %78, i64 %.01216.i.i.i.i13
   %83 = load i32, ptr %81, align 4, !tbaa !38
   %84 = load i32, ptr %82, align 4, !tbaa !38
   %85 = icmp ult i32 %83, %84
@@ -33152,8 +33149,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEEEclERKS5_S8_.
 
 .lr.ph.i.i.i.i20:                                 ; preds = %93, %99
   %.01216.i.i.i.i21 = phi i64 [ %100, %99 ], [ 0, %93 ]
-  %101 = getelementptr inbounds nuw i32, ptr %98, i64 %.01216.i.i.i.i21
-  %102 = getelementptr inbounds nuw i32, ptr %77, i64 %.01216.i.i.i.i21
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %98, i64 %.01216.i.i.i.i21
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %.01216.i.i.i.i21
   %103 = load i32, ptr %101, align 4, !tbaa !38
   %104 = load i32, ptr %102, align 4, !tbaa !38
   %105 = icmp ult i32 %103, %104
@@ -33199,8 +33196,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEEEclERKS5_S8_.
 
 .lr.ph.i.i.i.i.i32:                               ; preds = %.lr.ph.i28, %118
   %.01216.i.i.i.i.i33 = phi i64 [ %119, %118 ], [ 0, %.lr.ph.i28 ]
-  %120 = getelementptr inbounds nuw i32, ptr %77, i64 %.01216.i.i.i.i.i33
-  %121 = getelementptr inbounds nuw i32, ptr %117, i64 %.01216.i.i.i.i.i33
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %.01216.i.i.i.i.i33
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %117, i64 %.01216.i.i.i.i.i33
   %122 = load i32, ptr %120, align 4, !tbaa !38
   %123 = load i32, ptr %121, align 4, !tbaa !38
   %124 = icmp ult i32 %122, %123
@@ -33261,8 +33258,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEEEclERKS5_S8_.
 
 .lr.ph.i.i.i.i7.i47:                              ; preds = %._crit_edge.i42.thread, %136
   %.01216.i.i.i.i8.i48 = phi i64 [ %137, %136 ], [ 0, %._crit_edge.i42.thread ]
-  %138 = getelementptr inbounds nuw i32, ptr %134, i64 %.01216.i.i.i.i8.i48
-  %139 = getelementptr inbounds nuw i32, ptr %77, i64 %.01216.i.i.i.i8.i48
+  %138 = getelementptr inbounds nuw [4 x i8], ptr %134, i64 %.01216.i.i.i.i8.i48
+  %139 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %.01216.i.i.i.i8.i48
   %140 = load i32, ptr %138, align 4, !tbaa !38
   %141 = load i32, ptr %139, align 4, !tbaa !38
   %142 = icmp ult i32 %140, %141
@@ -33290,8 +33287,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEEEclERKS5_S8_.
 
 .lr.ph.i.i.i.i61:                                 ; preds = %_ZNKSt4lessINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEEEclERKS5_S8_.exit17.thread139, %147
   %.01216.i.i.i.i62 = phi i64 [ %148, %147 ], [ 0, %_ZNKSt4lessINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEEEclERKS5_S8_.exit17.thread139 ]
-  %149 = getelementptr inbounds nuw i32, ptr %78, i64 %.01216.i.i.i.i62
-  %150 = getelementptr inbounds nuw i32, ptr %77, i64 %.01216.i.i.i.i62
+  %149 = getelementptr inbounds nuw [4 x i8], ptr %78, i64 %.01216.i.i.i.i62
+  %150 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %.01216.i.i.i.i62
   %151 = load i32, ptr %149, align 4, !tbaa !38
   %152 = load i32, ptr %150, align 4, !tbaa !38
   %153 = icmp ult i32 %151, %152
@@ -33329,8 +33326,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEEEclERKS5_S8_.
 
 .lr.ph.i.i.i.i69:                                 ; preds = %161, %167
   %.01216.i.i.i.i70 = phi i64 [ %168, %167 ], [ 0, %161 ]
-  %169 = getelementptr inbounds nuw i32, ptr %77, i64 %.01216.i.i.i.i70
-  %170 = getelementptr inbounds nuw i32, ptr %166, i64 %.01216.i.i.i.i70
+  %169 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %.01216.i.i.i.i70
+  %170 = getelementptr inbounds nuw [4 x i8], ptr %166, i64 %.01216.i.i.i.i70
   %171 = load i32, ptr %169, align 4, !tbaa !38
   %172 = load i32, ptr %170, align 4, !tbaa !38
   %173 = icmp ult i32 %171, %172
@@ -33376,8 +33373,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEEEclERKS5_S8_.
 
 .lr.ph.i.i.i.i.i81:                               ; preds = %.lr.ph.i77, %186
   %.01216.i.i.i.i.i82 = phi i64 [ %187, %186 ], [ 0, %.lr.ph.i77 ]
-  %188 = getelementptr inbounds nuw i32, ptr %77, i64 %.01216.i.i.i.i.i82
-  %189 = getelementptr inbounds nuw i32, ptr %185, i64 %.01216.i.i.i.i.i82
+  %188 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %.01216.i.i.i.i.i82
+  %189 = getelementptr inbounds nuw [4 x i8], ptr %185, i64 %.01216.i.i.i.i.i82
   %190 = load i32, ptr %188, align 4, !tbaa !38
   %191 = load i32, ptr %189, align 4, !tbaa !38
   %192 = icmp ult i32 %190, %191
@@ -33440,8 +33437,8 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIDiSt11char_traitsIDiESaIDiEEEEclERKS5_S8_.
 
 .lr.ph.i.i.i.i7.i96:                              ; preds = %._crit_edge.i91.thread, %206
   %.01216.i.i.i.i8.i97 = phi i64 [ %207, %206 ], [ 0, %._crit_edge.i91.thread ]
-  %208 = getelementptr inbounds nuw i32, ptr %204, i64 %.01216.i.i.i.i8.i97
-  %209 = getelementptr inbounds nuw i32, ptr %77, i64 %.01216.i.i.i.i8.i97
+  %208 = getelementptr inbounds nuw [4 x i8], ptr %204, i64 %.01216.i.i.i.i8.i97
+  %209 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %.01216.i.i.i.i8.i97
   %210 = load i32, ptr %208, align 4, !tbaa !38
   %211 = load i32, ptr %209, align 4, !tbaa !38
   %212 = icmp ult i32 %210, %211
@@ -34127,8 +34124,8 @@ define linkonce_odr ptr @_ZSt9__find_ifIN9__gnu_cxx17__normal_iteratorIPN7jsonne
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %14, %21
   %.01216.i.i.i.i.i = phi i64 [ %22, %21 ], [ 0, %14 ]
-  %23 = getelementptr inbounds nuw i32, ptr %20, i64 %.01216.i.i.i.i.i
-  %24 = getelementptr inbounds nuw i32, ptr %12, i64 %.01216.i.i.i.i.i
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %.01216.i.i.i.i.i
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %.01216.i.i.i.i.i
   %25 = load i32, ptr %23, align 4, !tbaa !38
   %26 = load i32, ptr %24, align 4, !tbaa !38
   %or.cond.not.i.i.i = icmp eq i32 %26, %25
@@ -34156,8 +34153,8 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN7jsonnet8internal9Desugarer9stdlibASTENSt7__cx
 
 .lr.ph.i.i.i.i.i18:                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN7jsonnet8internal9Desugarer9stdlibASTENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlRKNS3_15DesugaredObject5FieldEE_EclINS_17__normal_iteratorIPSC_St6vectorISC_SaISC_EEEEEEbT_.exit.thread, %34
   %.01216.i.i.i.i.i19 = phi i64 [ %35, %34 ], [ 0, %_ZN9__gnu_cxx5__ops10_Iter_predIZN7jsonnet8internal9Desugarer9stdlibASTENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlRKNS3_15DesugaredObject5FieldEE_EclINS_17__normal_iteratorIPSC_St6vectorISC_SaISC_EEEEEEbT_.exit.thread ]
-  %36 = getelementptr inbounds nuw i32, ptr %33, i64 %.01216.i.i.i.i.i19
-  %37 = getelementptr inbounds nuw i32, ptr %12, i64 %.01216.i.i.i.i.i19
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %.01216.i.i.i.i.i19
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %.01216.i.i.i.i.i19
   %38 = load i32, ptr %36, align 4, !tbaa !38
   %39 = load i32, ptr %37, align 4, !tbaa !38
   %or.cond.not.i.i.i20 = icmp eq i32 %39, %38
@@ -34185,8 +34182,8 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN7jsonnet8internal9Desugarer9stdlibASTENSt7__cx
 
 .lr.ph.i.i.i.i.i27:                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN7jsonnet8internal9Desugarer9stdlibASTENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlRKNS3_15DesugaredObject5FieldEE_EclINS_17__normal_iteratorIPSC_St6vectorISC_SaISC_EEEEEEbT_.exit24.thread, %47
   %.01216.i.i.i.i.i28 = phi i64 [ %48, %47 ], [ 0, %_ZN9__gnu_cxx5__ops10_Iter_predIZN7jsonnet8internal9Desugarer9stdlibASTENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlRKNS3_15DesugaredObject5FieldEE_EclINS_17__normal_iteratorIPSC_St6vectorISC_SaISC_EEEEEEbT_.exit24.thread ]
-  %49 = getelementptr inbounds nuw i32, ptr %46, i64 %.01216.i.i.i.i.i28
-  %50 = getelementptr inbounds nuw i32, ptr %12, i64 %.01216.i.i.i.i.i28
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %.01216.i.i.i.i.i28
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %.01216.i.i.i.i.i28
   %51 = load i32, ptr %49, align 4, !tbaa !38
   %52 = load i32, ptr %50, align 4, !tbaa !38
   %or.cond.not.i.i.i29 = icmp eq i32 %52, %51
@@ -34214,8 +34211,8 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN7jsonnet8internal9Desugarer9stdlibASTENSt7__cx
 
 .lr.ph.i.i.i.i.i36:                               ; preds = %_ZN9__gnu_cxx5__ops10_Iter_predIZN7jsonnet8internal9Desugarer9stdlibASTENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlRKNS3_15DesugaredObject5FieldEE_EclINS_17__normal_iteratorIPSC_St6vectorISC_SaISC_EEEEEEbT_.exit33.thread, %60
   %.01216.i.i.i.i.i37 = phi i64 [ %61, %60 ], [ 0, %_ZN9__gnu_cxx5__ops10_Iter_predIZN7jsonnet8internal9Desugarer9stdlibASTENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlRKNS3_15DesugaredObject5FieldEE_EclINS_17__normal_iteratorIPSC_St6vectorISC_SaISC_EEEEEEbT_.exit33.thread ]
-  %62 = getelementptr inbounds nuw i32, ptr %59, i64 %.01216.i.i.i.i.i37
-  %63 = getelementptr inbounds nuw i32, ptr %12, i64 %.01216.i.i.i.i.i37
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %.01216.i.i.i.i.i37
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %.01216.i.i.i.i.i37
   %64 = load i32, ptr %62, align 4, !tbaa !38
   %65 = load i32, ptr %63, align 4, !tbaa !38
   %or.cond.not.i.i.i38 = icmp eq i32 %65, %64
@@ -34279,8 +34276,8 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN7jsonnet8internal9Desugarer9stdlibASTENSt7__cx
 
 .lr.ph.i.i.i.i.i45:                               ; preds = %71, %81
   %.01216.i.i.i.i.i46 = phi i64 [ %82, %81 ], [ 0, %71 ]
-  %83 = getelementptr inbounds nuw i32, ptr %79, i64 %.01216.i.i.i.i.i46
-  %84 = getelementptr inbounds nuw i32, ptr %80, i64 %.01216.i.i.i.i.i46
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %.01216.i.i.i.i.i46
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %.01216.i.i.i.i.i46
   %85 = load i32, ptr %83, align 4, !tbaa !38
   %86 = load i32, ptr %84, align 4, !tbaa !38
   %or.cond.not.i.i.i47 = icmp eq i32 %86, %85
@@ -34315,8 +34312,8 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN7jsonnet8internal9Desugarer9stdlibASTENSt7__cx
 
 .lr.ph.i.i.i.i.i54:                               ; preds = %89, %98
   %.01216.i.i.i.i.i55 = phi i64 [ %99, %98 ], [ 0, %89 ]
-  %100 = getelementptr inbounds nuw i32, ptr %97, i64 %.01216.i.i.i.i.i55
-  %101 = getelementptr inbounds nuw i32, ptr %90, i64 %.01216.i.i.i.i.i55
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %97, i64 %.01216.i.i.i.i.i55
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %.01216.i.i.i.i.i55
   %102 = load i32, ptr %100, align 4, !tbaa !38
   %103 = load i32, ptr %101, align 4, !tbaa !38
   %or.cond.not.i.i.i56 = icmp eq i32 %103, %102
@@ -34351,8 +34348,8 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZN7jsonnet8internal9Desugarer9stdlibASTENSt7__cx
 
 .lr.ph.i.i.i.i.i63:                               ; preds = %106, %115
   %.01216.i.i.i.i.i64 = phi i64 [ %116, %115 ], [ 0, %106 ]
-  %117 = getelementptr inbounds nuw i32, ptr %114, i64 %.01216.i.i.i.i.i64
-  %118 = getelementptr inbounds nuw i32, ptr %107, i64 %.01216.i.i.i.i.i64
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %.01216.i.i.i.i.i64
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %107, i64 %.01216.i.i.i.i.i64
   %119 = load i32, ptr %117, align 4, !tbaa !38
   %120 = load i32, ptr %118, align 4, !tbaa !38
   %or.cond.not.i.i.i65 = icmp eq i32 %120, %119
@@ -35008,7 +35005,7 @@ _ZNSt6vectorIN7jsonnet8internal8ArgParamESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.ex
 _ZNSt12_Vector_baseIN7jsonnet8internal8ArgParamESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN7jsonnet8internal8ArgParamESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit36, %96
   store ptr %24, ptr %0, align 8, !tbaa !154
   store ptr %.0.lcssa.i.i.i35, ptr %8, align 8, !tbaa !128
-  %100 = getelementptr inbounds nuw %"struct.jsonnet::internal::ArgParam", ptr %24, i64 %20
+  %100 = getelementptr inbounds nuw [88 x i8], ptr %24, i64 %20
   store ptr %100, ptr %95, align 8, !tbaa !131
   ret void
 

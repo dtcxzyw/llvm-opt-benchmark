@@ -50,7 +50,7 @@ define void @If_ManPrepareMappingSeq(ptr noundef readonly captures(none) %0) loc
   %19 = getelementptr i8, ptr %14, i64 8
   %.val3.i = load ptr, ptr %19, align 8, !tbaa !31
   %20 = sext i32 %18 to i64
-  %21 = getelementptr inbounds ptr, ptr %.val3.i, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %.val3.i, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !33
   %23 = load ptr, ptr %9, align 8, !tbaa !34
   %.val3.i11 = load i32, ptr %10, align 8, !tbaa !29
@@ -59,7 +59,7 @@ define void @If_ManPrepareMappingSeq(ptr noundef readonly captures(none) %0) loc
   %26 = getelementptr i8, ptr %23, i64 8
   %.val.i12 = load ptr, ptr %26, align 8, !tbaa !31
   %27 = sext i32 %25 to i64
-  %28 = getelementptr inbounds ptr, ptr %.val.i12, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %.val.i12, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !33
   %30 = getelementptr i8, ptr %22, i64 24
   %.val = load ptr, ptr %30, align 8, !tbaa !35
@@ -166,7 +166,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %38 = add nsw i32 %37, 1
   store i32 %38, ptr %10, align 4, !tbaa !40
   %39 = sext i32 %37 to i64
-  %40 = getelementptr inbounds ptr, ptr %36, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr %36, i64 %39
   store ptr %0, ptr %40, align 8, !tbaa !33
   br label %If_ObjIsLatch.exit.thread
 
@@ -230,7 +230,7 @@ Vec_PtrAlloc.exit:                                ; preds = %1, %9
   %26 = load ptr, ptr %22, align 8, !tbaa !34
   %27 = getelementptr i8, ptr %26, i64 8
   %.val = load ptr, ptr %27, align 8, !tbaa !31
-  %28 = getelementptr inbounds ptr, ptr %.val, i64 %indvars.iv
+  %28 = getelementptr inbounds [8 x i8], ptr %.val, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8, !tbaa !33
   tail call void @If_ManCollectLatches_rec(ptr noundef %29, ptr noundef nonnull %6)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
@@ -245,7 +245,7 @@ Vec_PtrAlloc.exit:                                ; preds = %1, %9
 
 .critedge:                                        ; preds = %.lr.ph29, %.critedge
   %indvars.iv31 = phi i64 [ 0, %.lr.ph29 ], [ %indvars.iv.next32, %.critedge ]
-  %36 = getelementptr inbounds nuw ptr, ptr %.val20, i64 %indvars.iv31
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %.val20, i64 %indvars.iv31
   %37 = load ptr, ptr %36, align 8, !tbaa !33
   %38 = load i32, ptr %37, align 8
   %39 = and i32 %38, -257
@@ -287,7 +287,7 @@ Abc_Clock.exit:
 
 13:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
-  %14 = getelementptr inbounds nuw ptr, ptr %.val69, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %.val69, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !33
   %16 = getelementptr i8, ptr %15, i64 24
   %.val71 = load ptr, ptr %16, align 8, !tbaa !35
@@ -328,7 +328,7 @@ Abc_Clock.exit:
   %29 = phi ptr [ %40, %39 ], [ %23, %.critedge ]
   %30 = getelementptr i8, ptr %29, i64 8
   %.val68 = load ptr, ptr %30, align 8, !tbaa !31
-  %31 = getelementptr inbounds nuw ptr, ptr %.val68, i64 %indvars.iv95
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %.val68, i64 %indvars.iv95
   %32 = load ptr, ptr %31, align 8, !tbaa !33
   %33 = load i32, ptr %32, align 8
   %34 = and i32 %33, 15
@@ -376,7 +376,7 @@ Abc_Clock.exit:
 52:                                               ; preds = %.lr.ph88, %.critedge2
   %indvars.iv98 = phi i64 [ 0, %.lr.ph88 ], [ %indvars.iv.next99, %.critedge2 ]
   %.087 = phi i32 [ 0, %.lr.ph88 ], [ %.2, %.critedge2 ]
-  %53 = getelementptr inbounds nuw ptr, ptr %.val67, i64 %indvars.iv98
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %.val67, i64 %indvars.iv98
   %54 = load ptr, ptr %53, align 8, !tbaa !33
   %55 = load i32, ptr %54, align 8
   %56 = and i32 %55, 15
@@ -413,7 +413,7 @@ Abc_Clock.exit:
 
 .critedge4:                                       ; preds = %.lr.ph91, %.critedge4
   %indvars.iv103 = phi i64 [ 0, %.lr.ph91 ], [ %indvars.iv.next104, %.critedge4 ]
-  %69 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv103
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %indvars.iv103
   %70 = load ptr, ptr %69, align 8, !tbaa !33
   %71 = getelementptr i8, ptr %70, i64 24
   %.val70 = load ptr, ptr %71, align 8, !tbaa !35
@@ -497,7 +497,7 @@ define range(i32 0, 2) i32 @If_ManBinarySearchPeriod(ptr noundef %0) local_unnam
   %indvars.iv = phi i64 [ %indvars.iv.next, %20 ], [ 0, %1 ]
   %10 = getelementptr i8, ptr %9, i64 8
   %.val53 = load ptr, ptr %10, align 8, !tbaa !31
-  %11 = getelementptr inbounds nuw ptr, ptr %.val53, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %.val53, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !33
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 56
   store float -1.000000e+08, ptr %13, align 8, !tbaa !47
@@ -567,7 +567,7 @@ define range(i32 0, 2) i32 @If_ManBinarySearchPeriod(ptr noundef %0) local_unnam
 
 46:                                               ; preds = %.lr.ph69, %46
   %indvars.iv76 = phi i64 [ 0, %.lr.ph69 ], [ %indvars.iv.next77, %46 ]
-  %47 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv76
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %indvars.iv76
   %48 = load ptr, ptr %47, align 8, !tbaa !33
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 56
   store float 0.000000e+00, ptr %49, align 8, !tbaa !47
@@ -698,11 +698,11 @@ define void @If_ManPerformMappingSeqPost(ptr noundef %0) local_unnamed_addr #2 {
 
 19:                                               ; preds = %.lr.ph, %19
   %indvars.iv = phi i64 [ %18, %.lr.ph ], [ %indvars.iv.next, %19 ]
-  %20 = getelementptr inbounds ptr, ptr %.val52, i64 %indvars.iv
+  %20 = getelementptr inbounds [8 x i8], ptr %.val52, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !33
   %22 = getelementptr i8, ptr %21, i64 56
   %.val59 = load float, ptr %22, align 8, !tbaa !47
-  %23 = getelementptr inbounds float, ptr %17, i64 %indvars.iv
+  %23 = getelementptr inbounds [4 x i8], ptr %17, i64 %indvars.iv
   store float %.val59, ptr %23, align 4, !tbaa !73
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -747,7 +747,7 @@ define void @If_ManPerformMappingSeqPost(ptr noundef %0) local_unnamed_addr #2 {
 
 45:                                               ; preds = %.lr.ph65, %45
   %indvars.iv72 = phi i64 [ %37, %.lr.ph65 ], [ %indvars.iv.next73, %45 ]
-  %46 = getelementptr inbounds float, ptr %27, i64 %indvars.iv72
+  %46 = getelementptr inbounds [4 x i8], ptr %27, i64 %indvars.iv72
   store float %36, ptr %46, align 4, !tbaa !73
   %indvars.iv.next73 = add nsw i64 %indvars.iv72, 1
   %47 = icmp slt i64 %indvars.iv.next73, %38
@@ -763,13 +763,13 @@ define void @If_ManPerformMappingSeqPost(ptr noundef %0) local_unnamed_addr #2 {
 
 .critedge2:                                       ; preds = %.lr.ph67, %.critedge2
   %indvars.iv75 = phi i64 [ %44, %.lr.ph67 ], [ %indvars.iv.next76, %.critedge2 ]
-  %52 = getelementptr inbounds ptr, ptr %.val50, i64 %indvars.iv75
+  %52 = getelementptr inbounds [8 x i8], ptr %.val50, i64 %indvars.iv75
   %53 = load ptr, ptr %52, align 8, !tbaa !33
   %54 = getelementptr i8, ptr %53, i64 24
   %.val55 = load ptr, ptr %54, align 8, !tbaa !35
   %55 = getelementptr i8, ptr %.val55, i64 56
   %.val58 = load float, ptr %55, align 8, !tbaa !47
-  %56 = getelementptr inbounds float, ptr %27, i64 %indvars.iv75
+  %56 = getelementptr inbounds [4 x i8], ptr %27, i64 %indvars.iv75
   store float %.val58, ptr %56, align 4, !tbaa !73
   %indvars.iv.next76 = add nsw i64 %indvars.iv75, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next76 to i32
@@ -781,7 +781,7 @@ define void @If_ManPerformMappingSeqPost(ptr noundef %0) local_unnamed_addr #2 {
   %indvars.iv79 = phi i64 [ %indvars.iv.next80, %.critedge4 ], [ 0, %.critedge4.preheader ]
   %58 = getelementptr i8, ptr %57, i64 8
   %.val49 = load ptr, ptr %58, align 8, !tbaa !31
-  %59 = getelementptr inbounds nuw ptr, ptr %.val49, i64 %indvars.iv79
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %.val49, i64 %indvars.iv79
   %60 = load ptr, ptr %59, align 8, !tbaa !33
   %.val60 = load i32, ptr %60, align 8
   %61 = and i32 %.val60, 15
@@ -872,7 +872,7 @@ Abc_Clock.exit:                                   ; preds = %1, %7
   %36 = getelementptr i8, ptr %31, i64 8
   %.val3.i.i = load ptr, ptr %36, align 8, !tbaa !31
   %37 = sext i32 %35 to i64
-  %38 = getelementptr inbounds ptr, ptr %.val3.i.i, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %.val3.i.i, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !33
   %40 = load ptr, ptr %26, align 8, !tbaa !34
   %.val3.i11.i = load i32, ptr %27, align 8, !tbaa !29
@@ -881,7 +881,7 @@ Abc_Clock.exit:                                   ; preds = %1, %7
   %43 = getelementptr i8, ptr %40, i64 8
   %.val.i12.i = load ptr, ptr %43, align 8, !tbaa !31
   %44 = sext i32 %42 to i64
-  %45 = getelementptr inbounds ptr, ptr %.val.i12.i, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %.val.i12.i, i64 %44
   %46 = load ptr, ptr %45, align 8, !tbaa !33
   %47 = getelementptr i8, ptr %39, i64 24
   %.val.i = load ptr, ptr %47, align 8, !tbaa !35

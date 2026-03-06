@@ -1679,7 +1679,7 @@ define internal fastcc i32 @post_per_transfer(ptr noundef %0, ptr noundef %1, i3
   %231 = getelementptr inbounds nuw i8, ptr %19, i64 1328
   %232 = load ptr, ptr %231, align 8, !tbaa !95
   %233 = zext nneg i32 %.4197265271 to i64
-  %234 = getelementptr inbounds nuw ptr, ptr @post_per_transfer.m, i64 %233
+  %234 = getelementptr inbounds nuw [8 x i8], ptr @post_per_transfer.m, i64 %233
   %235 = load ptr, ptr %234, align 8, !tbaa !14
   %236 = sdiv i64 %.0191, 1000
   %237 = load i64, ptr %128, align 8, !tbaa !100

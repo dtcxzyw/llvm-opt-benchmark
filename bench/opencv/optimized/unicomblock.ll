@@ -155,7 +155,7 @@ _ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %5
   %13 = shl nuw nsw i64 %11, 2
   %14 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %13) #12
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %14, i8 0, i64 %13, i1 false), !tbaa !32
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %11
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %11
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 %13
   br label %_ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit
 
@@ -196,7 +196,7 @@ _ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i5: ; preds = %_ZNSt6vectorI
   %22 = shl nuw nsw i64 %.pre-phi91111, 2
   %23 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %22) #12
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %23, i8 0, i64 %22, i1 false), !tbaa !32
-  %24 = getelementptr inbounds nuw i32, ptr %23, i64 %.pre-phi91111
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %.pre-phi91111
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 %22
   br label %_ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit14
 
@@ -237,7 +237,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSt6vectorIj
   %31 = shl nuw nsw i64 %.pre-phi95115, 2
   %32 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %31) #12
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %32, i8 0, i64 %31, i1 false), !tbaa !32
-  %33 = getelementptr inbounds nuw i32, ptr %32, i64 %.pre-phi95115
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %.pre-phi95115
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 %31
   br label %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit
 
@@ -278,7 +278,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i28: ; preds = %_ZNSt6vector
   %40 = shl nuw nsw i64 %.pre-phi99119, 2
   %41 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %40) #12
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %41, i8 0, i64 %40, i1 false), !tbaa !32
-  %42 = getelementptr inbounds nuw i32, ptr %41, i64 %.pre-phi99119
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %.pre-phi99119
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 %40
   br label %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit37
 
@@ -319,7 +319,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i42: ; preds = %_ZNSt6vector
   %49 = shl nuw nsw i64 %.pre-phi103123, 2
   %50 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %49) #12
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %50, i8 0, i64 %49, i1 false), !tbaa !32
-  %51 = getelementptr inbounds nuw i32, ptr %50, i64 %.pre-phi103123
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %.pre-phi103123
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 %49
   br label %_ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit51
 
@@ -421,7 +421,7 @@ define hidden noundef zeroext i16 @_ZN5zxing11UnicomBlock19GetUnicomBlockIndexEi
   %12 = add nsw i32 %11, %2
   %13 = sext i32 %12 to i64
   %14 = load ptr, ptr %10, align 8, !tbaa !29
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %13
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %13
   %16 = load i32, ptr %15, align 4, !tbaa !32
   %.not15 = icmp eq i32 %16, 0
   br i1 %.not15, label %19, label %17
@@ -437,7 +437,7 @@ define hidden noundef zeroext i16 @_ZN5zxing11UnicomBlock19GetUnicomBlockIndexEi
   %22 = add nsw i32 %21, %2
   %23 = sext i32 %22 to i64
   %24 = load ptr, ptr %10, align 8, !tbaa !29
-  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %23
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %23
   %26 = load i32, ptr %25, align 4, !tbaa !32
   %27 = trunc i32 %26 to i16
   br label %28
@@ -474,7 +474,7 @@ define hidden void @_ZN5zxing11UnicomBlock3BfsEii(ptr noundef nonnull align 8 ca
   %25 = add nsw i32 %24, %2
   %26 = sext i32 %25 to i64
   %27 = load ptr, ptr %21, align 8, !tbaa !29
-  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %26
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %26
   store i32 %6, ptr %28, align 4, !tbaa !32
   %29 = shl i32 %1, 16
   %30 = or i32 %29, %2
@@ -504,7 +504,7 @@ define hidden void @_ZN5zxing11UnicomBlock3BfsEii(ptr noundef nonnull align 8 ca
   %.097102 = phi i32 [ %1, %3 ], [ %.sroa.speculated, %.loopexit ]
   %.098101 = phi i32 [ %2, %3 ], [ %.sroa.speculated74, %.loopexit ]
   %38 = load ptr, ptr %31, align 8, !tbaa !28
-  %39 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv110
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %indvars.iv110
   %40 = load i32, ptr %39, align 4, !tbaa !32
   %41 = and i32 %40, 65535
   %42 = ashr i32 %40, 16
@@ -513,7 +513,7 @@ define hidden void @_ZN5zxing11UnicomBlock3BfsEii(ptr noundef nonnull align 8 ca
 43:                                               ; preds = %37, %103
   %indvars.iv = phi i64 [ 0, %37 ], [ %indvars.iv.next, %103 ]
   %.1100 = phi i32 [ %.051106, %37 ], [ %.3, %103 ]
-  %44 = getelementptr inbounds nuw [2 x i16], ptr @_ZN5zxing11UnicomBlock10SEARCH_POSE, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [4 x i8], ptr @_ZN5zxing11UnicomBlock10SEARCH_POSE, i64 %indvars.iv
   %45 = load i16, ptr %44, align 4, !tbaa !63
   %46 = sext i16 %45 to i32
   %47 = add nsw i32 %41, %46
@@ -540,7 +540,7 @@ define hidden void @_ZN5zxing11UnicomBlock3BfsEii(ptr noundef nonnull align 8 ca
 
 65:                                               ; preds = %56
   %66 = zext nneg i32 %54 to i64
-  %67 = getelementptr inbounds nuw i32, ptr %58, i64 %66
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %66
   %68 = load i32, ptr %67, align 4, !tbaa !32
   %69 = icmp ne i32 %68, 0
   %70 = icmp slt i32 %47, 0
@@ -581,14 +581,14 @@ define hidden void @_ZN5zxing11UnicomBlock3BfsEii(ptr noundef nonnull align 8 ca
 93:                                               ; preds = %79
   %94 = load i32, ptr %4, align 4, !tbaa !37
   %95 = load ptr, ptr %21, align 8, !tbaa !29
-  %96 = getelementptr inbounds nuw i32, ptr %95, i64 %66
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %95, i64 %66
   store i32 %94, ptr %96, align 4, !tbaa !32
   %97 = shl nuw i32 %51, 16
   %98 = or i32 %97, %47
   %99 = add nsw i32 %.1100, 1
   %100 = sext i32 %.1100 to i64
   %101 = load ptr, ptr %31, align 8, !tbaa !28
-  %102 = getelementptr inbounds nuw i32, ptr %101, i64 %100
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %101, i64 %100
   store i32 %98, ptr %102, align 4, !tbaa !32
   br label %103
 
@@ -623,7 +623,7 @@ define hidden void @_ZN5zxing11UnicomBlock3BfsEii(ptr noundef nonnull align 8 ca
 
 117:                                              ; preds = %.lr.ph, %117
   %indvars.iv113 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next114, %117 ]
-  %118 = getelementptr inbounds nuw i32, ptr %110, i64 %indvars.iv113
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %110, i64 %indvars.iv113
   %119 = load i32, ptr %118, align 4, !tbaa !32
   %120 = ashr i32 %119, 16
   %121 = load i32, ptr %22, align 8, !tbaa !25
@@ -631,11 +631,11 @@ define hidden void @_ZN5zxing11UnicomBlock3BfsEii(ptr noundef nonnull align 8 ca
   %123 = and i32 %119, 65535
   %124 = add nsw i32 %122, %123
   %125 = sext i32 %124 to i64
-  %126 = getelementptr inbounds nuw i32, ptr %112, i64 %125
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %112, i64 %125
   store i32 %spec.store.select, ptr %126, align 4, !tbaa !32
-  %127 = getelementptr inbounds nuw i32, ptr %114, i64 %125
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %125
   store i32 %106, ptr %127, align 4, !tbaa !32
-  %128 = getelementptr inbounds nuw i32, ptr %116, i64 %125
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %116, i64 %125
   store i32 %108, ptr %128, align 4, !tbaa !32
   %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
   %exitcond117.not = icmp eq i64 %indvars.iv.next114, %wide.trip.count
@@ -661,7 +661,7 @@ define hidden noundef i32 @_ZN5zxing11UnicomBlock18GetUnicomBlockSizeEii(ptr nou
   %12 = add nsw i32 %11, %2
   %13 = sext i32 %12 to i64
   %14 = load ptr, ptr %10, align 8, !tbaa !29
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %13
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %13
   %16 = load i32, ptr %15, align 4, !tbaa !32
   %.not15 = icmp eq i32 %16, 0
   br i1 %.not15, label %22, label %17
@@ -669,7 +669,7 @@ define hidden noundef i32 @_ZN5zxing11UnicomBlock18GetUnicomBlockSizeEii(ptr nou
 17:                                               ; preds = %9
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %19 = load ptr, ptr %18, align 8, !tbaa !29
-  %20 = getelementptr inbounds nuw i32, ptr %19, i64 %13
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %13
   %21 = load i32, ptr %20, align 4, !tbaa !32
   br label %31
 
@@ -681,7 +681,7 @@ define hidden noundef i32 @_ZN5zxing11UnicomBlock18GetUnicomBlockSizeEii(ptr nou
   %26 = add nsw i32 %25, %2
   %27 = sext i32 %26 to i64
   %28 = load ptr, ptr %23, align 8, !tbaa !29
-  %29 = getelementptr inbounds nuw i32, ptr %28, i64 %27
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %27
   %30 = load i32, ptr %29, align 4, !tbaa !32
   br label %31
 
@@ -709,7 +709,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN5zxing11UnicomBlock11GetMinPointE
   %14 = add nsw i32 %13, %2
   %15 = sext i32 %14 to i64
   %16 = load ptr, ptr %12, align 8, !tbaa !29
-  %17 = getelementptr inbounds nuw i32, ptr %16, i64 %15
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %15
   %18 = load i32, ptr %17, align 4, !tbaa !32
   %.not23 = icmp eq i32 %18, 0
   br i1 %.not23, label %23, label %19
@@ -717,7 +717,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN5zxing11UnicomBlock11GetMinPointE
 19:                                               ; preds = %11
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %21 = load ptr, ptr %20, align 8, !tbaa !28
-  %22 = getelementptr inbounds nuw i32, ptr %21, i64 %15
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %15
   br label %.sink.split
 
 23:                                               ; preds = %11
@@ -728,7 +728,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN5zxing11UnicomBlock11GetMinPointE
   %27 = add nsw i32 %26, %2
   %28 = sext i32 %27 to i64
   %29 = load ptr, ptr %24, align 8, !tbaa !28
-  %30 = getelementptr inbounds nuw i32, ptr %29, i64 %28
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %28
   br label %.sink.split
 
 .sink.split:                                      ; preds = %19, %23
@@ -741,7 +741,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN5zxing11UnicomBlock11GetMinPointE
   %33 = mul nsw i32 %32, %1
   %34 = add nsw i32 %33, %2
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds nuw i32, ptr %.sink28, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %.sink28, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !32
   %38 = and i32 %37, 65535
   store i32 %38, ptr %4, align 4, !tbaa !32
@@ -771,7 +771,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN5zxing11UnicomBlock11GetMaxPointE
   %14 = add nsw i32 %13, %2
   %15 = sext i32 %14 to i64
   %16 = load ptr, ptr %12, align 8, !tbaa !29
-  %17 = getelementptr inbounds nuw i32, ptr %16, i64 %15
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %15
   %18 = load i32, ptr %17, align 4, !tbaa !32
   %.not23 = icmp eq i32 %18, 0
   br i1 %.not23, label %23, label %19
@@ -779,7 +779,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN5zxing11UnicomBlock11GetMaxPointE
 19:                                               ; preds = %11
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %21 = load ptr, ptr %20, align 8, !tbaa !28
-  %22 = getelementptr inbounds nuw i32, ptr %21, i64 %15
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %15
   br label %.sink.split
 
 23:                                               ; preds = %11
@@ -790,7 +790,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN5zxing11UnicomBlock11GetMaxPointE
   %27 = add nsw i32 %26, %2
   %28 = sext i32 %27 to i64
   %29 = load ptr, ptr %24, align 8, !tbaa !28
-  %30 = getelementptr inbounds nuw i32, ptr %29, i64 %28
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %28
   br label %.sink.split
 
 .sink.split:                                      ; preds = %19, %23
@@ -803,7 +803,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN5zxing11UnicomBlock11GetMaxPointE
   %33 = mul nsw i32 %32, %1
   %34 = add nsw i32 %33, %2
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds nuw i32, ptr %.sink28, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %.sink28, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !32
   %38 = and i32 %37, 65535
   store i32 %38, ptr %4, align 4, !tbaa !32

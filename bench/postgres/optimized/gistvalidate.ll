@@ -3,8 +3,6 @@ source_filename = "bench/postgres/original/gistvalidate.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.ListCell = type { ptr }
-
 @.str = private unnamed_addr constant [42 x i8] c"cache lookup failed for operator class %u\00", align 1
 @.str.1 = private unnamed_addr constant [15 x i8] c"gistvalidate.c\00", align 1
 @__func__.gistvalidate = private unnamed_addr constant [13 x i8] c"gistvalidate\00", align 1
@@ -76,7 +74,7 @@ define dso_local zeroext i1 @gistvalidate(i32 noundef %0) local_unnamed_addr #0 
 32:                                               ; preds = %.lr.ph, %108
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %108 ]
   %.0143 = phi i1 [ true, %.lr.ph ], [ %.2, %108 ]
-  %33 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr i8, ptr %34, i64 80
   %.val140 = load ptr, ptr %35, align 8
@@ -220,7 +218,7 @@ define dso_local zeroext i1 @gistvalidate(i32 noundef %0) local_unnamed_addr #0 
 112:                                              ; preds = %.lr.ph146, %177
   %indvars.iv164 = phi i64 [ 0, %.lr.ph146 ], [ %indvars.iv.next165, %177 ]
   %.4145 = phi i1 [ %.0.lcssa, %.lr.ph146 ], [ %.8, %177 ]
-  %113 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv164
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv164
   %114 = load ptr, ptr %113, align 8
   %115 = getelementptr i8, ptr %114, i64 80
   %.val141 = load ptr, ptr %115, align 8
@@ -350,7 +348,7 @@ define dso_local zeroext i1 @gistvalidate(i32 noundef %0) local_unnamed_addr #0 
 187:                                              ; preds = %.lr.ph158, %206
   %indvars.iv166 = phi i64 [ 0, %.lr.ph158 ], [ %indvars.iv.next167, %206 ]
   %.0117148157 = phi ptr [ null, %.lr.ph158 ], [ %.1118, %206 ]
-  %188 = getelementptr inbounds nuw %union.ListCell, ptr %186, i64 %indvars.iv166
+  %188 = getelementptr inbounds nuw [8 x i8], ptr %186, i64 %indvars.iv166
   %189 = load ptr, ptr %188, align 8
   %190 = load i32, ptr %189, align 8
   %191 = icmp eq i32 %190, %16
@@ -509,7 +507,7 @@ define dso_local void @gistadjustmembers(i32 noundef %0, i32 noundef %1, ptr nou
 .lr.ph35:                                         ; preds = %.lr.ph, %.lr.ph35
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph35 ], [ 0, %.lr.ph ]
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds nuw %union.ListCell, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store i8 0, ptr %12, align 4
@@ -537,7 +535,7 @@ define dso_local void @gistadjustmembers(i32 noundef %0, i32 noundef %1, ptr nou
 .lr.ph41:                                         ; preds = %.lr.ph38, %38
   %indvars.iv44 = phi i64 [ %indvars.iv.next45, %38 ], [ 0, %.lr.ph38 ]
   %22 = load ptr, ptr %19, align 8
-  %23 = getelementptr inbounds nuw %union.ListCell, ptr %22, i64 %indvars.iv44
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv44
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load i32, ptr %25, align 4

@@ -11,10 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
 %struct.__pthread_internal_list = type { ptr, ptr }
 %struct.pmix_tma = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.pmix_info = type { [512 x i8], i32, %struct.pmix_value }
-%struct.pmix_value = type { i16, %union.anon }
-%union.anon = type { %struct.pmix_envar_t }
-%struct.pmix_envar_t = type { ptr, ptr, i8 }
 
 @pmix_mca_bfrops_v20_component = external local_unnamed_addr global %struct.pmix_bfrops_base_component_t, align 8
 @.str = private unnamed_addr constant [2 x i8] c" \00", align 1
@@ -139,7 +135,7 @@ define i32 @pmix20_bfrop_print(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
 pmix_pointer_array_get_item.exit:                 ; preds = %6
   %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_mca_bfrops_v20_component, i64 384), align 8, !tbaa !14
   %10 = zext i16 %3 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !15
   %13 = icmp eq ptr %12, null
   br i1 %13, label %pmix_pointer_array_get_item.exit.thread, label %14
@@ -2243,7 +2239,7 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_query(ptr noundef writeonly cap
   store ptr %39, ptr %8, align 8, !tbaa !20
   %40 = add i64 %.032, 1
   %41 = load ptr, ptr %2, align 8, !tbaa !54
-  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %40
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %40
   %43 = load ptr, ptr %42, align 8, !tbaa !20
   %.not25 = icmp eq ptr %43, null
   br i1 %.not25, label %.loopexit30, label %.lr.ph, !llvm.loop !58
@@ -2262,7 +2258,7 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_query(ptr noundef writeonly cap
   %.133 = phi i64 [ 0, %.lr.ph34 ], [ %77, %73 ]
   %48 = load ptr, ptr %7, align 8, !tbaa !20
   %49 = load ptr, ptr %46, align 8, !tbaa !61
-  %50 = getelementptr inbounds nuw %struct.pmix_info, ptr %49, i64 %.133
+  %50 = getelementptr inbounds nuw [552 x i8], ptr %49, i64 %.133
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 520
   %52 = call i32 @pmix20_bfrop_print_value(ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull %51, i16 zeroext poison)
@@ -2491,7 +2487,7 @@ define range(i32 -32, 1) i32 @pmix20_bfrop_print_array(ptr noundef writeonly cap
 .lr.ph:                                           ; preds = %20, %42
   %.01112 = phi i64 [ %44, %42 ], [ 0, %20 ]
   %24 = load ptr, ptr %9, align 8, !tbaa !20
-  %25 = getelementptr inbounds nuw %struct.pmix_info, ptr %22, i64 %.01112
+  %25 = getelementptr inbounds nuw [552 x i8], ptr %22, i64 %.01112
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 520
   %27 = call i32 @pmix20_bfrop_print_value(ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull %26, i16 zeroext poison)

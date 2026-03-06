@@ -1669,7 +1669,7 @@ switch.lookup:                                    ; preds = %542, %._crit_edge79
   %.pre-phi = phi double [ %541, %._crit_edge793 ], [ %5, %542 ]
   %553 = phi i32 [ %.sroa.5.0.extract.trunc, %._crit_edge793 ], [ 200, %542 ]
   %554 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN2cv16findTransformECCERKNS_11_InputArrayES2_RKNS_17_InputOutputArrayEiNS_12TermCriteriaES2_i, i64 %554
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN2cv16findTransformECCERKNS_11_InputArrayES2_RKNS_17_InputOutputArrayEiNS_12TermCriteriaES2_i, i64 %554
   %switch.load = load i32, ptr %switch.gep, align 4
   %555 = getelementptr inbounds nuw i8, ptr %215, i64 12
   %556 = load i32, ptr %555, align 4, !tbaa !61
@@ -1722,7 +1722,7 @@ switch.lookup:                                    ; preds = %542, %._crit_edge79
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %573 = trunc nuw nsw i64 %indvars.iv to i32
   %574 = uitofp nneg i32 %573 to float
-  %575 = getelementptr inbounds nuw float, ptr %568, i64 %indvars.iv
+  %575 = getelementptr inbounds nuw [4 x i8], ptr %568, i64 %indvars.iv
   store float %574, ptr %575, align 4, !tbaa !64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1752,7 +1752,7 @@ switch.lookup:                                    ; preds = %542, %._crit_edge79
   %indvars.iv787 = phi i64 [ 0, %.lr.ph777.preheader ], [ %indvars.iv.next788, %.lr.ph777 ]
   %584 = trunc nuw nsw i64 %indvars.iv787 to i32
   %585 = uitofp nneg i32 %584 to float
-  %586 = getelementptr inbounds nuw float, ptr %570, i64 %indvars.iv787
+  %586 = getelementptr inbounds nuw [4 x i8], ptr %570, i64 %indvars.iv787
   store float %585, ptr %586, align 4, !tbaa !64
   %indvars.iv.next788 = add nuw nsw i64 %indvars.iv787, 1
   %exitcond791.not = icmp eq i64 %indvars.iv.next788, %wide.trip.count790
@@ -7728,7 +7728,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit92: ; preds = %50,
 
 71:                                               ; preds = %65
   %72 = fptrunc double %70 to float
-  %73 = getelementptr inbounds nuw float, ptr %57, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %indvars.iv
   store float %72, ptr %73, align 4, !tbaa !64
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %15) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -7865,7 +7865,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit95: ; preds = %90,
   %123 = add nsw i32 %122, 1
   %124 = mul nsw i32 %123, %.056101
   %125 = sext i32 %124 to i64
-  %126 = getelementptr inbounds float, ptr %57, i64 %125
+  %126 = getelementptr inbounds [4 x i8], ptr %57, i64 %125
   store float %121, ptr %126, align 4, !tbaa !64
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %127 = load i32, ptr %80, align 4, !tbaa !61
@@ -7925,7 +7925,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit95: ; preds = %90,
   %144 = mul nsw i32 %143, %.056101
   %145 = add nsw i32 %144, %.099
   %146 = sext i32 %145 to i64
-  %147 = getelementptr inbounds float, ptr %57, i64 %146
+  %147 = getelementptr inbounds [4 x i8], ptr %57, i64 %146
   store float %142, ptr %147, align 4, !tbaa !64
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %22) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
@@ -7934,12 +7934,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit95: ; preds = %90,
   %149 = mul nsw i32 %148, %.056101
   %150 = add nsw i32 %149, %.099
   %151 = sext i32 %150 to i64
-  %152 = getelementptr inbounds float, ptr %57, i64 %151
+  %152 = getelementptr inbounds [4 x i8], ptr %57, i64 %151
   %153 = load float, ptr %152, align 4, !tbaa !64
   %154 = mul nsw i32 %148, %.099
   %155 = add nsw i32 %154, %.056101
   %156 = sext i32 %155 to i64
-  %157 = getelementptr inbounds float, ptr %57, i64 %156
+  %157 = getelementptr inbounds [4 x i8], ptr %57, i64 %156
   store float %153, ptr %157, align 4, !tbaa !64
   %158 = icmp slt i32 %137, %148
   br i1 %158, label %.lr.ph100, label %.loopexit.loopexit, !llvm.loop !169

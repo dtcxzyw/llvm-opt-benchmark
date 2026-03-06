@@ -69,7 +69,7 @@ define internal noundef range(i32 -14, 1) i32 @mpi_init() #0 section ".init.text
 11:                                               ; preds = %8, %7, %6, %5, %4, %1
   %12 = phi i64 [ 8, %8 ], [ 4, %7 ], [ 3, %6 ], [ 2, %5 ], [ 1, %4 ], [ 0, %1 ]
   %13 = tail call ptr @mpi_alloc_set_ui(i64 noundef %12)
-  %14 = getelementptr ptr, ptr @constants, i64 %2
+  %14 = getelementptr [8 x i8], ptr @constants, i64 %2
   store ptr %13, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i32 48, ptr %15, align 8
@@ -93,7 +93,7 @@ define dso_local ptr @mpi_const(i32 noundef %0) #1 align 16 {
 
 5:                                                ; preds = %3, %1
   %6 = zext i32 %0 to i64
-  %7 = getelementptr ptr, ptr @constants, i64 %6
+  %7 = getelementptr [8 x i8], ptr @constants, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %12
@@ -368,10 +368,10 @@ define dso_local noundef ptr @mpi_copy(ptr noundef readonly captures(address_is_
 37:                                               ; preds = %37, %34
   %38 = phi i64 [ 0, %34 ], [ %44, %37 ]
   %39 = load ptr, ptr %35, align 8
-  %40 = getelementptr i64, ptr %39, i64 %38
+  %40 = getelementptr [8 x i8], ptr %39, i64 %38
   %41 = load i64, ptr %40, align 8
   %42 = load ptr, ptr %36, align 8
-  %43 = getelementptr i64, ptr %42, i64 %38
+  %43 = getelementptr [8 x i8], ptr %42, i64 %38
   store i64 %41, ptr %43, align 8
   %44 = add nuw nsw i64 %38, 1
   %45 = load i32, ptr %25, align 4
@@ -613,9 +613,9 @@ define dso_local noundef ptr @mpi_set(ptr noundef captures(address_is_null, ret:
 
 56:                                               ; preds = %56, %54
   %57 = phi i64 [ 0, %54 ], [ %61, %56 ]
-  %58 = getelementptr i64, ptr %52, i64 %57
+  %58 = getelementptr [8 x i8], ptr %52, i64 %57
   %59 = load i64, ptr %58, align 8
-  %60 = getelementptr i64, ptr %50, i64 %57
+  %60 = getelementptr [8 x i8], ptr %50, i64 %57
   store i64 %59, ptr %60, align 8
   %61 = add nuw nsw i64 %57, 1
   %62 = icmp eq i64 %61, %55
@@ -784,17 +784,17 @@ define dso_local void @mpi_swap_cond(ptr noundef captures(none) %0, ptr noundef 
 21:                                               ; preds = %21, %17
   %22 = phi i64 [ 0, %17 ], [ %36, %21 ]
   %23 = load ptr, ptr %18, align 8
-  %24 = getelementptr i64, ptr %23, i64 %22
+  %24 = getelementptr [8 x i8], ptr %23, i64 %22
   %25 = load i64, ptr %24, align 8
   %26 = load ptr, ptr %19, align 8
-  %27 = getelementptr i64, ptr %26, i64 %22
+  %27 = getelementptr [8 x i8], ptr %26, i64 %22
   %28 = load i64, ptr %27, align 8
   %29 = xor i64 %28, %25
   %30 = and i64 %29, %4
   %31 = xor i64 %30, %25
   store i64 %31, ptr %24, align 8
   %32 = load ptr, ptr %19, align 8
-  %33 = getelementptr i64, ptr %32, i64 %22
+  %33 = getelementptr [8 x i8], ptr %32, i64 %22
   %34 = load i64, ptr %33, align 8
   %35 = xor i64 %34, %30
   store i64 %35, ptr %33, align 8

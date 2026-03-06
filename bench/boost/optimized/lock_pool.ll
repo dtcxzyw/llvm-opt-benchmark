@@ -25,7 +25,7 @@ define hidden noundef i64 @_ZN5boost7atomics6detail20find_address_genericEPVKvPK
 
 .lr.ph:                                           ; preds = %3, %7
   %.0912 = phi i64 [ %8, %7 ], [ 0, %3 ]
-  %4 = getelementptr inbounds nuw ptr, ptr %1, i64 %.0912
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.0912
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = icmp eq ptr %5, %0
   br i1 %6, label %._crit_edge, label %7
@@ -43,7 +43,7 @@ define hidden noundef i64 @_ZN5boost7atomics6detail20find_address_genericEPVKvPK
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef nonnull ptr @_ZN5boost7atomics6detail9lock_pool10short_lockEm(i64 noundef %0) local_unnamed_addr #1 {
   %2 = and i64 %0, 255
-  %3 = getelementptr inbounds nuw %"struct.boost::atomics::detail::lock_pool::(anonymous namespace)::padded_lock_state", ptr @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_111g_lock_poolE, i64 %2
+  %3 = getelementptr inbounds nuw [64 x i8], ptr @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_111g_lock_poolE, i64 %2
   br label %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i.i
 
 _ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i.i: ; preds = %.critedge.i.i, %1
@@ -111,7 +111,7 @@ _ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110lock_state10short_lockEv.exit:
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef nonnull ptr @_ZN5boost7atomics6detail9lock_pool9long_lockEm(i64 noundef %0) local_unnamed_addr #1 {
   %2 = and i64 %0, 255
-  %3 = getelementptr inbounds nuw %"struct.boost::atomics::detail::lock_pool::(anonymous namespace)::padded_lock_state", ptr @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_111g_lock_poolE, i64 %2
+  %3 = getelementptr inbounds nuw [64 x i8], ptr @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_111g_lock_poolE, i64 %2
   br label %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i
 
 _ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i: ; preds = %.critedge.i, %1
@@ -365,8 +365,8 @@ _ZNK5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list4findEPVKv.exi
   %19 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 16
   %20 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 8
   %21 = load i64, ptr %20, align 8, !tbaa !20
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %14
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %14
   %24 = load ptr, ptr %23, align 8, !tbaa !3
   %.not.i = icmp eq ptr %24, null
   br i1 %.not.i, label %_ZNK5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list4findEPVKv.exit.thread.i, label %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list14find_or_createEPVKv.exit, !prof !21
@@ -395,8 +395,8 @@ _ZNK5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list4findEPVKv.exi
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %37 = load i64, ptr %36, align 8, !tbaa !20
-  %38 = getelementptr inbounds nuw ptr, ptr %35, i64 %37
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %34
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %37
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %34
   %40 = load ptr, ptr %39, align 8, !tbaa !3
   %41 = icmp eq ptr %40, null
   br i1 %41, label %42, label %49, !prof !16
@@ -422,7 +422,7 @@ _ZNK5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list4findEPVKv.exi
   %.val28.i = phi ptr [ %.val28.pre.i, %45 ], [ %33, %.critedge.thread.i ]
   %.018.i = phi ptr [ %43, %45 ], [ %40, %.critedge.thread.i ]
   %50 = getelementptr inbounds nuw i8, ptr %.val28.i, i64 16
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %34
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %34
   store ptr %1, ptr %51, align 8, !tbaa !3
   %52 = load ptr, ptr %3, align 8, !tbaa !13
   %53 = load i64, ptr %52, align 8, !tbaa !17
@@ -468,15 +468,15 @@ define void @_ZN5boost7atomics6detail9lock_pool15free_wait_stateEPvS3_(ptr nound
 14:                                               ; preds = %7
   %15 = getelementptr inbounds nuw i8, ptr %.val24.i, i64 8
   %16 = load i64, ptr %15, align 8, !tbaa !20
-  %17 = getelementptr inbounds nuw ptr, ptr %9, i64 %16
-  %18 = getelementptr inbounds nuw ptr, ptr %9, i64 %13
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %16
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %13
   %19 = load ptr, ptr %18, align 8, !tbaa !3
-  %20 = getelementptr inbounds nuw ptr, ptr %9, i64 %11
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %11
   store ptr %19, ptr %20, align 8, !tbaa !3
   store ptr null, ptr %18, align 8, !tbaa !3
-  %21 = getelementptr inbounds nuw ptr, ptr %17, i64 %13
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %13
   %22 = load ptr, ptr %21, align 8, !tbaa !3
-  %23 = getelementptr inbounds nuw ptr, ptr %17, i64 %11
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %11
   store ptr %22, ptr %23, align 8, !tbaa !3
   store ptr %1, ptr %21, align 8, !tbaa !3
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -485,7 +485,7 @@ define void @_ZN5boost7atomics6detail9lock_pool15free_wait_stateEPvS3_(ptr nound
   br label %27
 
 25:                                               ; preds = %7
-  %26 = getelementptr inbounds nuw ptr, ptr %9, i64 %11
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %11
   store ptr null, ptr %26, align 8, !tbaa !3
   br label %27
 
@@ -683,8 +683,8 @@ _ZNK5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list4findEPVKv.exi
   %15 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
   %16 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
   %17 = load i64, ptr %16, align 8, !tbaa !20
-  %18 = getelementptr inbounds nuw ptr, ptr %15, i64 %17
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %10
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %17
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %10
   %20 = load ptr, ptr %19, align 8, !tbaa !3
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110wait_state10notify_oneERNS3_10lock_stateE.exit, label %21, !prof !21
@@ -739,8 +739,8 @@ _ZNK5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list4findEPVKv.exi
   %15 = getelementptr inbounds nuw i8, ptr %.val.i, i64 16
   %16 = getelementptr inbounds nuw i8, ptr %.val.i, i64 8
   %17 = load i64, ptr %16, align 8, !tbaa !20
-  %18 = getelementptr inbounds nuw ptr, ptr %15, i64 %17
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %10
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %17
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %10
   %20 = load ptr, ptr %19, align 8, !tbaa !3
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110wait_state10notify_allERNS3_10lock_stateE.exit, label %21, !prof !21
@@ -818,7 +818,7 @@ define internal fastcc noundef ptr @_ZN5boost7atomics6detail9lock_pool12_GLOBAL_
 
 18:                                               ; preds = %17
   %19 = getelementptr inbounds nuw i8, ptr %.pre.i, i64 16
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %0
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %0
   %21 = load i64, ptr %1, align 8, !tbaa !17
   store i64 %21, ptr %.pre.i, align 8, !tbaa !17
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -832,7 +832,7 @@ define internal fastcc noundef ptr @_ZN5boost7atomics6detail9lock_pool12_GLOBAL_
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %25, i8 0, i64 %27, i1 false)
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %29 = load i64, ptr %28, align 8, !tbaa !20
-  %30 = getelementptr inbounds nuw ptr, ptr %22, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %29
   %31 = shl i64 %29, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %20, ptr nonnull align 8 %30, i64 %31, i1 false)
   %32 = load i64, ptr %28, align 8, !tbaa !20
@@ -872,7 +872,7 @@ define internal void @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_117cleanup_
 
 2:                                                ; preds = %0, %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110lock_state6unlockEv.exit
   %.012 = phi i64 [ 0, %0 ], [ %66, %_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110lock_state6unlockEv.exit ]
-  %3 = getelementptr inbounds nuw %"struct.boost::atomics::detail::lock_pool::(anonymous namespace)::padded_lock_state", ptr @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_111g_lock_poolE, i64 %.012
+  %3 = getelementptr inbounds nuw [64 x i8], ptr @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_111g_lock_poolE, i64 %.012
   br label %_ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i
 
 _ZN5boost7atomics6detail26core_operations_gcc_atomicILm4ELb0ELb0EE4loadERVKjNS_12memory_orderE.exit.i: ; preds = %.critedge.i, %2
@@ -945,14 +945,14 @@ _ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_110lock_state9long_lockEv.exit: ;
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %35 = load i64, ptr %34, align 8, !tbaa !20
-  %36 = getelementptr inbounds nuw ptr, ptr %33, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %35
   %37 = load i64, ptr %31, align 8, !tbaa !17
   %38 = icmp ult i64 %37, %35
   br i1 %38, label %.lr.ph.i, label %.critedge.i6
 
 .lr.ph.i:                                         ; preds = %32, %41
   %.013.i = phi i64 [ %42, %41 ], [ %37, %32 ]
-  %39 = getelementptr inbounds nuw ptr, ptr %36, i64 %.013.i
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %.013.i
   %40 = load ptr, ptr %39, align 8, !tbaa !3
   %.not12.not.i = icmp eq ptr %40, null
   br i1 %.not12.not.i, label %.critedge.loopexit.i, label %41
@@ -1037,14 +1037,14 @@ define internal fastcc void @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_115w
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !20
-  %7 = getelementptr inbounds nuw ptr, ptr %4, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %6
   %8 = load i64, ptr %2, align 8, !tbaa !17
   %9 = icmp ult i64 %8, %6
   br i1 %9, label %.lr.ph, label %.critedge
 
 .lr.ph:                                           ; preds = %3, %12
   %.013 = phi i64 [ %13, %12 ], [ %8, %3 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %.013
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.013
   %11 = load ptr, ptr %10, align 8, !tbaa !3
   %.not12.not = icmp eq ptr %11, null
   br i1 %.not12.not, label %.critedge.loopexit, label %12

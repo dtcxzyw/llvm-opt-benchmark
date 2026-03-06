@@ -54,8 +54,8 @@ Vec_PtrAlloc.exit:                                ; preds = %3, %6
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %store_forwarded = phi ptr [ %load_initial, %.lr.ph.preheader ], [ %21, %.lr.ph ]
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %20 = getelementptr ptr, ptr %10, i64 %indvars.iv
-  %21 = getelementptr inbounds i32, ptr %store_forwarded, i64 %13
+  %20 = getelementptr [8 x i8], ptr %10, i64 %indvars.iv
+  %21 = getelementptr inbounds [4 x i8], ptr %store_forwarded, i64 %13
   store ptr %21, ptr %20, align 8, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -113,9 +113,9 @@ define void @Sim_UtilInfoAdd(ptr noundef captures(none) %0, ptr noundef readonly
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %5 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %6 = load i32, ptr %5, align 4, !tbaa !14
-  %7 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4, !tbaa !14
   %9 = or i32 %8, %6
   store i32 %9, ptr %7, align 4, !tbaa !14
@@ -141,9 +141,9 @@ define void @Sim_UtilInfoDetectDiffs(ptr noundef readonly captures(none) %0, ptr
 
 7:                                                ; preds = %.lr.ph, %.loopexit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.loopexit ]
-  %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !14
-  %10 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4, !tbaa !14
   %12 = xor i32 %11, %9
   %.not = icmp eq i32 %9, %11
@@ -223,7 +223,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %44 = add nsw i32 %43, 1
   store i32 %44, ptr %5, align 4, !tbaa !16
   %45 = sext i32 %43 to i64
-  %46 = getelementptr inbounds i32, ptr %42, i64 %45
+  %46 = getelementptr inbounds [4 x i8], ptr %42, i64 %45
   store i32 %18, ptr %46, align 4, !tbaa !14
   br label %47
 
@@ -255,9 +255,9 @@ define void @Sim_UtilInfoDetectNews(ptr noundef readonly captures(none) %0, ptr 
 
 7:                                                ; preds = %.lr.ph, %.loopexit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.loopexit ]
-  %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !14
-  %10 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4, !tbaa !14
   %12 = xor i32 %11, -1
   %13 = and i32 %9, %12
@@ -338,7 +338,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %45 = add nsw i32 %44, 1
   store i32 %45, ptr %5, align 4, !tbaa !16
   %46 = sext i32 %44 to i64
-  %47 = getelementptr inbounds i32, ptr %43, i64 %46
+  %47 = getelementptr inbounds [4 x i8], ptr %43, i64 %46
   store i32 %19, ptr %47, align 4, !tbaa !14
   br label %48
 
@@ -365,13 +365,13 @@ define void @Sim_UtilInfoFlip(ptr noundef readonly captures(none) %0, ptr nounde
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i32, ptr %7, align 8, !tbaa !33
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds ptr, ptr %6, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %6, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load ptr, ptr %12, align 8, !tbaa !36
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !9
-  %16 = getelementptr inbounds ptr, ptr %15, i64 %9
+  %16 = getelementptr inbounds [8 x i8], ptr %15, i64 %9
   %17 = load ptr, ptr %16, align 8, !tbaa !10
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load i32, ptr %18, align 8, !tbaa !37
@@ -380,10 +380,10 @@ define void @Sim_UtilInfoFlip(ptr noundef readonly captures(none) %0, ptr nounde
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %2 ]
-  %21 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4, !tbaa !14
   %23 = xor i32 %22, -1
-  %24 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv
   store i32 %23, ptr %24, align 4, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %25 = load i32, ptr %18, align 8, !tbaa !37
@@ -404,13 +404,13 @@ define range(i32 0, 2) i32 @Sim_UtilInfoCompare(ptr noundef readonly captures(no
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %8 = load i32, ptr %7, align 8, !tbaa !33
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds ptr, ptr %6, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %6, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load ptr, ptr %12, align 8, !tbaa !36
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !9
-  %16 = getelementptr inbounds ptr, ptr %15, i64 %9
+  %16 = getelementptr inbounds [8 x i8], ptr %15, i64 %9
   %17 = load ptr, ptr %16, align 8, !tbaa !10
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load i32, ptr %18, align 8, !tbaa !37
@@ -428,9 +428,9 @@ define range(i32 0, 2) i32 @Sim_UtilInfoCompare(ptr noundef readonly captures(no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %21 ]
-  %22 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4, !tbaa !14
-  %24 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4, !tbaa !14
   %.not = icmp eq i32 %23, %25
   br i1 %.not, label %21, label %._crit_edge
@@ -465,7 +465,7 @@ define void @Sim_UtilSimulate(ptr noundef readonly captures(none) %0, i32 nounde
   %13 = phi ptr [ %25, %22 ], [ %5, %2 ]
   %14 = getelementptr i8, ptr %13, i64 8
   %.val24.val = load ptr, ptr %14, align 8, !tbaa !9
-  %15 = getelementptr inbounds nuw ptr, ptr %.val24.val, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %.val24.val, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !10
   %17 = icmp eq ptr %16, null
   br i1 %17, label %22, label %18
@@ -498,7 +498,7 @@ define void @Sim_UtilSimulate(ptr noundef readonly captures(none) %0, i32 nounde
   %.val2633 = phi ptr [ %.val26, %.critedge ], [ %.val2630, %.critedge.preheader ]
   %29 = getelementptr i8, ptr %.val2633, i64 8
   %.val27.val = load ptr, ptr %29, align 8, !tbaa !9
-  %30 = getelementptr inbounds nuw ptr, ptr %.val27.val, i64 %indvars.iv37
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %.val27.val, i64 %indvars.iv37
   %31 = load ptr, ptr %30, align 8, !tbaa !10
   tail call void @Sim_UtilSimulateNode(ptr noundef nonnull %0, ptr noundef %31, i32 noundef %1, i32 noundef %1, i32 noundef %1)
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
@@ -530,7 +530,7 @@ define void @Sim_UtilSimulateNode(ptr noundef readonly captures(none) %0, ptr no
   %12 = load ptr, ptr %11, align 8, !tbaa !56
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !9
-  %15 = getelementptr inbounds ptr, ptr %14, i64 %10
+  %15 = getelementptr inbounds [8 x i8], ptr %14, i64 %10
   %.0 = load ptr, ptr %15, align 8, !tbaa !10
   %.not99 = icmp eq i32 %3, 0
   %.sink167 = select i1 %.not99, i64 32, i64 40
@@ -542,7 +542,7 @@ define void @Sim_UtilSimulateNode(ptr noundef readonly captures(none) %0, ptr no
   %.val102 = load ptr, ptr %20, align 8, !tbaa !57
   %.val102.val = load i32, ptr %.val102, align 4, !tbaa !14
   %21 = sext i32 %.val102.val to i64
-  %22 = getelementptr inbounds ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %19, i64 %21
   %.093 = load ptr, ptr %22, align 8, !tbaa !10
   br i1 %.not, label %23, label %74
 
@@ -556,7 +556,7 @@ define void @Sim_UtilSimulateNode(ptr noundef readonly captures(none) %0, ptr no
   %28 = getelementptr i8, ptr %.val102, i64 4
   %.val106.val = load i32, ptr %28, align 4, !tbaa !14
   %29 = sext i32 %.val106.val to i64
-  %30 = getelementptr inbounds ptr, ptr %27, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %27, i64 %29
   %.092 = load ptr, ptr %30, align 8, !tbaa !10
   %31 = lshr i32 %.val, 10
   %32 = and i32 %31, 3
@@ -575,13 +575,13 @@ define void @Sim_UtilSimulateNode(ptr noundef readonly captures(none) %0, ptr no
 
 .lr.ph130:                                        ; preds = %.preheader, %.lr.ph130
   %indvars.iv149 = phi i64 [ %indvars.iv.next150, %.lr.ph130 ], [ 0, %.preheader ]
-  %36 = getelementptr inbounds nuw i32, ptr %.093, i64 %indvars.iv149
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %.093, i64 %indvars.iv149
   %37 = load i32, ptr %36, align 4, !tbaa !14
-  %38 = getelementptr inbounds nuw i32, ptr %.092, i64 %indvars.iv149
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %.092, i64 %indvars.iv149
   %39 = load i32, ptr %38, align 4, !tbaa !14
   %.demorgan = or i32 %39, %37
   %40 = xor i32 %.demorgan, -1
-  %41 = getelementptr inbounds nuw i32, ptr %.0, i64 %indvars.iv149
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %.0, i64 %indvars.iv149
   store i32 %40, ptr %41, align 4, !tbaa !14
   %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 1
   %42 = load i32, ptr %33, align 8, !tbaa !37
@@ -594,13 +594,13 @@ define void @Sim_UtilSimulateNode(ptr noundef readonly captures(none) %0, ptr no
 
 .lr.ph128:                                        ; preds = %.preheader110, %.lr.ph128
   %indvars.iv146 = phi i64 [ %indvars.iv.next147, %.lr.ph128 ], [ 0, %.preheader110 ]
-  %45 = getelementptr inbounds nuw i32, ptr %.093, i64 %indvars.iv146
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %.093, i64 %indvars.iv146
   %46 = load i32, ptr %45, align 4, !tbaa !14
   %47 = xor i32 %46, -1
-  %48 = getelementptr inbounds nuw i32, ptr %.092, i64 %indvars.iv146
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %.092, i64 %indvars.iv146
   %49 = load i32, ptr %48, align 4, !tbaa !14
   %50 = and i32 %49, %47
-  %51 = getelementptr inbounds nuw i32, ptr %.0, i64 %indvars.iv146
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %.0, i64 %indvars.iv146
   store i32 %50, ptr %51, align 4, !tbaa !14
   %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
   %52 = load i32, ptr %33, align 8, !tbaa !37
@@ -619,13 +619,13 @@ define void @Sim_UtilSimulateNode(ptr noundef readonly captures(none) %0, ptr no
 
 .lr.ph126:                                        ; preds = %.preheader112, %.lr.ph126
   %indvars.iv143 = phi i64 [ %indvars.iv.next144, %.lr.ph126 ], [ 0, %.preheader112 ]
-  %55 = getelementptr inbounds nuw i32, ptr %.093, i64 %indvars.iv143
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %.093, i64 %indvars.iv143
   %56 = load i32, ptr %55, align 4, !tbaa !14
-  %57 = getelementptr inbounds nuw i32, ptr %.092, i64 %indvars.iv143
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %.092, i64 %indvars.iv143
   %58 = load i32, ptr %57, align 4, !tbaa !14
   %59 = xor i32 %58, -1
   %60 = and i32 %56, %59
-  %61 = getelementptr inbounds nuw i32, ptr %.0, i64 %indvars.iv143
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %.0, i64 %indvars.iv143
   store i32 %60, ptr %61, align 4, !tbaa !14
   %indvars.iv.next144 = add nuw nsw i64 %indvars.iv143, 1
   %62 = load i32, ptr %33, align 8, !tbaa !37
@@ -635,12 +635,12 @@ define void @Sim_UtilSimulateNode(ptr noundef readonly captures(none) %0, ptr no
 
 .lr.ph124:                                        ; preds = %.preheader114, %.lr.ph124
   %indvars.iv140 = phi i64 [ %indvars.iv.next141, %.lr.ph124 ], [ 0, %.preheader114 ]
-  %65 = getelementptr inbounds nuw i32, ptr %.093, i64 %indvars.iv140
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %.093, i64 %indvars.iv140
   %66 = load i32, ptr %65, align 4, !tbaa !14
-  %67 = getelementptr inbounds nuw i32, ptr %.092, i64 %indvars.iv140
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %.092, i64 %indvars.iv140
   %68 = load i32, ptr %67, align 4, !tbaa !14
   %69 = and i32 %68, %66
-  %70 = getelementptr inbounds nuw i32, ptr %.0, i64 %indvars.iv140
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %.0, i64 %indvars.iv140
   store i32 %69, ptr %70, align 4, !tbaa !14
   %indvars.iv.next141 = add nuw nsw i64 %indvars.iv140, 1
   %71 = load i32, ptr %33, align 8, !tbaa !37
@@ -664,10 +664,10 @@ define void @Sim_UtilSimulateNode(ptr noundef readonly captures(none) %0, ptr no
 
 .lr.ph:                                           ; preds = %.preheader118, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader118 ]
-  %79 = getelementptr inbounds nuw i32, ptr %.093, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %.093, i64 %indvars.iv
   %80 = load i32, ptr %79, align 4, !tbaa !14
   %81 = xor i32 %80, -1
-  %82 = getelementptr inbounds nuw i32, ptr %.0, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %.0, i64 %indvars.iv
   store i32 %81, ptr %82, align 4, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %83 = load i32, ptr %76, align 8, !tbaa !37
@@ -677,9 +677,9 @@ define void @Sim_UtilSimulateNode(ptr noundef readonly captures(none) %0, ptr no
 
 .lr.ph122:                                        ; preds = %.preheader116, %.lr.ph122
   %indvars.iv137 = phi i64 [ %indvars.iv.next138, %.lr.ph122 ], [ 0, %.preheader116 ]
-  %86 = getelementptr inbounds nuw i32, ptr %.093, i64 %indvars.iv137
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %.093, i64 %indvars.iv137
   %87 = load i32, ptr %86, align 4, !tbaa !14
-  %88 = getelementptr inbounds nuw i32, ptr %.0, i64 %indvars.iv137
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %.0, i64 %indvars.iv137
   store i32 %87, ptr %88, align 4, !tbaa !14
   %indvars.iv.next138 = add nuw nsw i64 %indvars.iv137, 1
   %89 = load i32, ptr %76, align 8, !tbaa !37
@@ -698,23 +698,23 @@ define void @Sim_UtilSimulateNodeOne(ptr noundef readonly captures(none) %0, ptr
   %7 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %7, align 8, !tbaa !9
   %8 = sext i32 %6 to i64
-  %9 = getelementptr inbounds ptr, ptr %.val, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %.val, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !10
   %11 = getelementptr i8, ptr %0, i64 32
   %.val62 = load ptr, ptr %11, align 8, !tbaa !57
   %.val62.val = load i32, ptr %.val62, align 4, !tbaa !14
   %12 = sext i32 %.val62.val to i64
-  %13 = getelementptr inbounds ptr, ptr %.val, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %.val, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !10
   %15 = getelementptr i8, ptr %.val62, i64 4
   %.val63.val = load i32, ptr %15, align 4, !tbaa !14
   %16 = sext i32 %.val63.val to i64
-  %17 = getelementptr inbounds ptr, ptr %.val, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %.val, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !10
   %19 = sext i32 %3 to i64
-  %20 = getelementptr inbounds i32, ptr %10, i64 %19
-  %21 = getelementptr inbounds i32, ptr %14, i64 %19
-  %22 = getelementptr inbounds i32, ptr %18, i64 %19
+  %20 = getelementptr inbounds [4 x i8], ptr %10, i64 %19
+  %21 = getelementptr inbounds [4 x i8], ptr %14, i64 %19
+  %22 = getelementptr inbounds [4 x i8], ptr %18, i64 %19
   %23 = getelementptr i8, ptr %0, i64 20
   %.val64 = load i32, ptr %23, align 4
   %24 = lshr i32 %.val64, 10
@@ -736,13 +736,13 @@ define void @Sim_UtilSimulateNodeOne(ptr noundef readonly captures(none) %0, ptr
 
 .lr.ph78:                                         ; preds = %.lr.ph78.preheader, %.lr.ph78
   %indvars.iv93 = phi i64 [ 0, %.lr.ph78.preheader ], [ %indvars.iv.next94, %.lr.ph78 ]
-  %27 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv93
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv93
   %28 = load i32, ptr %27, align 4, !tbaa !14
-  %29 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv93
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv93
   %30 = load i32, ptr %29, align 4, !tbaa !14
   %.demorgan = or i32 %30, %28
   %31 = xor i32 %.demorgan, -1
-  %32 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv93
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv93
   store i32 %31, ptr %32, align 4, !tbaa !14
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %exitcond97.not = icmp eq i64 %indvars.iv.next94, %wide.trip.count96
@@ -757,13 +757,13 @@ define void @Sim_UtilSimulateNodeOne(ptr noundef readonly captures(none) %0, ptr
 
 .lr.ph76:                                         ; preds = %.lr.ph76.preheader, %.lr.ph76
   %indvars.iv88 = phi i64 [ 0, %.lr.ph76.preheader ], [ %indvars.iv.next89, %.lr.ph76 ]
-  %33 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv88
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv88
   %34 = load i32, ptr %33, align 4, !tbaa !14
   %35 = xor i32 %34, -1
-  %36 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv88
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv88
   %37 = load i32, ptr %36, align 4, !tbaa !14
   %38 = and i32 %37, %35
-  %39 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv88
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv88
   store i32 %38, ptr %39, align 4, !tbaa !14
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1
   %exitcond92.not = icmp eq i64 %indvars.iv.next89, %wide.trip.count91
@@ -788,13 +788,13 @@ define void @Sim_UtilSimulateNodeOne(ptr noundef readonly captures(none) %0, ptr
 
 .lr.ph74:                                         ; preds = %.lr.ph74.preheader, %.lr.ph74
   %indvars.iv83 = phi i64 [ 0, %.lr.ph74.preheader ], [ %indvars.iv.next84, %.lr.ph74 ]
-  %40 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv83
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv83
   %41 = load i32, ptr %40, align 4, !tbaa !14
-  %42 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv83
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv83
   %43 = load i32, ptr %42, align 4, !tbaa !14
   %44 = xor i32 %43, -1
   %45 = and i32 %41, %44
-  %46 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv83
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv83
   store i32 %45, ptr %46, align 4, !tbaa !14
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %exitcond87.not = icmp eq i64 %indvars.iv.next84, %wide.trip.count86
@@ -802,12 +802,12 @@ define void @Sim_UtilSimulateNodeOne(ptr noundef readonly captures(none) %0, ptr
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %47 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv
   %48 = load i32, ptr %47, align 4, !tbaa !14
-  %49 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv
   %50 = load i32, ptr %49, align 4, !tbaa !14
   %51 = and i32 %50, %48
-  %52 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv
   store i32 %51, ptr %52, align 4, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -824,21 +824,21 @@ define void @Sim_UtilTransferNodeOne(ptr noundef readonly captures(none) %0, ptr
   %8 = getelementptr i8, ptr %1, i64 8
   %.val25 = load ptr, ptr %8, align 8, !tbaa !9
   %9 = sext i32 %7 to i64
-  %10 = getelementptr inbounds ptr, ptr %.val25, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %.val25, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !10
   %12 = getelementptr i8, ptr %0, i64 32
   %.val26 = load ptr, ptr %12, align 8, !tbaa !57
   %.val26.val = load i32, ptr %.val26, align 4, !tbaa !14
   %13 = sext i32 %.val26.val to i64
-  %14 = getelementptr inbounds ptr, ptr %.val25, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %.val25, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !10
   %16 = icmp sgt i32 %4, 0
   %17 = select i1 %16, i32 %2, i32 0
   %18 = add nsw i32 %17, %3
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds i32, ptr %11, i64 %19
+  %20 = getelementptr inbounds [4 x i8], ptr %11, i64 %19
   %21 = sext i32 %3 to i64
-  %22 = getelementptr inbounds i32, ptr %15, i64 %21
+  %22 = getelementptr inbounds [4 x i8], ptr %15, i64 %21
   %23 = getelementptr i8, ptr %0, i64 20
   %.val27 = load i32, ptr %23, align 4
   %24 = and i32 %.val27, 1024
@@ -862,10 +862,10 @@ define void @Sim_UtilTransferNodeOne(ptr noundef readonly captures(none) %0, ptr
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %26 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv
   %27 = load i32, ptr %26, align 4, !tbaa !14
   %28 = xor i32 %27, -1
-  %29 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv
   store i32 %28, ptr %29, align 4, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -873,9 +873,9 @@ define void @Sim_UtilTransferNodeOne(ptr noundef readonly captures(none) %0, ptr
 
 .lr.ph32:                                         ; preds = %.lr.ph32.preheader, %.lr.ph32
   %indvars.iv35 = phi i64 [ 0, %.lr.ph32.preheader ], [ %indvars.iv.next36, %.lr.ph32 ]
-  %30 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv35
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv35
   %31 = load i32, ptr %30, align 4, !tbaa !14
-  %32 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv35
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv35
   store i32 %31, ptr %32, align 4, !tbaa !14
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
   %exitcond39.not = icmp eq i64 %indvars.iv.next36, %wide.trip.count38
@@ -920,12 +920,12 @@ define i32 @Sim_UtilCountSuppSizes(ptr noundef readonly captures(none) %0, i32 n
 .lr.ph.us:                                        ; preds = %..critedge2_crit_edge.us, %.lr.ph55.split.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %..critedge2_crit_edge.us ], [ 0, %.lr.ph55.split.us ]
   %.054.us = phi i32 [ %30, %..critedge2_crit_edge.us ], [ 0, %.lr.ph55.split.us ]
-  %15 = getelementptr inbounds nuw ptr, ptr %.val43.val, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %.val43.val, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !10
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load i32, ptr %17, align 8, !tbaa !33
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds ptr, ptr %14, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %14, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !10
   br label %22
 
@@ -934,7 +934,7 @@ define i32 @Sim_UtilCountSuppSizes(ptr noundef readonly captures(none) %0, i32 n
   %.03751.us = phi i32 [ 0, %.lr.ph.us ], [ %31, %22 ]
   %23 = lshr i32 %.03751.us, 5
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds nuw i32, ptr %21, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !14
   %27 = and i32 %.03751.us, 31
   %28 = lshr i32 %26, %27
@@ -971,7 +971,7 @@ define i32 @Sim_UtilCountSuppSizes(ptr noundef readonly captures(none) %0, i32 n
 .preheader.us:                                    ; preds = %..critedge6_crit_edge.us, %.preheader.lr.ph.split.us
   %indvars.iv72 = phi i64 [ %indvars.iv.next73, %..critedge6_crit_edge.us ], [ 0, %.preheader.lr.ph.split.us ]
   %.360.us = phi i32 [ %49, %..critedge6_crit_edge.us ], [ 0, %.preheader.lr.ph.split.us ]
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv72
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv72
   %40 = load ptr, ptr %39, align 8, !tbaa !10
   br label %41
 
@@ -980,7 +980,7 @@ define i32 @Sim_UtilCountSuppSizes(ptr noundef readonly captures(none) %0, i32 n
   %.13857.us = phi i32 [ 0, %.preheader.us ], [ %50, %41 ]
   %42 = lshr i32 %.13857.us, 5
   %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds nuw i32, ptr %40, i64 %43
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %43
   %45 = load i32, ptr %44, align 4, !tbaa !14
   %46 = and i32 %.13857.us, 31
   %47 = lshr i32 %45, %46
@@ -1017,7 +1017,7 @@ define i32 @Sim_UtilCountOnes(ptr noundef readonly captures(none) %0, i32 nounde
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %6 = load i8, ptr %5, align 1, !tbaa !77
   %7 = zext i8 %6 to i64
-  %8 = getelementptr inbounds nuw i32, ptr @bit_count, i64 %7
+  %8 = getelementptr inbounds nuw [4 x i8], ptr @bit_count, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !14
   %10 = add nsw i32 %9, %.089
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1081,7 +1081,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
 
 .lr.ph.preheader.i.us:                            ; preds = %.lr.ph, %Sim_UtilCountOnes.exit.loopexit.us
   %indvars.iv17 = phi i64 [ %indvars.iv.next18, %Sim_UtilCountOnes.exit.loopexit.us ], [ 0, %.lr.ph ]
-  %20 = getelementptr inbounds nuw ptr, ptr %.val11, i64 %indvars.iv17
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %.val11, i64 %indvars.iv17
   %21 = load ptr, ptr %20, align 8, !tbaa !10
   br label %.lr.ph.i.us
 
@@ -1091,7 +1091,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 %indvars.iv.i.us
   %23 = load i8, ptr %22, align 1, !tbaa !77
   %24 = zext i8 %23 to i64
-  %25 = getelementptr inbounds nuw i32, ptr @bit_count, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr @bit_count, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !14
   %27 = add nsw i32 %26, %.089.i.us
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
@@ -1099,7 +1099,7 @@ Vec_IntStart.exit:                                ; preds = %Vec_IntAlloc.exit.t
   br i1 %exitcond.not.i.us, label %Sim_UtilCountOnes.exit.loopexit.us, label %.lr.ph.i.us, !llvm.loop !78
 
 Sim_UtilCountOnes.exit.loopexit.us:               ; preds = %.lr.ph.i.us
-  %28 = getelementptr inbounds nuw i32, ptr %.val12, i64 %indvars.iv17
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %.val12, i64 %indvars.iv17
   store i32 %27, ptr %28, align 4, !tbaa !14
   %indvars.iv.next18 = add nuw nsw i64 %indvars.iv17, 1
   %29 = icmp samesign ult i64 %indvars.iv.next18, %19
@@ -1107,7 +1107,7 @@ Sim_UtilCountOnes.exit.loopexit.us:               ; preds = %.lr.ph.i.us
 
 Sim_UtilCountOnes.exit:                           ; preds = %.lr.ph, %Sim_UtilCountOnes.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %Sim_UtilCountOnes.exit ], [ 0, %.lr.ph ]
-  %30 = getelementptr inbounds nuw i32, ptr %.val12, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %.val12, i64 %indvars.iv
   store i32 0, ptr %30, align 4, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %31 = icmp samesign ult i64 %indvars.iv.next, %19
@@ -1135,7 +1135,7 @@ define void @Sim_UtilSetRandom(ptr noundef writeonly captures(none) %0, i32 noun
   %8 = xor i32 %7, %5
   %9 = tail call i32 @rand() #19
   %10 = xor i32 %8, %9
-  %11 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   store i32 %10, ptr %11, align 4, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1159,7 +1159,7 @@ define void @Sim_UtilSetCompl(ptr noundef captures(none) %0, i32 noundef %1) loc
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %4 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %5 = load i32, ptr %4, align 4, !tbaa !14
   %6 = xor i32 %5, -1
   store i32 %6, ptr %4, align 4, !tbaa !14
@@ -1189,7 +1189,7 @@ define void @Sim_UtilSetConst(ptr noundef captures(none) %0, i32 noundef %1, i32
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %7 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv.i
   %8 = load i32, ptr %7, align 4, !tbaa !14
   %9 = xor i32 %8, -1
   store i32 %9, ptr %7, align 4, !tbaa !14
@@ -1217,9 +1217,9 @@ define range(i32 0, 2) i32 @Sim_UtilInfoIsEqual(ptr noundef readonly captures(no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4, !tbaa !14
-  %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !14
   %.not = icmp eq i32 %7, %9
   br i1 %.not, label %5, label %._crit_edge
@@ -1245,9 +1245,9 @@ define range(i32 0, 2) i32 @Sim_UtilInfoIsImp(ptr noundef readonly captures(none
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4, !tbaa !14
-  %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !14
   %10 = xor i32 %9, -1
   %11 = and i32 %7, %10
@@ -1275,9 +1275,9 @@ define range(i32 0, 2) i32 @Sim_UtilInfoIsClause(ptr noundef readonly captures(n
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %7 = load i32, ptr %6, align 4, !tbaa !14
-  %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !14
   %.demorgan = or i32 %9, %7
   %.not = icmp eq i32 %.demorgan, -1
@@ -1309,7 +1309,7 @@ define i32 @Sim_UtilCountAllPairs(ptr noundef readonly captures(none) %0, i32 no
 .lr.ph.preheader.i.us:                            ; preds = %.lr.ph, %Sim_UtilCountOnes.exit.loopexit.us
   %indvars.iv23 = phi i64 [ %indvars.iv.next24, %Sim_UtilCountOnes.exit.loopexit.us ], [ 0, %.lr.ph ]
   %.01418.us = phi i32 [ %22, %Sim_UtilCountOnes.exit.loopexit.us ], [ 0, %.lr.ph ]
-  %10 = getelementptr inbounds nuw ptr, ptr %.val15, i64 %indvars.iv23
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %.val15, i64 %indvars.iv23
   %11 = load ptr, ptr %10, align 8, !tbaa !10
   br label %.lr.ph.i.us
 
@@ -1319,7 +1319,7 @@ define i32 @Sim_UtilCountAllPairs(ptr noundef readonly captures(none) %0, i32 no
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 %indvars.iv.i.us
   %13 = load i8, ptr %12, align 1, !tbaa !77
   %14 = zext i8 %13 to i64
-  %15 = getelementptr inbounds nuw i32, ptr @bit_count, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr @bit_count, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !14
   %17 = add nsw i32 %16, %.089.i.us
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
@@ -1330,7 +1330,7 @@ Sim_UtilCountOnes.exit.loopexit.us:               ; preds = %.lr.ph.i.us
   %18 = add nsw i32 %17, -1
   %19 = mul nsw i32 %18, %17
   %20 = sdiv i32 %19, 2
-  %21 = getelementptr inbounds nuw i32, ptr %.val16, i64 %indvars.iv23
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %.val16, i64 %indvars.iv23
   store i32 %20, ptr %21, align 4, !tbaa !14
   %22 = add nsw i32 %20, %.01418.us
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
@@ -1341,7 +1341,7 @@ Sim_UtilCountOnes.exit.loopexit.us:               ; preds = %.lr.ph.i.us
 
 Sim_UtilCountOnes.exit:                           ; preds = %.lr.ph, %Sim_UtilCountOnes.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %Sim_UtilCountOnes.exit ], [ 0, %.lr.ph ]
-  %25 = getelementptr inbounds nuw i32, ptr %.val16, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %.val16, i64 %indvars.iv
   store i32 0, ptr %25, align 4, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.val = load i32, ptr %4, align 4, !tbaa !13
@@ -1377,7 +1377,7 @@ define i32 @Sim_UtilCountPairsOne(ptr noundef %0, ptr noundef readonly captures(
   %indvars.iv = phi i64 [ 1, %.lr.ph28 ], [ %indvars.iv.next, %.critedge2.loopexit ]
   %.027 = phi i32 [ 0, %.lr.ph28 ], [ %15, %.critedge2.loopexit ]
   %.val20 = load ptr, ptr %5, align 8, !tbaa !20
-  %8 = getelementptr inbounds nuw i32, ptr %.val20, i64 %indvars.iv33
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %.val20, i64 %indvars.iv33
   %9 = load i32, ptr %8, align 4, !tbaa !14
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
   %10 = sext i32 %.val37 to i64
@@ -1388,7 +1388,7 @@ define i32 @Sim_UtilCountPairsOne(ptr noundef %0, ptr noundef readonly captures(
   %indvars.iv30 = phi i64 [ %indvars.iv.next31, %.lr.ph ], [ %indvars.iv, %7 ]
   %.124 = phi i32 [ %15, %.lr.ph ], [ %.027, %7 ]
   %.val21 = load ptr, ptr %5, align 8, !tbaa !20
-  %12 = getelementptr inbounds nuw i32, ptr %.val21, i64 %indvars.iv30
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %.val21, i64 %indvars.iv30
   %13 = load i32, ptr %12, align 4, !tbaa !14
   %14 = tail call i32 @Extra_BitMatrixLookup1(ptr noundef %0, i32 noundef %9, i32 noundef %13) #19
   %15 = add nsw i32 %14, %.124
@@ -1427,7 +1427,7 @@ define noundef i32 @Sim_UtilCountPairsOnePrint(ptr noundef %0, ptr noundef reado
   %indvars.iv29 = phi i64 [ 0, %.lr.ph25 ], [ %indvars.iv.next30, %.critedge2.loopexit ]
   %indvars.iv = phi i64 [ 1, %.lr.ph25 ], [ %indvars.iv.next, %.critedge2.loopexit ]
   %.val20 = load ptr, ptr %5, align 8, !tbaa !20
-  %8 = getelementptr inbounds nuw i32, ptr %.val20, i64 %indvars.iv29
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %.val20, i64 %indvars.iv29
   %9 = load i32, ptr %8, align 4, !tbaa !14
   %indvars.iv.next30 = add nuw nsw i64 %indvars.iv29, 1
   %10 = sext i32 %.val1834 to i64
@@ -1437,7 +1437,7 @@ define noundef i32 @Sim_UtilCountPairsOnePrint(ptr noundef %0, ptr noundef reado
 .lr.ph:                                           ; preds = %7, %17
   %indvars.iv26 = phi i64 [ %indvars.iv.next27, %17 ], [ %indvars.iv, %7 ]
   %.val19 = load ptr, ptr %5, align 8, !tbaa !20
-  %12 = getelementptr inbounds nuw i32, ptr %.val19, i64 %indvars.iv26
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %.val19, i64 %indvars.iv26
   %13 = load i32, ptr %12, align 4, !tbaa !14
   %14 = tail call i32 @Extra_BitMatrixLookup1(ptr noundef %0, i32 noundef %9, i32 noundef %13) #19
   %.not = icmp eq i32 %14, 0
@@ -1499,12 +1499,12 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   %18 = load ptr, ptr %13, align 8, !tbaa !95
   %19 = getelementptr i8, ptr %18, i64 8
   %.val = load ptr, ptr %19, align 8, !tbaa !9
-  %20 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !10
   %22 = load ptr, ptr %14, align 8, !tbaa !96
   %23 = getelementptr i8, ptr %22, i64 8
   %.val9 = load ptr, ptr %23, align 8, !tbaa !97
-  %24 = getelementptr inbounds nuw ptr, ptr %.val9, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.val9, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !10
   %26 = getelementptr i8, ptr %25, i64 4
   %.val1823.i = load i32, ptr %26, align 4, !tbaa !16
@@ -1526,7 +1526,7 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   %indvars.iv29.i = phi i64 [ 0, %.lr.ph25.i ], [ %indvars.iv.next30.i, %.critedge2.loopexit.i ]
   %indvars.iv.i = phi i64 [ 1, %.lr.ph25.i ], [ %indvars.iv.next.i, %.critedge2.loopexit.i ]
   %.val20.i = load ptr, ptr %28, align 8, !tbaa !20
-  %31 = getelementptr inbounds nuw i32, ptr %.val20.i, i64 %indvars.iv29.i
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %.val20.i, i64 %indvars.iv29.i
   %32 = load i32, ptr %31, align 4, !tbaa !14
   %indvars.iv.next30.i = add nuw nsw i64 %indvars.iv29.i, 1
   %33 = sext i32 %.val1834.i to i64
@@ -1536,7 +1536,7 @@ Abc_Clock.exit:                                   ; preds = %1, %6
 .lr.ph.i:                                         ; preds = %30, %40
   %indvars.iv26.i = phi i64 [ %indvars.iv.next27.i, %40 ], [ %indvars.iv.i, %30 ]
   %.val19.i = load ptr, ptr %28, align 8, !tbaa !20
-  %35 = getelementptr inbounds nuw i32, ptr %.val19.i, i64 %indvars.iv26.i
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %.val19.i, i64 %indvars.iv26.i
   %36 = load i32, ptr %35, align 4, !tbaa !14
   %37 = call i32 @Extra_BitMatrixLookup1(ptr noundef %21, i32 noundef %32, i32 noundef %36) #19
   %.not.i = icmp eq i32 %37, 0
@@ -1638,15 +1638,15 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   %27 = load ptr, ptr %15, align 8, !tbaa !105
   %28 = getelementptr i8, ptr %27, i64 8
   %.val46 = load ptr, ptr %28, align 8, !tbaa !20
-  %29 = getelementptr inbounds nuw i32, ptr %.val46, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %.val46, i64 %indvars.iv
   %30 = load i32, ptr %29, align 4, !tbaa !14
   %31 = getelementptr i8, ptr %26, i64 8
   %.val45 = load ptr, ptr %31, align 8, !tbaa !20
-  %32 = getelementptr inbounds nuw i32, ptr %.val45, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %.val45, i64 %indvars.iv
   %33 = load i32, ptr %32, align 4, !tbaa !14
   %34 = getelementptr i8, ptr %25, i64 8
   %.val44 = load ptr, ptr %34, align 8, !tbaa !20
-  %35 = getelementptr inbounds nuw i32, ptr %.val44, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %.val44, i64 %indvars.iv
   %36 = load i32, ptr %35, align 4, !tbaa !14
   %37 = add nsw i32 %36, %33
   %38 = icmp eq i32 %30, %37
@@ -1662,12 +1662,12 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   %43 = load ptr, ptr %18, align 8, !tbaa !95
   %44 = getelementptr i8, ptr %43, i64 8
   %.val41 = load ptr, ptr %44, align 8, !tbaa !9
-  %45 = getelementptr inbounds nuw ptr, ptr %.val41, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %.val41, i64 %indvars.iv
   %46 = load ptr, ptr %45, align 8, !tbaa !10
   %47 = load ptr, ptr %19, align 8, !tbaa !96
   %48 = getelementptr i8, ptr %47, i64 8
   %.val48 = load ptr, ptr %48, align 8, !tbaa !97
-  %49 = getelementptr inbounds nuw ptr, ptr %.val48, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %.val48, i64 %indvars.iv
   %50 = load ptr, ptr %49, align 8, !tbaa !10
   %51 = getelementptr i8, ptr %50, i64 4
   %.val25.i = load i32, ptr %51, align 4, !tbaa !16
@@ -1690,7 +1690,7 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   %indvars.iv.i = phi i64 [ 1, %.lr.ph28.i ], [ %indvars.iv.next.i, %.critedge2.loopexit.i ]
   %.027.i = phi i32 [ 0, %.lr.ph28.i ], [ %63, %.critedge2.loopexit.i ]
   %.val20.i = load ptr, ptr %53, align 8, !tbaa !20
-  %56 = getelementptr inbounds nuw i32, ptr %.val20.i, i64 %indvars.iv33.i
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %.val20.i, i64 %indvars.iv33.i
   %57 = load i32, ptr %56, align 4, !tbaa !14
   %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 1
   %58 = sext i32 %.val37.i to i64
@@ -1701,7 +1701,7 @@ Abc_Clock.exit:                                   ; preds = %1, %6
   %indvars.iv30.i = phi i64 [ %indvars.iv.next31.i, %.lr.ph.i ], [ %indvars.iv.i, %55 ]
   %.124.i = phi i32 [ %63, %.lr.ph.i ], [ %.027.i, %55 ]
   %.val21.i = load ptr, ptr %53, align 8, !tbaa !20
-  %60 = getelementptr inbounds nuw i32, ptr %.val21.i, i64 %indvars.iv30.i
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %.val21.i, i64 %indvars.iv30.i
   %61 = load i32, ptr %60, align 4, !tbaa !14
   %62 = call i32 @Extra_BitMatrixLookup1(ptr noundef %46, i32 noundef %57, i32 noundef %61) #19
   %63 = add nsw i32 %62, %.124.i
@@ -1716,14 +1716,14 @@ Sim_UtilCountPairsOne.exit:                       ; preds = %.critedge2.loopexit
   %.pre80 = load ptr, ptr %19, align 8, !tbaa !96
   %.phi.trans.insert = getelementptr i8, ptr %.pre80, i64 8
   %.val47.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !97
-  %.phi.trans.insert82 = getelementptr inbounds nuw ptr, ptr %.val47.pre, i64 %indvars.iv
+  %.phi.trans.insert82 = getelementptr inbounds nuw [8 x i8], ptr %.val47.pre, i64 %indvars.iv
   %.pre83 = load ptr, ptr %.phi.trans.insert82, align 8, !tbaa !10
   %.phi.trans.insert84 = getelementptr i8, ptr %.pre83, i64 4
   %.val25.i49.pre = load i32, ptr %.phi.trans.insert84, align 4, !tbaa !16
   %66 = load ptr, ptr %20, align 8, !tbaa !106
   %67 = getelementptr i8, ptr %66, i64 8
   %.val = load ptr, ptr %67, align 8, !tbaa !9
-  %68 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %indvars.iv
   %69 = load ptr, ptr %68, align 8, !tbaa !10
   %70 = getelementptr i8, ptr %.pre83, i64 4
   %71 = icmp sgt i32 %.val25.i49.pre, 0
@@ -1745,7 +1745,7 @@ Sim_UtilCountPairsOne.exit:                       ; preds = %.critedge2.loopexit
   %indvars.iv.i54 = phi i64 [ 1, %.lr.ph28.i51 ], [ %indvars.iv.next.i66, %.critedge2.loopexit.i64 ]
   %.027.i55 = phi i32 [ 0, %.lr.ph28.i51 ], [ %82, %.critedge2.loopexit.i64 ]
   %.val20.i56 = load ptr, ptr %72, align 8, !tbaa !20
-  %75 = getelementptr inbounds nuw i32, ptr %.val20.i56, i64 %indvars.iv33.i53
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %.val20.i56, i64 %indvars.iv33.i53
   %76 = load i32, ptr %75, align 4, !tbaa !14
   %indvars.iv.next34.i57 = add nuw nsw i64 %indvars.iv33.i53, 1
   %77 = sext i32 %.val37.i52 to i64
@@ -1756,7 +1756,7 @@ Sim_UtilCountPairsOne.exit:                       ; preds = %.critedge2.loopexit
   %indvars.iv30.i59 = phi i64 [ %indvars.iv.next31.i62, %.lr.ph.i58 ], [ %indvars.iv.i54, %74 ]
   %.124.i60 = phi i32 [ %82, %.lr.ph.i58 ], [ %.027.i55, %74 ]
   %.val21.i61 = load ptr, ptr %72, align 8, !tbaa !20
-  %79 = getelementptr inbounds nuw i32, ptr %.val21.i61, i64 %indvars.iv30.i59
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %.val21.i61, i64 %indvars.iv30.i59
   %80 = load i32, ptr %79, align 4, !tbaa !14
   %81 = call i32 @Extra_BitMatrixLookup1(ptr noundef %69, i32 noundef %76, i32 noundef %80) #19
   %82 = add nsw i32 %81, %.124.i60
@@ -1772,12 +1772,12 @@ Sim_UtilCountPairsOne.exit67:                     ; preds = %.critedge2.loopexit
   %85 = load ptr, ptr %16, align 8, !tbaa !103
   %86 = getelementptr i8, ptr %85, i64 8
   %.val43 = load ptr, ptr %86, align 8, !tbaa !20
-  %87 = getelementptr inbounds nuw i32, ptr %.val43, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %.val43, i64 %indvars.iv
   store i32 %.0.lcssa.i90, ptr %87, align 4, !tbaa !14
   %88 = load ptr, ptr %17, align 8, !tbaa !104
   %89 = getelementptr i8, ptr %88, i64 8
   %.val42 = load ptr, ptr %89, align 8, !tbaa !20
-  %90 = getelementptr inbounds nuw i32, ptr %.val42, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %.val42, i64 %indvars.iv
   store i32 %.0.lcssa.i50, ptr %90, align 4, !tbaa !14
   %91 = load i32, ptr %10, align 8, !tbaa !101
   %92 = add nsw i32 %91, %.0.lcssa.i90
@@ -1859,12 +1859,12 @@ define range(i32 0, 2) i32 @Sim_UtilMatrsAreDisjoint(ptr noundef readonly captur
   %12 = load ptr, ptr %2, align 8, !tbaa !95
   %13 = getelementptr i8, ptr %12, i64 8
   %.val8 = load ptr, ptr %13, align 8, !tbaa !9
-  %14 = getelementptr inbounds nuw ptr, ptr %.val8, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %.val8, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !10
   %16 = load ptr, ptr %6, align 8, !tbaa !106
   %17 = getelementptr i8, ptr %16, i64 8
   %.val = load ptr, ptr %17, align 8, !tbaa !9
-  %18 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !10
   %20 = tail call i32 @Extra_BitMatrixIsDisjoint(ptr noundef %15, ptr noundef %19) #19
   %.not = icmp eq i32 %20, 0

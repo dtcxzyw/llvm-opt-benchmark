@@ -294,7 +294,7 @@ define i32 @prte_attr_unload(ptr noundef readonly captures(none) %0, ptr noundef
 
 .preheader:                                       ; preds = %7, %11
   %indvars.iv = phi i64 [ %indvars.iv.next, %11 ], [ 0, %7 ]
-  %12 = getelementptr inbounds nuw i16, ptr @__const.prte_attr_unload.pointers, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [2 x i8], ptr @__const.prte_attr_unload.pointers, i64 %indvars.iv
   %13 = load i16, ptr %12, align 2, !tbaa !22
   %14 = icmp eq i16 %2, %13
   br i1 %14, label %.loopexit, label %11
@@ -1421,7 +1421,7 @@ define range(i32 -2, 1) i32 @prte_attr_register(ptr noundef %0, i16 noundef zero
 
 6:                                                ; preds = %4, %5
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %5 ]
-  %7 = getelementptr inbounds nuw %struct.prte_attr_converter_t, ptr @converters, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [32 x i8], ptr @converters, i64 %indvars.iv
   %8 = load i32, ptr %7, align 16, !tbaa !65
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %5
@@ -2131,7 +2131,7 @@ define ptr @prte_attr_key_to_str(i16 noundef zeroext %0) local_unnamed_addr #0 {
 
 .preheader:                                       ; preds = %1, %177
   %indvars.iv = phi i64 [ %indvars.iv.next, %177 ], [ 0, %1 ]
-  %163 = getelementptr inbounds nuw %struct.prte_attr_converter_t, ptr @converters, i64 %indvars.iv
+  %163 = getelementptr inbounds nuw [32 x i8], ptr @converters, i64 %indvars.iv
   %164 = load i32, ptr %163, align 16, !tbaa !65
   %.not = icmp eq i32 %164, 0
   br i1 %.not, label %177, label %165

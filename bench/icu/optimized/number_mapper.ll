@@ -51,8 +51,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.icu_77::number::impl::NullableValue.7" = type { i8, i32 }
 %"class.icu_77::number::impl::NullableValue.8" = type { i8, i32 }
 %"class.icu_77::number::impl::NullableValue.9" = type { i8, i32 }
-%"class.icu_77::number::impl::PropertiesAffixPatternProvider" = type <{ %"class.icu_77::number::impl::AffixPatternProvider", %"class.icu_77::UnicodeString", %"class.icu_77::UnicodeString", %"class.icu_77::UnicodeString", %"class.icu_77::UnicodeString", i8, i8, i8, [5 x i8] }>
-%"class.icu_77::number::impl::AffixPatternProvider" = type { ptr }
 
 $_ZN6icu_7715MaybeStackArrayIcLi40EEC5Ev = comdat any
 
@@ -2282,7 +2280,7 @@ define noundef zeroext i16 @_ZNK6icu_776number4impl30PropertiesAffixPatternProvi
   %21 = load ptr, ptr %20, align 8
   %22 = select i1 %.not.i.i.i, ptr %21, ptr %19
   %23 = sext i32 %2 to i64
-  %24 = getelementptr inbounds i16, ptr %22, i64 %23
+  %24 = getelementptr inbounds [2 x i8], ptr %22, i64 %23
   %25 = load i16, ptr %24, align 2, !tbaa !123
   br label %_ZNK6icu_7713UnicodeString6charAtEi.exit
 
@@ -2652,7 +2650,7 @@ define void @_ZN6icu_776number4impl31CurrencyPluralInfoAffixProvider5setToERKNS_
           to label %21 unwind label %31
 
 21:                                               ; preds = %20
-  %22 = getelementptr inbounds nuw %"class.icu_77::number::impl::PropertiesAffixPatternProvider", ptr %10, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [272 x i8], ptr %10, i64 %indvars.iv
   invoke void @_ZN6icu_776number4impl30PropertiesAffixPatternProvider5setToERKNS1_23DecimalFormatPropertiesER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(267) %22, ptr noundef nonnull align 8 dereferenceable(757) %5, ptr noundef nonnull align 4 dereferenceable(4) %3)
           to label %23 unwind label %31
 
@@ -2977,7 +2975,7 @@ define noundef zeroext i16 @_ZNK6icu_776number4impl31CurrencyPluralInfoAffixProv
   %4 = and i32 %1, 255
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = zext nneg i32 %4 to i64
-  %7 = getelementptr inbounds nuw %"class.icu_77::number::impl::PropertiesAffixPatternProvider", ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [272 x i8], ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !59
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
@@ -2990,7 +2988,7 @@ define noundef i32 @_ZNK6icu_776number4impl31CurrencyPluralInfoAffixProvider6len
   %3 = and i32 %1, 255
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = zext nneg i32 %3 to i64
-  %6 = getelementptr inbounds nuw %"class.icu_77::number::impl::PropertiesAffixPatternProvider", ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [272 x i8], ptr %4, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !59
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load ptr, ptr %8, align 8
@@ -3003,7 +3001,7 @@ define void @_ZNK6icu_776number4impl31CurrencyPluralInfoAffixProvider9getStringE
   %4 = and i32 %2, 255
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = zext nneg i32 %4 to i64
-  %7 = getelementptr inbounds nuw %"class.icu_77::number::impl::PropertiesAffixPatternProvider", ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [272 x i8], ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !59
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %10 = load ptr, ptr %9, align 8

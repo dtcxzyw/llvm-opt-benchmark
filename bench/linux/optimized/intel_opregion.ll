@@ -414,13 +414,13 @@ define dso_local noundef range(i32 -110, 1) i32 @intel_opregion_notify_adapter(p
 
 .preheader:                                       ; preds = %2, %9
   %12 = phi i64 [ %10, %9 ], [ 0, %2 ]
-  %13 = getelementptr %struct.anon.47, ptr @power_state_map, i64 %12
+  %13 = getelementptr [8 x i8], ptr @power_state_map, i64 %12
   %14 = load i32, ptr %13, align 8
   %15 = icmp eq i32 %14, %1
   br i1 %15, label %16, label %9
 
 16:                                               ; preds = %.preheader
-  %17 = getelementptr %struct.anon.47, ptr @power_state_map, i64 %12
+  %17 = getelementptr [8 x i8], ptr @power_state_map, i64 %12
   %18 = getelementptr i8, ptr %17, i64 4
   %19 = load i32, ptr %18, align 4
   %20 = tail call fastcc i32 @swsci(ptr noundef %0, i32 noundef 1804, i32 noundef %19, ptr noundef null), !range !11
@@ -1778,7 +1778,7 @@ define dso_local void @intel_opregion_resume(ptr noundef %0) local_unnamed_addr 
   %26 = zext nneg i32 %19 to i64
   %27 = load ptr, ptr %12, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  %29 = getelementptr i32, ptr %28, i64 %26
+  %29 = getelementptr [4 x i8], ptr %28, i64 %26
   store i32 %23, ptr %29, align 1
   br label %39
 
@@ -1797,7 +1797,7 @@ define dso_local void @intel_opregion_resume(ptr noundef %0) local_unnamed_addr 
   %35 = zext nneg i32 %31 to i64
   %36 = load ptr, ptr %12, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 196
-  %38 = getelementptr i32, ptr %37, i64 %35
+  %38 = getelementptr [4 x i8], ptr %37, i64 %35
   store i32 %23, ptr %38, align 1
   br label %39
 
@@ -1846,7 +1846,7 @@ define dso_local void @intel_opregion_resume(ptr noundef %0) local_unnamed_addr 
   %58 = zext nneg i32 %43 to i64
   %59 = load ptr, ptr %12, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 32
-  %61 = getelementptr i32, ptr %60, i64 %58
+  %61 = getelementptr [4 x i8], ptr %60, i64 %58
   store i32 0, ptr %61, align 1
   br label %71
 
@@ -1865,7 +1865,7 @@ define dso_local void @intel_opregion_resume(ptr noundef %0) local_unnamed_addr 
   %67 = zext nneg i32 %63 to i64
   %68 = load ptr, ptr %12, align 8
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 196
-  %70 = getelementptr i32, ptr %69, i64 %67
+  %70 = getelementptr [4 x i8], ptr %69, i64 %67
   store i32 0, ptr %70, align 1
   br label %71
 
@@ -1890,7 +1890,7 @@ define dso_local void @intel_opregion_resume(ptr noundef %0) local_unnamed_addr 
   %78 = load ptr, ptr %12, align 8
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 96
   %80 = add nuw nsw i64 %74, 1
-  %81 = getelementptr i32, ptr %79, i64 %74
+  %81 = getelementptr [4 x i8], ptr %79, i64 %74
   store i32 %77, ptr %81, align 1
   %82 = call ptr @drm_connector_list_iter_next(ptr noundef nonnull %2) #12
   %83 = icmp eq ptr %82, null
@@ -1908,7 +1908,7 @@ define dso_local void @intel_opregion_resume(ptr noundef %0) local_unnamed_addr 
   %90 = phi i64 [ 0, %.thread11 ], [ %80, %86 ]
   %91 = load ptr, ptr %12, align 8
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 96
-  %93 = getelementptr i32, ptr %92, i64 %90
+  %93 = getelementptr [4 x i8], ptr %92, i64 %90
   store i32 0, ptr %93, align 1
   br label %94
 
@@ -1978,13 +1978,13 @@ define dso_local void @intel_opregion_suspend(ptr noundef %0, i32 noundef %1) lo
 
 .preheader:                                       ; preds = %6, %13
   %16 = phi i64 [ %14, %13 ], [ 0, %6 ]
-  %17 = getelementptr %struct.anon.47, ptr @power_state_map, i64 %16
+  %17 = getelementptr [8 x i8], ptr @power_state_map, i64 %16
   %18 = load i32, ptr %17, align 8
   %19 = icmp eq i32 %18, %1
   br i1 %19, label %20, label %13
 
 20:                                               ; preds = %.preheader
-  %21 = getelementptr %struct.anon.47, ptr @power_state_map, i64 %16
+  %21 = getelementptr [8 x i8], ptr @power_state_map, i64 %16
   %22 = getelementptr i8, ptr %21, i64 4
   %23 = load i32, ptr %22, align 4
   %24 = tail call fastcc i32 @swsci(ptr noundef %0, i32 noundef 1804, i32 noundef %23, ptr noundef null), !range !11

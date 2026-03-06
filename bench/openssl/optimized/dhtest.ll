@@ -975,7 +975,7 @@ define internal range(i32 0, 2) i32 @rfc5114_test() #0 {
 
 2:                                                ; preds = %0, %86
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %86 ]
-  %3 = getelementptr inbounds nuw %struct.rfc5114_td, ptr @rfctd, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [88 x i8], ptr @rfctd, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8, !tbaa !11
   %5 = call ptr %4() #4
   %6 = call i32 @test_ptr(ptr noundef nonnull @.str.9, i32 noundef 592, ptr noundef nonnull @.str.88, ptr noundef %5) #4
@@ -1320,7 +1320,7 @@ define internal range(i32 0, 2) i32 @dh_test_prime_groups(i32 noundef %0) #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = sext i32 %0 to i64
-  %6 = getelementptr inbounds i32, ptr @prime_groups, i64 %5
+  %6 = getelementptr inbounds [4 x i8], ptr @prime_groups, i64 %5
   %7 = load i32, ptr %6, align 4, !tbaa !9
   %8 = tail call ptr @DH_new_by_nid(i32 noundef %7) #4
   %9 = tail call i32 @test_ptr(ptr noundef nonnull @.str.9, i32 noundef 737, ptr noundef nonnull @.str.115, ptr noundef %8) #4

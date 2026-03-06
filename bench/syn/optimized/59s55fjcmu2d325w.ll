@@ -5160,7 +5160,7 @@ define void @"_ZN3syn2op7parsing61_$LT$impl$u20$syn..parse..Parse$u20$for$u20$sy
 44:                                               ; preds = %.noexc.i, %33
   %45 = phi i64 [ %.pre.i.i, %.noexc.i ], [ %36, %33 ]
   %46 = load ptr, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i.i, align 8, !alias.scope !733, !noalias !736, !nonnull !4, !noundef !4
-  %47 = getelementptr inbounds { ptr, i64 }, ptr %46, i64 %45
+  %47 = getelementptr inbounds [16 x i8], ptr %46, i64 %45
   store ptr %34, ptr %47, align 8, !noalias !736
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   store i64 %35, ptr %48, align 8
@@ -5269,7 +5269,7 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i: ; preds = %84, %86
 93:                                               ; preds = %.noexc.i3, %61
   %94 = phi i64 [ %.pre.i.i4, %.noexc.i3 ], [ %64, %61 ]
   %95 = load ptr, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i.i, align 8, !alias.scope !752, !noalias !755, !nonnull !4, !noundef !4
-  %96 = getelementptr inbounds { ptr, i64 }, ptr %95, i64 %94
+  %96 = getelementptr inbounds [16 x i8], ptr %95, i64 %94
   store ptr %62, ptr %96, align 8, !noalias !755
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   store i64 %63, ptr %97, align 8
@@ -5385,7 +5385,7 @@ _ZN3syn5parse11ParseBuffer4span17h1ca0c8b0ffc956f0E.exit.i.i22: ; preds = %133, 
 142:                                              ; preds = %.noexc.i13, %110
   %143 = phi i64 [ %.pre.i.i14, %.noexc.i13 ], [ %113, %110 ]
   %144 = load ptr, ptr %.sroa.4.sroa.4.0..sroa.4.0..sroa_idx.sroa_idx.i.i, align 8, !alias.scope !782, !noalias !785, !nonnull !4, !noundef !4
-  %145 = getelementptr inbounds { ptr, i64 }, ptr %144, i64 %143
+  %145 = getelementptr inbounds [16 x i8], ptr %144, i64 %143
   store ptr %111, ptr %145, align 8, !noalias !785
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 8
   store i64 %112, ptr %146, align 8
@@ -5747,7 +5747,7 @@ define void @"_ZN3syn2op8printing70_$LT$impl$u20$quote..to_tokens..ToTokens$u20$
 switch.lookup:
   %2 = load i32, ptr %0, align 4, !range !842, !noundef !4
   %3 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN3syn2op8printing70_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$syn..op..UnOp$GT$9to_tokens17hfd031b8b4c03585bE", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN3syn2op8printing70_$LT$impl$u20$quote..to_tokens..ToTokens$u20$for$u20$syn..op..UnOp$GT$9to_tokens17hfd031b8b4c03585bE", i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   tail call void @_ZN3syn5token8printing5punct17h32409e3f9cc0b330E(ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef 1, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4, i64 noundef 1, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)

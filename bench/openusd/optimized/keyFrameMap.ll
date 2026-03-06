@@ -3,10 +3,6 @@ source_filename = "bench/openusd/original/keyFrameMap.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"class.pxrInternal_v0_24__pxrReserved__::TsKeyFrame" = type { %"class.pxrInternal_v0_24__pxrReserved__::Ts_PolymorphicDataHolder" }
-%"class.pxrInternal_v0_24__pxrReserved__::Ts_PolymorphicDataHolder" = type { %"union.std::aligned_storage<72, 8>::type" }
-%"union.std::aligned_storage<72, 8>::type" = type { [72 x i8] }
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @_ZN32pxrInternal_v0_24__pxrReserved__13TsKeyFrameMap11lower_boundEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, double noundef %1) local_unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8
@@ -86,7 +82,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__
   %.06.i.i = phi i64 [ %.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i.i ], [ %36, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.preheader.i.i ]
   %.sroa.03.05.i.i = phi ptr [ %.sroa.03.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i.i ], [ %.sroa.01.0.lcssa.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.preheader.i.i ]
   %37 = lshr i64 %.06.i.i, 1
-  %38 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TsKeyFrame", ptr %.sroa.03.05.i.i, i64 %37
+  %38 = getelementptr inbounds nuw [72 x i8], ptr %.sroa.03.05.i.i, i64 %37
   %39 = getelementptr i8, ptr %38, i64 8
   %.val9.i.i = load double, ptr %39, align 8
   %40 = fcmp olt double %.val9.i.i, %1
@@ -132,7 +128,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__
   %.06.i62.i = phi i64 [ %.1.i68.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i61.i ], [ %55, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.preheader.i60.i ]
   %.sroa.03.05.i63.i = phi ptr [ %.sroa.03.1.i67.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i61.i ], [ %3, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.preheader.i60.i ]
   %56 = lshr i64 %.06.i62.i, 1
-  %57 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TsKeyFrame", ptr %.sroa.03.05.i63.i, i64 %56
+  %57 = getelementptr inbounds nuw [72 x i8], ptr %.sroa.03.05.i63.i, i64 %56
   %58 = getelementptr i8, ptr %57, i64 8
   %.val9.i66.i = load double, ptr %58, align 8
   %59 = fcmp olt double %.val9.i66.i, %1
@@ -148,7 +144,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__
   %.06.i75.i = phi i64 [ %.1.i81.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i74.i ], [ %17, %13 ]
   %.sroa.03.05.i76.i = phi ptr [ %.sroa.03.1.i80.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i74.i ], [ %3, %13 ]
   %63 = lshr i64 %.06.i75.i, 1
-  %64 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TsKeyFrame", ptr %.sroa.03.05.i76.i, i64 %63
+  %64 = getelementptr inbounds nuw [72 x i8], ptr %.sroa.03.05.i76.i, i64 %63
   %65 = getelementptr i8, ptr %64, i64 8
   %.val9.i79.i = load double, ptr %65, align 8
   %66 = fcmp olt double %.val9.i79.i, %1
@@ -244,7 +240,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved_
   %.06.i.i = phi i64 [ %.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i.i ], [ %36, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.preheader.i.i ]
   %.sroa.03.05.i.i = phi ptr [ %.sroa.03.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i.i ], [ %.sroa.01.0.lcssa.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.preheader.i.i ]
   %37 = lshr i64 %.06.i.i, 1
-  %38 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TsKeyFrame", ptr %.sroa.03.05.i.i, i64 %37
+  %38 = getelementptr inbounds nuw [72 x i8], ptr %.sroa.03.05.i.i, i64 %37
   %39 = getelementptr i8, ptr %38, i64 8
   %.val9.i.i = load double, ptr %39, align 8
   %40 = fcmp olt double %.val9.i.i, %1
@@ -290,7 +286,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved_
   %.06.i62.i = phi i64 [ %.1.i68.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i61.i ], [ %55, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.preheader.i60.i ]
   %.sroa.03.05.i63.i = phi ptr [ %.sroa.03.1.i67.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i61.i ], [ %3, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.preheader.i60.i ]
   %56 = lshr i64 %.06.i62.i, 1
-  %57 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TsKeyFrame", ptr %.sroa.03.05.i63.i, i64 %56
+  %57 = getelementptr inbounds nuw [72 x i8], ptr %.sroa.03.05.i63.i, i64 %56
   %58 = getelementptr i8, ptr %57, i64 8
   %.val9.i66.i = load double, ptr %58, align 8
   %59 = fcmp olt double %.val9.i66.i, %1
@@ -306,7 +302,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved_
   %.06.i75.i = phi i64 [ %.1.i81.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i74.i ], [ %17, %13 ]
   %.sroa.03.05.i76.i = phi ptr [ %.sroa.03.1.i80.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i74.i ], [ %3, %13 ]
   %63 = lshr i64 %.06.i75.i, 1
-  %64 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TsKeyFrame", ptr %.sroa.03.05.i76.i, i64 %63
+  %64 = getelementptr inbounds nuw [72 x i8], ptr %.sroa.03.05.i76.i, i64 %63
   %65 = getelementptr i8, ptr %64, i64 8
   %.val9.i79.i = load double, ptr %65, align 8
   %66 = fcmp olt double %.val9.i79.i, %1
@@ -402,7 +398,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__
   %.06.i.i = phi i64 [ %.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i.i ], [ %36, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.preheader.i.i ]
   %.sroa.03.05.i.i = phi ptr [ %.sroa.03.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i.i ], [ %.sroa.01.0.lcssa.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.preheader.i.i ]
   %37 = lshr i64 %.06.i.i, 1
-  %38 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TsKeyFrame", ptr %.sroa.03.05.i.i, i64 %37
+  %38 = getelementptr inbounds nuw [72 x i8], ptr %.sroa.03.05.i.i, i64 %37
   %39 = getelementptr i8, ptr %38, i64 8
   %.val9.i.i = load double, ptr %39, align 8
   %40 = fcmp ugt double %.val9.i.i, %1
@@ -448,7 +444,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__
   %.06.i62.i = phi i64 [ %.1.i68.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i61.i ], [ %55, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.preheader.i60.i ]
   %.sroa.03.05.i63.i = phi ptr [ %.sroa.03.1.i67.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i61.i ], [ %3, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.preheader.i60.i ]
   %56 = lshr i64 %.06.i62.i, 1
-  %57 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TsKeyFrame", ptr %.sroa.03.05.i63.i, i64 %56
+  %57 = getelementptr inbounds nuw [72 x i8], ptr %.sroa.03.05.i63.i, i64 %56
   %58 = getelementptr i8, ptr %57, i64 8
   %.val9.i66.i = load double, ptr %58, align 8
   %59 = fcmp ugt double %.val9.i66.i, %1
@@ -464,7 +460,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__
   %.06.i75.i = phi i64 [ %.1.i81.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i74.i ], [ %17, %13 ]
   %.sroa.03.05.i76.i = phi ptr [ %.sroa.03.1.i80.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i74.i ], [ %3, %13 ]
   %63 = lshr i64 %.06.i75.i, 1
-  %64 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TsKeyFrame", ptr %.sroa.03.05.i76.i, i64 %63
+  %64 = getelementptr inbounds nuw [72 x i8], ptr %.sroa.03.05.i76.i, i64 %63
   %65 = getelementptr i8, ptr %64, i64 8
   %.val9.i79.i = load double, ptr %65, align 8
   %66 = fcmp ugt double %.val9.i79.i, %1
@@ -560,7 +556,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved_
   %.06.i.i = phi i64 [ %.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i.i ], [ %36, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.preheader.i.i ]
   %.sroa.03.05.i.i = phi ptr [ %.sroa.03.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i.i ], [ %.sroa.01.0.lcssa.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.preheader.i.i ]
   %37 = lshr i64 %.06.i.i, 1
-  %38 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TsKeyFrame", ptr %.sroa.03.05.i.i, i64 %37
+  %38 = getelementptr inbounds nuw [72 x i8], ptr %.sroa.03.05.i.i, i64 %37
   %39 = getelementptr i8, ptr %38, i64 8
   %.val9.i.i = load double, ptr %39, align 8
   %40 = fcmp ugt double %.val9.i.i, %1
@@ -606,7 +602,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved_
   %.06.i62.i = phi i64 [ %.1.i68.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i61.i ], [ %55, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.preheader.i60.i ]
   %.sroa.03.05.i63.i = phi ptr [ %.sroa.03.1.i67.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i61.i ], [ %3, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.preheader.i60.i ]
   %56 = lshr i64 %.06.i62.i, 1
-  %57 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TsKeyFrame", ptr %.sroa.03.05.i63.i, i64 %56
+  %57 = getelementptr inbounds nuw [72 x i8], ptr %.sroa.03.05.i63.i, i64 %56
   %58 = getelementptr i8, ptr %57, i64 8
   %.val9.i66.i = load double, ptr %58, align 8
   %59 = fcmp ugt double %.val9.i66.i, %1
@@ -622,7 +618,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved_
   %.06.i75.i = phi i64 [ %.1.i81.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i74.i ], [ %17, %13 ]
   %.sroa.03.05.i76.i = phi ptr [ %.sroa.03.1.i80.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN32pxrInternal_v0_24__pxrReserved__10TsKeyFrameESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit.i74.i ], [ %3, %13 ]
   %63 = lshr i64 %.06.i75.i, 1
-  %64 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TsKeyFrame", ptr %.sroa.03.05.i76.i, i64 %63
+  %64 = getelementptr inbounds nuw [72 x i8], ptr %.sroa.03.05.i76.i, i64 %63
   %65 = getelementptr i8, ptr %64, i64 8
   %.val9.i79.i = load double, ptr %65, align 8
   %66 = fcmp ugt double %.val9.i79.i, %1

@@ -16,8 +16,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Rb_tree<ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>>, std::pair<const ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>>, ue2::BoundedRepeatSummary>, std::_Select1st<std::pair<const ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>>, ue2::BoundedRepeatSummary>>, std::less<ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>>>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
 %"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
 %"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"struct.ue2::DepthMinMax" = type { %"class.ue2::depth", %"class.ue2::depth" }
-%"class.ue2::depth" = type { i32 }
 %"class.std::vector.12" = type { %"struct.std::_Vector_base.13" }
 %"struct.std::_Vector_base.13" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" }
 %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" }
@@ -131,9 +129,9 @@ _ZNKSt6vectorIN3ue211DepthMinMaxESaIS1_EE2atEm.exit.i.us: ; preds = %39
   br i1 %.not.i.i14.i.us, label %_ZNKSt6vectorIN3ue211DepthMinMaxESaIS1_EE2atEm.exit15.i.us, label %.split75.us.invoke
 
 _ZNKSt6vectorIN3ue211DepthMinMaxESaIS1_EE2atEm.exit15.i.us: ; preds = %_ZNKSt6vectorIN3ue211DepthMinMaxESaIS1_EE2atEm.exit.i.us
-  %53 = getelementptr inbounds nuw %"struct.ue2::DepthMinMax", ptr %42, i64 %40
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %40
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 4
-  %55 = getelementptr inbounds nuw %"struct.ue2::DepthMinMax", ptr %48, i64 %40
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %40
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 4
   %57 = load i32, ptr %54, align 4
   %58 = icmp eq i32 %57, -2147483648
@@ -267,9 +265,9 @@ _ZNKSt6vectorIN3ue211DepthMinMaxESaIS1_EE2atEm.exit.i: ; preds = %103
   unreachable
 
 _ZNKSt6vectorIN3ue211DepthMinMaxESaIS1_EE2atEm.exit15.i: ; preds = %_ZNKSt6vectorIN3ue211DepthMinMaxESaIS1_EE2atEm.exit.i
-  %107 = getelementptr inbounds nuw %"struct.ue2::DepthMinMax", ptr %81, i64 %104
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %104
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 4
-  %109 = getelementptr inbounds nuw %"struct.ue2::DepthMinMax", ptr %87, i64 %104
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %104
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 4
   %111 = load i32, ptr %108, align 4
   %112 = icmp eq i32 %111, -2147483648
@@ -547,7 +545,7 @@ _ZN3ue212_GLOBAL__N_110InitDepthsC2ERKNS_8NGHolderE.exit: ; preds = %3
   br i1 %.not.i.i.i, label %_ZNKSt6vectorIN3ue211DepthMinMaxESaIS1_EE2atEm.exit.i, label %.invoke
 
 _ZNKSt6vectorIN3ue211DepthMinMaxESaIS1_EE2atEm.exit.i: ; preds = %42
-  %50 = getelementptr inbounds nuw %"struct.ue2::DepthMinMax", ptr %45, i64 %43
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %43
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
   %52 = load ptr, ptr %25, align 8
   %53 = load ptr, ptr %9, align 8
@@ -567,7 +565,7 @@ _ZNKSt6vectorIN3ue211DepthMinMaxESaIS1_EE2atEm.exit.i: ; preds = %42
   unreachable
 
 _ZNKSt6vectorIN3ue211DepthMinMaxESaIS1_EE2atEm.exit15.i: ; preds = %_ZNKSt6vectorIN3ue211DepthMinMaxESaIS1_EE2atEm.exit.i
-  %59 = getelementptr inbounds nuw %"struct.ue2::DepthMinMax", ptr %53, i64 %43
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %43
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %61 = load i32, ptr %51, align 4
   %62 = icmp eq i32 %61, -2147483648
@@ -605,7 +603,7 @@ thread-pre-split:                                 ; preds = %_ZNKSt6vectorIN3ue2
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %71 = getelementptr inbounds nuw %"class.ue2::CharReach", ptr %20, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %indvars.iv
   %72 = load i64, ptr %71, align 8
   %73 = or i64 %72, %.sroa.068.0
   store i64 %73, ptr %71, align 8
@@ -648,7 +646,7 @@ thread-pre-split:                                 ; preds = %_ZNKSt6vectorIN3ue2
 89:                                               ; preds = %83, %._crit_edge106
   %indvars.iv118 = phi i64 [ 0, %83 ], [ %indvars.iv.next119, %._crit_edge106 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %90 = getelementptr inbounds nuw %"class.ue2::CharReach", ptr %20, i64 %indvars.iv118
+  %90 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %indvars.iv118
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %90, i64 32, i1 false)
   br label %91
 
@@ -669,7 +667,7 @@ _ZNK3ue29CharReachcoEv.exit:                      ; preds = %91
 
 96:                                               ; preds = %99, %_ZNK3ue29CharReachcoEv.exit
   %.0712.i.i = phi i64 [ 0, %_ZNK3ue29CharReachcoEv.exit ], [ %100, %99 ]
-  %97 = getelementptr inbounds nuw i64, ptr %7, i64 %.0712.i.i
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.0712.i.i
   %98 = load i64, ptr %97, align 8
   %.not.i.i = icmp eq i64 %98, 0
   br i1 %.not.i.i, label %99, label %_ZNK3ue29CharReach10find_firstEv.exit
@@ -711,7 +709,7 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %96
   br label %118
 
 111:                                              ; preds = %105
-  %112 = getelementptr inbounds nuw i64, ptr %7, i64 %109
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %109
   %113 = load i64, ptr %112, align 8
   %114 = shl nsw i64 -2, %110
   %115 = and i64 %113, %114
@@ -729,7 +727,7 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %96
 
 120:                                              ; preds = %118
   %.0.i.i = add nuw nsw i64 %.0.in.i.i, 1
-  %121 = getelementptr inbounds nuw i64, ptr %7, i64 %.0.i.i
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.0.i.i
   %122 = load i64, ptr %121, align 8
   %.not22.i.i = icmp eq i64 %122, 0
   br i1 %.not22.i.i, label %118, label %123, !llvm.loop !12
@@ -831,7 +829,7 @@ _ZNK3ue25depthcvjEv.exit:                         ; preds = %7
 
 16:                                               ; preds = %19, %_ZNK3ue25depthcvjEv.exit
   %.0712.i.i = phi i64 [ 0, %_ZNK3ue25depthcvjEv.exit ], [ %20, %19 ]
-  %17 = getelementptr inbounds nuw i64, ptr %4, i64 %.0712.i.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.0712.i.i
   %18 = load i64, ptr %17, align 8
   %.not.i.i12 = icmp eq i64 %18, 0
   br i1 %.not.i.i12, label %19, label %_ZNK3ue29CharReach10find_firstEv.exit
@@ -863,7 +861,7 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %16
   br label %36
 
 29:                                               ; preds = %.lr.ph
-  %30 = getelementptr inbounds nuw i64, ptr %4, i64 %27
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %27
   %31 = load i64, ptr %30, align 8
   %32 = shl nsw i64 -2, %28
   %33 = and i64 %31, %32
@@ -881,7 +879,7 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %16
 
 38:                                               ; preds = %36
   %.0.i.i = add nuw nsw i64 %.0.in.i.i, 1
-  %39 = getelementptr inbounds nuw i64, ptr %4, i64 %.0.i.i
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.0.i.i
   %40 = load i64, ptr %39, align 8
   %.not22.i.i = icmp eq i64 %40, 0
   br i1 %.not22.i.i, label %36, label %41, !llvm.loop !12

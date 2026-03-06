@@ -3,7 +3,6 @@ source_filename = "bench/bullet3/original/btUnionFind.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.btElement = type { i32, i32 }
 %class.btUnionFindElementSortPredicate = type { i8 }
 
 $__clang_call_terminate = comdat any
@@ -136,9 +135,9 @@ _ZN20btAlignedObjectArrayI9btElementE8allocateEi.exit.i.i: ; preds = %11, %10
 
 18:                                               ; preds = %18, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %18 ]
-  %19 = getelementptr inbounds nuw %struct.btElement, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
   %20 = load ptr, ptr %17, align 8, !tbaa !4
-  %21 = getelementptr inbounds nuw %struct.btElement, ptr %20, i64 %indvars.iv.i.i.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv.i.i.i
   %22 = load i64, ptr %21, align 4
   store i64 %22, ptr %19, align 4
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -174,7 +173,7 @@ _ZN20btAlignedObjectArrayI9btElementE10deallocateEv.exit.i.i: ; preds = %28, %_Z
 31:                                               ; preds = %31, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %30, %.lr.ph.i ], [ %indvars.iv.next.i, %31 ]
   %32 = load ptr, ptr %29, align 8, !tbaa !4
-  %33 = getelementptr inbounds %struct.btElement, ptr %32, i64 %indvars.iv.i
+  %33 = getelementptr inbounds [8 x i8], ptr %32, i64 %indvars.iv.i
   store i64 0, ptr %33, align 4
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -222,9 +221,9 @@ _ZN20btAlignedObjectArrayI9btElementE8allocateEi.exit.i.i.i: ; preds = %11, %10
 
 18:                                               ; preds = %18, %.lr.ph.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %18 ]
-  %19 = getelementptr inbounds nuw %struct.btElement, ptr %.0.i.i.i.i, i64 %indvars.iv.i.i.i.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i.i, i64 %indvars.iv.i.i.i.i
   %20 = load ptr, ptr %17, align 8, !tbaa !4
-  %21 = getelementptr inbounds nuw %struct.btElement, ptr %20, i64 %indvars.iv.i.i.i.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv.i.i.i.i
   %22 = load i64, ptr %21, align 4
   store i64 %22, ptr %19, align 4
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
@@ -260,7 +259,7 @@ _ZN20btAlignedObjectArrayI9btElementE10deallocateEv.exit.i.i.i: ; preds = %28, %
 31:                                               ; preds = %31, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %30, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %31 ]
   %32 = load ptr, ptr %29, align 8, !tbaa !4
-  %33 = getelementptr inbounds %struct.btElement, ptr %32, i64 %indvars.iv.i.i
+  %33 = getelementptr inbounds [8 x i8], ptr %32, i64 %indvars.iv.i.i
   store i64 0, ptr %33, align 4
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -282,7 +281,7 @@ _ZN11btUnionFind8allocateEi.exit:                 ; preds = %31, %2
 
 37:                                               ; preds = %.lr.ph, %37
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
-  %38 = getelementptr inbounds nuw %struct.btElement, ptr %36, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv
   %39 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %39, ptr %38, align 4, !tbaa !20
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 4
@@ -326,7 +325,7 @@ _ZN20btAlignedObjectArrayI9btElementE9quickSortI31btUnionFindElementSortPredicat
 
 10:                                               ; preds = %.lr.ph, %_ZN11btUnionFind4findEi.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN11btUnionFind4findEi.exit ]
-  %11 = getelementptr inbounds nuw %struct.btElement, ptr %7, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4, !tbaa !20
   %13 = zext i32 %12 to i64
   %.not7.i = icmp eq i64 %indvars.iv, %13
@@ -337,11 +336,11 @@ _ZN20btAlignedObjectArrayI9btElementE9quickSortI31btUnionFindElementSortPredicat
   %15 = phi i32 [ %22, %.lr.ph.i ], [ %12, %10 ]
   %16 = phi ptr [ %21, %.lr.ph.i ], [ %11, %10 ]
   %17 = sext i32 %15 to i64
-  %18 = getelementptr inbounds %struct.btElement, ptr %7, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %7, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !20
   store i32 %19, ptr %16, align 4, !tbaa !20
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds %struct.btElement, ptr %7, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %7, i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !20
   %.not.i = icmp eq i32 %19, %22
   br i1 %.not.i, label %_ZN11btUnionFind4findEi.exit, label %.lr.ph.i, !llvm.loop !24
@@ -369,7 +368,7 @@ tailrecurse:                                      ; preds = %40, %4
   %7 = add nsw i32 %.tr36, %3
   %8 = sdiv i32 %7, 2
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds %struct.btElement, ptr %6, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %6, i64 %9
   %11 = load i64, ptr %10, align 4
   %.sroa.0.0.extract.trunc = trunc i64 %11 to i32
   br label %12
@@ -383,20 +382,20 @@ tailrecurse:                                      ; preds = %40, %4
 
 15:                                               ; preds = %15, %12
   %indvars.iv = phi i64 [ %indvars.iv.next, %15 ], [ %14, %12 ]
-  %16 = getelementptr inbounds %struct.btElement, ptr %13, i64 %indvars.iv
+  %16 = getelementptr inbounds [8 x i8], ptr %13, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4, !tbaa !20
   %18 = icmp slt i32 %17, %.sroa.0.0.extract.trunc
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   br i1 %18, label %15, label %.preheader, !llvm.loop !26
 
 .preheader:                                       ; preds = %15
-  %19 = getelementptr inbounds %struct.btElement, ptr %13, i64 %indvars.iv
+  %19 = getelementptr inbounds [8 x i8], ptr %13, i64 %indvars.iv
   %20 = sext i32 %.0 to i64
   br label %21
 
 21:                                               ; preds = %21, %.preheader
   %indvars.iv45 = phi i64 [ %indvars.iv.next46, %21 ], [ %20, %.preheader ]
-  %22 = getelementptr inbounds %struct.btElement, ptr %13, i64 %indvars.iv45
+  %22 = getelementptr inbounds [8 x i8], ptr %13, i64 %indvars.iv45
   %23 = load i32, ptr %22, align 4, !tbaa !20
   %24 = icmp sgt i32 %23, %.sroa.0.0.extract.trunc
   %indvars.iv.next46 = add nsw i64 %indvars.iv45, -1
@@ -409,12 +408,12 @@ tailrecurse:                                      ; preds = %40, %4
   br i1 %.not, label %36, label %28
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds %struct.btElement, ptr %13, i64 %indvars.iv45
+  %29 = getelementptr inbounds [8 x i8], ptr %13, i64 %indvars.iv45
   %30 = load i64, ptr %19, align 4
   %31 = load i64, ptr %29, align 4
   store i64 %31, ptr %19, align 4
   %32 = load ptr, ptr %5, align 8, !tbaa !4
-  %33 = getelementptr inbounds %struct.btElement, ptr %32, i64 %indvars.iv45
+  %33 = getelementptr inbounds [8 x i8], ptr %32, i64 %indvars.iv45
   store i64 %30, ptr %33, align 4
   %34 = add nsw i32 %26, 1
   %35 = add nsw i32 %27, -1

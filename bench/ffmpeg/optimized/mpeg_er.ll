@@ -212,9 +212,9 @@ define range(i32 -12, 1) i32 @ff_mpeg_er_init(ptr noundef initializes((4336, 434
 
 42:                                               ; preds = %33, %42
   %indvars.iv = phi i64 [ 0, %33 ], [ %indvars.iv.next, %42 ]
-  %43 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8, !tbaa !41
-  %45 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   store ptr %44, ptr %45, align 8, !tbaa !41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3

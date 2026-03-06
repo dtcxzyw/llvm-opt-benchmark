@@ -81,7 +81,7 @@ define ptr @av_spherical_projection_name(i32 noundef %0) local_unnamed_addr #3 {
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw ptr, ptr @spherical_projection_names, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @spherical_projection_names, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !15
   br label %7
 
@@ -96,7 +96,7 @@ define range(i32 -1, 6) i32 @av_spherical_from_name(ptr noundef %0) local_unname
 
 2:                                                ; preds = %1, %6
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %6 ]
-  %3 = getelementptr inbounds nuw ptr, ptr @spherical_projection_names, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @spherical_projection_names, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8, !tbaa !15
   %5 = tail call i32 @av_strstart(ptr noundef %0, ptr noundef %4, ptr noundef null) #4
   %.not = icmp eq i32 %5, 0

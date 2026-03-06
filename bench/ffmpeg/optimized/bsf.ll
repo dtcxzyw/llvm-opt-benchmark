@@ -203,7 +203,7 @@ define range(i32 -2147483648, 1) i32 @av_bsf_init(ptr noundef %0) local_unnamed_
 
 7:                                                ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %8 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.next
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.next
   %9 = load i32, ptr %8, align 4, !tbaa !31
   %.not41 = icmp eq i32 %9, 0
   br i1 %.not41, label %._crit_edge, label %.lr.ph, !llvm.loop !37
@@ -249,7 +249,7 @@ define range(i32 -2147483648, 1) i32 @av_bsf_init(ptr noundef %0) local_unnamed_
   %30 = load ptr, ptr %2, align 8, !tbaa !16
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !30
-  %33 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv.next54
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv.next54
   %34 = load i32, ptr %33, align 4, !tbaa !31
   %.not44 = icmp eq i32 %34, 0
   br i1 %.not44, label %._crit_edge51, label %.lr.ph50, !llvm.loop !45
@@ -490,7 +490,7 @@ define void @av_bsf_list_free(ptr noundef %0) local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %6 = phi ptr [ %9, %.lr.ph ], [ %2, %.preheader ]
   %7 = load ptr, ptr %6, align 8, !tbaa !60
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   tail call void @av_bsf_free(ptr noundef %8)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = load ptr, ptr %0, align 8, !tbaa !55
@@ -781,7 +781,7 @@ av_bsf_list_finalize.exit:                        ; preds = %49, %57
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.preheader.i ]
   %72 = phi ptr [ %75, %.lr.ph.i ], [ %68, %.preheader.i ]
   %73 = load ptr, ptr %72, align 8, !tbaa !60
-  %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %indvars.iv.i
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %indvars.iv.i
   call void @av_bsf_free(ptr noundef %74)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %75 = load ptr, ptr %7, align 8, !tbaa !55
@@ -879,7 +879,7 @@ define internal i32 @bsf_list_init(ptr noundef captures(none) %0) #0 {
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
   %.sroa.0.033 = phi i64 [ %.sroa.0.030, %.lr.ph ], [ %.sroa.0.0, %28 ]
   %.032 = phi ptr [ %.029, %.lr.ph ], [ %.0, %28 ]
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !4
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load ptr, ptr %14, align 8, !tbaa !23
@@ -889,12 +889,12 @@ define internal i32 @bsf_list_init(ptr noundef captures(none) %0) #0 {
 
 18:                                               ; preds = %10
   %19 = load ptr, ptr %9, align 8, !tbaa !62
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !4
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 40
   store i64 %.sroa.0.033, ptr %22, align 8
   %23 = load ptr, ptr %9, align 8, !tbaa !62
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !4
   %26 = tail call i32 @av_bsf_init(ptr noundef %25)
   %27 = icmp slt i32 %26, 0
@@ -902,7 +902,7 @@ define internal i32 @bsf_list_init(ptr noundef captures(none) %0) #0 {
 
 28:                                               ; preds = %18
   %29 = load ptr, ptr %9, align 8, !tbaa !62
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8, !tbaa !4
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 48
@@ -1004,7 +1004,7 @@ ff_bsf_get_packet_ref.exit43:                     ; preds = %25
   %37 = load ptr, ptr %8, align 8, !tbaa !62
   %38 = add i32 %26, -1
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw ptr, ptr %37, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !4
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load ptr, ptr %42, align 8, !tbaa !16
@@ -1045,7 +1045,7 @@ ff_bsf_get_packet_ref.exit43.thread.thread:       ; preds = %36, %27, %ff_bsf_ge
 54:                                               ; preds = %ff_bsf_get_packet_ref.exit43.thread.thread
   %55 = load ptr, ptr %8, align 8, !tbaa !62
   %56 = zext i32 %51 to i64
-  %57 = getelementptr inbounds nuw ptr, ptr %55, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %56
   %58 = load ptr, ptr %57, align 8, !tbaa !4
   %.not.i44 = or i1 %.not.i4458, %.not36.not57
   br i1 %.not.i44, label %.critedge.i, label %59
@@ -1138,7 +1138,7 @@ define internal void @bsf_list_close(ptr noundef readonly captures(none) %0) #0 
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
   %9 = load ptr, ptr %7, align 8, !tbaa !62
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   tail call void @av_bsf_free(ptr noundef %10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %11 = load i32, ptr %4, align 8, !tbaa !64
@@ -1175,7 +1175,7 @@ define internal void @bsf_list_flush(ptr noundef readonly captures(none) %0) #0 
 9:                                                ; preds = %.lr.ph, %av_bsf_flush.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %av_bsf_flush.exit ]
   %10 = load ptr, ptr %7, align 8, !tbaa !62
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !4
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 64
   store i32 0, ptr %13, align 8, !tbaa !47
@@ -1234,7 +1234,7 @@ define internal ptr @bsf_list_item_name(ptr noundef readonly captures(none) %0) 
   %.not14 = icmp eq i64 %indvars.iv, 0
   %15 = select i1 %.not14, ptr @.str.16, ptr @.str.15
   %16 = load ptr, ptr %13, align 8, !tbaa !62
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !4
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !16

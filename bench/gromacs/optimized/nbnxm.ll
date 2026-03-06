@@ -7,9 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.gmx::ArrayRefIter" = type { ptr }
 %"class.gmx::ArrayRef.51" = type { %"struct.gmx::ArrayRefIter.52", %"struct.gmx::ArrayRefIter.52" }
 %"struct.gmx::ArrayRefIter.52" = type { ptr }
-%"struct.gmx::gmx_domdec_zone_size_t" = type { %"class.gmx::BasicVector", %"class.gmx::BasicVector", %"class.gmx::BasicVector", %"class.gmx::BasicVector" }
-%"class.gmx::BasicVector" = type { [3 x float] }
-%struct.wallcc_t = type { i32, i64, i64 }
 %"class.gmx::InconsistentInputError" = type { %"class.gmx::UserInputError" }
 %"class.gmx::UserInputError" = type { %"class.gmx::GromacsException" }
 %"class.gmx::GromacsException" = type { %"class.std::exception", %"class.std::shared_ptr" }
@@ -35,37 +32,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.149" = type { %"struct.std::_Head_base.152" }
 %"struct.std::_Head_base.152" = type { ptr }
 %"struct.std::type_index" = type { ptr }
-%"class.gmx::Grid" = type <{ %"struct.gmx::Grid::Geometry", i32, %"struct.gmx::GridDimensions", i32, i32, i32, i32, i32, [4 x i8], %"class.std::vector.34", %"class.std::vector.34", %"class.std::vector.41", %"class.std::vector.68", %"class.std::vector.73", %"class.std::vector.73", %"class.gmx::ArrayRef.76", %"class.std::vector.79", ptr, %"class.std::vector.41", %"class.std::vector.82", i32, [4 x i8] }>
-%"struct.gmx::Grid::Geometry" = type { i8, i32, i32, i32, i32, i32 }
-%"struct.gmx::GridDimensions" = type { %"class.gmx::BasicVector", %"class.gmx::BasicVector", %"class.gmx::BasicVector", float, float, [2 x float], [2 x float], [2 x i32] }
-%"class.std::vector.34" = type { %"struct.std::_Vector_base.35" }
-%"struct.std::_Vector_base.35" = type { %"struct.std::_Vector_base<int, gmx::Allocator<int, gmx::HostAllocationPolicy>>::_Vector_impl" }
-%"struct.std::_Vector_base<int, gmx::Allocator<int, gmx::HostAllocationPolicy>>::_Vector_impl" = type { %"class.gmx::Allocator.base", %"struct.std::_Vector_base<int, gmx::Allocator<int, gmx::HostAllocationPolicy>>::_Vector_impl_data" }
-%"class.gmx::Allocator.base" = type { %"class.gmx::HostAllocationPolicy.base" }
-%"class.gmx::HostAllocationPolicy.base" = type <{ i32, i8 }>
-%"struct.std::_Vector_base<int, gmx::Allocator<int, gmx::HostAllocationPolicy>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.68" = type { %"struct.std::_Vector_base.69" }
-%"struct.std::_Vector_base.69" = type { %"struct.std::_Vector_base<gmx::BoundingBox1D, std::allocator<gmx::BoundingBox1D>>::_Vector_impl" }
-%"struct.std::_Vector_base<gmx::BoundingBox1D, std::allocator<gmx::BoundingBox1D>>::_Vector_impl" = type { %"struct.std::_Vector_base<gmx::BoundingBox1D, std::allocator<gmx::BoundingBox1D>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<gmx::BoundingBox1D, std::allocator<gmx::BoundingBox1D>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.73" = type { %"struct.std::_Vector_base.74" }
-%"struct.std::_Vector_base.74" = type { %"struct.std::_Vector_base<gmx::BoundingBox, gmx::Allocator<gmx::BoundingBox, gmx::AlignedAllocationPolicy>>::_Vector_impl" }
-%"struct.std::_Vector_base<gmx::BoundingBox, gmx::Allocator<gmx::BoundingBox, gmx::AlignedAllocationPolicy>>::_Vector_impl" = type { %"struct.std::_Vector_base<gmx::BoundingBox, gmx::Allocator<gmx::BoundingBox, gmx::AlignedAllocationPolicy>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<gmx::BoundingBox, gmx::Allocator<gmx::BoundingBox, gmx::AlignedAllocationPolicy>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.gmx::ArrayRef.76" = type { %"struct.gmx::ArrayRefIter.77", %"struct.gmx::ArrayRefIter.77" }
-%"struct.gmx::ArrayRefIter.77" = type { ptr }
-%"class.std::vector.79" = type { %"struct.std::_Vector_base.80" }
-%"struct.std::_Vector_base.80" = type { %"struct.std::_Vector_base<float, gmx::Allocator<float, gmx::AlignedAllocationPolicy>>::_Vector_impl" }
-%"struct.std::_Vector_base<float, gmx::Allocator<float, gmx::AlignedAllocationPolicy>>::_Vector_impl" = type { %"struct.std::_Vector_base<float, gmx::Allocator<float, gmx::AlignedAllocationPolicy>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<float, gmx::Allocator<float, gmx::AlignedAllocationPolicy>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.41" = type { %"struct.std::_Vector_base.42" }
-%"struct.std::_Vector_base.42" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.82" = type { %"struct.std::_Vector_base.83" }
-%"struct.std::_Vector_base.83" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 $_ZN3gmxlsINS_22InconsistentInputErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3stdE12is_base_of_vINS_16GromacsExceptionET_EES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE = comdat any
 
@@ -210,7 +176,7 @@ define void @_ZN3gmx26nbnxn_put_on_grid_nonlocalEPNS_18nonbonded_verlet_tERKNS_1
 
 25:                                               ; preds = %.lr.ph, %_ZNK3gmx11DomdecZones9atomRangeEi.exit17
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %_ZNK3gmx11DomdecZones9atomRangeEi.exit17 ]
-  %26 = getelementptr i32, ptr %11, i64 %indvars.iv
+  %26 = getelementptr [4 x i8], ptr %11, i64 %indvars.iv
   %27 = load i32, ptr %26, align 4, !tbaa !63
   %28 = getelementptr i8, ptr %26, i64 4
   %29 = load i32, ptr %28, align 4, !tbaa !63
@@ -223,7 +189,7 @@ define void @_ZN3gmx26nbnxn_put_on_grid_nonlocalEPNS_18nonbonded_verlet_tERKNS_1
 
 _ZNK3gmx11DomdecZones9atomRangeEi.exit17:         ; preds = %25
   %31 = load i64, ptr %26, align 4
-  %32 = getelementptr inbounds nuw %"struct.gmx::gmx_domdec_zone_size_t", ptr %12, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [48 x i8], ptr %12, i64 %indvars.iv
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 36
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %35 = load ptr, ptr %21, align 8, !tbaa !4
@@ -361,7 +327,7 @@ define { ptr, ptr } @_ZNK3gmx18nonbonded_verlet_t17getLocalAtomOrderEv(ptr nound
   %.fca.0.insert.i = insertvalue { ptr, ptr } poison, ptr %16, 0
   %17 = sext i32 %14 to i64
   %.not.i = icmp eq ptr %16, null
-  %18 = getelementptr inbounds nuw i32, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %17
   %spec.select.i = select i1 %.not.i, ptr null, ptr %18
   %.fca.1.insert.i4 = insertvalue { ptr, ptr } %.fca.0.insert.i, ptr %spec.select.i, 1
   ret { ptr, ptr } %.fca.1.insert.i4
@@ -446,7 +412,7 @@ define void @_ZN3gmx18nonbonded_verlet_t18convertCoordinatesENS_12AtomLocalityEN
   %29 = load i32, ptr %28, align 4, !tbaa !174
   %30 = mul nsw i32 %29, 60
   %31 = sext i32 %30 to i64
-  %32 = getelementptr %struct.wallcc_t, ptr %18, i64 %31
+  %32 = getelementptr [24 x i8], ptr %18, i64 %31
   %33 = getelementptr i8, ptr %32, i64 1032
   %34 = load i32, ptr %33, align 8, !tbaa !175
   %35 = add nsw i32 %34, 1
@@ -571,7 +537,7 @@ define void @_ZN3gmx18nonbonded_verlet_t21convertCoordinatesGpuENS_12AtomLocalit
   %29 = load i32, ptr %28, align 4, !tbaa !174
   %30 = mul nsw i32 %29, 60
   %31 = sext i32 %30 to i64
-  %32 = getelementptr %struct.wallcc_t, ptr %18, i64 %31
+  %32 = getelementptr [24 x i8], ptr %18, i64 %31
   %33 = getelementptr i8, ptr %32, i64 216
   %34 = load i32, ptr %33, align 8, !tbaa !175
   %35 = add nsw i32 %34, 1
@@ -806,7 +772,7 @@ _ZN3gmxL25atomToInteractionLocalityENS_12AtomLocalityE.exit: ; preds = %12
   %51 = load i32, ptr %50, align 4, !tbaa !174
   %52 = mul nsw i32 %51, 60
   %53 = sext i32 %52 to i64
-  %54 = getelementptr %struct.wallcc_t, ptr %40, i64 %53
+  %54 = getelementptr [24 x i8], ptr %40, i64 %53
   %55 = getelementptr i8, ptr %54, i64 1032
   %56 = load i32, ptr %55, align 8, !tbaa !175
   %57 = add nsw i32 %56, 1
@@ -1231,7 +1197,7 @@ define noundef i32 @_ZNK3gmx18nonbonded_verlet_t11getNumAtomsENS_12AtomLocalityE
   %12 = load i32, ptr %11, align 8, !tbaa !217
   %13 = load ptr, ptr %10, align 8, !tbaa !84
   %14 = sext i32 %12 to i64
-  %15 = getelementptr %"class.gmx::Grid", ptr %13, i64 %14
+  %15 = getelementptr [384 x i8], ptr %13, i64 %14
   %16 = getelementptr i8, ptr %15, i64 -284
   %17 = load i32, ptr %16, align 4, !tbaa !218
   %18 = getelementptr i8, ptr %15, i64 -288
@@ -1261,7 +1227,7 @@ define noundef i32 @_ZNK3gmx18nonbonded_verlet_t11getNumAtomsENS_12AtomLocalityE
   %38 = load i32, ptr %37, align 8, !tbaa !217
   %39 = load ptr, ptr %36, align 8, !tbaa !84
   %40 = sext i32 %38 to i64
-  %41 = getelementptr %"class.gmx::Grid", ptr %39, i64 %40
+  %41 = getelementptr [384 x i8], ptr %39, i64 %40
   %42 = getelementptr i8, ptr %41, i64 -284
   %43 = load i32, ptr %42, align 4, !tbaa !218
   %44 = getelementptr i8, ptr %41, i64 -288

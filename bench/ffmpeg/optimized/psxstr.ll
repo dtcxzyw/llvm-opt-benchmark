@@ -3,10 +3,6 @@ source_filename = "bench/ffmpeg/original/psxstr.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.StrChannel = type { i32, %struct.AVPacket, i32 }
-%struct.AVPacket = type { ptr, i64, i64, ptr, i32, i32, i32, ptr, i32, i64, i64, ptr, ptr, %struct.AVRational }
-%struct.AVRational = type { i32, i32 }
-
 @.str = private unnamed_addr constant [7 x i8] c"psxstr\00", align 1
 @.str.1 = private unnamed_addr constant [21 x i8] c"Sony Playstation STR\00", align 1
 @ff_str_demuxer = local_unnamed_addr constant { { ptr, ptr, i32, [4 x i8], ptr, ptr, ptr, ptr }, i32, i32, i32, [4 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr } { { ptr, ptr, i32, [4 x i8], ptr, ptr, ptr, ptr } { ptr @.str, ptr @.str.1, i32 32768, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null, ptr null }, i32 0, i32 3840, i32 0, [4 x i8] zeroinitializer, ptr @str_probe, ptr @str_read_header, ptr @str_read_packet, ptr @str_read_close, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null }, align 8
@@ -151,7 +147,7 @@ define internal range(i32 -5, 1) i32 @str_read_header(ptr noundef captures(none)
 
 12:                                               ; preds = %8, %12
   %indvars.iv = phi i64 [ 0, %8 ], [ %indvars.iv.next, %12 ]
-  %13 = getelementptr inbounds nuw %struct.StrChannel, ptr %6, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [120 x i8], ptr %6, i64 %indvars.iv
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 112
   store i32 -1, ptr %14, align 8, !tbaa !31
   store i32 -1, ptr %13, align 8, !tbaa !37
@@ -235,7 +231,7 @@ define internal range(i32 -2147483648, 1) i32 @str_read_packet(ptr noundef %0, p
 
 36:                                               ; preds = %33
   %37 = zext nneg i8 %19 to i64
-  %38 = getelementptr inbounds nuw %struct.StrChannel, ptr %7, i64 %37
+  %38 = getelementptr inbounds nuw [120 x i8], ptr %7, i64 %37
   %39 = load i32, ptr %38, align 8, !tbaa !37
   %40 = icmp slt i32 %39, 0
   br i1 %40, label %41, label %56
@@ -326,7 +322,7 @@ define internal range(i32 -2147483648, 1) i32 @str_read_packet(ptr noundef %0, p
 
 86:                                               ; preds = %21
   %87 = zext nneg i8 %19 to i64
-  %88 = getelementptr inbounds nuw %struct.StrChannel, ptr %7, i64 %87
+  %88 = getelementptr inbounds nuw [120 x i8], ptr %7, i64 %87
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 112
   %90 = load i32, ptr %89, align 8, !tbaa !31
   %91 = icmp slt i32 %90, 0
@@ -414,7 +410,7 @@ define internal noundef i32 @str_read_close(ptr noundef readonly captures(none) 
 
 4:                                                ; preds = %1, %10
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %10 ]
-  %5 = getelementptr inbounds nuw %struct.StrChannel, ptr %3, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [120 x i8], ptr %3, i64 %indvars.iv
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load ptr, ptr %6, align 8, !tbaa !68
   %.not = icmp eq ptr %7, null

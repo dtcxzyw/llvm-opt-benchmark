@@ -1966,7 +1966,7 @@ common.resume:                                    ; preds = %29, %14
   %.sroa.0.0.i = sub nuw i64 %37, %38
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 736
   %40 = load ptr, ptr %39, align 8, !alias.scope !439, !noalias !442, !nonnull !7, !noundef !7
-  %41 = getelementptr inbounds { i32, [11 x i32] }, ptr %40, i64 %.sroa.0.0.i
+  %41 = getelementptr inbounds [48 x i8], ptr %40, i64 %.sroa.0.0.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %41, ptr noundef nonnull align 8 dereferenceable(48) %3, i64 48, i1 false)
   %42 = load i64, ptr %24, align 8, !alias.scope !439, !noalias !442, !noundef !7
   %43 = add i64 %42, 1
@@ -2332,7 +2332,7 @@ define hidden void @"_ZN4gpui3app13model_context21ModelContext$LT$T$GT$6notify17
   %49 = add i64 %48, 1
   store i64 %49, ptr %47, align 8, !alias.scope !536
   %50 = sub nsw i64 0, %30
-  %51 = getelementptr inbounds { { { i32, i32 } }, {} }, ptr %28, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %28, i64 %50
   %52 = getelementptr inbounds i8, ptr %51, i64 -8
   store i32 %31, ptr %52, align 4, !noalias !533
   %53 = getelementptr inbounds i8, ptr %51, i64 -4
@@ -2386,7 +2386,7 @@ define hidden void @"_ZN4gpui3app13model_context21ModelContext$LT$T$GT$6notify17
   %.sroa.0.0.i = sub nuw i64 %71, %72
   %73 = getelementptr inbounds nuw i8, ptr %6, i64 736
   %74 = load ptr, ptr %73, align 8, !alias.scope !537, !noalias !540, !nonnull !7, !noundef !7
-  %75 = getelementptr inbounds { i32, [11 x i32] }, ptr %74, i64 %.sroa.0.0.i
+  %75 = getelementptr inbounds [48 x i8], ptr %74, i64 %.sroa.0.0.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %75, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false)
   %76 = load i64, ptr %57, align 8, !alias.scope !537, !noalias !540, !noundef !7
   %77 = add i64 %76, 1
@@ -3058,7 +3058,7 @@ define hidden { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u
   %3 = load ptr, ptr %2, align 8, !nonnull !7, !noundef !7
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !7
-  %6 = getelementptr inbounds { { i64, [4 x i64] }, { { i32, { i32, i8, i8, i8, i8 } }, { i8, i8, i8 }, [1 x i8] }, i64, i8, i8, [6 x i8] }, ptr %3, i64 %5
+  %6 = getelementptr inbounds [72 x i8], ptr %3, i64 %5
   %7 = insertvalue { ptr, ptr } poison, ptr %3, 0
   %8 = insertvalue { ptr, ptr } %7, ptr %6, 1
   ret { ptr, ptr } %8
@@ -3236,7 +3236,7 @@ default.unreachable40:                            ; preds = %76, %2
 ._crit_edge.i.i.i.i.i.i.i.i:                      ; preds = %.thread.i.i.i.i, %42
   %44 = phi ptr [ %.pre.i.i.i, %.thread.i.i.i.i ], [ %36, %42 ]
   %45 = phi i64 [ %.pre.i.i.i.i.i.i, %.thread.i.i.i.i ], [ 0, %42 ]
-  %46 = getelementptr inbounds { { i64, [1 x i64] }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, i64, i64, i8, i8, [6 x i8] }, ptr %44, i64 %45
+  %46 = getelementptr inbounds [88 x i8], ptr %44, i64 %45
   store i64 %.val.i.i.i.i.i.i, ptr %46, align 8, !noalias !675
   %.sroa.4.0..sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %46, i64 8
   %47 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -3433,7 +3433,7 @@ default.unreachable40:                            ; preds = %76, %2
   %.sroa.5110.0.copyload.i = load ptr, ptr %.sroa.5110.0..sroa_idx.i, align 8, !noalias !700, !nonnull !7, !noundef !7
   %.sroa.6111.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %14, i64 16
   %.sroa.6111.0.copyload.i = load i64, ptr %.sroa.6111.0..sroa_idx.i, align 8, !noalias !700
-  %105 = getelementptr inbounds { { i64, [1 x i64] }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, i64, i64, i8, i8, [6 x i8] }, ptr %.sroa.5110.0.copyload.i, i64 %.sroa.6111.0.copyload.i
+  %105 = getelementptr inbounds [88 x i8], ptr %.sroa.5110.0.copyload.i, i64 %.sroa.6111.0.copyload.i
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 416
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !709
   store ptr %.sroa.5110.0.copyload.i, ptr %6, align 8, !alias.scope !716, !noalias !720
@@ -3652,7 +3652,7 @@ default.unreachable40:                            ; preds = %76, %2
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h049244964d87ecdeE.exit.i": ; preds = %178, %172
   %179 = load ptr, ptr %100, align 8, !alias.scope !765, !noalias !700, !nonnull !7, !noundef !7
-  %180 = getelementptr inbounds i64, ptr %179, i64 %175
+  %180 = getelementptr inbounds [8 x i8], ptr %179, i64 %175
   store i64 %174, ptr %180, align 8
   %181 = add i64 %175, 1
   store i64 %181, ptr %101, align 8, !alias.scope !765, !noalias !700
@@ -3672,7 +3672,7 @@ default.unreachable40:                            ; preds = %76, %2
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h049244964d87ecdeE.exit45.i": ; preds = %188, %182
   %189 = load ptr, ptr %100, align 8, !alias.scope !768, !noalias !700, !nonnull !7, !noundef !7
-  %190 = getelementptr inbounds i64, ptr %189, i64 %185
+  %190 = getelementptr inbounds [8 x i8], ptr %189, i64 %185
   store i64 %184, ptr %190, align 8
   %191 = add i64 %185, 1
   store i64 %191, ptr %101, align 8, !alias.scope !768, !noalias !700
@@ -3692,7 +3692,7 @@ default.unreachable40:                            ; preds = %76, %2
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h049244964d87ecdeE.exit47.i": ; preds = %198, %192
   %199 = load ptr, ptr %100, align 8, !alias.scope !771, !noalias !700, !nonnull !7, !noundef !7
-  %200 = getelementptr inbounds i64, ptr %199, i64 %195
+  %200 = getelementptr inbounds [8 x i8], ptr %199, i64 %195
   store i64 %194, ptr %200, align 8
   %201 = add i64 %195, 1
   store i64 %201, ptr %101, align 8, !alias.scope !771, !noalias !700
@@ -3738,7 +3738,7 @@ default.unreachable40:                            ; preds = %76, %2
 
 221:                                              ; preds = %210, %202
   %222 = load ptr, ptr %100, align 8, !alias.scope !774, !noalias !700, !nonnull !7, !noundef !7
-  %223 = getelementptr inbounds i64, ptr %222, i64 %207
+  %223 = getelementptr inbounds [8 x i8], ptr %222, i64 %207
   store i64 %204, ptr %223, align 8
   %224 = add i64 %207, 1
   store i64 %224, ptr %101, align 8, !alias.scope !774, !noalias !700
@@ -3753,7 +3753,7 @@ default.unreachable40:                            ; preds = %76, %2
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h049244964d87ecdeE.exit51.i": ; preds = %228, %221
   %229 = load ptr, ptr %103, align 8, !alias.scope !777, !noalias !700, !nonnull !7, !noundef !7
-  %230 = getelementptr inbounds i64, ptr %229, i64 %225
+  %230 = getelementptr inbounds [8 x i8], ptr %229, i64 %225
   store i64 %206, ptr %230, align 8
   %231 = add i64 %225, 1
   store i64 %231, ptr %104, align 8, !alias.scope !777, !noalias !700
@@ -5043,7 +5043,7 @@ define hidden void @_ZN13notifications17NotificationStore20splice_notifications1
 
 112:                                              ; preds = %110
   %113 = zext i32 %111 to i64
-  %114 = getelementptr { ptr, i64, { i64, i64 } }, ptr %47, i64 %113
+  %114 = getelementptr [32 x i8], ptr %47, i64 %113
   %115 = load ptr, ptr %114, align 8, !alias.scope !922, !noalias !925, !nonnull !7, !align !201, !noundef !7
   %116 = load ptr, ptr %115, align 8, !noalias !927, !nonnull !7, !noundef !7
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 16
@@ -5080,7 +5080,7 @@ define hidden void @_ZN13notifications17NotificationStore20splice_notifications1
 
 130:                                              ; preds = %127
   %131 = getelementptr inbounds nuw i8, ptr %116, i64 56
-  %132 = getelementptr inbounds nuw { { i64, [4 x i64] }, { { i32, { i32, i8, i8, i8, i8 } }, { i8, i8, i8 }, [1 x i8] }, i64, i8, i8, [6 x i8] }, ptr %131, i64 %121
+  %132 = getelementptr inbounds nuw [72 x i8], ptr %131, i64 %121
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 56
   %134 = load i64, ptr %133, align 8, !noundef !7
   %135 = icmp eq i64 %134, %.sroa.0.0.copyload1.i
@@ -5706,7 +5706,7 @@ define hidden void @_ZN13notifications17NotificationStore20splice_notifications1
 
 114:                                              ; preds = %112
   %115 = zext i32 %113 to i64
-  %116 = getelementptr { ptr, i64, { i64, i64 } }, ptr %53, i64 %115
+  %116 = getelementptr [32 x i8], ptr %53, i64 %115
   %117 = load ptr, ptr %116, align 8, !alias.scope !1006, !noalias !1009, !nonnull !7, !align !201, !noundef !7
   %118 = load ptr, ptr %117, align 8, !noalias !1011, !nonnull !7, !noundef !7
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 16
@@ -5743,7 +5743,7 @@ define hidden void @_ZN13notifications17NotificationStore20splice_notifications1
 
 132:                                              ; preds = %129
   %133 = getelementptr inbounds nuw i8, ptr %118, i64 56
-  %134 = getelementptr inbounds nuw { { i64, [4 x i64] }, { { i32, { i32, i8, i8, i8, i8 } }, { i8, i8, i8 }, [1 x i8] }, i64, i8, i8, [6 x i8] }, ptr %133, i64 %123
+  %134 = getelementptr inbounds nuw [72 x i8], ptr %133, i64 %123
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 56
   %136 = load i64, ptr %135, align 8, !noundef !7
   %137 = icmp eq i64 %136, %.sroa.6.sroa.4.0.copyload.i.i

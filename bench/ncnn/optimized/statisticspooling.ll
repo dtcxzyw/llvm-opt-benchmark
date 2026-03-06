@@ -194,7 +194,7 @@ define internal void @_ZNK4ncnn17StatisticsPooling7forwardERKNS_3MatERS1_RKNS_6O
 43:                                               ; preds = %.noexc.us, %43
   %indvars.iv = phi i64 [ 0, %.noexc.us ], [ %indvars.iv.next, %43 ]
   %.02534.us = phi float [ 0.000000e+00, %.noexc.us ], [ %46, %43 ]
-  %44 = getelementptr inbounds nuw float, ptr %42, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %indvars.iv
   %45 = load float, ptr %44, align 4, !tbaa !45
   %46 = fadd fast float %45, %.02534.us
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -203,7 +203,7 @@ define internal void @_ZNK4ncnn17StatisticsPooling7forwardERKNS_3MatERS1_RKNS_6O
 
 ._crit_edge.us:                                   ; preds = %43
   %47 = fmul fast float %46, %41
-  %48 = getelementptr inbounds nuw float, ptr %28, i64 %indvars.iv42
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv42
   store float %47, ptr %48, align 4, !tbaa !45
   %indvars.iv.next43 = add nsw i64 %indvars.iv42, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next43 to i32
@@ -301,14 +301,14 @@ define internal void @_ZNK4ncnn17StatisticsPooling7forwardERKNS_3MatERS1_RKNS_6O
   %43 = sext i32 %42 to i64
   %.reass.us = mul i64 %factor.op.mul, %43
   %44 = getelementptr inbounds nuw i8, ptr %27, i64 %.reass.us
-  %45 = getelementptr inbounds nuw float, ptr %34, i64 %43
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %43
   %46 = load float, ptr %45, align 4, !tbaa !45
   br label %47
 
 47:                                               ; preds = %.noexc.us, %47
   %indvars.iv = phi i64 [ 0, %.noexc.us ], [ %indvars.iv.next, %47 ]
   %.03242.us = phi float [ 0.000000e+00, %.noexc.us ], [ %51, %47 ]
-  %48 = getelementptr inbounds nuw float, ptr %44, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %indvars.iv
   %49 = load float, ptr %48, align 4, !tbaa !45
   %50 = fsub fast float %49, %46
   %square.us = fmul fast float %50, %50
@@ -321,7 +321,7 @@ define internal void @_ZNK4ncnn17StatisticsPooling7forwardERKNS_3MatERS1_RKNS_6O
   %52 = fmul fast float %51, %40
   %53 = call fast float @llvm.sqrt.f32(float %52)
   %54 = sext i32 %41 to i64
-  %55 = getelementptr inbounds nuw float, ptr %34, i64 %54
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %54
   store float %53, ptr %55, align 4, !tbaa !45
   %56 = add nuw i32 %.03344.us, 1
   %exitcond49.not = icmp eq i32 %.03344.us, %22
@@ -331,7 +331,7 @@ define internal void @_ZNK4ncnn17StatisticsPooling7forwardERKNS_3MatERS1_RKNS_6O
   %.03344 = phi i32 [ %60, %.noexc ], [ %23, %.noexc.lr.ph ]
   %57 = add i32 %.03344, %14
   %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds nuw float, ptr %34, i64 %58
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %58
   store float 0.000000e+00, ptr %59, align 4, !tbaa !45
   %60 = add nuw i32 %.03344, 1
   %exitcond.not = icmp eq i32 %.03344, %22

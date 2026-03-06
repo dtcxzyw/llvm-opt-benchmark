@@ -662,7 +662,7 @@ define hidden void @_ZN10rayon_core8registry8Registry3new17h84ebdf23553011dfE(pt
   %.sroa.585.0.copyload = load i64, ptr %.sroa.585.0..sroa_idx, align 8
   %43 = icmp ult i64 %.sroa.585.0.copyload, 576460752303423488
   call void @llvm.assume(i1 %43)
-  %44 = getelementptr inbounds nuw { ptr, i8, [7 x i8] }, ptr %.sroa.484.0.copyload, i64 %.sroa.585.0.copyload
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.484.0.copyload, i64 %.sroa.585.0.copyload
   %45 = icmp sgt i64 %.sroa.083.0.copyload, -1
   call void @llvm.assume(i1 %45)
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !26
@@ -823,7 +823,7 @@ define hidden void @_ZN10rayon_core8registry8Registry3new17h84ebdf23553011dfE(pt
   %.sroa.599.0.copyload = load i64, ptr %.sroa.599.0..sroa_idx, align 8
   %85 = icmp ult i64 %.sroa.599.0.copyload, 576460752303423488
   call void @llvm.assume(i1 %85)
-  %86 = getelementptr inbounds nuw { ptr, i8, [7 x i8] }, ptr %.sroa.498.0.copyload, i64 %.sroa.599.0.copyload
+  %86 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.498.0.copyload, i64 %.sroa.599.0.copyload
   %87 = icmp sgt i64 %.sroa.097.0.copyload, -1
   call void @llvm.assume(i1 %87)
   %.sroa.04.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 64

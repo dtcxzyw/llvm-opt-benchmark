@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.TupleTableSlotOps = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%union.ListCell = type { ptr }
-%struct.ParamExecData = type { ptr, i64, i8 }
 
 @TTSOpsVirtual = external constant %struct.TupleTableSlotOps, align 8
 @.str = private unnamed_addr constant [27 x i8] c"unrecognized join type: %d\00", align 1
@@ -202,13 +200,13 @@ ExecProcNode.exit:                                ; preds = %44, %46
 .lr.ph95:                                         ; preds = %.lr.ph, %slot_getattr.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %slot_getattr.exit ], [ 0, %.lr.ph ]
   %63 = load ptr, ptr %57, align 8
-  %64 = getelementptr inbounds nuw %union.ListCell, ptr %63, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %indvars.iv
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 4
   %67 = load i32, ptr %66, align 4
   %68 = load ptr, ptr %30, align 8
   %69 = sext i32 %67 to i64
-  %70 = getelementptr inbounds %struct.ParamExecData, ptr %68, i64 %69
+  %70 = getelementptr inbounds [24 x i8], ptr %68, i64 %69
   %71 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
@@ -231,7 +229,7 @@ slot_getattr.exit:                                ; preds = %.lr.ph95, %slot_get
   %83 = load i8, ptr %82, align 1, !range !4, !noundef !5
   store i8 %83, ptr %76, align 1
   %84 = load ptr, ptr %60, align 8
-  %85 = getelementptr inbounds i64, ptr %84, i64 %81
+  %85 = getelementptr inbounds [8 x i8], ptr %84, i64 %81
   %86 = load i64, ptr %85, align 8
   %87 = getelementptr inbounds nuw i8, ptr %70, i64 8
   store i64 %86, ptr %87, align 8

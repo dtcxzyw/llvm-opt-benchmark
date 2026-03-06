@@ -676,10 +676,10 @@ _ZN2cv9RGB2XYZ_iItEC2EiiPKf.exit:                 ; preds = %42, %40
 
 .split.us.i:                                      ; preds = %.split.us.i, %60
   %indvars.iv15.i = phi i64 [ %indvars.iv.next16.i, %.split.us.i ], [ 0, %60 ]
-  %62 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr @_ZN2cvL12sRGB2XYZ_D65E, i64 %indvars.iv15.i
+  %62 = getelementptr inbounds nuw [8 x i8], ptr @_ZN2cvL12sRGB2XYZ_D65E, i64 %indvars.iv15.i
   %63 = load double, ptr %62, align 8, !tbaa !38
   %64 = fptrunc double %63 to float
-  %65 = getelementptr inbounds nuw float, ptr %61, i64 %indvars.iv15.i
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %indvars.iv15.i
   store float %64, ptr %65, align 4, !tbaa !40
   %indvars.iv.next16.i = add nuw nsw i64 %indvars.iv15.i, 1
   %exitcond18.not.i = icmp eq i64 %indvars.iv.next16.i, 9
@@ -964,10 +964,10 @@ _ZN2cv9XYZ2RGB_iItEC2EiiPKi.exit:                 ; preds = %42, %45
 
 .split.us.i:                                      ; preds = %.split.us.i, %63
   %indvars.iv15.i = phi i64 [ %indvars.iv.next16.i, %.split.us.i ], [ 0, %63 ]
-  %66 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr @_ZN2cvL12XYZ2sRGB_D65E, i64 %indvars.iv15.i
+  %66 = getelementptr inbounds nuw [8 x i8], ptr @_ZN2cvL12XYZ2sRGB_D65E, i64 %indvars.iv15.i
   %67 = load double, ptr %66, align 8, !tbaa !38
   %68 = fptrunc double %67 to float
-  %69 = getelementptr inbounds nuw float, ptr %65, i64 %indvars.iv15.i
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %indvars.iv15.i
   store float %68, ptr %69, align 4, !tbaa !40
   %indvars.iv.next16.i = add nuw nsw i64 %indvars.iv15.i, 1
   %exitcond18.not.i = icmp eq i64 %indvars.iv.next16.i, 9
@@ -1435,10 +1435,10 @@ _ZN2cv10softdoubleaSERKS0_.exit59.us.preheader:   ; preds = %_ZN2cvL11initLabTab
 
 _ZN2cv10softdoubleaSERKS0_.exit:                  ; preds = %_ZN2cvL11initLabTabsEv.exit, %_ZN2cv10softdoubleaSERKS0_.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN2cv10softdoubleaSERKS0_.exit ], [ 0, %_ZN2cvL11initLabTabsEv.exit ]
-  %29 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %30 = load float, ptr %29, align 4, !tbaa !40
   %31 = fpext float %30 to double
-  %32 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr %7, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   store double %31, ptr %32, align 8, !tbaa !38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -1466,8 +1466,8 @@ _ZN2cv10softdoubleaSERKS0_.exit:                  ; preds = %_ZN2cvL11initLabTab
   %42 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %43 = sext i32 %40 to i64
   %44 = sext i32 %2 to i64
-  %invariant.gep98 = getelementptr i32, ptr %39, i64 %43
-  %invariant.gep100 = getelementptr i32, ptr %39, i64 %44
+  %invariant.gep98 = getelementptr [4 x i8], ptr %39, i64 %43
+  %invariant.gep100 = getelementptr [4 x i8], ptr %39, i64 %44
   br label %.preheader
 
 45:                                               ; preds = %84
@@ -1488,11 +1488,11 @@ _ZN2cv10softdoubleaSERKS0_.exit:                  ; preds = %_ZN2cvL11initLabTab
   br i1 %.not55, label %.preheader.split.us.preheader, label %_ZN2cv10softdoubleaSERKS0_.exit61.preheader
 
 _ZN2cv10softdoubleaSERKS0_.exit61.preheader:      ; preds = %.preheader
-  %invariant.gep = getelementptr inbounds nuw float, ptr %3, i64 %48
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %48
   br label %_ZN2cv10softdoubleaSERKS0_.exit61
 
 .preheader.split.us.preheader:                    ; preds = %.preheader
-  %invariant.gep96 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr @_ZN2cvL12sRGB2XYZ_D65E, i64 %48
+  %invariant.gep96 = getelementptr inbounds nuw [8 x i8], ptr @_ZN2cvL12sRGB2XYZ_D65E, i64 %48
   %.not.i62.us = icmp eq ptr %invariant.gep96, %8
   br label %.preheader.split.us
 
@@ -1501,8 +1501,8 @@ _ZN2cv10softdoubleaSERKS0_.exit61.preheader:      ; preds = %.preheader
   br i1 %.not.i62.us, label %_ZN2cv10softdoubleaSERKS0_.exit63.us, label %49
 
 49:                                               ; preds = %.preheader.split.us
-  %50 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr %8, i64 %indvars.iv80
-  %gep97 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr %invariant.gep96, i64 %indvars.iv80
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv80
+  %gep97 = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep96, i64 %indvars.iv80
   %51 = load i64, ptr %gep97, align 8, !tbaa !38
   store i64 %51, ptr %50, align 8, !tbaa !38
   br label %_ZN2cv10softdoubleaSERKS0_.exit63.us
@@ -1516,10 +1516,10 @@ _ZN2cv10softdoubleaSERKS0_.exit63.us:             ; preds = %49, %.preheader.spl
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %10, ptr noundef nonnull align 8 dereferenceable(8) @_ZZN2cv9RGB2Lab_bC1EiiPKfS2_bE6lshift, ptr noundef nonnull align 8 dereferenceable(8) %8)
-  %52 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr %7, i64 %indvars.iv84
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv84
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %52)
   %53 = call noundef i32 @_Z7cvRoundRKN2cv10softdoubleE(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  %gep99 = getelementptr i32, ptr %invariant.gep98, i64 %48
+  %gep99 = getelementptr [4 x i8], ptr %invariant.gep98, i64 %48
   store i32 %53, ptr %gep99, align 4, !tbaa !8
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -1528,7 +1528,7 @@ _ZN2cv10softdoubleaSERKS0_.exit63.us:             ; preds = %49, %.preheader.spl
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %12, ptr noundef nonnull align 8 dereferenceable(8) @_ZZN2cv9RGB2Lab_bC1EiiPKfS2_bE6lshift, ptr noundef nonnull align 8 dereferenceable(8) %41)
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %11, ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %52)
   %54 = call noundef i32 @_Z7cvRoundRKN2cv10softdoubleE(ptr noundef nonnull align 8 dereferenceable(8) %11)
-  %55 = getelementptr inbounds nuw i32, ptr %39, i64 %48
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %48
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 4
   store i32 %54, ptr %56, align 4, !tbaa !8
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -1538,7 +1538,7 @@ _ZN2cv10softdoubleaSERKS0_.exit63.us:             ; preds = %49, %.preheader.spl
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %14, ptr noundef nonnull align 8 dereferenceable(8) @_ZZN2cv9RGB2Lab_bC1EiiPKfS2_bE6lshift, ptr noundef nonnull align 8 dereferenceable(8) %42)
   call void @_ZNK2cv10softdoubledvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %13, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %52)
   %57 = call noundef i32 @_Z7cvRoundRKN2cv10softdoubleE(ptr noundef nonnull align 8 dereferenceable(8) %13)
-  %gep101 = getelementptr i32, ptr %invariant.gep100, i64 %48
+  %gep101 = getelementptr [4 x i8], ptr %invariant.gep100, i64 %48
   store i32 %57, ptr %gep101, align 4, !tbaa !8
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -1548,10 +1548,10 @@ _ZN2cv10softdoubleaSERKS0_.exit63.us:             ; preds = %49, %.preheader.spl
 
 _ZN2cv10softdoubleaSERKS0_.exit61:                ; preds = %_ZN2cv10softdoubleaSERKS0_.exit61.preheader, %_ZN2cv10softdoubleaSERKS0_.exit61
   %indvars.iv76 = phi i64 [ 0, %_ZN2cv10softdoubleaSERKS0_.exit61.preheader ], [ %indvars.iv.next77, %_ZN2cv10softdoubleaSERKS0_.exit61 ]
-  %gep = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %indvars.iv76
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep, i64 %indvars.iv76
   %60 = load float, ptr %gep, align 4, !tbaa !40
   %61 = fpext float %60 to double
-  %62 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr %8, i64 %indvars.iv76
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv76
   store double %61, ptr %62, align 8, !tbaa !38
   %indvars.iv.next77 = add nuw nsw i64 %indvars.iv76, 1
   %exitcond79.not = icmp eq i64 %indvars.iv.next77, 3
@@ -1691,10 +1691,10 @@ _ZN2cv10softdoubleaSERKS0_.exit47.preheader:      ; preds = %_ZN2cvL11initLabTab
 
 _ZN2cv10softdoubleaSERKS0_.exit.us:               ; preds = %_ZN2cvL11initLabTabsEv.exit, %_ZN2cv10softdoubleaSERKS0_.exit.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN2cv10softdoubleaSERKS0_.exit.us ], [ 0, %_ZN2cvL11initLabTabsEv.exit ]
-  %37 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %38 = load float, ptr %37, align 4, !tbaa !40
   %39 = fpext float %38 to double
-  %40 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr %7, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   store double %39, ptr %40, align 8, !tbaa !38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -1728,16 +1728,16 @@ _ZN2cv10softdoubleaSERKS0_.exit.us:               ; preds = %_ZN2cvL11initLabTab
   %indvars.iv71 = phi i64 [ 0, %.split.us ], [ %indvars.iv.next72, %86 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, i8 0, i64 12, i1 false), !tbaa !163
-  %48 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr %8, i64 %indvars.iv71
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv71
   %49 = mul nuw nsw i64 %indvars.iv71, 3
   br i1 %33, label %.preheader.split.us.preheader, label %.preheader.split.preheader
 
 .preheader.split.preheader:                       ; preds = %.preheader
-  %invariant.gep = getelementptr inbounds nuw %"struct.cv::softdouble", ptr @_ZN2cvL12sRGB2XYZ_D65E, i64 %49
+  %invariant.gep = getelementptr inbounds nuw [8 x i8], ptr @_ZN2cvL12sRGB2XYZ_D65E, i64 %49
   br label %.preheader.split
 
 .preheader.split.us.preheader:                    ; preds = %.preheader
-  %invariant.gep82 = getelementptr inbounds nuw float, ptr %3, i64 %49
+  %invariant.gep82 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %49
   br label %.preheader.split.us
 
 .preheader.split.us:                              ; preds = %.preheader.split.us.preheader, %_ZN2cv9softfloataSERKS0_.exit.us
@@ -1745,13 +1745,13 @@ _ZN2cv10softdoubleaSERKS0_.exit.us:               ; preds = %_ZN2cvL11initLabTab
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %gep83 = getelementptr inbounds nuw float, ptr %invariant.gep82, i64 %indvars.iv67
+  %gep83 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep82, i64 %indvars.iv67
   %50 = load float, ptr %gep83, align 4, !tbaa !40
   %51 = fpext float %50 to double
   store double %51, ptr %14, align 8, !tbaa !38
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %13, ptr noundef nonnull align 8 dereferenceable(8) %48, ptr noundef nonnull align 8 dereferenceable(8) %14)
   call void @_ZNK2cv10softdoublecvNS_9softfloatEEv(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %12, ptr noundef nonnull align 8 dereferenceable(8) %13)
-  %52 = getelementptr inbounds nuw %"struct.cv::softfloat", ptr %11, i64 %indvars.iv67
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv67
   %.not.i48.us = icmp eq ptr %12, %52
   br i1 %.not.i48.us, label %_ZN2cv9softfloataSERKS0_.exit.us, label %53
 
@@ -1775,16 +1775,16 @@ _ZN2cv9softfloataSERKS0_.exit.us:                 ; preds = %53, %.preheader.spl
   %58 = trunc nuw nsw i64 %49 to i32
   %59 = add nsw i32 %57, %58
   %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds float, ptr %44, i64 %60
+  %61 = getelementptr inbounds [4 x i8], ptr %44, i64 %60
   store float %55, ptr %61, align 4, !tbaa !40
   %62 = load float, ptr %45, align 4, !tbaa !163
-  %63 = getelementptr inbounds nuw float, ptr %44, i64 %49
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %49
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 4
   store float %62, ptr %64, align 4, !tbaa !40
   %65 = load float, ptr %46, align 4, !tbaa !163
   %66 = add nsw i32 %56, %58
   %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds float, ptr %44, i64 %67
+  %68 = getelementptr inbounds [4 x i8], ptr %44, i64 %67
   store float %65, ptr %68, align 4, !tbaa !40
   %69 = fcmp ult float %55, 0.000000e+00
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
@@ -1800,10 +1800,10 @@ _ZN2cv9softfloataSERKS0_.exit.us:                 ; preds = %53, %.preheader.spl
   %indvars.iv63 = phi i64 [ 0, %.preheader.split.preheader ], [ %indvars.iv.next64, %_ZN2cv9softfloataSERKS0_.exit50 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  %gep = getelementptr inbounds nuw %"struct.cv::softdouble", ptr %invariant.gep, i64 %indvars.iv63
+  %gep = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep, i64 %indvars.iv63
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %16, ptr noundef nonnull align 8 dereferenceable(8) %48, ptr noundef nonnull align 8 dereferenceable(8) %gep)
   call void @_ZNK2cv10softdoublecvNS_9softfloatEEv(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %15, ptr noundef nonnull align 8 dereferenceable(8) %16)
-  %72 = getelementptr inbounds nuw %"struct.cv::softfloat", ptr %11, i64 %indvars.iv63
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv63
   %.not.i49 = icmp eq ptr %15, %72
   br i1 %.not.i49, label %_ZN2cv9softfloataSERKS0_.exit50, label %73
 
@@ -3727,7 +3727,7 @@ define internal fastcc void @_ZN2cvL13createLabTabsEv() unnamed_addr #5 personal
   br label %248
 
 248:                                              ; preds = %247, %246
-  %249 = getelementptr inbounds nuw %"struct.cv::softfloat", ptr %165, i64 %indvars.iv
+  %249 = getelementptr inbounds nuw [4 x i8], ptr %165, i64 %indvars.iv
   %.not.i = icmp eq ptr %173, %249
   br i1 %.not.i, label %_ZN2cv9softfloataSERKS0_.exit, label %250
 
@@ -3771,7 +3771,7 @@ _ZN2cv9softfloataSERKS0_.exit:                    ; preds = %248, %250
   %257 = load i32, ptr %177, align 4, !tbaa !163
   store i32 %257, ptr %180, align 4, !tbaa !163
   call fastcc void @_ZN2cvL10applyGammaENS_9softfloatE(ptr dead_on_unwind noalias writable align 4 %179, ptr noundef %180)
-  %258 = getelementptr inbounds nuw %"struct.cv::softfloat", ptr %166, i64 %indvars.iv142
+  %258 = getelementptr inbounds nuw [4 x i8], ptr %166, i64 %indvars.iv142
   %.not.i107 = icmp eq ptr %179, %258
   br i1 %.not.i107, label %_ZN2cv9softfloataSERKS0_.exit108, label %259
 
@@ -3786,7 +3786,7 @@ _ZN2cv9softfloataSERKS0_.exit108:                 ; preds = %255, %259
   %261 = load i32, ptr %177, align 4, !tbaa !163
   store i32 %261, ptr %182, align 4, !tbaa !163
   call fastcc void @_ZN2cvL13applyInvGammaENS_9softfloatE(ptr dead_on_unwind noalias writable align 4 %181, ptr noundef %182)
-  %262 = getelementptr inbounds nuw %"struct.cv::softfloat", ptr %167, i64 %indvars.iv142
+  %262 = getelementptr inbounds nuw [4 x i8], ptr %167, i64 %indvars.iv142
   %.not.i109 = icmp eq ptr %181, %262
   br i1 %.not.i109, label %_ZN2cv9softfloataSERKS0_.exit110, label %263
 
@@ -3844,13 +3844,13 @@ _ZN2cv9softfloataSERKS0_.exit110:                 ; preds = %_ZN2cv9softfloataSE
   call void @_ZNK2cv9softfloatmlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %185, ptr noundef nonnull align 4 dereferenceable(4) @_ZZN2cvL13createLabTabsEvE8intScale, ptr noundef nonnull align 4 dereferenceable(4) %186)
   %278 = call noundef i32 @_Z7cvRoundRKN2cv9softfloatE(ptr noundef nonnull align 4 dereferenceable(4) %185)
   %279 = trunc i32 %278 to i16
-  %280 = getelementptr inbounds nuw i16, ptr @_ZN2cvL14sRGBGammaTab_bE, i64 %indvars.iv146
+  %280 = getelementptr inbounds nuw [2 x i8], ptr @_ZN2cvL14sRGBGammaTab_bE, i64 %indvars.iv146
   store i16 %279, ptr %280, align 2, !tbaa !293
   call void @llvm.lifetime.end.p0(ptr nonnull %186)
   call void @llvm.lifetime.end.p0(ptr nonnull %185)
   %.2.tr = trunc i64 %indvars.iv146 to i16
   %281 = shl nuw nsw i16 %.2.tr, 3
-  %282 = getelementptr inbounds nuw i16, ptr @_ZN2cvL16linearGammaTab_bE, i64 %indvars.iv146
+  %282 = getelementptr inbounds nuw [2 x i8], ptr @_ZN2cvL16linearGammaTab_bE, i64 %indvars.iv146
   store i16 %281, ptr %282, align 2, !tbaa !293
   call void @llvm.lifetime.end.p0(ptr nonnull %183)
   %indvars.iv.next147 = add nuw nsw i64 %indvars.iv146, 1
@@ -3909,7 +3909,7 @@ _ZN2cv9softfloataSERKS0_.exit110:                 ; preds = %_ZN2cv9softfloataSE
   call void @_ZNK2cv9softfloatmlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %192, ptr noundef nonnull align 4 dereferenceable(4) @_ZN2cvL4f255E, ptr noundef nonnull align 4 dereferenceable(4) %193)
   %297 = call noundef i32 @_Z7cvRoundRKN2cv9softfloatE(ptr noundef nonnull align 4 dereferenceable(4) %192)
   %298 = trunc i32 %297 to i16
-  %299 = getelementptr inbounds nuw i16, ptr @_ZN2cvL17sRGBInvGammaTab_bE, i64 %indvars.iv150
+  %299 = getelementptr inbounds nuw [2 x i8], ptr @_ZN2cvL17sRGBInvGammaTab_bE, i64 %indvars.iv150
   store i16 %298, ptr %299, align 2, !tbaa !293
   call void @llvm.lifetime.end.p0(ptr nonnull %193)
   call void @llvm.lifetime.end.p0(ptr nonnull %192)
@@ -3995,7 +3995,7 @@ _ZN2cv9softfloataSERKS0_.exit110:                 ; preds = %_ZN2cv9softfloataSE
   call void @_ZNK2cv9softfloatmlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %198, ptr noundef nonnull align 4 dereferenceable(4) @_ZZN2cvL13createLabTabsEvE7lshift2, ptr noundef nonnull align 4 dereferenceable(4) %199)
   %327 = call noundef i32 @_Z7cvRoundRKN2cv9softfloatE(ptr noundef nonnull align 4 dereferenceable(4) %198)
   %328 = trunc i32 %327 to i16
-  %329 = getelementptr inbounds nuw i16, ptr @_ZN2cvL12LabCbrtTab_bE, i64 %indvars.iv154
+  %329 = getelementptr inbounds nuw [2 x i8], ptr @_ZN2cvL12LabCbrtTab_bE, i64 %indvars.iv154
   store i16 %328, ptr %329, align 2, !tbaa !293
   call void @llvm.lifetime.end.p0(ptr nonnull %199)
   call void @llvm.lifetime.end.p0(ptr nonnull %198)
@@ -4140,7 +4140,7 @@ _ZN2cv9softfloataSERKS0_.exit110:                 ; preds = %_ZN2cv9softfloataSE
 
 366:                                              ; preds = %359, %354
   %.0.i = phi i32 [ %358, %354 ], [ %365, %359 ]
-  %367 = getelementptr i32, ptr %351, i64 %indvars.iv.i
+  %367 = getelementptr [4 x i8], ptr %351, i64 %indvars.iv.i
   %368 = getelementptr i8, ptr %367, i64 32580
   store i32 %.0.i, ptr %368, align 4, !tbaa !8
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
@@ -4233,7 +4233,7 @@ _ZN2cvL14initLUTforABXZEv.exit:                   ; preds = %366
   call void @_ZNK2cv9softfloatdvERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %143, ptr noundef nonnull align 4 dereferenceable(4) %144, ptr noundef nonnull align 4 dereferenceable(4) @_ZN2cvL4f255E), !noalias !319
   call void @llvm.lifetime.end.p0(ptr nonnull %144), !noalias !319
   %378 = shl nuw nsw i64 %indvars.iv36.i, 8
-  %invariant.gep.i = getelementptr inbounds nuw i32, ptr %372, i64 %378
+  %invariant.gep.i = getelementptr inbounds nuw [4 x i8], ptr %372, i64 %378
   br label %379
 
 379:                                              ; preds = %379, %375
@@ -4266,7 +4266,7 @@ _ZN2cvL14initLUTforABXZEv.exit:                   ; preds = %366
   call void @_ZN2cv9softfloatC1Ei(ptr noundef nonnull align 4 dereferenceable(4) %154, i32 noundef 16), !noalias !319
   call void @_ZNK2cv9softfloatmlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %153, ptr noundef nonnull align 4 dereferenceable(4) %149, ptr noundef nonnull align 4 dereferenceable(4) %154), !noalias !319
   %381 = call noundef i32 @_Z7cvRoundRKN2cv9softfloatE(ptr noundef nonnull align 4 dereferenceable(4) %153), !noalias !319
-  %gep.i = getelementptr inbounds nuw i32, ptr %invariant.gep.i, i64 %indvars.iv.i112
+  %gep.i = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep.i, i64 %indvars.iv.i112
   store i32 %381, ptr %gep.i, align 4, !tbaa !8, !noalias !319
   call void @llvm.lifetime.end.p0(ptr nonnull %154), !noalias !319
   call void @llvm.lifetime.end.p0(ptr nonnull %153), !noalias !319
@@ -4336,12 +4336,12 @@ _ZN2cvL14initLUTforABXZEv.exit:                   ; preds = %366
   call void @llvm.lifetime.end.p0(ptr nonnull %164), !noalias !319
   call void @llvm.lifetime.end.p0(ptr nonnull %163), !noalias !319
   %394 = add nuw nsw i64 %indvars.iv32.i, %378
-  %395 = getelementptr inbounds nuw i32, ptr %373, i64 %394
+  %395 = getelementptr inbounds nuw [4 x i8], ptr %373, i64 %394
   store i32 %393, ptr %395, align 4, !tbaa !8, !noalias !319
   %396 = mul nsw i32 %393, %376
   %397 = sext i32 %396 to i64
   %398 = mul nsw i64 %397, 249600
-  %399 = getelementptr inbounds nuw i64, ptr %374, i64 %394
+  %399 = getelementptr inbounds nuw [8 x i8], ptr %374, i64 %394
   store i64 %398, ptr %399, align 8, !tbaa !336, !noalias !319
   call void @llvm.lifetime.end.p0(ptr nonnull %159), !noalias !319
   call void @llvm.lifetime.end.p0(ptr nonnull %155), !noalias !319
@@ -4379,34 +4379,34 @@ _ZN2cv9softfloataSERKS0_.exit.i:                  ; preds = %_ZN2cv9softfloataSE
   %indvars.iv.i115 = phi i64 [ 0, %_ZN2cvL13initLUTforLUVERKNS_9softfloatES2_.exit ], [ %indvars.iv.next.i116, %_ZN2cv9softfloataSERKS0_.exit.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
   %402 = mul nuw nsw i64 %indvars.iv.i115, 3
-  %403 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr @_ZN2cvL12sRGB2XYZ_D65E, i64 %402
+  %403 = getelementptr inbounds nuw [8 x i8], ptr @_ZN2cvL12sRGB2XYZ_D65E, i64 %402
   call void @_ZNK2cv10softdoublecvNS_9softfloatEEv(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %24, ptr noundef nonnull align 8 dereferenceable(8) %403)
   %404 = add nuw nsw i64 %402, 2
-  %405 = getelementptr inbounds nuw %"struct.cv::softfloat", ptr %20, i64 %404
+  %405 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %404
   %406 = load i32, ptr %24, align 4, !tbaa !163
   store i32 %406, ptr %405, align 4, !tbaa !163
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %407 = add nuw nsw i64 %402, 1
-  %408 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr @_ZN2cvL12sRGB2XYZ_D65E, i64 %407
+  %408 = getelementptr inbounds nuw [8 x i8], ptr @_ZN2cvL12sRGB2XYZ_D65E, i64 %407
   call void @_ZNK2cv10softdoublecvNS_9softfloatEEv(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %25, ptr noundef nonnull align 8 dereferenceable(8) %408)
-  %409 = getelementptr inbounds nuw %"struct.cv::softfloat", ptr %20, i64 %407
+  %409 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %407
   %410 = load i32, ptr %25, align 4, !tbaa !163
   store i32 %410, ptr %409, align 4, !tbaa !163
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
-  %411 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr @_ZN2cvL12sRGB2XYZ_D65E, i64 %404
+  %411 = getelementptr inbounds nuw [8 x i8], ptr @_ZN2cvL12sRGB2XYZ_D65E, i64 %404
   call void @_ZNK2cv10softdoublecvNS_9softfloatEEv(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %26, ptr noundef nonnull align 8 dereferenceable(8) %411)
-  %412 = getelementptr inbounds nuw %"struct.cv::softfloat", ptr %20, i64 %402
+  %412 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %402
   %413 = load i32, ptr %26, align 4, !tbaa !163
   store i32 %413, ptr %412, align 4, !tbaa !163
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
-  %414 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr %21, i64 %indvars.iv.i115
+  %414 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv.i115
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %28, ptr noundef nonnull align 8 dereferenceable(8) %411, ptr noundef nonnull align 8 dereferenceable(8) %414)
   call void @_ZNK2cv10softdoublecvNS_9softfloatEEv(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %27, ptr noundef nonnull align 8 dereferenceable(8) %28)
-  %415 = getelementptr inbounds nuw %"struct.cv::softfloat", ptr %19, i64 %402
+  %415 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %402
   %416 = load i32, ptr %27, align 4, !tbaa !163
   store i32 %416, ptr %415, align 4, !tbaa !163
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
@@ -4415,7 +4415,7 @@ _ZN2cv9softfloataSERKS0_.exit.i:                  ; preds = %_ZN2cv9softfloataSE
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %30, ptr noundef nonnull align 8 dereferenceable(8) %408, ptr noundef nonnull align 8 dereferenceable(8) %414)
   call void @_ZNK2cv10softdoublecvNS_9softfloatEEv(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %29, ptr noundef nonnull align 8 dereferenceable(8) %30)
-  %417 = getelementptr inbounds nuw %"struct.cv::softfloat", ptr %19, i64 %407
+  %417 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %407
   %418 = load i32, ptr %29, align 4, !tbaa !163
   store i32 %418, ptr %417, align 4, !tbaa !163
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
@@ -4424,7 +4424,7 @@ _ZN2cv9softfloataSERKS0_.exit.i:                  ; preds = %_ZN2cv9softfloataSE
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %32, ptr noundef nonnull align 8 dereferenceable(8) %403, ptr noundef nonnull align 8 dereferenceable(8) %414)
   call void @_ZNK2cv10softdoublecvNS_9softfloatEEv(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %31, ptr noundef nonnull align 8 dereferenceable(8) %32)
-  %419 = getelementptr inbounds nuw %"struct.cv::softfloat", ptr %19, i64 %404
+  %419 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %404
   %420 = load i32, ptr %31, align 4, !tbaa !163
   store i32 %420, ptr %419, align 4, !tbaa !163
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
@@ -5305,7 +5305,7 @@ _ZN2cv9softfloataSERKS0_.exit.i:                  ; preds = %_ZN2cv9softfloataSE
 
 680:                                              ; preds = %678
   %681 = trunc i32 %679 to i16
-  %682 = getelementptr inbounds nuw i16, ptr %564, i64 %611
+  %682 = getelementptr inbounds nuw [2 x i8], ptr %564, i64 %611
   store i16 %681, ptr %682, align 2, !tbaa !293
   call void @llvm.lifetime.end.p0(ptr nonnull %92)
   call void @llvm.lifetime.end.p0(ptr nonnull %91)
@@ -5330,7 +5330,7 @@ _ZN2cv9softfloataSERKS0_.exit.i:                  ; preds = %_ZN2cv9softfloataSE
 687:                                              ; preds = %685
   %688 = trunc i32 %686 to i16
   %689 = add nuw nsw i64 %611, 1
-  %690 = getelementptr inbounds nuw i16, ptr %564, i64 %689
+  %690 = getelementptr inbounds nuw [2 x i8], ptr %564, i64 %689
   store i16 %688, ptr %690, align 2, !tbaa !293
   call void @llvm.lifetime.end.p0(ptr nonnull %95)
   call void @llvm.lifetime.end.p0(ptr nonnull %94)
@@ -5356,7 +5356,7 @@ _ZN2cv9softfloataSERKS0_.exit.i:                  ; preds = %_ZN2cv9softfloataSE
 695:                                              ; preds = %693
   %696 = trunc i32 %694 to i16
   %697 = add nuw nsw i64 %611, 2
-  %698 = getelementptr inbounds nuw i16, ptr %564, i64 %697
+  %698 = getelementptr inbounds nuw [2 x i8], ptr %564, i64 %697
   store i16 %696, ptr %698, align 2, !tbaa !293
   call void @llvm.lifetime.end.p0(ptr nonnull %98)
   call void @llvm.lifetime.end.p0(ptr nonnull %97)
@@ -5591,7 +5591,7 @@ _ZN2cv9softfloataSERKS0_.exit.i:                  ; preds = %_ZN2cv9softfloataSE
 
 741:                                              ; preds = %739
   %742 = trunc i32 %740 to i16
-  %743 = getelementptr inbounds nuw i16, ptr %565, i64 %611
+  %743 = getelementptr inbounds nuw [2 x i8], ptr %565, i64 %611
   store i16 %742, ptr %743, align 2, !tbaa !293
   call void @llvm.lifetime.end.p0(ptr nonnull %133)
   call void @llvm.lifetime.end.p0(ptr nonnull %132)
@@ -5615,7 +5615,7 @@ _ZN2cv9softfloataSERKS0_.exit.i:                  ; preds = %_ZN2cv9softfloataSE
 
 748:                                              ; preds = %746
   %749 = trunc i32 %747 to i16
-  %750 = getelementptr inbounds nuw i16, ptr %565, i64 %689
+  %750 = getelementptr inbounds nuw [2 x i8], ptr %565, i64 %689
   store i16 %749, ptr %750, align 2, !tbaa !293
   call void @llvm.lifetime.end.p0(ptr nonnull %136)
   call void @llvm.lifetime.end.p0(ptr nonnull %135)
@@ -5640,7 +5640,7 @@ _ZN2cv9softfloataSERKS0_.exit.i:                  ; preds = %_ZN2cv9softfloataSE
 
 755:                                              ; preds = %753
   %756 = trunc i32 %754 to i16
-  %757 = getelementptr inbounds nuw i16, ptr %565, i64 %697
+  %757 = getelementptr inbounds nuw [2 x i8], ptr %565, i64 %697
   store i16 %756, ptr %757, align 2, !tbaa !293
   call void @llvm.lifetime.end.p0(ptr nonnull %139)
   call void @llvm.lifetime.end.p0(ptr nonnull %138)
@@ -6187,35 +6187,35 @@ _ZN2cvL14allocSingletonIsEEPT_m.exit221.i:        ; preds = %892
   %914 = add nuw nsw i32 %904, %913
   %915 = or disjoint i64 %indvars.iv257.i, %906
   %916 = zext nneg i32 %914 to i64
-  %917 = getelementptr inbounds nuw i16, ptr %564, i64 %916
+  %917 = getelementptr inbounds nuw [2 x i8], ptr %564, i64 %916
   %918 = load i16, ptr %917, align 2, !tbaa !293
-  %919 = getelementptr inbounds nuw i16, ptr %569, i64 %915
+  %919 = getelementptr inbounds nuw [2 x i8], ptr %569, i64 %915
   store i16 %918, ptr %919, align 2, !tbaa !293
   %920 = add nuw nsw i32 %914, 1
   %921 = zext nneg i32 %920 to i64
-  %922 = getelementptr inbounds nuw i16, ptr %564, i64 %921
+  %922 = getelementptr inbounds nuw [2 x i8], ptr %564, i64 %921
   %923 = load i16, ptr %922, align 2, !tbaa !293
   %924 = add nuw nsw i64 %915, 8
-  %925 = getelementptr inbounds nuw i16, ptr %569, i64 %924
+  %925 = getelementptr inbounds nuw [2 x i8], ptr %569, i64 %924
   store i16 %923, ptr %925, align 2, !tbaa !293
   %926 = add nuw nsw i32 %914, 2
   %927 = zext nneg i32 %926 to i64
-  %928 = getelementptr inbounds nuw i16, ptr %564, i64 %927
+  %928 = getelementptr inbounds nuw [2 x i8], ptr %564, i64 %927
   %929 = load i16, ptr %928, align 2, !tbaa !293
   %930 = add nuw nsw i64 %915, 16
-  %931 = getelementptr inbounds nuw i16, ptr %569, i64 %930
+  %931 = getelementptr inbounds nuw [2 x i8], ptr %569, i64 %930
   store i16 %929, ptr %931, align 2, !tbaa !293
-  %932 = getelementptr inbounds nuw i16, ptr %565, i64 %916
+  %932 = getelementptr inbounds nuw [2 x i8], ptr %565, i64 %916
   %933 = load i16, ptr %932, align 2, !tbaa !293
-  %934 = getelementptr inbounds nuw i16, ptr %882, i64 %915
+  %934 = getelementptr inbounds nuw [2 x i8], ptr %882, i64 %915
   store i16 %933, ptr %934, align 2, !tbaa !293
-  %935 = getelementptr inbounds nuw i16, ptr %565, i64 %921
+  %935 = getelementptr inbounds nuw [2 x i8], ptr %565, i64 %921
   %936 = load i16, ptr %935, align 2, !tbaa !293
-  %937 = getelementptr inbounds nuw i16, ptr %882, i64 %924
+  %937 = getelementptr inbounds nuw [2 x i8], ptr %882, i64 %924
   store i16 %936, ptr %937, align 2, !tbaa !293
-  %938 = getelementptr inbounds nuw i16, ptr %565, i64 %927
+  %938 = getelementptr inbounds nuw [2 x i8], ptr %565, i64 %927
   %939 = load i16, ptr %938, align 2, !tbaa !293
-  %940 = getelementptr inbounds nuw i16, ptr %882, i64 %930
+  %940 = getelementptr inbounds nuw [2 x i8], ptr %882, i64 %930
   store i16 %939, ptr %940, align 2, !tbaa !293
   br i1 %910, label %909, label %908, !llvm.loop !392
 
@@ -6430,13 +6430,13 @@ define internal fastcc noundef ptr @_ZL11splineBuildPKN2cv9softfloatEm(ptr nound
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %27 = add nuw nsw i64 %.059, 1
-  %28 = getelementptr inbounds nuw %"struct.cv::softfloat", ptr %0, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %27
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %29 = getelementptr inbounds nuw %"struct.cv::softfloat", ptr %0, i64 %.059
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.059
   call void @_ZNK2cv9softfloatmlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %9, ptr noundef nonnull align 4 dereferenceable(4) %29, ptr noundef nonnull align 4 dereferenceable(4) %2)
   call void @_ZNK2cv9softfloatmiERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %8, ptr noundef nonnull align 4 dereferenceable(4) %28, ptr noundef nonnull align 4 dereferenceable(4) %9)
   %30 = add nsw i64 %.059, -1
-  %31 = getelementptr inbounds nuw %"struct.cv::softfloat", ptr %0, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %30
   call void @_ZNK2cv9softfloatplERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %7, ptr noundef nonnull align 4 dereferenceable(4) %8, ptr noundef nonnull align 4 dereferenceable(4) %31)
   call void @_ZNK2cv9softfloatmlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %6, ptr noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull align 4 dereferenceable(4) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -6506,8 +6506,8 @@ _ZN2cv9softfloataSERKS0_.exit47:                  ; preds = %_ZN2cv9softfloataSE
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  %45 = getelementptr inbounds nuw %"struct.cv::softfloat", ptr %0, i64 %41
-  %46 = getelementptr inbounds nuw %"struct.cv::softfloat", ptr %0, i64 %42
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %41
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %42
   call void @_ZNK2cv9softfloatmiERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %18, ptr noundef nonnull align 4 dereferenceable(4) %45, ptr noundef nonnull align 4 dereferenceable(4) %46)
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
@@ -6779,10 +6779,10 @@ _ZN2cv10softdoubleaSERKS0_.exit51.us.preheader:   ; preds = %_ZN2cvL11initLabTab
 
 _ZN2cv10softdoubleaSERKS0_.exit:                  ; preds = %_ZN2cvL11initLabTabsEv.exit, %_ZN2cv10softdoubleaSERKS0_.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN2cv10softdoubleaSERKS0_.exit ], [ 0, %_ZN2cvL11initLabTabsEv.exit ]
-  %50 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %51 = load float, ptr %50, align 4, !tbaa !40
   %52 = fpext float %51 to double
-  %53 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr %7, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   store double %52, ptr %53, align 8, !tbaa !38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -6801,10 +6801,10 @@ _ZN2cv10softdoubleaSERKS0_.exit:                  ; preds = %_ZN2cvL11initLabTab
 .preheader.split.us:                              ; preds = %.preheader, %.preheader.split.us
   %indvars.iv72 = phi i64 [ %indvars.iv.next73, %.preheader.split.us ], [ 0, %.preheader ]
   %56 = add nuw nsw i64 %indvars.iv72, %55
-  %57 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr @_ZN2cvL12sRGB2XYZ_D65E, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr @_ZN2cvL12sRGB2XYZ_D65E, i64 %56
   %58 = load double, ptr %57, align 8, !tbaa !38
   %59 = fptrunc double %58 to float
-  %60 = getelementptr inbounds nuw float, ptr %48, i64 %56
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %56
   store float %59, ptr %60, align 4, !tbaa !40
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %exitcond75.not = icmp eq i64 %indvars.iv.next73, 3
@@ -6889,7 +6889,7 @@ _ZN2cv10softdoubleaSERKS0_.exit:                  ; preds = %_ZN2cvL11initLabTab
   br i1 %71, label %115, label %105
 
 .split.us:                                        ; preds = %.preheader.split, %.preheader.split.us
-  %72 = getelementptr inbounds nuw float, ptr %48, i64 %55
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %55
   br i1 %49, label %77, label %.split.us._crit_edge
 
 .split.us._crit_edge:                             ; preds = %.split.us
@@ -6899,9 +6899,9 @@ _ZN2cv10softdoubleaSERKS0_.exit:                  ; preds = %_ZN2cvL11initLabTab
 .preheader.split:                                 ; preds = %.preheader, %.preheader.split
   %indvars.iv68 = phi i64 [ %indvars.iv.next69, %.preheader.split ], [ 0, %.preheader ]
   %73 = add nuw nsw i64 %indvars.iv68, %55
-  %74 = getelementptr inbounds nuw float, ptr %3, i64 %73
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %73
   %75 = load float, ptr %74, align 4, !tbaa !40
-  %76 = getelementptr inbounds nuw float, ptr %48, i64 %73
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %73
   store float %75, ptr %76, align 4, !tbaa !40
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %exitcond71.not = icmp eq i64 %indvars.iv.next69, 3
@@ -6917,7 +6917,7 @@ _ZN2cv10softdoubleaSERKS0_.exit:                  ; preds = %_ZN2cvL11initLabTab
 
 81:                                               ; preds = %.split.us._crit_edge, %77
   %82 = phi float [ %.pre, %.split.us._crit_edge ], [ %80, %77 ]
-  %83 = getelementptr inbounds nuw float, ptr %48, i64 %55
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %55
   %84 = fcmp ult float %82, 0.000000e+00
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -7110,10 +7110,10 @@ _ZN2cv10softdoubleaSERKS0_.exit41.us.preheader:   ; preds = %_ZN2cvL11initLabTab
 
 _ZN2cv10softdoubleaSERKS0_.exit:                  ; preds = %_ZN2cvL11initLabTabsEv.exit, %_ZN2cv10softdoubleaSERKS0_.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN2cv10softdoubleaSERKS0_.exit ], [ 0, %_ZN2cvL11initLabTabsEv.exit ]
-  %30 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %31 = load float, ptr %30, align 4, !tbaa !40
   %32 = fpext float %31 to double
-  %33 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr %7, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   store double %32, ptr %33, align 8, !tbaa !38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -7148,18 +7148,18 @@ _ZN2cv10softdoubleaSERKS0_.exit:                  ; preds = %_ZN2cvL11initLabTab
   br i1 %.not, label %.preheader.split.us.preheader, label %_ZN2cv10softdoubleaSERKS0_.exit43.preheader
 
 _ZN2cv10softdoubleaSERKS0_.exit43.preheader:      ; preds = %.preheader
-  %invariant.gep = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv65
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv65
   br label %_ZN2cv10softdoubleaSERKS0_.exit43
 
 .preheader.split.us.preheader:                    ; preds = %.preheader
-  %invariant.gep74 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr @_ZN2cvL12XYZ2sRGB_D65E, i64 %indvars.iv65
+  %invariant.gep74 = getelementptr inbounds nuw [8 x i8], ptr @_ZN2cvL12XYZ2sRGB_D65E, i64 %indvars.iv65
   br label %.preheader.split.us
 
 .preheader.split.us:                              ; preds = %.preheader.split.us.preheader, %_ZN2cv10softdoubleaSERKS0_.exit45.us
   %indvars.iv61 = phi i64 [ 0, %.preheader.split.us.preheader ], [ %indvars.iv.next62, %_ZN2cv10softdoubleaSERKS0_.exit45.us ]
   %.idx72 = mul nuw nsw i64 %indvars.iv61, 24
   %gep75 = getelementptr inbounds nuw i8, ptr %invariant.gep74, i64 %.idx72
-  %39 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr %8, i64 %indvars.iv61
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv61
   %.not.i44.us = icmp eq ptr %gep75, %39
   br i1 %.not.i44.us, label %_ZN2cv10softdoubleaSERKS0_.exit45.us, label %40
 
@@ -7175,7 +7175,7 @@ _ZN2cv10softdoubleaSERKS0_.exit45.us:             ; preds = %40, %.preheader.spl
 
 .split.us:                                        ; preds = %_ZN2cv10softdoubleaSERKS0_.exit43, %_ZN2cv10softdoubleaSERKS0_.exit45.us
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %42 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr %7, i64 %indvars.iv65
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv65
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %42)
   %43 = load double, ptr %9, align 8, !tbaa !38
   %44 = fptrunc double %43 to float
@@ -7185,14 +7185,14 @@ _ZN2cv10softdoubleaSERKS0_.exit45.us:             ; preds = %40, %.preheader.spl
   %48 = trunc nuw nsw i64 %indvars.iv65 to i32
   %49 = add nsw i32 %47, %48
   %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds float, ptr %27, i64 %50
+  %51 = getelementptr inbounds [4 x i8], ptr %27, i64 %50
   store float %44, ptr %51, align 4, !tbaa !40
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %10, ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull align 8 dereferenceable(8) %42)
   %52 = load double, ptr %10, align 8, !tbaa !38
   %53 = fptrunc double %52 to float
-  %54 = getelementptr inbounds nuw float, ptr %27, i64 %indvars.iv65
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv65
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 12
   store float %53, ptr %55, align 4, !tbaa !40
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -7204,7 +7204,7 @@ _ZN2cv10softdoubleaSERKS0_.exit45.us:             ; preds = %40, %.preheader.spl
   %59 = mul nsw i32 %58, 3
   %60 = add nsw i32 %59, %48
   %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds float, ptr %27, i64 %61
+  %62 = getelementptr inbounds [4 x i8], ptr %27, i64 %61
   store float %57, ptr %62, align 4, !tbaa !40
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -7218,7 +7218,7 @@ _ZN2cv10softdoubleaSERKS0_.exit43:                ; preds = %_ZN2cv10softdoublea
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx
   %63 = load float, ptr %gep, align 4, !tbaa !40
   %64 = fpext float %63 to double
-  %65 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr %8, i64 %indvars.iv57
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv57
   store double %64, ptr %65, align 8, !tbaa !38
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %exitcond60.not = icmp eq i64 %indvars.iv.next58, 3
@@ -7256,10 +7256,10 @@ _ZN2cv10softdoubleaSERKS0_.exit44.us.preheader:   ; preds = %.preheader49
 
 _ZN2cv10softdoubleaSERKS0_.exit:                  ; preds = %.preheader49, %_ZN2cv10softdoubleaSERKS0_.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN2cv10softdoubleaSERKS0_.exit ], [ 0, %.preheader49 ]
-  %18 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %19 = load float, ptr %18, align 4, !tbaa !40
   %20 = fpext float %19 to double
-  %21 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr %6, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   store double %20, ptr %21, align 8, !tbaa !38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -7289,8 +7289,8 @@ _ZN2cv10softdoubleaSERKS0_.exit:                  ; preds = %.preheader49, %_ZN2
   %33 = mul nsw i32 %32, 3
   %34 = sext i32 %29 to i64
   %35 = sext i32 %33 to i64
-  %invariant.gep80 = getelementptr i32, ptr %28, i64 %34
-  %invariant.gep82 = getelementptr i32, ptr %28, i64 %35
+  %invariant.gep80 = getelementptr [4 x i8], ptr %28, i64 %34
+  %invariant.gep82 = getelementptr [4 x i8], ptr %28, i64 %35
   br label %.preheader
 
 36:                                               ; preds = %.split53.us
@@ -7311,18 +7311,18 @@ _ZN2cv10softdoubleaSERKS0_.exit:                  ; preds = %.preheader49, %_ZN2
   br i1 %.not41, label %.preheader.split.us.preheader, label %_ZN2cv10softdoubleaSERKS0_.exit46.preheader
 
 _ZN2cv10softdoubleaSERKS0_.exit46.preheader:      ; preds = %.preheader
-  %invariant.gep = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv69
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv69
   br label %_ZN2cv10softdoubleaSERKS0_.exit46
 
 .preheader.split.us.preheader:                    ; preds = %.preheader
-  %invariant.gep78 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr @_ZN2cvL12XYZ2sRGB_D65E, i64 %indvars.iv69
+  %invariant.gep78 = getelementptr inbounds nuw [8 x i8], ptr @_ZN2cvL12XYZ2sRGB_D65E, i64 %indvars.iv69
   br label %.preheader.split.us
 
 .preheader.split.us:                              ; preds = %.preheader.split.us.preheader, %_ZN2cv10softdoubleaSERKS0_.exit48.us
   %indvars.iv65 = phi i64 [ 0, %.preheader.split.us.preheader ], [ %indvars.iv.next66, %_ZN2cv10softdoubleaSERKS0_.exit48.us ]
   %.idx76 = mul nuw nsw i64 %indvars.iv65, 24
   %gep79 = getelementptr inbounds nuw i8, ptr %invariant.gep78, i64 %.idx76
-  %39 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr %7, i64 %indvars.iv65
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv65
   %.not.i47.us = icmp eq ptr %gep79, %39
   br i1 %.not.i47.us, label %_ZN2cv10softdoubleaSERKS0_.exit48.us, label %40
 
@@ -7340,10 +7340,10 @@ _ZN2cv10softdoubleaSERKS0_.exit48.us:             ; preds = %40, %.preheader.spl
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) @_ZZN2cv14Lab2RGBintegerC1EiiPKfS2_bE6lshift, ptr noundef nonnull align 8 dereferenceable(8) %7)
-  %42 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr %6, i64 %indvars.iv69
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv69
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) %9, ptr noundef nonnull align 8 dereferenceable(8) %42)
   %43 = call noundef i32 @_Z7cvRoundRKN2cv10softdoubleE(ptr noundef nonnull align 8 dereferenceable(8) %8)
-  %gep81 = getelementptr i32, ptr %invariant.gep80, i64 %indvars.iv69
+  %gep81 = getelementptr [4 x i8], ptr %invariant.gep80, i64 %indvars.iv69
   store i32 %43, ptr %gep81, align 4, !tbaa !8
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -7352,7 +7352,7 @@ _ZN2cv10softdoubleaSERKS0_.exit48.us:             ; preds = %40, %.preheader.spl
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %11, ptr noundef nonnull align 8 dereferenceable(8) @_ZZN2cv14Lab2RGBintegerC1EiiPKfS2_bE6lshift, ptr noundef nonnull align 8 dereferenceable(8) %30)
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %10, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %42)
   %44 = call noundef i32 @_Z7cvRoundRKN2cv10softdoubleE(ptr noundef nonnull align 8 dereferenceable(8) %10)
-  %45 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv69
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv69
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 12
   store i32 %44, ptr %46, align 4, !tbaa !8
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -7362,7 +7362,7 @@ _ZN2cv10softdoubleaSERKS0_.exit48.us:             ; preds = %40, %.preheader.spl
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %13, ptr noundef nonnull align 8 dereferenceable(8) @_ZZN2cv14Lab2RGBintegerC1EiiPKfS2_bE6lshift, ptr noundef nonnull align 8 dereferenceable(8) %31)
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %12, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 8 dereferenceable(8) %42)
   %47 = call noundef i32 @_Z7cvRoundRKN2cv10softdoubleE(ptr noundef nonnull align 8 dereferenceable(8) %12)
-  %gep83 = getelementptr i32, ptr %invariant.gep82, i64 %indvars.iv69
+  %gep83 = getelementptr [4 x i8], ptr %invariant.gep82, i64 %indvars.iv69
   store i32 %47, ptr %gep83, align 4, !tbaa !8
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -7377,7 +7377,7 @@ _ZN2cv10softdoubleaSERKS0_.exit46:                ; preds = %_ZN2cv10softdoublea
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx
   %48 = load float, ptr %gep, align 4, !tbaa !40
   %49 = fpext float %48 to double
-  %50 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr %7, i64 %indvars.iv61
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv61
   store double %49, ptr %50, align 8, !tbaa !38
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %exitcond64.not = icmp eq i64 %indvars.iv.next62, 3
@@ -7462,15 +7462,15 @@ _ZN2cv10softdoubleaSERKS0_.exit44.us.preheader:   ; preds = %_ZN2cvL11initLabTab
   %47 = mul nsw i32 %2, 3
   %48 = sext i32 %44 to i64
   %49 = sext i32 %47 to i64
-  %invariant.gep89 = getelementptr float, ptr %42, i64 %48
-  %invariant.gep91 = getelementptr float, ptr %42, i64 %49
+  %invariant.gep89 = getelementptr [4 x i8], ptr %42, i64 %48
+  %invariant.gep91 = getelementptr [4 x i8], ptr %42, i64 %49
   br i1 %.not, label %.preheader49.split54.us, label %.preheader49.split54
 
 .preheader49.split54.us:                          ; preds = %.preheader49, %.split.us.us
   %indvars.iv75 = phi i64 [ %indvars.iv.next76, %.split.us.us ], [ 0, %.preheader49 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %8, i8 0, i64 12, i1 false), !tbaa !163
-  %invariant.gep87 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr @_ZN2cvL12XYZ2sRGB_D65E, i64 %indvars.iv75
+  %invariant.gep87 = getelementptr inbounds nuw [8 x i8], ptr @_ZN2cvL12XYZ2sRGB_D65E, i64 %indvars.iv75
   br label %_ZN2cv9softfloataSERKS0_.exit48.us.us
 
 _ZN2cv9softfloataSERKS0_.exit48.us.us:            ; preds = %.preheader49.split54.us, %_ZN2cv9softfloataSERKS0_.exit48.us.us
@@ -7479,7 +7479,7 @@ _ZN2cv9softfloataSERKS0_.exit48.us.us:            ; preds = %.preheader49.split5
   %.idx81 = mul nuw nsw i64 %indvars.iv71, 24
   %gep88 = getelementptr inbounds nuw i8, ptr %invariant.gep87, i64 %.idx81
   call void @_ZNK2cv10softdoublecvNS_9softfloatEEv(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softfloat") align 4 %9, ptr noundef nonnull align 8 dereferenceable(8) %gep88)
-  %50 = getelementptr inbounds nuw %"struct.cv::softfloat", ptr %8, i64 %indvars.iv71
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv71
   %51 = load i32, ptr %9, align 4, !tbaa !163
   store i32 %51, ptr %50, align 4, !tbaa !163
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -7489,14 +7489,14 @@ _ZN2cv9softfloataSERKS0_.exit48.us.us:            ; preds = %.preheader49.split5
 
 .split.us.us:                                     ; preds = %_ZN2cv9softfloataSERKS0_.exit48.us.us
   %52 = load float, ptr %8, align 4, !tbaa !163
-  %gep90 = getelementptr float, ptr %invariant.gep89, i64 %indvars.iv75
+  %gep90 = getelementptr [4 x i8], ptr %invariant.gep89, i64 %indvars.iv75
   store float %52, ptr %gep90, align 4, !tbaa !40
   %53 = load float, ptr %45, align 4, !tbaa !163
-  %54 = getelementptr inbounds nuw float, ptr %42, i64 %indvars.iv75
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %indvars.iv75
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 12
   store float %53, ptr %55, align 4, !tbaa !40
   %56 = load float, ptr %46, align 4, !tbaa !163
-  %gep92 = getelementptr float, ptr %invariant.gep91, i64 %indvars.iv75
+  %gep92 = getelementptr [4 x i8], ptr %invariant.gep91, i64 %indvars.iv75
   store float %56, ptr %gep92, align 4, !tbaa !40
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
@@ -7505,10 +7505,10 @@ _ZN2cv9softfloataSERKS0_.exit48.us.us:            ; preds = %.preheader49.split5
 
 _ZN2cv10softdoubleaSERKS0_.exit:                  ; preds = %_ZN2cvL11initLabTabsEv.exit, %_ZN2cv10softdoubleaSERKS0_.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN2cv10softdoubleaSERKS0_.exit ], [ 0, %_ZN2cvL11initLabTabsEv.exit ]
-  %57 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %58 = load float, ptr %57, align 4, !tbaa !40
   %59 = fpext float %58 to double
-  %60 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr %7, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   store double %59, ptr %60, align 8, !tbaa !38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -7596,19 +7596,19 @@ _ZN2cv10softdoubleaSERKS0_.exit:                  ; preds = %_ZN2cvL11initLabTab
   %indvars.iv67 = phi i64 [ %indvars.iv.next68, %.split ], [ 0, %.preheader49 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %8, i8 0, i64 12, i1 false), !tbaa !163
-  %invariant.gep = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv67
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv67
   br label %_ZN2cv9softfloataSERKS0_.exit
 
 .split:                                           ; preds = %_ZN2cv9softfloataSERKS0_.exit
   %71 = load float, ptr %8, align 4, !tbaa !163
-  %gep84 = getelementptr float, ptr %invariant.gep89, i64 %indvars.iv67
+  %gep84 = getelementptr [4 x i8], ptr %invariant.gep89, i64 %indvars.iv67
   store float %71, ptr %gep84, align 4, !tbaa !40
   %72 = load float, ptr %45, align 4, !tbaa !163
-  %73 = getelementptr inbounds nuw float, ptr %42, i64 %indvars.iv67
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %indvars.iv67
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 12
   store float %72, ptr %74, align 4, !tbaa !40
   %75 = load float, ptr %46, align 4, !tbaa !163
-  %gep86 = getelementptr float, ptr %invariant.gep91, i64 %indvars.iv67
+  %gep86 = getelementptr [4 x i8], ptr %invariant.gep91, i64 %indvars.iv67
   store float %75, ptr %gep86, align 4, !tbaa !40
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
@@ -7620,7 +7620,7 @@ _ZN2cv9softfloataSERKS0_.exit:                    ; preds = %.preheader49.split5
   %.idx = mul nuw nsw i64 %indvars.iv63, 12
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx
   %76 = load i32, ptr %gep, align 4, !tbaa !40
-  %77 = getelementptr inbounds nuw %"struct.cv::softfloat", ptr %8, i64 %indvars.iv63
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv63
   store i32 %76, ptr %77, align 4, !tbaa !163
   %indvars.iv.next64 = add nuw nsw i64 %indvars.iv63, 1
   %exitcond66.not = icmp eq i64 %indvars.iv.next64, 3
@@ -7737,22 +7737,22 @@ _ZN2cvL11initLabTabsEv.exit:                      ; preds = %6, %15, %18
   %34 = mul nsw i32 %33, 3
   %35 = sext i32 %30 to i64
   %36 = sext i32 %34 to i64
-  %invariant.gep57 = getelementptr i32, ptr %29, i64 %35
-  %invariant.gep59 = getelementptr i32, ptr %29, i64 %36
+  %invariant.gep57 = getelementptr [4 x i8], ptr %29, i64 %35
+  %invariant.gep59 = getelementptr [4 x i8], ptr %29, i64 %36
   br i1 %.not24, label %.split30.us, label %.split30
 
 .split30.us:                                      ; preds = %28, %.split.us.us
   %indvars.iv43 = phi i64 [ %indvars.iv.next44, %.split.us.us ], [ 0, %28 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, i8 0, i64 24, i1 false), !tbaa !38
-  %invariant.gep55 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr @_ZN2cvL12XYZ2sRGB_D65E, i64 %indvars.iv43
+  %invariant.gep55 = getelementptr inbounds nuw [8 x i8], ptr @_ZN2cvL12XYZ2sRGB_D65E, i64 %indvars.iv43
   br label %.preheader.us
 
 .preheader.us:                                    ; preds = %.split30.us, %_ZN2cv10softdoubleaSERKS0_.exit27.us.us
   %indvars.iv39 = phi i64 [ 0, %.split30.us ], [ %indvars.iv.next40, %_ZN2cv10softdoubleaSERKS0_.exit27.us.us ]
   %.idx49 = mul nuw nsw i64 %indvars.iv39, 24
   %gep56 = getelementptr inbounds nuw i8, ptr %invariant.gep55, i64 %.idx49
-  %37 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr %7, i64 %indvars.iv39
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv39
   %.not.i26.us.us = icmp eq ptr %gep56, %37
   br i1 %.not.i26.us.us, label %_ZN2cv10softdoubleaSERKS0_.exit27.us.us, label %38
 
@@ -7770,20 +7770,20 @@ _ZN2cv10softdoubleaSERKS0_.exit27.us.us:          ; preds = %38, %.preheader.us
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) @_ZZN2cv14Luv2RGBintegerC1EiiPKfS2_bE6lshift, ptr noundef nonnull align 8 dereferenceable(8) %7)
   %40 = call noundef i32 @_Z7cvRoundRKN2cv10softdoubleE(ptr noundef nonnull align 8 dereferenceable(8) %8)
-  %gep58 = getelementptr i32, ptr %invariant.gep57, i64 %indvars.iv43
+  %gep58 = getelementptr [4 x i8], ptr %invariant.gep57, i64 %indvars.iv43
   store i32 %40, ptr %gep58, align 4, !tbaa !8
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) @_ZZN2cv14Luv2RGBintegerC1EiiPKfS2_bE6lshift, ptr noundef nonnull align 8 dereferenceable(8) %31)
   %41 = call noundef i32 @_Z7cvRoundRKN2cv10softdoubleE(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  %42 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv43
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv43
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 12
   store i32 %41, ptr %43, align 4, !tbaa !8
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %10, ptr noundef nonnull align 8 dereferenceable(8) @_ZZN2cv14Luv2RGBintegerC1EiiPKfS2_bE6lshift, ptr noundef nonnull align 8 dereferenceable(8) %32)
   %44 = call noundef i32 @_Z7cvRoundRKN2cv10softdoubleE(ptr noundef nonnull align 8 dereferenceable(8) %10)
-  %gep60 = getelementptr i32, ptr %invariant.gep59, i64 %indvars.iv43
+  %gep60 = getelementptr [4 x i8], ptr %invariant.gep59, i64 %indvars.iv43
   store i32 %44, ptr %gep60, align 4, !tbaa !8
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -7803,27 +7803,27 @@ _ZN2cv10softdoubleaSERKS0_.exit27.us.us:          ; preds = %38, %.preheader.us
   %indvars.iv35 = phi i64 [ %indvars.iv.next36, %.split ], [ 0, %28 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %7, i8 0, i64 24, i1 false), !tbaa !38
-  %invariant.gep = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv35
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv35
   br label %_ZN2cv10softdoubleaSERKS0_.exit
 
 .split:                                           ; preds = %_ZN2cv10softdoubleaSERKS0_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %8, ptr noundef nonnull align 8 dereferenceable(8) @_ZZN2cv14Luv2RGBintegerC1EiiPKfS2_bE6lshift, ptr noundef nonnull align 8 dereferenceable(8) %7)
   %47 = call noundef i32 @_Z7cvRoundRKN2cv10softdoubleE(ptr noundef nonnull align 8 dereferenceable(8) %8)
-  %gep52 = getelementptr i32, ptr %invariant.gep57, i64 %indvars.iv35
+  %gep52 = getelementptr [4 x i8], ptr %invariant.gep57, i64 %indvars.iv35
   store i32 %47, ptr %gep52, align 4, !tbaa !8
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) @_ZZN2cv14Luv2RGBintegerC1EiiPKfS2_bE6lshift, ptr noundef nonnull align 8 dereferenceable(8) %31)
   %48 = call noundef i32 @_Z7cvRoundRKN2cv10softdoubleE(ptr noundef nonnull align 8 dereferenceable(8) %9)
-  %49 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv35
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv35
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 12
   store i32 %48, ptr %50, align 4, !tbaa !8
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %10, ptr noundef nonnull align 8 dereferenceable(8) @_ZZN2cv14Luv2RGBintegerC1EiiPKfS2_bE6lshift, ptr noundef nonnull align 8 dereferenceable(8) %32)
   %51 = call noundef i32 @_Z7cvRoundRKN2cv10softdoubleE(ptr noundef nonnull align 8 dereferenceable(8) %10)
-  %gep54 = getelementptr i32, ptr %invariant.gep59, i64 %indvars.iv35
+  %gep54 = getelementptr [4 x i8], ptr %invariant.gep59, i64 %indvars.iv35
   store i32 %51, ptr %gep54, align 4, !tbaa !8
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -7837,7 +7837,7 @@ _ZN2cv10softdoubleaSERKS0_.exit:                  ; preds = %.split30, %_ZN2cv10
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx
   %52 = load float, ptr %gep, align 4, !tbaa !40
   %53 = fpext float %52 to double
-  %54 = getelementptr inbounds nuw %"struct.cv::softdouble", ptr %7, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   store double %53, ptr %54, align 8, !tbaa !38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -8205,7 +8205,7 @@ define linkonce_odr hidden void @_ZNK2cv9RGB2XYZ_iItEclEPKtPti(ptr noundef nonnu
   %67 = getelementptr inbounds nuw i8, ptr %.03336, i64 4
   store i16 %66, ptr %67, align 2, !tbaa !293
   %68 = add nuw nsw i32 %.03435, 1
-  %69 = getelementptr inbounds i16, ptr %.037, i64 %26
+  %69 = getelementptr inbounds [2 x i8], ptr %.037, i64 %26
   %70 = getelementptr inbounds nuw i8, ptr %.03336, i64 6
   %exitcond.not = icmp eq i32 %68, %3
   br i1 %exitcond.not, label %._crit_edge, label %27, !llvm.loop !493
@@ -8352,7 +8352,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %._crit_edge, %27
   %71 = getelementptr inbounds nuw i8, ptr %.03336.i, i64 8
   store float %69, ptr %71, align 4, !tbaa !40
   %72 = add nuw nsw i32 %.03435.i, 1
-  %73 = getelementptr inbounds float, ptr %.037.i, i64 %54
+  %73 = getelementptr inbounds [4 x i8], ptr %.037.i, i64 %54
   %74 = getelementptr inbounds nuw i8, ptr %.03336.i, i64 12
   %exitcond.not.i = icmp eq i32 %72, %33
   br i1 %exitcond.not.i, label %._crit_edge.i, label %55, !llvm.loop !495
@@ -8808,7 +8808,7 @@ define linkonce_odr hidden void @_ZNK2cv9XYZ2RGB_iItEclEPKtPti(ptr noundef nonnu
   store i16 -1, ptr %68, align 2, !tbaa !293
   %69 = add nuw nsw i32 %.03738.us, 1
   %70 = getelementptr inbounds nuw i8, ptr %.040.us, i64 6
-  %71 = getelementptr inbounds nuw i16, ptr %.03639.us, i64 %27
+  %71 = getelementptr inbounds nuw [2 x i8], ptr %.03639.us, i64 %27
   %exitcond42.not = icmp eq i32 %69, %3
   br i1 %exitcond42.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !502
 
@@ -8861,7 +8861,7 @@ define linkonce_odr hidden void @_ZNK2cv9XYZ2RGB_iItEclEPKtPti(ptr noundef nonnu
   store i16 %110, ptr %111, align 2, !tbaa !293
   %112 = add nuw nsw i32 %.03738, 1
   %113 = getelementptr inbounds nuw i8, ptr %.040, i64 6
-  %114 = getelementptr inbounds i16, ptr %.03639, i64 %27
+  %114 = getelementptr inbounds [2 x i8], ptr %.03639, i64 %27
   %exitcond.not = icmp eq i32 %112, %3
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !502
 
@@ -9030,7 +9030,7 @@ define linkonce_odr hidden void @_ZNK2cv9XYZ2RGB_fIfEclEPKfPfi(ptr noundef nonnu
   store float 1.000000e+00, ptr %44, align 4, !tbaa !40
   %45 = add nuw nsw i32 %.03738.us, 1
   %46 = getelementptr inbounds nuw i8, ptr %.040.us, i64 12
-  %47 = getelementptr inbounds nuw float, ptr %.03639.us, i64 %27
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %.03639.us, i64 %27
   %exitcond42.not = icmp eq i32 %45, %3
   br i1 %exitcond42.not, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !505
 
@@ -9059,7 +9059,7 @@ define linkonce_odr hidden void @_ZNK2cv9XYZ2RGB_fIfEclEPKfPfi(ptr noundef nonnu
   store float %61, ptr %63, align 4, !tbaa !40
   %64 = add nuw nsw i32 %.03738, 1
   %65 = getelementptr inbounds nuw i8, ptr %.040, i64 12
-  %66 = getelementptr inbounds float, ptr %.03639, i64 %27
+  %66 = getelementptr inbounds [4 x i8], ptr %.03639, i64 %27
   %exitcond.not = icmp eq i32 %64, %3
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !505
 
@@ -9210,19 +9210,19 @@ define linkonce_odr hidden void @_ZNK2cv9RGB2Lab_bclEPKhPhi(ptr noundef nonnull 
   %.04243 = phi i32 [ 0, %.lr.ph ], [ %103, %30 ]
   %31 = load i8, ptr %.045, align 1, !tbaa !489
   %32 = zext i8 %31 to i64
-  %33 = getelementptr inbounds nuw i16, ptr %_ZN2cvL14sRGBGammaTab_bE._ZN2cvL16linearGammaTab_bE, i64 %32
+  %33 = getelementptr inbounds nuw [2 x i8], ptr %_ZN2cvL14sRGBGammaTab_bE._ZN2cvL16linearGammaTab_bE, i64 %32
   %34 = load i16, ptr %33, align 2, !tbaa !293
   %35 = zext i16 %34 to i32
   %36 = getelementptr inbounds nuw i8, ptr %.045, i64 1
   %37 = load i8, ptr %36, align 1, !tbaa !489
   %38 = zext i8 %37 to i64
-  %39 = getelementptr inbounds nuw i16, ptr %_ZN2cvL14sRGBGammaTab_bE._ZN2cvL16linearGammaTab_bE, i64 %38
+  %39 = getelementptr inbounds nuw [2 x i8], ptr %_ZN2cvL14sRGBGammaTab_bE._ZN2cvL16linearGammaTab_bE, i64 %38
   %40 = load i16, ptr %39, align 2, !tbaa !293
   %41 = zext i16 %40 to i32
   %42 = getelementptr inbounds nuw i8, ptr %.045, i64 2
   %43 = load i8, ptr %42, align 1, !tbaa !489
   %44 = zext i8 %43 to i64
-  %45 = getelementptr inbounds nuw i16, ptr %_ZN2cvL14sRGBGammaTab_bE._ZN2cvL16linearGammaTab_bE, i64 %44
+  %45 = getelementptr inbounds nuw [2 x i8], ptr %_ZN2cvL14sRGBGammaTab_bE._ZN2cvL16linearGammaTab_bE, i64 %44
   %46 = load i16, ptr %45, align 2, !tbaa !293
   %47 = zext i16 %46 to i32
   %48 = mul nsw i32 %10, %35
@@ -9233,7 +9233,7 @@ define linkonce_odr hidden void @_ZNK2cv9RGB2Lab_bclEPKhPhi(ptr noundef nonnull 
   %53 = add i32 %52, %50
   %54 = ashr i32 %53, 12
   %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds i16, ptr @_ZN2cvL12LabCbrtTab_bE, i64 %55
+  %56 = getelementptr inbounds [2 x i8], ptr @_ZN2cvL12LabCbrtTab_bE, i64 %55
   %57 = load i16, ptr %56, align 2, !tbaa !293
   %58 = zext i16 %57 to i32
   %59 = mul nsw i32 %16, %35
@@ -9244,7 +9244,7 @@ define linkonce_odr hidden void @_ZNK2cv9RGB2Lab_bclEPKhPhi(ptr noundef nonnull 
   %64 = add i32 %63, %61
   %65 = ashr i32 %64, 12
   %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds i16, ptr @_ZN2cvL12LabCbrtTab_bE, i64 %66
+  %67 = getelementptr inbounds [2 x i8], ptr @_ZN2cvL12LabCbrtTab_bE, i64 %66
   %68 = load i16, ptr %67, align 2, !tbaa !293
   %69 = zext i16 %68 to i32
   %70 = mul nsw i32 %22, %35
@@ -9255,7 +9255,7 @@ define linkonce_odr hidden void @_ZNK2cv9RGB2Lab_bclEPKhPhi(ptr noundef nonnull 
   %75 = add i32 %74, %72
   %76 = ashr i32 %75, 12
   %77 = sext i32 %76 to i64
-  %78 = getelementptr inbounds i16, ptr @_ZN2cvL12LabCbrtTab_bE, i64 %77
+  %78 = getelementptr inbounds [2 x i8], ptr @_ZN2cvL12LabCbrtTab_bE, i64 %77
   %79 = load i16, ptr %78, align 2, !tbaa !293
   %80 = zext i16 %79 to i32
   %81 = mul nuw nsw i32 %69, 296
@@ -9452,7 +9452,7 @@ define linkonce_odr hidden void @_ZNK2cv9RGB2Lab_fclEPKfPfi(ptr noundef nonnull 
 48:                                               ; preds = %.lr.ph153, %74
   %indvars.iv = phi i64 [ 0, %.lr.ph153 ], [ %indvars.iv.next, %74 ]
   %.0152 = phi ptr [ %1, %.lr.ph153 ], [ %97, %74 ]
-  %49 = getelementptr inbounds float, ptr %.0152, i64 %43
+  %49 = getelementptr inbounds [4 x i8], ptr %.0152, i64 %43
   %50 = load float, ptr %49, align 4, !tbaa !40
   %51 = fcmp olt float %50, 0.000000e+00
   br i1 %51, label %56, label %52
@@ -9482,7 +9482,7 @@ define linkonce_odr hidden void @_ZNK2cv9RGB2Lab_fclEPKfPfi(ptr noundef nonnull 
 
 65:                                               ; preds = %63, %61, %56
   %66 = phi float [ 0.000000e+00, %56 ], [ %64, %63 ], [ 1.638400e+04, %61 ]
-  %67 = getelementptr inbounds float, ptr %.0152, i64 %45
+  %67 = getelementptr inbounds [4 x i8], ptr %.0152, i64 %45
   %68 = load float, ptr %67, align 4, !tbaa !40
   %69 = fcmp olt float %68, 0.000000e+00
   br i1 %69, label %74, label %70
@@ -9517,7 +9517,7 @@ define linkonce_odr hidden void @_ZNK2cv9RGB2Lab_fclEPKfPfi(ptr noundef nonnull 
   %89 = sitofp i32 %88 to float
   %90 = fmul nnan float %89, 0x3F10000000000000
   %91 = fmul nnan float %84, 1.000000e+02
-  %92 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   store float %91, ptr %92, align 4, !tbaa !40
   %93 = call float @llvm.fmuladd.f32(float %87, float 2.560000e+02, float -1.280000e+02)
   %94 = getelementptr inbounds nuw i8, ptr %92, i64 4
@@ -9529,7 +9529,7 @@ define linkonce_odr hidden void @_ZNK2cv9RGB2Lab_fclEPKfPfi(ptr noundef nonnull 
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
-  %97 = getelementptr inbounds float, ptr %.0152, i64 %47
+  %97 = getelementptr inbounds [4 x i8], ptr %.0152, i64 %47
   %98 = trunc nuw i64 %indvars.iv.next to i32
   %99 = icmp sgt i32 %41, %98
   br i1 %99, label %48, label %.loopexit, !llvm.loop !514
@@ -9635,7 +9635,7 @@ define linkonce_odr hidden void @_ZNK2cv9RGB2Lab_fclEPKfPfi(ptr noundef nonnull 
   %142 = fsub float %139, %141
   %143 = shl nuw nsw i32 %.sroa.speculated.i, 2
   %144 = zext nneg i32 %143 to i64
-  %145 = getelementptr inbounds nuw float, ptr %18, i64 %144
+  %145 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %144
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 12
   %147 = load float, ptr %146, align 4, !tbaa !40
   %148 = getelementptr inbounds nuw i8, ptr %145, i64 8
@@ -9654,7 +9654,7 @@ define linkonce_odr hidden void @_ZNK2cv9RGB2Lab_fclEPKfPfi(ptr noundef nonnull 
   %159 = fsub float %156, %158
   %160 = shl nuw nsw i32 %.sroa.speculated.i144, 2
   %161 = zext nneg i32 %160 to i64
-  %162 = getelementptr inbounds nuw float, ptr %18, i64 %161
+  %162 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %161
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 12
   %164 = load float, ptr %163, align 4, !tbaa !40
   %165 = getelementptr inbounds nuw i8, ptr %162, i64 8
@@ -9673,7 +9673,7 @@ define linkonce_odr hidden void @_ZNK2cv9RGB2Lab_fclEPKfPfi(ptr noundef nonnull 
   %176 = fsub float %173, %175
   %177 = shl nuw nsw i32 %.sroa.speculated.i146, 2
   %178 = zext nneg i32 %177 to i64
-  %179 = getelementptr inbounds nuw float, ptr %18, i64 %178
+  %179 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %178
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 12
   %181 = load float, ptr %180, align 4, !tbaa !40
   %182 = getelementptr inbounds nuw i8, ptr %179, i64 8
@@ -9772,7 +9772,7 @@ define linkonce_odr hidden void @_ZNK2cv9RGB2Lab_fclEPKfPfi(ptr noundef nonnull 
   %237 = getelementptr inbounds nuw i8, ptr %.0103149, i64 8
   store float %235, ptr %237, align 4, !tbaa !40
   %238 = add nuw nsw i32 %.0114148, 1
-  %239 = getelementptr inbounds float, ptr %.1150, i64 %113
+  %239 = getelementptr inbounds [4 x i8], ptr %.1150, i64 %113
   %240 = getelementptr inbounds nuw i8, ptr %.0103149, i64 12
   %exitcond.not = icmp eq i32 %238, %3
   br i1 %exitcond.not, label %.loopexit, label %114, !llvm.loop !515
@@ -9835,7 +9835,7 @@ define internal fastcc void @_ZN2cvL20trilinearInterpolateEiiiPKsRiS2_S2_(i32 no
   %18 = mul nsw i32 %14, 26136
   %19 = add nsw i32 %17, %18
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds i16, ptr %3, i64 %20
+  %21 = getelementptr inbounds [2 x i8], ptr %3, i64 %20
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -9852,25 +9852,25 @@ define internal fastcc void @_ZN2cvL20trilinearInterpolateEiiiPKsRiS2_S2_(i32 no
   %29 = and i32 %28, 30720
   %30 = or disjoint i32 %27, %29
   %31 = zext nneg i32 %30 to i64
-  %invariant.gep = getelementptr inbounds nuw i16, ptr @_ZN2cvL12trilinearLUTE, i64 %31
+  %invariant.gep = getelementptr inbounds nuw [2 x i8], ptr @_ZN2cvL12trilinearLUTE, i64 %31
   br label %160
 
 32:                                               ; preds = %7, %32
   %indvars.iv = phi i64 [ 0, %7 ], [ %indvars.iv.next, %32 ]
-  %33 = getelementptr inbounds nuw i16, ptr %21, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [2 x i8], ptr %21, i64 %indvars.iv
   %34 = load i16, ptr %33, align 2, !tbaa !293
   %35 = sext i16 %34 to i32
-  %36 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   store i32 %35, ptr %36, align 4, !tbaa !8
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %38 = load i16, ptr %37, align 2, !tbaa !293
   %39 = sext i16 %38 to i32
-  %40 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   store i32 %39, ptr %40, align 4, !tbaa !8
   %41 = getelementptr inbounds nuw i8, ptr %33, i64 32
   %42 = load i16, ptr %41, align 2, !tbaa !293
   %43 = sext i16 %42 to i32
-  %44 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   store i32 %43, ptr %44, align 4, !tbaa !8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -10005,10 +10005,10 @@ define internal fastcc void @_ZN2cvL20trilinearInterpolateEiiiPKsRiS2_S2_(i32 no
 
 160:                                              ; preds = %22, %160
   %indvars.iv40 = phi i64 [ 0, %22 ], [ %indvars.iv.next41, %160 ]
-  %gep = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %indvars.iv40
+  %gep = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep, i64 %indvars.iv40
   %161 = load i16, ptr %gep, align 2, !tbaa !293
   %162 = sext i16 %161 to i32
-  %163 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv40
+  %163 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv40
   store i32 %162, ptr %163, align 4, !tbaa !8
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %exitcond43.not = icmp eq i64 %indvars.iv.next41, 8
@@ -10365,7 +10365,7 @@ define linkonce_odr hidden void @_ZNK2cv9RGB2Luv_bclEPKhPhi(ptr noundef nonnull 
   %100 = load i8, ptr %.158, align 1, !tbaa !489
   %101 = uitofp i8 %100 to float
   %102 = fmul float %94, %101
-  %103 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   store float %102, ptr %103, align 4, !tbaa !40
   %104 = getelementptr inbounds nuw i8, ptr %.158, i64 1
   %105 = load i8, ptr %104, align 1, !tbaa !489
@@ -10386,7 +10386,7 @@ define linkonce_odr hidden void @_ZNK2cv9RGB2Luv_bclEPKhPhi(ptr noundef nonnull 
 
 .lr.ph62:                                         ; preds = %.lr.ph62.preheader, %.lr.ph62
   %indvars.iv71 = phi i64 [ 0, %.lr.ph62.preheader ], [ %indvars.iv.next72, %.lr.ph62 ]
-  %116 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv71
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv71
   %117 = load float, ptr %116, align 4, !tbaa !40
   %118 = load float, ptr @_ZZNK2cv9RGB2Luv_bclEPKhPhiE2fL, align 4, !tbaa !163
   %119 = fmul float %117, %118
@@ -10398,7 +10398,7 @@ define linkonce_odr hidden void @_ZNK2cv9RGB2Luv_bclEPKhPhi(ptr noundef nonnull 
   %125 = getelementptr inbounds nuw i8, ptr %.03864, i64 %indvars.iv71
   store i8 %124, ptr %125, align 1, !tbaa !489
   %126 = add nuw nsw i64 %indvars.iv71, 1
-  %127 = getelementptr inbounds nuw float, ptr %6, i64 %126
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %126
   %128 = load float, ptr %127, align 4, !tbaa !40
   %129 = load float, ptr @_ZZNK2cv9RGB2Luv_bclEPKhPhiE2fu, align 4, !tbaa !163
   %130 = load float, ptr @_ZZNK2cv9RGB2Luv_bclEPKhPhiE2su, align 4, !tbaa !163
@@ -10411,7 +10411,7 @@ define linkonce_odr hidden void @_ZNK2cv9RGB2Luv_bclEPKhPhi(ptr noundef nonnull 
   %137 = getelementptr inbounds nuw i8, ptr %.03864, i64 %126
   store i8 %136, ptr %137, align 1, !tbaa !489
   %138 = add nuw nsw i64 %indvars.iv71, 2
-  %139 = getelementptr inbounds nuw float, ptr %6, i64 %138
+  %139 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %138
   %140 = load float, ptr %139, align 4, !tbaa !40
   %141 = load float, ptr @_ZZNK2cv9RGB2Luv_bclEPKhPhiE2fv, align 4, !tbaa !163
   %142 = load float, ptr @_ZZNK2cv9RGB2Luv_bclEPKhPhiE2sv, align 4, !tbaa !163
@@ -10638,7 +10638,7 @@ define linkonce_odr hidden void @_ZNK2cv12RGB2LuvfloatclEPKfPfi(ptr noundef nonn
   %57 = fsub float %54, %56
   %58 = shl nuw nsw i32 %.sroa.speculated.i, 2
   %59 = zext nneg i32 %58 to i64
-  %60 = getelementptr inbounds nuw float, ptr %6, i64 %59
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %59
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 12
   %62 = load float, ptr %61, align 4, !tbaa !40
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 8
@@ -10657,7 +10657,7 @@ define linkonce_odr hidden void @_ZNK2cv12RGB2LuvfloatclEPKfPfi(ptr noundef nonn
   %74 = fsub float %71, %73
   %75 = shl nuw nsw i32 %.sroa.speculated.i79, 2
   %76 = zext nneg i32 %75 to i64
-  %77 = getelementptr inbounds nuw float, ptr %6, i64 %76
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %76
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 12
   %79 = load float, ptr %78, align 4, !tbaa !40
   %80 = getelementptr inbounds nuw i8, ptr %77, i64 8
@@ -10676,7 +10676,7 @@ define linkonce_odr hidden void @_ZNK2cv12RGB2LuvfloatclEPKfPfi(ptr noundef nonn
   %91 = fsub float %88, %90
   %92 = shl nuw nsw i32 %.sroa.speculated.i81, 2
   %93 = zext nneg i32 %92 to i64
-  %94 = getelementptr inbounds nuw float, ptr %6, i64 %93
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %93
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 12
   %96 = load float, ptr %95, align 4, !tbaa !40
   %97 = getelementptr inbounds nuw i8, ptr %94, i64 8
@@ -10704,7 +10704,7 @@ define linkonce_odr hidden void @_ZNK2cv12RGB2LuvfloatclEPKfPfi(ptr noundef nonn
   %112 = fsub float %109, %111
   %113 = shl nuw nsw i32 %.sroa.speculated.i83, 2
   %114 = zext nneg i32 %113 to i64
-  %115 = getelementptr inbounds nuw float, ptr %31, i64 %114
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %114
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 12
   %117 = load float, ptr %116, align 4, !tbaa !40
   %118 = getelementptr inbounds nuw i8, ptr %115, i64 8
@@ -10742,7 +10742,7 @@ define linkonce_odr hidden void @_ZNK2cv12RGB2LuvfloatclEPKfPfi(ptr noundef nonn
   %147 = getelementptr inbounds nuw i8, ptr %.06585, i64 8
   store float %145, ptr %147, align 4, !tbaa !40
   %148 = add nuw nsw i32 %.06684, 1
-  %149 = getelementptr inbounds float, ptr %.086, i64 %34
+  %149 = getelementptr inbounds [4 x i8], ptr %.086, i64 %34
   %150 = getelementptr inbounds nuw i8, ptr %.06585, i64 12
   %exitcond.not = icmp eq i32 %148, %3
   br i1 %exitcond.not, label %._crit_edge, label %35, !llvm.loop !536
@@ -11027,11 +11027,11 @@ define linkonce_odr hidden void @_ZNK2cv14Lab2RGBintegerclEPKhPhi(ptr noundef no
   %reass.sub.i = add nuw nsw i32 %31, 10484
   %42 = sub nsw i32 %reass.sub.i, %40
   %43 = sext i32 %41 to i64
-  %44 = getelementptr i32, ptr %8, i64 %43
+  %44 = getelementptr [4 x i8], ptr %8, i64 %43
   %45 = getelementptr i8, ptr %44, i64 32580
   %46 = load i32, ptr %45, align 4, !tbaa !8
   %47 = sext i32 %42 to i64
-  %48 = getelementptr i32, ptr %8, i64 %47
+  %48 = getelementptr [4 x i8], ptr %8, i64 %47
   %49 = getelementptr i8, ptr %48, i64 32580
   %50 = load i32, ptr %49, align 4, !tbaa !8
   %51 = zext i16 %28 to i32
@@ -11077,15 +11077,15 @@ define linkonce_odr hidden void @_ZNK2cv14Lab2RGBintegerclEPKhPhi(ptr noundef no
 
 90:                                               ; preds = %.critedge
   %91 = zext nneg i32 %83 to i64
-  %92 = getelementptr inbounds nuw i16, ptr @_ZN2cvL17sRGBInvGammaTab_bE, i64 %91
+  %92 = getelementptr inbounds nuw [2 x i8], ptr @_ZN2cvL17sRGBInvGammaTab_bE, i64 %91
   %93 = load i16, ptr %92, align 2, !tbaa !293
   %94 = zext i16 %93 to i32
   %95 = zext nneg i32 %85 to i64
-  %96 = getelementptr inbounds nuw i16, ptr @_ZN2cvL17sRGBInvGammaTab_bE, i64 %95
+  %96 = getelementptr inbounds nuw [2 x i8], ptr @_ZN2cvL17sRGBInvGammaTab_bE, i64 %95
   %97 = load i16, ptr %96, align 2, !tbaa !293
   %98 = zext i16 %97 to i32
   %99 = zext nneg i32 %87 to i64
-  %100 = getelementptr inbounds nuw i16, ptr @_ZN2cvL17sRGBInvGammaTab_bE, i64 %99
+  %100 = getelementptr inbounds nuw [2 x i8], ptr @_ZN2cvL17sRGBInvGammaTab_bE, i64 %99
   %101 = load i16, ptr %100, align 2, !tbaa !293
   %102 = zext i16 %101 to i32
   br label %_ZNK2cv14Lab2RGBinteger7processEhhhRiS1_S1_.exit
@@ -11351,7 +11351,7 @@ define linkonce_odr hidden void @_ZNK2cv12Lab2RGBfloatclEPKfPfi(ptr noundef nonn
   %90 = fsub float %87, %89
   %91 = shl nuw nsw i32 %.sroa.speculated.i, 2
   %92 = zext nneg i32 %91 to i64
-  %93 = getelementptr inbounds nuw float, ptr %6, i64 %92
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %92
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 12
   %95 = load float, ptr %94, align 4, !tbaa !40
   %96 = getelementptr inbounds nuw i8, ptr %93, i64 8
@@ -11370,7 +11370,7 @@ define linkonce_odr hidden void @_ZNK2cv12Lab2RGBfloatclEPKfPfi(ptr noundef nonn
   %107 = fsub float %104, %106
   %108 = shl nuw nsw i32 %.sroa.speculated.i94, 2
   %109 = zext nneg i32 %108 to i64
-  %110 = getelementptr inbounds nuw float, ptr %6, i64 %109
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %109
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 12
   %112 = load float, ptr %111, align 4, !tbaa !40
   %113 = getelementptr inbounds nuw i8, ptr %110, i64 8
@@ -11389,7 +11389,7 @@ define linkonce_odr hidden void @_ZNK2cv12Lab2RGBfloatclEPKfPfi(ptr noundef nonn
   %124 = fsub float %121, %123
   %125 = shl nuw nsw i32 %.sroa.speculated.i96, 2
   %126 = zext nneg i32 %125 to i64
-  %127 = getelementptr inbounds nuw float, ptr %6, i64 %126
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %126
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 12
   %129 = load float, ptr %128, align 4, !tbaa !40
   %130 = getelementptr inbounds nuw i8, ptr %127, i64 8
@@ -11421,7 +11421,7 @@ define linkonce_odr hidden void @_ZNK2cv12Lab2RGBfloatclEPKfPfi(ptr noundef nonn
 143:                                              ; preds = %141, %138
   %144 = add nuw nsw i32 %.08198, 1
   %145 = getelementptr inbounds nuw i8, ptr %.0100, i64 12
-  %146 = getelementptr inbounds float, ptr %.07799, i64 %33
+  %146 = getelementptr inbounds [4 x i8], ptr %.07799, i64 %33
   %exitcond.not = icmp eq i32 %144, %3
   br i1 %exitcond.not, label %._crit_edge, label %34, !llvm.loop !544
 
@@ -11653,21 +11653,21 @@ define linkonce_odr hidden void @_ZNK2cv9Luv2RGB_bclEPKhPhi(ptr noundef nonnull 
   %58 = load i8, ptr %57, align 1, !tbaa !489
   %59 = uitofp i8 %58 to float
   %60 = fmul float %50, %59
-  %61 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   store float %60, ptr %61, align 4, !tbaa !40
   %62 = add nuw nsw i64 %indvars.iv, 1
   %63 = getelementptr inbounds nuw i8, ptr %.064, i64 %62
   %64 = load i8, ptr %63, align 1, !tbaa !489
   %65 = uitofp i8 %64 to float
   %66 = call float @llvm.fmuladd.f32(float %65, float %51, float %52)
-  %67 = getelementptr inbounds nuw float, ptr %6, i64 %62
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %62
   store float %66, ptr %67, align 4, !tbaa !40
   %68 = add nuw nsw i64 %indvars.iv, 2
   %69 = getelementptr inbounds nuw i8, ptr %.064, i64 %68
   %70 = load i8, ptr %69, align 1, !tbaa !489
   %71 = uitofp i8 %70 to float
   %72 = call float @llvm.fmuladd.f32(float %71, float %53, float %54)
-  %73 = getelementptr inbounds nuw float, ptr %6, i64 %68
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %68
   store float %72, ptr %73, align 4, !tbaa !40
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
   %74 = icmp samesign ult i64 %indvars.iv.next, %55
@@ -11706,7 +11706,7 @@ define linkonce_odr hidden void @_ZNK2cv9Luv2RGB_bclEPKhPhi(ptr noundef nonnull 
 .lr.ph59:                                         ; preds = %.lr.ph59.preheader, %112
   %indvars.iv69 = phi i64 [ 0, %.lr.ph59.preheader ], [ %indvars.iv.next70, %112 ]
   %.158 = phi ptr [ %.03863, %.lr.ph59.preheader ], [ %113, %112 ]
-  %82 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv69
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv69
   %83 = load float, ptr %82, align 4, !tbaa !40
   %84 = fmul float %83, 2.550000e+02
   %85 = insertelement <4 x float> poison, float %84, i64 0
@@ -12031,7 +12031,7 @@ define linkonce_odr hidden void @_ZNK2cv12Luv2RGBfloatclEPKfPfi(ptr noundef nonn
   %89 = fsub float %86, %88
   %90 = shl nuw nsw i32 %.sroa.speculated.i, 2
   %91 = zext nneg i32 %90 to i64
-  %92 = getelementptr inbounds nuw float, ptr %6, i64 %91
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %91
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 12
   %94 = load float, ptr %93, align 4, !tbaa !40
   %95 = getelementptr inbounds nuw i8, ptr %92, i64 8
@@ -12050,7 +12050,7 @@ define linkonce_odr hidden void @_ZNK2cv12Luv2RGBfloatclEPKfPfi(ptr noundef nonn
   %106 = fsub float %103, %105
   %107 = shl nuw nsw i32 %.sroa.speculated.i94, 2
   %108 = zext nneg i32 %107 to i64
-  %109 = getelementptr inbounds nuw float, ptr %6, i64 %108
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %108
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 12
   %111 = load float, ptr %110, align 4, !tbaa !40
   %112 = getelementptr inbounds nuw i8, ptr %109, i64 8
@@ -12069,7 +12069,7 @@ define linkonce_odr hidden void @_ZNK2cv12Luv2RGBfloatclEPKfPfi(ptr noundef nonn
   %123 = fsub float %120, %122
   %124 = shl nuw nsw i32 %.sroa.speculated.i96, 2
   %125 = zext nneg i32 %124 to i64
-  %126 = getelementptr inbounds nuw float, ptr %6, i64 %125
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %125
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 12
   %128 = load float, ptr %127, align 4, !tbaa !40
   %129 = getelementptr inbounds nuw i8, ptr %126, i64 8
@@ -12101,7 +12101,7 @@ define linkonce_odr hidden void @_ZNK2cv12Luv2RGBfloatclEPKfPfi(ptr noundef nonn
 142:                                              ; preds = %140, %137
   %143 = add nuw nsw i32 %.08397, 1
   %144 = getelementptr inbounds nuw i8, ptr %.099, i64 12
-  %145 = getelementptr inbounds float, ptr %.07898, i64 %35
+  %145 = getelementptr inbounds [4 x i8], ptr %.07898, i64 %35
   %exitcond.not = icmp eq i32 %143, %3
   br i1 %exitcond.not, label %._crit_edge, label %36, !llvm.loop !551
 
@@ -12132,20 +12132,20 @@ define linkonce_odr hidden void @_ZNK2cv14Luv2RGBinteger7processEhhhRiS1_S1_(ptr
   %8 = zext i8 %1 to i32
   %9 = shl nuw nsw i32 %8, 1
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw i16, ptr @_ZN2cvL9LabToYF_bE, i64 %10
+  %11 = getelementptr inbounds nuw [2 x i8], ptr @_ZN2cvL9LabToYF_bE, i64 %10
   %12 = load i16, ptr %11, align 4, !tbaa !293
   %13 = load ptr, ptr @_ZN2cvL6LUVLUTE.0, align 8, !tbaa !552
   %14 = shl nuw nsw i32 %8, 8
   %15 = zext i8 %2 to i32
   %16 = or disjoint i32 %14, %15
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds nuw i32, ptr %13, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !8
   %20 = load ptr, ptr @_ZN2cvL6LUVLUTE.1, align 8, !tbaa !554
   %21 = zext i8 %3 to i32
   %22 = or disjoint i32 %14, %21
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw i32, ptr %20, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !8
   %26 = sext i32 %19 to i64
   %27 = sext i32 %25 to i64
@@ -12158,7 +12158,7 @@ define linkonce_odr hidden void @_ZNK2cv14Luv2RGBinteger7processEhhhRiS1_S1_(ptr
   %33 = sdiv i64 %32, 16384
   %34 = trunc i64 %33 to i32
   %35 = load ptr, ptr @_ZN2cvL6LUVLUTE.2, align 8, !tbaa !555
-  %36 = getelementptr inbounds nuw i64, ptr %35, i64 %23
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %23
   %37 = load i64, ptr %36, align 8, !tbaa !336
   %.neg = mul i64 %28, -85
   %38 = add i64 %.neg, %37
@@ -12237,19 +12237,19 @@ define linkonce_odr hidden void @_ZNK2cv14Luv2RGBinteger7processEhhhRiS1_S1_(ptr
 
 104:                                              ; preds = %7
   %105 = sext i32 %103 to i64
-  %106 = getelementptr inbounds i16, ptr @_ZN2cvL17sRGBInvGammaTab_bE, i64 %105
+  %106 = getelementptr inbounds [2 x i8], ptr @_ZN2cvL17sRGBInvGammaTab_bE, i64 %105
   %107 = load i16, ptr %106, align 2, !tbaa !293
   %108 = zext i16 %107 to i32
   store i32 %108, ptr %4, align 4, !tbaa !8
   %109 = load i32, ptr %5, align 4, !tbaa !8
   %110 = sext i32 %109 to i64
-  %111 = getelementptr inbounds i16, ptr @_ZN2cvL17sRGBInvGammaTab_bE, i64 %110
+  %111 = getelementptr inbounds [2 x i8], ptr @_ZN2cvL17sRGBInvGammaTab_bE, i64 %110
   %112 = load i16, ptr %111, align 2, !tbaa !293
   %113 = zext i16 %112 to i32
   store i32 %113, ptr %5, align 4, !tbaa !8
   %114 = load i32, ptr %6, align 4, !tbaa !8
   %115 = sext i32 %114 to i64
-  %116 = getelementptr inbounds i16, ptr @_ZN2cvL17sRGBInvGammaTab_bE, i64 %115
+  %116 = getelementptr inbounds [2 x i8], ptr @_ZN2cvL17sRGBInvGammaTab_bE, i64 %115
   %117 = load i16, ptr %116, align 2, !tbaa !293
   %118 = zext i16 %117 to i32
   br label %128

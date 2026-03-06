@@ -2014,7 +2014,7 @@ define void @_ZN17meilisearch_types6deserr21immutable_field_error17hc86ce57082ae
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %16 = getelementptr inbounds { ptr, i64 }, ptr %3, i64 %4
+  %16 = getelementptr inbounds [16 x i8], ptr %3, i64 %4
   call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h337f085537fa9d01E.llvm.7205017296298784897"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %10, ptr noundef nonnull %3, ptr noundef nonnull %16)
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %18 = load ptr, ptr %17, align 8, !nonnull !5, !noundef !5

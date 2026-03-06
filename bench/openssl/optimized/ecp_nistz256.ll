@@ -607,7 +607,7 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
   %166 = lshr i32 %165, 1
   %167 = sub nsw i32 %165, %166
   %168 = and i32 %160, 1
-  %169 = getelementptr inbounds nuw [64 x %struct.P256_POINT_AFFINE], ptr %.3.ph, i64 %indvars.iv229
+  %169 = getelementptr inbounds nuw [4096 x i8], ptr %.3.ph, i64 %indvars.iv229
   call void @ecp_nistz256_gather_w7(ptr noundef nonnull %9, ptr noundef nonnull %169, i32 noundef %167) #7
   call void @ecp_nistz256_neg(ptr noundef nonnull %140, ptr noundef nonnull %141) #7
   %170 = zext nneg i32 %168 to i64
@@ -656,10 +656,10 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
 .thread249:                                       ; preds = %197
   %200 = shl nuw nsw i64 %3, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %195, ptr align 8 %5, i64 %200, i1 false)
-  %201 = getelementptr inbounds nuw ptr, ptr %195, i64 %3
+  %201 = getelementptr inbounds nuw [8 x i8], ptr %195, i64 %3
   store ptr %2, ptr %201, align 8, !tbaa !38
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %198, ptr align 8 %4, i64 %200, i1 false)
-  %202 = getelementptr inbounds nuw ptr, ptr %198, i64 %3
+  %202 = getelementptr inbounds nuw [8 x i8], ptr %198, i64 %3
   store ptr %15, ptr %202, align 8, !tbaa !39
   br label %204
 
@@ -707,7 +707,7 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
   %223 = and i64 %222, 63
   %224 = sub nsw i64 0, %223
   %225 = getelementptr inbounds i8, ptr %221, i64 %224
-  %226 = getelementptr inbounds nuw [16 x %struct.P256_POINT], ptr %225, i64 %.0124215256
+  %226 = getelementptr inbounds nuw [1536 x i8], ptr %225, i64 %.0124215256
   %227 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %228 = getelementptr inbounds nuw i8, ptr %226, i64 32
   %229 = getelementptr inbounds nuw i8, ptr %226, i64 64
@@ -721,8 +721,8 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
   %.0225258.i = phi i64 [ 0, %220 ], [ %289, %288 ]
   %235 = mul i64 %.0225258.i, 33
   %scevgep.i = getelementptr i8, ptr %214, i64 %235
-  %236 = getelementptr inbounds nuw [16 x %struct.P256_POINT], ptr %225, i64 %.0225258.i
-  %237 = getelementptr inbounds nuw ptr, ptr %.0129213258, i64 %.0225258.i
+  %236 = getelementptr inbounds nuw [1536 x i8], ptr %225, i64 %.0225258.i
+  %237 = getelementptr inbounds nuw [8 x i8], ptr %.0129213258, i64 %.0225258.i
   %238 = load ptr, ptr %237, align 8, !tbaa !38
   %239 = call i32 @BN_num_bits(ptr noundef %238) #7
   %240 = icmp sgt i32 %239, 256
@@ -752,7 +752,7 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
 
 253:                                              ; preds = %251, %247
   %.sink.i = phi ptr [ %252, %251 ], [ %245, %247 ]
-  %254 = getelementptr inbounds nuw ptr, ptr %218, i64 %.0225258.i
+  %254 = getelementptr inbounds nuw [8 x i8], ptr %218, i64 %.0225258.i
   store ptr %.sink.i, ptr %254, align 8, !tbaa !38
   %255 = call i32 @bn_get_top(ptr noundef %.sink.i) #7
   %256 = icmp sgt i32 %255, 0
@@ -793,7 +793,7 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
   br i1 %272, label %262, label %.preheader253.i, !llvm.loop !40
 
 ._crit_edge.i:                                    ; preds = %.lr.ph257.i, %.preheader253.i
-  %273 = getelementptr inbounds nuw ptr, ptr %.0125214257, i64 %.0225258.i
+  %273 = getelementptr inbounds nuw [8 x i8], ptr %.0125214257, i64 %.0225258.i
   %274 = load ptr, ptr %273, align 8, !tbaa !39
   %275 = getelementptr inbounds nuw i8, ptr %274, i64 16
   %276 = load ptr, ptr %275, align 8, !tbaa !11
@@ -903,7 +903,7 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
   %324 = lshr i32 %323, 1
   %325 = sub nsw i32 %323, %324
   %326 = and i32 %318, 1
-  %327 = getelementptr inbounds nuw [16 x %struct.P256_POINT], ptr %225, i64 %.1259.i
+  %327 = getelementptr inbounds nuw [1536 x i8], ptr %225, i64 %.1259.i
   call void @ecp_nistz256_gather_w5(ptr noundef nonnull %226, ptr noundef nonnull %327, i32 noundef %325) #7
   call void @ecp_nistz256_neg(ptr noundef nonnull %297, ptr noundef nonnull %228) #7
   %328 = zext nneg i32 %326 to i64
@@ -965,7 +965,7 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
   %366 = lshr i32 %365, 1
   %367 = sub nsw i32 %365, %366
   %368 = and i32 %360, 1
-  %369 = getelementptr inbounds nuw [16 x %struct.P256_POINT], ptr %225, i64 %.2264.i
+  %369 = getelementptr inbounds nuw [1536 x i8], ptr %225, i64 %.2264.i
   call void @ecp_nistz256_gather_w5(ptr noundef nonnull %226, ptr noundef nonnull %369, i32 noundef %367) #7
   call void @ecp_nistz256_neg(ptr noundef nonnull %297, ptr noundef nonnull %228) #7
   %370 = zext nneg i32 %368 to i64
@@ -1235,7 +1235,7 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_mult_precompute(ptr noundef %0
   br label %.thread
 
 63:                                               ; preds = %59
-  %64 = getelementptr inbounds nuw [64 x %struct.P256_POINT_AFFINE], ptr %36, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [4096 x i8], ptr %36, i64 %indvars.iv
   call void @ecp_nistz256_scatter_w7(ptr noundef nonnull %64, ptr noundef nonnull %3, i32 noundef %.070105) #7
   br label %67
 
@@ -1478,14 +1478,14 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_inv_mod_ord(ptr noundef readon
 
 40:                                               ; preds = %26, %40
   %indvars.iv = phi i64 [ 0, %26 ], [ %indvars.iv.next, %40 ]
-  %41 = getelementptr inbounds nuw %struct.anon, ptr @ecp_nistz256_inv_mod_ord.chain, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [2 x i8], ptr @ecp_nistz256_inv_mod_ord.chain, i64 %indvars.iv
   %42 = load i8, ptr %41, align 2, !tbaa !56
   %43 = zext i8 %42 to i64
   call void @ecp_nistz256_ord_sqr_mont(ptr noundef nonnull %6, ptr noundef nonnull %6, i64 noundef %43) #7
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 1
   %45 = load i8, ptr %44, align 1, !tbaa !58
   %46 = zext i8 %45 to i64
-  %47 = getelementptr inbounds nuw [4 x i64], ptr %5, i64 %46
+  %47 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %46
   call void @ecp_nistz256_ord_mul_mont(ptr noundef nonnull %6, ptr noundef nonnull %6, ptr noundef nonnull %47) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 27

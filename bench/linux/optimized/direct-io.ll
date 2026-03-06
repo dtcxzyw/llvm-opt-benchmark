@@ -35,12 +35,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_iomap_dio_rw
 %struct.iomap_iter = type { ptr, i64, i64, i64, i32, %struct.iomap, %struct.iomap, ptr }
 %struct.iomap = type { i64, i64, i64, i16, i16, ptr, ptr, ptr, ptr, ptr, i64 }
 %struct.blk_plug = type { ptr, ptr, i16, i16, i8, i8, %struct.list_head }
-%struct.page = type { i64, %union.anon.33, %union.anon.41, %struct.atomic_t, [8 x i8] }
-%union.anon.33 = type { %struct.anon.34 }
-%struct.anon.34 = type { %union.anon.35, ptr, %union.anon.37, i64 }
-%union.anon.35 = type { %struct.list_head }
-%union.anon.37 = type { i64 }
-%union.anon.41 = type { %struct.atomic_t }
 
 @__UNIQUE_ID___addressable_iomap_dio_complete606 = internal global ptr @iomap_dio_complete, section ".discard.addressable", align 8
 @__UNIQUE_ID___addressable_iomap_dio_bio_end_io609 = internal global ptr @iomap_dio_bio_end_io, section ".discard.addressable", align 8
@@ -1703,7 +1697,7 @@ define internal fastcc void @iomap_dio_zero(ptr noundef %0, ptr noundef nonnull 
   %11 = select i1 %10, i64 %7, i64 %9
   %12 = add i64 %11, sub (i64 ptrtoint (ptr @empty_zero_page to i64), i64 -2147483648)
   %13 = lshr i64 %12, 12
-  %14 = getelementptr %struct.page, ptr %6, i64 %13
+  %14 = getelementptr [64 x i8], ptr %6, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null

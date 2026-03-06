@@ -7474,9 +7474,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %19, %
 
 .lr.ph77:                                         ; preds = %.lr.ph77.preheader, %.lr.ph77
   %indvars.iv79 = phi i64 [ 0, %.lr.ph77.preheader ], [ %indvars.iv.next80, %.lr.ph77 ]
-  %39 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv79
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv79
   %40 = load i32, ptr %39, align 4, !tbaa !139
-  %41 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv79
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %indvars.iv79
   store i32 %40, ptr %41, align 4, !tbaa !139
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next80, %wide.trip.count83
@@ -7504,7 +7504,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %19, %
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 %indvars.iv
   %47 = load i8, ptr %46, align 1, !tbaa !227
   %48 = zext i8 %47 to i32
-  %49 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %indvars.iv
   store i32 %48, ptr %49, align 4, !tbaa !139
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -7682,7 +7682,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %40, %
 59:                                               ; preds = %59, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %59 ]
   %60 = load ptr, ptr %57, align 8, !tbaa !282
-  %61 = getelementptr inbounds nuw i32, ptr %60, i64 %indvars.iv.i
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %indvars.iv.i
   %62 = load i32, ptr %61, align 4, !tbaa !139
   %63 = icmp ne i32 %62, 0
   %64 = zext i1 %63 to i8
@@ -7894,7 +7894,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %40, %
 59:                                               ; preds = %59, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %59 ]
   %60 = load ptr, ptr %57, align 8, !tbaa !282
-  %61 = getelementptr inbounds nuw i32, ptr %60, i64 %indvars.iv.i
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %indvars.iv.i
   %62 = load i32, ptr %61, align 4, !tbaa !139
   %63 = icmp ne i32 %62, 0
   %64 = zext i1 %63 to i8
@@ -8118,7 +8118,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %42, %
 65:                                               ; preds = %65, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %65 ]
   %66 = load ptr, ptr %63, align 8, !tbaa !282
-  %67 = getelementptr inbounds nuw i32, ptr %66, i64 %indvars.iv.i
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %indvars.iv.i
   %68 = load i32, ptr %67, align 4, !tbaa !139
   %69 = icmp ne i32 %68, 0
   %70 = zext i1 %69 to i8
@@ -8749,9 +8749,9 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Mi
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv183 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next184, %.lr.ph ]
-  %13 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv183
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv183
   %14 = load i16, ptr %13, align 2, !tbaa !311
-  %15 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv183
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv183
   store i16 %14, ptr %15, align 2, !tbaa !311
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
   %exitcond186.not = icmp eq i64 %indvars.iv.next184, %wide.trip.count
@@ -8785,14 +8785,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Mi
 
 .lr.ph.us105.us.us.us:                            ; preds = %._crit_edge.us106.us.us.us, %.preheader91.us.us.us
   %indvars.iv179 = phi i64 [ %indvars.iv.next180, %._crit_edge.us106.us.us.us ], [ 0, %.preheader91.us.us.us ]
-  %24 = getelementptr inbounds nuw i16, ptr %.079109.us.us.us, i64 %indvars.iv179
+  %24 = getelementptr inbounds nuw [2 x i8], ptr %.079109.us.us.us, i64 %indvars.iv179
   %25 = load i16, ptr %24, align 2, !tbaa !311
   br label %26
 
 26:                                               ; preds = %26, %.lr.ph.us105.us.us.us
   %indvars.iv177 = phi i64 [ %indvars.iv.next178, %26 ], [ %20, %.lr.ph.us105.us.us.us ]
   %.0101.us.us.us.us = phi i16 [ %.sroa.speculated.i87.us.us.us.us, %26 ], [ %25, %.lr.ph.us105.us.us.us ]
-  %27 = getelementptr inbounds nuw i16, ptr %24, i64 %indvars.iv177
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %indvars.iv177
   %28 = load i16, ptr %27, align 2, !tbaa !311
   %.sroa.speculated.i87.us.us.us.us = call noundef i16 @llvm.umin.i16(i16 %28, i16 %.0101.us.us.us.us)
   %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, %20
@@ -8801,7 +8801,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Mi
   br i1 %30, label %26, label %._crit_edge.us106.us.us.us, !llvm.loop !314
 
 ._crit_edge.us106.us.us.us:                       ; preds = %26
-  %31 = getelementptr inbounds nuw i16, ptr %.078111.us.us.us, i64 %indvars.iv179
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %.078111.us.us.us, i64 %indvars.iv179
   store i16 %.sroa.speculated.i87.us.us.us.us, ptr %31, align 2, !tbaa !311
   %indvars.iv.next180 = add nuw nsw i64 %indvars.iv179, %20
   %32 = trunc nuw i64 %indvars.iv.next180 to i32
@@ -8823,9 +8823,9 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Mi
 
 37:                                               ; preds = %.preheader91.us.us, %37
   %indvars.iv173 = phi i64 [ 0, %.preheader91.us.us ], [ %indvars.iv.next174, %37 ]
-  %38 = getelementptr inbounds nuw i16, ptr %.079109.us.us, i64 %indvars.iv173
+  %38 = getelementptr inbounds nuw [2 x i8], ptr %.079109.us.us, i64 %indvars.iv173
   %39 = load i16, ptr %38, align 2, !tbaa !311
-  %40 = getelementptr inbounds nuw i16, ptr %.078111.us.us, i64 %indvars.iv173
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %.078111.us.us, i64 %indvars.iv173
   store i16 %39, ptr %40, align 2, !tbaa !311
   %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, %20
   %41 = trunc nuw i64 %indvars.iv.next174 to i32
@@ -8847,7 +8847,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Mi
   %.078111.us117 = phi ptr [ %49, %._crit_edge104.us124 ], [ %2, %.preheader91.lr.ph.split ]
   %.079109.us118 = phi ptr [ %48, %._crit_edge104.us124 ], [ %1, %.preheader91.lr.ph.split ]
   %.080108.us119 = phi i32 [ %47, %._crit_edge104.us124 ], [ 0, %.preheader91.lr.ph.split ]
-  %invariant.gep206 = getelementptr inbounds nuw i16, ptr %.078111.us117, i64 %20
+  %invariant.gep206 = getelementptr inbounds nuw [2 x i8], ptr %.078111.us117, i64 %20
   br label %.lr.ph.us.us
 
 ._crit_edge104.us124:                             ; preds = %.lr.ph103.split.us123, %._crit_edge.us106.us131, %..preheader90_crit_edge.split.us.us
@@ -8859,9 +8859,9 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Mi
 
 .lr.ph103.split.us123:                            ; preds = %.lr.ph103.us121, %.lr.ph103.split.us123
   %indvars.iv163 = phi i64 [ %indvars.iv.next164, %.lr.ph103.split.us123 ], [ %indvars.iv161, %.lr.ph103.us121 ]
-  %50 = getelementptr inbounds nuw i16, ptr %.079109.us118, i64 %indvars.iv163
+  %50 = getelementptr inbounds nuw [2 x i8], ptr %.079109.us118, i64 %indvars.iv163
   %51 = load i16, ptr %50, align 2, !tbaa !311
-  %52 = getelementptr inbounds nuw i16, ptr %.078111.us117, i64 %indvars.iv163
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %.078111.us117, i64 %indvars.iv163
   store i16 %51, ptr %52, align 2, !tbaa !311
   %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, %20
   %53 = trunc nuw i64 %indvars.iv.next164 to i32
@@ -8871,15 +8871,15 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Mi
 .lr.ph.us.us:                                     ; preds = %._crit_edge.us.us, %.preheader91.us116
   %indvars.iv161 = phi i64 [ %indvars.iv.next162, %._crit_edge.us.us ], [ %21, %.preheader91.us116 ]
   %indvars.iv158 = phi i64 [ %indvars.iv.next159, %._crit_edge.us.us ], [ 0, %.preheader91.us116 ]
-  %55 = getelementptr inbounds nuw i16, ptr %.079109.us118, i64 %indvars.iv158
-  %56 = getelementptr inbounds nuw i16, ptr %55, i64 %20
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %.079109.us118, i64 %indvars.iv158
+  %56 = getelementptr inbounds nuw [2 x i8], ptr %55, i64 %20
   %57 = load i16, ptr %56, align 2, !tbaa !311
   br label %58
 
 58:                                               ; preds = %58, %.lr.ph.us.us
   %indvars.iv156 = phi i64 [ %indvars.iv.next157, %58 ], [ %21, %.lr.ph.us.us ]
   %.07494.us.us = phi i16 [ %.sroa.speculated.i.us.us, %58 ], [ %57, %.lr.ph.us.us ]
-  %59 = getelementptr inbounds nuw i16, ptr %55, i64 %indvars.iv156
+  %59 = getelementptr inbounds nuw [2 x i8], ptr %55, i64 %indvars.iv156
   %60 = load i16, ptr %59, align 2, !tbaa !311
   %.sroa.speculated.i.us.us = call noundef i16 @llvm.umin.i16(i16 %60, i16 %.07494.us.us)
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, %20
@@ -8890,13 +8890,13 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Mi
 ._crit_edge.us.us:                                ; preds = %58
   %63 = load i16, ptr %55, align 2, !tbaa !311
   %.sroa.speculated.i85.us.us = call noundef i16 @llvm.umin.i16(i16 %63, i16 %.sroa.speculated.i.us.us)
-  %64 = getelementptr inbounds nuw i16, ptr %.078111.us117, i64 %indvars.iv158
+  %64 = getelementptr inbounds nuw [2 x i8], ptr %.078111.us117, i64 %indvars.iv158
   store i16 %.sroa.speculated.i85.us.us, ptr %64, align 2, !tbaa !311
   %65 = and i64 %indvars.iv.next157, 4294967295
-  %66 = getelementptr inbounds nuw i16, ptr %55, i64 %65
+  %66 = getelementptr inbounds nuw [2 x i8], ptr %55, i64 %65
   %67 = load i16, ptr %66, align 2, !tbaa !311
   %.sroa.speculated.i86.us.us = call noundef i16 @llvm.umin.i16(i16 %67, i16 %.sroa.speculated.i.us.us)
-  %gep207 = getelementptr inbounds nuw i16, ptr %invariant.gep206, i64 %indvars.iv158
+  %gep207 = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep206, i64 %indvars.iv158
   store i16 %.sroa.speculated.i86.us.us, ptr %gep207, align 2, !tbaa !311
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, %21
   %68 = trunc nuw i64 %indvars.iv.next159 to i32
@@ -8913,14 +8913,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Mi
 
 .lr.ph.us105.us126:                               ; preds = %.lr.ph103.us121, %._crit_edge.us106.us131
   %indvars.iv169 = phi i64 [ %indvars.iv.next170, %._crit_edge.us106.us131 ], [ %indvars.iv161, %.lr.ph103.us121 ]
-  %70 = getelementptr inbounds nuw i16, ptr %.079109.us118, i64 %indvars.iv169
+  %70 = getelementptr inbounds nuw [2 x i8], ptr %.079109.us118, i64 %indvars.iv169
   %71 = load i16, ptr %70, align 2, !tbaa !311
   br label %72
 
 72:                                               ; preds = %72, %.lr.ph.us105.us126
   %indvars.iv166 = phi i64 [ %indvars.iv.next167, %72 ], [ %20, %.lr.ph.us105.us126 ]
   %.0101.us.us128 = phi i16 [ %.sroa.speculated.i87.us.us130, %72 ], [ %71, %.lr.ph.us105.us126 ]
-  %73 = getelementptr inbounds nuw i16, ptr %70, i64 %indvars.iv166
+  %73 = getelementptr inbounds nuw [2 x i8], ptr %70, i64 %indvars.iv166
   %74 = load i16, ptr %73, align 2, !tbaa !311
   %.sroa.speculated.i87.us.us130 = call noundef i16 @llvm.umin.i16(i16 %74, i16 %.0101.us.us128)
   %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, %20
@@ -8929,7 +8929,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Mi
   br i1 %76, label %72, label %._crit_edge.us106.us131, !llvm.loop !314
 
 ._crit_edge.us106.us131:                          ; preds = %72
-  %77 = getelementptr inbounds nuw i16, ptr %.078111.us117, i64 %indvars.iv169
+  %77 = getelementptr inbounds nuw [2 x i8], ptr %.078111.us117, i64 %indvars.iv169
   store i16 %.sroa.speculated.i87.us.us130, ptr %77, align 2, !tbaa !311
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, %20
   %78 = trunc nuw i64 %indvars.iv.next170 to i32
@@ -8940,7 +8940,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Mi
   %.078111 = phi ptr [ %107, %._crit_edge104 ], [ %2, %.preheader91.lr.ph.split ]
   %.079109 = phi ptr [ %106, %._crit_edge104 ], [ %1, %.preheader91.lr.ph.split ]
   %.080108 = phi i32 [ %105, %._crit_edge104 ], [ 0, %.preheader91.lr.ph.split ]
-  %invariant.gep = getelementptr inbounds nuw i16, ptr %.078111, i64 %20
+  %invariant.gep = getelementptr inbounds nuw [2 x i8], ptr %.078111, i64 %20
   br label %91
 
 ..preheader90_crit_edge.split:                    ; preds = %91
@@ -8952,14 +8952,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Mi
 
 .lr.ph.us105:                                     ; preds = %.lr.ph103, %._crit_edge.us106
   %indvars.iv153 = phi i64 [ %indvars.iv.next154, %._crit_edge.us106 ], [ %indvars.iv145, %.lr.ph103 ]
-  %81 = getelementptr inbounds nuw i16, ptr %.079109, i64 %indvars.iv153
+  %81 = getelementptr inbounds nuw [2 x i8], ptr %.079109, i64 %indvars.iv153
   %82 = load i16, ptr %81, align 2, !tbaa !311
   br label %83
 
 83:                                               ; preds = %.lr.ph.us105, %83
   %indvars.iv150 = phi i64 [ %20, %.lr.ph.us105 ], [ %indvars.iv.next151, %83 ]
   %.0101.us = phi i16 [ %82, %.lr.ph.us105 ], [ %.sroa.speculated.i87.us, %83 ]
-  %84 = getelementptr inbounds nuw i16, ptr %81, i64 %indvars.iv150
+  %84 = getelementptr inbounds nuw [2 x i8], ptr %81, i64 %indvars.iv150
   %85 = load i16, ptr %84, align 2, !tbaa !311
   %.sroa.speculated.i87.us = call noundef i16 @llvm.umin.i16(i16 %85, i16 %.0101.us)
   %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, %20
@@ -8968,7 +8968,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Mi
   br i1 %87, label %83, label %._crit_edge.us106, !llvm.loop !314
 
 ._crit_edge.us106:                                ; preds = %83
-  %88 = getelementptr inbounds nuw i16, ptr %.078111, i64 %indvars.iv153
+  %88 = getelementptr inbounds nuw [2 x i8], ptr %.078111, i64 %indvars.iv153
   store i16 %.sroa.speculated.i87.us, ptr %88, align 2, !tbaa !311
   %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, %20
   %89 = trunc nuw i64 %indvars.iv.next154 to i32
@@ -8978,17 +8978,17 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Mi
 91:                                               ; preds = %.preheader91, %91
   %indvars.iv145 = phi i64 [ %21, %.preheader91 ], [ %indvars.iv.next146, %91 ]
   %indvars.iv = phi i64 [ 0, %.preheader91 ], [ %indvars.iv.next, %91 ]
-  %92 = getelementptr inbounds nuw i16, ptr %.079109, i64 %indvars.iv
-  %93 = getelementptr inbounds nuw i16, ptr %92, i64 %20
+  %92 = getelementptr inbounds nuw [2 x i8], ptr %.079109, i64 %indvars.iv
+  %93 = getelementptr inbounds nuw [2 x i8], ptr %92, i64 %20
   %94 = load i16, ptr %93, align 2, !tbaa !311
   %95 = load i16, ptr %92, align 2, !tbaa !311
   %.sroa.speculated.i85 = call noundef i16 @llvm.umin.i16(i16 %95, i16 %94)
-  %96 = getelementptr inbounds nuw i16, ptr %.078111, i64 %indvars.iv
+  %96 = getelementptr inbounds nuw [2 x i8], ptr %.078111, i64 %indvars.iv
   store i16 %.sroa.speculated.i85, ptr %96, align 2, !tbaa !311
-  %97 = getelementptr inbounds nuw i16, ptr %92, i64 %21
+  %97 = getelementptr inbounds nuw [2 x i8], ptr %92, i64 %21
   %98 = load i16, ptr %97, align 2, !tbaa !311
   %.sroa.speculated.i86 = call noundef i16 @llvm.umin.i16(i16 %98, i16 %94)
-  %gep = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep, i64 %indvars.iv
   store i16 %.sroa.speculated.i86, ptr %gep, align 2, !tbaa !311
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, %21
   %99 = trunc nuw i64 %indvars.iv.next to i32
@@ -8998,9 +8998,9 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Mi
 
 .lr.ph103.split:                                  ; preds = %.lr.ph103, %.lr.ph103.split
   %indvars.iv147 = phi i64 [ %indvars.iv.next148, %.lr.ph103.split ], [ %indvars.iv145, %.lr.ph103 ]
-  %100 = getelementptr inbounds nuw i16, ptr %.079109, i64 %indvars.iv147
+  %100 = getelementptr inbounds nuw [2 x i8], ptr %.079109, i64 %indvars.iv147
   %101 = load i16, ptr %100, align 2, !tbaa !311
-  %102 = getelementptr inbounds nuw i16, ptr %.078111, i64 %indvars.iv147
+  %102 = getelementptr inbounds nuw [2 x i8], ptr %.078111, i64 %indvars.iv147
   store i16 %101, ptr %102, align 2, !tbaa !311
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, %20
   %103 = trunc nuw i64 %indvars.iv.next148 to i32
@@ -9118,9 +9118,9 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Mi
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv183 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next184, %.lr.ph ]
-  %13 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv183
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv183
   %14 = load i16, ptr %13, align 2, !tbaa !311
-  %15 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv183
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv183
   store i16 %14, ptr %15, align 2, !tbaa !311
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
   %exitcond186.not = icmp eq i64 %indvars.iv.next184, %wide.trip.count
@@ -9154,14 +9154,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Mi
 
 .lr.ph.us105.us.us.us:                            ; preds = %._crit_edge.us106.us.us.us, %.preheader91.us.us.us
   %indvars.iv179 = phi i64 [ %indvars.iv.next180, %._crit_edge.us106.us.us.us ], [ 0, %.preheader91.us.us.us ]
-  %24 = getelementptr inbounds nuw i16, ptr %.079109.us.us.us, i64 %indvars.iv179
+  %24 = getelementptr inbounds nuw [2 x i8], ptr %.079109.us.us.us, i64 %indvars.iv179
   %25 = load i16, ptr %24, align 2, !tbaa !311
   br label %26
 
 26:                                               ; preds = %26, %.lr.ph.us105.us.us.us
   %indvars.iv177 = phi i64 [ %indvars.iv.next178, %26 ], [ %20, %.lr.ph.us105.us.us.us ]
   %.0101.us.us.us.us = phi i16 [ %.sroa.speculated.i87.us.us.us.us, %26 ], [ %25, %.lr.ph.us105.us.us.us ]
-  %27 = getelementptr inbounds nuw i16, ptr %24, i64 %indvars.iv177
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %indvars.iv177
   %28 = load i16, ptr %27, align 2, !tbaa !311
   %.sroa.speculated.i87.us.us.us.us = call noundef i16 @llvm.smin.i16(i16 %28, i16 %.0101.us.us.us.us)
   %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, %20
@@ -9170,7 +9170,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Mi
   br i1 %30, label %26, label %._crit_edge.us106.us.us.us, !llvm.loop !320
 
 ._crit_edge.us106.us.us.us:                       ; preds = %26
-  %31 = getelementptr inbounds nuw i16, ptr %.078111.us.us.us, i64 %indvars.iv179
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %.078111.us.us.us, i64 %indvars.iv179
   store i16 %.sroa.speculated.i87.us.us.us.us, ptr %31, align 2, !tbaa !311
   %indvars.iv.next180 = add nuw nsw i64 %indvars.iv179, %20
   %32 = trunc nuw i64 %indvars.iv.next180 to i32
@@ -9192,9 +9192,9 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Mi
 
 37:                                               ; preds = %.preheader91.us.us, %37
   %indvars.iv173 = phi i64 [ 0, %.preheader91.us.us ], [ %indvars.iv.next174, %37 ]
-  %38 = getelementptr inbounds nuw i16, ptr %.079109.us.us, i64 %indvars.iv173
+  %38 = getelementptr inbounds nuw [2 x i8], ptr %.079109.us.us, i64 %indvars.iv173
   %39 = load i16, ptr %38, align 2, !tbaa !311
-  %40 = getelementptr inbounds nuw i16, ptr %.078111.us.us, i64 %indvars.iv173
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %.078111.us.us, i64 %indvars.iv173
   store i16 %39, ptr %40, align 2, !tbaa !311
   %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, %20
   %41 = trunc nuw i64 %indvars.iv.next174 to i32
@@ -9216,7 +9216,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Mi
   %.078111.us117 = phi ptr [ %49, %._crit_edge104.us124 ], [ %2, %.preheader91.lr.ph.split ]
   %.079109.us118 = phi ptr [ %48, %._crit_edge104.us124 ], [ %1, %.preheader91.lr.ph.split ]
   %.080108.us119 = phi i32 [ %47, %._crit_edge104.us124 ], [ 0, %.preheader91.lr.ph.split ]
-  %invariant.gep206 = getelementptr inbounds nuw i16, ptr %.078111.us117, i64 %20
+  %invariant.gep206 = getelementptr inbounds nuw [2 x i8], ptr %.078111.us117, i64 %20
   br label %.lr.ph.us.us
 
 ._crit_edge104.us124:                             ; preds = %.lr.ph103.split.us123, %._crit_edge.us106.us131, %..preheader90_crit_edge.split.us.us
@@ -9228,9 +9228,9 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Mi
 
 .lr.ph103.split.us123:                            ; preds = %.lr.ph103.us121, %.lr.ph103.split.us123
   %indvars.iv163 = phi i64 [ %indvars.iv.next164, %.lr.ph103.split.us123 ], [ %indvars.iv161, %.lr.ph103.us121 ]
-  %50 = getelementptr inbounds nuw i16, ptr %.079109.us118, i64 %indvars.iv163
+  %50 = getelementptr inbounds nuw [2 x i8], ptr %.079109.us118, i64 %indvars.iv163
   %51 = load i16, ptr %50, align 2, !tbaa !311
-  %52 = getelementptr inbounds nuw i16, ptr %.078111.us117, i64 %indvars.iv163
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %.078111.us117, i64 %indvars.iv163
   store i16 %51, ptr %52, align 2, !tbaa !311
   %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, %20
   %53 = trunc nuw i64 %indvars.iv.next164 to i32
@@ -9240,15 +9240,15 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Mi
 .lr.ph.us.us:                                     ; preds = %._crit_edge.us.us, %.preheader91.us116
   %indvars.iv161 = phi i64 [ %indvars.iv.next162, %._crit_edge.us.us ], [ %21, %.preheader91.us116 ]
   %indvars.iv158 = phi i64 [ %indvars.iv.next159, %._crit_edge.us.us ], [ 0, %.preheader91.us116 ]
-  %55 = getelementptr inbounds nuw i16, ptr %.079109.us118, i64 %indvars.iv158
-  %56 = getelementptr inbounds nuw i16, ptr %55, i64 %20
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %.079109.us118, i64 %indvars.iv158
+  %56 = getelementptr inbounds nuw [2 x i8], ptr %55, i64 %20
   %57 = load i16, ptr %56, align 2, !tbaa !311
   br label %58
 
 58:                                               ; preds = %58, %.lr.ph.us.us
   %indvars.iv156 = phi i64 [ %indvars.iv.next157, %58 ], [ %21, %.lr.ph.us.us ]
   %.07494.us.us = phi i16 [ %.sroa.speculated.i.us.us, %58 ], [ %57, %.lr.ph.us.us ]
-  %59 = getelementptr inbounds nuw i16, ptr %55, i64 %indvars.iv156
+  %59 = getelementptr inbounds nuw [2 x i8], ptr %55, i64 %indvars.iv156
   %60 = load i16, ptr %59, align 2, !tbaa !311
   %.sroa.speculated.i.us.us = call noundef i16 @llvm.smin.i16(i16 %60, i16 %.07494.us.us)
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, %20
@@ -9259,13 +9259,13 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Mi
 ._crit_edge.us.us:                                ; preds = %58
   %63 = load i16, ptr %55, align 2, !tbaa !311
   %.sroa.speculated.i85.us.us = call noundef i16 @llvm.smin.i16(i16 %63, i16 %.sroa.speculated.i.us.us)
-  %64 = getelementptr inbounds nuw i16, ptr %.078111.us117, i64 %indvars.iv158
+  %64 = getelementptr inbounds nuw [2 x i8], ptr %.078111.us117, i64 %indvars.iv158
   store i16 %.sroa.speculated.i85.us.us, ptr %64, align 2, !tbaa !311
   %65 = and i64 %indvars.iv.next157, 4294967295
-  %66 = getelementptr inbounds nuw i16, ptr %55, i64 %65
+  %66 = getelementptr inbounds nuw [2 x i8], ptr %55, i64 %65
   %67 = load i16, ptr %66, align 2, !tbaa !311
   %.sroa.speculated.i86.us.us = call noundef i16 @llvm.smin.i16(i16 %67, i16 %.sroa.speculated.i.us.us)
-  %gep207 = getelementptr inbounds nuw i16, ptr %invariant.gep206, i64 %indvars.iv158
+  %gep207 = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep206, i64 %indvars.iv158
   store i16 %.sroa.speculated.i86.us.us, ptr %gep207, align 2, !tbaa !311
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, %21
   %68 = trunc nuw i64 %indvars.iv.next159 to i32
@@ -9282,14 +9282,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Mi
 
 .lr.ph.us105.us126:                               ; preds = %.lr.ph103.us121, %._crit_edge.us106.us131
   %indvars.iv169 = phi i64 [ %indvars.iv.next170, %._crit_edge.us106.us131 ], [ %indvars.iv161, %.lr.ph103.us121 ]
-  %70 = getelementptr inbounds nuw i16, ptr %.079109.us118, i64 %indvars.iv169
+  %70 = getelementptr inbounds nuw [2 x i8], ptr %.079109.us118, i64 %indvars.iv169
   %71 = load i16, ptr %70, align 2, !tbaa !311
   br label %72
 
 72:                                               ; preds = %72, %.lr.ph.us105.us126
   %indvars.iv166 = phi i64 [ %indvars.iv.next167, %72 ], [ %20, %.lr.ph.us105.us126 ]
   %.0101.us.us128 = phi i16 [ %.sroa.speculated.i87.us.us130, %72 ], [ %71, %.lr.ph.us105.us126 ]
-  %73 = getelementptr inbounds nuw i16, ptr %70, i64 %indvars.iv166
+  %73 = getelementptr inbounds nuw [2 x i8], ptr %70, i64 %indvars.iv166
   %74 = load i16, ptr %73, align 2, !tbaa !311
   %.sroa.speculated.i87.us.us130 = call noundef i16 @llvm.smin.i16(i16 %74, i16 %.0101.us.us128)
   %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, %20
@@ -9298,7 +9298,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Mi
   br i1 %76, label %72, label %._crit_edge.us106.us131, !llvm.loop !320
 
 ._crit_edge.us106.us131:                          ; preds = %72
-  %77 = getelementptr inbounds nuw i16, ptr %.078111.us117, i64 %indvars.iv169
+  %77 = getelementptr inbounds nuw [2 x i8], ptr %.078111.us117, i64 %indvars.iv169
   store i16 %.sroa.speculated.i87.us.us130, ptr %77, align 2, !tbaa !311
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, %20
   %78 = trunc nuw i64 %indvars.iv.next170 to i32
@@ -9309,7 +9309,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Mi
   %.078111 = phi ptr [ %107, %._crit_edge104 ], [ %2, %.preheader91.lr.ph.split ]
   %.079109 = phi ptr [ %106, %._crit_edge104 ], [ %1, %.preheader91.lr.ph.split ]
   %.080108 = phi i32 [ %105, %._crit_edge104 ], [ 0, %.preheader91.lr.ph.split ]
-  %invariant.gep = getelementptr inbounds nuw i16, ptr %.078111, i64 %20
+  %invariant.gep = getelementptr inbounds nuw [2 x i8], ptr %.078111, i64 %20
   br label %91
 
 ..preheader90_crit_edge.split:                    ; preds = %91
@@ -9321,14 +9321,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Mi
 
 .lr.ph.us105:                                     ; preds = %.lr.ph103, %._crit_edge.us106
   %indvars.iv153 = phi i64 [ %indvars.iv.next154, %._crit_edge.us106 ], [ %indvars.iv145, %.lr.ph103 ]
-  %81 = getelementptr inbounds nuw i16, ptr %.079109, i64 %indvars.iv153
+  %81 = getelementptr inbounds nuw [2 x i8], ptr %.079109, i64 %indvars.iv153
   %82 = load i16, ptr %81, align 2, !tbaa !311
   br label %83
 
 83:                                               ; preds = %.lr.ph.us105, %83
   %indvars.iv150 = phi i64 [ %20, %.lr.ph.us105 ], [ %indvars.iv.next151, %83 ]
   %.0101.us = phi i16 [ %82, %.lr.ph.us105 ], [ %.sroa.speculated.i87.us, %83 ]
-  %84 = getelementptr inbounds nuw i16, ptr %81, i64 %indvars.iv150
+  %84 = getelementptr inbounds nuw [2 x i8], ptr %81, i64 %indvars.iv150
   %85 = load i16, ptr %84, align 2, !tbaa !311
   %.sroa.speculated.i87.us = call noundef i16 @llvm.smin.i16(i16 %85, i16 %.0101.us)
   %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, %20
@@ -9337,7 +9337,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Mi
   br i1 %87, label %83, label %._crit_edge.us106, !llvm.loop !320
 
 ._crit_edge.us106:                                ; preds = %83
-  %88 = getelementptr inbounds nuw i16, ptr %.078111, i64 %indvars.iv153
+  %88 = getelementptr inbounds nuw [2 x i8], ptr %.078111, i64 %indvars.iv153
   store i16 %.sroa.speculated.i87.us, ptr %88, align 2, !tbaa !311
   %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, %20
   %89 = trunc nuw i64 %indvars.iv.next154 to i32
@@ -9347,17 +9347,17 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Mi
 91:                                               ; preds = %.preheader91, %91
   %indvars.iv145 = phi i64 [ %21, %.preheader91 ], [ %indvars.iv.next146, %91 ]
   %indvars.iv = phi i64 [ 0, %.preheader91 ], [ %indvars.iv.next, %91 ]
-  %92 = getelementptr inbounds nuw i16, ptr %.079109, i64 %indvars.iv
-  %93 = getelementptr inbounds nuw i16, ptr %92, i64 %20
+  %92 = getelementptr inbounds nuw [2 x i8], ptr %.079109, i64 %indvars.iv
+  %93 = getelementptr inbounds nuw [2 x i8], ptr %92, i64 %20
   %94 = load i16, ptr %93, align 2, !tbaa !311
   %95 = load i16, ptr %92, align 2, !tbaa !311
   %.sroa.speculated.i85 = call noundef i16 @llvm.smin.i16(i16 %95, i16 %94)
-  %96 = getelementptr inbounds nuw i16, ptr %.078111, i64 %indvars.iv
+  %96 = getelementptr inbounds nuw [2 x i8], ptr %.078111, i64 %indvars.iv
   store i16 %.sroa.speculated.i85, ptr %96, align 2, !tbaa !311
-  %97 = getelementptr inbounds nuw i16, ptr %92, i64 %21
+  %97 = getelementptr inbounds nuw [2 x i8], ptr %92, i64 %21
   %98 = load i16, ptr %97, align 2, !tbaa !311
   %.sroa.speculated.i86 = call noundef i16 @llvm.smin.i16(i16 %98, i16 %94)
-  %gep = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep, i64 %indvars.iv
   store i16 %.sroa.speculated.i86, ptr %gep, align 2, !tbaa !311
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, %21
   %99 = trunc nuw i64 %indvars.iv.next to i32
@@ -9367,9 +9367,9 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Mi
 
 .lr.ph103.split:                                  ; preds = %.lr.ph103, %.lr.ph103.split
   %indvars.iv147 = phi i64 [ %indvars.iv.next148, %.lr.ph103.split ], [ %indvars.iv145, %.lr.ph103 ]
-  %100 = getelementptr inbounds nuw i16, ptr %.079109, i64 %indvars.iv147
+  %100 = getelementptr inbounds nuw [2 x i8], ptr %.079109, i64 %indvars.iv147
   %101 = load i16, ptr %100, align 2, !tbaa !311
-  %102 = getelementptr inbounds nuw i16, ptr %.078111, i64 %indvars.iv147
+  %102 = getelementptr inbounds nuw [2 x i8], ptr %.078111, i64 %indvars.iv147
   store i16 %101, ptr %102, align 2, !tbaa !311
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, %20
   %103 = trunc nuw i64 %indvars.iv.next148 to i32
@@ -9487,9 +9487,9 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Mi
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv187 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next188, %.lr.ph ]
-  %13 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv187
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv187
   %14 = load float, ptr %13, align 4, !tbaa !325
-  %15 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv187
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv187
   store float %14, ptr %15, align 4, !tbaa !325
   %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
   %exitcond190.not = icmp eq i64 %indvars.iv.next188, %wide.trip.count
@@ -9523,14 +9523,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Mi
 
 .lr.ph.us105.us.us.us:                            ; preds = %._crit_edge.us106.us.us.us, %.preheader91.us.us.us
   %indvars.iv183 = phi i64 [ %indvars.iv.next184, %._crit_edge.us106.us.us.us ], [ 0, %.preheader91.us.us.us ]
-  %24 = getelementptr inbounds nuw float, ptr %.079109.us.us.us, i64 %indvars.iv183
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %.079109.us.us.us, i64 %indvars.iv183
   %25 = load float, ptr %24, align 4, !tbaa !325
   br label %26
 
 26:                                               ; preds = %26, %.lr.ph.us105.us.us.us
   %indvars.iv180 = phi i64 [ %indvars.iv.next181, %26 ], [ %20, %.lr.ph.us105.us.us.us ]
   %.0101.us.us.us.us = phi float [ %.sroa.speculated.i87.us.us.us.us, %26 ], [ %25, %.lr.ph.us105.us.us.us ]
-  %27 = getelementptr inbounds nuw float, ptr %24, i64 %indvars.iv180
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv180
   %28 = load float, ptr %27, align 4, !tbaa !325
   %29 = fcmp olt float %28, %.0101.us.us.us.us
   %.sroa.speculated.i87.us.us.us.us = select i1 %29, float %28, float %.0101.us.us.us.us
@@ -9540,7 +9540,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Mi
   br i1 %31, label %26, label %._crit_edge.us106.us.us.us, !llvm.loop !328
 
 ._crit_edge.us106.us.us.us:                       ; preds = %26
-  %32 = getelementptr inbounds nuw float, ptr %.078111.us.us.us, i64 %indvars.iv183
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %.078111.us.us.us, i64 %indvars.iv183
   store float %.sroa.speculated.i87.us.us.us.us, ptr %32, align 4, !tbaa !325
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, %20
   %33 = trunc nuw i64 %indvars.iv.next184 to i32
@@ -9562,9 +9562,9 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Mi
 
 38:                                               ; preds = %.preheader91.us.us, %38
   %indvars.iv176 = phi i64 [ 0, %.preheader91.us.us ], [ %indvars.iv.next177, %38 ]
-  %39 = getelementptr inbounds nuw float, ptr %.079109.us.us, i64 %indvars.iv176
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %.079109.us.us, i64 %indvars.iv176
   %40 = load float, ptr %39, align 4, !tbaa !325
-  %41 = getelementptr inbounds nuw float, ptr %.078111.us.us, i64 %indvars.iv176
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %.078111.us.us, i64 %indvars.iv176
   store float %40, ptr %41, align 4, !tbaa !325
   %indvars.iv.next177 = add nuw nsw i64 %indvars.iv176, %20
   %42 = trunc nuw i64 %indvars.iv.next177 to i32
@@ -9586,7 +9586,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Mi
   %.078111.us117 = phi ptr [ %50, %._crit_edge104.us124 ], [ %2, %.preheader91.lr.ph.split ]
   %.079109.us118 = phi ptr [ %49, %._crit_edge104.us124 ], [ %1, %.preheader91.lr.ph.split ]
   %.080108.us119 = phi i32 [ %48, %._crit_edge104.us124 ], [ 0, %.preheader91.lr.ph.split ]
-  %invariant.gep210 = getelementptr inbounds nuw float, ptr %.078111.us117, i64 %20
+  %invariant.gep210 = getelementptr inbounds nuw [4 x i8], ptr %.078111.us117, i64 %20
   br label %.lr.ph.us.us
 
 ._crit_edge104.us124:                             ; preds = %.lr.ph103.split.us123, %._crit_edge.us106.us131, %..preheader90_crit_edge.split.us.us
@@ -9598,9 +9598,9 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Mi
 
 .lr.ph103.split.us123:                            ; preds = %.lr.ph103.us121, %.lr.ph103.split.us123
   %indvars.iv165 = phi i64 [ %indvars.iv.next166, %.lr.ph103.split.us123 ], [ %indvars.iv163, %.lr.ph103.us121 ]
-  %51 = getelementptr inbounds nuw float, ptr %.079109.us118, i64 %indvars.iv165
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %.079109.us118, i64 %indvars.iv165
   %52 = load float, ptr %51, align 4, !tbaa !325
-  %53 = getelementptr inbounds nuw float, ptr %.078111.us117, i64 %indvars.iv165
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %.078111.us117, i64 %indvars.iv165
   store float %52, ptr %53, align 4, !tbaa !325
   %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, %20
   %54 = trunc nuw i64 %indvars.iv.next166 to i32
@@ -9610,15 +9610,15 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Mi
 .lr.ph.us.us:                                     ; preds = %._crit_edge.us.us, %.preheader91.us116
   %indvars.iv163 = phi i64 [ %indvars.iv.next164, %._crit_edge.us.us ], [ %21, %.preheader91.us116 ]
   %indvars.iv160 = phi i64 [ %indvars.iv.next161, %._crit_edge.us.us ], [ 0, %.preheader91.us116 ]
-  %56 = getelementptr inbounds nuw float, ptr %.079109.us118, i64 %indvars.iv160
-  %57 = getelementptr inbounds nuw float, ptr %56, i64 %20
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %.079109.us118, i64 %indvars.iv160
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %20
   %58 = load float, ptr %57, align 4, !tbaa !325
   br label %59
 
 59:                                               ; preds = %59, %.lr.ph.us.us
   %indvars.iv157 = phi i64 [ %indvars.iv.next158, %59 ], [ %21, %.lr.ph.us.us ]
   %.07494.us.us = phi float [ %.sroa.speculated.i.us.us, %59 ], [ %58, %.lr.ph.us.us ]
-  %60 = getelementptr inbounds nuw float, ptr %56, i64 %indvars.iv157
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv157
   %61 = load float, ptr %60, align 4, !tbaa !325
   %62 = fcmp olt float %61, %.07494.us.us
   %.sroa.speculated.i.us.us = select i1 %62, float %61, float %.07494.us.us
@@ -9631,14 +9631,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Mi
   %65 = load float, ptr %56, align 4, !tbaa !325
   %66 = fcmp olt float %65, %.sroa.speculated.i.us.us
   %.sroa.speculated.i85.us.us = select i1 %66, float %65, float %.sroa.speculated.i.us.us
-  %67 = getelementptr inbounds nuw float, ptr %.078111.us117, i64 %indvars.iv160
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %.078111.us117, i64 %indvars.iv160
   store float %.sroa.speculated.i85.us.us, ptr %67, align 4, !tbaa !325
   %68 = and i64 %indvars.iv.next158, 4294967295
-  %69 = getelementptr inbounds nuw float, ptr %56, i64 %68
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %68
   %70 = load float, ptr %69, align 4, !tbaa !325
   %71 = fcmp olt float %70, %.sroa.speculated.i.us.us
   %.sroa.speculated.i86.us.us = select i1 %71, float %70, float %.sroa.speculated.i.us.us
-  %gep211 = getelementptr inbounds nuw float, ptr %invariant.gep210, i64 %indvars.iv160
+  %gep211 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep210, i64 %indvars.iv160
   store float %.sroa.speculated.i86.us.us, ptr %gep211, align 4, !tbaa !325
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, %21
   %72 = trunc nuw i64 %indvars.iv.next161 to i32
@@ -9655,14 +9655,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Mi
 
 .lr.ph.us105.us126:                               ; preds = %.lr.ph103.us121, %._crit_edge.us106.us131
   %indvars.iv172 = phi i64 [ %indvars.iv.next173, %._crit_edge.us106.us131 ], [ %indvars.iv163, %.lr.ph103.us121 ]
-  %74 = getelementptr inbounds nuw float, ptr %.079109.us118, i64 %indvars.iv172
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %.079109.us118, i64 %indvars.iv172
   %75 = load float, ptr %74, align 4, !tbaa !325
   br label %76
 
 76:                                               ; preds = %76, %.lr.ph.us105.us126
   %indvars.iv168 = phi i64 [ %indvars.iv.next169, %76 ], [ %20, %.lr.ph.us105.us126 ]
   %.0101.us.us128 = phi float [ %.sroa.speculated.i87.us.us130, %76 ], [ %75, %.lr.ph.us105.us126 ]
-  %77 = getelementptr inbounds nuw float, ptr %74, i64 %indvars.iv168
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %indvars.iv168
   %78 = load float, ptr %77, align 4, !tbaa !325
   %79 = fcmp olt float %78, %.0101.us.us128
   %.sroa.speculated.i87.us.us130 = select i1 %79, float %78, float %.0101.us.us128
@@ -9672,7 +9672,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Mi
   br i1 %81, label %76, label %._crit_edge.us106.us131, !llvm.loop !328
 
 ._crit_edge.us106.us131:                          ; preds = %76
-  %82 = getelementptr inbounds nuw float, ptr %.078111.us117, i64 %indvars.iv172
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %.078111.us117, i64 %indvars.iv172
   store float %.sroa.speculated.i87.us.us130, ptr %82, align 4, !tbaa !325
   %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, %20
   %83 = trunc nuw i64 %indvars.iv.next173 to i32
@@ -9683,7 +9683,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Mi
   %.078111 = phi ptr [ %115, %._crit_edge104 ], [ %2, %.preheader91.lr.ph.split ]
   %.079109 = phi ptr [ %114, %._crit_edge104 ], [ %1, %.preheader91.lr.ph.split ]
   %.080108 = phi i32 [ %113, %._crit_edge104 ], [ 0, %.preheader91.lr.ph.split ]
-  %invariant.gep = getelementptr inbounds nuw float, ptr %.078111, i64 %20
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %.078111, i64 %20
   br label %97
 
 ..preheader90_crit_edge.split:                    ; preds = %97
@@ -9695,14 +9695,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Mi
 
 .lr.ph.us105:                                     ; preds = %.lr.ph103, %._crit_edge.us106
   %indvars.iv154 = phi i64 [ %indvars.iv.next155, %._crit_edge.us106 ], [ %indvars.iv145, %.lr.ph103 ]
-  %86 = getelementptr inbounds nuw float, ptr %.079109, i64 %indvars.iv154
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %.079109, i64 %indvars.iv154
   %87 = load float, ptr %86, align 4, !tbaa !325
   br label %88
 
 88:                                               ; preds = %.lr.ph.us105, %88
   %indvars.iv150 = phi i64 [ %20, %.lr.ph.us105 ], [ %indvars.iv.next151, %88 ]
   %.0101.us = phi float [ %87, %.lr.ph.us105 ], [ %.sroa.speculated.i87.us, %88 ]
-  %89 = getelementptr inbounds nuw float, ptr %86, i64 %indvars.iv150
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %indvars.iv150
   %90 = load float, ptr %89, align 4, !tbaa !325
   %91 = fcmp olt float %90, %.0101.us
   %.sroa.speculated.i87.us = select i1 %91, float %90, float %.0101.us
@@ -9712,7 +9712,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Mi
   br i1 %93, label %88, label %._crit_edge.us106, !llvm.loop !328
 
 ._crit_edge.us106:                                ; preds = %88
-  %94 = getelementptr inbounds nuw float, ptr %.078111, i64 %indvars.iv154
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %.078111, i64 %indvars.iv154
   store float %.sroa.speculated.i87.us, ptr %94, align 4, !tbaa !325
   %indvars.iv.next155 = add nuw nsw i64 %indvars.iv154, %20
   %95 = trunc nuw i64 %indvars.iv.next155 to i32
@@ -9722,19 +9722,19 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Mi
 97:                                               ; preds = %.preheader91, %97
   %indvars.iv145 = phi i64 [ %21, %.preheader91 ], [ %indvars.iv.next146, %97 ]
   %indvars.iv = phi i64 [ 0, %.preheader91 ], [ %indvars.iv.next, %97 ]
-  %98 = getelementptr inbounds nuw float, ptr %.079109, i64 %indvars.iv
-  %99 = getelementptr inbounds nuw float, ptr %98, i64 %20
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %.079109, i64 %indvars.iv
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %98, i64 %20
   %100 = load float, ptr %99, align 4, !tbaa !325
   %101 = load float, ptr %98, align 4, !tbaa !325
   %102 = fcmp olt float %101, %100
   %.sroa.speculated.i85 = select i1 %102, float %101, float %100
-  %103 = getelementptr inbounds nuw float, ptr %.078111, i64 %indvars.iv
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %.078111, i64 %indvars.iv
   store float %.sroa.speculated.i85, ptr %103, align 4, !tbaa !325
-  %104 = getelementptr inbounds nuw float, ptr %98, i64 %21
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %98, i64 %21
   %105 = load float, ptr %104, align 4, !tbaa !325
   %106 = fcmp olt float %105, %100
   %.sroa.speculated.i86 = select i1 %106, float %105, float %100
-  %gep = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   store float %.sroa.speculated.i86, ptr %gep, align 4, !tbaa !325
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, %21
   %107 = trunc nuw i64 %indvars.iv.next to i32
@@ -9744,9 +9744,9 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Mi
 
 .lr.ph103.split:                                  ; preds = %.lr.ph103, %.lr.ph103.split
   %indvars.iv147 = phi i64 [ %indvars.iv.next148, %.lr.ph103.split ], [ %indvars.iv145, %.lr.ph103 ]
-  %108 = getelementptr inbounds nuw float, ptr %.079109, i64 %indvars.iv147
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %.079109, i64 %indvars.iv147
   %109 = load float, ptr %108, align 4, !tbaa !325
-  %110 = getelementptr inbounds nuw float, ptr %.078111, i64 %indvars.iv147
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %.078111, i64 %indvars.iv147
   store float %109, ptr %110, align 4, !tbaa !325
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, %20
   %111 = trunc nuw i64 %indvars.iv.next148 to i32
@@ -9864,9 +9864,9 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Mi
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv187 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next188, %.lr.ph ]
-  %13 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv187
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv187
   %14 = load double, ptr %13, align 8, !tbaa !232
-  %15 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv187
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv187
   store double %14, ptr %15, align 8, !tbaa !232
   %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
   %exitcond190.not = icmp eq i64 %indvars.iv.next188, %wide.trip.count
@@ -9900,14 +9900,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Mi
 
 .lr.ph.us105.us.us.us:                            ; preds = %._crit_edge.us106.us.us.us, %.preheader91.us.us.us
   %indvars.iv183 = phi i64 [ %indvars.iv.next184, %._crit_edge.us106.us.us.us ], [ 0, %.preheader91.us.us.us ]
-  %24 = getelementptr inbounds nuw double, ptr %.079109.us.us.us, i64 %indvars.iv183
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.079109.us.us.us, i64 %indvars.iv183
   %25 = load double, ptr %24, align 8, !tbaa !232
   br label %26
 
 26:                                               ; preds = %26, %.lr.ph.us105.us.us.us
   %indvars.iv180 = phi i64 [ %indvars.iv.next181, %26 ], [ %20, %.lr.ph.us105.us.us.us ]
   %.0101.us.us.us.us = phi double [ %.sroa.speculated.i87.us.us.us.us, %26 ], [ %25, %.lr.ph.us105.us.us.us ]
-  %27 = getelementptr inbounds nuw double, ptr %24, i64 %indvars.iv180
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv180
   %28 = load double, ptr %27, align 8, !tbaa !232
   %29 = fcmp olt double %28, %.0101.us.us.us.us
   %.sroa.speculated.i87.us.us.us.us = select i1 %29, double %28, double %.0101.us.us.us.us
@@ -9917,7 +9917,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Mi
   br i1 %31, label %26, label %._crit_edge.us106.us.us.us, !llvm.loop !334
 
 ._crit_edge.us106.us.us.us:                       ; preds = %26
-  %32 = getelementptr inbounds nuw double, ptr %.078111.us.us.us, i64 %indvars.iv183
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %.078111.us.us.us, i64 %indvars.iv183
   store double %.sroa.speculated.i87.us.us.us.us, ptr %32, align 8, !tbaa !232
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, %20
   %33 = trunc nuw i64 %indvars.iv.next184 to i32
@@ -9939,9 +9939,9 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Mi
 
 38:                                               ; preds = %.preheader91.us.us, %38
   %indvars.iv176 = phi i64 [ 0, %.preheader91.us.us ], [ %indvars.iv.next177, %38 ]
-  %39 = getelementptr inbounds nuw double, ptr %.079109.us.us, i64 %indvars.iv176
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %.079109.us.us, i64 %indvars.iv176
   %40 = load double, ptr %39, align 8, !tbaa !232
-  %41 = getelementptr inbounds nuw double, ptr %.078111.us.us, i64 %indvars.iv176
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %.078111.us.us, i64 %indvars.iv176
   store double %40, ptr %41, align 8, !tbaa !232
   %indvars.iv.next177 = add nuw nsw i64 %indvars.iv176, %20
   %42 = trunc nuw i64 %indvars.iv.next177 to i32
@@ -9963,7 +9963,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Mi
   %.078111.us117 = phi ptr [ %50, %._crit_edge104.us124 ], [ %2, %.preheader91.lr.ph.split ]
   %.079109.us118 = phi ptr [ %49, %._crit_edge104.us124 ], [ %1, %.preheader91.lr.ph.split ]
   %.080108.us119 = phi i32 [ %48, %._crit_edge104.us124 ], [ 0, %.preheader91.lr.ph.split ]
-  %invariant.gep210 = getelementptr inbounds nuw double, ptr %.078111.us117, i64 %20
+  %invariant.gep210 = getelementptr inbounds nuw [8 x i8], ptr %.078111.us117, i64 %20
   br label %.lr.ph.us.us
 
 ._crit_edge104.us124:                             ; preds = %.lr.ph103.split.us123, %._crit_edge.us106.us131, %..preheader90_crit_edge.split.us.us
@@ -9975,9 +9975,9 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Mi
 
 .lr.ph103.split.us123:                            ; preds = %.lr.ph103.us121, %.lr.ph103.split.us123
   %indvars.iv165 = phi i64 [ %indvars.iv.next166, %.lr.ph103.split.us123 ], [ %indvars.iv163, %.lr.ph103.us121 ]
-  %51 = getelementptr inbounds nuw double, ptr %.079109.us118, i64 %indvars.iv165
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %.079109.us118, i64 %indvars.iv165
   %52 = load double, ptr %51, align 8, !tbaa !232
-  %53 = getelementptr inbounds nuw double, ptr %.078111.us117, i64 %indvars.iv165
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %.078111.us117, i64 %indvars.iv165
   store double %52, ptr %53, align 8, !tbaa !232
   %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, %20
   %54 = trunc nuw i64 %indvars.iv.next166 to i32
@@ -9987,15 +9987,15 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Mi
 .lr.ph.us.us:                                     ; preds = %._crit_edge.us.us, %.preheader91.us116
   %indvars.iv163 = phi i64 [ %indvars.iv.next164, %._crit_edge.us.us ], [ %21, %.preheader91.us116 ]
   %indvars.iv160 = phi i64 [ %indvars.iv.next161, %._crit_edge.us.us ], [ 0, %.preheader91.us116 ]
-  %56 = getelementptr inbounds nuw double, ptr %.079109.us118, i64 %indvars.iv160
-  %57 = getelementptr inbounds nuw double, ptr %56, i64 %20
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %.079109.us118, i64 %indvars.iv160
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %20
   %58 = load double, ptr %57, align 8, !tbaa !232
   br label %59
 
 59:                                               ; preds = %59, %.lr.ph.us.us
   %indvars.iv157 = phi i64 [ %indvars.iv.next158, %59 ], [ %21, %.lr.ph.us.us ]
   %.07494.us.us = phi double [ %.sroa.speculated.i.us.us, %59 ], [ %58, %.lr.ph.us.us ]
-  %60 = getelementptr inbounds nuw double, ptr %56, i64 %indvars.iv157
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv157
   %61 = load double, ptr %60, align 8, !tbaa !232
   %62 = fcmp olt double %61, %.07494.us.us
   %.sroa.speculated.i.us.us = select i1 %62, double %61, double %.07494.us.us
@@ -10008,14 +10008,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Mi
   %65 = load double, ptr %56, align 8, !tbaa !232
   %66 = fcmp olt double %65, %.sroa.speculated.i.us.us
   %.sroa.speculated.i85.us.us = select i1 %66, double %65, double %.sroa.speculated.i.us.us
-  %67 = getelementptr inbounds nuw double, ptr %.078111.us117, i64 %indvars.iv160
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %.078111.us117, i64 %indvars.iv160
   store double %.sroa.speculated.i85.us.us, ptr %67, align 8, !tbaa !232
   %68 = and i64 %indvars.iv.next158, 4294967295
-  %69 = getelementptr inbounds nuw double, ptr %56, i64 %68
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %68
   %70 = load double, ptr %69, align 8, !tbaa !232
   %71 = fcmp olt double %70, %.sroa.speculated.i.us.us
   %.sroa.speculated.i86.us.us = select i1 %71, double %70, double %.sroa.speculated.i.us.us
-  %gep211 = getelementptr inbounds nuw double, ptr %invariant.gep210, i64 %indvars.iv160
+  %gep211 = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep210, i64 %indvars.iv160
   store double %.sroa.speculated.i86.us.us, ptr %gep211, align 8, !tbaa !232
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, %21
   %72 = trunc nuw i64 %indvars.iv.next161 to i32
@@ -10032,14 +10032,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Mi
 
 .lr.ph.us105.us126:                               ; preds = %.lr.ph103.us121, %._crit_edge.us106.us131
   %indvars.iv172 = phi i64 [ %indvars.iv.next173, %._crit_edge.us106.us131 ], [ %indvars.iv163, %.lr.ph103.us121 ]
-  %74 = getelementptr inbounds nuw double, ptr %.079109.us118, i64 %indvars.iv172
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %.079109.us118, i64 %indvars.iv172
   %75 = load double, ptr %74, align 8, !tbaa !232
   br label %76
 
 76:                                               ; preds = %76, %.lr.ph.us105.us126
   %indvars.iv168 = phi i64 [ %indvars.iv.next169, %76 ], [ %20, %.lr.ph.us105.us126 ]
   %.0101.us.us128 = phi double [ %.sroa.speculated.i87.us.us130, %76 ], [ %75, %.lr.ph.us105.us126 ]
-  %77 = getelementptr inbounds nuw double, ptr %74, i64 %indvars.iv168
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %indvars.iv168
   %78 = load double, ptr %77, align 8, !tbaa !232
   %79 = fcmp olt double %78, %.0101.us.us128
   %.sroa.speculated.i87.us.us130 = select i1 %79, double %78, double %.0101.us.us128
@@ -10049,7 +10049,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Mi
   br i1 %81, label %76, label %._crit_edge.us106.us131, !llvm.loop !334
 
 ._crit_edge.us106.us131:                          ; preds = %76
-  %82 = getelementptr inbounds nuw double, ptr %.078111.us117, i64 %indvars.iv172
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %.078111.us117, i64 %indvars.iv172
   store double %.sroa.speculated.i87.us.us130, ptr %82, align 8, !tbaa !232
   %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, %20
   %83 = trunc nuw i64 %indvars.iv.next173 to i32
@@ -10060,7 +10060,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Mi
   %.078111 = phi ptr [ %115, %._crit_edge104 ], [ %2, %.preheader91.lr.ph.split ]
   %.079109 = phi ptr [ %114, %._crit_edge104 ], [ %1, %.preheader91.lr.ph.split ]
   %.080108 = phi i32 [ %113, %._crit_edge104 ], [ 0, %.preheader91.lr.ph.split ]
-  %invariant.gep = getelementptr inbounds nuw double, ptr %.078111, i64 %20
+  %invariant.gep = getelementptr inbounds nuw [8 x i8], ptr %.078111, i64 %20
   br label %97
 
 ..preheader90_crit_edge.split:                    ; preds = %97
@@ -10072,14 +10072,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Mi
 
 .lr.ph.us105:                                     ; preds = %.lr.ph103, %._crit_edge.us106
   %indvars.iv154 = phi i64 [ %indvars.iv.next155, %._crit_edge.us106 ], [ %indvars.iv145, %.lr.ph103 ]
-  %86 = getelementptr inbounds nuw double, ptr %.079109, i64 %indvars.iv154
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %.079109, i64 %indvars.iv154
   %87 = load double, ptr %86, align 8, !tbaa !232
   br label %88
 
 88:                                               ; preds = %.lr.ph.us105, %88
   %indvars.iv150 = phi i64 [ %20, %.lr.ph.us105 ], [ %indvars.iv.next151, %88 ]
   %.0101.us = phi double [ %87, %.lr.ph.us105 ], [ %.sroa.speculated.i87.us, %88 ]
-  %89 = getelementptr inbounds nuw double, ptr %86, i64 %indvars.iv150
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %indvars.iv150
   %90 = load double, ptr %89, align 8, !tbaa !232
   %91 = fcmp olt double %90, %.0101.us
   %.sroa.speculated.i87.us = select i1 %91, double %90, double %.0101.us
@@ -10089,7 +10089,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Mi
   br i1 %93, label %88, label %._crit_edge.us106, !llvm.loop !334
 
 ._crit_edge.us106:                                ; preds = %88
-  %94 = getelementptr inbounds nuw double, ptr %.078111, i64 %indvars.iv154
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %.078111, i64 %indvars.iv154
   store double %.sroa.speculated.i87.us, ptr %94, align 8, !tbaa !232
   %indvars.iv.next155 = add nuw nsw i64 %indvars.iv154, %20
   %95 = trunc nuw i64 %indvars.iv.next155 to i32
@@ -10099,19 +10099,19 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Mi
 97:                                               ; preds = %.preheader91, %97
   %indvars.iv145 = phi i64 [ %21, %.preheader91 ], [ %indvars.iv.next146, %97 ]
   %indvars.iv = phi i64 [ 0, %.preheader91 ], [ %indvars.iv.next, %97 ]
-  %98 = getelementptr inbounds nuw double, ptr %.079109, i64 %indvars.iv
-  %99 = getelementptr inbounds nuw double, ptr %98, i64 %20
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %.079109, i64 %indvars.iv
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %20
   %100 = load double, ptr %99, align 8, !tbaa !232
   %101 = load double, ptr %98, align 8, !tbaa !232
   %102 = fcmp olt double %101, %100
   %.sroa.speculated.i85 = select i1 %102, double %101, double %100
-  %103 = getelementptr inbounds nuw double, ptr %.078111, i64 %indvars.iv
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %.078111, i64 %indvars.iv
   store double %.sroa.speculated.i85, ptr %103, align 8, !tbaa !232
-  %104 = getelementptr inbounds nuw double, ptr %98, i64 %21
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %21
   %105 = load double, ptr %104, align 8, !tbaa !232
   %106 = fcmp olt double %105, %100
   %.sroa.speculated.i86 = select i1 %106, double %105, double %100
-  %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep, i64 %indvars.iv
   store double %.sroa.speculated.i86, ptr %gep, align 8, !tbaa !232
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, %21
   %107 = trunc nuw i64 %indvars.iv.next to i32
@@ -10121,9 +10121,9 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Mi
 
 .lr.ph103.split:                                  ; preds = %.lr.ph103, %.lr.ph103.split
   %indvars.iv147 = phi i64 [ %indvars.iv.next148, %.lr.ph103.split ], [ %indvars.iv145, %.lr.ph103 ]
-  %108 = getelementptr inbounds nuw double, ptr %.079109, i64 %indvars.iv147
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %.079109, i64 %indvars.iv147
   %109 = load double, ptr %108, align 8, !tbaa !232
-  %110 = getelementptr inbounds nuw double, ptr %.078111, i64 %indvars.iv147
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %.078111, i64 %indvars.iv147
   store double %109, ptr %110, align 8, !tbaa !232
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, %20
   %111 = trunc nuw i64 %indvars.iv.next148 to i32
@@ -10610,9 +10610,9 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Ma
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv183 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next184, %.lr.ph ]
-  %13 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv183
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv183
   %14 = load i16, ptr %13, align 2, !tbaa !311
-  %15 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv183
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv183
   store i16 %14, ptr %15, align 2, !tbaa !311
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
   %exitcond186.not = icmp eq i64 %indvars.iv.next184, %wide.trip.count
@@ -10646,14 +10646,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Ma
 
 .lr.ph.us105.us.us.us:                            ; preds = %._crit_edge.us106.us.us.us, %.preheader91.us.us.us
   %indvars.iv179 = phi i64 [ %indvars.iv.next180, %._crit_edge.us106.us.us.us ], [ 0, %.preheader91.us.us.us ]
-  %24 = getelementptr inbounds nuw i16, ptr %.079109.us.us.us, i64 %indvars.iv179
+  %24 = getelementptr inbounds nuw [2 x i8], ptr %.079109.us.us.us, i64 %indvars.iv179
   %25 = load i16, ptr %24, align 2, !tbaa !311
   br label %26
 
 26:                                               ; preds = %26, %.lr.ph.us105.us.us.us
   %indvars.iv177 = phi i64 [ %indvars.iv.next178, %26 ], [ %20, %.lr.ph.us105.us.us.us ]
   %.0101.us.us.us.us = phi i16 [ %.sroa.speculated.i87.us.us.us.us, %26 ], [ %25, %.lr.ph.us105.us.us.us ]
-  %27 = getelementptr inbounds nuw i16, ptr %24, i64 %indvars.iv177
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %indvars.iv177
   %28 = load i16, ptr %27, align 2, !tbaa !311
   %.sroa.speculated.i87.us.us.us.us = call noundef i16 @llvm.umax.i16(i16 %.0101.us.us.us.us, i16 %28)
   %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, %20
@@ -10662,7 +10662,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Ma
   br i1 %30, label %26, label %._crit_edge.us106.us.us.us, !llvm.loop !346
 
 ._crit_edge.us106.us.us.us:                       ; preds = %26
-  %31 = getelementptr inbounds nuw i16, ptr %.078111.us.us.us, i64 %indvars.iv179
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %.078111.us.us.us, i64 %indvars.iv179
   store i16 %.sroa.speculated.i87.us.us.us.us, ptr %31, align 2, !tbaa !311
   %indvars.iv.next180 = add nuw nsw i64 %indvars.iv179, %20
   %32 = trunc nuw i64 %indvars.iv.next180 to i32
@@ -10684,9 +10684,9 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Ma
 
 37:                                               ; preds = %.preheader91.us.us, %37
   %indvars.iv173 = phi i64 [ 0, %.preheader91.us.us ], [ %indvars.iv.next174, %37 ]
-  %38 = getelementptr inbounds nuw i16, ptr %.079109.us.us, i64 %indvars.iv173
+  %38 = getelementptr inbounds nuw [2 x i8], ptr %.079109.us.us, i64 %indvars.iv173
   %39 = load i16, ptr %38, align 2, !tbaa !311
-  %40 = getelementptr inbounds nuw i16, ptr %.078111.us.us, i64 %indvars.iv173
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %.078111.us.us, i64 %indvars.iv173
   store i16 %39, ptr %40, align 2, !tbaa !311
   %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, %20
   %41 = trunc nuw i64 %indvars.iv.next174 to i32
@@ -10708,7 +10708,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Ma
   %.078111.us117 = phi ptr [ %49, %._crit_edge104.us124 ], [ %2, %.preheader91.lr.ph.split ]
   %.079109.us118 = phi ptr [ %48, %._crit_edge104.us124 ], [ %1, %.preheader91.lr.ph.split ]
   %.080108.us119 = phi i32 [ %47, %._crit_edge104.us124 ], [ 0, %.preheader91.lr.ph.split ]
-  %invariant.gep206 = getelementptr inbounds nuw i16, ptr %.078111.us117, i64 %20
+  %invariant.gep206 = getelementptr inbounds nuw [2 x i8], ptr %.078111.us117, i64 %20
   br label %.lr.ph.us.us
 
 ._crit_edge104.us124:                             ; preds = %.lr.ph103.split.us123, %._crit_edge.us106.us131, %..preheader90_crit_edge.split.us.us
@@ -10720,9 +10720,9 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Ma
 
 .lr.ph103.split.us123:                            ; preds = %.lr.ph103.us121, %.lr.ph103.split.us123
   %indvars.iv163 = phi i64 [ %indvars.iv.next164, %.lr.ph103.split.us123 ], [ %indvars.iv161, %.lr.ph103.us121 ]
-  %50 = getelementptr inbounds nuw i16, ptr %.079109.us118, i64 %indvars.iv163
+  %50 = getelementptr inbounds nuw [2 x i8], ptr %.079109.us118, i64 %indvars.iv163
   %51 = load i16, ptr %50, align 2, !tbaa !311
-  %52 = getelementptr inbounds nuw i16, ptr %.078111.us117, i64 %indvars.iv163
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %.078111.us117, i64 %indvars.iv163
   store i16 %51, ptr %52, align 2, !tbaa !311
   %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, %20
   %53 = trunc nuw i64 %indvars.iv.next164 to i32
@@ -10732,15 +10732,15 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Ma
 .lr.ph.us.us:                                     ; preds = %._crit_edge.us.us, %.preheader91.us116
   %indvars.iv161 = phi i64 [ %indvars.iv.next162, %._crit_edge.us.us ], [ %21, %.preheader91.us116 ]
   %indvars.iv158 = phi i64 [ %indvars.iv.next159, %._crit_edge.us.us ], [ 0, %.preheader91.us116 ]
-  %55 = getelementptr inbounds nuw i16, ptr %.079109.us118, i64 %indvars.iv158
-  %56 = getelementptr inbounds nuw i16, ptr %55, i64 %20
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %.079109.us118, i64 %indvars.iv158
+  %56 = getelementptr inbounds nuw [2 x i8], ptr %55, i64 %20
   %57 = load i16, ptr %56, align 2, !tbaa !311
   br label %58
 
 58:                                               ; preds = %58, %.lr.ph.us.us
   %indvars.iv156 = phi i64 [ %indvars.iv.next157, %58 ], [ %21, %.lr.ph.us.us ]
   %.07494.us.us = phi i16 [ %.sroa.speculated.i.us.us, %58 ], [ %57, %.lr.ph.us.us ]
-  %59 = getelementptr inbounds nuw i16, ptr %55, i64 %indvars.iv156
+  %59 = getelementptr inbounds nuw [2 x i8], ptr %55, i64 %indvars.iv156
   %60 = load i16, ptr %59, align 2, !tbaa !311
   %.sroa.speculated.i.us.us = call noundef i16 @llvm.umax.i16(i16 %.07494.us.us, i16 %60)
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, %20
@@ -10751,13 +10751,13 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Ma
 ._crit_edge.us.us:                                ; preds = %58
   %63 = load i16, ptr %55, align 2, !tbaa !311
   %.sroa.speculated.i85.us.us = call noundef i16 @llvm.umax.i16(i16 %.sroa.speculated.i.us.us, i16 %63)
-  %64 = getelementptr inbounds nuw i16, ptr %.078111.us117, i64 %indvars.iv158
+  %64 = getelementptr inbounds nuw [2 x i8], ptr %.078111.us117, i64 %indvars.iv158
   store i16 %.sroa.speculated.i85.us.us, ptr %64, align 2, !tbaa !311
   %65 = and i64 %indvars.iv.next157, 4294967295
-  %66 = getelementptr inbounds nuw i16, ptr %55, i64 %65
+  %66 = getelementptr inbounds nuw [2 x i8], ptr %55, i64 %65
   %67 = load i16, ptr %66, align 2, !tbaa !311
   %.sroa.speculated.i86.us.us = call noundef i16 @llvm.umax.i16(i16 %.sroa.speculated.i.us.us, i16 %67)
-  %gep207 = getelementptr inbounds nuw i16, ptr %invariant.gep206, i64 %indvars.iv158
+  %gep207 = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep206, i64 %indvars.iv158
   store i16 %.sroa.speculated.i86.us.us, ptr %gep207, align 2, !tbaa !311
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, %21
   %68 = trunc nuw i64 %indvars.iv.next159 to i32
@@ -10774,14 +10774,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Ma
 
 .lr.ph.us105.us126:                               ; preds = %.lr.ph103.us121, %._crit_edge.us106.us131
   %indvars.iv169 = phi i64 [ %indvars.iv.next170, %._crit_edge.us106.us131 ], [ %indvars.iv161, %.lr.ph103.us121 ]
-  %70 = getelementptr inbounds nuw i16, ptr %.079109.us118, i64 %indvars.iv169
+  %70 = getelementptr inbounds nuw [2 x i8], ptr %.079109.us118, i64 %indvars.iv169
   %71 = load i16, ptr %70, align 2, !tbaa !311
   br label %72
 
 72:                                               ; preds = %72, %.lr.ph.us105.us126
   %indvars.iv166 = phi i64 [ %indvars.iv.next167, %72 ], [ %20, %.lr.ph.us105.us126 ]
   %.0101.us.us128 = phi i16 [ %.sroa.speculated.i87.us.us130, %72 ], [ %71, %.lr.ph.us105.us126 ]
-  %73 = getelementptr inbounds nuw i16, ptr %70, i64 %indvars.iv166
+  %73 = getelementptr inbounds nuw [2 x i8], ptr %70, i64 %indvars.iv166
   %74 = load i16, ptr %73, align 2, !tbaa !311
   %.sroa.speculated.i87.us.us130 = call noundef i16 @llvm.umax.i16(i16 %.0101.us.us128, i16 %74)
   %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, %20
@@ -10790,7 +10790,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Ma
   br i1 %76, label %72, label %._crit_edge.us106.us131, !llvm.loop !346
 
 ._crit_edge.us106.us131:                          ; preds = %72
-  %77 = getelementptr inbounds nuw i16, ptr %.078111.us117, i64 %indvars.iv169
+  %77 = getelementptr inbounds nuw [2 x i8], ptr %.078111.us117, i64 %indvars.iv169
   store i16 %.sroa.speculated.i87.us.us130, ptr %77, align 2, !tbaa !311
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, %20
   %78 = trunc nuw i64 %indvars.iv.next170 to i32
@@ -10801,7 +10801,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Ma
   %.078111 = phi ptr [ %107, %._crit_edge104 ], [ %2, %.preheader91.lr.ph.split ]
   %.079109 = phi ptr [ %106, %._crit_edge104 ], [ %1, %.preheader91.lr.ph.split ]
   %.080108 = phi i32 [ %105, %._crit_edge104 ], [ 0, %.preheader91.lr.ph.split ]
-  %invariant.gep = getelementptr inbounds nuw i16, ptr %.078111, i64 %20
+  %invariant.gep = getelementptr inbounds nuw [2 x i8], ptr %.078111, i64 %20
   br label %91
 
 ..preheader90_crit_edge.split:                    ; preds = %91
@@ -10813,14 +10813,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Ma
 
 .lr.ph.us105:                                     ; preds = %.lr.ph103, %._crit_edge.us106
   %indvars.iv153 = phi i64 [ %indvars.iv.next154, %._crit_edge.us106 ], [ %indvars.iv145, %.lr.ph103 ]
-  %81 = getelementptr inbounds nuw i16, ptr %.079109, i64 %indvars.iv153
+  %81 = getelementptr inbounds nuw [2 x i8], ptr %.079109, i64 %indvars.iv153
   %82 = load i16, ptr %81, align 2, !tbaa !311
   br label %83
 
 83:                                               ; preds = %.lr.ph.us105, %83
   %indvars.iv150 = phi i64 [ %20, %.lr.ph.us105 ], [ %indvars.iv.next151, %83 ]
   %.0101.us = phi i16 [ %82, %.lr.ph.us105 ], [ %.sroa.speculated.i87.us, %83 ]
-  %84 = getelementptr inbounds nuw i16, ptr %81, i64 %indvars.iv150
+  %84 = getelementptr inbounds nuw [2 x i8], ptr %81, i64 %indvars.iv150
   %85 = load i16, ptr %84, align 2, !tbaa !311
   %.sroa.speculated.i87.us = call noundef i16 @llvm.umax.i16(i16 %.0101.us, i16 %85)
   %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, %20
@@ -10829,7 +10829,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Ma
   br i1 %87, label %83, label %._crit_edge.us106, !llvm.loop !346
 
 ._crit_edge.us106:                                ; preds = %83
-  %88 = getelementptr inbounds nuw i16, ptr %.078111, i64 %indvars.iv153
+  %88 = getelementptr inbounds nuw [2 x i8], ptr %.078111, i64 %indvars.iv153
   store i16 %.sroa.speculated.i87.us, ptr %88, align 2, !tbaa !311
   %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, %20
   %89 = trunc nuw i64 %indvars.iv.next154 to i32
@@ -10839,17 +10839,17 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Ma
 91:                                               ; preds = %.preheader91, %91
   %indvars.iv145 = phi i64 [ %21, %.preheader91 ], [ %indvars.iv.next146, %91 ]
   %indvars.iv = phi i64 [ 0, %.preheader91 ], [ %indvars.iv.next, %91 ]
-  %92 = getelementptr inbounds nuw i16, ptr %.079109, i64 %indvars.iv
-  %93 = getelementptr inbounds nuw i16, ptr %92, i64 %20
+  %92 = getelementptr inbounds nuw [2 x i8], ptr %.079109, i64 %indvars.iv
+  %93 = getelementptr inbounds nuw [2 x i8], ptr %92, i64 %20
   %94 = load i16, ptr %93, align 2, !tbaa !311
   %95 = load i16, ptr %92, align 2, !tbaa !311
   %.sroa.speculated.i85 = call noundef i16 @llvm.umax.i16(i16 %94, i16 %95)
-  %96 = getelementptr inbounds nuw i16, ptr %.078111, i64 %indvars.iv
+  %96 = getelementptr inbounds nuw [2 x i8], ptr %.078111, i64 %indvars.iv
   store i16 %.sroa.speculated.i85, ptr %96, align 2, !tbaa !311
-  %97 = getelementptr inbounds nuw i16, ptr %92, i64 %21
+  %97 = getelementptr inbounds nuw [2 x i8], ptr %92, i64 %21
   %98 = load i16, ptr %97, align 2, !tbaa !311
   %.sroa.speculated.i86 = call noundef i16 @llvm.umax.i16(i16 %94, i16 %98)
-  %gep = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep, i64 %indvars.iv
   store i16 %.sroa.speculated.i86, ptr %gep, align 2, !tbaa !311
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, %21
   %99 = trunc nuw i64 %indvars.iv.next to i32
@@ -10859,9 +10859,9 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Ma
 
 .lr.ph103.split:                                  ; preds = %.lr.ph103, %.lr.ph103.split
   %indvars.iv147 = phi i64 [ %indvars.iv.next148, %.lr.ph103.split ], [ %indvars.iv145, %.lr.ph103 ]
-  %100 = getelementptr inbounds nuw i16, ptr %.079109, i64 %indvars.iv147
+  %100 = getelementptr inbounds nuw [2 x i8], ptr %.079109, i64 %indvars.iv147
   %101 = load i16, ptr %100, align 2, !tbaa !311
-  %102 = getelementptr inbounds nuw i16, ptr %.078111, i64 %indvars.iv147
+  %102 = getelementptr inbounds nuw [2 x i8], ptr %.078111, i64 %indvars.iv147
   store i16 %101, ptr %102, align 2, !tbaa !311
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, %20
   %103 = trunc nuw i64 %indvars.iv.next148 to i32
@@ -10979,9 +10979,9 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Ma
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv183 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next184, %.lr.ph ]
-  %13 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv183
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv183
   %14 = load i16, ptr %13, align 2, !tbaa !311
-  %15 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv183
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv183
   store i16 %14, ptr %15, align 2, !tbaa !311
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, 1
   %exitcond186.not = icmp eq i64 %indvars.iv.next184, %wide.trip.count
@@ -11015,14 +11015,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Ma
 
 .lr.ph.us105.us.us.us:                            ; preds = %._crit_edge.us106.us.us.us, %.preheader91.us.us.us
   %indvars.iv179 = phi i64 [ %indvars.iv.next180, %._crit_edge.us106.us.us.us ], [ 0, %.preheader91.us.us.us ]
-  %24 = getelementptr inbounds nuw i16, ptr %.079109.us.us.us, i64 %indvars.iv179
+  %24 = getelementptr inbounds nuw [2 x i8], ptr %.079109.us.us.us, i64 %indvars.iv179
   %25 = load i16, ptr %24, align 2, !tbaa !311
   br label %26
 
 26:                                               ; preds = %26, %.lr.ph.us105.us.us.us
   %indvars.iv177 = phi i64 [ %indvars.iv.next178, %26 ], [ %20, %.lr.ph.us105.us.us.us ]
   %.0101.us.us.us.us = phi i16 [ %.sroa.speculated.i87.us.us.us.us, %26 ], [ %25, %.lr.ph.us105.us.us.us ]
-  %27 = getelementptr inbounds nuw i16, ptr %24, i64 %indvars.iv177
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %indvars.iv177
   %28 = load i16, ptr %27, align 2, !tbaa !311
   %.sroa.speculated.i87.us.us.us.us = call noundef i16 @llvm.smax.i16(i16 %.0101.us.us.us.us, i16 %28)
   %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, %20
@@ -11031,7 +11031,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Ma
   br i1 %30, label %26, label %._crit_edge.us106.us.us.us, !llvm.loop !352
 
 ._crit_edge.us106.us.us.us:                       ; preds = %26
-  %31 = getelementptr inbounds nuw i16, ptr %.078111.us.us.us, i64 %indvars.iv179
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %.078111.us.us.us, i64 %indvars.iv179
   store i16 %.sroa.speculated.i87.us.us.us.us, ptr %31, align 2, !tbaa !311
   %indvars.iv.next180 = add nuw nsw i64 %indvars.iv179, %20
   %32 = trunc nuw i64 %indvars.iv.next180 to i32
@@ -11053,9 +11053,9 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Ma
 
 37:                                               ; preds = %.preheader91.us.us, %37
   %indvars.iv173 = phi i64 [ 0, %.preheader91.us.us ], [ %indvars.iv.next174, %37 ]
-  %38 = getelementptr inbounds nuw i16, ptr %.079109.us.us, i64 %indvars.iv173
+  %38 = getelementptr inbounds nuw [2 x i8], ptr %.079109.us.us, i64 %indvars.iv173
   %39 = load i16, ptr %38, align 2, !tbaa !311
-  %40 = getelementptr inbounds nuw i16, ptr %.078111.us.us, i64 %indvars.iv173
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %.078111.us.us, i64 %indvars.iv173
   store i16 %39, ptr %40, align 2, !tbaa !311
   %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, %20
   %41 = trunc nuw i64 %indvars.iv.next174 to i32
@@ -11077,7 +11077,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Ma
   %.078111.us117 = phi ptr [ %49, %._crit_edge104.us124 ], [ %2, %.preheader91.lr.ph.split ]
   %.079109.us118 = phi ptr [ %48, %._crit_edge104.us124 ], [ %1, %.preheader91.lr.ph.split ]
   %.080108.us119 = phi i32 [ %47, %._crit_edge104.us124 ], [ 0, %.preheader91.lr.ph.split ]
-  %invariant.gep206 = getelementptr inbounds nuw i16, ptr %.078111.us117, i64 %20
+  %invariant.gep206 = getelementptr inbounds nuw [2 x i8], ptr %.078111.us117, i64 %20
   br label %.lr.ph.us.us
 
 ._crit_edge104.us124:                             ; preds = %.lr.ph103.split.us123, %._crit_edge.us106.us131, %..preheader90_crit_edge.split.us.us
@@ -11089,9 +11089,9 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Ma
 
 .lr.ph103.split.us123:                            ; preds = %.lr.ph103.us121, %.lr.ph103.split.us123
   %indvars.iv163 = phi i64 [ %indvars.iv.next164, %.lr.ph103.split.us123 ], [ %indvars.iv161, %.lr.ph103.us121 ]
-  %50 = getelementptr inbounds nuw i16, ptr %.079109.us118, i64 %indvars.iv163
+  %50 = getelementptr inbounds nuw [2 x i8], ptr %.079109.us118, i64 %indvars.iv163
   %51 = load i16, ptr %50, align 2, !tbaa !311
-  %52 = getelementptr inbounds nuw i16, ptr %.078111.us117, i64 %indvars.iv163
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %.078111.us117, i64 %indvars.iv163
   store i16 %51, ptr %52, align 2, !tbaa !311
   %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, %20
   %53 = trunc nuw i64 %indvars.iv.next164 to i32
@@ -11101,15 +11101,15 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Ma
 .lr.ph.us.us:                                     ; preds = %._crit_edge.us.us, %.preheader91.us116
   %indvars.iv161 = phi i64 [ %indvars.iv.next162, %._crit_edge.us.us ], [ %21, %.preheader91.us116 ]
   %indvars.iv158 = phi i64 [ %indvars.iv.next159, %._crit_edge.us.us ], [ 0, %.preheader91.us116 ]
-  %55 = getelementptr inbounds nuw i16, ptr %.079109.us118, i64 %indvars.iv158
-  %56 = getelementptr inbounds nuw i16, ptr %55, i64 %20
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %.079109.us118, i64 %indvars.iv158
+  %56 = getelementptr inbounds nuw [2 x i8], ptr %55, i64 %20
   %57 = load i16, ptr %56, align 2, !tbaa !311
   br label %58
 
 58:                                               ; preds = %58, %.lr.ph.us.us
   %indvars.iv156 = phi i64 [ %indvars.iv.next157, %58 ], [ %21, %.lr.ph.us.us ]
   %.07494.us.us = phi i16 [ %.sroa.speculated.i.us.us, %58 ], [ %57, %.lr.ph.us.us ]
-  %59 = getelementptr inbounds nuw i16, ptr %55, i64 %indvars.iv156
+  %59 = getelementptr inbounds nuw [2 x i8], ptr %55, i64 %indvars.iv156
   %60 = load i16, ptr %59, align 2, !tbaa !311
   %.sroa.speculated.i.us.us = call noundef i16 @llvm.smax.i16(i16 %.07494.us.us, i16 %60)
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, %20
@@ -11120,13 +11120,13 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Ma
 ._crit_edge.us.us:                                ; preds = %58
   %63 = load i16, ptr %55, align 2, !tbaa !311
   %.sroa.speculated.i85.us.us = call noundef i16 @llvm.smax.i16(i16 %.sroa.speculated.i.us.us, i16 %63)
-  %64 = getelementptr inbounds nuw i16, ptr %.078111.us117, i64 %indvars.iv158
+  %64 = getelementptr inbounds nuw [2 x i8], ptr %.078111.us117, i64 %indvars.iv158
   store i16 %.sroa.speculated.i85.us.us, ptr %64, align 2, !tbaa !311
   %65 = and i64 %indvars.iv.next157, 4294967295
-  %66 = getelementptr inbounds nuw i16, ptr %55, i64 %65
+  %66 = getelementptr inbounds nuw [2 x i8], ptr %55, i64 %65
   %67 = load i16, ptr %66, align 2, !tbaa !311
   %.sroa.speculated.i86.us.us = call noundef i16 @llvm.smax.i16(i16 %.sroa.speculated.i.us.us, i16 %67)
-  %gep207 = getelementptr inbounds nuw i16, ptr %invariant.gep206, i64 %indvars.iv158
+  %gep207 = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep206, i64 %indvars.iv158
   store i16 %.sroa.speculated.i86.us.us, ptr %gep207, align 2, !tbaa !311
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, %21
   %68 = trunc nuw i64 %indvars.iv.next159 to i32
@@ -11143,14 +11143,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Ma
 
 .lr.ph.us105.us126:                               ; preds = %.lr.ph103.us121, %._crit_edge.us106.us131
   %indvars.iv169 = phi i64 [ %indvars.iv.next170, %._crit_edge.us106.us131 ], [ %indvars.iv161, %.lr.ph103.us121 ]
-  %70 = getelementptr inbounds nuw i16, ptr %.079109.us118, i64 %indvars.iv169
+  %70 = getelementptr inbounds nuw [2 x i8], ptr %.079109.us118, i64 %indvars.iv169
   %71 = load i16, ptr %70, align 2, !tbaa !311
   br label %72
 
 72:                                               ; preds = %72, %.lr.ph.us105.us126
   %indvars.iv166 = phi i64 [ %indvars.iv.next167, %72 ], [ %20, %.lr.ph.us105.us126 ]
   %.0101.us.us128 = phi i16 [ %.sroa.speculated.i87.us.us130, %72 ], [ %71, %.lr.ph.us105.us126 ]
-  %73 = getelementptr inbounds nuw i16, ptr %70, i64 %indvars.iv166
+  %73 = getelementptr inbounds nuw [2 x i8], ptr %70, i64 %indvars.iv166
   %74 = load i16, ptr %73, align 2, !tbaa !311
   %.sroa.speculated.i87.us.us130 = call noundef i16 @llvm.smax.i16(i16 %.0101.us.us128, i16 %74)
   %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, %20
@@ -11159,7 +11159,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Ma
   br i1 %76, label %72, label %._crit_edge.us106.us131, !llvm.loop !352
 
 ._crit_edge.us106.us131:                          ; preds = %72
-  %77 = getelementptr inbounds nuw i16, ptr %.078111.us117, i64 %indvars.iv169
+  %77 = getelementptr inbounds nuw [2 x i8], ptr %.078111.us117, i64 %indvars.iv169
   store i16 %.sroa.speculated.i87.us.us130, ptr %77, align 2, !tbaa !311
   %indvars.iv.next170 = add nuw nsw i64 %indvars.iv169, %20
   %78 = trunc nuw i64 %indvars.iv.next170 to i32
@@ -11170,7 +11170,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Ma
   %.078111 = phi ptr [ %107, %._crit_edge104 ], [ %2, %.preheader91.lr.ph.split ]
   %.079109 = phi ptr [ %106, %._crit_edge104 ], [ %1, %.preheader91.lr.ph.split ]
   %.080108 = phi i32 [ %105, %._crit_edge104 ], [ 0, %.preheader91.lr.ph.split ]
-  %invariant.gep = getelementptr inbounds nuw i16, ptr %.078111, i64 %20
+  %invariant.gep = getelementptr inbounds nuw [2 x i8], ptr %.078111, i64 %20
   br label %91
 
 ..preheader90_crit_edge.split:                    ; preds = %91
@@ -11182,14 +11182,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Ma
 
 .lr.ph.us105:                                     ; preds = %.lr.ph103, %._crit_edge.us106
   %indvars.iv153 = phi i64 [ %indvars.iv.next154, %._crit_edge.us106 ], [ %indvars.iv145, %.lr.ph103 ]
-  %81 = getelementptr inbounds nuw i16, ptr %.079109, i64 %indvars.iv153
+  %81 = getelementptr inbounds nuw [2 x i8], ptr %.079109, i64 %indvars.iv153
   %82 = load i16, ptr %81, align 2, !tbaa !311
   br label %83
 
 83:                                               ; preds = %.lr.ph.us105, %83
   %indvars.iv150 = phi i64 [ %20, %.lr.ph.us105 ], [ %indvars.iv.next151, %83 ]
   %.0101.us = phi i16 [ %82, %.lr.ph.us105 ], [ %.sroa.speculated.i87.us, %83 ]
-  %84 = getelementptr inbounds nuw i16, ptr %81, i64 %indvars.iv150
+  %84 = getelementptr inbounds nuw [2 x i8], ptr %81, i64 %indvars.iv150
   %85 = load i16, ptr %84, align 2, !tbaa !311
   %.sroa.speculated.i87.us = call noundef i16 @llvm.smax.i16(i16 %.0101.us, i16 %85)
   %indvars.iv.next151 = add nuw nsw i64 %indvars.iv150, %20
@@ -11198,7 +11198,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Ma
   br i1 %87, label %83, label %._crit_edge.us106, !llvm.loop !352
 
 ._crit_edge.us106:                                ; preds = %83
-  %88 = getelementptr inbounds nuw i16, ptr %.078111, i64 %indvars.iv153
+  %88 = getelementptr inbounds nuw [2 x i8], ptr %.078111, i64 %indvars.iv153
   store i16 %.sroa.speculated.i87.us, ptr %88, align 2, !tbaa !311
   %indvars.iv.next154 = add nuw nsw i64 %indvars.iv153, %20
   %89 = trunc nuw i64 %indvars.iv.next154 to i32
@@ -11208,17 +11208,17 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Ma
 91:                                               ; preds = %.preheader91, %91
   %indvars.iv145 = phi i64 [ %21, %.preheader91 ], [ %indvars.iv.next146, %91 ]
   %indvars.iv = phi i64 [ 0, %.preheader91 ], [ %indvars.iv.next, %91 ]
-  %92 = getelementptr inbounds nuw i16, ptr %.079109, i64 %indvars.iv
-  %93 = getelementptr inbounds nuw i16, ptr %92, i64 %20
+  %92 = getelementptr inbounds nuw [2 x i8], ptr %.079109, i64 %indvars.iv
+  %93 = getelementptr inbounds nuw [2 x i8], ptr %92, i64 %20
   %94 = load i16, ptr %93, align 2, !tbaa !311
   %95 = load i16, ptr %92, align 2, !tbaa !311
   %.sroa.speculated.i85 = call noundef i16 @llvm.smax.i16(i16 %94, i16 %95)
-  %96 = getelementptr inbounds nuw i16, ptr %.078111, i64 %indvars.iv
+  %96 = getelementptr inbounds nuw [2 x i8], ptr %.078111, i64 %indvars.iv
   store i16 %.sroa.speculated.i85, ptr %96, align 2, !tbaa !311
-  %97 = getelementptr inbounds nuw i16, ptr %92, i64 %21
+  %97 = getelementptr inbounds nuw [2 x i8], ptr %92, i64 %21
   %98 = load i16, ptr %97, align 2, !tbaa !311
   %.sroa.speculated.i86 = call noundef i16 @llvm.smax.i16(i16 %94, i16 %98)
-  %gep = getelementptr inbounds nuw i16, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [2 x i8], ptr %invariant.gep, i64 %indvars.iv
   store i16 %.sroa.speculated.i86, ptr %gep, align 2, !tbaa !311
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, %21
   %99 = trunc nuw i64 %indvars.iv.next to i32
@@ -11228,9 +11228,9 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Ma
 
 .lr.ph103.split:                                  ; preds = %.lr.ph103, %.lr.ph103.split
   %indvars.iv147 = phi i64 [ %indvars.iv.next148, %.lr.ph103.split ], [ %indvars.iv145, %.lr.ph103 ]
-  %100 = getelementptr inbounds nuw i16, ptr %.079109, i64 %indvars.iv147
+  %100 = getelementptr inbounds nuw [2 x i8], ptr %.079109, i64 %indvars.iv147
   %101 = load i16, ptr %100, align 2, !tbaa !311
-  %102 = getelementptr inbounds nuw i16, ptr %.078111, i64 %indvars.iv147
+  %102 = getelementptr inbounds nuw [2 x i8], ptr %.078111, i64 %indvars.iv147
   store i16 %101, ptr %102, align 2, !tbaa !311
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, %20
   %103 = trunc nuw i64 %indvars.iv.next148 to i32
@@ -11348,9 +11348,9 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Ma
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv187 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next188, %.lr.ph ]
-  %13 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv187
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv187
   %14 = load float, ptr %13, align 4, !tbaa !325
-  %15 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv187
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv187
   store float %14, ptr %15, align 4, !tbaa !325
   %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
   %exitcond190.not = icmp eq i64 %indvars.iv.next188, %wide.trip.count
@@ -11384,14 +11384,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Ma
 
 .lr.ph.us105.us.us.us:                            ; preds = %._crit_edge.us106.us.us.us, %.preheader91.us.us.us
   %indvars.iv183 = phi i64 [ %indvars.iv.next184, %._crit_edge.us106.us.us.us ], [ 0, %.preheader91.us.us.us ]
-  %24 = getelementptr inbounds nuw float, ptr %.079109.us.us.us, i64 %indvars.iv183
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %.079109.us.us.us, i64 %indvars.iv183
   %25 = load float, ptr %24, align 4, !tbaa !325
   br label %26
 
 26:                                               ; preds = %26, %.lr.ph.us105.us.us.us
   %indvars.iv180 = phi i64 [ %indvars.iv.next181, %26 ], [ %20, %.lr.ph.us105.us.us.us ]
   %.0101.us.us.us.us = phi float [ %.sroa.speculated.i87.us.us.us.us, %26 ], [ %25, %.lr.ph.us105.us.us.us ]
-  %27 = getelementptr inbounds nuw float, ptr %24, i64 %indvars.iv180
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv180
   %28 = load float, ptr %27, align 4, !tbaa !325
   %29 = fcmp olt float %.0101.us.us.us.us, %28
   %.sroa.speculated.i87.us.us.us.us = select i1 %29, float %28, float %.0101.us.us.us.us
@@ -11401,7 +11401,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Ma
   br i1 %31, label %26, label %._crit_edge.us106.us.us.us, !llvm.loop !358
 
 ._crit_edge.us106.us.us.us:                       ; preds = %26
-  %32 = getelementptr inbounds nuw float, ptr %.078111.us.us.us, i64 %indvars.iv183
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %.078111.us.us.us, i64 %indvars.iv183
   store float %.sroa.speculated.i87.us.us.us.us, ptr %32, align 4, !tbaa !325
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, %20
   %33 = trunc nuw i64 %indvars.iv.next184 to i32
@@ -11423,9 +11423,9 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Ma
 
 38:                                               ; preds = %.preheader91.us.us, %38
   %indvars.iv176 = phi i64 [ 0, %.preheader91.us.us ], [ %indvars.iv.next177, %38 ]
-  %39 = getelementptr inbounds nuw float, ptr %.079109.us.us, i64 %indvars.iv176
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %.079109.us.us, i64 %indvars.iv176
   %40 = load float, ptr %39, align 4, !tbaa !325
-  %41 = getelementptr inbounds nuw float, ptr %.078111.us.us, i64 %indvars.iv176
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %.078111.us.us, i64 %indvars.iv176
   store float %40, ptr %41, align 4, !tbaa !325
   %indvars.iv.next177 = add nuw nsw i64 %indvars.iv176, %20
   %42 = trunc nuw i64 %indvars.iv.next177 to i32
@@ -11447,7 +11447,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Ma
   %.078111.us117 = phi ptr [ %50, %._crit_edge104.us124 ], [ %2, %.preheader91.lr.ph.split ]
   %.079109.us118 = phi ptr [ %49, %._crit_edge104.us124 ], [ %1, %.preheader91.lr.ph.split ]
   %.080108.us119 = phi i32 [ %48, %._crit_edge104.us124 ], [ 0, %.preheader91.lr.ph.split ]
-  %invariant.gep210 = getelementptr inbounds nuw float, ptr %.078111.us117, i64 %20
+  %invariant.gep210 = getelementptr inbounds nuw [4 x i8], ptr %.078111.us117, i64 %20
   br label %.lr.ph.us.us
 
 ._crit_edge104.us124:                             ; preds = %.lr.ph103.split.us123, %._crit_edge.us106.us131, %..preheader90_crit_edge.split.us.us
@@ -11459,9 +11459,9 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Ma
 
 .lr.ph103.split.us123:                            ; preds = %.lr.ph103.us121, %.lr.ph103.split.us123
   %indvars.iv165 = phi i64 [ %indvars.iv.next166, %.lr.ph103.split.us123 ], [ %indvars.iv163, %.lr.ph103.us121 ]
-  %51 = getelementptr inbounds nuw float, ptr %.079109.us118, i64 %indvars.iv165
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %.079109.us118, i64 %indvars.iv165
   %52 = load float, ptr %51, align 4, !tbaa !325
-  %53 = getelementptr inbounds nuw float, ptr %.078111.us117, i64 %indvars.iv165
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %.078111.us117, i64 %indvars.iv165
   store float %52, ptr %53, align 4, !tbaa !325
   %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, %20
   %54 = trunc nuw i64 %indvars.iv.next166 to i32
@@ -11471,15 +11471,15 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Ma
 .lr.ph.us.us:                                     ; preds = %._crit_edge.us.us, %.preheader91.us116
   %indvars.iv163 = phi i64 [ %indvars.iv.next164, %._crit_edge.us.us ], [ %21, %.preheader91.us116 ]
   %indvars.iv160 = phi i64 [ %indvars.iv.next161, %._crit_edge.us.us ], [ 0, %.preheader91.us116 ]
-  %56 = getelementptr inbounds nuw float, ptr %.079109.us118, i64 %indvars.iv160
-  %57 = getelementptr inbounds nuw float, ptr %56, i64 %20
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %.079109.us118, i64 %indvars.iv160
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %20
   %58 = load float, ptr %57, align 4, !tbaa !325
   br label %59
 
 59:                                               ; preds = %59, %.lr.ph.us.us
   %indvars.iv157 = phi i64 [ %indvars.iv.next158, %59 ], [ %21, %.lr.ph.us.us ]
   %.07494.us.us = phi float [ %.sroa.speculated.i.us.us, %59 ], [ %58, %.lr.ph.us.us ]
-  %60 = getelementptr inbounds nuw float, ptr %56, i64 %indvars.iv157
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv157
   %61 = load float, ptr %60, align 4, !tbaa !325
   %62 = fcmp olt float %.07494.us.us, %61
   %.sroa.speculated.i.us.us = select i1 %62, float %61, float %.07494.us.us
@@ -11492,14 +11492,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Ma
   %65 = load float, ptr %56, align 4, !tbaa !325
   %66 = fcmp olt float %.sroa.speculated.i.us.us, %65
   %.sroa.speculated.i85.us.us = select i1 %66, float %65, float %.sroa.speculated.i.us.us
-  %67 = getelementptr inbounds nuw float, ptr %.078111.us117, i64 %indvars.iv160
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %.078111.us117, i64 %indvars.iv160
   store float %.sroa.speculated.i85.us.us, ptr %67, align 4, !tbaa !325
   %68 = and i64 %indvars.iv.next158, 4294967295
-  %69 = getelementptr inbounds nuw float, ptr %56, i64 %68
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %68
   %70 = load float, ptr %69, align 4, !tbaa !325
   %71 = fcmp olt float %.sroa.speculated.i.us.us, %70
   %.sroa.speculated.i86.us.us = select i1 %71, float %70, float %.sroa.speculated.i.us.us
-  %gep211 = getelementptr inbounds nuw float, ptr %invariant.gep210, i64 %indvars.iv160
+  %gep211 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep210, i64 %indvars.iv160
   store float %.sroa.speculated.i86.us.us, ptr %gep211, align 4, !tbaa !325
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, %21
   %72 = trunc nuw i64 %indvars.iv.next161 to i32
@@ -11516,14 +11516,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Ma
 
 .lr.ph.us105.us126:                               ; preds = %.lr.ph103.us121, %._crit_edge.us106.us131
   %indvars.iv172 = phi i64 [ %indvars.iv.next173, %._crit_edge.us106.us131 ], [ %indvars.iv163, %.lr.ph103.us121 ]
-  %74 = getelementptr inbounds nuw float, ptr %.079109.us118, i64 %indvars.iv172
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %.079109.us118, i64 %indvars.iv172
   %75 = load float, ptr %74, align 4, !tbaa !325
   br label %76
 
 76:                                               ; preds = %76, %.lr.ph.us105.us126
   %indvars.iv168 = phi i64 [ %indvars.iv.next169, %76 ], [ %20, %.lr.ph.us105.us126 ]
   %.0101.us.us128 = phi float [ %.sroa.speculated.i87.us.us130, %76 ], [ %75, %.lr.ph.us105.us126 ]
-  %77 = getelementptr inbounds nuw float, ptr %74, i64 %indvars.iv168
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %indvars.iv168
   %78 = load float, ptr %77, align 4, !tbaa !325
   %79 = fcmp olt float %.0101.us.us128, %78
   %.sroa.speculated.i87.us.us130 = select i1 %79, float %78, float %.0101.us.us128
@@ -11533,7 +11533,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Ma
   br i1 %81, label %76, label %._crit_edge.us106.us131, !llvm.loop !358
 
 ._crit_edge.us106.us131:                          ; preds = %76
-  %82 = getelementptr inbounds nuw float, ptr %.078111.us117, i64 %indvars.iv172
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %.078111.us117, i64 %indvars.iv172
   store float %.sroa.speculated.i87.us.us130, ptr %82, align 4, !tbaa !325
   %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, %20
   %83 = trunc nuw i64 %indvars.iv.next173 to i32
@@ -11544,7 +11544,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Ma
   %.078111 = phi ptr [ %115, %._crit_edge104 ], [ %2, %.preheader91.lr.ph.split ]
   %.079109 = phi ptr [ %114, %._crit_edge104 ], [ %1, %.preheader91.lr.ph.split ]
   %.080108 = phi i32 [ %113, %._crit_edge104 ], [ 0, %.preheader91.lr.ph.split ]
-  %invariant.gep = getelementptr inbounds nuw float, ptr %.078111, i64 %20
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %.078111, i64 %20
   br label %97
 
 ..preheader90_crit_edge.split:                    ; preds = %97
@@ -11556,14 +11556,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Ma
 
 .lr.ph.us105:                                     ; preds = %.lr.ph103, %._crit_edge.us106
   %indvars.iv154 = phi i64 [ %indvars.iv.next155, %._crit_edge.us106 ], [ %indvars.iv145, %.lr.ph103 ]
-  %86 = getelementptr inbounds nuw float, ptr %.079109, i64 %indvars.iv154
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %.079109, i64 %indvars.iv154
   %87 = load float, ptr %86, align 4, !tbaa !325
   br label %88
 
 88:                                               ; preds = %.lr.ph.us105, %88
   %indvars.iv150 = phi i64 [ %20, %.lr.ph.us105 ], [ %indvars.iv.next151, %88 ]
   %.0101.us = phi float [ %87, %.lr.ph.us105 ], [ %.sroa.speculated.i87.us, %88 ]
-  %89 = getelementptr inbounds nuw float, ptr %86, i64 %indvars.iv150
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %indvars.iv150
   %90 = load float, ptr %89, align 4, !tbaa !325
   %91 = fcmp olt float %.0101.us, %90
   %.sroa.speculated.i87.us = select i1 %91, float %90, float %.0101.us
@@ -11573,7 +11573,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Ma
   br i1 %93, label %88, label %._crit_edge.us106, !llvm.loop !358
 
 ._crit_edge.us106:                                ; preds = %88
-  %94 = getelementptr inbounds nuw float, ptr %.078111, i64 %indvars.iv154
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %.078111, i64 %indvars.iv154
   store float %.sroa.speculated.i87.us, ptr %94, align 4, !tbaa !325
   %indvars.iv.next155 = add nuw nsw i64 %indvars.iv154, %20
   %95 = trunc nuw i64 %indvars.iv.next155 to i32
@@ -11583,19 +11583,19 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Ma
 97:                                               ; preds = %.preheader91, %97
   %indvars.iv145 = phi i64 [ %21, %.preheader91 ], [ %indvars.iv.next146, %97 ]
   %indvars.iv = phi i64 [ 0, %.preheader91 ], [ %indvars.iv.next, %97 ]
-  %98 = getelementptr inbounds nuw float, ptr %.079109, i64 %indvars.iv
-  %99 = getelementptr inbounds nuw float, ptr %98, i64 %20
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %.079109, i64 %indvars.iv
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %98, i64 %20
   %100 = load float, ptr %99, align 4, !tbaa !325
   %101 = load float, ptr %98, align 4, !tbaa !325
   %102 = fcmp olt float %100, %101
   %.sroa.speculated.i85 = select i1 %102, float %101, float %100
-  %103 = getelementptr inbounds nuw float, ptr %.078111, i64 %indvars.iv
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %.078111, i64 %indvars.iv
   store float %.sroa.speculated.i85, ptr %103, align 4, !tbaa !325
-  %104 = getelementptr inbounds nuw float, ptr %98, i64 %21
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %98, i64 %21
   %105 = load float, ptr %104, align 4, !tbaa !325
   %106 = fcmp olt float %100, %105
   %.sroa.speculated.i86 = select i1 %106, float %105, float %100
-  %gep = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   store float %.sroa.speculated.i86, ptr %gep, align 4, !tbaa !325
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, %21
   %107 = trunc nuw i64 %indvars.iv.next to i32
@@ -11605,9 +11605,9 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Ma
 
 .lr.ph103.split:                                  ; preds = %.lr.ph103, %.lr.ph103.split
   %indvars.iv147 = phi i64 [ %indvars.iv.next148, %.lr.ph103.split ], [ %indvars.iv145, %.lr.ph103 ]
-  %108 = getelementptr inbounds nuw float, ptr %.079109, i64 %indvars.iv147
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %.079109, i64 %indvars.iv147
   %109 = load float, ptr %108, align 4, !tbaa !325
-  %110 = getelementptr inbounds nuw float, ptr %.078111, i64 %indvars.iv147
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %.078111, i64 %indvars.iv147
   store float %109, ptr %110, align 4, !tbaa !325
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, %20
   %111 = trunc nuw i64 %indvars.iv.next148 to i32
@@ -11728,9 +11728,9 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Ma
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv187 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next188, %.lr.ph ]
-  %13 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv187
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv187
   %14 = load double, ptr %13, align 8, !tbaa !232
-  %15 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv187
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv187
   store double %14, ptr %15, align 8, !tbaa !232
   %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
   %exitcond190.not = icmp eq i64 %indvars.iv.next188, %wide.trip.count
@@ -11764,14 +11764,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Ma
 
 .lr.ph.us105.us.us.us:                            ; preds = %._crit_edge.us106.us.us.us, %.preheader91.us.us.us
   %indvars.iv183 = phi i64 [ %indvars.iv.next184, %._crit_edge.us106.us.us.us ], [ 0, %.preheader91.us.us.us ]
-  %24 = getelementptr inbounds nuw double, ptr %.079109.us.us.us, i64 %indvars.iv183
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.079109.us.us.us, i64 %indvars.iv183
   %25 = load double, ptr %24, align 8, !tbaa !232
   br label %26
 
 26:                                               ; preds = %26, %.lr.ph.us105.us.us.us
   %indvars.iv180 = phi i64 [ %indvars.iv.next181, %26 ], [ %20, %.lr.ph.us105.us.us.us ]
   %.0101.us.us.us.us = phi double [ %.sroa.speculated.i87.us.us.us.us, %26 ], [ %25, %.lr.ph.us105.us.us.us ]
-  %27 = getelementptr inbounds nuw double, ptr %24, i64 %indvars.iv180
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv180
   %28 = load double, ptr %27, align 8, !tbaa !232
   %29 = fcmp olt double %.0101.us.us.us.us, %28
   %.sroa.speculated.i87.us.us.us.us = select i1 %29, double %28, double %.0101.us.us.us.us
@@ -11781,7 +11781,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Ma
   br i1 %31, label %26, label %._crit_edge.us106.us.us.us, !llvm.loop !364
 
 ._crit_edge.us106.us.us.us:                       ; preds = %26
-  %32 = getelementptr inbounds nuw double, ptr %.078111.us.us.us, i64 %indvars.iv183
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %.078111.us.us.us, i64 %indvars.iv183
   store double %.sroa.speculated.i87.us.us.us.us, ptr %32, align 8, !tbaa !232
   %indvars.iv.next184 = add nuw nsw i64 %indvars.iv183, %20
   %33 = trunc nuw i64 %indvars.iv.next184 to i32
@@ -11803,9 +11803,9 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Ma
 
 38:                                               ; preds = %.preheader91.us.us, %38
   %indvars.iv176 = phi i64 [ 0, %.preheader91.us.us ], [ %indvars.iv.next177, %38 ]
-  %39 = getelementptr inbounds nuw double, ptr %.079109.us.us, i64 %indvars.iv176
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %.079109.us.us, i64 %indvars.iv176
   %40 = load double, ptr %39, align 8, !tbaa !232
-  %41 = getelementptr inbounds nuw double, ptr %.078111.us.us, i64 %indvars.iv176
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %.078111.us.us, i64 %indvars.iv176
   store double %40, ptr %41, align 8, !tbaa !232
   %indvars.iv.next177 = add nuw nsw i64 %indvars.iv176, %20
   %42 = trunc nuw i64 %indvars.iv.next177 to i32
@@ -11827,7 +11827,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Ma
   %.078111.us117 = phi ptr [ %50, %._crit_edge104.us124 ], [ %2, %.preheader91.lr.ph.split ]
   %.079109.us118 = phi ptr [ %49, %._crit_edge104.us124 ], [ %1, %.preheader91.lr.ph.split ]
   %.080108.us119 = phi i32 [ %48, %._crit_edge104.us124 ], [ 0, %.preheader91.lr.ph.split ]
-  %invariant.gep210 = getelementptr inbounds nuw double, ptr %.078111.us117, i64 %20
+  %invariant.gep210 = getelementptr inbounds nuw [8 x i8], ptr %.078111.us117, i64 %20
   br label %.lr.ph.us.us
 
 ._crit_edge104.us124:                             ; preds = %.lr.ph103.split.us123, %._crit_edge.us106.us131, %..preheader90_crit_edge.split.us.us
@@ -11839,9 +11839,9 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Ma
 
 .lr.ph103.split.us123:                            ; preds = %.lr.ph103.us121, %.lr.ph103.split.us123
   %indvars.iv165 = phi i64 [ %indvars.iv.next166, %.lr.ph103.split.us123 ], [ %indvars.iv163, %.lr.ph103.us121 ]
-  %51 = getelementptr inbounds nuw double, ptr %.079109.us118, i64 %indvars.iv165
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %.079109.us118, i64 %indvars.iv165
   %52 = load double, ptr %51, align 8, !tbaa !232
-  %53 = getelementptr inbounds nuw double, ptr %.078111.us117, i64 %indvars.iv165
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %.078111.us117, i64 %indvars.iv165
   store double %52, ptr %53, align 8, !tbaa !232
   %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, %20
   %54 = trunc nuw i64 %indvars.iv.next166 to i32
@@ -11851,15 +11851,15 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Ma
 .lr.ph.us.us:                                     ; preds = %._crit_edge.us.us, %.preheader91.us116
   %indvars.iv163 = phi i64 [ %indvars.iv.next164, %._crit_edge.us.us ], [ %21, %.preheader91.us116 ]
   %indvars.iv160 = phi i64 [ %indvars.iv.next161, %._crit_edge.us.us ], [ 0, %.preheader91.us116 ]
-  %56 = getelementptr inbounds nuw double, ptr %.079109.us118, i64 %indvars.iv160
-  %57 = getelementptr inbounds nuw double, ptr %56, i64 %20
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %.079109.us118, i64 %indvars.iv160
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %20
   %58 = load double, ptr %57, align 8, !tbaa !232
   br label %59
 
 59:                                               ; preds = %59, %.lr.ph.us.us
   %indvars.iv157 = phi i64 [ %indvars.iv.next158, %59 ], [ %21, %.lr.ph.us.us ]
   %.07494.us.us = phi double [ %.sroa.speculated.i.us.us, %59 ], [ %58, %.lr.ph.us.us ]
-  %60 = getelementptr inbounds nuw double, ptr %56, i64 %indvars.iv157
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv157
   %61 = load double, ptr %60, align 8, !tbaa !232
   %62 = fcmp olt double %.07494.us.us, %61
   %.sroa.speculated.i.us.us = select i1 %62, double %61, double %.07494.us.us
@@ -11872,14 +11872,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Ma
   %65 = load double, ptr %56, align 8, !tbaa !232
   %66 = fcmp olt double %.sroa.speculated.i.us.us, %65
   %.sroa.speculated.i85.us.us = select i1 %66, double %65, double %.sroa.speculated.i.us.us
-  %67 = getelementptr inbounds nuw double, ptr %.078111.us117, i64 %indvars.iv160
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %.078111.us117, i64 %indvars.iv160
   store double %.sroa.speculated.i85.us.us, ptr %67, align 8, !tbaa !232
   %68 = and i64 %indvars.iv.next158, 4294967295
-  %69 = getelementptr inbounds nuw double, ptr %56, i64 %68
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %68
   %70 = load double, ptr %69, align 8, !tbaa !232
   %71 = fcmp olt double %.sroa.speculated.i.us.us, %70
   %.sroa.speculated.i86.us.us = select i1 %71, double %70, double %.sroa.speculated.i.us.us
-  %gep211 = getelementptr inbounds nuw double, ptr %invariant.gep210, i64 %indvars.iv160
+  %gep211 = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep210, i64 %indvars.iv160
   store double %.sroa.speculated.i86.us.us, ptr %gep211, align 8, !tbaa !232
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, %21
   %72 = trunc nuw i64 %indvars.iv.next161 to i32
@@ -11896,14 +11896,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Ma
 
 .lr.ph.us105.us126:                               ; preds = %.lr.ph103.us121, %._crit_edge.us106.us131
   %indvars.iv172 = phi i64 [ %indvars.iv.next173, %._crit_edge.us106.us131 ], [ %indvars.iv163, %.lr.ph103.us121 ]
-  %74 = getelementptr inbounds nuw double, ptr %.079109.us118, i64 %indvars.iv172
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %.079109.us118, i64 %indvars.iv172
   %75 = load double, ptr %74, align 8, !tbaa !232
   br label %76
 
 76:                                               ; preds = %76, %.lr.ph.us105.us126
   %indvars.iv168 = phi i64 [ %indvars.iv.next169, %76 ], [ %20, %.lr.ph.us105.us126 ]
   %.0101.us.us128 = phi double [ %.sroa.speculated.i87.us.us130, %76 ], [ %75, %.lr.ph.us105.us126 ]
-  %77 = getelementptr inbounds nuw double, ptr %74, i64 %indvars.iv168
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %indvars.iv168
   %78 = load double, ptr %77, align 8, !tbaa !232
   %79 = fcmp olt double %.0101.us.us128, %78
   %.sroa.speculated.i87.us.us130 = select i1 %79, double %78, double %.0101.us.us128
@@ -11913,7 +11913,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Ma
   br i1 %81, label %76, label %._crit_edge.us106.us131, !llvm.loop !364
 
 ._crit_edge.us106.us131:                          ; preds = %76
-  %82 = getelementptr inbounds nuw double, ptr %.078111.us117, i64 %indvars.iv172
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %.078111.us117, i64 %indvars.iv172
   store double %.sroa.speculated.i87.us.us130, ptr %82, align 8, !tbaa !232
   %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, %20
   %83 = trunc nuw i64 %indvars.iv.next173 to i32
@@ -11924,7 +11924,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Ma
   %.078111 = phi ptr [ %115, %._crit_edge104 ], [ %2, %.preheader91.lr.ph.split ]
   %.079109 = phi ptr [ %114, %._crit_edge104 ], [ %1, %.preheader91.lr.ph.split ]
   %.080108 = phi i32 [ %113, %._crit_edge104 ], [ 0, %.preheader91.lr.ph.split ]
-  %invariant.gep = getelementptr inbounds nuw double, ptr %.078111, i64 %20
+  %invariant.gep = getelementptr inbounds nuw [8 x i8], ptr %.078111, i64 %20
   br label %97
 
 ..preheader90_crit_edge.split:                    ; preds = %97
@@ -11936,14 +11936,14 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Ma
 
 .lr.ph.us105:                                     ; preds = %.lr.ph103, %._crit_edge.us106
   %indvars.iv154 = phi i64 [ %indvars.iv.next155, %._crit_edge.us106 ], [ %indvars.iv145, %.lr.ph103 ]
-  %86 = getelementptr inbounds nuw double, ptr %.079109, i64 %indvars.iv154
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %.079109, i64 %indvars.iv154
   %87 = load double, ptr %86, align 8, !tbaa !232
   br label %88
 
 88:                                               ; preds = %.lr.ph.us105, %88
   %indvars.iv150 = phi i64 [ %20, %.lr.ph.us105 ], [ %indvars.iv.next151, %88 ]
   %.0101.us = phi double [ %87, %.lr.ph.us105 ], [ %.sroa.speculated.i87.us, %88 ]
-  %89 = getelementptr inbounds nuw double, ptr %86, i64 %indvars.iv150
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %indvars.iv150
   %90 = load double, ptr %89, align 8, !tbaa !232
   %91 = fcmp olt double %.0101.us, %90
   %.sroa.speculated.i87.us = select i1 %91, double %90, double %.0101.us
@@ -11953,7 +11953,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Ma
   br i1 %93, label %88, label %._crit_edge.us106, !llvm.loop !364
 
 ._crit_edge.us106:                                ; preds = %88
-  %94 = getelementptr inbounds nuw double, ptr %.078111, i64 %indvars.iv154
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %.078111, i64 %indvars.iv154
   store double %.sroa.speculated.i87.us, ptr %94, align 8, !tbaa !232
   %indvars.iv.next155 = add nuw nsw i64 %indvars.iv154, %20
   %95 = trunc nuw i64 %indvars.iv.next155 to i32
@@ -11963,19 +11963,19 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Ma
 97:                                               ; preds = %.preheader91, %97
   %indvars.iv145 = phi i64 [ %21, %.preheader91 ], [ %indvars.iv.next146, %97 ]
   %indvars.iv = phi i64 [ 0, %.preheader91 ], [ %indvars.iv.next, %97 ]
-  %98 = getelementptr inbounds nuw double, ptr %.079109, i64 %indvars.iv
-  %99 = getelementptr inbounds nuw double, ptr %98, i64 %20
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %.079109, i64 %indvars.iv
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %20
   %100 = load double, ptr %99, align 8, !tbaa !232
   %101 = load double, ptr %98, align 8, !tbaa !232
   %102 = fcmp olt double %100, %101
   %.sroa.speculated.i85 = select i1 %102, double %101, double %100
-  %103 = getelementptr inbounds nuw double, ptr %.078111, i64 %indvars.iv
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %.078111, i64 %indvars.iv
   store double %.sroa.speculated.i85, ptr %103, align 8, !tbaa !232
-  %104 = getelementptr inbounds nuw double, ptr %98, i64 %21
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %21
   %105 = load double, ptr %104, align 8, !tbaa !232
   %106 = fcmp olt double %100, %105
   %.sroa.speculated.i86 = select i1 %106, double %105, double %100
-  %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep, i64 %indvars.iv
   store double %.sroa.speculated.i86, ptr %gep, align 8, !tbaa !232
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, %21
   %107 = trunc nuw i64 %indvars.iv.next to i32
@@ -11985,9 +11985,9 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_114MorphRowFilterINS1_5Ma
 
 .lr.ph103.split:                                  ; preds = %.lr.ph103, %.lr.ph103.split
   %indvars.iv147 = phi i64 [ %indvars.iv.next148, %.lr.ph103.split ], [ %indvars.iv145, %.lr.ph103 ]
-  %108 = getelementptr inbounds nuw double, ptr %.079109, i64 %indvars.iv147
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %.079109, i64 %indvars.iv147
   %109 = load double, ptr %108, align 8, !tbaa !232
-  %110 = getelementptr inbounds nuw double, ptr %.078111, i64 %indvars.iv147
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %.078111, i64 %indvars.iv147
   store double %109, ptr %110, align 8, !tbaa !232
   %indvars.iv.next148 = add nuw nsw i64 %indvars.iv147, %20
   %111 = trunc nuw i64 %indvars.iv.next148 to i32
@@ -12120,7 +12120,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
   %.06690.us.us = phi ptr [ %38, %._crit_edge88.split.us.us.us ], [ %1, %.preheader82.us.us.preheader ]
   %.06889.us.us = phi i32 [ %36, %._crit_edge88.split.us.us.us ], [ %4, %.preheader82.us.us.preheader ]
   %19 = getelementptr inbounds nuw i8, ptr %.06690.us.us, i64 8
-  %20 = getelementptr inbounds nuw ptr, ptr %.06690.us.us, i64 %18
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %.06690.us.us, i64 %18
   %invariant.gep210 = getelementptr i8, ptr %.06592.us.us, i64 %10
   br label %.lr.ph.us.us.us
 
@@ -12134,7 +12134,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
 24:                                               ; preds = %24, %.lr.ph.us.us.us
   %indvars.iv178 = phi i64 [ %indvars.iv.next179, %24 ], [ 2, %.lr.ph.us.us.us ]
   %.06284.us.us.us = phi i8 [ %.sroa.speculated.i.us.us.us, %24 ], [ %23, %.lr.ph.us.us.us ]
-  %25 = getelementptr inbounds nuw ptr, ptr %.06690.us.us, i64 %indvars.iv178
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.06690.us.us, i64 %indvars.iv178
   %26 = load ptr, ptr %25, align 8, !tbaa !369
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 %indvars.iv182
   %28 = load i8, ptr %27, align 1, !tbaa !227
@@ -12252,7 +12252,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
 72:                                               ; preds = %72, %.lr.ph.us.us.us145
   %indvars.iv192 = phi i64 [ %indvars.iv.next193, %72 ], [ 1, %.lr.ph.us.us.us145 ]
   %.0132.us.us.us = phi i8 [ %.sroa.speculated.i78.us.us.us, %72 ], [ %71, %.lr.ph.us.us.us145 ]
-  %73 = getelementptr inbounds nuw ptr, ptr %.167138.us.us, i64 %indvars.iv192
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %.167138.us.us, i64 %indvars.iv192
   %74 = load ptr, ptr %73, align 8, !tbaa !369
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 %indvars.iv196
   %76 = load i8, ptr %75, align 1, !tbaa !227
@@ -12421,23 +12421,23 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
   %20 = getelementptr inbounds nuw i8, ptr %.06690.us.us, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !376
   %22 = load ptr, ptr %.06690.us.us, align 8, !tbaa !376
-  %23 = getelementptr inbounds nuw ptr, ptr %.06690.us.us, i64 %19
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %.06690.us.us, i64 %19
   %24 = load ptr, ptr %23, align 8, !tbaa !376
-  %invariant.gep209 = getelementptr i16, ptr %.06592.us.us, i64 %18
+  %invariant.gep209 = getelementptr [2 x i8], ptr %.06592.us.us, i64 %18
   br label %.lr.ph.us.us.us
 
 .lr.ph.us.us.us:                                  ; preds = %._crit_edge.us.us.us, %.preheader82.us.us
   %indvars.iv182 = phi i64 [ %indvars.iv.next183, %._crit_edge.us.us.us ], [ 0, %.preheader82.us.us ]
-  %25 = getelementptr inbounds nuw i16, ptr %21, i64 %indvars.iv182
+  %25 = getelementptr inbounds nuw [2 x i8], ptr %21, i64 %indvars.iv182
   %26 = load i16, ptr %25, align 2, !tbaa !311
   br label %27
 
 27:                                               ; preds = %27, %.lr.ph.us.us.us
   %indvars.iv178 = phi i64 [ %indvars.iv.next179, %27 ], [ 2, %.lr.ph.us.us.us ]
   %.06484.us.us.us = phi i16 [ %.sroa.speculated.i.us.us.us, %27 ], [ %26, %.lr.ph.us.us.us ]
-  %28 = getelementptr inbounds nuw ptr, ptr %.06690.us.us, i64 %indvars.iv178
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %.06690.us.us, i64 %indvars.iv178
   %29 = load ptr, ptr %28, align 8, !tbaa !376
-  %30 = getelementptr inbounds nuw i16, ptr %29, i64 %indvars.iv182
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %29, i64 %indvars.iv182
   %31 = load i16, ptr %30, align 2, !tbaa !311
   %.sroa.speculated.i.us.us.us = call noundef i16 @llvm.umin.i16(i16 %31, i16 %.06484.us.us.us)
   %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
@@ -12445,15 +12445,15 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
   br i1 %exitcond181.not, label %._crit_edge.us.us.us, label %27, !llvm.loop !378
 
 ._crit_edge.us.us.us:                             ; preds = %27
-  %32 = getelementptr inbounds nuw i16, ptr %22, i64 %indvars.iv182
+  %32 = getelementptr inbounds nuw [2 x i8], ptr %22, i64 %indvars.iv182
   %33 = load i16, ptr %32, align 2, !tbaa !311
   %.sroa.speculated.i76.us.us.us = call noundef i16 @llvm.umin.i16(i16 %33, i16 %.sroa.speculated.i.us.us.us)
-  %34 = getelementptr inbounds nuw i16, ptr %.06592.us.us, i64 %indvars.iv182
+  %34 = getelementptr inbounds nuw [2 x i8], ptr %.06592.us.us, i64 %indvars.iv182
   store i16 %.sroa.speculated.i76.us.us.us, ptr %34, align 2, !tbaa !311
-  %35 = getelementptr inbounds nuw i16, ptr %24, i64 %indvars.iv182
+  %35 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %indvars.iv182
   %36 = load i16, ptr %35, align 2, !tbaa !311
   %.sroa.speculated.i77.us.us.us = call noundef i16 @llvm.umin.i16(i16 %36, i16 %.sroa.speculated.i.us.us.us)
-  %gep210 = getelementptr i16, ptr %invariant.gep209, i64 %indvars.iv182
+  %gep210 = getelementptr [2 x i8], ptr %invariant.gep209, i64 %indvars.iv182
   store i16 %.sroa.speculated.i77.us.us.us, ptr %gep210, align 2, !tbaa !311
   %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 1
   %exitcond186.not = icmp eq i64 %indvars.iv.next183, %wide.trip.count185
@@ -12461,7 +12461,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
 
 ._crit_edge88.split.us.us.us:                     ; preds = %._crit_edge.us.us.us
   %37 = add nsw i32 %.06889.us.us, -2
-  %38 = getelementptr inbounds i16, ptr %.06592.us.us, i64 %16
+  %38 = getelementptr inbounds [2 x i8], ptr %.06592.us.us, i64 %16
   %39 = getelementptr inbounds nuw i8, ptr %.06690.us.us, i64 16
   %40 = icmp sgt i32 %.06889.us.us, 3
   br i1 %40, label %.preheader82.us.us, label %.preheader81, !llvm.loop !380
@@ -12480,22 +12480,22 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
   %43 = load ptr, ptr %42, align 8, !tbaa !376
   %44 = getelementptr inbounds nuw i8, ptr %.06690.us, i64 16
   %45 = load ptr, ptr %44, align 8, !tbaa !376
-  %invariant.gep = getelementptr i16, ptr %.06592.us, i64 %18
+  %invariant.gep = getelementptr [2 x i8], ptr %.06592.us, i64 %18
   br label %46
 
 46:                                               ; preds = %.preheader82.us, %46
   %indvars.iv164 = phi i64 [ 0, %.preheader82.us ], [ %indvars.iv.next165, %46 ]
-  %47 = getelementptr inbounds nuw i16, ptr %43, i64 %indvars.iv164
+  %47 = getelementptr inbounds nuw [2 x i8], ptr %43, i64 %indvars.iv164
   %48 = load i16, ptr %47, align 2, !tbaa !311
-  %49 = getelementptr inbounds nuw i16, ptr %41, i64 %indvars.iv164
+  %49 = getelementptr inbounds nuw [2 x i8], ptr %41, i64 %indvars.iv164
   %50 = load i16, ptr %49, align 2, !tbaa !311
   %.sroa.speculated.i76.us97 = call noundef i16 @llvm.umin.i16(i16 %50, i16 %48)
-  %51 = getelementptr inbounds nuw i16, ptr %.06592.us, i64 %indvars.iv164
+  %51 = getelementptr inbounds nuw [2 x i8], ptr %.06592.us, i64 %indvars.iv164
   store i16 %.sroa.speculated.i76.us97, ptr %51, align 2, !tbaa !311
-  %52 = getelementptr inbounds nuw i16, ptr %45, i64 %indvars.iv164
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %45, i64 %indvars.iv164
   %53 = load i16, ptr %52, align 2, !tbaa !311
   %.sroa.speculated.i77.us98 = call noundef i16 @llvm.umin.i16(i16 %53, i16 %48)
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %indvars.iv164
+  %gep = getelementptr [2 x i8], ptr %invariant.gep, i64 %indvars.iv164
   store i16 %.sroa.speculated.i77.us98, ptr %gep, align 2, !tbaa !311
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
   %exitcond168.not = icmp eq i64 %indvars.iv.next165, %wide.trip.count167
@@ -12503,7 +12503,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
 
 ._crit_edge88.split.us99:                         ; preds = %46
   %54 = add nsw i32 %.06889.us, -2
-  %55 = getelementptr inbounds i16, ptr %.06592.us, i64 %16
+  %55 = getelementptr inbounds [2 x i8], ptr %.06592.us, i64 %16
   %56 = icmp sgt i32 %.06889.us, 3
   br i1 %56, label %.preheader82.us, label %.preheader81, !llvm.loop !380
 
@@ -12553,16 +12553,16 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
 
 .lr.ph.us.us.us145:                               ; preds = %._crit_edge.us.us.us146, %.preheader.us.us
   %indvars.iv196 = phi i64 [ %indvars.iv.next197, %._crit_edge.us.us.us146 ], [ 0, %.preheader.us.us ]
-  %73 = getelementptr inbounds nuw i16, ptr %72, i64 %indvars.iv196
+  %73 = getelementptr inbounds nuw [2 x i8], ptr %72, i64 %indvars.iv196
   %74 = load i16, ptr %73, align 2, !tbaa !311
   br label %75
 
 75:                                               ; preds = %75, %.lr.ph.us.us.us145
   %indvars.iv192 = phi i64 [ %indvars.iv.next193, %75 ], [ 1, %.lr.ph.us.us.us145 ]
   %.0132.us.us.us = phi i16 [ %.sroa.speculated.i78.us.us.us, %75 ], [ %74, %.lr.ph.us.us.us145 ]
-  %76 = getelementptr inbounds nuw ptr, ptr %.167138.us.us, i64 %indvars.iv192
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %.167138.us.us, i64 %indvars.iv192
   %77 = load ptr, ptr %76, align 8, !tbaa !376
-  %78 = getelementptr inbounds nuw i16, ptr %77, i64 %indvars.iv196
+  %78 = getelementptr inbounds nuw [2 x i8], ptr %77, i64 %indvars.iv196
   %79 = load i16, ptr %78, align 2, !tbaa !311
   %.sroa.speculated.i78.us.us.us = call noundef i16 @llvm.umin.i16(i16 %79, i16 %.0132.us.us.us)
   %indvars.iv.next193 = add nuw nsw i64 %indvars.iv192, 1
@@ -12570,7 +12570,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
   br i1 %exitcond195.not, label %._crit_edge.us.us.us146, label %75, !llvm.loop !381
 
 ._crit_edge.us.us.us146:                          ; preds = %75
-  %80 = getelementptr inbounds nuw i16, ptr %.1140.us.us, i64 %indvars.iv196
+  %80 = getelementptr inbounds nuw [2 x i8], ptr %.1140.us.us, i64 %indvars.iv196
   store i16 %.sroa.speculated.i78.us.us.us, ptr %80, align 2, !tbaa !311
   %indvars.iv.next197 = add nuw nsw i64 %indvars.iv196, 1
   %exitcond200.not = icmp eq i64 %indvars.iv.next197, %wide.trip.count199
@@ -12578,7 +12578,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
 
 ._crit_edge136.split.us.us.us:                    ; preds = %._crit_edge.us.us.us146
   %81 = add nsw i32 %.169137.us.us, -1
-  %82 = getelementptr inbounds i16, ptr %.1140.us.us, i64 %71
+  %82 = getelementptr inbounds [2 x i8], ptr %.1140.us.us, i64 %71
   %83 = getelementptr inbounds nuw i8, ptr %.167138.us.us, i64 8
   %84 = icmp sgt i32 %.169137.us.us, 1
   br i1 %84, label %.preheader.us.us, label %._crit_edge, !llvm.loop !383
@@ -12592,9 +12592,9 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
 
 86:                                               ; preds = %.preheader.us, %86
   %indvars.iv187 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next188, %86 ]
-  %87 = getelementptr inbounds nuw i16, ptr %85, i64 %indvars.iv187
+  %87 = getelementptr inbounds nuw [2 x i8], ptr %85, i64 %indvars.iv187
   %88 = load i16, ptr %87, align 2, !tbaa !311
-  %89 = getelementptr inbounds nuw i16, ptr %.1140.us, i64 %indvars.iv187
+  %89 = getelementptr inbounds nuw [2 x i8], ptr %.1140.us, i64 %indvars.iv187
   store i16 %88, ptr %89, align 2, !tbaa !311
   %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
   %exitcond191.not = icmp eq i64 %indvars.iv.next188, %wide.trip.count199
@@ -12602,7 +12602,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
 
 ._crit_edge136.split.us143:                       ; preds = %86
   %90 = add nsw i32 %.169137.us, -1
-  %91 = getelementptr inbounds i16, ptr %.1140.us, i64 %71
+  %91 = getelementptr inbounds [2 x i8], ptr %.1140.us, i64 %71
   %92 = getelementptr inbounds nuw i8, ptr %.167138.us, i64 8
   %93 = icmp sgt i32 %.169137.us, 1
   br i1 %93, label %.preheader.us, label %._crit_edge, !llvm.loop !383
@@ -12727,23 +12727,23 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
   %20 = getelementptr inbounds nuw i8, ptr %.06690.us.us, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !376
   %22 = load ptr, ptr %.06690.us.us, align 8, !tbaa !376
-  %23 = getelementptr inbounds nuw ptr, ptr %.06690.us.us, i64 %19
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %.06690.us.us, i64 %19
   %24 = load ptr, ptr %23, align 8, !tbaa !376
-  %invariant.gep209 = getelementptr i16, ptr %.06592.us.us, i64 %18
+  %invariant.gep209 = getelementptr [2 x i8], ptr %.06592.us.us, i64 %18
   br label %.lr.ph.us.us.us
 
 .lr.ph.us.us.us:                                  ; preds = %._crit_edge.us.us.us, %.preheader82.us.us
   %indvars.iv182 = phi i64 [ %indvars.iv.next183, %._crit_edge.us.us.us ], [ 0, %.preheader82.us.us ]
-  %25 = getelementptr inbounds nuw i16, ptr %21, i64 %indvars.iv182
+  %25 = getelementptr inbounds nuw [2 x i8], ptr %21, i64 %indvars.iv182
   %26 = load i16, ptr %25, align 2, !tbaa !311
   br label %27
 
 27:                                               ; preds = %27, %.lr.ph.us.us.us
   %indvars.iv178 = phi i64 [ %indvars.iv.next179, %27 ], [ 2, %.lr.ph.us.us.us ]
   %.06484.us.us.us = phi i16 [ %.sroa.speculated.i.us.us.us, %27 ], [ %26, %.lr.ph.us.us.us ]
-  %28 = getelementptr inbounds nuw ptr, ptr %.06690.us.us, i64 %indvars.iv178
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %.06690.us.us, i64 %indvars.iv178
   %29 = load ptr, ptr %28, align 8, !tbaa !376
-  %30 = getelementptr inbounds nuw i16, ptr %29, i64 %indvars.iv182
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %29, i64 %indvars.iv182
   %31 = load i16, ptr %30, align 2, !tbaa !311
   %.sroa.speculated.i.us.us.us = call noundef i16 @llvm.smin.i16(i16 %31, i16 %.06484.us.us.us)
   %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
@@ -12751,15 +12751,15 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
   br i1 %exitcond181.not, label %._crit_edge.us.us.us, label %27, !llvm.loop !384
 
 ._crit_edge.us.us.us:                             ; preds = %27
-  %32 = getelementptr inbounds nuw i16, ptr %22, i64 %indvars.iv182
+  %32 = getelementptr inbounds nuw [2 x i8], ptr %22, i64 %indvars.iv182
   %33 = load i16, ptr %32, align 2, !tbaa !311
   %.sroa.speculated.i76.us.us.us = call noundef i16 @llvm.smin.i16(i16 %33, i16 %.sroa.speculated.i.us.us.us)
-  %34 = getelementptr inbounds nuw i16, ptr %.06592.us.us, i64 %indvars.iv182
+  %34 = getelementptr inbounds nuw [2 x i8], ptr %.06592.us.us, i64 %indvars.iv182
   store i16 %.sroa.speculated.i76.us.us.us, ptr %34, align 2, !tbaa !311
-  %35 = getelementptr inbounds nuw i16, ptr %24, i64 %indvars.iv182
+  %35 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %indvars.iv182
   %36 = load i16, ptr %35, align 2, !tbaa !311
   %.sroa.speculated.i77.us.us.us = call noundef i16 @llvm.smin.i16(i16 %36, i16 %.sroa.speculated.i.us.us.us)
-  %gep210 = getelementptr i16, ptr %invariant.gep209, i64 %indvars.iv182
+  %gep210 = getelementptr [2 x i8], ptr %invariant.gep209, i64 %indvars.iv182
   store i16 %.sroa.speculated.i77.us.us.us, ptr %gep210, align 2, !tbaa !311
   %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 1
   %exitcond186.not = icmp eq i64 %indvars.iv.next183, %wide.trip.count185
@@ -12767,7 +12767,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
 
 ._crit_edge88.split.us.us.us:                     ; preds = %._crit_edge.us.us.us
   %37 = add nsw i32 %.06889.us.us, -2
-  %38 = getelementptr inbounds i16, ptr %.06592.us.us, i64 %16
+  %38 = getelementptr inbounds [2 x i8], ptr %.06592.us.us, i64 %16
   %39 = getelementptr inbounds nuw i8, ptr %.06690.us.us, i64 16
   %40 = icmp sgt i32 %.06889.us.us, 3
   br i1 %40, label %.preheader82.us.us, label %.preheader81, !llvm.loop !386
@@ -12786,22 +12786,22 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
   %43 = load ptr, ptr %42, align 8, !tbaa !376
   %44 = getelementptr inbounds nuw i8, ptr %.06690.us, i64 16
   %45 = load ptr, ptr %44, align 8, !tbaa !376
-  %invariant.gep = getelementptr i16, ptr %.06592.us, i64 %18
+  %invariant.gep = getelementptr [2 x i8], ptr %.06592.us, i64 %18
   br label %46
 
 46:                                               ; preds = %.preheader82.us, %46
   %indvars.iv164 = phi i64 [ 0, %.preheader82.us ], [ %indvars.iv.next165, %46 ]
-  %47 = getelementptr inbounds nuw i16, ptr %43, i64 %indvars.iv164
+  %47 = getelementptr inbounds nuw [2 x i8], ptr %43, i64 %indvars.iv164
   %48 = load i16, ptr %47, align 2, !tbaa !311
-  %49 = getelementptr inbounds nuw i16, ptr %41, i64 %indvars.iv164
+  %49 = getelementptr inbounds nuw [2 x i8], ptr %41, i64 %indvars.iv164
   %50 = load i16, ptr %49, align 2, !tbaa !311
   %.sroa.speculated.i76.us97 = call noundef i16 @llvm.smin.i16(i16 %50, i16 %48)
-  %51 = getelementptr inbounds nuw i16, ptr %.06592.us, i64 %indvars.iv164
+  %51 = getelementptr inbounds nuw [2 x i8], ptr %.06592.us, i64 %indvars.iv164
   store i16 %.sroa.speculated.i76.us97, ptr %51, align 2, !tbaa !311
-  %52 = getelementptr inbounds nuw i16, ptr %45, i64 %indvars.iv164
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %45, i64 %indvars.iv164
   %53 = load i16, ptr %52, align 2, !tbaa !311
   %.sroa.speculated.i77.us98 = call noundef i16 @llvm.smin.i16(i16 %53, i16 %48)
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %indvars.iv164
+  %gep = getelementptr [2 x i8], ptr %invariant.gep, i64 %indvars.iv164
   store i16 %.sroa.speculated.i77.us98, ptr %gep, align 2, !tbaa !311
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
   %exitcond168.not = icmp eq i64 %indvars.iv.next165, %wide.trip.count167
@@ -12809,7 +12809,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
 
 ._crit_edge88.split.us99:                         ; preds = %46
   %54 = add nsw i32 %.06889.us, -2
-  %55 = getelementptr inbounds i16, ptr %.06592.us, i64 %16
+  %55 = getelementptr inbounds [2 x i8], ptr %.06592.us, i64 %16
   %56 = icmp sgt i32 %.06889.us, 3
   br i1 %56, label %.preheader82.us, label %.preheader81, !llvm.loop !386
 
@@ -12859,16 +12859,16 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
 
 .lr.ph.us.us.us145:                               ; preds = %._crit_edge.us.us.us146, %.preheader.us.us
   %indvars.iv196 = phi i64 [ %indvars.iv.next197, %._crit_edge.us.us.us146 ], [ 0, %.preheader.us.us ]
-  %73 = getelementptr inbounds nuw i16, ptr %72, i64 %indvars.iv196
+  %73 = getelementptr inbounds nuw [2 x i8], ptr %72, i64 %indvars.iv196
   %74 = load i16, ptr %73, align 2, !tbaa !311
   br label %75
 
 75:                                               ; preds = %75, %.lr.ph.us.us.us145
   %indvars.iv192 = phi i64 [ %indvars.iv.next193, %75 ], [ 1, %.lr.ph.us.us.us145 ]
   %.0132.us.us.us = phi i16 [ %.sroa.speculated.i78.us.us.us, %75 ], [ %74, %.lr.ph.us.us.us145 ]
-  %76 = getelementptr inbounds nuw ptr, ptr %.167138.us.us, i64 %indvars.iv192
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %.167138.us.us, i64 %indvars.iv192
   %77 = load ptr, ptr %76, align 8, !tbaa !376
-  %78 = getelementptr inbounds nuw i16, ptr %77, i64 %indvars.iv196
+  %78 = getelementptr inbounds nuw [2 x i8], ptr %77, i64 %indvars.iv196
   %79 = load i16, ptr %78, align 2, !tbaa !311
   %.sroa.speculated.i78.us.us.us = call noundef i16 @llvm.smin.i16(i16 %79, i16 %.0132.us.us.us)
   %indvars.iv.next193 = add nuw nsw i64 %indvars.iv192, 1
@@ -12876,7 +12876,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
   br i1 %exitcond195.not, label %._crit_edge.us.us.us146, label %75, !llvm.loop !387
 
 ._crit_edge.us.us.us146:                          ; preds = %75
-  %80 = getelementptr inbounds nuw i16, ptr %.1140.us.us, i64 %indvars.iv196
+  %80 = getelementptr inbounds nuw [2 x i8], ptr %.1140.us.us, i64 %indvars.iv196
   store i16 %.sroa.speculated.i78.us.us.us, ptr %80, align 2, !tbaa !311
   %indvars.iv.next197 = add nuw nsw i64 %indvars.iv196, 1
   %exitcond200.not = icmp eq i64 %indvars.iv.next197, %wide.trip.count199
@@ -12884,7 +12884,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
 
 ._crit_edge136.split.us.us.us:                    ; preds = %._crit_edge.us.us.us146
   %81 = add nsw i32 %.169137.us.us, -1
-  %82 = getelementptr inbounds i16, ptr %.1140.us.us, i64 %71
+  %82 = getelementptr inbounds [2 x i8], ptr %.1140.us.us, i64 %71
   %83 = getelementptr inbounds nuw i8, ptr %.167138.us.us, i64 8
   %84 = icmp sgt i32 %.169137.us.us, 1
   br i1 %84, label %.preheader.us.us, label %._crit_edge, !llvm.loop !389
@@ -12898,9 +12898,9 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
 
 86:                                               ; preds = %.preheader.us, %86
   %indvars.iv187 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next188, %86 ]
-  %87 = getelementptr inbounds nuw i16, ptr %85, i64 %indvars.iv187
+  %87 = getelementptr inbounds nuw [2 x i8], ptr %85, i64 %indvars.iv187
   %88 = load i16, ptr %87, align 2, !tbaa !311
-  %89 = getelementptr inbounds nuw i16, ptr %.1140.us, i64 %indvars.iv187
+  %89 = getelementptr inbounds nuw [2 x i8], ptr %.1140.us, i64 %indvars.iv187
   store i16 %88, ptr %89, align 2, !tbaa !311
   %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
   %exitcond191.not = icmp eq i64 %indvars.iv.next188, %wide.trip.count199
@@ -12908,7 +12908,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
 
 ._crit_edge136.split.us143:                       ; preds = %86
   %90 = add nsw i32 %.169137.us, -1
-  %91 = getelementptr inbounds i16, ptr %.1140.us, i64 %71
+  %91 = getelementptr inbounds [2 x i8], ptr %.1140.us, i64 %71
   %92 = getelementptr inbounds nuw i8, ptr %.167138.us, i64 8
   %93 = icmp sgt i32 %.169137.us, 1
   br i1 %93, label %.preheader.us, label %._crit_edge, !llvm.loop !389
@@ -13033,23 +13033,23 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
   %20 = getelementptr inbounds nuw i8, ptr %.06690.us.us, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !390
   %22 = load ptr, ptr %.06690.us.us, align 8, !tbaa !390
-  %23 = getelementptr inbounds nuw ptr, ptr %.06690.us.us, i64 %19
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %.06690.us.us, i64 %19
   %24 = load ptr, ptr %23, align 8, !tbaa !390
-  %invariant.gep212 = getelementptr float, ptr %.06592.us.us, i64 %18
+  %invariant.gep212 = getelementptr [4 x i8], ptr %.06592.us.us, i64 %18
   br label %.lr.ph.us.us.us
 
 .lr.ph.us.us.us:                                  ; preds = %._crit_edge.us.us.us, %.preheader82.us.us
   %indvars.iv184 = phi i64 [ %indvars.iv.next185, %._crit_edge.us.us.us ], [ 0, %.preheader82.us.us ]
-  %25 = getelementptr inbounds nuw float, ptr %21, i64 %indvars.iv184
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv184
   %26 = load float, ptr %25, align 4, !tbaa !325
   br label %27
 
 27:                                               ; preds = %27, %.lr.ph.us.us.us
   %indvars.iv179 = phi i64 [ %indvars.iv.next180, %27 ], [ 2, %.lr.ph.us.us.us ]
   %.06484.us.us.us = phi float [ %.sroa.speculated.i.us.us.us, %27 ], [ %26, %.lr.ph.us.us.us ]
-  %28 = getelementptr inbounds nuw ptr, ptr %.06690.us.us, i64 %indvars.iv179
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %.06690.us.us, i64 %indvars.iv179
   %29 = load ptr, ptr %28, align 8, !tbaa !390
-  %30 = getelementptr inbounds nuw float, ptr %29, i64 %indvars.iv184
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv184
   %31 = load float, ptr %30, align 4, !tbaa !325
   %32 = fcmp olt float %31, %.06484.us.us.us
   %.sroa.speculated.i.us.us.us = select i1 %32, float %31, float %.06484.us.us.us
@@ -13058,17 +13058,17 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
   br i1 %exitcond183.not, label %._crit_edge.us.us.us, label %27, !llvm.loop !392
 
 ._crit_edge.us.us.us:                             ; preds = %27
-  %33 = getelementptr inbounds nuw float, ptr %22, i64 %indvars.iv184
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv184
   %34 = load float, ptr %33, align 4, !tbaa !325
   %35 = fcmp olt float %34, %.sroa.speculated.i.us.us.us
   %.sroa.speculated.i76.us.us.us = select i1 %35, float %34, float %.sroa.speculated.i.us.us.us
-  %36 = getelementptr inbounds nuw float, ptr %.06592.us.us, i64 %indvars.iv184
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %.06592.us.us, i64 %indvars.iv184
   store float %.sroa.speculated.i76.us.us.us, ptr %36, align 4, !tbaa !325
-  %37 = getelementptr inbounds nuw float, ptr %24, i64 %indvars.iv184
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv184
   %38 = load float, ptr %37, align 4, !tbaa !325
   %39 = fcmp olt float %38, %.sroa.speculated.i.us.us.us
   %.sroa.speculated.i77.us.us.us = select i1 %39, float %38, float %.sroa.speculated.i.us.us.us
-  %gep213 = getelementptr float, ptr %invariant.gep212, i64 %indvars.iv184
+  %gep213 = getelementptr [4 x i8], ptr %invariant.gep212, i64 %indvars.iv184
   store float %.sroa.speculated.i77.us.us.us, ptr %gep213, align 4, !tbaa !325
   %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
   %exitcond188.not = icmp eq i64 %indvars.iv.next185, %wide.trip.count187
@@ -13076,7 +13076,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
 
 ._crit_edge88.split.us.us.us:                     ; preds = %._crit_edge.us.us.us
   %40 = add nsw i32 %.06889.us.us, -2
-  %41 = getelementptr inbounds float, ptr %.06592.us.us, i64 %16
+  %41 = getelementptr inbounds [4 x i8], ptr %.06592.us.us, i64 %16
   %42 = getelementptr inbounds nuw i8, ptr %.06690.us.us, i64 16
   %43 = icmp sgt i32 %.06889.us.us, 3
   br i1 %43, label %.preheader82.us.us, label %.preheader81, !llvm.loop !394
@@ -13095,24 +13095,24 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
   %46 = load ptr, ptr %45, align 8, !tbaa !390
   %47 = getelementptr inbounds nuw i8, ptr %.06690.us, i64 16
   %48 = load ptr, ptr %47, align 8, !tbaa !390
-  %invariant.gep = getelementptr float, ptr %.06592.us, i64 %18
+  %invariant.gep = getelementptr [4 x i8], ptr %.06592.us, i64 %18
   br label %49
 
 49:                                               ; preds = %.preheader82.us, %49
   %indvars.iv164 = phi i64 [ 0, %.preheader82.us ], [ %indvars.iv.next165, %49 ]
-  %50 = getelementptr inbounds nuw float, ptr %46, i64 %indvars.iv164
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %indvars.iv164
   %51 = load float, ptr %50, align 4, !tbaa !325
-  %52 = getelementptr inbounds nuw float, ptr %44, i64 %indvars.iv164
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %indvars.iv164
   %53 = load float, ptr %52, align 4, !tbaa !325
   %54 = fcmp olt float %53, %51
   %.sroa.speculated.i76.us97 = select i1 %54, float %53, float %51
-  %55 = getelementptr inbounds nuw float, ptr %.06592.us, i64 %indvars.iv164
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %.06592.us, i64 %indvars.iv164
   store float %.sroa.speculated.i76.us97, ptr %55, align 4, !tbaa !325
-  %56 = getelementptr inbounds nuw float, ptr %48, i64 %indvars.iv164
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %indvars.iv164
   %57 = load float, ptr %56, align 4, !tbaa !325
   %58 = fcmp olt float %57, %51
   %.sroa.speculated.i77.us98 = select i1 %58, float %57, float %51
-  %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv164
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv164
   store float %.sroa.speculated.i77.us98, ptr %gep, align 4, !tbaa !325
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
   %exitcond168.not = icmp eq i64 %indvars.iv.next165, %wide.trip.count167
@@ -13120,7 +13120,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
 
 ._crit_edge88.split.us99:                         ; preds = %49
   %59 = add nsw i32 %.06889.us, -2
-  %60 = getelementptr inbounds float, ptr %.06592.us, i64 %16
+  %60 = getelementptr inbounds [4 x i8], ptr %.06592.us, i64 %16
   %61 = icmp sgt i32 %.06889.us, 3
   br i1 %61, label %.preheader82.us, label %.preheader81, !llvm.loop !394
 
@@ -13170,16 +13170,16 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
 
 .lr.ph.us.us.us145:                               ; preds = %._crit_edge.us.us.us146, %.preheader.us.us
   %indvars.iv199 = phi i64 [ %indvars.iv.next200, %._crit_edge.us.us.us146 ], [ 0, %.preheader.us.us ]
-  %78 = getelementptr inbounds nuw float, ptr %77, i64 %indvars.iv199
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %indvars.iv199
   %79 = load float, ptr %78, align 4, !tbaa !325
   br label %80
 
 80:                                               ; preds = %80, %.lr.ph.us.us.us145
   %indvars.iv194 = phi i64 [ %indvars.iv.next195, %80 ], [ 1, %.lr.ph.us.us.us145 ]
   %.0132.us.us.us = phi float [ %.sroa.speculated.i78.us.us.us, %80 ], [ %79, %.lr.ph.us.us.us145 ]
-  %81 = getelementptr inbounds nuw ptr, ptr %.167138.us.us, i64 %indvars.iv194
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %.167138.us.us, i64 %indvars.iv194
   %82 = load ptr, ptr %81, align 8, !tbaa !390
-  %83 = getelementptr inbounds nuw float, ptr %82, i64 %indvars.iv199
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %82, i64 %indvars.iv199
   %84 = load float, ptr %83, align 4, !tbaa !325
   %85 = fcmp olt float %84, %.0132.us.us.us
   %.sroa.speculated.i78.us.us.us = select i1 %85, float %84, float %.0132.us.us.us
@@ -13188,7 +13188,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
   br i1 %exitcond198.not, label %._crit_edge.us.us.us146, label %80, !llvm.loop !395
 
 ._crit_edge.us.us.us146:                          ; preds = %80
-  %86 = getelementptr inbounds nuw float, ptr %.1140.us.us, i64 %indvars.iv199
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %.1140.us.us, i64 %indvars.iv199
   store float %.sroa.speculated.i78.us.us.us, ptr %86, align 4, !tbaa !325
   %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 1
   %exitcond203.not = icmp eq i64 %indvars.iv.next200, %wide.trip.count202
@@ -13196,7 +13196,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
 
 ._crit_edge136.split.us.us.us:                    ; preds = %._crit_edge.us.us.us146
   %87 = add nsw i32 %.169137.us.us, -1
-  %88 = getelementptr inbounds float, ptr %.1140.us.us, i64 %76
+  %88 = getelementptr inbounds [4 x i8], ptr %.1140.us.us, i64 %76
   %89 = getelementptr inbounds nuw i8, ptr %.167138.us.us, i64 8
   %90 = icmp sgt i32 %.169137.us.us, 1
   br i1 %90, label %.preheader.us.us, label %._crit_edge, !llvm.loop !397
@@ -13210,9 +13210,9 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
 
 92:                                               ; preds = %.preheader.us, %92
   %indvars.iv189 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next190, %92 ]
-  %93 = getelementptr inbounds nuw float, ptr %91, i64 %indvars.iv189
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %indvars.iv189
   %94 = load float, ptr %93, align 4, !tbaa !325
-  %95 = getelementptr inbounds nuw float, ptr %.1140.us, i64 %indvars.iv189
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %.1140.us, i64 %indvars.iv189
   store float %94, ptr %95, align 4, !tbaa !325
   %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 1
   %exitcond193.not = icmp eq i64 %indvars.iv.next190, %wide.trip.count202
@@ -13220,7 +13220,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
 
 ._crit_edge136.split.us143:                       ; preds = %92
   %96 = add nsw i32 %.169137.us, -1
-  %97 = getelementptr inbounds float, ptr %.1140.us, i64 %76
+  %97 = getelementptr inbounds [4 x i8], ptr %.1140.us, i64 %76
   %98 = getelementptr inbounds nuw i8, ptr %.167138.us, i64 8
   %99 = icmp sgt i32 %.169137.us, 1
   br i1 %99, label %.preheader.us, label %._crit_edge, !llvm.loop !397
@@ -13345,23 +13345,23 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
   %20 = getelementptr inbounds nuw i8, ptr %.06690.us.us, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !398
   %22 = load ptr, ptr %.06690.us.us, align 8, !tbaa !398
-  %23 = getelementptr inbounds nuw ptr, ptr %.06690.us.us, i64 %19
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %.06690.us.us, i64 %19
   %24 = load ptr, ptr %23, align 8, !tbaa !398
-  %invariant.gep212 = getelementptr double, ptr %.06592.us.us, i64 %18
+  %invariant.gep212 = getelementptr [8 x i8], ptr %.06592.us.us, i64 %18
   br label %.lr.ph.us.us.us
 
 .lr.ph.us.us.us:                                  ; preds = %._crit_edge.us.us.us, %.preheader82.us.us
   %indvars.iv184 = phi i64 [ %indvars.iv.next185, %._crit_edge.us.us.us ], [ 0, %.preheader82.us.us ]
-  %25 = getelementptr inbounds nuw double, ptr %21, i64 %indvars.iv184
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv184
   %26 = load double, ptr %25, align 8, !tbaa !232
   br label %27
 
 27:                                               ; preds = %27, %.lr.ph.us.us.us
   %indvars.iv179 = phi i64 [ %indvars.iv.next180, %27 ], [ 2, %.lr.ph.us.us.us ]
   %.06484.us.us.us = phi double [ %.sroa.speculated.i.us.us.us, %27 ], [ %26, %.lr.ph.us.us.us ]
-  %28 = getelementptr inbounds nuw ptr, ptr %.06690.us.us, i64 %indvars.iv179
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %.06690.us.us, i64 %indvars.iv179
   %29 = load ptr, ptr %28, align 8, !tbaa !398
-  %30 = getelementptr inbounds nuw double, ptr %29, i64 %indvars.iv184
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv184
   %31 = load double, ptr %30, align 8, !tbaa !232
   %32 = fcmp olt double %31, %.06484.us.us.us
   %.sroa.speculated.i.us.us.us = select i1 %32, double %31, double %.06484.us.us.us
@@ -13370,17 +13370,17 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
   br i1 %exitcond183.not, label %._crit_edge.us.us.us, label %27, !llvm.loop !400
 
 ._crit_edge.us.us.us:                             ; preds = %27
-  %33 = getelementptr inbounds nuw double, ptr %22, i64 %indvars.iv184
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv184
   %34 = load double, ptr %33, align 8, !tbaa !232
   %35 = fcmp olt double %34, %.sroa.speculated.i.us.us.us
   %.sroa.speculated.i76.us.us.us = select i1 %35, double %34, double %.sroa.speculated.i.us.us.us
-  %36 = getelementptr inbounds nuw double, ptr %.06592.us.us, i64 %indvars.iv184
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %.06592.us.us, i64 %indvars.iv184
   store double %.sroa.speculated.i76.us.us.us, ptr %36, align 8, !tbaa !232
-  %37 = getelementptr inbounds nuw double, ptr %24, i64 %indvars.iv184
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv184
   %38 = load double, ptr %37, align 8, !tbaa !232
   %39 = fcmp olt double %38, %.sroa.speculated.i.us.us.us
   %.sroa.speculated.i77.us.us.us = select i1 %39, double %38, double %.sroa.speculated.i.us.us.us
-  %gep213 = getelementptr double, ptr %invariant.gep212, i64 %indvars.iv184
+  %gep213 = getelementptr [8 x i8], ptr %invariant.gep212, i64 %indvars.iv184
   store double %.sroa.speculated.i77.us.us.us, ptr %gep213, align 8, !tbaa !232
   %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
   %exitcond188.not = icmp eq i64 %indvars.iv.next185, %wide.trip.count187
@@ -13388,7 +13388,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
 
 ._crit_edge88.split.us.us.us:                     ; preds = %._crit_edge.us.us.us
   %40 = add nsw i32 %.06889.us.us, -2
-  %41 = getelementptr inbounds double, ptr %.06592.us.us, i64 %16
+  %41 = getelementptr inbounds [8 x i8], ptr %.06592.us.us, i64 %16
   %42 = getelementptr inbounds nuw i8, ptr %.06690.us.us, i64 16
   %43 = icmp sgt i32 %.06889.us.us, 3
   br i1 %43, label %.preheader82.us.us, label %.preheader81, !llvm.loop !402
@@ -13407,24 +13407,24 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
   %46 = load ptr, ptr %45, align 8, !tbaa !398
   %47 = getelementptr inbounds nuw i8, ptr %.06690.us, i64 16
   %48 = load ptr, ptr %47, align 8, !tbaa !398
-  %invariant.gep = getelementptr double, ptr %.06592.us, i64 %18
+  %invariant.gep = getelementptr [8 x i8], ptr %.06592.us, i64 %18
   br label %49
 
 49:                                               ; preds = %.preheader82.us, %49
   %indvars.iv164 = phi i64 [ 0, %.preheader82.us ], [ %indvars.iv.next165, %49 ]
-  %50 = getelementptr inbounds nuw double, ptr %46, i64 %indvars.iv164
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv164
   %51 = load double, ptr %50, align 8, !tbaa !232
-  %52 = getelementptr inbounds nuw double, ptr %44, i64 %indvars.iv164
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv164
   %53 = load double, ptr %52, align 8, !tbaa !232
   %54 = fcmp olt double %53, %51
   %.sroa.speculated.i76.us97 = select i1 %54, double %53, double %51
-  %55 = getelementptr inbounds nuw double, ptr %.06592.us, i64 %indvars.iv164
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %.06592.us, i64 %indvars.iv164
   store double %.sroa.speculated.i76.us97, ptr %55, align 8, !tbaa !232
-  %56 = getelementptr inbounds nuw double, ptr %48, i64 %indvars.iv164
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %indvars.iv164
   %57 = load double, ptr %56, align 8, !tbaa !232
   %58 = fcmp olt double %57, %51
   %.sroa.speculated.i77.us98 = select i1 %58, double %57, double %51
-  %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv164
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %indvars.iv164
   store double %.sroa.speculated.i77.us98, ptr %gep, align 8, !tbaa !232
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
   %exitcond168.not = icmp eq i64 %indvars.iv.next165, %wide.trip.count167
@@ -13432,7 +13432,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
 
 ._crit_edge88.split.us99:                         ; preds = %49
   %59 = add nsw i32 %.06889.us, -2
-  %60 = getelementptr inbounds double, ptr %.06592.us, i64 %16
+  %60 = getelementptr inbounds [8 x i8], ptr %.06592.us, i64 %16
   %61 = icmp sgt i32 %.06889.us, 3
   br i1 %61, label %.preheader82.us, label %.preheader81, !llvm.loop !402
 
@@ -13482,16 +13482,16 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
 
 .lr.ph.us.us.us145:                               ; preds = %._crit_edge.us.us.us146, %.preheader.us.us
   %indvars.iv199 = phi i64 [ %indvars.iv.next200, %._crit_edge.us.us.us146 ], [ 0, %.preheader.us.us ]
-  %78 = getelementptr inbounds nuw double, ptr %77, i64 %indvars.iv199
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %indvars.iv199
   %79 = load double, ptr %78, align 8, !tbaa !232
   br label %80
 
 80:                                               ; preds = %80, %.lr.ph.us.us.us145
   %indvars.iv194 = phi i64 [ %indvars.iv.next195, %80 ], [ 1, %.lr.ph.us.us.us145 ]
   %.0132.us.us.us = phi double [ %.sroa.speculated.i78.us.us.us, %80 ], [ %79, %.lr.ph.us.us.us145 ]
-  %81 = getelementptr inbounds nuw ptr, ptr %.167138.us.us, i64 %indvars.iv194
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %.167138.us.us, i64 %indvars.iv194
   %82 = load ptr, ptr %81, align 8, !tbaa !398
-  %83 = getelementptr inbounds nuw double, ptr %82, i64 %indvars.iv199
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %indvars.iv199
   %84 = load double, ptr %83, align 8, !tbaa !232
   %85 = fcmp olt double %84, %.0132.us.us.us
   %.sroa.speculated.i78.us.us.us = select i1 %85, double %84, double %.0132.us.us.us
@@ -13500,7 +13500,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
   br i1 %exitcond198.not, label %._crit_edge.us.us.us146, label %80, !llvm.loop !403
 
 ._crit_edge.us.us.us146:                          ; preds = %80
-  %86 = getelementptr inbounds nuw double, ptr %.1140.us.us, i64 %indvars.iv199
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %.1140.us.us, i64 %indvars.iv199
   store double %.sroa.speculated.i78.us.us.us, ptr %86, align 8, !tbaa !232
   %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 1
   %exitcond203.not = icmp eq i64 %indvars.iv.next200, %wide.trip.count202
@@ -13508,7 +13508,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
 
 ._crit_edge136.split.us.us.us:                    ; preds = %._crit_edge.us.us.us146
   %87 = add nsw i32 %.169137.us.us, -1
-  %88 = getelementptr inbounds double, ptr %.1140.us.us, i64 %76
+  %88 = getelementptr inbounds [8 x i8], ptr %.1140.us.us, i64 %76
   %89 = getelementptr inbounds nuw i8, ptr %.167138.us.us, i64 8
   %90 = icmp sgt i32 %.169137.us.us, 1
   br i1 %90, label %.preheader.us.us, label %._crit_edge, !llvm.loop !405
@@ -13522,9 +13522,9 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
 
 92:                                               ; preds = %.preheader.us, %92
   %indvars.iv189 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next190, %92 ]
-  %93 = getelementptr inbounds nuw double, ptr %91, i64 %indvars.iv189
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %indvars.iv189
   %94 = load double, ptr %93, align 8, !tbaa !232
-  %95 = getelementptr inbounds nuw double, ptr %.1140.us, i64 %indvars.iv189
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %.1140.us, i64 %indvars.iv189
   store double %94, ptr %95, align 8, !tbaa !232
   %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 1
   %exitcond193.not = icmp eq i64 %indvars.iv.next190, %wide.trip.count202
@@ -13532,7 +13532,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
 
 ._crit_edge136.split.us143:                       ; preds = %92
   %96 = add nsw i32 %.169137.us, -1
-  %97 = getelementptr inbounds double, ptr %.1140.us, i64 %76
+  %97 = getelementptr inbounds [8 x i8], ptr %.1140.us, i64 %76
   %98 = getelementptr inbounds nuw i8, ptr %.167138.us, i64 8
   %99 = icmp sgt i32 %.169137.us, 1
   br i1 %99, label %.preheader.us, label %._crit_edge, !llvm.loop !405
@@ -13654,7 +13654,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
   %.06690.us.us = phi ptr [ %38, %._crit_edge88.split.us.us.us ], [ %1, %.preheader82.us.us.preheader ]
   %.06889.us.us = phi i32 [ %36, %._crit_edge88.split.us.us.us ], [ %4, %.preheader82.us.us.preheader ]
   %19 = getelementptr inbounds nuw i8, ptr %.06690.us.us, i64 8
-  %20 = getelementptr inbounds nuw ptr, ptr %.06690.us.us, i64 %18
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %.06690.us.us, i64 %18
   %invariant.gep210 = getelementptr i8, ptr %.06592.us.us, i64 %10
   br label %.lr.ph.us.us.us
 
@@ -13668,7 +13668,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
 24:                                               ; preds = %24, %.lr.ph.us.us.us
   %indvars.iv178 = phi i64 [ %indvars.iv.next179, %24 ], [ 2, %.lr.ph.us.us.us ]
   %.06484.us.us.us = phi i8 [ %.sroa.speculated.i.us.us.us, %24 ], [ %23, %.lr.ph.us.us.us ]
-  %25 = getelementptr inbounds nuw ptr, ptr %.06690.us.us, i64 %indvars.iv178
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.06690.us.us, i64 %indvars.iv178
   %26 = load ptr, ptr %25, align 8, !tbaa !369
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 %indvars.iv182
   %28 = load i8, ptr %27, align 1, !tbaa !227
@@ -13786,7 +13786,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
 72:                                               ; preds = %72, %.lr.ph.us.us.us145
   %indvars.iv192 = phi i64 [ %indvars.iv.next193, %72 ], [ 1, %.lr.ph.us.us.us145 ]
   %.0132.us.us.us = phi i8 [ %.sroa.speculated.i78.us.us.us, %72 ], [ %71, %.lr.ph.us.us.us145 ]
-  %73 = getelementptr inbounds nuw ptr, ptr %.167138.us.us, i64 %indvars.iv192
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %.167138.us.us, i64 %indvars.iv192
   %74 = load ptr, ptr %73, align 8, !tbaa !369
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 %indvars.iv196
   %76 = load i8, ptr %75, align 1, !tbaa !227
@@ -13953,23 +13953,23 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
   %20 = getelementptr inbounds nuw i8, ptr %.06690.us.us, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !376
   %22 = load ptr, ptr %.06690.us.us, align 8, !tbaa !376
-  %23 = getelementptr inbounds nuw ptr, ptr %.06690.us.us, i64 %19
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %.06690.us.us, i64 %19
   %24 = load ptr, ptr %23, align 8, !tbaa !376
-  %invariant.gep209 = getelementptr i16, ptr %.06592.us.us, i64 %18
+  %invariant.gep209 = getelementptr [2 x i8], ptr %.06592.us.us, i64 %18
   br label %.lr.ph.us.us.us
 
 .lr.ph.us.us.us:                                  ; preds = %._crit_edge.us.us.us, %.preheader82.us.us
   %indvars.iv182 = phi i64 [ %indvars.iv.next183, %._crit_edge.us.us.us ], [ 0, %.preheader82.us.us ]
-  %25 = getelementptr inbounds nuw i16, ptr %21, i64 %indvars.iv182
+  %25 = getelementptr inbounds nuw [2 x i8], ptr %21, i64 %indvars.iv182
   %26 = load i16, ptr %25, align 2, !tbaa !311
   br label %27
 
 27:                                               ; preds = %27, %.lr.ph.us.us.us
   %indvars.iv178 = phi i64 [ %indvars.iv.next179, %27 ], [ 2, %.lr.ph.us.us.us ]
   %.06484.us.us.us = phi i16 [ %.sroa.speculated.i.us.us.us, %27 ], [ %26, %.lr.ph.us.us.us ]
-  %28 = getelementptr inbounds nuw ptr, ptr %.06690.us.us, i64 %indvars.iv178
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %.06690.us.us, i64 %indvars.iv178
   %29 = load ptr, ptr %28, align 8, !tbaa !376
-  %30 = getelementptr inbounds nuw i16, ptr %29, i64 %indvars.iv182
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %29, i64 %indvars.iv182
   %31 = load i16, ptr %30, align 2, !tbaa !311
   %.sroa.speculated.i.us.us.us = call noundef i16 @llvm.umax.i16(i16 %.06484.us.us.us, i16 %31)
   %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
@@ -13977,15 +13977,15 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
   br i1 %exitcond181.not, label %._crit_edge.us.us.us, label %27, !llvm.loop !412
 
 ._crit_edge.us.us.us:                             ; preds = %27
-  %32 = getelementptr inbounds nuw i16, ptr %22, i64 %indvars.iv182
+  %32 = getelementptr inbounds nuw [2 x i8], ptr %22, i64 %indvars.iv182
   %33 = load i16, ptr %32, align 2, !tbaa !311
   %.sroa.speculated.i76.us.us.us = call noundef i16 @llvm.umax.i16(i16 %.sroa.speculated.i.us.us.us, i16 %33)
-  %34 = getelementptr inbounds nuw i16, ptr %.06592.us.us, i64 %indvars.iv182
+  %34 = getelementptr inbounds nuw [2 x i8], ptr %.06592.us.us, i64 %indvars.iv182
   store i16 %.sroa.speculated.i76.us.us.us, ptr %34, align 2, !tbaa !311
-  %35 = getelementptr inbounds nuw i16, ptr %24, i64 %indvars.iv182
+  %35 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %indvars.iv182
   %36 = load i16, ptr %35, align 2, !tbaa !311
   %.sroa.speculated.i77.us.us.us = call noundef i16 @llvm.umax.i16(i16 %.sroa.speculated.i.us.us.us, i16 %36)
-  %gep210 = getelementptr i16, ptr %invariant.gep209, i64 %indvars.iv182
+  %gep210 = getelementptr [2 x i8], ptr %invariant.gep209, i64 %indvars.iv182
   store i16 %.sroa.speculated.i77.us.us.us, ptr %gep210, align 2, !tbaa !311
   %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 1
   %exitcond186.not = icmp eq i64 %indvars.iv.next183, %wide.trip.count185
@@ -13993,7 +13993,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
 
 ._crit_edge88.split.us.us.us:                     ; preds = %._crit_edge.us.us.us
   %37 = add nsw i32 %.06889.us.us, -2
-  %38 = getelementptr inbounds i16, ptr %.06592.us.us, i64 %16
+  %38 = getelementptr inbounds [2 x i8], ptr %.06592.us.us, i64 %16
   %39 = getelementptr inbounds nuw i8, ptr %.06690.us.us, i64 16
   %40 = icmp sgt i32 %.06889.us.us, 3
   br i1 %40, label %.preheader82.us.us, label %.preheader81, !llvm.loop !414
@@ -14012,22 +14012,22 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
   %43 = load ptr, ptr %42, align 8, !tbaa !376
   %44 = getelementptr inbounds nuw i8, ptr %.06690.us, i64 16
   %45 = load ptr, ptr %44, align 8, !tbaa !376
-  %invariant.gep = getelementptr i16, ptr %.06592.us, i64 %18
+  %invariant.gep = getelementptr [2 x i8], ptr %.06592.us, i64 %18
   br label %46
 
 46:                                               ; preds = %.preheader82.us, %46
   %indvars.iv164 = phi i64 [ 0, %.preheader82.us ], [ %indvars.iv.next165, %46 ]
-  %47 = getelementptr inbounds nuw i16, ptr %43, i64 %indvars.iv164
+  %47 = getelementptr inbounds nuw [2 x i8], ptr %43, i64 %indvars.iv164
   %48 = load i16, ptr %47, align 2, !tbaa !311
-  %49 = getelementptr inbounds nuw i16, ptr %41, i64 %indvars.iv164
+  %49 = getelementptr inbounds nuw [2 x i8], ptr %41, i64 %indvars.iv164
   %50 = load i16, ptr %49, align 2, !tbaa !311
   %.sroa.speculated.i76.us97 = call noundef i16 @llvm.umax.i16(i16 %48, i16 %50)
-  %51 = getelementptr inbounds nuw i16, ptr %.06592.us, i64 %indvars.iv164
+  %51 = getelementptr inbounds nuw [2 x i8], ptr %.06592.us, i64 %indvars.iv164
   store i16 %.sroa.speculated.i76.us97, ptr %51, align 2, !tbaa !311
-  %52 = getelementptr inbounds nuw i16, ptr %45, i64 %indvars.iv164
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %45, i64 %indvars.iv164
   %53 = load i16, ptr %52, align 2, !tbaa !311
   %.sroa.speculated.i77.us98 = call noundef i16 @llvm.umax.i16(i16 %48, i16 %53)
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %indvars.iv164
+  %gep = getelementptr [2 x i8], ptr %invariant.gep, i64 %indvars.iv164
   store i16 %.sroa.speculated.i77.us98, ptr %gep, align 2, !tbaa !311
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
   %exitcond168.not = icmp eq i64 %indvars.iv.next165, %wide.trip.count167
@@ -14035,7 +14035,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
 
 ._crit_edge88.split.us99:                         ; preds = %46
   %54 = add nsw i32 %.06889.us, -2
-  %55 = getelementptr inbounds i16, ptr %.06592.us, i64 %16
+  %55 = getelementptr inbounds [2 x i8], ptr %.06592.us, i64 %16
   %56 = icmp sgt i32 %.06889.us, 3
   br i1 %56, label %.preheader82.us, label %.preheader81, !llvm.loop !414
 
@@ -14085,16 +14085,16 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
 
 .lr.ph.us.us.us145:                               ; preds = %._crit_edge.us.us.us146, %.preheader.us.us
   %indvars.iv196 = phi i64 [ %indvars.iv.next197, %._crit_edge.us.us.us146 ], [ 0, %.preheader.us.us ]
-  %73 = getelementptr inbounds nuw i16, ptr %72, i64 %indvars.iv196
+  %73 = getelementptr inbounds nuw [2 x i8], ptr %72, i64 %indvars.iv196
   %74 = load i16, ptr %73, align 2, !tbaa !311
   br label %75
 
 75:                                               ; preds = %75, %.lr.ph.us.us.us145
   %indvars.iv192 = phi i64 [ %indvars.iv.next193, %75 ], [ 1, %.lr.ph.us.us.us145 ]
   %.0132.us.us.us = phi i16 [ %.sroa.speculated.i78.us.us.us, %75 ], [ %74, %.lr.ph.us.us.us145 ]
-  %76 = getelementptr inbounds nuw ptr, ptr %.167138.us.us, i64 %indvars.iv192
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %.167138.us.us, i64 %indvars.iv192
   %77 = load ptr, ptr %76, align 8, !tbaa !376
-  %78 = getelementptr inbounds nuw i16, ptr %77, i64 %indvars.iv196
+  %78 = getelementptr inbounds nuw [2 x i8], ptr %77, i64 %indvars.iv196
   %79 = load i16, ptr %78, align 2, !tbaa !311
   %.sroa.speculated.i78.us.us.us = call noundef i16 @llvm.umax.i16(i16 %.0132.us.us.us, i16 %79)
   %indvars.iv.next193 = add nuw nsw i64 %indvars.iv192, 1
@@ -14102,7 +14102,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
   br i1 %exitcond195.not, label %._crit_edge.us.us.us146, label %75, !llvm.loop !415
 
 ._crit_edge.us.us.us146:                          ; preds = %75
-  %80 = getelementptr inbounds nuw i16, ptr %.1140.us.us, i64 %indvars.iv196
+  %80 = getelementptr inbounds nuw [2 x i8], ptr %.1140.us.us, i64 %indvars.iv196
   store i16 %.sroa.speculated.i78.us.us.us, ptr %80, align 2, !tbaa !311
   %indvars.iv.next197 = add nuw nsw i64 %indvars.iv196, 1
   %exitcond200.not = icmp eq i64 %indvars.iv.next197, %wide.trip.count199
@@ -14110,7 +14110,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
 
 ._crit_edge136.split.us.us.us:                    ; preds = %._crit_edge.us.us.us146
   %81 = add nsw i32 %.169137.us.us, -1
-  %82 = getelementptr inbounds i16, ptr %.1140.us.us, i64 %71
+  %82 = getelementptr inbounds [2 x i8], ptr %.1140.us.us, i64 %71
   %83 = getelementptr inbounds nuw i8, ptr %.167138.us.us, i64 8
   %84 = icmp sgt i32 %.169137.us.us, 1
   br i1 %84, label %.preheader.us.us, label %._crit_edge, !llvm.loop !417
@@ -14124,9 +14124,9 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
 
 86:                                               ; preds = %.preheader.us, %86
   %indvars.iv187 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next188, %86 ]
-  %87 = getelementptr inbounds nuw i16, ptr %85, i64 %indvars.iv187
+  %87 = getelementptr inbounds nuw [2 x i8], ptr %85, i64 %indvars.iv187
   %88 = load i16, ptr %87, align 2, !tbaa !311
-  %89 = getelementptr inbounds nuw i16, ptr %.1140.us, i64 %indvars.iv187
+  %89 = getelementptr inbounds nuw [2 x i8], ptr %.1140.us, i64 %indvars.iv187
   store i16 %88, ptr %89, align 2, !tbaa !311
   %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
   %exitcond191.not = icmp eq i64 %indvars.iv.next188, %wide.trip.count199
@@ -14134,7 +14134,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
 
 ._crit_edge136.split.us143:                       ; preds = %86
   %90 = add nsw i32 %.169137.us, -1
-  %91 = getelementptr inbounds i16, ptr %.1140.us, i64 %71
+  %91 = getelementptr inbounds [2 x i8], ptr %.1140.us, i64 %71
   %92 = getelementptr inbounds nuw i8, ptr %.167138.us, i64 8
   %93 = icmp sgt i32 %.169137.us, 1
   br i1 %93, label %.preheader.us, label %._crit_edge, !llvm.loop !417
@@ -14259,23 +14259,23 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
   %20 = getelementptr inbounds nuw i8, ptr %.06690.us.us, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !376
   %22 = load ptr, ptr %.06690.us.us, align 8, !tbaa !376
-  %23 = getelementptr inbounds nuw ptr, ptr %.06690.us.us, i64 %19
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %.06690.us.us, i64 %19
   %24 = load ptr, ptr %23, align 8, !tbaa !376
-  %invariant.gep209 = getelementptr i16, ptr %.06592.us.us, i64 %18
+  %invariant.gep209 = getelementptr [2 x i8], ptr %.06592.us.us, i64 %18
   br label %.lr.ph.us.us.us
 
 .lr.ph.us.us.us:                                  ; preds = %._crit_edge.us.us.us, %.preheader82.us.us
   %indvars.iv182 = phi i64 [ %indvars.iv.next183, %._crit_edge.us.us.us ], [ 0, %.preheader82.us.us ]
-  %25 = getelementptr inbounds nuw i16, ptr %21, i64 %indvars.iv182
+  %25 = getelementptr inbounds nuw [2 x i8], ptr %21, i64 %indvars.iv182
   %26 = load i16, ptr %25, align 2, !tbaa !311
   br label %27
 
 27:                                               ; preds = %27, %.lr.ph.us.us.us
   %indvars.iv178 = phi i64 [ %indvars.iv.next179, %27 ], [ 2, %.lr.ph.us.us.us ]
   %.06484.us.us.us = phi i16 [ %.sroa.speculated.i.us.us.us, %27 ], [ %26, %.lr.ph.us.us.us ]
-  %28 = getelementptr inbounds nuw ptr, ptr %.06690.us.us, i64 %indvars.iv178
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %.06690.us.us, i64 %indvars.iv178
   %29 = load ptr, ptr %28, align 8, !tbaa !376
-  %30 = getelementptr inbounds nuw i16, ptr %29, i64 %indvars.iv182
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %29, i64 %indvars.iv182
   %31 = load i16, ptr %30, align 2, !tbaa !311
   %.sroa.speculated.i.us.us.us = call noundef i16 @llvm.smax.i16(i16 %.06484.us.us.us, i16 %31)
   %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
@@ -14283,15 +14283,15 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
   br i1 %exitcond181.not, label %._crit_edge.us.us.us, label %27, !llvm.loop !418
 
 ._crit_edge.us.us.us:                             ; preds = %27
-  %32 = getelementptr inbounds nuw i16, ptr %22, i64 %indvars.iv182
+  %32 = getelementptr inbounds nuw [2 x i8], ptr %22, i64 %indvars.iv182
   %33 = load i16, ptr %32, align 2, !tbaa !311
   %.sroa.speculated.i76.us.us.us = call noundef i16 @llvm.smax.i16(i16 %.sroa.speculated.i.us.us.us, i16 %33)
-  %34 = getelementptr inbounds nuw i16, ptr %.06592.us.us, i64 %indvars.iv182
+  %34 = getelementptr inbounds nuw [2 x i8], ptr %.06592.us.us, i64 %indvars.iv182
   store i16 %.sroa.speculated.i76.us.us.us, ptr %34, align 2, !tbaa !311
-  %35 = getelementptr inbounds nuw i16, ptr %24, i64 %indvars.iv182
+  %35 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %indvars.iv182
   %36 = load i16, ptr %35, align 2, !tbaa !311
   %.sroa.speculated.i77.us.us.us = call noundef i16 @llvm.smax.i16(i16 %.sroa.speculated.i.us.us.us, i16 %36)
-  %gep210 = getelementptr i16, ptr %invariant.gep209, i64 %indvars.iv182
+  %gep210 = getelementptr [2 x i8], ptr %invariant.gep209, i64 %indvars.iv182
   store i16 %.sroa.speculated.i77.us.us.us, ptr %gep210, align 2, !tbaa !311
   %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 1
   %exitcond186.not = icmp eq i64 %indvars.iv.next183, %wide.trip.count185
@@ -14299,7 +14299,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
 
 ._crit_edge88.split.us.us.us:                     ; preds = %._crit_edge.us.us.us
   %37 = add nsw i32 %.06889.us.us, -2
-  %38 = getelementptr inbounds i16, ptr %.06592.us.us, i64 %16
+  %38 = getelementptr inbounds [2 x i8], ptr %.06592.us.us, i64 %16
   %39 = getelementptr inbounds nuw i8, ptr %.06690.us.us, i64 16
   %40 = icmp sgt i32 %.06889.us.us, 3
   br i1 %40, label %.preheader82.us.us, label %.preheader81, !llvm.loop !420
@@ -14318,22 +14318,22 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
   %43 = load ptr, ptr %42, align 8, !tbaa !376
   %44 = getelementptr inbounds nuw i8, ptr %.06690.us, i64 16
   %45 = load ptr, ptr %44, align 8, !tbaa !376
-  %invariant.gep = getelementptr i16, ptr %.06592.us, i64 %18
+  %invariant.gep = getelementptr [2 x i8], ptr %.06592.us, i64 %18
   br label %46
 
 46:                                               ; preds = %.preheader82.us, %46
   %indvars.iv164 = phi i64 [ 0, %.preheader82.us ], [ %indvars.iv.next165, %46 ]
-  %47 = getelementptr inbounds nuw i16, ptr %43, i64 %indvars.iv164
+  %47 = getelementptr inbounds nuw [2 x i8], ptr %43, i64 %indvars.iv164
   %48 = load i16, ptr %47, align 2, !tbaa !311
-  %49 = getelementptr inbounds nuw i16, ptr %41, i64 %indvars.iv164
+  %49 = getelementptr inbounds nuw [2 x i8], ptr %41, i64 %indvars.iv164
   %50 = load i16, ptr %49, align 2, !tbaa !311
   %.sroa.speculated.i76.us97 = call noundef i16 @llvm.smax.i16(i16 %48, i16 %50)
-  %51 = getelementptr inbounds nuw i16, ptr %.06592.us, i64 %indvars.iv164
+  %51 = getelementptr inbounds nuw [2 x i8], ptr %.06592.us, i64 %indvars.iv164
   store i16 %.sroa.speculated.i76.us97, ptr %51, align 2, !tbaa !311
-  %52 = getelementptr inbounds nuw i16, ptr %45, i64 %indvars.iv164
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %45, i64 %indvars.iv164
   %53 = load i16, ptr %52, align 2, !tbaa !311
   %.sroa.speculated.i77.us98 = call noundef i16 @llvm.smax.i16(i16 %48, i16 %53)
-  %gep = getelementptr i16, ptr %invariant.gep, i64 %indvars.iv164
+  %gep = getelementptr [2 x i8], ptr %invariant.gep, i64 %indvars.iv164
   store i16 %.sroa.speculated.i77.us98, ptr %gep, align 2, !tbaa !311
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
   %exitcond168.not = icmp eq i64 %indvars.iv.next165, %wide.trip.count167
@@ -14341,7 +14341,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
 
 ._crit_edge88.split.us99:                         ; preds = %46
   %54 = add nsw i32 %.06889.us, -2
-  %55 = getelementptr inbounds i16, ptr %.06592.us, i64 %16
+  %55 = getelementptr inbounds [2 x i8], ptr %.06592.us, i64 %16
   %56 = icmp sgt i32 %.06889.us, 3
   br i1 %56, label %.preheader82.us, label %.preheader81, !llvm.loop !420
 
@@ -14391,16 +14391,16 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
 
 .lr.ph.us.us.us145:                               ; preds = %._crit_edge.us.us.us146, %.preheader.us.us
   %indvars.iv196 = phi i64 [ %indvars.iv.next197, %._crit_edge.us.us.us146 ], [ 0, %.preheader.us.us ]
-  %73 = getelementptr inbounds nuw i16, ptr %72, i64 %indvars.iv196
+  %73 = getelementptr inbounds nuw [2 x i8], ptr %72, i64 %indvars.iv196
   %74 = load i16, ptr %73, align 2, !tbaa !311
   br label %75
 
 75:                                               ; preds = %75, %.lr.ph.us.us.us145
   %indvars.iv192 = phi i64 [ %indvars.iv.next193, %75 ], [ 1, %.lr.ph.us.us.us145 ]
   %.0132.us.us.us = phi i16 [ %.sroa.speculated.i78.us.us.us, %75 ], [ %74, %.lr.ph.us.us.us145 ]
-  %76 = getelementptr inbounds nuw ptr, ptr %.167138.us.us, i64 %indvars.iv192
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %.167138.us.us, i64 %indvars.iv192
   %77 = load ptr, ptr %76, align 8, !tbaa !376
-  %78 = getelementptr inbounds nuw i16, ptr %77, i64 %indvars.iv196
+  %78 = getelementptr inbounds nuw [2 x i8], ptr %77, i64 %indvars.iv196
   %79 = load i16, ptr %78, align 2, !tbaa !311
   %.sroa.speculated.i78.us.us.us = call noundef i16 @llvm.smax.i16(i16 %.0132.us.us.us, i16 %79)
   %indvars.iv.next193 = add nuw nsw i64 %indvars.iv192, 1
@@ -14408,7 +14408,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
   br i1 %exitcond195.not, label %._crit_edge.us.us.us146, label %75, !llvm.loop !421
 
 ._crit_edge.us.us.us146:                          ; preds = %75
-  %80 = getelementptr inbounds nuw i16, ptr %.1140.us.us, i64 %indvars.iv196
+  %80 = getelementptr inbounds nuw [2 x i8], ptr %.1140.us.us, i64 %indvars.iv196
   store i16 %.sroa.speculated.i78.us.us.us, ptr %80, align 2, !tbaa !311
   %indvars.iv.next197 = add nuw nsw i64 %indvars.iv196, 1
   %exitcond200.not = icmp eq i64 %indvars.iv.next197, %wide.trip.count199
@@ -14416,7 +14416,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
 
 ._crit_edge136.split.us.us.us:                    ; preds = %._crit_edge.us.us.us146
   %81 = add nsw i32 %.169137.us.us, -1
-  %82 = getelementptr inbounds i16, ptr %.1140.us.us, i64 %71
+  %82 = getelementptr inbounds [2 x i8], ptr %.1140.us.us, i64 %71
   %83 = getelementptr inbounds nuw i8, ptr %.167138.us.us, i64 8
   %84 = icmp sgt i32 %.169137.us.us, 1
   br i1 %84, label %.preheader.us.us, label %._crit_edge, !llvm.loop !423
@@ -14430,9 +14430,9 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
 
 86:                                               ; preds = %.preheader.us, %86
   %indvars.iv187 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next188, %86 ]
-  %87 = getelementptr inbounds nuw i16, ptr %85, i64 %indvars.iv187
+  %87 = getelementptr inbounds nuw [2 x i8], ptr %85, i64 %indvars.iv187
   %88 = load i16, ptr %87, align 2, !tbaa !311
-  %89 = getelementptr inbounds nuw i16, ptr %.1140.us, i64 %indvars.iv187
+  %89 = getelementptr inbounds nuw [2 x i8], ptr %.1140.us, i64 %indvars.iv187
   store i16 %88, ptr %89, align 2, !tbaa !311
   %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
   %exitcond191.not = icmp eq i64 %indvars.iv.next188, %wide.trip.count199
@@ -14440,7 +14440,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
 
 ._crit_edge136.split.us143:                       ; preds = %86
   %90 = add nsw i32 %.169137.us, -1
-  %91 = getelementptr inbounds i16, ptr %.1140.us, i64 %71
+  %91 = getelementptr inbounds [2 x i8], ptr %.1140.us, i64 %71
   %92 = getelementptr inbounds nuw i8, ptr %.167138.us, i64 8
   %93 = icmp sgt i32 %.169137.us, 1
   br i1 %93, label %.preheader.us, label %._crit_edge, !llvm.loop !423
@@ -14565,23 +14565,23 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
   %20 = getelementptr inbounds nuw i8, ptr %.06690.us.us, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !390
   %22 = load ptr, ptr %.06690.us.us, align 8, !tbaa !390
-  %23 = getelementptr inbounds nuw ptr, ptr %.06690.us.us, i64 %19
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %.06690.us.us, i64 %19
   %24 = load ptr, ptr %23, align 8, !tbaa !390
-  %invariant.gep212 = getelementptr float, ptr %.06592.us.us, i64 %18
+  %invariant.gep212 = getelementptr [4 x i8], ptr %.06592.us.us, i64 %18
   br label %.lr.ph.us.us.us
 
 .lr.ph.us.us.us:                                  ; preds = %._crit_edge.us.us.us, %.preheader82.us.us
   %indvars.iv184 = phi i64 [ %indvars.iv.next185, %._crit_edge.us.us.us ], [ 0, %.preheader82.us.us ]
-  %25 = getelementptr inbounds nuw float, ptr %21, i64 %indvars.iv184
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv184
   %26 = load float, ptr %25, align 4, !tbaa !325
   br label %27
 
 27:                                               ; preds = %27, %.lr.ph.us.us.us
   %indvars.iv179 = phi i64 [ %indvars.iv.next180, %27 ], [ 2, %.lr.ph.us.us.us ]
   %.06484.us.us.us = phi float [ %.sroa.speculated.i.us.us.us, %27 ], [ %26, %.lr.ph.us.us.us ]
-  %28 = getelementptr inbounds nuw ptr, ptr %.06690.us.us, i64 %indvars.iv179
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %.06690.us.us, i64 %indvars.iv179
   %29 = load ptr, ptr %28, align 8, !tbaa !390
-  %30 = getelementptr inbounds nuw float, ptr %29, i64 %indvars.iv184
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv184
   %31 = load float, ptr %30, align 4, !tbaa !325
   %32 = fcmp olt float %.06484.us.us.us, %31
   %.sroa.speculated.i.us.us.us = select i1 %32, float %31, float %.06484.us.us.us
@@ -14590,17 +14590,17 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
   br i1 %exitcond183.not, label %._crit_edge.us.us.us, label %27, !llvm.loop !424
 
 ._crit_edge.us.us.us:                             ; preds = %27
-  %33 = getelementptr inbounds nuw float, ptr %22, i64 %indvars.iv184
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv184
   %34 = load float, ptr %33, align 4, !tbaa !325
   %35 = fcmp olt float %.sroa.speculated.i.us.us.us, %34
   %.sroa.speculated.i76.us.us.us = select i1 %35, float %34, float %.sroa.speculated.i.us.us.us
-  %36 = getelementptr inbounds nuw float, ptr %.06592.us.us, i64 %indvars.iv184
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %.06592.us.us, i64 %indvars.iv184
   store float %.sroa.speculated.i76.us.us.us, ptr %36, align 4, !tbaa !325
-  %37 = getelementptr inbounds nuw float, ptr %24, i64 %indvars.iv184
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv184
   %38 = load float, ptr %37, align 4, !tbaa !325
   %39 = fcmp olt float %.sroa.speculated.i.us.us.us, %38
   %.sroa.speculated.i77.us.us.us = select i1 %39, float %38, float %.sroa.speculated.i.us.us.us
-  %gep213 = getelementptr float, ptr %invariant.gep212, i64 %indvars.iv184
+  %gep213 = getelementptr [4 x i8], ptr %invariant.gep212, i64 %indvars.iv184
   store float %.sroa.speculated.i77.us.us.us, ptr %gep213, align 4, !tbaa !325
   %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
   %exitcond188.not = icmp eq i64 %indvars.iv.next185, %wide.trip.count187
@@ -14608,7 +14608,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
 
 ._crit_edge88.split.us.us.us:                     ; preds = %._crit_edge.us.us.us
   %40 = add nsw i32 %.06889.us.us, -2
-  %41 = getelementptr inbounds float, ptr %.06592.us.us, i64 %16
+  %41 = getelementptr inbounds [4 x i8], ptr %.06592.us.us, i64 %16
   %42 = getelementptr inbounds nuw i8, ptr %.06690.us.us, i64 16
   %43 = icmp sgt i32 %.06889.us.us, 3
   br i1 %43, label %.preheader82.us.us, label %.preheader81, !llvm.loop !426
@@ -14627,24 +14627,24 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
   %46 = load ptr, ptr %45, align 8, !tbaa !390
   %47 = getelementptr inbounds nuw i8, ptr %.06690.us, i64 16
   %48 = load ptr, ptr %47, align 8, !tbaa !390
-  %invariant.gep = getelementptr float, ptr %.06592.us, i64 %18
+  %invariant.gep = getelementptr [4 x i8], ptr %.06592.us, i64 %18
   br label %49
 
 49:                                               ; preds = %.preheader82.us, %49
   %indvars.iv164 = phi i64 [ 0, %.preheader82.us ], [ %indvars.iv.next165, %49 ]
-  %50 = getelementptr inbounds nuw float, ptr %46, i64 %indvars.iv164
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %indvars.iv164
   %51 = load float, ptr %50, align 4, !tbaa !325
-  %52 = getelementptr inbounds nuw float, ptr %44, i64 %indvars.iv164
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %indvars.iv164
   %53 = load float, ptr %52, align 4, !tbaa !325
   %54 = fcmp olt float %51, %53
   %.sroa.speculated.i76.us97 = select i1 %54, float %53, float %51
-  %55 = getelementptr inbounds nuw float, ptr %.06592.us, i64 %indvars.iv164
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %.06592.us, i64 %indvars.iv164
   store float %.sroa.speculated.i76.us97, ptr %55, align 4, !tbaa !325
-  %56 = getelementptr inbounds nuw float, ptr %48, i64 %indvars.iv164
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %indvars.iv164
   %57 = load float, ptr %56, align 4, !tbaa !325
   %58 = fcmp olt float %51, %57
   %.sroa.speculated.i77.us98 = select i1 %58, float %57, float %51
-  %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv164
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv164
   store float %.sroa.speculated.i77.us98, ptr %gep, align 4, !tbaa !325
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
   %exitcond168.not = icmp eq i64 %indvars.iv.next165, %wide.trip.count167
@@ -14652,7 +14652,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
 
 ._crit_edge88.split.us99:                         ; preds = %49
   %59 = add nsw i32 %.06889.us, -2
-  %60 = getelementptr inbounds float, ptr %.06592.us, i64 %16
+  %60 = getelementptr inbounds [4 x i8], ptr %.06592.us, i64 %16
   %61 = icmp sgt i32 %.06889.us, 3
   br i1 %61, label %.preheader82.us, label %.preheader81, !llvm.loop !426
 
@@ -14702,16 +14702,16 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
 
 .lr.ph.us.us.us145:                               ; preds = %._crit_edge.us.us.us146, %.preheader.us.us
   %indvars.iv199 = phi i64 [ %indvars.iv.next200, %._crit_edge.us.us.us146 ], [ 0, %.preheader.us.us ]
-  %78 = getelementptr inbounds nuw float, ptr %77, i64 %indvars.iv199
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %indvars.iv199
   %79 = load float, ptr %78, align 4, !tbaa !325
   br label %80
 
 80:                                               ; preds = %80, %.lr.ph.us.us.us145
   %indvars.iv194 = phi i64 [ %indvars.iv.next195, %80 ], [ 1, %.lr.ph.us.us.us145 ]
   %.0132.us.us.us = phi float [ %.sroa.speculated.i78.us.us.us, %80 ], [ %79, %.lr.ph.us.us.us145 ]
-  %81 = getelementptr inbounds nuw ptr, ptr %.167138.us.us, i64 %indvars.iv194
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %.167138.us.us, i64 %indvars.iv194
   %82 = load ptr, ptr %81, align 8, !tbaa !390
-  %83 = getelementptr inbounds nuw float, ptr %82, i64 %indvars.iv199
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %82, i64 %indvars.iv199
   %84 = load float, ptr %83, align 4, !tbaa !325
   %85 = fcmp olt float %.0132.us.us.us, %84
   %.sroa.speculated.i78.us.us.us = select i1 %85, float %84, float %.0132.us.us.us
@@ -14720,7 +14720,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
   br i1 %exitcond198.not, label %._crit_edge.us.us.us146, label %80, !llvm.loop !427
 
 ._crit_edge.us.us.us146:                          ; preds = %80
-  %86 = getelementptr inbounds nuw float, ptr %.1140.us.us, i64 %indvars.iv199
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %.1140.us.us, i64 %indvars.iv199
   store float %.sroa.speculated.i78.us.us.us, ptr %86, align 4, !tbaa !325
   %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 1
   %exitcond203.not = icmp eq i64 %indvars.iv.next200, %wide.trip.count202
@@ -14728,7 +14728,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
 
 ._crit_edge136.split.us.us.us:                    ; preds = %._crit_edge.us.us.us146
   %87 = add nsw i32 %.169137.us.us, -1
-  %88 = getelementptr inbounds float, ptr %.1140.us.us, i64 %76
+  %88 = getelementptr inbounds [4 x i8], ptr %.1140.us.us, i64 %76
   %89 = getelementptr inbounds nuw i8, ptr %.167138.us.us, i64 8
   %90 = icmp sgt i32 %.169137.us.us, 1
   br i1 %90, label %.preheader.us.us, label %._crit_edge, !llvm.loop !429
@@ -14742,9 +14742,9 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
 
 92:                                               ; preds = %.preheader.us, %92
   %indvars.iv189 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next190, %92 ]
-  %93 = getelementptr inbounds nuw float, ptr %91, i64 %indvars.iv189
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %indvars.iv189
   %94 = load float, ptr %93, align 4, !tbaa !325
-  %95 = getelementptr inbounds nuw float, ptr %.1140.us, i64 %indvars.iv189
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %.1140.us, i64 %indvars.iv189
   store float %94, ptr %95, align 4, !tbaa !325
   %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 1
   %exitcond193.not = icmp eq i64 %indvars.iv.next190, %wide.trip.count202
@@ -14752,7 +14752,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
 
 ._crit_edge136.split.us143:                       ; preds = %92
   %96 = add nsw i32 %.169137.us, -1
-  %97 = getelementptr inbounds float, ptr %.1140.us, i64 %76
+  %97 = getelementptr inbounds [4 x i8], ptr %.1140.us, i64 %76
   %98 = getelementptr inbounds nuw i8, ptr %.167138.us, i64 8
   %99 = icmp sgt i32 %.169137.us, 1
   br i1 %99, label %.preheader.us, label %._crit_edge, !llvm.loop !429
@@ -14880,23 +14880,23 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
   %20 = getelementptr inbounds nuw i8, ptr %.06690.us.us, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !398
   %22 = load ptr, ptr %.06690.us.us, align 8, !tbaa !398
-  %23 = getelementptr inbounds nuw ptr, ptr %.06690.us.us, i64 %19
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %.06690.us.us, i64 %19
   %24 = load ptr, ptr %23, align 8, !tbaa !398
-  %invariant.gep212 = getelementptr double, ptr %.06592.us.us, i64 %18
+  %invariant.gep212 = getelementptr [8 x i8], ptr %.06592.us.us, i64 %18
   br label %.lr.ph.us.us.us
 
 .lr.ph.us.us.us:                                  ; preds = %._crit_edge.us.us.us, %.preheader82.us.us
   %indvars.iv184 = phi i64 [ %indvars.iv.next185, %._crit_edge.us.us.us ], [ 0, %.preheader82.us.us ]
-  %25 = getelementptr inbounds nuw double, ptr %21, i64 %indvars.iv184
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv184
   %26 = load double, ptr %25, align 8, !tbaa !232
   br label %27
 
 27:                                               ; preds = %27, %.lr.ph.us.us.us
   %indvars.iv179 = phi i64 [ %indvars.iv.next180, %27 ], [ 2, %.lr.ph.us.us.us ]
   %.06484.us.us.us = phi double [ %.sroa.speculated.i.us.us.us, %27 ], [ %26, %.lr.ph.us.us.us ]
-  %28 = getelementptr inbounds nuw ptr, ptr %.06690.us.us, i64 %indvars.iv179
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %.06690.us.us, i64 %indvars.iv179
   %29 = load ptr, ptr %28, align 8, !tbaa !398
-  %30 = getelementptr inbounds nuw double, ptr %29, i64 %indvars.iv184
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv184
   %31 = load double, ptr %30, align 8, !tbaa !232
   %32 = fcmp olt double %.06484.us.us.us, %31
   %.sroa.speculated.i.us.us.us = select i1 %32, double %31, double %.06484.us.us.us
@@ -14905,17 +14905,17 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
   br i1 %exitcond183.not, label %._crit_edge.us.us.us, label %27, !llvm.loop !430
 
 ._crit_edge.us.us.us:                             ; preds = %27
-  %33 = getelementptr inbounds nuw double, ptr %22, i64 %indvars.iv184
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv184
   %34 = load double, ptr %33, align 8, !tbaa !232
   %35 = fcmp olt double %.sroa.speculated.i.us.us.us, %34
   %.sroa.speculated.i76.us.us.us = select i1 %35, double %34, double %.sroa.speculated.i.us.us.us
-  %36 = getelementptr inbounds nuw double, ptr %.06592.us.us, i64 %indvars.iv184
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %.06592.us.us, i64 %indvars.iv184
   store double %.sroa.speculated.i76.us.us.us, ptr %36, align 8, !tbaa !232
-  %37 = getelementptr inbounds nuw double, ptr %24, i64 %indvars.iv184
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv184
   %38 = load double, ptr %37, align 8, !tbaa !232
   %39 = fcmp olt double %.sroa.speculated.i.us.us.us, %38
   %.sroa.speculated.i77.us.us.us = select i1 %39, double %38, double %.sroa.speculated.i.us.us.us
-  %gep213 = getelementptr double, ptr %invariant.gep212, i64 %indvars.iv184
+  %gep213 = getelementptr [8 x i8], ptr %invariant.gep212, i64 %indvars.iv184
   store double %.sroa.speculated.i77.us.us.us, ptr %gep213, align 8, !tbaa !232
   %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
   %exitcond188.not = icmp eq i64 %indvars.iv.next185, %wide.trip.count187
@@ -14923,7 +14923,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
 
 ._crit_edge88.split.us.us.us:                     ; preds = %._crit_edge.us.us.us
   %40 = add nsw i32 %.06889.us.us, -2
-  %41 = getelementptr inbounds double, ptr %.06592.us.us, i64 %16
+  %41 = getelementptr inbounds [8 x i8], ptr %.06592.us.us, i64 %16
   %42 = getelementptr inbounds nuw i8, ptr %.06690.us.us, i64 16
   %43 = icmp sgt i32 %.06889.us.us, 3
   br i1 %43, label %.preheader82.us.us, label %.preheader81, !llvm.loop !432
@@ -14942,24 +14942,24 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
   %46 = load ptr, ptr %45, align 8, !tbaa !398
   %47 = getelementptr inbounds nuw i8, ptr %.06690.us, i64 16
   %48 = load ptr, ptr %47, align 8, !tbaa !398
-  %invariant.gep = getelementptr double, ptr %.06592.us, i64 %18
+  %invariant.gep = getelementptr [8 x i8], ptr %.06592.us, i64 %18
   br label %49
 
 49:                                               ; preds = %.preheader82.us, %49
   %indvars.iv164 = phi i64 [ 0, %.preheader82.us ], [ %indvars.iv.next165, %49 ]
-  %50 = getelementptr inbounds nuw double, ptr %46, i64 %indvars.iv164
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv164
   %51 = load double, ptr %50, align 8, !tbaa !232
-  %52 = getelementptr inbounds nuw double, ptr %44, i64 %indvars.iv164
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv164
   %53 = load double, ptr %52, align 8, !tbaa !232
   %54 = fcmp olt double %51, %53
   %.sroa.speculated.i76.us97 = select i1 %54, double %53, double %51
-  %55 = getelementptr inbounds nuw double, ptr %.06592.us, i64 %indvars.iv164
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %.06592.us, i64 %indvars.iv164
   store double %.sroa.speculated.i76.us97, ptr %55, align 8, !tbaa !232
-  %56 = getelementptr inbounds nuw double, ptr %48, i64 %indvars.iv164
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %indvars.iv164
   %57 = load double, ptr %56, align 8, !tbaa !232
   %58 = fcmp olt double %51, %57
   %.sroa.speculated.i77.us98 = select i1 %58, double %57, double %51
-  %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv164
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %indvars.iv164
   store double %.sroa.speculated.i77.us98, ptr %gep, align 8, !tbaa !232
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
   %exitcond168.not = icmp eq i64 %indvars.iv.next165, %wide.trip.count167
@@ -14967,7 +14967,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
 
 ._crit_edge88.split.us99:                         ; preds = %49
   %59 = add nsw i32 %.06889.us, -2
-  %60 = getelementptr inbounds double, ptr %.06592.us, i64 %16
+  %60 = getelementptr inbounds [8 x i8], ptr %.06592.us, i64 %16
   %61 = icmp sgt i32 %.06889.us, 3
   br i1 %61, label %.preheader82.us, label %.preheader81, !llvm.loop !432
 
@@ -15017,16 +15017,16 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
 
 .lr.ph.us.us.us145:                               ; preds = %._crit_edge.us.us.us146, %.preheader.us.us
   %indvars.iv199 = phi i64 [ %indvars.iv.next200, %._crit_edge.us.us.us146 ], [ 0, %.preheader.us.us ]
-  %78 = getelementptr inbounds nuw double, ptr %77, i64 %indvars.iv199
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %indvars.iv199
   %79 = load double, ptr %78, align 8, !tbaa !232
   br label %80
 
 80:                                               ; preds = %80, %.lr.ph.us.us.us145
   %indvars.iv194 = phi i64 [ %indvars.iv.next195, %80 ], [ 1, %.lr.ph.us.us.us145 ]
   %.0132.us.us.us = phi double [ %.sroa.speculated.i78.us.us.us, %80 ], [ %79, %.lr.ph.us.us.us145 ]
-  %81 = getelementptr inbounds nuw ptr, ptr %.167138.us.us, i64 %indvars.iv194
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %.167138.us.us, i64 %indvars.iv194
   %82 = load ptr, ptr %81, align 8, !tbaa !398
-  %83 = getelementptr inbounds nuw double, ptr %82, i64 %indvars.iv199
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %indvars.iv199
   %84 = load double, ptr %83, align 8, !tbaa !232
   %85 = fcmp olt double %.0132.us.us.us, %84
   %.sroa.speculated.i78.us.us.us = select i1 %85, double %84, double %.0132.us.us.us
@@ -15035,7 +15035,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
   br i1 %exitcond198.not, label %._crit_edge.us.us.us146, label %80, !llvm.loop !433
 
 ._crit_edge.us.us.us146:                          ; preds = %80
-  %86 = getelementptr inbounds nuw double, ptr %.1140.us.us, i64 %indvars.iv199
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %.1140.us.us, i64 %indvars.iv199
   store double %.sroa.speculated.i78.us.us.us, ptr %86, align 8, !tbaa !232
   %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199, 1
   %exitcond203.not = icmp eq i64 %indvars.iv.next200, %wide.trip.count202
@@ -15043,7 +15043,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
 
 ._crit_edge136.split.us.us.us:                    ; preds = %._crit_edge.us.us.us146
   %87 = add nsw i32 %.169137.us.us, -1
-  %88 = getelementptr inbounds double, ptr %.1140.us.us, i64 %76
+  %88 = getelementptr inbounds [8 x i8], ptr %.1140.us.us, i64 %76
   %89 = getelementptr inbounds nuw i8, ptr %.167138.us.us, i64 8
   %90 = icmp sgt i32 %.169137.us.us, 1
   br i1 %90, label %.preheader.us.us, label %._crit_edge, !llvm.loop !435
@@ -15057,9 +15057,9 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
 
 92:                                               ; preds = %.preheader.us, %92
   %indvars.iv189 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next190, %92 ]
-  %93 = getelementptr inbounds nuw double, ptr %91, i64 %indvars.iv189
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %indvars.iv189
   %94 = load double, ptr %93, align 8, !tbaa !232
-  %95 = getelementptr inbounds nuw double, ptr %.1140.us, i64 %indvars.iv189
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %.1140.us, i64 %indvars.iv189
   store double %94, ptr %95, align 8, !tbaa !232
   %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 1
   %exitcond193.not = icmp eq i64 %indvars.iv.next190, %wide.trip.count202
@@ -15067,7 +15067,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_117MorphColumnFilterINS1_
 
 ._crit_edge136.split.us143:                       ; preds = %92
   %96 = add nsw i32 %.169137.us, -1
-  %97 = getelementptr inbounds double, ptr %.1140.us, i64 %76
+  %97 = getelementptr inbounds [8 x i8], ptr %.1140.us, i64 %76
   %98 = getelementptr inbounds nuw i8, ptr %.167138.us, i64 8
   %99 = icmp sgt i32 %.169137.us, 1
   br i1 %99, label %.preheader.us, label %._crit_edge, !llvm.loop !435
@@ -15252,17 +15252,17 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOp
 
 26:                                               ; preds = %.preheader47.us.us.us, %26
   %indvars.iv98 = phi i64 [ 0, %.preheader47.us.us.us ], [ %indvars.iv.next99, %26 ]
-  %27 = getelementptr inbounds nuw %"class.cv::Point_", ptr %10, i64 %indvars.iv98
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv98
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %29 = load i32, ptr %28, align 4, !tbaa !250
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds ptr, ptr %.03958.us.us.us, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %.03958.us.us.us, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !369
   %33 = load i32, ptr %27, align 4, !tbaa !248
   %34 = mul nsw i32 %33, %6
   %35 = sext i32 %34 to i64
   %36 = getelementptr inbounds i8, ptr %32, i64 %35
-  %37 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv98
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv98
   store ptr %36, ptr %37, align 8, !tbaa !369
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %exitcond102.not = icmp eq i64 %indvars.iv.next99, %wide.trip.count101
@@ -15278,7 +15278,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOp
 41:                                               ; preds = %41, %.lr.ph51.us.us.us.us
   %indvars.iv103 = phi i64 [ %indvars.iv.next104, %41 ], [ 1, %.lr.ph51.us.us.us.us ]
   %.050.us.us.us.us = phi i8 [ %.sroa.speculated.i.us.us.us.us, %41 ], [ %40, %.lr.ph51.us.us.us.us ]
-  %42 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv103
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv103
   %43 = load ptr, ptr %42, align 8, !tbaa !369
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 %indvars.iv107
   %45 = load i8, ptr %44, align 1, !tbaa !227
@@ -15330,7 +15330,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOp
   %.04155.us.us73 = phi i32 [ %64, %._crit_edge54.split.us60.us ], [ %4, %.preheader47.us.us70.preheader ]
   %56 = load i32, ptr %51, align 4, !tbaa !250
   %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds ptr, ptr %.03958.us.us71, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %.03958.us.us71, i64 %57
   %59 = load ptr, ptr %58, align 8, !tbaa !369
   %60 = load i32, ptr %10, align 4, !tbaa !248
   %61 = mul nsw i32 %60, %6
@@ -15382,17 +15382,17 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOp
 
 76:                                               ; preds = %.preheader47.us62, %76
   %indvars.iv = phi i64 [ 0, %.preheader47.us62 ], [ %indvars.iv.next, %76 ]
-  %77 = getelementptr inbounds nuw %"class.cv::Point_", ptr %10, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 4
   %79 = load i32, ptr %78, align 4, !tbaa !250
   %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds ptr, ptr %.03958.us63, i64 %80
+  %81 = getelementptr inbounds [8 x i8], ptr %.03958.us63, i64 %80
   %82 = load ptr, ptr %81, align 8, !tbaa !369
   %83 = load i32, ptr %77, align 4, !tbaa !248
   %84 = mul nsw i32 %83, %6
   %85 = sext i32 %84 to i64
   %86 = getelementptr inbounds i8, ptr %82, i64 %85
-  %87 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   store ptr %86, ptr %87, align 8, !tbaa !369
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -15516,9 +15516,9 @@ _ZNSt6vectorIPhSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %_ZSt27__uni
 
 _ZNSt12_Vector_baseIPhSaIS0_EE13_M_deallocateEPS0_m.exit36: ; preds = %_ZNSt6vectorIPhSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !159
-  %38 = getelementptr inbounds nuw ptr, ptr %31, i64 %1
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %38, ptr %4, align 8, !tbaa !155
-  %39 = getelementptr inbounds nuw ptr, ptr %30, i64 %28
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %39, ptr %11, align 8, !tbaa !440
   br label %40
 
@@ -15683,17 +15683,17 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOp
 
 26:                                               ; preds = %.preheader47.us.us.us, %26
   %indvars.iv98 = phi i64 [ 0, %.preheader47.us.us.us ], [ %indvars.iv.next99, %26 ]
-  %27 = getelementptr inbounds nuw %"class.cv::Point_", ptr %10, i64 %indvars.iv98
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv98
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %29 = load i32, ptr %28, align 4, !tbaa !250
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds ptr, ptr %.058.us.us.us, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %.058.us.us.us, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !369
   %33 = load i32, ptr %27, align 4, !tbaa !248
   %34 = mul nsw i32 %33, %6
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds i16, ptr %32, i64 %35
-  %37 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv98
+  %36 = getelementptr inbounds [2 x i8], ptr %32, i64 %35
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv98
   store ptr %36, ptr %37, align 8, !tbaa !376
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %exitcond102.not = icmp eq i64 %indvars.iv.next99, %wide.trip.count101
@@ -15705,16 +15705,16 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOp
 
 .lr.ph51.us.us.us.us:                             ; preds = %._crit_edge.us.us.us.us, %..preheader_crit_edge.us.us.us
   %indvars.iv107 = phi i64 [ %indvars.iv.next108, %._crit_edge.us.us.us.us ], [ 0, %..preheader_crit_edge.us.us.us ]
-  %39 = getelementptr inbounds nuw i16, ptr %38, i64 %indvars.iv107
+  %39 = getelementptr inbounds nuw [2 x i8], ptr %38, i64 %indvars.iv107
   %40 = load i16, ptr %39, align 2, !tbaa !311
   br label %41
 
 41:                                               ; preds = %41, %.lr.ph51.us.us.us.us
   %indvars.iv103 = phi i64 [ %indvars.iv.next104, %41 ], [ 1, %.lr.ph51.us.us.us.us ]
   %.04050.us.us.us.us = phi i16 [ %.sroa.speculated.i.us.us.us.us, %41 ], [ %40, %.lr.ph51.us.us.us.us ]
-  %42 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv103
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv103
   %43 = load ptr, ptr %42, align 8, !tbaa !376
-  %44 = getelementptr inbounds nuw i16, ptr %43, i64 %indvars.iv107
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %43, i64 %indvars.iv107
   %45 = load i16, ptr %44, align 2, !tbaa !311
   %.sroa.speculated.i.us.us.us.us = call noundef i16 @llvm.umin.i16(i16 %45, i16 %.04050.us.us.us.us)
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
@@ -15722,7 +15722,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOp
   br i1 %exitcond106.not, label %._crit_edge.us.us.us.us, label %41, !llvm.loop !442
 
 ._crit_edge.us.us.us.us:                          ; preds = %41
-  %46 = getelementptr inbounds nuw i16, ptr %.03956.us.us.us, i64 %indvars.iv107
+  %46 = getelementptr inbounds nuw [2 x i8], ptr %.03956.us.us.us, i64 %indvars.iv107
   store i16 %.sroa.speculated.i.us.us.us.us, ptr %46, align 2, !tbaa !311
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %exitcond111.not = icmp eq i64 %indvars.iv.next108, %wide.trip.count110
@@ -15750,9 +15750,9 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOp
 
 57:                                               ; preds = %..preheader_crit_edge.us.us77, %57
   %indvars.iv93 = phi i64 [ 0, %..preheader_crit_edge.us.us77 ], [ %indvars.iv.next94, %57 ]
-  %58 = getelementptr inbounds nuw i16, ptr %63, i64 %indvars.iv93
+  %58 = getelementptr inbounds nuw [2 x i8], ptr %63, i64 %indvars.iv93
   %59 = load i16, ptr %58, align 2, !tbaa !311
-  %60 = getelementptr inbounds nuw i16, ptr %.03956.us.us72, i64 %indvars.iv93
+  %60 = getelementptr inbounds nuw [2 x i8], ptr %.03956.us.us72, i64 %indvars.iv93
   store i16 %59, ptr %60, align 2, !tbaa !311
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %exitcond97.not = icmp eq i64 %indvars.iv.next94, %wide.trip.count96
@@ -15762,9 +15762,9 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOp
   %.058.us.us71 = phi ptr [ %66, %._crit_edge54.split.us60.us ], [ %1, %.preheader47.us.us70.preheader ]
   %.03956.us.us72 = phi ptr [ %65, %._crit_edge54.split.us60.us ], [ %2, %.preheader47.us.us70.preheader ]
   %.04155.us.us73 = phi i32 [ %64, %._crit_edge54.split.us60.us ], [ %4, %.preheader47.us.us70.preheader ]
-  %61 = getelementptr inbounds ptr, ptr %.058.us.us71, i64 %53
+  %61 = getelementptr inbounds [8 x i8], ptr %.058.us.us71, i64 %53
   %62 = load ptr, ptr %61, align 8, !tbaa !369
-  %63 = getelementptr inbounds i16, ptr %62, i64 %56
+  %63 = getelementptr inbounds [2 x i8], ptr %62, i64 %56
   br label %57
 
 ._crit_edge54.split.us60.us:                      ; preds = %57
@@ -15786,9 +15786,9 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOp
 
 69:                                               ; preds = %.preheader47.us, %69
   %indvars.iv83 = phi i64 [ 0, %.preheader47.us ], [ %indvars.iv.next84, %69 ]
-  %70 = getelementptr inbounds nuw i16, ptr %68, i64 %indvars.iv83
+  %70 = getelementptr inbounds nuw [2 x i8], ptr %68, i64 %indvars.iv83
   %71 = load i16, ptr %70, align 2, !tbaa !311
-  %72 = getelementptr inbounds nuw i16, ptr %.03956.us, i64 %indvars.iv83
+  %72 = getelementptr inbounds nuw [2 x i8], ptr %.03956.us, i64 %indvars.iv83
   store i16 %71, ptr %72, align 2, !tbaa !311
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %exitcond87.not = icmp eq i64 %indvars.iv.next84, %wide.trip.count86
@@ -15814,17 +15814,17 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOp
 
 76:                                               ; preds = %.preheader47.us62, %76
   %indvars.iv = phi i64 [ 0, %.preheader47.us62 ], [ %indvars.iv.next, %76 ]
-  %77 = getelementptr inbounds nuw %"class.cv::Point_", ptr %10, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 4
   %79 = load i32, ptr %78, align 4, !tbaa !250
   %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds ptr, ptr %.058.us63, i64 %80
+  %81 = getelementptr inbounds [8 x i8], ptr %.058.us63, i64 %80
   %82 = load ptr, ptr %81, align 8, !tbaa !369
   %83 = load i32, ptr %77, align 4, !tbaa !248
   %84 = mul nsw i32 %83, %6
   %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds i16, ptr %82, i64 %85
-  %87 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %86 = getelementptr inbounds [2 x i8], ptr %82, i64 %85
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   store ptr %86, ptr %87, align 8, !tbaa !376
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -16013,17 +16013,17 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOp
 
 26:                                               ; preds = %.preheader47.us.us.us, %26
   %indvars.iv98 = phi i64 [ 0, %.preheader47.us.us.us ], [ %indvars.iv.next99, %26 ]
-  %27 = getelementptr inbounds nuw %"class.cv::Point_", ptr %10, i64 %indvars.iv98
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv98
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %29 = load i32, ptr %28, align 4, !tbaa !250
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds ptr, ptr %.058.us.us.us, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %.058.us.us.us, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !369
   %33 = load i32, ptr %27, align 4, !tbaa !248
   %34 = mul nsw i32 %33, %6
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds i16, ptr %32, i64 %35
-  %37 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv98
+  %36 = getelementptr inbounds [2 x i8], ptr %32, i64 %35
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv98
   store ptr %36, ptr %37, align 8, !tbaa !376
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %exitcond102.not = icmp eq i64 %indvars.iv.next99, %wide.trip.count101
@@ -16035,16 +16035,16 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOp
 
 .lr.ph51.us.us.us.us:                             ; preds = %._crit_edge.us.us.us.us, %..preheader_crit_edge.us.us.us
   %indvars.iv107 = phi i64 [ %indvars.iv.next108, %._crit_edge.us.us.us.us ], [ 0, %..preheader_crit_edge.us.us.us ]
-  %39 = getelementptr inbounds nuw i16, ptr %38, i64 %indvars.iv107
+  %39 = getelementptr inbounds nuw [2 x i8], ptr %38, i64 %indvars.iv107
   %40 = load i16, ptr %39, align 2, !tbaa !311
   br label %41
 
 41:                                               ; preds = %41, %.lr.ph51.us.us.us.us
   %indvars.iv103 = phi i64 [ %indvars.iv.next104, %41 ], [ 1, %.lr.ph51.us.us.us.us ]
   %.04050.us.us.us.us = phi i16 [ %.sroa.speculated.i.us.us.us.us, %41 ], [ %40, %.lr.ph51.us.us.us.us ]
-  %42 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv103
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv103
   %43 = load ptr, ptr %42, align 8, !tbaa !376
-  %44 = getelementptr inbounds nuw i16, ptr %43, i64 %indvars.iv107
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %43, i64 %indvars.iv107
   %45 = load i16, ptr %44, align 2, !tbaa !311
   %.sroa.speculated.i.us.us.us.us = call noundef i16 @llvm.smin.i16(i16 %45, i16 %.04050.us.us.us.us)
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
@@ -16052,7 +16052,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOp
   br i1 %exitcond106.not, label %._crit_edge.us.us.us.us, label %41, !llvm.loop !446
 
 ._crit_edge.us.us.us.us:                          ; preds = %41
-  %46 = getelementptr inbounds nuw i16, ptr %.03956.us.us.us, i64 %indvars.iv107
+  %46 = getelementptr inbounds nuw [2 x i8], ptr %.03956.us.us.us, i64 %indvars.iv107
   store i16 %.sroa.speculated.i.us.us.us.us, ptr %46, align 2, !tbaa !311
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %exitcond111.not = icmp eq i64 %indvars.iv.next108, %wide.trip.count110
@@ -16080,9 +16080,9 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOp
 
 57:                                               ; preds = %..preheader_crit_edge.us.us77, %57
   %indvars.iv93 = phi i64 [ 0, %..preheader_crit_edge.us.us77 ], [ %indvars.iv.next94, %57 ]
-  %58 = getelementptr inbounds nuw i16, ptr %63, i64 %indvars.iv93
+  %58 = getelementptr inbounds nuw [2 x i8], ptr %63, i64 %indvars.iv93
   %59 = load i16, ptr %58, align 2, !tbaa !311
-  %60 = getelementptr inbounds nuw i16, ptr %.03956.us.us72, i64 %indvars.iv93
+  %60 = getelementptr inbounds nuw [2 x i8], ptr %.03956.us.us72, i64 %indvars.iv93
   store i16 %59, ptr %60, align 2, !tbaa !311
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %exitcond97.not = icmp eq i64 %indvars.iv.next94, %wide.trip.count96
@@ -16092,9 +16092,9 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOp
   %.058.us.us71 = phi ptr [ %66, %._crit_edge54.split.us60.us ], [ %1, %.preheader47.us.us70.preheader ]
   %.03956.us.us72 = phi ptr [ %65, %._crit_edge54.split.us60.us ], [ %2, %.preheader47.us.us70.preheader ]
   %.04155.us.us73 = phi i32 [ %64, %._crit_edge54.split.us60.us ], [ %4, %.preheader47.us.us70.preheader ]
-  %61 = getelementptr inbounds ptr, ptr %.058.us.us71, i64 %53
+  %61 = getelementptr inbounds [8 x i8], ptr %.058.us.us71, i64 %53
   %62 = load ptr, ptr %61, align 8, !tbaa !369
-  %63 = getelementptr inbounds i16, ptr %62, i64 %56
+  %63 = getelementptr inbounds [2 x i8], ptr %62, i64 %56
   br label %57
 
 ._crit_edge54.split.us60.us:                      ; preds = %57
@@ -16116,9 +16116,9 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOp
 
 69:                                               ; preds = %.preheader47.us, %69
   %indvars.iv83 = phi i64 [ 0, %.preheader47.us ], [ %indvars.iv.next84, %69 ]
-  %70 = getelementptr inbounds nuw i16, ptr %68, i64 %indvars.iv83
+  %70 = getelementptr inbounds nuw [2 x i8], ptr %68, i64 %indvars.iv83
   %71 = load i16, ptr %70, align 2, !tbaa !311
-  %72 = getelementptr inbounds nuw i16, ptr %.03956.us, i64 %indvars.iv83
+  %72 = getelementptr inbounds nuw [2 x i8], ptr %.03956.us, i64 %indvars.iv83
   store i16 %71, ptr %72, align 2, !tbaa !311
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %exitcond87.not = icmp eq i64 %indvars.iv.next84, %wide.trip.count86
@@ -16144,17 +16144,17 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOp
 
 76:                                               ; preds = %.preheader47.us62, %76
   %indvars.iv = phi i64 [ 0, %.preheader47.us62 ], [ %indvars.iv.next, %76 ]
-  %77 = getelementptr inbounds nuw %"class.cv::Point_", ptr %10, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 4
   %79 = load i32, ptr %78, align 4, !tbaa !250
   %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds ptr, ptr %.058.us63, i64 %80
+  %81 = getelementptr inbounds [8 x i8], ptr %.058.us63, i64 %80
   %82 = load ptr, ptr %81, align 8, !tbaa !369
   %83 = load i32, ptr %77, align 4, !tbaa !248
   %84 = mul nsw i32 %83, %6
   %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds i16, ptr %82, i64 %85
-  %87 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %86 = getelementptr inbounds [2 x i8], ptr %82, i64 %85
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   store ptr %86, ptr %87, align 8, !tbaa !376
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -16343,17 +16343,17 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOp
 
 26:                                               ; preds = %.preheader47.us.us.us, %26
   %indvars.iv98 = phi i64 [ 0, %.preheader47.us.us.us ], [ %indvars.iv.next99, %26 ]
-  %27 = getelementptr inbounds nuw %"class.cv::Point_", ptr %10, i64 %indvars.iv98
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv98
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %29 = load i32, ptr %28, align 4, !tbaa !250
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds ptr, ptr %.058.us.us.us, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %.058.us.us.us, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !369
   %33 = load i32, ptr %27, align 4, !tbaa !248
   %34 = mul nsw i32 %33, %6
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds float, ptr %32, i64 %35
-  %37 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv98
+  %36 = getelementptr inbounds [4 x i8], ptr %32, i64 %35
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv98
   store ptr %36, ptr %37, align 8, !tbaa !390
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %exitcond102.not = icmp eq i64 %indvars.iv.next99, %wide.trip.count101
@@ -16365,16 +16365,16 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOp
 
 .lr.ph51.us.us.us.us:                             ; preds = %._crit_edge.us.us.us.us, %..preheader_crit_edge.us.us.us
   %indvars.iv108 = phi i64 [ %indvars.iv.next109, %._crit_edge.us.us.us.us ], [ 0, %..preheader_crit_edge.us.us.us ]
-  %39 = getelementptr inbounds nuw float, ptr %38, i64 %indvars.iv108
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %indvars.iv108
   %40 = load float, ptr %39, align 4, !tbaa !325
   br label %41
 
 41:                                               ; preds = %41, %.lr.ph51.us.us.us.us
   %indvars.iv103 = phi i64 [ %indvars.iv.next104, %41 ], [ 1, %.lr.ph51.us.us.us.us ]
   %.04050.us.us.us.us = phi float [ %.sroa.speculated.i.us.us.us.us, %41 ], [ %40, %.lr.ph51.us.us.us.us ]
-  %42 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv103
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv103
   %43 = load ptr, ptr %42, align 8, !tbaa !390
-  %44 = getelementptr inbounds nuw float, ptr %43, i64 %indvars.iv108
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv108
   %45 = load float, ptr %44, align 4, !tbaa !325
   %46 = fcmp olt float %45, %.04050.us.us.us.us
   %.sroa.speculated.i.us.us.us.us = select i1 %46, float %45, float %.04050.us.us.us.us
@@ -16383,7 +16383,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOp
   br i1 %exitcond107.not, label %._crit_edge.us.us.us.us, label %41, !llvm.loop !450
 
 ._crit_edge.us.us.us.us:                          ; preds = %41
-  %47 = getelementptr inbounds nuw float, ptr %.03956.us.us.us, i64 %indvars.iv108
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %.03956.us.us.us, i64 %indvars.iv108
   store float %.sroa.speculated.i.us.us.us.us, ptr %47, align 4, !tbaa !325
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
   %exitcond112.not = icmp eq i64 %indvars.iv.next109, %wide.trip.count111
@@ -16411,9 +16411,9 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOp
 
 58:                                               ; preds = %..preheader_crit_edge.us.us77, %58
   %indvars.iv93 = phi i64 [ 0, %..preheader_crit_edge.us.us77 ], [ %indvars.iv.next94, %58 ]
-  %59 = getelementptr inbounds nuw float, ptr %64, i64 %indvars.iv93
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %indvars.iv93
   %60 = load float, ptr %59, align 4, !tbaa !325
-  %61 = getelementptr inbounds nuw float, ptr %.03956.us.us72, i64 %indvars.iv93
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %.03956.us.us72, i64 %indvars.iv93
   store float %60, ptr %61, align 4, !tbaa !325
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %exitcond97.not = icmp eq i64 %indvars.iv.next94, %wide.trip.count96
@@ -16423,9 +16423,9 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOp
   %.058.us.us71 = phi ptr [ %67, %._crit_edge54.split.us60.us ], [ %1, %.preheader47.us.us70.preheader ]
   %.03956.us.us72 = phi ptr [ %66, %._crit_edge54.split.us60.us ], [ %2, %.preheader47.us.us70.preheader ]
   %.04155.us.us73 = phi i32 [ %65, %._crit_edge54.split.us60.us ], [ %4, %.preheader47.us.us70.preheader ]
-  %62 = getelementptr inbounds ptr, ptr %.058.us.us71, i64 %54
+  %62 = getelementptr inbounds [8 x i8], ptr %.058.us.us71, i64 %54
   %63 = load ptr, ptr %62, align 8, !tbaa !369
-  %64 = getelementptr inbounds float, ptr %63, i64 %57
+  %64 = getelementptr inbounds [4 x i8], ptr %63, i64 %57
   br label %58
 
 ._crit_edge54.split.us60.us:                      ; preds = %58
@@ -16447,9 +16447,9 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOp
 
 70:                                               ; preds = %.preheader47.us, %70
   %indvars.iv83 = phi i64 [ 0, %.preheader47.us ], [ %indvars.iv.next84, %70 ]
-  %71 = getelementptr inbounds nuw float, ptr %69, i64 %indvars.iv83
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %indvars.iv83
   %72 = load float, ptr %71, align 4, !tbaa !325
-  %73 = getelementptr inbounds nuw float, ptr %.03956.us, i64 %indvars.iv83
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %.03956.us, i64 %indvars.iv83
   store float %72, ptr %73, align 4, !tbaa !325
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %exitcond87.not = icmp eq i64 %indvars.iv.next84, %wide.trip.count86
@@ -16475,17 +16475,17 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOp
 
 77:                                               ; preds = %.preheader47.us62, %77
   %indvars.iv = phi i64 [ 0, %.preheader47.us62 ], [ %indvars.iv.next, %77 ]
-  %78 = getelementptr inbounds nuw %"class.cv::Point_", ptr %10, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 4
   %80 = load i32, ptr %79, align 4, !tbaa !250
   %81 = sext i32 %80 to i64
-  %82 = getelementptr inbounds ptr, ptr %.058.us63, i64 %81
+  %82 = getelementptr inbounds [8 x i8], ptr %.058.us63, i64 %81
   %83 = load ptr, ptr %82, align 8, !tbaa !369
   %84 = load i32, ptr %78, align 4, !tbaa !248
   %85 = mul nsw i32 %84, %6
   %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds float, ptr %83, i64 %86
-  %88 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %87 = getelementptr inbounds [4 x i8], ptr %83, i64 %86
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   store ptr %87, ptr %88, align 8, !tbaa !390
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -16674,17 +16674,17 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOp
 
 26:                                               ; preds = %.preheader47.us.us.us, %26
   %indvars.iv98 = phi i64 [ 0, %.preheader47.us.us.us ], [ %indvars.iv.next99, %26 ]
-  %27 = getelementptr inbounds nuw %"class.cv::Point_", ptr %10, i64 %indvars.iv98
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv98
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %29 = load i32, ptr %28, align 4, !tbaa !250
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds ptr, ptr %.058.us.us.us, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %.058.us.us.us, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !369
   %33 = load i32, ptr %27, align 4, !tbaa !248
   %34 = mul nsw i32 %33, %6
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds double, ptr %32, i64 %35
-  %37 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv98
+  %36 = getelementptr inbounds [8 x i8], ptr %32, i64 %35
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv98
   store ptr %36, ptr %37, align 8, !tbaa !398
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %exitcond102.not = icmp eq i64 %indvars.iv.next99, %wide.trip.count101
@@ -16696,16 +16696,16 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOp
 
 .lr.ph51.us.us.us.us:                             ; preds = %._crit_edge.us.us.us.us, %..preheader_crit_edge.us.us.us
   %indvars.iv108 = phi i64 [ %indvars.iv.next109, %._crit_edge.us.us.us.us ], [ 0, %..preheader_crit_edge.us.us.us ]
-  %39 = getelementptr inbounds nuw double, ptr %38, i64 %indvars.iv108
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv108
   %40 = load double, ptr %39, align 8, !tbaa !232
   br label %41
 
 41:                                               ; preds = %41, %.lr.ph51.us.us.us.us
   %indvars.iv103 = phi i64 [ %indvars.iv.next104, %41 ], [ 1, %.lr.ph51.us.us.us.us ]
   %.04050.us.us.us.us = phi double [ %.sroa.speculated.i.us.us.us.us, %41 ], [ %40, %.lr.ph51.us.us.us.us ]
-  %42 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv103
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv103
   %43 = load ptr, ptr %42, align 8, !tbaa !398
-  %44 = getelementptr inbounds nuw double, ptr %43, i64 %indvars.iv108
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv108
   %45 = load double, ptr %44, align 8, !tbaa !232
   %46 = fcmp olt double %45, %.04050.us.us.us.us
   %.sroa.speculated.i.us.us.us.us = select i1 %46, double %45, double %.04050.us.us.us.us
@@ -16714,7 +16714,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOp
   br i1 %exitcond107.not, label %._crit_edge.us.us.us.us, label %41, !llvm.loop !454
 
 ._crit_edge.us.us.us.us:                          ; preds = %41
-  %47 = getelementptr inbounds nuw double, ptr %.03956.us.us.us, i64 %indvars.iv108
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %.03956.us.us.us, i64 %indvars.iv108
   store double %.sroa.speculated.i.us.us.us.us, ptr %47, align 8, !tbaa !232
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
   %exitcond112.not = icmp eq i64 %indvars.iv.next109, %wide.trip.count111
@@ -16742,9 +16742,9 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOp
 
 58:                                               ; preds = %..preheader_crit_edge.us.us77, %58
   %indvars.iv93 = phi i64 [ 0, %..preheader_crit_edge.us.us77 ], [ %indvars.iv.next94, %58 ]
-  %59 = getelementptr inbounds nuw double, ptr %64, i64 %indvars.iv93
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %indvars.iv93
   %60 = load double, ptr %59, align 8, !tbaa !232
-  %61 = getelementptr inbounds nuw double, ptr %.03956.us.us72, i64 %indvars.iv93
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %.03956.us.us72, i64 %indvars.iv93
   store double %60, ptr %61, align 8, !tbaa !232
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %exitcond97.not = icmp eq i64 %indvars.iv.next94, %wide.trip.count96
@@ -16754,9 +16754,9 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOp
   %.058.us.us71 = phi ptr [ %67, %._crit_edge54.split.us60.us ], [ %1, %.preheader47.us.us70.preheader ]
   %.03956.us.us72 = phi ptr [ %66, %._crit_edge54.split.us60.us ], [ %2, %.preheader47.us.us70.preheader ]
   %.04155.us.us73 = phi i32 [ %65, %._crit_edge54.split.us60.us ], [ %4, %.preheader47.us.us70.preheader ]
-  %62 = getelementptr inbounds ptr, ptr %.058.us.us71, i64 %54
+  %62 = getelementptr inbounds [8 x i8], ptr %.058.us.us71, i64 %54
   %63 = load ptr, ptr %62, align 8, !tbaa !369
-  %64 = getelementptr inbounds double, ptr %63, i64 %57
+  %64 = getelementptr inbounds [8 x i8], ptr %63, i64 %57
   br label %58
 
 ._crit_edge54.split.us60.us:                      ; preds = %58
@@ -16778,9 +16778,9 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOp
 
 70:                                               ; preds = %.preheader47.us, %70
   %indvars.iv83 = phi i64 [ 0, %.preheader47.us ], [ %indvars.iv.next84, %70 ]
-  %71 = getelementptr inbounds nuw double, ptr %69, i64 %indvars.iv83
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %indvars.iv83
   %72 = load double, ptr %71, align 8, !tbaa !232
-  %73 = getelementptr inbounds nuw double, ptr %.03956.us, i64 %indvars.iv83
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %.03956.us, i64 %indvars.iv83
   store double %72, ptr %73, align 8, !tbaa !232
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %exitcond87.not = icmp eq i64 %indvars.iv.next84, %wide.trip.count86
@@ -16806,17 +16806,17 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MinOp
 
 77:                                               ; preds = %.preheader47.us62, %77
   %indvars.iv = phi i64 [ 0, %.preheader47.us62 ], [ %indvars.iv.next, %77 ]
-  %78 = getelementptr inbounds nuw %"class.cv::Point_", ptr %10, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 4
   %80 = load i32, ptr %79, align 4, !tbaa !250
   %81 = sext i32 %80 to i64
-  %82 = getelementptr inbounds ptr, ptr %.058.us63, i64 %81
+  %82 = getelementptr inbounds [8 x i8], ptr %.058.us63, i64 %81
   %83 = load ptr, ptr %82, align 8, !tbaa !369
   %84 = load i32, ptr %78, align 4, !tbaa !248
   %85 = mul nsw i32 %84, %6
   %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds double, ptr %83, i64 %86
-  %88 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %87 = getelementptr inbounds [8 x i8], ptr %83, i64 %86
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   store ptr %87, ptr %88, align 8, !tbaa !398
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -17005,17 +17005,17 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOp
 
 26:                                               ; preds = %.preheader47.us.us.us, %26
   %indvars.iv98 = phi i64 [ 0, %.preheader47.us.us.us ], [ %indvars.iv.next99, %26 ]
-  %27 = getelementptr inbounds nuw %"class.cv::Point_", ptr %10, i64 %indvars.iv98
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv98
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %29 = load i32, ptr %28, align 4, !tbaa !250
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds ptr, ptr %.058.us.us.us, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %.058.us.us.us, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !369
   %33 = load i32, ptr %27, align 4, !tbaa !248
   %34 = mul nsw i32 %33, %6
   %35 = sext i32 %34 to i64
   %36 = getelementptr inbounds i8, ptr %32, i64 %35
-  %37 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv98
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv98
   store ptr %36, ptr %37, align 8, !tbaa !369
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %exitcond102.not = icmp eq i64 %indvars.iv.next99, %wide.trip.count101
@@ -17031,7 +17031,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOp
 41:                                               ; preds = %41, %.lr.ph51.us.us.us.us
   %indvars.iv103 = phi i64 [ %indvars.iv.next104, %41 ], [ 1, %.lr.ph51.us.us.us.us ]
   %.04050.us.us.us.us = phi i8 [ %.sroa.speculated.i.us.us.us.us, %41 ], [ %40, %.lr.ph51.us.us.us.us ]
-  %42 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv103
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv103
   %43 = load ptr, ptr %42, align 8, !tbaa !369
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 %indvars.iv107
   %45 = load i8, ptr %44, align 1, !tbaa !227
@@ -17083,7 +17083,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOp
   %.04155.us.us73 = phi i32 [ %64, %._crit_edge54.split.us60.us ], [ %4, %.preheader47.us.us70.preheader ]
   %56 = load i32, ptr %51, align 4, !tbaa !250
   %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds ptr, ptr %.058.us.us71, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %.058.us.us71, i64 %57
   %59 = load ptr, ptr %58, align 8, !tbaa !369
   %60 = load i32, ptr %10, align 4, !tbaa !248
   %61 = mul nsw i32 %60, %6
@@ -17135,17 +17135,17 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOp
 
 76:                                               ; preds = %.preheader47.us62, %76
   %indvars.iv = phi i64 [ 0, %.preheader47.us62 ], [ %indvars.iv.next, %76 ]
-  %77 = getelementptr inbounds nuw %"class.cv::Point_", ptr %10, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 4
   %79 = load i32, ptr %78, align 4, !tbaa !250
   %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds ptr, ptr %.058.us63, i64 %80
+  %81 = getelementptr inbounds [8 x i8], ptr %.058.us63, i64 %80
   %82 = load ptr, ptr %81, align 8, !tbaa !369
   %83 = load i32, ptr %77, align 4, !tbaa !248
   %84 = mul nsw i32 %83, %6
   %85 = sext i32 %84 to i64
   %86 = getelementptr inbounds i8, ptr %82, i64 %85
-  %87 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   store ptr %86, ptr %87, align 8, !tbaa !369
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -17330,17 +17330,17 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOp
 
 26:                                               ; preds = %.preheader47.us.us.us, %26
   %indvars.iv98 = phi i64 [ 0, %.preheader47.us.us.us ], [ %indvars.iv.next99, %26 ]
-  %27 = getelementptr inbounds nuw %"class.cv::Point_", ptr %10, i64 %indvars.iv98
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv98
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %29 = load i32, ptr %28, align 4, !tbaa !250
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds ptr, ptr %.058.us.us.us, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %.058.us.us.us, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !369
   %33 = load i32, ptr %27, align 4, !tbaa !248
   %34 = mul nsw i32 %33, %6
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds i16, ptr %32, i64 %35
-  %37 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv98
+  %36 = getelementptr inbounds [2 x i8], ptr %32, i64 %35
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv98
   store ptr %36, ptr %37, align 8, !tbaa !376
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %exitcond102.not = icmp eq i64 %indvars.iv.next99, %wide.trip.count101
@@ -17352,16 +17352,16 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOp
 
 .lr.ph51.us.us.us.us:                             ; preds = %._crit_edge.us.us.us.us, %..preheader_crit_edge.us.us.us
   %indvars.iv107 = phi i64 [ %indvars.iv.next108, %._crit_edge.us.us.us.us ], [ 0, %..preheader_crit_edge.us.us.us ]
-  %39 = getelementptr inbounds nuw i16, ptr %38, i64 %indvars.iv107
+  %39 = getelementptr inbounds nuw [2 x i8], ptr %38, i64 %indvars.iv107
   %40 = load i16, ptr %39, align 2, !tbaa !311
   br label %41
 
 41:                                               ; preds = %41, %.lr.ph51.us.us.us.us
   %indvars.iv103 = phi i64 [ %indvars.iv.next104, %41 ], [ 1, %.lr.ph51.us.us.us.us ]
   %.04050.us.us.us.us = phi i16 [ %.sroa.speculated.i.us.us.us.us, %41 ], [ %40, %.lr.ph51.us.us.us.us ]
-  %42 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv103
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv103
   %43 = load ptr, ptr %42, align 8, !tbaa !376
-  %44 = getelementptr inbounds nuw i16, ptr %43, i64 %indvars.iv107
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %43, i64 %indvars.iv107
   %45 = load i16, ptr %44, align 2, !tbaa !311
   %.sroa.speculated.i.us.us.us.us = call noundef i16 @llvm.umax.i16(i16 %.04050.us.us.us.us, i16 %45)
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
@@ -17369,7 +17369,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOp
   br i1 %exitcond106.not, label %._crit_edge.us.us.us.us, label %41, !llvm.loop !462
 
 ._crit_edge.us.us.us.us:                          ; preds = %41
-  %46 = getelementptr inbounds nuw i16, ptr %.03956.us.us.us, i64 %indvars.iv107
+  %46 = getelementptr inbounds nuw [2 x i8], ptr %.03956.us.us.us, i64 %indvars.iv107
   store i16 %.sroa.speculated.i.us.us.us.us, ptr %46, align 2, !tbaa !311
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %exitcond111.not = icmp eq i64 %indvars.iv.next108, %wide.trip.count110
@@ -17397,9 +17397,9 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOp
 
 57:                                               ; preds = %..preheader_crit_edge.us.us77, %57
   %indvars.iv93 = phi i64 [ 0, %..preheader_crit_edge.us.us77 ], [ %indvars.iv.next94, %57 ]
-  %58 = getelementptr inbounds nuw i16, ptr %63, i64 %indvars.iv93
+  %58 = getelementptr inbounds nuw [2 x i8], ptr %63, i64 %indvars.iv93
   %59 = load i16, ptr %58, align 2, !tbaa !311
-  %60 = getelementptr inbounds nuw i16, ptr %.03956.us.us72, i64 %indvars.iv93
+  %60 = getelementptr inbounds nuw [2 x i8], ptr %.03956.us.us72, i64 %indvars.iv93
   store i16 %59, ptr %60, align 2, !tbaa !311
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %exitcond97.not = icmp eq i64 %indvars.iv.next94, %wide.trip.count96
@@ -17409,9 +17409,9 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOp
   %.058.us.us71 = phi ptr [ %66, %._crit_edge54.split.us60.us ], [ %1, %.preheader47.us.us70.preheader ]
   %.03956.us.us72 = phi ptr [ %65, %._crit_edge54.split.us60.us ], [ %2, %.preheader47.us.us70.preheader ]
   %.04155.us.us73 = phi i32 [ %64, %._crit_edge54.split.us60.us ], [ %4, %.preheader47.us.us70.preheader ]
-  %61 = getelementptr inbounds ptr, ptr %.058.us.us71, i64 %53
+  %61 = getelementptr inbounds [8 x i8], ptr %.058.us.us71, i64 %53
   %62 = load ptr, ptr %61, align 8, !tbaa !369
-  %63 = getelementptr inbounds i16, ptr %62, i64 %56
+  %63 = getelementptr inbounds [2 x i8], ptr %62, i64 %56
   br label %57
 
 ._crit_edge54.split.us60.us:                      ; preds = %57
@@ -17433,9 +17433,9 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOp
 
 69:                                               ; preds = %.preheader47.us, %69
   %indvars.iv83 = phi i64 [ 0, %.preheader47.us ], [ %indvars.iv.next84, %69 ]
-  %70 = getelementptr inbounds nuw i16, ptr %68, i64 %indvars.iv83
+  %70 = getelementptr inbounds nuw [2 x i8], ptr %68, i64 %indvars.iv83
   %71 = load i16, ptr %70, align 2, !tbaa !311
-  %72 = getelementptr inbounds nuw i16, ptr %.03956.us, i64 %indvars.iv83
+  %72 = getelementptr inbounds nuw [2 x i8], ptr %.03956.us, i64 %indvars.iv83
   store i16 %71, ptr %72, align 2, !tbaa !311
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %exitcond87.not = icmp eq i64 %indvars.iv.next84, %wide.trip.count86
@@ -17461,17 +17461,17 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOp
 
 76:                                               ; preds = %.preheader47.us62, %76
   %indvars.iv = phi i64 [ 0, %.preheader47.us62 ], [ %indvars.iv.next, %76 ]
-  %77 = getelementptr inbounds nuw %"class.cv::Point_", ptr %10, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 4
   %79 = load i32, ptr %78, align 4, !tbaa !250
   %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds ptr, ptr %.058.us63, i64 %80
+  %81 = getelementptr inbounds [8 x i8], ptr %.058.us63, i64 %80
   %82 = load ptr, ptr %81, align 8, !tbaa !369
   %83 = load i32, ptr %77, align 4, !tbaa !248
   %84 = mul nsw i32 %83, %6
   %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds i16, ptr %82, i64 %85
-  %87 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %86 = getelementptr inbounds [2 x i8], ptr %82, i64 %85
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   store ptr %86, ptr %87, align 8, !tbaa !376
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -17660,17 +17660,17 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOp
 
 26:                                               ; preds = %.preheader47.us.us.us, %26
   %indvars.iv98 = phi i64 [ 0, %.preheader47.us.us.us ], [ %indvars.iv.next99, %26 ]
-  %27 = getelementptr inbounds nuw %"class.cv::Point_", ptr %10, i64 %indvars.iv98
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv98
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %29 = load i32, ptr %28, align 4, !tbaa !250
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds ptr, ptr %.058.us.us.us, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %.058.us.us.us, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !369
   %33 = load i32, ptr %27, align 4, !tbaa !248
   %34 = mul nsw i32 %33, %6
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds i16, ptr %32, i64 %35
-  %37 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv98
+  %36 = getelementptr inbounds [2 x i8], ptr %32, i64 %35
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv98
   store ptr %36, ptr %37, align 8, !tbaa !376
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %exitcond102.not = icmp eq i64 %indvars.iv.next99, %wide.trip.count101
@@ -17682,16 +17682,16 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOp
 
 .lr.ph51.us.us.us.us:                             ; preds = %._crit_edge.us.us.us.us, %..preheader_crit_edge.us.us.us
   %indvars.iv107 = phi i64 [ %indvars.iv.next108, %._crit_edge.us.us.us.us ], [ 0, %..preheader_crit_edge.us.us.us ]
-  %39 = getelementptr inbounds nuw i16, ptr %38, i64 %indvars.iv107
+  %39 = getelementptr inbounds nuw [2 x i8], ptr %38, i64 %indvars.iv107
   %40 = load i16, ptr %39, align 2, !tbaa !311
   br label %41
 
 41:                                               ; preds = %41, %.lr.ph51.us.us.us.us
   %indvars.iv103 = phi i64 [ %indvars.iv.next104, %41 ], [ 1, %.lr.ph51.us.us.us.us ]
   %.04050.us.us.us.us = phi i16 [ %.sroa.speculated.i.us.us.us.us, %41 ], [ %40, %.lr.ph51.us.us.us.us ]
-  %42 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv103
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv103
   %43 = load ptr, ptr %42, align 8, !tbaa !376
-  %44 = getelementptr inbounds nuw i16, ptr %43, i64 %indvars.iv107
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %43, i64 %indvars.iv107
   %45 = load i16, ptr %44, align 2, !tbaa !311
   %.sroa.speculated.i.us.us.us.us = call noundef i16 @llvm.smax.i16(i16 %.04050.us.us.us.us, i16 %45)
   %indvars.iv.next104 = add nuw nsw i64 %indvars.iv103, 1
@@ -17699,7 +17699,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOp
   br i1 %exitcond106.not, label %._crit_edge.us.us.us.us, label %41, !llvm.loop !466
 
 ._crit_edge.us.us.us.us:                          ; preds = %41
-  %46 = getelementptr inbounds nuw i16, ptr %.03956.us.us.us, i64 %indvars.iv107
+  %46 = getelementptr inbounds nuw [2 x i8], ptr %.03956.us.us.us, i64 %indvars.iv107
   store i16 %.sroa.speculated.i.us.us.us.us, ptr %46, align 2, !tbaa !311
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %exitcond111.not = icmp eq i64 %indvars.iv.next108, %wide.trip.count110
@@ -17727,9 +17727,9 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOp
 
 57:                                               ; preds = %..preheader_crit_edge.us.us77, %57
   %indvars.iv93 = phi i64 [ 0, %..preheader_crit_edge.us.us77 ], [ %indvars.iv.next94, %57 ]
-  %58 = getelementptr inbounds nuw i16, ptr %63, i64 %indvars.iv93
+  %58 = getelementptr inbounds nuw [2 x i8], ptr %63, i64 %indvars.iv93
   %59 = load i16, ptr %58, align 2, !tbaa !311
-  %60 = getelementptr inbounds nuw i16, ptr %.03956.us.us72, i64 %indvars.iv93
+  %60 = getelementptr inbounds nuw [2 x i8], ptr %.03956.us.us72, i64 %indvars.iv93
   store i16 %59, ptr %60, align 2, !tbaa !311
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %exitcond97.not = icmp eq i64 %indvars.iv.next94, %wide.trip.count96
@@ -17739,9 +17739,9 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOp
   %.058.us.us71 = phi ptr [ %66, %._crit_edge54.split.us60.us ], [ %1, %.preheader47.us.us70.preheader ]
   %.03956.us.us72 = phi ptr [ %65, %._crit_edge54.split.us60.us ], [ %2, %.preheader47.us.us70.preheader ]
   %.04155.us.us73 = phi i32 [ %64, %._crit_edge54.split.us60.us ], [ %4, %.preheader47.us.us70.preheader ]
-  %61 = getelementptr inbounds ptr, ptr %.058.us.us71, i64 %53
+  %61 = getelementptr inbounds [8 x i8], ptr %.058.us.us71, i64 %53
   %62 = load ptr, ptr %61, align 8, !tbaa !369
-  %63 = getelementptr inbounds i16, ptr %62, i64 %56
+  %63 = getelementptr inbounds [2 x i8], ptr %62, i64 %56
   br label %57
 
 ._crit_edge54.split.us60.us:                      ; preds = %57
@@ -17763,9 +17763,9 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOp
 
 69:                                               ; preds = %.preheader47.us, %69
   %indvars.iv83 = phi i64 [ 0, %.preheader47.us ], [ %indvars.iv.next84, %69 ]
-  %70 = getelementptr inbounds nuw i16, ptr %68, i64 %indvars.iv83
+  %70 = getelementptr inbounds nuw [2 x i8], ptr %68, i64 %indvars.iv83
   %71 = load i16, ptr %70, align 2, !tbaa !311
-  %72 = getelementptr inbounds nuw i16, ptr %.03956.us, i64 %indvars.iv83
+  %72 = getelementptr inbounds nuw [2 x i8], ptr %.03956.us, i64 %indvars.iv83
   store i16 %71, ptr %72, align 2, !tbaa !311
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %exitcond87.not = icmp eq i64 %indvars.iv.next84, %wide.trip.count86
@@ -17791,17 +17791,17 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOp
 
 76:                                               ; preds = %.preheader47.us62, %76
   %indvars.iv = phi i64 [ 0, %.preheader47.us62 ], [ %indvars.iv.next, %76 ]
-  %77 = getelementptr inbounds nuw %"class.cv::Point_", ptr %10, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 4
   %79 = load i32, ptr %78, align 4, !tbaa !250
   %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds ptr, ptr %.058.us63, i64 %80
+  %81 = getelementptr inbounds [8 x i8], ptr %.058.us63, i64 %80
   %82 = load ptr, ptr %81, align 8, !tbaa !369
   %83 = load i32, ptr %77, align 4, !tbaa !248
   %84 = mul nsw i32 %83, %6
   %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds i16, ptr %82, i64 %85
-  %87 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %86 = getelementptr inbounds [2 x i8], ptr %82, i64 %85
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   store ptr %86, ptr %87, align 8, !tbaa !376
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -17990,17 +17990,17 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOp
 
 26:                                               ; preds = %.preheader47.us.us.us, %26
   %indvars.iv98 = phi i64 [ 0, %.preheader47.us.us.us ], [ %indvars.iv.next99, %26 ]
-  %27 = getelementptr inbounds nuw %"class.cv::Point_", ptr %10, i64 %indvars.iv98
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv98
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %29 = load i32, ptr %28, align 4, !tbaa !250
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds ptr, ptr %.058.us.us.us, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %.058.us.us.us, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !369
   %33 = load i32, ptr %27, align 4, !tbaa !248
   %34 = mul nsw i32 %33, %6
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds float, ptr %32, i64 %35
-  %37 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv98
+  %36 = getelementptr inbounds [4 x i8], ptr %32, i64 %35
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv98
   store ptr %36, ptr %37, align 8, !tbaa !390
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %exitcond102.not = icmp eq i64 %indvars.iv.next99, %wide.trip.count101
@@ -18012,16 +18012,16 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOp
 
 .lr.ph51.us.us.us.us:                             ; preds = %._crit_edge.us.us.us.us, %..preheader_crit_edge.us.us.us
   %indvars.iv108 = phi i64 [ %indvars.iv.next109, %._crit_edge.us.us.us.us ], [ 0, %..preheader_crit_edge.us.us.us ]
-  %39 = getelementptr inbounds nuw float, ptr %38, i64 %indvars.iv108
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %indvars.iv108
   %40 = load float, ptr %39, align 4, !tbaa !325
   br label %41
 
 41:                                               ; preds = %41, %.lr.ph51.us.us.us.us
   %indvars.iv103 = phi i64 [ %indvars.iv.next104, %41 ], [ 1, %.lr.ph51.us.us.us.us ]
   %.04050.us.us.us.us = phi float [ %.sroa.speculated.i.us.us.us.us, %41 ], [ %40, %.lr.ph51.us.us.us.us ]
-  %42 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv103
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv103
   %43 = load ptr, ptr %42, align 8, !tbaa !390
-  %44 = getelementptr inbounds nuw float, ptr %43, i64 %indvars.iv108
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv108
   %45 = load float, ptr %44, align 4, !tbaa !325
   %46 = fcmp olt float %.04050.us.us.us.us, %45
   %.sroa.speculated.i.us.us.us.us = select i1 %46, float %45, float %.04050.us.us.us.us
@@ -18030,7 +18030,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOp
   br i1 %exitcond107.not, label %._crit_edge.us.us.us.us, label %41, !llvm.loop !470
 
 ._crit_edge.us.us.us.us:                          ; preds = %41
-  %47 = getelementptr inbounds nuw float, ptr %.03956.us.us.us, i64 %indvars.iv108
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %.03956.us.us.us, i64 %indvars.iv108
   store float %.sroa.speculated.i.us.us.us.us, ptr %47, align 4, !tbaa !325
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
   %exitcond112.not = icmp eq i64 %indvars.iv.next109, %wide.trip.count111
@@ -18058,9 +18058,9 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOp
 
 58:                                               ; preds = %..preheader_crit_edge.us.us77, %58
   %indvars.iv93 = phi i64 [ 0, %..preheader_crit_edge.us.us77 ], [ %indvars.iv.next94, %58 ]
-  %59 = getelementptr inbounds nuw float, ptr %64, i64 %indvars.iv93
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %indvars.iv93
   %60 = load float, ptr %59, align 4, !tbaa !325
-  %61 = getelementptr inbounds nuw float, ptr %.03956.us.us72, i64 %indvars.iv93
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %.03956.us.us72, i64 %indvars.iv93
   store float %60, ptr %61, align 4, !tbaa !325
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %exitcond97.not = icmp eq i64 %indvars.iv.next94, %wide.trip.count96
@@ -18070,9 +18070,9 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOp
   %.058.us.us71 = phi ptr [ %67, %._crit_edge54.split.us60.us ], [ %1, %.preheader47.us.us70.preheader ]
   %.03956.us.us72 = phi ptr [ %66, %._crit_edge54.split.us60.us ], [ %2, %.preheader47.us.us70.preheader ]
   %.04155.us.us73 = phi i32 [ %65, %._crit_edge54.split.us60.us ], [ %4, %.preheader47.us.us70.preheader ]
-  %62 = getelementptr inbounds ptr, ptr %.058.us.us71, i64 %54
+  %62 = getelementptr inbounds [8 x i8], ptr %.058.us.us71, i64 %54
   %63 = load ptr, ptr %62, align 8, !tbaa !369
-  %64 = getelementptr inbounds float, ptr %63, i64 %57
+  %64 = getelementptr inbounds [4 x i8], ptr %63, i64 %57
   br label %58
 
 ._crit_edge54.split.us60.us:                      ; preds = %58
@@ -18094,9 +18094,9 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOp
 
 70:                                               ; preds = %.preheader47.us, %70
   %indvars.iv83 = phi i64 [ 0, %.preheader47.us ], [ %indvars.iv.next84, %70 ]
-  %71 = getelementptr inbounds nuw float, ptr %69, i64 %indvars.iv83
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %indvars.iv83
   %72 = load float, ptr %71, align 4, !tbaa !325
-  %73 = getelementptr inbounds nuw float, ptr %.03956.us, i64 %indvars.iv83
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %.03956.us, i64 %indvars.iv83
   store float %72, ptr %73, align 4, !tbaa !325
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %exitcond87.not = icmp eq i64 %indvars.iv.next84, %wide.trip.count86
@@ -18122,17 +18122,17 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOp
 
 77:                                               ; preds = %.preheader47.us62, %77
   %indvars.iv = phi i64 [ 0, %.preheader47.us62 ], [ %indvars.iv.next, %77 ]
-  %78 = getelementptr inbounds nuw %"class.cv::Point_", ptr %10, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 4
   %80 = load i32, ptr %79, align 4, !tbaa !250
   %81 = sext i32 %80 to i64
-  %82 = getelementptr inbounds ptr, ptr %.058.us63, i64 %81
+  %82 = getelementptr inbounds [8 x i8], ptr %.058.us63, i64 %81
   %83 = load ptr, ptr %82, align 8, !tbaa !369
   %84 = load i32, ptr %78, align 4, !tbaa !248
   %85 = mul nsw i32 %84, %6
   %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds float, ptr %83, i64 %86
-  %88 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %87 = getelementptr inbounds [4 x i8], ptr %83, i64 %86
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   store ptr %87, ptr %88, align 8, !tbaa !390
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -18321,17 +18321,17 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOp
 
 26:                                               ; preds = %.preheader47.us.us.us, %26
   %indvars.iv98 = phi i64 [ 0, %.preheader47.us.us.us ], [ %indvars.iv.next99, %26 ]
-  %27 = getelementptr inbounds nuw %"class.cv::Point_", ptr %10, i64 %indvars.iv98
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv98
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %29 = load i32, ptr %28, align 4, !tbaa !250
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds ptr, ptr %.058.us.us.us, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %.058.us.us.us, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !369
   %33 = load i32, ptr %27, align 4, !tbaa !248
   %34 = mul nsw i32 %33, %6
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds double, ptr %32, i64 %35
-  %37 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv98
+  %36 = getelementptr inbounds [8 x i8], ptr %32, i64 %35
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv98
   store ptr %36, ptr %37, align 8, !tbaa !398
   %indvars.iv.next99 = add nuw nsw i64 %indvars.iv98, 1
   %exitcond102.not = icmp eq i64 %indvars.iv.next99, %wide.trip.count101
@@ -18343,16 +18343,16 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOp
 
 .lr.ph51.us.us.us.us:                             ; preds = %._crit_edge.us.us.us.us, %..preheader_crit_edge.us.us.us
   %indvars.iv108 = phi i64 [ %indvars.iv.next109, %._crit_edge.us.us.us.us ], [ 0, %..preheader_crit_edge.us.us.us ]
-  %39 = getelementptr inbounds nuw double, ptr %38, i64 %indvars.iv108
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv108
   %40 = load double, ptr %39, align 8, !tbaa !232
   br label %41
 
 41:                                               ; preds = %41, %.lr.ph51.us.us.us.us
   %indvars.iv103 = phi i64 [ %indvars.iv.next104, %41 ], [ 1, %.lr.ph51.us.us.us.us ]
   %.04050.us.us.us.us = phi double [ %.sroa.speculated.i.us.us.us.us, %41 ], [ %40, %.lr.ph51.us.us.us.us ]
-  %42 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv103
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv103
   %43 = load ptr, ptr %42, align 8, !tbaa !398
-  %44 = getelementptr inbounds nuw double, ptr %43, i64 %indvars.iv108
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv108
   %45 = load double, ptr %44, align 8, !tbaa !232
   %46 = fcmp olt double %.04050.us.us.us.us, %45
   %.sroa.speculated.i.us.us.us.us = select i1 %46, double %45, double %.04050.us.us.us.us
@@ -18361,7 +18361,7 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOp
   br i1 %exitcond107.not, label %._crit_edge.us.us.us.us, label %41, !llvm.loop !474
 
 ._crit_edge.us.us.us.us:                          ; preds = %41
-  %47 = getelementptr inbounds nuw double, ptr %.03956.us.us.us, i64 %indvars.iv108
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %.03956.us.us.us, i64 %indvars.iv108
   store double %.sroa.speculated.i.us.us.us.us, ptr %47, align 8, !tbaa !232
   %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
   %exitcond112.not = icmp eq i64 %indvars.iv.next109, %wide.trip.count111
@@ -18389,9 +18389,9 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOp
 
 58:                                               ; preds = %..preheader_crit_edge.us.us77, %58
   %indvars.iv93 = phi i64 [ 0, %..preheader_crit_edge.us.us77 ], [ %indvars.iv.next94, %58 ]
-  %59 = getelementptr inbounds nuw double, ptr %64, i64 %indvars.iv93
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %indvars.iv93
   %60 = load double, ptr %59, align 8, !tbaa !232
-  %61 = getelementptr inbounds nuw double, ptr %.03956.us.us72, i64 %indvars.iv93
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %.03956.us.us72, i64 %indvars.iv93
   store double %60, ptr %61, align 8, !tbaa !232
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
   %exitcond97.not = icmp eq i64 %indvars.iv.next94, %wide.trip.count96
@@ -18401,9 +18401,9 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOp
   %.058.us.us71 = phi ptr [ %67, %._crit_edge54.split.us60.us ], [ %1, %.preheader47.us.us70.preheader ]
   %.03956.us.us72 = phi ptr [ %66, %._crit_edge54.split.us60.us ], [ %2, %.preheader47.us.us70.preheader ]
   %.04155.us.us73 = phi i32 [ %65, %._crit_edge54.split.us60.us ], [ %4, %.preheader47.us.us70.preheader ]
-  %62 = getelementptr inbounds ptr, ptr %.058.us.us71, i64 %54
+  %62 = getelementptr inbounds [8 x i8], ptr %.058.us.us71, i64 %54
   %63 = load ptr, ptr %62, align 8, !tbaa !369
-  %64 = getelementptr inbounds double, ptr %63, i64 %57
+  %64 = getelementptr inbounds [8 x i8], ptr %63, i64 %57
   br label %58
 
 ._crit_edge54.split.us60.us:                      ; preds = %58
@@ -18425,9 +18425,9 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOp
 
 70:                                               ; preds = %.preheader47.us, %70
   %indvars.iv83 = phi i64 [ 0, %.preheader47.us ], [ %indvars.iv.next84, %70 ]
-  %71 = getelementptr inbounds nuw double, ptr %69, i64 %indvars.iv83
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %indvars.iv83
   %72 = load double, ptr %71, align 8, !tbaa !232
-  %73 = getelementptr inbounds nuw double, ptr %.03956.us, i64 %indvars.iv83
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %.03956.us, i64 %indvars.iv83
   store double %72, ptr %73, align 8, !tbaa !232
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %exitcond87.not = icmp eq i64 %indvars.iv.next84, %wide.trip.count86
@@ -18453,17 +18453,17 @@ define internal void @_ZN2cv12cpu_baseline12_GLOBAL__N_111MorphFilterINS1_5MaxOp
 
 77:                                               ; preds = %.preheader47.us62, %77
   %indvars.iv = phi i64 [ 0, %.preheader47.us62 ], [ %indvars.iv.next, %77 ]
-  %78 = getelementptr inbounds nuw %"class.cv::Point_", ptr %10, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 4
   %80 = load i32, ptr %79, align 4, !tbaa !250
   %81 = sext i32 %80 to i64
-  %82 = getelementptr inbounds ptr, ptr %.058.us63, i64 %81
+  %82 = getelementptr inbounds [8 x i8], ptr %.058.us63, i64 %81
   %83 = load ptr, ptr %82, align 8, !tbaa !369
   %84 = load i32, ptr %78, align 4, !tbaa !248
   %85 = mul nsw i32 %84, %6
   %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds double, ptr %83, i64 %86
-  %88 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %87 = getelementptr inbounds [8 x i8], ptr %83, i64 %86
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   store ptr %87, ptr %88, align 8, !tbaa !398
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

@@ -16,11 +16,11 @@ define ptr @ff_convert_lang_to(ptr noundef readonly captures(none) %0, i32 nound
 
 .preheader32:                                     ; preds = %2, %bsearch.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %bsearch.exit ], [ 0, %2 ]
-  %4 = getelementptr inbounds nuw i16, ptr @lang_table_offsets, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [2 x i8], ptr @lang_table_offsets, i64 %indvars.iv
   %5 = load i16, ptr %4, align 2, !tbaa !4
   %6 = zext i16 %5 to i64
-  %7 = getelementptr inbounds nuw %struct.LangEntry, ptr @lang_table, i64 %6
-  %8 = getelementptr inbounds nuw i16, ptr @lang_table_counts, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [6 x i8], ptr @lang_table, i64 %6
+  %8 = getelementptr inbounds nuw [2 x i8], ptr @lang_table_counts, i64 %indvars.iv
   %9 = load i16, ptr %8, align 2, !tbaa !4
   %10 = zext i16 %9 to i64
   br label %.lr.ph.i
@@ -57,11 +57,11 @@ bsearch.exit:                                     ; preds = %20
 
 .preheader30:                                     ; preds = %17
   %23 = zext nneg i32 %1 to i64
-  %24 = getelementptr inbounds nuw i16, ptr @lang_table_offsets, i64 %23
+  %24 = getelementptr inbounds nuw [2 x i8], ptr @lang_table_offsets, i64 %23
   %25 = load i16, ptr %24, align 2, !tbaa !4
   %26 = zext i16 %25 to i64
-  %27 = getelementptr inbounds nuw %struct.LangEntry, ptr @lang_table, i64 %26
-  %28 = getelementptr inbounds nuw i16, ptr @lang_table_counts, i64 %23
+  %27 = getelementptr inbounds nuw [6 x i8], ptr @lang_table, i64 %26
+  %28 = getelementptr inbounds nuw [2 x i8], ptr @lang_table_counts, i64 %23
   br label %29
 
 29:                                               ; preds = %.preheader30, %35
@@ -73,7 +73,7 @@ bsearch.exit:                                     ; preds = %20
 30:                                               ; preds = %29
   %31 = load i16, ptr %28, align 2, !tbaa !4
   %32 = zext i16 %31 to i64
-  %33 = getelementptr inbounds nuw %struct.LangEntry, ptr %27, i64 %32
+  %33 = getelementptr inbounds nuw [6 x i8], ptr %27, i64 %32
   %34 = icmp ult ptr %.136, %33
   br i1 %34, label %ff_convert_lang_to.exit, label %35
 
@@ -81,7 +81,7 @@ bsearch.exit:                                     ; preds = %20
   %36 = getelementptr inbounds nuw i8, ptr %.136, i64 4
   %37 = load i16, ptr %36, align 2, !tbaa !11
   %38 = zext i16 %37 to i64
-  %39 = getelementptr inbounds nuw %struct.LangEntry, ptr @lang_table, i64 %38
+  %39 = getelementptr inbounds nuw [6 x i8], ptr @lang_table, i64 %38
   %40 = add nuw nsw i32 %.12135, 1
   %exitcond.not = icmp eq i32 %40, 3
   br i1 %exitcond.not, label %41, label %29, !llvm.loop !13
@@ -92,10 +92,10 @@ bsearch.exit:                                     ; preds = %20
 
 .preheader29:                                     ; preds = %41, %bsearch.exit.i
   %indvars.iv43 = phi i64 [ %indvars.iv.next44, %bsearch.exit.i ], [ 0, %41 ]
-  %43 = getelementptr inbounds nuw i16, ptr @lang_table_offsets, i64 %indvars.iv43
+  %43 = getelementptr inbounds nuw [2 x i8], ptr @lang_table_offsets, i64 %indvars.iv43
   %44 = load i16, ptr %43, align 2, !tbaa !4
   %45 = zext i16 %44 to i64
-  %46 = getelementptr inbounds nuw i16, ptr @lang_table_counts, i64 %indvars.iv43
+  %46 = getelementptr inbounds nuw [2 x i8], ptr @lang_table_counts, i64 %indvars.iv43
   %47 = load i16, ptr %46, align 2, !tbaa !4
   %48 = zext i16 %47 to i64
   br label %.lr.ph.i.i

@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.config_s = type { i16, i16, i16, i16, ptr }
-%struct.ct_data_s = type { %union.anon, %union.anon.0 }
-%union.anon = type { i16 }
-%union.anon.0 = type { i16 }
 
 @deflate_copyright = local_unnamed_addr constant [68 x i8] c" deflate 1.2.5 Copyright 1995-2010 Jean-loup Gailly and Mark Adler \00", align 16
 @z_errmsg = external local_unnamed_addr constant [10 x ptr], align 16
@@ -193,7 +190,7 @@ define range(i32 -6, 1) i32 @deflateInit2_(ptr noundef %0, i32 noundef %1, i32 n
 106:                                              ; preds = %98
   %107 = lshr i32 %89, 1
   %108 = zext nneg i32 %107 to i64
-  %109 = getelementptr inbounds nuw i16, ptr %87, i64 %108
+  %109 = getelementptr inbounds nuw [2 x i8], ptr %87, i64 %108
   %110 = getelementptr inbounds nuw i8, ptr %47, i64 5888
   store ptr %109, ptr %110, align 8, !tbaa !44
   %111 = mul nuw nsw i64 %90, 3
@@ -404,14 +401,14 @@ define range(i32 -2, 1) i32 @deflateReset(ptr noundef captures(address_is_null) 
   %49 = load i32, ptr %48, align 4, !tbaa !32
   %50 = add i32 %49, -1
   %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds nuw i16, ptr %47, i64 %51
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %47, i64 %51
   store i16 0, ptr %52, align 2, !tbaa !56
   %53 = shl nuw nsw i64 %51, 1
   tail call void @llvm.memset.p0.i64(ptr align 1 %47, i8 0, i64 %53, i1 false)
   %54 = getelementptr inbounds nuw i8, ptr %5, i64 180
   %55 = load i32, ptr %54, align 4, !tbaa !46
   %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds %struct.config_s, ptr @configuration_table, i64 %56
+  %57 = getelementptr inbounds [16 x i8], ptr @configuration_table, i64 %56
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 2
   %59 = load i16, ptr %58, align 2, !tbaa !57
   %60 = zext i16 %59 to i32
@@ -547,11 +544,11 @@ define range(i32 -2, 1) i32 @deflateSetDictionary(ptr noundef captures(address_i
   %60 = and i32 %59, %41
   store i32 %60, ptr %32, align 8, !tbaa !72
   %61 = zext i32 %60 to i64
-  %62 = getelementptr inbounds nuw i16, ptr %44, i64 %61
+  %62 = getelementptr inbounds nuw [2 x i8], ptr %44, i64 %61
   %63 = load i16, ptr %62, align 2, !tbaa !56
   %64 = and i32 %48, %53
   %65 = zext i32 %64 to i64
-  %66 = getelementptr inbounds nuw i16, ptr %46, i64 %65
+  %66 = getelementptr inbounds nuw [2 x i8], ptr %46, i64 %65
   store i16 %63, ptr %66, align 2, !tbaa !56
   %67 = trunc i64 %indvars.iv to i16
   store i16 %67, ptr %62, align 2, !tbaa !56
@@ -656,11 +653,11 @@ define range(i32 -5, 2) i32 @deflateParams(ptr noundef %0, i32 noundef %1, i32 n
 16:                                               ; preds = %12
   %17 = load i32, ptr %13, align 4, !tbaa !46
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds %struct.config_s, ptr @configuration_table, i64 %18
+  %19 = getelementptr inbounds [16 x i8], ptr @configuration_table, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !77
   %22 = zext nneg i32 %spec.store.select to i64
-  %23 = getelementptr inbounds nuw %struct.config_s, ptr @configuration_table, i64 %22
+  %23 = getelementptr inbounds nuw [16 x i8], ptr @configuration_table, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !77
   %.not39 = icmp eq ptr %21, %25
@@ -685,7 +682,7 @@ define range(i32 -5, 2) i32 @deflateParams(ptr noundef %0, i32 noundef %1, i32 n
 33:                                               ; preds = %31
   store i32 %spec.store.select, ptr %13, align 4, !tbaa !46
   %34 = zext nneg i32 %spec.store.select to i64
-  %35 = getelementptr inbounds nuw %struct.config_s, ptr @configuration_table, i64 %34
+  %35 = getelementptr inbounds nuw [16 x i8], ptr @configuration_table, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 2
   %37 = load i16, ptr %36, align 2, !tbaa !57
   %38 = zext i16 %37 to i32
@@ -1862,7 +1859,7 @@ flush_pending.exit398:                            ; preds = %646, %666, %640
   %702 = getelementptr inbounds nuw i8, ptr %6, i64 180
   %703 = load i32, ptr %702, align 4, !tbaa !46
   %704 = sext i32 %703 to i64
-  %705 = getelementptr inbounds %struct.config_s, ptr @configuration_table, i64 %704
+  %705 = getelementptr inbounds [16 x i8], ptr @configuration_table, i64 %704
   %706 = getelementptr inbounds nuw i8, ptr %705, i64 8
   %707 = load ptr, ptr %706, align 8, !tbaa !77
   %708 = tail call i32 %707(ptr noundef nonnull %6, i32 noundef %1) #10
@@ -1918,7 +1915,7 @@ flush_pending.exit398:                            ; preds = %646, %666, %640
   %729 = load i32, ptr %728, align 4, !tbaa !32
   %730 = add i32 %729, -1
   %731 = zext i32 %730 to i64
-  %732 = getelementptr inbounds nuw i16, ptr %727, i64 %731
+  %732 = getelementptr inbounds nuw [2 x i8], ptr %727, i64 %731
   store i16 0, ptr %732, align 2, !tbaa !56
   %733 = shl nuw nsw i64 %731, 1
   tail call void @llvm.memset.p0.i64(ptr align 1 %727, i8 0, i64 %733, i1 false)
@@ -2342,7 +2339,7 @@ define internal fastcc range(i32 0, 4) i32 @deflate_huff(ptr noundef nonnull %0,
   %27 = load ptr, ptr %7, align 8, !tbaa !44
   %28 = load i32, ptr %8, align 4, !tbaa !96
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw i16, ptr %27, i64 %29
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %27, i64 %29
   store i16 0, ptr %30, align 2, !tbaa !56
   %31 = load ptr, ptr %9, align 8, !tbaa !45
   %32 = add i32 %28, 1
@@ -2350,7 +2347,7 @@ define internal fastcc range(i32 0, 4) i32 @deflate_huff(ptr noundef nonnull %0,
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 %29
   store i8 %26, ptr %33, align 1, !tbaa !3
   %34 = zext i8 %26 to i64
-  %35 = getelementptr inbounds nuw %struct.ct_data_s, ptr %10, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %34
   %36 = load i16, ptr %35, align 4, !tbaa !3
   %37 = add i16 %36, 1
   store i16 %37, ptr %35, align 4, !tbaa !3
@@ -2708,7 +2705,7 @@ thread-pre-split119:                              ; preds = %thread-pre-split119
   %91 = add i8 %90, -3
   %92 = load ptr, ptr %8, align 8, !tbaa !44
   %93 = zext i32 %.pre150 to i64
-  %94 = getelementptr inbounds nuw i16, ptr %92, i64 %93
+  %94 = getelementptr inbounds nuw [2 x i8], ptr %92, i64 %93
   store i16 1, ptr %94, align 2, !tbaa !56
   %95 = load ptr, ptr %10, align 8, !tbaa !45
   %96 = add i32 %.pre150, 1
@@ -2719,13 +2716,13 @@ thread-pre-split119:                              ; preds = %thread-pre-split119
   %99 = getelementptr inbounds nuw i8, ptr @_length_code, i64 %98
   %100 = load i8, ptr %99, align 1, !tbaa !3
   %101 = zext i8 %100 to i64
-  %102 = getelementptr %struct.ct_data_s, ptr %13, i64 %101
+  %102 = getelementptr [4 x i8], ptr %13, i64 %101
   %103 = load i16, ptr %102, align 4, !tbaa !3
   %104 = add i16 %103, 1
   store i16 %104, ptr %102, align 4, !tbaa !3
   %105 = load i8, ptr @_dist_code, align 1, !tbaa !3
   %106 = zext i8 %105 to i64
-  %107 = getelementptr inbounds nuw %struct.ct_data_s, ptr %14, i64 %106
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %106
   %108 = load i16, ptr %107, align 4, !tbaa !3
   %109 = add i16 %108, 1
   store i16 %109, ptr %107, align 4, !tbaa !3
@@ -2760,7 +2757,7 @@ thread-pre-split119:                              ; preds = %thread-pre-split119
   %124 = load i8, ptr %123, align 1, !tbaa !3
   %125 = load ptr, ptr %8, align 8, !tbaa !44
   %126 = zext i32 %119 to i64
-  %127 = getelementptr inbounds nuw i16, ptr %125, i64 %126
+  %127 = getelementptr inbounds nuw [2 x i8], ptr %125, i64 %126
   store i16 0, ptr %127, align 2, !tbaa !56
   %128 = load ptr, ptr %10, align 8, !tbaa !45
   %129 = add i32 %119, 1
@@ -2768,7 +2765,7 @@ thread-pre-split119:                              ; preds = %thread-pre-split119
   %130 = getelementptr inbounds nuw i8, ptr %128, i64 %126
   store i8 %124, ptr %130, align 1, !tbaa !3
   %131 = zext i8 %124 to i64
-  %132 = getelementptr inbounds nuw %struct.ct_data_s, ptr %11, i64 %131
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %131
   %133 = load i16, ptr %132, align 4, !tbaa !3
   %134 = add i16 %133, 1
   store i16 %134, ptr %132, align 4, !tbaa !3
@@ -3068,7 +3065,7 @@ define range(i32 -4, 1) i32 @deflateCopy(ptr noundef %0, ptr noundef readonly ca
   %85 = load i32, ptr %37, align 8, !tbaa !39
   %86 = lshr i32 %85, 1
   %87 = zext nneg i32 %86 to i64
-  %88 = getelementptr inbounds nuw i16, ptr %39, i64 %87
+  %88 = getelementptr inbounds nuw [2 x i8], ptr %39, i64 %87
   %89 = getelementptr inbounds nuw i8, ptr %14, i64 5888
   store ptr %88, ptr %89, align 8, !tbaa !44
   %90 = zext i32 %85 to i64
@@ -3454,13 +3451,13 @@ define internal range(i32 0, 4) i32 @deflate_fast(ptr noundef %0, i32 noundef %1
   store i32 %47, ptr %5, align 8, !tbaa !72
   %48 = load ptr, ptr %10, align 8, !tbaa !37
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw i16, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [2 x i8], ptr %48, i64 %49
   %51 = load i16, ptr %50, align 2, !tbaa !56
   %52 = load ptr, ptr %11, align 8, !tbaa !36
   %53 = load i32, ptr %12, align 4, !tbaa !30
   %54 = and i32 %53, %39
   %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds nuw i16, ptr %52, i64 %55
+  %56 = getelementptr inbounds nuw [2 x i8], ptr %52, i64 %55
   store i16 %51, ptr %56, align 2, !tbaa !56
   %57 = zext i16 %51 to i32
   %58 = trunc i32 %39 to i16
@@ -3499,7 +3496,7 @@ define internal range(i32 0, 4) i32 @deflate_fast(ptr noundef %0, i32 noundef %1
   %74 = load ptr, ptr %15, align 8, !tbaa !44
   %75 = load i32, ptr %16, align 4, !tbaa !96
   %76 = zext i32 %75 to i64
-  %77 = getelementptr inbounds nuw i16, ptr %74, i64 %76
+  %77 = getelementptr inbounds nuw [2 x i8], ptr %74, i64 %76
   store i16 %73, ptr %77, align 2, !tbaa !56
   %78 = load ptr, ptr %17, align 8, !tbaa !45
   %79 = add i32 %75, 1
@@ -3511,7 +3508,7 @@ define internal range(i32 0, 4) i32 @deflate_fast(ptr noundef %0, i32 noundef %1
   %83 = getelementptr inbounds nuw i8, ptr @_length_code, i64 %82
   %84 = load i8, ptr %83, align 1, !tbaa !3
   %85 = zext i8 %84 to i64
-  %86 = getelementptr %struct.ct_data_s, ptr %21, i64 %85
+  %86 = getelementptr [4 x i8], ptr %21, i64 %85
   %87 = load i16, ptr %86, align 4, !tbaa !3
   %88 = add i16 %87, 1
   store i16 %88, ptr %86, align 4, !tbaa !3
@@ -3525,7 +3522,7 @@ define internal range(i32 0, 4) i32 @deflate_fast(ptr noundef %0, i32 noundef %1
   %.in.in = select i1 %89, ptr %91, ptr %95
   %.in = load i8, ptr %.in.in, align 1, !tbaa !3
   %96 = zext i8 %.in to i64
-  %97 = getelementptr inbounds nuw %struct.ct_data_s, ptr %22, i64 %96
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %96
   %98 = load i16, ptr %97, align 4, !tbaa !3
   %99 = add i16 %98, 1
   store i16 %99, ptr %97, align 4, !tbaa !3
@@ -3572,11 +3569,11 @@ define internal range(i32 0, 4) i32 @deflate_fast(ptr noundef %0, i32 noundef %1
   %129 = and i32 %128, %113
   store i32 %129, ptr %5, align 8, !tbaa !72
   %130 = zext i32 %129 to i64
-  %131 = getelementptr inbounds nuw i16, ptr %114, i64 %130
+  %131 = getelementptr inbounds nuw [2 x i8], ptr %114, i64 %130
   %132 = load i16, ptr %131, align 2, !tbaa !56
   %133 = and i32 %116, %121
   %134 = zext i32 %133 to i64
-  %135 = getelementptr inbounds nuw i16, ptr %115, i64 %134
+  %135 = getelementptr inbounds nuw [2 x i8], ptr %115, i64 %134
   store i16 %132, ptr %135, align 2, !tbaa !56
   %136 = trunc i32 %121 to i16
   store i16 %136, ptr %131, align 2, !tbaa !56
@@ -3599,7 +3596,7 @@ define internal range(i32 0, 4) i32 @deflate_fast(ptr noundef %0, i32 noundef %1
   %146 = load ptr, ptr %15, align 8, !tbaa !44
   %147 = load i32, ptr %16, align 4, !tbaa !96
   %148 = zext i32 %147 to i64
-  %149 = getelementptr inbounds nuw i16, ptr %146, i64 %148
+  %149 = getelementptr inbounds nuw [2 x i8], ptr %146, i64 %148
   store i16 0, ptr %149, align 2, !tbaa !56
   %150 = load ptr, ptr %17, align 8, !tbaa !45
   %151 = add i32 %147, 1
@@ -3607,7 +3604,7 @@ define internal range(i32 0, 4) i32 @deflate_fast(ptr noundef %0, i32 noundef %1
   %152 = getelementptr inbounds nuw i8, ptr %150, i64 %148
   store i8 %145, ptr %152, align 1, !tbaa !3
   %153 = zext i8 %145 to i64
-  %154 = getelementptr inbounds nuw %struct.ct_data_s, ptr %18, i64 %153
+  %154 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %153
   %155 = load i16, ptr %154, align 4, !tbaa !3
   %156 = add i16 %155, 1
   store i16 %156, ptr %154, align 4, !tbaa !3
@@ -3893,13 +3890,13 @@ define internal range(i32 0, 4) i32 @deflate_slow(ptr noundef %0, i32 noundef %1
   store i32 %52, ptr %9, align 8, !tbaa !72
   %53 = load ptr, ptr %14, align 8, !tbaa !37
   %54 = zext i32 %52 to i64
-  %55 = getelementptr inbounds nuw i16, ptr %53, i64 %54
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %53, i64 %54
   %56 = load i16, ptr %55, align 2, !tbaa !56
   %57 = load ptr, ptr %15, align 8, !tbaa !36
   %58 = load i32, ptr %16, align 4, !tbaa !30
   %59 = and i32 %58, %44
   %60 = zext i32 %59 to i64
-  %61 = getelementptr inbounds nuw i16, ptr %57, i64 %60
+  %61 = getelementptr inbounds nuw [2 x i8], ptr %57, i64 %60
   store i16 %56, ptr %61, align 2, !tbaa !56
   %62 = zext i16 %56 to i32
   %63 = trunc i32 %44 to i16
@@ -3975,7 +3972,7 @@ thread-pre-split:                                 ; preds = %64, %67, %84, %79, 
   %100 = load ptr, ptr %20, align 8, !tbaa !44
   %101 = load i32, ptr %21, align 4, !tbaa !96
   %102 = zext i32 %101 to i64
-  %103 = getelementptr inbounds nuw i16, ptr %100, i64 %102
+  %103 = getelementptr inbounds nuw [2 x i8], ptr %100, i64 %102
   store i16 %99, ptr %103, align 2, !tbaa !56
   %104 = load ptr, ptr %22, align 8, !tbaa !45
   %105 = add i32 %101, 1
@@ -3987,7 +3984,7 @@ thread-pre-split:                                 ; preds = %64, %67, %84, %79, 
   %109 = getelementptr inbounds nuw i8, ptr @_length_code, i64 %108
   %110 = load i8, ptr %109, align 1, !tbaa !3
   %111 = zext i8 %110 to i64
-  %112 = getelementptr %struct.ct_data_s, ptr %23, i64 %111
+  %112 = getelementptr [4 x i8], ptr %23, i64 %111
   %113 = load i16, ptr %112, align 4, !tbaa !3
   %114 = add i16 %113, 1
   store i16 %114, ptr %112, align 4, !tbaa !3
@@ -4001,7 +3998,7 @@ thread-pre-split:                                 ; preds = %64, %67, %84, %79, 
   %.in.in = select i1 %115, ptr %117, ptr %121
   %.in = load i8, ptr %.in.in, align 1, !tbaa !3
   %122 = zext i8 %.in to i64
-  %123 = getelementptr inbounds nuw %struct.ct_data_s, ptr %24, i64 %122
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %122
   %124 = load i16, ptr %123, align 4, !tbaa !3
   %125 = add i16 %124, 1
   store i16 %125, ptr %123, align 4, !tbaa !3
@@ -4041,13 +4038,13 @@ thread-pre-split:                                 ; preds = %64, %67, %84, %79, 
   store i32 %148, ptr %9, align 8, !tbaa !72
   %149 = load ptr, ptr %14, align 8, !tbaa !37
   %150 = zext i32 %148 to i64
-  %151 = getelementptr inbounds nuw i16, ptr %149, i64 %150
+  %151 = getelementptr inbounds nuw [2 x i8], ptr %149, i64 %150
   %152 = load i16, ptr %151, align 2, !tbaa !56
   %153 = load ptr, ptr %15, align 8, !tbaa !36
   %154 = load i32, ptr %16, align 4, !tbaa !30
   %155 = and i32 %154, %135
   %156 = zext i32 %155 to i64
-  %157 = getelementptr inbounds nuw i16, ptr %153, i64 %156
+  %157 = getelementptr inbounds nuw [2 x i8], ptr %153, i64 %156
   store i16 %152, ptr %157, align 2, !tbaa !56
   %158 = trunc i32 %135 to i16
   store i16 %158, ptr %151, align 2, !tbaa !56
@@ -4158,7 +4155,7 @@ flush_pending.exit:                               ; preds = %172, %186, %207
   %223 = load ptr, ptr %20, align 8, !tbaa !44
   %224 = load i32, ptr %21, align 4, !tbaa !96
   %225 = zext i32 %224 to i64
-  %226 = getelementptr inbounds nuw i16, ptr %223, i64 %225
+  %226 = getelementptr inbounds nuw [2 x i8], ptr %223, i64 %225
   store i16 0, ptr %226, align 2, !tbaa !56
   %227 = load ptr, ptr %22, align 8, !tbaa !45
   %228 = add i32 %224, 1
@@ -4166,7 +4163,7 @@ flush_pending.exit:                               ; preds = %172, %186, %207
   %229 = getelementptr inbounds nuw i8, ptr %227, i64 %225
   store i8 %222, ptr %229, align 1, !tbaa !3
   %230 = zext i8 %222 to i64
-  %231 = getelementptr inbounds nuw %struct.ct_data_s, ptr %28, i64 %230
+  %231 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %230
   %232 = load i16, ptr %231, align 4, !tbaa !3
   %233 = add i16 %232, 1
   store i16 %233, ptr %231, align 4, !tbaa !3
@@ -4280,7 +4277,7 @@ flush_pending.exit169:                            ; preds = %281, %260, %245, %2
   %306 = load ptr, ptr %20, align 8, !tbaa !44
   %307 = load i32, ptr %21, align 4, !tbaa !96
   %308 = zext i32 %307 to i64
-  %309 = getelementptr inbounds nuw i16, ptr %306, i64 %308
+  %309 = getelementptr inbounds nuw [2 x i8], ptr %306, i64 %308
   store i16 0, ptr %309, align 2, !tbaa !56
   %310 = load ptr, ptr %22, align 8, !tbaa !45
   %311 = add i32 %307, 1
@@ -4288,7 +4285,7 @@ flush_pending.exit169:                            ; preds = %281, %260, %245, %2
   %312 = getelementptr inbounds nuw i8, ptr %310, i64 %308
   store i8 %305, ptr %312, align 1, !tbaa !3
   %313 = zext i8 %305 to i64
-  %314 = getelementptr inbounds nuw %struct.ct_data_s, ptr %28, i64 %313
+  %314 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %313
   %315 = load i16, ptr %314, align 4, !tbaa !3
   %316 = add i16 %315, 1
   store i16 %316, ptr %314, align 4, !tbaa !3
@@ -4434,7 +4431,7 @@ define internal fastcc void @fill_window(ptr noundef captures(none) %0) unnamed_
   %38 = load i32, ptr %12, align 4, !tbaa !32
   %39 = load ptr, ptr %13, align 8, !tbaa !37
   %40 = zext i32 %38 to i64
-  %41 = getelementptr inbounds nuw i16, ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [2 x i8], ptr %39, i64 %40
   br label %42
 
 42:                                               ; preds = %42, %29
@@ -4452,7 +4449,7 @@ define internal fastcc void @fill_window(ptr noundef captures(none) %0) unnamed_
 
 49:                                               ; preds = %42
   %50 = load ptr, ptr %14, align 8, !tbaa !36
-  %51 = getelementptr inbounds nuw i16, ptr %50, i64 %9
+  %51 = getelementptr inbounds nuw [2 x i8], ptr %50, i64 %9
   br label %52
 
 52:                                               ; preds = %52, %49
@@ -4833,7 +4830,7 @@ define internal fastcc i32 @longest_match(ptr noundef captures(none) %0, i32 nou
   %.1 = phi i8 [ %.0, %36 ], [ %.0, %42 ], [ %.0, %45 ], [ %.0, %48 ], [ %120, %113 ], [ %.0, %.critedge ]
   %122 = and i32 %.083, %21
   %123 = zext nneg i32 %122 to i64
-  %124 = getelementptr inbounds nuw i16, ptr %19, i64 %123
+  %124 = getelementptr inbounds nuw [2 x i8], ptr %19, i64 %123
   %125 = load i16, ptr %124, align 2, !tbaa !56
   %126 = zext i16 %125 to i32
   %127 = icmp uge i32 %spec.select, %126

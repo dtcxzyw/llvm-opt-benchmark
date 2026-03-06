@@ -34,10 +34,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.gmx::ArrayRef.20" = type { %"struct.gmx::ArrayRefIter.21", %"struct.gmx::ArrayRefIter.21" }
 %"struct.gmx::ArrayRefIter.21" = type { ptr }
 %"class.gmx::AnalysisDataPointSetRef" = type { %"class.gmx::AnalysisDataFrameHeader", i32, i32, %"class.gmx::ArrayRef" }
-%"class.gmx::AnalysisDataPointSetInfo" = type { i32, i32, i32, i32 }
-%"struct.gmx::AnalysisDataModuleManager::Impl::ModuleInfo" = type <{ %"class.std::shared_ptr.35", i8, [7 x i8] }>
-%"class.std::shared_ptr.35" = type { %"class.std::__shared_ptr.36" }
-%"class.std::__shared_ptr.36" = type { ptr, %"class.std::__shared_count" }
 
 $_ZN3gmxlsINS_8APIErrorENS_22ExceptionInfoLocation_ENS_13ThrowLocationEEENSt9enable_ifIXsr3stdE12is_base_of_vINS_16GromacsExceptionET_EES6_E4typeES6_RKNS_13ExceptionInfoIT0_T1_EE = comdat any
 
@@ -759,7 +755,7 @@ define void @_ZNK3gmx25AnalysisDataModuleManager4Impl11presentDataEPNS_20Abstrac
   %.ptr = phi ptr [ %.sroa.0.0.copyload.i.i.i, %.lr.ph ], [ %.sroa.0.0.copyload.i.i.i38, %57 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %57 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %81 = getelementptr inbounds nuw %"class.gmx::AnalysisDataPointSetInfo", ptr %.ptr, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw [16 x i8], ptr %.ptr, i64 %indvars.iv
   call void @_ZN3gmx23AnalysisDataPointSetRefC1ERKNS_23AnalysisDataFrameHeaderERKNS_24AnalysisDataPointSetInfoERKNS_8ArrayRefIKNS_17AnalysisDataValueEEE(ptr noundef nonnull align 8 dereferenceable(40) %8, ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 4 dereferenceable(16) %81, ptr noundef nonnull align 8 dereferenceable(16) %35)
   %82 = load ptr, ptr %2, align 8, !tbaa !21
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 48
@@ -1203,7 +1199,7 @@ _ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_S_relo
 _ZNSt12_Vector_baseIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN3gmx25AnalysisDataModuleManager4Impl10ModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit32, %58
   store ptr %22, ptr %0, align 8, !tbaa !73
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8, !tbaa !74
-  %62 = getelementptr inbounds nuw %"struct.gmx::AnalysisDataModuleManager::Impl::ModuleInfo", ptr %22, i64 %16
+  %62 = getelementptr inbounds nuw [24 x i8], ptr %22, i64 %16
   store ptr %62, ptr %57, align 8, !tbaa !76
   ret void
 }

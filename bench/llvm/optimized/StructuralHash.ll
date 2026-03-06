@@ -32,10 +32,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
 %"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
 %"union.std::_Nocopy_types" = type { { i64, i64 } }
-%"struct.llvm::detail::DenseMapPair" = type { %"struct.std::pair" }
-%"struct.std::pair" = type { %"struct.std::pair.103", i64 }
-%"struct.std::pair.103" = type { i32, i32 }
-%"class.llvm::Use" = type { ptr, ptr, ptr, ptr }
 
 $_ZNK4llvm13format_objectIJmEE7snprintEPcj = comdat any
 
@@ -305,7 +301,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit30:               ; preds = %125, %127
   br i1 %133, label %138, label %140
 
 138:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit30
-  %139 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %134, i64 %137
+  %139 = getelementptr inbounds nuw [16 x i8], ptr %134, i64 %137
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIjjEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E5beginEv.exit
 
 140:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit30
@@ -338,7 +334,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit30:               ; preds = %125, %127
 _ZN4llvm12DenseMapBaseINS_8DenseMapISt4pairIjjEmNS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_mEEEES3_mS5_S8_E5beginEv.exit: ; preds = %148, %.critedge2.i7.i13.i8.i, %138, %140
   %.pn13.i = phi ptr [ %139, %138 ], [ %134, %140 ], [ %.sroa.0.3.i4.i, %148 ], [ %141, %.critedge2.i7.i13.i8.i ]
   %.pn11.i = phi ptr [ %139, %138 ], [ %141, %140 ], [ %141, %.critedge2.i7.i13.i8.i ], [ %141, %148 ]
-  %153 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %134, i64 %137
+  %153 = getelementptr inbounds nuw [16 x i8], ptr %134, i64 %137
   %.not6667 = icmp eq ptr %.pn13.i, %153
   br i1 %.not6667, label %._crit_edge, label %.lr.ph
 
@@ -714,13 +710,13 @@ define internal noundef zeroext i1 @"_ZNSt17_Function_handlerIFbPKN4llvm11Instru
   %14 = and i32 %8, 134217727
   %15 = zext nneg i32 %14 to i64
   %16 = sub nsw i64 0, %15
-  %17 = getelementptr inbounds %"class.llvm::Use", ptr %.val, i64 %16
+  %17 = getelementptr inbounds [32 x i8], ptr %.val, i64 %16
   br label %_ZNK4llvm4User10getOperandEj.exit.i.i.i
 
 _ZNK4llvm4User10getOperandEj.exit.i.i.i:          ; preds = %13, %10
   %18 = phi ptr [ %12, %10 ], [ %17, %13 ]
   %19 = zext i32 %.val3 to i64
-  %20 = getelementptr inbounds nuw %"class.llvm::Use", ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [32 x i8], ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !85
   %22 = load i8, ptr %21, align 8, !tbaa !79
   %23 = icmp ult i8 %22, 22

@@ -288,7 +288,7 @@ ChunkVerifyAndAssign.exit:                        ; preds = %53
 
 88:                                               ; preds = %86
   %89 = zext i32 %66 to i64
-  %90 = getelementptr inbounds nuw ptr, ptr %6, i64 %89
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %89
   %91 = load ptr, ptr %90, align 8, !tbaa !27
   %92 = icmp eq ptr %91, null
   br i1 %92, label %93, label %95
@@ -732,7 +732,7 @@ define range(i32 -1, 2) i32 @WebPMuxGetChunk(ptr noundef readonly captures(addre
 7:                                                ; preds = %3
   %8 = tail call i32 @ChunkGetIndexFromFourCC(ptr noundef nonnull %1) #5
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %struct.ChunkInfo, ptr @kChunks, i64 %9
+  %10 = getelementptr inbounds nuw [12 x i8], ptr @kChunks, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i32, ptr %11, align 4, !tbaa !38
   switch i32 %12, label %13 [
@@ -1024,7 +1024,7 @@ IsWPI.exit:                                       ; preds = %6, %6, %6
 
 14:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %15 = getelementptr inbounds nuw %struct.ChunkInfo, ptr @kChunks, i64 %indvars.iv.next.i
+  %15 = getelementptr inbounds nuw [12 x i8], ptr @kChunks, i64 %indvars.iv.next.i
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = load i32, ptr %16, align 4, !tbaa !38
   %.not.i = icmp eq i32 %17, 10
@@ -1037,7 +1037,7 @@ IsWPI.exit:                                       ; preds = %6, %6, %6
 ChunkGetIndexFromId.exit:                         ; preds = %14, %9, %._crit_edge.loopexit.split.loop.exit14.i
   %.06.i = phi i64 [ 10, %9 ], [ %18, %._crit_edge.loopexit.split.loop.exit14.i ], [ 10, %14 ]
   %19 = load ptr, ptr %10, align 8, !tbaa !61
-  %20 = getelementptr inbounds nuw %struct.ChunkInfo, ptr @kChunks, i64 %.06.i
+  %20 = getelementptr inbounds nuw [12 x i8], ptr @kChunks, i64 %.06.i
   %21 = load i32, ptr %20, align 4, !tbaa !16
   %.not9.i = icmp eq ptr %19, null
   br i1 %.not9.i, label %CountChunks.exit, label %.lr.ph.i15

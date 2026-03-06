@@ -278,7 +278,7 @@ define internal fastcc i32 @remove_tree(ptr noundef captures(none) %0, ptr nound
   %50 = phi i32 [ %37, %34 ], [ %48, %.preheader36 ]
   %51 = urem i32 %50, %39
   %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr i32, ptr %9, i64 %52
+  %53 = getelementptr [4 x i8], ptr %9, i64 %52
   %54 = load i32, ptr %53, align 4
   store i32 %54, ptr %5, align 4
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 104
@@ -589,14 +589,14 @@ define internal fastcc i32 @remove_tree(ptr noundef captures(none) %0, ptr nound
   %261 = phi i32 [ %250, %248 ], [ %259, %.preheader ]
   %262 = urem i32 %261, %252
   %263 = zext nneg i32 %262 to i64
-  %264 = getelementptr i32, ptr %9, i64 %263
+  %264 = getelementptr [4 x i8], ptr %9, i64 %263
   store i32 0, ptr %264, align 4
   %265 = zext nneg i32 %252 to i64
   br label %266
 
 266:                                              ; preds = %271, %.loopexit
   %267 = phi i64 [ 0, %.loopexit ], [ %272, %271 ]
-  %268 = getelementptr i32, ptr %9, i64 %267
+  %268 = getelementptr [4 x i8], ptr %9, i64 %267
   %269 = load i32, ptr %268, align 4
   %270 = icmp eq i32 %269, 0
   br i1 %270, label %271, label %274
@@ -725,7 +725,7 @@ define dso_local i32 @qtree_read_dquot(ptr noundef readonly captures(none) %0, p
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 304
   %9 = sext i32 %5 to i64
-  %10 = getelementptr ptr, ptr %8, i64 %9
+  %10 = getelementptr [8 x i8], ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %13, label %14
@@ -1023,7 +1023,7 @@ define internal fastcc i32 @find_next_id(ptr noundef readonly captures(none) %0,
 62:                                               ; preds = %select.unfold, %57
   %63 = phi i64 [ %60, %57 ], [ %83, %select.unfold ]
   %64 = phi i64 [ %36, %57 ], [ %.ph, %select.unfold ]
-  %65 = getelementptr i32, ptr %8, i64 %63
+  %65 = getelementptr [4 x i8], ptr %8, i64 %63
   %66 = load i32, ptr %65, align 4
   %67 = icmp eq i32 %66, 0
   br i1 %67, label %68, label %71
@@ -1169,7 +1169,7 @@ define internal fastcc i32 @do_insert_tree(ptr noundef captures(none) %0, ptr no
   %58 = phi i32 [ %45, %42 ], [ %56, %.preheader37 ]
   %59 = urem i32 %58, %47
   %60 = zext nneg i32 %59 to i64
-  %61 = getelementptr i32, ptr %9, i64 %60
+  %61 = getelementptr [4 x i8], ptr %9, i64 %60
   %62 = load i32, ptr %61, align 4
   store i32 %62, ptr %5, align 4
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 104
@@ -1216,7 +1216,7 @@ define internal fastcc i32 @do_insert_tree(ptr noundef captures(none) %0, ptr no
   %88 = phi i32 [ %77, %74 ], [ %86, %.preheader35 ]
   %89 = urem i32 %88, %79
   %90 = zext nneg i32 %89 to i64
-  %91 = getelementptr i32, ptr %9, i64 %90
+  %91 = getelementptr [4 x i8], ptr %9, i64 %90
   %92 = load i32, ptr %91, align 4
   tail call void (ptr, ptr, ptr, ...) @__quota_error(ptr noundef %75, ptr noundef nonnull @__func__.do_insert_tree, ptr noundef nonnull @.str.9, i32 noundef %92) #7
   br label %308
@@ -1459,7 +1459,7 @@ define internal fastcc i32 @do_insert_tree(ptr noundef captures(none) %0, ptr no
   %243 = phi i32 [ %232, %229 ], [ %241, %.preheader ]
   %244 = urem i32 %243, %234
   %245 = zext nneg i32 %244 to i64
-  %246 = getelementptr i32, ptr %9, i64 %245
+  %246 = getelementptr [4 x i8], ptr %9, i64 %245
   store i32 %230, ptr %246, align 4
   %247 = load i32, ptr %2, align 4
   %248 = load ptr, ptr %0, align 8
@@ -2053,7 +2053,7 @@ define internal fastcc i64 @find_tree_dqentry(ptr noundef readonly captures(none
   %46 = phi i32 [ %33, %30 ], [ %44, %.preheader ]
   %47 = urem i32 %46, %35
   %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr i32, ptr %8, i64 %48
+  %49 = getelementptr [4 x i8], ptr %8, i64 %48
   %50 = load i32, ptr %49, align 4
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %133, label %52

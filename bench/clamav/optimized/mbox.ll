@@ -787,7 +787,7 @@ getline_from_mbox.exit.i:                         ; preds = %148, %147, %135
   %183 = getelementptr inbounds nuw i8, ptr %3, i64 %.01421.i.i.i
   %184 = load i8, ptr %183, align 1, !tbaa !43
   %185 = sext i8 %184 to i64
-  %186 = getelementptr inbounds i16, ptr %179, i64 %185
+  %186 = getelementptr inbounds [2 x i8], ptr %179, i64 %185
   %187 = load i16, ptr %186, align 2, !tbaa !48
   %.not17.i.i.i = trunc i16 %187 to i1
   %188 = icmp eq i8 %184, 59
@@ -806,7 +806,7 @@ getline_from_mbox.exit.i:                         ; preds = %148, %147, %135
   %189 = phi ptr [ %.pre316.i, %.critedge.i..thread.i_crit_edge.i.i ], [ %179, %182 ]
   %.1281.ph.i.i = phi i1 [ true, %.critedge.i..thread.i_crit_edge.i.i ], [ false, %182 ]
   %190 = sext i8 %175 to i64
-  %191 = getelementptr inbounds i16, ptr %189, i64 %190
+  %191 = getelementptr inbounds [2 x i8], ptr %189, i64 %190
   %192 = load i16, ptr %191, align 2, !tbaa !48
   %193 = and i16 %192, 1
   %.not10.i.i.i = icmp eq i16 %193, 0
@@ -856,7 +856,7 @@ getline_from_mbox.exit.i:                         ; preds = %148, %147, %135
   %210 = load ptr, ptr %209, align 8, !tbaa !46
   %211 = load i8, ptr %3, align 16, !tbaa !43
   %212 = zext i8 %211 to i64
-  %213 = getelementptr inbounds nuw i16, ptr %210, i64 %212
+  %213 = getelementptr inbounds nuw [2 x i8], ptr %210, i64 %212
   %214 = load i16, ptr %213, align 2, !tbaa !48
   %215 = and i16 %214, 8192
   %.not220.i.i = icmp eq i16 %215, 0
@@ -897,7 +897,7 @@ getline_from_mbox.exit.i:                         ; preds = %148, %147, %135
   %232 = getelementptr inbounds i8, ptr %.016.i.i.i.i, i64 -1
   %233 = load i8, ptr %232, align 1, !tbaa !43
   %234 = sext i8 %233 to i64
-  %235 = getelementptr inbounds i16, ptr %231, i64 %234
+  %235 = getelementptr inbounds [2 x i8], ptr %231, i64 %234
   %236 = load i16, ptr %235, align 2, !tbaa !48
   %.fr.i.i.i.i = freeze i16 %236
   %.not22.i.i.i.i = icmp slt i16 %.fr.i.i.i.i, 0
@@ -1053,7 +1053,7 @@ doContinueMultipleEmptyOptions.exit.thread.i.i:   ; preds = %.loopexit513.i.i
   %289 = load ptr, ptr %209, align 8, !tbaa !46
   %290 = load i8, ptr %3, align 16, !tbaa !43
   %291 = sext i8 %290 to i64
-  %292 = getelementptr inbounds i16, ptr %289, i64 %291
+  %292 = getelementptr inbounds [2 x i8], ptr %289, i64 %291
   %293 = load i16, ptr %292, align 2, !tbaa !48
   %294 = and i16 %293, 1
   %.not225.i.i = icmp eq i16 %294, 0
@@ -1147,7 +1147,7 @@ haveTooManyHeaderBytes.exit.i.i:                  ; preds = %316, %.thread324.i.
   %332 = load ptr, ptr %331, align 8, !tbaa !46
   %333 = load i8, ptr %329, align 1, !tbaa !43
   %334 = sext i8 %333 to i64
-  %335 = getelementptr inbounds i16, ptr %332, i64 %334
+  %335 = getelementptr inbounds [2 x i8], ptr %332, i64 %334
   %336 = load i16, ptr %335, align 2, !tbaa !48
   %337 = and i16 %336, 1
   %.not228.i.i = icmp eq i16 %337, 0
@@ -1616,7 +1616,7 @@ define range(i64 0, 2147483648) i64 @strstrip(ptr noundef captures(address_is_nu
   %19 = getelementptr inbounds i8, ptr %.016.i, i64 -1
   %20 = load i8, ptr %19, align 1, !tbaa !43
   %21 = sext i8 %20 to i64
-  %22 = getelementptr inbounds i16, ptr %18, i64 %21
+  %22 = getelementptr inbounds [2 x i8], ptr %18, i64 %21
   %23 = load i16, ptr %22, align 2, !tbaa !48
   %.fr.i = freeze i16 %23
   %.not22.i = icmp slt i16 %.fr.i, 0
@@ -1713,7 +1713,7 @@ define internal fastcc ptr @parseEmailHeaders(ptr noundef %0, ptr noundef %1, pt
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 %.01421.i
   %21 = load i8, ptr %20, align 1, !tbaa !43
   %22 = sext i8 %21 to i64
-  %23 = getelementptr inbounds i16, ptr %16, i64 %22
+  %23 = getelementptr inbounds [2 x i8], ptr %16, i64 %22
   %24 = load i16, ptr %23, align 2, !tbaa !48
   %.not17.i = trunc i16 %24 to i1
   %25 = icmp eq i8 %21, 59
@@ -1733,7 +1733,7 @@ define internal fastcc ptr @parseEmailHeaders(ptr noundef %0, ptr noundef %1, pt
   %26 = load ptr, ptr %.pre-phi, align 8, !tbaa !46
   %27 = load i8, ptr %13, align 1, !tbaa !43
   %28 = sext i8 %27 to i64
-  %29 = getelementptr inbounds i16, ptr %26, i64 %28
+  %29 = getelementptr inbounds [2 x i8], ptr %26, i64 %28
   %30 = load i16, ptr %29, align 2, !tbaa !48
   %31 = and i16 %30, 1
   %.not10.i = icmp eq i16 %31, 0
@@ -1790,7 +1790,7 @@ define internal fastcc ptr @parseEmailHeaders(ptr noundef %0, ptr noundef %1, pt
   %53 = load ptr, ptr %52, align 8, !tbaa !46
   %54 = load i8, ptr %.085153.ph168.ph, align 1, !tbaa !43
   %55 = sext i8 %54 to i64
-  %56 = getelementptr inbounds i16, ptr %53, i64 %55
+  %56 = getelementptr inbounds [2 x i8], ptr %53, i64 %55
   %57 = load i16, ptr %56, align 2, !tbaa !48
   %58 = and i16 %57, 1
   %.not131 = icmp eq i16 %58, 0
@@ -2382,7 +2382,7 @@ getEncTypeStr.exit:                               ; preds = %62, %.lr.ph862, %ge
 151:                                              ; preds = %144
   %152 = tail call ptr @messageCreate() #21
   %153 = sext i32 %.1554878 to i64
-  %154 = getelementptr inbounds ptr, ptr %149, i64 %153
+  %154 = getelementptr inbounds [8 x i8], ptr %149, i64 %153
   store ptr %152, ptr %154, align 8, !tbaa !91
   %155 = icmp eq ptr %152, null
   br i1 %155, label %156, label %158
@@ -2503,7 +2503,7 @@ getEncTypeStr.exit:                               ; preds = %62, %.lr.ph862, %ge
   %204 = load ptr, ptr %203, align 8, !tbaa !46
   %205 = load i8, ptr %175, align 1, !tbaa !43
   %206 = sext i8 %205 to i64
-  %207 = getelementptr inbounds i16, ptr %204, i64 %206
+  %207 = getelementptr inbounds [2 x i8], ptr %204, i64 %206
   %208 = load i16, ptr %207, align 2, !tbaa !48
   %209 = and i16 %208, 8192
   %.not664 = icmp eq i16 %209, 0
@@ -2845,7 +2845,7 @@ boundaryEnd.exit.thread:                          ; preds = %251, %286, %282, %2
 
 .lr.ph913:                                        ; preds = %.lr.ph913.preheader, %339
   %indvars.iv984 = phi i64 [ 0, %.lr.ph913.preheader ], [ %indvars.iv.next985, %339 ]
-  %336 = getelementptr inbounds nuw ptr, ptr %.2551, i64 %indvars.iv984
+  %336 = getelementptr inbounds nuw [8 x i8], ptr %.2551, i64 %indvars.iv984
   %337 = load ptr, ptr %336, align 8, !tbaa !91
   %.not689 = icmp eq ptr %337, null
   br i1 %.not689, label %339, label %338
@@ -2920,7 +2920,7 @@ haveTooManyMIMEPartsPerMessage.exit:              ; preds = %.loopexit825
 
 .lr.ph910:                                        ; preds = %.lr.ph910.preheader, %354
   %indvars.iv978 = phi i64 [ 0, %.lr.ph910.preheader ], [ %indvars.iv.next979, %354 ]
-  %351 = getelementptr inbounds nuw ptr, ptr %.2551, i64 %indvars.iv978
+  %351 = getelementptr inbounds nuw [8 x i8], ptr %.2551, i64 %indvars.iv978
   %352 = load ptr, ptr %351, align 8, !tbaa !91
   %.not687 = icmp eq ptr %352, null
   br i1 %.not687, label %354, label %353
@@ -2979,7 +2979,7 @@ haveTooManyMIMEPartsPerMessage.exit:              ; preds = %.loopexit825
 
 363:                                              ; preds = %359
   %364 = zext nneg i32 %360 to i64
-  %365 = getelementptr inbounds nuw ptr, ptr %.2551, i64 %364
+  %365 = getelementptr inbounds nuw [8 x i8], ptr %.2551, i64 %364
   %366 = load ptr, ptr %365, align 8, !tbaa !91
   %367 = tail call ptr @messageGetBody(ptr noundef %366) #21
   %.not675 = icmp eq ptr %367, null
@@ -2993,7 +2993,7 @@ haveTooManyMIMEPartsPerMessage.exit:              ; preds = %.loopexit825
 
 .lr.ph895:                                        ; preds = %.lr.ph895.preheader, %375
   %indvars.iv = phi i64 [ 0, %.lr.ph895.preheader ], [ %indvars.iv.next, %375 ]
-  %371 = getelementptr inbounds nuw ptr, ptr %.2551, i64 %indvars.iv
+  %371 = getelementptr inbounds nuw [8 x i8], ptr %.2551, i64 %indvars.iv
   %372 = load ptr, ptr %371, align 8, !tbaa !91
   %373 = tail call i32 @messageGetMimeType(ptr noundef %372) #21
   %374 = icmp eq i32 %373, 5
@@ -3027,13 +3027,13 @@ haveTooManyMIMEPartsPerMessage.exit:              ; preds = %.loopexit825
   br i1 %.not676, label %.thread782._crit_edge, label %383
 
 383:                                              ; preds = %.thread782
-  %384 = getelementptr inbounds ptr, ptr %.2551, i64 %.pre993
+  %384 = getelementptr inbounds [8 x i8], ptr %.2551, i64 %.pre993
   %385 = load ptr, ptr %384, align 8, !tbaa !91
   tail call fastcc void @parseRootMHTML(ptr noundef %2, ptr noundef %385, ptr noundef %379)
   br label %.thread782._crit_edge
 
 .thread782._crit_edge:                            ; preds = %.thread782, %383
-  %386 = getelementptr inbounds ptr, ptr %.2551, i64 %.pre993
+  %386 = getelementptr inbounds [8 x i8], ptr %.2551, i64 %.pre993
   %387 = load ptr, ptr %386, align 8, !tbaa !91
   %388 = add i32 %3, 1
   %389 = tail call fastcc i32 @parseEmailBody(ptr noundef %387, ptr noundef %379, ptr noundef %2, i32 noundef %388)
@@ -3114,7 +3114,7 @@ haveTooManyMIMEPartsPerMessage.exit:              ; preds = %.loopexit825
   %412 = icmp eq i32 %411, -1
   %spec.store.select = select i1 %412, i32 0, i32 %411
   %413 = sext i32 %spec.store.select to i64
-  %414 = getelementptr inbounds ptr, ptr %.2551, i64 %413
+  %414 = getelementptr inbounds [8 x i8], ptr %.2551, i64 %413
   %415 = load ptr, ptr %414, align 8, !tbaa !91
   %416 = add i32 %3, 1
   %417 = tail call fastcc i32 @parseEmailBody(ptr noundef %415, ptr noundef %1, ptr noundef %2, i32 noundef %416)
@@ -3185,7 +3185,7 @@ haveTooManyMIMEPartsPerMessage.exit:              ; preds = %.loopexit825
 
 .lr.ph907:                                        ; preds = %.lr.ph907.preheader, %439
   %indvars.iv972 = phi i64 [ 0, %.lr.ph907.preheader ], [ %indvars.iv.next973, %439 ]
-  %436 = getelementptr inbounds nuw ptr, ptr %.2551, i64 %indvars.iv972
+  %436 = getelementptr inbounds nuw [8 x i8], ptr %.2551, i64 %indvars.iv972
   %437 = load ptr, ptr %436, align 8, !tbaa !91
   %.not685 = icmp eq ptr %437, null
   br i1 %.not685, label %439, label %438
@@ -3846,7 +3846,7 @@ define internal fastcc ptr @rfc822comments(ptr noundef nonnull %0, ptr noundef %
   %.045 = phi ptr [ %16, %10 ], [ %0, %.preheader ]
   %11 = load i8, ptr %.045, align 1, !tbaa !43
   %12 = zext i8 %11 to i64
-  %13 = getelementptr inbounds nuw i16, ptr %9, i64 %12
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %12
   %14 = load i16, ptr %13, align 2, !tbaa !48
   %15 = and i16 %14, 8192
   %.not = icmp eq i16 %15, 0
@@ -4033,7 +4033,7 @@ define internal fastcc noundef zeroext i1 @next_is_folded_header(ptr noundef non
   %11 = load ptr, ptr %10, align 8, !tbaa !46
   %12 = load i8, ptr %9, align 1, !tbaa !43
   %13 = sext i8 %12 to i64
-  %14 = getelementptr inbounds i16, ptr %11, i64 %13
+  %14 = getelementptr inbounds [2 x i8], ptr %11, i64 %13
   %15 = load i16, ptr %14, align 2, !tbaa !48
   %16 = and i16 %15, 1
   %.not = icmp eq i16 %16, 0
@@ -4190,7 +4190,7 @@ define internal fastcc range(i32 -1, 1) i32 @parseEmailHeader(ptr noundef %0, pt
   %46 = tail call ptr @__ctype_tolower_loc() #24
   %47 = load ptr, ptr %46, align 8, !tbaa !96
   %48 = sext i8 %45 to i64
-  %49 = getelementptr inbounds i32, ptr %47, i64 %48
+  %49 = getelementptr inbounds [4 x i8], ptr %47, i64 %48
   %50 = load i32, ptr %49, align 4, !tbaa !90
   %sext.i = shl i32 %50, 24
   %51 = ashr exact i32 %sext.i, 24
@@ -4367,7 +4367,7 @@ rfc2047.exit.thread:                              ; preds = %63, %52, %27, %rfc2
   %121 = getelementptr inbounds i8, ptr %.016.i.i, i64 -1
   %122 = load i8, ptr %121, align 1, !tbaa !43
   %123 = sext i8 %122 to i64
-  %124 = getelementptr inbounds i16, ptr %120, i64 %123
+  %124 = getelementptr inbounds [2 x i8], ptr %120, i64 %123
   %125 = load i16, ptr %124, align 2, !tbaa !48
   %.fr.i.i = freeze i16 %125
   %.not22.i.i = icmp slt i16 %.fr.i.i, 0
@@ -4456,7 +4456,7 @@ strstrip.exit:                                    ; preds = %118, %switch.early.
   %.2114.i = phi ptr [ %160, %154 ], [ %..i, %.preheader151.i ]
   %155 = load i8, ptr %.2114.i, align 1, !tbaa !43
   %156 = zext i8 %155 to i64
-  %157 = getelementptr inbounds nuw i16, ptr %151, i64 %156
+  %157 = getelementptr inbounds nuw [2 x i8], ptr %151, i64 %156
   %158 = load i16, ptr %157, align 2, !tbaa !48
   %159 = and i16 %158, 8192
   %.not130.i41 = icmp eq i16 %159, 0
@@ -4545,7 +4545,7 @@ strstrip.exit:                                    ; preds = %118, %switch.early.
   %192 = getelementptr inbounds i8, ptr %.016.i.i.i, i64 -1
   %193 = load i8, ptr %192, align 1, !tbaa !43
   %194 = sext i8 %193 to i64
-  %195 = getelementptr inbounds i16, ptr %191, i64 %194
+  %195 = getelementptr inbounds [2 x i8], ptr %191, i64 %194
   %196 = load i16, ptr %195, align 2, !tbaa !48
   %.fr.i.i.i = freeze i16 %196
   %.not22.i.i.i = icmp slt i16 %.fr.i.i.i, 0
@@ -4607,7 +4607,7 @@ strstrip.exit.i:                                  ; preds = %.critedge.i.i.i, %1
   %213 = phi i8 [ %210, %.lr.ph.i ], [ %219, %220 ]
   %.2104155.i = phi ptr [ %174, %.lr.ph.i ], [ %218, %220 ]
   %214 = zext i8 %213 to i64
-  %215 = getelementptr inbounds nuw i16, ptr %211, i64 %214
+  %215 = getelementptr inbounds nuw [2 x i8], ptr %211, i64 %214
   %216 = load i16, ptr %215, align 2, !tbaa !48
   %217 = and i16 %216, 8192
   %.not138.i = icmp eq i16 %217, 0
@@ -5247,7 +5247,7 @@ define internal fastcc noundef ptr @do_multipart(ptr noundef %0, ptr noundef cap
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
   %11 = sext i32 %2 to i64
-  %12 = getelementptr inbounds ptr, ptr %1, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %1, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !91
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %15 = load ptr, ptr %14, align 8, !tbaa !36
@@ -5716,7 +5716,7 @@ define internal fastcc i32 @getTextPart(ptr noundef readonly captures(none) %0, 
 .lr.ph:                                           ; preds = %2, %14
   %.018 = phi i32 [ %.1, %14 ], [ -1, %2 ]
   %.01217 = phi i64 [ %15, %14 ], [ 0, %2 ]
-  %3 = getelementptr inbounds nuw ptr, ptr %0, i64 %.01217
+  %3 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.01217
   %4 = load ptr, ptr %3, align 8, !tbaa !91
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %14, label %5
@@ -6375,7 +6375,7 @@ define internal fastcc zeroext i1 @isBounceStart(ptr noundef nonnull readonly ca
   %22 = tail call ptr @__ctype_b_loc() #24
   %23 = load ptr, ptr %22, align 8, !tbaa !46
   %24 = zext i8 %17 to i64
-  %25 = getelementptr inbounds nuw i16, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [2 x i8], ptr %23, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !48
   %27 = lshr i16 %26, 11
   %28 = and i16 %27, 1

@@ -44,7 +44,7 @@ define align 8 ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..funct
 
 "_ZN13logos_codegen9generator4fork53_$LT$impl$u20$logos_codegen..generator..Generator$GT$24generate_fork_jump_table28_$u7b$$u7b$closure$u7d$$u7d$17hf4bdf49bdbd21b8cE.exit": ; preds = %2
   %8 = load ptr, ptr %0, align 8
-  %9 = getelementptr inbounds nuw { { [16 x i8], i8, [7 x i8] }, { {} } }, ptr %8, i64 %3
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %3
   ret ptr %9
 }
 
@@ -453,7 +453,7 @@ define hidden void @"_ZN13logos_codegen9generator4fork53_$LT$impl$u20$logos_code
 57:                                               ; preds = %52
   %58 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr { { [16 x i8], i8, [7 x i8] }, { {} } }, ptr %59, i64 %55
+  %60 = getelementptr [24 x i8], ptr %59, i64 %55
   %61 = getelementptr i8, ptr %60, i64 -24
   call void @_ZN11proc_macro211TokenStream3new17hd34098e6360de226E(ptr nonnull sret([32 x i8]) align 8 %4)
   invoke void @_ZN5quote9__private10push_ident17h2c6b9f77d8529b26E(ptr nonnull align 8 %4, ptr nonnull align 1 @anon.0640757c35bee24bba30bd836bdc0ee5.7, i64 4)

@@ -470,10 +470,10 @@ define void @_Z23gmx_ana_pos_append_initP13gmx_ana_pos_tS0_i(ptr noundef capture
   %5 = load i32, ptr %4, align 8, !tbaa !24
   %6 = load ptr, ptr %1, align 8, !tbaa !16
   %7 = sext i32 %2 to i64
-  %8 = getelementptr inbounds [3 x float], ptr %6, i64 %7
+  %8 = getelementptr inbounds [12 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %0, align 8, !tbaa !16
   %10 = sext i32 %5 to i64
-  %11 = getelementptr inbounds [3 x float], ptr %9, i64 %10
+  %11 = getelementptr inbounds [12 x i8], ptr %9, i64 %10
   %12 = load float, ptr %8, align 4, !tbaa !22
   store float %12, ptr %11, align 4, !tbaa !22
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -496,8 +496,8 @@ define void @_Z23gmx_ana_pos_append_initP13gmx_ana_pos_tS0_i(ptr noundef capture
   br i1 %.not57, label %33, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds [3 x float], ptr %23, i64 %7
-  %26 = getelementptr inbounds [3 x float], ptr %20, i64 %10
+  %25 = getelementptr inbounds [12 x i8], ptr %23, i64 %7
+  %26 = getelementptr inbounds [12 x i8], ptr %20, i64 %10
   %27 = load float, ptr %25, align 4, !tbaa !22
   store float %27, ptr %26, align 4, !tbaa !22
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 4
@@ -509,7 +509,7 @@ define void @_Z23gmx_ana_pos_append_initP13gmx_ana_pos_tS0_i(ptr noundef capture
   br label %.sink.split
 
 33:                                               ; preds = %21
-  %34 = getelementptr inbounds [3 x float], ptr %20, i64 %10
+  %34 = getelementptr inbounds [12 x i8], ptr %20, i64 %10
   store float 0.000000e+00, ptr %34, align 4, !tbaa !22
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
   store float 0.000000e+00, ptr %35, align 4, !tbaa !22
@@ -517,7 +517,7 @@ define void @_Z23gmx_ana_pos_append_initP13gmx_ana_pos_tS0_i(ptr noundef capture
 
 .sink.split:                                      ; preds = %33, %24
   %.sink = phi float [ %32, %24 ], [ 0.000000e+00, %33 ]
-  %36 = getelementptr inbounds [3 x float], ptr %20, i64 %10
+  %36 = getelementptr inbounds [12 x i8], ptr %20, i64 %10
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store float %.sink, ptr %37, align 4, !tbaa !22
   br label %38
@@ -535,8 +535,8 @@ define void @_Z23gmx_ana_pos_append_initP13gmx_ana_pos_tS0_i(ptr noundef capture
   br i1 %.not59, label %53, label %44
 
 44:                                               ; preds = %41
-  %45 = getelementptr inbounds [3 x float], ptr %43, i64 %7
-  %46 = getelementptr inbounds [3 x float], ptr %40, i64 %10
+  %45 = getelementptr inbounds [12 x i8], ptr %43, i64 %7
+  %46 = getelementptr inbounds [12 x i8], ptr %40, i64 %10
   %47 = load float, ptr %45, align 4, !tbaa !22
   store float %47, ptr %46, align 4, !tbaa !22
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 4
@@ -548,7 +548,7 @@ define void @_Z23gmx_ana_pos_append_initP13gmx_ana_pos_tS0_i(ptr noundef capture
   br label %.sink.split68
 
 53:                                               ; preds = %41
-  %54 = getelementptr inbounds [3 x float], ptr %40, i64 %10
+  %54 = getelementptr inbounds [12 x i8], ptr %40, i64 %10
   store float 0.000000e+00, ptr %54, align 4, !tbaa !22
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
   store float 0.000000e+00, ptr %55, align 4, !tbaa !22
@@ -556,7 +556,7 @@ define void @_Z23gmx_ana_pos_append_initP13gmx_ana_pos_tS0_i(ptr noundef capture
 
 .sink.split68:                                    ; preds = %53, %44
   %.sink69 = phi float [ %52, %44 ], [ 0.000000e+00, %53 ]
-  %56 = getelementptr inbounds [3 x float], ptr %40, i64 %10
+  %56 = getelementptr inbounds [12 x i8], ptr %40, i64 %10
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   store float %.sink69, ptr %57, align 4, !tbaa !22
   br label %58
@@ -564,27 +564,27 @@ define void @_Z23gmx_ana_pos_append_initP13gmx_ana_pos_tS0_i(ptr noundef capture
 58:                                               ; preds = %.sink.split68, %38
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %60 = load ptr, ptr %59, align 8, !tbaa !32
-  %61 = getelementptr inbounds i32, ptr %60, i64 %10
+  %61 = getelementptr inbounds [4 x i8], ptr %60, i64 %10
   store i32 %5, ptr %61, align 4, !tbaa !29
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %63 = load ptr, ptr %62, align 8, !tbaa !33
-  %64 = getelementptr inbounds i32, ptr %63, i64 %7
+  %64 = getelementptr inbounds [4 x i8], ptr %63, i64 %7
   %65 = load i32, ptr %64, align 4, !tbaa !29
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %67 = load ptr, ptr %66, align 8, !tbaa !33
-  %68 = getelementptr inbounds i32, ptr %67, i64 %10
+  %68 = getelementptr inbounds [4 x i8], ptr %67, i64 %10
   store i32 %65, ptr %68, align 4, !tbaa !29
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %70 = load ptr, ptr %69, align 8, !tbaa !34
-  %71 = getelementptr inbounds i32, ptr %70, i64 %7
+  %71 = getelementptr inbounds [4 x i8], ptr %70, i64 %7
   %72 = load i32, ptr %71, align 4, !tbaa !29
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %74 = load ptr, ptr %73, align 8, !tbaa !34
-  %75 = getelementptr inbounds i32, ptr %74, i64 %10
+  %75 = getelementptr inbounds [4 x i8], ptr %74, i64 %10
   store i32 %72, ptr %75, align 4, !tbaa !29
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %77 = load ptr, ptr %76, align 8, !tbaa !28
-  %78 = getelementptr inbounds i32, ptr %77, i64 %7
+  %78 = getelementptr inbounds [4 x i8], ptr %77, i64 %7
   %79 = load i32, ptr %78, align 4, !tbaa !29
   %80 = getelementptr i8, ptr %78, i64 4
   %81 = load i32, ptr %80, align 4, !tbaa !29
@@ -607,21 +607,21 @@ define void @_Z23gmx_ana_pos_append_initP13gmx_ana_pos_tS0_i(ptr noundef capture
 
 94:                                               ; preds = %.lr.ph, %94
   %indvars.iv = phi i64 [ %93, %.lr.ph ], [ %indvars.iv.next, %94 ]
-  %95 = getelementptr inbounds i32, ptr %84, i64 %indvars.iv
+  %95 = getelementptr inbounds [4 x i8], ptr %84, i64 %indvars.iv
   %96 = load i32, ptr %95, align 4, !tbaa !29
   %97 = load i32, ptr %87, align 8, !tbaa !25
   %98 = add nsw i32 %97, 1
   store i32 %98, ptr %87, align 8, !tbaa !25
   %99 = sext i32 %97 to i64
-  %100 = getelementptr inbounds i32, ptr %86, i64 %99
+  %100 = getelementptr inbounds [4 x i8], ptr %86, i64 %99
   store i32 %96, ptr %100, align 4, !tbaa !29
-  %101 = getelementptr inbounds i32, ptr %89, i64 %indvars.iv
+  %101 = getelementptr inbounds [4 x i8], ptr %89, i64 %indvars.iv
   %102 = load i32, ptr %101, align 4, !tbaa !29
   %103 = load i32, ptr %92, align 8, !tbaa !27
   %104 = add nsw i32 %103, 1
   store i32 %104, ptr %92, align 8, !tbaa !27
   %105 = sext i32 %103 to i64
-  %106 = getelementptr inbounds i32, ptr %91, i64 %105
+  %106 = getelementptr inbounds [4 x i8], ptr %91, i64 %105
   store i32 %102, ptr %106, align 4, !tbaa !29
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %107 = load i32, ptr %80, align 4, !tbaa !29
@@ -636,12 +636,12 @@ define void @_Z23gmx_ana_pos_append_initP13gmx_ana_pos_tS0_i(ptr noundef capture
   %113 = load ptr, ptr %112, align 8, !tbaa !28
   %114 = add nsw i32 %5, 1
   %115 = sext i32 %114 to i64
-  %116 = getelementptr inbounds i32, ptr %113, i64 %115
+  %116 = getelementptr inbounds [4 x i8], ptr %113, i64 %115
   store i32 %111, ptr %116, align 4, !tbaa !29
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %119 = load ptr, ptr %118, align 8, !tbaa !30
-  %120 = getelementptr inbounds i32, ptr %119, i64 %115
+  %120 = getelementptr inbounds [4 x i8], ptr %119, i64 %115
   store i32 %111, ptr %120, align 4, !tbaa !29
   %121 = load i32, ptr %4, align 8, !tbaa !24
   %122 = add nsw i32 %121, 1
@@ -657,7 +657,7 @@ define void @_Z18gmx_ana_pos_appendP13gmx_ana_pos_tS0_ii(ptr noundef captures(no
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %6 = load ptr, ptr %5, align 8, !tbaa !28
   %7 = sext i32 %2 to i64
-  %8 = getelementptr inbounds i32, ptr %6, i64 %7
+  %8 = getelementptr inbounds [4 x i8], ptr %6, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !29
   %10 = getelementptr i8, ptr %8, i64 4
   %11 = load i32, ptr %10, align 4, !tbaa !29
@@ -683,13 +683,13 @@ define void @_Z18gmx_ana_pos_appendP13gmx_ana_pos_tS0_ii(ptr noundef captures(no
 
 23:                                               ; preds = %.lr.ph, %23
   %indvars.iv = phi i64 [ %18, %.lr.ph ], [ %indvars.iv.next, %23 ]
-  %24 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv
+  %24 = getelementptr inbounds [4 x i8], ptr %14, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4, !tbaa !29
   %26 = load i32, ptr %17, align 8, !tbaa !25
   %27 = add nsw i32 %26, 1
   store i32 %27, ptr %17, align 8, !tbaa !25
   %28 = sext i32 %26 to i64
-  %29 = getelementptr inbounds i32, ptr %16, i64 %28
+  %29 = getelementptr inbounds [4 x i8], ptr %16, i64 %28
   store i32 %25, ptr %29, align 4, !tbaa !29
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %30 = load i32, ptr %10, align 4, !tbaa !29
@@ -704,9 +704,9 @@ define void @_Z18gmx_ana_pos_appendP13gmx_ana_pos_tS0_ii(ptr noundef captures(no
   br i1 %.not53, label %46, label %36
 
 36:                                               ; preds = %33
-  %37 = getelementptr inbounds [3 x float], ptr %35, i64 %7
+  %37 = getelementptr inbounds [12 x i8], ptr %35, i64 %7
   %38 = sext i32 %20 to i64
-  %39 = getelementptr inbounds [3 x float], ptr %22, i64 %38
+  %39 = getelementptr inbounds [12 x i8], ptr %22, i64 %38
   %40 = load float, ptr %37, align 4, !tbaa !22
   store float %40, ptr %39, align 4, !tbaa !22
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 4
@@ -719,7 +719,7 @@ define void @_Z18gmx_ana_pos_appendP13gmx_ana_pos_tS0_ii(ptr noundef captures(no
 
 46:                                               ; preds = %33
   %47 = sext i32 %20 to i64
-  %48 = getelementptr inbounds [3 x float], ptr %22, i64 %47
+  %48 = getelementptr inbounds [12 x i8], ptr %22, i64 %47
   store float 0.000000e+00, ptr %48, align 4, !tbaa !22
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
   store float 0.000000e+00, ptr %49, align 4, !tbaa !22
@@ -728,7 +728,7 @@ define void @_Z18gmx_ana_pos_appendP13gmx_ana_pos_tS0_ii(ptr noundef captures(no
 .sink.split:                                      ; preds = %46, %36
   %50 = phi i64 [ %38, %36 ], [ %47, %46 ]
   %.sink = phi float [ %45, %36 ], [ 0.000000e+00, %46 ]
-  %51 = getelementptr inbounds [3 x float], ptr %22, i64 %50
+  %51 = getelementptr inbounds [12 x i8], ptr %22, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store float %.sink, ptr %52, align 4, !tbaa !22
   br label %53
@@ -750,9 +750,9 @@ define void @_Z18gmx_ana_pos_appendP13gmx_ana_pos_tS0_ii(ptr noundef captures(no
   br i1 %.not55, label %70, label %59
 
 59:                                               ; preds = %56
-  %60 = getelementptr inbounds [3 x float], ptr %58, i64 %7
+  %60 = getelementptr inbounds [12 x i8], ptr %58, i64 %7
   %61 = sext i32 %20 to i64
-  %62 = getelementptr inbounds [3 x float], ptr %55, i64 %61
+  %62 = getelementptr inbounds [12 x i8], ptr %55, i64 %61
   %63 = load float, ptr %60, align 4, !tbaa !22
   store float %63, ptr %62, align 4, !tbaa !22
   %64 = getelementptr inbounds nuw i8, ptr %60, i64 4
@@ -767,7 +767,7 @@ define void @_Z18gmx_ana_pos_appendP13gmx_ana_pos_tS0_ii(ptr noundef captures(no
 
 70:                                               ; preds = %56
   %71 = sext i32 %20 to i64
-  %72 = getelementptr inbounds [3 x float], ptr %55, i64 %71
+  %72 = getelementptr inbounds [12 x i8], ptr %55, i64 %71
   store float 0.000000e+00, ptr %72, align 4, !tbaa !22
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 4
   store float 0.000000e+00, ptr %73, align 4, !tbaa !22
@@ -778,9 +778,9 @@ define void @_Z18gmx_ana_pos_appendP13gmx_ana_pos_tS0_ii(ptr noundef captures(no
 75:                                               ; preds = %._crit_edge59, %59, %70
   %.pre-phi = phi i64 [ %.pre, %._crit_edge59 ], [ %61, %59 ], [ %71, %70 ]
   %76 = load ptr, ptr %1, align 8, !tbaa !16
-  %77 = getelementptr inbounds [3 x float], ptr %76, i64 %7
+  %77 = getelementptr inbounds [12 x i8], ptr %76, i64 %7
   %78 = load ptr, ptr %0, align 8, !tbaa !16
-  %79 = getelementptr inbounds [3 x float], ptr %78, i64 %.pre-phi
+  %79 = getelementptr inbounds [12 x i8], ptr %78, i64 %.pre-phi
   %80 = load float, ptr %77, align 4, !tbaa !22
   store float %80, ptr %79, align 4, !tbaa !22
   %81 = getelementptr inbounds nuw i8, ptr %77, i64 4
@@ -797,7 +797,7 @@ define void @_Z18gmx_ana_pos_appendP13gmx_ana_pos_tS0_ii(ptr noundef captures(no
 88:                                               ; preds = %75
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %90 = load ptr, ptr %89, align 8, !tbaa !32
-  %91 = getelementptr inbounds i32, ptr %90, i64 %.pre-phi
+  %91 = getelementptr inbounds [4 x i8], ptr %90, i64 %.pre-phi
   store i32 -1, ptr %91, align 4, !tbaa !29
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i8 0, ptr %92, align 8, !tbaa !31
@@ -815,16 +815,16 @@ define void @_Z18gmx_ana_pos_appendP13gmx_ana_pos_tS0_ii(ptr noundef captures(no
 96:                                               ; preds = %94, %93
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %98 = load ptr, ptr %97, align 8, !tbaa !32
-  %99 = getelementptr inbounds i32, ptr %98, i64 %.pre-phi
+  %99 = getelementptr inbounds [4 x i8], ptr %98, i64 %.pre-phi
   store i32 %3, ptr %99, align 4, !tbaa !29
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %101 = load ptr, ptr %100, align 8, !tbaa !34
   %102 = zext nneg i32 %3 to i64
-  %103 = getelementptr inbounds nuw i32, ptr %101, i64 %102
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %101, i64 %102
   %104 = load i32, ptr %103, align 4, !tbaa !29
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %106 = load ptr, ptr %105, align 8, !tbaa !33
-  %107 = getelementptr inbounds i32, ptr %106, i64 %.pre-phi
+  %107 = getelementptr inbounds [4 x i8], ptr %106, i64 %.pre-phi
   store i32 %104, ptr %107, align 4, !tbaa !29
   br label %108
 
@@ -833,7 +833,7 @@ define void @_Z18gmx_ana_pos_appendP13gmx_ana_pos_tS0_ii(ptr noundef captures(no
   %110 = load i32, ptr %109, align 8, !tbaa !25
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %112 = load ptr, ptr %111, align 8, !tbaa !28
-  %113 = getelementptr i32, ptr %112, i64 %.pre-phi
+  %113 = getelementptr [4 x i8], ptr %112, i64 %.pre-phi
   %114 = getelementptr i8, ptr %113, i64 4
   store i32 %110, ptr %114, align 4, !tbaa !29
   %115 = load i32, ptr %19, align 8, !tbaa !24
@@ -865,7 +865,7 @@ define void @_Z24gmx_ana_pos_add_to_groupP15gmx_ana_index_tP13gmx_ana_pos_ti(ptr
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %5 = load ptr, ptr %4, align 8, !tbaa !28
   %6 = sext i32 %2 to i64
-  %7 = getelementptr inbounds i32, ptr %5, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %5, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !29
   %9 = getelementptr i8, ptr %7, i64 4
   %10 = load i32, ptr %9, align 4, !tbaa !29
@@ -885,13 +885,13 @@ define void @_Z24gmx_ana_pos_add_to_groupP15gmx_ana_index_tP13gmx_ana_pos_ti(ptr
 
 17:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ %16, %.lr.ph ], [ %indvars.iv.next, %17 ]
-  %18 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv
+  %18 = getelementptr inbounds [4 x i8], ptr %13, i64 %indvars.iv
   %19 = load i32, ptr %18, align 4, !tbaa !29
   %20 = load i32, ptr %0, align 8, !tbaa !42
   %21 = add nsw i32 %20, 1
   store i32 %21, ptr %0, align 8, !tbaa !42
   %22 = sext i32 %20 to i64
-  %23 = getelementptr inbounds i32, ptr %15, i64 %22
+  %23 = getelementptr inbounds [4 x i8], ptr %15, i64 %22
   store i32 %19, ptr %23, align 4, !tbaa !29
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %24 = load i32, ptr %9, align 4, !tbaa !29

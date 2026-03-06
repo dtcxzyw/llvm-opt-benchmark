@@ -304,7 +304,7 @@ openFontConfig.exit.i.i:                          ; preds = %25, %22
   %indvars.iv84.i.i = phi i64 [ 0, %.lr.ph82.i.i ], [ %indvars.iv.next85.i.i, %77 ]
   %.06881.i.i = phi i32 [ 0, %.lr.ph82.i.i ], [ %.1.i.i, %77 ]
   %60 = load ptr, ptr %57, align 8
-  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %indvars.iv84.i.i
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %indvars.iv84.i.i
   %62 = load ptr, ptr %61, align 8
   %63 = call i32 %30(ptr noundef %62, ptr noundef nonnull @.str.55, i32 noundef 0, ptr noundef nonnull %6) #13
   %64 = icmp eq i32 %63, 0
@@ -327,7 +327,7 @@ openFontConfig.exit.i.i:                          ; preds = %25, %22
 
 .lr.ph.i.i:                                       ; preds = %68, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %68 ]
-  %69 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv.i.i
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %indvars.iv.i.i
   %70 = load ptr, ptr %69, align 8
   %71 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %70, ptr noundef nonnull dereferenceable(1) %67) #15
   %72 = icmp eq i32 %71, 0
@@ -336,7 +336,7 @@ openFontConfig.exit.i.i:                          ; preds = %25, %22
 .critedge.i.i:                                    ; preds = %68, %65
   %73 = add nsw i32 %.06881.i.i, 1
   %74 = sext i32 %.06881.i.i to i64
-  %75 = getelementptr inbounds ptr, ptr %54, i64 %74
+  %75 = getelementptr inbounds [8 x i8], ptr %54, i64 %74
   store ptr %67, ptr %75, align 8
   br label %77
 
@@ -441,7 +441,7 @@ getFontConfigLocations.exit.i:                    ; preds = %81, %43, %19, %.tai
 .lr.ph.i60.i:                                     ; preds = %149, %.lr.ph.preheader.i58.i
   %indvars.iv.i61.i = phi i64 [ 0, %.lr.ph.preheader.i58.i ], [ %indvars.iv.next.i63.i, %149 ]
   %.03344.i.i = phi i32 [ 0, %.lr.ph.preheader.i58.i ], [ %.1.i62.i, %149 ]
-  %120 = getelementptr inbounds nuw ptr, ptr %112, i64 %indvars.iv.i61.i
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %indvars.iv.i61.i
   %121 = load ptr, ptr %120, align 8
   %122 = load i8, ptr %121, align 1
   %.not.i.i = icmp eq i8 %122, 47
@@ -475,7 +475,7 @@ getFontConfigLocations.exit.i:                    ; preds = %81, %43, %19, %.tai
 133:                                              ; preds = %131
   %134 = call noalias ptr @strdup(ptr noundef nonnull %121) #13
   %135 = sext i32 %.03344.i.i to i64
-  %136 = getelementptr inbounds ptr, ptr %116, i64 %135
+  %136 = getelementptr inbounds [8 x i8], ptr %116, i64 %135
   store ptr %134, ptr %136, align 8
   %137 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %134) #15
   %138 = trunc i64 %137 to i32
@@ -654,7 +654,7 @@ getX11FontPath.exit.i:                            ; preds = %152, %._crit_edge.i
 .lr.ph25.split.i.i:                               ; preds = %.lr.ph25.i.i, %208
   %indvars.iv.i69.i = phi i64 [ %indvars.iv.next.i70.i, %208 ], [ 0, %.lr.ph25.i.i ]
   %.09423.i.i = phi i32 [ %.195.i.i, %208 ], [ 0, %.lr.ph25.i.i ]
-  %201 = getelementptr inbounds nuw ptr, ptr %.0.i.i, i64 %indvars.iv.i69.i
+  %201 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i, i64 %indvars.iv.i69.i
   %202 = load ptr, ptr %201, align 8
   %203 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %202, ptr noundef nonnull dereferenceable(1) @.str.83) #15
   %.not126.i.i = icmp eq ptr %203, null
@@ -663,7 +663,7 @@ getX11FontPath.exit.i:                            ; preds = %152, %._crit_edge.i
 204:                                              ; preds = %.lr.ph25.split.i.i
   %205 = add nsw i32 %.09423.i.i, 1
   %206 = sext i32 %.09423.i.i to i64
-  %207 = getelementptr inbounds ptr, ptr %197, i64 %206
+  %207 = getelementptr inbounds [8 x i8], ptr %197, i64 %206
   store ptr %202, ptr %207, align 8
   br label %208
 
@@ -684,7 +684,7 @@ getX11FontPath.exit.i:                            ; preds = %152, %._crit_edge.i
 209:                                              ; preds = %.loopexit3.i.i, %.lr.ph33.i.i
   %indvars.iv72.i.i = phi i64 [ 0, %.lr.ph33.i.i ], [ %indvars.iv.next73.i.i, %.loopexit3.i.i ]
   %.29631.i.i = phi i32 [ %.094.lcssa.i.i, %.lr.ph33.i.i ], [ %.397.i.i, %.loopexit3.i.i ]
-  %.phi.trans.insert.i = getelementptr inbounds nuw ptr, ptr %.041.i, i64 %indvars.iv72.i.i
+  %.phi.trans.insert.i = getelementptr inbounds nuw [8 x i8], ptr %.041.i, i64 %indvars.iv72.i.i
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br i1 %.not121.i.i, label %._crit_edge88.i, label %210
 
@@ -703,7 +703,7 @@ getX11FontPath.exit.i:                            ; preds = %152, %._crit_edge.i
 
 .lr.ph30.i.i:                                     ; preds = %._crit_edge88.i, %212
   %indvars.iv67.i.i = phi i64 [ %indvars.iv.next68.i.i, %212 ], [ 0, %._crit_edge88.i ]
-  %213 = getelementptr inbounds nuw ptr, ptr %197, i64 %indvars.iv67.i.i
+  %213 = getelementptr inbounds nuw [8 x i8], ptr %197, i64 %indvars.iv67.i.i
   %214 = load ptr, ptr %213, align 8
   %215 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %214, ptr noundef nonnull dereferenceable(1) %.pre.i) #15
   %216 = icmp eq i32 %215, 0
@@ -712,7 +712,7 @@ getX11FontPath.exit.i:                            ; preds = %152, %._crit_edge.i
 .critedge.i74.i:                                  ; preds = %212, %._crit_edge88.i
   %217 = add nsw i32 %.29631.i.i, 1
   %218 = sext i32 %.29631.i.i to i64
-  %219 = getelementptr inbounds ptr, ptr %197, i64 %218
+  %219 = getelementptr inbounds [8 x i8], ptr %197, i64 %218
   store ptr %.pre.i, ptr %219, align 8
   br label %.loopexit3.i.i
 
@@ -733,7 +733,7 @@ getX11FontPath.exit.i:                            ; preds = %152, %._crit_edge.i
 221:                                              ; preds = %.loopexit1.i.i, %.lr.ph41.i.i
   %indvars.iv82.i.i = phi i64 [ 0, %.lr.ph41.i.i ], [ %indvars.iv.next83.i.i, %.loopexit1.i.i ]
   %.49839.i.i = phi i32 [ %.296.lcssa.i.i, %.lr.ph41.i.i ], [ %.5.i.i, %.loopexit1.i.i ]
-  %.phi.trans.insert90.i = getelementptr inbounds nuw ptr, ptr @fullLinuxFontPath, i64 %indvars.iv82.i.i
+  %.phi.trans.insert90.i = getelementptr inbounds nuw [8 x i8], ptr @fullLinuxFontPath, i64 %indvars.iv82.i.i
   %.pre91.i = load ptr, ptr %.phi.trans.insert90.i, align 8
   br i1 %.not117.i.i, label %._crit_edge89.i, label %222
 
@@ -752,7 +752,7 @@ getX11FontPath.exit.i:                            ; preds = %152, %._crit_edge.i
 
 .lr.ph38.i.i:                                     ; preds = %._crit_edge89.i, %224
   %indvars.iv77.i.i = phi i64 [ %indvars.iv.next78.i.i, %224 ], [ 0, %._crit_edge89.i ]
-  %225 = getelementptr inbounds nuw ptr, ptr %197, i64 %indvars.iv77.i.i
+  %225 = getelementptr inbounds nuw [8 x i8], ptr %197, i64 %indvars.iv77.i.i
   %226 = load ptr, ptr %225, align 8
   %227 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %226, ptr noundef nonnull dereferenceable(1) %.pre91.i) #15
   %228 = icmp eq i32 %227, 0
@@ -761,7 +761,7 @@ getX11FontPath.exit.i:                            ; preds = %152, %._crit_edge.i
 .critedge128.i.i:                                 ; preds = %224, %._crit_edge89.i
   %229 = add nsw i32 %.49839.i.i, 1
   %230 = sext i32 %.49839.i.i to i64
-  %231 = getelementptr inbounds ptr, ptr %197, i64 %230
+  %231 = getelementptr inbounds [8 x i8], ptr %197, i64 %230
   store ptr %.pre91.i, ptr %231, align 8
   br label %.loopexit1.i.i
 
@@ -774,7 +774,7 @@ getX11FontPath.exit.i:                            ; preds = %152, %._crit_edge.i
 .lr.ph45.i.i:                                     ; preds = %.lr.ph45.i.i, %.lr.ph45.preheader.i.i
   %indvars.iv87.i.i = phi i64 [ 0, %.lr.ph45.preheader.i.i ], [ %indvars.iv.next88.i.i, %.lr.ph45.i.i ]
   %.08644.i.i = phi i32 [ 0, %.lr.ph45.preheader.i.i ], [ %237, %.lr.ph45.i.i ]
-  %232 = getelementptr inbounds nuw ptr, ptr %197, i64 %indvars.iv87.i.i
+  %232 = getelementptr inbounds nuw [8 x i8], ptr %197, i64 %indvars.iv87.i.i
   %233 = load ptr, ptr %232, align 8
   %234 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %233) #15
   %235 = trunc i64 %234 to i32
@@ -810,7 +810,7 @@ getX11FontPath.exit.i:                            ; preds = %152, %._crit_edge.i
   br label %243
 
 243:                                              ; preds = %242, %.lr.ph50.i.i
-  %244 = getelementptr inbounds nuw ptr, ptr %197, i64 %indvars.iv92.i.i
+  %244 = getelementptr inbounds nuw [8 x i8], ptr %197, i64 %indvars.iv92.i.i
   %245 = load ptr, ptr %244, align 8
   %246 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %241, ptr noundef nonnull dereferenceable(1) %245) #13
   %indvars.iv.next93.i.i = add nuw nsw i64 %indvars.iv92.i.i, 1
@@ -1536,7 +1536,7 @@ define void @Java_sun_font_FontConfigManager_getFontConfig(ptr noundef %0, ptr n
   %.0444554 = phi i32 [ 0, %.lr.ph558 ], [ %.2446, %302 ]
   %.1448553 = phi i32 [ %.0447, %.lr.ph558 ], [ %.2449, %302 ]
   %258 = load ptr, ptr %256, align 8
-  %259 = getelementptr inbounds nuw ptr, ptr %258, i64 %indvars.iv
+  %259 = getelementptr inbounds nuw [8 x i8], ptr %258, i64 %indvars.iv
   %260 = load ptr, ptr %259, align 8
   store ptr null, ptr %10, align 8
   store ptr null, ptr %9, align 8
@@ -1614,13 +1614,13 @@ define void @Java_sun_font_FontConfigManager_getFontConfig(ptr noundef %0, ptr n
   %.2437 = phi ptr [ %288, %286 ], [ %288, %289 ], [ %282, %279 ]
   %.3 = phi ptr [ %288, %286 ], [ %288, %289 ], [ %.0434557, %279 ]
   %292 = add nsw i32 %.0444554, 1
-  %293 = getelementptr inbounds nuw ptr, ptr %232, i64 %indvars.iv
+  %293 = getelementptr inbounds nuw [8 x i8], ptr %232, i64 %indvars.iv
   %294 = call i32 %101(ptr noundef %260, ptr noundef nonnull @.str.55, i32 noundef 0, ptr noundef %293) #13
-  %295 = getelementptr inbounds nuw ptr, ptr %229, i64 %indvars.iv
+  %295 = getelementptr inbounds nuw [8 x i8], ptr %229, i64 %indvars.iv
   %296 = call i32 %101(ptr noundef %260, ptr noundef nonnull @.str.56, i32 noundef 0, ptr noundef %295) #13
-  %297 = getelementptr inbounds nuw ptr, ptr %230, i64 %indvars.iv
+  %297 = getelementptr inbounds nuw [8 x i8], ptr %230, i64 %indvars.iv
   %298 = call i32 %101(ptr noundef %260, ptr noundef nonnull @.str.57, i32 noundef 0, ptr noundef %297) #13
-  %299 = getelementptr inbounds nuw ptr, ptr %231, i64 %indvars.iv
+  %299 = getelementptr inbounds nuw [8 x i8], ptr %231, i64 %indvars.iv
   %300 = call i32 %101(ptr noundef %260, ptr noundef nonnull @.str.58, i32 noundef 0, ptr noundef %299) #13
   %301 = icmp eq i32 %292, 254
   %or.cond39 = select i1 %180, i1 true, i1 %301
@@ -1689,7 +1689,7 @@ define void @Java_sun_font_FontConfigManager_getFontConfig(ptr noundef %0, ptr n
 .lr.ph566:                                        ; preds = %.lr.ph566.preheader, %405
   %indvars.iv613 = phi i64 [ 0, %.lr.ph566.preheader ], [ %indvars.iv.next614, %405 ]
   %.0440564 = phi i32 [ 0, %.lr.ph566.preheader ], [ %.1441, %405 ]
-  %321 = getelementptr inbounds nuw ptr, ptr %229, i64 %indvars.iv613
+  %321 = getelementptr inbounds nuw [8 x i8], ptr %229, i64 %indvars.iv613
   %322 = load ptr, ptr %321, align 8
   %.not507 = icmp eq ptr %322, null
   br i1 %.not507, label %405, label %323
@@ -1720,7 +1720,7 @@ define void @Java_sun_font_FontConfigManager_getFontConfig(ptr noundef %0, ptr n
   %341 = getelementptr inbounds nuw i8, ptr %340, i64 184
   %342 = load ptr, ptr %341, align 8
   call void %342(ptr noundef nonnull %0, ptr noundef nonnull %334) #13
-  %343 = getelementptr inbounds nuw ptr, ptr %232, i64 %indvars.iv613
+  %343 = getelementptr inbounds nuw [8 x i8], ptr %232, i64 %indvars.iv613
   %344 = load ptr, ptr %343, align 8
   %.not508 = icmp eq ptr %344, null
   br i1 %.not508, label %358, label %345
@@ -1745,7 +1745,7 @@ define void @Java_sun_font_FontConfigManager_getFontConfig(ptr noundef %0, ptr n
   br label %358
 
 358:                                              ; preds = %351, %336
-  %359 = getelementptr inbounds nuw ptr, ptr %230, i64 %indvars.iv613
+  %359 = getelementptr inbounds nuw [8 x i8], ptr %230, i64 %indvars.iv613
   %360 = load ptr, ptr %359, align 8
   %.not509 = icmp eq ptr %360, null
   br i1 %.not509, label %374, label %361
@@ -1770,7 +1770,7 @@ define void @Java_sun_font_FontConfigManager_getFontConfig(ptr noundef %0, ptr n
   br label %374
 
 374:                                              ; preds = %367, %358
-  %375 = getelementptr inbounds nuw ptr, ptr %231, i64 %indvars.iv613
+  %375 = getelementptr inbounds nuw [8 x i8], ptr %231, i64 %indvars.iv613
   %376 = load ptr, ptr %375, align 8
   %.not510 = icmp eq ptr %376, null
   br i1 %.not510, label %390, label %377

@@ -69,10 +69,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
 %"class.std::locale" = type { ptr }
 %"class.std::allocator.44" = type { i8 }
-%struct.absRankType = type { i8, i8 }
-%struct.relRanksType = type { [15 x [4 x %struct.absRankType]] }
-%struct.highCardType = type { i32, i32 }
-%struct.moveType = type { i32, i32, i32, i32 }
 
 $_ZNSt7__cxx119to_stringEj = comdat any
 
@@ -346,7 +342,7 @@ define void @_Z13InitConstantsv() local_unnamed_addr #5 {
 
 2:                                                ; preds = %.preheader116, %10
   %indvars.iv = phi i64 [ 14, %.preheader116 ], [ %indvars.iv.next, %10 ]
-  %3 = getelementptr inbounds nuw i16, ptr @bitMapRank, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [2 x i8], ptr @bitMapRank, i64 %indvars.iv
   %4 = load i16, ptr %3, align 2
   %5 = zext i16 %4 to i32
   %6 = and i32 %1, %5
@@ -355,7 +351,7 @@ define void @_Z13InitConstantsv() local_unnamed_addr #5 {
 
 7:                                                ; preds = %2
   %8 = trunc nuw nsw i64 %indvars.iv to i32
-  %9 = getelementptr inbounds nuw i32, ptr @highestRank, i64 %indvars.iv143
+  %9 = getelementptr inbounds nuw [4 x i8], ptr @highestRank, i64 %indvars.iv143
   store i32 %8, ptr %9, align 4
   br label %.loopexit117.preheader
 
@@ -369,7 +365,7 @@ define void @_Z13InitConstantsv() local_unnamed_addr #5 {
 
 .loopexit117:                                     ; preds = %.loopexit117.preheader, %19
   %indvars.iv140 = phi i64 [ %indvars.iv.next141, %19 ], [ 2, %.loopexit117.preheader ]
-  %12 = getelementptr inbounds nuw i16, ptr @bitMapRank, i64 %indvars.iv140
+  %12 = getelementptr inbounds nuw [2 x i8], ptr @bitMapRank, i64 %indvars.iv140
   %13 = load i16, ptr %12, align 2
   %14 = zext i16 %13 to i32
   %15 = and i32 %1, %14
@@ -378,7 +374,7 @@ define void @_Z13InitConstantsv() local_unnamed_addr #5 {
 
 16:                                               ; preds = %.loopexit117
   %17 = trunc nuw nsw i64 %indvars.iv140 to i32
-  %18 = getelementptr inbounds nuw i32, ptr @lowestRank, i64 %indvars.iv143
+  %18 = getelementptr inbounds nuw [4 x i8], ptr @lowestRank, i64 %indvars.iv143
   store i32 %17, ptr %18, align 4
   br label %.loopexit
 
@@ -394,7 +390,7 @@ define void @_Z13InitConstantsv() local_unnamed_addr #5 {
 
 .preheader115:                                    ; preds = %.loopexit, %31
   %indvars.iv148 = phi i64 [ %indvars.iv.next149, %31 ], [ 0, %.loopexit ]
-  %20 = getelementptr inbounds nuw i32, ptr @counttable, i64 %indvars.iv148
+  %20 = getelementptr inbounds nuw [4 x i8], ptr @counttable, i64 %indvars.iv148
   store i32 0, ptr %20, align 4
   %21 = trunc nuw nsw i64 %indvars.iv148 to i32
   br label %22
@@ -436,7 +432,7 @@ define void @_Z13InitConstantsv() local_unnamed_addr #5 {
 35:                                               ; preds = %.preheader114, %43
   %indvars.iv152 = phi i64 [ 14, %.preheader114 ], [ %indvars.iv.next153, %43 ]
   %.097125 = phi i8 [ 0, %.preheader114 ], [ %.198, %43 ]
-  %36 = getelementptr inbounds nuw i16, ptr @bitMapRank, i64 %indvars.iv152
+  %36 = getelementptr inbounds nuw [2 x i8], ptr @bitMapRank, i64 %indvars.iv152
   %37 = load i16, ptr %36, align 2
   %38 = zext i16 %37 to i32
   %39 = and i32 %34, %38
@@ -462,7 +458,7 @@ define void @_Z13InitConstantsv() local_unnamed_addr #5 {
 
 .preheader113:                                    ; preds = %45, %62
   %indvars.iv164 = phi i64 [ %indvars.iv.next165, %62 ], [ 0, %45 ]
-  %46 = getelementptr inbounds nuw [14 x i16], ptr @winRanks, i64 %indvars.iv164
+  %46 = getelementptr inbounds nuw [28 x i8], ptr @winRanks, i64 %indvars.iv164
   store i16 0, ptr %46, align 4
   %47 = trunc nuw nsw i64 %indvars.iv164 to i32
   br label %.preheader
@@ -475,7 +471,7 @@ define void @_Z13InitConstantsv() local_unnamed_addr #5 {
   %indvars.iv158 = phi i64 [ 14, %.preheader ], [ %indvars.iv.next159, %58 ]
   %.090129 = phi i32 [ 1, %.preheader ], [ %.191, %58 ]
   %.092128 = phi i16 [ 0, %.preheader ], [ %.193, %58 ]
-  %49 = getelementptr inbounds nuw i16, ptr @bitMapRank, i64 %indvars.iv158
+  %49 = getelementptr inbounds nuw [2 x i8], ptr @bitMapRank, i64 %indvars.iv158
   %50 = load i16, ptr %49, align 2
   %51 = zext i16 %50 to i32
   %52 = and i32 %47, %51
@@ -501,7 +497,7 @@ define void @_Z13InitConstantsv() local_unnamed_addr #5 {
 
 60:                                               ; preds = %53, %58
   %.092.lcssa = phi i16 [ %.092128, %53 ], [ %.193, %58 ]
-  %61 = getelementptr inbounds nuw i16, ptr %46, i64 %indvars.iv160
+  %61 = getelementptr inbounds nuw [2 x i8], ptr %46, i64 %indvars.iv160
   store i16 %.092.lcssa, ptr %61, align 2
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
   %exitcond163.not = icmp eq i64 %indvars.iv.next161, 14
@@ -536,8 +532,8 @@ define void @_Z13InitConstantsv() local_unnamed_addr #5 {
   %68 = trunc nuw nsw i64 %indvars.iv168 to i32
   %69 = xor i32 %.188, %68
   %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds %struct.moveGroupType, ptr @groupData, i64 %70
-  %72 = getelementptr inbounds nuw %struct.moveGroupType, ptr @groupData, i64 %indvars.iv168
+  %71 = getelementptr inbounds [116 x i8], ptr @groupData, i64 %70
+  %72 = getelementptr inbounds nuw [116 x i8], ptr @groupData, i64 %indvars.iv168
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(116) %72, ptr noundef nonnull align 4 dereferenceable(116) %71, i64 116, i1 false)
   %73 = and i32 %.186, %68
   %.not106 = icmp eq i32 %73, 0
@@ -548,16 +544,16 @@ define void @_Z13InitConstantsv() local_unnamed_addr #5 {
 76:                                               ; preds = %64
   %77 = getelementptr inbounds nuw i8, ptr %72, i64 4
   %78 = sext i32 %74 to i64
-  %79 = getelementptr inbounds i32, ptr %77, i64 %78
+  %79 = getelementptr inbounds [4 x i8], ptr %77, i64 %78
   %80 = load i32, ptr %79, align 4
   %81 = add nsw i32 %80, 1
   store i32 %81, ptr %79, align 4
-  %82 = getelementptr inbounds i32, ptr %75, i64 %78
+  %82 = getelementptr inbounds [4 x i8], ptr %75, i64 %78
   %83 = load i32, ptr %82, align 4
   %84 = or i32 %83, %.186
   store i32 %84, ptr %82, align 4
   %85 = getelementptr inbounds nuw i8, ptr %72, i64 60
-  %86 = getelementptr inbounds i32, ptr %85, i64 %78
+  %86 = getelementptr inbounds [4 x i8], ptr %85, i64 %78
   %87 = load i32, ptr %86, align 4
   %88 = or i32 %87, %.188
   store i32 %88, ptr %86, align 4
@@ -568,25 +564,25 @@ define void @_Z13InitConstantsv() local_unnamed_addr #5 {
   store i32 %90, ptr %72, align 4
   %91 = getelementptr inbounds nuw i8, ptr %72, i64 4
   %92 = sext i32 %90 to i64
-  %93 = getelementptr inbounds i32, ptr %91, i64 %92
+  %93 = getelementptr inbounds [4 x i8], ptr %91, i64 %92
   store i32 %.1, ptr %93, align 4
-  %94 = getelementptr inbounds i32, ptr %75, i64 %92
+  %94 = getelementptr inbounds [4 x i8], ptr %75, i64 %92
   store i32 0, ptr %94, align 4
   %95 = getelementptr inbounds nuw i8, ptr %72, i64 60
-  %96 = getelementptr inbounds i32, ptr %95, i64 %92
+  %96 = getelementptr inbounds [4 x i8], ptr %95, i64 %92
   store i32 %.188, ptr %96, align 4
   %97 = zext nneg i32 %.1 to i64
-  %98 = getelementptr inbounds nuw i32, ptr @__const._Z13InitConstantsv.topside, i64 %97
+  %98 = getelementptr inbounds nuw [4 x i8], ptr @__const._Z13InitConstantsv.topside, i64 %97
   %99 = load i32, ptr %98, align 4
   %100 = sext i32 %74 to i64
-  %101 = getelementptr inbounds i32, ptr %91, i64 %100
+  %101 = getelementptr inbounds [4 x i8], ptr %91, i64 %100
   %102 = load i32, ptr %101, align 4
   %103 = sext i32 %102 to i64
-  %104 = getelementptr inbounds i32, ptr @__const._Z13InitConstantsv.botside, i64 %103
+  %104 = getelementptr inbounds [4 x i8], ptr @__const._Z13InitConstantsv.botside, i64 %103
   %105 = load i32, ptr %104, align 4
   %106 = and i32 %105, %99
   %107 = getelementptr inbounds nuw i8, ptr %72, i64 88
-  %108 = getelementptr inbounds i32, ptr %107, i64 %92
+  %108 = getelementptr inbounds [4 x i8], ptr %107, i64 %92
   store i32 %106, ptr %108, align 4
   br label %109
 
@@ -787,17 +783,17 @@ define void @_Z7SetDealP10ThreadData(ptr noundef captures(none) %0) local_unname
 
 6:                                                ; preds = %1, %12
   %indvars.iv54 = phi i64 [ 0, %1 ], [ %indvars.iv.next55, %12 ]
-  %7 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv54
+  %7 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %indvars.iv54
   store i16 0, ptr %7, align 2
-  %invariant.gep = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv54
-  %invariant.gep42 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv54
+  %invariant.gep = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv54
+  %invariant.gep42 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv54
   br label %8
 
 8:                                                ; preds = %6, %8
   %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %8 ]
-  %gep = getelementptr inbounds nuw [4 x i16], ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep, i64 %indvars.iv
   %9 = load i16, ptr %gep, align 2
-  %gep43 = getelementptr inbounds nuw [4 x i16], ptr %invariant.gep42, i64 %indvars.iv
+  %gep43 = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep42, i64 %indvars.iv
   store i16 %9, ptr %gep43, align 2
   %10 = load i16, ptr %7, align 2
   %11 = or i16 %10, %9
@@ -813,7 +809,7 @@ define void @_Z7SetDealP10ThreadData(ptr noundef captures(none) %0) local_unname
 
 .preheader40:                                     ; preds = %.preheader41, %20
   %indvars.iv62 = phi i64 [ 0, %.preheader41 ], [ %indvars.iv.next63, %20 ]
-  %invariant.gep46 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv62
+  %invariant.gep46 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv62
   %invariant.gep48 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv62
   br label %14
 
@@ -823,10 +819,10 @@ define void @_Z7SetDealP10ThreadData(ptr noundef captures(none) %0) local_unname
 
 14:                                               ; preds = %.preheader40, %14
   %indvars.iv58 = phi i64 [ 0, %.preheader40 ], [ %indvars.iv.next59, %14 ]
-  %gep47 = getelementptr inbounds nuw [4 x i16], ptr %invariant.gep46, i64 %indvars.iv58
+  %gep47 = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep46, i64 %indvars.iv58
   %15 = load i16, ptr %gep47, align 2
   %16 = zext i16 %15 to i64
-  %17 = getelementptr inbounds nuw i32, ptr @counttable, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr @counttable, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = trunc i32 %18 to i8
   %gep49 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep48, i64 %indvars.iv58
@@ -855,7 +851,7 @@ define void @_Z7SetDealP10ThreadData(ptr noundef captures(none) %0) local_unname
   %32 = load i8, ptr %31, align 2
   %33 = zext i8 %32 to i32
   %34 = or i32 %30, %33
-  %35 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv66
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv66
   store i32 %34, ptr %35, align 4
   %indvars.iv.next67 = add nuw nsw i64 %indvars.iv66, 1
   %exitcond69.not = icmp eq i64 %indvars.iv.next67, 4
@@ -873,7 +869,7 @@ define void @_Z13SetDealTablesP10ThreadData(ptr noundef captures(none) %0) local
 
 .preheader82:                                     ; preds = %1, %7
   %indvars.iv101 = phi i64 [ 0, %1 ], [ %indvars.iv.next102, %7 ]
-  %invariant.gep = getelementptr inbounds nuw %struct.absRankType, ptr %3, i64 %indvars.iv101
+  %invariant.gep = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %indvars.iv101
   br label %5
 
 .preheader81:                                     ; preds = %7
@@ -882,7 +878,7 @@ define void @_Z13SetDealTablesP10ThreadData(ptr noundef captures(none) %0) local
 
 5:                                                ; preds = %.preheader82, %5
   %indvars.iv = phi i64 [ 1, %.preheader82 ], [ %indvars.iv.next, %5 ]
-  %gep = getelementptr inbounds nuw [4 x %struct.absRankType], ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep, i64 %indvars.iv
   %6 = getelementptr inbounds nuw i8, ptr %gep, i64 1
   store i8 -1, ptr %6, align 1
   store i8 0, ptr %gep, align 2
@@ -897,21 +893,21 @@ define void @_Z13SetDealTablesP10ThreadData(ptr noundef captures(none) %0) local
 
 .preheader80:                                     ; preds = %.preheader81, %20
   %indvars.iv112 = phi i64 [ 0, %.preheader81 ], [ %indvars.iv.next113, %20 ]
-  %8 = getelementptr inbounds nuw [15 x i32], ptr %2, i64 %indvars.iv112
-  %invariant.gep86 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv112
+  %8 = getelementptr inbounds nuw [60 x i8], ptr %2, i64 %indvars.iv112
+  %invariant.gep86 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv112
   br label %9
 
 9:                                                ; preds = %.preheader80, %.loopexit
   %indvars.iv109 = phi i64 [ 14, %.preheader80 ], [ %indvars.iv.next110, %.loopexit ]
-  %10 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv109
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv109
   store i32 0, ptr %10, align 4
-  %11 = getelementptr inbounds nuw i16, ptr @bitMapRank, i64 %indvars.iv109
+  %11 = getelementptr inbounds nuw [2 x i8], ptr @bitMapRank, i64 %indvars.iv109
   %12 = load i16, ptr %11, align 2
   br label %13
 
 13:                                               ; preds = %9, %18
   %indvars.iv105 = phi i64 [ 0, %9 ], [ %indvars.iv.next106, %18 ]
-  %gep87 = getelementptr inbounds nuw [4 x i16], ptr %invariant.gep86, i64 %indvars.iv105
+  %gep87 = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep86, i64 %indvars.iv105
   %14 = load i16, ptr %gep87, align 2
   %15 = and i16 %12, %14
   %.not77 = icmp eq i16 %15, 0
@@ -959,10 +955,10 @@ define void @_Z13SetDealTablesP10ThreadData(ptr noundef captures(none) %0) local
   %31 = trunc nuw nsw i64 %indvars.iv127 to i32
   %32 = xor i32 %spec.select78, %31
   %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds nuw %struct.relRanksType, ptr %3, i64 %33
-  %35 = getelementptr inbounds nuw %struct.relRanksType, ptr %3, i64 %indvars.iv127
+  %34 = getelementptr inbounds nuw [120 x i8], ptr %3, i64 %33
+  %35 = getelementptr inbounds nuw [120 x i8], ptr %3, i64 %indvars.iv127
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %35, ptr noundef nonnull align 8 dereferenceable(120) %34, i64 120, i1 false)
-  %36 = getelementptr inbounds nuw i32, ptr @counttable, i64 %indvars.iv127
+  %36 = getelementptr inbounds nuw [4 x i8], ptr @counttable, i64 %indvars.iv127
   %37 = load i32, ptr %36, align 4
   %38 = icmp sgt i32 %37, 1
   br i1 %38, label %.preheader.preheader, label %.preheader79
@@ -973,23 +969,23 @@ define void @_Z13SetDealTablesP10ThreadData(ptr noundef captures(none) %0) local
 
 .preheader79:                                     ; preds = %52, %27
   %40 = zext i32 %spec.select to i64
-  %invariant.gep93 = getelementptr inbounds nuw i32, ptr %2, i64 %40
+  %invariant.gep93 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %40
   %41 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %42 = trunc i32 %spec.select to i8
   br label %54
 
 .preheader:                                       ; preds = %.preheader.preheader, %52
   %indvars.iv120 = phi i64 [ %39, %.preheader.preheader ], [ %indvars.iv.next121, %52 ]
-  %43 = getelementptr [4 x %struct.absRankType], ptr %35, i64 %indvars.iv120
+  %43 = getelementptr [8 x i8], ptr %35, i64 %indvars.iv120
   %44 = getelementptr i8, ptr %43, i64 -8
   br label %45
 
 45:                                               ; preds = %.preheader, %45
   %indvars.iv116 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next117, %45 ]
-  %46 = getelementptr inbounds nuw %struct.absRankType, ptr %44, i64 %indvars.iv116
+  %46 = getelementptr inbounds nuw [2 x i8], ptr %44, i64 %indvars.iv116
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 1
   %48 = load i8, ptr %47, align 1
-  %49 = getelementptr inbounds nuw %struct.absRankType, ptr %43, i64 %indvars.iv116
+  %49 = getelementptr inbounds nuw [2 x i8], ptr %43, i64 %indvars.iv116
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 1
   store i8 %48, ptr %50, align 1
   %51 = load i8, ptr %46, align 1
@@ -1005,10 +1001,10 @@ define void @_Z13SetDealTablesP10ThreadData(ptr noundef captures(none) %0) local
 
 54:                                               ; preds = %.preheader79, %54
   %indvars.iv123 = phi i64 [ 0, %.preheader79 ], [ %indvars.iv.next124, %54 ]
-  %gep94 = getelementptr inbounds nuw [15 x i32], ptr %invariant.gep93, i64 %indvars.iv123
+  %gep94 = getelementptr inbounds nuw [60 x i8], ptr %invariant.gep93, i64 %indvars.iv123
   %55 = load i32, ptr %gep94, align 4
   %56 = trunc i32 %55 to i8
-  %57 = getelementptr inbounds nuw %struct.absRankType, ptr %41, i64 %indvars.iv123
+  %57 = getelementptr inbounds nuw [2 x i8], ptr %41, i64 %indvars.iv123
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 1
   store i8 %56, ptr %58, align 1
   store i8 %42, ptr %57, align 1
@@ -1055,17 +1051,17 @@ define void @_Z11InitWinnersRK4dealR3posPK10ThreadData(ptr noundef nonnull reado
   %16 = trunc i64 %indvars.iv to i32
   %17 = add i32 %8, %16
   %18 = and i32 %17, 3
-  %19 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4
-  %21 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds i16, ptr @bitMapRank, i64 %23
+  %24 = getelementptr inbounds [2 x i8], ptr @bitMapRank, i64 %23
   %25 = load i16, ptr %24, align 2
   %26 = zext nneg i32 %18 to i64
-  %27 = getelementptr inbounds nuw [4 x i16], ptr %3, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %26
   %28 = sext i32 %20 to i64
-  %29 = getelementptr inbounds i16, ptr %27, i64 %28
+  %29 = getelementptr inbounds [2 x i8], ptr %27, i64 %28
   %30 = load i16, ptr %29, align 2
   %31 = or i16 %30, %25
   store i16 %31, ptr %29, align 2
@@ -1075,16 +1071,16 @@ define void @_Z11InitWinnersRK4dealR3posPK10ThreadData(ptr noundef nonnull reado
 
 .preheader:                                       ; preds = %.preheader52, %38
   %indvars.iv70 = phi i64 [ 0, %.preheader52 ], [ %indvars.iv.next71, %38 ]
-  %invariant.gep = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv70
-  %invariant.gep58 = getelementptr inbounds nuw i16, ptr %11, i64 %indvars.iv70
+  %invariant.gep = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %indvars.iv70
+  %invariant.gep58 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %indvars.iv70
   br label %32
 
 32:                                               ; preds = %.preheader, %32
   %indvars.iv66 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next67, %32 ]
   %.04860 = phi i32 [ 0, %.preheader ], [ %37, %32 ]
-  %gep = getelementptr inbounds nuw [4 x i16], ptr %invariant.gep, i64 %indvars.iv66
+  %gep = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep, i64 %indvars.iv66
   %33 = load i16, ptr %gep, align 2
-  %gep59 = getelementptr inbounds nuw [4 x i16], ptr %invariant.gep58, i64 %indvars.iv66
+  %gep59 = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep58, i64 %indvars.iv66
   %34 = load i16, ptr %gep59, align 2
   %35 = or i16 %34, %33
   %36 = zext i16 %35 to i32
@@ -1095,12 +1091,12 @@ define void @_Z11InitWinnersRK4dealR3posPK10ThreadData(ptr noundef nonnull reado
 
 38:                                               ; preds = %32
   %39 = zext nneg i32 %37 to i64
-  %40 = getelementptr inbounds nuw %struct.relRanksType, ptr %12, i64 %39
+  %40 = getelementptr inbounds nuw [120 x i8], ptr %12, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %42 = getelementptr inbounds nuw %struct.absRankType, ptr %41, i64 %indvars.iv70
+  %42 = getelementptr inbounds nuw [2 x i8], ptr %41, i64 %indvars.iv70
   %43 = load i8, ptr %42, align 2
   %44 = sext i8 %43 to i32
-  %45 = getelementptr inbounds nuw %struct.highCardType, ptr %13, i64 %indvars.iv70
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv70
   store i32 %44, ptr %45, align 4
   %46 = getelementptr inbounds nuw i8, ptr %42, i64 1
   %47 = load i8, ptr %46, align 1
@@ -1108,10 +1104,10 @@ define void @_Z11InitWinnersRK4dealR3posPK10ThreadData(ptr noundef nonnull reado
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 4
   store i32 %48, ptr %49, align 4
   %50 = getelementptr inbounds nuw i8, ptr %40, i64 16
-  %51 = getelementptr inbounds nuw %struct.absRankType, ptr %50, i64 %indvars.iv70
+  %51 = getelementptr inbounds nuw [2 x i8], ptr %50, i64 %indvars.iv70
   %52 = load i8, ptr %51, align 2
   %53 = sext i8 %52 to i32
-  %54 = getelementptr inbounds nuw %struct.highCardType, ptr %14, i64 %indvars.iv70
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv70
   store i32 %53, ptr %54, align 4
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 1
   %56 = load i8, ptr %55, align 1
@@ -1132,7 +1128,7 @@ define void @_Z14ResetBestMovesP10ThreadData(ptr noundef captures(none) %0) loca
 
 2:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %3 = getelementptr inbounds nuw %struct.moveType, ptr %0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %indvars.iv
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 3328
   store i32 0, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 4128

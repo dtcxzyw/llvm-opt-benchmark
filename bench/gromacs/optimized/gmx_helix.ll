@@ -22,7 +22,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.5" }
 %"struct.std::_Head_base.5" = type { ptr }
-%struct.t_bb = type { float, float, float, float, float, float, float, float, i8, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, [32 x i8] }
 
 $_ZNSt10filesystem7__cxx114pathC2IPKcS1_EERKT_NS1_6formatE = comdat any
 
@@ -469,7 +468,7 @@ _ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit115:       ; preds = %_ZL13gmx_snew_implI
 
 137:                                              ; preds = %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit115, %230
   %indvars.iv = phi i64 [ 0, %_ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit115 ], [ %indvars.iv.next, %230 ]
-  %138 = getelementptr inbounds nuw %struct.t_xvgrfile, ptr %8, i64 %indvars.iv
+  %138 = getelementptr inbounds nuw [64 x i8], ptr %8, i64 %indvars.iv
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 24
   %140 = load ptr, ptr %139, align 8, !tbaa !53
   %141 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(1) @.str.96, ptr noundef %140) #13
@@ -1068,7 +1067,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit151:       ; preds = %_ZNSt10filesystem7_
 
 391:                                              ; preds = %390, %391
   %indvars.iv205 = phi i64 [ 0, %390 ], [ %indvars.iv.next206, %391 ]
-  %392 = getelementptr inbounds nuw %struct.t_xvgrfile, ptr %8, i64 %indvars.iv205
+  %392 = getelementptr inbounds nuw [64 x i8], ptr %8, i64 %indvars.iv205
   %393 = load ptr, ptr %392, align 16, !tbaa !61
   %394 = load float, ptr %19, align 4, !tbaa !71
   %395 = fpext float %394 to double
@@ -1132,7 +1131,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit151:       ; preds = %_ZNSt10filesystem7_
 
 427:                                              ; preds = %.lr.ph, %442
   %indvars.iv209 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next210, %442 ]
-  %428 = getelementptr inbounds nuw %struct.t_bb, ptr %119, i64 %indvars.iv209
+  %428 = getelementptr inbounds nuw [108 x i8], ptr %119, i64 %indvars.iv209
   %429 = getelementptr inbounds nuw i8, ptr %428, i64 40
   %430 = load i32, ptr %429, align 4, !tbaa !80
   %431 = icmp sgt i32 %430, 0
@@ -1183,7 +1182,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit151:       ; preds = %_ZNSt10filesystem7_
 
 .preheader:                                       ; preds = %.preheader.preheader, %475
   %indvars.iv212 = phi i64 [ %indvars.iv.next213, %475 ], [ 0, %.preheader.preheader ]
-  %462 = getelementptr inbounds nuw %struct.t_xvgrfile, ptr %8, i64 %indvars.iv212
+  %462 = getelementptr inbounds nuw [64 x i8], ptr %8, i64 %indvars.iv212
   %463 = load ptr, ptr %462, align 16, !tbaa !61
   invoke void @_Z9xvgrcloseP8_IO_FILE(ptr noundef %463)
           to label %464 unwind label %.loopexit166

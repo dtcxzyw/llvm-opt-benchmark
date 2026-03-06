@@ -290,14 +290,14 @@ define hidden noundef i32 @_ZN4ncnn11Spectrogram10load_paramERKNS_9ParamDictE(pt
   %.032.lcssa = phi float [ 0.000000e+00, %.preheader ], [ %78, %._crit_edge73.loopexit ]
   %79 = fdiv fast float 1.000000e+00, %.032.lcssa
   %80 = sext i32 %31 to i64
-  %81 = getelementptr inbounds nuw float, ptr %30, i64 %80
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %80
   store float %79, ptr %81, align 4, !tbaa !42
   br label %86
 
 .lr.ph72:                                         ; preds = %.lr.ph72.preheader, %.lr.ph72
   %indvars.iv = phi i64 [ 0, %.lr.ph72.preheader ], [ %indvars.iv.next, %.lr.ph72 ]
   %.03270 = phi float [ 0.000000e+00, %.lr.ph72.preheader ], [ %85, %.lr.ph72 ]
-  %82 = getelementptr inbounds nuw float, ptr %30, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv
   %83 = load float, ptr %82, align 4, !tbaa !42
   %84 = fmul fast float %83, %83
   %85 = fadd fast float %84, %.03270
@@ -727,7 +727,7 @@ define internal void @_ZNK4ncnn11Spectrogram7forwardERKNS_3MatERS1_RKNS_6OptionE
   %54 = sext i32 %19 to i64
   %55 = add nsw i32 %18, 1
   %wide.trip.count = zext nneg i32 %38 to i64
-  %56 = getelementptr inbounds nuw float, ptr %53, i64 %52
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %52
   %spec.select = select i1 %23, i64 %factor.op.mul141, i64 %factor.op.mul
   %57 = fdiv fast double 1.000000e+00, %40
   br label %.critedge.us.us
@@ -793,7 +793,7 @@ define internal void @_ZNK4ncnn11Spectrogram7forwardERKNS_3MatERS1_RKNS_6OptionE
 
 .thread93.us.us.us:                               ; preds = %.thread91.us.us.us, %74, %69, %68
   %.3.us.us.us = phi ptr [ %73, %69 ], [ %.063101.us.us.us, %68 ], [ %81, %.thread91.us.us.us ], [ %79, %74 ]
-  %82 = getelementptr inbounds float, ptr %.062102.us.us.us, i64 %46
+  %82 = getelementptr inbounds [4 x i8], ptr %.062102.us.us.us, i64 %46
   %83 = add nuw nsw i32 %.072100.us.us.us, 1
   %exitcond178.not = icmp eq i32 %83, %32
   br i1 %exitcond178.not, label %._crit_edge103.split.us.us.us, label %.preheader.us.us.us, !llvm.loop !66
@@ -802,9 +802,9 @@ define internal void @_ZNK4ncnn11Spectrogram7forwardERKNS_3MatERS1_RKNS_6OptionE
   %indvars.iv174 = phi i64 [ %indvars.iv.next175, %84 ], [ 0, %.preheader.us.us.us ]
   %.06696.us.us.us = phi float [ %100, %84 ], [ 0.000000e+00, %.preheader.us.us.us ]
   %.06995.us.us.us = phi float [ %97, %84 ], [ 0.000000e+00, %.preheader.us.us.us ]
-  %85 = getelementptr inbounds nuw float, ptr %.062102.us.us.us, i64 %indvars.iv174
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %.062102.us.us.us, i64 %indvars.iv174
   %86 = load float, ptr %85, align 4, !tbaa !42
-  %87 = getelementptr inbounds nuw float, ptr %53, i64 %indvars.iv174
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %indvars.iv174
   %88 = load float, ptr %87, align 4, !tbaa !42
   %89 = fmul fast float %88, %86
   %90 = trunc nuw nsw i64 %indvars.iv174 to i32

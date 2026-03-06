@@ -3,7 +3,6 @@ source_filename = "bench/linux/original/fse_decompress.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.FSE_decode_t = type { i16, i8, i8 }
 %struct.BIT_DStream_t = type { i64, i32, ptr, ptr, ptr }
 %struct.FSE_DState_t = type { i64, ptr }
 
@@ -27,7 +26,7 @@ define dso_local noundef range(i64 -46, 1) i64 @FSE_buildDTable_wksp(ptr noundef
 define internal fastcc noundef range(i64 -46, 1) i64 @FSE_buildDTable_internal(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(none) %4, i64 noundef %5) unnamed_addr #1 align 16 {
   %7 = getelementptr i8, ptr %0, i64 4
   %8 = zext i32 %2 to i64
-  %9 = getelementptr i16, ptr %4, i64 %8
+  %9 = getelementptr [2 x i8], ptr %4, i64 %8
   %10 = getelementptr i8, ptr %9, i64 2
   %11 = add i32 %2, 1
   %12 = shl nuw i32 1, %3
@@ -56,7 +55,7 @@ define internal fastcc noundef range(i64 -46, 1) i64 @FSE_buildDTable_internal(p
   %29 = phi i64 [ 0, %25 ], [ %50, %45 ]
   %30 = phi i16 [ 1, %25 ], [ %48, %45 ]
   %31 = phi i32 [ %13, %25 ], [ %47, %45 ]
-  %32 = getelementptr i16, ptr %1, i64 %29
+  %32 = getelementptr [2 x i8], ptr %1, i64 %29
   %33 = load i16, ptr %32, align 2
   %34 = icmp eq i16 %33, -1
   br i1 %34, label %35, label %41
@@ -81,7 +80,7 @@ define internal fastcc noundef range(i64 -46, 1) i64 @FSE_buildDTable_internal(p
   %46 = phi i16 [ 1, %35 ], [ %33, %41 ]
   %47 = phi i32 [ %37, %35 ], [ %31, %41 ]
   %48 = phi i16 [ %30, %35 ], [ %44, %41 ]
-  %49 = getelementptr i16, ptr %4, i64 %29
+  %49 = getelementptr [2 x i8], ptr %4, i64 %29
   store i16 %46, ptr %49, align 2
   %50 = add nuw nsw i64 %29, 1
   %51 = icmp eq i64 %50, %14
@@ -110,7 +109,7 @@ define internal fastcc noundef range(i64 -46, 1) i64 @FSE_buildDTable_internal(p
   %65 = phi i64 [ %81, %.loopexit14 ], [ 0, %52 ]
   %66 = phi i64 [ %82, %.loopexit14 ], [ 0, %52 ]
   %67 = phi i64 [ %80, %.loopexit14 ], [ 0, %52 ]
-  %68 = getelementptr i16, ptr %1, i64 %65
+  %68 = getelementptr [2 x i8], ptr %1, i64 %65
   %69 = load i16, ptr %68, align 2
   %70 = getelementptr i8, ptr %10, i64 %67
   store i64 %66, ptr %70, align 1
@@ -171,7 +170,7 @@ define internal fastcc noundef range(i64 -46, 1) i64 @FSE_buildDTable_internal(p
 104:                                              ; preds = %.loopexit15, %99
   %105 = phi i64 [ 0, %99 ], [ %129, %.loopexit15 ]
   %106 = phi i32 [ 0, %99 ], [ %128, %.loopexit15 ]
-  %107 = getelementptr i16, ptr %1, i64 %105
+  %107 = getelementptr [2 x i8], ptr %1, i64 %105
   %108 = load i16, ptr %107, align 2
   %109 = icmp sgt i16 %108, 0
   br i1 %109, label %110, label %.loopexit15
@@ -224,11 +223,11 @@ define internal fastcc noundef range(i64 -46, 1) i64 @FSE_buildDTable_internal(p
 
 133:                                              ; preds = %133, %.loopexit13
   %134 = phi i64 [ 0, %.loopexit13 ], [ %152, %133 ]
-  %135 = getelementptr %struct.FSE_decode_t, ptr %7, i64 %134
+  %135 = getelementptr [4 x i8], ptr %7, i64 %134
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 2
   %137 = load i8, ptr %136, align 2
   %138 = zext i8 %137 to i64
-  %139 = getelementptr i16, ptr %4, i64 %138
+  %139 = getelementptr [2 x i8], ptr %4, i64 %138
   %140 = load i16, ptr %139, align 2
   %141 = add i16 %140, 1
   store i16 %141, ptr %139, align 2
@@ -284,7 +283,7 @@ define dso_local noundef range(i64 -1, 1) i64 @FSE_buildDTable_raw(ptr noundef w
 9:                                                ; preds = %9, %5
   %10 = phi i32 [ 0, %5 ], [ %16, %9 ]
   %11 = zext i32 %10 to i64
-  %12 = getelementptr %struct.FSE_decode_t, ptr %3, i64 %11
+  %12 = getelementptr [4 x i8], ptr %3, i64 %11
   store i16 0, ptr %12, align 2
   %13 = trunc i32 %10 to i8
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 2
@@ -599,7 +598,7 @@ define dso_local noundef i64 @FSE_decompress_usingDTable(ptr noundef %0, i64 nou
   br i1 %215, label %.thread, label %.lr.ph103
 
 216:                                              ; preds = %200
-  %217 = getelementptr %struct.FSE_decode_t, ptr %132, i64 %178
+  %217 = getelementptr [4 x i8], ptr %132, i64 %178
   %218 = load i16, ptr %217, align 2
   %219 = getelementptr inbounds nuw i8, ptr %217, i64 2
   %220 = load i8, ptr %219, align 2
@@ -616,7 +615,7 @@ define dso_local noundef i64 @FSE_decompress_usingDTable(ptr noundef %0, i64 nou
   %231 = add i32 %202, %223
   %232 = zext i16 %218 to i64
   store i8 %220, ptr %176, align 1
-  %233 = getelementptr %struct.FSE_decode_t, ptr %132, i64 %177
+  %233 = getelementptr [4 x i8], ptr %132, i64 %177
   %234 = load i16, ptr %233, align 2
   %235 = getelementptr inbounds nuw i8, ptr %233, i64 2
   %236 = load i8, ptr %235, align 2
@@ -634,8 +633,8 @@ define dso_local noundef i64 @FSE_decompress_usingDTable(ptr noundef %0, i64 nou
   %248 = zext i16 %234 to i64
   %249 = getelementptr i8, ptr %176, i64 1
   store i8 %236, ptr %249, align 1
-  %250 = getelementptr %struct.FSE_decode_t, ptr %132, i64 %230
-  %251 = getelementptr %struct.FSE_decode_t, ptr %250, i64 %232
+  %250 = getelementptr [4 x i8], ptr %132, i64 %230
+  %251 = getelementptr [4 x i8], ptr %250, i64 %232
   %252 = load i16, ptr %251, align 2
   %253 = getelementptr inbounds nuw i8, ptr %251, i64 2
   %254 = load i8, ptr %253, align 2
@@ -654,8 +653,8 @@ define dso_local noundef i64 @FSE_decompress_usingDTable(ptr noundef %0, i64 nou
   %267 = add i64 %264, %266
   %268 = getelementptr i8, ptr %176, i64 2
   store i8 %254, ptr %268, align 1
-  %269 = getelementptr %struct.FSE_decode_t, ptr %132, i64 %246
-  %270 = getelementptr %struct.FSE_decode_t, ptr %269, i64 %248
+  %269 = getelementptr [4 x i8], ptr %132, i64 %246
+  %270 = getelementptr [4 x i8], ptr %269, i64 %248
   %271 = load i16, ptr %270, align 2
   %272 = getelementptr inbounds nuw i8, ptr %270, i64 2
   %273 = load i8, ptr %272, align 2
@@ -685,7 +684,7 @@ define dso_local noundef i64 @FSE_decompress_usingDTable(ptr noundef %0, i64 nou
   %293 = phi ptr [ %395, %392 ], [ %211, %.thread56 ]
   %294 = phi i32 [ %394, %392 ], [ %212, %.thread56 ]
   %295 = phi i64 [ %393, %392 ], [ %213, %.thread56 ]
-  %296 = getelementptr %struct.FSE_decode_t, ptr %132, i64 %292
+  %296 = getelementptr [4 x i8], ptr %132, i64 %292
   %297 = load i16, ptr %296, align 2
   %298 = getelementptr inbounds nuw i8, ptr %296, i64 2
   %299 = load i8, ptr %298, align 2
@@ -751,7 +750,7 @@ define dso_local noundef i64 @FSE_decompress_usingDTable(ptr noundef %0, i64 nou
   br i1 %345, label %.thread, label %346
 
 346:                                              ; preds = %341
-  %347 = getelementptr %struct.FSE_decode_t, ptr %132, i64 %291
+  %347 = getelementptr [4 x i8], ptr %132, i64 %291
   %348 = load i16, ptr %347, align 2
   %349 = getelementptr inbounds nuw i8, ptr %347, i64 2
   %350 = load i8, ptr %349, align 2
@@ -1119,7 +1118,7 @@ define dso_local noundef i64 @FSE_decompress_usingDTable(ptr noundef %0, i64 nou
   br i1 %610, label %.thread, label %.lr.ph126
 
 611:                                              ; preds = %595
-  %612 = getelementptr %struct.FSE_decode_t, ptr %527, i64 %573
+  %612 = getelementptr [4 x i8], ptr %527, i64 %573
   %613 = load i16, ptr %612, align 2
   %614 = getelementptr inbounds nuw i8, ptr %612, i64 2
   %615 = load i8, ptr %614, align 2
@@ -1137,7 +1136,7 @@ define dso_local noundef i64 @FSE_decompress_usingDTable(ptr noundef %0, i64 nou
   %627 = and i64 %623, %626
   %628 = zext i16 %613 to i64
   store i8 %615, ptr %571, align 1
-  %629 = getelementptr %struct.FSE_decode_t, ptr %527, i64 %572
+  %629 = getelementptr [4 x i8], ptr %527, i64 %572
   %630 = load i16, ptr %629, align 2
   %631 = getelementptr inbounds nuw i8, ptr %629, i64 2
   %632 = load i8, ptr %631, align 2
@@ -1156,8 +1155,8 @@ define dso_local noundef i64 @FSE_decompress_usingDTable(ptr noundef %0, i64 nou
   %645 = zext i16 %630 to i64
   %646 = getelementptr i8, ptr %571, i64 1
   store i8 %632, ptr %646, align 1
-  %647 = getelementptr %struct.FSE_decode_t, ptr %527, i64 %627
-  %648 = getelementptr %struct.FSE_decode_t, ptr %647, i64 %628
+  %647 = getelementptr [4 x i8], ptr %527, i64 %627
+  %648 = getelementptr [4 x i8], ptr %647, i64 %628
   %649 = load i16, ptr %648, align 2
   %650 = getelementptr inbounds nuw i8, ptr %648, i64 2
   %651 = load i8, ptr %650, align 2
@@ -1177,8 +1176,8 @@ define dso_local noundef i64 @FSE_decompress_usingDTable(ptr noundef %0, i64 nou
   %665 = add nuw i64 %663, %664
   %666 = getelementptr i8, ptr %571, i64 2
   store i8 %651, ptr %666, align 1
-  %667 = getelementptr %struct.FSE_decode_t, ptr %527, i64 %644
-  %668 = getelementptr %struct.FSE_decode_t, ptr %667, i64 %645
+  %667 = getelementptr [4 x i8], ptr %527, i64 %644
+  %668 = getelementptr [4 x i8], ptr %667, i64 %645
   %669 = load i16, ptr %668, align 2
   %670 = getelementptr inbounds nuw i8, ptr %668, i64 2
   %671 = load i8, ptr %670, align 2
@@ -1209,7 +1208,7 @@ define dso_local noundef i64 @FSE_decompress_usingDTable(ptr noundef %0, i64 nou
   %692 = phi ptr [ %796, %793 ], [ %606, %.thread68 ]
   %693 = phi i32 [ %795, %793 ], [ %607, %.thread68 ]
   %694 = phi i64 [ %794, %793 ], [ %608, %.thread68 ]
-  %695 = getelementptr %struct.FSE_decode_t, ptr %527, i64 %691
+  %695 = getelementptr [4 x i8], ptr %527, i64 %691
   %696 = load i16, ptr %695, align 2
   %697 = getelementptr inbounds nuw i8, ptr %695, i64 2
   %698 = load i8, ptr %697, align 2
@@ -1276,7 +1275,7 @@ define dso_local noundef i64 @FSE_decompress_usingDTable(ptr noundef %0, i64 nou
   br i1 %745, label %.thread, label %746
 
 746:                                              ; preds = %741
-  %747 = getelementptr %struct.FSE_decode_t, ptr %527, i64 %690
+  %747 = getelementptr [4 x i8], ptr %527, i64 %690
   %748 = load i16, ptr %747, align 2
   %749 = getelementptr inbounds nuw i8, ptr %747, i64 2
   %750 = load i8, ptr %749, align 2
@@ -1426,7 +1425,7 @@ define dso_local i64 @FSE_decompress_wksp_bmi2(ptr noundef %0, i64 noundef %1, p
 
 47:                                               ; preds = %28
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 512
-  %49 = getelementptr i32, ptr %48, i64 %33
+  %49 = getelementptr [4 x i8], ptr %48, i64 %33
   %50 = add i64 %6, -512
   %51 = sub i64 %50, %40
   %52 = call fastcc i64 @FSE_buildDTable_internal(ptr noundef nonnull %48, ptr noundef %5, i32 noundef %34, i32 noundef %26, ptr noundef %49, i64 noundef %51), !range !5
@@ -1649,7 +1648,7 @@ define dso_local i64 @FSE_decompress_wksp_bmi2(ptr noundef %0, i64 noundef %1, p
   br i1 %194, label %.thread36, label %.preheader45
 
 195:                                              ; preds = %180
-  %196 = getelementptr %struct.FSE_decode_t, ptr %151, i64 %159
+  %196 = getelementptr [4 x i8], ptr %151, i64 %159
   %197 = load i16, ptr %196, align 2
   %198 = getelementptr inbounds nuw i8, ptr %196, i64 2
   %199 = load i8, ptr %198, align 2
@@ -1666,7 +1665,7 @@ define dso_local i64 @FSE_decompress_wksp_bmi2(ptr noundef %0, i64 noundef %1, p
   %210 = add i32 %182, %202
   %211 = zext i16 %197 to i64
   store i8 %199, ptr %156, align 1
-  %212 = getelementptr %struct.FSE_decode_t, ptr %153, i64 %160
+  %212 = getelementptr [4 x i8], ptr %153, i64 %160
   %213 = load i16, ptr %212, align 2
   %214 = getelementptr inbounds nuw i8, ptr %212, i64 2
   %215 = load i8, ptr %214, align 2
@@ -1684,8 +1683,8 @@ define dso_local i64 @FSE_decompress_wksp_bmi2(ptr noundef %0, i64 noundef %1, p
   %227 = zext i16 %213 to i64
   %228 = getelementptr i8, ptr %156, i64 1
   store i8 %215, ptr %228, align 1
-  %229 = getelementptr %struct.FSE_decode_t, ptr %151, i64 %209
-  %230 = getelementptr %struct.FSE_decode_t, ptr %229, i64 %211
+  %229 = getelementptr [4 x i8], ptr %151, i64 %209
+  %230 = getelementptr [4 x i8], ptr %229, i64 %211
   %231 = load i16, ptr %230, align 2
   %232 = getelementptr inbounds nuw i8, ptr %230, i64 2
   %233 = load i8, ptr %232, align 2
@@ -1704,8 +1703,8 @@ define dso_local i64 @FSE_decompress_wksp_bmi2(ptr noundef %0, i64 noundef %1, p
   %246 = add i64 %243, %245
   %247 = getelementptr i8, ptr %156, i64 2
   store i8 %233, ptr %247, align 1
-  %248 = getelementptr %struct.FSE_decode_t, ptr %153, i64 %225
-  %249 = getelementptr %struct.FSE_decode_t, ptr %248, i64 %227
+  %248 = getelementptr [4 x i8], ptr %153, i64 %225
+  %249 = getelementptr [4 x i8], ptr %248, i64 %227
   %250 = load i16, ptr %249, align 2
   %251 = getelementptr inbounds nuw i8, ptr %249, i64 2
   %252 = load i8, ptr %251, align 2
@@ -1735,7 +1734,7 @@ define dso_local i64 @FSE_decompress_wksp_bmi2(ptr noundef %0, i64 noundef %1, p
   %272 = phi i64 [ %347, %376 ], [ %.lcssa110, %.thread39 ]
   %273 = phi ptr [ %378, %376 ], [ %192, %.thread39 ]
   %274 = phi i32 [ %377, %376 ], [ %190, %.thread39 ]
-  %275 = getelementptr %struct.FSE_decode_t, ptr %151, i64 %270
+  %275 = getelementptr [4 x i8], ptr %151, i64 %270
   %276 = load i16, ptr %275, align 2
   %277 = getelementptr inbounds nuw i8, ptr %275, i64 2
   %278 = load i8, ptr %277, align 2
@@ -1785,7 +1784,7 @@ define dso_local i64 @FSE_decompress_wksp_bmi2(ptr noundef %0, i64 noundef %1, p
   br label %318
 
 313:                                              ; preds = %.preheader45
-  %314 = getelementptr %struct.FSE_decode_t, ptr %153, i64 %272
+  %314 = getelementptr [4 x i8], ptr %153, i64 %272
   %315 = getelementptr inbounds nuw i8, ptr %314, i64 2
   %316 = load i8, ptr %315, align 2
   %317 = getelementptr i8, ptr %269, i64 2
@@ -1810,7 +1809,7 @@ define dso_local i64 @FSE_decompress_wksp_bmi2(ptr noundef %0, i64 noundef %1, p
   br i1 %329, label %.thread36, label %330
 
 330:                                              ; preds = %325
-  %331 = getelementptr %struct.FSE_decode_t, ptr %153, i64 %272
+  %331 = getelementptr [4 x i8], ptr %153, i64 %272
   %332 = load i16, ptr %331, align 2
   %333 = getelementptr inbounds nuw i8, ptr %331, i64 2
   %334 = load i8, ptr %333, align 2
@@ -1878,7 +1877,7 @@ define dso_local i64 @FSE_decompress_wksp_bmi2(ptr noundef %0, i64 noundef %1, p
   br i1 %380, label %.thread36, label %.preheader45, !llvm.loop !19
 
 381:                                              ; preds = %330
-  %382 = getelementptr %struct.FSE_decode_t, ptr %151, i64 %291
+  %382 = getelementptr [4 x i8], ptr %151, i64 %291
   %383 = getelementptr inbounds nuw i8, ptr %382, i64 2
   %384 = load i8, ptr %383, align 2
   %385 = getelementptr i8, ptr %269, i64 3
@@ -1992,7 +1991,7 @@ define dso_local i64 @FSE_decompress_wksp_bmi2(ptr noundef %0, i64 noundef %1, p
   br i1 %452, label %.loopexit, label %.preheader
 
 453:                                              ; preds = %438
-  %454 = getelementptr %struct.FSE_decode_t, ptr %409, i64 %417
+  %454 = getelementptr [4 x i8], ptr %409, i64 %417
   %455 = load i16, ptr %454, align 2
   %456 = getelementptr inbounds nuw i8, ptr %454, i64 2
   %457 = load i8, ptr %456, align 2
@@ -2010,7 +2009,7 @@ define dso_local i64 @FSE_decompress_wksp_bmi2(ptr noundef %0, i64 noundef %1, p
   %469 = and i64 %465, %468
   %470 = zext i16 %455 to i64
   store i8 %457, ptr %414, align 1
-  %471 = getelementptr %struct.FSE_decode_t, ptr %411, i64 %418
+  %471 = getelementptr [4 x i8], ptr %411, i64 %418
   %472 = load i16, ptr %471, align 2
   %473 = getelementptr inbounds nuw i8, ptr %471, i64 2
   %474 = load i8, ptr %473, align 2
@@ -2029,8 +2028,8 @@ define dso_local i64 @FSE_decompress_wksp_bmi2(ptr noundef %0, i64 noundef %1, p
   %487 = zext i16 %472 to i64
   %488 = getelementptr i8, ptr %414, i64 1
   store i8 %474, ptr %488, align 1
-  %489 = getelementptr %struct.FSE_decode_t, ptr %409, i64 %469
-  %490 = getelementptr %struct.FSE_decode_t, ptr %489, i64 %470
+  %489 = getelementptr [4 x i8], ptr %409, i64 %469
+  %490 = getelementptr [4 x i8], ptr %489, i64 %470
   %491 = load i16, ptr %490, align 2
   %492 = getelementptr inbounds nuw i8, ptr %490, i64 2
   %493 = load i8, ptr %492, align 2
@@ -2050,8 +2049,8 @@ define dso_local i64 @FSE_decompress_wksp_bmi2(ptr noundef %0, i64 noundef %1, p
   %507 = add nuw i64 %505, %506
   %508 = getelementptr i8, ptr %414, i64 2
   store i8 %493, ptr %508, align 1
-  %509 = getelementptr %struct.FSE_decode_t, ptr %411, i64 %486
-  %510 = getelementptr %struct.FSE_decode_t, ptr %509, i64 %487
+  %509 = getelementptr [4 x i8], ptr %411, i64 %486
+  %510 = getelementptr [4 x i8], ptr %509, i64 %487
   %511 = load i16, ptr %510, align 2
   %512 = getelementptr inbounds nuw i8, ptr %510, i64 2
   %513 = load i8, ptr %512, align 2
@@ -2082,7 +2081,7 @@ define dso_local i64 @FSE_decompress_wksp_bmi2(ptr noundef %0, i64 noundef %1, p
   %534 = phi i64 [ %611, %640 ], [ %.lcssa79, %.thread41 ]
   %535 = phi ptr [ %642, %640 ], [ %450, %.thread41 ]
   %536 = phi i32 [ %641, %640 ], [ %448, %.thread41 ]
-  %537 = getelementptr %struct.FSE_decode_t, ptr %409, i64 %532
+  %537 = getelementptr [4 x i8], ptr %409, i64 %532
   %538 = load i16, ptr %537, align 2
   %539 = getelementptr inbounds nuw i8, ptr %537, i64 2
   %540 = load i8, ptr %539, align 2
@@ -2133,7 +2132,7 @@ define dso_local i64 @FSE_decompress_wksp_bmi2(ptr noundef %0, i64 noundef %1, p
   br label %581
 
 576:                                              ; preds = %.preheader
-  %577 = getelementptr %struct.FSE_decode_t, ptr %411, i64 %534
+  %577 = getelementptr [4 x i8], ptr %411, i64 %534
   %578 = getelementptr inbounds nuw i8, ptr %577, i64 2
   %579 = load i8, ptr %578, align 2
   %580 = getelementptr i8, ptr %531, i64 2
@@ -2158,7 +2157,7 @@ define dso_local i64 @FSE_decompress_wksp_bmi2(ptr noundef %0, i64 noundef %1, p
   br i1 %592, label %.loopexit, label %593
 
 593:                                              ; preds = %588
-  %594 = getelementptr %struct.FSE_decode_t, ptr %411, i64 %534
+  %594 = getelementptr [4 x i8], ptr %411, i64 %534
   %595 = load i16, ptr %594, align 2
   %596 = getelementptr inbounds nuw i8, ptr %594, i64 2
   %597 = load i8, ptr %596, align 2
@@ -2227,7 +2226,7 @@ define dso_local i64 @FSE_decompress_wksp_bmi2(ptr noundef %0, i64 noundef %1, p
   br i1 %644, label %.loopexit, label %.preheader, !llvm.loop !19
 
 645:                                              ; preds = %593
-  %646 = getelementptr %struct.FSE_decode_t, ptr %409, i64 %554
+  %646 = getelementptr [4 x i8], ptr %409, i64 %554
   %647 = getelementptr inbounds nuw i8, ptr %646, i64 2
   %648 = load i8, ptr %647, align 2
   %649 = getelementptr i8, ptr %531, i64 3
@@ -2309,7 +2308,7 @@ define internal fastcc i64 @FSE_decompress_wksp_body_bmi2(ptr noundef %0, i64 no
 
 42:                                               ; preds = %23
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 512
-  %44 = getelementptr i32, ptr %43, i64 %28
+  %44 = getelementptr [4 x i8], ptr %43, i64 %28
   %45 = add i64 %6, -512
   %46 = sub i64 %45, %35
   %47 = call fastcc i64 @FSE_buildDTable_internal(ptr noundef nonnull %43, ptr noundef %5, i32 noundef %29, i32 noundef %21, ptr noundef %44, i64 noundef %46), !range !5
@@ -2532,7 +2531,7 @@ define internal fastcc i64 @FSE_decompress_wksp_body_bmi2(ptr noundef %0, i64 no
   br i1 %189, label %.thread35, label %.lr.ph114
 
 190:                                              ; preds = %175
-  %191 = getelementptr %struct.FSE_decode_t, ptr %146, i64 %154
+  %191 = getelementptr [4 x i8], ptr %146, i64 %154
   %192 = load i16, ptr %191, align 2
   %193 = getelementptr inbounds nuw i8, ptr %191, i64 2
   %194 = load i8, ptr %193, align 2
@@ -2549,7 +2548,7 @@ define internal fastcc i64 @FSE_decompress_wksp_body_bmi2(ptr noundef %0, i64 no
   %205 = add i32 %177, %197
   %206 = zext i16 %192 to i64
   store i8 %194, ptr %151, align 1
-  %207 = getelementptr %struct.FSE_decode_t, ptr %148, i64 %155
+  %207 = getelementptr [4 x i8], ptr %148, i64 %155
   %208 = load i16, ptr %207, align 2
   %209 = getelementptr inbounds nuw i8, ptr %207, i64 2
   %210 = load i8, ptr %209, align 2
@@ -2567,8 +2566,8 @@ define internal fastcc i64 @FSE_decompress_wksp_body_bmi2(ptr noundef %0, i64 no
   %222 = zext i16 %208 to i64
   %223 = getelementptr i8, ptr %151, i64 1
   store i8 %210, ptr %223, align 1
-  %224 = getelementptr %struct.FSE_decode_t, ptr %146, i64 %204
-  %225 = getelementptr %struct.FSE_decode_t, ptr %224, i64 %206
+  %224 = getelementptr [4 x i8], ptr %146, i64 %204
+  %225 = getelementptr [4 x i8], ptr %224, i64 %206
   %226 = load i16, ptr %225, align 2
   %227 = getelementptr inbounds nuw i8, ptr %225, i64 2
   %228 = load i8, ptr %227, align 2
@@ -2587,8 +2586,8 @@ define internal fastcc i64 @FSE_decompress_wksp_body_bmi2(ptr noundef %0, i64 no
   %241 = add i64 %238, %240
   %242 = getelementptr i8, ptr %151, i64 2
   store i8 %228, ptr %242, align 1
-  %243 = getelementptr %struct.FSE_decode_t, ptr %148, i64 %220
-  %244 = getelementptr %struct.FSE_decode_t, ptr %243, i64 %222
+  %243 = getelementptr [4 x i8], ptr %148, i64 %220
+  %244 = getelementptr [4 x i8], ptr %243, i64 %222
   %245 = load i16, ptr %244, align 2
   %246 = getelementptr inbounds nuw i8, ptr %244, i64 2
   %247 = load i8, ptr %246, align 2
@@ -2618,7 +2617,7 @@ define internal fastcc i64 @FSE_decompress_wksp_body_bmi2(ptr noundef %0, i64 no
   %267 = phi i64 [ %342, %371 ], [ %.lcssa94, %.thread38 ]
   %268 = phi ptr [ %373, %371 ], [ %187, %.thread38 ]
   %269 = phi i32 [ %372, %371 ], [ %185, %.thread38 ]
-  %270 = getelementptr %struct.FSE_decode_t, ptr %146, i64 %265
+  %270 = getelementptr [4 x i8], ptr %146, i64 %265
   %271 = load i16, ptr %270, align 2
   %272 = getelementptr inbounds nuw i8, ptr %270, i64 2
   %273 = load i8, ptr %272, align 2
@@ -2678,7 +2677,7 @@ define internal fastcc i64 @FSE_decompress_wksp_body_bmi2(ptr noundef %0, i64 no
   br label %320
 
 315:                                              ; preds = %.lr.ph114
-  %316 = getelementptr %struct.FSE_decode_t, ptr %148, i64 %267
+  %316 = getelementptr [4 x i8], ptr %148, i64 %267
   %317 = getelementptr inbounds nuw i8, ptr %316, i64 2
   %318 = load i8, ptr %317, align 2
   %319 = getelementptr i8, ptr %264, i64 2
@@ -2693,7 +2692,7 @@ define internal fastcc i64 @FSE_decompress_wksp_body_bmi2(ptr noundef %0, i64 no
   br i1 %324, label %.thread35, label %325
 
 325:                                              ; preds = %320
-  %326 = getelementptr %struct.FSE_decode_t, ptr %148, i64 %267
+  %326 = getelementptr [4 x i8], ptr %148, i64 %267
   %327 = load i16, ptr %326, align 2
   %328 = getelementptr inbounds nuw i8, ptr %326, i64 2
   %329 = load i8, ptr %328, align 2
@@ -2761,7 +2760,7 @@ define internal fastcc i64 @FSE_decompress_wksp_body_bmi2(ptr noundef %0, i64 no
   br i1 %375, label %.thread35, label %.lr.ph114
 
 376:                                              ; preds = %325
-  %377 = getelementptr %struct.FSE_decode_t, ptr %146, i64 %286
+  %377 = getelementptr [4 x i8], ptr %146, i64 %286
   %378 = getelementptr inbounds nuw i8, ptr %377, i64 2
   %379 = load i8, ptr %378, align 2
   %380 = getelementptr i8, ptr %264, i64 3
@@ -2989,7 +2988,7 @@ BIT_initDStream.exit:                             ; preds = %393
   br i1 %519, label %BIT_initDStream.exit.thread, label %.lr.ph146
 
 520:                                              ; preds = %505
-  %521 = getelementptr %struct.FSE_decode_t, ptr %476, i64 %484
+  %521 = getelementptr [4 x i8], ptr %476, i64 %484
   %522 = load i16, ptr %521, align 2
   %523 = getelementptr inbounds nuw i8, ptr %521, i64 2
   %524 = load i8, ptr %523, align 2
@@ -3007,7 +3006,7 @@ BIT_initDStream.exit:                             ; preds = %393
   %536 = and i64 %532, %535
   %537 = zext i16 %522 to i64
   store i8 %524, ptr %481, align 1
-  %538 = getelementptr %struct.FSE_decode_t, ptr %478, i64 %485
+  %538 = getelementptr [4 x i8], ptr %478, i64 %485
   %539 = load i16, ptr %538, align 2
   %540 = getelementptr inbounds nuw i8, ptr %538, i64 2
   %541 = load i8, ptr %540, align 2
@@ -3026,8 +3025,8 @@ BIT_initDStream.exit:                             ; preds = %393
   %554 = zext i16 %539 to i64
   %555 = getelementptr i8, ptr %481, i64 1
   store i8 %541, ptr %555, align 1
-  %556 = getelementptr %struct.FSE_decode_t, ptr %476, i64 %536
-  %557 = getelementptr %struct.FSE_decode_t, ptr %556, i64 %537
+  %556 = getelementptr [4 x i8], ptr %476, i64 %536
+  %557 = getelementptr [4 x i8], ptr %556, i64 %537
   %558 = load i16, ptr %557, align 2
   %559 = getelementptr inbounds nuw i8, ptr %557, i64 2
   %560 = load i8, ptr %559, align 2
@@ -3047,8 +3046,8 @@ BIT_initDStream.exit:                             ; preds = %393
   %574 = add nuw i64 %572, %573
   %575 = getelementptr i8, ptr %481, i64 2
   store i8 %560, ptr %575, align 1
-  %576 = getelementptr %struct.FSE_decode_t, ptr %478, i64 %553
-  %577 = getelementptr %struct.FSE_decode_t, ptr %576, i64 %554
+  %576 = getelementptr [4 x i8], ptr %478, i64 %553
+  %577 = getelementptr [4 x i8], ptr %576, i64 %554
   %578 = load i16, ptr %577, align 2
   %579 = getelementptr inbounds nuw i8, ptr %577, i64 2
   %580 = load i8, ptr %579, align 2
@@ -3079,7 +3078,7 @@ BIT_initDStream.exit:                             ; preds = %393
   %601 = phi i64 [ %678, %707 ], [ %.lcssa68, %.thread42 ]
   %602 = phi ptr [ %709, %707 ], [ %517, %.thread42 ]
   %603 = phi i32 [ %708, %707 ], [ %515, %.thread42 ]
-  %604 = getelementptr %struct.FSE_decode_t, ptr %476, i64 %599
+  %604 = getelementptr [4 x i8], ptr %476, i64 %599
   %605 = load i16, ptr %604, align 2
   %606 = getelementptr inbounds nuw i8, ptr %604, i64 2
   %607 = load i8, ptr %606, align 2
@@ -3140,7 +3139,7 @@ BIT_initDStream.exit:                             ; preds = %393
   br label %655
 
 650:                                              ; preds = %.lr.ph146
-  %651 = getelementptr %struct.FSE_decode_t, ptr %478, i64 %601
+  %651 = getelementptr [4 x i8], ptr %478, i64 %601
   %652 = getelementptr inbounds nuw i8, ptr %651, i64 2
   %653 = load i8, ptr %652, align 2
   %654 = getelementptr i8, ptr %598, i64 2
@@ -3155,7 +3154,7 @@ BIT_initDStream.exit:                             ; preds = %393
   br i1 %659, label %BIT_initDStream.exit.thread, label %660
 
 660:                                              ; preds = %655
-  %661 = getelementptr %struct.FSE_decode_t, ptr %478, i64 %601
+  %661 = getelementptr [4 x i8], ptr %478, i64 %601
   %662 = load i16, ptr %661, align 2
   %663 = getelementptr inbounds nuw i8, ptr %661, i64 2
   %664 = load i8, ptr %663, align 2
@@ -3224,7 +3223,7 @@ BIT_initDStream.exit:                             ; preds = %393
   br i1 %711, label %BIT_initDStream.exit.thread, label %.lr.ph146
 
 712:                                              ; preds = %660
-  %713 = getelementptr %struct.FSE_decode_t, ptr %476, i64 %621
+  %713 = getelementptr [4 x i8], ptr %476, i64 %621
   %714 = getelementptr inbounds nuw i8, ptr %713, i64 2
   %715 = load i8, ptr %714, align 2
   %716 = getelementptr i8, ptr %598, i64 3

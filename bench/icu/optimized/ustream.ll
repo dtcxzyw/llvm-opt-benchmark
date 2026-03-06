@@ -73,7 +73,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %20, %25, %27
   %33 = load i32, ptr %12, align 4
   %34 = select i1 %30, i32 %33, i32 %32
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds i16, ptr %.0.i, i64 %35
+  %36 = getelementptr inbounds [2 x i8], ptr %.0.i, i64 %35
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 199
   br label %38
@@ -222,7 +222,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_77rsERSiRNS_13Un
   %.14572 = phi i8 [ %.246, %103 ], [ %.04474, %49 ]
   %55 = add nsw i32 %.03873, 1
   %56 = sext i32 %.03873 to i64
-  %57 = getelementptr inbounds i16, ptr %4, i64 %56
+  %57 = getelementptr inbounds [2 x i8], ptr %4, i64 %56
   %58 = load i16, ptr %57, align 2, !tbaa !28
   %59 = and i16 %58, -1024
   %60 = icmp ne i16 %59, -10240
@@ -232,7 +232,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_77rsERSiRNS_13Un
 
 61:                                               ; preds = %.lr.ph
   %62 = sext i32 %55 to i64
-  %63 = getelementptr inbounds i16, ptr %4, i64 %62
+  %63 = getelementptr inbounds [2 x i8], ptr %4, i64 %62
   %64 = load i16, ptr %63, align 2, !tbaa !28
   %65 = and i16 %64, -1024
   %66 = icmp eq i16 %65, -9216

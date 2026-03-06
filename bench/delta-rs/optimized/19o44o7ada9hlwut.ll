@@ -61,7 +61,7 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$aws_s
   %26 = add i64 %.sroa.01.0.i.i.i.i.i, %23
   %27 = and i64 %26, %11
   %28 = sub nsw i64 0, %27
-  %29 = getelementptr inbounds { i128, { { { { { ptr, ptr } }, {} }, {} }, { { { ptr, ptr } }, {}, {} }, { ptr, [1 x i64] } } }, ptr %12, i64 %28
+  %29 = getelementptr inbounds [64 x i8], ptr %12, i64 %28
   %30 = getelementptr inbounds i8, ptr %29, i64 -64
   %.val4.i.i.i.i.i = load i128, ptr %30, align 16, !alias.scope !30, !noalias !35, !noundef !13
   %31 = icmp eq i128 %.val4.i.i.i.i.i, 137817556258721224223728694577925459532
@@ -152,7 +152,7 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$aws_s
   %26 = add i64 %.sroa.01.0.i.i.i.i.i, %23
   %27 = and i64 %26, %11
   %28 = sub nsw i64 0, %27
-  %29 = getelementptr inbounds { i128, { { { { { ptr, ptr } }, {} }, {} }, { { { ptr, ptr } }, {}, {} }, { ptr, [1 x i64] } } }, ptr %12, i64 %28
+  %29 = getelementptr inbounds [64 x i8], ptr %12, i64 %28
   %30 = getelementptr inbounds i8, ptr %29, i64 -64
   %.val4.i.i.i.i.i = load i128, ptr %30, align 16, !alias.scope !70, !noalias !75, !noundef !13
   %31 = icmp eq i128 %.val4.i.i.i.i.i, 137476353626162651539277481011823036333
@@ -243,7 +243,7 @@ define hidden noundef align 8 dereferenceable_or_null(120) ptr @"_ZN106_$LT$aws_
   %26 = add i64 %.sroa.01.0.i.i.i.i.i, %23
   %27 = and i64 %26, %11
   %28 = sub nsw i64 0, %27
-  %29 = getelementptr inbounds { i128, { { { { { ptr, ptr } }, {} }, {} }, { { { ptr, ptr } }, {}, {} }, { ptr, [1 x i64] } } }, ptr %12, i64 %28
+  %29 = getelementptr inbounds [64 x i8], ptr %12, i64 %28
   %30 = getelementptr inbounds i8, ptr %29, i64 -64
   %.val4.i.i.i.i.i = load i128, ptr %30, align 16, !alias.scope !109, !noalias !114, !noundef !13
   %31 = icmp eq i128 %.val4.i.i.i.i.i, -130792343011523200479775768240139292989
@@ -334,7 +334,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN106_$LT$aws_s
   %26 = add i64 %.sroa.01.0.i.i.i.i.i, %23
   %27 = and i64 %26, %11
   %28 = sub nsw i64 0, %27
-  %29 = getelementptr inbounds { i128, { { { { { ptr, ptr } }, {} }, {} }, { { { ptr, ptr } }, {}, {} }, { ptr, [1 x i64] } } }, ptr %12, i64 %28
+  %29 = getelementptr inbounds [64 x i8], ptr %12, i64 %28
   %30 = getelementptr inbounds i8, ptr %29, i64 -64
   %.val4.i.i.i.i.i = load i128, ptr %30, align 16, !alias.scope !148, !noalias !153, !noundef !13
   %31 = icmp eq i128 %.val4.i.i.i.i.i, 57619042849083510029872987491540864476
@@ -425,7 +425,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN106_$LT$aws_s
   %26 = add i64 %.sroa.01.0.i.i.i.i.i, %23
   %27 = and i64 %26, %11
   %28 = sub nsw i64 0, %27
-  %29 = getelementptr inbounds { i128, { { { { { ptr, ptr } }, {} }, {} }, { { { ptr, ptr } }, {}, {} }, { ptr, [1 x i64] } } }, ptr %12, i64 %28
+  %29 = getelementptr inbounds [64 x i8], ptr %12, i64 %28
   %30 = getelementptr inbounds i8, ptr %29, i64 -64
   %.val4.i.i.i.i.i = load i128, ptr %30, align 16, !alias.scope !187, !noalias !192, !noundef !13
   %31 = icmp eq i128 %.val4.i.i.i.i.i, 135971348070601700167692908149646595528
@@ -516,7 +516,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN106_$LT$aws_s
   %26 = add i64 %.sroa.01.0.i.i.i.i.i, %23
   %27 = and i64 %26, %11
   %28 = sub nsw i64 0, %27
-  %29 = getelementptr inbounds { i128, { { { { { ptr, ptr } }, {} }, {} }, { { { ptr, ptr } }, {}, {} }, { ptr, [1 x i64] } } }, ptr %12, i64 %28
+  %29 = getelementptr inbounds [64 x i8], ptr %12, i64 %28
   %30 = getelementptr inbounds i8, ptr %29, i64 -64
   %.val4.i.i.i.i.i = load i128, ptr %30, align 16, !alias.scope !226, !noalias !231, !noundef !13
   %31 = icmp eq i128 %.val4.i.i.i.i.i, -75171036054640576642442152910893171430
@@ -607,7 +607,7 @@ define hidden noundef align 8 ptr @"_ZN106_$LT$aws_smithy_types..config_bag..Ite
   %26 = add i64 %.sroa.01.0.i.i.i.i.i, %23
   %27 = and i64 %26, %11
   %28 = sub nsw i64 0, %27
-  %29 = getelementptr inbounds { i128, { { { { { ptr, ptr } }, {} }, {} }, { { { ptr, ptr } }, {}, {} }, { ptr, [1 x i64] } } }, ptr %12, i64 %28
+  %29 = getelementptr inbounds [64 x i8], ptr %12, i64 %28
   %30 = getelementptr inbounds i8, ptr %29, i64 -64
   %.val4.i.i.i.i.i = load i128, ptr %30, align 16, !alias.scope !265, !noalias !270, !noundef !13
   %31 = icmp eq i128 %.val4.i.i.i.i.i, -135001214419442165500989436466064661546
@@ -698,7 +698,7 @@ define hidden noundef align 8 dereferenceable_or_null(64) ptr @"_ZN106_$LT$aws_s
   %26 = add i64 %.sroa.01.0.i.i.i.i.i, %23
   %27 = and i64 %26, %11
   %28 = sub nsw i64 0, %27
-  %29 = getelementptr inbounds { i128, { { { { { ptr, ptr } }, {} }, {} }, { { { ptr, ptr } }, {}, {} }, { ptr, [1 x i64] } } }, ptr %12, i64 %28
+  %29 = getelementptr inbounds [64 x i8], ptr %12, i64 %28
   %30 = getelementptr inbounds i8, ptr %29, i64 -64
   %.val4.i.i.i.i.i = load i128, ptr %30, align 16, !alias.scope !304, !noalias !309, !noundef !13
   %31 = icmp eq i128 %.val4.i.i.i.i.i, -2153556322579728455486312473769700595
@@ -899,7 +899,7 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @_ZN16aws_smithy_t
   %23 = add i64 %.sroa.01.0.i.i.i.i, %20
   %24 = and i64 %23, %8
   %25 = sub nsw i64 0, %24
-  %26 = getelementptr inbounds { i128, { { { { { ptr, ptr } }, {} }, {} }, { { { ptr, ptr } }, {}, {} }, { ptr, [1 x i64] } } }, ptr %9, i64 %25
+  %26 = getelementptr inbounds [64 x i8], ptr %9, i64 %25
   %27 = getelementptr inbounds i8, ptr %26, i64 -64
   %.val4.i.i.i.i = load i128, ptr %27, align 16, !alias.scope !348, !noalias !353, !noundef !13
   %28 = icmp eq i128 %.val4.i.i.i.i, 137817556258721224223728694577925459532
@@ -978,7 +978,7 @@ define hidden noundef align 8 dereferenceable_or_null(64) ptr @_ZN16aws_smithy_t
   %23 = add i64 %.sroa.01.0.i.i.i.i, %20
   %24 = and i64 %23, %8
   %25 = sub nsw i64 0, %24
-  %26 = getelementptr inbounds { i128, { { { { { ptr, ptr } }, {} }, {} }, { { { ptr, ptr } }, {}, {} }, { ptr, [1 x i64] } } }, ptr %9, i64 %25
+  %26 = getelementptr inbounds [64 x i8], ptr %9, i64 %25
   %27 = getelementptr inbounds i8, ptr %26, i64 -64
   %.val4.i.i.i.i = load i128, ptr %27, align 16, !alias.scope !382, !noalias !387, !noundef !13
   %28 = icmp eq i128 %.val4.i.i.i.i, -2153556322579728455486312473769700595
@@ -1057,7 +1057,7 @@ define hidden noundef align 8 dereferenceable_or_null(120) ptr @_ZN16aws_smithy_
   %23 = add i64 %.sroa.01.0.i.i.i.i, %20
   %24 = and i64 %23, %8
   %25 = sub nsw i64 0, %24
-  %26 = getelementptr inbounds { i128, { { { { { ptr, ptr } }, {} }, {} }, { { { ptr, ptr } }, {}, {} }, { ptr, [1 x i64] } } }, ptr %9, i64 %25
+  %26 = getelementptr inbounds [64 x i8], ptr %9, i64 %25
   %27 = getelementptr inbounds i8, ptr %26, i64 -64
   %.val4.i.i.i.i = load i128, ptr %27, align 16, !alias.scope !416, !noalias !421, !noundef !13
   %28 = icmp eq i128 %.val4.i.i.i.i, -130792343011523200479775768240139292989
@@ -1136,7 +1136,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @_ZN16aws_smithy_t
   %23 = add i64 %.sroa.01.0.i.i.i.i, %20
   %24 = and i64 %23, %8
   %25 = sub nsw i64 0, %24
-  %26 = getelementptr inbounds { i128, { { { { { ptr, ptr } }, {} }, {} }, { { { ptr, ptr } }, {}, {} }, { ptr, [1 x i64] } } }, ptr %9, i64 %25
+  %26 = getelementptr inbounds [64 x i8], ptr %9, i64 %25
   %27 = getelementptr inbounds i8, ptr %26, i64 -64
   %.val4.i.i.i.i = load i128, ptr %27, align 16, !alias.scope !450, !noalias !455, !noundef !13
   %28 = icmp eq i128 %.val4.i.i.i.i, -75171036054640576642442152910893171430
@@ -1215,7 +1215,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @_ZN16aws_smithy_t
   %23 = add i64 %.sroa.01.0.i.i.i.i, %20
   %24 = and i64 %23, %8
   %25 = sub nsw i64 0, %24
-  %26 = getelementptr inbounds { i128, { { { { { ptr, ptr } }, {} }, {} }, { { { ptr, ptr } }, {}, {} }, { ptr, [1 x i64] } } }, ptr %9, i64 %25
+  %26 = getelementptr inbounds [64 x i8], ptr %9, i64 %25
   %27 = getelementptr inbounds i8, ptr %26, i64 -64
   %.val4.i.i.i.i = load i128, ptr %27, align 16, !alias.scope !484, !noalias !489, !noundef !13
   %28 = icmp eq i128 %.val4.i.i.i.i, 135971348070601700167692908149646595528
@@ -1294,7 +1294,7 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @_ZN16aws_smithy_t
   %23 = add i64 %.sroa.01.0.i.i.i.i, %20
   %24 = and i64 %23, %8
   %25 = sub nsw i64 0, %24
-  %26 = getelementptr inbounds { i128, { { { { { ptr, ptr } }, {} }, {} }, { { { ptr, ptr } }, {}, {} }, { ptr, [1 x i64] } } }, ptr %9, i64 %25
+  %26 = getelementptr inbounds [64 x i8], ptr %9, i64 %25
   %27 = getelementptr inbounds i8, ptr %26, i64 -64
   %.val4.i.i.i.i = load i128, ptr %27, align 16, !alias.scope !518, !noalias !523, !noundef !13
   %28 = icmp eq i128 %.val4.i.i.i.i, 137476353626162651539277481011823036333
@@ -1373,7 +1373,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @_ZN16aws_smithy_t
   %23 = add i64 %.sroa.01.0.i.i.i.i, %20
   %24 = and i64 %23, %8
   %25 = sub nsw i64 0, %24
-  %26 = getelementptr inbounds { i128, { { { { { ptr, ptr } }, {} }, {} }, { { { ptr, ptr } }, {}, {} }, { ptr, [1 x i64] } } }, ptr %9, i64 %25
+  %26 = getelementptr inbounds [64 x i8], ptr %9, i64 %25
   %27 = getelementptr inbounds i8, ptr %26, i64 -64
   %.val4.i.i.i.i = load i128, ptr %27, align 16, !alias.scope !552, !noalias !557, !noundef !13
   %28 = icmp eq i128 %.val4.i.i.i.i, 57619042849083510029872987491540864476
@@ -1452,7 +1452,7 @@ define hidden noundef align 8 ptr @_ZN16aws_smithy_types10config_bag5Layer3get17
   %23 = add i64 %.sroa.01.0.i.i.i.i, %20
   %24 = and i64 %23, %8
   %25 = sub nsw i64 0, %24
-  %26 = getelementptr inbounds { i128, { { { { { ptr, ptr } }, {} }, {} }, { { { ptr, ptr } }, {}, {} }, { ptr, [1 x i64] } } }, ptr %9, i64 %25
+  %26 = getelementptr inbounds [64 x i8], ptr %9, i64 %25
   %27 = getelementptr inbounds i8, ptr %26, i64 -64
   %.val4.i.i.i.i = load i128, ptr %27, align 16, !alias.scope !586, !noalias !591, !noundef !13
   %28 = icmp eq i128 %.val4.i.i.i.i, -135001214419442165500989436466064661546
@@ -1575,7 +1575,7 @@ define hidden noundef align 8 ptr @_ZN16aws_smithy_types10config_bag9ConfigBag11
   %5 = load ptr, ptr %4, align 8, !nonnull !13, !noundef !13
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !13
-  %8 = getelementptr inbounds ptr, ptr %5, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %5, i64 %7
   store ptr %5, ptr %2, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %8, ptr %.sroa.4.0..sroa_idx, align 8
@@ -1604,7 +1604,7 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @_ZN16aws_smithy_t
   %5 = load ptr, ptr %4, align 8, !nonnull !13, !noundef !13
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !13
-  %8 = getelementptr inbounds ptr, ptr %5, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %5, i64 %7
   store ptr %5, ptr %2, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %8, ptr %.sroa.4.0..sroa_idx, align 8
@@ -1633,7 +1633,7 @@ define hidden noundef align 8 dereferenceable_or_null(16) ptr @_ZN16aws_smithy_t
   %5 = load ptr, ptr %4, align 8, !nonnull !13, !noundef !13
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !13
-  %8 = getelementptr inbounds ptr, ptr %5, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %5, i64 %7
   store ptr %5, ptr %2, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %8, ptr %.sroa.4.0..sroa_idx, align 8
@@ -1663,7 +1663,7 @@ define hidden noundef align 8 dereferenceable_or_null(120) ptr @_ZN16aws_smithy_
   %5 = load ptr, ptr %4, align 8, !nonnull !13, !noundef !13
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !13
-  %8 = getelementptr inbounds ptr, ptr %5, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %5, i64 %7
   store ptr %5, ptr %2, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %8, ptr %.sroa.4.0..sroa_idx, align 8
@@ -1692,7 +1692,7 @@ define hidden noundef align 8 dereferenceable_or_null(64) ptr @_ZN16aws_smithy_t
   %5 = load ptr, ptr %4, align 8, !nonnull !13, !noundef !13
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !13
-  %8 = getelementptr inbounds ptr, ptr %5, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %5, i64 %7
   store ptr %5, ptr %2, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %8, ptr %.sroa.4.0..sroa_idx, align 8
@@ -1722,7 +1722,7 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @_ZN16aws_smithy_t
   %5 = load ptr, ptr %4, align 8, !nonnull !13, !noundef !13
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !13
-  %8 = getelementptr inbounds ptr, ptr %5, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %5, i64 %7
   store ptr %5, ptr %2, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %8, ptr %.sroa.4.0..sroa_idx, align 8
@@ -1751,7 +1751,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @_ZN16aws_smithy_t
   %5 = load ptr, ptr %4, align 8, !nonnull !13, !noundef !13
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !13
-  %8 = getelementptr inbounds ptr, ptr %5, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %5, i64 %7
   store ptr %5, ptr %2, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %8, ptr %.sroa.4.0..sroa_idx, align 8
@@ -1780,7 +1780,7 @@ define hidden noundef align 8 dereferenceable_or_null(16) ptr @_ZN16aws_smithy_t
   %5 = load ptr, ptr %4, align 8, !nonnull !13, !noundef !13
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !noundef !13
-  %8 = getelementptr inbounds ptr, ptr %5, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %5, i64 %7
   store ptr %5, ptr %2, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %8, ptr %.sroa.4.0..sroa_idx, align 8
@@ -1812,7 +1812,7 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @_ZN16aws_smithy_t
   %5 = load ptr, ptr %4, align 8, !alias.scope !631, !nonnull !13, !noundef !13
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !alias.scope !631, !noundef !13
-  %8 = getelementptr inbounds ptr, ptr %5, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %5, i64 %7
   store ptr %5, ptr %2, align 8, !noalias !631
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %8, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !631
@@ -1844,7 +1844,7 @@ define hidden noundef align 8 ptr @_ZN16aws_smithy_types10config_bag9ConfigBag4l
   %5 = load ptr, ptr %4, align 8, !alias.scope !634, !nonnull !13, !noundef !13
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !alias.scope !634, !noundef !13
-  %8 = getelementptr inbounds ptr, ptr %5, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %5, i64 %7
   store ptr %5, ptr %2, align 8, !noalias !634
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %8, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !634
@@ -1876,7 +1876,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @_ZN16aws_smithy_t
   %5 = load ptr, ptr %4, align 8, !alias.scope !637, !nonnull !13, !noundef !13
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !alias.scope !637, !noundef !13
-  %8 = getelementptr inbounds ptr, ptr %5, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %5, i64 %7
   store ptr %5, ptr %2, align 8, !noalias !637
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %8, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !637
@@ -1908,7 +1908,7 @@ define hidden noundef align 8 dereferenceable_or_null(16) ptr @_ZN16aws_smithy_t
   %5 = load ptr, ptr %4, align 8, !alias.scope !640, !nonnull !13, !noundef !13
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !alias.scope !640, !noundef !13
-  %8 = getelementptr inbounds ptr, ptr %5, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %5, i64 %7
   store ptr %5, ptr %2, align 8, !noalias !640
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %8, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !640
@@ -1941,7 +1941,7 @@ define hidden noundef align 8 dereferenceable_or_null(16) ptr @_ZN16aws_smithy_t
   %5 = load ptr, ptr %4, align 8, !alias.scope !643, !nonnull !13, !noundef !13
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !alias.scope !643, !noundef !13
-  %8 = getelementptr inbounds ptr, ptr %5, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %5, i64 %7
   store ptr %5, ptr %2, align 8, !noalias !643
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %8, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !643
@@ -1974,7 +1974,7 @@ define hidden noundef align 8 dereferenceable_or_null(64) ptr @_ZN16aws_smithy_t
   %5 = load ptr, ptr %4, align 8, !alias.scope !646, !nonnull !13, !noundef !13
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !alias.scope !646, !noundef !13
-  %8 = getelementptr inbounds ptr, ptr %5, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %5, i64 %7
   store ptr %5, ptr %2, align 8, !noalias !646
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %8, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !646
@@ -2007,7 +2007,7 @@ define hidden noundef align 8 dereferenceable_or_null(120) ptr @_ZN16aws_smithy_
   %5 = load ptr, ptr %4, align 8, !alias.scope !649, !nonnull !13, !noundef !13
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !alias.scope !649, !noundef !13
-  %8 = getelementptr inbounds ptr, ptr %5, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %5, i64 %7
   store ptr %5, ptr %2, align 8, !noalias !649
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %8, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !649
@@ -2039,7 +2039,7 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @_ZN16aws_smithy_t
   %5 = load ptr, ptr %4, align 8, !alias.scope !652, !nonnull !13, !noundef !13
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !alias.scope !652, !noundef !13
-  %8 = getelementptr inbounds ptr, ptr %5, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %5, i64 %7
   store ptr %5, ptr %2, align 8, !noalias !652
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %8, ptr %.sroa.4.0..sroa_idx.i, align 8, !noalias !652
@@ -3199,7 +3199,7 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN9hashbrown3ma
   %27 = add i64 %.sroa.01.0.i.i.i, %24
   %28 = and i64 %27, %12
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds { i128, { { { { { ptr, ptr } }, {} }, {} }, { { { ptr, ptr } }, {}, {} }, { ptr, [1 x i64] } } }, ptr %13, i64 %29
+  %30 = getelementptr inbounds [64 x i8], ptr %13, i64 %29
   %31 = getelementptr inbounds i8, ptr %30, i64 -64
   %.val4.i.i.i = load i128, ptr %31, align 16, !alias.scope !727, !noalias !732, !noundef !13
   %32 = icmp eq i128 %7, %.val4.i.i.i
@@ -3269,7 +3269,7 @@ define hidden noundef align 16 dereferenceable_or_null(64) ptr @"_ZN9hashbrown3r
   %23 = add i64 %.sroa.01.0.i.i, %20
   %24 = and i64 %23, %7
   %25 = sub nsw i64 0, %24
-  %26 = getelementptr inbounds { i128, { { { { { ptr, ptr } }, {} }, {} }, { { { ptr, ptr } }, {}, {} }, { ptr, [1 x i64] } } }, ptr %8, i64 %25
+  %26 = getelementptr inbounds [64 x i8], ptr %8, i64 %25
   %27 = getelementptr inbounds i8, ptr %26, i64 -64
   %.val4.i.i = load i128, ptr %27, align 16, !alias.scope !749, !noalias !754, !noundef !13
   %28 = icmp eq i128 %9, %.val4.i.i

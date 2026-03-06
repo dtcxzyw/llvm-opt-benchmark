@@ -252,7 +252,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %38
   call void @pmix_expose_param(ptr noundef nonnull %81) #13
   %82 = add i64 %.083202, 1
   %83 = load ptr, ptr %78, align 8, !tbaa !34
-  %84 = getelementptr inbounds nuw ptr, ptr %83, i64 %82
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %82
   %85 = load ptr, ptr %84, align 8, !tbaa !8
   %.not132 = icmp eq ptr %85, null
   br i1 %.not132, label %.loopexit196, label %.lr.ph, !llvm.loop !35
@@ -284,7 +284,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %38
   %97 = tail call ptr @__ctype_b_loc() #18
   %98 = load ptr, ptr %97, align 8, !tbaa !39
   %99 = sext i8 %95 to i64
-  %100 = getelementptr inbounds i16, ptr %98, i64 %99
+  %100 = getelementptr inbounds [2 x i8], ptr %98, i64 %99
   %101 = load i16, ptr %100, align 2, !tbaa !41
   %102 = and i16 %101, 2048
   %.not119 = icmp eq i16 %102, 0

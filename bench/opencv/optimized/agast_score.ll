@@ -82,13 +82,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %19, %
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %24 = getelementptr inbounds nuw [2 x i32], ptr %13, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4, !tbaa !11
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %27 = load i32, ptr %26, align 4, !tbaa !11
   %28 = mul nsw i32 %27, %1
   %29 = add nsw i32 %28, %25
-  %30 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   store i32 %29, ptr %30, align 4, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

@@ -100,7 +100,7 @@ if.end.i.i.i.i.i.i.i:                             ; preds = %_ZNSt6vectorIdSaIdE
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %sub, 3
   %call5.i.i.i.i2.i.i40 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #19
   store ptr %call5.i.i.i.i2.i.i40, ptr %variances_, align 8, !tbaa !10
-  %add.ptr.i.i.i = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i40, i64 %sub
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i40, i64 %sub
   %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !11
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i.i40, i8 0, i64 %mul.i.i.i.i.i.i, i1 false), !tbaa !12
@@ -141,7 +141,7 @@ if.end.i.i.i.i.i.i.i49:                           ; preds = %_ZNSt6vectorIdSaIdE
 
 call5.i.i.i.i2.i.i.noexc63:                       ; preds = %if.end.i.i.i.i.i.i.i49
   store ptr %call5.i.i.i.i2.i.i64, ptr %volatilities_, align 8, !tbaa !10
-  %add.ptr.i.i.i51 = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i64, i64 %sub4
+  %add.ptr.i.i.i51 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i64, i64 %sub4
   %_M_end_of_storage.i.i.i52 = getelementptr inbounds nuw i8, ptr %this, i64 48
   store ptr %add.ptr.i.i.i51, ptr %_M_end_of_storage.i.i.i52, align 8, !tbaa !11
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i.i64, i8 0, i64 %mul.i.i.i.i.i.i50, i1 false), !tbaa !12
@@ -606,7 +606,7 @@ for.body:                                         ; preds = %do.end99, %invoke.c
   br i1 %cmp103, label %cond.end, label %cond.false
 
 cond.false:                                       ; preds = %for.body
-  %59 = getelementptr double, ptr %58, i64 %i.0204
+  %59 = getelementptr [8 x i8], ptr %58, i64 %i.0204
   %add.ptr.i = getelementptr i8, ptr %59, i64 -8
   %60 = load double, ptr %add.ptr.i, align 8, !tbaa !12
   br label %cond.end
@@ -615,23 +615,23 @@ cond.end:                                         ; preds = %for.body, %cond.fal
   %phi.call = phi ptr [ %59, %cond.false ], [ %58, %for.body ]
   %cond = phi double [ %60, %cond.false ], [ 0.000000e+00, %for.body ]
   %61 = load double, ptr %phi.call, align 8, !tbaa !12
-  %add.ptr.i143 = getelementptr inbounds nuw double, ptr %58, i64 %resetIndex
+  %add.ptr.i143 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %resetIndex
   %62 = load double, ptr %add.ptr.i143, align 8, !tbaa !12
   %call113 = invoke noundef double @_ZNK8QuantLib12AbcdFunction8varianceEddd(ptr noundef nonnull align 8 dereferenceable(136) %abcd, double noundef %cond, double noundef %61, double noundef %62)
           to label %invoke.cont112 unwind label %lpad111
 
 invoke.cont112:                                   ; preds = %cond.end
   %63 = load ptr, ptr %variances_, align 8, !tbaa !10
-  %add.ptr.i144 = getelementptr inbounds nuw double, ptr %63, i64 %i.0204
+  %add.ptr.i144 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %i.0204
   store double %call113, ptr %add.ptr.i144, align 8, !tbaa !12
   %64 = load ptr, ptr %rateTimes_, align 8, !tbaa !10
-  %add.ptr.i145 = getelementptr inbounds nuw double, ptr %64, i64 %i.0204
+  %add.ptr.i145 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %i.0204
   %65 = load double, ptr %add.ptr.i145, align 8, !tbaa !12
   %sub118 = fsub double %65, %cond
   %div = fdiv double %call113, %sub118
   %call121 = call double @sqrt(double noundef %div) #20, !tbaa !30
   %66 = load ptr, ptr %volatilities_, align 8, !tbaa !10
-  %add.ptr.i147 = getelementptr inbounds nuw double, ptr %66, i64 %i.0204
+  %add.ptr.i147 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %i.0204
   store double %call121, ptr %add.ptr.i147, align 8, !tbaa !12
   %inc = add i64 %i.0204, 1
   %cmp102.not = icmp ugt i64 %inc, %resetIndex

@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.wpacket_st = type { ptr, ptr, i64, i64, i64, ptr, i8 }
 %struct.rsa_pss_params_30_st = type { i32, %struct.anon, i32, i32 }
 %struct.anon = type { i32, i32 }
-%struct.ossl_item_st = type { i32, ptr }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
 
 @ossl_rsa_signature_functions = local_unnamed_addr constant [24 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @rsa_newctx }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @rsa_sign_init }, { i32, [4 x i8], ptr } { i32 3, [4 x i8] zeroinitializer, ptr @rsa_sign }, { i32, [4 x i8], ptr } { i32 4, [4 x i8] zeroinitializer, ptr @rsa_verify_init }, { i32, [4 x i8], ptr } { i32 5, [4 x i8] zeroinitializer, ptr @rsa_verify }, { i32, [4 x i8], ptr } { i32 6, [4 x i8] zeroinitializer, ptr @rsa_verify_recover_init }, { i32, [4 x i8], ptr } { i32 7, [4 x i8] zeroinitializer, ptr @rsa_verify_recover }, { i32, [4 x i8], ptr } { i32 8, [4 x i8] zeroinitializer, ptr @rsa_digest_sign_init }, { i32, [4 x i8], ptr } { i32 9, [4 x i8] zeroinitializer, ptr @rsa_digest_sign_update }, { i32, [4 x i8], ptr } { i32 10, [4 x i8] zeroinitializer, ptr @rsa_digest_sign_final }, { i32, [4 x i8], ptr } { i32 12, [4 x i8] zeroinitializer, ptr @rsa_digest_verify_init }, { i32, [4 x i8], ptr } { i32 13, [4 x i8] zeroinitializer, ptr @rsa_digest_verify_update }, { i32, [4 x i8], ptr } { i32 14, [4 x i8] zeroinitializer, ptr @rsa_digest_verify_final }, { i32, [4 x i8], ptr } { i32 16, [4 x i8] zeroinitializer, ptr @rsa_freectx }, { i32, [4 x i8], ptr } { i32 17, [4 x i8] zeroinitializer, ptr @rsa_dupctx }, { i32, [4 x i8], ptr } { i32 18, [4 x i8] zeroinitializer, ptr @rsa_get_ctx_params }, { i32, [4 x i8], ptr } { i32 19, [4 x i8] zeroinitializer, ptr @rsa_gettable_ctx_params }, { i32, [4 x i8], ptr } { i32 20, [4 x i8] zeroinitializer, ptr @rsa_set_ctx_params }, { i32, [4 x i8], ptr } { i32 21, [4 x i8] zeroinitializer, ptr @rsa_settable_ctx_params }, { i32, [4 x i8], ptr } { i32 22, [4 x i8] zeroinitializer, ptr @rsa_get_ctx_md_params }, { i32, [4 x i8], ptr } { i32 23, [4 x i8] zeroinitializer, ptr @rsa_gettable_ctx_md_params }, { i32, [4 x i8], ptr } { i32 24, [4 x i8] zeroinitializer, ptr @rsa_set_ctx_md_params }, { i32, [4 x i8], ptr } { i32 25, [4 x i8] zeroinitializer, ptr @rsa_settable_ctx_md_params }, { i32, [4 x i8], ptr } zeroinitializer], align 16
@@ -1096,7 +1095,7 @@ rsa_generate_signature_aid.exit:                  ; preds = %88
 
 109:                                              ; preds = %.preheader, %108
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %108 ]
-  %110 = getelementptr inbounds nuw %struct.ossl_item_st, ptr @padding_item, i64 %indvars.iv
+  %110 = getelementptr inbounds nuw [16 x i8], ptr @padding_item, i64 %indvars.iv
   %111 = load i32, ptr %110, align 16, !tbaa !41
   %112 = icmp eq i32 %103, %111
   br i1 %112, label %113, label %108
@@ -1179,7 +1178,7 @@ rsa_generate_signature_aid.exit:                  ; preds = %88
 
 switch.lookup:                                    ; preds = %135
   %149 = sext i32 %137 to i64
-  %150 = getelementptr ptr, ptr @switch.table.rsa_get_ctx_params, i64 %149
+  %150 = getelementptr [8 x i8], ptr @switch.table.rsa_get_ctx_params, i64 %149
   %switch.gep = getelementptr i8, ptr %150, i64 32
   %switch.load = load ptr, ptr %switch.gep, align 8
   %151 = call i32 @OSSL_PARAM_set_utf8_string(ptr noundef nonnull %127, ptr noundef nonnull %switch.load) #11
@@ -1300,7 +1299,7 @@ ossl_param_is_empty.exit:                         ; preds = %14
 
 .preheader:                                       ; preds = %35, %38
   %indvars.iv = phi i64 [ %indvars.iv.next, %38 ], [ 0, %35 ]
-  %39 = getelementptr inbounds nuw %struct.ossl_item_st, ptr @padding_item, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [16 x i8], ptr @padding_item, i64 %indvars.iv
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !43
   %42 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %37, ptr noundef nonnull dereferenceable(1) %41) #12

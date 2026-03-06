@@ -81,27 +81,17 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.879 = type { %"class.llvm::ArrayRef", [24 x i8] }
 %"class.llvm::ArrayRef" = type { ptr, i64 }
 %class.anon = type { ptr, ptr, ptr, ptr }
-%"class.clang::CXXBaseSpecifier" = type { %"class.clang::SourceRange", %"class.clang::SourceLocation", i8, ptr }
-%"class.clang::SourceRange" = type { %"class.clang::SourceLocation", %"class.clang::SourceLocation" }
 %"class.clang::GlobalDecl" = type { %"class.llvm::PointerIntPair.402", i32, [4 x i8] }
 %"class.llvm::PointerIntPair.402" = type { %"struct.llvm::detail::PunnedPointer.403" }
 %"struct.llvm::detail::PunnedPointer.403" = type { [8 x i8] }
 %"class.llvm::iterator_range.910" = type { %"class.clang::DeclContext::specific_decl_iterator.911", %"class.clang::DeclContext::specific_decl_iterator.911" }
 %"class.clang::DeclContext::specific_decl_iterator.911" = type { %"class.clang::DeclContext::decl_iterator" }
 %"class.llvm::iterator_range.912" = type { %"class.clang::DeclContext::decl_iterator", %"class.clang::DeclContext::decl_iterator" }
-%"struct.std::pair.923" = type { ptr, i64 }
-%"class.clang::SrcMgr::SLocEntry" = type { i32, [4 x i8], %union.anon.926 }
-%union.anon.926 = type { %"class.clang::SrcMgr::FileInfo" }
-%"class.clang::SrcMgr::FileInfo" = type { %"class.clang::SourceLocation", i32, %"class.llvm::PointerIntPair.927" }
-%"class.llvm::PointerIntPair.927" = type { %"struct.llvm::detail::PunnedPointer.928" }
-%"struct.llvm::detail::PunnedPointer.928" = type { [8 x i8] }
 %"class.llvm::SmallVector.1278" = type { %"class.llvm::SmallVectorImpl.1275", %"struct.llvm::SmallVectorStorage.1279" }
 %"class.llvm::SmallVectorImpl.1275" = type { %"class.llvm::SmallVectorTemplateBase.1276" }
 %"class.llvm::SmallVectorTemplateBase.1276" = type { %"class.llvm::SmallVectorTemplateCommon.1277" }
 %"class.llvm::SmallVectorTemplateCommon.1277" = type { %"class.llvm::SmallVectorBase" }
 %"struct.llvm::SmallVectorStorage.1279" = type { [64 x i8] }
-%"class.llvm::PointerIntPair.1004" = type { %"struct.llvm::detail::PunnedPointer.1005" }
-%"struct.llvm::detail::PunnedPointer.1005" = type { [8 x i8] }
 %"class.clang::NestedNameSpecifierLoc" = type { ptr, ptr }
 %"class.clang::TemplateName" = type { %"class.llvm::PointerUnion.1206" }
 %"class.llvm::PointerUnion.1206" = type { %"class.llvm::pointer_union_detail::PointerUnionMembers.1207" }
@@ -111,25 +101,13 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::pointer_union_detail::PointerUnionMembers.1210" = type { %"class.llvm::pointer_union_detail::PointerUnionMembers.1211" }
 %"class.llvm::pointer_union_detail::PointerUnionMembers.1211" = type { %"class.llvm::PointerIntPair.1212" }
 %"class.llvm::PointerIntPair.1212" = type { %"struct.llvm::detail::PunnedPointer.380" }
-%"class.clang::QualType" = type { %"class.llvm::PointerIntPair" }
-%"class.llvm::PointerIntPair" = type { %"struct.llvm::detail::PunnedPointer" }
-%"struct.llvm::detail::PunnedPointer" = type { [8 x i8] }
-%"struct.clang::FunctionType::FunctionTypeArmAttributes" = type { i16, [6 x i8] }
-%"struct.clang::FunctionType::FunctionTypeExtraBitfields" = type { i16, [6 x i8] }
-%"struct.clang::FunctionType::ExceptionType" = type { %"class.clang::QualType" }
 %"class.llvm::iterator_range.1620" = type { %"struct.clang::StmtIterator", %"struct.clang::StmtIterator" }
 %"struct.clang::StmtIterator" = type { %"class.clang::StmtIteratorImpl" }
 %"class.clang::StmtIteratorImpl" = type { %"class.clang::StmtIteratorBase" }
 %"class.clang::StmtIteratorBase" = type { %union.anon.1621, i64, ptr }
 %union.anon.1621 = type { ptr }
-%"class.clang::DeclAccessPair" = type { %"struct.llvm::support::detail::packed_endian_specific_integral" }
-%"struct.llvm::support::detail::packed_endian_specific_integral" = type { %struct.anon.1657 }
-%struct.anon.1657 = type { [8 x i8] }
 %"struct.clang::ObjCInterfaceLocInfo" = type { %"class.clang::SourceLocation", %"class.clang::SourceLocation" }
 %"class.clang::TypeLoc" = type { ptr, ptr }
-%"class.clang::LambdaCapture" = type { %"class.llvm::PointerIntPair.1664", %"class.clang::SourceLocation", %"class.clang::SourceLocation" }
-%"class.llvm::PointerIntPair.1664" = type { %"struct.llvm::detail::PunnedPointer.376" }
-%"struct.llvm::detail::PunnedPointer.376" = type { [8 x i8] }
 %"class.clang::EmbedExpr::ChildElementIter" = type { ptr, i64 }
 %"struct.clang::CXXRewrittenBinaryOperator::DecomposedForm" = type { i32, ptr, ptr, ptr }
 %"class.llvm::APInt" = type <{ %union.anon.1251, i32, [4 x i8] }>
@@ -1274,7 +1252,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %27 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %24, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [32 x i8], ptr %24, i64 %indvars.iv
   %28 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE27TraverseTemplateArgumentLocERKNS_19TemplateArgumentLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %27)
   %.not134 = xor i1 %28, true
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3007,7 +2985,7 @@ _ZNK5clang13CXXMethodDecl9getParentEv.exit:       ; preds = %14, %22
   %spec.select.i = select i1 %33, ptr %5, ptr %34
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %36 = load i64, ptr %35, align 8
-  %37 = getelementptr inbounds nuw %"class.clang::DynTypedNode", ptr %34, i64 %36
+  %37 = getelementptr inbounds nuw [40 x i8], ptr %34, i64 %36
   %38 = select i1 %33, ptr %31, ptr %37
   %.not4262 = icmp eq ptr %spec.select.i, %38
   br i1 %.not4262, label %._crit_edge, label %.lr.ph
@@ -4517,7 +4495,7 @@ _ZNK5clang13CXXRecordDecl5basesEv.exit:           ; preds = %_ZNK5clang13LazyOff
   %354 = getelementptr inbounds nuw i8, ptr %353, i64 16
   %355 = load i32, ptr %354, align 8, !tbaa !622
   %356 = zext i32 %355 to i64
-  %357 = getelementptr inbounds nuw %"class.clang::CXXBaseSpecifier", ptr %.0.i.i.i.i, i64 %356
+  %357 = getelementptr inbounds nuw [24 x i8], ptr %.0.i.i.i.i, i64 %356
   %.not54153 = icmp eq ptr %.0.i.i.i, %357
   br i1 %.not54153, label %.loopexit, label %.lr.ph155
 
@@ -5879,7 +5857,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds 
   %21 = phi i32 [ %14, %10 ], [ %.pre.i, %17 ]
   %22 = load ptr, ptr %12, align 8, !tbaa !526
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %"struct.std::pair.923", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %23
   store ptr %11, ptr %24, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %8, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -5920,7 +5898,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Start
   %47 = phi i32 [ %40, %32 ], [ %.pre.i.i, %43 ]
   %48 = load ptr, ptr %33, align 8, !tbaa !526
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   %51 = ptrtoint ptr %39 to i64
   store i64 %51, ptr %50, align 1
   %52 = load i32, ptr %34, align 8, !tbaa !527
@@ -5976,7 +5954,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang13SourceManager16isOffs
   %13 = lshr i32 %11, 6
   %14 = zext nneg i32 %13 to i64
   %15 = load ptr, ptr %12, align 8, !tbaa !526
-  %16 = getelementptr inbounds nuw i64, ptr %15, i64 %14
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %14
   %17 = and i32 %11, 63
   %18 = load i64, ptr %16, align 8, !tbaa !440
   %19 = zext nneg i32 %17 to i64
@@ -5990,7 +5968,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang13SourceManager16isOffs
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %25 = lshr i64 %23, 5
   %26 = load ptr, ptr %24, align 8, !tbaa !526
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %25
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %25
   %28 = load ptr, ptr %27, align 8, !tbaa !646
   %.not.i.i.i.i.i.i = icmp eq ptr %28, null
   br i1 %.not.i.i.i.i.i.i, label %29, label %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i, !prof !648
@@ -6022,7 +6000,7 @@ _ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.
 _ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i: ; preds = %_ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.loopexit.i.i.i.i.i.i, %22
   %37 = phi ptr [ %.pre.i.i.i.i.i.i, %_ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.loopexit.i.i.i.i.i.i ], [ %28, %22 ]
   %38 = and i64 %23, 31
-  %39 = getelementptr inbounds nuw %"class.clang::SrcMgr::SLocEntry", ptr %37, i64 %38
+  %39 = getelementptr inbounds nuw [24 x i8], ptr %37, i64 %38
   br label %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit
 
 40:                                               ; preds = %10
@@ -6033,7 +6011,7 @@ _ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i: ; pre
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %44 = zext nneg i32 %1 to i64
   %45 = load ptr, ptr %43, align 8, !tbaa !526
-  %46 = getelementptr inbounds nuw %"class.clang::SrcMgr::SLocEntry", ptr %45, i64 %44
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %44
   br label %_ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit
 
 _ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit: ; preds = %5, %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i, %40, %42
@@ -6070,7 +6048,7 @@ _ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit: ; preds = %5, %_ZNK4
   %66 = lshr i32 %64, 6
   %67 = zext nneg i32 %66 to i64
   %68 = load ptr, ptr %65, align 8, !tbaa !526
-  %69 = getelementptr inbounds nuw i64, ptr %68, i64 %67
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %67
   %70 = and i32 %64, 63
   %71 = load i64, ptr %69, align 8, !tbaa !440
   %72 = zext nneg i32 %70 to i64
@@ -6084,7 +6062,7 @@ _ZNK5clang13SourceManager12getSLocEntryENS_6FileIDEPb.exit: ; preds = %5, %_ZNK4
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %78 = lshr i64 %76, 5
   %79 = load ptr, ptr %77, align 8, !tbaa !526
-  %80 = getelementptr inbounds nuw ptr, ptr %79, i64 %78
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %78
   %81 = load ptr, ptr %80, align 8, !tbaa !646
   %.not.i.i.i.i.i13 = icmp eq ptr %81, null
   br i1 %.not.i.i.i.i.i13, label %82, label %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i, !prof !648
@@ -6116,7 +6094,7 @@ _ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.
 _ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i: ; preds = %_ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.loopexit.i.i.i.i.i, %75
   %90 = phi ptr [ %.pre.i.i.i.i.i, %_ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.loopexit.i.i.i.i.i ], [ %81, %75 ]
   %91 = and i64 %76, 31
-  %92 = getelementptr inbounds nuw %"class.clang::SrcMgr::SLocEntry", ptr %90, i64 %91
+  %92 = getelementptr inbounds nuw [24 x i8], ptr %90, i64 %91
   br label %_ZNK5clang13SourceManager16getSLocEntryByIDEiPb.exit
 
 93:                                               ; preds = %63
@@ -6126,7 +6104,7 @@ _ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i: ; preds
 95:                                               ; preds = %61
   %96 = zext nneg i32 %4 to i64
   %97 = load ptr, ptr %53, align 8, !tbaa !526
-  %98 = getelementptr inbounds nuw %"class.clang::SrcMgr::SLocEntry", ptr %97, i64 %96
+  %98 = getelementptr inbounds nuw [24 x i8], ptr %97, i64 %96
   br label %_ZNK5clang13SourceManager16getSLocEntryByIDEiPb.exit
 
 _ZNK5clang13SourceManager16getSLocEntryByIDEiPb.exit: ; preds = %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i, %93, %95
@@ -6199,7 +6177,7 @@ define linkonce_odr hidden noundef ptr @_ZN5clang13SourceManager19getSLocEntryFo
   %10 = lshr i32 %8, 6
   %11 = zext nneg i32 %10 to i64
   %12 = load ptr, ptr %9, align 8, !tbaa !526
-  %13 = getelementptr inbounds nuw i64, ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %11
   %14 = and i32 %8, 63
   %15 = load i64, ptr %13, align 8, !tbaa !440
   %16 = zext nneg i32 %14 to i64
@@ -6213,7 +6191,7 @@ define linkonce_odr hidden noundef ptr @_ZN5clang13SourceManager19getSLocEntryFo
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %22 = lshr i64 %20, 5
   %23 = load ptr, ptr %21, align 8, !tbaa !526
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %22
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %22
   %25 = load ptr, ptr %24, align 8, !tbaa !646
   %.not.i.i.i.i.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i.i.i.i.i, label %26, label %_ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i, !prof !648
@@ -6245,7 +6223,7 @@ _ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.
 _ZNK4llvm11PagedVectorIN5clang6SrcMgr9SLocEntryELm32EEixEm.exit.i.i.i.i.i: ; preds = %_ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.loopexit.i.i.i.i.i.i, %19
   %34 = phi ptr [ %.pre.i.i.i.i.i.i, %_ZSt31uninitialized_value_construct_nIPN5clang6SrcMgr9SLocEntryEmET_S4_T0_.exit.loopexit.i.i.i.i.i.i ], [ %25, %19 ]
   %35 = and i64 %20, 31
-  %36 = getelementptr inbounds nuw %"class.clang::SrcMgr::SLocEntry", ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [24 x i8], ptr %34, i64 %35
   br label %_ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit
 
 37:                                               ; preds = %7
@@ -6262,7 +6240,7 @@ _ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread9: ; preds =
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %42 = zext nneg i32 %1 to i64
   %43 = load ptr, ptr %41, align 8, !tbaa !526
-  %44 = getelementptr inbounds nuw %"class.clang::SrcMgr::SLocEntry", ptr %43, i64 %42
+  %44 = getelementptr inbounds nuw [24 x i8], ptr %43, i64 %42
   br label %_ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit
 
 _ZN5clang13SourceManager18getSLocEntryOrNullENS_6FileIDE.exit.thread: ; preds = %2, %37
@@ -6820,7 +6798,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %_ZNSt6vectorIPN5cla
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %71 = load i32, ptr %70, align 8, !tbaa !527
   %72 = zext i32 %71 to i64
-  %73 = getelementptr inbounds nuw ptr, ptr %69, i64 %72
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %72
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %67
@@ -6923,7 +6901,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %.loopexit
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %35 = load i32, ptr %34, align 8, !tbaa !527
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw ptr, ptr %33, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %36
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %31
@@ -7016,7 +6994,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %.loopexit
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %33 = load i32, ptr %32, align 8, !tbaa !527
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %31, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %34
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %29
@@ -7065,7 +7043,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %5
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load i32, ptr %15, align 8, !tbaa !527
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %14, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %17
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %12
@@ -7158,7 +7136,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %.loopexit
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %33 = load i32, ptr %32, align 8, !tbaa !527
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %31, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %34
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %29
@@ -7251,7 +7229,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %.loopexit
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %33 = load i32, ptr %32, align 8, !tbaa !527
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %31, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %34
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %29
@@ -7344,7 +7322,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %.loopexit
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %33 = load i32, ptr %32, align 8, !tbaa !527
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %31, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %34
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %29
@@ -7393,7 +7371,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %5
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load i32, ptr %15, align 8, !tbaa !527
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %14, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %17
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %12
@@ -7485,7 +7463,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %.critedge53
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %36 = load i32, ptr %35, align 8, !tbaa !527
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw ptr, ptr %34, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %37
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %32
@@ -7596,7 +7574,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %_ZN4llvm8dyn_castIN
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %42 = load i32, ptr %41, align 8, !tbaa !527
   %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds nuw ptr, ptr %40, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %43
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %38
@@ -7693,7 +7671,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %_ZN4llvm8dyn_castIN
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %33 = load i32, ptr %32, align 8, !tbaa !527
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %31, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %34
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %29
@@ -7790,7 +7768,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %_ZN4llvm8dyn_castIN
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %33 = load i32, ptr %32, align 8, !tbaa !527
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %31, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %34
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %29
@@ -7887,7 +7865,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %_ZN4llvm8dyn_castIN
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %33 = load i32, ptr %32, align 8, !tbaa !527
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %31, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %34
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %29
@@ -7922,7 +7900,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
   %11 = load i32, ptr %10, align 4, !tbaa !759
   %12 = zext i32 %11 to i64
   %13 = extractvalue { ptr, i64 } %8, 0
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %12
   %.not47 = icmp eq ptr %6, %14
   br i1 %.not47, label %.critedge, label %.lr.ph
 
@@ -8011,7 +7989,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %_ZN4llvm8dyn_castIN
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %49 = load i32, ptr %48, align 8, !tbaa !527
   %50 = zext i32 %49 to i64
-  %51 = getelementptr inbounds nuw ptr, ptr %47, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %50
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %45
@@ -8130,7 +8108,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %_ZN4llvm8dyn_castIN
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %43 = load i32, ptr %42, align 8, !tbaa !527
   %44 = zext i32 %43 to i64
-  %45 = getelementptr inbounds nuw ptr, ptr %41, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %44
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %39
@@ -8165,7 +8143,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
   %11 = load i32, ptr %10, align 4, !tbaa !759
   %12 = zext i32 %11 to i64
   %13 = extractvalue { ptr, i64 } %8, 0
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %12
   %.not70 = icmp eq ptr %6, %14
   br i1 %.not70, label %.critedge, label %.lr.ph
 
@@ -8279,7 +8257,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %_ZN4llvm8dyn_castIN
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %58 = load i32, ptr %57, align 8, !tbaa !527
   %59 = zext i32 %58 to i64
-  %60 = getelementptr inbounds nuw ptr, ptr %56, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %59
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %54
@@ -8373,7 +8351,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %30
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %41 = load i32, ptr %40, align 8, !tbaa !527
   %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds nuw ptr, ptr %39, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %42
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %37
@@ -8475,7 +8453,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %.loopexit
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %37 = load i32, ptr %36, align 8, !tbaa !527
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw ptr, ptr %35, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %38
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %33
@@ -8676,7 +8654,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %.loopexit
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %77 = load i32, ptr %76, align 8, !tbaa !527
   %78 = zext i32 %77 to i64
-  %79 = getelementptr inbounds nuw ptr, ptr %75, i64 %78
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %78
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %73
@@ -8769,7 +8747,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %.loopexit
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %33 = load i32, ptr %32, align 8, !tbaa !527
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %31, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %34
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %29
@@ -8862,7 +8840,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %.loopexit
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %33 = load i32, ptr %32, align 8, !tbaa !527
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %31, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %34
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %29
@@ -8979,7 +8957,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %.loopexit
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %44 = load i32, ptr %43, align 8, !tbaa !527
   %45 = zext i32 %44 to i64
-  %46 = getelementptr inbounds nuw ptr, ptr %42, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %45
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %40
@@ -9072,7 +9050,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %.loopexit
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %33 = load i32, ptr %32, align 8, !tbaa !527
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %31, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %34
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %29
@@ -9165,7 +9143,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %.loopexit
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %33 = load i32, ptr %32, align 8, !tbaa !527
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %31, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %34
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %29
@@ -9349,7 +9327,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %_ZN4llvm8dyn_castIN
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %44 = load i32, ptr %43, align 8, !tbaa !527
   %45 = zext i32 %44 to i64
-  %46 = getelementptr inbounds nuw ptr, ptr %42, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %45
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %40
@@ -9446,7 +9424,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %_ZN4llvm8dyn_castIN
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %33 = load i32, ptr %32, align 8, !tbaa !527
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %31, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %34
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %29
@@ -9543,7 +9521,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %_ZN4llvm8dyn_castIN
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %33 = load i32, ptr %32, align 8, !tbaa !527
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %31, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %34
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %29
@@ -9640,7 +9618,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %_ZN4llvm8dyn_castIN
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %33 = load i32, ptr %32, align 8, !tbaa !527
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %31, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %34
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %29
@@ -9737,7 +9715,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %_ZN4llvm8dyn_castIN
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %33 = load i32, ptr %32, align 8, !tbaa !527
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %31, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %34
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %29
@@ -9840,7 +9818,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %_ZN4llvm8dyn_castIN
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %37 = load i32, ptr %36, align 8, !tbaa !527
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw ptr, ptr %35, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %38
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %33
@@ -9889,7 +9867,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %5
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load i32, ptr %15, align 8, !tbaa !527
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %14, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %17
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %12
@@ -9938,7 +9916,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %5
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load i32, ptr %15, align 8, !tbaa !527
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %14, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %17
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %12
@@ -9987,7 +9965,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %5
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load i32, ptr %15, align 8, !tbaa !527
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %14, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %17
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %12
@@ -10036,7 +10014,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %5
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load i32, ptr %15, align 8, !tbaa !527
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %14, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %17
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %12
@@ -10085,7 +10063,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %5
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load i32, ptr %15, align 8, !tbaa !527
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %14, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %17
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %12
@@ -10134,7 +10112,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %5
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load i32, ptr %15, align 8, !tbaa !527
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %14, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %17
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %12
@@ -10254,7 +10232,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %_ZN4llvm8dyn_castIN
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %46 = load i32, ptr %45, align 8, !tbaa !527
   %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds nuw ptr, ptr %44, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %47
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %42
@@ -10316,7 +10294,7 @@ _ZNK5clang29VarTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit: ; pr
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %14 ]
-  %15 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %11, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 %indvars.iv
   %16 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE27TraverseTemplateArgumentLocERKNS_19TemplateArgumentLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %15)
   br i1 %16, label %14, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit
 
@@ -10416,7 +10394,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %_ZN4llvm8dyn_castIN
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %59 = load i32, ptr %58, align 8, !tbaa !527
   %60 = zext i32 %59 to i64
-  %61 = getelementptr inbounds nuw ptr, ptr %57, i64 %60
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %60
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %55
@@ -10480,7 +10458,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
 _ZN5clang21TemplateParameterList17getRequiresClauseEv.exit.i: ; preds = %._crit_edge.i
   %18 = and i32 %16, 536870911
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %7, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !761
   %.not23.i = icmp eq ptr %21, null
   br i1 %.not23.i, label %.thread27.i, label %22
@@ -10523,7 +10501,7 @@ _ZNK5clang29VarTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit33: ; 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %33
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %33 ]
-  %34 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %30, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [32 x i8], ptr %30, i64 %indvars.iv
   %35 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE27TraverseTemplateArgumentLocERKNS_19TemplateArgumentLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %34)
   br i1 %35, label %33, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit
 
@@ -10623,7 +10601,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %_ZN4llvm8dyn_castIN
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %78 = load i32, ptr %77, align 8, !tbaa !527
   %79 = zext i32 %78 to i64
-  %80 = getelementptr inbounds nuw ptr, ptr %76, i64 %79
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %79
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %74
@@ -10777,7 +10755,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %_ZN4llvm8dyn_castIN
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %65 = load i32, ptr %64, align 8, !tbaa !527
   %66 = zext i32 %65 to i64
-  %67 = getelementptr inbounds nuw ptr, ptr %63, i64 %66
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %66
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %61
@@ -10897,7 +10875,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %_ZN4llvm8dyn_castIN
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %46 = load i32, ptr %45, align 8, !tbaa !527
   %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds nuw ptr, ptr %44, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %47
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %42
@@ -11017,7 +10995,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %_ZN4llvm8dyn_castIN
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %46 = load i32, ptr %45, align 8, !tbaa !527
   %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds nuw ptr, ptr %44, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %47
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %42
@@ -11158,7 +11136,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %_ZN4llvm8dyn_castIN
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %55 = load i32, ptr %54, align 8, !tbaa !527
   %56 = zext i32 %55 to i64
-  %57 = getelementptr inbounds nuw ptr, ptr %53, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %56
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %51
@@ -11319,7 +11297,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %_ZN4llvm8dyn_castIN
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %62 = load i32, ptr %61, align 8, !tbaa !527
   %63 = zext i32 %62 to i64
-  %64 = getelementptr inbounds nuw ptr, ptr %60, i64 %63
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %63
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %58
@@ -11420,7 +11398,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %_ZN4llvm8dyn_castIN
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %35 = load i32, ptr %34, align 8, !tbaa !527
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw ptr, ptr %33, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %36
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %31
@@ -11558,7 +11536,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %_ZN4llvm8dyn_castIN
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %56 = load i32, ptr %55, align 8, !tbaa !527
   %57 = zext i32 %56 to i64
-  %58 = getelementptr inbounds nuw ptr, ptr %54, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %57
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %52
@@ -11679,7 +11657,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %_ZN4llvm8dyn_castIN
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %49 = load i32, ptr %48, align 8, !tbaa !527
   %50 = zext i32 %49 to i64
-  %51 = getelementptr inbounds nuw ptr, ptr %47, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %50
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %45
@@ -11800,7 +11778,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %_ZN4llvm8dyn_castIN
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %49 = load i32, ptr %48, align 8, !tbaa !527
   %50 = zext i32 %49 to i64
-  %51 = getelementptr inbounds nuw ptr, ptr %47, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %50
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %45
@@ -11898,7 +11876,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %_ZN4llvm8dyn_castIN
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %32 = load i32, ptr %31, align 8, !tbaa !527
   %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds nuw ptr, ptr %30, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %33
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %28
@@ -11995,7 +11973,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %_ZN4llvm8dyn_castIN
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %33 = load i32, ptr %32, align 8, !tbaa !527
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %31, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %34
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %29
@@ -12092,7 +12070,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %_ZN4llvm8dyn_castIN
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %33 = load i32, ptr %32, align 8, !tbaa !527
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %31, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %34
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %29
@@ -12189,7 +12167,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %_ZN4llvm8dyn_castIN
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %33 = load i32, ptr %32, align 8, !tbaa !527
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %31, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %34
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %29
@@ -12294,7 +12272,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %_ZN4llvm8dyn_castIN
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %36 = load i32, ptr %35, align 8, !tbaa !527
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw ptr, ptr %34, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %37
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %32
@@ -12391,7 +12369,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %_ZN4llvm8dyn_castIN
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %33 = load i32, ptr %32, align 8, !tbaa !527
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %31, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %34
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %29
@@ -12435,7 +12413,7 @@ _ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.i.thread: ; preds = %2, 
 11:                                               ; preds = %_ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.i.thread
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !849
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !850
   %.not.i29 = icmp eq ptr %15, null
   br i1 %.not.i29, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE35TraverseTemplateParameterListHelperEPNS_21TemplateParameterListE.exit, label %16
@@ -12474,7 +12452,7 @@ _ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.i.thread: ; preds = %2, 
 _ZN5clang21TemplateParameterList17getRequiresClauseEv.exit.i: ; preds = %._crit_edge
   %28 = and i32 %26, 536870911
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %17, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !761
   %.not23.i = icmp eq ptr %31, null
   br i1 %.not23.i, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE35TraverseTemplateParameterListHelperEPNS_21TemplateParameterListE.exit, label %32
@@ -12568,7 +12546,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %.loopexit
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %66 = load i32, ptr %65, align 8, !tbaa !527
   %67 = zext i32 %66 to i64
-  %68 = getelementptr inbounds nuw ptr, ptr %64, i64 %67
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %67
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %62
@@ -12666,7 +12644,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %.loopexit
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %36 = load i32, ptr %35, align 8, !tbaa !527
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw ptr, ptr %34, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %37
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %32
@@ -12728,7 +12706,7 @@ _ZNK5clang31ClassTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit: ; 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %14 ]
-  %15 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %11, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 %indvars.iv
   %16 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE27TraverseTemplateArgumentLocERKNS_19TemplateArgumentLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %15)
   br i1 %16, label %14, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit
 
@@ -12802,7 +12780,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %.loopexit
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %47 = load i32, ptr %46, align 8, !tbaa !527
   %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds nuw ptr, ptr %45, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %48
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %43
@@ -12866,7 +12844,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
 _ZN5clang21TemplateParameterList17getRequiresClauseEv.exit.i: ; preds = %._crit_edge.i
   %18 = and i32 %16, 536870911
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %7, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !761
   %.not23.i = icmp eq ptr %21, null
   br i1 %.not23.i, label %.thread27.i, label %22
@@ -12909,7 +12887,7 @@ _ZNK5clang31ClassTemplateSpecializationDecl24getTemplateArgsAsWrittenEv.exit33: 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %33
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %33 ]
-  %34 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %30, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [32 x i8], ptr %30, i64 %indvars.iv
   %35 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE27TraverseTemplateArgumentLocERKNS_19TemplateArgumentLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %34)
   br i1 %35, label %33, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit
 
@@ -12983,7 +12961,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %.loopexit
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %66 = load i32, ptr %65, align 8, !tbaa !527
   %67 = zext i32 %66 to i64
-  %68 = getelementptr inbounds nuw ptr, ptr %64, i64 %67
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %67
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %62
@@ -13027,7 +13005,7 @@ _ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.thread: ; preds = %2, %_
 11:                                               ; preds = %_ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.thread
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !849
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !850
   %.not.i43 = icmp eq ptr %15, null
   br i1 %.not.i43, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE35TraverseTemplateParameterListHelperEPNS_21TemplateParameterListE.exit, label %16
@@ -13066,7 +13044,7 @@ _ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.thread: ; preds = %2, %_
 _ZN5clang21TemplateParameterList17getRequiresClauseEv.exit.i: ; preds = %._crit_edge
   %28 = and i32 %26, 536870911
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %17, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !761
   %.not23.i = icmp eq ptr %31, null
   br i1 %.not23.i, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE35TraverseTemplateParameterListHelperEPNS_21TemplateParameterListE.exit, label %32
@@ -13178,7 +13156,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %.loopexit
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %74 = load i32, ptr %73, align 8, !tbaa !527
   %75 = zext i32 %74 to i64
-  %76 = getelementptr inbounds nuw ptr, ptr %72, i64 %75
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %75
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %70
@@ -13283,7 +13261,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %_ZN4llvm8dyn_castIN
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %36 = load i32, ptr %35, align 8, !tbaa !527
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw ptr, ptr %34, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %37
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %32
@@ -13401,7 +13379,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %_ZN4llvm8dyn_castIN
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %44 = load i32, ptr %43, align 8, !tbaa !527
   %45 = zext i32 %44 to i64
-  %46 = getelementptr inbounds nuw ptr, ptr %42, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %45
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %40
@@ -13519,7 +13497,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %_ZN4llvm8dyn_castIN
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %44 = load i32, ptr %43, align 8, !tbaa !527
   %45 = zext i32 %44 to i64
-  %46 = getelementptr inbounds nuw ptr, ptr %42, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %45
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %40
@@ -13643,7 +13621,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %_ZN4llvm8dyn_castIN
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %47 = load i32, ptr %46, align 8, !tbaa !527
   %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds nuw ptr, ptr %45, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %48
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %43
@@ -13723,7 +13701,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %27
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %27 ]
-  %28 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %24, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [32 x i8], ptr %24, i64 %indvars.iv
   %29 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE27TraverseTemplateArgumentLocERKNS_19TemplateArgumentLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %28)
   br i1 %29, label %27, label %.critedge
 
@@ -13861,7 +13839,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %_ZN4llvm8dyn_castIN
   %86 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %87 = load i32, ptr %86, align 8, !tbaa !527
   %88 = zext i32 %87 to i64
-  %89 = getelementptr inbounds nuw ptr, ptr %85, i64 %88
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %88
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %83
@@ -13990,7 +13968,7 @@ _ZNK5clang24TemplateTemplateParmDecl18getDefaultArgumentEv.exit: ; preds = %17, 
 _ZN5clang21TemplateParameterList17getRequiresClauseEv.exit.i: ; preds = %._crit_edge.i
   %48 = and i32 %46, 536870911
   %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %37, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %49
   %51 = load ptr, ptr %50, align 8, !tbaa !761
   %.not23.i = icmp eq ptr %51, null
   br i1 %.not23.i, label %.thread27.i, label %52
@@ -14073,7 +14051,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %_ZN4llvm8dyn_castIN
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %84 = load i32, ptr %83, align 8, !tbaa !527
   %85 = zext i32 %84 to i64
-  %86 = getelementptr inbounds nuw ptr, ptr %82, i64 %85
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %85
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %80
@@ -14136,7 +14114,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
 _ZN5clang21TemplateParameterList17getRequiresClauseEv.exit.i: ; preds = %._crit_edge.i
   %17 = and i32 %15, 536870911
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr %6, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !761
   %.not23.i = icmp eq ptr %20, null
   br i1 %.not23.i, label %.thread27.i, label %21
@@ -14237,7 +14215,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %_ZN4llvm8dyn_castIN
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %65 = load i32, ptr %64, align 8, !tbaa !527
   %66 = zext i32 %65 to i64
-  %67 = getelementptr inbounds nuw ptr, ptr %63, i64 %66
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %66
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %61
@@ -14306,7 +14284,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
 _ZN5clang21TemplateParameterList17getRequiresClauseEv.exit.i: ; preds = %._crit_edge.i
   %21 = and i32 %19, 536870911
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %10, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !761
   %.not23.i = icmp eq ptr %24, null
   br i1 %.not23.i, label %.thread27.i, label %25
@@ -14389,7 +14367,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %_ZN4llvm8dyn_castIN
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %57 = load i32, ptr %56, align 8, !tbaa !527
   %58 = zext i32 %57 to i64
-  %59 = getelementptr inbounds nuw ptr, ptr %55, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %58
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %53
@@ -14452,7 +14430,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
 _ZN5clang21TemplateParameterList17getRequiresClauseEv.exit.i: ; preds = %._crit_edge.i
   %17 = and i32 %15, 536870911
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr %6, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !761
   %.not23.i = icmp eq ptr %20, null
   br i1 %.not23.i, label %.thread27.i, label %21
@@ -14553,7 +14531,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %_ZN4llvm8dyn_castIN
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %65 = load i32, ptr %64, align 8, !tbaa !527
   %66 = zext i32 %65 to i64
-  %67 = getelementptr inbounds nuw ptr, ptr %63, i64 %66
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %66
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %61
@@ -14616,7 +14594,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
 _ZN5clang21TemplateParameterList17getRequiresClauseEv.exit.i: ; preds = %._crit_edge.i
   %17 = and i32 %15, 536870911
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr %6, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !761
   %.not23.i = icmp eq ptr %20, null
   br i1 %.not23.i, label %.thread27.i, label %21
@@ -14717,7 +14695,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %_ZN4llvm8dyn_castIN
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 8
   %65 = load i32, ptr %64, align 8, !tbaa !527
   %66 = zext i32 %65 to i64
-  %67 = getelementptr inbounds nuw ptr, ptr %63, i64 %66
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %66
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %61
@@ -14780,7 +14758,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
 _ZN5clang21TemplateParameterList17getRequiresClauseEv.exit.i: ; preds = %._crit_edge.i
   %17 = and i32 %15, 536870911
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr %6, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !761
   %.not23.i = icmp eq ptr %20, null
   br i1 %.not23.i, label %.thread27.i, label %21
@@ -14869,7 +14847,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %_ZN4llvm8dyn_castIN
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %57 = load i32, ptr %56, align 8, !tbaa !527
   %58 = zext i32 %57 to i64
-  %59 = getelementptr inbounds nuw ptr, ptr %55, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %58
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %53
@@ -14932,7 +14910,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
 _ZN5clang21TemplateParameterList17getRequiresClauseEv.exit.i: ; preds = %._crit_edge.i
   %17 = and i32 %15, 536870911
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr %6, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !761
   %.not23.i = icmp eq ptr %20, null
   br i1 %.not23.i, label %.thread27.i, label %21
@@ -15015,7 +14993,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %_ZN4llvm8dyn_castIN
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %53 = load i32, ptr %52, align 8, !tbaa !527
   %54 = zext i32 %53 to i64
-  %55 = getelementptr inbounds nuw ptr, ptr %51, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %54
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %49
@@ -15078,7 +15056,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %12
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %23 = load i32, ptr %22, align 8, !tbaa !527
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %21, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %24
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %19
@@ -15175,7 +15153,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %_ZN4llvm8dyn_castIN
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %33 = load i32, ptr %32, align 8, !tbaa !527
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %31, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %34
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %29
@@ -15227,7 +15205,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %5
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load i32, ptr %15, align 8, !tbaa !527
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %14, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %17
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %12
@@ -15324,7 +15302,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %_ZN4llvm8dyn_castIN
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %33 = load i32, ptr %32, align 8, !tbaa !527
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %31, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %34
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %29
@@ -15430,7 +15408,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %_ZN4llvm8dyn_castIN
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %39 = load i32, ptr %38, align 8, !tbaa !527
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw ptr, ptr %37, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %40
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %35
@@ -15552,7 +15530,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %_ZN4llvm8dyn_castIN
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %44 = load i32, ptr %43, align 8, !tbaa !527
   %45 = zext i32 %44 to i64
-  %46 = getelementptr inbounds nuw ptr, ptr %42, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %45
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %40
@@ -15655,7 +15633,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %_ZN4llvm8dyn_castIN
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %37 = load i32, ptr %36, align 8, !tbaa !527
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw ptr, ptr %35, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %38
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %33
@@ -15752,7 +15730,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %_ZN4llvm8dyn_castIN
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %33 = load i32, ptr %32, align 8, !tbaa !527
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %31, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %34
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %29
@@ -15869,7 +15847,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %_ZN4llvm8dyn_castIN
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %41 = load i32, ptr %40, align 8, !tbaa !527
   %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds nuw ptr, ptr %39, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %42
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %37
@@ -15929,7 +15907,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
 17:                                               ; preds = %.lr.ph69, %.critedge
   %indvars.iv = phi i64 [ 0, %.lr.ph69 ], [ %indvars.iv.next, %.critedge ]
   %18 = load ptr, ptr %16, align 8, !tbaa !904
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !850
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 20
@@ -16030,7 +16008,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %_ZN4llvm8dyn_castIN
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %60 = load i32, ptr %59, align 8, !tbaa !527
   %61 = zext i32 %60 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %58, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %61
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %56
@@ -16197,7 +16175,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %_ZN4llvm8dyn_castIN
   %67 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %68 = load i32, ptr %67, align 8, !tbaa !527
   %69 = zext i32 %68 to i64
-  %70 = getelementptr inbounds nuw ptr, ptr %66, i64 %69
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %69
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %64
@@ -16300,7 +16278,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %_ZN4llvm8dyn_castIN
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %37 = load i32, ptr %36, align 8, !tbaa !527
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw ptr, ptr %35, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %38
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %33
@@ -16397,7 +16375,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %_ZN4llvm8dyn_castIN
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %33 = load i32, ptr %32, align 8, !tbaa !527
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %31, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %34
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %29
@@ -16494,7 +16472,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %_ZN4llvm8dyn_castIN
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %33 = load i32, ptr %32, align 8, !tbaa !527
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %31, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %34
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %29
@@ -16548,7 +16526,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_14PointerIntPairIPN5clang4StmtELj1EbNS_21Po
   %17 = phi i32 [ %10, %6 ], [ %.pre.i, %13 ]
   %18 = load ptr, ptr %2, align 8, !tbaa !526
   %19 = zext i32 %17 to i64
-  %20 = getelementptr inbounds nuw %"class.llvm::PointerIntPair.1004", ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %19
   store i64 %8, ptr %20, align 1
   %21 = load i32, ptr %9, align 8, !tbaa !527
   %22 = add i32 %21, 1
@@ -16585,7 +16563,7 @@ thread-pre-split..critedge.loopexit_crit_edge:    ; preds = %thread-pre-split
   %28 = phi i32 [ %.pr, %thread-pre-split ], [ 1, %.lr.ph.preheader ]
   %29 = load ptr, ptr %4, align 8, !tbaa !526
   %30 = zext i32 %28 to i64
-  %31 = getelementptr inbounds nuw %"class.llvm::PointerIntPair.1004", ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %30
   %32 = getelementptr inbounds i8, ptr %31, i64 -8
   %.0.copyload.i.i.i = load i64, ptr %32, align 8
   %33 = and i64 %.0.copyload.i.i.i, 4
@@ -17471,7 +17449,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %23 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %20, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %indvars.iv
   %24 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE27TraverseTemplateArgumentLocERKNS_19TemplateArgumentLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %23)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
@@ -17610,8 +17588,8 @@ _ZNK5clang38DependentTemplateSpecializationTypeLoc15getQualifierLocEv.exit.threa
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.experimental.noalias.scope.decl(metadata !942)
-  %17 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %12, i64 %indvars.iv
-  %18 = getelementptr inbounds nuw %"struct.clang::TemplateArgumentLocInfo", ptr %13, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %.sroa.0.0.copyload.i.i = load i64, ptr %18, align 8, !noalias !942
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(24) %17, i64 24, i1 false), !tbaa.struct !945
   store i64 %.sroa.0.0.copyload.i.i, ptr %14, align 8, !alias.scope !942
@@ -17824,7 +17802,7 @@ _ZNK5clang15FunctionTypeLoc12getNumParamsEv.exit: ; preds = %30
 
 39:                                               ; preds = %.lr.ph, %52
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %52 ]
-  %40 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv
   %41 = load ptr, ptr %40, align 8, !tbaa !771
   %.not43 = icmp eq ptr %41, null
   br i1 %.not43, label %44, label %42
@@ -17841,7 +17819,7 @@ _ZNK5clang15FunctionTypeLoc12getNumParamsEv.exit: ; preds = %30
   br i1 %48, label %49, label %52
 
 49:                                               ; preds = %44
-  %50 = getelementptr inbounds nuw %"class.clang::QualType", ptr %37, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   %.sroa.0.0.copyload.i = load i64, ptr %50, align 8, !tbaa !465
   %51 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE12TraverseTypeENS_8QualTypeE(ptr noundef nonnull align 1 dereferenceable(1) %0, i64 %.sroa.0.0.copyload.i)
   br i1 %51, label %52, label %.thread63
@@ -17856,10 +17834,10 @@ _ZNK5clang15FunctionTypeLoc12getNumParamsEv.exit: ; preds = %30
   %54 = load i64, ptr %5, align 16
   %55 = lshr i64 %54, 38
   %56 = and i64 %55, 65535
-  %57 = getelementptr inbounds nuw %"class.clang::QualType", ptr %53, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %56
   %58 = lshr i64 %54, 60
   %59 = and i64 %58, 1
-  %60 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %57, i64 %59
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %59
   %61 = ptrtoint ptr %60 to i64
   %62 = add i64 %61, 7
   %63 = and i64 %62, -8
@@ -17874,7 +17852,7 @@ _ZNK5clang15FunctionTypeLoc12getNumParamsEv.exit: ; preds = %30
   %.lobit.i.i.i.i.i.i = and i16 %68, 1
   %69 = zext nneg i16 %.lobit.i.i.i.i.i.i to i64
   %70 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  %71 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeArmAttributes", ptr %70, i64 %69
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %69
   br label %_ZNK5clang17FunctionProtoType15exception_beginEv.exit.i.i
 
 _ZNK5clang17FunctionProtoType15exception_beginEv.exit.i.i: ; preds = %66, %._crit_edge
@@ -17893,8 +17871,8 @@ _ZNK5clang17FunctionProtoType15exception_beginEv.exit.i.i: ; preds = %66, %._cri
 
 _ZNK5clang17FunctionProtoType10exceptionsEv.exit: ; preds = %_ZNK5clang17FunctionProtoType15exception_beginEv.exit.i.i, %77
   %81 = phi i64 [ %80, %77 ], [ 0, %_ZNK5clang17FunctionProtoType15exception_beginEv.exit.i.i ]
-  %82 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeArmAttributes", ptr %73, i64 %74
-  %83 = getelementptr inbounds nuw %"class.clang::QualType", ptr %82, i64 %81
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %74
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %81
   %.not4468 = icmp eq ptr %72, %83
   br i1 %.not4468, label %._crit_edge71, label %.lr.ph70
 
@@ -17925,10 +17903,10 @@ _ZNK5clang17FunctionProtoType10exceptionsEv.exit: ; preds = %_ZNK5clang17Functio
 93:                                               ; preds = %._crit_edge71
   %94 = lshr i64 %87, 38
   %95 = and i64 %94, 65535
-  %96 = getelementptr inbounds nuw %"class.clang::QualType", ptr %53, i64 %95
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %95
   %97 = lshr i64 %87, 60
   %98 = and i64 %97, 1
-  %99 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %96, i64 %98
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %96, i64 %98
   %100 = ptrtoint ptr %99 to i64
   %101 = add i64 %100, 7
   %102 = and i64 %101, -8
@@ -17960,9 +17938,9 @@ _ZNK5clang17FunctionProtoType15getNoexceptExprEv.exit: ; preds = %_ZN4llvm25trai
   %spec.select.i.i.i.i.i = phi i64 [ %115, %112 ], [ 0, %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEES9_JSA_SC_SE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISA_EE.exit.i.i.i ]
   %116 = lshr i64 %87, 59
   %117 = and i64 %116, 1
-  %118 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeExtraBitfields", ptr %103, i64 %117
-  %119 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeArmAttributes", ptr %118, i64 %109
-  %120 = getelementptr inbounds nuw %"struct.clang::FunctionType::ExceptionType", ptr %119, i64 %spec.select.i.i.i.i.i
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %117
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %118, i64 %109
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %119, i64 %spec.select.i.i.i.i.i
   %121 = load ptr, ptr %120, align 8, !tbaa !761
   %.not45 = icmp eq ptr %121, null
   br i1 %.not45, label %_ZNK5clang17FunctionProtoType15getNoexceptExprEv.exit.thread, label %122
@@ -18183,7 +18161,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
 
 37:                                               ; preds = %37, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
-  %38 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv
   %39 = load ptr, ptr %38, align 8, !tbaa !960
   %.sroa.0.0.copyload.i30 = load i64, ptr %39, align 8, !tbaa !465
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
@@ -18396,8 +18374,8 @@ _ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE20TraverseTem
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.experimental.noalias.scope.decl(metadata !964)
-  %29 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %24, i64 %indvars.iv
-  %30 = getelementptr inbounds nuw %"struct.clang::TemplateArgumentLocInfo", ptr %25, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [24 x i8], ptr %24, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv
   %.sroa.0.0.copyload.i.i = load i64, ptr %30, align 8, !noalias !964
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(24) %29, i64 24, i1 false), !tbaa.struct !945
   store i64 %.sroa.0.0.copyload.i.i, ptr %26, align 8, !alias.scope !964
@@ -18984,10 +18962,10 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
   %14 = phi i64 [ %.pre, %._crit_edge.loopexit ], [ %8, %5 ]
   %15 = lshr i64 %14, 38
   %16 = and i64 %15, 65535
-  %17 = getelementptr inbounds nuw %"class.clang::QualType", ptr %6, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %16
   %18 = lshr i64 %14, 60
   %19 = and i64 %18, 1
-  %20 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %17, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %19
   %21 = ptrtoint ptr %20 to i64
   %22 = add i64 %21, 7
   %23 = and i64 %22, -8
@@ -19002,7 +18980,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
   %.lobit.i.i.i.i.i.i = and i16 %28, 1
   %29 = zext nneg i16 %.lobit.i.i.i.i.i.i to i64
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %31 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeArmAttributes", ptr %30, i64 %29
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %29
   br label %_ZNK5clang17FunctionProtoType15exception_beginEv.exit.i.i
 
 _ZNK5clang17FunctionProtoType15exception_beginEv.exit.i.i: ; preds = %26, %._crit_edge
@@ -19021,8 +18999,8 @@ _ZNK5clang17FunctionProtoType15exception_beginEv.exit.i.i: ; preds = %26, %._cri
 
 _ZNK5clang17FunctionProtoType10exceptionsEv.exit: ; preds = %_ZNK5clang17FunctionProtoType15exception_beginEv.exit.i.i, %37
   %41 = phi i64 [ %40, %37 ], [ 0, %_ZNK5clang17FunctionProtoType15exception_beginEv.exit.i.i ]
-  %42 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeArmAttributes", ptr %33, i64 %34
-  %43 = getelementptr inbounds nuw %"class.clang::QualType", ptr %42, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %34
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %41
   %.not3961 = icmp eq ptr %32, %43
   br i1 %.not3961, label %._crit_edge64, label %.lr.ph63
 
@@ -19053,10 +19031,10 @@ _ZNK5clang17FunctionProtoType10exceptionsEv.exit: ; preds = %_ZNK5clang17Functio
 53:                                               ; preds = %._crit_edge64
   %54 = lshr i64 %47, 38
   %55 = and i64 %54, 65535
-  %56 = getelementptr inbounds nuw %"class.clang::QualType", ptr %6, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %55
   %57 = lshr i64 %47, 60
   %58 = and i64 %57, 1
-  %59 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %56, i64 %58
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %58
   %60 = ptrtoint ptr %59 to i64
   %61 = add i64 %60, 7
   %62 = and i64 %61, -8
@@ -19088,9 +19066,9 @@ _ZNK5clang17FunctionProtoType15getNoexceptExprEv.exit: ; preds = %_ZN4llvm25trai
   %spec.select.i.i.i.i.i = phi i64 [ %75, %72 ], [ 0, %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEES9_JSA_SC_SE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISA_EE.exit.i.i.i ]
   %76 = lshr i64 %47, 59
   %77 = and i64 %76, 1
-  %78 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeExtraBitfields", ptr %63, i64 %77
-  %79 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeArmAttributes", ptr %78, i64 %69
-  %80 = getelementptr inbounds nuw %"struct.clang::FunctionType::ExceptionType", ptr %79, i64 %spec.select.i.i.i.i.i
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %77
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %69
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %spec.select.i.i.i.i.i
   %81 = load ptr, ptr %80, align 8, !tbaa !761
   %.not40 = icmp eq ptr %81, null
   br i1 %.not40, label %_ZNK5clang17FunctionProtoType15getNoexceptExprEv.exit.thread, label %82
@@ -21499,7 +21477,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
 
 11:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
-  %12 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !960
   %.sroa.0.0.copyload.i = load i64, ptr %13, align 8, !tbaa !465
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -22318,7 +22296,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
 
 .critedge:                                        ; preds = %.critedge.loopexit, %9
   %20 = phi i64 [ %19, %.critedge.loopexit ], [ 0, %9 ]
-  %21 = getelementptr inbounds nuw ptr, ptr %10, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %23 = load i32, ptr %22, align 4, !tbaa !1005
   %24 = zext i32 %23 to i64
@@ -22982,7 +22960,7 @@ _ZNK5clang12OverloadExpr23hasExplicitTemplateArgsEv.exit: ; preds = %8
   %15 = zext i32 %14 to i64
   %.04.i.i.v.v.i.i = select i1 %12, i64 64, i64 80
   %.04.i.i.v.i.i = getelementptr inbounds nuw i8, ptr %1, i64 %.04.i.i.v.v.i.i
-  %.04.i.i.i.i = getelementptr inbounds nuw %"class.clang::DeclAccessPair", ptr %.04.i.i.v.i.i, i64 %15
+  %.04.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %.04.i.i.v.i.i, i64 %15
   %16 = load i32, ptr %.04.i.i.i.i, align 8, !tbaa !475
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %_ZNK5clang12OverloadExpr23hasExplicitTemplateArgsEv.exit.thread, label %_ZNK5clang12OverloadExpr18getNumTemplateArgsEv.exit
@@ -23005,7 +22983,7 @@ _ZNK5clang12OverloadExpr18getNumTemplateArgsEv.exit: ; preds = %_ZNK5clang12Over
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %20 ]
-  %21 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %17, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [32 x i8], ptr %17, i64 %indvars.iv
   %22 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE27TraverseTemplateArgumentLocERKNS_19TemplateArgumentLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %21)
   br i1 %22, label %20, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit
 
@@ -23111,7 +23089,7 @@ _ZNK5clang12OverloadExpr23hasExplicitTemplateArgsEv.exit: ; preds = %8
   %15 = zext i32 %14 to i64
   %.04.i.i.v.v.i.i = select i1 %12, i64 64, i64 80
   %.04.i.i.v.i.i = getelementptr inbounds nuw i8, ptr %1, i64 %.04.i.i.v.v.i.i
-  %.04.i.i.i.i = getelementptr inbounds nuw %"class.clang::DeclAccessPair", ptr %.04.i.i.v.i.i, i64 %15
+  %.04.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %.04.i.i.v.i.i, i64 %15
   %16 = load i32, ptr %.04.i.i.i.i, align 8, !tbaa !475
   %.not = icmp eq i32 %16, 0
   br i1 %.not, label %_ZNK5clang12OverloadExpr23hasExplicitTemplateArgsEv.exit.thread, label %_ZNK5clang12OverloadExpr18getNumTemplateArgsEv.exit
@@ -23134,7 +23112,7 @@ _ZNK5clang12OverloadExpr18getNumTemplateArgsEv.exit: ; preds = %_ZNK5clang12Over
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %20 ]
-  %21 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %17, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [32 x i8], ptr %17, i64 %indvars.iv
   %22 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE27TraverseTemplateArgumentLocERKNS_19TemplateArgumentLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %21)
   br i1 %22, label %20, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit
 
@@ -24947,12 +24925,12 @@ _ZNK5clang10MemberExpr23hasExplicitTemplateArgsEv.exit.i: ; preds = %21
   %26 = lshr i32 %22, 21
   %.lobit.i.i.i.i.i.i.i = and i32 %26, 1
   %27 = zext nneg i32 %.lobit.i.i.i.i.i.i.i to i64
-  %28 = getelementptr inbounds nuw %"class.clang::NestedNameSpecifierLoc", ptr %1, i64 %25
-  %29 = getelementptr inbounds nuw %"class.clang::DeclAccessPair", ptr %28, i64 %27
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %25
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %27
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 64
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %32 = getelementptr inbounds nuw %"class.clang::NestedNameSpecifierLoc", ptr %31, i64 %25
-  %33 = getelementptr inbounds nuw %"class.clang::DeclAccessPair", ptr %32, i64 %27
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %25
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %27
   %34 = load i32, ptr %33, align 8, !tbaa !475
   %.not.i28 = icmp eq i32 %34, 0
   br i1 %.not.i28, label %._crit_edge, label %_ZNK5clang10MemberExpr18getNumTemplateArgsEv.exit
@@ -24974,7 +24952,7 @@ _ZNK5clang10MemberExpr18getNumTemplateArgsEv.exit: ; preds = %_ZNK5clang10Member
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %37
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %37 ]
-  %38 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %30, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [32 x i8], ptr %30, i64 %indvars.iv
   %39 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE27TraverseTemplateArgumentLocERKNS_19TemplateArgumentLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %38)
   br i1 %39, label %37, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit
 
@@ -25413,13 +25391,13 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
 9:                                                ; preds = %.lr.ph, %.critedge
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.critedge ]
   %10 = tail call noundef ptr @_ZNK5clang10LambdaExpr13capture_beginEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #18
-  %11 = getelementptr inbounds nuw %"class.clang::LambdaCapture", ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %indvars.iv
   %.0.copyload.i.i.i.i.i = load i64, ptr %11, align 8
   %12 = trunc i64 %.0.copyload.i.i.i.i.i to i1
   br i1 %12, label %.critedge, label %13
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !761
   %16 = tail call noundef zeroext i1 @_ZNK5clang10LambdaExpr13isInitCaptureEPKNS_13LambdaCaptureE(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %11) #18
   br i1 %16, label %17, label %21
@@ -25505,7 +25483,7 @@ _ZNK5clang14DeclaratorDecl17getTypeSourceInfoEv.exit: ; preds = %.critedge85, %2
 _ZN5clang21TemplateParameterList17getRequiresClauseEv.exit.i: ; preds = %._crit_edge.i
   %51 = and i32 %49, 536870911
   %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds nuw ptr, ptr %40, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %52
   %54 = load ptr, ptr %53, align 8, !tbaa !761
   %.not23.i = icmp eq ptr %54, null
   br i1 %.not23.i, label %.thread27.i, label %55
@@ -25545,7 +25523,7 @@ _ZNK5clang15FunctionTypeLoc12getNumParamsEv.exit: ; preds = %59
 
 69:                                               ; preds = %.lr.ph115, %68
   %indvars.iv121 = phi i64 [ 0, %.lr.ph115 ], [ %indvars.iv.next122, %68 ]
-  %70 = getelementptr inbounds nuw ptr, ptr %66, i64 %indvars.iv121
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %indvars.iv121
   %71 = load ptr, ptr %70, align 8, !tbaa !771
   %72 = call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE12TraverseDeclEPNS_4DeclE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %71)
   br i1 %72, label %68, label %.loopexit.sink.split
@@ -25556,10 +25534,10 @@ _ZNK5clang15FunctionTypeLoc12getNumParamsEv.exit: ; preds = %59
   %75 = load i64, ptr %74, align 16
   %76 = lshr i64 %75, 38
   %77 = and i64 %76, 65535
-  %78 = getelementptr inbounds nuw %"class.clang::QualType", ptr %73, i64 %77
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %77
   %79 = lshr i64 %75, 60
   %80 = and i64 %79, 1
-  %81 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %78, i64 %80
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %78, i64 %80
   %82 = ptrtoint ptr %81 to i64
   %83 = add i64 %82, 7
   %84 = and i64 %83, -8
@@ -25574,7 +25552,7 @@ _ZNK5clang15FunctionTypeLoc12getNumParamsEv.exit: ; preds = %59
   %.lobit.i.i.i.i.i.i = and i16 %89, 1
   %90 = zext nneg i16 %.lobit.i.i.i.i.i.i to i64
   %91 = getelementptr inbounds nuw i8, ptr %85, i64 8
-  %92 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeArmAttributes", ptr %91, i64 %90
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %90
   br label %_ZNK5clang17FunctionProtoType15exception_beginEv.exit.i.i
 
 _ZNK5clang17FunctionProtoType15exception_beginEv.exit.i.i: ; preds = %87, %.critedge87
@@ -25593,8 +25571,8 @@ _ZNK5clang17FunctionProtoType15exception_beginEv.exit.i.i: ; preds = %87, %.crit
 
 _ZNK5clang17FunctionProtoType10exceptionsEv.exit: ; preds = %_ZNK5clang17FunctionProtoType15exception_beginEv.exit.i.i, %98
   %102 = phi i64 [ %101, %98 ], [ 0, %_ZNK5clang17FunctionProtoType15exception_beginEv.exit.i.i ]
-  %103 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeArmAttributes", ptr %94, i64 %95
-  %104 = getelementptr inbounds nuw %"class.clang::QualType", ptr %103, i64 %102
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %95
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %102
   %.not82116 = icmp eq ptr %93, %104
   br i1 %.not82116, label %.critedge89, label %.lr.ph118
 
@@ -25625,10 +25603,10 @@ _ZNK5clang17FunctionProtoType10exceptionsEv.exit: ; preds = %_ZNK5clang17Functio
 114:                                              ; preds = %.critedge89
   %115 = lshr i64 %108, 38
   %116 = and i64 %115, 65535
-  %117 = getelementptr inbounds nuw %"class.clang::QualType", ptr %73, i64 %116
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %116
   %118 = lshr i64 %108, 60
   %119 = and i64 %118, 1
-  %120 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %117, i64 %119
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %117, i64 %119
   %121 = ptrtoint ptr %120 to i64
   %122 = add i64 %121, 7
   %123 = and i64 %122, -8
@@ -25660,9 +25638,9 @@ _ZNK5clang17FunctionProtoType15getNoexceptExprEv.exit: ; preds = %_ZN4llvm25trai
   %spec.select.i.i.i.i.i = phi i64 [ %136, %133 ], [ 0, %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEES9_JSA_SC_SE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISA_EE.exit.i.i.i ]
   %137 = lshr i64 %108, 59
   %138 = and i64 %137, 1
-  %139 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeExtraBitfields", ptr %124, i64 %138
-  %140 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeArmAttributes", ptr %139, i64 %130
-  %141 = getelementptr inbounds nuw %"struct.clang::FunctionType::ExceptionType", ptr %140, i64 %spec.select.i.i.i.i.i
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %138
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %139, i64 %130
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %140, i64 %spec.select.i.i.i.i.i
   %142 = load ptr, ptr %141, align 8, !tbaa !761
   %.not83 = icmp eq ptr %142, null
   br i1 %.not83, label %.critedge91, label %143
@@ -26063,7 +26041,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
 11:                                               ; preds = %3
   %12 = and i32 %5, 32767
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %7, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !960
   %.sroa.0.0.copyload.i = load i64, ptr %15, align 8, !tbaa !465
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -26077,7 +26055,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
   %22 = lshr i32 %21, 30
   %.lobit.i.i = and i32 %22, 1
   %23 = zext nneg i32 %.lobit.i.i to i64
-  %24 = getelementptr inbounds nuw ptr, ptr %20, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %23
   %25 = and i32 %21, 32767
   %26 = shl nuw nsw i32 %25, 3
   %.idx = zext nneg i32 %26 to i64
@@ -26088,10 +26066,10 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
 .lr.ph.preheader:                                 ; preds = %19
   %28 = add nuw nsw i32 %.lobit.i.i, %25
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %20, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %29
   %31 = xor i32 %.lobit.i.i, 1
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds nuw ptr, ptr %30, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %32
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.critedge40
@@ -27073,7 +27051,7 @@ _ZNK5clang25DependentScopeDeclRefExpr18getNumTemplateArgsEv.exit: ; preds = %_ZN
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %19 ]
-  %20 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %16, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [32 x i8], ptr %16, i64 %indvars.iv
   %21 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE27TraverseTemplateArgumentLocERKNS_19TemplateArgumentLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %20)
   br i1 %21, label %19, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit
 
@@ -27208,12 +27186,12 @@ _ZNK5clang11DeclRefExpr23hasExplicitTemplateArgsEv.exit.i: ; preds = %21
   %26 = lshr i32 %22, 21
   %.lobit.i.i.i.i.i.i.i = and i32 %26, 1
   %27 = zext nneg i32 %.lobit.i.i.i.i.i.i.i to i64
-  %28 = getelementptr inbounds nuw %"class.clang::NestedNameSpecifierLoc", ptr %1, i64 %25
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %27
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %25
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %27
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 48
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %32 = getelementptr inbounds nuw %"class.clang::NestedNameSpecifierLoc", ptr %31, i64 %25
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %27
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %25
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %27
   %34 = load i32, ptr %33, align 8, !tbaa !475
   %.not.i28 = icmp eq i32 %34, 0
   br i1 %.not.i28, label %._crit_edge, label %_ZNK5clang11DeclRefExpr18getNumTemplateArgsEv.exit
@@ -27235,7 +27213,7 @@ _ZNK5clang11DeclRefExpr18getNumTemplateArgsEv.exit: ; preds = %_ZNK5clang11DeclR
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %37
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %37 ]
-  %38 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %30, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [32 x i8], ptr %30, i64 %indvars.iv
   %39 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE27TraverseTemplateArgumentLocERKNS_19TemplateArgumentLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %38)
   br i1 %39, label %37, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit
 
@@ -27433,7 +27411,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %19 ]
-  %20 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %16, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [32 x i8], ptr %16, i64 %indvars.iv
   %21 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE27TraverseTemplateArgumentLocERKNS_19TemplateArgumentLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %20)
   br i1 %21, label %19, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE24TraverseConceptReferenceEPNS_16ConceptReferenceE.exit.thread
 
@@ -30270,7 +30248,7 @@ _ZNK5clang27CXXDependentScopeMemberExpr18getNumTemplateArgsEv.exit: ; preds = %_
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %19 ]
-  %20 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %16, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [32 x i8], ptr %16, i64 %indvars.iv
   %21 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE27TraverseTemplateArgumentLocERKNS_19TemplateArgumentLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %20)
   br i1 %21, label %19, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE34TraverseTemplateArgumentLocsHelperEPKNS_19TemplateArgumentLocEj.exit
 
@@ -43037,7 +43015,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load i32, ptr %15, align 8, !tbaa !1113
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr %16, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %18
   br label %_ZN5clang8DeclStmt5declsEv.exit
 
 _ZN5clang8DeclStmt5declsEv.exit:                  ; preds = %9, %13
@@ -43675,7 +43653,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
   %18 = load i32, ptr %13, align 8, !tbaa !1126
   %19 = add i32 %18, %.05064
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %17, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !1127
   %23 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %22, ptr noundef %2)
   br i1 %23, label %14, label %.loopexit
@@ -43699,7 +43677,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
 28:                                               ; preds = %.lr.ph67, %27
   %indvars.iv = phi i64 [ 0, %.lr.ph67 ], [ %indvars.iv.next, %27 ]
   %29 = load ptr, ptr %26, align 8, !tbaa !1125
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8, !tbaa !1127
   %32 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %31, ptr noundef %2)
   br i1 %32, label %27, label %.loopexit
@@ -43723,7 +43701,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
 37:                                               ; preds = %.lr.ph70, %36
   %indvars.iv77 = phi i64 [ 0, %.lr.ph70 ], [ %indvars.iv.next78, %36 ]
   %38 = load ptr, ptr %35, align 8, !tbaa !1131
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv77
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv77
   %40 = load ptr, ptr %39, align 8, !tbaa !1127
   %41 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %40, ptr noundef %2)
   br i1 %41, label %36, label %.loopexit
@@ -43871,7 +43849,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %31 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %28, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [32 x i8], ptr %28, i64 %indvars.iv
   %32 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE27TraverseTemplateArgumentLocERKNS_19TemplateArgumentLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %31)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp ne i64 %indvars.iv.next, %wide.trip.count
@@ -44157,7 +44135,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %12 = load i32, ptr %11, align 4, !tbaa !465
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %10, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %17 = load ptr, ptr %16, align 8, !tbaa !1158
@@ -44696,7 +44674,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 4, !tbaa !1200
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !761
   %9 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %8, ptr noundef null)
   br i1 %9, label %10, label %.loopexit
@@ -44729,7 +44707,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 4, !tbaa !1202
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !761
   %9 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %8, ptr noundef null)
   br i1 %9, label %10, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE18VisitOMPClauseListINS_16OMPAlignedClauseEEEbPT_.exit
@@ -44814,7 +44792,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
   %12 = zext i32 %.pre to i64
   %.idx85 = shl nuw nsw i64 %12, 3
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx85
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %12
   %.not68 = icmp eq i32 %.pre, 0
   br i1 %.not68, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE18VisitOMPClauseListINS_20OMPCopyprivateClauseEEEbPT_.exit, label %.lr.ph71
 
@@ -44834,8 +44812,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
   %19 = zext i32 %.pre91 to i64
   %.idx86 = shl nuw nsw i64 %19, 3
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx86
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %19
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %19
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %19
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %19
   %.not4373 = icmp eq i32 %.pre91, 0
   br i1 %.not4373, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE18VisitOMPClauseListINS_20OMPCopyprivateClauseEEEbPT_.exit, label %.lr.ph76
 
@@ -44855,9 +44833,9 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
   %27 = zext i32 %.pre92 to i64
   %.idx87 = shl nuw nsw i64 %27, 3
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx87
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %27
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %27
-  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %27
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %27
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %27
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %27
   %.not4478 = icmp eq i32 %.pre92, 0
   br i1 %.not4478, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE18VisitOMPClauseListINS_20OMPCopyprivateClauseEEEbPT_.exit, label %.lr.ph82
 
@@ -44902,7 +44880,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
   %12 = zext i32 %.pre to i64
   %.idx85 = shl nuw nsw i64 %12, 3
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx85
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %12
   %.not68 = icmp eq i32 %.pre, 0
   br i1 %.not68, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE18VisitOMPClauseListINS_15OMPCopyinClauseEEEbPT_.exit, label %.lr.ph71
 
@@ -44922,8 +44900,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
   %19 = zext i32 %.pre91 to i64
   %.idx86 = shl nuw nsw i64 %19, 3
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx86
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %19
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %19
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %19
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %19
   %.not4373 = icmp eq i32 %.pre91, 0
   br i1 %.not4373, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE18VisitOMPClauseListINS_15OMPCopyinClauseEEEbPT_.exit, label %.lr.ph76
 
@@ -44943,9 +44921,9 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
   %27 = zext i32 %.pre92 to i64
   %.idx87 = shl nuw nsw i64 %27, 3
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx87
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %27
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %27
-  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %27
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %27
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %27
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %27
   %.not4478 = icmp eq i32 %.pre92, 0
   br i1 %.not4478, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE18VisitOMPClauseListINS_15OMPCopyinClauseEEEbPT_.exit, label %.lr.ph82
 
@@ -45068,7 +45046,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
   %17 = zext i32 %16 to i64
   %.idx59 = shl nuw nsw i64 %17, 3
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx59
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %17
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %17
   %.not47 = icmp eq i32 %16, 0
   br i1 %.not47, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE18VisitOMPClauseListINS_21OMPFirstprivateClauseEEEbPT_.exit, label %.lr.ph50
 
@@ -45088,8 +45066,8 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
   %24 = zext i32 %.pre to i64
   %.idx60 = shl nuw nsw i64 %24, 3
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx60
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %24
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %24
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %24
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %24
   %.not3052 = icmp eq i32 %.pre, 0
   br i1 %.not3052, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE18VisitOMPClauseListINS_21OMPFirstprivateClauseEEEbPT_.exit, label %.lr.ph56
 
@@ -45195,7 +45173,7 @@ _ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE28VisitOMPCla
   %26 = zext i32 %25 to i64
   %.idx147 = shl nuw nsw i64 %26, 3
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx147
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %26
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %26
   %.not120 = icmp eq i32 %25, 0
   br i1 %.not120, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE18VisitOMPClauseListINS_20OMPInReductionClauseEEEbPT_.exit, label %.lr.ph123
 
@@ -45215,8 +45193,8 @@ _ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE28VisitOMPCla
   %33 = zext i32 %.pre to i64
   %.idx148 = shl nuw nsw i64 %33, 3
   %34 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx148
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %33
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %33
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %33
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %33
   %.not74125 = icmp eq i32 %.pre, 0
   br i1 %.not74125, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE18VisitOMPClauseListINS_20OMPInReductionClauseEEEbPT_.exit, label %.lr.ph128
 
@@ -45236,9 +45214,9 @@ _ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE28VisitOMPCla
   %41 = zext i32 %.pre157 to i64
   %.idx149 = shl nuw nsw i64 %41, 3
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx149
-  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %41
-  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %41
-  %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %41
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %41
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %41
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %41
   %.not75130 = icmp eq i32 %.pre157, 0
   br i1 %.not75130, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE18VisitOMPClauseListINS_20OMPInReductionClauseEEEbPT_.exit, label %.lr.ph133
 
@@ -45258,10 +45236,10 @@ _ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE28VisitOMPCla
   %50 = zext i32 %.pre158 to i64
   %.idx150 = shl nuw nsw i64 %50, 3
   %51 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx150
-  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %50
-  %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %50
-  %54 = getelementptr inbounds nuw ptr, ptr %53, i64 %50
-  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %50
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %50
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %50
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %50
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %50
   %.not76135 = icmp eq i32 %.pre158, 0
   br i1 %.not76135, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE18VisitOMPClauseListINS_20OMPInReductionClauseEEEbPT_.exit, label %.lr.ph138
 
@@ -45281,11 +45259,11 @@ _ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE28VisitOMPCla
   %60 = zext i32 %.pre159 to i64
   %.idx151 = shl nuw nsw i64 %60, 3
   %61 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx151
-  %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %60
-  %63 = getelementptr inbounds nuw ptr, ptr %62, i64 %60
-  %64 = getelementptr inbounds nuw ptr, ptr %63, i64 %60
-  %65 = getelementptr inbounds nuw ptr, ptr %64, i64 %60
-  %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %60
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %60
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %60
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %60
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %60
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %60
   %.not77140 = icmp eq i32 %.pre159, 0
   br i1 %.not77140, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE18VisitOMPClauseListINS_20OMPInReductionClauseEEEbPT_.exit, label %.lr.ph144
 
@@ -45342,7 +45320,7 @@ _ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE28VisitOMPCla
   %20 = zext i32 %19 to i64
   %.idx116 = shl nuw nsw i64 %20, 3
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx116
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %20
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %20
   %.not94 = icmp eq i32 %19, 0
   br i1 %.not94, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE18VisitOMPClauseListINS_20OMPLastprivateClauseEEEbPT_.exit, label %.lr.ph97
 
@@ -45362,8 +45340,8 @@ _ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE28VisitOMPCla
   %27 = zext i32 %.pre to i64
   %.idx117 = shl nuw nsw i64 %27, 3
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx117
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %27
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %27
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %27
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %27
   %.not5899 = icmp eq i32 %.pre, 0
   br i1 %.not5899, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE18VisitOMPClauseListINS_20OMPLastprivateClauseEEEbPT_.exit, label %.lr.ph102
 
@@ -45383,9 +45361,9 @@ _ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE28VisitOMPCla
   %35 = zext i32 %.pre124 to i64
   %.idx118 = shl nuw nsw i64 %35, 3
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx118
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %35
-  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %35
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %35
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %35
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %35
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %35
   %.not59104 = icmp eq i32 %.pre124, 0
   br i1 %.not59104, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE18VisitOMPClauseListINS_20OMPLastprivateClauseEEEbPT_.exit, label %.lr.ph107
 
@@ -45405,10 +45383,10 @@ _ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE28VisitOMPCla
   %44 = zext i32 %.pre125 to i64
   %.idx119 = shl nuw nsw i64 %44, 3
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx119
-  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %44
-  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %44
-  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %44
-  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %44
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %44
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %44
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %44
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %44
   %.not60109 = icmp eq i32 %.pre125, 0
   br i1 %.not60109, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE18VisitOMPClauseListINS_20OMPLastprivateClauseEEEbPT_.exit, label %.lr.ph113
 
@@ -45432,11 +45410,11 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 4, !tbaa !1238
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %6
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %6
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %6
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %6
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %6
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %6
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %6
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %6
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %6
   %12 = load ptr, ptr %11, align 8, !tbaa !761
   %13 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %12, ptr noundef null)
   br i1 %13, label %14, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE18VisitOMPClauseListINS_15OMPLinearClauseEEEbPT_.exit
@@ -45444,11 +45422,11 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
 14:                                               ; preds = %2
   %15 = load i32, ptr %4, align 4, !tbaa !1238
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr %1, i64 %16
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %16
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %16
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %16
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %16
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %16
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %16
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %16
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 72
   %23 = load ptr, ptr %22, align 8, !tbaa !761
   %24 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE12TraverseStmtEPNS_4StmtEPN4llvm15SmallVectorImplINS6_14PointerIntPairIS5_Lj1EbNS6_21PointerLikeTypeTraitsIS5_EENS6_18PointerIntPairInfoIS5_Lj1ESA_EEEEEE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %23, ptr noundef null)
@@ -45490,7 +45468,7 @@ _ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE28VisitOMPCla
   %41 = zext i32 %40 to i64
   %.idx117 = shl nuw nsw i64 %41, 3
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx117
-  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %41
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %41
   %.not95 = icmp eq i32 %40, 0
   br i1 %.not95, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE18VisitOMPClauseListINS_15OMPLinearClauseEEEbPT_.exit, label %.lr.ph98
 
@@ -45510,8 +45488,8 @@ _ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE28VisitOMPCla
   %48 = zext i32 %.pre to i64
   %.idx118 = shl nuw nsw i64 %48, 3
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx118
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %48
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %48
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %48
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %48
   %.not60100 = icmp eq i32 %.pre, 0
   br i1 %.not60100, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE18VisitOMPClauseListINS_15OMPLinearClauseEEEbPT_.exit, label %.lr.ph103
 
@@ -45531,9 +45509,9 @@ _ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE28VisitOMPCla
   %56 = zext i32 %.pre125 to i64
   %.idx119 = shl nuw nsw i64 %56, 3
   %57 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx119
-  %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %56
-  %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %56
-  %60 = getelementptr inbounds nuw ptr, ptr %59, i64 %56
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %56
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %56
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %56
   %.not61105 = icmp eq i32 %.pre125, 0
   br i1 %.not61105, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE18VisitOMPClauseListINS_15OMPLinearClauseEEEbPT_.exit, label %.lr.ph108
 
@@ -45553,10 +45531,10 @@ _ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE28VisitOMPCla
   %65 = zext i32 %.pre126 to i64
   %.idx120 = shl nuw nsw i64 %65, 3
   %66 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx120
-  %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %65
-  %68 = getelementptr inbounds nuw ptr, ptr %67, i64 %65
-  %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %65
-  %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %65
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %65
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %65
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %65
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %65
   %.not62110 = icmp eq i32 %.pre126, 0
   br i1 %.not62110, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE18VisitOMPClauseListINS_15OMPLinearClauseEEEbPT_.exit, label %.lr.ph114
 
@@ -45624,7 +45602,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
   %13 = zext i32 %.pre to i64
   %.idx27 = shl nuw nsw i64 %13, 3
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx27
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %13
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %13
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %14, ptr %3, align 8
   %.sroa.412.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -45866,7 +45844,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
   %12 = zext i32 %.pre to i64
   %.idx30 = shl nuw nsw i64 %12, 3
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx30
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %12
   %.not23 = icmp eq i32 %.pre, 0
   br i1 %.not23, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE18VisitOMPClauseListINS_16OMPPrivateClauseEEEbPT_.exit, label %.lr.ph27
 
@@ -45936,7 +45914,7 @@ _ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE28VisitOMPCla
   %26 = zext i32 %25 to i64
   %.idx205 = shl nuw nsw i64 %26, 3
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx205
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %26
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %26
   %.not169 = icmp eq i32 %25, 0
   br i1 %.not169, label %._crit_edge188, label %.lr.ph172
 
@@ -45956,8 +45934,8 @@ _ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE28VisitOMPCla
   %33 = zext i32 %.pre to i64
   %.idx206 = shl nuw nsw i64 %33, 3
   %34 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx206
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %33
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %33
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %33
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %33
   %.not103174 = icmp eq i32 %.pre, 0
   br i1 %.not103174, label %._crit_edge188, label %.lr.ph177
 
@@ -45977,9 +45955,9 @@ _ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE28VisitOMPCla
   %41 = zext i32 %.pre219 to i64
   %.idx207 = shl nuw nsw i64 %41, 3
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx207
-  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %41
-  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %41
-  %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %41
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %41
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %41
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %41
   %.not104179 = icmp eq i32 %.pre219, 0
   br i1 %.not104179, label %._crit_edge188, label %.lr.ph182
 
@@ -45999,10 +45977,10 @@ _ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE28VisitOMPCla
   %50 = zext i32 %.pre220 to i64
   %.idx208 = shl nuw nsw i64 %50, 3
   %51 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx208
-  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %50
-  %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %50
-  %54 = getelementptr inbounds nuw ptr, ptr %53, i64 %50
-  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %50
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %50
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %50
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %50
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %50
   %.not105184 = icmp eq i32 %.pre220, 0
   br i1 %.not105184, label %._crit_edge188, label %.lr.ph187
 
@@ -46028,11 +46006,11 @@ _ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE28VisitOMPCla
   %65 = zext i32 %64 to i64
   %.idx209 = shl nuw nsw i64 %65, 3
   %66 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx209
-  %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %65
-  %68 = getelementptr inbounds nuw ptr, ptr %67, i64 %65
-  %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %65
-  %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %65
-  %71 = getelementptr inbounds nuw ptr, ptr %70, i64 %65
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %65
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %65
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %65
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %65
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %65
   %.not106189 = icmp eq i32 %64, 0
   br i1 %.not106189, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE18VisitOMPClauseListINS_18OMPReductionClauseEEEbPT_.exit, label %.lr.ph192
 
@@ -46052,12 +46030,12 @@ _ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE28VisitOMPCla
   %76 = zext i32 %.pre221 to i64
   %.idx210 = shl nuw nsw i64 %76, 3
   %77 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx210
-  %78 = getelementptr inbounds nuw ptr, ptr %77, i64 %76
-  %79 = getelementptr inbounds nuw ptr, ptr %78, i64 %76
-  %80 = getelementptr inbounds nuw ptr, ptr %79, i64 %76
-  %81 = getelementptr inbounds nuw ptr, ptr %80, i64 %76
-  %82 = getelementptr inbounds nuw ptr, ptr %81, i64 %76
-  %83 = getelementptr inbounds nuw ptr, ptr %82, i64 %76
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %76
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %76
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %76
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %76
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %76
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %76
   %.not107194 = icmp eq i32 %.pre221, 0
   br i1 %.not107194, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE18VisitOMPClauseListINS_18OMPReductionClauseEEEbPT_.exit, label %.lr.ph197
 
@@ -46077,13 +46055,13 @@ _ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE28VisitOMPCla
   %88 = zext i32 %.pre222 to i64
   %.idx211 = shl nuw nsw i64 %88, 3
   %89 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx211
-  %90 = getelementptr inbounds nuw ptr, ptr %89, i64 %88
-  %91 = getelementptr inbounds nuw ptr, ptr %90, i64 %88
-  %92 = getelementptr inbounds nuw ptr, ptr %91, i64 %88
-  %93 = getelementptr inbounds nuw ptr, ptr %92, i64 %88
-  %94 = getelementptr inbounds nuw ptr, ptr %93, i64 %88
-  %95 = getelementptr inbounds nuw ptr, ptr %94, i64 %88
-  %96 = getelementptr inbounds nuw ptr, ptr %95, i64 %88
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %88
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %88
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %88
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %88
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %88
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %88
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %88
   %.not108199 = icmp eq i32 %.pre222, 0
   br i1 %.not108199, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE18VisitOMPClauseListINS_18OMPReductionClauseEEEbPT_.exit, label %.lr.ph202
 
@@ -46196,7 +46174,7 @@ _ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE28VisitOMPCla
   %26 = zext i32 %25 to i64
   %.idx119 = shl nuw nsw i64 %26, 3
   %27 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx119
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %26
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %26
   %.not97 = icmp eq i32 %25, 0
   br i1 %.not97, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE18VisitOMPClauseListINS_22OMPTaskReductionClauseEEEbPT_.exit, label %.lr.ph100
 
@@ -46216,8 +46194,8 @@ _ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE28VisitOMPCla
   %33 = zext i32 %.pre to i64
   %.idx120 = shl nuw nsw i64 %33, 3
   %34 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx120
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %33
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %33
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %33
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %33
   %.not60102 = icmp eq i32 %.pre, 0
   br i1 %.not60102, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE18VisitOMPClauseListINS_22OMPTaskReductionClauseEEEbPT_.exit, label %.lr.ph105
 
@@ -46237,9 +46215,9 @@ _ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE28VisitOMPCla
   %41 = zext i32 %.pre127 to i64
   %.idx121 = shl nuw nsw i64 %41, 3
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx121
-  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %41
-  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %41
-  %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %41
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %41
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %41
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %41
   %.not61107 = icmp eq i32 %.pre127, 0
   br i1 %.not61107, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE18VisitOMPClauseListINS_22OMPTaskReductionClauseEEEbPT_.exit, label %.lr.ph110
 
@@ -46259,10 +46237,10 @@ _ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE28VisitOMPCla
   %50 = zext i32 %.pre128 to i64
   %.idx122 = shl nuw nsw i64 %50, 3
   %51 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx122
-  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %50
-  %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %50
-  %54 = getelementptr inbounds nuw ptr, ptr %53, i64 %50
-  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %50
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %50
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %50
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %50
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %50
   %.not62112 = icmp eq i32 %.pre128, 0
   br i1 %.not62112, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE18VisitOMPClauseListINS_22OMPTaskReductionClauseEEEbPT_.exit, label %.lr.ph116
 
@@ -48458,7 +48436,7 @@ _ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i3: ; preds = %19, %_ZNK5cla
   %35 = getelementptr inbounds nuw i8, ptr %.pre-phi6.i10, i64 24
   %36 = load i32, ptr %35, align 8, !tbaa !1499
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw ptr, ptr %34, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %37
   br label %_ZNK5clang17ObjCInterfaceDecl12protocol_endEv.exit
 
 _ZNK5clang17ObjCInterfaceDecl12protocol_endEv.exit: ; preds = %_ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i3, %32
@@ -48553,7 +48531,7 @@ _ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i3: ; preds = %19, %_ZNK5cla
   %35 = getelementptr inbounds nuw i8, ptr %.pre-phi6.i10, i64 24
   %36 = load i32, ptr %35, align 8, !tbaa !1499
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %34, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %37
   br label %_ZNK5clang17ObjCInterfaceDecl16protocol_loc_endEv.exit
 
 _ZNK5clang17ObjCInterfaceDecl16protocol_loc_endEv.exit: ; preds = %_ZNK5clang17ObjCInterfaceDecl13hasDefinitionEv.exit.i3, %32
@@ -48588,7 +48566,7 @@ _ZNK5clang14DeclaratorDecl28getNumTemplateParameterListsEv.exit.thread: ; preds 
 12:                                               ; preds = %_ZNK5clang14DeclaratorDecl28getNumTemplateParameterListsEv.exit.thread
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %14 = load ptr, ptr %13, align 8, !tbaa !849
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !850
   %.not.i154 = icmp eq ptr %16, null
   br i1 %.not.i154, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE35TraverseTemplateParameterListHelperEPNS_21TemplateParameterListE.exit, label %17
@@ -48627,7 +48605,7 @@ _ZNK5clang14DeclaratorDecl28getNumTemplateParameterListsEv.exit.thread: ; preds 
 _ZN5clang21TemplateParameterList17getRequiresClauseEv.exit.i: ; preds = %._crit_edge
   %29 = and i32 %27, 536870911
   %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %18, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !761
   %.not23.i = icmp eq ptr %32, null
   br i1 %.not23.i, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE35TraverseTemplateParameterListHelperEPNS_21TemplateParameterListE.exit, label %33
@@ -48707,7 +48685,7 @@ _ZNK5clang14DeclaratorDecl15getQualifierLocEv.exit: ; preds = %_ZN5clang19Recurs
 
 .lr.ph.i:                                         ; preds = %58, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %58 ]
-  %59 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %54, i64 %indvars.iv.i
+  %59 = getelementptr inbounds nuw [32 x i8], ptr %54, i64 %indvars.iv.i
   %60 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE27TraverseTemplateArgumentLocERKNS_19TemplateArgumentLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %59)
   br i1 %60, label %58, label %.critedge125
 
@@ -48740,7 +48718,7 @@ _ZNK5clang14DeclaratorDecl15getQualifierLocEv.exit: ; preds = %_ZN5clang19Recurs
 
 .lr.ph.i237:                                      ; preds = %71, %.lr.ph.preheader.i235
   %indvars.iv.i238 = phi i64 [ 0, %.lr.ph.preheader.i235 ], [ %indvars.iv.next.i240, %71 ]
-  %72 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %67, i64 %indvars.iv.i238
+  %72 = getelementptr inbounds nuw [32 x i8], ptr %67, i64 %indvars.iv.i238
   %73 = tail call noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE27TraverseTemplateArgumentLocERKNS_19TemplateArgumentLocE(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull align 8 dereferenceable(32) %72)
   br i1 %73, label %71, label %.critedge125
 
@@ -48806,7 +48784,7 @@ _ZN5clang14DeclaratorDecl25getTrailingRequiresClauseEv.exit.thread: ; preds = %8
   %99 = load i64, ptr %98, align 8
   %100 = lshr i64 %99, 44
   %101 = and i64 %100, 131071
-  %102 = getelementptr inbounds nuw ptr, ptr %97, i64 %101
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %101
   %.not119201 = icmp eq ptr %96, %102
   br i1 %.not119201, label %.thread175, label %.lr.ph204
 
@@ -49049,7 +49027,7 @@ _ZNK5clang14DeclaratorDecl28getNumTemplateParameterListsEv.exit.thread: ; preds 
 11:                                               ; preds = %_ZNK5clang14DeclaratorDecl28getNumTemplateParameterListsEv.exit.thread
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !849
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !850
   %.not.i19 = icmp eq ptr %15, null
   br i1 %.not.i19, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE35TraverseTemplateParameterListHelperEPNS_21TemplateParameterListE.exit, label %16
@@ -49088,7 +49066,7 @@ _ZNK5clang14DeclaratorDecl28getNumTemplateParameterListsEv.exit.thread: ; preds 
 _ZN5clang21TemplateParameterList17getRequiresClauseEv.exit.i: ; preds = %._crit_edge
   %28 = and i32 %26, 536870911
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %17, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !761
   %.not23.i = icmp eq ptr %31, null
   br i1 %.not23.i, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE35TraverseTemplateParameterListHelperEPNS_21TemplateParameterListE.exit, label %32
@@ -49197,7 +49175,7 @@ _ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.i.thread: ; preds = %2, 
 11:                                               ; preds = %_ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.i.thread
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !849
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !850
   %.not.i22 = icmp eq ptr %15, null
   br i1 %.not.i22, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE35TraverseTemplateParameterListHelperEPNS_21TemplateParameterListE.exit, label %16
@@ -49236,7 +49214,7 @@ _ZNK5clang7TagDecl28getNumTemplateParameterListsEv.exit.i.thread: ; preds = %2, 
 _ZN5clang21TemplateParameterList17getRequiresClauseEv.exit.i: ; preds = %._crit_edge
   %28 = and i32 %26, 536870911
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %17, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !761
   %.not23.i = icmp eq ptr %31, null
   br i1 %.not23.i, label %_ZN5clang19RecursiveASTVisitorINS_10installapi17InstallAPIVisitorEE35TraverseTemplateParameterListHelperEPNS_21TemplateParameterListE.exit, label %32
@@ -49318,7 +49296,7 @@ _ZN5clang13CXXRecordDecl5basesEv.exit:            ; preds = %_ZNK5clang13LazyOff
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %67 = load i32, ptr %66, align 8, !tbaa !622
   %68 = zext i32 %67 to i64
-  %69 = getelementptr inbounds nuw %"class.clang::CXXBaseSpecifier", ptr %.0.i.i.i.i, i64 %68
+  %69 = getelementptr inbounds nuw [24 x i8], ptr %.0.i.i.i.i, i64 %68
   %.not37 = icmp eq ptr %.0.i.i.i, %69
   br i1 %.not37, label %.thread28, label %.lr.ph39
 
@@ -49351,7 +49329,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
-  %.sroa.0.0.i.i.i = getelementptr inbounds nuw ptr, ptr %8, i64 %11
+  %.sroa.0.0.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %11
   %.not41 = icmp eq ptr %5, %.sroa.0.0.i.i.i
   br i1 %.not41, label %.thread, label %.lr.ph45
 
@@ -49632,7 +49610,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
-  %.sroa.0.0.i.i.i = getelementptr inbounds nuw ptr, ptr %8, i64 %11
+  %.sroa.0.0.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %11
   %.not42 = icmp eq ptr %5, %.sroa.0.0.i.i.i
   br i1 %.not42, label %.thread, label %.lr.ph46
 
@@ -49812,7 +49790,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5clang19RecursiveASTVisitorINS_10inst
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %10 = load i32, ptr %9, align 8
   %11 = zext i32 %10 to i64
-  %.sroa.0.0.i.i.i = getelementptr inbounds nuw ptr, ptr %8, i64 %11
+  %.sroa.0.0.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %11
   %.not57 = icmp eq ptr %5, %.sroa.0.0.i.i.i
   br i1 %.not57, label %.thread, label %.lr.ph
 

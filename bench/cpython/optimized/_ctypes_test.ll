@@ -315,7 +315,7 @@ define double @_testfunc_array_in_struct3A(<2 x float> %0, <2 x float> %1) local
   %11 = phi i1 [ false, %.preheader ], [ true, %5 ]
   %indvars.iv18 = phi i64 [ 1, %.preheader ], [ 0, %5 ]
   %.114 = phi double [ %15, %.preheader ], [ %9, %5 ]
-  %12 = getelementptr float, ptr %4, i64 %indvars.iv18
+  %12 = getelementptr [4 x i8], ptr %4, i64 %indvars.iv18
   %13 = load float, ptr %12, align 4, !tbaa !17
   %14 = fpext float %13 to double
   %15 = fadd double %.114, %14
@@ -353,7 +353,7 @@ define double @_testfunc_array_in_struct3C(ptr noundef readonly byval(%struct.Te
 3:                                                ; preds = %1, %3
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
   %.046 = phi double [ 0.000000e+00, %1 ], [ %6, %3 ]
-  %4 = getelementptr double, ptr %0, i64 %indvars.iv
+  %4 = getelementptr [8 x i8], ptr %0, i64 %indvars.iv
   %5 = load double, ptr %4, align 8, !tbaa !22
   %6 = fadd double %.046, %5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -373,7 +373,7 @@ define void @_testfunc_array_in_struct3C_set_defaults(ptr dead_on_unwind noalias
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %4 = trunc nuw nsw i64 %indvars.iv.next to i32
   %5 = uitofp nneg i32 %4 to double
-  %6 = getelementptr double, ptr %0, i64 %indvars.iv
+  %6 = getelementptr [8 x i8], ptr %0, i64 %indvars.iv
   store double %5, ptr %6, align 8, !tbaa !22
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond.not, label %2, label %3, !llvm.loop !25
@@ -389,7 +389,7 @@ define double @_testfunc_array_in_struct3D(ptr noundef readonly byval(%struct.Te
 3:                                                ; preds = %1, %3
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
   %.046 = phi double [ 0.000000e+00, %1 ], [ %6, %3 ]
-  %4 = getelementptr double, ptr %0, i64 %indvars.iv
+  %4 = getelementptr [8 x i8], ptr %0, i64 %indvars.iv
   %5 = load double, ptr %4, align 8, !tbaa !22
   %6 = fadd double %.046, %5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -409,7 +409,7 @@ define void @_testfunc_array_in_struct3D_set_defaults(ptr dead_on_unwind noalias
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %4 = trunc nuw nsw i64 %indvars.iv.next to i32
   %5 = uitofp nneg i32 %4 to double
-  %6 = getelementptr double, ptr %0, i64 %indvars.iv
+  %6 = getelementptr [8 x i8], ptr %0, i64 %indvars.iv
   store double %5, ptr %6, align 8, !tbaa !22
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
   br i1 %exitcond.not, label %2, label %3, !llvm.loop !27
@@ -425,7 +425,7 @@ define double @_testfunc_array_in_struct3E(ptr noundef readonly byval(%struct.Te
 3:                                                ; preds = %1, %3
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
   %.046 = phi double [ 0.000000e+00, %1 ], [ %6, %3 ]
-  %4 = getelementptr double, ptr %0, i64 %indvars.iv
+  %4 = getelementptr [8 x i8], ptr %0, i64 %indvars.iv
   %5 = load double, ptr %4, align 8, !tbaa !22
   %6 = fadd double %.046, %5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -445,7 +445,7 @@ define void @_testfunc_array_in_struct3E_set_defaults(ptr dead_on_unwind noalias
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %4 = trunc nuw nsw i64 %indvars.iv.next to i32
   %5 = uitofp nneg i32 %4 to double
-  %6 = getelementptr double, ptr %0, i64 %indvars.iv
+  %6 = getelementptr [8 x i8], ptr %0, i64 %indvars.iv
   store double %5, ptr %6, align 8, !tbaa !22
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
   br i1 %exitcond.not, label %2, label %3, !llvm.loop !29
@@ -612,7 +612,7 @@ define i64 @_testfunc_bitfield_by_reference3(ptr noundef readonly captures(none)
   br i1 %or.cond, label %45, label %42
 
 42:                                               ; preds = %2
-  %43 = getelementptr i64, ptr %3, i64 %1
+  %43 = getelementptr [8 x i8], ptr %3, i64 %1
   %44 = load i64, ptr %43, align 8, !tbaa !38
   br label %45
 
@@ -829,7 +829,7 @@ define ptr @_testfunc_c_p_p(ptr noundef readonly captures(none) %0, ptr noundef 
   %3 = load i32, ptr %0, align 4, !tbaa !39
   %4 = add i32 %3, -1
   %5 = sext i32 %4 to i64
-  %6 = getelementptr ptr, ptr %1, i64 %5
+  %6 = getelementptr [8 x i8], ptr %1, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !48
   ret ptr %7
 }

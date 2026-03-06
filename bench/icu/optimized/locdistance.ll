@@ -488,7 +488,7 @@ _ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit.thread: ; preds = %
   %.0102229 = phi i32 [ %4, %.lr.ph ], [ %.2104.ph, %.thread ]
   %.0126227 = phi i32 [ -1, %.lr.ph ], [ %.1127.ph, %.thread ]
   %.0131226 = phi i32 [ -1, %.lr.ph ], [ %.2133.ph, %.thread ]
-  %64 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %65 = load ptr, ptr %64, align 8, !tbaa !52
   br i1 %47, label %66, label %_ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit170
 
@@ -682,7 +682,7 @@ _ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit170.thread: ; preds 
   %167 = load i8, ptr %166, align 1, !tbaa !54
   %168 = load ptr, ptr %60, align 8, !tbaa !34
   %169 = zext i8 %167 to i64
-  %170 = getelementptr inbounds nuw ptr, ptr %168, i64 %169
+  %170 = getelementptr inbounds nuw [8 x i8], ptr %168, i64 %169
   %171 = load ptr, ptr %170, align 8, !tbaa !57
   %172 = getelementptr inbounds nuw i8, ptr %65, i64 32
   %173 = load i32, ptr %172, align 8, !tbaa !49
@@ -690,7 +690,7 @@ _ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit170.thread: ; preds 
   %175 = getelementptr inbounds i8, ptr %163, i64 %174
   %176 = load i8, ptr %175, align 1, !tbaa !54
   %177 = zext i8 %176 to i64
-  %178 = getelementptr inbounds nuw ptr, ptr %168, i64 %177
+  %178 = getelementptr inbounds nuw [8 x i8], ptr %168, i64 %177
   %179 = load ptr, ptr %178, align 8, !tbaa !57
   %180 = invoke noundef i32 @_ZN6icu_7714LocaleDistance27getRegionPartitionsDistanceERNS_9BytesTrieEmPKcS4_i(ptr noundef nonnull align 8 dereferenceable(28) %11, i64 noundef %162, ptr noundef %171, ptr noundef %179, i32 noundef %150)
           to label %181 unwind label %183
@@ -786,7 +786,7 @@ _ZN6icu_7714LocaleDistance8trieNextERNS_9BytesTrieEPKcb.exit170.thread: ; preds 
 220:                                              ; preds = %218, %215
   %221 = load ptr, ptr %0, align 8, !tbaa !58
   %222 = zext nneg i32 %.0131226 to i64
-  %223 = getelementptr inbounds nuw ptr, ptr %2, i64 %222
+  %223 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %222
   %224 = load ptr, ptr %223, align 8, !tbaa !52
   %225 = invoke noundef i32 @_ZNK6icu_7713LikelySubtags13compareLikelyERKNS_3LSRES3_i(ptr noundef nonnull align 8 dereferenceable(352) %221, ptr noundef nonnull align 8 dereferenceable(48) %65, ptr noundef nonnull align 8 dereferenceable(48) %224, i32 noundef %.0126227)
           to label %226 unwind label %202
@@ -1264,7 +1264,7 @@ define noundef zeroext i1 @_ZNK6icu_7714LocaleDistance13isParadigmLSRERKNS_3LSRE
 .lr.ph:                                           ; preds = %2, %7
   %indvars.iv = phi i64 [ %indvars.iv.next, %7 ], [ 0, %2 ]
   %11 = load ptr, ptr %3, align 8, !tbaa !36
-  %12 = getelementptr inbounds nuw %"struct.icu_77::LSR", ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [48 x i8], ptr %11, i64 %indvars.iv
   %13 = tail call noundef signext i8 @_ZNK6icu_773LSR14isEquivalentToERKS0_(ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef nonnull align 8 dereferenceable(48) %12)
   %.not.not.not = icmp ne i8 %13, 0
   br i1 %.not.not.not, label %._crit_edge, label %7

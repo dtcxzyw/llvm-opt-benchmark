@@ -751,7 +751,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h06d0dcc19238bdb1E.exit.thread
   %48 = load ptr, ptr %47, align 8, !nonnull !6, !noundef !6
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %50 = load i64, ptr %49, align 8, !noundef !6
-  %51 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %48, i64 %50
+  %51 = getelementptr inbounds nuw [16 x i8], ptr %48, i64 %50
   store ptr %48, ptr %4, align 8
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %51, ptr %52, align 8
@@ -861,7 +861,7 @@ _ZN11polars_core5utils22index_to_chunked_index17hc8eca7129576b57fE.exit.i: ; pre
   %105 = load i64, ptr %59, align 8, !noundef !6
   %106 = icmp ult i64 %102, %105
   call void @llvm.assume(i1 %106)
-  %107 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %104, i64 %102
+  %107 = getelementptr inbounds nuw [16 x i8], ptr %104, i64 %102
   %108 = load ptr, ptr %107, align 8, !nonnull !6, !noundef !6
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 40
   %110 = load ptr, ptr %109, align 8, !noundef !6
@@ -869,7 +869,7 @@ _ZN11polars_core5utils22index_to_chunked_index17hc8eca7129576b57fE.exit.i: ; pre
   %112 = load i64, ptr %111, align 8, !noundef !6
   %113 = icmp ult i64 %103, %112
   call void @llvm.assume(i1 %113)
-  %114 = getelementptr inbounds nuw double, ptr %110, i64 %103
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %110, i64 %103
   %115 = load double, ptr %114, align 8, !noundef !6
   %116 = fcmp uno double %115, 0.000000e+00
   br i1 %116, label %117, label %120
@@ -999,7 +999,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h1512dd32395fd810E.exit.thread
   %48 = load ptr, ptr %47, align 8, !nonnull !6, !noundef !6
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %50 = load i64, ptr %49, align 8, !noundef !6
-  %51 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %48, i64 %50
+  %51 = getelementptr inbounds nuw [16 x i8], ptr %48, i64 %50
   store ptr %48, ptr %4, align 8
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %51, ptr %52, align 8
@@ -1109,7 +1109,7 @@ _ZN11polars_core5utils22index_to_chunked_index17hc8eca7129576b57fE.exit.i: ; pre
   %105 = load i64, ptr %59, align 8, !noundef !6
   %106 = icmp ult i64 %102, %105
   call void @llvm.assume(i1 %106)
-  %107 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %104, i64 %102
+  %107 = getelementptr inbounds nuw [16 x i8], ptr %104, i64 %102
   %108 = load ptr, ptr %107, align 8, !nonnull !6, !noundef !6
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 40
   %110 = load ptr, ptr %109, align 8, !noundef !6
@@ -1117,7 +1117,7 @@ _ZN11polars_core5utils22index_to_chunked_index17hc8eca7129576b57fE.exit.i: ; pre
   %112 = load i64, ptr %111, align 8, !noundef !6
   %113 = icmp ult i64 %103, %112
   call void @llvm.assume(i1 %113)
-  %114 = getelementptr inbounds nuw float, ptr %110, i64 %103
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %110, i64 %103
   %115 = load float, ptr %114, align 4, !noundef !6
   %116 = fcmp uno float %115, 0.000000e+00
   br i1 %116, label %117, label %120
@@ -1235,7 +1235,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h1512dd32395fd810E.exit.i: ; p
   %41 = load ptr, ptr %40, align 8, !nonnull !6, !noundef !6
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %43 = load i64, ptr %42, align 8, !noundef !6
-  %44 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %41, i64 %43
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %43
   store ptr %41, ptr %4, align 8
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %44, ptr %45, align 8
@@ -1344,7 +1344,7 @@ _ZN11polars_core5utils22index_to_chunked_index17hc8eca7129576b57fE.exit.i: ; pre
   %97 = load i64, ptr %51, align 8, !noundef !6
   %98 = icmp ult i64 %94, %97
   call void @llvm.assume(i1 %98)
-  %99 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %96, i64 %94
+  %99 = getelementptr inbounds nuw [16 x i8], ptr %96, i64 %94
   %100 = load ptr, ptr %99, align 8, !nonnull !6, !noundef !6
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 40
   %102 = load ptr, ptr %101, align 8, !noundef !6
@@ -1352,7 +1352,7 @@ _ZN11polars_core5utils22index_to_chunked_index17hc8eca7129576b57fE.exit.i: ; pre
   %104 = load i64, ptr %103, align 8, !noundef !6
   %105 = icmp ult i64 %95, %104
   call void @llvm.assume(i1 %105)
-  %106 = getelementptr inbounds nuw float, ptr %102, i64 %95
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %102, i64 %95
   %107 = load float, ptr %106, align 4, !noundef !6
   %108 = fcmp uno float %107, 0.000000e+00
   br i1 %108, label %109, label %112
@@ -1473,7 +1473,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h06d0dcc19238bdb1E.exit.i: ; p
   %41 = load ptr, ptr %40, align 8, !nonnull !6, !noundef !6
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %43 = load i64, ptr %42, align 8, !noundef !6
-  %44 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %41, i64 %43
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %43
   store ptr %41, ptr %4, align 8
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %44, ptr %45, align 8
@@ -1582,7 +1582,7 @@ _ZN11polars_core5utils22index_to_chunked_index17hc8eca7129576b57fE.exit.i: ; pre
   %97 = load i64, ptr %51, align 8, !noundef !6
   %98 = icmp ult i64 %94, %97
   call void @llvm.assume(i1 %98)
-  %99 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %96, i64 %94
+  %99 = getelementptr inbounds nuw [16 x i8], ptr %96, i64 %94
   %100 = load ptr, ptr %99, align 8, !nonnull !6, !noundef !6
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 40
   %102 = load ptr, ptr %101, align 8, !noundef !6
@@ -1590,7 +1590,7 @@ _ZN11polars_core5utils22index_to_chunked_index17hc8eca7129576b57fE.exit.i: ; pre
   %104 = load i64, ptr %103, align 8, !noundef !6
   %105 = icmp ult i64 %95, %104
   call void @llvm.assume(i1 %105)
-  %106 = getelementptr inbounds nuw double, ptr %102, i64 %95
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 %95
   %107 = load double, ptr %106, align 8, !noundef !6
   %108 = fcmp uno double %107, 0.000000e+00
   br i1 %108, label %109, label %112
@@ -1850,7 +1850,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17h89a38d217b62f3feE.exit: ; preds
 .preheader.i.i.i.i:                               ; preds = %40, %.noexc1.i.i.i
   %.sroa.07.0.i.i.i.i.i = phi i64 [ %47, %.noexc1.i.i.i ], [ 0, %40 ]
   %.sroa.09.0.i.i.i.i.i = phi i64 [ %48, %.noexc1.i.i.i ], [ 0, %40 ]
-  %42 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %35, i64 %.sroa.09.0.i.i.i.i.i
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 %.sroa.09.0.i.i.i.i.i
   %.val.i.i.i.i.i = load ptr, ptr %42, align 8, !noalias !136, !nonnull !6, !align !56, !noundef !6
   %43 = getelementptr i8, ptr %42, i64 8
   %.val19.i.i.i.i.i = load ptr, ptr %43, align 8, !noalias !136, !nonnull !6, !align !57, !noundef !6
@@ -2046,7 +2046,7 @@ _ZN4core4iter6traits8iterator8Iterator7collect17heedc7c95fc1da356E.exit: ; preds
 .preheader.i.i.i.i:                               ; preds = %40, %.noexc1.i.i.i
   %.sroa.07.0.i.i.i.i.i = phi i64 [ %47, %.noexc1.i.i.i ], [ 0, %40 ]
   %.sroa.09.0.i.i.i.i.i = phi i64 [ %48, %.noexc1.i.i.i ], [ 0, %40 ]
-  %42 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %35, i64 %.sroa.09.0.i.i.i.i.i
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 %.sroa.09.0.i.i.i.i.i
   %.val.i.i.i.i.i = load ptr, ptr %42, align 8, !noalias !172, !nonnull !6, !align !56, !noundef !6
   %43 = getelementptr i8, ptr %42, i64 8
   %.val19.i.i.i.i.i = load ptr, ptr %43, align 8, !noalias !172, !nonnull !6, !align !57, !noundef !6
@@ -2452,7 +2452,7 @@ common.resume:                                    ; preds = %142, %97, %83
   %104 = load ptr, ptr %103, align 16, !nonnull !6, !noundef !6
   %105 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %106 = load i64, ptr %105, align 8, !noundef !6
-  %107 = getelementptr inbounds nuw { { i8, [47 x i8] }, { { { ptr, i64, i32, i16, i8, i8 } } }, [1 x i64] }, ptr %104, i64 %106
+  %107 = getelementptr inbounds nuw [80 x i8], ptr %104, i64 %106
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !188
   store ptr %104, ptr %4, align 8, !alias.scope !195, !noalias !199
   %.sroa.4116.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2947,7 +2947,7 @@ common.resume:                                    ; preds = %46, %40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.7, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7)
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %53 = getelementptr inbounds nuw double, ptr %.pre, i64 %1
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %1
   store ptr %53, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %2, ptr %54, align 8

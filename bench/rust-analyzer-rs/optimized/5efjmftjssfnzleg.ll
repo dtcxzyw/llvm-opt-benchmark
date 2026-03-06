@@ -305,7 +305,7 @@ define hidden void @"_ZN10hir_expand5files71InFileWrapper$LT$span..HirFileId$C$s
 "_ZN98_$LT$la_arena..Arena$LT$T$GT$$u20$as$u20$core..ops..index..Index$LT$la_arena..Idx$LT$T$GT$$GT$$GT$5index17h9ac06547e63c9493E.exit.i": ; preds = %4
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %18 = load ptr, ptr %17, align 8, !alias.scope !10, !noalias !13, !nonnull !4, !noundef !4
-  %19 = getelementptr inbounds nuw { { i32, i32 }, i16, [1 x i16] }, ptr %18, i64 %12
+  %19 = getelementptr inbounds nuw [12 x i8], ptr %18, i64 %12
   %.sroa.06.0.copyload.i = load i64, ptr %19, align 4, !noalias !16
   %.sroa.47.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %19, i64 8
   %.sroa.47.0.copyload.i = load i16, ptr %.sroa.47.0..sroa_idx.i, align 4, !noalias !16
@@ -38030,7 +38030,7 @@ define hidden noundef zeroext i1 @_ZN8chalk_ir5visit11TypeVisitor20visit_program
   %8 = tail call { ptr, i64 } @"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$10goals_data17ha93cba72b34a8460E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %1), !noalias !3224
   %9 = extractvalue { ptr, i64 } %8, 0
   %10 = extractvalue { ptr, i64 } %8, 1
-  %11 = getelementptr inbounds ptr, ptr %9, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %9, i64 %10
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %9) ]
   %12 = tail call noundef zeroext i1 @_ZN8chalk_ir5visit12boring_impls10visit_iter17h683c0bda8badd470E.llvm.6150282900714191917(ptr noundef nonnull %9, ptr noundef nonnull %11, ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b7576e0098cb37c00e5f17c1c653dd4.0.llvm.12800139334778793870, i32 noundef %4)
   br i1 %12, label %"_ZN8chalk_ir5visit12boring_impls107_$LT$impl$u20$chalk_ir..visit..TypeSuperVisitable$LT$I$GT$$u20$for$u20$chalk_ir..ProgramClause$LT$I$GT$$GT$16super_visit_with17h7b89c25e0d584a87E.exit", label %13
@@ -38040,7 +38040,7 @@ define hidden noundef zeroext i1 @_ZN8chalk_ir5visit11TypeVisitor20visit_program
   %15 = tail call { ptr, i64 } @"_ZN75_$LT$hir_ty..interner..Interner$u20$as$u20$chalk_ir..interner..Interner$GT$16constraints_data17h0931322a62f4ad89E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %14), !noalias !3227
   %16 = extractvalue { ptr, i64 } %15, 0
   %17 = extractvalue { ptr, i64 } %15, 1
-  %18 = getelementptr inbounds { { i64, [2 x i64] }, ptr }, ptr %16, i64 %17
+  %18 = getelementptr inbounds [32 x i8], ptr %16, i64 %17
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %16) ]
   %19 = tail call noundef zeroext i1 @_ZN8chalk_ir5visit12boring_impls10visit_iter17ha7a59ed1f89cf770E.llvm.6150282900714191917(ptr noundef nonnull %16, ptr noundef nonnull %18, ptr noundef nonnull align 1 %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.1b7576e0098cb37c00e5f17c1c653dd4.0.llvm.12800139334778793870, i32 noundef %4)
   br label %"_ZN8chalk_ir5visit12boring_impls107_$LT$impl$u20$chalk_ir..visit..TypeSuperVisitable$LT$I$GT$$u20$for$u20$chalk_ir..ProgramClause$LT$I$GT$$GT$16super_visit_with17h7b89c25e0d584a87E.exit"

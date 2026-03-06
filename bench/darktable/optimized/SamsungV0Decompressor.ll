@@ -257,7 +257,7 @@ _ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i: ; preds = %3
           to label %_ZNSt6vectorIjSaIjEE7reserveEm.exit unwind label %36
 
 _ZNSt6vectorIjSaIjEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i
-  %11 = getelementptr inbounds nuw i32, ptr %10, i64 %8
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %8
   %.not118 = icmp eq i32 %6, 0
   br i1 %.not118, label %._crit_edge, label %.lr.ph
 
@@ -328,7 +328,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i: ; preds = %33, %.noex
   br label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i
 
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i: ; preds = %34, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i
-  %35 = getelementptr inbounds nuw i32, ptr %30, i64 %28
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   br label %_ZNSt6vectorIjSaIjEE12emplace_backIJjEEERjDpOT_.exit
 
 36:                                               ; preds = %_ZNSt12_Vector_baseIN8rawspeed10ByteStreamESaIS1_EE11_M_allocateEm.exit.i, %_ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit.i
@@ -427,7 +427,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i26: ; preds = %71, %.no
   br label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i28
 
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i28: ; preds = %72, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i26
-  %73 = getelementptr inbounds nuw i32, ptr %68, i64 %66
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %66
   br label %_ZNSt6vectorIjSaIjEE12emplace_backIJjEEERjDpOT_.exit31
 
 _ZNSt6vectorIjSaIjEE12emplace_backIJjEEERjDpOT_.exit31: ; preds = %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i28, %55
@@ -500,7 +500,7 @@ _ZNSt12_Vector_baseIN8rawspeed10ByteStreamESaIS1_EE13_M_deallocateEPS1_m.exit.i:
   store ptr %90, ptr %75, align 8, !tbaa !108
   %94 = getelementptr inbounds nuw i8, ptr %90, i64 %88
   store ptr %94, ptr %85, align 8, !tbaa !114
-  %95 = getelementptr inbounds nuw %"class.rawspeed::ByteStream", ptr %90, i64 %76
+  %95 = getelementptr inbounds nuw [24 x i8], ptr %90, i64 %76
   store ptr %95, ptr %77, align 8, !tbaa !111
   br label %_ZNSt6vectorIN8rawspeed10ByteStreamESaIS1_EE7reserveEm.exit
 
@@ -677,7 +677,7 @@ _ZNSt6vectorIN8rawspeed10ByteStreamESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.
 _ZNSt6vectorIN8rawspeed10ByteStreamESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %160, %_ZNSt6vectorIN8rawspeed10ByteStreamESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i
   store ptr %155, ptr %75, align 8, !tbaa !108
   store ptr %159, ptr %114, align 8, !tbaa !114
-  %161 = getelementptr inbounds nuw %"class.rawspeed::ByteStream", ptr %155, i64 %153
+  %161 = getelementptr inbounds nuw [24 x i8], ptr %155, i64 %153
   store ptr %161, ptr %77, align 8, !tbaa !111
   br label %_ZNSt6vectorIN8rawspeed10ByteStreamESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit
 
@@ -838,19 +838,19 @@ define hidden void @_ZNK8rawspeed21SamsungV0Decompressor10decompressEv(ptr nound
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge72.us
   %indvars.iv81 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next82, %._crit_edge72.us ]
   %32 = mul nuw nsw i64 %indvars.iv81, %31
-  %33 = getelementptr inbounds nuw i16, ptr %8, i64 %32
+  %33 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %32
   %34 = or disjoint i64 %indvars.iv81, 1
   %35 = mul nuw nsw i64 %34, %31
-  %36 = getelementptr inbounds nuw i16, ptr %8, i64 %35
+  %36 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %35
   br label %37
 
 37:                                               ; preds = %.preheader.us, %37
   %indvars.iv78 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next79, %37 ]
-  %38 = getelementptr inbounds nuw i16, ptr %33, i64 %indvars.iv78
+  %38 = getelementptr inbounds nuw [2 x i8], ptr %33, i64 %indvars.iv78
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 2
   %40 = icmp samesign ule i64 %indvars.iv78, %28
   tail call void @llvm.assume(i1 %40)
-  %41 = getelementptr inbounds nuw i16, ptr %36, i64 %indvars.iv78
+  %41 = getelementptr inbounds nuw [2 x i8], ptr %36, i64 %indvars.iv78
   %42 = load i16, ptr %39, align 2, !tbaa !141
   %43 = load i16, ptr %41, align 2, !tbaa !141
   store i16 %43, ptr %39, align 2, !tbaa !141
@@ -867,7 +867,7 @@ define hidden void @_ZNK8rawspeed21SamsungV0Decompressor10decompressEv(ptr nound
 46:                                               ; preds = %.lr.ph, %46
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %46 ]
   %47 = load ptr, ptr %6, align 8, !tbaa !108
-  %48 = getelementptr inbounds nuw %"class.rawspeed::ByteStream", ptr %47, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [24 x i8], ptr %47, i64 %indvars.iv
   %49 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @_ZNK8rawspeed21SamsungV0Decompressor15decompressStripEiNS_10ByteStreamE(ptr noundef nonnull align 8 dereferenceable(40) %0, i32 noundef %49, ptr noundef nonnull byval(%"class.rawspeed::ByteStream") align 8 %48)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -961,16 +961,16 @@ _ZN8rawspeed16BitStreamerMSB32CI2NS_11BitStreamerIS0_NS_39BitStreamerForwardSequ
   %46 = icmp samesign ult i32 %45, %15
   %47 = mul nuw nsw i32 %18, %45
   %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr inbounds nuw i16, ptr %8, i64 %48
+  %49 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %48
   %50 = icmp samesign ult i32 %1, %15
   %51 = mul nuw nsw i32 %18, %1
   %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds nuw i16, ptr %8, i64 %52
+  %53 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %52
   %54 = add nsw i32 %1, -2
   %55 = icmp samesign ult i32 %54, %15
   %56 = mul nuw nsw i32 %18, %54
   %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr inbounds nuw i16, ptr %8, i64 %57
+  %58 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %57
   %59 = icmp sgt i32 %1, -1
   %60 = zext nneg i32 %13 to i64
   %61 = zext nneg i32 %13 to i64
@@ -1093,7 +1093,7 @@ _ZN8rawspeed11BitStreamerINS_16BitStreamerMSB32ENS_39BitStreamerForwardSequentia
   %.sroa.63227.1461 = phi i32 [ %.sroa.63227.8, %.preheader432.preheader ], [ %.sroa.63227.2538543, %98 ]
   %.sroa.24.2460 = phi i32 [ %96, %.preheader432.preheader ], [ %.sroa.24.3537544, %98 ]
   %.sroa.0199.2459 = phi i64 [ %97, %.preheader432.preheader ], [ %.sroa.0199.3536545, %98 ]
-  %100 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %101 = load i32, ptr %100, align 4, !tbaa !16
   switch i32 %101, label %.preheader432._crit_edge [
     i32 3, label %102
@@ -1102,7 +1102,7 @@ _ZN8rawspeed11BitStreamerINS_16BitStreamerMSB32ENS_39BitStreamerForwardSequentia
   ]
 
 .preheader432._crit_edge:                         ; preds = %.preheader432
-  %.phi.trans.insert = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %.phi.trans.insert = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !16
   br label %142
 
@@ -1168,19 +1168,19 @@ _ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_16BitStreamerMSB32EE8ge
   %130 = trunc nuw nsw i64 %129 to i32
   %131 = add nsw i32 %128, -4
   %132 = shl i64 %127, 4
-  %133 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %133 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   store i32 %130, ptr %133, align 4, !tbaa !16
   br label %98
 
 134:                                              ; preds = %.preheader432
-  %135 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %136 = load i32, ptr %135, align 4, !tbaa !16
   %137 = add nsw i32 %136, -1
   store i32 %137, ptr %135, align 4, !tbaa !16
   br label %142
 
 138:                                              ; preds = %.preheader432
-  %139 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %139 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %140 = load i32, ptr %139, align 4, !tbaa !16
   %141 = add nsw i32 %140, 1
   store i32 %141, ptr %139, align 4, !tbaa !16
@@ -1225,7 +1225,7 @@ _ZN8rawspeed39BitStreamerForwardSequentialReplenisherINS_16BitStreamerMSB32EE8ge
   %.sroa.24.4464 = phi i32 [ %.sroa.24.10, %_ZN8rawspeed21SamsungV0Decompressor7calcAdjERNS_16BitStreamerMSB32Ei.exit ], [ %.sroa.24.3537544, %151 ]
   %.sroa.0199.4463 = phi i64 [ %.sroa.0199.10, %_ZN8rawspeed21SamsungV0Decompressor7calcAdjERNS_16BitStreamerMSB32Ei.exit ], [ %.sroa.0199.3536545, %151 ]
   %154 = lshr i64 %indvars.iv492, 3
-  %155 = getelementptr inbounds nuw i32, ptr %4, i64 %154
+  %155 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %154
   %156 = load i32, ptr %155, align 4, !tbaa !16
   %.not.i122 = icmp eq i32 %156, 0
   br i1 %.not.i122, label %_ZN8rawspeed21SamsungV0Decompressor7calcAdjERNS_16BitStreamerMSB32Ei.exit, label %157
@@ -1310,11 +1310,11 @@ _ZN8rawspeed21SamsungV0Decompressor7calcAdjERNS_16BitStreamerMSB32Ei.exit: ; pre
   %194 = icmp samesign ult i64 %193, %60
   tail call void @llvm.assume(i1 %194)
   tail call void @llvm.assume(i1 %46)
-  %195 = getelementptr inbounds nuw i16, ptr %49, i64 %193
+  %195 = getelementptr inbounds nuw [2 x i8], ptr %49, i64 %193
   %196 = load i16, ptr %195, align 2, !tbaa !141
   %197 = add i16 %196, %.0.i
   tail call void @llvm.assume(i1 %50)
-  %198 = getelementptr inbounds nuw i16, ptr %53, i64 %193
+  %198 = getelementptr inbounds nuw [2 x i8], ptr %53, i64 %193
   store i16 %197, ptr %198, align 2, !tbaa !141
   %indvars.iv.next493 = add nuw nsw i64 %indvars.iv492, 2
   %199 = icmp samesign ult i64 %indvars.iv492, 14
@@ -1326,7 +1326,7 @@ _ZN8rawspeed21SamsungV0Decompressor7calcAdjERNS_16BitStreamerMSB32Ei.exit: ; pre
   %.sroa.24.5468 = phi i32 [ %.sroa.24.11, %_ZN8rawspeed21SamsungV0Decompressor7calcAdjERNS_16BitStreamerMSB32Ei.exit145 ], [ %.sroa.24.10, %_ZN8rawspeed21SamsungV0Decompressor7calcAdjERNS_16BitStreamerMSB32Ei.exit ]
   %.sroa.0199.5467 = phi i64 [ %.sroa.0199.11, %_ZN8rawspeed21SamsungV0Decompressor7calcAdjERNS_16BitStreamerMSB32Ei.exit145 ], [ %.sroa.0199.10, %_ZN8rawspeed21SamsungV0Decompressor7calcAdjERNS_16BitStreamerMSB32Ei.exit ]
   %200 = lshr i64 %indvars.iv495, 3
-  %201 = getelementptr inbounds nuw i32, ptr %4, i64 %200
+  %201 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %200
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 8
   %203 = load i32, ptr %202, align 4, !tbaa !16
   %.not.i130 = icmp eq i32 %203, 0
@@ -1412,10 +1412,10 @@ _ZN8rawspeed21SamsungV0Decompressor7calcAdjERNS_16BitStreamerMSB32Ei.exit145: ; 
   %241 = icmp samesign ult i64 %240, %60
   tail call void @llvm.assume(i1 %241)
   tail call void @llvm.assume(i1 %55)
-  %242 = getelementptr inbounds nuw i16, ptr %58, i64 %240
+  %242 = getelementptr inbounds nuw [2 x i8], ptr %58, i64 %240
   %243 = load i16, ptr %242, align 2, !tbaa !141
   %244 = add i16 %243, %.0.i135
-  %245 = getelementptr inbounds nuw i16, ptr %53, i64 %240
+  %245 = getelementptr inbounds nuw [2 x i8], ptr %53, i64 %240
   store i16 %244, ptr %245, align 2, !tbaa !141
   %indvars.iv.next496 = add nuw nsw i64 %indvars.iv495, 2
   %246 = icmp samesign ult i64 %indvars.iv495, 14
@@ -1431,7 +1431,7 @@ _ZN8rawspeed21SamsungV0Decompressor7calcAdjERNS_16BitStreamerMSB32Ei.exit145: ; 
   tail call void @llvm.assume(i1 %250)
   tail call void @llvm.assume(i1 %59)
   tail call void @llvm.assume(i1 %50)
-  %251 = getelementptr inbounds nuw i16, ptr %53, i64 %249
+  %251 = getelementptr inbounds nuw [2 x i8], ptr %53, i64 %249
   %252 = load i16, ptr %251, align 2, !tbaa !141
   br label %253
 
@@ -1448,7 +1448,7 @@ _ZN8rawspeed21SamsungV0Decompressor7calcAdjERNS_16BitStreamerMSB32Ei.exit145: ; 
   %.sroa.24.7472 = phi i32 [ %.sroa.24.3537544, %253 ], [ %.sroa.24.12, %301 ]
   %.sroa.0199.7471 = phi i64 [ %.sroa.0199.3536545, %253 ], [ %.sroa.0199.12, %301 ]
   %257 = lshr i64 %indvars.iv498, 3
-  %258 = getelementptr inbounds nuw i32, ptr %4, i64 %257
+  %258 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %257
   %259 = load i32, ptr %258, align 4, !tbaa !16
   %.not.i156 = icmp eq i32 %259, 0
   br i1 %.not.i156, label %_ZN8rawspeed21SamsungV0Decompressor7calcAdjERNS_16BitStreamerMSB32Ei.exit171, label %260
@@ -1537,7 +1537,7 @@ _ZN8rawspeed21SamsungV0Decompressor7calcAdjERNS_16BitStreamerMSB32Ei.exit171: ; 
   %299 = add i16 %.0.i161, %254
   tail call void @llvm.assume(i1 %59)
   tail call void @llvm.assume(i1 %50)
-  %300 = getelementptr inbounds nuw i16, ptr %53, i64 %296
+  %300 = getelementptr inbounds nuw [2 x i8], ptr %53, i64 %296
   store i16 %299, ptr %300, align 2, !tbaa !141
   br label %301
 
@@ -1549,7 +1549,7 @@ _ZN8rawspeed21SamsungV0Decompressor7calcAdjERNS_16BitStreamerMSB32Ei.exit171: ; 
 303:                                              ; preds = %255
   tail call void @llvm.assume(i1 %59)
   tail call void @llvm.assume(i1 %50)
-  %304 = getelementptr i16, ptr %53, i64 %indvars.iv504
+  %304 = getelementptr [2 x i8], ptr %53, i64 %indvars.iv504
   %305 = getelementptr i8, ptr %304, i64 -2
   %306 = load i16, ptr %305, align 2, !tbaa !141
   br label %307
@@ -1564,7 +1564,7 @@ _ZN8rawspeed21SamsungV0Decompressor7calcAdjERNS_16BitStreamerMSB32Ei.exit171: ; 
   %.sroa.24.8476 = phi i32 [ %.sroa.24.12, %307 ], [ %.sroa.24.13, %355 ]
   %.sroa.0199.8475 = phi i64 [ %.sroa.0199.12, %307 ], [ %.sroa.0199.13, %355 ]
   %310 = lshr i64 %indvars.iv501, 3
-  %311 = getelementptr inbounds nuw i32, ptr %4, i64 %310
+  %311 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %310
   %312 = getelementptr inbounds nuw i8, ptr %311, i64 8
   %313 = load i32, ptr %312, align 4, !tbaa !16
   %.not.i179 = icmp eq i32 %313, 0
@@ -1654,7 +1654,7 @@ _ZN8rawspeed21SamsungV0Decompressor7calcAdjERNS_16BitStreamerMSB32Ei.exit194: ; 
   %353 = add i16 %.0.i184, %308
   tail call void @llvm.assume(i1 %59)
   tail call void @llvm.assume(i1 %50)
-  %354 = getelementptr inbounds nuw i16, ptr %53, i64 %350
+  %354 = getelementptr inbounds nuw [2 x i8], ptr %53, i64 %350
   store i16 %353, ptr %354, align 2, !tbaa !141
   br label %355
 

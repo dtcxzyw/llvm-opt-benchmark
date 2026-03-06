@@ -1430,7 +1430,7 @@ define noundef double @"_ZN108_$LT$statrs..distribution..binomial..Binomial$u20$
   br label %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit.i
 
 30:                                               ; preds = %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit6.thread9"
-  %31 = getelementptr inbounds nuw double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %4
+  %31 = getelementptr inbounds nuw [8 x i8], ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %4
   %32 = load double, ptr %31, align 8, !alias.scope !85, !noalias !88, !noundef !4
   %33 = tail call noundef double @llvm.log.f64(double %32)
   br label %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit.i
@@ -1448,7 +1448,7 @@ _ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit.i: ; preds 
   br label %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit3.i
 
 39:                                               ; preds = %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit.i
-  %40 = getelementptr inbounds nuw double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %1
+  %40 = getelementptr inbounds nuw [8 x i8], ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %1
   %41 = load double, ptr %40, align 8, !alias.scope !96, !noalias !99, !noundef !4
   %42 = tail call noundef double @llvm.log.f64(double %41)
   br label %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit3.i
@@ -1468,7 +1468,7 @@ _ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit3.i: ; preds
   br label %_ZN6statrs8function9factorial11ln_binomial17hdf622f93e4434b6cE.exit
 
 50:                                               ; preds = %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit3.i
-  %51 = getelementptr inbounds nuw double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %44
+  %51 = getelementptr inbounds nuw [8 x i8], ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %44
   %52 = load double, ptr %51, align 8, !alias.scope !107, !noalias !110, !noundef !4
   %53 = tail call noundef double @llvm.log.f64(double %52)
   %.pre = uitofp nneg i64 %44 to double
@@ -1555,7 +1555,7 @@ define noundef double @"_ZN108_$LT$statrs..distribution..binomial..Binomial$u20$
   br label %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit.i
 
 30:                                               ; preds = %"_ZN47_$LT$f64$u20$as$u20$approx..ulps_eq..UlpsEq$GT$7ulps_eq17hdd68b037342b848bE.llvm.13986783010576937582.exit6.thread9"
-  %31 = getelementptr inbounds nuw double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %4
+  %31 = getelementptr inbounds nuw [8 x i8], ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %4
   %32 = load double, ptr %31, align 8, !alias.scope !118, !noalias !121, !noundef !4
   %33 = tail call noundef double @llvm.log.f64(double %32)
   br label %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit.i
@@ -1573,7 +1573,7 @@ _ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit.i: ; preds 
   br label %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit3.i
 
 39:                                               ; preds = %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit.i
-  %40 = getelementptr inbounds nuw double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %1
+  %40 = getelementptr inbounds nuw [8 x i8], ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %1
   %41 = load double, ptr %40, align 8, !alias.scope !129, !noalias !132, !noundef !4
   %42 = tail call noundef double @llvm.log.f64(double %41)
   br label %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit3.i
@@ -1593,7 +1593,7 @@ _ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit3.i: ; preds
   br label %_ZN6statrs8function9factorial11ln_binomial17hdf622f93e4434b6cE.exit
 
 50:                                               ; preds = %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit3.i
-  %51 = getelementptr inbounds nuw double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %44
+  %51 = getelementptr inbounds nuw [8 x i8], ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %44
   %52 = load double, ptr %51, align 8, !alias.scope !140, !noalias !143, !noundef !4
   %53 = tail call noundef double @llvm.log.f64(double %52)
   %.pre = uitofp nneg i64 %44 to double
@@ -2065,7 +2065,7 @@ define noundef double @"_ZN106_$LT$statrs..distribution..poisson..Poisson$u20$as
   br label %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds nuw double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %1
+  %10 = getelementptr inbounds nuw [8 x i8], ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %1
   %11 = load double, ptr %10, align 8, !alias.scope !198, !noalias !201, !noundef !4
   %12 = tail call noundef double @llvm.log.f64(double %11)
   br label %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit
@@ -2094,7 +2094,7 @@ define noundef double @"_ZN106_$LT$statrs..distribution..poisson..Poisson$u20$as
   br label %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds nuw double, ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %1
+  %10 = getelementptr inbounds nuw [8 x i8], ptr @anon.2e0ec6afcc8886635c093ddcdbf46286.57.llvm.9554138872291501309, i64 %1
   %11 = load double, ptr %10, align 8, !alias.scope !209, !noalias !212, !noundef !4
   %12 = tail call noundef double @llvm.log.f64(double %11)
   br label %_ZN6statrs8function9factorial12ln_factorial17h54b56003957ab702E.exit

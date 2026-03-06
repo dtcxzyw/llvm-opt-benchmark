@@ -1762,7 +1762,7 @@ define hidden noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
 10:                                               ; preds = %10, %5
   %.017 = phi i64 [ %2, %5 ], [ %14, %10 ]
   %.016 = phi i64 [ 0, %5 ], [ %15, %10 ]
-  %11 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %0, i64 %.016
+  %11 = getelementptr inbounds [24 x i8], ptr %0, i64 %.016
   %12 = getelementptr i8, ptr %11, i64 16
   %.val = load i64, ptr %12, align 8, !noundef !28
   %13 = add i64 %.017, 1
@@ -1813,7 +1813,7 @@ define noundef range(i8 0, 4) i8 @_ZN11wasi_common12string_array11StringArray4pu
 .preheader.i:                                     ; preds = %14, %.preheader.i
   %.017.i.i = phi i64 [ %21, %.preheader.i ], [ 0, %14 ]
   %.016.i.i = phi i64 [ %22, %.preheader.i ], [ 0, %14 ]
-  %18 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %16, i64 %.016.i.i
+  %18 = getelementptr inbounds [24 x i8], ptr %16, i64 %.016.i.i
   %19 = getelementptr i8, ptr %18, i64 16
   %.val.i.i = load i64, ptr %19, align 8, !noalias !95, !noundef !28
   %20 = add i64 %.017.i.i, 1
@@ -1863,7 +1863,7 @@ _ZN11wasi_common12string_array11StringArray15cumulative_size17h71c748e7f61d2eb6E
 35:                                               ; preds = %._crit_edge.i, %27
   %36 = phi ptr [ %.pre, %._crit_edge.i ], [ %16, %27 ]
   %37 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %6, %27 ]
-  %38 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %36, i64 %37
+  %38 = getelementptr inbounds [24 x i8], ptr %36, i64 %37
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
   %39 = load i64, ptr %5, align 8, !alias.scope !98, !noalias !101, !noundef !28
   %40 = add i64 %39, 1
@@ -1920,7 +1920,7 @@ define noundef i32 @_ZN11wasi_common12string_array11StringArray15cumulative_size
 .preheader:                                       ; preds = %1, %.preheader
   %.017.i = phi i64 [ %10, %.preheader ], [ 0, %1 ]
   %.016.i = phi i64 [ %11, %.preheader ], [ 0, %1 ]
-  %7 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %3, i64 %.016.i
+  %7 = getelementptr inbounds [24 x i8], ptr %3, i64 %.016.i
   %8 = getelementptr i8, ptr %7, i64 16
   %.val.i = load i64, ptr %8, align 8, !noundef !28
   %9 = add i64 %.017.i, 1
@@ -1986,7 +1986,7 @@ define noundef ptr @_ZN11wasi_common12string_array11StringArray14write_to_guest1
 .preheader.i:                                     ; preds = %3, %.preheader.i
   %.017.i.i = phi i64 [ %43, %.preheader.i ], [ 0, %3 ]
   %.016.i.i = phi i64 [ %44, %.preheader.i ], [ 0, %3 ]
-  %40 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %38, i64 %.016.i.i
+  %40 = getelementptr inbounds [24 x i8], ptr %38, i64 %.016.i.i
   %41 = getelementptr i8, ptr %40, i64 16
   %.val.i.i = load i64, ptr %41, align 8, !noalias !117, !noundef !28
   %42 = add i64 %.017.i.i, 1
@@ -2069,7 +2069,7 @@ _ZN11wasi_common12string_array11StringArray15cumulative_size17h71c748e7f61d2eb6E
 
 67:                                               ; preds = %65
   %68 = add nuw i64 %.sroa.16.0, 1
-  %69 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %38, i64 %.sroa.16.0
+  %69 = getelementptr inbounds [24 x i8], ptr %38, i64 %.sroa.16.0
   %70 = trunc i64 %.sroa.16.0 to i32
   %71 = icmp ugt i32 %70, 1073741823
   br i1 %71, label %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$24__iterator_get_unchecked17hd9d768597c235504E.exit.i", label %72

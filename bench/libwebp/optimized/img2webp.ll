@@ -131,7 +131,7 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef %1) local_un
 
 36:                                               ; preds = %.thread543
   %37 = sext i32 %152 to i64
-  %38 = getelementptr inbounds ptr, ptr %20, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %20, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !17
   %40 = load i8, ptr %39, align 1, !tbaa !18
   %41 = icmp eq i8 %40, 45
@@ -142,7 +142,7 @@ sub_0:                                            ; preds = %36, %.outer
   %.0189439.lcssa = phi i32 [ %.0189439.ph, %.outer ], [ %152, %36 ]
   %.lcssa645 = phi i64 [ %147, %.outer ], [ %37, %36 ]
   %.lcssa643 = phi ptr [ %149, %.outer ], [ %39, %36 ]
-  %42 = getelementptr inbounds ptr, ptr %20, i64 %.lcssa645
+  %42 = getelementptr inbounds [8 x i8], ptr %20, i64 %.lcssa645
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i32 0, ptr %12, align 4, !tbaa !21
   %43 = load i8, ptr %.lcssa643, align 1
@@ -169,7 +169,7 @@ sub_1:                                            ; preds = %sub_0
 52:                                               ; preds = %49
   store ptr null, ptr %42, align 8, !tbaa !17
   %53 = sext i32 %50 to i64
-  %54 = getelementptr inbounds ptr, ptr %20, i64 %53
+  %54 = getelementptr inbounds [8 x i8], ptr %20, i64 %53
   %55 = load ptr, ptr %54, align 8, !tbaa !17
   br label %139
 
@@ -186,7 +186,7 @@ sub_1:                                            ; preds = %sub_0
 60:                                               ; preds = %57
   store ptr null, ptr %42, align 8, !tbaa !17
   %61 = sext i32 %58 to i64
-  %62 = getelementptr inbounds ptr, ptr %20, i64 %61
+  %62 = getelementptr inbounds [8 x i8], ptr %20, i64 %61
   %63 = load ptr, ptr %62, align 8, !tbaa !17
   %64 = call i32 @ExUtilGetInt(ptr noundef %63, i32 noundef 0, ptr noundef nonnull %12) #7
   store i32 %64, ptr %32, align 4, !tbaa !22
@@ -205,7 +205,7 @@ sub_1:                                            ; preds = %sub_0
 70:                                               ; preds = %67
   store ptr null, ptr %42, align 8, !tbaa !17
   %71 = sext i32 %68 to i64
-  %72 = getelementptr inbounds ptr, ptr %20, i64 %71
+  %72 = getelementptr inbounds [8 x i8], ptr %20, i64 %71
   %73 = load ptr, ptr %72, align 8, !tbaa !17
   %74 = call i32 @ExUtilGetInt(ptr noundef %73, i32 noundef 0, ptr noundef nonnull %12) #7
   store i32 %74, ptr %31, align 4, !tbaa !25
@@ -224,7 +224,7 @@ sub_1:                                            ; preds = %sub_0
 80:                                               ; preds = %77
   store ptr null, ptr %42, align 8, !tbaa !17
   %81 = sext i32 %78 to i64
-  %82 = getelementptr inbounds ptr, ptr %20, i64 %81
+  %82 = getelementptr inbounds [8 x i8], ptr %20, i64 %81
   %83 = load ptr, ptr %82, align 8, !tbaa !17
   %84 = call i32 @ExUtilGetInt(ptr noundef %83, i32 noundef 0, ptr noundef nonnull %12) #7
   %85 = icmp slt i32 %84, 0
@@ -267,7 +267,7 @@ sub_1:                                            ; preds = %sub_0
 99:                                               ; preds = %96
   store ptr null, ptr %42, align 8, !tbaa !17
   %100 = sext i32 %97 to i64
-  %101 = getelementptr inbounds ptr, ptr %20, i64 %100
+  %101 = getelementptr inbounds [8 x i8], ptr %20, i64 %100
   %102 = load ptr, ptr %101, align 8, !tbaa !17
   %103 = call i32 @ExUtilGetInt(ptr noundef %102, i32 noundef 0, ptr noundef nonnull %12) #7
   store i32 %103, ptr %28, align 4, !tbaa !31
@@ -351,7 +351,7 @@ sub_1360:                                         ; preds = %.tail353, %sub_1355
 
 140:                                              ; preds = %139
   %141 = sext i32 %.1190.ph to i64
-  %142 = getelementptr inbounds ptr, ptr %20, i64 %141
+  %142 = getelementptr inbounds [8 x i8], ptr %20, i64 %141
   store ptr null, ptr %142, align 8, !tbaa !17
   br label %144
 
@@ -386,7 +386,7 @@ sub_1360:                                         ; preds = %.tail353, %sub_1355
   %.0216437.ph = phi i32 [ %.2218.ph, %144 ], [ 0, %.lr.ph ]
   %.1225436.ph = phi ptr [ %.3227.ph311, %144 ], [ null, %.lr.ph ]
   %147 = sext i32 %.0189439.ph to i64
-  %148 = getelementptr inbounds ptr, ptr %20, i64 %147
+  %148 = getelementptr inbounds [8 x i8], ptr %20, i64 %147
   %149 = load ptr, ptr %148, align 8, !tbaa !17
   %150 = load i8, ptr %149, align 1, !tbaa !18
   %151 = icmp eq i8 %150, 45
@@ -444,7 +444,7 @@ sub_1360:                                         ; preds = %.tail353, %sub_1355
   %.1214447 = phi i32 [ 0, %._crit_edge.thread554 ], [ %.2215, %282 ]
   %.1221445 = phi ptr [ null, %._crit_edge.thread554 ], [ %.2222, %282 ]
   %168 = sext i32 %.4193453 to i64
-  %169 = getelementptr inbounds ptr, ptr %20, i64 %168
+  %169 = getelementptr inbounds [8 x i8], ptr %20, i64 %168
   %170 = load ptr, ptr %169, align 8, !tbaa !17
   %171 = icmp eq ptr %170, null
   br i1 %171, label %282, label %172
@@ -508,7 +508,7 @@ sub_1365:                                         ; preds = %sub_0364
 
 194:                                              ; preds = %191
   %195 = sext i32 %192 to i64
-  %196 = getelementptr inbounds ptr, ptr %20, i64 %195
+  %196 = getelementptr inbounds [8 x i8], ptr %20, i64 %195
   %197 = load ptr, ptr %196, align 8, !tbaa !17
   %198 = call float @ExUtilGetFloat(ptr noundef %197, ptr noundef nonnull %13) #7
   store float %198, ptr %162, align 4, !tbaa !33
@@ -533,7 +533,7 @@ sub_1370:                                         ; preds = %191, %.tail363, %su
 
 207:                                              ; preds = %204
   %208 = sext i32 %205 to i64
-  %209 = getelementptr inbounds ptr, ptr %20, i64 %208
+  %209 = getelementptr inbounds [8 x i8], ptr %20, i64 %208
   %210 = load ptr, ptr %209, align 8, !tbaa !17
   %211 = call i32 @ExUtilGetInt(ptr noundef %210, i32 noundef 0, ptr noundef nonnull %13) #7
   store i32 %211, ptr %161, align 4, !tbaa !34
@@ -558,7 +558,7 @@ sub_1375:                                         ; preds = %204, %.tail368, %su
 
 220:                                              ; preds = %217
   %221 = sext i32 %218 to i64
-  %222 = getelementptr inbounds ptr, ptr %20, i64 %221
+  %222 = getelementptr inbounds [8 x i8], ptr %20, i64 %221
   %223 = load ptr, ptr %222, align 8, !tbaa !17
   %224 = call i32 @ExUtilGetInt(ptr noundef %223, i32 noundef 0, ptr noundef nonnull %13) #7
   %225 = icmp slt i32 %224, 1
@@ -719,7 +719,7 @@ ReadImage.exit:                                   ; preds = %242
 
 .lr.ph463:                                        ; preds = %.lr.ph463.preheader, %290
   %indvars.iv = phi i64 [ %166, %.lr.ph463.preheader ], [ %indvars.iv.next, %290 ]
-  %285 = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv
+  %285 = getelementptr inbounds [8 x i8], ptr %20, i64 %indvars.iv
   %286 = load ptr, ptr %285, align 8, !tbaa !17
   %.not259 = icmp eq ptr %286, null
   br i1 %.not259, label %290, label %287

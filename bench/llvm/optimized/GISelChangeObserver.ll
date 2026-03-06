@@ -3,14 +3,6 @@ source_filename = "bench/llvm/original/GISelChangeObserver.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.std::pair" = type { %"class.llvm::PointerUnion", ptr }
-%"class.llvm::PointerUnion" = type { %"class.llvm::pointer_union_detail::PointerUnionMembers" }
-%"class.llvm::pointer_union_detail::PointerUnionMembers" = type { %"class.llvm::pointer_union_detail::PointerUnionMembers.0" }
-%"class.llvm::pointer_union_detail::PointerUnionMembers.0" = type { %"class.llvm::pointer_union_detail::PointerUnionMembers.1" }
-%"class.llvm::pointer_union_detail::PointerUnionMembers.1" = type { %"class.llvm::PointerIntPair" }
-%"class.llvm::PointerIntPair" = type { %"struct.llvm::detail::PunnedPointer" }
-%"struct.llvm::detail::PunnedPointer" = type { [8 x i8] }
-
 @_ZN4llvm24DisableABIBreakingChecksE = external global i32, align 4
 @_ZN4llvm30VerifyDisableABIBreakingChecksE = weak hidden local_unnamed_addr global ptr @_ZN4llvm24DisableABIBreakingChecksE, align 8
 
@@ -28,12 +20,12 @@ define dso_local void @_ZN4llvm19GISelChangeObserver20changingAllUsesOfRegERKNS_
   %6 = and i32 %2, 2147483647
   %7 = zext nneg i32 %6 to i64
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds nuw %"struct.std::pair", ptr %8, i64 %7
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %7
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 296
   %12 = zext nneg i32 %2 to i64
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %12
   %.0.in.i.i.i = select i1 %4, ptr %10, ptr %14
   %.0.i.i.i = load ptr, ptr %.0.in.i.i.i, align 8, !tbaa !3
   %.not.i.i.i = icmp eq ptr %.0.i.i.i, null
@@ -174,7 +166,7 @@ define dso_local void @_ZN4llvm19GISelChangeObserver28finishedChangingAllUsesOfR
 
 _ZNK4llvm15SmallPtrSetImplIPNS_12MachineInstrEE5beginEv.exit: ; preds = %.lr.ph.i5.i.i7.i5.i, %.critedge2.i7.i.i9.i11.i, %1
   %.sroa.0.4.i8.i = phi ptr [ %3, %1 ], [ %.sroa.0.3.i6.i, %.lr.ph.i5.i.i7.i5.i ], [ %11, %.critedge2.i7.i.i9.i11.i ]
-  %14 = getelementptr inbounds nuw ptr, ptr %3, i64 %.v.i5.i3.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.v.i5.i3.i
   %.not7 = icmp eq ptr %.sroa.0.4.i8.i, %14
   br i1 %.not7, label %._crit_edge, label %.lr.ph
 
@@ -306,7 +298,7 @@ _ZN4llvm20GISelObserverWrapper11addObserverEPNS_19GISelChangeObserverE.exit: ; p
   %14 = phi i32 [ %7, %3 ], [ %.pre.i.i, %10 ]
   %15 = load ptr, ptr %5, align 8, !tbaa !164
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %16
   %18 = ptrtoint ptr %2 to i64
   store i64 %18, ptr %17, align 1
   %19 = load i32, ptr %6, align 8, !tbaa !161
@@ -422,7 +414,7 @@ _ZN4llvm4findIRNS_11SmallVectorIPNS_19GISelChangeObserverELj4EEES3_EEDaOT_RKT0_.
 
 _ZN4llvm4findIRNS_11SmallVectorIPNS_19GISelChangeObserverELj4EEES3_EEDaOT_RKT0_.exit.i: ; preds = %13, %_ZN4llvm4findIRNS_11SmallVectorIPNS_19GISelChangeObserverELj4EEES3_EEDaOT_RKT0_.exit.i.loopexit.split.loop.exit, %_ZN4llvm4findIRNS_11SmallVectorIPNS_19GISelChangeObserverELj4EEES3_EEDaOT_RKT0_.exit.i.loopexit.split.loop.exit16, %_ZN4llvm4findIRNS_11SmallVectorIPNS_19GISelChangeObserverELj4EEES3_EEDaOT_RKT0_.exit.i.loopexit.split.loop.exit18, %44, %._crit_edge._crit_edge52.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i, %33
   %.028.i.i.i.i.i = phi ptr [ %.1.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i ], [ %10, %44 ], [ %.2.i.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i.i ], [ %.029.lcssa.i.i.i.i.i, %33 ], [ %47, %_ZN4llvm4findIRNS_11SmallVectorIPNS_19GISelChangeObserverELj4EEES3_EEDaOT_RKT0_.exit.i.loopexit.split.loop.exit18 ], [ %46, %_ZN4llvm4findIRNS_11SmallVectorIPNS_19GISelChangeObserverELj4EEES3_EEDaOT_RKT0_.exit.i.loopexit.split.loop.exit16 ], [ %45, %_ZN4llvm4findIRNS_11SmallVectorIPNS_19GISelChangeObserverELj4EEES3_EEDaOT_RKT0_.exit.i.loopexit.split.loop.exit ], [ %.02946.i.i.i.i.i, %13 ]
-  %48 = getelementptr inbounds nuw ptr, ptr %6, i64 %9
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %9
   %.not.i = icmp eq ptr %.028.i.i.i.i.i, %48
   br i1 %.not.i, label %_ZN4llvm20GISelObserverWrapper14removeObserverEPNS_19GISelChangeObserverE.exit, label %49
 

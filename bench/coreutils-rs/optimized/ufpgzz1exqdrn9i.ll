@@ -66,7 +66,7 @@ define hidden noundef align 16 dereferenceable_or_null(112) ptr @"_ZN12clap_buil
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load ptr, ptr %21, align 8, !nonnull !4, !noundef !4
-  %23 = getelementptr inbounds nuw { { i128, [2 x i64] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i8, i8, [6 x i8] }, ptr %22, i64 %.sroa.8.025
+  %23 = getelementptr inbounds nuw [112 x i8], ptr %22, i64 %.sroa.8.025
   br label %.loopexit
 
 24:                                               ; preds = %16
@@ -564,7 +564,7 @@ default.unreachable1:                             ; preds = %3
   %23 = load i64, ptr %16, align 8, !alias.scope !88, !noalias !91, !noundef !4
   %24 = icmp ult i64 %23, 31
   call void @llvm.assume(i1 %24)
-  %25 = getelementptr inbounds nuw { { { [20 x i64] } }, { i64 }, [1 x i64] }, ptr %21, i64 %23
+  %25 = getelementptr inbounds nuw [176 x i8], ptr %21, i64 %23
   store i128 %.sroa.011.0.copyload.i, ptr %25, align 16, !noalias !94
   %.sroa.5.0..sroa_idx13.i = getelementptr inbounds nuw i8, ptr %25, i64 16
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -1240,7 +1240,7 @@ define hidden { ptr, i64 } @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$
   store i64 %7, ptr %2, align 8
   %8 = icmp ult i64 %5, 3
   tail call void @llvm.assume(i1 %8)
-  %9 = getelementptr inbounds nuw { [2 x i64] }, ptr %0, i64 %5
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %5
   %10 = load ptr, ptr %9, align 8, !nonnull !4, !align !5, !noundef !4
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load i64, ptr %11, align 8, !noundef !4

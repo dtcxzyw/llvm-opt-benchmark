@@ -58,7 +58,7 @@ define internal i32 @query_formats(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 18:                                               ; preds = %.preheader, %34
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %34 ]
-  %19 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4, !tbaa !25
   %.not34 = icmp slt i32 %20, %12
   br i1 %.not34, label %21, label %.thread
@@ -148,16 +148,16 @@ define internal i32 @shuffleplanes_filter_frame(ptr noundef readonly captures(no
 
 16:                                               ; preds = %.lr.ph, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
-  %17 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4, !tbaa !25
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds ptr, ptr %1, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %1, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !43
-  %22 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   store ptr %21, ptr %22, align 8, !tbaa !43
-  %23 = getelementptr inbounds i32, ptr %15, i64 %19
+  %23 = getelementptr inbounds [4 x i8], ptr %15, i64 %19
   %24 = load i32, ptr %23, align 4, !tbaa !25
-  %25 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   store i32 %24, ptr %25, align 4, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -249,10 +249,10 @@ define internal noundef i32 @shuffleplanes_config_input(ptr noundef readonly cap
 
 14:                                               ; preds = %.lr.ph, %22
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
-  %15 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4, !tbaa !25
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds i32, ptr %2, i64 %17
+  %18 = getelementptr inbounds [4 x i8], ptr %2, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !25
   %.not = icmp eq i32 %19, 0
   br i1 %.not, label %22, label %20
@@ -261,7 +261,7 @@ define internal noundef i32 @shuffleplanes_config_input(ptr noundef readonly cap
   store i32 1, ptr %7, align 4, !tbaa !45
   %.pre = load i32, ptr %15, align 4, !tbaa !25
   %.phi.trans.insert = sext i32 %.pre to i64
-  %.phi.trans.insert14 = getelementptr inbounds i32, ptr %2, i64 %.phi.trans.insert
+  %.phi.trans.insert14 = getelementptr inbounds [4 x i8], ptr %2, i64 %.phi.trans.insert
   %.pre15 = load i32, ptr %.phi.trans.insert14, align 4, !tbaa !25
   %21 = add nsw i32 %.pre15, 1
   br label %22
@@ -269,7 +269,7 @@ define internal noundef i32 @shuffleplanes_config_input(ptr noundef readonly cap
 22:                                               ; preds = %20, %14
   %.pre-phi = phi i64 [ %.phi.trans.insert, %20 ], [ %17, %14 ]
   %23 = phi i32 [ %21, %20 ], [ 1, %14 ]
-  %24 = getelementptr inbounds i32, ptr %2, i64 %.pre-phi
+  %24 = getelementptr inbounds [4 x i8], ptr %2, i64 %.pre-phi
   store i32 %23, ptr %24, align 4, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

@@ -171,7 +171,7 @@ define internal fastcc i64 @process_vm_rw(i32 noundef %0, ptr noundef %1, i64 no
 .preheader:                                       ; preds = %35, %53
   %38 = phi i64 [ %55, %53 ], [ 0, %35 ]
   %39 = phi i64 [ %54, %53 ], [ 0, %35 ]
-  %40 = getelementptr %struct.iovec, ptr %31, i64 %38
+  %40 = getelementptr [16 x i8], ptr %31, i64 %38
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load i64, ptr %41, align 8
   %43 = icmp sgt i64 %42, 0
@@ -245,7 +245,7 @@ define internal fastcc i64 @process_vm_rw(i32 noundef %0, ptr noundef %1, i64 no
   br i1 %89, label %90, label %split
 
 90:                                               ; preds = %83
-  %91 = getelementptr %struct.iovec, ptr %31, i64 %84
+  %91 = getelementptr [16 x i8], ptr %31, i64 %84
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %93 = load i64, ptr %92, align 8
   %94 = icmp eq i64 %93, 0

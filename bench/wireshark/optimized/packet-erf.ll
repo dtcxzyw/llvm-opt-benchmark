@@ -10,9 +10,8 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._value_string_ext = type { ptr, i32, i32, ptr, ptr }
 %struct._value_string = type { i32, ptr }
 %struct.true_false_string = type { ptr, ptr }
-%struct.erf_ehdr = type { i64 }
-%struct.erf_meta_hf_template_t = type { i16, %struct._header_field_info }
 %struct.nstime_t = type { i64, i32 }
+%struct.erf_meta_hf_template_t = type { i16, %struct._header_field_info }
 %struct.erf_meta_tag_info_t = type { i16, i16, ptr, ptr, i32, i32, ptr }
 %struct.erf_anchor_key_t = type { i64, i64 }
 %struct.sdh_g707_format_s = type { i8, i8, [4 x i8] }
@@ -1383,7 +1382,7 @@ define hidden ptr @erf_get_ehdr(ptr noundef readonly captures(address_is_null) %
 
 21:                                               ; preds = %.lr.ph, %35
   %indvars.iv = phi i64 [ %20, %.lr.ph ], [ %indvars.iv.next, %35 ]
-  %22 = getelementptr %struct.erf_ehdr, ptr %17, i64 %indvars.iv
+  %22 = getelementptr [8 x i8], ptr %17, i64 %indvars.iv
   %23 = load i64, ptr %22, align 8
   %24 = lshr i64 %23, 56
   %25 = trunc nuw nsw i64 %24 to i32
@@ -1403,7 +1402,7 @@ define hidden ptr @erf_get_ehdr(ptr noundef readonly captures(address_is_null) %
 31:                                               ; preds = %29, %28
   %32 = phi ptr [ %.pre, %29 ], [ %11, %28 ]
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %34 = getelementptr %struct.erf_ehdr, ptr %33, i64 %indvars.iv
+  %34 = getelementptr [8 x i8], ptr %33, i64 %indvars.iv
   br label %.loopexit
 
 35:                                               ; preds = %21
@@ -1498,13 +1497,13 @@ define hidden void @proto_register_erf() local_unnamed_addr #1 {
 
 63:                                               ; preds = %270, %0
   %indvars.iv35.i = phi i64 [ 0, %0 ], [ %indvars.iv.next36.i, %270 ]
-  %64 = getelementptr %struct.erf_meta_hf_template_t, ptr @erf_meta_tags, i64 %indvars.iv35.i
+  %64 = getelementptr [80 x i8], ptr @erf_meta_tags, i64 %indvars.iv35.i
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   br label %66
 
 66:                                               ; preds = %init_tag_fields.exit.i, %63
   %indvars.iv.i = phi i64 [ 0, %63 ], [ %indvars.iv.next.i, %init_tag_fields.exit.i ]
-  %67 = getelementptr %struct.erf_meta_hf_template_t, ptr @erf_meta_sections, i64 %indvars.iv.i
+  %67 = getelementptr [80 x i8], ptr @erf_meta_sections, i64 %indvars.iv.i
   %68 = load ptr, ptr @erf_meta_index.1, align 8
   %69 = load ptr, ptr @erf_meta_index.2, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
@@ -1551,9 +1550,9 @@ define hidden void @proto_register_erf() local_unnamed_addr #1 {
   %indvars.iv.i.i.i = phi i64 [ 0, %80 ], [ %indvars.iv.next.i.i.i, %83 ]
   %84 = load ptr, ptr %79, align 8
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 4
-  %86 = getelementptr i32, ptr %85, i64 %indvars.iv.i.i.i
+  %86 = getelementptr [4 x i8], ptr %85, i64 %indvars.iv.i.i.i
   store ptr %86, ptr %14, align 8
-  %87 = getelementptr %struct._header_field_info, ptr @erf_parent_section, i64 %indvars.iv.i.i.i
+  %87 = getelementptr [72 x i8], ptr @erf_parent_section, i64 %indvars.iv.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %32, ptr noundef readonly align 8 dereferenceable(72) %87, i64 72, i1 false)
   %88 = call ptr @wmem_epan_scope()
   %89 = load ptr, ptr %78, align 8
@@ -1598,9 +1597,9 @@ define hidden void @proto_register_erf() local_unnamed_addr #1 {
   %indvars.iv.i.i.i.i = phi i64 [ 0, %98 ], [ %indvars.iv.next.i.i.i.i, %105 ]
   %106 = load ptr, ptr %79, align 8
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 4
-  %108 = getelementptr i32, ptr %107, i64 %indvars.iv.i.i.i.i
+  %108 = getelementptr [4 x i8], ptr %107, i64 %indvars.iv.i.i.i.i
   store ptr %108, ptr %12, align 8
-  %109 = getelementptr %struct._header_field_info, ptr %13, i64 %indvars.iv.i.i.i.i
+  %109 = getelementptr [72 x i8], ptr %13, i64 %indvars.iv.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %30, ptr noundef readonly align 8 dereferenceable(72) %109, i64 72, i1 false)
   %110 = call ptr @wmem_epan_scope()
   %111 = load ptr, ptr %78, align 8
@@ -1664,9 +1663,9 @@ init_ns_addr_tag_value_fields.exit.i.i:           ; preds = %105
   %indvars.iv.i27.i.i = phi i64 [ 0, %130 ], [ %indvars.iv.next.i28.i.i, %133 ]
   %134 = load ptr, ptr %79, align 8
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 4
-  %136 = getelementptr i32, ptr %135, i64 %indvars.iv.i27.i.i
+  %136 = getelementptr [4 x i8], ptr %135, i64 %indvars.iv.i27.i.i
   store ptr %136, ptr %10, align 8
-  %137 = getelementptr %struct._header_field_info, ptr @erf_tunneling_modes, i64 %indvars.iv.i27.i.i
+  %137 = getelementptr [72 x i8], ptr @erf_tunneling_modes, i64 %indvars.iv.i27.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %55, ptr noundef readonly align 8 dereferenceable(72) %137, i64 72, i1 false)
   %138 = call ptr @wmem_epan_scope()
   %139 = load ptr, ptr %78, align 8
@@ -1722,9 +1721,9 @@ init_tag_value_subfields.exit34.i.i:              ; preds = %129
   %indvars.iv.i35.i.i = phi i64 [ 0, %159 ], [ %indvars.iv.next.i36.i.i, %162 ]
   %163 = load ptr, ptr %79, align 8
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 4
-  %165 = getelementptr i32, ptr %164, i64 %indvars.iv.i35.i.i
+  %165 = getelementptr [4 x i8], ptr %164, i64 %indvars.iv.i35.i.i
   store ptr %165, ptr %8, align 8
-  %166 = getelementptr %struct._header_field_info, ptr @erf_ptp_time_properties_flags, i64 %indvars.iv.i35.i.i
+  %166 = getelementptr [72 x i8], ptr @erf_ptp_time_properties_flags, i64 %indvars.iv.i35.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %51, ptr noundef readonly align 8 dereferenceable(72) %166, i64 72, i1 false)
   %167 = call ptr @wmem_epan_scope()
   %168 = load ptr, ptr %78, align 8
@@ -1758,9 +1757,9 @@ init_tag_value_subfields.exit38.i.i:              ; preds = %162
   %indvars.iv.i39.i.i = phi i64 [ 0, %177 ], [ %indvars.iv.next.i40.i.i, %180 ]
   %181 = load ptr, ptr %79, align 8
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 4
-  %183 = getelementptr i32, ptr %182, i64 %indvars.iv.i39.i.i
+  %183 = getelementptr [4 x i8], ptr %182, i64 %indvars.iv.i39.i.i
   store ptr %183, ptr %7, align 8
-  %184 = getelementptr %struct._header_field_info, ptr @erf_ptp_clock_quality, i64 %indvars.iv.i39.i.i
+  %184 = getelementptr [72 x i8], ptr @erf_ptp_clock_quality, i64 %indvars.iv.i39.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %49, ptr noundef readonly align 8 dereferenceable(72) %184, i64 72, i1 false)
   %185 = call ptr @wmem_epan_scope()
   %186 = load ptr, ptr %78, align 8
@@ -1794,9 +1793,9 @@ init_tag_value_subfields.exit42.i.i:              ; preds = %180
   %indvars.iv.i43.i.i = phi i64 [ 0, %195 ], [ %indvars.iv.next.i44.i.i, %198 ]
   %199 = load ptr, ptr %79, align 8
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 4
-  %201 = getelementptr i32, ptr %200, i64 %indvars.iv.i43.i.i
+  %201 = getelementptr [4 x i8], ptr %200, i64 %indvars.iv.i43.i.i
   store ptr %201, ptr %6, align 8
-  %202 = getelementptr %struct._header_field_info, ptr @erf_stream_flags, i64 %indvars.iv.i43.i.i
+  %202 = getelementptr [72 x i8], ptr @erf_stream_flags, i64 %indvars.iv.i43.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %47, ptr noundef readonly align 8 dereferenceable(72) %202, i64 72, i1 false)
   %203 = call ptr @wmem_epan_scope()
   %204 = load ptr, ptr %78, align 8
@@ -1859,9 +1858,9 @@ init_tag_value_subfields.exit50.i.i:              ; preds = %129
   %indvars.iv.i.i51.i.i = phi i64 [ 0, %224 ], [ %indvars.iv.next.i.i52.i.i, %227 ]
   %228 = load ptr, ptr %79, align 8
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 4
-  %230 = getelementptr i32, ptr %229, i64 %indvars.iv.i.i51.i.i
+  %230 = getelementptr [4 x i8], ptr %229, i64 %indvars.iv.i.i51.i.i
   store ptr %230, ptr %3, align 8
-  %231 = getelementptr %struct._header_field_info, ptr @erf_ext_hdr_items, i64 %indvars.iv.i.i51.i.i
+  %231 = getelementptr [72 x i8], ptr @erf_ext_hdr_items, i64 %indvars.iv.i.i51.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %41, ptr noundef readonly align 8 dereferenceable(72) %231, i64 72, i1 false)
   %232 = call ptr @wmem_epan_scope()
   %233 = load ptr, ptr %78, align 8
@@ -1893,9 +1892,9 @@ init_tag_value_subfields.exit.i.i.i:              ; preds = %227
   %.016.i.i.i = phi i64 [ %264, %.preheader.i.i.i ], [ 0, %init_tag_value_subfields.exit.i.i.i ]
   %244 = load ptr, ptr %79, align 8
   %245 = getelementptr i8, ptr %244, i64 20
-  %246 = getelementptr i32, ptr %245, i64 %.016.i.i.i
+  %246 = getelementptr [4 x i8], ptr %245, i64 %.016.i.i.i
   store ptr %246, ptr %4, align 8
-  %247 = getelementptr %struct._value_string, ptr @ehdr_type_vals, i64 %.016.i.i.i
+  %247 = getelementptr [16 x i8], ptr @ehdr_type_vals, i64 %.016.i.i.i
   %248 = load i32, ptr %247, align 16
   %249 = zext nneg i32 %248 to i64
   %250 = shl nuw i64 1, %249
@@ -1910,7 +1909,7 @@ init_tag_value_subfields.exit.i.i.i:              ; preds = %227
   %257 = load ptr, ptr %77, align 8
   %258 = getelementptr inbounds nuw i8, ptr %257, i64 16
   %259 = load ptr, ptr %258, align 8
-  %260 = getelementptr %struct._value_string, ptr @ehdr_type_vals_short, i64 %.016.i.i.i
+  %260 = getelementptr [16 x i8], ptr @ehdr_type_vals_short, i64 %.016.i.i.i
   %261 = getelementptr inbounds nuw i8, ptr %260, i64 8
   %262 = load ptr, ptr %261, align 8
   %263 = call noalias ptr (ptr, ptr, ...) @wmem_strconcat(ptr noundef %253, ptr noundef nonnull @.str.1034, ptr noundef %256, ptr noundef nonnull @.str.1035, ptr noundef %259, ptr noundef nonnull @.str.1035, ptr noundef %262, ptr noundef null)
@@ -1956,7 +1955,7 @@ init_tag_fields.exit.i:                           ; preds = %init_ext_hdrs_tag_v
 
 277:                                              ; preds = %317, %.preheader.i
   %indvars.iv39.i = phi i64 [ 1, %.preheader.i ], [ %indvars.iv.next40.i, %317 ]
-  %278 = getelementptr %struct.erf_meta_hf_template_t, ptr @erf_meta_sections, i64 %indvars.iv39.i
+  %278 = getelementptr [80 x i8], ptr @erf_meta_sections, i64 %indvars.iv39.i
   %279 = load ptr, ptr @erf_meta_index.1, align 8
   %280 = load ptr, ptr @erf_meta_index.2, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
@@ -2314,7 +2313,7 @@ dissect_erf_pseudo_header.exit:                   ; preds = %erf_type_has_color.
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %178 ]
   %.03.i.i = phi i1 [ false, %.lr.ph.i.i ], [ %.1.i.i, %178 ]
   %.0152.i.i = phi i64 [ -1, %.lr.ph.i.i ], [ %.116.i.i, %178 ]
-  %168 = getelementptr %struct.erf_ehdr, ptr %166, i64 %indvars.iv.i.i
+  %168 = getelementptr [8 x i8], ptr %166, i64 %indvars.iv.i.i
   %169 = load i64, ptr %168, align 8
   %170 = lshr i64 %169, 56
   %171 = trunc nuw nsw i64 %170 to i32
@@ -2364,7 +2363,7 @@ find_host_id.exit.i:                              ; preds = %178
   %.1110138.i = phi i64 [ %.0109.i, %find_host_id.exit.i ], [ %.2111.i, %586 ]
   %191 = load ptr, ptr %20, align 8
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 16
-  %193 = getelementptr %struct.erf_ehdr, ptr %192, i64 %indvars.iv.i
+  %193 = getelementptr [8 x i8], ptr %192, i64 %indvars.iv.i
   %194 = load i64, ptr %193, align 8
   %195 = lshr i64 %194, 56
   %196 = trunc nuw nsw i64 %195 to i32
@@ -2389,7 +2388,7 @@ find_host_id.exit.i:                              ; preds = %178
 202:                                              ; preds = %190
   %.val119.i = load ptr, ptr %20, align 8
   %203 = getelementptr inbounds nuw i8, ptr %.val119.i, i64 16
-  %204 = getelementptr %struct.erf_ehdr, ptr %203, i64 %indvars.iv.i
+  %204 = getelementptr [8 x i8], ptr %203, i64 %indvars.iv.i
   %205 = load i64, ptr %204, align 8
   %206 = lshr i64 %205, 32
   %207 = trunc nuw i64 %206 to i32
@@ -2420,7 +2419,7 @@ find_host_id.exit.i:                              ; preds = %178
 230:                                              ; preds = %190
   %.val120.i = load ptr, ptr %20, align 8
   %231 = getelementptr inbounds nuw i8, ptr %.val120.i, i64 16
-  %232 = getelementptr %struct.erf_ehdr, ptr %231, i64 %indvars.iv.i
+  %232 = getelementptr [8 x i8], ptr %231, i64 %indvars.iv.i
   %233 = load i64, ptr %232, align 8
   %234 = load i32, ptr @hf_erf_ehdr_int_res1, align 4
   %235 = lshr i64 %233, 48
@@ -2440,7 +2439,7 @@ find_host_id.exit.i:                              ; preds = %178
 247:                                              ; preds = %190
   %.val121.i = load ptr, ptr %20, align 8
   %248 = getelementptr inbounds nuw i8, ptr %.val121.i, i64 16
-  %249 = getelementptr %struct.erf_ehdr, ptr %248, i64 %indvars.iv.i
+  %249 = getelementptr [8 x i8], ptr %248, i64 %indvars.iv.i
   %250 = load i64, ptr %249, align 8
   %251 = load i32, ptr @hf_erf_ehdr_raw_link_res, align 4
   %252 = lshr i64 %250, 32
@@ -2463,7 +2462,7 @@ find_host_id.exit.i:                              ; preds = %178
 267:                                              ; preds = %190
   %.val122.i = load ptr, ptr %20, align 8
   %268 = getelementptr inbounds nuw i8, ptr %.val122.i, i64 16
-  %269 = getelementptr %struct.erf_ehdr, ptr %268, i64 %indvars.iv.i
+  %269 = getelementptr [8 x i8], ptr %268, i64 %indvars.iv.i
   %270 = load i64, ptr %269, align 8
   %271 = load i32, ptr @hf_erf_ehdr_bfs_hash, align 4
   %272 = lshr i64 %270, 48
@@ -2484,7 +2483,7 @@ find_host_id.exit.i:                              ; preds = %178
   %.val123.i = load ptr, ptr %20, align 8
   %.val124.i = load ptr, ptr %187, align 8
   %285 = getelementptr inbounds nuw i8, ptr %.val123.i, i64 16
-  %286 = getelementptr %struct.erf_ehdr, ptr %285, i64 %indvars.iv.i
+  %286 = getelementptr [8 x i8], ptr %285, i64 %indvars.iv.i
   %287 = load i64, ptr %286, align 8
   %288 = lshr i64 %287, 16
   %289 = trunc i64 %288 to i8
@@ -2557,7 +2556,7 @@ channelised_fill_sdh_g707_format.exit.i.i:        ; preds = %channelised_fill_sd
 
 318:                                              ; preds = %channelised_fill_sdh_g707_format.exit.i.i
   %319 = zext nneg i8 %313 to i64
-  %320 = getelementptr ptr, ptr @channelised_fill_vc_id_string.g_vc_size_strings, i64 %319
+  %320 = getelementptr [8 x i8], ptr @channelised_fill_vc_id_string.g_vc_size_strings, i64 %319
   %321 = load ptr, ptr %320, align 8
   call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %292, ptr noundef nonnull @.str.412, ptr noundef %321)
   switch i8 %314, label %.lr.ph.i36.i.i [
@@ -2669,7 +2668,7 @@ dissect_channelised_ex_header.exit.i:             ; preds = %.loopexit.i.i.i, %3
 373:                                              ; preds = %190
   %.val125.i = load ptr, ptr %20, align 8
   %374 = getelementptr inbounds nuw i8, ptr %.val125.i, i64 16
-  %375 = getelementptr %struct.erf_ehdr, ptr %374, i64 %indvars.iv.i
+  %375 = getelementptr [8 x i8], ptr %374, i64 %indvars.iv.i
   %376 = load i64, ptr %375, align 8
   %377 = load i32, ptr @hf_erf_ehdr_signature_payload_hash, align 4
   %378 = lshr i64 %376, 32
@@ -2692,7 +2691,7 @@ dissect_channelised_ex_header.exit.i:             ; preds = %.loopexit.i.i.i, %3
   %.2.i = select i1 %390, i8 %392, i8 %.0108139.i
   %.val126.i = load ptr, ptr %20, align 8
   %393 = getelementptr inbounds nuw i8, ptr %.val126.i, i64 16
-  %394 = getelementptr %struct.erf_ehdr, ptr %393, i64 %indvars.iv.i
+  %394 = getelementptr [8 x i8], ptr %393, i64 %indvars.iv.i
   %395 = load i64, ptr %394, align 8
   %396 = lshr i64 %395, 40
   %397 = trunc nuw nsw i64 %396 to i32
@@ -2731,7 +2730,7 @@ dissect_channelised_ex_header.exit.i:             ; preds = %.loopexit.i.i.i, %3
   %427 = trunc i64 %426 to i8
   %.val127.i = load ptr, ptr %20, align 8
   %428 = getelementptr inbounds nuw i8, ptr %.val127.i, i64 16
-  %429 = getelementptr %struct.erf_ehdr, ptr %428, i64 %indvars.iv.i
+  %429 = getelementptr [8 x i8], ptr %428, i64 %indvars.iv.i
   %430 = load i64, ptr %429, align 8
   %431 = load i32, ptr @hf_erf_ehdr_host_id_sourceid, align 4
   %432 = lshr i64 %430, 48
@@ -2783,7 +2782,7 @@ dissect_channelised_ex_header.exit.i:             ; preds = %.loopexit.i.i.i, %3
 459:                                              ; preds = %190
   %.val128.i = load ptr, ptr %20, align 8
   %460 = getelementptr inbounds nuw i8, ptr %.val128.i, i64 16
-  %461 = getelementptr %struct.erf_ehdr, ptr %460, i64 %indvars.iv.i
+  %461 = getelementptr [8 x i8], ptr %460, i64 %indvars.iv.i
   %462 = load i64, ptr %461, align 8
   %463 = load i32, ptr @hf_erf_ehdr_anchor_id_flags, align 4
   %464 = load i32, ptr @ett_erf_anchor_flags, align 4
@@ -2978,7 +2977,7 @@ dissect_host_anchor_id.exit.i:                    ; preds = %553, %534, %proto_i
 555:                                              ; preds = %190
   %.val129.i = load ptr, ptr %20, align 8
   %556 = getelementptr inbounds nuw i8, ptr %.val129.i, i64 16
-  %557 = getelementptr %struct.erf_ehdr, ptr %556, i64 %indvars.iv.i
+  %557 = getelementptr [8 x i8], ptr %556, i64 %indvars.iv.i
   %558 = load i64, ptr %557, align 8
   %559 = lshr i64 %558, 48
   %560 = trunc i64 %559 to i8
@@ -3006,7 +3005,7 @@ dissect_host_anchor_id.exit.i:                    ; preds = %553, %534, %proto_i
 580:                                              ; preds = %190
   %.val130.i = load ptr, ptr %20, align 8
   %581 = getelementptr inbounds nuw i8, ptr %.val130.i, i64 16
-  %582 = getelementptr %struct.erf_ehdr, ptr %581, i64 %indvars.iv.i
+  %582 = getelementptr [8 x i8], ptr %581, i64 %indvars.iv.i
   %583 = load i64, ptr %582, align 8
   %584 = load i32, ptr @hf_erf_ehdr_unk, align 4
   %585 = call ptr @proto_tree_add_uint64(ptr noundef %201, i32 noundef %584, ptr noundef %0, i32 noundef 0, i32 noundef 0, i64 noundef %583)
@@ -4065,18 +4064,18 @@ check_section_length.exit.i:                      ; preds = %1042, %1041, %1040,
   %1180 = phi ptr [ %1185, %.lr.ph.i.i153 ], [ %1177, %.preheader.i.i ]
   %1181 = phi i64 [ %1184, %.lr.ph.i.i153 ], [ 0, %.preheader.i.i ]
   %.020.i.i = phi i32 [ %1183, %.lr.ph.i.i153 ], [ 0, %.preheader.i.i ]
-  %1182 = getelementptr ptr, ptr %7, i64 %1181
+  %1182 = getelementptr [8 x i8], ptr %7, i64 %1181
   store ptr %1180, ptr %1182, align 8
   %1183 = add i32 %.020.i.i, 1
   %1184 = sext i32 %1183 to i64
-  %1185 = getelementptr i32, ptr %1177, i64 %1184
+  %1185 = getelementptr [4 x i8], ptr %1177, i64 %1184
   %1186 = load i32, ptr %1185, align 4
   %.not17.i.i = icmp eq i32 %1186, -1
   br i1 %.not17.i.i, label %dissect_meta_tag_bitfield.exit.i, label %.lr.ph.i.i153, !llvm.loop !22
 
 dissect_meta_tag_bitfield.exit.i:                 ; preds = %.lr.ph.i.i153, %.preheader.i.i
   %.lcssa.i.i = phi i64 [ 0, %.preheader.i.i ], [ %1184, %.lr.ph.i.i153 ]
-  %1187 = getelementptr ptr, ptr %7, i64 %.lcssa.i.i
+  %1187 = getelementptr [8 x i8], ptr %7, i64 %.lcssa.i.i
   store ptr null, ptr %1187, align 8
   %1188 = add i32 %.0410614.i, 4
   %.sroa.gep534.i = getelementptr inbounds nuw i8, ptr %1016, i64 28
@@ -4275,7 +4274,7 @@ dissect_relative_time.exit.i:                     ; preds = %1253, %1251
   %1279 = shl i32 %indvars.iv.tr.i.i, 2
   %1280 = add i32 %1279, %1275
   %1281 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %1280, i32 noundef 0)
-  %1282 = getelementptr i32, ptr %5, i64 %indvars.iv.i.i145
+  %1282 = getelementptr [4 x i8], ptr %5, i64 %indvars.iv.i.i145
   store i32 %1281, ptr %1282, align 4
   %.not73.i.i = icmp eq i32 %1281, -1
   %spec.select74.i.i = select i1 %.not73.i.i, i1 %.076.i.i, i1 false
@@ -4303,7 +4302,7 @@ dissect_relative_time.exit.i:                     ; preds = %1253, %1251
   %.06188.us.i.i = phi i32 [ 0, %.lr.ph91.split.us.preheader.i.i ], [ %1317, %.split85.us.us.i.i ]
   %1287 = load ptr, ptr %spec.store.select.sroa.sel541.i, align 8
   %1288 = getelementptr inbounds nuw i8, ptr %1287, i64 4
-  %1289 = getelementptr i32, ptr %1288, i64 %indvars.iv105.i.i
+  %1289 = getelementptr [4 x i8], ptr %1288, i64 %indvars.iv105.i.i
   %1290 = load i32, ptr %1289, align 4
   %indvars.iv105.tr.i.i = trunc i64 %indvars.iv105.i.i to i32
   %1291 = shl i32 %indvars.iv105.tr.i.i, 2
@@ -4329,13 +4328,13 @@ dissect_relative_time.exit.i:                     ; preds = %1253, %1251
   %1304 = load ptr, ptr %spec.store.select.sroa.sel541.i, align 8
   %1305 = getelementptr inbounds nuw i8, ptr %1304, i64 4
   %1306 = sext i32 %1303 to i64
-  %1307 = getelementptr i32, ptr %1305, i64 %1306
+  %1307 = getelementptr [4 x i8], ptr %1305, i64 %1306
   %1308 = load i32, ptr %1307, align 4
   %.not71.us.i.i = icmp eq i32 %1308, -1
   br i1 %.not71.us.i.i, label %.split.us.us.i.i, label %.lr.ph80.us.i.i, !llvm.loop !24
 
 .split.us.us.i.i:                                 ; preds = %.lr.ph80.us.i.i, %1295, %.lr.ph91.split.us.i.i
-  %1309 = getelementptr i32, ptr %5, i64 %indvars.iv105.i.i
+  %1309 = getelementptr [4 x i8], ptr %5, i64 %indvars.iv105.i.i
   %1310 = load i32, ptr %1309, align 4
   br label %1311
 
@@ -4371,7 +4370,7 @@ dissect_relative_time.exit.i:                     ; preds = %1253, %1251
   %.06188.i.i = phi i32 [ 0, %.lr.ph91.split.preheader.i.i ], [ %1352, %.split85.i.i ]
   %1319 = load ptr, ptr %spec.store.select.sroa.sel541.i, align 8
   %1320 = getelementptr inbounds nuw i8, ptr %1319, i64 4
-  %1321 = getelementptr i32, ptr %1320, i64 %indvars.iv100.i.i
+  %1321 = getelementptr [4 x i8], ptr %1320, i64 %indvars.iv100.i.i
   %1322 = load i32, ptr %1321, align 4
   %indvars.iv100.tr.i.i = trunc i64 %indvars.iv100.i.i to i32
   %1323 = shl i32 %indvars.iv100.tr.i.i, 2
@@ -4397,13 +4396,13 @@ dissect_relative_time.exit.i:                     ; preds = %1253, %1251
   %1336 = load ptr, ptr %spec.store.select.sroa.sel541.i, align 8
   %1337 = getelementptr inbounds nuw i8, ptr %1336, i64 4
   %1338 = sext i32 %1335 to i64
-  %1339 = getelementptr i32, ptr %1337, i64 %1338
+  %1339 = getelementptr [4 x i8], ptr %1337, i64 %1338
   %1340 = load i32, ptr %1339, align 4
   %.not71.i.i = icmp eq i32 %1340, -1
   br i1 %.not71.i.i, label %.split.i.i, label %.lr.ph80.i.i, !llvm.loop !24
 
 .split.i.i:                                       ; preds = %.lr.ph80.i.i, %1327, %.lr.ph91.split.i.i
-  %1341 = getelementptr i32, ptr %5, i64 %indvars.iv100.i.i
+  %1341 = getelementptr [4 x i8], ptr %5, i64 %indvars.iv100.i.i
   %1342 = load i32, ptr %1341, align 4
   br label %1343
 

@@ -1837,7 +1837,7 @@ define void @_ZN15ockam_multiaddr9MultiAddr12try_from_str17h69a7a86a800d4fc3E(pt
   %.sroa.0.0.copyload.i.i = load ptr, ptr %26, align 8, !noalias !341, !nonnull !8
   %.sroa.28.0.copyload.i.i = load i64, ptr %.sroa.28.0..sroa_idx.i.i, align 8, !noalias !341
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 176
-  %55 = getelementptr inbounds { ptr, ptr }, ptr %54, i64 %.sroa.28.0.copyload.i.i
+  %55 = getelementptr inbounds [16 x i8], ptr %54, i64 %.sroa.28.0.copyload.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !341
   br i1 %trunc.i.i, label %63, label %56
 
@@ -2306,7 +2306,7 @@ define void @_ZN15ockam_multiaddr9MultiAddr14try_from_bytes17h02860ebc10458002E(
   %trunc.i.i = trunc nuw i64 %93 to i1
   %.sroa.0.0.copyload.i.i = load ptr, ptr %31, align 8, !noalias !475, !nonnull !8
   %.sroa.28.0.copyload.i.i = load i64, ptr %.sroa.28.0..sroa_idx.i.i, align 8, !noalias !475
-  %94 = getelementptr inbounds { ptr, ptr }, ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.28.0.copyload.i.i
+  %94 = getelementptr inbounds [16 x i8], ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.28.0.copyload.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !475
   br i1 %trunc.i.i, label %114, label %95
 
@@ -2784,7 +2784,7 @@ define void @_ZN15ockam_multiaddr9MultiAddr15push_back_value17h025cc3ed3bb1877eE
   %.sroa.0.0.copyload.i.i = load ptr, ptr %18, align 8, !noalias !621, !nonnull !8
   %.sroa.28.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 24
   %.sroa.28.0.copyload.i.i = load i64, ptr %.sroa.28.0..sroa_idx.i.i, align 8, !noalias !621
-  %19 = getelementptr inbounds { ptr, ptr }, ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.28.0.copyload.i.i
+  %19 = getelementptr inbounds [16 x i8], ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.28.0.copyload.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !621
   br i1 %trunc.i.i, label %43, label %20
 
@@ -2899,7 +2899,7 @@ define void @_ZN15ockam_multiaddr9MultiAddr16push_front_value17h977fa3f501913626
   %.sroa.0.0.copyload.i.i = load ptr, ptr %28, align 8, !noalias !647, !nonnull !8
   %.sroa.28.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %11, i64 24
   %.sroa.28.0.copyload.i.i = load i64, ptr %.sroa.28.0..sroa_idx.i.i, align 8, !noalias !647
-  %29 = getelementptr inbounds { ptr, ptr }, ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.28.0.copyload.i.i
+  %29 = getelementptr inbounds [16 x i8], ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.28.0.copyload.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !647
   br i1 %trunc.i.i, label %135, label %30
 
@@ -6696,7 +6696,7 @@ _ZN15ockam_multiaddr9MultiAddr4iter17h0ac5238332cf0030E.exit: ; preds = %"_ZN87_
   %trunc.i.i = trunc nuw i64 %63 to i1
   %.sroa.0.0.copyload.i.i = load ptr, ptr %40, align 8, !noalias !1799, !nonnull !8
   %.sroa.28.0.copyload.i.i = load i64, ptr %.sroa.28.0..sroa_idx.i.i, align 8, !noalias !1799
-  %64 = getelementptr inbounds { ptr, ptr }, ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.28.0.copyload.i.i
+  %64 = getelementptr inbounds [16 x i8], ptr %.sroa.0.0.copyload.i.i, i64 %.sroa.28.0.copyload.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !1799
   br i1 %trunc.i.i, label %70, label %65
 

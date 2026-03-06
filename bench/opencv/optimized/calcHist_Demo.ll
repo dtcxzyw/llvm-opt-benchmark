@@ -666,7 +666,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit158: ; preds = %.b
   %243 = sext i32 %236 to i64
   %244 = mul i64 %242, %243
   %245 = getelementptr inbounds nuw i8, ptr %240, i64 %244
-  %246 = getelementptr inbounds float, ptr %245, i64 %239
+  %246 = getelementptr inbounds [4 x i8], ptr %245, i64 %239
   br label %.thread240
 
 .thread240:                                       ; preds = %233, %227
@@ -682,7 +682,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit158: ; preds = %.b
 
 254:                                              ; preds = %215
   %255 = load ptr, ptr %174, align 8, !tbaa !42
-  %256 = getelementptr inbounds float, ptr %255, i64 %216
+  %256 = getelementptr inbounds [4 x i8], ptr %255, i64 %216
   %257 = load float, ptr %256, align 4, !tbaa !45
   %258 = insertelement <4 x float> poison, float %257, i64 0
   %259 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %258)
@@ -693,7 +693,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit158: ; preds = %.b
 
 263:                                              ; preds = %219
   %264 = load ptr, ptr %174, align 8, !tbaa !42
-  %265 = getelementptr inbounds float, ptr %264, i64 %216
+  %265 = getelementptr inbounds [4 x i8], ptr %264, i64 %216
   %266 = load float, ptr %265, align 4, !tbaa !45
   %267 = insertelement <4 x float> poison, float %266, i64 0
   %268 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %267)
@@ -708,7 +708,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit158: ; preds = %.b
   %273 = phi ptr [ %264, %263 ], [ %255, %254 ]
   %274 = phi i32 [ %271, %263 ], [ %262, %254 ]
   %275 = phi i32 [ %269, %263 ], [ %260, %254 ]
-  %276 = getelementptr inbounds nuw float, ptr %273, i64 %indvars.iv
+  %276 = getelementptr inbounds nuw [4 x i8], ptr %273, i64 %indvars.iv
   br label %302
 
 277:                                              ; preds = %.thread240, %263
@@ -739,7 +739,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit158: ; preds = %.b
   %298 = sext i32 %292 to i64
   %299 = mul i64 %297, %298
   %300 = getelementptr inbounds nuw i8, ptr %281, i64 %299
-  %301 = getelementptr inbounds float, ptr %300, i64 %295
+  %301 = getelementptr inbounds [4 x i8], ptr %300, i64 %295
   br label %302
 
 302:                                              ; preds = %290, %285, %272
@@ -811,16 +811,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit158: ; preds = %.b
   %338 = sext i32 %331 to i64
   %339 = mul i64 %337, %338
   %340 = getelementptr inbounds nuw i8, ptr %335, i64 %339
-  %341 = getelementptr inbounds float, ptr %340, i64 %334
+  %341 = getelementptr inbounds [4 x i8], ptr %340, i64 %334
   br label %348
 
 .thread242:                                       ; preds = %311, %314
   %342 = load ptr, ptr %179, align 8, !tbaa !42
-  %343 = getelementptr inbounds float, ptr %342, i64 %216
+  %343 = getelementptr inbounds [4 x i8], ptr %342, i64 %216
   %344 = load float, ptr %343, align 4, !tbaa !45
   %345 = insertelement <4 x float> poison, float %344, i64 0
   %346 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %345)
-  %347 = getelementptr inbounds nuw float, ptr %342, i64 %indvars.iv
+  %347 = getelementptr inbounds nuw [4 x i8], ptr %342, i64 %indvars.iv
   br label %373
 
 348:                                              ; preds = %322, %328
@@ -852,7 +852,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit158: ; preds = %.b
   %369 = sext i32 %363 to i64
   %370 = mul i64 %368, %369
   %371 = getelementptr inbounds nuw i8, ptr %349, i64 %370
-  %372 = getelementptr inbounds float, ptr %371, i64 %366
+  %372 = getelementptr inbounds [4 x i8], ptr %371, i64 %366
   br label %373
 
 373:                                              ; preds = %361, %356, %.thread242
@@ -921,16 +921,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit158: ; preds = %.b
   %406 = sext i32 %399 to i64
   %407 = mul i64 %405, %406
   %408 = getelementptr inbounds nuw i8, ptr %403, i64 %407
-  %409 = getelementptr inbounds float, ptr %408, i64 %402
+  %409 = getelementptr inbounds [4 x i8], ptr %408, i64 %402
   br label %416
 
 .thread244:                                       ; preds = %379, %382
   %410 = load ptr, ptr %187, align 8, !tbaa !42
-  %411 = getelementptr inbounds float, ptr %410, i64 %216
+  %411 = getelementptr inbounds [4 x i8], ptr %410, i64 %216
   %412 = load float, ptr %411, align 4, !tbaa !45
   %413 = insertelement <4 x float> poison, float %412, i64 0
   %414 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %413)
-  %415 = getelementptr inbounds nuw float, ptr %410, i64 %indvars.iv
+  %415 = getelementptr inbounds nuw [4 x i8], ptr %410, i64 %indvars.iv
   br label %441
 
 416:                                              ; preds = %390, %396
@@ -962,7 +962,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit158: ; preds = %.b
   %437 = sext i32 %431 to i64
   %438 = mul i64 %436, %437
   %439 = getelementptr inbounds nuw i8, ptr %417, i64 %438
-  %440 = getelementptr inbounds float, ptr %439, i64 %434
+  %440 = getelementptr inbounds [4 x i8], ptr %439, i64 %434
   br label %441
 
 441:                                              ; preds = %429, %424, %.thread244

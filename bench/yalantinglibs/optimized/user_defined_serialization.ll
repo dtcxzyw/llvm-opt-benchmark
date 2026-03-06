@@ -22,7 +22,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base.1" = type { %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl" }
 %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl" = type { %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.my_name_space::array2D" = type { i32, i32, ptr }
 
 $_ZN2tl8expectedISt6vectorIN13my_name_space7array2DESaIS3_EEN11struct_pack4errcEED2Ev = comdat any
 
@@ -111,7 +110,7 @@ invoke.cont4:                                     ; preds = %if.else.i23, %if.th
   %y.i = getelementptr inbounds nuw i8, ptr %3, i64 4
   %5 = load i32, ptr %y.i, align 4
   %conv.i = zext i32 %5 to i64
-  %6 = getelementptr float, ptr %4, i64 %conv.i
+  %6 = getelementptr [4 x i8], ptr %4, i64 %conv.i
   %arrayidx.i = getelementptr i8, ptr %6, i64 24
   store float 0x40091EB860000000, ptr %arrayidx.i, align 4
   %7 = load ptr, ptr %ar, align 8
@@ -679,7 +678,7 @@ _ZNSt12_Vector_baseIN13my_name_space7array2DESaIS1_EE13_M_deallocateEPS1_m.exit:
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i.i.i31, ptr %_M_finish.i.i, align 8
-  %add.ptr31 = getelementptr inbounds nuw %"struct.my_name_space::array2D", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr31 = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr31, ptr %_M_end_of_storage, align 8
   ret void
 }
@@ -1079,7 +1078,7 @@ _ZNSt12_Vector_baseIN13my_name_space7array2DESaIS1_EE13_M_deallocateEPS1_m.exit:
   store ptr %call5.i.i.i.i, ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i.i, i64 %sub.ptr.sub.i7
   store ptr %add.ptr, ptr %_M_finish.i, align 8
-  %add.ptr30 = getelementptr inbounds nuw %"struct.my_name_space::array2D", ptr %call5.i.i.i.i, i64 %__n
+  %add.ptr30 = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i, i64 %__n
   store ptr %add.ptr30, ptr %_M_end_of_storage.i, align 8
   br label %if.end33
 
@@ -1191,7 +1190,7 @@ _ZNSt12_Vector_baseIN13my_name_space7array2DESaIS1_EE13_M_deallocateEPS1_m.exit:
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i.i.i31, ptr %_M_finish.i.i, align 8
-  %add.ptr29 = getelementptr inbounds nuw %"struct.my_name_space::array2D", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr29 = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr29, ptr %_M_end_of_storage, align 8
   ret void
 }

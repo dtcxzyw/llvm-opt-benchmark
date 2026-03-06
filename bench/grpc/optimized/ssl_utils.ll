@@ -35,11 +35,8 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<absl::lts_20240722::Status, std::allocator<absl::lts_20240722::Status>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::basic_string_view" = type { i64, ptr }
 %"class.absl::lts_20240722::AlphaNum" = type { %"class.std::basic_string_view", [32 x i8] }
-%struct.tsi_ssl_pem_key_cert_pair = type { ptr, ptr }
 %struct.tsi_peer = type { ptr, i64 }
 %struct.grpc_auth_property_iterator = type { ptr, i64, ptr }
-%struct.tsi_peer_property = type { ptr, %struct.anon }
-%struct.anon = type { ptr, i64 }
 %"class.absl::lts_20240722::log_internal::LogMessageFatal" = type { %"class.absl::lts_20240722::log_internal::LogMessage" }
 %"class.grpc_core::RefCountedPtr" = type { ptr }
 %"struct.absl::lts_20240722::strings_internal::Splitter<absl::lts_20240722::ByChar, absl::lts_20240722::AllowEmpty, std::basic_string_view<char>>::ConvertToContainer" = type { i8 }
@@ -77,7 +74,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::array" = type { [16 x %struct.raw_view] }
 %struct.raw_view = type { ptr, i64 }
 %"class.absl::lts_20240722::strings_internal::SplitIterator" = type <{ i64, i32, [4 x i8], %"class.std::basic_string_view", ptr, %"class.absl::lts_20240722::ByChar", [7 x i8] }>
-%struct.grpc_auth_property = type { ptr, ptr, i64 }
 %"class.std::unique_ptr.47" = type { %"struct.std::__uniq_ptr_data.48" }
 %"struct.std::__uniq_ptr_data.48" = type { %"class.std::__uniq_ptr_impl.49" }
 %"class.std::__uniq_ptr_impl.49" = type { %"class.std::tuple.50" }
@@ -841,7 +837,7 @@ define void @_Z39grpc_tsi_ssl_pem_key_cert_pairs_destroyP25tsi_ssl_pem_key_cert_
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.09 = phi i64 [ %8, %.lr.ph ], [ 0, %.preheader ]
-  %4 = getelementptr inbounds nuw %struct.tsi_ssl_pem_key_cert_pair, ptr %0, i64 %.09
+  %4 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %.09
   %5 = load ptr, ptr %4, align 8, !tbaa !39
   tail call void @gpr_free(ptr noundef %5)
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1075,7 +1071,7 @@ define { ptr, i64 } @_Z39grpc_shallow_peer_from_ssl_auth_contextPK17grpc_auth_co
   %47 = getelementptr i8, ptr %12, i64 16
   %.val31 = load i64, ptr %47, align 8, !tbaa !56
   %48 = add i64 %.sroa.14.172, 1
-  %49 = getelementptr inbounds nuw %struct.tsi_peer_property, ptr %10, i64 %.sroa.14.172
+  %49 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 %.sroa.14.172
   store ptr %.str.11.sink, ptr %49, align 8, !tbaa !57
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store ptr %.val30, ptr %50, align 8, !tbaa !26
@@ -1148,7 +1144,7 @@ define noundef ptr @_Z31grpc_fill_alpn_protocol_stringsPm(ptr noundef captures(a
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.011 = phi i64 [ %15, %.lr.ph ], [ 0, %3 ]
   %13 = tail call noundef ptr @_Z34grpc_chttp2_get_alpn_version_indexm(i64 noundef %.011)
-  %14 = getelementptr inbounds nuw ptr, ptr %6, i64 %.011
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.011
   store ptr %13, ptr %14, align 8, !tbaa !7
   %15 = add nuw i64 %.011, 1
   %16 = load i64, ptr %0, align 8, !tbaa !15
@@ -1302,7 +1298,7 @@ _ZN9grpc_core14MakeRefCountedI17grpc_auth_contextJDnEEENS_13RefCountedPtrIT_EEDp
   %.075184 = phi i64 [ %166, %_ZL10IsSpiffeIdSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread.thread ], [ %.075184.ph, %.outer ]
   %.076183 = phi ptr [ @.str.14, %_ZL10IsSpiffeIdSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread.thread ], [ %.076183.ph, %.outer ]
   %38 = load ptr, ptr %1, align 8, !tbaa !43
-  %39 = getelementptr inbounds nuw %struct.tsi_peer_property, ptr %38, i64 %.075184
+  %39 = getelementptr inbounds nuw [24 x i8], ptr %38, i64 %.075184
   %40 = load ptr, ptr %39, align 8, !tbaa !57
   %41 = icmp eq ptr %40, null
   br i1 %41, label %_ZL10IsSpiffeIdSt17basic_string_viewIcSt11char_traitsIcEE.exit.thread, label %44
@@ -1949,7 +1945,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi38EEERS2_RAT__Kc.exit: ; pr
           to label %.noexc51 unwind label %.loopexit
 
 .noexc51:                                         ; preds = %.lr.ph.i
-  %58 = getelementptr inbounds nuw ptr, ptr %55, i64 %.011.i
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %.011.i
   store ptr %57, ptr %58, align 8, !tbaa !7
   %59 = add nuw i64 %.011.i, 1
   %60 = load i64, ptr %52, align 8, !tbaa !15
@@ -2312,7 +2308,7 @@ define noundef range(i32 0, 2) i32 @_Z43grpc_ssl_tsi_server_handshaker_factory_i
 .lr.ph.i:                                         ; preds = %11, %.lr.ph.i
   %.011.i = phi i64 [ %20, %.lr.ph.i ], [ 0, %11 ]
   %18 = tail call noundef ptr @_Z34grpc_chttp2_get_alpn_version_indexm(i64 noundef %.011.i)
-  %19 = getelementptr inbounds nuw ptr, ptr %17, i64 %.011.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.011.i
   store ptr %18, ptr %19, align 8, !tbaa !7
   %20 = add nuw i64 %.011.i, 1
   %exitcond.not = icmp eq i64 %20, %15
@@ -3558,7 +3554,7 @@ _ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %2
 _ZNSt6vectorIPFvPvESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %25, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !161
   store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !159
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !162
   br label %_ZNSt6vectorIPFvPvESaIS2_EE9push_backERKS2_.exit
 
@@ -3816,7 +3812,7 @@ _ZNK4absl12lts_2024072216strings_internal8SplitterINS0_6ByCharENS0_10AllowEmptyE
   %41 = phi i64 [ %.sroa.speculated.i.i, %_ZN4absl12lts_2024072216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit ], [ %.pre23, %.preheader.preheader ]
   %42 = phi ptr [ %61, %_ZN4absl12lts_2024072216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit ], [ %.pre, %.preheader.preheader ]
   %.0 = phi i64 [ %67, %_ZN4absl12lts_2024072216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit ], [ 0, %.preheader.preheader ]
-  %43 = getelementptr inbounds nuw %struct.raw_view, ptr %4, i64 %.0
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %.0
   store ptr %42, ptr %43, align 8, !tbaa !175
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i64 %41, ptr %44, align 8, !tbaa !177
@@ -3882,7 +3878,7 @@ _ZN4absl12lts_2024072216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCha
 .critedge:                                        ; preds = %_ZN4absl12lts_2024072216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit, %_ZN4absl12lts_2024072216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit.thread
   %69 = phi i64 [ %46, %_ZN4absl12lts_2024072216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit.thread ], [ %67, %_ZN4absl12lts_2024072216strings_internal13SplitIteratorINS1_8SplitterINS0_6ByCharENS0_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEEEEppEv.exit ]
   %70 = load ptr, ptr %33, align 8, !tbaa !179
-  %71 = getelementptr inbounds nuw %struct.raw_view, ptr %4, i64 %69
+  %71 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %69
   %72 = load ptr, ptr %0, align 8, !tbaa !179
   %73 = ptrtoint ptr %70 to i64
   %74 = ptrtoint ptr %72 to i64
@@ -3985,7 +3981,7 @@ _ZSt22__uninitialized_move_aIPSt17basic_string_viewIcSt11char_traitsIcEES4_SaIS3
   %30 = sub i64 %29, %18
   %31 = ashr exact i64 %30, 4
   %32 = sub nsw i64 0, %31
-  %33 = getelementptr inbounds %"class.std::basic_string_view", ptr %13, i64 %32
+  %33 = getelementptr inbounds [16 x i8], ptr %13, i64 %32
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %33, ptr align 8 %1, i64 %30, i1 false)
   br label %_ZSt13move_backwardIPSt17basic_string_viewIcSt11char_traitsIcEES4_ET0_T_S6_S5_.exit
 
@@ -4035,7 +4031,7 @@ _ZSt22__uninitialized_copy_aIPZNK4absl12lts_2024072216strings_internal8SplitterI
 _ZSt22__uninitialized_copy_aIPZNK4absl12lts_2024072216strings_internal8SplitterINS1_6ByCharENS1_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS9_SaIS9_EES9_Lb0EEclERKSA_E8raw_viewPS9_S9_ET0_T_SM_SL_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIPZNK4absl12lts_2024072216strings_internal8SplitterINS1_6ByCharENS1_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS9_SaIS9_EES9_Lb0EEclERKSA_E8raw_viewPS9_S9_ET0_T_SM_SL_RSaIT1_E.exit.loopexit, %_ZSt7advanceIPZNK4absl12lts_2024072216strings_internal8SplitterINS1_6ByCharENS1_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS9_SaIS9_EES9_Lb0EEclERKSA_E8raw_viewmEvRT_T0_.exit
   %49 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIPZNK4absl12lts_2024072216strings_internal8SplitterINS1_6ByCharENS1_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS9_SaIS9_EES9_Lb0EEclERKSA_E8raw_viewPS9_S9_ET0_T_SM_SL_RSaIT1_E.exit.loopexit ], [ %13, %_ZSt7advanceIPZNK4absl12lts_2024072216strings_internal8SplitterINS1_6ByCharENS1_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS9_SaIS9_EES9_Lb0EEclERKSA_E8raw_viewmEvRT_T0_.exit ]
   %50 = sub nuw nsw i64 %9, %20
-  %51 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [16 x i8], ptr %49, i64 %50
   store ptr %51, ptr %12, align 8, !tbaa !73
   %.not11.i.i.i.i.i57 = icmp eq ptr %1, %13
   br i1 %.not11.i.i.i.i.i57, label %_ZSt22__uninitialized_move_aIPSt17basic_string_viewIcSt11char_traitsIcEES4_SaIS3_EET0_T_S7_S6_RT1_.exit63, label %.lr.ph.i.i.i.i.i58
@@ -4164,7 +4160,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPSt17basic_string_viewIcSt11char_traits
 _ZNSt12_Vector_baseISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPSt17basic_string_viewIcSt11char_traitsIcEES4_SaIS3_EET0_T_S7_S6_RT1_.exit90, %91
   store ptr %80, ptr %0, align 8, !tbaa !76
   store ptr %.0.lcssa.i.i.i.i.i89, ptr %12, align 8, !tbaa !73
-  %95 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %80, i64 %76
+  %95 = getelementptr inbounds nuw [16 x i8], ptr %80, i64 %76
   store ptr %95, ptr %10, align 8, !tbaa !77
   br label %_ZSt4copyIPZNK4absl12lts_2024072216strings_internal8SplitterINS1_6ByCharENS1_10AllowEmptyESt17basic_string_viewIcSt11char_traitsIcEEE18ConvertToContainerISt6vectorIS9_SaIS9_EES9_Lb0EEclERKSA_E8raw_viewN9__gnu_cxx17__normal_iteratorIPS9_SE_EEET0_T_SP_SO_.exit
 
@@ -4349,7 +4345,7 @@ _ZN9grpc_core13RefCountedPtrI17grpc_auth_contextE5resetERKNS_13DebugLocationEPKc
 .lr.ph:                                           ; preds = %.preheader, %15
   %.06 = phi i64 [ %16, %15 ], [ 0, %.preheader ]
   %13 = load ptr, ptr %8, align 8, !tbaa !185
-  %14 = getelementptr inbounds nuw %struct.grpc_auth_property, ptr %13, i64 %.06
+  %14 = getelementptr inbounds nuw [24 x i8], ptr %13, i64 %.06
   invoke void @_Z24grpc_auth_property_resetP18grpc_auth_property(ptr noundef %14)
           to label %15 unwind label %.loopexit
 

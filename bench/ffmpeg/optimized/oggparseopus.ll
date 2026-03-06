@@ -3,8 +3,6 @@ source_filename = "bench/ffmpeg/original/oggparseopus.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.ogg_stream = type { ptr, i32, i32, i32, i32, i32, i32, i32, i64, i64, i64, i64, i64, i64, i32, ptr, i32, i32, i32, [255 x i8], i32, i32, i32, i32, i32, i32, i32, i32, ptr, i64, ptr }
-
 @.str = private unnamed_addr constant [9 x i8] c"OpusHead\00", align 1
 @.str.1 = private unnamed_addr constant [5 x i8] c"Opus\00", align 1
 @ff_opus_codec = local_unnamed_addr constant { ptr, i8, [7 x i8], ptr, ptr, ptr, ptr, i32, i32, ptr } { ptr @.str, i8 8, [7 x i8] zeroinitializer, ptr @.str.1, ptr @opus_header, ptr @opus_packet, ptr null, i32 0, i32 1, ptr null }, align 8
@@ -19,10 +17,10 @@ define internal range(i32 -2147483648, 2) i32 @opus_header(ptr noundef %0, i32 n
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = load ptr, ptr %4, align 8, !tbaa !24
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds %struct.ogg_stream, ptr %5, i64 %6
+  %7 = getelementptr inbounds [432 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load ptr, ptr %8, align 8, !tbaa !28
-  %10 = getelementptr inbounds ptr, ptr %9, i64 %6
+  %10 = getelementptr inbounds [8 x i8], ptr %9, i64 %6
   %11 = load ptr, ptr %10, align 8, !tbaa !29
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 424
   %13 = load ptr, ptr %12, align 8, !tbaa !31
@@ -91,10 +89,10 @@ define internal range(i32 -2147483648, 2) i32 @opus_packet(ptr noundef %0, i32 n
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = load ptr, ptr %4, align 8, !tbaa !24
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds %struct.ogg_stream, ptr %5, i64 %6
+  %7 = getelementptr inbounds [432 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load ptr, ptr %8, align 8, !tbaa !28
-  %10 = getelementptr inbounds ptr, ptr %9, i64 %6
+  %10 = getelementptr inbounds [8 x i8], ptr %9, i64 %6
   %11 = load ptr, ptr %10, align 8, !tbaa !29
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 424
   %13 = load ptr, ptr %12, align 8, !tbaa !31

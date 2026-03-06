@@ -428,7 +428,7 @@ define void @_ZN6Assimp20EmbedTexturesProcess7ExecuteEP7aiScene(ptr noundef nonn
   %25 = phi i32 [ 0, %.lr.ph42 ], [ %36, %29 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph42 ], [ %indvars.iv.next, %29 ]
   %26 = load ptr, ptr %18, align 8
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8
   br label %33
 
@@ -913,7 +913,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit: ; preds = %139
   %158 = load ptr, ptr %7, align 8
   %159 = call ptr @strncpy(ptr noundef nonnull %157, ptr noundef %158, i64 noundef %spec.store.select) #21
   %160 = load ptr, ptr %67, align 8
-  %161 = getelementptr inbounds nuw ptr, ptr %160, i64 %73
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %160, i64 %73
   store ptr %78, ptr %161, align 8
   %162 = load ptr, ptr %7, align 8
   %163 = icmp eq ptr %162, %89

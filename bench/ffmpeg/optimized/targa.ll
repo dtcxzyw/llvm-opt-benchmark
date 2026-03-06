@@ -408,7 +408,7 @@ bytestream2_get_byte.exit264:                     ; preds = %86, %87
   %180 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %181 = load ptr, ptr %180, align 8, !tbaa !33
   %182 = zext nneg i32 %.0218 to i64
-  %183 = getelementptr inbounds nuw i32, ptr %181, i64 %182
+  %183 = getelementptr inbounds nuw [4 x i8], ptr %181, i64 %182
   switch i32 %.0235, label %default.unreachable368 [
     i32 4, label %.preheader282
     i32 3, label %.preheader284
@@ -596,11 +596,11 @@ advance_line.exit.thread:                         ; preds = %advance_line.exit, 
   br label %.lr.ph.split.us301.us
 
 .lr.ph.split.us299.us.preheader:                  ; preds = %.lr.ph.us
-  %272 = getelementptr i16, ptr %270, i64 %265
+  %272 = getelementptr [2 x i8], ptr %270, i64 %265
   br label %.lr.ph.split.us299.us
 
 .lr.ph.split.us.us.preheader:                     ; preds = %.lr.ph.us
-  %273 = getelementptr i32, ptr %270, i64 %265
+  %273 = getelementptr [4 x i8], ptr %270, i64 %265
   br label %.lr.ph.split.us.us
 
 ._crit_edge.us:                                   ; preds = %.lr.ph.split.us301.us, %.lr.ph.split.us299.us, %.lr.ph.split.us297.us, %.lr.ph.split.us.us, %.lr.ph.us
@@ -611,9 +611,9 @@ advance_line.exit.thread:                         ; preds = %advance_line.exit, 
 .lr.ph.split.us.us:                               ; preds = %.lr.ph.split.us.us.preheader, %.lr.ph.split.us.us
   %indvars.iv335 = phi i64 [ 0, %.lr.ph.split.us.us.preheader ], [ %indvars.iv.next336, %.lr.ph.split.us.us ]
   %275 = xor i64 %indvars.iv335, -1
-  %276 = getelementptr i32, ptr %273, i64 %275
+  %276 = getelementptr [4 x i8], ptr %273, i64 %275
   %277 = load i32, ptr %276, align 4, !tbaa !42
-  %278 = getelementptr inbounds nuw i32, ptr %270, i64 %indvars.iv335
+  %278 = getelementptr inbounds nuw [4 x i8], ptr %270, i64 %indvars.iv335
   %279 = load i32, ptr %278, align 4, !tbaa !42
   store i32 %279, ptr %276, align 4, !tbaa !42
   store i32 %277, ptr %278, align 4, !tbaa !42
@@ -652,9 +652,9 @@ advance_line.exit.thread:                         ; preds = %advance_line.exit, 
 .lr.ph.split.us299.us:                            ; preds = %.lr.ph.split.us299.us.preheader, %.lr.ph.split.us299.us
   %indvars.iv325 = phi i64 [ 0, %.lr.ph.split.us299.us.preheader ], [ %indvars.iv.next326, %.lr.ph.split.us299.us ]
   %296 = xor i64 %indvars.iv325, -1
-  %297 = getelementptr i16, ptr %272, i64 %296
+  %297 = getelementptr [2 x i8], ptr %272, i64 %296
   %298 = load i16, ptr %297, align 2, !tbaa !50
-  %299 = getelementptr inbounds nuw i16, ptr %270, i64 %indvars.iv325
+  %299 = getelementptr inbounds nuw [2 x i8], ptr %270, i64 %indvars.iv325
   %300 = load i16, ptr %299, align 2, !tbaa !50
   store i16 %300, ptr %297, align 2, !tbaa !50
   store i16 %298, ptr %299, align 2, !tbaa !50

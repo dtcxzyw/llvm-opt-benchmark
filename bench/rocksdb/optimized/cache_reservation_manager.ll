@@ -1169,7 +1169,7 @@ _ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16
 _ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %84, %_ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
   store ptr %78, ptr %27, align 8, !tbaa !56
   store ptr %83, ptr %28, align 8, !tbaa !78
-  %85 = getelementptr inbounds nuw ptr, ptr %78, i64 %76
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %76
   store ptr %85, ptr %29, align 8, !tbaa !57
   br label %86
 
@@ -2245,7 +2245,7 @@ _ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16
 _ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %84, %_ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
   store ptr %78, ptr %27, align 8, !tbaa !56
   store ptr %83, ptr %28, align 8, !tbaa !78
-  %85 = getelementptr inbounds nuw ptr, ptr %78, i64 %76
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %76
   store ptr %85, ptr %29, align 8, !tbaa !57
   br label %86
 
@@ -3316,7 +3316,7 @@ _ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16
 _ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %84, %_ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
   store ptr %78, ptr %27, align 8, !tbaa !56
   store ptr %83, ptr %28, align 8, !tbaa !78
-  %85 = getelementptr inbounds nuw ptr, ptr %78, i64 %76
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %76
   store ptr %85, ptr %29, align 8, !tbaa !57
   br label %86
 
@@ -4387,7 +4387,7 @@ _ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16
 _ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %84, %_ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
   store ptr %78, ptr %27, align 8, !tbaa !56
   store ptr %83, ptr %28, align 8, !tbaa !78
-  %85 = getelementptr inbounds nuw ptr, ptr %78, i64 %76
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %76
   store ptr %85, ptr %29, align 8, !tbaa !57
   br label %86
 
@@ -5458,7 +5458,7 @@ _ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16
 _ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %84, %_ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
   store ptr %78, ptr %27, align 8, !tbaa !56
   store ptr %83, ptr %28, align 8, !tbaa !78
-  %85 = getelementptr inbounds nuw ptr, ptr %78, i64 %76
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %76
   store ptr %85, ptr %29, align 8, !tbaa !57
   br label %86
 
@@ -6529,7 +6529,7 @@ _ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16
 _ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %84, %_ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
   store ptr %78, ptr %27, align 8, !tbaa !56
   store ptr %83, ptr %28, align 8, !tbaa !78
-  %85 = getelementptr inbounds nuw ptr, ptr %78, i64 %76
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %76
   store ptr %85, ptr %29, align 8, !tbaa !57
   br label %86
 
@@ -7600,7 +7600,7 @@ _ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16
 _ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %84, %_ZNSt6vectorIPN7rocksdb5Cache6HandleESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
   store ptr %78, ptr %27, align 8, !tbaa !56
   store ptr %83, ptr %28, align 8, !tbaa !78
-  %85 = getelementptr inbounds nuw ptr, ptr %78, i64 %76
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %76
   store ptr %85, ptr %29, align 8, !tbaa !57
   br label %86
 

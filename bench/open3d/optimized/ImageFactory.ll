@@ -745,7 +745,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %26
           to label %.noexc67 unwind label %65
 
 .noexc67:                                         ; preds = %45
-  %48 = getelementptr inbounds nuw float, ptr %47, i64 %42
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %42
   store float 0.000000e+00, ptr %47, align 4, !tbaa !43
   %49 = add nsw i64 %42, -1
   %50 = icmp eq i64 %49, 0
@@ -782,7 +782,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i68: ; preds = %_ZNSt6vector
           to label %.noexc75 unwind label %67
 
 .noexc75:                                         ; preds = %56
-  %59 = getelementptr inbounds nuw float, ptr %58, i64 %53
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %53
   store float 0.000000e+00, ptr %58, align 4, !tbaa !43
   %60 = add nsw i64 %53, -1
   %61 = icmp eq i64 %60, 0
@@ -839,7 +839,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit76:             ; preds = %_ZSt6fill_nIPfmfET_
   %74 = uitofp nneg i32 %73 to float
   %75 = fsub float %74, %39
   %76 = fmul float %32, %75
-  %77 = getelementptr inbounds nuw float, ptr %.sroa.086.0, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.086.0, i64 %indvars.iv
   store float %76, ptr %77, align 4, !tbaa !43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -870,7 +870,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit76:             ; preds = %_ZSt6fill_nIPfmfET_
   %.reass.reass.us = mul i32 %factor.op.mul103, %86
   %87 = sext i32 %.reass.reass.us to i64
   %88 = getelementptr inbounds i8, ptr %79, i64 %87
-  %89 = getelementptr inbounds nuw float, ptr %.sroa.081.0, i64 %indvars.iv118
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.081.0, i64 %indvars.iv118
   %.pre = load float, ptr %89, align 4, !tbaa !43
   %90 = fmul float %.pre, %.pre
   br label %91
@@ -878,7 +878,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit76:             ; preds = %_ZSt6fill_nIPfmfET_
 91:                                               ; preds = %.lr.ph99.us, %91
   %indvars.iv113 = phi i64 [ 0, %.lr.ph99.us ], [ %indvars.iv.next114, %91 ]
   %.04297.us = phi ptr [ %88, %.lr.ph99.us ], [ %96, %91 ]
-  %92 = getelementptr inbounds nuw float, ptr %.sroa.086.0, i64 %indvars.iv113
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.086.0, i64 %indvars.iv113
   %93 = load float, ptr %92, align 4, !tbaa !43
   %94 = tail call float @llvm.fmuladd.f32(float %93, float %93, float %90)
   %95 = fadd float %94, 1.000000e+00
@@ -900,7 +900,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit76:             ; preds = %_ZSt6fill_nIPfmfET_
   %98 = uitofp nneg i32 %97 to float
   %99 = fsub float %98, %40
   %100 = fmul float %34, %99
-  %101 = getelementptr inbounds nuw float, ptr %.sroa.081.0, i64 %indvars.iv107
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.081.0, i64 %indvars.iv107
   store float %100, ptr %101, align 4, !tbaa !43
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %exitcond112.not = icmp eq i64 %indvars.iv.next108, %wide.trip.count111
@@ -1420,7 +1420,7 @@ _ZNSt12__shared_ptrIN6open3d8geometry5ImageELN9__gnu_cxx12_Lock_policyE2EED2Ev.e
 87:                                               ; preds = %86
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %88 = load ptr, ptr %0, align 8, !tbaa !91
-  %89 = getelementptr %"class.std::shared_ptr", ptr %88, i64 %.061
+  %89 = getelementptr [16 x i8], ptr %88, i64 %.061
   %90 = getelementptr i8, ptr %89, i64 -16
   %91 = load ptr, ptr %90, align 8, !tbaa !89
   invoke void @_ZNK6open3d8geometry5Image6FilterENS1_10FilterTypeE(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %5, ptr noundef nonnull align 8 dereferenceable(88) %91, i32 noundef 0)
@@ -1607,7 +1607,7 @@ _ZNSt12__shared_ptrIN6open3d8geometry5ImageELN9__gnu_cxx12_Lock_policyE2EED2Ev.e
 164:                                              ; preds = %86
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %165 = load ptr, ptr %0, align 8, !tbaa !91
-  %166 = getelementptr %"class.std::shared_ptr", ptr %165, i64 %.061
+  %166 = getelementptr [16 x i8], ptr %165, i64 %.061
   %167 = getelementptr i8, ptr %166, i64 -16
   %168 = load ptr, ptr %167, align 8, !tbaa !89
   invoke void @_ZNK6open3d8geometry5Image10DownsampleEv(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %7, ptr noundef nonnull align 8 dereferenceable(88) %168)
@@ -2084,7 +2084,7 @@ _ZNSt6vectorISt10shared_ptrIN6open3d8geometry5ImageEESaIS4_EE11_S_relocateEPS4_S
 _ZNSt12_Vector_baseISt10shared_ptrIN6open3d8geometry5ImageEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN6open3d8geometry5ImageEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit23, %48
   store ptr %20, ptr %0, align 8, !tbaa !91
   store ptr %.0.lcssa.i.i.i22, ptr %4, align 8, !tbaa !85
-  %52 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %20, i64 %16
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %52, ptr %47, align 8, !tbaa !88
   ret void
 }

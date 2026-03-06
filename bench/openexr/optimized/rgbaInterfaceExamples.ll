@@ -27,8 +27,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.Imf_3_4::TypedAttribute.4" = type { %"class.Imf_3_4::Attribute", %"class.Imath_3_2::Matrix44" }
 %"class.Imath_3_2::Matrix44" = type { [4 x [4 x float]] }
 %"class.Imf_3_4::RgbaInputFile" = type { ptr, ptr, ptr, ptr, %"class.std::__cxx11::basic_string" }
-%"struct.Imf_3_4::Rgba" = type { %"class.Imath_3_2::half", %"class.Imath_3_2::half", %"class.Imath_3_2::half", %"class.Imath_3_2::half" }
-%"class.Imath_3_2::half" = type { i16 }
 %"class.Imf_3_4::Name" = type { [256 x i8] }
 %"class.Imf_3_4::Array2D" = type { i64, i64, ptr }
 
@@ -441,11 +439,11 @@ define dso_local void @_Z9readRgba1PKcRN7Imf_3_47Array2DINS1_4RgbaEEERiS6_(ptr n
   store ptr %26, ptr %27, align 8, !tbaa !28
   %34 = sext i32 %9 to i64
   %35 = sub nsw i64 0, %34
-  %36 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %26, i64 %35
+  %36 = getelementptr inbounds [8 x i8], ptr %26, i64 %35
   %37 = mul nsw i32 %32, %11
   %38 = sext i32 %37 to i64
   %39 = sub nsw i64 0, %38
-  %40 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %36, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr %36, i64 %39
   invoke void @_ZN7Imf_3_413RgbaInputFile14setFrameBufferEPNS_4RgbaEmm(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef nonnull %40, i64 noundef 1, i64 noundef %.pre-phi)
           to label %41 unwind label %43
 
@@ -511,7 +509,7 @@ _ZN7Imf_3_47Array2DINS_4RgbaEEC2Ell.exit.preheader: ; preds = %5
 .lr.ph:                                           ; preds = %_ZN7Imf_3_47Array2DINS_4RgbaEEC2Ell.exit.preheader
   %21 = sext i32 %6 to i64
   %22 = sub nsw i64 0, %21
-  %23 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %20, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %20, i64 %22
   %24 = sext i32 %8 to i64
   %25 = sext i32 %12 to i64
   br label %26
@@ -520,7 +518,7 @@ _ZN7Imf_3_47Array2DINS_4RgbaEEC2Ell.exit.preheader: ; preds = %5
   %indvars.iv = phi i64 [ %24, %.lr.ph ], [ %indvars.iv.next, %_ZN7Imf_3_47Array2DINS_4RgbaEEC2Ell.exit ]
   %27 = mul nsw i64 %indvars.iv, %15
   %28 = sub nsw i64 0, %27
-  %29 = getelementptr inbounds %"struct.Imf_3_4::Rgba", ptr %23, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %23, i64 %28
   invoke void @_ZN7Imf_3_413RgbaInputFile14setFrameBufferEPNS_4RgbaEmm(ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull %29, i64 noundef 1, i64 noundef %15)
           to label %30 unwind label %38
 

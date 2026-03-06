@@ -8,12 +8,11 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.static_call_key = type { ptr, %union.anon.65 }
 %union.anon.65 = type { i64 }
 %struct.drm_connector_list_iter = type { ptr, ptr }
-%struct.hdcp2_streamid_type = type { i8, i8 }
-%struct.__drm_crtcs_state = type { ptr, ptr, ptr, ptr, ptr, ptr, i64 }
 %union.anon.58 = type { %struct.hdcp2_rep_send_receiverid_list }
 %struct.hdcp2_rep_send_receiverid_list = type { i8, [2 x i8], [3 x i8], [16 x i8], [155 x i8] }
 %union.anon.61 = type <{ %struct.hdcp2_rep_stream_manage, [19 x i8] }>
 %struct.hdcp2_rep_stream_manage = type { i8, [3 x i8], i16, [4 x %struct.hdcp2_streamid_type] }
+%struct.hdcp2_streamid_type = type { i8, i8 }
 %struct.hdcp2_ske_send_eks = type { i8, [16 x i8], [8 x i8] }
 %union.anon.60 = type { %struct.hdcp2_lc_send_lprime }
 %struct.hdcp2_lc_send_lprime = type { i8, [32 x i8] }
@@ -644,7 +643,7 @@ define internal void @intel_hdcp_check_work(ptr noundef %0) #0 align 16 {
 
 39:                                               ; preds = %32
   %40 = sext i32 %20 to i64
-  %41 = getelementptr i32, ptr @constinit.143, i64 %40
+  %41 = getelementptr [4 x i8], ptr @constinit.143, i64 %40
   %42 = load i32, ptr %41, align 4
   %43 = add i32 %42, 180
   br label %44
@@ -701,7 +700,7 @@ define internal void @intel_hdcp_check_work(ptr noundef %0) #0 align 16 {
 
 74:                                               ; preds = %67
   %75 = sext i32 %20 to i64
-  %76 = getelementptr i32, ptr @constinit.143, i64 %75
+  %76 = getelementptr [4 x i8], ptr @constinit.143, i64 %75
   %77 = load i32, ptr %76, align 4
   %78 = add i32 %77, 180
   br label %79
@@ -901,7 +900,7 @@ define internal void @intel_hdcp_check_work(ptr noundef %0) #0 align 16 {
 
 187:                                              ; preds = %180
   %188 = sext i32 %171 to i64
-  %189 = getelementptr i32, ptr @constinit.143, i64 %188
+  %189 = getelementptr [4 x i8], ptr @constinit.143, i64 %188
   %190 = load i32, ptr %189, align 4
   %191 = add i32 %190, 28
   br label %192
@@ -962,7 +961,7 @@ define internal void @intel_hdcp_check_work(ptr noundef %0) #0 align 16 {
 
 226:                                              ; preds = %215
   %227 = sext i32 %171 to i64
-  %228 = getelementptr i32, ptr @constinit.143, i64 %227
+  %228 = getelementptr [4 x i8], ptr @constinit.143, i64 %227
   %229 = load i32, ptr %228, align 4
   %230 = add i32 %229, 28
   br label %231
@@ -1419,7 +1418,7 @@ intel_hdcp2_capable.exit:                         ; preds = %97
   %177 = load ptr, ptr %121, align 8
   %178 = load i16, ptr %112, align 2
   %179 = zext i16 %178 to i64
-  %180 = getelementptr %struct.hdcp2_streamid_type, ptr %177, i64 %179
+  %180 = getelementptr [2 x i8], ptr %177, i64 %179
   store i8 %176, ptr %180, align 1
   %181 = load i16, ptr %112, align 2
   %182 = add i16 %181, 1
@@ -2003,7 +2002,7 @@ define internal fastcc i32 @_intel_hdcp2_disable(ptr noundef %0, i1 noundef zero
 
 82:                                               ; preds = %69
   %83 = sext i32 %73 to i64
-  %84 = getelementptr i32, ptr @constinit.143, i64 %83
+  %84 = getelementptr [4 x i8], ptr @constinit.143, i64 %83
   %85 = load i32, ptr %84, align 4
   %86 = add i32 %85, 180
   br label %87
@@ -2054,7 +2053,7 @@ define internal fastcc i32 @_intel_hdcp2_disable(ptr noundef %0, i1 noundef zero
 
 113:                                              ; preds = %107
   %114 = sext i32 %73 to i64
-  %115 = getelementptr i32, ptr @constinit.143, i64 %114
+  %115 = getelementptr [4 x i8], ptr @constinit.143, i64 %114
   %116 = load i32, ptr %115, align 4
   %117 = add i32 %116, 176
   br label %118
@@ -2078,7 +2077,7 @@ define internal fastcc i32 @_intel_hdcp2_disable(ptr noundef %0, i1 noundef zero
 
 130:                                              ; preds = %118
   %131 = sext i32 %73 to i64
-  %132 = getelementptr i32, ptr @constinit.143, i64 %131
+  %132 = getelementptr [4 x i8], ptr @constinit.143, i64 %131
   %133 = load i32, ptr %132, align 4
   %134 = add i32 %133, 180
   br label %135
@@ -2344,7 +2343,7 @@ define internal fastcc i32 @_intel_hdcp_disable(ptr noundef %0) unnamed_addr #0 
 
 71:                                               ; preds = %63
   %72 = sext i32 %15 to i64
-  %73 = getelementptr i32, ptr @constinit.143, i64 %72
+  %73 = getelementptr [4 x i8], ptr @constinit.143, i64 %72
   %74 = load i32, ptr %73, align 4
   br label %75
 
@@ -2365,7 +2364,7 @@ define internal fastcc i32 @_intel_hdcp_disable(ptr noundef %0) unnamed_addr #0 
 
 85:                                               ; preds = %75
   %86 = sext i32 %15 to i64
-  %87 = getelementptr i32, ptr @constinit.143, i64 %86
+  %87 = getelementptr [4 x i8], ptr @constinit.143, i64 %86
   %88 = load i32, ptr %87, align 4
   %89 = add i32 %88, 28
   br label %90
@@ -2742,7 +2741,7 @@ define dso_local void @intel_hdcp_atomic_check(ptr noundef readnone captures(non
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 144
   %20 = load i32, ptr %19, align 8
   %21 = zext i32 %20 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %18, i64 %21
+  %.split = getelementptr [56 x i8], ptr %18, i64 %21
   %22 = getelementptr i8, ptr %.split, i64 24
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 10
@@ -3907,7 +3906,7 @@ define internal fastcc i32 @_intel_hdcp2_enable(ptr noundef %0) unnamed_addr #0 
 433:                                              ; preds = %433, %431
   %434 = phi i64 [ 0, %431 ], [ %437, %433 ]
   %435 = load ptr, ptr %432, align 8
-  %.split = getelementptr %struct.hdcp2_streamid_type, ptr %435, i64 %434
+  %.split = getelementptr [2 x i8], ptr %435, i64 %434
   %436 = getelementptr i8, ptr %.split, i64 1
   store i8 %427, ptr %436, align 1
   %437 = add nuw nsw i64 %434, 1
@@ -3985,12 +3984,12 @@ define internal fastcc i32 @_intel_hdcp2_enable(ptr noundef %0) unnamed_addr #0 
 473:                                              ; preds = %473, %471
   %474 = phi i64 [ 0, %471 ], [ %483, %473 ]
   %475 = load ptr, ptr %472, align 8
-  %476 = getelementptr %struct.hdcp2_streamid_type, ptr %475, i64 %474
+  %476 = getelementptr [2 x i8], ptr %475, i64 %474
   %477 = load i8, ptr %476, align 1
-  %478 = getelementptr %struct.hdcp2_streamid_type, ptr %45, i64 %474
+  %478 = getelementptr [2 x i8], ptr %45, i64 %474
   store i8 %477, ptr %478, align 1
   %479 = load ptr, ptr %472, align 8
-  %.split102 = getelementptr %struct.hdcp2_streamid_type, ptr %479, i64 %474
+  %.split102 = getelementptr [2 x i8], ptr %479, i64 %474
   %480 = getelementptr i8, ptr %.split102, i64 1
   %481 = load i8, ptr %480, align 1
   %482 = getelementptr inbounds nuw i8, ptr %478, i64 1
@@ -4352,7 +4351,7 @@ define internal fastcc i32 @_intel_hdcp2_enable(ptr noundef %0) unnamed_addr #0 
 
 664:                                              ; preds = %651
   %665 = sext i32 %655 to i64
-  %666 = getelementptr i32, ptr @constinit.143, i64 %665
+  %666 = getelementptr [4 x i8], ptr @constinit.143, i64 %665
   %667 = load i32, ptr %666, align 4
   %668 = add i32 %667, 180
   br label %669
@@ -4429,7 +4428,7 @@ define internal fastcc i32 @_intel_hdcp2_enable(ptr noundef %0) unnamed_addr #0 
 
 710:                                              ; preds = %704
   %711 = sext i32 %655 to i64
-  %712 = getelementptr i32, ptr @constinit.143, i64 %711
+  %712 = getelementptr [4 x i8], ptr @constinit.143, i64 %711
   %713 = load i32, ptr %712, align 4
   %714 = add i32 %713, 180
   br label %715
@@ -4454,7 +4453,7 @@ define internal fastcc i32 @_intel_hdcp2_enable(ptr noundef %0) unnamed_addr #0 
 
 727:                                              ; preds = %721
   %728 = sext i32 %655 to i64
-  %729 = getelementptr i32, ptr @constinit.143, i64 %728
+  %729 = getelementptr [4 x i8], ptr @constinit.143, i64 %728
   %730 = load i32, ptr %729, align 4
   %731 = add i32 %730, 176
   br label %732
@@ -4481,7 +4480,7 @@ define internal fastcc i32 @_intel_hdcp2_enable(ptr noundef %0) unnamed_addr #0 
 
 745:                                              ; preds = %739
   %746 = sext i32 %655 to i64
-  %747 = getelementptr i32, ptr @constinit.143, i64 %746
+  %747 = getelementptr [4 x i8], ptr @constinit.143, i64 %746
   %748 = load i32, ptr %747, align 4
   %749 = add i32 %748, 180
   br label %750
@@ -4612,7 +4611,7 @@ define internal fastcc i32 @_intel_hdcp2_enable(ptr noundef %0) unnamed_addr #0 
   %813 = getelementptr inbounds nuw i8, ptr %802, i64 132
   %814 = load i32, ptr %813, align 4
   %815 = sext i32 %814 to i64
-  %816 = getelementptr i32, ptr @constinit.143, i64 %815
+  %816 = getelementptr [4 x i8], ptr @constinit.143, i64 %815
   %817 = load i32, ptr %816, align 4
   %818 = add i32 %817, 180
   br label %819
@@ -5078,7 +5077,7 @@ define internal fastcc i32 @intel_hdcp1_enable(ptr noundef %0) unnamed_addr #0 a
 134:                                              ; preds = %124, %111
   %135 = getelementptr inbounds nuw i8, ptr %113, i64 7176
   %136 = sext i32 %117 to i64
-  %137 = getelementptr i32, ptr @constinit.143, i64 %136
+  %137 = getelementptr [4 x i8], ptr @constinit.143, i64 %136
   %138 = shl i32 %115, 8
   %139 = add i32 %138, 418820
   %140 = getelementptr inbounds nuw i8, ptr %113, i64 7368

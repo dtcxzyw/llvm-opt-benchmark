@@ -9,7 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.H5T_vlen_alloc_info_t = type { ptr, ptr, ptr, ptr }
 %struct.H5T_conv_cb_t = type { ptr, ptr }
 %struct.H5VL_connector_prop_t = type { ptr, ptr }
-%struct.H5ES_err_info_t = type { ptr, ptr, ptr, ptr, i32, i64, i64, i64, i64, i64 }
 
 @H5_libinit_g = external local_unnamed_addr global i8, align 1
 @H5_libterm_g = external local_unnamed_addr global i8, align 1
@@ -1327,7 +1326,7 @@ define range(i32 -1, 1) i32 @H5ESfree_err_info(i64 noundef %0, ptr noundef reado
 
 .preheader:                                       ; preds = %43, %69
   %.02647 = phi i64 [ %70, %69 ], [ 0, %43 ]
-  %49 = getelementptr inbounds nuw %struct.H5ES_err_info_t, ptr %1, i64 %.02647
+  %49 = getelementptr inbounds nuw [80 x i8], ptr %1, i64 %.02647
   %50 = load ptr, ptr %49, align 8, !tbaa !21
   %51 = call ptr @H5MM_xfree(ptr noundef %50) #4
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 8

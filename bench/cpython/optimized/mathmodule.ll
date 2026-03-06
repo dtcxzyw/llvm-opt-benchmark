@@ -1792,7 +1792,7 @@ define internal ptr @math_dist(ptr readnone captures(none) %0, ptr noundef reado
   %.06515.i = phi i32 [ 0, %.lr.ph.i ], [ %86, %80 ]
   %.06814.i = phi i64 [ 0, %.lr.ph.i ], [ %88, %80 ]
   %.07213.i = phi double [ 0.000000e+00, %.lr.ph.i ], [ %.173.i, %80 ]
-  %47 = getelementptr ptr, ptr %44, i64 %.06814.i
+  %47 = getelementptr [8 x i8], ptr %44, i64 %.06814.i
   %48 = load ptr, ptr %47, align 8, !tbaa !12
   %49 = getelementptr i8, ptr %48, i64 8
   %.val120.i = load ptr, ptr %49, align 8, !tbaa !16
@@ -1830,7 +1830,7 @@ define internal ptr @math_dist(ptr readnone captures(none) %0, ptr noundef reado
 
 63:                                               ; preds = %61, %58, %56, %53, %50
   %.071.i = phi double [ %.val122.i, %50 ], [ -1.000000e+00, %56 ], [ %54, %53 ], [ -1.000000e+00, %61 ], [ %59, %58 ]
-  %64 = getelementptr ptr, ptr %45, i64 %.06814.i
+  %64 = getelementptr [8 x i8], ptr %45, i64 %.06814.i
   %65 = load ptr, ptr %64, align 8, !tbaa !12
   %66 = getelementptr i8, ptr %65, i64 8
   %.val118.i = load ptr, ptr %66, align 8, !tbaa !16
@@ -1870,7 +1870,7 @@ define internal ptr @math_dist(ptr readnone captures(none) %0, ptr noundef reado
   %.070.i = phi double [ %.val121.i, %67 ], [ -1.000000e+00, %73 ], [ %71, %70 ], [ -1.000000e+00, %78 ], [ %76, %75 ]
   %81 = fsub double %.071.i, %.070.i
   %82 = tail call double @llvm.fabs.f64(double %81)
-  %83 = getelementptr double, ptr %.131.i, i64 %.06814.i
+  %83 = getelementptr [8 x i8], ptr %.131.i, i64 %.06814.i
   store double %82, ptr %83, align 8, !tbaa !33
   %84 = fcmp uno double %81, 0.000000e+00
   %85 = zext i1 %84 to i32
@@ -2295,7 +2295,7 @@ define internal ptr @math_factorial(ptr readnone captures(none) %0, ptr noundef 
   br i1 %20, label %21, label %25
 
 21:                                               ; preds = %19
-  %22 = getelementptr i64, ptr @SmallFactorials, i64 %4
+  %22 = getelementptr [8 x i8], ptr @SmallFactorials, i64 %4
   %23 = load i64, ptr %22, align 8, !tbaa !37
   %24 = call ptr @PyLong_FromUnsignedLong(i64 noundef %23) #17
   br label %Py_DECREF.exit
@@ -2973,7 +2973,7 @@ Py_DECREF.exit:                                   ; preds = %26, %28, %31
   %.191172 = phi double [ %38, %45 ], [ %.090, %Py_DECREF.exit ]
   %.096171 = phi i64 [ %46, %45 ], [ 0, %Py_DECREF.exit ]
   %.097170 = phi i64 [ %.198, %45 ], [ 0, %Py_DECREF.exit ]
-  %33 = getelementptr double, ptr %.0133175, i64 %.096171
+  %33 = getelementptr [8 x i8], ptr %.0133175, i64 %.096171
   %34 = load double, ptr %33, align 8, !tbaa !33
   %35 = call double @llvm.fabs.f64(double %.191172)
   %36 = call double @llvm.fabs.f64(double %34)
@@ -2988,7 +2988,7 @@ Py_DECREF.exit:                                   ; preds = %26, %28, %31
 
 42:                                               ; preds = %.lr.ph
   %43 = add i64 %.097170, 1
-  %44 = getelementptr double, ptr %.0133175, i64 %.097170
+  %44 = getelementptr [8 x i8], ptr %.0133175, i64 %.097170
   store double %40, ptr %44, align 8, !tbaa !33
   br label %45
 
@@ -3066,7 +3066,7 @@ _fsum_realloc.exit.thread:                        ; preds = %.thread30.i, %71, %
   %.2139 = phi i64 [ %.0137174, %60 ], [ %62, %71 ], [ %62, %.thread30.i ]
   %.3136 = phi ptr [ %.0133175, %60 ], [ %72, %71 ], [ %69, %.thread30.i ]
   %75 = add nsw i64 %.097.lcssa, 1
-  %76 = getelementptr double, ptr %.3136, i64 %.097.lcssa
+  %76 = getelementptr [8 x i8], ptr %.3136, i64 %.097.lcssa
   store double %.191.lcssa, ptr %76, align 8, !tbaa !33
   br label %77
 
@@ -3102,7 +3102,7 @@ _fsum_realloc.exit.thread:                        ; preds = %.thread30.i, %71, %
 
 89:                                               ; preds = %87
   %90 = add nsw i64 %.194, -1
-  %91 = getelementptr double, ptr %.2135, i64 %90
+  %91 = getelementptr [8 x i8], ptr %.2135, i64 %90
   %92 = load double, ptr %91, align 8, !tbaa !33
   %.old1.not = icmp eq i64 %.194, 1
   br i1 %.old1.not, label %.thread, label %.preheader
@@ -3111,7 +3111,7 @@ _fsum_realloc.exit.thread:                        ; preds = %.thread30.i, %71, %
   %.295 = phi i64 [ %93, %.preheader ], [ %90, %89 ]
   %.180 = phi double [ %96, %.preheader ], [ %92, %89 ]
   %93 = add nsw i64 %.295, -1
-  %94 = getelementptr double, ptr %.2135, i64 %93
+  %94 = getelementptr [8 x i8], ptr %.2135, i64 %93
   %95 = load double, ptr %94, align 8, !tbaa !33
   %96 = fadd double %.180, %95
   %97 = fsub double %96, %.180
@@ -3122,7 +3122,7 @@ _fsum_realloc.exit.thread:                        ; preds = %.thread30.i, %71, %
   br i1 %or.cond, label %.preheader, label %101, !llvm.loop !42
 
 101:                                              ; preds = %.preheader
-  %102 = getelementptr double, ptr %.2135, i64 %93
+  %102 = getelementptr [8 x i8], ptr %.2135, i64 %93
   %.not149 = icmp eq i64 %93, 0
   br i1 %.not149, label %.thread, label %103
 
@@ -3281,7 +3281,7 @@ define internal ptr @math_gcd(ptr readnone captures(none) %0, ptr noundef readon
 .lr.ph.i:                                         ; preds = %.preheader.i, %Py_DECREF.exit54.i
   %.0287.i = phi i64 [ %59, %Py_DECREF.exit54.i ], [ 1, %.preheader.i ]
   %.0386.i = phi ptr [ %.240.i, %Py_DECREF.exit54.i ], [ %17, %.preheader.i ]
-  %28 = getelementptr ptr, ptr %1, i64 %.0287.i
+  %28 = getelementptr [8 x i8], ptr %1, i64 %.0287.i
   %29 = load ptr, ptr %28, align 8, !tbaa !12
   %30 = tail call ptr @_PyNumber_Index(ptr noundef %29) #17
   %31 = icmp eq ptr %30, null
@@ -3396,7 +3396,7 @@ define internal ptr @math_hypot(ptr readnone captures(none) %0, ptr noundef read
   %.0337.i = phi i32 [ %35, %30 ], [ 0, %.lr.ph.preheader.i ]
   %.0366.i = phi double [ %.1.i, %30 ], [ 0.000000e+00, %.lr.ph.preheader.i ]
   %.0375.i = phi i64 [ %37, %30 ], [ 0, %.lr.ph.preheader.i ]
-  %14 = getelementptr ptr, ptr %1, i64 %.0375.i
+  %14 = getelementptr [8 x i8], ptr %1, i64 %.0375.i
   %15 = load ptr, ptr %14, align 8, !tbaa !12
   %16 = getelementptr i8, ptr %15, i64 8
   %.val51.i = load ptr, ptr %16, align 8, !tbaa !16
@@ -3435,7 +3435,7 @@ define internal ptr @math_hypot(ptr readnone captures(none) %0, ptr noundef read
 30:                                               ; preds = %28, %25, %23, %20, %17
   %.035.i = phi double [ %.val52.i, %17 ], [ -1.000000e+00, %23 ], [ %21, %20 ], [ -1.000000e+00, %28 ], [ %26, %25 ]
   %31 = tail call double @llvm.fabs.f64(double %.035.i)
-  %32 = getelementptr double, ptr %.016.i, i64 %.0375.i
+  %32 = getelementptr [8 x i8], ptr %.016.i, i64 %.0375.i
   store double %31, ptr %32, align 8, !tbaa !33
   %33 = fcmp uno double %.035.i, 0.000000e+00
   %34 = zext i1 %33 to i32
@@ -4206,7 +4206,7 @@ define internal ptr @math_lcm(ptr readnone captures(none) %0, ptr noundef readon
 .lr.ph.i:                                         ; preds = %.preheader.i, %Py_DECREF.exit38.i
   %.0194.i = phi i64 [ %86, %Py_DECREF.exit38.i ], [ 1, %.preheader.i ]
   %.0292.i = phi ptr [ %.130.i, %Py_DECREF.exit38.i ], [ %9, %.preheader.i ]
-  %21 = getelementptr ptr, ptr %1, i64 %.0194.i
+  %21 = getelementptr [8 x i8], ptr %1, i64 %.0194.i
   %22 = load ptr, ptr %21, align 8, !tbaa !12
   %23 = tail call ptr @PyNumber_Index(ptr noundef %22) #17
   %24 = icmp eq ptr %23, null
@@ -7863,7 +7863,7 @@ define internal fastcc double @vector_norm(i64 noundef %0, ptr noundef nonnull c
 
 .lr.ph79:                                         ; preds = %12, %.lr.ph79
   %.06178 = phi i64 [ %19, %.lr.ph79 ], [ 0, %12 ]
-  %16 = getelementptr double, ptr %1, i64 %.06178
+  %16 = getelementptr [8 x i8], ptr %1, i64 %.06178
   %17 = load double, ptr %16, align 8, !tbaa !33
   %18 = fmul double %17, 0x7FD0000000000000
   store double %18, ptr %16, align 8, !tbaa !33
@@ -7887,7 +7887,7 @@ define internal fastcc double @vector_norm(i64 noundef %0, ptr noundef nonnull c
   %.05974 = phi double [ %34, %.lr.ph ], [ 0.000000e+00, %.lr.ph.preheader ]
   %.06073 = phi double [ %35, %.lr.ph ], [ 0.000000e+00, %.lr.ph.preheader ]
   %.172 = phi i64 [ %36, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %25 = getelementptr double, ptr %1, i64 %.172
+  %25 = getelementptr [8 x i8], ptr %1, i64 %.172
   %26 = load double, ptr %25, align 8, !tbaa !33
   %27 = fmul double %24, %26
   %28 = fmul double %27, %27
@@ -8198,7 +8198,7 @@ define internal double @m_tgamma(double noundef %0) #11 {
   %22 = fptosi double %0 to i32
   %23 = add i32 %22, -1
   %24 = sext i32 %23 to i64
-  %25 = getelementptr double, ptr @gamma_integral, i64 %24
+  %25 = getelementptr [8 x i8], ptr @gamma_integral, i64 %24
   %26 = load double, ptr %25, align 8, !tbaa !33
   br label %96
 
@@ -8380,10 +8380,10 @@ define internal fastcc double @lanczos_sum(double noundef %0) unnamed_addr #13 {
   %indvars.iv37 = phi i64 [ %indvars.iv.next38, %.preheader ], [ 12, %1 ]
   %.01731 = phi double [ %8, %.preheader ], [ 0.000000e+00, %1 ]
   %.01930 = phi double [ %5, %.preheader ], [ 0.000000e+00, %1 ]
-  %3 = getelementptr double, ptr @lanczos_num_coeffs, i64 %indvars.iv37
+  %3 = getelementptr [8 x i8], ptr @lanczos_num_coeffs, i64 %indvars.iv37
   %4 = load double, ptr %3, align 8, !tbaa !33
   %5 = tail call double @llvm.fmuladd.f64(double %.01930, double %0, double %4)
-  %6 = getelementptr double, ptr @lanczos_den_coeffs, i64 %indvars.iv37
+  %6 = getelementptr [8 x i8], ptr @lanczos_den_coeffs, i64 %indvars.iv37
   %7 = load double, ptr %6, align 8, !tbaa !33
   %8 = tail call double @llvm.fmuladd.f64(double %.01731, double %0, double %7)
   %indvars.iv.next38 = add nsw i64 %indvars.iv37, -1
@@ -8395,11 +8395,11 @@ define internal fastcc double @lanczos_sum(double noundef %0) unnamed_addr #13 {
   %.228 = phi double [ %16, %.preheader25 ], [ 0.000000e+00, %1 ]
   %.22127 = phi double [ %12, %.preheader25 ], [ 0.000000e+00, %1 ]
   %9 = fdiv double %.22127, %0
-  %10 = getelementptr double, ptr @lanczos_num_coeffs, i64 %indvars.iv
+  %10 = getelementptr [8 x i8], ptr @lanczos_num_coeffs, i64 %indvars.iv
   %11 = load double, ptr %10, align 8, !tbaa !33
   %12 = fadd double %9, %11
   %13 = fdiv double %.228, %0
-  %14 = getelementptr double, ptr @lanczos_den_coeffs, i64 %indvars.iv
+  %14 = getelementptr [8 x i8], ptr @lanczos_den_coeffs, i64 %indvars.iv
   %15 = load double, ptr %14, align 8, !tbaa !33
   %16 = fadd double %13, %15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -8495,10 +8495,10 @@ define internal double @m_lgamma(double noundef %0) #11 {
   %indvars.iv37.i = phi i64 [ %indvars.iv.next38.i, %.preheader.i ], [ 12, %19 ]
   %.01731.i = phi double [ %26, %.preheader.i ], [ 0.000000e+00, %19 ]
   %.01930.i = phi double [ %23, %.preheader.i ], [ 0.000000e+00, %19 ]
-  %21 = getelementptr double, ptr @lanczos_num_coeffs, i64 %indvars.iv37.i
+  %21 = getelementptr [8 x i8], ptr @lanczos_num_coeffs, i64 %indvars.iv37.i
   %22 = load double, ptr %21, align 8, !tbaa !33
   %23 = tail call double @llvm.fmuladd.f64(double %.01930.i, double %2, double %22)
-  %24 = getelementptr double, ptr @lanczos_den_coeffs, i64 %indvars.iv37.i
+  %24 = getelementptr [8 x i8], ptr @lanczos_den_coeffs, i64 %indvars.iv37.i
   %25 = load double, ptr %24, align 8, !tbaa !33
   %26 = tail call double @llvm.fmuladd.f64(double %.01731.i, double %2, double %25)
   %indvars.iv.next38.i = add nsw i64 %indvars.iv37.i, -1
@@ -8510,11 +8510,11 @@ define internal double @m_lgamma(double noundef %0) #11 {
   %.228.i = phi double [ %34, %.preheader25.i ], [ 0.000000e+00, %19 ]
   %.22127.i = phi double [ %30, %.preheader25.i ], [ 0.000000e+00, %19 ]
   %27 = fdiv double %.22127.i, %2
-  %28 = getelementptr double, ptr @lanczos_num_coeffs, i64 %indvars.iv.i
+  %28 = getelementptr [8 x i8], ptr @lanczos_num_coeffs, i64 %indvars.iv.i
   %29 = load double, ptr %28, align 8, !tbaa !33
   %30 = fadd double %27, %29
   %31 = fdiv double %.228.i, %2
-  %32 = getelementptr double, ptr @lanczos_den_coeffs, i64 %indvars.iv.i
+  %32 = getelementptr [8 x i8], ptr @lanczos_den_coeffs, i64 %indvars.iv.i
   %33 = load double, ptr %32, align 8, !tbaa !33
   %34 = fadd double %31, %33
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -8830,13 +8830,13 @@ define internal fastcc ptr @perm_comb_small(i64 noundef %0, i64 noundef %1, i32 
   br i1 %.not93, label %35, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr i64, ptr @reduced_factorial_odd_part, i64 %0
+  %12 = getelementptr [8 x i8], ptr @reduced_factorial_odd_part, i64 %0
   %13 = load i64, ptr %12, align 8, !tbaa !37
-  %14 = getelementptr i64, ptr @inverted_factorial_odd_part, i64 %1
+  %14 = getelementptr [8 x i8], ptr @inverted_factorial_odd_part, i64 %1
   %15 = load i64, ptr %14, align 8, !tbaa !37
   %16 = mul i64 %15, %13
   %17 = sub nsw i64 %0, %1
-  %18 = getelementptr i64, ptr @inverted_factorial_odd_part, i64 %17
+  %18 = getelementptr [8 x i8], ptr @inverted_factorial_odd_part, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !37
   %20 = mul i64 %16, %19
   %21 = getelementptr i8, ptr @factorial_trailing_zeros, i64 %0
@@ -8860,7 +8860,7 @@ define internal fastcc ptr @perm_comb_small(i64 noundef %0, i64 noundef %1, i32 
   br i1 %36, label %37, label %.thread
 
 37:                                               ; preds = %35
-  %38 = getelementptr i64, ptr @perm_comb_small.fast_comb_limits2, i64 %1
+  %38 = getelementptr [8 x i8], ptr @perm_comb_small.fast_comb_limits2, i64 %1
   %39 = load i64, ptr %38, align 8, !tbaa !66
   %.not94 = icmp ugt i64 %0, %39
   br i1 %.not94, label %.thread, label %.preheader
@@ -8890,7 +8890,7 @@ define internal fastcc ptr @perm_comb_small(i64 noundef %0, i64 noundef %1, i32 
   br i1 %47, label %48, label %.thread
 
 48:                                               ; preds = %46
-  %49 = getelementptr i64, ptr @perm_comb_small.fast_perm_limits, i64 %1
+  %49 = getelementptr [8 x i8], ptr @perm_comb_small.fast_perm_limits, i64 %1
   %50 = load i64, ptr %49, align 8, !tbaa !66
   %.not = icmp ugt i64 %0, %50
   br i1 %.not, label %.thread, label %51
@@ -8904,10 +8904,10 @@ define internal fastcc ptr @perm_comb_small(i64 noundef %0, i64 noundef %1, i32 
   br i1 %53, label %.lr.ph, label %._crit_edge
 
 54:                                               ; preds = %51
-  %55 = getelementptr i64, ptr @reduced_factorial_odd_part, i64 %0
+  %55 = getelementptr [8 x i8], ptr @reduced_factorial_odd_part, i64 %0
   %56 = load i64, ptr %55, align 8, !tbaa !37
   %57 = sub nsw i64 %0, %1
-  %58 = getelementptr i64, ptr @inverted_factorial_odd_part, i64 %57
+  %58 = getelementptr [8 x i8], ptr @inverted_factorial_odd_part, i64 %57
   %59 = load i64, ptr %58, align 8, !tbaa !37
   %60 = mul i64 %59, %56
   %61 = getelementptr i8, ptr @factorial_trailing_zeros, i64 %0

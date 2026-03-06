@@ -3,19 +3,19 @@ source_filename = "bench/bullet3/original/btOverlappingPairCache.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.btBroadphasePair = type { ptr, ptr, ptr, %union.anon.2 }
-%union.anon.2 = type { ptr }
 %class.CleanPairCallback = type { %struct.btOverlapCallback, ptr, ptr, ptr }
 %struct.btOverlapCallback = type { ptr }
 %class.RemovePairCallback = type { %struct.btOverlapCallback, ptr }
 %class.CProfileSample = type { i8 }
 %class.btAlignedObjectArray.3 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
 %class.MyPairIndeSortPredicate = type { i8 }
-%struct.MyPairIndex = type { i32, i32, i32 }
 %class.btAlignedObjectArray = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
 %class.btBroadphasePairSortPredicate = type { i8 }
+%struct.btBroadphasePair = type { ptr, ptr, ptr, %union.anon.2 }
+%union.anon.2 = type { ptr }
 %class.CleanPairCallback.5 = type { %struct.btOverlapCallback, ptr, ptr, ptr }
 %class.RemovePairCallback.6 = type { %struct.btOverlapCallback, ptr }
+%struct.MyPairIndex = type { i32, i32, i32 }
 
 $_ZN20btAlignedObjectArrayIiED2Ev = comdat any
 
@@ -163,9 +163,9 @@ define dso_local void @_ZN28btHashedOverlappingPairCacheC2Ev(ptr noundef nonnull
 
 19:                                               ; preds = %19, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %19 ]
-  %20 = getelementptr inbounds nuw %struct.btBroadphasePair, ptr %16, i64 %indvars.iv.i.i
+  %20 = getelementptr inbounds nuw [32 x i8], ptr %16, i64 %indvars.iv.i.i
   %21 = load ptr, ptr %3, align 8, !tbaa !15
-  %22 = getelementptr inbounds nuw %struct.btBroadphasePair, ptr %21, i64 %indvars.iv.i.i
+  %22 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 %indvars.iv.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %22, i64 32, i1 false), !tbaa.struct !32
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -252,8 +252,8 @@ _ZN20btAlignedObjectArrayIiE8allocateEi.exit.i.i: ; preds = %12, %11
 
 20:                                               ; preds = %20, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %20 ]
-  %21 = getelementptr inbounds nuw i32, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
-  %22 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv.i.i.i
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv.i.i.i
   %23 = load i32, ptr %22, align 4, !tbaa !41
   store i32 %23, ptr %21, align 4, !tbaa !41
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -335,8 +335,8 @@ _ZN20btAlignedObjectArrayIiE8allocateEi.exit.i.i32: ; preds = %43, %42
 
 49:                                               ; preds = %49, %.lr.ph.i.i.i38
   %indvars.iv.i.i.i40 = phi i64 [ 0, %.lr.ph.i.i.i38 ], [ %indvars.iv.next.i.i.i41, %49 ]
-  %50 = getelementptr inbounds nuw i32, ptr %.0.i.i.i33, i64 %indvars.iv.i.i.i40
-  %51 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv.i.i.i40
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %.0.i.i.i33, i64 %indvars.iv.i.i.i40
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %indvars.iv.i.i.i40
   %52 = load i32, ptr %51, align 4, !tbaa !41
   store i32 %52, ptr %50, align 4, !tbaa !41
   %indvars.iv.next.i.i.i41 = add nuw nsw i64 %indvars.iv.i.i.i40, 1
@@ -409,7 +409,7 @@ _ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit47:  ; preds = %.lr.ph.i24, %.lr.ph
 
 76:                                               ; preds = %.lr.ph54, %76
   %indvars.iv = phi i64 [ 0, %.lr.ph54 ], [ %indvars.iv.next, %76 ]
-  %77 = getelementptr inbounds nuw %struct.btBroadphasePair, ptr %72, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %72, i64 %indvars.iv
   %78 = load ptr, ptr %77, align 8, !tbaa !44
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %80 = load i32, ptr %79, align 8, !tbaa !46
@@ -436,9 +436,9 @@ _ZN20btAlignedObjectArrayIiE6resizeEiRKi.exit47:  ; preds = %.lr.ph.i24, %.lr.ph
   %101 = add nsw i32 %100, -1
   %102 = and i32 %99, %101
   %103 = sext i32 %102 to i64
-  %104 = getelementptr inbounds i32, ptr %73, i64 %103
+  %104 = getelementptr inbounds [4 x i8], ptr %73, i64 %103
   %105 = load i32, ptr %104, align 4, !tbaa !41
-  %106 = getelementptr inbounds nuw i32, ptr %75, i64 %indvars.iv
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %indvars.iv
   store i32 %105, ptr %106, align 4, !tbaa !41
   %107 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %107, ptr %104, align 4, !tbaa !41
@@ -718,7 +718,7 @@ define dso_local noundef ptr @_ZN28btHashedOverlappingPairCache8findPairEP17btBr
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %36 = load ptr, ptr %35, align 8, !tbaa !28
   %37 = sext i32 %31 to i64
-  %38 = getelementptr inbounds i32, ptr %36, i64 %37
+  %38 = getelementptr inbounds [4 x i8], ptr %36, i64 %37
   %.021 = load i32, ptr %38, align 4, !tbaa !41
   %cond22 = icmp eq i32 %.021, -1
   br i1 %cond22, label %.critedge, label %.lr.ph
@@ -733,7 +733,7 @@ define dso_local noundef ptr @_ZN28btHashedOverlappingPairCache8findPairEP17btBr
 43:                                               ; preds = %.lr.ph, %_ZN28btHashedOverlappingPairCache10equalsPairERK16btBroadphasePairii.exit.thread
   %.023 = phi i32 [ %.021, %.lr.ph ], [ %.0, %_ZN28btHashedOverlappingPairCache10equalsPairERK16btBroadphasePairii.exit.thread ]
   %44 = sext i32 %.023 to i64
-  %45 = getelementptr inbounds %struct.btBroadphasePair, ptr %40, i64 %44
+  %45 = getelementptr inbounds [32 x i8], ptr %40, i64 %44
   %46 = load ptr, ptr %45, align 8, !tbaa !44
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load i32, ptr %47, align 8, !tbaa !46
@@ -749,7 +749,7 @@ _ZN28btHashedOverlappingPairCache10equalsPairERK16btBroadphasePairii.exit: ; pre
   br i1 %54, label %.critedge, label %_ZN28btHashedOverlappingPairCache10equalsPairERK16btBroadphasePairii.exit.thread
 
 _ZN28btHashedOverlappingPairCache10equalsPairERK16btBroadphasePairii.exit.thread: ; preds = %43, %_ZN28btHashedOverlappingPairCache10equalsPairERK16btBroadphasePairii.exit
-  %55 = getelementptr inbounds i32, ptr %42, i64 %44
+  %55 = getelementptr inbounds [4 x i8], ptr %42, i64 %44
   %.0 = load i32, ptr %55, align 4, !tbaa !41
   %cond = icmp eq i32 %.0, -1
   br i1 %cond, label %.critedge, label %43, !llvm.loop !61
@@ -794,7 +794,7 @@ define dso_local noundef ptr @_ZN28btHashedOverlappingPairCache15internalAddPair
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %33 = load ptr, ptr %32, align 8, !tbaa !28
   %34 = sext i32 %31 to i64
-  %35 = getelementptr inbounds i32, ptr %33, i64 %34
+  %35 = getelementptr inbounds [4 x i8], ptr %33, i64 %34
   %.012.i = load i32, ptr %35, align 4, !tbaa !41
   %cond13.i = icmp eq i32 %.012.i, -1
   br i1 %cond13.i, label %.loopexit, label %.lr.ph.i
@@ -809,7 +809,7 @@ define dso_local noundef ptr @_ZN28btHashedOverlappingPairCache15internalAddPair
 40:                                               ; preds = %_ZN28btHashedOverlappingPairCache10equalsPairERK16btBroadphasePairii.exit.thread.i, %.lr.ph.i
   %.014.i = phi i32 [ %.012.i, %.lr.ph.i ], [ %.0.i, %_ZN28btHashedOverlappingPairCache10equalsPairERK16btBroadphasePairii.exit.thread.i ]
   %41 = sext i32 %.014.i to i64
-  %42 = getelementptr inbounds %struct.btBroadphasePair, ptr %37, i64 %41
+  %42 = getelementptr inbounds [32 x i8], ptr %37, i64 %41
   %43 = load ptr, ptr %42, align 8, !tbaa !44
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load i32, ptr %44, align 8, !tbaa !46
@@ -825,7 +825,7 @@ _ZN28btHashedOverlappingPairCache10equalsPairERK16btBroadphasePairii.exit.i: ; p
   br i1 %51, label %_ZN28btHashedOverlappingPairCache16internalFindPairEP17btBroadphaseProxyS1_i.exit, label %_ZN28btHashedOverlappingPairCache10equalsPairERK16btBroadphasePairii.exit.thread.i
 
 _ZN28btHashedOverlappingPairCache10equalsPairERK16btBroadphasePairii.exit.thread.i: ; preds = %_ZN28btHashedOverlappingPairCache10equalsPairERK16btBroadphasePairii.exit.i, %40
-  %52 = getelementptr inbounds i32, ptr %39, i64 %41
+  %52 = getelementptr inbounds [4 x i8], ptr %39, i64 %41
   %.0.i = load i32, ptr %52, align 4, !tbaa !41
   %cond.i = icmp eq i32 %.0.i, -1
   br i1 %cond.i, label %.loopexit, label %40, !llvm.loop !62
@@ -867,9 +867,9 @@ _ZN20btAlignedObjectArrayI16btBroadphasePairE8allocateEi.exit.i.i: ; preds = %61
 
 68:                                               ; preds = %68, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %68 ]
-  %69 = getelementptr inbounds nuw %struct.btBroadphasePair, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
+  %69 = getelementptr inbounds nuw [32 x i8], ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
   %70 = load ptr, ptr %67, align 8, !tbaa !15
-  %71 = getelementptr inbounds nuw %struct.btBroadphasePair, ptr %70, i64 %indvars.iv.i.i.i
+  %71 = getelementptr inbounds nuw [32 x i8], ptr %70, i64 %indvars.iv.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %69, ptr noundef nonnull align 8 dereferenceable(32) %71, i64 32, i1 false), !tbaa.struct !32
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
@@ -904,7 +904,7 @@ _ZN20btAlignedObjectArrayI16btBroadphasePairE21expandNonInitializingEv.exit: ; p
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %82 = load ptr, ptr %81, align 8, !tbaa !15
   %83 = sext i32 %54 to i64
-  %84 = getelementptr inbounds %struct.btBroadphasePair, ptr %82, i64 %83
+  %84 = getelementptr inbounds [32 x i8], ptr %82, i64 %83
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %86 = load ptr, ptr %85, align 8, !tbaa !31
   %.not21 = icmp eq ptr %86, null
@@ -944,11 +944,11 @@ _ZN20btAlignedObjectArrayI16btBroadphasePairE21expandNonInitializingEv.exit: ; p
   %104 = getelementptr inbounds nuw i8, ptr %84, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %104, i8 0, i64 16, i1 false)
   %105 = load ptr, ptr %32, align 8, !tbaa !28
-  %106 = getelementptr inbounds i32, ptr %105, i64 %.pre-phi
+  %106 = getelementptr inbounds [4 x i8], ptr %105, i64 %.pre-phi
   %107 = load i32, ptr %106, align 4, !tbaa !41
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %109 = load ptr, ptr %108, align 8, !tbaa !28
-  %110 = getelementptr inbounds i32, ptr %109, i64 %83
+  %110 = getelementptr inbounds [4 x i8], ptr %109, i64 %83
   store i32 %107, ptr %110, align 4, !tbaa !41
   store i32 %54, ptr %106, align 4, !tbaa !41
   br label %_ZN28btHashedOverlappingPairCache16internalFindPairEP17btBroadphaseProxyS1_i.exit
@@ -993,7 +993,7 @@ define dso_local noundef ptr @_ZN28btHashedOverlappingPairCache21removeOverlappi
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %34 = load ptr, ptr %33, align 8, !tbaa !28
   %35 = sext i32 %32 to i64
-  %36 = getelementptr inbounds i32, ptr %34, i64 %35
+  %36 = getelementptr inbounds [4 x i8], ptr %34, i64 %35
   %.012.i = load i32, ptr %36, align 4, !tbaa !41
   %cond13.i = icmp eq i32 %.012.i, -1
   br i1 %cond13.i, label %_ZN28btHashedOverlappingPairCache16internalFindPairEP17btBroadphaseProxyS1_i.exit.thread, label %.lr.ph.i
@@ -1008,7 +1008,7 @@ define dso_local noundef ptr @_ZN28btHashedOverlappingPairCache21removeOverlappi
 41:                                               ; preds = %_ZN28btHashedOverlappingPairCache10equalsPairERK16btBroadphasePairii.exit.thread.i, %.lr.ph.i
   %.014.i = phi i32 [ %.012.i, %.lr.ph.i ], [ %.0.i, %_ZN28btHashedOverlappingPairCache10equalsPairERK16btBroadphasePairii.exit.thread.i ]
   %42 = sext i32 %.014.i to i64
-  %43 = getelementptr inbounds %struct.btBroadphasePair, ptr %38, i64 %42
+  %43 = getelementptr inbounds [32 x i8], ptr %38, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !44
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load i32, ptr %45, align 8, !tbaa !46
@@ -1024,7 +1024,7 @@ _ZN28btHashedOverlappingPairCache10equalsPairERK16btBroadphasePairii.exit.i: ; p
   br i1 %52, label %_ZN28btHashedOverlappingPairCache16internalFindPairEP17btBroadphaseProxyS1_i.exit, label %_ZN28btHashedOverlappingPairCache10equalsPairERK16btBroadphasePairii.exit.thread.i
 
 _ZN28btHashedOverlappingPairCache10equalsPairERK16btBroadphasePairii.exit.thread.i: ; preds = %_ZN28btHashedOverlappingPairCache10equalsPairERK16btBroadphasePairii.exit.i, %41
-  %53 = getelementptr inbounds i32, ptr %40, i64 %42
+  %53 = getelementptr inbounds [4 x i8], ptr %40, i64 %42
   %.0.i = load i32, ptr %53, align 4, !tbaa !41
   %cond.i = icmp eq i32 %.0.i, -1
   br i1 %cond.i, label %_ZN28btHashedOverlappingPairCache16internalFindPairEP17btBroadphaseProxyS1_i.exit.thread, label %41, !llvm.loop !62
@@ -1043,7 +1043,7 @@ _ZN28btHashedOverlappingPairCache16internalFindPairEP17btBroadphaseProxyS1_i.exi
   %63 = lshr exact i64 %62, 5
   %64 = trunc i64 %63 to i32
   %65 = load ptr, ptr %33, align 8, !tbaa !28
-  %66 = getelementptr inbounds i32, ptr %65, i64 %35
+  %66 = getelementptr inbounds [4 x i8], ptr %65, i64 %35
   %.04369 = load i32, ptr %66, align 4, !tbaa !41
   %.not70 = icmp eq i32 %.04369, %64
   br i1 %.not70, label %._crit_edge.thread, label %.lr.ph
@@ -1055,7 +1055,7 @@ _ZN28btHashedOverlappingPairCache16internalFindPairEP17btBroadphaseProxyS1_i.exi
 68:                                               ; preds = %.lr.ph, %68
   %.04371 = phi i32 [ %.04369, %.lr.ph ], [ %.043, %68 ]
   %69 = sext i32 %.04371 to i64
-  %70 = getelementptr inbounds i32, ptr %67, i64 %69
+  %70 = getelementptr inbounds [4 x i8], ptr %67, i64 %69
   %.043 = load i32, ptr %70, align 4, !tbaa !41
   %.not = icmp eq i32 %.043, %64
   br i1 %.not, label %._crit_edge, label %68, !llvm.loop !63
@@ -1068,10 +1068,10 @@ _ZN28btHashedOverlappingPairCache16internalFindPairEP17btBroadphaseProxyS1_i.exi
   %72 = load ptr, ptr %39, align 8, !tbaa !28
   %sext = shl i64 %62, 27
   %73 = ashr i64 %sext, 32
-  %74 = getelementptr inbounds i32, ptr %72, i64 %73
+  %74 = getelementptr inbounds [4 x i8], ptr %72, i64 %73
   %75 = load i32, ptr %74, align 4, !tbaa !41
   %76 = sext i32 %.04371 to i64
-  %77 = getelementptr inbounds i32, ptr %72, i64 %76
+  %77 = getelementptr inbounds [4 x i8], ptr %72, i64 %76
   store i32 %75, ptr %77, align 4, !tbaa !41
   br label %82
 
@@ -1079,7 +1079,7 @@ _ZN28btHashedOverlappingPairCache16internalFindPairEP17btBroadphaseProxyS1_i.exi
   %78 = load ptr, ptr %39, align 8, !tbaa !28
   %sext66 = shl i64 %62, 27
   %79 = ashr i64 %sext66, 32
-  %80 = getelementptr inbounds i32, ptr %78, i64 %79
+  %80 = getelementptr inbounds [4 x i8], ptr %78, i64 %79
   %81 = load i32, ptr %80, align 4, !tbaa !41
   store i32 %81, ptr %66, align 4, !tbaa !41
   br label %82
@@ -1107,7 +1107,7 @@ _ZN28btHashedOverlappingPairCache16internalFindPairEP17btBroadphaseProxyS1_i.exi
 95:                                               ; preds = %93
   %96 = load ptr, ptr %37, align 8, !tbaa !15
   %97 = sext i32 %85 to i64
-  %98 = getelementptr inbounds %struct.btBroadphasePair, ptr %96, i64 %97
+  %98 = getelementptr inbounds [32 x i8], ptr %96, i64 %97
   %99 = load ptr, ptr %98, align 8, !tbaa !44
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 16
   %101 = load i32, ptr %100, align 8, !tbaa !46
@@ -1135,7 +1135,7 @@ _ZN28btHashedOverlappingPairCache16internalFindPairEP17btBroadphaseProxyS1_i.exi
   %123 = and i32 %120, %122
   %124 = load ptr, ptr %33, align 8, !tbaa !28
   %125 = sext i32 %123 to i64
-  %126 = getelementptr inbounds i32, ptr %124, i64 %125
+  %126 = getelementptr inbounds [4 x i8], ptr %124, i64 %125
   %.14472 = load i32, ptr %126, align 4, !tbaa !41
   %.not5373 = icmp eq i32 %.14472, %85
   br i1 %.not5373, label %._crit_edge77.thread, label %.lr.ph76
@@ -1147,7 +1147,7 @@ _ZN28btHashedOverlappingPairCache16internalFindPairEP17btBroadphaseProxyS1_i.exi
 128:                                              ; preds = %.lr.ph76, %128
   %.14474 = phi i32 [ %.14472, %.lr.ph76 ], [ %.144, %128 ]
   %129 = sext i32 %.14474 to i64
-  %130 = getelementptr inbounds i32, ptr %127, i64 %129
+  %130 = getelementptr inbounds [4 x i8], ptr %127, i64 %129
   %.144 = load i32, ptr %130, align 4, !tbaa !41
   %.not53 = icmp eq i32 %.144, %85
   br i1 %.not53, label %._crit_edge77, label %128, !llvm.loop !64
@@ -1158,16 +1158,16 @@ _ZN28btHashedOverlappingPairCache16internalFindPairEP17btBroadphaseProxyS1_i.exi
 
 131:                                              ; preds = %._crit_edge77
   %132 = load ptr, ptr %39, align 8, !tbaa !28
-  %133 = getelementptr inbounds i32, ptr %132, i64 %97
+  %133 = getelementptr inbounds [4 x i8], ptr %132, i64 %97
   %134 = load i32, ptr %133, align 4, !tbaa !41
   %135 = sext i32 %.14474 to i64
-  %136 = getelementptr inbounds i32, ptr %132, i64 %135
+  %136 = getelementptr inbounds [4 x i8], ptr %132, i64 %135
   store i32 %134, ptr %136, align 4, !tbaa !41
   br label %140
 
 ._crit_edge77.thread:                             ; preds = %95, %._crit_edge77
   %137 = load ptr, ptr %39, align 8, !tbaa !28
-  %138 = getelementptr inbounds i32, ptr %137, i64 %97
+  %138 = getelementptr inbounds [4 x i8], ptr %137, i64 %97
   %139 = load i32, ptr %138, align 4, !tbaa !41
   store i32 %139, ptr %126, align 4, !tbaa !41
   br label %140
@@ -1175,13 +1175,13 @@ _ZN28btHashedOverlappingPairCache16internalFindPairEP17btBroadphaseProxyS1_i.exi
 140:                                              ; preds = %._crit_edge77.thread, %131
   %sext67 = shl i64 %62, 27
   %141 = ashr i64 %sext67, 32
-  %142 = getelementptr inbounds %struct.btBroadphasePair, ptr %96, i64 %141
+  %142 = getelementptr inbounds [32 x i8], ptr %96, i64 %141
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %142, ptr noundef nonnull align 8 dereferenceable(32) %98, i64 32, i1 false), !tbaa.struct !32
   %143 = load ptr, ptr %33, align 8, !tbaa !28
-  %144 = getelementptr inbounds i32, ptr %143, i64 %125
+  %144 = getelementptr inbounds [4 x i8], ptr %143, i64 %125
   %145 = load i32, ptr %144, align 4, !tbaa !41
   %146 = load ptr, ptr %39, align 8, !tbaa !28
-  %147 = getelementptr inbounds i32, ptr %146, i64 %141
+  %147 = getelementptr inbounds [4 x i8], ptr %146, i64 %141
   store i32 %145, ptr %147, align 4, !tbaa !41
   store i32 %64, ptr %144, align 4, !tbaa !41
   br label %_ZN28btHashedOverlappingPairCache16internalFindPairEP17btBroadphaseProxyS1_i.exit.thread.sink.split
@@ -1218,7 +1218,7 @@ define dso_local void @_ZN28btHashedOverlappingPairCache26processAllOverlappingP
   %.010 = phi i32 [ 0, %.lr.ph ], [ %.1, %30 ]
   %10 = load ptr, ptr %8, align 8, !tbaa !15
   %11 = sext i32 %.010 to i64
-  %12 = getelementptr inbounds %struct.btBroadphasePair, ptr %10, i64 %11
+  %12 = getelementptr inbounds [32 x i8], ptr %10, i64 %11
   %13 = load ptr, ptr %1, align 8, !tbaa !4
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
@@ -1333,9 +1333,9 @@ _ZN20btAlignedObjectArrayI11MyPairIndexE8allocateEi.exit.i.i: ; preds = %.noexc,
 
 36:                                               ; preds = %36, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %36 ]
-  %37 = getelementptr inbounds nuw %struct.MyPairIndex, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
+  %37 = getelementptr inbounds nuw [12 x i8], ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
   %38 = load ptr, ptr %18, align 8, !tbaa !74
-  %39 = getelementptr inbounds nuw %struct.MyPairIndex, ptr %38, i64 %indvars.iv.i.i.i
+  %39 = getelementptr inbounds nuw [12 x i8], ptr %38, i64 %indvars.iv.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %37, ptr noundef nonnull align 4 dereferenceable(12) %39, i64 12, i1 false), !tbaa.struct !77
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
@@ -1367,7 +1367,7 @@ _ZN20btAlignedObjectArrayI11MyPairIndexE10deallocateEv.exit.i.i: ; preds = %43, 
 45:                                               ; preds = %45, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %44, %.lr.ph.i ], [ %indvars.iv.next.i, %45 ]
   %46 = load ptr, ptr %18, align 8, !tbaa !74
-  %47 = getelementptr inbounds %struct.MyPairIndex, ptr %46, i64 %indvars.iv.i
+  %47 = getelementptr inbounds [12 x i8], ptr %46, i64 %indvars.iv.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %47, i8 0, i64 12, i1 false)
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1411,7 +1411,7 @@ _ZN20btAlignedObjectArrayI11MyPairIndexE10deallocateEv.exit.i.i: ; preds = %43, 
 
 58:                                               ; preds = %.lr.ph, %71
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %71 ]
-  %59 = getelementptr inbounds nuw %struct.btBroadphasePair, ptr %50, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [32 x i8], ptr %50, i64 %indvars.iv
   %60 = load ptr, ptr %59, align 8, !tbaa !44
   %.not = icmp eq ptr %60, null
   br i1 %.not, label %64, label %61
@@ -1435,7 +1435,7 @@ _ZN20btAlignedObjectArrayI11MyPairIndexE10deallocateEv.exit.i.i: ; preds = %43, 
 
 71:                                               ; preds = %64, %68
   %72 = phi i32 [ %70, %68 ], [ -1, %64 ]
-  %73 = getelementptr inbounds nuw %struct.MyPairIndex, ptr %51, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw [12 x i8], ptr %51, i64 %indvars.iv
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 4
   store i32 %65, ptr %74, align 4, !tbaa !80
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 8
@@ -1467,11 +1467,11 @@ _ZN20btAlignedObjectArrayI11MyPairIndexE9quickSortI23MyPairIndeSortPredicateEEvR
   %.02949 = phi i32 [ 0, %.lr.ph50 ], [ %.130, %111 ]
   %81 = load ptr, ptr %18, align 8, !tbaa !74
   %82 = sext i32 %.02949 to i64
-  %83 = getelementptr inbounds %struct.MyPairIndex, ptr %81, i64 %82
+  %83 = getelementptr inbounds [12 x i8], ptr %81, i64 %82
   %84 = load i32, ptr %83, align 4, !tbaa !83
   %85 = load ptr, ptr %79, align 8, !tbaa !15
   %86 = sext i32 %84 to i64
-  %87 = getelementptr inbounds %struct.btBroadphasePair, ptr %85, i64 %86
+  %87 = getelementptr inbounds [32 x i8], ptr %85, i64 %86
   %88 = load ptr, ptr %1, align 8, !tbaa !4
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 16
   %90 = load ptr, ptr %89, align 8
@@ -1641,7 +1641,7 @@ define dso_local void @_ZN28btHashedOverlappingPairCache20sortOverlappingPairsEP
   %17 = phi i32 [ 0, %.lr.ph ], [ %44, %38 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %38 ]
   %18 = load ptr, ptr %12, align 8, !tbaa !15
-  %19 = getelementptr inbounds nuw %struct.btBroadphasePair, ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [32 x i8], ptr %18, i64 %indvars.iv
   %20 = icmp eq i32 %17, %16
   br i1 %20, label %21, label %38
 
@@ -1680,8 +1680,8 @@ _ZN20btAlignedObjectArrayI16btBroadphasePairE8allocateEi.exit.i.i: ; preds = %.n
 
 32:                                               ; preds = %32, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %32 ]
-  %33 = getelementptr inbounds nuw %struct.btBroadphasePair, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
-  %34 = getelementptr inbounds nuw %struct.btBroadphasePair, ptr %.pre, i64 %indvars.iv.i.i.i
+  %33 = getelementptr inbounds nuw [32 x i8], ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
+  %34 = getelementptr inbounds nuw [32 x i8], ptr %.pre, i64 %indvars.iv.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %33, ptr noundef nonnull align 8 dereferenceable(32) %34, i64 32, i1 false), !tbaa.struct !32
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
@@ -1714,7 +1714,7 @@ _ZN20btAlignedObjectArrayI16btBroadphasePairE10deallocateEv.exit.i.i: ; preds = 
   %40 = phi i32 [ %23, %_ZN20btAlignedObjectArrayI16btBroadphasePairE10deallocateEv.exit.i.i ], [ %16, %21 ], [ %16, %14 ]
   %41 = phi i32 [ %.pre2.i, %_ZN20btAlignedObjectArrayI16btBroadphasePairE10deallocateEv.exit.i.i ], [ %16, %21 ], [ %17, %14 ]
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds %struct.btBroadphasePair, ptr %39, i64 %42
+  %43 = getelementptr inbounds [32 x i8], ptr %39, i64 %42
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %43, ptr noundef nonnull align 8 dereferenceable(32) %19, i64 32, i1 false), !tbaa.struct !32
   %44 = add nsw i32 %41, 1
   store i32 %44, ptr %7, align 4, !tbaa !16
@@ -1754,7 +1754,7 @@ _ZN20btAlignedObjectArrayI16btBroadphasePairE10deallocateEv.exit.i.i: ; preds = 
 .lr.ph30:                                         ; preds = %.preheader24, %63
   %indvars.iv37 = phi i64 [ %indvars.iv.next38, %63 ], [ 0, %.preheader24 ]
   %54 = load ptr, ptr %6, align 8, !tbaa !15
-  %55 = getelementptr inbounds nuw %struct.btBroadphasePair, ptr %54, i64 %indvars.iv37
+  %55 = getelementptr inbounds nuw [32 x i8], ptr %54, i64 %indvars.iv37
   %56 = load ptr, ptr %55, align 8, !tbaa !44
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %58 = load ptr, ptr %57, align 8, !tbaa !49
@@ -1773,7 +1773,7 @@ _ZN20btAlignedObjectArrayI16btBroadphasePairE10deallocateEv.exit.i.i: ; preds = 
 
 67:                                               ; preds = %.lr.ph32, %67
   %indvars.iv40 = phi i64 [ 0, %.lr.ph32 ], [ %indvars.iv.next41, %67 ]
-  %68 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv40
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %indvars.iv40
   store i32 -1, ptr %68, align 4, !tbaa !41
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
   %69 = load i32, ptr %49, align 4, !tbaa !29
@@ -1809,7 +1809,7 @@ _ZN20btAlignedObjectArrayI16btBroadphasePairE9quickSortI29btBroadphasePairSortPr
 .lr.ph34:                                         ; preds = %_ZN20btAlignedObjectArrayI16btBroadphasePairE9quickSortI29btBroadphasePairSortPredicateEEvRKT_.exit, %87
   %indvars.iv43 = phi i64 [ %indvars.iv.next44, %87 ], [ 0, %_ZN20btAlignedObjectArrayI16btBroadphasePairE9quickSortI29btBroadphasePairSortPredicateEEvRKT_.exit ]
   %78 = load ptr, ptr %6, align 8, !tbaa !15
-  %79 = getelementptr inbounds nuw %struct.btBroadphasePair, ptr %78, i64 %indvars.iv43
+  %79 = getelementptr inbounds nuw [32 x i8], ptr %78, i64 %indvars.iv43
   %80 = load ptr, ptr %79, align 8, !tbaa !44
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %82 = load ptr, ptr %81, align 8, !tbaa !49
@@ -1892,7 +1892,7 @@ define dso_local noundef ptr @_ZN28btSortedOverlappingPairCache21removeOverlappi
 
 21:                                               ; preds = %29, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %29 ]
-  %22 = getelementptr inbounds nuw %struct.btBroadphasePair, ptr %20, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %indvars.iv.i
   %23 = load ptr, ptr %22, align 8, !tbaa !44
   %24 = icmp eq ptr %23, %spec.select.i
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -1914,7 +1914,7 @@ _ZNK20btAlignedObjectArrayI16btBroadphasePairE16findLinearSearchERKS0_.exit: ; p
 32:                                               ; preds = %_ZNK20btAlignedObjectArrayI16btBroadphasePairE16findLinearSearchERKS0_.exit
   %sext = shl i64 %indvars.iv.i, 32
   %33 = ashr exact i64 %sext, 32
-  %34 = getelementptr inbounds %struct.btBroadphasePair, ptr %20, i64 %33
+  %34 = getelementptr inbounds [32 x i8], ptr %20, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 24
   %36 = load ptr, ptr %35, align 8, !tbaa !37
   %37 = load ptr, ptr %0, align 8, !tbaa !4
@@ -1939,13 +1939,13 @@ _ZNK20btAlignedObjectArrayI16btBroadphasePairE16findLinearSearchERKS0_.exit: ; p
   %50 = add nsw i32 %49, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %51 = load ptr, ptr %19, align 8, !tbaa !15
-  %52 = getelementptr inbounds %struct.btBroadphasePair, ptr %51, i64 %33
+  %52 = getelementptr inbounds [32 x i8], ptr %51, i64 %33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %52, i64 32, i1 false), !tbaa.struct !32
   %53 = sext i32 %50 to i64
-  %54 = getelementptr inbounds %struct.btBroadphasePair, ptr %51, i64 %53
+  %54 = getelementptr inbounds [32 x i8], ptr %51, i64 %53
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %52, ptr noundef nonnull align 8 dereferenceable(32) %54, i64 32, i1 false), !tbaa.struct !32
   %55 = load ptr, ptr %19, align 8, !tbaa !15
-  %56 = getelementptr inbounds %struct.btBroadphasePair, ptr %55, i64 %53
+  %56 = getelementptr inbounds [32 x i8], ptr %55, i64 %53
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !tbaa.struct !32
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %57 = load i32, ptr %16, align 4, !tbaa !16
@@ -2005,9 +2005,9 @@ _ZN20btAlignedObjectArrayI16btBroadphasePairE8allocateEi.exit.i.i: ; preds = %19
 
 26:                                               ; preds = %26, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %26 ]
-  %27 = getelementptr inbounds nuw %struct.btBroadphasePair, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
+  %27 = getelementptr inbounds nuw [32 x i8], ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
   %28 = load ptr, ptr %25, align 8, !tbaa !15
-  %29 = getelementptr inbounds nuw %struct.btBroadphasePair, ptr %28, i64 %indvars.iv.i.i.i
+  %29 = getelementptr inbounds nuw [32 x i8], ptr %28, i64 %indvars.iv.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %29, i64 32, i1 false), !tbaa.struct !32
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
@@ -2041,7 +2041,7 @@ _ZN20btAlignedObjectArrayI16btBroadphasePairE21expandNonInitializingEv.exit: ; p
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %39 = load ptr, ptr %38, align 8, !tbaa !15
   %40 = sext i32 %10 to i64
-  %41 = getelementptr inbounds %struct.btBroadphasePair, ptr %39, i64 %40
+  %41 = getelementptr inbounds [32 x i8], ptr %39, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %43 = load i32, ptr %42, align 8, !tbaa !46
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -2100,7 +2100,7 @@ define dso_local noundef ptr @_ZN28btSortedOverlappingPairCache8findPairEP17btBr
 
 19:                                               ; preds = %27, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %27 ]
-  %20 = getelementptr inbounds nuw %struct.btBroadphasePair, ptr %18, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [32 x i8], ptr %18, i64 %indvars.iv.i
   %21 = load ptr, ptr %20, align 8, !tbaa !44
   %22 = icmp eq ptr %21, %spec.select.i
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -2146,7 +2146,7 @@ define dso_local void @_ZN28btSortedOverlappingPairCache26processAllOverlappingP
   %.010 = phi i32 [ 0, %.lr.ph ], [ %.1, %33 ]
   %10 = load ptr, ptr %8, align 8, !tbaa !15
   %11 = sext i32 %.010 to i64
-  %12 = getelementptr inbounds %struct.btBroadphasePair, ptr %10, i64 %11
+  %12 = getelementptr inbounds [32 x i8], ptr %10, i64 %11
   %13 = load ptr, ptr %1, align 8, !tbaa !4
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
@@ -2163,13 +2163,13 @@ define dso_local void @_ZN28btSortedOverlappingPairCache26processAllOverlappingP
   %22 = add nsw i32 %21, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %23 = load ptr, ptr %8, align 8, !tbaa !15
-  %24 = getelementptr inbounds %struct.btBroadphasePair, ptr %23, i64 %11
+  %24 = getelementptr inbounds [32 x i8], ptr %23, i64 %11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %24, i64 32, i1 false), !tbaa.struct !32
   %25 = sext i32 %22 to i64
-  %26 = getelementptr inbounds %struct.btBroadphasePair, ptr %23, i64 %25
+  %26 = getelementptr inbounds [32 x i8], ptr %23, i64 %25
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %24, ptr noundef nonnull align 8 dereferenceable(32) %26, i64 32, i1 false), !tbaa.struct !32
   %27 = load ptr, ptr %8, align 8, !tbaa !15
-  %28 = getelementptr inbounds %struct.btBroadphasePair, ptr %27, i64 %25
+  %28 = getelementptr inbounds [32 x i8], ptr %27, i64 %25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false), !tbaa.struct !32
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %29 = load i32, ptr %5, align 4, !tbaa !16
@@ -2223,9 +2223,9 @@ define dso_local void @_ZN28btSortedOverlappingPairCacheC2Ev(ptr noundef nonnull
 
 12:                                               ; preds = %12, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %12 ]
-  %13 = getelementptr inbounds nuw %struct.btBroadphasePair, ptr %9, i64 %indvars.iv.i.i
+  %13 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 %indvars.iv.i.i
   %14 = load ptr, ptr %3, align 8, !tbaa !15
-  %15 = getelementptr inbounds nuw %struct.btBroadphasePair, ptr %14, i64 %indvars.iv.i.i
+  %15 = getelementptr inbounds nuw [32 x i8], ptr %14, i64 %indvars.iv.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(32) %15, i64 32, i1 false), !tbaa.struct !32
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -2729,7 +2729,7 @@ tailrecurse:                                      ; preds = %48, %4
   %8 = add nsw i32 %.tr38, %3
   %9 = sdiv i32 %8, 2
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds %struct.MyPairIndex, ptr %7, i64 %10
+  %11 = getelementptr inbounds [12 x i8], ptr %7, i64 %10
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 4
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 4, !tbaa !41
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -2745,7 +2745,7 @@ tailrecurse:                                      ; preds = %48, %4
 
 15:                                               ; preds = %_ZNK23MyPairIndeSortPredicateclERK11MyPairIndexS2_.exit.thread, %12
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK23MyPairIndeSortPredicateclERK11MyPairIndexS2_.exit.thread ], [ %14, %12 ]
-  %16 = getelementptr inbounds %struct.MyPairIndex, ptr %13, i64 %indvars.iv
+  %16 = getelementptr inbounds [12 x i8], ptr %13, i64 %indvars.iv
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %18 = load i32, ptr %17, align 4, !tbaa !80
   %19 = icmp sgt i32 %18, %.sroa.3.0.copyload
@@ -2769,7 +2769,7 @@ _ZNK23MyPairIndeSortPredicateclERK11MyPairIndexS2_.exit.thread: ; preds = %15, %
 
 26:                                               ; preds = %.preheader, %_ZNK23MyPairIndeSortPredicateclERK11MyPairIndexS2_.exit34.thread
   %indvars.iv46 = phi i64 [ %25, %.preheader ], [ %indvars.iv.next47, %_ZNK23MyPairIndeSortPredicateclERK11MyPairIndexS2_.exit34.thread ]
-  %27 = getelementptr inbounds %struct.MyPairIndex, ptr %13, i64 %indvars.iv46
+  %27 = getelementptr inbounds [12 x i8], ptr %13, i64 %indvars.iv46
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %29 = load i32, ptr %28, align 4, !tbaa !80
   %30 = icmp sgt i32 %.sroa.3.0.copyload, %29
@@ -2798,7 +2798,7 @@ _ZNK23MyPairIndeSortPredicateclERK11MyPairIndexS2_.exit34.thread: ; preds = %26,
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %5, ptr noundef nonnull align 4 dereferenceable(12) %16, i64 12, i1 false), !tbaa.struct !77
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %16, ptr noundef nonnull align 4 dereferenceable(12) %27, i64 12, i1 false), !tbaa.struct !77
   %40 = load ptr, ptr %6, align 8, !tbaa !74
-  %41 = getelementptr inbounds %struct.MyPairIndex, ptr %40, i64 %indvars.iv46
+  %41 = getelementptr inbounds [12 x i8], ptr %40, i64 %indvars.iv46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %41, ptr noundef nonnull align 4 dereferenceable(12) %5, i64 12, i1 false), !tbaa.struct !77
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %42 = add nsw i32 %37, 1
@@ -2839,7 +2839,7 @@ tailrecurse:                                      ; preds = %94, %4
   %8 = add nsw i32 %.tr47, %3
   %9 = sdiv i32 %8, 2
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds %struct.btBroadphasePair, ptr %7, i64 %10
+  %11 = getelementptr inbounds [32 x i8], ptr %7, i64 %10
   %.sroa.0.0.copyload = load ptr, ptr %11, align 8, !tbaa !33
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !33
@@ -2860,7 +2860,7 @@ tailrecurse:                                      ; preds = %94, %4
 
 17:                                               ; preds = %_ZNK29btBroadphasePairSortPredicateclERK16btBroadphasePairS2_.exit.thread, %14
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK29btBroadphasePairSortPredicateclERK16btBroadphasePairS2_.exit.thread ], [ %16, %14 ]
-  %18 = getelementptr inbounds %struct.btBroadphasePair, ptr %15, i64 %indvars.iv
+  %18 = getelementptr inbounds [32 x i8], ptr %15, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !44
   %.not.i = icmp eq ptr %19, null
   br i1 %.not.i, label %23, label %20
@@ -2935,7 +2935,7 @@ _ZNK29btBroadphasePairSortPredicateclERK16btBroadphasePairS2_.exit.thread: ; pre
 
 .critedge:                                        ; preds = %.critedge.preheader, %_ZNK29btBroadphasePairSortPredicateclERK16btBroadphasePairS2_.exit41.thread
   %indvars.iv55 = phi i64 [ %47, %.critedge.preheader ], [ %indvars.iv.next56, %_ZNK29btBroadphasePairSortPredicateclERK16btBroadphasePairS2_.exit41.thread ]
-  %52 = getelementptr inbounds %struct.btBroadphasePair, ptr %15, i64 %indvars.iv55
+  %52 = getelementptr inbounds [32 x i8], ptr %15, i64 %indvars.iv55
   br i1 %.not22.i, label %55, label %53
 
 53:                                               ; preds = %.critedge
@@ -3013,7 +3013,7 @@ _ZNK29btBroadphasePairSortPredicateclERK16btBroadphasePairS2_.exit41.thread45: ;
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %18, i64 32, i1 false), !tbaa.struct !32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %52, i64 32, i1 false), !tbaa.struct !32
   %86 = load ptr, ptr %6, align 8, !tbaa !15
-  %87 = getelementptr inbounds %struct.btBroadphasePair, ptr %86, i64 %indvars.iv55
+  %87 = getelementptr inbounds [32 x i8], ptr %86, i64 %indvars.iv55
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %87, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false), !tbaa.struct !32
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %88 = add nsw i32 %46, 1

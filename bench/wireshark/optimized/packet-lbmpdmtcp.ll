@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
 %struct.anon = type { ptr, ptr, ptr }
 %struct.anon.0 = type { ptr, ptr, ptr }
-%struct.lbmpdm_tcp_tag_entry_t = type { ptr, i32, i32 }
 
 @proto_register_lbmpdm_tcp.hf = internal global [2 x %struct.hf_register_info] [%struct.hf_register_info { ptr @hf_lbmpdm_tcp_tag, %struct._header_field_info { ptr @.str, ptr @.str.1, i32 26, i32 0, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }, %struct.hf_register_info { ptr @hf_lbmpdm_tcp_channel, %struct._header_field_info { ptr @.str.2, ptr @.str.3, i32 11, i32 5, ptr null, i64 0, ptr null, i32 -1, i32 0, i32 0, i32 -1, ptr null } }], align 16
 @hf_lbmpdm_tcp_tag = internal global i32 0, align 4
@@ -219,7 +218,7 @@ define internal i32 @dissect_lbmpdm_tcp(ptr noundef %0, ptr noundef %1, ptr noun
 
 15:                                               ; preds = %27, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %27 ]
-  %16 = getelementptr %struct.lbmpdm_tcp_tag_entry_t, ptr %11, i64 %indvars.iv.i.i
+  %16 = getelementptr [16 x i8], ptr %11, i64 %indvars.iv.i.i
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i32, ptr %17, align 8
   %.not.i.i = icmp ult i32 %13, %18
@@ -325,7 +324,7 @@ define internal noundef zeroext i1 @test_lbmpdm_tcp_packet(ptr noundef %0, ptr n
 
 25:                                               ; preds = %37, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %37 ]
-  %26 = getelementptr %struct.lbmpdm_tcp_tag_entry_t, ptr %21, i64 %indvars.iv.i.i
+  %26 = getelementptr [16 x i8], ptr %21, i64 %indvars.iv.i.i
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load i32, ptr %27, align 8
   %.not.i.i = icmp ult i32 %23, %28
@@ -554,7 +553,7 @@ define internal i32 @dissect_lbmpdm_tcp_pdu(ptr noundef %0, ptr noundef %1, ptr 
 
 12:                                               ; preds = %24, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %24 ]
-  %13 = getelementptr %struct.lbmpdm_tcp_tag_entry_t, ptr %8, i64 %indvars.iv.i.i
+  %13 = getelementptr [16 x i8], ptr %8, i64 %indvars.iv.i.i
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load i32, ptr %14, align 8
   %.not.i.i = icmp ult i32 %10, %15

@@ -3,23 +3,6 @@ source_filename = "bench/openusd/original/thread_common.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%union.pthread_cond_t = type { %struct.__pthread_cond_s }
-%struct.__pthread_cond_s = type { %union.__atomic_wide_counter, %union.__atomic_wide_counter, [2 x i32], [2 x i32], i32, i32, [2 x i32] }
-%union.__atomic_wide_counter = type { i64 }
-%struct.AVxWorker = type { ptr, i32, ptr, ptr, ptr, ptr, i32 }
-%struct.LoopFilterWorkerData = type { ptr, ptr, [3 x %struct.macroblockd_plane], ptr }
-%struct.macroblockd_plane = type { i8, i32, i32, %struct.buf_2d, [2 x %struct.buf_2d], ptr, ptr, [8 x [2 x i16]], ptr, i8, i8, [8 x [19 x ptr]], [8 x [19 x ptr]] }
-%struct.buf_2d = type { ptr, ptr, i32, i32, i32 }
-%struct.LoopRestorationWorkerData = type { ptr, ptr, ptr }
-%struct.RestorationInfo = type { i32, i32, i32, i32, i32, ptr, %struct.RestorationStripeBoundaries, i32 }
-%struct.RestorationStripeBoundaries = type { ptr, ptr, i32, i32 }
-%struct.FilterFrameCtxt = type { ptr, i32, i32, i32, i32, i32, ptr, ptr, i32, i32, %struct.AV1PixelRect }
-%struct.AV1PixelRect = type { i32, i32, i32, i32 }
-%struct.AV1LrMTInfo = type { i32, i32, i32, i32, i32, i32, i32 }
-%struct.AV1LfMTInfo = type { i32, i32, i32 }
 %struct.RestorationTileLimits = type { i32, i32, i32, i32 }
 
 @.str = private unnamed_addr constant [38 x i8] c"Failed to allocate lf_sync->mutex_[j]\00", align 1
@@ -50,7 +33,7 @@ define hidden void @av1_loop_filter_dealloc(ptr noundef captures(address_is_null
 
 4:                                                ; preds = %.preheader40, %28
   %indvars.iv51 = phi i64 [ 0, %.preheader40 ], [ %indvars.iv.next52, %28 ]
-  %5 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv51
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv51
   %6 = load ptr, ptr %5, align 8
   %.not37 = icmp eq ptr %6, null
   br i1 %.not37, label %16, label %.preheader39
@@ -63,7 +46,7 @@ define hidden void @av1_loop_filter_dealloc(ptr noundef captures(address_is_null
 .lr.ph:                                           ; preds = %.preheader39, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader39 ]
   %9 = load ptr, ptr %5, align 8
-  %10 = getelementptr inbounds nuw %union.pthread_mutex_t, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [40 x i8], ptr %9, i64 %indvars.iv
   %11 = tail call i32 @pthread_mutex_destroy(ptr noundef %10) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = load i32, ptr %2, align 4
@@ -81,7 +64,7 @@ define hidden void @av1_loop_filter_dealloc(ptr noundef captures(address_is_null
   br label %16
 
 16:                                               ; preds = %._crit_edge, %4
-  %17 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv51
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv51
   %18 = load ptr, ptr %17, align 8
   %.not38 = icmp eq ptr %18, null
   br i1 %.not38, label %28, label %.preheader
@@ -94,7 +77,7 @@ define hidden void @av1_loop_filter_dealloc(ptr noundef captures(address_is_null
 .lr.ph43:                                         ; preds = %.preheader, %.lr.ph43
   %indvars.iv48 = phi i64 [ %indvars.iv.next49, %.lr.ph43 ], [ 0, %.preheader ]
   %21 = load ptr, ptr %17, align 8
-  %22 = getelementptr inbounds nuw %union.pthread_cond_t, ptr %21, i64 %indvars.iv48
+  %22 = getelementptr inbounds nuw [48 x i8], ptr %21, i64 %indvars.iv48
   %23 = tail call i32 @pthread_cond_destroy(ptr noundef %22) #7
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %24 = load i32, ptr %2, align 4
@@ -137,7 +120,7 @@ define hidden void @av1_loop_filter_dealloc(ptr noundef captures(address_is_null
 
 39:                                               ; preds = %35, %39
   %indvars.iv54 = phi i64 [ 0, %35 ], [ %indvars.iv.next55, %39 ]
-  %40 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv54
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv54
   %41 = load ptr, ptr %40, align 8
   tail call void @aom_free(ptr noundef %41) #7
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
@@ -234,7 +217,7 @@ define hidden void @av1_loop_filter_frame_mt(ptr noundef %0, ptr noundef %1, ptr
 .split.us.i.i:                                    ; preds = %.critedge71..loopexit_crit_edge.us.i.i, %.split.us.preheader.i.i
   %indvars.iv104.i.i = phi i64 [ 0, %.split.us.preheader.i.i ], [ %indvars.iv.next105.i.i, %.critedge71..loopexit_crit_edge.us.i.i ]
   %42 = tail call ptr @aom_malloc(i64 noundef %37) #7
-  %43 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv104.i.i
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv104.i.i
   store ptr %42, ptr %43, align 8
   %.not63.us.i.i = icmp eq ptr %42, null
   br i1 %.not63.us.i.i, label %44, label %.critedge.us.i.i.preheader
@@ -251,7 +234,7 @@ define hidden void @av1_loop_filter_frame_mt(ptr noundef %0, ptr noundef %1, ptr
 .critedge.us.i.i:                                 ; preds = %.critedge.us.i.i.preheader, %.critedge.us.i.i
   %indvars.iv95.i.i = phi i64 [ %indvars.iv.next96.i.i, %.critedge.us.i.i ], [ 0, %.critedge.us.i.i.preheader ]
   %46 = load ptr, ptr %43, align 8
-  %47 = getelementptr inbounds nuw %union.pthread_mutex_t, ptr %46, i64 %indvars.iv95.i.i
+  %47 = getelementptr inbounds nuw [40 x i8], ptr %46, i64 %indvars.iv95.i.i
   %48 = tail call i32 @pthread_mutex_init(ptr noundef %47, ptr noundef null) #7
   %indvars.iv.next96.i.i = add nuw nsw i64 %indvars.iv95.i.i, 1
   %exitcond98.not.i.i = icmp eq i64 %indvars.iv.next96.i.i, %wide.trip.count.i.i
@@ -259,7 +242,7 @@ define hidden void @av1_loop_filter_frame_mt(ptr noundef %0, ptr noundef %1, ptr
 
 .loopexit72.us.i.i:                               ; preds = %.critedge.us.i.i, %44
   %49 = tail call ptr @aom_malloc(i64 noundef %39) #7
-  %50 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv104.i.i
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv104.i.i
   store ptr %49, ptr %50, align 8
   %.not65.us.i.i = icmp eq ptr %49, null
   br i1 %.not65.us.i.i, label %51, label %.critedge71.us.i.i.preheader
@@ -276,7 +259,7 @@ define hidden void @av1_loop_filter_frame_mt(ptr noundef %0, ptr noundef %1, ptr
 .critedge71.us.i.i:                               ; preds = %.critedge71.us.i.i.preheader, %.critedge71.us.i.i
   %indvars.iv99.i.i = phi i64 [ %indvars.iv.next100.i.i, %.critedge71.us.i.i ], [ 0, %.critedge71.us.i.i.preheader ]
   %53 = load ptr, ptr %50, align 8
-  %54 = getelementptr inbounds nuw %union.pthread_cond_t, ptr %53, i64 %indvars.iv99.i.i
+  %54 = getelementptr inbounds nuw [48 x i8], ptr %53, i64 %indvars.iv99.i.i
   %55 = tail call i32 @pthread_cond_init(ptr noundef %54, ptr noundef null) #7
   %indvars.iv.next100.i.i = add nuw nsw i64 %indvars.iv99.i.i, 1
   %exitcond103.not.i.i = icmp eq i64 %indvars.iv.next100.i.i, %wide.trip.count.i.i
@@ -290,7 +273,7 @@ define hidden void @av1_loop_filter_frame_mt(ptr noundef %0, ptr noundef %1, ptr
 .split.split.i.i:                                 ; preds = %32, %.critedge71.preheader.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.critedge71.preheader.i.i ], [ 0, %32 ]
   %56 = tail call ptr @aom_malloc(i64 noundef %37) #7
-  %57 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i.i
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i.i
   store ptr %56, ptr %57, align 8
   %.not63.i.i = icmp eq ptr %56, null
   br i1 %.not63.i.i, label %58, label %.critedge.preheader.i.i
@@ -301,7 +284,7 @@ define hidden void @av1_loop_filter_frame_mt(ptr noundef %0, ptr noundef %1, ptr
 
 .critedge.preheader.i.i:                          ; preds = %58, %.split.split.i.i
   %59 = tail call ptr @aom_malloc(i64 noundef %39) #7
-  %60 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv.i.i
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv.i.i
   store ptr %59, ptr %60, align 8
   %.not65.i.i = icmp eq ptr %59, null
   br i1 %.not65.i.i, label %61, label %.critedge71.preheader.i.i
@@ -356,7 +339,7 @@ define hidden void @av1_loop_filter_frame_mt(ptr noundef %0, ptr noundef %1, ptr
 77:                                               ; preds = %81, %73
   %indvars.iv108.i.i = phi i64 [ 0, %73 ], [ %indvars.iv.next109.i.i, %81 ]
   %78 = tail call ptr @aom_malloc(i64 noundef %75) #7
-  %79 = getelementptr inbounds nuw ptr, ptr %76, i64 %indvars.iv108.i.i
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %indvars.iv108.i.i
   store ptr %78, ptr %79, align 8
   %.not62.i.i = icmp eq ptr %78, null
   br i1 %.not62.i.i, label %80, label %81
@@ -407,7 +390,7 @@ loop_filter_alloc.exit.i:                         ; preds = %91, %89, %87
 
 95:                                               ; preds = %95, %93
   %indvars.iv.i = phi i64 [ 0, %93 ], [ %indvars.iv.next.i, %95 ]
-  %96 = getelementptr inbounds nuw ptr, ptr %94, i64 %indvars.iv.i
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %indvars.iv.i
   %97 = load ptr, ptr %96, align 8
   tail call void @llvm.memset.p0.i64(ptr align 4 %97, i8 -1, i64 %.pre-phi72.i, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -515,9 +498,9 @@ enqueue_lf_jobs.exit.i:                           ; preds = %._crit_edge40.split
 135:                                              ; preds = %157, %.lr.ph.i
   %indvars.iv63.i = phi i64 [ %131, %.lr.ph.i ], [ %indvars.iv.next64.i, %157 ]
   %indvars.iv.next64.i = add nsw i64 %indvars.iv63.i, -1
-  %136 = getelementptr inbounds nuw %struct.AVxWorker, ptr %6, i64 %indvars.iv.next64.i
+  %136 = getelementptr inbounds nuw [56 x i8], ptr %6, i64 %indvars.iv.next64.i
   %137 = load ptr, ptr %128, align 8
-  %138 = getelementptr inbounds nuw %struct.LoopFilterWorkerData, ptr %137, i64 %indvars.iv.next64.i
+  %138 = getelementptr inbounds nuw [7848 x i8], ptr %137, i64 %indvars.iv.next64.i
   %139 = getelementptr inbounds nuw i8, ptr %136, i64 24
   store ptr @loop_filter_row_worker, ptr %139, align 8
   %140 = getelementptr inbounds nuw i8, ptr %136, i64 32
@@ -534,9 +517,9 @@ enqueue_lf_jobs.exit.i:                           ; preds = %._crit_edge40.split
 
 145:                                              ; preds = %145, %135
   %indvars.iv.i52.i = phi i64 [ 0, %135 ], [ %indvars.iv.next.i53.i, %145 ]
-  %146 = getelementptr inbounds nuw %struct.macroblockd_plane, ptr %144, i64 %indvars.iv.i52.i
+  %146 = getelementptr inbounds nuw [2608 x i8], ptr %144, i64 %indvars.iv.i52.i
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 16
-  %148 = getelementptr inbounds nuw %struct.macroblockd_plane, ptr %129, i64 %indvars.iv.i52.i
+  %148 = getelementptr inbounds nuw [2608 x i8], ptr %129, i64 %indvars.iv.i52.i
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %147, ptr noundef nonnull align 8 dereferenceable(32) %149, i64 32, i1 false)
   %150 = getelementptr inbounds nuw i8, ptr %148, i64 4
@@ -563,7 +546,7 @@ loop_filter_data_reset.exit.i:                    ; preds = %145
 159:                                              ; preds = %159, %.preheader.i
   %indvars.iv66.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next67.i, %159 ]
   %160 = load ptr, ptr %134, align 8
-  %161 = getelementptr inbounds nuw %struct.AVxWorker, ptr %6, i64 %indvars.iv66.i
+  %161 = getelementptr inbounds nuw [56 x i8], ptr %6, i64 %indvars.iv66.i
   %162 = tail call i32 %160(ptr noundef nonnull %161) #7
   %indvars.iv.next67.i = add nuw nsw i64 %indvars.iv66.i, 1
   %exitcond69.not.i = icmp eq i64 %indvars.iv.next67.i, %131
@@ -587,7 +570,7 @@ define hidden void @av1_loop_restoration_dealloc(ptr noundef captures(address_is
 
 5:                                                ; preds = %.preheader51, %29
   %indvars.iv65 = phi i64 [ 0, %.preheader51 ], [ %indvars.iv.next66, %29 ]
-  %6 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv65
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv65
   %7 = load ptr, ptr %6, align 8
   %.not47 = icmp eq ptr %7, null
   br i1 %.not47, label %17, label %.preheader50
@@ -600,7 +583,7 @@ define hidden void @av1_loop_restoration_dealloc(ptr noundef captures(address_is
 .lr.ph:                                           ; preds = %.preheader50, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader50 ]
   %10 = load ptr, ptr %6, align 8
-  %11 = getelementptr inbounds nuw %union.pthread_mutex_t, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [40 x i8], ptr %10, i64 %indvars.iv
   %12 = tail call i32 @pthread_mutex_destroy(ptr noundef %11) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = load i32, ptr %3, align 4
@@ -618,7 +601,7 @@ define hidden void @av1_loop_restoration_dealloc(ptr noundef captures(address_is
   br label %17
 
 17:                                               ; preds = %._crit_edge, %5
-  %18 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv65
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv65
   %19 = load ptr, ptr %18, align 8
   %.not48 = icmp eq ptr %19, null
   br i1 %.not48, label %29, label %.preheader49
@@ -631,7 +614,7 @@ define hidden void @av1_loop_restoration_dealloc(ptr noundef captures(address_is
 .lr.ph54:                                         ; preds = %.preheader49, %.lr.ph54
   %indvars.iv62 = phi i64 [ %indvars.iv.next63, %.lr.ph54 ], [ 0, %.preheader49 ]
   %22 = load ptr, ptr %18, align 8
-  %23 = getelementptr inbounds nuw %union.pthread_cond_t, ptr %22, i64 %indvars.iv62
+  %23 = getelementptr inbounds nuw [48 x i8], ptr %22, i64 %indvars.iv62
   %24 = tail call i32 @pthread_cond_destroy(ptr noundef %23) #7
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %25 = load i32, ptr %3, align 4
@@ -671,7 +654,7 @@ define hidden void @av1_loop_restoration_dealloc(ptr noundef captures(address_is
 
 38:                                               ; preds = %36, %38
   %indvars.iv68 = phi i64 [ 0, %36 ], [ %indvars.iv.next69, %38 ]
-  %39 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv68
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv68
   %40 = load ptr, ptr %39, align 8
   tail call void @aom_free(ptr noundef %40) #7
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
@@ -699,7 +682,7 @@ define hidden void @av1_loop_restoration_dealloc(ptr noundef captures(address_is
 .lr.ph59:                                         ; preds = %.lr.ph59.preheader, %.lr.ph59
   %indvars.iv72 = phi i64 [ 0, %.lr.ph59.preheader ], [ %indvars.iv.next73, %.lr.ph59 ]
   %48 = load ptr, ptr %44, align 8
-  %49 = getelementptr inbounds nuw %struct.LoopRestorationWorkerData, ptr %48, i64 %indvars.iv72
+  %49 = getelementptr inbounds nuw [24 x i8], ptr %48, i64 %indvars.iv72
   %50 = load ptr, ptr %49, align 8
   tail call void @aom_free(ptr noundef %50) #7
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 8
@@ -745,13 +728,13 @@ define hidden void @av1_loop_restoration_filter_frame_mt(ptr noundef %0, ptr nou
 14:                                               ; preds = %27, %7
   %indvars.iv.i = phi i64 [ 0, %7 ], [ %indvars.iv.next.i, %27 ]
   %.077.i = phi i32 [ 0, %7 ], [ %.1.i, %27 ]
-  %15 = getelementptr inbounds nuw %struct.RestorationInfo, ptr %13, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw [64 x i8], ptr %13, i64 %indvars.iv.i
   %16 = load i32, ptr %15, align 8
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %27, label %18
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds nuw %struct.FilterFrameCtxt, ptr %6, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [72 x i8], ptr %6, i64 %indvars.iv.i
   %.sroa.1.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %19, i64 68
   %.sroa.1.0.copyload.i = load i32, ptr %.sroa.1.0..sroa_idx.i, align 4
   %.sroa.225.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %19, i64 76
@@ -823,7 +806,7 @@ define hidden void @av1_loop_restoration_filter_frame_mt(ptr noundef %0, ptr nou
 .lr.ph109.split.us.i.i:                           ; preds = %.critedge103..loopexit_crit_edge.us.i.i, %.lr.ph109.split.us.preheader.i.i
   %indvars.iv139.i.i = phi i64 [ 0, %.lr.ph109.split.us.preheader.i.i ], [ %indvars.iv.next140.i.i, %.critedge103..loopexit_crit_edge.us.i.i ]
   %50 = tail call ptr @aom_malloc(i64 noundef %45) #7
-  %51 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv139.i.i
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv139.i.i
   store ptr %50, ptr %51, align 8
   %.not95.us.i.i = icmp eq ptr %50, null
   br i1 %.not95.us.i.i, label %52, label %.critedge.us.i.i.preheader
@@ -840,7 +823,7 @@ define hidden void @av1_loop_restoration_filter_frame_mt(ptr noundef %0, ptr nou
 .critedge.us.i.i:                                 ; preds = %.critedge.us.i.i.preheader, %.critedge.us.i.i
   %indvars.iv129.i.i = phi i64 [ %indvars.iv.next130.i.i, %.critedge.us.i.i ], [ 0, %.critedge.us.i.i.preheader ]
   %54 = load ptr, ptr %51, align 8
-  %55 = getelementptr inbounds nuw %union.pthread_mutex_t, ptr %54, i64 %indvars.iv129.i.i
+  %55 = getelementptr inbounds nuw [40 x i8], ptr %54, i64 %indvars.iv129.i.i
   %56 = tail call i32 @pthread_mutex_init(ptr noundef %55, ptr noundef null) #7
   %indvars.iv.next130.i.i = add nuw nsw i64 %indvars.iv129.i.i, 1
   %exitcond133.not.i.i = icmp eq i64 %indvars.iv.next130.i.i, %wide.trip.count132.i.i
@@ -848,7 +831,7 @@ define hidden void @av1_loop_restoration_filter_frame_mt(ptr noundef %0, ptr nou
 
 .loopexit104.us.i.i:                              ; preds = %.critedge.us.i.i, %52
   %57 = tail call ptr @aom_malloc(i64 noundef %47) #7
-  %58 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv139.i.i
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %indvars.iv139.i.i
   store ptr %57, ptr %58, align 8
   %.not97.us.i.i = icmp eq ptr %57, null
   br i1 %.not97.us.i.i, label %59, label %.critedge103.us.i.i.preheader
@@ -865,7 +848,7 @@ define hidden void @av1_loop_restoration_filter_frame_mt(ptr noundef %0, ptr nou
 .critedge103.us.i.i:                              ; preds = %.critedge103.us.i.i.preheader, %.critedge103.us.i.i
   %indvars.iv134.i.i = phi i64 [ %indvars.iv.next135.i.i, %.critedge103.us.i.i ], [ 0, %.critedge103.us.i.i.preheader ]
   %61 = load ptr, ptr %58, align 8
-  %62 = getelementptr inbounds nuw %union.pthread_cond_t, ptr %61, i64 %indvars.iv134.i.i
+  %62 = getelementptr inbounds nuw [48 x i8], ptr %61, i64 %indvars.iv134.i.i
   %63 = tail call i32 @pthread_cond_init(ptr noundef %62, ptr noundef null) #7
   %indvars.iv.next135.i.i = add nuw nsw i64 %indvars.iv134.i.i, 1
   %exitcond138.not.i.i = icmp eq i64 %indvars.iv.next135.i.i, %wide.trip.count132.i.i
@@ -879,7 +862,7 @@ define hidden void @av1_loop_restoration_filter_frame_mt(ptr noundef %0, ptr nou
 .lr.ph109.split.i.i:                              ; preds = %41, %.critedge103.preheader.i.i
   %indvars.iv124.i.i = phi i64 [ %indvars.iv.next125.i.i, %.critedge103.preheader.i.i ], [ 0, %41 ]
   %64 = tail call ptr @aom_malloc(i64 noundef %45) #7
-  %65 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv124.i.i
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv124.i.i
   store ptr %64, ptr %65, align 8
   %.not95.i.i = icmp eq ptr %64, null
   br i1 %.not95.i.i, label %66, label %.loopexit104.i.i
@@ -890,7 +873,7 @@ define hidden void @av1_loop_restoration_filter_frame_mt(ptr noundef %0, ptr nou
 
 .loopexit104.i.i:                                 ; preds = %66, %.lr.ph109.split.i.i
   %67 = tail call ptr @aom_malloc(i64 noundef %47) #7
-  %68 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv124.i.i
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %indvars.iv124.i.i
   store ptr %67, ptr %68, align 8
   %.not97.i.i = icmp eq ptr %67, null
   br i1 %.not97.i.i, label %69, label %.critedge103.preheader.i.i
@@ -955,10 +938,10 @@ define hidden void @av1_loop_restoration_filter_frame_mt(ptr noundef %0, ptr nou
 89:                                               ; preds = %87
   %90 = tail call ptr @aom_memalign(i64 noundef 16, i64 noundef 1292704) #7
   %91 = load ptr, ptr %79, align 8
-  %92 = getelementptr inbounds nuw %struct.LoopRestorationWorkerData, ptr %91, i64 %indvars.iv144.i.i
+  %92 = getelementptr inbounds nuw [24 x i8], ptr %91, i64 %indvars.iv144.i.i
   store ptr %90, ptr %92, align 8
   %93 = load ptr, ptr %79, align 8
-  %94 = getelementptr inbounds nuw %struct.LoopRestorationWorkerData, ptr %93, i64 %indvars.iv144.i.i
+  %94 = getelementptr inbounds nuw [24 x i8], ptr %93, i64 %indvars.iv144.i.i
   %95 = load ptr, ptr %94, align 8
   %.not93.i.i = icmp eq ptr %95, null
   br i1 %.not93.i.i, label %96, label %97
@@ -970,11 +953,11 @@ define hidden void @av1_loop_restoration_filter_frame_mt(ptr noundef %0, ptr nou
 97:                                               ; preds = %96, %89
   %98 = tail call ptr @aom_malloc(i64 noundef 4704) #7
   %99 = load ptr, ptr %79, align 8
-  %100 = getelementptr inbounds nuw %struct.LoopRestorationWorkerData, ptr %99, i64 %indvars.iv144.i.i
+  %100 = getelementptr inbounds nuw [24 x i8], ptr %99, i64 %indvars.iv144.i.i
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
   store ptr %98, ptr %101, align 8
   %102 = load ptr, ptr %79, align 8
-  %103 = getelementptr inbounds nuw %struct.LoopRestorationWorkerData, ptr %102, i64 %indvars.iv144.i.i
+  %103 = getelementptr inbounds nuw [24 x i8], ptr %102, i64 %indvars.iv144.i.i
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 8
   %105 = load ptr, ptr %104, align 8
   %.not94.i.i = icmp eq ptr %105, null
@@ -987,11 +970,11 @@ define hidden void @av1_loop_restoration_filter_frame_mt(ptr noundef %0, ptr nou
 107:                                              ; preds = %87
   %108 = load ptr, ptr %84, align 8
   %109 = load ptr, ptr %79, align 8
-  %110 = getelementptr inbounds nuw %struct.LoopRestorationWorkerData, ptr %109, i64 %indvars.iv144.i.i
+  %110 = getelementptr inbounds nuw [24 x i8], ptr %109, i64 %indvars.iv144.i.i
   store ptr %108, ptr %110, align 8
   %111 = load ptr, ptr %85, align 16
   %112 = load ptr, ptr %79, align 8
-  %113 = getelementptr inbounds nuw %struct.LoopRestorationWorkerData, ptr %112, i64 %indvars.iv144.i.i
+  %113 = getelementptr inbounds nuw [24 x i8], ptr %112, i64 %indvars.iv144.i.i
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 8
   store ptr %111, ptr %114, align 8
   br label %115
@@ -1011,7 +994,7 @@ define hidden void @av1_loop_restoration_filter_frame_mt(ptr noundef %0, ptr nou
 119:                                              ; preds = %123, %._crit_edge113.i.i
   %indvars.iv149.i.i = phi i64 [ 0, %._crit_edge113.i.i ], [ %indvars.iv.next150.i.i, %123 ]
   %120 = tail call ptr @aom_malloc(i64 noundef %117) #7
-  %121 = getelementptr inbounds nuw ptr, ptr %118, i64 %indvars.iv149.i.i
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %118, i64 %indvars.iv149.i.i
   store ptr %120, ptr %121, align 8
   %.not92.i.i = icmp eq ptr %120, null
   br i1 %.not92.i.i, label %122, label %123
@@ -1050,7 +1033,7 @@ loop_restoration_alloc.exit.i:                    ; preds = %128, %._crit_edge11
 
 131:                                              ; preds = %131, %129
   %indvars.iv85.i = phi i64 [ 0, %129 ], [ %indvars.iv.next86.i, %131 ]
-  %132 = getelementptr inbounds nuw ptr, ptr %130, i64 %indvars.iv85.i
+  %132 = getelementptr inbounds nuw [8 x i8], ptr %130, i64 %indvars.iv85.i
   %133 = load ptr, ptr %132, align 8
   tail call void @llvm.memset.p0.i64(ptr align 4 %133, i8 -1, i64 %.pre-phi100.i, i1 false)
   %indvars.iv.next86.i = add nuw nsw i64 %indvars.iv85.i, 1
@@ -1074,13 +1057,13 @@ loop_restoration_alloc.exit.i:                    ; preds = %128, %._crit_edge11
 140:                                              ; preds = %152, %134
   %indvars.iv.i.i = phi i64 [ 0, %134 ], [ %indvars.iv.next.i.i, %152 ]
   %.0108.i.i = phi i32 [ 0, %134 ], [ %.1.i.i, %152 ]
-  %141 = getelementptr inbounds nuw %struct.RestorationInfo, ptr %13, i64 %indvars.iv.i.i
+  %141 = getelementptr inbounds nuw [64 x i8], ptr %13, i64 %indvars.iv.i.i
   %142 = load i32, ptr %141, align 8
   %143 = icmp eq i32 %142, 0
   br i1 %143, label %152, label %144
 
 144:                                              ; preds = %140
-  %145 = getelementptr inbounds nuw %struct.FilterFrameCtxt, ptr %135, i64 %indvars.iv.i.i
+  %145 = getelementptr inbounds nuw [72 x i8], ptr %135, i64 %indvars.iv.i.i
   %146 = load ptr, ptr %145, align 8
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 12
   %148 = load i32, ptr %147, align 4
@@ -1104,7 +1087,7 @@ loop_restoration_alloc.exit.i:                    ; preds = %128, %._crit_edge11
 
 156:                                              ; preds = %.loopexit.i.i, %153
   %indvars.iv113.i.i = phi i64 [ 0, %153 ], [ %indvars.iv.next114.i.i, %.loopexit.i.i ]
-  %157 = getelementptr inbounds nuw %struct.RestorationInfo, ptr %13, i64 %indvars.iv113.i.i
+  %157 = getelementptr inbounds nuw [64 x i8], ptr %13, i64 %indvars.iv113.i.i
   %158 = load i32, ptr %157, align 8
   %159 = icmp eq i32 %158, 0
   br i1 %159, label %.loopexit.i.i, label %160
@@ -1121,7 +1104,7 @@ loop_restoration_alloc.exit.i:                    ; preds = %128, %._crit_edge11
 
 165:                                              ; preds = %161, %160
   %166 = phi i32 [ 0, %160 ], [ %164, %161 ]
-  %167 = getelementptr inbounds nuw %struct.FilterFrameCtxt, ptr %135, i64 %indvars.iv113.i.i
+  %167 = getelementptr inbounds nuw [72 x i8], ptr %135, i64 %indvars.iv113.i.i
   %.sroa.1.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %167, i64 60
   %.sroa.1.0.copyload.i.i = load i32, ptr %.sroa.1.0..sroa_idx.i.i, align 4
   %.sroa.953.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %167, i64 68
@@ -1155,10 +1138,10 @@ loop_restoration_alloc.exit.i:                    ; preds = %128, %._crit_edge11
   %spec.select.i.i = sub nsw i32 %182, %186
   %187 = and i32 %.0101110.i.i, 1
   %188 = zext nneg i32 %187 to i64
-  %189 = getelementptr inbounds nuw i32, ptr %8, i64 %188
+  %189 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %188
   %190 = load i32, ptr %189, align 4
   %191 = sext i32 %190 to i64
-  %192 = getelementptr inbounds %struct.AV1LrMTInfo, ptr %137, i64 %191
+  %192 = getelementptr inbounds [28 x i8], ptr %137, i64 %191
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 8
   store i32 %.0101110.i.i, ptr %193, align 4
   %194 = getelementptr inbounds nuw i8, ptr %192, i64 12
@@ -1235,9 +1218,9 @@ enqueue_lr_jobs.exit.i:                           ; preds = %.loopexit.i.i
   %229 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %230 = zext nneg i32 %4 to i64
   %indvars.iv.next91.i13 = add nsw i64 %230, -1
-  %231 = getelementptr inbounds nuw %struct.AVxWorker, ptr %3, i64 %indvars.iv.next91.i13
+  %231 = getelementptr inbounds nuw [56 x i8], ptr %3, i64 %indvars.iv.next91.i13
   %232 = load ptr, ptr %227, align 8
-  %233 = getelementptr inbounds nuw %struct.LoopRestorationWorkerData, ptr %232, i64 %indvars.iv.next91.i13
+  %233 = getelementptr inbounds nuw [24 x i8], ptr %232, i64 %indvars.iv.next91.i13
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 16
   store ptr %6, ptr %234, align 8
   %235 = getelementptr inbounds nuw i8, ptr %231, i64 24
@@ -1245,7 +1228,7 @@ enqueue_lr_jobs.exit.i:                           ; preds = %.loopexit.i.i
   %236 = getelementptr inbounds nuw i8, ptr %231, i64 32
   store ptr %5, ptr %236, align 8
   %237 = load ptr, ptr %227, align 8
-  %238 = getelementptr inbounds nuw %struct.LoopRestorationWorkerData, ptr %237, i64 %indvars.iv.next91.i13
+  %238 = getelementptr inbounds nuw [24 x i8], ptr %237, i64 %indvars.iv.next91.i13
   %239 = getelementptr inbounds nuw i8, ptr %231, i64 40
   store ptr %238, ptr %239, align 8
   %240 = icmp eq i64 %indvars.iv.next91.i13, 0
@@ -1264,9 +1247,9 @@ enqueue_lr_jobs.exit.i:                           ; preds = %.loopexit.i.i
   %244 = load ptr, ptr %228, align 8
   tail call void %244(ptr noundef nonnull %243) #7
   %indvars.iv.next91.i = add nsw i64 %indvars.iv.next91.i14, -1
-  %245 = getelementptr inbounds nuw %struct.AVxWorker, ptr %3, i64 %indvars.iv.next91.i
+  %245 = getelementptr inbounds nuw [56 x i8], ptr %3, i64 %indvars.iv.next91.i
   %246 = load ptr, ptr %227, align 8
-  %247 = getelementptr inbounds nuw %struct.LoopRestorationWorkerData, ptr %246, i64 %indvars.iv.next91.i
+  %247 = getelementptr inbounds nuw [24 x i8], ptr %246, i64 %indvars.iv.next91.i
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 16
   store ptr %6, ptr %248, align 8
   %249 = getelementptr inbounds nuw i8, ptr %245, i64 24
@@ -1274,7 +1257,7 @@ enqueue_lr_jobs.exit.i:                           ; preds = %.loopexit.i.i
   %250 = getelementptr inbounds nuw i8, ptr %245, i64 32
   store ptr %5, ptr %250, align 8
   %251 = load ptr, ptr %227, align 8
-  %252 = getelementptr inbounds nuw %struct.LoopRestorationWorkerData, ptr %251, i64 %indvars.iv.next91.i
+  %252 = getelementptr inbounds nuw [24 x i8], ptr %251, i64 %indvars.iv.next91.i
   %253 = getelementptr inbounds nuw i8, ptr %245, i64 40
   store ptr %252, ptr %253, align 8
   %254 = icmp eq i64 %indvars.iv.next91.i, 0
@@ -1283,7 +1266,7 @@ enqueue_lr_jobs.exit.i:                           ; preds = %.loopexit.i.i
 255:                                              ; preds = %255, %.preheader.i
   %indvars.iv93.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next94.i, %255 ]
   %256 = load ptr, ptr %242, align 8
-  %257 = getelementptr inbounds nuw %struct.AVxWorker, ptr %3, i64 %indvars.iv93.i
+  %257 = getelementptr inbounds nuw [56 x i8], ptr %3, i64 %indvars.iv93.i
   %258 = tail call i32 %256(ptr noundef %257) #7
   %indvars.iv.next94.i = add nuw nsw i64 %indvars.iv93.i, 1
   %exitcond97.not.i = icmp eq i64 %indvars.iv.next94.i, %230
@@ -1345,7 +1328,7 @@ get_lf_job_info.exit.i:                           ; preds = %.loopexit.i, %get_l
 
 34:                                               ; preds = %get_lf_job_info.exit.i
   %35 = sext i32 %29 to i64
-  %36 = getelementptr inbounds %struct.AV1LfMTInfo, ptr %30, i64 %35
+  %36 = getelementptr inbounds [12 x i8], ptr %30, i64 %35
   %37 = load i32, ptr %36, align 4
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %39 = load i32, ptr %38, align 4
@@ -1365,15 +1348,15 @@ get_lf_job_info.exit.i:                           ; preds = %.loopexit.i, %get_l
 .lr.ph.i:                                         ; preds = %.preheader67.i
   %.not.i.i = icmp eq i32 %42, 0
   %45 = sext i32 %39 to i64
-  %46 = getelementptr inbounds ptr, ptr %0, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr %0, i64 %45
   %47 = add nsw i32 %42, -1
   %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds ptr, ptr %23, i64 %45
-  %50 = getelementptr inbounds ptr, ptr %24, i64 %45
+  %49 = getelementptr inbounds [8 x i8], ptr %23, i64 %45
+  %50 = getelementptr inbounds [8 x i8], ptr %24, i64 %45
   %.not.i59.i = icmp eq i32 %42, -1
   %51 = sext i32 %42 to i64
   %52 = add nsw i32 %39, 1
-  %53 = getelementptr inbounds %struct.macroblockd_plane, ptr %6, i64 %45
+  %53 = getelementptr inbounds [2608 x i8], ptr %6, i64 %45
   br label %86
 
 .preheader.i:                                     ; preds = %34
@@ -1384,11 +1367,11 @@ get_lf_job_info.exit.i:                           ; preds = %.loopexit.i, %get_l
 .lr.ph73.i:                                       ; preds = %.preheader.i
   %56 = add nsw i32 %39, 1
   %57 = sext i32 %39 to i64
-  %58 = getelementptr inbounds %struct.macroblockd_plane, ptr %6, i64 %57
-  %59 = getelementptr inbounds ptr, ptr %0, i64 %57
+  %58 = getelementptr inbounds [2608 x i8], ptr %6, i64 %57
+  %59 = getelementptr inbounds [8 x i8], ptr %0, i64 %57
   %60 = sext i32 %42 to i64
-  %61 = getelementptr inbounds ptr, ptr %23, i64 %57
-  %62 = getelementptr inbounds ptr, ptr %24, i64 %57
+  %61 = getelementptr inbounds [8 x i8], ptr %23, i64 %57
+  %62 = getelementptr inbounds [8 x i8], ptr %24, i64 %57
   br label %63
 
 63:                                               ; preds = %sync_write.exit.i, %.lr.ph73.i
@@ -1413,16 +1396,16 @@ get_lf_job_info.exit.i:                           ; preds = %.loopexit.i, %get_l
 71:                                               ; preds = %69, %.thread.i.i
   %.02126.i.i = phi i32 [ %68, %.thread.i.i ], [ %64, %69 ]
   %72 = load ptr, ptr %59, align 8
-  %73 = getelementptr inbounds %union.pthread_mutex_t, ptr %72, i64 %60
+  %73 = getelementptr inbounds [40 x i8], ptr %72, i64 %60
   %74 = tail call i32 @pthread_mutex_lock(ptr noundef %73) #7
   %75 = load ptr, ptr %61, align 8
-  %76 = getelementptr inbounds i32, ptr %75, i64 %60
+  %76 = getelementptr inbounds [4 x i8], ptr %75, i64 %60
   store i32 %.02126.i.i, ptr %76, align 4
   %77 = load ptr, ptr %62, align 8
-  %78 = getelementptr inbounds %union.pthread_cond_t, ptr %77, i64 %60
+  %78 = getelementptr inbounds [48 x i8], ptr %77, i64 %60
   %79 = tail call i32 @pthread_cond_broadcast(ptr noundef %78) #7
   %80 = load ptr, ptr %59, align 8
-  %81 = getelementptr inbounds %union.pthread_mutex_t, ptr %80, i64 %60
+  %81 = getelementptr inbounds [40 x i8], ptr %80, i64 %60
   %82 = tail call i32 @pthread_mutex_unlock(ptr noundef %81) #7
   br label %sync_write.exit.i
 
@@ -1446,10 +1429,10 @@ sync_write.exit.i:                                ; preds = %71, %69
 
 92:                                               ; preds = %89
   %93 = load ptr, ptr %46, align 8
-  %94 = getelementptr inbounds %union.pthread_mutex_t, ptr %93, i64 %48
+  %94 = getelementptr inbounds [40 x i8], ptr %93, i64 %48
   %95 = tail call i32 @pthread_mutex_lock(ptr noundef %94) #7
   %96 = load ptr, ptr %49, align 8
-  %97 = getelementptr inbounds i32, ptr %96, i64 %48
+  %97 = getelementptr inbounds [4 x i8], ptr %96, i64 %48
   %98 = load i32, ptr %97, align 4
   %99 = sub nsw i32 %98, %88
   %100 = icmp sgt i32 %87, %99
@@ -1457,10 +1440,10 @@ sync_write.exit.i:                                ; preds = %71, %69
 
 .lr.ph.i.i:                                       ; preds = %92, %.lr.ph.i.i
   %101 = load ptr, ptr %50, align 8
-  %102 = getelementptr inbounds %union.pthread_cond_t, ptr %101, i64 %48
+  %102 = getelementptr inbounds [48 x i8], ptr %101, i64 %48
   %103 = tail call i32 @pthread_cond_wait(ptr noundef %102, ptr noundef %94) #7
   %104 = load ptr, ptr %49, align 8
-  %105 = getelementptr inbounds i32, ptr %104, i64 %48
+  %105 = getelementptr inbounds [4 x i8], ptr %104, i64 %48
   %106 = load i32, ptr %105, align 4
   %107 = sub nsw i32 %106, %88
   %108 = icmp sgt i32 %87, %107
@@ -1486,10 +1469,10 @@ sync_read.exit.thread.i:                          ; preds = %sync_read.exit.sync
 
 113:                                              ; preds = %sync_read.exit.thread.i
   %114 = load ptr, ptr %46, align 8
-  %115 = getelementptr inbounds %union.pthread_mutex_t, ptr %114, i64 %51
+  %115 = getelementptr inbounds [40 x i8], ptr %114, i64 %51
   %116 = tail call i32 @pthread_mutex_lock(ptr noundef %115) #7
   %117 = load ptr, ptr %49, align 8
-  %118 = getelementptr inbounds i32, ptr %117, i64 %51
+  %118 = getelementptr inbounds [4 x i8], ptr %117, i64 %51
   %119 = load i32, ptr %118, align 4
   %120 = sub nsw i32 %119, %110
   %121 = icmp sgt i32 %87, %120
@@ -1497,10 +1480,10 @@ sync_read.exit.thread.i:                          ; preds = %sync_read.exit.sync
 
 .lr.ph.i62.i:                                     ; preds = %113, %.lr.ph.i62.i
   %122 = load ptr, ptr %50, align 8
-  %123 = getelementptr inbounds %union.pthread_cond_t, ptr %122, i64 %51
+  %123 = getelementptr inbounds [48 x i8], ptr %122, i64 %51
   %124 = tail call i32 @pthread_cond_wait(ptr noundef %123, ptr noundef %115) #7
   %125 = load ptr, ptr %49, align 8
-  %126 = getelementptr inbounds i32, ptr %125, i64 %51
+  %126 = getelementptr inbounds [4 x i8], ptr %125, i64 %51
   %127 = load i32, ptr %126, align 4
   %128 = sub nsw i32 %127, %110
   %129 = icmp sgt i32 %87, %128
@@ -1605,7 +1588,7 @@ get_lr_job_info.exit:                             ; preds = %get_lr_job_info.exi
 
 28:                                               ; preds = %get_lr_job_info.exit
   %29 = sext i32 %23 to i64
-  %30 = getelementptr inbounds %struct.AV1LrMTInfo, ptr %24, i64 %29
+  %30 = getelementptr inbounds [28 x i8], ptr %24, i64 %29
   %31 = load i32, ptr %30, align 4
   store i32 %31, ptr %16, align 4
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 4
@@ -1616,7 +1599,7 @@ get_lr_job_info.exit:                             ; preds = %get_lr_job_info.exi
   %36 = getelementptr inbounds nuw i8, ptr %30, i64 12
   %37 = load i32, ptr %36, align 4
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds %struct.FilterFrameCtxt, ptr %6, i64 %38
+  %39 = getelementptr inbounds [72 x i8], ptr %6, i64 %38
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %42 = load i32, ptr %41, align 4
@@ -1635,7 +1618,7 @@ get_lr_job_info.exit:                             ; preds = %get_lr_job_info.exi
   %55 = load ptr, ptr %1, align 8
   %56 = load ptr, ptr %18, align 8
   call void @av1_foreach_rest_unit_in_row(ptr noundef nonnull %3, ptr noundef nonnull %47, ptr noundef %48, i32 noundef %35, i32 noundef %50, i32 noundef 0, i32 noundef %52, i32 noundef %54, i32 noundef %37, ptr noundef nonnull %39, ptr noundef %55, ptr noundef %56, ptr noundef nonnull %44, ptr noundef nonnull %46, ptr noundef nonnull %0) #7
-  %57 = getelementptr inbounds ptr, ptr @loop_restoration_row_worker.copy_funs, i64 %38
+  %57 = getelementptr inbounds [8 x i8], ptr @loop_restoration_row_worker.copy_funs, i64 %38
   %58 = load ptr, ptr %57, align 8
   %59 = load ptr, ptr %19, align 8
   %60 = load ptr, ptr %20, align 8
@@ -1681,16 +1664,16 @@ define internal void @lr_sync_read(ptr noundef readonly captures(none) %0, i32 n
 
 10:                                               ; preds = %7
   %11 = sext i32 %3 to i64
-  %12 = getelementptr inbounds ptr, ptr %0, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %0, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = add nsw i32 %1, -1
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds %union.pthread_mutex_t, ptr %13, i64 %15
+  %16 = getelementptr inbounds [40 x i8], ptr %13, i64 %15
   %17 = tail call i32 @pthread_mutex_lock(ptr noundef %16) #7
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %19 = getelementptr inbounds ptr, ptr %18, i64 %11
+  %19 = getelementptr inbounds [8 x i8], ptr %18, i64 %11
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds i32, ptr %20, i64 %15
+  %21 = getelementptr inbounds [4 x i8], ptr %20, i64 %15
   %22 = load i32, ptr %21, align 4
   %23 = sub nsw i32 %22, %6
   %24 = icmp sgt i32 %2, %23
@@ -1698,15 +1681,15 @@ define internal void @lr_sync_read(ptr noundef readonly captures(none) %0, i32 n
 
 .lr.ph:                                           ; preds = %10
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %26 = getelementptr inbounds ptr, ptr %25, i64 %11
+  %26 = getelementptr inbounds [8 x i8], ptr %25, i64 %11
   br label %27
 
 27:                                               ; preds = %.lr.ph, %27
   %28 = load ptr, ptr %26, align 8
-  %29 = getelementptr inbounds %union.pthread_cond_t, ptr %28, i64 %15
+  %29 = getelementptr inbounds [48 x i8], ptr %28, i64 %15
   %30 = tail call i32 @pthread_cond_wait(ptr noundef %29, ptr noundef %16) #7
   %31 = load ptr, ptr %19, align 8
-  %32 = getelementptr inbounds i32, ptr %31, i64 %15
+  %32 = getelementptr inbounds [4 x i8], ptr %31, i64 %15
   %33 = load i32, ptr %32, align 4
   %34 = sub nsw i32 %33, %6
   %35 = icmp sgt i32 %2, %34
@@ -1742,23 +1725,23 @@ define internal void @lr_sync_write(ptr noundef readonly captures(none) %0, i32 
 13:                                               ; preds = %.thread, %11
   %.02227 = phi i32 [ %10, %.thread ], [ %2, %11 ]
   %14 = sext i32 %4 to i64
-  %15 = getelementptr inbounds ptr, ptr %0, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %0, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = sext i32 %1 to i64
-  %18 = getelementptr inbounds %union.pthread_mutex_t, ptr %16, i64 %17
+  %18 = getelementptr inbounds [40 x i8], ptr %16, i64 %17
   %19 = tail call i32 @pthread_mutex_lock(ptr noundef %18) #7
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %21 = getelementptr inbounds ptr, ptr %20, i64 %14
+  %21 = getelementptr inbounds [8 x i8], ptr %20, i64 %14
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds i32, ptr %22, i64 %17
+  %23 = getelementptr inbounds [4 x i8], ptr %22, i64 %17
   store i32 %.02227, ptr %23, align 4
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %25 = getelementptr inbounds ptr, ptr %24, i64 %14
+  %25 = getelementptr inbounds [8 x i8], ptr %24, i64 %14
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds %union.pthread_cond_t, ptr %26, i64 %17
+  %27 = getelementptr inbounds [48 x i8], ptr %26, i64 %17
   %28 = tail call i32 @pthread_cond_broadcast(ptr noundef %27) #7
   %29 = load ptr, ptr %15, align 8
-  %30 = getelementptr inbounds %union.pthread_mutex_t, ptr %29, i64 %17
+  %30 = getelementptr inbounds [40 x i8], ptr %29, i64 %17
   %31 = tail call i32 @pthread_mutex_unlock(ptr noundef %30) #7
   br label %32
 

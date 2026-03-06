@@ -40,8 +40,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__shared_ptr.57" = type { ptr, %"class.std::__shared_count" }
 %"class.std::shared_ptr.32" = type { %"class.std::__shared_ptr.33" }
 %"class.std::__shared_ptr.33" = type { ptr, %"class.std::__shared_count" }
-%"class.std::shared_ptr.28" = type { %"class.std::__shared_ptr.29" }
-%"class.std::__shared_ptr.29" = type { ptr, %"class.std::__shared_count" }
 %"class.std::shared_ptr.24" = type { %"class.std::__shared_ptr.25" }
 %"class.std::__shared_ptr.25" = type { ptr, %"class.std::__shared_count" }
 
@@ -2348,7 +2346,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit115: ; preds = %27
 283:                                              ; preds = %239
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %284 = zext nneg i32 %240 to i64
-  %285 = getelementptr inbounds nuw %"class.std::shared_ptr.28", ptr %244, i64 %284
+  %285 = getelementptr inbounds nuw [16 x i8], ptr %244, i64 %284
   %286 = load ptr, ptr %285, align 8, !tbaa !89
   store ptr %286, ptr %17, align 8, !tbaa !92
   %287 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -3074,7 +3072,7 @@ _ZNSt6vectorIN19OpenColorIO_v2_5dev10FormatInfoESaIS1_EE11_S_relocateEPS1_S4_S4_
 _ZNSt12_Vector_baseIN19OpenColorIO_v2_5dev10FormatInfoESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN19OpenColorIO_v2_5dev10FormatInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit40, %90
   store ptr %20, ptr %0, align 8, !tbaa !107
   store ptr %.0.lcssa.i.i.i.i39, ptr %4, align 8, !tbaa !23
-  %94 = getelementptr inbounds nuw %"struct.OpenColorIO_v2_5dev::FormatInfo", ptr %20, i64 %16
+  %94 = getelementptr inbounds nuw [72 x i8], ptr %20, i64 %16
   store ptr %94, ptr %89, align 8, !tbaa !26
   ret void
 
@@ -4480,7 +4478,7 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaI
 _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE13_M_deallocateEPS7_m.exit: ; preds = %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit30, %114
   store ptr %22, ptr %0, align 8, !tbaa !77
   store ptr %.0.lcssa.i.i.i.i29, ptr %4, align 8, !tbaa !62
-  %118 = getelementptr inbounds nuw %"struct.std::pair.42", ptr %22, i64 %16
+  %118 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 %16
   store ptr %118, ptr %113, align 8, !tbaa !65
   ret void
 }

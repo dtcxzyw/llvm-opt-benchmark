@@ -90,7 +90,7 @@ declare void @__cxa_guard_release(ptr) local_unnamed_addr #1
 define void @_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor5printEv(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %0) local_unnamed_addr #0 align 2 {
   %2 = load i32, ptr %0, align 4
   %3 = zext i32 %2 to i64
-  %4 = getelementptr inbounds nuw ptr, ptr @_ZZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor5printEvE5types, i64 %3
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor5printEvE5types, i64 %3
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11, ptr noundef %5)
   ret void

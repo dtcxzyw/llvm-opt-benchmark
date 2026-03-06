@@ -848,7 +848,7 @@ define internal fastcc noundef zeroext i1 @"_ZN52_$LT$char$u20$as$u20$core..str.
   %82 = icmp eq <16 x i8> %.0.copyload.i.i.i, %65
   %83 = icmp eq <16 x i8> %.0.copyload2.i.i.i, %66
   %84 = and <16 x i1> %82, %83
-  %85 = getelementptr inbounds nuw i16, ptr %4, i64 %.sroa.022.0138.i.i
+  %85 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %.sroa.022.0138.i.i
   store <16 x i1> %84, ptr %85, align 2, !noalias !121
   %exitcond.not.i38.i = icmp eq i64 %78, 4
   br i1 %exitcond.not.i38.i, label %.preheader134.i.i, label %77
@@ -866,7 +866,7 @@ define internal fastcc noundef zeroext i1 @"_ZN52_$LT$char$u20$as$u20$core..str.
   %.sroa.028.0140.i.i = phi i64 [ %91, %95 ], [ 0, %77 ]
   %.2139.i.i = phi i8 [ %.3.i.i, %95 ], [ 0, %77 ]
   %91 = add nuw nsw i64 %.sroa.028.0140.i.i, 1
-  %92 = getelementptr inbounds nuw i16, ptr %4, i64 %.sroa.028.0140.i.i
+  %92 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %.sroa.028.0140.i.i
   %93 = load i16, ptr %92, align 2, !noalias !121, !noundef !9
   %94 = icmp eq i16 %93, 0
   br i1 %94, label %95, label %96
@@ -2286,7 +2286,7 @@ _ZN6uucore8features13quoting_style11EscapedChar9new_shell17h77ff203a41fcf448E.ex
 
 switch.lookup:                                    ; preds = %146
   %194 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6uucore8features13quoting_style11escape_name17h4890402e462819dcE.23, i64 %194
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN6uucore8features13quoting_style11escape_name17h4890402e462819dcE.23, i64 %194
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN6uucore8features13quoting_style11EscapedChar12hide_control17hede41a3ab876770bE.exit.i
 
@@ -2744,7 +2744,7 @@ _ZN6uucore8features13quoting_style20shell_without_escape17hb3d0ea86aaf2be9aE.exi
 
 switch.lookup254:                                 ; preds = %.thread63.i
   %381 = zext nneg i32 %switch.tableidx253 to i64
-  %switch.gep255 = getelementptr inbounds nuw i32, ptr @switch.table._ZN6uucore8features13quoting_style11escape_name17h4890402e462819dcE.23, i64 %381
+  %switch.gep255 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN6uucore8features13quoting_style11escape_name17h4890402e462819dcE.23, i64 %381
   %switch.load256 = load i32, ptr %switch.gep255, align 4
   br label %_ZN6uucore8features13quoting_style11EscapedChar9new_shell17h77ff203a41fcf448E.exit.i103
 

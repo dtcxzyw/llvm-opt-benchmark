@@ -5,16 +5,15 @@ target triple = "x86_64-pc-linux-gnu"
 
 %"struct.std::_Deque_iterator.3" = type { ptr, ptr, ptr, ptr }
 %"struct.std::_Deque_iterator" = type { ptr, ptr, ptr, ptr }
-%"struct.std::pair" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
 %"class.logging::LogMessage" = type <{ i32, [4 x i8], %"class.std::__cxx11::basic_ostringstream", i64, ptr, i32, [4 x i8] }>
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
 %"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
 %"class.std::basic_streambuf" = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, %"class.std::locale" }
 %"class.std::locale" = type { ptr }
+%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
+%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
+%union.anon = type { i64, [8 x i8] }
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
@@ -477,7 +476,7 @@ _ZNSt5dequeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS
   br i1 %120, label %121, label %123
 
 121:                                              ; preds = %119
-  %122 = getelementptr inbounds %"struct.std::pair", ptr %69, i64 %45
+  %122 = getelementptr inbounds [64 x i8], ptr %69, i64 %45
   br label %_ZStplRKSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERKS7_PS8_El.exit
 
 123:                                              ; preds = %119
@@ -490,12 +489,12 @@ _ZNSt5dequeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS
 
 127:                                              ; preds = %125, %123
   %128 = phi i64 [ %124, %123 ], [ %126, %125 ]
-  %129 = getelementptr inbounds ptr, ptr %51, i64 %128
+  %129 = getelementptr inbounds [8 x i8], ptr %51, i64 %128
   %130 = load ptr, ptr %129, align 8, !tbaa !27, !noalias !69
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 512
   %132 = shl nsw i64 %128, 3
   %133 = sub nsw i64 %117, %132
-  %134 = getelementptr inbounds %"struct.std::pair", ptr %130, i64 %133
+  %134 = getelementptr inbounds [64 x i8], ptr %130, i64 %133
   br label %_ZStplRKSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERKS7_PS8_El.exit
 
 _ZStplRKSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERKS7_PS8_El.exit: ; preds = %121, %127
@@ -1505,7 +1504,7 @@ _ZNSt11_Deque_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES
   store ptr %11, ptr %0, align 8, !tbaa !19
   %12 = sub nsw i64 %.sroa.speculated, %9
   %13 = lshr i64 %12, 1
-  %14 = getelementptr inbounds nuw ptr, ptr %11, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %13
   %.idx = shl nuw nsw i64 %9, 3
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 %.idx
   br label %.lr.ph.i
@@ -1597,7 +1596,7 @@ _ZNSt11_Deque_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES
   store ptr %50, ptr %51, align 8, !tbaa !22
   store ptr %41, ptr %39, align 8, !tbaa !134
   %52 = and i64 %1, 7
-  %53 = getelementptr inbounds nuw %"struct.std::pair", ptr %48, i64 %52
+  %53 = getelementptr inbounds nuw [64 x i8], ptr %48, i64 %52
   store ptr %53, ptr %45, align 8, !tbaa !104
   ret void
 
@@ -2250,7 +2249,7 @@ define linkonce_odr void @_ZNSt5dequeISt4pairINSt7__cxx1112basic_stringIcSt11cha
   br i1 %70, label %71, label %73
 
 71:                                               ; preds = %69
-  %72 = getelementptr inbounds %"struct.std::pair", ptr %61, i64 %66
+  %72 = getelementptr inbounds [64 x i8], ptr %61, i64 %66
   br label %_ZNSt5dequeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE28_M_reserve_elements_at_frontEm.exit
 
 73:                                               ; preds = %69
@@ -2263,12 +2262,12 @@ define linkonce_odr void @_ZNSt5dequeISt4pairINSt7__cxx1112basic_stringIcSt11cha
 
 77:                                               ; preds = %75, %73
   %78 = phi i64 [ %74, %73 ], [ %76, %75 ]
-  %79 = getelementptr inbounds ptr, ptr %65, i64 %78
+  %79 = getelementptr inbounds [8 x i8], ptr %65, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !27, !noalias !143
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 512
   %82 = shl nsw i64 %78, 3
   %83 = sub nsw i64 %67, %82
-  %84 = getelementptr inbounds %"struct.std::pair", ptr %80, i64 %83
+  %84 = getelementptr inbounds [64 x i8], ptr %80, i64 %83
   br label %_ZNSt5dequeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE28_M_reserve_elements_at_frontEm.exit
 
 _ZNSt5dequeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE28_M_reserve_elements_at_frontEm.exit: ; preds = %71, %77
@@ -2396,7 +2395,7 @@ _ZNSt11_Deque_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES
   br i1 %142, label %143, label %145
 
 143:                                              ; preds = %141
-  %144 = getelementptr inbounds %"struct.std::pair", ptr %131, i64 %44
+  %144 = getelementptr inbounds [64 x i8], ptr %131, i64 %44
   br label %_ZNSt5dequeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE27_M_reserve_elements_at_backEm.exit
 
 145:                                              ; preds = %141
@@ -2409,12 +2408,12 @@ _ZNSt11_Deque_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES
 
 149:                                              ; preds = %147, %145
   %150 = phi i64 [ %146, %145 ], [ %148, %147 ]
-  %151 = getelementptr inbounds ptr, ptr %135, i64 %150
+  %151 = getelementptr inbounds [8 x i8], ptr %135, i64 %150
   %152 = load ptr, ptr %151, align 8, !tbaa !27, !noalias !157
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 512
   %154 = shl nsw i64 %150, 3
   %155 = sub nsw i64 %139, %154
-  %156 = getelementptr inbounds %"struct.std::pair", ptr %152, i64 %155
+  %156 = getelementptr inbounds [64 x i8], ptr %152, i64 %155
   br label %_ZNSt5dequeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE27_M_reserve_elements_at_backEm.exit
 
 _ZNSt5dequeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE27_M_reserve_elements_at_backEm.exit: ; preds = %143, %149
@@ -2587,7 +2586,7 @@ define linkonce_odr void @_ZSt15__copy_move_ditILb0ESt4pairINSt7__cxx1112basic_s
   %27 = sub i64 %25, %26
   %28 = ashr exact i64 %27, 6
   %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %28, i64 %storemerge12.i)
-  %29 = getelementptr inbounds %"struct.std::pair", ptr %.013.i, i64 %.sroa.speculated.i
+  %29 = getelementptr inbounds [64 x i8], ptr %.013.i, i64 %.sroa.speculated.i
   %30 = icmp sgt i64 %28, 0
   br i1 %30, label %.lr.ph.i.i.i.i, label %_ZSt14__copy_move_a1ILb0EPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES8_ET1_T0_SA_S9_.exit.i
 
@@ -2618,7 +2617,7 @@ _ZSt14__copy_move_a1ILb0EPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   br i1 %43, label %44, label %46
 
 44:                                               ; preds = %42
-  %45 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.079.0, i64 %.sroa.speculated.i
+  %45 = getelementptr inbounds [64 x i8], ptr %.sroa.079.0, i64 %.sroa.speculated.i
   br label %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EpLEl.exit.i
 
 46:                                               ; preds = %42
@@ -2631,12 +2630,12 @@ _ZSt14__copy_move_a1ILb0EPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcES
 
 50:                                               ; preds = %48, %46
   %51 = phi i64 [ %47, %46 ], [ %49, %48 ]
-  %52 = getelementptr inbounds ptr, ptr %.sroa.1283.0, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %.sroa.1283.0, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !27, !noalias !168
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 512
   %55 = shl nsw i64 %51, 3
   %56 = sub nsw i64 %40, %55
-  %57 = getelementptr inbounds %"struct.std::pair", ptr %53, i64 %56
+  %57 = getelementptr inbounds [64 x i8], ptr %53, i64 %56
   br label %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EpLEl.exit.i
 
 _ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EpLEl.exit.i: ; preds = %50, %44
@@ -2690,7 +2689,7 @@ _ZSt14__copy_move_a1ILb0EPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %78 = sub i64 %76, %77
   %79 = ashr exact i64 %78, 6
   %.sroa.speculated.i12 = tail call i64 @llvm.smin.i64(i64 %79, i64 %storemerge12.i11)
-  %80 = getelementptr inbounds %"struct.std::pair", ptr %.013.i10, i64 %.sroa.speculated.i12
+  %80 = getelementptr inbounds [64 x i8], ptr %.013.i10, i64 %.sroa.speculated.i12
   %81 = icmp sgt i64 %79, 0
   br i1 %81, label %.lr.ph.i.i.i.i17, label %_ZSt14__copy_move_a1ILb0EPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES8_ET1_T0_SA_S9_.exit.i13
 
@@ -2721,7 +2720,7 @@ _ZSt14__copy_move_a1ILb0EPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   br i1 %94, label %95, label %97
 
 95:                                               ; preds = %93
-  %96 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.067.0, i64 %.sroa.speculated.i12
+  %96 = getelementptr inbounds [64 x i8], ptr %.sroa.067.0, i64 %.sroa.speculated.i12
   br label %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EpLEl.exit.i15
 
 97:                                               ; preds = %93
@@ -2734,12 +2733,12 @@ _ZSt14__copy_move_a1ILb0EPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcES
 
 101:                                              ; preds = %99, %97
   %102 = phi i64 [ %98, %97 ], [ %100, %99 ]
-  %103 = getelementptr inbounds ptr, ptr %.sroa.1271.0, i64 %102
+  %103 = getelementptr inbounds [8 x i8], ptr %.sroa.1271.0, i64 %102
   %104 = load ptr, ptr %103, align 8, !tbaa !27, !noalias !173
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 512
   %106 = shl nsw i64 %102, 3
   %107 = sub nsw i64 %91, %106
-  %108 = getelementptr inbounds %"struct.std::pair", ptr %104, i64 %107
+  %108 = getelementptr inbounds [64 x i8], ptr %104, i64 %107
   br label %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EpLEl.exit.i15
 
 _ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EpLEl.exit.i15: ; preds = %101, %95
@@ -2772,7 +2771,7 @@ _ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIc
   %119 = sub i64 %117, %118
   %120 = ashr exact i64 %119, 6
   %.sroa.speculated.i32 = tail call i64 @llvm.smin.i64(i64 %120, i64 %storemerge12.i31)
-  %121 = getelementptr inbounds %"struct.std::pair", ptr %.013.i30, i64 %.sroa.speculated.i32
+  %121 = getelementptr inbounds [64 x i8], ptr %.013.i30, i64 %.sroa.speculated.i32
   %122 = icmp sgt i64 %120, 0
   br i1 %122, label %.lr.ph.i.i.i.i37, label %_ZSt14__copy_move_a1ILb0EPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES8_ET1_T0_SA_S9_.exit.i33
 
@@ -2803,7 +2802,7 @@ _ZSt14__copy_move_a1ILb0EPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   br i1 %135, label %136, label %138
 
 136:                                              ; preds = %134
-  %137 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.073.0, i64 %.sroa.speculated.i32
+  %137 = getelementptr inbounds [64 x i8], ptr %.sroa.073.0, i64 %.sroa.speculated.i32
   br label %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EpLEl.exit.i35
 
 138:                                              ; preds = %134
@@ -2816,12 +2815,12 @@ _ZSt14__copy_move_a1ILb0EPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcES
 
 142:                                              ; preds = %140, %138
   %143 = phi i64 [ %139, %138 ], [ %141, %140 ]
-  %144 = getelementptr inbounds ptr, ptr %.sroa.11.0, i64 %143
+  %144 = getelementptr inbounds [8 x i8], ptr %.sroa.11.0, i64 %143
   %145 = load ptr, ptr %144, align 8, !tbaa !27, !noalias !176
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 512
   %147 = shl nsw i64 %143, 3
   %148 = sub nsw i64 %132, %147
-  %149 = getelementptr inbounds %"struct.std::pair", ptr %145, i64 %148
+  %149 = getelementptr inbounds [64 x i8], ptr %145, i64 %148
   br label %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EpLEl.exit.i35
 
 _ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EpLEl.exit.i35: ; preds = %142, %136
@@ -2870,7 +2869,7 @@ _ZSt14__copy_move_a1ILb0EPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %168 = sub i64 %166, %167
   %169 = ashr exact i64 %168, 6
   %.sroa.speculated.i52 = tail call i64 @llvm.smin.i64(i64 %169, i64 %storemerge12.i51)
-  %170 = getelementptr inbounds %"struct.std::pair", ptr %.013.i50, i64 %.sroa.speculated.i52
+  %170 = getelementptr inbounds [64 x i8], ptr %.013.i50, i64 %.sroa.speculated.i52
   %171 = icmp sgt i64 %169, 0
   br i1 %171, label %.lr.ph.i.i.i.i57, label %_ZSt14__copy_move_a1ILb0EPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES8_ET1_T0_SA_S9_.exit.i53
 
@@ -2901,7 +2900,7 @@ _ZSt14__copy_move_a1ILb0EPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   br i1 %184, label %185, label %187
 
 185:                                              ; preds = %183
-  %186 = getelementptr inbounds %"struct.std::pair", ptr %.sroa.0.0, i64 %.sroa.speculated.i52
+  %186 = getelementptr inbounds [64 x i8], ptr %.sroa.0.0, i64 %.sroa.speculated.i52
   br label %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EpLEl.exit.i55
 
 187:                                              ; preds = %183
@@ -2914,12 +2913,12 @@ _ZSt14__copy_move_a1ILb0EPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcES
 
 191:                                              ; preds = %189, %187
   %192 = phi i64 [ %188, %187 ], [ %190, %189 ]
-  %193 = getelementptr inbounds ptr, ptr %.sroa.12.0, i64 %192
+  %193 = getelementptr inbounds [8 x i8], ptr %.sroa.12.0, i64 %192
   %194 = load ptr, ptr %193, align 8, !tbaa !27, !noalias !180
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 512
   %196 = shl nsw i64 %192, 3
   %197 = sub nsw i64 %181, %196
-  %198 = getelementptr inbounds %"struct.std::pair", ptr %194, i64 %197
+  %198 = getelementptr inbounds [64 x i8], ptr %194, i64 %197
   br label %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EpLEl.exit.i55
 
 _ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EpLEl.exit.i55: ; preds = %191, %185
@@ -3074,7 +3073,7 @@ define linkonce_odr void @_ZNSt5dequeISt4pairINSt7__cxx1112basic_stringIcSt11cha
   br i1 %106, label %107, label %109
 
 107:                                              ; preds = %105
-  %108 = getelementptr inbounds %"struct.std::pair", ptr %101, i64 %102
+  %108 = getelementptr inbounds [64 x i8], ptr %101, i64 %102
   br label %_ZNSt5dequeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE28_M_reserve_elements_at_frontEm.exit
 
 109:                                              ; preds = %105
@@ -3087,12 +3086,12 @@ define linkonce_odr void @_ZNSt5dequeISt4pairINSt7__cxx1112basic_stringIcSt11cha
 
 113:                                              ; preds = %111, %109
   %114 = phi i64 [ %110, %109 ], [ %112, %111 ]
-  %115 = getelementptr inbounds ptr, ptr %98, i64 %114
+  %115 = getelementptr inbounds [8 x i8], ptr %98, i64 %114
   %116 = load ptr, ptr %115, align 8, !tbaa !27, !noalias !186
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 512
   %118 = shl nsw i64 %114, 3
   %119 = sub nsw i64 %103, %118
-  %120 = getelementptr inbounds %"struct.std::pair", ptr %116, i64 %119
+  %120 = getelementptr inbounds [64 x i8], ptr %116, i64 %119
   br label %_ZNSt5dequeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE28_M_reserve_elements_at_frontEm.exit
 
 _ZNSt5dequeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE28_M_reserve_elements_at_frontEm.exit: ; preds = %107, %113
@@ -3113,7 +3112,7 @@ _ZNSt5dequeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS
   br i1 %128, label %129, label %131
 
 129:                                              ; preds = %127
-  %130 = getelementptr inbounds nuw %"struct.std::pair", ptr %101, i64 %67
+  %130 = getelementptr inbounds nuw [64 x i8], ptr %101, i64 %67
   br label %_ZStplRKSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_El.exit
 
 131:                                              ; preds = %127
@@ -3126,12 +3125,12 @@ _ZNSt5dequeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS
 
 135:                                              ; preds = %133, %131
   %136 = phi i64 [ %132, %131 ], [ %134, %133 ]
-  %137 = getelementptr inbounds ptr, ptr %98, i64 %136
+  %137 = getelementptr inbounds [8 x i8], ptr %98, i64 %136
   %138 = load ptr, ptr %137, align 8, !tbaa !27, !noalias !189
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 512
   %140 = shl nsw i64 %136, 3
   %141 = sub nsw i64 %125, %140
-  %142 = getelementptr inbounds %"struct.std::pair", ptr %138, i64 %141
+  %142 = getelementptr inbounds [64 x i8], ptr %138, i64 %141
   br label %_ZStplRKSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_El.exit
 
 _ZStplRKSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_El.exit: ; preds = %129, %135
@@ -3165,7 +3164,7 @@ _ZStplRKSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIc
   br i1 %155, label %156, label %158
 
 156:                                              ; preds = %154
-  %157 = getelementptr inbounds %"struct.std::pair", ptr %144, i64 %4
+  %157 = getelementptr inbounds [64 x i8], ptr %144, i64 %4
   br label %_ZStplRKSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_El.exit35
 
 158:                                              ; preds = %154
@@ -3178,12 +3177,12 @@ _ZStplRKSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIc
 
 162:                                              ; preds = %160, %158
   %163 = phi i64 [ %159, %158 ], [ %161, %160 ]
-  %164 = getelementptr inbounds ptr, ptr %147, i64 %163
+  %164 = getelementptr inbounds [8 x i8], ptr %147, i64 %163
   %165 = load ptr, ptr %164, align 8, !tbaa !27, !noalias !192
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 512
   %167 = shl nsw i64 %163, 3
   %168 = sub nsw i64 %152, %167
-  %169 = getelementptr inbounds %"struct.std::pair", ptr %165, i64 %168
+  %169 = getelementptr inbounds [64 x i8], ptr %165, i64 %168
   br label %_ZStplRKSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_El.exit35
 
 _ZStplRKSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_El.exit35: ; preds = %156, %162
@@ -3367,7 +3366,7 @@ _ZSt22__uninitialized_move_aISt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stri
   br i1 %255, label %256, label %258
 
 256:                                              ; preds = %254
-  %257 = getelementptr inbounds %"struct.std::pair", ptr %244, i64 %102
+  %257 = getelementptr inbounds [64 x i8], ptr %244, i64 %102
   br label %_ZStmiRKSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_El.exit
 
 258:                                              ; preds = %254
@@ -3380,12 +3379,12 @@ _ZSt22__uninitialized_move_aISt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stri
 
 262:                                              ; preds = %260, %258
   %263 = phi i64 [ %259, %258 ], [ %261, %260 ]
-  %264 = getelementptr inbounds ptr, ptr %247, i64 %263
+  %264 = getelementptr inbounds [8 x i8], ptr %247, i64 %263
   %265 = load ptr, ptr %264, align 8, !tbaa !27, !noalias !216
   %266 = getelementptr inbounds nuw i8, ptr %265, i64 512
   %267 = shl nsw i64 %263, 3
   %268 = sub nsw i64 %252, %267
-  %269 = getelementptr inbounds %"struct.std::pair", ptr %265, i64 %268
+  %269 = getelementptr inbounds [64 x i8], ptr %265, i64 %268
   br label %_ZStmiRKSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_El.exit
 
 _ZStmiRKSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_El.exit: ; preds = %256, %262
@@ -3460,7 +3459,7 @@ _ZStmiRKSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIc
   br i1 %300, label %301, label %303
 
 301:                                              ; preds = %299
-  %302 = getelementptr inbounds %"struct.std::pair", ptr %285, i64 %292
+  %302 = getelementptr inbounds [64 x i8], ptr %285, i64 %292
   br label %_ZSt7advanceISt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ERKS8_PS9_ElEvRT_T0_.exit
 
 303:                                              ; preds = %299
@@ -3473,12 +3472,12 @@ _ZStmiRKSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIc
 
 307:                                              ; preds = %305, %303
   %308 = phi i64 [ %304, %303 ], [ %306, %305 ]
-  %309 = getelementptr inbounds ptr, ptr %291, i64 %308
+  %309 = getelementptr inbounds [8 x i8], ptr %291, i64 %308
   %310 = load ptr, ptr %309, align 8, !tbaa !27
   %311 = getelementptr inbounds nuw i8, ptr %310, i64 512
   %312 = shl nsw i64 %308, 3
   %313 = sub nsw i64 %297, %312
-  %314 = getelementptr inbounds %"struct.std::pair", ptr %310, i64 %313
+  %314 = getelementptr inbounds [64 x i8], ptr %310, i64 %313
   br label %_ZSt7advanceISt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ERKS8_PS9_ElEvRT_T0_.exit
 
 _ZSt7advanceISt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ERKS8_PS9_ElEvRT_T0_.exit: ; preds = %307, %301
@@ -3653,7 +3652,7 @@ _ZNSt11_Deque_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES
   br i1 %383, label %384, label %386
 
 384:                                              ; preds = %382
-  %385 = getelementptr inbounds %"struct.std::pair", ptr %379, i64 %4
+  %385 = getelementptr inbounds [64 x i8], ptr %379, i64 %4
   br label %_ZNSt5dequeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE27_M_reserve_elements_at_backEm.exit
 
 386:                                              ; preds = %382
@@ -3666,12 +3665,12 @@ _ZNSt11_Deque_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES
 
 390:                                              ; preds = %388, %386
   %391 = phi i64 [ %387, %386 ], [ %389, %388 ]
-  %392 = getelementptr inbounds ptr, ptr %376, i64 %391
+  %392 = getelementptr inbounds [8 x i8], ptr %376, i64 %391
   %393 = load ptr, ptr %392, align 8, !tbaa !27, !noalias !240
   %394 = getelementptr inbounds nuw i8, ptr %393, i64 512
   %395 = shl nsw i64 %391, 3
   %396 = sub nsw i64 %380, %395
-  %397 = getelementptr inbounds %"struct.std::pair", ptr %393, i64 %396
+  %397 = getelementptr inbounds [64 x i8], ptr %393, i64 %396
   br label %_ZNSt5dequeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE27_M_reserve_elements_at_backEm.exit
 
 _ZNSt5dequeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE27_M_reserve_elements_at_backEm.exit: ; preds = %384, %390
@@ -3693,7 +3692,7 @@ _ZNSt5dequeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS
   br i1 %406, label %407, label %409
 
 407:                                              ; preds = %405
-  %408 = getelementptr inbounds %"struct.std::pair", ptr %379, i64 %399
+  %408 = getelementptr inbounds [64 x i8], ptr %379, i64 %399
   br label %_ZStmiRKSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_El.exit42
 
 409:                                              ; preds = %405
@@ -3706,12 +3705,12 @@ _ZNSt5dequeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS
 
 413:                                              ; preds = %411, %409
   %414 = phi i64 [ %410, %409 ], [ %412, %411 ]
-  %415 = getelementptr inbounds ptr, ptr %376, i64 %414
+  %415 = getelementptr inbounds [8 x i8], ptr %376, i64 %414
   %416 = load ptr, ptr %415, align 8, !tbaa !27, !noalias !243
   %417 = getelementptr inbounds nuw i8, ptr %416, i64 512
   %418 = shl nsw i64 %414, 3
   %419 = sub nsw i64 %403, %418
-  %420 = getelementptr inbounds %"struct.std::pair", ptr %416, i64 %419
+  %420 = getelementptr inbounds [64 x i8], ptr %416, i64 %419
   br label %_ZStmiRKSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_El.exit42
 
 _ZStmiRKSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_El.exit42: ; preds = %407, %413
@@ -3746,7 +3745,7 @@ _ZStmiRKSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIc
   br i1 %435, label %436, label %438
 
 436:                                              ; preds = %434
-  %437 = getelementptr inbounds %"struct.std::pair", ptr %423, i64 %427
+  %437 = getelementptr inbounds [64 x i8], ptr %423, i64 %427
   br label %_ZStmiRKSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_El.exit44
 
 438:                                              ; preds = %434
@@ -3759,12 +3758,12 @@ _ZStmiRKSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIc
 
 442:                                              ; preds = %440, %438
   %443 = phi i64 [ %439, %438 ], [ %441, %440 ]
-  %444 = getelementptr inbounds ptr, ptr %426, i64 %443
+  %444 = getelementptr inbounds [8 x i8], ptr %426, i64 %443
   %445 = load ptr, ptr %444, align 8, !tbaa !27, !noalias !246
   %446 = getelementptr inbounds nuw i8, ptr %445, i64 512
   %447 = shl nsw i64 %443, 3
   %448 = sub nsw i64 %432, %447
-  %449 = getelementptr inbounds %"struct.std::pair", ptr %445, i64 %448
+  %449 = getelementptr inbounds [64 x i8], ptr %445, i64 %448
   br label %_ZStmiRKSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_El.exit44
 
 _ZStmiRKSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_El.exit44: ; preds = %436, %442
@@ -4001,7 +4000,7 @@ _ZSt22__uninitialized_move_aISt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stri
   br i1 %557, label %558, label %560
 
 558:                                              ; preds = %556
-  %559 = getelementptr inbounds %"struct.std::pair", ptr %543, i64 %398
+  %559 = getelementptr inbounds [64 x i8], ptr %543, i64 %398
   br label %_ZSt7advanceISt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ERKS8_PS9_ElEvRT_T0_.exit71
 
 560:                                              ; preds = %556
@@ -4014,12 +4013,12 @@ _ZSt22__uninitialized_move_aISt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stri
 
 564:                                              ; preds = %562, %560
   %565 = phi i64 [ %561, %560 ], [ %563, %562 ]
-  %566 = getelementptr inbounds ptr, ptr %549, i64 %565
+  %566 = getelementptr inbounds [8 x i8], ptr %549, i64 %565
   %567 = load ptr, ptr %566, align 8, !tbaa !27
   %568 = getelementptr inbounds nuw i8, ptr %567, i64 512
   %569 = shl nsw i64 %565, 3
   %570 = sub nsw i64 %554, %569
-  %571 = getelementptr inbounds %"struct.std::pair", ptr %567, i64 %570
+  %571 = getelementptr inbounds [64 x i8], ptr %567, i64 %570
   br label %_ZSt7advanceISt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ERKS8_PS9_ElEvRT_T0_.exit71
 
 _ZSt7advanceISt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ERKS8_PS9_ElEvRT_T0_.exit71: ; preds = %564, %558
@@ -4353,7 +4352,7 @@ _ZNSt5dequeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS
 
 _ZNSt11_Deque_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE16_M_allocate_nodeEv.exit: ; preds = %44
   %46 = sub nsw i64 0, %.01423
-  %47 = getelementptr inbounds ptr, ptr %43, i64 %46
+  %47 = getelementptr inbounds [8 x i8], ptr %43, i64 %46
   store ptr %45, ptr %47, align 8, !tbaa !27
   %48 = add nuw nsw i64 %.01423, 1
   %exitcond = icmp eq i64 %.01423, %37
@@ -4375,7 +4374,7 @@ _ZNSt11_Deque_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES
   %.024 = phi i64 [ %58, %.lr.ph26 ], [ 1, %49 ]
   %54 = load ptr, ptr %7, align 8, !tbaa !90
   %55 = sub nsw i64 0, %.024
-  %56 = getelementptr inbounds ptr, ptr %54, i64 %55
+  %56 = getelementptr inbounds [8 x i8], ptr %54, i64 %55
   %57 = load ptr, ptr %56, align 8, !tbaa !27
   tail call void @_ZdlPv(ptr noundef %57) #18
   %58 = add nuw nsw i64 %.024, 1
@@ -4427,9 +4426,9 @@ define linkonce_odr void @_ZNSt5dequeISt4pairINSt7__cxx1112basic_stringIcSt11cha
   %19 = load ptr, ptr %0, align 8, !tbaa !19
   %20 = sub i64 %15, %13
   %21 = lshr i64 %20, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = select i1 %2, i64 %1, i64 0
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = icmp ult ptr %24, %7
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %26, %7
@@ -4448,12 +4447,12 @@ define linkonce_odr void @_ZNSt5dequeISt4pairINSt7__cxx1112basic_stringIcSt11cha
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES9_ET0_T_SB_SA_.exit, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw ptr, ptr %24, i64 %12
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %12
   %34 = ptrtoint ptr %26 to i64
   %35 = sub i64 %34, %9
   %36 = ashr exact i64 %35, 3
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds ptr, ptr %33, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %33, i64 %37
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %38, ptr align 8 %7, i64 %35, i1 false)
   br label %_ZSt4copyIPPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES9_ET0_T_SB_SA_.exit
 
@@ -4481,9 +4480,9 @@ _ZNSt11_Deque_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES
   %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #21
   %47 = sub i64 %41, %13
   %48 = lshr i64 %47, 1
-  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %48
   %50 = select i1 %2, i64 %1, i64 0
-  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i25 = icmp eq ptr %52, %7
   br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES9_ET0_T_SB_SA_.exit26, label %53
@@ -4510,7 +4509,7 @@ _ZSt4copyIPPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES9_E
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 512
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %59, ptr %60, align 8, !tbaa !22
-  %61 = getelementptr inbounds nuw ptr, ptr %.0, i64 %12
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %12
   %62 = getelementptr inbounds i8, ptr %61, i64 -8
   store ptr %62, ptr %4, align 8, !tbaa !23
   %63 = load ptr, ptr %62, align 8, !tbaa !27
@@ -4596,7 +4595,7 @@ _ZNSt5dequeISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS
           to label %_ZNSt11_Deque_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE16_M_allocate_nodeEv.exit unwind label %51
 
 _ZNSt11_Deque_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE16_M_allocate_nodeEv.exit: ; preds = %47
-  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %.01424
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %.01424
   store ptr %48, ptr %49, align 8, !tbaa !27
   %50 = add nuw nsw i64 %.01424, 1
   %exitcond = icmp eq i64 %.01424, %37
@@ -4617,7 +4616,7 @@ _ZNSt11_Deque_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES
 .lr.ph27:                                         ; preds = %51, %.lr.ph27
   %.025 = phi i64 [ %59, %.lr.ph27 ], [ 1, %51 ]
   %56 = load ptr, ptr %5, align 8, !tbaa !66
-  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %.025
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %.025
   %58 = load ptr, ptr %57, align 8, !tbaa !27
   tail call void @_ZdlPv(ptr noundef %58) #18
   %59 = add nuw nsw i64 %.025, 1
@@ -5020,7 +5019,7 @@ define linkonce_odr void @_ZSt14__copy_move_a1ILb1EPSt4pairINSt7__cxx1112basic_s
   %18 = sub i64 %16, %17
   %19 = ashr exact i64 %18, 6
   %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %19, i64 %storemerge12)
-  %20 = getelementptr inbounds %"struct.std::pair", ptr %.013, i64 %.sroa.speculated
+  %20 = getelementptr inbounds [64 x i8], ptr %.013, i64 %.sroa.speculated
   %21 = icmp sgt i64 %19, 0
   br i1 %21, label %.lr.ph.i.i.i, label %_ZSt14__copy_move_a1ILb1EPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES8_ET1_T0_SA_S9_.exit
 
@@ -5223,7 +5222,7 @@ _ZSt14__copy_move_a1ILb1EPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   br i1 %98, label %99, label %101
 
 99:                                               ; preds = %97
-  %100 = getelementptr inbounds %"struct.std::pair", ptr %90, i64 %.sroa.speculated
+  %100 = getelementptr inbounds [64 x i8], ptr %90, i64 %.sroa.speculated
   br label %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EpLEl.exit
 
 101:                                              ; preds = %97
@@ -5237,7 +5236,7 @@ _ZSt14__copy_move_a1ILb1EPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcES
 105:                                              ; preds = %103, %101
   %106 = phi i64 [ %102, %101 ], [ %104, %103 ]
   %107 = load ptr, ptr %12, align 8, !tbaa !23
-  %108 = getelementptr inbounds ptr, ptr %107, i64 %106
+  %108 = getelementptr inbounds [8 x i8], ptr %107, i64 %106
   store ptr %108, ptr %12, align 8, !tbaa !23
   %109 = load ptr, ptr %108, align 8, !tbaa !27
   store ptr %109, ptr %11, align 8, !tbaa !21
@@ -5245,7 +5244,7 @@ _ZSt14__copy_move_a1ILb1EPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   store ptr %110, ptr %10, align 8, !tbaa !22
   %111 = shl nsw i64 %106, 3
   %112 = sub nsw i64 %95, %111
-  %113 = getelementptr inbounds %"struct.std::pair", ptr %109, i64 %112
+  %113 = getelementptr inbounds [64 x i8], ptr %109, i64 %112
   br label %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EpLEl.exit
 
 _ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EpLEl.exit: ; preds = %99, %105
@@ -5481,7 +5480,7 @@ define linkonce_odr void @_ZSt23__copy_move_backward_a1ILb1EPSt4pairINSt7__cxx11
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 512
   %20 = tail call i64 @llvm.umin.i64(i64 %.01617, i64 8)
   %21 = sub nsw i64 0, %20
-  %22 = getelementptr inbounds %"struct.std::pair", ptr %.018, i64 %21
+  %22 = getelementptr inbounds [64 x i8], ptr %.018, i64 %21
   br label %.lr.ph.i.i.i.preheader
 
 23:                                               ; preds = %13
@@ -5491,7 +5490,7 @@ define linkonce_odr void @_ZSt23__copy_move_backward_a1ILb1EPSt4pairINSt7__cxx11
   %27 = ashr exact i64 %26, 6
   %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %27, i64 %.01617)
   %28 = sub nsw i64 0, %.sroa.speculated
-  %29 = getelementptr inbounds %"struct.std::pair", ptr %.018, i64 %28
+  %29 = getelementptr inbounds [64 x i8], ptr %.018, i64 %28
   %30 = icmp sgt i64 %27, 0
   br i1 %30, label %.lr.ph.i.i.i.preheader, label %_ZSt23__copy_move_backward_a1ILb1EPSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ES8_ET1_T0_SA_S9_.exit
 
@@ -5705,7 +5704,7 @@ _ZSt23__copy_move_backward_a1ILb1EPSt4pairINSt7__cxx1112basic_stringIcSt11char_t
   br i1 %108, label %109, label %111
 
 109:                                              ; preds = %107
-  %110 = getelementptr inbounds %"struct.std::pair", ptr %104, i64 %102
+  %110 = getelementptr inbounds [64 x i8], ptr %104, i64 %102
   br label %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EmIEl.exit
 
 111:                                              ; preds = %107
@@ -5719,7 +5718,7 @@ _ZSt23__copy_move_backward_a1ILb1EPSt4pairINSt7__cxx1112basic_stringIcSt11char_t
 115:                                              ; preds = %113, %111
   %116 = phi i64 [ %112, %111 ], [ %114, %113 ]
   %117 = load ptr, ptr %11, align 8, !tbaa !23
-  %118 = getelementptr inbounds ptr, ptr %117, i64 %116
+  %118 = getelementptr inbounds [8 x i8], ptr %117, i64 %116
   store ptr %118, ptr %11, align 8, !tbaa !23
   %119 = load ptr, ptr %118, align 8, !tbaa !27
   store ptr %119, ptr %10, align 8, !tbaa !21
@@ -5727,7 +5726,7 @@ _ZSt23__copy_move_backward_a1ILb1EPSt4pairINSt7__cxx1112basic_stringIcSt11char_t
   store ptr %120, ptr %12, align 8, !tbaa !22
   %121 = shl nsw i64 %116, 3
   %122 = sub nsw i64 %105, %121
-  %123 = getelementptr inbounds %"struct.std::pair", ptr %119, i64 %122
+  %123 = getelementptr inbounds [64 x i8], ptr %119, i64 %122
   br label %_ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EmIEl.exit
 
 _ZNSt15_Deque_iteratorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ERS7_PS7_EmIEl.exit: ; preds = %109, %115

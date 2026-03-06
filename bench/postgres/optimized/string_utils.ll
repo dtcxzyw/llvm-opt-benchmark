@@ -877,7 +877,7 @@ define dso_local noundef zeroext i1 @parsePGArray(ptr noundef readonly captures(
 
 19:                                               ; preds = %14
   store ptr %17, ptr %1, align 8
-  %20 = getelementptr inbounds nuw ptr, ptr %17, i64 %15
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %15
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 1
   br label %22
 
@@ -893,7 +893,7 @@ define dso_local noundef zeroext i1 @parsePGArray(ptr noundef readonly captures(
 
 24:                                               ; preds = %22
   %25 = sext i32 %.0 to i64
-  %26 = getelementptr inbounds ptr, ptr %17, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %17, i64 %25
   store ptr %.041, ptr %26, align 8
   br label %27
 
@@ -1083,7 +1083,7 @@ define dso_local noundef zeroext i1 @appendReloptionsArray(ptr noundef %0, ptr n
 
 13:                                               ; preds = %.lr.ph, %30
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
-  %14 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %15, i32 noundef 61) #12
   %.not = icmp eq ptr %16, null
@@ -1368,7 +1368,7 @@ define dso_local void @patternToSQLRegex(i32 noundef %0, ptr noundef %1, ptr nou
   %33 = tail call ptr @__ctype_b_loc() #15
   %34 = load ptr, ptr %33, align 8
   %35 = zext i8 %15 to i64
-  %36 = getelementptr inbounds nuw i16, ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [2 x i8], ptr %34, i64 %35
   %37 = load i16, ptr %36, align 2
   %38 = and i16 %37, 256
   %.not122 = icmp eq i16 %38, 0

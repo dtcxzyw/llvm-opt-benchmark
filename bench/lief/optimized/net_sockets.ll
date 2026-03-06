@@ -481,7 +481,7 @@ define hidden range(i32 -73, 4) i32 @mbedtls_net_poll(ptr noundef readonly captu
   %15 = shl nuw i64 1, %14
   %16 = sdiv i32 %7, 64
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds i64, ptr %5, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %5, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !28
   %20 = or i64 %19, %15
   store i64 %20, ptr %18, align 8, !tbaa !28
@@ -501,7 +501,7 @@ define hidden range(i32 -73, 4) i32 @mbedtls_net_poll(ptr noundef readonly captu
   %27 = shl nuw i64 1, %26
   %28 = sdiv i32 %7, 64
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds i64, ptr %6, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %6, i64 %29
   %31 = load i64, ptr %30, align 8, !tbaa !28
   %32 = or i64 %31, %27
   store i64 %32, ptr %30, align 8, !tbaa !28
@@ -538,7 +538,7 @@ define hidden range(i32 -73, 4) i32 @mbedtls_net_poll(ptr noundef readonly captu
 48:                                               ; preds = %46
   %49 = sdiv i32 %7, 64
   %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds i64, ptr %5, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %5, i64 %50
   %52 = load i64, ptr %51, align 8, !tbaa !28
   %53 = srem i32 %7, 64
   %54 = zext nneg i32 %53 to i64
@@ -546,7 +546,7 @@ define hidden range(i32 -73, 4) i32 @mbedtls_net_poll(ptr noundef readonly captu
   %56 = lshr i64 %52, %54
   %57 = trunc i64 %56 to i32
   %spec.select = and i32 %57, 1
-  %58 = getelementptr inbounds i64, ptr %6, i64 %50
+  %58 = getelementptr inbounds [8 x i8], ptr %6, i64 %50
   %59 = load i64, ptr %58, align 8, !tbaa !28
   %60 = and i64 %59, %55
   %.not47 = icmp eq i64 %60, 0
@@ -647,7 +647,7 @@ define hidden range(i32 -26880, -2147483648) i32 @mbedtls_net_recv_timeout(ptr n
   %12 = shl nuw i64 1, %11
   %13 = sdiv i32 %7, 64
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds i64, ptr %6, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %6, i64 %14
   %16 = load i64, ptr %15, align 8, !tbaa !28
   %17 = or i64 %16, %12
   store i64 %17, ptr %15, align 8, !tbaa !28

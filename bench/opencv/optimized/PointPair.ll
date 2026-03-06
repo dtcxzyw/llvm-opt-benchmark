@@ -204,7 +204,7 @@ _ZNSt12_Vector_baseIPN5logos5PointESaIS2_EE11_M_allocateEm.exit.i: ; preds = %.l
 _ZNSt12_Vector_baseIPN5logos5PointESaIS2_EE13_M_deallocateEPS2_m.exit.i: ; preds = %_ZNSt12_Vector_baseIPN5logos5PointESaIS2_EE11_M_allocateEm.exit.i
   store ptr %26, ptr %4, align 8, !tbaa !32
   store ptr %26, ptr %20, align 8, !tbaa !31
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %17
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %17
   store ptr %27, ptr %19, align 8, !tbaa !34
   br label %_ZNSt6vectorIPN5logos5PointESaIS2_EE7reserveEm.exit
 
@@ -373,7 +373,7 @@ _ZNSt6vectorIPN5logos9PointPairESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i:
 _ZNSt6vectorIPN5logos9PointPairESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %95, %_ZNSt6vectorIPN5logos9PointPairESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %90, ptr %1, align 8, !tbaa !45
   store ptr %94, ptr %23, align 8, !tbaa !39
-  %96 = getelementptr inbounds nuw ptr, ptr %90, i64 %88
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %88
   store ptr %96, ptr %24, align 8, !tbaa !42
   br label %_ZNSt6vectorIPN5logos9PointPairESaIS2_EE9push_backERKS2_.exit
 

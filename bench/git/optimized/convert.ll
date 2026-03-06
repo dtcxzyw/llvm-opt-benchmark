@@ -282,7 +282,7 @@ gather_convert_stats.exit:                        ; preds = %._crit_edge.i.i, %c
 
 switch.lookup:                                    ; preds = %58
   %61 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.gather_convert_stats_ascii, i64 %61
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.gather_convert_stats_ascii, i64 %61
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.thread
 
@@ -1386,7 +1386,7 @@ define dso_local noundef nonnull ptr @get_convert_attr_ascii(ptr noundef %0, ptr
 
 switch.lookup:                                    ; preds = %2
   %7 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.get_convert_attr_ascii, i64 %7
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.get_convert_attr_ascii, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %8
 

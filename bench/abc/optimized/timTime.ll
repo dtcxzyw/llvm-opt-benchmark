@@ -3,8 +3,6 @@ source_filename = "bench/abc/original/timTime.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.Tim_Obj_t_ = type { i32, i32, i32, i32, float, float }
-
 @.str.1 = private unnamed_addr constant [91 x i8] c"Tim_ManGetCoRequired(): Output required times of output %d the box %d are not up to date!\0A\00", align 1
 @str = private unnamed_addr constant [74 x i8] c"Tim_ManGetCiArrival(): Input arrival times of the box are not up to date!\00", align 1
 
@@ -13,7 +11,7 @@ define void @Tim_ManInitPiArrival(ptr noundef readonly captures(none) %0, i32 no
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds %struct.Tim_Obj_t_, ptr %5, i64 %6
+  %7 = getelementptr inbounds [24 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store float %2, ptr %8, align 4, !tbaa !12
   ret void
@@ -24,7 +22,7 @@ define void @Tim_ManInitPoRequired(ptr noundef readonly captures(none) %0, i32 n
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8, !tbaa !15
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds %struct.Tim_Obj_t_, ptr %5, i64 %6
+  %7 = getelementptr inbounds [24 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store float %2, ptr %8, align 4, !tbaa !16
   ret void
@@ -49,7 +47,7 @@ define void @Tim_ManInitPiArrivalAll(ptr noundef readonly captures(none) %0, flo
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %14 ]
-  %8 = getelementptr inbounds nuw %struct.Tim_Obj_t_, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %indvars.iv
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i32, ptr %9, align 4, !tbaa !18
   %11 = icmp sgt i32 %10, -1
@@ -89,7 +87,7 @@ define void @Tim_ManInitPoRequiredAll(ptr noundef readonly captures(none) %0, fl
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %17 ]
-  %9 = getelementptr inbounds nuw %struct.Tim_Obj_t_, ptr %7, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %indvars.iv
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i32, ptr %10, align 4, !tbaa !18
   %12 = icmp sgt i32 %11, -1
@@ -117,7 +115,7 @@ define void @Tim_ManSetCoRequired(ptr noundef readonly captures(none) %0, i32 no
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8, !tbaa !15
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds %struct.Tim_Obj_t_, ptr %5, i64 %6
+  %7 = getelementptr inbounds [24 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store float %2, ptr %8, align 4, !tbaa !16
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -132,7 +130,7 @@ define void @Tim_ManSetCoArrival(ptr noundef readonly captures(none) %0, i32 nou
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8, !tbaa !15
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds %struct.Tim_Obj_t_, ptr %5, i64 %6
+  %7 = getelementptr inbounds [24 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store float %2, ptr %8, align 4, !tbaa !12
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -147,7 +145,7 @@ define void @Tim_ManSetCiRequired(ptr noundef readonly captures(none) %0, i32 no
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds %struct.Tim_Obj_t_, ptr %5, i64 %6
+  %7 = getelementptr inbounds [24 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 20
   store float %2, ptr %8, align 4, !tbaa !16
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -162,7 +160,7 @@ define float @Tim_ManGetCiArrival(ptr noundef %0, i32 noundef %1) local_unnamed_
   %3 = getelementptr i8, ptr %0, i64 40
   %.val = load ptr, ptr %3, align 8, !tbaa !3
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds %struct.Tim_Obj_t_, ptr %.val, i64 %4
+  %5 = getelementptr inbounds [24 x i8], ptr %.val, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %7 = load i32, ptr %6, align 4, !tbaa !25
   %.not = icmp eq i32 %7, 0
@@ -196,7 +194,7 @@ Tim_ManCiBox.exit:                                ; preds = %14
   %22 = getelementptr i8, ptr %21, i64 8
   %.val5.i = load ptr, ptr %22, align 8, !tbaa !27
   %23 = zext nneg i32 %19 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr %.val5.i, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.val5.i, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !29
   %26 = icmp eq ptr %25, null
   br i1 %26, label %.critedge2, label %27
@@ -225,10 +223,10 @@ Tim_ManCiBox.exit:                                ; preds = %14
   br i1 %.not65, label %.critedge, label %36
 
 36:                                               ; preds = %34
-  %37 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv
   %38 = load i32, ptr %37, align 4, !tbaa !33
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds %struct.Tim_Obj_t_, ptr %.val69, i64 %39
+  %40 = getelementptr inbounds [24 x i8], ptr %.val69, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
   %42 = load i32, ptr %41, align 4, !tbaa !23
   %43 = load i32, ptr %16, align 8, !tbaa !22
@@ -273,7 +271,7 @@ Tim_ManCiBox.exit:                                ; preds = %14
 .critedge4.preheader:                             ; preds = %.lr.ph80.split
   %61 = sext i32 %56 to i64
   %wide.trip.count = zext nneg i32 %52 to i64
-  %invariant.gep = getelementptr i32, ptr %54, i64 %61
+  %invariant.gep = getelementptr [4 x i8], ptr %54, i64 %61
   br label %.critedge4
 
 .lr.ph80.split.split.us:                          ; preds = %.lr.ph80.split
@@ -281,15 +279,15 @@ Tim_ManCiBox.exit:                                ; preds = %14
   %.not67.us = icmp eq ptr %.val70.us, null
   %62 = zext nneg i32 %56 to i64
   %wide.trip.count102 = zext nneg i32 %52 to i64
-  %invariant.gep115 = getelementptr inbounds nuw i32, ptr %54, i64 %62
+  %invariant.gep115 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %62
   br i1 %.not67.us, label %.lr.ph76.us.us, label %.lr.ph76.us
 
 .lr.ph76.us.us:                                   ; preds = %.lr.ph80.split.split.us, %.lr.ph76.us.us
   %indvars.iv99 = phi i64 [ %indvars.iv.next100, %.lr.ph76.us.us ], [ 0, %.lr.ph80.split.split.us ]
-  %gep116 = getelementptr inbounds nuw i32, ptr %invariant.gep115, i64 %indvars.iv99
+  %gep116 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep115, i64 %indvars.iv99
   %63 = load i32, ptr %gep116, align 4, !tbaa !33
   %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds %struct.Tim_Obj_t_, ptr %.val71, i64 %64
+  %65 = getelementptr inbounds [24 x i8], ptr %.val71, i64 %64
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
   store float -1.000000e+09, ptr %66, align 4, !tbaa !12
   %67 = getelementptr inbounds nuw i8, ptr %65, i64 4
@@ -300,25 +298,25 @@ Tim_ManCiBox.exit:                                ; preds = %14
 
 .lr.ph76.us:                                      ; preds = %.lr.ph80.split.split.us, %..critedge4_crit_edge.us
   %indvars.iv94 = phi i64 [ %indvars.iv.next95, %..critedge4_crit_edge.us ], [ 0, %.lr.ph80.split.split.us ]
-  %gep114 = getelementptr inbounds nuw i32, ptr %invariant.gep115, i64 %indvars.iv94
+  %gep114 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep115, i64 %indvars.iv94
   %68 = load i32, ptr %gep114, align 4, !tbaa !33
   %69 = mul nuw nsw i64 %indvars.iv94, %62
-  %70 = getelementptr inbounds nuw float, ptr %57, i64 %69
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %69
   br label %71
 
 71:                                               ; preds = %.lr.ph76.us, %87
   %indvars.iv89 = phi i64 [ 0, %.lr.ph76.us ], [ %indvars.iv.next90, %87 ]
   %.05674.us = phi float [ -1.000000e+09, %.lr.ph76.us ], [ %.157.us, %87 ]
-  %72 = getelementptr inbounds nuw float, ptr %70, i64 %indvars.iv89
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %indvars.iv89
   %73 = load float, ptr %72, align 4, !tbaa !38
   %74 = fcmp une float %73, -1.000000e+09
   br i1 %74, label %75, label %87
 
 75:                                               ; preds = %71
-  %76 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv89
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %indvars.iv89
   %77 = load i32, ptr %76, align 4, !tbaa !33
   %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds %struct.Tim_Obj_t_, ptr %.val70.us, i64 %78
+  %79 = getelementptr inbounds [24 x i8], ptr %.val70.us, i64 %78
   %80 = fptosi float %.05674.us to i32
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 16
   %82 = load float, ptr %81, align 4, !tbaa !12
@@ -336,7 +334,7 @@ Tim_ManCiBox.exit:                                ; preds = %14
 
 ..critedge4_crit_edge.us:                         ; preds = %87
   %88 = sext i32 %68 to i64
-  %89 = getelementptr inbounds %struct.Tim_Obj_t_, ptr %.val71, i64 %88
+  %89 = getelementptr inbounds [24 x i8], ptr %.val71, i64 %88
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 16
   store float %.157.us, ptr %90, align 4, !tbaa !12
   %91 = getelementptr inbounds nuw i8, ptr %89, i64 4
@@ -347,10 +345,10 @@ Tim_ManCiBox.exit:                                ; preds = %14
 
 .critedge4:                                       ; preds = %.critedge4.preheader, %.critedge4
   %indvars.iv86 = phi i64 [ 0, %.critedge4.preheader ], [ %indvars.iv.next87, %.critedge4 ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv86
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv86
   %92 = load i32, ptr %gep, align 4, !tbaa !33
   %93 = sext i32 %92 to i64
-  %94 = getelementptr inbounds %struct.Tim_Obj_t_, ptr %.val71, i64 %93
+  %94 = getelementptr inbounds [24 x i8], ptr %.val71, i64 %93
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 16
   store float -1.000000e+09, ptr %95, align 4, !tbaa !12
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 4
@@ -375,7 +373,7 @@ define float @Tim_ManGetCoRequired(ptr noundef %0, i32 noundef %1) local_unnamed
   %3 = getelementptr i8, ptr %0, i64 48
   %.val72 = load ptr, ptr %3, align 8, !tbaa !15
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds %struct.Tim_Obj_t_, ptr %.val72, i64 %4
+  %5 = getelementptr inbounds [24 x i8], ptr %.val72, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %7 = load i32, ptr %6, align 4, !tbaa !25
   %.not = icmp eq i32 %7, 0
@@ -409,7 +407,7 @@ Tim_ManCoBox.exit:                                ; preds = %14
   %22 = getelementptr i8, ptr %21, i64 8
   %.val.i = load ptr, ptr %22, align 8, !tbaa !27
   %23 = zext nneg i32 %19 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr %.val.i, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.val.i, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !29
   %26 = icmp eq ptr %25, null
   br i1 %26, label %.critedge2, label %27
@@ -442,10 +440,10 @@ Tim_ManCoBox.exit:                                ; preds = %14
   %38 = load i32, ptr %34, align 4, !tbaa !32
   %39 = add nsw i32 %38, %.05774
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds i32, ptr %33, i64 %40
+  %41 = getelementptr inbounds [4 x i8], ptr %33, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !33
   %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds %struct.Tim_Obj_t_, ptr %.val71, i64 %43
+  %44 = getelementptr inbounds [24 x i8], ptr %.val71, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %46 = load i32, ptr %45, align 4, !tbaa !23
   %47 = load i32, ptr %16, align 8, !tbaa !22
@@ -499,15 +497,15 @@ Tim_ManCoBox.exit:                                ; preds = %14
 
 .preheader.us.preheader:                          ; preds = %.lr.ph82.split.split.us
   %wide.trip.count91 = zext nneg i32 %64 to i64
-  %invariant.gep = getelementptr inbounds nuw i32, ptr %60, i64 %wide.trip.count101
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %wide.trip.count101
   br label %.preheader.us
 
 .preheader.us.us:                                 ; preds = %.lr.ph82.split.split.us, %.preheader.us.us
   %indvars.iv98 = phi i64 [ %indvars.iv.next99, %.preheader.us.us ], [ 0, %.lr.ph82.split.split.us ]
-  %67 = getelementptr inbounds nuw i32, ptr %60, i64 %indvars.iv98
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %indvars.iv98
   %68 = load i32, ptr %67, align 4, !tbaa !33
   %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds %struct.Tim_Obj_t_, ptr %.val, i64 %69
+  %70 = getelementptr inbounds [24 x i8], ptr %.val, i64 %69
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 20
   store float 1.000000e+09, ptr %71, align 4, !tbaa !16
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 4
@@ -518,7 +516,7 @@ Tim_ManCoBox.exit:                                ; preds = %14
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %..critedge4_crit_edge.us
   %indvars.iv93 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next94, %..critedge4_crit_edge.us ]
-  %73 = getelementptr inbounds nuw i32, ptr %60, i64 %indvars.iv93
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %indvars.iv93
   %74 = load i32, ptr %73, align 4, !tbaa !33
   br label %75
 
@@ -526,20 +524,20 @@ Tim_ManCoBox.exit:                                ; preds = %14
   %indvars.iv88 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next89, %92 ]
   %.05876.us = phi float [ 1.000000e+09, %.preheader.us ], [ %.159.us, %92 ]
   %76 = mul nuw nsw i64 %indvars.iv88, %wide.trip.count101
-  %77 = getelementptr inbounds nuw float, ptr %62, i64 %76
-  %78 = getelementptr inbounds nuw float, ptr %77, i64 %indvars.iv88
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %76
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %indvars.iv88
   %79 = load float, ptr %78, align 4, !tbaa !38
   %80 = fcmp une float %79, -1.000000e+09
   br i1 %80, label %81, label %92
 
 81:                                               ; preds = %75
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv88
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep, i64 %indvars.iv88
   %82 = load i32, ptr %gep, align 4, !tbaa !33
   %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds %struct.Tim_Obj_t_, ptr %.val70.us, i64 %83
+  %84 = getelementptr inbounds [24 x i8], ptr %.val70.us, i64 %83
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 20
   %86 = load float, ptr %85, align 4, !tbaa !16
-  %87 = getelementptr inbounds nuw float, ptr %77, i64 %indvars.iv93
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %indvars.iv93
   %88 = load float, ptr %87, align 4, !tbaa !38
   %89 = fsub float %86, %88
   %90 = fcmp olt float %.05876.us, %89
@@ -554,7 +552,7 @@ Tim_ManCoBox.exit:                                ; preds = %14
 
 ..critedge4_crit_edge.us:                         ; preds = %92
   %93 = sext i32 %74 to i64
-  %94 = getelementptr inbounds %struct.Tim_Obj_t_, ptr %.val, i64 %93
+  %94 = getelementptr inbounds [24 x i8], ptr %.val, i64 %93
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 20
   store float %.159.us, ptr %95, align 4, !tbaa !16
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 4
@@ -565,10 +563,10 @@ Tim_ManCoBox.exit:                                ; preds = %14
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
-  %97 = getelementptr inbounds nuw i32, ptr %60, i64 %indvars.iv
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %indvars.iv
   %98 = load i32, ptr %97, align 4, !tbaa !33
   %99 = sext i32 %98 to i64
-  %100 = getelementptr inbounds %struct.Tim_Obj_t_, ptr %.val, i64 %99
+  %100 = getelementptr inbounds [24 x i8], ptr %.val, i64 %99
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 20
   store float 1.000000e+09, ptr %101, align 4, !tbaa !16
   %102 = getelementptr inbounds nuw i8, ptr %100, i64 4

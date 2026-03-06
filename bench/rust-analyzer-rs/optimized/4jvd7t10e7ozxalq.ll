@@ -668,7 +668,7 @@ define noundef zeroext i1 @_ZN3vfs6loader5Entry13contains_file17hf43d5c8f153cf4f
   %10 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load i64, ptr %11, align 8, !noundef !4
-  %13 = getelementptr inbounds { { { { { { { i64, ptr, {} }, i64 } } } } } }, ptr %10, i64 %12
+  %13 = getelementptr inbounds [24 x i8], ptr %10, i64 %12
   br label %14
 
 14:                                               ; preds = %16, %8
@@ -895,7 +895,7 @@ define internal fastcc void @_ZN3vfs6loader4dirs17h45a58c2f6c73e6feE(ptr noalias
   %6 = alloca { { ptr, ptr, {} }, ptr }, align 8
   %7 = alloca { { i64, ptr, {} }, i64 }, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %8 = getelementptr inbounds nuw { ptr, i64 }, ptr %2, i64 %3
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %3
   store ptr %2, ptr %6, align 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %8, ptr %9, align 8

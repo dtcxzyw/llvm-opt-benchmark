@@ -23,7 +23,7 @@ define hidden noundef i64 @"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter
 12:                                               ; preds = %12, %7
   %.sroa.07.0.i = phi i64 [ %1, %7 ], [ %16, %12 ]
   %.sroa.09.0.i = phi i64 [ 0, %7 ], [ %17, %12 ]
-  %13 = getelementptr inbounds { ptr, ptr, i64, { ptr } }, ptr %3, i64 %.sroa.09.0.i
+  %13 = getelementptr inbounds [32 x i8], ptr %3, i64 %.sroa.09.0.i
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load i64, ptr %14, align 8, !noundef !3
   %16 = add i64 %15, %.sroa.07.0.i
@@ -50,7 +50,7 @@ define hidden noundef i64 @"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter
 29:                                               ; preds = %29, %24
   %.sroa.07.0.i1 = phi i64 [ %.sroa.04.0.i, %24 ], [ %33, %29 ]
   %.sroa.09.0.i2 = phi i64 [ 0, %24 ], [ %34, %29 ]
-  %30 = getelementptr inbounds { ptr, ptr, i64, { ptr } }, ptr %20, i64 %.sroa.09.0.i2
+  %30 = getelementptr inbounds [32 x i8], ptr %20, i64 %.sroa.09.0.i2
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load i64, ptr %31, align 8, !noundef !3
   %33 = add i64 %32, %.sroa.07.0.i1
@@ -474,7 +474,7 @@ define hidden noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
 11:                                               ; preds = %11, %6
   %.sroa.07.0 = phi i64 [ %2, %6 ], [ %15, %11 ]
   %.sroa.09.0 = phi i64 [ 0, %6 ], [ %16, %11 ]
-  %12 = getelementptr inbounds { ptr, ptr, i64, { ptr } }, ptr %0, i64 %.sroa.09.0
+  %12 = getelementptr inbounds [32 x i8], ptr %0, i64 %.sroa.09.0
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i64, ptr %13, align 8, !noundef !3
   %15 = add i64 %14, %.sroa.07.0
@@ -677,8 +677,8 @@ _ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capacity17he9fe64b738d34a2
 
 76:                                               ; preds = %76, %._crit_edge35
   %.sroa.0.05.i.i.i = phi i64 [ 0, %._crit_edge35 ], [ %81, %76 ]
-  %77 = getelementptr inbounds nuw i64, ptr %0, i64 %.sroa.0.05.i.i.i
-  %78 = getelementptr inbounds nuw i64, ptr %.sroa.631.0..sroa_idx.i.i, i64 %.sroa.0.05.i.i.i
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.sroa.0.05.i.i.i
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.631.0..sroa_idx.i.i, i64 %.sroa.0.05.i.i.i
   %79 = load i64, ptr %77, align 8
   %80 = load i64, ptr %78, align 8
   store i64 %80, ptr %77, align 8
@@ -976,7 +976,7 @@ define internal fastcc noundef i64 @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$
   %12 = load ptr, ptr %0, align 8, !nonnull !3, !align !90, !noundef !3
   %13 = load ptr, ptr %1, align 8, !nonnull !3, !noundef !3
   %14 = sub nsw i64 0, %2
-  %15 = getelementptr inbounds { { { i64, [3 x i64] }, { { { { { { i64, ptr, {} }, {} }, i64 } }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i16, [1 x i16] }, i32, i32, i32, i32, i32, { i8, [16 x i8] }, [7 x i8] } } }, { { { i64, [40 x i8] } } } }, ptr %13, i64 %14
+  %15 = getelementptr inbounds [168 x i8], ptr %13, i64 %14
   %16 = getelementptr inbounds i8, ptr %15, i64 -168
   %.val = load ptr, ptr %12, align 8, !nonnull !3, !align !90, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %11)

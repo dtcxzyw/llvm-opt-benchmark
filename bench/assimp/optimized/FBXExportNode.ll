@@ -31,7 +31,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"class.Assimp::FBX::FBXExportProperty" = type { i8, %"class.std::vector.8" }
 %"class.Assimp::Formatter::basic_formatter" = type { %"class.std::__cxx11::basic_ostringstream" }
 
 $_ZN6Assimp3FBX4NodeD2Ev = comdat any
@@ -2233,7 +2232,7 @@ define hidden void @_ZN6Assimp3FBX4Node9DumpAsciiERSoi(ptr noundef nonnull reado
 
 11:                                               ; preds = %9, %.lr.ph.i
   %12 = phi ptr [ %.pre.i, %9 ], [ %8, %.lr.ph.i ]
-  %13 = getelementptr inbounds nuw %"class.Assimp::FBX::FBXExportProperty", ptr %12, i64 %.07.i
+  %13 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 %.07.i
   tail call void @_ZN6Assimp3FBX17FBXExportProperty9DumpAsciiERSoi(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %2)
   %14 = add nuw i64 %.07.i, 1
   %15 = load ptr, ptr %5, align 8
@@ -2279,14 +2278,14 @@ _ZN6Assimp3FBX4Node19DumpPropertiesAsciiERSoi.exit: ; preds = %11, %3
 .lr.ph:                                           ; preds = %.preheader, %47
   %40 = phi ptr [ %50, %47 ], [ %37, %.preheader ]
   %.0.i11 = phi i64 [ %48, %47 ], [ 0, %.preheader ]
-  %41 = getelementptr inbounds nuw %"class.Assimp::FBX::Node", ptr %40, i64 %.0.i11
+  %41 = getelementptr inbounds nuw [112 x i8], ptr %40, i64 %.0.i11
   %42 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %41, ptr noundef nonnull @.str.22) #23
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %47, label %44
 
 44:                                               ; preds = %.lr.ph
   %45 = load ptr, ptr %34, align 8
-  %46 = getelementptr inbounds nuw %"class.Assimp::FBX::Node", ptr %45, i64 %.0.i11
+  %46 = getelementptr inbounds nuw [112 x i8], ptr %45, i64 %.0.i11
   tail call void @_ZN6Assimp3FBX4Node9DumpAsciiERSoi(ptr noundef nonnull align 8 dereferenceable(112) %46, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %32)
   br label %47
 
@@ -2977,7 +2976,7 @@ define hidden void @_ZN6Assimp3FBX4Node14DumpPropertiesERNS_12StreamWriterILb0EL
 
 21:                                               ; preds = %.noexc, %.lr.ph.i11
   %22 = phi ptr [ %.pre.i, %.noexc ], [ %18, %.lr.ph.i11 ]
-  %23 = getelementptr inbounds nuw %"class.Assimp::FBX::FBXExportProperty", ptr %22, i64 %.07.i
+  %23 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %.07.i
   invoke void @_ZN6Assimp3FBX17FBXExportProperty9DumpAsciiERSoi(ptr noundef nonnull align 8 dereferenceable(32) %23, ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %3)
           to label %.noexc13 unwind label %92
 
@@ -3196,7 +3195,7 @@ define hidden void @_ZN6Assimp3FBX4Node19DumpPropertiesAsciiERSoi(ptr noundef no
 
 11:                                               ; preds = %9, %.lr.ph
   %12 = phi ptr [ %.pre, %9 ], [ %8, %.lr.ph ]
-  %13 = getelementptr inbounds nuw %"class.Assimp::FBX::FBXExportProperty", ptr %12, i64 %.07
+  %13 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 %.07
   tail call void @_ZN6Assimp3FBX17FBXExportProperty9DumpAsciiERSoi(ptr noundef nonnull align 8 dereferenceable(32) %13, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %2)
   %14 = add nuw i64 %.07, 1
   %15 = load ptr, ptr %5, align 8
@@ -3613,14 +3612,14 @@ define hidden void @_ZN6Assimp3FBX4Node12DumpChildrenERNS_12StreamWriterILb0ELb0
 .lr.ph.i10:                                       ; preds = %13, %.noexc
   %18 = phi ptr [ %27, %.noexc ], [ %17, %13 ]
   %.08.i = phi i64 [ %25, %.noexc ], [ 0, %13 ]
-  %19 = getelementptr inbounds nuw %"class.Assimp::FBX::Node", ptr %18, i64 %.08.i
+  %19 = getelementptr inbounds nuw [112 x i8], ptr %18, i64 %.08.i
   %20 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull @.str.22) #23
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %.noexc, label %22
 
 22:                                               ; preds = %.lr.ph.i10
   %23 = load ptr, ptr %14, align 8
-  %24 = getelementptr inbounds nuw %"class.Assimp::FBX::Node", ptr %23, i64 %.08.i
+  %24 = getelementptr inbounds nuw [112 x i8], ptr %23, i64 %.08.i
   invoke void @_ZN6Assimp3FBX4Node9DumpAsciiERSoi(ptr noundef nonnull align 8 dereferenceable(112) %24, ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef %3)
           to label %.noexc unwind label %84
 
@@ -3843,14 +3842,14 @@ define hidden void @_ZN6Assimp3FBX4Node17DumpChildrenAsciiERSoi(ptr noundef nonn
 .lr.ph:                                           ; preds = %3, %15
   %8 = phi ptr [ %18, %15 ], [ %7, %3 ]
   %.08 = phi i64 [ %16, %15 ], [ 0, %3 ]
-  %9 = getelementptr inbounds nuw %"class.Assimp::FBX::Node", ptr %8, i64 %.08
+  %9 = getelementptr inbounds nuw [112 x i8], ptr %8, i64 %.08
   %10 = tail call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull @.str.22) #23
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %15, label %12
 
 12:                                               ; preds = %.lr.ph
   %13 = load ptr, ptr %4, align 8
-  %14 = getelementptr inbounds nuw %"class.Assimp::FBX::Node", ptr %13, i64 %.08
+  %14 = getelementptr inbounds nuw [112 x i8], ptr %13, i64 %.08
   tail call void @_ZN6Assimp3FBX4Node9DumpAsciiERSoi(ptr noundef nonnull align 8 dereferenceable(112) %14, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 noundef %2)
   br label %15
 
@@ -4724,7 +4723,7 @@ _ZN6Assimp12StreamWriterILb0ELb0EE7PutCharEc.exit111: ; preds = %173, %.noexc110
 
 189:                                              ; preds = %_ZN6Assimp12StreamWriterILb0ELb0EE7PutCharEc.exit111, %171
   %190 = phi ptr [ %.pre169, %_ZN6Assimp12StreamWriterILb0ELb0EE7PutCharEc.exit111 ], [ %172, %171 ]
-  %191 = getelementptr inbounds nuw double, ptr %190, i64 %.043156
+  %191 = getelementptr inbounds nuw [8 x i8], ptr %190, i64 %.043156
   %192 = load double, ptr %191, align 8
   %193 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 32, ptr noundef nonnull @.str.26, double noundef %192) #23
   %194 = add nsw i32 %193, %.044155
@@ -5725,7 +5724,7 @@ _ZN6Assimp12StreamWriterILb0ELb0EE7PutCharEc.exit111: ; preds = %173, %.noexc110
 
 189:                                              ; preds = %_ZN6Assimp12StreamWriterILb0ELb0EE7PutCharEc.exit111, %171
   %190 = phi ptr [ %.pre169, %_ZN6Assimp12StreamWriterILb0ELb0EE7PutCharEc.exit111 ], [ %172, %171 ]
-  %191 = getelementptr inbounds nuw i32, ptr %190, i64 %.043156
+  %191 = getelementptr inbounds nuw [4 x i8], ptr %190, i64 %.043156
   %192 = load i32, ptr %191, align 4
   %193 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 32, ptr noundef nonnull @.str.28, i32 noundef %192) #23
   %194 = add nsw i32 %193, %.044155
@@ -6883,7 +6882,7 @@ _ZNSt6vectorIN6Assimp3FBX4NodeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32: ; pr
 _ZNSt12_Vector_baseIN6Assimp3FBX4NodeESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN6Assimp3FBX4NodeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32, %28
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8
-  %32 = getelementptr inbounds nuw %"class.Assimp::FBX::Node", ptr %20, i64 %16
+  %32 = getelementptr inbounds nuw [112 x i8], ptr %20, i64 %16
   store ptr %32, ptr %27, align 8
   ret void
 
@@ -7822,7 +7821,7 @@ _ZNSt6vectorIN6Assimp3FBX17FBXExportPropertyESaIS2_EE11_S_relocateEPS2_S5_S5_RS3
 _ZNSt12_Vector_baseIN6Assimp3FBX17FBXExportPropertyESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN6Assimp3FBX17FBXExportPropertyESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32, %48
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8
-  %52 = getelementptr inbounds nuw %"class.Assimp::FBX::FBXExportProperty", ptr %20, i64 %16
+  %52 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %16
   store ptr %52, ptr %47, align 8
   ret void
 
@@ -8027,7 +8026,7 @@ _ZNSt6vectorIN6Assimp3FBX17FBXExportPropertyESaIS2_EE11_S_relocateEPS2_S5_S5_RS3
 _ZNSt12_Vector_baseIN6Assimp3FBX17FBXExportPropertyESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN6Assimp3FBX17FBXExportPropertyESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32, %48
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8
-  %52 = getelementptr inbounds nuw %"class.Assimp::FBX::FBXExportProperty", ptr %20, i64 %16
+  %52 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %16
   store ptr %52, ptr %47, align 8
   ret void
 
@@ -8170,7 +8169,7 @@ _ZNSt6vectorIN6Assimp3FBX17FBXExportPropertyESaIS2_EE11_S_relocateEPS2_S5_S5_RS3
 _ZNSt12_Vector_baseIN6Assimp3FBX17FBXExportPropertyESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN6Assimp3FBX17FBXExportPropertyESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32, %48
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8
-  %52 = getelementptr inbounds nuw %"class.Assimp::FBX::FBXExportProperty", ptr %20, i64 %16
+  %52 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %16
   store ptr %52, ptr %47, align 8
   ret void
 
@@ -8311,7 +8310,7 @@ _ZNSt6vectorIN6Assimp3FBX17FBXExportPropertyESaIS2_EE11_S_relocateEPS2_S5_S5_RS3
 _ZNSt12_Vector_baseIN6Assimp3FBX17FBXExportPropertyESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN6Assimp3FBX17FBXExportPropertyESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32, %48
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8
-  %52 = getelementptr inbounds nuw %"class.Assimp::FBX::FBXExportProperty", ptr %20, i64 %16
+  %52 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %16
   store ptr %52, ptr %47, align 8
   ret void
 
@@ -8453,7 +8452,7 @@ _ZNSt6vectorIN6Assimp3FBX17FBXExportPropertyESaIS2_EE11_S_relocateEPS2_S5_S5_RS3
 _ZNSt12_Vector_baseIN6Assimp3FBX17FBXExportPropertyESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN6Assimp3FBX17FBXExportPropertyESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32, %49
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8
-  %53 = getelementptr inbounds nuw %"class.Assimp::FBX::FBXExportProperty", ptr %20, i64 %16
+  %53 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %16
   store ptr %53, ptr %48, align 8
   ret void
 
@@ -8658,7 +8657,7 @@ _ZNSt6vectorIN6Assimp3FBX17FBXExportPropertyESaIS2_EE11_S_relocateEPS2_S5_S5_RS3
 _ZNSt12_Vector_baseIN6Assimp3FBX17FBXExportPropertyESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN6Assimp3FBX17FBXExportPropertyESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32, %48
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8
-  %52 = getelementptr inbounds nuw %"class.Assimp::FBX::FBXExportProperty", ptr %20, i64 %16
+  %52 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %16
   store ptr %52, ptr %47, align 8
   ret void
 
@@ -8800,7 +8799,7 @@ _ZNSt6vectorIN6Assimp3FBX17FBXExportPropertyESaIS2_EE11_S_relocateEPS2_S5_S5_RS3
 _ZNSt12_Vector_baseIN6Assimp3FBX17FBXExportPropertyESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN6Assimp3FBX17FBXExportPropertyESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32, %49
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8
-  %53 = getelementptr inbounds nuw %"class.Assimp::FBX::FBXExportProperty", ptr %20, i64 %16
+  %53 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %16
   store ptr %53, ptr %48, align 8
   ret void
 
@@ -9003,7 +9002,7 @@ _ZNSt6vectorIN6Assimp3FBX17FBXExportPropertyESaIS2_EE11_S_relocateEPS2_S5_S5_RS3
 _ZNSt12_Vector_baseIN6Assimp3FBX17FBXExportPropertyESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN6Assimp3FBX17FBXExportPropertyESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32, %48
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8
-  %52 = getelementptr inbounds nuw %"class.Assimp::FBX::FBXExportProperty", ptr %20, i64 %16
+  %52 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %16
   store ptr %52, ptr %47, align 8
   ret void
 
@@ -9145,7 +9144,7 @@ _ZNSt6vectorIN6Assimp3FBX17FBXExportPropertyESaIS2_EE11_S_relocateEPS2_S5_S5_RS3
 _ZNSt12_Vector_baseIN6Assimp3FBX17FBXExportPropertyESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN6Assimp3FBX17FBXExportPropertyESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32, %49
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8
-  %53 = getelementptr inbounds nuw %"class.Assimp::FBX::FBXExportProperty", ptr %20, i64 %16
+  %53 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %16
   store ptr %53, ptr %48, align 8
   ret void
 
@@ -9350,7 +9349,7 @@ _ZNSt6vectorIN6Assimp3FBX17FBXExportPropertyESaIS2_EE11_S_relocateEPS2_S5_S5_RS3
 _ZNSt12_Vector_baseIN6Assimp3FBX17FBXExportPropertyESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN6Assimp3FBX17FBXExportPropertyESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32, %48
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8
-  %52 = getelementptr inbounds nuw %"class.Assimp::FBX::FBXExportProperty", ptr %20, i64 %16
+  %52 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %16
   store ptr %52, ptr %47, align 8
   ret void
 
@@ -9553,7 +9552,7 @@ _ZNSt6vectorIN6Assimp3FBX17FBXExportPropertyESaIS2_EE11_S_relocateEPS2_S5_S5_RS3
 _ZNSt12_Vector_baseIN6Assimp3FBX17FBXExportPropertyESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN6Assimp3FBX17FBXExportPropertyESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32, %48
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8
-  %52 = getelementptr inbounds nuw %"class.Assimp::FBX::FBXExportProperty", ptr %20, i64 %16
+  %52 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %16
   store ptr %52, ptr %47, align 8
   ret void
 
@@ -9694,7 +9693,7 @@ _ZNSt6vectorIN6Assimp3FBX17FBXExportPropertyESaIS2_EE11_S_relocateEPS2_S5_S5_RS3
 _ZNSt12_Vector_baseIN6Assimp3FBX17FBXExportPropertyESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN6Assimp3FBX17FBXExportPropertyESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32, %48
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8
-  %52 = getelementptr inbounds nuw %"class.Assimp::FBX::FBXExportProperty", ptr %20, i64 %16
+  %52 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %16
   store ptr %52, ptr %47, align 8
   ret void
 
@@ -10271,7 +10270,7 @@ _ZNSt6vectorIN6Assimp3FBX17FBXExportPropertyESaIS2_EE11_S_relocateEPS2_S5_S5_RS3
 _ZNSt12_Vector_baseIN6Assimp3FBX17FBXExportPropertyESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN6Assimp3FBX17FBXExportPropertyESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32, %49
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8
-  %53 = getelementptr inbounds nuw %"class.Assimp::FBX::FBXExportProperty", ptr %20, i64 %16
+  %53 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %16
   store ptr %53, ptr %48, align 8
   ret void
 

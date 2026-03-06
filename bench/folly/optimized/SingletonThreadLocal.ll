@@ -208,7 +208,7 @@ define void @_ZN5folly6detail25SingletonThreadLocalState13LocalLifetime7destroyE
   %7 = load i64, ptr %6, align 8, !tbaa !22
   %8 = urem i64 %5, %7
   %9 = load ptr, ptr %4, align 8, !tbaa !20
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %8
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %8
   %11 = load ptr, ptr %10, align 8, !tbaa !39
   %.not.i.i.i = icmp eq ptr %11, null
   br i1 %.not.i.i.i, label %.loopexit.i, label %12
@@ -334,7 +334,7 @@ _ZNSt10_HashtableIPN5folly6detail25SingletonThreadLocalState13LocalLifetimeESt4p
   %58 = load i64, ptr %6, align 8, !tbaa !22
   %59 = urem i64 %5, %58
   %60 = load ptr, ptr %4, align 8, !tbaa !20
-  %61 = getelementptr inbounds nuw ptr, ptr %60, i64 %59
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %59
   %62 = load ptr, ptr %61, align 8, !tbaa !39
   %.not.i25.i.i.i = icmp eq ptr %62, null
   br i1 %.not.i25.i.i.i, label %_ZNSt13unordered_mapIPN5folly6detail25SingletonThreadLocalState13LocalLifetimeESt13unordered_setIPNS2_10LocalCacheESt4hashIS7_ESt8equal_toIS7_ESaIS7_EES8_IS4_ESA_IS4_ESaISt4pairIKS4_SD_EEE5eraseERSH_.exit, label %63
@@ -395,7 +395,7 @@ _ZNKSt10_HashtableIPN5folly6detail25SingletonThreadLocalState13LocalLifetimeESt4
   %86 = load i64, ptr %39, align 8, !tbaa !18
   %87 = urem i64 %85, %86
   %88 = load ptr, ptr %1, align 8, !tbaa !7
-  %89 = getelementptr inbounds nuw ptr, ptr %88, i64 %87
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %87
   %90 = load ptr, ptr %89, align 8, !tbaa !39, !nonnull !55, !noundef !55
   %91 = load ptr, ptr %90, align 8, !tbaa !23
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
@@ -429,7 +429,7 @@ _ZNSt13unordered_mapIPN5folly6detail25SingletonThreadLocalState10LocalCacheEmSt4
   %106 = ptrtoint ptr %80 to i64
   %107 = urem i64 %106, %105
   %108 = load ptr, ptr %1, align 8, !tbaa !7
-  %109 = getelementptr inbounds nuw ptr, ptr %108, i64 %107
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %107
   %110 = load ptr, ptr %109, align 8, !tbaa !39
   br label %111
 
@@ -457,7 +457,7 @@ _ZNSt10_HashtableIPN5folly6detail25SingletonThreadLocalState10LocalCacheESt4pair
   br i1 %.not9.i.i.i.i.i, label %134, label %121
 
 121:                                              ; preds = %116
-  %122 = getelementptr inbounds nuw ptr, ptr %108, i64 %120
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %120
   store ptr %110, ptr %122, align 8, !tbaa !39
   br label %._crit_edge.i.i.i.i.i
 
@@ -485,7 +485,7 @@ _ZNSt10_HashtableIPN5folly6detail25SingletonThreadLocalState10LocalCacheESt4pair
   br i1 %.not17.i.i.i.i, label %134, label %132
 
 132:                                              ; preds = %127
-  %133 = getelementptr inbounds nuw ptr, ptr %108, i64 %131
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %131
   store ptr %.0.i.i.i.i, ptr %133, align 8, !tbaa !39
   br label %134
 
@@ -575,7 +575,7 @@ _ZNSt10_HashtableIPN5folly6detail25SingletonThreadLocalState13LocalLifetimeESt4p
 31:                                               ; preds = %_ZNSt10_HashtableIPN5folly6detail25SingletonThreadLocalState13LocalLifetimeESt4pairIKS4_St13unordered_setIPNS2_10LocalCacheESt4hashIS9_ESt8equal_toIS9_ESaIS9_EEESaISG_ENSt8__detail10_Select1stESC_IS4_ESA_IS4_ENSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableIPN5folly6detail25SingletonThreadLocalState13LocalLifetimeESt4pairIKS4_St13unordered_setIPNS2_10LocalCacheESt4hashIS9_ESt8equal_toIS9_ESaIS9_EEESaISG_ENSt8__detail10_Select1stESC_IS4_ESA_IS4_ENSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit ], [ %1, %5 ]
   %32 = load ptr, ptr %0, align 8, !tbaa !20
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0
   %34 = load ptr, ptr %33, align 8, !tbaa !39
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %38, label %35
@@ -602,7 +602,7 @@ _ZNSt10_HashtableIPN5folly6detail25SingletonThreadLocalState13LocalLifetimeESt4p
   %45 = load ptr, ptr %43, align 8, !tbaa !40
   %46 = ptrtoint ptr %45 to i64
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %32, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !39
   br label %49
 
@@ -727,7 +727,7 @@ _ZNSt10_HashtableIPN5folly6detail25SingletonThreadLocalState13LocalLifetimeESt4p
   %16 = load ptr, ptr %15, align 8, !tbaa !40
   %17 = ptrtoint ptr %16 to i64
   %18 = urem i64 %17, %1
-  %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !39
   %.not27 = icmp eq ptr %20, null
   br i1 %.not27, label %21, label %26
@@ -742,7 +742,7 @@ _ZNSt10_HashtableIPN5folly6detail25SingletonThreadLocalState13LocalLifetimeESt4p
   br i1 %.not28, label %29, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %25, align 8, !tbaa !39
   br label %29
 
@@ -781,7 +781,7 @@ _ZNSt10_HashtableIPN5folly6detail25SingletonThreadLocalState13LocalLifetimeESt4p
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr ptr @_ZNSt10_HashtableIPN5folly6detail25SingletonThreadLocalState13LocalLifetimeESt4pairIKS4_St13unordered_setIPNS2_10LocalCacheESt4hashIS9_ESt8equal_toIS9_ESaIS9_EEESaISG_ENSt8__detail10_Select1stESC_IS4_ESA_IS4_ENSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNSI_15_Hash_node_baseEPNSI_10_Hash_nodeISG_Lb0EEE(ptr noundef nonnull align 8 dereferenceable(56) %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = load ptr, ptr %0, align 8, !tbaa !20
-  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %1
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %1
   %7 = load ptr, ptr %6, align 8, !tbaa !39
   %8 = icmp eq ptr %2, %7
   %9 = load ptr, ptr %3, align 8, !tbaa !23
@@ -802,7 +802,7 @@ define linkonce_odr ptr @_ZNSt10_HashtableIPN5folly6detail25SingletonThreadLocal
   br i1 %.not9.i, label %_ZNSt10_HashtableIPN5folly6detail25SingletonThreadLocalState13LocalLifetimeESt4pairIKS4_St13unordered_setIPNS2_10LocalCacheESt4hashIS9_ESt8equal_toIS9_ESaIS9_EEESaISG_ENSt8__detail10_Select1stESC_IS4_ESA_IS4_ENSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb0ELb0ELb1EEEE22_M_remove_bucket_beginEmPNSI_10_Hash_nodeISG_Lb0EEEm.exit, label %18
 
 18:                                               ; preds = %11
-  %19 = getelementptr inbounds nuw ptr, ptr %5, i64 %17
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %17
   store ptr %7, ptr %19, align 8, !tbaa !39
   br label %._crit_edge.i
 
@@ -833,7 +833,7 @@ define linkonce_odr ptr @_ZNSt10_HashtableIPN5folly6detail25SingletonThreadLocal
   br i1 %.not17, label %_ZNSt10_HashtableIPN5folly6detail25SingletonThreadLocalState13LocalLifetimeESt4pairIKS4_St13unordered_setIPNS2_10LocalCacheESt4hashIS9_ESt8equal_toIS9_ESaIS9_EEESaISG_ENSt8__detail10_Select1stESC_IS4_ESA_IS4_ENSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb0ELb0ELb1EEEE22_M_remove_bucket_beginEmPNSI_10_Hash_nodeISG_Lb0EEEm.exit, label %32
 
 32:                                               ; preds = %25
-  %33 = getelementptr inbounds nuw ptr, ptr %5, i64 %31
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %31
   store ptr %2, ptr %33, align 8, !tbaa !39
   br label %_ZNSt10_HashtableIPN5folly6detail25SingletonThreadLocalState13LocalLifetimeESt4pairIKS4_St13unordered_setIPNS2_10LocalCacheESt4hashIS9_ESt8equal_toIS9_ESaIS9_EEESaISG_ENSt8__detail10_Select1stESC_IS4_ESA_IS4_ENSI_18_Mod_range_hashingENSI_20_Default_ranged_hashENSI_20_Prime_rehash_policyENSI_17_Hashtable_traitsILb0ELb0ELb1EEEE22_M_remove_bucket_beginEmPNSI_10_Hash_nodeISG_Lb0EEEm.exit
 
@@ -892,7 +892,7 @@ define void @_ZN5folly6detail25SingletonThreadLocalState13LocalLifetime5trackERN
   %11 = load i64, ptr %10, align 8, !tbaa !22
   %12 = urem i64 %9, %11
   %13 = load ptr, ptr %8, align 8, !tbaa !20
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %12
   %15 = load ptr, ptr %14, align 8, !tbaa !39
   %.not.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i.i, label %.loopexit.i, label %16
@@ -981,7 +981,7 @@ _ZNSt10_HashtableIPN5folly6detail25SingletonThreadLocalState13LocalLifetimeESt4p
   %45 = load i64, ptr %44, align 8, !tbaa !18
   %46 = urem i64 %43, %45
   %47 = load ptr, ptr %2, align 8, !tbaa !7
-  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %46
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %46
   %49 = load ptr, ptr %48, align 8, !tbaa !39
   %.not.i.i.i.i = icmp eq ptr %49, null
   br i1 %.not.i.i.i.i, label %.loopexit.i.i, label %50
@@ -1070,7 +1070,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIPN5folly6detail25SingletonThr
   %10 = load i64, ptr %9, align 8, !tbaa !37
   %11 = urem i64 %8, %10
   %12 = load ptr, ptr %0, align 8, !tbaa !36
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %11
   %14 = load ptr, ptr %13, align 8, !tbaa !39
   %.not.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i, label %.critedge, label %28
@@ -1207,7 +1207,7 @@ _ZNSt10_HashtableIPN5folly6detail25SingletonThreadLocalState10LocalCacheES4_SaIS
 31:                                               ; preds = %_ZNSt10_HashtableIPN5folly6detail25SingletonThreadLocalState10LocalCacheES4_SaIS4_ENSt8__detail9_IdentityESt8equal_toIS4_ESt4hashIS4_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_rehashEmRKm.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableIPN5folly6detail25SingletonThreadLocalState10LocalCacheES4_SaIS4_ENSt8__detail9_IdentityESt8equal_toIS4_ESt4hashIS4_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_rehashEmRKm.exit ], [ %1, %5 ]
   %32 = load ptr, ptr %0, align 8, !tbaa !36
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0
   %34 = load ptr, ptr %33, align 8, !tbaa !39
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %38, label %35
@@ -1234,7 +1234,7 @@ _ZNSt10_HashtableIPN5folly6detail25SingletonThreadLocalState10LocalCacheES4_SaIS
   %45 = load ptr, ptr %43, align 8, !tbaa !54
   %46 = ptrtoint ptr %45 to i64
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %32, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !39
   br label %49
 
@@ -1297,7 +1297,7 @@ _ZNSt10_HashtableIPN5folly6detail25SingletonThreadLocalState10LocalCacheES4_SaIS
   %16 = load ptr, ptr %15, align 8, !tbaa !54
   %17 = ptrtoint ptr %16 to i64
   %18 = urem i64 %17, %1
-  %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !39
   %.not27 = icmp eq ptr %20, null
   br i1 %.not27, label %21, label %26
@@ -1312,7 +1312,7 @@ _ZNSt10_HashtableIPN5folly6detail25SingletonThreadLocalState10LocalCacheES4_SaIS
   br i1 %.not28, label %29, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %25, align 8, !tbaa !39
   br label %29
 
@@ -1403,7 +1403,7 @@ _ZNSt10_HashtableIPN5folly6detail25SingletonThreadLocalState10LocalCacheESt4pair
 31:                                               ; preds = %_ZNSt10_HashtableIPN5folly6detail25SingletonThreadLocalState10LocalCacheESt4pairIKS4_mESaIS7_ENSt8__detail10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableIPN5folly6detail25SingletonThreadLocalState10LocalCacheESt4pairIKS4_mESaIS7_ENSt8__detail10_Select1stESt8equal_toIS4_ESt4hashIS4_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit ], [ %1, %5 ]
   %32 = load ptr, ptr %0, align 8, !tbaa !7
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0
   %34 = load ptr, ptr %33, align 8, !tbaa !39
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %38, label %35
@@ -1430,7 +1430,7 @@ _ZNSt10_HashtableIPN5folly6detail25SingletonThreadLocalState10LocalCacheESt4pair
   %45 = load ptr, ptr %43, align 8, !tbaa !54
   %46 = ptrtoint ptr %45 to i64
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %32, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !39
   br label %49
 
@@ -1493,7 +1493,7 @@ _ZNSt10_HashtableIPN5folly6detail25SingletonThreadLocalState10LocalCacheESt4pair
   %16 = load ptr, ptr %15, align 8, !tbaa !54
   %17 = ptrtoint ptr %16 to i64
   %18 = urem i64 %17, %1
-  %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !39
   %.not27 = icmp eq ptr %20, null
   br i1 %.not27, label %21, label %26
@@ -1508,7 +1508,7 @@ _ZNSt10_HashtableIPN5folly6detail25SingletonThreadLocalState10LocalCacheESt4pair
   br i1 %.not28, label %29, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %25, align 8, !tbaa !39
   br label %29
 

@@ -156,7 +156,7 @@ define hidden void @_ZN3csv12deserializer25deserialize_string_record17h4a0d21fc1
   br i1 %.not.i, label %_ZN3csv11byte_record10ByteRecord8as_slice17he619d90130ae8046E.exit, label %15
 
 15:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h392125147ce14c1aE.exit.i"
-  %16 = getelementptr i64, ptr %10, i64 %8
+  %16 = getelementptr [8 x i8], ptr %10, i64 %8
   %17 = getelementptr i8, ptr %16, i64 -8
   %18 = load i64, ptr %17, align 8, !noundef !3
   %19 = getelementptr inbounds nuw i8, ptr %.val27, i64 48
@@ -193,7 +193,7 @@ _ZN3csv11byte_record10ByteRecord8as_slice17he619d90130ae8046E.exit: ; preds = %"
   br i1 %.not.i30, label %_ZN3csv11byte_record10ByteRecord8as_slice17he619d90130ae8046E.exit33, label %33
 
 33:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h392125147ce14c1aE.exit.i29"
-  %34 = getelementptr i64, ptr %28, i64 %26
+  %34 = getelementptr [8 x i8], ptr %28, i64 %26
   %35 = getelementptr i8, ptr %34, i64 -8
   %36 = load i64, ptr %35, align 8, !noundef !3
   %37 = getelementptr inbounds nuw i8, ptr %.val, i64 48
@@ -715,7 +715,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN4core6option1
   br i1 %23, label %24, label %39
 
 24:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h392125147ce14c1aE.exit.i.i.i"
-  %25 = getelementptr inbounds i64, ptr %18, i64 %6
+  %25 = getelementptr inbounds [8 x i8], ptr %18, i64 %6
   %26 = load i64, ptr %25, align 8, !noalias !142, !noundef !3
   %27 = add nuw i64 %6, 1
   store i64 %27, ptr %5, align 8, !alias.scope !142
@@ -3341,7 +3341,7 @@ define hidden void @"_ZN81_$LT$csv..deserializer..DeStringRecord$u20$as$u20$csv.
   br i1 %24, label %25, label %38
 
 25:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h392125147ce14c1aE.exit.i"
-  %26 = getelementptr inbounds i64, ptr %19, i64 %6
+  %26 = getelementptr inbounds [8 x i8], ptr %19, i64 %6
   %27 = load i64, ptr %26, align 8, !noalias !1006, !noundef !3
   %28 = add nuw i64 %6, 1
   store i64 %28, ptr %5, align 8, !alias.scope !1006
@@ -3452,7 +3452,7 @@ define hidden { ptr, i64 } @"_ZN81_$LT$csv..deserializer..DeStringRecord$u20$as$
   br i1 %23, label %24, label %39
 
 24:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h392125147ce14c1aE.exit.i.i.i.i"
-  %25 = getelementptr inbounds i64, ptr %18, i64 %6
+  %25 = getelementptr inbounds [8 x i8], ptr %18, i64 %6
   %26 = load i64, ptr %25, align 8, !noalias !1030, !noundef !3
   %27 = add nuw i64 %6, 1
   store i64 %27, ptr %5, align 8, !alias.scope !1029, !noalias !1015
@@ -3574,7 +3574,7 @@ define hidden void @"_ZN96_$LT$$RF$mut$u20$csv..deserializer..DeRecordWrap$LT$T$
   br i1 %27, label %28, label %41
 
 28:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h392125147ce14c1aE.exit.i.i"
-  %29 = getelementptr inbounds i64, ptr %22, i64 %9
+  %29 = getelementptr inbounds [8 x i8], ptr %22, i64 %9
   %30 = load i64, ptr %29, align 8, !noalias !1049, !noundef !3
   %31 = add nuw i64 %9, 1
   store i64 %31, ptr %8, align 8, !alias.scope !1048, !noalias !1043
@@ -3920,7 +3920,7 @@ define hidden void @"_ZN96_$LT$$RF$mut$u20$csv..deserializer..DeRecordWrap$LT$T$
   br i1 %36, label %37, label %48
 
 37:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h392125147ce14c1aE.exit.i.i"
-  %38 = getelementptr inbounds i64, ptr %31, i64 %18
+  %38 = getelementptr inbounds [8 x i8], ptr %31, i64 %18
   %39 = load i64, ptr %38, align 8, !noalias !1091, !noundef !3
   %40 = add nuw i64 %18, 1
   store i64 %40, ptr %17, align 8, !alias.scope !1090, !noalias !1085
@@ -4078,7 +4078,7 @@ define hidden void @"_ZN96_$LT$$RF$mut$u20$csv..deserializer..DeRecordWrap$LT$T$
   br i1 %36, label %37, label %48
 
 37:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h392125147ce14c1aE.exit.i.i"
-  %38 = getelementptr inbounds i64, ptr %31, i64 %18
+  %38 = getelementptr inbounds [8 x i8], ptr %31, i64 %18
   %39 = load i64, ptr %38, align 8, !noalias !1126, !noundef !3
   %40 = add nuw i64 %18, 1
   store i64 %40, ptr %17, align 8, !alias.scope !1125, !noalias !1120
@@ -4214,7 +4214,7 @@ define hidden void @"_ZN96_$LT$$RF$mut$u20$csv..deserializer..DeRecordWrap$LT$T$
   br i1 %25, label %26, label %39
 
 26:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h392125147ce14c1aE.exit.i.i"
-  %27 = getelementptr inbounds i64, ptr %20, i64 %7
+  %27 = getelementptr inbounds [8 x i8], ptr %20, i64 %7
   %28 = load i64, ptr %27, align 8, !noalias !1158, !noundef !3
   %29 = add nuw i64 %7, 1
   store i64 %29, ptr %6, align 8, !alias.scope !1157, !noalias !1152
@@ -4693,7 +4693,7 @@ define hidden void @"_ZN181_$LT$uv_install_wheel..record.._..$LT$impl$u20$serde.
   br i1 %55, label %56, label %.invoke764
 
 56:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h392125147ce14c1aE.exit.i.i.i.i"
-  %57 = getelementptr inbounds i64, ptr %48, i64 %39
+  %57 = getelementptr inbounds [8 x i8], ptr %48, i64 %39
   %58 = load i64, ptr %57, align 8, !noalias !1239, !noundef !3
   %59 = add nuw i64 %39, 1
   store i64 %59, ptr %19, align 8, !alias.scope !1236, !noalias !1237
@@ -4866,7 +4866,7 @@ define hidden void @"_ZN181_$LT$uv_install_wheel..record.._..$LT$impl$u20$serde.
   br i1 %140, label %141, label %.invoke764
 
 141:                                              ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h392125147ce14c1aE.exit.i.i.i.i.i.i.i"
-  %142 = getelementptr inbounds i64, ptr %136, i64 %126
+  %142 = getelementptr inbounds [8 x i8], ptr %136, i64 %126
   %143 = load i64, ptr %142, align 8, !noalias !1285, !noundef !3
   %144 = add nuw i64 %126, 1
   store i64 %144, ptr %32, align 8, !alias.scope !1284, !noalias !1272

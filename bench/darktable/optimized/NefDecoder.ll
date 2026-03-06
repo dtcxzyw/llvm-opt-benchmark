@@ -27,8 +27,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.rawspeed::UncompressedDecompressor" = type { %"class.rawspeed::ByteStream", %"class.rawspeed::RawImage", %"class.rawspeed::iPoint2D", %"class.rawspeed::iPoint2D", i32, i32, i8, i32 }
 %"class.rawspeed::iPoint2D" = type { i32, i32 }
 %"class.rawspeed::iRectangle2D" = type { %"class.rawspeed::iPoint2D", %"class.rawspeed::iPoint2D" }
-%"struct.rawspeed::NefDecoder::NefSlice" = type { %"struct.rawspeed::RawDecoder::RawSlice" }
-%"struct.rawspeed::RawDecoder::RawSlice" = type { i32, i32, i32 }
 %"class.std::__cxx11::basic_istringstream" = type { %"class.std::basic_istream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_istream.base" = type { ptr, i64 }
 %"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
@@ -1341,7 +1339,7 @@ _ZN8rawspeed19roundUpDivisionSafeEmm.exit:        ; preds = %42
 .lr.ph:                                           ; preds = %51
   %52 = mul nuw nsw i64 %49, 12
   %53 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %52) #32
-  %54 = getelementptr inbounds nuw %"struct.rawspeed::NefDecoder::NefSlice", ptr %53, i64 %49
+  %54 = getelementptr inbounds nuw [12 x i8], ptr %53, i64 %49
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 40
   br label %57
 
@@ -1474,7 +1472,7 @@ _ZNSt6vectorIN8rawspeed10NefDecoder8NefSliceESaIS2_EE11_S_relocateEPS2_S5_S5_RS3
   br label %_ZNSt6vectorIN8rawspeed10NefDecoder8NefSliceESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
 _ZNSt6vectorIN8rawspeed10NefDecoder8NefSliceESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %94, %_ZNSt6vectorIN8rawspeed10NefDecoder8NefSliceESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
-  %95 = getelementptr inbounds nuw %"struct.rawspeed::NefDecoder::NefSlice", ptr %90, i64 %88
+  %95 = getelementptr inbounds nuw [12 x i8], ptr %90, i64 %88
   br label %_ZNSt6vectorIN8rawspeed10NefDecoder8NefSliceESaIS2_EE9push_backERKS2_.exit
 
 _ZNSt6vectorIN8rawspeed10NefDecoder8NefSliceESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vectorIN8rawspeed10NefDecoder8NefSliceESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %77
@@ -2922,7 +2920,7 @@ _ZN8rawspeed14BitStreamerMSBCI2NS_11BitStreamerIS0_NS_39BitStreamerForwardSequen
   %.sroa.14103.0189.us.us = phi i32 [ 0, %.preheader.us.us.preheader ], [ %.sroa.14103.2.us.us, %._crit_edge185.us.us ]
   %95 = icmp samesign ult i64 %indvars.iv235, %91
   %96 = mul nuw nsw i64 %indvars.iv235, %92
-  %97 = getelementptr inbounds nuw i16, ptr %9, i64 %96
+  %97 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %96
   br label %131
 
 98:                                               ; preds = %._crit_edge.us.us, %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE7getBitsEi.exit96.us.us
@@ -2988,7 +2986,7 @@ _ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialR
   %127 = icmp samesign ult i64 %indvars.iv232, %89
   tail call void @llvm.assume(i1 %127)
   tail call void @llvm.assume(i1 %165)
-  %128 = getelementptr inbounds nuw i16, ptr %167, i64 %indvars.iv232
+  %128 = getelementptr inbounds nuw [2 x i8], ptr %167, i64 %indvars.iv232
   store i16 %126, ptr %128, align 2, !tbaa !180
   %indvars.iv.next233 = add nuw nsw i64 %indvars.iv232, 1
   %129 = trunc nuw nsw i64 %indvars.iv.next233 to i32
@@ -3060,7 +3058,7 @@ _ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialR
   tail call void @llvm.assume(i1 %160)
   tail call void @llvm.assume(i1 %93)
   tail call void @llvm.assume(i1 %95)
-  %161 = getelementptr inbounds nuw i16, ptr %97, i64 %indvars.iv
+  %161 = getelementptr inbounds nuw [2 x i8], ptr %97, i64 %indvars.iv
   store i16 %159, ptr %161, align 2, !tbaa !180
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %162 = trunc nuw nsw i64 %indvars.iv.next to i32
@@ -3071,7 +3069,7 @@ _ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialR
   %164 = add nuw nsw i64 %indvars.iv235, 1
   %165 = icmp samesign ult i64 %164, %91
   %166 = mul nuw nsw i64 %164, %92
-  %167 = getelementptr inbounds nuw i16, ptr %9, i64 %166
+  %167 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %166
   br label %98
 
 ._crit_edge185.us.us:                             ; preds = %_ZN8rawspeed11BitStreamerINS_14BitStreamerMSBENS_39BitStreamerForwardSequentialReplenisherIS1_EEE7getBitsEi.exit96.us.us
@@ -3209,7 +3207,7 @@ define hidden void @_ZNK8rawspeed10NefDecoder15DecodeNikonSNefENS_10ByteStreamE(
 
 cdce.end.split.us.i:                              ; preds = %74, %.split.us.i
   %indvars.iv87.i = phi i64 [ 0, %.split.us.i ], [ %indvars.iv.next88.i, %74 ]
-  %58 = getelementptr inbounds nuw i16, ptr %41, i64 %indvars.iv87.i
+  %58 = getelementptr inbounds nuw [2 x i8], ptr %41, i64 %indvars.iv87.i
   store i16 -1, ptr %58, align 2, !tbaa !180, !noalias !188
   %59 = trunc nuw nsw i64 %indvars.iv87.i to i32
   %60 = uitofp nneg i32 %59 to double
@@ -3245,7 +3243,7 @@ cdce.end.split.us.i:                              ; preds = %74, %.split.us.i
 
 _ZN8rawspeed10NefDecoder10gammaCurveEddi.exit:    ; preds = %74, %_ZN8rawspeed10NefDecoder10gammaCurveEddi.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN8rawspeed10NefDecoder10gammaCurveEddi.exit ], [ 0, %74 ]
-  %75 = getelementptr inbounds nuw i16, ptr %41, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [2 x i8], ptr %41, i64 %indvars.iv
   %76 = load i16, ptr %75, align 2, !tbaa !180
   %77 = zext i16 %76 to i32
   %78 = shl nuw nsw i32 %77, 2
@@ -3420,7 +3418,7 @@ _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %_ZN8rawspeed18RawIm
   %164 = or disjoint i32 %163, %159
   store i32 %164, ptr %7, align 4, !tbaa !30
   %165 = mul nuw nsw i64 %indvars.iv706, %126
-  %166 = getelementptr inbounds nuw i16, ptr %90, i64 %165
+  %166 = getelementptr inbounds nuw [2 x i8], ptr %90, i64 %165
   br label %168
 
 167:                                              ; preds = %328
@@ -3532,7 +3530,7 @@ _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %_ZN8rawspeed18RawIm
   %250 = add nsw i32 %201, -2048
   %251 = sitofp i32 %250 to float
   %252 = load i16, ptr %6, align 2, !tbaa !180
-  %253 = getelementptr inbounds nuw i16, ptr %166, i64 %indvars.iv703
+  %253 = getelementptr inbounds nuw [2 x i8], ptr %166, i64 %indvars.iv703
   %254 = zext i16 %252 to i32
   %255 = mul nsw i32 %254, %82
   %256 = add nsw i32 %255, 512
@@ -3543,7 +3541,7 @@ _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %_ZN8rawspeed18RawIm
   store i16 %259, ptr %253, align 2, !tbaa !180
   %260 = load ptr, ptr %8, align 8, !tbaa !24
   %261 = fpext float %251 to double
-  %262 = getelementptr inbounds nuw i16, ptr %166, i64 %172
+  %262 = getelementptr inbounds nuw [2 x i8], ptr %166, i64 %172
   %263 = call double @llvm.fmuladd.f64(double %261, double -3.376330e-01, double %240)
   %264 = call double @llvm.fmuladd.f64(double %241, double -6.980010e-01, double %263)
   %265 = fptosi double %264 to i32
@@ -3571,7 +3569,7 @@ _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %_ZN8rawspeed18RawIm
 
 280:                                              ; preds = %271
   %281 = load i16, ptr %6, align 2, !tbaa !180
-  %282 = getelementptr inbounds nuw i16, ptr %166, i64 %176
+  %282 = getelementptr inbounds nuw [2 x i8], ptr %166, i64 %176
   %283 = zext i16 %281 to i32
   %284 = mul nsw i32 %283, %84
   %285 = add nsw i32 %284, 512
@@ -3596,7 +3594,7 @@ _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %_ZN8rawspeed18RawIm
 
 299:                                              ; preds = %280
   %300 = load i16, ptr %6, align 2, !tbaa !180
-  %301 = getelementptr inbounds nuw i16, ptr %166, i64 %180
+  %301 = getelementptr inbounds nuw [2 x i8], ptr %166, i64 %180
   %302 = zext i16 %300 to i32
   %303 = mul nsw i32 %302, %82
   %304 = add nsw i32 %303, 512
@@ -3607,7 +3605,7 @@ _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %_ZN8rawspeed18RawIm
   store i16 %307, ptr %301, align 2, !tbaa !180
   %308 = load ptr, ptr %8, align 8, !tbaa !24
   %309 = fpext float %237 to double
-  %310 = getelementptr inbounds nuw i16, ptr %166, i64 %184
+  %310 = getelementptr inbounds nuw [2 x i8], ptr %166, i64 %184
   %311 = call double @llvm.fmuladd.f64(double %309, double -3.376330e-01, double %290)
   %312 = call double @llvm.fmuladd.f64(double %291, double -6.980010e-01, double %311)
   %313 = fptosi double %312 to i32
@@ -3635,7 +3633,7 @@ _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %_ZN8rawspeed18RawIm
 
 328:                                              ; preds = %319
   %329 = load i16, ptr %6, align 2, !tbaa !180
-  %330 = getelementptr inbounds nuw i16, ptr %166, i64 %187
+  %330 = getelementptr inbounds nuw [2 x i8], ptr %166, i64 %187
   %331 = zext i16 %329 to i32
   %332 = mul nsw i32 %331, %84
   %333 = add nsw i32 %332, 512
@@ -5397,7 +5395,7 @@ cdce.end.split.us.preheader:                      ; preds = %38
 
 cdce.end.split.us:                                ; preds = %cdce.end.split.us.preheader, %65
   %indvars.iv87 = phi i64 [ 0, %cdce.end.split.us.preheader ], [ %indvars.iv.next88, %65 ]
-  %49 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv87
+  %49 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv87
   store i16 -1, ptr %49, align 2, !tbaa !180
   %50 = trunc nuw nsw i64 %indvars.iv87 to i32
   %51 = uitofp nneg i32 %50 to double
@@ -5433,7 +5431,7 @@ cdce.end.split.us:                                ; preds = %cdce.end.split.us.p
 
 cdce.end.split:                                   ; preds = %cdce.end.split.preheader, %82
   %indvars.iv = phi i64 [ 0, %cdce.end.split.preheader ], [ %indvars.iv.next, %82 ]
-  %66 = getelementptr inbounds nuw i16, ptr %4, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv
   store i16 -1, ptr %66, align 2, !tbaa !180
   %67 = trunc nuw nsw i64 %indvars.iv to i32
   %68 = uitofp nneg i32 %67 to double

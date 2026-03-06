@@ -213,7 +213,7 @@ define noundef zeroext i1 @_ZN10test_utils13assert_linear12AssertLinear10next_ro
   %33 = load i64, ptr %32, align 8, !noundef !19
   %.not = icmp eq i64 %33, 0
   %34 = load ptr, ptr %31, align 8, !nonnull !19
-  %35 = getelementptr { { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, i8, [7 x i8] }, ptr %34, i64 %33
+  %35 = getelementptr [56 x i8], ptr %34, i64 %33
   %36 = getelementptr i8, ptr %35, i64 -56
   %.not1719 = icmp eq ptr %36, null
   %.not17 = select i1 %.not, i1 true, i1 %.not1719
@@ -227,7 +227,7 @@ define noundef zeroext i1 @_ZN10test_utils13assert_linear12AssertLinear10next_ro
   %39 = load ptr, ptr %38, align 8, !alias.scope !34, !nonnull !19, !noundef !19
   %40 = getelementptr i8, ptr %35, i64 -40
   %41 = load i64, ptr %40, align 8, !alias.scope !34, !noundef !19
-  %42 = getelementptr inbounds { double, double }, ptr %39, i64 %41
+  %42 = getelementptr inbounds [16 x i8], ptr %39, i64 %41
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !37
   store i64 0, ptr %10, align 8, !alias.scope !40, !noalias !37
   %.sroa.4.0..sroa_idx2.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -340,10 +340,10 @@ _ZN10test_utils13assert_linear5Round6finish9normalize17hc2964a923d61e5c4E.exit.i
 _ZN10test_utils13assert_linear5Round6finish9normalize17hc2964a923d61e5c4E.exit172.i: ; preds = %.noexc171.i
   %75 = load ptr, ptr %48, align 8, !noalias !34, !nonnull !19, !noundef !19
   %76 = load i64, ptr %50, align 8, !noalias !34, !noundef !19
-  %77 = getelementptr inbounds double, ptr %75, i64 %76
+  %77 = getelementptr inbounds [8 x i8], ptr %75, i64 %76
   %78 = load ptr, ptr %62, align 8, !noalias !34, !nonnull !19, !noundef !19
   %79 = load i64, ptr %64, align 8, !noalias !34, !noundef !19
-  %80 = getelementptr inbounds double, ptr %78, i64 %79
+  %80 = getelementptr inbounds [8 x i8], ptr %78, i64 %79
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !67
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !67
   store ptr %75, ptr %9, align 8, !noalias !70
@@ -378,7 +378,7 @@ _ZN10test_utils13assert_linear5Round6finish9normalize17hc2964a923d61e5c4E.exit17
 .preheader.i.i:                                   ; preds = %84, %.preheader.i.i
   %.017.i.i.i = phi double [ %91, %.preheader.i.i ], [ 0.000000e+00, %84 ]
   %.016.i.i.i = phi i64 [ %92, %.preheader.i.i ], [ 0, %84 ]
-  %90 = getelementptr inbounds double, ptr %87, i64 %.016.i.i.i
+  %90 = getelementptr inbounds [8 x i8], ptr %87, i64 %.016.i.i.i
   %.val.i.i.i = load double, ptr %90, align 8, !alias.scope !79, !noalias !34, !noundef !19
   %91 = fadd double %.017.i.i.i, %.val.i.i.i
   %92 = add nuw i64 %.016.i.i.i, 1
@@ -397,7 +397,7 @@ _ZN10test_utils13assert_linear5Round6finish9normalize17hc2964a923d61e5c4E.exit17
 .preheader.i175.i:                                ; preds = %.loopexit238.i, %.preheader.i175.i
   %.017.i.i176.i = phi double [ %100, %.preheader.i175.i ], [ 0.000000e+00, %.loopexit238.i ]
   %.016.i.i177.i = phi i64 [ %101, %.preheader.i175.i ], [ 0, %.loopexit238.i ]
-  %99 = getelementptr inbounds double, ptr %96, i64 %.016.i.i177.i
+  %99 = getelementptr inbounds [8 x i8], ptr %96, i64 %.016.i.i177.i
   %.val.i.i178.i = load double, ptr %99, align 8, !alias.scope !82, !noalias !34, !noundef !19
   %100 = fadd double %.017.i.i176.i, %.val.i.i178.i
   %101 = add nuw i64 %.016.i.i177.i, 1
@@ -479,9 +479,9 @@ _ZN10test_utils13assert_linear5Round6finish9normalize17hc2964a923d61e5c4E.exit17
   %.0160242.i = phi double [ %121, %.lr.ph.i ], [ 0.000000e+00, %.loopexit237.i ]
   %.sroa.8.0241.i = phi i64 [ %113, %.lr.ph.i ], [ 0, %.loopexit237.i ]
   %113 = add nuw i64 %.sroa.8.0241.i, 1
-  %114 = getelementptr inbounds double, ptr %86, i64 %.sroa.8.0241.i
+  %114 = getelementptr inbounds [8 x i8], ptr %86, i64 %.sroa.8.0241.i
   %115 = load double, ptr %114, align 8, !noalias !97, !noundef !19
-  %116 = getelementptr inbounds double, ptr %78, i64 %.sroa.8.0241.i
+  %116 = getelementptr inbounds [8 x i8], ptr %78, i64 %.sroa.8.0241.i
   %117 = load double, ptr %116, align 8, !noalias !103, !noundef !19
   %118 = fsub double %115, %95
   %119 = fsub double %117, %104
@@ -627,9 +627,9 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i:  ; preds = %._crit_edge.i
   %163 = phi double [ 0.000000e+00, %.lr.ph248.i ], [ %174, %204 ]
   %.0158246.i = phi double [ 0.000000e+00, %.lr.ph248.i ], [ %208, %204 ]
   %.sroa.8221.0245.i = phi i64 [ 0, %.lr.ph248.i ], [ %205, %204 ]
-  %164 = getelementptr inbounds double, ptr %86, i64 %.sroa.8221.0245.i
+  %164 = getelementptr inbounds [8 x i8], ptr %86, i64 %.sroa.8221.0245.i
   %165 = load double, ptr %164, align 8, !noalias !116, !noundef !19
-  %166 = getelementptr inbounds double, ptr %78, i64 %.sroa.8221.0245.i
+  %166 = getelementptr inbounds [8 x i8], ptr %78, i64 %.sroa.8221.0245.i
   %167 = load double, ptr %166, align 8, !noalias !122, !noundef !19
   call void @llvm.lifetime.start.p0(ptr nonnull %20), !noalias !34
   store double %165, ptr %20, align 8, !noalias !34
@@ -841,7 +841,7 @@ _ZN10test_utils13assert_linear5Round6finish17h5a7e93756c5e4a83E.exit: ; preds = 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hdd8952bf5ef8ef0aE.exit": ; preds = %218, %._crit_edge.i18
   %227 = phi ptr [ %.pre, %._crit_edge.i18 ], [ %34, %218 ]
   %228 = phi i64 [ %.pre.i, %._crit_edge.i18 ], [ %33, %218 ]
-  %229 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, i8, [7 x i8] }, ptr %227, i64 %228
+  %229 = getelementptr inbounds [56 x i8], ptr %227, i64 %228
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %229, ptr noundef nonnull align 8 dereferenceable(56) %30, i64 56, i1 false)
   %230 = load i64, ptr %32, align 8, !alias.scope !143, !noalias !146, !noundef !19
   %231 = add i64 %230, 1
@@ -861,7 +861,7 @@ define void @_ZN10test_utils13assert_linear12AssertLinear6sample17h7931690463870
   %.not = icmp eq i64 %5, 0
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !nonnull !19
-  %8 = getelementptr { { { i64, ptr, {} }, i64 }, { { { i64, ptr, {} }, i64 } }, i8, [7 x i8] }, ptr %7, i64 %5
+  %8 = getelementptr [56 x i8], ptr %7, i64 %5
   %9 = getelementptr i8, ptr %8, i64 -56
   %10 = icmp eq ptr %9, null
   %11 = select i1 %.not, i1 true, i1 %10
@@ -887,7 +887,7 @@ define void @_ZN10test_utils13assert_linear12AssertLinear6sample17h7931690463870
   %19 = phi i64 [ %.pre.i, %18 ], [ %15, %13 ]
   %20 = getelementptr i8, ptr %8, i64 -48
   %21 = load ptr, ptr %20, align 8, !alias.scope !148, !nonnull !19, !noundef !19
-  %22 = getelementptr inbounds { double, double }, ptr %21, i64 %19
+  %22 = getelementptr inbounds [16 x i8], ptr %21, i64 %19
   store double %1, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store double %2, ptr %23, align 8

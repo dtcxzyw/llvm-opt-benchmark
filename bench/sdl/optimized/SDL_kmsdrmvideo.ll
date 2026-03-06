@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._drmEventContext = type { i32, ptr, ptr, ptr, ptr }
 %struct.pollfd = type { i32, i16, i16 }
 %struct.SDL_DisplayMode = type { i32, i32, i32, i32, float, float, i32, i32, ptr }
-%struct._drmModeModeInfo = type { i32, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i32, i32, i32, [32 x i8] }
 %struct.SDL_VideoDisplay = type { i32, ptr, i32, i32, ptr, %struct.SDL_DisplayMode, ptr, i32, i32, float, %struct.SDL_HDROutputProperties, i8, ptr, ptr, i32, ptr }
 %struct.SDL_HDROutputProperties = type { float, float }
 %struct.SDL_Rect = type { i32, i32, i32, i32 }
@@ -319,19 +318,19 @@ define hidden ptr @KMSDRM_FBFromBO(ptr noundef readonly captures(none) %0, ptr n
   %45 = load ptr, ptr @KMSDRM_gbm_bo_get_stride_for_plane, align 8
   %46 = trunc nuw nsw i64 %indvars.iv to i32
   %47 = tail call i32 %45(ptr noundef %1, i32 noundef %46) #13
-  %48 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   store i32 %47, ptr %48, align 4
   %49 = load ptr, ptr @KMSDRM_gbm_bo_get_handle_for_plane, align 8
   %50 = tail call ptr %49(ptr noundef %1, i32 noundef %46) #13
   %51 = ptrtoint ptr %50 to i64
   %.sroa.013.0.extract.trunc = trunc i64 %51 to i32
-  %52 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   store i32 %.sroa.013.0.extract.trunc, ptr %52, align 4
   %53 = load ptr, ptr @KMSDRM_gbm_bo_get_offset, align 8
   %54 = tail call i32 %53(ptr noundef %1, i32 noundef %46) #13
-  %55 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   store i32 %54, ptr %55, align 4
-  %56 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   store i64 %35, ptr %56, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -571,7 +570,7 @@ KMSDRM_GetClosestDisplayMode.exit.i:              ; preds = %30
 
 41:                                               ; preds = %KMSDRM_GetClosestDisplayMode.exit.i
   %42 = sext i32 %40 to i64
-  %43 = getelementptr inbounds %struct._drmModeModeInfo, ptr %39, i64 %42
+  %43 = getelementptr inbounds [68 x i8], ptr %39, i64 %42
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %21, ptr noundef nonnull align 4 dereferenceable(68) %43, i64 68, i1 false)
   br label %KMSDRM_GetModeToSet.exit
 
@@ -822,7 +821,7 @@ define hidden zeroext i1 @KMSDRM_VideoInit(ptr noundef %0) #0 {
   %41 = load ptr, ptr @KMSDRM_drmModeGetConnector, align 8
   %42 = load i32, ptr %15, align 4
   %43 = load ptr, ptr %24, align 8
-  %44 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv.i
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv.i
   %45 = load i32, ptr %44, align 4
   %46 = call ptr %41(i32 noundef %42, i32 noundef %45) #13
   %.not44.i = icmp eq ptr %46, null
@@ -879,7 +878,7 @@ define hidden zeroext i1 @KMSDRM_VideoInit(ptr noundef %0) #0 {
   %68 = load ptr, ptr @KMSDRM_drmModeGetEncoder, align 8
   %69 = load i32, ptr %62, align 4
   %70 = load ptr, ptr %26, align 8
-  %71 = getelementptr inbounds nuw i32, ptr %70, i64 %indvars.iv.i.i
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %indvars.iv.i.i
   %72 = load i32, ptr %71, align 4
   %73 = call ptr %68(i32 noundef %69, i32 noundef %72) #13
   %.not.i.i = icmp eq ptr %73, null
@@ -908,7 +907,7 @@ define hidden zeroext i1 @KMSDRM_VideoInit(ptr noundef %0) #0 {
   %85 = load ptr, ptr @KMSDRM_drmModeGetEncoder, align 8
   %86 = load i32, ptr %62, align 4
   %87 = load ptr, ptr %26, align 8
-  %88 = getelementptr inbounds nuw i32, ptr %87, i64 %indvars.iv94.i.i
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %indvars.iv94.i.i
   %89 = load i32, ptr %88, align 4
   %90 = call ptr %85(i32 noundef %86, i32 noundef %89) #13
   %.not161.i.i = icmp eq ptr %90, null
@@ -927,7 +926,7 @@ define hidden zeroext i1 @KMSDRM_VideoInit(ptr noundef %0) #0 {
 
 95:                                               ; preds = %99, %.lr.ph56.i.i
   %indvars.iv91.i.i = phi i64 [ 0, %.lr.ph56.i.i ], [ %indvars.iv.next92.i.i, %99 ]
-  %96 = getelementptr inbounds nuw i32, ptr %93, i64 %indvars.iv91.i.i
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %indvars.iv91.i.i
   %97 = load i32, ptr %96, align 4
   %98 = icmp eq i32 %97, %94
   br i1 %98, label %._crit_edge.loopexit.i.i, label %99
@@ -997,7 +996,7 @@ define hidden zeroext i1 @KMSDRM_VideoInit(ptr noundef %0) #0 {
 121:                                              ; preds = %116
   %122 = load ptr, ptr %28, align 8
   %123 = zext nneg i32 %.213463.i.i to i64
-  %124 = getelementptr inbounds nuw i32, ptr %122, i64 %123
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %122, i64 %123
   %125 = load i32, ptr %124, align 4
   store i32 %125, ptr %109, align 4
   %126 = load ptr, ptr @KMSDRM_drmModeGetCrtc, align 8
@@ -1026,7 +1025,7 @@ define hidden zeroext i1 @KMSDRM_VideoInit(ptr noundef %0) #0 {
 135:                                              ; preds = %139, %.lr.ph66.i.i
   %indvars.iv98.i.i = phi i64 [ 0, %.lr.ph66.i.i ], [ %indvars.iv.next99.i.i, %139 ]
   %136 = load ptr, ptr %129, align 8
-  %137 = getelementptr inbounds nuw %struct._drmModeModeInfo, ptr %136, i64 %indvars.iv98.i.i
+  %137 = getelementptr inbounds nuw [68 x i8], ptr %136, i64 %indvars.iv98.i.i
   %138 = call i32 @SDL_memcmp_REAL(ptr noundef %137, ptr noundef nonnull %132, i64 noundef 68) #13
   %.not167.i.i = icmp eq i32 %138, 0
   br i1 %.not167.i.i, label %.thread25.loopexit.i.i, label %139
@@ -1051,7 +1050,7 @@ define hidden zeroext i1 @KMSDRM_VideoInit(ptr noundef %0) #0 {
   %indvars.iv101.i.i = phi i64 [ 0, %.lr.ph74.i.i ], [ %indvars.iv.next102.i.i, %150 ]
   %.073.i.i = phi i32 [ 0, %.lr.ph74.i.i ], [ %spec.select177.i.i, %150 ]
   %.414171.i.i = phi i32 [ -1, %.lr.ph74.i.i ], [ %spec.select.i.i, %150 ]
-  %146 = getelementptr inbounds nuw %struct._drmModeModeInfo, ptr %144, i64 %indvars.iv101.i.i
+  %146 = getelementptr inbounds nuw [68 x i8], ptr %144, i64 %indvars.iv101.i.i
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 32
   %148 = load i32, ptr %147, align 4
   %149 = and i32 %148, 8
@@ -1085,7 +1084,7 @@ define hidden zeroext i1 @KMSDRM_VideoInit(ptr noundef %0) #0 {
 .thread19.i.i:                                    ; preds = %.thread19.loopexit.i.i, %._crit_edge75.i.i
   %.514222.i.i = phi i32 [ %160, %.thread19.loopexit.i.i ], [ %spec.select.i.i, %._crit_edge75.i.i ]
   %161 = sext i32 %.514222.i.i to i64
-  %162 = getelementptr inbounds %struct._drmModeModeInfo, ptr %144, i64 %161
+  %162 = getelementptr inbounds [68 x i8], ptr %144, i64 %161
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(68) %132, ptr noundef nonnull align 4 dereferenceable(68) %162, i64 68, i1 false)
   br label %.thread25.i.i
 
@@ -1143,7 +1142,7 @@ define hidden zeroext i1 @KMSDRM_VideoInit(ptr noundef %0) #0 {
 188:                                              ; preds = %184
   %189 = load ptr, ptr @KMSDRM_drmModeGetProperty, align 8
   %190 = load ptr, ptr %183, align 8
-  %191 = getelementptr inbounds nuw i32, ptr %190, i64 %indvars.iv.i.i.i.i.i
+  %191 = getelementptr inbounds nuw [4 x i8], ptr %190, i64 %indvars.iv.i.i.i.i.i
   %192 = load i32, ptr %191, align 4
   %193 = call ptr %189(i32 noundef %178, i32 noundef %192) #13
   %.not14.i.i.i.i.i = icmp eq ptr %193, null
@@ -1194,7 +1193,7 @@ define hidden zeroext i1 @KMSDRM_VideoInit(ptr noundef %0) #0 {
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %226 ]
   %211 = load ptr, ptr @KMSDRM_drmModeGetProperty, align 8
   %212 = load ptr, ptr %208, align 8
-  %213 = getelementptr inbounds nuw i32, ptr %212, i64 %indvars.iv.i.i.i
+  %213 = getelementptr inbounds nuw [4 x i8], ptr %212, i64 %indvars.iv.i.i.i
   %214 = load i32, ptr %213, align 4
   %215 = call ptr %211(i32 noundef %178, i32 noundef %214) #13
   %.not23.i.i.i = icmp eq ptr %215, null
@@ -1203,7 +1202,7 @@ define hidden zeroext i1 @KMSDRM_VideoInit(ptr noundef %0) #0 {
 216:                                              ; preds = %210
   %217 = load i32, ptr %215, align 8
   %218 = load ptr, ptr %209, align 8
-  %219 = getelementptr inbounds nuw i64, ptr %218, i64 %indvars.iv.i.i.i
+  %219 = getelementptr inbounds nuw [8 x i8], ptr %218, i64 %indvars.iv.i.i.i
   %220 = load i64, ptr %219, align 8
   %221 = load ptr, ptr @KMSDRM_drmModeFreeProperty, align 8
   call void %221(ptr noundef nonnull %215) #13
@@ -1244,7 +1243,7 @@ KMSDRM_CrtcGetVrr.exit.i.i:                       ; preds = %226, %223, %.prehea
   %indvars.iv.i18077.i.i = phi i64 [ %indvars.iv.next.i182.i.i, %.backedge.i.i.i ], [ 0, %.preheader.i179.i.i ]
   %238 = load ptr, ptr @KMSDRM_drmModeGetProperty, align 8
   %239 = load ptr, ptr %235, align 8
-  %240 = getelementptr inbounds nuw i32, ptr %239, i64 %indvars.iv.i18077.i.i
+  %240 = getelementptr inbounds nuw [4 x i8], ptr %239, i64 %indvars.iv.i18077.i.i
   %241 = load i32, ptr %240, align 4
   %242 = call ptr %238(i32 noundef %231, i32 noundef %241) #13
   %.not25.i.i.i = icmp eq ptr %242, null
@@ -1270,7 +1269,7 @@ KMSDRM_CrtcGetVrr.exit.i.i:                       ; preds = %226, %223, %.prehea
 
 KMSDRM_ConnectorCheckVrrCapable.exit.i.i:         ; preds = %243
   %252 = load ptr, ptr %236, align 8
-  %253 = getelementptr inbounds nuw i64, ptr %252, i64 %indvars.iv.i18077.i.i
+  %253 = getelementptr inbounds nuw [8 x i8], ptr %252, i64 %indvars.iv.i18077.i.i
   %254 = load i64, ptr %253, align 8
   %255 = load ptr, ptr @KMSDRM_drmModeFreeProperty, align 8
   call void %255(ptr noundef nonnull %242) #13
@@ -1300,7 +1299,7 @@ KMSDRM_ConnectorCheckVrrCapable.exit.i.i:         ; preds = %243
 267:                                              ; preds = %263
   %268 = load ptr, ptr @KMSDRM_drmModeGetProperty, align 8
   %269 = load ptr, ptr %262, align 8
-  %270 = getelementptr inbounds nuw i32, ptr %269, i64 %indvars.iv.i.i.i184.i.i
+  %270 = getelementptr inbounds nuw [4 x i8], ptr %269, i64 %indvars.iv.i.i.i184.i.i
   %271 = load i32, ptr %270, align 4
   %272 = call ptr %268(i32 noundef %257, i32 noundef %271) #13
   %.not14.i.i.i186.i.i = icmp eq ptr %272, null
@@ -1447,7 +1446,7 @@ CalculateRefreshRate.exit.i.i:                    ; preds = %325, %320
 342:                                              ; preds = %338
   %343 = load ptr, ptr @KMSDRM_drmModeGetProperty, align 8
   %344 = load ptr, ptr %337, align 8
-  %345 = getelementptr inbounds nuw i32, ptr %344, i64 %indvars.iv.i.i.i193.i.i
+  %345 = getelementptr inbounds nuw [4 x i8], ptr %344, i64 %indvars.iv.i.i.i193.i.i
   %346 = load i32, ptr %345, align 4
   %347 = call ptr %343(i32 noundef %332, i32 noundef %346) #13
   %.not14.i.i.i201.i.i = icmp eq ptr %347, null
@@ -1498,7 +1497,7 @@ CalculateRefreshRate.exit.i.i:                    ; preds = %325, %320
   %.02440.i.i.i = phi i32 [ 0, %.lr.ph.i197.i.i ], [ %.1.i.i.i, %398 ]
   %365 = load ptr, ptr @KMSDRM_drmModeGetProperty, align 8
   %366 = load ptr, ptr %363, align 8
-  %367 = getelementptr inbounds nuw i32, ptr %366, i64 %indvars.iv.i198.i.i
+  %367 = getelementptr inbounds nuw [4 x i8], ptr %366, i64 %indvars.iv.i198.i.i
   %368 = load i32, ptr %367, align 4
   %369 = call ptr %365(i32 noundef %332, i32 noundef %368) #13
   %.not33.i.i.i = icmp eq ptr %369, null
@@ -1690,7 +1689,7 @@ KMSDRM_AddDisplay.exit.i:                         ; preds = %419, %.thread29.i.i
   %448 = phi i32 [ %464, %463 ], [ %442, %.preheader51.i.i ]
   %indvars.iv.i54.i = phi i64 [ %indvars.iv.next.i56.i, %463 ], [ 0, %.preheader51.i.i ]
   %449 = load ptr, ptr %441, align 8
-  %450 = getelementptr inbounds nuw ptr, ptr %449, i64 %indvars.iv.i54.i
+  %450 = getelementptr inbounds nuw [8 x i8], ptr %449, i64 %indvars.iv.i54.i
   %451 = load ptr, ptr %450, align 8
   %.not47.i.i = icmp eq ptr %451, null
   br i1 %.not47.i.i, label %463, label %452
@@ -1709,10 +1708,10 @@ KMSDRM_AddDisplay.exit.i:                         ; preds = %419, %.thread29.i.i
 457:                                              ; preds = %452
   %458 = add nsw i32 %.03558.i.i, 1
   %459 = sext i32 %.03558.i.i to i64
-  %460 = getelementptr inbounds ptr, ptr %436, i64 %459
+  %460 = getelementptr inbounds [8 x i8], ptr %436, i64 %459
   store ptr %451, ptr %460, align 8
   %461 = load ptr, ptr %441, align 8
-  %462 = getelementptr inbounds nuw ptr, ptr %461, i64 %indvars.iv.i54.i
+  %462 = getelementptr inbounds nuw [8 x i8], ptr %461, i64 %indvars.iv.i54.i
   store ptr null, ptr %462, align 8
   br label %.loopexit.i.i
 
@@ -1738,7 +1737,7 @@ KMSDRM_AddDisplay.exit.i:                         ; preds = %419, %.thread29.i.i
 470:                                              ; preds = %477, %.lr.ph61.i.i
   %indvars.iv67.i.i = phi i64 [ 0, %.lr.ph61.i.i ], [ %indvars.iv.next68.i.i, %477 ]
   %.459.i.i = phi i32 [ %.035.lcssa.i.i, %.lr.ph61.i.i ], [ %.5.i.i, %477 ]
-  %471 = getelementptr inbounds nuw ptr, ptr %447, i64 %indvars.iv67.i.i
+  %471 = getelementptr inbounds nuw [8 x i8], ptr %447, i64 %indvars.iv67.i.i
   %472 = load ptr, ptr %471, align 8
   %.not46.i.i = icmp eq ptr %472, null
   br i1 %.not46.i.i, label %477, label %473
@@ -1746,7 +1745,7 @@ KMSDRM_AddDisplay.exit.i:                         ; preds = %419, %.thread29.i.i
 473:                                              ; preds = %470
   %474 = add nsw i32 %.459.i.i, 1
   %475 = sext i32 %.459.i.i to i64
-  %476 = getelementptr inbounds ptr, ptr %436, i64 %475
+  %476 = getelementptr inbounds [8 x i8], ptr %436, i64 %475
   store ptr %472, ptr %476, align 8
   br label %477
 
@@ -1863,7 +1862,7 @@ define internal void @KMSDRM_ReleaseVT(ptr noundef %0) #0 {
   %9 = phi i32 [ %5, %.lr.ph ], [ %18, %17 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
   %10 = load ptr, ptr %7, align 8
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 72
   %14 = load i64, ptr %13, align 8
@@ -1912,7 +1911,7 @@ define internal void @KMSDRM_AcquireVT(ptr noundef %0) #0 {
   %13 = phi i32 [ %9, %.lr.ph ], [ %23, %22 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 72
   %18 = load i64, ptr %17, align 8
@@ -1981,7 +1980,7 @@ define hidden void @KMSDRM_VideoQuit(ptr noundef readonly captures(none) %0) #0 
 
 .critedge.i:                                      ; preds = %15, %12, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %17 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.next.i
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.next.i
   %18 = load i32, ptr %17, align 4
   %.not24.i = icmp eq i32 %18, 0
   br i1 %.not24.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !24
@@ -2051,7 +2050,7 @@ define hidden noundef zeroext i1 @KMSDRM_GetDisplayModes(ptr readnone captures(n
 21:                                               ; preds = %19, %17
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 40, i1 false)
   %22 = load ptr, ptr %10, align 8
-  %23 = getelementptr inbounds nuw %struct._drmModeModeInfo, ptr %22, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [68 x i8], ptr %22, i64 %indvars.iv
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %25 = load i16, ptr %24, align 4
   %26 = zext i16 %25 to i32
@@ -2160,7 +2159,7 @@ define hidden zeroext i1 @KMSDRM_SetDisplayMode(ptr noundef readonly captures(no
   %21 = load ptr, ptr %20, align 8
   %22 = load i32, ptr %10, align 4
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds %struct._drmModeModeInfo, ptr %21, i64 %23
+  %24 = getelementptr inbounds [68 x i8], ptr %21, i64 %23
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %19, ptr noundef nonnull align 4 dereferenceable(68) %24, i64 68, i1 false)
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 68
   %26 = load i32, ptr %25, align 4
@@ -2175,7 +2174,7 @@ define hidden zeroext i1 @KMSDRM_SetDisplayMode(ptr noundef readonly captures(no
 30:                                               ; preds = %.lr.ph, %KMSDRM_DirtySurfaces.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %KMSDRM_DirtySurfaces.exit ]
   %31 = load ptr, ptr %28, align 8
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 392
   %35 = load ptr, ptr %34, align 8
@@ -2220,7 +2219,7 @@ KMSDRM_GetClosestDisplayMode.exit.i.i:            ; preds = %44
 
 54:                                               ; preds = %KMSDRM_GetClosestDisplayMode.exit.i.i
   %55 = sext i32 %53 to i64
-  %56 = getelementptr inbounds %struct._drmModeModeInfo, ptr %52, i64 %55
+  %56 = getelementptr inbounds [68 x i8], ptr %52, i64 %55
   %.sroa.5.0..sroa_idx6.i = getelementptr inbounds nuw i8, ptr %56, i64 4
   %.sroa.612.0..sroa_idx13.i = getelementptr inbounds nuw i8, ptr %56, i64 14
   br label %KMSDRM_DirtySurfaces.exit
@@ -2293,7 +2292,7 @@ define hidden void @KMSDRM_DestroyWindow(ptr noundef %0, ptr noundef %1) #0 {
 27:                                               ; preds = %23
   %28 = load ptr, ptr @KMSDRM_drmModeGetProperty, align 8
   %29 = load ptr, ptr %22, align 8
-  %30 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv.i.i.i
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv.i.i.i
   %31 = load i32, ptr %30, align 4
   %32 = tail call ptr %28(i32 noundef %12, i32 noundef %31) #13
   %.not14.i.i.i = icmp eq ptr %32, null
@@ -2431,7 +2430,7 @@ KMSDRM_GBMDeinit.exit:                            ; preds = %68, %72, %KMSDRM_Dr
 
 96:                                               ; preds = %.lr.ph, %111
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %111 ]
-  %97 = getelementptr inbounds nuw ptr, ptr %95, i64 %indvars.iv
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %indvars.iv
   %98 = load ptr, ptr %97, align 8
   %99 = icmp eq ptr %98, %1
   br i1 %99, label %100, label %111
@@ -2447,9 +2446,9 @@ KMSDRM_GBMDeinit.exit:                            ; preds = %68, %72, %KMSDRM_Dr
   %indvars.iv57 = phi i64 [ %indvars.iv.next58, %.lr.ph51 ], [ %indvars.iv, %100 ]
   %104 = load ptr, ptr %94, align 8
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
-  %105 = getelementptr inbounds nuw ptr, ptr %104, i64 %indvars.iv.next58
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 %indvars.iv.next58
   %106 = load ptr, ptr %105, align 8
-  %107 = getelementptr inbounds nuw ptr, ptr %104, i64 %indvars.iv57
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 %indvars.iv57
   store ptr %106, ptr %107, align 8
   %108 = load i32, ptr %92, align 4
   %109 = zext i32 %108 to i64
@@ -2632,7 +2631,7 @@ KMSDRM_GetClosestDisplayMode.exit:                ; preds = %72
 
 84:                                               ; preds = %KMSDRM_GetClosestDisplayMode.exit
   %85 = sext i32 %83 to i64
-  %86 = getelementptr inbounds %struct._drmModeModeInfo, ptr %82, i64 %85
+  %86 = getelementptr inbounds [68 x i8], ptr %82, i64 %85
   %87 = getelementptr inbounds nuw i8, ptr %10, i64 152
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(68) %87, ptr noundef nonnull align 4 dereferenceable(68) %86, i64 68, i1 false)
   br label %91
@@ -2686,7 +2685,7 @@ KMSDRM_GetClosestDisplayMode.exit:                ; preds = %72
   %111 = add nsw i32 %109, 1
   store i32 %111, ptr %96, align 4
   %112 = sext i32 %109 to i64
-  %113 = getelementptr inbounds ptr, ptr %110, i64 %112
+  %113 = getelementptr inbounds [8 x i8], ptr %110, i64 %112
   store ptr %1, ptr %113, align 8
   store i8 %15, ptr %16, align 1
   %114 = call i32 @SDL_GetWindowProperties_REAL(ptr noundef nonnull %1) #13
@@ -2808,7 +2807,7 @@ KMSDRM_GetClosestDisplayMode.exit.i.i:            ; preds = %20
 
 31:                                               ; preds = %KMSDRM_GetClosestDisplayMode.exit.i.i
   %32 = sext i32 %30 to i64
-  %33 = getelementptr inbounds %struct._drmModeModeInfo, ptr %29, i64 %32
+  %33 = getelementptr inbounds [68 x i8], ptr %29, i64 %32
   %.sroa.5.0..sroa_idx6.i = getelementptr inbounds nuw i8, ptr %33, i64 4
   %.sroa.612.0..sroa_idx13.i = getelementptr inbounds nuw i8, ptr %33, i64 14
   br label %KMSDRM_DirtySurfaces.exit
@@ -2887,7 +2886,7 @@ KMSDRM_GetClosestDisplayMode.exit.i.i:            ; preds = %22
 
 33:                                               ; preds = %KMSDRM_GetClosestDisplayMode.exit.i.i
   %34 = sext i32 %32 to i64
-  %35 = getelementptr inbounds %struct._drmModeModeInfo, ptr %31, i64 %34
+  %35 = getelementptr inbounds [68 x i8], ptr %31, i64 %34
   %.sroa.5.0..sroa_idx6.i = getelementptr inbounds nuw i8, ptr %35, i64 4
   %.sroa.612.0..sroa_idx13.i = getelementptr inbounds nuw i8, ptr %35, i64 14
   br label %KMSDRM_DirtySurfaces.exit
@@ -3061,7 +3060,7 @@ define internal fastcc i32 @get_driindex() unnamed_addr #0 {
   %.566 = phi i32 [ -2, %.lr.ph ], [ %.6, %94 ]
   %73 = load ptr, ptr @KMSDRM_drmModeGetConnector, align 8
   %74 = load ptr, ptr %71, align 8
-  %75 = getelementptr inbounds nuw i32, ptr %74, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %indvars.iv
   %76 = load i32, ptr %75, align 4
   %77 = call ptr %73(i32 noundef %42, i32 noundef %76) #13
   %.not58 = icmp eq ptr %77, null

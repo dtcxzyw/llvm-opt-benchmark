@@ -302,7 +302,7 @@ gil_flag_to_str.exit:                             ; preds = %111
 
 switch.lookup:                                    ; preds = %111
   %116 = zext nneg i32 %113 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._PyInterpreterConfig_AsDict, i64 %116
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._PyInterpreterConfig_AsDict, i64 %116
   %switch.load = load ptr, ptr %switch.gep, align 8
   %117 = tail call ptr @PyUnicode_FromString(ptr noundef nonnull %switch.load) #6
   %118 = icmp eq ptr %117, null

@@ -3,8 +3,6 @@ source_filename = "bench/graphviz/original/kkutils.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.vtx_data = type { i64, ptr, ptr, ptr, ptr }
-
 @gv_sort_compar = internal thread_local unnamed_addr global ptr null, align 8
 @gv_sort_arg = internal thread_local unnamed_addr global ptr null, align 8
 @stderr = external local_unnamed_addr global ptr, align 8
@@ -14,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define i64 @common_neighbors(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds %struct.vtx_data, ptr %0, i64 %4
+  %5 = getelementptr inbounds [40 x i8], ptr %0, i64 %4
   %6 = load i64, ptr %5, align 8, !tbaa !3
   %7 = icmp ugt i64 %6, 1
   br i1 %7, label %.lr.ph, label %._crit_edge
@@ -31,10 +29,10 @@ define i64 @common_neighbors(ptr noundef readonly captures(none) %0, i32 noundef
 10:                                               ; preds = %.lr.ph, %10
   %.012 = phi i64 [ 1, %.lr.ph ], [ %18, %10 ]
   %.01011 = phi i64 [ 0, %.lr.ph ], [ %spec.select, %10 ]
-  %11 = getelementptr inbounds nuw i32, ptr %9, i64 %.012
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %.012
   %12 = load i32, ptr %11, align 4, !tbaa !12
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds i32, ptr %2, i64 %13
+  %14 = getelementptr inbounds [4 x i8], ptr %2, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !12
   %16 = icmp sgt i32 %15, 0
   %17 = zext i1 %16 to i64
@@ -47,7 +45,7 @@ define i64 @common_neighbors(ptr noundef readonly captures(none) %0, i32 noundef
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @fill_neighbors_vec_unweighted(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #1 {
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds %struct.vtx_data, ptr %0, i64 %4
+  %5 = getelementptr inbounds [40 x i8], ptr %0, i64 %4
   %6 = load i64, ptr %5, align 8, !tbaa !3
   %7 = icmp ugt i64 %6, 1
   br i1 %7, label %.lr.ph, label %._crit_edge
@@ -62,10 +60,10 @@ define void @fill_neighbors_vec_unweighted(ptr noundef readonly captures(none) %
 
 10:                                               ; preds = %.lr.ph, %10
   %.07 = phi i64 [ 1, %.lr.ph ], [ %15, %10 ]
-  %11 = getelementptr inbounds nuw i32, ptr %9, i64 %.07
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %.07
   %12 = load i32, ptr %11, align 4, !tbaa !12
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds i32, ptr %2, i64 %13
+  %14 = getelementptr inbounds [4 x i8], ptr %2, i64 %13
   store i32 1, ptr %14, align 4, !tbaa !12
   %15 = add nuw i64 %.07, 1
   %exitcond.not = icmp eq i64 %15, %6
@@ -75,7 +73,7 @@ define void @fill_neighbors_vec_unweighted(ptr noundef readonly captures(none) %
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define void @empty_neighbors_vec(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #1 {
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds %struct.vtx_data, ptr %0, i64 %4
+  %5 = getelementptr inbounds [40 x i8], ptr %0, i64 %4
   %6 = load i64, ptr %5, align 8, !tbaa !3
   %7 = icmp ugt i64 %6, 1
   br i1 %7, label %.lr.ph, label %._crit_edge
@@ -90,10 +88,10 @@ define void @empty_neighbors_vec(ptr noundef readonly captures(none) %0, i32 nou
 
 10:                                               ; preds = %.lr.ph, %10
   %.07 = phi i64 [ 1, %.lr.ph ], [ %15, %10 ]
-  %11 = getelementptr inbounds nuw i32, ptr %9, i64 %.07
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %.07
   %12 = load i32, ptr %11, align 4, !tbaa !12
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds i32, ptr %2, i64 %13
+  %14 = getelementptr inbounds [4 x i8], ptr %2, i64 %13
   store i32 0, ptr %14, align 4, !tbaa !12
   %15 = add nuw i64 %.07, 1
   %exitcond.not = icmp eq i64 %15, %6
@@ -163,8 +161,8 @@ define noalias noundef ptr @compute_apsp(ptr noundef %0, i32 noundef %1) local_u
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %31 = mul nuw nsw i64 %indvars.iv.i, %30
-  %32 = getelementptr inbounds nuw i32, ptr %11, i64 %31
-  %33 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %31
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv.i
   store ptr %32, ptr %33, align 8, !tbaa !21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %30
@@ -172,7 +170,7 @@ define noalias noundef ptr @compute_apsp(ptr noundef %0, i32 noundef %1) local_u
 
 .lr.ph29.i:                                       ; preds = %.lr.ph.i, %.lr.ph29.i
   %indvars.iv31.i = phi i64 [ %indvars.iv.next32.i, %.lr.ph29.i ], [ 0, %.lr.ph.i ]
-  %34 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv31.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv31.i
   %35 = load ptr, ptr %34, align 8, !tbaa !21
   %36 = trunc nuw nsw i64 %indvars.iv31.i to i32
   tail call void @bfs(i32 noundef %36, ptr noundef nonnull %0, i32 noundef %1, ptr noundef %35) #22
@@ -242,8 +240,8 @@ define internal fastcc noalias noundef ptr @compute_apsp_dijkstra(ptr noundef %0
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %26 = mul nuw nsw i64 %indvars.iv, %25
-  %27 = getelementptr inbounds nuw i32, ptr %6, i64 %26
-  %28 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %26
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
   store ptr %27, ptr %28, align 8, !tbaa !21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %25
@@ -251,7 +249,7 @@ define internal fastcc noalias noundef ptr @compute_apsp_dijkstra(ptr noundef %0
 
 .lr.ph29:                                         ; preds = %.lr.ph29.preheader, %.lr.ph29
   %indvars.iv31 = phi i64 [ 0, %.lr.ph29.preheader ], [ %indvars.iv.next32, %.lr.ph29 ]
-  %29 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv31
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv31
   %30 = load ptr, ptr %29, align 8, !tbaa !21
   %31 = trunc nuw nsw i64 %indvars.iv31 to i32
   tail call void @dijkstra(i32 noundef %31, ptr noundef %0, i32 noundef %1, ptr noundef %30) #22
@@ -285,11 +283,11 @@ define noalias noundef ptr @compute_apsp_artificial_weights(ptr noundef %0, i32 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.01113.i = phi ptr [ %4, %.lr.ph.preheader.i ], [ %11, %.lr.ph.i ]
-  %8 = getelementptr inbounds nuw %struct.vtx_data, ptr %0, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [40 x i8], ptr %0, i64 %indvars.iv.i
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %.01113.i, ptr %9, align 8, !tbaa !18
   %10 = load i64, ptr %8, align 8, !tbaa !3
-  %11 = getelementptr inbounds nuw float, ptr %.01113.i, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %.01113.i, i64 %10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %restore_old_weights.exit, label %.lr.ph.i, !llvm.loop !26
@@ -337,7 +335,7 @@ define void @compute_new_weights(ptr noundef captures(none) %0, i32 noundef %1) 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.04255 = phi i64 [ 0, %.lr.ph.preheader ], [ %18, %.lr.ph ]
-  %16 = getelementptr inbounds nuw %struct.vtx_data, ptr %0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [40 x i8], ptr %0, i64 %indvars.iv
   %17 = load i64, ptr %16, align 8, !tbaa !3
   %18 = add i64 %17, %.04255
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -382,7 +380,7 @@ define void @compute_new_weights(ptr noundef captures(none) %0, i32 noundef %1) 
 .lr.ph63:                                         ; preds = %.lr.ph63.preheader, %empty_neighbors_vec.exit
   %indvars.iv68 = phi i64 [ 0, %.lr.ph63.preheader ], [ %indvars.iv.next69, %empty_neighbors_vec.exit ]
   %.04062 = phi ptr [ %31, %.lr.ph63.preheader ], [ %55, %empty_neighbors_vec.exit ]
-  %32 = getelementptr inbounds nuw %struct.vtx_data, ptr %0, i64 %indvars.iv68
+  %32 = getelementptr inbounds nuw [40 x i8], ptr %0, i64 %indvars.iv68
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store ptr %.04062, ptr %33, align 8, !tbaa !18
   %34 = load i64, ptr %32, align 8, !tbaa !3
@@ -396,10 +394,10 @@ define void @compute_new_weights(ptr noundef captures(none) %0, i32 noundef %1) 
 
 38:                                               ; preds = %38, %.lr.ph.i
   %.07.i = phi i64 [ 1, %.lr.ph.i ], [ %43, %38 ]
-  %39 = getelementptr inbounds nuw i32, ptr %37, i64 %.07.i
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %.07.i
   %40 = load i32, ptr %39, align 4, !tbaa !12
   %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds i32, ptr %9, i64 %41
+  %42 = getelementptr inbounds [4 x i8], ptr %9, i64 %41
   store i32 1, ptr %42, align 4, !tbaa !12
   %43 = add nuw i64 %.07.i, 1
   %exitcond.not.i = icmp eq i64 %43, %34
@@ -426,27 +424,27 @@ fill_neighbors_vec_unweighted.exit:               ; preds = %.lr.ph63
 
 49:                                               ; preds = %49, %.lr.ph.i50
   %.07.i51 = phi i64 [ 1, %.lr.ph.i50 ], [ %54, %49 ]
-  %50 = getelementptr inbounds nuw i32, ptr %48, i64 %.07.i51
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %.07.i51
   %51 = load i32, ptr %50, align 4, !tbaa !12
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds i32, ptr %9, i64 %52
+  %53 = getelementptr inbounds [4 x i8], ptr %9, i64 %52
   store i32 0, ptr %53, align 4, !tbaa !12
   %54 = add nuw i64 %.07.i51, 1
   %exitcond.not.i52 = icmp eq i64 %54, %34
   br i1 %exitcond.not.i52, label %empty_neighbors_vec.exit, label %49, !llvm.loop !17
 
 empty_neighbors_vec.exit:                         ; preds = %49, %fill_neighbors_vec_unweighted.exit, %._crit_edge60
-  %55 = getelementptr inbounds nuw float, ptr %.04062, i64 %34
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %.04062, i64 %34
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %exitcond72.not = icmp eq i64 %indvars.iv.next69, %wide.trip.count71
   br i1 %exitcond72.not, label %._crit_edge64, label %.lr.ph63, !llvm.loop !28
 
 56:                                               ; preds = %.lr.ph59, %common_neighbors.exit
   %.058 = phi i64 [ 1, %.lr.ph59 ], [ %79, %common_neighbors.exit ]
-  %57 = getelementptr inbounds nuw i32, ptr %45, i64 %.058
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %.058
   %58 = load i32, ptr %57, align 4, !tbaa !12
   %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds %struct.vtx_data, ptr %0, i64 %59
+  %60 = getelementptr inbounds [40 x i8], ptr %0, i64 %59
   %61 = load i64, ptr %60, align 8, !tbaa !3
   %62 = icmp ugt i64 %61, 1
   br i1 %62, label %.lr.ph.i53, label %common_neighbors.exit
@@ -459,10 +457,10 @@ empty_neighbors_vec.exit:                         ; preds = %49, %fill_neighbors
 65:                                               ; preds = %65, %.lr.ph.i53
   %.012.i = phi i64 [ 1, %.lr.ph.i53 ], [ %73, %65 ]
   %.01011.i = phi i64 [ 0, %.lr.ph.i53 ], [ %spec.select.i, %65 ]
-  %66 = getelementptr inbounds nuw i32, ptr %64, i64 %.012.i
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %.012.i
   %67 = load i32, ptr %66, align 4, !tbaa !12
   %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds i32, ptr %9, i64 %68
+  %69 = getelementptr inbounds [4 x i8], ptr %9, i64 %68
   %70 = load i32, ptr %69, align 4, !tbaa !12
   %71 = icmp sgt i32 %70, 0
   %72 = zext i1 %71 to i64
@@ -480,7 +478,7 @@ common_neighbors.exit:                            ; preds = %common_neighbors.ex
   %75 = add i64 %46, %61
   %76 = sub i64 %75, %.010.lcssa.i
   %77 = uitofp i64 %76 to float
-  %78 = getelementptr inbounds nuw float, ptr %.04062, i64 %.058
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %.04062, i64 %.058
   store float %77, ptr %78, align 4, !tbaa !29
   %79 = add nuw i64 %.058, 1
   %exitcond67 = icmp eq i64 %79, %umax
@@ -510,11 +508,11 @@ define void @restore_old_weights(ptr noundef captures(none) %0, i32 noundef %1, 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.01113 = phi ptr [ %2, %.lr.ph.preheader ], [ %10, %.lr.ph ]
-  %7 = getelementptr inbounds nuw %struct.vtx_data, ptr %0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [40 x i8], ptr %0, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %.01113, ptr %8, align 8, !tbaa !18
   %9 = load i64, ptr %7, align 8, !tbaa !3
-  %10 = getelementptr inbounds nuw float, ptr %.01113, i64 %9
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %.01113, i64 %9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !26
@@ -537,11 +535,11 @@ define double @distance_kD(ptr noundef readonly captures(none) %0, i32 noundef %
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
   %.01617 = phi double [ 0.000000e+00, %.lr.ph ], [ %16, %8 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !32
-  %11 = getelementptr inbounds double, ptr %10, i64 %6
+  %11 = getelementptr inbounds [8 x i8], ptr %10, i64 %6
   %12 = load double, ptr %11, align 8, !tbaa !34
-  %13 = getelementptr inbounds double, ptr %10, i64 %7
+  %13 = getelementptr inbounds [8 x i8], ptr %10, i64 %7
   %14 = load double, ptr %13, align 8, !tbaa !34
   %15 = fsub double %12, %14
   %16 = tail call double @llvm.fmuladd.f64(double %15, double %15, double %.01617)
@@ -575,7 +573,7 @@ gv_sort.exit:                                     ; preds = %4
   %8 = add i32 %reass.sub, 1
   %9 = zext nneg i32 %8 to i64
   %10 = sext i32 %2 to i64
-  %11 = getelementptr inbounds i32, ptr %1, i64 %10
+  %11 = getelementptr inbounds [4 x i8], ptr %1, i64 %10
   tail call void @qsort(ptr noundef %11, i64 noundef range(i64 -2147483648, 2147483648) %9, i64 noundef 4, ptr noundef nonnull @gv_sort_compar_wrapper) #22
   store ptr null, ptr %6, align 8, !tbaa !37
   store ptr null, ptr %7, align 8, !tbaa !37
@@ -589,11 +587,11 @@ gv_sort.exit:                                     ; preds = %4
 define internal range(i32 -1, 2) i32 @fcmpf(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #8 {
   %4 = load i32, ptr %0, align 4, !tbaa !12
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds float, ptr %2, i64 %5
+  %6 = getelementptr inbounds [4 x i8], ptr %2, i64 %5
   %7 = load float, ptr %6, align 4, !tbaa !29
   %8 = load i32, ptr %1, align 4, !tbaa !12
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds float, ptr %2, i64 %9
+  %10 = getelementptr inbounds [4 x i8], ptr %2, i64 %9
   %11 = load float, ptr %10, align 4, !tbaa !29
   %12 = fcmp olt float %7, %11
   %13 = fcmp ogt float %7, %11
@@ -626,11 +624,11 @@ gv_sort.exit:                                     ; preds = %3, %7
 define internal range(i32 -1, 2) i32 @cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #8 {
   %4 = load i32, ptr %0, align 4, !tbaa !12
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds double, ptr %2, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr %2, i64 %5
   %7 = load double, ptr %6, align 8, !tbaa !34
   %8 = load i32, ptr %1, align 4, !tbaa !12
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds double, ptr %2, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %2, i64 %9
   %11 = load double, ptr %10, align 8, !tbaa !34
   %12 = fcmp olt double %7, %11
   %13 = fcmp ogt double %7, %11

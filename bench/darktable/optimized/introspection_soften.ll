@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.dt_introspection_t = type { i32, i32, ptr, i64, ptr, i64, i64, ptr }
-%union.dt_introspection_field_t = type { %struct.dt_introspection_type_double_t }
-%struct.dt_introspection_type_double_t = type { %struct.dt_introspection_type_header_t, double, double, double }
-%struct.dt_introspection_type_header_t = type { i32, ptr, ptr, ptr, ptr, i64, i64, ptr }
 
 @.str = private unnamed_addr constant [7 x i8] c"soften\00", align 1
 @.str.1 = private unnamed_addr constant [47 x i8] c"create a softened image using the Orton effect\00", align 1
@@ -159,7 +156,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 
 .lr.ph:                                           ; preds = %12, %hsl2rgb.exit
   %.056 = phi i64 [ %204, %hsl2rgb.exit ], [ 0, %12 ]
-  %71 = getelementptr inbounds nuw float, ptr %2, i64 %.056
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.056
   %72 = load float, ptr %71, align 4, !tbaa !38
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 4
   %74 = load float, ptr %73, align 4, !tbaa !38
@@ -244,7 +241,7 @@ rgb2hsl.exit:                                     ; preds = %.lr.ph, %117, %119,
   %.0.i = phi nsz float [ %118, %117 ], [ %122, %121 ], [ %115, %119 ], [ 0.000000e+00, %.lr.ph ]
   %123 = fmul reassoc nsz arcp contract afn float %.047.i, %20
   %.reass = fmul reassoc nsz arcp contract afn float %82, %invariant.op
-  %124 = getelementptr inbounds nuw float, ptr %3, i64 %.056
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.056
   %125 = fcmp reassoc nsz arcp contract afn oge float %123, 0.000000e+00
   %126 = fcmp reassoc nsz arcp contract afn ole float %123, 1.000000e+00
   %127 = select reassoc nsz arcp contract afn i1 %126, float %123, float 1.000000e+00
@@ -606,7 +603,7 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
 
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw %union.dt_introspection_field_t, ptr @introspection_linear, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [88 x i8], ptr @introspection_linear, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store ptr %0, ptr %8, align 8, !tbaa !77
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

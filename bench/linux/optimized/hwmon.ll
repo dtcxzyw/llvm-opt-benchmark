@@ -717,7 +717,7 @@ define dso_local noundef range(i32 -22, 1) i32 @hwmon_notify_event(ptr noundef %
   br i1 %10, label %29, label %11
 
 11:                                               ; preds = %4
-  %12 = getelementptr i32, ptr @__templates_size, i64 %9
+  %12 = getelementptr [4 x i8], ptr @__templates_size, i64 %9
   %13 = load i32, ptr %12, align 4
   %14 = icmp ugt i32 %13, %2
   br i1 %14, label %15, label %29
@@ -725,10 +725,10 @@ define dso_local noundef range(i32 -22, 1) i32 @hwmon_notify_event(ptr noundef %
 15:                                               ; preds = %11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(37) %5, i8 0, i64 37, i1 false), !annotation !13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %6, i8 0, i64 32, i1 false), !annotation !13
-  %16 = getelementptr ptr, ptr @__templates, i64 %9
+  %16 = getelementptr [8 x i8], ptr @__templates, i64 %9
   %17 = load ptr, ptr %16, align 8
   %18 = zext i32 %2 to i64
-  %19 = getelementptr ptr, ptr %17, i64 %18
+  %19 = getelementptr [8 x i8], ptr %17, i64 %18
   %20 = load ptr, ptr %19, align 8
   %21 = icmp ne i32 %1, 9
   %22 = icmp ne i32 %1, 2
@@ -833,7 +833,7 @@ define internal fastcc ptr @__hwmon_device_register(ptr noundef %0, ptr noundef 
   %35 = add i32 %33, 1
   %36 = add i32 %34, 1
   %37 = sext i32 %36 to i64
-  %38 = getelementptr ptr, ptr %4, i64 %37
+  %38 = getelementptr [8 x i8], ptr %4, i64 %37
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %39, null
   br i1 %40, label %41, label %.preheader76, !llvm.loop !16
@@ -882,7 +882,7 @@ define internal fastcc ptr @__hwmon_device_register(ptr noundef %0, ptr noundef 
   %66 = add i32 %65, %63
   %67 = add i32 %64, 1
   %68 = sext i32 %67 to i64
-  %69 = getelementptr i32, ptr %59, i64 %68
+  %69 = getelementptr [4 x i8], ptr %59, i64 %68
   %70 = load i32, ptr %69, align 4
   %71 = icmp eq i32 %70, 0
   br i1 %71, label %.loopexit74, label %.preheader73, !llvm.loop !19
@@ -892,7 +892,7 @@ define internal fastcc ptr @__hwmon_device_register(ptr noundef %0, ptr noundef 
   %73 = add i32 %72, %56
   %74 = add i32 %57, 1
   %75 = sext i32 %74 to i64
-  %76 = getelementptr ptr, ptr %52, i64 %75
+  %76 = getelementptr [8 x i8], ptr %52, i64 %75
   %77 = load ptr, ptr %76, align 8
   %78 = icmp eq ptr %77, null
   br i1 %78, label %79, label %.preheader75, !llvm.loop !20
@@ -925,7 +925,7 @@ define internal fastcc ptr @__hwmon_device_register(ptr noundef %0, ptr noundef 
   %95 = phi i32 [ %236, %.thread52 ], [ 0, %89 ]
   %96 = phi i32 [ %237, %.thread52 ], [ 0, %89 ]
   %97 = sext i32 %95 to i64
-  %98 = getelementptr ptr, ptr %87, i64 %97
+  %98 = getelementptr [8 x i8], ptr %87, i64 %97
   %99 = load ptr, ptr %3, align 8
   %100 = load i32, ptr %94, align 8
   %101 = icmp ugt i32 %100, 9
@@ -933,9 +933,9 @@ define internal fastcc ptr @__hwmon_device_register(ptr noundef %0, ptr noundef 
 
 102:                                              ; preds = %.preheader69
   %103 = zext nneg i32 %100 to i64
-  %104 = getelementptr ptr, ptr @__templates, i64 %103
+  %104 = getelementptr [8 x i8], ptr @__templates, i64 %103
   %105 = load ptr, ptr %104, align 8
-  %106 = getelementptr i32, ptr @__templates_size, i64 %103
+  %106 = getelementptr [4 x i8], ptr @__templates_size, i64 %103
   %107 = load i32, ptr %106, align 4
   %108 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %109 = load ptr, ptr %108, align 8
@@ -953,7 +953,7 @@ define internal fastcc ptr @__hwmon_device_register(ptr noundef %0, ptr noundef 
   %117 = add i32 %126, 1
   %118 = load ptr, ptr %108, align 8
   %119 = sext i32 %117 to i64
-  %120 = getelementptr i32, ptr %118, i64 %119
+  %120 = getelementptr [4 x i8], ptr %118, i64 %119
   %121 = load i32, ptr %120, align 4
   %122 = icmp eq i32 %121, 0
   br i1 %122, label %.loopexit68, label %123, !llvm.loop !21
@@ -980,7 +980,7 @@ define internal fastcc ptr @__hwmon_device_register(ptr noundef %0, ptr noundef 
 
 139:                                              ; preds = %127
   %140 = load i32, ptr %94, align 8
-  %141 = getelementptr ptr, ptr %105, i64 %133
+  %141 = getelementptr [8 x i8], ptr %105, i64 %133
   %142 = load ptr, ptr %141, align 8
   %143 = icmp eq i32 %140, 1
   %144 = icmp eq i32 %132, 21
@@ -1101,7 +1101,7 @@ define internal fastcc ptr @__hwmon_device_register(ptr noundef %0, ptr noundef 
 214:                                              ; preds = %201
   %215 = add i32 %129, 1
   %216 = sext i32 %129 to i64
-  %217 = getelementptr ptr, ptr %98, i64 %216
+  %217 = getelementptr [8 x i8], ptr %98, i64 %216
   store ptr %189, ptr %217, align 8
   br label %select.unfold
 
@@ -1131,7 +1131,7 @@ select.unfold:                                    ; preds = %163, %166, %214
   tail call void @kfree(ptr noundef nonnull %225) #19
   %227 = add i32 %226, 1
   %228 = sext i32 %227 to i64
-  %229 = getelementptr ptr, ptr %87, i64 %228
+  %229 = getelementptr [8 x i8], ptr %87, i64 %228
   %230 = load ptr, ptr %229, align 8
   %231 = icmp eq ptr %230, null
   br i1 %231, label %.loopexit66, label %.preheader65, !llvm.loop !24
@@ -1148,7 +1148,7 @@ select.unfold:                                    ; preds = %163, %166, %214
   %236 = add i32 %235, %95
   %237 = add i32 %96, 1
   %238 = sext i32 %237 to i64
-  %239 = getelementptr ptr, ptr %234, i64 %238
+  %239 = getelementptr [8 x i8], ptr %234, i64 %238
   %240 = load ptr, ptr %239, align 8
   %241 = icmp eq ptr %240, null
   br i1 %241, label %.loopexit72, label %.preheader69, !llvm.loop !25
@@ -1184,11 +1184,11 @@ select.unfold:                                    ; preds = %163, %166, %214
   %257 = load ptr, ptr %48, align 8
   %258 = add i32 %255, 1
   %259 = sext i32 %255 to i64
-  %260 = getelementptr ptr, ptr %257, i64 %259
+  %260 = getelementptr [8 x i8], ptr %257, i64 %259
   store ptr %254, ptr %260, align 8
   %261 = add i32 %256, 1
   %262 = sext i32 %261 to i64
-  %263 = getelementptr ptr, ptr %4, i64 %262
+  %263 = getelementptr [8 x i8], ptr %4, i64 %262
   %264 = load ptr, ptr %263, align 8
   %265 = icmp eq ptr %264, null
   br i1 %265, label %.loopexit64, label %.preheader63, !llvm.loop !26
@@ -1292,7 +1292,7 @@ select.unfold:                                    ; preds = %163, %166, %214
   call void @kfree(ptr noundef nonnull %312) #19
   %314 = add i32 %313, 1
   %315 = sext i32 %314 to i64
-  %316 = getelementptr ptr, ptr %307, i64 %315
+  %316 = getelementptr [8 x i8], ptr %307, i64 %315
   %317 = load ptr, ptr %316, align 8
   %318 = icmp eq ptr %317, null
   br i1 %318, label %.loopexit, label %.preheader, !llvm.loop !24
@@ -1802,7 +1802,7 @@ define internal void @hwmon_dev_release(ptr noundef %0) #1 align 16 {
   tail call void @kfree(ptr noundef nonnull %8) #19
   %10 = add i32 %9, 1
   %11 = sext i32 %10 to i64
-  %12 = getelementptr ptr, ptr %3, i64 %11
+  %12 = getelementptr [8 x i8], ptr %3, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.loopexit, label %.preheader, !llvm.loop !24

@@ -8,9 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.AVCodecGuid = type { i32, [16 x i8] }
 %struct.AVCodecTag = type { i32, i32 }
 %struct.AVMetadataConv = type { ptr, ptr }
-%struct.WtvSyncEntry = type { i64, i64 }
-%struct.WtvFile = type { i64, ptr, i32, i32 }
-%struct.WtvChunkEntry = type { i64, i64, ptr, i32 }
 
 @.str = private unnamed_addr constant [4 x i8] c"wtv\00", align 1
 @.str.1 = private unnamed_addr constant [25 x i8] c"Windows Television (WTV)\00", align 1
@@ -115,7 +112,7 @@ define internal range(i32 -1, 1) i32 @write_header(ptr noundef %0) #0 {
 17:                                               ; preds = %.lr.ph, %40
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %40 ]
   %18 = load ptr, ptr %15, align 8, !tbaa !35
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !36
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !38
@@ -168,7 +165,7 @@ define internal range(i32 -1, 1) i32 @write_header(ptr noundef %0) #0 {
   %45 = phi i32 [ %41, %.lr.ph62 ], [ %73, %72 ]
   %indvars.iv69 = phi i64 [ 0, %.lr.ph62 ], [ %indvars.iv.next70, %72 ]
   %46 = load ptr, ptr %16, align 8, !tbaa !35
-  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv69
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv69
   %48 = load ptr, ptr %47, align 8, !tbaa !36
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %50 = load ptr, ptr %49, align 8, !tbaa !38
@@ -247,7 +244,7 @@ define internal range(i32 -2147483648, 1) i32 @write_packet(ptr noundef %0, ptr 
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %10 = load i32, ptr %9, align 4, !tbaa !50
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds ptr, ptr %8, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %8, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !36
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !38
@@ -286,7 +283,7 @@ define internal range(i32 -2147483648, 1) i32 @write_packet(ptr noundef %0, ptr 
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 576
   %33 = load ptr, ptr %32, align 8, !tbaa !53
   %34 = sext i32 %30 to i64
-  %35 = getelementptr %struct.WtvSyncEntry, ptr %33, i64 %34
+  %35 = getelementptr [16 x i8], ptr %33, i64 %34
   %36 = getelementptr i8, ptr %35, i64 -16
   %37 = load i64, ptr %36, align 8, !tbaa !54
   br label %38
@@ -317,7 +314,7 @@ define internal range(i32 -2147483648, 1) i32 @write_packet(ptr noundef %0, ptr 
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 560
   %51 = load ptr, ptr %50, align 8, !tbaa !58
   %52 = sext i32 %48 to i64
-  %53 = getelementptr %struct.WtvSyncEntry, ptr %51, i64 %52
+  %53 = getelementptr [16 x i8], ptr %51, i64 %52
   %54 = getelementptr i8, ptr %53, i64 -8
   %55 = load i64, ptr %54, align 8, !tbaa !59
   br label %56
@@ -341,7 +338,7 @@ define internal range(i32 -2147483648, 1) i32 @write_packet(ptr noundef %0, ptr 
 67:                                               ; preds = %60
   %68 = load i32, ptr %47, align 4, !tbaa !61
   %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds %struct.WtvSyncEntry, ptr %66, i64 %69
+  %70 = getelementptr inbounds [16 x i8], ptr %66, i64 %69
   store i64 %62, ptr %70, align 8, !tbaa !62
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %70, i64 8
   store i64 %45, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !62
@@ -373,7 +370,7 @@ add_serial_pair.exit.thread:                      ; preds = %43, %75, %71, %add_
   %80 = load ptr, ptr %7, align 8, !tbaa !35
   %81 = load i32, ptr %9, align 4, !tbaa !50
   %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds ptr, ptr %80, i64 %82
+  %83 = getelementptr inbounds [8 x i8], ptr %80, i64 %82
   %84 = load ptr, ptr %83, align 8, !tbaa !36
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %86 = load ptr, ptr %85, align 8, !tbaa !38
@@ -467,11 +464,11 @@ define internal range(i32 -1, 1) i32 @write_trailer(ptr noundef %0) #0 {
 15:                                               ; preds = %15, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %15 ]
   %16 = load ptr, ptr %14, align 8, !tbaa !53
-  %17 = getelementptr inbounds nuw %struct.WtvSyncEntry, ptr %16, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %indvars.iv.i
   %18 = load i64, ptr %17, align 8, !tbaa !54
   tail call void @avio_wl64(ptr noundef %.val36, i64 noundef %18) #7
   %19 = load ptr, ptr %14, align 8, !tbaa !53
-  %20 = getelementptr inbounds nuw %struct.WtvSyncEntry, ptr %19, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %indvars.iv.i
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load i64, ptr %21, align 8, !tbaa !59
   tail call void @avio_wl64(ptr noundef %.val36, i64 noundef %22) #7
@@ -529,7 +526,7 @@ write_table_entries_events.exit:                  ; preds = %15, %9
   %52 = getelementptr inbounds nuw i8, ptr %30, i64 644
   %53 = load i32, ptr %52, align 4, !tbaa !75
   %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds ptr, ptr %51, i64 %54
+  %55 = getelementptr inbounds [8 x i8], ptr %51, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !36
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 80
   %58 = load ptr, ptr %57, align 8, !tbaa !76
@@ -631,7 +628,7 @@ write_table_entries_attrib.exit:                  ; preds = %._crit_edge.i, %74
   %110 = getelementptr inbounds nuw i8, ptr %86, i64 644
   %111 = load i32, ptr %110, align 4, !tbaa !75
   %112 = sext i32 %111 to i64
-  %113 = getelementptr inbounds ptr, ptr %109, i64 %112
+  %113 = getelementptr inbounds [8 x i8], ptr %109, i64 %112
   %114 = load ptr, ptr %113, align 8, !tbaa !36
   tail call void @avio_wl64(ptr noundef %87, i64 noundef %.019.lcssa.i) #7
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 80
@@ -679,12 +676,12 @@ write_table_redirector_legacy_attrib.exit:        ; preds = %._crit_edge.i45, %a
 137:                                              ; preds = %137, %.lr.ph.i49
   %indvars.iv.i50 = phi i64 [ 0, %.lr.ph.i49 ], [ %indvars.iv.next.i51, %137 ]
   %138 = load ptr, ptr %136, align 8, !tbaa !58
-  %139 = getelementptr inbounds nuw %struct.WtvSyncEntry, ptr %138, i64 %indvars.iv.i50
+  %139 = getelementptr inbounds nuw [16 x i8], ptr %138, i64 %indvars.iv.i50
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 8
   %141 = load i64, ptr %140, align 8, !tbaa !59
   tail call void @avio_wl64(ptr noundef %.val38, i64 noundef %141) #7
   %142 = load ptr, ptr %136, align 8, !tbaa !58
-  %143 = getelementptr inbounds nuw %struct.WtvSyncEntry, ptr %142, i64 %indvars.iv.i50
+  %143 = getelementptr inbounds nuw [16 x i8], ptr %142, i64 %indvars.iv.i50
   %144 = load i64, ptr %143, align 8, !tbaa !54
   tail call void @avio_wl64(ptr noundef %.val38, i64 noundef %144) #7
   %indvars.iv.next.i51 = add nuw nsw i64 %indvars.iv.i50, 1
@@ -730,7 +727,7 @@ write_table_entries_time.exit:                    ; preds = %137, %131
   br i1 %.not.i53, label %167, label %.critedge.i54
 
 167:                                              ; preds = %157
-  %168 = getelementptr inbounds nuw %struct.WtvFile, ptr %156, i64 %indvars.iv.i52
+  %168 = getelementptr inbounds nuw [24 x i8], ptr %156, i64 %indvars.iv.i52
   %169 = load i64, ptr %168, align 8, !tbaa !83
   tail call void @avio_wl64(ptr noundef %.val40, i64 noundef %169) #7
   %170 = ashr exact i32 %161, 1
@@ -861,7 +858,7 @@ define internal fastcc void @write_sync(ptr noundef readonly captures(none) %0) 
 26:                                               ; preds = %1
   %27 = load i32, ptr %18, align 4, !tbaa !61
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds %struct.WtvSyncEntry, ptr %25, i64 %28
+  %29 = getelementptr inbounds [16 x i8], ptr %25, i64 %28
   store i64 %19, ptr %29, align 8, !tbaa !62
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i64 %20, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !62
@@ -906,7 +903,7 @@ define internal fastcc void @write_index(ptr noundef readonly captures(none) %0)
 
 17:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
-  %18 = getelementptr inbounds nuw %struct.WtvChunkEntry, ptr %16, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [32 x i8], ptr %16, i64 %indvars.iv
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !90
   tail call void @ff_put_guid(ptr noundef %3, ptr noundef %20) #7
@@ -1272,7 +1269,7 @@ define internal fastcc void @write_chunk_header(ptr captures(none) initializes((
 18:                                               ; preds = %13
   %19 = getelementptr inbounds nuw i8, ptr %.24.val, i64 232
   %20 = sext i32 %15 to i64
-  %21 = getelementptr inbounds %struct.WtvChunkEntry, ptr %19, i64 %20
+  %21 = getelementptr inbounds [32 x i8], ptr %19, i64 %20
   %22 = load i64, ptr %7, align 8, !tbaa !32
   store i64 %22, ptr %21, align 8, !tbaa !92
   %23 = load i64, ptr %9, align 8, !tbaa !31
@@ -1327,7 +1324,7 @@ define internal fastcc range(i32 -1, 1) i32 @finish_file(ptr noundef %0, i32 nou
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = zext nneg i32 %1 to i64
-  %10 = getelementptr inbounds nuw %struct.WtvFile, ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %9
   %11 = tail call i64 @avio_seek(ptr noundef %7, i64 noundef 0, i32 noundef 1) #7
   %12 = sub nsw i64 %11, %2
   store i64 %12, ptr %10, align 8, !tbaa !83

@@ -298,7 +298,7 @@ _ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EE11_S_relocateEPS3_S6_S6_
 
 _ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %49, %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
   store ptr %48, ptr %9, align 8, !tbaa !13
-  %50 = getelementptr inbounds nuw i64, ptr %44, i64 %42
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %42
   store ptr %50, ptr %10, align 8, !tbaa !16
   br label %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EE9push_backERKS3_.exit
 
@@ -401,7 +401,7 @@ _ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EE11_S_relocateEPS3_S6_S6_
 
 _ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i22: ; preds = %92, %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i20
   store ptr %91, ptr %6, align 8, !tbaa !13
-  %93 = getelementptr inbounds nuw i64, ptr %87, i64 %85
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %85
   store ptr %93, ptr %7, align 8, !tbaa !16
   br label %_ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EE9push_backERKS3_.exit23
 

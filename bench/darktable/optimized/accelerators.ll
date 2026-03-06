@@ -16,14 +16,11 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.dt_gimp_t = type { i32, ptr, ptr, i32, i32 }
 %struct.dt_action_def_t = type { ptr, ptr, ptr, ptr, i32 }
 %struct._GtkTextIter = type { ptr, ptr, i32, i32, i32, i32, i32, i32, ptr, ptr, i32, i32, i32, ptr }
-%struct.dt_introspection_type_enum_tuple_t = type { ptr, i32, ptr }
 %struct.dt_shortcut_t = type { i32, i32, i8, i32, i32, i16, i8, i32, ptr, i32, i32, float, i32 }
 %struct._GtkTreeIter = type { i32, ptr, ptr, ptr }
 %struct._cairo_rectangle_int = type { i32, i32, i32, i32 }
-%struct._modifier_name = type { i32, ptr }
 %struct.dt_action_t = type { i32, ptr, ptr, ptr, ptr, ptr }
 %struct.dt_device_key_t = type { i8, i32, ptr, i32 }
-%struct._GdkKeymapKey = type { i32, i32, i32 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 @.str = private unnamed_addr constant [15 x i8] c"in active view\00", align 1
@@ -1384,7 +1381,7 @@ define internal fastcc void @_action_description(ptr noundef readonly captures(n
 _action_find_definition.exit:                     ; preds = %60
   %70 = load ptr, ptr %63, align 8, !tbaa !99
   %71 = zext nneg i32 %58 to i64
-  %72 = getelementptr inbounds nuw ptr, ptr %70, i64 %71
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %71
   %73 = load ptr, ptr %72, align 8, !tbaa !78
   %.not83 = icmp eq ptr %73, null
   br i1 %.not83, label %_action_find_definition.exit.thread101, label %_action_find_definition.exit.thread
@@ -1426,7 +1423,7 @@ _action_find_definition.exit.thread:              ; preds = %67, %69, %68, %_act
   %89 = getelementptr inbounds nuw i8, ptr @_action_description.hint, i64 %88
   %90 = sub nuw nsw i64 1024, %88
   %91 = sext i32 %79 to i64
-  %92 = getelementptr inbounds %struct.dt_action_element_def_t, ptr %75, i64 %91
+  %92 = getelementptr inbounds [16 x i8], ptr %75, i64 %91
   %93 = load ptr, ptr %92, align 8, !tbaa !106
   %94 = tail call ptr @dcgettext(ptr noundef null, ptr noundef %93, i32 noundef 5) #25
   %95 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %89, i64 noundef %90, ptr noundef nonnull @.str.186, ptr noundef %94) #25
@@ -1448,7 +1445,7 @@ _action_find_definition.exit.thread:              ; preds = %67, %69, %68, %_act
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %103 = load i32, ptr %102, align 8, !tbaa !104
   %104 = sext i32 %103 to i64
-  %105 = getelementptr inbounds %struct.dt_action_element_def_t, ptr %100, i64 %104
+  %105 = getelementptr inbounds [16 x i8], ptr %100, i64 %104
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %107 = load i32, ptr %106, align 4, !tbaa !109
   %108 = getelementptr i8, ptr %105, i64 8
@@ -1468,7 +1465,7 @@ _action_find_definition.exit.thread:              ; preds = %67, %69, %68, %_act
 
 116:                                              ; preds = %111
   %117 = zext nneg i32 %107 to i64
-  %118 = getelementptr %struct.dt_introspection_type_enum_tuple_t, ptr %115, i64 %117
+  %118 = getelementptr [24 x i8], ptr %115, i64 %117
   %119 = getelementptr i8, ptr %118, i64 -152
   %120 = load ptr, ptr %119, align 8, !tbaa !121
   %.not19.i = icmp eq ptr %120, null
@@ -1489,7 +1486,7 @@ _action_find_definition.exit.thread:              ; preds = %67, %69, %68, %_act
 
 129:                                              ; preds = %124
   %130 = zext nneg i32 %107 to i64
-  %131 = getelementptr ptr, ptr %128, i64 %130
+  %131 = getelementptr [8 x i8], ptr %128, i64 %130
   %132 = getelementptr i8, ptr %131, i64 -56
   %133 = load ptr, ptr %132, align 8, !tbaa !18
   br label %_action_find_effect_combo.exit
@@ -1549,12 +1546,12 @@ _shortcut_default_effect.exit:                    ; preds = %139, %142
   %152 = load ptr, ptr %74, align 8, !tbaa !100
   %153 = load i32, ptr %102, align 8, !tbaa !104
   %154 = sext i32 %153 to i64
-  %155 = getelementptr inbounds %struct.dt_action_element_def_t, ptr %152, i64 %154
+  %155 = getelementptr inbounds [16 x i8], ptr %152, i64 %154
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 8
   %157 = load ptr, ptr %156, align 8, !tbaa !110
   %158 = load i32, ptr %106, align 4, !tbaa !109
   %159 = sext i32 %158 to i64
-  %160 = getelementptr inbounds ptr, ptr %157, i64 %159
+  %160 = getelementptr inbounds [8 x i8], ptr %157, i64 %159
   %161 = load ptr, ptr %160, align 8, !tbaa !18
   br label %.thread117
 
@@ -1582,7 +1579,7 @@ _shortcut_default_effect.exit:                    ; preds = %139, %142
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %173 = load i32, ptr %172, align 8, !tbaa !104
   %174 = sext i32 %173 to i64
-  %175 = getelementptr inbounds %struct.dt_action_element_def_t, ptr %.pr, i64 %174
+  %175 = getelementptr inbounds [16 x i8], ptr %.pr, i64 %174
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 8
   %177 = load ptr, ptr %176, align 8, !tbaa !110
   %178 = icmp eq ptr %177, @dt_action_effect_value
@@ -1727,7 +1724,7 @@ define void @_shortcut_copy_lua(ptr noundef %0, ptr noundef captures(none) %1, p
 _action_find_definition.exit.i.i:                 ; preds = %18
   %28 = load ptr, ptr %21, align 8, !tbaa !99
   %29 = zext nneg i32 %16 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !78
   %.not.i.i = icmp eq ptr %31, null
   br i1 %.not.i.i, label %34, label %_action_find_definition.exit.thread.i.i
@@ -1789,7 +1786,7 @@ _action_find_definition.exit.thread.i.i:          ; preds = %_action_find_defini
 
 52:                                               ; preds = %51
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %53 = getelementptr inbounds nuw %struct.dt_action_element_def_t, ptr %.0.i.ph.i, i64 %indvars.iv.next.i
+  %53 = getelementptr inbounds nuw [16 x i8], ptr %.0.i.ph.i, i64 %indvars.iv.next.i
   %54 = load ptr, ptr %53, align 8, !tbaa !106
   %.not73.i = icmp eq ptr %54, null
   br i1 %.not73.i, label %.critedge.loopexit.split.loop.exit.i, label %51
@@ -1884,7 +1881,7 @@ DT_IS_BAUHAUS_WIDGET.exit.thread.i:               ; preds = %88, %.critedge2.i, 
 
 92:                                               ; preds = %DT_IS_BAUHAUS_WIDGET.exit.thread.i
   %93 = load ptr, ptr %5, align 8, !tbaa !90
-  %94 = getelementptr inbounds nuw %struct.dt_action_element_def_t, ptr %.0.i.ph.i, i64 %.us-phi.i
+  %94 = getelementptr inbounds nuw [16 x i8], ptr %.0.i.ph.i, i64 %.us-phi.i
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %96 = load i32, ptr %95, align 4, !tbaa !109
   %97 = getelementptr i8, ptr %94, i64 8
@@ -1904,7 +1901,7 @@ DT_IS_BAUHAUS_WIDGET.exit.thread.i:               ; preds = %88, %.critedge2.i, 
 
 105:                                              ; preds = %100
   %106 = zext nneg i32 %96 to i64
-  %107 = getelementptr %struct.dt_introspection_type_enum_tuple_t, ptr %104, i64 %106
+  %107 = getelementptr [24 x i8], ptr %104, i64 %106
   %108 = getelementptr i8, ptr %107, i64 -152
   %109 = load ptr, ptr %108, align 8, !tbaa !121
   %.not19.i.i = icmp eq ptr %109, null
@@ -1925,7 +1922,7 @@ DT_IS_BAUHAUS_WIDGET.exit.thread.i:               ; preds = %88, %.critedge2.i, 
 
 118:                                              ; preds = %113
   %119 = zext nneg i32 %96 to i64
-  %120 = getelementptr ptr, ptr %117, i64 %119
+  %120 = getelementptr [8 x i8], ptr %117, i64 %119
   %121 = getelementptr i8, ptr %120, i64 -56
   %122 = load ptr, ptr %121, align 8, !tbaa !18
   br label %125
@@ -1966,7 +1963,7 @@ _action_find_effect_combo.exit.thread92.i:        ; preds = %129, %125, %DT_IS_B
   %141 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %142 = load i32, ptr %141, align 4, !tbaa !109
   %143 = sext i32 %142 to i64
-  %144 = getelementptr inbounds ptr, ptr %134, i64 %143
+  %144 = getelementptr inbounds [8 x i8], ptr %134, i64 %143
   %145 = load ptr, ptr %144, align 8, !tbaa !18
   br label %.sink.split.i
 
@@ -2698,7 +2695,7 @@ define range(i32 0, 2) i32 @dt_shortcut_tooltip_callback(ptr noundef %0, i32 nou
 
 186:                                              ; preds = %.lr.ph, %185
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %185 ]
-  %187 = getelementptr inbounds nuw %struct.dt_action_element_def_t, ptr %183, i64 %indvars.iv
+  %187 = getelementptr inbounds nuw [16 x i8], ptr %183, i64 %indvars.iv
   %188 = load ptr, ptr %187, align 8, !tbaa !106
   %.not165 = icmp eq ptr %188, null
   br i1 %.not165, label %.thread223, label %185
@@ -3091,7 +3088,7 @@ define internal fastcc ptr @_action_find_definition(ptr noundef readonly capture
 20:                                               ; preds = %13
   %21 = load ptr, ptr %16, align 8, !tbaa !99
   %22 = zext nneg i32 %11 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !78
   br label %29
 
@@ -3405,7 +3402,7 @@ g_set_weak_pointer.exit:                          ; preds = %._crit_edge, %28, %
 
 100:                                              ; preds = %g_set_weak_pointer.exit, %100
   %indvars.iv = phi i64 [ 0, %g_set_weak_pointer.exit ], [ %indvars.iv.next, %100 ]
-  %101 = getelementptr inbounds nuw ptr, ptr @instance_label, i64 %indvars.iv
+  %101 = getelementptr inbounds nuw [8 x i8], ptr @instance_label, i64 %indvars.iv
   %102 = load ptr, ptr %101, align 8, !tbaa !18
   %103 = call ptr @dcgettext(ptr noundef null, ptr noundef %102, i32 noundef 5) #25
   call void (ptr, ptr, i32, ...) @gtk_list_store_insert_with_values(ptr noundef %97, ptr noundef null, i32 noundef -1, i32 noundef 0, ptr noundef %103, i32 noundef -1) #25
@@ -4500,7 +4497,7 @@ define internal void @_element_editing_started(ptr readnone captures(none) %0, p
 _action_find_definition.exit.i:                   ; preds = %30
   %40 = load ptr, ptr %33, align 8, !tbaa !99
   %41 = zext nneg i32 %28 to i64
-  %42 = getelementptr inbounds nuw ptr, ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %41
   %43 = load ptr, ptr %42, align 8, !tbaa !78
   %.not.i = icmp eq ptr %43, null
   br i1 %.not.i, label %.critedge, label %_action_find_elements.exit
@@ -4607,7 +4604,7 @@ define internal void @_element_changed(ptr noundef %0, ptr noundef %1, ptr nound
 _action_find_definition.exit.i:                   ; preds = %29
   %39 = load ptr, ptr %32, align 8, !tbaa !99
   %40 = zext nneg i32 %27 to i64
-  %41 = getelementptr inbounds nuw ptr, ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !78, !nonnull !183, !noundef !183
   br label %_action_find_definition.exit.thread.i
 
@@ -4618,11 +4615,11 @@ _action_find_definition.exit.thread.i:            ; preds = %_action_find_defini
   %45 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %46 = load i32, ptr %45, align 8, !tbaa !104
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds %struct.dt_action_element_def_t, ptr %44, i64 %47
+  %48 = getelementptr inbounds [16 x i8], ptr %44, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load ptr, ptr %49, align 8, !tbaa !110
   %51 = sext i32 %16 to i64
-  %52 = getelementptr inbounds %struct.dt_action_element_def_t, ptr %44, i64 %51
+  %52 = getelementptr inbounds [16 x i8], ptr %44, i64 %51
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load ptr, ptr %53, align 8, !tbaa !110
   %.not = icmp eq ptr %50, %54
@@ -4734,7 +4731,7 @@ define internal void @_effect_editing_started(ptr readnone captures(none) %0, pt
 _action_find_definition.exit.i:                   ; preds = %27
   %37 = load ptr, ptr %30, align 8, !tbaa !99
   %38 = zext nneg i32 %25 to i64
-  %39 = getelementptr inbounds nuw ptr, ptr %37, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !78
   %.not.i = icmp eq ptr %40, null
   br i1 %.not.i, label %_action_find_elements.exit, label %_action_find_definition.exit.thread.i
@@ -4775,7 +4772,7 @@ _shortcut_is_move.exit:                           ; preds = %45, %48
   %54 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %55 = load i32, ptr %54, align 8, !tbaa !104
   %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds %struct.dt_action_element_def_t, ptr %.0.i, i64 %56
+  %57 = getelementptr inbounds [16 x i8], ptr %.0.i, i64 %56
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load ptr, ptr %58, align 8, !tbaa !110
   %60 = load ptr, ptr %59, align 8, !tbaa !18
@@ -4826,7 +4823,7 @@ _shortcut_is_move.exit:                           ; preds = %45, %48
   call void @g_list_free(ptr noundef nonnull %79) #25
   %82 = load i32, ptr %54, align 8, !tbaa !104
   %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds %struct.dt_action_element_def_t, ptr %.0.i, i64 %83
+  %84 = getelementptr inbounds [16 x i8], ptr %.0.i, i64 %83
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %86 = load ptr, ptr %85, align 8, !tbaa !110
   %87 = icmp eq ptr %86, @dt_action_effect_selection
@@ -5038,7 +5035,7 @@ define internal void @_instance_edited(ptr readnone captures(none) %0, ptr nound
 
 .preheader:                                       ; preds = %4, %.preheader._crit_edge
   %indvars.iv = phi i64 [ %18, %.preheader._crit_edge ], [ 0, %4 ]
-  %15 = getelementptr inbounds nuw ptr, ptr @instance_label, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr @instance_label, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !18
   %17 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(1) %2) #27
   %.not10 = icmp eq i32 %17, 0
@@ -5441,7 +5438,7 @@ define internal void @_fill_action_fields(ptr readnone captures(none) %0, ptr no
 _action_find_definition.exit:                     ; preds = %21
   %31 = load ptr, ptr %24, align 8, !tbaa !99
   %32 = zext nneg i32 %19 to i64
-  %33 = getelementptr inbounds nuw ptr, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !78
   %.not15 = icmp eq ptr %34, null
   br i1 %.not15, label %_action_find_definition.exit.thread21, label %_action_find_definition.exit.thread
@@ -6417,7 +6414,7 @@ define internal fastcc void @_shortcuts_save(ptr noundef readonly captures(none)
 _action_find_definition.exit.i:                   ; preds = %107
   %117 = load ptr, ptr %110, align 8, !tbaa !99
   %118 = zext nneg i32 %105 to i64
-  %119 = getelementptr inbounds nuw ptr, ptr %117, i64 %118
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %118
   %120 = load ptr, ptr %119, align 8, !tbaa !78
   %.not.i = icmp eq ptr %120, null
   br i1 %.not.i, label %_action_find_elements.exit, label %_action_find_definition.exit.thread.i
@@ -6437,7 +6434,7 @@ _action_find_elements.exit:                       ; preds = %91, %114, %_action_
 
 .thread:                                          ; preds = %_action_find_elements.exit
   %125 = sext i32 %124 to i64
-  %126 = getelementptr inbounds %struct.dt_action_element_def_t, ptr %.0.i, i64 %125
+  %126 = getelementptr inbounds [16 x i8], ptr %.0.i, i64 %125
   %127 = load ptr, ptr %126, align 8, !tbaa !106
   %128 = tail call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %127, i32 noundef 124) #27
   %.not.i120 = icmp eq ptr %128, null
@@ -6479,7 +6476,7 @@ _shortcut_default_effect.exit:                    ; preds = %137, %140
   %145 = load ptr, ptr %92, align 8, !tbaa !90
   %146 = load i32, ptr %123, align 8, !tbaa !104
   %147 = sext i32 %146 to i64
-  %148 = getelementptr inbounds %struct.dt_action_element_def_t, ptr %.0.i, i64 %147
+  %148 = getelementptr inbounds [16 x i8], ptr %.0.i, i64 %147
   %149 = getelementptr i8, ptr %148, i64 8
   %.val = load ptr, ptr %149, align 8, !tbaa !110
   %150 = icmp eq ptr %.val, @dt_action_effect_selection
@@ -6497,7 +6494,7 @@ _shortcut_default_effect.exit:                    ; preds = %137, %140
 
 157:                                              ; preds = %152
   %158 = zext nneg i32 %135 to i64
-  %159 = getelementptr %struct.dt_introspection_type_enum_tuple_t, ptr %156, i64 %158
+  %159 = getelementptr [24 x i8], ptr %156, i64 %158
   %160 = getelementptr i8, ptr %159, i64 -152
   %161 = load ptr, ptr %160, align 8, !tbaa !121
   %.not19.i = icmp eq ptr %161, null
@@ -6518,7 +6515,7 @@ _shortcut_default_effect.exit:                    ; preds = %137, %140
 
 170:                                              ; preds = %165
   %171 = zext nneg i32 %135 to i64
-  %172 = getelementptr ptr, ptr %169, i64 %171
+  %172 = getelementptr [8 x i8], ptr %169, i64 %171
   %173 = getelementptr i8, ptr %172, i64 -56
   %174 = load ptr, ptr %173, align 8, !tbaa !18
   br label %_action_find_effect_combo.exit
@@ -6535,7 +6532,7 @@ _action_find_effect_combo.exit:                   ; preds = %162, %170, %175
 _action_find_effect_combo.exit._action_find_effect_combo.exit.thread_crit_edge: ; preds = %_action_find_effect_combo.exit
   %.pre145 = load i32, ptr %123, align 8, !tbaa !104
   %.phi.trans.insert146 = sext i32 %.pre145 to i64
-  %.phi.trans.insert147 = getelementptr inbounds %struct.dt_action_element_def_t, ptr %.0.i, i64 %.phi.trans.insert146
+  %.phi.trans.insert147 = getelementptr inbounds [16 x i8], ptr %.0.i, i64 %.phi.trans.insert146
   %.phi.trans.insert148 = getelementptr inbounds nuw i8, ptr %.phi.trans.insert147, i64 8
   %.pre149 = load ptr, ptr %.phi.trans.insert148, align 8, !tbaa !110
   %.pre150 = load i32, ptr %134, align 4, !tbaa !109
@@ -6545,7 +6542,7 @@ _action_find_effect_combo.exit.thread:            ; preds = %_action_find_effect
   %177 = phi i32 [ %.pre150, %_action_find_effect_combo.exit._action_find_effect_combo.exit.thread_crit_edge ], [ %135, %144 ]
   %178 = phi ptr [ %.pre149, %_action_find_effect_combo.exit._action_find_effect_combo.exit.thread_crit_edge ], [ %.val, %144 ]
   %179 = sext i32 %177 to i64
-  %180 = getelementptr inbounds ptr, ptr %178, i64 %179
+  %180 = getelementptr inbounds [8 x i8], ptr %178, i64 %179
   %181 = load ptr, ptr %180, align 8, !tbaa !18
   br label %.sink.split
 
@@ -6859,7 +6856,7 @@ define internal fastcc void @_shortcuts_load(ptr noundef readonly captures(none)
   br i1 %cond, label %94, label %85
 
 85:                                               ; preds = %.preheader283
-  %86 = getelementptr inbounds %struct._modifier_name, ptr @modifier_string, i64 %indvars.iv.next
+  %86 = getelementptr inbounds [16 x i8], ptr @modifier_string, i64 %indvars.iv.next
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %88 = load ptr, ptr %87, align 8, !tbaa !202
   %89 = call i32 @g_ascii_strcasecmp(ptr noundef nonnull %83, ptr noundef %88) #25
@@ -6981,7 +6978,7 @@ define internal fastcc void @_shortcuts_load(ptr noundef readonly captures(none)
 140:                                              ; preds = %.preheader413, %143
   %indvars.iv345 = phi i64 [ %indvars.iv.next346, %143 ], [ 0, %.preheader413 ]
   %indvars.iv.next346 = add nuw nsw i64 %indvars.iv345, 1
-  %141 = getelementptr inbounds nuw ptr, ptr @move_string, i64 %indvars.iv.next346
+  %141 = getelementptr inbounds nuw [8 x i8], ptr @move_string, i64 %indvars.iv.next346
   %142 = load ptr, ptr %141, align 8, !tbaa !18
   %.not220 = icmp eq ptr %142, null
   br i1 %.not220, label %.thread260, label %143
@@ -7168,7 +7165,7 @@ define internal fastcc void @_shortcuts_load(ptr noundef readonly captures(none)
 _action_find_definition.exit.i:                   ; preds = %207
   %217 = load ptr, ptr %210, align 8, !tbaa !99
   %218 = zext nneg i32 %205 to i64
-  %219 = getelementptr inbounds nuw ptr, ptr %217, i64 %218
+  %219 = getelementptr inbounds nuw [8 x i8], ptr %217, i64 %218
   %220 = load ptr, ptr %219, align 8, !tbaa !78
   %.not.i = icmp eq ptr %220, null
   br i1 %.not.i, label %_action_find_elements.exit, label %_action_find_definition.exit.thread.i
@@ -7207,7 +7204,7 @@ _action_find_elements.exit:                       ; preds = %214, %_action_find_
 .preheader282:                                    ; preds = %228, %232
   %indvars.iv348 = phi i64 [ %indvars.iv.next349, %232 ], [ -1, %228 ]
   %indvars.iv.next349 = add nsw i64 %indvars.iv348, 1
-  %230 = getelementptr inbounds %struct.dt_action_element_def_t, ptr %.0.i, i64 %indvars.iv.next349
+  %230 = getelementptr inbounds [16 x i8], ptr %.0.i, i64 %indvars.iv.next349
   %231 = load ptr, ptr %230, align 8, !tbaa !106
   %.not197 = icmp eq ptr %231, null
   br i1 %.not197, label %.thread270, label %232
@@ -7235,7 +7232,7 @@ _action_find_elements.exit:                       ; preds = %214, %_action_find_
 .thread270:                                       ; preds = %.preheader282, %237
   %240 = load i32, ptr %33, align 8, !tbaa !104
   %241 = sext i32 %240 to i64
-  %242 = getelementptr inbounds %struct.dt_action_element_def_t, ptr %.0.i, i64 %241
+  %242 = getelementptr inbounds [16 x i8], ptr %.0.i, i64 %241
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 8
   %244 = load ptr, ptr %243, align 8, !tbaa !110
   %245 = load ptr, ptr %31, align 8, !tbaa !90
@@ -7246,7 +7243,7 @@ _action_find_elements.exit:                       ; preds = %214, %_action_find_
 .preheader:                                       ; preds = %.thread270, %249
   %indvars.iv351 = phi i64 [ %indvars.iv.next352, %249 ], [ -1, %.thread270 ]
   %indvars.iv.next352 = add nsw i64 %indvars.iv351, 1
-  %247 = getelementptr inbounds ptr, ptr %244, i64 %indvars.iv.next352
+  %247 = getelementptr inbounds [8 x i8], ptr %244, i64 %indvars.iv.next352
   %248 = load ptr, ptr %247, align 8, !tbaa !18
   %.not201 = icmp eq ptr %248, null
   br i1 %.not201, label %.thread276, label %249
@@ -7261,7 +7258,7 @@ _action_find_elements.exit:                       ; preds = %214, %_action_find_
   br i1 %.not202, label %254, label %.preheader
 
 254:                                              ; preds = %249
-  %255 = getelementptr inbounds ptr, ptr %244, i64 %indvars.iv.next352
+  %255 = getelementptr inbounds [8 x i8], ptr %244, i64 %indvars.iv.next352
   %.pr273 = load ptr, ptr %255, align 8, !tbaa !18
   %.not203 = icmp eq ptr %.pr273, null
   br i1 %.not203, label %.thread276, label %256
@@ -7962,7 +7959,7 @@ define float @dt_action_process(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
 _action_find_definition.exit.i:                   ; preds = %41
   %51 = load ptr, ptr %44, align 8, !tbaa !99
   %52 = zext nneg i32 %39 to i64
-  %53 = getelementptr inbounds nuw ptr, ptr %51, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %52
   %54 = load ptr, ptr %53, align 8, !tbaa !78
   %.not.i = icmp eq ptr %54, null
   br i1 %.not.i, label %.thread99, label %_action_find_elements.exit
@@ -8013,13 +8010,13 @@ _action_find_elements.exit:                       ; preds = %48, %49, %50, %_act
 
 69:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %70 = getelementptr inbounds nuw %struct.dt_action_element_def_t, ptr %56, i64 %indvars.iv.next
+  %70 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %indvars.iv.next
   %71 = load ptr, ptr %70, align 8, !tbaa !106
   %.not80 = icmp eq ptr %71, null
   br i1 %.not80, label %.critedge.thread, label %.lr.ph
 
 .critedge:                                        ; preds = %.lr.ph
-  %72 = getelementptr inbounds nuw %struct.dt_action_element_def_t, ptr %56, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %indvars.iv
   %73 = trunc nuw nsw i64 %indvars.iv to i32
   %.pr = load ptr, ptr %72, align 8, !tbaa !106
   %.not82 = icmp eq ptr %.pr, null
@@ -8032,7 +8029,7 @@ _action_find_elements.exit:                       ; preds = %48, %49, %50, %_act
 .critedge90:                                      ; preds = %59, %.critedge, %.thread, %64
   %.362 = phi i32 [ %73, %.critedge ], [ 0, %.thread ], [ 0, %64 ], [ 0, %59 ]
   %74 = zext nneg i32 %.362 to i64
-  %75 = getelementptr inbounds nuw %struct.dt_action_element_def_t, ptr %56, i64 %74
+  %75 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %74
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %77 = load ptr, ptr %76, align 8, !tbaa !110
   %.not83 = icmp eq ptr %3, null
@@ -8051,7 +8048,7 @@ _action_find_elements.exit:                       ; preds = %48, %49, %50, %_act
 
 .preheader:                                       ; preds = %80
   %82 = sext i32 %.pre to i64
-  %83 = getelementptr inbounds ptr, ptr %77, i64 %82
+  %83 = getelementptr inbounds [8 x i8], ptr %77, i64 %82
   %84 = load ptr, ptr %83, align 8, !tbaa !18
   %.not86111 = icmp eq ptr %84, null
   br i1 %.not86111, label %.critedge92, label %.lr.ph112
@@ -8065,14 +8062,14 @@ _action_find_elements.exit:                       ; preds = %48, %49, %50, %_act
 
 87:                                               ; preds = %.lr.ph112
   %indvars.iv.next122 = add nsw i64 %indvars.iv121, 1
-  %88 = getelementptr inbounds ptr, ptr %77, i64 %indvars.iv.next122
+  %88 = getelementptr inbounds [8 x i8], ptr %77, i64 %indvars.iv.next122
   %89 = load ptr, ptr %88, align 8, !tbaa !18
   %.not86 = icmp eq ptr %89, null
   br i1 %.not86, label %.critedge92, label %.lr.ph112
 
 .critedge3:                                       ; preds = %.lr.ph112
   %90 = trunc nsw i64 %indvars.iv121 to i32
-  %91 = getelementptr inbounds ptr, ptr %77, i64 %indvars.iv121
+  %91 = getelementptr inbounds [8 x i8], ptr %77, i64 %indvars.iv121
   %.pr97 = load ptr, ptr %91, align 8, !tbaa !18
   %.not88 = icmp eq ptr %.pr97, null
   br i1 %.not88, label %.critedge92, label %.thread99
@@ -8239,7 +8236,7 @@ define internal fastcc ptr @_action_find_elements(ptr noundef readonly captures(
 _action_find_definition.exit:                     ; preds = %13
   %23 = load ptr, ptr %16, align 8, !tbaa !99
   %24 = zext nneg i32 %11 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !78
   %.not = icmp eq ptr %26, null
   br i1 %.not, label %_action_find_definition.exit.thread9, label %_action_find_definition.exit.thread
@@ -8509,7 +8506,7 @@ _action_find_definition.exit.thread157:           ; preds = %109
 _action_find_definition.exit:                     ; preds = %102
   %112 = load ptr, ptr %105, align 8, !tbaa !99
   %113 = zext nneg i32 %100 to i64
-  %114 = getelementptr inbounds nuw ptr, ptr %112, i64 %113
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %113
   %115 = load ptr, ptr %114, align 8, !tbaa !78
   %.not130 = icmp eq ptr %115, null
   br i1 %.not130, label %155, label %_action_find_definition.exit.thread
@@ -8547,7 +8544,7 @@ _action_find_definition.exit.thread:              ; preds = %110, %111, %109, %_
   %128 = getelementptr inbounds nuw i8, ptr %.0.i155, i64 16
   %129 = load ptr, ptr %128, align 8, !tbaa !100
   %130 = sext i32 %2 to i64
-  %131 = getelementptr inbounds %struct.dt_action_element_def_t, ptr %129, i64 %130
+  %131 = getelementptr inbounds [16 x i8], ptr %129, i64 %130
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 8
   %133 = load ptr, ptr %132, align 8, !tbaa !110
   %134 = icmp ne ptr %133, @dt_action_effect_value
@@ -8632,7 +8629,7 @@ define internal fastcc range(i32 0, 2) i32 @_find_combo_effect(ptr noundef readn
 14:                                               ; preds = %.preheader49, %.thread
   %indvars.iv = phi i64 [ -1, %.preheader49 ], [ %indvars.iv.next, %.thread ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %15 = getelementptr inbounds %struct.dt_introspection_type_enum_tuple_t, ptr %12, i64 %indvars.iv.next
+  %15 = getelementptr inbounds [24 x i8], ptr %12, i64 %indvars.iv.next
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !121
   %.not36 = icmp eq ptr %17, null
@@ -8668,7 +8665,7 @@ define internal fastcc range(i32 0, 2) i32 @_find_combo_effect(ptr noundef readn
 31:                                               ; preds = %.preheader, %34
   %indvars.iv59 = phi i64 [ -1, %.preheader ], [ %indvars.iv.next60, %34 ]
   %indvars.iv.next60 = add nsw i64 %indvars.iv59, 1
-  %32 = getelementptr inbounds ptr, ptr %29, i64 %indvars.iv.next60
+  %32 = getelementptr inbounds [8 x i8], ptr %29, i64 %indvars.iv.next60
   %33 = load ptr, ptr %32, align 8, !tbaa !18
   %.not34 = icmp eq ptr %33, null
   br i1 %.not34, label %.thread46, label %34
@@ -8871,7 +8868,7 @@ _interrupt_delayed_release.exit:                  ; preds = %9, %7, %4
 _action_find_definition.exit.i:                   ; preds = %77
   %86 = load ptr, ptr %79, align 8, !tbaa !99
   %87 = zext nneg i32 %75 to i64
-  %88 = getelementptr inbounds nuw ptr, ptr %86, i64 %87
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %87
   %89 = load ptr, ptr %88, align 8, !tbaa !78
   %.not.i43 = icmp eq ptr %89, null
   br i1 %.not.i43, label %_action_find_elements.exit.thread, label %_action_find_elements.exit
@@ -9174,7 +9171,7 @@ define internal fastcc float @_process_shortcut(float noundef %0) unnamed_addr #
 82:                                               ; preds = %80
   %83 = load i32, ptr %29, align 8, !tbaa !104
   %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds %struct.dt_action_element_def_t, ptr %81, i64 %84
+  %85 = getelementptr inbounds [16 x i8], ptr %81, i64 %84
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %87 = load ptr, ptr %86, align 8, !tbaa !110
   %88 = icmp eq ptr %87, @dt_action_effect_value
@@ -9238,7 +9235,7 @@ define internal fastcc float @_process_shortcut(float noundef %0) unnamed_addr #
 115:                                              ; preds = %112
   %116 = load i32, ptr %29, align 8, !tbaa !104
   %117 = sext i32 %116 to i64
-  %118 = getelementptr inbounds %struct.dt_action_element_def_t, ptr %113, i64 %117
+  %118 = getelementptr inbounds [16 x i8], ptr %113, i64 %117
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
   %120 = load ptr, ptr %119, align 8, !tbaa !110
   %121 = icmp eq ptr %120, @dt_action_effect_value
@@ -9301,7 +9298,7 @@ define internal fastcc float @_process_shortcut(float noundef %0) unnamed_addr #
 149:                                              ; preds = %147
   %150 = load i32, ptr %29, align 8, !tbaa !104
   %151 = sext i32 %150 to i64
-  %152 = getelementptr inbounds %struct.dt_action_element_def_t, ptr %148, i64 %151
+  %152 = getelementptr inbounds [16 x i8], ptr %148, i64 %151
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
   %154 = load ptr, ptr %153, align 8, !tbaa !110
   %155 = icmp eq ptr %154, @dt_action_effect_value
@@ -10051,7 +10048,7 @@ define void @dt_shortcut_key_press(i8 noundef zeroext %0, i32 noundef %1, i32 no
   %98 = getelementptr inbounds nuw i8, ptr %.0, i64 40
   %99 = load i32, ptr %98, align 8, !tbaa !104
   %100 = sext i32 %99 to i64
-  %101 = getelementptr inbounds %struct.dt_action_element_def_t, ptr %96, i64 %100
+  %101 = getelementptr inbounds [16 x i8], ptr %96, i64 %100
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
   %103 = load ptr, ptr %102, align 8, !tbaa !110
   %104 = icmp eq ptr %103, @dt_action_effect_hold
@@ -10555,7 +10552,7 @@ define internal fastcc void @_delay_for_double_triple(i32 noundef %0, i32 nounde
 _action_find_definition.exit:                     ; preds = %102
   %111 = load ptr, ptr %104, align 8, !tbaa !99
   %112 = zext nneg i32 %100 to i64
-  %113 = getelementptr inbounds nuw ptr, ptr %111, i64 %112
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %112
   %114 = load ptr, ptr %113, align 8, !tbaa !78
   %.not56 = icmp eq ptr %114, null
   br i1 %.not56, label %.thread, label %_action_find_definition.exit.thread
@@ -11774,7 +11771,7 @@ define void @dt_shortcut_register(ptr noundef %0, i32 noundef %1, i32 noundef %2
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
   %16 = phi ptr [ %.pre40, %.preheader ], [ %50, %._crit_edge.loopexit ]
   %.026.lcssa = phi i64 [ 0, %.preheader ], [ %15, %._crit_edge.loopexit ]
-  %17 = getelementptr inbounds %struct._GdkKeymapKey, ptr %16, i64 %.026.lcssa
+  %17 = getelementptr inbounds [12 x i8], ptr %16, i64 %.026.lcssa
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i32, ptr %18, align 4, !tbaa !274
   %20 = and i32 %19, 1
@@ -11804,7 +11801,7 @@ _mods_fix_primary.exit:                           ; preds = %._crit_edge, %27
   %33 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 0, ptr %32, align 8
   %34 = load ptr, ptr %6, align 8, !tbaa !272
-  %35 = getelementptr inbounds %struct._GdkKeymapKey, ptr %34, i64 %.026.lcssa
+  %35 = getelementptr inbounds [12 x i8], ptr %34, i64 %.026.lcssa
   %36 = load i32, ptr %35, align 4, !tbaa !276
   store i32 %36, ptr %33, align 4, !tbaa !86
   %37 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -11831,11 +11828,11 @@ _mods_fix_primary.exit:                           ; preds = %._crit_edge, %27
   %46 = phi ptr [ %50, %73 ], [ %.pre40, %.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %73 ], [ 0, %.preheader ]
   %.02636 = phi i32 [ %.1, %73 ], [ 0, %.preheader ]
-  %47 = getelementptr inbounds nuw %struct._GdkKeymapKey, ptr %46, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [12 x i8], ptr %46, i64 %indvars.iv
   %48 = load i32, ptr %47, align 4, !tbaa !276
   %49 = call i32 @gdk_keymap_translate_keyboard_state(ptr noundef %11, i32 noundef %48, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %47, ptr noundef null, ptr noundef null, ptr noundef null) #25
   %50 = load ptr, ptr %6, align 8, !tbaa !272
-  %51 = getelementptr inbounds nuw %struct._GdkKeymapKey, ptr %50, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [12 x i8], ptr %50, i64 %indvars.iv
   %52 = load i32, ptr %51, align 4, !tbaa !276
   %53 = add i32 %52, -65470
   %54 = icmp ult i32 %53, -62
@@ -11853,7 +11850,7 @@ _mods_fix_primary.exit:                           ; preds = %._crit_edge, %27
 56:                                               ; preds = %.lr.ph._crit_edge, %55
   %57 = phi i32 [ %.pre39, %.lr.ph._crit_edge ], [ 10, %55 ]
   %58 = sext i32 %.02636 to i64
-  %59 = getelementptr inbounds %struct._GdkKeymapKey, ptr %50, i64 %58
+  %59 = getelementptr inbounds [12 x i8], ptr %50, i64 %58
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %61 = load i32, ptr %60, align 4, !tbaa !277
   %62 = icmp slt i32 %57, %61
@@ -12739,7 +12736,7 @@ define internal fastcc ptr @_shortcut_key_move_name(i8 noundef zeroext %0, i32 n
   %11 = icmp ne i32 %1, 0
   %or.cond = and i1 %11, %10
   %12 = zext i32 %1 to i64
-  %13 = getelementptr inbounds nuw ptr, ptr @move_string, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr @move_string, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !18
   br i1 %or.cond, label %15, label %17
 
@@ -13008,7 +13005,7 @@ define internal fastcc ptr @_action_find_effect_combo(ptr noundef %0, ptr readno
 
 10:                                               ; preds = %5
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr %struct.dt_introspection_type_enum_tuple_t, ptr %9, i64 %11
+  %12 = getelementptr [24 x i8], ptr %9, i64 %11
   %13 = getelementptr i8, ptr %12, i64 -152
   %14 = load ptr, ptr %13, align 8, !tbaa !121
   %.not19 = icmp eq ptr %14, null
@@ -13029,7 +13026,7 @@ define internal fastcc ptr @_action_find_effect_combo(ptr noundef %0, ptr readno
 
 23:                                               ; preds = %18
   %24 = zext nneg i32 %1 to i64
-  %25 = getelementptr ptr, ptr %22, i64 %24
+  %25 = getelementptr [8 x i8], ptr %22, i64 %24
   %26 = getelementptr i8, ptr %25, i64 -56
   %27 = load ptr, ptr %26, align 8, !tbaa !18
   br label %30
@@ -13360,7 +13357,7 @@ define internal fastcc range(i32 0, 2) i32 @_fallback_type_is_relevant(ptr nound
 _action_find_definition.exit:                     ; preds = %13
   %20 = load ptr, ptr %16, align 8, !tbaa !99
   %21 = zext nneg i32 %11 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !78
   %.not31 = icmp eq ptr %23, null
   br i1 %.not31, label %.critedge, label %_action_find_definition.exit.thread
@@ -13662,7 +13659,7 @@ _shortcut_is_speed.exit.thread:                   ; preds = %42, %45, %49, %52, 
 
 67:                                               ; preds = %65, %62
   %68 = sext i32 %64 to i64
-  %69 = getelementptr inbounds %struct.dt_action_element_def_t, ptr %59, i64 %68
+  %69 = getelementptr inbounds [16 x i8], ptr %59, i64 %68
   %70 = load ptr, ptr %69, align 8, !tbaa !106
   %71 = call ptr @dcgettext(ptr noundef null, ptr noundef %70, i32 noundef 5) #25
   %72 = call noalias ptr @g_strdup(ptr noundef %71) #25
@@ -13726,7 +13723,7 @@ _shortcut_is_speed.exit126.thread:                ; preds = %82, %85, %89, %92, 
   %101 = getelementptr inbounds nuw i8, ptr %23, i64 40
   %102 = load i32, ptr %101, align 8, !tbaa !104
   %103 = sext i32 %102 to i64
-  %104 = getelementptr inbounds %struct.dt_action_element_def_t, ptr %99, i64 %103
+  %104 = getelementptr inbounds [16 x i8], ptr %99, i64 %103
   %105 = getelementptr inbounds nuw i8, ptr %23, i64 44
   %106 = load i32, ptr %105, align 4, !tbaa !109
   %107 = getelementptr i8, ptr %104, i64 8
@@ -13753,11 +13750,11 @@ _shortcut_is_speed.exit126.thread:                ; preds = %82, %85, %89, %92, 
 117:                                              ; preds = %109, %114
   %118 = load i32, ptr %101, align 8, !tbaa !104
   %119 = sext i32 %118 to i64
-  %120 = getelementptr inbounds %struct.dt_action_element_def_t, ptr %99, i64 %119
+  %120 = getelementptr inbounds [16 x i8], ptr %99, i64 %119
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
   %122 = load ptr, ptr %121, align 8, !tbaa !110
   %123 = zext nneg i32 %110 to i64
-  %124 = getelementptr inbounds nuw ptr, ptr %122, i64 %123
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %123
   %125 = load ptr, ptr %124, align 8, !tbaa !18
   br label %.critedge114
 
@@ -13816,7 +13813,7 @@ _shortcut_is_speed.exit126.thread:                ; preds = %82, %85, %89, %92, 
 _action_find_definition.exit.i:                   ; preds = %143
   %153 = load ptr, ptr %146, align 8, !tbaa !99
   %154 = zext nneg i32 %141 to i64
-  %155 = getelementptr inbounds nuw ptr, ptr %153, i64 %154
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %153, i64 %154
   %156 = load ptr, ptr %155, align 8, !tbaa !78
   %.not.i127 = icmp eq ptr %156, null
   br i1 %.not.i127, label %_action_find_elements.exit, label %_action_find_definition.exit.thread.i
@@ -13842,7 +13839,7 @@ _action_find_elements.exit:                       ; preds = %131, %150, %_action
   %164 = getelementptr inbounds nuw i8, ptr %23, i64 40
   %165 = load i32, ptr %164, align 8, !tbaa !104
   %166 = sext i32 %165 to i64
-  %167 = getelementptr inbounds %struct.dt_action_element_def_t, ptr %.0.i, i64 %166
+  %167 = getelementptr inbounds [16 x i8], ptr %.0.i, i64 %166
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 8
   %169 = load ptr, ptr %168, align 8, !tbaa !110
   %170 = icmp eq ptr %169, @dt_action_effect_value
@@ -13958,7 +13955,7 @@ _shortcut_is_speed.exit135:                       ; preds = %183, %186, %189, %1
   %.neg = sext i1 %222 to i32
   %223 = add nsw i32 %221, %.neg
   %224 = sext i32 %223 to i64
-  %225 = getelementptr inbounds ptr, ptr @instance_label, i64 %224
+  %225 = getelementptr inbounds [8 x i8], ptr @instance_label, i64 %224
   %226 = load ptr, ptr %225, align 8, !tbaa !18
   %227 = call ptr @dcgettext(ptr noundef null, ptr noundef %226, i32 noundef 5) #25
   %228 = call noalias ptr @g_strdup(ptr noundef %227) #25
@@ -14572,12 +14569,12 @@ define internal fastcc range(i32 0, 2) i32 @_shortcut_closest_match(ptr noundef 
 
 103:                                              ; preds = %101
   %104 = sext i32 %82 to i64
-  %105 = getelementptr inbounds %struct.dt_action_element_def_t, ptr %102, i64 %104
+  %105 = getelementptr inbounds [16 x i8], ptr %102, i64 %104
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %107 = load ptr, ptr %106, align 8, !tbaa !110
   %108 = load i32, ptr %19, align 8, !tbaa !104
   %109 = sext i32 %108 to i64
-  %110 = getelementptr inbounds %struct.dt_action_element_def_t, ptr %102, i64 %109
+  %110 = getelementptr inbounds [16 x i8], ptr %102, i64 %109
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %112 = load ptr, ptr %111, align 8, !tbaa !110
   %.not148 = icmp eq ptr %107, %112
@@ -14649,7 +14646,7 @@ define internal fastcc range(i32 0, 2) i32 @_shortcut_closest_match(ptr noundef 
 158:                                              ; preds = %.critedge
   %159 = load i32, ptr %19, align 8, !tbaa !104
   %160 = sext i32 %159 to i64
-  %161 = getelementptr inbounds %struct.dt_action_element_def_t, ptr %157, i64 %160
+  %161 = getelementptr inbounds [16 x i8], ptr %157, i64 %160
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 8
   %163 = load ptr, ptr %162, align 8, !tbaa !110
   %164 = icmp eq ptr %163, @dt_action_effect_value
@@ -14752,7 +14749,7 @@ define internal fastcc range(i32 0, 2) i32 @_shortcut_closest_match(ptr noundef 
 _action_find_definition.exit.i:                   ; preds = %195
   %205 = load ptr, ptr %198, align 8, !tbaa !99
   %206 = zext nneg i32 %193 to i64
-  %207 = getelementptr inbounds nuw ptr, ptr %205, i64 %206
+  %207 = getelementptr inbounds nuw [8 x i8], ptr %205, i64 %206
   %208 = load ptr, ptr %207, align 8, !tbaa !78
   %.not.i = icmp eq ptr %208, null
   br i1 %.not.i, label %thread-pre-split.thread205, label %thread-pre-split
@@ -14773,7 +14770,7 @@ thread-pre-split.thread:                          ; preds = %180, %thread-pre-sp
   %211 = phi ptr [ %210, %thread-pre-split ], [ %157, %180 ]
   %212 = load i32, ptr %19, align 8, !tbaa !104
   %213 = sext i32 %212 to i64
-  %214 = getelementptr inbounds %struct.dt_action_element_def_t, ptr %211, i64 %213
+  %214 = getelementptr inbounds [16 x i8], ptr %211, i64 %213
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 8
   %216 = load ptr, ptr %215, align 8, !tbaa !110
   %217 = icmp eq ptr %216, @dt_action_effect_value
@@ -14851,7 +14848,7 @@ thread-pre-split.thread:                          ; preds = %180, %thread-pre-sp
 253:                                              ; preds = %251
   %254 = load i32, ptr %19, align 8, !tbaa !104
   %255 = sext i32 %254 to i64
-  %256 = getelementptr inbounds %struct.dt_action_element_def_t, ptr %252, i64 %255
+  %256 = getelementptr inbounds [16 x i8], ptr %252, i64 %255
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 8
   %258 = load ptr, ptr %257, align 8, !tbaa !110
   %259 = icmp eq ptr %258, @dt_action_effect_value
@@ -14992,7 +14989,7 @@ define internal fastcc void @_lookup_mapping_widget() unnamed_addr #0 {
 _action_find_definition.exit:                     ; preds = %30
   %40 = load ptr, ptr %33, align 8, !tbaa !99
   %41 = zext nneg i32 %28 to i64
-  %42 = getelementptr inbounds nuw ptr, ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %41
   %43 = load ptr, ptr %42, align 8, !tbaa !78
   %.not7 = icmp eq ptr %43, null
   br i1 %.not7, label %_action_find_definition.exit.thread14, label %_action_find_definition.exit.thread

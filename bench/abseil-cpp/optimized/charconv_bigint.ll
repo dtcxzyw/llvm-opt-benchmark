@@ -520,7 +520,7 @@ _ZSt4findIPKccET_S2_S2_RKT0_.exit:                ; preds = %42, %_ZSt4findIPKcc
 102:                                              ; preds = %102, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %102 ]
   %.01418.i = phi i64 [ 0, %.lr.ph.i ], [ %109, %102 ]
-  %103 = getelementptr inbounds nuw i32, ptr %80, i64 %indvars.iv.i
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %indvars.iv.i
   %104 = load i32, ptr %103, align 4, !tbaa !12
   %105 = zext i32 %104 to i64
   %106 = mul nuw nsw i64 %105, 1000000000
@@ -534,7 +534,7 @@ _ZSt4findIPKccET_S2_S2_RKT0_.exit:                ; preds = %42, %_ZSt4findIPKcc
 
 110:                                              ; preds = %._crit_edge.i
   %111 = trunc nuw nsw i64 %109 to i32
-  %112 = getelementptr inbounds nuw i32, ptr %80, i64 %wide.trip.count.i
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %wide.trip.count.i
   store i32 %111, ptr %112, align 4, !tbaa !12
   %113 = add nuw nsw i32 %.sroa.speculated.i172175, 1
   store i32 %113, ptr %0, align 4, !tbaa !4
@@ -549,7 +549,7 @@ _ZN4absl16strings_internal11BigUnsignedILi4EE10MultiplyByEj.exit: ; preds = %99,
   %.017.i = phi i32 [ %119, %.preheader.i ], [ %96, %_ZN4absl16strings_internal11BigUnsignedILi4EE10MultiplyByEj.exit ]
   %.0916.i = phi i32 [ %.110.i, %.preheader.i ], [ 0, %_ZN4absl16strings_internal11BigUnsignedILi4EE10MultiplyByEj.exit ]
   %114 = zext nneg i32 %.0916.i to i64
-  %115 = getelementptr inbounds nuw i32, ptr %80, i64 %114
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %114
   %116 = load i32, ptr %115, align 4, !tbaa !12
   %117 = add i32 %116, %.017.i
   store i32 %117, ptr %115, align 4, !tbaa !12
@@ -591,7 +591,7 @@ _ZN4absl16strings_internal11BigUnsignedILi4EE12AddWithCarryEij.exit: ; preds = %
 
 .lr.ph.i93:                                       ; preds = %130
   %132 = sext i32 %.166 to i64
-  %133 = getelementptr inbounds i32, ptr @_ZN4absl16strings_internal9kTenToNthE, i64 %132
+  %133 = getelementptr inbounds [4 x i8], ptr @_ZN4absl16strings_internal9kTenToNthE, i64 %132
   %134 = load i32, ptr %133, align 4, !tbaa !12
   %135 = zext i32 %134 to i64
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -607,7 +607,7 @@ _ZN4absl16strings_internal11BigUnsignedILi4EE12AddWithCarryEij.exit: ; preds = %
 138:                                              ; preds = %138, %.lr.ph.i93
   %indvars.iv.i95 = phi i64 [ 0, %.lr.ph.i93 ], [ %indvars.iv.next.i97, %138 ]
   %.01418.i96 = phi i64 [ 0, %.lr.ph.i93 ], [ %145, %138 ]
-  %139 = getelementptr inbounds nuw i32, ptr %136, i64 %indvars.iv.i95
+  %139 = getelementptr inbounds nuw [4 x i8], ptr %136, i64 %indvars.iv.i95
   %140 = load i32, ptr %139, align 4, !tbaa !12
   %141 = zext i32 %140 to i64
   %142 = mul nuw i64 %141, %135
@@ -621,7 +621,7 @@ _ZN4absl16strings_internal11BigUnsignedILi4EE12AddWithCarryEij.exit: ; preds = %
 
 ._crit_edge.thread.sink.split.i:                  ; preds = %._crit_edge.i99
   %146 = trunc nuw i64 %145 to i32
-  %147 = getelementptr inbounds nuw i32, ptr %136, i64 %wide.trip.count.i94
+  %147 = getelementptr inbounds nuw [4 x i8], ptr %136, i64 %wide.trip.count.i94
   store i32 %146, ptr %147, align 4, !tbaa !12
   %148 = add nuw nsw i32 %.sroa.speculated.i173, 1
   store i32 %148, ptr %0, align 4, !tbaa !4
@@ -640,7 +640,7 @@ _ZN4absl16strings_internal11BigUnsignedILi4EE10MultiplyByEj.exit102: ; preds = %
   %.017.i106 = phi i32 [ %.168, %.preheader.i104 ], [ %157, %151 ]
   %.0916.i107 = phi i32 [ 0, %.preheader.i104 ], [ %.110.i108, %151 ]
   %152 = zext nneg i32 %.0916.i107 to i64
-  %153 = getelementptr inbounds nuw i32, ptr %150, i64 %152
+  %153 = getelementptr inbounds nuw [4 x i8], ptr %150, i64 %152
   %154 = load i32, ptr %153, align 4, !tbaa !12
   %155 = add i32 %154, %.017.i106
   store i32 %155, ptr %153, align 4, !tbaa !12
@@ -815,7 +815,7 @@ define weak_odr dso_local void @_ZN4absl16strings_internal11BigUnsignedILi4EE21M
 11:                                               ; preds = %11, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %11 ]
   %.01418.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %18, %11 ]
-  %12 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i.i
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv.i.i
   %13 = load i32, ptr %12, align 4, !tbaa !12
   %14 = zext i32 %13 to i64
   %15 = mul nuw nsw i64 %14, 1220703125
@@ -829,7 +829,7 @@ define weak_odr dso_local void @_ZN4absl16strings_internal11BigUnsignedILi4EE21M
 
 19:                                               ; preds = %._crit_edge.i.i
   %20 = trunc nuw nsw i64 %18 to i32
-  %21 = getelementptr inbounds nuw i32, ptr %6, i64 %wide.trip.count.i.i
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %wide.trip.count.i.i
   store i32 %20, ptr %21, align 4, !tbaa !12
   %22 = add nuw nsw i32 %8, 1
   br label %_ZN4absl16strings_internal11BigUnsignedILi4EE10MultiplyByEj.exit.i
@@ -852,7 +852,7 @@ _ZN4absl16strings_internal11BigUnsignedILi4EE10MultiplyByEj.exit.i: ; preds = %1
 
 29:                                               ; preds = %._crit_edge.i.thread
   %30 = zext nneg i32 %.0.lcssa.i15 to i64
-  %31 = getelementptr inbounds nuw i32, ptr @_ZN4absl16strings_internal10kFiveToNthE, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr @_ZN4absl16strings_internal10kFiveToNthE, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !12
   %33 = zext i32 %32 to i64
   %34 = icmp sgt i32 %27, 0
@@ -872,7 +872,7 @@ _ZN4absl16strings_internal11BigUnsignedILi4EE10MultiplyByEj.exit.i: ; preds = %1
 37:                                               ; preds = %37, %.lr.ph.i4.i
   %indvars.iv.i6.i = phi i64 [ 0, %.lr.ph.i4.i ], [ %indvars.iv.next.i8.i, %37 ]
   %.01418.i7.i = phi i64 [ 0, %.lr.ph.i4.i ], [ %44, %37 ]
-  %38 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv.i6.i
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %indvars.iv.i6.i
   %39 = load i32, ptr %38, align 4, !tbaa !12
   %40 = zext i32 %39 to i64
   %41 = mul nuw i64 %40, %33
@@ -886,7 +886,7 @@ _ZN4absl16strings_internal11BigUnsignedILi4EE10MultiplyByEj.exit.i: ; preds = %1
 
 ._crit_edge.thread.sink.split.i.i:                ; preds = %._crit_edge.i10.i
   %45 = trunc nuw i64 %44 to i32
-  %46 = getelementptr inbounds nuw i32, ptr %35, i64 %wide.trip.count.i5.i
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %wide.trip.count.i5.i
   store i32 %45, ptr %46, align 4, !tbaa !12
   %47 = add nuw nsw i32 %27, 1
   br label %_ZN4absl16strings_internal11BigUnsignedILi4EE22MultiplyByFiveToTheNthEi.exit
@@ -939,7 +939,7 @@ _ZN4absl16strings_internal11BigUnsignedILi4EE9SetToZeroEv.exit.i: ; preds = %_ZN
   %68 = sub nsw i64 %.idx.i, %64
   %69 = ashr exact i64 %68, 2
   %70 = sub nsw i64 0, %69
-  %71 = getelementptr inbounds i32, ptr %67, i64 %70
+  %71 = getelementptr inbounds [4 x i8], ptr %67, i64 %70
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %71, ptr nonnull align 4 %66, i64 %68, i1 false)
   br label %_ZSt13copy_backwardIPjS0_ET0_T_S2_S1_.exit.i
 
@@ -963,7 +963,7 @@ _ZN4absl16strings_internal11BigUnsignedILi4EE9SetToZeroEv.exit.i: ; preds = %_ZN
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %78 = load i32, ptr %77, align 4, !tbaa !12
   %79 = shl i32 %78, %59
-  %80 = getelementptr inbounds nuw i32, ptr %77, i64 %.pre-phi.i
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %.pre-phi.i
   store i32 %79, ptr %80, align 4, !tbaa !12
   %81 = icmp slt i32 %58, 4
   br i1 %81, label %91, label %_ZSt13copy_backwardIPjS0_ET0_T_S2_S1_.exit.i
@@ -971,12 +971,12 @@ _ZN4absl16strings_internal11BigUnsignedILi4EE9SetToZeroEv.exit.i: ; preds = %_ZN
 82:                                               ; preds = %82, %.lr.ph.i6
   %indvars.iv.i = phi i64 [ %75, %.lr.ph.i6 ], [ %indvars.iv.next.i, %82 ]
   %83 = sub nsw i64 %indvars.iv.i, %76
-  %84 = getelementptr inbounds nuw i32, ptr %74, i64 %83
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %83
   %85 = load i32, ptr %84, align 4, !tbaa !12
   %86 = getelementptr i8, ptr %84, i64 -4
   %87 = load i32, ptr %86, align 4, !tbaa !12
   %88 = tail call i32 @llvm.fshl.i32(i32 %85, i32 %87, i32 %1)
-  %89 = getelementptr inbounds nuw i32, ptr %74, i64 %indvars.iv.i
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %indvars.iv.i
   store i32 %88, ptr %89, align 4, !tbaa !12
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %90 = icmp samesign ugt i64 %indvars.iv.next.i, %76
@@ -984,7 +984,7 @@ _ZN4absl16strings_internal11BigUnsignedILi4EE9SetToZeroEv.exit.i: ; preds = %_ZN
 
 91:                                               ; preds = %._crit_edge.i5
   %92 = sext i32 %.sroa.speculated28.i to i64
-  %93 = getelementptr inbounds i32, ptr %77, i64 %92
+  %93 = getelementptr inbounds [4 x i8], ptr %77, i64 %92
   %94 = load i32, ptr %93, align 4, !tbaa !12
   %.not.i = icmp eq i32 %94, 0
   br i1 %.not.i, label %_ZSt13copy_backwardIPjS0_ET0_T_S2_S1_.exit.i, label %95
@@ -1016,7 +1016,7 @@ _ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit.i:   ; preds = %_ZSt13copy_backward
 
 105:                                              ; preds = %102
   %106 = zext nneg i32 %1 to i64
-  %107 = getelementptr inbounds nuw i32, ptr @_ZN4absl16strings_internal9kTenToNthE, i64 %106
+  %107 = getelementptr inbounds nuw [4 x i8], ptr @_ZN4absl16strings_internal9kTenToNthE, i64 %106
   %108 = load i32, ptr %107, align 4, !tbaa !12
   %109 = zext i32 %108 to i64
   %110 = icmp sgt i32 %103, 0
@@ -1036,7 +1036,7 @@ _ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit.i:   ; preds = %_ZSt13copy_backward
 113:                                              ; preds = %113, %.lr.ph.i7
   %indvars.iv.i8 = phi i64 [ 0, %.lr.ph.i7 ], [ %indvars.iv.next.i9, %113 ]
   %.01418.i = phi i64 [ 0, %.lr.ph.i7 ], [ %120, %113 ]
-  %114 = getelementptr inbounds nuw i32, ptr %111, i64 %indvars.iv.i8
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %111, i64 %indvars.iv.i8
   %115 = load i32, ptr %114, align 4, !tbaa !12
   %116 = zext i32 %115 to i64
   %117 = mul nuw i64 %116, %109
@@ -1050,7 +1050,7 @@ _ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit.i:   ; preds = %_ZSt13copy_backward
 
 ._crit_edge.thread.sink.split.i:                  ; preds = %._crit_edge.i10
   %121 = trunc nuw i64 %120 to i32
-  %122 = getelementptr inbounds nuw i32, ptr %111, i64 %wide.trip.count.i
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %111, i64 %wide.trip.count.i
   store i32 %121, ptr %122, align 4, !tbaa !12
   %123 = add nuw nsw i32 %103, 1
   store i32 %123, ptr %0, align 4, !tbaa !4
@@ -1181,7 +1181,7 @@ _ZN4absl16strings_internal11BigUnsignedILi4EE9SetToZeroEv.exit: ; preds = %8, %_
   %23 = sub nsw i64 %.idx, %19
   %24 = ashr exact i64 %23, 2
   %25 = sub nsw i64 0, %24
-  %26 = getelementptr inbounds i32, ptr %22, i64 %25
+  %26 = getelementptr inbounds [4 x i8], ptr %22, i64 %25
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %26, ptr nonnull align 4 %21, i64 %23, i1 false)
   br label %_ZSt13copy_backwardIPjS0_ET0_T_S2_S1_.exit
 
@@ -1206,7 +1206,7 @@ _ZN4absl16strings_internal11BigUnsignedILi4EE9SetToZeroEv.exit: ; preds = %8, %_
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %34 = load i32, ptr %33, align 4, !tbaa !12
   %35 = shl i32 %34, %14
-  %36 = getelementptr inbounds nuw i32, ptr %33, i64 %.pre-phi
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %.pre-phi
   store i32 %35, ptr %36, align 4, !tbaa !12
   %37 = icmp slt i32 %13, 4
   br i1 %37, label %47, label %_ZSt13copy_backwardIPjS0_ET0_T_S2_S1_.exit
@@ -1214,12 +1214,12 @@ _ZN4absl16strings_internal11BigUnsignedILi4EE9SetToZeroEv.exit: ; preds = %8, %_
 38:                                               ; preds = %.lr.ph, %38
   %indvars.iv = phi i64 [ %30, %.lr.ph ], [ %indvars.iv.next, %38 ]
   %39 = sub nsw i64 %indvars.iv, %31
-  %40 = getelementptr inbounds nuw i32, ptr %29, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !12
   %42 = getelementptr i8, ptr %40, i64 -4
   %43 = load i32, ptr %42, align 4, !tbaa !12
   %44 = tail call i32 @llvm.fshl.i32(i32 %41, i32 %43, i32 %1)
-  %45 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv
   store i32 %44, ptr %45, align 4, !tbaa !12
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %46 = icmp samesign ugt i64 %indvars.iv.next, %32
@@ -1227,7 +1227,7 @@ _ZN4absl16strings_internal11BigUnsignedILi4EE9SetToZeroEv.exit: ; preds = %8, %_
 
 47:                                               ; preds = %._crit_edge
   %48 = sext i32 %.sroa.speculated28 to i64
-  %49 = getelementptr inbounds i32, ptr %33, i64 %48
+  %49 = getelementptr inbounds [4 x i8], ptr %33, i64 %48
   %50 = load i32, ptr %49, align 4, !tbaa !12
   %.not = icmp eq i32 %50, 0
   br i1 %.not, label %_ZSt13copy_backwardIPjS0_ET0_T_S2_S1_.exit, label %51
@@ -1294,7 +1294,7 @@ _ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit.i:   ; preds = %8
 17:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
   %.01418 = phi i64 [ 0, %.lr.ph ], [ %24, %17 ]
-  %18 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   %19 = load i32, ptr %18, align 4, !tbaa !12
   %20 = zext i32 %19 to i64
   %21 = mul nuw i64 %20, %13
@@ -1310,7 +1310,7 @@ _ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit.i:   ; preds = %8
   %26 = trunc nuw i64 %24 to i32
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %28 = zext nneg i32 %3 to i64
-  %29 = getelementptr inbounds nuw i32, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %28
   store i32 %26, ptr %29, align 4, !tbaa !12
   %30 = load i32, ptr %0, align 4, !tbaa !4
   %31 = add nsw i32 %30, 1
@@ -1374,7 +1374,7 @@ _ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit.i.i: ; preds = %12
 20:                                               ; preds = %20, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %20 ]
   %.01418.i = phi i64 [ 0, %.lr.ph.i ], [ %27, %20 ]
-  %21 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv.i
   %22 = load i32, ptr %21, align 4, !tbaa !12
   %23 = zext i32 %22 to i64
   %24 = mul nuw i64 %1, %23
@@ -1388,7 +1388,7 @@ _ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit.i.i: ; preds = %12
 
 28:                                               ; preds = %._crit_edge.i
   %29 = trunc nuw i64 %27 to i32
-  %30 = getelementptr inbounds nuw i32, ptr %18, i64 %wide.trip.count.i
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %wide.trip.count.i
   store i32 %29, ptr %30, align 4, !tbaa !12
   %31 = add nuw nsw i32 %6, 1
   br label %._crit_edge.thread.sink.split.i
@@ -1470,7 +1470,7 @@ define weak_odr dso_local void @_ZN4absl16strings_internal11BigUnsignedILi4EE22M
 9:                                                ; preds = %9, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %9 ]
   %.01418.i = phi i64 [ 0, %.lr.ph.i ], [ %16, %9 ]
-  %10 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i
   %11 = load i32, ptr %10, align 4, !tbaa !12
   %12 = zext i32 %11 to i64
   %13 = mul nuw nsw i64 %12, 1220703125
@@ -1484,7 +1484,7 @@ define weak_odr dso_local void @_ZN4absl16strings_internal11BigUnsignedILi4EE22M
 
 17:                                               ; preds = %._crit_edge.i
   %18 = trunc nuw nsw i64 %16 to i32
-  %19 = getelementptr inbounds nuw i32, ptr %4, i64 %wide.trip.count.i
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %wide.trip.count.i
   store i32 %18, ptr %19, align 4, !tbaa !12
   %20 = add nuw nsw i32 %6, 1
   store i32 %20, ptr %0, align 4, !tbaa !4
@@ -1508,7 +1508,7 @@ _ZN4absl16strings_internal11BigUnsignedILi4EE10MultiplyByEj.exit: ; preds = %5, 
 
 28:                                               ; preds = %25
   %29 = zext nneg i32 %.0.lcssa to i64
-  %30 = getelementptr inbounds nuw i32, ptr @_ZN4absl16strings_internal10kFiveToNthE, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr @_ZN4absl16strings_internal10kFiveToNthE, i64 %29
   %31 = load i32, ptr %30, align 4, !tbaa !12
   %32 = zext i32 %31 to i64
   %33 = icmp sgt i32 %26, 0
@@ -1528,7 +1528,7 @@ _ZN4absl16strings_internal11BigUnsignedILi4EE10MultiplyByEj.exit: ; preds = %5, 
 36:                                               ; preds = %36, %.lr.ph.i4
   %indvars.iv.i6 = phi i64 [ 0, %.lr.ph.i4 ], [ %indvars.iv.next.i8, %36 ]
   %.01418.i7 = phi i64 [ 0, %.lr.ph.i4 ], [ %43, %36 ]
-  %37 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv.i6
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv.i6
   %38 = load i32, ptr %37, align 4, !tbaa !12
   %39 = zext i32 %38 to i64
   %40 = mul nuw i64 %39, %32
@@ -1542,7 +1542,7 @@ _ZN4absl16strings_internal11BigUnsignedILi4EE10MultiplyByEj.exit: ; preds = %5, 
 
 ._crit_edge.thread.sink.split.i:                  ; preds = %._crit_edge.i10
   %44 = trunc nuw i64 %43 to i32
-  %45 = getelementptr inbounds nuw i32, ptr %34, i64 %wide.trip.count.i5
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %wide.trip.count.i5
   store i32 %44, ptr %45, align 4, !tbaa !12
   %46 = add nuw nsw i32 %26, 1
   store i32 %46, ptr %0, align 4, !tbaa !4
@@ -1573,7 +1573,7 @@ _ZSt8__copy_nIPKjiPjET1_T_T0_S3_St26random_access_iterator_tag.exit.i: ; preds =
   %7 = add nsw i32 %.sroa.speculated, -1
   %8 = mul nuw nsw i32 %7, %.sroa.speculated
   %9 = zext nneg i32 %8 to i64
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN4absl16strings_internal12_GLOBAL__N_118kLargePowersOfFiveE, i64 %9
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN4absl16strings_internal12_GLOBAL__N_118kLargePowersOfFiveE, i64 %9
   %11 = shl nuw nsw i32 %.sroa.speculated, 1
   %12 = shl nuw nsw i32 %.sroa.speculated, 3
   %.idx.i.i = zext nneg i32 %12 to i64
@@ -1586,7 +1586,7 @@ _ZSt8__copy_nIPKjiPjET1_T_T0_S3_St26random_access_iterator_tag.exit.i: ; preds =
   %15 = add nsw i32 %.sroa.speculated, -1
   %16 = mul nuw nsw i32 %15, %.sroa.speculated
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds nuw i32, ptr @_ZN4absl16strings_internal12_GLOBAL__N_118kLargePowersOfFiveE, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr @_ZN4absl16strings_internal12_GLOBAL__N_118kLargePowersOfFiveE, i64 %17
   %19 = load i32, ptr %0, align 4, !tbaa !4
   %20 = add nsw i32 %19, %14
   %21 = icmp sgt i32 %20, 1
@@ -1611,7 +1611,7 @@ select.unfold.i:                                  ; preds = %_ZN4absl16strings_i
   br i1 %30, label %.lr.ph.i12, label %_ZN4absl16strings_internal11BigUnsignedILi4EE12AddWithCarryEim.exit.thread.i
 
 _ZN4absl16strings_internal11BigUnsignedILi4EE12AddWithCarryEim.exit.thread.i: ; preds = %select.unfold.i
-  %31 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv
+  %31 = getelementptr inbounds [4 x i8], ptr %4, i64 %indvars.iv
   store i32 0, ptr %31, align 4, !tbaa !12
   br label %_ZN4absl16strings_internal11BigUnsignedILi4EE12MultiplyStepEiPKjii.exit
 
@@ -1625,10 +1625,10 @@ _ZN4absl16strings_internal11BigUnsignedILi4EE12AddWithCarryEim.exit.thread.i: ; 
   %indvars.iv.i = phi i64 [ %32, %.lr.ph.i12 ], [ %indvars.iv.next.i, %34 ]
   %.01933.i = phi i64 [ 0, %.lr.ph.i12 ], [ %44, %34 ]
   %.02032.i = phi i64 [ 0, %.lr.ph.i12 ], [ %45, %34 ]
-  %35 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i
   %36 = load i32, ptr %35, align 4, !tbaa !12
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds i32, ptr %18, i64 %indvars.iv37.i
+  %38 = getelementptr inbounds [4 x i8], ptr %18, i64 %indvars.iv37.i
   %39 = load i32, ptr %38, align 4, !tbaa !12
   %40 = zext i32 %39 to i64
   %41 = mul nuw i64 %40, %37
@@ -1654,7 +1654,7 @@ _ZN4absl16strings_internal11BigUnsignedILi4EE12AddWithCarryEim.exit.thread.i: ; 
   %53 = lshr i64 %44, 32
   %54 = trunc nuw i64 %53 to i32
   %55 = trunc i64 %44 to i32
-  %56 = getelementptr inbounds i32, ptr %4, i64 %49
+  %56 = getelementptr inbounds [4 x i8], ptr %4, i64 %49
   %57 = load i32, ptr %56, align 4, !tbaa !12
   %58 = add i32 %57, %55
   store i32 %58, ptr %56, align 4, !tbaa !12
@@ -1676,7 +1676,7 @@ _ZN4absl16strings_internal11BigUnsignedILi4EE12AddWithCarryEim.exit.thread.i: ; 
   %.017.i.i.i = phi i32 [ %72, %.lr.ph.i.i.i ], [ 1, %63 ]
   %.0916.i.i.i = phi i32 [ %.110.i.i.i, %.lr.ph.i.i.i ], [ %66, %63 ]
   %67 = sext i32 %.0916.i.i.i to i64
-  %68 = getelementptr inbounds i32, ptr %4, i64 %67
+  %68 = getelementptr inbounds [4 x i8], ptr %4, i64 %67
   %69 = load i32, ptr %68, align 4, !tbaa !12
   %70 = add i32 %69, %.017.i.i.i
   store i32 %70, ptr %68, align 4, !tbaa !12
@@ -1710,7 +1710,7 @@ _ZN4absl16strings_internal11BigUnsignedILi4EE12AddWithCarryEij.exit.i.i: ; preds
   %.017.i22.i.i = phi i32 [ %85, %.lr.ph.i21.i.i ], [ %.031.i.i, %.lr.ph.i21.preheader.i.i ]
   %.0916.i23.i.i = phi i32 [ %.110.i24.i.i, %.lr.ph.i21.i.i ], [ %79, %.lr.ph.i21.preheader.i.i ]
   %80 = sext i32 %.0916.i23.i.i to i64
-  %81 = getelementptr inbounds i32, ptr %4, i64 %80
+  %81 = getelementptr inbounds [4 x i8], ptr %4, i64 %80
   %82 = load i32, ptr %81, align 4, !tbaa !12
   %83 = add i32 %82, %.017.i22.i.i
   store i32 %83, ptr %81, align 4, !tbaa !12
@@ -1740,7 +1740,7 @@ _ZN4absl16strings_internal11BigUnsignedILi4EE12AddWithCarryEij.exit25.loopexit.i
 
 _ZN4absl16strings_internal11BigUnsignedILi4EE12AddWithCarryEim.exit.i: ; preds = %.sink.split.i.i, %._crit_edge.i13
   %94 = trunc i64 %42 to i32
-  %95 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv
+  %95 = getelementptr inbounds [4 x i8], ptr %4, i64 %indvars.iv
   store i32 %94, ptr %95, align 4, !tbaa !12
   %.not.i14 = icmp eq i64 %45, 0
   %96 = load i32, ptr %0, align 4
@@ -1794,7 +1794,7 @@ _ZN4absl16strings_internal11BigUnsignedILi4EE10MultiplyByEiPKj.exit: ; preds = %
 108:                                              ; preds = %108, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %108 ]
   %.01418.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %115, %108 ]
-  %109 = getelementptr inbounds nuw i32, ptr %103, i64 %indvars.iv.i.i
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %103, i64 %indvars.iv.i.i
   %110 = load i32, ptr %109, align 4, !tbaa !12
   %111 = zext i32 %110 to i64
   %112 = mul nuw nsw i64 %111, 1220703125
@@ -1808,7 +1808,7 @@ _ZN4absl16strings_internal11BigUnsignedILi4EE10MultiplyByEiPKj.exit: ; preds = %
 
 116:                                              ; preds = %._crit_edge.i.i
   %117 = trunc nuw nsw i64 %115 to i32
-  %118 = getelementptr inbounds nuw i32, ptr %103, i64 %wide.trip.count.i.i
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %103, i64 %wide.trip.count.i.i
   store i32 %117, ptr %118, align 4, !tbaa !12
   %119 = add nuw nsw i32 %105, 1
   store i32 %119, ptr %0, align 4, !tbaa !4
@@ -1832,7 +1832,7 @@ _ZN4absl16strings_internal11BigUnsignedILi4EE10MultiplyByEj.exit.i: ; preds = %1
 
 127:                                              ; preds = %124
   %128 = zext nneg i32 %.0.lcssa.i to i64
-  %129 = getelementptr inbounds nuw i32, ptr @_ZN4absl16strings_internal10kFiveToNthE, i64 %128
+  %129 = getelementptr inbounds nuw [4 x i8], ptr @_ZN4absl16strings_internal10kFiveToNthE, i64 %128
   %130 = load i32, ptr %129, align 4, !tbaa !12
   %131 = zext i32 %130 to i64
   %132 = icmp sgt i32 %125, 0
@@ -1852,7 +1852,7 @@ _ZN4absl16strings_internal11BigUnsignedILi4EE10MultiplyByEj.exit.i: ; preds = %1
 135:                                              ; preds = %135, %.lr.ph.i4.i
   %indvars.iv.i6.i = phi i64 [ 0, %.lr.ph.i4.i ], [ %indvars.iv.next.i8.i, %135 ]
   %.01418.i7.i = phi i64 [ 0, %.lr.ph.i4.i ], [ %142, %135 ]
-  %136 = getelementptr inbounds nuw i32, ptr %133, i64 %indvars.iv.i6.i
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %133, i64 %indvars.iv.i6.i
   %137 = load i32, ptr %136, align 4, !tbaa !12
   %138 = zext i32 %137 to i64
   %139 = mul nuw i64 %138, %131
@@ -1866,7 +1866,7 @@ _ZN4absl16strings_internal11BigUnsignedILi4EE10MultiplyByEj.exit.i: ; preds = %1
 
 ._crit_edge.thread.sink.split.i.i:                ; preds = %._crit_edge.i10.i
   %143 = trunc nuw i64 %142 to i32
-  %144 = getelementptr inbounds nuw i32, ptr %133, i64 %wide.trip.count.i5.i
+  %144 = getelementptr inbounds nuw [4 x i8], ptr %133, i64 %wide.trip.count.i5.i
   store i32 %143, ptr %144, align 4, !tbaa !12
   %145 = add nuw nsw i32 %125, 1
   store i32 %145, ptr %0, align 4, !tbaa !4
@@ -1887,7 +1887,7 @@ define weak_odr dso_local noundef i32 @_ZNK4absl16strings_internal11BigUnsignedI
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = zext nneg i32 %1 to i64
-  %8 = getelementptr inbounds nuw i32, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !12
   br label %10
 
@@ -1920,7 +1920,7 @@ define weak_odr dso_local void @_ZNK4absl16strings_internal11BigUnsignedILi4EE8T
   %.0911.i = phi i64 [ 0, %.lr.ph.i ], [ %18, %10 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %11 = shl nuw nsw i64 %.0911.i, 32
-  %12 = getelementptr i32, ptr %3, i64 %indvars.iv.i
+  %12 = getelementptr [4 x i8], ptr %3, i64 %indvars.iv.i
   %13 = load i32, ptr %12, align 4, !tbaa !12
   %14 = zext i32 %13 to i64
   %15 = or disjoint i64 %11, %14
@@ -1938,13 +1938,13 @@ thread-pre-split.i:                               ; preds = %10
 
 .lr.ph13.i.preheader:                             ; preds = %thread-pre-split.i
   %21 = zext nneg i32 %.pr.pre.i to i64
-  %22 = getelementptr i32, ptr %3, i64 %21
+  %22 = getelementptr [4 x i8], ptr %3, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !12
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %.lr.ph, label %_ZN4absl16strings_internal11BigUnsignedILi4EE6DivModILj10EEEjv.exit
 
 .lr.ph13.i:                                       ; preds = %.lr.ph
-  %25 = getelementptr i32, ptr %3, i64 %indvars.iv.next
+  %25 = getelementptr [4 x i8], ptr %3, i64 %indvars.iv.next
   %26 = load i32, ptr %25, align 4, !tbaa !12
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %.lr.ph, label %_ZN4absl16strings_internal11BigUnsignedILi4EE6DivModILj10EEEjv.exit, !llvm.loop !41
@@ -2120,7 +2120,7 @@ define weak_odr dso_local void @_ZN4absl16strings_internal11BigUnsignedILi4EE12A
   %.017 = phi i32 [ %2, %.lr.ph ], [ %12, %6 ]
   %.0916 = phi i32 [ %1, %.lr.ph ], [ %.110, %6 ]
   %7 = sext i32 %.0916 to i64
-  %8 = getelementptr inbounds i32, ptr %5, i64 %7
+  %8 = getelementptr inbounds [4 x i8], ptr %5, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !12
   %10 = add i32 %9, %.017
   store i32 %10, ptr %8, align 4, !tbaa !12
@@ -2157,7 +2157,7 @@ define weak_odr dso_local void @_ZN4absl16strings_internal11BigUnsignedILi4EE12M
 
 _ZN4absl16strings_internal11BigUnsignedILi4EE12AddWithCarryEim.exit.thread: ; preds = %5
   %12 = sext i32 %4 to i64
-  %13 = getelementptr inbounds i32, ptr %11, i64 %12
+  %13 = getelementptr inbounds [4 x i8], ptr %11, i64 %12
   store i32 0, ptr %13, align 4, !tbaa !12
   br label %82
 
@@ -2172,10 +2172,10 @@ _ZN4absl16strings_internal11BigUnsignedILi4EE12AddWithCarryEim.exit.thread: ; pr
   %indvars.iv = phi i64 [ %14, %.lr.ph ], [ %indvars.iv.next, %17 ]
   %.01933 = phi i64 [ 0, %.lr.ph ], [ %27, %17 ]
   %.02032 = phi i64 [ 0, %.lr.ph ], [ %28, %17 ]
-  %18 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %19 = load i32, ptr %18, align 4, !tbaa !12
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv37
+  %21 = getelementptr inbounds [4 x i8], ptr %2, i64 %indvars.iv37
   %22 = load i32, ptr %21, align 4, !tbaa !12
   %23 = zext i32 %22 to i64
   %24 = mul nuw i64 %23, %20
@@ -2203,7 +2203,7 @@ _ZN4absl16strings_internal11BigUnsignedILi4EE12AddWithCarryEim.exit.thread: ; pr
   %38 = trunc i64 %27 to i32
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %40 = sext i32 %32 to i64
-  %41 = getelementptr inbounds i32, ptr %39, i64 %40
+  %41 = getelementptr inbounds [4 x i8], ptr %39, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !12
   %43 = add i32 %42, %38
   store i32 %43, ptr %41, align 4, !tbaa !12
@@ -2224,7 +2224,7 @@ _ZN4absl16strings_internal11BigUnsignedILi4EE12AddWithCarryEim.exit.thread: ; pr
   %.017.i.i = phi i32 [ %56, %.lr.ph.i.i ], [ 1, %48 ]
   %.0916.i.i = phi i32 [ %.110.i.i, %.lr.ph.i.i ], [ %49, %48 ]
   %51 = sext i32 %.0916.i.i to i64
-  %52 = getelementptr inbounds i32, ptr %39, i64 %51
+  %52 = getelementptr inbounds [4 x i8], ptr %39, i64 %51
   %53 = load i32, ptr %52, align 4, !tbaa !12
   %54 = add i32 %53, %.017.i.i
   store i32 %54, ptr %52, align 4, !tbaa !12
@@ -2257,7 +2257,7 @@ _ZN4absl16strings_internal11BigUnsignedILi4EE12AddWithCarryEij.exit.i: ; preds =
   %.017.i22.i = phi i32 [ %68, %.lr.ph.i21.i ], [ %.031.i, %.lr.ph.i21.preheader.i ]
   %.0916.i23.i = phi i32 [ %.110.i24.i, %.lr.ph.i21.i ], [ %62, %.lr.ph.i21.preheader.i ]
   %63 = sext i32 %.0916.i23.i to i64
-  %64 = getelementptr inbounds i32, ptr %39, i64 %63
+  %64 = getelementptr inbounds [4 x i8], ptr %39, i64 %63
   %65 = load i32, ptr %64, align 4, !tbaa !12
   %66 = add i32 %65, %.017.i22.i
   store i32 %66, ptr %64, align 4, !tbaa !12
@@ -2288,7 +2288,7 @@ _ZN4absl16strings_internal11BigUnsignedILi4EE12AddWithCarryEim.exit: ; preds = %
   %76 = trunc i64 %25 to i32
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %78 = sext i32 %4 to i64
-  %79 = getelementptr inbounds i32, ptr %77, i64 %78
+  %79 = getelementptr inbounds [4 x i8], ptr %77, i64 %78
   store i32 %76, ptr %79, align 4, !tbaa !12
   %.not = icmp eq i64 %28, 0
   %80 = load i32, ptr %0, align 4
@@ -2317,7 +2317,7 @@ define weak_odr dso_local void @_ZN4absl16strings_internal11BigUnsignedILi4EE12A
   %9 = trunc i64 %2 to i32
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %11 = sext i32 %1 to i64
-  %12 = getelementptr inbounds i32, ptr %10, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !12
   %14 = add i32 %13, %9
   store i32 %14, ptr %12, align 4, !tbaa !12
@@ -2338,7 +2338,7 @@ define weak_odr dso_local void @_ZN4absl16strings_internal11BigUnsignedILi4EE12A
   %.017.i = phi i32 [ %27, %.lr.ph.i ], [ 1, %19 ]
   %.0916.i = phi i32 [ %.110.i, %.lr.ph.i ], [ %20, %19 ]
   %22 = sext i32 %.0916.i to i64
-  %23 = getelementptr inbounds i32, ptr %10, i64 %22
+  %23 = getelementptr inbounds [4 x i8], ptr %10, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !12
   %25 = add i32 %24, %.017.i
   store i32 %25, ptr %23, align 4, !tbaa !12
@@ -2371,7 +2371,7 @@ _ZN4absl16strings_internal11BigUnsignedILi4EE12AddWithCarryEij.exit: ; preds = %
   %.017.i22 = phi i32 [ %39, %.lr.ph.i21 ], [ %.031, %.lr.ph.i21.preheader ]
   %.0916.i23 = phi i32 [ %.110.i24, %.lr.ph.i21 ], [ %33, %.lr.ph.i21.preheader ]
   %34 = sext i32 %.0916.i23 to i64
-  %35 = getelementptr inbounds i32, ptr %10, i64 %34
+  %35 = getelementptr inbounds [4 x i8], ptr %10, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !12
   %37 = add i32 %36, %.017.i22
   store i32 %37, ptr %35, align 4, !tbaa !12
@@ -2821,7 +2821,7 @@ _ZSt4findIPKccET_S2_S2_RKT0_.exit:                ; preds = %42, %_ZSt4findIPKcc
 102:                                              ; preds = %102, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %102 ]
   %.01418.i = phi i64 [ 0, %.lr.ph.i ], [ %109, %102 ]
-  %103 = getelementptr inbounds nuw i32, ptr %80, i64 %indvars.iv.i
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %indvars.iv.i
   %104 = load i32, ptr %103, align 4, !tbaa !12
   %105 = zext i32 %104 to i64
   %106 = mul nuw nsw i64 %105, 1000000000
@@ -2835,7 +2835,7 @@ _ZSt4findIPKccET_S2_S2_RKT0_.exit:                ; preds = %42, %_ZSt4findIPKcc
 
 110:                                              ; preds = %._crit_edge.i
   %111 = trunc nuw nsw i64 %109 to i32
-  %112 = getelementptr inbounds nuw i32, ptr %80, i64 %wide.trip.count.i
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %wide.trip.count.i
   store i32 %111, ptr %112, align 4, !tbaa !12
   %113 = add nuw nsw i32 %.sroa.speculated.i172175, 1
   store i32 %113, ptr %0, align 4, !tbaa !44
@@ -2850,7 +2850,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit: ; preds = %99
   %.017.i = phi i32 [ %119, %.preheader.i ], [ %96, %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit ]
   %.0916.i = phi i32 [ %.110.i, %.preheader.i ], [ 0, %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit ]
   %114 = zext nneg i32 %.0916.i to i64
-  %115 = getelementptr inbounds nuw i32, ptr %80, i64 %114
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %114
   %116 = load i32, ptr %115, align 4, !tbaa !12
   %117 = add i32 %116, %.017.i
   store i32 %117, ptr %115, align 4, !tbaa !12
@@ -2892,7 +2892,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE12AddWithCarryEij.exit: ; preds = 
 
 .lr.ph.i93:                                       ; preds = %130
   %132 = sext i32 %.166 to i64
-  %133 = getelementptr inbounds i32, ptr @_ZN4absl16strings_internal9kTenToNthE, i64 %132
+  %133 = getelementptr inbounds [4 x i8], ptr @_ZN4absl16strings_internal9kTenToNthE, i64 %132
   %134 = load i32, ptr %133, align 4, !tbaa !12
   %135 = zext i32 %134 to i64
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -2908,7 +2908,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE12AddWithCarryEij.exit: ; preds = 
 138:                                              ; preds = %138, %.lr.ph.i93
   %indvars.iv.i95 = phi i64 [ 0, %.lr.ph.i93 ], [ %indvars.iv.next.i97, %138 ]
   %.01418.i96 = phi i64 [ 0, %.lr.ph.i93 ], [ %145, %138 ]
-  %139 = getelementptr inbounds nuw i32, ptr %136, i64 %indvars.iv.i95
+  %139 = getelementptr inbounds nuw [4 x i8], ptr %136, i64 %indvars.iv.i95
   %140 = load i32, ptr %139, align 4, !tbaa !12
   %141 = zext i32 %140 to i64
   %142 = mul nuw i64 %141, %135
@@ -2922,7 +2922,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE12AddWithCarryEij.exit: ; preds = 
 
 ._crit_edge.thread.sink.split.i:                  ; preds = %._crit_edge.i99
   %146 = trunc nuw i64 %145 to i32
-  %147 = getelementptr inbounds nuw i32, ptr %136, i64 %wide.trip.count.i94
+  %147 = getelementptr inbounds nuw [4 x i8], ptr %136, i64 %wide.trip.count.i94
   store i32 %146, ptr %147, align 4, !tbaa !12
   %148 = add nuw nsw i32 %.sroa.speculated.i173, 1
   store i32 %148, ptr %0, align 4, !tbaa !44
@@ -2941,7 +2941,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit102: ; preds = 
   %.017.i106 = phi i32 [ %.168, %.preheader.i104 ], [ %157, %151 ]
   %.0916.i107 = phi i32 [ 0, %.preheader.i104 ], [ %.110.i108, %151 ]
   %152 = zext nneg i32 %.0916.i107 to i64
-  %153 = getelementptr inbounds nuw i32, ptr %150, i64 %152
+  %153 = getelementptr inbounds nuw [4 x i8], ptr %150, i64 %152
   %154 = load i32, ptr %153, align 4, !tbaa !12
   %155 = add i32 %154, %.017.i106
   store i32 %155, ptr %153, align 4, !tbaa !12
@@ -3116,7 +3116,7 @@ define weak_odr dso_local void @_ZN4absl16strings_internal11BigUnsignedILi84EE21
 11:                                               ; preds = %11, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %11 ]
   %.01418.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %18, %11 ]
-  %12 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i.i
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv.i.i
   %13 = load i32, ptr %12, align 4, !tbaa !12
   %14 = zext i32 %13 to i64
   %15 = mul nuw nsw i64 %14, 1220703125
@@ -3130,7 +3130,7 @@ define weak_odr dso_local void @_ZN4absl16strings_internal11BigUnsignedILi84EE21
 
 19:                                               ; preds = %._crit_edge.i.i
   %20 = trunc nuw nsw i64 %18 to i32
-  %21 = getelementptr inbounds nuw i32, ptr %6, i64 %wide.trip.count.i.i
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %wide.trip.count.i.i
   store i32 %20, ptr %21, align 4, !tbaa !12
   %22 = add nuw nsw i32 %8, 1
   br label %_ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit.i
@@ -3153,7 +3153,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit.i: ; preds = %
 
 29:                                               ; preds = %._crit_edge.i.thread
   %30 = zext nneg i32 %.0.lcssa.i15 to i64
-  %31 = getelementptr inbounds nuw i32, ptr @_ZN4absl16strings_internal10kFiveToNthE, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr @_ZN4absl16strings_internal10kFiveToNthE, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !12
   %33 = zext i32 %32 to i64
   %34 = icmp sgt i32 %27, 0
@@ -3173,7 +3173,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit.i: ; preds = %
 37:                                               ; preds = %37, %.lr.ph.i4.i
   %indvars.iv.i6.i = phi i64 [ 0, %.lr.ph.i4.i ], [ %indvars.iv.next.i8.i, %37 ]
   %.01418.i7.i = phi i64 [ 0, %.lr.ph.i4.i ], [ %44, %37 ]
-  %38 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv.i6.i
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %indvars.iv.i6.i
   %39 = load i32, ptr %38, align 4, !tbaa !12
   %40 = zext i32 %39 to i64
   %41 = mul nuw i64 %40, %33
@@ -3187,7 +3187,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit.i: ; preds = %
 
 ._crit_edge.thread.sink.split.i.i:                ; preds = %._crit_edge.i10.i
   %45 = trunc nuw i64 %44 to i32
-  %46 = getelementptr inbounds nuw i32, ptr %35, i64 %wide.trip.count.i5.i
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %wide.trip.count.i5.i
   store i32 %45, ptr %46, align 4, !tbaa !12
   %47 = add nuw nsw i32 %27, 1
   br label %_ZN4absl16strings_internal11BigUnsignedILi84EE22MultiplyByFiveToTheNthEi.exit
@@ -3240,7 +3240,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE9SetToZeroEv.exit.i: ; preds = %_Z
   %68 = sub nsw i64 %.idx.i, %64
   %69 = ashr exact i64 %68, 2
   %70 = sub nsw i64 0, %69
-  %71 = getelementptr inbounds i32, ptr %67, i64 %70
+  %71 = getelementptr inbounds [4 x i8], ptr %67, i64 %70
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %71, ptr nonnull align 4 %66, i64 %68, i1 false)
   br label %_ZSt13copy_backwardIPjS0_ET0_T_S2_S1_.exit.i
 
@@ -3264,7 +3264,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE9SetToZeroEv.exit.i: ; preds = %_Z
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %78 = load i32, ptr %77, align 4, !tbaa !12
   %79 = shl i32 %78, %59
-  %80 = getelementptr inbounds nuw i32, ptr %77, i64 %.pre-phi.i
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %.pre-phi.i
   store i32 %79, ptr %80, align 4, !tbaa !12
   %81 = icmp slt i32 %58, 84
   br i1 %81, label %91, label %_ZSt13copy_backwardIPjS0_ET0_T_S2_S1_.exit.i
@@ -3272,12 +3272,12 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE9SetToZeroEv.exit.i: ; preds = %_Z
 82:                                               ; preds = %82, %.lr.ph.i6
   %indvars.iv.i = phi i64 [ %75, %.lr.ph.i6 ], [ %indvars.iv.next.i, %82 ]
   %83 = sub nsw i64 %indvars.iv.i, %76
-  %84 = getelementptr inbounds nuw i32, ptr %74, i64 %83
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %83
   %85 = load i32, ptr %84, align 4, !tbaa !12
   %86 = getelementptr i8, ptr %84, i64 -4
   %87 = load i32, ptr %86, align 4, !tbaa !12
   %88 = tail call i32 @llvm.fshl.i32(i32 %85, i32 %87, i32 %1)
-  %89 = getelementptr inbounds nuw i32, ptr %74, i64 %indvars.iv.i
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %indvars.iv.i
   store i32 %88, ptr %89, align 4, !tbaa !12
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %90 = icmp samesign ugt i64 %indvars.iv.next.i, %76
@@ -3285,7 +3285,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE9SetToZeroEv.exit.i: ; preds = %_Z
 
 91:                                               ; preds = %._crit_edge.i5
   %92 = sext i32 %.sroa.speculated28.i to i64
-  %93 = getelementptr inbounds i32, ptr %77, i64 %92
+  %93 = getelementptr inbounds [4 x i8], ptr %77, i64 %92
   %94 = load i32, ptr %93, align 4, !tbaa !12
   %.not.i = icmp eq i32 %94, 0
   br i1 %.not.i, label %_ZSt13copy_backwardIPjS0_ET0_T_S2_S1_.exit.i, label %95
@@ -3317,7 +3317,7 @@ _ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit.i:   ; preds = %_ZSt13copy_backward
 
 105:                                              ; preds = %102
   %106 = zext nneg i32 %1 to i64
-  %107 = getelementptr inbounds nuw i32, ptr @_ZN4absl16strings_internal9kTenToNthE, i64 %106
+  %107 = getelementptr inbounds nuw [4 x i8], ptr @_ZN4absl16strings_internal9kTenToNthE, i64 %106
   %108 = load i32, ptr %107, align 4, !tbaa !12
   %109 = zext i32 %108 to i64
   %110 = icmp sgt i32 %103, 0
@@ -3337,7 +3337,7 @@ _ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit.i:   ; preds = %_ZSt13copy_backward
 113:                                              ; preds = %113, %.lr.ph.i7
   %indvars.iv.i8 = phi i64 [ 0, %.lr.ph.i7 ], [ %indvars.iv.next.i9, %113 ]
   %.01418.i = phi i64 [ 0, %.lr.ph.i7 ], [ %120, %113 ]
-  %114 = getelementptr inbounds nuw i32, ptr %111, i64 %indvars.iv.i8
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %111, i64 %indvars.iv.i8
   %115 = load i32, ptr %114, align 4, !tbaa !12
   %116 = zext i32 %115 to i64
   %117 = mul nuw i64 %116, %109
@@ -3351,7 +3351,7 @@ _ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit.i:   ; preds = %_ZSt13copy_backward
 
 ._crit_edge.thread.sink.split.i:                  ; preds = %._crit_edge.i10
   %121 = trunc nuw i64 %120 to i32
-  %122 = getelementptr inbounds nuw i32, ptr %111, i64 %wide.trip.count.i
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %111, i64 %wide.trip.count.i
   store i32 %121, ptr %122, align 4, !tbaa !12
   %123 = add nuw nsw i32 %103, 1
   store i32 %123, ptr %0, align 4, !tbaa !44
@@ -3482,7 +3482,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE9SetToZeroEv.exit: ; preds = %8, %
   %23 = sub nsw i64 %.idx, %19
   %24 = ashr exact i64 %23, 2
   %25 = sub nsw i64 0, %24
-  %26 = getelementptr inbounds i32, ptr %22, i64 %25
+  %26 = getelementptr inbounds [4 x i8], ptr %22, i64 %25
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %26, ptr nonnull align 4 %21, i64 %23, i1 false)
   br label %_ZSt13copy_backwardIPjS0_ET0_T_S2_S1_.exit
 
@@ -3507,7 +3507,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE9SetToZeroEv.exit: ; preds = %8, %
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %34 = load i32, ptr %33, align 4, !tbaa !12
   %35 = shl i32 %34, %14
-  %36 = getelementptr inbounds nuw i32, ptr %33, i64 %.pre-phi
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %.pre-phi
   store i32 %35, ptr %36, align 4, !tbaa !12
   %37 = icmp slt i32 %13, 84
   br i1 %37, label %47, label %_ZSt13copy_backwardIPjS0_ET0_T_S2_S1_.exit
@@ -3515,12 +3515,12 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE9SetToZeroEv.exit: ; preds = %8, %
 38:                                               ; preds = %.lr.ph, %38
   %indvars.iv = phi i64 [ %30, %.lr.ph ], [ %indvars.iv.next, %38 ]
   %39 = sub nsw i64 %indvars.iv, %31
-  %40 = getelementptr inbounds nuw i32, ptr %29, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !12
   %42 = getelementptr i8, ptr %40, i64 -4
   %43 = load i32, ptr %42, align 4, !tbaa !12
   %44 = tail call i32 @llvm.fshl.i32(i32 %41, i32 %43, i32 %1)
-  %45 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv
   store i32 %44, ptr %45, align 4, !tbaa !12
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %46 = icmp samesign ugt i64 %indvars.iv.next, %32
@@ -3528,7 +3528,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE9SetToZeroEv.exit: ; preds = %8, %
 
 47:                                               ; preds = %._crit_edge
   %48 = sext i32 %.sroa.speculated28 to i64
-  %49 = getelementptr inbounds i32, ptr %33, i64 %48
+  %49 = getelementptr inbounds [4 x i8], ptr %33, i64 %48
   %50 = load i32, ptr %49, align 4, !tbaa !12
   %.not = icmp eq i32 %50, 0
   br i1 %.not, label %_ZSt13copy_backwardIPjS0_ET0_T_S2_S1_.exit, label %51
@@ -3595,7 +3595,7 @@ _ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit.i:   ; preds = %8
 17:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
   %.01418 = phi i64 [ 0, %.lr.ph ], [ %24, %17 ]
-  %18 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   %19 = load i32, ptr %18, align 4, !tbaa !12
   %20 = zext i32 %19 to i64
   %21 = mul nuw i64 %20, %13
@@ -3611,7 +3611,7 @@ _ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit.i:   ; preds = %8
   %26 = trunc nuw i64 %24 to i32
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %28 = zext nneg i32 %3 to i64
-  %29 = getelementptr inbounds nuw i32, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %28
   store i32 %26, ptr %29, align 4, !tbaa !12
   %30 = load i32, ptr %0, align 4, !tbaa !44
   %31 = add nsw i32 %30, 1
@@ -3675,7 +3675,7 @@ _ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit.i.i: ; preds = %12
 20:                                               ; preds = %20, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %20 ]
   %.01418.i = phi i64 [ 0, %.lr.ph.i ], [ %27, %20 ]
-  %21 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv.i
   %22 = load i32, ptr %21, align 4, !tbaa !12
   %23 = zext i32 %22 to i64
   %24 = mul nuw i64 %1, %23
@@ -3689,7 +3689,7 @@ _ZSt6fill_nIPjijET_S1_T0_RKT1_.exit.loopexit.i.i: ; preds = %12
 
 28:                                               ; preds = %._crit_edge.i
   %29 = trunc nuw i64 %27 to i32
-  %30 = getelementptr inbounds nuw i32, ptr %18, i64 %wide.trip.count.i
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %wide.trip.count.i
   store i32 %29, ptr %30, align 4, !tbaa !12
   %31 = add nuw nsw i32 %6, 1
   br label %._crit_edge.thread.sink.split.i
@@ -3771,7 +3771,7 @@ define weak_odr dso_local void @_ZN4absl16strings_internal11BigUnsignedILi84EE22
 9:                                                ; preds = %9, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %9 ]
   %.01418.i = phi i64 [ 0, %.lr.ph.i ], [ %16, %9 ]
-  %10 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i
   %11 = load i32, ptr %10, align 4, !tbaa !12
   %12 = zext i32 %11 to i64
   %13 = mul nuw nsw i64 %12, 1220703125
@@ -3785,7 +3785,7 @@ define weak_odr dso_local void @_ZN4absl16strings_internal11BigUnsignedILi84EE22
 
 17:                                               ; preds = %._crit_edge.i
   %18 = trunc nuw nsw i64 %16 to i32
-  %19 = getelementptr inbounds nuw i32, ptr %4, i64 %wide.trip.count.i
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %wide.trip.count.i
   store i32 %18, ptr %19, align 4, !tbaa !12
   %20 = add nuw nsw i32 %6, 1
   store i32 %20, ptr %0, align 4, !tbaa !44
@@ -3809,7 +3809,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit: ; preds = %5,
 
 28:                                               ; preds = %25
   %29 = zext nneg i32 %.0.lcssa to i64
-  %30 = getelementptr inbounds nuw i32, ptr @_ZN4absl16strings_internal10kFiveToNthE, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr @_ZN4absl16strings_internal10kFiveToNthE, i64 %29
   %31 = load i32, ptr %30, align 4, !tbaa !12
   %32 = zext i32 %31 to i64
   %33 = icmp sgt i32 %26, 0
@@ -3829,7 +3829,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit: ; preds = %5,
 36:                                               ; preds = %36, %.lr.ph.i4
   %indvars.iv.i6 = phi i64 [ 0, %.lr.ph.i4 ], [ %indvars.iv.next.i8, %36 ]
   %.01418.i7 = phi i64 [ 0, %.lr.ph.i4 ], [ %43, %36 ]
-  %37 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv.i6
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv.i6
   %38 = load i32, ptr %37, align 4, !tbaa !12
   %39 = zext i32 %38 to i64
   %40 = mul nuw i64 %39, %32
@@ -3843,7 +3843,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit: ; preds = %5,
 
 ._crit_edge.thread.sink.split.i:                  ; preds = %._crit_edge.i10
   %44 = trunc nuw i64 %43 to i32
-  %45 = getelementptr inbounds nuw i32, ptr %34, i64 %wide.trip.count.i5
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %wide.trip.count.i5
   store i32 %44, ptr %45, align 4, !tbaa !12
   %46 = add nuw nsw i32 %26, 1
   store i32 %46, ptr %0, align 4, !tbaa !44
@@ -3874,7 +3874,7 @@ _ZSt8__copy_nIPKjiPjET1_T_T0_S3_St26random_access_iterator_tag.exit.i: ; preds =
   %7 = add nsw i32 %.sroa.speculated, -1
   %8 = mul nuw nsw i32 %7, %.sroa.speculated
   %9 = zext nneg i32 %8 to i64
-  %10 = getelementptr inbounds nuw i32, ptr @_ZN4absl16strings_internal12_GLOBAL__N_118kLargePowersOfFiveE, i64 %9
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZN4absl16strings_internal12_GLOBAL__N_118kLargePowersOfFiveE, i64 %9
   %11 = shl nuw nsw i32 %.sroa.speculated, 1
   %12 = shl nuw nsw i32 %.sroa.speculated, 3
   %.idx.i.i = zext nneg i32 %12 to i64
@@ -3887,7 +3887,7 @@ _ZSt8__copy_nIPKjiPjET1_T_T0_S3_St26random_access_iterator_tag.exit.i: ; preds =
   %15 = add nsw i32 %.sroa.speculated, -1
   %16 = mul nuw nsw i32 %15, %.sroa.speculated
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds nuw i32, ptr @_ZN4absl16strings_internal12_GLOBAL__N_118kLargePowersOfFiveE, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr @_ZN4absl16strings_internal12_GLOBAL__N_118kLargePowersOfFiveE, i64 %17
   %19 = load i32, ptr %0, align 4, !tbaa !44
   %20 = add nsw i32 %19, %14
   %21 = icmp sgt i32 %20, 1
@@ -3912,7 +3912,7 @@ select.unfold.i:                                  ; preds = %_ZN4absl16strings_i
   br i1 %30, label %.lr.ph.i12, label %_ZN4absl16strings_internal11BigUnsignedILi84EE12AddWithCarryEim.exit.thread.i
 
 _ZN4absl16strings_internal11BigUnsignedILi84EE12AddWithCarryEim.exit.thread.i: ; preds = %select.unfold.i
-  %31 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv
+  %31 = getelementptr inbounds [4 x i8], ptr %4, i64 %indvars.iv
   store i32 0, ptr %31, align 4, !tbaa !12
   br label %_ZN4absl16strings_internal11BigUnsignedILi84EE12MultiplyStepEiPKjii.exit
 
@@ -3926,10 +3926,10 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE12AddWithCarryEim.exit.thread.i: ;
   %indvars.iv.i = phi i64 [ %32, %.lr.ph.i12 ], [ %indvars.iv.next.i, %34 ]
   %.01933.i = phi i64 [ 0, %.lr.ph.i12 ], [ %44, %34 ]
   %.02032.i = phi i64 [ 0, %.lr.ph.i12 ], [ %45, %34 ]
-  %35 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i
   %36 = load i32, ptr %35, align 4, !tbaa !12
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds i32, ptr %18, i64 %indvars.iv37.i
+  %38 = getelementptr inbounds [4 x i8], ptr %18, i64 %indvars.iv37.i
   %39 = load i32, ptr %38, align 4, !tbaa !12
   %40 = zext i32 %39 to i64
   %41 = mul nuw i64 %40, %37
@@ -3955,7 +3955,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE12AddWithCarryEim.exit.thread.i: ;
   %53 = lshr i64 %44, 32
   %54 = trunc nuw i64 %53 to i32
   %55 = trunc i64 %44 to i32
-  %56 = getelementptr inbounds i32, ptr %4, i64 %49
+  %56 = getelementptr inbounds [4 x i8], ptr %4, i64 %49
   %57 = load i32, ptr %56, align 4, !tbaa !12
   %58 = add i32 %57, %55
   store i32 %58, ptr %56, align 4, !tbaa !12
@@ -3977,7 +3977,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE12AddWithCarryEim.exit.thread.i: ;
   %.017.i.i.i = phi i32 [ %72, %.lr.ph.i.i.i ], [ 1, %63 ]
   %.0916.i.i.i = phi i32 [ %.110.i.i.i, %.lr.ph.i.i.i ], [ %66, %63 ]
   %67 = sext i32 %.0916.i.i.i to i64
-  %68 = getelementptr inbounds i32, ptr %4, i64 %67
+  %68 = getelementptr inbounds [4 x i8], ptr %4, i64 %67
   %69 = load i32, ptr %68, align 4, !tbaa !12
   %70 = add i32 %69, %.017.i.i.i
   store i32 %70, ptr %68, align 4, !tbaa !12
@@ -4011,7 +4011,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE12AddWithCarryEij.exit.i.i: ; pred
   %.017.i22.i.i = phi i32 [ %85, %.lr.ph.i21.i.i ], [ %.031.i.i, %.lr.ph.i21.preheader.i.i ]
   %.0916.i23.i.i = phi i32 [ %.110.i24.i.i, %.lr.ph.i21.i.i ], [ %79, %.lr.ph.i21.preheader.i.i ]
   %80 = sext i32 %.0916.i23.i.i to i64
-  %81 = getelementptr inbounds i32, ptr %4, i64 %80
+  %81 = getelementptr inbounds [4 x i8], ptr %4, i64 %80
   %82 = load i32, ptr %81, align 4, !tbaa !12
   %83 = add i32 %82, %.017.i22.i.i
   store i32 %83, ptr %81, align 4, !tbaa !12
@@ -4041,7 +4041,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE12AddWithCarryEij.exit25.loopexit.
 
 _ZN4absl16strings_internal11BigUnsignedILi84EE12AddWithCarryEim.exit.i: ; preds = %.sink.split.i.i, %._crit_edge.i13
   %94 = trunc i64 %42 to i32
-  %95 = getelementptr inbounds i32, ptr %4, i64 %indvars.iv
+  %95 = getelementptr inbounds [4 x i8], ptr %4, i64 %indvars.iv
   store i32 %94, ptr %95, align 4, !tbaa !12
   %.not.i14 = icmp eq i64 %45, 0
   %96 = load i32, ptr %0, align 4
@@ -4095,7 +4095,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEiPKj.exit: ; preds = 
 108:                                              ; preds = %108, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %108 ]
   %.01418.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %115, %108 ]
-  %109 = getelementptr inbounds nuw i32, ptr %103, i64 %indvars.iv.i.i
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %103, i64 %indvars.iv.i.i
   %110 = load i32, ptr %109, align 4, !tbaa !12
   %111 = zext i32 %110 to i64
   %112 = mul nuw nsw i64 %111, 1220703125
@@ -4109,7 +4109,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEiPKj.exit: ; preds = 
 
 116:                                              ; preds = %._crit_edge.i.i
   %117 = trunc nuw nsw i64 %115 to i32
-  %118 = getelementptr inbounds nuw i32, ptr %103, i64 %wide.trip.count.i.i
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %103, i64 %wide.trip.count.i.i
   store i32 %117, ptr %118, align 4, !tbaa !12
   %119 = add nuw nsw i32 %105, 1
   store i32 %119, ptr %0, align 4, !tbaa !44
@@ -4133,7 +4133,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit.i: ; preds = %
 
 127:                                              ; preds = %124
   %128 = zext nneg i32 %.0.lcssa.i to i64
-  %129 = getelementptr inbounds nuw i32, ptr @_ZN4absl16strings_internal10kFiveToNthE, i64 %128
+  %129 = getelementptr inbounds nuw [4 x i8], ptr @_ZN4absl16strings_internal10kFiveToNthE, i64 %128
   %130 = load i32, ptr %129, align 4, !tbaa !12
   %131 = zext i32 %130 to i64
   %132 = icmp sgt i32 %125, 0
@@ -4153,7 +4153,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit.i: ; preds = %
 135:                                              ; preds = %135, %.lr.ph.i4.i
   %indvars.iv.i6.i = phi i64 [ 0, %.lr.ph.i4.i ], [ %indvars.iv.next.i8.i, %135 ]
   %.01418.i7.i = phi i64 [ 0, %.lr.ph.i4.i ], [ %142, %135 ]
-  %136 = getelementptr inbounds nuw i32, ptr %133, i64 %indvars.iv.i6.i
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %133, i64 %indvars.iv.i6.i
   %137 = load i32, ptr %136, align 4, !tbaa !12
   %138 = zext i32 %137 to i64
   %139 = mul nuw i64 %138, %131
@@ -4167,7 +4167,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE10MultiplyByEj.exit.i: ; preds = %
 
 ._crit_edge.thread.sink.split.i.i:                ; preds = %._crit_edge.i10.i
   %143 = trunc nuw i64 %142 to i32
-  %144 = getelementptr inbounds nuw i32, ptr %133, i64 %wide.trip.count.i5.i
+  %144 = getelementptr inbounds nuw [4 x i8], ptr %133, i64 %wide.trip.count.i5.i
   store i32 %143, ptr %144, align 4, !tbaa !12
   %145 = add nuw nsw i32 %125, 1
   store i32 %145, ptr %0, align 4, !tbaa !44
@@ -4188,7 +4188,7 @@ define weak_odr dso_local noundef i32 @_ZNK4absl16strings_internal11BigUnsignedI
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %7 = zext nneg i32 %1 to i64
-  %8 = getelementptr inbounds nuw i32, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !12
   br label %10
 
@@ -4221,7 +4221,7 @@ define weak_odr dso_local void @_ZNK4absl16strings_internal11BigUnsignedILi84EE8
   %.0911.i = phi i64 [ 0, %.lr.ph.i ], [ %18, %10 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %11 = shl nuw nsw i64 %.0911.i, 32
-  %12 = getelementptr i32, ptr %3, i64 %indvars.iv.i
+  %12 = getelementptr [4 x i8], ptr %3, i64 %indvars.iv.i
   %13 = load i32, ptr %12, align 4, !tbaa !12
   %14 = zext i32 %13 to i64
   %15 = or disjoint i64 %11, %14
@@ -4239,13 +4239,13 @@ thread-pre-split.i:                               ; preds = %10
 
 .lr.ph13.i.preheader:                             ; preds = %thread-pre-split.i
   %21 = zext nneg i32 %.pr.pre.i to i64
-  %22 = getelementptr i32, ptr %3, i64 %21
+  %22 = getelementptr [4 x i8], ptr %3, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !12
   %24 = icmp eq i32 %23, 0
   br i1 %24, label %.lr.ph, label %_ZN4absl16strings_internal11BigUnsignedILi84EE6DivModILj10EEEjv.exit
 
 .lr.ph13.i:                                       ; preds = %.lr.ph
-  %25 = getelementptr i32, ptr %3, i64 %indvars.iv.next
+  %25 = getelementptr [4 x i8], ptr %3, i64 %indvars.iv.next
   %26 = load i32, ptr %25, align 4, !tbaa !12
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %.lr.ph, label %_ZN4absl16strings_internal11BigUnsignedILi84EE6DivModILj10EEEjv.exit, !llvm.loop !59
@@ -4416,7 +4416,7 @@ define weak_odr dso_local void @_ZN4absl16strings_internal11BigUnsignedILi84EE12
   %.017 = phi i32 [ %2, %.lr.ph ], [ %12, %6 ]
   %.0916 = phi i32 [ %1, %.lr.ph ], [ %.110, %6 ]
   %7 = sext i32 %.0916 to i64
-  %8 = getelementptr inbounds i32, ptr %5, i64 %7
+  %8 = getelementptr inbounds [4 x i8], ptr %5, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !12
   %10 = add i32 %9, %.017
   store i32 %10, ptr %8, align 4, !tbaa !12
@@ -4453,7 +4453,7 @@ define weak_odr dso_local void @_ZN4absl16strings_internal11BigUnsignedILi84EE12
 
 _ZN4absl16strings_internal11BigUnsignedILi84EE12AddWithCarryEim.exit.thread: ; preds = %5
   %12 = sext i32 %4 to i64
-  %13 = getelementptr inbounds i32, ptr %11, i64 %12
+  %13 = getelementptr inbounds [4 x i8], ptr %11, i64 %12
   store i32 0, ptr %13, align 4, !tbaa !12
   br label %82
 
@@ -4468,10 +4468,10 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE12AddWithCarryEim.exit.thread: ; p
   %indvars.iv = phi i64 [ %14, %.lr.ph ], [ %indvars.iv.next, %17 ]
   %.01933 = phi i64 [ 0, %.lr.ph ], [ %27, %17 ]
   %.02032 = phi i64 [ 0, %.lr.ph ], [ %28, %17 ]
-  %18 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %19 = load i32, ptr %18, align 4, !tbaa !12
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds i32, ptr %2, i64 %indvars.iv37
+  %21 = getelementptr inbounds [4 x i8], ptr %2, i64 %indvars.iv37
   %22 = load i32, ptr %21, align 4, !tbaa !12
   %23 = zext i32 %22 to i64
   %24 = mul nuw i64 %23, %20
@@ -4499,7 +4499,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE12AddWithCarryEim.exit.thread: ; p
   %38 = trunc i64 %27 to i32
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %40 = sext i32 %32 to i64
-  %41 = getelementptr inbounds i32, ptr %39, i64 %40
+  %41 = getelementptr inbounds [4 x i8], ptr %39, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !12
   %43 = add i32 %42, %38
   store i32 %43, ptr %41, align 4, !tbaa !12
@@ -4520,7 +4520,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE12AddWithCarryEim.exit.thread: ; p
   %.017.i.i = phi i32 [ %56, %.lr.ph.i.i ], [ 1, %48 ]
   %.0916.i.i = phi i32 [ %.110.i.i, %.lr.ph.i.i ], [ %49, %48 ]
   %51 = sext i32 %.0916.i.i to i64
-  %52 = getelementptr inbounds i32, ptr %39, i64 %51
+  %52 = getelementptr inbounds [4 x i8], ptr %39, i64 %51
   %53 = load i32, ptr %52, align 4, !tbaa !12
   %54 = add i32 %53, %.017.i.i
   store i32 %54, ptr %52, align 4, !tbaa !12
@@ -4553,7 +4553,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE12AddWithCarryEij.exit.i: ; preds 
   %.017.i22.i = phi i32 [ %68, %.lr.ph.i21.i ], [ %.031.i, %.lr.ph.i21.preheader.i ]
   %.0916.i23.i = phi i32 [ %.110.i24.i, %.lr.ph.i21.i ], [ %62, %.lr.ph.i21.preheader.i ]
   %63 = sext i32 %.0916.i23.i to i64
-  %64 = getelementptr inbounds i32, ptr %39, i64 %63
+  %64 = getelementptr inbounds [4 x i8], ptr %39, i64 %63
   %65 = load i32, ptr %64, align 4, !tbaa !12
   %66 = add i32 %65, %.017.i22.i
   store i32 %66, ptr %64, align 4, !tbaa !12
@@ -4584,7 +4584,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE12AddWithCarryEim.exit: ; preds = 
   %76 = trunc i64 %25 to i32
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %78 = sext i32 %4 to i64
-  %79 = getelementptr inbounds i32, ptr %77, i64 %78
+  %79 = getelementptr inbounds [4 x i8], ptr %77, i64 %78
   store i32 %76, ptr %79, align 4, !tbaa !12
   %.not = icmp eq i64 %28, 0
   %80 = load i32, ptr %0, align 4
@@ -4613,7 +4613,7 @@ define weak_odr dso_local void @_ZN4absl16strings_internal11BigUnsignedILi84EE12
   %9 = trunc i64 %2 to i32
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %11 = sext i32 %1 to i64
-  %12 = getelementptr inbounds i32, ptr %10, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !12
   %14 = add i32 %13, %9
   store i32 %14, ptr %12, align 4, !tbaa !12
@@ -4634,7 +4634,7 @@ define weak_odr dso_local void @_ZN4absl16strings_internal11BigUnsignedILi84EE12
   %.017.i = phi i32 [ %27, %.lr.ph.i ], [ 1, %19 ]
   %.0916.i = phi i32 [ %.110.i, %.lr.ph.i ], [ %20, %19 ]
   %22 = sext i32 %.0916.i to i64
-  %23 = getelementptr inbounds i32, ptr %10, i64 %22
+  %23 = getelementptr inbounds [4 x i8], ptr %10, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !12
   %25 = add i32 %24, %.017.i
   store i32 %25, ptr %23, align 4, !tbaa !12
@@ -4667,7 +4667,7 @@ _ZN4absl16strings_internal11BigUnsignedILi84EE12AddWithCarryEij.exit: ; preds = 
   %.017.i22 = phi i32 [ %39, %.lr.ph.i21 ], [ %.031, %.lr.ph.i21.preheader ]
   %.0916.i23 = phi i32 [ %.110.i24, %.lr.ph.i21 ], [ %33, %.lr.ph.i21.preheader ]
   %34 = sext i32 %.0916.i23 to i64
-  %35 = getelementptr inbounds i32, ptr %10, i64 %34
+  %35 = getelementptr inbounds [4 x i8], ptr %10, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !12
   %37 = add i32 %36, %.017.i22
   store i32 %37, ptr %35, align 4, !tbaa !12

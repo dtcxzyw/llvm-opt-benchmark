@@ -35,13 +35,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_nfs_pageio_r
 %struct.rpc_message = type { ptr, ptr, ptr, ptr }
 %struct.rpc_task_setup = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, i8 }
 %struct.nfs_commit_info = type { ptr, ptr, ptr, ptr, ptr }
-%struct.page = type { i64, %union.anon.35, %union.anon.43, %struct.atomic_t, [8 x i8] }
-%union.anon.35 = type { %struct.anon.36 }
-%struct.anon.36 = type { %union.anon.37, ptr, %union.anon.39, i64 }
-%union.anon.37 = type { %struct.list_head }
-%union.anon.39 = type { i64 }
-%union.anon.43 = type { %struct.atomic_t }
-%struct.nfs_pgio_mirror = type { %struct.list_head, i64, i64, i64, i32, i8 }
 
 @__UNIQUE_ID___addressable_nfs_pgio_current_mirror1962 = internal global ptr @nfs_pgio_current_mirror, section ".discard.addressable", align 8
 @__UNIQUE_ID___addressable_nfs_pgheader_init1963 = internal global ptr @nfs_pgheader_init, section ".discard.addressable", align 8
@@ -2157,7 +2150,7 @@ define dso_local range(i32 -22, 1) i32 @nfs_generic_pgio(ptr noundef %0, ptr nou
 
 97:                                               ; preds = %95
   %98 = lshr i64 %90, 12
-  %99 = getelementptr %struct.page, ptr %.pre, i64 %98
+  %99 = getelementptr [64 x i8], ptr %.pre, i64 %98
   br label %.thread
 
 .thread:                                          ; preds = %87, %97
@@ -2390,7 +2383,7 @@ define dso_local noundef range(i32 0, 2) i32 @nfs_pageio_add_request(ptr noundef
 
 52:                                               ; preds = %52, %48
   %53 = phi i64 [ 0, %48 ], [ %62, %52 ]
-  %54 = getelementptr %struct.nfs_pgio_mirror, ptr %46, i64 %53
+  %54 = getelementptr [48 x i8], ptr %46, i64 %53
   store volatile ptr %54, ptr %54, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   store volatile ptr %54, ptr %55, align 8
@@ -2657,7 +2650,7 @@ define internal fastcc ptr @nfs_create_subreq(ptr noundef %0, i32 noundef %1, i3
 19:                                               ; preds = %17
   %20 = lshr i32 %1, 12
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr %struct.page, ptr %.pre, i64 %21
+  %22 = getelementptr [64 x i8], ptr %.pre, i64 %21
   br label %.thread
 
 .thread:                                          ; preds = %12, %17, %19

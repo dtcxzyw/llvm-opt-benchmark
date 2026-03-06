@@ -303,7 +303,7 @@ define dso_local i32 @onas_fan_eloop(ptr noundef readonly captures(none) %0) loc
   %13 = shl nuw i64 1, %12
   %14 = sdiv i32 %10, 64
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds i64, ptr %2, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %2, i64 %15
   %17 = load i64, ptr %16, align 8, !tbaa !4
   %18 = or i64 %13, %17
   store i64 %18, ptr %16, align 8, !tbaa !4

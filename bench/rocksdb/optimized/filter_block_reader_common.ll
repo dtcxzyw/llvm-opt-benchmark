@@ -1720,7 +1720,7 @@ _ZNK7rocksdb15MultiGetContext5Range5beginEv.exit: ; preds = %21, %4
 29:                                               ; preds = %.lr.ph, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit
   %.sroa.8.019 = phi i64 [ %storemerge.lcssa.i.i, %.lr.ph ], [ %.lcssa.i, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %30 = getelementptr inbounds nuw ptr, ptr %26, i64 %.sroa.8.019
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %.sroa.8.019
   %31 = load ptr, ptr %30, align 8, !tbaa !226
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %32, i64 16, i1 false), !tbaa.struct !228
@@ -1830,7 +1830,7 @@ _ZNK7rocksdb15MultiGetContext5Range5beginEv.exit: ; preds = %23, %5
 32:                                               ; preds = %.lr.ph, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit
   %.sroa.8.021 = phi i64 [ %storemerge.lcssa.i.i, %.lr.ph ], [ %.lcssa.i, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %33 = getelementptr inbounds nuw ptr, ptr %28, i64 %.sroa.8.021
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %.sroa.8.021
   %34 = load ptr, ptr %33, align 8, !tbaa !226
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %35, i64 16, i1 false), !tbaa.struct !228

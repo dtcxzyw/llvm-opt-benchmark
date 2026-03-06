@@ -109,7 +109,7 @@ define dso_local void @_ZNK21btUniformScalingShape49batchedUnitVectorGetSupporti
 
 12:                                               ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
-  %13 = getelementptr inbounds nuw %class.btVector3, ptr %2, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %indvars.iv
   %14 = load float, ptr %13, align 4, !tbaa !18
   %15 = load float, ptr %11, align 8, !tbaa !18
   %16 = fmul float %14, %15
@@ -280,7 +280,7 @@ define dso_local void @_ZNK21btUniformScalingShape11getAabbSlowERK11btTransformR
 
 60:                                               ; preds = %4, %60
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %60 ]
-  %61 = getelementptr inbounds nuw %class.btVector3, ptr %5, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %indvars.iv
   %62 = load float, ptr %61, align 16, !tbaa !18
   %63 = getelementptr inbounds nuw i8, ptr %61, i64 4
   %64 = load float, ptr %63, align 4, !tbaa !18
@@ -354,7 +354,7 @@ define dso_local void @_ZNK21btUniformScalingShape11getAabbSlowERK11btTransformR
 105:                                              ; preds = %39, %105
   %indvars.iv87 = phi i64 [ 0, %39 ], [ %indvars.iv.next88, %105 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %106 = getelementptr inbounds nuw %class.btVector3, ptr %6, i64 %indvars.iv87
+  %106 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv87
   %107 = load float, ptr %106, align 16, !tbaa !18
   %108 = getelementptr inbounds nuw i8, ptr %106, i64 4
   %109 = load float, ptr %108, align 4, !tbaa !18
@@ -377,9 +377,9 @@ define dso_local void @_ZNK21btUniformScalingShape11getAabbSlowERK11btTransformR
   %.sroa.3.12.vec.insert.i4.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %123, i64 0
   store <2 x float> %.sroa.0.4.vec.insert.i3.i, ptr %9, align 8
   store <2 x float> %.sroa.3.12.vec.insert.i4.i, ptr %58, align 8
-  %124 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv87
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv87
   %125 = load float, ptr %124, align 4, !tbaa !18
-  %126 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv87
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv87
   store float %125, ptr %126, align 4, !tbaa !18
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -406,9 +406,9 @@ define dso_local void @_ZNK21btUniformScalingShape11getAabbSlowERK11btTransformR
   %.sroa.3.12.vec.insert.i4.i34 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %144, i64 0
   store <2 x float> %.sroa.0.4.vec.insert.i3.i33, ptr %10, align 8
   store <2 x float> %.sroa.3.12.vec.insert.i4.i34, ptr %59, align 8
-  %145 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv87
+  %145 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv87
   %146 = load float, ptr %145, align 4, !tbaa !18
-  %147 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv87
+  %147 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv87
   store float %146, ptr %147, align 4, !tbaa !18
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1

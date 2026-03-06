@@ -6,26 +6,12 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.TupleTableSlotOps = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.BufferUsage = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, %struct.instr_time, %struct.instr_time, %struct.instr_time, %struct.instr_time, %struct.instr_time, %struct.instr_time }
 %struct.instr_time = type { i64 }
-%union.ListCell = type { ptr }
 %struct.timespec = type { i64, i64 }
 %struct.MemoryContextCounters = type { i64, i64, i64, i64 }
 %struct.JitInstrumentation = type { i64, %struct.instr_time, %struct.instr_time, %struct.instr_time, %struct.instr_time, %struct.instr_time }
 %struct.SerializeMetrics = type { i64, %struct.instr_time, %struct.BufferUsage }
 %struct.StringInfoData = type { ptr, i32, i32, i32 }
 %struct.TuplesortInstrumentation = type { i32, i32, i64 }
-%struct.Instrumentation = type { i8, i8, i8, i8, i8, %struct.instr_time, %struct.instr_time, double, double, %struct.BufferUsage, %struct.WalUsage, double, double, double, double, double, double, double, %struct.BufferUsage, %struct.WalUsage }
-%struct.WalUsage = type { i64, i64, i64, i64 }
-%struct.BitmapHeapScanInstrumentation = type { i64, i64 }
-%struct.AggregateInstrumentation = type { i64, i64, i32 }
-%struct.IncrementalSortInfo = type { %struct.IncrementalSortGroupInfo, %struct.IncrementalSortGroupInfo }
-%struct.IncrementalSortGroupInfo = type { i64, i64, i64, i64, i64, i32 }
-%struct.ResultRelInfo = type { i32, i32, ptr, i32, ptr, ptr, i16, ptr, i8, ptr, ptr, ptr, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, [3 x ptr], ptr, ptr, ptr, i8, ptr, i8, ptr, ptr, ptr, ptr }
-%struct.HashInstrumentation = type { i32, i32, i32, i32, i64 }
-%struct.MemoizeInstrumentation = type { i64, i64, i64, i64, i64 }
-%struct.Trigger = type { i32, ptr, i32, i16, i8, i8, i8, i32, i32, i32, i8, i8, i16, i16, ptr, ptr, ptr, ptr, ptr }
-%struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.nameData = type { [64 x i8] }
 
 @ExplainOneQuery_hook = dso_local local_unnamed_addr global ptr null, align 8
 @explain_get_index_name_hook = dso_local local_unnamed_addr global ptr null, align 8
@@ -488,7 +474,7 @@ define dso_local void @ExplainQuery(ptr noundef %0, ptr noundef readonly capture
   %.0124170226 = phi i1 [ %.1, %164 ], [ false, %.lr.ph ]
   %indvars.iv225 = phi i64 [ %indvars.iv.next, %164 ], [ 0, %.lr.ph ]
   %27 = load ptr, ptr %13, align 8
-  %28 = getelementptr inbounds nuw %union.ListCell, ptr %27, i64 %indvars.iv225
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv225
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load ptr, ptr %30, align 8
@@ -921,7 +907,7 @@ ExplainBeginOutput.exit:                          ; preds = %219, %224, %229, %2
 252:                                              ; preds = %.lr.ph179, %ExplainSeparatePlans.exit
   %indvars.iv184 = phi i64 [ 0, %.lr.ph179 ], [ %indvars.iv.next185, %ExplainSeparatePlans.exit ]
   %253 = load ptr, ptr %244, align 8
-  %254 = getelementptr inbounds nuw %union.ListCell, ptr %253, i64 %indvars.iv184
+  %254 = getelementptr inbounds nuw [8 x i8], ptr %253, i64 %indvars.iv184
   %255 = load ptr, ptr %254, align 8
   %256 = getelementptr inbounds nuw i8, ptr %255, i64 4
   %257 = load i32, ptr %256, align 4
@@ -954,7 +940,7 @@ ExplainOneQuery.exit:                             ; preds = %259, %266, %267
   %.val143 = load ptr, ptr %244, align 8
   %268 = getelementptr inbounds nuw i8, ptr %254, i64 8
   %269 = sext i32 %.val to i64
-  %270 = getelementptr inbounds %union.ListCell, ptr %.val143, i64 %269
+  %270 = getelementptr inbounds [8 x i8], ptr %.val143, i64 %269
   %.not147 = icmp ult ptr %268, %270
   br i1 %.not147, label %271, label %ExplainSeparatePlans.exit
 
@@ -1214,7 +1200,7 @@ define dso_local noundef ptr @ExplainResultDesc(ptr noundef readonly captures(no
   %indvars.iv = phi i64 [ %indvars.iv.next, %23 ], [ 0, %.lr.ph ]
   %.0121620 = phi i32 [ %.1, %23 ], [ 25, %.lr.ph ]
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds nuw %union.ListCell, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8
@@ -2622,7 +2608,7 @@ list_length.exit:                                 ; preds = %2
 
 .critedge41:                                      ; preds = %.critedge41.lr.ph, %31
   %indvars.iv = phi i64 [ 0, %.critedge41.lr.ph ], [ %indvars.iv.next, %31 ]
-  %32 = getelementptr inbounds nuw %union.ListCell, ptr %30, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %35 = load i32, ptr %34, align 8
@@ -2688,7 +2674,7 @@ list_length.exit:                                 ; preds = %2
 
 .lr.ph.i:                                         ; preds = %59, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %59 ]
-  %62 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv.i
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv.i
   %63 = load ptr, ptr %62, align 8
   %64 = load ptr, ptr %63, align 8
   %65 = call ptr @GetConfigOptionByName(ptr noundef %64, ptr noundef null, i1 noundef zeroext true) #12
@@ -2720,7 +2706,7 @@ list_length.exit:                                 ; preds = %2
 
 .lr.ph31.i:                                       ; preds = %73, %86
   %indvars.iv34.i = phi i64 [ %indvars.iv.next35.i, %86 ], [ 0, %73 ]
-  %77 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv34.i
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv34.i
   %78 = load ptr, ptr %77, align 8
   %.not27.i = icmp eq i64 %indvars.iv34.i, 0
   br i1 %.not27.i, label %80, label %79
@@ -3457,7 +3443,7 @@ list_length.exit.thread:                          ; preds = %2
 .lr.ph55:                                         ; preds = %.lr.ph, %.lr.ph55
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph55 ], [ 0, %.lr.ph ]
   %21 = load ptr, ptr %18, align 8
-  %22 = getelementptr inbounds nuw %union.ListCell, ptr %21, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8
   tail call fastcc void @report_triggers(ptr noundef %23, i1 noundef zeroext %spec.select, ptr noundef %0)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3480,7 +3466,7 @@ list_length.exit.thread:                          ; preds = %2
 .lr.ph60:                                         ; preds = %.lr.ph57, %.lr.ph60
   %indvars.iv67 = phi i64 [ %indvars.iv.next68, %.lr.ph60 ], [ 0, %.lr.ph57 ]
   %31 = load ptr, ptr %28, align 8
-  %32 = getelementptr inbounds nuw %union.ListCell, ptr %31, i64 %indvars.iv67
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv67
   %33 = load ptr, ptr %32, align 8
   tail call fastcc void @report_triggers(ptr noundef %33, i1 noundef zeroext %spec.select7779, ptr noundef %0)
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
@@ -3504,7 +3490,7 @@ list_length.exit.thread:                          ; preds = %2
 .lr.ph65:                                         ; preds = %.lr.ph62, %.lr.ph65
   %indvars.iv70 = phi i64 [ %indvars.iv.next71, %.lr.ph65 ], [ 0, %.lr.ph62 ]
   %41 = load ptr, ptr %38, align 8
-  %42 = getelementptr inbounds nuw %union.ListCell, ptr %41, i64 %indvars.iv70
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv70
   %43 = load ptr, ptr %42, align 8
   tail call fastcc void @report_triggers(ptr noundef %43, i1 noundef zeroext %spec.select7778, ptr noundef %0)
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
@@ -3961,10 +3947,10 @@ define internal fastcc void @ExplainNode(ptr noundef %0, ptr noundef %1, ptr nou
 
 switch.lookup:                                    ; preds = %134
   %138 = zext nneg i32 %136 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.ExplainNode, i64 %138
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ExplainNode, i64 %138
   %switch.load = load ptr, ptr %switch.gep, align 8
   %139 = zext nneg i32 %136 to i64
-  %switch.gep1336 = getelementptr inbounds nuw ptr, ptr @switch.table.ExplainNode.20, i64 %139
+  %switch.gep1336 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ExplainNode.20, i64 %139
   %switch.load1337 = load ptr, ptr %switch.gep1336, align 8
   br label %140
 
@@ -4388,7 +4374,7 @@ explain_get_index_name.exit:                      ; preds = %268, %.thread.i
 
 switch.lookup1338:                                ; preds = %307
   %311 = zext nneg i32 %309 to i64
-  %switch.gep1339 = getelementptr inbounds nuw ptr, ptr @switch.table.ExplainNode.21, i64 %311
+  %switch.gep1339 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ExplainNode.21, i64 %311
   %switch.load1340 = load ptr, ptr %switch.gep1339, align 8
   br label %312
 
@@ -4619,7 +4605,7 @@ switch.lookup1338:                                ; preds = %307
 424:                                              ; preds = %424, %.lr.ph101.i
   %indvars.iv113.i = phi i64 [ 0, %.lr.ph101.i ], [ %indvars.iv.next114.i, %424 ]
   %.0489299.i = phi i32 [ 0, %.lr.ph101.i ], [ %429, %424 ]
-  %425 = getelementptr inbounds nuw %union.ListCell, ptr %423, i64 %indvars.iv113.i
+  %425 = getelementptr inbounds nuw [8 x i8], ptr %423, i64 %indvars.iv113.i
   %426 = load ptr, ptr %425, align 8
   %427 = getelementptr inbounds nuw i8, ptr %426, i64 4
   %428 = load i32, ptr %427, align 4
@@ -4649,7 +4635,7 @@ switch.lookup1338:                                ; preds = %307
 438:                                              ; preds = %438, %.lr.ph89.i
   %indvars.iv108.i = phi i64 [ 0, %.lr.ph89.i ], [ %indvars.iv.next109.i, %438 ]
   %.28087.i = phi i32 [ 0, %.lr.ph89.i ], [ %443, %438 ]
-  %439 = getelementptr inbounds nuw %union.ListCell, ptr %437, i64 %indvars.iv108.i
+  %439 = getelementptr inbounds nuw [8 x i8], ptr %437, i64 %indvars.iv108.i
   %440 = load ptr, ptr %439, align 8
   %441 = getelementptr inbounds nuw i8, ptr %440, i64 4
   %442 = load i32, ptr %441, align 4
@@ -4686,7 +4672,7 @@ switch.lookup1338:                                ; preds = %307
 457:                                              ; preds = %457, %.lr.ph78.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph78.i ], [ %indvars.iv.next.i, %457 ]
   %.37276.i = phi i32 [ 0, %.lr.ph78.i ], [ %462, %457 ]
-  %458 = getelementptr inbounds nuw %union.ListCell, ptr %456, i64 %indvars.iv.i
+  %458 = getelementptr inbounds nuw [8 x i8], ptr %456, i64 %indvars.iv.i
   %459 = load ptr, ptr %458, align 8
   %460 = getelementptr inbounds nuw i8, ptr %459, i64 4
   %461 = load i32, ptr %460, align 4
@@ -4761,7 +4747,7 @@ plan_is_disabled.exit:                            ; preds = %410, %.critedge.i
 493:                                              ; preds = %.lr.ph, %544
   %494 = phi i32 [ %489, %.lr.ph ], [ %545, %544 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %544 ]
-  %495 = getelementptr inbounds nuw %struct.Instrumentation, ptr %491, i64 %indvars.iv
+  %495 = getelementptr inbounds nuw [416 x i8], ptr %491, i64 %indvars.iv
   %496 = getelementptr inbounds nuw i8, ptr %495, i64 232
   %497 = load double, ptr %496, align 8
   %498 = fcmp ugt double %497, 0.000000e+00
@@ -4906,7 +4892,7 @@ ExplainIndentText.exit766:                        ; preds = %519, %526
   %indvars.iv.i770 = phi i64 [ %indvars.iv.next.i771, %.lr.ph8.i ], [ 0, %.lr.ph.i768 ]
   %.026.i = phi ptr [ %578, %.lr.ph8.i ], [ null, %.lr.ph.i768 ]
   %572 = load ptr, ptr %569, align 8
-  %573 = getelementptr inbounds nuw %union.ListCell, ptr %572, i64 %indvars.iv.i770
+  %573 = getelementptr inbounds nuw [8 x i8], ptr %572, i64 %indvars.iv.i770
   %574 = load ptr, ptr %573, align 8
   %575 = getelementptr inbounds nuw i8, ptr %574, i64 8
   %576 = load ptr, ptr %575, align 8
@@ -5408,7 +5394,7 @@ ExplainIndentText.exit.i:                         ; preds = %794, %787
   %indvars.iv.i790 = phi i64 [ %indvars.iv.next.i791, %867 ], [ 0, %.preheader.i ]
   %815 = phi ptr [ %868, %867 ], [ %812, %.preheader.i ]
   %816 = getelementptr inbounds nuw i8, ptr %815, i64 8
-  %817 = getelementptr inbounds nuw %struct.BitmapHeapScanInstrumentation, ptr %816, i64 %indvars.iv.i790
+  %817 = getelementptr inbounds nuw [16 x i8], ptr %816, i64 %indvars.iv.i790
   %818 = load i64, ptr %817, align 8
   %819 = icmp eq i64 %818, 0
   br i1 %819, label %820, label %824
@@ -5546,7 +5532,7 @@ ExplainIndentText.exit57.i:                       ; preds = %843, %836
   %indvars.iv.i803 = phi i64 [ %indvars.iv.next.i805, %.lr.ph8.i802 ], [ 0, %.lr.ph.i793 ]
   %.026.i804 = phi ptr [ %894, %.lr.ph8.i802 ], [ null, %.lr.ph.i793 ]
   %890 = load ptr, ptr %887, align 8
-  %891 = getelementptr inbounds nuw %union.ListCell, ptr %890, i64 %indvars.iv.i803
+  %891 = getelementptr inbounds nuw [8 x i8], ptr %890, i64 %indvars.iv.i803
   %892 = load ptr, ptr %891, align 8
   %893 = call ptr @deparse_expression(ptr noundef %892, ptr noundef %877, i1 noundef zeroext %880, i1 noundef zeroext false) #12
   %894 = call ptr @lappend(ptr noundef %.026.i804, ptr noundef %893) #12
@@ -5613,7 +5599,7 @@ ExplainIndentText.exit.i798:                      ; preds = %917, %910
   %indvars.iv17.i = phi i64 [ %indvars.iv.next18.i, %930 ], [ 0, %.lr.ph11.i ]
   %.047914.i = phi i1 [ false, %930 ], [ true, %.lr.ph11.i ]
   %925 = load ptr, ptr %922, align 8
-  %926 = getelementptr inbounds nuw %union.ListCell, ptr %925, i64 %indvars.iv17.i
+  %926 = getelementptr inbounds nuw [8 x i8], ptr %925, i64 %indvars.iv17.i
   br i1 %.047914.i, label %930, label %928
 
 .critedge58.i:                                    ; preds = %930, %.lr.ph11.i, %ExplainIndentText.exit.i798
@@ -5893,7 +5879,7 @@ show_scan_qual.exit813.thread:                    ; preds = %1030, %1039, %show_
   %indvars.iv1051 = phi i64 [ %indvars.iv.next1052, %.lr.ph1005 ], [ 0, %.lr.ph999 ]
   %.06729971004 = phi ptr [ %1065, %.lr.ph1005 ], [ null, %.lr.ph999 ]
   %1060 = load ptr, ptr %1057, align 8
-  %1061 = getelementptr inbounds nuw %union.ListCell, ptr %1060, i64 %indvars.iv1051
+  %1061 = getelementptr inbounds nuw [8 x i8], ptr %1060, i64 %indvars.iv1051
   %1062 = load ptr, ptr %1061, align 8
   %1063 = getelementptr inbounds nuw i8, ptr %1062, i64 8
   %1064 = load ptr, ptr %1063, align 8
@@ -6598,7 +6584,7 @@ show_upper_qual.exit850:                          ; preds = %1388
 .lr.ph31.i.i:                                     ; preds = %.lr.ph.i.i, %.lr.ph31.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph31.i.i ], [ 0, %.lr.ph.i.i ]
   %1432 = load ptr, ptr %1429, align 8
-  %1433 = getelementptr inbounds nuw %union.ListCell, ptr %1432, i64 %indvars.iv.i.i
+  %1433 = getelementptr inbounds nuw [8 x i8], ptr %1432, i64 %indvars.iv.i.i
   %1434 = load ptr, ptr %1433, align 8
   %1435 = getelementptr inbounds nuw i8, ptr %1434, i64 64
   %1436 = load ptr, ptr %1435, align 8
@@ -6840,7 +6826,7 @@ ExplainIndentText.exit75.i:                       ; preds = %ExplainIndentText.e
   %indvars.iv.i857 = phi i64 [ %indvars.iv.next.i858, %1606 ], [ 0, %.preheader.i855 ]
   %1558 = phi ptr [ %1607, %1606 ], [ %1555, %.preheader.i855 ]
   %1559 = getelementptr inbounds nuw i8, ptr %1558, i64 8
-  %1560 = getelementptr inbounds nuw %struct.AggregateInstrumentation, ptr %1559, i64 %indvars.iv.i857
+  %1560 = getelementptr inbounds nuw [24 x i8], ptr %1559, i64 %indvars.iv.i857
   %1561 = load i64, ptr %1560, align 8
   %1562 = icmp eq i64 %1561, 0
   br i1 %1562, label %1606, label %1563
@@ -7177,7 +7163,7 @@ ExplainIndentText.exit.i878:                      ; preds = %1726, %1719
   %indvars.iv.i874 = phi i64 [ %indvars.iv.next.i876, %1778 ], [ 0, %.preheader.i872 ]
   %1738 = phi ptr [ %1779, %1778 ], [ %1735, %.preheader.i872 ]
   %1739 = getelementptr inbounds nuw i8, ptr %1738, i64 8
-  %1740 = getelementptr inbounds nuw %struct.TuplesortInstrumentation, ptr %1739, i64 %indvars.iv.i874
+  %1740 = getelementptr inbounds nuw [16 x i8], ptr %1739, i64 %indvars.iv.i874
   %1741 = load i32, ptr %1740, align 8
   %1742 = icmp eq i32 %1741, 0
   br i1 %1742, label %1778, label %1743
@@ -7329,7 +7315,7 @@ ExplainIndentText.exit49.i:                       ; preds = %1768, %1761
   %indvars.iv.i883 = phi i64 [ %indvars.iv.next.i885, %1854 ], [ 0, %.preheader.i881 ]
   %1822 = phi ptr [ %1855, %1854 ], [ %1819, %.preheader.i881 ]
   %1823 = getelementptr inbounds nuw i8, ptr %1822, i64 8
-  %1824 = getelementptr inbounds nuw %struct.IncrementalSortInfo, ptr %1823, i64 %indvars.iv.i883
+  %1824 = getelementptr inbounds nuw [96 x i8], ptr %1823, i64 %indvars.iv.i883
   %1825 = load i64, ptr %1824, align 8
   %1826 = icmp eq i64 %1825, 0
   br i1 %1826, label %1854, label %1827
@@ -7488,10 +7474,10 @@ show_upper_qual.exit889:                          ; preds = %1895
 
 switch.lookup1341:                                ; preds = %1905
   %1910 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep1342 = getelementptr inbounds nuw ptr, ptr @switch.table.ExplainNode.22, i64 %1910
+  %switch.gep1342 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ExplainNode.22, i64 %1910
   %switch.load1343 = load ptr, ptr %switch.gep1342, align 8
   %1911 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep1344 = getelementptr inbounds nuw ptr, ptr @switch.table.ExplainNode.23, i64 %1911
+  %switch.gep1344 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ExplainNode.23, i64 %1911
   %switch.load1345 = load ptr, ptr %switch.gep1344, align 8
   br label %1912
 
@@ -7535,7 +7521,7 @@ switch.lookup1341:                                ; preds = %1905
 .lr.ph.split.us.i:                                ; preds = %1981, %.lr.ph.split.us.preheader.i
   %indvars.iv151.i = phi i64 [ 0, %.lr.ph.split.us.preheader.i ], [ %indvars.iv.next152.i, %1981 ]
   %1929 = load ptr, ptr %1927, align 8
-  %1930 = getelementptr inbounds nuw %struct.ResultRelInfo, ptr %1929, i64 %indvars.iv151.i
+  %1930 = getelementptr inbounds nuw [392 x i8], ptr %1929, i64 %indvars.iv151.i
   %1931 = getelementptr inbounds nuw i8, ptr %1930, i64 160
   %1932 = load ptr, ptr %1931, align 8
   call void @ExplainOpenGroup(ptr noundef nonnull @.str.315, ptr noundef null, i1 noundef zeroext true, ptr noundef nonnull %4)
@@ -7607,7 +7593,7 @@ ExplainIndentText.exit.us.i:                      ; preds = %1947, %1940
   %1970 = load ptr, ptr %1928, align 8
   %1971 = getelementptr i8, ptr %1970, i64 16
   %.val.us.i = load ptr, ptr %1971, align 8
-  %1972 = getelementptr inbounds nuw %union.ListCell, ptr %.val.us.i, i64 %indvars.iv151.i
+  %1972 = getelementptr inbounds nuw [8 x i8], ptr %.val.us.i, i64 %indvars.iv151.i
   %1973 = load ptr, ptr %1972, align 8
   %1974 = trunc nuw nsw i64 %indvars.iv151.i to i32
   call void %1968(ptr noundef nonnull %0, ptr noundef nonnull %1930, ptr noundef %1973, i32 noundef %1974, ptr noundef nonnull %4) #12
@@ -7636,7 +7622,7 @@ ExplainIndentText.exit.us.i:                      ; preds = %1947, %1940
   %1985 = phi i32 [ 1, %.lr.ph.split.preheader.i ], [ %2004, %2003 ]
   %indvars.iv.i894 = phi i64 [ 0, %.lr.ph.split.preheader.i ], [ %indvars.iv.next.i898, %2003 ]
   %1986 = load ptr, ptr %1919, align 8
-  %1987 = getelementptr inbounds nuw %struct.ResultRelInfo, ptr %1986, i64 %indvars.iv.i894
+  %1987 = getelementptr inbounds nuw [392 x i8], ptr %1986, i64 %indvars.iv.i894
   %1988 = getelementptr inbounds nuw i8, ptr %1987, i64 160
   %1989 = load ptr, ptr %1988, align 8
   %1990 = getelementptr inbounds nuw i8, ptr %1987, i64 176
@@ -7656,7 +7642,7 @@ ExplainIndentText.exit.us.i:                      ; preds = %1947, %1940
   %1998 = load ptr, ptr %1926, align 8
   %1999 = getelementptr i8, ptr %1998, i64 16
   %.val.i897 = load ptr, ptr %1999, align 8
-  %2000 = getelementptr inbounds nuw %union.ListCell, ptr %.val.i897, i64 %indvars.iv.i894
+  %2000 = getelementptr inbounds nuw [8 x i8], ptr %.val.i897, i64 %indvars.iv.i894
   %2001 = load ptr, ptr %2000, align 8
   %2002 = trunc nuw nsw i64 %indvars.iv.i894 to i32
   call void %1996(ptr noundef nonnull %0, ptr noundef nonnull %1987, ptr noundef %2001, i32 noundef %2002, ptr noundef %4) #12
@@ -7688,7 +7674,7 @@ ExplainIndentText.exit.us.i:                      ; preds = %1947, %1940
   %indvars.iv154.i = phi i64 [ %indvars.iv.next155.i, %.lr.ph148.i ], [ 0, %.lr.ph142.i ]
   %.0116140146.i = phi ptr [ %2018, %.lr.ph148.i ], [ null, %.lr.ph142.i ]
   %2014 = load ptr, ptr %2011, align 8
-  %2015 = getelementptr inbounds nuw %union.ListCell, ptr %2014, i64 %indvars.iv154.i
+  %2015 = getelementptr inbounds nuw [8 x i8], ptr %2014, i64 %indvars.iv154.i
   %2016 = load i32, ptr %2015, align 8
   %2017 = call ptr @get_rel_name(i32 noundef %2016) #12
   %2018 = call ptr @lappend(ptr noundef %.0116140146.i, ptr noundef %2017) #12
@@ -7961,7 +7947,7 @@ show_instrumentation_count.exit.i:                ; preds = %.sink.split.i.i, %2
   %.sroa.17.285.i = phi i32 [ %.sroa.17.0.i, %.lr.ph.i903 ], [ %2152, %2144 ]
   %.sroa.31.284.i = phi i64 [ %.sroa.31.0.i, %.lr.ph.i903 ], [ %2158, %2144 ]
   %.sroa.25.283.i = phi i32 [ %.sroa.25.0.i, %.lr.ph.i903 ], [ %2155, %2144 ]
-  %2145 = getelementptr inbounds nuw %struct.HashInstrumentation, ptr %2143, i64 %indvars.iv.i905
+  %2145 = getelementptr inbounds nuw [24 x i8], ptr %2143, i64 %indvars.iv.i905
   %2146 = load i32, ptr %2145, align 8
   %.sroa.0.2..i = call i32 @llvm.smax.i32(i32 %.sroa.0.288.i, i32 %2146)
   %2147 = getelementptr inbounds nuw i8, ptr %2145, i64 4
@@ -8139,7 +8125,7 @@ show_material_info.exit:                          ; preds = %2203, %2208
   %indvars.iv.i917 = phi i64 [ %indvars.iv.next.i918, %.lr.ph99.i ], [ 0, %.lr.ph.i910 ]
   %.0809597.i = phi ptr [ @.str.48, %.lr.ph99.i ], [ @.str.338, %.lr.ph.i910 ]
   %2230 = load ptr, ptr %2227, align 8
-  %2231 = getelementptr inbounds nuw %union.ListCell, ptr %2230, i64 %indvars.iv.i917
+  %2231 = getelementptr inbounds nuw [8 x i8], ptr %2230, i64 %indvars.iv.i917
   %2232 = load ptr, ptr %2231, align 8
   call void @appendStringInfoString(ptr noundef nonnull %22, ptr noundef nonnull %.0809597.i) #12
   %2233 = call ptr @deparse_expression(ptr noundef %2232, ptr noundef %2223, i1 noundef zeroext %2220, i1 noundef zeroext false) #12
@@ -8335,7 +8321,7 @@ ExplainIndentText.exit92.i:                       ; preds = %2320, %2313
   %indvars.iv103.i = phi i64 [ %indvars.iv.next104.i, %2391 ], [ 0, %.preheader.i913 ]
   %2336 = phi ptr [ %2392, %2391 ], [ %2332, %.preheader.i913 ]
   %2337 = getelementptr inbounds nuw i8, ptr %2336, i64 8
-  %2338 = getelementptr inbounds nuw %struct.MemoizeInstrumentation, ptr %2337, i64 %indvars.iv103.i
+  %2338 = getelementptr inbounds nuw [40 x i8], ptr %2337, i64 %indvars.iv103.i
   %2339 = getelementptr inbounds nuw i8, ptr %2338, i64 8
   %2340 = load i64, ptr %2339, align 8
   %2341 = icmp eq i64 %2340, 0
@@ -8527,7 +8513,7 @@ show_scan_qual.exit783:                           ; preds = %1854, %1778, %867, 
   %2428 = load ptr, ptr %2424, align 8
   %2429 = getelementptr inbounds nuw i8, ptr %2428, i64 304
   %2430 = load i32, ptr %2429, align 8
-  %2431 = getelementptr inbounds nuw %struct.JitInstrumentation, ptr %2425, i64 %indvars.iv1054
+  %2431 = getelementptr inbounds nuw [48 x i8], ptr %2425, i64 %indvars.iv1054
   call fastcc void @ExplainPrintJIT(ptr noundef nonnull %4, i32 noundef %2430, ptr noundef %2431)
   call fastcc void @ExplainCloseWorker(i32 noundef %2427, ptr noundef nonnull %4)
   %indvars.iv.next1055 = add nuw nsw i64 %indvars.iv1054, 1
@@ -8601,7 +8587,7 @@ show_scan_qual.exit783:                           ; preds = %1854, %1778, %867, 
 2466:                                             ; preds = %.lr.ph1009, %2484
   %2467 = phi i32 [ %2463, %.lr.ph1009 ], [ %2485, %2484 ]
   %indvars.iv1057 = phi i64 [ 0, %.lr.ph1009 ], [ %indvars.iv.next1058, %2484 ]
-  %2468 = getelementptr inbounds nuw %struct.Instrumentation, ptr %2465, i64 %indvars.iv1057
+  %2468 = getelementptr inbounds nuw [416 x i8], ptr %2465, i64 %indvars.iv1057
   %2469 = getelementptr inbounds nuw i8, ptr %2468, i64 232
   %2470 = load double, ptr %2469, align 8
   %2471 = fcmp ugt double %2470, 0.000000e+00
@@ -8671,12 +8657,12 @@ show_scan_qual.exit783:                           ; preds = %1854, %1778, %867, 
   call void @ExplainOpenGroup(ptr noundef nonnull @.str.254, ptr noundef null, i1 noundef zeroext true, ptr noundef nonnull %4)
   %2499 = load ptr, ptr %4, align 8
   %2500 = load ptr, ptr %2491, align 8
-  %2501 = getelementptr inbounds nuw %struct.StringInfoData, ptr %2500, i64 %indvars.iv.i923
+  %2501 = getelementptr inbounds nuw [24 x i8], ptr %2500, i64 %indvars.iv.i923
   %2502 = load ptr, ptr %2501, align 8
   call void @appendStringInfoString(ptr noundef %2499, ptr noundef %2502) #12
   call void @ExplainCloseGroup(ptr noundef nonnull @.str.254, ptr poison, i1 noundef zeroext true, ptr noundef nonnull %4)
   %2503 = load ptr, ptr %2491, align 8
-  %2504 = getelementptr inbounds nuw %struct.StringInfoData, ptr %2503, i64 %indvars.iv.i923
+  %2504 = getelementptr inbounds nuw [24 x i8], ptr %2503, i64 %indvars.iv.i923
   %2505 = load ptr, ptr %2504, align 8
   call void @pfree(ptr noundef %2505) #12
   %.pre.i925 = load i32, ptr %.pr9661293, align 8
@@ -8842,7 +8828,7 @@ ExplainMissingMembers.exit:                       ; preds = %2545, %2543, %2529,
   %indvars.iv1060 = phi i64 [ 0, %.lr.ph1013 ], [ %indvars.iv.next1061, %2594 ]
   %.0.i9331012 = phi ptr [ %2569, %.lr.ph1013 ], [ %.1.i936, %2594 ]
   %2575 = load ptr, ptr %2572, align 8
-  %2576 = getelementptr inbounds nuw %union.ListCell, ptr %2575, i64 %indvars.iv1060
+  %2576 = getelementptr inbounds nuw [8 x i8], ptr %2575, i64 %indvars.iv1060
   %2577 = load ptr, ptr %2576, align 8
   %2578 = getelementptr inbounds nuw i8, ptr %2577, i64 8
   %2579 = load ptr, ptr %2578, align 8
@@ -8921,7 +8907,7 @@ ExplainSubPlans.exit:                             ; preds = %2594, %2565, %.preh
 
 .lr.ph1026:                                       ; preds = %.lr.ph1026.preheader, %.lr.ph1026
   %indvars.iv1079 = phi i64 [ 0, %.lr.ph1026.preheader ], [ %indvars.iv.next1080, %.lr.ph1026 ]
-  %2613 = getelementptr inbounds nuw ptr, ptr %2609, i64 %indvars.iv1079
+  %2613 = getelementptr inbounds nuw [8 x i8], ptr %2609, i64 %indvars.iv1079
   %2614 = load ptr, ptr %2613, align 8
   call fastcc void @ExplainNode(ptr noundef %2614, ptr noundef %.01297, ptr noundef nonnull @.str.360, ptr noundef null, ptr noundef nonnull %4)
   %indvars.iv.next1080 = add nuw nsw i64 %indvars.iv1079, 1
@@ -8942,7 +8928,7 @@ ExplainSubPlans.exit:                             ; preds = %2594, %2565, %.preh
 
 .lr.ph1024:                                       ; preds = %.lr.ph1024.preheader, %.lr.ph1024
   %indvars.iv1074 = phi i64 [ 0, %.lr.ph1024.preheader ], [ %indvars.iv.next1075, %.lr.ph1024 ]
-  %2621 = getelementptr inbounds nuw ptr, ptr %2617, i64 %indvars.iv1074
+  %2621 = getelementptr inbounds nuw [8 x i8], ptr %2617, i64 %indvars.iv1074
   %2622 = load ptr, ptr %2621, align 8
   call fastcc void @ExplainNode(ptr noundef %2622, ptr noundef %.01297, ptr noundef nonnull @.str.360, ptr noundef null, ptr noundef nonnull %4)
   %indvars.iv.next1075 = add nuw nsw i64 %indvars.iv1074, 1
@@ -8963,7 +8949,7 @@ ExplainSubPlans.exit:                             ; preds = %2594, %2565, %.preh
 
 .lr.ph1022:                                       ; preds = %.lr.ph1022.preheader, %.lr.ph1022
   %indvars.iv1069 = phi i64 [ 0, %.lr.ph1022.preheader ], [ %indvars.iv.next1070, %.lr.ph1022 ]
-  %2629 = getelementptr inbounds nuw ptr, ptr %2625, i64 %indvars.iv1069
+  %2629 = getelementptr inbounds nuw [8 x i8], ptr %2625, i64 %indvars.iv1069
   %2630 = load ptr, ptr %2629, align 8
   call fastcc void @ExplainNode(ptr noundef %2630, ptr noundef %.01297, ptr noundef nonnull @.str.360, ptr noundef null, ptr noundef nonnull %4)
   %indvars.iv.next1070 = add nuw nsw i64 %indvars.iv1069, 1
@@ -8984,7 +8970,7 @@ ExplainSubPlans.exit:                             ; preds = %2594, %2565, %.preh
 
 .lr.ph1020:                                       ; preds = %.lr.ph1020.preheader, %.lr.ph1020
   %indvars.iv1066 = phi i64 [ 0, %.lr.ph1020.preheader ], [ %indvars.iv.next1067, %.lr.ph1020 ]
-  %2637 = getelementptr inbounds nuw ptr, ptr %2633, i64 %indvars.iv1066
+  %2637 = getelementptr inbounds nuw [8 x i8], ptr %2633, i64 %indvars.iv1066
   %2638 = load ptr, ptr %2637, align 8
   call fastcc void @ExplainNode(ptr noundef %2638, ptr noundef %.01297, ptr noundef nonnull @.str.360, ptr noundef null, ptr noundef nonnull %4)
   %indvars.iv.next1067 = add nuw nsw i64 %indvars.iv1066, 1
@@ -9016,7 +9002,7 @@ list_length.exit955:                              ; preds = %2642
 .lr.ph1018:                                       ; preds = %list_length.exit955, %.lr.ph1018
   %indvars.iv1063 = phi i64 [ %indvars.iv.next1064, %.lr.ph1018 ], [ 0, %list_length.exit955 ]
   %2649 = load ptr, ptr %2647, align 8
-  %2650 = getelementptr inbounds nuw %union.ListCell, ptr %2649, i64 %indvars.iv1063
+  %2650 = getelementptr inbounds nuw [8 x i8], ptr %2649, i64 %indvars.iv1063
   %2651 = load ptr, ptr %2650, align 8
   call fastcc void @ExplainNode(ptr noundef %2651, ptr noundef %.01297, ptr noundef nonnull %spec.select, ptr noundef null, ptr noundef nonnull %4)
   %indvars.iv.next1064 = add nuw nsw i64 %indvars.iv1063, 1
@@ -9046,7 +9032,7 @@ ExplainMemberNodes.exit:                          ; preds = %.lr.ph1018, %.lr.ph
   %indvars.iv1084 = phi i64 [ 0, %.lr.ph1030 ], [ %indvars.iv.next1085, %2681 ]
   %.0.i9491029 = phi ptr [ %.01297, %.lr.ph1030 ], [ %.1.i952, %2681 ]
   %2662 = load ptr, ptr %2659, align 8
-  %2663 = getelementptr inbounds nuw %union.ListCell, ptr %2662, i64 %indvars.iv1084
+  %2663 = getelementptr inbounds nuw [8 x i8], ptr %2662, i64 %indvars.iv1084
   %2664 = load ptr, ptr %2663, align 8
   %2665 = getelementptr inbounds nuw i8, ptr %2664, i64 8
   %2666 = load ptr, ptr %2665, align 8
@@ -9140,9 +9126,9 @@ define internal fastcc void @report_triggers(ptr noundef readonly captures(none)
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %79 ]
   %17 = phi ptr [ %5, %.lr.ph ], [ %80, %79 ]
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds nuw %struct.Trigger, ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [88 x i8], ptr %18, i64 %indvars.iv
   %20 = load ptr, ptr %7, align 8
-  %21 = getelementptr inbounds nuw %struct.Instrumentation, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [416 x i8], ptr %20, i64 %indvars.iv
   tail call void @InstrEndLoop(ptr noundef %21) #12
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 216
   %23 = load double, ptr %22, align 8
@@ -9646,7 +9632,7 @@ ExplainIndentText.exit:                           ; preds = %11, %18
   %indvars.iv117 = phi i64 [ %indvars.iv.next118, %32 ], [ 0, %.lr.ph106 ]
   %.069105108 = phi i1 [ false, %32 ], [ true, %.lr.ph106 ]
   %27 = load ptr, ptr %24, align 8
-  %28 = getelementptr inbounds nuw %union.ListCell, ptr %27, i64 %indvars.iv117
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv117
   br i1 %.069105108, label %32, label %30
 
 .critedge:                                        ; preds = %32, %.lr.ph106, %ExplainIndentText.exit
@@ -9685,7 +9671,7 @@ ExplainIndentText.exit:                           ; preds = %11, %18
 .lr.ph103:                                        ; preds = %.lr.ph100, %.lr.ph103
   %indvars.iv114 = phi i64 [ %indvars.iv.next115, %.lr.ph103 ], [ 0, %.lr.ph100 ]
   %44 = load ptr, ptr %40, align 8
-  %45 = getelementptr inbounds nuw %union.ListCell, ptr %44, i64 %indvars.iv114
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv114
   %46 = load ptr, ptr %2, align 8
   %47 = load i32, ptr %41, align 4
   %48 = shl i32 %47, 1
@@ -9754,7 +9740,7 @@ ExplainJSONLineEnding.exit:                       ; preds = %63, %65
   %indvars.iv112 = phi i64 [ %indvars.iv.next113, %82 ], [ 0, %.lr.ph94 ]
   %.1709396 = phi i1 [ false, %82 ], [ true, %.lr.ph94 ]
   %77 = load ptr, ptr %74, align 8
-  %78 = getelementptr inbounds nuw %union.ListCell, ptr %77, i64 %indvars.iv112
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %indvars.iv112
   br i1 %.1709396, label %82, label %80
 
 .critedge85:                                      ; preds = %82, %.lr.ph94, %ExplainJSONLineEnding.exit
@@ -9817,7 +9803,7 @@ ExplainYAMLLineStarting.exit:                     ; preds = %94, %95
 .lr.ph91:                                         ; preds = %.lr.ph, %.lr.ph91
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph91 ], [ 0, %.lr.ph ]
   %107 = load ptr, ptr %103, align 8
-  %108 = getelementptr inbounds nuw %union.ListCell, ptr %107, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %indvars.iv
   %109 = load ptr, ptr %2, align 8
   tail call void @appendStringInfoChar(ptr noundef %109, i8 noundef signext 10) #12
   %110 = load ptr, ptr %2, align 8
@@ -10081,7 +10067,7 @@ ExplainJSONLineEnding.exit:                       ; preds = %12, %14
   %indvars.iv54 = phi i64 [ %indvars.iv.next55, %30 ], [ 0, %.lr.ph49 ]
   %.0324851 = phi i1 [ false, %30 ], [ true, %.lr.ph49 ]
   %25 = load ptr, ptr %22, align 8
-  %26 = getelementptr inbounds nuw %union.ListCell, ptr %25, i64 %indvars.iv54
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv54
   br i1 %.0324851, label %30, label %28
 
 .critedge:                                        ; preds = %30, %.lr.ph49, %ExplainJSONLineEnding.exit
@@ -10144,7 +10130,7 @@ ExplainYAMLLineStarting.exit:                     ; preds = %42, %43
   %indvars.iv = phi i64 [ %indvars.iv.next, %59 ], [ 0, %.lr.ph ]
   %.1334145 = phi i1 [ false, %59 ], [ true, %.lr.ph ]
   %54 = load ptr, ptr %51, align 8
-  %55 = getelementptr inbounds nuw %union.ListCell, ptr %54, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %indvars.iv
   br i1 %.1334145, label %59, label %57
 
 .critedge40:                                      ; preds = %59, %.lr.ph, %ExplainYAMLLineStarting.exit
@@ -10426,13 +10412,13 @@ define internal noundef zeroext i1 @serializeAnalyzeReceive(ptr noundef %0, ptr 
 47:                                               ; preds = %69, %42
   %indvars.iv.i = phi i64 [ 0, %42 ], [ %indvars.iv.next.i, %69 ]
   %48 = load ptr, ptr %36, align 8
-  %49 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %48, i64 %indvars.iv.i
+  %49 = getelementptr inbounds nuw [48 x i8], ptr %48, i64 %indvars.iv.i
   %50 = load i32, ptr %10, align 8
   %51 = sext i32 %50 to i64
   %52 = shl nsw i64 %51, 4
   %53 = getelementptr i8, ptr %10, i64 %52
   %54 = getelementptr i8, ptr %53, i64 24
-  %55 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %54, i64 %indvars.iv.i
+  %55 = getelementptr inbounds nuw [100 x i8], ptr %54, i64 %indvars.iv.i
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -10539,9 +10525,9 @@ slot_getallattrs.exit:                            ; preds = %serialize_prepare_i
 104:                                              ; preds = %.lr.ph, %142
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %142 ]
   %105 = load ptr, ptr %90, align 8
-  %106 = getelementptr inbounds nuw %struct.FmgrInfo, ptr %105, i64 %indvars.iv
+  %106 = getelementptr inbounds nuw [48 x i8], ptr %105, i64 %indvars.iv
   %107 = load ptr, ptr %91, align 8
-  %108 = getelementptr inbounds nuw i64, ptr %107, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %indvars.iv
   %109 = load i64, ptr %108, align 8
   %110 = load ptr, ptr %92, align 8
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 %indvars.iv
@@ -10804,13 +10790,13 @@ define internal fastcc void @ExplainOpenWorker(i32 noundef %0, ptr noundef captu
   %13 = trunc nuw i8 %12 to i1
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds %struct.StringInfoData, ptr %15, i64 %10
+  %16 = getelementptr inbounds [24 x i8], ptr %15, i64 %10
   br i1 %13, label %34, label %17
 
 17:                                               ; preds = %2
   tail call void @initStringInfo(ptr noundef %16) #12
   %18 = load ptr, ptr %14, align 8
-  %19 = getelementptr inbounds %struct.StringInfoData, ptr %18, i64 %10
+  %19 = getelementptr inbounds [24 x i8], ptr %18, i64 %10
   store ptr %19, ptr %1, align 8
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %21 = load i32, ptr %20, align 8
@@ -10867,7 +10853,7 @@ ExplainOpenSetAsideGroup.exit:                    ; preds = %17, %.sink.split.i
 .sink.split.sink.split.i27:                       ; preds = %34, %34
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i32, ptr %38, i64 %10
+  %39 = getelementptr inbounds [4 x i8], ptr %38, i64 %10
   %40 = load i32, ptr %39, align 4
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %42 = load ptr, ptr %41, align 8
@@ -10922,7 +10908,7 @@ define internal fastcc void @ExplainCloseWorker(i32 noundef %0, ptr noundef capt
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = sext i32 %0 to i64
-  %8 = getelementptr inbounds i32, ptr %6, i64 %7
+  %8 = getelementptr inbounds [4 x i8], ptr %6, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i32, ptr %9, align 8
   switch i32 %10, label %ExplainSaveGroup.exit [
@@ -11233,13 +11219,13 @@ define internal fastcc void @ExplainTargetRel(ptr noundef readonly captures(none
   %7 = getelementptr i8, ptr %5, i64 16
   %.val59 = load ptr, ptr %7, align 8
   %8 = sext i32 %6 to i64
-  %9 = getelementptr inbounds %union.ListCell, ptr %.val59, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %.val59, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr i8, ptr %12, i64 16
   %.val60 = load ptr, ptr %13, align 8
-  %14 = getelementptr inbounds %union.ListCell, ptr %.val60, i64 %8
+  %14 = getelementptr inbounds [8 x i8], ptr %.val60, i64 %8
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %22
@@ -11533,7 +11519,7 @@ define internal fastcc void @show_sort_group_keys(ptr %.8.val, ptr noundef %0, i
   %indvars.iv35 = phi i64 [ %indvars.iv.next36, %41 ], [ 0, %.lr.ph ]
   %.015.us = phi ptr [ %37, %41 ], [ null, %.lr.ph ]
   %.03814.us = phi ptr [ %.1.us, %41 ], [ null, %.lr.ph ]
-  %27 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv35
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %indvars.iv35
   %28 = load i16, ptr %27, align 2
   %29 = load ptr, ptr %25, align 8
   %30 = call ptr @get_tle_by_resno(ptr noundef %29, i16 noundef signext %28) #12
@@ -11566,7 +11552,7 @@ define internal fastcc void @show_sort_group_keys(ptr %.8.val, ptr noundef %0, i
   %indvars.iv = phi i64 [ %indvars.iv.next, %99 ], [ 0, %.lr.ph ]
   %.015 = phi ptr [ %95, %99 ], [ null, %.lr.ph ]
   %.03814 = phi ptr [ %.1, %99 ], [ null, %.lr.ph ]
-  %42 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %indvars.iv
   %43 = load i16, ptr %42, align 2
   %44 = load ptr, ptr %25, align 8
   %45 = call ptr @get_tle_by_resno(ptr noundef %44, i16 noundef signext %43) #12
@@ -11588,9 +11574,9 @@ define internal fastcc void @show_sort_group_keys(ptr %.8.val, ptr noundef %0, i
   call void @resetStringInfo(ptr noundef nonnull %11) #12
   call void @appendStringInfoString(ptr noundef nonnull %11, ptr noundef %52) #12
   %53 = load ptr, ptr %50, align 8
-  %54 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %55 = load i32, ptr %54, align 4
-  %56 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %57 = load i32, ptr %56, align 4
   %58 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv
   %59 = load i8, ptr %58, align 1, !range !4, !noundef !5
@@ -11770,7 +11756,7 @@ define internal fastcc void @show_grouping_set_keys(ptr noundef readonly capture
 .lr.ph108:                                        ; preds = %.lr.ph90, %71
   %indvars.iv95107 = phi i64 [ %indvars.iv.next96, %71 ], [ 0, %.lr.ph90 ]
   %42 = load ptr, ptr %37, align 8
-  %43 = getelementptr inbounds nuw %union.ListCell, ptr %42, i64 %indvars.iv95107
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv95107
   %44 = load ptr, ptr %43, align 8
   %.not70 = icmp eq ptr %44, null
   br i1 %.not70, label %.critedge75.thread, label %.lr.ph
@@ -11790,10 +11776,10 @@ define internal fastcc void @show_grouping_set_keys(ptr noundef readonly capture
   %indvars.iv = phi i64 [ %indvars.iv.next, %60 ], [ 0, %.lr.ph ]
   %.0617887 = phi ptr [ %64, %60 ], [ null, %.lr.ph ]
   %49 = load ptr, ptr %46, align 8
-  %50 = getelementptr inbounds nuw %union.ListCell, ptr %49, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv
   %51 = load i32, ptr %50, align 8
   %52 = zext i32 %51 to i64
-  %53 = getelementptr inbounds nuw i16, ptr %13, i64 %52
+  %53 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %52
   %54 = load i16, ptr %53, align 2
   %55 = load ptr, ptr %38, align 8
   %56 = tail call ptr @get_tle_by_resno(ptr noundef %55, i16 noundef signext %54) #12
@@ -11966,7 +11952,7 @@ list_length.exit:                                 ; preds = %33
 list_length.exit75:                               ; preds = %list_length.exit, %58
   %indvars.iv = phi i64 [ %indvars.iv.next, %58 ], [ 0, %list_length.exit ]
   %45 = load ptr, ptr %42, align 8
-  %46 = getelementptr inbounds nuw %union.ListCell, ptr %45, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv
   %47 = load ptr, ptr %3, align 8
   %48 = load ptr, ptr %46, align 8
   tail call void @appendStringInfoString(ptr noundef %47, ptr noundef %48) #12

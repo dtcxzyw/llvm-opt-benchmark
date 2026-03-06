@@ -4,13 +4,12 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.RecordFFData = type { ptr, i64, i32 }
-%union.TValue = type { i64 }
 %struct.RecordIndex = type { %union.TValue, %union.TValue, %union.TValue, %union.TValue, ptr, ptr, i32, i32, i32, i32, i32, i32 }
-%union.IRIns = type { %struct.GCRef }
-%struct.GCRef = type { i64 }
+%union.TValue = type { i64 }
 %struct.SBufExt = type { ptr, ptr, ptr, %struct.MRef, %union.anon.4, ptr, %struct.GCRef, %struct.GCRef, i32 }
 %struct.MRef = type { i64 }
 %union.anon.4 = type { %struct.GCRef }
+%struct.GCRef = type { i64 }
 %struct.FormatState = type { ptr, ptr, ptr, i32 }
 
 @recff_func = internal unnamed_addr constant [76 x ptr] [ptr @recff_nyi, ptr @recff_nyi, ptr @recff_assert, ptr @recff_type, ptr @recff_next, ptr @recff_xpairs, ptr @recff_ipairs_aux, ptr @recff_getmetatable, ptr @recff_setmetatable, ptr @recff_getfenv, ptr @recff_rawget, ptr @recff_rawset, ptr @recff_rawequal, ptr @recff_select, ptr @recff_tonumber, ptr @recff_tostring, ptr @recff_pcall, ptr @recff_xpcall, ptr @recff_math_abs, ptr @recff_math_round, ptr @recff_math_unary, ptr @recff_math_call, ptr @recff_math_log, ptr @recff_math_atan2, ptr @recff_math_pow, ptr @recff_math_ldexp, ptr @recff_math_minmax, ptr @recff_math_random, ptr @recff_bit_tobit, ptr @recff_bit_unary, ptr @recff_bit_shift, ptr @recff_bit_nary, ptr @recff_bit_tohex, ptr @recff_string_range, ptr @recff_string_char, ptr @recff_string_rep, ptr @recff_string_op, ptr @recff_string_find, ptr @recff_string_format, ptr @recff_table_insert, ptr @recff_table_concat, ptr @recff_table_new, ptr @recff_table_clear, ptr @recff_io_write, ptr @recff_io_flush, ptr @recff_debug_getmetatable, ptr @recff_cdata_index, ptr @recff_cdata_arith, ptr @recff_cdata_call, ptr @recff_clib_index, ptr @recff_ffi_new, ptr @recff_ffi_typeof, ptr @recff_ffi_istype, ptr @recff_ffi_xof, ptr @recff_ffi_errno, ptr @recff_ffi_string, ptr @recff_ffi_copy, ptr @recff_ffi_fill, ptr @recff_ffi_abi, ptr @recff_ffi_gc, ptr @recff_buffer_method_reset, ptr @recff_buffer_method_skip, ptr @recff_buffer_method_set, ptr @recff_buffer_method_put, ptr @recff_buffer_method_putf, ptr @recff_buffer_method_get, ptr @recff_buffer_method_putcdata, ptr @recff_buffer_method_reserve, ptr @recff_buffer_method_commit, ptr @recff_buffer_method_ref, ptr @recff_buffer_method_encode, ptr @recff_buffer_method_decode, ptr @recff_buffer_method___tostring, ptr @recff_buffer_method___len, ptr @recff_buffer_encode, ptr @recff_buffer_decode], align 16
@@ -134,7 +133,7 @@ define hidden void @lj_ffrecord_func(ptr noundef %0) local_unnamed_addr #0 {
 
 7:                                                ; preds = %1
   %8 = zext i8 %.val to i64
-  %9 = getelementptr inbounds nuw i16, ptr @recff_idmap, i64 %8
+  %9 = getelementptr inbounds nuw [2 x i8], ptr @recff_idmap, i64 %8
   %10 = load i16, ptr %9, align 2, !tbaa !28
   %11 = zext i16 %10 to i32
   br label %recdef_lookup.exit
@@ -156,11 +155,11 @@ recdef_lookup.exit:                               ; preds = %1, %7
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 172
   %22 = load i32, ptr %21, align 4, !tbaa !38
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw i32, ptr %20, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %23
   store i32 0, ptr %24, align 4, !tbaa !39
   %25 = lshr i32 %.0.i, 8
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr @recff_func, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr @recff_func, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !40
   call void %28(ptr noundef nonnull %0, ptr noundef nonnull %2) #9
   %29 = load i64, ptr %14, align 8, !tbaa !32
@@ -281,7 +280,7 @@ define internal void @recff_type(ptr noundef %0, ptr noundef readonly captures(n
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %8 = load ptr, ptr %7, align 8, !tbaa !7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %10 = getelementptr inbounds nuw %union.TValue, ptr %9, i64 %.0
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.0
   %11 = load i64, ptr %10, align 8, !tbaa !4
   %12 = and i64 %11, 140737488355327
   %13 = inttoptr i64 %12 to ptr
@@ -709,7 +708,7 @@ define internal void @recff_getfenv(ptr noundef %0, ptr noundef writeonly captur
   %9 = load ptr, ptr %8, align 8, !tbaa !52
   %10 = and i32 %5, 32767
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds nuw %union.IRIns, ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %11
   %13 = load i32, ptr %12, align 8, !tbaa !4
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %15, label %23
@@ -971,14 +970,14 @@ define internal void @recff_select(ptr noundef %0, ptr noundef captures(none) %1
 
 .lr.ph:                                           ; preds = %26
   %30 = load ptr, ptr %3, align 8, !tbaa !37
-  %31 = getelementptr inbounds nuw i32, ptr %30, i64 %.033
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %.033
   br label %32
 
 32:                                               ; preds = %.lr.ph, %32
   %.03238 = phi i64 [ 0, %.lr.ph ], [ %36, %32 ]
-  %33 = getelementptr inbounds nuw i32, ptr %31, i64 %.03238
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %.03238
   %34 = load i32, ptr %33, align 4, !tbaa !39
-  %35 = getelementptr inbounds nuw i32, ptr %30, i64 %.03238
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %.03238
   store i32 %34, ptr %35, align 4, !tbaa !39
   %36 = add nuw nsw i64 %.03238, 1
   %exitcond.not = icmp eq i64 %36, %27
@@ -1082,7 +1081,7 @@ define internal void @recff_tonumber(ptr noundef %0, ptr noundef %1) #0 {
   %16 = load ptr, ptr %15, align 8, !tbaa !52
   %17 = and i32 %12, 32767
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw %union.IRIns, ptr %16, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %18
   %20 = load i32, ptr %19, align 8, !tbaa !4
   %.not28 = icmp eq i32 %20, 10
   br i1 %.not28, label %52, label %21
@@ -1822,7 +1821,7 @@ define internal void @recff_math_minmax(ptr noundef %0, ptr noundef readonly cap
   %39 = add i32 %.02733, 1
   %40 = load ptr, ptr %3, align 8, !tbaa !37
   %41 = zext i32 %39 to i64
-  %42 = getelementptr inbounds nuw i32, ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !39
   %.not = icmp eq i32 %43, 0
   br i1 %.not, label %._crit_edge, label %16, !llvm.loop !55
@@ -2047,7 +2046,7 @@ define internal void @recff_bit_nary(ptr noundef %0, ptr noundef %1) #0 {
   %25 = add i32 %.021, 1
   %26 = load ptr, ptr %5, align 8, !tbaa !37
   %27 = zext i32 %25 to i64
-  %28 = getelementptr inbounds nuw i32, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !39
   %.not18 = icmp eq i32 %29, 0
   br i1 %.not18, label %._crit_edge, label %19, !llvm.loop !56
@@ -2487,7 +2486,7 @@ argv2int.exit154:                                 ; preds = %105, %lj_strscan_nu
   store i16 1, ptr %11, align 2, !tbaa !4
   %193 = tail call i32 @lj_opt_fold(ptr noundef nonnull %0) #9
   %194 = load ptr, ptr %4, align 8, !tbaa !37
-  %195 = getelementptr inbounds nuw i32, ptr %194, i64 %.0131162
+  %195 = getelementptr inbounds nuw [4 x i8], ptr %194, i64 %.0131162
   store i32 %193, ptr %195, align 4, !tbaa !39
   %196 = add nuw nsw i64 %.0131162, 1
   %exitcond.not = icmp eq i64 %196, %169
@@ -2538,11 +2537,11 @@ define internal void @recff_string_char(ptr noundef %0, ptr readnone captures(no
   store i16 2, ptr %10, align 2, !tbaa !4
   %17 = tail call i32 @lj_opt_fold(ptr noundef nonnull %0) #9
   %18 = load ptr, ptr %4, align 8, !tbaa !37
-  %19 = getelementptr inbounds nuw i32, ptr %18, i64 %13
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %13
   store i32 %17, ptr %19, align 4, !tbaa !39
   %20 = add i32 %.03540, 1
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw i32, ptr %18, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !39
   %.not = icmp eq i32 %23, 0
   br i1 %.not, label %._crit_edge, label %11, !llvm.loop !62
@@ -2580,7 +2579,7 @@ define internal void @recff_string_char(ptr noundef %0, ptr readnone captures(no
   %39 = add i32 %.143, 1
   %40 = load ptr, ptr %4, align 8, !tbaa !37
   %41 = zext i32 %39 to i64
-  %42 = getelementptr inbounds nuw i32, ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !39
   %.not38 = icmp eq i32 %43, 0
   br i1 %.not38, label %._crit_edge47, label %.lr.ph46, !llvm.loop !63
@@ -3414,7 +3413,7 @@ define internal void @recff_table_new(ptr noundef %0, ptr readnone captures(none
   %15 = load ptr, ptr %14, align 8, !tbaa !52
   %16 = and i32 %6, 32767
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds nuw %union.IRIns, ptr %15, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %17
   %19 = load i32, ptr %18, align 8, !tbaa !4
   %20 = icmp sgt i32 %19, 32766
   br i1 %20, label %.critedge, label %21
@@ -3422,7 +3421,7 @@ define internal void @recff_table_new(ptr noundef %0, ptr readnone captures(none
 21:                                               ; preds = %13
   %22 = and i32 %10, 32767
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw %union.IRIns, ptr %15, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %23
   %25 = load i32, ptr %24, align 8, !tbaa !4
   switch i32 %25, label %26 [
     i32 0, label %31
@@ -3500,7 +3499,7 @@ define internal void @recff_io_write(ptr noundef %0, ptr noundef readonly captur
   %11 = zext i1 %10 to i64
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %13 = load ptr, ptr %12, align 8, !tbaa !37
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %11
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %11
   %15 = load i32, ptr %14, align 4, !tbaa !39
   %.not61 = icmp eq i32 %15, 0
   br i1 %.not61, label %._crit_edge, label %.lr.ph
@@ -3535,7 +3534,7 @@ define internal void @recff_io_write(ptr noundef %0, ptr noundef readonly captur
   %30 = load ptr, ptr %20, align 8, !tbaa !52
   %.mask = and i32 %27, 32767
   %31 = zext nneg i32 %.mask to i64
-  %32 = getelementptr inbounds nuw %union.IRIns, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %31
   %33 = load i32, ptr %32, align 8, !tbaa !4
   %34 = icmp eq i32 %33, 1
   br i1 %34, label %35, label %62
@@ -3543,7 +3542,7 @@ define internal void @recff_io_write(ptr noundef %0, ptr noundef readonly captur
 35:                                               ; preds = %29
   %.mask50 = and i32 %24, 65535
   %36 = zext nneg i32 %.mask50 to i64
-  %37 = getelementptr inbounds nuw %union.IRIns, ptr %30, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 5
   %39 = load i8, ptr %38, align 1, !tbaa !4
   %40 = icmp eq i8 %39, 93
@@ -3626,7 +3625,7 @@ results_wanted.exit54:                            ; preds = %62
 72:                                               ; preds = %.sink.split, %results_wanted.exit54, %results_wanted.exit
   %73 = add nuw nsw i64 %.062, 1
   %74 = load ptr, ptr %12, align 8, !tbaa !37
-  %75 = getelementptr inbounds nuw i32, ptr %74, i64 %73
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %73
   %76 = load i32, ptr %75, align 4, !tbaa !39
   %.not = icmp eq i32 %76, 0
   br i1 %.not, label %._crit_edge, label %22, !llvm.loop !64
@@ -3707,7 +3706,7 @@ define internal void @recff_debug_getmetatable(ptr noundef %0, ptr noundef reado
   %13 = icmp ult i64 %12, -13
   %14 = sub nsw i64 21, %12
   %spec.select = select i1 %13, i64 35, i64 %14
-  %15 = getelementptr inbounds nuw %struct.GCRef, ptr %9, i64 %spec.select
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %spec.select
   %16 = load i64, ptr %15, align 8, !tbaa !65
   %.not = icmp eq i64 %16, 0
   br i1 %.not, label %20, label %17
@@ -4106,7 +4105,7 @@ recff_sbufx_check.exit:                           ; preds = %8
   %41 = load ptr, ptr %40, align 8, !tbaa !52
   %42 = and i32 %38, 65535
   %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds nuw %union.IRIns, ptr %41, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 5
   %46 = load i8, ptr %45, align 1, !tbaa !4
   %47 = icmp eq i8 %46, 64
@@ -4232,7 +4231,7 @@ recff_sbufx_check.exit:                           ; preds = %8
 
 43:                                               ; preds = %.lr.ph
   %.val55 = load ptr, ptr %1, align 8, !tbaa !36
-  %44 = getelementptr inbounds nuw %union.TValue, ptr %.val55, i64 %.04861
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %.val55, i64 %.04861
   %45 = load i64, ptr %44, align 8, !tbaa !4
   %.mask.i56 = and i64 %45, -140737488355328
   %46 = icmp eq i64 %.mask.i56, -1829587348619264
@@ -4274,7 +4273,7 @@ recff_sbufx_check.exit57:                         ; preds = %47
 61:                                               ; preds = %.lr.ph, %recff_sbufx_check.exit57
   %62 = phi ptr [ %39, %.lr.ph ], [ %.pre, %recff_sbufx_check.exit57 ]
   %63 = add nuw nsw i64 %.04861, 1
-  %64 = getelementptr inbounds nuw i32, ptr %62, i64 %63
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %63
   %65 = load i32, ptr %64, align 4, !tbaa !39
   %.not53 = icmp eq i32 %65, 0
   br i1 %.not53, label %.preheader, label %.lr.ph, !llvm.loop !68
@@ -4414,7 +4413,7 @@ recff_nyi.exit:                                   ; preds = %123, %.thread.i
   %.1 = phi i32 [ %73, %70 ], [ %86, %79 ], [ %98, %89 ], [ %.064, %recff_nyi.exit ]
   %125 = add nuw nsw i64 %.14963, 1
   %126 = load ptr, ptr %3, align 8, !tbaa !37
-  %127 = getelementptr inbounds nuw i32, ptr %126, i64 %125
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %126, i64 %125
   %128 = load i32, ptr %127, align 4, !tbaa !39
   %.not54 = icmp eq i32 %128, 0
   br i1 %.not54, label %._crit_edge, label %66, !llvm.loop !69
@@ -4574,14 +4573,14 @@ recff_sbufx_check.exit:                           ; preds = %8
 38:                                               ; preds = %.lr.ph
   %39 = tail call fastcc i32 @recff_sbufx_checkint(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %35)
   %40 = load ptr, ptr %3, align 8, !tbaa !37
-  %41 = getelementptr inbounds nuw i32, ptr %40, i64 %35
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %35
   store i32 %39, ptr %41, align 4, !tbaa !39
   br label %42
 
 42:                                               ; preds = %.lr.ph, %38
   %43 = phi ptr [ %33, %.lr.ph ], [ %40, %38 ]
   %44 = add nuw nsw i64 %35, 1
-  %45 = getelementptr inbounds nuw i32, ptr %43, i64 %44
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !39
   %.not55 = icmp eq i32 %46, 0
   br i1 %.not55, label %.preheader, label %.lr.ph, !llvm.loop !70
@@ -4612,7 +4611,7 @@ recff_sbufx_check.exit:                           ; preds = %8
   store i16 %56, ptr %18, align 2, !tbaa !4
   %58 = tail call i32 @lj_opt_fold(ptr noundef nonnull %0) #9
   %59 = load ptr, ptr %3, align 8, !tbaa !37
-  %60 = getelementptr inbounds nuw i32, ptr %59, i64 %.15259
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %.15259
   store i32 %58, ptr %60, align 4, !tbaa !39
   br label %69
 
@@ -4632,7 +4631,7 @@ recff_sbufx_check.exit:                           ; preds = %8
   store i16 %64, ptr %18, align 2, !tbaa !4
   %66 = tail call i32 @lj_opt_fold(ptr noundef nonnull %0) #9
   %67 = load ptr, ptr %3, align 8, !tbaa !37
-  %68 = getelementptr inbounds nuw i32, ptr %67, i64 %.15259
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %.15259
   store i32 %66, ptr %68, align 4, !tbaa !39
   %.pre62 = trunc i32 %65 to i16
   br label %69
@@ -4651,7 +4650,7 @@ recff_sbufx_check.exit:                           ; preds = %8
   %72 = tail call i32 @lj_opt_fold(ptr noundef nonnull %0) #9
   %73 = load ptr, ptr %3, align 8, !tbaa !37
   %74 = add nuw nsw i64 %49, 1
-  %75 = getelementptr inbounds nuw i32, ptr %73, i64 %74
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %74
   %76 = load i32, ptr %75, align 4, !tbaa !39
   %.not56 = icmp eq i32 %76, 0
   br i1 %.not56, label %._crit_edge, label %47, !llvm.loop !71
@@ -5635,11 +5634,11 @@ define internal fastcc void @recff_format(ptr noundef %0, ptr noundef captures(n
   %6 = zext nneg i32 %3 to i64
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %8 = load ptr, ptr %7, align 8, !tbaa !37
-  %9 = getelementptr inbounds nuw i32, ptr %8, i64 %6
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %6
   %10 = load i32, ptr %9, align 4, !tbaa !39
   %11 = tail call i32 @lj_ir_tostr(ptr noundef %0, i32 noundef %10) #9
   %12 = load ptr, ptr %1, align 8, !tbaa !36
-  %13 = getelementptr inbounds nuw %union.TValue, ptr %12, i64 %6
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %6
   %14 = load i64, ptr %13, align 8, !tbaa !4
   %15 = ashr i64 %14, 47
   %16 = icmp eq i64 %15, -5
@@ -5710,7 +5709,7 @@ argv2str.exit:                                    ; preds = %17, %23
 48:                                               ; preds = %45
   %49 = load ptr, ptr %7, align 8, !tbaa !37
   %50 = add nsw i64 %.0100, 1
-  %51 = getelementptr inbounds i32, ptr %49, i64 %50
+  %51 = getelementptr inbounds [4 x i8], ptr %49, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !39
   %53 = call i32 @lj_ir_kint(ptr noundef nonnull %0, i32 noundef %46) #9
   %54 = and i32 %46, 15
@@ -5754,7 +5753,7 @@ argv2str.exit:                                    ; preds = %17, %23
 
 73:                                               ; preds = %70
   %74 = load ptr, ptr %1, align 8, !tbaa !36
-  %75 = getelementptr inbounds %union.TValue, ptr %74, i64 %50
+  %75 = getelementptr inbounds [8 x i8], ptr %74, i64 %50
   %76 = call i32 @lj_crecord_loadiu64(ptr noundef nonnull %0, i32 noundef %52, ptr noundef %75) #9
   %77 = call i32 (ptr, i32, ...) @lj_ir_call(ptr noundef nonnull %0, i32 noundef 10, i32 noundef %.0104, i32 noundef %53, i32 noundef %76) #9
   br label %180
@@ -6104,7 +6103,7 @@ declare hidden i32 @lj_ir_kint64(ptr noundef, i64 noundef) local_unnamed_addr #1
 define internal fastcc i32 @recff_sbufx_checkint(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %5 = load ptr, ptr %4, align 8, !tbaa !37
-  %6 = getelementptr inbounds i32, ptr %5, i64 %2
+  %6 = getelementptr inbounds [4 x i8], ptr %5, i64 %2
   %7 = load i32, ptr %6, align 4, !tbaa !39
   %8 = tail call i32 @lj_ir_kint(ptr noundef %0, i32 noundef 2147483392) #9
   %9 = lshr i32 %7, 24
@@ -6151,7 +6150,7 @@ define internal fastcc i32 @recff_sbufx_checkint(ptr noundef %0, ptr noundef rea
 
 31:                                               ; preds = %20
   %32 = load ptr, ptr %1, align 8, !tbaa !36
-  %33 = getelementptr inbounds %union.TValue, ptr %32, i64 %2
+  %33 = getelementptr inbounds [8 x i8], ptr %32, i64 %2
   %34 = tail call i32 @lj_crecord_loadiu64(ptr noundef nonnull %0, i32 noundef %7, ptr noundef %33) #9
   %35 = trunc i32 %34 to i16
   %36 = tail call i32 @lj_ir_kint64(ptr noundef nonnull %0, i64 noundef 2147483392) #9

@@ -56,7 +56,7 @@ define hidden noundef nonnull ptr @_ZNK16G1HeapRegionType7get_strEv(ptr noundef 
 
 switch.lookup:                                    ; preds = %1
   %6 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK16G1HeapRegionType7get_strEv, i64 %6
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK16G1HeapRegionType7get_strEv, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -82,7 +82,7 @@ define hidden noundef nonnull ptr @_ZNK16G1HeapRegionType13get_short_strEv(ptr n
 
 switch.lookup:                                    ; preds = %1
   %6 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK16G1HeapRegionType13get_short_strEv, i64 %6
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK16G1HeapRegionType13get_short_strEv, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -105,7 +105,7 @@ define hidden noundef range(i32 0, 6) i32 @_ZN16G1HeapRegionType14get_trace_type
 
 switch.lookup:                                    ; preds = %1
   %6 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN16G1HeapRegionType14get_trace_typeEv, i64 %6
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN16G1HeapRegionType14get_trace_typeEv, i64 %6
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }

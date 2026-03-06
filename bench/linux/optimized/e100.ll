@@ -26,17 +26,7 @@ module asm ".previous\09\09\09\09\09"
 %struct.dev_pm_ops = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.net_device_ops = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.ethtool_ops = type { i8, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.resource = type { i64, i64, ptr, i64, i64, ptr, ptr, ptr }
 %struct.ethtool_cmd = type { i32, i32, i32, i16, i8, i8, i8, i8, i8, i8, i32, i32, i16, i8, i8, i32, [2 x i32] }
-%struct.cb = type { i16, i16, i32, %union.anon.63, ptr, ptr, i64, ptr }
-%union.anon.63 = type { [134 x i32] }
-%struct.rx = type { ptr, ptr, ptr, i64 }
-%struct.page = type { i64, %union.anon.53, %union.anon.61, %struct.atomic_t, [8 x i8] }
-%union.anon.53 = type { %struct.anon.54 }
-%struct.anon.54 = type { %union.anon.55, ptr, %union.anon.57, i64 }
-%union.anon.55 = type { %struct.list_head }
-%union.anon.57 = type { i64 }
-%union.anon.61 = type { %struct.atomic_t }
 
 @__UNIQUE_ID_description534 = internal constant [49 x i8] c"e100.description=Intel(R) PRO/100 Network Driver\00", section ".modinfo", align 1
 @__UNIQUE_ID_author535 = internal constant [53 x i8] c"e100.author=Copyright(c) 1999-2006 Intel Corporation\00", section ".modinfo", align 1
@@ -507,7 +497,7 @@ define internal i32 @e100_probe(ptr noundef %0, ptr noundef readonly captures(no
   %202 = load i32, ptr @use_io, align 4
   %203 = icmp ne i32 %202, 0
   %204 = zext i1 %203 to i64
-  %205 = getelementptr %struct.resource, ptr %42, i64 %204
+  %205 = getelementptr [64 x i8], ptr %42, i64 %204
   %206 = load i64, ptr %205, align 8
   %207 = getelementptr inbounds nuw i8, ptr %0, i64 916
   %208 = load i32, ptr %207, align 4
@@ -1723,7 +1713,7 @@ define internal fastcc noundef range(i32 -11, 1) i32 @e100_eeprom_load(ptr nound
   %15 = trunc nuw nsw i64 %13 to i32
   %16 = trunc nuw i64 %13 to i16
   %17 = call fastcc zeroext i16 @e100_eeprom_read(ptr noundef %0, ptr noundef nonnull %2, i16 noundef zeroext %16)
-  %18 = getelementptr i16, ptr %11, i64 %13
+  %18 = getelementptr [2 x i8], ptr %11, i64 %13
   store i16 %17, ptr %18, align 2
   %19 = load i16, ptr %8, align 4
   %20 = zext i16 %19 to i32
@@ -1743,7 +1733,7 @@ define internal fastcc noundef range(i32 -11, 1) i32 @e100_eeprom_load(ptr nound
 30:                                               ; preds = %._crit_edge, %28
   %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %26, %28 ]
   %31 = phi i16 [ -17734, %._crit_edge ], [ %29, %28 ]
-  %32 = getelementptr i16, ptr %8, i64 %.pre-phi
+  %32 = getelementptr [2 x i8], ptr %8, i64 %.pre-phi
   %33 = load i16, ptr %32, align 2
   %34 = icmp eq i16 %31, %33
   br i1 %34, label %45, label %35
@@ -2499,7 +2489,7 @@ define internal fastcc i32 @e100_up(ptr noundef initializes((64, 88), (104, 108)
 
 35:                                               ; preds = %31
   %36 = load ptr, ptr %16, align 8
-  %37 = getelementptr %struct.cb, ptr %36, i64 %21
+  %37 = getelementptr [576 x i8], ptr %36, i64 %21
   br label %38
 
 38:                                               ; preds = %35, %31
@@ -2765,7 +2755,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @e100_rx_alloc_list(ptr nou
 
 28:                                               ; preds = %25
   %29 = load ptr, ptr %10, align 64
-  %30 = getelementptr %struct.rx, ptr %29, i64 %7
+  %30 = getelementptr [32 x i8], ptr %29, i64 %7
   br label %31
 
 31:                                               ; preds = %28, %25
@@ -3247,7 +3237,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @e100_rx_alloc_skb(ptr noun
   %42 = select i1 %38, i64 %39, i64 %41
   %43 = add i64 %37, %42
   %44 = lshr i64 %43, 12
-  %45 = getelementptr %struct.page, ptr %35, i64 %44
+  %45 = getelementptr [64 x i8], ptr %35, i64 %44
   %46 = and i64 %36, 4095
   %47 = tail call i64 @dma_map_page_attrs(ptr noundef nonnull %14, ptr noundef %45, i64 noundef %46, i64 noundef 1538, i32 noundef 0, i64 noundef 0) #19
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -3633,19 +3623,19 @@ define internal fastcc i32 @e100_load_ucode_wait(ptr noundef %0) unnamed_addr #7
   %113 = getelementptr i8, ptr %108, i64 538
   %114 = load i8, ptr %113, align 1
   %115 = zext i8 %110 to i64
-  %116 = getelementptr i32, ptr %105, i64 %115
+  %116 = getelementptr [4 x i8], ptr %105, i64 %115
   %117 = load i32, ptr %116, align 4
   %118 = and i32 %117, -65536
   %119 = or disjoint i32 %118, 1536
   store i32 %119, ptr %116, align 4
   %120 = zext i8 %112 to i64
-  %121 = getelementptr i32, ptr %105, i64 %120
+  %121 = getelementptr [4 x i8], ptr %105, i64 %120
   %122 = load i32, ptr %121, align 4
   %123 = and i32 %122, -65536
   %124 = or disjoint i32 %123, 6
   store i32 %124, ptr %121, align 4
   %125 = zext i8 %114 to i64
-  %126 = getelementptr i32, ptr %105, i64 %125
+  %126 = getelementptr [4 x i8], ptr %105, i64 %125
   %127 = load i32, ptr %126, align 4
   %128 = or i32 %127, 65535
   store i32 %128, ptr %126, align 4
@@ -4367,7 +4357,7 @@ define internal noundef range(i32 -12, 1) i32 @e100_xmit_prepare(ptr noundef rea
   %38 = select i1 %34, i64 %35, i64 %37
   %39 = add i64 %33, %38
   %40 = lshr i64 %39, 12
-  %41 = getelementptr %struct.page, ptr %31, i64 %40
+  %41 = getelementptr [64 x i8], ptr %31, i64 %40
   %42 = and i64 %32, 4095
   %43 = tail call i64 @dma_map_page_attrs(ptr noundef nonnull %9, ptr noundef %41, i64 noundef %42, i64 noundef %14, i32 noundef 1, i64 noundef 0) #19
   %44 = icmp eq i64 %43, -1
@@ -4681,7 +4671,7 @@ define internal void @e100_get_regs(ptr noundef %0, ptr noundef writeonly captur
   %33 = tail call zeroext i16 %30(ptr noundef %4, i32 noundef %29, i32 noundef 134217728, i32 noundef %32, i16 noundef zeroext 0) #19
   %34 = zext i16 %33 to i32
   %35 = add nuw nsw i64 %28, 1
-  %36 = getelementptr i32, ptr %2, i64 %35
+  %36 = getelementptr [4 x i8], ptr %2, i64 %35
   store i32 %34, ptr %36, align 4
   %37 = icmp eq i64 %35, 29
   br i1 %37, label %38, label %27, !llvm.loop !42
@@ -4951,7 +4941,7 @@ define internal noundef range(i32 -22, 1) i32 @e100_set_eeprom(ptr noundef captu
 44:                                               ; preds = %44, %36
   %45 = phi i16 [ %49, %44 ], [ %37, %36 ]
   %46 = zext i16 %45 to i64
-  %47 = getelementptr i16, ptr %10, i64 %46
+  %47 = getelementptr [2 x i8], ptr %10, i64 %46
   %48 = load i16, ptr %47, align 2
   tail call fastcc void @e100_eeprom_write(ptr noundef %5, i16 noundef zeroext %24, i16 noundef zeroext %45, i16 noundef zeroext %48)
   %49 = add i16 %45, 1
@@ -4962,7 +4952,7 @@ define internal noundef range(i32 -22, 1) i32 @e100_set_eeprom(ptr noundef captu
 52:                                               ; preds = %52, %42
   %53 = phi i64 [ 0, %42 ], [ %58, %52 ]
   %54 = phi i16 [ 0, %42 ], [ %57, %52 ]
-  %55 = getelementptr i16, ptr %10, i64 %53
+  %55 = getelementptr [2 x i8], ptr %10, i64 %53
   %56 = load i16, ptr %55, align 2
   %57 = add i16 %56, %54
   %58 = add nuw nsw i64 %53, 1
@@ -4976,14 +4966,14 @@ define internal noundef range(i32 -22, 1) i32 @e100_set_eeprom(ptr noundef captu
 62:                                               ; preds = %60, %.loopexit
   %63 = phi i16 [ -17734, %.loopexit ], [ %61, %60 ]
   %64 = sext i32 %40 to i64
-  %65 = getelementptr i16, ptr %10, i64 %64
+  %65 = getelementptr [2 x i8], ptr %10, i64 %64
   store i16 %63, ptr %65, align 2
   %66 = load i16, ptr %28, align 4
   %67 = zext i16 %66 to i32
   %68 = add nsw i32 %67, -1
   %69 = trunc i32 %68 to i16
   %70 = sext i32 %68 to i64
-  %71 = getelementptr i16, ptr %10, i64 %70
+  %71 = getelementptr [2 x i8], ptr %10, i64 %70
   %72 = load i16, ptr %71, align 2
   tail call fastcc void @e100_eeprom_write(ptr noundef %5, i16 noundef zeroext %24, i16 noundef zeroext %69, i16 noundef zeroext %72)
   br label %73
@@ -5131,7 +5121,7 @@ define internal void @e100_diag_test(ptr noundef %0, ptr noundef captures(none) 
   %23 = trunc nuw nsw i64 %21 to i32
   %24 = trunc nuw i64 %21 to i16
   %25 = call fastcc zeroext i16 @e100_eeprom_read(ptr noundef %6, ptr noundef nonnull %4, i16 noundef zeroext %24)
-  %26 = getelementptr i16, ptr %19, i64 %21
+  %26 = getelementptr [2 x i8], ptr %19, i64 %21
   store i16 %25, ptr %26, align 2
   %27 = load i16, ptr %16, align 4
   %28 = zext i16 %27 to i32
@@ -5151,7 +5141,7 @@ define internal void @e100_diag_test(ptr noundef %0, ptr noundef captures(none) 
 38:                                               ; preds = %36, %._crit_edge.i
   %.pre-phi.i = phi i64 [ %.pre.i, %._crit_edge.i ], [ %34, %36 ]
   %39 = phi i16 [ -17734, %._crit_edge.i ], [ %37, %36 ]
-  %40 = getelementptr i16, ptr %16, i64 %.pre-phi.i
+  %40 = getelementptr [2 x i8], ptr %16, i64 %.pre-phi.i
   %41 = load i16, ptr %40, align 2
   %42 = icmp eq i16 %39, %41
   br i1 %42, label %53, label %43
@@ -5229,7 +5219,7 @@ e100_eeprom_load.exit:                            ; preds = %50, %53
 84:                                               ; preds = %84, %82
   %85 = phi i64 [ 0, %82 ], [ %92, %84 ]
   %86 = phi i32 [ %83, %82 ], [ %91, %84 ]
-  %87 = getelementptr i64, ptr %2, i64 %85
+  %87 = getelementptr [8 x i8], ptr %2, i64 %85
   %88 = load i64, ptr %87, align 8
   %89 = icmp eq i64 %88, 0
   %90 = select i1 %89, i32 0, i32 2
@@ -5312,9 +5302,9 @@ define internal void @e100_get_ethtool_stats(ptr noundef readonly captures(none)
 
 5:                                                ; preds = %5, %3
   %6 = phi i64 [ 0, %3 ], [ %10, %5 ]
-  %7 = getelementptr i64, ptr %4, i64 %6
+  %7 = getelementptr [8 x i8], ptr %4, i64 %6
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr i64, ptr %2, i64 %6
+  %9 = getelementptr [8 x i8], ptr %2, i64 %6
   store i64 %8, ptr %9, align 8
   %10 = add nuw nsw i64 %6, 1
   %11 = icmp eq i64 %10, 21
@@ -5530,7 +5520,7 @@ define internal fastcc void @e100_eeprom_write(ptr noundef readonly captures(non
   %23 = load ptr, ptr %18, align 8
   %24 = tail call i32 @ioread8(ptr noundef %23) #19
   tail call void @__const_udelay(i64 noundef 17180) #19
-  %25 = getelementptr i32, ptr %5, i64 %20
+  %25 = getelementptr [4 x i8], ptr %5, i64 %20
   %26 = load i32, ptr %25, align 4
   br label %27
 
@@ -5635,7 +5625,7 @@ define internal fastcc i32 @e100_loopback_test(ptr noundef initializes((64, 88),
 
 36:                                               ; preds = %32
   %37 = load ptr, ptr %17, align 8
-  %38 = getelementptr %struct.cb, ptr %37, i64 %22
+  %38 = getelementptr [576 x i8], ptr %37, i64 %22
   br label %39
 
 39:                                               ; preds = %36, %32

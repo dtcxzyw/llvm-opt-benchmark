@@ -94,7 +94,7 @@ define internal range(i32 -22, 1) i32 @decode_init(ptr noundef %0) #0 {
   %38 = mul i16 %29, %37
   %39 = or disjoint i16 %narrow48, 8
   %40 = add i16 %39, %38
-  %41 = getelementptr inbounds nuw i16, ptr %30, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [2 x i8], ptr %30, i64 %indvars.iv
   store i16 %40, ptr %41, align 2, !tbaa !38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 2000
@@ -182,7 +182,7 @@ dv_get_audio_sample_count.exit:                   ; preds = %20, %22, %24
 40:                                               ; preds = %40, %.lr.ph.split.us
   %indvars.iv44 = phi i64 [ %indvars.iv.next45, %40 ], [ 0, %.lr.ph.split.us ]
   %.03240.us = phi ptr [ %.1.us, %40 ], [ %32, %.lr.ph.split.us ]
-  %41 = getelementptr inbounds nuw i16, ptr %35, i64 %indvars.iv44
+  %41 = getelementptr inbounds nuw [2 x i8], ptr %35, i64 %indvars.iv44
   %42 = load i16, ptr %41, align 2, !tbaa !38
   %43 = sext i16 %42 to i64
   %44 = getelementptr inbounds i8, ptr %8, i64 %43
@@ -202,7 +202,7 @@ dv_get_audio_sample_count.exit:                   ; preds = %20, %22, %24
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %dv_audio_12to16.exit39
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %dv_audio_12to16.exit39 ]
   %.03240 = phi ptr [ %32, %.lr.ph.split.preheader ], [ %.1, %dv_audio_12to16.exit39 ]
-  %51 = getelementptr inbounds nuw i16, ptr %35, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [2 x i8], ptr %35, i64 %indvars.iv
   %52 = load i16, ptr %51, align 2, !tbaa !38
   %53 = sext i16 %52 to i64
   %54 = getelementptr inbounds i8, ptr %8, i64 %53

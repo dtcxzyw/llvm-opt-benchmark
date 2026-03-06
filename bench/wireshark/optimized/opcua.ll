@@ -381,7 +381,7 @@ define internal fastcc void @opcua_keylog_process_line(ptr noundef captures(none
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %8 ]
   %.02636 = phi ptr [ %11, %.lr.ph ], [ %9, %8 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %10 = getelementptr ptr, ptr %5, i64 %indvars.iv
+  %10 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv
   store ptr %.02636, ptr %10, align 8
   %11 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.34, ptr noundef nonnull %6) #11
   %12 = icmp ne ptr %11, null
@@ -666,7 +666,7 @@ define internal i32 @dissect_opcua_message(ptr noundef %0, ptr noundef %1, ptr n
   %.0173 = phi i64 [ 5, %35 ], [ 0, %18 ], [ 1, %23 ], [ 2, %26 ], [ 3, %29 ], [ 4, %32 ], [ 6, %38 ]
   %.0172 = phi ptr [ @parseOpenSecureChannel, %35 ], [ @parseHello, %18 ], [ @parseAcknowledge, %23 ], [ @parseError, %26 ], [ @parseReverseHello, %29 ], [ @parseMessage, %32 ], [ @parseCloseSecureChannel, %38 ]
   %49 = load ptr, ptr %19, align 8
-  %50 = getelementptr ptr, ptr @g_szMessageTypes, i64 %.0173
+  %50 = getelementptr [8 x i8], ptr @g_szMessageTypes, i64 %.0173
   %51 = load ptr, ptr %50, align 8
   call void @col_set_str(ptr noundef %49, i32 noundef 25, ptr noundef %51)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)

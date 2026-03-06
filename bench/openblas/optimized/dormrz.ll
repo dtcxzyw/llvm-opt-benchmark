@@ -41,12 +41,12 @@ define void @dormrz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %25 = load i32, ptr %7, align 4, !tbaa !3
   %narrow = xor i32 %25, -1
   %26 = sext i32 %narrow to i64
-  %27 = getelementptr inbounds double, ptr %6, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %6, i64 %26
   %28 = getelementptr inbounds i8, ptr %8, i64 -8
   %29 = load i32, ptr %10, align 4, !tbaa !3
   %narrow269 = xor i32 %29, -1
   %30 = sext i32 %narrow269 to i64
-  %31 = getelementptr inbounds double, ptr %9, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %9, i64 %30
   store i32 0, ptr %13, align 4, !tbaa !3
   %32 = tail call i32 @lsame_(ptr noundef %0, ptr noundef nonnull @.str) #5
   %33 = tail call i32 @lsame_(ptr noundef %1, ptr noundef nonnull @.str.1) #5
@@ -161,7 +161,7 @@ define void @dormrz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge ], [ 0, %73 ]
   %.0216325 = phi ptr [ %.1217.lcssa, %._crit_edge ], [ %18, %73 ]
   %.0220324 = phi i32 [ %83, %._crit_edge ], [ 2, %73 ]
-  %81 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv
   %82 = load i32, ptr %81, align 4, !tbaa !3
   %spec.select275 = tail call i32 @llvm.smin.i32(i32 %82, i32 %.0220324)
   %83 = sub nsw i32 %.0220324, %spec.select275
@@ -169,7 +169,7 @@ define void @dormrz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %84, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph327
-  %85 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %86 = load ptr, ptr %85, align 8, !tbaa !7
   %87 = zext nneg i32 %spec.select275 to i64
   %88 = getelementptr i8, ptr %.0216325, i64 %87
@@ -290,7 +290,7 @@ define void @dormrz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %indvars.iv368 = phi i64 [ %indvars.iv.next369, %._crit_edge339 ], [ 0, %121 ]
   %.0343 = phi ptr [ %.1.lcssa, %._crit_edge339 ], [ %18, %121 ]
   %.0211342 = phi i32 [ %133, %._crit_edge339 ], [ 2, %121 ]
-  %131 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv368
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv368
   %132 = load i32, ptr %131, align 4, !tbaa !3
   %spec.select276 = call i32 @llvm.smin.i32(i32 %132, i32 %.0211342)
   %133 = sub nsw i32 %.0211342, %spec.select276
@@ -298,7 +298,7 @@ define void @dormrz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   br i1 %134, label %.lr.ph338.preheader, label %._crit_edge339
 
 .lr.ph338.preheader:                              ; preds = %.lr.ph345
-  %135 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv368
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv368
   %136 = load ptr, ptr %135, align 8, !tbaa !7
   %137 = zext nneg i32 %spec.select276 to i64
   %138 = getelementptr i8, ptr %.0343, i64 %137
@@ -385,11 +385,11 @@ define void @dormrz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %.0235 = add nsw i32 %165, 1
   %166 = mul nsw i32 %.0235, %25
   %167 = zext nneg i32 %150 to i64
-  %168 = getelementptr double, ptr %11, i64 %167
+  %168 = getelementptr [8 x i8], ptr %11, i64 %167
   %169 = sext i32 %.0241 to i64
   %170 = sext i32 %.0239 to i64
   %171 = sext i32 %166 to i64
-  %invariant.gep = getelementptr double, ptr %27, i64 %171
+  %invariant.gep = getelementptr [8 x i8], ptr %27, i64 %171
   %172 = zext nneg i32 %158 to i64
   %.412 = select i1 %.not, ptr %2, ptr %3
   %.413 = select i1 %.not, ptr %21, ptr %22
@@ -405,8 +405,8 @@ define void @dormrz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %176 = add i32 %reass.sub, 1
   %177 = call i32 @llvm.smin.i32(i32 %.2231299, i32 %176)
   store i32 %177, ptr %20, align 4, !tbaa !3
-  %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv371
-  %178 = getelementptr inbounds double, ptr %28, i64 %indvars.iv371
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %indvars.iv371
+  %178 = getelementptr inbounds [8 x i8], ptr %28, i64 %indvars.iv371
   call void @dlarzt_(ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, ptr noundef nonnull %5, ptr noundef nonnull %20, ptr noundef %gep, ptr noundef nonnull %7, ptr noundef nonnull %178, ptr noundef %168, ptr noundef nonnull @c__65) #5
   %..1237355 = select i1 %.not, i32 %175, i32 %.1237355
   %.1233356. = select i1 %.not, i32 %.1233356, i32 %175
@@ -417,7 +417,7 @@ define void @dormrz_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %181 = mul nsw i32 %.1233356., %29
   %182 = add nsw i32 %181, %..1237355
   %183 = sext i32 %182 to i64
-  %184 = getelementptr inbounds double, ptr %31, i64 %183
+  %184 = getelementptr inbounds [8 x i8], ptr %31, i64 %183
   call void @dlarzb_(ptr noundef %0, ptr noundef nonnull %24, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.7, ptr noundef nonnull %21, ptr noundef nonnull %22, ptr noundef nonnull %20, ptr noundef nonnull %5, ptr noundef %gep, ptr noundef nonnull %7, ptr noundef %168, ptr noundef nonnull @c__65, ptr noundef %184, ptr noundef nonnull %10, ptr noundef %11, ptr noundef nonnull %23) #5
   %indvars.iv.next372 = add nsw i64 %indvars.iv371, %170
   %185 = icmp sge i64 %indvars.iv.next372, %172

@@ -924,7 +924,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit.thread.us: ; 
 
 64:                                               ; preds = %.lr.ph.us, %62
   %.031113.us = phi i64 [ 0, %.lr.ph.us ], [ %63, %62 ]
-  %65 = getelementptr inbounds nuw ptr, ptr %5, i64 %.031113.us
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.031113.us
   %66 = load ptr, ptr %65, align 8
   %67 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %61, ptr noundef nonnull dereferenceable(1) %66) #22
   %.not47.us = icmp eq i32 %67, 0
@@ -2236,7 +2236,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62: ; preds = %84,
 
 .lr.ph:                                           ; preds = %91, %94
   %.082 = phi i64 [ %95, %94 ], [ 0, %91 ]
-  %96 = getelementptr inbounds nuw ptr, ptr %2, i64 %.082
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.082
   %97 = load ptr, ptr %96, align 8
   %98 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %93, ptr noundef nonnull dereferenceable(1) %97) #22
   %.not42 = icmp eq i32 %98, 0
@@ -2302,7 +2302,7 @@ _ZNSt6vectorIPKN6Assimp3FBX18AnimationCurveNodeESaIS4_EE11_S_relocateEPS4_S7_S7_
 
 _ZNSt6vectorIPKN6Assimp3FBX18AnimationCurveNodeESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %118, %_ZNSt6vectorIPKN6Assimp3FBX18AnimationCurveNodeESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i
   store ptr %117, ptr %27, align 8
-  %119 = getelementptr inbounds nuw ptr, ptr %113, i64 %111
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %113, i64 %111
   br label %.critedge
 
 .critedge:                                        ; preds = %94, %91, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit59, %99, %_ZNSt6vectorIPKN6Assimp3FBX18AnimationCurveNodeESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %42
@@ -2868,7 +2868,7 @@ _ZNSt6vectorIPKN6Assimp3FBX14AnimationLayerESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_
 _ZNSt6vectorIPKN6Assimp3FBX14AnimationLayerESaIS4_EE17_M_realloc_insertIJRKS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %200, %_ZNSt6vectorIPKN6Assimp3FBX14AnimationLayerESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i
   store ptr %195, ptr %15, align 8
   store ptr %199, ptr %107, align 8
-  %201 = getelementptr inbounds nuw ptr, ptr %195, i64 %193
+  %201 = getelementptr inbounds nuw [8 x i8], ptr %195, i64 %193
   store ptr %201, ptr %88, align 8
   br label %_ZNSt6vectorIPKN6Assimp3FBX14AnimationLayerESaIS4_EE9push_backERKS4_.exit
 

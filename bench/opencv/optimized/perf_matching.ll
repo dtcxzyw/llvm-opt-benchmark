@@ -33,7 +33,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.27" = type { %"struct.std::_Vector_base<std::vector<cv::DMatch>, std::allocator<std::vector<cv::DMatch>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::vector<cv::DMatch>, std::allocator<std::vector<cv::DMatch>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::vector<cv::DMatch>, std::allocator<std::vector<cv::DMatch>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::vector<cv::DMatch>, std::allocator<std::vector<cv::DMatch>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.cv::DMatch" = type { i32, i32, i32, float }
 %"struct.testing::internal::CodeLocation" = type <{ %"class.std::__cxx11::basic_string", i32, [4 x i8] }>
 
 $_ZN7testing4Test13SetUpTestCaseEv = comdat any
@@ -985,7 +984,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i.i: ; preds = %84, %.
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i: ; preds = %85, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i.i
-  %86 = getelementptr inbounds nuw i32, ptr %81, i64 %79
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %81, i64 %79
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit.i
 
 _ZNSt6vectorIiSaIiEE9push_backEOi.exit.i:         ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i, %68
@@ -1102,7 +1101,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit43.i:                ; preds = %_ZNKSt6vectorIiSaIi
 
 122:                                              ; preds = %122, %114
   %indvars.iv.i = phi i64 [ 0, %114 ], [ %indvars.iv.next.i, %122 ]
-  %123 = getelementptr inbounds nuw i32, ptr %.pre91.i, i64 %indvars.iv.i
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %.pre91.i, i64 %indvars.iv.i
   %124 = load i32, ptr %123, align 4, !tbaa !59
   %125 = icmp eq i32 %124, 0
   %..i = zext i1 %125 to i32
@@ -1115,7 +1114,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit43.i:                ; preds = %_ZNKSt6vectorIiSaIi
   %indvars.iv89.i = phi i64 [ %121, %.lr.ph74.preheader.i ], [ %indvars.iv.next90.i, %.lr.ph74.i ]
   %.02171.i = phi i8 [ 0, %.lr.ph74.preheader.i ], [ %131, %.lr.ph74.i ]
   %indvars.iv.next90.i = add nsw i64 %indvars.iv89.i, -1
-  %126 = getelementptr inbounds nuw i32, ptr %.pre91.i, i64 %indvars.iv.next90.i
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %.pre91.i, i64 %indvars.iv.next90.i
   %127 = load i32, ptr %126, align 4, !tbaa !59
   %128 = trunc nuw nsw i64 %indvars.iv.next90.i to i32
   %129 = shl i32 %127, %128
@@ -1692,7 +1691,7 @@ define internal void @_ZN11opencv_test12_GLOBAL__N_142knn_matching_knn_match_dis
   %27 = phi ptr [ %43, %._crit_edge ], [ %20, %18 ]
   %28 = phi ptr [ %44, %._crit_edge ], [ %19, %18 ]
   %indvars.iv21 = phi i64 [ %indvars.iv.next22, %._crit_edge ], [ 0, %18 ]
-  %29 = getelementptr inbounds nuw %"class.std::vector.8", ptr %27, i64 %indvars.iv21
+  %29 = getelementptr inbounds nuw [24 x i8], ptr %27, i64 %indvars.iv21
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !95
   %32 = load ptr, ptr %29, align 8, !tbaa !61
@@ -1750,7 +1749,7 @@ define internal void @_ZN11opencv_test12_GLOBAL__N_142knn_matching_knn_match_dis
 .lr.ph:                                           ; preds = %.preheader, %54
   %indvars.iv = phi i64 [ %indvars.iv.next, %54 ], [ 0, %.preheader ]
   %51 = phi ptr [ %59, %54 ], [ %32, %.preheader ]
-  %52 = getelementptr inbounds nuw %"class.cv::DMatch", ptr %51, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %51, i64 %indvars.iv
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 12
   invoke void @_ZN2cv3Mat9push_backIfEEvRKT_(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull align 4 dereferenceable(4) %53)
           to label %54 unwind label %65
@@ -1758,7 +1757,7 @@ define internal void @_ZN11opencv_test12_GLOBAL__N_142knn_matching_knn_match_dis
 54:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %55 = load ptr, ptr %5, align 8, !tbaa !94
-  %56 = getelementptr inbounds nuw %"class.std::vector.8", ptr %55, i64 %indvars.iv21
+  %56 = getelementptr inbounds nuw [24 x i8], ptr %55, i64 %indvars.iv21
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load ptr, ptr %57, align 8, !tbaa !95
   %59 = load ptr, ptr %56, align 8, !tbaa !61
@@ -2466,7 +2465,7 @@ define internal void @_ZN11opencv_test12_GLOBAL__N_145radius_match_radius_match_
   %27 = phi ptr [ %43, %._crit_edge ], [ %20, %18 ]
   %28 = phi ptr [ %44, %._crit_edge ], [ %19, %18 ]
   %indvars.iv21 = phi i64 [ %indvars.iv.next22, %._crit_edge ], [ 0, %18 ]
-  %29 = getelementptr inbounds nuw %"class.std::vector.8", ptr %27, i64 %indvars.iv21
+  %29 = getelementptr inbounds nuw [24 x i8], ptr %27, i64 %indvars.iv21
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !95
   %32 = load ptr, ptr %29, align 8, !tbaa !61
@@ -2524,7 +2523,7 @@ define internal void @_ZN11opencv_test12_GLOBAL__N_145radius_match_radius_match_
 .lr.ph:                                           ; preds = %.preheader, %54
   %indvars.iv = phi i64 [ %indvars.iv.next, %54 ], [ 0, %.preheader ]
   %51 = phi ptr [ %59, %54 ], [ %32, %.preheader ]
-  %52 = getelementptr inbounds nuw %"class.cv::DMatch", ptr %51, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %51, i64 %indvars.iv
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 12
   invoke void @_ZN2cv3Mat9push_backIfEEvRKT_(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull align 4 dereferenceable(4) %53)
           to label %54 unwind label %65
@@ -2532,7 +2531,7 @@ define internal void @_ZN11opencv_test12_GLOBAL__N_145radius_match_radius_match_
 54:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %55 = load ptr, ptr %5, align 8, !tbaa !94
-  %56 = getelementptr inbounds nuw %"class.std::vector.8", ptr %55, i64 %indvars.iv21
+  %56 = getelementptr inbounds nuw [24 x i8], ptr %55, i64 %indvars.iv21
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load ptr, ptr %57, align 8, !tbaa !95
   %59 = load ptr, ptr %56, align 8, !tbaa !61

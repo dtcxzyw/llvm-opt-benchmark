@@ -4,12 +4,9 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.obj_map<func_decl, app *>::obj_map_entry" = type { %"struct.obj_map<func_decl, app *>::key_data" }
-%"struct.obj_map<func_decl, app *>::key_data" = type { ptr, ptr }
-%"class.obj_map<func_decl, dependency_manager<ast_manager::expr_dependency_config>::dependency *>::obj_map_entry" = type { %"struct.obj_map<func_decl, dependency_manager<ast_manager::expr_dependency_config>::dependency *>::key_data" }
 %"struct.obj_map<func_decl, dependency_manager<ast_manager::expr_dependency_config>::dependency *>::key_data" = type { ptr, ptr }
+%"struct.obj_map<func_decl, app *>::key_data" = type { ptr, ptr }
 %"struct.obj_map<func_decl, quantifier *>::key_data" = type { ptr, ptr }
-%"class.obj_map<func_decl, quantifier *>::obj_map_entry" = type { %"struct.obj_map<func_decl, quantifier *>::key_data" }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -629,7 +626,7 @@ define linkonce_odr hidden void @_Z18dec_ref_map_valuesI11ast_manager7obj_mapI9f
 
 _ZNK7obj_mapI9func_declP3appE5beginEv.exit:       ; preds = %.lr.ph.i.i.i.i, %10, %2
   %.sroa.0.1.i.i = phi ptr [ %3, %2 ], [ %.sroa.0.0.i.i, %.lr.ph.i.i.i.i ], [ %7, %10 ]
-  %12 = getelementptr inbounds nuw %"class.obj_map<func_decl, app *>::obj_map_entry", ptr %3, i64 %6
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %6
   %.not12 = icmp eq ptr %.sroa.0.1.i.i, %12
   br i1 %.not12, label %._crit_edge, label %.lr.ph
 
@@ -782,7 +779,7 @@ define linkonce_odr hidden void @_Z18dec_ref_map_valuesI11ast_manager7obj_mapI9f
 
 _ZNK7obj_mapI9func_declPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyEE5beginEv.exit: ; preds = %.lr.ph.i.i.i.i, %10, %2
   %.sroa.0.1.i.i = phi ptr [ %3, %2 ], [ %.sroa.0.0.i.i, %.lr.ph.i.i.i.i ], [ %7, %10 ]
-  %12 = getelementptr inbounds nuw %"class.obj_map<func_decl, dependency_manager<ast_manager::expr_dependency_config>::dependency *>::obj_map_entry", ptr %3, i64 %6
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %6
   %.not12 = icmp eq ptr %.sroa.0.1.i.i, %12
   br i1 %.not12, label %._crit_edge, label %.lr.ph
 
@@ -1120,7 +1117,7 @@ _ZN11ast_manager7dec_refEP3ast.exit:              ; preds = %52, %58
   %.idx.i.i = shl nuw nsw i64 %72, 4
   %73 = getelementptr inbounds nuw i8, ptr %71, i64 %.idx.i.i
   %74 = zext i32 %68 to i64
-  %75 = getelementptr inbounds nuw %"class.obj_map<func_decl, app *>::obj_map_entry", ptr %71, i64 %74
+  %75 = getelementptr inbounds nuw [16 x i8], ptr %71, i64 %74
   %.not34.i.i = icmp eq i32 %70, %68
   br i1 %.not34.i.i, label %.preheader.i.i, label %.lr.ph.i.i
 
@@ -1236,7 +1233,7 @@ _ZN11ast_manager7dec_refEP3ast.exit30:            ; preds = %_ZN11ast_manager7in
   %.idx.i.i31 = shl nuw nsw i64 %124, 4
   %125 = getelementptr inbounds nuw i8, ptr %123, i64 %.idx.i.i31
   %126 = zext i32 %120 to i64
-  %127 = getelementptr inbounds nuw %"class.obj_map<func_decl, dependency_manager<ast_manager::expr_dependency_config>::dependency *>::obj_map_entry", ptr %123, i64 %126
+  %127 = getelementptr inbounds nuw [16 x i8], ptr %123, i64 %126
   %.not34.i.i32 = icmp eq i32 %122, %120
   br i1 %.not34.i.i32, label %.preheader.i.i37, label %.lr.ph.i.i33
 
@@ -1366,7 +1363,7 @@ define hidden void @_ZN18macro_substitution5eraseEP9func_decl(ptr noundef nonnul
   %.idx.i.i.i = shl nuw nsw i64 %19, 4
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx.i.i.i
   %21 = zext i32 %15 to i64
-  %22 = getelementptr inbounds nuw %"class.obj_map<func_decl, app *>::obj_map_entry", ptr %18, i64 %21
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %21
   %.not34.i.i.i = icmp eq i32 %17, %15
   br i1 %.not34.i.i.i, label %.preheader.i.i.i, label %.lr.ph.i.i.i
 
@@ -1478,7 +1475,7 @@ _ZNK7obj_mapI9func_declP3appE4findEPS0_RS2_.exit.thread: ; preds = %30, %44, %41
   %.idx.i.i.i8 = shl nuw nsw i64 %68, 4
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 %.idx.i.i.i8
   %70 = zext i32 %64 to i64
-  %71 = getelementptr inbounds nuw %"class.obj_map<func_decl, dependency_manager<ast_manager::expr_dependency_config>::dependency *>::obj_map_entry", ptr %67, i64 %70
+  %71 = getelementptr inbounds nuw [16 x i8], ptr %67, i64 %70
   %.not34.i.i.i9 = icmp eq i32 %66, %64
   br i1 %.not34.i.i.i9, label %.preheader.i.i.i14, label %.lr.ph.i.i.i10
 
@@ -1585,7 +1582,7 @@ _ZNK7obj_mapI9func_declPN18dependency_managerIN11ast_manager22expr_dependency_co
   %.idx.i.i.i27 = shl nuw nsw i64 %116, 4
   %117 = getelementptr inbounds nuw i8, ptr %115, i64 %.idx.i.i.i27
   %118 = zext i32 %112 to i64
-  %119 = getelementptr inbounds nuw %"class.obj_map<func_decl, quantifier *>::obj_map_entry", ptr %115, i64 %118
+  %119 = getelementptr inbounds nuw [16 x i8], ptr %115, i64 %118
   %.not34.i.i.i28 = icmp eq i32 %114, %112
   br i1 %.not34.i.i.i28, label %.preheader.i.i.i33, label %.lr.ph.i.i.i29
 
@@ -1742,7 +1739,7 @@ define hidden noundef zeroext i1 @_ZN18macro_substitution4findEP9func_declRP10qu
   %.idx.i.i.i = shl nuw nsw i64 %13, 4
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx.i.i.i
   %15 = zext i32 %9 to i64
-  %16 = getelementptr inbounds nuw %"class.obj_map<func_decl, quantifier *>::obj_map_entry", ptr %12, i64 %15
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %15
   %.not34.i.i.i = icmp eq i32 %11, %9
   br i1 %.not34.i.i.i, label %.preheader.i.i.i, label %.lr.ph.i.i.i
 
@@ -1826,7 +1823,7 @@ define hidden noundef zeroext i1 @_ZN18macro_substitution4findEP9func_declRP10qu
   %.idx.i.i.i6 = shl nuw nsw i64 %52, 4
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 %.idx.i.i.i6
   %54 = zext i32 %48 to i64
-  %55 = getelementptr inbounds nuw %"class.obj_map<func_decl, app *>::obj_map_entry", ptr %51, i64 %54
+  %55 = getelementptr inbounds nuw [16 x i8], ptr %51, i64 %54
   %.not34.i.i.i7 = icmp eq i32 %50, %48
   br i1 %.not34.i.i.i7, label %.preheader.i.i.i12, label %.lr.ph.i.i.i8
 
@@ -1913,7 +1910,7 @@ define hidden noundef zeroext i1 @_ZN18macro_substitution4findEP9func_declRP10qu
   %.idx.i.i.i = shl nuw nsw i64 %14, 4
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx.i.i.i
   %16 = zext i32 %10 to i64
-  %17 = getelementptr inbounds nuw %"class.obj_map<func_decl, quantifier *>::obj_map_entry", ptr %13, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %16
   %.not34.i.i.i = icmp eq i32 %12, %10
   br i1 %.not34.i.i.i, label %.preheader.i.i.i, label %.lr.ph.i.i.i
 
@@ -1997,7 +1994,7 @@ define hidden noundef zeroext i1 @_ZN18macro_substitution4findEP9func_declRP10qu
   %.idx.i.i.i8 = shl nuw nsw i64 %53, 4
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 %.idx.i.i.i8
   %55 = zext i32 %49 to i64
-  %56 = getelementptr inbounds nuw %"class.obj_map<func_decl, app *>::obj_map_entry", ptr %52, i64 %55
+  %56 = getelementptr inbounds nuw [16 x i8], ptr %52, i64 %55
   %.not34.i.i.i9 = icmp eq i32 %51, %49
   br i1 %.not34.i.i.i9, label %.preheader.i.i.i14, label %.lr.ph.i.i.i10
 
@@ -2083,7 +2080,7 @@ _ZNK7obj_mapI9func_declP3appE4findEPS0_RS2_.exit: ; preds = %64, %78, %75, %_ZNK
   %.idx.i.i.i26 = shl nuw nsw i64 %91, 4
   %92 = getelementptr inbounds nuw i8, ptr %90, i64 %.idx.i.i.i26
   %93 = zext i32 %87 to i64
-  %94 = getelementptr inbounds nuw %"class.obj_map<func_decl, dependency_manager<ast_manager::expr_dependency_config>::dependency *>::obj_map_entry", ptr %90, i64 %93
+  %94 = getelementptr inbounds nuw [16 x i8], ptr %90, i64 %93
   %.not34.i.i.i27 = icmp eq i32 %89, %87
   br i1 %.not34.i.i.i27, label %.preheader.i.i.i32, label %.lr.ph.i.i.i28
 
@@ -2189,7 +2186,7 @@ _ZNK6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dep
   %16 = phi ptr [ %.pre.i, %14 ], [ %6, %8 ]
   %17 = getelementptr inbounds i8, ptr %16, i64 -4
   %18 = zext i32 %15 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr %16, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %18
   store ptr %1, ptr %19, align 8, !tbaa !147
   %20 = add i32 %15, 1
   store i32 %20, ptr %17, align 4, !tbaa !149
@@ -2206,7 +2203,7 @@ _ZNK6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dep
 _ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit: ; preds = %_ZNK6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE5emptyEv.exit
   %26 = add i32 %24, -1
   %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds nuw ptr, ptr %22, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !147
   store i32 %26, ptr %23, align 4, !tbaa !149
   %30 = load i32, ptr %29, align 4
@@ -2235,7 +2232,7 @@ _ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10depe
 .preheader:                                       ; preds = %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit, %110
   %42 = phi i1 [ false, %110 ], [ true, %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit ]
   %indvars.iv = phi i64 [ 1, %110 ], [ 0, %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE4backEv.exit ]
-  %43 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8, !tbaa !147
   %45 = load i32, ptr %44, align 4
   %46 = add i32 %45, 1073741823
@@ -2380,7 +2377,7 @@ _ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10depe
   %105 = phi ptr [ %.pre.i3, %_ZN6vectorIPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyELb0EjE13expand_vectorEv.exit ], [ %52, %54 ]
   %106 = getelementptr inbounds i8, ptr %105, i64 -4
   %107 = zext i32 %104 to i64
-  %108 = getelementptr inbounds nuw ptr, ptr %105, i64 %107
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %107
   store ptr %44, ptr %108, align 8, !tbaa !147
   %109 = add i32 %104, 1
   store i32 %109, ptr %106, align 4, !tbaa !149
@@ -2667,7 +2664,7 @@ define linkonce_odr hidden void @_Z22dec_ref_map_key_valuesI11ast_managerS0_7obj
 
 _ZNK7obj_mapI9func_declP10quantifierE5beginEv.exit: ; preds = %.lr.ph.i.i.i.i, %11, %3
   %.sroa.0.1.i.i = phi ptr [ %4, %3 ], [ %.sroa.0.0.i.i, %.lr.ph.i.i.i.i ], [ %8, %11 ]
-  %13 = getelementptr inbounds nuw %"class.obj_map<func_decl, quantifier *>::obj_map_entry", ptr %4, i64 %7
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %7
   %.not16 = icmp eq ptr %.sroa.0.1.i.i, %13
   br i1 %.not16, label %._crit_edge, label %.lr.ph
 
@@ -3180,7 +3177,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN14core_hashtableIN7obj_mapI9fu
   %.idx = shl nuw nsw i64 %23, 4
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx
   %25 = zext i32 %16 to i64
-  %26 = getelementptr inbounds nuw %"class.obj_map<func_decl, quantifier *>::obj_map_entry", ptr %22, i64 %25
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %25
   %.not68 = icmp eq i32 %21, %16
   br i1 %.not68, label %.preheader, label %.lr.ph
 
@@ -3317,7 +3314,7 @@ _ZN14core_hashtableIN7obj_mapI9func_declP10quantifierE13obj_map_entryE8obj_hashI
   %11 = zext i32 %9 to i64
   %.idx.i = shl nuw nsw i64 %11, 4
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i
-  %13 = getelementptr inbounds nuw %"class.obj_map<func_decl, quantifier *>::obj_map_entry", ptr %7, i64 %5
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %5
   %.not38.i = icmp eq i32 %9, 0
   br i1 %.not38.i, label %_ZN14core_hashtableIN7obj_mapI9func_declP10quantifierE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE10move_tableEPS5_jSC_j.exit, label %.lr.ph41.i
 
@@ -3437,7 +3434,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI9func_declP3appE1
   %.idx = shl nuw nsw i64 %22, 4
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx
   %24 = zext i32 %15 to i64
-  %25 = getelementptr inbounds nuw %"class.obj_map<func_decl, app *>::obj_map_entry", ptr %21, i64 %24
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %24
   %.not62 = icmp eq i32 %20, %15
   br i1 %.not62, label %.preheader, label %.lr.ph
 
@@ -3571,7 +3568,7 @@ _ZN14core_hashtableIN7obj_mapI9func_declP3appE13obj_map_entryE8obj_hashINS4_8key
   %11 = zext i32 %9 to i64
   %.idx.i = shl nuw nsw i64 %11, 4
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i
-  %13 = getelementptr inbounds nuw %"class.obj_map<func_decl, app *>::obj_map_entry", ptr %7, i64 %5
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %5
   %.not38.i = icmp eq i32 %9, 0
   br i1 %.not38.i, label %_ZN14core_hashtableIN7obj_mapI9func_declP3appE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE10move_tableEPS5_jSC_j.exit, label %.lr.ph41.i
 
@@ -3687,7 +3684,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI9func_declPN18dep
   %.idx = shl nuw nsw i64 %22, 4
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx
   %24 = zext i32 %15 to i64
-  %25 = getelementptr inbounds nuw %"class.obj_map<func_decl, dependency_manager<ast_manager::expr_dependency_config>::dependency *>::obj_map_entry", ptr %21, i64 %24
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %24
   %.not62 = icmp eq i32 %20, %15
   br i1 %.not62, label %.preheader, label %.lr.ph
 
@@ -3821,7 +3818,7 @@ _ZN14core_hashtableIN7obj_mapI9func_declPN18dependency_managerIN11ast_manager22e
   %11 = zext i32 %9 to i64
   %.idx.i = shl nuw nsw i64 %11, 4
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i
-  %13 = getelementptr inbounds nuw %"class.obj_map<func_decl, dependency_manager<ast_manager::expr_dependency_config>::dependency *>::obj_map_entry", ptr %7, i64 %5
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %5
   %.not38.i = icmp eq i32 %9, 0
   br i1 %.not38.i, label %_ZN14core_hashtableIN7obj_mapI9func_declPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyEE13obj_map_entryE8obj_hashINS8_8key_dataEE10default_eqISB_EE10move_tableEPS9_jSG_j.exit, label %.lr.ph41.i
 
@@ -3920,7 +3917,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI9func_declP3appE1
   %.idx = shl nuw nsw i64 %11, 4
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   %13 = zext i32 %7 to i64
-  %14 = getelementptr inbounds nuw %"class.obj_map<func_decl, app *>::obj_map_entry", ptr %10, i64 %13
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %13
   %.not44 = icmp eq i32 %9, %7
   br i1 %.not44, label %.preheader, label %.lr.ph
 
@@ -4046,7 +4043,7 @@ _ZN14core_hashtableIN7obj_mapI9func_declP3appE13obj_map_entryE8obj_hashINS4_8key
   %12 = zext i32 %10 to i64
   %.idx.i = shl nuw nsw i64 %12, 4
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx.i
-  %14 = getelementptr inbounds nuw %"class.obj_map<func_decl, app *>::obj_map_entry", ptr %8, i64 %12
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %12
   %.not38.i = icmp eq i32 %10, 0
   br i1 %.not38.i, label %_ZN14core_hashtableIN7obj_mapI9func_declP3appE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE10move_tableEPS5_jSC_j.exit, label %.lr.ph41.i
 
@@ -4149,7 +4146,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI9func_declPN18dep
   %.idx = shl nuw nsw i64 %11, 4
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   %13 = zext i32 %7 to i64
-  %14 = getelementptr inbounds nuw %"class.obj_map<func_decl, dependency_manager<ast_manager::expr_dependency_config>::dependency *>::obj_map_entry", ptr %10, i64 %13
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %13
   %.not44 = icmp eq i32 %9, %7
   br i1 %.not44, label %.preheader, label %.lr.ph
 
@@ -4275,7 +4272,7 @@ _ZN14core_hashtableIN7obj_mapI9func_declPN18dependency_managerIN11ast_manager22e
   %12 = zext i32 %10 to i64
   %.idx.i = shl nuw nsw i64 %12, 4
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx.i
-  %14 = getelementptr inbounds nuw %"class.obj_map<func_decl, dependency_manager<ast_manager::expr_dependency_config>::dependency *>::obj_map_entry", ptr %8, i64 %12
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %12
   %.not38.i = icmp eq i32 %10, 0
   br i1 %.not38.i, label %_ZN14core_hashtableIN7obj_mapI9func_declPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyEE13obj_map_entryE8obj_hashINS8_8key_dataEE10default_eqISB_EE10move_tableEPS9_jSG_j.exit, label %.lr.ph41.i
 
@@ -4376,7 +4373,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableIN7obj_mapI9func_declP10quan
   %.idx = shl nuw nsw i64 %11, 4
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   %13 = zext i32 %7 to i64
-  %14 = getelementptr inbounds nuw %"class.obj_map<func_decl, quantifier *>::obj_map_entry", ptr %10, i64 %13
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %13
   %.not44 = icmp eq i32 %9, %7
   br i1 %.not44, label %.preheader, label %.lr.ph
 
@@ -4502,7 +4499,7 @@ _ZN14core_hashtableIN7obj_mapI9func_declP10quantifierE13obj_map_entryE8obj_hashI
   %12 = zext i32 %10 to i64
   %.idx.i = shl nuw nsw i64 %12, 4
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx.i
-  %14 = getelementptr inbounds nuw %"class.obj_map<func_decl, quantifier *>::obj_map_entry", ptr %8, i64 %12
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %12
   %.not38.i = icmp eq i32 %10, 0
   br i1 %.not38.i, label %_ZN14core_hashtableIN7obj_mapI9func_declP10quantifierE13obj_map_entryE8obj_hashINS4_8key_dataEE10default_eqIS7_EE10move_tableEPS5_jSC_j.exit, label %.lr.ph41.i
 

@@ -28,18 +28,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Rb_tree<ggml_type, std::pair<const ggml_type, unsigned int>, std::_Select1st<std::pair<const ggml_type, unsigned int>>, std::less<ggml_type>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
 %"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
 %"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"class.std::unique_ptr.41" = type { %"struct.std::__uniq_ptr_data.42" }
-%"struct.std::__uniq_ptr_data.42" = type { %"class.std::__uniq_ptr_impl.43" }
-%"class.std::__uniq_ptr_impl.43" = type { %"class.std::tuple.44" }
-%"class.std::tuple.44" = type { %"struct.std::_Tuple_impl.45" }
-%"struct.std::_Tuple_impl.45" = type { %"struct.std::_Head_base.48" }
-%"struct.std::_Head_base.48" = type { ptr }
-%"class.std::unique_ptr.49" = type { %"struct.std::__uniq_ptr_data.167" }
-%"struct.std::__uniq_ptr_data.167" = type { %"class.std::__uniq_ptr_impl.168" }
-%"class.std::__uniq_ptr_impl.168" = type { %"class.std::tuple.169" }
-%"class.std::tuple.169" = type { %"struct.std::_Tuple_impl.170" }
-%"struct.std::_Tuple_impl.170" = type { %"struct.std::_Head_base.173" }
-%"struct.std::_Head_base.173" = type { ptr }
 %"class.std::vector.69" = type { %"struct.std::_Vector_base.70" }
 %"struct.std::_Vector_base.70" = type { %"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl" }
 %"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl" = type { %"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl_data" }
@@ -57,7 +45,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.95" = type { %"struct.std::_Tuple_impl.96" }
 %"struct.std::_Tuple_impl.96" = type { %"struct.std::_Head_base.99" }
 %"struct.std::_Head_base.99" = type { ptr }
-%"struct.std::pair.91" = type { i64, i64 }
 %"struct.std::__basic_future<std::pair<ggml_tensor *, bool>>::_Reset" = type { ptr }
 %"class.std::unique_ptr.253" = type { %"struct.std::__uniq_ptr_data.254" }
 %"struct.std::__uniq_ptr_data.254" = type { %"class.std::__uniq_ptr_impl.255" }
@@ -79,7 +66,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<std::future<std::pair<ggml_tensor *, bool>>, std::allocator<std::future<std::pair<ggml_tensor *, bool>>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::future" = type { %"class.std::__basic_future" }
 %"class.std::__basic_future" = type { %"class.std::shared_ptr" }
-%struct.no_init = type { i8 }
 %"class.std::allocator.20" = type { i8 }
 %"struct.std::_Hashtable<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, llama_model_kv_override>, std::allocator<std::pair<const std::__cxx11::basic_string<char>, llama_model_kv_override>>, std::__detail::_Select1st, std::equal_to<std::__cxx11::basic_string<char>>, std::hash<string>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true>>::_Scoped_node" = type { ptr, ptr }
 %"class.std::function" = type { %"class.std::_Function_base", ptr }
@@ -513,7 +499,7 @@ define noundef nonnull ptr @_Z23llama_file_version_name10llama_fver(i32 noundef 
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK18llama_model_loader10print_infoEv, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK18llama_model_loader10print_infoEv, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -1488,7 +1474,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55: ; preds = %66
 
 81:                                               ; preds = %.lr.ph, %81
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %81 ]
-  %82 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   store i32 %80, ptr %82, align 4, !tbaa !17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %33
@@ -1756,7 +1742,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55: ; preds = %66
 
 81:                                               ; preds = %.lr.ph, %81
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %81 ]
-  %82 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   store i32 %80, ptr %82, align 4, !tbaa !17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %33
@@ -2275,7 +2261,7 @@ _ZNSt6vectorISt10unique_ptrI10llama_fileSt14default_deleteIS1_EESaIS4_EE11_S_rel
 _ZNSt6vectorISt10unique_ptrI10llama_fileSt14default_deleteIS1_EESaIS4_EE17_M_realloc_insertIJPS1_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i: ; preds = %223, %_ZNSt6vectorISt10unique_ptrI10llama_fileSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i
   store ptr %217, ptr %67, align 8, !tbaa !104
   store ptr %222, ptr %198, align 8, !tbaa !100
-  %224 = getelementptr inbounds nuw %"class.std::unique_ptr.41", ptr %217, i64 %215
+  %224 = getelementptr inbounds nuw [8 x i8], ptr %217, i64 %215
   store ptr %224, ptr %200, align 8, !tbaa !101
   br label %_ZNSt6vectorISt10unique_ptrI10llama_fileSt14default_deleteIS1_EESaIS4_EE12emplace_backIJPS1_EEERS4_DpOT_.exit
 
@@ -2355,7 +2341,7 @@ _ZNSt6vectorISt10unique_ptrI12ggml_context20ggml_context_deleterESaIS3_EE11_S_re
 _ZNSt6vectorISt10unique_ptrI12ggml_context20ggml_context_deleterESaIS3_EE17_M_realloc_insertIJRPS1_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %252, %_ZNSt6vectorISt10unique_ptrI12ggml_context20ggml_context_deleterESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i
   store ptr %245, ptr %82, align 8, !tbaa !113
   store ptr %251, ptr %225, align 8, !tbaa !111
-  %253 = getelementptr inbounds nuw %"class.std::unique_ptr.49", ptr %245, i64 %243
+  %253 = getelementptr inbounds nuw [8 x i8], ptr %245, i64 %243
   store ptr %253, ptr %227, align 8, !tbaa !112
   %.pre800 = load ptr, ptr %32, align 8, !tbaa !95
   br label %_ZNSt6vectorISt10unique_ptrI12ggml_context20ggml_context_deleterESaIS3_EE12emplace_backIJRPS1_EEERS3_DpOT_.exit
@@ -3433,7 +3419,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit330: ; preds = %60
   %storemerge716 = phi i16 [ 1, %.lr.ph717 ], [ %752, %_ZNSt10unique_ptrI12gguf_context20gguf_context_deleterED2Ev.exit ]
   %622 = zext i16 %storemerge716 to i64
   %623 = load ptr, ptr %2, align 8, !tbaa !135
-  %624 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %623, i64 %622
+  %624 = getelementptr inbounds nuw [32 x i8], ptr %623, i64 %622
   %625 = load ptr, ptr %624, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %45)
   %626 = invoke ptr @gguf_init_from_file(ptr noundef %625, i8 1, ptr nonnull %32)
@@ -3698,7 +3684,7 @@ _ZNSt6vectorISt10unique_ptrI10llama_fileSt14default_deleteIS1_EESaIS4_EE11_S_rel
 _ZNSt6vectorISt10unique_ptrI10llama_fileSt14default_deleteIS1_EESaIS4_EE17_M_realloc_insertIJPS1_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i352: ; preds = %714, %_ZNSt6vectorISt10unique_ptrI10llama_fileSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i349
   store ptr %708, ptr %67, align 8, !tbaa !104
   store ptr %713, ptr %198, align 8, !tbaa !100
-  %715 = getelementptr inbounds nuw %"class.std::unique_ptr.41", ptr %708, i64 %706
+  %715 = getelementptr inbounds nuw [8 x i8], ptr %708, i64 %706
   store ptr %715, ptr %200, align 8, !tbaa !101
   br label %_ZNSt6vectorISt10unique_ptrI10llama_fileSt14default_deleteIS1_EESaIS4_EE12emplace_backIJPS1_EEERS4_DpOT_.exit355
 
@@ -3776,7 +3762,7 @@ _ZNSt6vectorISt10unique_ptrI12ggml_context20ggml_context_deleterESaIS3_EE11_S_re
 _ZNSt6vectorISt10unique_ptrI12ggml_context20ggml_context_deleterESaIS3_EE17_M_realloc_insertIJRPS1_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i368: ; preds = %741, %_ZNSt6vectorISt10unique_ptrI12ggml_context20ggml_context_deleterESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i365
   store ptr %734, ptr %82, align 8, !tbaa !113
   store ptr %740, ptr %225, align 8, !tbaa !111
-  %742 = getelementptr inbounds nuw %"class.std::unique_ptr.49", ptr %734, i64 %732
+  %742 = getelementptr inbounds nuw [8 x i8], ptr %734, i64 %732
   store ptr %742, ptr %227, align 8, !tbaa !112
   %.pre806 = load ptr, ptr %32, align 8, !tbaa !95
   br label %_ZNSt6vectorISt10unique_ptrI12ggml_context20ggml_context_deleterESaIS3_EE12emplace_backIJRPS1_EEERS3_DpOT_.exit371
@@ -4560,7 +4546,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit406: ; preds = %98
 
 switch.lookup:                                    ; preds = %1004
   %1010 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK18llama_model_loader10print_infoEv, i64 %1010
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK18llama_model_loader10print_infoEv, i64 %1010
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_Z23llama_file_version_name10llama_fver.exit
 
@@ -4736,7 +4722,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit412: ; preds = %10
 
 switch.lookup1132:                                ; preds = %._crit_edge724
   %1076 = zext nneg i32 %.1166 to i64
-  %switch.gep1133 = getelementptr inbounds nuw i32, ptr @switch.table._ZN18llama_model_loaderC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIS5_SaIS5_EEbbPK23llama_model_kv_override.103, i64 %1076
+  %switch.gep1133 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN18llama_model_loaderC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorIS5_SaIS5_EEbbPK23llama_model_kv_override.103, i64 %1076
   %switch.load1134 = load i32, ptr %switch.gep1133, align 4
   br label %._crit_edge724.thread
 
@@ -6626,15 +6612,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %28
   br i1 %36, label %37, label %42
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds nuw i64, ptr %16, i64 %.02676
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.02676
   %39 = load i64, ptr %38, align 8, !tbaa !90
-  %40 = getelementptr inbounds nuw i64, ptr %21, i64 %.02676
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.02676
   %41 = load i64, ptr %40, align 8, !tbaa !90
   %.not = icmp eq i64 %39, %41
   br i1 %.not, label %.thread, label %46
 
 42:                                               ; preds = %35
-  %43 = getelementptr inbounds nuw i64, ptr %21, i64 %.02676
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.02676
   %44 = load i64, ptr %43, align 8, !tbaa !90
   %.not42 = icmp eq i64 %44, 1
   br i1 %.not42, label %.thread, label %46
@@ -7056,13 +7042,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %55
   br i1 %87, label %88, label %91
 
 88:                                               ; preds = %86
-  %89 = getelementptr inbounds nuw i64, ptr %65, i64 %.02947
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %.02947
   %90 = load i64, ptr %89, align 8, !tbaa !90
   br label %91
 
 91:                                               ; preds = %86, %88
   %92 = phi i64 [ %90, %88 ], [ 1, %86 ]
-  %93 = getelementptr inbounds nuw i64, ptr %10, i64 %.02947
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.02947
   store i64 %92, ptr %93, align 8, !tbaa !90
   %94 = add nuw nsw i64 %.02947, 1
   %exitcond.not = icmp eq i64 %94, 4
@@ -7290,7 +7276,7 @@ _ZNSt12_Vector_baseISt4pairImmESaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %
   store ptr %59, ptr %41, align 8, !tbaa !177
   %63 = getelementptr inbounds nuw i8, ptr %59, i64 %57
   store ptr %63, ptr %54, align 8, !tbaa !210
-  %64 = getelementptr inbounds nuw %"struct.std::pair.91", ptr %59, i64 %42
+  %64 = getelementptr inbounds nuw [16 x i8], ptr %59, i64 %42
   store ptr %64, ptr %46, align 8, !tbaa !178
   br label %_ZNSt6vectorISt4pairImmESaIS1_EE7reserveEm.exit
 
@@ -7410,7 +7396,7 @@ _ZNSt6vectorISt4pairImmESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i.i: ; preds
 _ZNSt6vectorISt4pairImmESaIS1_EE17_M_realloc_insertIJmiEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %108, %_ZNSt6vectorISt4pairImmESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i.i
   store ptr %102, ptr %41, align 8, !tbaa !177
   store ptr %107, ptr %68, align 8, !tbaa !210
-  %109 = getelementptr inbounds nuw %"struct.std::pair.91", ptr %102, i64 %100
+  %109 = getelementptr inbounds nuw [16 x i8], ptr %102, i64 %100
   store ptr %109, ptr %46, align 8, !tbaa !178
   br label %_ZNSt6vectorISt4pairImmESaIS1_EE12emplace_backIJmiEEERS1_DpOT_.exit
 
@@ -7508,7 +7494,7 @@ _ZNSt6vectorISt10unique_ptrI11llama_mlockSt14default_deleteIS1_EESaIS4_EE11_S_re
 _ZNSt6vectorISt10unique_ptrI11llama_mlockSt14default_deleteIS1_EESaIS4_EE12emplace_backIJS4_EEERS4_DpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrI11llama_mlockSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i, %140
   store ptr %134, ptr %2, align 8, !tbaa !232
   store ptr %139, ptr %69, align 8, !tbaa !228
-  %141 = getelementptr inbounds nuw %"class.std::unique_ptr.92", ptr %134, i64 %132
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %134, i64 %132
   store ptr %141, ptr %70, align 8, !tbaa !231
   br label %_ZNSt10unique_ptrI11llama_mlockSt14default_deleteIS0_EED2Ev.exit
 
@@ -7634,7 +7620,7 @@ _ZNSt6vectorISt10unique_ptrI10llama_mmapSt14default_deleteIS1_EESaIS4_EE11_S_rel
 _ZNSt6vectorISt10unique_ptrI10llama_mmapSt14default_deleteIS1_EESaIS4_EE12emplace_backIJS4_EEERS4_DpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrI10llama_mmapSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i, %173
   store ptr %167, ptr %10, align 8, !tbaa !185
   store ptr %172, ptr %71, align 8, !tbaa !186
-  %174 = getelementptr inbounds nuw %"class.std::unique_ptr.75", ptr %167, i64 %165
+  %174 = getelementptr inbounds nuw [8 x i8], ptr %167, i64 %165
   store ptr %174, ptr %21, align 8, !tbaa !190
   br label %_ZNSt10unique_ptrI10llama_mmapSt14default_deleteIS0_EED2Ev.exit
 
@@ -7760,7 +7746,7 @@ define void @_ZNK18llama_model_loader17get_mapping_rangeEPmS0_PPviP12ggml_contex
   unreachable
 
 _ZNKSt6vectorISt10unique_ptrI10llama_mmapSt14default_deleteIS1_EESaIS4_EE2atEm.exit: ; preds = %13
-  %20 = getelementptr inbounds nuw %"class.std::unique_ptr.75", ptr %8, i64 %14
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %14
   %21 = load ptr, ptr %20, align 8, !tbaa !187
   %22 = tail call noundef i64 @_ZNK10llama_mmap4sizeEv(ptr noundef nonnull align 8 dereferenceable(8) %21)
   store i64 %22, ptr %1, align 8, !tbaa !90
@@ -7840,7 +7826,7 @@ define void @_ZNK18llama_model_loader13load_data_forEP11ggml_tensor(ptr noundef 
   unreachable
 
 _ZNKSt6vectorISt10unique_ptrI10llama_mmapSt14default_deleteIS1_EESaIS4_EE2atEm.exit: ; preds = %9
-  %21 = getelementptr inbounds nuw %"class.std::unique_ptr.75", ptr %15, i64 %12
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %12
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %23 = load ptr, ptr %22, align 8, !tbaa !249
   %24 = icmp eq ptr %23, null
@@ -7889,7 +7875,7 @@ _ZNKSt6vectorISt10unique_ptrI10llama_mmapSt14default_deleteIS1_EESaIS4_EE2atEm.e
   unreachable
 
 _ZNKSt6vectorISt10unique_ptrI10llama_fileSt14default_deleteIS1_EESaIS4_EE2atEm.exit: ; preds = %37
-  %50 = getelementptr inbounds nuw %"class.std::unique_ptr.41", ptr %43, i64 %39
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %39
   %51 = load ptr, ptr %50, align 8, !tbaa !102
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %53 = load i64, ptr %52, align 8, !tbaa !179
@@ -8289,7 +8275,7 @@ _ZNSt6vectorIP19ggml_backend_bufferSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i
   br label %_ZNSt6vectorIP19ggml_backend_bufferSaIS1_EE17_M_realloc_insertIJRS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIP19ggml_backend_bufferSaIS1_EE17_M_realloc_insertIJRS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %120, %_ZNSt6vectorIP19ggml_backend_bufferSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  %121 = getelementptr inbounds nuw ptr, ptr %116, i64 %114
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %116, i64 %114
   br label %_ZNSt6vectorIP19ggml_backend_bufferSaIS1_EE12emplace_backIJRS1_EEES5_DpOT_.exit.i
 
 _ZNSt6vectorIP19ggml_backend_bufferSaIS1_EE12emplace_backIJRS1_EEES5_DpOT_.exit.i: ; preds = %_ZNSt6vectorIP19ggml_backend_bufferSaIS1_EE17_M_realloc_insertIJRS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, %103
@@ -8354,7 +8340,7 @@ _ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i: ; preds = %139
   br label %_ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i: ; preds = %140, %_ZNSt6vectorIPvSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i
-  %141 = getelementptr inbounds nuw ptr, ptr %136, i64 %134
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %136, i64 %134
   br label %_ZNSt6vectorIPvSaIS0_EE12emplace_backIJS0_EEERS0_DpOT_.exit.i
 
 _ZNSt6vectorIPvSaIS0_EE12emplace_backIJS0_EEERS0_DpOT_.exit.i: ; preds = %_ZNSt6vectorIPvSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i, %123
@@ -8423,7 +8409,7 @@ _ZNSt6vectorIP18ggml_backend_eventSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.
   br label %_ZNSt6vectorIP18ggml_backend_eventSaIS1_EE17_M_realloc_insertIJRS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIP18ggml_backend_eventSaIS1_EE17_M_realloc_insertIJRS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %161, %_ZNSt6vectorIP18ggml_backend_eventSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  %162 = getelementptr inbounds nuw ptr, ptr %157, i64 %155
+  %162 = getelementptr inbounds nuw [8 x i8], ptr %157, i64 %155
   br label %163
 
 163:                                              ; preds = %_ZNSt6vectorIP18ggml_backend_eventSaIS1_EE17_M_realloc_insertIJRS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, %144
@@ -8714,7 +8700,7 @@ _ZNSt6vectorIP18ggml_backend_eventSaIS1_EE17_M_realloc_insertIJRS1_EEEvN9__gnu_c
   unreachable
 
 260:                                              ; preds = %252
-  %261 = getelementptr inbounds nuw %"class.std::unique_ptr.75", ptr %254, i64 %251
+  %261 = getelementptr inbounds nuw [8 x i8], ptr %254, i64 %251
   %262 = zext i16 %250 to i32
   %263 = load i64, ptr %220, align 8, !tbaa !250
   %.not.not.i.i.i222 = icmp eq i64 %263, 0
@@ -8736,7 +8722,7 @@ _ZNSt6vectorIP18ggml_backend_eventSaIS1_EE17_M_realloc_insertIJRS1_EEEvN9__gnu_c
   %269 = load i64, ptr %221, align 8, !tbaa !253
   %270 = urem i64 %251, %269
   %271 = load ptr, ptr %2, align 8, !tbaa !254
-  %272 = getelementptr inbounds nuw ptr, ptr %271, i64 %270
+  %272 = getelementptr inbounds nuw [8 x i8], ptr %271, i64 %270
   %273 = load ptr, ptr %272, align 8, !tbaa !255
   %.not.i.i.i.i.i223 = icmp eq ptr %273, null
   br i1 %.not.i.i.i.i.i223, label %.thread, label %274
@@ -8788,7 +8774,7 @@ _ZNSt6vectorIP18ggml_backend_eventSaIS1_EE17_M_realloc_insertIJRS1_EEEvN9__gnu_c
   %.pre1227 = load i64, ptr %221, align 8, !tbaa !253
   %.pre1228 = load ptr, ptr %2, align 8, !tbaa !254
   %.pre1229 = urem i64 %251, %.pre1227
-  %.phi.trans.insert1230 = getelementptr inbounds nuw ptr, ptr %.pre1228, i64 %.pre1229
+  %.phi.trans.insert1230 = getelementptr inbounds nuw [8 x i8], ptr %.pre1228, i64 %.pre1229
   %.pre1231 = load ptr, ptr %.phi.trans.insert1230, align 8, !tbaa !255
   %.not.i.i.i.i.i235 = icmp eq ptr %.pre1231, null
   br i1 %.not.i.i.i.i.i235, label %.loopexit.i.i241, label %.thread504.thread
@@ -9292,7 +9278,7 @@ _ZNSt14__basic_futureISt4pairIP11ggml_tensorbEED2Ev.exit: ; preds = %_ZNSt6vecto
   unreachable
 
 464:                                              ; preds = %454
-  %465 = getelementptr inbounds nuw %"class.std::unique_ptr.92", ptr %458, i64 %456
+  %465 = getelementptr inbounds nuw [8 x i8], ptr %458, i64 %456
   %466 = load ptr, ptr %465, align 8, !tbaa !226
   %467 = load i64, ptr %316, align 8, !tbaa !179
   %468 = add i64 %467, %246
@@ -9313,7 +9299,7 @@ _ZNSt14__basic_futureISt4pairIP11ggml_tensorbEED2Ev.exit: ; preds = %_ZNSt6vecto
   %470 = load i16, ptr %231, align 8, !tbaa !166
   %471 = zext i16 %470 to i64
   %472 = load ptr, ptr %226, align 8, !tbaa !177
-  %473 = getelementptr inbounds nuw %"struct.std::pair.91", ptr %472, i64 %471
+  %473 = getelementptr inbounds nuw [16 x i8], ptr %472, i64 %471
   %474 = load i64, ptr %316, align 8, !tbaa !90
   %475 = load i64, ptr %473, align 8, !tbaa !90
   %476 = call i64 @llvm.umin.i64(i64 %474, i64 %475)
@@ -9347,7 +9333,7 @@ _ZNSt14__basic_futureISt4pairIP11ggml_tensorbEED2Ev.exit: ; preds = %_ZNSt6vecto
   unreachable
 
 489:                                              ; preds = %481
-  %490 = getelementptr inbounds nuw %"class.std::unique_ptr.41", ptr %483, i64 %251
+  %490 = getelementptr inbounds nuw [8 x i8], ptr %483, i64 %251
   %491 = getelementptr inbounds nuw i8, ptr %.0147, i64 8
   %492 = load ptr, ptr %491, align 8, !tbaa !318
   %493 = invoke zeroext i1 @ggml_backend_buffer_is_host(ptr noundef %492)
@@ -9773,14 +9759,14 @@ _ZNSt14__basic_futureISt4pairIP11ggml_tensorbEED2Ev.exit300: ; preds = %_ZNSt6ve
   %.0151898 = phi i64 [ %648, %647 ], [ 0, %.preheader563 ]
   %636 = sub nuw i64 %246, %.0151898
   %.sroa.speculated = call i64 @llvm.umin.i64(i64 %636, i64 1048576)
-  %637 = getelementptr inbounds nuw ptr, ptr %.sroa.0.6460, i64 %.4127899
+  %637 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.6460, i64 %.4127899
   %638 = load ptr, ptr %637, align 8, !tbaa !263
   invoke void @ggml_backend_event_synchronize(ptr noundef %638)
           to label %639 unwind label %652
 
 639:                                              ; preds = %.lr.ph
   %640 = load ptr, ptr %490, align 8, !tbaa !102
-  %641 = getelementptr inbounds nuw ptr, ptr %.sroa.0375.6434, i64 %.4127899
+  %641 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0375.6434, i64 %.4127899
   %642 = load ptr, ptr %641, align 8, !tbaa !247
   invoke void @_ZNK10llama_file8read_rawEPvm(ptr noundef nonnull align 8 dereferenceable(8) %640, ptr noundef %642, i64 noundef %.sroa.speculated)
           to label %643 unwind label %652
@@ -9874,8 +9860,8 @@ _ZNSt6vectorI7no_initIhESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i.i: ; preds =
   br label %_ZNSt12_Vector_baseI7no_initIhESaIS1_EE13_M_deallocateEPS1_m.exit32.i.i
 
 _ZNSt12_Vector_baseI7no_initIhESaIS1_EE13_M_deallocateEPS1_m.exit32.i.i: ; preds = %676, %_ZNSt6vectorI7no_initIhESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i.i
-  %678 = getelementptr inbounds nuw %struct.no_init, ptr %672, i64 %246
-  %679 = getelementptr inbounds nuw %struct.no_init, ptr %672, i64 %671
+  %678 = getelementptr inbounds nuw i8, ptr %672, i64 %246
+  %679 = getelementptr inbounds nuw i8, ptr %672, i64 %671
   br label %_ZNSt6vectorI7no_initIhESaIS1_EE6resizeEm.exit
 
 680:                                              ; preds = %654
@@ -9883,7 +9869,7 @@ _ZNSt12_Vector_baseI7no_initIhESaIS1_EE13_M_deallocateEPS1_m.exit32.i.i: ; preds
   br i1 %681, label %682, label %_ZNSt6vectorI7no_initIhESaIS1_EE6resizeEm.exit
 
 682:                                              ; preds = %680
-  %683 = getelementptr inbounds nuw %struct.no_init, ptr %.sroa.0358.3, i64 %246
+  %683 = getelementptr inbounds nuw i8, ptr %.sroa.0358.3, i64 %246
   %.not.i4.i = icmp eq ptr %.sroa.11364.0, %683
   %spec.select = select i1 %.not.i4.i, ptr %.sroa.11364.0, ptr %683
   br label %_ZNSt6vectorI7no_initIhESaIS1_EE6resizeEm.exit
@@ -10205,8 +10191,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %751,
   unreachable
 
 791:                                              ; preds = %781
-  %792 = getelementptr inbounds nuw %"struct.std::pair.91", ptr %785, i64 %783
-  %793 = getelementptr inbounds nuw %"class.std::unique_ptr.75", ptr %782, i64 %783
+  %792 = getelementptr inbounds nuw [16 x i8], ptr %785, i64 %783
+  %793 = getelementptr inbounds nuw [8 x i8], ptr %782, i64 %783
   %794 = load ptr, ptr %793, align 8, !tbaa !187
   %795 = load i64, ptr %792, align 8, !tbaa !219
   invoke void @_ZN10llama_mmap14unmap_fragmentEmm(ptr noundef nonnull align 8 dereferenceable(8) %794, i64 noundef 0, i64 noundef %795)
@@ -11006,7 +10992,7 @@ define void @_ZNK18llama_model_loader10print_infoEv(ptr noundef nonnull readonly
 
 switch.lookup:                                    ; preds = %1
   %6 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK18llama_model_loader10print_infoEv, i64 %6
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK18llama_model_loader10print_infoEv, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_Z23llama_file_version_name10llama_fver.exit
 
@@ -11306,7 +11292,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !135
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !131
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !133
   ret void
 }
@@ -11591,7 +11577,7 @@ _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %29 = load i64, ptr %28, align 8, !tbaa !86
   %30 = urem i64 %24, %29
   %31 = load ptr, ptr %0, align 8, !tbaa !85
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %30
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %30
   %33 = load ptr, ptr %32, align 8, !tbaa !255
   %.not.i.i = icmp eq ptr %33, null
   br i1 %.not.i.i, label %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_23llama_model_kv_overrideESaIS9_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS7_m.exit, label %34
@@ -11765,7 +11751,7 @@ define linkonce_odr noundef zeroext i1 @_ZN8GGUFMeta3GKVIbE17validate_overrideE2
 
 switch.lookup:                                    ; preds = %7
   %9 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %9
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN8GGUFMeta3GKVIbE20override_type_to_strE28llama_model_kv_override_type.exit
 
@@ -11815,7 +11801,7 @@ _ZN8GGUFMeta3GKVIbE20override_type_to_strE28llama_model_kv_override_type.exit: ;
 
 switch.lookup40:                                  ; preds = %25
   %29 = zext nneg i32 %27 to i64
-  %switch.gep41 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %29
+  %switch.gep41 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %29
   %switch.load42 = load ptr, ptr %switch.gep41, align 8
   br label %_ZN8GGUFMeta3GKVIbE20override_type_to_strE28llama_model_kv_override_type.exit26
 
@@ -11870,7 +11856,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %33
 
 switch.lookup43:                                  ; preds = %41
   %44 = zext nneg i32 %0 to i64
-  %switch.gep44 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %44
+  %switch.gep44 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %44
   %switch.load45 = load ptr, ptr %switch.gep44, align 8
   br label %_ZN8GGUFMeta3GKVIbE20override_type_to_strE28llama_model_kv_override_type.exit28
 
@@ -11881,7 +11867,7 @@ _ZN8GGUFMeta3GKVIbE20override_type_to_strE28llama_model_kv_override_type.exit28:
 
 switch.lookup46:                                  ; preds = %_ZN8GGUFMeta3GKVIbE20override_type_to_strE28llama_model_kv_override_type.exit28
   %46 = zext nneg i32 %5 to i64
-  %switch.gep47 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %46
+  %switch.gep47 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %46
   %switch.load48 = load ptr, ptr %switch.gep47, align 8
   br label %_ZN8GGUFMeta3GKVIbE20override_type_to_strE28llama_model_kv_override_type.exit30
 
@@ -11998,7 +11984,7 @@ define linkonce_odr noundef zeroext i1 @_ZN8GGUFMeta3GKVIfE17validate_overrideE2
 
 switch.lookup:                                    ; preds = %7
   %9 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %9
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN8GGUFMeta3GKVIfE20override_type_to_strE28llama_model_kv_override_type.exit
 
@@ -12048,7 +12034,7 @@ _ZN8GGUFMeta3GKVIfE20override_type_to_strE28llama_model_kv_override_type.exit: ;
 
 switch.lookup40:                                  ; preds = %25
   %29 = zext nneg i32 %27 to i64
-  %switch.gep41 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %29
+  %switch.gep41 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %29
   %switch.load42 = load ptr, ptr %switch.gep41, align 8
   br label %_ZN8GGUFMeta3GKVIfE20override_type_to_strE28llama_model_kv_override_type.exit26
 
@@ -12103,7 +12089,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %33
 
 switch.lookup43:                                  ; preds = %41
   %44 = zext nneg i32 %0 to i64
-  %switch.gep44 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %44
+  %switch.gep44 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %44
   %switch.load45 = load ptr, ptr %switch.gep44, align 8
   br label %_ZN8GGUFMeta3GKVIfE20override_type_to_strE28llama_model_kv_override_type.exit28
 
@@ -12114,7 +12100,7 @@ _ZN8GGUFMeta3GKVIfE20override_type_to_strE28llama_model_kv_override_type.exit28:
 
 switch.lookup46:                                  ; preds = %_ZN8GGUFMeta3GKVIfE20override_type_to_strE28llama_model_kv_override_type.exit28
   %46 = zext nneg i32 %5 to i64
-  %switch.gep47 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %46
+  %switch.gep47 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %46
   %switch.load48 = load ptr, ptr %switch.gep47, align 8
   br label %_ZN8GGUFMeta3GKVIfE20override_type_to_strE28llama_model_kv_override_type.exit30
 
@@ -12231,7 +12217,7 @@ define linkonce_odr noundef zeroext i1 @_ZN8GGUFMeta3GKVIjE17validate_overrideE2
 
 switch.lookup:                                    ; preds = %7
   %9 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %9
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN8GGUFMeta3GKVIjE20override_type_to_strE28llama_model_kv_override_type.exit
 
@@ -12281,7 +12267,7 @@ _ZN8GGUFMeta3GKVIjE20override_type_to_strE28llama_model_kv_override_type.exit: ;
 
 switch.lookup40:                                  ; preds = %25
   %29 = zext nneg i32 %27 to i64
-  %switch.gep41 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %29
+  %switch.gep41 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %29
   %switch.load42 = load ptr, ptr %switch.gep41, align 8
   br label %_ZN8GGUFMeta3GKVIjE20override_type_to_strE28llama_model_kv_override_type.exit26
 
@@ -12336,7 +12322,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %33
 
 switch.lookup43:                                  ; preds = %41
   %44 = zext nneg i32 %0 to i64
-  %switch.gep44 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %44
+  %switch.gep44 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %44
   %switch.load45 = load ptr, ptr %switch.gep44, align 8
   br label %_ZN8GGUFMeta3GKVIjE20override_type_to_strE28llama_model_kv_override_type.exit28
 
@@ -12347,7 +12333,7 @@ _ZN8GGUFMeta3GKVIjE20override_type_to_strE28llama_model_kv_override_type.exit28:
 
 switch.lookup46:                                  ; preds = %_ZN8GGUFMeta3GKVIjE20override_type_to_strE28llama_model_kv_override_type.exit28
   %46 = zext nneg i32 %5 to i64
-  %switch.gep47 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %46
+  %switch.gep47 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %46
   %switch.load48 = load ptr, ptr %switch.gep47, align 8
   br label %_ZN8GGUFMeta3GKVIjE20override_type_to_strE28llama_model_kv_override_type.exit30
 
@@ -12635,7 +12621,7 @@ define linkonce_odr noundef zeroext i1 @_ZN8GGUFMeta3GKVINSt7__cxx1112basic_stri
 
 switch.lookup:                                    ; preds = %7
   %9 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %9
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN8GGUFMeta3GKVINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE20override_type_to_strE28llama_model_kv_override_type.exit
 
@@ -12685,7 +12671,7 @@ _ZN8GGUFMeta3GKVINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE20override
 
 switch.lookup40:                                  ; preds = %25
   %29 = zext nneg i32 %27 to i64
-  %switch.gep41 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %29
+  %switch.gep41 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %29
   %switch.load42 = load ptr, ptr %switch.gep41, align 8
   br label %_ZN8GGUFMeta3GKVINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE20override_type_to_strE28llama_model_kv_override_type.exit26
 
@@ -12740,7 +12726,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %33
 
 switch.lookup43:                                  ; preds = %41
   %44 = zext nneg i32 %0 to i64
-  %switch.gep44 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %44
+  %switch.gep44 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %44
   %switch.load45 = load ptr, ptr %switch.gep44, align 8
   br label %_ZN8GGUFMeta3GKVINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE20override_type_to_strE28llama_model_kv_override_type.exit28
 
@@ -12751,7 +12737,7 @@ _ZN8GGUFMeta3GKVINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE20override
 
 switch.lookup46:                                  ; preds = %_ZN8GGUFMeta3GKVINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE20override_type_to_strE28llama_model_kv_override_type.exit28
   %46 = zext nneg i32 %5 to i64
-  %switch.gep47 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %46
+  %switch.gep47 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %46
   %switch.load48 = load ptr, ptr %switch.gep47, align 8
   br label %_ZN8GGUFMeta3GKVINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE20override_type_to_strE28llama_model_kv_override_type.exit30
 
@@ -13290,7 +13276,7 @@ _ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 
 37:                                               ; preds = %31
   %38 = load ptr, ptr %0, align 8, !tbaa !85
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %34
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %34
   %40 = load ptr, ptr %39, align 8, !tbaa !255
   %.not.i.i = icmp eq ptr %40, null
   br i1 %.not.i.i, label %.critedge27, label %41
@@ -13459,7 +13445,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 304
   store i64 %2, ptr %32, align 8, !tbaa !371
   %33 = load ptr, ptr %0, align 8, !tbaa !85
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8, !tbaa !255
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %39, label %36
@@ -13485,7 +13471,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 304
   %46 = load i64, ptr %45, align 8, !tbaa !371
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %33, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !255
   br label %49
 
@@ -13665,7 +13651,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 304
   %16 = load i64, ptr %15, align 8, !tbaa !371
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !255
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -13680,7 +13666,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !255
   br label %28
 
@@ -14771,7 +14757,7 @@ define linkonce_odr noundef zeroext i1 @_ZN8GGUFMeta3GKVItE17validate_overrideE2
 
 switch.lookup:                                    ; preds = %7
   %9 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %9
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN8GGUFMeta3GKVItE20override_type_to_strE28llama_model_kv_override_type.exit
 
@@ -14821,7 +14807,7 @@ _ZN8GGUFMeta3GKVItE20override_type_to_strE28llama_model_kv_override_type.exit: ;
 
 switch.lookup40:                                  ; preds = %25
   %29 = zext nneg i32 %27 to i64
-  %switch.gep41 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %29
+  %switch.gep41 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %29
   %switch.load42 = load ptr, ptr %switch.gep41, align 8
   br label %_ZN8GGUFMeta3GKVItE20override_type_to_strE28llama_model_kv_override_type.exit26
 
@@ -14876,7 +14862,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %33
 
 switch.lookup43:                                  ; preds = %41
   %44 = zext nneg i32 %0 to i64
-  %switch.gep44 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %44
+  %switch.gep44 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %44
   %switch.load45 = load ptr, ptr %switch.gep44, align 8
   br label %_ZN8GGUFMeta3GKVItE20override_type_to_strE28llama_model_kv_override_type.exit28
 
@@ -14887,7 +14873,7 @@ _ZN8GGUFMeta3GKVItE20override_type_to_strE28llama_model_kv_override_type.exit28:
 
 switch.lookup46:                                  ; preds = %_ZN8GGUFMeta3GKVItE20override_type_to_strE28llama_model_kv_override_type.exit28
   %46 = zext nneg i32 %5 to i64
-  %switch.gep47 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %46
+  %switch.gep47 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %46
   %switch.load48 = load ptr, ptr %switch.gep47, align 8
   br label %_ZN8GGUFMeta3GKVItE20override_type_to_strE28llama_model_kv_override_type.exit30
 
@@ -15002,7 +14988,7 @@ define linkonce_odr noundef zeroext i1 @_ZN8GGUFMeta3GKVIiE17validate_overrideE2
 
 switch.lookup:                                    ; preds = %7
   %9 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %9
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN8GGUFMeta3GKVIiE20override_type_to_strE28llama_model_kv_override_type.exit
 
@@ -15052,7 +15038,7 @@ _ZN8GGUFMeta3GKVIiE20override_type_to_strE28llama_model_kv_override_type.exit: ;
 
 switch.lookup40:                                  ; preds = %25
   %29 = zext nneg i32 %27 to i64
-  %switch.gep41 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %29
+  %switch.gep41 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %29
   %switch.load42 = load ptr, ptr %switch.gep41, align 8
   br label %_ZN8GGUFMeta3GKVIiE20override_type_to_strE28llama_model_kv_override_type.exit26
 
@@ -15107,7 +15093,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %33
 
 switch.lookup43:                                  ; preds = %41
   %44 = zext nneg i32 %0 to i64
-  %switch.gep44 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %44
+  %switch.gep44 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %44
   %switch.load45 = load ptr, ptr %switch.gep44, align 8
   br label %_ZN8GGUFMeta3GKVIiE20override_type_to_strE28llama_model_kv_override_type.exit28
 
@@ -15118,7 +15104,7 @@ _ZN8GGUFMeta3GKVIiE20override_type_to_strE28llama_model_kv_override_type.exit28:
 
 switch.lookup46:                                  ; preds = %_ZN8GGUFMeta3GKVIiE20override_type_to_strE28llama_model_kv_override_type.exit28
   %46 = zext nneg i32 %5 to i64
-  %switch.gep47 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %46
+  %switch.gep47 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN8GGUFMeta3GKVIiE17validate_overrideE28llama_model_kv_override_typePK23llama_model_kv_override.121, i64 %46
   %switch.load48 = load ptr, ptr %switch.gep47, align 8
   br label %_ZN8GGUFMeta3GKVIiE20override_type_to_strE28llama_model_kv_override_type.exit30
 
@@ -16833,7 +16819,7 @@ _ZNSt6vectorISt6futureISt4pairIP11ggml_tensorbEESaIS5_EE11_S_relocateEPS5_S8_S8_
 _ZNSt12_Vector_baseISt6futureISt4pairIP11ggml_tensorbEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorISt6futureISt4pairIP11ggml_tensorbEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, %40
   store ptr %20, ptr %0, align 8, !tbaa !342
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !314
-  %44 = getelementptr inbounds nuw %"class.std::future", ptr %20, i64 %16
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %44, ptr %39, align 8, !tbaa !317
   ret void
 }

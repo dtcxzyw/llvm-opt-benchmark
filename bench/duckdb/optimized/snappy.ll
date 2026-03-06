@@ -10,7 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.duckdb_snappy::Source" = type { ptr }
 %"class.duckdb_snappy::SnappyDecompressor" = type <{ ptr, ptr, ptr, ptr, i32, i8, [5 x i8], [6 x i8] }>
 %"class.duckdb_snappy::SnappyIOVecWriter" = type { ptr, ptr, ptr, i64, i64, i64 }
-%struct.iovec = type { ptr, i64 }
 %"class.duckdb_snappy::SnappyArrayWriter" = type { ptr, ptr, ptr, ptr }
 %"class.duckdb_snappy::SnappyDecompressionValidator" = type { i64, i64 }
 %"class.duckdb_snappy::UncheckedByteArraySink" = type { %"class.duckdb_snappy::Sink", ptr }
@@ -26,7 +25,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.4" = type { %"struct.std::_Vector_base<char *, std::allocator<char *>>::_Vector_impl" }
 %"struct.std::_Vector_base<char *, std::allocator<char *>>::_Vector_impl" = type { %"struct.std::_Vector_base<char *, std::allocator<char *>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<char *, std::allocator<char *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.duckdb_snappy::SnappySinkAllocator::Datablock" = type { ptr, i64 }
 
 $__clang_call_terminate = comdat any
 
@@ -2185,7 +2183,7 @@ _ZN13duckdb_snappy6Varint8Encode32EPcj.exit:      ; preds = %13, %18, %27, %53, 
   %131 = load i64, ptr %6, align 8, !tbaa !6
   %132 = lshr exact i32 %.0.i.i, 1
   %133 = zext nneg i32 %132 to i64
-  %134 = getelementptr inbounds nuw i16, ptr %113, i64 %133
+  %134 = getelementptr inbounds nuw [2 x i8], ptr %113, i64 %133
   %135 = call noundef ptr @_ZN13duckdb_snappy8internal26CompressFragmentDoubleHashEPKcmPcPtiS4_i(ptr noundef %.058, i64 noundef %131, ptr noundef %121, ptr noundef %113, i32 noundef %132, ptr noundef nonnull %134, i32 poison)
   br label %136
 
@@ -2261,7 +2259,7 @@ define noundef zeroext i1 @_ZN13duckdb_snappy20RawUncompressToIOVecEPNS_6SourceE
   %5 = alloca %"class.duckdb_snappy::SnappyDecompressor", align 8
   %6 = alloca %"class.duckdb_snappy::SnappyIOVecWriter", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %7 = getelementptr inbounds nuw %struct.iovec, ptr %1, i64 %2
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %2
   store ptr %7, ptr %6, align 8, !tbaa !59
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %1, ptr %8, align 8, !tbaa !62
@@ -3182,7 +3180,7 @@ _ZN13duckdb_snappy15string_as_arrayEPNSt7__cxx1112basic_stringIcSt11char_traitsI
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
   %.014.i = phi i64 [ %21, %.lr.ph.i ], [ 0, %3 ]
   %.01213.i = phi i64 [ %22, %.lr.ph.i ], [ 0, %3 ]
-  %18 = getelementptr inbounds nuw %struct.iovec, ptr %0, i64 %.01213.i
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %.01213.i
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load i64, ptr %19, align 8, !tbaa !65
   %21 = add i64 %20, %.014.i
@@ -3244,7 +3242,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5eraseEmm.exit: ; preds = %
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %.014 = phi i64 [ %24, %.lr.ph ], [ 0, %4 ]
   %.01213 = phi i64 [ %25, %.lr.ph ], [ 0, %4 ]
-  %21 = getelementptr inbounds nuw %struct.iovec, ptr %0, i64 %.01213
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %.01213
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i64, ptr %22, align 8, !tbaa !65
   %24 = add i64 %23, %.014
@@ -4213,7 +4211,7 @@ _ZN13duckdb_snappy17SnappyIOVecWriter6AppendEPKcmPPc.exit.backedge: ; preds = %4
 
 137:                                              ; preds = %_ZN13duckdb_snappy17SnappyIOVecWriter6AppendEPKcmPPc.exit
   %138 = zext nneg i32 %35 to i64
-  %139 = getelementptr inbounds nuw i16, ptr @_ZN13duckdb_snappy12_GLOBAL__N_118kLengthMinusOffsetE, i64 %138
+  %139 = getelementptr inbounds nuw [2 x i8], ptr @_ZN13duckdb_snappy12_GLOBAL__N_118kLengthMinusOffsetE, i64 %138
   %140 = load i16, ptr %139, align 2, !tbaa !20
   %141 = sext i16 %140 to i64
   %.0.copyload.i130 = load i32, ptr %34, align 1
@@ -4313,7 +4311,7 @@ define linkonce_odr { ptr, i64 } @_ZN13duckdb_snappy20DecompressBranchlessIPcEES
   %.2101184 = phi ptr [ %.1100, %20 ], [ %.5104139, %_ZN13duckdb_snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcm.exit ]
   %.2108183 = phi i64 [ %.1107, %20 ], [ %.5111138, %_ZN13duckdb_snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcm.exit ]
   %.2115182 = phi ptr [ %.1114, %20 ], [ %45, %_ZN13duckdb_snappy12_GLOBAL__N_131Copy64BytesWithPatternExtensionEPcm.exit ]
-  %24 = getelementptr inbounds nuw i16, ptr @_ZN13duckdb_snappy12_GLOBAL__N_118kLengthMinusOffsetE, i64 %.194186
+  %24 = getelementptr inbounds nuw [2 x i8], ptr @_ZN13duckdb_snappy12_GLOBAL__N_118kLengthMinusOffsetE, i64 %.194186
   %25 = load i16, ptr %24, align 2, !tbaa !20
   %26 = sext i16 %25 to i64
   %27 = lshr i64 %.194186, 2
@@ -5247,7 +5245,7 @@ define linkonce_odr void @_ZN13duckdb_snappy18SnappyDecompressor17DecompressAllT
   %.294170.i = phi i64 [ %.193.i, %41 ], [ %.5132.i, %89 ]
   %.2105169.i = phi i64 [ %.1104.i, %41 ], [ %.5108131.i, %89 ]
   %.2112168.i = phi ptr [ %.1111.i, %41 ], [ %66, %89 ]
-  %45 = getelementptr inbounds nuw i16, ptr @_ZN13duckdb_snappy12_GLOBAL__N_118kLengthMinusOffsetE, i64 %.191171.i
+  %45 = getelementptr inbounds nuw [2 x i8], ptr @_ZN13duckdb_snappy12_GLOBAL__N_118kLengthMinusOffsetE, i64 %.191171.i
   %46 = load i16, ptr %45, align 2, !tbaa !20
   %47 = sext i16 %46 to i64
   %48 = lshr i64 %.191171.i, 2
@@ -5493,7 +5491,7 @@ _ZN13duckdb_snappy28SnappyDecompressionValidator14AppendFromSelfEmmPm.exit: ; pr
 
 175:                                              ; preds = %108
   %176 = zext i8 %110 to i64
-  %177 = getelementptr inbounds nuw i16, ptr @_ZN13duckdb_snappy12_GLOBAL__N_118kLengthMinusOffsetE, i64 %176
+  %177 = getelementptr inbounds nuw [2 x i8], ptr @_ZN13duckdb_snappy12_GLOBAL__N_118kLengthMinusOffsetE, i64 %176
   %178 = load i16, ptr %177, align 2, !tbaa !20
   %179 = sext i16 %178 to i64
   %.0.copyload.i131 = load i32, ptr %112, align 1
@@ -5839,7 +5837,7 @@ _ZN13duckdb_snappy17SnappyArrayWriter13TryFastAppendEPKcmmPPc.exit: ; preds = %6
 
 150:                                              ; preds = %61
   %151 = zext nneg i32 %63 to i64
-  %152 = getelementptr inbounds nuw i16, ptr @_ZN13duckdb_snappy12_GLOBAL__N_118kLengthMinusOffsetE, i64 %151
+  %152 = getelementptr inbounds nuw [2 x i8], ptr @_ZN13duckdb_snappy12_GLOBAL__N_118kLengthMinusOffsetE, i64 %151
   %153 = load i16, ptr %152, align 2, !tbaa !20
   %154 = sext i16 %153 to i64
   %.0.copyload.i131 = load i32, ptr %62, align 1
@@ -6282,7 +6280,7 @@ _ZN13duckdb_snappy21SnappyScatteredWriterINS_19SnappySinkAllocatorEE6AppendEPKcm
 
 157:                                              ; preds = %63
   %158 = zext nneg i32 %65 to i64
-  %159 = getelementptr inbounds nuw i16, ptr @_ZN13duckdb_snappy12_GLOBAL__N_118kLengthMinusOffsetE, i64 %158
+  %159 = getelementptr inbounds nuw [2 x i8], ptr @_ZN13duckdb_snappy12_GLOBAL__N_118kLengthMinusOffsetE, i64 %158
   %160 = load i16, ptr %159, align 2, !tbaa !20
   %161 = sext i16 %160 to i64
   %.0.copyload.i134 = load i32, ptr %64, align 1
@@ -6563,7 +6561,7 @@ _ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i: ; preds = %60, %
 _ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i: ; preds = %62, %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i
   store ptr %57, ptr %15, align 8, !tbaa !117
   store ptr %61, ptr %16, align 8, !tbaa !153
-  %63 = getelementptr inbounds nuw ptr, ptr %57, i64 %55
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %55
   store ptr %63, ptr %17, align 8, !tbaa !154
   br label %_ZNSt6vectorIPcSaIS0_EE9push_backERKS0_.exit
 
@@ -6664,7 +6662,7 @@ _ZNSt6vectorIN13duckdb_snappy19SnappySinkAllocator9DatablockESaIS2_EE11_S_reloca
 _ZNSt6vectorIN13duckdb_snappy19SnappySinkAllocator9DatablockESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %32, %_ZNSt6vectorIN13duckdb_snappy19SnappySinkAllocator9DatablockESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
   store ptr %27, ptr %7, align 8, !tbaa !113
   store ptr %31, ptr %8, align 8, !tbaa !114
-  %33 = getelementptr inbounds nuw %"struct.duckdb_snappy::SnappySinkAllocator::Datablock", ptr %27, i64 %25
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %25
   store ptr %33, ptr %10, align 8, !tbaa !156
   br label %_ZNSt6vectorIN13duckdb_snappy19SnappySinkAllocator9DatablockESaIS2_EE9push_backERKS2_.exit
 
@@ -6720,7 +6718,7 @@ define linkonce_odr noundef zeroext i1 @_ZN13duckdb_snappy21SnappyScatteredWrite
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %27 = lshr i64 %.034, 16
   %28 = load ptr, ptr %23, align 8, !tbaa !117
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %27
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %27
   %30 = load ptr, ptr %29, align 8, !tbaa !120
   %31 = and i64 %.034, 65535
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 %31

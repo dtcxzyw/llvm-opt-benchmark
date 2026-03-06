@@ -617,7 +617,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL9luauF_maxP9lua_StateP10lua_TVa
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %27
   %indvars.iv = phi i64 [ 3, %.lr.ph.preheader ], [ %indvars.iv.next, %27 ]
   %.02733 = phi double [ %21, %.lr.ph.preheader ], [ %31, %27 ]
-  %23 = getelementptr %struct.lua_TValue, ptr %4, i64 %indvars.iv
+  %23 = getelementptr [16 x i8], ptr %4, i64 %indvars.iv
   %24 = getelementptr i8, ptr %23, i64 -20
   %25 = load i32, ptr %24, align 4, !tbaa !4
   %26 = icmp eq i32 %25, 3
@@ -679,7 +679,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL9luauF_minP9lua_StateP10lua_TVa
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %27
   %indvars.iv = phi i64 [ 3, %.lr.ph.preheader ], [ %indvars.iv.next, %27 ]
   %.02733 = phi double [ %21, %.lr.ph.preheader ], [ %31, %27 ]
-  %23 = getelementptr %struct.lua_TValue, ptr %4, i64 %indvars.iv
+  %23 = getelementptr [16 x i8], ptr %4, i64 %indvars.iv
   %24 = getelementptr i8, ptr %23, i64 -20
   %25 = load i32, ptr %24, align 4, !tbaa !4
   %26 = icmp eq i32 %25, 3
@@ -1007,7 +1007,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL10luauF_bandP9lua_StateP10lua_T
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %29
   %indvars.iv = phi i64 [ 3, %.lr.ph.preheader ], [ %indvars.iv.next, %29 ]
   %.02632 = phi i32 [ %23, %.lr.ph.preheader ], [ %34, %29 ]
-  %25 = getelementptr %struct.lua_TValue, ptr %4, i64 %indvars.iv
+  %25 = getelementptr [16 x i8], ptr %4, i64 %indvars.iv
   %26 = getelementptr i8, ptr %25, i64 -20
   %27 = load i32, ptr %26, align 4, !tbaa !4
   %28 = icmp eq i32 %27, 3
@@ -1102,7 +1102,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL9luauF_borP9lua_StateP10lua_TVa
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %29
   %indvars.iv = phi i64 [ 3, %.lr.ph.preheader ], [ %indvars.iv.next, %29 ]
   %.02632 = phi i32 [ %23, %.lr.ph.preheader ], [ %34, %29 ]
-  %25 = getelementptr %struct.lua_TValue, ptr %4, i64 %indvars.iv
+  %25 = getelementptr [16 x i8], ptr %4, i64 %indvars.iv
   %26 = getelementptr i8, ptr %25, i64 -20
   %27 = load i32, ptr %26, align 4, !tbaa !4
   %28 = icmp eq i32 %27, 3
@@ -1168,7 +1168,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL10luauF_bxorP9lua_StateP10lua_T
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %29
   %indvars.iv = phi i64 [ 3, %.lr.ph.preheader ], [ %indvars.iv.next, %29 ]
   %.02632 = phi i32 [ %23, %.lr.ph.preheader ], [ %34, %29 ]
-  %25 = getelementptr %struct.lua_TValue, ptr %4, i64 %indvars.iv
+  %25 = getelementptr [16 x i8], ptr %4, i64 %indvars.iv
   %26 = getelementptr i8, ptr %25, i64 -20
   %27 = load i32, ptr %26, align 4, !tbaa !4
   %28 = icmp eq i32 %27, 3
@@ -1234,7 +1234,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL11luauF_btestP9lua_StateP10lua_
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %29
   %indvars.iv = phi i64 [ 3, %.lr.ph.preheader ], [ %indvars.iv.next, %29 ]
   %.02632 = phi i32 [ %23, %.lr.ph.preheader ], [ %34, %29 ]
-  %25 = getelementptr %struct.lua_TValue, ptr %4, i64 %indvars.iv
+  %25 = getelementptr [16 x i8], ptr %4, i64 %indvars.iv
   %26 = getelementptr i8, ptr %25, i64 -20
   %27 = load i32, ptr %26, align 4, !tbaa !4
   %28 = icmp eq i32 %27, 3
@@ -1595,7 +1595,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL10luauF_typeP9lua_StateP10lua_T
   %13 = load ptr, ptr %12, align 8, !tbaa !20
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 2944
   %15 = sext i32 %11 to i64
-  %16 = getelementptr inbounds ptr, ptr %14, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !32
   store ptr %17, ptr %1, align 8, !tbaa !9
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -1672,7 +1672,7 @@ define internal noundef range(i32 -1, -2147483648) i32 @_ZL10luauF_byteP9lua_Sta
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %40 = getelementptr inbounds nuw %struct.lua_TValue, ptr %1, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv
   %gep = getelementptr i8, ptr %invariant.gep, i64 %indvars.iv
   %41 = getelementptr i8, ptr %gep, i64 23
   %42 = load i8, ptr %41, align 1, !tbaa !9
@@ -1737,7 +1737,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL10luauF_charP9lua_StateP10lua_T
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %37
   %indvars.iv = phi i64 [ 2, %.lr.ph.preheader ], [ %indvars.iv.next, %37 ]
-  %29 = getelementptr %struct.lua_TValue, ptr %4, i64 %indvars.iv
+  %29 = getelementptr [16 x i8], ptr %4, i64 %indvars.iv
   %30 = getelementptr i8, ptr %29, i64 -20
   %31 = load i32, ptr %30, align 4, !tbaa !4
   %32 = icmp eq i32 %31, 3
@@ -2298,14 +2298,14 @@ define internal noundef range(i32 -1, -2147483648) i32 @_ZL13luauF_tunpackP9lua_
   %51 = load ptr, ptr %50, align 8, !tbaa !60
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %53 = load ptr, ptr %52, align 8, !tbaa !61
-  %54 = getelementptr inbounds nuw %struct.lua_TValue, ptr %1, i64 %.pre-phi
+  %54 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %.pre-phi
   %55 = icmp ult ptr %53, %54
   br i1 %55, label %58, label %.thread49
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %56 = getelementptr inbounds nuw %struct.lua_TValue, ptr %49, i64 %indvars.iv
-  %57 = getelementptr inbounds nuw %struct.lua_TValue, ptr %1, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [16 x i8], ptr %49, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %57, ptr noundef nonnull align 8 dereferenceable(16) %56, i64 16, i1 false), !tbaa.struct !56
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2522,9 +2522,9 @@ define internal noundef range(i32 -1, 2) i32 @_ZL12luauF_selectP9lua_StateP10lua
 35:                                               ; preds = %31
   %36 = sext i32 %28 to i64
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds %struct.lua_TValue, ptr %11, i64 %37
+  %38 = getelementptr inbounds [16 x i8], ptr %11, i64 %37
   %39 = sext i32 %34 to i64
-  %40 = getelementptr inbounds %struct.lua_TValue, ptr %38, i64 %39
+  %40 = getelementptr inbounds [16 x i8], ptr %38, i64 %39
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(16) %40, i64 16, i1 false), !tbaa.struct !56
   br label %.critedge
 
@@ -2653,7 +2653,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL18luauF_getmetatableP9lua_State
   %20 = load ptr, ptr %19, align 8, !tbaa !20
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 2856
   %22 = sext i32 %11 to i64
-  %23 = getelementptr inbounds ptr, ptr %21, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %21, i64 %22
   br label %24
 
 24:                                               ; preds = %15, %18, %12
@@ -4001,7 +4001,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL15luauF_vectorminP9lua_StateP10
   %.sroa.12.063 = phi float [ %32, %.lr.ph.preheader ], [ %49, %38 ]
   %.sroa.7.062 = phi float [ %26, %.lr.ph.preheader ], [ %45, %38 ]
   %.sroa.0.060 = phi float [ %., %.lr.ph.preheader ], [ %..sroa.0.0, %38 ]
-  %34 = getelementptr %struct.lua_TValue, ptr %4, i64 %indvars.iv
+  %34 = getelementptr [16 x i8], ptr %4, i64 %indvars.iv
   %35 = getelementptr i8, ptr %34, i64 -20
   %36 = load i32, ptr %35, align 4, !tbaa !4
   %37 = icmp eq i32 %36, 4
@@ -4091,7 +4091,7 @@ define internal noundef range(i32 -1, 2) i32 @_ZL15luauF_vectormaxP9lua_StateP10
   %.sroa.12.063 = phi float [ %32, %.lr.ph.preheader ], [ %49, %38 ]
   %.sroa.7.062 = phi float [ %26, %.lr.ph.preheader ], [ %45, %38 ]
   %.sroa.0.060 = phi float [ %., %.lr.ph.preheader ], [ %..sroa.0.0, %38 ]
-  %34 = getelementptr %struct.lua_TValue, ptr %4, i64 %indvars.iv
+  %34 = getelementptr [16 x i8], ptr %4, i64 %indvars.iv
   %35 = getelementptr i8, ptr %34, i64 -20
   %36 = load i32, ptr %35, align 4, !tbaa !4
   %37 = icmp eq i32 %36, 4

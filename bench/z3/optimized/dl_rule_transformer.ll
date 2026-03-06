@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.scoped_ptr.104 = type { ptr }
 %class.obj_hashtable.105 = type { %class.core_hashtable.base.109, [4 x i8] }
 %class.core_hashtable.base.109 = type <{ ptr, i32, i32, i32 }>
-%class.obj_hash_entry = type { ptr }
 %"struct.__gnu_cxx::__ops::_Iter_comp_iter" = type { i8 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
@@ -313,7 +312,7 @@ _ZN6vectorIPN7datalog16rule_transformer6pluginELb0EjE9push_backERKS3_.exit: ; pr
   %14 = phi ptr [ %.pre.i, %12 ], [ %4, %6 ]
   %15 = getelementptr inbounds i8, ptr %14, i64 -4
   %16 = zext i32 %13 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr %14, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %16
   store ptr %1, ptr %17, align 8, !tbaa !20
   %18 = add i32 %13, 1
   store i32 %18, ptr %15, align 4, !tbaa !18
@@ -921,8 +920,8 @@ _ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit: 
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 %22
   %24 = load i8, ptr %23, align 1, !tbaa !241, !range !24, !noundef !25
   %25 = zext nneg i8 %24 to i64
-  %26 = getelementptr inbounds nuw %class.obj_hashtable.105, ptr %3, i64 %25
-  %27 = getelementptr inbounds nuw ptr, ptr %16, i64 %22
+  %26 = getelementptr inbounds nuw [24 x i8], ptr %3, i64 %25
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %22
   %28 = load ptr, ptr %0, align 8, !tbaa !242
   %29 = load ptr, ptr %27, align 8, !tbaa !243
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 12
@@ -936,7 +935,7 @@ _ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit: 
   %.idx.i.i = shl nuw nsw i64 %37, 3
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 %.idx.i.i
   %39 = zext i32 %33 to i64
-  %40 = getelementptr inbounds nuw %class.obj_hash_entry, ptr %36, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %39
   %.not34.i.i = icmp eq i32 %35, %33
   br i1 %.not34.i.i, label %.preheader.i.i, label %.lr.ph.i.i
 
@@ -1004,7 +1003,7 @@ _ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit35
 
 63:                                               ; preds = %_ZNK15ref_vector_coreI3app19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit35.thread
   %64 = zext i32 %62 to i64
-  %65 = getelementptr inbounds nuw ptr, ptr %16, i64 %64
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %64
   %66 = load ptr, ptr %65, align 8, !tbaa !243
   %.not.i.i38 = icmp eq ptr %66, null
   br i1 %.not.i.i38, label %_ZN11ast_manager7inc_refEP3ast.exit.i, label %67
@@ -1102,7 +1101,7 @@ _ZN11ast_manager7inc_refEP3ast.exit.i:            ; preds = %67, %63
 _ZN6vectorIP3appLb0EjE4backEv.exit.i:             ; preds = %103, %._ZN6vectorIP3appLb0EjE4backEv.exit_crit_edge.i
   %.pre-phi.i = phi i32 [ %.pre2.i, %._ZN6vectorIP3appLb0EjE4backEv.exit_crit_edge.i ], [ %106, %103 ]
   %.0.i.i.i40 = phi i64 [ 4294967295, %._ZN6vectorIP3appLb0EjE4backEv.exit_crit_edge.i ], [ %107, %103 ]
-  %108 = getelementptr inbounds nuw ptr, ptr %101, i64 %.0.i.i.i40
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %.0.i.i.i40
   %109 = load ptr, ptr %108, align 8, !tbaa !243
   %110 = getelementptr inbounds i8, ptr %101, i64 -4
   store i32 %.pre-phi.i, ptr %110, align 4, !tbaa !18
@@ -1257,7 +1256,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI14obj_hash_entryI3appE12obj
   %.idx = shl nuw nsw i64 %22, 3
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 %.idx
   %24 = zext i32 %15 to i64
-  %25 = getelementptr inbounds nuw %class.obj_hash_entry, ptr %21, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %24
   %.not62 = icmp eq i32 %20, %15
   br i1 %.not62, label %.preheader, label %.lr.ph
 
@@ -1415,8 +1414,8 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPPN7datalog16rule_transf
   %.029.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %.lr.ph.i.i ]
   %23 = shl i64 %.029.i.i.i.i, 1
   %24 = add i64 %23, 2
-  %25 = getelementptr inbounds ptr, ptr %0, i64 %24
-  %26 = getelementptr ptr, ptr %0, i64 %23
+  %25 = getelementptr inbounds [8 x i8], ptr %0, i64 %24
+  %26 = getelementptr [8 x i8], ptr %0, i64 %23
   %27 = getelementptr i8, ptr %26, i64 8
   %28 = load ptr, ptr %25, align 8, !tbaa !20
   %29 = load ptr, ptr %27, align 8, !tbaa !20
@@ -1427,9 +1426,9 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPPN7datalog16rule_transf
   %34 = icmp ugt i32 %31, %33
   %35 = or disjoint i64 %23, 1
   %spec.select.i.i.i.i = select i1 %34, i64 %35, i64 %24
-  %36 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i.i.i.i
+  %36 = getelementptr inbounds [8 x i8], ptr %0, i64 %spec.select.i.i.i.i
   %37 = load ptr, ptr %36, align 8, !tbaa !20
-  %38 = getelementptr inbounds ptr, ptr %0, i64 %.029.i.i.i.i
+  %38 = getelementptr inbounds [8 x i8], ptr %0, i64 %.029.i.i.i.i
   store ptr %37, ptr %38, align 8, !tbaa !20
   %39 = icmp slt i64 %spec.select.i.i.i.i, %21
   br i1 %39, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !253
@@ -1449,9 +1448,9 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPPN7datalog16rule_transf
 .thread.i.i.i:                                    ; preds = %42
   %46 = shl nuw nsw i64 %.0.lcssa.i.i.i.i, 1
   %47 = or disjoint i64 %46, 1
-  %48 = getelementptr inbounds nuw ptr, ptr %0, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %47
   %49 = load ptr, ptr %48, align 8, !tbaa !20
-  %50 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i.i.i.i
+  %50 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0.lcssa.i.i.i.i
   store ptr %49, ptr %50, align 8, !tbaa !20
   br label %.lr.ph.i.i.i.i.i
 
@@ -1469,7 +1468,7 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPPN7datalog16rule_transf
   %.01317.i.i.i.i.i = phi i64 [ %.128.i9.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.018.i.i1011.i.i.i, %60 ]
   %.018.in.i.i.i.i.i = add nsw i64 %.01317.i.i.i.i.i, -1
   %.018.i.i1011.i.i.i = lshr i64 %.018.in.i.i.i.i.i, 1
-  %55 = getelementptr inbounds nuw ptr, ptr %0, i64 %.018.i.i1011.i.i.i
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.018.i.i1011.i.i.i
   %56 = load ptr, ptr %55, align 8, !tbaa !20
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load i32, ptr %57, align 8, !tbaa !252
@@ -1477,14 +1476,14 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPPN7datalog16rule_transf
   br i1 %59, label %60, label %_ZSt10__pop_heapIPPN7datalog16rule_transformer6pluginEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_SA_SA_RT0_.exit.i.i
 
 60:                                               ; preds = %54
-  %61 = getelementptr inbounds ptr, ptr %0, i64 %.01317.i.i.i.i.i
+  %61 = getelementptr inbounds [8 x i8], ptr %0, i64 %.01317.i.i.i.i.i
   store ptr %56, ptr %61, align 8, !tbaa !20
   %.not12.i.i.i = icmp eq i64 %.018.i.i1011.i.i.i, 0
   br i1 %.not12.i.i.i, label %_ZSt10__pop_heapIPPN7datalog16rule_transformer6pluginEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_SA_SA_RT0_.exit.i.i, label %54, !llvm.loop !254
 
 _ZSt10__pop_heapIPPN7datalog16rule_transformer6pluginEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_SA_SA_RT0_.exit.i.i: ; preds = %60, %54, %51
   %.013.lcssa.i.i.i.i.i = phi i64 [ 0, %51 ], [ %.01317.i.i.i.i.i, %54 ], [ 0, %60 ]
-  %62 = getelementptr inbounds ptr, ptr %0, i64 %.013.lcssa.i.i.i.i.i
+  %62 = getelementptr inbounds [8 x i8], ptr %0, i64 %.013.lcssa.i.i.i.i.i
   store ptr %15, ptr %62, align 8, !tbaa !20
   %63 = icmp sgt i64 %18, 8
   br i1 %63, label %.lr.ph.i.i, label %_ZSt14__partial_sortIPPN7datalog16rule_transformer6pluginEN9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_SA_SA_T0_.exit, !llvm.loop !255
@@ -1492,7 +1491,7 @@ _ZSt10__pop_heapIPPN7datalog16rule_transformer6pluginEN9__gnu_cxx5__ops15_Iter_c
 64:                                               ; preds = %10
   %65 = add nsw i64 %.01724, -1
   %66 = lshr i64 %11, 4
-  %67 = getelementptr inbounds nuw ptr, ptr %0, i64 %66
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %66
   %68 = getelementptr inbounds i8, ptr %.025, i64 -8
   %69 = load ptr, ptr %9, align 8, !tbaa !20
   %70 = load ptr, ptr %67, align 8, !tbaa !20
@@ -1724,7 +1723,7 @@ _ZSt25__unguarded_linear_insertIPPN7datalog16rule_transformer6pluginEN9__gnu_cxx
   %53 = sub i64 %52, %4
   %54 = ashr exact i64 %53, 3
   %55 = sub nsw i64 0, %54
-  %56 = getelementptr inbounds ptr, ptr %51, i64 %55
+  %56 = getelementptr inbounds [8 x i8], ptr %51, i64 %55
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %56, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %53, i1 false)
   br label %_ZSt25__unguarded_linear_insertIPPN7datalog16rule_transformer6pluginEN9__gnu_cxx5__ops14_Val_comp_iterINS1_17plugin_comparatorEEEEvT_T0_.exit.i23
 
@@ -1779,13 +1778,13 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPPN7datalog16rule_transformer
 
 .split.preheader:                                 ; preds = %9
   %17 = or disjoint i64 %10, 1
-  %18 = getelementptr inbounds nuw ptr, ptr %0, i64 %17
-  %19 = getelementptr inbounds nuw ptr, ptr %0, i64 %16
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %17
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %16
   br label %.split
 
 .split.us:                                        ; preds = %9, %_ZSt13__adjust_heapIPPN7datalog16rule_transformer6pluginElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_T0_SB_T1_T2_.exit.us
   %.014.us = phi i64 [ %53, %_ZSt13__adjust_heapIPPN7datalog16rule_transformer6pluginElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_T0_SB_T1_T2_.exit.us ], [ %11, %9 ]
-  %20 = getelementptr inbounds nuw ptr, ptr %0, i64 %.014.us
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.014.us
   %21 = load ptr, ptr %20, align 8, !tbaa !20
   %22 = icmp slt i64 %.014.us, %13
   br i1 %22, label %.lr.ph.i.us, label %_ZSt13__adjust_heapIPPN7datalog16rule_transformer6pluginElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_T0_SB_T1_T2_.exit.us
@@ -1794,8 +1793,8 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPPN7datalog16rule_transformer
   %.029.i.us = phi i64 [ %spec.select.i.us, %.lr.ph.i.us ], [ %.014.us, %.split.us ]
   %23 = shl i64 %.029.i.us, 1
   %24 = add i64 %23, 2
-  %25 = getelementptr inbounds ptr, ptr %0, i64 %24
-  %26 = getelementptr ptr, ptr %0, i64 %23
+  %25 = getelementptr inbounds [8 x i8], ptr %0, i64 %24
+  %26 = getelementptr [8 x i8], ptr %0, i64 %23
   %27 = getelementptr i8, ptr %26, i64 8
   %28 = load ptr, ptr %25, align 8, !tbaa !20
   %29 = load ptr, ptr %27, align 8, !tbaa !20
@@ -1806,9 +1805,9 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPPN7datalog16rule_transformer
   %34 = icmp ugt i32 %31, %33
   %35 = or disjoint i64 %23, 1
   %spec.select.i.us = select i1 %34, i64 %35, i64 %24
-  %36 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i.us
+  %36 = getelementptr inbounds [8 x i8], ptr %0, i64 %spec.select.i.us
   %37 = load ptr, ptr %36, align 8, !tbaa !20
-  %38 = getelementptr inbounds ptr, ptr %0, i64 %.029.i.us
+  %38 = getelementptr inbounds [8 x i8], ptr %0, i64 %.029.i.us
   store ptr %37, ptr %38, align 8, !tbaa !20
   %39 = icmp slt i64 %spec.select.i.us, %13
   br i1 %39, label %.lr.ph.i.us, label %._crit_edge.i.us, !llvm.loop !253
@@ -1826,7 +1825,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPPN7datalog16rule_transformer
   %.01317.i.i.us = phi i64 [ %spec.select.i.us, %.lr.ph.i.i.us ], [ %.018.i.i.us, %49 ]
   %.018.in.i.i.us = add nsw i64 %.01317.i.i.us, -1
   %.018.i.i.us = sdiv i64 %.018.in.i.i.us, 2
-  %44 = getelementptr inbounds nuw ptr, ptr %0, i64 %.018.i.i.us
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.018.i.i.us
   %45 = load ptr, ptr %44, align 8, !tbaa !20
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load i32, ptr %46, align 8, !tbaa !252
@@ -1834,14 +1833,14 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPPN7datalog16rule_transformer
   br i1 %48, label %49, label %_ZSt13__adjust_heapIPPN7datalog16rule_transformer6pluginElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_T0_SB_T1_T2_.exit.us
 
 49:                                               ; preds = %43
-  %50 = getelementptr inbounds nuw ptr, ptr %0, i64 %.01317.i.i.us
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.01317.i.i.us
   store ptr %45, ptr %50, align 8, !tbaa !20
   %51 = icmp sgt i64 %.018.i.i.us, %.014.us
   br i1 %51, label %43, label %_ZSt13__adjust_heapIPPN7datalog16rule_transformer6pluginElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_T0_SB_T1_T2_.exit.us, !llvm.loop !254
 
 _ZSt13__adjust_heapIPPN7datalog16rule_transformer6pluginElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_T0_SB_T1_T2_.exit.us: ; preds = %43, %49, %.split.us, %._crit_edge.i.us
   %.013.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.014.us, %.split.us ], [ %.01317.i.i.us, %43 ], [ %.018.i.i.us, %49 ]
-  %52 = getelementptr inbounds nuw ptr, ptr %0, i64 %.013.lcssa.i.i.us
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.013.lcssa.i.i.us
   store ptr %21, ptr %52, align 8, !tbaa !20
   %.not.us = icmp eq i64 %.014.us, 0
   %53 = add nsw i64 %.014.us, -1
@@ -1849,7 +1848,7 @@ _ZSt13__adjust_heapIPPN7datalog16rule_transformer6pluginElS3_N9__gnu_cxx5__ops15
 
 .split:                                           ; preds = %.split.preheader, %_ZSt13__adjust_heapIPPN7datalog16rule_transformer6pluginElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_T0_SB_T1_T2_.exit
   %.014 = phi i64 [ %91, %_ZSt13__adjust_heapIPPN7datalog16rule_transformer6pluginElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_T0_SB_T1_T2_.exit ], [ %11, %.split.preheader ]
-  %54 = getelementptr inbounds nuw ptr, ptr %0, i64 %.014
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.014
   %55 = load ptr, ptr %54, align 8, !tbaa !20
   %56 = icmp slt i64 %.014, %13
   br i1 %56, label %.lr.ph.i, label %._crit_edge.i
@@ -1858,8 +1857,8 @@ _ZSt13__adjust_heapIPPN7datalog16rule_transformer6pluginElS3_N9__gnu_cxx5__ops15
   %.029.i = phi i64 [ %spec.select.i, %.lr.ph.i ], [ %.014, %.split ]
   %57 = shl i64 %.029.i, 1
   %58 = add i64 %57, 2
-  %59 = getelementptr inbounds ptr, ptr %0, i64 %58
-  %60 = getelementptr ptr, ptr %0, i64 %57
+  %59 = getelementptr inbounds [8 x i8], ptr %0, i64 %58
+  %60 = getelementptr [8 x i8], ptr %0, i64 %57
   %61 = getelementptr i8, ptr %60, i64 8
   %62 = load ptr, ptr %59, align 8, !tbaa !20
   %63 = load ptr, ptr %61, align 8, !tbaa !20
@@ -1870,9 +1869,9 @@ _ZSt13__adjust_heapIPPN7datalog16rule_transformer6pluginElS3_N9__gnu_cxx5__ops15
   %68 = icmp ugt i32 %65, %67
   %69 = or disjoint i64 %57, 1
   %spec.select.i = select i1 %68, i64 %69, i64 %58
-  %70 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i
+  %70 = getelementptr inbounds [8 x i8], ptr %0, i64 %spec.select.i
   %71 = load ptr, ptr %70, align 8, !tbaa !20
-  %72 = getelementptr inbounds ptr, ptr %0, i64 %.029.i
+  %72 = getelementptr inbounds [8 x i8], ptr %0, i64 %.029.i
   store ptr %71, ptr %72, align 8, !tbaa !20
   %73 = icmp slt i64 %spec.select.i, %13
   br i1 %73, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !253
@@ -1901,7 +1900,7 @@ _ZSt13__adjust_heapIPPN7datalog16rule_transformer6pluginElS3_N9__gnu_cxx5__ops15
   %.01317.i.i = phi i64 [ %.128.i, %.lr.ph.i.i ], [ %.018.i.i, %87 ]
   %.018.in.i.i = add nsw i64 %.01317.i.i, -1
   %.018.i.i = sdiv i64 %.018.in.i.i, 2
-  %82 = getelementptr inbounds nuw ptr, ptr %0, i64 %.018.i.i
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.018.i.i
   %83 = load ptr, ptr %82, align 8, !tbaa !20
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %85 = load i32, ptr %84, align 8, !tbaa !252
@@ -1909,14 +1908,14 @@ _ZSt13__adjust_heapIPPN7datalog16rule_transformer6pluginElS3_N9__gnu_cxx5__ops15
   br i1 %86, label %87, label %_ZSt13__adjust_heapIPPN7datalog16rule_transformer6pluginElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_T0_SB_T1_T2_.exit
 
 87:                                               ; preds = %81
-  %88 = getelementptr inbounds nuw ptr, ptr %0, i64 %.01317.i.i
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.01317.i.i
   store ptr %83, ptr %88, align 8, !tbaa !20
   %89 = icmp sgt i64 %.018.i.i, %.014
   br i1 %89, label %81, label %_ZSt13__adjust_heapIPPN7datalog16rule_transformer6pluginElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_T0_SB_T1_T2_.exit, !llvm.loop !254
 
 _ZSt13__adjust_heapIPPN7datalog16rule_transformer6pluginElS3_N9__gnu_cxx5__ops15_Iter_comp_iterINS1_17plugin_comparatorEEEEvT_T0_SB_T1_T2_.exit: ; preds = %81, %87, %77
   %.013.lcssa.i.i = phi i64 [ %.128.i, %77 ], [ %.018.i.i, %87 ], [ %.01317.i.i, %81 ]
-  %90 = getelementptr inbounds nuw ptr, ptr %0, i64 %.013.lcssa.i.i
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.013.lcssa.i.i
   store ptr %55, ptr %90, align 8, !tbaa !20
   %.not = icmp eq i64 %.014, 0
   %91 = add nsw i64 %.014, -1
@@ -2207,7 +2206,7 @@ _ZN14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE11allo
   %11 = zext i32 %9 to i64
   %.idx.i = shl nuw nsw i64 %11, 3
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i
-  %13 = getelementptr inbounds nuw %class.obj_hash_entry, ptr %7, i64 %5
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %5
   %.not38.i = icmp eq i32 %9, 0
   br i1 %.not38.i, label %_ZN14core_hashtableI14obj_hash_entryI3appE12obj_ptr_hashIS1_E6ptr_eqIS1_EE10move_tableEPS2_jS8_j.exit, label %.lr.ph41.i
 

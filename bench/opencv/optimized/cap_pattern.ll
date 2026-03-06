@@ -1115,7 +1115,7 @@ _ZNSolsEPFRSoS_E.exit261:                         ; preds = %.noexc592
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   %462 = sext i32 %.0251650 to i64
   %463 = load ptr, ptr %12, align 8, !tbaa !60
-  %464 = getelementptr inbounds nuw %"class.cv::Mat", ptr %463, i64 %462
+  %464 = getelementptr inbounds nuw [96 x i8], ptr %463, i64 %462
   store i32 0, ptr %334, align 8, !tbaa !62
   store i32 0, ptr %335, align 4, !tbaa !63
   store i32 16842752, ptr %25, align 8, !tbaa !53
@@ -3835,7 +3835,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNS
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !60
   store ptr %.0.lcssa.i.i.i.i31, ptr %4, align 8, !tbaa !57
-  %29 = getelementptr inbounds nuw %"class.cv::Mat", ptr %20, i64 %16
+  %29 = getelementptr inbounds nuw [96 x i8], ptr %20, i64 %16
   store ptr %29, ptr %28, align 8, !tbaa !61
   ret void
 

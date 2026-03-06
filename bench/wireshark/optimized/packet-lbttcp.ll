@@ -8,7 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
 %struct.anon = type { ptr, ptr, ptr }
 %struct.anon.0 = type { ptr, ptr, ptr }
-%struct.lbttcp_tag_entry_t = type { ptr, i32, i32, i32, i32, i32, i32 }
 
 @lbttcp_null_address = internal constant %struct._address zeroinitializer, align 8
 @proto_lbttcp = internal unnamed_addr global i32 0, align 4
@@ -597,7 +596,7 @@ define internal noundef zeroext i1 @test_lbttcp_packet(ptr noundef %0, ptr nound
 
 18:                                               ; preds = %50, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %50 ]
-  %19 = getelementptr %struct.lbttcp_tag_entry_t, ptr %14, i64 %indvars.iv.i.i
+  %19 = getelementptr [32 x i8], ptr %14, i64 %indvars.iv.i.i
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i32, ptr %20, align 8
   %.not.i.i = icmp ult i32 %16, %21
@@ -775,7 +774,7 @@ define internal fastcc i32 @dissect_lbttcp_real(ptr noundef %0, ptr noundef %1, 
 
 14:                                               ; preds = %46, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %46 ]
-  %15 = getelementptr %struct.lbttcp_tag_entry_t, ptr %10, i64 %indvars.iv.i.i
+  %15 = getelementptr [32 x i8], ptr %10, i64 %indvars.iv.i.i
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load i32, ptr %16, align 8
   %.not.i.i = icmp ult i32 %12, %17
@@ -918,7 +917,7 @@ define internal i32 @dissect_lbttcp_pdu(ptr noundef %0, ptr noundef %1, ptr noun
 
 14:                                               ; preds = %46, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %46 ]
-  %15 = getelementptr %struct.lbttcp_tag_entry_t, ptr %10, i64 %indvars.iv.i
+  %15 = getelementptr [32 x i8], ptr %10, i64 %indvars.iv.i
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load i32, ptr %16, align 8
   %.not.i = icmp ult i32 %12, %17
@@ -996,7 +995,7 @@ define internal i32 @dissect_lbttcp_pdu(ptr noundef %0, ptr noundef %1, ptr noun
 
 47:                                               ; preds = %79, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %79 ]
-  %48 = getelementptr %struct.lbttcp_tag_entry_t, ptr %10, i64 %indvars.iv.i.i
+  %48 = getelementptr [32 x i8], ptr %10, i64 %indvars.iv.i.i
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load i32, ptr %49, align 8
   %.not.i.i = icmp ult i32 %12, %50

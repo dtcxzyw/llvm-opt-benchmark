@@ -780,7 +780,7 @@ do.body.preheader:                                ; preds = %if.end42, %write_qu
 for.body:                                         ; preds = %write_queue_drain, %if.end42
   %q.078 = phi ptr [ %q.0, %if.end42 ], [ %q.075, %write_queue_drain ]
   %pkts.077 = phi i64 [ %inc, %if.end42 ], [ 0, %write_queue_drain ]
-  %arrayidx = getelementptr inbounds nuw %struct.mmsghdr, ptr %h, i64 %pkts.077
+  %arrayidx = getelementptr inbounds nuw [64 x i8], ptr %h, i64 %pkts.077
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %arrayidx, i8 0, i64 64, i1 false)
   %addr = getelementptr inbounds nuw i8, ptr %q.078, i64 16
   %1 = load i16, ptr %addr, align 8
@@ -1203,17 +1203,17 @@ for.body.i.i:                                     ; preds = %if.then3.i, %for.bo
   %k.053.i.i = phi i64 [ %inc.i.i, %for.body.i.i ], [ 0, %if.then3.i ]
   %mul.i.i = shl nuw i64 %k.053.i.i, 16
   %add.ptr.i.i = getelementptr inbounds i8, ptr %3, i64 %mul.i.i
-  %arrayidx.i.i = getelementptr inbounds nuw %struct.iovec, ptr %iov.i.i, i64 %k.053.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [16 x i8], ptr %iov.i.i, i64 %k.053.i.i
   store ptr %add.ptr.i.i, ptr %arrayidx.i.i, align 16
   %iov_len.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 8
   store i64 65536, ptr %iov_len.i.i, align 8
-  %arrayidx3.i.i = getelementptr inbounds nuw %struct.mmsghdr, ptr %msgs.i.i, i64 %k.053.i.i
+  %arrayidx3.i.i = getelementptr inbounds nuw [64 x i8], ptr %msgs.i.i, i64 %k.053.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %arrayidx3.i.i, i8 0, i64 56, i1 false)
   %msg_iov.i.i = getelementptr inbounds nuw i8, ptr %arrayidx3.i.i, i64 16
   store ptr %arrayidx.i.i, ptr %msg_iov.i.i, align 16
   %msg_iovlen.i.i = getelementptr inbounds nuw i8, ptr %arrayidx3.i.i, i64 24
   store i64 1, ptr %msg_iovlen.i.i, align 8
-  %add.ptr10.i.i = getelementptr inbounds nuw %struct.sockaddr_in6, ptr %peers.i.i, i64 %k.053.i.i
+  %add.ptr10.i.i = getelementptr inbounds nuw [28 x i8], ptr %peers.i.i, i64 %k.053.i.i
   store ptr %add.ptr10.i.i, ptr %arrayidx3.i.i, align 16
   %msg_namelen.i.i = getelementptr inbounds nuw i8, ptr %arrayidx3.i.i, i64 8
   store i32 28, ptr %msg_namelen.i.i, align 8
@@ -1273,13 +1273,13 @@ land.rhs49.i.i:                                   ; preds = %do.end.i.i, %for.bo
   br i1 %cmp51.not.i.i, label %uv__udp_recvmmsg.exit.i, label %for.body54.i.i
 
 for.body54.i.i:                                   ; preds = %land.rhs49.i.i
-  %arrayidx55.i.i = getelementptr inbounds nuw %struct.mmsghdr, ptr %msgs.i.i, i64 %k.156.i.i
+  %arrayidx55.i.i = getelementptr inbounds nuw [64 x i8], ptr %msgs.i.i, i64 %k.156.i.i
   %msg_flags57.i.i = getelementptr inbounds nuw i8, ptr %arrayidx55.i.i, i64 48
   %14 = load i32, ptr %msg_flags57.i.i, align 16
   %and.i25.i = and i32 %14, 32
   %tobool.not.i.i = icmp eq i32 %and.i25.i, 0
   %spec.select.i.i = select i1 %tobool.not.i.i, i32 8, i32 10
-  %arrayidx60.i.i = getelementptr inbounds nuw %struct.iovec, ptr %iov.i.i, i64 %k.156.i.i
+  %arrayidx60.i.i = getelementptr inbounds nuw [16 x i8], ptr %iov.i.i, i64 %k.156.i.i
   %15 = load ptr, ptr %arrayidx60.i.i, align 16
   %iov_len63.i.i = getelementptr inbounds nuw i8, ptr %arrayidx60.i.i, i64 8
   %16 = load i64, ptr %iov_len63.i.i, align 8

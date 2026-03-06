@@ -120,10 +120,10 @@ define i32 @H5_checksum_crc(ptr noundef readonly captures(none) %0, i64 noundef 
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.preheader.i.i ], [ 0, %9 ]
   %10 = trunc nuw nsw i64 %indvars.iv.i.i to i32
   %crc.le.shift.i.i = lshr i32 %10, 8
-  %tbl.ptradd.i.i = getelementptr inbounds nuw i32, ptr @.crctable, i64 %indvars.iv.i.i
+  %tbl.ptradd.i.i = getelementptr inbounds nuw [4 x i8], ptr @.crctable, i64 %indvars.iv.i.i
   %tbl.ld.i.i = load i32, ptr %tbl.ptradd.i.i, align 4
   %crc.next.i.i = xor i32 %crc.le.shift.i.i, %tbl.ld.i.i
-  %11 = getelementptr inbounds nuw i32, ptr @H5_crc_table, i64 %indvars.iv.i.i
+  %11 = getelementptr inbounds nuw [4 x i8], ptr @H5_crc_table, i64 %indvars.iv.i.i
   store i32 %crc.next.i.i, ptr %11, align 4, !tbaa !14
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 256
@@ -145,7 +145,7 @@ H5__checksum_crc_make_table.exit.i:               ; preds = %.preheader.i.i
   %.1.tr.i = trunc i32 %.18.i to i8
   %.narrow.i = xor i8 %14, %.1.tr.i
   %15 = zext i8 %.narrow.i to i64
-  %16 = getelementptr inbounds nuw i32, ptr @H5_crc_table, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr @H5_crc_table, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !14
   %18 = lshr i32 %.18.i, 8
   %19 = xor i32 %17, %18

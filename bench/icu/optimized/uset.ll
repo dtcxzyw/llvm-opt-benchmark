@@ -1113,7 +1113,7 @@ define signext range(i8 0, 2) i8 @uset_serializedContains_77(ptr noundef readonl
   %14 = load i32, ptr %13, align 8, !tbaa !29
   %15 = add nsw i32 %14, -1
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds i16, ptr %6, i64 %16
+  %17 = getelementptr inbounds [2 x i8], ptr %6, i64 %16
   %18 = load i16, ptr %17, align 2, !tbaa !32
   %19 = zext i16 %18 to i32
   %20 = icmp samesign ult i32 %1, %19
@@ -1129,7 +1129,7 @@ define signext range(i8 0, 2) i8 @uset_serializedContains_77(ptr noundef readonl
   %.076102 = phi i32 [ %.076., %.lr.ph103 ], [ 0, %.preheader ]
   %.180101 = phi i32 [ %..180, %.lr.ph103 ], [ %15, %.preheader ]
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds i16, ptr %6, i64 %24
+  %25 = getelementptr inbounds [2 x i8], ptr %6, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !32
   %27 = zext i16 %26 to i32
   %28 = icmp samesign ult i32 %1, %27
@@ -1155,7 +1155,7 @@ define signext range(i8 0, 2) i8 @uset_serializedContains_77(ptr noundef readonl
   %40 = add nsw i32 %39, -2
   %41 = sub nsw i32 %40, %37
   %42 = sext i32 %37 to i64
-  %43 = getelementptr inbounds i16, ptr %6, i64 %42
+  %43 = getelementptr inbounds [2 x i8], ptr %6, i64 %42
   %44 = load i16, ptr %43, align 2, !tbaa !32
   %45 = zext i16 %44 to i32
   %46 = icmp samesign ult i32 %35, %45
@@ -1175,7 +1175,7 @@ define signext range(i8 0, 2) i8 @uset_serializedContains_77(ptr noundef readonl
 
 55:                                               ; preds = %49, %47
   %56 = sext i32 %40 to i64
-  %57 = getelementptr inbounds i16, ptr %6, i64 %56
+  %57 = getelementptr inbounds [2 x i8], ptr %6, i64 %56
   %58 = load i16, ptr %57, align 2, !tbaa !32
   %59 = zext i16 %58 to i32
   %60 = icmp samesign ult i32 %35, %59
@@ -1188,7 +1188,7 @@ define signext range(i8 0, 2) i8 @uset_serializedContains_77(ptr noundef readonl
 63:                                               ; preds = %61
   %64 = and i32 %1, 65535
   %65 = sext i32 %39 to i64
-  %66 = getelementptr i16, ptr %6, i64 %65
+  %66 = getelementptr [2 x i8], ptr %6, i64 %65
   %67 = getelementptr i8, ptr %66, i64 -2
   %68 = load i16, ptr %67, align 2, !tbaa !32
   %69 = zext i16 %68 to i32
@@ -1211,7 +1211,7 @@ define signext range(i8 0, 2) i8 @uset_serializedContains_77(ptr noundef readonl
   %.07399 = phi i32 [ 0, %.lr.ph ], [ %.174, %92 ]
   %78 = add nsw i32 %77, %37
   %79 = sext i32 %78 to i64
-  %80 = getelementptr inbounds i16, ptr %6, i64 %79
+  %80 = getelementptr inbounds [2 x i8], ptr %6, i64 %79
   %81 = load i16, ptr %80, align 2, !tbaa !32
   %82 = zext i16 %81 to i32
   %83 = icmp samesign ult i32 %35, %82
@@ -1303,7 +1303,7 @@ define signext range(i8 0, 2) i8 @uset_getSerializedRange_77(ptr noundef readonl
 17:                                               ; preds = %9
   %18 = or disjoint i32 %15, 1
   %19 = zext nneg i32 %15 to i64
-  %20 = getelementptr inbounds nuw i16, ptr %10, i64 %19
+  %20 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %19
   %21 = load i16, ptr %20, align 2, !tbaa !32
   %22 = zext i16 %21 to i32
   store i32 %22, ptr %2, align 4, !tbaa !21
@@ -1312,7 +1312,7 @@ define signext range(i8 0, 2) i8 @uset_getSerializedRange_77(ptr noundef readonl
 
 24:                                               ; preds = %17
   %25 = zext nneg i32 %18 to i64
-  %26 = getelementptr inbounds nuw i16, ptr %10, i64 %25
+  %26 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %25
   %27 = load i16, ptr %26, align 2, !tbaa !32
   %28 = zext i16 %27 to i32
   %29 = add nsw i32 %28, -1
@@ -1324,7 +1324,7 @@ define signext range(i8 0, 2) i8 @uset_getSerializedRange_77(ptr noundef readonl
 
 32:                                               ; preds = %30
   %33 = zext nneg i32 %18 to i64
-  %34 = getelementptr inbounds nuw i16, ptr %10, i64 %33
+  %34 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %33
   %35 = load i16, ptr %34, align 2, !tbaa !32
   %36 = zext i16 %35 to i32
   %37 = shl nuw i32 %36, 16
@@ -1344,9 +1344,9 @@ define signext range(i8 0, 2) i8 @uset_getSerializedRange_77(ptr noundef readonl
 
 48:                                               ; preds = %43
   %49 = sext i32 %14 to i64
-  %50 = getelementptr inbounds i16, ptr %10, i64 %49
+  %50 = getelementptr inbounds [2 x i8], ptr %10, i64 %49
   %51 = zext nneg i32 %45 to i64
-  %52 = getelementptr inbounds nuw i16, ptr %50, i64 %51
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %50, i64 %51
   %53 = load i16, ptr %52, align 2, !tbaa !32
   %54 = zext i16 %53 to i32
   %55 = shl nuw i32 %54, 16
@@ -1361,7 +1361,7 @@ define signext range(i8 0, 2) i8 @uset_getSerializedRange_77(ptr noundef readonl
 
 62:                                               ; preds = %48
   %63 = zext nneg i32 %60 to i64
-  %64 = getelementptr inbounds nuw i16, ptr %50, i64 %63
+  %64 = getelementptr inbounds nuw [2 x i8], ptr %50, i64 %63
   %65 = load i16, ptr %64, align 2, !tbaa !32
   %66 = zext i16 %65 to i32
   %67 = shl nuw i32 %66, 16

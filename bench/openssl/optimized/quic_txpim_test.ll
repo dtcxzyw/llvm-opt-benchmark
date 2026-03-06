@@ -48,7 +48,7 @@ define internal range(i32 0, 2) i32 @test_txpim() #0 {
 .preheader41:                                     ; preds = %0, %5
   %.02944 = phi i64 [ %6, %5 ], [ 0, %0 ]
   %7 = call ptr @ossl_quic_txpim_pkt_alloc(ptr noundef %3) #4
-  %8 = getelementptr inbounds nuw ptr, ptr %1, i64 %.02944
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.02944
   store ptr %7, ptr %8, align 8, !tbaa !6
   %9 = call i32 @test_ptr(ptr noundef nonnull @.str.1, i32 noundef 27, ptr noundef nonnull @.str.3, ptr noundef %7) #4
   %.not32 = icmp eq i32 %9, 0
@@ -72,7 +72,7 @@ define internal range(i32 0, 2) i32 @test_txpim() #0 {
 16:                                               ; preds = %.preheader, %14
   %.02843 = phi i64 [ 0, %.preheader ], [ %15, %14 ]
   %17 = sub nuw nsw i64 100, %.02843
-  %18 = getelementptr inbounds nuw %struct.quic_txpim_chunk_st, ptr %2, i64 %.02843
+  %18 = getelementptr inbounds nuw [32 x i8], ptr %2, i64 %.02843
   store i64 %17, ptr %18, align 16, !tbaa !12
   %19 = mul nuw nsw i64 %.02843, 10
   %20 = add nuw nsw i64 %19, %13
@@ -122,7 +122,7 @@ define internal range(i32 0, 2) i32 @test_txpim() #0 {
 
 .split:                                           ; preds = %.loopexit, %46
   %.145 = phi i64 [ %47, %46 ], [ 0, %.loopexit ]
-  %43 = getelementptr inbounds nuw ptr, ptr %1, i64 %.145
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.145
   %44 = load ptr, ptr %43, align 8, !tbaa !6
   %.not40 = icmp eq ptr %44, null
   br i1 %.not40, label %46, label %45

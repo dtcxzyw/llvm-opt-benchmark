@@ -488,7 +488,7 @@ _ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7man
   br label %184
 
 151:                                              ; preds = %_ZNK15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE4sizeEv.exit
-  %152 = getelementptr inbounds nuw ptr, ptr %94, i64 %indvars.iv
+  %152 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %indvars.iv
   %153 = load ptr, ptr %152, align 8, !tbaa !194
   %.not.i76 = icmp eq ptr %153, null
   br i1 %.not.i76, label %.noexc, label %154
@@ -553,7 +553,7 @@ _ZN15ref_vector_coreI3ast19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.e
   %177 = phi ptr [ %.pre.i.i, %.noexc79 ], [ %166, %168 ]
   %178 = getelementptr inbounds i8, ptr %177, i64 -4
   %179 = zext i32 %176 to i64
-  %180 = getelementptr inbounds nuw ptr, ptr %177, i64 %179
+  %180 = getelementptr inbounds nuw [8 x i8], ptr %177, i64 %179
   store ptr %161, ptr %180, align 8, !tbaa !199
   %181 = add i32 %176, 1
   store i32 %181, ptr %178, align 4, !tbaa !189

@@ -90,14 +90,14 @@ define hidden range(i32 -92, 1) i32 @mbedtls_aria_setkey_enc(ptr noundef writeon
   %28 = add nuw nsw i8 %27, 12
   store i8 %28, ptr %0, align 4, !tbaa !7
   %29 = zext nneg i32 %25 to i64
-  %30 = getelementptr inbounds nuw [4 x i32], ptr @__const.mbedtls_aria_setkey_enc.rc, i64 %29
+  %30 = getelementptr inbounds nuw [16 x i8], ptr @__const.mbedtls_aria_setkey_enc.rc, i64 %29
   call fastcc void @aria_fo_xor(ptr noundef %12, ptr noundef %4, ptr noundef %30, ptr noundef %12)
   %31 = icmp samesign ult i32 %2, 256
   %32 = add nuw nsw i32 %25, 1
   %33 = select i1 %31, i32 %32, i32 0
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %35 = zext nneg i32 %33 to i64
-  %36 = getelementptr inbounds nuw [4 x i32], ptr @__const.mbedtls_aria_setkey_enc.rc, i64 %35
+  %36 = getelementptr inbounds nuw [16 x i8], ptr @__const.mbedtls_aria_setkey_enc.rc, i64 %35
   %37 = load i32, ptr %12, align 16, !tbaa !3
   %38 = load i32, ptr %36, align 16, !tbaa !3
   %39 = xor i32 %38, %37
@@ -276,7 +276,7 @@ define hidden range(i32 -92, 1) i32 @mbedtls_aria_setkey_enc(ptr noundef writeon
   %208 = select i1 %206, i32 %207, i32 0
   %209 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %210 = zext nneg i32 %208 to i64
-  %211 = getelementptr inbounds nuw [4 x i32], ptr @__const.mbedtls_aria_setkey_enc.rc, i64 %210
+  %211 = getelementptr inbounds nuw [16 x i8], ptr @__const.mbedtls_aria_setkey_enc.rc, i64 %210
   call fastcc void @aria_fo_xor(ptr noundef %209, ptr noundef %34, ptr noundef %211, ptr noundef %12)
   %212 = getelementptr inbounds nuw i8, ptr %0, i64 4
   br label %213
@@ -285,9 +285,9 @@ define hidden range(i32 -92, 1) i32 @mbedtls_aria_setkey_enc(ptr noundef writeon
   %indvars.iv = phi i64 [ 0, %.thread ], [ %indvars.iv.next, %aria_rot128.exit71 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %214 = and i64 %indvars.iv.next, 3
-  %215 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 %214
-  %216 = getelementptr inbounds nuw [4 x i32], ptr %212, i64 %indvars.iv
-  %217 = getelementptr inbounds nuw [4 x i32], ptr %4, i64 %indvars.iv
+  %215 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %214
+  %216 = getelementptr inbounds nuw [16 x i8], ptr %212, i64 %indvars.iv
+  %217 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %indvars.iv
   %218 = getelementptr inbounds nuw i8, ptr %215, i64 12
   %219 = load i32, ptr %218, align 4, !tbaa !3
   %220 = tail call i32 @llvm.bswap.i32(i32 %219)
@@ -300,15 +300,15 @@ define hidden range(i32 -92, 1) i32 @mbedtls_aria_setkey_enc(ptr noundef writeon
   %222 = add nuw nsw i8 %.02225.i, 1
   %223 = and i8 %222, 3
   %224 = zext nneg i8 %223 to i64
-  %225 = getelementptr inbounds nuw i32, ptr %215, i64 %224
+  %225 = getelementptr inbounds nuw [4 x i8], ptr %215, i64 %224
   %226 = load i32, ptr %225, align 4, !tbaa !3
   %227 = tail call i32 @llvm.bswap.i32(i32 %226)
   %228 = tail call i32 @llvm.fshl.i32(i32 %.02324.i, i32 %227, i32 13)
   %229 = tail call i32 @llvm.bswap.i32(i32 %228)
-  %230 = getelementptr inbounds nuw i32, ptr %217, i64 %indvars.iv.i
+  %230 = getelementptr inbounds nuw [4 x i8], ptr %217, i64 %indvars.iv.i
   %231 = load i32, ptr %230, align 4, !tbaa !3
   %232 = xor i32 %229, %231
-  %233 = getelementptr inbounds nuw i32, ptr %216, i64 %indvars.iv.i
+  %233 = getelementptr inbounds nuw [4 x i8], ptr %216, i64 %indvars.iv.i
   store i32 %232, ptr %233, align 4, !tbaa !3
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -325,15 +325,15 @@ aria_rot128.exit:                                 ; preds = %221
   %236 = add nuw nsw i8 %.02225.i55, 1
   %237 = and i8 %236, 3
   %238 = zext nneg i8 %237 to i64
-  %239 = getelementptr inbounds nuw i32, ptr %215, i64 %238
+  %239 = getelementptr inbounds nuw [4 x i8], ptr %215, i64 %238
   %240 = load i32, ptr %239, align 4, !tbaa !3
   %241 = tail call i32 @llvm.bswap.i32(i32 %240)
   %242 = tail call i32 @llvm.fshl.i32(i32 %.02324.i56, i32 %241, i32 1)
   %243 = tail call i32 @llvm.bswap.i32(i32 %242)
-  %244 = getelementptr inbounds nuw i32, ptr %217, i64 %indvars.iv.i54
+  %244 = getelementptr inbounds nuw [4 x i8], ptr %217, i64 %indvars.iv.i54
   %245 = load i32, ptr %244, align 4, !tbaa !3
   %246 = xor i32 %243, %245
-  %247 = getelementptr inbounds nuw i32, ptr %234, i64 %indvars.iv.i54
+  %247 = getelementptr inbounds nuw [4 x i8], ptr %234, i64 %indvars.iv.i54
   store i32 %246, ptr %247, align 4, !tbaa !3
   %indvars.iv.next.i57 = add nuw nsw i64 %indvars.iv.i54, 1
   %exitcond.not.i58 = icmp eq i64 %indvars.iv.next.i57, 4
@@ -353,15 +353,15 @@ aria_rot128.exit59:                               ; preds = %235
   %253 = add nuw nsw i8 %.02225.i61, 1
   %254 = and i8 %253, 3
   %255 = zext nneg i8 %254 to i64
-  %256 = getelementptr inbounds nuw i32, ptr %215, i64 %255
+  %256 = getelementptr inbounds nuw [4 x i8], ptr %215, i64 %255
   %257 = load i32, ptr %256, align 4, !tbaa !3
   %258 = tail call i32 @llvm.bswap.i32(i32 %257)
   %259 = tail call i32 @llvm.fshl.i32(i32 %.02324.i62, i32 %258, i32 29)
   %260 = tail call i32 @llvm.bswap.i32(i32 %259)
-  %261 = getelementptr inbounds nuw i32, ptr %217, i64 %indvars.iv.i60
+  %261 = getelementptr inbounds nuw [4 x i8], ptr %217, i64 %indvars.iv.i60
   %262 = load i32, ptr %261, align 4, !tbaa !3
   %263 = xor i32 %260, %262
-  %264 = getelementptr inbounds nuw i32, ptr %248, i64 %indvars.iv.i60
+  %264 = getelementptr inbounds nuw [4 x i8], ptr %248, i64 %indvars.iv.i60
   store i32 %263, ptr %264, align 4, !tbaa !3
   %indvars.iv.next.i63 = add nuw nsw i64 %indvars.iv.i60, 1
   %exitcond.not.i64 = icmp eq i64 %indvars.iv.next.i63, 4
@@ -380,15 +380,15 @@ aria_rot128.exit65:                               ; preds = %252
   %269 = add nuw nsw i8 %.02225.i67, 1
   %270 = and i8 %269, 3
   %271 = zext nneg i8 %270 to i64
-  %272 = getelementptr inbounds nuw i32, ptr %215, i64 %271
+  %272 = getelementptr inbounds nuw [4 x i8], ptr %215, i64 %271
   %273 = load i32, ptr %272, align 4, !tbaa !3
   %274 = tail call i32 @llvm.bswap.i32(i32 %273)
   %275 = tail call i32 @llvm.fshl.i32(i32 %.02324.i68, i32 %274, i32 31)
   %276 = tail call i32 @llvm.bswap.i32(i32 %275)
-  %277 = getelementptr inbounds nuw i32, ptr %217, i64 %indvars.iv.i66
+  %277 = getelementptr inbounds nuw [4 x i8], ptr %217, i64 %indvars.iv.i66
   %278 = load i32, ptr %277, align 4, !tbaa !3
   %279 = xor i32 %276, %278
-  %280 = getelementptr inbounds nuw i32, ptr %265, i64 %indvars.iv.i66
+  %280 = getelementptr inbounds nuw [4 x i8], ptr %265, i64 %indvars.iv.i66
   store i32 %279, ptr %280, align 4, !tbaa !3
   %indvars.iv.next.i69 = add nuw nsw i64 %indvars.iv.i66, 1
   %exitcond.not.i70 = icmp eq i64 %indvars.iv.next.i69, 4
@@ -411,15 +411,15 @@ aria_rot128.exit71:                               ; preds = %268
   %286 = add nuw nsw i8 %.02225.i73, 1
   %287 = and i8 %286, 3
   %288 = zext nneg i8 %287 to i64
-  %289 = getelementptr inbounds nuw i32, ptr %12, i64 %288
+  %289 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %288
   %290 = load i32, ptr %289, align 4, !tbaa !3
   %291 = tail call i32 @llvm.bswap.i32(i32 %290)
   %292 = tail call i32 @llvm.fshl.i32(i32 %.02324.i74, i32 %291, i32 19)
   %293 = tail call i32 @llvm.bswap.i32(i32 %292)
-  %294 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i72
+  %294 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i72
   %295 = load i32, ptr %294, align 4, !tbaa !3
   %296 = xor i32 %293, %295
-  %297 = getelementptr inbounds nuw i32, ptr %282, i64 %indvars.iv.i72
+  %297 = getelementptr inbounds nuw [4 x i8], ptr %282, i64 %indvars.iv.i72
   store i32 %296, ptr %297, align 4, !tbaa !3
   %indvars.iv.next.i75 = add nuw nsw i64 %indvars.iv.i72, 1
   %exitcond.not.i76 = icmp eq i64 %indvars.iv.next.i75, 4
@@ -643,8 +643,8 @@ define hidden range(i32 -92, 1) i32 @mbedtls_aria_setkey_dec(ptr noundef capture
 .preheader40:                                     ; preds = %.preheader40.lr.ph, %17
   %indvars.iv49 = phi i64 [ %8, %.preheader40.lr.ph ], [ %indvars.iv.next50, %17 ]
   %indvars.iv47 = phi i64 [ 0, %.preheader40.lr.ph ], [ %indvars.iv.next48, %17 ]
-  %9 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 %indvars.iv47
-  %10 = getelementptr inbounds [4 x i32], ptr %7, i64 %indvars.iv49
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %indvars.iv47
+  %10 = getelementptr inbounds [16 x i8], ptr %7, i64 %indvars.iv49
   br label %12
 
 .preheader:                                       ; preds = %17
@@ -658,9 +658,9 @@ define hidden range(i32 -92, 1) i32 @mbedtls_aria_setkey_dec(ptr noundef capture
 
 12:                                               ; preds = %.preheader40, %12
   %indvars.iv = phi i64 [ 0, %.preheader40 ], [ %indvars.iv.next, %12 ]
-  %13 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4, !tbaa !3
-  %15 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4, !tbaa !3
   store i32 %16, ptr %13, align 4, !tbaa !3
   store i32 %14, ptr %15, align 4, !tbaa !3
@@ -676,7 +676,7 @@ define hidden range(i32 -92, 1) i32 @mbedtls_aria_setkey_dec(ptr noundef capture
 
 19:                                               ; preds = %.lr.ph, %19
   %indvars.iv54 = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next55, %19 ]
-  %20 = getelementptr inbounds nuw [4 x i32], ptr %11, i64 %indvars.iv54
+  %20 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %indvars.iv54
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 12
@@ -744,7 +744,7 @@ define hidden noundef i32 @mbedtls_aria_crypt_ecb(ptr noundef readonly captures(
   %.084 = phi i32 [ %304, %287 ], [ %.0.copyload.i37, %3 ]
   %.083 = phi i32 [ %315, %287 ], [ %.0.copyload.i36, %3 ]
   %.082 = phi i32 [ %312, %287 ], [ %.0.copyload.i, %3 ]
-  %11 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4, !tbaa !3
   %13 = xor i32 %12, %.085
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 4
@@ -1057,7 +1057,7 @@ define hidden noundef i32 @mbedtls_aria_crypt_ecb(ptr noundef readonly captures(
 
 316:                                              ; preds = %10
   %317 = and i64 %indvars.iv.next, 4294967294
-  %318 = getelementptr inbounds nuw [4 x i32], ptr %7, i64 %317
+  %318 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %317
   %319 = load i32, ptr %318, align 4, !tbaa !3
   %320 = xor i32 %319, %202
   %321 = getelementptr inbounds nuw i8, ptr %318, i64 4

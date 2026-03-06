@@ -5,8 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %"class.gmx::ArrayRef" = type { %"struct.gmx::ArrayRefIter", %"struct.gmx::ArrayRefIter" }
 %"struct.gmx::ArrayRefIter" = type { ptr }
-%struct.t_atom = type { float, float, float, float, i16, i16, i32, i32, i32, [4 x i8] }
-%struct.t_resinfo = type { ptr, i32, i8, i32, i8, ptr }
 %"class.std::filesystem::__cxx11::path" = type { %"class.std::__cxx11::basic_string", %"struct.std::filesystem::__cxx11::path::_List" }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
@@ -48,7 +46,7 @@ define i64 @_Z11search_atomPKciPK7t_atomsS0_bN3gmx8ArrayRefIKiEE(ptr noundef %0,
 
 16:                                               ; preds = %6
   %17 = sext i32 %1 to i64
-  %18 = getelementptr inbounds %struct.t_atom, ptr %11, i64 %17
+  %18 = getelementptr inbounds [36 x i8], ptr %11, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load i32, ptr %19, align 4, !tbaa !19
   br i1 %.not89, label %.critedge96, label %21
@@ -183,7 +181,7 @@ _ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit: ; preds = %32, %_ZSt4fin
 
 .lr.ph219:                                        ; preds = %.lr.ph219.preheader, %78
   %indvars.iv251 = phi i64 [ 0, %.lr.ph219.preheader ], [ %indvars.iv.next252, %78 ]
-  %74 = getelementptr inbounds nuw %struct.t_atom, ptr %11, i64 %indvars.iv251
+  %74 = getelementptr inbounds nuw [36 x i8], ptr %11, i64 %indvars.iv251
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 24
   %76 = load i32, ptr %75, align 4, !tbaa !19
   %77 = icmp eq i32 %76, %72
@@ -212,7 +210,7 @@ _Z15search_res_atomPKciPK7t_atomsS0_b.exit:       ; preds = %78, %70, %79
 
 .lr.ph221:                                        ; preds = %.critedge95, %87
   %indvars.iv256 = phi i64 [ %indvars.iv.next257, %87 ], [ %17, %.critedge95 ]
-  %83 = getelementptr inbounds %struct.t_atom, ptr %11, i64 %indvars.iv256
+  %83 = getelementptr inbounds [36 x i8], ptr %11, i64 %indvars.iv256
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 24
   %85 = load i32, ptr %84, align 4, !tbaa !19
   %86 = icmp eq i32 %85, %20
@@ -244,14 +242,14 @@ _Z15search_res_atomPKciPK7t_atomsS0_b.exit:       ; preds = %78, %70, %79
   br i1 %.not89, label %91, label %.critedge4
 
 91:                                               ; preds = %.lr.ph228
-  %92 = getelementptr inbounds %struct.t_atom, ptr %11, i64 %indvars.iv260
+  %92 = getelementptr inbounds [36 x i8], ptr %11, i64 %indvars.iv260
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 24
   %94 = load i32, ptr %93, align 4, !tbaa !19
   %95 = icmp eq i32 %94, %.0169
   br i1 %95, label %.critedge4, label %.critedge2.thread
 
 .critedge4:                                       ; preds = %.lr.ph228, %91
-  %96 = getelementptr inbounds ptr, ptr %13, i64 %indvars.iv260
+  %96 = getelementptr inbounds [8 x i8], ptr %13, i64 %indvars.iv260
   %97 = load ptr, ptr %96, align 8, !tbaa !29
   %.not91 = icmp eq ptr %97, null
   br i1 %.not91, label %102, label %98
@@ -276,11 +274,11 @@ _Z15search_res_atomPKciPK7t_atomsS0_b.exit:       ; preds = %78, %70, %79
   br i1 %.not89, label %.critedge2.thread, label %103
 
 103:                                              ; preds = %.critedge2
-  %104 = getelementptr inbounds %struct.t_atom, ptr %11, i64 %.pre
+  %104 = getelementptr inbounds [36 x i8], ptr %11, i64 %.pre
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 24
   %106 = load i32, ptr %105, align 4, !tbaa !19
   %107 = sext i32 %9 to i64
-  %108 = getelementptr %struct.t_atom, ptr %11, i64 %107
+  %108 = getelementptr [36 x i8], ptr %11, i64 %107
   %109 = getelementptr i8, ptr %108, i64 -12
   %110 = load i32, ptr %109, align 4, !tbaa !19
   %111 = icmp eq i32 %106, %110
@@ -290,13 +288,13 @@ _Z15search_res_atomPKciPK7t_atomsS0_b.exit:       ; preds = %78, %70, %79
   %.0284 = phi ptr [ %.0285, %.critedge2 ], [ %.0285, %103 ], [ %.0, %91 ]
   %.0169281 = phi i32 [ %.0169282, %.critedge2 ], [ %.0169282, %103 ], [ %.0169, %91 ]
   %.pre-phi = phi i64 [ %.pre, %.critedge2 ], [ %.pre, %103 ], [ %90, %91 ]
-  %112 = getelementptr inbounds %struct.t_atom, ptr %11, i64 %.pre-phi
+  %112 = getelementptr inbounds [36 x i8], ptr %11, i64 %.pre-phi
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 24
   %114 = load i32, ptr %113, align 4, !tbaa !19
   %115 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %116 = load ptr, ptr %115, align 8, !tbaa !34
   %117 = sext i32 %.0169281 to i64
-  %118 = getelementptr inbounds %struct.t_resinfo, ptr %116, i64 %117
+  %118 = getelementptr inbounds [32 x i8], ptr %116, i64 %117
   %119 = load ptr, ptr %118, align 8, !tbaa !35
   %120 = load ptr, ptr %119, align 8, !tbaa !31
   tail call fastcc void @_ZL14atom_not_foundiPKciS0_iS0_S0_b(i32 noundef 156, ptr noundef nonnull %.0284, i32 noundef %114, ptr noundef %120, ptr noundef %3, i1 noundef zeroext %4)
@@ -305,7 +303,7 @@ _Z15search_res_atomPKciPK7t_atomsS0_b.exit:       ; preds = %78, %70, %79
 121:                                              ; preds = %6
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %123 = sext i32 %1 to i64
-  %124 = getelementptr inbounds %struct.t_atom, ptr %11, i64 %123
+  %124 = getelementptr inbounds [36 x i8], ptr %11, i64 %123
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 24
   %126 = load i32, ptr %125, align 4, !tbaa !19
   %.sroa.01.0.copyload.i104 = load ptr, ptr %5, align 8
@@ -436,7 +434,7 @@ _ZSt4findIN3gmx12ArrayRefIterIKiEEiET_S4_S4_RKT0_.exit129: ; preds = %136, %_ZSt
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %182
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %182 ]
-  %178 = getelementptr inbounds nuw %struct.t_atom, ptr %11, i64 %indvars.iv
+  %178 = getelementptr inbounds nuw [36 x i8], ptr %11, i64 %indvars.iv
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 24
   %180 = load i32, ptr %179, align 4, !tbaa !19
   %181 = icmp eq i32 %180, %176
@@ -466,7 +464,7 @@ _Z15search_res_atomPKciPK7t_atomsS0_b.exit134:    ; preds = %182, %174, %183
 .lr.ph209:                                        ; preds = %.critedge98, %192
   %.2208 = phi i32 [ %193, %192 ], [ %1, %.critedge98 ]
   %187 = zext nneg i32 %.2208 to i64
-  %188 = getelementptr inbounds nuw %struct.t_atom, ptr %11, i64 %187
+  %188 = getelementptr inbounds nuw [36 x i8], ptr %11, i64 %187
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 24
   %190 = load i32, ptr %189, align 4, !tbaa !19
   %191 = icmp eq i32 %190, %126
@@ -495,14 +493,14 @@ _Z15search_res_atomPKciPK7t_atomsS0_b.exit134:    ; preds = %182, %174, %183
   br i1 %200, label %201, label %.critedge8
 
 201:                                              ; preds = %197
-  %202 = getelementptr inbounds nuw %struct.t_atom, ptr %11, i64 %198
+  %202 = getelementptr inbounds nuw [36 x i8], ptr %11, i64 %198
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 24
   %204 = load i32, ptr %203, align 4, !tbaa !19
   %205 = icmp eq i32 %204, %.1170
   br i1 %205, label %206, label %.critedge8
 
 206:                                              ; preds = %201
-  %207 = getelementptr inbounds nuw ptr, ptr %13, i64 %198
+  %207 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %198
   %208 = load ptr, ptr %207, align 8, !tbaa !29
   %209 = load ptr, ptr %208, align 8, !tbaa !31
   %210 = tail call noundef i32 @_Z14gmx_strcasecmpPKcS0_(ptr noundef nonnull %122, ptr noundef %209)
@@ -514,13 +512,13 @@ _Z15search_res_atomPKciPK7t_atomsS0_b.exit134:    ; preds = %182, %174, %183
   br i1 %212, label %213, label %.loopexit
 
 213:                                              ; preds = %.critedge8
-  %214 = getelementptr inbounds nuw %struct.t_atom, ptr %11, i64 %196
+  %214 = getelementptr inbounds nuw [36 x i8], ptr %11, i64 %196
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 24
   %216 = load i32, ptr %215, align 4, !tbaa !19
   %217 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %218 = load ptr, ptr %217, align 8, !tbaa !34
   %219 = sext i32 %.1170 to i64
-  %220 = getelementptr inbounds %struct.t_resinfo, ptr %218, i64 %219
+  %220 = getelementptr inbounds [32 x i8], ptr %218, i64 %219
   %221 = load ptr, ptr %220, align 8, !tbaa !35
   %222 = load ptr, ptr %221, align 8, !tbaa !31
   tail call fastcc void @_ZL14atom_not_foundiPKciS0_iS0_S0_b(i32 noundef 195, ptr noundef nonnull %122, i32 noundef %216, ptr noundef %222, ptr noundef %3, i1 noundef zeroext %4)
@@ -558,7 +556,7 @@ define i64 @_Z15search_res_atomPKciPK7t_atomsS0_b(ptr noundef %0, i32 noundef %1
 
 11:                                               ; preds = %.lr.ph, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
-  %12 = getelementptr inbounds nuw %struct.t_atom, ptr %10, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [36 x i8], ptr %10, i64 %indvars.iv
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load i32, ptr %13, align 4, !tbaa !19
   %15 = icmp eq i32 %14, %1

@@ -752,7 +752,7 @@ define range(i32 0, 2) i32 @ssl3_generate_master_secret(ptr noundef %0, ptr noun
   br i1 %19, label %55, label %20
 
 20:                                               ; preds = %14
-  %21 = getelementptr inbounds nuw ptr, ptr @ssl3_generate_master_secret.salt, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr @ssl3_generate_master_secret.salt, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !104
   %23 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #9
   %24 = call i32 @EVP_DigestUpdate(ptr noundef nonnull %8, ptr noundef nonnull %22, i64 noundef %23) #8

@@ -33,7 +33,7 @@ $__clang_call_terminate = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define hidden noundef ptr @_ZN2cv12cpu_baseline16getHasNonZeroTabEi(i32 noundef %0) local_unnamed_addr #0 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds ptr, ptr @_ZZN2cv12cpu_baseline16getHasNonZeroTabEiE13hasNonZeroTab, i64 %2
+  %3 = getelementptr inbounds [8 x i8], ptr @_ZZN2cv12cpu_baseline16getHasNonZeroTabEiE13hasNonZeroTab, i64 %2
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   ret ptr %4
 }
@@ -65,7 +65,7 @@ define internal noundef zeroext i1 @_ZN2cv12cpu_baselineL13hasNonZero16uEPKtm(pt
 
 .preheader.i:                                     ; preds = %2, %.preheader.i
   %.013.i = phi i64 [ %6, %.preheader.i ], [ 0, %2 ]
-  %3 = getelementptr inbounds nuw i16, ptr %0, i64 %.013.i
+  %3 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %.013.i
   %4 = load i16, ptr %3, align 2, !tbaa !10
   %5 = icmp ne i16 %4, 0
   %6 = add nuw i64 %.013.i, 1
@@ -85,7 +85,7 @@ define internal noundef zeroext i1 @_ZN2cv12cpu_baselineL13hasNonZero32sEPKim(pt
 
 .preheader.i:                                     ; preds = %2, %.preheader.i
   %.013.i = phi i64 [ %6, %.preheader.i ], [ 0, %2 ]
-  %3 = getelementptr inbounds nuw i32, ptr %0, i64 %.013.i
+  %3 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.013.i
   %4 = load i32, ptr %3, align 4, !tbaa !13
   %5 = icmp ne i32 %4, 0
   %6 = add nuw i64 %.013.i, 1
@@ -105,7 +105,7 @@ define internal noundef zeroext i1 @_ZN2cv12cpu_baselineL13hasNonZero32fEPKfm(pt
 
 .preheader.i:                                     ; preds = %2, %.preheader.i
   %.013.i = phi i64 [ %6, %.preheader.i ], [ 0, %2 ]
-  %3 = getelementptr inbounds nuw float, ptr %0, i64 %.013.i
+  %3 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.013.i
   %4 = load float, ptr %3, align 4, !tbaa !16
   %5 = fcmp une float %4, 0.000000e+00
   %6 = add nuw i64 %.013.i, 1
@@ -125,7 +125,7 @@ define internal noundef zeroext i1 @_ZN2cv12cpu_baselineL13hasNonZero64fEPKdm(pt
 
 .preheader.i:                                     ; preds = %2, %.preheader.i
   %.013.i = phi i64 [ %6, %.preheader.i ], [ 0, %2 ]
-  %3 = getelementptr inbounds nuw double, ptr %0, i64 %.013.i
+  %3 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.013.i
   %4 = load double, ptr %3, align 8, !tbaa !19
   %5 = fcmp une double %4, 0.000000e+00
   %6 = add nuw i64 %.013.i, 1
@@ -229,7 +229,7 @@ _ZNK2cv11_InputArray6getMatEi.exit:               ; preds = %31, %34
 .noexc74:                                         ; preds = %_ZNK2cv11_InputArray6getMatEi.exit
   %36 = and i32 %35, 7
   %37 = zext nneg i32 %36 to i64
-  %38 = getelementptr inbounds nuw ptr, ptr @_ZZN2cv12cpu_baseline16getHasNonZeroTabEiE13hasNonZeroTab, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN2cv12cpu_baseline16getHasNonZeroTabEiE13hasNonZeroTab, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !3
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %41 = load i32, ptr %40, align 8, !tbaa !41

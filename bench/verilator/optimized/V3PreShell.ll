@@ -2204,7 +2204,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42: ; preds = %51,
 
 77:                                               ; preds = %71
   %78 = zext i8 %76 to i64
-  %79 = getelementptr inbounds nuw ptr, ptr @__const._ZNK10V3LangCode5asciiEv.names, i64 %78
+  %79 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZNK10V3LangCode5asciiEv.names, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !73
   call void @llvm.experimental.noalias.scope.decl(metadata !74)
   %81 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %80) #23, !noalias !74
@@ -3035,7 +3035,7 @@ _ZN8FileLine9singletonEv.exit:                    ; preds = %1, %4, %7
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds nuw %class.V3LangCode, ptr %14, i64 %13
+  %25 = getelementptr inbounds nuw i8, ptr %14, i64 %13
   br label %_ZNK17FileLineSingleton12numberToLangEt.exit
 
 26:                                               ; preds = %22
@@ -3048,11 +3048,11 @@ _ZN8FileLine9singletonEv.exit:                    ; preds = %1, %4, %7
 
 30:                                               ; preds = %28, %26
   %31 = phi i64 [ %27, %26 ], [ %29, %28 ]
-  %32 = getelementptr inbounds ptr, ptr %16, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %16, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !102, !noalias !97
   %34 = shl nsw i64 %31, 9
   %35 = sub nsw i64 %20, %34
-  %36 = getelementptr inbounds %class.V3LangCode, ptr %33, i64 %35
+  %36 = getelementptr inbounds i8, ptr %33, i64 %35
   br label %_ZNK17FileLineSingleton12numberToLangEt.exit
 
 _ZNK17FileLineSingleton12numberToLangEt.exit:     ; preds = %24, %30
@@ -3422,7 +3422,7 @@ _ZNSt11_Deque_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE1
   store ptr %9, ptr %0, align 8, !tbaa !142
   %10 = sub nsw i64 %.sroa.speculated, %7
   %11 = lshr i64 %10, 1
-  %12 = getelementptr inbounds nuw ptr, ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %11
   %.idx = shl nuw nsw i64 %7, 3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx
   br label %.lr.ph.i
@@ -3516,7 +3516,7 @@ _ZNSt11_Deque_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE1
   store ptr %50, ptr %51, align 8, !tbaa !137
   store ptr %41, ptr %39, align 8, !tbaa !150
   %52 = and i64 %1, 15
-  %53 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %48, i64 %52
+  %53 = getelementptr inbounds nuw [32 x i8], ptr %48, i64 %52
   store ptr %53, ptr %45, align 8, !tbaa !151
   ret void
 
@@ -3552,7 +3552,7 @@ _ZNSt11_Deque_baseI10V3LangCodeSaIS0_EE15_M_allocate_mapEm.exit:
   store ptr %7, ptr %0, align 8, !tbaa !124
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %9
   %.idx = shl nuw nsw i64 %3, 3
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
@@ -3646,7 +3646,7 @@ _ZNSt11_Deque_baseI10V3LangCodeSaIS0_EE15_M_create_nodesEPPS0_S4_.exit: ; preds 
   store ptr %48, ptr %49, align 8, !tbaa !153
   store ptr %39, ptr %37, align 8, !tbaa !154
   %50 = and i64 %1, 511
-  %51 = getelementptr inbounds nuw %class.V3LangCode, ptr %46, i64 %50
+  %51 = getelementptr inbounds nuw i8, ptr %46, i64 %50
   store ptr %51, ptr %43, align 8, !tbaa !155
   ret void
 
@@ -4326,7 +4326,7 @@ _ZN8FileLine9singletonEv.exit:                    ; preds = %2, %5, %8
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds nuw %class.V3LangCode, ptr %15, i64 %14
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 %14
   br label %_ZN17FileLineSingleton12numberToLangEtRK10V3LangCode.exit
 
 27:                                               ; preds = %23
@@ -4339,11 +4339,11 @@ _ZN8FileLine9singletonEv.exit:                    ; preds = %2, %5, %8
 
 31:                                               ; preds = %29, %27
   %32 = phi i64 [ %28, %27 ], [ %30, %29 ]
-  %33 = getelementptr inbounds ptr, ptr %17, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %17, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !102, !noalias !163
   %35 = shl nsw i64 %32, 9
   %36 = sub nsw i64 %21, %35
-  %37 = getelementptr inbounds %class.V3LangCode, ptr %34, i64 %36
+  %37 = getelementptr inbounds i8, ptr %34, i64 %36
   br label %_ZN17FileLineSingleton12numberToLangEtRK10V3LangCode.exit
 
 _ZN17FileLineSingleton12numberToLangEtRK10V3LangCode.exit: ; preds = %25, %31
@@ -4439,7 +4439,7 @@ _ZN8FileLine9singletonEv.exit:                    ; preds = %2, %6, %9
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %16, i64 %15
+  %28 = getelementptr inbounds nuw [32 x i8], ptr %16, i64 %15
   br label %_ZNKSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEixEm.exit.i
 
 29:                                               ; preds = %25
@@ -4452,11 +4452,11 @@ _ZN8FileLine9singletonEv.exit:                    ; preds = %2, %6, %9
 
 33:                                               ; preds = %31, %29
   %34 = phi i64 [ %30, %29 ], [ %32, %31 ]
-  %35 = getelementptr inbounds ptr, ptr %18, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %18, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !146, !noalias !169
   %37 = shl nsw i64 %34, 4
   %38 = sub nsw i64 %23, %37
-  %39 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %36, i64 %38
+  %39 = getelementptr inbounds [32 x i8], ptr %36, i64 %38
   br label %_ZNKSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEixEm.exit.i
 
 _ZNKSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEixEm.exit.i: ; preds = %33, %27
@@ -4528,7 +4528,7 @@ define linkonce_odr dso_local void @_ZNK17FileLineSingleton12numberToNameB5cxx11
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %7, i64 %5
+  %21 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 %5
   br label %_ZNKSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEixEm.exit
 
 22:                                               ; preds = %18
@@ -4541,11 +4541,11 @@ define linkonce_odr dso_local void @_ZNK17FileLineSingleton12numberToNameB5cxx11
 
 26:                                               ; preds = %24, %22
   %27 = phi i64 [ %23, %22 ], [ %25, %24 ]
-  %28 = getelementptr inbounds ptr, ptr %11, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %11, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !146, !noalias !172
   %30 = shl nsw i64 %27, 4
   %31 = sub nsw i64 %16, %30
-  %32 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %29, i64 %31
+  %32 = getelementptr inbounds [32 x i8], ptr %29, i64 %31
   br label %_ZNKSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEixEm.exit
 
 _ZNKSt5dequeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEixEm.exit: ; preds = %20, %26

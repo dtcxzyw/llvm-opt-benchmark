@@ -3,8 +3,6 @@ source_filename = "bench/linux/original/hwgpe.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.acpi_gpe_register_info = type { %struct.acpi_gpe_address, %struct.acpi_gpe_address, i16, i8, i8, i8, i8 }
-%struct.acpi_gpe_address = type { i8, i64 }
 %struct.acpi_gpe_block_status_context = type { ptr, i8, i8 }
 
 @_acpi_module_name = internal constant [6 x i8] c"hwgpe\00", align 1
@@ -394,7 +392,7 @@ define dso_local i32 @acpi_hw_disable_gpe_block(ptr readnone captures(none) %0, 
 14:                                               ; preds = %9, %7
   %15 = phi i64 [ 0, %7 ], [ %10, %9 ]
   %16 = load ptr, ptr %8, align 8
-  %17 = getelementptr %struct.acpi_gpe_register_info, ptr %16, i64 %15
+  %17 = getelementptr [40 x i8], ptr %16, i64 %15
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 37
   store i8 0, ptr %18, align 1
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -440,7 +438,7 @@ define dso_local i32 @acpi_hw_clear_gpe_block(ptr noundef readnone captures(none
 14:                                               ; preds = %9, %7
   %15 = phi i64 [ 0, %7 ], [ %10, %9 ]
   %16 = load ptr, ptr %8, align 8
-  %17 = getelementptr %struct.acpi_gpe_register_info, ptr %16, i64 %15
+  %17 = getelementptr [40 x i8], ptr %16, i64 %15
   %18 = load i8, ptr %17, align 8
   %19 = icmp eq i8 %18, 0
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
@@ -476,7 +474,7 @@ define dso_local i32 @acpi_hw_enable_runtime_gpe_block(ptr readnone captures(non
 9:                                                ; preds = %32, %7
   %10 = phi i64 [ 0, %7 ], [ %33, %32 ]
   %11 = load ptr, ptr %8, align 8
-  %12 = getelementptr %struct.acpi_gpe_register_info, ptr %11, i64 %10
+  %12 = getelementptr [40 x i8], ptr %11, i64 %10
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 35
   %14 = load i8, ptr %13, align 1
   %15 = icmp eq i8 %14, 0
@@ -561,7 +559,7 @@ define internal i32 @acpi_hw_enable_wakeup_gpe_block(ptr readnone captures(none)
 14:                                               ; preds = %9, %7
   %15 = phi i64 [ 0, %7 ], [ %10, %9 ]
   %16 = load ptr, ptr %8, align 8
-  %17 = getelementptr %struct.acpi_gpe_register_info, ptr %16, i64 %15
+  %17 = getelementptr [40 x i8], ptr %16, i64 %15
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 34
   %19 = load i8, ptr %18, align 2
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 37
@@ -659,7 +657,7 @@ define internal noundef i32 @acpi_hw_get_gpe_block_status(ptr readnone captures(
 13:                                               ; preds = %68, %9
   %14 = phi i64 [ 0, %9 ], [ %69, %68 ]
   %15 = load ptr, ptr %10, align 8
-  %16 = getelementptr %struct.acpi_gpe_register_info, ptr %15, i64 %14
+  %16 = getelementptr [40 x i8], ptr %15, i64 %14
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !annotation !5

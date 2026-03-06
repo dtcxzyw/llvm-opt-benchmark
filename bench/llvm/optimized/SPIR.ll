@@ -1394,7 +1394,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit: ; preds = %32, %35
   %38 = phi i32 [ %33, %32 ], [ %.pre.i, %35 ]
   %39 = load ptr, ptr %8, align 8, !tbaa !794
   %40 = zext i32 %38 to i64
-  %41 = getelementptr inbounds nuw i32, ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %40
   store i32 %5, ptr %41, align 1
   %42 = load i32, ptr %13, align 8, !tbaa !796
   %43 = add i32 %42, 1
@@ -1668,10 +1668,10 @@ define internal noundef zeroext i8 @_ZNK12_GLOBAL__N_122SPIRVTargetCodeGenInfo18
 
 switch.lookup:                                    ; preds = %5
   %7 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK12_GLOBAL__N_122SPIRVTargetCodeGenInfo18getLLVMSyncScopeIDERKN5clang11LangOptionsENS1_9SyncScopeEN4llvm14AtomicOrderingERNS6_11LLVMContextE, i64 %7
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK12_GLOBAL__N_122SPIRVTargetCodeGenInfo18getLLVMSyncScopeIDERKN5clang11LangOptionsENS1_9SyncScopeEN4llvm14AtomicOrderingERNS6_11LLVMContextE, i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
   %8 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK12_GLOBAL__N_122SPIRVTargetCodeGenInfo18getLLVMSyncScopeIDERKN5clang11LangOptionsENS1_9SyncScopeEN4llvm14AtomicOrderingERNS6_11LLVMContextE.42, i64 %8
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK12_GLOBAL__N_122SPIRVTargetCodeGenInfo18getLLVMSyncScopeIDERKN5clang11LangOptionsENS1_9SyncScopeEN4llvm14AtomicOrderingERNS6_11LLVMContextE.42, i64 %8
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   br label %_ZN12_GLOBAL__N_123mapClangSyncScopeToLLVMEN5clang9SyncScopeE.exit
 

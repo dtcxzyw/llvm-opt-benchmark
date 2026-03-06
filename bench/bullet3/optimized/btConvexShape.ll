@@ -307,7 +307,7 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK13btConvexShape44localGetSupp
   %63 = fcmp olt float %..i, %61
   %64 = zext i1 %62 to i64
   %65 = select i1 %63, i64 2, i64 %64
-  %66 = getelementptr inbounds nuw %class.btVector3, ptr %35, i64 %65
+  %66 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 %65
   %.sroa.0211.0.copyload = load float, ptr %66, align 8
   %.sroa.4212.0..sroa_idx = getelementptr inbounds nuw i8, ptr %66, i64 4
   %.sroa.4212.0.copyload = load float, ptr %.sroa.4212.0..sroa_idx, align 4
@@ -357,7 +357,7 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK13btConvexShape44localGetSupp
   %.0.sroa.phi208 = phi ptr [ %.0.sroa.gep, %67 ], [ %3, %77 ], [ %3, %76 ]
   %80 = load float, ptr %.0.sroa.phi208, align 4, !tbaa !15
   %81 = sext i32 %75 to i64
-  %82 = getelementptr inbounds float, ptr %3, i64 %81
+  %82 = getelementptr inbounds [4 x i8], ptr %3, i64 %81
   %83 = load float, ptr %82, align 4, !tbaa !15
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0173)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.10175)
@@ -418,7 +418,7 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK13btConvexShape44localGetSupp
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %110 = load i32, ptr %109, align 8, !tbaa !24
   %111 = sext i32 %110 to i64
-  %112 = getelementptr inbounds float, ptr %108, i64 %111
+  %112 = getelementptr inbounds [4 x i8], ptr %108, i64 %111
   %113 = load float, ptr %112, align 4, !tbaa !15
   %114 = fmul float %106, %106
   %115 = tail call float @llvm.fmuladd.f32(float %105, float %105, float %114)
@@ -441,7 +441,7 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK13btConvexShape44localGetSupp
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %124 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %125 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %126 = getelementptr inbounds float, ptr %4, i64 %111
+  %126 = getelementptr inbounds [4 x i8], ptr %4, i64 %111
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   store float %113, ptr %126, align 4, !tbaa !15
   %.sroa.0.0.copyload = load float, ptr %4, align 4
@@ -466,7 +466,7 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK13btConvexShape44localGetSupp
   %133 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %134 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %135 = fneg float %113
-  %136 = getelementptr inbounds float, ptr %5, i64 %111
+  %136 = getelementptr inbounds [4 x i8], ptr %5, i64 %111
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   store float %135, ptr %136, align 4, !tbaa !15
   %.sroa.0.0.copyload109 = load float, ptr %5, align 4
@@ -512,7 +512,7 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK13btConvexShape44localGetSupp
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %141 ]
   %.019.i.i = phi float [ %.1.i.i, %.lr.ph.i.i ], [ 0xC7EFFFFFE0000000, %141 ]
   %.01218.i.i = phi i32 [ %.113.i.i, %.lr.ph.i.i ], [ -1, %141 ]
-  %162 = getelementptr inbounds nuw %class.btVector3, ptr %143, i64 %indvars.iv.i.i
+  %162 = getelementptr inbounds nuw [16 x i8], ptr %143, i64 %indvars.iv.i.i
   %163 = load float, ptr %162, align 4, !tbaa !15
   %164 = getelementptr inbounds nuw i8, ptr %162, i64 4
   %165 = load float, ptr %164, align 4, !tbaa !15
@@ -536,7 +536,7 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK13btConvexShape44localGetSupp
 
 _ZL17convexHullSupportRK9btVector3PS0_iS1_.exit:  ; preds = %141, %._crit_edge.loopexit.i.i
   %.012.lcssa.i.i = phi i64 [ 0, %141 ], [ %174, %._crit_edge.loopexit.i.i ]
-  %175 = getelementptr inbounds nuw %class.btVector3, ptr %143, i64 %.012.lcssa.i.i
+  %175 = getelementptr inbounds nuw [16 x i8], ptr %143, i64 %.012.lcssa.i.i
   %176 = load float, ptr %175, align 4, !tbaa !15
   %177 = fmul float %148, %176
   %178 = getelementptr inbounds nuw i8, ptr %175, i64 4
@@ -577,7 +577,7 @@ _ZL17convexHullSupportRK9btVector3PS0_iS1_.exit:  ; preds = %141, %._crit_edge.l
   %indvars.iv.i.i93 = phi i64 [ %indvars.iv.next.i.i98, %.lr.ph.i.i92 ], [ 0, %184 ]
   %.019.i.i94 = phi float [ %.1.i.i97, %.lr.ph.i.i92 ], [ 0xC7EFFFFFE0000000, %184 ]
   %.01218.i.i95 = phi i32 [ %.113.i.i96, %.lr.ph.i.i92 ], [ -1, %184 ]
-  %205 = getelementptr inbounds nuw %class.btVector3, ptr %186, i64 %indvars.iv.i.i93
+  %205 = getelementptr inbounds nuw [16 x i8], ptr %186, i64 %indvars.iv.i.i93
   %206 = load float, ptr %205, align 4, !tbaa !15
   %207 = getelementptr inbounds nuw i8, ptr %205, i64 4
   %208 = load float, ptr %207, align 4, !tbaa !15
@@ -601,7 +601,7 @@ _ZL17convexHullSupportRK9btVector3PS0_iS1_.exit:  ; preds = %141, %._crit_edge.l
 
 _ZL17convexHullSupportRK9btVector3PS0_iS1_.exit101: ; preds = %184, %._crit_edge.loopexit.i.i100
   %.012.lcssa.i.i86 = phi i64 [ 0, %184 ], [ %217, %._crit_edge.loopexit.i.i100 ]
-  %218 = getelementptr inbounds nuw %class.btVector3, ptr %186, i64 %.012.lcssa.i.i86
+  %218 = getelementptr inbounds nuw [16 x i8], ptr %186, i64 %.012.lcssa.i.i86
   %219 = load float, ptr %218, align 4, !tbaa !15
   %220 = fmul float %191, %219
   %221 = getelementptr inbounds nuw i8, ptr %218, i64 4
@@ -972,7 +972,7 @@ _ZNK13btConvexShape19getMarginNonVirtualEv.exit86: ; preds = %4
 97:                                               ; preds = %_ZNK13btConvexShape19getMarginNonVirtualEv.exit86, %97
   %indvars.iv = phi i64 [ 0, %_ZNK13btConvexShape19getMarginNonVirtualEv.exit86 ], [ %indvars.iv.next, %97 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %98 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %98, align 4, !tbaa !15
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -1039,10 +1039,10 @@ _ZNK13btConvexShape19getMarginNonVirtualEv.exit86: ; preds = %4
   %.sroa.3.12.vec.insert.i4.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %146, i64 0
   store <2 x float> %.sroa.0.4.vec.insert.i3.i, ptr %7, align 8
   store <2 x float> %.sroa.3.12.vec.insert.i4.i, ptr %95, align 8
-  %147 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv
+  %147 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   %148 = load float, ptr %147, align 4, !tbaa !15
   %149 = fadd float %80, %148
-  %150 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
+  %150 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   store float %149, ptr %150, align 4, !tbaa !15
   store float -1.000000e+00, ptr %98, align 4, !tbaa !15
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -1110,7 +1110,7 @@ _ZNK13btConvexShape19getMarginNonVirtualEv.exit86: ; preds = %4
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %199 = load float, ptr %147, align 4, !tbaa !15
   %200 = fsub float %199, %80
-  %201 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %201 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   store float %200, ptr %201, align 4, !tbaa !15
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -1126,7 +1126,7 @@ _ZNK13btConvexShape19getMarginNonVirtualEv.exit86: ; preds = %4
   %206 = srem i32 %205, 3
   %207 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %208 = sext i32 %206 to i64
-  %209 = getelementptr inbounds float, ptr %207, i64 %208
+  %209 = getelementptr inbounds [4 x i8], ptr %207, i64 %208
   %210 = load float, ptr %209, align 4, !tbaa !15
   store float %210, ptr %9, align 4, !tbaa !15
   %211 = getelementptr inbounds nuw i8, ptr %9, i64 4
@@ -1134,10 +1134,10 @@ _ZNK13btConvexShape19getMarginNonVirtualEv.exit86: ; preds = %4
   %212 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store float %210, ptr %212, align 4, !tbaa !15
   %213 = sext i32 %204 to i64
-  %214 = getelementptr inbounds float, ptr %207, i64 %213
+  %214 = getelementptr inbounds [4 x i8], ptr %207, i64 %213
   %215 = load float, ptr %214, align 4, !tbaa !15
   %216 = fadd float %210, %215
-  %217 = getelementptr inbounds float, ptr %9, i64 %213
+  %217 = getelementptr inbounds [4 x i8], ptr %9, i64 %213
   store float %216, ptr %217, align 4, !tbaa !15
   %218 = load float, ptr %1, align 4, !tbaa !15, !noalias !45
   %219 = tail call noundef float @llvm.fabs.f32(float %218)

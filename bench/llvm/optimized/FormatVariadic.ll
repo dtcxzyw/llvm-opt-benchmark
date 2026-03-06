@@ -429,7 +429,7 @@ _ZL26splitLiteralAndReplacementN4llvm9StringRefE.exit: ; preds = %_ZNK4llvm9Stri
 144:                                              ; preds = %139
   %145 = zext i32 %140 to i64
   %146 = load ptr, ptr %0, align 8, !tbaa !3
-  %147 = getelementptr inbounds nuw %"struct.llvm::ReplacementItem", ptr %146, i64 %145
+  %147 = getelementptr inbounds nuw [56 x i8], ptr %146, i64 %145
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %147, ptr noundef nonnull align 8 dereferenceable(56) %13, i64 56, i1 false), !tbaa.struct !39
   %148 = load i32, ptr %15, align 8, !tbaa !9
   %149 = add i32 %148, 1
@@ -498,7 +498,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN4
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_15ReplacementItemELb1EE9push_backERKS1_.exit, label %10, !prof !38
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds nuw %"struct.llvm::ReplacementItem", ptr %.pre3.i, i64 %6
+  %11 = getelementptr inbounds nuw [56 x i8], ptr %.pre3.i, i64 %6
   %12 = icmp uge ptr %3, %.pre3.i
   %13 = icmp ult ptr %3, %11
   %spec.select.i.i.i.i.i = and i1 %12, %13
@@ -525,7 +525,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_15ReplacementItemELb1EE9push_backERKS1_.exi
   %.016.i.i.i = phi ptr [ %3, %2 ], [ %20, %14 ], [ %3, %.critedge.i.i.i ]
   %23 = load i32, ptr %4, align 8, !tbaa !9
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds nuw %"struct.llvm::ReplacementItem", ptr %22, i64 %24
+  %25 = getelementptr inbounds nuw [56 x i8], ptr %22, i64 %24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %25, ptr noundef nonnull align 8 dereferenceable(56) %.016.i.i.i, i64 56, i1 false)
   %26 = load i32, ptr %4, align 8, !tbaa !9
   %27 = add i32 %26, 1
@@ -533,7 +533,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_15ReplacementItemELb1EE9push_backERKS1_.exi
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %28 = load ptr, ptr %0, align 8, !tbaa !3
   %29 = zext i32 %27 to i64
-  %30 = getelementptr inbounds nuw %"struct.llvm::ReplacementItem", ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [56 x i8], ptr %28, i64 %29
   %31 = getelementptr inbounds i8, ptr %30, i64 -56
   ret ptr %31
 }

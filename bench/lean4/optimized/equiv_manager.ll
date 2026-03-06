@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 module asm ".globl _ZSt21ios_base_library_initv"
 
-%"struct.lean::equiv_manager::node" = type { i32, i32 }
 %"struct.std::pair.8" = type <{ %"class.lean::expr", i32, [4 x i8] }>
 %"class.lean::expr" = type { %"class.lean::object_ref" }
 %"class.lean::object_ref" = type { ptr }
@@ -110,7 +109,7 @@ _ZNSt6vectorIN4lean13equiv_manager4nodeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exi
 _ZNSt6vectorIN4lean13equiv_manager4nodeESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %27, %_ZNSt6vectorIN4lean13equiv_manager4nodeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %22, ptr %0, align 8, !tbaa !9
   store ptr %26, ptr %2, align 8, !tbaa !3
-  %28 = getelementptr inbounds nuw %"struct.lean::equiv_manager::node", ptr %22, i64 %20
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %20
   store ptr %28, ptr %9, align 8, !tbaa !10
   br label %_ZNSt6vectorIN4lean13equiv_manager4nodeESaIS2_EE9push_backERKS2_.exit
 
@@ -127,7 +126,7 @@ define hidden noundef i32 @_ZN4lean13equiv_manager4findEj(ptr noundef nonnull re
 4:                                                ; preds = %4, %2
   %.08 = phi i32 [ %1, %2 ], [ %7, %4 ]
   %5 = zext i32 %.08 to i64
-  %6 = getelementptr inbounds nuw %"struct.lean::equiv_manager::node", ptr %3, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %5
   %7 = load i32, ptr %6, align 4, !tbaa !11
   %.not = icmp eq i32 %7, %.08
   br i1 %.not, label %8, label %4
@@ -144,25 +143,25 @@ define hidden void @_ZN4lean13equiv_manager5mergeEjj(ptr noundef nonnull readonl
 5:                                                ; preds = %5, %3
   %.08.i = phi i32 [ %1, %3 ], [ %8, %5 ]
   %6 = zext i32 %.08.i to i64
-  %7 = getelementptr inbounds nuw %"struct.lean::equiv_manager::node", ptr %4, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !11
   %.not.i = icmp eq i32 %8, %.08.i
   br i1 %.not.i, label %_ZN4lean13equiv_manager4findEj.exit.preheader, label %5
 
 _ZN4lean13equiv_manager4findEj.exit.preheader:    ; preds = %5
-  %9 = getelementptr inbounds nuw %"struct.lean::equiv_manager::node", ptr %4, i64 %6
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %6
   br label %_ZN4lean13equiv_manager4findEj.exit
 
 _ZN4lean13equiv_manager4findEj.exit:              ; preds = %_ZN4lean13equiv_manager4findEj.exit.preheader, %_ZN4lean13equiv_manager4findEj.exit
   %.08.i20 = phi i32 [ %12, %_ZN4lean13equiv_manager4findEj.exit ], [ %2, %_ZN4lean13equiv_manager4findEj.exit.preheader ]
   %10 = zext i32 %.08.i20 to i64
-  %11 = getelementptr inbounds nuw %"struct.lean::equiv_manager::node", ptr %4, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !11
   %.not.i21 = icmp eq i32 %12, %.08.i20
   br i1 %.not.i21, label %_ZN4lean13equiv_manager4findEj.exit22, label %_ZN4lean13equiv_manager4findEj.exit
 
 _ZN4lean13equiv_manager4findEj.exit22:            ; preds = %_ZN4lean13equiv_manager4findEj.exit
-  %13 = getelementptr inbounds nuw %"struct.lean::equiv_manager::node", ptr %4, i64 %10
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %10
   %.not = icmp eq i32 %.08.i, %.08.i20
   br i1 %.not, label %25, label %14
 
@@ -231,7 +230,7 @@ define hidden noundef i32 @_ZN4lean13equiv_manager7to_nodeERKNS_4exprE(ptr nound
   %24 = load i64, ptr %23, align 8, !tbaa !30
   %25 = urem i64 %22, %24
   %26 = load ptr, ptr %4, align 8, !tbaa !31
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %25
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %25
   %28 = load ptr, ptr %27, align 8, !tbaa !32
   %.not.i.i.i.i = icmp eq ptr %28, null
   br i1 %.not.i.i.i.i, label %_ZNSt13unordered_mapIN4lean4exprEjNS0_9expr_hashESt8equal_toIS1_ESaISt4pairIKS1_jEEE4findERS6_.exit.thread, label %29
@@ -339,7 +338,7 @@ _ZNSt6vectorIN4lean13equiv_manager4nodeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exi
 _ZNSt6vectorIN4lean13equiv_manager4nodeESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %70, %_ZNSt6vectorIN4lean13equiv_manager4nodeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
   store ptr %65, ptr %0, align 8, !tbaa !9
   store ptr %69, ptr %45, align 8, !tbaa !3
-  %71 = getelementptr inbounds nuw %"struct.lean::equiv_manager::node", ptr %65, i64 %63
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %63
   store ptr %71, ptr %52, align 8, !tbaa !10
   br label %_ZN4lean13equiv_manager7mk_nodeEv.exit
 
@@ -536,7 +535,7 @@ define hidden noundef zeroext i1 @_ZN4lean13equiv_manager13is_equiv_coreERKNS_4e
 47:                                               ; preds = %47, %44
   %.08.i = phi i32 [ %45, %44 ], [ %50, %47 ]
   %48 = zext i32 %.08.i to i64
-  %49 = getelementptr inbounds nuw %"struct.lean::equiv_manager::node", ptr %46, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %48
   %50 = load i32, ptr %49, align 4, !tbaa !11
   %.not.i = icmp eq i32 %50, %.08.i
   br i1 %.not.i, label %_ZN4lean13equiv_manager4findEj.exit, label %47
@@ -549,7 +548,7 @@ _ZN4lean13equiv_manager4findEj.exit:              ; preds = %47
 53:                                               ; preds = %53, %_ZN4lean13equiv_manager4findEj.exit
   %.08.i61 = phi i32 [ %51, %_ZN4lean13equiv_manager4findEj.exit ], [ %56, %53 ]
   %54 = zext i32 %.08.i61 to i64
-  %55 = getelementptr inbounds nuw %"struct.lean::equiv_manager::node", ptr %52, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %54
   %56 = load i32, ptr %55, align 4, !tbaa !11
   %.not.i62 = icmp eq i32 %56, %.08.i61
   br i1 %.not.i62, label %_ZN4lean13equiv_manager4findEj.exit63, label %53
@@ -753,25 +752,25 @@ _ZN4leaneqERKNS_3natES2_.exit69:                  ; preds = %160
 173:                                              ; preds = %173, %171
   %.08.i.i = phi i32 [ %.08.i, %171 ], [ %176, %173 ]
   %174 = zext i32 %.08.i.i to i64
-  %175 = getelementptr inbounds nuw %"struct.lean::equiv_manager::node", ptr %172, i64 %174
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %172, i64 %174
   %176 = load i32, ptr %175, align 4, !tbaa !11
   %.not.i.i = icmp eq i32 %176, %.08.i.i
   br i1 %.not.i.i, label %_ZN4lean13equiv_manager4findEj.exit.i.preheader, label %173
 
 _ZN4lean13equiv_manager4findEj.exit.i.preheader:  ; preds = %173
-  %177 = getelementptr inbounds nuw %"struct.lean::equiv_manager::node", ptr %172, i64 %174
+  %177 = getelementptr inbounds nuw [8 x i8], ptr %172, i64 %174
   br label %_ZN4lean13equiv_manager4findEj.exit.i
 
 _ZN4lean13equiv_manager4findEj.exit.i:            ; preds = %_ZN4lean13equiv_manager4findEj.exit.i.preheader, %_ZN4lean13equiv_manager4findEj.exit.i
   %.08.i20.i = phi i32 [ %180, %_ZN4lean13equiv_manager4findEj.exit.i ], [ %.08.i61, %_ZN4lean13equiv_manager4findEj.exit.i.preheader ]
   %178 = zext i32 %.08.i20.i to i64
-  %179 = getelementptr inbounds nuw %"struct.lean::equiv_manager::node", ptr %172, i64 %178
+  %179 = getelementptr inbounds nuw [8 x i8], ptr %172, i64 %178
   %180 = load i32, ptr %179, align 4, !tbaa !11
   %.not.i21.i = icmp eq i32 %180, %.08.i20.i
   br i1 %.not.i21.i, label %_ZN4lean13equiv_manager4findEj.exit22.i, label %_ZN4lean13equiv_manager4findEj.exit.i
 
 _ZN4lean13equiv_manager4findEj.exit22.i:          ; preds = %_ZN4lean13equiv_manager4findEj.exit.i
-  %181 = getelementptr inbounds nuw %"struct.lean::equiv_manager::node", ptr %172, i64 %178
+  %181 = getelementptr inbounds nuw [8 x i8], ptr %172, i64 %178
   %.not.i70 = icmp eq i32 %.08.i.i, %.08.i20.i
   br i1 %.not.i70, label %_ZN4leaneqERKNS_3natES2_.exit, label %182
 
@@ -881,25 +880,25 @@ define hidden void @_ZN4lean13equiv_manager9add_equivERKNS_4exprES3_(ptr noundef
 7:                                                ; preds = %7, %3
   %.08.i.i = phi i32 [ %4, %3 ], [ %10, %7 ]
   %8 = zext i32 %.08.i.i to i64
-  %9 = getelementptr inbounds nuw %"struct.lean::equiv_manager::node", ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !11
   %.not.i.i = icmp eq i32 %10, %.08.i.i
   br i1 %.not.i.i, label %_ZN4lean13equiv_manager4findEj.exit.i.preheader, label %7
 
 _ZN4lean13equiv_manager4findEj.exit.i.preheader:  ; preds = %7
-  %11 = getelementptr inbounds nuw %"struct.lean::equiv_manager::node", ptr %6, i64 %8
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %8
   br label %_ZN4lean13equiv_manager4findEj.exit.i
 
 _ZN4lean13equiv_manager4findEj.exit.i:            ; preds = %_ZN4lean13equiv_manager4findEj.exit.i.preheader, %_ZN4lean13equiv_manager4findEj.exit.i
   %.08.i20.i = phi i32 [ %14, %_ZN4lean13equiv_manager4findEj.exit.i ], [ %5, %_ZN4lean13equiv_manager4findEj.exit.i.preheader ]
   %12 = zext i32 %.08.i20.i to i64
-  %13 = getelementptr inbounds nuw %"struct.lean::equiv_manager::node", ptr %6, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !11
   %.not.i21.i = icmp eq i32 %14, %.08.i20.i
   br i1 %.not.i21.i, label %_ZN4lean13equiv_manager4findEj.exit22.i, label %_ZN4lean13equiv_manager4findEj.exit.i
 
 _ZN4lean13equiv_manager4findEj.exit22.i:          ; preds = %_ZN4lean13equiv_manager4findEj.exit.i
-  %15 = getelementptr inbounds nuw %"struct.lean::equiv_manager::node", ptr %6, i64 %12
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %12
   %.not.i = icmp eq i32 %.08.i.i, %.08.i20.i
   br i1 %.not.i, label %_ZN4lean13equiv_manager5mergeEjj.exit, label %16
 
@@ -1051,7 +1050,7 @@ _ZNKSt8__detail15_Hashtable_baseIN4lean4exprESt4pairIKS2_jENS_10_Select1stESt8eq
 
 34:                                               ; preds = %.loopexit
   %35 = load ptr, ptr %0, align 8, !tbaa !31
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %33
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %33
   %37 = load ptr, ptr %36, align 8, !tbaa !32
   %.not.i.i = icmp eq ptr %37, null
   br i1 %.not.i.i, label %.critedge27, label %38
@@ -1217,7 +1216,7 @@ _ZNSt10_HashtableIN4lean4exprESt4pairIKS1_jESaIS4_ENSt8__detail10_Select1stESt8e
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store i64 %2, ptr %32, align 8, !tbaa !33
   %33 = load ptr, ptr %0, align 8, !tbaa !31
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8, !tbaa !32
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %39, label %36
@@ -1243,7 +1242,7 @@ _ZNSt10_HashtableIN4lean4exprESt4pairIKS1_jESaIS4_ENSt8__detail10_Select1stESt8e
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %46 = load i64, ptr %45, align 8, !tbaa !33
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %33, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !32
   br label %49
 
@@ -1358,7 +1357,7 @@ _ZNSt10_HashtableIN4lean4exprESt4pairIKS1_jESaIS4_ENSt8__detail10_Select1stESt8e
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 24
   %16 = load i64, ptr %15, align 8, !tbaa !33
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !32
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -1373,7 +1372,7 @@ _ZNSt10_HashtableIN4lean4exprESt4pairIKS1_jESaIS4_ENSt8__detail10_Select1stESt8e
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !32
   br label %28
 

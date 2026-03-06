@@ -3,8 +3,6 @@ source_filename = "bench/ffmpeg/original/oggparseskeleton.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.ogg_stream = type { ptr, i32, i32, i32, i32, i32, i32, i32, i64, i64, i64, i64, i64, i64, i32, ptr, i32, i32, i32, [255 x i8], i32, i32, i32, i32, i32, i32, i32, i32, ptr, i64, ptr }
-
 @.str = private unnamed_addr constant [8 x i8] c"fishead\00", align 1
 @ff_skeleton_codec = local_unnamed_addr constant { ptr, i8, [7 x i8], ptr, ptr, ptr, ptr, i32, i32, ptr } { ptr @.str, i8 8, [7 x i8] zeroinitializer, ptr null, ptr @skeleton_header, ptr null, ptr null, i32 0, i32 0, ptr null }, align 8
 @.str.1 = private unnamed_addr constant [32 x i8] c"Unknown skeleton version %d.%d\0A\00", align 1
@@ -20,10 +18,10 @@ define internal range(i32 -1, 2) i32 @skeleton_header(ptr noundef %0, i32 nounde
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %7 = load ptr, ptr %6, align 8, !tbaa !24
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds %struct.ogg_stream, ptr %7, i64 %8
+  %9 = getelementptr inbounds [432 x i8], ptr %7, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load ptr, ptr %10, align 8, !tbaa !28
-  %12 = getelementptr inbounds ptr, ptr %11, i64 %8
+  %12 = getelementptr inbounds [8 x i8], ptr %11, i64 %8
   %13 = load ptr, ptr %12, align 8, !tbaa !29
   %14 = load ptr, ptr %9, align 8, !tbaa !31
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 16
@@ -119,7 +117,7 @@ define internal range(i32 -1, 2) i32 @skeleton_header(ptr noundef %0, i32 nounde
 
 63:                                               ; preds = %68, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %68 ]
-  %64 = getelementptr inbounds nuw %struct.ogg_stream, ptr %7, i64 %indvars.iv.i
+  %64 = getelementptr inbounds nuw [432 x i8], ptr %7, i64 %indvars.iv.i
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %66 = load i32, ptr %65, align 8, !tbaa !52
   %67 = icmp eq i32 %66, %59
@@ -134,7 +132,7 @@ ogg_find_stream.exit:                             ; preds = %63
   %69 = getelementptr inbounds nuw i8, ptr %18, i64 36
   %70 = load i64, ptr %69, align 1, !tbaa !47
   %71 = and i64 %indvars.iv.i, 4294967295
-  %72 = getelementptr inbounds nuw %struct.ogg_stream, ptr %7, i64 %71
+  %72 = getelementptr inbounds nuw [432 x i8], ptr %7, i64 %71
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 48
   %74 = load i64, ptr %73, align 8, !tbaa !55
   %.not54 = icmp eq i64 %74, -1

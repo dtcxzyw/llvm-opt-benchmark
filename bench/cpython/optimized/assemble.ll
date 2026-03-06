@@ -6,10 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.opcode_metadata = type { i8, i8, i16 }
 %struct._PyCodeConstructor = type { ptr, ptr, ptr, i32, ptr, i32, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, ptr }
 %struct.assembler = type { ptr, i32, ptr, i32, i32, ptr, i32 }
-%struct._PyInstruction = type { i32, i32, %struct._Py_SourceLocation, %struct._PyExceptHandlerInfo, i32, i32 }
-%struct._Py_SourceLocation = type { i32, i32, i32, i32 }
-%struct._PyExceptHandlerInfo = type { i32, i32, i32 }
-%union._Py_CODEUNIT = type { i16 }
 
 @_PyOpcode_opcode_metadata = external local_unnamed_addr constant [266 x %struct.opcode_metadata], align 16
 @_PyOpcode_Caches = external local_unnamed_addr constant [256 x i8], align 16
@@ -45,7 +41,7 @@ define hidden ptr @_PyAssemble_MakeCodeObject(ptr noundef readonly captures(none
 
 28:                                               ; preds = %56, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %56 ]
-  %29 = getelementptr %struct._PyInstruction, ptr %27, i64 %indvars.iv.i
+  %29 = getelementptr [44 x i8], ptr %27, i64 %indvars.iv.i
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load i32, ptr %30, align 4, !tbaa !15
   %32 = sext i32 %31 to i64
@@ -68,7 +64,7 @@ define hidden ptr @_PyAssemble_MakeCodeObject(ptr noundef readonly captures(none
 
 39:                                               ; preds = %28
   %40 = sext i32 %34 to i64
-  %41 = getelementptr %struct.opcode_metadata, ptr @_PyOpcode_opcode_metadata, i64 %40
+  %41 = getelementptr [4 x i8], ptr @_PyOpcode_opcode_metadata, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 2
   %43 = load i16, ptr %42, align 2, !tbaa !20
   %44 = and i16 %43, 8
@@ -107,7 +103,7 @@ define hidden ptr @_PyAssemble_MakeCodeObject(ptr noundef readonly captures(none
   %indvars.iv81.i = phi i64 [ %indvars.iv.next82.i, %95 ], [ 0, %.lr.ph62.us.i ]
   %.04165.us.i = phi i32 [ %.1.us.i, %95 ], [ 0, %.lr.ph62.us.i ]
   %.04463.us.i = phi i32 [ %72, %95 ], [ 0, %.lr.ph62.us.i ]
-  %57 = getelementptr %struct._PyInstruction, ptr %27, i64 %indvars.iv81.i
+  %57 = getelementptr [44 x i8], ptr %27, i64 %indvars.iv81.i
   %.val54.us.i = load i32, ptr %57, align 4, !tbaa !19
   %58 = getelementptr i8, ptr %57, i64 4
   %.val55.us.i = load i32, ptr %58, align 4, !tbaa !15
@@ -125,7 +121,7 @@ define hidden ptr @_PyAssemble_MakeCodeObject(ptr noundef readonly captures(none
   %70 = add nuw nsw i32 %69, %63
   %71 = add i32 %.04463.us.i, %67
   %72 = add i32 %71, %70
-  %73 = getelementptr %struct.opcode_metadata, ptr @_PyOpcode_opcode_metadata, i64 %64
+  %73 = getelementptr [4 x i8], ptr @_PyOpcode_opcode_metadata, i64 %64
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 2
   %75 = load i16, ptr %74, align 2, !tbaa !20
   %76 = and i16 %75, 8
@@ -136,7 +132,7 @@ define hidden ptr @_PyAssemble_MakeCodeObject(ptr noundef readonly captures(none
   %78 = getelementptr inbounds nuw i8, ptr %57, i64 36
   %79 = load i32, ptr %78, align 4, !tbaa !26
   %80 = sext i32 %79 to i64
-  %81 = getelementptr %struct._PyInstruction, ptr %27, i64 %80
+  %81 = getelementptr [44 x i8], ptr %27, i64 %80
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 40
   %83 = load i32, ptr %82, align 4, !tbaa !27
   %84 = icmp slt i32 %83, %72
@@ -165,7 +161,7 @@ define hidden ptr @_PyAssemble_MakeCodeObject(ptr noundef readonly captures(none
 .lr.ph62.us.i:                                    ; preds = %124, %.lr.ph62.us.i.backedge
   %indvars.iv76.i = phi i64 [ %indvars.iv76.i.be, %.lr.ph62.us.i.backedge ], [ 0, %124 ]
   %.04261.us.i = phi i32 [ %.04261.us.i.be, %.lr.ph62.us.i.backedge ], [ 0, %124 ]
-  %96 = getelementptr %struct._PyInstruction, ptr %27, i64 %indvars.iv76.i
+  %96 = getelementptr [44 x i8], ptr %27, i64 %indvars.iv76.i
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 40
   store i32 %.04261.us.i, ptr %97, align 4, !tbaa !27
   %.val.us.i = load i32, ptr %96, align 4, !tbaa !19
@@ -200,10 +196,10 @@ define hidden ptr @_PyAssemble_MakeCodeObject(ptr noundef readonly captures(none
 
 .lr.ph.i16:                                       ; preds = %56, %124
   %indvars.iv.i18 = phi i64 [ %indvars.iv.next.i19, %124 ], [ 0, %56 ]
-  %113 = getelementptr %struct._PyInstruction, ptr %27, i64 %indvars.iv.i18
+  %113 = getelementptr [44 x i8], ptr %27, i64 %indvars.iv.i18
   %114 = load i32, ptr %113, align 4, !tbaa !19
   %115 = sext i32 %114 to i64
-  %116 = getelementptr %struct.opcode_metadata, ptr @_PyOpcode_opcode_metadata, i64 %115
+  %116 = getelementptr [4 x i8], ptr @_PyOpcode_opcode_metadata, i64 %115
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 2
   %118 = load i16, ptr %117, align 2, !tbaa !20
   %119 = and i16 %118, 8
@@ -318,7 +314,7 @@ Py_XDECREF.exit17.i.i:                            ; preds = %156, %153, %151, %P
 164:                                              ; preds = %assemble_init.exit.i, %.lr.ph.i21
   %indvars.iv.i22 = phi i64 [ 0, %.lr.ph.i21 ], [ %indvars.iv.next.i23, %assemble_init.exit.i ]
   %165 = load ptr, ptr %142, align 8, !tbaa !14
-  %166 = getelementptr %struct._PyInstruction, ptr %165, i64 %indvars.iv.i22
+  %166 = getelementptr [44 x i8], ptr %165, i64 %indvars.iv.i22
   %167 = load ptr, ptr %19, align 8, !tbaa !36
   %168 = getelementptr i8, ptr %167, i64 16
   %.val17.i.i = load i64, ptr %168, align 8, !tbaa !39
@@ -377,7 +373,7 @@ Py_XDECREF.exit17.i.i:                            ; preds = %156, %153, %151, %P
   %196 = phi ptr [ %.pre.i.i, %._crit_edge.i.i ], [ %167, %164 ]
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 32
   %198 = sext i32 %195 to i64
-  %199 = getelementptr %union._Py_CODEUNIT, ptr %197, i64 %198
+  %199 = getelementptr [2 x i8], ptr %197, i64 %198
   store i32 %.pre-phi.i.i, ptr %143, align 8, !tbaa !41
   %200 = sub nsw i32 %182, %.pre-phi28.i.i
   switch i32 %200, label %222 [
@@ -455,7 +451,7 @@ assemble_emit_instr.exit.i:                       ; preds = %assemble_init.exit.
   %.sroa.0.062.i.i = phi i64 [ %.sroa.0.2.i.i, %assemble_emit_location.exit.thread40.i.i ], [ -1, %assemble_emit_instr.exit.i ]
   %.sroa.7.061.i.i = phi i64 [ %.sroa.7.2.i.i, %assemble_emit_location.exit.thread40.i.i ], [ -1, %assemble_emit_instr.exit.i ]
   %227 = load ptr, ptr %142, align 8, !tbaa !14
-  %228 = getelementptr %struct._PyInstruction, ptr %227, i64 %indvars.iv.i.i
+  %228 = getelementptr [44 x i8], ptr %227, i64 %indvars.iv.i.i
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 8
   %230 = load i64, ptr %229, align 4
   %231 = getelementptr inbounds nuw i8, ptr %228, i64 16
@@ -569,7 +565,7 @@ assemble_location_info.exit.i:                    ; preds = %assemble_emit_locat
   %.sroa.6.073.i.i = phi i32 [ %.sroa.6.2.i.i, %284 ], [ -1, %assemble_location_info.exit.i ]
   %.sroa.9.072.i.i = phi i32 [ %.sroa.9.2.i.i, %284 ], [ -1, %assemble_location_info.exit.i ]
   %270 = load ptr, ptr %142, align 8, !tbaa !14
-  %271 = getelementptr %struct._PyInstruction, ptr %270, i64 %indvars.iv.i35.i
+  %271 = getelementptr [44 x i8], ptr %270, i64 %indvars.iv.i35.i
   %272 = getelementptr inbounds nuw i8, ptr %271, i64 24
   %273 = load i32, ptr %272, align 4, !tbaa !45
   %.not.i36.i = icmp eq i32 %273, %.sroa.0.074.i.i
@@ -581,7 +577,7 @@ assemble_location_info.exit.i:                    ; preds = %assemble_emit_locat
 
 276:                                              ; preds = %274
   %277 = zext nneg i32 %.sroa.0.074.i.i to i64
-  %278 = getelementptr %struct._PyInstruction, ptr %270, i64 %277
+  %278 = getelementptr [44 x i8], ptr %270, i64 %277
   %279 = getelementptr inbounds nuw i8, ptr %278, i64 40
   %280 = load i32, ptr %279, align 4, !tbaa !27
   %281 = call fastcc i32 @assemble_emit_exception_table_entry(ptr noundef nonnull %19, i32 noundef %.03076.i.i, i32 noundef %.02777.i.i, i32 noundef %280, i32 %.sroa.6.073.i.i, i32 %.sroa.9.072.i.i)
@@ -638,7 +634,7 @@ assemble_location_info.exit.i:                    ; preds = %assemble_emit_locat
 303:                                              ; preds = %._crit_edge.i41.i
   %304 = load ptr, ptr %142, align 8, !tbaa !14
   %305 = zext nneg i32 %.sroa.0.2.i38.i to i64
-  %306 = getelementptr %struct._PyInstruction, ptr %304, i64 %305
+  %306 = getelementptr [44 x i8], ptr %304, i64 %305
   %307 = getelementptr inbounds nuw i8, ptr %306, i64 40
   %308 = load i32, ptr %307, align 4, !tbaa !27
   %309 = call fastcc i32 @assemble_emit_exception_table_entry(ptr noundef nonnull %19, i32 noundef %.232.i.i, i32 noundef %300, i32 noundef %308, i32 %.sroa.6.2.i.i, i32 %.sroa.9.2.i.i)
@@ -751,7 +747,7 @@ assemble_emit.exit:                               ; preds = %327
   br label %_Py_NewRef.exit.i.i
 
 _Py_NewRef.exit.i.i:                              ; preds = %359, %355
-  %361 = getelementptr ptr, ptr %343, i64 %346
+  %361 = getelementptr [8 x i8], ptr %343, i64 %346
   store ptr %356, ptr %361, align 8, !tbaa !50
   %362 = call i32 @PyDict_Next(ptr noundef nonnull %338, ptr noundef nonnull %14, ptr noundef nonnull %12, ptr noundef nonnull %13) #5
   %.not.i.i26 = icmp eq i32 %362, 0

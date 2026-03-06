@@ -481,7 +481,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit53:               ; preds = %100, %_ZNKSt7__cxx1
   %162 = getelementptr inbounds nuw i8, ptr %.sroa.0247.0270.i, i64 4
   %163 = load i32, ptr %162, align 4, !tbaa !104
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
-  %164 = getelementptr inbounds i32, ptr %141, i64 %indvars.iv.i
+  %164 = getelementptr inbounds [4 x i8], ptr %141, i64 %indvars.iv.i
   store i32 %163, ptr %164, align 4, !tbaa !4
   %165 = getelementptr inbounds nuw i8, ptr %.sroa.0247.0270.i, i64 8
   %.not268.i = icmp eq ptr %165, %153
@@ -1794,7 +1794,7 @@ define internal void @_ZL12set_affinityPK9t_commreciiiiPKiPN3gmx21IThreadAffinit
 
 21:                                               ; preds = %13
   %22 = sext i32 %19 to i64
-  %23 = getelementptr inbounds i32, ptr %20, i64 %22
+  %23 = getelementptr inbounds [4 x i8], ptr %20, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !4
   br label %27
 
@@ -2155,7 +2155,7 @@ _ZN3gmx14LogEntryWriterD2Ev.exit24:               ; preds = %49, %_ZNKSt7__cxx11
 
 67:                                               ; preds = %.lr.ph.i
   %68 = lshr i64 %indvars.iv.i, 6
-  %69 = getelementptr inbounds nuw i64, ptr %7, i64 %68
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %68
   %70 = load i64, ptr %69, align 8, !tbaa !137
   %71 = and i64 %indvars.iv.i, 63
   %72 = lshr i64 %70, %71

@@ -126,13 +126,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVector.90" = type { %"class.llvm::SmallVectorImpl.86", %"struct.llvm::SmallVectorStorage.91" }
 %"struct.llvm::SmallVectorStorage.91" = type { [128 x i8] }
 %"struct.clang::serialized_diags::Location" = type { i32, i32, i32, i32 }
-%"class.std::unique_ptr.100" = type { %"struct.std::__uniq_ptr_data.101" }
-%"struct.std::__uniq_ptr_data.101" = type { %"class.std::__uniq_ptr_impl.102" }
-%"class.std::__uniq_ptr_impl.102" = type { %"class.std::tuple.103" }
-%"class.std::tuple.103" = type { %"struct.std::_Tuple_impl.104" }
-%"struct.std::_Tuple_impl.104" = type { %"struct.std::_Head_base.107" }
-%"struct.std::_Head_base.107" = type { ptr }
-%"struct.llvm::BitstreamCursor::Block" = type { i32, %"class.std::vector" }
 %"struct.std::__cow_string" = type { %union.anon.155 }
 %union.anon.155 = type { ptr }
 
@@ -3234,7 +3227,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i, %68
   store ptr %61, ptr %40, align 8, !tbaa !234
   store ptr %67, ptr %41, align 8, !tbaa !231
-  %69 = getelementptr inbounds nuw %"class.std::unique_ptr.100", ptr %61, i64 %59
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %59
   store ptr %69, ptr %43, align 8, !tbaa !233
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit
 
@@ -3384,7 +3377,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit52: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i49, %130
   store ptr %124, ptr %79, align 8, !tbaa !234
   store ptr %.0.lcssa.i.i.i21.i50, ptr %83, align 8, !tbaa !231
-  %131 = getelementptr inbounds nuw %"class.std::unique_ptr.100", ptr %124, i64 %122
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %122
   store ptr %131, ptr %85, align 8, !tbaa !233
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit21
 
@@ -3504,7 +3497,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, %31
   store ptr %20, ptr %0, align 8, !tbaa !234
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !231
-  %35 = getelementptr inbounds nuw %"class.std::unique_ptr.100", ptr %20, i64 %16
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %35, ptr %30, align 8, !tbaa !233
   ret void
 }
@@ -4040,7 +4033,7 @@ define linkonce_odr hidden void @_ZN4llvm15BitstreamCursor13popBlockScopeEv(ptr 
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load i32, ptr %4, align 8, !tbaa !38
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw %"struct.llvm::BitstreamCursor::Block", ptr %3, i64 %6
+  %7 = getelementptr inbounds nuw [32 x i8], ptr %3, i64 %6
   %8 = getelementptr inbounds i8, ptr %7, i64 -32
   %9 = load i32, ptr %8, align 8, !tbaa !287
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -4137,7 +4130,7 @@ _ZNSt6vectorISt10shared_ptrIN4llvm13BitCodeAbbrevEESaIS3_EEaSEOS5_.exit: ; preds
   store i32 %52, ptr %4, align 8, !tbaa !38
   %53 = load ptr, ptr %2, align 8, !tbaa !37
   %54 = zext i32 %52 to i64
-  %55 = getelementptr inbounds nuw %"struct.llvm::BitstreamCursor::Block", ptr %53, i64 %54
+  %55 = getelementptr inbounds nuw [32 x i8], ptr %53, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load ptr, ptr %56, align 8, !tbaa !72
   %58 = getelementptr inbounds nuw i8, ptr %55, i64 16

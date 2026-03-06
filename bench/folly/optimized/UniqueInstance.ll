@@ -193,7 +193,7 @@ _ZN5folly6detail12_GLOBAL__N_15equalERKSt9type_infoS4_.exit.thread: ; preds = %1
   %.sroa.281.0.copyload = load i32, ptr %.sroa.281.0..sroa_idx, align 8, !tbaa !19
   %.sroa.382.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 20
   %27 = zext i32 %.sroa.281.0.copyload to i64
-  %28 = getelementptr inbounds nuw ptr, ptr %.sroa.180.0.copyload, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.180.0.copyload, i64 %27
   %.not.i.i.i = icmp eq i32 %.sroa.285.0.copyload, %.sroa.281.0.copyload
   br i1 %.not.i.i.i, label %29, label %.loopexit96.invoke
 
@@ -765,7 +765,7 @@ _ZN5folly6detail12_GLOBAL__N_111render_tmplINS0_14UniqueInstance5ValueEEENS_14ba
   %.sroa.230.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.230.0.copyload = load i32, ptr %.sroa.230.0..sroa_idx, align 8, !tbaa !19
   %53 = zext i32 %.sroa.230.0.copyload to i64
-  %54 = getelementptr inbounds nuw ptr, ptr %.sroa.129.0.copyload, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.129.0.copyload, i64 %53
   invoke fastcc void @_ZN5folly6detail12_GLOBAL__N_14joinB5cxx11ENS1_8PtrRangeE(ptr dead_on_unwind noalias writable align 8 %6, ptr %.sroa.129.0.copyload, ptr %54)
           to label %55 unwind label %132
 
@@ -774,7 +774,7 @@ _ZN5folly6detail12_GLOBAL__N_111render_tmplINS0_14UniqueInstance5ValueEEENS_14ba
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %.sroa.3.0.copyload = load i32, ptr %.sroa.331.0..sroa_idx, align 4, !tbaa !19
   %56 = zext i32 %.sroa.3.0.copyload to i64
-  %57 = getelementptr inbounds nuw ptr, ptr %54, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %56
   invoke fastcc void @_ZN5folly6detail12_GLOBAL__N_14joinB5cxx11ENS1_8PtrRangeE(ptr dead_on_unwind noalias writable align 8 %7, ptr %54, ptr %57)
           to label %58 unwind label %134
 

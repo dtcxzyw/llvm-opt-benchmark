@@ -12660,7 +12660,7 @@ define hidden void @_ZN10serde_json5value2de11visit_array17h5c2cdc797494c343E(pt
 
 29:                                               ; preds = %24, %20
   %30 = load ptr, ptr %11, align 8, !alias.scope !2661, !noalias !2664, !nonnull !3, !noundef !3
-  %31 = getelementptr inbounds nuw { i8, [31 x i8] }, ptr %30, i64 %21
+  %31 = getelementptr inbounds nuw [32 x i8], ptr %30, i64 %21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false), !noalias !2659
   %32 = add i64 %21, 1
   store i64 %32, ptr %12, align 8, !alias.scope !2661, !noalias !2664
@@ -31522,10 +31522,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !5866, !noundef !3
   %.val = load i8, ptr %2, align 1, !range !79, !noundef !3
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hcb7163abf6dd523aE", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hcb7163abf6dd523aE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hcb7163abf6dd523aE.157", i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hcb7163abf6dd523aE.157", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h448b00798f40aad6E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5

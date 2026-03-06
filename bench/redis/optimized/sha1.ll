@@ -1129,7 +1129,7 @@ define dso_local void @SHA1Final(ptr noundef writeonly captures(none) %0, ptr no
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %6 ]
   %7 = icmp samesign ult i64 %indvars.iv, 4
   %8 = zext i1 %7 to i64
-  %9 = getelementptr inbounds nuw i32, ptr %5, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !5
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
   %11 = shl i32 %indvars.iv.tr, 3
@@ -1167,7 +1167,7 @@ define dso_local void @SHA1Final(ptr noundef writeonly captures(none) %0, ptr no
   %indvars.iv21 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next22, %22 ]
   %23 = lshr i64 %indvars.iv21, 2
   %24 = and i64 %23, 1073741823
-  %25 = getelementptr inbounds nuw i32, ptr %1, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !5
   %indvars.iv21.tr = trunc i64 %indvars.iv21 to i32
   %27 = shl i32 %indvars.iv21.tr, 3

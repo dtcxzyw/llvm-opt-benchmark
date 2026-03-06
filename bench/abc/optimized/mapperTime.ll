@@ -3,9 +3,6 @@ source_filename = "bench/abc/original/mapperTime.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.Map_TimeStruct_t_ = type { float, float, float }
-%struct.Map_MatchStruct_t_ = type { ptr, i32, i32, ptr, %struct.Map_TimeStruct_t_, float }
-
 @.str = private unnamed_addr constant [65 x i8] c"Cannot meet the target required times (%4.2f). Continue anyway.\0A\00", align 1
 @.str.1 = private unnamed_addr constant [65 x i8] c"Relaxing the required times from (%4.2f) to the target (%4.2f).\0A\00", align 1
 
@@ -24,7 +21,7 @@ define float @Map_TimeComputeArrivalMax(ptr noundef readonly captures(none) %0) 
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
   %.017 = phi float [ 0xC7B9999980000000, %.lr.ph ], [ %.1, %25 ]
   %7 = load ptr, ptr %5, align 8, !tbaa !22
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !23
   %10 = tail call i32 @Map_NodeIsConst(ptr noundef %9) #6
   %.not = icmp eq i32 %10, 0
@@ -32,14 +29,14 @@ define float @Map_TimeComputeArrivalMax(ptr noundef readonly captures(none) %0) 
 
 11:                                               ; preds = %6
   %12 = load ptr, ptr %5, align 8, !tbaa !22
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !23
   %15 = ptrtoint ptr %14 to i64
   %16 = and i64 %15, 1
   %17 = xor i64 %16, 1
   %18 = and i64 %15, -2
   %19 = inttoptr i64 %18 to ptr
-  %20 = getelementptr inbounds nuw %struct.Map_TimeStruct_t_, ptr %19, i64 %17
+  %20 = getelementptr inbounds nuw [12 x i8], ptr %19, i64 %17
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 104
   %22 = load float, ptr %21, align 4, !tbaa !24
   %23 = fcmp ogt float %.017, %22
@@ -65,7 +62,7 @@ declare i32 @Map_NodeIsConst(ptr noundef) local_unnamed_addr #1
 define float @Map_TimeCutComputeArrival(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, float noundef %3) local_unnamed_addr #2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %6 = sext i32 %2 to i64
-  %7 = getelementptr inbounds %struct.Map_MatchStruct_t_, ptr %5, i64 %6
+  %7 = getelementptr inbounds [40 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !28
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 12
@@ -81,7 +78,7 @@ define float @Map_TimeCutComputeArrival(ptr noundef readonly captures(none) %0, 
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load i32, ptr %17, align 8, !tbaa !37
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds float, ptr %15, i64 %19
+  %20 = getelementptr inbounds [4 x i8], ptr %15, i64 %19
   %21 = load float, ptr %20, align 4, !tbaa !38
   br label %22
 
@@ -115,12 +112,12 @@ define float @Map_TimeCutComputeArrival(ptr noundef readonly captures(none) %0, 
   %39 = trunc nsw i64 %indvars.iv.next to i32
   %40 = lshr i32 %29, %39
   %41 = and i32 %40, 1
-  %42 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv.next
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv.next
   %43 = load ptr, ptr %42, align 8, !tbaa !23
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 96
   %45 = zext nneg i32 %41 to i64
-  %46 = getelementptr inbounds nuw %struct.Map_TimeStruct_t_, ptr %44, i64 %45
-  %47 = getelementptr inbounds nuw %struct.Map_TimeStruct_t_, ptr %31, i64 %indvars.iv.next
+  %46 = getelementptr inbounds nuw [12 x i8], ptr %44, i64 %45
+  %47 = getelementptr inbounds nuw [12 x i8], ptr %31, i64 %indvars.iv.next
   %48 = load float, ptr %47, align 4, !tbaa !40
   %49 = fcmp ogt float %48, 0.000000e+00
   br i1 %49, label %50, label %58
@@ -167,7 +164,7 @@ define float @Map_TimeCutComputeArrival(ptr noundef readonly captures(none) %0, 
 73:                                               ; preds = %70, %72, %58
   %74 = phi float [ %59, %70 ], [ %68, %72 ], [ %59, %58 ]
   %75 = phi float [ %59, %70 ], [ %68, %72 ], [ %60, %58 ]
-  %76 = getelementptr inbounds nuw %struct.Map_TimeStruct_t_, ptr %32, i64 %indvars.iv.next
+  %76 = getelementptr inbounds nuw [12 x i8], ptr %32, i64 %indvars.iv.next
   %77 = load float, ptr %76, align 4, !tbaa !40
   %78 = fcmp ogt float %77, 0.000000e+00
   br i1 %78, label %79, label %87
@@ -242,7 +239,7 @@ define void @Map_TimePropagateRequiredPhase(ptr readnone captures(none) %0, ptr 
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i32, ptr %8, align 8, !tbaa !37
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds float, ptr %6, i64 %10
+  %11 = getelementptr inbounds [4 x i8], ptr %6, i64 %10
   %12 = load float, ptr %11, align 4, !tbaa !38
   br label %13
 
@@ -250,10 +247,10 @@ define void @Map_TimePropagateRequiredPhase(ptr readnone captures(none) %0, ptr 
   %14 = phi float [ %12, %7 ], [ 0.000000e+00, %3 ]
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %16 = sext i32 %2 to i64
-  %17 = getelementptr inbounds ptr, ptr %15, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !44
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %20 = getelementptr inbounds %struct.Map_TimeStruct_t_, ptr %19, i64 %16
+  %20 = getelementptr inbounds [12 x i8], ptr %19, i64 %16
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 76
   %22 = load i8, ptr %21, align 4, !tbaa !41
   %23 = icmp sgt i8 %22, 0
@@ -262,7 +259,7 @@ define void @Map_TimePropagateRequiredPhase(ptr readnone captures(none) %0, ptr 
 .lr.ph:                                           ; preds = %13
   %wide.trip.count = zext nneg i8 %22 to i64
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 80
-  %25 = getelementptr inbounds %struct.Map_MatchStruct_t_, ptr %24, i64 %16
+  %25 = getelementptr inbounds [40 x i8], ptr %24, i64 %16
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 12
   %27 = load i32, ptr %26, align 4, !tbaa !31
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 16
@@ -279,12 +276,12 @@ define void @Map_TimePropagateRequiredPhase(ptr readnone captures(none) %0, ptr 
   %36 = trunc nuw nsw i64 %indvars.iv to i32
   %37 = lshr i32 %30, %36
   %38 = and i32 %37, 1
-  %39 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv
   %40 = load ptr, ptr %39, align 8, !tbaa !23
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 120
   %42 = zext nneg i32 %38 to i64
-  %43 = getelementptr inbounds nuw %struct.Map_TimeStruct_t_, ptr %41, i64 %42
-  %44 = getelementptr inbounds nuw %struct.Map_TimeStruct_t_, ptr %32, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [12 x i8], ptr %41, i64 %42
+  %44 = getelementptr inbounds nuw [12 x i8], ptr %32, i64 %indvars.iv
   %45 = load float, ptr %44, align 4, !tbaa !40
   %46 = fcmp ogt float %45, 0.000000e+00
   br i1 %46, label %47, label %53
@@ -317,7 +314,7 @@ define void @Map_TimePropagateRequiredPhase(ptr readnone captures(none) %0, ptr 
   br label %64
 
 64:                                               ; preds = %57, %53
-  %65 = getelementptr inbounds nuw %struct.Map_TimeStruct_t_, ptr %33, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [12 x i8], ptr %33, i64 %indvars.iv
   %66 = load float, ptr %65, align 4, !tbaa !40
   %67 = fcmp ogt float %66, 0.000000e+00
   br i1 %67, label %68, label %74
@@ -362,7 +359,7 @@ define void @Map_TimePropagateRequiredPhase(ptr readnone captures(none) %0, ptr 
 define float @Map_MatchComputeReqTimes(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds %struct.Map_MatchStruct_t_, ptr %4, i64 %5
+  %6 = getelementptr inbounds [40 x i8], ptr %4, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !28
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 12
@@ -392,12 +389,12 @@ define float @Map_MatchComputeReqTimes(ptr noundef readonly captures(none) %0, i
   %24 = trunc nuw nsw i64 %indvars.iv to i32
   %25 = lshr i32 %15, %24
   %26 = and i32 %25, 1
-  %27 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8, !tbaa !23
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 120
   %30 = zext nneg i32 %26 to i64
-  %31 = getelementptr inbounds nuw %struct.Map_TimeStruct_t_, ptr %29, i64 %30
-  %32 = getelementptr inbounds nuw %struct.Map_TimeStruct_t_, ptr %17, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [12 x i8], ptr %29, i64 %30
+  %32 = getelementptr inbounds nuw [12 x i8], ptr %17, i64 %indvars.iv
   %33 = load float, ptr %32, align 4, !tbaa !40
   %34 = fcmp ogt float %33, 0.000000e+00
   br i1 %34, label %35, label %40
@@ -434,7 +431,7 @@ define float @Map_MatchComputeReqTimes(ptr noundef readonly captures(none) %0, i
 52:                                               ; preds = %46, %51, %40
   %53 = phi float [ %41, %46 ], [ %49, %51 ], [ %41, %40 ]
   %54 = phi float [ %41, %46 ], [ %49, %51 ], [ %42, %40 ]
-  %55 = getelementptr inbounds nuw %struct.Map_TimeStruct_t_, ptr %18, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [12 x i8], ptr %18, i64 %indvars.iv
   %56 = load float, ptr %55, align 4, !tbaa !40
   %57 = fcmp ogt float %56, 0.000000e+00
   br i1 %57, label %58, label %63
@@ -502,7 +499,7 @@ define void @Map_TimePropagateRequired(ptr noundef readonly captures(none) %0) l
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %10 = load ptr, ptr %2, align 8, !tbaa !47
   %11 = load ptr, ptr %10, align 8, !tbaa !50
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.next
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.next
   %13 = load ptr, ptr %12, align 8, !tbaa !23
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 40
@@ -523,7 +520,7 @@ define void @Map_TimePropagateRequired(ptr noundef readonly captures(none) %0) l
   %25 = inttoptr i64 %24 to ptr
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 120
   %27 = and i64 %23, 1
-  %28 = getelementptr inbounds nuw %struct.Map_TimeStruct_t_, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [12 x i8], ptr %26, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %13, i64 120
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %28, ptr noundef nonnull align 8 dereferenceable(12) %29, i64 12, i1 false), !tbaa.struct !53
   %30 = load ptr, ptr %21, align 8, !tbaa !52
@@ -533,7 +530,7 @@ define void @Map_TimePropagateRequired(ptr noundef readonly captures(none) %0) l
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 120
   %35 = and i64 %31, 1
   %36 = xor i64 %35, 1
-  %37 = getelementptr inbounds nuw %struct.Map_TimeStruct_t_, ptr %34, i64 %36
+  %37 = getelementptr inbounds nuw [12 x i8], ptr %34, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %13, i64 132
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %37, ptr noundef nonnull align 4 dereferenceable(12) %38, i64 12, i1 false), !tbaa.struct !53
   br label %98
@@ -552,17 +549,17 @@ define void @Map_TimePropagateRequired(ptr noundef readonly captures(none) %0) l
 
 ._crit_edge70:                                    ; preds = %39
   %44 = zext i1 %.mux to i64
-  %45 = getelementptr inbounds nuw i32, ptr %14, i64 %44
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !51
   %47 = icmp sgt i32 %46, 0
   br i1 %47, label %48, label %70
 
 48:                                               ; preds = %._crit_edge70
   %49 = getelementptr inbounds nuw i8, ptr %13, i64 120
-  %50 = getelementptr inbounds nuw %struct.Map_TimeStruct_t_, ptr %49, i64 %44
+  %50 = getelementptr inbounds nuw [12 x i8], ptr %49, i64 %44
   %51 = xor i1 %.mux, true
   %52 = zext i1 %51 to i64
-  %53 = getelementptr inbounds nuw %struct.Map_TimeStruct_t_, ptr %49, i64 %52
+  %53 = getelementptr inbounds nuw [12 x i8], ptr %49, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 4
   %55 = load float, ptr %54, align 4, !tbaa !39
   %56 = load float, ptr %50, align 4, !tbaa !40
@@ -671,7 +668,7 @@ define void @Map_TimeComputeRequiredGlobal(ptr noundef captures(none) %0) local_
 10:                                               ; preds = %10, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %10 ]
   %.08.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i ], [ %15, %10 ]
-  %11 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.i.i.i
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv.i.i.i
   %12 = load i32, ptr %11, align 4, !tbaa !51
   %13 = icmp eq i32 %12, 0
   %14 = zext i1 %13 to i32
@@ -700,7 +697,7 @@ Scl_ConHasOutReqs.exit:                           ; preds = %10, %3
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %42 ]
   %.017.i = phi float [ 0xC7B9999980000000, %.lr.ph.i ], [ %.1.i, %42 ]
   %24 = load ptr, ptr %22, align 8, !tbaa !22
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv.i
   %26 = load ptr, ptr %25, align 8, !tbaa !23
   %27 = tail call i32 @Map_NodeIsConst(ptr noundef %26) #6
   %.not.i = icmp eq i32 %27, 0
@@ -708,14 +705,14 @@ Scl_ConHasOutReqs.exit:                           ; preds = %10, %3
 
 28:                                               ; preds = %23
   %29 = load ptr, ptr %22, align 8, !tbaa !22
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv.i
   %31 = load ptr, ptr %30, align 8, !tbaa !23
   %32 = ptrtoint ptr %31 to i64
   %33 = and i64 %32, 1
   %34 = xor i64 %33, 1
   %35 = and i64 %32, -2
   %36 = inttoptr i64 %35 to ptr
-  %37 = getelementptr inbounds nuw %struct.Map_TimeStruct_t_, ptr %36, i64 %34
+  %37 = getelementptr inbounds nuw [12 x i8], ptr %36, i64 %34
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 104
   %39 = load float, ptr %38, align 4, !tbaa !24
   %40 = fcmp ogt float %.017.i, %39
@@ -811,7 +808,7 @@ Map_TimeComputeArrivalMax.exit:                   ; preds = %42, %17
 .lr.ph104.split.us:                               ; preds = %.lr.ph104, %113
   %indvars.iv117 = phi i64 [ %indvars.iv.next118, %113 ], [ 0, %.lr.ph104 ]
   %88 = load ptr, ptr %87, align 8, !tbaa !22
-  %89 = getelementptr inbounds nuw ptr, ptr %88, i64 %indvars.iv117
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %indvars.iv117
   %90 = load ptr, ptr %89, align 8, !tbaa !23
   %91 = ptrtoint ptr %90 to i64
   %92 = and i64 %91, 1
@@ -819,11 +816,11 @@ Map_TimeComputeArrivalMax.exit:                   ; preds = %42, %17
   %94 = and i64 %91, -2
   %95 = inttoptr i64 %94 to ptr
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 120
-  %97 = getelementptr inbounds nuw %struct.Map_TimeStruct_t_, ptr %96, i64 %93
+  %97 = getelementptr inbounds nuw [12 x i8], ptr %96, i64 %93
   %98 = tail call ptr (...) @Scl_ConReadMan() #6
   %99 = getelementptr i8, ptr %98, i64 136
   %.val.i.i.us = load ptr, ptr %99, align 8, !tbaa !66
-  %100 = getelementptr inbounds nuw i32, ptr %.val.i.i.us, i64 %indvars.iv117
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %.val.i.i.us, i64 %indvars.iv117
   %101 = load i32, ptr %100, align 4, !tbaa !51
   %102 = sitofp i32 %101 to float
   %103 = fdiv float %102, 1.000000e+03
@@ -831,7 +828,7 @@ Map_TimeComputeArrivalMax.exit:                   ; preds = %42, %17
   br i1 %104, label %105, label %.critedge.us
 
 105:                                              ; preds = %.lr.ph104.split.us
-  %106 = getelementptr inbounds nuw %struct.Map_TimeStruct_t_, ptr %95, i64 %93
+  %106 = getelementptr inbounds nuw [12 x i8], ptr %95, i64 %93
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 104
   %108 = load float, ptr %107, align 4, !tbaa !24
   %109 = fcmp ugt float %108, %103
@@ -876,7 +873,7 @@ Map_TimeComputeArrivalMax.exit:                   ; preds = %42, %17
 
 125:                                              ; preds = %125, %.lr.ph104.split.split.us
   %indvars.iv112 = phi i64 [ %indvars.iv.next113, %125 ], [ 0, %.lr.ph104.split.split.us ]
-  %126 = getelementptr inbounds nuw ptr, ptr %122, i64 %indvars.iv112
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %indvars.iv112
   %127 = load ptr, ptr %126, align 8, !tbaa !23
   %128 = ptrtoint ptr %127 to i64
   %129 = and i64 %128, 1
@@ -884,7 +881,7 @@ Map_TimeComputeArrivalMax.exit:                   ; preds = %42, %17
   %131 = and i64 %128, -2
   %132 = inttoptr i64 %131 to ptr
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 120
-  %134 = getelementptr inbounds nuw %struct.Map_TimeStruct_t_, ptr %133, i64 %130
+  %134 = getelementptr inbounds nuw [12 x i8], ptr %133, i64 %130
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 8
   store float %124, ptr %135, align 4, !tbaa !24
   %136 = getelementptr inbounds nuw i8, ptr %134, i64 4
@@ -896,7 +893,7 @@ Map_TimeComputeArrivalMax.exit:                   ; preds = %42, %17
 
 137:                                              ; preds = %.lr.ph, %137
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %137 ]
-  %138 = getelementptr inbounds nuw ptr, ptr %84, i64 %indvars.iv
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %indvars.iv
   %139 = load ptr, ptr %138, align 8, !tbaa !23
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 120
   store float 0x47B9999980000000, ptr %140, align 8, !tbaa !40
@@ -916,7 +913,7 @@ Map_TimeComputeArrivalMax.exit:                   ; preds = %42, %17
 
 146:                                              ; preds = %172, %.lr.ph104.split.split.preheader
   %indvars.iv109 = phi i64 [ 0, %.lr.ph104.split.split.preheader ], [ %indvars.iv.next110, %172 ]
-  %147 = getelementptr inbounds nuw ptr, ptr %122, i64 %indvars.iv109
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %indvars.iv109
   %148 = load ptr, ptr %147, align 8, !tbaa !23
   %149 = ptrtoint ptr %148 to i64
   %150 = and i64 %149, 1
@@ -924,10 +921,10 @@ Map_TimeComputeArrivalMax.exit:                   ; preds = %42, %17
   %152 = and i64 %149, -2
   %153 = inttoptr i64 %152 to ptr
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 120
-  %155 = getelementptr inbounds nuw %struct.Map_TimeStruct_t_, ptr %154, i64 %151
+  %155 = getelementptr inbounds nuw [12 x i8], ptr %154, i64 %151
   %156 = getelementptr inbounds nuw i8, ptr %153, i64 96
-  %157 = getelementptr inbounds nuw %struct.Map_TimeStruct_t_, ptr %156, i64 %151
-  %158 = getelementptr inbounds nuw %struct.Map_TimeStruct_t_, ptr %120, i64 %indvars.iv109
+  %157 = getelementptr inbounds nuw [12 x i8], ptr %156, i64 %151
+  %158 = getelementptr inbounds nuw [12 x i8], ptr %120, i64 %indvars.iv109
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 8
   %160 = load float, ptr %159, align 4, !tbaa !24
   %161 = fcmp ogt float %160, 0.000000e+00

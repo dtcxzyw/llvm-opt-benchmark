@@ -2507,7 +2507,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_signal_container(i32 nounde
   %267 = phi i32 [ %264, %.lr.ph625 ], [ %283, %282 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph625 ], [ %indvars.iv.next, %282 ]
   %268 = load ptr, ptr %265, align 8
-  %269 = getelementptr inbounds nuw ptr, ptr %268, i64 %indvars.iv
+  %269 = getelementptr inbounds nuw [8 x i8], ptr %268, i64 %indvars.iv
   %270 = load ptr, ptr %269, align 8
   %271 = icmp eq ptr %270, null
   br i1 %271, label %282, label %272
@@ -2730,7 +2730,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_signal_container(i32 nounde
 362:                                              ; preds = %.lr.ph627, %362
   %indvars.iv790 = phi i64 [ 0, %.lr.ph627 ], [ %indvars.iv.next791, %362 ]
   %363 = load ptr, ptr %360, align 8
-  %364 = getelementptr inbounds nuw ptr, ptr %363, i64 %indvars.iv790
+  %364 = getelementptr inbounds nuw [8 x i8], ptr %363, i64 %indvars.iv790
   %365 = load ptr, ptr %364, align 8
   %366 = getelementptr inbounds nuw i8, ptr %365, i64 64
   %367 = load i32, ptr %366, align 8
@@ -4292,7 +4292,7 @@ thread-pre-split:                                 ; preds = %.outer423._crit_edg
   %348 = phi i32 [ %366, %365 ], [ %347, %.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %365 ], [ 0, %.preheader ]
   %349 = load ptr, ptr %345, align 8
-  %350 = getelementptr inbounds nuw ptr, ptr %349, i64 %indvars.iv
+  %350 = getelementptr inbounds nuw [8 x i8], ptr %349, i64 %indvars.iv
   %351 = load ptr, ptr %350, align 8
   %352 = icmp eq ptr %351, null
   br i1 %352, label %365, label %353
@@ -4301,15 +4301,15 @@ thread-pre-split:                                 ; preds = %.outer423._crit_edg
   %354 = getelementptr inbounds nuw i8, ptr %351, i64 64
   %355 = load i32, ptr %354, align 8
   %356 = load ptr, ptr %7, align 8
-  %357 = getelementptr inbounds nuw i32, ptr %356, i64 %indvars.iv
+  %357 = getelementptr inbounds nuw [4 x i8], ptr %356, i64 %indvars.iv
   store i32 %355, ptr %357, align 4
   %358 = load ptr, ptr %345, align 8
-  %359 = getelementptr inbounds nuw ptr, ptr %358, i64 %indvars.iv
+  %359 = getelementptr inbounds nuw [8 x i8], ptr %358, i64 %indvars.iv
   %360 = load ptr, ptr %359, align 8
   %361 = getelementptr inbounds nuw i8, ptr %360, i64 60
   %362 = load i32, ptr %361, align 4
   %363 = load ptr, ptr %6, align 8
-  %364 = getelementptr inbounds nuw i32, ptr %363, i64 %indvars.iv
+  %364 = getelementptr inbounds nuw [4 x i8], ptr %363, i64 %indvars.iv
   store i32 %362, ptr %364, align 4
   %.pre = load i32, ptr %339, align 4
   br label %365
@@ -4512,7 +4512,7 @@ thread-pre-split:                                 ; preds = %.outer423._crit_edg
   br i1 %.not337, label %481, label %427
 
 427:                                              ; preds = %.lr.ph940
-  %428 = getelementptr inbounds nuw ptr, ptr %426, i64 %indvars.iv1117
+  %428 = getelementptr inbounds nuw [8 x i8], ptr %426, i64 %indvars.iv1117
   %429 = load ptr, ptr %428, align 8
   %.not338 = icmp eq ptr %429, null
   br i1 %.not338, label %481, label %430
@@ -4591,7 +4591,7 @@ thread-pre-split:                                 ; preds = %.outer423._crit_edg
 
 .lr.ph899.preheader:                              ; preds = %._crit_edge881.split.us
   %456 = load ptr, ptr %345, align 8
-  %457 = getelementptr inbounds nuw ptr, ptr %456, i64 %indvars.iv1117
+  %457 = getelementptr inbounds nuw [8 x i8], ptr %456, i64 %indvars.iv1117
   %458 = load ptr, ptr %457, align 8
   %459 = getelementptr inbounds nuw i8, ptr %458, i64 160
   %460 = load ptr, ptr %459, align 8
@@ -5617,7 +5617,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_terminate(i32 noundef %0, p
   %32 = phi i32 [ %28, %.lr.ph ], [ %48, %47 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %47 ]
   %33 = load ptr, ptr %29, align 8
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %47, label %37
@@ -7468,7 +7468,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_task_info(i32 noundef %0, p
 29:                                               ; preds = %.lr.ph298, %._crit_edge279.split.us
   %indvars.iv = phi i64 [ 0, %.lr.ph298 ], [ %indvars.iv.next, %._crit_edge279.split.us ]
   %30 = load ptr, ptr %13, align 8
-  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 56
   br label %.lr.ph203.split
@@ -7887,7 +7887,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_stat_jobacct(i32 noundef %0
   %indvars.iv99 = phi i64 [ %indvars.iv.next100, %74 ], [ 0, %51 ]
   %.05475 = phi i1 [ false, %74 ], [ true, %51 ]
   %57 = load ptr, ptr %10, align 8
-  %58 = getelementptr inbounds nuw i32, ptr %57, i64 %indvars.iv99
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %indvars.iv99
   %59 = load i32, ptr %58, align 4
   %60 = call ptr @jobacct_gather_stat_task(i32 noundef %59, i1 noundef zeroext %.05475) #13
   %.not66 = icmp eq ptr %60, null
@@ -7912,7 +7912,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_stat_jobacct(i32 noundef %0
 68:                                               ; preds = %65
   %69 = load i64, ptr %52, align 8
   %70 = load ptr, ptr %10, align 8
-  %71 = getelementptr inbounds nuw i32, ptr %70, i64 %indvars.iv99
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %indvars.iv99
   %72 = load i32, ptr %71, align 4
   %73 = sext i32 %72 to i64
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.124, ptr noundef nonnull @__func__._handle_stat_jobacct, i64 noundef %69, i64 noundef %73) #13
@@ -7930,7 +7930,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_stat_jobacct(i32 noundef %0
   %.173 = phi i1 [ true, %.lr.ph ], [ false, %88 ]
   %79 = phi i32 [ 0, %.lr.ph ], [ %89, %88 ]
   %80 = load ptr, ptr %50, align 8
-  %81 = getelementptr inbounds nuw ptr, ptr %80, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %indvars.iv
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 64
   %84 = load i32, ptr %83, align 8
@@ -8154,7 +8154,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_list_pids(i32 noundef %0, p
 .lr.ph94:                                         ; preds = %.preheader, %._crit_edge.split.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge.split.us ], [ 0, %.preheader ]
   %34 = load ptr, ptr %3, align 8
-  %35 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv
   %36 = load i32, ptr %35, align 4
   store i32 %36, ptr %5, align 4
   br label %.lr.ph75.split
@@ -11687,7 +11687,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getgr(i32 noundef %0, ptr n
 
 205:                                              ; preds = %214
   %206 = load ptr, ptr %191, align 8
-  %207 = getelementptr inbounds nuw i32, ptr %206, i64 %indvars.iv.next
+  %207 = getelementptr inbounds nuw [4 x i8], ptr %206, i64 %indvars.iv.next
   %208 = load i32, ptr %207, align 4
   %209 = icmp eq i32 %201, %208
   br i1 %209, label %._crit_edge429, label %.lr.ph761, !llvm.loop !117
@@ -11695,7 +11695,7 @@ define internal fastcc range(i32 -1, 1) i32 @_handle_getgr(i32 noundef %0, ptr n
 .lr.ph761:                                        ; preds = %.lr.ph428, %205
   %indvars.iv760 = phi i64 [ %indvars.iv.next, %205 ], [ 0, %.lr.ph428 ]
   %210 = load ptr, ptr %194, align 8
-  %211 = getelementptr inbounds nuw ptr, ptr %210, i64 %indvars.iv760
+  %211 = getelementptr inbounds nuw [8 x i8], ptr %210, i64 %indvars.iv760
   %212 = load ptr, ptr %211, align 8
   %213 = tail call i32 @xstrcmp(ptr noundef %184, ptr noundef %212) #13
   %.not156 = icmp eq i32 %213, 0
@@ -14469,7 +14469,7 @@ _block_on_pid.exit:                               ; preds = %.lr.ph.i, %1
 .lr.ph:                                           ; preds = %21, %66
   %indvars.iv = phi i64 [ %indvars.iv.next, %66 ], [ 0, %21 ]
   %28 = load ptr, ptr %3, align 8
-  %29 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv
   %30 = load i32, ptr %29, align 4
   %31 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 256, ptr noundef nonnull @.str.144, i32 noundef %30) #13
   %32 = call noalias ptr @fopen(ptr noundef nonnull %5, ptr noundef nonnull @.str.145)
@@ -14515,14 +14515,14 @@ _block_on_pid.exit:                               ; preds = %.lr.ph.i, %1
 
 55:                                               ; preds = %52
   %56 = load ptr, ptr %3, align 8
-  %57 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv
   %58 = load i32, ptr %57, align 4
   call void (i32, ptr, ...) @log_var(i32 noundef 6, ptr noundef nonnull @.str.148, i32 noundef %58) #13
   br label %59
 
 59:                                               ; preds = %55, %52
   %60 = load ptr, ptr %3, align 8
-  %61 = getelementptr inbounds nuw i32, ptr %60, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %indvars.iv
   %62 = load i32, ptr %61, align 4
   %63 = call fastcc i32 @_handle_add_extern_pid_internal(ptr noundef %9, i32 noundef %62)
   br label %64
@@ -14580,7 +14580,7 @@ define internal fastcc range(i32 -1, 1) i32 @_send_one_struct_group(i32 noundef 
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 424
   %6 = load ptr, ptr %5, align 8
   %7 = sext i32 %2 to i64
-  %8 = getelementptr inbounds ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %.thread, label %10
@@ -14652,7 +14652,7 @@ define internal fastcc range(i32 -1, 1) i32 @_send_one_struct_group(i32 noundef 
 
 .lr.ph231.preheader:                              ; preds = %.outer197._crit_edge
   %31 = load ptr, ptr %5, align 8
-  %32 = getelementptr inbounds ptr, ptr %31, i64 %7
+  %32 = getelementptr inbounds [8 x i8], ptr %31, i64 %7
   %33 = load ptr, ptr %32, align 8
   %34 = ashr exact i64 %sext, 32
   br label %.lr.ph231.split
@@ -14826,7 +14826,7 @@ define internal fastcc range(i32 -1, 1) i32 @_send_one_struct_group(i32 noundef 
 .outer194._crit_edge:                             ; preds = %.split272
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 432
   %90 = load ptr, ptr %89, align 8
-  %91 = getelementptr inbounds i32, ptr %90, i64 %7
+  %91 = getelementptr inbounds [4 x i8], ptr %90, i64 %7
   br label %.lr.ph288.split
 
 .lr.ph288.split:                                  ; preds = %.lr.ph288.split.backedge, %.outer194._crit_edge

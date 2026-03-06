@@ -756,7 +756,7 @@ define hidden void @_ZN5zxing19FastWindowBinarizer15calcBlockTotalsEPiS1_ii(ptr 
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %11 = mul nuw nsw i64 %indvars.iv.next57, 6
   %12 = mul nuw nsw i64 %indvars.iv56, %9
-  %invariant.gep = getelementptr inbounds nuw i32, ptr %2, i64 %12
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %12
   br label %.lr.ph.us.us
 
 ..loopexit_crit_edge.us:                          ; preds = %._crit_edge.us.us
@@ -793,7 +793,7 @@ define hidden void @_ZN5zxing19FastWindowBinarizer15calcBlockTotalsEPiS1_ii(ptr 
 23:                                               ; preds = %23, %18
   %indvars.iv47 = phi i64 [ %indvars.iv.next48, %23 ], [ %19, %18 ]
   %.130.us.us = phi i32 [ %26, %23 ], [ %.02732.us.us, %18 ]
-  %24 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv47
+  %24 = getelementptr inbounds [4 x i8], ptr %1, i64 %indvars.iv47
   %25 = load i32, ptr %24, align 4, !tbaa !54
   %26 = add nsw i32 %25, %.130.us.us
   %indvars.iv.next48 = add nsw i64 %indvars.iv47, 1
@@ -801,7 +801,7 @@ define hidden void @_ZN5zxing19FastWindowBinarizer15calcBlockTotalsEPiS1_ii(ptr 
   br i1 %27, label %23, label %21, !llvm.loop !55
 
 ._crit_edge.us.us:                                ; preds = %21
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv53
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep, i64 %indvars.iv53
   store i32 %26, ptr %gep, align 4, !tbaa !54
   %indvars.iv.next54 = add nuw nsw i64 %indvars.iv53, 1
   %indvars.iv.next = add nuw i32 %indvars.iv, 6
@@ -838,20 +838,20 @@ define hidden void @_ZN5zxing19FastWindowBinarizer10cumulativeEPiS1_ii(ptr nound
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv66 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next67, %._crit_edge.us ]
   %14 = mul nuw nsw i64 %indvars.iv66, %12
-  %15 = getelementptr inbounds nuw i32, ptr %9, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %14
   %16 = mul nuw nsw i64 %indvars.iv66, %13
-  %17 = getelementptr inbounds nuw i32, ptr %1, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %16
   store i32 0, ptr %15, align 4, !tbaa !54
   br label %18
 
 18:                                               ; preds = %.lr.ph.us, %18
   %indvars.iv61 = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next62, %18 ]
   %.04245.us = phi i32 [ 0, %.lr.ph.us ], [ %21, %18 ]
-  %19 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv61
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv61
   %20 = load i32, ptr %19, align 4, !tbaa !54
   %21 = add nsw i32 %20, %.04245.us
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
-  %22 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.next62
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv.next62
   store i32 %21, ptr %22, align 4, !tbaa !54
   %exitcond65.not = icmp eq i64 %indvars.iv.next62, %13
   br i1 %exitcond65.not, label %._crit_edge.us, label %18, !llvm.loop !57
@@ -884,22 +884,22 @@ define hidden void @_ZN5zxing19FastWindowBinarizer10cumulativeEPiS1_ii(ptr nound
 
 .lr.ph.us56:                                      ; preds = %.lr.ph.us56.preheader, %._crit_edge.us57
   %indvars.iv79 = phi i64 [ 0, %.lr.ph.us56.preheader ], [ %indvars.iv.next80, %._crit_edge.us57 ]
-  %27 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv79
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv79
   store i32 0, ptr %27, align 4, !tbaa !54
-  %invariant.gep = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv79
-  %invariant.gep89 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv79
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv79
+  %invariant.gep89 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv79
   br label %28
 
 28:                                               ; preds = %.lr.ph.us56, %28
   %indvars.iv74 = phi i64 [ 0, %.lr.ph.us56 ], [ %indvars.iv.next75, %28 ]
   %.03950.us = phi i32 [ 0, %.lr.ph.us56 ], [ %31, %28 ]
   %29 = mul nuw nsw i64 %indvars.iv74, %26
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %29
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep, i64 %29
   %30 = load i32, ptr %gep, align 4, !tbaa !54
   %31 = add nsw i32 %30, %.03950.us
   %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
   %32 = mul nuw nsw i64 %indvars.iv.next75, %26
-  %gep90 = getelementptr inbounds nuw i32, ptr %invariant.gep89, i64 %32
+  %gep90 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep89, i64 %32
   store i32 %31, ptr %gep90, align 4, !tbaa !54
   %exitcond78.not = icmp eq i64 %indvars.iv.next75, %wide.trip.count77
   br i1 %exitcond78.not, label %._crit_edge.us57, label %28, !llvm.loop !59
@@ -912,7 +912,7 @@ define hidden void @_ZN5zxing19FastWindowBinarizer10cumulativeEPiS1_ii(ptr nound
 .lr.ph49.split:                                   ; preds = %.lr.ph49.split.preheader, %.lr.ph49.split
   %indvars.iv = phi i64 [ 0, %.lr.ph49.split.preheader ], [ %indvars.iv.next, %.lr.ph49.split ]
   %33 = mul nsw i64 %indvars.iv, %11
-  %34 = getelementptr inbounds i32, ptr %9, i64 %33
+  %34 = getelementptr inbounds [4 x i8], ptr %9, i64 %33
   store i32 0, ptr %34, align 4, !tbaa !54
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -927,7 +927,7 @@ define hidden void @_ZN5zxing19FastWindowBinarizer12fastIntegralEPKhPj(ptr nound
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %5 = load i32, ptr %4, align 4, !tbaa !16
   %6 = sext i32 %5 to i64
-  %7 = getelementptr i32, ptr %2, i64 %6
+  %7 = getelementptr [4 x i8], ptr %2, i64 %6
   %8 = getelementptr i8, ptr %7, i64 4
   store i32 0, ptr %8, align 4, !tbaa !54
   store i32 0, ptr %2, align 4, !tbaa !54
@@ -945,13 +945,13 @@ define hidden void @_ZN5zxing19FastWindowBinarizer12fastIntegralEPKhPj(ptr nound
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %15 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.next
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.next
   store i32 0, ptr %15, align 4, !tbaa !54
   %16 = load i32, ptr %4, align 4, !tbaa !16
   %17 = trunc nuw nsw i64 %indvars.iv.next to i32
   %18 = add i32 %16, %17
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds i32, ptr %2, i64 %19
+  %20 = getelementptr inbounds [4 x i8], ptr %2, i64 %19
   %21 = load i32, ptr %20, align 4, !tbaa !54
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %23 = load i8, ptr %22, align 1, !tbaa !61
@@ -983,7 +983,7 @@ define hidden void @_ZN5zxing19FastWindowBinarizer12fastIntegralEPKhPj(ptr nound
   %38 = add nsw i32 %33, 1
   %39 = mul nsw i32 %38, %37
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds i32, ptr %2, i64 %40
+  %41 = getelementptr inbounds [4 x i8], ptr %2, i64 %40
   store i32 0, ptr %41, align 4, !tbaa !54
   %42 = load i8, ptr %36, align 1, !tbaa !61
   %43 = zext i8 %42 to i32
@@ -1010,10 +1010,10 @@ define hidden void @_ZN5zxing19FastWindowBinarizer12fastIntegralEPKhPj(ptr nound
   %54 = trunc nuw nsw i64 %indvars.iv43 to i32
   %55 = sub i32 %54, %49
   %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds i32, ptr %41, i64 %56
+  %57 = getelementptr inbounds [4 x i8], ptr %41, i64 %56
   %58 = load i32, ptr %57, align 4, !tbaa !54
   %59 = add i32 %53, %58
-  %60 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv.next44
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %indvars.iv.next44
   store i32 %59, ptr %60, align 4, !tbaa !54
   %61 = load i32, ptr %4, align 4, !tbaa !16
   %62 = sext i32 %61 to i64
@@ -1112,7 +1112,7 @@ _ZN5zxing3RefINS_9BitMatrixEED2Ev.exit:           ; preds = %_ZN5zxing3RefINS_9B
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %50 = load ptr, ptr %49, align 8, !tbaa !36
   %51 = sext i32 %7 to i64
-  %52 = getelementptr i32, ptr %50, i64 %51
+  %52 = getelementptr [4 x i8], ptr %50, i64 %51
   %53 = getelementptr i8, ptr %52, i64 4
   store i32 0, ptr %53, align 4, !tbaa !54
   store i32 0, ptr %50, align 4, !tbaa !54
@@ -1129,13 +1129,13 @@ _ZN5zxing3RefINS_9BitMatrixEED2Ev.exit:           ; preds = %_ZN5zxing3RefINS_9B
 .lr.ph.i:                                         ; preds = %48, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %48 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %59 = getelementptr inbounds nuw i32, ptr %50, i64 %indvars.iv.next.i
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %indvars.iv.next.i
   store i32 0, ptr %59, align 4, !tbaa !54
   %60 = load i32, ptr %6, align 4, !tbaa !16
   %61 = trunc nuw nsw i64 %indvars.iv.next.i to i32
   %62 = add i32 %60, %61
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds i32, ptr %50, i64 %63
+  %64 = getelementptr inbounds [4 x i8], ptr %50, i64 %63
   %65 = load i32, ptr %64, align 4, !tbaa !54
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.i
   %67 = load i8, ptr %66, align 1, !tbaa !61
@@ -1164,7 +1164,7 @@ _ZN5zxing3RefINS_9BitMatrixEED2Ev.exit:           ; preds = %_ZN5zxing3RefINS_9B
   %82 = add nsw i32 %77, 1
   %83 = mul nsw i32 %81, %82
   %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds i32, ptr %50, i64 %84
+  %85 = getelementptr inbounds [4 x i8], ptr %50, i64 %84
   store i32 0, ptr %85, align 4, !tbaa !54
   %86 = load i8, ptr %80, align 1, !tbaa !61
   %87 = zext i8 %86 to i32
@@ -1191,10 +1191,10 @@ _ZN5zxing3RefINS_9BitMatrixEED2Ev.exit:           ; preds = %_ZN5zxing3RefINS_9B
   %98 = trunc nuw nsw i64 %indvars.iv43.i to i32
   %99 = sub i32 %98, %93
   %100 = sext i32 %99 to i64
-  %101 = getelementptr inbounds i32, ptr %85, i64 %100
+  %101 = getelementptr inbounds [4 x i8], ptr %85, i64 %100
   %102 = load i32, ptr %101, align 4, !tbaa !54
   %103 = add i32 %97, %102
-  %104 = getelementptr inbounds nuw i32, ptr %85, i64 %indvars.iv.next44.i
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %85, i64 %indvars.iv.next44.i
   store i32 %103, ptr %104, align 4, !tbaa !54
   %105 = load i32, ptr %6, align 4, !tbaa !16
   %106 = sext i32 %105 to i64
@@ -1240,10 +1240,10 @@ _ZN5zxing19FastWindowBinarizer12fastIntegralEPKhPj.exit: ; preds = %.loopexit.i,
   %132 = add nsw i32 %122, 1
   %133 = mul nsw i32 %132, %127
   %134 = sext i32 %133 to i64
-  %135 = getelementptr inbounds i32, ptr %131, i64 %134
+  %135 = getelementptr inbounds [4 x i8], ptr %131, i64 %134
   %136 = mul nsw i32 %132, %130
   %137 = sext i32 %136 to i64
-  %138 = getelementptr inbounds i32, ptr %131, i64 %137
+  %138 = getelementptr inbounds [4 x i8], ptr %131, i64 %137
   %139 = sub nsw i32 %130, %127
   %140 = mul nuw i32 %.06084.us, 6
   %141 = add nuw i32 %140, 6
@@ -1266,14 +1266,14 @@ _ZN5zxing19FastWindowBinarizer12fastIntegralEPKhPj.exit: ; preds = %.loopexit.i,
   %153 = mul nsw i32 %152, 6
   %154 = tail call noundef i32 @llvm.smin.i32(i32 %147, i32 %153)
   %155 = sext i32 %154 to i64
-  %156 = getelementptr inbounds i32, ptr %138, i64 %155
+  %156 = getelementptr inbounds [4 x i8], ptr %138, i64 %155
   %157 = load i32, ptr %156, align 4, !tbaa !54
   %158 = zext nneg i32 %151 to i64
-  %159 = getelementptr inbounds nuw i32, ptr %135, i64 %158
+  %159 = getelementptr inbounds nuw [4 x i8], ptr %135, i64 %158
   %160 = load i32, ptr %159, align 4, !tbaa !54
-  %161 = getelementptr inbounds i32, ptr %135, i64 %155
+  %161 = getelementptr inbounds [4 x i8], ptr %135, i64 %155
   %162 = load i32, ptr %161, align 4, !tbaa !54
-  %163 = getelementptr inbounds nuw i32, ptr %138, i64 %158
+  %163 = getelementptr inbounds nuw [4 x i8], ptr %138, i64 %158
   %164 = load i32, ptr %163, align 4, !tbaa !54
   %.neg70.us = add i32 %160, %157
   %165 = add i32 %162, %164
@@ -1488,7 +1488,7 @@ _ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit:    ; preds = %2, %7, %12
   %indvars.iv.next57.i = add nuw nsw i64 %indvars.iv56.i, 1
   %53 = mul nuw nsw i64 %indvars.iv.next57.i, 6
   %54 = mul nuw nsw i64 %indvars.iv56.i, %51
-  %invariant.gep.i = getelementptr inbounds nuw i32, ptr %50, i64 %54
+  %invariant.gep.i = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %54
   br label %.lr.ph.us.us.i
 
 ..loopexit_crit_edge.us.i:                        ; preds = %._crit_edge.us.us.i
@@ -1525,7 +1525,7 @@ _ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit:    ; preds = %2, %7, %12
 65:                                               ; preds = %65, %60
   %indvars.iv47.i = phi i64 [ %indvars.iv.next48.i, %65 ], [ %61, %60 ]
   %.130.us.us.i = phi i32 [ %68, %65 ], [ %.02732.us.us.i, %60 ]
-  %66 = getelementptr inbounds i32, ptr %47, i64 %indvars.iv47.i
+  %66 = getelementptr inbounds [4 x i8], ptr %47, i64 %indvars.iv47.i
   %67 = load i32, ptr %66, align 4, !tbaa !54
   %68 = add nsw i32 %67, %.130.us.us.i
   %indvars.iv.next48.i = add nsw i64 %indvars.iv47.i, 1
@@ -1533,7 +1533,7 @@ _ZN5zxing3RefINS_15LuminanceSourceEED2Ev.exit:    ; preds = %2, %7, %12
   br i1 %69, label %65, label %63, !llvm.loop !55
 
 ._crit_edge.us.us.i:                              ; preds = %63
-  %gep.i = getelementptr inbounds nuw i32, ptr %invariant.gep.i, i64 %indvars.iv53.i
+  %gep.i = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep.i, i64 %indvars.iv53.i
   store i32 %68, ptr %gep.i, align 4, !tbaa !54
   %indvars.iv.next54.i = add nuw nsw i64 %indvars.iv53.i, 1
   %indvars.iv.next.i = add nuw i32 %indvars.iv.i, 6
@@ -1551,20 +1551,20 @@ _ZN5zxing19FastWindowBinarizer15calcBlockTotalsEPiS1_ii.exit: ; preds = %..loope
 .lr.ph.us.i:                                      ; preds = %._crit_edge.us.i, %_ZN5zxing19FastWindowBinarizer15calcBlockTotalsEPiS1_ii.exit
   %indvars.iv66.i = phi i64 [ 0, %_ZN5zxing19FastWindowBinarizer15calcBlockTotalsEPiS1_ii.exit ], [ %indvars.iv.next67.i, %._crit_edge.us.i ]
   %75 = mul nuw nsw i64 %indvars.iv66.i, %74
-  %76 = getelementptr inbounds nuw i32, ptr %73, i64 %75
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %75
   %77 = mul nuw nsw i64 %indvars.iv66.i, %51
-  %78 = getelementptr inbounds nuw i32, ptr %50, i64 %77
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %77
   store i32 0, ptr %76, align 4, !tbaa !54
   br label %79
 
 79:                                               ; preds = %79, %.lr.ph.us.i
   %indvars.iv61.i = phi i64 [ 0, %.lr.ph.us.i ], [ %indvars.iv.next62.i, %79 ]
   %.04245.us.i = phi i32 [ 0, %.lr.ph.us.i ], [ %82, %79 ]
-  %80 = getelementptr inbounds nuw i32, ptr %78, i64 %indvars.iv61.i
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %78, i64 %indvars.iv61.i
   %81 = load i32, ptr %80, align 4, !tbaa !54
   %82 = add nsw i32 %81, %.04245.us.i
   %indvars.iv.next62.i = add nuw nsw i64 %indvars.iv61.i, 1
-  %83 = getelementptr inbounds nuw i32, ptr %76, i64 %indvars.iv.next62.i
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %indvars.iv.next62.i
   store i32 %82, ptr %83, align 4, !tbaa !54
   %exitcond65.not.i = icmp eq i64 %indvars.iv.next62.i, %51
   br i1 %exitcond65.not.i, label %._crit_edge.us.i, label %79, !llvm.loop !57
@@ -1580,21 +1580,21 @@ _ZN5zxing19FastWindowBinarizer15calcBlockTotalsEPiS1_ii.exit: ; preds = %..loope
 
 .lr.ph.us56.i:                                    ; preds = %._crit_edge.us57.i, %.lr.ph.us56.preheader.i
   %indvars.iv79.i = phi i64 [ 0, %.lr.ph.us56.preheader.i ], [ %indvars.iv.next80.i, %._crit_edge.us57.i ]
-  %85 = getelementptr inbounds nuw i32, ptr %71, i64 %indvars.iv79.i
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %indvars.iv79.i
   store i32 0, ptr %85, align 4, !tbaa !54
-  %invariant.gep.i92 = getelementptr inbounds nuw i32, ptr %84, i64 %indvars.iv79.i
+  %invariant.gep.i92 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %indvars.iv79.i
   br label %86
 
 86:                                               ; preds = %86, %.lr.ph.us56.i
   %indvars.iv74.i = phi i64 [ 0, %.lr.ph.us56.i ], [ %indvars.iv.next75.i, %86 ]
   %.03950.us.i = phi i32 [ 0, %.lr.ph.us56.i ], [ %89, %86 ]
   %87 = mul nuw nsw i64 %indvars.iv74.i, %74
-  %gep.i93 = getelementptr inbounds nuw i32, ptr %invariant.gep.i92, i64 %87
+  %gep.i93 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep.i92, i64 %87
   %88 = load i32, ptr %gep.i93, align 4, !tbaa !54
   %89 = add nsw i32 %88, %.03950.us.i
   %indvars.iv.next75.i = add nuw nsw i64 %indvars.iv74.i, 1
   %90 = mul nuw nsw i64 %indvars.iv.next75.i, %74
-  %gep90.i = getelementptr inbounds nuw i32, ptr %85, i64 %90
+  %gep90.i = getelementptr inbounds nuw [4 x i8], ptr %85, i64 %90
   store i32 %89, ptr %gep90.i, align 4, !tbaa !54
   %exitcond78.not.i = icmp eq i64 %indvars.iv.next75.i, %wide.trip.count59.i
   br i1 %exitcond78.not.i, label %._crit_edge.us57.i, label %86, !llvm.loop !59
@@ -1613,7 +1613,7 @@ _ZN5zxing19FastWindowBinarizer10cumulativeEPiS1_ii.exit: ; preds = %._crit_edge.
   %93 = getelementptr inbounds nuw i8, ptr %44, i64 %indvars.iv
   %94 = load i8, ptr %93, align 1, !tbaa !61
   %95 = zext i8 %94 to i32
-  %96 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %indvars.iv
   store i32 %95, ptr %96, align 4, !tbaa !54
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %97 = load i32, ptr %16, align 4, !tbaa !16
@@ -1705,19 +1705,19 @@ _ZN5zxing19FastWindowBinarizer10cumulativeEPiS1_ii.exit: ; preds = %._crit_edge.
   %145 = load ptr, ptr %70, align 8, !tbaa !34
   %146 = add nsw i32 %144, %132
   %147 = sext i32 %146 to i64
-  %148 = getelementptr inbounds i32, ptr %145, i64 %147
+  %148 = getelementptr inbounds [4 x i8], ptr %145, i64 %147
   %149 = load i32, ptr %148, align 4, !tbaa !54
   %150 = add nuw nsw i32 %142, %133
   %151 = zext nneg i32 %150 to i64
-  %152 = getelementptr inbounds nuw i32, ptr %145, i64 %151
+  %152 = getelementptr inbounds nuw [4 x i8], ptr %145, i64 %151
   %153 = load i32, ptr %152, align 4, !tbaa !54
   %154 = add nsw i32 %144, %133
   %155 = sext i32 %154 to i64
-  %156 = getelementptr inbounds i32, ptr %145, i64 %155
+  %156 = getelementptr inbounds [4 x i8], ptr %145, i64 %155
   %157 = load i32, ptr %156, align 4, !tbaa !54
   %158 = add nsw i32 %142, %132
   %159 = sext i32 %158 to i64
-  %160 = getelementptr inbounds i32, ptr %145, i64 %159
+  %160 = getelementptr inbounds [4 x i8], ptr %145, i64 %159
   %161 = load i32, ptr %160, align 4, !tbaa !54
   %.neg118.us.us = add i32 %153, %149
   %162 = add i32 %157, %161
@@ -1742,13 +1742,13 @@ _ZN5zxing19FastWindowBinarizer10cumulativeEPiS1_ii.exit: ; preds = %._crit_edge.
   %172 = load i32, ptr %16, align 4, !tbaa !16
   %173 = mul nsw i32 %172, %.072122.us.us.us
   %174 = sext i32 %173 to i64
-  %175 = getelementptr inbounds i32, ptr %171, i64 %174
+  %175 = getelementptr inbounds [4 x i8], ptr %171, i64 %174
   %176 = getelementptr inbounds i8, ptr %126, i64 %174
   br label %177
 
 177:                                              ; preds = %177, %.lr.ph121.us.us.us
   %indvars.iv146 = phi i64 [ %indvars.iv.next147, %177 ], [ %indvars.iv144, %.lr.ph121.us.us.us ]
-  %178 = getelementptr inbounds nuw i32, ptr %175, i64 %indvars.iv146
+  %178 = getelementptr inbounds nuw [4 x i8], ptr %175, i64 %indvars.iv146
   %179 = load i32, ptr %178, align 4, !tbaa !54
   %180 = icmp slt i32 %179, %166
   %spec.select = zext i1 %180 to i8

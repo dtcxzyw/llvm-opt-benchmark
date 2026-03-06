@@ -52,7 +52,7 @@ define void @jinit_inverse_dct(ptr noundef %0) local_unnamed_addr #0 {
   %26 = getelementptr inbounds nuw i8, ptr %.023, i64 88
   store ptr %25, ptr %26, align 8, !tbaa !45
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(256) %25, i8 0, i64 256, i1 false)
-  %27 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv
   store i32 -1, ptr %27, align 4, !tbaa !47
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %28 = getelementptr inbounds nuw i8, ptr %.023, i64 96
@@ -204,7 +204,7 @@ define internal void @start_pass(ptr noundef %0) #0 {
 49:                                               ; preds = %12, %25, %27, %29, %31, %43, %42, %41, %40, %39, %38, %37, %36, %35, %22, %21, %20, %18, %17, %15
   %.165 = phi ptr [ %.06482, %43 ], [ @jpeg_idct_16x16, %42 ], [ %jpeg_idct_2x2.jsimd_idct_2x2, %15 ], [ @jpeg_idct_3x3, %17 ], [ %jpeg_idct_4x4.jsimd_idct_4x4, %18 ], [ @jpeg_idct_5x5, %20 ], [ @jpeg_idct_6x6, %21 ], [ @jpeg_idct_7x7, %22 ], [ %.06482, %31 ], [ %jpeg_idct_islow.jsimd_idct_islow, %25 ], [ %jpeg_idct_ifast.jsimd_idct_ifast, %27 ], [ %jpeg_idct_float.jsimd_idct_float, %29 ], [ @jpeg_idct_9x9, %35 ], [ @jpeg_idct_10x10, %36 ], [ @jpeg_idct_11x11, %37 ], [ @jpeg_idct_12x12, %38 ], [ @jpeg_idct_13x13, %39 ], [ @jpeg_idct_14x14, %40 ], [ @jpeg_idct_15x15, %41 ], [ @jpeg_idct_1x1, %12 ]
   %.163 = phi i32 [ %.06283, %43 ], [ 0, %42 ], [ 0, %15 ], [ 0, %17 ], [ 0, %18 ], [ 0, %20 ], [ 0, %21 ], [ 0, %22 ], [ %.06283, %31 ], [ 0, %25 ], [ 1, %27 ], [ 2, %29 ], [ 0, %35 ], [ 0, %36 ], [ 0, %37 ], [ 0, %38 ], [ 0, %39 ], [ 0, %40 ], [ 0, %41 ], [ 0, %12 ]
-  %50 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv105
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv105
   store ptr %.165, ptr %50, align 8, !tbaa !52
   %51 = getelementptr inbounds nuw i8, ptr %.06184, i64 48
   %52 = load i32, ptr %51, align 8, !tbaa !53
@@ -212,7 +212,7 @@ define internal void @start_pass(ptr noundef %0) #0 {
   br i1 %.not73, label %.loopexit, label %53
 
 53:                                               ; preds = %49
-  %54 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv105
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv105
   %55 = load i32, ptr %54, align 4, !tbaa !47
   %56 = icmp eq i32 %55, %.163
   br i1 %56, label %.loopexit, label %57
@@ -235,9 +235,9 @@ define internal void @start_pass(ptr noundef %0) #0 {
 
 .preheader111:                                    ; preds = %61, %.preheader111
   %indvars.iv101 = phi i64 [ %indvars.iv.next102, %.preheader111 ], [ 0, %61 ]
-  %64 = getelementptr inbounds nuw i16, ptr %59, i64 %indvars.iv101
+  %64 = getelementptr inbounds nuw [2 x i8], ptr %59, i64 %indvars.iv101
   %65 = load i16, ptr %64, align 2, !tbaa !55
-  %66 = getelementptr inbounds nuw i16, ptr %63, i64 %indvars.iv101
+  %66 = getelementptr inbounds nuw [2 x i8], ptr %63, i64 %indvars.iv101
   store i16 %65, ptr %66, align 2, !tbaa !55
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
   %exitcond104.not = icmp eq i64 %indvars.iv.next102, 64
@@ -245,17 +245,17 @@ define internal void @start_pass(ptr noundef %0) #0 {
 
 .preheader112:                                    ; preds = %61, %.preheader112
   %indvars.iv97 = phi i64 [ %indvars.iv.next98, %.preheader112 ], [ 0, %61 ]
-  %67 = getelementptr inbounds nuw i16, ptr %59, i64 %indvars.iv97
+  %67 = getelementptr inbounds nuw [2 x i8], ptr %59, i64 %indvars.iv97
   %68 = load i16, ptr %67, align 2, !tbaa !55
   %69 = zext i16 %68 to i32
-  %70 = getelementptr inbounds nuw i16, ptr @start_pass.aanscales, i64 %indvars.iv97
+  %70 = getelementptr inbounds nuw [2 x i8], ptr @start_pass.aanscales, i64 %indvars.iv97
   %71 = load i16, ptr %70, align 2, !tbaa !55
   %72 = sext i16 %71 to i32
   %73 = mul nsw i32 %72, %69
   %74 = add nsw i32 %73, 2048
   %75 = lshr i32 %74, 12
   %76 = trunc i32 %75 to i16
-  %77 = getelementptr inbounds nuw i16, ptr %63, i64 %indvars.iv97
+  %77 = getelementptr inbounds nuw [2 x i8], ptr %63, i64 %indvars.iv97
   store i16 %76, ptr %77, align 2, !tbaa !55
   %indvars.iv.next98 = add nuw nsw i64 %indvars.iv97, 1
   %exitcond100.not = icmp eq i64 %indvars.iv.next98, 64
@@ -264,7 +264,7 @@ define internal void @start_pass(ptr noundef %0) #0 {
 .preheader:                                       ; preds = %61, %91
   %indvars.iv93 = phi i64 [ %indvars.iv.next94, %91 ], [ 0, %61 ]
   %.278 = phi i64 [ %indvars.iv.next89, %91 ], [ 0, %61 ]
-  %78 = getelementptr inbounds nuw double, ptr @start_pass.aanscalefactor, i64 %indvars.iv93
+  %78 = getelementptr inbounds nuw [8 x i8], ptr @start_pass.aanscalefactor, i64 %indvars.iv93
   %79 = load double, ptr %78, align 8, !tbaa !58
   %sext = shl i64 %.278, 32
   %80 = ashr exact i64 %sext, 32
@@ -273,15 +273,15 @@ define internal void @start_pass(ptr noundef %0) #0 {
 81:                                               ; preds = %.preheader, %81
   %indvars.iv88 = phi i64 [ %80, %.preheader ], [ %indvars.iv.next89, %81 ]
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %81 ]
-  %82 = getelementptr inbounds i16, ptr %59, i64 %indvars.iv88
+  %82 = getelementptr inbounds [2 x i8], ptr %59, i64 %indvars.iv88
   %83 = load i16, ptr %82, align 2, !tbaa !55
   %84 = uitofp i16 %83 to double
   %85 = fmul double %79, %84
-  %86 = getelementptr inbounds nuw double, ptr @start_pass.aanscalefactor, i64 %indvars.iv
+  %86 = getelementptr inbounds nuw [8 x i8], ptr @start_pass.aanscalefactor, i64 %indvars.iv
   %87 = load double, ptr %86, align 8, !tbaa !58
   %88 = fmul double %85, %87
   %89 = fptrunc double %88 to float
-  %90 = getelementptr inbounds float, ptr %63, i64 %indvars.iv88
+  %90 = getelementptr inbounds [4 x i8], ptr %63, i64 %indvars.iv88
   store float %89, ptr %90, align 4, !tbaa !59
   %indvars.iv.next89 = add nsw i64 %indvars.iv88, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

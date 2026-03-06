@@ -1650,7 +1650,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit29: ; preds = %175, %1
 
 _ZN7logging12_GLOBAL__N_117log_severity_nameEi.exit: ; preds = %182
   %184 = zext nneg i32 %180 to i64
-  %185 = getelementptr inbounds nuw ptr, ptr @_ZN7logging12_GLOBAL__N_118log_severity_namesE, i64 %184
+  %185 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7logging12_GLOBAL__N_118log_severity_namesE, i64 %184
   %186 = load ptr, ptr %185, align 8, !tbaa !128
   br label %_ZN7logging12_GLOBAL__N_117log_severity_nameEi.exit.thread
 
@@ -2746,7 +2746,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsRSoPKw(ptr noundef 
   %20 = phi i64 [ %12, %._crit_edge.i.i ], [ %12, %14 ], [ %.pre11.i.i, %16 ]
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %20, ptr %21, align 8, !tbaa !167
-  %22 = getelementptr inbounds nuw i32, ptr %19, i64 %20
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %20
   store i32 0, ptr %22, align 4, !tbaa !165
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   invoke void @_ZN4base10WideToUTF8ERKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %5)

@@ -256,7 +256,7 @@ _ZNSt6vectorIPFvvESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = %
 _ZNSt6vectorIPFvvESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %55, %_ZNSt6vectorIPFvvESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
   store ptr %50, ptr %29, align 8, !tbaa !21
   store ptr %54, ptr %30, align 8, !tbaa !17
-  %56 = getelementptr inbounds nuw ptr, ptr %50, i64 %48
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %48
   store ptr %56, ptr %32, align 8, !tbaa !19
   br label %_ZN5folly10symbolizer12_GLOBAL__N_127FatalSignalCallbackRegistry3addEPFvvE.exit
 
@@ -714,7 +714,7 @@ _ZN5folly10symbolizer12_GLOBAL__N_15printENS_5RangeIPKcEE.exit.i.i: ; preds = %.
 
 47:                                               ; preds = %51, %_ZN5folly10symbolizer12_GLOBAL__N_15printENS_5RangeIPKcEE.exit.i.i
   %.08.i5.i.i.i.i.i.i = phi i64 [ 0, %_ZN5folly10symbolizer12_GLOBAL__N_15printENS_5RangeIPKcEE.exit.i.i ], [ %52, %51 ]
-  %48 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i5.i.i.i.i.i.i
+  %48 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i5.i.i.i.i.i.i
   %49 = load i64, ptr %48, align 8, !tbaa !65
   %50 = icmp ult i64 %41, %49
   br i1 %50, label %.loopexit.i.i.i.i.i.i, label %51, !prof !16
@@ -739,7 +739,7 @@ _ZN5folly10symbolizer12_GLOBAL__N_15printENS_5RangeIPKcEE.exit.i.i: ; preds = %.
   %56 = add i64 %.014.i6.i.i.i.i.i.i, -2
   %57 = udiv i64 %.0.i7.i.i.i.i.i.i, 100
   %58 = urem i64 %.0.i7.i.i.i.i.i.i, 100
-  %59 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %58
+  %59 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %58
   %60 = load i16, ptr %59, align 2, !tbaa !68
   %61 = getelementptr inbounds nuw i8, ptr %15, i64 %56
   store i16 %60, ptr %61, align 1
@@ -750,7 +750,7 @@ _ZN5folly10symbolizer12_GLOBAL__N_15printENS_5RangeIPKcEE.exit.i.i: ; preds = %.
   %63 = phi i64 [ %53, %.loopexit.i.i.i.i.i.i ], [ %55, %.lr.ph.i.i.i.i.i.i ]
   %.014.i.lcssa.i.i.i.i.i.i = phi i64 [ %53, %.loopexit.i.i.i.i.i.i ], [ %56, %.lr.ph.i.i.i.i.i.i ]
   %.0.i.lcssa.i.i.i.i.i.i = phi i64 [ %41, %.loopexit.i.i.i.i.i.i ], [ %57, %.lr.ph.i.i.i.i.i.i ]
-  %64 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.lcssa.i.i.i.i.i.i
+  %64 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.lcssa.i.i.i.i.i.i
   %65 = load i16, ptr %64, align 2, !tbaa !68
   %66 = icmp eq i64 %.014.i.lcssa.i.i.i.i.i.i, 2
   br i1 %66, label %67, label %68, !prof !16
@@ -791,7 +791,7 @@ _ZN5folly10symbolizer12_GLOBAL__N_15printENS_5RangeIPKcEE.exit4.i.i: ; preds = %
 
 83:                                               ; preds = %87, %_ZN5folly10symbolizer12_GLOBAL__N_15printENS_5RangeIPKcEE.exit4.i.i
   %.08.i5.i.i.i.i5.i.i = phi i64 [ 0, %_ZN5folly10symbolizer12_GLOBAL__N_15printENS_5RangeIPKcEE.exit4.i.i ], [ %88, %87 ]
-  %84 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i5.i.i.i.i5.i.i
+  %84 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i5.i.i.i.i5.i.i
   %85 = load i64, ptr %84, align 8, !tbaa !65
   %86 = icmp ult i64 %41, %85
   br i1 %86, label %.loopexit.i.i.i.i15.i.i, label %87, !prof !16
@@ -816,7 +816,7 @@ _ZN5folly10symbolizer12_GLOBAL__N_15printENS_5RangeIPKcEE.exit4.i.i: ; preds = %
   %92 = add i64 %.014.i6.i.i.i.i10.i.i, -2
   %93 = udiv i64 %.0.i7.i.i.i.i9.i.i, 100
   %94 = urem i64 %.0.i7.i.i.i.i9.i.i, 100
-  %95 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %94
+  %95 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %94
   %96 = load i16, ptr %95, align 2, !tbaa !68
   %97 = getelementptr inbounds nuw i8, ptr %14, i64 %92
   store i16 %96, ptr %97, align 1
@@ -827,7 +827,7 @@ _ZN5folly10symbolizer12_GLOBAL__N_15printENS_5RangeIPKcEE.exit4.i.i: ; preds = %
   %99 = phi i64 [ %89, %.loopexit.i.i.i.i15.i.i ], [ %91, %.lr.ph.i.i.i.i8.i.i ]
   %.014.i.lcssa.i.i.i.i12.i.i = phi i64 [ %89, %.loopexit.i.i.i.i15.i.i ], [ %92, %.lr.ph.i.i.i.i8.i.i ]
   %.0.i.lcssa.i.i.i.i13.i.i = phi i64 [ %41, %.loopexit.i.i.i.i15.i.i ], [ %93, %.lr.ph.i.i.i.i8.i.i ]
-  %100 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.lcssa.i.i.i.i13.i.i
+  %100 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.lcssa.i.i.i.i13.i.i
   %101 = load i16, ptr %100, align 2, !tbaa !68
   %102 = icmp eq i64 %.014.i.lcssa.i.i.i.i12.i.i, 2
   br i1 %102, label %103, label %104, !prof !16
@@ -923,7 +923,7 @@ _ZN5folly10symbolizer12_GLOBAL__N_15printENS_5RangeIPKcEE.exit.i6.i: ; preds = %
 
 139:                                              ; preds = %143, %_ZN5folly10symbolizer12_GLOBAL__N_15printENS_5RangeIPKcEE.exit.i6.i
   %.08.i5.i.i.i.i.i7.i = phi i64 [ 0, %_ZN5folly10symbolizer12_GLOBAL__N_15printENS_5RangeIPKcEE.exit.i6.i ], [ %144, %143 ]
-  %140 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i5.i.i.i.i.i7.i
+  %140 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i5.i.i.i.i.i7.i
   %141 = load i64, ptr %140, align 8, !tbaa !65
   %142 = icmp ugt i64 %141, %138
   br i1 %142, label %.loopexit.i.i.i.i.i17.i, label %143, !prof !16
@@ -948,7 +948,7 @@ _ZN5folly10symbolizer12_GLOBAL__N_15printENS_5RangeIPKcEE.exit.i6.i: ; preds = %
   %148 = add i64 %.014.i6.i.i.i.i.i12.i, -2
   %149 = udiv i64 %.0.i7.i.i.i.i.i11.i, 100
   %150 = urem i64 %.0.i7.i.i.i.i.i11.i, 100
-  %151 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %150
+  %151 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %150
   %152 = load i16, ptr %151, align 2, !tbaa !68
   %153 = getelementptr inbounds nuw i8, ptr %13, i64 %148
   store i16 %152, ptr %153, align 1
@@ -959,7 +959,7 @@ _ZN5folly10symbolizer12_GLOBAL__N_15printENS_5RangeIPKcEE.exit.i6.i: ; preds = %
   %155 = phi i64 [ %145, %.loopexit.i.i.i.i.i17.i ], [ %147, %.lr.ph.i.i.i.i.i10.i ]
   %.014.i.lcssa.i.i.i.i.i14.i = phi i64 [ %145, %.loopexit.i.i.i.i.i17.i ], [ %148, %.lr.ph.i.i.i.i.i10.i ]
   %.0.i.lcssa.i.i.i.i.i15.i = phi i64 [ %138, %.loopexit.i.i.i.i.i17.i ], [ %149, %.lr.ph.i.i.i.i.i10.i ]
-  %156 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.lcssa.i.i.i.i.i15.i
+  %156 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.lcssa.i.i.i.i.i15.i
   %157 = load i16, ptr %156, align 2, !tbaa !68
   %158 = icmp eq i64 %.014.i.lcssa.i.i.i.i.i14.i, 2
   br i1 %158, label %159, label %160, !prof !16
@@ -1055,7 +1055,7 @@ _ZN5folly10symbolizer12_GLOBAL__N_15printENS_5RangeIPKcEE.exit33.i.i: ; preds = 
   %204 = add i64 %.014.i4.i.i.i.i.i, -2
   %205 = lshr i64 %.0.i35.i.i.i.i.i, 8
   %206 = and i64 %.0.i35.i.i.i.i.i, 255
-  %207 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm16ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %206
+  %207 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm16ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %206
   %208 = load i16, ptr %207, align 2, !tbaa !68
   %209 = getelementptr i8, ptr %12, i64 %.014.i4.i.i.i.i.i
   store i16 %208, ptr %209, align 1
@@ -1065,7 +1065,7 @@ _ZN5folly10symbolizer12_GLOBAL__N_15printENS_5RangeIPKcEE.exit33.i.i: ; preds = 
 ._crit_edge.i.i.i.i.i:                            ; preds = %.lr.ph.i.i.i.i.i, %_ZN5folly10symbolizer12_GLOBAL__N_15printENS_5RangeIPKcEE.exit33.i.i
   %.014.i.lcssa.i.i.i.i.i = phi i64 [ %.0.i2.i.i.i.i.i, %_ZN5folly10symbolizer12_GLOBAL__N_15printENS_5RangeIPKcEE.exit33.i.i ], [ %204, %.lr.ph.i.i.i.i.i ]
   %.0.i3.lcssa.i.i.i.i.i = phi i64 [ %197, %_ZN5folly10symbolizer12_GLOBAL__N_15printENS_5RangeIPKcEE.exit33.i.i ], [ %205, %.lr.ph.i.i.i.i.i ]
-  %211 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm16ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i3.lcssa.i.i.i.i.i
+  %211 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm16ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i3.lcssa.i.i.i.i.i
   %212 = load i16, ptr %211, align 2, !tbaa !68
   %213 = icmp eq i64 %.014.i.lcssa.i.i.i.i.i, 2
   br i1 %213, label %214, label %215, !prof !16
@@ -1109,7 +1109,7 @@ _ZN5folly10symbolizer12_GLOBAL__N_15printENS_5RangeIPKcEE.exit34.i.i: ; preds = 
 
 233:                                              ; preds = %237, %_ZN5folly10symbolizer12_GLOBAL__N_15printENS_5RangeIPKcEE.exit34.i.i
   %.08.i5.i.i.i.i35.i.i = phi i64 [ 0, %_ZN5folly10symbolizer12_GLOBAL__N_15printENS_5RangeIPKcEE.exit34.i.i ], [ %238, %237 ]
-  %234 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i5.i.i.i.i35.i.i
+  %234 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i5.i.i.i.i35.i.i
   %235 = load i64, ptr %234, align 8, !tbaa !65
   %236 = icmp ugt i64 %235, %232
   br i1 %236, label %.loopexit.i.i.i.i45.i.i, label %237, !prof !16
@@ -1134,7 +1134,7 @@ _ZN5folly10symbolizer12_GLOBAL__N_15printENS_5RangeIPKcEE.exit34.i.i: ; preds = 
   %242 = add i64 %.014.i6.i.i.i.i40.i.i, -2
   %243 = udiv i64 %.0.i7.i.i.i.i39.i.i, 100
   %244 = urem i64 %.0.i7.i.i.i.i39.i.i, 100
-  %245 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %244
+  %245 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %244
   %246 = load i16, ptr %245, align 2, !tbaa !68
   %247 = getelementptr inbounds nuw i8, ptr %11, i64 %242
   store i16 %246, ptr %247, align 1
@@ -1145,7 +1145,7 @@ _ZN5folly10symbolizer12_GLOBAL__N_15printENS_5RangeIPKcEE.exit34.i.i: ; preds = 
   %249 = phi i64 [ %239, %.loopexit.i.i.i.i45.i.i ], [ %241, %.lr.ph.i.i.i.i38.i.i ]
   %.014.i.lcssa.i.i.i.i42.i.i = phi i64 [ %239, %.loopexit.i.i.i.i45.i.i ], [ %242, %.lr.ph.i.i.i.i38.i.i ]
   %.0.i.lcssa.i.i.i.i43.i.i = phi i64 [ %232, %.loopexit.i.i.i.i45.i.i ], [ %243, %.lr.ph.i.i.i.i38.i.i ]
-  %250 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.lcssa.i.i.i.i43.i.i
+  %250 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.lcssa.i.i.i.i43.i.i
   %251 = load i16, ptr %250, align 2, !tbaa !68
   %252 = icmp eq i64 %.014.i.lcssa.i.i.i.i42.i.i, 2
   br i1 %252, label %253, label %254, !prof !16
@@ -1200,7 +1200,7 @@ _ZN5folly10symbolizer12_GLOBAL__N_15printENS_5RangeIPKcEE.exit47.i.i: ; preds = 
   %275 = add i64 %.014.i4.i.i.i56.i.i, -2
   %276 = lshr i64 %.0.i35.i.i.i55.i.i, 8
   %277 = and i64 %.0.i35.i.i.i55.i.i, 255
-  %278 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm16ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %277
+  %278 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm16ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %277
   %279 = load i16, ptr %278, align 2, !tbaa !68
   %280 = getelementptr i8, ptr %10, i64 %.014.i4.i.i.i56.i.i
   store i16 %279, ptr %280, align 1
@@ -1210,7 +1210,7 @@ _ZN5folly10symbolizer12_GLOBAL__N_15printENS_5RangeIPKcEE.exit47.i.i: ; preds = 
 ._crit_edge.i.i.i50.i.i:                          ; preds = %.lr.ph.i.i.i54.i.i, %_ZN5folly10symbolizer12_GLOBAL__N_15printENS_5RangeIPKcEE.exit47.i.i
   %.014.i.lcssa.i.i.i51.i.i = phi i64 [ %.0.i2.i.i.i49.i.i, %_ZN5folly10symbolizer12_GLOBAL__N_15printENS_5RangeIPKcEE.exit47.i.i ], [ %275, %.lr.ph.i.i.i54.i.i ]
   %.0.i3.lcssa.i.i.i52.i.i = phi i64 [ %20, %_ZN5folly10symbolizer12_GLOBAL__N_15printENS_5RangeIPKcEE.exit47.i.i ], [ %276, %.lr.ph.i.i.i54.i.i ]
-  %282 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm16ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i3.lcssa.i.i.i52.i.i
+  %282 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm16ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i3.lcssa.i.i.i52.i.i
   %283 = load i16, ptr %282, align 2, !tbaa !68
   %284 = icmp eq i64 %.014.i.lcssa.i.i.i51.i.i, 2
   br i1 %284, label %285, label %286, !prof !16
@@ -1253,7 +1253,7 @@ _ZN5folly10symbolizer12_GLOBAL__N_15printENS_5RangeIPKcEE.exit58.i.i: ; preds = 
 
 303:                                              ; preds = %307, %_ZN5folly10symbolizer12_GLOBAL__N_15printENS_5RangeIPKcEE.exit58.i.i
   %.08.i5.i.i.i.i59.i.i = phi i64 [ 0, %_ZN5folly10symbolizer12_GLOBAL__N_15printENS_5RangeIPKcEE.exit58.i.i ], [ %308, %307 ]
-  %304 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i5.i.i.i.i59.i.i
+  %304 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i5.i.i.i.i59.i.i
   %305 = load i64, ptr %304, align 8, !tbaa !65
   %306 = icmp ult i64 %302, %305
   br i1 %306, label %.loopexit.i.i.i.i69.i.i, label %307, !prof !16
@@ -1278,7 +1278,7 @@ _ZN5folly10symbolizer12_GLOBAL__N_15printENS_5RangeIPKcEE.exit58.i.i: ; preds = 
   %312 = add i64 %.014.i6.i.i.i.i64.i.i, -2
   %313 = udiv i64 %.0.i7.i.i.i.i63.i.i, 100
   %314 = urem i64 %.0.i7.i.i.i.i63.i.i, 100
-  %315 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %314
+  %315 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %314
   %316 = load i16, ptr %315, align 2, !tbaa !68
   %317 = getelementptr inbounds nuw i8, ptr %9, i64 %312
   store i16 %316, ptr %317, align 1
@@ -1289,7 +1289,7 @@ _ZN5folly10symbolizer12_GLOBAL__N_15printENS_5RangeIPKcEE.exit58.i.i: ; preds = 
   %319 = phi i64 [ %309, %.loopexit.i.i.i.i69.i.i ], [ %311, %.lr.ph.i.i.i.i62.i.i ]
   %.014.i.lcssa.i.i.i.i66.i.i = phi i64 [ %309, %.loopexit.i.i.i.i69.i.i ], [ %312, %.lr.ph.i.i.i.i62.i.i ]
   %.0.i.lcssa.i.i.i.i67.i.i = phi i64 [ %302, %.loopexit.i.i.i.i69.i.i ], [ %313, %.lr.ph.i.i.i.i62.i.i ]
-  %320 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.lcssa.i.i.i.i67.i.i
+  %320 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.lcssa.i.i.i.i67.i.i
   %321 = load i16, ptr %320, align 2, !tbaa !68
   %322 = icmp eq i64 %.014.i.lcssa.i.i.i.i66.i.i, 2
   br i1 %322, label %323, label %324, !prof !16
@@ -1338,7 +1338,7 @@ _ZN5folly10symbolizer12_GLOBAL__N_15printENS_5RangeIPKcEE.exit71.i.i: ; preds = 
 
 345:                                              ; preds = %349, %_ZN5folly10symbolizer12_GLOBAL__N_15printENS_5RangeIPKcEE.exit71.i.i
   %.08.i5.i.i.i.i72.i.i = phi i64 [ 0, %_ZN5folly10symbolizer12_GLOBAL__N_15printENS_5RangeIPKcEE.exit71.i.i ], [ %350, %349 ]
-  %346 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i5.i.i.i.i72.i.i
+  %346 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i5.i.i.i.i72.i.i
   %347 = load i64, ptr %346, align 8, !tbaa !65
   %348 = icmp ugt i64 %347, %344
   br i1 %348, label %.loopexit.i.i.i.i82.i.i, label %349, !prof !16
@@ -1363,7 +1363,7 @@ _ZN5folly10symbolizer12_GLOBAL__N_15printENS_5RangeIPKcEE.exit71.i.i: ; preds = 
   %354 = add i64 %.014.i6.i.i.i.i77.i.i, -2
   %355 = udiv i64 %.0.i7.i.i.i.i76.i.i, 100
   %356 = urem i64 %.0.i7.i.i.i.i76.i.i, 100
-  %357 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %356
+  %357 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %356
   %358 = load i16, ptr %357, align 2, !tbaa !68
   %359 = getelementptr inbounds nuw i8, ptr %8, i64 %354
   store i16 %358, ptr %359, align 1
@@ -1374,7 +1374,7 @@ _ZN5folly10symbolizer12_GLOBAL__N_15printENS_5RangeIPKcEE.exit71.i.i: ; preds = 
   %361 = phi i64 [ %351, %.loopexit.i.i.i.i82.i.i ], [ %353, %.lr.ph.i.i.i.i75.i.i ]
   %.014.i.lcssa.i.i.i.i79.i.i = phi i64 [ %351, %.loopexit.i.i.i.i82.i.i ], [ %354, %.lr.ph.i.i.i.i75.i.i ]
   %.0.i.lcssa.i.i.i.i80.i.i = phi i64 [ %344, %.loopexit.i.i.i.i82.i.i ], [ %355, %.lr.ph.i.i.i.i75.i.i ]
-  %362 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.lcssa.i.i.i.i80.i.i
+  %362 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.lcssa.i.i.i.i80.i.i
   %363 = load i16, ptr %362, align 2, !tbaa !68
   %364 = icmp eq i64 %.014.i.lcssa.i.i.i.i79.i.i, 2
   br i1 %364, label %365, label %366, !prof !16
@@ -1418,7 +1418,7 @@ _ZN5folly10symbolizer12_GLOBAL__N_15printENS_5RangeIPKcEE.exit84.i.i: ; preds = 
 
 384:                                              ; preds = %388, %_ZN5folly10symbolizer12_GLOBAL__N_15printENS_5RangeIPKcEE.exit84.i.i
   %.08.i5.i.i.i.i85.i.i = phi i64 [ 0, %_ZN5folly10symbolizer12_GLOBAL__N_15printENS_5RangeIPKcEE.exit84.i.i ], [ %389, %388 ]
-  %385 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i5.i.i.i.i85.i.i
+  %385 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i5.i.i.i.i85.i.i
   %386 = load i64, ptr %385, align 8, !tbaa !65
   %387 = icmp ugt i64 %386, %383
   br i1 %387, label %.loopexit.i.i.i.i95.i.i, label %388, !prof !16
@@ -1443,7 +1443,7 @@ _ZN5folly10symbolizer12_GLOBAL__N_15printENS_5RangeIPKcEE.exit84.i.i: ; preds = 
   %393 = add i64 %.014.i6.i.i.i.i90.i.i, -2
   %394 = udiv i64 %.0.i7.i.i.i.i89.i.i, 100
   %395 = urem i64 %.0.i7.i.i.i.i89.i.i, 100
-  %396 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %395
+  %396 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %395
   %397 = load i16, ptr %396, align 2, !tbaa !68
   %398 = getelementptr inbounds nuw i8, ptr %7, i64 %393
   store i16 %397, ptr %398, align 1
@@ -1454,7 +1454,7 @@ _ZN5folly10symbolizer12_GLOBAL__N_15printENS_5RangeIPKcEE.exit84.i.i: ; preds = 
   %400 = phi i64 [ %390, %.loopexit.i.i.i.i95.i.i ], [ %392, %.lr.ph.i.i.i.i88.i.i ]
   %.014.i.lcssa.i.i.i.i92.i.i = phi i64 [ %390, %.loopexit.i.i.i.i95.i.i ], [ %393, %.lr.ph.i.i.i.i88.i.i ]
   %.0.i.lcssa.i.i.i.i93.i.i = phi i64 [ %383, %.loopexit.i.i.i.i95.i.i ], [ %394, %.lr.ph.i.i.i.i88.i.i ]
-  %401 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.lcssa.i.i.i.i93.i.i
+  %401 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.lcssa.i.i.i.i93.i.i
   %402 = load i16, ptr %401, align 2, !tbaa !68
   %403 = icmp eq i64 %.014.i.lcssa.i.i.i.i92.i.i, 2
   br i1 %403, label %404, label %405, !prof !16
@@ -1537,31 +1537,31 @@ _ZN5folly10symbolizer12_GLOBAL__N_18printDecEm.exit96.i.i: ; preds = %_ZN5folly1
 
 switch.lookup:                                    ; preds = %416
   %428 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5folly10symbolizer12_GLOBAL__N_113signalHandlerEiP9siginfo_tPv, i64 %428
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5folly10symbolizer12_GLOBAL__N_113signalHandlerEiP9siginfo_tPv, i64 %428
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN5folly10symbolizer12_GLOBAL__N_113signal_reasonEii.exit.i.i
 
 switch.lookup192:                                 ; preds = %418
   %429 = zext nneg i32 %switch.tableidx191 to i64
-  %switch.gep193 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5folly10symbolizer12_GLOBAL__N_113signalHandlerEiP9siginfo_tPv.23, i64 %429
+  %switch.gep193 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5folly10symbolizer12_GLOBAL__N_113signalHandlerEiP9siginfo_tPv.23, i64 %429
   %switch.load194 = load ptr, ptr %switch.gep193, align 8
   br label %_ZN5folly10symbolizer12_GLOBAL__N_113signal_reasonEii.exit.i.i
 
 switch.lookup196:                                 ; preds = %421
   %430 = zext nneg i32 %switch.tableidx195 to i64
-  %switch.gep197 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5folly10symbolizer12_GLOBAL__N_113signalHandlerEiP9siginfo_tPv.24, i64 %430
+  %switch.gep197 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5folly10symbolizer12_GLOBAL__N_113signalHandlerEiP9siginfo_tPv.24, i64 %430
   %switch.load198 = load ptr, ptr %switch.gep197, align 8
   br label %_ZN5folly10symbolizer12_GLOBAL__N_113signal_reasonEii.exit.i.i
 
 switch.lookup200:                                 ; preds = %424
   %431 = zext nneg i32 %switch.tableidx199 to i64
-  %switch.gep201 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5folly10symbolizer12_GLOBAL__N_113signalHandlerEiP9siginfo_tPv.25, i64 %431
+  %switch.gep201 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5folly10symbolizer12_GLOBAL__N_113signalHandlerEiP9siginfo_tPv.25, i64 %431
   %switch.load202 = load ptr, ptr %switch.gep201, align 8
   br label %_ZN5folly10symbolizer12_GLOBAL__N_113signal_reasonEii.exit.i.i
 
 switch.lookup204:                                 ; preds = %426
   %432 = zext nneg i32 %switch.tableidx203 to i64
-  %switch.gep205 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5folly10symbolizer12_GLOBAL__N_113signalHandlerEiP9siginfo_tPv.26, i64 %432
+  %switch.gep205 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5folly10symbolizer12_GLOBAL__N_113signalHandlerEiP9siginfo_tPv.26, i64 %432
   %switch.load206 = load ptr, ptr %switch.gep205, align 8
   br label %_ZN5folly10symbolizer12_GLOBAL__N_113signal_reasonEii.exit.i.i
 
@@ -1618,7 +1618,7 @@ _ZN5folly10symbolizer12_GLOBAL__N_15printENS_5RangeIPKcEE.exit99.i.i: ; preds = 
 
 460:                                              ; preds = %464, %_ZN5folly10symbolizer12_GLOBAL__N_15printENS_5RangeIPKcEE.exit99.i.i
   %.08.i5.i.i.i.i100.i.i = phi i64 [ 0, %_ZN5folly10symbolizer12_GLOBAL__N_15printENS_5RangeIPKcEE.exit99.i.i ], [ %465, %464 ]
-  %461 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i5.i.i.i.i100.i.i
+  %461 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i5.i.i.i.i100.i.i
   %462 = load i64, ptr %461, align 8, !tbaa !65
   %463 = icmp ugt i64 %462, %459
   br i1 %463, label %.loopexit.i.i.i.i110.i.i, label %464, !prof !16
@@ -1643,7 +1643,7 @@ _ZN5folly10symbolizer12_GLOBAL__N_15printENS_5RangeIPKcEE.exit99.i.i: ; preds = 
   %469 = add i64 %.014.i6.i.i.i.i105.i.i, -2
   %470 = udiv i64 %.0.i7.i.i.i.i104.i.i, 100
   %471 = urem i64 %.0.i7.i.i.i.i104.i.i, 100
-  %472 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %471
+  %472 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %471
   %473 = load i16, ptr %472, align 2, !tbaa !68
   %474 = getelementptr inbounds nuw i8, ptr %6, i64 %469
   store i16 %473, ptr %474, align 1
@@ -1654,7 +1654,7 @@ _ZN5folly10symbolizer12_GLOBAL__N_15printENS_5RangeIPKcEE.exit99.i.i: ; preds = 
   %476 = phi i64 [ %466, %.loopexit.i.i.i.i110.i.i ], [ %468, %.lr.ph.i.i.i.i103.i.i ]
   %.014.i.lcssa.i.i.i.i107.i.i = phi i64 [ %466, %.loopexit.i.i.i.i110.i.i ], [ %469, %.lr.ph.i.i.i.i103.i.i ]
   %.0.i.lcssa.i.i.i.i108.i.i = phi i64 [ %459, %.loopexit.i.i.i.i110.i.i ], [ %470, %.lr.ph.i.i.i.i103.i.i ]
-  %477 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.lcssa.i.i.i.i108.i.i
+  %477 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.lcssa.i.i.i.i108.i.i
   %478 = load i16, ptr %477, align 2, !tbaa !68
   %479 = icmp eq i64 %.014.i.lcssa.i.i.i.i107.i.i, 2
   br i1 %479, label %480, label %481, !prof !16
@@ -1690,7 +1690,7 @@ _ZN5folly10symbolizer12_GLOBAL__N_18printDecEm.exit111.i.i: ; preds = %_ZN5folly
 
 492:                                              ; preds = %496, %490
   %.08.i5.i.i.i.i112.i.i = phi i64 [ 0, %490 ], [ %497, %496 ]
-  %493 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i5.i.i.i.i112.i.i
+  %493 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i5.i.i.i.i112.i.i
   %494 = load i64, ptr %493, align 8, !tbaa !65
   %495 = icmp ugt i64 %494, %491
   br i1 %495, label %.loopexit.i.i.i.i122.i.i, label %496, !prof !16
@@ -1715,7 +1715,7 @@ _ZN5folly10symbolizer12_GLOBAL__N_18printDecEm.exit111.i.i: ; preds = %_ZN5folly
   %501 = add i64 %.014.i6.i.i.i.i117.i.i, -2
   %502 = udiv i64 %.0.i7.i.i.i.i116.i.i, 100
   %503 = urem i64 %.0.i7.i.i.i.i116.i.i, 100
-  %504 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %503
+  %504 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %503
   %505 = load i16, ptr %504, align 2, !tbaa !68
   %506 = getelementptr inbounds nuw i8, ptr %5, i64 %501
   store i16 %505, ptr %506, align 1
@@ -1726,7 +1726,7 @@ _ZN5folly10symbolizer12_GLOBAL__N_18printDecEm.exit111.i.i: ; preds = %_ZN5folly
   %508 = phi i64 [ %498, %.loopexit.i.i.i.i122.i.i ], [ %500, %.lr.ph.i.i.i.i115.i.i ]
   %.014.i.lcssa.i.i.i.i119.i.i = phi i64 [ %498, %.loopexit.i.i.i.i122.i.i ], [ %501, %.lr.ph.i.i.i.i115.i.i ]
   %.0.i.lcssa.i.i.i.i120.i.i = phi i64 [ %491, %.loopexit.i.i.i.i122.i.i ], [ %502, %.lr.ph.i.i.i.i115.i.i ]
-  %509 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.lcssa.i.i.i.i120.i.i
+  %509 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.lcssa.i.i.i.i120.i.i
   %510 = load i16, ptr %509, align 2, !tbaa !68
   %511 = icmp eq i64 %.014.i.lcssa.i.i.i.i119.i.i, 2
   br i1 %511, label %512, label %513, !prof !16

@@ -11,7 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.MetadataPayload = type { ptr, i64 }
 %struct.timeval = type { i64, i64 }
 %struct.anon.0 = type { ptr, i32 }
-%struct.anon = type { ptr, i32 }
 
 @stderr = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [26 x i8] c"Error! Version mismatch!\0A\00", align 1
@@ -375,7 +374,7 @@ sub_0:                                            ; preds = %sub_0.lr.ph, %554
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i32 0, ptr %15, align 4, !tbaa !9
   %60 = sext i32 %.05011283 to i64
-  %61 = getelementptr ptr, ptr %1, i64 %60
+  %61 = getelementptr [8 x i8], ptr %1, i64 %60
   %62 = load ptr, ptr %61, align 8, !tbaa !11
   %63 = load i8, ptr %62, align 1
   %.not1327 = icmp eq i8 %63, 45
@@ -466,7 +465,7 @@ sub_1914:                                         ; preds = %.tail907.thread, %.
 
 90:                                               ; preds = %87
   %91 = sext i32 %88 to i64
-  %92 = getelementptr inbounds ptr, ptr %1, i64 %91
+  %92 = getelementptr inbounds [8 x i8], ptr %1, i64 %91
   %93 = load ptr, ptr %92, align 8, !tbaa !11
   br label %.thread783
 
@@ -489,7 +488,7 @@ sub_1919:                                         ; preds = %87, %.tail912, %sub
 
 102:                                              ; preds = %99
   %103 = sext i32 %100 to i64
-  %104 = getelementptr inbounds ptr, ptr %1, i64 %103
+  %104 = getelementptr inbounds [8 x i8], ptr %1, i64 %103
   %105 = load ptr, ptr %104, align 8, !tbaa !11
   store i32 1, ptr %58, align 4, !tbaa !13
   br label %.thread783
@@ -559,7 +558,7 @@ sub_0928.thread1728:                              ; preds = %sub_1924
   %130 = call i32 @ExUtilGetInt(ptr noundef %129, i32 noundef 0, ptr noundef nonnull %15) #13
   store i32 %130, ptr %56, align 8, !tbaa !16
   %131 = sext i32 %125 to i64
-  %132 = getelementptr inbounds ptr, ptr %1, i64 %131
+  %132 = getelementptr inbounds [8 x i8], ptr %1, i64 %131
   %133 = load ptr, ptr %132, align 8, !tbaa !11
   %134 = call i32 @ExUtilGetInt(ptr noundef %133, i32 noundef 0, ptr noundef nonnull %15) #13
   store i32 %134, ptr %57, align 4, !tbaa !20
@@ -595,7 +594,7 @@ sub_1929:                                         ; preds = %.tail922, %sub_0928
 
 150:                                              ; preds = %147
   %151 = sext i32 %148 to i64
-  %152 = getelementptr inbounds ptr, ptr %1, i64 %151
+  %152 = getelementptr inbounds [8 x i8], ptr %1, i64 %151
   %153 = load ptr, ptr %152, align 8, !tbaa !11
   %154 = call i32 @ExUtilGetInt(ptr noundef %153, i32 noundef 0, ptr noundef nonnull %15) #13
   store i32 %154, ptr %55, align 4, !tbaa !21
@@ -620,7 +619,7 @@ sub_1934:                                         ; preds = %147, %.tail927, %su
 
 163:                                              ; preds = %160
   %164 = sext i32 %161 to i64
-  %165 = getelementptr inbounds ptr, ptr %1, i64 %164
+  %165 = getelementptr inbounds [8 x i8], ptr %1, i64 %164
   %166 = load ptr, ptr %165, align 8, !tbaa !11
   %167 = call float @ExUtilGetFloat(ptr noundef %166, ptr noundef nonnull %15) #13
   store float %167, ptr %30, align 4, !tbaa !22
@@ -650,7 +649,7 @@ sub_1939:                                         ; preds = %160, %.tail932, %su
 
 178:                                              ; preds = %175
   %179 = sext i32 %176 to i64
-  %180 = getelementptr inbounds ptr, ptr %1, i64 %179
+  %180 = getelementptr inbounds [8 x i8], ptr %1, i64 %179
   %181 = load ptr, ptr %180, align 8, !tbaa !11
   %182 = call i32 @ExUtilGetInt(ptr noundef %181, i32 noundef 0, ptr noundef nonnull %15) #13
   %.not635 = icmp ne i32 %.05351277, 0
@@ -671,7 +670,7 @@ sub_1939:                                         ; preds = %160, %.tail932, %su
 
 189:                                              ; preds = %186
   %190 = sext i32 %187 to i64
-  %191 = getelementptr inbounds ptr, ptr %1, i64 %190
+  %191 = getelementptr inbounds [8 x i8], ptr %1, i64 %190
   %192 = load ptr, ptr %191, align 8, !tbaa !11
   %193 = call i32 @ExUtilGetInt(ptr noundef %192, i32 noundef 0, ptr noundef nonnull %15) #13
   store i32 %193, ptr %54, align 4, !tbaa !23
@@ -689,7 +688,7 @@ sub_1939:                                         ; preds = %160, %.tail932, %su
 
 199:                                              ; preds = %196
   %200 = sext i32 %197 to i64
-  %201 = getelementptr inbounds ptr, ptr %1, i64 %200
+  %201 = getelementptr inbounds [8 x i8], ptr %1, i64 %200
   %202 = load ptr, ptr %201, align 8, !tbaa !11
   %203 = call i32 @ExUtilGetInt(ptr noundef %202, i32 noundef 0, ptr noundef nonnull %15) #13
   store i32 %203, ptr %53, align 4, !tbaa !24
@@ -725,7 +724,7 @@ sub_1939:                                         ; preds = %160, %.tail932, %su
 
 215:                                              ; preds = %212
   %216 = sext i32 %213 to i64
-  %217 = getelementptr inbounds ptr, ptr %1, i64 %216
+  %217 = getelementptr inbounds [8 x i8], ptr %1, i64 %216
   %218 = load ptr, ptr %217, align 8, !tbaa !11
   %219 = call i32 @ExUtilGetInt(ptr noundef %218, i32 noundef 16, ptr noundef nonnull %15) #13
   %220 = and i32 %219, 16777215
@@ -743,7 +742,7 @@ sub_1939:                                         ; preds = %160, %.tail932, %su
 
 226:                                              ; preds = %223
   %227 = sext i32 %224 to i64
-  %228 = getelementptr inbounds ptr, ptr %1, i64 %227
+  %228 = getelementptr inbounds [8 x i8], ptr %1, i64 %227
   %229 = load ptr, ptr %228, align 8, !tbaa !11
   %230 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %229, ptr noundef nonnull dereferenceable(5) @.str.22) #15
   %.not642 = icmp eq i32 %230, 0
@@ -802,7 +801,7 @@ sub_1939:                                         ; preds = %160, %.tail932, %su
 
 251:                                              ; preds = %248
   %252 = sext i32 %249 to i64
-  %253 = getelementptr inbounds ptr, ptr %1, i64 %252
+  %253 = getelementptr inbounds [8 x i8], ptr %1, i64 %252
   %254 = load ptr, ptr %253, align 8, !tbaa !11
   %255 = call i32 @ExUtilGetInt(ptr noundef %254, i32 noundef 0, ptr noundef nonnull %15) #13
   store i32 %255, ptr %50, align 4, !tbaa !28
@@ -821,7 +820,7 @@ sub_1939:                                         ; preds = %160, %.tail932, %su
 
 261:                                              ; preds = %258
   %262 = sext i32 %259 to i64
-  %263 = getelementptr inbounds ptr, ptr %1, i64 %262
+  %263 = getelementptr inbounds [8 x i8], ptr %1, i64 %262
   %264 = load ptr, ptr %263, align 8, !tbaa !11
   %265 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %264, ptr noundef nonnull dereferenceable(6) @.str.30) #15
   %.not649 = icmp eq i32 %265, 0
@@ -866,7 +865,7 @@ sub_1939:                                         ; preds = %160, %.tail932, %su
 
 281:                                              ; preds = %278
   %282 = sext i32 %279 to i64
-  %283 = getelementptr inbounds ptr, ptr %1, i64 %282
+  %283 = getelementptr inbounds [8 x i8], ptr %1, i64 %282
   %284 = load ptr, ptr %283, align 8, !tbaa !11
   %285 = call i32 @ExUtilGetInt(ptr noundef %284, i32 noundef 0, ptr noundef nonnull %15) #13
   store i32 %285, ptr %48, align 4, !tbaa !30
@@ -884,7 +883,7 @@ sub_1939:                                         ; preds = %160, %.tail932, %su
 
 291:                                              ; preds = %288
   %292 = sext i32 %289 to i64
-  %293 = getelementptr inbounds ptr, ptr %1, i64 %292
+  %293 = getelementptr inbounds [8 x i8], ptr %1, i64 %292
   %294 = load ptr, ptr %293, align 8, !tbaa !11
   %295 = call float @ExUtilGetFloat(ptr noundef %294, ptr noundef nonnull %15) #13
   store float %295, ptr %47, align 4, !tbaa !31
@@ -902,7 +901,7 @@ sub_1939:                                         ; preds = %160, %.tail932, %su
 
 301:                                              ; preds = %298
   %302 = sext i32 %299 to i64
-  %303 = getelementptr inbounds ptr, ptr %1, i64 %302
+  %303 = getelementptr inbounds [8 x i8], ptr %1, i64 %302
   %304 = load ptr, ptr %303, align 8, !tbaa !11
   %305 = call i32 @ExUtilGetInt(ptr noundef %304, i32 noundef 0, ptr noundef nonnull %15) #13
   store i32 %305, ptr %46, align 4, !tbaa !32
@@ -930,7 +929,7 @@ sub_1944:                                         ; preds = %sub_0943
 
 314:                                              ; preds = %311
   %315 = sext i32 %312 to i64
-  %316 = getelementptr inbounds ptr, ptr %1, i64 %315
+  %316 = getelementptr inbounds [8 x i8], ptr %1, i64 %315
   %317 = load ptr, ptr %316, align 8, !tbaa !11
   %318 = call i32 @ExUtilGetInt(ptr noundef %317, i32 noundef 0, ptr noundef nonnull %15) #13
   store i32 %318, ptr %45, align 4, !tbaa !33
@@ -1004,7 +1003,7 @@ sub_1944:                                         ; preds = %sub_0943
 
 343:                                              ; preds = %340
   %344 = sext i32 %341 to i64
-  %345 = getelementptr inbounds ptr, ptr %1, i64 %344
+  %345 = getelementptr inbounds [8 x i8], ptr %1, i64 %344
   %346 = load ptr, ptr %345, align 8, !tbaa !11
   %347 = call i32 @ExUtilGetInt(ptr noundef %346, i32 noundef 0, ptr noundef nonnull %15) #13
   store i32 %347, ptr %39, align 4, !tbaa !39
@@ -1031,7 +1030,7 @@ sub_1944:                                         ; preds = %sub_0943
 
 356:                                              ; preds = %353
   %357 = sext i32 %354 to i64
-  %358 = getelementptr inbounds ptr, ptr %1, i64 %357
+  %358 = getelementptr inbounds [8 x i8], ptr %1, i64 %357
   %359 = load ptr, ptr %358, align 8, !tbaa !11
   %360 = call i32 @ExUtilGetInt(ptr noundef %359, i32 noundef 0, ptr noundef nonnull %15) #13
   store i32 %360, ptr %37, align 4, !tbaa !41
@@ -1049,7 +1048,7 @@ sub_1944:                                         ; preds = %sub_0943
   %366 = call i32 @ExUtilGetInt(ptr noundef %365, i32 noundef 0, ptr noundef nonnull %15) #13
   store i32 %366, ptr %35, align 4, !tbaa !42
   %367 = sext i32 %184 to i64
-  %368 = getelementptr inbounds ptr, ptr %1, i64 %367
+  %368 = getelementptr inbounds [8 x i8], ptr %1, i64 %367
   %369 = load ptr, ptr %368, align 8, !tbaa !11
   %370 = call i32 @ExUtilGetInt(ptr noundef %369, i32 noundef 0, ptr noundef nonnull %15) #13
   store i32 %370, ptr %36, align 4, !tbaa !43
@@ -1081,7 +1080,7 @@ sub_1944:                                         ; preds = %sub_0943
 
 382:                                              ; preds = %379
   %383 = sext i32 %380 to i64
-  %384 = getelementptr inbounds ptr, ptr %1, i64 %383
+  %384 = getelementptr inbounds [8 x i8], ptr %1, i64 %383
   %385 = load ptr, ptr %384, align 8, !tbaa !11
   %386 = call i32 @ExUtilGetInt(ptr noundef %385, i32 noundef 0, ptr noundef nonnull %15) #13
   store i32 %386, ptr %34, align 4, !tbaa !44
@@ -1099,7 +1098,7 @@ sub_1944:                                         ; preds = %sub_0943
 
 392:                                              ; preds = %389
   %393 = sext i32 %390 to i64
-  %394 = getelementptr inbounds ptr, ptr %1, i64 %393
+  %394 = getelementptr inbounds [8 x i8], ptr %1, i64 %393
   %395 = load ptr, ptr %394, align 8, !tbaa !11
   %396 = call i32 @ExUtilGetInt(ptr noundef %395, i32 noundef 0, ptr noundef nonnull %15) #13
   store i32 %396, ptr %33, align 4, !tbaa !45
@@ -1117,7 +1116,7 @@ sub_1944:                                         ; preds = %sub_0943
 
 402:                                              ; preds = %399
   %403 = sext i32 %400 to i64
-  %404 = getelementptr inbounds ptr, ptr %1, i64 %403
+  %404 = getelementptr inbounds [8 x i8], ptr %1, i64 %403
   %405 = load ptr, ptr %404, align 8, !tbaa !11
   %406 = call i32 @ExUtilGetInt(ptr noundef %405, i32 noundef 0, ptr noundef nonnull %15) #13
   store i32 %406, ptr %32, align 4, !tbaa !46
@@ -1135,7 +1134,7 @@ sub_1944:                                         ; preds = %sub_0943
 
 412:                                              ; preds = %409
   %413 = sext i32 %410 to i64
-  %414 = getelementptr inbounds ptr, ptr %1, i64 %413
+  %414 = getelementptr inbounds [8 x i8], ptr %1, i64 %413
   %415 = load ptr, ptr %414, align 8, !tbaa !11
   %416 = call i32 @ExUtilGetInt(ptr noundef %415, i32 noundef 0, ptr noundef nonnull %15) #13
   store i32 %416, ptr %31, align 8, !tbaa !47
@@ -1154,14 +1153,14 @@ sub_1944:                                         ; preds = %sub_0943
   %423 = load ptr, ptr %422, align 8, !tbaa !11
   %424 = call i32 @ExUtilGetInt(ptr noundef %423, i32 noundef 0, ptr noundef nonnull %15) #13
   %425 = sext i32 %184 to i64
-  %426 = getelementptr inbounds ptr, ptr %1, i64 %425
+  %426 = getelementptr inbounds [8 x i8], ptr %1, i64 %425
   %427 = load ptr, ptr %426, align 8, !tbaa !11
   %428 = call i32 @ExUtilGetInt(ptr noundef %427, i32 noundef 0, ptr noundef nonnull %15) #13
   %429 = getelementptr i8, ptr %61, i64 24
   %430 = load ptr, ptr %429, align 8, !tbaa !11
   %431 = call i32 @ExUtilGetInt(ptr noundef %430, i32 noundef 0, ptr noundef nonnull %15) #13
   %432 = sext i32 %419 to i64
-  %433 = getelementptr inbounds ptr, ptr %1, i64 %432
+  %433 = getelementptr inbounds [8 x i8], ptr %1, i64 %432
   %434 = load ptr, ptr %433, align 8, !tbaa !11
   %435 = call i32 @ExUtilGetInt(ptr noundef %434, i32 noundef 0, ptr noundef nonnull %15) #13
   br label %.thread783
@@ -1177,7 +1176,7 @@ sub_1944:                                         ; preds = %sub_0943
   %440 = load ptr, ptr %439, align 8, !tbaa !11
   %441 = call i32 @ExUtilGetInt(ptr noundef %440, i32 noundef 0, ptr noundef nonnull %15) #13
   %442 = sext i32 %184 to i64
-  %443 = getelementptr inbounds ptr, ptr %1, i64 %442
+  %443 = getelementptr inbounds [8 x i8], ptr %1, i64 %442
   %444 = load ptr, ptr %443, align 8, !tbaa !11
   %445 = call i32 @ExUtilGetInt(ptr noundef %444, i32 noundef 0, ptr noundef nonnull %15) #13
   br label %.thread783
@@ -1233,7 +1232,7 @@ sub_1944:                                         ; preds = %sub_0943
 
 473:                                              ; preds = %470
   %474 = sext i32 %471 to i64
-  %475 = getelementptr inbounds ptr, ptr %1, i64 %474
+  %475 = getelementptr inbounds [8 x i8], ptr %1, i64 %474
   %476 = load ptr, ptr %475, align 8, !tbaa !11
   %477 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %476, ptr noundef nonnull dereferenceable(8) @.str.61) #15
   %.not677 = icmp eq i32 %477, 0
@@ -1293,7 +1292,7 @@ sub_1944:                                         ; preds = %sub_0943
 
 502:                                              ; preds = %499
   %503 = sext i32 %500 to i64
-  %504 = getelementptr inbounds ptr, ptr %1, i64 %503
+  %504 = getelementptr inbounds [8 x i8], ptr %1, i64 %503
   %505 = load ptr, ptr %504, align 8, !tbaa !11
   %506 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %505) #15
   %507 = getelementptr inbounds nuw i8, ptr %505, i64 %506
@@ -1313,7 +1312,7 @@ sub_1944:                                         ; preds = %sub_0943
 
 513:                                              ; preds = %.lr.ph, %525
   %.04911258 = phi i64 [ 0, %.lr.ph ], [ %526, %525 ]
-  %514 = getelementptr inbounds nuw %struct.anon, ptr @main.kTokens, i64 %.04911258
+  %514 = getelementptr inbounds nuw [16 x i8], ptr @main.kTokens, i64 %.04911258
   %515 = load ptr, ptr %514, align 16, !tbaa !49
   %516 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %515) #15
   %517 = icmp eq i64 %512, %516
@@ -1389,7 +1388,7 @@ sub_1954:                                         ; preds = %.tail947, %sub_1949
 
 546:                                              ; preds = %543
   %547 = sext i32 %544 to i64
-  %548 = getelementptr inbounds ptr, ptr %1, i64 %547
+  %548 = getelementptr inbounds [8 x i8], ptr %1, i64 %547
   %549 = load ptr, ptr %548, align 8, !tbaa !11
   br label %.thread837
 
@@ -1892,7 +1891,7 @@ sub_0957:                                         ; preds = %701, %.thread867, %
 
 .lr.ph1308:                                       ; preds = %.preheader962, %.lr.ph1308
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph1308 ], [ 0, %.preheader962 ]
-  %774 = getelementptr inbounds nuw i32, ptr %.04781310, i64 %indvars.iv
+  %774 = getelementptr inbounds nuw [4 x i8], ptr %.04781310, i64 %indvars.iv
   %775 = load i32, ptr %774, align 4, !tbaa !9
   %776 = or i32 %775, -16777216
   store i32 %776, ptr %774, align 4, !tbaa !9
@@ -1911,7 +1910,7 @@ sub_0957:                                         ; preds = %701, %.thread867, %
   %781 = phi i32 [ %777, %._crit_edge.loopexit ], [ %772, %.preheader962 ]
   %782 = load i32, ptr %766, align 8, !tbaa !71
   %783 = sext i32 %782 to i64
-  %784 = getelementptr inbounds i32, ptr %.04781310, i64 %783
+  %784 = getelementptr inbounds [4 x i8], ptr %.04781310, i64 %783
   %785 = add nuw nsw i32 %.04791309, 1
   %786 = icmp slt i32 %785, %780
   br i1 %786, label %.preheader962, label %._crit_edge1311, !llvm.loop !72
@@ -1973,10 +1972,10 @@ sub_0957:                                         ; preds = %701, %.thread867, %
 
 .lr.ph1313:                                       ; preds = %.preheader, %.lr.ph1313
   %indvars.iv1660 = phi i64 [ %indvars.iv.next1661, %.lr.ph1313 ], [ 0, %.preheader ]
-  %814 = getelementptr inbounds nuw i32, ptr %.04741317, i64 %indvars.iv1660
+  %814 = getelementptr inbounds nuw [4 x i8], ptr %.04741317, i64 %indvars.iv1660
   %815 = load i32, ptr %814, align 4, !tbaa !9
   %816 = and i32 %815, -16777216
-  %817 = getelementptr inbounds nuw i32, ptr %.04751316, i64 %indvars.iv1660
+  %817 = getelementptr inbounds nuw [4 x i8], ptr %.04751316, i64 %indvars.iv1660
   %818 = load i32, ptr %817, align 4, !tbaa !9
   %819 = and i32 %818, 16777215
   %820 = or disjoint i32 %819, %816
@@ -1996,10 +1995,10 @@ sub_0957:                                         ; preds = %701, %.thread867, %
   %825 = phi i32 [ %821, %._crit_edge1314.loopexit ], [ %812, %.preheader ]
   %826 = load i32, ptr %803, align 8, !tbaa !71
   %827 = sext i32 %826 to i64
-  %828 = getelementptr inbounds i32, ptr %.04751316, i64 %827
+  %828 = getelementptr inbounds [4 x i8], ptr %.04751316, i64 %827
   %829 = load i32, ptr %804, align 8, !tbaa !71
   %830 = sext i32 %829 to i64
-  %831 = getelementptr inbounds i32, ptr %.04741317, i64 %830
+  %831 = getelementptr inbounds [4 x i8], ptr %.04741317, i64 %830
   %832 = add nuw nsw i32 %.04761315, 1
   %833 = icmp slt i32 %832, %824
   br i1 %833, label %.preheader, label %._crit_edge1318, !llvm.loop !75
@@ -2086,7 +2085,7 @@ sub_0957:                                         ; preds = %701, %.thread867, %
   %874 = getelementptr inbounds nuw i8, ptr %8, i64 136
   %875 = load i32, ptr %874, align 8, !tbaa !77
   %876 = zext i32 %875 to i64
-  %877 = getelementptr inbounds nuw ptr, ptr @kErrorMessages, i64 %876
+  %877 = getelementptr inbounds nuw [8 x i8], ptr @kErrorMessages, i64 %876
   %878 = load ptr, ptr %877, align 8, !tbaa !11
   %879 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %873, ptr noundef nonnull @.str.95, i32 noundef %875, ptr noundef %878) #16
   br label %1210
@@ -2148,7 +2147,7 @@ sub_0957:                                         ; preds = %701, %.thread867, %
   %910 = getelementptr inbounds nuw i8, ptr %8, i64 136
   %911 = load i32, ptr %910, align 8, !tbaa !77
   %912 = zext i32 %911 to i64
-  %913 = getelementptr inbounds nuw ptr, ptr @kErrorMessages, i64 %912
+  %913 = getelementptr inbounds nuw [8 x i8], ptr @kErrorMessages, i64 %912
   %914 = load ptr, ptr %913, align 8, !tbaa !11
   %915 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %909, ptr noundef nonnull @.str.95, i32 noundef %911, ptr noundef %914) #16
   br label %1210
@@ -2755,7 +2754,7 @@ UpdateFlagsAndSize.exit.thread:                   ; preds = %1155, %.lr.ph1324, 
 
 1177:                                             ; preds = %1176
   %1178 = zext nneg i32 %.05201063 to i64
-  %1179 = getelementptr inbounds nuw ptr, ptr @main.distortion_names, i64 %1178
+  %1179 = getelementptr inbounds nuw [8 x i8], ptr @main.distortion_names, i64 %1178
   %1180 = load ptr, ptr %1179, align 8, !tbaa !11
   %1181 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1175, ptr noundef nonnull @.str.105, ptr noundef %1180) #16
   %1182 = load ptr, ptr @stderr, align 8, !tbaa !4
@@ -3736,7 +3735,7 @@ define internal fastcc void @PrintByteCount(ptr noundef readonly captures(none) 
   %indvars.iv23 = phi i64 [ %indvars.iv.next24, %.split.us ], [ 0, %3 ]
   %.017.us = phi i32 [ %9, %.split.us ], [ 0, %3 ]
   %4 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %5 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv23
+  %5 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv23
   %6 = load i32, ptr %5, align 4, !tbaa !9
   %7 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %4, ptr noundef nonnull @.str.233, i32 noundef %6) #16
   %8 = load i32, ptr %5, align 4, !tbaa !9
@@ -3749,12 +3748,12 @@ define internal fastcc void @PrintByteCount(ptr noundef readonly captures(none) 
   %indvars.iv = phi i64 [ %indvars.iv.next, %.split ], [ 0, %3 ]
   %.017 = phi i32 [ %15, %.split ], [ 0, %3 ]
   %10 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %11 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4, !tbaa !9
   %13 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.233, i32 noundef %12) #16
   %14 = load i32, ptr %11, align 4, !tbaa !9
   %15 = add nsw i32 %14, %.017
-  %16 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4, !tbaa !9
   %18 = add nsw i32 %17, %14
   store i32 %18, ptr %16, align 4, !tbaa !9
@@ -3792,7 +3791,7 @@ define internal fastcc void @PrintPercents(ptr noundef readonly captures(none) %
 13:                                               ; preds = %1, %13
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %13 ]
   %14 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %15 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4, !tbaa !9
   %17 = sitofp i32 %16 to double
   %18 = fmul nnan double %17, 1.000000e+02
@@ -3817,7 +3816,7 @@ define internal fastcc void @PrintValues(ptr noundef readonly captures(none) %0)
 2:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
   %3 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %4 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %5 = load i32, ptr %4, align 4, !tbaa !9
   %6 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.233, i32 noundef %5) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

@@ -14,9 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.icu_77::Locale" = type <{ %"class.icu_77::UObject", [12 x i8], [6 x i8], [4 x i8], [2 x i8], i32, [4 x i8], ptr, [157 x i8], [3 x i8], ptr, i8, [7 x i8] }>
 %"class.icu_77::FieldPosition" = type <{ %"class.icu_77::UObject", i32, i32, i32, [4 x i8] }>
 %"class.icu_77::Char16Ptr" = type { ptr }
-%"class.icu_77::Formattable" = type { %"class.icu_77::UObject", %union.anon, ptr, ptr, i32, %"class.icu_77::UnicodeString" }
-%union.anon = type { %struct.anon.1 }
-%struct.anon.1 = type { ptr, i32 }
 
 @.str = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @_ZTVN6icu_7713UnicodeStringE = external unnamed_addr constant { [13 x ptr] }, align 8
@@ -310,7 +307,7 @@ define noundef i32 @umsg_vformat_77(ptr noundef %0, ptr noundef %1, i32 noundef 
 
 55:                                               ; preds = %.lr.ph, %162
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %162 ]
-  %56 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv
   %57 = load i32, ptr %56, align 4, !tbaa !48
   switch i32 %57, label %161 [
     i32 0, label %58
@@ -344,7 +341,7 @@ define noundef i32 @umsg_vformat_77(ptr noundef %0, ptr noundef %1, i32 noundef 
 69:                                               ; preds = %66, %61
   %70 = phi ptr [ %64, %61 ], [ %67, %66 ]
   %71 = load double, ptr %70, align 8, !tbaa !50
-  %72 = getelementptr inbounds nuw %"class.icu_77::Formattable", ptr %40, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw [112 x i8], ptr %40, i64 %indvars.iv
   call void @_ZN6icu_7711Formattable7setDateEd(ptr noundef nonnull align 8 dereferenceable(112) %72, double noundef %71)
   br label %162
 
@@ -370,7 +367,7 @@ define noundef i32 @umsg_vformat_77(ptr noundef %0, ptr noundef %1, i32 noundef 
 84:                                               ; preds = %81, %76
   %85 = phi ptr [ %79, %76 ], [ %82, %81 ]
   %86 = load double, ptr %85, align 8, !tbaa !50
-  %87 = getelementptr inbounds nuw %"class.icu_77::Formattable", ptr %40, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw [112 x i8], ptr %40, i64 %indvars.iv
   call void @_ZN6icu_7711Formattable9setDoubleEd(ptr noundef nonnull align 8 dereferenceable(112) %87, double noundef %86)
   br label %162
 
@@ -396,7 +393,7 @@ define noundef i32 @umsg_vformat_77(ptr noundef %0, ptr noundef %1, i32 noundef 
 99:                                               ; preds = %96, %91
   %100 = phi ptr [ %94, %91 ], [ %97, %96 ]
   %101 = load i32, ptr %100, align 4, !tbaa !32
-  %102 = getelementptr inbounds nuw %"class.icu_77::Formattable", ptr %40, i64 %indvars.iv
+  %102 = getelementptr inbounds nuw [112 x i8], ptr %40, i64 %indvars.iv
   call void @_ZN6icu_7711Formattable7setLongEi(ptr noundef nonnull align 8 dereferenceable(112) %102, i32 noundef %101)
   br label %162
 
@@ -422,7 +419,7 @@ define noundef i32 @umsg_vformat_77(ptr noundef %0, ptr noundef %1, i32 noundef 
 114:                                              ; preds = %111, %106
   %115 = phi ptr [ %109, %106 ], [ %112, %111 ]
   %116 = load i64, ptr %115, align 8, !tbaa !52
-  %117 = getelementptr inbounds nuw %"class.icu_77::Formattable", ptr %40, i64 %indvars.iv
+  %117 = getelementptr inbounds nuw [112 x i8], ptr %40, i64 %indvars.iv
   call void @_ZN6icu_7711Formattable8setInt64El(ptr noundef nonnull align 8 dereferenceable(112) %117, i64 noundef %116)
   br label %162
 
@@ -459,7 +456,7 @@ define noundef i32 @umsg_vformat_77(ptr noundef %0, ptr noundef %1, i32 noundef 
 
 .preheader.i.i:                                   ; preds = %132, %.preheader.i.i
   %.0.i.i.i.i = phi i64 [ %136, %.preheader.i.i ], [ 0, %132 ]
-  %133 = getelementptr inbounds nuw i16, ptr %131, i64 %.0.i.i.i.i
+  %133 = getelementptr inbounds nuw [2 x i8], ptr %131, i64 %.0.i.i.i.i
   %134 = load i16, ptr %133, align 2, !tbaa !55
   %135 = icmp eq i16 %134, 0
   %136 = add i64 %.0.i.i.i.i, 1
@@ -480,7 +477,7 @@ common.resume:                                    ; preds = %142, %186, %.loopex
   br label %common.resume
 
 _ZN6icu_7713UnicodeStringC2IPDsvEERKT_.exit:      ; preds = %.loopexit.i
-  %140 = getelementptr inbounds nuw %"class.icu_77::Formattable", ptr %40, i64 %indvars.iv
+  %140 = getelementptr inbounds nuw [112 x i8], ptr %40, i64 %indvars.iv
   invoke void @_ZN6icu_7711Formattable9setStringERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(112) %140, ptr noundef nonnull align 8 dereferenceable(64) %6)
           to label %141 unwind label %142
 
@@ -791,7 +788,7 @@ define void @umsg_vparse_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr 
 
 38:                                               ; preds = %.lr.ph, %149
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %149 ]
-  %39 = getelementptr inbounds nuw %"class.icu_77::Formattable", ptr %27, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [112 x i8], ptr %27, i64 %indvars.iv
   %40 = invoke noundef i32 @_ZNK6icu_7711Formattable7getTypeEv(ptr noundef nonnull align 8 dereferenceable(112) %39)
           to label %41 unwind label %42
 
@@ -996,7 +993,7 @@ define void @umsg_vparse_77(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr 
 _ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit: ; preds = %135
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %130) #10, !srcloc !62
   %142 = sext i32 %141 to i64
-  %143 = getelementptr inbounds i16, ptr %130, i64 %142
+  %143 = getelementptr inbounds [2 x i8], ptr %130, i64 %142
   store i16 0, ptr %143, align 2, !tbaa !55
   br label %149
 
@@ -1479,7 +1476,7 @@ define i32 @umsg_autoQuoteApostrophe_77(ptr noundef %0, i32 noundef %1, ptr noun
   %.05067 = phi i32 [ 0, %.lr.ph.preheader ], [ %.3, %51 ]
   %.05166 = phi i32 [ 0, %.lr.ph.preheader ], [ %.152, %51 ]
   %.05365 = phi i32 [ 0, %.lr.ph.preheader ], [ %.154, %51 ]
-  %25 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   %26 = load i16, ptr %25, align 2, !tbaa !55
   switch i32 %.05365, label %default.unreachable74 [
     i32 0, label %27
@@ -1517,7 +1514,7 @@ define i32 @umsg_autoQuoteApostrophe_77(ptr noundef %0, i32 noundef %1, ptr noun
 
 35:                                               ; preds = %33
   %36 = sext i32 %.05067 to i64
-  %37 = getelementptr inbounds i16, ptr %2, i64 %36
+  %37 = getelementptr inbounds [2 x i8], ptr %2, i64 %36
   store i16 39, ptr %37, align 2, !tbaa !55
   br label %38
 
@@ -1558,7 +1555,7 @@ default.unreachable74:                            ; preds = %.lr.ph
 
 48:                                               ; preds = %46
   %49 = sext i32 %.1 to i64
-  %50 = getelementptr inbounds i16, ptr %2, i64 %49
+  %50 = getelementptr inbounds [2 x i8], ptr %2, i64 %49
   store i16 %26, ptr %50, align 2, !tbaa !55
   br label %51
 
@@ -1575,7 +1572,7 @@ default.unreachable74:                            ; preds = %.lr.ph
 
 55:                                               ; preds = %52
   %56 = sext i32 %.3 to i64
-  %57 = getelementptr inbounds i16, ptr %2, i64 %56
+  %57 = getelementptr inbounds [2 x i8], ptr %2, i64 %56
   store i16 39, ptr %57, align 2, !tbaa !55
   br label %._crit_edge.thread
 

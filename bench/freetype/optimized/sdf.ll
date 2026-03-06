@@ -11,10 +11,8 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.FT_BBox_ = type { i64, i64, i64, i64 }
 %struct.FT_Bitmap_ = type { i32, i32, i32, ptr, i16, i8, i8, ptr }
 %struct.BSDF_Worker_ = type { ptr, i32, i32, %struct.SDF_Raster_Params_ }
-%struct.ED_ = type { i32, %struct.FT_Vector_, i8 }
 %struct.FT_Vector_ = type { i64, i64 }
 %struct.SDF_Shape_ = type { ptr, ptr }
-%struct.SDF_Signed_Distance_ = type { i32, i32, i8 }
 
 @.str = private unnamed_addr constant [4 x i8] c"sdf\00", align 1
 @ft_sdf_renderer_class = hidden local_unnamed_addr constant { %struct.FT_Module_Class_, i32, [4 x i8], ptr, ptr, ptr, ptr, ptr } { %struct.FT_Module_Class_ { i64 2, i64 136, ptr @.str, i64 65536, i64 131072, ptr null, ptr @ft_sdf_init, ptr @ft_sdf_done, ptr @ft_sdf_requester }, i32 1869968492, [4 x i8] zeroinitializer, ptr @ft_sdf_render, ptr @ft_sdf_transform, ptr @ft_sdf_get_cbox, ptr @ft_sdf_set_mode, ptr @ft_sdf_raster }, align 8
@@ -989,12 +987,12 @@ define internal fastcc range(i32 0, 8) i32 @bsdf_init_distance_map(ptr noundef n
   %38 = xor i32 %37, -1
   %39 = add i32 %11, %38
   %.fr.us = freeze i1 %36
-  %invariant.gep187 = getelementptr inbounds nuw %struct.ED_, ptr %22, i64 %33
+  %invariant.gep187 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %33
   br i1 %.fr.us, label %.lr.ph.split.us135, label %.lr.ph.split.us.us
 
 .lr.ph.split.us135:                               ; preds = %.preheader128.us, %50
   %indvars.iv152 = phi i64 [ %indvars.iv.next153, %50 ], [ 0, %.preheader128.us ]
-  %gep188 = getelementptr inbounds nuw %struct.ED_, ptr %invariant.gep187, i64 %indvars.iv152
+  %gep188 = getelementptr inbounds nuw [32 x i8], ptr %invariant.gep187, i64 %indvars.iv152
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %gep188, i8 0, i64 32, i1 false)
   %40 = sub nsw i64 %indvars.iv152, %28
   %41 = icmp sgt i64 %40, -1
@@ -1027,7 +1025,7 @@ define internal fastcc range(i32 0, 8) i32 @bsdf_init_distance_map(ptr noundef n
 
 .lr.ph.split.us.us:                               ; preds = %.preheader128.us, %.lr.ph.split.us.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split.us.us ], [ 0, %.preheader128.us ]
-  %gep = getelementptr inbounds nuw %struct.ED_, ptr %invariant.gep187, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [32 x i8], ptr %invariant.gep187, i64 %indvars.iv
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %gep, i8 0, i64 32, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %30
@@ -1063,12 +1061,12 @@ define internal fastcc range(i32 0, 8) i32 @bsdf_init_distance_map(ptr noundef n
   %65 = xor i32 %64, -1
   %66 = add i32 %11, %65
   %.fr.us139 = freeze i1 %63
-  %invariant.gep191 = getelementptr inbounds nuw %struct.ED_, ptr %22, i64 %60
+  %invariant.gep191 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %60
   br i1 %.fr.us139, label %.lr.ph.split.us141, label %.lr.ph.split.us.us143
 
 .lr.ph.split.us141:                               ; preds = %.preheader.us, %87
   %indvars.iv168 = phi i64 [ %indvars.iv.next169, %87 ], [ 0, %.preheader.us ]
-  %gep192 = getelementptr inbounds nuw %struct.ED_, ptr %invariant.gep191, i64 %indvars.iv168
+  %gep192 = getelementptr inbounds nuw [32 x i8], ptr %invariant.gep191, i64 %indvars.iv168
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %gep192, i8 0, i64 32, i1 false)
   %67 = sub nsw i64 %indvars.iv168, %55
   %68 = icmp sgt i64 %67, -1
@@ -1111,7 +1109,7 @@ define internal fastcc range(i32 0, 8) i32 @bsdf_init_distance_map(ptr noundef n
 
 .lr.ph.split.us.us143:                            ; preds = %.preheader.us, %.lr.ph.split.us.us143
   %indvars.iv163 = phi i64 [ %indvars.iv.next164, %.lr.ph.split.us.us143 ], [ 0, %.preheader.us ]
-  %gep190 = getelementptr inbounds nuw %struct.ED_, ptr %invariant.gep191, i64 %indvars.iv163
+  %gep190 = getelementptr inbounds nuw [32 x i8], ptr %invariant.gep191, i64 %indvars.iv163
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %gep190, i8 0, i64 32, i1 false)
   %indvars.iv.next164 = add nuw nsw i64 %indvars.iv163, 1
   %exitcond167.not = icmp eq i64 %indvars.iv.next164, %57
@@ -1168,7 +1166,7 @@ define internal fastcc range(i32 0, 7) i32 @bsdf_approximate_edge(ptr noundef no
   %21 = add nsw i32 %20, %.03660
   %22 = load ptr, ptr %0, align 8, !tbaa !83
   %23 = sext i32 %21 to i64
-  %24 = getelementptr inbounds %struct.ED_, ptr %22, i64 %23
+  %24 = getelementptr inbounds [32 x i8], ptr %22, i64 %23
   %25 = load i32, ptr %4, align 4, !tbaa !87
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %27 = load i8, ptr %26, align 8, !tbaa !105
@@ -1185,7 +1183,7 @@ define internal fastcc range(i32 0, 7) i32 @bsdf_approximate_edge(ptr noundef no
 29:                                               ; preds = %28
   %30 = sub nsw i32 0, %19
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds %struct.ED_, ptr %24, i64 %31
+  %32 = getelementptr inbounds [32 x i8], ptr %24, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %34 = load i8, ptr %33, align 8, !tbaa !105
   %35 = icmp eq i8 %34, 0
@@ -1199,7 +1197,7 @@ define internal fastcc range(i32 0, 7) i32 @bsdf_approximate_edge(ptr noundef no
 38:                                               ; preds = %36
   %39 = add nuw nsw i32 %.0.i, 1
   %40 = zext nneg i32 %19 to i64
-  %41 = getelementptr inbounds nuw %struct.ED_, ptr %24, i64 %40
+  %41 = getelementptr inbounds nuw [32 x i8], ptr %24, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %43 = load i8, ptr %42, align 8, !tbaa !105
   %44 = icmp eq i8 %43, 0
@@ -1244,7 +1242,7 @@ define internal fastcc range(i32 0, 7) i32 @bsdf_approximate_edge(ptr noundef no
   %63 = add nuw nsw i32 %.3.i, 1
   %64 = sub nsw i32 0, %19
   %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds %struct.ED_, ptr %24, i64 %65
+  %66 = getelementptr inbounds [32 x i8], ptr %24, i64 %65
   %67 = getelementptr inbounds i8, ptr %66, i64 -8
   %68 = load i8, ptr %67, align 8, !tbaa !105
   %69 = icmp eq i8 %68, 0
@@ -1261,7 +1259,7 @@ define internal fastcc range(i32 0, 7) i32 @bsdf_approximate_edge(ptr noundef no
   %72 = add nuw nsw i32 %.4.i, 1
   %73 = sub nsw i32 0, %19
   %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds %struct.ED_, ptr %24, i64 %74
+  %75 = getelementptr inbounds [32 x i8], ptr %24, i64 %74
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 56
   %77 = load i8, ptr %76, align 8, !tbaa !105
   %78 = icmp eq i8 %77, 0
@@ -1275,7 +1273,7 @@ define internal fastcc range(i32 0, 7) i32 @bsdf_approximate_edge(ptr noundef no
 80:                                               ; preds = %79
   %81 = add nuw nsw i32 %.5.i, 1
   %82 = zext nneg i32 %19 to i64
-  %83 = getelementptr inbounds nuw %struct.ED_, ptr %24, i64 %82
+  %83 = getelementptr inbounds nuw [32 x i8], ptr %24, i64 %82
   %84 = getelementptr inbounds i8, ptr %83, i64 -8
   %85 = load i8, ptr %84, align 8, !tbaa !105
   %86 = icmp eq i8 %85, 0
@@ -1288,7 +1286,7 @@ define internal fastcc range(i32 0, 7) i32 @bsdf_approximate_edge(ptr noundef no
 
 88:                                               ; preds = %87
   %89 = zext nneg i32 %19 to i64
-  %90 = getelementptr inbounds nuw %struct.ED_, ptr %24, i64 %89
+  %90 = getelementptr inbounds nuw [32 x i8], ptr %24, i64 %89
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 56
   %92 = load i8, ptr %91, align 8, !tbaa !105
   %93 = icmp ne i8 %92, 0
@@ -1297,13 +1295,13 @@ define internal fastcc range(i32 0, 7) i32 @bsdf_approximate_edge(ptr noundef no
   br i1 %or.cond, label %bsdf_is_edge.exit.thread46, label %bsdf_is_edge.exit.thread49
 
 bsdf_is_edge.exit.thread49.thread:                ; preds = %80, %62, %48
-  %94 = getelementptr inbounds %struct.ED_, ptr %3, i64 %23
+  %94 = getelementptr inbounds [32 x i8], ptr %3, i64 %23
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   br label %99
 
 bsdf_is_edge.exit.thread49:                       ; preds = %17, %88, %71, %56, %38, %29, %87
-  %96 = getelementptr inbounds %struct.ED_, ptr %3, i64 %23
+  %96 = getelementptr inbounds [32 x i8], ptr %3, i64 %23
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %98 = icmp eq i32 %.03660, 0
@@ -1321,23 +1319,23 @@ bsdf_is_edge.exit.thread49:                       ; preds = %17, %88, %71, %56, 
   br i1 %or.cond73.i, label %105, label %compute_edge_distance.exit
 
 105:                                              ; preds = %99
-  %106 = getelementptr inbounds %struct.ED_, ptr %3, i64 %23
+  %106 = getelementptr inbounds [32 x i8], ptr %3, i64 %23
   %107 = sub nsw i32 0, %19
   %108 = xor i32 %19, -1
   %109 = sext i32 %108 to i64
-  %110 = getelementptr inbounds %struct.ED_, ptr %106, i64 %109
+  %110 = getelementptr inbounds [32 x i8], ptr %106, i64 %109
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 24
   %112 = load i8, ptr %111, align 8, !tbaa !105
   %113 = zext i8 %112 to i32
   %.neg.i = mul nsw i32 %113, -256
   %114 = sext i32 %107 to i64
-  %115 = getelementptr inbounds %struct.ED_, ptr %106, i64 %114
+  %115 = getelementptr inbounds [32 x i8], ptr %106, i64 %114
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 24
   %117 = load i8, ptr %116, align 8, !tbaa !105
   %118 = zext i8 %117 to i64
   %119 = sub nsw i32 1, %19
   %120 = sext i32 %119 to i64
-  %121 = getelementptr inbounds %struct.ED_, ptr %106, i64 %120
+  %121 = getelementptr inbounds [32 x i8], ptr %106, i64 %120
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 24
   %123 = load i8, ptr %122, align 8, !tbaa !105
   %124 = zext i8 %123 to i32
@@ -1353,13 +1351,13 @@ bsdf_is_edge.exit.thread49:                       ; preds = %17, %88, %71, %56, 
   %134 = load i8, ptr %133, align 8, !tbaa !105
   %135 = zext i8 %134 to i64
   %136 = zext nneg i32 %102 to i64
-  %137 = getelementptr inbounds nuw %struct.ED_, ptr %106, i64 %136
+  %137 = getelementptr inbounds nuw [32 x i8], ptr %106, i64 %136
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 24
   %139 = load i8, ptr %138, align 8, !tbaa !105
   %140 = zext i8 %139 to i32
   %141 = shl nuw nsw i32 %140, 8
   %142 = zext nneg i32 %19 to i64
-  %143 = getelementptr inbounds nuw %struct.ED_, ptr %106, i64 %142
+  %143 = getelementptr inbounds nuw [32 x i8], ptr %106, i64 %142
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 24
   %145 = load i8, ptr %144, align 8, !tbaa !105
   %146 = zext i8 %145 to i64
@@ -1512,7 +1510,7 @@ compute_edge_distance.exit:                       ; preds = %bsdf_is_edge.exit.t
   br label %258
 
 bsdf_is_edge.exit.thread46:                       ; preds = %88, %17
-  %255 = getelementptr inbounds %struct.ED_, ptr %3, i64 %23
+  %255 = getelementptr inbounds [32 x i8], ptr %3, i64 %23
   store i32 26214400, ptr %255, align 8, !tbaa !112
   %256 = getelementptr inbounds nuw i8, ptr %255, i64 8
   store i64 13107200, ptr %256, align 8, !tbaa !113
@@ -1589,7 +1587,7 @@ define internal fastcc range(i32 0, 7) i32 @edt8(ptr noundef nonnull readonly ca
   %indvars.iv63.i = phi i64 [ 1, %.preheader.us.preheader.i ], [ %indvars.iv.next64.i, %._crit_edge40.us.i.loopexit ]
   %29 = mul nuw nsw i64 %indvars.iv63.i, %28
   %30 = and i64 %29, 4294967295
-  %invariant.gep82.i = getelementptr inbounds nuw %struct.ED_, ptr %12, i64 %30
+  %invariant.gep82.i = getelementptr inbounds nuw [32 x i8], ptr %12, i64 %30
   br label %48
 
 ._crit_edge40.us.i.loopexit:                      ; preds = %compare_neighbor.exit35.us.i
@@ -1599,7 +1597,7 @@ define internal fastcc range(i32 0, 7) i32 @edt8(ptr noundef nonnull readonly ca
 
 31:                                               ; preds = %._crit_edge.us.i, %compare_neighbor.exit35.us.i
   %indvars.iv60.i = phi i64 [ %27, %._crit_edge.us.i ], [ %indvars.iv.next61.i, %compare_neighbor.exit35.us.i ]
-  %gep85.i = getelementptr %struct.ED_, ptr %invariant.gep84.i, i64 %indvars.iv60.i
+  %gep85.i = getelementptr [32 x i8], ptr %invariant.gep84.i, i64 %indvars.iv60.i
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %32 = getelementptr inbounds nuw i8, ptr %gep85.i, i64 32
   %33 = load i32, ptr %32, align 8, !tbaa !112
@@ -1634,9 +1632,9 @@ compare_neighbor.exit35.us.i:                     ; preds = %45, %37, %31
 
 48:                                               ; preds = %compare_neighbor.exit34.us.i, %.preheader.us.i
   %indvars.iv55.i = phi i64 [ 1, %.preheader.us.i ], [ %indvars.iv.next56.i, %compare_neighbor.exit34.us.i ]
-  %gep83.i = getelementptr inbounds nuw %struct.ED_, ptr %invariant.gep82.i, i64 %indvars.iv55.i
+  %gep83.i = getelementptr inbounds nuw [32 x i8], ptr %invariant.gep82.i, i64 %indvars.iv55.i
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %49 = getelementptr inbounds %struct.ED_, ptr %gep83.i, i64 %21
+  %49 = getelementptr inbounds [32 x i8], ptr %gep83.i, i64 %21
   %50 = getelementptr inbounds i8, ptr %49, i64 -32
   %51 = load i32, ptr %50, align 8, !tbaa !112
   %52 = add nsw i32 %51, -65536
@@ -1758,7 +1756,7 @@ compare_neighbor.exit34.us.i:                     ; preds = %111, %103, %compare
   br i1 %exitcond59.not.i, label %._crit_edge.us.i, label %48, !llvm.loop !121
 
 ._crit_edge.us.i:                                 ; preds = %compare_neighbor.exit34.us.i
-  %invariant.gep84.i = getelementptr %struct.ED_, ptr %12, i64 %29
+  %invariant.gep84.i = getelementptr [32 x i8], ptr %12, i64 %29
   br label %31
 
 .preheader.lr.ph.split.i:                         ; preds = %.preheader.lr.ph.i
@@ -1778,7 +1776,7 @@ compare_neighbor.exit34.us.i:                     ; preds = %111, %103, %compare
 
 115:                                              ; preds = %compare_neighbor.exit35.us46.i, %.preheader.us43.i
   %indvars.iv.i = phi i64 [ %114, %.preheader.us43.i ], [ %indvars.iv.next.i, %compare_neighbor.exit35.us46.i ]
-  %gep.i = getelementptr %struct.ED_, ptr %invariant.gep.i, i64 %indvars.iv.i
+  %gep.i = getelementptr [32 x i8], ptr %invariant.gep.i, i64 %indvars.iv.i
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %116 = getelementptr inbounds nuw i8, ptr %gep.i, i64 32
   %117 = load i32, ptr %116, align 8, !tbaa !112
@@ -1843,7 +1841,7 @@ first_pass.exit:                                  ; preds = %._crit_edge40.us48.
 .preheader.us.i19:                                ; preds = %._crit_edge40.us.i28.loopexit, %.preheader.us.preheader.i17
   %indvars.iv61.i = phi i64 [ %144, %.preheader.us.preheader.i17 ], [ %indvars.iv.next62.i, %._crit_edge40.us.i28.loopexit ]
   %145 = mul nsw i64 %indvars.iv61.i, %137
-  %invariant.gep76.i = getelementptr %struct.ED_, ptr %132, i64 %145
+  %invariant.gep76.i = getelementptr [32 x i8], ptr %132, i64 %145
   br label %163
 
 ._crit_edge40.us.i28.loopexit:                    ; preds = %compare_neighbor.exit35.us.i30
@@ -1853,7 +1851,7 @@ first_pass.exit:                                  ; preds = %._crit_edge40.us48.
 
 .lr.ph39.us.i29:                                  ; preds = %compare_neighbor.exit34.us.i24, %compare_neighbor.exit35.us.i30
   %indvars.iv58.i = phi i64 [ %indvars.iv.next59.i, %compare_neighbor.exit35.us.i30 ], [ %143, %compare_neighbor.exit34.us.i24 ]
-  %gep79.i = getelementptr %struct.ED_, ptr %invariant.gep76.i, i64 %indvars.iv58.i
+  %gep79.i = getelementptr [32 x i8], ptr %invariant.gep76.i, i64 %indvars.iv58.i
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %147 = getelementptr inbounds nuw i8, ptr %gep79.i, i64 32
   %148 = load i32, ptr %147, align 8, !tbaa !112
@@ -1888,9 +1886,9 @@ compare_neighbor.exit35.us.i30:                   ; preds = %160, %152, %.lr.ph3
 
 163:                                              ; preds = %compare_neighbor.exit34.us.i24, %.preheader.us.i19
   %indvars.iv55.i20 = phi i64 [ 1, %.preheader.us.i19 ], [ %indvars.iv.next56.i25, %compare_neighbor.exit34.us.i24 ]
-  %gep77.i = getelementptr %struct.ED_, ptr %invariant.gep76.i, i64 %indvars.iv55.i20
+  %gep77.i = getelementptr [32 x i8], ptr %invariant.gep76.i, i64 %indvars.iv55.i20
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %164 = getelementptr inbounds nuw %struct.ED_, ptr %gep77.i, i64 %137
+  %164 = getelementptr inbounds nuw [32 x i8], ptr %gep77.i, i64 %137
   %165 = getelementptr inbounds i8, ptr %164, i64 -32
   %166 = load i32, ptr %165, align 8, !tbaa !112
   %167 = add nsw i32 %166, -65536
@@ -2023,12 +2021,12 @@ compare_neighbor.exit34.us.i24:                   ; preds = %226, %218, %compare
 .preheader.us43.i8:                               ; preds = %._crit_edge40.us48.i15, %.preheader.us43.preheader.i7
   %indvars.iv52.i9 = phi i64 [ %230, %.preheader.us43.preheader.i7 ], [ %indvars.iv.next53.i16, %._crit_edge40.us48.i15 ]
   %231 = mul nsw i64 %indvars.iv52.i9, %137
-  %invariant.gep.i10 = getelementptr %struct.ED_, ptr %132, i64 %231
+  %invariant.gep.i10 = getelementptr [32 x i8], ptr %132, i64 %231
   br label %232
 
 232:                                              ; preds = %compare_neighbor.exit35.us46.i13, %.preheader.us43.i8
   %indvars.iv.i11 = phi i64 [ %229, %.preheader.us43.i8 ], [ %indvars.iv.next.i14, %compare_neighbor.exit35.us46.i13 ]
-  %gep.i12 = getelementptr %struct.ED_, ptr %invariant.gep.i10, i64 %indvars.iv.i11
+  %gep.i12 = getelementptr [32 x i8], ptr %invariant.gep.i10, i64 %indvars.iv.i11
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %233 = getelementptr inbounds nuw i8, ptr %gep.i12, i64 32
   %234 = load i32, ptr %233, align 8, !tbaa !112
@@ -2116,7 +2114,7 @@ define internal fastcc range(i32 0, 7) i32 @finalize_sdf(ptr noundef nonnull rea
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %23 ]
   %24 = add nuw nsw i64 %indvars.iv, %22
   %25 = load ptr, ptr %0, align 8, !tbaa !83
-  %26 = getelementptr inbounds nuw %struct.ED_, ptr %25, i64 %24
+  %26 = getelementptr inbounds nuw [32 x i8], ptr %25, i64 %24
   %27 = load i32, ptr %26, align 8, !tbaa !112
   %28 = icmp slt i32 %27, 0
   %29 = tail call i32 @llvm.smin.i32(i32 %27, i32 %16)
@@ -2243,7 +2241,7 @@ define internal fastcc i32 @sdf_generate_with_overlaps(i64 range(i64 0, 28147497
   %.1148180.in = phi ptr [ %12, %.lr.ph181 ], [ %121, %130 ]
   %.0146178 = phi ptr [ null, %.lr.ph181 ], [ %125, %130 ]
   %.1148180 = load ptr, ptr %.1148180.in, align 8, !tbaa !134
-  %35 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %22, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [40 x i8], ptr %22, i64 %indvars.iv
   call void @FT_Bitmap_Init(ptr noundef %35) #12
   %36 = load i32, ptr %14, align 4, !tbaa !47
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 4
@@ -2370,7 +2368,7 @@ define internal fastcc i32 @sdf_generate_with_overlaps(i64 range(i64 0, 28147497
 
 get_contour_orientation.exit:                     ; preds = %.preheader.i, %50, %51, %117
   %.038.i = phi i32 [ 0, %50 ], [ %..i, %117 ], [ 0, %51 ], [ 0, %.preheader.i ]
-  %118 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv
   store i32 %.038.i, ptr %118, align 4, !tbaa !21
   %119 = icmp eq i32 %.038.i, 2
   %or.cond4 = and i1 %119, %31
@@ -2456,12 +2454,12 @@ get_contour_orientation.exit:                     ; preds = %.preheader.i, %50, 
   %indvars.iv210 = phi i64 [ %indvars.iv.next211, %154 ], [ 0, %.lr.ph188.us.us.us.us.us ]
   %.0137186.us.us.us.us.us = phi i8 [ %.1.us.us.us.us.us, %154 ], [ -1, %.lr.ph188.us.us.us.us.us ]
   %.0138185.us.us.us.us.us = phi i8 [ %.1139.us.us.us.us.us, %154 ], [ 0, %.lr.ph188.us.us.us.us.us ]
-  %142 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %22, i64 %indvars.iv210
+  %142 = getelementptr inbounds nuw [40 x i8], ptr %22, i64 %indvars.iv210
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 16
   %144 = load ptr, ptr %143, align 8, !tbaa !44
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 %140
   %146 = load i8, ptr %145, align 1, !tbaa !77
-  %147 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv210
+  %147 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv210
   %148 = load i32, ptr %147, align 4, !tbaa !21
   %149 = icmp eq i32 %148, 1
   br i1 %149, label %152, label %150
@@ -2508,12 +2506,12 @@ get_contour_orientation.exit:                     ; preds = %.preheader.i, %50, 
   %indvars.iv224 = phi i64 [ %indvars.iv.next225, %172 ], [ 0, %.lr.ph188.us.us.us ]
   %.0137186.us.us.us = phi i8 [ %.1.us.us.us, %172 ], [ -1, %.lr.ph188.us.us.us ]
   %.0138185.us.us.us = phi i8 [ %.1139.us.us.us, %172 ], [ 0, %.lr.ph188.us.us.us ]
-  %160 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %22, i64 %indvars.iv224
+  %160 = getelementptr inbounds nuw [40 x i8], ptr %22, i64 %indvars.iv224
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 16
   %162 = load ptr, ptr %161, align 8, !tbaa !44
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 %158
   %164 = load i8, ptr %163, align 1, !tbaa !77
-  %165 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv224
+  %165 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv224
   %166 = load i32, ptr %165, align 4, !tbaa !21
   %167 = icmp eq i32 %166, 1
   br i1 %167, label %170, label %168
@@ -2569,7 +2567,7 @@ get_contour_orientation.exit:                     ; preds = %.preheader.i, %50, 
 
 .preheader:                                       ; preds = %176, %.preheader
   %indvars.iv242 = phi i64 [ %indvars.iv.next243, %.preheader ], [ 0, %176 ]
-  %179 = getelementptr inbounds nuw %struct.FT_Bitmap_, ptr %22, i64 %indvars.iv242
+  %179 = getelementptr inbounds nuw [40 x i8], ptr %22, i64 %indvars.iv242
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 16
   %181 = load ptr, ptr %180, align 8, !tbaa !44
   call void @ft_mem_free(ptr noundef nonnull %10, ptr noundef %181) #12
@@ -2876,7 +2874,7 @@ sdf_edge_done.exit.i.i:                           ; preds = %78, %sdf_edge_done.
   %indvars.iv276.i = phi i64 [ %indvars.iv.next277.i, %.thread.i14 ], [ 0, %.lr.ph242.us.us.i ]
   %.1240.us.us.us.i = phi i8 [ %.2.us.us.us307.i, %.thread.i14 ], [ %spec.select.i, %.lr.ph242.us.us.i ]
   %126 = add nuw nsw i64 %indvars.iv276.i, %124
-  %127 = getelementptr inbounds nuw %struct.SDF_Signed_Distance_, ptr %99, i64 %126
+  %127 = getelementptr inbounds nuw [12 x i8], ptr %99, i64 %126
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %129 = load i8, ptr %128, align 4, !tbaa !157
   %130 = icmp eq i8 %129, 0
@@ -2928,7 +2926,7 @@ sdf_edge_done.exit.i.i:                           ; preds = %78, %sdf_edge_done.
   %indvars.iv269.i = phi i64 [ 0, %.lr.ph242.us.i ], [ %indvars.iv.next270.i, %.thread308.i ]
   %.1240.us246.i = phi i8 [ %spec.select.i, %.lr.ph242.us.i ], [ %.2.us248310.i, %.thread308.i ]
   %150 = add nuw nsw i64 %indvars.iv269.i, %148
-  %151 = getelementptr inbounds nuw %struct.SDF_Signed_Distance_, ptr %99, i64 %150
+  %151 = getelementptr inbounds nuw [12 x i8], ptr %99, i64 %150
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 8
   %153 = load i8, ptr %152, align 4, !tbaa !157
   %154 = icmp eq i8 %153, 0
@@ -3809,7 +3807,7 @@ get_min_distance_line.exit.i.us.us.i:             ; preds = %710, %647
   %738 = trunc nuw nsw i64 %indvars.iv.i to i32
   %739 = add i32 %.pn.us.i, %738
   %740 = zext i32 %739 to i64
-  %741 = getelementptr inbounds nuw %struct.SDF_Signed_Distance_, ptr %99, i64 %740
+  %741 = getelementptr inbounds nuw [12 x i8], ptr %99, i64 %740
   %742 = getelementptr inbounds nuw i8, ptr %741, i64 8
   %743 = load i8, ptr %742, align 4, !tbaa !157
   %744 = icmp eq i8 %743, 0

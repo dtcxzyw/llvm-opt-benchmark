@@ -8,17 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.45" = type { %"struct.std::_Vector_base<gmx::Range<int>, std::allocator<gmx::Range<int>>>::_Vector_impl" }
 %"struct.std::_Vector_base<gmx::Range<int>, std::allocator<gmx::Range<int>>>::_Vector_impl" = type { %"struct.std::_Vector_base<gmx::Range<int>, std::allocator<gmx::Range<int>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<gmx::Range<int>, std::allocator<gmx::Range<int>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%struct.MoleculeBlockIndices = type { i32, i32, i32, i32, i32, i32 }
-%struct.gmx_moltype_t = type { ptr, %struct.t_atoms, %"struct.std::array", %"class.gmx::ListOfLists" }
-%struct.t_atoms = type { i32, ptr, ptr, ptr, ptr, i32, ptr, ptr, i8, i8, i8, i8, i8 }
-%"struct.std::array" = type { [95 x %struct.InteractionList] }
-%struct.InteractionList = type { %"class.std::vector" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.gmx::ListOfLists" = type { %"class.std::vector", %"class.std::vector" }
-%struct.t_atom = type { float, float, float, float, i16, i16, i32, i32, i32, [4 x i8] }
 
 $__clang_call_terminate = comdat any
 
@@ -101,11 +90,11 @@ define void @_ZN3gmx28placeCoordinatesWithCOMInBoxERK7PbcTypeNS_12UnitCellTypeEN
   %indvars.iv = phi i64 [ 0, %.lr.ph128 ], [ %indvars.iv.next, %._crit_edge123 ]
   %.sroa.097.0125 = phi ptr [ %15, %.lr.ph128 ], [ %40, %._crit_edge123 ]
   %27 = load ptr, ptr %18, align 8, !tbaa !12
-  %28 = getelementptr inbounds nuw %struct.MoleculeBlockIndices, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [24 x i8], ptr %27, i64 %indvars.iv
   %29 = load i32, ptr %.sroa.097.0125, align 8, !tbaa !15
   %30 = sext i32 %29 to i64
   %31 = load ptr, ptr %19, align 8, !tbaa !23
-  %32 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %31, i64 %30
+  %32 = getelementptr inbounds nuw [2408 x i8], ptr %31, i64 %30
   %33 = load i32, ptr %28, align 4, !tbaa !26
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.097.0125, i64 4
   %35 = load i32, ptr %34, align 4, !tbaa !28
@@ -221,7 +210,7 @@ _ZNSt6vectorIN3gmx5RangeIiEESaIS2_EED2Ev.exit50:  ; preds = %41, %._crit_edge, %
   %72 = load i32, ptr %71, align 4, !tbaa !32
   %73 = sub nsw i32 %72, %68
   %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %70
+  %75 = getelementptr inbounds [12 x i8], ptr %4, i64 %70
   %.idx = mul nsw i64 %74, 12
   %76 = getelementptr inbounds i8, ptr %75, i64 %.idx
   %.val = load ptr, ptr %39, align 8
@@ -246,7 +235,7 @@ _ZNSt6vectorIN3gmx5RangeIiEESaIS2_EED2Ev.exit50:  ; preds = %41, %._crit_edge, %
   %indvars.iv9.i = phi i64 [ %77, %.lr.ph.preheader.i ], [ %indvars.iv.next10.i, %80 ]
   %.07.i = phi double [ 0.000000e+00, %.lr.ph.preheader.i ], [ %82, %80 ]
   %.sroa.0.05.i = phi ptr [ %75, %.lr.ph.preheader.i ], [ %83, %80 ]
-  %78 = getelementptr inbounds %struct.t_atom, ptr %.val, i64 %indvars.iv9.i
+  %78 = getelementptr inbounds [36 x i8], ptr %.val, i64 %indvars.iv9.i
   %79 = load float, ptr %78, align 4, !tbaa !41
   br label %84
 
@@ -260,9 +249,9 @@ _ZNSt6vectorIN3gmx5RangeIiEESaIS2_EED2Ev.exit50:  ; preds = %41, %._crit_edge, %
 
 84:                                               ; preds = %84, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %84 ]
-  %85 = getelementptr inbounds nuw float, ptr %.sroa.0.05.i, i64 %indvars.iv.i
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.05.i, i64 %indvars.iv.i
   %86 = load float, ptr %85, align 4, !tbaa !39
-  %87 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv.i
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv.i
   %88 = load float, ptr %87, align 4, !tbaa !39
   %89 = call float @llvm.fmuladd.f32(float %79, float %86, float %88)
   store float %89, ptr %87, align 4, !tbaa !39

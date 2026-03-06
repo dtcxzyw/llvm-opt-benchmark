@@ -3198,7 +3198,7 @@ if.then.i:                                        ; preds = %while.end
 
 _ZNSt5arrayIPN8proxygen15RateLimitFilterELm4EE2atEm.exit: ; preds = %while.end
   %rateLimitFilters_ = getelementptr inbounds nuw i8, ptr %this, i64 1480
-  %arrayidx.i.i = getelementptr inbounds nuw ptr, ptr %rateLimitFilters_, i64 %conv12
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %rateLimitFilters_, i64 %conv12
   %1 = load ptr, ptr %arrayidx.i.i, align 8
   %tobool.not = icmp eq ptr %1, null
   br i1 %tobool.not, label %if.end32, label %if.then

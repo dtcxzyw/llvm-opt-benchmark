@@ -33,7 +33,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::MatExpr" = type { ptr, i32, %"class.cv::Mat", %"class.cv::Mat", %"class.cv::Mat", double, double, %"class.cv::Scalar_" }
 %"class.cv::Mat_" = type { %"class.cv::Mat" }
 %"class.cv::_InputOutputArray" = type { %"class.cv::_OutputArray" }
-%"class.cv::Point_" = type { float, float }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -3849,7 +3848,7 @@ _ZNSolsEPFRSoS_E.exit330:                         ; preds = %.noexc840
   %.lhs.trunc = trunc nuw nsw i64 %.0931 to i8
   %1478 = urem i8 %.lhs.trunc, 7
   %1479 = uitofp nneg i8 %1478 to float
-  %1480 = getelementptr inbounds nuw %"class.cv::Point_", ptr %1398, i64 %.0931
+  %1480 = getelementptr inbounds nuw [8 x i8], ptr %1398, i64 %.0931
   store float %1477, ptr %1480, align 4
   %.sroa_idx865 = getelementptr inbounds nuw i8, ptr %1480, i64 4
   store float %1479, ptr %.sroa_idx865, align 4
@@ -4796,7 +4795,7 @@ define linkonce_odr hidden void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr nound
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %11 = load ptr, ptr %10, align 8, !tbaa !120
   %12 = zext nneg i32 %7 to i64
-  %13 = getelementptr i64, ptr %11, i64 %12
+  %13 = getelementptr [8 x i8], ptr %11, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -8
   %15 = load i64, ptr %14, align 8, !tbaa !108
   br label %16

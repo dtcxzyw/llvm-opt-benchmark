@@ -718,7 +718,7 @@ define hidden noundef ptr @"_ZN110_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$
 "_ZN103_$LT$cranelift_entity..primary..PrimaryMap$LT$K$C$V$GT$$u20$as$u20$core..ops..index..Index$LT$K$GT$$GT$5index17h24e6d6636fb26deaE.exit": ; preds = %9
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 288
   %20 = load ptr, ptr %19, align 8, !alias.scope !7, !noalias !10, !nonnull !5, !noundef !5
-  %21 = getelementptr inbounds nuw { { i32, [1 x i32] }, { i32, [1 x i32] }, { i32, i32, i32, i32, { i8, [1 x i8] }, [2 x i8] }, { i32, i32, i8, [3 x i8] } }, ptr %20, i64 %14
+  %21 = getelementptr inbounds nuw [48 x i8], ptr %20, i64 %14
   %22 = load i32, ptr %21, align 4, !range !13, !noundef !5
   %23 = icmp eq i32 %22, 23
   br i1 %23, label %33, label %30
@@ -11686,7 +11686,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h140d3e2663f2b3
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.backedge.i
   %10 = phi i64 [ %12, %.backedge.i ], [ %.sroa.7.0, %.lr.ph.i ]
-  %11 = getelementptr inbounds { { ptr, i64 }, i16, [3 x i16] }, ptr @anon.4eeeaa3f7ebbc960ad39c067640e9a74.100.llvm.5040841037904929774, i64 %10
+  %11 = getelementptr inbounds [24 x i8], ptr @anon.4eeeaa3f7ebbc960ad39c067640e9a74.100.llvm.5040841037904929774, i64 %10
   %12 = add nuw i64 %10, 1
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %14 = load i16, ptr %13, align 8, !alias.scope !1789, !noalias !1792, !noundef !5
@@ -11990,7 +11990,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h4cecd2d93f22d3
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.backedge.i
   %10 = phi i64 [ %12, %.backedge.i ], [ %.sroa.7.0, %.lr.ph.i ]
-  %11 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr @anon.4eeeaa3f7ebbc960ad39c067640e9a74.71.llvm.5040841037904929774, i64 %10
+  %11 = getelementptr inbounds [24 x i8], ptr @anon.4eeeaa3f7ebbc960ad39c067640e9a74.71.llvm.5040841037904929774, i64 %10
   %12 = add nuw i64 %10, 1
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %14 = load i64, ptr %13, align 8, !alias.scope !1856, !noalias !1859, !noundef !5
@@ -12100,7 +12100,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h5399ea9efc1d03
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.backedge.i
   %10 = phi i64 [ %12, %.backedge.i ], [ %.sroa.7.0, %.lr.ph.i ]
-  %11 = getelementptr inbounds { { ptr, i64 }, i16, [3 x i16] }, ptr @anon.4eeeaa3f7ebbc960ad39c067640e9a74.79.llvm.5040841037904929774, i64 %10
+  %11 = getelementptr inbounds [24 x i8], ptr @anon.4eeeaa3f7ebbc960ad39c067640e9a74.79.llvm.5040841037904929774, i64 %10
   %12 = add nuw i64 %10, 1
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %14 = load i16, ptr %13, align 8, !alias.scope !1883, !noalias !1886, !noundef !5
@@ -12307,7 +12307,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h606ec005fda8a9
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.backedge.i
   %10 = phi i64 [ %12, %.backedge.i ], [ %.sroa.7.0, %.lr.ph.i ]
-  %11 = getelementptr inbounds { { ptr, i64 }, i64 }, ptr @anon.4eeeaa3f7ebbc960ad39c067640e9a74.106.llvm.5040841037904929774, i64 %10
+  %11 = getelementptr inbounds [24 x i8], ptr @anon.4eeeaa3f7ebbc960ad39c067640e9a74.106.llvm.5040841037904929774, i64 %10
   %12 = add nuw i64 %10, 1
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %14 = load i64, ptr %13, align 8, !alias.scope !1930, !noalias !1933, !noundef !5
@@ -12417,7 +12417,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h6b2108370d780b
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.backedge.i
   %10 = phi i64 [ %12, %.backedge.i ], [ %.sroa.7.0, %.lr.ph.i ]
-  %11 = getelementptr inbounds { { ptr, i64 }, i16, [3 x i16] }, ptr @anon.4eeeaa3f7ebbc960ad39c067640e9a74.92.llvm.5040841037904929774, i64 %10
+  %11 = getelementptr inbounds [24 x i8], ptr @anon.4eeeaa3f7ebbc960ad39c067640e9a74.92.llvm.5040841037904929774, i64 %10
   %12 = add nuw i64 %10, 1
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %14 = load i16, ptr %13, align 8, !alias.scope !1957, !noalias !1960, !noundef !5
@@ -12527,7 +12527,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h6e0e6d126e2139
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.backedge.i
   %10 = phi i64 [ 1, %.backedge.i ], [ %.sroa.7.0, %.lr.ph.i ]
-  %11 = getelementptr inbounds nuw { { ptr, i64 }, i64 }, ptr @anon.4eeeaa3f7ebbc960ad39c067640e9a74.85.llvm.5040841037904929774, i64 %10
+  %11 = getelementptr inbounds nuw [24 x i8], ptr @anon.4eeeaa3f7ebbc960ad39c067640e9a74.85.llvm.5040841037904929774, i64 %10
   %12 = add nuw nsw i64 %10, 1
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %14 = load i64, ptr %13, align 8, !alias.scope !1984, !noalias !1987, !noundef !5
@@ -12637,7 +12637,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h711c1ffdb11028
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.backedge.i
   %10 = phi i64 [ 1, %.backedge.i ], [ %.sroa.7.0, %.lr.ph.i ]
-  %11 = getelementptr inbounds nuw { { ptr, i64 }, i16, [3 x i16] }, ptr @anon.4eeeaa3f7ebbc960ad39c067640e9a74.82.llvm.5040841037904929774, i64 %10
+  %11 = getelementptr inbounds nuw [24 x i8], ptr @anon.4eeeaa3f7ebbc960ad39c067640e9a74.82.llvm.5040841037904929774, i64 %10
   %12 = add nuw nsw i64 %10, 1
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %14 = load i16, ptr %13, align 8, !alias.scope !2011, !noalias !2014, !noundef !5
@@ -13038,7 +13038,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h89230e5ea800da
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.backedge.i
   %10 = phi i64 [ 1, %.backedge.i ], [ %.sroa.7.0, %.lr.ph.i ]
-  %11 = getelementptr inbounds nuw { { ptr, i64 }, i8, [7 x i8] }, ptr @anon.4eeeaa3f7ebbc960ad39c067640e9a74.95.llvm.5040841037904929774, i64 %10
+  %11 = getelementptr inbounds nuw [24 x i8], ptr @anon.4eeeaa3f7ebbc960ad39c067640e9a74.95.llvm.5040841037904929774, i64 %10
   %12 = add nuw nsw i64 %10, 1
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %14 = load i8, ptr %13, align 8, !alias.scope !2098, !noalias !2101, !noundef !5
@@ -13146,7 +13146,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h96ef30de4c46e3
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.backedge.i
   %10 = phi i64 [ 1, %.backedge.i ], [ %.sroa.7.0, %.lr.ph.i ]
-  %11 = getelementptr inbounds nuw { { ptr, i64 }, i64 }, ptr @anon.4eeeaa3f7ebbc960ad39c067640e9a74.85.llvm.5040841037904929774, i64 %10
+  %11 = getelementptr inbounds nuw [24 x i8], ptr @anon.4eeeaa3f7ebbc960ad39c067640e9a74.85.llvm.5040841037904929774, i64 %10
   %12 = add nuw nsw i64 %10, 1
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %14 = load i64, ptr %13, align 8, !alias.scope !2125, !noalias !2128, !noundef !5
@@ -13256,7 +13256,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h981ba94f2b23f8
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.backedge.i
   %10 = phi i64 [ %12, %.backedge.i ], [ %.sroa.7.0, %.lr.ph.i ]
-  %11 = getelementptr inbounds { { ptr, i64 }, i16, [3 x i16] }, ptr @anon.4eeeaa3f7ebbc960ad39c067640e9a74.100.llvm.5040841037904929774, i64 %10
+  %11 = getelementptr inbounds [24 x i8], ptr @anon.4eeeaa3f7ebbc960ad39c067640e9a74.100.llvm.5040841037904929774, i64 %10
   %12 = add nuw i64 %10, 1
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %14 = load i16, ptr %13, align 8, !alias.scope !2152, !noalias !2155, !noundef !5
@@ -13366,7 +13366,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h99d84ed21a4691
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.backedge.i
   %10 = phi i64 [ 1, %.backedge.i ], [ %.sroa.7.0, %.lr.ph.i ]
-  %11 = getelementptr inbounds nuw { { ptr, i64 }, i16, [3 x i16] }, ptr @anon.4eeeaa3f7ebbc960ad39c067640e9a74.82.llvm.5040841037904929774, i64 %10
+  %11 = getelementptr inbounds nuw [24 x i8], ptr @anon.4eeeaa3f7ebbc960ad39c067640e9a74.82.llvm.5040841037904929774, i64 %10
   %12 = add nuw nsw i64 %10, 1
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %14 = load i16, ptr %13, align 8, !alias.scope !2179, !noalias !2182, !noundef !5
@@ -13476,7 +13476,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17hb5397287527d8f
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.backedge.i
   %10 = phi i64 [ 1, %.backedge.i ], [ %.sroa.7.0, %.lr.ph.i ]
-  %11 = getelementptr inbounds nuw { { ptr, i64 }, i8, [7 x i8] }, ptr @anon.4eeeaa3f7ebbc960ad39c067640e9a74.95.llvm.5040841037904929774, i64 %10
+  %11 = getelementptr inbounds nuw [24 x i8], ptr @anon.4eeeaa3f7ebbc960ad39c067640e9a74.95.llvm.5040841037904929774, i64 %10
   %12 = add nuw nsw i64 %10, 1
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %14 = load i8, ptr %13, align 8, !alias.scope !2206, !noalias !2209, !noundef !5
@@ -13584,7 +13584,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17hb7b070c2e65d35
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.backedge.i
   %10 = phi i64 [ 1, %.backedge.i ], [ %.sroa.7.0, %.lr.ph.i ]
-  %11 = getelementptr inbounds nuw { { ptr, i64 }, i64 }, ptr @anon.4eeeaa3f7ebbc960ad39c067640e9a74.87.llvm.5040841037904929774, i64 %10
+  %11 = getelementptr inbounds nuw [24 x i8], ptr @anon.4eeeaa3f7ebbc960ad39c067640e9a74.87.llvm.5040841037904929774, i64 %10
   %12 = add nuw nsw i64 %10, 1
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %14 = load i64, ptr %13, align 8, !alias.scope !2233, !noalias !2236, !noundef !5
@@ -13791,7 +13791,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17he22b0fc84e545c
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.backedge.i
   %10 = phi i64 [ %12, %.backedge.i ], [ %.sroa.7.0, %.lr.ph.i ]
-  %11 = getelementptr inbounds { { ptr, i64 }, i16, [3 x i16] }, ptr @anon.4eeeaa3f7ebbc960ad39c067640e9a74.92.llvm.5040841037904929774, i64 %10
+  %11 = getelementptr inbounds [24 x i8], ptr @anon.4eeeaa3f7ebbc960ad39c067640e9a74.92.llvm.5040841037904929774, i64 %10
   %12 = add nuw i64 %10, 1
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %14 = load i16, ptr %13, align 8, !alias.scope !2280, !noalias !2283, !noundef !5
@@ -13901,7 +13901,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17he2f7ff7773c1cc
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.backedge.i
   %10 = phi i64 [ %12, %.backedge.i ], [ %.sroa.7.0, %.lr.ph.i ]
-  %11 = getelementptr inbounds { { ptr, i64 }, i16, [3 x i16] }, ptr @anon.4eeeaa3f7ebbc960ad39c067640e9a74.79.llvm.5040841037904929774, i64 %10
+  %11 = getelementptr inbounds [24 x i8], ptr @anon.4eeeaa3f7ebbc960ad39c067640e9a74.79.llvm.5040841037904929774, i64 %10
   %12 = add nuw i64 %10, 1
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %14 = load i16, ptr %13, align 8, !alias.scope !2307, !noalias !2310, !noundef !5
@@ -15622,10 +15622,10 @@ define { ptr, i64 } @_ZN13wasmtime_wasi8bindings4sync9generated4wasi10filesystem
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !2409, !noundef !5
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN115_$LT$wasmtime_wasi..bindings..sync..generated..wasi..filesystem..types..ErrorCode$u20$as$u20$core..fmt..Display$GT$3fmt17he68f0b90a0663658E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN115_$LT$wasmtime_wasi..bindings..sync..generated..wasi..filesystem..types..ErrorCode$u20$as$u20$core..fmt..Display$GT$3fmt17he68f0b90a0663658E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN115_$LT$wasmtime_wasi..bindings..sync..generated..wasi..filesystem..types..ErrorCode$u20$as$u20$core..fmt..Display$GT$3fmt17he68f0b90a0663658E.83", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN115_$LT$wasmtime_wasi..bindings..sync..generated..wasi..filesystem..types..ErrorCode$u20$as$u20$core..fmt..Display$GT$3fmt17he68f0b90a0663658E.83", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -15637,10 +15637,10 @@ define { ptr, i64 } @_ZN13wasmtime_wasi8bindings4sync9generated4wasi10filesystem
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !2409, !noundef !5
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN113_$LT$wasmtime_wasi..bindings..sync..generated..wasi..filesystem..types..ErrorCode$u20$as$u20$core..fmt..Debug$GT$3fmt17h95f7eec933659500E.81", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN113_$LT$wasmtime_wasi..bindings..sync..generated..wasi..filesystem..types..ErrorCode$u20$as$u20$core..fmt..Debug$GT$3fmt17h95f7eec933659500E.81", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN113_$LT$wasmtime_wasi..bindings..sync..generated..wasi..filesystem..types..ErrorCode$u20$as$u20$core..fmt..Debug$GT$3fmt17h95f7eec933659500E.82", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN113_$LT$wasmtime_wasi..bindings..sync..generated..wasi..filesystem..types..ErrorCode$u20$as$u20$core..fmt..Debug$GT$3fmt17h95f7eec933659500E.82", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -15663,16 +15663,16 @@ switch.lookup:
   %8 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders11DebugStruct5field17h9485b9119de058a4E(ptr noalias noundef nonnull align 8 dereferenceable(16) %5, ptr noalias noundef nonnull readonly align 1 @anon.b82b72e5464fb32eff3f9e6738e25968.216, i64 noundef 4, ptr noundef nonnull align 1 %4, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b82b72e5464fb32eff3f9e6738e25968.217)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %9 = zext nneg i8 %6 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN115_$LT$wasmtime_wasi..bindings..sync..generated..wasi..filesystem..types..ErrorCode$u20$as$u20$core..fmt..Display$GT$3fmt17he68f0b90a0663658E.83", i64 %9
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN115_$LT$wasmtime_wasi..bindings..sync..generated..wasi..filesystem..types..ErrorCode$u20$as$u20$core..fmt..Display$GT$3fmt17he68f0b90a0663658E.83", i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
   %10 = zext nneg i8 %6 to i64
-  %switch.gep111 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN115_$LT$wasmtime_wasi..bindings..sync..generated..wasi..filesystem..types..ErrorCode$u20$as$u20$core..fmt..Display$GT$3fmt17he68f0b90a0663658E", i64 %10
+  %switch.gep111 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN115_$LT$wasmtime_wasi..bindings..sync..generated..wasi..filesystem..types..ErrorCode$u20$as$u20$core..fmt..Display$GT$3fmt17he68f0b90a0663658E", i64 %10
   %switch.load112 = load i64, ptr %switch.gep111, align 8
   %11 = zext nneg i8 %6 to i64
-  %switch.gep113 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN113_$LT$wasmtime_wasi..bindings..sync..generated..wasi..filesystem..types..ErrorCode$u20$as$u20$core..fmt..Debug$GT$3fmt17h95f7eec933659500E.81", i64 %11
+  %switch.gep113 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN113_$LT$wasmtime_wasi..bindings..sync..generated..wasi..filesystem..types..ErrorCode$u20$as$u20$core..fmt..Debug$GT$3fmt17h95f7eec933659500E.81", i64 %11
   %switch.load114 = load i64, ptr %switch.gep113, align 8
   %12 = zext nneg i8 %6 to i64
-  %switch.gep115 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN113_$LT$wasmtime_wasi..bindings..sync..generated..wasi..filesystem..types..ErrorCode$u20$as$u20$core..fmt..Debug$GT$3fmt17h95f7eec933659500E.82", i64 %12
+  %switch.gep115 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN113_$LT$wasmtime_wasi..bindings..sync..generated..wasi..filesystem..types..ErrorCode$u20$as$u20$core..fmt..Debug$GT$3fmt17h95f7eec933659500E.82", i64 %12
   %switch.load116 = load ptr, ptr %switch.gep115, align 8
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %switch.load, ptr %3, align 8
@@ -15703,10 +15703,10 @@ switch.lookup:
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = load i8, ptr %0, align 1, !range !2409, !alias.scope !2515, !noundef !5
   %7 = zext nneg i8 %6 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN115_$LT$wasmtime_wasi..bindings..sync..generated..wasi..filesystem..types..ErrorCode$u20$as$u20$core..fmt..Display$GT$3fmt17he68f0b90a0663658E", i64 %7
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN115_$LT$wasmtime_wasi..bindings..sync..generated..wasi..filesystem..types..ErrorCode$u20$as$u20$core..fmt..Display$GT$3fmt17he68f0b90a0663658E", i64 %7
   %switch.load = load i64, ptr %switch.gep, align 8
   %8 = zext nneg i8 %6 to i64
-  %switch.gep3 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN115_$LT$wasmtime_wasi..bindings..sync..generated..wasi..filesystem..types..ErrorCode$u20$as$u20$core..fmt..Display$GT$3fmt17he68f0b90a0663658E.83", i64 %8
+  %switch.gep3 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN115_$LT$wasmtime_wasi..bindings..sync..generated..wasi..filesystem..types..ErrorCode$u20$as$u20$core..fmt..Display$GT$3fmt17he68f0b90a0663658E.83", i64 %8
   %switch.load4 = load ptr, ptr %switch.gep3, align 8
   store ptr %switch.load4, ptr %3, align 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8

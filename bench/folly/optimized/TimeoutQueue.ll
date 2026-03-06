@@ -3151,7 +3151,7 @@ _ZNSt6vectorIN5folly12TimeoutQueue5EventESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.ex
 _ZNSt12_Vector_baseIN5folly12TimeoutQueue5EventESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN5folly12TimeoutQueue5EventESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit35, %64
   store ptr %20, ptr %0, align 8, !tbaa !94
   store ptr %.0.lcssa.i.i.i34, ptr %4, align 8, !tbaa !96
-  %68 = getelementptr inbounds nuw %"struct.folly::TimeoutQueue::Event", ptr %20, i64 %16
+  %68 = getelementptr inbounds nuw [56 x i8], ptr %20, i64 %16
   store ptr %68, ptr %63, align 8, !tbaa !98
   ret void
 

@@ -540,7 +540,7 @@ _ZN5serde2de9SeqAccess12next_element17hc4c428bcd18c8dfeE.exit: ; preds = %22
 
 39:                                               ; preds = %34, %30
   %40 = load ptr, ptr %18, align 8, !alias.scope !105, !noalias !108, !nonnull !27, !noundef !27
-  %41 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } } }, ptr %40, i64 %31
+  %41 = getelementptr inbounds [24 x i8], ptr %40, i64 %31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   %42 = add i64 %31, 1
   store i64 %42, ptr %19, align 8, !alias.scope !105, !noalias !108
@@ -2741,7 +2741,7 @@ define void @_ZN16meilisearch_auth14AuthController15get_key_filters17ha3f219d762
   %.sroa.452.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 32
   %.sroa.452.0.copyload = load ptr, ptr %.sroa.452.0..sroa_idx, align 8, !nonnull !27, !noundef !27
   %.sroa.553.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  %31 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } } }, ptr %.sroa.452.0.copyload, i64 %.sroa.553.0.copyload
+  %31 = getelementptr inbounds [24 x i8], ptr %.sroa.452.0.copyload, i64 %.sroa.553.0.copyload
   store ptr %.sroa.452.0.copyload, ptr %16, align 8, !alias.scope !541, !noalias !544
   %32 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i64 %.sroa.0.0.copyload, ptr %32, align 8, !alias.scope !541, !noalias !544

@@ -3,7 +3,6 @@ source_filename = "bench/ffmpeg/original/rtmppkt.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.RTMPPacket = type { i32, i32, i32, i32, i32, ptr, i32, i32, i32 }
 %struct.GetByteContext = type { ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [53 x i8] c"Unable to read as many bytes as AMF string signaled\0A\00", align 1
@@ -430,7 +429,7 @@ define range(i32 -12, 1) i32 @ff_rtmp_check_alloc_array(ptr noundef captures(non
 11:                                               ; preds = %6
   %12 = load i32, ptr %1, align 4, !tbaa !15
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds %struct.RTMPPacket, ptr %10, i64 %13
+  %14 = getelementptr inbounds [48 x i8], ptr %10, i64 %13
   %15 = sub nsw i32 %7, %12
   %16 = sext i32 %15 to i64
   %17 = mul nsw i64 %16, 48
@@ -525,7 +524,7 @@ define i32 @ff_rtmp_packet_read_internal(ptr noundef %0, ptr noundef %1, i32 nou
 39:                                               ; preds = %35
   %40 = load i32, ptr %4, align 4, !tbaa !15
   %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds %struct.RTMPPacket, ptr %38, i64 %41
+  %42 = getelementptr inbounds [48 x i8], ptr %38, i64 %41
   %43 = sub nsw i32 %36, %40
   %44 = sext i32 %43 to i64
   %45 = mul nsw i64 %44, 48
@@ -537,7 +536,7 @@ define i32 @ff_rtmp_packet_read_internal(ptr noundef %0, ptr noundef %1, i32 nou
 46:                                               ; preds = %39, %32
   %47 = phi ptr [ %.pre.i, %32 ], [ %38, %39 ]
   %48 = zext nneg i32 %.0137.i to i64
-  %49 = getelementptr inbounds nuw %struct.RTMPPacket, ptr %47, i64 %48
+  %49 = getelementptr inbounds nuw [48 x i8], ptr %47, i64 %48
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 32
   %51 = load i32, ptr %50, align 8, !tbaa !19
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 4
@@ -797,7 +796,7 @@ define i32 @ff_rtmp_packet_write(ptr noundef %0, ptr noundef captures(none) %1, 
 16:                                               ; preds = %12
   %17 = load i32, ptr %4, align 4, !tbaa !15
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds %struct.RTMPPacket, ptr %15, i64 %18
+  %19 = getelementptr inbounds [48 x i8], ptr %15, i64 %18
   %20 = sub nsw i32 %13, %17
   %21 = sext i32 %20 to i64
   %22 = mul nsw i64 %21, 48
@@ -811,7 +810,7 @@ define i32 @ff_rtmp_packet_write(ptr noundef %0, ptr noundef captures(none) %1, 
   %24 = phi ptr [ %.pre, %5 ], [ %15, %16 ]
   %25 = phi i32 [ %9, %5 ], [ %.pr, %16 ]
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds %struct.RTMPPacket, ptr %24, i64 %26
+  %27 = getelementptr inbounds [48 x i8], ptr %24, i64 %26
   %28 = load i32, ptr %27, align 8, !tbaa !27
   %.not = icmp eq i32 %28, 0
   br i1 %.not, label %.thread, label %29
@@ -976,13 +975,13 @@ define i32 @ff_rtmp_packet_write(ptr noundef %0, ptr noundef captures(none) %1, 
   %118 = phi i32 [ %.pre177, %113 ], [ %44, %111 ]
   %119 = phi i32 [ %.pre176, %113 ], [ %25, %111 ]
   %.2156 = phi ptr [ %115, %113 ], [ %.1155, %111 ]
-  %120 = getelementptr inbounds %struct.RTMPPacket, ptr %24, i64 %.pre-phi
+  %120 = getelementptr inbounds [48 x i8], ptr %24, i64 %.pre-phi
   store i32 %119, ptr %120, align 8, !tbaa !27
   %121 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %122 = load i32, ptr %121, align 4, !tbaa !21
   %123 = load i32, ptr %1, align 8, !tbaa !27
   %124 = sext i32 %123 to i64
-  %125 = getelementptr inbounds %struct.RTMPPacket, ptr %24, i64 %124
+  %125 = getelementptr inbounds [48 x i8], ptr %24, i64 %124
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 4
   store i32 %122, ptr %126, align 4, !tbaa !21
   %127 = getelementptr inbounds nuw i8, ptr %1, i64 32

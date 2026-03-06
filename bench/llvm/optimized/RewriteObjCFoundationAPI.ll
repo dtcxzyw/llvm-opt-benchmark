@@ -800,7 +800,7 @@ _ZL36shouldNotRewriteImmediateMessageArgsPKN5clang15ObjCMessageExprERKNS_5NSAPIE
 168:                                              ; preds = %164
   %169 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %170 = zext nneg i32 %166 to i64
-  %171 = getelementptr ptr, ptr %169, i64 %170
+  %171 = getelementptr [8 x i8], ptr %169, i64 %170
   %172 = getelementptr i8, ptr %171, i64 -8
   %173 = load ptr, ptr %172, align 8, !tbaa !375
   %174 = load ptr, ptr %1, align 8, !tbaa !3
@@ -830,7 +830,7 @@ _ZL36shouldNotRewriteImmediateMessageArgsPKN5clang15ObjCMessageExprERKNS_5NSAPIE
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %184 = getelementptr inbounds nuw ptr, ptr %169, i64 %indvars.iv.i
+  %184 = getelementptr inbounds nuw [8 x i8], ptr %169, i64 %indvars.iv.i
   %185 = load ptr, ptr %184, align 8, !tbaa !375
   call fastcc void @_ZL13objectifyExprPKN5clang4ExprERNS_4edit6CommitE(ptr noundef %185, ptr noundef nonnull align 8 dereferenceable(600) %2)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -846,7 +846,7 @@ _ZL36shouldNotRewriteImmediateMessageArgsPKN5clang15ObjCMessageExprERKNS_5NSAPIE
   %190 = call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %189) #16
   %191 = add nsw i32 %182, -2
   %192 = zext i32 %191 to i64
-  %193 = getelementptr inbounds nuw ptr, ptr %169, i64 %192
+  %193 = getelementptr inbounds nuw [8 x i8], ptr %169, i64 %192
   %194 = load ptr, ptr %193, align 8, !tbaa !375
   %195 = call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %194) #16
   %.sroa.5.0.insert.ext73.i = zext i32 %195 to i64
@@ -937,7 +937,7 @@ _ZL36shouldNotRewriteImmediateMessageArgsPKN5clang15ObjCMessageExprERKNS_5NSAPIE
   %242 = add nsw i32 %239, -1
   %243 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %244 = zext nneg i32 %242 to i64
-  %245 = getelementptr inbounds nuw ptr, ptr %243, i64 %244
+  %245 = getelementptr inbounds nuw [8 x i8], ptr %243, i64 %244
   %246 = load ptr, ptr %245, align 8, !tbaa !375
   %247 = load ptr, ptr %1, align 8, !tbaa !3
   %248 = tail call noundef zeroext i1 @_ZN5clang10ASTContext18isSentinelNullExprEPKNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(23216) %247, ptr noundef %246) #15
@@ -963,7 +963,7 @@ _ZL36shouldNotRewriteImmediateMessageArgsPKN5clang15ObjCMessageExprERKNS_5NSAPIE
   %257 = tail call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %256) #16
   %258 = add nsw i32 %239, -2
   %259 = zext i32 %258 to i64
-  %260 = getelementptr inbounds nuw ptr, ptr %243, i64 %259
+  %260 = getelementptr inbounds nuw [8 x i8], ptr %243, i64 %259
   %261 = load ptr, ptr %260, align 8, !tbaa !375
   %262 = tail call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %261) #16
   %.sroa.5172.0.insert.ext173.i = zext i32 %262 to i64
@@ -982,12 +982,12 @@ _ZL36shouldNotRewriteImmediateMessageArgsPKN5clang15ObjCMessageExprERKNS_5NSAPIE
 .lr.ph.i26:                                       ; preds = %.preheader.i, %.lr.ph.i26
   %.0126201.i = phi i32 [ %279, %.lr.ph.i26 ], [ 0, %.preheader.i ]
   %265 = zext i32 %.0126201.i to i64
-  %266 = getelementptr inbounds nuw ptr, ptr %243, i64 %265
+  %266 = getelementptr inbounds nuw [8 x i8], ptr %243, i64 %265
   %267 = load ptr, ptr %266, align 8, !tbaa !375
   tail call fastcc void @_ZL13objectifyExprPKN5clang4ExprERNS_4edit6CommitE(ptr noundef %267, ptr noundef nonnull align 8 dereferenceable(600) %2)
   %268 = or disjoint i32 %.0126201.i, 1
   %269 = zext i32 %268 to i64
-  %270 = getelementptr inbounds nuw ptr, ptr %243, i64 %269
+  %270 = getelementptr inbounds nuw [8 x i8], ptr %243, i64 %269
   %271 = load ptr, ptr %270, align 8, !tbaa !375
   tail call fastcc void @_ZL13objectifyExprPKN5clang4ExprERNS_4edit6CommitE(ptr noundef %271, ptr noundef nonnull align 8 dereferenceable(600) %2)
   %272 = load ptr, ptr %266, align 8, !tbaa !375
@@ -1072,7 +1072,7 @@ _ZL36shouldNotRewriteImmediateMessageArgsPKN5clang15ObjCMessageExprERKNS_5NSAPIE
   %313 = call i32 @_ZNK5clang4Stmt11getBeginLocEv(ptr noundef nonnull align 8 dereferenceable(8) %312) #16
   %314 = load i32, ptr %299, align 8, !tbaa !384
   %315 = zext i32 %314 to i64
-  %316 = getelementptr inbounds nuw ptr, ptr %311, i64 %315
+  %316 = getelementptr inbounds nuw [8 x i8], ptr %311, i64 %315
   %317 = getelementptr inbounds i8, ptr %316, i64 -8
   %318 = load ptr, ptr %317, align 8, !tbaa !375
   %319 = call i32 @_ZNK5clang4Stmt9getEndLocEv(ptr noundef nonnull align 8 dereferenceable(8) %318) #16
@@ -1092,19 +1092,19 @@ _ZL36shouldNotRewriteImmediateMessageArgsPKN5clang15ObjCMessageExprERKNS_5NSAPIE
 .preheader199.i:                                  ; preds = %.preheader199.i, %.preheader199.preheader.i
   %indvars.iv.i24 = phi i64 [ 0, %.preheader199.preheader.i ], [ %indvars.iv.next.i25, %.preheader199.i ]
   %322 = load ptr, ptr %10, align 8, !tbaa !383
-  %323 = getelementptr inbounds nuw ptr, ptr %322, i64 %indvars.iv.i24
+  %323 = getelementptr inbounds nuw [8 x i8], ptr %322, i64 %indvars.iv.i24
   %324 = load ptr, ptr %323, align 8, !tbaa !375
   call fastcc void @_ZL13objectifyExprPKN5clang4ExprERNS_4edit6CommitE(ptr noundef %324, ptr noundef nonnull align 8 dereferenceable(600) %2)
   %325 = load ptr, ptr %11, align 8, !tbaa !383
-  %326 = getelementptr inbounds nuw ptr, ptr %325, i64 %indvars.iv.i24
+  %326 = getelementptr inbounds nuw [8 x i8], ptr %325, i64 %indvars.iv.i24
   %327 = load ptr, ptr %326, align 8, !tbaa !375
   call fastcc void @_ZL13objectifyExprPKN5clang4ExprERNS_4edit6CommitE(ptr noundef %327, ptr noundef nonnull align 8 dereferenceable(600) %2)
   %328 = load ptr, ptr %10, align 8, !tbaa !383
-  %329 = getelementptr inbounds nuw ptr, ptr %328, i64 %indvars.iv.i24
+  %329 = getelementptr inbounds nuw [8 x i8], ptr %328, i64 %indvars.iv.i24
   %330 = load ptr, ptr %329, align 8, !tbaa !375
   %331 = call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %330) #16
   %332 = load ptr, ptr %11, align 8, !tbaa !383
-  %333 = getelementptr inbounds nuw ptr, ptr %332, i64 %indvars.iv.i24
+  %333 = getelementptr inbounds nuw [8 x i8], ptr %332, i64 %indvars.iv.i24
   %334 = load ptr, ptr %333, align 8, !tbaa !375
   %335 = call i64 @_ZNK5clang4Stmt14getSourceRangeEv(ptr noundef nonnull align 8 dereferenceable(8) %334) #16
   %.sroa.3.0.extract.shift.i = lshr i64 %335, 32
@@ -2292,7 +2292,7 @@ _ZL23checkForLiteralCreationPKN5clang15ObjCMessageExprERPNS_14IdentifierInfoERKN
 72:                                               ; preds = %68
   %73 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %74 = zext nneg i32 %70 to i64
-  %75 = getelementptr ptr, ptr %73, i64 %74
+  %75 = getelementptr [8 x i8], ptr %73, i64 %74
   %76 = getelementptr i8, ptr %75, i64 -8
   %77 = load ptr, ptr %76, align 8, !tbaa !375
   %78 = load ptr, ptr %1, align 8, !tbaa !3
@@ -2317,7 +2317,7 @@ _ZL23checkForLiteralCreationPKN5clang15ObjCMessageExprERPNS_14IdentifierInfoERKN
 88:                                               ; preds = %.lr.ph88, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang4ExprELb1EE9push_backES4_.exit
   %89 = phi i32 [ %.pre94, %.lr.ph88 ], [ %102, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang4ExprELb1EE9push_backES4_.exit ]
   %indvars.iv91 = phi i64 [ 0, %.lr.ph88 ], [ %indvars.iv.next92, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang4ExprELb1EE9push_backES4_.exit ]
-  %90 = getelementptr inbounds nuw ptr, ptr %73, i64 %indvars.iv91
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %indvars.iv91
   %91 = load ptr, ptr %90, align 8, !tbaa !375
   %92 = load i32, ptr %85, align 4, !tbaa !385
   %.not.i.i.not.i = icmp ult i32 %89, %92
@@ -2334,7 +2334,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang4ExprELb1EE9push_backES4_.exit: ; pre
   %96 = phi i32 [ %89, %88 ], [ %.pre.i, %93 ]
   %97 = load ptr, ptr %2, align 8, !tbaa !383
   %98 = zext i32 %96 to i64
-  %99 = getelementptr inbounds nuw ptr, ptr %97, i64 %98
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %98
   %100 = ptrtoint ptr %91 to i64
   store i64 %100, ptr %99, align 1
   %101 = load i32, ptr %84, align 8, !tbaa !384
@@ -2362,7 +2362,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang4ExprELb1EE9push_backES4_.exit: ; pre
 111:                                              ; preds = %.lr.ph, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang4ExprELb1EE9push_backES4_.exit68
   %112 = phi i32 [ %.pre, %.lr.ph ], [ %125, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang4ExprELb1EE9push_backES4_.exit68 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang4ExprELb1EE9push_backES4_.exit68 ]
-  %113 = getelementptr inbounds nuw ptr, ptr %106, i64 %indvars.iv
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %indvars.iv
   %114 = load ptr, ptr %113, align 8, !tbaa !375
   %115 = load i32, ptr %108, align 4, !tbaa !385
   %.not.i.i.not.i66 = icmp ult i32 %112, %115
@@ -2379,7 +2379,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang4ExprELb1EE9push_backES4_.exit68: ; p
   %119 = phi i32 [ %112, %111 ], [ %.pre.i67, %116 ]
   %120 = load ptr, ptr %2, align 8, !tbaa !383
   %121 = zext i32 %119 to i64
-  %122 = getelementptr inbounds nuw ptr, ptr %120, i64 %121
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %120, i64 %121
   %123 = ptrtoint ptr %114 to i64
   store i64 %123, ptr %122, align 1
   %124 = load i32, ptr %107, align 8, !tbaa !384
@@ -2415,7 +2415,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang4ExprELb1EE28reserveForParamAndGetAdd
   %11 = phi i32 [ %4, %2 ], [ %.pre, %7 ]
   %12 = load ptr, ptr %0, align 8, !tbaa !383
   %13 = zext i32 %11 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %13
   %15 = ptrtoint ptr %1 to i64
   store i64 %15, ptr %14, align 1
   %16 = load i32, ptr %3, align 8, !tbaa !384
@@ -3632,7 +3632,7 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i:        ; preds = %13
   %27 = add i32 %9, -1
   store i32 %27, ptr %8, align 8, !tbaa !472
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %26, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !485
   store i8 0, ptr %30, align 8, !tbaa !473
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 424
@@ -3692,7 +3692,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit: ; preds = %_ZN5clang17Diagno
   %55 = add i8 %54, 1
   store i8 %55, ptr %52, align 8, !tbaa !473
   %56 = zext i8 %54 to i64
-  %57 = getelementptr inbounds nuw i64, ptr %53, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %56
   store i64 %1, ptr %57, align 8, !tbaa !387
   ret void
 }
@@ -3753,7 +3753,7 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i:        ; preds = %12
   %26 = add i32 %8, -1
   store i32 %26, ptr %7, align 8, !tbaa !472
   %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds nuw ptr, ptr %25, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !485
   store i8 0, ptr %29, align 8, !tbaa !473
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 424
@@ -3824,7 +3824,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang15CharSourceRangeELb1EE9push_backES2_.e
   %55 = phi i32 [ %48, %44 ], [ %.pre.i, %51 ]
   %56 = load ptr, ptr %46, align 8, !tbaa !383
   %57 = zext i32 %55 to i64
-  %58 = getelementptr inbounds nuw %"class.clang::CharSourceRange", ptr %56, i64 %57
+  %58 = getelementptr inbounds nuw [12 x i8], ptr %56, i64 %57
   store i64 %.sroa.01.0.copyload, ptr %58, align 1
   %.sroa.2.0..sroa_idx2.i = getelementptr inbounds nuw i8, ptr %58, i64 8
   store i8 %.sroa.22.0.copyload, ptr %.sroa.2.0..sroa_idx2.i, align 1
@@ -3850,7 +3850,7 @@ define linkonce_odr hidden void @_ZN5clang20DiagStorageAllocator10DeallocateEPNS
   %9 = add i32 %8, 1
   store i32 %9, ptr %7, align 8, !tbaa !472
   %10 = zext i32 %8 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %4, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %10
   store ptr %1, ptr %11, align 8, !tbaa !485
   br label %43
 

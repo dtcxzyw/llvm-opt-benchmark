@@ -25,19 +25,15 @@ module asm ".previous\09\09\09\09\09"
 %struct.pcpu_hot = type { %union.anon.32 }
 %union.anon.32 = type { %struct.anon.33, [16 x i8] }
 %struct.anon.33 = type { ptr, i32, i32, i64, i64, ptr, i16, i8 }
-%struct.selinux_mapping = type { i16, i16, [32 x i32] }
 %struct.avtab_key = type { i16, i16, i16, i16 }
-%struct.ebitmap = type { ptr, i32 }
 %struct.context = type { i32, i32, i32, i32, %struct.mls_range, ptr }
 %struct.mls_range = type { [2 x %struct.mls_level] }
 %struct.mls_level = type { i32, %struct.ebitmap }
+%struct.ebitmap = type { ptr, i32 }
 %struct.av_decision = type { i32, i32, i32, i32, i32 }
 %struct.filename_trans_key = type { i32, i16, ptr }
 %struct.role_trans_key = type { i32, i32, i32 }
 %struct.policy_file = type { ptr, i64 }
-%struct.audit_field = type { i32, %union.anon.16, i32 }
-%union.anon.16 = type { %struct.anon.17 }
-%struct.anon.17 = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [22 x i8] c"network_peer_controls\00", align 1
 @.str.1 = private unnamed_addr constant [11 x i8] c"open_perms\00", align 1
@@ -165,9 +161,9 @@ define dso_local void @services_compute_xperms_drivers(ptr noundef captures(none
   %9 = phi i64 [ 0, %6 ], [ %17, %8 ]
   %10 = load ptr, ptr %3, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %12 = getelementptr i32, ptr %11, i64 %9
+  %12 = getelementptr [4 x i8], ptr %11, i64 %9
   %13 = load i32, ptr %12, align 4
-  %14 = getelementptr i32, ptr %7, i64 %9
+  %14 = getelementptr [4 x i8], ptr %7, i64 %9
   %15 = load i32, ptr %14, align 4
   %16 = or i32 %15, %13
   store i32 %16, ptr %14, align 4
@@ -184,7 +180,7 @@ define dso_local void @services_compute_xperms_drivers(ptr noundef captures(none
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %26 = lshr i32 %22, 5
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr i32, ptr %25, i64 %27
+  %28 = getelementptr [4 x i8], ptr %25, i64 %27
   %29 = load i32, ptr %28, align 4
   %30 = or i32 %24, %29
   store i32 %30, ptr %28, align 4
@@ -231,7 +227,7 @@ define internal fastcc range(i32 -22, 1) i32 @security_compute_validatetrans(i32
   %23 = getelementptr inbounds nuw i8, ptr %15, i64 600
   %24 = load ptr, ptr %23, align 8
   %25 = zext i16 %3 to i64
-  %26 = getelementptr %struct.selinux_mapping, ptr %24, i64 %25
+  %26 = getelementptr [132 x i8], ptr %24, i64 %25
   %27 = load i16, ptr %26, align 4
   br label %28
 
@@ -251,7 +247,7 @@ define internal fastcc range(i32 -22, 1) i32 @security_compute_validatetrans(i32
   %37 = getelementptr inbounds nuw i8, ptr %15, i64 272
   %38 = load ptr, ptr %37, align 8
   %39 = zext i16 %29 to i64
-  %40 = getelementptr ptr, ptr %38, i64 %39
+  %40 = getelementptr [8 x i8], ptr %38, i64 %39
   %41 = getelementptr i8, ptr %40, i64 -8
   %42 = load ptr, ptr %41, align 8
   %43 = tail call ptr @sidtab_search_entry(ptr noundef %17, i32 noundef %0) #19
@@ -388,7 +384,7 @@ define internal fastcc range(i32 -22, 1) i32 @security_compute_validatetrans(i32
   %107 = getelementptr i8, ptr %15, i64 216
   %108 = load ptr, ptr %107, align 8
   %109 = and i64 %106, 4294967295
-  %110 = getelementptr ptr, ptr %108, i64 %109
+  %110 = getelementptr [8 x i8], ptr %108, i64 %109
   %111 = load ptr, ptr %110, align 8
   call void (ptr, i32, i32, ptr, ...) @audit_log(ptr noundef %102, i32 noundef 2080, i32 noundef 1401, ptr noundef nonnull @.str.31, ptr noundef %103, ptr noundef %104, ptr noundef %105, ptr noundef %111) #19
   br label %.thread16
@@ -476,7 +472,7 @@ define dso_local noundef range(i32 -22, 1) i32 @security_bounded_transition(i32 
   %31 = phi i32 [ %40, %42 ], [ %25, %27 ]
   %32 = add i32 %31, -1
   %33 = zext i32 %32 to i64
-  %34 = getelementptr ptr, ptr %29, i64 %33
+  %34 = getelementptr [8 x i8], ptr %29, i64 %33
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %37, label %38, !prof !16
@@ -607,7 +603,7 @@ define dso_local void @services_compute_xperms_decision(ptr noundef captures(non
   %16 = zext i8 %15 to i32
   %17 = lshr i32 %16, 5
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr i32, ptr %13, i64 %18
+  %19 = getelementptr [4 x i8], ptr %13, i64 %18
   %20 = load i32, ptr %19, align 4
   %21 = and i32 %16, 31
   %22 = shl nuw i32 1, %21
@@ -659,10 +655,10 @@ define dso_local void @services_compute_xperms_decision(ptr noundef captures(non
   %44 = phi i64 [ 0, %41 ], [ %53, %43 ]
   %45 = load ptr, ptr %3, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
-  %47 = getelementptr i32, ptr %46, i64 %44
+  %47 = getelementptr [4 x i8], ptr %46, i64 %44
   %48 = load i32, ptr %47, align 4
   %49 = load ptr, ptr %42, align 8
-  %50 = getelementptr i32, ptr %49, i64 %44
+  %50 = getelementptr [4 x i8], ptr %49, i64 %44
   %51 = load i32, ptr %50, align 4
   %52 = or i32 %51, %48
   store i32 %52, ptr %50, align 4
@@ -700,10 +696,10 @@ define dso_local void @services_compute_xperms_decision(ptr noundef captures(non
   %70 = phi i64 [ 0, %67 ], [ %79, %69 ]
   %71 = load ptr, ptr %3, align 8
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 4
-  %73 = getelementptr i32, ptr %72, i64 %70
+  %73 = getelementptr [4 x i8], ptr %72, i64 %70
   %74 = load i32, ptr %73, align 4
   %75 = load ptr, ptr %68, align 8
-  %76 = getelementptr i32, ptr %75, i64 %70
+  %76 = getelementptr [4 x i8], ptr %75, i64 %70
   %77 = load i32, ptr %76, align 4
   %78 = or i32 %77, %74
   store i32 %78, ptr %76, align 4
@@ -741,10 +737,10 @@ define dso_local void @services_compute_xperms_decision(ptr noundef captures(non
   %96 = phi i64 [ 0, %93 ], [ %105, %95 ]
   %97 = load ptr, ptr %3, align 8
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 4
-  %99 = getelementptr i32, ptr %98, i64 %96
+  %99 = getelementptr [4 x i8], ptr %98, i64 %96
   %100 = load i32, ptr %99, align 4
   %101 = load ptr, ptr %94, align 8
-  %102 = getelementptr i32, ptr %101, i64 %96
+  %102 = getelementptr [4 x i8], ptr %101, i64 %96
   %103 = load i32, ptr %102, align 4
   %104 = or i32 %103, %100
   store i32 %104, ptr %102, align 4
@@ -817,7 +813,7 @@ define dso_local void @security_compute_xperms_decision(i32 noundef %0, i32 noun
   %33 = getelementptr inbounds nuw i8, ptr %17, i64 600
   %34 = load ptr, ptr %33, align 8
   %35 = zext i16 %2 to i64
-  %36 = getelementptr %struct.selinux_mapping, ptr %34, i64 %35
+  %36 = getelementptr [132 x i8], ptr %34, i64 %35
   %37 = load i16, ptr %36, align 4
   br label %38
 
@@ -866,12 +862,12 @@ define dso_local void @security_compute_xperms_decision(i32 noundef %0, i32 noun
   %66 = load i32, ptr %65, align 8
   %67 = add i32 %66, -1
   %68 = zext i32 %67 to i64
-  %69 = getelementptr %struct.ebitmap, ptr %64, i64 %68
+  %69 = getelementptr [16 x i8], ptr %64, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %71 = load i32, ptr %70, align 8
   %72 = add i32 %71, -1
   %73 = zext i32 %72 to i64
-  %74 = getelementptr %struct.ebitmap, ptr %64, i64 %73
+  %74 = getelementptr [16 x i8], ptr %64, i64 %73
   %75 = load ptr, ptr %69, align 8
   %76 = icmp eq ptr %75, null
   br i1 %76, label %.loopexit32, label %.preheader33
@@ -975,7 +971,7 @@ define dso_local void @security_compute_xperms_decision(i32 noundef %0, i32 noun
   %138 = zext i8 %137 to i32
   %139 = lshr i32 %138, 5
   %140 = zext nneg i32 %139 to i64
-  %141 = getelementptr i32, ptr %136, i64 %140
+  %141 = getelementptr [4 x i8], ptr %136, i64 %140
   %142 = load i32, ptr %141, align 4
   %143 = and i32 %138, 31
   %144 = shl nuw i32 1, %143
@@ -1022,10 +1018,10 @@ define dso_local void @security_compute_xperms_decision(i32 noundef %0, i32 noun
   %162 = phi i64 [ %171, %.preheader ], [ 0, %159 ]
   %163 = load ptr, ptr %127, align 8
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 4
-  %165 = getelementptr i32, ptr %164, i64 %162
+  %165 = getelementptr [4 x i8], ptr %164, i64 %162
   %166 = load i32, ptr %165, align 4
   %167 = load ptr, ptr %8, align 8
-  %168 = getelementptr i32, ptr %167, i64 %162
+  %168 = getelementptr [4 x i8], ptr %167, i64 %162
   %169 = load i32, ptr %168, align 4
   %170 = or i32 %169, %166
   store i32 %170, ptr %168, align 4
@@ -1058,10 +1054,10 @@ define dso_local void @security_compute_xperms_decision(i32 noundef %0, i32 noun
   %184 = phi i64 [ %193, %.preheader22 ], [ 0, %181 ]
   %185 = load ptr, ptr %127, align 8
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 4
-  %187 = getelementptr i32, ptr %186, i64 %184
+  %187 = getelementptr [4 x i8], ptr %186, i64 %184
   %188 = load i32, ptr %187, align 4
   %189 = load ptr, ptr %10, align 8
-  %190 = getelementptr i32, ptr %189, i64 %184
+  %190 = getelementptr [4 x i8], ptr %189, i64 %184
   %191 = load i32, ptr %190, align 4
   %192 = or i32 %191, %188
   store i32 %192, ptr %190, align 4
@@ -1094,10 +1090,10 @@ define dso_local void @security_compute_xperms_decision(i32 noundef %0, i32 noun
   %206 = phi i64 [ %215, %.preheader24 ], [ 0, %203 ]
   %207 = load ptr, ptr %127, align 8
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 4
-  %209 = getelementptr i32, ptr %208, i64 %206
+  %209 = getelementptr [4 x i8], ptr %208, i64 %206
   %210 = load i32, ptr %209, align 4
   %211 = load ptr, ptr %12, align 8
-  %212 = getelementptr i32, ptr %211, i64 %206
+  %212 = getelementptr [4 x i8], ptr %211, i64 %206
   %213 = load i32, ptr %212, align 4
   %214 = or i32 %213, %210
   store i32 %214, ptr %212, align 4
@@ -1314,7 +1310,7 @@ define dso_local void @security_compute_av(i32 noundef %0, i32 noundef %1, i16 n
 48:                                               ; preds = %43
   %49 = load ptr, ptr %44, align 8
   %50 = zext i16 %2 to i64
-  %51 = getelementptr %struct.selinux_mapping, ptr %49, i64 %50
+  %51 = getelementptr [132 x i8], ptr %49, i64 %50
   %52 = load i16, ptr %51, align 4
   br label %53
 
@@ -1343,7 +1339,7 @@ define dso_local void @security_compute_av(i32 noundef %0, i32 noundef %1, i16 n
 68:                                               ; preds = %63
   %69 = load ptr, ptr %44, align 8
   %70 = zext i16 %2 to i64
-  %71 = getelementptr %struct.selinux_mapping, ptr %69, i64 %70
+  %71 = getelementptr [132 x i8], ptr %69, i64 %70
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 2
   %73 = load i16, ptr %72, align 2
   %74 = zext i16 %73 to i32
@@ -1361,7 +1357,7 @@ define dso_local void @security_compute_av(i32 noundef %0, i32 noundef %1, i16 n
 82:                                               ; preds = %82, %76
   %83 = phi i64 [ 0, %76 ], [ %96, %82 ]
   %84 = phi i32 [ 0, %76 ], [ %95, %82 ]
-  %85 = getelementptr i32, ptr %78, i64 %83
+  %85 = getelementptr [4 x i8], ptr %78, i64 %83
   %86 = load i32, ptr %85, align 4
   %87 = and i32 %86, %77
   %88 = icmp ne i32 %87, 0
@@ -1384,7 +1380,7 @@ define dso_local void @security_compute_av(i32 noundef %0, i32 noundef %1, i16 n
 100:                                              ; preds = %100, %98
   %101 = phi i64 [ 0, %98 ], [ %111, %100 ]
   %102 = phi i32 [ 0, %98 ], [ %110, %100 ]
-  %103 = getelementptr i32, ptr %78, i64 %101
+  %103 = getelementptr [4 x i8], ptr %78, i64 %101
   %104 = load i32, ptr %103, align 4
   %105 = and i32 %104, %99
   %106 = icmp eq i32 %105, 0
@@ -1418,7 +1414,7 @@ define dso_local void @security_compute_av(i32 noundef %0, i32 noundef %1, i16 n
 117:                                              ; preds = %117, %113
   %118 = phi i64 [ 0, %113 ], [ %131, %117 ]
   %119 = phi i32 [ 0, %113 ], [ %130, %117 ]
-  %120 = getelementptr i32, ptr %78, i64 %118
+  %120 = getelementptr [4 x i8], ptr %78, i64 %118
   %121 = load i32, ptr %120, align 4
   %122 = and i32 %121, %114
   %123 = icmp ne i32 %122, 0
@@ -1506,7 +1502,7 @@ define internal fastcc void @context_struct_compute_av(ptr noundef %0, ptr nound
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %31 = load ptr, ptr %30, align 8
   %32 = zext i16 %3 to i64
-  %33 = getelementptr ptr, ptr %31, i64 %32
+  %33 = getelementptr [8 x i8], ptr %31, i64 %32
   %34 = getelementptr i8, ptr %33, i64 -8
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %10, i64 4
@@ -1518,12 +1514,12 @@ define internal fastcc void @context_struct_compute_av(ptr noundef %0, ptr nound
   %41 = load i32, ptr %40, align 8
   %42 = add i32 %41, -1
   %43 = zext i32 %42 to i64
-  %44 = getelementptr %struct.ebitmap, ptr %39, i64 %43
+  %44 = getelementptr [16 x i8], ptr %39, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %46 = load i32, ptr %45, align 8
   %47 = add i32 %46, -1
   %48 = zext i32 %47 to i64
-  %49 = getelementptr %struct.ebitmap, ptr %39, i64 %48
+  %49 = getelementptr [16 x i8], ptr %39, i64 %48
   %50 = load ptr, ptr %44, align 8
   %51 = icmp eq ptr %50, null
   br i1 %51, label %.loopexit42, label %.preheader43
@@ -1658,9 +1654,9 @@ define internal fastcc void @context_struct_compute_av(ptr noundef %0, ptr nound
   %128 = phi i64 [ %136, %.preheader33 ], [ 0, %124 ]
   %129 = load ptr, ptr %125, align 8
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 4
-  %131 = getelementptr i32, ptr %130, i64 %128
+  %131 = getelementptr [4 x i8], ptr %130, i64 %128
   %132 = load i32, ptr %131, align 4
-  %133 = getelementptr i32, ptr %71, i64 %128
+  %133 = getelementptr [4 x i8], ptr %71, i64 %128
   %134 = load i32, ptr %133, align 4
   %135 = or i32 %134, %132
   store i32 %135, ptr %133, align 4
@@ -1676,7 +1672,7 @@ define internal fastcc void @context_struct_compute_av(ptr noundef %0, ptr nound
   %143 = shl nuw i32 1, %142
   %144 = lshr i32 %141, 5
   %145 = zext nneg i32 %144 to i64
-  %146 = getelementptr i32, ptr %71, i64 %145
+  %146 = getelementptr [4 x i8], ptr %71, i64 %145
   %147 = load i32, ptr %146, align 4
   %148 = or i32 %143, %147
   store i32 %148, ptr %146, align 4
@@ -1888,7 +1884,7 @@ define internal fastcc void @context_struct_compute_av(ptr noundef %0, ptr nound
   %275 = load i32, ptr %40, align 8
   %276 = add i32 %275, -1
   %277 = zext i32 %276 to i64
-  %278 = getelementptr ptr, ptr %274, i64 %277
+  %278 = getelementptr [8 x i8], ptr %274, i64 %277
   %279 = load ptr, ptr %278, align 8
   %280 = icmp eq ptr %279, null
   br i1 %280, label %281, label %282, !prof !16
@@ -1908,7 +1904,7 @@ define internal fastcc void @context_struct_compute_av(ptr noundef %0, ptr nound
   %287 = load i32, ptr %45, align 8
   %288 = add i32 %287, -1
   %289 = zext i32 %288 to i64
-  %290 = getelementptr ptr, ptr %274, i64 %289
+  %290 = getelementptr [8 x i8], ptr %274, i64 %289
   %291 = load ptr, ptr %290, align 8
   %292 = icmp eq ptr %291, null
   br i1 %292, label %293, label %294, !prof !16
@@ -2084,7 +2080,7 @@ define dso_local ptr @security_get_initial_sid_context(i32 noundef %0) local_unn
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr ptr, ptr @initial_sid_to_string, i64 %4
+  %5 = getelementptr [8 x i8], ptr @initial_sid_to_string, i64 %4
   %6 = load ptr, ptr %5, align 8
   br label %7
 
@@ -2123,7 +2119,7 @@ define internal fastcc i32 @security_sid_to_context_core(i32 noundef %0, ptr nou
   %14 = icmp eq i32 %0, 7
   %15 = select i1 %14, i32 1, i32 %0
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr ptr, ptr @initial_sid_to_string, i64 %16
+  %17 = getelementptr [8 x i8], ptr @initial_sid_to_string, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = shl nuw nsw i64 1, %16
   %20 = and i64 %19, 134209617
@@ -2266,7 +2262,7 @@ define internal fastcc i32 @security_context_to_sid_core(ptr noundef %0, i32 nou
   br i1 %21, label %22, label %.critedge
 
 22:                                               ; preds = %.preheader
-  %23 = getelementptr ptr, ptr @initial_sid_to_string, i64 %18
+  %23 = getelementptr [8 x i8], ptr @initial_sid_to_string, i64 %18
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i32 @strcmp(ptr noundef %24, ptr noundef nonnull dereferenceable(1) %11) #19
   %26 = icmp eq i32 %25, 0
@@ -2551,7 +2547,7 @@ define internal fastcc i32 @security_compute_sid(i32 noundef %0, i32 noundef %1,
 50:                                               ; preds = %48
   %51 = getelementptr inbounds nuw i8, ptr %45, i64 600
   %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr %struct.selinux_mapping, ptr %52, i64 %21
+  %53 = getelementptr [132 x i8], ptr %52, i64 %21
   %54 = load i16, ptr %53, align 4
   br label %71
 
@@ -2567,7 +2563,7 @@ define internal fastcc i32 @security_compute_sid(i32 noundef %0, i32 noundef %1,
 
 61:                                               ; preds = %66, %57
   %62 = phi i64 [ %67, %66 ], [ 1, %57 ]
-  %63 = getelementptr %struct.selinux_mapping, ptr %59, i64 %62
+  %63 = getelementptr [132 x i8], ptr %59, i64 %62
   %64 = load i16, ptr %63, align 4
   %65 = icmp eq i16 %64, %2
   br i1 %65, label %69, label %66
@@ -2680,7 +2676,7 @@ security_is_socket_class.exit:                    ; preds = %66, %55, %71, %74
   %94 = getelementptr inbounds nuw i8, ptr %45, i64 272
   %95 = load ptr, ptr %94, align 8
   %96 = zext i16 %75 to i64
-  %97 = getelementptr ptr, ptr %95, i64 %96
+  %97 = getelementptr [8 x i8], ptr %95, i64 %96
   %98 = getelementptr i8, ptr %97, i64 -8
   %99 = load ptr, ptr %98, align 8
   br label %100
@@ -2988,7 +2984,7 @@ security_is_socket_class.exit:                    ; preds = %66, %55, %71, %74
   %238 = getelementptr i8, ptr %45, i64 216
   %239 = load ptr, ptr %238, align 8
   %240 = and i64 %237, 4294967295
-  %241 = getelementptr ptr, ptr %239, i64 %240
+  %241 = getelementptr [8 x i8], ptr %239, i64 %240
   %242 = load ptr, ptr %241, align 8
   call void (ptr, ptr, ...) @audit_log_format(ptr noundef nonnull %227, ptr noundef nonnull @.str.51, ptr noundef %234, ptr noundef %235, ptr noundef %242) #19
   call void @audit_log_end(ptr noundef nonnull %227) #19
@@ -3139,7 +3135,7 @@ define dso_local range(i32 -21, -22) i32 @services_convert_context(ptr noundef r
   %43 = getelementptr i8, ptr %40, i64 232
   %44 = load ptr, ptr %43, align 8
   %45 = zext i32 %42 to i64
-  %46 = getelementptr ptr, ptr %44, i64 %45
+  %46 = getelementptr [8 x i8], ptr %44, i64 %45
   %47 = load ptr, ptr %46, align 8
   %48 = tail call ptr @symtab_search(ptr noundef %39, ptr noundef %47) #19
   %49 = icmp eq ptr %48, null
@@ -3157,7 +3153,7 @@ define dso_local range(i32 -21, -22) i32 @services_convert_context(ptr noundef r
   %58 = getelementptr i8, ptr %54, i64 216
   %59 = load ptr, ptr %58, align 8
   %60 = zext i32 %57 to i64
-  %61 = getelementptr ptr, ptr %59, i64 %60
+  %61 = getelementptr [8 x i8], ptr %59, i64 %60
   %62 = load ptr, ptr %61, align 8
   %63 = tail call ptr @symtab_search(ptr noundef %53, ptr noundef %62) #19
   %64 = icmp eq ptr %63, null
@@ -3176,7 +3172,7 @@ define dso_local range(i32 -21, -22) i32 @services_convert_context(ptr noundef r
   %74 = getelementptr i8, ptr %70, i64 224
   %75 = load ptr, ptr %74, align 8
   %76 = zext i32 %73 to i64
-  %77 = getelementptr ptr, ptr %75, i64 %76
+  %77 = getelementptr [8 x i8], ptr %75, i64 %76
   %78 = load ptr, ptr %77, align 8
   %79 = tail call ptr @symtab_search(ptr noundef %69, ptr noundef %78) #19
   %80 = icmp eq ptr %79, null
@@ -3474,7 +3470,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @context_struct_to_string(p
   %24 = getelementptr i8, ptr %0, i64 232
   %25 = load ptr, ptr %24, align 8
   %26 = zext i32 %23 to i64
-  %27 = getelementptr ptr, ptr %25, i64 %26
+  %27 = getelementptr [8 x i8], ptr %25, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = tail call i64 @strlen(ptr noundef %28) #19
   %30 = trunc i64 %29 to i32
@@ -3486,7 +3482,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @context_struct_to_string(p
   %35 = getelementptr i8, ptr %0, i64 216
   %36 = load ptr, ptr %35, align 8
   %37 = zext i32 %34 to i64
-  %38 = getelementptr ptr, ptr %36, i64 %37
+  %38 = getelementptr [8 x i8], ptr %36, i64 %37
   %39 = load ptr, ptr %38, align 8
   %40 = tail call i64 @strlen(ptr noundef %39) #19
   %41 = trunc i64 %40 to i32
@@ -3499,7 +3495,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @context_struct_to_string(p
   %47 = getelementptr i8, ptr %0, i64 224
   %48 = load ptr, ptr %47, align 8
   %49 = zext i32 %46 to i64
-  %50 = getelementptr ptr, ptr %48, i64 %49
+  %50 = getelementptr [8 x i8], ptr %48, i64 %49
   %51 = load ptr, ptr %50, align 8
   %52 = tail call i64 @strlen(ptr noundef %51) #19
   %53 = trunc i64 %52 to i32
@@ -3524,19 +3520,19 @@ define internal fastcc noundef range(i32 -12, 1) i32 @context_struct_to_string(p
   %65 = add i32 %64, -1
   %66 = load ptr, ptr %24, align 8
   %67 = zext i32 %65 to i64
-  %68 = getelementptr ptr, ptr %66, i64 %67
+  %68 = getelementptr [8 x i8], ptr %66, i64 %67
   %69 = load ptr, ptr %68, align 8
   %70 = load i32, ptr %32, align 4
   %71 = add i32 %70, -1
   %72 = load ptr, ptr %35, align 8
   %73 = zext i32 %71 to i64
-  %74 = getelementptr ptr, ptr %72, i64 %73
+  %74 = getelementptr [8 x i8], ptr %72, i64 %73
   %75 = load ptr, ptr %74, align 8
   %76 = load i32, ptr %44, align 8
   %77 = add i32 %76, -1
   %78 = load ptr, ptr %47, align 8
   %79 = zext i32 %77 to i64
-  %80 = getelementptr ptr, ptr %78, i64 %79
+  %80 = getelementptr [8 x i8], ptr %78, i64 %79
   %81 = load ptr, ptr %80, align 8
   %82 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %61, ptr noundef nonnull dereferenceable(1) @.str.53, ptr noundef %69, ptr noundef %75, ptr noundef %81) #19
   %83 = sext i32 %82 to i64
@@ -3676,7 +3672,7 @@ define dso_local void @selinux_policy_commit(ptr noundef readonly captures(none)
 
 .preheader13:                                     ; preds = %30, %.preheader13
   %38 = phi i64 [ %43, %.preheader13 ], [ 0, %30 ]
-  %39 = getelementptr ptr, ptr @selinux_policycap_names, i64 %38
+  %39 = getelementptr [8 x i8], ptr @selinux_policycap_names, i64 %38
   %40 = load ptr, ptr %39, align 8
   %41 = call i32 @ebitmap_get_bit(ptr noundef nonnull %29, i64 noundef %38) #19
   %42 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.54, ptr noundef %40, i32 noundef %41) #20
@@ -3861,7 +3857,7 @@ define dso_local i32 @security_load_policy(ptr noundef %0, i64 noundef %1, ptr n
 22:                                               ; preds = %22, %20
   %23 = phi i16 [ 0, %20 ], [ %28, %22 ]
   %24 = zext i16 %23 to i64
-  %25 = getelementptr %struct.security_class_mapping, ptr @secclass_map, i64 %24
+  %25 = getelementptr [272 x i8], ptr @secclass_map, i64 %24
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   %28 = add i16 %23, 1
@@ -3893,7 +3889,7 @@ define dso_local i32 @security_load_policy(ptr noundef %0, i64 noundef %1, ptr n
   %45 = phi i8 [ 0, %38 ], [ %.be29, %.backedge ]
   %46 = add i16 %44, 1
   %47 = zext i16 %46 to i64
-  %48 = getelementptr %struct.selinux_mapping, ptr %41, i64 %47
+  %48 = getelementptr [132 x i8], ptr %41, i64 %47
   %49 = load i8, ptr %42, align 1
   %50 = icmp eq i8 %49, 0
   br i1 %50, label %.loopexit22, label %51, !llvm.loop !61
@@ -3930,7 +3926,7 @@ define dso_local i32 @security_load_policy(ptr noundef %0, i64 noundef %1, ptr n
   %68 = phi i16 [ %69, %65 ], [ %96, %93 ]
   %69 = add i16 %68, 1
   %70 = zext i16 %69 to i64
-  %71 = getelementptr ptr, ptr %55, i64 %70
+  %71 = getelementptr [8 x i8], ptr %55, i64 %70
   %72 = load ptr, ptr %71, align 8
   %73 = icmp eq ptr %72, null
   br i1 %73, label %.loopexit22, label %65, !llvm.loop !62
@@ -3941,7 +3937,7 @@ define dso_local i32 @security_load_policy(ptr noundef %0, i64 noundef %1, ptr n
   %76 = phi i16 [ %96, %93 ], [ %69, %65 ]
   %77 = load i16, ptr %48, align 4
   %78 = call i32 @string_to_av_perm(ptr noundef nonnull %17, i16 noundef zeroext %77, ptr noundef nonnull %74) #19
-  %79 = getelementptr i32, ptr %59, i64 %75
+  %79 = getelementptr [4 x i8], ptr %59, i64 %75
   store i32 %78, ptr %79, align 4
   %80 = icmp eq i32 %78, 0
   br i1 %80, label %81, label %86
@@ -3957,7 +3953,7 @@ define dso_local i32 @security_load_policy(ptr noundef %0, i64 noundef %1, ptr n
   %87 = phi i8 [ %97, %.loopexit23 ], [ 1, %81 ]
   %88 = add i16 %76, 1
   %89 = zext i16 %88 to i64
-  %90 = getelementptr ptr, ptr %55, i64 %89
+  %90 = getelementptr [8 x i8], ptr %55, i64 %89
   %91 = load ptr, ptr %90, align 8
   %92 = icmp eq ptr %91, null
   br i1 %92, label %.loopexit22, label %93, !llvm.loop !62
@@ -3976,7 +3972,7 @@ define dso_local i32 @security_load_policy(ptr noundef %0, i64 noundef %1, ptr n
   %101 = phi i8 [ %45, %40 ], [ %97, %.preheader ], [ %45, %54 ], [ %87, %86 ]
   %102 = getelementptr inbounds nuw i8, ptr %48, i64 2
   store i16 %100, ptr %102, align 2
-  %103 = getelementptr %struct.security_class_mapping, ptr @secclass_map, i64 %47
+  %103 = getelementptr [272 x i8], ptr @secclass_map, i64 %47
   %104 = load ptr, ptr %103, align 8
   %105 = icmp eq ptr %104, null
   br i1 %105, label %110, label %.backedge
@@ -3991,7 +3987,7 @@ define dso_local i32 @security_load_policy(ptr noundef %0, i64 noundef %1, ptr n
 .thread17:                                        ; preds = %60
   %106 = getelementptr inbounds nuw i8, ptr %48, i64 2
   store i16 0, ptr %106, align 2
-  %107 = getelementptr %struct.security_class_mapping, ptr @secclass_map, i64 %47
+  %107 = getelementptr [272 x i8], ptr @secclass_map, i64 %47
   %108 = load ptr, ptr %107, align 8
   %109 = icmp eq ptr %108, null
   br i1 %109, label %.thread18, label %.backedge
@@ -4061,14 +4057,14 @@ define dso_local i32 @security_load_policy(ptr noundef %0, i64 noundef %1, ptr n
 
 142:                                              ; preds = %152, %137
   %143 = phi i64 [ 0, %137 ], [ %153, %152 ]
-  %144 = getelementptr ptr, ptr %139, i64 %143
+  %144 = getelementptr [8 x i8], ptr %139, i64 %143
   %145 = load ptr, ptr %144, align 8
   %146 = call ptr @symtab_search(ptr noundef %138, ptr noundef %145) #19
   %147 = icmp eq ptr %146, null
   br i1 %147, label %152, label %148
 
 148:                                              ; preds = %142
-  %149 = getelementptr i32, ptr %140, i64 %143
+  %149 = getelementptr [4 x i8], ptr %140, i64 %143
   %150 = load i32, ptr %149, align 4
   %151 = getelementptr inbounds nuw i8, ptr %146, i64 4
   store i32 %150, ptr %151, align 4
@@ -4099,7 +4095,7 @@ define dso_local i32 @security_load_policy(ptr noundef %0, i64 noundef %1, ptr n
 
 163:                                              ; preds = %163, %161
   %164 = phi i64 [ 0, %161 ], [ %167, %163 ]
-  %165 = getelementptr ptr, ptr %156, i64 %164
+  %165 = getelementptr [8 x i8], ptr %156, i64 %164
   %166 = load ptr, ptr %165, align 8
   call void @kfree(ptr noundef %166) #19
   %167 = add nuw nsw i64 %164, 1
@@ -4669,11 +4665,11 @@ define dso_local noundef range(i32 -115, -116) i32 @security_node_sid(i16 nounde
   br i1 %25, label %.thread10.us.us42, label %26, !llvm.loop !71
 
 26:                                               ; preds = %.preheader.us.us
-  %27 = getelementptr i32, ptr %17, i64 %24
+  %27 = getelementptr [4 x i8], ptr %17, i64 %24
   %28 = load i32, ptr %27, align 4
-  %29 = getelementptr i32, ptr %1, i64 %24
+  %29 = getelementptr [4 x i8], ptr %1, i64 %24
   %30 = load i32, ptr %29, align 4
-  %31 = getelementptr i32, ptr %18, i64 %24
+  %31 = getelementptr [4 x i8], ptr %18, i64 %24
   %32 = load i32, ptr %31, align 4
   %33 = and i32 %32, %30
   %34 = icmp eq i32 %28, %33
@@ -4913,7 +4909,7 @@ define dso_local noundef i32 @security_get_user_sids(i32 noundef %0, ptr noundef
   %59 = phi ptr [ %37, %52 ], [ %184, %183 ]
   %60 = load ptr, ptr %53, align 8
   %61 = zext i32 %57 to i64
-  %62 = getelementptr ptr, ptr %60, i64 %61
+  %62 = getelementptr [8 x i8], ptr %60, i64 %61
   %63 = load ptr, ptr %62, align 8
   %64 = add nuw i32 %57, 1
   store i32 %64, ptr %20, align 4
@@ -4983,7 +4979,7 @@ define dso_local noundef i32 @security_get_user_sids(i32 noundef %0, ptr noundef
   %101 = load i32, ptr %6, align 4
   %102 = add nuw i32 %84, 1
   %103 = zext i32 %84 to i64
-  %104 = getelementptr i32, ptr %86, i64 %103
+  %104 = getelementptr [4 x i8], ptr %86, i64 %103
   store i32 %101, ptr %104, align 4
   br label %117
 
@@ -5002,7 +4998,7 @@ define dso_local noundef i32 @security_get_user_sids(i32 noundef %0, ptr noundef
   call void @kfree(ptr noundef %86) #19
   %114 = load i32, ptr %6, align 4
   %115 = add i32 %84, 1
-  %116 = getelementptr i32, ptr %109, i64 %112
+  %116 = getelementptr [4 x i8], ptr %109, i64 %112
   store i32 %114, ptr %116, align 4
   br label %117
 
@@ -5138,7 +5134,7 @@ define dso_local noundef i32 @security_get_user_sids(i32 noundef %0, ptr noundef
   %202 = phi i32 [ %213, %212 ], [ 0, %195 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %7, i8 0, i64 20, i1 false), !annotation !13
-  %203 = getelementptr i32, ptr %188, i64 %201
+  %203 = getelementptr [4 x i8], ptr %188, i64 %201
   %204 = load i32, ptr %203, align 4
   %205 = call i32 @avc_has_perm_noaudit(i32 noundef %0, i32 noundef %204, i16 noundef zeroext 2, i32 noundef 2, i32 noundef 1, ptr noundef nonnull %7) #19
   %206 = icmp eq i32 %205, 0
@@ -5148,7 +5144,7 @@ define dso_local noundef i32 @security_get_user_sids(i32 noundef %0, ptr noundef
   %208 = load i32, ptr %203, align 4
   %209 = add i32 %202, 1
   %210 = zext i32 %202 to i64
-  %211 = getelementptr i32, ptr %198, i64 %210
+  %211 = getelementptr [4 x i8], ptr %198, i64 %210
   store i32 %208, ptr %211, align 4
   br label %212
 
@@ -5235,7 +5231,7 @@ define internal fastcc i32 @__security_genfs_sid(ptr noundef readonly captures(n
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 600
   %22 = load ptr, ptr %21, align 8
   %23 = zext i16 %3 to i64
-  %24 = getelementptr %struct.selinux_mapping, ptr %22, i64 %23
+  %24 = getelementptr [132 x i8], ptr %22, i64 %23
   %25 = load i16, ptr %24, align 4
   br label %26
 
@@ -5504,22 +5500,22 @@ define dso_local noundef range(i32 -12, 1) i32 @security_get_bools(ptr noundef r
 29:                                               ; preds = %25, %22
   %indvars.iv = phi i64 [ %indvars.iv.next, %25 ], [ 0, %22 ]
   %30 = load ptr, ptr %23, align 8
-  %31 = getelementptr ptr, ptr %30, i64 %indvars.iv
+  %31 = getelementptr [8 x i8], ptr %30, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %34 = load i32, ptr %33, align 4
   %35 = load ptr, ptr %3, align 8
-  %36 = getelementptr i32, ptr %35, i64 %indvars.iv
+  %36 = getelementptr [4 x i8], ptr %35, i64 %indvars.iv
   store i32 %34, ptr %36, align 4
   %37 = load ptr, ptr %24, align 8
-  %38 = getelementptr ptr, ptr %37, i64 %indvars.iv
+  %38 = getelementptr [8 x i8], ptr %37, i64 %indvars.iv
   %39 = load ptr, ptr %38, align 8
   %40 = tail call noalias ptr @kstrdup(ptr noundef %39, i32 noundef 2080) #19
   %41 = load ptr, ptr %2, align 8
-  %42 = getelementptr ptr, ptr %41, i64 %indvars.iv
+  %42 = getelementptr [8 x i8], ptr %41, i64 %indvars.iv
   store ptr %40, ptr %42, align 8
   %43 = load ptr, ptr %2, align 8
-  %44 = getelementptr ptr, ptr %43, i64 %indvars.iv
+  %44 = getelementptr [8 x i8], ptr %43, i64 %indvars.iv
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, null
   br i1 %46, label %.loopexit2, label %25
@@ -5545,7 +5541,7 @@ thread-pre-split:                                 ; preds = %13
 .preheader:                                       ; preds = %50, %.preheader
   %53 = phi i64 [ %57, %.preheader ], [ 0, %50 ]
   %54 = load ptr, ptr %2, align 8
-  %55 = getelementptr ptr, ptr %54, i64 %53
+  %55 = getelementptr [8 x i8], ptr %54, i64 %53
   %56 = load ptr, ptr %55, align 8
   tail call void @kfree(ptr noundef %56) #19
   %57 = add nuw nsw i64 %53, 1
@@ -5620,12 +5616,12 @@ define dso_local noundef range(i32 -22, 1) i32 @security_set_bools(i32 noundef %
 
 26:                                               ; preds = %54, %21
   %27 = phi i64 [ 0, %21 ], [ %55, %54 ]
-  %28 = getelementptr i32, ptr %1, i64 %27
+  %28 = getelementptr [4 x i8], ptr %1, i64 %27
   %29 = load i32, ptr %28, align 4
   %30 = icmp ne i32 %29, 0
   %31 = zext i1 %30 to i32
   %32 = load ptr, ptr %22, align 8
-  %33 = getelementptr ptr, ptr %32, i64 %27
+  %33 = getelementptr [8 x i8], ptr %32, i64 %27
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %36 = load i32, ptr %35, align 4
@@ -5638,7 +5634,7 @@ define dso_local noundef range(i32 -22, 1) i32 @security_set_bools(i32 noundef %
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 1976
   %42 = load ptr, ptr %41, align 8
   %43 = load ptr, ptr %23, align 8
-  %44 = getelementptr ptr, ptr %43, i64 %27
+  %44 = getelementptr [8 x i8], ptr %43, i64 %27
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %40, i64 1984
   %47 = load i32, ptr %46, align 64
@@ -5646,7 +5642,7 @@ define dso_local noundef range(i32 -22, 1) i32 @security_set_bools(i32 noundef %
   %49 = load i32, ptr %48, align 4
   tail call void (ptr, i32, i32, ptr, ...) @audit_log(ptr noundef %42, i32 noundef 2080, i32 noundef 1405, ptr noundef nonnull @.str.25, ptr noundef %45, i32 noundef %31, i32 noundef %36, i32 noundef %47, i32 noundef %49) #19
   %50 = load ptr, ptr %22, align 8
-  %51 = getelementptr ptr, ptr %50, i64 %27
+  %51 = getelementptr [8 x i8], ptr %50, i64 %27
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
   store i32 %31, ptr %53, align 4
@@ -5708,7 +5704,7 @@ define dso_local i32 @security_get_bool_value(i32 noundef %0) local_unnamed_addr
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 384
   %11 = load ptr, ptr %10, align 8
   %12 = zext i32 %0 to i64
-  %13 = getelementptr ptr, ptr %11, i64 %12
+  %13 = getelementptr [8 x i8], ptr %11, i64 %12
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %16 = load i32, ptr %15, align 4
@@ -6060,7 +6056,7 @@ define dso_local i32 @security_get_classes(ptr noundef %0, ptr noundef captures(
 .preheader:                                       ; preds = %14, %.preheader
   %17 = phi i64 [ %21, %.preheader ], [ 0, %14 ]
   %18 = load ptr, ptr %1, align 8
-  %19 = getelementptr ptr, ptr %18, i64 %17
+  %19 = getelementptr [8 x i8], ptr %18, i64 %17
   %20 = load ptr, ptr %19, align 8
   tail call void @kfree(ptr noundef %20) #19
   %21 = add nuw nsw i64 %17, 1
@@ -6088,7 +6084,7 @@ define internal range(i32 -12, 1) i32 @get_classes_callback(ptr noundef %0, ptr 
   %5 = add i32 %4, -1
   %6 = tail call noalias ptr @kstrdup(ptr noundef %0, i32 noundef 2080) #19
   %7 = zext i32 %5 to i64
-  %8 = getelementptr ptr, ptr %2, i64 %7
+  %8 = getelementptr [8 x i8], ptr %2, i64 %7
   store ptr %6, ptr %8, align 8
   %9 = icmp eq ptr %6, null
   %10 = select i1 %9, i32 -12, i32 0
@@ -6149,7 +6145,7 @@ define dso_local i32 @security_get_permissions(ptr noundef %0, ptr noundef %1, p
 .preheader:                                       ; preds = %30, %.preheader
   %34 = phi i64 [ %38, %.preheader ], [ 0, %30 ]
   %35 = load ptr, ptr %2, align 8
-  %36 = getelementptr ptr, ptr %35, i64 %34
+  %36 = getelementptr [8 x i8], ptr %35, i64 %34
   %37 = load ptr, ptr %36, align 8
   tail call void @kfree(ptr noundef %37) #19
   %38 = add nuw nsw i64 %34, 1
@@ -6174,7 +6170,7 @@ define internal range(i32 -12, 1) i32 @get_permissions_callback(ptr noundef %0, 
   %5 = add i32 %4, -1
   %6 = tail call noalias ptr @kstrdup(ptr noundef %0, i32 noundef 2080) #19
   %7 = zext i32 %5 to i64
-  %8 = getelementptr ptr, ptr %2, i64 %7
+  %8 = getelementptr [8 x i8], ptr %2, i64 %7
   store ptr %6, ptr %8, align 8
   %9 = icmp eq ptr %6, null
   %10 = select i1 %9, i32 -12, i32 0
@@ -6436,7 +6432,7 @@ define dso_local noundef range(i32 0, 2) i32 @selinux_audit_rule_known(ptr nound
 
 9:                                                ; preds = %14, %5
   %10 = phi i64 [ 0, %5 ], [ %15, %14 ]
-  %11 = getelementptr %struct.audit_field, ptr %7, i64 %10
+  %11 = getelementptr [32 x i8], ptr %7, i64 %10
   %12 = load i32, ptr %11, align 8
   %switch.tableidx = add i32 %12, -13
   %13 = icmp ult i32 %switch.tableidx, 11
@@ -6943,7 +6939,7 @@ define dso_local i32 @security_netlbl_sid_to_secattr(i32 noundef %0, ptr noundef
   %16 = getelementptr i8, ptr %6, i64 232
   %17 = load ptr, ptr %16, align 8
   %18 = zext i32 %15 to i64
-  %19 = getelementptr ptr, ptr %17, i64 %18
+  %19 = getelementptr [8 x i8], ptr %17, i64 %18
   %20 = load ptr, ptr %19, align 8
   %21 = tail call noalias ptr @kstrdup(ptr noundef %20, i32 noundef 2080) #19
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7129,7 +7125,7 @@ define internal fastcc i32 @constraint_expr_eval(ptr noundef readonly captures(n
 
 26:                                               ; preds = %23
   %27 = zext nneg i32 %20 to i64
-  %28 = getelementptr i32, ptr %6, i64 %27
+  %28 = getelementptr [4 x i8], ptr %6, i64 %27
   %29 = load i32, ptr %28, align 4
   %30 = icmp eq i32 %29, 0
   %31 = zext i1 %30 to i32
@@ -7148,10 +7144,10 @@ define internal fastcc i32 @constraint_expr_eval(ptr noundef readonly captures(n
 35:                                               ; preds = %32
   %36 = add nsw i32 %20, -1
   %37 = zext nneg i32 %20 to i64
-  %38 = getelementptr i32, ptr %6, i64 %37
+  %38 = getelementptr [4 x i8], ptr %6, i64 %37
   %39 = load i32, ptr %38, align 4
   %40 = zext nneg i32 %36 to i64
-  %41 = getelementptr i32, ptr %6, i64 %40
+  %41 = getelementptr [4 x i8], ptr %6, i64 %40
   %42 = load i32, ptr %41, align 4
   %43 = and i32 %42, %39
   store i32 %43, ptr %41, align 4
@@ -7169,10 +7165,10 @@ define internal fastcc i32 @constraint_expr_eval(ptr noundef readonly captures(n
 47:                                               ; preds = %44
   %48 = add nsw i32 %20, -1
   %49 = zext nneg i32 %20 to i64
-  %50 = getelementptr i32, ptr %6, i64 %49
+  %50 = getelementptr [4 x i8], ptr %6, i64 %49
   %51 = load i32, ptr %50, align 4
   %52 = zext nneg i32 %48 to i64
-  %53 = getelementptr i32, ptr %6, i64 %52
+  %53 = getelementptr [4 x i8], ptr %6, i64 %52
   %54 = load i32, ptr %53, align 4
   %55 = or i32 %54, %51
   store i32 %55, ptr %53, align 4
@@ -7212,11 +7208,11 @@ define internal fastcc i32 @constraint_expr_eval(ptr noundef readonly captures(n
   %68 = load ptr, ptr %16, align 8
   %69 = add i32 %66, -1
   %70 = zext i32 %69 to i64
-  %71 = getelementptr ptr, ptr %68, i64 %70
+  %71 = getelementptr [8 x i8], ptr %68, i64 %70
   %72 = load ptr, ptr %71, align 8
   %73 = add i32 %67, -1
   %74 = zext i32 %73 to i64
-  %75 = getelementptr ptr, ptr %68, i64 %74
+  %75 = getelementptr [8 x i8], ptr %68, i64 %74
   %76 = load ptr, ptr %75, align 8
   %77 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %78 = load i32, ptr %77, align 8
@@ -7231,7 +7227,7 @@ define internal fastcc i32 @constraint_expr_eval(ptr noundef readonly captures(n
   %81 = tail call i32 @ebitmap_get_bit(ptr noundef nonnull %80, i64 noundef %74) #19
   %82 = add i32 %20, 1
   %83 = sext i32 %82 to i64
-  %84 = getelementptr i32, ptr %6, i64 %83
+  %84 = getelementptr [4 x i8], ptr %6, i64 %83
   store i32 %81, ptr %84, align 4
   br label %270
 
@@ -7240,7 +7236,7 @@ define internal fastcc i32 @constraint_expr_eval(ptr noundef readonly captures(n
   %87 = tail call i32 @ebitmap_get_bit(ptr noundef nonnull %86, i64 noundef %70) #19
   %88 = add i32 %20, 1
   %89 = sext i32 %88 to i64
-  %90 = getelementptr i32, ptr %6, i64 %89
+  %90 = getelementptr [4 x i8], ptr %6, i64 %89
   store i32 %87, ptr %90, align 4
   br label %270
 
@@ -7261,7 +7257,7 @@ define internal fastcc i32 @constraint_expr_eval(ptr noundef readonly captures(n
   %101 = phi i32 [ 0, %91 ], [ %99, %95 ]
   %102 = add i32 %20, 1
   %103 = sext i32 %102 to i64
-  %104 = getelementptr i32, ptr %6, i64 %103
+  %104 = getelementptr [4 x i8], ptr %6, i64 %103
   store i32 %101, ptr %104, align 4
   br label %270
 
@@ -7311,7 +7307,7 @@ define internal fastcc i32 @constraint_expr_eval(ptr noundef readonly captures(n
   %126 = phi i32 [ 0, %115 ], [ %124, %119 ]
   %127 = add i32 %20, 1
   %128 = sext i32 %127 to i64
-  %129 = getelementptr i32, ptr %6, i64 %128
+  %129 = getelementptr [4 x i8], ptr %6, i64 %128
   store i32 %126, ptr %129, align 4
   br label %270
 
@@ -7333,7 +7329,7 @@ define internal fastcc i32 @constraint_expr_eval(ptr noundef readonly captures(n
   %141 = phi i32 [ 1, %130 ], [ %139, %134 ]
   %142 = add i32 %20, 1
   %143 = sext i32 %142 to i64
-  %144 = getelementptr i32, ptr %6, i64 %143
+  %144 = getelementptr [4 x i8], ptr %6, i64 %143
   store i32 %141, ptr %144, align 4
   br label %270
 
@@ -7355,7 +7351,7 @@ define internal fastcc i32 @constraint_expr_eval(ptr noundef readonly captures(n
   %156 = phi i32 [ 0, %145 ], [ %154, %149 ]
   %157 = add i32 %20, 1
   %158 = sext i32 %157 to i64
-  %159 = getelementptr i32, ptr %6, i64 %158
+  %159 = getelementptr [4 x i8], ptr %6, i64 %158
   store i32 %156, ptr %159, align 4
   br label %270
 
@@ -7377,7 +7373,7 @@ define internal fastcc i32 @constraint_expr_eval(ptr noundef readonly captures(n
   %171 = phi i32 [ 0, %160 ], [ %169, %164 ]
   %172 = add i32 %20, 1
   %173 = sext i32 %172 to i64
-  %174 = getelementptr i32, ptr %6, i64 %173
+  %174 = getelementptr [4 x i8], ptr %6, i64 %173
   store i32 %171, ptr %174, align 4
   br label %270
 
@@ -7412,7 +7408,7 @@ define internal fastcc i32 @constraint_expr_eval(ptr noundef readonly captures(n
   %189 = phi i32 [ 0, %179 ], [ 1, %.critedge ], [ %187, %.critedge.thread ]
   %190 = add i32 %20, 1
   %191 = sext i32 %190 to i64
-  %192 = getelementptr i32, ptr %6, i64 %191
+  %192 = getelementptr [4 x i8], ptr %6, i64 %191
   store i32 %189, ptr %192, align 4
   br label %270
 
@@ -7449,7 +7445,7 @@ define internal fastcc i32 @constraint_expr_eval(ptr noundef readonly captures(n
   %206 = zext i1 %205 to i32
   %207 = add i32 %20, 1
   %208 = sext i32 %207 to i64
-  %209 = getelementptr i32, ptr %6, i64 %208
+  %209 = getelementptr [4 x i8], ptr %6, i64 %208
   store i32 %206, ptr %209, align 4
   br label %270
 
@@ -7458,7 +7454,7 @@ define internal fastcc i32 @constraint_expr_eval(ptr noundef readonly captures(n
   %212 = zext i1 %211 to i32
   %213 = add i32 %20, 1
   %214 = sext i32 %213 to i64
-  %215 = getelementptr i32, ptr %6, i64 %214
+  %215 = getelementptr [4 x i8], ptr %6, i64 %214
   store i32 %212, ptr %215, align 4
   br label %270
 
@@ -7536,7 +7532,7 @@ define internal fastcc i32 @constraint_expr_eval(ptr noundef readonly captures(n
   %254 = tail call i32 @ebitmap_get_bit(ptr noundef nonnull %251, i64 noundef %253) #19
   %255 = add i32 %20, 1
   %256 = sext i32 %255 to i64
-  %257 = getelementptr i32, ptr %6, i64 %256
+  %257 = getelementptr [4 x i8], ptr %6, i64 %256
   store i32 %254, ptr %257, align 4
   br label %270
 
@@ -7549,7 +7545,7 @@ define internal fastcc i32 @constraint_expr_eval(ptr noundef readonly captures(n
   %264 = zext i1 %263 to i32
   %265 = add i32 %20, 1
   %266 = sext i32 %265 to i64
-  %267 = getelementptr i32, ptr %6, i64 %266
+  %267 = getelementptr [4 x i8], ptr %6, i64 %266
   store i32 %264, ptr %267, align 4
   br label %270
 
@@ -7620,11 +7616,11 @@ define internal fastcc void @security_dump_masked_av(ptr noundef %0, ptr noundef
   %12 = getelementptr i8, ptr %0, i64 208
   %13 = load ptr, ptr %12, align 8
   %14 = and i64 %11, 4294967295
-  %15 = getelementptr ptr, ptr %13, i64 %14
+  %15 = getelementptr [8 x i8], ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr ptr, ptr %18, i64 %14
+  %19 = getelementptr [8 x i8], ptr %18, i64 %14
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8
@@ -7684,7 +7680,7 @@ define internal fastcc void @security_dump_masked_av(ptr noundef %0, ptr noundef
 54:                                               ; preds = %47
   %55 = icmp eq i8 %49, 0
   %56 = select i1 %55, ptr @.str.36, ptr @.str.35
-  %57 = getelementptr ptr, ptr %8, i64 %48
+  %57 = getelementptr [8 x i8], ptr %8, i64 %48
   %58 = load ptr, ptr %57, align 8
   %59 = icmp eq ptr %58, null
   %60 = select i1 %59, ptr @.str.37, ptr %58
@@ -7727,7 +7723,7 @@ define internal noundef i32 @dump_masked_av_helper(ptr noundef %0, ptr noundef r
 
 8:                                                ; preds = %3
   %9 = zext nneg i32 %4 to i64
-  %10 = getelementptr ptr, ptr %2, i64 %9
+  %10 = getelementptr [8 x i8], ptr %2, i64 %9
   %11 = getelementptr i8, ptr %10, i64 -8
   store ptr %0, ptr %11, align 8
   ret i32 0

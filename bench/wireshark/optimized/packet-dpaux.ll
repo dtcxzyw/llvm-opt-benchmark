@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
 %union.anon = type { %struct.bitfield_data }
 %struct.bitfield_data = type { ptr, ptr }
-%struct.dpaux_register = type { i32, i8, %union.anon }
 
 @proto_register_dpaux.convert_transaction_type = internal constant [4 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 0, [4 x i8] zeroinitializer, ptr @.str }, { i32, [4 x i8], ptr } { i32 1, [4 x i8] zeroinitializer, ptr @.str.1 }, { i32, [4 x i8], ptr } { i32 2, [4 x i8] zeroinitializer, ptr @.str.2 }, { i32, [4 x i8], ptr } zeroinitializer], align 16
 @.str = private unnamed_addr constant [7 x i8] c"Native\00", align 1
@@ -336,7 +335,7 @@ switch.hole_check:                                ; preds = %109
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %112 = zext nneg i8 %76 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_dpaux, i64 %112
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_dpaux, i64 %112
   %switch.load = load ptr, ptr %switch.gep, align 8
   %113 = load ptr, ptr %9, align 8
   tail call void @col_set_str(ptr noundef %113, i32 noundef 25, ptr noundef nonnull %switch.load)
@@ -406,7 +405,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 150:                                              ; preds = %149, %137
   %indvars.iv.i.i = phi i64 [ 0, %137 ], [ %indvars.iv.next.i.i, %149 ]
-  %151 = getelementptr %struct.dpaux_register, ptr @registers, i64 %indvars.iv.i.i
+  %151 = getelementptr [24 x i8], ptr @registers, i64 %indvars.iv.i.i
   %152 = load i32, ptr %151, align 8
   %153 = icmp eq i32 %152, %148
   br i1 %153, label %154, label %149

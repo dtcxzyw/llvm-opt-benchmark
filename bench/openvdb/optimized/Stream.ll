@@ -894,7 +894,7 @@ if.then.i.i57:                                    ; preds = %_ZSt8_DestroyIPN7op
 for.body.lr.ph:                                   ; preds = %if.then.i.i57, %_ZSt8_DestroyIPN7openvdb5v11_02io14GridDescriptorES3_EvT_S5_RSaIT0_E.exit.i
   store ptr %call9.i58, ptr %descriptors, align 8
   store ptr %call9.i58, ptr %_M_finish.i.i, align 8
-  %add.ptr26.i = getelementptr inbounds nuw %"class.openvdb::v11_0::io::GridDescriptor", ptr %call9.i58, i64 %conv
+  %add.ptr26.i = getelementptr inbounds nuw [160 x i8], ptr %call9.i58, i64 %conv
   store ptr %add.ptr26.i, ptr %_M_end_of_storage.i.i, align 8
   %50 = getelementptr inbounds nuw i8, ptr %namedGrids, i64 8
   store i32 0, ptr %50, align 8
@@ -1317,7 +1317,7 @@ for.body170.preheader:                            ; preds = %for.end
 for.body170:                                      ; preds = %for.body170.preheader, %for.inc173
   %i166.0210 = phi i64 [ %inc174, %for.inc173 ], [ 0, %for.body170.preheader ]
   %108 = load ptr, ptr %descriptors, align 8
-  %add.ptr.i137 = getelementptr inbounds %"class.openvdb::v11_0::io::GridDescriptor", ptr %108, i64 %i166.0210
+  %add.ptr.i137 = getelementptr inbounds [160 x i8], ptr %108, i64 %i166.0210
   invoke void @_ZNK7openvdb5v11_02io7Archive15connectInstanceERKNS1_14GridDescriptorERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrINS0_8GridBaseEESt4lessISC_ESaISt4pairIKSC_SF_EEE(ptr noundef nonnull align 8 dereferenceable(65) %this, ptr noundef nonnull align 8 dereferenceable(160) %add.ptr.i137, ptr noundef nonnull align 8 dereferenceable(48) %namedGrids)
           to label %for.inc173 unwind label %lpad147.loopexit
 
@@ -5089,7 +5089,7 @@ _ZNSt12_Vector_baseIN7openvdb5v11_02io14GridDescriptorESaIS3_EE13_M_deallocateEP
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i.i.i39, ptr %_M_finish.i.i, align 8
-  %add.ptr29 = getelementptr inbounds nuw %"class.openvdb::v11_0::io::GridDescriptor", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr29 = getelementptr inbounds nuw [160 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr29, ptr %_M_end_of_storage, align 8
   ret void
 
@@ -5258,7 +5258,7 @@ _ZNSt12_Vector_baseISt10shared_ptrIN7openvdb5v11_08GridBaseEESaIS4_EE13_M_deallo
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i20, ptr %_M_finish.i.i, align 8
-  %add.ptr19 = getelementptr inbounds nuw %"class.std::shared_ptr.72", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr19 = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr19, ptr %_M_end_of_storage, align 8
   ret void
 }

@@ -3,8 +3,6 @@ source_filename = "bench/wireshark/original/mate_grammar.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.yyStackEntry = type { i16, i8, %union.YYMINORTYPE }
-%union.YYMINORTYPE = type { ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 @yyRuleInfoNRhs = internal unnamed_addr constant [149 x i8] c"\FD\FD\FD\FC\FC\FC\FD\FD\FD\FD\FD\FD\FD\FD\FD\FD\FD\FD\FC\FD\FE\FF\FD\FD\00\00\FE\00\FF\FF\FF\FF\FF\00\F0\00\FD\00\FB\00\FF\FF\FE\FF\FB\FD\00\FD\00\FD\00\FD\FF\FF\ED\FD\00\FD\00\FD\00\FD\00\FD\00\FD\00\FD\00\FD\00\FF\FF\FF\FF\FF\FF\FF\FF\FF\F5\FD\00\FD\00\FF\FF\FF\FE\FF\FC\FF\FD\00\FD\00\FD\FF\FF\FD\FE\FD\FF\FD\FF\FC\FD\FF\FF\FF\FF\FF\FF\FF\FF\FE\00\FF\FF\FF\FF\FF\FF\FE\F7\00\00\00\00\00\F9\F9\00\00\00\00\F6\00\00\00\00\00\00\00\F8\00\00\00\00", align 16
@@ -171,7 +169,7 @@ define hidden void @MateParser(ptr noundef captures(address) initializes((16, 24
 
 14:                                               ; preds = %12
   %15 = zext nneg i16 %.037 to i64
-  %16 = getelementptr i16, ptr @yy_shift_ofst, i64 %15
+  %16 = getelementptr [2 x i8], ptr @yy_shift_ofst, i64 %15
   %17 = load i16, ptr %16, align 2
   %18 = zext i16 %17 to i64
   %19 = add nuw nsw i64 %18, %10
@@ -181,12 +179,12 @@ define hidden void @MateParser(ptr noundef captures(address) initializes((16, 24
   br i1 %.not.i, label %25, label %22
 
 22:                                               ; preds = %14
-  %23 = getelementptr i16, ptr @yy_default, i64 %15
+  %23 = getelementptr [2 x i8], ptr @yy_default, i64 %15
   %24 = load i16, ptr %23, align 2
   br label %yy_find_shift_action.exit
 
 25:                                               ; preds = %14
-  %26 = getelementptr i16, ptr @yy_action, i64 %19
+  %26 = getelementptr [2 x i8], ptr @yy_action, i64 %19
   %27 = load i16, ptr %26, align 2
   br label %yy_find_shift_action.exit
 
@@ -1908,7 +1906,7 @@ yy_pop_parser_stack.exit.i:                       ; preds = %46, %.lr.ph.i
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %903, ptr noundef nonnull @.str.19, i32 noundef %.1.i)
   %935 = add i32 %.049.i, 1
   %936 = zext i32 %935 to i64
-  %937 = getelementptr ptr, ptr %904, i64 %936
+  %937 = getelementptr [8 x i8], ptr %904, i64 %936
   %938 = load ptr, ptr %937, align 8
   %.not.i51 = icmp eq ptr %938, null
   br i1 %.not.i51, label %recolonize.exit, label %.lr.ph.i50, !llvm.loop !15
@@ -2008,15 +2006,15 @@ recolonize.exit:                                  ; preds = %934, %900
   %992 = getelementptr i8, ptr @yyRuleInfoLhs, i64 %32
   %993 = load i8, ptr %992, align 1
   %994 = sext i8 %34 to i64
-  %995 = getelementptr %struct.yyStackEntry, ptr %52, i64 %994
+  %995 = getelementptr [16 x i8], ptr %52, i64 %994
   %996 = load i16, ptr %995, align 8
   %997 = zext i16 %996 to i64
-  %998 = getelementptr i16, ptr @yy_reduce_ofst, i64 %997
+  %998 = getelementptr [2 x i8], ptr @yy_reduce_ofst, i64 %997
   %999 = load i16, ptr %998, align 2
   %1000 = sext i16 %999 to i64
   %1001 = zext i8 %993 to i64
-  %1002 = getelementptr i16, ptr @yy_action, i64 %1000
-  %1003 = getelementptr i16, ptr %1002, i64 %1001
+  %1002 = getelementptr [2 x i8], ptr @yy_action, i64 %1000
+  %1003 = getelementptr [2 x i8], ptr %1002, i64 %1001
   %1004 = load i16, ptr %1003, align 2
   %1005 = getelementptr i8, ptr %995, i64 16
   store ptr %1005, ptr %0, align 8
@@ -2217,7 +2215,7 @@ define internal void @configuration_error(ptr noundef readonly captures(none) %0
   %13 = load ptr, ptr %5, align 8
   %14 = load ptr, ptr %13, align 8
   %15 = and i64 %indvars.iv.next, 4294967295
-  %16 = getelementptr ptr, ptr %14, i64 %15
+  %16 = getelementptr [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %9, align 8
   %19 = load ptr, ptr %17, align 8

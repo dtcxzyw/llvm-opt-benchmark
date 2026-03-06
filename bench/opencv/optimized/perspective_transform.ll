@@ -708,7 +708,7 @@ define hidden void @_ZN5zxing20PerspectiveTransform15transformPointsERSt6vectorI
 
 22:                                               ; preds = %.lr.ph, %22
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
-  %23 = getelementptr inbounds nuw float, ptr %spec.select, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %spec.select, i64 %indvars.iv
   %24 = load float, ptr %23, align 4, !tbaa !35
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %26 = load float, ptr %25, align 4, !tbaa !35

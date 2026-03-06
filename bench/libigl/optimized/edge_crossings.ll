@@ -46,16 +46,16 @@ define weak_odr dso_local void @_ZN3igl14edge_crossingsIN5Eigen6MatrixIiLin1ELin
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNSt6vectorIdSaIdEE12emplace_backIJRKdEEERdDpOT_.exit ]
   %18 = phi i64 [ %8, %.lr.ph ], [ %91, %_ZNSt6vectorIdSaIdEE12emplace_backIJRKdEEERdDpOT_.exit ]
   %19 = load ptr, ptr %0, align 8, !tbaa !11
-  %20 = getelementptr i32, ptr %19, i64 %indvars.iv
+  %20 = getelementptr [4 x i8], ptr %19, i64 %indvars.iv
   %21 = load i32, ptr %20, align 4, !tbaa !12
-  %22 = getelementptr i32, ptr %20, i64 %18
+  %22 = getelementptr [4 x i8], ptr %20, i64 %18
   %23 = load i32, ptr %22, align 4, !tbaa !12
   %24 = sext i32 %21 to i64
   %25 = load ptr, ptr %1, align 8, !tbaa !14
-  %26 = getelementptr inbounds double, ptr %25, i64 %24
+  %26 = getelementptr inbounds [8 x i8], ptr %25, i64 %24
   %27 = load double, ptr %26, align 8, !tbaa !17
   %28 = sext i32 %23 to i64
-  %29 = getelementptr inbounds double, ptr %25, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %25, i64 %28
   %30 = load double, ptr %29, align 8, !tbaa !17
   %31 = fsub double %27, %2
   %32 = fsub double %30, %2
@@ -74,7 +74,7 @@ define weak_odr dso_local void @_ZN3igl14edge_crossingsIN5Eigen6MatrixIiLin1ELin
   %43 = load i64, ptr %11, align 8, !tbaa !19
   %44 = urem i64 %indvars.iv, %43
   %45 = load ptr, ptr %3, align 8, !tbaa !27
-  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %44
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %44
   %47 = load ptr, ptr %46, align 8, !tbaa !28
   %.not.i.i.i.i = icmp eq ptr %47, null
   br i1 %.not.i.i.i.i, label %.loopexit.i.i, label %48
@@ -189,7 +189,7 @@ _ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit16.i.i: ; preds = %84, %.noex
 _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i: ; preds = %86, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit16.i.i
   store ptr %81, ptr %6, align 8, !tbaa !37
   store ptr %85, ptr %10, align 8, !tbaa !35
-  %87 = getelementptr inbounds nuw double, ptr %81, i64 %79
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %79
   store ptr %87, ptr %12, align 8, !tbaa !38
   br label %_ZNSt6vectorIdSaIdEE12emplace_backIJRKdEEERdDpOT_.exit
 
@@ -330,7 +330,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
 31:                                               ; preds = %_ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit ], [ %1, %5 ]
   %32 = load ptr, ptr %0, align 8, !tbaa !27
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0
   %34 = load ptr, ptr %33, align 8, !tbaa !28
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %38, label %35
@@ -357,7 +357,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %45 = load i32, ptr %43, align 4, !tbaa !12
   %46 = sext i32 %45 to i64
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %32, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !28
   br label %49
 
@@ -435,7 +435,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %16 = load i32, ptr %15, align 8, !tbaa !12
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
-  %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !28
   %.not27 = icmp eq ptr %20, null
   br i1 %.not27, label %21, label %26
@@ -450,7 +450,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   br i1 %.not28, label %29, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %25, align 8, !tbaa !28
   br label %29
 

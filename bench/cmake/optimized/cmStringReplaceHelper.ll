@@ -18,7 +18,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"class.cmStringReplaceHelper::RegexReplacement" = type { i32, %"class.std::__cxx11::basic_string" }
 
 $_ZNSt6vectorIN21cmStringReplaceHelper16RegexReplacementESaIS1_EED2Ev = comdat any
 
@@ -1393,7 +1392,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit101: ; preds =
 
 169:                                              ; preds = %.lr.ph
   %170 = zext nneg i32 %157 to i64
-  %171 = getelementptr inbounds nuw ptr, ptr %16, i64 %170
+  %171 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %170
   %172 = load ptr, ptr %171, align 8, !tbaa !64
   %.not.i.i102 = icmp eq ptr %172, null
   %173 = load ptr, ptr %22, align 8
@@ -1401,7 +1400,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit101: ; preds =
   %175 = ptrtoint ptr %173 to i64
   %176 = sub i64 %174, %175
   %.0.i.i103 = select i1 %.not.i.i102, i64 -1, i64 %176
-  %177 = getelementptr inbounds nuw ptr, ptr %23, i64 %170
+  %177 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %170
   %178 = load ptr, ptr %177, align 8, !tbaa !64
   %.not.i.i104 = icmp eq ptr %178, null
   %179 = ptrtoint ptr %178 to i64
@@ -2123,7 +2122,7 @@ _ZNSt6vectorIN21cmStringReplaceHelper16RegexReplacementESaIS1_EE11_S_relocateEPS
 _ZNSt12_Vector_baseIN21cmStringReplaceHelper16RegexReplacementESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN21cmStringReplaceHelper16RegexReplacementESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit36, %75
   store ptr %22, ptr %0, align 8, !tbaa !62
   store ptr %.0.lcssa.i.i.i35, ptr %4, align 8, !tbaa !34
-  %79 = getelementptr inbounds nuw %"class.cmStringReplaceHelper::RegexReplacement", ptr %22, i64 %16
+  %79 = getelementptr inbounds nuw [40 x i8], ptr %22, i64 %16
   store ptr %79, ptr %74, align 8, !tbaa !35
   ret void
 }
@@ -2289,7 +2288,7 @@ _ZNSt6vectorIN21cmStringReplaceHelper16RegexReplacementESaIS1_EE11_S_relocateEPS
 _ZNSt12_Vector_baseIN21cmStringReplaceHelper16RegexReplacementESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN21cmStringReplaceHelper16RegexReplacementESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit36, %64
   store ptr %20, ptr %0, align 8, !tbaa !62
   store ptr %.0.lcssa.i.i.i35, ptr %4, align 8, !tbaa !34
-  %68 = getelementptr inbounds nuw %"class.cmStringReplaceHelper::RegexReplacement", ptr %20, i64 %16
+  %68 = getelementptr inbounds nuw [40 x i8], ptr %20, i64 %16
   store ptr %68, ptr %63, align 8, !tbaa !35
   ret void
 }
@@ -2485,7 +2484,7 @@ _ZNSt6vectorIN21cmStringReplaceHelper16RegexReplacementESaIS1_EE11_S_relocateEPS
 _ZNSt12_Vector_baseIN21cmStringReplaceHelper16RegexReplacementESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN21cmStringReplaceHelper16RegexReplacementESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit36, %76
   store ptr %21, ptr %0, align 8, !tbaa !62
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !34
-  %80 = getelementptr inbounds nuw %"class.cmStringReplaceHelper::RegexReplacement", ptr %21, i64 %17
+  %80 = getelementptr inbounds nuw [40 x i8], ptr %21, i64 %17
   store ptr %80, ptr %75, align 8, !tbaa !35
   ret void
 

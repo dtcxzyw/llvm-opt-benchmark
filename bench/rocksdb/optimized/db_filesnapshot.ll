@@ -40,19 +40,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, unsigned long>, std::_Select1st<std::pair<const unsigned long, unsigned long>>, std::less<unsigned long>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
 %"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
 %"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"class.std::vector.593" = type { %"struct.std::_Vector_base.594" }
-%"struct.std::_Vector_base.594" = type { %"struct.std::_Vector_base<rocksdb::FileMetaData *, std::allocator<rocksdb::FileMetaData *>>::_Vector_impl" }
-%"struct.std::_Vector_base<rocksdb::FileMetaData *, std::allocator<rocksdb::FileMetaData *>>::_Vector_impl" = type { %"struct.std::_Vector_base<rocksdb::FileMetaData *, std::allocator<rocksdb::FileMetaData *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<rocksdb::FileMetaData *, std::allocator<rocksdb::FileMetaData *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.rocksdb::LiveFileStorageInfo" = type <{ %"struct.rocksdb::FileStorageInfo", %"class.std::__cxx11::basic_string", i8, [7 x i8] }>
-%"struct.rocksdb::FileStorageInfo" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i64, i32, i64, i8, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
-%"struct.rocksdb::DbPath" = type { %"class.std::__cxx11::basic_string", i64 }
-%"class.std::unique_ptr.580" = type { %"struct.std::__uniq_ptr_data.581" }
-%"struct.std::__uniq_ptr_data.581" = type { %"class.std::__uniq_ptr_impl.582" }
-%"class.std::__uniq_ptr_impl.582" = type { %"class.std::tuple.583" }
-%"class.std::tuple.583" = type { %"struct.std::_Tuple_impl.584" }
-%"struct.std::_Tuple_impl.584" = type { %"struct.std::_Head_base.587" }
-%"struct.std::_Head_base.587" = type { ptr }
 
 $_ZNSt6vectorIN7rocksdb5SliceESaIS1_EED2Ev = comdat any
 
@@ -1347,7 +1334,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   store ptr %19, ptr %0, align 8, !tbaa !261
   %41 = getelementptr inbounds nuw i8, ptr %19, i64 %17
   store ptr %41, ptr %14, align 8, !tbaa !263
-  %42 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %19, i64 %1
+  %42 = getelementptr inbounds nuw [32 x i8], ptr %19, i64 %1
   store ptr %42, ptr %6, align 8, !tbaa !272
   br label %43
 
@@ -1443,7 +1430,7 @@ _ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i: ; preds = %35
           to label %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i unwind label %46
 
 _ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i: ; preds = %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i
-  %38 = getelementptr inbounds nuw i64, ptr %37, i64 %32
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %32
   br label %_ZNSt6vectorImSaImEE7reserveEm.exit
 
 _ZNSt6vectorImSaImEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i, %35
@@ -1541,7 +1528,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i: ; preds = %67, %.noex
   br label %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i
 
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i: ; preds = %68, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i
-  %69 = getelementptr inbounds nuw i64, ptr %63, i64 %61
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %61
   br label %_ZNSt6vectorImSaImEE9push_backERKm.exit
 
 _ZNSt6vectorImSaImEE9push_backERKm.exit:          ; preds = %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i, %49
@@ -2608,7 +2595,7 @@ _ZN7rocksdb6StatusD2Ev.exit222:                   ; preds = %.critedge206.crited
   %199 = phi i32 [ %189, %.lr.ph650 ], [ %205, %._crit_edge647 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph650 ], [ %indvars.iv.next, %._crit_edge647 ]
   %200 = load ptr, ptr %191, align 8, !tbaa !710
-  %201 = getelementptr inbounds nuw %"class.std::vector.593", ptr %200, i64 %indvars.iv
+  %201 = getelementptr inbounds nuw [24 x i8], ptr %200, i64 %indvars.iv
   %202 = load ptr, ptr %201, align 8, !tbaa !711
   %203 = getelementptr inbounds nuw i8, ptr %201, i64 8
   %204 = load ptr, ptr %203, align 8, !tbaa !711
@@ -2945,7 +2932,7 @@ _ZNSt6vectorIN7rocksdb19LiveFileStorageInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_
 .noexc:                                           ; preds = %348, %_ZNSt6vectorIN7rocksdb19LiveFileStorageInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit21.i
   store ptr %238, ptr %12, align 8, !tbaa !636
   store ptr %347, ptr %160, align 8, !tbaa !639
-  %352 = getelementptr inbounds nuw %"struct.rocksdb::LiveFileStorageInfo", ptr %238, i64 %234
+  %352 = getelementptr inbounds nuw [200 x i8], ptr %238, i64 %234
   store ptr %352, ptr %161, align 8, !tbaa !714
   br label %_ZNSt6vectorIN7rocksdb19LiveFileStorageInfoESaIS1_EE12emplace_backIJEEERS1_DpOT_.exit
 
@@ -3113,7 +3100,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i: ; preds = 
   br label %"_ZZN7rocksdb6DBImpl23GetLiveFilesStorageInfoERKNS_27LiveFilesStorageInfoOptionsEPSt6vectorINS_19LiveFileStorageInfoESaIS5_EEENK3$_0clB5cxx11Em.exit"
 
 413:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit227
-  %414 = getelementptr inbounds nuw %"struct.rocksdb::DbPath", ptr %.val.val, i64 %393
+  %414 = getelementptr inbounds nuw [40 x i8], ptr %.val.val, i64 %393
   %415 = load ptr, ptr %414, align 8, !tbaa !11, !noalias !729
   %416 = getelementptr inbounds nuw i8, ptr %414, i64 8
   %417 = load i64, ptr %416, align 8, !tbaa !271, !noalias !729
@@ -3650,7 +3637,7 @@ _ZNSt6vectorIN7rocksdb19LiveFileStorageInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_
 .noexc251:                                        ; preds = %636, %_ZNSt6vectorIN7rocksdb19LiveFileStorageInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit21.i487
   store ptr %526, ptr %12, align 8, !tbaa !636
   store ptr %635, ptr %160, align 8, !tbaa !639
-  %640 = getelementptr inbounds nuw %"struct.rocksdb::LiveFileStorageInfo", ptr %526, i64 %522
+  %640 = getelementptr inbounds nuw [200 x i8], ptr %526, i64 %522
   store ptr %640, ptr %161, align 8, !tbaa !714
   br label %641
 
@@ -4967,7 +4954,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
 1157:                                             ; preds = %.lr.ph665, %1342
   %.0135663 = phi i64 [ 0, %.lr.ph665 ], [ %1343, %1342 ]
   %1158 = load ptr, ptr %14, align 8, !tbaa !623
-  %1159 = getelementptr inbounds nuw %"class.std::unique_ptr.580", ptr %1158, i64 %.0135663
+  %1159 = getelementptr inbounds nuw [8 x i8], ptr %1158, i64 %.0135663
   %1160 = load ptr, ptr %1159, align 8, !tbaa !604
   %1161 = load ptr, ptr %1160, align 8, !tbaa !22
   %1162 = getelementptr inbounds nuw i8, ptr %1161, i64 32
@@ -4984,7 +4971,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
 
 1168:                                             ; preds = %1167
   %1169 = load ptr, ptr %14, align 8, !tbaa !623
-  %1170 = getelementptr inbounds nuw %"class.std::unique_ptr.580", ptr %1169, i64 %.0135663
+  %1170 = getelementptr inbounds nuw [8 x i8], ptr %1169, i64 %.0135663
   %1171 = load ptr, ptr %1170, align 8, !tbaa !604
   %1172 = load ptr, ptr %1171, align 8, !tbaa !22
   %1173 = getelementptr inbounds nuw i8, ptr %1172, i64 24
@@ -4998,7 +4985,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
 
 1177:                                             ; preds = %1176, %1167
   %1178 = load ptr, ptr %14, align 8, !tbaa !623
-  %1179 = getelementptr inbounds nuw %"class.std::unique_ptr.580", ptr %1178, i64 %.0135663
+  %1179 = getelementptr inbounds nuw [8 x i8], ptr %1178, i64 %.0135663
   %1180 = load ptr, ptr %1179, align 8, !tbaa !604
   %1181 = load ptr, ptr %1180, align 8, !tbaa !22
   %1182 = getelementptr inbounds nuw i8, ptr %1181, i64 24
@@ -5053,7 +5040,7 @@ _ZNSt6vectorIN7rocksdb19LiveFileStorageInfoESaIS1_EE12emplace_backIJEEERS1_DpOT_
   %1204 = getelementptr inbounds i8, ptr %1203, i64 -200
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   %1205 = load ptr, ptr %14, align 8, !tbaa !623
-  %1206 = getelementptr inbounds nuw %"class.std::unique_ptr.580", ptr %1205, i64 %.0135663
+  %1206 = getelementptr inbounds nuw [8 x i8], ptr %1205, i64 %.0135663
   %1207 = load ptr, ptr %1206, align 8, !tbaa !604
   %1208 = load ptr, ptr %1207, align 8, !tbaa !22
   %1209 = getelementptr inbounds nuw i8, ptr %1208, i64 16
@@ -5214,7 +5201,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit412: ; preds = %_Z
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit414: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit412
   %1260 = load ptr, ptr %14, align 8, !tbaa !623
-  %1261 = getelementptr inbounds nuw %"class.std::unique_ptr.580", ptr %1260, i64 %.0135663
+  %1261 = getelementptr inbounds nuw [8 x i8], ptr %1260, i64 %.0135663
   %1262 = load ptr, ptr %1261, align 8, !tbaa !604
   %1263 = load ptr, ptr %1262, align 8, !tbaa !22
   %1264 = getelementptr inbounds nuw i8, ptr %1263, i64 24
@@ -5231,7 +5218,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit414: ; preds =
 
 1270:                                             ; preds = %1267
   %1271 = load ptr, ptr %14, align 8, !tbaa !623
-  %1272 = getelementptr inbounds nuw %"class.std::unique_ptr.580", ptr %1271, i64 %.0135663
+  %1272 = getelementptr inbounds nuw [8 x i8], ptr %1271, i64 %.0135663
   %1273 = load ptr, ptr %1272, align 8, !tbaa !604
   %1274 = load ptr, ptr %1273, align 8, !tbaa !22
   %1275 = getelementptr inbounds nuw i8, ptr %1274, i64 48
@@ -5302,7 +5289,7 @@ _ZNSt3mapImmSt4lessImESaISt4pairIKmmEEE4findERS3_.exit: ; preds = %_ZNSt8_Rb_tre
 
 _ZNSt3mapImmSt4lessImESaISt4pairIKmmEEE4findERS3_.exit.thread: ; preds = %_ZNSt8_Rb_treeImSt4pairIKmmESt10_Select1stIS2_ESt4lessImESaIS2_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS2_EPSt18_Rb_tree_node_baseRS1_.exit.i.i, %1286, %_ZNSt3mapImmSt4lessImESaISt4pairIKmmEEE4findERS3_.exit
   %1294 = load ptr, ptr %14, align 8, !tbaa !623
-  %1295 = getelementptr inbounds nuw %"class.std::unique_ptr.580", ptr %1294, i64 %.0135663
+  %1295 = getelementptr inbounds nuw [8 x i8], ptr %1294, i64 %.0135663
   %1296 = load ptr, ptr %1295, align 8, !tbaa !604
   %1297 = load ptr, ptr %1296, align 8, !tbaa !22
   %1298 = getelementptr inbounds nuw i8, ptr %1297, i64 48
@@ -5328,7 +5315,7 @@ _ZNSt3mapImmSt4lessImESaISt4pairIKmmEEE4findERS3_.exit.thread: ; preds = %_ZNSt8
   %1309 = getelementptr inbounds i8, ptr %1203, i64 -8
   store i8 1, ptr %1309, align 8, !tbaa !718
   %1310 = load ptr, ptr %14, align 8, !tbaa !623
-  %1311 = getelementptr inbounds nuw %"class.std::unique_ptr.580", ptr %1310, i64 %.0135663
+  %1311 = getelementptr inbounds nuw [8 x i8], ptr %1310, i64 %.0135663
   %1312 = load ptr, ptr %1311, align 8, !tbaa !604
   %1313 = load ptr, ptr %1312, align 8, !tbaa !22
   %1314 = getelementptr inbounds nuw i8, ptr %1313, i64 48
@@ -6025,7 +6012,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !261
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !263
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !272
   ret void
 }
@@ -6211,7 +6198,7 @@ _ZNSt6vectorIN7rocksdb19LiveFileStorageInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_
 _ZNSt12_Vector_baseIN7rocksdb19LiveFileStorageInfoESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN7rocksdb19LiveFileStorageInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit21, %40
   store ptr %21, ptr %0, align 8, !tbaa !636
   store ptr %.0.lcssa.i.i.i20, ptr %3, align 8, !tbaa !639
-  %44 = getelementptr inbounds nuw %"struct.rocksdb::LiveFileStorageInfo", ptr %21, i64 %15
+  %44 = getelementptr inbounds nuw [200 x i8], ptr %21, i64 %15
   store ptr %44, ptr %39, align 8, !tbaa !714
   ret void
 }

@@ -3,8 +3,6 @@ source_filename = "bench/sdl/original/SDL_locale.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.SDL_Locale = type { ptr, ptr }
-
 @.str = private unnamed_addr constant [22 x i8] c"SDL_PREFERRED_LOCALES\00", align 1
 
 ; Function Attrs: nounwind uwtable
@@ -92,8 +90,8 @@ define hidden ptr @SDL_GetPreferredLocales_REAL(ptr noundef writeonly captures(a
   br i1 %.not76.i, label %build_locales_from_csv_string.exit, label %36
 
 36:                                               ; preds = %23
-  %37 = getelementptr inbounds ptr, ptr %35, i64 %29
-  %38 = getelementptr inbounds %struct.SDL_Locale, ptr %37, i64 %31
+  %37 = getelementptr inbounds [8 x i8], ptr %35, i64 %29
+  %38 = getelementptr inbounds [16 x i8], ptr %37, i64 %31
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %38, ptr nonnull align 1 %.05683.i, i64 %27, i1 false)
   store ptr %37, ptr %35, align 8
   br label %.loopexit.i.outer
@@ -162,7 +160,7 @@ define hidden ptr @SDL_GetPreferredLocales_REAL(ptr noundef writeonly captures(a
   %62 = getelementptr inbounds nuw i8, ptr %.057.i.ph, i64 16
   %63 = add nuw nsw i32 %.061.i.ph, 1
   %64 = zext nneg i32 %.061.i.ph to i64
-  %65 = getelementptr inbounds nuw ptr, ptr %35, i64 %64
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %64
   store ptr %62, ptr %65, align 8
   br label %.loopexit.i.outer
 

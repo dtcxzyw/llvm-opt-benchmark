@@ -3,8 +3,6 @@ source_filename = "bench/ffmpeg/original/ty.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.TyRecHdr = type { i32, [2 x i8], i8, i8, i64 }
-
 @.str = private unnamed_addr constant [3 x i8] c"ty\00", align 1
 @.str.1 = private unnamed_addr constant [15 x i8] c"TiVo TY Stream\00", align 1
 @.str.2 = private unnamed_addr constant [7 x i8] c"ty,ty+\00", align 1
@@ -99,7 +97,7 @@ define internal range(i32 -12, 1) i32 @ty_read_header(ptr noundef %0) #1 {
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %57 ], [ 0, %22 ]
   %25 = shl nsw i64 %indvars.iv.i.i, 4
   %26 = getelementptr inbounds nuw i8, ptr %10, i64 %25
-  %27 = getelementptr inbounds nuw %struct.TyRecHdr, ptr %24, i64 %indvars.iv.i.i
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %indvars.iv.i.i
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 3
   %29 = load i8, ptr %28, align 1, !tbaa !12
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 6
@@ -156,7 +154,7 @@ parse_chunk_headers.exit.preheader.i:             ; preds = %57, %parse_chunk_he
   %.0669.i = phi i32 [ %.167.i, %parse_chunk_headers.exit.i ], [ 0, %57 ]
   %.0688.i = phi i32 [ %.169.i, %parse_chunk_headers.exit.i ], [ 0, %57 ]
   %.0707.i = phi i32 [ %.171.i, %parse_chunk_headers.exit.i ], [ 0, %57 ]
-  %59 = getelementptr inbounds nuw %struct.TyRecHdr, ptr %24, i64 %indvars.iv.i
+  %59 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %indvars.iv.i
   %60 = getelementptr i8, ptr %59, i64 6
   %61 = load i16, ptr %60, align 2
   switch i16 %61, label %parse_chunk_headers.exit.i [
@@ -245,7 +243,7 @@ parse_chunk_headers.exit.i:                       ; preds = %68, %66, %64, %62, 
 93:                                               ; preds = %.thread.i, %91
   %indvars.iv16.i = phi i64 [ 0, %91 ], [ %indvars.iv.next17.i, %.thread.i ]
   %.06312.i = phi i32 [ %92, %91 ], [ %96, %.thread.i ]
-  %94 = getelementptr inbounds nuw %struct.TyRecHdr, ptr %24, i64 %indvars.iv16.i
+  %94 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %indvars.iv16.i
   %95 = load i32, ptr %94, align 8, !tbaa !39
   %96 = add i32 %95, %.06312.i
   %97 = icmp ugt i32 %96, 131072
@@ -486,7 +484,7 @@ tailrecurse.i:                                    ; preds = %tailrecurse.i.prehe
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %81 ], [ 0, %44 ]
   %49 = shl nsw i64 %indvars.iv.i.i, 4
   %50 = getelementptr inbounds nuw i8, ptr %45, i64 %49
-  %51 = getelementptr inbounds nuw %struct.TyRecHdr, ptr %47, i64 %indvars.iv.i.i
+  %51 = getelementptr inbounds nuw [16 x i8], ptr %47, i64 %indvars.iv.i.i
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 3
   %53 = load i8, ptr %52, align 1, !tbaa !12
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 6
@@ -563,7 +561,7 @@ parse_chunk_headers.exit.i:                       ; preds = %44
   %89 = phi i32 [ %.pre76, %._crit_edge ], [ %21, %20 ]
   %90 = phi ptr [ %.pre75, %._crit_edge ], [ %17, %20 ]
   %91 = sext i32 %89 to i64
-  %92 = getelementptr inbounds %struct.TyRecHdr, ptr %90, i64 %91
+  %92 = getelementptr inbounds [16 x i8], ptr %90, i64 %91
   %93 = load i32, ptr %92, align 8, !tbaa !39
   %94 = add nsw i32 %89, 1
   store i32 %94, ptr %10, align 8, !tbaa !76

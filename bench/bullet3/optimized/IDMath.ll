@@ -130,7 +130,7 @@ define dso_local noundef float @_ZN24btInverseDynamicsBullet36maxAbsERKNS_4vecxE
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
   %.011 = phi float [ 0.000000e+00, %.lr.ph ], [ %.1, %7 ]
-  %8 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %9 = load float, ptr %8, align 4, !tbaa !4
   %10 = tail call noundef float @llvm.fabs.f32(float %9)
   %11 = fcmp ogt float %10, %.011
@@ -150,7 +150,7 @@ define dso_local noundef float @_ZN24btInverseDynamicsBullet36maxAbsERKNS_4vec3E
 3:                                                ; preds = %1, %3
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %3 ]
   %.010 = phi float [ 0.000000e+00, %1 ], [ %.1, %3 ]
-  %4 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %5 = load float, ptr %4, align 4, !tbaa !4
   %6 = tail call noundef float @llvm.fabs.f32(float %5)
   %7 = fcmp ogt float %6, %.010
@@ -176,7 +176,7 @@ define dso_local noundef float @_ZN24btInverseDynamicsBullet311maxAbsMat3xERKNS_
 .preheader:                                       ; preds = %.preheader.lr.ph, %8
   %indvars.iv15 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next16, %8 ]
   %.0912 = phi float [ 0.000000e+00, %.preheader.lr.ph ], [ %.sroa.speculated, %8 ]
-  %invariant.gep = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv15
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv15
   br label %9
 
 ._crit_edge:                                      ; preds = %8, %1
@@ -192,7 +192,7 @@ define dso_local noundef float @_ZN24btInverseDynamicsBullet311maxAbsMat3xERKNS_
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %9 ]
   %.110 = phi float [ %.0912, %.preheader ], [ %.sroa.speculated, %9 ]
   %10 = mul nuw nsw i64 %indvars.iv, %7
-  %gep = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %10
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep, i64 %10
   %11 = load float, ptr %gep, align 4, !tbaa !4
   %12 = tail call noundef float @llvm.fabs.f32(float %11)
   %13 = fcmp ogt float %.110, %12
@@ -256,17 +256,17 @@ define dso_local void @_ZN24btInverseDynamicsBullet33mulERKNS_5mat33ERKNS_5mat3x
 31:                                               ; preds = %.lr.ph, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %31 ]
   %32 = load float, ptr %0, align 4, !tbaa !4
-  %33 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   %34 = load float, ptr %33, align 4, !tbaa !4
   %35 = load float, ptr %11, align 4, !tbaa !4
   %36 = add nuw nsw i64 %indvars.iv, %24
-  %37 = getelementptr inbounds nuw float, ptr %10, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %36
   %38 = load float, ptr %37, align 4, !tbaa !4
   %39 = fmul float %35, %38
   %40 = tail call float @llvm.fmuladd.f32(float %32, float %34, float %39)
   %41 = load float, ptr %12, align 4, !tbaa !4
   %42 = add nuw nsw i64 %indvars.iv, %23
-  %43 = getelementptr inbounds nuw float, ptr %10, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %42
   %44 = load float, ptr %43, align 4, !tbaa !4
   %45 = tail call float @llvm.fmuladd.f32(float %41, float %44, float %40)
   %46 = load float, ptr %14, align 4, !tbaa !4
@@ -281,11 +281,11 @@ define dso_local void @_ZN24btInverseDynamicsBullet33mulERKNS_5mat33ERKNS_5mat3x
   %55 = tail call float @llvm.fmuladd.f32(float %52, float %34, float %54)
   %56 = load float, ptr %19, align 4, !tbaa !4
   %57 = tail call float @llvm.fmuladd.f32(float %56, float %44, float %55)
-  %58 = getelementptr inbounds nuw float, ptr %22, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv
   store float %45, ptr %58, align 4, !tbaa !4
-  %59 = getelementptr inbounds nuw float, ptr %22, i64 %36
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %36
   store float %51, ptr %59, align 4, !tbaa !4
-  %60 = getelementptr inbounds nuw float, ptr %22, i64 %42
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %42
   store float %57, ptr %60, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -339,7 +339,7 @@ define dso_local void @_ZN24btInverseDynamicsBullet33addERKNS_5mat3xES2_PS0_(ptr
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %26
   %indvars.iv24 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next25, %26 ]
-  %invariant.gep = getelementptr float, ptr %17, i64 %indvars.iv24
+  %invariant.gep = getelementptr [4 x i8], ptr %17, i64 %indvars.iv24
   br label %27
 
 ._crit_edge:                                      ; preds = %26
@@ -360,13 +360,13 @@ define dso_local void @_ZN24btInverseDynamicsBullet33addERKNS_5mat3xES2_PS0_(ptr
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %27 ]
   %28 = mul nuw nsw i64 %indvars.iv, %19
   %29 = add nuw nsw i64 %28, %indvars.iv24
-  %30 = getelementptr inbounds nuw float, ptr %10, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %29
   %31 = load float, ptr %30, align 4, !tbaa !4
-  %32 = getelementptr inbounds nuw float, ptr %12, i64 %29
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %29
   %33 = load float, ptr %32, align 4, !tbaa !4
   %34 = fadd float %31, %33
   %35 = mul nsw i64 %indvars.iv, %18
-  %gep = getelementptr float, ptr %invariant.gep, i64 %35
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %35
   store float %34, ptr %gep, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -412,7 +412,7 @@ define dso_local void @_ZN24btInverseDynamicsBullet33subERKNS_5mat3xES2_PS0_(ptr
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %26
   %indvars.iv24 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next25, %26 ]
-  %invariant.gep = getelementptr float, ptr %17, i64 %indvars.iv24
+  %invariant.gep = getelementptr [4 x i8], ptr %17, i64 %indvars.iv24
   br label %27
 
 ._crit_edge:                                      ; preds = %26
@@ -433,13 +433,13 @@ define dso_local void @_ZN24btInverseDynamicsBullet33subERKNS_5mat3xES2_PS0_(ptr
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %27 ]
   %28 = mul nuw nsw i64 %indvars.iv, %19
   %29 = add nuw nsw i64 %28, %indvars.iv24
-  %30 = getelementptr inbounds nuw float, ptr %10, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %29
   %31 = load float, ptr %30, align 4, !tbaa !4
-  %32 = getelementptr inbounds nuw float, ptr %12, i64 %29
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %29
   %33 = load float, ptr %32, align 4, !tbaa !4
   %34 = fsub float %31, %33
   %35 = mul nsw i64 %indvars.iv, %18
-  %gep = getelementptr float, ptr %invariant.gep, i64 %35
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %35
   store float %34, ptr %gep, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -1000,8 +1000,8 @@ _ZN24btInverseDynamicsBullet327isPositiveSemiDefiniteFuzzyERKNS_5mat33E.exit.thr
 
 111:                                              ; preds = %.preheader, %116
   %indvars.iv = phi i64 [ %indvars.iv.next, %116 ], [ 0, %.preheader ]
-  %112 = getelementptr inbounds nuw %class.btVector3, ptr %0, i64 %indvars.iv
-  %113 = getelementptr inbounds nuw float, ptr %112, i64 %indvars.iv
+  %112 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %indvars.iv
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %112, i64 %indvars.iv
   %114 = load float, ptr %113, align 4, !tbaa !4
   %115 = fcmp olt float %114, 0.000000e+00
   br i1 %115, label %117, label %116
@@ -1012,7 +1012,7 @@ _ZN24btInverseDynamicsBullet327isPositiveSemiDefiniteFuzzyERKNS_5mat33E.exit.thr
   br i1 %exitcond.not, label %122, label %111, !llvm.loop !33
 
 117:                                              ; preds = %111
-  %118 = getelementptr inbounds nuw float, ptr %112, i64 %indvars.iv
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %112, i64 %indvars.iv
   %119 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 415)
   %120 = load float, ptr %118, align 4, !tbaa !4
@@ -1078,13 +1078,13 @@ define dso_local noundef zeroext i1 @_ZN24btInverseDynamicsBullet322isValidTrans
 
 4:                                                ; preds = %1, %.critedge
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %.critedge ]
-  %5 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %6 = load float, ptr %5, align 4, !tbaa !4
-  %7 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %8 = load float, ptr %7, align 4, !tbaa !4
   %9 = fmul float %8, %8
   %10 = tail call float @llvm.fmuladd.f32(float %6, float %6, float %9)
-  %11 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %12 = load float, ptr %11, align 4, !tbaa !4
   %13 = tail call float @llvm.fmuladd.f32(float %12, float %12, float %10)
   %14 = fadd float %13, -1.000000e+00
@@ -1098,9 +1098,9 @@ define dso_local noundef zeroext i1 @_ZN24btInverseDynamicsBullet322isValidTrans
   br i1 %exitcond.not, label %53, label %4, !llvm.loop !34
 
 17:                                               ; preds = %4
-  %18 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
-  %19 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
-  %20 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %21 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef 462)
   %22 = load float, ptr %18, align 4, !tbaa !4

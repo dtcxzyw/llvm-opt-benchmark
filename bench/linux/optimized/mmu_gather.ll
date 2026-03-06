@@ -42,7 +42,7 @@ define dso_local void @tlb_flush_rmaps(ptr noundef captures(address) %0, ptr nou
   %15 = phi i32 [ %10, %12 ], [ %52, %51 ]
   %16 = phi i32 [ 0, %12 ], [ %53, %51 ]
   %17 = sext i32 %16 to i64
-  %18 = getelementptr ptr, ptr %13, i64 %17
+  %18 = getelementptr [8 x i8], ptr %13, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = ptrtoint ptr %19 to i64
   %21 = and i64 %20, 3
@@ -122,7 +122,7 @@ define dso_local void @tlb_flush_rmaps(ptr noundef captures(address) %0, ptr nou
   %65 = phi i32 [ %60, %62 ], [ %102, %101 ]
   %66 = phi i32 [ 0, %62 ], [ %103, %101 ]
   %67 = sext i32 %66 to i64
-  %68 = getelementptr ptr, ptr %63, i64 %67
+  %68 = getelementptr [8 x i8], ptr %63, i64 %67
   %69 = load ptr, ptr %68, align 8
   %70 = ptrtoint ptr %69 to i64
   %71 = and i64 %70, 3
@@ -202,7 +202,7 @@ define dso_local noundef zeroext i1 @__tlb_remove_page_size(ptr noundef captures
   %9 = add i32 %8, 1
   store i32 %9, ptr %7, align 8
   %10 = zext i32 %8 to i64
-  %11 = getelementptr ptr, ptr %6, i64 %10
+  %11 = getelementptr [8 x i8], ptr %6, i64 %10
   store ptr %1, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %13 = load i32, ptr %12, align 4
@@ -391,7 +391,7 @@ define dso_local void @tlb_remove_table(ptr noundef captures(none) %0, ptr nound
   %75 = add i32 %74, 1
   store i32 %75, ptr %73, align 8
   %76 = zext i32 %74 to i64
-  %77 = getelementptr ptr, ptr %72, i64 %76
+  %77 = getelementptr [8 x i8], ptr %72, i64 %76
   store ptr %1, ptr %77, align 8
   %78 = load ptr, ptr %3, align 8
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 16
@@ -619,7 +619,7 @@ define dso_local void @tlb_flush_mmu(ptr noundef %0) local_unnamed_addr #0 align
   %70 = tail call i32 @llvm.umin.i32(i32 %68, i32 512)
   tail call void @free_pages_and_swap_cache(ptr noundef %69, i32 noundef %70) #5
   %71 = zext nneg i32 %70 to i64
-  %72 = getelementptr ptr, ptr %69, i64 %71
+  %72 = getelementptr [8 x i8], ptr %69, i64 %71
   %73 = load i32, ptr %62, align 8
   %74 = sub i32 %73, %70
   store i32 %74, ptr %62, align 8
@@ -785,7 +785,7 @@ define internal void @tlb_remove_table_rcu(ptr noundef %0) #0 align 16 {
 7:                                                ; preds = %7, %5
   %8 = phi i32 [ 0, %5 ], [ %12, %7 ]
   %9 = sext i32 %8 to i64
-  %10 = getelementptr ptr, ptr %6, i64 %9
+  %10 = getelementptr [8 x i8], ptr %6, i64 %9
   %11 = load ptr, ptr %10, align 8
   tail call void @free_page_and_swap_cache(ptr noundef %11) #5
   %12 = add nuw i32 %8, 1

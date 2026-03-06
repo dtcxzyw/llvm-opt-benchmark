@@ -277,7 +277,7 @@ define internal fastcc noundef zeroext i1 @create_module_or_check_name(ptr nound
   %45 = load i32, ptr %.1.i, align 4
   %46 = add i32 %45, -1
   %47 = zext i32 %46 to i64
-  %48 = getelementptr inbounds nuw ptr, ptr %44, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %47
   store ptr %0, ptr %48, align 8
   br label %49
 
@@ -496,7 +496,7 @@ define dso_local void @unit_register_global_decl(ptr noundef %0, ptr noundef ini
   %41 = load i32, ptr %.1.i, align 4
   %42 = add i32 %41, -1
   %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds nuw ptr, ptr %40, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %43
   store ptr %1, ptr %44, align 8
   br label %428
 
@@ -509,7 +509,7 @@ define dso_local void @unit_register_global_decl(ptr noundef %0, ptr noundef ini
   %50 = load i32, ptr %49, align 4
   %51 = add i32 %50, -1
   %52 = zext i32 %51 to i64
-  %53 = getelementptr inbounds nuw ptr, ptr %48, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %52
   store ptr %1, ptr %53, align 8
   tail call void @decl_set_external_name(ptr noundef nonnull %1) #6
   tail call void @decl_register(ptr noundef nonnull %1)
@@ -576,7 +576,7 @@ define dso_local void @unit_register_global_decl(ptr noundef %0, ptr noundef ini
   %87 = load i32, ptr %.1.i196, align 4
   %88 = add i32 %87, -1
   %89 = zext i32 %88 to i64
-  %90 = getelementptr inbounds nuw ptr, ptr %86, i64 %89
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %89
   store ptr %1, ptr %90, align 8
   br label %428
 
@@ -589,7 +589,7 @@ define dso_local void @unit_register_global_decl(ptr noundef %0, ptr noundef ini
   %96 = load i32, ptr %95, align 4
   %97 = add i32 %96, -1
   %98 = zext i32 %97 to i64
-  %99 = getelementptr inbounds nuw ptr, ptr %94, i64 %98
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %98
   store ptr %1, ptr %99, align 8
   tail call void @decl_register(ptr noundef nonnull %1)
   br label %decl_register.exit
@@ -649,7 +649,7 @@ define dso_local void @unit_register_global_decl(ptr noundef %0, ptr noundef ini
   %130 = load i32, ptr %.1.i203, align 4
   %131 = add i32 %130, -1
   %132 = zext i32 %131 to i64
-  %133 = getelementptr inbounds nuw ptr, ptr %129, i64 %132
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %129, i64 %132
   store ptr %1, ptr %133, align 8
   tail call void @decl_set_external_name(ptr noundef nonnull %1) #6
   %134 = load i64, ptr %4, align 8
@@ -752,7 +752,7 @@ define dso_local void @unit_register_global_decl(ptr noundef %0, ptr noundef ini
   %171 = load i32, ptr %.1.i211, align 4
   %172 = add i32 %171, -1
   %173 = zext i32 %172 to i64
-  %174 = getelementptr inbounds nuw ptr, ptr %170, i64 %173
+  %174 = getelementptr inbounds nuw [8 x i8], ptr %170, i64 %173
   store ptr %1, ptr %174, align 8
   tail call void @decl_set_external_name(ptr noundef nonnull %1) #6
   %175 = load i64, ptr %4, align 8
@@ -855,7 +855,7 @@ define dso_local void @unit_register_global_decl(ptr noundef %0, ptr noundef ini
   %212 = load i32, ptr %.1.i220, align 4
   %213 = add i32 %212, -1
   %214 = zext i32 %213 to i64
-  %215 = getelementptr inbounds nuw ptr, ptr %211, i64 %214
+  %215 = getelementptr inbounds nuw [8 x i8], ptr %211, i64 %214
   store ptr %1, ptr %215, align 8
   tail call void @decl_set_external_name(ptr noundef nonnull %1) #6
   %216 = load i64, ptr %4, align 8
@@ -958,7 +958,7 @@ define dso_local void @unit_register_global_decl(ptr noundef %0, ptr noundef ini
   %253 = load i32, ptr %.1.i229, align 4
   %254 = add i32 %253, -1
   %255 = zext i32 %254 to i64
-  %256 = getelementptr inbounds nuw ptr, ptr %252, i64 %255
+  %256 = getelementptr inbounds nuw [8 x i8], ptr %252, i64 %255
   store ptr %1, ptr %256, align 8
   tail call void @decl_set_external_name(ptr noundef nonnull %1) #6
   %257 = load i64, ptr %4, align 8
@@ -1061,7 +1061,7 @@ define dso_local void @unit_register_global_decl(ptr noundef %0, ptr noundef ini
   %294 = load i32, ptr %.1.i238, align 4
   %295 = add i32 %294, -1
   %296 = zext i32 %295 to i64
-  %297 = getelementptr inbounds nuw ptr, ptr %293, i64 %296
+  %297 = getelementptr inbounds nuw [8 x i8], ptr %293, i64 %296
   store ptr %1, ptr %297, align 8
   %298 = load i64, ptr %4, align 8
   %299 = and i64 %298, 7168
@@ -1167,7 +1167,7 @@ define dso_local void @unit_register_global_decl(ptr noundef %0, ptr noundef ini
   %336 = load i32, ptr %.1.i247, align 4
   %337 = add i32 %336, -1
   %338 = zext i32 %337 to i64
-  %339 = getelementptr inbounds nuw ptr, ptr %335, i64 %338
+  %339 = getelementptr inbounds nuw [8 x i8], ptr %335, i64 %338
   store ptr %1, ptr %339, align 8
   br label %428
 
@@ -1226,7 +1226,7 @@ define dso_local void @unit_register_global_decl(ptr noundef %0, ptr noundef ini
   %370 = load i32, ptr %.1.i254, align 4
   %371 = add i32 %370, -1
   %372 = zext i32 %371 to i64
-  %373 = getelementptr inbounds nuw ptr, ptr %369, i64 %372
+  %373 = getelementptr inbounds nuw [8 x i8], ptr %369, i64 %372
   store ptr %1, ptr %373, align 8
   br label %428
 
@@ -1285,7 +1285,7 @@ define dso_local void @unit_register_global_decl(ptr noundef %0, ptr noundef ini
   %404 = load i32, ptr %.1.i261, align 4
   %405 = add i32 %404, -1
   %406 = zext i32 %405 to i64
-  %407 = getelementptr inbounds nuw ptr, ptr %403, i64 %406
+  %407 = getelementptr inbounds nuw [8 x i8], ptr %403, i64 %406
   store ptr %1, ptr %407, align 8
   br label %428
 
@@ -1468,7 +1468,7 @@ define dso_local noundef zeroext i1 @unit_add_import(ptr noundef captures(none) 
   %49 = load i32, ptr %.1.i, align 4
   %50 = add i32 %49, -1
   %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds nuw ptr, ptr %48, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %51
   store ptr %11, ptr %52, align 8
   br label %53
 

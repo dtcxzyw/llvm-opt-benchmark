@@ -64,7 +64,7 @@ define hidden noundef zeroext i1 @_mi_arena_segment_clear_abandoned(ptr noundef 
   %8 = add nsw i32 %.sroa.4.0.copyload, -1
   %9 = select i1 %7, i32 132, i32 %8
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr @mi_arenas, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @mi_arenas, i64 %10
   %12 = load atomic i64, ptr %11 acquire, align 8
   %13 = inttoptr i64 %12 to ptr
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 176
@@ -189,7 +189,7 @@ define hidden zeroext i1 @mi_arena_memid_indices(ptr noundef readonly byval(%str
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden ptr @mi_arena_from_index(i64 noundef %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds nuw ptr, ptr @mi_arenas, i64 %0
+  %2 = getelementptr inbounds nuw [8 x i8], ptr @mi_arenas, i64 %0
   %3 = load atomic i64, ptr %2 acquire, align 8
   %4 = inttoptr i64 %3 to ptr
   ret ptr %4
@@ -220,7 +220,7 @@ define hidden void @_mi_arena_segment_mark_abandoned(ptr noundef %0) local_unnam
   %8 = add nsw i32 %.sroa.4.0.copyload, -1
   %9 = select i1 %7, i32 132, i32 %8
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr @mi_arenas, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @mi_arenas, i64 %10
   %12 = load atomic i64, ptr %11 acquire, align 8
   %13 = inttoptr i64 %12 to ptr
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -432,7 +432,7 @@ define hidden ptr @_mi_arena_segment_clear_abandoned_next(ptr noundef captures(n
 
 18:                                               ; preds = %16, %14
   %19 = phi i64 [ %17, %16 ], [ %15, %14 ]
-  %20 = getelementptr inbounds nuw ptr, ptr @mi_arenas, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr @mi_arenas, i64 %19
   %21 = load atomic i64, ptr %20 acquire, align 8
   %22 = inttoptr i64 %21 to ptr
   %.not73.i = icmp eq i64 %21, 0
@@ -455,7 +455,7 @@ define hidden ptr @_mi_arena_segment_clear_abandoned_next(ptr noundef captures(n
   %.156114.i = phi i64 [ %.055116.i, %.lr.ph.i ], [ 0, %.loopexit.i ]
   %.063113.i = phi i8 [ 0, %.lr.ph.i ], [ %.467.ph.i, %.loopexit.i ]
   %30 = load ptr, ptr %26, align 8, !tbaa !15
-  %31 = getelementptr inbounds nuw i64, ptr %30, i64 %.154115.i
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.154115.i
   %32 = load atomic i64, ptr %31 monotonic, align 8
   %.not74.i = icmp eq i64 %32, 0
   br i1 %.not74.i, label %.loopexit.i, label %33, !prof !14
@@ -778,7 +778,7 @@ _mi_arena_field_cursor_init.exit:                 ; preds = %22, %24
   %35 = add nsw i32 %.sroa.4.0.copyload.i, -1
   %36 = select i1 %34, i32 132, i32 %35
   %37 = zext nneg i32 %36 to i64
-  %38 = getelementptr inbounds nuw ptr, ptr @mi_arenas, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr @mi_arenas, i64 %37
   %39 = load atomic i64, ptr %38 acquire, align 8
   %40 = inttoptr i64 %39 to ptr
   %41 = getelementptr inbounds nuw i8, ptr %26, i64 40
@@ -1158,7 +1158,7 @@ define internal fastcc ptr @mi_arena_try_alloc_at_id(i32 noundef %0, i1 noundef 
   %12 = add nsw i32 %0, -1
   %13 = select i1 %11, i32 132, i32 %12
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr @mi_arenas, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr @mi_arenas, i64 %14
   %16 = load atomic i64, ptr %15 acquire, align 8
   %17 = inttoptr i64 %16 to ptr
   %18 = icmp eq i64 %16, 0
@@ -1249,7 +1249,7 @@ define hidden ptr @mi_arena_area(i32 noundef %0, ptr noundef writeonly captures(
 
 9:                                                ; preds = %4
   %10 = zext nneg i32 %7 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr @mi_arenas, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @mi_arenas, i64 %10
   %12 = load atomic i64, ptr %11 acquire, align 8
   %13 = inttoptr i64 %12 to ptr
   %14 = icmp eq i64 %12, 0
@@ -1315,7 +1315,7 @@ define hidden void @_mi_arena_free(ptr noundef %0, i64 noundef %1, i64 noundef %
   %21 = add nsw i32 %.sroa.4.0.copyload, -1
   %22 = select i1 %20, i32 132, i32 %21
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr @mi_arenas, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr @mi_arenas, i64 %23
   %25 = load atomic i64, ptr %24 acquire, align 8
   %26 = inttoptr i64 %25 to ptr
   %27 = add i64 %1, 4194303
@@ -1476,7 +1476,7 @@ define internal fastcc void @mi_arenas_try_purge(i1 noundef zeroext %0, i1 nound
 26:                                               ; preds = %20, %mi_arena_try_purge.exit.thread
   %.03151 = phi i64 [ %21, %20 ], [ %.2.ph, %mi_arena_try_purge.exit.thread ]
   %.03350 = phi i64 [ 0, %20 ], [ %129, %mi_arena_try_purge.exit.thread ]
-  %27 = getelementptr inbounds nuw ptr, ptr @mi_arenas, i64 %.03350
+  %27 = getelementptr inbounds nuw [8 x i8], ptr @mi_arenas, i64 %.03350
   %28 = load atomic i64, ptr %27 acquire, align 8
   %.not = icmp eq i64 %28, 0
   br i1 %.not, label %mi_arena_try_purge.exit.thread, label %29
@@ -1522,7 +1522,7 @@ define internal fastcc void @mi_arenas_try_purge(i1 noundef zeroext %0, i1 nound
   %.05586.i = phi i1 [ true, %.lr.ph88.i ], [ %.156.i, %.loopexit.i ]
   %.06285.i = phi i64 [ 0, %.lr.ph88.i ], [ %116, %.loopexit.i ]
   %50 = load ptr, ptr %44, align 8, !tbaa !59
-  %51 = getelementptr inbounds nuw i64, ptr %50, i64 %.06285.i
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %.06285.i
   %52 = load atomic i64, ptr %51 monotonic, align 8
   %.not.i = icmp eq i64 %52, 0
   br i1 %.not.i, label %.loopexit.i, label %.preheader74.i
@@ -1574,7 +1574,7 @@ define internal fastcc void @mi_arenas_try_purge(i1 noundef zeroext %0, i1 nound
 
 66:                                               ; preds = %.lr.ph.i
   %67 = load ptr, ptr %44, align 8, !tbaa !59
-  %68 = getelementptr inbounds nuw i64, ptr %67, i64 %.06285.i
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %.06285.i
   %69 = load atomic i64, ptr %68 acquire, align 8
   %70 = add i64 %.16079.i, %.06181.i
   %71 = icmp ult i64 %.06181.i, %70
@@ -1733,7 +1733,7 @@ define hidden void @_mi_arena_unsafe_destroy_all() local_unnamed_addr #0 {
 .lr.ph.i:                                         ; preds = %0, %_mi_arena_meta_free.exit.i
   %.028.i = phi i64 [ %.1.i, %_mi_arena_meta_free.exit.i ], [ 0, %0 ]
   %.02226.i = phi i64 [ %27, %_mi_arena_meta_free.exit.i ], [ 0, %0 ]
-  %2 = getelementptr inbounds nuw ptr, ptr @mi_arenas, i64 %.02226.i
+  %2 = getelementptr inbounds nuw [8 x i8], ptr @mi_arenas, i64 %.02226.i
   %3 = load atomic i64, ptr %2 acquire, align 8
   %4 = inttoptr i64 %3 to ptr
   %.not.i = icmp eq i64 %3, 0
@@ -1800,7 +1800,7 @@ define hidden noundef zeroext i1 @_mi_arena_contains(ptr noundef readnone captur
 
 .lr.ph:                                           ; preds = %1, %.critedge
   %.01525 = phi i64 [ %16, %.critedge ], [ 0, %1 ]
-  %3 = getelementptr inbounds nuw ptr, ptr @mi_arenas, i64 %.01525
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @mi_arenas, i64 %.01525
   %4 = load atomic i64, ptr %3 monotonic, align 8
   %5 = inttoptr i64 %4 to ptr
   %.not = icmp eq i64 %4, 0
@@ -1991,7 +1991,7 @@ mi_arena_static_zalloc.exit.i:                    ; preds = %46
   %76 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 96
   %77 = call i32 @pthread_mutex_init(ptr noundef nonnull %76, ptr noundef null) #20
   %78 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 184
-  %79 = getelementptr inbounds nuw i64, ptr %78, i64 %29
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %29
   %80 = getelementptr inbounds nuw i8, ptr %.0.i.ph, i64 152
   store ptr %79, ptr %80, align 8, !tbaa !81
   %.idx = shl nuw nsw i64 %29, 4
@@ -2054,7 +2054,7 @@ mi_arena_static_zalloc.exit.i:                    ; preds = %46
   %111 = trunc nuw nsw i64 %106 to i32
   %112 = add nuw nsw i32 %111, 1
   store i32 %112, ptr %.0.i.ph, align 8, !tbaa !53
-  %113 = getelementptr inbounds nuw ptr, ptr @mi_arenas, i64 %106
+  %113 = getelementptr inbounds nuw [8 x i8], ptr @mi_arenas, i64 %106
   %114 = ptrtoint ptr %.0.i.ph to i64
   store atomic i64 %114, ptr %113 release, align 8
   br i1 %.not, label %_mi_arena_meta_zalloc.exit, label %115
@@ -2163,7 +2163,7 @@ define hidden void @mi_debug_show_arenas() local_unnamed_addr #0 {
 6:                                                ; preds = %.lr.ph, %58
   %.044 = phi i64 [ 0, %.lr.ph ], [ %37, %58 ]
   %.02043 = phi i64 [ 0, %.lr.ph ], [ %59, %58 ]
-  %7 = getelementptr inbounds nuw ptr, ptr @mi_arenas, i64 %.02043
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @mi_arenas, i64 %.02043
   %8 = load atomic i64, ptr %7 monotonic, align 8
   %.not24 = icmp eq i64 %8, 0
   br i1 %.not24, label %.thread, label %9
@@ -2191,7 +2191,7 @@ define hidden void @mi_debug_show_arenas() local_unnamed_addr #0 {
   %.0245.i = phi i64 [ %.3.i, %24 ], [ 0, %9 ]
   %.0264.i = phi i64 [ %26, %24 ], [ 0, %9 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %22 = getelementptr inbounds nuw i64, ptr %20, i64 %.0264.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.0264.i
   %23 = load atomic i64, ptr %22 monotonic, align 8
   br label %27
 
@@ -2251,7 +2251,7 @@ mi_debug_show_bitmap.exit:                        ; preds = %24, %9
   %.0245.i28 = phi i64 [ %.3.i34, %45 ], [ 0, %40 ]
   %.0264.i29 = phi i64 [ %47, %45 ], [ 0, %40 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %43 = getelementptr inbounds nuw i64, ptr %39, i64 %.0264.i29
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %.0264.i29
   %44 = load atomic i64, ptr %43 monotonic, align 8
   br label %48
 

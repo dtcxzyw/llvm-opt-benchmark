@@ -3,13 +3,6 @@ source_filename = "bench/opencv/original/tracker_feature_set.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"class.cv::Mat" = type { i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, %"struct.cv::MatSize", %"struct.cv::MatStep" }
-%"struct.cv::MatSize" = type { ptr }
-%"struct.cv::MatStep" = type { ptr, [2 x i64] }
-%"struct.cv::Ptr" = type { %"class.std::shared_ptr" }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -199,7 +192,7 @@ _ZN2cv6detail8tracking17TrackerFeatureSet14clearResponsesEv.exit: ; preds = %2, 
   br i1 %25, label %26, label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds nuw %"class.cv::Mat", ptr %8, i64 %16
+  %27 = getelementptr inbounds nuw [96 x i8], ptr %8, i64 %16
   %.not.i.i = icmp eq ptr %4, %27
   br i1 %.not.i.i, label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -226,10 +219,10 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit:     ; preds = %22, %24, %26, %_ZSt
 .lr.ph:                                           ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit, %.lr.ph
   %31 = phi ptr [ %38, %.lr.ph ], [ %30, %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit ]
   %.05 = phi i64 [ %36, %.lr.ph ], [ 0, %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit ]
-  %32 = getelementptr inbounds nuw %"struct.cv::Ptr", ptr %31, i64 %.05
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %.05
   %33 = load ptr, ptr %32, align 8, !tbaa !38
   %34 = load ptr, ptr %3, align 8, !tbaa !19
-  %35 = getelementptr inbounds nuw %"class.cv::Mat", ptr %34, i64 %.05
+  %35 = getelementptr inbounds nuw [96 x i8], ptr %34, i64 %.05
   tail call void @_ZN2cv6detail8tracking14TrackerFeature7computeERKSt6vectorINS_3MatESaIS4_EERS4_(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(96) %35)
   %36 = add nuw i64 %.05, 1
   %37 = load ptr, ptr %10, align 8, !tbaa !24
@@ -560,9 +553,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.
 
 _ZNSt12_Vector_baseIN2cv3MatESaIS1_EE13_M_deallocateEPS1_m.exit38: ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %33
   store ptr %27, ptr %0, align 8, !tbaa !19
-  %34 = getelementptr inbounds nuw %"class.cv::Mat", ptr %28, i64 %1
+  %34 = getelementptr inbounds nuw [96 x i8], ptr %28, i64 %1
   store ptr %34, ptr %4, align 8, !tbaa !20
-  %35 = getelementptr inbounds nuw %"class.cv::Mat", ptr %27, i64 %25
+  %35 = getelementptr inbounds nuw [96 x i8], ptr %27, i64 %25
   store ptr %35, ptr %11, align 8, !tbaa !50
   br label %36
 
@@ -695,7 +688,7 @@ _ZNSt12_Vector_baseIN2cv3PtrINS0_6detail8tracking14TrackerFeatureEEESaIS5_EE13_M
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !23
   store ptr %.0.lcssa.i.i.i.i21, ptr %4, align 8, !tbaa !24
-  %49 = getelementptr inbounds nuw %"struct.cv::Ptr", ptr %20, i64 %16
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %49, ptr %48, align 8, !tbaa !49
   ret void
 }

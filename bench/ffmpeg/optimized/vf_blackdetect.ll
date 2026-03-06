@@ -180,7 +180,7 @@ av_ts_make_string.exit:                           ; preds = %62, %63
 77:                                               ; preds = %.lr.ph, %77
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %77 ]
   %78 = phi i32 [ %.promoted, %.lr.ph ], [ %81, %77 ]
-  %79 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %indvars.iv
   %80 = load i32, ptr %79, align 4, !tbaa !55
   %81 = add i32 %78, %80
   store i32 %81, ptr %48, align 4, !tbaa !47
@@ -392,7 +392,7 @@ define internal noundef i32 @black_counter(ptr noundef readonly captures(none) %
 51:                                               ; preds = %.preheader54.us, %51
   %indvars.iv = phi i64 [ 0, %.preheader54.us ], [ %indvars.iv.next, %51 ]
   %.456.us = phi i32 [ %.358.us, %.preheader54.us ], [ %57, %51 ]
-  %52 = getelementptr inbounds nuw i16, ptr %.04959.us, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %.04959.us, i64 %indvars.iv
   %53 = load i16, ptr %52, align 2, !tbaa !73
   %54 = zext i16 %53 to i32
   %55 = icmp uge i32 %8, %54
@@ -403,7 +403,7 @@ define internal noundef i32 @black_counter(ptr noundef readonly captures(none) %
   br i1 %exitcond.not, label %._crit_edge.us, label %51, !llvm.loop !75
 
 ._crit_edge.us:                                   ; preds = %51
-  %58 = getelementptr inbounds i16, ptr %.04959.us, i64 %46
+  %58 = getelementptr inbounds [2 x i8], ptr %.04959.us, i64 %46
   %59 = add nuw nsw i32 %.04860.us, 1
   %exitcond76.not = icmp eq i32 %59, %22
   br i1 %exitcond76.not, label %.loopexit, label %.preheader54.us, !llvm.loop !76
@@ -411,7 +411,7 @@ define internal noundef i32 @black_counter(ptr noundef readonly captures(none) %
 .loopexit:                                        ; preds = %._crit_edge.us, %._crit_edge.us68, %.preheader54.lr.ph, %.preheader.lr.ph, %43, %27
   %.2 = phi i32 [ 0, %.preheader54.lr.ph ], [ 0, %27 ], [ %40, %._crit_edge.us68 ], [ 0, %43 ], [ 0, %.preheader.lr.ph ], [ %57, %._crit_edge.us ]
   %60 = sext i32 %2 to i64
-  %61 = getelementptr inbounds i32, ptr %10, i64 %60
+  %61 = getelementptr inbounds [4 x i8], ptr %10, i64 %60
   store i32 %.2, ptr %61, align 4, !tbaa !55
   ret i32 0
 }

@@ -132,7 +132,7 @@ define ptr @X509_NAME_oneline(ptr noundef readonly captures(address_is_null) %0,
 
 63:                                               ; preds = %.lr.ph
   %64 = and i64 %indvars.iv, 3
-  %65 = getelementptr inbounds nuw i32, ptr %4, i64 %64
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %64
   store i32 1, ptr %65, align 4, !tbaa !25
   br label %66
 
@@ -183,7 +183,7 @@ define ptr @X509_NAME_oneline(ptr noundef readonly captures(address_is_null) %0,
   %indvars.iv184 = phi i64 [ 0, %.lr.ph165.preheader ], [ %indvars.iv.next185, %84 ]
   %.0116162 = phi i32 [ 0, %.lr.ph165.preheader ], [ %.1117, %84 ]
   %74 = and i64 %indvars.iv184, 3
-  %75 = getelementptr inbounds nuw i32, ptr %4, i64 %74
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %74
   %76 = load i32, ptr %75, align 4, !tbaa !25
   %.not137 = icmp eq i32 %76, 0
   br i1 %.not137, label %84, label %77
@@ -269,7 +269,7 @@ define ptr @X509_NAME_oneline(ptr noundef readonly captures(address_is_null) %0,
   %indvars.iv189 = phi i64 [ 0, %.lr.ph170.preheader ], [ %indvars.iv.next190, %130 ]
   %.1107168 = phi ptr [ %108, %.lr.ph170.preheader ], [ %.2108, %130 ]
   %112 = and i64 %indvars.iv189, 3
-  %113 = getelementptr inbounds nuw i32, ptr %4, i64 %112
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %112
   %114 = load i32, ptr %113, align 4, !tbaa !25
   %.not136 = icmp eq i32 %114, 0
   br i1 %.not136, label %130, label %115

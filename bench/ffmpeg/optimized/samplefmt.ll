@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 define ptr @av_get_sample_fmt_name(i32 noundef %0) local_unnamed_addr #0 {
   %or.cond = icmp ugt i32 %0, 11
   %2 = zext nneg i32 %0 to i64
-  %3 = getelementptr inbounds nuw %struct.SampleFmtInfo, ptr @sample_fmt_info, i64 %2
+  %3 = getelementptr inbounds nuw [20 x i8], ptr @sample_fmt_info, i64 %2
   %.0 = select i1 %or.cond, ptr null, ptr %3
   ret ptr %.0
 }
@@ -24,7 +24,7 @@ define range(i32 -1, 12) i32 @av_get_sample_fmt(ptr noundef readonly captures(no
 
 2:                                                ; preds = %1, %5
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %5 ]
-  %3 = getelementptr inbounds nuw %struct.SampleFmtInfo, ptr @sample_fmt_info, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [20 x i8], ptr @sample_fmt_info, i64 %indvars.iv
   %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %0) #14
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.split.loop.exit8, label %5
@@ -53,7 +53,7 @@ define i32 @av_get_alt_sample_fmt(i32 noundef %0, i32 noundef %1) local_unnamed_
 
 3:                                                ; preds = %2
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw %struct.SampleFmtInfo, ptr @sample_fmt_info, i64 %4
+  %5 = getelementptr inbounds nuw [20 x i8], ptr @sample_fmt_info, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %7 = load i32, ptr %6, align 4, !tbaa !6
   %8 = icmp eq i32 %7, %1
@@ -82,7 +82,7 @@ define i32 @av_get_packed_sample_fmt(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %.not.not, label %6, label %10
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds nuw %struct.SampleFmtInfo, ptr @sample_fmt_info, i64 %3
+  %7 = getelementptr inbounds nuw [20 x i8], ptr @sample_fmt_info, i64 %3
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i32, ptr %8, align 4, !tbaa !11
   br label %10
@@ -105,7 +105,7 @@ define i32 @av_get_planar_sample_fmt(i32 noundef %0) local_unnamed_addr #0 {
   br i1 %.not.not, label %10, label %6
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds nuw %struct.SampleFmtInfo, ptr @sample_fmt_info, i64 %3
+  %7 = getelementptr inbounds nuw [20 x i8], ptr @sample_fmt_info, i64 %3
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i32, ptr %8, align 4, !tbaa !11
   br label %10
@@ -133,7 +133,7 @@ define noundef ptr @av_get_sample_fmt_string(ptr noundef returned writeonly capt
 11:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %12 = zext nneg i32 %2 to i64
-  %13 = getelementptr inbounds nuw %struct.SampleFmtInfo, ptr @sample_fmt_info, i64 %12
+  %13 = getelementptr inbounds nuw [20 x i8], ptr @sample_fmt_info, i64 %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %4, ptr noundef nonnull align 4 dereferenceable(20) %13, i64 20, i1 false), !tbaa.struct !12
   %14 = sext i32 %1 to i64
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -159,7 +159,7 @@ define range(i32 -268435456, 268435456) i32 @av_get_bytes_per_sample(i32 noundef
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw %struct.SampleFmtInfo, ptr @sample_fmt_info, i64 %3
+  %4 = getelementptr inbounds nuw [20 x i8], ptr @sample_fmt_info, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 4, !tbaa !15
   %7 = ashr i32 %6, 3
@@ -177,7 +177,7 @@ define i32 @av_sample_fmt_is_planar(i32 noundef %0) local_unnamed_addr #0 {
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw %struct.SampleFmtInfo, ptr @sample_fmt_info, i64 %3
+  %4 = getelementptr inbounds nuw [20 x i8], ptr @sample_fmt_info, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 12
   %6 = load i32, ptr %5, align 4, !tbaa !6
   br label %7
@@ -194,7 +194,7 @@ define i32 @av_samples_get_buffer_size(ptr noundef writeonly captures(address_is
 
 av_sample_fmt_is_planar.exit:                     ; preds = %5
   %6 = zext nneg i32 %3 to i64
-  %7 = getelementptr inbounds nuw %struct.SampleFmtInfo, ptr @sample_fmt_info, i64 %6
+  %7 = getelementptr inbounds nuw [20 x i8], ptr @sample_fmt_info, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i32, ptr %8, align 4, !tbaa !15
   %10 = ashr i32 %9, 3
@@ -271,7 +271,7 @@ define i32 @av_samples_fill_arrays(ptr noundef captures(none) %0, ptr noundef wr
 
 av_sample_fmt_is_planar.exit.i:                   ; preds = %7
   %8 = zext nneg i32 %5 to i64
-  %9 = getelementptr inbounds nuw %struct.SampleFmtInfo, ptr @sample_fmt_info, i64 %8
+  %9 = getelementptr inbounds nuw [20 x i8], ptr @sample_fmt_info, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i32, ptr %10, align 4, !tbaa !15
   %12 = ashr i32 %11, 3
@@ -361,7 +361,7 @@ av_samples_get_buffer_size.exit:                  ; preds = %25
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.lr.ph.split
   %store_forwarded = phi ptr [ %load_initial, %.lr.ph.split.preheader ], [ %56, %.lr.ph.split ]
   %indvars.iv = phi i64 [ 1, %.lr.ph.split.preheader ], [ %indvars.iv.next, %.lr.ph.split ]
-  %55 = getelementptr ptr, ptr %0, i64 %indvars.iv
+  %55 = getelementptr [8 x i8], ptr %0, i64 %indvars.iv
   %56 = getelementptr inbounds i8, ptr %store_forwarded, i64 %54
   store ptr %56, ptr %55, align 8, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -383,7 +383,7 @@ define i32 @av_samples_alloc(ptr noundef captures(none) %0, ptr noundef writeonl
 
 av_sample_fmt_is_planar.exit.i:                   ; preds = %6
   %7 = zext nneg i32 %4 to i64
-  %8 = getelementptr inbounds nuw %struct.SampleFmtInfo, ptr @sample_fmt_info, i64 %7
+  %8 = getelementptr inbounds nuw [20 x i8], ptr @sample_fmt_info, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i32, ptr %9, align 4, !tbaa !15
   %11 = ashr i32 %10, 3
@@ -514,7 +514,7 @@ av_samples_get_buffer_size.exit.i:                ; preds = %54
 .lr.ph.split.i:                                   ; preds = %.lr.ph.split.i, %.lr.ph.split.preheader.i
   %store_forwarded = phi ptr [ %load_initial, %.lr.ph.split.preheader.i ], [ %79, %.lr.ph.split.i ]
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.split.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.split.i ]
-  %78 = getelementptr ptr, ptr %0, i64 %indvars.iv.i
+  %78 = getelementptr [8 x i8], ptr %0, i64 %indvars.iv.i
   %79 = getelementptr inbounds i8, ptr %store_forwarded, i64 %77
   store ptr %79, ptr %78, align 8, !tbaa !16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -543,7 +543,7 @@ av_get_bytes_per_sample.exit.i:                   ; preds = %.lr.ph.split.i, %70
 
 89:                                               ; preds = %89, %av_get_bytes_per_sample.exit.i
   %indvars.iv.i31 = phi i64 [ 0, %av_get_bytes_per_sample.exit.i ], [ %indvars.iv.next.i32, %89 ]
-  %90 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.i31
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i31
   %91 = load ptr, ptr %90, align 8, !tbaa !16
   tail call void @llvm.memset.p0.i64(ptr align 1 %91, i8 %87, i64 %88, i1 false)
   %indvars.iv.next.i32 = add nuw nsw i64 %indvars.iv.i31, 1
@@ -569,7 +569,7 @@ av_get_bytes_per_sample.exit:                     ; preds = %5
   %7 = lshr i64 1055, %6
   %.fr = freeze i64 %7
   %.not = trunc i64 %.fr to i1
-  %8 = getelementptr inbounds nuw %struct.SampleFmtInfo, ptr @sample_fmt_info, i64 %6
+  %8 = getelementptr inbounds nuw [20 x i8], ptr @sample_fmt_info, i64 %6
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i32, ptr %9, align 4, !tbaa !15
   %11 = ashr i32 %10, 3
@@ -597,7 +597,7 @@ av_get_bytes_per_sample.exit.thread:              ; preds = %av_get_bytes_per_sa
 
 24:                                               ; preds = %.lr.ph, %24
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
-  %25 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8, !tbaa !16
   %27 = getelementptr inbounds i8, ptr %26, i64 %21
   tail call void @llvm.memset.p0.i64(ptr align 1 %27, i8 %22, i64 %23, i1 false)
@@ -653,7 +653,7 @@ av_get_bytes_per_sample.exit:                     ; preds = %7
   %.fr = freeze i64 %9
   %.not = trunc i64 %.fr to i1
   %10 = select i1 %.not, i32 1, i32 %5
-  %11 = getelementptr inbounds nuw %struct.SampleFmtInfo, ptr @sample_fmt_info, i64 %8
+  %11 = getelementptr inbounds nuw [20 x i8], ptr @sample_fmt_info, i64 %8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i32, ptr %12, align 4, !tbaa !15
   %14 = ashr i32 %13, 3
@@ -700,10 +700,10 @@ av_get_bytes_per_sample.exit.thread:              ; preds = %av_get_bytes_per_sa
 
 35:                                               ; preds = %.lr.ph, %35
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %35 ]
-  %36 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8, !tbaa !16
   %38 = getelementptr inbounds i8, ptr %37, i64 %31
-  %39 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %40 = load ptr, ptr %39, align 8, !tbaa !16
   %41 = getelementptr inbounds i8, ptr %40, i64 %32
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %38, ptr align 1 %41, i64 %29, i1 false)
@@ -713,10 +713,10 @@ av_get_bytes_per_sample.exit.thread:              ; preds = %av_get_bytes_per_sa
 
 42:                                               ; preds = %.lr.ph55, %42
   %indvars.iv58 = phi i64 [ 0, %.lr.ph55 ], [ %indvars.iv.next59, %42 ]
-  %43 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv58
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv58
   %44 = load ptr, ptr %43, align 8, !tbaa !16
   %45 = getelementptr inbounds i8, ptr %44, i64 %33
-  %46 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv58
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv58
   %47 = load ptr, ptr %46, align 8, !tbaa !16
   %48 = getelementptr inbounds i8, ptr %47, i64 %34
   tail call void @llvm.memmove.p0.p0.i64(ptr align 1 %45, ptr align 1 %48, i64 %29, i1 false)

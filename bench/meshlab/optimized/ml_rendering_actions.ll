@@ -31,8 +31,6 @@ module asm ".previous"
 %"struct.QVariant::Private" = type <{ %"union.QVariant::Private::Data", i32, [4 x i8] }>
 %"union.QVariant::Private::Data" = type { i64 }
 %"class.vcg::GLMeshAttributesInfo::RenderingAtts" = type { [7 x i8] }
-%"class.vcg::GLMeshAttributesInfo::InternalRendAtts" = type { %"class.vcg::GLMeshAttributesInfo::RenderingAtts.21" }
-%"class.vcg::GLMeshAttributesInfo::RenderingAtts.21" = type { [9 x i8] }
 %"class.std::allocator.22" = type { i8 }
 %class.QIcon = type { ptr }
 %class.QString = type { ptr }
@@ -40,7 +38,6 @@ module asm ".previous"
 %"struct.vcg::RenderingModalityGLOptions.base" = type <{ ptr, i8, i8, i8, i8, i8, %"class.vcg::Color4", %"class.vcg::Color4", %"class.vcg::Color4", %"class.vcg::Color4", i8, i8, i8, i8, i8, i8, i8, i8, [3 x i8], float, i8, i8, [2 x i8], float }>
 %"class.vcg::Color4" = type { %"class.vcg::Point4" }
 %"class.vcg::Point4" = type { [4 x i8] }
-%"struct.QList<MLRenderingAction *>::Node" = type { ptr }
 %"struct.std::pair" = type { i32, %"class.std::vector.5" }
 %"class.std::vector.5" = type { %"struct.std::_Vector_base.6" }
 %"struct.std::_Vector_base.6" = type { %"struct.std::_Vector_base<vcg::Color4<unsigned char>, std::allocator<vcg::Color4<unsigned char>>>::_Vector_impl" }
@@ -777,7 +774,7 @@ define noundef zeroext i1 @_ZNK17MLRenderingAction22isRenderingDataEnabledEN3vcg
   br i1 %.not.i, label %16, label %.loopexit
 
 16:                                               ; preds = %4
-  %17 = getelementptr inbounds nuw %"class.vcg::GLMeshAttributesInfo::InternalRendAtts", ptr %11, i64 %7
+  %17 = getelementptr inbounds nuw [9 x i8], ptr %11, i64 %7
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %5, i8 0, i64 7, i1 false), !alias.scope !10
   br label %18
@@ -8336,7 +8333,7 @@ define void @_ZN33MLRenderingUserDefinedColorAction9readColorERK15MLRenderingDat
 
 switch.lookup:                                    ; preds = %6
   %10 = zext nneg i32 %8 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN33MLRenderingUserDefinedColorAction9readColorERK15MLRenderingDataRN3vcg6Color4IhEE, i64 %10
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN33MLRenderingUserDefinedColorAction9readColorERK15MLRenderingDataRN3vcg6Color4IhEE, i64 %10
   %switch.load = load i64, ptr %switch.gep, align 8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 %switch.load
   %12 = load i32, ptr %11, align 1
@@ -15611,14 +15608,14 @@ define linkonce_odr void @_ZN5QListIP17MLRenderingActionE6appendERKS1_(ptr nound
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds ptr, ptr %8, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %8, i64 %11
   %13 = call noundef ptr @_ZN9QListData11detach_growEPii(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %3, i32 noundef 1)
   %14 = load ptr, ptr %0, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %17 = load i32, ptr %16, align 8
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds ptr, ptr %15, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %15, i64 %18
   %.not.i.i = icmp ne ptr %12, %19
   %.pre18.i = load i32, ptr %3, align 4
   %20 = icmp sgt i32 %.pre18.i, 0
@@ -15646,7 +15643,7 @@ _ZN5QListIP17MLRenderingActionE9node_copyEPNS2_4NodeES4_S4_.exit.i: ; preds = %2
   %27 = add nsw i64 %.idx1215.i, %26
   %28 = shl nsw i64 %27, 3
   %29 = getelementptr inbounds i8, ptr %25, i64 %28
-  %30 = getelementptr inbounds %"struct.QList<MLRenderingAction *>::Node", ptr %12, i64 %26
+  %30 = getelementptr inbounds [8 x i8], ptr %12, i64 %26
   %.not.i6.i = icmp eq ptr %30, %29
   br i1 %.not.i6.i, label %_ZN5QListIP17MLRenderingActionE9node_copyEPNS2_4NodeES4_S4_.exit7.i, label %31
 
@@ -15685,10 +15682,10 @@ _ZN5QListIP17MLRenderingActionE18detach_helper_growEii.exit: ; preds = %_ZN5QLis
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %43 = load i32, ptr %42, align 8
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds ptr, ptr %41, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %41, i64 %44
   %46 = load i32, ptr %3, align 4
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds ptr, ptr %45, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %45, i64 %47
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %49 = load ptr, ptr %1, align 8
   store ptr %49, ptr %48, align 8

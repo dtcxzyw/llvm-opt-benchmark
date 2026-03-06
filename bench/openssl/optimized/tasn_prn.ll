@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.asn1_pctx_st = type { i64, i64, i64, i64, i64 }
 %struct.ASN1_PRINT_ARG_st = type { ptr, i32, ptr }
-%struct.ASN1_TEMPLATE_st = type { i64, i64, i64, ptr, ptr }
 
 @.str = private unnamed_addr constant [34 x i8] c"../openssl/crypto/asn1/tasn_prn.c\00", align 1
 @default_pctx = internal global %struct.asn1_pctx_st { i64 1, i64 0, i64 0, i64 0, i64 0 }, align 8
@@ -484,7 +483,7 @@ asn1_primitive_print.exit:                        ; preds = %79
 157:                                              ; preds = %150
   %158 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %159 = load ptr, ptr %158, align 8, !tbaa !32
-  %160 = getelementptr inbounds nuw %struct.ASN1_TEMPLATE_st, ptr %159, i64 %151
+  %160 = getelementptr inbounds nuw [40 x i8], ptr %159, i64 %151
   %161 = tail call ptr @ossl_asn1_get_const_field_ptr(ptr noundef nonnull %1, ptr noundef %160) #5
   %162 = tail call fastcc i32 @asn1_template_print_ctx(ptr noundef %0, ptr noundef %161, i32 noundef %2, ptr noundef %160, ptr noundef %7)
   %.not138 = icmp eq i32 %162, 0

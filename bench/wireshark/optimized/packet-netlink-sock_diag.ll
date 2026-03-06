@@ -831,7 +831,7 @@ define internal range(i32 0, 2) i32 @dissect_netlink_unix_sock_diag_reply_attrs(
 54:                                               ; preds = %54, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %54 ]
   %.0141.i = phi i32 [ %5, %.lr.ph.i ], [ %60, %54 ]
-  %55 = getelementptr ptr, ptr @dissect_sock_diag_meminfo.hfs, i64 %indvars.iv.i
+  %55 = getelementptr [8 x i8], ptr @dissect_sock_diag_meminfo.hfs, i64 %indvars.iv.i
   %56 = load ptr, ptr %55, align 8
   %57 = load i32, ptr %56, align 4
   %58 = load i32, ptr %49, align 4
@@ -1019,7 +1019,7 @@ define internal range(i32 0, 2) i32 @dissect_sock_diag_inet_attributes(ptr nound
 36:                                               ; preds = %36, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %36 ]
   %.0141.i = phi i32 [ %5, %.lr.ph.i ], [ %42, %36 ]
-  %37 = getelementptr ptr, ptr @dissect_sock_diag_meminfo.hfs, i64 %indvars.iv.i
+  %37 = getelementptr [8 x i8], ptr @dissect_sock_diag_meminfo.hfs, i64 %indvars.iv.i
   %38 = load ptr, ptr %37, align 8
   %39 = load i32, ptr %38, align 4
   %40 = load i32, ptr %31, align 4
@@ -1075,7 +1075,7 @@ define internal range(i32 0, 2) i32 @dissect_sock_diag_netlink_attributes(ptr no
 17:                                               ; preds = %17, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %17 ]
   %.0141.i = phi i32 [ %5, %.lr.ph.i ], [ %23, %17 ]
-  %18 = getelementptr ptr, ptr @dissect_sock_diag_meminfo.hfs, i64 %indvars.iv.i
+  %18 = getelementptr [8 x i8], ptr @dissect_sock_diag_meminfo.hfs, i64 %indvars.iv.i
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr %19, align 4
   %21 = load i32, ptr %12, align 4
@@ -1118,7 +1118,7 @@ define internal range(i32 0, 2) i32 @dissect_netlink_packet_sock_diag_reply_attr
 17:                                               ; preds = %17, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %17 ]
   %.0141.i = phi i32 [ %5, %.lr.ph.i ], [ %23, %17 ]
-  %18 = getelementptr ptr, ptr @dissect_sock_diag_meminfo.hfs, i64 %indvars.iv.i
+  %18 = getelementptr [8 x i8], ptr @dissect_sock_diag_meminfo.hfs, i64 %indvars.iv.i
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr %19, align 4
   %21 = load i32, ptr %12, align 4

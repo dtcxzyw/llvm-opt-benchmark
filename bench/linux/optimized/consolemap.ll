@@ -11,7 +11,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_con_copy_uni
 %struct.work_struct = type { %struct.atomic64_t, %struct.list_head, ptr }
 %struct.atomic64_t = type { i64 }
 %struct.list_head = type { ptr, ptr }
-%struct.unipair = type { i16, i16 }
 
 @inv_translate = internal unnamed_addr global [63 x i32] zeroinitializer, align 16
 @translations = internal global [4 x [256 x i16]] [[256 x i16] [i16 0, i16 1, i16 2, i16 3, i16 4, i16 5, i16 6, i16 7, i16 8, i16 9, i16 10, i16 11, i16 12, i16 13, i16 14, i16 15, i16 16, i16 17, i16 18, i16 19, i16 20, i16 21, i16 22, i16 23, i16 24, i16 25, i16 26, i16 27, i16 28, i16 29, i16 30, i16 31, i16 32, i16 33, i16 34, i16 35, i16 36, i16 37, i16 38, i16 39, i16 40, i16 41, i16 42, i16 43, i16 44, i16 45, i16 46, i16 47, i16 48, i16 49, i16 50, i16 51, i16 52, i16 53, i16 54, i16 55, i16 56, i16 57, i16 58, i16 59, i16 60, i16 61, i16 62, i16 63, i16 64, i16 65, i16 66, i16 67, i16 68, i16 69, i16 70, i16 71, i16 72, i16 73, i16 74, i16 75, i16 76, i16 77, i16 78, i16 79, i16 80, i16 81, i16 82, i16 83, i16 84, i16 85, i16 86, i16 87, i16 88, i16 89, i16 90, i16 91, i16 92, i16 93, i16 94, i16 95, i16 96, i16 97, i16 98, i16 99, i16 100, i16 101, i16 102, i16 103, i16 104, i16 105, i16 106, i16 107, i16 108, i16 109, i16 110, i16 111, i16 112, i16 113, i16 114, i16 115, i16 116, i16 117, i16 118, i16 119, i16 120, i16 121, i16 122, i16 123, i16 124, i16 125, i16 126, i16 127, i16 128, i16 129, i16 130, i16 131, i16 132, i16 133, i16 134, i16 135, i16 136, i16 137, i16 138, i16 139, i16 140, i16 141, i16 142, i16 143, i16 144, i16 145, i16 146, i16 147, i16 148, i16 149, i16 150, i16 151, i16 152, i16 153, i16 154, i16 155, i16 156, i16 157, i16 158, i16 159, i16 160, i16 161, i16 162, i16 163, i16 164, i16 165, i16 166, i16 167, i16 168, i16 169, i16 170, i16 171, i16 172, i16 173, i16 174, i16 175, i16 176, i16 177, i16 178, i16 179, i16 180, i16 181, i16 182, i16 183, i16 184, i16 185, i16 186, i16 187, i16 188, i16 189, i16 190, i16 191, i16 192, i16 193, i16 194, i16 195, i16 196, i16 197, i16 198, i16 199, i16 200, i16 201, i16 202, i16 203, i16 204, i16 205, i16 206, i16 207, i16 208, i16 209, i16 210, i16 211, i16 212, i16 213, i16 214, i16 215, i16 216, i16 217, i16 218, i16 219, i16 220, i16 221, i16 222, i16 223, i16 224, i16 225, i16 226, i16 227, i16 228, i16 229, i16 230, i16 231, i16 232, i16 233, i16 234, i16 235, i16 236, i16 237, i16 238, i16 239, i16 240, i16 241, i16 242, i16 243, i16 244, i16 245, i16 246, i16 247, i16 248, i16 249, i16 250, i16 251, i16 252, i16 253, i16 254, i16 255], [256 x i16] [i16 0, i16 1, i16 2, i16 3, i16 4, i16 5, i16 6, i16 7, i16 8, i16 9, i16 10, i16 11, i16 12, i16 13, i16 14, i16 15, i16 16, i16 17, i16 18, i16 19, i16 20, i16 21, i16 22, i16 23, i16 24, i16 25, i16 26, i16 27, i16 28, i16 29, i16 30, i16 31, i16 32, i16 33, i16 34, i16 35, i16 36, i16 37, i16 38, i16 39, i16 40, i16 41, i16 42, i16 8594, i16 8592, i16 8593, i16 8595, i16 47, i16 9608, i16 49, i16 50, i16 51, i16 52, i16 53, i16 54, i16 55, i16 56, i16 57, i16 58, i16 59, i16 60, i16 61, i16 62, i16 63, i16 64, i16 65, i16 66, i16 67, i16 68, i16 69, i16 70, i16 71, i16 72, i16 73, i16 74, i16 75, i16 76, i16 77, i16 78, i16 79, i16 80, i16 81, i16 82, i16 83, i16 84, i16 85, i16 86, i16 87, i16 88, i16 89, i16 90, i16 91, i16 92, i16 93, i16 94, i16 160, i16 9670, i16 9618, i16 9225, i16 9228, i16 9229, i16 9226, i16 176, i16 177, i16 9617, i16 9227, i16 9496, i16 9488, i16 9484, i16 9492, i16 9532, i16 9146, i16 9147, i16 9472, i16 9148, i16 9149, i16 9500, i16 9508, i16 9524, i16 9516, i16 9474, i16 8804, i16 8805, i16 960, i16 8800, i16 163, i16 183, i16 127, i16 128, i16 129, i16 130, i16 131, i16 132, i16 133, i16 134, i16 135, i16 136, i16 137, i16 138, i16 139, i16 140, i16 141, i16 142, i16 143, i16 144, i16 145, i16 146, i16 147, i16 148, i16 149, i16 150, i16 151, i16 152, i16 153, i16 154, i16 155, i16 156, i16 157, i16 158, i16 159, i16 160, i16 161, i16 162, i16 163, i16 164, i16 165, i16 166, i16 167, i16 168, i16 169, i16 170, i16 171, i16 172, i16 173, i16 174, i16 175, i16 176, i16 177, i16 178, i16 179, i16 180, i16 181, i16 182, i16 183, i16 184, i16 185, i16 186, i16 187, i16 188, i16 189, i16 190, i16 191, i16 192, i16 193, i16 194, i16 195, i16 196, i16 197, i16 198, i16 199, i16 200, i16 201, i16 202, i16 203, i16 204, i16 205, i16 206, i16 207, i16 208, i16 209, i16 210, i16 211, i16 212, i16 213, i16 214, i16 215, i16 216, i16 217, i16 218, i16 219, i16 220, i16 221, i16 222, i16 223, i16 224, i16 225, i16 226, i16 227, i16 228, i16 229, i16 230, i16 231, i16 232, i16 233, i16 234, i16 235, i16 236, i16 237, i16 238, i16 239, i16 240, i16 241, i16 242, i16 243, i16 244, i16 245, i16 246, i16 247, i16 248, i16 249, i16 250, i16 251, i16 252, i16 253, i16 254, i16 255], [256 x i16] [i16 0, i16 9786, i16 9787, i16 9829, i16 9830, i16 9827, i16 9824, i16 8226, i16 9688, i16 9675, i16 9689, i16 9794, i16 9792, i16 9834, i16 9835, i16 9788, i16 9654, i16 9664, i16 8597, i16 8252, i16 182, i16 167, i16 9644, i16 8616, i16 8593, i16 8595, i16 8594, i16 8592, i16 8735, i16 8596, i16 9650, i16 9660, i16 32, i16 33, i16 34, i16 35, i16 36, i16 37, i16 38, i16 39, i16 40, i16 41, i16 42, i16 43, i16 44, i16 45, i16 46, i16 47, i16 48, i16 49, i16 50, i16 51, i16 52, i16 53, i16 54, i16 55, i16 56, i16 57, i16 58, i16 59, i16 60, i16 61, i16 62, i16 63, i16 64, i16 65, i16 66, i16 67, i16 68, i16 69, i16 70, i16 71, i16 72, i16 73, i16 74, i16 75, i16 76, i16 77, i16 78, i16 79, i16 80, i16 81, i16 82, i16 83, i16 84, i16 85, i16 86, i16 87, i16 88, i16 89, i16 90, i16 91, i16 92, i16 93, i16 94, i16 95, i16 96, i16 97, i16 98, i16 99, i16 100, i16 101, i16 102, i16 103, i16 104, i16 105, i16 106, i16 107, i16 108, i16 109, i16 110, i16 111, i16 112, i16 113, i16 114, i16 115, i16 116, i16 117, i16 118, i16 119, i16 120, i16 121, i16 122, i16 123, i16 124, i16 125, i16 126, i16 8962, i16 199, i16 252, i16 233, i16 226, i16 228, i16 224, i16 229, i16 231, i16 234, i16 235, i16 232, i16 239, i16 238, i16 236, i16 196, i16 197, i16 201, i16 230, i16 198, i16 244, i16 246, i16 242, i16 251, i16 249, i16 255, i16 214, i16 220, i16 162, i16 163, i16 165, i16 8359, i16 402, i16 225, i16 237, i16 243, i16 250, i16 241, i16 209, i16 170, i16 186, i16 191, i16 8976, i16 172, i16 189, i16 188, i16 161, i16 171, i16 187, i16 9617, i16 9618, i16 9619, i16 9474, i16 9508, i16 9569, i16 9570, i16 9558, i16 9557, i16 9571, i16 9553, i16 9559, i16 9565, i16 9564, i16 9563, i16 9488, i16 9492, i16 9524, i16 9516, i16 9500, i16 9472, i16 9532, i16 9566, i16 9567, i16 9562, i16 9556, i16 9577, i16 9574, i16 9568, i16 9552, i16 9580, i16 9575, i16 9576, i16 9572, i16 9573, i16 9561, i16 9560, i16 9554, i16 9555, i16 9579, i16 9578, i16 9496, i16 9484, i16 9608, i16 9604, i16 9612, i16 9616, i16 9600, i16 945, i16 223, i16 915, i16 960, i16 931, i16 963, i16 181, i16 964, i16 934, i16 920, i16 937, i16 948, i16 8734, i16 966, i16 949, i16 8745, i16 8801, i16 177, i16 8805, i16 8804, i16 8992, i16 8993, i16 247, i16 8776, i16 176, i16 8729, i16 183, i16 8730, i16 8319, i16 178, i16 9632, i16 160], [256 x i16] [i16 -4096, i16 -4095, i16 -4094, i16 -4093, i16 -4092, i16 -4091, i16 -4090, i16 -4089, i16 -4088, i16 -4087, i16 -4086, i16 -4085, i16 -4084, i16 -4083, i16 -4082, i16 -4081, i16 -4080, i16 -4079, i16 -4078, i16 -4077, i16 -4076, i16 -4075, i16 -4074, i16 -4073, i16 -4072, i16 -4071, i16 -4070, i16 -4069, i16 -4068, i16 -4067, i16 -4066, i16 -4065, i16 -4064, i16 -4063, i16 -4062, i16 -4061, i16 -4060, i16 -4059, i16 -4058, i16 -4057, i16 -4056, i16 -4055, i16 -4054, i16 -4053, i16 -4052, i16 -4051, i16 -4050, i16 -4049, i16 -4048, i16 -4047, i16 -4046, i16 -4045, i16 -4044, i16 -4043, i16 -4042, i16 -4041, i16 -4040, i16 -4039, i16 -4038, i16 -4037, i16 -4036, i16 -4035, i16 -4034, i16 -4033, i16 -4032, i16 -4031, i16 -4030, i16 -4029, i16 -4028, i16 -4027, i16 -4026, i16 -4025, i16 -4024, i16 -4023, i16 -4022, i16 -4021, i16 -4020, i16 -4019, i16 -4018, i16 -4017, i16 -4016, i16 -4015, i16 -4014, i16 -4013, i16 -4012, i16 -4011, i16 -4010, i16 -4009, i16 -4008, i16 -4007, i16 -4006, i16 -4005, i16 -4004, i16 -4003, i16 -4002, i16 -4001, i16 -4000, i16 -3999, i16 -3998, i16 -3997, i16 -3996, i16 -3995, i16 -3994, i16 -3993, i16 -3992, i16 -3991, i16 -3990, i16 -3989, i16 -3988, i16 -3987, i16 -3986, i16 -3985, i16 -3984, i16 -3983, i16 -3982, i16 -3981, i16 -3980, i16 -3979, i16 -3978, i16 -3977, i16 -3976, i16 -3975, i16 -3974, i16 -3973, i16 -3972, i16 -3971, i16 -3970, i16 -3969, i16 -3968, i16 -3967, i16 -3966, i16 -3965, i16 -3964, i16 -3963, i16 -3962, i16 -3961, i16 -3960, i16 -3959, i16 -3958, i16 -3957, i16 -3956, i16 -3955, i16 -3954, i16 -3953, i16 -3952, i16 -3951, i16 -3950, i16 -3949, i16 -3948, i16 -3947, i16 -3946, i16 -3945, i16 -3944, i16 -3943, i16 -3942, i16 -3941, i16 -3940, i16 -3939, i16 -3938, i16 -3937, i16 -3936, i16 -3935, i16 -3934, i16 -3933, i16 -3932, i16 -3931, i16 -3930, i16 -3929, i16 -3928, i16 -3927, i16 -3926, i16 -3925, i16 -3924, i16 -3923, i16 -3922, i16 -3921, i16 -3920, i16 -3919, i16 -3918, i16 -3917, i16 -3916, i16 -3915, i16 -3914, i16 -3913, i16 -3912, i16 -3911, i16 -3910, i16 -3909, i16 -3908, i16 -3907, i16 -3906, i16 -3905, i16 -3904, i16 -3903, i16 -3902, i16 -3901, i16 -3900, i16 -3899, i16 -3898, i16 -3897, i16 -3896, i16 -3895, i16 -3894, i16 -3893, i16 -3892, i16 -3891, i16 -3890, i16 -3889, i16 -3888, i16 -3887, i16 -3886, i16 -3885, i16 -3884, i16 -3883, i16 -3882, i16 -3881, i16 -3880, i16 -3879, i16 -3878, i16 -3877, i16 -3876, i16 -3875, i16 -3874, i16 -3873, i16 -3872, i16 -3871, i16 -3870, i16 -3869, i16 -3868, i16 -3867, i16 -3866, i16 -3865, i16 -3864, i16 -3863, i16 -3862, i16 -3861, i16 -3860, i16 -3859, i16 -3858, i16 -3857, i16 -3856, i16 -3855, i16 -3854, i16 -3853, i16 -3852, i16 -3851, i16 -3850, i16 -3849, i16 -3848, i16 -3847, i16 -3846, i16 -3845, i16 -3844, i16 -3843, i16 -3842, i16 -3841]], align 16
@@ -31,10 +30,10 @@ define dso_local noundef nonnull ptr @set_translate(i32 noundef %0, ptr noundef 
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 416
   %4 = load i16, ptr %3, align 8
   %5 = zext i16 %4 to i64
-  %6 = getelementptr i32, ptr @inv_translate, i64 %5
+  %6 = getelementptr [4 x i8], ptr @inv_translate, i64 %5
   store i32 %0, ptr %6, align 4
   %7 = zext i32 %0 to i64
-  %8 = getelementptr [256 x i16], ptr @translations, i64 %7
+  %8 = getelementptr [512 x i8], ptr @translations, i64 %7
   ret ptr %8
 }
 
@@ -61,7 +60,7 @@ define dso_local zeroext i16 @inverse_translate(ptr noundef readonly captures(no
 
 15:                                               ; preds = %11
   %16 = zext nneg i16 %1 to i64
-  %17 = getelementptr i16, ptr %13, i64 %16
+  %17 = getelementptr [2 x i8], ptr %13, i64 %16
   %18 = load i16, ptr %17, align 2
   br label %35
 
@@ -69,11 +68,11 @@ define dso_local zeroext i16 @inverse_translate(ptr noundef readonly captures(no
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 416
   %21 = load i16, ptr %20, align 8
   %22 = zext i16 %21 to i64
-  %23 = getelementptr i32, ptr @inv_translate, i64 %22
+  %23 = getelementptr [4 x i8], ptr @inv_translate, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 272
   %26 = zext i32 %24 to i64
-  %27 = getelementptr ptr, ptr %25, i64 %26
+  %27 = getelementptr [8 x i8], ptr %25, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
   br i1 %29, label %35, label %30
@@ -114,7 +113,7 @@ define dso_local noundef range(i32 -14, 1) i32 @con_set_trans_old(ptr noundef %0
   %14 = extractvalue { ptr, i8, i64 } %7, 1
   %15 = zext i8 %14 to i16
   %16 = or disjoint i16 %15, -4096
-  %17 = getelementptr i16, ptr %2, i64 %4
+  %17 = getelementptr [2 x i8], ptr %2, i64 %4
   store i16 %16, ptr %17, align 2
   %18 = add nuw nsw i64 %4, 1
   %19 = icmp eq i64 %18, 256
@@ -161,7 +160,7 @@ define internal fastcc void @update_user_maps() unnamed_addr #2 align 16 {
   br i1 %6, label %.loopexit11, label %7
 
 7:                                                ; preds = %1
-  %8 = getelementptr %struct.vc, ptr @vc_cons, i64 %2
+  %8 = getelementptr [40 x i8], ptr @vc_cons, i64 %2
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 808
   %11 = load ptr, ptr %10, align 8
@@ -192,7 +191,7 @@ define internal fastcc void @update_user_maps() unnamed_addr #2 align 16 {
 
 26:                                               ; preds = %.loopexit10, %24
   %27 = phi i64 [ 0, %24 ], [ %59, %.loopexit10 ]
-  %28 = getelementptr ptr, ptr %12, i64 %27
+  %28 = getelementptr [8 x i8], ptr %12, i64 %27
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %.loopexit10, label %31
@@ -203,7 +202,7 @@ define internal fastcc void @update_user_maps() unnamed_addr #2 align 16 {
 
 33:                                               ; preds = %.loopexit, %31
   %34 = phi i64 [ 0, %31 ], [ %57, %.loopexit ]
-  %35 = getelementptr ptr, ptr %29, i64 %34
+  %35 = getelementptr [8 x i8], ptr %29, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, null
   br i1 %37, label %.loopexit, label %38
@@ -215,14 +214,14 @@ define internal fastcc void @update_user_maps() unnamed_addr #2 align 16 {
 
 41:                                               ; preds = %54, %38
   %42 = phi i64 [ 0, %38 ], [ %55, %54 ]
-  %43 = getelementptr i16, ptr %36, i64 %42
+  %43 = getelementptr [2 x i8], ptr %36, i64 %42
   %44 = load i16, ptr %43, align 2
   %45 = icmp ult i16 %44, 512
   br i1 %45, label %46, label %54
 
 46:                                               ; preds = %41
   %47 = zext nneg i16 %44 to i64
-  %48 = getelementptr i16, ptr %25, i64 %47
+  %48 = getelementptr [2 x i8], ptr %25, i64 %47
   %49 = load i16, ptr %48, align 2
   %50 = icmp ult i16 %49, 32
   br i1 %50, label %51, label %54
@@ -269,14 +268,14 @@ define dso_local range(i32 -14, 1) i32 @con_get_trans_old(ptr noundef %0) local_
   tail call void @console_lock() #16
   %3 = load i32, ptr @fg_console, align 4
   %4 = sext i32 %3 to i64
-  %5 = getelementptr %struct.vc, ptr @vc_cons, i64 %4
+  %5 = getelementptr [40 x i8], ptr @vc_cons, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 808
   br label %8
 
 8:                                                ; preds = %43, %1
   %9 = phi i64 [ 0, %1 ], [ %48, %43 ]
-  %10 = getelementptr i16, ptr getelementptr inbounds nuw (i8, ptr @translations, i64 1536), i64 %9
+  %10 = getelementptr [2 x i8], ptr getelementptr inbounds nuw (i8, ptr @translations, i64 1536), i64 %9
   %11 = load i16, ptr %10, align 2
   %12 = zext i16 %11 to i64
   %13 = icmp ult i16 %11, 32
@@ -310,7 +309,7 @@ define dso_local range(i32 -14, 1) i32 @con_get_trans_old(ptr noundef %0) local_
 
 25:                                               ; preds = %21
   %26 = lshr i64 %12, 11
-  %27 = getelementptr ptr, ptr %23, i64 %26
+  %27 = getelementptr [8 x i8], ptr %23, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
   br i1 %29, label %43, label %30
@@ -318,14 +317,14 @@ define dso_local range(i32 -14, 1) i32 @con_get_trans_old(ptr noundef %0) local_
 30:                                               ; preds = %25
   %31 = lshr i64 %12, 6
   %32 = and i64 %31, 31
-  %33 = getelementptr ptr, ptr %28, i64 %32
+  %33 = getelementptr [8 x i8], ptr %28, i64 %32
   %34 = load ptr, ptr %33, align 8
   %35 = icmp eq ptr %34, null
   br i1 %35, label %43, label %36
 
 36:                                               ; preds = %30
   %37 = and i64 %12, 63
-  %38 = getelementptr i16, ptr %34, i64 %37
+  %38 = getelementptr [2 x i8], ptr %34, i64 %37
   %39 = load i16, ptr %38, align 2
   %40 = icmp ugt i16 %39, 511
   %41 = zext i16 %39 to i32
@@ -389,7 +388,7 @@ define dso_local range(i32 -4, 65536) i32 @conv_uni_to_pc(ptr noundef readonly c
 
 18:                                               ; preds = %13
   %19 = lshr i64 %1, 11
-  %20 = getelementptr ptr, ptr %16, i64 %19
+  %20 = getelementptr [8 x i8], ptr %16, i64 %19
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
   br i1 %22, label %36, label %23
@@ -397,14 +396,14 @@ define dso_local range(i32 -4, 65536) i32 @conv_uni_to_pc(ptr noundef readonly c
 23:                                               ; preds = %18
   %24 = lshr i64 %1, 6
   %25 = and i64 %24, 31
-  %26 = getelementptr ptr, ptr %21, i64 %25
+  %26 = getelementptr [8 x i8], ptr %21, i64 %25
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %36, label %29
 
 29:                                               ; preds = %23
   %30 = and i64 %1, 63
-  %31 = getelementptr i16, ptr %27, i64 %30
+  %31 = getelementptr [2 x i8], ptr %27, i64 %30
   %32 = load i16, ptr %31, align 2
   %33 = icmp ugt i16 %32, 511
   %34 = zext i16 %32 to i32
@@ -487,14 +486,14 @@ define dso_local void @con_free_unimap(ptr noundef readonly captures(none) %0) l
 
 17:                                               ; preds = %.preheader4, %28
   %18 = phi i64 [ %29, %28 ], [ 0, %.preheader4 ]
-  %19 = getelementptr ptr, ptr %4, i64 %18
+  %19 = getelementptr [8 x i8], ptr %4, i64 %18
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %28, label %.preheader
 
 .preheader:                                       ; preds = %17, %.preheader
   %22 = phi i64 [ %25, %.preheader ], [ 0, %17 ]
-  %23 = getelementptr ptr, ptr %20, i64 %22
+  %23 = getelementptr [8 x i8], ptr %20, i64 %22
   %24 = load ptr, ptr %23, align 8
   tail call void @kfree(ptr noundef %24) #16
   %25 = add nuw nsw i64 %22, 1
@@ -513,7 +512,7 @@ define dso_local void @con_free_unimap(ptr noundef readonly captures(none) %0) l
 
 31:                                               ; preds = %31, %15
   %32 = phi i64 [ 0, %15 ], [ %35, %31 ]
-  %33 = getelementptr ptr, ptr %16, i64 %32
+  %33 = getelementptr [8 x i8], ptr %16, i64 %32
   %34 = load ptr, ptr %33, align 8
   tail call void @kfree(ptr noundef %34) #16
   store ptr null, ptr %33, align 8
@@ -598,14 +597,14 @@ define internal fastcc noundef range(i32 -12, 1) i32 @con_do_clear_unimap(ptr no
 
 28:                                               ; preds = %.preheader6, %39
   %29 = phi i64 [ %40, %39 ], [ 0, %.preheader6 ]
-  %30 = getelementptr ptr, ptr %4, i64 %29
+  %30 = getelementptr [8 x i8], ptr %4, i64 %29
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
   br i1 %32, label %39, label %.preheader
 
 .preheader:                                       ; preds = %28, %.preheader
   %33 = phi i64 [ %36, %.preheader ], [ 0, %28 ]
-  %34 = getelementptr ptr, ptr %31, i64 %33
+  %34 = getelementptr [8 x i8], ptr %31, i64 %33
   %35 = load ptr, ptr %34, align 8
   tail call void @kfree(ptr noundef %35) #16
   %36 = add nuw nsw i64 %33, 1
@@ -624,7 +623,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @con_do_clear_unimap(ptr no
 
 42:                                               ; preds = %42, %26
   %43 = phi i64 [ 0, %26 ], [ %46, %42 ]
-  %44 = getelementptr ptr, ptr %27, i64 %43
+  %44 = getelementptr [8 x i8], ptr %27, i64 %43
   %45 = load ptr, ptr %44, align 8
   tail call void @kfree(ptr noundef %45) #16
   store ptr null, ptr %44, align 8
@@ -699,7 +698,7 @@ define dso_local i32 @con_set_unimap(ptr noundef readonly captures(none) %0, i16
 36:                                               ; preds = %.loopexit43, %26
   %37 = phi i64 [ 0, %26 ], [ %122, %.loopexit43 ]
   %38 = phi i16 [ 0, %26 ], [ %.ph32, %.loopexit43 ]
-  %39 = getelementptr ptr, ptr %16, i64 %37
+  %39 = getelementptr [8 x i8], ptr %16, i64 %37
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
   br i1 %41, label %42, label %.preheader42
@@ -711,7 +710,7 @@ define dso_local i32 @con_set_unimap(ptr noundef readonly captures(none) %0, i16
 .preheader42:                                     ; preds = %36, %.loopexit41
   %44 = phi i64 [ %119, %.loopexit41 ], [ 0, %36 ]
   %45 = phi i16 [ %.ph, %.loopexit41 ], [ %38, %36 ]
-  %46 = getelementptr ptr, ptr %40, i64 %44
+  %46 = getelementptr [8 x i8], ptr %40, i64 %44
   %47 = load ptr, ptr %46, align 8
   %48 = icmp eq ptr %47, null
   br i1 %48, label %49, label %.preheader40
@@ -723,7 +722,7 @@ define dso_local i32 @con_set_unimap(ptr noundef readonly captures(none) %0, i16
 .preheader40:                                     ; preds = %.preheader42, %115
   %51 = phi i64 [ %116, %115 ], [ 0, %.preheader42 ]
   %52 = phi i16 [ %117, %115 ], [ %45, %.preheader42 ]
-  %53 = getelementptr i16, ptr %47, i64 %51
+  %53 = getelementptr [2 x i8], ptr %47, i64 %51
   %54 = load i16, ptr %53, align 2
   %55 = icmp eq i16 %54, -1
   br i1 %55, label %115, label %56
@@ -731,7 +730,7 @@ define dso_local i32 @con_set_unimap(ptr noundef readonly captures(none) %0, i16
 56:                                               ; preds = %.preheader40
   %57 = zext i16 %52 to i64
   %58 = lshr i64 %57, 11
-  %59 = getelementptr ptr, ptr %32, i64 %58
+  %59 = getelementptr [8 x i8], ptr %32, i64 %58
   %60 = load ptr, ptr %59, align 8
   %61 = icmp eq ptr %60, null
   br i1 %61, label %62, label %66
@@ -748,7 +747,7 @@ define dso_local i32 @con_set_unimap(ptr noundef readonly captures(none) %0, i16
   %68 = lshr i16 %52, 6
   %69 = and i16 %68, 31
   %70 = zext nneg i16 %69 to i64
-  %71 = getelementptr ptr, ptr %67, i64 %70
+  %71 = getelementptr [8 x i8], ptr %67, i64 %70
   %72 = load ptr, ptr %71, align 8
   %73 = icmp eq ptr %72, null
   br i1 %73, label %74, label %.critedge
@@ -767,7 +766,7 @@ define dso_local i32 @con_set_unimap(ptr noundef readonly captures(none) %0, i16
 .critedge:                                        ; preds = %78, %66
   %79 = phi ptr [ %72, %66 ], [ %76, %78 ]
   %80 = and i64 %57, 63
-  %81 = getelementptr i16, ptr %79, i64 %80
+  %81 = getelementptr [2 x i8], ptr %79, i64 %80
   store i16 %54, ptr %81, align 2
   %82 = zext i16 %54 to i32
   %83 = shl i32 %82, 20
@@ -798,14 +797,14 @@ define dso_local i32 @con_set_unimap(ptr noundef readonly captures(none) %0, i16
 
 96:                                               ; preds = %.preheader80, %107
   %97 = phi i64 [ %108, %107 ], [ 0, %.preheader80 ]
-  %98 = getelementptr ptr, ptr %32, i64 %97
+  %98 = getelementptr [8 x i8], ptr %32, i64 %97
   %99 = load ptr, ptr %98, align 8
   %100 = icmp eq ptr %99, null
   br i1 %100, label %107, label %.preheader39
 
 .preheader39:                                     ; preds = %96, %.preheader39
   %101 = phi i64 [ %104, %.preheader39 ], [ 0, %96 ]
-  %102 = getelementptr ptr, ptr %99, i64 %101
+  %102 = getelementptr [8 x i8], ptr %99, i64 %101
   %103 = load ptr, ptr %102, align 8
   tail call void @kfree(ptr noundef %103) #16
   %104 = add nuw nsw i64 %101, 1
@@ -824,7 +823,7 @@ define dso_local i32 @con_set_unimap(ptr noundef readonly captures(none) %0, i16
 
 .preheader38:                                     ; preds = %107, %.preheader38
   %110 = phi i64 [ %113, %.preheader38 ], [ 0, %107 ]
-  %111 = getelementptr ptr, ptr %34, i64 %110
+  %111 = getelementptr [8 x i8], ptr %34, i64 %110
   %112 = load ptr, ptr %111, align 8
   tail call void @kfree(ptr noundef %112) #16
   store ptr null, ptr %111, align 8
@@ -890,7 +889,7 @@ define dso_local i32 @con_set_unimap(ptr noundef readonly captures(none) %0, i16
   %141 = load i16, ptr %140, align 2
   %142 = zext i16 %139 to i64
   %143 = lshr i64 %142, 11
-  %144 = getelementptr ptr, ptr %133, i64 %143
+  %144 = getelementptr [8 x i8], ptr %133, i64 %143
   %145 = load ptr, ptr %144, align 8
   %146 = icmp eq ptr %145, null
   br i1 %146, label %147, label %151
@@ -907,7 +906,7 @@ define dso_local i32 @con_set_unimap(ptr noundef readonly captures(none) %0, i16
   %153 = lshr i16 %139, 6
   %154 = and i16 %153, 31
   %155 = zext nneg i16 %154 to i64
-  %156 = getelementptr ptr, ptr %152, i64 %155
+  %156 = getelementptr [8 x i8], ptr %152, i64 %155
   %157 = load ptr, ptr %156, align 8
   %158 = icmp eq ptr %157, null
   br i1 %158, label %159, label %164
@@ -926,7 +925,7 @@ define dso_local i32 @con_set_unimap(ptr noundef readonly captures(none) %0, i16
 164:                                              ; preds = %163, %151
   %165 = phi ptr [ %157, %151 ], [ %161, %163 ]
   %166 = and i64 %142, 63
-  %167 = getelementptr i16, ptr %165, i64 %166
+  %167 = getelementptr [2 x i8], ptr %165, i64 %166
   store i16 %141, ptr %167, align 2
   %168 = zext i16 %141 to i32
   %169 = shl i32 %168, 20
@@ -974,7 +973,7 @@ define dso_local i32 @con_set_unimap(ptr noundef readonly captures(none) %0, i16
 
 195:                                              ; preds = %.loopexit36, %193
   %196 = phi i64 [ 0, %193 ], [ %228, %.loopexit36 ]
-  %197 = getelementptr ptr, ptr %133, i64 %196
+  %197 = getelementptr [8 x i8], ptr %133, i64 %196
   %198 = load ptr, ptr %197, align 8
   %199 = icmp eq ptr %198, null
   br i1 %199, label %.loopexit36, label %200
@@ -985,7 +984,7 @@ define dso_local i32 @con_set_unimap(ptr noundef readonly captures(none) %0, i16
 
 202:                                              ; preds = %.loopexit, %200
   %203 = phi i64 [ 0, %200 ], [ %226, %.loopexit ]
-  %204 = getelementptr ptr, ptr %198, i64 %203
+  %204 = getelementptr [8 x i8], ptr %198, i64 %203
   %205 = load ptr, ptr %204, align 8
   %206 = icmp eq ptr %205, null
   br i1 %206, label %.loopexit, label %207
@@ -997,14 +996,14 @@ define dso_local i32 @con_set_unimap(ptr noundef readonly captures(none) %0, i16
 
 210:                                              ; preds = %223, %207
   %211 = phi i64 [ 0, %207 ], [ %224, %223 ]
-  %212 = getelementptr i16, ptr %205, i64 %211
+  %212 = getelementptr [2 x i8], ptr %205, i64 %211
   %213 = load i16, ptr %212, align 2
   %214 = icmp ult i16 %213, 512
   br i1 %214, label %215, label %223
 
 215:                                              ; preds = %210
   %216 = zext nneg i16 %213 to i64
-  %217 = getelementptr i16, ptr %194, i64 %216
+  %217 = getelementptr [2 x i8], ptr %194, i64 %216
   %218 = load i16, ptr %217, align 2
   %219 = icmp ult i16 %218, 32
   br i1 %219, label %220, label %223
@@ -1061,7 +1060,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @con_unify_unimap(ptr noundef
   br i1 %8, label %85, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr %struct.vc, ptr @vc_cons, i64 %5
+  %10 = getelementptr [40 x i8], ptr @vc_cons, i64 %5
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 808
   %13 = load ptr, ptr %12, align 8
@@ -1080,9 +1079,9 @@ define internal fastcc noundef range(i32 0, 2) i32 @con_unify_unimap(ptr noundef
 
 .preheader9:                                      ; preds = %18, %.loopexit8
   %23 = phi i64 [ %48, %.loopexit8 ], [ 0, %18 ]
-  %24 = getelementptr ptr, ptr %1, i64 %23
+  %24 = getelementptr [8 x i8], ptr %1, i64 %23
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr ptr, ptr %14, i64 %23
+  %26 = getelementptr [8 x i8], ptr %14, i64 %23
   %27 = load ptr, ptr %26, align 8
   %28 = icmp ne ptr %25, null
   %29 = icmp ne ptr %27, null
@@ -1095,10 +1094,10 @@ define internal fastcc noundef range(i32 0, 2) i32 @con_unify_unimap(ptr noundef
 
 .preheader7:                                      ; preds = %31, %45
   %33 = phi i64 [ %46, %45 ], [ 0, %31 ]
-  %34 = getelementptr ptr, ptr %25, i64 %33
+  %34 = getelementptr [8 x i8], ptr %25, i64 %33
   %35 = load ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
-  %37 = getelementptr ptr, ptr %27, i64 %33
+  %37 = getelementptr [8 x i8], ptr %27, i64 %33
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, null
   br i1 %36, label %40, label %41
@@ -1154,14 +1153,14 @@ define internal fastcc noundef range(i32 0, 2) i32 @con_unify_unimap(ptr noundef
 
 62:                                               ; preds = %.preheader45, %73
   %63 = phi i64 [ %74, %73 ], [ 0, %.preheader45 ]
-  %64 = getelementptr ptr, ptr %1, i64 %63
+  %64 = getelementptr [8 x i8], ptr %1, i64 %63
   %65 = load ptr, ptr %64, align 8
   %66 = icmp eq ptr %65, null
   br i1 %66, label %73, label %.preheader
 
 .preheader:                                       ; preds = %62, %.preheader
   %67 = phi i64 [ %70, %.preheader ], [ 0, %62 ]
-  %68 = getelementptr ptr, ptr %65, i64 %67
+  %68 = getelementptr [8 x i8], ptr %65, i64 %67
   %69 = load ptr, ptr %68, align 8
   tail call void @kfree(ptr noundef %69) #16
   %70 = add nuw nsw i64 %67, 1
@@ -1180,7 +1179,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @con_unify_unimap(ptr noundef
 
 76:                                               ; preds = %76, %60
   %77 = phi i64 [ 0, %60 ], [ %80, %76 ]
-  %78 = getelementptr ptr, ptr %61, i64 %77
+  %78 = getelementptr [8 x i8], ptr %61, i64 %77
   %79 = load ptr, ptr %78, align 8
   tail call void @kfree(ptr noundef %79) #16
   store ptr null, ptr %78, align 8
@@ -1209,13 +1208,13 @@ define internal fastcc noundef range(i32 0, 2) i32 @con_unify_unimap(ptr noundef
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define internal fastcc void @set_inverse_transl(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) unnamed_addr #2 align 16 {
   %4 = zext nneg i32 %2 to i64
-  %5 = getelementptr [256 x i16], ptr @translations, i64 %4
+  %5 = getelementptr [512 x i8], ptr @translations, i64 %4
   %6 = icmp eq ptr %1, null
   br i1 %6, label %.loopexit, label %7
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 272
-  %9 = getelementptr ptr, ptr %8, i64 %4
+  %9 = getelementptr [8 x i8], ptr %8, i64 %4
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %12, label %16
@@ -1235,7 +1234,7 @@ define internal fastcc void @set_inverse_transl(ptr noundef readonly captures(no
 
 19:                                               ; preds = %.thread, %16
   %20 = phi i64 [ 0, %16 ], [ %58, %.thread ]
-  %21 = getelementptr i16, ptr %5, i64 %20
+  %21 = getelementptr [2 x i8], ptr %5, i64 %20
   %22 = load i16, ptr %21, align 2
   %23 = zext i16 %22 to i64
   %24 = icmp ult i16 %22, 32
@@ -1268,7 +1267,7 @@ define internal fastcc void @set_inverse_transl(ptr noundef readonly captures(no
 
 35:                                               ; preds = %31
   %36 = lshr i64 %23, 11
-  %37 = getelementptr ptr, ptr %33, i64 %36
+  %37 = getelementptr [8 x i8], ptr %33, i64 %36
   %38 = load ptr, ptr %37, align 8
   %39 = icmp eq ptr %38, null
   br i1 %39, label %.thread, label %40
@@ -1276,14 +1275,14 @@ define internal fastcc void @set_inverse_transl(ptr noundef readonly captures(no
 40:                                               ; preds = %35
   %41 = lshr i64 %23, 6
   %42 = and i64 %41, 31
-  %43 = getelementptr ptr, ptr %38, i64 %42
+  %43 = getelementptr [8 x i8], ptr %38, i64 %42
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, null
   br i1 %45, label %.thread, label %46
 
 46:                                               ; preds = %40
   %47 = and i64 %23, 63
-  %48 = getelementptr i16, ptr %44, i64 %47
+  %48 = getelementptr [2 x i8], ptr %44, i64 %47
   %49 = load i16, ptr %48, align 2
   %50 = icmp ugt i16 %49, 511
   br i1 %50, label %.thread, label %51
@@ -1350,14 +1349,14 @@ define dso_local range(i32 -12, 1) i32 @con_set_default_unimap(ptr noundef reado
 
 .preheader24:                                     ; preds = %15, %32
   %22 = phi i64 [ %33, %32 ], [ 0, %15 ]
-  %23 = getelementptr ptr, ptr %7, i64 %22
+  %23 = getelementptr [8 x i8], ptr %7, i64 %22
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %32, label %.preheader23
 
 .preheader23:                                     ; preds = %.preheader24, %.preheader23
   %26 = phi i64 [ %29, %.preheader23 ], [ 0, %.preheader24 ]
-  %27 = getelementptr ptr, ptr %24, i64 %26
+  %27 = getelementptr [8 x i8], ptr %24, i64 %26
   %28 = load ptr, ptr %27, align 8
   tail call void @kfree(ptr noundef %28) #16
   %29 = add nuw nsw i64 %26, 1
@@ -1376,7 +1375,7 @@ define dso_local range(i32 -12, 1) i32 @con_set_default_unimap(ptr noundef reado
 
 35:                                               ; preds = %35, %20
   %36 = phi i64 [ 0, %20 ], [ %39, %35 ]
-  %37 = getelementptr ptr, ptr %21, i64 %36
+  %37 = getelementptr [8 x i8], ptr %21, i64 %36
   %38 = load ptr, ptr %37, align 8
   tail call void @kfree(ptr noundef %38) #16
   store ptr null, ptr %37, align 8
@@ -1427,7 +1426,7 @@ define dso_local range(i32 -12, 1) i32 @con_set_default_unimap(ptr noundef reado
   %68 = load i16, ptr %64, align 2
   %69 = zext i16 %68 to i64
   %70 = lshr i64 %69, 11
-  %71 = getelementptr ptr, ptr %50, i64 %70
+  %71 = getelementptr [8 x i8], ptr %50, i64 %70
   %72 = load ptr, ptr %71, align 8
   %73 = icmp eq ptr %72, null
   br i1 %73, label %74, label %78
@@ -1444,7 +1443,7 @@ define dso_local range(i32 -12, 1) i32 @con_set_default_unimap(ptr noundef reado
   %80 = lshr i16 %68, 6
   %81 = and i16 %80, 31
   %82 = zext nneg i16 %81 to i64
-  %83 = getelementptr ptr, ptr %79, i64 %82
+  %83 = getelementptr [8 x i8], ptr %79, i64 %82
   %84 = load ptr, ptr %83, align 8
   %85 = icmp eq ptr %84, null
   br i1 %85, label %86, label %91
@@ -1463,7 +1462,7 @@ define dso_local range(i32 -12, 1) i32 @con_set_default_unimap(ptr noundef reado
 91:                                               ; preds = %90, %78
   %92 = phi ptr [ %84, %78 ], [ %88, %90 ]
   %93 = and i64 %69, 63
-  %94 = getelementptr i16, ptr %92, i64 %93
+  %94 = getelementptr [2 x i8], ptr %92, i64 %93
   store i16 %61, ptr %94, align 2
   %95 = or disjoint i64 %62, %69
   %96 = load i64, ptr %51, align 8
@@ -1519,7 +1518,7 @@ define dso_local range(i32 -12, 1) i32 @con_set_default_unimap(ptr noundef reado
 
 124:                                              ; preds = %.loopexit20, %122
   %125 = phi i64 [ 0, %122 ], [ %157, %.loopexit20 ]
-  %126 = getelementptr ptr, ptr %50, i64 %125
+  %126 = getelementptr [8 x i8], ptr %50, i64 %125
   %127 = load ptr, ptr %126, align 8
   %128 = icmp eq ptr %127, null
   br i1 %128, label %.loopexit20, label %129
@@ -1530,7 +1529,7 @@ define dso_local range(i32 -12, 1) i32 @con_set_default_unimap(ptr noundef reado
 
 131:                                              ; preds = %.loopexit, %129
   %132 = phi i64 [ 0, %129 ], [ %155, %.loopexit ]
-  %133 = getelementptr ptr, ptr %127, i64 %132
+  %133 = getelementptr [8 x i8], ptr %127, i64 %132
   %134 = load ptr, ptr %133, align 8
   %135 = icmp eq ptr %134, null
   br i1 %135, label %.loopexit, label %136
@@ -1542,14 +1541,14 @@ define dso_local range(i32 -12, 1) i32 @con_set_default_unimap(ptr noundef reado
 
 139:                                              ; preds = %152, %136
   %140 = phi i64 [ 0, %136 ], [ %153, %152 ]
-  %141 = getelementptr i16, ptr %134, i64 %140
+  %141 = getelementptr [2 x i8], ptr %134, i64 %140
   %142 = load i16, ptr %141, align 2
   %143 = icmp ult i16 %142, 512
   br i1 %143, label %144, label %152
 
 144:                                              ; preds = %139
   %145 = zext nneg i16 %142 to i64
-  %146 = getelementptr i16, ptr %123, i64 %145
+  %146 = getelementptr [2 x i8], ptr %123, i64 %145
   %147 = load i16, ptr %146, align 2
   %148 = icmp ult i16 %147, 32
   br i1 %148, label %149, label %152
@@ -1642,7 +1641,7 @@ define dso_local range(i32 -14, 1) i32 @con_get_unimap(ptr noundef readonly capt
 .preheader:                                       ; preds = %9, %.loopexit7
   %14 = phi i64 [ %56, %.loopexit7 ], [ 0, %9 ]
   %15 = phi i16 [ %55, %.loopexit7 ], [ 0, %9 ]
-  %16 = getelementptr ptr, ptr %12, i64 %14
+  %16 = getelementptr [8 x i8], ptr %12, i64 %14
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %.loopexit7, label %19
@@ -1654,7 +1653,7 @@ define dso_local range(i32 -14, 1) i32 @con_get_unimap(ptr noundef readonly capt
 21:                                               ; preds = %.loopexit, %19
   %22 = phi i64 [ 0, %19 ], [ %53, %.loopexit ]
   %23 = phi i16 [ %15, %19 ], [ %52, %.loopexit ]
-  %24 = getelementptr ptr, ptr %17, i64 %22
+  %24 = getelementptr [8 x i8], ptr %17, i64 %22
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %.loopexit, label %27
@@ -1681,7 +1680,7 @@ define dso_local range(i32 -14, 1) i32 @con_get_unimap(ptr noundef readonly capt
   %40 = add nuw nsw i32 %33, %30
   %41 = trunc i32 %40 to i16
   %42 = zext i16 %32 to i64
-  %43 = getelementptr %struct.unipair, ptr %7, i64 %42
+  %43 = getelementptr [4 x i8], ptr %7, i64 %42
   store i16 %41, ptr %43, align 2
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 2
   store i16 %35, ptr %44, align 2
@@ -1741,7 +1740,7 @@ define dso_local range(i32 -14, 1) i32 @con_get_unimap(ptr noundef readonly capt
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none)
 define dso_local range(i32 0, 65536) i32 @conv_8bit_to_uni(i8 noundef zeroext %0) local_unnamed_addr #8 align 16 {
   %2 = zext i8 %0 to i64
-  %3 = getelementptr i16, ptr getelementptr inbounds nuw (i8, ptr @translations, i64 1536), i64 %2
+  %3 = getelementptr [2 x i8], ptr getelementptr inbounds nuw (i8, ptr @translations, i64 1536), i64 %2
   %4 = load i16, ptr %3, align 2
   %5 = zext i16 %4 to i32
   %6 = zext i8 %0 to i32
@@ -1758,7 +1757,7 @@ define dso_local i32 @conv_uni_to_8bit(i32 noundef %0) local_unnamed_addr #9 ali
 
 3:                                                ; preds = %15, %1
   %4 = phi i64 [ 0, %1 ], [ %16, %15 ]
-  %5 = getelementptr i16, ptr getelementptr inbounds nuw (i8, ptr @translations, i64 1536), i64 %4
+  %5 = getelementptr [2 x i8], ptr getelementptr inbounds nuw (i8, ptr @translations, i64 1536), i64 %4
   %6 = load i16, ptr %5, align 2
   %7 = zext i16 %6 to i32
   %8 = icmp eq i32 %0, %7
@@ -1798,7 +1797,7 @@ define dso_local void @console_map_init() local_unnamed_addr #10 section ".init.
   br i1 %5, label %15, label %6
 
 6:                                                ; preds = %1
-  %7 = getelementptr %struct.vc, ptr @vc_cons, i64 %2
+  %7 = getelementptr [40 x i8], ptr @vc_cons, i64 %2
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 808
   %10 = load ptr, ptr %9, align 8

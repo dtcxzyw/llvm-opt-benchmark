@@ -1773,7 +1773,7 @@ define internal i32 @dissect_qnet6(ptr noundef %0, ptr noundef readonly captures
 
 switch.lookup:                                    ; preds = %117
   %119 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_qnet6, i64 %119
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_qnet6, i64 %119
   %switch.load = load ptr, ptr %switch.gep, align 8
   %120 = load ptr, ptr %10, align 8
   call void @col_set_str(ptr noundef %120, i32 noundef 25, ptr noundef nonnull %switch.load)
@@ -2892,7 +2892,7 @@ default.unreachable:                              ; preds = %48
   %97 = add i32 %95, 56
   %98 = load ptr, ptr %47, align 8
   %99 = tail call ptr @tvb_get_string_enc(ptr noundef %98, ptr noundef %0, i32 noundef %97, i32 noundef %89, i32 noundef 0)
-  %100 = getelementptr ptr, ptr %6, i64 %indvars.iv
+  %100 = getelementptr [8 x i8], ptr %6, i64 %indvars.iv
   store ptr %99, ptr %100, align 8
   %101 = tail call ptr @proto_tree_add_string(ptr noundef %.1133, i32 noundef %.1, ptr noundef %0, i32 noundef %97, i32 noundef %89, ptr noundef %99)
   %.not.i = icmp eq ptr %101, null
@@ -2923,7 +2923,7 @@ default.unreachable:                              ; preds = %48
   %115 = load ptr, ptr %47, align 8
   %116 = add i32 %95, 58
   %117 = tail call ptr @tvb_address_to_str(ptr noundef %115, ptr noundef %0, i32 noundef 1, i32 noundef %116)
-  %118 = getelementptr ptr, ptr %6, i64 %indvars.iv
+  %118 = getelementptr [8 x i8], ptr %6, i64 %indvars.iv
   store ptr %117, ptr %118, align 8
   %119 = tail call ptr @proto_tree_add_item(ptr noundef %.1133, i32 noundef %.1, ptr noundef %0, i32 noundef %116, i32 noundef 6, i32 noundef 0)
   %.not.i151 = icmp eq ptr %119, null
@@ -2943,12 +2943,12 @@ default.unreachable:                              ; preds = %48
   br label %proto_item_set_generated.exit
 
 127:                                              ; preds = %109
-  %128 = getelementptr ptr, ptr %6, i64 %indvars.iv
+  %128 = getelementptr [8 x i8], ptr %6, i64 %indvars.iv
   store ptr null, ptr %128, align 8
   br label %proto_item_set_generated.exit
 
 129:                                              ; preds = %82
-  %130 = getelementptr ptr, ptr %6, i64 %indvars.iv
+  %130 = getelementptr [8 x i8], ptr %6, i64 %indvars.iv
   store ptr null, ptr %130, align 8
   br label %proto_item_set_generated.exit
 
@@ -4673,7 +4673,7 @@ dissect_qnet6_kif_msgsend_msg_extra.exit375:      ; preds = %800, %821, %825
   %941 = select i1 %940, i64 0, i64 %939
   %942 = icmp ne i64 %941, -1
   call void @llvm.assume(i1 %942)
-  %943 = getelementptr ptr, ptr @qnet6_kif_msg_io_notify_event_str, i64 %indvars.iv
+  %943 = getelementptr [8 x i8], ptr @qnet6_kif_msg_io_notify_event_str, i64 %indvars.iv
   %944 = load ptr, ptr %943, align 8
   %945 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %938, i64 noundef %939, i32 noundef 2, i64 noundef %941, ptr noundef nonnull @.str.1102, ptr noundef %944)
   %946 = add i32 %945, %.0143.i482
@@ -4693,7 +4693,7 @@ dissect_qnet6_kif_msgsend_msg_extra.exit375:      ; preds = %800, %821, %825
   %954 = select i1 %953, i64 0, i64 %952
   %955 = icmp ne i64 %954, -1
   call void @llvm.assume(i1 %955)
-  %956 = getelementptr ptr, ptr @qnet6_kif_msg_io_notify_event_str, i64 %indvars.iv
+  %956 = getelementptr [8 x i8], ptr @qnet6_kif_msg_io_notify_event_str, i64 %indvars.iv
   %957 = load ptr, ptr %956, align 8
   %958 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %951, i64 noundef %952, i32 noundef 2, i64 noundef %954, ptr noundef nonnull @.str.1102, ptr noundef %957)
   %959 = add i32 %958, %.0.i343483

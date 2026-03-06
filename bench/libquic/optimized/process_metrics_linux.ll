@@ -22,7 +22,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<base::BasicStringPiece<std::string>, std::allocator<base::BasicStringPiece<std::string>>>::_Vector_impl" = type { %"struct.std::_Vector_base<base::BasicStringPiece<std::string>, std::allocator<base::BasicStringPiece<std::string>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<base::BasicStringPiece<std::string>, std::allocator<base::BasicStringPiece<std::string>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.base::BasicStringPiece" = type { ptr, i64 }
-%"struct.std::pair" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
 %"struct.base::WorkingSetKBytes" = type { i64, i64, i64 }
 %"class.base::TimeDelta" = type { i64 }
 %"class.base::DirReaderLinux" = type { i32, [512 x i8], i64, i64 }
@@ -271,13 +270,13 @@ define internal fastcc noundef i64 @_ZN4base12_GLOBAL__N_132ReadProcStatusAndGet
 .lr.ph.i:                                         ; preds = %27, %.noexc45
   %31 = phi ptr [ %40, %.noexc45 ], [ %30, %27 ]
   %.011.i = phi i64 [ %38, %.noexc45 ], [ 0, %27 ]
-  %32 = getelementptr inbounds nuw %"struct.std::pair", ptr %31, i64 %.011.i
+  %32 = getelementptr inbounds nuw [64 x i8], ptr %31, i64 %.011.i
   %33 = invoke noundef i32 @_ZN4base19TrimWhitespaceASCIIERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13TrimPositionsEPS5_(ptr noundef nonnull align 8 dereferenceable(32) %32, i32 noundef 3, ptr noundef nonnull %32)
           to label %.noexc unwind label %.loopexit63
 
 .noexc:                                           ; preds = %.lr.ph.i
   %34 = load ptr, ptr %6, align 8, !tbaa !27
-  %35 = getelementptr inbounds nuw %"struct.std::pair", ptr %34, i64 %.011.i
+  %35 = getelementptr inbounds nuw [64 x i8], ptr %34, i64 %.011.i
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 32
   %37 = invoke noundef i32 @_ZN4base19TrimWhitespaceASCIIERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13TrimPositionsEPS5_(ptr noundef nonnull align 8 dereferenceable(32) %36, i32 noundef 3, ptr noundef nonnull %36)
           to label %.noexc45 unwind label %.loopexit63
@@ -325,7 +324,7 @@ _ZN4base12_GLOBAL__N_117TrimKeyValuePairsEPSt6vectorISt4pairINSt7__cxx1112basic_
 
 53:                                               ; preds = %.lr.ph, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread60
   %.02265 = phi i64 [ 0, %.lr.ph ], [ %94, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread60 ]
-  %54 = getelementptr inbounds nuw %"struct.std::pair", ptr %46, i64 %.02265
+  %54 = getelementptr inbounds nuw [64 x i8], ptr %46, i64 %.02265
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load i64, ptr %55, align 8, !tbaa !20
   %57 = icmp eq i64 %56, %49
@@ -1173,13 +1172,13 @@ define noundef zeroext i1 @_ZNK4base14ProcessMetrics13GetIOCountersEPNS_10IoCoun
 .lr.ph.i:                                         ; preds = %28, %.noexc32
   %32 = phi ptr [ %41, %.noexc32 ], [ %31, %28 ]
   %.011.i = phi i64 [ %39, %.noexc32 ], [ 0, %28 ]
-  %33 = getelementptr inbounds nuw %"struct.std::pair", ptr %32, i64 %.011.i
+  %33 = getelementptr inbounds nuw [64 x i8], ptr %32, i64 %.011.i
   %34 = invoke noundef i32 @_ZN4base19TrimWhitespaceASCIIERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13TrimPositionsEPS5_(ptr noundef nonnull align 8 dereferenceable(32) %33, i32 noundef 3, ptr noundef nonnull %33)
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %.lr.ph.i
   %35 = load ptr, ptr %6, align 8, !tbaa !27
-  %36 = getelementptr inbounds nuw %"struct.std::pair", ptr %35, i64 %.011.i
+  %36 = getelementptr inbounds nuw [64 x i8], ptr %35, i64 %.011.i
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %38 = invoke noundef i32 @_ZN4base19TrimWhitespaceASCIIERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13TrimPositionsEPS5_(ptr noundef nonnull align 8 dereferenceable(32) %37, i32 noundef 3, ptr noundef nonnull %37)
           to label %.noexc32 unwind label %.loopexit
@@ -1210,7 +1209,7 @@ _ZN4base12_GLOBAL__N_117TrimKeyValuePairsEPSt6vectorISt4pairINSt7__cxx1112basic_
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.thread42.us
   %52 = phi ptr [ %73, %.thread42.us ], [ %41, %.lr.ph ]
   %.02648.us = phi i64 [ %71, %.thread42.us ], [ 0, %.lr.ph ]
-  %53 = getelementptr inbounds nuw %"struct.std::pair", ptr %52, i64 %.02648.us
+  %53 = getelementptr inbounds nuw [64 x i8], ptr %52, i64 %.02648.us
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 32
   %55 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull @.str.3) #25
   %56 = icmp eq i32 %55, 0
@@ -1325,7 +1324,7 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaI
 .lr.ph.split:                                     ; preds = %.lr.ph, %.thread42
   %90 = phi ptr [ %111, %.thread42 ], [ %41, %.lr.ph ]
   %.02648 = phi i64 [ %109, %.thread42 ], [ 0, %.lr.ph ]
-  %91 = getelementptr inbounds nuw %"struct.std::pair", ptr %90, i64 %.02648
+  %91 = getelementptr inbounds nuw [64 x i8], ptr %90, i64 %.02648
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 32
   %93 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %91, ptr noundef nonnull @.str.3) #25
   %94 = icmp eq i32 %93, 0
@@ -3464,13 +3463,13 @@ define noundef i32 @_ZN4base14ProcessMetrics23GetIdleWakeupsPerSecondEv(ptr noun
 .lr.ph.i.i:                                       ; preds = %33, %.noexc38.i
   %37 = phi ptr [ %46, %.noexc38.i ], [ %36, %33 ]
   %.011.i.i = phi i64 [ %44, %.noexc38.i ], [ 0, %33 ]
-  %38 = getelementptr inbounds nuw %"struct.std::pair", ptr %37, i64 %.011.i.i
+  %38 = getelementptr inbounds nuw [64 x i8], ptr %37, i64 %.011.i.i
   %39 = invoke noundef i32 @_ZN4base19TrimWhitespaceASCIIERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13TrimPositionsEPS5_(ptr noundef nonnull align 8 dereferenceable(32) %38, i32 noundef 3, ptr noundef nonnull %38)
           to label %.noexc.i4 unwind label %.loopexit48.i
 
 .noexc.i4:                                        ; preds = %.lr.ph.i.i
   %40 = load ptr, ptr %4, align 8, !tbaa !27
-  %41 = getelementptr inbounds nuw %"struct.std::pair", ptr %40, i64 %.011.i.i
+  %41 = getelementptr inbounds nuw [64 x i8], ptr %40, i64 %.011.i.i
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 32
   %43 = invoke noundef i32 @_ZN4base19TrimWhitespaceASCIIERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_13TrimPositionsEPS5_(ptr noundef nonnull align 8 dereferenceable(32) %42, i32 noundef 3, ptr noundef nonnull %42)
           to label %.noexc38.i unwind label %.loopexit48.i
@@ -3506,7 +3505,7 @@ _ZN4base12_GLOBAL__N_117TrimKeyValuePairsEPSt6vectorISt4pairINSt7__cxx1112basic_
 
 .lr.ph.i.split.us:                                ; preds = %.lr.ph.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread45.i.us
   %.02150.i.us = phi i64 [ %62, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread45.i.us ], [ 0, %.lr.ph.i ]
-  %58 = getelementptr inbounds nuw %"struct.std::pair", ptr %53, i64 %.02150.i.us
+  %58 = getelementptr inbounds nuw [64 x i8], ptr %53, i64 %.02150.i.us
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %60 = load i64, ptr %59, align 8, !tbaa !20
   %61 = icmp eq i64 %60, 0
@@ -3534,7 +3533,7 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 .lr.ph.i.split:                                   ; preds = %.lr.ph.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread45.i
   %.02150.i = phi i64 [ %80, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread45.i ], [ 0, %.lr.ph.i ]
-  %64 = getelementptr inbounds nuw %"struct.std::pair", ptr %53, i64 %.02150.i
+  %64 = getelementptr inbounds nuw [64 x i8], ptr %53, i64 %.02150.i
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   %66 = load i64, ptr %65, align 8, !tbaa !20
   %67 = icmp eq i64 %66, %.fr14

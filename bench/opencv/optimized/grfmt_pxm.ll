@@ -725,10 +725,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit92: ; preds = %_ZN
 
 switch.lookup:                                    ; preds = %63
   %90 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN2cv10PxMDecoder10readHeaderEv, i64 %90
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN2cv10PxMDecoder10readHeaderEv, i64 %90
   %switch.load = load i32, ptr %switch.gep, align 4
   %91 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep175 = getelementptr inbounds nuw i32, ptr @switch.table._ZN2cv10PxMDecoder10readHeaderEv.2, i64 %91
+  %switch.gep175 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN2cv10PxMDecoder10readHeaderEv.2, i64 %91
   %switch.load176 = load i32, ptr %switch.gep175, align 4
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 1456
   store i32 %switch.load, ptr %92, align 8, !tbaa !56
@@ -1844,7 +1844,7 @@ _ZN2cv10AutoBufferIhLm1032EED2Ev.exit213:         ; preds = %220, %._crit_edge26
 
 236:                                              ; preds = %227
   %237 = trunc i32 %spec.select to i16
-  %238 = getelementptr inbounds nuw i16, ptr %206, i64 %indvars.iv294
+  %238 = getelementptr inbounds nuw [2 x i8], ptr %206, i64 %indvars.iv294
   store i16 %237, ptr %238, align 2, !tbaa !103
   br label %239
 
@@ -1889,7 +1889,7 @@ _ZN2cv10AutoBufferIhLm1032EED2Ev.exit213:         ; preds = %220, %._crit_edge26
 
 .lr.ph252:                                        ; preds = %.loopexit240, %.lr.ph252
   %indvars.iv304 = phi i64 [ %indvars.iv.next305, %.lr.ph252 ], [ 0, %.loopexit240 ]
-  %253 = getelementptr inbounds nuw i16, ptr %206, i64 %indvars.iv304
+  %253 = getelementptr inbounds nuw [2 x i8], ptr %206, i64 %indvars.iv304
   %254 = load i16, ptr %253, align 2, !tbaa !103
   %255 = lshr i16 %254, 8
   %256 = trunc nuw i16 %255 to i8
@@ -2305,10 +2305,10 @@ define hidden void @_ZN2cv10PxMEncoderC2ENS_7PxMModeE(ptr noundef nonnull align 
 
 switch.lookup:                                    ; preds = %2
   %9 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN2cv10PxMEncoderC2ENS_7PxMModeE, i64 %9
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN2cv10PxMEncoderC2ENS_7PxMModeE, i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
   %10 = zext nneg i32 %1 to i64
-  %switch.gep11 = getelementptr inbounds nuw i64, ptr @switch.table._ZN2cv10PxMEncoderC2ENS_7PxMModeE.3, i64 %10
+  %switch.gep11 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN2cv10PxMEncoderC2ENS_7PxMModeE.3, i64 %10
   %switch.load12 = load i64, ptr %switch.gep11, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2536,7 +2536,7 @@ define hidden noundef zeroext i1 @_ZN2cv10PxMEncoder5writeERKNS_3MatERKSt6vector
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %40 = load ptr, ptr %39, align 8, !tbaa !121
   %41 = zext nneg i32 %36 to i64
-  %42 = getelementptr i64, ptr %40, i64 %41
+  %42 = getelementptr [8 x i8], ptr %40, i64 %41
   %43 = getelementptr i8, ptr %42, i64 -8
   %44 = load i64, ptr %43, align 8, !tbaa !99
   %45 = trunc i64 %44 to i32
@@ -2573,7 +2573,7 @@ _ZNK2cv3Mat8elemSizeEv.exit:                      ; preds = %3, %38
 .lr.ph:                                           ; preds = %_ZNK2cv3Mat8elemSizeEv.exit, %66
   %.0236383 = phi i8 [ %.1237, %66 ], [ 1, %_ZNK2cv3Mat8elemSizeEv.exit ]
   %.0247382 = phi i64 [ %67, %66 ], [ 0, %_ZNK2cv3Mat8elemSizeEv.exit ]
-  %58 = getelementptr inbounds nuw i32, ptr %50, i64 %.0247382
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %.0247382
   %59 = load i32, ptr %58, align 4, !tbaa !123
   %60 = icmp eq i32 %59, 32
   br i1 %60, label %61, label %66
@@ -2854,7 +2854,7 @@ _ZNK2cv3Mat8elemSizeEv.exit321.thread:            ; preds = %159
   %165 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %166 = load ptr, ptr %165, align 8, !tbaa !121
   %167 = zext nneg i32 %160 to i64
-  %168 = getelementptr i64, ptr %166, i64 %167
+  %168 = getelementptr [8 x i8], ptr %166, i64 %167
   %169 = getelementptr i8, ptr %168, i64 -8
   %170 = load i64, ptr %169, align 8, !tbaa !99
   %171 = trunc i64 %170 to i32
@@ -3321,7 +3321,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit334: ; preds = %31
   %.3393 = phi ptr [ %370, %.lr.ph394 ], [ %187, %.preheader375 ]
   %348 = ptrtoint ptr %.3393 to i64
   %349 = sub i64 %.neg, %348
-  %350 = getelementptr inbounds nuw i16, ptr %254, i64 %indvars.iv435
+  %350 = getelementptr inbounds nuw [2 x i8], ptr %254, i64 %indvars.iv435
   %351 = getelementptr inbounds nuw i8, ptr %350, i64 4
   %352 = load i16, ptr %351, align 2, !tbaa !103
   %353 = zext i16 %352 to i32
@@ -3377,7 +3377,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit334: ; preds = %31
   %.5385 = phi ptr [ %387, %.lr.ph386 ], [ %187, %.preheader379 ]
   %381 = ptrtoint ptr %.5385 to i64
   %382 = sub i64 %.neg, %381
-  %383 = getelementptr inbounds nuw i16, ptr %254, i64 %indvars.iv
+  %383 = getelementptr inbounds nuw [2 x i8], ptr %254, i64 %indvars.iv
   %384 = load i16, ptr %383, align 2, !tbaa !103
   %385 = zext i16 %384 to i32
   %386 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %.5385, i64 noundef %382, ptr noundef nonnull @.str.22, i32 noundef %385) #24

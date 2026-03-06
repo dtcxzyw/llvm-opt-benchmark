@@ -8,8 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.expert_field = type { i32, i32 }
 %struct.anon.0 = type { ptr, ptr, ptr }
 %struct.anon.1 = type { ptr, ptr, ptr }
-%struct._interface_config = type { i32, ptr, i32 }
-%struct._sender_receiver_config = type { i32, i32, ptr, ptr }
 %struct.can_info = type { i32, i32, i32, i16 }
 
 @can_extended_id_dissector_table = internal unnamed_addr global ptr null, align 8
@@ -713,7 +711,7 @@ define internal void @post_update_can_interfaces_cb() #0 {
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %28
   %10 = phi ptr [ %.pre20, %.lr.ph.preheader ], [ %29, %28 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %28 ]
-  %11 = getelementptr %struct._interface_config, ptr %10, i64 %indvars.iv
+  %11 = getelementptr [24 x i8], ptr %10, i64 %indvars.iv
   %12 = load i32, ptr %11, align 8
   %.not14 = icmp eq i32 %12, 268435455
   br i1 %.not14, label %18, label %13
@@ -728,7 +726,7 @@ define internal void @post_update_can_interfaces_cb() #0 {
 
 18:                                               ; preds = %13, %.lr.ph
   %19 = phi ptr [ %.pre21, %13 ], [ %10, %.lr.ph ]
-  %20 = getelementptr %struct._interface_config, ptr %19, i64 %indvars.iv
+  %20 = getelementptr [24 x i8], ptr %19, i64 %indvars.iv
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
   %.not15 = icmp eq ptr %22, null
@@ -973,7 +971,7 @@ define internal void @post_update_sender_receiver_cb() #0 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
   %6 = tail call noalias dereferenceable_or_null(8) ptr @g_malloc(i64 noundef 8) #8
   %7 = load ptr, ptr @sender_receiver_configs, align 8
-  %8 = getelementptr %struct._sender_receiver_config, ptr %7, i64 %indvars.iv
+  %8 = getelementptr [24 x i8], ptr %7, i64 %indvars.iv
   %9 = load i32, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %11 = load i32, ptr %10, align 4

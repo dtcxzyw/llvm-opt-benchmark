@@ -23,13 +23,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
 %"class.std::allocator.0" = type { i8 }
-%"class.QuantLib::Matrix" = type { %"class.std::unique_ptr", i64, i64 }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.4" }
-%"struct.std::_Head_base.4" = type { ptr }
 
 $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_ = comdat any
 
@@ -457,7 +450,7 @@ if.end.i.i.i.i.i.i.i.i:                           ; preds = %_ZNSt6vectorIdSaIdE
 
 call5.i.i.i.i2.i.i1.i.noexc:                      ; preds = %if.end.i.i.i.i.i.i.i.i
   store ptr %call5.i.i.i.i2.i.i1.i38, ptr %displacements_, align 8, !tbaa !58, !alias.scope !60
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw double, ptr %call5.i.i.i.i2.i.i1.i38, i64 %23
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i1.i38, i64 %23
   %_M_end_of_storage.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 120
   store ptr %add.ptr.i.i.i.i, ptr %_M_end_of_storage.i.i.i.i, align 8, !tbaa !59, !alias.scope !60
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i2.i.i1.i38, i64 %mul.i.i.i.i.i.i.i
@@ -2179,7 +2172,7 @@ for.cond.cleanup:                                 ; preds = %for.inc, %for.cond.
 
 do.body269:                                       ; preds = %do.body269.lr.ph, %for.inc
   %k.0535 = phi i64 [ 0, %do.body269.lr.ph ], [ %inc, %for.inc ]
-  %add.ptr.i = getelementptr inbounds nuw %"class.QuantLib::Matrix", ptr %118, i64 %k.0535
+  %add.ptr.i = getelementptr inbounds nuw [24 x i8], ptr %118, i64 %k.0535
   %rows_.i305 = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   %140 = load i64, ptr %rows_.i305, align 8, !tbaa !50
   %cmp276 = icmp eq i64 %140, %50
@@ -2204,7 +2197,7 @@ invoke.cont284:                                   ; preds = %invoke.cont282
 
 invoke.cont286:                                   ; preds = %invoke.cont284
   %141 = load ptr, ptr %covariancePseudoRoots_, align 8, !tbaa !53
-  %add.ptr.i314 = getelementptr inbounds nuw %"class.QuantLib::Matrix", ptr %141, i64 %k.0535
+  %add.ptr.i314 = getelementptr inbounds nuw [24 x i8], ptr %141, i64 %k.0535
   %rows_.i315 = getelementptr inbounds nuw i8, ptr %add.ptr.i314, i64 8
   %142 = load i64, ptr %rows_.i315, align 8, !tbaa !50
   %call.i316 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %call.i309, i64 noundef %142)
@@ -2378,7 +2371,7 @@ invoke.cont347:                                   ; preds = %invoke.cont345
 
 invoke.cont349:                                   ; preds = %invoke.cont347
   %163 = load ptr, ptr %covariancePseudoRoots_, align 8, !tbaa !53
-  %add.ptr.i357 = getelementptr inbounds nuw %"class.QuantLib::Matrix", ptr %163, i64 %k.0535
+  %add.ptr.i357 = getelementptr inbounds nuw [24 x i8], ptr %163, i64 %k.0535
   %columns_.i358 = getelementptr inbounds nuw i8, ptr %add.ptr.i357, i64 16
   %164 = load i64, ptr %columns_.i358, align 8, !tbaa !22
   %call.i359 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertImEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %call.i352, i64 noundef %164)
@@ -2993,7 +2986,7 @@ ehcleanup32:                                      ; preds = %if.then.i.i25, %ehc
 do.end:                                           ; preds = %entry
   %covariancePseudoRoots_ = getelementptr inbounds nuw i8, ptr %this, i64 256
   %19 = load ptr, ptr %covariancePseudoRoots_, align 8, !tbaa !53
-  %add.ptr.i = getelementptr inbounds nuw %"class.QuantLib::Matrix", ptr %19, i64 %i
+  %add.ptr.i = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %i
   ret ptr %add.ptr.i
 
 unreachable:                                      ; preds = %invoke.cont22

@@ -67,7 +67,7 @@ define hidden noundef i64 @"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter
 12:                                               ; preds = %12, %7
   %.sroa.07.0.i = phi i64 [ %1, %7 ], [ %16, %12 ]
   %.sroa.09.0.i = phi i64 [ 0, %7 ], [ %17, %12 ]
-  %13 = getelementptr inbounds { ptr, ptr, i64, { ptr } }, ptr %3, i64 %.sroa.09.0.i
+  %13 = getelementptr inbounds [32 x i8], ptr %3, i64 %.sroa.09.0.i
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load i64, ptr %14, align 8, !noundef !4
   %16 = add i64 %15, %.sroa.07.0.i
@@ -94,7 +94,7 @@ define hidden noundef i64 @"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter
 29:                                               ; preds = %29, %24
   %.sroa.07.0.i1 = phi i64 [ %.sroa.04.0.i, %24 ], [ %33, %29 ]
   %.sroa.09.0.i2 = phi i64 [ 0, %24 ], [ %34, %29 ]
-  %30 = getelementptr inbounds { ptr, ptr, i64, { ptr } }, ptr %20, i64 %.sroa.09.0.i2
+  %30 = getelementptr inbounds [32 x i8], ptr %20, i64 %.sroa.09.0.i2
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load i64, ptr %31, align 8, !noundef !4
   %33 = add i64 %32, %.sroa.07.0.i1
@@ -2065,7 +2065,7 @@ define hidden noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
 11:                                               ; preds = %11, %6
   %.sroa.07.0 = phi i64 [ %2, %6 ], [ %15, %11 ]
   %.sroa.09.0 = phi i64 [ 0, %6 ], [ %16, %11 ]
-  %12 = getelementptr inbounds { ptr, ptr, i64, { ptr } }, ptr %0, i64 %.sroa.09.0
+  %12 = getelementptr inbounds [32 x i8], ptr %0, i64 %.sroa.09.0
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load i64, ptr %13, align 8, !noundef !4
   %15 = add i64 %14, %.sroa.07.0

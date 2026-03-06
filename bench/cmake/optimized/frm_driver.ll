@@ -3,9 +3,6 @@ source_filename = "bench/cmake/original/frm_driver.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct._PAGE = type { i16, i16, i16, i16 }
-%struct.Binding_Info = type { i32, ptr }
-
 @stdscr = external local_unnamed_addr global ptr, align 8
 @form_driver.Generic_Methods = internal unnamed_addr constant [9 x ptr] [ptr @Page_Navigation, ptr @Inter_Field_Navigation, ptr null, ptr @Vertical_Scrolling, ptr @Horizontal_Scrolling, ptr @Field_Editing, ptr null, ptr null, ptr null], align 16
 @bindings = internal unnamed_addr constant [57 x { i32, [4 x i8], ptr }] [{ i32, [4 x i8], ptr } { i32 512, [4 x i8] zeroinitializer, ptr @PN_Next_Page }, { i32, [4 x i8], ptr } { i32 513, [4 x i8] zeroinitializer, ptr @PN_Previous_Page }, { i32, [4 x i8], ptr } { i32 514, [4 x i8] zeroinitializer, ptr @PN_First_Page }, { i32, [4 x i8], ptr } { i32 515, [4 x i8] zeroinitializer, ptr @PN_Last_Page }, { i32, [4 x i8], ptr } { i32 66052, [4 x i8] zeroinitializer, ptr @FN_Next_Field }, { i32, [4 x i8], ptr } { i32 66053, [4 x i8] zeroinitializer, ptr @FN_Previous_Field }, { i32, [4 x i8], ptr } { i32 66054, [4 x i8] zeroinitializer, ptr @FN_First_Field }, { i32, [4 x i8], ptr } { i32 66055, [4 x i8] zeroinitializer, ptr @FN_Last_Field }, { i32, [4 x i8], ptr } { i32 66056, [4 x i8] zeroinitializer, ptr @FN_Sorted_Next_Field }, { i32, [4 x i8], ptr } { i32 66057, [4 x i8] zeroinitializer, ptr @FN_Sorted_Previous_Field }, { i32, [4 x i8], ptr } { i32 66058, [4 x i8] zeroinitializer, ptr @FN_Sorted_First_Field }, { i32, [4 x i8], ptr } { i32 66059, [4 x i8] zeroinitializer, ptr @FN_Sorted_Last_Field }, { i32, [4 x i8], ptr } { i32 66060, [4 x i8] zeroinitializer, ptr @FN_Left_Field }, { i32, [4 x i8], ptr } { i32 66061, [4 x i8] zeroinitializer, ptr @FN_Right_Field }, { i32, [4 x i8], ptr } { i32 66062, [4 x i8] zeroinitializer, ptr @FN_Up_Field }, { i32, [4 x i8], ptr } { i32 66063, [4 x i8] zeroinitializer, ptr @FN_Down_Field }, { i32, [4 x i8], ptr } { i32 131600, [4 x i8] zeroinitializer, ptr @IFN_Next_Character }, { i32, [4 x i8], ptr } { i32 131601, [4 x i8] zeroinitializer, ptr @IFN_Previous_Character }, { i32, [4 x i8], ptr } { i32 131602, [4 x i8] zeroinitializer, ptr @IFN_Next_Line }, { i32, [4 x i8], ptr } { i32 131603, [4 x i8] zeroinitializer, ptr @IFN_Previous_Line }, { i32, [4 x i8], ptr } { i32 131604, [4 x i8] zeroinitializer, ptr @IFN_Next_Word }, { i32, [4 x i8], ptr } { i32 131605, [4 x i8] zeroinitializer, ptr @IFN_Previous_Word }, { i32, [4 x i8], ptr } { i32 131606, [4 x i8] zeroinitializer, ptr @IFN_Beginning_Of_Field }, { i32, [4 x i8], ptr } { i32 131607, [4 x i8] zeroinitializer, ptr @IFN_End_Of_Field }, { i32, [4 x i8], ptr } { i32 131608, [4 x i8] zeroinitializer, ptr @IFN_Beginning_Of_Line }, { i32, [4 x i8], ptr } { i32 131609, [4 x i8] zeroinitializer, ptr @IFN_End_Of_Line }, { i32, [4 x i8], ptr } { i32 131610, [4 x i8] zeroinitializer, ptr @IFN_Left_Character }, { i32, [4 x i8], ptr } { i32 131611, [4 x i8] zeroinitializer, ptr @IFN_Right_Character }, { i32, [4 x i8], ptr } { i32 131612, [4 x i8] zeroinitializer, ptr @IFN_Up_Character }, { i32, [4 x i8], ptr } { i32 131613, [4 x i8] zeroinitializer, ptr @IFN_Down_Character }, { i32, [4 x i8], ptr } { i32 328222, [4 x i8] zeroinitializer, ptr @FE_New_Line }, { i32, [4 x i8], ptr } { i32 328223, [4 x i8] zeroinitializer, ptr @FE_Insert_Character }, { i32, [4 x i8], ptr } { i32 328224, [4 x i8] zeroinitializer, ptr @FE_Insert_Line }, { i32, [4 x i8], ptr } { i32 328225, [4 x i8] zeroinitializer, ptr @FE_Delete_Character }, { i32, [4 x i8], ptr } { i32 328226, [4 x i8] zeroinitializer, ptr @FE_Delete_Previous }, { i32, [4 x i8], ptr } { i32 328227, [4 x i8] zeroinitializer, ptr @FE_Delete_Line }, { i32, [4 x i8], ptr } { i32 328228, [4 x i8] zeroinitializer, ptr @FE_Delete_Word }, { i32, [4 x i8], ptr } { i32 328229, [4 x i8] zeroinitializer, ptr @FE_Clear_To_End_Of_Line }, { i32, [4 x i8], ptr } { i32 328230, [4 x i8] zeroinitializer, ptr @FE_Clear_To_End_Of_Form }, { i32, [4 x i8], ptr } { i32 328231, [4 x i8] zeroinitializer, ptr @FE_Clear_Field }, { i32, [4 x i8], ptr } { i32 393768, [4 x i8] zeroinitializer, ptr @EM_Overlay_Mode }, { i32, [4 x i8], ptr } { i32 393769, [4 x i8] zeroinitializer, ptr @EM_Insert_Mode }, { i32, [4 x i8], ptr } { i32 197162, [4 x i8] zeroinitializer, ptr @VSC_Scroll_Line_Forward }, { i32, [4 x i8], ptr } { i32 197163, [4 x i8] zeroinitializer, ptr @VSC_Scroll_Line_Backward }, { i32, [4 x i8], ptr } { i32 197164, [4 x i8] zeroinitializer, ptr @VSC_Scroll_Page_Forward }, { i32, [4 x i8], ptr } { i32 197165, [4 x i8] zeroinitializer, ptr @VSC_Scroll_Page_Backward }, { i32, [4 x i8], ptr } { i32 197166, [4 x i8] zeroinitializer, ptr @VSC_Scroll_Half_Page_Forward }, { i32, [4 x i8], ptr } { i32 197167, [4 x i8] zeroinitializer, ptr @VSC_Scroll_Half_Page_Backward }, { i32, [4 x i8], ptr } { i32 262704, [4 x i8] zeroinitializer, ptr @HSC_Scroll_Char_Forward }, { i32, [4 x i8], ptr } { i32 262705, [4 x i8] zeroinitializer, ptr @HSC_Scroll_Char_Backward }, { i32, [4 x i8], ptr } { i32 262706, [4 x i8] zeroinitializer, ptr @HSC_Horizontal_Line_Forward }, { i32, [4 x i8], ptr } { i32 262707, [4 x i8] zeroinitializer, ptr @HSC_Horizontal_Line_Backward }, { i32, [4 x i8], ptr } { i32 262708, [4 x i8] zeroinitializer, ptr @HSC_Horizontal_Half_Line_Forward }, { i32, [4 x i8], ptr } { i32 262709, [4 x i8] zeroinitializer, ptr @HSC_Horizontal_Half_Line_Backward }, { i32, [4 x i8], ptr } { i32 459318, [4 x i8] zeroinitializer, ptr @FV_Validation }, { i32, [4 x i8], ptr } { i32 524855, [4 x i8] zeroinitializer, ptr @CR_Next_Choice }, { i32, [4 x i8], ptr } { i32 524856, [4 x i8] zeroinitializer, ptr @CR_Previous_Choice }], align 16
@@ -1768,11 +1765,11 @@ define dso_local ptr @_nc_First_Active_Field(ptr noundef readonly captures(none)
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %7 = load i16, ptr %6, align 4, !tbaa !47
   %8 = sext i16 %7 to i64
-  %9 = getelementptr inbounds %struct._PAGE, ptr %5, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %5, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 2
   %11 = load i16, ptr %10, align 2, !tbaa !79
   %12 = sext i16 %11 to i64
-  %13 = getelementptr inbounds ptr, ptr %3, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %3, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !81
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 80
   %16 = load ptr, ptr %15, align 8, !tbaa !44
@@ -1781,20 +1778,20 @@ define dso_local ptr @_nc_First_Active_Field(ptr noundef readonly captures(none)
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 34
   %20 = load i16, ptr %19, align 2, !tbaa !82
   %21 = sext i16 %20 to i64
-  %22 = getelementptr inbounds ptr, ptr %18, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %18, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 80
   %24 = load ptr, ptr %23, align 8, !tbaa !78
   %25 = getelementptr inbounds nuw i8, ptr %16, i64 28
   %26 = load i16, ptr %25, align 4, !tbaa !47
   %27 = sext i16 %26 to i64
-  %28 = getelementptr inbounds %struct._PAGE, ptr %24, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %24, i64 %27
   %29 = load i16, ptr %28, align 2, !tbaa !83
   %30 = sext i16 %29 to i64
-  %31 = getelementptr inbounds ptr, ptr %18, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %18, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 2
   %33 = load i16, ptr %32, align 2, !tbaa !79
   %34 = sext i16 %33 to i64
-  %35 = getelementptr inbounds ptr, ptr %18, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %18, i64 %34
   br label %36
 
 36:                                               ; preds = %36, %1
@@ -1820,10 +1817,10 @@ Next_Field_On_Page.exit:                          ; preds = %36
   %46 = getelementptr inbounds nuw i8, ptr %40, i64 34
   %47 = load i16, ptr %46, align 2, !tbaa !82
   %48 = sext i16 %47 to i64
-  %49 = getelementptr inbounds ptr, ptr %3, i64 %48
+  %49 = getelementptr inbounds [8 x i8], ptr %3, i64 %48
   %50 = load i16, ptr %9, align 2, !tbaa !83
   %51 = sext i16 %50 to i64
-  %52 = getelementptr inbounds ptr, ptr %3, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %3, i64 %51
   br label %53
 
 53:                                               ; preds = %53, %45
@@ -1886,11 +1883,11 @@ define dso_local range(i32 -11, 1) i32 @_nc_Set_Form_Page(ptr noundef captures(a
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %21 = load ptr, ptr %20, align 8, !tbaa !78
   %22 = sext i32 %1 to i64
-  %23 = getelementptr inbounds %struct._PAGE, ptr %21, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %21, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %25 = load i16, ptr %24, align 2, !tbaa !86
   %26 = sext i16 %25 to i64
-  %27 = getelementptr inbounds ptr, ptr %19, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %19, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !81
   br label %29
 
@@ -1922,11 +1919,11 @@ define dso_local range(i32 -11, 1) i32 @_nc_Set_Form_Page(ptr noundef captures(a
   %41 = load ptr, ptr %20, align 8, !tbaa !78
   %42 = load i16, ptr %4, align 4, !tbaa !47
   %43 = sext i16 %42 to i64
-  %44 = getelementptr inbounds %struct._PAGE, ptr %41, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr %41, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 2
   %46 = load i16, ptr %45, align 2, !tbaa !79
   %47 = sext i16 %46 to i64
-  %48 = getelementptr inbounds ptr, ptr %40, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %40, i64 %47
   %49 = load ptr, ptr %48, align 8, !tbaa !81
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 80
   %51 = load ptr, ptr %50, align 8, !tbaa !44
@@ -1935,20 +1932,20 @@ define dso_local range(i32 -11, 1) i32 @_nc_Set_Form_Page(ptr noundef captures(a
   %54 = getelementptr inbounds nuw i8, ptr %49, i64 34
   %55 = load i16, ptr %54, align 2, !tbaa !82
   %56 = sext i16 %55 to i64
-  %57 = getelementptr inbounds ptr, ptr %53, i64 %56
+  %57 = getelementptr inbounds [8 x i8], ptr %53, i64 %56
   %58 = getelementptr inbounds nuw i8, ptr %51, i64 80
   %59 = load ptr, ptr %58, align 8, !tbaa !78
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 28
   %61 = load i16, ptr %60, align 4, !tbaa !47
   %62 = sext i16 %61 to i64
-  %63 = getelementptr inbounds %struct._PAGE, ptr %59, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %59, i64 %62
   %64 = load i16, ptr %63, align 2, !tbaa !83
   %65 = sext i16 %64 to i64
-  %66 = getelementptr inbounds ptr, ptr %53, i64 %65
+  %66 = getelementptr inbounds [8 x i8], ptr %53, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %63, i64 2
   %68 = load i16, ptr %67, align 2, !tbaa !79
   %69 = sext i16 %68 to i64
-  %70 = getelementptr inbounds ptr, ptr %53, i64 %69
+  %70 = getelementptr inbounds [8 x i8], ptr %53, i64 %69
   br label %71
 
 71:                                               ; preds = %71, %39
@@ -1984,11 +1981,11 @@ define internal range(i32 -11, 1) i32 @FN_First_Field(ptr noundef captures(addre
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %7 = load i16, ptr %6, align 4, !tbaa !47
   %8 = sext i16 %7 to i64
-  %9 = getelementptr inbounds %struct._PAGE, ptr %5, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %5, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 2
   %11 = load i16, ptr %10, align 2, !tbaa !79
   %12 = sext i16 %11 to i64
-  %13 = getelementptr inbounds ptr, ptr %3, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %3, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !81
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 80
   %16 = load ptr, ptr %15, align 8, !tbaa !44
@@ -1997,20 +1994,20 @@ define internal range(i32 -11, 1) i32 @FN_First_Field(ptr noundef captures(addre
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 34
   %20 = load i16, ptr %19, align 2, !tbaa !82
   %21 = sext i16 %20 to i64
-  %22 = getelementptr inbounds ptr, ptr %18, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %18, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %16, i64 80
   %24 = load ptr, ptr %23, align 8, !tbaa !78
   %25 = getelementptr inbounds nuw i8, ptr %16, i64 28
   %26 = load i16, ptr %25, align 4, !tbaa !47
   %27 = sext i16 %26 to i64
-  %28 = getelementptr inbounds %struct._PAGE, ptr %24, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %24, i64 %27
   %29 = load i16, ptr %28, align 2, !tbaa !83
   %30 = sext i16 %29 to i64
-  %31 = getelementptr inbounds ptr, ptr %18, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %18, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %28, i64 2
   %33 = load i16, ptr %32, align 2, !tbaa !79
   %34 = sext i16 %33 to i64
-  %35 = getelementptr inbounds ptr, ptr %18, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %18, i64 %34
   br label %36
 
 36:                                               ; preds = %36, %1
@@ -2063,11 +2060,11 @@ define dso_local i32 @form_driver(ptr noundef %0, i32 noundef %1) local_unnamed_
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %16 = load i16, ptr %15, align 4, !tbaa !47
   %17 = sext i16 %16 to i64
-  %18 = getelementptr inbounds %struct._PAGE, ptr %14, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %14, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 2
   %20 = load i16, ptr %19, align 2, !tbaa !79
   %21 = sext i16 %20 to i64
-  %22 = getelementptr inbounds ptr, ptr %7, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %7, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !81
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 80
   %25 = load ptr, ptr %24, align 8, !tbaa !44
@@ -2076,20 +2073,20 @@ define dso_local i32 @form_driver(ptr noundef %0, i32 noundef %1) local_unnamed_
   %28 = getelementptr inbounds nuw i8, ptr %23, i64 34
   %29 = load i16, ptr %28, align 2, !tbaa !82
   %30 = sext i16 %29 to i64
-  %31 = getelementptr inbounds ptr, ptr %27, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %27, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %25, i64 80
   %33 = load ptr, ptr %32, align 8, !tbaa !78
   %34 = getelementptr inbounds nuw i8, ptr %25, i64 28
   %35 = load i16, ptr %34, align 4, !tbaa !47
   %36 = sext i16 %35 to i64
-  %37 = getelementptr inbounds %struct._PAGE, ptr %33, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %33, i64 %36
   %38 = load i16, ptr %37, align 2, !tbaa !83
   %39 = sext i16 %38 to i64
-  %40 = getelementptr inbounds ptr, ptr %27, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr %27, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 2
   %42 = load i16, ptr %41, align 2, !tbaa !79
   %43 = sext i16 %42 to i64
-  %44 = getelementptr inbounds ptr, ptr %27, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr %27, i64 %43
   br label %45
 
 45:                                               ; preds = %45, %12
@@ -2115,10 +2112,10 @@ Next_Field_On_Page.exit.i:                        ; preds = %45
   %55 = getelementptr inbounds nuw i8, ptr %49, i64 34
   %56 = load i16, ptr %55, align 2, !tbaa !82
   %57 = sext i16 %56 to i64
-  %58 = getelementptr inbounds ptr, ptr %7, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %7, i64 %57
   %59 = load i16, ptr %18, align 2, !tbaa !83
   %60 = sext i16 %59 to i64
-  %61 = getelementptr inbounds ptr, ptr %7, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %7, i64 %60
   br label %62
 
 62:                                               ; preds = %62, %54
@@ -2179,7 +2176,7 @@ _nc_First_Active_Field.exit:                      ; preds = %Next_Field_On_Page.
 
 86:                                               ; preds = %84
   %87 = zext nneg i32 %1 to i64
-  %88 = getelementptr %struct.Binding_Info, ptr @bindings, i64 %87
+  %88 = getelementptr [16 x i8], ptr @bindings, i64 %87
   %89 = getelementptr i8, ptr %88, i64 -8192
   %90 = load i32, ptr %89, align 16, !tbaa !89
   %91 = and i32 %90, 65535
@@ -2205,7 +2202,7 @@ _nc_First_Active_Field.exit:                      ; preds = %Next_Field_On_Page.
   br i1 %.not47.not, label %102, label %106
 
 102:                                              ; preds = %99
-  %103 = getelementptr inbounds nuw ptr, ptr @form_driver.Generic_Methods, i64 %94
+  %103 = getelementptr inbounds nuw [8 x i8], ptr @form_driver.Generic_Methods, i64 %94
   %104 = load ptr, ptr %103, align 8, !tbaa !92
   %105 = tail call i32 %104(ptr noundef nonnull %98, ptr noundef nonnull %0) #14
   br label %.thread51
@@ -2222,7 +2219,7 @@ _nc_First_Active_Field.exit:                      ; preds = %Next_Field_On_Page.
   %111 = tail call ptr @__ctype_b_loc() #15
   %112 = load ptr, ptr %111, align 8, !tbaa !93
   %113 = zext nneg i32 %1 to i64
-  %114 = getelementptr inbounds nuw i16, ptr %112, i64 %113
+  %114 = getelementptr inbounds nuw [2 x i8], ptr %112, i64 %113
   %115 = load i16, ptr %114, align 2, !tbaa !95
   %116 = and i16 %115, 16384
   %.not45 = icmp eq i16 %116, 0
@@ -2638,7 +2635,7 @@ tailrecurse:                                      ; preds = %6
   %21 = load ptr, ptr %20, align 8, !tbaa !93
   %22 = and i32 %1, 255
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw i16, ptr %21, i64 %23
+  %24 = getelementptr inbounds nuw [2 x i8], ptr %21, i64 %23
   %25 = load i16, ptr %24, align 2, !tbaa !95
   %26 = and i16 %25, 16384
   %27 = icmp ne i16 %26, 0
@@ -2913,7 +2910,7 @@ define dso_local range(i32 -2, 1) i32 @set_field_buffer(ptr noundef captures(add
   %.090130 = phi i32 [ 0, %.lr.ph ], [ %32, %30 ]
   %.091129 = phi ptr [ %2, %.lr.ph ], [ %31, %30 ]
   %26 = zext i8 %25 to i64
-  %27 = getelementptr inbounds nuw i16, ptr %23, i64 %26
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %23, i64 %26
   %28 = load i16, ptr %27, align 2, !tbaa !95
   %29 = and i16 %28, 16384
   %.not = icmp eq i16 %29, 0
@@ -2977,7 +2974,7 @@ define dso_local range(i32 -2, 1) i32 @set_field_buffer(ptr noundef captures(add
   %63 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %64 = load i8, ptr %63, align 1, !tbaa !54
   %65 = sext i8 %64 to i64
-  %66 = getelementptr inbounds i16, ptr %59, i64 %65
+  %66 = getelementptr inbounds [2 x i8], ptr %59, i64 %65
   %67 = load i16, ptr %66, align 2, !tbaa !95
   %68 = and i16 %67, 16384
   %.not113 = icmp eq i16 %68, 0
@@ -3656,20 +3653,20 @@ define internal range(i32 -11, 1) i32 @FN_Next_Field(ptr noundef captures(addres
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 34
   %9 = load i16, ptr %8, align 2, !tbaa !82
   %10 = sext i16 %9 to i64
-  %11 = getelementptr inbounds ptr, ptr %7, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %7, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %13 = load ptr, ptr %12, align 8, !tbaa !78
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %15 = load i16, ptr %14, align 4, !tbaa !47
   %16 = sext i16 %15 to i64
-  %17 = getelementptr inbounds %struct._PAGE, ptr %13, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %13, i64 %16
   %18 = load i16, ptr %17, align 2, !tbaa !83
   %19 = sext i16 %18 to i64
-  %20 = getelementptr inbounds ptr, ptr %7, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %7, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 2
   %22 = load i16, ptr %21, align 2, !tbaa !79
   %23 = sext i16 %22 to i64
-  %24 = getelementptr inbounds ptr, ptr %7, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %7, i64 %23
   br label %25
 
 25:                                               ; preds = %25, %1
@@ -3702,20 +3699,20 @@ define internal range(i32 -11, 1) i32 @FN_Previous_Field(ptr noundef captures(ad
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 34
   %9 = load i16, ptr %8, align 2, !tbaa !82
   %10 = sext i16 %9 to i64
-  %11 = getelementptr inbounds ptr, ptr %7, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %7, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 80
   %13 = load ptr, ptr %12, align 8, !tbaa !78
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 28
   %15 = load i16, ptr %14, align 4, !tbaa !47
   %16 = sext i16 %15 to i64
-  %17 = getelementptr inbounds %struct._PAGE, ptr %13, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %13, i64 %16
   %18 = load i16, ptr %17, align 2, !tbaa !83
   %19 = sext i16 %18 to i64
-  %20 = getelementptr inbounds ptr, ptr %7, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %7, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 2
   %22 = load i16, ptr %21, align 2, !tbaa !79
   %23 = sext i16 %22 to i64
-  %24 = getelementptr inbounds ptr, ptr %7, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %7, i64 %23
   br label %25
 
 25:                                               ; preds = %25, %1
@@ -3746,10 +3743,10 @@ define internal range(i32 -11, 1) i32 @FN_Last_Field(ptr noundef captures(addres
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %7 = load i16, ptr %6, align 4, !tbaa !47
   %8 = sext i16 %7 to i64
-  %9 = getelementptr inbounds %struct._PAGE, ptr %5, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %5, i64 %8
   %10 = load i16, ptr %9, align 2, !tbaa !83
   %11 = sext i16 %10 to i64
-  %12 = getelementptr inbounds ptr, ptr %3, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %3, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !81
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 80
   %15 = load ptr, ptr %14, align 8, !tbaa !44
@@ -3758,20 +3755,20 @@ define internal range(i32 -11, 1) i32 @FN_Last_Field(ptr noundef captures(addres
   %18 = getelementptr inbounds nuw i8, ptr %13, i64 34
   %19 = load i16, ptr %18, align 2, !tbaa !82
   %20 = sext i16 %19 to i64
-  %21 = getelementptr inbounds ptr, ptr %17, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %17, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 80
   %23 = load ptr, ptr %22, align 8, !tbaa !78
   %24 = getelementptr inbounds nuw i8, ptr %15, i64 28
   %25 = load i16, ptr %24, align 4, !tbaa !47
   %26 = sext i16 %25 to i64
-  %27 = getelementptr inbounds %struct._PAGE, ptr %23, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %23, i64 %26
   %28 = load i16, ptr %27, align 2, !tbaa !83
   %29 = sext i16 %28 to i64
-  %30 = getelementptr inbounds ptr, ptr %17, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %17, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %27, i64 2
   %32 = load i16, ptr %31, align 2, !tbaa !79
   %33 = sext i16 %32 to i64
-  %34 = getelementptr inbounds ptr, ptr %17, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %17, i64 %33
   br label %35
 
 35:                                               ; preds = %35, %1
@@ -3848,11 +3845,11 @@ define internal range(i32 -11, 1) i32 @FN_Sorted_First_Field(ptr noundef capture
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %7 = load i16, ptr %6, align 4, !tbaa !47
   %8 = sext i16 %7 to i64
-  %9 = getelementptr inbounds %struct._PAGE, ptr %5, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %5, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 6
   %11 = load i16, ptr %10, align 2, !tbaa !113
   %12 = sext i16 %11 to i64
-  %13 = getelementptr inbounds ptr, ptr %3, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %3, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !81
   br label %15
 
@@ -3882,11 +3879,11 @@ define internal range(i32 -11, 1) i32 @FN_Sorted_Last_Field(ptr noundef captures
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %7 = load i16, ptr %6, align 4, !tbaa !47
   %8 = sext i16 %7 to i64
-  %9 = getelementptr inbounds %struct._PAGE, ptr %5, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %5, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %11 = load i16, ptr %10, align 2, !tbaa !86
   %12 = sext i16 %11 to i64
-  %13 = getelementptr inbounds ptr, ptr %3, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %3, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !81
   br label %15
 

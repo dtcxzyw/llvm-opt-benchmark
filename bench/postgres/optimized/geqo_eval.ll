@@ -3,8 +3,6 @@ source_filename = "bench/postgres/original/geqo_eval.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.ListCell = type { ptr }
-
 @CurrentMemoryContext = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [5 x i8] c"GEQO\00", align 1
 
@@ -67,14 +65,14 @@ define dso_local ptr @gimme_tree(ptr noundef %0, ptr noundef readonly captures(n
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.02949 = phi ptr [ null, %.lr.ph.preheader ], [ %17, %.lr.ph ]
-  %7 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4
   %9 = load ptr, ptr %5, align 8
   %10 = add i32 %8, -1
   %11 = getelementptr i8, ptr %9, i64 16
   %.val = load ptr, ptr %11, align 8
   %12 = sext i32 %10 to i64
-  %13 = getelementptr inbounds %union.ListCell, ptr %.val, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %.val, i64 %12
   %14 = load ptr, ptr %13, align 8
   %15 = tail call ptr @palloc(i64 noundef 16) #2
   store ptr %14, ptr %15, align 8
@@ -103,7 +101,7 @@ list_length.exit:                                 ; preds = %._crit_edge
   %indvars.iv56 = phi i64 [ 0, %.lr.ph52 ], [ %indvars.iv.next57, %22 ]
   %.03250 = phi ptr [ null, %.lr.ph52 ], [ %26, %22 ]
   %23 = load ptr, ptr %21, align 8
-  %24 = getelementptr inbounds nuw %union.ListCell, ptr %23, i64 %indvars.iv56
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv56
   %25 = load ptr, ptr %24, align 8
   %26 = tail call fastcc ptr @merge_clump(ptr noundef nonnull %0, ptr noundef %.03250, ptr noundef %25, i1 noundef zeroext true)
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
@@ -175,7 +173,7 @@ tailrecurse.us:                                   ; preds = %.split105.us.us, %6
 desirable_join.exit.thread.us.us184:              ; preds = %.lr.ph.split.us.split.us187, %19
   %indvars.iv234 = phi i64 [ %indvars.iv.next235, %19 ], [ 0, %.lr.ph.split.us.split.us187 ]
   %13 = load ptr, ptr %24, align 8
-  %14 = getelementptr inbounds nuw %union.ListCell, ptr %13, i64 %indvars.iv234
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv234
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %.tr89179.us, align 8
@@ -220,7 +218,7 @@ desirable_join.exit.thread.us.us184:              ; preds = %.lr.ph.split.us.spl
 .lr.ph142:                                        ; preds = %.lr.ph.split.split, %52
   %indvars.iv = phi i64 [ %indvars.iv.next, %52 ], [ 0, %.lr.ph.split.split ]
   %36 = load ptr, ptr %33, align 8
-  %37 = getelementptr inbounds nuw %union.ListCell, ptr %36, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8
   %39 = load ptr, ptr %38, align 8
   %40 = load ptr, ptr %.tr89179, align 8
@@ -300,7 +298,7 @@ list_length.exit.preheader:                       ; preds = %.split.us
 
 70:                                               ; preds = %.lr.ph202, %list_length.exit
   %indvars.iv237 = phi i64 [ 0, %.lr.ph202 ], [ %indvars.iv.next238, %list_length.exit ]
-  %71 = getelementptr inbounds nuw %union.ListCell, ptr %.155.val, i64 %indvars.iv237
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %.155.val, i64 %indvars.iv237
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %74 = load i32, ptr %73, align 8

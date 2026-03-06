@@ -87,14 +87,14 @@ define ptr @Cudd_SplitSet(ptr noundef %0, ptr noundef %1, ptr noundef readonly c
 
 43:                                               ; preds = %.lr.ph91.us, %43
   %indvars.iv114 = phi i64 [ 0, %.lr.ph91.us ], [ %indvars.iv.next115, %43 ]
-  %44 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv114
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv114
   %45 = load ptr, ptr %44, align 8, !tbaa !29
   %46 = load i32, ptr %45, align 8, !tbaa !30
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds i32, ptr %52, i64 %47
+  %48 = getelementptr inbounds [4 x i8], ptr %52, i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !31
   %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds i32, ptr %30, i64 %50
+  %51 = getelementptr inbounds [4 x i8], ptr %30, i64 %50
   store i32 0, ptr %51, align 4, !tbaa !31
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %exitcond118.not = icmp eq i64 %indvars.iv.next115, %wide.trip.count117
@@ -141,14 +141,14 @@ define ptr @Cudd_SplitSet(ptr noundef %0, ptr noundef %1, ptr noundef readonly c
 
 57:                                               ; preds = %.lr.ph91, %57
   %indvars.iv = phi i64 [ 0, %.lr.ph91 ], [ %indvars.iv.next, %57 ]
-  %58 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %59 = load ptr, ptr %58, align 8, !tbaa !29
   %60 = load i32, ptr %59, align 8, !tbaa !30
   %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds i32, ptr %56, i64 %61
+  %62 = getelementptr inbounds [4 x i8], ptr %56, i64 %61
   %63 = load i32, ptr %62, align 4, !tbaa !31
   %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds i32, ptr %53, i64 %64
+  %65 = getelementptr inbounds [4 x i8], ptr %53, i64 %64
   store i32 0, ptr %65, align 4, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -244,7 +244,7 @@ define internal fastcc ptr @selectMintermsFromUniverse(ptr noundef %0, ptr nound
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %13, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.04251 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
-  %14 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !31
   %16 = icmp eq i32 %15, 0
   %17 = zext i1 %16 to i32
@@ -278,18 +278,18 @@ define internal fastcc ptr @selectMintermsFromUniverse(ptr noundef %0, ptr nound
 26:                                               ; preds = %.lr.ph54, %44
   %indvars.iv62 = phi i64 [ %23, %.lr.ph54 ], [ %indvars.iv.next63, %44 ]
   %.04552 = phi i32 [ 0, %.lr.ph54 ], [ %.146, %44 ]
-  %27 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv62
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv62
   %28 = load i32, ptr %27, align 4, !tbaa !31
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %44
 
 30:                                               ; preds = %26
   %31 = load ptr, ptr %22, align 8, !tbaa !37
-  %32 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv62
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv62
   %33 = load i32, ptr %32, align 4, !tbaa !31
   %34 = tail call ptr @cuddUniqueInter(ptr noundef %0, i32 noundef %33, ptr noundef %7, ptr noundef %10) #9
   %35 = sext i32 %.04552 to i64
-  %36 = getelementptr inbounds ptr, ptr %20, i64 %35
+  %36 = getelementptr inbounds [8 x i8], ptr %20, i64 %35
   store ptr %34, ptr %36, align 8, !tbaa !29
   %37 = ptrtoint ptr %34 to i64
   %38 = and i64 %37, -2
@@ -331,7 +331,7 @@ define internal fastcc ptr @selectMintermsFromUniverse(ptr noundef %0, ptr nound
 
 .lr.ph58:                                         ; preds = %56, %.lr.ph58
   %indvars.iv65 = phi i64 [ %indvars.iv.next66, %.lr.ph58 ], [ 0, %56 ]
-  %57 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv65
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv65
   %58 = load ptr, ptr %57, align 8, !tbaa !29
   tail call void @Cudd_RecursiveDeref(ptr noundef %0, ptr noundef %58) #9
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
@@ -463,10 +463,10 @@ define ptr @cuddSplitSetRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, pt
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %23 = load ptr, ptr %22, align 8, !tbaa !33
   %24 = sext i32 %17 to i64
-  %25 = getelementptr inbounds i32, ptr %23, i64 %24
+  %25 = getelementptr inbounds [4 x i8], ptr %23, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !31
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds i32, ptr %2, i64 %27
+  %28 = getelementptr inbounds [4 x i8], ptr %2, i64 %27
   store i32 -1, ptr %28, align 4, !tbaa !31
   %29 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %30 = load ptr, ptr %29, align 8, !tbaa !43
@@ -955,7 +955,7 @@ define internal fastcc ptr @mintermsFromUniverse(ptr noundef %0, ptr noundef non
 
 17:                                               ; preds = %15
   %18 = sext i32 %4 to i64
-  %19 = getelementptr inbounds ptr, ptr %1, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %1, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !29
   br label %67
 
@@ -980,7 +980,7 @@ define internal fastcc ptr @mintermsFromUniverse(ptr noundef %0, ptr noundef non
   %35 = add i32 %34, 1
   store i32 %35, ptr %33, align 4, !tbaa !26
   %36 = sext i32 %4 to i64
-  %37 = getelementptr inbounds ptr, ptr %1, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %1, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !29
   %39 = tail call ptr @cuddBddIteRecur(ptr noundef nonnull %0, ptr noundef %38, ptr noundef %7, ptr noundef nonnull %27) #9
   br label %55
@@ -1000,7 +1000,7 @@ define internal fastcc ptr @mintermsFromUniverse(ptr noundef %0, ptr noundef non
   %50 = add i32 %49, 1
   store i32 %50, ptr %48, align 4, !tbaa !26
   %51 = sext i32 %4 to i64
-  %52 = getelementptr inbounds ptr, ptr %1, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %1, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !29
   %54 = tail call ptr @cuddBddAndRecur(ptr noundef nonnull %0, ptr noundef %53, ptr noundef nonnull %42) #9
   br label %55

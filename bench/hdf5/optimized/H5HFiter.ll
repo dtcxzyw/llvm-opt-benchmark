@@ -3,8 +3,6 @@ source_filename = "bench/hdf5/original/H5HFiter.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.H5HF_indirect_ent_t = type { i64 }
-
 @H5HF_init_g = external local_unnamed_addr global i8, align 1
 @H5_libterm_g = external local_unnamed_addr global i8, align 1
 @.str = private unnamed_addr constant [102 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/hdf5/hdf5/src/H5HFiter.c\00", align 1
@@ -101,7 +99,7 @@ define range(i32 -1, 1) i32 @H5HF__man_iter_start_offset(ptr noundef %0, ptr nou
 
 30:                                               ; preds = %.lr.ph, %42
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
-  %31 = getelementptr inbounds nuw i64, ptr %.pre, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %indvars.iv
   %32 = load i64, ptr %31, align 8, !tbaa !14
   %.not = icmp ult i64 %.072, %32
   br i1 %.not, label %42, label %33
@@ -110,7 +108,7 @@ define range(i32 -1, 1) i32 @H5HF__man_iter_start_offset(ptr noundef %0, ptr nou
   %34 = load i32, ptr %15, align 8, !tbaa !36
   %35 = zext i32 %34 to i64
   %36 = load ptr, ptr %18, align 8, !tbaa !37
-  %37 = getelementptr inbounds nuw i64, ptr %36, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv
   %38 = load i64, ptr %37, align 8, !tbaa !14
   %39 = mul i64 %38, %35
   %40 = add i64 %39, %32
@@ -129,11 +127,11 @@ define range(i32 -1, 1) i32 @H5HF__man_iter_start_offset(ptr noundef %0, ptr nou
 ._crit_edge:                                      ; preds = %42, %._crit_edge.loopexit.split.loop.exit, %27
   %.079.lcssa = phi i32 [ 0, %27 ], [ %43, %._crit_edge.loopexit.split.loop.exit ], [ %29, %42 ]
   %44 = zext i32 %.079.lcssa to i64
-  %45 = getelementptr inbounds nuw i64, ptr %.pre, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %44
   %46 = load i64, ptr %45, align 8, !tbaa !14
   %47 = sub i64 %.072, %46
   %48 = load ptr, ptr %18, align 8, !tbaa !37
-  %49 = getelementptr inbounds nuw i64, ptr %48, i64 %44
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %44
   %50 = load i64, ptr %49, align 8, !tbaa !14
   %51 = udiv i64 %47, %50
   %52 = trunc i64 %51 to i32
@@ -164,11 +162,11 @@ define range(i32 -1, 1) i32 @H5HF__man_iter_start_offset(ptr noundef %0, ptr nou
   %69 = getelementptr inbounds nuw i8, ptr %66, i64 344
   %70 = load ptr, ptr %69, align 8, !tbaa !48
   %71 = zext i32 %68 to i64
-  %72 = getelementptr inbounds nuw %struct.H5HF_indirect_ent_t, ptr %70, i64 %71
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %71
   %73 = load i64, ptr %72, align 8, !tbaa !54
   %74 = load i32, ptr %64, align 8, !tbaa !40
   %75 = zext i32 %74 to i64
-  %76 = getelementptr inbounds nuw i64, ptr %48, i64 %75
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %75
   %77 = load i64, ptr %76, align 8, !tbaa !14
   %78 = lshr i64 %77, 32
   %.not.i = icmp eq i64 %78, 0
@@ -311,7 +309,7 @@ H5VM_log2_gen.exit:                               ; preds = %83, %88, %95, %100,
 158:                                              ; preds = %149
   %159 = and i64 %51, 4294967295
   %160 = load ptr, ptr %18, align 8, !tbaa !37
-  %161 = getelementptr inbounds nuw i64, ptr %160, i64 %44
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %160, i64 %44
   %162 = load i64, ptr %161, align 8, !tbaa !14
   %163 = mul i64 %162, %159
   %164 = icmp eq i64 %47, %163
@@ -342,7 +340,7 @@ H5VM_log2_gen.exit:                               ; preds = %83, %88, %95, %100,
   %177 = getelementptr inbounds nuw i8, ptr %169, i64 24
   store ptr %176, ptr %177, align 8, !tbaa !46
   %178 = load ptr, ptr %18, align 8, !tbaa !37
-  %179 = getelementptr inbounds nuw i64, ptr %178, i64 %44
+  %179 = getelementptr inbounds nuw [8 x i8], ptr %178, i64 %44
   %180 = load i64, ptr %179, align 8, !tbaa !14
   %181 = mul i64 %180, %159
   %182 = sub i64 %47, %181

@@ -518,7 +518,7 @@ define hidden void @"_ZN14version_ranges15Ranges$LT$V$GT$12intersection17h68e296
   %12 = load i64, ptr %11, align 8, !alias.scope !146, !noalias !149
   %.sink12.i = select i1 %9, ptr %10, ptr %1
   %.sink11.i = select i1 %9, i64 %12, i64 %8
-  %13 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [2 x i64] } }, ptr %.sink12.i, i64 %.sink11.i
+  %13 = getelementptr inbounds [48 x i8], ptr %.sink12.i, i64 %.sink11.i
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %15 = load i64, ptr %14, align 8, !alias.scope !151, !noalias !154, !noundef !4
   %16 = icmp ugt i64 %15, 1
@@ -527,7 +527,7 @@ define hidden void @"_ZN14version_ranges15Ranges$LT$V$GT$12intersection17h68e296
   %19 = load i64, ptr %18, align 8, !alias.scope !151, !noalias !154
   %.sink12.i44 = select i1 %16, ptr %17, ptr %2
   %.sink11.i45 = select i1 %16, i64 %19, i64 %15
-  %20 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [2 x i64] } }, ptr %.sink12.i44, i64 %.sink11.i45
+  %20 = getelementptr inbounds [48 x i8], ptr %.sink12.i44, i64 %.sink11.i45
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %.sroa.624.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.sroa.624.sroa.5.0..sroa.624.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -1116,7 +1116,7 @@ _ZN4core3cmp3Ord3max17h320a53dcb995d2d1E.exit67:  ; preds = %.noexc66, %181
   %239 = phi i64 [ %.pre.i, %232 ], [ %227, %"_ZN66_$LT$uv_pep440..version..Version$u20$as$u20$core..clone..Clone$GT$5clone17hd389432b57081c68E.exit" ]
   %.sroa.01.0.i = phi ptr [ %22, %232 ], [ %.sink9.i.i, %"_ZN66_$LT$uv_pep440..version..Version$u20$as$u20$core..clone..Clone$GT$5clone17hd389432b57081c68E.exit" ]
   %.sroa.0.0.i74 = phi ptr [ %233, %232 ], [ %.sink10.i.i, %"_ZN66_$LT$uv_pep440..version..Version$u20$as$u20$core..clone..Clone$GT$5clone17hd389432b57081c68E.exit" ]
-  %240 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [2 x i64] } }, ptr %.sroa.0.0.i74, i64 %239
+  %240 = getelementptr inbounds [48 x i8], ptr %.sroa.0.0.i74, i64 %239
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %240, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false)
   %241 = load i64, ptr %.sroa.01.0.i, align 8, !alias.scope !339, !noalias !340, !noundef !4
   %242 = add i64 %241, 1
@@ -1254,7 +1254,7 @@ default.unreachable95:                            ; preds = %86, %16
   %35 = phi i64 [ %.pre.i, %30 ], [ %25, %19 ]
   %.sroa.01.0.i = phi ptr [ %24, %30 ], [ %.sink9.i.i, %19 ]
   %.sroa.0.0.i14 = phi ptr [ %31, %30 ], [ %.sink10.i.i, %19 ]
-  %36 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [2 x i64] } }, ptr %.sroa.0.0.i14, i64 %35
+  %36 = getelementptr inbounds [48 x i8], ptr %.sroa.0.0.i14, i64 %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %36, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false)
   %37 = load i64, ptr %.sroa.01.0.i, align 8, !alias.scope !349, !noalias !350, !noundef !4
   %38 = add i64 %37, 1
@@ -1376,7 +1376,7 @@ default.unreachable95:                            ; preds = %86, %16
   %87 = phi i64 [ %.pre.i26, %82 ], [ %77, %"_ZN66_$LT$uv_pep440..version..Version$u20$as$u20$core..clone..Clone$GT$5clone17hd389432b57081c68E.exit" ]
   %.sroa.01.0.i24 = phi ptr [ %13, %82 ], [ %.sink9.i.i22, %"_ZN66_$LT$uv_pep440..version..Version$u20$as$u20$core..clone..Clone$GT$5clone17hd389432b57081c68E.exit" ]
   %.sroa.0.0.i25 = phi ptr [ %83, %82 ], [ %.sink10.i.i21, %"_ZN66_$LT$uv_pep440..version..Version$u20$as$u20$core..clone..Clone$GT$5clone17hd389432b57081c68E.exit" ]
-  %88 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [2 x i64] } }, ptr %.sroa.0.0.i25, i64 %87
+  %88 = getelementptr inbounds [48 x i8], ptr %.sroa.0.0.i25, i64 %87
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %88, ptr noundef nonnull align 8 dereferenceable(48) %7, i64 48, i1 false)
   %89 = load i64, ptr %.sroa.01.0.i24, align 8, !alias.scope !381, !noalias !382, !noundef !4
   %90 = add i64 %89, 1

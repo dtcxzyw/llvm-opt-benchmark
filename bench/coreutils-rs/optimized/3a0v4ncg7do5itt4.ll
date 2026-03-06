@@ -1081,7 +1081,7 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17hcf292193297ae9d5E.exit178.
 .preheader:                                       ; preds = %250, %.preheader
   %.017.i = phi i64 [ %.0.sroa.speculated.i.i.i, %.preheader ], [ 1, %250 ]
   %.016.i = phi i64 [ %257, %.preheader ], [ 0, %250 ]
-  %255 = getelementptr inbounds { { { i64, [1 x i64] }, i64, i64 }, i8, [7 x i8] }, ptr %252, i64 %.016.i
+  %255 = getelementptr inbounds [40 x i8], ptr %252, i64 %.016.i
   %256 = getelementptr i8, ptr %255, i64 16
   %.val.i = load i64, ptr %256, align 8, !noundef !5
   %.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %.017.i, i64 %.val.i)
@@ -7320,7 +7320,7 @@ default.unreachable237:                           ; preds = %"_ZN4core6result19R
   unreachable
 
 175:                                              ; preds = %.lr.ph.split
-  %176 = getelementptr inbounds nuw i64, ptr %108, i64 %122
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %122
   %177 = load ptr, ptr @_ZN4core3fmt2rt12USIZE_MARKER17hef2d4d0250b80c97E, align 8, !nonnull !5, !noundef !5
   store ptr @anon.9b33a3cde8d4dd4818b9db5641171ef1.108, ptr %29, align 8
   store ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h2bec81bbc93d343fE", ptr %45, align 8
@@ -7621,7 +7621,7 @@ default.unreachable237:                           ; preds = %"_ZN4core6result19R
 define void @_ZN5uu_od22open_input_peek_reader17h7c242829a8e2a1ffE(ptr noalias noundef writeonly sret({ { { i64, [1 x i64] }, { { { i64, ptr, {} }, i64 }, { ptr, [1 x i64] }, i8, [7 x i8] }, i64 }, { { i64, ptr, {} }, i64 } }) align 8 captures(none) dereferenceable(96) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, i64 %5) unnamed_addr #1 personality ptr @rust_eh_personality {
   %7 = alloca { { { i64, ptr, {} }, i64 }, { ptr, [1 x i64] }, i8, [7 x i8] }, align 8
   %.sroa.3 = alloca { { { i64, ptr, {} }, i64 }, { ptr, [1 x i64] }, i8, [7 x i8] }, align 8
-  %8 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %1, i64 %2
+  %8 = getelementptr inbounds [24 x i8], ptr %1, i64 %2
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !2144
   call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17hccdf52c038ffc42aE.llvm.399940785433822248"(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %7, ptr noundef nonnull %1, ptr noundef nonnull %8)
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 24

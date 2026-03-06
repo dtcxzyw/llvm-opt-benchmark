@@ -6887,7 +6887,7 @@ define internal void @_ZN12_GLOBAL__N_137Strip_RemoveExtraAsciiWhitespace_Test8T
 22:                                               ; preds = %1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %23 = getelementptr inbounds nuw ptr, ptr @__const._ZN12_GLOBAL__N_137Strip_RemoveExtraAsciiWhitespace_Test8TestBodyEv.inputs, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZN12_GLOBAL__N_137Strip_RemoveExtraAsciiWhitespace_Test8TestBodyEv.inputs, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8, !tbaa !43
   store ptr %17, ptr %3, align 8, !tbaa !80
   %25 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %24) #19
@@ -6934,7 +6934,7 @@ define internal void @_ZN12_GLOBAL__N_137Strip_RemoveExtraAsciiWhitespace_Test8T
 
 37:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %38 = getelementptr inbounds nuw ptr, ptr @__const._ZN12_GLOBAL__N_137Strip_RemoveExtraAsciiWhitespace_Test8TestBodyEv.outputs, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZN12_GLOBAL__N_137Strip_RemoveExtraAsciiWhitespace_Test8TestBodyEv.outputs, i64 %indvars.iv
   %39 = load ptr, ptr %38, align 8, !tbaa !43
   %40 = load ptr, ptr %3, align 8, !tbaa !36
   invoke void @_ZN7testing8internal14CmpHelperSTREQEPKcS2_S2_S2_(ptr dead_on_unwind nonnull writable sret(%"class.testing::AssertionResult") align 8 %4, ptr noundef nonnull @.str.101, ptr noundef nonnull @.str.102, ptr noundef %39, ptr noundef %40)

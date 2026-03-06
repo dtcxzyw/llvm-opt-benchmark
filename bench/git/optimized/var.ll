@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.strbuf = type { i64, i64, ptr }
 %struct.string_list = type { ptr, i64, i64, i8, ptr }
-%struct.string_list_item = type { ptr, ptr }
 
 @var_usage = internal constant [26 x i8] c"git var (-l | <variable>)\00", align 16
 @.str.1 = private unnamed_addr constant [4 x i8] c"%s\0A\00", align 1
@@ -104,7 +103,7 @@ sub_1:                                            ; preds = %sub_0
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %.018.i = phi i64 [ %34, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %30 = load ptr, ptr %5, align 8, !tbaa !20
-  %31 = getelementptr inbounds nuw %struct.string_list_item, ptr %30, i64 %.018.i
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %.018.i
   %32 = load ptr, ptr %31, align 8, !tbaa !21
   %33 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, ptr noundef %29, ptr noundef %32)
   %34 = add nuw i64 %.018.i, 1

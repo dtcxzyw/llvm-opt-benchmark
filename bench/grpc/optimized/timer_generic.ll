@@ -28,12 +28,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<absl::lts_20240722::Status, std::allocator<absl::lts_20240722::Status>>::_Vector_impl" }
 %"struct.std::_Vector_base<absl::lts_20240722::Status, std::allocator<absl::lts_20240722::Status>>::_Vector_impl" = type { %"struct.std::_Vector_base<absl::lts_20240722::Status, std::allocator<absl::lts_20240722::Status>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<absl::lts_20240722::Status, std::allocator<absl::lts_20240722::Status>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%struct.timer_shard = type { i64, %"class.grpc_core::ManualConstructor", %"class.grpc_core::Timestamp", %"class.grpc_core::Timestamp", i32, %struct.grpc_timer_heap, %struct.grpc_timer }
-%"class.grpc_core::ManualConstructor" = type { [56 x i8] }
-%struct.grpc_timer_heap = type { ptr, i32, i32 }
-%struct.grpc_timer = type { i64, i32, i8, ptr, ptr, ptr, %union.anon }
-%union.anon = type { %"struct.grpc_event_engine::experimental::EventEngine::TaskHandle" }
-%"struct.grpc_event_engine::experimental::EventEngine::TaskHandle" = type { [2 x i64] }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.18 }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon.18 = type { i64, [8 x i8] }
@@ -181,7 +175,7 @@ define internal void @_ZL10timer_initP10grpc_timerN9grpc_core9TimestampEP12grpc_
   %27 = lshr i64 %23, 14
   %28 = xor i64 %26, %27
   %29 = urem i64 %28, %22
-  %30 = getelementptr inbounds nuw %struct.timer_shard, ptr %21, i64 %29
+  %30 = getelementptr inbounds nuw [160 x i8], ptr %21, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %2, ptr %31, align 8, !tbaa !18
   store i64 %1, ptr %0, align 8, !tbaa !19
@@ -690,7 +684,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi29EEERS2_RAT__Kc.exit: ; pr
   %215 = phi i32 [ %228, %222 ], [ %214, %209 ]
   %216 = add i32 %215, -1
   %217 = zext i32 %216 to i64
-  %218 = getelementptr inbounds nuw ptr, ptr %210, i64 %217
+  %218 = getelementptr inbounds nuw [8 x i8], ptr %210, i64 %217
   %219 = load ptr, ptr %218, align 8, !tbaa !15
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 72
   %.sroa.03.0.copyload.i = load i64, ptr %220, align 8, !tbaa !17
@@ -699,7 +693,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi29EEERS2_RAT__Kc.exit: ; pr
 
 222:                                              ; preds = %.lr.ph.i
   %223 = zext i32 %215 to i64
-  %224 = getelementptr inbounds nuw ptr, ptr %210, i64 %223
+  %224 = getelementptr inbounds nuw [8 x i8], ptr %210, i64 %223
   %225 = load ptr, ptr %224, align 8, !tbaa !15
   store ptr %225, ptr %218, align 8, !tbaa !15
   store ptr %219, ptr %224, align 8, !tbaa !15
@@ -724,7 +718,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi29EEERS2_RAT__Kc.exit: ; pr
   %233 = phi i64 [ %246, %240 ], [ %231, %.critedge.i ]
   %234 = add i32 %.pr126, 1
   %235 = zext i32 %234 to i64
-  %236 = getelementptr inbounds nuw ptr, ptr %210, i64 %235
+  %236 = getelementptr inbounds nuw [8 x i8], ptr %210, i64 %235
   %237 = load ptr, ptr %236, align 8, !tbaa !15
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 72
   %.sroa.0.0.copyload.i = load i64, ptr %238, align 8, !tbaa !17
@@ -732,7 +726,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi29EEERS2_RAT__Kc.exit: ; pr
   br i1 %239, label %240, label %_ZL20note_deadline_changeP11timer_shard.exit
 
 240:                                              ; preds = %.lr.ph13.i
-  %241 = getelementptr inbounds nuw ptr, ptr %210, i64 %233
+  %241 = getelementptr inbounds nuw [8 x i8], ptr %210, i64 %233
   %242 = load ptr, ptr %241, align 8, !tbaa !15
   store ptr %237, ptr %241, align 8, !tbaa !15
   store ptr %242, ptr %236, align 8, !tbaa !15
@@ -791,7 +785,7 @@ define internal void @_ZL12timer_cancelP10grpc_timer(ptr noundef %0) #5 personal
   %16 = lshr i64 %12, 14
   %17 = xor i64 %15, %16
   %18 = urem i64 %17, %11
-  %19 = getelementptr inbounds nuw %struct.timer_shard, ptr %10, i64 %18
+  %19 = getelementptr inbounds nuw [160 x i8], ptr %10, i64 %18
   tail call void @gpr_mu_lock(ptr noundef %19)
   %20 = load atomic i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core11timer_traceE, i64 16) monotonic, align 8
   %21 = trunc i8 %20 to i1
@@ -1623,7 +1617,7 @@ _ZN9grpc_core9Timestamp3NowEv.exit:               ; preds = %0, %10
   %18 = phi i64 [ %40, %_ZL20compute_min_deadlineP11timer_shard.exit ], [ 0, %_ZN9grpc_core9Timestamp3NowEv.exit ]
   %.020 = phi i32 [ %39, %_ZL20compute_min_deadlineP11timer_shard.exit ], [ 0, %_ZN9grpc_core9Timestamp3NowEv.exit ]
   %19 = load ptr, ptr @_ZL8g_shards, align 8, !tbaa !15
-  %20 = getelementptr inbounds nuw %struct.timer_shard, ptr %19, i64 %18
+  %20 = getelementptr inbounds nuw [160 x i8], ptr %19, i64 %18
   tail call void @gpr_mu_init(ptr noundef %20)
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   tail call void @_ZN9grpc_core17TimeAveragedStatsC1Eddd(ptr noundef nonnull align 8 dereferenceable(56) %21, double noundef 0x40083E0F83E0F83E, double noundef 1.000000e-01, double noundef 5.000000e-01)
@@ -1660,7 +1654,7 @@ _ZL20compute_min_deadlineP11timer_shard.exit:     ; preds = %30, %33
   %36 = getelementptr inbounds nuw i8, ptr %20, i64 72
   store i64 %.sroa.04.0.i, ptr %36, align 8, !tbaa !17
   %37 = load ptr, ptr @_ZL13g_shard_queue, align 8, !tbaa !50
-  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %18
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %18
   store ptr %20, ptr %38, align 8, !tbaa !15
   %39 = add i32 %.020, 1
   %40 = zext i32 %39 to i64
@@ -1760,7 +1754,7 @@ _ZNSt6vectorIN4absl12lts_202407226StatusESaIS2_EED2Ev.exit: ; preds = %_ZSt8_Des
 .lr.ph:                                           ; preds = %_ZNSt6vectorIN4absl12lts_202407226StatusESaIS2_EED2Ev.exit, %.lr.ph
   %.09 = phi i64 [ %36, %.lr.ph ], [ 0, %_ZNSt6vectorIN4absl12lts_202407226StatusESaIS2_EED2Ev.exit ]
   %33 = load ptr, ptr @_ZL8g_shards, align 8, !tbaa !15
-  %34 = getelementptr inbounds nuw %struct.timer_shard, ptr %33, i64 %.09
+  %34 = getelementptr inbounds nuw [160 x i8], ptr %33, i64 %.09
   call void @gpr_mu_destroy(ptr noundef %34)
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 88
   call void @_Z23grpc_timer_heap_destroyP15grpc_timer_heap(ptr noundef nonnull %35)
@@ -3109,7 +3103,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi7EEERS2_RAT__Kc.exit: ; pre
   %313 = phi i32 [ %326, %320 ], [ %312, %.critedge44 ]
   %314 = add i32 %313, -1
   %315 = zext i32 %314 to i64
-  %316 = getelementptr inbounds nuw ptr, ptr %308, i64 %315
+  %316 = getelementptr inbounds nuw [8 x i8], ptr %308, i64 %315
   %317 = load ptr, ptr %316, align 8, !tbaa !15
   %318 = getelementptr inbounds nuw i8, ptr %317, i64 72
   %.sroa.03.0.copyload.i = load i64, ptr %318, align 8, !tbaa !17
@@ -3118,7 +3112,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi7EEERS2_RAT__Kc.exit: ; pre
 
 320:                                              ; preds = %.lr.ph.i
   %321 = zext i32 %313 to i64
-  %322 = getelementptr inbounds nuw ptr, ptr %308, i64 %321
+  %322 = getelementptr inbounds nuw [8 x i8], ptr %308, i64 %321
   %323 = load ptr, ptr %322, align 8, !tbaa !15
   store ptr %323, ptr %316, align 8, !tbaa !15
   store ptr %317, ptr %322, align 8, !tbaa !15
@@ -3143,7 +3137,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi7EEERS2_RAT__Kc.exit: ; pre
   %333 = phi i32 [ %345, %340 ], [ %327, %.critedge.i84 ]
   %334 = add i32 %333, 1
   %335 = zext i32 %334 to i64
-  %336 = getelementptr inbounds nuw ptr, ptr %308, i64 %335
+  %336 = getelementptr inbounds nuw [8 x i8], ptr %308, i64 %335
   %337 = load ptr, ptr %336, align 8, !tbaa !15
   %338 = getelementptr inbounds nuw i8, ptr %337, i64 72
   %.sroa.0.0.copyload.i85 = load i64, ptr %338, align 8, !tbaa !17
@@ -3151,7 +3145,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi7EEERS2_RAT__Kc.exit: ; pre
   br i1 %339, label %340, label %_ZL20note_deadline_changeP11timer_shard.exit
 
 340:                                              ; preds = %.lr.ph13.i
-  %341 = getelementptr inbounds nuw ptr, ptr %308, i64 %332
+  %341 = getelementptr inbounds nuw [8 x i8], ptr %308, i64 %332
   %342 = load ptr, ptr %341, align 8, !tbaa !15
   store ptr %337, ptr %341, align 8, !tbaa !15
   store ptr %342, ptr %336, align 8, !tbaa !15

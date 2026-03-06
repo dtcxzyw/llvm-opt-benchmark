@@ -1243,7 +1243,7 @@ define dso_local range(i32 -12, 1) i32 @i915_active_acquire_preallocate_barrier(
   %28 = xor i32 %27, -1
   %29 = and i32 %21, %28
   %30 = sext i32 %24 to i64
-  %31 = getelementptr ptr, ptr %16, i64 %30
+  %31 = getelementptr [8 x i8], ptr %16, i64 %30
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 176
   %34 = load ptr, ptr %33, align 8

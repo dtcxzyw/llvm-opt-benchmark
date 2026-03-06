@@ -3,7 +3,6 @@ source_filename = "bench/postgres/original/placeholder.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.ListCell = type { ptr }
 %struct.QualCost = type { double, double }
 %struct.contain_placeholder_references_context = type { i32, i32 }
 
@@ -49,7 +48,7 @@ define dso_local ptr @find_placeholder_info(ptr noundef %0, ptr noundef %1) loca
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %10 = load ptr, ptr %9, align 8
   %11 = zext i32 %4 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %.thread, label %97
@@ -165,7 +164,7 @@ define dso_local ptr @find_placeholder_info(ptr noundef %0, ptr noundef %1) loca
   %73 = phi i32 [ %52, %._crit_edge ], [ %.pre68, %71 ]
   %74 = phi ptr [ %.pre, %._crit_edge ], [ %storemerge, %71 ]
   %75 = zext i32 %73 to i64
-  %76 = getelementptr inbounds nuw ptr, ptr %74, i64 %75
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %75
   store ptr %21, ptr %76, align 8
   %77 = load ptr, ptr %25, align 8
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
@@ -185,7 +184,7 @@ define dso_local ptr @find_placeholder_info(ptr noundef %0, ptr noundef %1) loca
   %85 = phi i32 [ %94, %93 ], [ %83, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %93 ], [ 0, %.lr.ph ]
   %86 = load ptr, ptr %82, align 8
-  %87 = getelementptr inbounds nuw %union.ListCell, ptr %86, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %indvars.iv
   %88 = load ptr, ptr %87, align 8
   %89 = load i32, ptr %88, align 4
   %90 = icmp eq i32 %89, 318
@@ -291,7 +290,7 @@ define internal fastcc void @find_placeholders_recurse(ptr noundef %0, ptr nound
 .lr.ph36:                                         ; preds = %.lr.ph, %.lr.ph36
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph36 ], [ 0, %.lr.ph ]
   %13 = load ptr, ptr %10, align 8
-  %14 = getelementptr inbounds nuw %union.ListCell, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   tail call fastcc void @find_placeholders_recurse(ptr noundef %0, ptr noundef %15)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -318,7 +317,7 @@ define internal fastcc void @find_placeholders_recurse(ptr noundef %0, ptr nound
   %26 = phi i32 [ %35, %34 ], [ %24, %.lr.ph.i ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %34 ], [ 0, %.lr.ph.i ]
   %27 = load ptr, ptr %23, align 8
-  %28 = getelementptr inbounds nuw %union.ListCell, ptr %27, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv.i
   %29 = load ptr, ptr %28, align 8
   %30 = load i32, ptr %29, align 4
   %31 = icmp eq i32 %30, 318
@@ -360,7 +359,7 @@ define internal fastcc void @find_placeholders_recurse(ptr noundef %0, ptr nound
   %50 = phi i32 [ %59, %58 ], [ %48, %.lr.ph.i27 ]
   %indvars.iv.i29 = phi i64 [ %indvars.iv.next.i30, %58 ], [ 0, %.lr.ph.i27 ]
   %51 = load ptr, ptr %47, align 8
-  %52 = getelementptr inbounds nuw %union.ListCell, ptr %51, i64 %indvars.iv.i29
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %indvars.iv.i29
   %53 = load ptr, ptr %52, align 8
   %54 = load i32, ptr %53, align 4
   %55 = icmp eq i32 %54, 318
@@ -411,7 +410,7 @@ define dso_local void @fix_placeholder_input_needed_levels(ptr noundef %0) local
 .lr.ph16:                                         ; preds = %.lr.ph, %.lr.ph16
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph16 ], [ 0, %.lr.ph ]
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds nuw %union.ListCell, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
@@ -455,7 +454,7 @@ define dso_local void @rebuild_placeholder_attr_needed(ptr noundef %0) local_unn
 .lr.ph16:                                         ; preds = %.lr.ph, %.lr.ph16
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph16 ], [ 0, %.lr.ph ]
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds nuw %union.ListCell, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
@@ -496,7 +495,7 @@ define dso_local void @add_placeholders_to_base_rels(ptr noundef %0) local_unnam
 .lr.ph19:                                         ; preds = %.lr.ph, %32
   %indvars.iv = phi i64 [ %indvars.iv.next, %32 ], [ 0, %.lr.ph ]
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds nuw %union.ListCell, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
@@ -574,7 +573,7 @@ define dso_local void @add_placeholders_to_joinrel(ptr noundef %0, ptr noundef c
   %.03439 = phi i64 [ %.1, %76 ], [ %13, %.lr.ph ]
   %indvars.iv38 = phi i64 [ %indvars.iv.next, %76 ], [ 0, %.lr.ph ]
   %24 = load ptr, ptr %17, align 8
-  %25 = getelementptr inbounds nuw %union.ListCell, ptr %24, i64 %indvars.iv38
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv38
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8

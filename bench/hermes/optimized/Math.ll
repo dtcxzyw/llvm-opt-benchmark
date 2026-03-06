@@ -40,7 +40,7 @@ $_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm
 define hidden { i32, i64 } @_ZN6hermes2vm18runContextFunc1ArgEPvRNS0_7RuntimeENS0_10NativeArgsE(ptr noundef %ctx, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr noundef readonly captures(none) %args) #0 {
 entry:
   %0 = ptrtoint ptr %ctx to i64
-  %arrayidx = getelementptr inbounds ptr, ptr @_ZZN6hermes2vm18runContextFunc1ArgEPvRNS0_7RuntimeENS0_10NativeArgsEE13math1ArgFuncs, i64 %0
+  %arrayidx = getelementptr inbounds [8 x i8], ptr @_ZZN6hermes2vm18runContextFunc1ArgEPvRNS0_7RuntimeENS0_10NativeArgsEE13math1ArgFuncs, i64 %0
   %1 = load ptr, ptr %arrayidx, align 8
   %argCount_.i = getelementptr inbounds nuw i8, ptr %args, i64 8
   %2 = load i32, ptr %argCount_.i, align 8
@@ -254,7 +254,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %__begin2.sroa.0.021 = phi ptr [ %4, %for.body.lr.ph ], [ %incdec.ptr.i.i, %for.inc ]
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.021, i64 -8
   %6 = load ptr, ptr %chunks_.i.i, align 8
-  %arrayidx.i18.i.i = getelementptr inbounds nuw ptr, ptr %6, i64 %conv.i.i10
+  %arrayidx.i18.i.i = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %conv.i.i10
   %7 = load ptr, ptr %arrayidx.i18.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %7, i64 128
   store i32 %3, ptr %curChunkIndex_.i.i, align 8
@@ -308,7 +308,7 @@ cleanup:                                          ; preds = %for.body, %for.end
   %retval.sroa.3.0 = phi i64 [ %retval.sroa.0.0.i, %for.end ], [ undef, %for.body ]
   %chunks_.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 144
   %18 = load ptr, ptr %chunks_.i.i.i, align 8
-  %arrayidx.i18.i.i.i = getelementptr inbounds nuw ptr, ptr %18, i64 %conv.i.i.i.pre-phi
+  %arrayidx.i18.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %conv.i.i.i.pre-phi
   %19 = load ptr, ptr %arrayidx.i18.i.i.i, align 8
   %add.ptr.i.i.i14 = getelementptr inbounds nuw i8, ptr %19, i64 128
   store i32 %3, ptr %curChunkIndex_.i.i, align 8
@@ -353,7 +353,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %__begin2.sroa.0.021 = phi ptr [ %4, %for.body.lr.ph ], [ %incdec.ptr.i.i, %for.inc ]
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.021, i64 -8
   %6 = load ptr, ptr %chunks_.i.i, align 8
-  %arrayidx.i18.i.i = getelementptr inbounds nuw ptr, ptr %6, i64 %conv.i.i10
+  %arrayidx.i18.i.i = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %conv.i.i10
   %7 = load ptr, ptr %arrayidx.i18.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %7, i64 128
   store i32 %3, ptr %curChunkIndex_.i.i, align 8
@@ -407,7 +407,7 @@ cleanup:                                          ; preds = %for.body, %for.end
   %retval.sroa.3.0 = phi i64 [ %retval.sroa.0.0.i, %for.end ], [ undef, %for.body ]
   %chunks_.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 144
   %18 = load ptr, ptr %chunks_.i.i.i, align 8
-  %arrayidx.i18.i.i.i = getelementptr inbounds nuw ptr, ptr %18, i64 %conv.i.i.i.pre-phi
+  %arrayidx.i18.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %conv.i.i.i.pre-phi
   %19 = load ptr, ptr %arrayidx.i18.i.i.i, align 8
   %add.ptr.i.i.i14 = getelementptr inbounds nuw i8, ptr %19, i64 128
   store i32 %3, ptr %curChunkIndex_.i.i, align 8
@@ -523,7 +523,7 @@ if.then:                                          ; preds = %entry
 for.body.i:                                       ; preds = %for.body.i, %if.then
   %store_forwarded = phi i64 [ %or, %if.then ], [ %add.i, %for.body.i ]
   %__i.09.i = phi i64 [ 1, %if.then ], [ %inc.i, %for.body.i ]
-  %4 = getelementptr i64, ptr %2, i64 %__i.09.i
+  %4 = getelementptr [8 x i8], ptr %2, i64 %__i.09.i
   %shr.i = lshr i64 %store_forwarded, 62
   %xor.i = xor i64 %shr.i, %store_forwarded
   %mul.i = mul i64 %xor.i, 6364136223846793005
@@ -682,7 +682,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %__begin2.sroa.0.043 = phi ptr [ %6, %for.body.lr.ph ], [ %incdec.ptr.i.i, %_ZN4llvh23SmallVectorTemplateBaseIdLb1EE9push_backERKd.exit ]
   %incdec.ptr.i.i = getelementptr inbounds i8, ptr %__begin2.sroa.0.043, i64 -8
   %7 = load ptr, ptr %chunks_.i, align 8
-  %arrayidx.i18.i = getelementptr inbounds nuw ptr, ptr %7, i64 %conv.i
+  %arrayidx.i18.i = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %conv.i
   %8 = load ptr, ptr %arrayidx.i18.i, align 8
   %add.ptr.i17 = getelementptr inbounds nuw i8, ptr %8, i64 128
   store i32 %4, ptr %curChunkIndex_.i, align 8
@@ -716,7 +716,7 @@ _ZN4llvh23SmallVectorTemplateBaseIdLb1EE9push_backERKd.exit: ; preds = %if.end, 
   %19 = phi i32 [ %.pre.i, %if.then.i23 ], [ %17, %if.end ]
   %20 = load ptr, ptr %coerced, align 8
   %conv.i3.i = zext i32 %19 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw double, ptr %20, i64 %conv.i3.i
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %conv.i3.i
   store i64 %10, ptr %add.ptr.i.i, align 1
   %21 = load i32, ptr %Size.i.i.i.i.i, align 8
   %add.i = add i32 %21, 1
@@ -1154,10 +1154,10 @@ if.then:                                          ; preds = %entry
 for.body.i:                                       ; preds = %for.body.i, %if.then
   %1 = phi i64 [ %.pre.i, %if.then ], [ %2, %for.body.i ]
   %__k.014.i = phi i64 [ 0, %if.then ], [ %add.i, %for.body.i ]
-  %arrayidx.i = getelementptr inbounds nuw i64, ptr %this, i64 %__k.014.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %this, i64 %__k.014.i
   %and.i = and i64 %1, -2147483648
   %add.i = add nuw nsw i64 %__k.014.i, 1
-  %arrayidx3.i = getelementptr inbounds nuw i64, ptr %this, i64 %add.i
+  %arrayidx3.i = getelementptr inbounds nuw [8 x i8], ptr %this, i64 %add.i
   %2 = load i64, ptr %arrayidx3.i, align 8
   %and4.i = and i64 %2, 2147483646
   %or.i = or disjoint i64 %and4.i, %and.i
@@ -1181,10 +1181,10 @@ for.body15.preheader.i:                           ; preds = %for.body.i
 for.body15.i:                                     ; preds = %for.body15.i, %for.body15.preheader.i
   %4 = phi i64 [ %5, %for.body15.i ], [ %.pre17.i, %for.body15.preheader.i ]
   %__k12.015.i = phi i64 [ %add21.i, %for.body15.i ], [ 156, %for.body15.preheader.i ]
-  %arrayidx18.i = getelementptr inbounds nuw i64, ptr %this, i64 %__k12.015.i
+  %arrayidx18.i = getelementptr inbounds nuw [8 x i8], ptr %this, i64 %__k12.015.i
   %and19.i = and i64 %4, -2147483648
   %add21.i = add nuw nsw i64 %__k12.015.i, 1
-  %arrayidx22.i = getelementptr inbounds nuw i64, ptr %this, i64 %add21.i
+  %arrayidx22.i = getelementptr inbounds nuw [8 x i8], ptr %this, i64 %add21.i
   %5 = load i64, ptr %arrayidx22.i, align 8
   %and23.i = and i64 %5, 2147483646
   %or24.i = or disjoint i64 %and23.i, %and19.i
@@ -1222,7 +1222,7 @@ if.end:                                           ; preds = %_ZNSt23mersenne_twi
   %10 = phi i64 [ 0, %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EE11_M_gen_randEv.exit ], [ %0, %entry ]
   %inc = add nuw nsw i64 %10, 1
   store i64 %inc, ptr %_M_p, align 8
-  %arrayidx = getelementptr inbounds nuw i64, ptr %this, i64 %10
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %this, i64 %10
   %11 = load i64, ptr %arrayidx, align 8
   %shr = lshr i64 %11, 29
   %and = and i64 %shr, 22906492245

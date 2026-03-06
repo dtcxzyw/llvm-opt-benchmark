@@ -69,7 +69,7 @@ define dso_local noundef i64 @_ZNSt3__112__rs_defaultclEv(ptr noundef nonnull re
 7:                                                ; preds = %7, %6
   %store_forwarded = phi i64 [ 5489, %6 ], [ %13, %7 ]
   %.07.i.i.i = phi i64 [ 1, %6 ], [ %14, %7 ]
-  %8 = getelementptr i64, ptr @_ZZNSt3__112__rs_defaultclEvE6__rs_g, i64 %.07.i.i.i
+  %8 = getelementptr [8 x i8], ptr @_ZZNSt3__112__rs_defaultclEvE6__rs_g, i64 %.07.i.i.i
   %9 = lshr i64 %store_forwarded, 30
   %10 = xor i64 %9, %store_forwarded
   %11 = mul nuw nsw i64 %10, 1812433253
@@ -89,16 +89,16 @@ define dso_local noundef i64 @_ZNSt3__112__rs_defaultclEv(ptr noundef nonnull re
   %17 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZNSt3__112__rs_defaultclEvE6__rs_g, i64 4992), align 8, !tbaa !14
   %18 = add i64 %17, 1
   %19 = urem i64 %18, 624
-  %20 = getelementptr inbounds nuw i64, ptr @_ZZNSt3__112__rs_defaultclEvE6__rs_g, i64 %17
+  %20 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNSt3__112__rs_defaultclEvE6__rs_g, i64 %17
   %21 = load i64, ptr %20, align 8, !tbaa !10
   %22 = and i64 %21, -2147483648
-  %23 = getelementptr inbounds nuw i64, ptr @_ZZNSt3__112__rs_defaultclEvE6__rs_g, i64 %19
+  %23 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNSt3__112__rs_defaultclEvE6__rs_g, i64 %19
   %24 = load i64, ptr %23, align 8, !tbaa !10
   %25 = and i64 %24, 2147483646
   %26 = or disjoint i64 %25, %22
   %27 = add i64 %17, 397
   %28 = urem i64 %27, 624
-  %29 = getelementptr inbounds nuw i64, ptr @_ZZNSt3__112__rs_defaultclEvE6__rs_g, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNSt3__112__rs_defaultclEvE6__rs_g, i64 %28
   %30 = load i64, ptr %29, align 8, !tbaa !10
   %31 = lshr exact i64 %26, 1
   %32 = trunc i64 %24 to i1
@@ -107,7 +107,7 @@ define dso_local noundef i64 @_ZNSt3__112__rs_defaultclEv(ptr noundef nonnull re
   %35 = xor i64 %34, %31
   store i64 %35, ptr %20, align 8, !tbaa !10
   %36 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZNSt3__112__rs_defaultclEvE6__rs_g, i64 4992), align 8, !tbaa !14
-  %37 = getelementptr inbounds nuw i64, ptr @_ZZNSt3__112__rs_defaultclEvE6__rs_g, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNSt3__112__rs_defaultclEvE6__rs_g, i64 %36
   %38 = load i64, ptr %37, align 8, !tbaa !10
   %39 = lshr i64 %38, 11
   %40 = and i64 %39, 4294967295

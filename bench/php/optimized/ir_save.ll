@@ -3,17 +3,6 @@ source_filename = "bench/php/original/ir_save.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct._ir_block = type { i32, i32, i32, i32, i32, i32, i32, %union.anon.14, %union.anon.15, i32, i32, i32, i32 }
-%union.anon.14 = type { i32 }
-%union.anon.15 = type { i32 }
-%struct._ir_insn = type { %struct.anon, %union.anon.5 }
-%struct.anon = type { %union.anon, %union.anon.4 }
-%union.anon = type { i32 }
-%union.anon.4 = type { i32 }
-%union.anon.5 = type { %union._ir_val }
-%union._ir_val = type { double }
-%struct._ir_use_list = type { i32, i32 }
-
 @.str = private unnamed_addr constant [2 x i8] c"(\00", align 1
 @ir_type_cname = external local_unnamed_addr global [14 x ptr], align 16
 @.str.2 = private unnamed_addr constant [5 x i8] c", %s\00", align 1
@@ -93,7 +82,7 @@ define hidden void @ir_print_proto(ptr noundef %0, i32 noundef %1, ptr noundef c
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 3
   %10 = load i8, ptr %9, align 1, !tbaa !8
   %11 = zext i8 %10 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr @ir_type_cname, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @ir_type_cname, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !9
   %fputs = tail call i32 @fputs(ptr %13, ptr %2)
   %14 = load i8, ptr %6, align 1, !tbaa !4
@@ -105,7 +94,7 @@ define hidden void @ir_print_proto(ptr noundef %0, i32 noundef %1, ptr noundef c
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv
   %17 = load i8, ptr %16, align 1, !tbaa !8
   %18 = zext i8 %17 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr @ir_type_cname, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr @ir_type_cname, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !9
   %21 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.2, ptr noundef %20) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -138,7 +127,7 @@ define hidden void @ir_print_proto(ptr noundef %0, i32 noundef %1, ptr noundef c
   %35 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %36 = load i8, ptr %35, align 1, !tbaa !13
   %37 = zext i8 %36 to i64
-  %38 = getelementptr inbounds nuw ptr, ptr @ir_type_cname, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr @ir_type_cname, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !9
   %40 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.5, ptr noundef %39) #5
   %41 = load i8, ptr %5, align 1, !tbaa !12
@@ -192,7 +181,7 @@ define hidden void @ir_save(ptr noundef %0, i32 noundef %1, ptr noundef %2) loca
   %9 = getelementptr inbounds i8, ptr %.pn438446, i64 -15
   %10 = load i8, ptr %9, align 1, !tbaa !8
   %11 = zext i8 %10 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr @ir_type_cname, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @ir_type_cname, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !9
   %14 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.10, ptr noundef %13, i32 noundef %.0447) #5
   %15 = load i8, ptr %.0338448, align 8, !tbaa !8
@@ -277,7 +266,7 @@ define hidden void @ir_save(ptr noundef %0, i32 noundef %1, ptr noundef %2) loca
   %.1339472 = phi ptr [ %44, %.lr.ph476 ], [ %553, %ir_save_dessa_moves.exit ]
   %62 = load i8, ptr %.1339472, align 8, !tbaa !8
   %63 = zext i8 %62 to i64
-  %64 = getelementptr inbounds nuw i32, ptr @ir_op_flags, i64 %63
+  %64 = getelementptr inbounds nuw [4 x i8], ptr @ir_op_flags, i64 %63
   %65 = load i32, ptr %64, align 4, !tbaa !34
   br i1 %.not, label %157, label %66
 
@@ -288,7 +277,7 @@ define hidden void @ir_save(ptr noundef %0, i32 noundef %1, ptr noundef %2) loca
 
 68:                                               ; preds = %66
   %69 = zext nneg i32 %.1474 to i64
-  %70 = getelementptr inbounds nuw i32, ptr %67, i64 %69
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %69
   %71 = load i32, ptr %70, align 4, !tbaa !34
   %72 = icmp sgt i32 %71, 0
   br i1 %72, label %73, label %157
@@ -296,7 +285,7 @@ define hidden void @ir_save(ptr noundef %0, i32 noundef %1, ptr noundef %2) loca
 73:                                               ; preds = %68
   %74 = load ptr, ptr %47, align 8, !tbaa !36
   %75 = zext nneg i32 %71 to i64
-  %76 = getelementptr inbounds nuw %struct._ir_block, ptr %74, i64 %75
+  %76 = getelementptr inbounds nuw [52 x i8], ptr %74, i64 %75
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 4
   %78 = load i32, ptr %77, align 4, !tbaa !37
   %79 = icmp eq i32 %78, %.1474
@@ -368,7 +357,7 @@ define hidden void @ir_save(ptr noundef %0, i32 noundef %1, ptr noundef %2) loca
   %115 = getelementptr inbounds nuw i8, ptr %76, i64 20
   %116 = load i32, ptr %115, align 4, !tbaa !45
   %117 = zext i32 %116 to i64
-  %118 = getelementptr inbounds nuw i32, ptr %114, i64 %117
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %117
   %119 = load i32, ptr %118, align 4, !tbaa !34
   %120 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.21, i32 noundef %112, i32 noundef %119) #5
   %121 = load i32, ptr %111, align 4, !tbaa !43
@@ -381,7 +370,7 @@ define hidden void @ir_save(ptr noundef %0, i32 noundef %1, ptr noundef %2) loca
   %124 = load i32, ptr %115, align 4, !tbaa !45
   %125 = add i32 %124, %.0342449
   %126 = zext i32 %125 to i64
-  %127 = getelementptr inbounds nuw i32, ptr %123, i64 %126
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %123, i64 %126
   %128 = load i32, ptr %127, align 4, !tbaa !34
   %129 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.22, i32 noundef %128) #5
   %130 = add nuw i32 %.0342449, 1
@@ -404,7 +393,7 @@ define hidden void @ir_save(ptr noundef %0, i32 noundef %1, ptr noundef %2) loca
   %138 = getelementptr inbounds nuw i8, ptr %76, i64 12
   %139 = load i32, ptr %138, align 4, !tbaa !47
   %140 = zext i32 %139 to i64
-  %141 = getelementptr inbounds nuw i32, ptr %137, i64 %140
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %137, i64 %140
   %142 = load i32, ptr %141, align 4, !tbaa !34
   %143 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.24, i32 noundef %135, i32 noundef %142) #5
   %144 = load i32, ptr %134, align 4, !tbaa !46
@@ -417,7 +406,7 @@ define hidden void @ir_save(ptr noundef %0, i32 noundef %1, ptr noundef %2) loca
   %147 = load i32, ptr %138, align 4, !tbaa !47
   %148 = add i32 %147, %.0343453
   %149 = zext i32 %148 to i64
-  %150 = getelementptr inbounds nuw i32, ptr %146, i64 %149
+  %150 = getelementptr inbounds nuw [4 x i8], ptr %146, i64 %149
   %151 = load i32, ptr %150, align 4, !tbaa !34
   %152 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.22, i32 noundef %151) #5
   %153 = add nuw i32 %.0343453, 1
@@ -455,7 +444,7 @@ define hidden void @ir_save(ptr noundef %0, i32 noundef %1, ptr noundef %2) loca
 
 167:                                              ; preds = %161
   %168 = zext i8 %163 to i64
-  %169 = getelementptr inbounds nuw ptr, ptr @ir_type_cname, i64 %168
+  %169 = getelementptr inbounds nuw [8 x i8], ptr @ir_type_cname, i64 %168
   %170 = load ptr, ptr %169, align 8, !tbaa !9
   %171 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.27, ptr noundef %170, i32 noundef %.1474) #5
   br i1 %.not401, label %193, label %172
@@ -467,7 +456,7 @@ define hidden void @ir_save(ptr noundef %0, i32 noundef %1, ptr noundef %2) loca
 
 174:                                              ; preds = %172
   %175 = zext nneg i32 %.1474 to i64
-  %176 = getelementptr inbounds nuw i32, ptr %173, i64 %175
+  %176 = getelementptr inbounds nuw [4 x i8], ptr %173, i64 %175
   %177 = load i32, ptr %176, align 4, !tbaa !34
   %.not403 = icmp eq i32 %177, 0
   br i1 %.not403, label %180, label %178
@@ -512,7 +501,7 @@ define hidden void @ir_save(ptr noundef %0, i32 noundef %1, ptr noundef %2) loca
   %198 = getelementptr inbounds nuw i8, ptr %.1339472, i64 1
   %199 = load i8, ptr %198, align 1, !tbaa !8
   %200 = zext i8 %199 to i64
-  %201 = getelementptr inbounds nuw ptr, ptr @ir_type_cname, i64 %200
+  %201 = getelementptr inbounds nuw [8 x i8], ptr @ir_type_cname, i64 %200
   %202 = load ptr, ptr %201, align 8, !tbaa !9
   %203 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.34, ptr noundef %202, i32 noundef %.1474) #5
   br i1 %.not401, label %225, label %204
@@ -524,7 +513,7 @@ define hidden void @ir_save(ptr noundef %0, i32 noundef %1, ptr noundef %2) loca
 
 206:                                              ; preds = %204
   %207 = zext nneg i32 %.1474 to i64
-  %208 = getelementptr inbounds nuw i32, ptr %205, i64 %207
+  %208 = getelementptr inbounds nuw [4 x i8], ptr %205, i64 %207
   %209 = load i32, ptr %208, align 4, !tbaa !34
   %.not396 = icmp eq i32 %209, 0
   br i1 %.not396, label %212, label %210
@@ -562,12 +551,12 @@ define hidden void @ir_save(ptr noundef %0, i32 noundef %1, ptr noundef %2) loca
 227:                                              ; preds = %195, %225, %165, %193
   %228 = load i8, ptr %.1339472, align 8, !tbaa !8
   %229 = zext i8 %228 to i64
-  %230 = getelementptr inbounds nuw ptr, ptr @ir_op_name, i64 %229
+  %230 = getelementptr inbounds nuw [8 x i8], ptr @ir_op_name, i64 %229
   %231 = load ptr, ptr %230, align 8, !tbaa !9
   %fputs = tail call i32 @fputs(ptr %231, ptr %2)
   %232 = load i8, ptr %.1339472, align 8, !tbaa !8
   %233 = zext i8 %232 to i64
-  %234 = getelementptr inbounds nuw i32, ptr @ir_op_flags, i64 %233
+  %234 = getelementptr inbounds nuw [4 x i8], ptr @ir_op_flags, i64 %233
   %235 = load i32, ptr %234, align 4, !tbaa !34
   %236 = lshr i32 %235, 3
   %237 = and i32 %236, 3
@@ -703,7 +692,7 @@ ir_operands_count.exit:                           ; preds = %227, %239
 
 291:                                              ; preds = %287
   %292 = zext nneg i32 %275 to i64
-  %293 = getelementptr inbounds nuw i32, ptr %288, i64 %292
+  %293 = getelementptr inbounds nuw [4 x i8], ptr %288, i64 %292
   %294 = load i32, ptr %293, align 4, !tbaa !34
   %.not434 = icmp eq i32 %294, 0
   br i1 %.not434, label %297, label %295
@@ -728,7 +717,7 @@ ir_operands_count.exit:                           ; preds = %227, %239
   %304 = and i8 %302, 63
   %305 = load ptr, ptr %0, align 8, !tbaa !32
   %306 = sext i32 %275 to i64
-  %307 = getelementptr inbounds %struct._ir_insn, ptr %305, i64 %306
+  %307 = getelementptr inbounds [16 x i8], ptr %305, i64 %306
   %308 = getelementptr inbounds nuw i8, ptr %307, i64 1
   %309 = load i8, ptr %308, align 1, !tbaa !8
   %310 = zext i8 %309 to i32
@@ -858,7 +847,7 @@ ir_operands_count.exit:                           ; preds = %227, %239
 
 369:                                              ; preds = %367
   %370 = zext nneg i32 %.1474 to i64
-  %371 = getelementptr inbounds nuw i32, ptr %368, i64 %370
+  %371 = getelementptr inbounds nuw [4 x i8], ptr %368, i64 %370
   %372 = load i32, ptr %371, align 4, !tbaa !34
   %.not416 = icmp eq i32 %372, 0
   br i1 %.not416, label %380, label %373
@@ -870,7 +859,7 @@ ir_operands_count.exit:                           ; preds = %227, %239
 375:                                              ; preds = %373
   %376 = tail call i64 @fwrite(ptr nonnull @.str.49, i64 2, i64 1, ptr %2)
   %.pre = load ptr, ptr %46, align 8, !tbaa !35
-  %.phi.trans.insert = getelementptr inbounds nuw i32, ptr %.pre, i64 %370
+  %.phi.trans.insert = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %370
   %.pre479 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !34
   br label %377
 
@@ -890,7 +879,7 @@ ir_operands_count.exit:                           ; preds = %227, %239
 
 383:                                              ; preds = %381
   %384 = zext nneg i32 %.1474 to i64
-  %385 = getelementptr inbounds nuw i32, ptr %382, i64 %384
+  %385 = getelementptr inbounds nuw [4 x i8], ptr %382, i64 %384
   %386 = load i32, ptr %385, align 4, !tbaa !34
   %387 = and i32 %386, 255
   %388 = trunc nuw i8 %.4 to i1
@@ -903,9 +892,9 @@ ir_operands_count.exit:                           ; preds = %227, %239
 391:                                              ; preds = %389, %383
   %392 = icmp samesign ult i32 %387, 108
   %393 = zext nneg i32 %387 to i64
-  %394 = getelementptr ptr, ptr @ir_rule_name, i64 %393
+  %394 = getelementptr [8 x i8], ptr @ir_rule_name, i64 %393
   %395 = getelementptr i8, ptr %394, i64 -864
-  %396 = getelementptr inbounds nuw ptr, ptr @ir_op_name, i64 %393
+  %396 = getelementptr inbounds nuw [8 x i8], ptr @ir_op_name, i64 %393
   %.sink528.in = select i1 %392, ptr %396, ptr %395
   %.sink528 = load ptr, ptr %.sink528.in, align 8, !tbaa !9
   %397 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.51, ptr noundef %.sink528) #5
@@ -949,7 +938,7 @@ ir_operands_count.exit:                           ; preds = %227, %239
 
 413:                                              ; preds = %411
   %414 = zext nneg i32 %.1474 to i64
-  %415 = getelementptr inbounds nuw %struct._ir_use_list, ptr %412, i64 %414
+  %415 = getelementptr inbounds nuw [8 x i8], ptr %412, i64 %414
   %416 = getelementptr inbounds nuw i8, ptr %415, i64 4
   %417 = load i32, ptr %416, align 4, !tbaa !54
   %.not424 = icmp eq i32 %417, 0
@@ -959,7 +948,7 @@ ir_operands_count.exit:                           ; preds = %227, %239
   %419 = load ptr, ptr %58, align 8, !tbaa !56
   %420 = load i32, ptr %415, align 4, !tbaa !57
   %421 = sext i32 %420 to i64
-  %422 = getelementptr inbounds i32, ptr %419, i64 %421
+  %422 = getelementptr inbounds [4 x i8], ptr %419, i64 %421
   %423 = trunc nuw i8 %.6 to i1
   br i1 %423, label %424, label %426
 
@@ -999,7 +988,7 @@ ir_operands_count.exit:                           ; preds = %227, %239
 
 435:                                              ; preds = %433
   %436 = zext nneg i32 %.1474 to i64
-  %437 = getelementptr inbounds nuw i32, ptr %434, i64 %436
+  %437 = getelementptr inbounds nuw [4 x i8], ptr %434, i64 %436
   %438 = load i32, ptr %437, align 4, !tbaa !34
   %.not428 = icmp eq i32 %438, 0
   br i1 %.not428, label %ir_save_dessa_moves.exit, label %439
@@ -1007,7 +996,7 @@ ir_operands_count.exit:                           ; preds = %227, %239
 439:                                              ; preds = %435
   %440 = load ptr, ptr %47, align 8, !tbaa !36
   %441 = zext i32 %438 to i64
-  %442 = getelementptr inbounds nuw %struct._ir_block, ptr %440, i64 %441
+  %442 = getelementptr inbounds nuw [52 x i8], ptr %440, i64 %441
   %443 = getelementptr inbounds nuw i8, ptr %442, i64 8
   %444 = load i32, ptr %443, align 4, !tbaa !39
   %445 = icmp eq i32 %444, %.1474
@@ -1024,15 +1013,15 @@ ir_operands_count.exit:                           ; preds = %227, %239
   %.val = load i32, ptr %450, align 4, !tbaa !47
   %451 = load ptr, ptr %48, align 8, !tbaa !44
   %452 = zext i32 %.val to i64
-  %453 = getelementptr inbounds nuw i32, ptr %451, i64 %452
+  %453 = getelementptr inbounds nuw [4 x i8], ptr %451, i64 %452
   %454 = load i32, ptr %453, align 4, !tbaa !34
   %455 = zext i32 %454 to i64
-  %456 = getelementptr inbounds nuw %struct._ir_block, ptr %440, i64 %455
+  %456 = getelementptr inbounds nuw [52 x i8], ptr %440, i64 %455
   %457 = load ptr, ptr %57, align 8, !tbaa !53
   %458 = getelementptr inbounds nuw i8, ptr %456, i64 4
   %459 = load i32, ptr %458, align 4, !tbaa !37
   %460 = sext i32 %459 to i64
-  %461 = getelementptr inbounds %struct._ir_use_list, ptr %457, i64 %460
+  %461 = getelementptr inbounds [8 x i8], ptr %457, i64 %460
   %462 = getelementptr inbounds nuw i8, ptr %456, i64 24
   %463 = load i32, ptr %462, align 4, !tbaa !43
   %.not7.i = icmp eq i32 %463, 0
@@ -1042,7 +1031,7 @@ ir_operands_count.exit:                           ; preds = %227, %239
   %464 = getelementptr inbounds nuw i8, ptr %456, i64 20
   %465 = load i32, ptr %464, align 4, !tbaa !45
   %466 = zext i32 %465 to i64
-  %467 = getelementptr inbounds nuw i32, ptr %451, i64 %466
+  %467 = getelementptr inbounds nuw [4 x i8], ptr %451, i64 %466
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %473, %.lr.ph.preheader.i
@@ -1074,7 +1063,7 @@ ir_phi_input_number.exit.i:                       ; preds = %473, %470, %449
   %479 = load ptr, ptr %58, align 8, !tbaa !56
   %480 = load i32, ptr %461, align 4, !tbaa !57
   %481 = sext i32 %480 to i64
-  %482 = getelementptr inbounds i32, ptr %479, i64 %481
+  %482 = getelementptr inbounds [4 x i8], ptr %479, i64 %481
   br label %483
 
 483:                                              ; preds = %544, %.lr.ph6.i
@@ -1084,13 +1073,13 @@ ir_phi_input_number.exit.i:                       ; preds = %473, %470, %449
   %485 = load i32, ptr %.0584.i, align 4, !tbaa !34
   %486 = load ptr, ptr %0, align 8, !tbaa !32
   %487 = sext i32 %485 to i64
-  %488 = getelementptr inbounds %struct._ir_insn, ptr %486, i64 %487
+  %488 = getelementptr inbounds [16 x i8], ptr %486, i64 %487
   %489 = load i8, ptr %488, align 8, !tbaa !8
   %490 = icmp eq i8 %489, 59
   br i1 %490, label %491, label %544
 
 491:                                              ; preds = %483
-  %492 = getelementptr inbounds i32, ptr %488, i64 %.010.i.i
+  %492 = getelementptr inbounds [4 x i8], ptr %488, i64 %.010.i.i
   %493 = load i32, ptr %492, align 4, !tbaa !34
   %494 = icmp slt i32 %493, 0
   br i1 %494, label %495, label %498
@@ -1103,9 +1092,9 @@ ir_phi_input_number.exit.i:                       ; preds = %473, %470, %449
 498:                                              ; preds = %491
   %499 = load ptr, ptr %50, align 8, !tbaa !48
   %500 = zext nneg i32 %493 to i64
-  %501 = getelementptr inbounds nuw i32, ptr %499, i64 %500
+  %501 = getelementptr inbounds nuw [4 x i8], ptr %499, i64 %500
   %502 = load i32, ptr %501, align 4, !tbaa !34
-  %503 = getelementptr inbounds i32, ptr %499, i64 %487
+  %503 = getelementptr inbounds [4 x i8], ptr %499, i64 %487
   %504 = load i32, ptr %503, align 4, !tbaa !34
   %.not.i439 = icmp eq i32 %502, %504
   br i1 %.not.i439, label %544, label %505
@@ -1130,7 +1119,7 @@ ir_phi_input_number.exit.i:                       ; preds = %473, %470, %449
   %514 = and i8 %512, 63
   %515 = load ptr, ptr %0, align 8, !tbaa !32
   %516 = sext i32 %493 to i64
-  %517 = getelementptr inbounds %struct._ir_insn, ptr %515, i64 %516
+  %517 = getelementptr inbounds [16 x i8], ptr %515, i64 %516
   %518 = getelementptr inbounds nuw i8, ptr %517, i64 1
   %519 = load i8, ptr %518, align 1, !tbaa !8
   %520 = zext i8 %519 to i32
@@ -1142,7 +1131,7 @@ ir_phi_input_number.exit.i:                       ; preds = %473, %470, %449
 
 524:                                              ; preds = %513, %509, %507
   %525 = load ptr, ptr %50, align 8, !tbaa !48
-  %526 = getelementptr inbounds i32, ptr %525, i64 %487
+  %526 = getelementptr inbounds [4 x i8], ptr %525, i64 %487
   %527 = load i32, ptr %526, align 4, !tbaa !34
   %528 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.61, i32 noundef %485, i32 noundef %527) #5
   %529 = load ptr, ptr %51, align 8, !tbaa !49
@@ -1158,7 +1147,7 @@ ir_phi_input_number.exit.i:                       ; preds = %473, %470, %449
 533:                                              ; preds = %530
   %534 = and i8 %532, 63
   %535 = load ptr, ptr %0, align 8, !tbaa !32
-  %536 = getelementptr inbounds %struct._ir_insn, ptr %535, i64 %487
+  %536 = getelementptr inbounds [16 x i8], ptr %535, i64 %487
   %537 = getelementptr inbounds nuw i8, ptr %536, i64 1
   %538 = load i8, ptr %537, align 1, !tbaa !8
   %539 = zext i8 %538 to i32
@@ -1185,7 +1174,7 @@ ir_save_dessa_moves.exit:                         ; preds = %544, %ir_phi_input_
   %550 = add nuw nsw i32 %549, 1
   %551 = add nuw nsw i32 %550, %.1474
   %552 = zext nneg i32 %550 to i64
-  %553 = getelementptr inbounds nuw %struct._ir_insn, ptr %.1339472, i64 %552
+  %553 = getelementptr inbounds nuw [16 x i8], ptr %.1339472, i64 %552
   %554 = load i32, ptr %40, align 8, !tbaa !33
   %555 = icmp slt i32 %551, %554
   br i1 %555, label %61, label %._crit_edge477

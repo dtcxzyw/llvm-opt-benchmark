@@ -1171,10 +1171,10 @@ get_x25_pkt_len.exit.thread:                      ; preds = %70, %67, %64, %61, 
 
 switch.lookup:                                    ; preds = %165
   %168 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_x25_common, i64 %168
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_x25_common, i64 %168
   %switch.load = load ptr, ptr %switch.gep, align 8
   %169 = zext nneg i32 %3 to i64
-  %switch.gep544 = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_x25_common.1, i64 %169
+  %switch.gep544 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_x25_common.1, i64 %169
   %switch.load545 = load ptr, ptr %switch.gep544, align 8
   %170 = load ptr, ptr %11, align 8
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %170, i32 noundef 25, ptr noundef nonnull @.str.472, ptr noundef nonnull %switch.load, i32 noundef %18)
@@ -1378,10 +1378,10 @@ switch.lookup:                                    ; preds = %165
 
 switch.lookup546:                                 ; preds = %165
   %269 = zext nneg i32 %3 to i64
-  %switch.gep547 = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_x25_common.2, i64 %269
+  %switch.gep547 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_x25_common.2, i64 %269
   %switch.load548 = load ptr, ptr %switch.gep547, align 8
   %270 = zext nneg i32 %3 to i64
-  %switch.gep549 = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_x25_common.3, i64 %270
+  %switch.gep549 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_x25_common.3, i64 %270
   %switch.load550 = load ptr, ptr %switch.gep549, align 8
   %271 = load ptr, ptr %11, align 8
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %271, i32 noundef 25, ptr noundef nonnull @.str.472, ptr noundef nonnull %switch.load548, i32 noundef %18)
@@ -1422,10 +1422,10 @@ switch.lookup546:                                 ; preds = %165
 
 switch.lookup551:                                 ; preds = %165
   %285 = zext nneg i32 %3 to i64
-  %switch.gep552 = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_x25_common.4, i64 %285
+  %switch.gep552 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_x25_common.4, i64 %285
   %switch.load553 = load ptr, ptr %switch.gep552, align 8
   %286 = zext nneg i32 %3 to i64
-  %switch.gep554 = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_x25_common.5, i64 %286
+  %switch.gep554 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_x25_common.5, i64 %286
   %switch.load555 = load ptr, ptr %switch.gep554, align 8
   %287 = load ptr, ptr %11, align 8
   %288 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 3)
@@ -1560,10 +1560,10 @@ x25_hash_add_proto_end.exit:                      ; preds = %switch.lookup551, %
 
 switch.lookup556:                                 ; preds = %165
   %353 = zext nneg i32 %3 to i64
-  %switch.gep557 = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_x25_common.6, i64 %353
+  %switch.gep557 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_x25_common.6, i64 %353
   %switch.load558 = load ptr, ptr %switch.gep557, align 8
   %354 = zext nneg i32 %3 to i64
-  %switch.gep559 = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_x25_common.7, i64 %354
+  %switch.gep559 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_x25_common.7, i64 %354
   %switch.load560 = load ptr, ptr %switch.gep559, align 8
   %355 = load ptr, ptr %11, align 8
   %356 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 3)
@@ -1621,10 +1621,10 @@ x25_hash_add_proto_end.exit504:                   ; preds = %switch.lookup556, %
 
 switch.lookup561:                                 ; preds = %165
   %384 = zext nneg i32 %3 to i64
-  %switch.gep562 = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_x25_common.8, i64 %384
+  %switch.gep562 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_x25_common.8, i64 %384
   %switch.load563 = load ptr, ptr %switch.gep562, align 8
   %385 = zext nneg i32 %3 to i64
-  %switch.gep564 = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_x25_common.9, i64 %385
+  %switch.gep564 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_x25_common.9, i64 %385
   %switch.load565 = load ptr, ptr %switch.gep564, align 8
   %386 = load ptr, ptr %11, align 8
   %387 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 3)

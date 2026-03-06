@@ -13,7 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.icu_77::UnicodeFilter" = type { %"class.icu_77::UnicodeFunctor", %"class.icu_77::UnicodeMatcher" }
 %"class.icu_77::UnicodeFunctor" = type { %"class.icu_77::UObject" }
 %"class.icu_77::UnicodeMatcher" = type { ptr }
-%"struct.icu_77::FormattedStringBuilder::Field" = type { i8 }
 
 $_ZN6icu_776number4impl21ConstantAffixModifierD2Ev = comdat any
 
@@ -258,9 +257,9 @@ define noundef nonnull align 8 dereferenceable(40) ptr @_ZN6icu_776number4impl27
 
 6:                                                ; preds = %2, %6
   %.07 = phi i64 [ 0, %2 ], [ %10, %6 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %.07
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.07
   %8 = load ptr, ptr %7, align 8, !tbaa !18
-  %9 = getelementptr inbounds nuw ptr, ptr %4, i64 %.07
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.07
   store ptr %8, ptr %9, align 8, !tbaa !18
   store ptr null, ptr %7, align 8, !tbaa !18
   %10 = add nuw nsw i64 %.07, 1
@@ -593,7 +592,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit13:       ; preds = %53, %45
   %68 = load ptr, ptr %67, align 8
   %69 = select i1 %.not.i.i.i15, ptr %68, ptr %66
   %70 = sext i32 %storemerge to i64
-  %71 = getelementptr inbounds i16, ptr %69, i64 %70
+  %71 = getelementptr inbounds [2 x i8], ptr %69, i64 %70
   %72 = load i16, ptr %71, align 2, !tbaa !37
   %73 = zext i16 %72 to i32
   %74 = add nsw i32 %73, -256
@@ -952,7 +951,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit75:       ; preds = %41
   %51 = load ptr, ptr %50, align 8
   %52 = select i1 %.not.i.i.i74, ptr %51, ptr %49
   %53 = zext nneg i32 %.067 to i64
-  %54 = getelementptr inbounds nuw i16, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw [2 x i8], ptr %52, i64 %53
   %55 = load i16, ptr %54, align 2, !tbaa !37
   %56 = add nuw nsw i32 %.067, 1
   %57 = icmp ult i16 %55, 256
@@ -997,7 +996,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit75:       ; preds = %41
   %79 = load ptr, ptr %78, align 8
   %80 = select i1 %.not.i.i.i77, ptr %79, ptr %77
   %81 = zext nneg i32 %.1 to i64
-  %82 = getelementptr inbounds nuw i16, ptr %80, i64 %81
+  %82 = getelementptr inbounds nuw [2 x i8], ptr %80, i64 %81
   %83 = load i16, ptr %82, align 2, !tbaa !37
   %84 = zext i16 %83 to i32
   %85 = add nsw i32 %84, -256
@@ -1251,7 +1250,7 @@ _ZN6icu_776number4impl26ConstantMultiFieldModifierC2ERKNS_22FormattedStringBuild
   %48 = load i32, ptr %47, align 8, !tbaa !53
   %49 = add nsw i32 %41, %48
   %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds %"struct.icu_77::FormattedStringBuilder::Field", ptr %46, i64 %50
+  %51 = getelementptr inbounds i8, ptr %46, i64 %50
   %.sroa.0.0.copyload.i = load i8, ptr %51, align 1, !tbaa !21
   %52 = icmp eq i8 %.sroa.0.0.copyload.i, 39
   br i1 %52, label %53, label %.critedge
@@ -1408,7 +1407,7 @@ _ZN6icu_776number4impl30CurrencySpacingEnabledModifier15getInsertStringERKNS_20D
   %104 = getelementptr inbounds nuw i8, ptr %2, i64 128
   %105 = load i32, ptr %104, align 8, !tbaa !53
   %106 = sext i32 %105 to i64
-  %107 = getelementptr inbounds %"struct.icu_77::FormattedStringBuilder::Field", ptr %103, i64 %106
+  %107 = getelementptr inbounds i8, ptr %103, i64 %106
   %.sroa.0.0.copyload.i60 = load i8, ptr %107, align 1, !tbaa !21
   %108 = icmp eq i8 %.sroa.0.0.copyload.i60, 39
   br i1 %108, label %109, label %.critedge2
@@ -1949,7 +1948,7 @@ define noundef i32 @_ZN6icu_776number4impl30CurrencySpacingEnabledModifier25appl
   %18 = load i32, ptr %17, align 8, !tbaa !53
   %19 = add nsw i32 %11, %18
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds %"struct.icu_77::FormattedStringBuilder::Field", ptr %16, i64 %20
+  %21 = getelementptr inbounds i8, ptr %16, i64 %20
   %.sroa.0.0.copyload.i = load i8, ptr %21, align 1, !tbaa !21
   %.not54 = icmp eq i8 %.sroa.0.0.copyload.i, 39
   br i1 %.not54, label %.split, label %72
@@ -1964,7 +1963,7 @@ define noundef i32 @_ZN6icu_776number4impl30CurrencySpacingEnabledModifier25appl
   %28 = load i32, ptr %27, align 8, !tbaa !53
   %29 = add nsw i32 %28, %1
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds %"struct.icu_77::FormattedStringBuilder::Field", ptr %26, i64 %30
+  %31 = getelementptr inbounds i8, ptr %26, i64 %30
   %.sroa.0.0.copyload.i48 = load i8, ptr %31, align 1, !tbaa !21
   %.not53 = icmp eq i8 %.sroa.0.0.copyload.i48, 39
   br i1 %.not53, label %.split40, label %72

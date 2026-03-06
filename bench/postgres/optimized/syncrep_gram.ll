@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %union.YYSTYPE = type { ptr }
-%union.yyalloc = type { %union.YYSTYPE }
-%union.ListCell = type { ptr }
 
 @yypact = internal unnamed_addr constant [24 x i8] c"\FE\F6\FB\0B\0E\13\F6\FC\F6\06\0C\0D\F6\06\F6\02\06\06\F6\F6\04\07\F6\F6", align 16
 @yytranslate = internal unnamed_addr constant [263 x i8] c"\00\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\08\09\02\02\0A\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\01\02\03\04\05\06\07", align 16
@@ -76,7 +74,7 @@ define dso_local range(i32 0, 3) i32 @syncrep_yyparse(ptr noundef %0, ptr nounde
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %23, ptr align 1 %.0191, i64 %17, i1 false)
   %25 = add nsw i64 %spec.store.select, 7
   %26 = sdiv i64 %25, 8
-  %27 = getelementptr inbounds %union.yyalloc, ptr %23, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %23, i64 %26
   %28 = shl i64 %17, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %27, ptr align 8 %.0210, i64 %28, i1 false)
   %.not235 = icmp eq ptr %.0191, %5
@@ -88,7 +86,7 @@ define dso_local range(i32 0, 3) i32 @syncrep_yyparse(ptr noundef %0, ptr nounde
 
 30:                                               ; preds = %24, %29
   %31 = getelementptr inbounds i8, ptr %23, i64 %16
-  %32 = getelementptr inbounds %union.YYSTYPE, ptr %27, i64 %17
+  %32 = getelementptr inbounds [8 x i8], ptr %27, i64 %17
   %33 = getelementptr inbounds i8, ptr %32, i64 -8
   %34 = add nsw i64 %spec.store.select, -1
   %.not236 = icmp sgt i64 %34, %16
@@ -178,7 +176,7 @@ define dso_local range(i32 0, 3) i32 @syncrep_yyparse(ptr noundef %0, ptr nounde
   %77 = load i8, ptr %76, align 1
   %78 = sext i8 %77 to i64
   %79 = sub nsw i64 1, %78
-  %80 = getelementptr inbounds %union.YYSTYPE, ptr %.2204, i64 %79
+  %80 = getelementptr inbounds [8 x i8], ptr %.2204, i64 %79
   %.sroa.038.0.copyload = load ptr, ptr %80, align 8
   switch i8 %74, label %116 [
     i8 2, label %81
@@ -249,7 +247,7 @@ define dso_local range(i32 0, 3) i32 @syncrep_yyparse(ptr noundef %0, ptr nounde
 116:                                              ; preds = %72, %114, %112, %107, %104, %98, %92, %86, %83, %81
   %.sroa.038.0 = phi ptr [ %.sroa.038.0.copyload, %72 ], [ %.sroa.038.0.copyload, %81 ], [ %85, %83 ], [ %91, %86 ], [ %97, %92 ], [ %103, %98 ], [ %106, %104 ], [ %111, %107 ], [ %113, %112 ], [ %115, %114 ]
   %117 = sub nsw i64 0, %78
-  %118 = getelementptr inbounds %union.YYSTYPE, ptr %.2204, i64 %117
+  %118 = getelementptr inbounds [8 x i8], ptr %.2204, i64 %117
   %119 = getelementptr inbounds i8, ptr %.2216, i64 %117
   %120 = getelementptr inbounds nuw i8, ptr %118, i64 8
   store ptr %.sroa.038.0, ptr %120, align 8
@@ -339,7 +337,7 @@ define internal fastcc noundef ptr @create_syncrep_config(ptr noundef readonly c
 9:                                                ; preds = %.lr.ph50, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph50 ], [ %indvars.iv.next, %9 ]
   %.04048 = phi i32 [ 16, %.lr.ph50 ], [ %15, %9 ]
-  %10 = getelementptr inbounds nuw %union.ListCell, ptr %8, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %11) #9
   %13 = trunc i64 %12 to i32
@@ -379,7 +377,7 @@ list_length.exit:                                 ; preds = %.critedge
   %indvars.iv60 = phi i64 [ 0, %.lr.ph58.preheader ], [ %indvars.iv.next61, %.lr.ph58 ]
   %.0325257 = phi ptr [ %27, %.lr.ph58.preheader ], [ %34, %.lr.ph58 ]
   %28 = load ptr, ptr %25, align 8
-  %29 = getelementptr inbounds nuw %union.ListCell, ptr %28, i64 %indvars.iv60
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv60
   %30 = load ptr, ptr %29, align 8
   %31 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.0325257, ptr noundef nonnull dereferenceable(1) %30) #8
   %32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %30) #9

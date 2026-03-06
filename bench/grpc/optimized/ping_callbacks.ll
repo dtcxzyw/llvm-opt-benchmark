@@ -6,15 +6,13 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::ios_base::Init" = type { i8 }
 %"struct.grpc_event_engine::experimental::EventEngine::TaskHandle" = type { [2 x i64] }
 %"struct.absl::lts_20240722::container_internal::PolicyFunctions" = type { i64, ptr, ptr, ptr, ptr, ptr }
-%"union.absl::lts_20240722::container_internal::map_slot_type" = type { %"struct.std::pair" }
-%"struct.std::pair" = type { i64, %"struct.grpc_core::Chttp2PingCallbacks::InflightPing" }
-%"struct.grpc_core::Chttp2PingCallbacks::InflightPing" = type { %"struct.grpc_event_engine::experimental::EventEngine::TaskHandle", %"class.std::vector" }
+%"class.absl::lts_20240722::BitGenRef" = type { i64, ptr, ptr }
+%"class.std::tuple.28" = type { i8 }
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<absl::lts_20240722::AnyInvocable<void ()>, std::allocator<absl::lts_20240722::AnyInvocable<void ()>>>::_Vector_impl" }
 %"struct.std::_Vector_base<absl::lts_20240722::AnyInvocable<void ()>, std::allocator<absl::lts_20240722::AnyInvocable<void ()>>>::_Vector_impl" = type { %"struct.std::_Vector_base<absl::lts_20240722::AnyInvocable<void ()>, std::allocator<absl::lts_20240722::AnyInvocable<void ()>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<absl::lts_20240722::AnyInvocable<void ()>, std::allocator<absl::lts_20240722::AnyInvocable<void ()>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.absl::lts_20240722::BitGenRef" = type { i64, ptr, ptr }
-%"class.std::tuple.28" = type { i8 }
+%"struct.grpc_core::Chttp2PingCallbacks::InflightPing" = type { %"struct.grpc_event_engine::experimental::EventEngine::TaskHandle", %"class.std::vector" }
 %"class.absl::lts_20240722::container_internal::node_handle" = type { %"class.absl::lts_20240722::container_internal::node_handle_base" }
 %"class.absl::lts_20240722::container_internal::node_handle_base" = type { %"class.std::optional", [6 x i8], [48 x i8] }
 %"class.std::optional" = type { %"struct.std::_Optional_base" }
@@ -202,7 +200,7 @@ define void @_ZN9grpc_core19Chttp2PingCallbacks9OnPingAckEN4absl12lts_2024072212
   %29 = zext nneg i16 %28 to i64
   %30 = add i64 %.sroa.6.0.i.i, %29
   %31 = and i64 %30, %13
-  %32 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i.i, i64 %31
+  %32 = getelementptr inbounds nuw [48 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i, i64 %31
   %33 = load i64, ptr %32, align 8, !tbaa !28
   %34 = icmp eq i64 %33, %6
   br i1 %34, label %43, label %35, !prof !33
@@ -367,7 +365,7 @@ _ZN4absl12lts_202407227UniformImRNS0_9BitGenRefEEENSt9enable_ifIXntsr3std14numer
   %40 = zext nneg i16 %39 to i64
   %41 = add i64 %.sroa.6.0.i.i.i.i, %40
   %42 = and i64 %41, %25
-  %43 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i, i64 %42
+  %43 = getelementptr inbounds nuw [48 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i, i64 %42
   %44 = load i64, ptr %43, align 8, !tbaa !28
   %45 = icmp eq i64 %44, %17
   br i1 %45, label %_ZNK4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyImN9grpc_core19Chttp2PingCallbacks12InflightPingEEENS0_13hash_internal4HashImEESt8equal_toImESaISt4pairIKmS6_EEE8containsImEEbRSE_.exit, label %46, !prof !33, !llvm.loop !42
@@ -440,7 +438,7 @@ _ZSt8_DestroyIPN4absl12lts_2024072212AnyInvocableIFvvEEES4_EvT_S6_RSaIT0_E.exit.
   %78 = zext nneg i16 %77 to i64
   %79 = add i64 %.sroa.7.0.i, %78
   %80 = and i64 %79, %25
-  %81 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i, i64 %80
+  %81 = getelementptr inbounds nuw [48 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i, i64 %80
   %82 = load i64, ptr %81, align 8, !tbaa !28, !noalias !46
   %83 = icmp eq i64 %82, %17
   br i1 %83, label %.noexc, label %.critedge.i, !prof !33
@@ -478,7 +476,7 @@ _ZSt8_DestroyIPN4absl12lts_2024072212AnyInvocableIFvvEEES4_EvT_S6_RSaIT0_E.exit.
   %98 = load ptr, ptr %13, align 8, !tbaa !27, !noalias !46
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 %92
   %.sroa.0.0.copyload.i.i.i.i22.i = load ptr, ptr %14, align 8, !tbaa !27, !noalias !46
-  %100 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i22.i, i64 %92
+  %100 = getelementptr inbounds nuw [48 x i8], ptr %.sroa.0.0.copyload.i.i.i.i22.i, i64 %92
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %99) ]
   store i64 %17, ptr %100, align 8, !tbaa !49
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
@@ -822,7 +820,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   %29 = zext nneg i16 %28 to i64
   %30 = add i64 %.sroa.6.0.i.i, %29
   %31 = and i64 %30, %13
-  %32 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i.i, i64 %31
+  %32 = getelementptr inbounds nuw [48 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i, i64 %31
   %33 = load i64, ptr %32, align 8, !tbaa !28
   %34 = icmp eq i64 %33, %6
   br i1 %34, label %45, label %35, !prof !33
@@ -1047,7 +1045,7 @@ _ZNSt6vectorIN4absl12lts_2024072212AnyInvocableIFvvEEESaIS4_EED2Ev.exit15: ; pre
   %44 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %43, i1 true)
   %45 = zext nneg i32 %44 to i64
   %46 = getelementptr inbounds nuw i8, ptr %38, i64 %45
-  %47 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %37, i64 %45
+  %47 = getelementptr inbounds nuw [48 x i8], ptr %37, i64 %45
   %48 = load i8, ptr %46, align 1, !tbaa !82
   %49 = icmp slt i8 %48, -1
   br i1 %49, label %.lr.ph.i.i, label %.lr.ph.preheader, !llvm.loop !84
@@ -1124,7 +1122,7 @@ _ZNSt6vectorIN4absl12lts_2024072212AnyInvocableIFvvEEESaIS4_EED2Ev.exit24: ; pre
   %83 = tail call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %82, i1 true)
   %84 = zext nneg i32 %83 to i64
   %85 = getelementptr inbounds nuw i8, ptr %77, i64 %84
-  %86 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %76, i64 %84
+  %86 = getelementptr inbounds nuw [48 x i8], ptr %76, i64 %84
   %87 = load i8, ptr %85, align 1, !tbaa !82
   %88 = icmp slt i8 %87, -1
   br i1 %88, label %.lr.ph.i.i25, label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyImN9grpc_core19Chttp2PingCallbacks12InflightPingEEENS0_13hash_internal4HashImEESt8equal_toImESaISt4pairIKmS6_EEE8iterator21skip_empty_or_deletedEv.exit.i, !llvm.loop !84
@@ -1197,7 +1195,7 @@ define { i64, i8 } @_ZN9grpc_core19Chttp2PingCallbacks13OnPingTimeoutENS_8Durati
   %38 = zext nneg i16 %37 to i64
   %39 = add i64 %.sroa.6.0.i.i, %38
   %40 = and i64 %39, %22
-  %41 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i.i.i, i64 %40
+  %41 = getelementptr inbounds nuw [48 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i, i64 %40
   %42 = load i64, ptr %41, align 8, !tbaa !28
   %43 = icmp eq i64 %42, %15
   br i1 %43, label %52, label %44, !prof !33
@@ -1389,7 +1387,7 @@ _ZNSt6vectorIN4absl12lts_2024072212AnyInvocableIFvvEEESaIS4_EE11_S_relocateEPS4_
 _ZNSt12_Vector_baseIN4absl12lts_2024072212AnyInvocableIFvvEEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorIN4absl12lts_2024072212AnyInvocableIFvvEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22, %49
   store ptr %20, ptr %0, align 8, !tbaa !43
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !3
-  %53 = getelementptr inbounds nuw %"class.absl::lts_20240722::AnyInvocable", ptr %20, i64 %16
+  %53 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %16
   store ptr %53, ptr %48, align 8, !tbaa !9
   ret void
 }
@@ -1472,8 +1470,8 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
 
 26:                                               ; preds = %.lr.ph.i
   %27 = xor i64 %.015.i, %20
-  %28 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i, i64 %27
-  %29 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i14.i, i64 %.015.i
+  %28 = getelementptr inbounds nuw [48 x i8], ptr %.sroa.0.0.copyload.i.i.i, i64 %27
+  %29 = getelementptr inbounds nuw [48 x i8], ptr %.sroa.0.0.copyload.i.i14.i, i64 %.015.i
   %30 = load i64, ptr %29, align 8, !tbaa !49
   store i64 %30, ptr %28, align 8, !tbaa !49
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -1511,7 +1509,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072218container_internal12raw_hash_s
   br i1 %50, label %51, label %104
 
 51:                                               ; preds = %.lr.ph
-  %52 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i14.i, i64 %.070
+  %52 = getelementptr inbounds nuw [48 x i8], ptr %.sroa.0.0.copyload.i.i14.i, i64 %.070
   %53 = load i64, ptr %52, align 8, !tbaa !28
   %54 = add i64 %53, ptrtoint (ptr @_ZN4absl12lts_2024072213hash_internal15MixingHashState5kSeedE to i64)
   %55 = zext i64 %54 to i128
@@ -1572,7 +1570,7 @@ _ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolic
   %90 = getelementptr i8, ptr %60, i64 %88
   %91 = getelementptr i8, ptr %90, i64 %89
   store i8 %85, ptr %91, align 1, !tbaa !82
-  %92 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.011.0.i.i45
+  %92 = getelementptr inbounds nuw [48 x i8], ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.011.0.i.i45
   store i64 %53, ptr %92, align 8, !tbaa !49
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %94 = getelementptr inbounds nuw i8, ptr %52, i64 8

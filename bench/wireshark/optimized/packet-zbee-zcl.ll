@@ -1221,7 +1221,7 @@ define hidden void @dissect_zcl_read_attr_resp(ptr noundef %0, ptr readnone capt
 .lr.ph:                                           ; preds = %7, %51
   %indvars.iv = phi i64 [ %indvars.iv.next, %51 ], [ 0, %7 ]
   %12 = phi i32 [ %54, %51 ], [ %10, %7 ]
-  %13 = getelementptr i32, ptr @ett_zbee_zcl_attr, i64 %indvars.iv
+  %13 = getelementptr [4 x i8], ptr @ett_zbee_zcl_attr, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4
   %15 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %12, i32 noundef 0, i32 noundef %14, ptr noundef null, ptr noundef nonnull @.str.672)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1411,7 +1411,7 @@ define hidden void @dissect_zcl_write_attr(ptr noundef %0, ptr readnone captures
 .lr.ph:                                           ; preds = %7, %dissect_zcl_attr_id.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %dissect_zcl_attr_id.exit ], [ 0, %7 ]
   %11 = phi i32 [ %43, %dissect_zcl_attr_id.exit ], [ %9, %7 ]
-  %12 = getelementptr i32, ptr @ett_zbee_zcl_attr, i64 %indvars.iv
+  %12 = getelementptr [4 x i8], ptr @ett_zbee_zcl_attr, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4
   %14 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %11, i32 noundef 0, i32 noundef %13, ptr noundef null, ptr noundef nonnull @.str.673)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1495,7 +1495,7 @@ define hidden void @dissect_zcl_report_attr(ptr noundef %0, ptr readnone capture
 .lr.ph:                                           ; preds = %7, %dissect_zcl_attr_id.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %dissect_zcl_attr_id.exit ], [ 0, %7 ]
   %12 = phi i32 [ %44, %dissect_zcl_attr_id.exit ], [ %10, %7 ]
-  %13 = getelementptr i32, ptr @ett_zbee_zcl_attr, i64 %indvars.iv
+  %13 = getelementptr [4 x i8], ptr @ett_zbee_zcl_attr, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4
   %15 = tail call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef %12, i32 noundef 0, i32 noundef %14, ptr noundef null, ptr noundef nonnull @.str.673)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2397,7 +2397,7 @@ define internal fastcc void @dissect_zcl_array_type(ptr noundef %0, ptr noundef 
   %14 = phi i32 [ %8, %.lr.ph ], [ %20, %22 ]
   %.02737 = phi i16 [ %4, %.lr.ph ], [ %23, %22 ]
   %15 = icmp samesign ult i64 %indvars.iv, 15
-  %16 = getelementptr i32, ptr @ett_zbee_zcl_array_elements, i64 %indvars.iv
+  %16 = getelementptr [4 x i8], ptr @ett_zbee_zcl_array_elements, i64 %indvars.iv
   %.sink.in = select i1 %15, ptr %16, ptr getelementptr inbounds nuw (i8, ptr @ett_zbee_zcl_array_elements, i64 60)
   %.sink = load i32, ptr %.sink.in, align 4
   %17 = trunc nuw nsw i64 %indvars.iv to i32
@@ -2442,7 +2442,7 @@ define internal fastcc void @dissect_zcl_set_type(ptr noundef %0, ptr noundef %1
   %14 = phi i32 [ %8, %.lr.ph ], [ %19, %21 ]
   %.02535 = phi i16 [ %4, %.lr.ph ], [ %22, %21 ]
   %15 = icmp samesign ult i64 %indvars.iv, 15
-  %16 = getelementptr i32, ptr @ett_zbee_zcl_array_elements, i64 %indvars.iv
+  %16 = getelementptr [4 x i8], ptr @ett_zbee_zcl_array_elements, i64 %indvars.iv
   %.sink.in = select i1 %15, ptr %16, ptr getelementptr inbounds nuw (i8, ptr @ett_zbee_zcl_array_elements, i64 60)
   %.sink = load i32, ptr %.sink.in, align 4
   %17 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %0, i32 noundef %14, i32 noundef 0, i32 noundef %.sink, ptr noundef null, ptr noundef nonnull @.str.831)
@@ -2529,8 +2529,8 @@ define hidden void @proto_register_zbee_zcl() local_unnamed_addr #0 {
 3:                                                ; preds = %0, %3
   %indvars.iv26 = phi i64 [ 2, %0 ], [ %indvars.iv.next27, %3 ]
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %3 ]
-  %4 = getelementptr i32, ptr @ett_zbee_zcl_attr, i64 %indvars.iv
-  %5 = getelementptr ptr, ptr %1, i64 %indvars.iv26
+  %4 = getelementptr [4 x i8], ptr @ett_zbee_zcl_attr, i64 %indvars.iv
+  %5 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv26
   store ptr %4, ptr %5, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 1
@@ -2540,8 +2540,8 @@ define hidden void @proto_register_zbee_zcl() local_unnamed_addr #0 {
 .preheader18:                                     ; preds = %3, %.preheader18
   %indvars.iv33 = phi i64 [ %indvars.iv.next34, %.preheader18 ], [ 66, %3 ]
   %indvars.iv31 = phi i64 [ %indvars.iv.next32, %.preheader18 ], [ 0, %3 ]
-  %6 = getelementptr i32, ptr @ett_zbee_zcl_sel, i64 %indvars.iv31
-  %7 = getelementptr ptr, ptr %1, i64 %indvars.iv33
+  %6 = getelementptr [4 x i8], ptr @ett_zbee_zcl_sel, i64 %indvars.iv31
+  %7 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv33
   store ptr %6, ptr %7, align 8
   %indvars.iv.next32 = add nuw nsw i64 %indvars.iv31, 1
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
@@ -2551,8 +2551,8 @@ define hidden void @proto_register_zbee_zcl() local_unnamed_addr #0 {
 .preheader:                                       ; preds = %.preheader18, %.preheader
   %indvars.iv41 = phi i64 [ %indvars.iv.next42, %.preheader ], [ 82, %.preheader18 ]
   %indvars.iv39 = phi i64 [ %indvars.iv.next40, %.preheader ], [ 0, %.preheader18 ]
-  %8 = getelementptr i32, ptr @ett_zbee_zcl_array_elements, i64 %indvars.iv39
-  %9 = getelementptr ptr, ptr %1, i64 %indvars.iv41
+  %8 = getelementptr [4 x i8], ptr @ett_zbee_zcl_array_elements, i64 %indvars.iv39
+  %9 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv41
   store ptr %8, ptr %9, align 8
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
@@ -3051,7 +3051,7 @@ define internal fastcc void @dissect_zcl_write_attr_resp(ptr noundef %0, ptr nou
 .lr.ph:                                           ; preds = %6, %46
   %indvars.iv = phi i64 [ %indvars.iv.next, %46 ], [ 0, %6 ]
   %10 = phi i32 [ %49, %46 ], [ %8, %6 ]
-  %11 = getelementptr i32, ptr @ett_zbee_zcl_attr, i64 %indvars.iv
+  %11 = getelementptr [4 x i8], ptr @ett_zbee_zcl_attr, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4
   %13 = tail call ptr @proto_tree_add_subtree(ptr noundef nonnull %1, ptr noundef %0, i32 noundef %10, i32 noundef 0, i32 noundef %12, ptr noundef null, ptr noundef nonnull @.str.672)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3146,7 +3146,7 @@ define internal fastcc void @dissect_zcl_config_report(ptr noundef %0, ptr nound
 .lr.ph:                                           ; preds = %6, %dissect_zcl_attr_data_general.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %dissect_zcl_attr_data_general.exit ], [ 0, %6 ]
   %10 = phi i32 [ %110, %dissect_zcl_attr_data_general.exit ], [ %8, %6 ]
-  %11 = getelementptr i32, ptr @ett_zbee_zcl_attr, i64 %indvars.iv
+  %11 = getelementptr [4 x i8], ptr @ett_zbee_zcl_attr, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4
   %13 = tail call ptr @proto_tree_add_subtree(ptr noundef nonnull %1, ptr noundef %0, i32 noundef %10, i32 noundef 3, i32 noundef %12, ptr noundef null, ptr noundef nonnull @.str.928)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3395,7 +3395,7 @@ define internal fastcc void @dissect_zcl_config_report_resp(ptr noundef %0, ptr 
 .lr.ph:                                           ; preds = %24, %dissect_zcl_attr_id.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %dissect_zcl_attr_id.exit ], [ 0, %24 ]
   %27 = phi i32 [ %74, %dissect_zcl_attr_id.exit ], [ %25, %24 ]
-  %28 = getelementptr i32, ptr @ett_zbee_zcl_attr, i64 %indvars.iv
+  %28 = getelementptr [4 x i8], ptr @ett_zbee_zcl_attr, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4
   %30 = tail call ptr @proto_tree_add_subtree(ptr noundef nonnull %2, ptr noundef %0, i32 noundef %27, i32 noundef 3, i32 noundef %29, ptr noundef null, ptr noundef nonnull @.str.929)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3498,7 +3498,7 @@ define internal fastcc void @dissect_zcl_read_report_config(ptr noundef %0, ptr 
 .lr.ph:                                           ; preds = %6, %dissect_zcl_attr_id.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %dissect_zcl_attr_id.exit ], [ 0, %6 ]
   %10 = phi i32 [ %50, %dissect_zcl_attr_id.exit ], [ %8, %6 ]
-  %11 = getelementptr i32, ptr @ett_zbee_zcl_attr, i64 %indvars.iv
+  %11 = getelementptr [4 x i8], ptr @ett_zbee_zcl_attr, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4
   %13 = tail call ptr @proto_tree_add_subtree(ptr noundef nonnull %1, ptr noundef %0, i32 noundef %10, i32 noundef 3, i32 noundef %12, ptr noundef null, ptr noundef nonnull @.str.929)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3597,7 +3597,7 @@ define internal fastcc void @dissect_zcl_read_report_config_resp(ptr noundef %0,
 11:                                               ; preds = %.lr.ph, %dissect_zcl_attr_data_general.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %dissect_zcl_attr_data_general.exit ]
   %12 = phi i32 [ %8, %.lr.ph ], [ %103, %dissect_zcl_attr_data_general.exit ]
-  %13 = getelementptr i32, ptr @ett_zbee_zcl_attr, i64 %indvars.iv
+  %13 = getelementptr [4 x i8], ptr @ett_zbee_zcl_attr, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4
   %15 = tail call ptr @proto_tree_add_subtree(ptr noundef nonnull %1, ptr noundef %0, i32 noundef %12, i32 noundef 3, i32 noundef %14, ptr noundef null, ptr noundef nonnull @.str.928)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3838,7 +3838,7 @@ define internal fastcc void @dissect_zcl_discover_attr_resp(ptr noundef %0, ptr 
 .lr.ph:                                           ; preds = %6, %dissect_zcl_attr_id.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %dissect_zcl_attr_id.exit ], [ 0, %6 ]
   %18 = phi i32 [ %52, %dissect_zcl_attr_id.exit ], [ %16, %6 ]
-  %19 = getelementptr i32, ptr @ett_zbee_zcl_attr, i64 %indvars.iv
+  %19 = getelementptr [4 x i8], ptr @ett_zbee_zcl_attr, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4
   %21 = tail call ptr @proto_tree_add_subtree(ptr noundef nonnull %1, ptr noundef %0, i32 noundef %18, i32 noundef 3, i32 noundef %20, ptr noundef null, ptr noundef nonnull @.str.929)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3929,7 +3929,7 @@ define internal fastcc void @dissect_zcl_read_attr_struct(ptr noundef %0, ptr no
 .lr.ph5:                                          ; preds = %6, %.loopexit
   %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit ], [ 0, %6 ]
   %14 = phi i32 [ %10, %.loopexit ], [ %8, %6 ]
-  %15 = getelementptr i32, ptr @ett_zbee_zcl_sel, i64 %indvars.iv
+  %15 = getelementptr [4 x i8], ptr @ett_zbee_zcl_sel, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4
   %17 = tail call ptr @proto_tree_add_subtree(ptr noundef nonnull %1, ptr noundef %0, i32 noundef %14, i32 noundef 0, i32 noundef %16, ptr noundef null, ptr noundef nonnull @.str.930)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4023,7 +4023,7 @@ define internal fastcc void @dissect_zcl_write_attr_struct(ptr noundef %0, ptr n
 .lr.ph4:                                          ; preds = %6, %.loopexit
   %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit ], [ 0, %6 ]
   %10 = phi i32 [ %56, %.loopexit ], [ %8, %6 ]
-  %11 = getelementptr i32, ptr @ett_zbee_zcl_attr, i64 %indvars.iv
+  %11 = getelementptr [4 x i8], ptr @ett_zbee_zcl_attr, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4
   %13 = tail call ptr @proto_tree_add_subtree(ptr noundef nonnull %1, ptr noundef %0, i32 noundef %10, i32 noundef 0, i32 noundef %12, ptr noundef null, ptr noundef nonnull @.str.931)
   %14 = load i32, ptr %2, align 4
@@ -4137,7 +4137,7 @@ define internal fastcc void @dissect_zcl_write_attr_struct_resp(ptr noundef %0, 
 .lr.ph4:                                          ; preds = %6, %.loopexit
   %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit ], [ 0, %6 ]
   %10 = phi i32 [ %62, %.loopexit ], [ %8, %6 ]
-  %11 = getelementptr i32, ptr @ett_zbee_zcl_attr, i64 %indvars.iv
+  %11 = getelementptr [4 x i8], ptr @ett_zbee_zcl_attr, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4
   %13 = tail call ptr @proto_tree_add_subtree(ptr noundef nonnull %1, ptr noundef %0, i32 noundef %10, i32 noundef 0, i32 noundef %12, ptr noundef null, ptr noundef nonnull @.str.932)
   %14 = load i32, ptr %2, align 4
@@ -4335,7 +4335,7 @@ define internal fastcc void @dissect_zcl_discover_cmd_attr_extended_resp(ptr nou
 .lr.ph:                                           ; preds = %6, %dissect_zcl_attr_id.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %dissect_zcl_attr_id.exit ], [ 0, %6 ]
   %18 = phi i32 [ %59, %dissect_zcl_attr_id.exit ], [ %16, %6 ]
-  %19 = getelementptr i32, ptr @ett_zbee_zcl_attr, i64 %indvars.iv
+  %19 = getelementptr [4 x i8], ptr @ett_zbee_zcl_attr, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4
   %21 = tail call ptr @proto_tree_add_subtree(ptr noundef nonnull %1, ptr noundef %0, i32 noundef %18, i32 noundef 4, i32 noundef %20, ptr noundef null, ptr noundef nonnull @.str.934)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

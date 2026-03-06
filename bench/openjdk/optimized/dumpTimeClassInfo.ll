@@ -9,7 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.ReservedSpace = type <{ ptr, i64, i64, i64, i64, i8, [3 x i8], i32, i8, [7 x i8] }>
 %"class.DumpTimeClassInfo::DTVerifierConstraint" = type { ptr, ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%"class.DumpTimeClassInfo::DTLoaderConstraint" = type <{ ptr, i8, i8, [6 x i8] }>
 %class.anon.11 = type { ptr }
 %class.anon = type { ptr }
 %class.CountClassByCategory = type { ptr }
@@ -316,7 +315,7 @@ define hidden void @_ZN17DumpTimeClassInfo27add_verification_constraintEP13Insta
 
 42:                                               ; preds = %.lr.ph, %41
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %41 ]
-  %43 = getelementptr inbounds nuw %"class.DumpTimeClassInfo::DTVerifierConstraint", ptr %40, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %40, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, %2
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
@@ -506,7 +505,7 @@ _ZN17DumpTimeClassInfo20DTVerifierConstraintC2ERKS0_.exit: ; preds = %_ZN6Symbol
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = sext i32 %16 to i64
-  %26 = getelementptr inbounds %"class.DumpTimeClassInfo::DTVerifierConstraint", ptr %24, i64 %25
+  %26 = getelementptr inbounds [16 x i8], ptr %24, i64 %25
   %27 = load ptr, ptr %26, align 8
   store ptr %18, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -567,7 +566,7 @@ define hidden void @_ZN17DumpTimeClassInfo25record_linking_constraintEP6Symbol6H
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %11
   %indvars.iv.i.i = phi i64 [ 0, %11 ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %15 = getelementptr inbounds nuw %"class.DumpTimeClassInfo::DTLoaderConstraint", ptr %12, i64 %indvars.iv.i.i
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %indvars.iv.i.i
   store ptr null, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store i8 48, ptr %16, align 8
@@ -638,7 +637,7 @@ _ZN17DumpTimeClassInfo18DTLoaderConstraintC2EP6Symbolcc.exit: ; preds = %_ZL18ge
 
 37:                                               ; preds = %.lr.ph, %_ZN17DumpTimeClassInfo18DTLoaderConstraint6equalsERKS0_.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN17DumpTimeClassInfo18DTLoaderConstraint6equalsERKS0_.exit.thread ]
-  %38 = getelementptr inbounds nuw %"class.DumpTimeClassInfo::DTLoaderConstraint", ptr %36, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %36, i64 %indvars.iv
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %39, %1
   br i1 %40, label %41, label %_ZN17DumpTimeClassInfo18DTLoaderConstraint6equalsERKS0_.exit.thread
@@ -777,7 +776,7 @@ _ZN17DumpTimeClassInfo18DTLoaderConstraintC2ERKS0_.exit.i: ; preds = %99, %96
   %100 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %101 = load ptr, ptr %100, align 8
   %102 = sext i32 %97 to i64
-  %103 = getelementptr inbounds %"class.DumpTimeClassInfo::DTLoaderConstraint", ptr %101, i64 %102
+  %103 = getelementptr inbounds [16 x i8], ptr %101, i64 %102
   %104 = load ptr, ptr %103, align 8
   store ptr %1, ptr %103, align 8
   %105 = getelementptr inbounds nuw i8, ptr %103, i64 8
@@ -953,7 +952,7 @@ _ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE6appendERKi.exit: ; preds = 
   %31 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = sext i32 %29 to i64
-  %34 = getelementptr inbounds i32, ptr %32, i64 %33
+  %34 = getelementptr inbounds [4 x i8], ptr %32, i64 %33
   store i32 %1, ptr %34, align 4
   ret void
 }
@@ -965,7 +964,7 @@ define hidden noundef i32 @_ZN17DumpTimeClassInfo23enum_klass_static_fieldEi(ptr
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds i32, ptr %6, i64 %7
+  %8 = getelementptr inbounds [4 x i8], ptr %6, i64 %7
   %9 = load i32, ptr %8, align 4
   ret i32 %9
 }
@@ -1007,7 +1006,7 @@ _Z29DumpTimeSharedClassTable_hashI13InstanceKlassEjRKPT_.exit.i: ; preds = %13, 
   %17 = xor i32 %16, %15
   %18 = urem i32 %17, 15889
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %0, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %19
   %21 = load ptr, ptr %20, align 8
   %.not11.i.i = icmp eq ptr %21, null
   br i1 %.not11.i.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE11lookup_nodeEjRKS2_.exit.thread.i, label %.lr.ph.i.i
@@ -1108,7 +1107,7 @@ _Z29DumpTimeSharedClassTable_hashI13InstanceKlassEjRKPT_.exit.i: ; preds = %13, 
   %17 = xor i32 %16, %15
   %18 = urem i32 %17, 15889
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %0, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %19
   %21 = load ptr, ptr %20, align 8
   %.not11.i.i.i = icmp eq ptr %21, null
   br i1 %.not11.i.i.i, label %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj15889EP13InstanceKlass17DumpTimeClassInfoES2_S3_LN6AnyObj15allocation_typeE2EL8MEMFLAGS13EXadL_Z29DumpTimeSharedClassTable_hashIS1_EjRKPT_EEXadL_Z16primitive_equalsIS2_EbRKS9_SF_EEE3getERKS2_.exit, label %.lr.ph.i.i.i
@@ -1375,8 +1374,8 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIN17DumpTimeClas
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN17DumpTimeClassInfo20DTVerifierConstraintC2ERKS0_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN17DumpTimeClassInfo20DTVerifierConstraintC2ERKS0_.exit ]
-  %25 = getelementptr inbounds nuw %"class.DumpTimeClassInfo::DTVerifierConstraint", ptr %.0.i, i64 %indvars.iv
-  %26 = getelementptr inbounds nuw %"class.DumpTimeClassInfo::DTVerifierConstraint", ptr %8, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
   store ptr %27, ptr %25, align 8
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -1416,7 +1415,7 @@ _ZN17DumpTimeClassInfo20DTVerifierConstraintC2ERKS0_.exit: ; preds = %_ZN6Symbol
 
 .lr.ph27:                                         ; preds = %.lr.ph27.preheader, %_ZN17DumpTimeClassInfo20DTVerifierConstraintD2Ev.exit
   %indvars.iv29 = phi i64 [ 0, %.lr.ph27.preheader ], [ %indvars.iv.next30, %_ZN17DumpTimeClassInfo20DTVerifierConstraintD2Ev.exit ]
-  %35 = getelementptr inbounds nuw %"class.DumpTimeClassInfo::DTVerifierConstraint", ptr %8, i64 %indvars.iv29
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %indvars.iv29
   %36 = load ptr, ptr %35, align 8
   %.not.i.i24 = icmp eq ptr %36, null
   br i1 %.not.i.i24, label %_ZN6Symbol24maybe_decrement_refcountEPS_.exit.i, label %37
@@ -1517,8 +1516,8 @@ define linkonce_odr hidden void @_ZN26GrowableArrayWithAllocatorIN17DumpTimeClas
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN17DumpTimeClassInfo18DTLoaderConstraintC2ERKS0_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN17DumpTimeClassInfo18DTLoaderConstraintC2ERKS0_.exit ]
-  %25 = getelementptr inbounds nuw %"class.DumpTimeClassInfo::DTLoaderConstraint", ptr %.0.i, i64 %indvars.iv
-  %26 = getelementptr inbounds nuw %"class.DumpTimeClassInfo::DTLoaderConstraint", ptr %8, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
   store ptr %27, ptr %25, align 8
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -1552,7 +1551,7 @@ _ZN17DumpTimeClassInfo18DTLoaderConstraintC2ERKS0_.exit: ; preds = %.lr.ph, %34
 
 .lr.ph27:                                         ; preds = %.lr.ph27.preheader, %_ZN17DumpTimeClassInfo18DTLoaderConstraintD2Ev.exit
   %indvars.iv29 = phi i64 [ 0, %.lr.ph27.preheader ], [ %indvars.iv.next30, %_ZN17DumpTimeClassInfo18DTLoaderConstraintD2Ev.exit ]
-  %36 = getelementptr inbounds nuw %"class.DumpTimeClassInfo::DTLoaderConstraint", ptr %8, i64 %indvars.iv29
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %indvars.iv29
   %37 = load ptr, ptr %36, align 8
   %.not.i.i24 = icmp eq ptr %37, null
   br i1 %.not.i.i24, label %_ZN17DumpTimeClassInfo18DTLoaderConstraintD2Ev.exit, label %38
@@ -1643,9 +1642,9 @@ _ZN13GrowableArrayIN17DumpTimeClassInfo20DTVerifierConstraintEE8allocateEv.exit:
 
 26:                                               ; preds = %.lr.ph, %_ZN17DumpTimeClassInfo20DTVerifierConstraintC2ERKS0_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN17DumpTimeClassInfo20DTVerifierConstraintC2ERKS0_.exit ]
-  %27 = getelementptr inbounds nuw %"class.DumpTimeClassInfo::DTVerifierConstraint", ptr %.0.i, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %.0.i, i64 %indvars.iv
   %28 = load ptr, ptr %21, align 8
-  %29 = getelementptr inbounds nuw %"class.DumpTimeClassInfo::DTVerifierConstraint", ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8
   store ptr %30, ptr %27, align 8
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -1687,7 +1686,7 @@ _ZN17DumpTimeClassInfo20DTVerifierConstraintC2ERKS0_.exit: ; preds = %_ZN6Symbol
 
 .lr.ph20:                                         ; preds = %.lr.ph20.preheader, %.lr.ph20
   %indvars.iv24 = phi i64 [ %25, %.lr.ph20.preheader ], [ %indvars.iv.next25, %.lr.ph20 ]
-  %42 = getelementptr inbounds nuw %"class.DumpTimeClassInfo::DTVerifierConstraint", ptr %.0.i, i64 %indvars.iv24
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %.0.i, i64 %indvars.iv24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false)
   %indvars.iv.next25 = add nuw nsw i64 %indvars.iv24, 1
   %43 = load i32, ptr %3, align 4
@@ -1698,7 +1697,7 @@ _ZN17DumpTimeClassInfo20DTVerifierConstraintC2ERKS0_.exit: ; preds = %_ZN6Symbol
 46:                                               ; preds = %.lr.ph22, %_ZN17DumpTimeClassInfo20DTVerifierConstraintD2Ev.exit
   %indvars.iv27 = phi i64 [ 0, %.lr.ph22 ], [ %indvars.iv.next28, %_ZN17DumpTimeClassInfo20DTVerifierConstraintD2Ev.exit ]
   %47 = load ptr, ptr %41, align 8
-  %48 = getelementptr inbounds nuw %"class.DumpTimeClassInfo::DTVerifierConstraint", ptr %47, i64 %indvars.iv27
+  %48 = getelementptr inbounds nuw [16 x i8], ptr %47, i64 %indvars.iv27
   %49 = load ptr, ptr %48, align 8
   %.not.i.i16 = icmp eq ptr %49, null
   br i1 %.not.i.i16, label %_ZN6Symbol24maybe_decrement_refcountEPS_.exit.i, label %50
@@ -1903,9 +1902,9 @@ _ZN13GrowableArrayIN17DumpTimeClassInfo18DTLoaderConstraintEE8allocateEv.exit: ;
 
 26:                                               ; preds = %.lr.ph, %_ZN17DumpTimeClassInfo18DTLoaderConstraintC2ERKS0_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN17DumpTimeClassInfo18DTLoaderConstraintC2ERKS0_.exit ]
-  %27 = getelementptr inbounds nuw %"class.DumpTimeClassInfo::DTLoaderConstraint", ptr %.0.i, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %.0.i, i64 %indvars.iv
   %28 = load ptr, ptr %21, align 8
-  %29 = getelementptr inbounds nuw %"class.DumpTimeClassInfo::DTLoaderConstraint", ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8
   store ptr %30, ptr %27, align 8
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -1941,7 +1940,7 @@ _ZN17DumpTimeClassInfo18DTLoaderConstraintC2ERKS0_.exit: ; preds = %26, %37
 
 .lr.ph20:                                         ; preds = %.lr.ph20.preheader, %.lr.ph20
   %indvars.iv24 = phi i64 [ %25, %.lr.ph20.preheader ], [ %indvars.iv.next25, %.lr.ph20 ]
-  %43 = getelementptr inbounds nuw %"class.DumpTimeClassInfo::DTLoaderConstraint", ptr %.0.i, i64 %indvars.iv24
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %.0.i, i64 %indvars.iv24
   store ptr null, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i8 48, ptr %44, align 8
@@ -1956,7 +1955,7 @@ _ZN17DumpTimeClassInfo18DTLoaderConstraintC2ERKS0_.exit: ; preds = %26, %37
 49:                                               ; preds = %.lr.ph22, %_ZN17DumpTimeClassInfo18DTLoaderConstraintD2Ev.exit
   %indvars.iv27 = phi i64 [ 0, %.lr.ph22 ], [ %indvars.iv.next28, %_ZN17DumpTimeClassInfo18DTLoaderConstraintD2Ev.exit ]
   %50 = load ptr, ptr %42, align 8
-  %51 = getelementptr inbounds nuw %"class.DumpTimeClassInfo::DTLoaderConstraint", ptr %50, i64 %indvars.iv27
+  %51 = getelementptr inbounds nuw [16 x i8], ptr %50, i64 %indvars.iv27
   %52 = load ptr, ptr %51, align 8
   %.not.i.i16 = icmp eq ptr %52, null
   br i1 %.not.i.i16, label %_ZN17DumpTimeClassInfo18DTLoaderConstraintD2Ev.exit, label %53
@@ -2044,9 +2043,9 @@ _ZN13GrowableArrayIiE8allocateEv.exit:            ; preds = %7, %11, %15
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw i32, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4
   store i32 %29, ptr %26, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2063,7 +2062,7 @@ _ZN13GrowableArrayIiE8allocateEv.exit:            ; preds = %7, %11, %15
 
 .lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
   %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
-  %35 = getelementptr inbounds nuw i32, ptr %.0.i, i64 %indvars.iv20
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %.0.i, i64 %indvars.iv20
   store i32 0, ptr %35, align 4
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %36 = load i32, ptr %3, align 4

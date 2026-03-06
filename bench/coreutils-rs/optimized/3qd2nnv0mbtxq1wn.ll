@@ -337,7 +337,7 @@ _ZN5uu_df6blocks10SuffixType8suffixes17hf099965738f7a689E.exit: ; preds = %_ZN5u
 
 78:                                               ; preds = %_ZN5uu_df6blocks10SuffixType8suffixes17hf099965738f7a689E.exit
   %79 = add nuw nsw i64 %.0, 1
-  %80 = getelementptr inbounds nuw i128, ptr %18, i64 %79
+  %80 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %79
   %81 = load i128, ptr %80, align 16, !noundef !5
   %82 = sub i128 %81, %76
   %83 = icmp ult i128 %82, %1
@@ -358,7 +358,7 @@ _ZN5uu_df6blocks10SuffixType8suffixes17hf099965738f7a689E.exit: ; preds = %_ZN5u
   %89 = mul i128 %88, %76
   %.decomposed = sub i128 %1, %89
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %90 = getelementptr inbounds nuw { ptr, i64 }, ptr %17, i64 %.0
+  %90 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %.0
   %91 = load ptr, ptr %90, align 8, !nonnull !5, !align !45, !noundef !5
   %92 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %93 = load i64, ptr %92, align 8, !noundef !5
@@ -733,7 +733,7 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17h062a7a36194c93deE.exit: ; 
 _ZN3std3env3var17h530e4dd389782b54E.exit.i:       ; preds = %"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$std..env..VarError$GT$$GT$17hefe24fe034fc1d89E.llvm.7015456399746552332.exit.i", %65
   %70 = phi i64 [ 0, %65 ], [ %71, %"_ZN4core3ptr91drop_in_place$LT$core..result..Result$LT$alloc..string..String$C$std..env..VarError$GT$$GT$17hefe24fe034fc1d89E.llvm.7015456399746552332.exit.i" ]
   %71 = add nuw nsw i64 %70, 1
-  %72 = getelementptr inbounds nuw { [2 x i64] }, ptr %13, i64 %70
+  %72 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %70
   %73 = load ptr, ptr %72, align 8, !alias.scope !157, !nonnull !5, !align !45, !noundef !5
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %75 = load i64, ptr %74, align 8, !alias.scope !157, !noundef !5

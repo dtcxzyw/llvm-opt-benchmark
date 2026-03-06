@@ -147,7 +147,7 @@ define hidden range(i32 -1, 2) i32 @snoop_open(ptr noundef %0, ptr noundef %1, p
   br label %89
 
 59:                                               ; preds = %53
-  %60 = getelementptr i32, ptr @snoop_open.shomiti_encap, i64 %54
+  %60 = getelementptr [4 x i8], ptr @snoop_open.shomiti_encap, i64 %54
   br label %76
 
 61:                                               ; preds = %47
@@ -183,7 +183,7 @@ define hidden range(i32 -1, 2) i32 @snoop_open(ptr noundef %0, ptr noundef %1, p
   br label %89
 
 74:                                               ; preds = %68
-  %75 = getelementptr i32, ptr @snoop_open.snoop_encap, i64 %69
+  %75 = getelementptr [4 x i8], ptr @snoop_open.snoop_encap, i64 %69
   br label %76
 
 76:                                               ; preds = %62, %74, %59
@@ -724,7 +724,7 @@ define internal zeroext i1 @snoop_dump_open(ptr noundef initializes((64, 72)) %0
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = sext i32 %9 to i64
-  %11 = getelementptr i32, ptr @wtap_encap, i64 %10
+  %11 = getelementptr [4 x i8], ptr @wtap_encap, i64 %10
   %12 = load i32, ptr %11, align 4
   %13 = tail call i32 asm "bswapl $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %12) #8, !srcloc !19
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 4

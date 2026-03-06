@@ -21,7 +21,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { i64, [8 x i8] }
 %"class.std::function.295" = type { %"class.std::_Function_base", ptr }
 %"class.std::function.517" = type { %"class.std::_Function_base", ptr }
-%struct.wallcc_t = type { i32, i64, i64 }
 %"class.std::filesystem::__cxx11::path" = type { %"class.std::__cxx11::basic_string", %"struct.std::filesystem::__cxx11::path::_List" }
 %"struct.std::filesystem::__cxx11::path::_List" = type { %"class.std::unique_ptr.396" }
 %"class.std::unique_ptr.396" = type { %"struct.std::__uniq_ptr_data.397" }
@@ -219,18 +218,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.879" = type { %"struct.std::_Tuple_impl.880" }
 %"struct.std::_Tuple_impl.880" = type { %"struct.std::_Head_base.883" }
 %"struct.std::_Head_base.883" = type { ptr }
-%"class.std::unique_ptr.285" = type { %"struct.std::__uniq_ptr_data.286" }
-%"struct.std::__uniq_ptr_data.286" = type { %"class.std::__uniq_ptr_impl.287" }
-%"class.std::__uniq_ptr_impl.287" = type { %"class.std::tuple.288" }
-%"class.std::tuple.288" = type { %"struct.std::_Tuple_impl.289" }
-%"struct.std::_Tuple_impl.289" = type { %"struct.std::_Head_base.292" }
-%"struct.std::_Head_base.292" = type { ptr }
-%"class.std::unique_ptr.275" = type { %"struct.std::__uniq_ptr_data.276" }
-%"struct.std::__uniq_ptr_data.276" = type { %"class.std::__uniq_ptr_impl.277" }
-%"class.std::__uniq_ptr_impl.277" = type { %"class.std::tuple.278" }
-%"class.std::tuple.278" = type { %"struct.std::_Tuple_impl.279" }
-%"struct.std::_Tuple_impl.279" = type { %"struct.std::_Head_base.282" }
-%"struct.std::_Head_base.282" = type { ptr }
 %"class.std::vector.241" = type { %"struct.std::_Vector_base.242" }
 %"struct.std::_Vector_base.242" = type { %"struct.std::_Vector_base<gmx::ITopologyHolderClient *, std::allocator<gmx::ITopologyHolderClient *>>::_Vector_impl" }
 %"struct.std::_Vector_base<gmx::ITopologyHolderClient *, std::allocator<gmx::ITopologyHolderClient *>>::_Vector_impl" = type { %"struct.std::_Vector_base<gmx::ITopologyHolderClient *, std::allocator<gmx::ITopologyHolderClient *>>::_Vector_impl_data" }
@@ -247,16 +234,10 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.254" = type { %"struct.std::_Vector_base<std::tuple<std::__cxx11::basic_string<char>, gmx::ICheckpointHelperClient *>, std::allocator<std::tuple<std::__cxx11::basic_string<char>, gmx::ICheckpointHelperClient *>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::tuple<std::__cxx11::basic_string<char>, gmx::ICheckpointHelperClient *>, std::allocator<std::tuple<std::__cxx11::basic_string<char>, gmx::ICheckpointHelperClient *>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::tuple<std::__cxx11::basic_string<char>, gmx::ICheckpointHelperClient *>, std::allocator<std::tuple<std::__cxx11::basic_string<char>, gmx::ICheckpointHelperClient *>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::tuple<std::__cxx11::basic_string<char>, gmx::ICheckpointHelperClient *>, std::allocator<std::tuple<std::__cxx11::basic_string<char>, gmx::ICheckpointHelperClient *>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::tuple.268" = type { %"struct.std::_Tuple_impl.269" }
-%"struct.std::_Tuple_impl.269" = type { %"struct.std::_Tuple_impl.270", %"struct.std::_Head_base.272" }
-%"struct.std::_Tuple_impl.270" = type { %"struct.std::_Head_base.271" }
-%"struct.std::_Head_base.271" = type { ptr }
-%"struct.std::_Head_base.272" = type { %"class.std::__cxx11::basic_string" }
 %"class.std::vector.897" = type { %"struct.std::_Vector_base.898" }
 %"struct.std::_Vector_base.898" = type { %"struct.std::_Vector_base<std::function<void (long, double)>, std::allocator<std::function<void (long, double)>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::function<void (long, double)>, std::allocator<std::function<void (long, double)>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::function<void (long, double)>, std::allocator<std::function<void (long, double)>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::function<void (long, double)>, std::allocator<std::function<void (long, double)>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::function.273" = type { %"class.std::_Function_base", ptr }
 %"class.std::optional.920" = type { %"struct.std::_Optional_base.921" }
 %"struct.std::_Optional_base.921" = type { %"struct.std::_Optional_payload.923" }
 %"struct.std::_Optional_payload.923" = type { %"struct.std::_Optional_payload.base.927", [7 x i8] }
@@ -265,14 +246,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"union.std::_Optional_payload_base<std::any>::_Storage" = type { %"class.std::any" }
 %"class.std::any" = type { ptr, %"union.std::any::_Storage" }
 %"union.std::any::_Storage" = type { ptr }
-%"class.std::function.804" = type { %"class.std::_Function_base", ptr }
-%"struct.gmx::PropagatorConnection" = type { %"struct.gmx::PropagatorTag", %"class.std::function.807", %"class.std::function.810", %"class.std::function.813", %"class.std::function.813", %"class.std::function.813", %"class.std::function.815", %"class.std::function.815", %"class.std::function.817", %"class.std::function.815" }
-%"struct.gmx::PropagatorTag" = type { %"class.std::__cxx11::basic_string" }
-%"class.std::function.807" = type { %"class.std::_Function_base", ptr }
-%"class.std::function.810" = type { %"class.std::_Function_base", ptr }
-%"class.std::function.813" = type { %"class.std::_Function_base", ptr }
-%"class.std::function.817" = type { %"class.std::_Function_base", ptr }
-%"class.std::function.815" = type { %"class.std::_Function_base", ptr }
 
 $_ZN3gmx25ModularSimulatorAlgorithm12SignalHelperD2Ev = comdat any
 
@@ -3245,7 +3218,7 @@ _ZNK3gmx11StopHandler9setSignalEv.exit:           ; preds = %54, %.critedge.i, %
   %85 = load i32, ptr %84, align 4, !tbaa !405
   %86 = mul nsw i32 %85, 60
   %87 = sext i32 %86 to i64
-  %88 = getelementptr %struct.wallcc_t, ptr %74, i64 %87
+  %88 = getelementptr [24 x i8], ptr %74, i64 %87
   %89 = getelementptr i8, ptr %88, i64 24
   %90 = load i32, ptr %89, align 8, !tbaa !441
   %91 = add nsw i32 %90, 1
@@ -3814,7 +3787,7 @@ _ZNSt6vectorISt8functionIFvvEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit25: ; pre
 _ZNSt12_Vector_baseISt8functionIFvvEESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorISt8functionIFvvEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit25, %47
   store ptr %20, ptr %0, align 8, !tbaa !210
   store ptr %.0.lcssa.i.i.i24, ptr %4, align 8, !tbaa !211
-  %51 = getelementptr inbounds nuw %"class.std::function.295", ptr %20, i64 %16
+  %51 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %16
   store ptr %51, ptr %46, align 8, !tbaa !213
   ret void
 }
@@ -5105,7 +5078,7 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
 _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_26FreeEnergyPerturbationData7ElementEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %44, %_ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %39, ptr %19, align 8, !tbaa !180
   store ptr %43, ptr %20, align 8, !tbaa !817
-  %45 = getelementptr inbounds nuw ptr, ptr %39, i64 %37
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %37
   store ptr %45, ptr %22, align 8, !tbaa !181
   br label %_ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_26FreeEnergyPerturbationData7ElementEEEERS2_DpOT_.exit
 
@@ -5380,7 +5353,7 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
 _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_19StatePropagatorData7ElementEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %44, %_ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %39, ptr %19, align 8, !tbaa !180
   store ptr %43, ptr %20, align 8, !tbaa !817
-  %45 = getelementptr inbounds nuw ptr, ptr %39, i64 %37
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %37
   store ptr %45, ptr %22, align 8, !tbaa !181
   br label %_ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_19StatePropagatorData7ElementEEEERS2_DpOT_.exit
 
@@ -5544,7 +5517,7 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
 _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_10EnergyData7ElementEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %44, %_ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %39, ptr %19, align 8, !tbaa !180
   store ptr %43, ptr %20, align 8, !tbaa !817
-  %45 = getelementptr inbounds nuw ptr, ptr %39, i64 %37
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %37
   store ptr %45, ptr %22, align 8, !tbaa !181
   br label %_ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_10EnergyData7ElementEEEERS2_DpOT_.exit
 
@@ -6801,7 +6774,7 @@ _ZNSt6vectorIPN3gmx30INeighborSearchSignallerClientESaIS2_EE11_S_relocateEPS2_S5
 _ZNSt6vectorIPN3gmx30INeighborSearchSignallerClientESaIS2_EE17_M_realloc_insertIJRS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %42, %_ZNSt6vectorIPN3gmx30INeighborSearchSignallerClientESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %37, ptr %0, align 8, !tbaa !815
   store ptr %41, ptr %18, align 8, !tbaa !870
-  %43 = getelementptr inbounds nuw ptr, ptr %37, i64 %35
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %35
   store ptr %43, ptr %20, align 8, !tbaa !816
   br label %_ZNSt6vectorIPN3gmx30INeighborSearchSignallerClientESaIS2_EE12emplace_backIJRS2_EEES6_DpOT_.exit
 
@@ -6925,7 +6898,7 @@ _ZNSt6vectorIPN3gmx24ILastStepSignallerClientESaIS2_EE11_S_relocateEPS2_S5_S5_RS
 _ZNSt6vectorIPN3gmx24ILastStepSignallerClientESaIS2_EE17_M_realloc_insertIJRS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %42, %_ZNSt6vectorIPN3gmx24ILastStepSignallerClientESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %37, ptr %0, align 8, !tbaa !813
   store ptr %41, ptr %18, align 8, !tbaa !874
-  %43 = getelementptr inbounds nuw ptr, ptr %37, i64 %35
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %35
   store ptr %43, ptr %20, align 8, !tbaa !814
   br label %_ZNSt6vectorIPN3gmx24ILastStepSignallerClientESaIS2_EE12emplace_backIJRS2_EEES6_DpOT_.exit
 
@@ -7049,7 +7022,7 @@ _ZNSt6vectorIPN3gmx23ILoggingSignallerClientESaIS2_EE11_S_relocateEPS2_S5_S5_RS3
 _ZNSt6vectorIPN3gmx23ILoggingSignallerClientESaIS2_EE17_M_realloc_insertIJRS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %42, %_ZNSt6vectorIPN3gmx23ILoggingSignallerClientESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %37, ptr %0, align 8, !tbaa !811
   store ptr %41, ptr %18, align 8, !tbaa !878
-  %43 = getelementptr inbounds nuw ptr, ptr %37, i64 %35
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %35
   store ptr %43, ptr %20, align 8, !tbaa !812
   br label %_ZNSt6vectorIPN3gmx23ILoggingSignallerClientESaIS2_EE12emplace_backIJRS2_EEES6_DpOT_.exit
 
@@ -7173,7 +7146,7 @@ _ZNSt6vectorIPN3gmx22IEnergySignallerClientESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_
 _ZNSt6vectorIPN3gmx22IEnergySignallerClientESaIS2_EE17_M_realloc_insertIJRS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %42, %_ZNSt6vectorIPN3gmx22IEnergySignallerClientESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %37, ptr %0, align 8, !tbaa !809
   store ptr %41, ptr %18, align 8, !tbaa !882
-  %43 = getelementptr inbounds nuw ptr, ptr %37, i64 %35
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %35
   store ptr %43, ptr %20, align 8, !tbaa !810
   br label %_ZNSt6vectorIPN3gmx22IEnergySignallerClientESaIS2_EE12emplace_backIJRS2_EEES6_DpOT_.exit
 
@@ -7297,7 +7270,7 @@ _ZNSt6vectorIPN3gmx26ITrajectorySignallerClientESaIS2_EE11_S_relocateEPS2_S5_S5_
 _ZNSt6vectorIPN3gmx26ITrajectorySignallerClientESaIS2_EE17_M_realloc_insertIJRS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %42, %_ZNSt6vectorIPN3gmx26ITrajectorySignallerClientESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %37, ptr %0, align 8, !tbaa !807
   store ptr %41, ptr %18, align 8, !tbaa !886
-  %43 = getelementptr inbounds nuw ptr, ptr %37, i64 %35
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %35
   store ptr %43, ptr %20, align 8, !tbaa !808
   br label %_ZNSt6vectorIPN3gmx26ITrajectorySignallerClientESaIS2_EE12emplace_backIJRS2_EEES6_DpOT_.exit
 
@@ -10195,7 +10168,7 @@ _ZNSt6vectorISt10unique_ptrIN3gmx10ISignallerESt14default_deleteIS2_EESaIS5_EE11
 .noexc182:                                        ; preds = %623, %_ZNSt6vectorISt10unique_ptrIN3gmx10ISignallerESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i
   store ptr %617, ptr %574, align 8, !tbaa !224
   store ptr %.0.lcssa.i.i.i21.i, ptr %577, align 8, !tbaa !225
-  %624 = getelementptr inbounds nuw %"class.std::unique_ptr.285", ptr %617, i64 %615
+  %624 = getelementptr inbounds nuw [8 x i8], ptr %617, i64 %615
   store ptr %624, ptr %579, align 8, !tbaa !229
   br label %"_ZZN3gmx32ModularSimulatorAlgorithmBuilder5buildEvENK3$_0clISt10unique_ptrINS_15EnergySignallerESt14default_deleteIS4_EEEEDaT_.exit"
 
@@ -10402,7 +10375,7 @@ _ZNSt6vectorISt10unique_ptrIN3gmx10ISignallerESt14default_deleteIS2_EESaIS5_EE11
 .noexc201:                                        ; preds = %692, %_ZNSt6vectorISt10unique_ptrIN3gmx10ISignallerESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i358
   store ptr %686, ptr %574, align 8, !tbaa !224
   store ptr %.0.lcssa.i.i.i21.i359, ptr %577, align 8, !tbaa !225
-  %693 = getelementptr inbounds nuw %"class.std::unique_ptr.285", ptr %686, i64 %684
+  %693 = getelementptr inbounds nuw [8 x i8], ptr %686, i64 %684
   store ptr %693, ptr %579, align 8, !tbaa !229
   br label %"_ZZN3gmx32ModularSimulatorAlgorithmBuilder5buildEvENK3$_0clISt10unique_ptrINS_19TrajectorySignallerESt14default_deleteIS4_EEEEDaT_.exit"
 
@@ -10582,7 +10555,7 @@ _ZNSt6vectorISt10unique_ptrIN3gmx10ISignallerESt14default_deleteIS2_EESaIS5_EE11
 .noexc220:                                        ; preds = %749, %_ZNSt6vectorISt10unique_ptrIN3gmx10ISignallerESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i378
   store ptr %743, ptr %574, align 8, !tbaa !224
   store ptr %.0.lcssa.i.i.i21.i379, ptr %577, align 8, !tbaa !225
-  %750 = getelementptr inbounds nuw %"class.std::unique_ptr.285", ptr %743, i64 %741
+  %750 = getelementptr inbounds nuw [8 x i8], ptr %743, i64 %741
   store ptr %750, ptr %579, align 8, !tbaa !229
   br label %"_ZZN3gmx32ModularSimulatorAlgorithmBuilder5buildEvENK3$_0clISt10unique_ptrINS_16LoggingSignallerESt14default_deleteIS4_EEEEDaT_.exit"
 
@@ -10807,7 +10780,7 @@ _ZNSt6vectorISt10unique_ptrIN3gmx10ISignallerESt14default_deleteIS2_EESaIS5_EE11
 .noexc246:                                        ; preds = %823, %_ZNSt6vectorISt10unique_ptrIN3gmx10ISignallerESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i398
   store ptr %817, ptr %574, align 8, !tbaa !224
   store ptr %.0.lcssa.i.i.i21.i399, ptr %577, align 8, !tbaa !225
-  %824 = getelementptr inbounds nuw %"class.std::unique_ptr.285", ptr %817, i64 %815
+  %824 = getelementptr inbounds nuw [8 x i8], ptr %817, i64 %815
   store ptr %824, ptr %579, align 8, !tbaa !229
   br label %"_ZZN3gmx32ModularSimulatorAlgorithmBuilder5buildEvENK3$_0clISt10unique_ptrINS_17LastStepSignallerESt14default_deleteIS4_EEEEDaT_.exit"
 
@@ -11023,7 +10996,7 @@ _ZNSt6vectorISt10unique_ptrIN3gmx10ISignallerESt14default_deleteIS2_EESaIS5_EE11
 .noexc273:                                        ; preds = %894, %_ZNSt6vectorISt10unique_ptrIN3gmx10ISignallerESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i418
   store ptr %888, ptr %574, align 8, !tbaa !224
   store ptr %.0.lcssa.i.i.i21.i419, ptr %577, align 8, !tbaa !225
-  %895 = getelementptr inbounds nuw %"class.std::unique_ptr.285", ptr %888, i64 %886
+  %895 = getelementptr inbounds nuw [8 x i8], ptr %888, i64 %886
   store ptr %895, ptr %579, align 8, !tbaa !229
   br label %"_ZZN3gmx32ModularSimulatorAlgorithmBuilder5buildEvENK3$_0clISt10unique_ptrINS_23NeighborSearchSignallerESt14default_deleteIS4_EEEEDaT_.exit"
 
@@ -11293,7 +11266,7 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
 _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJPNS0_16CheckpointHelperEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %1009, %_ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %1002, ptr %979, align 8, !tbaa !180
   store ptr %1008, ptr %981, align 8, !tbaa !817
-  %1010 = getelementptr inbounds nuw ptr, ptr %1002, i64 %1000
+  %1010 = getelementptr inbounds nuw [8 x i8], ptr %1002, i64 %1000
   store ptr %1010, ptr %983, align 8, !tbaa !181
   br label %_ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJPNS0_16CheckpointHelperEEEERS2_DpOT_.exit
 
@@ -11368,7 +11341,7 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
 _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJPNS0_26FreeEnergyPerturbationData7ElementEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %1037, %_ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i306
   store ptr %1032, ptr %979, align 8, !tbaa !180
   store ptr %1036, ptr %981, align 8, !tbaa !817
-  %1038 = getelementptr inbounds nuw ptr, ptr %1032, i64 %1030
+  %1038 = getelementptr inbounds nuw [8 x i8], ptr %1032, i64 %1030
   store ptr %1038, ptr %983, align 8, !tbaa !181
   br label %1076
 
@@ -11598,7 +11571,7 @@ _ZNSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaI
 .noexc315:                                        ; preds = %1127, %_ZNSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i
   store ptr %1120, ptr %1077, align 8, !tbaa !218
   store ptr %1126, ptr %1078, align 8, !tbaa !219
-  %1128 = getelementptr inbounds nuw %"class.std::unique_ptr.275", ptr %1120, i64 %1118
+  %1128 = getelementptr inbounds nuw [8 x i8], ptr %1120, i64 %1118
   store ptr %1128, ptr %1102, align 8, !tbaa !223
   br label %_ZNSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE12emplace_backIJS0_INS1_17TrajectoryElementES3_IS9_EEEEERS5_DpOT_.exit
 
@@ -11666,7 +11639,7 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
 _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %1153, %_ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i320
   store ptr %1148, ptr %979, align 8, !tbaa !180
   store ptr %1152, ptr %981, align 8, !tbaa !817
-  %1154 = getelementptr inbounds nuw ptr, ptr %1148, i64 %1146
+  %1154 = getelementptr inbounds nuw [8 x i8], ptr %1148, i64 %1146
   store ptr %1154, ptr %983, align 8, !tbaa !181
   br label %_ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJS2_EEERS2_DpOT_.exit
 
@@ -11735,7 +11708,7 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
 _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i330: ; preds = %1180, %_ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i328
   store ptr %1175, ptr %917, align 8, !tbaa !180
   store ptr %1179, ptr %919, align 8, !tbaa !817
-  %1181 = getelementptr inbounds nuw ptr, ptr %1175, i64 %1173
+  %1181 = getelementptr inbounds nuw [8 x i8], ptr %1175, i64 %1173
   store ptr %1181, ptr %920, align 8, !tbaa !181
   br label %_ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJS2_EEERS2_DpOT_.exit333
 
@@ -12524,7 +12497,7 @@ _ZNSt12_Vector_baseISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   %.0.lcssa.i.i811.i.i = phi i64 [ 0, %96 ], [ %101, %_ZNSt16allocator_traitsISaISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3gmx23ICheckpointHelperClientEEEEE8allocateERSB_m.exit.i.i.i ]
   %105 = phi ptr [ null, %96 ], [ %104, %_ZNSt16allocator_traitsISaISt5tupleIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3gmx23ICheckpointHelperClientEEEEE8allocateERSB_m.exit.i.i.i ]
   store ptr %105, ptr %16, align 8, !tbaa !203
-  %106 = getelementptr inbounds nuw %"class.std::tuple.268", ptr %105, i64 %.0.lcssa.i.i811.i.i
+  %106 = getelementptr inbounds nuw [40 x i8], ptr %105, i64 %.0.lcssa.i.i811.i.i
   %107 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %106, ptr %107, align 8, !tbaa !208
   %108 = invoke noundef ptr @_ZSt16__do_uninit_copyISt17_Rb_tree_iteratorISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN3gmx23ICheckpointHelperClientEEEPSt5tupleIJS7_SB_EEET0_T_SI_SH_(ptr %98, ptr nonnull %99, ptr noundef %105)
@@ -15391,7 +15364,7 @@ _ZNSt6vectorISt8functionIFvldEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit25: ; pr
 _ZNSt12_Vector_baseISt8functionIFvldEESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorISt8functionIFvldEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit25, %47
   store ptr %20, ptr %0, align 8, !tbaa !1014
   store ptr %.0.lcssa.i.i.i24, ptr %4, align 8, !tbaa !1017
-  %51 = getelementptr inbounds nuw %"class.std::function", ptr %20, i64 %16
+  %51 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %16
   store ptr %51, ptr %46, align 8, !tbaa !1019
   ret void
 }
@@ -16256,7 +16229,7 @@ _ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPS
 
 .lr.ph.i.i.i.i.i57.preheader:                     ; preds = %_ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEES9_S8_ET0_T_SG_SF_RSaIT1_E.exit
   %55 = sub nuw nsw i64 %9, %20
-  %56 = getelementptr inbounds nuw %"class.std::unique_ptr.275", ptr %13, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %55
   br label %.lr.ph.i.i.i.i.i57
 
 .lr.ph.i.i.i.i.i57:                               ; preds = %.lr.ph.i.i.i.i.i57.preheader, %.lr.ph.i.i.i.i.i57
@@ -16413,7 +16386,7 @@ _ZSt8_DestroyIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES
 _ZNSt12_Vector_baseISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EES5_EvT_S7_RSaIT0_E.exit, %102
   store ptr %87, ptr %0, align 8, !tbaa !218
   store ptr %.0.lcssa.i.i.i.i.i90, ptr %12, align 8, !tbaa !219
-  %106 = getelementptr inbounds nuw %"class.std::unique_ptr.275", ptr %87, i64 %83
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %83
   store ptr %106, ptr %10, align 8, !tbaa !223
   br label %_ZSt4copyISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS5_EESt6vectorIS8_SaIS8_EEEEESD_ET0_T_SG_SF_.exit
 
@@ -16463,7 +16436,7 @@ _ZSt22__uninitialized_move_aIPPN3gmx17ISimulatorElementES3_SaIS2_EET0_T_S6_S5_RT
   %27 = sub i64 %26, %18
   %28 = ashr exact i64 %27, 3
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds ptr, ptr %13, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %13, i64 %29
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %30, ptr align 8 %1, i64 %27, i1 false)
   br label %_ZSt13move_backwardIPPN3gmx17ISimulatorElementES3_ET0_T_S5_S4_.exit
 
@@ -16486,7 +16459,7 @@ _ZSt7advanceISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPPN3gmx17ISimulato
 _ZSt22__uninitialized_copy_aISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPPN3gmx17ISimulatorElementESt6vectorIS5_SaIS5_EEEEES6_S5_ET0_T_SD_SC_RSaIT1_E.exit: ; preds = %_ZSt7advanceISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPPN3gmx17ISimulatorElementESt6vectorIS5_SaIS5_EEEEEmEvRT_T0_.exit, %32
   %35 = phi ptr [ %13, %_ZSt7advanceISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPPN3gmx17ISimulatorElementESt6vectorIS5_SaIS5_EEEEEmEvRT_T0_.exit ], [ %.pre, %32 ]
   %36 = sub nuw nsw i64 %9, %20
-  %37 = getelementptr inbounds nuw ptr, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %36
   store ptr %37, ptr %12, align 8, !tbaa !817
   %.not.i.i.i.i.i.i.i.i.i52 = icmp eq ptr %13, %1
   br i1 %.not.i.i.i.i.i.i.i.i.i52, label %_ZSt22__uninitialized_move_aIPPN3gmx17ISimulatorElementES3_SaIS2_EET0_T_S6_S5_RT1_.exit53, label %38
@@ -16570,7 +16543,7 @@ _ZNSt12_Vector_baseIPN3gmx17ISimulatorElementESaIS2_EE11_M_allocateEm.exit: ; pr
 _ZNSt12_Vector_baseIPN3gmx17ISimulatorElementESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %66, %68
   store ptr %57, ptr %0, align 8, !tbaa !180
   store ptr %67, ptr %12, align 8, !tbaa !817
-  %70 = getelementptr inbounds nuw ptr, ptr %57, i64 %53
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %53
   store ptr %70, ptr %10, align 8, !tbaa !181
   br label %_ZSt4copyISt13move_iteratorIN9__gnu_cxx17__normal_iteratorIPPN3gmx17ISimulatorElementESt6vectorIS5_SaIS5_EEEEESA_ET0_T_SD_SC_.exit
 
@@ -16957,7 +16930,7 @@ _ZNSt6vectorISt8functionIFvldRKS0_IFvS0_IFvvEEEEEESaIS8_EE11_S_relocateEPS8_SB_S
 _ZNSt12_Vector_baseISt8functionIFvldRKS0_IFvS0_IFvvEEEEEESaIS8_EE13_M_deallocateEPS8_m.exit: ; preds = %_ZNSt6vectorISt8functionIFvldRKS0_IFvS0_IFvvEEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit25, %47
   store ptr %20, ptr %0, align 8, !tbaa !214
   store ptr %.0.lcssa.i.i.i24, ptr %4, align 8, !tbaa !215
-  %51 = getelementptr inbounds nuw %"class.std::function.273", ptr %20, i64 %16
+  %51 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %16
   store ptr %51, ptr %46, align 8, !tbaa !217
   ret void
 }
@@ -17283,7 +17256,7 @@ _ZNSt6vectorISt8functionIFvRKN3gmx20PropagatorConnectionEEESaIS6_EE11_S_relocate
 _ZNSt12_Vector_baseISt8functionIFvRKN3gmx20PropagatorConnectionEEESaIS6_EE13_M_deallocateEPS6_m.exit: ; preds = %_ZNSt6vectorISt8functionIFvRKN3gmx20PropagatorConnectionEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit25, %47
   store ptr %20, ptr %0, align 8, !tbaa !833
   store ptr %.0.lcssa.i.i.i24, ptr %4, align 8, !tbaa !834
-  %51 = getelementptr inbounds nuw %"class.std::function.804", ptr %20, i64 %16
+  %51 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %16
   store ptr %51, ptr %46, align 8, !tbaa !836
   ret void
 }
@@ -17482,7 +17455,7 @@ _ZSt8_DestroyIPN3gmx20PropagatorConnectionES1_EvT_S3_RSaIT0_E.exit: ; preds = %.
 _ZNSt12_Vector_baseIN3gmx20PropagatorConnectionESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN3gmx20PropagatorConnectionES1_EvT_S3_RSaIT0_E.exit, %49
   store ptr %20, ptr %0, align 8, !tbaa !837
   store ptr %.0.lcssa.i.i.i.i.i39, ptr %4, align 8, !tbaa !838
-  %53 = getelementptr inbounds nuw %"struct.gmx::PropagatorConnection", ptr %20, i64 %16
+  %53 = getelementptr inbounds nuw [320 x i8], ptr %20, i64 %16
   store ptr %53, ptr %48, align 8, !tbaa !840
   ret void
 

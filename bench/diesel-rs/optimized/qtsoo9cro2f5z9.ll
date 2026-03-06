@@ -589,7 +589,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17h33c0a88e25bfec0dE(
   call void @llvm.assume(i1 %35)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.experimental.noalias.scope.decl(metadata !71)
-  %36 = getelementptr inbounds nuw { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %17, i64 %.011.i
+  %36 = getelementptr inbounds nuw [256 x i8], ptr %17, i64 %.011.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %13, ptr noundef nonnull align 8 dereferenceable(256) %36, i64 256, i1 false), !noalias !74
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 256
   %38 = xor i64 %.011.i, -1
@@ -909,7 +909,7 @@ define hidden void @_ZN25diesel_table_macro_syntax8take_lit17hfb9bb12205efe714E(
   call void @llvm.assume(i1 %35)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.experimental.noalias.scope.decl(metadata !109)
-  %36 = getelementptr inbounds nuw { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %17, i64 %.011.i
+  %36 = getelementptr inbounds nuw [256 x i8], ptr %17, i64 %.011.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(256) %13, ptr noundef nonnull align 8 dereferenceable(256) %36, i64 256, i1 false), !noalias !112
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 256
   %38 = xor i64 %.011.i, -1

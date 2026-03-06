@@ -325,7 +325,7 @@ define noalias ptr @CRYPTO_secure_malloc(i64 noundef %0, ptr noundef %1, i32 nou
 
 21:                                               ; preds = %24, %.lr.ph.i
   %.05597.i = phi i64 [ %.056.i, %.lr.ph.i ], [ %25, %24 ]
-  %22 = getelementptr inbounds nuw ptr, ptr %20, i64 %.05597.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.05597.i
   %23 = load ptr, ptr %22, align 8, !tbaa !27
   %.not.i = icmp eq ptr %23, null
   br i1 %.not.i, label %24, label %.preheader.i.preheader
@@ -438,7 +438,7 @@ sh_testbit.exit.i:                                ; preds = %46
   %70 = load ptr, ptr %69, align 8, !tbaa !35
   %.not17.i.i = icmp uge ptr %70, %.pre.i
   %71 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 40), align 8
-  %72 = getelementptr inbounds ptr, ptr %.pre.i, i64 %71
+  %72 = getelementptr inbounds [8 x i8], ptr %.pre.i, i64 %71
   %73 = icmp ult ptr %70, %72
   %or.cond.i72.i = select i1 %.not17.i.i, i1 %73, i1 false
   br i1 %or.cond.i72.i, label %sh_remove_from_list.exit.i, label %74
@@ -457,7 +457,7 @@ sh_testbit.exit.i:                                ; preds = %46
   unreachable
 
 sh_remove_from_list.exit.i:                       ; preds = %74, %68, %._crit_edge.i.i
-  %80 = getelementptr inbounds nuw ptr, ptr %.pre.i, i64 %.1.i65
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i, i64 %.1.i65
   %81 = load ptr, ptr %80, align 8, !tbaa !27
   %.not66.i = icmp eq ptr %28, %81
   br i1 %.not66.i, label %82, label %83
@@ -529,10 +529,10 @@ sh_testbit.exit76.i:                              ; preds = %102
   %118 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 56), align 8, !tbaa !18
   tail call fastcc void @sh_setbit(ptr noundef nonnull %28, i32 noundef %85, ptr noundef %118)
   %119 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8, !tbaa !17
-  %120 = getelementptr inbounds nuw ptr, ptr %119, i64 %84
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %119, i64 %84
   tail call fastcc void @sh_add_to_list(ptr noundef nonnull %120, ptr noundef nonnull %28)
   %121 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8, !tbaa !17
-  %122 = getelementptr inbounds nuw ptr, ptr %121, i64 %84
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %121, i64 %84
   %123 = load ptr, ptr %122, align 8, !tbaa !27
   %124 = icmp eq ptr %123, %28
   br i1 %124, label %126, label %125
@@ -601,10 +601,10 @@ sh_testbit.exit80.i:                              ; preds = %144
   %159 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 56), align 8, !tbaa !18
   tail call fastcc void @sh_setbit(ptr noundef nonnull %129, i32 noundef %85, ptr noundef %159)
   %160 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8, !tbaa !17
-  %161 = getelementptr inbounds nuw ptr, ptr %160, i64 %84
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %160, i64 %84
   tail call fastcc void @sh_add_to_list(ptr noundef nonnull %161, ptr noundef nonnull %129)
   %162 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8, !tbaa !17
-  %163 = getelementptr inbounds nuw ptr, ptr %162, i64 %84
+  %163 = getelementptr inbounds nuw [8 x i8], ptr %162, i64 %84
   %164 = load ptr, ptr %163, align 8, !tbaa !27
   %165 = icmp eq ptr %164, %129
   br i1 %165, label %167, label %166
@@ -666,7 +666,7 @@ sh_find_my_buddy.exit.i:                          ; preds = %187
   %199 = phi ptr [ %.pre75, %.preheader.i.preheader..preheader.i._crit_edge_crit_edge ], [ %179, %.preheader.i._crit_edge.loopexit ]
   %.lcssa43 = phi i64 [ %10, %.preheader.i.preheader..preheader.i._crit_edge_crit_edge ], [ %168, %.preheader.i._crit_edge.loopexit ]
   %.lcssa = phi ptr [ %20, %.preheader.i.preheader..preheader.i._crit_edge_crit_edge ], [ %162, %.preheader.i._crit_edge.loopexit ]
-  %200 = getelementptr inbounds nuw ptr, ptr %.lcssa, i64 %.056.i
+  %200 = getelementptr inbounds nuw [8 x i8], ptr %.lcssa, i64 %.056.i
   %201 = load ptr, ptr %200, align 8, !tbaa !27
   %202 = trunc i64 %.056.i to i32
   %203 = icmp sgt i32 %202, -1
@@ -754,7 +754,7 @@ sh_testbit.exit85.i:                              ; preds = %217
   %242 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8, !tbaa !17
   %.not17.i90.i = icmp uge ptr %241, %242
   %243 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 40), align 8
-  %244 = getelementptr inbounds ptr, ptr %242, i64 %243
+  %244 = getelementptr inbounds [8 x i8], ptr %242, i64 %243
   %245 = icmp ult ptr %241, %244
   %or.cond.i91.i = select i1 %.not17.i90.i, i1 %245, i1 false
   %.pre101.i = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 16), align 8, !tbaa !22
@@ -1154,7 +1154,7 @@ sh_testbit.exit:                                  ; preds = %42
   %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 64), align 8, !tbaa !19
   tail call fastcc void @sh_clearbit(ptr noundef nonnull %0, i32 noundef %29, ptr noundef %58)
   %59 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8, !tbaa !17
-  %60 = getelementptr inbounds nuw ptr, ptr %59, i64 %.07.lcssa.i
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %.07.lcssa.i
   tail call fastcc void @sh_add_to_list(ptr noundef %60, ptr noundef nonnull %0)
   br label %61
 
@@ -1300,7 +1300,7 @@ sh_testbit.exit64:                                ; preds = %121
   %137 = load ptr, ptr %136, align 8, !tbaa !35
   %138 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8, !tbaa !17
   %.not17.i = icmp uge ptr %137, %138
-  %139 = getelementptr inbounds ptr, ptr %138, i64 %.pre86
+  %139 = getelementptr inbounds [8 x i8], ptr %138, i64 %.pre86
   %140 = icmp ult ptr %137, %139
   %or.cond.i66 = select i1 %.not17.i, i1 %140, i1 false
   br i1 %or.cond.i66, label %sh_remove_from_list.exit, label %141
@@ -1396,7 +1396,7 @@ sh_testbit.exit70:                                ; preds = %160
   %183 = load ptr, ptr %182, align 8, !tbaa !35
   %184 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8, !tbaa !17
   %.not17.i75 = icmp uge ptr %183, %184
-  %185 = getelementptr inbounds ptr, ptr %184, i64 %.pre87
+  %185 = getelementptr inbounds [8 x i8], ptr %184, i64 %.pre87
   %186 = icmp ult ptr %183, %185
   %or.cond.i76 = select i1 %.not17.i75, i1 %186, i1 false
   br i1 %or.cond.i76, label %sh_remove_from_list.exit79, label %187
@@ -1481,10 +1481,10 @@ sh_testbit.exit83:                                ; preds = %213
   %229 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 56), align 8, !tbaa !18
   tail call fastcc void @sh_setbit(ptr noundef nonnull %spec.select, i32 noundef %196, ptr noundef %229)
   %230 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8, !tbaa !17
-  %231 = getelementptr inbounds nuw ptr, ptr %230, i64 %193
+  %231 = getelementptr inbounds nuw [8 x i8], ptr %230, i64 %193
   tail call fastcc void @sh_add_to_list(ptr noundef %231, ptr noundef nonnull %spec.select)
   %232 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8, !tbaa !17
-  %233 = getelementptr inbounds nuw ptr, ptr %232, i64 %193
+  %233 = getelementptr inbounds nuw [8 x i8], ptr %232, i64 %193
   %234 = load ptr, ptr %233, align 8, !tbaa !27
   %235 = icmp eq ptr %234, %spec.select
   br i1 %235, label %61, label %236, !llvm.loop !38
@@ -1661,7 +1661,7 @@ define internal fastcc void @sh_add_to_list(ptr noundef %0, ptr noundef %1) unna
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 32), align 8, !tbaa !17
   %.not = icmp uge ptr %0, %3
   %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @sh, i64 40), align 8
-  %5 = getelementptr inbounds ptr, ptr %3, i64 %4
+  %5 = getelementptr inbounds [8 x i8], ptr %3, i64 %4
   %6 = icmp ult ptr %0, %5
   %or.cond = select i1 %.not, i1 %6, i1 false
   br i1 %or.cond, label %8, label %7

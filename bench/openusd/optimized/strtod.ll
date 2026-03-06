@@ -160,7 +160,7 @@ define internal fastcc noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit.i: ; preds = %._crit_edge.loopexit.i.i, %19
   %.0.lcssa.i.i = phi double [ 0.000000e+00, %19 ], [ %32, %._crit_edge.loopexit.i.i ]
   %33 = zext nneg i32 %20 to i64
-  %34 = getelementptr inbounds nuw double, ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL19exact_powers_of_tenE, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL19exact_powers_of_tenE, i64 %33
   %35 = load double, ptr %34, align 8
   %36 = fdiv double %.0.lcssa.i.i, %35
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12DoubleStrtodENS0_6VectorIKcEEiPd.exit
@@ -199,7 +199,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL10ReadUint64ENS0_6V
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit38.i: ; preds = %._crit_edge.loopexit.i37.i, %38
   %.0.lcssa.i31.i = phi double [ 0.000000e+00, %38 ], [ %50, %._crit_edge.loopexit.i37.i ]
   %51 = zext nneg i32 %2 to i64
-  %52 = getelementptr inbounds nuw double, ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL19exact_powers_of_tenE, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL19exact_powers_of_tenE, i64 %51
   %53 = load double, ptr %52, align 8
   %54 = fmul double %.0.lcssa.i31.i, %53
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12DoubleStrtodENS0_6VectorIKcEEiPd.exit
@@ -244,11 +244,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL10ReadUint64ENS0_6V
 _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL10ReadUint64ENS0_6VectorIKcEEPi.exit47.i: ; preds = %._crit_edge.loopexit.i46.i, %61
   %.0.lcssa.i40.i = phi double [ 0.000000e+00, %61 ], [ %73, %._crit_edge.loopexit.i46.i ]
   %74 = zext nneg i32 %57 to i64
-  %75 = getelementptr inbounds nuw double, ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL19exact_powers_of_tenE, i64 %74
+  %75 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL19exact_powers_of_tenE, i64 %74
   %76 = load double, ptr %75, align 8
   %77 = fmul double %.0.lcssa.i40.i, %76
   %78 = sext i32 %59 to i64
-  %79 = getelementptr inbounds double, ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL19exact_powers_of_tenE, i64 %78
+  %79 = getelementptr inbounds [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL19exact_powers_of_tenE, i64 %78
   %80 = load double, ptr %79, align 8
   %81 = fmul double %77, %80
   br label %_ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12DoubleStrtodENS0_6VectorIKcEEiPd.exit
@@ -368,10 +368,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL11DiyFpStrtodENS0_6
 switch.lookup:                                    ; preds = %119
   %switch.tableidx = add nsw i32 %120, -1
   %123 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12ComputeGuessENS0_6VectorIKcEEiPd, i64 %123
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12ComputeGuessENS0_6VectorIKcEEiPd, i64 %123
   %switch.load = load i32, ptr %switch.gep, align 4
   %124 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep96 = getelementptr inbounds nuw i64, ptr @switch.table._ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12ComputeGuessENS0_6VectorIKcEEiPd.1, i64 %124
+  %switch.gep96 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN32pxrInternal_v0_24__pxrReserved__21pxr_double_conversionL12ComputeGuessENS0_6VectorIKcEEiPd.1, i64 %124
   %switch.load97 = load i64, ptr %switch.gep96, align 8
   %125 = lshr i64 %.1.lcssa.i.i, 32
   %126 = and i64 %.1.lcssa.i.i, 4294967295

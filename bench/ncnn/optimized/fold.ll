@@ -696,7 +696,7 @@ _ZN4ncnn3Mat4fillEf.exit._ZN4ncnn3MatD2Ev.exit_crit_edge.split.us.us.us: ; preds
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge63.split.us.us.us.us.us.us.us ], [ 0, %.lr.ph67.split.us.split.us.us.us.us.us ]
   %.14065.us.us.us.us.us.us = phi ptr [ %94, %._crit_edge63.split.us.us.us.us.us.us.us ], [ %.03975.us.us.us.us, %.lr.ph67.split.us.split.us.us.us.us.us ]
   %87 = mul nsw i64 %indvars.iv, %69
-  %88 = getelementptr inbounds float, ptr %80, i64 %87
+  %88 = getelementptr inbounds [4 x i8], ptr %80, i64 %87
   br label %.preheader.us.us.us.us.us.us.us
 
 .preheader.us.us.us.us.us.us.us:                  ; preds = %._crit_edge.us.us.us.us.us.us.us, %.preheader.lr.ph.us.us.us.us.us.us
@@ -713,14 +713,14 @@ _ZN4ncnn3Mat4fillEf.exit._ZN4ncnn3MatD2Ev.exit_crit_edge.split.us.us.us: ; preds
   %91 = load float, ptr %.156.us.us.us.us.us.us.us, align 4, !tbaa !63
   %92 = fadd fast float %91, %90
   store float %92, ptr %.156.us.us.us.us.us.us.us, align 4, !tbaa !63
-  %93 = getelementptr inbounds float, ptr %.156.us.us.us.us.us.us.us, i64 %86
+  %93 = getelementptr inbounds [4 x i8], ptr %.156.us.us.us.us.us.us.us, i64 %86
   %94 = getelementptr inbounds nuw i8, ptr %.355.us.us.us.us.us.us.us, i64 4
   %95 = add nuw nsw i32 %.057.us.us.us.us.us.us.us, 1
   %exitcond129.not = icmp eq i32 %95, %81
   br i1 %exitcond129.not, label %._crit_edge.us.us.us.us.us.us.us, label %89, !llvm.loop !67
 
 ._crit_edge.us.us.us.us.us.us.us:                 ; preds = %89
-  %96 = getelementptr inbounds float, ptr %93, i64 %84
+  %96 = getelementptr inbounds [4 x i8], ptr %93, i64 %84
   %97 = add nuw nsw i32 %.03562.us.us.us.us.us.us.us, 1
   %exitcond130.not = icmp eq i32 %97, %78
   br i1 %exitcond130.not, label %._crit_edge63.split.us.us.us.us.us.us.us, label %.preheader.us.us.us.us.us.us.us, !llvm.loop !68

@@ -314,8 +314,8 @@ define hidden void @proto_register_gsm_a_rp() local_unnamed_addr #1 {
 2:                                                ; preds = %0, %2
   %indvars.iv18 = phi i64 [ 1, %0 ], [ %indvars.iv.next19, %2 ]
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %2 ]
-  %3 = getelementptr i32, ptr @ett_gsm_rp_msg, i64 %indvars.iv
-  %4 = getelementptr ptr, ptr %1, i64 %indvars.iv18
+  %3 = getelementptr [4 x i8], ptr @ett_gsm_rp_msg, i64 %indvars.iv
+  %4 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv18
   store ptr %3, ptr %4, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
@@ -325,8 +325,8 @@ define hidden void @proto_register_gsm_a_rp() local_unnamed_addr #1 {
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv25 = phi i64 [ %indvars.iv.next26, %.preheader ], [ 9, %2 ]
   %indvars.iv23 = phi i64 [ %indvars.iv.next24, %.preheader ], [ 0, %2 ]
-  %5 = getelementptr i32, ptr @ett_gsm_rp_elem, i64 %indvars.iv23
-  %6 = getelementptr ptr, ptr %1, i64 %indvars.iv25
+  %5 = getelementptr [4 x i8], ptr @ett_gsm_rp_elem, i64 %indvars.iv23
+  %6 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv25
   store ptr %5, ptr %6, align 8
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
@@ -391,7 +391,7 @@ define internal i32 @dissect_rp(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %19 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %13, ptr noundef %0, i32 noundef 0, i32 noundef -1, ptr noundef nonnull @.str.77, ptr noundef nonnull %11)
   %20 = load i32, ptr %5, align 4
   %21 = sext i32 %20 to i64
-  %22 = getelementptr i32, ptr @ett_gsm_rp_msg, i64 %21
+  %22 = getelementptr [4 x i8], ptr @ett_gsm_rp_msg, i64 %21
   %23 = load i32, ptr %22, align 4
   %24 = call ptr @proto_item_add_subtree(ptr noundef %19, i32 noundef %23)
   %25 = load ptr, ptr %6, align 8
@@ -420,7 +420,7 @@ define internal i32 @dissect_rp(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 
 38:                                               ; preds = %31
   %39 = sext i32 %32 to i64
-  %40 = getelementptr ptr, ptr @rp_msg_fcn, i64 %39
+  %40 = getelementptr [8 x i8], ptr @rp_msg_fcn, i64 %39
   %41 = load ptr, ptr %40, align 8
   %42 = add i32 %8, -1
   call void %41(ptr noundef %0, ptr noundef %.042, ptr noundef %1, i32 noundef 1, i32 noundef %42)

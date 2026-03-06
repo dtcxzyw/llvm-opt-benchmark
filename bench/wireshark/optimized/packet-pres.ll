@@ -11,7 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._value_string_ext = type { ptr, i32, i32, ptr, ptr }
 %struct._ber_sequence_t = type { ptr, i8, i32, i32, ptr }
 %struct._pres_ctx_oid_t = type { i32, ptr, i32 }
-%struct._pres_user_t = type { i32, ptr }
 %struct._asn1_ctx_t = type { i32, i32, i8, ptr, ptr, ptr, ptr, ptr, %struct.anon.2, %struct.anon.5, %struct.anon.6, ptr }
 %struct.anon.2 = type { i32, i8, i8, i8, ptr, ptr, i32, i32, ptr, ptr, ptr, %union.anon }
 %union.anon = type { %struct.anon.3 }
@@ -510,7 +509,7 @@ define hidden ptr @find_oid_by_pres_ctx_id(ptr noundef %0, i32 noundef %1) local
 
 19:                                               ; preds = %18, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %18 ]
-  %20 = getelementptr %struct._pres_user_t, ptr %17, i64 %indvars.iv.i
+  %20 = getelementptr [16 x i8], ptr %17, i64 %indvars.iv.i
   %21 = load i32, ptr %20, align 8
   %.not.i = icmp eq i32 %21, %1
   br i1 %.not.i, label %.thread.i, label %18
@@ -766,7 +765,7 @@ define internal i32 @dissect_pres(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 56:                                               ; preds = %55, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %55 ]
-  %57 = getelementptr %struct._pres_user_t, ptr %54, i64 %indvars.iv.i.i
+  %57 = getelementptr [16 x i8], ptr %54, i64 %indvars.iv.i.i
   %58 = load i32, ptr %57, align 8
   %.not.i.i = icmp eq i32 %58, %41
   br i1 %.not.i.i, label %.thread.i.i, label %55
@@ -1219,7 +1218,7 @@ define internal i32 @dissect_pres_Presentation_context_identifier(i1 noundef zer
 
 33:                                               ; preds = %32, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %32 ]
-  %34 = getelementptr %struct._pres_user_t, ptr %31, i64 %indvars.iv.i.i
+  %34 = getelementptr [16 x i8], ptr %31, i64 %indvars.iv.i.i
   %35 = load i32, ptr %34, align 8
   %.not.i.i = icmp eq i32 %35, %18
   br i1 %.not.i.i, label %.thread.i.i, label %32
@@ -1370,7 +1369,7 @@ define internal noundef i32 @dissect_pres_T_single_ASN1_type(i1 zeroext %0, ptr 
 
 25:                                               ; preds = %24, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %24 ]
-  %26 = getelementptr %struct._pres_user_t, ptr %23, i64 %indvars.iv.i.i
+  %26 = getelementptr [16 x i8], ptr %23, i64 %indvars.iv.i.i
   %27 = load i32, ptr %26, align 8
   %.not.i.i = icmp eq i32 %27, %10
   br i1 %.not.i.i, label %.thread.i.i, label %24
@@ -1459,7 +1458,7 @@ define internal i32 @dissect_pres_T_octet_aligned(i1 noundef zeroext %0, ptr nou
 
 26:                                               ; preds = %25, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %25 ]
-  %27 = getelementptr %struct._pres_user_t, ptr %24, i64 %indvars.iv.i.i
+  %27 = getelementptr [16 x i8], ptr %24, i64 %indvars.iv.i.i
   %28 = load i32, ptr %27, align 8
   %.not.i.i = icmp eq i32 %28, %11
   br i1 %.not.i.i, label %.thread.i.i, label %25

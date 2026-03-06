@@ -80,7 +80,7 @@ gv_alloc.exit:                                    ; preds = %1
 gv_calloc.exit:                                   ; preds = %.thread.i, %13
   %20 = phi ptr [ %8, %.thread.i ], [ %14, %13 ]
   store ptr %20, ptr %2, align 8, !tbaa !16
-  %21 = getelementptr inbounds %struct.cell, ptr %20, i64 %7
+  %21 = getelementptr inbounds [32 x i8], ptr %20, i64 %7
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %21, ptr %22, align 8, !tbaa !18
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 8

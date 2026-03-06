@@ -27,7 +27,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %3, %8
   %12 = phi i32 [ %5, %3 ], [ %.pre.i, %8 ]
   %13 = load ptr, ptr %1, align 8, !tbaa !11
   %14 = zext i32 %12 to i64
-  %15 = getelementptr inbounds nuw i32, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %14
   store i32 0, ptr %15, align 1
   %16 = load i32, ptr %4, align 8, !tbaa !3
   %17 = add i32 %16, 1
@@ -48,7 +48,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit24: ; preds = %_ZN4llvm
   %23 = phi i32 [ %17, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit ], [ %.pre.i23, %19 ]
   %24 = load ptr, ptr %1, align 8, !tbaa !11
   %25 = zext i32 %23 to i64
-  %26 = getelementptr inbounds nuw i32, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %25
   store i32 1, ptr %26, align 1
   %27 = load i32, ptr %4, align 8, !tbaa !3
   %28 = add i32 %27, 1
@@ -69,7 +69,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit27: ; preds = %_ZN4llvm
   %34 = phi i32 [ %28, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit24 ], [ %.pre.i26, %30 ]
   %35 = load ptr, ptr %1, align 8, !tbaa !11
   %36 = zext i32 %34 to i64
-  %37 = getelementptr inbounds nuw i32, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %36
   store i32 2, ptr %37, align 1
   %38 = load i32, ptr %4, align 8, !tbaa !3
   %39 = add i32 %38, 1
@@ -90,7 +90,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit30: ; preds = %_ZN4llvm
   %45 = phi i32 [ %39, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit27 ], [ %.pre.i29, %41 ]
   %46 = load ptr, ptr %1, align 8, !tbaa !11
   %47 = zext i32 %45 to i64
-  %48 = getelementptr inbounds nuw i32, ptr %46, i64 %47
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %47
   store i32 3, ptr %48, align 1
   %49 = load i32, ptr %4, align 8, !tbaa !3
   %50 = add i32 %49, 1
@@ -103,7 +103,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit30: ; preds = %_ZN4llvm
   %56 = select i1 %2, i32 4, i32 %55
   %57 = zext nneg i32 %52 to i64
   %58 = load ptr, ptr %1, align 8, !tbaa !11
-  %59 = getelementptr inbounds nuw i32, ptr %58, i64 %57
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %57
   store i32 %56, ptr %59, align 4, !tbaa !12
   %60 = and i32 %0, 1
   %.not = icmp eq i32 %60, 0
@@ -186,7 +186,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %10, %13
   %16 = phi i32 [ %11, %10 ], [ %.pre.i, %13 ]
   %17 = load ptr, ptr %3, align 8, !tbaa !11
   %18 = zext i32 %16 to i64
-  %19 = getelementptr inbounds nuw i32, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %18
   store i32 %.01216, ptr %19, align 1
   %20 = load i32, ptr %5, align 8, !tbaa !3
   %21 = add i32 %20, 1
@@ -204,7 +204,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %10, %13
   %25 = add i32 %0, %24
   %26 = add i32 %1, %24
   %27 = zext i32 %26 to i64
-  %28 = getelementptr inbounds nuw i32, ptr %8, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %27
   store i32 %25, ptr %28, align 4, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not14 = icmp eq i64 %indvars.iv.next, %9
@@ -250,7 +250,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %10, %14
   %17 = phi i32 [ %11, %10 ], [ %.pre.i, %14 ]
   %18 = load ptr, ptr %1, align 8, !tbaa !11
   %19 = zext i32 %17 to i64
-  %20 = getelementptr inbounds nuw i32, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %19
   store i32 %12, ptr %20, align 1
   %21 = load i32, ptr %4, align 8, !tbaa !3
   %22 = add i32 %21, 1
@@ -280,7 +280,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit17: ; preds = %24, %27
   %30 = phi i32 [ %25, %24 ], [ %.pre.i16, %27 ]
   %31 = load ptr, ptr %1, align 8, !tbaa !11
   %32 = zext i32 %30 to i64
-  %33 = getelementptr inbounds nuw i32, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %32
   store i32 %.021, ptr %33, align 1
   %34 = load i32, ptr %7, align 8, !tbaa !3
   %35 = add i32 %34, 1
@@ -328,7 +328,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %10, %13
   %16 = phi i32 [ %11, %10 ], [ %.pre.i, %13 ]
   %17 = load ptr, ptr %1, align 8, !tbaa !11
   %18 = zext i32 %16 to i64
-  %19 = getelementptr inbounds nuw i32, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %18
   store i32 %.01017, ptr %19, align 1
   %20 = load i32, ptr %4, align 8, !tbaa !3
   %21 = add i32 %20, 1
@@ -359,7 +359,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit15: ; preds = %23, %27
   %30 = phi i32 [ %24, %23 ], [ %.pre.i14, %27 ]
   %31 = load ptr, ptr %1, align 8, !tbaa !11
   %32 = zext i32 %30 to i64
-  %33 = getelementptr inbounds nuw i32, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %32
   store i32 %25, ptr %33, align 1
   %34 = load i32, ptr %7, align 8, !tbaa !3
   %35 = add i32 %34, 1
@@ -404,7 +404,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %7, %11
   %14 = phi i32 [ %8, %7 ], [ %.pre.i, %11 ]
   %15 = load ptr, ptr %1, align 8, !tbaa !11
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw i32, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %16
   store i32 %9, ptr %17, align 1
   %18 = load i32, ptr %4, align 8, !tbaa !3
   %19 = add i32 %18, 1
@@ -424,7 +424,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit9: ; preds = %_ZN4llvm2
   %24 = phi i32 [ %19, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit ], [ %.pre.i8, %21 ]
   %25 = load ptr, ptr %1, align 8, !tbaa !11
   %26 = zext i32 %24 to i64
-  %27 = getelementptr inbounds nuw i32, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %26
   store i32 %9, ptr %27, align 1
   %28 = load i32, ptr %4, align 8, !tbaa !3
   %29 = add i32 %28, 1
@@ -470,7 +470,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %7, %12
   %15 = phi i32 [ %8, %7 ], [ %.pre.i, %12 ]
   %16 = load ptr, ptr %1, align 8, !tbaa !11
   %17 = zext i32 %15 to i64
-  %18 = getelementptr inbounds nuw i32, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %17
   store i32 %10, ptr %18, align 1
   %19 = load i32, ptr %4, align 8, !tbaa !3
   %20 = add i32 %19, 1
@@ -490,7 +490,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit9: ; preds = %_ZN4llvm2
   %25 = phi i32 [ %20, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit ], [ %.pre.i8, %22 ]
   %26 = load ptr, ptr %1, align 8, !tbaa !11
   %27 = zext i32 %25 to i64
-  %28 = getelementptr inbounds nuw i32, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %27
   store i32 %10, ptr %28, align 1
   %29 = load i32, ptr %4, align 8, !tbaa !3
   %30 = add i32 %29, 1
@@ -543,7 +543,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %9, %13
   %16 = phi i32 [ %10, %9 ], [ %.pre.i, %13 ]
   %17 = load ptr, ptr %1, align 8, !tbaa !11
   %18 = zext i32 %16 to i64
-  %19 = getelementptr inbounds nuw i32, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %18
   store i32 %.068, ptr %19, align 1
   %20 = load i32, ptr %3, align 8, !tbaa !3
   %21 = add i32 %20, 1
@@ -598,7 +598,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %10, %15
   %18 = phi i32 [ %11, %10 ], [ %.pre.i, %15 ]
   %19 = load ptr, ptr %2, align 8, !tbaa !11
   %20 = zext i32 %18 to i64
-  %21 = getelementptr inbounds nuw i32, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %20
   store i32 %.0, ptr %21, align 1
   %22 = load i32, ptr %4, align 8, !tbaa !3
   %23 = add i32 %22, 1
@@ -655,7 +655,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %10, %16
   %19 = phi i32 [ %11, %10 ], [ %.pre.i, %16 ]
   %20 = load ptr, ptr %2, align 8, !tbaa !11
   %21 = zext i32 %19 to i64
-  %22 = getelementptr inbounds nuw i32, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %21
   store i32 %spec.store.select, ptr %22, align 1
   %23 = load i32, ptr %4, align 8, !tbaa !3
   %24 = add i32 %23, 1
@@ -714,7 +714,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %10, %17
   %20 = phi i32 [ %11, %10 ], [ %.pre.i, %17 ]
   %21 = load ptr, ptr %2, align 8, !tbaa !11
   %22 = zext i32 %20 to i64
-  %23 = getelementptr inbounds nuw i32, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %22
   store i32 %15, ptr %23, align 1
   %24 = load i32, ptr %5, align 8, !tbaa !3
   %25 = add i32 %24, 1
@@ -760,7 +760,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %9, %13
   %16 = phi i32 [ %10, %9 ], [ %.pre.i, %13 ]
   %17 = load ptr, ptr %2, align 8, !tbaa !11
   %18 = zext i32 %16 to i64
-  %19 = getelementptr inbounds nuw i32, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %18
   store i32 %11, ptr %19, align 1
   %20 = load i32, ptr %6, align 8, !tbaa !3
   %21 = add i32 %20, 1
@@ -828,7 +828,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %14, %20
   %23 = phi i32 [ %15, %14 ], [ %.pre.i, %20 ]
   %24 = load ptr, ptr %3, align 8, !tbaa !11
   %25 = zext i32 %23 to i64
-  %26 = getelementptr inbounds nuw i32, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %25
   store i32 %18, ptr %26, align 1
   %27 = load i32, ptr %8, align 8, !tbaa !3
   %28 = add i32 %27, 1
@@ -881,7 +881,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %7, %11
   %14 = phi i32 [ %8, %7 ], [ %.pre.i, %11 ]
   %15 = load ptr, ptr %2, align 8, !tbaa !11
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw i32, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %16
   store i32 %9, ptr %17, align 1
   %18 = load i32, ptr %4, align 8, !tbaa !3
   %19 = add i32 %18, 1
@@ -916,7 +916,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit23: ; preds = %23, %27
   %30 = phi i32 [ %24, %23 ], [ %.pre.i22, %27 ]
   %31 = load ptr, ptr %2, align 8, !tbaa !11
   %32 = zext i32 %30 to i64
-  %33 = getelementptr inbounds nuw i32, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %32
   store i32 %.reass, ptr %33, align 1
   %34 = load i32, ptr %4, align 8, !tbaa !3
   %35 = add i32 %34, 1
@@ -968,7 +968,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %7, %12
   %15 = phi i32 [ %8, %7 ], [ %.pre.i, %12 ]
   %16 = load ptr, ptr %2, align 8, !tbaa !11
   %17 = zext i32 %15 to i64
-  %18 = getelementptr inbounds nuw i32, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %17
   store i32 %10, ptr %18, align 1
   %19 = load i32, ptr %4, align 8, !tbaa !3
   %20 = add i32 %19, 1
@@ -1002,7 +1002,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit23: ; preds = %.prehead
   %31 = phi i32 [ %25, %.preheader ], [ %.pre.i22, %28 ]
   %32 = load ptr, ptr %2, align 8, !tbaa !11
   %33 = zext i32 %31 to i64
-  %34 = getelementptr inbounds nuw i32, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %33
   store i32 %26, ptr %34, align 1
   %35 = load i32, ptr %4, align 8, !tbaa !3
   %36 = add i32 %35, 1
@@ -1051,7 +1051,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %10, %14
   %17 = phi i32 [ %11, %10 ], [ %.pre.i, %14 ]
   %18 = load ptr, ptr %1, align 8, !tbaa !11
   %19 = zext i32 %17 to i64
-  %20 = getelementptr inbounds nuw i32, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %19
   store i32 %12, ptr %20, align 1
   %21 = load i32, ptr %4, align 8, !tbaa !3
   %22 = add i32 %21, 1
@@ -1081,7 +1081,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit16: ; preds = %24, %27
   %30 = phi i32 [ %25, %24 ], [ %.pre.i15, %27 ]
   %31 = load ptr, ptr %1, align 8, !tbaa !11
   %32 = zext i32 %30 to i64
-  %33 = getelementptr inbounds nuw i32, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %32
   store i32 %.020, ptr %33, align 1
   %34 = load i32, ptr %7, align 8, !tbaa !3
   %35 = add i32 %34, 1
@@ -1139,7 +1139,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit.us: ; preds = %17, %12
   %20 = phi i32 [ %13, %12 ], [ %.pre.i.us, %17 ]
   %21 = load ptr, ptr %3, align 8, !tbaa !11
   %22 = zext i32 %20 to i64
-  %23 = getelementptr inbounds nuw i32, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %22
   store i32 %15, ptr %23, align 1
   %24 = load i32, ptr %8, align 8, !tbaa !3
   %25 = add i32 %24, 1
@@ -1214,7 +1214,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %34, %40
   %43 = phi i32 [ %35, %34 ], [ %.pre.i, %40 ]
   %44 = load ptr, ptr %3, align 8, !tbaa !11
   %45 = zext i32 %43 to i64
-  %46 = getelementptr inbounds nuw i32, ptr %44, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %45
   store i32 %38, ptr %46, align 1
   %47 = load i32, ptr %8, align 8, !tbaa !3
   %48 = add i32 %47, 1
@@ -1276,7 +1276,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %.lr.ph, %1
   %19 = phi i32 [ %14, %.lr.ph ], [ %.pre.i, %16 ]
   %20 = load ptr, ptr %2, align 8, !tbaa !11
   %21 = zext i32 %19 to i64
-  %22 = getelementptr inbounds nuw i32, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %21
   store i32 %.02028, ptr %22, align 1
   %23 = load i32, ptr %8, align 8, !tbaa !3
   %24 = add i32 %23, 1
@@ -1297,7 +1297,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit26: ; preds = %_ZN4llvm
   %30 = phi i32 [ %24, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit ], [ %.pre.i25, %27 ]
   %31 = load ptr, ptr %2, align 8, !tbaa !11
   %32 = zext i32 %30 to i64
-  %33 = getelementptr inbounds nuw i32, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %32
   store i32 %25, ptr %33, align 1
   %34 = load i32, ptr %8, align 8, !tbaa !3
   %35 = add i32 %34, 1
@@ -1359,7 +1359,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %.lr.ph, %1
   %19 = phi i32 [ %14, %.lr.ph ], [ %.pre.i, %16 ]
   %20 = load ptr, ptr %2, align 8, !tbaa !11
   %21 = zext i32 %19 to i64
-  %22 = getelementptr inbounds nuw i32, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %21
   store i32 %.01926, ptr %22, align 1
   %23 = load i32, ptr %8, align 8, !tbaa !3
   %24 = add i32 %23, 1
@@ -1380,7 +1380,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit24: ; preds = %_ZN4llvm
   %30 = phi i32 [ %24, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit ], [ %.pre.i23, %27 ]
   %31 = load ptr, ptr %2, align 8, !tbaa !11
   %32 = zext i32 %30 to i64
-  %33 = getelementptr inbounds nuw i32, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %32
   store i32 %25, ptr %33, align 1
   %34 = load i32, ptr %8, align 8, !tbaa !3
   %35 = add i32 %34, 1
@@ -1417,7 +1417,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE28reserveForParamAndGetAddressERim.exit.
 _ZSt20uninitialized_fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE28reserveForParamAndGetAddressERim.exit.i
   %14 = load ptr, ptr %1, align 8, !tbaa !11
   %15 = zext i32 %.pre4.i to i64
-  %16 = getelementptr inbounds nuw i32, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %15
   %.idx.i.i.i.i.i = shl nuw nsw i64 %3, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %16, i8 0, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !12
   %.pre.i = load i32, ptr %4, align 8, !tbaa !3
@@ -1474,7 +1474,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %10, %13
   %16 = phi i32 [ %11, %10 ], [ %.pre.i, %13 ]
   %17 = load ptr, ptr %2, align 8, !tbaa !11
   %18 = zext i32 %16 to i64
-  %19 = getelementptr inbounds nuw i32, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %18
   store i32 %.011, ptr %19, align 1
   %20 = load i32, ptr %5, align 8, !tbaa !3
   %21 = add i32 %20, 1
@@ -1538,7 +1538,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %18, %22
   %25 = phi i32 [ %19, %18 ], [ %.pre.i, %22 ]
   %26 = load ptr, ptr %3, align 8, !tbaa !11
   %27 = zext i32 %25 to i64
-  %28 = getelementptr inbounds nuw i32, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %27
   store i32 %20, ptr %28, align 1
   %29 = load i32, ptr %8, align 8, !tbaa !3
   %30 = add i32 %29, 1
@@ -1594,7 +1594,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit.us: ; preds = %.lr.ph.
   %20 = phi i32 [ %15, %.lr.ph.split.us ], [ %.pre.i.us, %17 ]
   %21 = load ptr, ptr %2, align 8, !tbaa !11
   %22 = zext i32 %20 to i64
-  %23 = getelementptr inbounds nuw i32, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %22
   store i32 %.01519.us, ptr %23, align 1
   %24 = load i32, ptr %5, align 8, !tbaa !3
   %25 = add i32 %24, 1
@@ -1624,7 +1624,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %.lr.ph.spl
   %32 = phi i32 [ %27, %.lr.ph.split ], [ %.pre.i, %29 ]
   %33 = load ptr, ptr %2, align 8, !tbaa !11
   %34 = zext i32 %32 to i64
-  %35 = getelementptr inbounds nuw i32, ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %34
   store i32 -2, ptr %35, align 1
   %36 = load i32, ptr %5, align 8, !tbaa !3
   %37 = add i32 %36, 1
@@ -1653,7 +1653,7 @@ define dso_local void @_ZN4llvm16DecodePSHUFBMaskENS_8ArrayRefImEERKNS_5APIntERN
 
 11:                                               ; preds = %.lr.ph, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit ]
-  %12 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %13 = load i64, ptr %12, align 8, !tbaa !55
   %14 = trunc nuw nsw i64 %indvars.iv to i32
   %15 = and i64 %indvars.iv, 63
@@ -1663,7 +1663,7 @@ define dso_local void @_ZN4llvm16DecodePSHUFBMaskENS_8ArrayRefImEERKNS_5APIntERN
   %19 = load ptr, ptr %2, align 8
   %20 = lshr i64 %indvars.iv, 6
   %21 = and i64 %20, 67108863
-  %22 = getelementptr inbounds nuw i64, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %.in.i.i = select i1 %18, ptr %2, ptr %22
   %23 = load i64, ptr %.in.i.i, align 8, !tbaa !59
   %24 = and i64 %23, %16
@@ -1711,7 +1711,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %_ZN4llvm23
   %.sink = phi i32 [ -2, %30 ], [ %37, %33 ], [ -1, %25 ], [ %.sink.ph, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit.sink.split ]
   %42 = load ptr, ptr %3, align 8, !tbaa !11
   %43 = zext i32 %.sink31 to i64
-  %44 = getelementptr inbounds nuw i32, ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %43
   store i32 %.sink, ptr %44, align 1
   %45 = load i32, ptr %8, align 8, !tbaa !3
   %46 = add i32 %45, 1
@@ -1760,7 +1760,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %7, %15
   %18 = phi i32 [ %8, %7 ], [ %.pre.i, %15 ]
   %19 = load ptr, ptr %2, align 8, !tbaa !11
   %20 = zext i32 %18 to i64
-  %21 = getelementptr inbounds nuw i32, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %20
   store i32 %13, ptr %21, align 1
   %22 = load i32, ptr %4, align 8, !tbaa !3
   %23 = add i32 %22, 1
@@ -1793,7 +1793,7 @@ define dso_local void @_ZN4llvm16DecodeVPPERMMaskENS_8ArrayRefImEERKNS_5APIntERN
   %16 = load ptr, ptr %2, align 8
   %17 = lshr i64 %indvars.iv, 6
   %18 = and i64 %17, 67108863
-  %19 = getelementptr inbounds nuw i64, ptr %16, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %18
   %.in.i.i = select i1 %15, ptr %2, ptr %19
   %20 = load i64, ptr %.in.i.i, align 8, !tbaa !59
   %21 = and i64 %20, %13
@@ -1807,7 +1807,7 @@ define dso_local void @_ZN4llvm16DecodeVPPERMMaskENS_8ArrayRefImEERKNS_5APIntERN
   br i1 %.not.i.i.not.i, label %.thread, label %.thread.sink.split, !prof !10
 
 25:                                               ; preds = %11
-  %26 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %27 = load i64, ptr %26, align 8, !tbaa !55
   %28 = lshr i64 %27, 5
   %29 = and i64 %28, 7
@@ -1848,7 +1848,7 @@ define dso_local void @_ZN4llvm16DecodeVPPERMMaskENS_8ArrayRefImEERKNS_5APIntERN
   %.sink = phi i32 [ -2, %30 ], [ %35, %33 ], [ -1, %22 ], [ %.sink.ph, %.thread.sink.split ]
   %41 = load ptr, ptr %3, align 8, !tbaa !11
   %42 = zext i32 %.sink35 to i64
-  %43 = getelementptr inbounds nuw i32, ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %42
   store i32 %.sink, ptr %43, align 1
   %44 = load i32, ptr %8, align 8, !tbaa !3
   %45 = add i32 %44, 1
@@ -1908,7 +1908,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %9, %16
   %19 = phi i32 [ %10, %9 ], [ %.pre.i, %16 ]
   %20 = load ptr, ptr %2, align 8, !tbaa !11
   %21 = zext i32 %19 to i64
-  %22 = getelementptr inbounds nuw i32, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %21
   store i32 %14, ptr %22, align 1
   %23 = load i32, ptr %4, align 8, !tbaa !3
   %24 = add i32 %23, 1
@@ -1954,7 +1954,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit.us: ; preds = %16, %.l
   %19 = phi i32 [ %14, %.lr.ph.split.us ], [ %.pre.i.us, %16 ]
   %20 = load ptr, ptr %4, align 8, !tbaa !11
   %21 = zext i32 %19 to i64
-  %22 = getelementptr inbounds nuw i32, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %21
   store i32 %.012.us, ptr %22, align 1
   %23 = load i32, ptr %8, align 8, !tbaa !3
   %24 = add i32 %23, 1
@@ -1997,7 +1997,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %.lr.ph.spl
   %34 = phi i32 [ %29, %.lr.ph.split ], [ %.pre.i, %31 ]
   %35 = load ptr, ptr %4, align 8, !tbaa !11
   %36 = zext i32 %34 to i64
-  %37 = getelementptr inbounds nuw i32, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %36
   store i32 %.012, ptr %37, align 1
   %38 = load i32, ptr %8, align 8, !tbaa !3
   %39 = add i32 %38, 1
@@ -2018,7 +2018,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %.lr.ph.spl
 _ZN4llvm23SmallVectorTemplateBaseIiLb1EE28reserveForParamAndGetAddressERim.exit.i: ; preds = %44, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit
   %.pre-phi = phi i64 [ %.pre15, %44 ], [ %40, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit ]
   %45 = load ptr, ptr %4, align 8, !tbaa !11
-  %46 = getelementptr inbounds nuw i32, ptr %45, i64 %.pre-phi
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %.pre-phi
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 %.idx.i.i.i.i.i
   br label %.lr.ph.i.i.i.i.i.i.i
 
@@ -2059,7 +2059,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %2, %7
   %11 = phi i32 [ %4, %2 ], [ %.pre.i, %7 ]
   %12 = load ptr, ptr %1, align 8, !tbaa !11
   %13 = zext i32 %11 to i64
-  %14 = getelementptr inbounds nuw i32, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %13
   store i32 0, ptr %14, align 1
   %15 = load i32, ptr %3, align 8, !tbaa !3
   %16 = add i32 %15, 1
@@ -2087,7 +2087,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE28reserveForParamAndGetAddressERim.exit.
 26:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE28reserveForParamAndGetAddressERim.exit.i
   %27 = load ptr, ptr %1, align 8, !tbaa !11
   %28 = zext i32 %.pre4.i to i64
-  %29 = getelementptr inbounds nuw i32, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %28
   %.idx.i.i.i.i.i = shl nuw nsw i64 %18, 2
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 %.idx.i.i.i.i.i
   br label %.lr.ph.i.i.i.i.i.i.i
@@ -2131,7 +2131,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %3, %8
   %12 = phi i32 [ %5, %3 ], [ %.pre.i, %8 ]
   %13 = load ptr, ptr %2, align 8, !tbaa !11
   %14 = zext i32 %12 to i64
-  %15 = getelementptr inbounds nuw i32, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %14
   store i32 %0, ptr %15, align 1
   %16 = load i32, ptr %4, align 8, !tbaa !3
   %17 = add i32 %16, 1
@@ -2161,7 +2161,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit9.us: ; preds = %.lr.ph
   %25 = phi i32 [ %20, %.lr.ph.split.us ], [ %.pre.i8.us, %22 ]
   %26 = load ptr, ptr %2, align 8, !tbaa !11
   %27 = zext i32 %25 to i64
-  %28 = getelementptr inbounds nuw i32, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %27
   store i32 -2, ptr %28, align 1
   %29 = load i32, ptr %4, align 8, !tbaa !3
   %30 = add i32 %29, 1
@@ -2191,7 +2191,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit9: ; preds = %.lr.ph.sp
   %37 = phi i32 [ %32, %.lr.ph.split ], [ %.pre.i8, %34 ]
   %38 = load ptr, ptr %2, align 8, !tbaa !11
   %39 = zext i32 %37 to i64
-  %40 = getelementptr inbounds nuw i32, ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %39
   store i32 %.010, ptr %40, align 1
   %41 = load i32, ptr %4, align 8, !tbaa !3
   %42 = add i32 %41, 1
@@ -2249,7 +2249,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE28reserveForParamAndGetAddressERim.exit.
 _ZSt20uninitialized_fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE28reserveForParamAndGetAddressERim.exit.i
   %29 = load ptr, ptr %4, align 8, !tbaa !11
   %30 = zext i32 %.pre4.i to i64
-  %31 = getelementptr inbounds nuw i32, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %30
   %.idx.i.i.i.i.i = shl nuw nsw i64 %18, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %31, i8 -1, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !12
   %.pre.i = load i32, ptr %19, align 8, !tbaa !3
@@ -2303,7 +2303,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %42, %46
   %49 = phi i32 [ %43, %42 ], [ %.pre.i39, %46 ]
   %50 = load ptr, ptr %4, align 8, !tbaa !11
   %51 = zext i32 %49 to i64
-  %52 = getelementptr inbounds nuw i32, ptr %50, i64 %51
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %51
   store i32 %44, ptr %52, align 1
   %53 = load i32, ptr %36, align 8, !tbaa !3
   %54 = add i32 %53, 1
@@ -2341,7 +2341,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit44: ; preds = %59, %62
   %65 = phi i32 [ %60, %59 ], [ %.pre.i42, %62 ]
   %66 = load ptr, ptr %4, align 8, !tbaa !11
   %67 = zext i32 %65 to i64
-  %68 = getelementptr inbounds nuw i32, ptr %66, i64 %67
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %67
   store i32 -2, ptr %68, align 1
   %69 = load i32, ptr %39, align 8, !tbaa !3
   %70 = add i32 %69, 1
@@ -2368,7 +2368,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit48: ; preds = %72, %75
   %78 = phi i32 [ %73, %72 ], [ %.pre.i46, %75 ]
   %79 = load ptr, ptr %4, align 8, !tbaa !11
   %80 = zext i32 %78 to i64
-  %81 = getelementptr inbounds nuw i32, ptr %79, i64 %80
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %80
   store i32 -1, ptr %81, align 1
   %82 = load i32, ptr %56, align 8, !tbaa !3
   %83 = add i32 %82, 1
@@ -2429,7 +2429,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE28reserveForParamAndGetAddressERim.exit.
 _ZSt20uninitialized_fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE28reserveForParamAndGetAddressERim.exit.i
   %29 = load ptr, ptr %4, align 8, !tbaa !11
   %30 = zext i32 %.pre4.i to i64
-  %31 = getelementptr inbounds nuw i32, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %30
   %.idx.i.i.i.i.i = shl nuw nsw i64 %18, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %31, i8 -1, i64 %.idx.i.i.i.i.i, i1 false), !tbaa !12
   %.pre.i = load i32, ptr %19, align 8, !tbaa !3
@@ -2482,7 +2482,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %42, %45
   %48 = phi i32 [ %43, %42 ], [ %.pre.i49, %45 ]
   %49 = load ptr, ptr %4, align 8, !tbaa !11
   %50 = zext i32 %48 to i64
-  %51 = getelementptr inbounds nuw i32, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %50
   store i32 %.04065, ptr %51, align 1
   %52 = load i32, ptr %36, align 8, !tbaa !3
   %53 = add i32 %52, 1
@@ -2522,7 +2522,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit54: ; preds = %59, %63
   %66 = phi i32 [ %60, %59 ], [ %.pre.i52, %63 ]
   %67 = load ptr, ptr %4, align 8, !tbaa !11
   %68 = zext i32 %66 to i64
-  %69 = getelementptr inbounds nuw i32, ptr %67, i64 %68
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %68
   store i32 %61, ptr %69, align 1
   %70 = load i32, ptr %39, align 8, !tbaa !3
   %71 = add i32 %70, 1
@@ -2560,7 +2560,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit58: ; preds = %76, %79
   %82 = phi i32 [ %77, %76 ], [ %.pre.i56, %79 ]
   %83 = load ptr, ptr %4, align 8, !tbaa !11
   %84 = zext i32 %82 to i64
-  %85 = getelementptr inbounds nuw i32, ptr %83, i64 %84
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %83, i64 %84
   store i32 %.03870, ptr %85, align 1
   %86 = load i32, ptr %56, align 8, !tbaa !3
   %87 = add i32 %86, 1
@@ -2587,7 +2587,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit62: ; preds = %89, %92
   %95 = phi i32 [ %90, %89 ], [ %.pre.i60, %92 ]
   %96 = load ptr, ptr %4, align 8, !tbaa !11
   %97 = zext i32 %95 to i64
-  %98 = getelementptr inbounds nuw i32, ptr %96, i64 %97
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %96, i64 %97
   store i32 -1, ptr %98, align 1
   %99 = load i32, ptr %73, align 8, !tbaa !3
   %100 = add i32 %99, 1
@@ -2631,7 +2631,7 @@ define dso_local void @_ZN4llvm18DecodeVPERMILPMaskEjjNS_8ArrayRefImEERKNS_5APIn
   %22 = load ptr, ptr %4, align 8
   %23 = lshr i64 %indvars.iv, 6
   %24 = and i64 %23, 67108863
-  %25 = getelementptr inbounds nuw i64, ptr %22, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %24
   %.in.i.i = select i1 %21, ptr %4, ptr %25
   %26 = load i64, ptr %.in.i.i, align 8, !tbaa !59
   %27 = and i64 %26, %19
@@ -2646,7 +2646,7 @@ define dso_local void @_ZN4llvm18DecodeVPERMILPMaskEjjNS_8ArrayRefImEERKNS_5APIn
 
 31:                                               ; preds = %17
   %32 = trunc nuw i64 %indvars.iv to i32
-  %33 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %34 = load i64, ptr %33, align 8, !tbaa !55
   %35 = lshr i64 %34, 1
   %36 = and i64 %35, 1
@@ -2674,7 +2674,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %_ZN4llvm23
   %.sink = phi i32 [ %41, %31 ], [ -1, %28 ], [ %.sink.ph, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit.sink.split ]
   %46 = load ptr, ptr %5, align 8, !tbaa !11
   %47 = zext i32 %.sink31 to i64
-  %48 = getelementptr inbounds nuw i32, ptr %46, i64 %47
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %47
   store i32 %.sink, ptr %48, align 1
   %storemerge.in = load i32, ptr %12, align 8, !tbaa !3
   %storemerge = add i32 %storemerge.in, 1
@@ -2718,7 +2718,7 @@ define dso_local void @_ZN4llvm19DecodeVPERMIL2PMaskEjjjNS_8ArrayRefImEERKNS_5AP
   %25 = load ptr, ptr %5, align 8
   %26 = lshr i64 %indvars.iv, 6
   %27 = and i64 %26, 67108863
-  %28 = getelementptr inbounds nuw i64, ptr %25, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %27
   %.in.i.i = select i1 %24, ptr %5, ptr %28
   %29 = load i64, ptr %.in.i.i, align 8, !tbaa !59
   %30 = and i64 %29, %22
@@ -2732,7 +2732,7 @@ define dso_local void @_ZN4llvm19DecodeVPERMIL2PMaskEjjjNS_8ArrayRefImEERKNS_5AP
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit, label %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit.sink.split, !prof !10
 
 34:                                               ; preds = %19
-  %35 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %36 = load i64, ptr %35, align 8, !tbaa !55
   br i1 %.not, label %._crit_edge42, label %37
 
@@ -2786,7 +2786,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %_ZN4llvm23
   %.sink = phi i32 [ -2, %42 ], [ %52, %44 ], [ -1, %31 ], [ %.sink.ph, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit.sink.split ]
   %56 = load ptr, ptr %6, align 8, !tbaa !11
   %57 = zext i32 %.sink52 to i64
-  %58 = getelementptr inbounds nuw i32, ptr %56, i64 %57
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %57
   store i32 %.sink, ptr %58, align 1
   %59 = load i32, ptr %13, align 8, !tbaa !3
   %60 = add i32 %59, 1
@@ -2823,7 +2823,7 @@ define dso_local void @_ZN4llvm16DecodeVPERMVMaskENS_8ArrayRefImEERKNS_5APIntERN
   %17 = load ptr, ptr %2, align 8
   %18 = lshr i64 %indvars.iv, 6
   %19 = and i64 %18, 67108863
-  %20 = getelementptr inbounds nuw i64, ptr %17, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %19
   %.in.i.i = select i1 %16, ptr %2, ptr %20
   %21 = load i64, ptr %.in.i.i, align 8, !tbaa !59
   %22 = and i64 %21, %14
@@ -2837,7 +2837,7 @@ define dso_local void @_ZN4llvm16DecodeVPERMVMaskENS_8ArrayRefImEERKNS_5APIntERN
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit, label %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit.sink.split, !prof !10
 
 26:                                               ; preds = %12
-  %27 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %28 = load i64, ptr %27, align 8, !tbaa !55
   %29 = and i64 %28, %5
   %30 = trunc i64 %29 to i32
@@ -2860,7 +2860,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %_ZN4llvm23
   %.sink = phi i32 [ %30, %26 ], [ -1, %23 ], [ %.sink.ph, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit.sink.split ]
   %35 = load ptr, ptr %3, align 8, !tbaa !11
   %36 = zext i32 %.sink24 to i64
-  %37 = getelementptr inbounds nuw i32, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %36
   store i32 %.sink, ptr %37, align 1
   %storemerge.in = load i32, ptr %8, align 8, !tbaa !3
   %storemerge = add i32 %storemerge.in, 1
@@ -2898,7 +2898,7 @@ define dso_local void @_ZN4llvm17DecodeVPERMV3MaskENS_8ArrayRefImEERKNS_5APIntER
   %18 = load ptr, ptr %2, align 8
   %19 = lshr i64 %indvars.iv, 6
   %20 = and i64 %19, 67108863
-  %21 = getelementptr inbounds nuw i64, ptr %18, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %20
   %.in.i.i = select i1 %17, ptr %2, ptr %21
   %22 = load i64, ptr %.in.i.i, align 8, !tbaa !59
   %23 = and i64 %22, %15
@@ -2912,7 +2912,7 @@ define dso_local void @_ZN4llvm17DecodeVPERMV3MaskENS_8ArrayRefImEERKNS_5APIntER
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit, label %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit.sink.split, !prof !10
 
 27:                                               ; preds = %13
-  %28 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %29 = load i64, ptr %28, align 8, !tbaa !55
   %30 = and i64 %29, %6
   %31 = trunc i64 %30 to i32
@@ -2935,7 +2935,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %_ZN4llvm23
   %.sink = phi i32 [ %31, %27 ], [ -1, %24 ], [ %.sink.ph, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit.sink.split ]
   %36 = load ptr, ptr %3, align 8, !tbaa !11
   %37 = zext i32 %.sink24 to i64
-  %38 = getelementptr inbounds nuw i32, ptr %36, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %37
   store i32 %.sink, ptr %38, align 1
   %storemerge.in = load i32, ptr %9, align 8, !tbaa !3
   %storemerge = add i32 %storemerge.in, 1

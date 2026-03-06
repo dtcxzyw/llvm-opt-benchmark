@@ -8,7 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.__pthread_internal_list = type { ptr, ptr }
 %struct.slurm_conf_t = type { i64, ptr, i16, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i16, ptr, ptr, i16, i32, ptr, i32, ptr, i32, i32, ptr, ptr, i64, i64, ptr, i16, i16, ptr, i32, i32, ptr, i32, ptr, i32, i16, i16, i16, ptr, i16, i16, ptr, ptr, i32, i16, i16, ptr, i32, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i16, i16, ptr, i32, i32, i32, i16, i16, ptr, ptr, i16, ptr, ptr, i32, i32, i32, i32, i32, i64, i32, i32, i16, ptr, ptr, i32, ptr, ptr, ptr, i16, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, ptr, ptr, i32, i32, i16, i16, i32, ptr, i16, ptr, i32, i32, i32, i32, i32, i32, ptr, i16, ptr, ptr, i32, i16, ptr, i32, i16, i16, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, i16, ptr, i16, ptr, i16, ptr, i16, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i32, ptr, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, i16, i16, ptr, i16, ptr, ptr, ptr, i32, ptr, i16, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, i32, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, i16, ptr, ptr, ptr, i16, ptr, i16, ptr, i16, i16, ptr }
 %struct._plugin_args = type { ptr, ptr }
-%struct.slurm_switch_ops = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [7 x i8] c"switch\00", align 1
 @context_lock = internal global %union.pthread_mutex_t zeroinitializer, align 8
@@ -147,7 +146,7 @@ define dso_local noundef i32 @switch_g_init(i1 noundef zeroext %0) local_unnamed
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %36 = trunc nuw i64 %indvars.iv.next55 to i32
   %37 = icmp sgt i32 %30, %36
-  %38 = getelementptr inbounds nuw %struct.slurm_switch_ops, ptr %31, i64 %indvars.iv54
+  %38 = getelementptr inbounds nuw [160 x i8], ptr %31, i64 %indvars.iv54
   %39 = load ptr, ptr %38, align 8
   %40 = load i32, ptr %39, align 4
   br i1 %37, label %.lr.ph, label %._crit_edge
@@ -160,7 +159,7 @@ define dso_local noundef i32 @switch_g_init(i1 noundef zeroext %0) local_unnamed
 
 .lr.ph:                                           ; preds = %35, %41
   %indvars.iv51 = phi i64 [ %indvars.iv.next52, %41 ], [ %indvars.iv, %35 ]
-  %42 = getelementptr inbounds nuw %struct.slurm_switch_ops, ptr %31, i64 %indvars.iv51
+  %42 = getelementptr inbounds nuw [160 x i8], ptr %31, i64 %indvars.iv51
   %43 = load ptr, ptr %42, align 8
   %44 = load i32, ptr %43, align 4
   %.not38 = icmp eq i32 %40, %44
@@ -168,11 +167,11 @@ define dso_local noundef i32 @switch_g_init(i1 noundef zeroext %0) local_unnamed
 
 45:                                               ; preds = %.lr.ph
   %46 = load ptr, ptr @switch_context, align 8
-  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv54
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv54
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv51
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv51
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load ptr, ptr %53, align 8
@@ -186,7 +185,7 @@ define dso_local noundef i32 @switch_g_init(i1 noundef zeroext %0) local_unnamed
 
 56:                                               ; preds = %._crit_edge
   %57 = load ptr, ptr @switch_context, align 8
-  %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv54
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %indvars.iv54
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = load ptr, ptr %60, align 8
@@ -252,15 +251,15 @@ define internal noundef i32 @_load_plugins(ptr noundef %0, ptr noundef readonly 
   %4 = load ptr, ptr @ops, align 8
   %5 = load i32, ptr @switch_context_cnt, align 4
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds %struct.slurm_switch_ops, ptr %4, i64 %6
+  %7 = getelementptr inbounds [160 x i8], ptr %4, i64 %6
   %8 = tail call ptr @plugin_context_create(ptr noundef %3, ptr noundef %0, ptr noundef %7, ptr noundef nonnull @syms, i64 noundef 160) #8
   %9 = load ptr, ptr @switch_context, align 8
   %10 = load i32, ptr @switch_context_cnt, align 4
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds ptr, ptr %9, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %9, i64 %11
   store ptr %8, ptr %12, align 8
   %13 = load ptr, ptr @switch_context, align 8
-  %14 = getelementptr inbounds ptr, ptr %13, i64 %11
+  %14 = getelementptr inbounds [8 x i8], ptr %13, i64 %11
   %15 = load ptr, ptr %14, align 8
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %23, label %16
@@ -320,7 +319,7 @@ define dso_local i32 @switch_g_fini() local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %.015 = phi i32 [ %12, %.lr.ph ], [ 0, %.preheader ]
   %8 = load ptr, ptr @switch_context, align 8
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 @plugin_context_destroy(ptr noundef %10) #8
   %12 = or i32 %11, %.015
@@ -367,7 +366,7 @@ define dso_local i32 @switch_g_save() local_unnamed_addr #0 {
   %3 = load ptr, ptr @ops, align 8
   %4 = load i32, ptr @switch_context_default, align 4
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds %struct.slurm_switch_ops, ptr %3, i64 %5
+  %6 = getelementptr inbounds [160 x i8], ptr %3, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8() #8
@@ -388,7 +387,7 @@ define dso_local i32 @switch_g_restore(i1 noundef zeroext %0) local_unnamed_addr
   %4 = load ptr, ptr @ops, align 8
   %5 = load i32, ptr @switch_context_default, align 4
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds %struct.slurm_switch_ops, ptr %4, i64 %6
+  %7 = getelementptr inbounds [160 x i8], ptr %4, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(i1 noundef zeroext %0) #8
@@ -413,14 +412,14 @@ define dso_local void @switch_g_pack_jobinfo(ptr noundef %0, ptr noundef %1, i16
   %9 = load ptr, ptr @ops, align 8
   %10 = load i32, ptr @switch_context_default, align 4
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds %struct.slurm_switch_ops, ptr %9, i64 %11
+  %12 = getelementptr inbounds [160 x i8], ptr %9, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr %13, align 4
   tail call void @pack32(i32 noundef %14, ptr noundef nonnull %1) #8
   %15 = load ptr, ptr @ops, align 8
   %16 = load i32, ptr @switch_context_default, align 4
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds %struct.slurm_switch_ops, ptr %15, i64 %17
+  %18 = getelementptr inbounds [160 x i8], ptr %15, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load ptr, ptr %19, align 8
   tail call void %20(ptr noundef %0, ptr noundef nonnull %1, i16 noundef zeroext %2) #8
@@ -491,7 +490,7 @@ define dso_local range(i32 -1, 1) i32 @switch_g_unpack_jobinfo(ptr noundef %0, p
   %30 = load ptr, ptr @ops, align 8
   %31 = load i32, ptr @switch_context_default, align 4
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds %struct.slurm_switch_ops, ptr %30, i64 %32
+  %33 = getelementptr inbounds [160 x i8], ptr %30, i64 %32
   %34 = load ptr, ptr %33, align 8
   %35 = load i32, ptr %34, align 4
   %.not17 = icmp eq i32 %29, %35
@@ -555,7 +554,7 @@ define dso_local i32 @switch_g_build_stepinfo(ptr noundef writeonly captures(non
   store ptr %7, ptr %0, align 8
   %9 = load ptr, ptr @ops, align 8
   %10 = zext i32 %6 to i64
-  %11 = getelementptr inbounds nuw %struct.slurm_switch_ops, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [160 x i8], ptr %9, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 %13(ptr noundef %7, ptr noundef %1, ptr noundef %2) #8
@@ -581,7 +580,7 @@ define dso_local void @switch_g_duplicate_stepinfo(ptr noundef readonly captures
   store ptr %7, ptr %1, align 8
   %9 = load ptr, ptr @ops, align 8
   %10 = zext i32 %6 to i64
-  %11 = getelementptr inbounds nuw %struct.slurm_switch_ops, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [160 x i8], ptr %9, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 48
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %0, align 8
@@ -612,7 +611,7 @@ define dso_local void @switch_g_free_stepinfo(ptr noundef %0) local_unnamed_addr
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load i32, ptr %10, align 8
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds nuw %struct.slurm_switch_ops, ptr %9, i64 %12
+  %13 = getelementptr inbounds nuw [160 x i8], ptr %9, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %15 = load ptr, ptr %14, align 8
   tail call void %15(ptr noundef nonnull %7) #8
@@ -665,12 +664,12 @@ define dso_local void @switch_g_pack_stepinfo(ptr noundef readonly captures(addr
   %.0 = load i32, ptr %.0.in, align 4
   %19 = load ptr, ptr @ops, align 8
   %20 = zext i32 %.0 to i64
-  %21 = getelementptr inbounds nuw %struct.slurm_switch_ops, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [160 x i8], ptr %19, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = load i32, ptr %22, align 4
   tail call void @pack32(i32 noundef %23, ptr noundef %1) #8
   %24 = load ptr, ptr @ops, align 8
-  %25 = getelementptr inbounds nuw %struct.slurm_switch_ops, ptr %24, i64 %20
+  %25 = getelementptr inbounds nuw [160 x i8], ptr %24, i64 %20
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 64
   %27 = load ptr, ptr %26, align 8
   tail call void %27(ptr noundef %.025, ptr noundef %1, i16 noundef zeroext %2) #8
@@ -761,7 +760,7 @@ define dso_local range(i32 -1, 1) i32 @switch_g_unpack_stepinfo(ptr noundef writ
 
 37:                                               ; preds = %.lr.ph, %42
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
-  %38 = getelementptr inbounds nuw %struct.slurm_switch_ops, ptr %35, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [160 x i8], ptr %35, i64 %indvars.iv
   %39 = load ptr, ptr %38, align 8
   %40 = load i32, ptr %39, align 4
   %41 = icmp eq i32 %40, %36
@@ -795,7 +794,7 @@ define dso_local range(i32 -1, 1) i32 @switch_g_unpack_stepinfo(ptr noundef writ
   %53 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i32 %52, ptr %53, align 8
   %54 = and i64 %indvars.iv, 4294967295
-  %55 = getelementptr inbounds nuw %struct.slurm_switch_ops, ptr %35, i64 %54
+  %55 = getelementptr inbounds nuw [160 x i8], ptr %35, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 72
   %57 = load ptr, ptr %56, align 8
   %58 = call i32 %57(ptr noundef %31, ptr noundef %1, i16 noundef zeroext %2) #8
@@ -865,7 +864,7 @@ define dso_local range(i32 -1, 1) i32 @switch_g_unpack_stepinfo(ptr noundef writ
   %85 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %86 = load i32, ptr %85, align 8
   %87 = zext i32 %86 to i64
-  %88 = getelementptr inbounds nuw %struct.slurm_switch_ops, ptr %84, i64 %87
+  %88 = getelementptr inbounds nuw [160 x i8], ptr %84, i64 %87
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 56
   %90 = load ptr, ptr %89, align 8
   call void %90(ptr noundef nonnull %82) #8
@@ -902,7 +901,7 @@ define dso_local i32 @switch_g_job_preinit(ptr noundef %0) local_unnamed_addr #0
   %4 = load ptr, ptr @ops, align 8
   %5 = load i32, ptr @switch_context_default, align 4
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds %struct.slurm_switch_ops, ptr %4, i64 %6
+  %7 = getelementptr inbounds [160 x i8], ptr %4, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef %0) #8
@@ -923,7 +922,7 @@ define dso_local i32 @switch_g_job_init(ptr noundef %0) local_unnamed_addr #0 {
   %4 = load ptr, ptr @ops, align 8
   %5 = load i32, ptr @switch_context_default, align 4
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds %struct.slurm_switch_ops, ptr %4, i64 %6
+  %7 = getelementptr inbounds [160 x i8], ptr %4, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef %0) #8
@@ -944,7 +943,7 @@ define dso_local i32 @switch_g_job_postfini(ptr noundef %0) local_unnamed_addr #
   %4 = load ptr, ptr @ops, align 8
   %5 = load i32, ptr @switch_context_default, align 4
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds %struct.slurm_switch_ops, ptr %4, i64 %6
+  %7 = getelementptr inbounds [160 x i8], ptr %4, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef %0) #8
@@ -976,7 +975,7 @@ define dso_local i32 @switch_g_job_attach(ptr noundef readonly captures(address_
   %.0 = load i32, ptr %.0.in, align 4
   %14 = load ptr, ptr @ops, align 8
   %15 = zext i32 %.0 to i64
-  %16 = getelementptr inbounds nuw %struct.slurm_switch_ops, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [160 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 104
   %18 = load ptr, ptr %17, align 8
   %19 = tail call i32 %18(ptr noundef %.011, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) #8
@@ -1008,7 +1007,7 @@ define dso_local i32 @switch_g_job_step_complete(ptr noundef readonly captures(a
   %.0 = load i32, ptr %.0.in, align 4
   %9 = load ptr, ptr @ops, align 8
   %10 = zext i32 %.0 to i64
-  %11 = getelementptr inbounds nuw %struct.slurm_switch_ops, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [160 x i8], ptr %9, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 112
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 %13(ptr noundef %.06, ptr noundef %1) #8
@@ -1029,7 +1028,7 @@ define dso_local void @switch_g_job_start(ptr noundef %0) local_unnamed_addr #0 
   %4 = load ptr, ptr @ops, align 8
   %5 = load i32, ptr @switch_context_default, align 4
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds %struct.slurm_switch_ops, ptr %4, i64 %6
+  %7 = getelementptr inbounds [160 x i8], ptr %4, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 120
   %9 = load ptr, ptr %8, align 8
   tail call void %9(ptr noundef %0) #8
@@ -1049,7 +1048,7 @@ define dso_local void @switch_g_job_complete(ptr noundef %0) local_unnamed_addr 
   %4 = load ptr, ptr @ops, align 8
   %5 = load i32, ptr @switch_context_default, align 4
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds %struct.slurm_switch_ops, ptr %4, i64 %6
+  %7 = getelementptr inbounds [160 x i8], ptr %4, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 128
   %9 = load ptr, ptr %8, align 8
   tail call void %9(ptr noundef %0) #8
@@ -1069,7 +1068,7 @@ define dso_local i32 @switch_g_fs_init(ptr noundef %0) local_unnamed_addr #0 {
   %4 = load ptr, ptr @ops, align 8
   %5 = load i32, ptr @switch_context_default, align 4
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds %struct.slurm_switch_ops, ptr %4, i64 %6
+  %7 = getelementptr inbounds [160 x i8], ptr %4, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 136
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef %0) #8
@@ -1093,7 +1092,7 @@ define dso_local void @switch_g_extern_stepinfo(ptr noundef writeonly captures(n
   %6 = load ptr, ptr @ops, align 8
   %7 = load i32, ptr @switch_context_default, align 4
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds %struct.slurm_switch_ops, ptr %6, i64 %8
+  %9 = getelementptr inbounds [160 x i8], ptr %6, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 144
   %11 = load ptr, ptr %10, align 8
   call void %11(ptr noundef nonnull %3, ptr noundef %1) #8
@@ -1126,7 +1125,7 @@ define dso_local void @switch_g_extern_step_fini(i32 noundef %0) local_unnamed_a
   %4 = load ptr, ptr @ops, align 8
   %5 = load i32, ptr @switch_context_default, align 4
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds %struct.slurm_switch_ops, ptr %4, i64 %6
+  %7 = getelementptr inbounds [160 x i8], ptr %4, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %9 = load ptr, ptr %8, align 8
   tail call void %9(i32 noundef %0) #8

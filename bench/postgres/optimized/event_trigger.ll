@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.nameData = type { [64 x i8] }
 %struct.ObjectAddress = type { i32, i32, i32 }
-%union.ListCell = type { ptr }
 %struct.ItemPointerData = type { %struct.BlockIdData, i16 }
 %struct.BlockIdData = type { i16, i16 }
 %struct.EventTriggerData = type { i32, ptr, ptr, i32 }
@@ -18,7 +17,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
 %struct.__sigset_t = type { [16 x i64] }
 %struct.ScanKeyData = type { i32, i16, i16, i32, i32, %struct.FmgrInfo, i64 }
-%struct.CompactAttribute = type { i32, i16, i8, i8, i8, i8, i8, i8, i8 }
 
 @event_triggers = dso_local local_unnamed_addr global i8 1, align 1
 @.str = private unnamed_addr constant [47 x i8] c"permission denied to create event trigger \22%s\22\00", align 1
@@ -204,7 +202,7 @@ define dso_local i32 @CreateEventTrigger(ptr noundef readonly captures(none) %0)
 42:                                               ; preds = %.lr.ph80, %52
   %indvars.iv = phi i64 [ 0, %.lr.ph80 ], [ %indvars.iv.next, %52 ]
   %.0466878 = phi ptr [ null, %.lr.ph80 ], [ %54, %52 ]
-  %43 = getelementptr inbounds nuw %union.ListCell, ptr %41, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8
@@ -285,7 +283,7 @@ define dso_local i32 @CreateEventTrigger(ptr noundef readonly captures(none) %0)
 79:                                               ; preds = %76, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %76 ]
   %80 = load ptr, ptr %75, align 8
-  %81 = getelementptr inbounds nuw %union.ListCell, ptr %80, i64 %indvars.iv.i
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %indvars.iv.i
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load ptr, ptr %83, align 8
@@ -405,7 +403,7 @@ validate_table_rewrite_tags.exit:                 ; preds = %76, %validate_table
 143:                                              ; preds = %._crit_edge.i.i, %.lr.ph30.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph30.i.i ], [ %indvars.iv.next.i.i, %._crit_edge.i.i ]
   %144 = load ptr, ptr %142, align 8
-  %145 = getelementptr inbounds nuw %union.ListCell, ptr %144, i64 %indvars.iv.i.i
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %144, i64 %indvars.iv.i.i
   %146 = load ptr, ptr %145, align 8
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 8
   %148 = load ptr, ptr %147, align 8
@@ -428,7 +426,7 @@ validate_table_rewrite_tags.exit:                 ; preds = %76, %validate_table
   %155 = call ptr @cstring_to_text(ptr noundef nonnull %149) #17
   %156 = ptrtoint ptr %155 to i64
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %157 = getelementptr inbounds nuw i64, ptr %140, i64 %indvars.iv.i.i
+  %157 = getelementptr inbounds nuw [8 x i8], ptr %140, i64 %indvars.iv.i.i
   store i64 %156, ptr %157, align 8
   call void @pfree(ptr noundef nonnull %149) #17
   %158 = load i32, ptr %137, align 4
@@ -543,7 +541,7 @@ define internal fastcc void @validate_ddl_tags(ptr noundef nonnull readonly capt
 8:                                                ; preds = %.lr.ph, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %5 ]
   %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds nuw %union.ListCell, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
@@ -882,7 +880,7 @@ define dso_local void @EventTriggerDDLCommandStart(ptr noundef %0) local_unnamed
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %filter_event_trigger.exit.thread.i ], [ 0, %.lr.ph.i ]
   %.02530.i = phi ptr [ %.1.i, %filter_event_trigger.exit.thread.i ], [ null, %.lr.ph.i ]
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds nuw %union.ListCell, ptr %15, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.i
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr @SessionReplicationRole, align 4
   %19 = icmp eq i32 %18, 1
@@ -971,7 +969,7 @@ define internal fastcc void @EventTriggerInvoke(ptr noundef nonnull readonly cap
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
   %.02226 = phi i1 [ true, %.lr.ph ], [ false, %26 ]
   %18 = load ptr, ptr %11, align 8
-  %19 = getelementptr inbounds nuw %union.ListCell, ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %20 = load i32, ptr %19, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -1058,7 +1056,7 @@ define dso_local void @EventTriggerDDLCommandEnd(ptr noundef %0) local_unnamed_a
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %filter_event_trigger.exit.thread.i ], [ 0, %.lr.ph.i ]
   %.02530.i = phi ptr [ %.1.i, %filter_event_trigger.exit.thread.i ], [ null, %.lr.ph.i ]
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds nuw %union.ListCell, ptr %16, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.i
   %18 = load ptr, ptr %17, align 8
   %19 = load i32, ptr @SessionReplicationRole, align 4
   %20 = icmp eq i32 %19, 1
@@ -1162,7 +1160,7 @@ define dso_local void @EventTriggerSQLDrop(ptr noundef %0) local_unnamed_addr #0
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %filter_event_trigger.exit.thread.i ], [ 0, %.lr.ph.i ]
   %.02530.i = phi ptr [ %.1.i, %filter_event_trigger.exit.thread.i ], [ null, %.lr.ph.i ]
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds nuw %union.ListCell, ptr %21, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv.i
   %23 = load ptr, ptr %22, align 8
   %24 = load i32, ptr @SessionReplicationRole, align 4
   %25 = icmp eq i32 %24, 1
@@ -1296,7 +1294,7 @@ define dso_local void @EventTriggerOnLogin() local_unnamed_addr #0 {
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %filter_event_trigger.exit.thread.i ], [ 0, %.lr.ph.i ]
   %.02530.i = phi ptr [ %.1.i, %filter_event_trigger.exit.thread.i ], [ null, %.lr.ph.i ]
   %20 = load ptr, ptr %19, align 8
-  %21 = getelementptr inbounds nuw %union.ListCell, ptr %20, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv.i
   %22 = load ptr, ptr %21, align 8
   %23 = load i32, ptr @SessionReplicationRole, align 4
   %24 = icmp eq i32 %23, 1
@@ -1378,7 +1376,7 @@ filter_event_trigger.exit.us.i:                   ; preds = %filter_event_trigge
   %indvars.iv34.i = phi i64 [ %indvars.iv.next35.i, %filter_event_trigger.exit.us.i ], [ 0, %.lr.ph.i19 ]
   %.02530.us.i = phi ptr [ %61, %filter_event_trigger.exit.us.i ], [ null, %.lr.ph.i19 ]
   %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds nuw %union.ListCell, ptr %57, i64 %indvars.iv34.i
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %indvars.iv34.i
   %59 = load ptr, ptr %58, align 8
   %60 = load i32, ptr %59, align 8
   %61 = tail call ptr @lappend_oid(ptr noundef %.02530.us.i, i32 noundef %60) #17
@@ -1522,7 +1520,7 @@ define dso_local void @EventTriggerTableRewrite(ptr noundef %0, i32 noundef %1, 
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %filter_event_trigger.exit.thread.i ], [ 0, %.lr.ph.i ]
   %.02530.i = phi ptr [ %.1.i, %filter_event_trigger.exit.thread.i ], [ null, %.lr.ph.i ]
   %19 = load ptr, ptr %18, align 8
-  %20 = getelementptr inbounds nuw %union.ListCell, ptr %19, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.i
   %21 = load ptr, ptr %20, align 8
   %22 = load i32, ptr @SessionReplicationRole, align 4
   %23 = icmp eq i32 %22, 1
@@ -1956,7 +1954,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef ran
 
 19:                                               ; preds = %16
   %20 = zext nneg i32 %1 to i64
-  %21 = getelementptr %struct.CompactAttribute, ptr %2, i64 %20
+  %21 = getelementptr [16 x i8], ptr %2, i64 %20
   %22 = getelementptr i8, ptr %21, i64 8
   %23 = load i32, ptr %22, align 4
   %24 = icmp sgt i32 %23, -1
@@ -2592,7 +2590,7 @@ define dso_local void @EventTriggerCollectGrant(ptr noundef readonly captures(no
   %26 = phi ptr [ %31, %.lr.ph29 ], [ null, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph29 ], [ 0, %.lr.ph ]
   %27 = load ptr, ptr %23, align 8
-  %28 = getelementptr inbounds nuw %union.ListCell, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   %30 = tail call ptr @copyObjectImpl(ptr noundef %29) #17
   %31 = tail call ptr @lappend(ptr noundef %26, ptr noundef %30) #17
@@ -2874,7 +2872,7 @@ define dso_local noundef i64 @pg_event_trigger_ddl_commands(ptr noundef %0) loca
 .lr.ph106:                                        ; preds = %.lr.ph, %.critedge90
   %indvars.iv105 = phi i64 [ %indvars.iv.next, %.critedge90 ], [ 0, %.lr.ph ]
   %37 = load ptr, ptr %18, align 8
-  %38 = getelementptr inbounds nuw %union.ListCell, ptr %37, i64 %indvars.iv105
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv105
   %39 = load ptr, ptr %38, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)

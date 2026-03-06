@@ -3,8 +3,6 @@ source_filename = "bench/ffmpeg/original/tiertexseq.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.TiertexSeqFrameBuffer = type { i32, i32, ptr }
-
 @.str = private unnamed_addr constant [11 x i8] c"tiertexseq\00", align 1
 @.str.1 = private unnamed_addr constant [20 x i8] c"Tiertex Limited SEQ\00", align 1
 @ff_tiertexseq_demuxer = local_unnamed_addr constant { { ptr, ptr, i32, [4 x i8], ptr, ptr, ptr, ptr }, i32, i32, i32, [4 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr } { { ptr, ptr, i32, [4 x i8], ptr, ptr, ptr, ptr } { ptr @.str, ptr @.str.1, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null, ptr null }, i32 0, i32 536, i32 1, [4 x i8] zeroinitializer, ptr @seq_probe, ptr @seq_read_header, ptr @seq_read_packet, ptr @seq_read_close, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null }, align 8
@@ -70,7 +68,7 @@ define internal range(i32 -1094995529, 1) i32 @seq_read_header(ptr noundef %0) #
   br i1 %10, label %.split.loop.exit.i, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr inbounds nuw %struct.TiertexSeqFrameBuffer, ptr %7, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %indvars.iv.i
   store i32 0, ptr %12, align 8, !tbaa !31
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   store i32 %9, ptr %13, align 4, !tbaa !33
@@ -322,7 +320,7 @@ define internal noundef i32 @seq_read_close(ptr noundef readonly captures(none) 
 
 4:                                                ; preds = %1, %4
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr inbounds nuw %struct.TiertexSeqFrameBuffer, ptr %3, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
   tail call void @av_freep(ptr noundef nonnull %6) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -364,7 +362,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @seq_parse_frame_data(ptr n
 16:                                               ; preds = %2, %16
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %16 ]
   %17 = tail call i32 @avio_r8(ptr noundef %1) #5
-  %18 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   store i32 %17, ptr %18, align 4, !tbaa !60
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -377,7 +375,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @seq_parse_frame_data(ptr n
 .preheader54:                                     ; preds = %16, %.preheader54
   %indvars.iv62 = phi i64 [ %indvars.iv.next63, %.preheader54 ], [ 0, %16 ]
   %20 = tail call i32 @avio_rl16(ptr noundef %1) #5
-  %21 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv62
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv62
   store i32 %20, ptr %21, align 4, !tbaa !60
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
   %exitcond65.not = icmp eq i64 %indvars.iv.next63, 4
@@ -386,7 +384,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @seq_parse_frame_data(ptr n
 22:                                               ; preds = %.preheader, %._crit_edge
   %indvars.iv72 = phi i64 [ 0, %.preheader ], [ %.pre, %._crit_edge ]
   %indvars.iv66 = phi i64 [ 1, %.preheader ], [ %indvars.iv.next67, %._crit_edge ]
-  %23 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv72
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv72
   %24 = load i32, ptr %23, align 4, !tbaa !60
   %.not50 = icmp eq i32 %24, 0
   %.pre = add nuw nsw i64 %indvars.iv72, 1
@@ -398,7 +396,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @seq_parse_frame_data(ptr n
 
 .lr.ph:                                           ; preds = %25, %30
   %indvars.iv68 = phi i64 [ %indvars.iv.next69, %30 ], [ %indvars.iv66, %25 ]
-  %27 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv68
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv68
   %28 = load i32, ptr %27, align 4, !tbaa !60
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %30, label %.critedge
@@ -410,10 +408,10 @@ define internal fastcc range(i32 -1094995529, 1) i32 @seq_parse_frame_data(ptr n
 
 .critedge:                                        ; preds = %.lr.ph, %30, %25
   %.044.lcssa = phi i64 [ %.pre, %25 ], [ 3, %30 ], [ %indvars.iv68, %.lr.ph ]
-  %31 = getelementptr inbounds nuw i32, ptr %4, i64 %.pre
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.pre
   %32 = load i32, ptr %31, align 4, !tbaa !60
   %33 = and i64 %.044.lcssa, 4294967295
-  %34 = getelementptr inbounds nuw i32, ptr %3, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !60
   %36 = sub i32 %35, %24
   %37 = icmp sgt i32 %32, 29
@@ -421,7 +419,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @seq_parse_frame_data(ptr n
 
 38:                                               ; preds = %.critedge
   %39 = sext i32 %32 to i64
-  %40 = getelementptr inbounds %struct.TiertexSeqFrameBuffer, ptr %19, i64 %39
+  %40 = getelementptr inbounds [16 x i8], ptr %19, i64 %39
   %41 = load i32, ptr %40, align 8, !tbaa !31
   %42 = add nsw i32 %41, %36
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 4
@@ -467,7 +465,7 @@ seq_fill_buffer.exit:                             ; preds = %47
 
 64:                                               ; preds = %62
   %65 = zext nneg i32 %61 to i64
-  %66 = getelementptr inbounds nuw %struct.TiertexSeqFrameBuffer, ptr %19, i64 %65
+  %66 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %65
   %67 = load i32, ptr %66, align 8, !tbaa !31
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 516
   store i32 %67, ptr %68, align 4, !tbaa !68

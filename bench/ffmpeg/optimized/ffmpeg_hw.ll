@@ -34,7 +34,7 @@ define ptr @hw_device_get_by_type(i32 noundef %0) local_unnamed_addr #0 {
 5:                                                ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
   %.079 = phi ptr [ null, %.lr.ph ], [ %.1, %12 ]
-  %6 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8, !tbaa !12
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i32, ptr %8, align 8, !tbaa !14
@@ -74,7 +74,7 @@ define noundef ptr @hw_device_get_by_name(ptr noundef readonly captures(none) %0
 
 6:                                                ; preds = %.lr.ph, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %5 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !12
   %9 = load ptr, ptr %8, align 8, !tbaa !21
   %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull dereferenceable(1) %0) #7
@@ -147,7 +147,7 @@ define range(i32 -2147483648, 1) i32 @hw_device_init_from_string(ptr noundef %0,
 
 26:                                               ; preds = %25, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %25 ]
-  %27 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv.i
   %28 = load ptr, ptr %27, align 8, !tbaa !12
   %29 = load ptr, ptr %28, align 8, !tbaa !21
   %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %29, ptr noundef nonnull readonly dereferenceable(1) %20) #7
@@ -241,7 +241,7 @@ define range(i32 -2147483648, 1) i32 @hw_device_init_from_string(ptr noundef %0,
 
 69:                                               ; preds = %68, %.lr.ph.i81
   %indvars.iv.i83 = phi i64 [ 0, %.lr.ph.i81 ], [ %indvars.iv.next.i85, %68 ]
-  %70 = getelementptr inbounds nuw ptr, ptr %67, i64 %indvars.iv.i83
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %indvars.iv.i83
   %71 = load ptr, ptr %70, align 8, !tbaa !12
   %72 = load ptr, ptr %71, align 8, !tbaa !21
   %73 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %72, ptr noundef nonnull readonly dereferenceable(1) %64) #7
@@ -284,7 +284,7 @@ hw_device_add.exit.thread95:                      ; preds = %86
   %93 = load ptr, ptr @hw_devices, align 8, !tbaa !8
   %94 = load i32, ptr @nb_hw_devices, align 4, !tbaa !4
   %95 = sext i32 %94 to i64
-  %96 = getelementptr inbounds ptr, ptr %93, i64 %95
+  %96 = getelementptr inbounds [8 x i8], ptr %93, i64 %95
   store ptr %92, ptr %96, align 8, !tbaa !12
   %.not1.i = icmp eq ptr %92, null
   br i1 %.not1.i, label %hw_device_add.exit.thread, label %97
@@ -373,7 +373,7 @@ define internal fastcc ptr @hw_device_default_name(i32 noundef %0) unnamed_addr 
 
 12:                                               ; preds = %11, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %11 ]
-  %13 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i
   %14 = load ptr, ptr %13, align 8, !tbaa !12
   %15 = load ptr, ptr %14, align 8, !tbaa !21
   %16 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull readonly dereferenceable(1) %6) #7
@@ -450,7 +450,7 @@ hw_device_add.exit.thread22:                      ; preds = %11
   %18 = load ptr, ptr @hw_devices, align 8, !tbaa !8
   %19 = load i32, ptr @nb_hw_devices, align 4, !tbaa !4
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds ptr, ptr %18, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %18, i64 %20
   store ptr %17, ptr %21, align 8, !tbaa !12
   %.not1.i = icmp eq ptr %17, null
   br i1 %.not1.i, label %hw_device_add.exit.thread, label %22
@@ -493,16 +493,16 @@ define void @hw_device_free_all() local_unnamed_addr #3 {
 .lr.ph:                                           ; preds = %0, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %0 ]
   %3 = load ptr, ptr @hw_devices, align 8, !tbaa !8
-  %4 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8, !tbaa !12
   tail call void @av_freep(ptr noundef %5) #8
   %6 = load ptr, ptr @hw_devices, align 8, !tbaa !8
-  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !12
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   tail call void @av_buffer_unref(ptr noundef nonnull %9) #8
   %10 = load ptr, ptr @hw_devices, align 8, !tbaa !8
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   tail call void @av_freep(ptr noundef %11) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %12 = load i32, ptr @nb_hw_devices, align 4, !tbaa !4
@@ -530,7 +530,7 @@ define ptr @hw_device_for_filter() local_unnamed_addr #3 {
 5:                                                ; preds = %2
   %6 = load ptr, ptr @hw_devices, align 8, !tbaa !8
   %7 = zext nneg i32 %3 to i64
-  %8 = getelementptr ptr, ptr %6, i64 %7
+  %8 = getelementptr [8 x i8], ptr %6, i64 %7
   %9 = getelementptr i8, ptr %8, i64 -8
   %10 = load ptr, ptr %9, align 8, !tbaa !12
   %.not7 = icmp eq i32 %3, 1

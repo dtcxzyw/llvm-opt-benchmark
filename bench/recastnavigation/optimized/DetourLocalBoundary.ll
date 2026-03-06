@@ -3,8 +3,6 @@ source_filename = "bench/recastnavigation/original/DetourLocalBoundary.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.dtLocalBoundary::Segment" = type { [6 x float], float }
-
 @_ZN15dtLocalBoundaryC1Ev = unnamed_addr alias void (ptr), ptr @_ZN15dtLocalBoundaryC2Ev
 @_ZN15dtLocalBoundaryD1Ev = unnamed_addr alias void (ptr), ptr @_ZN15dtLocalBoundaryD2Ev
 
@@ -51,7 +49,7 @@ define void @_ZN15dtLocalBoundary10addSegmentEfPKf(ptr noundef nonnull align 4 c
 
 7:                                                ; preds = %3
   %8 = sext i32 %5 to i64
-  %9 = getelementptr %"struct.dtLocalBoundary::Segment", ptr %6, i64 %8
+  %9 = getelementptr [28 x i8], ptr %6, i64 %8
   %10 = getelementptr i8, ptr %9, i64 -4
   %11 = load float, ptr %10, align 4
   %12 = fcmp ult float %1, %11
@@ -71,7 +69,7 @@ define void @_ZN15dtLocalBoundary10addSegmentEfPKf(ptr noundef nonnull align 4 c
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %20 ]
-  %16 = getelementptr inbounds nuw %"struct.dtLocalBoundary::Segment", ptr %6, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [28 x i8], ptr %6, i64 %indvars.iv
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = load float, ptr %17, align 4
   %19 = fcmp ugt float %1, %18
@@ -96,7 +94,7 @@ define void @_ZN15dtLocalBoundary10addSegmentEfPKf(ptr noundef nonnull align 4 c
   br i1 %25, label %27, label %._crit_edge._crit_edge
 
 27:                                               ; preds = %._crit_edge
-  %28 = getelementptr inbounds nuw %"struct.dtLocalBoundary::Segment", ptr %6, i64 %26
+  %28 = getelementptr inbounds nuw [28 x i8], ptr %6, i64 %26
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 28
   %30 = zext nneg i32 %23 to i64
   %31 = mul nuw nsw i64 %30, 28
@@ -104,7 +102,7 @@ define void @_ZN15dtLocalBoundary10addSegmentEfPKf(ptr noundef nonnull align 4 c
   br label %._crit_edge._crit_edge
 
 ._crit_edge._crit_edge:                           ; preds = %._crit_edge, %27
-  %32 = getelementptr inbounds nuw %"struct.dtLocalBoundary::Segment", ptr %6, i64 %26
+  %32 = getelementptr inbounds nuw [28 x i8], ptr %6, i64 %26
   br label %33
 
 33:                                               ; preds = %3, %14, %._crit_edge._crit_edge
@@ -181,7 +179,7 @@ define void @_ZN15dtLocalBoundary6updateEjPKffP14dtNavMeshQueryPK13dtQueryFilter
 
 31:                                               ; preds = %.lr.ph29, %._crit_edge
   %indvars.iv32 = phi i64 [ 0, %.lr.ph29 ], [ %indvars.iv.next33, %._crit_edge ]
-  %32 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv32
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv32
   %33 = load i32, ptr %32, align 4
   %34 = call noundef i32 @_ZNK14dtNavMeshQuery19getPolyWallSegmentsEjPK13dtQueryFilterPfPjPii(ptr noundef nonnull align 8 dereferenceable(104) %4, i32 noundef %33, ptr noundef %5, ptr noundef nonnull %7, ptr noundef null, ptr noundef nonnull %8, i32 noundef 18)
   %35 = load i32, ptr %8, align 4
@@ -204,7 +202,7 @@ define void @_ZN15dtLocalBoundary6updateEjPKffP14dtNavMeshQueryPK13dtQueryFilter
 
 43:                                               ; preds = %41
   %44 = sext i32 %42 to i64
-  %45 = getelementptr %"struct.dtLocalBoundary::Segment", ptr %30, i64 %44
+  %45 = getelementptr [28 x i8], ptr %30, i64 %44
   %46 = getelementptr i8, ptr %45, i64 -4
   %47 = load float, ptr %46, align 4
   %48 = fcmp ult float %39, %47
@@ -224,7 +222,7 @@ define void @_ZN15dtLocalBoundary6updateEjPKffP14dtNavMeshQueryPK13dtQueryFilter
 
 .lr.ph.i:                                         ; preds = %56, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %56 ]
-  %52 = getelementptr inbounds nuw %"struct.dtLocalBoundary::Segment", ptr %30, i64 %indvars.iv.i
+  %52 = getelementptr inbounds nuw [28 x i8], ptr %30, i64 %indvars.iv.i
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %54 = load float, ptr %53, align 4
   %55 = fcmp ugt float %39, %54
@@ -249,7 +247,7 @@ define void @_ZN15dtLocalBoundary6updateEjPKffP14dtNavMeshQueryPK13dtQueryFilter
   br i1 %61, label %63, label %._crit_edge._crit_edge.i
 
 63:                                               ; preds = %._crit_edge.i
-  %64 = getelementptr inbounds nuw %"struct.dtLocalBoundary::Segment", ptr %30, i64 %62
+  %64 = getelementptr inbounds nuw [28 x i8], ptr %30, i64 %62
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 28
   %66 = zext nneg i32 %59 to i64
   %67 = mul nuw nsw i64 %66, 28
@@ -257,7 +255,7 @@ define void @_ZN15dtLocalBoundary6updateEjPKffP14dtNavMeshQueryPK13dtQueryFilter
   br label %._crit_edge._crit_edge.i
 
 ._crit_edge._crit_edge.i:                         ; preds = %63, %._crit_edge.i
-  %68 = getelementptr inbounds nuw %"struct.dtLocalBoundary::Segment", ptr %30, i64 %62
+  %68 = getelementptr inbounds nuw [28 x i8], ptr %30, i64 %62
   br label %69
 
 69:                                               ; preds = %._crit_edge._crit_edge.i, %50, %41
@@ -322,7 +320,7 @@ define noundef zeroext i1 @_ZN15dtLocalBoundary7isValidEP14dtNavMeshQueryPK13dtQ
 
 12:                                               ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %13 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4
   %15 = tail call noundef zeroext i1 @_ZNK14dtNavMeshQuery14isValidPolyRefEjPK13dtQueryFilter(ptr noundef nonnull align 8 dereferenceable(104) %1, i32 noundef %14, ptr noundef %2)
   br i1 %15, label %8, label %.loopexit

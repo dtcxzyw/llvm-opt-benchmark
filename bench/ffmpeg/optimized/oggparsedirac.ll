@@ -3,8 +3,6 @@ source_filename = "bench/ffmpeg/original/oggparsedirac.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.ogg_stream = type { ptr, i32, i32, i32, i32, i32, i32, i32, i64, i64, i64, i64, i64, i64, i32, ptr, i32, i32, i32, [255 x i8], i32, i32, i32, i32, i32, i32, i32, i32, ptr, i64, ptr }
-
 @.str = private unnamed_addr constant [6 x i8] c"BBCD\00\00", align 1
 @ff_dirac_codec = local_unnamed_addr constant { ptr, i8, [7 x i8], ptr, ptr, ptr, ptr, i32, i32, ptr } { ptr @.str, i8 5, [7 x i8] zeroinitializer, ptr null, ptr @dirac_header, ptr null, ptr @dirac_gptopts, i32 1, i32 1, ptr null }, align 8
 @.str.1 = private unnamed_addr constant [9 x i8] c"KW-DIRAC\00", align 1
@@ -19,7 +17,7 @@ define internal range(i32 -2147483648, 2) i32 @dirac_header(ptr noundef %0, i32 
   %7 = sext i32 %1 to i64
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load ptr, ptr %8, align 8, !tbaa !28
-  %10 = getelementptr inbounds ptr, ptr %9, i64 %7
+  %10 = getelementptr inbounds [8 x i8], ptr %9, i64 %7
   %11 = load ptr, ptr %10, align 8, !tbaa !29
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -30,7 +28,7 @@ define internal range(i32 -2147483648, 2) i32 @dirac_header(ptr noundef %0, i32 
   br i1 %16, label %75, label %17
 
 17:                                               ; preds = %2
-  %18 = getelementptr inbounds %struct.ogg_stream, ptr %6, i64 %7
+  %18 = getelementptr inbounds [432 x i8], ptr %6, i64 %7
   %19 = load ptr, ptr %18, align 8, !tbaa !41
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %21 = load i32, ptr %20, align 8, !tbaa !44
@@ -131,7 +129,7 @@ define internal range(i64 -4294967296, 4294975487) i64 @dirac_gptopts(ptr nounde
   %12 = load ptr, ptr %11, align 8, !tbaa !4
   %13 = load ptr, ptr %12, align 8, !tbaa !24
   %14 = sext i32 %1 to i64
-  %15 = getelementptr inbounds %struct.ogg_stream, ptr %13, i64 %14
+  %15 = getelementptr inbounds [432 x i8], ptr %13, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load i32, ptr %16, align 8, !tbaa !72
   %18 = or i32 %17, 1
@@ -159,7 +157,7 @@ define internal range(i32 0, 2) i32 @old_dirac_header(ptr noundef readonly captu
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   %5 = load ptr, ptr %4, align 8, !tbaa !24
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds %struct.ogg_stream, ptr %5, i64 %6
+  %7 = getelementptr inbounds [432 x i8], ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !41
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %10 = load i32, ptr %9, align 8, !tbaa !44
@@ -172,7 +170,7 @@ define internal range(i32 0, 2) i32 @old_dirac_header(ptr noundef readonly captu
 14:                                               ; preds = %2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = load ptr, ptr %15, align 8, !tbaa !28
-  %17 = getelementptr inbounds ptr, ptr %16, i64 %6
+  %17 = getelementptr inbounds [8 x i8], ptr %16, i64 %6
   %18 = load ptr, ptr %17, align 8, !tbaa !29
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !31
@@ -204,7 +202,7 @@ define internal range(i64 0, 18253611007) i64 @old_dirac_gptopts(ptr noundef rea
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = load ptr, ptr %8, align 8, !tbaa !24
   %10 = sext i32 %1 to i64
-  %11 = getelementptr inbounds %struct.ogg_stream, ptr %9, i64 %10
+  %11 = getelementptr inbounds [432 x i8], ptr %9, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load i32, ptr %12, align 8, !tbaa !72
   %14 = or i32 %13, 1

@@ -3,8 +3,6 @@ source_filename = "bench/postgres/original/partitionfuncs.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.ListCell = type { ptr }
-
 @.str = private unnamed_addr constant [31 x i8] c"return type must be a row type\00", align 1
 @.str.1 = private unnamed_addr constant [17 x i8] c"partitionfuncs.c\00", align 1
 @__func__.pg_partition_tree = private unnamed_addr constant [18 x i8] c"pg_partition_tree\00", align 1
@@ -164,7 +162,7 @@ list_length.exit:                                 ; preds = %35
 
 73:                                               ; preds = %.lr.ph97, %72
   %indvars.iv = phi i64 [ 0, %.lr.ph97 ], [ %indvars.iv.next, %72 ]
-  %74 = getelementptr inbounds nuw %union.ListCell, ptr %71, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %indvars.iv
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %75 = load i32, ptr %74, align 8
   %76 = icmp eq i32 %75, %7
@@ -279,7 +277,7 @@ check_rel_can_be_partition.exit.thread:           ; preds = %check_rel_can_be_pa
   %.val10 = load ptr, ptr %16, align 8
   %17 = add i32 %.val, -1
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds %union.ListCell, ptr %.val10, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %.val10, i64 %18
   %20 = load i32, ptr %19, align 8
   tail call void @list_free(ptr noundef nonnull %12) #5
   %21 = zext i32 %20 to i64

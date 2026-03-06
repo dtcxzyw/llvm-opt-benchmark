@@ -12,9 +12,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._e_prefs = type { ptr, i32, %struct.color_t, %struct.color_t, %struct.color_t, %struct.color_t, %struct.color_t, %struct.color_t, %struct.color_t, i8, i32, ptr, i32, %struct.color_t, %struct.color_t, i32, %struct.color_t, %struct.color_t, i32, %struct.color_t, %struct.color_t, %struct.color_t, %struct.color_t, ptr, ptr, i8, i8, i8, i32, i32, i32, ptr, i32, ptr, i8, i8, i8, ptr, ptr, ptr, i32, i32, i32, i32, i8, i32, i32, i32, i32, i32, ptr, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, i8, i8, i8, i32, i8, i8, i8, ptr, i32, i8, i8, i32, i8, i8, i8, i32, i8, i32, i8, i8, i8, i32, i32, i32, ptr, i8, i8, i8, i8, i8, i8, i32, i32, i8, i8, i8, i8, i32, i32, i32, i32, i8, i8, i32, i8, i8, i32, i32, i8, i8, i8, i32, i8, i8, i8 }
 %struct.color_t = type { i16, i16, i16 }
 %struct.json_dumper = type { ptr, ptr, i32, i32, i32, i32, [1100 x i8] }
-%struct.protobuf_udp_message_type_t = type { ptr, ptr }
-%struct.protobuf_uri_mapping_t = type { ptr, ptr }
-%struct.protobuf_search_path_t = type { ptr, i8 }
 %struct.nstime_t = type { i64, i32 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
@@ -985,7 +982,7 @@ define internal i32 @dissect_protobuf(ptr noundef %0, ptr noundef %1, ptr nounde
 66:                                               ; preds = %81, %.lr.ph.i
   %67 = phi ptr [ %.pre17.i, %.lr.ph.i ], [ %82, %81 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %81 ]
-  %68 = getelementptr %struct.protobuf_udp_message_type_t, ptr %67, i64 %indvars.iv.i
+  %68 = getelementptr [16 x i8], ptr %67, i64 %indvars.iv.i
   %69 = load ptr, ptr %68, align 8
   %70 = load i32, ptr %64, align 4
   %71 = tail call zeroext i1 @value_is_in_range(ptr noundef %69, i32 noundef %70)
@@ -1003,7 +1000,7 @@ define internal i32 @dissect_protobuf(ptr noundef %0, ptr noundef %1, ptr nounde
 
 75:                                               ; preds = %72, %._crit_edge.i
   %76 = phi ptr [ %.pre18.i, %._crit_edge.i ], [ %.pre.i, %72 ]
-  %77 = getelementptr %struct.protobuf_udp_message_type_t, ptr %76, i64 %indvars.iv.i
+  %77 = getelementptr [16 x i8], ptr %76, i64 %indvars.iv.i
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %79 = load ptr, ptr %78, align 8
   %.not.i = icmp eq ptr %79, null
@@ -1058,7 +1055,7 @@ find_message_type_by_udp_port.exit.thread:        ; preds = %81, %26, %45, %44, 
 
 97:                                               ; preds = %.lr.ph, %96
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %96 ]
-  %98 = getelementptr %struct.protobuf_uri_mapping_t, ptr %95, i64 %indvars.iv
+  %98 = getelementptr [16 x i8], ptr %95, i64 %indvars.iv
   %99 = load ptr, ptr %98, align 8
   %100 = tail call fastcc zeroext i1 @uri_matches_pattern(ptr noundef nonnull %93, ptr noundef %99, i32 noundef 1)
   br i1 %100, label %101, label %96
@@ -1198,12 +1195,12 @@ define internal fastcc void @update_header_fields(i1 noundef zeroext %0) unnamed
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.preheader.i ]
   %9 = load i32, ptr @proto_protobuf, align 4
   %10 = load ptr, ptr @dynamic_hf, align 8
-  %11 = getelementptr %struct.hf_register_info, ptr %10, i64 %indvars.iv.i
+  %11 = getelementptr [80 x i8], ptr %10, i64 %indvars.iv.i
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr %12, align 4
   tail call void @proto_deregister_field(i32 noundef %9, i32 noundef %13)
   %14 = load ptr, ptr @dynamic_hf, align 8
-  %15 = getelementptr %struct.hf_register_info, ptr %14, i64 %indvars.iv.i
+  %15 = getelementptr [80 x i8], ptr %14, i64 %indvars.iv.i
   %16 = load ptr, ptr %15, align 8
   tail call void @g_free(ptr noundef %16)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1281,11 +1278,11 @@ deregister_header_fields.exit:                    ; preds = %20, %22
   %42 = tail call ptr @wmem_list_frame_data(ptr noundef nonnull %.03149)
   %43 = load ptr, ptr @dynamic_hf, align 8
   %44 = sext i32 %.050 to i64
-  %45 = getelementptr %struct.hf_register_info, ptr %43, i64 %44
+  %45 = getelementptr [80 x i8], ptr %43, i64 %44
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(80) %45, ptr noundef align 8 dereferenceable(80) %42, i64 80, i1 false)
   tail call void @g_free(ptr noundef %42)
   %46 = load ptr, ptr @dynamic_hf, align 8
-  %47 = getelementptr %struct.hf_register_info, ptr %46, i64 %44
+  %47 = getelementptr [80 x i8], ptr %46, i64 %44
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 56
   store i32 -1, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 60
@@ -1357,7 +1354,7 @@ define internal fastcc void @protobuf_reinit(i32 noundef range(i32 1, 4) %0) unn
   %7 = phi i32 [ %6, %.lr.ph73.preheader ], [ %17, %16 ]
   %8 = phi ptr [ %.pre98, %.lr.ph73.preheader ], [ %18, %16 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph73.preheader ], [ %indvars.iv.next, %16 ]
-  %9 = getelementptr %struct.protobuf_udp_message_type_t, ptr %8, i64 %indvars.iv
+  %9 = getelementptr [16 x i8], ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %.not65 = icmp eq ptr %10, null
   br i1 %.not65, label %16, label %11
@@ -1412,11 +1409,11 @@ define internal fastcc void @protobuf_reinit(i32 noundef range(i32 1, 4) %0) unn
 
 34:                                               ; preds = %.lr.ph76, %34
   %indvars.iv91 = phi i64 [ 0, %.lr.ph76 ], [ %indvars.iv.next92, %34 ]
-  %35 = getelementptr %struct.protobuf_search_path_t, ptr %33, i64 %indvars.iv91
+  %35 = getelementptr [16 x i8], ptr %33, i64 %indvars.iv91
   %36 = load ptr, ptr %35, align 8
   %37 = add nuw i64 %indvars.iv91, 2
   %38 = and i64 %37, 4294967295
-  %39 = getelementptr ptr, ptr %28, i64 %38
+  %39 = getelementptr [8 x i8], ptr %28, i64 %38
   store ptr %36, ptr %39, align 8
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next92, %wide.trip.count
@@ -1436,7 +1433,7 @@ define internal fastcc void @protobuf_reinit(i32 noundef range(i32 1, 4) %0) unn
   %44 = load ptr, ptr @protobuf_search_paths, align 8
   %45 = add i32 %.278, -2
   %46 = zext i32 %45 to i64
-  %47 = getelementptr %struct.protobuf_search_path_t, ptr %44, i64 %46
+  %47 = getelementptr [16 x i8], ptr %44, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = load i8, ptr %48, align 8, !range !6, !noundef !7
   %50 = trunc nuw i8 %49 to i1
@@ -1444,7 +1441,7 @@ define internal fastcc void @protobuf_reinit(i32 noundef range(i32 1, 4) %0) unn
 
 51:                                               ; preds = %43, %40
   %52 = load ptr, ptr @pbw_pool, align 8
-  %53 = getelementptr ptr, ptr %28, i64 %41
+  %53 = getelementptr [8 x i8], ptr %28, i64 %41
   %54 = load ptr, ptr %53, align 8
   %55 = tail call fastcc zeroext i1 @load_all_files_in_dir(ptr noundef %52, ptr noundef %54, i32 noundef 0)
   br i1 %55, label %57, label %56
@@ -1483,7 +1480,7 @@ define internal fastcc void @protobuf_reinit(i32 noundef range(i32 1, 4) %0) unn
 .lr.ph82.split:                                   ; preds = %.lr.ph82.split.preheader, %74
   %indvars.iv94 = phi i64 [ %indvars.iv.next95, %74 ], [ 0, %.lr.ph82.split.preheader ]
   %64 = load ptr, ptr @protobuf_udp_message_types, align 8
-  %65 = getelementptr %struct.protobuf_udp_message_type_t, ptr %64, i64 %indvars.iv94
+  %65 = getelementptr [16 x i8], ptr %64, i64 %indvars.iv94
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %67 = load ptr, ptr %66, align 8
   %.not88 = icmp eq ptr %67, null
@@ -2510,7 +2507,7 @@ dissect_packed_repeated_field_values.exit:        ; preds = %309, %333, %344, %.
   %357 = load ptr, ptr %19, align 8
   %358 = load i32, ptr %17, align 4
   %359 = zext i32 %358 to i64
-  %360 = getelementptr [9 x i32], ptr @protobuf_wire_to_field_type, i64 %359
+  %360 = getelementptr [36 x i8], ptr @protobuf_wire_to_field_type, i64 %359
   %361 = load i64, ptr %18, align 8
   %362 = add i32 %358, -3
   %.not.i174272 = icmp ult i32 %362, 2
@@ -2527,7 +2524,7 @@ dissect_packed_repeated_field_values.exit:        ; preds = %309, %333, %344, %.
   call fastcc void @protobuf_dissect_field_value(ptr noundef %281, ptr noundef %0, i32 noundef %.2, i32 noundef %.0172.i, ptr noundef %3, ptr noundef %357, i32 noundef %364, i64 noundef %361, ptr noundef nonnull %.014.i172273, ptr noundef null, i1 noundef zeroext false, ptr noundef %.0112224)
   %365 = add i32 %.0.i173274, 1
   %366 = sext i32 %365 to i64
-  %367 = getelementptr i32, ptr %360, i64 %366
+  %367 = getelementptr [4 x i8], ptr %360, i64 %366
   %368 = load i32, ptr %367, align 4
   %.not.i174 = icmp eq i32 %368, 0
   br i1 %.not.i174, label %.thread387, label %.lr.ph276, !llvm.loop !26
@@ -2569,7 +2566,7 @@ dissect_packed_repeated_field_values.exit:        ; preds = %309, %333, %344, %.
   call fastcc void @protobuf_dissect_field_value(ptr noundef %281, ptr noundef %0, i32 noundef %.2, i32 noundef %.0172.i, ptr noundef %3, ptr noundef %380, i32 noundef %381, i64 noundef %.ph, ptr noundef nonnull %.014.i268, ptr noundef null, i1 noundef zeroext false, ptr noundef %.0112224)
   %382 = add i32 %.0.i170269, 1
   %383 = sext i32 %382 to i64
-  %384 = getelementptr i32, ptr %20, i64 %383
+  %384 = getelementptr [4 x i8], ptr %20, i64 %383
   %385 = load i32, ptr %384, align 4
   %.not.i171 = icmp eq i32 %385, 0
   br i1 %.not.i171, label %protobuf_try_dissect_field_value_on_multi_types.exit, label %.lr.ph271, !llvm.loop !26
@@ -4527,7 +4524,7 @@ define internal void @collect_fields(ptr noundef %0, ptr noundef %1) #0 {
   %62 = trunc nuw nsw i64 %indvars.iv.i to i32
   %63 = tail call ptr @pbw_EnumDescriptor_value(ptr noundef nonnull %53, i32 noundef %62)
   %64 = tail call i32 @pbw_EnumValueDescriptor_number(ptr noundef %63)
-  %65 = getelementptr %struct._value_string, ptr %60, i64 %indvars.iv.i
+  %65 = getelementptr [16 x i8], ptr %60, i64 %indvars.iv.i
   store i32 %64, ptr %65, align 8
   %66 = tail call ptr @pbw_EnumValueDescriptor_name(ptr noundef %63)
   %67 = tail call noalias ptr @g_strdup(ptr noundef %66)

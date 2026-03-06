@@ -4294,7 +4294,7 @@ define hidden noundef zeroext i1 @"_ZN79_$LT$hir_ty..interner..InternedWrapper$L
   %7 = load i64, ptr %6, align 8, !alias.scope !326, !noalias !329, !noundef !10
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !331
   call void @_ZN4core3fmt9Formatter10debug_list17he7f95665c58b7f1eE(ptr noalias noundef nonnull sret({ { ptr, i8, i8, [6 x i8] } }) align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !noalias !335
-  %8 = getelementptr inbounds { { i8, [15 x i8] }, i64 }, ptr %5, i64 %7
+  %8 = getelementptr inbounds [24 x i8], ptr %5, i64 %7
   %9 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17h76976cb9f7c398b8E(ptr noalias noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 8 %5, ptr noundef nonnull readonly %8), !noalias !326
   %10 = call noundef zeroext i1 @_ZN4core3fmt8builders9DebugList6finish17hf81be2358cd42e32E(ptr noalias noundef nonnull align 8 dereferenceable(16) %9), !noalias !326
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !331
@@ -4317,7 +4317,7 @@ define hidden noundef zeroext i1 @"_ZN79_$LT$hir_ty..interner..InternedWrapper$L
   %7 = load i64, ptr %6, align 8, !alias.scope !336, !noalias !339, !noundef !10
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !341
   call void @_ZN4core3fmt9Formatter10debug_list17he7f95665c58b7f1eE(ptr noalias noundef nonnull sret({ { ptr, i8, i8, [6 x i8] } }) align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !noalias !345
-  %8 = getelementptr inbounds { { { { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { i32, [9 x i32] }, i8, [7 x i8] }, ptr } } }, ptr %5, i64 %7
+  %8 = getelementptr inbounds [104 x i8], ptr %5, i64 %7
   %9 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17haf9675f1fb8b44b7E(ptr noalias noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 8 %5, ptr noundef nonnull readonly %8), !noalias !336
   %10 = call noundef zeroext i1 @_ZN4core3fmt8builders9DebugList6finish17hf81be2358cd42e32E(ptr noalias noundef nonnull align 8 dereferenceable(16) %9), !noalias !336
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !341
@@ -4334,7 +4334,7 @@ define hidden noundef zeroext i1 @"_ZN79_$LT$hir_ty..interner..InternedWrapper$L
   %7 = load i64, ptr %6, align 8, !alias.scope !346, !noalias !349, !noundef !10
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !351
   call void @_ZN4core3fmt9Formatter10debug_list17he7f95665c58b7f1eE(ptr noalias noundef nonnull sret({ { ptr, i8, i8, [6 x i8] } }) align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !noalias !355
-  %8 = getelementptr inbounds { { i64, [3 x i64] }, ptr }, ptr %5, i64 %7
+  %8 = getelementptr inbounds [40 x i8], ptr %5, i64 %7
   %9 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17hbf2d643437954d83E(ptr noalias noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 8 %5, ptr noundef nonnull readonly %8), !noalias !346
   %10 = call noundef zeroext i1 @_ZN4core3fmt8builders9DebugList6finish17hf81be2358cd42e32E(ptr noalias noundef nonnull align 8 dereferenceable(16) %9), !noalias !346
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !351
@@ -4357,7 +4357,7 @@ define hidden noundef zeroext i1 @"_ZN79_$LT$hir_ty..interner..InternedWrapper$L
   %11 = load i64, ptr %10, align 8, !alias.scope !361, !noalias !364
   %.sink5.i.i = select i1 %8, ptr %9, ptr %0
   %.sink4.i.i = select i1 %8, i64 %11, i64 %7
-  %12 = getelementptr inbounds { { i64, [1 x i64] } }, ptr %.sink5.i.i, i64 %.sink4.i.i
+  %12 = getelementptr inbounds [16 x i8], ptr %.sink5.i.i, i64 %.sink4.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !366
   store ptr %.sink5.i.i, ptr %4, align 8, !noalias !366
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -4393,7 +4393,7 @@ define hidden noundef zeroext i1 @"_ZN79_$LT$hir_ty..interner..InternedWrapper$L
   %7 = load i64, ptr %6, align 8, !alias.scope !370, !noalias !373, !noundef !10
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !375
   call void @_ZN4core3fmt9Formatter10debug_list17he7f95665c58b7f1eE(ptr noalias noundef nonnull sret({ { ptr, i8, i8, [6 x i8] } }) align 8 captures(none) dereferenceable(16) %3, ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !noalias !379
-  %8 = getelementptr inbounds { i8, [15 x i8] }, ptr %5, i64 %7
+  %8 = getelementptr inbounds [16 x i8], ptr %5, i64 %7
   %9 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17h9718c259b837d8a1E(ptr noalias noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull readonly align 8 %5, ptr noundef nonnull readonly %8), !noalias !370
   %10 = call noundef zeroext i1 @_ZN4core3fmt8builders9DebugList6finish17hf81be2358cd42e32E(ptr noalias noundef nonnull align 8 dereferenceable(16) %9), !noalias !370
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !375
@@ -4424,7 +4424,7 @@ define hidden { ptr, ptr } @"_ZN94_$LT$$RF$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u
   %3 = load ptr, ptr %2, align 8, !nonnull !10, !noundef !10
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !10
-  %6 = getelementptr inbounds { { i8, [19 x i8] }, [1 x i32], { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } } }, ptr %3, i64 %5
+  %6 = getelementptr inbounds [56 x i8], ptr %3, i64 %5
   %7 = insertvalue { ptr, ptr } poison, ptr %3, 0
   %8 = insertvalue { ptr, ptr } %7, ptr %6, 1
   ret { ptr, ptr } %8
@@ -5963,7 +5963,7 @@ define hidden void @_ZN7ide_ssr9replacing25matches_to_edit_at_offset17h048f849a4
   br i1 %64, label %65, label %70, !prof !837
 
 65:                                               ; preds = %59
-  %66 = getelementptr inbounds { { [104 x i8], i8, [7 x i8] }, i64, { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, ptr, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, i8, [7 x i8] } }, ptr %7, i64 %63
+  %66 = getelementptr inbounds [232 x i8], ptr %7, i64 %63
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 104
   %68 = load i8, ptr %67, align 8, !range !838, !alias.scope !831, !noalias !839, !noundef !10
   %69 = icmp eq i8 %68, 2
@@ -6405,7 +6405,7 @@ define internal fastcc void @_ZN7ide_ssr9replacing19ReplacementRenderer11render_
   %47 = add i64 %.sroa.01.0.i.i.i.i, %44
   %48 = and i64 %47, %.val5.i
   %49 = sub nsw i64 0, %48
-  %50 = getelementptr inbounds { ptr, { { i8, [7 x i8] }, { i64, { [3 x i64] } } } }, ptr %.val.i, i64 %49
+  %50 = getelementptr inbounds [48 x i8], ptr %.val.i, i64 %49
   %51 = getelementptr inbounds i8, ptr %50, i64 -48
   %.val4.i.i.i.i = load ptr, ptr %51, align 8, !noalias !987
   %52 = tail call { ptr, i32 } @_ZN5rowan6cursor8NodeData3key17hac391177412f5ff8E.llvm.4613852783100018038(ptr noundef nonnull align 8 %.val), !noalias !990
@@ -7113,7 +7113,7 @@ _ZN7ide_ssr9resolving12ResolvedRule15get_placeholder17h4a0152868d9f1df2E.exit: ;
   %72 = add i64 %.sroa.01.0.i.i.i.i, %69
   %73 = and i64 %72, %.val5.i
   %74 = sub nsw i64 0, %73
-  %75 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } } }, { { { { i64, ptr, {} }, i64 } }, i64, { { i32, i32 }, i32 }, i8, [3 x i8] } }, ptr %.val.i, i64 %74
+  %75 = getelementptr inbounds [72 x i8], ptr %.val.i, i64 %74
   %76 = getelementptr i8, ptr %75, i64 -56
   %.val5.i.i.i.i = load i64, ptr %76, align 8, !alias.scope !1227, !noalias !1234, !noundef !10
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %.val36, %.val5.i.i.i.i
@@ -7637,10 +7637,10 @@ switch.lookup:                                    ; preds = %289, %287
   %291 = load i8, ptr %290, align 4, !range !838, !noundef !10
   %292 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %293 = zext nneg i8 %291 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN7ide_ssr9replacing19ReplacementRenderer12render_token17h94d86d58e312eb03E, i64 %293
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN7ide_ssr9replacing19ReplacementRenderer12render_token17h94d86d58e312eb03E, i64 %293
   %switch.load = load ptr, ptr %switch.gep, align 8
   %294 = zext nneg i8 %291 to i64
-  %switch.gep141 = getelementptr inbounds nuw i64, ptr @switch.table._ZN7ide_ssr9replacing19ReplacementRenderer12render_token17h94d86d58e312eb03E.64, i64 %294
+  %switch.gep141 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN7ide_ssr9replacing19ReplacementRenderer12render_token17h94d86d58e312eb03E.64, i64 %294
   %switch.load142 = load i64, ptr %switch.gep141, align 8
   store ptr %switch.load, ptr %21, align 8
   store i64 %switch.load142, ptr %292, align 8
@@ -8365,7 +8365,7 @@ define hidden noundef align 8 dereferenceable_or_null(32) ptr @_ZN7ide_ssr6searc
   %4 = load ptr, ptr %3, align 8, !alias.scope !1557, !nonnull !10, !noundef !10
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !1557, !noundef !10
-  %7 = getelementptr inbounds { { i8, [19 x i8] }, [1 x i32], { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } } }, ptr %4, i64 %6
+  %7 = getelementptr inbounds [56 x i8], ptr %4, i64 %6
   br label %8
 
 8:                                                ; preds = %10, %2

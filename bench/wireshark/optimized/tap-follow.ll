@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct._stat_tap_ui = type { i32, ptr, ptr, ptr, i64, ptr }
-%union.anon = type { i32, [12 x i8] }
-%struct._address = type { i32, i32, ptr, ptr }
 
 @.str = private unnamed_addr constant [39 x i8] c"Error creating filter for this stream.\00", align 1
 @.str.1 = private unnamed_addr constant [51 x i8] c"Error creating filter for this address/port pair.\0A\00", align 1
@@ -220,7 +218,7 @@ follow_arg_mode.exit:                             ; preds = %2, %follow_arg_strn
   %.0 = phi ptr [ %31, %53 ], [ %87, %80 ]
   %58 = phi i1 [ true, %53 ], [ false, %80 ]
   %indvars.iv.i = phi i64 [ 0, %53 ], [ 1, %80 ]
-  %59 = getelementptr i32, ptr %54, i64 %indvars.iv.i
+  %59 = getelementptr [4 x i8], ptr %54, i64 %indvars.iv.i
   %60 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %.0, ptr noundef nonnull @.str.11, ptr noundef nonnull %5, ptr noundef %59, ptr noundef nonnull %4) #14
   %61 = icmp eq i32 %60, 2
   br i1 %61, label %66, label %62
@@ -251,7 +249,7 @@ follow_arg_mode.exit:                             ; preds = %2, %follow_arg_strn
   unreachable
 
 72:                                               ; preds = %66
-  %73 = getelementptr %union.anon, ptr %55, i64 %indvars.iv.i
+  %73 = getelementptr [16 x i8], ptr %55, i64 %indvars.iv.i
   %74 = call zeroext i1 @get_host_ipaddr6(ptr noundef nonnull %5, ptr noundef %73)
   br i1 %74, label %80, label %75
 
@@ -260,7 +258,7 @@ follow_arg_mode.exit:                             ; preds = %2, %follow_arg_strn
   unreachable
 
 76:                                               ; preds = %.thread.i
-  %77 = getelementptr %union.anon, ptr %55, i64 %indvars.iv.i
+  %77 = getelementptr [16 x i8], ptr %55, i64 %indvars.iv.i
   %78 = call zeroext i1 @get_host_ipaddr(ptr noundef nonnull %5, ptr noundef %77)
   br i1 %78, label %80, label %79
 
@@ -272,7 +270,7 @@ follow_arg_mode.exit:                             ; preds = %2, %follow_arg_strn
   %.sink57.i = phi i32 [ 3, %72 ], [ 2, %76 ]
   %.sink54.i = phi i32 [ 16, %72 ], [ 4, %76 ]
   %.sink.i66 = phi ptr [ %73, %72 ], [ %77, %76 ]
-  %81 = getelementptr %struct._address, ptr %56, i64 %indvars.iv.i
+  %81 = getelementptr [24 x i8], ptr %56, i64 %indvars.iv.i
   store i32 %.sink57.i, ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 4
   store i32 %.sink54.i, ptr %82, align 4
@@ -522,7 +520,7 @@ define internal void @follow_draw(ptr noundef %0) #0 {
 
 switch.lookup:                                    ; preds = %22
   %30 = zext nneg i32 %.val to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.follow_draw, i64 %30
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.follow_draw, i64 %30
   %switch.load = load ptr, ptr %switch.gep, align 8
   %31 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.31, ptr noundef %27, ptr noundef nonnull %switch.load)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -781,7 +779,7 @@ follow_print_hex.exit:                            ; preds = %148, %89
 
 168:                                              ; preds = %.lr.ph143
   %169 = zext i8 %167 to i64
-  %170 = getelementptr i16, ptr %56, i64 %169
+  %170 = getelementptr [2 x i8], ptr %56, i64 %169
   %171 = load i16, ptr %170, align 2
   %172 = and i16 %171, 64
   %.not114 = icmp eq i16 %172, 0

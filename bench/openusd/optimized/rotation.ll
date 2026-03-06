@@ -750,8 +750,8 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__10GfRotation25MatchClosestEule
 
 .preheader10.i:                                   ; preds = %45, %.cont
   %indvars.iv.i = phi i64 [ 0, %.cont ], [ %indvars.iv.next.i, %45 ]
-  %32 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.i
-  %33 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i
   %34 = load double, ptr %33, align 8, !noalias !7
   %35 = fadd double %34, 0x400921FB54442D18
   %.promoted.i = load double, ptr %32, align 8, !alias.scope !7
@@ -1001,15 +1001,15 @@ default.unreachable275:                           ; preds = %.cont151
 
 85:                                               ; preds = %.cont157, %_ZN32pxrInternal_v0_24__pxrReserved__L8_PiShiftERKNS_7GfVec4dES2_d.exit117
   %indvars.iv = phi i64 [ 0, %.cont157 ], [ %indvars.iv.next, %_ZN32pxrInternal_v0_24__pxrReserved__L8_PiShiftERKNS_7GfVec4dES2_d.exit117 ]
-  %86 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfVec4d", ptr %11, i64 %indvars.iv
+  %86 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 %indvars.iv
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull readonly align 16 dereferenceable(32) %86, i64 32, i1 false)
   br label %.preheader10.i106
 
 .preheader10.i106:                                ; preds = %100, %85
   %indvars.iv.i107 = phi i64 [ 0, %85 ], [ %indvars.iv.next.i111, %100 ]
-  %87 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv.i107
-  %88 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv.i107
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv.i107
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i107
   %89 = load double, ptr %88, align 8, !noalias !14
   %90 = fadd double %89, 0x400921FB54442D18
   %.promoted.i108 = load double, ptr %87, align 8, !alias.scope !14
@@ -1057,7 +1057,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L8_PiShiftERKNS_7GfVec4dES2_d.exit117: ; pr
   %indvars.iv241 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next242, %112 ]
   %.087230 = phi i32 [ -1, %.preheader ], [ %.1, %112 ]
   %.088229 = phi double [ 0.000000e+00, %.preheader ], [ %.189, %112 ]
-  %102 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::GfVec4d", ptr %11, i64 %indvars.iv241
+  %102 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 %indvars.iv241
   tail call void @llvm.experimental.noalias.scope.decl(metadata !18)
   %.sroa.0.0.copyload.i = load double, ptr %102, align 16, !noalias !18
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %102, i64 8
@@ -1079,7 +1079,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L8_PiShiftERKNS_7GfVec4dES2_d.exit117: ; pr
 107:                                              ; preds = %101, %107
   %indvars.iv237 = phi i64 [ 0, %101 ], [ %indvars.iv.next238, %107 ]
   %.085227 = phi double [ 0.000000e+00, %101 ], [ %111, %107 ]
-  %108 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv237
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv237
   %109 = load double, ptr %108, align 8
   %110 = tail call double @llvm.fabs.f64(double %109)
   %111 = fadd double %.085227, %110
@@ -1100,7 +1100,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L8_PiShiftERKNS_7GfVec4dES2_d.exit117: ; pr
 
 116:                                              ; preds = %112
   %117 = sext i32 %.1 to i64
-  %118 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec4d", ptr %11, i64 %117
+  %118 = getelementptr inbounds [32 x i8], ptr %11, i64 %117
   br i1 %14, label %.cont214, label %.else216
 
 .else216:                                         ; preds = %116

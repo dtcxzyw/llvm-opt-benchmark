@@ -227,7 +227,7 @@ define void @Java_sun_java2d_opengl_OGLRenderQueue_flushBuffer(ptr noundef %0, p
   %53 = getelementptr inbounds nuw i8, ptr %.us-phi644, i64 16
   %54 = load i32, ptr %53, align 4
   %55 = sext i32 %47 to i64
-  %56 = getelementptr inbounds i32, ptr %52, i64 %55
+  %56 = getelementptr inbounds [4 x i8], ptr %52, i64 %55
   %57 = and i32 %49, 255
   tail call void @OGLRenderer_DrawPoly(ptr noundef %.fr1774, i32 noundef %47, i32 noundef %57, i32 noundef %51, i32 noundef %54, ptr noundef nonnull %52, ptr noundef nonnull %56) #4
   %58 = shl nsw i64 %55, 3

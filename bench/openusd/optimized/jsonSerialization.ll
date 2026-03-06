@@ -75,12 +75,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<pxrInternal_v0_24__pxrReserved__::TfRefPtr<pxrInternal_v0_24__pxrReserved__::TraceEventNode>, std::allocator<pxrInternal_v0_24__pxrReserved__::TfRefPtr<pxrInternal_v0_24__pxrReserved__::TraceEventNode>>>::_Vector_impl" = type { %"struct.std::_Vector_base<pxrInternal_v0_24__pxrReserved__::TfRefPtr<pxrInternal_v0_24__pxrReserved__::TraceEventNode>, std::allocator<pxrInternal_v0_24__pxrReserved__::TfRefPtr<pxrInternal_v0_24__pxrReserved__::TraceEventNode>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<pxrInternal_v0_24__pxrReserved__::TfRefPtr<pxrInternal_v0_24__pxrReserved__::TraceEventNode>, std::allocator<pxrInternal_v0_24__pxrReserved__::TfRefPtr<pxrInternal_v0_24__pxrReserved__::TraceEventNode>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const unsigned long, std::__cxx11::basic_string<char>>>, std::less<unsigned long>>::_Auto_node" = type { ptr, ptr }
-%"class.std::unique_ptr.210" = type { %"struct.std::__uniq_ptr_data.211" }
-%"struct.std::__uniq_ptr_data.211" = type { %"class.std::__uniq_ptr_impl.212" }
-%"class.std::__uniq_ptr_impl.212" = type { %"class.std::tuple.213" }
-%"class.std::tuple.213" = type { %"struct.std::_Tuple_impl.214" }
-%"struct.std::_Tuple_impl.214" = type { %"struct.std::_Head_base.217" }
-%"struct.std::_Head_base.217" = type { ptr }
 %"struct.std::_Deque_iterator" = type { ptr, ptr, ptr, ptr }
 %"class.pxrInternal_v0_24__pxrReserved__::TraceEventData" = type { %"class.std::variant" }
 %"class.std::variant" = type { %"struct.std::__detail::__variant::_Variant_base.base", [7 x i8] }
@@ -105,7 +99,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::_Rb_tree.228" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::vector<std::pair<pxrInternal_v0_24__pxrReserved__::TfToken, const pxrInternal_v0_24__pxrReserved__::TraceEvent *>>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::vector<std::pair<pxrInternal_v0_24__pxrReserved__::TfToken, const pxrInternal_v0_24__pxrReserved__::TraceEvent *>>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::vector<std::pair<pxrInternal_v0_24__pxrReserved__::TfToken, const pxrInternal_v0_24__pxrReserved__::TraceEvent *>>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::vector<std::pair<pxrInternal_v0_24__pxrReserved__::TfToken, const pxrInternal_v0_24__pxrReserved__::TraceEvent *>>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::vector<std::pair<pxrInternal_v0_24__pxrReserved__::TfToken, const pxrInternal_v0_24__pxrReserved__::TraceEvent *>>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::vector<std::pair<pxrInternal_v0_24__pxrReserved__::TfToken, const pxrInternal_v0_24__pxrReserved__::TraceEvent *>>>>, std::less<std::__cxx11::basic_string<char>>>::_Auto_node" = type { ptr, ptr }
-%"struct.std::pair.238" = type { %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr }
 
 $_ZN32pxrInternal_v0_24__pxrReserved__11_JsGetValueINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKS6_EET0_RKSt3mapIS6_NS_7JsValueESt4lessIS6_ESaISt4pairIS7_SB_EEERS7_ = comdat any
 
@@ -2318,7 +2311,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TraceEventESaIS1_EE11_S_reloca
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TraceEventESaIS1_EE17_M_realloc_insertIJNS1_8BeginTagENS0_8TraceKeyERmS7_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TraceEventESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit35.i, %45
   store ptr %33, ptr %0, align 8
   store ptr %44, ptr %6, align 8
-  %46 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TraceEvent", ptr %33, i64 %31
+  %46 = getelementptr inbounds nuw [32 x i8], ptr %33, i64 %31
   store ptr %46, ptr %8, align 8
   br label %47
 
@@ -2437,7 +2430,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TraceEventESaIS1_EE11_S_reloca
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TraceEventESaIS1_EE17_M_realloc_insertIJNS1_6EndTagENS0_8TraceKeyERmS7_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TraceEventESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit35.i, %45
   store ptr %33, ptr %0, align 8
   store ptr %44, ptr %6, align 8
-  %46 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TraceEvent", ptr %33, i64 %31
+  %46 = getelementptr inbounds nuw [32 x i8], ptr %33, i64 %31
   store ptr %46, ptr %8, align 8
   br label %47
 
@@ -2532,7 +2525,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TraceEventESaIS1_EE11_S_reloca
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TraceEventESaIS1_EE17_M_realloc_insertIJNS1_9MarkerTagENS0_8TraceKeyERmS7_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TraceEventESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit35.i, %45
   store ptr %33, ptr %0, align 8
   store ptr %44, ptr %6, align 8
-  %46 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TraceEvent", ptr %33, i64 %31
+  %46 = getelementptr inbounds nuw [32 x i8], ptr %33, i64 %31
   store ptr %46, ptr %8, align 8
   br label %47
 
@@ -2633,7 +2626,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TraceEventESaIS1_EE11_S_reloca
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TraceEventESaIS1_EE17_M_realloc_insertIJNS1_11TimespanTagENS0_8TraceKeyERmS7_S7_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TraceEventESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit36.i, %50
   store ptr %36, ptr %0, align 8
   store ptr %49, ptr %7, align 8
-  %51 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TraceEvent", ptr %36, i64 %34
+  %51 = getelementptr inbounds nuw [32 x i8], ptr %36, i64 %34
   store ptr %51, ptr %9, align 8
   br label %52
 
@@ -2708,7 +2701,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TraceEventESaIS1_EE11_S_reloca
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TraceEventESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TraceEventESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i, %28
   store ptr %23, ptr %0, align 8
   store ptr %27, ptr %3, align 8
-  %29 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TraceEvent", ptr %23, i64 %21
+  %29 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %21
   store ptr %29, ptr %5, align 8
   br label %30
 
@@ -4610,7 +4603,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TraceEventESaIS1_EE11_S_reloca
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TraceEventESaIS1_EE17_M_realloc_insertIJNS1_8BeginTagERNS0_8TraceKeyEmRmEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %495, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TraceEventESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit35.i.i.i
   store ptr %485, ptr %460, align 8
   store ptr %494, ptr %461, align 8
-  %496 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TraceEvent", ptr %485, i64 %483
+  %496 = getelementptr inbounds nuw [32 x i8], ptr %485, i64 %483
   store ptr %496, ptr %463, align 8
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TraceEventESaIS1_EE12emplace_backIJNS1_8BeginTagERNS0_8TraceKeyEmRmEEERS1_DpOT_.exit.i
 
@@ -4773,7 +4766,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TraceEventESaIS1_EE11_S_reloca
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TraceEventESaIS1_EE17_M_realloc_insertIJNS1_6EndTagERNS0_8TraceKeyEmRmEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %573, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TraceEventESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit35.i.i164.i
   store ptr %563, ptr %538, align 8
   store ptr %572, ptr %539, align 8
-  %574 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TraceEvent", ptr %563, i64 %561
+  %574 = getelementptr inbounds nuw [32 x i8], ptr %563, i64 %561
   store ptr %574, ptr %541, align 8
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TraceEventESaIS1_EE12emplace_backIJNS1_8BeginTagERNS0_8TraceKeyEmRmEEERS1_DpOT_.exit.i
 
@@ -4946,7 +4939,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TraceEventESaIS1_EE11_S_reloca
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TraceEventESaIS1_EE17_M_realloc_insertIJNS1_9MarkerTagERNS0_8TraceKeyEmRmEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %657, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TraceEventESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit35.i.i190.i
   store ptr %647, ptr %622, align 8
   store ptr %656, ptr %623, align 8
-  %658 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TraceEvent", ptr %647, i64 %645
+  %658 = getelementptr inbounds nuw [32 x i8], ptr %647, i64 %645
   store ptr %658, ptr %625, align 8
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TraceEventESaIS1_EE12emplace_backIJNS1_8BeginTagERNS0_8TraceKeyEmRmEEERS1_DpOT_.exit.i
 
@@ -5408,7 +5401,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TraceEventESaIS1_EE11_S_reloca
 _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TraceEventESaIS1_EE17_M_realloc_insertIJNS1_11TimespanTagERNS0_8TraceKeyEmmRmEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %817, %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TraceEventESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit36.i.i.i
   store ptr %806, ptr %774, align 8
   store ptr %816, ptr %781, align 8
-  %818 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TraceEvent", ptr %806, i64 %804
+  %818 = getelementptr inbounds nuw [32 x i8], ptr %806, i64 %804
   store ptr %818, ptr %783, align 8
   br label %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__10TraceEventESaIS1_EE12emplace_backIJNS1_8BeginTagERNS0_8TraceKeyEmRmEEERS1_DpOT_.exit.i
 
@@ -6869,7 +6862,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrRese
   %13 = load i64, ptr %12, align 8
   %14 = urem i64 %11, %13
   %15 = load ptr, ptr %0, align 8
-  %16 = getelementptr inbounds ptr, ptr %15, i64 %14
+  %16 = getelementptr inbounds [8 x i8], ptr %15, i64 %14
   %17 = load ptr, ptr %16, align 8
   %.not.i.i = icmp eq ptr %17, null
   br i1 %.not.i.i, label %_ZNKSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__15TraceDynamicKeyES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ENS1_11HashFunctorENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE15_M_find_node_trIS1_EEPNS3_10_Hash_nodeIS1_Lb1EEEmRKT_m.exit.thread, label %36
@@ -7046,7 +7039,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__15TraceDynamicKeyES1_SaIS1_
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 40
   store i64 %2, ptr %32, align 8
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %41, label %36
@@ -7055,7 +7048,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__15TraceDynamicKeyES1_SaIS1_
   %37 = load ptr, ptr %35, align 8
   store ptr %37, ptr %3, align 8
   %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds ptr, ptr %38, i64 %.0
+  %39 = getelementptr inbounds [8 x i8], ptr %38, i64 %.0
   %40 = load ptr, ptr %39, align 8
   store ptr %3, ptr %40, align 8
   br label %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__15TraceDynamicKeyES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ENS1_11HashFunctorENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE22_M_insert_bucket_beginEmPNS3_10_Hash_nodeIS1_Lb1EEE.exit
@@ -7075,13 +7068,13 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__15TraceDynamicKeyES1_SaIS1_
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 40
   %49 = load i64, ptr %48, align 8
   %50 = urem i64 %49, %47
-  %51 = getelementptr inbounds ptr, ptr %46, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %46, i64 %50
   store ptr %3, ptr %51, align 8
   br label %52
 
 52:                                               ; preds = %45, %41
   %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds ptr, ptr %53, i64 %.0
+  %54 = getelementptr inbounds [8 x i8], ptr %53, i64 %.0
   store ptr %42, ptr %54, align 8
   br label %_ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__15TraceDynamicKeyES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_ENS1_11HashFunctorENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE22_M_insert_bucket_beginEmPNS3_10_Hash_nodeIS1_Lb1EEE.exit
 
@@ -7186,7 +7179,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__15TraceDynamicKeyES1_SaIS1_
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 40
   %16 = load i64, ptr %15, align 8
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -7201,7 +7194,7 @@ _ZNSt10_HashtableIN32pxrInternal_v0_24__pxrReserved__15TraceDynamicKeyES1_SaIS1_
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8
   br label %28
 
@@ -8454,7 +8447,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 
 .split8.i.i.i:                                    ; preds = %.split8.i.i.i, %.split.i.i.i
   %.0.i.i.i = phi i64 [ %22, %.split.i.i.i ], [ %24, %.split8.i.i.i ]
-  %phi.call.i.i.i = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TraceEvent", ptr %0, i64 %.0.i.i.i
+  %phi.call.i.i.i = getelementptr inbounds [32 x i8], ptr %0, i64 %.0.i.i.i
   tail call fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TraceEventESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZNS2_L19_ConstructEventListERNS2_25EventListConstructionDataEE3$_0EEEvT_T0_SG_T1_T2_"(ptr %0, i64 noundef %.0.i.i.i, i64 noundef %19, ptr noundef nonnull byval(%"class.pxrInternal_v0_24__pxrReserved__::TraceEvent") align 8 %phi.call.i.i.i)
   %23 = icmp eq i64 %.0.i.i.i, 0
   %24 = add nsw i64 %.0.i.i.i, -1
@@ -8477,7 +8470,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 30:                                               ; preds = %18
   %31 = add nsw i64 %.024, -1
   %32 = lshr i64 %19, 1
-  %33 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TraceEvent", ptr %0, i64 %32
+  %33 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %32
   %34 = getelementptr inbounds i8, ptr %storemerge23, i64 -32
   %35 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__10TraceEvent12GetTimeStampEv(ptr noundef nonnull align 8 dereferenceable(32) %17)
   %36 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__10TraceEvent12GetTimeStampEv(ptr noundef nonnull align 8 dereferenceable(32) %33)
@@ -8616,15 +8609,15 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %.033 = phi i64 [ %spec.select, %.lr.ph ], [ %1, %4 ]
   %9 = shl i64 %.033, 1
   %10 = add i64 %9, 2
-  %11 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TraceEvent", ptr %0, i64 %10
+  %11 = getelementptr inbounds [32 x i8], ptr %0, i64 %10
   %12 = or disjoint i64 %9, 1
-  %13 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TraceEvent", ptr %0, i64 %12
+  %13 = getelementptr inbounds [32 x i8], ptr %0, i64 %12
   %14 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__10TraceEvent12GetTimeStampEv(ptr noundef nonnull align 8 dereferenceable(32) %11)
   %15 = tail call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__10TraceEvent12GetTimeStampEv(ptr noundef nonnull align 8 dereferenceable(32) %13)
   %16 = icmp ult i64 %14, %15
   %spec.select = select i1 %16, i64 %12, i64 %10
-  %17 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TraceEvent", ptr %0, i64 %spec.select
-  %18 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TraceEvent", ptr %0, i64 %.033
+  %17 = getelementptr inbounds [32 x i8], ptr %0, i64 %spec.select
+  %18 = getelementptr inbounds [32 x i8], ptr %0, i64 %.033
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %17, i64 32, i1 false)
   %19 = icmp slt i64 %spec.select, %7
   br i1 %19, label %.lr.ph, label %._crit_edge, !llvm.loop !77
@@ -8644,8 +8637,8 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
 26:                                               ; preds = %22
   %27 = shl nsw i64 %.0.lcssa, 1
   %28 = or disjoint i64 %27, 1
-  %29 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TraceEvent", ptr %0, i64 %28
-  %30 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TraceEvent", ptr %0, i64 %.0.lcssa
+  %29 = getelementptr inbounds [32 x i8], ptr %0, i64 %28
+  %30 = getelementptr inbounds [32 x i8], ptr %0, i64 %.0.lcssa
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %30, ptr noundef nonnull align 8 dereferenceable(32) %29, i64 32, i1 false)
   br label %31
 
@@ -8660,21 +8653,21 @@ define internal fastcc void @"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iterator
   %.010.i = phi i64 [ %.0911.i, %37 ], [ %.1, %31 ]
   %.0911.in.i = add nsw i64 %.010.i, -1
   %.0911.i = sdiv i64 %.0911.in.i, 2
-  %33 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TraceEvent", ptr %0, i64 %.0911.i
+  %33 = getelementptr inbounds [32 x i8], ptr %0, i64 %.0911.i
   %34 = call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__10TraceEvent12GetTimeStampEv(ptr noundef nonnull align 8 dereferenceable(32) %33)
   %35 = call noundef i64 @_ZNK32pxrInternal_v0_24__pxrReserved__10TraceEvent12GetTimeStampEv(ptr noundef nonnull align 8 dereferenceable(32) %5)
   %36 = icmp ult i64 %34, %35
   br i1 %36, label %37, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TraceEventESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNS2_L19_ConstructEventListERNS2_25EventListConstructionDataEE3$_0EEEvT_T0_SG_T1_RT2_.exit"
 
 37:                                               ; preds = %.lr.ph.i
-  %38 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TraceEvent", ptr %0, i64 %.010.i
+  %38 = getelementptr inbounds [32 x i8], ptr %0, i64 %.010.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(32) %33, i64 32, i1 false)
   %39 = icmp sgt i64 %.0911.i, %1
   br i1 %39, label %.lr.ph.i, label %"_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TraceEventESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNS2_L19_ConstructEventListERNS2_25EventListConstructionDataEE3$_0EEEvT_T0_SG_T1_RT2_.exit", !llvm.loop !78
 
 "_ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrReserved__10TraceEventESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops14_Iter_comp_valIZNS2_L19_ConstructEventListERNS2_25EventListConstructionDataEE3$_0EEEvT_T0_SG_T1_RT2_.exit": ; preds = %.lr.ph.i, %37, %31
   %.0.lcssa.i = phi i64 [ %.1, %31 ], [ %.010.i, %.lr.ph.i ], [ %.0911.i, %37 ]
-  %40 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TraceEvent", ptr %0, i64 %.0.lcssa.i
+  %40 = getelementptr inbounds [32 x i8], ptr %0, i64 %.0.lcssa.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 32, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret void
@@ -8716,7 +8709,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN32pxrInternal_v0_24__pxrRes
   %13 = sub i64 %12, %6
   %14 = ashr exact i64 %13, 5
   %15 = sub nsw i64 0, %14
-  %16 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TraceEvent", ptr %11, i64 %15
+  %16 = getelementptr inbounds [32 x i8], ptr %11, i64 %15
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %16, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %13, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   br label %24
@@ -8841,7 +8834,7 @@ _ZNSt11_Deque_baseISt10unique_ptrIA_hSt14default_deleteIS1_EESaIS4_EE15_M_alloca
   store ptr %7, ptr %0, align 8
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %9
   %.idx = shl nuw nsw i64 %3, 3
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
@@ -8932,7 +8925,7 @@ _ZNSt11_Deque_baseISt10unique_ptrIA_hSt14default_deleteIS1_EESaIS4_EE15_M_create
   store ptr %47, ptr %48, align 8
   store ptr %38, ptr %36, align 8
   %49 = and i64 %1, 63
-  %50 = getelementptr inbounds nuw %"class.std::unique_ptr.210", ptr %45, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %49
   store ptr %50, ptr %42, align 8
   ret void
 
@@ -9542,7 +9535,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit.i.i.i.i.i
 
 switch.lookup:                                    ; preds = %.noexc10.i.i.i.i.i.i.i.i
   %52 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZNSt17_Function_handlerIFvRN32pxrInternal_v0_24__pxrReserved__8JsWriterEEZNS0_23Trace_JSONSerialization22WriteCollectionsToJSONES2_RKSt6vectorISt10shared_ptrINS0_15TraceCollectionEESaIS8_EEE3$_0E9_M_invokeERKSt9_Any_dataS2_.42", i64 %52
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZNSt17_Function_handlerIFvRN32pxrInternal_v0_24__pxrReserved__8JsWriterEEZNS0_23Trace_JSONSerialization22WriteCollectionsToJSONES2_RKSt6vectorISt10shared_ptrINS0_15TraceCollectionEESaIS8_EEE3$_0E9_M_invokeERKSt9_Any_dataS2_.42", i64 %52
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -9625,7 +9618,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit33.i.i.i.i
 
 switch.lookup17:                                  ; preds = %.noexc23.i.i.i.i.i.i.i.i
   %82 = zext nneg i8 %switch.tableidx16 to i64
-  %switch.gep18 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZNSt17_Function_handlerIFvRN32pxrInternal_v0_24__pxrReserved__8JsWriterEEZNS0_23Trace_JSONSerialization22WriteCollectionsToJSONES2_RKSt6vectorISt10shared_ptrINS0_15TraceCollectionEESaIS8_EEE3$_0E9_M_invokeERKSt9_Any_dataS2_.42", i64 %82
+  %switch.gep18 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZNSt17_Function_handlerIFvRN32pxrInternal_v0_24__pxrReserved__8JsWriterEEZNS0_23Trace_JSONSerialization22WriteCollectionsToJSONES2_RKSt6vectorISt10shared_ptrINS0_15TraceCollectionEESaIS8_EEE3$_0E9_M_invokeERKSt9_Any_dataS2_.42", i64 %82
   %switch.load19 = load ptr, ptr %switch.gep18, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit35.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -9715,7 +9708,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit37.i.i.i.i
 
 switch.lookup21:                                  ; preds = %.noexc39.i.i.i.i.i.i.i.i
   %113 = zext nneg i8 %switch.tableidx20 to i64
-  %switch.gep22 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZNSt17_Function_handlerIFvRN32pxrInternal_v0_24__pxrReserved__8JsWriterEEZNS0_23Trace_JSONSerialization22WriteCollectionsToJSONES2_RKSt6vectorISt10shared_ptrINS0_15TraceCollectionEESaIS8_EEE3$_0E9_M_invokeERKSt9_Any_dataS2_.42", i64 %113
+  %switch.gep22 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZNSt17_Function_handlerIFvRN32pxrInternal_v0_24__pxrReserved__8JsWriterEEZNS0_23Trace_JSONSerialization22WriteCollectionsToJSONES2_RKSt6vectorISt10shared_ptrINS0_15TraceCollectionEESaIS8_EEE3$_0E9_M_invokeERKSt9_Any_dataS2_.42", i64 %113
   %switch.load23 = load ptr, ptr %switch.gep22, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit39.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -9834,7 +9827,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit41.i.i.i.i
 
 switch.lookup25:                                  ; preds = %.noexc54.i.i.i.i.i.i.i.i
   %152 = zext nneg i8 %switch.tableidx24 to i64
-  %switch.gep26 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZNSt17_Function_handlerIFvRN32pxrInternal_v0_24__pxrReserved__8JsWriterEEZNS0_23Trace_JSONSerialization22WriteCollectionsToJSONES2_RKSt6vectorISt10shared_ptrINS0_15TraceCollectionEESaIS8_EEE3$_0E9_M_invokeERKSt9_Any_dataS2_.42", i64 %152
+  %switch.gep26 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZNSt17_Function_handlerIFvRN32pxrInternal_v0_24__pxrReserved__8JsWriterEEZNS0_23Trace_JSONSerialization22WriteCollectionsToJSONES2_RKSt6vectorISt10shared_ptrINS0_15TraceCollectionEESaIS8_EEE3$_0E9_M_invokeERKSt9_Any_dataS2_.42", i64 %152
   %switch.load27 = load ptr, ptr %switch.gep26, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit43.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -9930,7 +9923,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken9GetStringB5cxx11Ev.exit45.i.i.i.i
 
 switch.lookup29:                                  ; preds = %.noexc71.i.i.i.i.i.i.i.i
   %186 = zext nneg i8 %switch.tableidx28 to i64
-  %switch.gep30 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZNSt17_Function_handlerIFvRN32pxrInternal_v0_24__pxrReserved__8JsWriterEEZNS0_23Trace_JSONSerialization22WriteCollectionsToJSONES2_RKSt6vectorISt10shared_ptrINS0_15TraceCollectionEESaIS8_EEE3$_0E9_M_invokeERKSt9_Any_dataS2_.42", i64 %186
+  %switch.gep30 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZNSt17_Function_handlerIFvRN32pxrInternal_v0_24__pxrReserved__8JsWriterEEZNS0_23Trace_JSONSerialization22WriteCollectionsToJSONES2_RKSt6vectorISt10shared_ptrINS0_15TraceCollectionEESaIS8_EEE3$_0E9_M_invokeERKSt9_Any_dataS2_.42", i64 %186
   %switch.load31 = load ptr, ptr %switch.gep30, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L18_EventTypeToStringENS_10TraceEvent9EventTypeE.exit47.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
 
@@ -10991,7 +10984,7 @@ _ZNSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__7TfTokenEPKNS1_10TraceEv
 _ZNSt12_Vector_baseISt4pairIN32pxrInternal_v0_24__pxrReserved__7TfTokenEPKNS1_10TraceEventEESaIS6_EE13_M_deallocateEPS6_m.exit: ; preds = %_ZNSt6vectorISt4pairIN32pxrInternal_v0_24__pxrReserved__7TfTokenEPKNS1_10TraceEventEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit33, %48
   store ptr %21, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i32, ptr %5, align 8
-  %52 = getelementptr inbounds nuw %"struct.std::pair.238", ptr %21, i64 %17
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %17
   store ptr %52, ptr %47, align 8
   ret void
 }

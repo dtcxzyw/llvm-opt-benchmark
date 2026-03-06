@@ -15,8 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::Scalar_" = type { %"class.cv::Vec" }
 %"class.cv::Vec" = type { %"class.cv::Matx" }
 %"class.cv::Matx" = type { [4 x double] }
-%"class.cv::Vec.0" = type { %"class.cv::Matx.1" }
-%"class.cv::Matx.1" = type { [3 x i8] }
 
 $_ZN2cv7MatExprD2Ev = comdat any
 
@@ -593,7 +591,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %2
   %48 = load i64, ptr %47, align 8, !tbaa !53
   %49 = mul i64 %48, %indvars.iv34
   %50 = getelementptr inbounds nuw i8, ptr %46, i64 %49
-  %51 = getelementptr inbounds nuw %"class.cv::Vec.0", ptr %50, i64 %indvars.iv31
+  %51 = getelementptr inbounds nuw [3 x i8], ptr %50, i64 %indvars.iv31
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 %indvars.iv
   %53 = load i8, ptr %52, align 1, !tbaa !13
   %54 = zext i8 %53 to i32
@@ -608,7 +606,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %2
   %63 = load i64, ptr %62, align 8, !tbaa !53
   %64 = mul i64 %63, %indvars.iv34
   %65 = getelementptr inbounds nuw i8, ptr %61, i64 %64
-  %66 = getelementptr inbounds nuw %"class.cv::Vec.0", ptr %65, i64 %indvars.iv31
+  %66 = getelementptr inbounds nuw [3 x i8], ptr %65, i64 %indvars.iv31
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 %indvars.iv
   store i8 %60, ptr %67, align 1, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

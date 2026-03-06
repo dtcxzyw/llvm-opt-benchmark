@@ -316,7 +316,7 @@ Curl_http_useragent.exit:                         ; preds = %25, %27
 
 switch.lookup:                                    ; preds = %49
   %51 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.Curl_http_method, i64 %51
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.Curl_http_method, i64 %51
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %Curl_http_method.exit
 
@@ -2403,7 +2403,7 @@ define dso_local i32 @Curl_add_custom_headers(ptr noundef %0, i1 noundef zeroext
 
 35:                                               ; preds = %.thread, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.thread ], [ %indvars.iv.next, %._crit_edge ]
-  %36 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %.0103178 = load ptr, ptr %36, align 8, !tbaa !115
   %.not120179 = icmp eq ptr %.0103178, null
   br i1 %.not120179, label %._crit_edge, label %.lr.ph
@@ -2649,10 +2649,10 @@ define dso_local i32 @Curl_add_timecondition(ptr noundef %0, ptr noundef %1) loc
 
 switch.lookup:                                    ; preds = %13
   %16 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.Curl_add_timecondition, i64 %16
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.Curl_add_timecondition, i64 %16
   %switch.load = load ptr, ptr %switch.gep, align 8
   %17 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep27 = getelementptr inbounds nuw i64, ptr @switch.table.Curl_add_timecondition.3, i64 %17
+  %switch.gep27 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.Curl_add_timecondition.3, i64 %17
   %switch.load28 = load i64, ptr %switch.gep27, align 8
   %18 = call ptr @Curl_checkheaders(ptr noundef nonnull %0, ptr noundef nonnull %switch.load, i64 noundef %switch.load28) #12
   %.not24 = icmp eq ptr %18, null
@@ -2665,14 +2665,14 @@ switch.lookup:                                    ; preds = %13
   %22 = add nsw i32 %21, -1
   %narrow = select i1 %.not25, i32 6, i32 %22
   %23 = sext i32 %narrow to i64
-  %24 = getelementptr inbounds ptr, ptr @Curl_wkday, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr @Curl_wkday, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !78
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %27 = load i32, ptr %26, align 4, !tbaa !156
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %29 = load i32, ptr %28, align 8, !tbaa !157
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds ptr, ptr @Curl_month, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr @Curl_month, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !78
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %34 = load i32, ptr %33, align 4, !tbaa !158
@@ -2742,7 +2742,7 @@ define dso_local void @Curl_http_method(ptr noundef readonly captures(none) %0, 
 
 switch.lookup:                                    ; preds = %23
   %25 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.Curl_http_method, i64 %25
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.Curl_http_method, i64 %25
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %26
 
@@ -7374,7 +7374,7 @@ define dso_local i32 @Curl_http_req_to_h2(ptr noundef %0, ptr noundef %1, ptr no
 
 75:                                               ; preds = %85, %70
   %.011.i = phi i64 [ 0, %70 ], [ %86, %85 ]
-  %76 = getelementptr inbounds nuw %struct.name_const, ptr @H2_NON_FIELD, i64 %.011.i
+  %76 = getelementptr inbounds nuw [16 x i8], ptr @H2_NON_FIELD, i64 %.011.i
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %78 = load i64, ptr %77, align 8, !tbaa !238
   %79 = icmp ult i64 %74, %78

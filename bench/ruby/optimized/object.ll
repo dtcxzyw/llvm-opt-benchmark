@@ -662,7 +662,7 @@ rbimpl_size_mul_or_raise.exit:                    ; preds = %44, %50, %53
 
 58:                                               ; preds = %rbimpl_size_mul_or_raise.exit, %rb_obj_written.exit
   %indvars.iv = phi i64 [ 0, %rbimpl_size_mul_or_raise.exit ], [ %indvars.iv.next, %rb_obj_written.exit ]
-  %59 = getelementptr i64, ptr %.040, i64 %indvars.iv
+  %59 = getelementptr [8 x i8], ptr %.040, i64 %indvars.iv
   %60 = load i64, ptr %59, align 8, !tbaa !7
   %61 = icmp eq i64 %60, 0
   %62 = and i64 %60, 7
@@ -754,7 +754,7 @@ rb_scan_args_n_opt.exit:                          ; preds = %2, %rbimpl_intern_c
 
 8:                                                ; preds = %rb_scan_args_n_opt.exit
   %9 = zext nneg i32 %0 to i64
-  %10 = getelementptr i64, ptr %1, i64 %9
+  %10 = getelementptr [8 x i8], ptr %1, i64 %9
   %11 = getelementptr i8, ptr %10, i64 -8
   %12 = load i64, ptr %11, align 8, !tbaa !7
   %13 = tail call i32 @rb_keyword_given_p() #24
@@ -1395,7 +1395,7 @@ rb_type.exit:                                     ; preds = %rbimpl_RB_TYPE_P_fa
   br label %rb_type.exit14
 
 switch.lookup:                                    ; preds = %29
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.rb_check_convert_type_with_id.7, i64 %30
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.rb_check_convert_type_with_id.7, i64 %30
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %rb_type.exit14
 
@@ -1785,7 +1785,7 @@ rbimpl_RB_TYPE_P_fastpath.exit29:                 ; preds = %19
 33:                                               ; preds = %27
   %34 = getelementptr inbounds nuw i8, ptr %30, i64 80
   %35 = load ptr, ptr %34, align 8, !tbaa !48
-  %36 = getelementptr i64, ptr %35, i64 %29
+  %36 = getelementptr [8 x i8], ptr %35, i64 %29
   %37 = load i64, ptr %36, align 8, !tbaa !7
   %38 = icmp eq i64 %37, %1
   %39 = select i1 %38, i64 20, i64 0
@@ -1823,7 +1823,7 @@ rbimpl_RB_TYPE_P_fastpath.exit25:                 ; preds = %44
 59:                                               ; preds = %53
   %60 = getelementptr inbounds nuw i8, ptr %56, i64 80
   %61 = load ptr, ptr %60, align 8, !tbaa !48
-  %62 = getelementptr i64, ptr %61, i64 %55
+  %62 = getelementptr [8 x i8], ptr %61, i64 %55
   %63 = load i64, ptr %62, align 8, !tbaa !7
   %64 = icmp eq i64 %63, %42
   br i1 %64, label %class_search_class_ancestor.exit, label %rbimpl_RB_TYPE_P_fastpath.exit25.thread
@@ -2208,7 +2208,7 @@ rbimpl_RB_TYPE_P_fastpath.exit33:                 ; preds = %13
 28:                                               ; preds = %22
   %29 = getelementptr inbounds nuw i8, ptr %18, i64 80
   %30 = load ptr, ptr %29, align 8, !tbaa !48
-  %31 = getelementptr i64, ptr %30, i64 %26
+  %31 = getelementptr [8 x i8], ptr %30, i64 %26
   %32 = load i64, ptr %31, align 8, !tbaa !7
   %33 = icmp eq i64 %32, %1
   %34 = select i1 %33, i64 20, i64 4
@@ -2221,7 +2221,7 @@ rbimpl_RB_TYPE_P_fastpath.exit33:                 ; preds = %13
 37:                                               ; preds = %35
   %38 = getelementptr inbounds nuw i8, ptr %9, i64 80
   %39 = load ptr, ptr %38, align 8, !tbaa !48
-  %40 = getelementptr i64, ptr %39, i64 %24
+  %40 = getelementptr [8 x i8], ptr %39, i64 %24
   %41 = load i64, ptr %40, align 8, !tbaa !7
   %42 = icmp eq i64 %41, %0
   %43 = select i1 %42, i64 0, i64 4
@@ -2453,7 +2453,7 @@ define dso_local i64 @rb_class_superclass(i64 noundef %0) #10 {
 13:                                               ; preds = %10
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 80
   %15 = load ptr, ptr %14, align 8, !tbaa !48
-  %16 = getelementptr i64, ptr %15, i64 %12
+  %16 = getelementptr [8 x i8], ptr %15, i64 %12
   %17 = getelementptr i8, ptr %16, i64 -8
   %18 = load i64, ptr %17, align 8, !tbaa !7
   br label %19
@@ -2488,7 +2488,7 @@ define hidden i64 @rb_mod_attr(i32 noundef %0, ptr noundef readonly captures(non
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %8 = getelementptr i64, ptr %1, i64 %indvars.iv.i
+  %8 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv.i
   %9 = load i64, ptr %8, align 8, !tbaa !7
   %10 = tail call fastcc i64 @id_for_attr(i64 noundef %2, i64 noundef %9)
   tail call void @rb_attr(i64 noundef %2, i64 noundef %10, i32 noundef 1, i32 noundef 0, i32 noundef 1) #24
@@ -2512,7 +2512,7 @@ define hidden i64 @rb_mod_attr(i32 noundef %0, ptr noundef readonly captures(non
 
 .lr.ph.i21:                                       ; preds = %.lr.ph.i21, %.split17
   %indvars.iv.i22 = phi i64 [ 0, %.split17 ], [ %indvars.iv.next.i23, %.lr.ph.i21 ]
-  %17 = getelementptr i64, ptr %1, i64 %indvars.iv.i22
+  %17 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv.i22
   %18 = load i64, ptr %17, align 8, !tbaa !7
   %19 = tail call fastcc i64 @id_for_attr(i64 noundef %2, i64 noundef %18)
   tail call void @rb_attr(i64 noundef %2, i64 noundef %19, i32 noundef 1, i32 noundef 0, i32 noundef 1) #24
@@ -2616,7 +2616,7 @@ define internal i64 @rb_mod_attr_reader(i32 noundef %0, ptr noundef readonly cap
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %7 = getelementptr i64, ptr %1, i64 %indvars.iv
+  %7 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv
   %8 = load i64, ptr %7, align 8, !tbaa !7
   %9 = tail call fastcc i64 @id_for_attr(i64 noundef %2, i64 noundef %8)
   tail call void @rb_attr(i64 noundef %2, i64 noundef %9, i32 noundef 1, i32 noundef 0, i32 noundef 1) #24
@@ -2665,7 +2665,7 @@ define dso_local i64 @rb_convert_type(i64 noundef %0, i32 noundef %1, ptr nounde
   br label %rb_type.exit
 
 switch.lookup:                                    ; preds = %14
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.rb_check_convert_type_with_id.7, i64 %15
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.rb_check_convert_type_with_id.7, i64 %15
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %rb_type.exit
 
@@ -2708,7 +2708,7 @@ sub_2.i.i:                                        ; preds = %sub_1.i.i
 
 40:                                               ; preds = %47, %37
   %indvars.iv.i.i = phi i64 [ 0, %37 ], [ %indvars.iv.next.i.i, %47 ]
-  %41 = getelementptr %struct.conv_method_tbl, ptr @conv_method_names, i64 %indvars.iv.i.i
+  %41 = getelementptr [8 x i8], ptr @conv_method_names, i64 %indvars.iv.i.i
   %42 = load i8, ptr %41, align 8, !tbaa !28
   %43 = icmp eq i8 %42, %39
   br i1 %43, label %44, label %47
@@ -2776,7 +2776,7 @@ convert_type.exit:                                ; preds = %50, %conv_method_in
   br label %rb_type.exit16
 
 switch.lookup29:                                  ; preds = %66
-  %switch.gep33 = getelementptr inbounds nuw i32, ptr @switch.table.rb_check_convert_type_with_id.7, i64 %67
+  %switch.gep33 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.rb_check_convert_type_with_id.7, i64 %67
   %switch.load34 = load i32, ptr %switch.gep33, align 4
   br label %rb_type.exit16
 
@@ -2838,7 +2838,7 @@ define hidden i64 @rb_convert_type_with_id(i64 noundef %0, i32 noundef %1, ptr n
   br label %rb_type.exit
 
 switch.lookup:                                    ; preds = %14
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.rb_check_convert_type_with_id.7, i64 %15
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.rb_check_convert_type_with_id.7, i64 %15
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %rb_type.exit
 
@@ -2882,7 +2882,7 @@ rb_type.exit:                                     ; preds = %switch.lookup, %9, 
   br label %rb_type.exit16
 
 switch.lookup21:                                  ; preds = %34
-  %switch.gep25 = getelementptr inbounds nuw i32, ptr @switch.table.rb_check_convert_type_with_id.7, i64 %35
+  %switch.gep25 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.rb_check_convert_type_with_id.7, i64 %35
   %switch.load26 = load i32, ptr %switch.gep25, align 4
   br label %rb_type.exit16
 
@@ -2998,7 +2998,7 @@ define dso_local noundef i64 @rb_check_convert_type(i64 noundef %0, i32 noundef 
   br label %rb_type.exit
 
 switch.lookup:                                    ; preds = %14
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.rb_check_convert_type_with_id.7, i64 %15
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.rb_check_convert_type_with_id.7, i64 %15
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %rb_type.exit
 
@@ -3043,7 +3043,7 @@ sub_2.i.i:                                        ; preds = %sub_1.i.i
 
 41:                                               ; preds = %48, %38
   %indvars.iv.i.i = phi i64 [ 0, %38 ], [ %indvars.iv.next.i.i, %48 ]
-  %42 = getelementptr %struct.conv_method_tbl, ptr @conv_method_names, i64 %indvars.iv.i.i
+  %42 = getelementptr [8 x i8], ptr @conv_method_names, i64 %indvars.iv.i.i
   %43 = load i8, ptr %42, align 8, !tbaa !28
   %44 = icmp eq i8 %43, %40
   br i1 %44, label %45, label %48
@@ -3114,7 +3114,7 @@ convert_type.exit:                                ; preds = %50, %conv_method_in
   br label %rb_type.exit18
 
 switch.lookup33:                                  ; preds = %67
-  %switch.gep37 = getelementptr inbounds nuw i32, ptr @switch.table.rb_check_convert_type_with_id.7, i64 %68
+  %switch.gep37 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.rb_check_convert_type_with_id.7, i64 %68
   %switch.load38 = load i32, ptr %switch.gep37, align 4
   br label %rb_type.exit18
 
@@ -3167,7 +3167,7 @@ define hidden noundef i64 @rb_check_convert_type_with_id(i64 noundef %0, i32 nou
   br label %rb_type.exit
 
 switch.lookup:                                    ; preds = %14
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.rb_check_convert_type_with_id.7, i64 %15
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.rb_check_convert_type_with_id.7, i64 %15
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %rb_type.exit
 
@@ -3219,7 +3219,7 @@ rb_type.exit:                                     ; preds = %switch.lookup, %9, 
   br label %rb_type.exit19
 
 switch.lookup25:                                  ; preds = %36
-  %switch.gep29 = getelementptr inbounds nuw i32, ptr @switch.table.rb_check_convert_type_with_id.7, i64 %37
+  %switch.gep29 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.rb_check_convert_type_with_id.7, i64 %37
   %switch.load30 = load i32, ptr %switch.gep29, align 4
   br label %rb_type.exit19
 
@@ -3304,7 +3304,7 @@ sub_2.i.i:                                        ; preds = %sub_1.i.i
 
 29:                                               ; preds = %36, %26
   %indvars.iv.i.i = phi i64 [ 0, %26 ], [ %indvars.iv.next.i.i, %36 ]
-  %30 = getelementptr %struct.conv_method_tbl, ptr @conv_method_names, i64 %indvars.iv.i.i
+  %30 = getelementptr [8 x i8], ptr @conv_method_names, i64 %indvars.iv.i.i
   %31 = load i8, ptr %30, align 8, !tbaa !28
   %32 = icmp eq i8 %31, %28
   br i1 %32, label %33, label %36
@@ -5866,7 +5866,7 @@ rb_scan_args_n_opt.exit:
 
 5:                                                ; preds = %rb_scan_args_n_opt.exit
   %6 = zext nneg i32 %0 to i64
-  %7 = getelementptr i64, ptr %1, i64 %6
+  %7 = getelementptr [8 x i8], ptr %1, i64 %6
   %8 = getelementptr i8, ptr %7, i64 -8
   %9 = load i64, ptr %8, align 8, !tbaa !7
   %10 = tail call i32 @rb_keyword_given_p() #24
@@ -6434,7 +6434,7 @@ define internal i64 @rb_mod_attr_writer(i32 noundef %0, ptr noundef readonly cap
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %7 = getelementptr i64, ptr %1, i64 %indvars.iv
+  %7 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv
   %8 = load i64, ptr %7, align 8, !tbaa !7
   %9 = tail call fastcc i64 @id_for_attr(i64 noundef %2, i64 noundef %8)
   tail call void @rb_attr(i64 noundef %2, i64 noundef %9, i32 noundef 0, i32 noundef 1, i32 noundef 1) #24
@@ -6463,7 +6463,7 @@ define internal i64 @rb_mod_attr_accessor(i32 noundef %0, ptr noundef readonly c
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %8 = getelementptr i64, ptr %1, i64 %indvars.iv
+  %8 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv
   %9 = load i64, ptr %8, align 8, !tbaa !7
   %10 = tail call fastcc i64 @id_for_attr(i64 noundef %2, i64 noundef %9)
   tail call void @rb_attr(i64 noundef %2, i64 noundef %10, i32 noundef 1, i32 noundef 1, i32 noundef 1) #24
@@ -6511,7 +6511,7 @@ rb_scan_args_n_opt.exit:
 
 5:                                                ; preds = %rb_scan_args_n_opt.exit
   %6 = zext nneg i32 %0 to i64
-  %7 = getelementptr i64, ptr %1, i64 %6
+  %7 = getelementptr [8 x i8], ptr %1, i64 %6
   %8 = getelementptr i8, ptr %7, i64 -8
   %9 = load i64, ptr %8, align 8, !tbaa !7
   %10 = tail call i32 @rb_keyword_given_p() #24
@@ -8390,7 +8390,7 @@ sub_2:                                            ; preds = %sub_1
 
 17:                                               ; preds = %14, %24
   %indvars.iv = phi i64 [ 0, %14 ], [ %indvars.iv.next, %24 ]
-  %18 = getelementptr %struct.conv_method_tbl, ptr @conv_method_names, i64 %indvars.iv
+  %18 = getelementptr [8 x i8], ptr @conv_method_names, i64 %indvars.iv
   %19 = load i8, ptr %18, align 8, !tbaa !28
   %20 = icmp eq i8 %19, %16
   br i1 %20, label %21, label %24

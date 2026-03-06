@@ -996,7 +996,7 @@ define void @_ZN16uv_platform_tags4tags4Tags3new17hb3c33d329eaa322fE(ptr dead_on
   %.sroa.062.0.copyload = load i64, ptr %1, align 8
   %26 = icmp ult i64 %19, 384307168202282326
   tail call void @llvm.assume(i1 %26)
-  %27 = getelementptr inbounds nuw { { i8, [2 x i8] }, { i8, [4 x i8] }, { i8, [15 x i8] } }, ptr %.sroa.463.0.copyload.pre, i64 %19
+  %27 = getelementptr inbounds nuw [24 x i8], ptr %.sroa.463.0.copyload.pre, i64 %19
   %28 = icmp sgt i64 %.sroa.062.0.copyload, -1
   tail call void @llvm.assume(i1 %28)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -1224,7 +1224,7 @@ define void @_ZN16uv_platform_tags4tags4Tags3new17hb3c33d329eaa322fE(ptr dead_on
   store i8 %84, ptr %91, align 1, !noalias !253
   %92 = load ptr, ptr %71, align 8, !alias.scope !260, !noalias !253, !nonnull !3, !noundef !3
   %93 = sub nsw i64 0, %74
-  %94 = getelementptr inbounds { { i8, [2 x i8] }, [5 x i8], { { { { ptr, i64, i64, i64 }, {}, {} }, {} } } }, ptr %92, i64 %93
+  %94 = getelementptr inbounds [40 x i8], ptr %92, i64 %93
   %95 = and i8 %82, 1
   %96 = zext nneg i8 %95 to i64
   %97 = getelementptr inbounds nuw i8, ptr %71, i64 16
@@ -1304,7 +1304,7 @@ define void @_ZN16uv_platform_tags4tags4Tags3new17hb3c33d329eaa322fE(ptr dead_on
   store i8 %121, ptr %128, align 1, !noalias !266
   %129 = load ptr, ptr %108, align 8, !alias.scope !273, !noalias !266, !nonnull !3, !noundef !3
   %130 = sub nsw i64 0, %111
-  %131 = getelementptr inbounds { { i8, [4 x i8] }, [3 x i8], { { { { ptr, i64, i64, i64 }, {}, {} }, {} } } }, ptr %129, i64 %130
+  %131 = getelementptr inbounds [40 x i8], ptr %129, i64 %130
   %132 = and i8 %119, 1
   %133 = zext nneg i8 %132 to i64
   %134 = getelementptr inbounds nuw i8, ptr %108, i64 16
@@ -1428,7 +1428,7 @@ define void @_ZN16uv_platform_tags4tags4Tags3new17hb3c33d329eaa322fE(ptr dead_on
   store i8 %174, ptr %181, align 1, !noalias !281
   %182 = load ptr, ptr %.sroa.2.0.copyload.i38, align 8, !alias.scope !288, !noalias !281, !nonnull !3, !noundef !3
   %183 = sub nsw i64 0, %165
-  %184 = getelementptr inbounds { { i8, [15 x i8] }, i32, [1 x i32] }, ptr %182, i64 %183
+  %184 = getelementptr inbounds [24 x i8], ptr %182, i64 %183
   %185 = and i8 %172, 1
   %186 = zext nneg i8 %185 to i64
   %187 = getelementptr inbounds nuw i8, ptr %.sroa.2.0.copyload.i38, i64 16
@@ -2158,7 +2158,7 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread19.i.i.i: ; preds = 
 
 257:                                              ; preds = %249, %242
   %258 = load ptr, ptr %167, align 8, !alias.scope !423, !noalias !426, !nonnull !3, !noundef !3
-  %259 = getelementptr inbounds { i8, [15 x i8] }, ptr %258, i64 %243
+  %259 = getelementptr inbounds [16 x i8], ptr %258, i64 %243
   store i8 1, ptr %259, align 8, !noalias !360
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %259, i64 1
   store i8 %246, ptr %.sroa.5.0..sroa_idx.i, align 1, !noalias !360
@@ -2223,7 +2223,7 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread19.i.i.i: ; preds = 
   %.sink803.i = phi i8 [ 3, %261 ], [ 2, %275 ], [ 2, %279 ], [ 3, %265 ], [ 4, %272 ], [ 4, %268 ]
   %.sink.i = phi i8 [ %262, %261 ], [ %276, %275 ], [ %276, %279 ], [ %262, %265 ], [ %269, %272 ], [ %269, %268 ]
   %282 = load ptr, ptr %167, align 8, !noalias !365, !nonnull !3, !noundef !3
-  %283 = getelementptr inbounds { i8, [15 x i8] }, ptr %282, i64 %260
+  %283 = getelementptr inbounds [16 x i8], ptr %282, i64 %260
   store i8 %.sink803.i, ptr %283, align 8, !noalias !360
   %.sroa.5472.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %283, i64 1
   store i8 %.sink.i, ptr %.sroa.5472.0..sroa_idx.i, align 1, !noalias !360
@@ -2241,7 +2241,7 @@ _ZN4core5slice6memchr6memchr17h6928691f02359212E.exit.thread19.i.i.i: ; preds = 
   %288 = phi i8 [ %253, %.loopexit.thread.i ], [ %.pre.i, %.loopexit.i ]
   %289 = phi i64 [ %254, %.loopexit.thread.i ], [ %286, %.loopexit.i ]
   %290 = load ptr, ptr %167, align 8, !alias.scope !430, !noalias !433, !nonnull !3, !noundef !3
-  %291 = getelementptr inbounds { i8, [15 x i8] }, ptr %290, i64 %289
+  %291 = getelementptr inbounds [16 x i8], ptr %290, i64 %289
   store i8 5, ptr %291, align 8, !noalias !360
   %.sroa.5480.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %291, i64 1
   store i8 %288, ptr %.sroa.5480.0..sroa_idx.i, align 1, !noalias !360
@@ -2456,10 +2456,10 @@ common.resume:                                    ; preds = %639, %655, %.body.i
 
 switch.lookup:                                    ; preds = %.lr.ph742.i
   %347 = zext nneg i8 %342 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN16uv_platform_tags4tags12BinaryFormat9from_arch17h562629d5fde980ecE, i64 %347
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN16uv_platform_tags4tags12BinaryFormat9from_arch17h562629d5fde980ecE, i64 %347
   %switch.load = load ptr, ptr %switch.gep, align 8
   %348 = zext nneg i8 %342 to i64
-  %switch.gep527 = getelementptr inbounds nuw i64, ptr @switch.table._ZN16uv_platform_tags4tags12BinaryFormat9from_arch17h562629d5fde980ecE.29, i64 %348
+  %switch.gep527 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN16uv_platform_tags4tags12BinaryFormat9from_arch17h562629d5fde980ecE.29, i64 %348
   %switch.load528 = load i64, ptr %switch.gep527, align 8
   %349 = getelementptr inbounds nuw i8, ptr %switch.load, i64 %switch.load528
   br label %.lr.ph739.i
@@ -2484,7 +2484,7 @@ switch.lookup:                                    ; preds = %.lr.ph742.i
 
 358:                                              ; preds = %355, %.lr.ph739.i
   %359 = load ptr, ptr %329, align 8, !alias.scope !467, !noalias !470, !nonnull !3, !noundef !3
-  %360 = getelementptr inbounds { i8, [15 x i8] }, ptr %359, i64 %350
+  %360 = getelementptr inbounds [16 x i8], ptr %359, i64 %350
   store i8 7, ptr %360, align 8, !noalias !360
   %.sroa.5532.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %360, i64 1
   store i8 %352, ptr %.sroa.5532.0..sroa_idx.i, align 1, !noalias !360
@@ -2546,10 +2546,10 @@ switch.lookup:                                    ; preds = %.lr.ph742.i
 
 switch.lookup531:                                 ; preds = %.lr.ph737.i
   %375 = zext nneg i8 %371 to i64
-  %switch.gep535 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN16uv_platform_tags4tags12BinaryFormat9from_arch17h562629d5fde980ecE, i64 %375
+  %switch.gep535 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN16uv_platform_tags4tags12BinaryFormat9from_arch17h562629d5fde980ecE, i64 %375
   %switch.load536 = load ptr, ptr %switch.gep535, align 8
   %376 = zext nneg i8 %371 to i64
-  %switch.gep537 = getelementptr inbounds nuw i64, ptr @switch.table._ZN16uv_platform_tags4tags12BinaryFormat9from_arch17h562629d5fde980ecE.29, i64 %376
+  %switch.gep537 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN16uv_platform_tags4tags12BinaryFormat9from_arch17h562629d5fde980ecE.29, i64 %376
   %switch.load538 = load i64, ptr %switch.gep537, align 8
   %377 = getelementptr inbounds nuw i8, ptr %switch.load536, i64 %switch.load538
   br label %.lr.ph734.i
@@ -2574,7 +2574,7 @@ switch.lookup531:                                 ; preds = %.lr.ph737.i
 
 386:                                              ; preds = %383, %.lr.ph734.i
   %387 = load ptr, ptr %335, align 8, !alias.scope !474, !noalias !477, !nonnull !3, !noundef !3
-  %388 = getelementptr inbounds { i8, [15 x i8] }, ptr %387, i64 %378
+  %388 = getelementptr inbounds [16 x i8], ptr %387, i64 %378
   store i8 7, ptr %388, align 8, !noalias !360
   %.sroa.5490.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %388, i64 1
   store i8 %380, ptr %.sroa.5490.0..sroa_idx.i, align 1, !noalias !360
@@ -2662,10 +2662,10 @@ switch.lookup531:                                 ; preds = %.lr.ph737.i
 
 switch.lookup551:                                 ; preds = %.preheader.i
   %404 = zext nneg i8 %402 to i64
-  %switch.gep555 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN16uv_platform_tags4tags12BinaryFormat9from_arch17h562629d5fde980ecE, i64 %404
+  %switch.gep555 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN16uv_platform_tags4tags12BinaryFormat9from_arch17h562629d5fde980ecE, i64 %404
   %switch.load556 = load ptr, ptr %switch.gep555, align 8
   %405 = zext nneg i8 %402 to i64
-  %switch.gep557 = getelementptr inbounds nuw i64, ptr @switch.table._ZN16uv_platform_tags4tags12BinaryFormat9from_arch17h562629d5fde980ecE.29, i64 %405
+  %switch.gep557 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN16uv_platform_tags4tags12BinaryFormat9from_arch17h562629d5fde980ecE.29, i64 %405
   %switch.load558 = load i64, ptr %switch.gep557, align 8
   %406 = getelementptr inbounds nuw i8, ptr %switch.load556, i64 %switch.load558
   br label %.lr.ph731.i
@@ -2690,7 +2690,7 @@ switch.lookup551:                                 ; preds = %.preheader.i
 
 415:                                              ; preds = %412, %.lr.ph731.i
   %416 = load ptr, ptr %335, align 8, !alias.scope !489, !noalias !492, !nonnull !3, !noundef !3
-  %417 = getelementptr inbounds { i8, [15 x i8] }, ptr %416, i64 %407
+  %417 = getelementptr inbounds [16 x i8], ptr %416, i64 %407
   store i8 7, ptr %417, align 8, !noalias !360
   %.sroa.5514.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %417, i64 1
   store i8 %409, ptr %.sroa.5514.0..sroa_idx.i, align 1, !noalias !360
@@ -2705,10 +2705,10 @@ switch.lookup551:                                 ; preds = %.preheader.i
 
 switch.lookup541:                                 ; preds = %.preheader718.i
   %420 = zext nneg i8 %397 to i64
-  %switch.gep545 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN16uv_platform_tags4tags12BinaryFormat9from_arch17h562629d5fde980ecE, i64 %420
+  %switch.gep545 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN16uv_platform_tags4tags12BinaryFormat9from_arch17h562629d5fde980ecE, i64 %420
   %switch.load546 = load ptr, ptr %switch.gep545, align 8
   %421 = zext nneg i8 %397 to i64
-  %switch.gep547 = getelementptr inbounds nuw i64, ptr @switch.table._ZN16uv_platform_tags4tags12BinaryFormat9from_arch17h562629d5fde980ecE.29, i64 %421
+  %switch.gep547 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN16uv_platform_tags4tags12BinaryFormat9from_arch17h562629d5fde980ecE.29, i64 %421
   %switch.load548 = load i64, ptr %switch.gep547, align 8
   %422 = getelementptr inbounds nuw i8, ptr %switch.load546, i64 %switch.load548
   br label %.lr.ph.i
@@ -2733,7 +2733,7 @@ switch.lookup541:                                 ; preds = %.preheader718.i
 
 431:                                              ; preds = %428, %.lr.ph.i
   %432 = load ptr, ptr %335, align 8, !alias.scope !496, !noalias !499, !nonnull !3, !noundef !3
-  %433 = getelementptr inbounds { i8, [15 x i8] }, ptr %432, i64 %423
+  %433 = getelementptr inbounds [16 x i8], ptr %432, i64 %423
   store i8 7, ptr %433, align 8, !noalias !360
   %.sroa.5502.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %433, i64 1
   store i8 %425, ptr %.sroa.5502.0..sroa_idx.i, align 1, !noalias !360
@@ -3697,7 +3697,7 @@ _ZN16uv_platform_tags4tags15compatible_tags17hfa80803ab6d1cbcdE.exit.thread: ; p
 
 699:                                              ; preds = %694, %689
   %700 = load ptr, ptr %661, align 8, !alias.scope !607, !noalias !610, !nonnull !3, !noundef !3
-  %701 = getelementptr inbounds { { i8, [2 x i8] }, { i8, [4 x i8] }, { i8, [15 x i8] } }, ptr %700, i64 %691
+  %701 = getelementptr inbounds [24 x i8], ptr %700, i64 %691
   store i24 %.sroa.01.0.insert.insert.i128.reass, ptr %701, align 8
   %.sroa.4228.0..sroa_idx = getelementptr inbounds nuw i8, ptr %701, i64 3
   store i8 3, ptr %.sroa.4228.0..sroa_idx, align 1
@@ -3760,7 +3760,7 @@ _ZN16uv_platform_tags4tags15compatible_tags17hfa80803ab6d1cbcdE.exit.thread: ; p
 
 719:                                              ; preds = %714, %.lr.ph364
   %720 = load ptr, ptr %661, align 8, !alias.scope !614, !noalias !617, !nonnull !3, !noundef !3
-  %721 = getelementptr inbounds { { i8, [2 x i8] }, { i8, [4 x i8] }, { i8, [15 x i8] } }, ptr %720, i64 %711
+  %721 = getelementptr inbounds [24 x i8], ptr %720, i64 %711
   store i24 %.sroa.01.0.insert.insert.i139.reass, ptr %721, align 8
   %.sroa.4236.0..sroa_idx = getelementptr inbounds nuw i8, ptr %721, i64 3
   store i8 2, ptr %.sroa.4236.0..sroa_idx, align 1
@@ -3820,7 +3820,7 @@ _ZN16uv_platform_tags4tags15compatible_tags17hfa80803ab6d1cbcdE.exit.thread: ; p
 
 740:                                              ; preds = %735, %732
   %741 = load ptr, ptr %661, align 8, !alias.scope !621, !noalias !624, !nonnull !3, !noundef !3
-  %742 = getelementptr inbounds { { i8, [2 x i8] }, { i8, [4 x i8] }, { i8, [15 x i8] } }, ptr %741, i64 %783
+  %742 = getelementptr inbounds [24 x i8], ptr %741, i64 %783
   store i24 %.sroa.01.0.insert.insert.i159, ptr %742, align 8
   %.sroa.4264.0..sroa_idx = getelementptr inbounds nuw i8, ptr %742, i64 3
   store i8 2, ptr %.sroa.4264.0..sroa_idx, align 1
@@ -3882,7 +3882,7 @@ _ZN16uv_platform_tags4tags15compatible_tags17hfa80803ab6d1cbcdE.exit.thread: ; p
 
 758:                                              ; preds = %750, %744
   %759 = load ptr, ptr %661, align 8, !alias.scope !628, !noalias !631, !nonnull !3, !noundef !3
-  %760 = getelementptr inbounds { { i8, [2 x i8] }, { i8, [4 x i8] }, { i8, [15 x i8] } }, ptr %759, i64 %745
+  %760 = getelementptr inbounds [24 x i8], ptr %759, i64 %745
   store i8 1, ptr %760, align 8
   %.sroa.4273.0..sroa_idx = getelementptr inbounds nuw i8, ptr %760, i64 1
   store i8 %.sroa.7271.0378, ptr %.sroa.4273.0..sroa_idx, align 1
@@ -3924,7 +3924,7 @@ _ZN16uv_platform_tags4tags15compatible_tags17hfa80803ab6d1cbcdE.exit.thread: ; p
 
 773:                                              ; preds = %768, %765
   %774 = load ptr, ptr %661, align 8, !alias.scope !635, !noalias !638, !nonnull !3, !noundef !3
-  %775 = getelementptr inbounds { { i8, [2 x i8] }, { i8, [4 x i8] }, { i8, [15 x i8] } }, ptr %774, i64 %761
+  %775 = getelementptr inbounds [24 x i8], ptr %774, i64 %761
   store i8 0, ptr %775, align 8
   %.sroa.4282.0..sroa_idx = getelementptr inbounds nuw i8, ptr %775, i64 2
   store i8 %2, ptr %.sroa.4282.0..sroa_idx, align 2
@@ -4001,7 +4001,7 @@ _ZN16uv_platform_tags4tags15compatible_tags17hfa80803ab6d1cbcdE.exit.thread: ; p
 
 798:                                              ; preds = %793, %.lr.ph376
   %799 = load ptr, ptr %661, align 8, !alias.scope !648, !noalias !651, !nonnull !3, !noundef !3
-  %800 = getelementptr inbounds { { i8, [2 x i8] }, { i8, [4 x i8] }, { i8, [15 x i8] } }, ptr %799, i64 %790
+  %800 = getelementptr inbounds [24 x i8], ptr %799, i64 %790
   store i8 0, ptr %800, align 8
   %.sroa.4258.0..sroa_idx = getelementptr inbounds nuw i8, ptr %800, i64 2
   store i8 %2, ptr %.sroa.4258.0..sroa_idx, align 2
@@ -4037,7 +4037,7 @@ _ZN16uv_platform_tags4tags15compatible_tags17hfa80803ab6d1cbcdE.exit.thread: ; p
 
 808:                                              ; preds = %803, %.lr.ph372
   %809 = load ptr, ptr %661, align 8, !alias.scope !642, !noalias !645, !nonnull !3, !noundef !3
-  %810 = getelementptr inbounds { { i8, [2 x i8] }, { i8, [4 x i8] }, { i8, [15 x i8] } }, ptr %809, i64 %780
+  %810 = getelementptr inbounds [24 x i8], ptr %809, i64 %780
   store i8 1, ptr %810, align 8
   %.sroa.4247.0..sroa_idx = getelementptr inbounds nuw i8, ptr %810, i64 1
   store i8 %.sroa.7243.0377, ptr %.sroa.4247.0..sroa_idx, align 1
@@ -4125,7 +4125,7 @@ _ZN16uv_platform_tags4tags15compatible_tags17hfa80803ab6d1cbcdE.exit.thread: ; p
 
 828:                                              ; preds = %823, %819
   %829 = load ptr, ptr %661, align 8, !alias.scope !656, !noalias !659, !nonnull !3, !noundef !3
-  %830 = getelementptr inbounds { { i8, [2 x i8] }, { i8, [4 x i8] }, { i8, [15 x i8] } }, ptr %829, i64 %820
+  %830 = getelementptr inbounds [24 x i8], ptr %829, i64 %820
   store i24 %.sroa.01.0.insert.insert.i, ptr %830, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %830, i64 3
   store i40 %.sroa.02.0.insert.insert.i, ptr %.sroa.4.0..sroa_idx, align 1
@@ -4226,7 +4226,7 @@ define noundef zeroext i1 @_ZN16uv_platform_tags4tags4Tags13is_compatible17h4fcd
   %40 = add i64 %.sroa.01.0.i.i.i, %39
   %41 = and i64 %40, %31
   %42 = sub nsw i64 0, %41
-  %43 = getelementptr inbounds { { i8, [2 x i8] }, [5 x i8], { { { { ptr, i64, i64, i64 }, {}, {} }, {} } } }, ptr %32, i64 %42
+  %43 = getelementptr inbounds [40 x i8], ptr %32, i64 %42
   %44 = getelementptr inbounds i8, ptr %43, i64 -40
   %45 = call noundef zeroext i1 @"_ZN84_$LT$uv_platform_tags..language_tag..LanguageTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfdfa2ba761e15a5aE.llvm.8769610265116901195"(ptr noalias noundef nonnull readonly align 1 dereferenceable(3) %.sroa.0.068, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %44), !noalias !690
   br i1 %45, label %57, label %49, !prof !693
@@ -4314,7 +4314,7 @@ define noundef zeroext i1 @_ZN16uv_platform_tags4tags4Tags13is_compatible17h4fcd
   %80 = add i64 %.sroa.01.0.i.i.i20, %79
   %81 = and i64 %80, %71
   %82 = sub nsw i64 0, %81
-  %83 = getelementptr inbounds { { i8, [4 x i8] }, [3 x i8], { { { { ptr, i64, i64, i64 }, {}, {} }, {} } } }, ptr %72, i64 %82
+  %83 = getelementptr inbounds [40 x i8], ptr %72, i64 %82
   %84 = getelementptr inbounds i8, ptr %83, i64 -40
   %85 = call noundef zeroext i1 @"_ZN74_$LT$uv_platform_tags..abi_tag..AbiTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5afe1d7a5a3bd731E.llvm.6472841061962007722"(ptr noalias noundef nonnull readonly align 1 dereferenceable(5) %.sroa.039.066, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %84), !noalias !723
   br i1 %85, label %97, label %89, !prof !693
@@ -4389,7 +4389,7 @@ define noundef zeroext i1 @_ZN16uv_platform_tags4tags4Tags13is_compatible17h4fcd
   %117 = add i64 %.sroa.01.0.i.i.i32, %116
   %118 = and i64 %117, %108
   %119 = sub nsw i64 0, %118
-  %120 = getelementptr inbounds { { i8, [15 x i8] }, i32, [1 x i32] }, ptr %109, i64 %119
+  %120 = getelementptr inbounds [24 x i8], ptr %109, i64 %119
   %121 = getelementptr inbounds i8, ptr %120, i64 -24
   %122 = call noundef zeroext i1 @"_ZN84_$LT$uv_platform_tags..platform_tag..PlatformTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6f8f0acbd9fa4874E.llvm.12211209784230501979"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.041.065, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %121), !noalias !754
   br i1 %122, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17he957227e54549ed4E.exit.i", label %126, !prof !693
@@ -4503,7 +4503,7 @@ define i64 @_ZN16uv_platform_tags4tags4Tags13compatibility17hd72bfce9672f6b33E(p
   %48 = add i64 %.sroa.01.0.i.i.i, %47
   %49 = and i64 %48, %39
   %50 = sub nsw i64 0, %49
-  %51 = getelementptr inbounds { { i8, [2 x i8] }, [5 x i8], { { { { ptr, i64, i64, i64 }, {}, {} }, {} } } }, ptr %40, i64 %50
+  %51 = getelementptr inbounds [40 x i8], ptr %40, i64 %50
   %52 = getelementptr inbounds i8, ptr %51, i64 -40
   %53 = call noundef zeroext i1 @"_ZN84_$LT$uv_platform_tags..language_tag..LanguageTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfdfa2ba761e15a5aE.llvm.8769610265116901195"(ptr noalias noundef nonnull readonly align 1 dereferenceable(3) %.sroa.0.0156202, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %52), !noalias !784
   br i1 %53, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h7876f43f9e1bc54fE.exit", label %57, !prof !693
@@ -4640,7 +4640,7 @@ select.unfold163.us:                              ; preds = %.lr.ph195, %select.
   %93 = add i64 %.sroa.01.0.i.i.i118, %92
   %94 = and i64 %93, %84
   %95 = sub nsw i64 0, %94
-  %96 = getelementptr inbounds { { i8, [4 x i8] }, [3 x i8], { { { { ptr, i64, i64, i64 }, {}, {} }, {} } } }, ptr %85, i64 %95
+  %96 = getelementptr inbounds [40 x i8], ptr %85, i64 %95
   %97 = getelementptr inbounds i8, ptr %96, i64 -40
   %98 = call noundef zeroext i1 @"_ZN74_$LT$uv_platform_tags..abi_tag..AbiTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5afe1d7a5a3bd731E.llvm.6472841061962007722"(ptr noalias noundef nonnull readonly align 1 dereferenceable(5) %.sroa.0152.0191, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %97), !noalias !815
   br i1 %98, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17ha0b402dd5df9ce5eE.exit", label %102, !prof !693
@@ -4768,7 +4768,7 @@ select.unfold167.us:                              ; preds = %.lr.ph, %select.unf
   %135 = add i64 %.sroa.01.0.i.i.i135, %134
   %136 = and i64 %135, %126
   %137 = sub nsw i64 0, %136
-  %138 = getelementptr inbounds { { i8, [15 x i8] }, i32, [1 x i32] }, ptr %127, i64 %137
+  %138 = getelementptr inbounds [24 x i8], ptr %127, i64 %137
   %139 = getelementptr inbounds i8, ptr %138, i64 -24
   %140 = call noundef zeroext i1 @"_ZN84_$LT$uv_platform_tags..platform_tag..PlatformTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6f8f0acbd9fa4874E.llvm.12211209784230501979"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.sroa.0154.0183, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %139), !noalias !846
   br i1 %140, label %151, label %144, !prof !693
@@ -4929,7 +4929,7 @@ define noundef zeroext i1 @_ZN16uv_platform_tags4tags4Tags17is_compatible_abi17h
   %29 = add i64 %.sroa.01.0.i.i.i, %28
   %30 = and i64 %29, %20
   %31 = sub nsw i64 0, %30
-  %32 = getelementptr inbounds { { i8, [2 x i8] }, [5 x i8], { { { { ptr, i64, i64, i64 }, {}, {} }, {} } } }, ptr %21, i64 %31
+  %32 = getelementptr inbounds [40 x i8], ptr %21, i64 %31
   %33 = getelementptr inbounds i8, ptr %32, i64 -40
   %34 = call noundef zeroext i1 @"_ZN84_$LT$uv_platform_tags..language_tag..LanguageTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17hfdfa2ba761e15a5aE.llvm.8769610265116901195"(ptr noalias noundef nonnull readonly align 1 dereferenceable(3) %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %33), !noalias !876
   br i1 %34, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h7876f43f9e1bc54fE.exit", label %38, !prof !693
@@ -4995,7 +4995,7 @@ define noundef zeroext i1 @_ZN16uv_platform_tags4tags4Tags17is_compatible_abi17h
   %64 = add i64 %.sroa.01.0.i.i.i13, %63
   %65 = and i64 %64, %55
   %66 = sub nsw i64 0, %65
-  %67 = getelementptr inbounds { { i8, [4 x i8] }, [3 x i8], { { { { ptr, i64, i64, i64 }, {}, {} }, {} } } }, ptr %56, i64 %66
+  %67 = getelementptr inbounds [40 x i8], ptr %56, i64 %66
   %68 = getelementptr inbounds i8, ptr %67, i64 -40
   %69 = call noundef zeroext i1 @"_ZN74_$LT$uv_platform_tags..abi_tag..AbiTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17h5afe1d7a5a3bd731E.llvm.6472841061962007722"(ptr noalias noundef nonnull readonly align 1 dereferenceable(5) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %68), !noalias !906
   br i1 %69, label %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17h7876f43f9e1bc54fE.exit.thread", label %73, !prof !693
@@ -5445,10 +5445,10 @@ switch.lookup:
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = load i8, ptr %0, align 1, !range !466, !alias.scope !986, !noundef !3
   %6 = zext nneg i8 %5 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN16uv_platform_tags4tags12BinaryFormat4name17hd2f82024541c20c5E, i64 %6
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN16uv_platform_tags4tags12BinaryFormat4name17hd2f82024541c20c5E, i64 %6
   %switch.load = load i64, ptr %switch.gep, align 8
   %7 = zext nneg i8 %5 to i64
-  %switch.gep3 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN16uv_platform_tags4tags12BinaryFormat4name17hd2f82024541c20c5E.31, i64 %7
+  %switch.gep3 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN16uv_platform_tags4tags12BinaryFormat4name17hd2f82024541c20c5E.31, i64 %7
   %switch.load4 = load ptr, ptr %switch.gep3, align 8
   store ptr %switch.load4, ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -5657,10 +5657,10 @@ switch.hole_check:                                ; preds = %1
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %4 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN16uv_platform_tags4tags12BinaryFormat9from_arch17h562629d5fde980ecE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN16uv_platform_tags4tags12BinaryFormat9from_arch17h562629d5fde980ecE, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   %5 = zext nneg i8 %0 to i64
-  %switch.gep2 = getelementptr inbounds nuw i64, ptr @switch.table._ZN16uv_platform_tags4tags12BinaryFormat9from_arch17h562629d5fde980ecE.29, i64 %5
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN16uv_platform_tags4tags12BinaryFormat9from_arch17h562629d5fde980ecE.29, i64 %5
   %switch.load3 = load i64, ptr %switch.gep2, align 8
   %6 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %7 = insertvalue { ptr, i64 } %6, i64 %switch.load3, 1
@@ -5672,10 +5672,10 @@ define { ptr, i64 } @_ZN16uv_platform_tags4tags12BinaryFormat16platform_machine1
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !466, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN16uv_platform_tags4tags12BinaryFormat16platform_machine17h0e34ce8014195c5eE, i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN16uv_platform_tags4tags12BinaryFormat16platform_machine17h0e34ce8014195c5eE, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN16uv_platform_tags4tags12BinaryFormat16platform_machine17h0e34ce8014195c5eE.30, i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN16uv_platform_tags4tags12BinaryFormat16platform_machine17h0e34ce8014195c5eE.30, i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -5687,10 +5687,10 @@ define { ptr, i64 } @_ZN16uv_platform_tags4tags12BinaryFormat4name17hd2f82024541
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !466, !noundef !3
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN16uv_platform_tags4tags12BinaryFormat4name17hd2f82024541c20c5E, i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN16uv_platform_tags4tags12BinaryFormat4name17hd2f82024541c20c5E, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN16uv_platform_tags4tags12BinaryFormat4name17hd2f82024541c20c5E.31, i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN16uv_platform_tags4tags12BinaryFormat4name17hd2f82024541c20c5E.31, i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1

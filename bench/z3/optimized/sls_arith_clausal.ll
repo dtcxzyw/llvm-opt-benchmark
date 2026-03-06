@@ -5,23 +5,13 @@ target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"struct.std::nothrow_t" = type { i8 }
-%"struct.sls::arith_base<checked_int64<true>>::var_change" = type { i32, %class.checked_int64, double }
 %class.checked_int64 = type { i64 }
-%"class.sls::arith_base<checked_int64<true>>::var_info" = type { %class.checked_int64, i32, i32, %class.checked_int64, %class.checked_int64, ptr, i32, i32, i32, %class.vector.17, %class.svector, %class.svector, %class.svector, %class.svector, %class.svector, %class.svector, %class.optional, %class.optional, %class.vector.16, i32, i32, i32, i32 }
-%class.vector.17 = type { ptr }
-%class.svector = type { %class.vector.6 }
-%class.vector.6 = type { ptr }
-%class.optional = type { ptr }
-%class.vector.16 = type { ptr }
 %class.rational = type { %class.mpq }
 %class.mpq = type { %class.mpz, %class.mpz }
 %class.mpz = type { i32, i8, ptr }
-%"struct.sls::arith_base<rational>::var_change" = type { i32, %class.rational, double }
-%"class.sls::arith_base<rational>::var_info" = type { %class.rational, i32, i32, %class.rational, %class.rational, ptr, i32, i32, i32, %class.vector.52, %class.svector, %class.svector, %class.svector, %class.svector, %class.svector, %class.svector, %class.optional.53, %class.optional.53, %class.vector.51, i32, i32, i32, i32 }
-%class.vector.52 = type { ptr }
-%class.optional.53 = type { ptr }
-%class.vector.51 = type { ptr }
+%"struct.sls::arith_base<checked_int64<true>>::var_change" = type { i32, %class.checked_int64, double }
 %"class.std::_Temporary_buffer.64" = type { i64, i64, ptr }
+%"struct.sls::arith_base<rational>::var_change" = type { i32, %class.rational, double }
 
 $_ZN3sls13arith_clausalI13checked_int64ILb1EEE13check_restartEv = comdat any
 
@@ -487,7 +477,7 @@ _ZNK6vectorIPN3sls10arith_baseI13checked_int64ILb1EEE4ineqELb0EjE4sizeEv.exit.i.
 
 _ZNK3sls10arith_baseI13checked_int64ILb1EEE8get_ineqEj.exit: ; preds = %_ZNK6vectorIPN3sls10arith_baseI13checked_int64ILb1EEE4ineqELb0EjE4sizeEv.exit.i.i
   %109 = zext nneg i32 %101 to i64
-  %110 = getelementptr inbounds nuw ptr, ptr %104, i64 %109
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 %109
   %111 = load ptr, ptr %110, align 8, !tbaa !123
   %.not13 = icmp eq ptr %111, null
   br i1 %.not13, label %_ZNK3sls10arith_baseI13checked_int64ILb1EEE8get_ineqEj.exit.thread, label %112
@@ -855,7 +845,7 @@ _ZNK6vectorIN3sls10arith_baseI13checked_int64ILb1EEE10var_changeELb1EjE4sizeEv.e
   %75 = and i32 %74, 32767
   %76 = urem i32 %75, %67
   %77 = zext nneg i32 %76 to i64
-  %78 = getelementptr inbounds nuw %"struct.sls::arith_base<checked_int64<true>>::var_change", ptr %64, i64 %77
+  %78 = getelementptr inbounds nuw [24 x i8], ptr %64, i64 %77
   %79 = load i32, ptr %78, align 8, !tbaa !134
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %81 = invoke noundef zeroext i1 @_ZN3sls10arith_baseI13checked_int64ILb1EEE14can_update_numEjRKS2_(ptr noundef nonnull align 8 dereferenceable(672) %62, i32 noundef %79, ptr noundef nonnull align 8 dereferenceable(8) %80)
@@ -1138,7 +1128,7 @@ _ZN6vectorIN3sls10arith_baseI13checked_int64ILb1EEE10var_changeELb1EjE5resetEv.e
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 608
   %28 = load ptr, ptr %27, align 8, !tbaa !132
   %29 = zext nneg i32 %25 to i64
-  %30 = getelementptr inbounds nuw i32, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %29
   %31 = load i32, ptr %30, align 4, !tbaa !72
   %indvars.iv.next48 = add nsw i64 %indvars.iv47, -1
   %indvars = trunc i64 %indvars.iv.next48 to i32
@@ -1147,17 +1137,17 @@ _ZN6vectorIN3sls10arith_baseI13checked_int64ILb1EEE10var_changeELb1EjE5resetEv.e
 
 33:                                               ; preds = %16
   %34 = and i64 %indvars.iv.next48, 4294967295
-  %35 = getelementptr inbounds nuw i32, ptr %28, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !72
   store i32 %36, ptr %30, align 4, !tbaa !72
   store i32 %31, ptr %35, align 4, !tbaa !72
   %37 = getelementptr inbounds nuw i8, ptr %26, i64 616
   %38 = load ptr, ptr %37, align 8, !tbaa !132
   %39 = zext i32 %31 to i64
-  %40 = getelementptr inbounds nuw i32, ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %39
   store i32 %indvars, ptr %40, align 4, !tbaa !72
   %41 = zext i32 %36 to i64
-  %42 = getelementptr inbounds nuw i32, ptr %38, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %41
   store i32 %25, ptr %42, align 4, !tbaa !72
   br label %_ZN16indexed_uint_set10swap_elemsEjj.exit
 
@@ -1181,7 +1171,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.i.i:              ; preds = %_ZN16indexed_uint_s
 
 55:                                               ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i
   %56 = zext i32 %31 to i64
-  %57 = getelementptr inbounds nuw i32, ptr %50, i64 %56
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %56
   %58 = load i32, ptr %57, align 4, !tbaa !72
   %59 = load i32, ptr %48, align 8, !tbaa !108
   %60 = icmp ult i32 %58, %59
@@ -1191,7 +1181,7 @@ _ZNK16indexed_uint_set8containsEj.exit.i:         ; preds = %55
   %61 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %62 = load ptr, ptr %61, align 8, !tbaa !132
   %63 = zext i32 %58 to i64
-  %64 = getelementptr inbounds nuw i32, ptr %62, i64 %63
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %63
   %65 = load i32, ptr %64, align 4, !tbaa !72
   %66 = icmp eq i32 %65, %31
   br i1 %66, label %_ZZN3sls13arith_clausalI13checked_int64ILb1EEE31add_lookahead_on_false_literalsEvENKUljE_clEj.exit.thread, label %_ZNK16indexed_uint_set8containsEj.exit.thread.i
@@ -1211,7 +1201,7 @@ _ZNK6vectorIPN3sls10arith_baseI13checked_int64ILb1EEE4ineqELb0EjE4sizeEv.exit.i.
 
 _ZNK3sls10arith_baseI13checked_int64ILb1EEE8get_ineqEj.exit.i: ; preds = %_ZNK6vectorIPN3sls10arith_baseI13checked_int64ILb1EEE4ineqELb0EjE4sizeEv.exit.i.i.i
   %74 = zext i32 %31 to i64
-  %75 = getelementptr inbounds nuw ptr, ptr %69, i64 %74
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %74
   %76 = load ptr, ptr %75, align 8, !tbaa !123
   %.not.i25 = icmp eq ptr %76, null
   br i1 %.not.i25, label %_ZZN3sls13arith_clausalI13checked_int64ILb1EEE31add_lookahead_on_false_literalsEvENKUljE_clEj.exit.thread, label %_ZZN3sls13arith_clausalI13checked_int64ILb1EEE31add_lookahead_on_false_literalsEvENKUljE_clEj.exit
@@ -1250,7 +1240,7 @@ _ZZN3sls13arith_clausalI13checked_int64ILb1EEE31add_lookahead_on_false_literalsE
   %94 = load ptr, ptr %2, align 8, !tbaa !15
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 608
   %96 = load ptr, ptr %95, align 8, !tbaa !132
-  %97 = getelementptr inbounds nuw i32, ptr %96, i64 %indvars.iv
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %96, i64 %indvars.iv
   %98 = load i32, ptr %97, align 4, !tbaa !72
   %99 = load ptr, ptr %0, align 8, !tbaa !82
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
@@ -1272,7 +1262,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.i.i26:            ; preds = %.lr.ph
 
 112:                                              ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i26
   %113 = zext i32 %98 to i64
-  %114 = getelementptr inbounds nuw i32, ptr %107, i64 %113
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %107, i64 %113
   %115 = load i32, ptr %114, align 4, !tbaa !72
   %116 = load i32, ptr %105, align 8, !tbaa !108
   %117 = icmp ult i32 %115, %116
@@ -1282,7 +1272,7 @@ _ZNK16indexed_uint_set8containsEj.exit.i32:       ; preds = %112
   %118 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %119 = load ptr, ptr %118, align 8, !tbaa !132
   %120 = zext i32 %115 to i64
-  %121 = getelementptr inbounds nuw i32, ptr %119, i64 %120
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %119, i64 %120
   %122 = load i32, ptr %121, align 4, !tbaa !72
   %123 = icmp eq i32 %122, %98
   br i1 %123, label %_ZZN3sls13arith_clausalI13checked_int64ILb1EEE31add_lookahead_on_false_literalsEvENKUljE_clEj.exit33.thread, label %_ZNK16indexed_uint_set8containsEj.exit.thread.i27
@@ -1302,7 +1292,7 @@ _ZNK6vectorIPN3sls10arith_baseI13checked_int64ILb1EEE4ineqELb0EjE4sizeEv.exit.i.
 
 _ZNK3sls10arith_baseI13checked_int64ILb1EEE8get_ineqEj.exit.i30: ; preds = %_ZNK6vectorIPN3sls10arith_baseI13checked_int64ILb1EEE4ineqELb0EjE4sizeEv.exit.i.i.i28
   %131 = zext i32 %98 to i64
-  %132 = getelementptr inbounds nuw ptr, ptr %126, i64 %131
+  %132 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %131
   %133 = load ptr, ptr %132, align 8, !tbaa !123
   %.not.i31 = icmp eq ptr %133, null
   br i1 %.not.i31, label %_ZZN3sls13arith_clausalI13checked_int64ILb1EEE31add_lookahead_on_false_literalsEvENKUljE_clEj.exit33.thread, label %_ZZN3sls13arith_clausalI13checked_int64ILb1EEE31add_lookahead_on_false_literalsEvENKUljE_clEj.exit33
@@ -1365,7 +1355,7 @@ _ZNK6vectorIN3sls10arith_baseI13checked_int64ILb1EEE10var_changeELb1EjE4sizeEv.e
   %16 = and i32 %15, 32767
   %17 = urem i32 %16, %8
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw %"struct.sls::arith_base<checked_int64<true>>::var_change", ptr %5, i64 %18
+  %19 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %18
   %20 = load i32, ptr %19, align 8, !tbaa !134
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %22 = tail call noundef zeroext i1 @_ZN3sls10arith_baseI13checked_int64ILb1EEE14can_update_numEjRKS2_(ptr noundef nonnull align 8 dereferenceable(672) %3, i32 noundef %20, ptr noundef nonnull align 8 dereferenceable(8) %21)
@@ -1420,7 +1410,7 @@ thread-pre-split:                                 ; preds = %3
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 168
   %24 = load ptr, ptr %23, align 8, !tbaa !71
   %25 = zext i32 %1 to i64
-  %26 = getelementptr inbounds nuw %"class.sls::arith_base<checked_int64<true>>::var_info", ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [152 x i8], ptr %24, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load i64, ptr %27, align 8, !tbaa !81
   %29 = load i64, ptr %2, align 8, !tbaa !80
@@ -1543,7 +1533,7 @@ define weak_odr hidden void @_ZN3sls13arith_clausalI13checked_int64ILb1EEE13crit
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 168
   %13 = load ptr, ptr %12, align 8, !tbaa !71
   %14 = zext i32 %1 to i64
-  %15 = getelementptr inbounds nuw %"class.sls::arith_base<checked_int64<true>>::var_info", ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [152 x i8], ptr %13, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 28
   %17 = load i32, ptr %16, align 4, !tbaa !147
   %18 = add i32 %17, 3
@@ -1589,7 +1579,7 @@ _ZN3sls10arith_baseI13checked_int64ILb1EEE8var_info8set_stepEjjRKS2_.exit: ; pre
   %38 = load ptr, ptr %7, align 8, !tbaa !15
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 168
   %40 = load ptr, ptr %39, align 8, !tbaa !71
-  %41 = getelementptr inbounds nuw %"class.sls::arith_base<checked_int64<true>>::var_info", ptr %40, i64 %14
+  %41 = getelementptr inbounds nuw [152 x i8], ptr %40, i64 %14
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 64
   %43 = load ptr, ptr %42, align 8, !tbaa !132
   %44 = icmp eq ptr %43, null
@@ -1627,7 +1617,7 @@ _ZNK6vectorIPN3sls10arith_baseI13checked_int64ILb1EEE4ineqELb0EjE4sizeEv.exit.i.
 
 _ZNK3sls10arith_baseI13checked_int64ILb1EEE8get_ineqEj.exit: ; preds = %_ZNK6vectorIPN3sls10arith_baseI13checked_int64ILb1EEE4ineqELb0EjE4sizeEv.exit.i.i
   %61 = zext i32 %53 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %56, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %61
   %63 = load ptr, ptr %62, align 8, !tbaa !123
   %.not19 = icmp eq ptr %63, null
   br i1 %.not19, label %_ZNK3sls10arith_baseI13checked_int64ILb1EEE8get_ineqEj.exit.thread, label %_ZNK6vectorIPN3sls10arith_baseI13checked_int64ILb1EEE4ineqELb0EjE4sizeEv.exit.i.i21
@@ -1685,7 +1675,7 @@ _ZNK6vectorIPN3sls10arith_baseI13checked_int64ILb1EEE4ineqELb0EjE4sizeEv.exit.i.
 
 _ZNK3sls10arith_baseI13checked_int64ILb1EEE8get_ineqEj.exit: ; preds = %_ZNK6vectorIPN3sls10arith_baseI13checked_int64ILb1EEE4ineqELb0EjE4sizeEv.exit.i.i
   %13 = zext i32 %1 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %8, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !123
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %_ZNK3sls10arith_baseI13checked_int64ILb1EEE8get_ineqEj.exit.thread, label %16
@@ -1794,7 +1784,7 @@ define weak_odr hidden noundef double @_ZN3sls13arith_clausalI13checked_int64ILb
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 168
   %8 = load ptr, ptr %7, align 8, !tbaa !71
   %9 = zext i32 %1 to i64
-  %10 = getelementptr inbounds nuw %"class.sls::arith_base<checked_int64<true>>::var_info", ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [152 x i8], ptr %8, i64 %9
   %11 = tail call noundef zeroext i1 @_ZN3sls10arith_baseI13checked_int64ILb1EEE10update_numEjRKS2_(ptr noundef nonnull align 8 dereferenceable(672) %6, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2)
   br i1 %11, label %12, label %95
 
@@ -1911,7 +1901,7 @@ _ZNK6vectorIPN3sls10arith_baseI13checked_int64ILb1EEE4ineqELb0EjE4sizeEv.exit.i.
 
 _ZNK3sls10arith_baseI13checked_int64ILb1EEE8get_ineqEj.exit: ; preds = %_ZNK6vectorIPN3sls10arith_baseI13checked_int64ILb1EEE4ineqELb0EjE4sizeEv.exit.i.i
   %68 = zext nneg i32 %60 to i64
-  %69 = getelementptr inbounds nuw ptr, ptr %63, i64 %68
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %68
   %70 = load ptr, ptr %69, align 8, !tbaa !123
   %.not46 = icmp eq ptr %70, null
   br i1 %.not46, label %_ZNK3sls10arith_baseI13checked_int64ILb1EEE8get_ineqEj.exit.thread, label %71
@@ -2988,7 +2978,7 @@ _ZNK6vectorIPN3sls10arith_baseI8rationalE4ineqELb0EjE4sizeEv.exit.i.i: ; preds =
 
 _ZNK3sls10arith_baseI8rationalE8get_ineqEj.exit:  ; preds = %_ZNK6vectorIPN3sls10arith_baseI8rationalE4ineqELb0EjE4sizeEv.exit.i.i
   %109 = zext nneg i32 %101 to i64
-  %110 = getelementptr inbounds nuw ptr, ptr %104, i64 %109
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 %109
   %111 = load ptr, ptr %110, align 8, !tbaa !223
   %.not13 = icmp eq ptr %111, null
   br i1 %.not13, label %_ZNK3sls10arith_baseI8rationalE8get_ineqEj.exit.thread, label %112
@@ -3268,7 +3258,7 @@ _ZNK6vectorIN3sls10arith_baseI8rationalE10var_changeELb1EjE4sizeEv.exit.i: ; pre
   %42 = and i32 %41, 32767
   %43 = urem i32 %42, %34
   %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds nuw %"struct.sls::arith_base<rational>::var_change", ptr %31, i64 %44
+  %45 = getelementptr inbounds nuw [48 x i8], ptr %31, i64 %44
   %46 = load i32, ptr %45, align 8, !tbaa !230
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %48 = invoke noundef zeroext i1 @_ZN3sls10arith_baseI8rationalE14can_update_numEjRKS1_(ptr noundef nonnull align 8 dereferenceable(792) %29, i32 noundef %46, ptr noundef nonnull align 8 dereferenceable(32) %47)
@@ -3404,7 +3394,7 @@ _ZNK6vectorIN3sls10arith_baseI8rationalE10var_changeELb1EjE5emptyEv.exit: ; pred
 
 _ZN6vectorIN3sls10arith_baseI8rationalE10var_changeELb1EjE3endEv.exit: ; preds = %_ZNK6vectorIN3sls10arith_baseI8rationalE10var_changeELb1EjE5emptyEv.exit
   %12 = zext i32 %10 to i64
-  %13 = getelementptr inbounds nuw %"struct.sls::arith_base<rational>::var_change", ptr %7, i64 %12
+  %13 = getelementptr inbounds nuw [48 x i8], ptr %7, i64 %12
   tail call void @_ZSt13__stable_sortIPN3sls10arith_baseI8rationalE10var_changeEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_13arith_clausalIS2_E24critical_move_on_updatesENSA_6move_tEEUlRKT_RKT0_E_EEEvSC_SC_SF_(ptr noundef nonnull %7, ptr noundef nonnull %13)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 140
   store i32 -1, ptr %14, align 4, !tbaa !233
@@ -3656,7 +3646,7 @@ _ZN6vectorIN3sls10arith_baseI8rationalE10var_changeELb1EjE5resetEv.exit: ; preds
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 728
   %39 = load ptr, ptr %38, align 8, !tbaa !132
   %40 = zext nneg i32 %36 to i64
-  %41 = getelementptr inbounds nuw i32, ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !72
   %indvars.iv.next48 = add nsw i64 %indvars.iv47, -1
   %indvars = trunc i64 %indvars.iv.next48 to i32
@@ -3665,17 +3655,17 @@ _ZN6vectorIN3sls10arith_baseI8rationalE10var_changeELb1EjE5resetEv.exit: ; preds
 
 44:                                               ; preds = %27
   %45 = and i64 %indvars.iv.next48, 4294967295
-  %46 = getelementptr inbounds nuw i32, ptr %39, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !72
   store i32 %47, ptr %41, align 4, !tbaa !72
   store i32 %42, ptr %46, align 4, !tbaa !72
   %48 = getelementptr inbounds nuw i8, ptr %37, i64 736
   %49 = load ptr, ptr %48, align 8, !tbaa !132
   %50 = zext i32 %42 to i64
-  %51 = getelementptr inbounds nuw i32, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %50
   store i32 %indvars, ptr %51, align 4, !tbaa !72
   %52 = zext i32 %47 to i64
-  %53 = getelementptr inbounds nuw i32, ptr %49, i64 %52
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %52
   store i32 %36, ptr %53, align 4, !tbaa !72
   br label %_ZN16indexed_uint_set10swap_elemsEjj.exit
 
@@ -3699,7 +3689,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.i.i:              ; preds = %_ZN16indexed_uint_s
 
 66:                                               ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i
   %67 = zext i32 %42 to i64
-  %68 = getelementptr inbounds nuw i32, ptr %61, i64 %67
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %67
   %69 = load i32, ptr %68, align 4, !tbaa !72
   %70 = load i32, ptr %59, align 8, !tbaa !108
   %71 = icmp ult i32 %69, %70
@@ -3709,7 +3699,7 @@ _ZNK16indexed_uint_set8containsEj.exit.i:         ; preds = %66
   %72 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %73 = load ptr, ptr %72, align 8, !tbaa !132
   %74 = zext i32 %69 to i64
-  %75 = getelementptr inbounds nuw i32, ptr %73, i64 %74
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %74
   %76 = load i32, ptr %75, align 4, !tbaa !72
   %77 = icmp eq i32 %76, %42
   br i1 %77, label %_ZZN3sls13arith_clausalI8rationalE31add_lookahead_on_false_literalsEvENKUljE_clEj.exit.thread, label %_ZNK16indexed_uint_set8containsEj.exit.thread.i
@@ -3729,7 +3719,7 @@ _ZNK6vectorIPN3sls10arith_baseI8rationalE4ineqELb0EjE4sizeEv.exit.i.i.i: ; preds
 
 _ZNK3sls10arith_baseI8rationalE8get_ineqEj.exit.i: ; preds = %_ZNK6vectorIPN3sls10arith_baseI8rationalE4ineqELb0EjE4sizeEv.exit.i.i.i
   %85 = zext i32 %42 to i64
-  %86 = getelementptr inbounds nuw ptr, ptr %80, i64 %85
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %85
   %87 = load ptr, ptr %86, align 8, !tbaa !223
   %.not.i25 = icmp eq ptr %87, null
   br i1 %.not.i25, label %_ZZN3sls13arith_clausalI8rationalE31add_lookahead_on_false_literalsEvENKUljE_clEj.exit.thread, label %_ZZN3sls13arith_clausalI8rationalE31add_lookahead_on_false_literalsEvENKUljE_clEj.exit
@@ -3768,7 +3758,7 @@ _ZZN3sls13arith_clausalI8rationalE31add_lookahead_on_false_literalsEvENKUljE_clE
   %105 = load ptr, ptr %2, align 8, !tbaa !177
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 728
   %107 = load ptr, ptr %106, align 8, !tbaa !132
-  %108 = getelementptr inbounds nuw i32, ptr %107, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %107, i64 %indvars.iv
   %109 = load i32, ptr %108, align 4, !tbaa !72
   %110 = load ptr, ptr %0, align 8, !tbaa !213
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
@@ -3790,7 +3780,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.i.i26:            ; preds = %.lr.ph
 
 123:                                              ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i.i26
   %124 = zext i32 %109 to i64
-  %125 = getelementptr inbounds nuw i32, ptr %118, i64 %124
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %124
   %126 = load i32, ptr %125, align 4, !tbaa !72
   %127 = load i32, ptr %116, align 8, !tbaa !108
   %128 = icmp ult i32 %126, %127
@@ -3800,7 +3790,7 @@ _ZNK16indexed_uint_set8containsEj.exit.i32:       ; preds = %123
   %129 = getelementptr inbounds nuw i8, ptr %116, i64 8
   %130 = load ptr, ptr %129, align 8, !tbaa !132
   %131 = zext i32 %126 to i64
-  %132 = getelementptr inbounds nuw i32, ptr %130, i64 %131
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %130, i64 %131
   %133 = load i32, ptr %132, align 4, !tbaa !72
   %134 = icmp eq i32 %133, %109
   br i1 %134, label %_ZZN3sls13arith_clausalI8rationalE31add_lookahead_on_false_literalsEvENKUljE_clEj.exit33.thread, label %_ZNK16indexed_uint_set8containsEj.exit.thread.i27
@@ -3820,7 +3810,7 @@ _ZNK6vectorIPN3sls10arith_baseI8rationalE4ineqELb0EjE4sizeEv.exit.i.i.i28: ; pre
 
 _ZNK3sls10arith_baseI8rationalE8get_ineqEj.exit.i30: ; preds = %_ZNK6vectorIPN3sls10arith_baseI8rationalE4ineqELb0EjE4sizeEv.exit.i.i.i28
   %142 = zext i32 %109 to i64
-  %143 = getelementptr inbounds nuw ptr, ptr %137, i64 %142
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %137, i64 %142
   %144 = load ptr, ptr %143, align 8, !tbaa !223
   %.not.i31 = icmp eq ptr %144, null
   br i1 %.not.i31, label %_ZZN3sls13arith_clausalI8rationalE31add_lookahead_on_false_literalsEvENKUljE_clEj.exit33.thread, label %_ZZN3sls13arith_clausalI8rationalE31add_lookahead_on_false_literalsEvENKUljE_clEj.exit33
@@ -3883,7 +3873,7 @@ _ZNK6vectorIN3sls10arith_baseI8rationalE10var_changeELb1EjE4sizeEv.exit: ; preds
   %16 = and i32 %15, 32767
   %17 = urem i32 %16, %8
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw %"struct.sls::arith_base<rational>::var_change", ptr %5, i64 %18
+  %19 = getelementptr inbounds nuw [48 x i8], ptr %5, i64 %18
   %20 = load i32, ptr %19, align 8, !tbaa !230
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %22 = tail call noundef zeroext i1 @_ZN3sls10arith_baseI8rationalE14can_update_numEjRKS1_(ptr noundef nonnull align 8 dereferenceable(792) %3, i32 noundef %20, ptr noundef nonnull align 8 dereferenceable(32) %21)
@@ -4024,7 +4014,7 @@ _ZN8rationalaSERKS_.exit:                         ; preds = %65, %70
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 168
   %78 = load ptr, ptr %77, align 8, !tbaa !203
   %79 = zext i32 %1 to i64
-  %80 = getelementptr inbounds nuw %"class.sls::arith_base<rational>::var_info", ptr %78, i64 %79
+  %80 = getelementptr inbounds nuw [224 x i8], ptr %78, i64 %79
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 40
@@ -4396,7 +4386,7 @@ _ZN8rationalaSERKS_.exit:                         ; preds = %27, %32
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 168
   %36 = load ptr, ptr %35, align 8, !tbaa !203
   %37 = zext i32 %1 to i64
-  %38 = getelementptr inbounds nuw %"class.sls::arith_base<rational>::var_info", ptr %36, i64 %37
+  %38 = getelementptr inbounds nuw [224 x i8], ptr %36, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %33, i64 28
   %40 = load i32, ptr %39, align 4, !tbaa !244
   %41 = add i32 %40, 3
@@ -4443,7 +4433,7 @@ _ZN3sls10arith_baseI8rationalE8var_info8set_stepEjjRKS1_.exit: ; preds = %52, %5
   %62 = load ptr, ptr %7, align 8, !tbaa !177
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 168
   %64 = load ptr, ptr %63, align 8, !tbaa !203
-  %65 = getelementptr inbounds nuw %"class.sls::arith_base<rational>::var_info", ptr %64, i64 %37
+  %65 = getelementptr inbounds nuw [224 x i8], ptr %64, i64 %37
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 136
   %67 = load ptr, ptr %66, align 8, !tbaa !132
   %68 = icmp eq ptr %67, null
@@ -4481,7 +4471,7 @@ _ZNK6vectorIPN3sls10arith_baseI8rationalE4ineqELb0EjE4sizeEv.exit.i.i: ; preds =
 
 _ZNK3sls10arith_baseI8rationalE8get_ineqEj.exit:  ; preds = %_ZNK6vectorIPN3sls10arith_baseI8rationalE4ineqELb0EjE4sizeEv.exit.i.i
   %85 = zext i32 %77 to i64
-  %86 = getelementptr inbounds nuw ptr, ptr %80, i64 %85
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %85
   %87 = load ptr, ptr %86, align 8, !tbaa !223
   %.not19 = icmp eq ptr %87, null
   br i1 %.not19, label %_ZNK3sls10arith_baseI8rationalE8get_ineqEj.exit.thread, label %_ZNK6vectorIPN3sls10arith_baseI8rationalE4ineqELb0EjE4sizeEv.exit.i.i21
@@ -4539,7 +4529,7 @@ _ZNK6vectorIPN3sls10arith_baseI8rationalE4ineqELb0EjE4sizeEv.exit.i.i: ; preds =
 
 _ZNK3sls10arith_baseI8rationalE8get_ineqEj.exit:  ; preds = %_ZNK6vectorIPN3sls10arith_baseI8rationalE4ineqELb0EjE4sizeEv.exit.i.i
   %13 = zext i32 %1 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %8, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !223
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %_ZNK3sls10arith_baseI8rationalE8get_ineqEj.exit.thread, label %16
@@ -4862,7 +4852,7 @@ define weak_odr hidden noundef double @_ZN3sls13arith_clausalI8rationalE9get_sco
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 168
   %8 = load ptr, ptr %7, align 8, !tbaa !203
   %9 = zext i32 %1 to i64
-  %10 = getelementptr inbounds nuw %"class.sls::arith_base<rational>::var_info", ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [224 x i8], ptr %8, i64 %9
   %11 = tail call noundef zeroext i1 @_ZN3sls10arith_baseI8rationalE10update_numEjRKS1_(ptr noundef nonnull align 8 dereferenceable(792) %6, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2)
   br i1 %11, label %12, label %87
 
@@ -4943,7 +4933,7 @@ _ZNK6vectorIPN3sls10arith_baseI8rationalE4ineqELb0EjE4sizeEv.exit.i.i: ; preds =
 
 _ZNK3sls10arith_baseI8rationalE8get_ineqEj.exit:  ; preds = %_ZNK6vectorIPN3sls10arith_baseI8rationalE4ineqELb0EjE4sizeEv.exit.i.i
   %52 = zext nneg i32 %44 to i64
-  %53 = getelementptr inbounds nuw ptr, ptr %47, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %52
   %54 = load ptr, ptr %53, align 8, !tbaa !223
   %.not48 = icmp eq ptr %54, null
   br i1 %.not48, label %_ZNK3sls10arith_baseI8rationalE8get_ineqEj.exit.thread, label %55
@@ -5959,7 +5949,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI13checked_int64ILb1EE
   %22 = ptrtoint ptr %.020.i to i64
   %23 = sub i64 %22, %5
   %.neg.i.i.i.i.i.i = sdiv exact i64 %23, -24
-  %24 = getelementptr inbounds %"struct.sls::arith_base<checked_int64<true>>::var_change", ptr %21, i64 %.neg.i.i.i.i.i.i
+  %24 = getelementptr inbounds [24 x i8], ptr %21, i64 %.neg.i.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %24, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %23, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !tbaa.struct !137
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -6014,7 +6004,7 @@ common.ret30:                                     ; preds = %.preheader.i, %8, %
 34:                                               ; preds = %2
   %35 = udiv exact i64 %6, 24
   %36 = lshr i64 %35, 1
-  %37 = getelementptr inbounds nuw %"struct.sls::arith_base<checked_int64<true>>::var_change", ptr %0, i64 %36
+  %37 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %36
   tail call void @_ZSt21__inplace_stable_sortIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEEvSD_SD_SG_(ptr noundef %0, ptr noundef %37)
   tail call void @_ZSt21__inplace_stable_sortIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEEvSD_SD_SG_(ptr noundef %37, ptr noundef %1)
   %38 = ptrtoint ptr %37 to i64
@@ -6032,7 +6022,7 @@ define linkonce_odr hidden void @_ZSt22__stable_sort_adaptiveIPN3sls10arith_base
   %8 = sdiv exact i64 %7, 24
   %9 = add nsw i64 %8, 1
   %10 = sdiv i64 %9, 2
-  %11 = getelementptr inbounds %"struct.sls::arith_base<checked_int64<true>>::var_change", ptr %0, i64 %10
+  %11 = getelementptr inbounds [24 x i8], ptr %0, i64 %10
   %12 = icmp sgt i64 %10, %3
   br i1 %12, label %13, label %14
 
@@ -6151,7 +6141,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI13checked_int64ILb1EE
 
 _ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit: ; preds = %27
   %30 = sdiv i64 %.tr6777, 2
-  %31 = getelementptr inbounds %"struct.sls::arith_base<checked_int64<true>>::var_change", ptr %.tr75, i64 %30
+  %31 = getelementptr inbounds [24 x i8], ptr %.tr75, i64 %30
   %32 = sub i64 %12, %29
   %33 = icmp sgt i64 %32, 0
   br i1 %33, label %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEESD_SD_SD_SI_T1_.exit
@@ -6167,7 +6157,7 @@ _ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exi
   %.026.i = phi ptr [ %.tr6576, %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.lr.ph.i ], [ %54, %.thread21.i ]
   %.01125.i = phi i64 [ %34, %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.lr.ph.i ], [ %53, %.thread21.i ]
   %38 = lshr i64 %.01125.i, 1
-  %39 = getelementptr inbounds nuw %"struct.sls::arith_base<checked_int64<true>>::var_change", ptr %.026.i, i64 %38
+  %39 = getelementptr inbounds nuw [24 x i8], ptr %.026.i, i64 %38
   %40 = load i32, ptr %39, align 8, !tbaa !134
   %41 = icmp ult i32 %40, %35
   br i1 %41, label %.thread.i, label %45
@@ -6213,7 +6203,7 @@ _ZSt13__lower_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9_
 
 _ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit42: ; preds = %27
   %58 = sdiv i64 %.tr6878, 2
-  %59 = getelementptr inbounds %"struct.sls::arith_base<checked_int64<true>>::var_change", ptr %.tr6576, i64 %58
+  %59 = getelementptr inbounds [24 x i8], ptr %.tr6576, i64 %58
   %60 = ptrtoint ptr %.tr75 to i64
   %61 = sub i64 %29, %60
   %62 = icmp sgt i64 %61, 0
@@ -6230,7 +6220,7 @@ _ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exi
   %.025.i = phi ptr [ %.tr75, %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.lr.ph.i44 ], [ %84, %.thread.i49 ]
   %.01124.i = phi i64 [ %63, %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.lr.ph.i44 ], [ %83, %.thread.i49 ]
   %67 = lshr i64 %.01124.i, 1
-  %68 = getelementptr inbounds nuw %"struct.sls::arith_base<checked_int64<true>>::var_change", ptr %.025.i, i64 %67
+  %68 = getelementptr inbounds nuw [24 x i8], ptr %.025.i, i64 %67
   %69 = load i32, ptr %68, align 8, !tbaa !134
   %70 = icmp ult i32 %64, %69
   br i1 %70, label %.thread.i49, label %71
@@ -6330,7 +6320,7 @@ _ZSt13__upper_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9_
   br i1 %111, label %.lr.ph89.preheader.i.i, label %._crit_edge90.i.i
 
 .lr.ph89.preheader.i.i:                           ; preds = %110
-  %112 = getelementptr inbounds %"struct.sls::arith_base<checked_int64<true>>::var_change", ptr %.042.i.i, i64 %.066.i.i
+  %112 = getelementptr inbounds [24 x i8], ptr %.042.i.i, i64 %.066.i.i
   br label %.lr.ph89.i.i
 
 ._crit_edge90.i.i:                                ; preds = %.lr.ph89.i.i, %110
@@ -6359,9 +6349,9 @@ _ZSt13__upper_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9_
   br label %.backedge
 
 119:                                              ; preds = %107
-  %120 = getelementptr inbounds %"struct.sls::arith_base<checked_int64<true>>::var_change", ptr %.042.i.i, i64 %.070.i.i
+  %120 = getelementptr inbounds [24 x i8], ptr %.042.i.i, i64 %.070.i.i
   %121 = sub i64 0, %108
-  %122 = getelementptr inbounds %"struct.sls::arith_base<checked_int64<true>>::var_change", ptr %120, i64 %121
+  %122 = getelementptr inbounds [24 x i8], ptr %120, i64 %121
   %123 = icmp sgt i64 %.066.i.i, 0
   br i1 %123, label %.lr.ph.i.i, label %._crit_edge.i.i
 
@@ -6573,7 +6563,7 @@ _ZSt13move_backwardIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES6_ET0
   %65 = ptrtoint ptr %5 to i64
   %66 = sub i64 %64, %65
   %.neg.i.i.i.i.i33.i = sdiv exact i64 %66, -24
-  %67 = getelementptr inbounds %"struct.sls::arith_base<checked_int64<true>>::var_change", ptr %.lcssa.sink.i, i64 %.neg.i.i.i.i.i33.i
+  %67 = getelementptr inbounds [24 x i8], ptr %.lcssa.sink.i, i64 %.neg.i.i.i.i.i33.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %67, ptr align 8 %5, i64 %66, i1 false)
   br label %_ZSt21__move_merge_adaptiveIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES6_S6_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEEvSD_SD_SG_SG_T1_T2_.exit
 
@@ -6583,7 +6573,7 @@ _ZSt13move_backwardIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES6_ET0
 
 _ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit: ; preds = %68
   %70 = sdiv i64 %.tr109125, 2
-  %71 = getelementptr inbounds %"struct.sls::arith_base<checked_int64<true>>::var_change", ptr %.tr123, i64 %70
+  %71 = getelementptr inbounds [24 x i8], ptr %.tr123, i64 %70
   %72 = sub i64 %8, %69
   %73 = icmp sgt i64 %72, 0
   br i1 %73, label %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.lr.ph.i, label %_ZSt13__lower_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_13arith_clausalIS3_E24critical_move_on_updatesENSB_6move_tEEUlRKT_RKT0_E_EEESD_SD_SD_SI_T1_.exit
@@ -6599,7 +6589,7 @@ _ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exi
   %.026.i79 = phi ptr [ %.tr107124, %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.lr.ph.i ], [ %94, %.thread21.i ]
   %.01125.i = phi i64 [ %74, %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.lr.ph.i ], [ %93, %.thread21.i ]
   %78 = lshr i64 %.01125.i, 1
-  %79 = getelementptr inbounds nuw %"struct.sls::arith_base<checked_int64<true>>::var_change", ptr %.026.i79, i64 %78
+  %79 = getelementptr inbounds nuw [24 x i8], ptr %.026.i79, i64 %78
   %80 = load i32, ptr %79, align 8, !tbaa !134
   %81 = icmp ult i32 %80, %75
   br i1 %81, label %.thread.i, label %85
@@ -6645,7 +6635,7 @@ _ZSt13__lower_boundIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES5_N9_
 
 _ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit83: ; preds = %68
   %98 = sdiv i64 %.tr110126, 2
-  %99 = getelementptr inbounds %"struct.sls::arith_base<checked_int64<true>>::var_change", ptr %.tr107124, i64 %98
+  %99 = getelementptr inbounds [24 x i8], ptr %.tr107124, i64 %98
   %100 = ptrtoint ptr %.tr123 to i64
   %101 = sub i64 %69, %100
   %102 = icmp sgt i64 %101, 0
@@ -6662,7 +6652,7 @@ _ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exi
   %.025.i88 = phi ptr [ %.tr123, %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.lr.ph.i86 ], [ %124, %.thread.i92 ]
   %.01124.i = phi i64 [ %103, %_ZSt7advanceIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeElEvRT_T0_.exit.lr.ph.i86 ], [ %123, %.thread.i92 ]
   %107 = lshr i64 %.01124.i, 1
-  %108 = getelementptr inbounds nuw %"struct.sls::arith_base<checked_int64<true>>::var_change", ptr %.025.i88, i64 %107
+  %108 = getelementptr inbounds nuw [24 x i8], ptr %.025.i88, i64 %107
   %109 = load i32, ptr %108, align 8, !tbaa !134
   %110 = icmp ult i32 %104, %109
   br i1 %110, label %.thread.i92, label %111
@@ -6784,7 +6774,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI13checked_int64ILb1EE
   %28 = ptrtoint ptr %.020.i to i64
   %29 = sub i64 %28, %14
   %.neg.i.i.i.i.i.i = sdiv exact i64 %29, -24
-  %30 = getelementptr inbounds %"struct.sls::arith_base<checked_int64<true>>::var_change", ptr %27, i64 %.neg.i.i.i.i.i.i
+  %30 = getelementptr inbounds [24 x i8], ptr %27, i64 %.neg.i.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %30, ptr noundef nonnull align 8 dereferenceable(1) %.039, i64 %29, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.039, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !tbaa.struct !137
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -6881,7 +6871,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI13checked_int64ILb1EE
   %56 = ptrtoint ptr %.020.i17 to i64
   %57 = sub i64 %56, %.lcssa
   %.neg.i.i.i.i.i.i36 = sdiv exact i64 %57, -24
-  %58 = getelementptr inbounds %"struct.sls::arith_base<checked_int64<true>>::var_change", ptr %55, i64 %.neg.i.i.i.i.i.i36
+  %58 = getelementptr inbounds [24 x i8], ptr %55, i64 %.neg.i.i.i.i.i.i36
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %58, ptr noundef nonnull align 8 dereferenceable(1) %.0.lcssa, i64 %57, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0.lcssa, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false), !tbaa.struct !137
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -7152,7 +7142,7 @@ _ZSt4moveIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES6_ET0_T_S8_S7_.
   %19 = ptrtoint ptr %0 to i64
   %20 = sub i64 %15, %19
   %.neg.i.i.i.i.i = sdiv exact i64 %20, -24
-  %21 = getelementptr inbounds %"struct.sls::arith_base<checked_int64<true>>::var_change", ptr %2, i64 %.neg.i.i.i.i.i
+  %21 = getelementptr inbounds [24 x i8], ptr %2, i64 %.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %21, ptr align 8 %0, i64 %20, i1 false)
   br label %_ZSt13move_backwardIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES6_ET0_T_S8_S7_.exit
 
@@ -7201,13 +7191,13 @@ _ZSt4moveIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES6_ET0_T_S8_S7_.
 
 34:                                               ; preds = %_ZSt4moveIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES6_ET0_T_S8_S7_.exit42
   %.neg.i.i.i.i.i44 = sdiv exact i64 %29, -24
-  %35 = getelementptr inbounds %"struct.sls::arith_base<checked_int64<true>>::var_change", ptr %2, i64 %.neg.i.i.i.i.i44
+  %35 = getelementptr inbounds [24 x i8], ptr %2, i64 %.neg.i.i.i.i.i44
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %35, ptr align 8 %5, i64 %29, i1 false)
   br label %_ZSt13move_backwardIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES6_ET0_T_S8_S7_.exit46
 
 _ZSt13move_backwardIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES6_ET0_T_S8_S7_.exit46: ; preds = %_ZSt4moveIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES6_ET0_T_S8_S7_.exit42, %34
   %.pre-phi.i.i.i.i.i45 = phi i64 [ %.neg.i.i.i.i.i44, %34 ], [ 0, %_ZSt4moveIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES6_ET0_T_S8_S7_.exit42 ]
-  %36 = getelementptr inbounds %"struct.sls::arith_base<checked_int64<true>>::var_change", ptr %2, i64 %.pre-phi.i.i.i.i.i45
+  %36 = getelementptr inbounds [24 x i8], ptr %2, i64 %.pre-phi.i.i.i.i.i45
   br label %_ZNSt3_V26rotateIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeEEET_S8_S8_S8_.exit
 
 37:                                               ; preds = %24
@@ -7261,7 +7251,7 @@ _ZSt13move_backwardIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES6_ET0
   br i1 %60, label %.lr.ph89.preheader.i.i, label %._crit_edge90.i.i
 
 .lr.ph89.preheader.i.i:                           ; preds = %59
-  %61 = getelementptr inbounds %"struct.sls::arith_base<checked_int64<true>>::var_change", ptr %.042.i.i, i64 %.066.i.i
+  %61 = getelementptr inbounds [24 x i8], ptr %.042.i.i, i64 %.066.i.i
   br label %.lr.ph89.i.i
 
 ._crit_edge90.i.i:                                ; preds = %.lr.ph89.i.i, %59
@@ -7290,9 +7280,9 @@ _ZSt13move_backwardIPN3sls10arith_baseI13checked_int64ILb1EEE10var_changeES6_ET0
   br label %.backedge
 
 68:                                               ; preds = %56
-  %69 = getelementptr inbounds %"struct.sls::arith_base<checked_int64<true>>::var_change", ptr %.042.i.i, i64 %.070.i.i
+  %69 = getelementptr inbounds [24 x i8], ptr %.042.i.i, i64 %.070.i.i
   %70 = sub i64 0, %57
-  %71 = getelementptr inbounds %"struct.sls::arith_base<checked_int64<true>>::var_change", ptr %69, i64 %70
+  %71 = getelementptr inbounds [24 x i8], ptr %69, i64 %70
   %72 = icmp sgt i64 %.066.i.i, 0
   br i1 %72, label %.lr.ph.i.i, label %._crit_edge.i.i
 
@@ -7467,7 +7457,7 @@ select.unfold.i:                                  ; preds = %.lr.ph.i
   br i1 %10, label %_ZSt20get_temporary_bufferIN3sls10arith_baseI8rationalE10var_changeEESt4pairIPT_lEl.exit.thread, label %.lr.ph.i, !llvm.loop !280
 
 13:                                               ; preds = %.lr.ph.i
-  %14 = getelementptr inbounds nuw %"struct.sls::arith_base<rational>::var_change", ptr %9, i64 %.010.i
+  %14 = getelementptr inbounds nuw [48 x i8], ptr %9, i64 %.010.i
   invoke void @_ZNSt38__uninitialized_construct_buf_dispatchILb0EE5__ucrIPN3sls10arith_baseI8rationalE10var_changeES7_EEvT_S8_T0_(ptr noundef nonnull %9, ptr noundef nonnull %14, ptr noundef %1)
           to label %_ZSt29__uninitialized_construct_bufIPN3sls10arith_baseI8rationalE10var_changeES5_EvT_S6_T0_.exit unwind label %15
 
@@ -7526,7 +7516,7 @@ common.ret25:                                     ; preds = %7, %common.ret
 7:                                                ; preds = %2
   %8 = udiv exact i64 %5, 48
   %9 = lshr i64 %8, 1
-  %10 = getelementptr inbounds nuw %"struct.sls::arith_base<rational>::var_change", ptr %0, i64 %9
+  %10 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %9
   tail call void @_ZSt21__inplace_stable_sortIPN3sls10arith_baseI8rationalE10var_changeEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_13arith_clausalIS2_E24critical_move_on_updatesENSA_6move_tEEUlRKT_RKT0_E_EEEvSC_SC_SF_(ptr noundef %0, ptr noundef %10)
   tail call void @_ZSt21__inplace_stable_sortIPN3sls10arith_baseI8rationalE10var_changeEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_13arith_clausalIS2_E24critical_move_on_updatesENSA_6move_tEEUlRKT_RKT0_E_EEEvSC_SC_SF_(ptr noundef %10, ptr noundef %1)
   %11 = ptrtoint ptr %10 to i64
@@ -7544,7 +7534,7 @@ define linkonce_odr hidden void @_ZSt22__stable_sort_adaptiveIPN3sls10arith_base
   %8 = sdiv exact i64 %7, 48
   %9 = add nsw i64 %8, 1
   %10 = sdiv i64 %9, 2
-  %11 = getelementptr inbounds %"struct.sls::arith_base<rational>::var_change", ptr %0, i64 %10
+  %11 = getelementptr inbounds [48 x i8], ptr %0, i64 %10
   %12 = icmp sgt i64 %10, %3
   br i1 %12, label %13, label %14
 
@@ -8117,7 +8107,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN3sls13arith_clausalI8rationalE24critical_
 
 _ZSt7advanceIPN3sls10arith_baseI8rationalE10var_changeElEvRT_T0_.exit: ; preds = %55
   %57 = sdiv i64 %.tr5968, 2
-  %58 = getelementptr inbounds %"struct.sls::arith_base<rational>::var_change", ptr %.tr66, i64 %57
+  %58 = getelementptr inbounds [48 x i8], ptr %.tr66, i64 %57
   %59 = tail call noundef ptr @_ZSt13__lower_boundIPN3sls10arith_baseI8rationalE10var_changeES4_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_13arith_clausalIS2_E24critical_move_on_updatesENSA_6move_tEEUlRKT_RKT0_E_EEESC_SC_SC_SH_T1_(ptr noundef %.tr5767, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(48) %58)
   %60 = ptrtoint ptr %59 to i64
   %61 = ptrtoint ptr %.tr5767 to i64
@@ -8127,7 +8117,7 @@ _ZSt7advanceIPN3sls10arith_baseI8rationalE10var_changeElEvRT_T0_.exit: ; preds =
 
 _ZSt7advanceIPN3sls10arith_baseI8rationalE10var_changeElEvRT_T0_.exit42: ; preds = %55
   %64 = sdiv i64 %.tr6069, 2
-  %65 = getelementptr inbounds %"struct.sls::arith_base<rational>::var_change", ptr %.tr5767, i64 %64
+  %65 = getelementptr inbounds [48 x i8], ptr %.tr5767, i64 %64
   %66 = tail call noundef ptr @_ZSt13__upper_boundIPN3sls10arith_baseI8rationalE10var_changeES4_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_13arith_clausalIS2_E24critical_move_on_updatesENSA_6move_tEEUlRKT_RKT0_E_EEESC_SC_SC_SH_T1_(ptr noundef %.tr66, ptr noundef %.tr5767, ptr noundef nonnull align 8 dereferenceable(48) %65)
   %67 = ptrtoint ptr %66 to i64
   %68 = ptrtoint ptr %.tr66 to i64
@@ -8517,7 +8507,7 @@ _ZSt7advanceIPN3sls10arith_baseI8rationalE10var_changeElEvRT_T0_.exit: ; preds =
   %.029 = phi ptr [ %0, %_ZSt7advanceIPN3sls10arith_baseI8rationalE10var_changeElEvRT_T0_.exit.lr.ph ], [ %58, %.thread ]
   %.01128 = phi i64 [ %8, %_ZSt7advanceIPN3sls10arith_baseI8rationalE10var_changeElEvRT_T0_.exit.lr.ph ], [ %57, %.thread ]
   %13 = lshr i64 %.01128, 1
-  %14 = getelementptr inbounds nuw %"struct.sls::arith_base<rational>::var_change", ptr %.029, i64 %13
+  %14 = getelementptr inbounds nuw [48 x i8], ptr %.029, i64 %13
   %15 = load i32, ptr %14, align 8, !tbaa !230
   %16 = load i32, ptr %2, align 8, !tbaa !230
   %17 = icmp ult i32 %15, %16
@@ -8615,7 +8605,7 @@ _ZSt7advanceIPN3sls10arith_baseI8rationalE10var_changeElEvRT_T0_.exit: ; preds =
   %.030 = phi ptr [ %0, %_ZSt7advanceIPN3sls10arith_baseI8rationalE10var_changeElEvRT_T0_.exit.lr.ph ], [ %69, %.thread ]
   %.01129 = phi i64 [ %8, %_ZSt7advanceIPN3sls10arith_baseI8rationalE10var_changeElEvRT_T0_.exit.lr.ph ], [ %68, %.thread ]
   %13 = lshr i64 %.01129, 1
-  %14 = getelementptr inbounds nuw %"struct.sls::arith_base<rational>::var_change", ptr %.030, i64 %13
+  %14 = getelementptr inbounds nuw [48 x i8], ptr %.030, i64 %13
   %15 = load i32, ptr %2, align 8, !tbaa !230
   %16 = load i32, ptr %14, align 8, !tbaa !230
   %17 = icmp ult i32 %15, %16
@@ -8901,7 +8891,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3_V28__rotateIPN3sls10arith_baseI8r
   br i1 %26, label %.lr.ph89.preheader, label %._crit_edge90
 
 .lr.ph89.preheader:                               ; preds = %25
-  %27 = getelementptr inbounds %"struct.sls::arith_base<rational>::var_change", ptr %.042, i64 %.066
+  %27 = getelementptr inbounds [48 x i8], ptr %.042, i64 %.066
   br label %.lr.ph89
 
 ._crit_edge90:                                    ; preds = %.lr.ph89, %25
@@ -8926,9 +8916,9 @@ define linkonce_odr hidden noundef ptr @_ZNSt3_V28__rotateIPN3sls10arith_baseI8r
   br label %.backedge
 
 34:                                               ; preds = %22
-  %35 = getelementptr inbounds %"struct.sls::arith_base<rational>::var_change", ptr %.042, i64 %.070
+  %35 = getelementptr inbounds [48 x i8], ptr %.042, i64 %.070
   %36 = sub i64 0, %23
-  %37 = getelementptr inbounds %"struct.sls::arith_base<rational>::var_change", ptr %35, i64 %36
+  %37 = getelementptr inbounds [48 x i8], ptr %35, i64 %36
   %38 = icmp sgt i64 %.066, 0
   br i1 %38, label %.lr.ph, label %._crit_edge
 
@@ -9002,8 +8992,8 @@ _ZSt22__chunk_insertion_sortIPN3sls10arith_baseI8rationalE10var_changeElN9__gnu_
 .lr.ph.i23:                                       ; preds = %14, %.lr.ph.i23
   %.029.i = phi ptr [ %17, %.lr.ph.i23 ], [ %0, %14 ]
   %.02028.i = phi ptr [ %18, %.lr.ph.i23 ], [ %2, %14 ]
-  %16 = getelementptr inbounds %"struct.sls::arith_base<rational>::var_change", ptr %.029.i, i64 %.042
-  %17 = getelementptr inbounds %"struct.sls::arith_base<rational>::var_change", ptr %.029.i, i64 %15
+  %16 = getelementptr inbounds [48 x i8], ptr %.029.i, i64 %.042
+  %17 = getelementptr inbounds [48 x i8], ptr %.029.i, i64 %15
   %18 = tail call noundef ptr @_ZSt12__move_mergeIPN3sls10arith_baseI8rationalE10var_changeES5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_13arith_clausalIS2_E24critical_move_on_updatesENSA_6move_tEEUlRKT_RKT0_E_EEESF_SC_SC_SC_SC_SF_T1_(ptr noundef %.029.i, ptr noundef nonnull %16, ptr noundef nonnull %16, ptr noundef nonnull %17, ptr noundef %.02028.i)
   %19 = ptrtoint ptr %17 to i64
   %20 = sub i64 %4, %19
@@ -9016,7 +9006,7 @@ _ZSt17__merge_sort_loopIPN3sls10arith_baseI8rationalE10var_changeES5_lN9__gnu_cx
   %.0.lcssa.i25 = phi ptr [ %0, %14 ], [ %17, %.lr.ph.i23 ]
   %.lcssa.i = phi i64 [ %7, %14 ], [ %21, %.lr.ph.i23 ]
   %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %.042, i64 %.lcssa.i)
-  %22 = getelementptr inbounds %"struct.sls::arith_base<rational>::var_change", ptr %.0.lcssa.i25, i64 %.sroa.speculated.i
+  %22 = getelementptr inbounds [48 x i8], ptr %.0.lcssa.i25, i64 %.sroa.speculated.i
   %23 = tail call noundef ptr @_ZSt12__move_mergeIPN3sls10arith_baseI8rationalE10var_changeES5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_13arith_clausalIS2_E24critical_move_on_updatesENSA_6move_tEEUlRKT_RKT0_E_EEESF_SC_SC_SC_SC_SF_T1_(ptr noundef %.0.lcssa.i25, ptr noundef %22, ptr noundef %22, ptr noundef %1, ptr noundef %.020.lcssa.i)
   %24 = shl nsw i64 %.042, 2
   %.not27.i26 = icmp slt i64 %13, %24
@@ -9025,8 +9015,8 @@ _ZSt17__merge_sort_loopIPN3sls10arith_baseI8rationalE10var_changeES5_lN9__gnu_cx
 .lr.ph.i27:                                       ; preds = %_ZSt17__merge_sort_loopIPN3sls10arith_baseI8rationalE10var_changeES5_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_13arith_clausalIS2_E24critical_move_on_updatesENSA_6move_tEEUlRKT_RKT0_E_EEEvSC_SC_SF_T1_T2_.exit, %.lr.ph.i27
   %.029.i28 = phi ptr [ %26, %.lr.ph.i27 ], [ %2, %_ZSt17__merge_sort_loopIPN3sls10arith_baseI8rationalE10var_changeES5_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_13arith_clausalIS2_E24critical_move_on_updatesENSA_6move_tEEUlRKT_RKT0_E_EEEvSC_SC_SF_T1_T2_.exit ]
   %.02028.i29 = phi ptr [ %27, %.lr.ph.i27 ], [ %0, %_ZSt17__merge_sort_loopIPN3sls10arith_baseI8rationalE10var_changeES5_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_13arith_clausalIS2_E24critical_move_on_updatesENSA_6move_tEEUlRKT_RKT0_E_EEEvSC_SC_SF_T1_T2_.exit ]
-  %25 = getelementptr inbounds %"struct.sls::arith_base<rational>::var_change", ptr %.029.i28, i64 %15
-  %26 = getelementptr inbounds %"struct.sls::arith_base<rational>::var_change", ptr %.029.i28, i64 %24
+  %25 = getelementptr inbounds [48 x i8], ptr %.029.i28, i64 %15
+  %26 = getelementptr inbounds [48 x i8], ptr %.029.i28, i64 %24
   %27 = tail call noundef ptr @_ZSt12__move_mergeIPN3sls10arith_baseI8rationalE10var_changeES5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_13arith_clausalIS2_E24critical_move_on_updatesENSA_6move_tEEUlRKT_RKT0_E_EEESF_SC_SC_SC_SC_SF_T1_(ptr noundef %.029.i28, ptr noundef nonnull %25, ptr noundef nonnull %25, ptr noundef nonnull %26, ptr noundef %.02028.i29)
   %28 = ptrtoint ptr %26 to i64
   %29 = sub i64 %12, %28
@@ -9039,7 +9029,7 @@ _ZSt17__merge_sort_loopIPN3sls10arith_baseI8rationalE10var_changeES5_lN9__gnu_cx
   %.0.lcssa.i32 = phi ptr [ %2, %_ZSt17__merge_sort_loopIPN3sls10arith_baseI8rationalE10var_changeES5_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_13arith_clausalIS2_E24critical_move_on_updatesENSA_6move_tEEUlRKT_RKT0_E_EEEvSC_SC_SF_T1_T2_.exit ], [ %26, %.lr.ph.i27 ]
   %.lcssa.i33 = phi i64 [ %13, %_ZSt17__merge_sort_loopIPN3sls10arith_baseI8rationalE10var_changeES5_lN9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_13arith_clausalIS2_E24critical_move_on_updatesENSA_6move_tEEUlRKT_RKT0_E_EEEvSC_SC_SF_T1_T2_.exit ], [ %30, %.lr.ph.i27 ]
   %.sroa.speculated.i34 = tail call i64 @llvm.smin.i64(i64 %15, i64 %.lcssa.i33)
-  %31 = getelementptr inbounds %"struct.sls::arith_base<rational>::var_change", ptr %.0.lcssa.i32, i64 %.sroa.speculated.i34
+  %31 = getelementptr inbounds [48 x i8], ptr %.0.lcssa.i32, i64 %.sroa.speculated.i34
   %32 = tail call noundef ptr @_ZSt12__move_mergeIPN3sls10arith_baseI8rationalE10var_changeES5_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS0_13arith_clausalIS2_E24critical_move_on_updatesENSA_6move_tEEUlRKT_RKT0_E_EEESF_SC_SC_SC_SC_SF_T1_(ptr noundef %.0.lcssa.i32, ptr noundef %31, ptr noundef %31, ptr noundef nonnull %8, ptr noundef %.020.lcssa.i31)
   %33 = icmp slt i64 %24, %7
   br i1 %33, label %14, label %._crit_edge, !llvm.loop !294
@@ -9081,7 +9071,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %7
 
 _ZSt7advanceIPN3sls10arith_baseI8rationalE10var_changeElEvRT_T0_.exit: ; preds = %11
   %12 = sdiv i64 %.tr91102, 2
-  %13 = getelementptr inbounds %"struct.sls::arith_base<rational>::var_change", ptr %.tr100, i64 %12
+  %13 = getelementptr inbounds [48 x i8], ptr %.tr100, i64 %12
   %14 = tail call noundef ptr @_ZSt13__lower_boundIPN3sls10arith_baseI8rationalE10var_changeES4_N9__gnu_cxx5__ops14_Iter_comp_valIZNS0_13arith_clausalIS2_E24critical_move_on_updatesENSA_6move_tEEUlRKT_RKT0_E_EEESC_SC_SC_SH_T1_(ptr noundef %.tr89101, ptr noundef %2, ptr noundef nonnull align 8 dereferenceable(48) %13)
   %15 = ptrtoint ptr %14 to i64
   %16 = ptrtoint ptr %.tr89101 to i64
@@ -9091,7 +9081,7 @@ _ZSt7advanceIPN3sls10arith_baseI8rationalE10var_changeElEvRT_T0_.exit: ; preds =
 
 _ZSt7advanceIPN3sls10arith_baseI8rationalE10var_changeElEvRT_T0_.exit75: ; preds = %11
   %19 = sdiv i64 %.tr92103, 2
-  %20 = getelementptr inbounds %"struct.sls::arith_base<rational>::var_change", ptr %.tr89101, i64 %19
+  %20 = getelementptr inbounds [48 x i8], ptr %.tr89101, i64 %19
   %21 = tail call noundef ptr @_ZSt13__upper_boundIPN3sls10arith_baseI8rationalE10var_changeES4_N9__gnu_cxx5__ops14_Val_comp_iterIZNS0_13arith_clausalIS2_E24critical_move_on_updatesENSA_6move_tEEUlRKT_RKT0_E_EEESC_SC_SC_SH_T1_(ptr noundef %.tr100, ptr noundef %.tr89101, ptr noundef nonnull align 8 dereferenceable(48) %20)
   %22 = ptrtoint ptr %21 to i64
   %23 = ptrtoint ptr %.tr100 to i64

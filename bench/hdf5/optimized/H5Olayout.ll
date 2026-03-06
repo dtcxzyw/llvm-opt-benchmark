@@ -5,8 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.H5D_layout_ops_t = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.H5D_chunk_ops_t = type { i8, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.H5O_storage_virtual_ent_t = type { %struct.H5O_storage_virtual_srcdset_t, ptr, ptr, ptr, ptr, i64, i64, i64, i64, ptr, i64, i64, ptr, i64, i64, i32, i32, i64, i64, i64, i64, i32, i32 }
-%struct.H5O_storage_virtual_srcdset_t = type { ptr, ptr, ptr, ptr, ptr, ptr, i8, ptr }
 
 @.str = private unnamed_addr constant [7 x i8] c"layout\00", align 1
 @H5O_MSG_LAYOUT = local_unnamed_addr constant [1 x { i32, [4 x i8], ptr, i64, i32, [4 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }] [{ i32, [4 x i8], ptr, i64, i32, [4 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr } { i32 8, [4 x i8] zeroinitializer, ptr @.str, i64 2256, i32 0, [4 x i8] zeroinitializer, ptr @H5O__layout_decode, ptr @H5O__layout_encode, ptr @H5O__layout_copy, ptr @H5O__layout_size, ptr @H5O__layout_reset, ptr @H5O__layout_free, ptr @H5O__layout_delete, ptr null, ptr null, ptr null, ptr @H5O__layout_pre_copy_file, ptr @H5O__layout_copy_file, ptr null, ptr null, ptr null, ptr @H5O__layout_debug }], align 16
@@ -424,7 +422,7 @@ default.unreachable978:                           ; preds = %621, %87
   %169 = phi ptr [ %155, %.preheader ], [ %188, %194 ]
   %170 = load i8, ptr %169, align 1, !tbaa !20
   %171 = zext i8 %170 to i32
-  %172 = getelementptr inbounds nuw i32, ptr %163, i64 %indvars.iv907
+  %172 = getelementptr inbounds nuw [4 x i8], ptr %163, i64 %indvars.iv907
   store i32 %171, ptr %172, align 4, !tbaa !20
   %173 = getelementptr inbounds nuw i8, ptr %169, i64 1
   store ptr %173, ptr %7, align 8, !tbaa !3
@@ -473,7 +471,7 @@ default.unreachable978:                           ; preds = %621, %87
 197:                                              ; preds = %.lr.ph885, %197
   %indvars.iv911 = phi i64 [ 1, %.lr.ph885 ], [ %indvars.iv.next912, %197 ]
   %198 = phi i32 [ %195, %.lr.ph885 ], [ %201, %197 ]
-  %199 = getelementptr inbounds nuw i32, ptr %163, i64 %indvars.iv911
+  %199 = getelementptr inbounds nuw [4 x i8], ptr %163, i64 %indvars.iv911
   %200 = load i32, ptr %199, align 4, !tbaa !20
   %201 = mul i32 %198, %200
   store i32 %201, ptr %196, align 4, !tbaa !20
@@ -924,7 +922,7 @@ default.unreachable978:                           ; preds = %621, %87
   %459 = phi ptr [ %.promoted868, %.lr.ph871 ], [ %478, %480 ]
   %460 = load i8, ptr %459, align 1, !tbaa !20
   %461 = zext i8 %460 to i32
-  %462 = getelementptr inbounds nuw i32, ptr %456, i64 %indvars.iv900
+  %462 = getelementptr inbounds nuw [4 x i8], ptr %456, i64 %indvars.iv900
   store i32 %461, ptr %462, align 4, !tbaa !20
   %463 = getelementptr inbounds nuw i8, ptr %459, i64 1
   store ptr %463, ptr %7, align 8, !tbaa !3
@@ -985,7 +983,7 @@ default.unreachable978:                           ; preds = %621, %87
 493:                                              ; preds = %.lr.ph875, %493
   %indvars.iv903 = phi i64 [ 1, %.lr.ph875 ], [ %indvars.iv.next904, %493 ]
   %494 = phi i32 [ %488, %.lr.ph875 ], [ %497, %493 ]
-  %495 = getelementptr inbounds nuw i32, ptr %487, i64 %indvars.iv903
+  %495 = getelementptr inbounds nuw [4 x i8], ptr %487, i64 %indvars.iv903
   %496 = load i32, ptr %495, align 4, !tbaa !20
   %497 = mul i32 %494, %496
   store i32 %497, ptr %489, align 4, !tbaa !20
@@ -1116,7 +1114,7 @@ default.unreachable978:                           ; preds = %621, %87
   %.0635856 = phi i32 [ %588, %587 ], [ 0, %564 ]
   %.promoted846852855 = phi ptr [ %586, %587 ], [ %541, %564 ]
   %568 = zext i32 %.0635856 to i64
-  %569 = getelementptr inbounds nuw i32, ptr %565, i64 %568
+  %569 = getelementptr inbounds nuw [4 x i8], ptr %565, i64 %568
   store i32 0, ptr %569, align 4, !tbaa !20
   %570 = load i32, ptr %544, align 8, !tbaa !20
   %571 = zext i32 %570 to i64
@@ -1187,7 +1185,7 @@ default.unreachable978:                           ; preds = %621, %87
 602:                                              ; preds = %.lr.ph862, %602
   %indvars.iv = phi i64 [ 1, %.lr.ph862 ], [ %indvars.iv.next, %602 ]
   %603 = phi i32 [ %594, %.lr.ph862 ], [ %606, %602 ]
-  %604 = getelementptr inbounds nuw i32, ptr %593, i64 %indvars.iv
+  %604 = getelementptr inbounds nuw [4 x i8], ptr %593, i64 %indvars.iv
   %605 = load i32, ptr %604, align 4, !tbaa !20
   %606 = mul i32 %603, %605
   store i32 %606, ptr %595, align 4, !tbaa !20
@@ -1991,7 +1989,7 @@ default.unreachable978:                           ; preds = %621, %87
   %1090 = add i64 %1083, 1
   %1091 = call noalias ptr @malloc(i64 noundef %1090) #13
   %1092 = load ptr, ptr %964, align 8, !tbaa !20
-  %1093 = getelementptr inbounds nuw %struct.H5O_storage_virtual_ent_t, ptr %1092, i64 %.0845
+  %1093 = getelementptr inbounds nuw [224 x i8], ptr %1092, i64 %.0845
   %1094 = getelementptr inbounds nuw i8, ptr %1093, i64 64
   store ptr %1091, ptr %1094, align 8, !tbaa !36
   %1095 = icmp eq ptr %1091, null
@@ -2005,7 +2003,7 @@ default.unreachable978:                           ; preds = %621, %87
 
 1100:                                             ; preds = %1089
   %1101 = load ptr, ptr %964, align 8, !tbaa !20
-  %1102 = getelementptr inbounds nuw %struct.H5O_storage_virtual_ent_t, ptr %1101, i64 %.0845
+  %1102 = getelementptr inbounds nuw [224 x i8], ptr %1101, i64 %.0845
   %1103 = getelementptr inbounds nuw i8, ptr %1102, i64 64
   %1104 = load ptr, ptr %1103, align 8, !tbaa !36
   %1105 = load ptr, ptr %8, align 8, !tbaa !3
@@ -2040,7 +2038,7 @@ default.unreachable978:                           ; preds = %621, %87
   %1124 = add i64 %1117, 1
   %1125 = call noalias ptr @malloc(i64 noundef %1124) #13
   %1126 = load ptr, ptr %964, align 8, !tbaa !20
-  %1127 = getelementptr inbounds nuw %struct.H5O_storage_virtual_ent_t, ptr %1126, i64 %.0845
+  %1127 = getelementptr inbounds nuw [224 x i8], ptr %1126, i64 %.0845
   %1128 = getelementptr inbounds nuw i8, ptr %1127, i64 72
   store ptr %1125, ptr %1128, align 8, !tbaa !43
   %1129 = icmp eq ptr %1125, null
@@ -2054,7 +2052,7 @@ default.unreachable978:                           ; preds = %621, %87
 
 1134:                                             ; preds = %1123
   %1135 = load ptr, ptr %964, align 8, !tbaa !20
-  %1136 = getelementptr inbounds nuw %struct.H5O_storage_virtual_ent_t, ptr %1135, i64 %.0845
+  %1136 = getelementptr inbounds nuw [224 x i8], ptr %1135, i64 %.0845
   %1137 = getelementptr inbounds nuw i8, ptr %1136, i64 72
   %1138 = load ptr, ptr %1137, align 8, !tbaa !43
   %1139 = load ptr, ptr %8, align 8, !tbaa !3
@@ -2076,7 +2074,7 @@ default.unreachable978:                           ; preds = %621, %87
 1149:                                             ; preds = %1134
   %1150 = add nuw nsw i64 %1143, 1
   %1151 = load ptr, ptr %964, align 8, !tbaa !20
-  %1152 = getelementptr inbounds nuw %struct.H5O_storage_virtual_ent_t, ptr %1151, i64 %.0845
+  %1152 = getelementptr inbounds nuw [224 x i8], ptr %1151, i64 %.0845
   %1153 = getelementptr inbounds nuw i8, ptr %1152, i64 80
   %1154 = call i32 @H5S_select_deserialize(ptr noundef nonnull %1153, ptr noundef nonnull %8, i64 noundef %1150) #12
   %1155 = icmp slt i32 %1154, 0
@@ -2104,7 +2102,7 @@ default.unreachable978:                           ; preds = %621, %87
 1169:                                             ; preds = %1160
   %1170 = add nuw nsw i64 %1163, 1
   %1171 = load ptr, ptr %964, align 8, !tbaa !20
-  %1172 = getelementptr inbounds nuw %struct.H5O_storage_virtual_ent_t, ptr %1171, i64 %.0845
+  %1172 = getelementptr inbounds nuw [224 x i8], ptr %1171, i64 %.0845
   %1173 = call i32 @H5S_select_deserialize(ptr noundef %1172, ptr noundef nonnull %8, i64 noundef %1170) #12
   %1174 = icmp slt i32 %1173, 0
   br i1 %1174, label %1175, label %1179
@@ -2117,7 +2115,7 @@ default.unreachable978:                           ; preds = %621, %87
 
 1179:                                             ; preds = %1169
   %1180 = load ptr, ptr %964, align 8, !tbaa !20
-  %1181 = getelementptr inbounds nuw %struct.H5O_storage_virtual_ent_t, ptr %1180, i64 %.0845
+  %1181 = getelementptr inbounds nuw [224 x i8], ptr %1180, i64 %.0845
   %1182 = getelementptr inbounds nuw i8, ptr %1181, i64 64
   %1183 = load ptr, ptr %1182, align 8, !tbaa !36
   %1184 = getelementptr inbounds nuw i8, ptr %1181, i64 128
@@ -2135,7 +2133,7 @@ default.unreachable978:                           ; preds = %621, %87
 
 1193:                                             ; preds = %1179
   %1194 = load ptr, ptr %964, align 8, !tbaa !20
-  %1195 = getelementptr inbounds nuw %struct.H5O_storage_virtual_ent_t, ptr %1194, i64 %.0845
+  %1195 = getelementptr inbounds nuw [224 x i8], ptr %1194, i64 %.0845
   %1196 = getelementptr inbounds nuw i8, ptr %1195, i64 72
   %1197 = load ptr, ptr %1196, align 8, !tbaa !43
   %1198 = getelementptr inbounds nuw i8, ptr %1195, i64 152
@@ -2153,7 +2151,7 @@ default.unreachable978:                           ; preds = %621, %87
 
 1207:                                             ; preds = %1193
   %1208 = load ptr, ptr %964, align 8, !tbaa !20
-  %1209 = getelementptr inbounds nuw %struct.H5O_storage_virtual_ent_t, ptr %1208, i64 %.0845
+  %1209 = getelementptr inbounds nuw [224 x i8], ptr %1208, i64 %.0845
   %1210 = getelementptr inbounds nuw i8, ptr %1209, i64 144
   %1211 = load i64, ptr %1210, align 8, !tbaa !44
   %1212 = icmp eq i64 %1211, 0
@@ -2175,7 +2173,7 @@ default.unreachable978:                           ; preds = %621, %87
   %1220 = getelementptr inbounds nuw i8, ptr %1209, i64 8
   store ptr %.sink, ptr %1220, align 8, !tbaa !47
   %1221 = load ptr, ptr %964, align 8, !tbaa !20
-  %1222 = getelementptr inbounds nuw %struct.H5O_storage_virtual_ent_t, ptr %1221, i64 %.0845
+  %1222 = getelementptr inbounds nuw [224 x i8], ptr %1221, i64 %.0845
   %1223 = getelementptr inbounds nuw i8, ptr %1222, i64 152
   %1224 = load ptr, ptr %1223, align 8, !tbaa !48
   %.not712 = icmp eq ptr %1224, null
@@ -2188,40 +2186,40 @@ default.unreachable978:                           ; preds = %621, %87
 
 1227:                                             ; preds = %.sink.split1023, %1213, %1207
   %1228 = load ptr, ptr %964, align 8, !tbaa !20
-  %1229 = getelementptr inbounds nuw %struct.H5O_storage_virtual_ent_t, ptr %1228, i64 %.0845
+  %1229 = getelementptr inbounds nuw [224 x i8], ptr %1228, i64 %.0845
   %1230 = getelementptr inbounds nuw i8, ptr %1229, i64 80
   %1231 = load ptr, ptr %1230, align 8, !tbaa !50
   %1232 = call i32 @H5S_get_select_unlim_dim(ptr noundef %1231) #12
   %1233 = load ptr, ptr %964, align 8, !tbaa !20
-  %1234 = getelementptr inbounds nuw %struct.H5O_storage_virtual_ent_t, ptr %1233, i64 %.0845
+  %1234 = getelementptr inbounds nuw [224 x i8], ptr %1233, i64 %.0845
   %1235 = getelementptr inbounds nuw i8, ptr %1234, i64 176
   store i32 %1232, ptr %1235, align 8, !tbaa !51
   %1236 = load ptr, ptr %964, align 8, !tbaa !20
-  %1237 = getelementptr inbounds nuw %struct.H5O_storage_virtual_ent_t, ptr %1236, i64 %.0845
+  %1237 = getelementptr inbounds nuw [224 x i8], ptr %1236, i64 %.0845
   %1238 = load ptr, ptr %1237, align 8, !tbaa !52
   %1239 = call i32 @H5S_get_select_unlim_dim(ptr noundef %1238) #12
   %1240 = load ptr, ptr %964, align 8, !tbaa !20
-  %1241 = getelementptr inbounds nuw %struct.H5O_storage_virtual_ent_t, ptr %1240, i64 %.0845
+  %1241 = getelementptr inbounds nuw [224 x i8], ptr %1240, i64 %.0845
   %1242 = getelementptr inbounds nuw i8, ptr %1241, i64 180
   store i32 %1239, ptr %1242, align 4, !tbaa !53
   %1243 = load ptr, ptr %964, align 8, !tbaa !20
-  %1244 = getelementptr inbounds nuw %struct.H5O_storage_virtual_ent_t, ptr %1243, i64 %.0845
+  %1244 = getelementptr inbounds nuw [224 x i8], ptr %1243, i64 %.0845
   %1245 = getelementptr inbounds nuw i8, ptr %1244, i64 184
   store i64 -1, ptr %1245, align 8, !tbaa !54
   %1246 = load ptr, ptr %964, align 8, !tbaa !20
-  %1247 = getelementptr inbounds nuw %struct.H5O_storage_virtual_ent_t, ptr %1246, i64 %.0845
+  %1247 = getelementptr inbounds nuw [224 x i8], ptr %1246, i64 %.0845
   %1248 = getelementptr inbounds nuw i8, ptr %1247, i64 192
   store i64 -1, ptr %1248, align 8, !tbaa !55
   %1249 = load ptr, ptr %964, align 8, !tbaa !20
-  %1250 = getelementptr inbounds nuw %struct.H5O_storage_virtual_ent_t, ptr %1249, i64 %.0845
+  %1250 = getelementptr inbounds nuw [224 x i8], ptr %1249, i64 %.0845
   %1251 = getelementptr inbounds nuw i8, ptr %1250, i64 208
   store i64 -1, ptr %1251, align 8, !tbaa !56
   %1252 = load ptr, ptr %964, align 8, !tbaa !20
-  %1253 = getelementptr inbounds nuw %struct.H5O_storage_virtual_ent_t, ptr %1252, i64 %.0845
+  %1253 = getelementptr inbounds nuw [224 x i8], ptr %1252, i64 %.0845
   %1254 = getelementptr inbounds nuw i8, ptr %1253, i64 200
   store i64 -1, ptr %1254, align 8, !tbaa !57
   %1255 = load ptr, ptr %964, align 8, !tbaa !20
-  %1256 = getelementptr inbounds nuw %struct.H5O_storage_virtual_ent_t, ptr %1255, i64 %.0845
+  %1256 = getelementptr inbounds nuw [224 x i8], ptr %1255, i64 %.0845
   %1257 = getelementptr inbounds nuw i8, ptr %1256, i64 180
   %1258 = load i32, ptr %1257, align 4, !tbaa !53
   %1259 = icmp slt i32 %1258, 0
@@ -2233,7 +2231,7 @@ default.unreachable978:                           ; preds = %621, %87
   %1263 = getelementptr inbounds nuw i8, ptr %1256, i64 24
   store ptr %1262, ptr %1263, align 8, !tbaa !58
   %1264 = load ptr, ptr %964, align 8, !tbaa !20
-  %1265 = getelementptr inbounds nuw %struct.H5O_storage_virtual_ent_t, ptr %1264, i64 %.0845
+  %1265 = getelementptr inbounds nuw [224 x i8], ptr %1264, i64 %.0845
   %1266 = load ptr, ptr %1265, align 8, !tbaa !52
   %1267 = getelementptr inbounds nuw i8, ptr %1265, i64 32
   store ptr %1266, ptr %1267, align 8, !tbaa !59
@@ -2242,7 +2240,7 @@ default.unreachable978:                           ; preds = %621, %87
 
 1268:                                             ; preds = %1260, %1227
   %1269 = phi ptr [ %.pre, %1260 ], [ %1255, %1227 ]
-  %1270 = getelementptr inbounds nuw %struct.H5O_storage_virtual_ent_t, ptr %1269, i64 %.0845
+  %1270 = getelementptr inbounds nuw [224 x i8], ptr %1269, i64 %.0845
   %1271 = load ptr, ptr %1270, align 8, !tbaa !52
   %1272 = getelementptr inbounds nuw i8, ptr %1270, i64 80
   %1273 = load ptr, ptr %1272, align 8, !tbaa !50
@@ -2258,7 +2256,7 @@ default.unreachable978:                           ; preds = %621, %87
 
 1280:                                             ; preds = %1268
   %1281 = load ptr, ptr %964, align 8, !tbaa !20
-  %1282 = getelementptr inbounds nuw %struct.H5O_storage_virtual_ent_t, ptr %1281, i64 %.0845
+  %1282 = getelementptr inbounds nuw [224 x i8], ptr %1281, i64 %.0845
   %1283 = call i32 @H5D_virtual_check_mapping_post(ptr noundef %1282) #12
   %1284 = icmp slt i32 %1283, 0
   br i1 %1284, label %1285, label %1289
@@ -2559,7 +2557,7 @@ define internal range(i32 -1, 1) i32 @H5O__layout_encode(ptr noundef %0, i1 zero
 91:                                               ; preds = %.lr.ph140, %91
   %92 = phi ptr [ %.pre157, %.lr.ph140 ], [ %112, %91 ]
   %indvars.iv149 = phi i64 [ 0, %.lr.ph140 ], [ %indvars.iv.next150, %91 ]
-  %93 = getelementptr inbounds nuw i32, ptr %90, i64 %indvars.iv149
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %indvars.iv149
   %94 = load i32, ptr %93, align 4, !tbaa !20
   %95 = trunc i32 %94 to i8
   store i8 %95, ptr %92, align 1, !tbaa !20
@@ -2627,7 +2625,7 @@ define internal range(i32 -1, 1) i32 @H5O__layout_encode(ptr noundef %0, i1 zero
   br i1 %.not145, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %130
-  %134 = getelementptr inbounds nuw i32, ptr %129, i64 %indvars.iv
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %129, i64 %indvars.iv
   %135 = load i32, ptr %134, align 4, !tbaa !20
   br label %.lr.ph
 
@@ -3254,7 +3252,7 @@ define internal range(i32 -1, 1) i32 @H5O__layout_pre_copy_file(ptr readnone cap
   %16 = load ptr, ptr %15, align 8, !tbaa !70
   %17 = tail call i32 @H5F_get_high_bound(ptr noundef %16) #12
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds i32, ptr @H5O_layout_ver_bounds, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr @H5O_layout_ver_bounds, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !66
   %21 = icmp ugt i32 %14, %20
   br i1 %21, label %22, label %26
@@ -3496,7 +3494,7 @@ define internal noundef i32 @H5O__layout_debug(ptr readnone captures(none) %0, p
   %.0106 = phi i64 [ 0, %.lr.ph107 ], [ %33, %27 ]
   %.not = icmp eq i64 %.0106, 0
   %28 = select i1 %.not, ptr @.str.55, ptr @.str.65
-  %29 = getelementptr inbounds nuw i32, ptr %26, i64 %.0106
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %.0106
   %30 = load i32, ptr %29, align 4, !tbaa !20
   %31 = zext i32 %30 to i64
   %32 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.64, ptr noundef nonnull %28, i64 noundef %31) #12
@@ -3593,12 +3591,12 @@ define internal noundef i32 @H5O__layout_debug(ptr readnone captures(none) %0, p
   %84 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.85, i32 noundef %3, ptr noundef nonnull @.str.55, i64 noundef %.1105) #12
   %85 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.57, i32 noundef %80, ptr noundef nonnull @.str.55, i32 noundef %81, ptr noundef nonnull @.str.86, ptr noundef nonnull @.str.87) #12
   %86 = load ptr, ptr %82, align 8, !tbaa !20
-  %87 = getelementptr inbounds nuw %struct.H5O_storage_virtual_ent_t, ptr %86, i64 %.1105
+  %87 = getelementptr inbounds nuw [224 x i8], ptr %86, i64 %.1105
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 64
   %89 = load ptr, ptr %88, align 8, !tbaa !36
   %90 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.57, i32 noundef %80, ptr noundef nonnull @.str.55, i32 noundef %81, ptr noundef nonnull @.str.88, ptr noundef %89) #12
   %91 = load ptr, ptr %82, align 8, !tbaa !20
-  %92 = getelementptr inbounds nuw %struct.H5O_storage_virtual_ent_t, ptr %91, i64 %.1105
+  %92 = getelementptr inbounds nuw [224 x i8], ptr %91, i64 %.1105
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 72
   %94 = load ptr, ptr %93, align 8, !tbaa !43
   %95 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2, ptr noundef nonnull @.str.57, i32 noundef %80, ptr noundef nonnull @.str.55, i32 noundef %81, ptr noundef nonnull @.str.89, ptr noundef %94) #12

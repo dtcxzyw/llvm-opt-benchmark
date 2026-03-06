@@ -152,7 +152,7 @@ define zeroext range(i8 0, 2) i8 @Java_java_io_UnixFileSystem_checkAccess0(ptr n
 
 switch.lookup:                                    ; preds = %4
   %6 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.Java_java_io_UnixFileSystem_checkAccess0, i64 %6
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.Java_java_io_UnixFileSystem_checkAccess0, i64 %6
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %7
 

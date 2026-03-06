@@ -6,13 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::ios_base::Init" = type { i8 }
 %"class.draco::GeometryAttribute" = type { ptr, %"struct.draco::DataBufferDescriptor", i8, i32, i8, i64, i64, i32, i32 }
 %"struct.draco::DataBufferDescriptor" = type { i64, i64 }
-%"class.std::unique_ptr.42" = type { %"struct.std::__uniq_ptr_data.43" }
-%"struct.std::__uniq_ptr_data.43" = type { %"class.std::__uniq_ptr_impl.44" }
-%"class.std::__uniq_ptr_impl.44" = type { %"class.std::tuple.45" }
-%"class.std::tuple.45" = type { %"struct.std::_Tuple_impl.46" }
-%"struct.std::_Tuple_impl.46" = type { %"struct.std::_Head_base.49" }
-%"struct.std::_Head_base.49" = type { ptr }
-%"class.draco::IndexType.36" = type { i32 }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
 %"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
@@ -133,7 +126,7 @@ define void @_ZN5draco17PointCloudBuilder25SetAttributeValueForPointEiNS_9IndexT
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = sext i32 %1 to i64
   %8 = load ptr, ptr %6, align 8, !tbaa !27
-  %9 = getelementptr inbounds nuw %"class.std::unique_ptr.42", ptr %8, i64 %7
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %7
   %10 = load ptr, ptr %9, align 8, !tbaa !28
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 100
   %12 = load i8, ptr %11, align 4, !tbaa !30, !range !58, !noundef !59
@@ -144,7 +137,7 @@ define void @_ZN5draco17PointCloudBuilder25SetAttributeValueForPointEiNS_9IndexT
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %16 = zext i32 %2 to i64
   %17 = load ptr, ptr %15, align 8, !tbaa !60
-  %18 = getelementptr inbounds nuw %"class.draco::IndexType.36", ptr %17, i64 %16
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %16
   %19 = load i32, ptr %18, align 4, !tbaa !61
   br label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit
 
@@ -170,7 +163,7 @@ define void @_ZN5draco17PointCloudBuilder30SetAttributeValuesForAllPointsEiPKvi(
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = sext i32 %1 to i64
   %8 = load ptr, ptr %6, align 8, !tbaa !27
-  %9 = getelementptr inbounds nuw %"class.std::unique_ptr.42", ptr %8, i64 %7
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %7
   %10 = load ptr, ptr %9, align 8, !tbaa !28
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 28
   %12 = load i32, ptr %11, align 4, !tbaa !67
@@ -218,7 +211,7 @@ define void @_ZN5draco17PointCloudBuilder30SetAttributeValuesForAllPointsEiPKvi(
 
 40:                                               ; preds = %36
   %41 = load ptr, ptr %25, align 8, !tbaa !60
-  %42 = getelementptr inbounds nuw %"class.draco::IndexType.36", ptr %41, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %indvars.iv
   %43 = load i32, ptr %42, align 4, !tbaa !61
   br label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit
 
@@ -276,7 +269,7 @@ define void @_ZN5draco17PointCloudBuilder20SetAttributeUniqueIdEij(ptr noundef n
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = sext i32 %1 to i64
   %7 = load ptr, ptr %5, align 8, !tbaa !27
-  %8 = getelementptr inbounds nuw %"class.std::unique_ptr.42", ptr %7, i64 %6
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %6
   %9 = load ptr, ptr %8, align 8, !tbaa !28
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 60
   store i32 %2, ptr %10, align 4, !tbaa !72

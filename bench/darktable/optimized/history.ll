@@ -879,7 +879,7 @@ define internal range(i32 -128, 128) i32 @_changes_tooltip_callback(ptr readnone
   %77 = phi ptr [ %70, %._crit_edge.thread ], [ %75, %71 ]
   %78 = select i1 %.not413, i32 2, i32 1
   %79 = zext i1 %.not413 to i64
-  %80 = getelementptr inbounds nuw ptr, ptr %17, i64 %79
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %79
   store ptr %77, ptr %80, align 8, !tbaa !135
   %.pre566 = load ptr, ptr %49, align 8, !tbaa !137
   br label %81
@@ -938,7 +938,7 @@ define internal range(i32 -128, 128) i32 @_changes_tooltip_callback(ptr readnone
   %106 = phi ptr [ %99, %._crit_edge497.thread ], [ %104, %100 ]
   %107 = add nuw nsw i32 %.0343, 1
   %108 = zext nneg i32 %.0343 to i64
-  %109 = getelementptr inbounds nuw ptr, ptr %17, i64 %108
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %108
   store ptr %106, ptr %109, align 8, !tbaa !135
   %.pre567 = load ptr, ptr %49, align 8, !tbaa !137
   br label %110
@@ -1009,7 +1009,7 @@ define internal range(i32 -128, 128) i32 @_changes_tooltip_callback(ptr readnone
   %145 = phi ptr [ %138, %._crit_edge505.thread ], [ %143, %139 ]
   %146 = add nuw nsw i32 %.1344, 1
   %147 = zext nneg i32 %.1344 to i64
-  %148 = getelementptr inbounds nuw ptr, ptr %17, i64 %147
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %147
   store ptr %145, ptr %148, align 8, !tbaa !135
   %.pre568 = load ptr, ptr %49, align 8, !tbaa !137
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre568, i64 8
@@ -1081,7 +1081,7 @@ define internal range(i32 -128, 128) i32 @_changes_tooltip_callback(ptr readnone
   %180 = phi ptr [ %173, %._crit_edge513.thread ], [ %178, %174 ]
   %181 = add nuw nsw i32 %.2, 1
   %182 = zext nneg i32 %.2 to i64
-  %183 = getelementptr inbounds nuw ptr, ptr %17, i64 %182
+  %183 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %182
   store ptr %180, ptr %183, align 8, !tbaa !135
   %.pre571 = load ptr, ptr %49, align 8, !tbaa !137
   br label %184
@@ -1110,7 +1110,7 @@ define internal range(i32 -128, 128) i32 @_changes_tooltip_callback(ptr readnone
   %202 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef %194, ptr noundef %195, double noundef %197, double noundef %201) #17
   %203 = add nuw nsw i32 %.3, 1
   %204 = zext nneg i32 %.3 to i64
-  %205 = getelementptr inbounds nuw ptr, ptr %17, i64 %204
+  %205 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %204
   store ptr %202, ptr %205, align 8, !tbaa !135
   tail call void @g_free(ptr noundef %194) #17
   %.pre572 = load ptr, ptr %49, align 8, !tbaa !137
@@ -1138,7 +1138,7 @@ define internal range(i32 -128, 128) i32 @_changes_tooltip_callback(ptr readnone
   %222 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef %214, ptr noundef %215, double noundef %217, double noundef %221) #17
   %223 = add nuw nsw i32 %.4, 1
   %224 = zext nneg i32 %.4 to i64
-  %225 = getelementptr inbounds nuw ptr, ptr %17, i64 %224
+  %225 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %224
   store ptr %222, ptr %225, align 8, !tbaa !135
   tail call void @g_free(ptr noundef %214) #17
   %.pre573 = load ptr, ptr %49, align 8, !tbaa !137
@@ -1210,7 +1210,7 @@ define internal range(i32 -128, 128) i32 @_changes_tooltip_callback(ptr readnone
   %261 = phi ptr [ %254, %._crit_edge521.thread ], [ %259, %255 ]
   %262 = add nuw nsw i32 %.5, 1
   %263 = zext nneg i32 %.5 to i64
-  %264 = getelementptr inbounds nuw ptr, ptr %17, i64 %263
+  %264 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %263
   store ptr %261, ptr %264, align 8, !tbaa !135
   %.pre574 = load ptr, ptr %49, align 8, !tbaa !137
   br label %265
@@ -1237,7 +1237,7 @@ define internal range(i32 -128, 128) i32 @_changes_tooltip_callback(ptr readnone
   %281 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef %273, ptr noundef %274, double noundef %276, double noundef %280) #17
   %282 = add nuw nsw i32 %.6, 1
   %283 = zext nneg i32 %.6 to i64
-  %284 = getelementptr inbounds nuw ptr, ptr %17, i64 %283
+  %284 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %283
   store ptr %281, ptr %284, align 8, !tbaa !135
   tail call void @g_free(ptr noundef %273) #17
   %.pre575 = load ptr, ptr %49, align 8, !tbaa !137
@@ -1300,7 +1300,7 @@ define internal range(i32 -128, 128) i32 @_changes_tooltip_callback(ptr readnone
   %313 = phi ptr [ %306, %._crit_edge529.thread ], [ %311, %307 ]
   %314 = add nuw nsw i32 %.7, 1
   %315 = zext nneg i32 %.7 to i64
-  %316 = getelementptr inbounds nuw ptr, ptr %17, i64 %315
+  %316 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %315
   store ptr %313, ptr %316, align 8, !tbaa !135
   %.pre576 = load ptr, ptr %49, align 8, !tbaa !137
   br label %317
@@ -1327,7 +1327,7 @@ define internal range(i32 -128, 128) i32 @_changes_tooltip_callback(ptr readnone
   %333 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef %325, ptr noundef %326, double noundef %328, double noundef %332) #17
   %334 = add nuw nsw i32 %.8, 1
   %335 = zext nneg i32 %.8 to i64
-  %336 = getelementptr inbounds nuw ptr, ptr %17, i64 %335
+  %336 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %335
   store ptr %333, ptr %336, align 8, !tbaa !135
   tail call void @g_free(ptr noundef %325) #17
   %.pre577 = load ptr, ptr %49, align 8, !tbaa !137
@@ -1355,7 +1355,7 @@ define internal range(i32 -128, 128) i32 @_changes_tooltip_callback(ptr readnone
   %353 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef %345, ptr noundef %346, double noundef %348, double noundef %352) #17
   %354 = add nuw nsw i32 %.9, 1
   %355 = zext nneg i32 %.9 to i64
-  %356 = getelementptr inbounds nuw ptr, ptr %17, i64 %355
+  %356 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %355
   store ptr %353, ptr %356, align 8, !tbaa !135
   tail call void @g_free(ptr noundef %345) #17
   %.pre578 = load ptr, ptr %49, align 8, !tbaa !137
@@ -1383,7 +1383,7 @@ define internal range(i32 -128, 128) i32 @_changes_tooltip_callback(ptr readnone
   %373 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef %365, ptr noundef %366, double noundef %368, double noundef %372) #17
   %374 = add nuw nsw i32 %.10, 1
   %375 = zext nneg i32 %.10 to i64
-  %376 = getelementptr inbounds nuw ptr, ptr %17, i64 %375
+  %376 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %375
   store ptr %373, ptr %376, align 8, !tbaa !135
   tail call void @g_free(ptr noundef %365) #17
   %.pre579 = load ptr, ptr %49, align 8, !tbaa !137
@@ -1409,7 +1409,7 @@ define internal range(i32 -128, 128) i32 @_changes_tooltip_callback(ptr readnone
   %390 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef %384, ptr noundef %385, i32 noundef %386, i32 noundef %389) #17
   %391 = add nuw nsw i32 %.11, 1
   %392 = zext nneg i32 %.11 to i64
-  %393 = getelementptr inbounds nuw ptr, ptr %17, i64 %392
+  %393 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %392
   store ptr %390, ptr %393, align 8, !tbaa !135
   tail call void @g_free(ptr noundef %384) #17
   %.pre580 = load ptr, ptr %49, align 8, !tbaa !137
@@ -1435,7 +1435,7 @@ define internal range(i32 -128, 128) i32 @_changes_tooltip_callback(ptr readnone
   %407 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef %401, ptr noundef %402, i32 noundef %403, i32 noundef %406) #17
   %408 = add nuw nsw i32 %.12, 1
   %409 = zext nneg i32 %.12 to i64
-  %410 = getelementptr inbounds nuw ptr, ptr %17, i64 %409
+  %410 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %409
   store ptr %407, ptr %410, align 8, !tbaa !135
   tail call void @g_free(ptr noundef %401) #17
   %.pre581 = load ptr, ptr %49, align 8, !tbaa !137
@@ -1498,7 +1498,7 @@ define internal range(i32 -128, 128) i32 @_changes_tooltip_callback(ptr readnone
   %439 = phi ptr [ %432, %._crit_edge537.thread ], [ %437, %433 ]
   %440 = add nuw nsw i32 %.13, 1
   %441 = zext nneg i32 %.13 to i64
-  %442 = getelementptr inbounds nuw ptr, ptr %17, i64 %441
+  %442 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %441
   store ptr %439, ptr %442, align 8, !tbaa !135
   %.pre582 = load ptr, ptr %49, align 8, !tbaa !137
   br label %443
@@ -1530,7 +1530,7 @@ define internal range(i32 -128, 128) i32 @_changes_tooltip_callback(ptr readnone
   %461 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef %451, ptr noundef %452, i32 noundef %455, i32 noundef %460) #17
   %462 = add nuw nsw i32 %.14, 1
   %463 = zext nneg i32 %.14 to i64
-  %464 = getelementptr inbounds nuw ptr, ptr %17, i64 %463
+  %464 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %463
   store ptr %461, ptr %464, align 8, !tbaa !135
   tail call void @g_free(ptr noundef %451) #17
   %.pre583 = load ptr, ptr %49, align 8, !tbaa !137
@@ -1555,7 +1555,7 @@ define internal range(i32 -128, 128) i32 @_changes_tooltip_callback(ptr readnone
   %475 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef %474) #17
   %476 = add nuw nsw i32 %.15, 1
   %477 = zext nneg i32 %.15 to i64
-  %478 = getelementptr inbounds nuw ptr, ptr %17, i64 %477
+  %478 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %477
   store ptr %475, ptr %478, align 8, !tbaa !135
   br label %479
 
@@ -1609,7 +1609,7 @@ define internal range(i32 -128, 128) i32 @_changes_tooltip_callback(ptr readnone
   %.0379543632 = phi ptr [ %559, %558 ], [ %496, %.lr.ph634.preheader ]
   %.18544631 = phi i32 [ %.19, %558 ], [ %.17551, %.lr.ph634.preheader ]
   %498 = getelementptr inbounds nuw i8, ptr %.0379543632, i64 40
-  %499 = getelementptr inbounds nuw i32, ptr %498, i64 %indvars.iv562
+  %499 = getelementptr inbounds nuw [4 x i8], ptr %498, i64 %indvars.iv562
   %500 = load i32, ptr %499, align 4, !tbaa !69
   %501 = load i32, ptr %484, align 4, !tbaa !170
   %502 = shl nuw i32 1, %500
@@ -1624,15 +1624,15 @@ define internal range(i32 -128, 128) i32 @_changes_tooltip_callback(ptr readnone
   %511 = and i32 %506, %509
   %512 = shl i32 %500, 2
   %513 = zext i32 %512 to i64
-  %514 = getelementptr inbounds nuw float, ptr %485, i64 %513
+  %514 = getelementptr inbounds nuw [4 x i8], ptr %485, i64 %513
   %515 = getelementptr inbounds nuw i8, ptr %504, i64 68
-  %516 = getelementptr inbounds nuw float, ptr %515, i64 %513
+  %516 = getelementptr inbounds nuw [4 x i8], ptr %515, i64 %513
   %517 = zext i32 %500 to i64
-  %518 = getelementptr inbounds nuw float, ptr %486, i64 %517
+  %518 = getelementptr inbounds nuw [4 x i8], ptr %486, i64 %517
   %519 = load float, ptr %518, align 4, !tbaa !171
   %520 = call reassoc nsz arcp contract afn float @llvm.exp2.f32(float %519)
   %521 = getelementptr inbounds nuw i8, ptr %504, i64 324
-  %522 = getelementptr inbounds nuw float, ptr %521, i64 %517
+  %522 = getelementptr inbounds nuw [4 x i8], ptr %521, i64 %517
   %523 = load float, ptr %522, align 4, !tbaa !171
   %524 = call reassoc nsz arcp contract afn float @llvm.exp2.f32(float %523)
   %525 = icmp ne i32 %503, 0
@@ -1656,7 +1656,7 @@ define internal range(i32 -128, 128) i32 @_changes_tooltip_callback(ptr readnone
   %531 = call noalias ptr @g_strdup(ptr noundef %530) #17
   %532 = add nsw i32 %.18544631, 1
   %533 = sext i32 %.18544631 to i64
-  %534 = getelementptr inbounds ptr, ptr %17, i64 %533
+  %534 = getelementptr inbounds [8 x i8], ptr %17, i64 %533
   store ptr %531, ptr %534, align 8, !tbaa !135
   br label %535
 
@@ -1679,7 +1679,7 @@ define internal range(i32 -128, 128) i32 @_changes_tooltip_callback(ptr readnone
   %545 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.74, ptr noundef %544, ptr noundef nonnull %7, ptr noundef nonnull %487, ptr noundef nonnull %488, ptr noundef nonnull %489, ptr noundef nonnull %539, ptr noundef nonnull %490, ptr noundef nonnull %491, ptr noundef nonnull %492, ptr noundef nonnull %493, ptr noundef nonnull %541) #17
   %546 = add nsw i32 %.20, 1
   %547 = sext i32 %.20 to i64
-  %548 = getelementptr inbounds ptr, ptr %17, i64 %547
+  %548 = getelementptr inbounds [8 x i8], ptr %17, i64 %547
   store ptr %545, ptr %548, align 8, !tbaa !135
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %558
@@ -1687,12 +1687,12 @@ define internal range(i32 -128, 128) i32 @_changes_tooltip_callback(ptr readnone
 549:                                              ; preds = %535, %549
   %indvars.iv = phi i64 [ 0, %535 ], [ %indvars.iv.next, %549 ]
   %550 = load ptr, ptr %536, align 8, !tbaa !173
-  %551 = getelementptr inbounds nuw float, ptr %514, i64 %indvars.iv
+  %551 = getelementptr inbounds nuw [4 x i8], ptr %514, i64 %indvars.iv
   %552 = load float, ptr %551, align 4, !tbaa !171
-  %553 = getelementptr inbounds nuw [2 x [25 x i8]], ptr %7, i64 %indvars.iv
+  %553 = getelementptr inbounds nuw [50 x i8], ptr %7, i64 %indvars.iv
   call void %550(float noundef %552, float noundef %520, ptr noundef nonnull %553, i32 noundef 25) #17
   %554 = load ptr, ptr %536, align 8, !tbaa !173
-  %555 = getelementptr inbounds nuw float, ptr %516, i64 %indvars.iv
+  %555 = getelementptr inbounds nuw [4 x i8], ptr %516, i64 %indvars.iv
   %556 = load float, ptr %555, align 4, !tbaa !171
   %557 = getelementptr inbounds nuw i8, ptr %553, i64 25
   call void %554(float noundef %556, float noundef %524, ptr noundef nonnull %557, i32 noundef 25) #17
@@ -2833,7 +2833,7 @@ define internal fastcc noalias ptr @_lib_history_change_text(ptr noundef readonl
   %indvars.iv233 = phi i64 [ 0, %.lr.ph227 ], [ %indvars.iv.next234, %57 ]
   %.0143225 = phi i32 [ 0, %.lr.ph227 ], [ %.1144, %57 ]
   %20 = load ptr, ptr %16, align 8, !tbaa !124
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv233
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv233
   %22 = load ptr, ptr %21, align 8, !tbaa !198
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %24 = load ptr, ptr %23, align 8, !tbaa !124
@@ -2889,7 +2889,7 @@ define internal fastcc noalias ptr @_lib_history_change_text(ptr noundef readonl
   %.0157 = phi ptr [ %50, %48 ], [ %35, %43 ], [ %35, %36 ]
   %52 = add nsw i32 %.0143225, 1
   %53 = sext i32 %.0143225 to i64
-  %54 = getelementptr inbounds ptr, ptr %14, i64 %53
+  %54 = getelementptr inbounds [8 x i8], ptr %14, i64 %53
   store ptr %.0157, ptr %54, align 8, !tbaa !135
   br label %55
 
@@ -2981,7 +2981,7 @@ define internal fastcc noalias ptr @_lib_history_change_text(ptr noundef readonl
 
 93:                                               ; preds = %90
   %94 = sext i32 %.0155219 to i64
-  %95 = getelementptr inbounds ptr, ptr %77, i64 %94
+  %95 = getelementptr inbounds [8 x i8], ptr %77, i64 %94
   store ptr %89, ptr %95, align 8, !tbaa !135
   br label %97
 

@@ -3,13 +3,11 @@ source_filename = "bench/gromacs/original/correlationhistory.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.gmx::CorrelationBlockDataHistory" = type { double, double, double, double, double, double, double, double, double, i32, double }
 %"struct.gmx::CorrelationGridHistory" = type { i32, i32, i32, %"class.std::vector" }
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<gmx::CorrelationBlockDataHistory, std::allocator<gmx::CorrelationBlockDataHistory>>::_Vector_impl" }
 %"struct.std::_Vector_base<gmx::CorrelationBlockDataHistory, std::allocator<gmx::CorrelationBlockDataHistory>>::_Vector_impl" = type { %"struct.std::_Vector_base<gmx::CorrelationBlockDataHistory, std::allocator<gmx::CorrelationBlockDataHistory>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<gmx::CorrelationBlockDataHistory, std::allocator<gmx::CorrelationBlockDataHistory>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.gmx::CorrelationBlockData::CoordData" = type { double, double }
 %"class.std::vector.15" = type { %"struct.std::_Vector_base.16" }
 %"struct.std::_Vector_base.16" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" }
 %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" }
@@ -122,7 +120,7 @@ define void @_ZN3gmx26initCorrelationGridHistoryEPNS_22CorrelationGridHistoryEii
   br i1 %22, label %23, label %_ZNSt6vectorIN3gmx27CorrelationBlockDataHistoryESaIS1_EE6resizeEm.exit
 
 23:                                               ; preds = %21
-  %24 = getelementptr inbounds nuw %"struct.gmx::CorrelationBlockDataHistory", ptr %13, i64 %10
+  %24 = getelementptr inbounds nuw [88 x i8], ptr %13, i64 %10
   %.not.i.i = icmp eq ptr %12, %24
   br i1 %.not.i.i, label %_ZNSt6vectorIN3gmx27CorrelationBlockDataHistoryESaIS1_EE6resizeEm.exit, label %25
 
@@ -236,9 +234,9 @@ _ZNSt6vectorIN3gmx27CorrelationBlockDataHistoryESaIS1_EE11_S_relocateEPS1_S4_S4_
 
 _ZNSt12_Vector_baseIN3gmx27CorrelationBlockDataHistoryESaIS1_EE13_M_deallocateEPS1_m.exit38: ; preds = %_ZNSt6vectorIN3gmx27CorrelationBlockDataHistoryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %42
   store ptr %32, ptr %0, align 8, !tbaa !18
-  %44 = getelementptr inbounds nuw %"struct.gmx::CorrelationBlockDataHistory", ptr %33, i64 %1
+  %44 = getelementptr inbounds nuw [88 x i8], ptr %33, i64 %1
   store ptr %44, ptr %4, align 8, !tbaa !17
-  %45 = getelementptr inbounds nuw %"struct.gmx::CorrelationBlockDataHistory", ptr %32, i64 %30
+  %45 = getelementptr inbounds nuw [88 x i8], ptr %32, i64 %30
   store ptr %45, ptr %11, align 8, !tbaa !19
   br label %46
 
@@ -433,10 +431,10 @@ define void @_ZN3gmx28updateCorrelationGridHistoryEPNS_22CorrelationGridHistoryE
   %.04770.us.us = phi i32 [ %spec.select55.us.us, %74 ], [ 0, %.preheader.us.us ]
   %.05068.us.us = phi i32 [ %spec.select.us.us, %74 ], [ 0, %.preheader.us.us ]
   %43 = zext nneg i32 %.04770.us.us to i64
-  %44 = getelementptr inbounds nuw %"struct.gmx::CorrelationBlockData::CoordData", ptr %34, i64 %43
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %43
   %45 = sext i32 %.05068.us.us to i64
-  %46 = getelementptr inbounds nuw %"struct.gmx::CorrelationBlockData::CoordData", ptr %34, i64 %45
-  %47 = getelementptr inbounds %"struct.gmx::CorrelationBlockDataHistory", ptr %6, i64 %.271.us.us
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %45
+  %47 = getelementptr inbounds [88 x i8], ptr %6, i64 %.271.us.us
   %48 = load double, ptr %44, align 8, !tbaa !42
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 16
   store double %48, ptr %49, align 8, !tbaa !44
@@ -451,7 +449,7 @@ define void @_ZN3gmx28updateCorrelationGridHistoryEPNS_22CorrelationGridHistoryE
   %56 = load double, ptr %55, align 8, !tbaa !47
   %57 = getelementptr inbounds nuw i8, ptr %47, i64 56
   store double %56, ptr %57, align 8, !tbaa !49
-  %58 = getelementptr inbounds nuw double, ptr %36, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv
   %59 = load double, ptr %58, align 8, !tbaa !21
   %60 = getelementptr inbounds nuw i8, ptr %47, i64 80
   store double %59, ptr %60, align 8, !tbaa !50
@@ -821,7 +819,7 @@ _ZNSt6vectorIN3gmx20CorrelationBlockData9CoordDataESaIS2_EE17_S_check_init_lenEm
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %_ZNSt6vectorIN3gmx20CorrelationBlockData9CoordDataESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i
   %34 = ashr exact i64 %sext, 28
   %35 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %34) #18
-  %36 = getelementptr inbounds nuw %"struct.gmx::CorrelationBlockData::CoordData", ptr %35, i64 %32
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 %32
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %35, i8 0, i64 %34, i1 false)
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %35, i64 %34
   %37 = ptrtoint ptr %36 to i64
@@ -859,7 +857,7 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIdSaI
 
 .noexc59:                                         ; preds = %41
   store ptr %43, ptr %4, align 8, !tbaa !36
-  %44 = getelementptr inbounds nuw double, ptr %43, i64 %38
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %38
   store ptr %44, ptr %11, align 8, !tbaa !76
   store double 0.000000e+00, ptr %43, align 8, !tbaa !21
   %45 = getelementptr i8, ptr %43, i64 8
@@ -1023,16 +1021,16 @@ _ZNSt6vectorIN3gmx20CorrelationBlockData9CoordDataESaIS2_EED2Ev.exit: ; preds = 
   br label %161
 
 98:                                               ; preds = %79
-  %99 = getelementptr inbounds nuw %"struct.gmx::CorrelationBlockDataHistory", ptr %82, i64 %80
+  %99 = getelementptr inbounds nuw [88 x i8], ptr %82, i64 %80
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 16
   %101 = load double, ptr %100, align 8, !tbaa !44
   %102 = zext nneg i32 %.04492 to i64
-  %103 = getelementptr inbounds nuw %"struct.gmx::CorrelationBlockData::CoordData", ptr %.sroa.0.0, i64 %102
+  %103 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0, i64 %102
   store double %101, ptr %103, align 8, !tbaa !42
   %104 = getelementptr inbounds nuw i8, ptr %99, i64 24
   %105 = load double, ptr %104, align 8, !tbaa !46
   %106 = sext i32 %.04293 to i64
-  %107 = getelementptr inbounds nuw %"struct.gmx::CorrelationBlockData::CoordData", ptr %.sroa.0.0, i64 %106
+  %107 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0, i64 %106
   store double %105, ptr %107, align 8, !tbaa !42
   %108 = getelementptr inbounds nuw i8, ptr %99, i64 48
   %109 = load double, ptr %108, align 8, !tbaa !48
@@ -1045,7 +1043,7 @@ _ZNSt6vectorIN3gmx20CorrelationBlockData9CoordDataESaIS2_EED2Ev.exit: ; preds = 
   %114 = getelementptr inbounds nuw i8, ptr %99, i64 80
   %115 = load double, ptr %114, align 8, !tbaa !50
   %116 = load ptr, ptr %4, align 8, !tbaa !36
-  %117 = getelementptr inbounds nuw double, ptr %116, i64 %indvars.iv
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %116, i64 %indvars.iv
   store double %115, ptr %117, align 8, !tbaa !21
   %118 = icmp eq i64 %indvars.iv, %63
   br i1 %118, label %119, label %_ZN3gmx20CorrelationBlockData18restoreFromHistoryERKNS_27CorrelationBlockDataHistoryERKSt6vectorINS0_9CoordDataESaIS5_EERKS4_IdSaIdEE.exit

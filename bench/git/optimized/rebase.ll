@@ -17,7 +17,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.diff_options = type { ptr, ptr, i32, i32, ptr, i32, ptr, i64, i64, ptr, ptr, ptr, ptr, %struct.diff_flags, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, ptr, i32, i32, ptr, i64, i64, i32, i32, i32, i32, ptr, i32, i32, ptr, i32, i32, ptr, ptr, i32, [3 x i8], %struct.pathspec, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i32, i32, ptr, ptr, i32 }
 %struct.diff_flags = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
 %struct.pathspec = type { i32, i8, i32, i32, ptr }
-%struct.string_list_item = type { ptr, ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 @.str = private unnamed_addr constant [6 x i8] c"merge\00", align 1
@@ -1613,7 +1612,7 @@ merge_dir.exit251:                                ; preds = %strbuf_setlen.exit2
 615:                                              ; preds = %611
   %616 = load i32, ptr %230, align 8, !tbaa !68
   %617 = zext i32 %616 to i64
-  %618 = getelementptr inbounds nuw ptr, ptr @action_names, i64 %617
+  %618 = getelementptr inbounds nuw [8 x i8], ptr @action_names, i64 %617
   %619 = load ptr, ptr %618, align 8, !tbaa !33
   call void @trace2_cmd_mode_fl(ptr noundef nonnull @.str.99, i32 noundef 1313, ptr noundef %619) #19
   br label %620
@@ -1985,7 +1984,7 @@ _.exit:                                           ; preds = %745, %747
 787:                                              ; preds = %.lr.ph, %skip_prefix.exit262
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %skip_prefix.exit262 ]
   %.1111408 = phi i32 [ %spec.select, %.lr.ph ], [ %.2112, %skip_prefix.exit262 ]
-  %788 = getelementptr inbounds nuw ptr, ptr %785, i64 %indvars.iv
+  %788 = getelementptr inbounds nuw [8 x i8], ptr %785, i64 %indvars.iv
   %789 = load ptr, ptr %788, align 8, !tbaa !33
   %790 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %789, ptr noundef nonnull dereferenceable(17) @.str.115) #21
   %.not214 = icmp eq i32 %790, 0
@@ -2096,7 +2095,7 @@ skip_prefix.exit262:                              ; preds = %807, %skip_prefix.e
 
 824:                                              ; preds = %.lr.ph411, %823
   %indvars.iv424 = phi i64 [ 0, %.lr.ph411 ], [ %indvars.iv.next425, %823 ]
-  %825 = getelementptr inbounds nuw %struct.string_list_item, ptr %786, i64 %indvars.iv424
+  %825 = getelementptr inbounds nuw [16 x i8], ptr %786, i64 %indvars.iv424
   %826 = load ptr, ptr %825, align 8, !tbaa !101
   %827 = call ptr @strchr(ptr noundef nonnull readonly dereferenceable(1) %826, i32 noundef 10) #21
   %.not.i263 = icmp eq ptr %827, null
@@ -2373,7 +2372,7 @@ imply_merge.exit268:                              ; preds = %916, %912, %imply_m
 
 sub_0:                                            ; preds = %930
   %933 = and i64 %indvars.iv.next429, 2147483647
-  %934 = getelementptr inbounds nuw ptr, ptr %928, i64 %933
+  %934 = getelementptr inbounds nuw [8 x i8], ptr %928, i64 %933
   %935 = load ptr, ptr %934, align 8, !tbaa !33
   %936 = load i8, ptr %935, align 1
   %.not414 = icmp eq i8 %936, 45
@@ -6178,7 +6177,7 @@ xstrdup_or_null.exit32:                           ; preds = %xstrdup_or_null.exi
 75:                                               ; preds = %.lr.ph, %75
   %.033 = phi i64 [ 0, %.lr.ph ], [ %80, %75 ]
   %76 = load ptr, ptr %72, align 8, !tbaa !182
-  %77 = getelementptr inbounds nuw %struct.string_list_item, ptr %76, i64 %.033
+  %77 = getelementptr inbounds nuw [16 x i8], ptr %76, i64 %.033
   %78 = load ptr, ptr %77, align 8, !tbaa !101
   %79 = tail call ptr @strvec_push(ptr noundef nonnull %5, ptr noundef %78) #19
   %80 = add nuw i64 %.033, 1

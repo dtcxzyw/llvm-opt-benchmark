@@ -281,14 +281,14 @@ define hidden noundef i32 @_ZN4ncnn18InverseSpectrogram10load_paramERKNS_9ParamD
 ._crit_edge71:                                    ; preds = %._crit_edge71.loopexit, %.preheader
   %.030.lcssa = phi float [ 0.000000e+00, %.preheader ], [ %73, %._crit_edge71.loopexit ]
   %74 = sext i32 %26 to i64
-  %75 = getelementptr inbounds nuw float, ptr %25, i64 %74
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %74
   store float %.030.lcssa, ptr %75, align 4, !tbaa !40
   br label %80
 
 .lr.ph70:                                         ; preds = %.lr.ph70.preheader, %.lr.ph70
   %indvars.iv = phi i64 [ 0, %.lr.ph70.preheader ], [ %indvars.iv.next, %.lr.ph70 ]
   %.03068 = phi float [ 0.000000e+00, %.lr.ph70.preheader ], [ %79, %.lr.ph70 ]
-  %76 = getelementptr inbounds nuw float, ptr %25, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv
   %77 = load float, ptr %76, align 4, !tbaa !40
   %78 = fmul fast float %77, %77
   %79 = fadd fast float %78, %.03068
@@ -648,7 +648,7 @@ _ZN4ncnn3MatC2EiimPNS_9AllocatorE.exit:           ; preds = %100
 
 176:                                              ; preds = %.lr.ph322, %176
   %indvars.iv353 = phi i64 [ 0, %.lr.ph322 ], [ %indvars.iv.next354, %176 ]
-  %177 = getelementptr inbounds nuw float, ptr %175, i64 %indvars.iv353
+  %177 = getelementptr inbounds nuw [4 x i8], ptr %175, i64 %indvars.iv353
   %178 = load float, ptr %177, align 4, !tbaa !40
   %179 = fmul fast float %178, %172
   store float %179, ptr %177, align 4, !tbaa !40
@@ -659,7 +659,7 @@ _ZN4ncnn3MatC2EiimPNS_9AllocatorE.exit:           ; preds = %100
 180:                                              ; preds = %.loopexit275
   %181 = sext i32 %102 to i64
   %182 = load ptr, ptr %85, align 8, !tbaa !16
-  %183 = getelementptr inbounds nuw float, ptr %182, i64 %181
+  %183 = getelementptr inbounds nuw [4 x i8], ptr %182, i64 %181
   %184 = load float, ptr %183, align 4, !tbaa !40
   %185 = icmp sgt i32 %102, 0
   br i1 %185, label %.lr.ph325, label %._crit_edge
@@ -673,7 +673,7 @@ _ZN4ncnn3MatC2EiimPNS_9AllocatorE.exit:           ; preds = %100
 
 188:                                              ; preds = %.lr.ph325, %188
   %indvars.iv348 = phi i64 [ 0, %.lr.ph325 ], [ %indvars.iv.next349, %188 ]
-  %189 = getelementptr inbounds nuw float, ptr %187, i64 %indvars.iv348
+  %189 = getelementptr inbounds nuw [4 x i8], ptr %187, i64 %indvars.iv348
   %190 = load float, ptr %189, align 4, !tbaa !40
   %191 = fmul fast float %190, %184
   store float %191, ptr %189, align 4, !tbaa !40
@@ -732,7 +732,7 @@ _ZN4ncnn3MatD2Ev.exit115:                         ; preds = %194, %._crit_edge, 
 
 212:                                              ; preds = %.lr.ph331, %224
   %indvars.iv364 = phi i64 [ 0, %.lr.ph331 ], [ %indvars.iv.next365, %224 ]
-  %213 = getelementptr inbounds nuw float, ptr %93, i64 %indvars.iv364
+  %213 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %indvars.iv364
   %214 = load float, ptr %213, align 4, !tbaa !40
   %215 = fcmp fast une float %214, 0.000000e+00
   br i1 %215, label %216, label %224
@@ -757,13 +757,13 @@ _ZN4ncnn3MatD2Ev.exit115:                         ; preds = %194, %._crit_edge, 
 
 225:                                              ; preds = %.lr.ph329, %233
   %indvars.iv359 = phi i64 [ 0, %.lr.ph329 ], [ %indvars.iv.next360, %233 ]
-  %226 = getelementptr inbounds nuw float, ptr %91, i64 %indvars.iv359
+  %226 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %indvars.iv359
   %227 = load float, ptr %226, align 4, !tbaa !40
   %228 = fcmp fast une float %227, 0.000000e+00
   br i1 %228, label %229, label %233
 
 229:                                              ; preds = %225
-  %230 = getelementptr inbounds nuw float, ptr %92, i64 %indvars.iv359
+  %230 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %indvars.iv359
   %231 = load float, ptr %230, align 4, !tbaa !40
   %232 = fdiv fast float %231, %227
   store float %232, ptr %230, align 4, !tbaa !40
@@ -985,7 +985,7 @@ define internal void @_ZNK4ncnn18InverseSpectrogram7forwardERKNS_3MatERS1_RKNS_6
 58:                                               ; preds = %._crit_edge.us
   %59 = fmul fast float %100, %100
   %60 = zext nneg i32 %.0.us.reass to i64
-  %61 = getelementptr inbounds nuw float, ptr %39, i64 %60
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %60
   %62 = load float, ptr %61, align 4, !tbaa !40
   %63 = fadd fast float %62, %59
   store float %63, ptr %61, align 4, !tbaa !40
@@ -997,14 +997,14 @@ define internal void @_ZNK4ncnn18InverseSpectrogram7forwardERKNS_3MatERS1_RKNS_6
   ]
 
 65:                                               ; preds = %58
-  %66 = getelementptr inbounds nuw float, ptr %41, i64 %60
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %60
   %67 = load float, ptr %66, align 4, !tbaa !40
   %68 = fadd fast float %67, %104
   store float %68, ptr %66, align 4, !tbaa !40
   br label %.thread60.us
 
 69:                                               ; preds = %58
-  %70 = getelementptr inbounds nuw float, ptr %41, i64 %60
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %60
   %71 = load float, ptr %70, align 4, !tbaa !40
   %72 = fadd fast float %71, %102
   store float %72, ptr %70, align 4, !tbaa !40
@@ -1057,7 +1057,7 @@ define internal void @_ZNK4ncnn18InverseSpectrogram7forwardERKNS_3MatERS1_RKNS_6
   br i1 %exitcond95.not, label %._crit_edge.us, label %79, !llvm.loop !75
 
 ._crit_edge.us:                                   ; preds = %79
-  %99 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv96
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv96
   %100 = load float, ptr %99, align 4, !tbaa !40
   %101 = fmul fast float %100, %94
   %102 = fmul fast float %101, %53
@@ -1096,11 +1096,11 @@ define internal void @_ZNK4ncnn18InverseSpectrogram7forwardERKNS_3MatERS1_RKNS_6
   br i1 %or.cond.us75, label %117, label %.thread60.us78
 
 117:                                              ; preds = %.preheader.us72
-  %118 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv87
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv87
   %119 = load float, ptr %118, align 4, !tbaa !40
   %120 = fmul fast float %119, %119
   %121 = zext nneg i32 %.reass to i64
-  %122 = getelementptr inbounds nuw float, ptr %39, i64 %121
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %121
   %123 = load float, ptr %122, align 4, !tbaa !40
   %124 = fadd fast float %123, %120
   store float %124, ptr %122, align 4, !tbaa !40
@@ -1123,10 +1123,10 @@ define internal void @_ZNK4ncnn18InverseSpectrogram7forwardERKNS_3MatERS1_RKNS_6
   br i1 %or.cond, label %130, label %.thread60
 
 130:                                              ; preds = %.preheader
-  %131 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv
   %132 = load float, ptr %131, align 4, !tbaa !40
   %133 = fmul fast float %132, %132
-  %134 = getelementptr inbounds nuw float, ptr %39, i64 %125
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %125
   %135 = load float, ptr %134, align 4, !tbaa !40
   %136 = fadd fast float %135, %133
   store float %136, ptr %134, align 4, !tbaa !40

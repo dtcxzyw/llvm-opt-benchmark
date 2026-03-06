@@ -6898,7 +6898,7 @@ define linkonce_odr void @_ZN5arrow16VisitArrayInlineINS_8internal23ScalarFromAr
   %66 = load i64, ptr %65, align 8, !tbaa !40, !noalias !208
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %68 = load ptr, ptr %67, align 8, !tbaa !211, !noalias !208
-  %69 = getelementptr inbounds i16, ptr %68, i64 %66
+  %69 = getelementptr inbounds [2 x i8], ptr %68, i64 %66
   %70 = load i16, ptr %69, align 2, !tbaa !214, !noalias !208
   store i16 %70, ptr %25, align 2, !tbaa !214, !noalias !208
   call void @_ZN5arrow8internal23ScalarFromArraySlotImpl6FinishIsEENS_6StatusEOT_(ptr dead_on_unwind writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 2 dereferenceable(2) %25)
@@ -6911,7 +6911,7 @@ define linkonce_odr void @_ZN5arrow16VisitArrayInlineINS_8internal23ScalarFromAr
   %73 = load i64, ptr %72, align 8, !tbaa !40, !noalias !215
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %75 = load ptr, ptr %74, align 8, !tbaa !218, !noalias !215
-  %76 = getelementptr inbounds i16, ptr %75, i64 %73
+  %76 = getelementptr inbounds [2 x i8], ptr %75, i64 %73
   %77 = load i16, ptr %76, align 2, !tbaa !214, !noalias !215
   store i16 %77, ptr %24, align 2, !tbaa !214, !noalias !215
   call void @_ZN5arrow8internal23ScalarFromArraySlotImpl6FinishItEENS_6StatusEOT_(ptr dead_on_unwind writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 2 dereferenceable(2) %24)
@@ -6924,7 +6924,7 @@ define linkonce_odr void @_ZN5arrow16VisitArrayInlineINS_8internal23ScalarFromAr
   %80 = load i64, ptr %79, align 8, !tbaa !40, !noalias !220
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %82 = load ptr, ptr %81, align 8, !tbaa !223, !noalias !220
-  %83 = getelementptr inbounds i32, ptr %82, i64 %80
+  %83 = getelementptr inbounds [4 x i8], ptr %82, i64 %80
   %84 = load i32, ptr %83, align 4, !tbaa !52, !noalias !220
   store i32 %84, ptr %23, align 4, !tbaa !52, !noalias !220
   call void @_ZN5arrow8internal23ScalarFromArraySlotImpl6FinishIiEENS_6StatusEOT_(ptr dead_on_unwind writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 4 dereferenceable(4) %23)
@@ -6937,7 +6937,7 @@ define linkonce_odr void @_ZN5arrow16VisitArrayInlineINS_8internal23ScalarFromAr
   %87 = load i64, ptr %86, align 8, !tbaa !40, !noalias !226
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %89 = load ptr, ptr %88, align 8, !tbaa !229, !noalias !226
-  %90 = getelementptr inbounds i32, ptr %89, i64 %87
+  %90 = getelementptr inbounds [4 x i8], ptr %89, i64 %87
   %91 = load i32, ptr %90, align 4, !tbaa !52, !noalias !226
   store i32 %91, ptr %22, align 4, !tbaa !52, !noalias !226
   call void @_ZN5arrow8internal23ScalarFromArraySlotImpl6FinishIjEENS_6StatusEOT_(ptr dead_on_unwind writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 4 dereferenceable(4) %22)
@@ -6950,7 +6950,7 @@ define linkonce_odr void @_ZN5arrow16VisitArrayInlineINS_8internal23ScalarFromAr
   %94 = load i64, ptr %93, align 8, !tbaa !40, !noalias !231
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %96 = load ptr, ptr %95, align 8, !tbaa !234, !noalias !231
-  %97 = getelementptr inbounds i64, ptr %96, i64 %94
+  %97 = getelementptr inbounds [8 x i8], ptr %96, i64 %94
   %98 = load i64, ptr %97, align 8, !tbaa !76, !noalias !231
   store i64 %98, ptr %21, align 8, !tbaa !76, !noalias !231
   call void @_ZN5arrow8internal23ScalarFromArraySlotImpl6FinishIlEENS_6StatusEOT_(ptr dead_on_unwind writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %21)
@@ -6963,7 +6963,7 @@ define linkonce_odr void @_ZN5arrow16VisitArrayInlineINS_8internal23ScalarFromAr
   %101 = load i64, ptr %100, align 8, !tbaa !40, !noalias !237
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %103 = load ptr, ptr %102, align 8, !tbaa !240, !noalias !237
-  %104 = getelementptr inbounds i64, ptr %103, i64 %101
+  %104 = getelementptr inbounds [8 x i8], ptr %103, i64 %101
   %105 = load i64, ptr %104, align 8, !tbaa !76, !noalias !237
   store i64 %105, ptr %20, align 8, !tbaa !76, !noalias !237
   call void @_ZN5arrow8internal23ScalarFromArraySlotImpl6FinishImEENS_6StatusEOT_(ptr dead_on_unwind writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %20)
@@ -6976,7 +6976,7 @@ define linkonce_odr void @_ZN5arrow16VisitArrayInlineINS_8internal23ScalarFromAr
   %108 = load i64, ptr %107, align 8, !tbaa !40, !noalias !242
   %109 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %110 = load ptr, ptr %109, align 8, !tbaa !245, !noalias !242
-  %111 = getelementptr inbounds i16, ptr %110, i64 %108
+  %111 = getelementptr inbounds [2 x i8], ptr %110, i64 %108
   %112 = load i16, ptr %111, align 2, !tbaa !214, !noalias !242
   store i16 %112, ptr %19, align 2, !tbaa !214, !noalias !242
   call void @_ZN5arrow8internal23ScalarFromArraySlotImpl6FinishItEENS_6StatusEOT_(ptr dead_on_unwind writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 2 dereferenceable(2) %19)
@@ -6989,7 +6989,7 @@ define linkonce_odr void @_ZN5arrow16VisitArrayInlineINS_8internal23ScalarFromAr
   %115 = load i64, ptr %114, align 8, !tbaa !40, !noalias !247
   %116 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %117 = load ptr, ptr %116, align 8, !tbaa !250, !noalias !247
-  %118 = getelementptr inbounds float, ptr %117, i64 %115
+  %118 = getelementptr inbounds [4 x i8], ptr %117, i64 %115
   %119 = load float, ptr %118, align 4, !tbaa !253, !noalias !247
   store float %119, ptr %18, align 4, !tbaa !253, !noalias !247
   call void @_ZN5arrow8internal23ScalarFromArraySlotImpl6FinishIfEENS_6StatusEOT_(ptr dead_on_unwind writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 4 dereferenceable(4) %18)
@@ -7002,7 +7002,7 @@ define linkonce_odr void @_ZN5arrow16VisitArrayInlineINS_8internal23ScalarFromAr
   %122 = load i64, ptr %121, align 8, !tbaa !40, !noalias !255
   %123 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %124 = load ptr, ptr %123, align 8, !tbaa !258, !noalias !255
-  %125 = getelementptr inbounds double, ptr %124, i64 %122
+  %125 = getelementptr inbounds [8 x i8], ptr %124, i64 %122
   %126 = load double, ptr %125, align 8, !tbaa !126, !noalias !255
   store double %126, ptr %17, align 8, !tbaa !126, !noalias !255
   call void @_ZN5arrow8internal23ScalarFromArraySlotImpl6FinishIdEENS_6StatusEOT_(ptr dead_on_unwind writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %17)
@@ -7043,7 +7043,7 @@ define linkonce_odr void @_ZN5arrow16VisitArrayInlineINS_8internal23ScalarFromAr
   %136 = load i64, ptr %135, align 8, !tbaa !40, !noalias !261
   %137 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %138 = load ptr, ptr %137, align 8, !tbaa !264, !noalias !261
-  %139 = getelementptr inbounds i64, ptr %138, i64 %136
+  %139 = getelementptr inbounds [8 x i8], ptr %138, i64 %136
   %140 = load i64, ptr %139, align 8, !tbaa !76, !noalias !261
   store i64 %140, ptr %16, align 8, !tbaa !76, !noalias !261
   call void @_ZN5arrow8internal23ScalarFromArraySlotImpl6FinishIlEENS_6StatusEOT_(ptr dead_on_unwind writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %16)
@@ -7056,7 +7056,7 @@ define linkonce_odr void @_ZN5arrow16VisitArrayInlineINS_8internal23ScalarFromAr
   %143 = load i64, ptr %142, align 8, !tbaa !40, !noalias !266
   %144 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %145 = load ptr, ptr %144, align 8, !tbaa !269, !noalias !266
-  %146 = getelementptr inbounds i32, ptr %145, i64 %143
+  %146 = getelementptr inbounds [4 x i8], ptr %145, i64 %143
   %147 = load i32, ptr %146, align 4, !tbaa !52, !noalias !266
   store i32 %147, ptr %15, align 4, !tbaa !52, !noalias !266
   call void @_ZN5arrow8internal23ScalarFromArraySlotImpl6FinishIiEENS_6StatusEOT_(ptr dead_on_unwind writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 4 dereferenceable(4) %15)
@@ -7069,7 +7069,7 @@ define linkonce_odr void @_ZN5arrow16VisitArrayInlineINS_8internal23ScalarFromAr
   %150 = load i64, ptr %149, align 8, !tbaa !40, !noalias !271
   %151 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %152 = load ptr, ptr %151, align 8, !tbaa !274, !noalias !271
-  %153 = getelementptr inbounds i64, ptr %152, i64 %150
+  %153 = getelementptr inbounds [8 x i8], ptr %152, i64 %150
   %154 = load i64, ptr %153, align 8, !tbaa !76, !noalias !271
   store i64 %154, ptr %14, align 8, !tbaa !76, !noalias !271
   call void @_ZN5arrow8internal23ScalarFromArraySlotImpl6FinishIlEENS_6StatusEOT_(ptr dead_on_unwind writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %14)
@@ -7082,7 +7082,7 @@ define linkonce_odr void @_ZN5arrow16VisitArrayInlineINS_8internal23ScalarFromAr
   %157 = load i64, ptr %156, align 8, !tbaa !40, !noalias !276
   %158 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %159 = load ptr, ptr %158, align 8, !tbaa !279, !noalias !276
-  %160 = getelementptr inbounds i64, ptr %159, i64 %157
+  %160 = getelementptr inbounds [8 x i8], ptr %159, i64 %157
   %161 = load i64, ptr %160, align 8, !tbaa !76, !noalias !276
   store i64 %161, ptr %13, align 8, !tbaa !76, !noalias !276
   call void @_ZN5arrow8internal23ScalarFromArraySlotImpl6FinishIlEENS_6StatusEOT_(ptr dead_on_unwind writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %13)
@@ -7095,7 +7095,7 @@ define linkonce_odr void @_ZN5arrow16VisitArrayInlineINS_8internal23ScalarFromAr
   %164 = load i64, ptr %163, align 8, !tbaa !40, !noalias !281
   %165 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %166 = load ptr, ptr %165, align 8, !tbaa !284, !noalias !281
-  %167 = getelementptr inbounds i32, ptr %166, i64 %164
+  %167 = getelementptr inbounds [4 x i8], ptr %166, i64 %164
   %168 = load i32, ptr %167, align 4, !tbaa !52, !noalias !281
   store i32 %168, ptr %12, align 4, !tbaa !52, !noalias !281
   call void @_ZN5arrow8internal23ScalarFromArraySlotImpl6FinishIiEENS_6StatusEOT_(ptr dead_on_unwind writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 4 dereferenceable(4) %12)
@@ -7108,7 +7108,7 @@ define linkonce_odr void @_ZN5arrow16VisitArrayInlineINS_8internal23ScalarFromAr
   %171 = load i64, ptr %170, align 8, !tbaa !40, !noalias !286
   %172 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %173 = load ptr, ptr %172, align 8, !tbaa !289, !noalias !286
-  %174 = getelementptr inbounds i64, ptr %173, i64 %171
+  %174 = getelementptr inbounds [8 x i8], ptr %173, i64 %171
   %175 = load i64, ptr %174, align 8, !tbaa !76, !noalias !286
   store i64 %175, ptr %11, align 8, !tbaa !76, !noalias !286
   call void @_ZN5arrow8internal23ScalarFromArraySlotImpl6FinishIlEENS_6StatusEOT_(ptr dead_on_unwind writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(8) %11)
@@ -7135,7 +7135,7 @@ define linkonce_odr void @_ZN5arrow16VisitArrayInlineINS_8internal23ScalarFromAr
   %185 = load i64, ptr %184, align 8, !tbaa !40, !noalias !294
   %186 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %187 = load ptr, ptr %186, align 8, !tbaa !297, !noalias !294
-  %188 = getelementptr inbounds i32, ptr %187, i64 %185
+  %188 = getelementptr inbounds [4 x i8], ptr %187, i64 %185
   %189 = load i32, ptr %188, align 4, !tbaa !52, !noalias !294
   store i32 %189, ptr %9, align 4, !tbaa !52, !noalias !294
   call void @_ZN5arrow8internal23ScalarFromArraySlotImpl6FinishIiEENS_6StatusEOT_(ptr dead_on_unwind writable sret(%"class.arrow::Status") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 4 dereferenceable(4) %9)
@@ -7713,7 +7713,7 @@ define linkonce_odr void @_ZN5arrow8internal23ScalarFromArraySlotImpl5VisitINS_1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !336)
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %9 = load ptr, ptr %8, align 8, !tbaa !339, !noalias !336
-  %10 = getelementptr inbounds i32, ptr %9, i64 %7
+  %10 = getelementptr inbounds [4 x i8], ptr %9, i64 %7
   %11 = load i32, ptr %10, align 4, !tbaa !52, !noalias !336
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %13 = load ptr, ptr %12, align 8, !tbaa !341, !noalias !336
@@ -7906,7 +7906,7 @@ define linkonce_odr void @_ZN5arrow8internal23ScalarFromArraySlotImpl5VisitINS_1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !345)
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %9 = load ptr, ptr %8, align 8, !tbaa !348, !noalias !345
-  %10 = getelementptr inbounds i64, ptr %9, i64 %7
+  %10 = getelementptr inbounds [8 x i8], ptr %9, i64 %7
   %11 = load i64, ptr %10, align 8, !tbaa !76, !noalias !345
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %13 = load ptr, ptr %12, align 8, !tbaa !350, !noalias !345
@@ -8102,7 +8102,7 @@ define linkonce_odr void @_ZN5arrow8internal23ScalarFromArraySlotImpl5VisitINS_8
   %8 = load ptr, ptr %7, align 8, !tbaa !120, !noalias !354
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %10 = load ptr, ptr %9, align 8, !tbaa !357, !noalias !354
-  %11 = getelementptr inbounds i32, ptr %10, i64 %6
+  %11 = getelementptr inbounds [4 x i8], ptr %10, i64 %6
   %12 = load i32, ptr %11, align 4, !tbaa !52, !noalias !354
   %13 = sext i32 %12 to i64
   %14 = load ptr, ptr %2, align 8, !tbaa !49, !noalias !354
@@ -8186,7 +8186,7 @@ define linkonce_odr void @_ZN5arrow8internal23ScalarFromArraySlotImpl5VisitINS_1
   %8 = load ptr, ptr %7, align 8, !tbaa !120, !noalias !361
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %10 = load ptr, ptr %9, align 8, !tbaa !364, !noalias !361
-  %11 = getelementptr inbounds i64, ptr %10, i64 %6
+  %11 = getelementptr inbounds [8 x i8], ptr %10, i64 %6
   %12 = load i64, ptr %11, align 8, !tbaa !76, !noalias !361
   %13 = load ptr, ptr %2, align 8, !tbaa !49, !noalias !361
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -8268,7 +8268,7 @@ define linkonce_odr void @_ZN5arrow8internal23ScalarFromArraySlotImpl5VisitINS_1
   %8 = load ptr, ptr %7, align 8, !tbaa !120, !noalias !367
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %10 = load ptr, ptr %9, align 8, !tbaa !370, !noalias !367
-  %11 = getelementptr inbounds i32, ptr %10, i64 %6
+  %11 = getelementptr inbounds [4 x i8], ptr %10, i64 %6
   %12 = load i32, ptr %11, align 4, !tbaa !52, !noalias !367
   %13 = sext i32 %12 to i64
   %14 = load ptr, ptr %2, align 8, !tbaa !49, !noalias !367
@@ -8352,7 +8352,7 @@ define linkonce_odr void @_ZN5arrow8internal23ScalarFromArraySlotImpl5VisitINS_1
   %8 = load ptr, ptr %7, align 8, !tbaa !120, !noalias !373
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %10 = load ptr, ptr %9, align 8, !tbaa !376, !noalias !373
-  %11 = getelementptr inbounds i64, ptr %10, i64 %6
+  %11 = getelementptr inbounds [8 x i8], ptr %10, i64 %6
   %12 = load i64, ptr %11, align 8, !tbaa !76, !noalias !373
   %13 = load ptr, ptr %2, align 8, !tbaa !49, !noalias !373
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
@@ -9493,13 +9493,13 @@ define linkonce_odr void @_ZN5arrow8internal23ScalarFromArraySlotImpl5VisitERKNS
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 96
   %20 = sext i8 %16 to i64
   %21 = load ptr, ptr %19, align 8, !tbaa !429
-  %22 = getelementptr inbounds nuw i32, ptr %21, i64 %20
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %20
   %23 = load i32, ptr %22, align 4, !tbaa !52
   call void @_ZNK5arrow10UnionArray5fieldEi(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr.26") align 8 %7, ptr noundef nonnull align 8 dereferenceable(72) %2, i32 noundef %23)
   %24 = load i64, ptr %11, align 8, !tbaa !40
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %26 = load ptr, ptr %25, align 8, !tbaa !431
-  %27 = getelementptr inbounds i32, ptr %26, i64 %24
+  %27 = getelementptr inbounds [4 x i8], ptr %26, i64 %24
   %28 = load i32, ptr %27, align 4, !tbaa !52
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %29 = load ptr, ptr %7, align 8, !tbaa !120
@@ -102495,7 +102495,7 @@ _ZNSt6vectorISt10shared_ptrIN5arrow6ScalarEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_
 _ZNSt12_Vector_baseISt10shared_ptrIN5arrow6ScalarEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN5arrow6ScalarEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21, %35
   store ptr %19, ptr %0, align 8, !tbaa !399
   store ptr %.0.lcssa.i.i.i20, ptr %3, align 8, !tbaa !386
-  %39 = getelementptr inbounds nuw %"class.std::shared_ptr.20", ptr %19, i64 %15
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %15
   store ptr %39, ptr %34, align 8, !tbaa !389
   ret void
 }

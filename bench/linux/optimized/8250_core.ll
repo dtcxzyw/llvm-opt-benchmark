@@ -131,7 +131,7 @@ module asm ".previous\09\09\09\09\09"
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
 define dso_local noundef nonnull ptr @serial8250_get_port(i32 noundef %0) #0 align 16 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr %struct.uart_8250_port, ptr @serial8250_ports, i64 %2
+  %3 = getelementptr [784 x i8], ptr @serial8250_ports, i64 %2
   ret ptr %3
 }
 
@@ -171,7 +171,7 @@ define dso_local noundef range(i32 -19, 1) i32 @early_serial_setup(ptr noundef r
   tail call fastcc void @serial8250_isa_init_ports() #11
   %9 = load i32, ptr %2, align 4
   %10 = zext i32 %9 to i64
-  %11 = getelementptr %struct.uart_8250_port, ptr @serial8250_ports, i64 %10
+  %11 = getelementptr [784 x i8], ptr @serial8250_ports, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load i64, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -296,7 +296,7 @@ define internal fastcc void @serial8250_isa_init_ports() unnamed_addr #2 section
 
 10:                                               ; preds = %.preheader2
   %11 = sext i32 %8 to i64
-  %12 = getelementptr %struct.uart_8250_port, ptr @serial8250_ports, i64 %11
+  %12 = getelementptr [784 x i8], ptr @serial8250_ports, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 316
   store i32 %8, ptr %13, align 4
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 164
@@ -351,7 +351,7 @@ serial8250_setup_port.exit:                       ; preds = %.preheader2, %20
   %34 = phi ptr [ %70, %68 ], [ %.pre5, %.preheader.preheader ]
   %35 = phi i64 [ %71, %68 ], [ 0, %.preheader.preheader ]
   %36 = phi ptr [ %72, %68 ], [ @serial8250_ports, %.preheader.preheader ]
-  %37 = getelementptr %struct.old_serial_port, ptr @old_serial_port, i64 %35
+  %37 = getelementptr [48 x i8], ptr @old_serial_port, i64 %35
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load i32, ptr %38, align 8
   %40 = zext i32 %39 to i64
@@ -419,7 +419,7 @@ declare dso_local void @serial8250_set_defaults(ptr noundef) local_unnamed_addr 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @serial8250_suspend_port(i32 noundef %0) #4 align 16 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr %struct.uart_8250_port, ptr @serial8250_ports, i64 %2
+  %3 = getelementptr [784 x i8], ptr @serial8250_ports, i64 %2
   %4 = load i8, ptr @console_suspend_enabled, align 1, !range !9, !noundef !10
   %5 = icmp eq i8 %4, 0
   br i1 %5, label %6, label %30
@@ -471,7 +471,7 @@ declare dso_local i32 @uart_suspend_port(ptr noundef, ptr noundef) local_unnamed
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @serial8250_resume_port(i32 noundef %0) #4 align 16 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr %struct.uart_8250_port, ptr @serial8250_ports, i64 %2
+  %3 = getelementptr [784 x i8], ptr @serial8250_ports, i64 %2
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 608
   store i8 0, ptr %4, align 16
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 584
@@ -535,7 +535,7 @@ define dso_local i32 @serial8250_register_8250_port(ptr noundef %0) #4 align 16 
 .preheader38:                                     ; preds = %5, %8
   %12 = phi i32 [ %9, %8 ], [ 0, %5 ]
   %13 = sext i32 %12 to i64
-  %14 = getelementptr %struct.uart_8250_port, ptr @serial8250_ports, i64 %13
+  %14 = getelementptr [784 x i8], ptr @serial8250_ports, i64 %13
   %15 = tail call zeroext i1 @uart_match_port(ptr noundef %14, ptr noundef %0) #12
   br i1 %15, label %.loopexit, label %8
 
@@ -547,7 +547,7 @@ define dso_local i32 @serial8250_register_8250_port(ptr noundef %0) #4 align 16 
 
 20:                                               ; preds = %16
   %21 = sext i32 %18 to i64
-  %22 = getelementptr %struct.uart_8250_port, ptr @serial8250_ports, i64 %21
+  %22 = getelementptr [784 x i8], ptr @serial8250_ports, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 296
   %24 = load i32, ptr %23, align 8
   %25 = icmp eq i32 %24, 0
@@ -569,7 +569,7 @@ define dso_local i32 @serial8250_register_8250_port(ptr noundef %0) #4 align 16 
 .preheader36:                                     ; preds = %.preheader36.preheader, %42
   %32 = phi i32 [ %43, %42 ], [ 0, %.preheader36.preheader ]
   %33 = sext i32 %32 to i64
-  %34 = getelementptr %struct.uart_8250_port, ptr @serial8250_ports, i64 %33
+  %34 = getelementptr [784 x i8], ptr @serial8250_ports, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 296
   %36 = load i32, ptr %35, align 8
   %37 = icmp eq i32 %36, 0
@@ -594,7 +594,7 @@ define dso_local i32 @serial8250_register_8250_port(ptr noundef %0) #4 align 16 
 .preheader:                                       ; preds = %42, %45
   %48 = phi i32 [ %46, %45 ], [ 0, %42 ]
   %49 = sext i32 %48 to i64
-  %50 = getelementptr %struct.uart_8250_port, ptr @serial8250_ports, i64 %49
+  %50 = getelementptr [784 x i8], ptr @serial8250_ports, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 296
   %52 = load i32, ptr %51, align 8
   %53 = icmp eq i32 %52, 0
@@ -617,7 +617,7 @@ define dso_local i32 @serial8250_register_8250_port(ptr noundef %0) #4 align 16 
 .thread32.thread:                                 ; preds = %30, %5, %.thread32
   %57 = phi i32 [ %.pr, %.thread32 ], [ 0, %5 ], [ 0, %30 ]
   %58 = sext i32 %57 to i64
-  %59 = getelementptr %struct.uart_8250_port, ptr @serial8250_ports, i64 %58
+  %59 = getelementptr [784 x i8], ptr @serial8250_ports, i64 %58
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 316
   store i32 %57, ptr %60, align 4
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 164
@@ -1120,7 +1120,7 @@ declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #3
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @serial8250_unregister_port(i32 noundef %0) #4 align 16 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr %struct.uart_8250_port, ptr @serial8250_ports, i64 %2
+  %3 = getelementptr [784 x i8], ptr @serial8250_ports, i64 %2
   tail call void @mutex_lock(ptr noundef nonnull @serial_mutex) #12
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 664
   %5 = load ptr, ptr %4, align 8
@@ -1284,7 +1284,7 @@ define internal void @univ8250_console_write(ptr noundef readonly captures(none)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 74
   %5 = load i16, ptr %4, align 2
   %6 = sext i16 %5 to i64
-  %7 = getelementptr %struct.uart_8250_port, ptr @serial8250_ports, i64 %6
+  %7 = getelementptr [784 x i8], ptr @serial8250_ports, i64 %6
   tail call void @serial8250_console_write(ptr noundef %7, ptr noundef %1, i32 noundef %2) #12
   ret void
 }
@@ -1324,7 +1324,7 @@ define internal i32 @univ8250_console_setup(ptr noundef %0, ptr noundef %1) #4 a
   br i1 %16, label %.critedge, label %17
 
 17:                                               ; preds = %14
-  %18 = getelementptr %struct.uart_8250_port, ptr @serial8250_ports, i64 %15
+  %18 = getelementptr [784 x i8], ptr @serial8250_ports, i64 %15
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 316
   %20 = trunc nsw i64 %15 to i32
   store i32 %20, ptr %19, align 4
@@ -1364,7 +1364,7 @@ define internal i32 @univ8250_console_setup(ptr noundef %0, ptr noundef %1) #4 a
 
 .loopexit:                                        ; preds = %32, %..loopexit_crit_edge
   %.pre-phi = phi i64 [ %.pre, %..loopexit_crit_edge ], [ %37, %32 ]
-  %39 = getelementptr %struct.uart_8250_port, ptr @serial8250_ports, i64 %.pre-phi
+  %39 = getelementptr [784 x i8], ptr @serial8250_ports, i64 %.pre-phi
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 264
   store ptr %0, ptr %40, align 8
   %41 = tail call i32 @serial8250_console_setup(ptr noundef %39, ptr noundef %1, i1 noundef zeroext false) #12
@@ -1385,7 +1385,7 @@ define internal i32 @univ8250_console_exit(ptr noundef readonly captures(none) %
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 74
   %3 = load i16, ptr %2, align 2
   %4 = sext i16 %3 to i64
-  %5 = getelementptr %struct.uart_8250_port, ptr @serial8250_ports, i64 %4
+  %5 = getelementptr [784 x i8], ptr @serial8250_ports, i64 %4
   %6 = tail call i32 @serial8250_console_exit(ptr noundef %5) #12
   ret i32 %6
 }
@@ -1442,7 +1442,7 @@ define internal i32 @univ8250_console_match(ptr noundef %0, ptr noundef readonly
 .split.us:                                        ; preds = %.split.us.preheader, %35
   %25 = phi i32 [ %36, %35 ], [ 0, %.split.us.preheader ]
   %26 = sext i32 %25 to i64
-  %27 = getelementptr %struct.uart_8250_port, ptr @serial8250_ports, i64 %26
+  %27 = getelementptr [784 x i8], ptr @serial8250_ports, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 194
   %29 = load i8, ptr %28, align 2
   %30 = icmp eq i8 %29, %.fr
@@ -1462,7 +1462,7 @@ define internal i32 @univ8250_console_match(ptr noundef %0, ptr noundef readonly
 .split.us8:                                       ; preds = %21, %47
   %37 = phi i32 [ %48, %47 ], [ 0, %21 ]
   %38 = sext i32 %37 to i64
-  %39 = getelementptr %struct.uart_8250_port, ptr @serial8250_ports, i64 %38
+  %39 = getelementptr [784 x i8], ptr @serial8250_ports, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 194
   %41 = load i8, ptr %40, align 2
   %42 = icmp eq i8 %41, 0
@@ -1487,7 +1487,7 @@ define internal i32 @univ8250_console_match(ptr noundef %0, ptr noundef readonly
 .split:                                           ; preds = %21, %49
   %51 = phi i32 [ %50, %49 ], [ 0, %21 ]
   %52 = sext i32 %51 to i64
-  %53 = getelementptr %struct.uart_8250_port, ptr @serial8250_ports, i64 %52
+  %53 = getelementptr [784 x i8], ptr @serial8250_ports, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 194
   %55 = load i8, ptr %54, align 2
   %56 = icmp eq i8 %55, %.fr
@@ -1582,7 +1582,7 @@ define internal void @univ8250_config_port(ptr noundef %0, i32 noundef %1) #4 al
 38:                                               ; preds = %35, %32
   %39 = phi i32 [ 0, %32 ], [ %36, %35 ]
   %40 = sext i32 %39 to i64
-  %41 = getelementptr i64, ptr @probe_rsa, i64 %40
+  %41 = getelementptr [8 x i8], ptr @probe_rsa, i64 %40
   %42 = load i64, ptr %41, align 8
   %43 = icmp eq i64 %42, %34
   br i1 %43, label %44, label %35
@@ -1787,7 +1787,7 @@ define internal i32 @univ8250_setup_irq(ptr noundef %0) #4 align 16 {
   %6 = load i32, ptr %2, align 8
   %7 = and i32 %6, 31
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr %struct.hlist_head, ptr @irq_lists, i64 %8
+  %9 = getelementptr [8 x i8], ptr @irq_lists, i64 %8
   br label %10
 
 10:                                               ; preds = %14, %5
@@ -1954,7 +1954,7 @@ define internal void @univ8250_release_irq(ptr noundef %0) #4 align 16 {
   %9 = load i32, ptr %5, align 8
   %10 = and i32 %9, 31
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr %struct.hlist_head, ptr @irq_lists, i64 %11
+  %12 = getelementptr [8 x i8], ptr @irq_lists, i64 %11
   br label %13
 
 13:                                               ; preds = %17, %8
@@ -2472,7 +2472,7 @@ define internal void @serial8250_remove(ptr noundef readnone captures(address) %
   %7 = phi i32 [ %2, %4 ], [ %15, %14 ]
   %8 = phi i32 [ 0, %4 ], [ %16, %14 ]
   %9 = sext i32 %8 to i64
-  %.split = getelementptr %struct.uart_8250_port, ptr @serial8250_ports, i64 %9
+  %.split = getelementptr [784 x i8], ptr @serial8250_ports, i64 %9
   %10 = getelementptr i8, ptr %.split, i64 344
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, %5
@@ -2500,7 +2500,7 @@ define internal noundef i32 @serial8250_suspend(ptr noundef readnone captures(ad
 
 4:                                                ; preds = %16, %2
   %5 = phi i64 [ 0, %2 ], [ %17, %16 ]
-  %6 = getelementptr %struct.uart_8250_port, ptr @serial8250_ports, i64 %5
+  %6 = getelementptr [784 x i8], ptr @serial8250_ports, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 296
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 0
@@ -2532,7 +2532,7 @@ define internal noundef i32 @serial8250_resume(ptr noundef readnone captures(add
 
 3:                                                ; preds = %36, %1
   %4 = phi i64 [ 0, %1 ], [ %37, %36 ]
-  %5 = getelementptr %struct.uart_8250_port, ptr @serial8250_ports, i64 %4
+  %5 = getelementptr [784 x i8], ptr @serial8250_ports, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 296
   %7 = load i32, ptr %6, align 8
   %8 = icmp eq i32 %7, 0
@@ -2622,7 +2622,7 @@ define internal fastcc void @serial8250_register_ports(ptr noundef %0) unnamed_a
   %4 = phi i32 [ %42, %41 ], [ %2, %1 ]
   %5 = phi i32 [ %43, %41 ], [ 0, %1 ]
   %6 = sext i32 %5 to i64
-  %7 = getelementptr %struct.uart_8250_port, ptr @serial8250_ports, i64 %6
+  %7 = getelementptr [784 x i8], ptr @serial8250_ports, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 296
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 23

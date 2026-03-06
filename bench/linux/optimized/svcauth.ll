@@ -56,7 +56,7 @@ define dso_local i32 @svc_authenticate(ptr noundef initializes((11328, 11332)) %
 10:                                               ; preds = %6
   tail call void @__rcu_read_lock() #9
   %11 = zext nneg i32 %8 to i64
-  %12 = getelementptr ptr, ptr @authtab, i64 %11
+  %12 = getelementptr [8 x i8], ptr @authtab, i64 %11
   %13 = load volatile ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.thread4, label %15
@@ -136,7 +136,7 @@ define dso_local range(i32 -22, 1) i32 @svc_auth_register(i32 noundef %0, ptr no
 
 4:                                                ; preds = %2
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr ptr, ptr @authtab, i64 %5
+  %6 = getelementptr [8 x i8], ptr @authtab, i64 %5
   %7 = tail call ptr asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; cmpxchgq $2,$1", "={ax},=*m,r,0,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %6, ptr %1, ptr null, ptr elementtype(i64) %6) #9, !srcloc !6
   %8 = icmp eq ptr %7, null
   %9 = icmp eq ptr %7, %1
@@ -156,7 +156,7 @@ define dso_local void @svc_auth_unregister(i32 noundef %0) #1 align 16 {
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr ptr, ptr @authtab, i64 %4
+  %5 = getelementptr [8 x i8], ptr @authtab, i64 %4
   store volatile ptr null, ptr %5, align 8
   br label %6
 
@@ -225,7 +225,7 @@ define dso_local ptr @auth_domain_lookup(ptr noundef %0, ptr noundef %1) #0 alig
   %3 = tail call i64 @hashlen_string(ptr noundef null, ptr noundef %0) #10
   %4 = lshr i64 %3, 26
   %5 = and i64 %4, 63
-  %6 = getelementptr %struct.hlist_head, ptr @auth_domain_table, i64 %5
+  %6 = getelementptr [8 x i8], ptr @auth_domain_table, i64 %5
   tail call void @_raw_spin_lock(ptr noundef nonnull @auth_domain_lock) #9
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
@@ -299,7 +299,7 @@ define dso_local ptr @auth_domain_find(ptr noundef %0) #0 align 16 {
   %2 = tail call i64 @hashlen_string(ptr noundef null, ptr noundef %0) #10
   %3 = lshr i64 %2, 26
   %4 = and i64 %3, 63
-  %5 = getelementptr %struct.hlist_head, ptr @auth_domain_table, i64 %4
+  %5 = getelementptr [8 x i8], ptr @auth_domain_table, i64 %4
   tail call void @__rcu_read_lock() #9
   %6 = load volatile ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
@@ -373,7 +373,7 @@ define dso_local void @auth_domain_cleanup() local_unnamed_addr #0 align 16 {
 
 1:                                                ; preds = %.loopexit, %0
   %2 = phi i64 [ 0, %0 ], [ %19, %.loopexit ]
-  %3 = getelementptr %struct.hlist_head, ptr @auth_domain_table, i64 %2
+  %3 = getelementptr [8 x i8], ptr @auth_domain_table, i64 %2
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   %6 = getelementptr i8, ptr %4, i64 -8

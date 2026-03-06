@@ -6,13 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.OptionDef = type { ptr, i32, i32, %union.anon, ptr, ptr, %union.anon.0 }
 %union.anon = type { ptr }
 %union.anon.0 = type { ptr }
-%struct.SpecifierOpt = type { ptr, %struct.StreamSpecifier, %union.anon.4 }
 %struct.StreamSpecifier = type { i32, i32, i64, i32, i8, i8, i32, ptr, ptr, ptr }
-%union.anon.4 = type { ptr }
-%struct.Option = type { ptr, ptr, ptr }
-%struct.OptionGroupList = type { ptr, ptr, i32 }
-%struct.OptionGroup = type { ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr }
-%struct.OptionGroupDef = type { ptr, ptr, i32 }
 %struct.AVBPrint = type { ptr, i32, i32, i32, [1 x i8], [1000 x i8] }
 
 @hide_banner = local_unnamed_addr global i32 0, align 4
@@ -856,7 +850,7 @@ define internal fastcc i32 @write_option(ptr noundef %0, ptr noundef %1, ptr nou
   %62 = load ptr, ptr %23, align 8, !tbaa !38
   %63 = load i32, ptr %42, align 8, !tbaa !33
   %64 = sext i32 %63 to i64
-  %65 = getelementptr %struct.SpecifierOpt, ptr %62, i64 %64
+  %65 = getelementptr [72 x i8], ptr %62, i64 %64
   %66 = getelementptr i8, ptr %65, i64 -72
   store ptr %60, ptr %66, align 8, !tbaa !39
   %67 = load i32, ptr %13, align 4, !tbaa !17
@@ -874,7 +868,7 @@ define internal fastcc i32 @write_option(ptr noundef %0, ptr noundef %1, ptr nou
   %74 = load ptr, ptr %23, align 8, !tbaa !38
   %75 = load i32, ptr %42, align 8, !tbaa !33
   %76 = sext i32 %75 to i64
-  %77 = getelementptr %struct.SpecifierOpt, ptr %74, i64 %76
+  %77 = getelementptr [72 x i8], ptr %74, i64 %76
   %78 = getelementptr i8, ptr %77, i64 -8
   br label %79
 
@@ -1145,7 +1139,7 @@ define range(i32 -2147483648, 1) i32 @parse_options(ptr noundef %0, i32 noundef 
   %.02131.us45.us = phi i32 [ %.1.us46.us, %28 ], [ %.021.ph51.us, %.lr.ph.us ]
   %7 = add nsw i32 %.02131.us45.us, 1
   %8 = sext i32 %.02131.us45.us to i64
-  %9 = getelementptr inbounds ptr, ptr %2, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %2, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !9
   %11 = load i8, ptr %10, align 1, !tbaa !11
   %12 = icmp eq i8 %11, 45
@@ -1167,7 +1161,7 @@ define range(i32 -2147483648, 1) i32 @parse_options(ptr noundef %0, i32 noundef 
 
 20:                                               ; preds = %16, %13
   %21 = sext i32 %7 to i64
-  %22 = getelementptr inbounds ptr, ptr %2, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %2, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !9
   %24 = tail call i32 @parse_option(ptr noundef %0, ptr noundef nonnull %14, ptr noundef %23, ptr noundef %3)
   %25 = icmp slt i32 %24, 0
@@ -1207,7 +1201,7 @@ define range(i32 -2147483648, 1) i32 @parse_options(ptr noundef %0, i32 noundef 
   br i1 %.not29, label %40, label %35
 
 35:                                               ; preds = %34
-  %36 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
+  %36 = getelementptr inbounds [8 x i8], ptr %2, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8, !tbaa !9
   %38 = tail call i32 %4(ptr noundef %0, ptr noundef %37) #15
   %39 = icmp slt i32 %38, 0
@@ -1221,7 +1215,7 @@ define range(i32 -2147483648, 1) i32 @parse_options(ptr noundef %0, i32 noundef 
   %.02131 = phi i32 [ %.1, %66 ], [ %.021.ph51, %.lr.ph ]
   %42 = add nsw i32 %.02131, 1
   %43 = sext i32 %.02131 to i64
-  %44 = getelementptr inbounds ptr, ptr %2, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr %2, i64 %43
   %45 = load ptr, ptr %44, align 8, !tbaa !9
   %46 = load i8, ptr %45, align 1, !tbaa !11
   %47 = icmp eq i8 %46, 45
@@ -1243,7 +1237,7 @@ define range(i32 -2147483648, 1) i32 @parse_options(ptr noundef %0, i32 noundef 
 
 55:                                               ; preds = %48, %51
   %56 = sext i32 %42 to i64
-  %57 = getelementptr inbounds ptr, ptr %2, i64 %56
+  %57 = getelementptr inbounds [8 x i8], ptr %2, i64 %56
   %58 = load ptr, ptr %57, align 8, !tbaa !9
   %59 = tail call i32 @parse_option(ptr noundef %0, ptr noundef nonnull %49, ptr noundef %58, ptr noundef %3)
   %60 = icmp slt i32 %59, 0
@@ -1294,7 +1288,7 @@ define range(i32 -2147483648, 1) i32 @parse_optgroup(ptr noundef %0, ptr noundef
 16:                                               ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
   %17 = load ptr, ptr %11, align 8, !tbaa !59
-  %18 = getelementptr inbounds nuw %struct.Option, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %indvars.iv
   %19 = load ptr, ptr %1, align 8, !tbaa !49
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load i32, ptr %20, align 8, !tbaa !60
@@ -1353,7 +1347,7 @@ define i32 @locate_option(i32 noundef %0, ptr noundef readonly captures(none) %1
 .lr.ph:                                           ; preds = %4, %opt_has_arg.exit.thread
   %.02687 = phi i32 [ %56, %opt_has_arg.exit.thread ], [ 1, %4 ]
   %8 = sext i32 %.02687 to i64
-  %9 = getelementptr inbounds ptr, ptr %1, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %1, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !9
   %11 = load i8, ptr %10, align 1, !tbaa !11
   %12 = icmp eq i8 %11, 45
@@ -1562,7 +1556,7 @@ check_options.exit:                               ; preds = %.thread.i, %3
 .thread:                                          ; preds = %check_options.exit, %23
   %.03145 = phi i32 [ %24, %23 ], [ %22, %check_options.exit ]
   %25 = sext i32 %.03145 to i64
-  %26 = getelementptr ptr, ptr %1, i64 %25
+  %26 = getelementptr [8 x i8], ptr %1, i64 %25
   %27 = getelementptr i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8, !tbaa !9
   %.not37 = icmp eq ptr %28, null
@@ -1602,7 +1596,7 @@ check_options.exit:                               ; preds = %.thread.i, %3
 44:                                               ; preds = %.lr.ph, %dump_argument.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %dump_argument.exit ]
   %45 = load ptr, ptr %4, align 8, !tbaa !4
-  %46 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %47 = load ptr, ptr %46, align 8, !tbaa !9
   %48 = load i8, ptr %47, align 1, !tbaa !11
   %.not43.i = icmp eq i8 %48, 0
@@ -1755,7 +1749,7 @@ define void @uninit_parse_context(ptr noundef %0) local_unnamed_addr #0 {
 6:                                                ; preds = %.lr.ph25, %._crit_edge
   %indvars.iv28 = phi i64 [ 0, %.lr.ph25 ], [ %indvars.iv.next29, %._crit_edge ]
   %7 = load ptr, ptr %5, align 8, !tbaa !73
-  %8 = getelementptr inbounds nuw %struct.OptionGroupList, ptr %7, i64 %indvars.iv28
+  %8 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %indvars.iv28
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i32, ptr %9, align 8, !tbaa !74
   %11 = icmp sgt i32 %10, 0
@@ -1768,23 +1762,23 @@ define void @uninit_parse_context(ptr noundef %0) local_unnamed_addr #0 {
 13:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
   %14 = load ptr, ptr %12, align 8, !tbaa !77
-  %15 = getelementptr inbounds nuw %struct.OptionGroup, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [64 x i8], ptr %14, i64 %indvars.iv
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   tail call void @av_freep(ptr noundef nonnull %16) #15
   %17 = load ptr, ptr %12, align 8, !tbaa !77
-  %18 = getelementptr inbounds nuw %struct.OptionGroup, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [64 x i8], ptr %17, i64 %indvars.iv
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 32
   tail call void @av_dict_free(ptr noundef nonnull %19) #15
   %20 = load ptr, ptr %12, align 8, !tbaa !77
-  %21 = getelementptr inbounds nuw %struct.OptionGroup, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [64 x i8], ptr %20, i64 %indvars.iv
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 40
   tail call void @av_dict_free(ptr noundef nonnull %22) #15
   %23 = load ptr, ptr %12, align 8, !tbaa !77
-  %24 = getelementptr inbounds nuw %struct.OptionGroup, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [64 x i8], ptr %23, i64 %indvars.iv
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 48
   tail call void @av_dict_free(ptr noundef nonnull %25) #15
   %26 = load ptr, ptr %12, align 8, !tbaa !77
-  %27 = getelementptr inbounds nuw %struct.OptionGroup, ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [64 x i8], ptr %26, i64 %indvars.iv
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 56
   tail call void @av_dict_free(ptr noundef nonnull %28) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1842,8 +1836,8 @@ define range(i32 -1414549496, 1) i32 @split_commandline(ptr noundef captures(non
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %15 = getelementptr inbounds nuw %struct.OptionGroupDef, ptr %4, i64 %indvars.iv.i
-  %16 = getelementptr inbounds nuw %struct.OptionGroupList, ptr %10, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw [24 x i8], ptr %4, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 %indvars.iv.i
   store ptr %15, ptr %16, align 8, !tbaa !80
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1867,7 +1861,7 @@ define range(i32 -1414549496, 1) i32 @split_commandline(ptr noundef captures(non
   %.089185 = phi i32 [ 1, %.lr.ph ], [ %.190, %212 ]
   %21 = add nsw i32 %.089185, 1
   %22 = sext i32 %.089185 to i64
-  %23 = getelementptr inbounds ptr, ptr %2, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %2, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !9
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 48, ptr noundef nonnull @.str.36, ptr noundef %24) #15
   %25 = load i8, ptr %24, align 1, !tbaa !11
@@ -1923,7 +1917,7 @@ define range(i32 -1414549496, 1) i32 @split_commandline(ptr noundef captures(non
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %51, i8 0, i64 %54, i1 false)
   store i32 %41, ptr %39, align 4, !tbaa !37
   store ptr %46, ptr %38, align 8, !tbaa !24
-  %55 = getelementptr %struct.OptionGroup, ptr %46, i64 %45
+  %55 = getelementptr [64 x i8], ptr %46, i64 %45
   %56 = getelementptr i8, ptr %55, i64 -64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %56, ptr noundef nonnull align 8 dereferenceable(64) %19, i64 64, i1 false), !tbaa.struct !85
   %57 = getelementptr i8, ptr %55, i64 -56
@@ -1956,7 +1950,7 @@ define range(i32 -1414549496, 1) i32 @split_commandline(ptr noundef captures(non
 
 .lr.ph.i119:                                      ; preds = %68, %74
   %indvars.iv.i120 = phi i64 [ %indvars.iv.next.i122, %74 ], [ 0, %68 ]
-  %69 = getelementptr inbounds nuw %struct.OptionGroupDef, ptr %4, i64 %indvars.iv.i120
+  %69 = getelementptr inbounds nuw [24 x i8], ptr %4, i64 %indvars.iv.i120
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load ptr, ptr %70, align 8, !tbaa !93
   %.not.i121 = icmp eq ptr %71, null
@@ -1975,7 +1969,7 @@ define range(i32 -1414549496, 1) i32 @split_commandline(ptr noundef captures(non
 match_group_separator.exit:                       ; preds = %72
   %75 = add nsw i32 %.089185, 2
   %76 = sext i32 %21 to i64
-  %77 = getelementptr inbounds ptr, ptr %2, i64 %76
+  %77 = getelementptr inbounds [8 x i8], ptr %2, i64 %76
   %78 = load ptr, ptr %77, align 8, !tbaa !9
   %.not114 = icmp eq ptr %78, null
   br i1 %.not114, label %79, label %80
@@ -1987,7 +1981,7 @@ match_group_separator.exit:                       ; preds = %72
 80:                                               ; preds = %match_group_separator.exit
   %81 = load ptr, ptr %11, align 8, !tbaa !73
   %82 = and i64 %indvars.iv.i120, 4294967295
-  %83 = getelementptr inbounds nuw %struct.OptionGroupList, ptr %81, i64 %82
+  %83 = getelementptr inbounds nuw [24 x i8], ptr %81, i64 %82
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %85 = getelementptr inbounds nuw i8, ptr %83, i64 16
   %86 = load i32, ptr %85, align 8, !tbaa !74
@@ -2017,7 +2011,7 @@ match_group_separator.exit:                       ; preds = %72
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %97, i8 0, i64 %100, i1 false)
   store i32 %87, ptr %85, align 4, !tbaa !37
   store ptr %92, ptr %84, align 8, !tbaa !24
-  %101 = getelementptr %struct.OptionGroup, ptr %92, i64 %91
+  %101 = getelementptr [64 x i8], ptr %92, i64 %91
   %102 = getelementptr i8, ptr %101, i64 -64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %102, ptr noundef nonnull align 8 dereferenceable(64) %19, i64 64, i1 false), !tbaa.struct !85
   %103 = getelementptr i8, ptr %101, i64 -56
@@ -2041,7 +2035,7 @@ match_group_separator.exit:                       ; preds = %72
   store ptr null, ptr @sws_dict, align 8, !tbaa !88
   store ptr null, ptr @swr_opts, align 8, !tbaa !88
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %19, i8 0, i64 64, i1 false)
-  %113 = getelementptr inbounds nuw %struct.OptionGroupDef, ptr %4, i64 %82
+  %113 = getelementptr inbounds nuw [24 x i8], ptr %4, i64 %82
   %114 = load ptr, ptr %113, align 8, !tbaa !54
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 48, ptr noundef nonnull @.str.39, ptr noundef %114, ptr noundef nonnull %78) #15
   br label %212, !llvm.loop !84
@@ -2093,7 +2087,7 @@ find_option.exit:                                 ; preds = %119, %119
 129:                                              ; preds = %125
   %130 = add nsw i32 %.089185, 2
   %131 = sext i32 %21 to i64
-  %132 = getelementptr inbounds ptr, ptr %2, i64 %131
+  %132 = getelementptr inbounds [8 x i8], ptr %2, i64 %131
   %133 = load ptr, ptr %132, align 8, !tbaa !9
   br label %opt_has_arg.exit.thread
 
@@ -2113,7 +2107,7 @@ opt_has_arg.exit:                                 ; preds = %134
 opt_has_arg.exit.thread158:                       ; preds = %134, %opt_has_arg.exit
   %138 = add nsw i32 %.089185, 2
   %139 = sext i32 %21 to i64
-  %140 = getelementptr inbounds ptr, ptr %2, i64 %139
+  %140 = getelementptr inbounds [8 x i8], ptr %2, i64 %139
   %141 = load ptr, ptr %140, align 8, !tbaa !9
   %.not113 = icmp eq ptr %141, null
   br i1 %.not113, label %142, label %opt_has_arg.exit.thread
@@ -2158,7 +2152,7 @@ opt_has_arg.exit.thread:                          ; preds = %134, %opt_has_arg.e
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %158, i8 0, i64 %161, i1 false)
   store i32 %148, ptr %146, align 4, !tbaa !37
   store ptr %153, ptr %145, align 8, !tbaa !24
-  %162 = getelementptr %struct.Option, ptr %153, i64 %152
+  %162 = getelementptr [24 x i8], ptr %153, i64 %152
   %163 = getelementptr i8, ptr %162, i64 -24
   store ptr %.0817.i, ptr %163, align 8, !tbaa !61
   %164 = getelementptr i8, ptr %162, i64 -16
@@ -2173,7 +2167,7 @@ opt_has_arg.exit.thread:                          ; preds = %134, %opt_has_arg.e
 
 find_option.exit.thread:                          ; preds = %122, %match_group_separator.exit.thread, %find_option.exit
   %169 = sext i32 %21 to i64
-  %170 = getelementptr inbounds ptr, ptr %2, i64 %169
+  %170 = getelementptr inbounds [8 x i8], ptr %2, i64 %169
   %171 = load ptr, ptr %170, align 8, !tbaa !9
   %.not107 = icmp eq ptr %171, null
   br i1 %.not107, label %181, label %172
@@ -2338,7 +2332,7 @@ define internal fastcc range(i32 -34, 1) i32 @add_opt(ptr noundef captures(none)
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %22, i8 0, i64 %25, i1 false)
   store i32 %12, ptr %10, align 4, !tbaa !37
   store ptr %17, ptr %9, align 8, !tbaa !24
-  %26 = getelementptr %struct.Option, ptr %17, i64 %16
+  %26 = getelementptr [24 x i8], ptr %17, i64 %16
   %27 = getelementptr i8, ptr %26, i64 -24
   store ptr %1, ptr %27, align 8, !tbaa !61
   %28 = getelementptr i8, ptr %26, i64 -16
@@ -2400,7 +2394,7 @@ define noundef ptr @get_preset_file(ptr noundef %0, i64 noundef %1, ptr noundef 
 
 .preheader.split.us:                              ; preds = %.preheader, %17
   %indvars.iv39 = phi i64 [ %indvars.iv.next40, %17 ], [ 0, %.preheader ]
-  %11 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv39
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv39
   %12 = load ptr, ptr %11, align 8, !tbaa !9
   %.not33.us = icmp eq ptr %12, null
   br i1 %.not33.us, label %17, label %13
@@ -2427,7 +2421,7 @@ define noundef ptr @get_preset_file(ptr noundef %0, i64 noundef %1, ptr noundef 
 
 .preheader.split:                                 ; preds = %.preheader, %33
   %indvars.iv = phi i64 [ %indvars.iv.next, %33 ], [ 0, %.preheader ]
-  %23 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8, !tbaa !9
   %.not33 = icmp eq ptr %24, null
   br i1 %.not33, label %33, label %25
@@ -3108,7 +3102,7 @@ define range(i32 0, 2) i32 @stream_specifier_match(ptr noundef readonly captures
 
 36:                                               ; preds = %.lr.ph158, %35
   %indvars.iv170 = phi i64 [ 0, %.lr.ph158 ], [ %indvars.iv.next171, %35 ]
-  %37 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv170
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv170
   %38 = load ptr, ptr %37, align 8, !tbaa !134
   %39 = load i32, ptr %38, align 8, !tbaa !136
   %40 = sext i32 %39 to i64
@@ -3132,7 +3126,7 @@ define range(i32 0, 2) i32 @stream_specifier_match(ptr noundef readonly captures
 
 47:                                               ; preds = %.lr.ph, %46
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %46 ]
-  %48 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %49 = load ptr, ptr %48, align 8, !tbaa !141
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %51 = load i64, ptr %50, align 8, !tbaa !143
@@ -3155,7 +3149,7 @@ define range(i32 0, 2) i32 @stream_specifier_match(ptr noundef readonly captures
 ._crit_edge:                                      ; preds = %56
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %62 = load ptr, ptr %61, align 8, !tbaa !122
-  %63 = getelementptr inbounds nuw ptr, ptr %62, i64 %54
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %54
   %64 = load ptr, ptr %63, align 8, !tbaa !141
   %.not = icmp eq ptr %64, null
   br i1 %.not, label %._crit_edge.thread, label %._crit_edge.thread193
@@ -3214,7 +3208,7 @@ define range(i32 0, 2) i32 @stream_specifier_match(ptr noundef readonly captures
 
 85:                                               ; preds = %83
   %86 = load ptr, ptr %74, align 8, !tbaa !147
-  %87 = getelementptr inbounds ptr, ptr %86, i64 %indvars.iv175
+  %87 = getelementptr inbounds [8 x i8], ptr %86, i64 %indvars.iv175
   %88 = load ptr, ptr %87, align 8, !tbaa !148
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %90 = load i32, ptr %89, align 8, !tbaa !132
@@ -3226,14 +3220,14 @@ define range(i32 0, 2) i32 @stream_specifier_match(ptr noundef readonly captures
 
 93:                                               ; preds = %91
   %94 = load ptr, ptr %75, align 8, !tbaa !150
-  %95 = getelementptr inbounds i32, ptr %94, i64 %indvars.iv175
+  %95 = getelementptr inbounds [4 x i8], ptr %94, i64 %indvars.iv175
   %96 = load i32, ptr %95, align 4, !tbaa !37
   br label %97
 
 97:                                               ; preds = %91, %93, %85
   %98 = phi i32 [ %90, %85 ], [ %96, %93 ], [ %92, %91 ]
   %99 = zext i32 %98 to i64
-  %100 = getelementptr inbounds nuw ptr, ptr %84, i64 %99
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %99
   %101 = load ptr, ptr %100, align 8, !tbaa !148
   %102 = load i32, ptr %76, align 8, !tbaa !99
   %.not117 = icmp eq i32 %102, -1
@@ -3610,9 +3604,9 @@ define range(i32 -2147483648, 1) i32 @setup_find_stream_info_opts(ptr noundef re
 16:                                               ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
   %17 = load ptr, ptr %11, align 8, !tbaa !146
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !148
-  %20 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %21 = tail call i32 @filter_codec_opts(ptr noundef %1, i32 poison, ptr noundef nonnull %0, ptr noundef %19, ptr noundef null, ptr noundef nonnull %20, ptr noundef null)
   %22 = icmp slt i32 %21, 0
   br i1 %22, label %.preheader, label %12
@@ -3632,7 +3626,7 @@ define range(i32 -2147483648, 1) i32 @setup_find_stream_info_opts(ptr noundef re
 
 .lr.ph35:                                         ; preds = %.preheader, %.lr.ph35
   %indvars.iv41 = phi i64 [ %indvars.iv.next42, %.lr.ph35 ], [ 0, %.preheader ]
-  %24 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv41
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv41
   tail call void @av_dict_free(ptr noundef nonnull %24) #15
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %25 = load i32, ptr %5, align 4, !tbaa !175

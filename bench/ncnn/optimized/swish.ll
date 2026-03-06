@@ -137,7 +137,7 @@ define internal void @_ZNK4ncnn5Swish15forward_inplaceERNS_3MatERKNS_6OptionE.om
 
 28:                                               ; preds = %.noexc.us, %28
   %indvars.iv = phi i64 [ 0, %.noexc.us ], [ %indvars.iv.next, %28 ]
-  %29 = getelementptr inbounds nuw float, ptr %27, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv
   %30 = load float, ptr %29, align 4, !tbaa !43
   %31 = fneg fast float %30
   %32 = call fast float @llvm.exp.f32(float %31)

@@ -1151,7 +1151,7 @@ define hidden ptr @match_avp(ptr noundef readonly captures(ret: address, provena
 37:                                               ; preds = %42
   %38 = add i32 %.04860, 1
   %39 = sext i32 %38 to i64
-  %40 = getelementptr ptr, ptr %34, i64 %39
+  %40 = getelementptr [8 x i8], ptr %34, i64 %39
   %41 = load ptr, ptr %40, align 8
   %.not56 = icmp eq ptr %41, null
   br i1 %.not56, label %._crit_edge, label %42, !llvm.loop !16

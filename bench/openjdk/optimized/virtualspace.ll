@@ -1396,7 +1396,7 @@ _ZN17ReservedHeapSpace17try_reserve_rangeEPcS0_mS0_S0_mmm.exit93: ; preds = %.cr
   %.020.i107 = phi i32 [ %140, %139 ], [ 0, %.lr.ph.i94 ]
   %140 = add i32 %.020.i107, 1
   %141 = zext i32 %140 to i64
-  %142 = getelementptr inbounds nuw i64, ptr @_ZZL38get_attach_addresses_for_disjoint_modevE9addresses, i64 %141
+  %142 = getelementptr inbounds nuw [8 x i8], ptr @_ZZL38get_attach_addresses_for_disjoint_modevE9addresses, i64 %141
   %143 = load i64, ptr %142, align 8
   %.not.i97 = icmp eq i64 %143, 0
   br i1 %.not.i97, label %_ZL38get_attach_addresses_for_disjoint_modev.exit, label %139, !llvm.loop !9
@@ -1414,7 +1414,7 @@ _ZN17ReservedHeapSpace17try_reserve_rangeEPcS0_mS0_S0_mmm.exit93: ; preds = %.cr
   %147 = add i32 %.126.i109, 1
   %148 = add i32 %147, %.020.i.lcssa
   %149 = zext i32 %148 to i64
-  %150 = getelementptr inbounds nuw i64, ptr @_ZZL38get_attach_addresses_for_disjoint_modevE9addresses, i64 %149
+  %150 = getelementptr inbounds nuw [8 x i8], ptr @_ZZL38get_attach_addresses_for_disjoint_modevE9addresses, i64 %149
   %151 = load i64, ptr %150, align 8
   %.not15.i = icmp eq i64 %151, 0
   br i1 %.not15.i, label %_ZL38get_attach_addresses_for_disjoint_modev.exit, label %152, !llvm.loop !10
@@ -1426,13 +1426,13 @@ _ZN17ReservedHeapSpace17try_reserve_rangeEPcS0_mS0_S0_mmm.exit93: ; preds = %.cr
 
 ._crit_edge:                                      ; preds = %152, %.lr.ph27.i
   %.lcssa = phi i64 [ %144, %.lr.ph27.i ], [ %149, %152 ]
-  %155 = getelementptr inbounds nuw i64, ptr @_ZZL38get_attach_addresses_for_disjoint_modevE9addresses, i64 %.lcssa
+  %155 = getelementptr inbounds nuw [8 x i8], ptr @_ZZL38get_attach_addresses_for_disjoint_modevE9addresses, i64 %.lcssa
   store i64 0, ptr %155, align 8
   br label %_ZL38get_attach_addresses_for_disjoint_modev.exit
 
 _ZL38get_attach_addresses_for_disjoint_modev.exit: ; preds = %.critedge2.i96, %.lr.ph, %_ZN17ReservedHeapSpace17try_reserve_rangeEPcS0_mS0_S0_mmm.exit93, %._crit_edge
   %.lcssa1835.i = phi i64 [ 0, %_ZN17ReservedHeapSpace17try_reserve_rangeEPcS0_mS0_S0_mmm.exit93 ], [ %.lcssa103, %._crit_edge ], [ %.lcssa103, %.lr.ph ], [ %141, %.critedge2.i96 ]
-  %156 = getelementptr inbounds nuw i64, ptr @_ZZL38get_attach_addresses_for_disjoint_modevE9addresses, i64 %.lcssa1835.i
+  %156 = getelementptr inbounds nuw [8 x i8], ptr @_ZZL38get_attach_addresses_for_disjoint_modevE9addresses, i64 %.lcssa1835.i
   %157 = load ptr, ptr %156, align 8
   %.not81111 = icmp eq ptr %157, null
   br i1 %.not81111, label %.critedge, label %.lr.ph113
@@ -1444,7 +1444,7 @@ _ZL38get_attach_addresses_for_disjoint_modev.exit: ; preds = %.critedge2.i96, %.
 159:                                              ; preds = %.lr.ph113, %.critedge2
   %160 = phi ptr [ %157, %.lr.ph113 ], [ %173, %.critedge2 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph113 ], [ %indvars.iv.next, %.critedge2 ]
-  %161 = getelementptr inbounds nuw ptr, ptr %156, i64 %indvars.iv
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %156, i64 %indvars.iv
   %162 = load ptr, ptr %0, align 8
   %163 = icmp eq ptr %162, null
   br i1 %163, label %.critedge2, label %164
@@ -1468,7 +1468,7 @@ _ZL38get_attach_addresses_for_disjoint_modev.exit: ; preds = %.critedge2.i96, %.
   %171 = phi ptr [ %.pre, %..critedge2_crit_edge ], [ %160, %159 ]
   tail call void @_ZN17ReservedHeapSpace16try_reserve_heapEmmmPc(ptr noundef nonnull align 8 dereferenceable(49) %0, i64 noundef %158, i64 noundef %2, i64 noundef %3, ptr noundef %171)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %172 = getelementptr inbounds nuw ptr, ptr %156, i64 %indvars.iv.next
+  %172 = getelementptr inbounds nuw [8 x i8], ptr %156, i64 %indvars.iv.next
   %173 = load ptr, ptr %172, align 8
   %.not81 = icmp eq ptr %173, null
   br i1 %.not81, label %.critedge, label %159, !llvm.loop !11

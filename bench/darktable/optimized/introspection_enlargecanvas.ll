@@ -5,9 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.dt_introspection_t = type { i32, i32, ptr, i64, ptr, i64, i64, ptr }
 %struct.dt_iop_border_positions_t = type { [4 x float], [4 x float], i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, [8 x i8] }
-%union.dt_introspection_field_t = type { %struct.dt_introspection_type_double_t }
-%struct.dt_introspection_type_double_t = type { %struct.dt_introspection_type_header_t, double, double, double }
-%struct.dt_introspection_type_header_t = type { i32, ptr, ptr, ptr, ptr, i64, i64, ptr }
 
 @.str = private unnamed_addr constant [15 x i8] c"enlarge canvas\00", align 1
 @.str.1 = private unnamed_addr constant [50 x i8] c"add empty space to the left, top, right or bottom\00", align 1
@@ -407,7 +404,7 @@ define noundef i32 @distort_transform(ptr noundef readnone captures(none) %0, pt
 
 46:                                               ; preds = %.lr.ph, %46
   %.033 = phi i64 [ 0, %.lr.ph ], [ %53, %46 ]
-  %47 = getelementptr inbounds nuw float, ptr %2, i64 %.033
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.033
   %48 = load float, ptr %47, align 8, !tbaa !40
   %49 = fadd reassoc nsz arcp contract afn float %48, %44
   store float %49, ptr %47, align 8, !tbaa !40
@@ -491,7 +488,7 @@ define noundef i32 @distort_backtransform(ptr noundef readnone captures(none) %0
 
 46:                                               ; preds = %.lr.ph, %46
   %.033 = phi i64 [ 0, %.lr.ph ], [ %53, %46 ]
-  %47 = getelementptr inbounds nuw float, ptr %2, i64 %.033
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.033
   %48 = load float, ptr %47, align 8, !tbaa !40
   %49 = fsub reassoc nsz arcp contract afn float %48, %44
   store float %49, ptr %47, align 8, !tbaa !40
@@ -594,7 +591,7 @@ _compute_pos.exit:                                ; preds = %.thread, %33, %35
   %59 = call i32 @llvm.smax.i32(i32 %38, i32 0)
   %60 = select i1 %58, i32 %57, i32 %59
   %61 = sext i32 %60 to i64
-  %invariant.gep = getelementptr float, ptr %3, i64 %61
+  %invariant.gep = getelementptr [4 x i8], ptr %3, i64 %61
   %62 = sext i32 %56 to i64
   br label %63
 
@@ -610,11 +607,11 @@ _compute_pos.exit:                                ; preds = %.thread, %33, %35
   %65 = load i32, ptr %39, align 4, !tbaa !41
   %66 = sext i32 %65 to i64
   %67 = mul nsw i64 %64, %66
-  %gep = getelementptr float, ptr %invariant.gep, i64 %67
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %67
   %68 = load i32, ptr %41, align 4, !tbaa !41
   %69 = sext i32 %68 to i64
   %70 = mul nsw i64 %indvars.iv, %69
-  %71 = getelementptr inbounds nuw float, ptr %2, i64 %70
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %70
   %72 = shl nsw i64 %69, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %gep, ptr align 4 %71, i64 %72, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -695,13 +692,13 @@ _compute_pos.exit:                                ; preds = %.thread, %33, %35
 
 switch.lookup:                                    ; preds = %_compute_pos.exit
   %41 = zext nneg i32 %39 to i64
-  %switch.gep = getelementptr inbounds nuw float, ptr @switch.table.process, i64 %41
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.process, i64 %41
   %switch.load = load float, ptr %switch.gep, align 4
   %42 = zext nneg i32 %39 to i64
-  %switch.gep26 = getelementptr inbounds nuw float, ptr @switch.table.process.1, i64 %42
+  %switch.gep26 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.process.1, i64 %42
   %switch.load27 = load float, ptr %switch.gep26, align 4
   %43 = zext nneg i32 %39 to i64
-  %switch.gep28 = getelementptr inbounds nuw float, ptr @switch.table.process.2, i64 %43
+  %switch.gep28 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.process.2, i64 %43
   %switch.load29 = load float, ptr %switch.gep28, align 4
   store float %switch.load, ptr %8, align 16, !tbaa !40
   %44 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -891,7 +888,7 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
 
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw %union.dt_introspection_field_t, ptr @introspection_linear, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [88 x i8], ptr @introspection_linear, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store ptr %0, ptr %8, align 8, !tbaa !83
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

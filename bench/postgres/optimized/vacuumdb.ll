@@ -470,7 +470,7 @@ escape_quotes.exit:                               ; preds = %94
   %105 = or i32 %104, 2
   store i32 %105, ptr @objfilter, align 4
   %106 = sext i32 %100 to i64
-  %107 = getelementptr inbounds ptr, ptr %1, i64 %106
+  %107 = getelementptr inbounds [8 x i8], ptr %1, i64 %106
   %108 = load ptr, ptr %107, align 8
   %109 = add nsw i32 %100, 1
   store i32 %109, ptr @optind, align 4
@@ -484,7 +484,7 @@ escape_quotes.exit:                               ; preds = %94
 
 113:                                              ; preds = %110
   %114 = sext i32 %111 to i64
-  %115 = getelementptr inbounds ptr, ptr %1, i64 %114
+  %115 = getelementptr inbounds [8 x i8], ptr %1, i64 %114
   %116 = load ptr, ptr %115, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.39, ptr noundef %116) #10
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.38, ptr noundef %17) #10
@@ -1110,7 +1110,7 @@ define internal fastcc void @vacuum_one_database(ptr noundef nonnull %0, ptr nou
 
 107:                                              ; preds = %105
   %108 = sext i32 %2 to i64
-  %109 = getelementptr inbounds ptr, ptr @__const.vacuum_one_database.stage_messages, i64 %108
+  %109 = getelementptr inbounds [8 x i8], ptr @__const.vacuum_one_database.stage_messages, i64 %108
   %110 = load ptr, ptr %109, align 8
   %111 = tail call i32 (ptr, ...) @pg_printf(ptr noundef nonnull @.str.64, ptr noundef %5, ptr noundef %106, ptr noundef %110) #10
   br label %114
@@ -1325,7 +1325,7 @@ define internal fastcc void @vacuum_one_database(ptr noundef nonnull %0, ptr nou
 
 180:                                              ; preds = %._crit_edge189
   %181 = sext i32 %2 to i64
-  %182 = getelementptr inbounds ptr, ptr @__const.vacuum_one_database.stage_commands, i64 %181
+  %182 = getelementptr inbounds [8 x i8], ptr @__const.vacuum_one_database.stage_commands, i64 %181
   %183 = load ptr, ptr %182, align 8
   call void @executeCommand(ptr noundef %15, ptr noundef %183, i1 noundef zeroext %6) #10
   br label %184

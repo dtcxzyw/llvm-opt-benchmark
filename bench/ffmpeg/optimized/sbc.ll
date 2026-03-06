@@ -76,8 +76,8 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %16 = icmp eq i8 %6, 4
   %17 = zext i8 %8 to i64
-  %18 = getelementptr inbounds nuw [4 x i32], ptr @sbc_offset4, i64 %17
-  %19 = getelementptr inbounds nuw [8 x i32], ptr @sbc_offset8, i64 %17
+  %18 = getelementptr inbounds nuw [16 x i8], ptr @sbc_offset4, i64 %17
+  %19 = getelementptr inbounds nuw [32 x i8], ptr @sbc_offset8, i64 %17
   %.pn356 = select i1 %16, ptr %18, ptr %19
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %21 = icmp ne i8 %6, 0
@@ -100,22 +100,22 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
   br i1 %.not495, label %.split461, label %.lr.ph449
 
 .lr.ph449:                                        ; preds = %.preheader378
-  %30 = getelementptr inbounds nuw [8 x i32], ptr %15, i64 %indvar543
-  %31 = getelementptr inbounds nuw [8 x i32], ptr %3, i64 %indvar543
+  %30 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 %indvar543
+  %31 = getelementptr inbounds nuw [32 x i8], ptr %3, i64 %indvar543
   br label %36
 
 .preheader377:                                    ; preds = %25
   br i1 %.not495, label %.split461, label %.lr.ph453
 
 .lr.ph453:                                        ; preds = %.preheader377
-  %32 = getelementptr inbounds nuw [8 x i32], ptr %15, i64 %indvar543
+  %32 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 %indvar543
   call void @llvm.memcpy.p0.p0.i64(ptr align 16 %scevgep545, ptr align 4 %scevgep546, i64 %23, i1 false), !tbaa !19
   br label %33
 
 33:                                               ; preds = %.lr.ph453, %33
   %indvars.iv547 = phi i64 [ 0, %.lr.ph453 ], [ %indvars.iv.next548, %33 ]
   %.0323451 = phi i32 [ 0, %.lr.ph453 ], [ %spec.select, %33 ]
-  %34 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv547
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv547
   %35 = load i32, ptr %34, align 4, !tbaa !19
   %spec.select = tail call i32 @llvm.smax.i32(i32 %35, i32 %.0323451)
   %indvars.iv.next548 = add nuw nsw i64 %indvars.iv547, 1
@@ -125,13 +125,13 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
 36:                                               ; preds = %.lr.ph449, %43
   %indvars.iv538 = phi i64 [ 0, %.lr.ph449 ], [ %indvars.iv.next539, %43 ]
   %.3326447 = phi i32 [ 0, %.lr.ph449 ], [ %spec.select357, %43 ]
-  %37 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv538
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv538
   %38 = load i32, ptr %37, align 4, !tbaa !19
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %43, label %40
 
 40:                                               ; preds = %36
-  %.pn355.in = getelementptr inbounds nuw i32, ptr %.pn356, i64 %indvars.iv538
+  %.pn355.in = getelementptr inbounds nuw [4 x i8], ptr %.pn356, i64 %indvars.iv538
   %.pn355 = load i32, ptr %.pn355.in, align 4, !tbaa !19
   %.0328 = sub i32 %38, %.pn355
   %41 = icmp sgt i32 %.0328, 0
@@ -141,7 +141,7 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
 
 43:                                               ; preds = %40, %36
   %.sink = phi i32 [ %spec.select621, %40 ], [ -5, %36 ]
-  %44 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv538
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv538
   store i32 %.sink, ptr %44, align 4, !tbaa !19
   %spec.select357 = tail call i32 @llvm.smax.i32(i32 %.sink, i32 %.3326447)
   %indvars.iv.next539 = add nuw nsw i64 %indvars.iv538, 1
@@ -153,7 +153,7 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
   %45 = add nuw nsw i32 %.in623, 1
   %.in = load i8, ptr %20, align 1, !tbaa !22
   %46 = zext i8 %.in to i32
-  %47 = getelementptr inbounds nuw [8 x i32], ptr %3, i64 %indvar543
+  %47 = getelementptr inbounds nuw [32 x i8], ptr %3, i64 %indvar543
   br label %.lr.ph458.us
 
 .lr.ph458.us:                                     ; preds = %.lr.ph458.us.preheader, %._crit_edge459.us
@@ -166,7 +166,7 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
 49:                                               ; preds = %.lr.ph458.us, %49
   %indvars.iv552 = phi i64 [ 0, %.lr.ph458.us ], [ %indvars.iv.next553, %49 ]
   %.1315455.us = phi i32 [ 0, %.lr.ph458.us ], [ %.2316.us, %49 ]
-  %50 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv552
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %indvars.iv552
   %51 = load i32, ptr %50, align 4, !tbaa !19
   %52 = icmp sgt i32 %51, %.0312.us
   %53 = icmp slt i32 %51, %48
@@ -204,7 +204,7 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
 
 .lr.ph473:                                        ; preds = %.split463.us
   %65 = add nsw i32 %spec.select361, 2
-  %66 = getelementptr inbounds nuw [8 x i32], ptr %1, i64 %indvar543
+  %66 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvar543
   br label %71
 
 .preheader376:                                    ; preds = %80
@@ -216,25 +216,25 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
   br i1 %68, label %.lr.ph477, label %.preheader
 
 .lr.ph477:                                        ; preds = %.preheader376
-  %69 = getelementptr inbounds nuw [8 x i32], ptr %1, i64 %indvar543
+  %69 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvar543
   %70 = add nsw i32 %spec.select361, 1
   br label %84
 
 71:                                               ; preds = %.lr.ph473, %80
   %indvars.iv557 = phi i64 [ 0, %.lr.ph473 ], [ %indvars.iv.next558, %80 ]
-  %72 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv557
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %indvars.iv557
   %73 = load i32, ptr %72, align 4, !tbaa !19
   %74 = icmp slt i32 %73, %65
   br i1 %74, label %75, label %77
 
 75:                                               ; preds = %71
-  %76 = getelementptr inbounds nuw i32, ptr %66, i64 %indvars.iv557
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %indvars.iv557
   store i32 0, ptr %76, align 4, !tbaa !19
   br label %80
 
 77:                                               ; preds = %71
   %78 = sub nsw i32 %73, %spec.select361
-  %79 = getelementptr inbounds nuw i32, ptr %66, i64 %indvars.iv557
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %indvars.iv557
   %spec.store.select = tail call i32 @llvm.smin.i32(i32 %78, i32 16)
   store i32 %spec.store.select, ptr %79, align 4
   br label %80
@@ -251,13 +251,13 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
   br i1 %82, label %.lr.ph482, label %._crit_edge483
 
 .lr.ph482:                                        ; preds = %.preheader
-  %83 = getelementptr inbounds nuw [8 x i32], ptr %1, i64 %indvar543
+  %83 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvar543
   br label %100
 
 84:                                               ; preds = %.lr.ph477, %96
   %indvars.iv562 = phi i64 [ 0, %.lr.ph477 ], [ %indvars.iv.next563, %96 ]
   %.2319475 = phi i32 [ %spec.select360, %.lr.ph477 ], [ %.3320, %96 ]
-  %85 = getelementptr inbounds nuw i32, ptr %69, i64 %indvars.iv562
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %indvars.iv562
   %86 = load i32, ptr %85, align 4, !tbaa !19
   %87 = add i32 %86, -2
   %or.cond362 = icmp ult i32 %87, 14
@@ -268,7 +268,7 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
   br label %.sink.split
 
 90:                                               ; preds = %84
-  %91 = getelementptr inbounds nuw i32, ptr %47, i64 %indvars.iv562
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %indvars.iv562
   %92 = load i32, ptr %91, align 4, !tbaa !19
   %93 = icmp eq i32 %92, %70
   %94 = icmp slt i32 %.2319475, %invariant.op474
@@ -293,7 +293,7 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
 100:                                              ; preds = %.lr.ph482, %107
   %indvars.iv565 = phi i64 [ 0, %.lr.ph482 ], [ %indvars.iv.next566, %107 ]
   %.4321480 = phi i32 [ %.2319.lcssa, %.lr.ph482 ], [ %.5322, %107 ]
-  %101 = getelementptr inbounds nuw i32, ptr %83, i64 %indvars.iv565
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %83, i64 %indvars.iv565
   %102 = load i32, ptr %101, align 4, !tbaa !19
   %103 = icmp slt i32 %102, 16
   br i1 %103, label %104, label %107
@@ -335,8 +335,8 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
 .preheader387:                                    ; preds = %114
   %119 = icmp eq i8 %6, 4
   %120 = zext i8 %8 to i64
-  %121 = getelementptr inbounds nuw [4 x i32], ptr @sbc_offset4, i64 %120
-  %122 = getelementptr inbounds nuw [8 x i32], ptr @sbc_offset8, i64 %120
+  %121 = getelementptr inbounds nuw [16 x i8], ptr @sbc_offset4, i64 %120
+  %122 = getelementptr inbounds nuw [32 x i8], ptr @sbc_offset8, i64 %120
   %.pn353 = select i1 %119, ptr %121, ptr %122
   br i1 %.not490, label %.loopexit385.thread, label %.preheader386.us.preheader
 
@@ -349,19 +349,19 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
   %indvars.iv512.sroa.phi = phi ptr [ %4, %.preheader386.us.preheader ], [ %indvars.iv512.sroa.gep637, %._crit_edge.us ]
   %indvars.iv512 = phi i64 [ 0, %.preheader386.us.preheader ], [ 1, %._crit_edge.us ]
   %.4301402.us = phi i32 [ 0, %.preheader386.us.preheader ], [ %spec.select364.us, %._crit_edge.us ]
-  %124 = getelementptr inbounds nuw [8 x i32], ptr %118, i64 %indvars.iv512
+  %124 = getelementptr inbounds nuw [32 x i8], ptr %118, i64 %indvars.iv512
   br label %125
 
 125:                                              ; preds = %.preheader386.us, %132
   %indvars.iv = phi i64 [ 0, %.preheader386.us ], [ %indvars.iv.next, %132 ]
   %.5302400.us = phi i32 [ %.4301402.us, %.preheader386.us ], [ %spec.select364.us, %132 ]
-  %126 = getelementptr inbounds nuw i32, ptr %124, i64 %indvars.iv
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %124, i64 %indvars.iv
   %127 = load i32, ptr %126, align 4, !tbaa !19
   %128 = icmp eq i32 %127, 0
   br i1 %128, label %132, label %129
 
 129:                                              ; preds = %125
-  %.pn.in.us = getelementptr inbounds nuw i32, ptr %.pn353, i64 %indvars.iv
+  %.pn.in.us = getelementptr inbounds nuw [4 x i8], ptr %.pn353, i64 %indvars.iv
   %.pn.us = load i32, ptr %.pn.in.us, align 4, !tbaa !19
   %.0304.us = sub i32 %127, %.pn.us
   %130 = icmp sgt i32 %.0304.us, 0
@@ -371,7 +371,7 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
 
 132:                                              ; preds = %129, %125
   %.sink616 = phi i32 [ %spec.select622, %129 ], [ -5, %125 ]
-  %133 = getelementptr inbounds nuw i32, ptr %indvars.iv512.sroa.phi, i64 %indvars.iv
+  %133 = getelementptr inbounds nuw [4 x i8], ptr %indvars.iv512.sroa.phi, i64 %indvars.iv
   store i32 %.sink616, ptr %133, align 4, !tbaa !19
   %spec.select364.us = tail call i32 @llvm.smax.i32(i32 %.sink616, i32 %.5302400.us)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -398,14 +398,14 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
   %scevgep = getelementptr nuw i8, ptr %4, i64 %137
   %138 = getelementptr i8, ptr %0, i64 %137
   %scevgep515 = getelementptr i8, ptr %138, i64 32
-  %139 = getelementptr inbounds nuw [8 x i32], ptr %118, i64 %indvar
+  %139 = getelementptr inbounds nuw [32 x i8], ptr %118, i64 %indvar
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %scevgep, ptr align 4 %scevgep515, i64 %135, i1 false), !tbaa !19
   br label %140
 
 140:                                              ; preds = %.preheader383.us, %140
   %indvars.iv516 = phi i64 [ 0, %.preheader383.us ], [ %indvars.iv.next517, %140 ]
   %.1298404.us = phi i32 [ %.0297406.us, %.preheader383.us ], [ %spec.select363.us, %140 ]
-  %141 = getelementptr inbounds nuw i32, ptr %139, i64 %indvars.iv516
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %139, i64 %indvars.iv516
   %142 = load i32, ptr %141, align 4, !tbaa !19
   %spec.select363.us = tail call i32 @llvm.smax.i32(i32 %142, i32 %.1298404.us)
   %indvars.iv.next517 = add nuw nsw i64 %indvars.iv516, 1
@@ -450,7 +450,7 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
 152:                                              ; preds = %152, %.preheader382.us.us
   %indvars.iv522 = phi i64 [ %indvars.iv.next523, %152 ], [ 0, %.preheader382.us.us ]
   %.2288411.us.us = phi i32 [ %.3289.us.us, %152 ], [ %.1287413.us.us, %.preheader382.us.us ]
-  %153 = getelementptr inbounds nuw i32, ptr %indvars.iv527.sroa.phi, i64 %indvars.iv522
+  %153 = getelementptr inbounds nuw [4 x i8], ptr %indvars.iv527.sroa.phi, i64 %indvars.iv522
   %154 = load i32, ptr %153, align 4, !tbaa !19
   %155 = icmp sgt i32 %154, %.0284.us
   %156 = icmp slt i32 %154, %150
@@ -497,25 +497,25 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
   %169 = phi i1 [ true, %.preheader381.us.preheader ], [ false, %._crit_edge.us432 ]
   %indvars.iv535.sroa.phi = phi ptr [ %4, %.preheader381.us.preheader ], [ %indvars.iv535.sroa.gep639, %._crit_edge.us432 ]
   %indvars.iv535 = phi i64 [ 0, %.preheader381.us.preheader ], [ 1, %._crit_edge.us432 ]
-  %170 = getelementptr inbounds nuw [8 x i32], ptr %1, i64 %indvars.iv535
+  %170 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv535
   br label %171
 
 171:                                              ; preds = %.preheader381.us, %180
   %indvars.iv530 = phi i64 [ 0, %.preheader381.us ], [ %indvars.iv.next531, %180 ]
-  %172 = getelementptr inbounds nuw i32, ptr %indvars.iv535.sroa.phi, i64 %indvars.iv530
+  %172 = getelementptr inbounds nuw [4 x i8], ptr %indvars.iv535.sroa.phi, i64 %indvars.iv530
   %173 = load i32, ptr %172, align 4, !tbaa !19
   %174 = icmp slt i32 %173, %168
   br i1 %174, label %178, label %175
 
 175:                                              ; preds = %171
   %176 = sub nsw i32 %173, %spec.select369
-  %177 = getelementptr inbounds nuw i32, ptr %170, i64 %indvars.iv530
+  %177 = getelementptr inbounds nuw [4 x i8], ptr %170, i64 %indvars.iv530
   %spec.store.select370.us = tail call i32 @llvm.smin.i32(i32 %176, i32 16)
   store i32 %spec.store.select370.us, ptr %177, align 4
   br label %180
 
 178:                                              ; preds = %171
-  %179 = getelementptr inbounds nuw i32, ptr %170, i64 %indvars.iv530
+  %179 = getelementptr inbounds nuw [4 x i8], ptr %170, i64 %indvars.iv530
   store i32 0, ptr %179, align 4, !tbaa !19
   br label %180
 
@@ -547,9 +547,9 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
   %.4280434 = phi i32 [ 0, %.lr.ph ], [ %.5281, %203 ]
   %.2292433 = phi i32 [ %spec.select368, %.lr.ph ], [ %.4294, %203 ]
   %184 = zext nneg i32 %.4280434 to i64
-  %185 = getelementptr inbounds nuw [8 x i32], ptr %1, i64 %184
+  %185 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %184
   %186 = sext i32 %.4435 to i64
-  %187 = getelementptr inbounds i32, ptr %185, i64 %186
+  %187 = getelementptr inbounds [4 x i8], ptr %185, i64 %186
   %188 = load i32, ptr %187, align 4, !tbaa !19
   %189 = add i32 %188, -2
   %or.cond371 = icmp ult i32 %189, 14
@@ -560,8 +560,8 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
   br label %.sink.split618
 
 192:                                              ; preds = %183
-  %193 = getelementptr inbounds nuw [8 x i32], ptr %4, i64 %184
-  %194 = getelementptr inbounds i32, ptr %193, i64 %186
+  %193 = getelementptr inbounds nuw [32 x i8], ptr %4, i64 %184
+  %194 = getelementptr inbounds [4 x i8], ptr %193, i64 %186
   %195 = load i32, ptr %194, align 4, !tbaa !19
   %196 = icmp eq i32 %195, %182
   %197 = icmp slt i32 %.2292433, %invariant.op
@@ -601,9 +601,9 @@ define void @ff_sbc_calculate_bits(ptr noundef readonly captures(none) %0, ptr n
   %.6282441 = phi i32 [ %.7283, %219 ], [ 0, %._crit_edge ]
   %.5295440 = phi i32 [ %.6296, %219 ], [ %.3293, %._crit_edge ]
   %206 = zext nneg i32 %.6282441 to i64
-  %207 = getelementptr inbounds nuw [8 x i32], ptr %1, i64 %206
+  %207 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %206
   %208 = sext i32 %.6442 to i64
-  %209 = getelementptr inbounds i32, ptr %207, i64 %208
+  %209 = getelementptr inbounds [4 x i8], ptr %207, i64 %208
   %210 = load i32, ptr %209, align 4, !tbaa !19
   %211 = icmp slt i32 %210, 16
   br i1 %211, label %212, label %215

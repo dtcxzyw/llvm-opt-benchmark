@@ -323,7 +323,7 @@ define range(i32 0, 2) i32 @SHA256_Final(ptr noundef writeonly captures(none) %0
 .preheader99:                                     ; preds = %13, %.preheader99
   %indvars.iv121 = phi i64 [ %indvars.iv.next122, %.preheader99 ], [ 0, %13 ]
   %.092109 = phi ptr [ %56, %.preheader99 ], [ %0, %13 ]
-  %44 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv121
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv121
   %45 = load i32, ptr %44, align 4, !tbaa !3
   %46 = lshr i32 %45, 24
   %47 = trunc nuw i32 %46 to i8
@@ -347,7 +347,7 @@ define range(i32 0, 2) i32 @SHA256_Final(ptr noundef writeonly captures(none) %0
 .preheader101:                                    ; preds = %13, %.preheader101
   %indvars.iv117 = phi i64 [ %indvars.iv.next118, %.preheader101 ], [ 0, %13 ]
   %.193107 = phi ptr [ %69, %.preheader101 ], [ %0, %13 ]
-  %57 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv117
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv117
   %58 = load i32, ptr %57, align 4, !tbaa !3
   %59 = lshr i32 %58, 24
   %60 = trunc nuw i32 %59 to i8
@@ -371,7 +371,7 @@ define range(i32 0, 2) i32 @SHA256_Final(ptr noundef writeonly captures(none) %0
 .preheader103:                                    ; preds = %13, %.preheader103
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader103 ], [ 0, %13 ]
   %.294105 = phi ptr [ %82, %.preheader103 ], [ %0, %13 ]
-  %70 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %71 = load i32, ptr %70, align 4, !tbaa !3
   %72 = lshr i32 %71, 24
   %73 = trunc nuw i32 %72 to i8
@@ -403,7 +403,7 @@ define range(i32 0, 2) i32 @SHA256_Final(ptr noundef writeonly captures(none) %0
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv125 = phi i64 [ %indvars.iv.next126, %.lr.ph ], [ 0, %.preheader ]
   %.395111 = phi ptr [ %97, %.lr.ph ], [ %0, %.preheader ]
-  %85 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv125
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv125
   %86 = load i32, ptr %85, align 4, !tbaa !3
   %87 = lshr i32 %86, 24
   %88 = trunc nuw i32 %87 to i8

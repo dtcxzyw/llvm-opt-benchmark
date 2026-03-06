@@ -129,7 +129,7 @@ define weak_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost3log11v
   %28 = getelementptr inbounds nuw i8, ptr %17, i64 %27
   %29 = load i8, ptr %28, align 1, !tbaa !19
   %30 = sext i8 %29 to i32
-  %31 = getelementptr inbounds nuw i32, ptr %25, i64 %.01920.i
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %.01920.i
   store i32 %30, ptr %31, align 4, !tbaa !22
   %32 = add nuw nsw i64 %.01920.i, 1
   %exitcond.not.i = icmp eq i64 %32, 16

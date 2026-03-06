@@ -3,8 +3,6 @@ source_filename = "bench/postgres/original/dict_simple.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.ListCell = type { ptr }
-
 @.str = private unnamed_addr constant [10 x i8] c"stopwords\00", align 1
 @.str.1 = private unnamed_addr constant [30 x i8] c"multiple StopWords parameters\00", align 1
 @.str.2 = private unnamed_addr constant [14 x i8] c"dict_simple.c\00", align 1
@@ -36,7 +34,7 @@ define dso_local i64 @dsimple_init(ptr noundef readonly captures(none) %0) local
   %.0172634 = phi i1 [ %.118, %40 ], [ false, %.lr.ph ]
   %.02733 = phi i1 [ %.1, %40 ], [ false, %.lr.ph ]
   %11 = load ptr, ptr %8, align 8
-  %12 = getelementptr inbounds nuw %union.ListCell, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8

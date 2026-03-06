@@ -22,10 +22,10 @@ define range(i32 -1094995529, 1) i32 @avpriv_split_xiph_headers(ptr noundef %0, 
   %12 = load i16, ptr %.06789, align 1, !tbaa !4
   %13 = tail call i16 @llvm.bswap.i16(i16 %12)
   %14 = zext i16 %13 to i32
-  %15 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv95
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv95
   store i32 %14, ptr %15, align 4, !tbaa !7
   %16 = getelementptr inbounds nuw i8, ptr %.06789, i64 2
-  %17 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv95
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv95
   store ptr %16, ptr %17, align 8, !tbaa !9
   %18 = sub nsw i32 %1, %14
   %19 = icmp sgt i32 %.06291, %18
@@ -62,7 +62,7 @@ define range(i32 -1094995529, 1) i32 @avpriv_split_xiph_headers(ptr noundef %0, 
   %indvars.iv = phi i64 [ 0, %.preheader75 ], [ 1, %29 ]
   %.16888 = phi ptr [ %.16885, %.preheader75 ], [ %.168, %29 ]
   %.087 = phi i32 [ 3, %.preheader75 ], [ %47, %29 ]
-  %31 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   store i32 0, ptr %31, align 4, !tbaa !7
   %32 = icmp slt i32 %.087, %1
   br i1 %32, label %.lr.ph, label %.critedge

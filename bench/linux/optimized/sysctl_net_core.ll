@@ -372,7 +372,7 @@ define internal i32 @rps_sock_flow_sysctl(ptr noundef readonly captures(none) %0
 60:                                               ; preds = %60, %58
   %61 = phi i32 [ 0, %58 ], [ %64, %60 ]
   %62 = sext i32 %61 to i64
-  %63 = getelementptr i32, ptr %59, i64 %62
+  %63 = getelementptr [4 x i8], ptr %59, i64 %62
   store i32 65535, ptr %63, align 4
   %64 = add nuw i32 %61, 1
   %65 = load i32, ptr %6, align 4
@@ -450,7 +450,7 @@ define internal i32 @flow_limit_cpu_sysctl(ptr readnone captures(none) %0, i32 n
 
 27:                                               ; preds = %23
   %28 = and i64 %24, 63
-  %29 = getelementptr i64, ptr @__per_cpu_offset, i64 %28
+  %29 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %28
   %30 = load i64, ptr %29, align 8
   %31 = add i64 %30, ptrtoint (ptr @softnet_data to i64)
   %32 = inttoptr i64 %31 to ptr
@@ -523,7 +523,7 @@ define internal i32 @flow_limit_cpu_sysctl(ptr readnone captures(none) %0, i32 n
 
 68:                                               ; preds = %64
   %69 = and i64 %65, 63
-  %70 = getelementptr i64, ptr @__per_cpu_offset, i64 %69
+  %70 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %69
   %71 = load i64, ptr %70, align 8
   %72 = add i64 %71, ptrtoint (ptr @softnet_data to i64)
   %73 = inttoptr i64 %72 to ptr

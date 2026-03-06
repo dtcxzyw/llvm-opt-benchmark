@@ -3,8 +3,6 @@ source_filename = "bench/sdl/original/SDL_eventwatch.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.SDL_EventWatcher = type { ptr, ptr, i8 }
-
 ; Function Attrs: nounwind uwtable
 define hidden noundef zeroext i1 @SDL_InitEventWatchList(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
@@ -106,7 +104,7 @@ define hidden noundef zeroext i1 @SDL_DispatchEventWatchList(ptr noundef capture
 22:                                               ; preds = %.lr.ph, %33
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
   %23 = load ptr, ptr %21, align 8
-  %24 = getelementptr inbounds nuw %struct.SDL_EventWatcher, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %indvars.iv
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load i8, ptr %25, align 8, !range !3, !noundef !4
   %27 = trunc nuw i8 %26 to i1
@@ -145,7 +143,7 @@ define hidden noundef zeroext i1 @SDL_DispatchEventWatchList(ptr noundef capture
   %indvars.iv54 = phi i64 [ %40, %.lr.ph51 ], [ %indvars.iv.next55, %58 ]
   %indvars.iv.next55 = add nsw i64 %indvars.iv54, -1
   %42 = load ptr, ptr %39, align 8
-  %43 = getelementptr inbounds %struct.SDL_EventWatcher, ptr %42, i64 %indvars.iv.next55
+  %43 = getelementptr inbounds [24 x i8], ptr %42, i64 %indvars.iv.next55
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load i8, ptr %44, align 8, !range !3, !noundef !4
   %46 = trunc nuw i8 %45 to i1
@@ -160,7 +158,7 @@ define hidden noundef zeroext i1 @SDL_DispatchEventWatchList(ptr noundef capture
   br i1 %51, label %52, label %58
 
 52:                                               ; preds = %47
-  %53 = getelementptr inbounds %struct.SDL_EventWatcher, ptr %42, i64 %indvars.iv54
+  %53 = getelementptr inbounds [24 x i8], ptr %42, i64 %indvars.iv54
   %54 = trunc nsw i64 %indvars.iv54 to i32
   %55 = sub i32 %48, %54
   %56 = sext i32 %55 to i64
@@ -213,7 +211,7 @@ define hidden noundef zeroext i1 @SDL_AddEventWatchList(ptr noundef captures(non
   store ptr %12, ptr %5, align 8
   %14 = load i32, ptr %7, align 8
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds %struct.SDL_EventWatcher, ptr %12, i64 %15
+  %16 = getelementptr inbounds [24 x i8], ptr %12, i64 %15
   store ptr %1, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %2, ptr %17, align 8
@@ -250,7 +248,7 @@ define hidden void @SDL_RemoveEventWatchList(ptr noundef captures(none) %0, ptr 
 
 10:                                               ; preds = %.lr.ph, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
-  %11 = getelementptr inbounds nuw %struct.SDL_EventWatcher, ptr %9, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %9, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, %1
   br i1 %13, label %14, label %34

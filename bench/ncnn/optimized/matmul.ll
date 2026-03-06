@@ -188,9 +188,9 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %102
 .lr.ph2377:                                       ; preds = %.lr.ph2377.preheader, %.lr.ph2377
   %indvars.iv2400 = phi i64 [ 0, %.lr.ph2377.preheader ], [ %indvars.iv.next2401, %.lr.ph2377 ]
   %.02912375 = phi float [ 0.000000e+00, %.lr.ph2377.preheader ], [ %125, %.lr.ph2377 ]
-  %120 = getelementptr inbounds nuw float, ptr %117, i64 %indvars.iv2400
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %117, i64 %indvars.iv2400
   %121 = load float, ptr %120, align 4, !tbaa !37
-  %122 = getelementptr inbounds nuw float, ptr %118, i64 %indvars.iv2400
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %indvars.iv2400
   %123 = load float, ptr %122, align 4, !tbaa !37
   %124 = fmul fast float %123, %121
   %125 = fadd fast float %124, %.02912375
@@ -6791,16 +6791,16 @@ define internal void @_ZN4ncnnL9transposeERKNS_3MatERS0_RKNS_6OptionE.omp_outlin
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv29 = phi i64 [ %25, %.lr.ph.us.preheader ], [ %indvars.iv.next30, %._crit_edge.us ]
   %28 = mul nsw i64 %indvars.iv29, %26
-  %29 = getelementptr inbounds float, ptr %19, i64 %28
-  %invariant.gep = getelementptr float, ptr %22, i64 %indvars.iv29
+  %29 = getelementptr inbounds [4 x i8], ptr %19, i64 %28
+  %invariant.gep = getelementptr [4 x i8], ptr %22, i64 %indvars.iv29
   br label %30
 
 30:                                               ; preds = %.lr.ph.us, %30
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %30 ]
   %31 = mul nsw i64 %indvars.iv, %24
-  %gep = getelementptr float, ptr %invariant.gep, i64 %31
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %31
   %32 = load float, ptr %gep, align 4, !tbaa !37
-  %33 = getelementptr inbounds nuw float, ptr %29, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv
   store float %32, ptr %33, align 4, !tbaa !37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -6903,24 +6903,24 @@ define internal void @_ZN4ncnnL13matmul_transbERKNS_3MatES2_RS0_RKNS_6OptionE.om
 .lr.ph38.us.us:                                   ; preds = %.lr.ph38.us.us.preheader, %._crit_edge39.split.us.us.us
   %indvars.iv55 = phi i64 [ %33, %.lr.ph38.us.us.preheader ], [ %indvars.iv.next56, %._crit_edge39.split.us.us.us ]
   %37 = mul nsw i64 %indvars.iv55, %34
-  %38 = getelementptr inbounds float, ptr %21, i64 %37
+  %38 = getelementptr inbounds [4 x i8], ptr %21, i64 %37
   %39 = mul nsw i64 %indvars.iv55, %35
-  %40 = getelementptr inbounds float, ptr %23, i64 %39
+  %40 = getelementptr inbounds [4 x i8], ptr %23, i64 %39
   br label %.lr.ph.us.us.us
 
 .lr.ph.us.us.us:                                  ; preds = %._crit_edge.us.us.us, %.lr.ph38.us.us
   %indvars.iv50 = phi i64 [ %indvars.iv.next51, %._crit_edge.us.us.us ], [ 0, %.lr.ph38.us.us ]
   %.03235.us.us.us = phi ptr [ %50, %._crit_edge.us.us.us ], [ %40, %.lr.ph38.us.us ]
   %41 = mul nuw nsw i64 %indvars.iv50, %32
-  %42 = getelementptr inbounds nuw float, ptr %26, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %41
   br label %43
 
 43:                                               ; preds = %43, %.lr.ph.us.us.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %43 ], [ 0, %.lr.ph.us.us.us ]
   %.02933.us.us.us = phi float [ %49, %43 ], [ 0.000000e+00, %.lr.ph.us.us.us ]
-  %44 = getelementptr inbounds nuw float, ptr %38, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %indvars.iv
   %45 = load float, ptr %44, align 4, !tbaa !37
-  %46 = getelementptr inbounds nuw float, ptr %42, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %indvars.iv
   %47 = load float, ptr %46, align 4, !tbaa !37
   %48 = fmul fast float %47, %45
   %49 = fadd fast float %48, %.02933.us.us.us

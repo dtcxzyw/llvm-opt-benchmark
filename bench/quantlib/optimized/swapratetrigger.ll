@@ -586,7 +586,7 @@ while.cond.preheader:                             ; preds = %while.cond.preheade
   br i1 %cmp89197, label %land.rhs.lr.ph, label %while.end
 
 land.rhs.lr.ph:                                   ; preds = %while.cond.preheader
-  %add.ptr.i132 = getelementptr inbounds nuw double, ptr %40, i64 %i.0202
+  %add.ptr.i132 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %i.0202
   %62 = load double, ptr %add.ptr.i132, align 8, !tbaa !24
   br label %land.rhs
 
@@ -595,7 +595,7 @@ for.cond.cleanup:                                 ; preds = %while.end, %for.con
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %while.body
   %j.1198 = phi i64 [ %j.0201, %land.rhs.lr.ph ], [ %inc, %while.body ]
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %42, i64 %j.1198
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %j.1198
   %63 = load double, ptr %add.ptr.i, align 8, !tbaa !24
   %cmp92 = fcmp olt double %63, %62
   br i1 %cmp92, label %while.body, label %while.end
@@ -607,7 +607,7 @@ while.body:                                       ; preds = %land.rhs
 
 while.end:                                        ; preds = %land.rhs, %while.body, %while.cond.preheader
   %j.1.lcssa = phi i64 [ %j.0201, %while.cond.preheader ], [ %sub.ptr.div.i131, %while.body ], [ %j.1198, %land.rhs ]
-  %add.ptr.i133 = getelementptr inbounds nuw i64, ptr %43, i64 %i.0202
+  %add.ptr.i133 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %i.0202
   store i64 %j.1.lcssa, ptr %add.ptr.i133, align 8, !tbaa !17
   %inc95 = add nuw i64 %i.0202, 1
   %exitcond203.not = icmp eq i64 %inc95, %sub.ptr.div.i126
@@ -904,7 +904,7 @@ entry:
   %currentIndex_ = getelementptr inbounds nuw i8, ptr %this, i64 80
   %0 = load i64, ptr %currentIndex_, align 8, !tbaa !33
   %1 = load ptr, ptr %rateIndex_, align 8, !tbaa !14
-  %2 = getelementptr i64, ptr %1, i64 %0
+  %2 = getelementptr [8 x i8], ptr %1, i64 %0
   %add.ptr.i = getelementptr i8, ptr %2, i64 -8
   %3 = load i64, ptr %add.ptr.i, align 8, !tbaa !17
   %vtable = load ptr, ptr %currentState, align 8, !tbaa !3
@@ -914,7 +914,7 @@ entry:
   %swapTriggers_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %5 = load i64, ptr %currentIndex_, align 8, !tbaa !33
   %6 = load ptr, ptr %swapTriggers_, align 8, !tbaa !10
-  %7 = getelementptr double, ptr %6, i64 %5
+  %7 = getelementptr [8 x i8], ptr %6, i64 %5
   %add.ptr.i1 = getelementptr i8, ptr %7, i64 -8
   %8 = load double, ptr %add.ptr.i1, align 8, !tbaa !24
   %cmp = fcmp olt double %8, %call2

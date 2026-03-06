@@ -856,7 +856,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.04.0.copyload.i, i64 896
   %22 = icmp ult i64 %.sroa.56.0.copyload.i, 12
   call void @llvm.assume(i1 %22)
-  %23 = getelementptr inbounds nuw ptr, ptr %21, i64 %.sroa.56.0.copyload.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.sroa.56.0.copyload.i
   %24 = load ptr, ptr %23, align 8, !noalias !168, !nonnull !13, !noundef !13
   %25 = add i64 %.sroa.45.0.copyload.i, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !159
@@ -1279,7 +1279,7 @@ define hidden { ptr, ptr } @_ZN5alloc11collections5btree3mem7replace17h358b624c5
   %25 = icmp slt i64 %19, 11
   tail call void @llvm.assume(i1 %25)
   %26 = getelementptr i8, ptr %15, i64 904
-  %27 = getelementptr ptr, ptr %26, i64 %19
+  %27 = getelementptr [8 x i8], ptr %26, i64 %19
   %28 = load ptr, ptr %27, align 8, !noalias !220, !nonnull !13, !noundef !13
   %29 = add i64 %17, -1
   invoke void @"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$15first_leaf_edge17hda750ea81947145cE.llvm.13509343365583292059"(ptr noalias noundef nonnull sret({ { ptr, i64, {} }, i64, {} }) align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull %28, i64 noundef %29)
@@ -1296,7 +1296,7 @@ define hidden { ptr, ptr } @_ZN5alloc11collections5btree3mem7replace17h358b624c5
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !213
   %33 = icmp ult i64 %.sroa.4.sroa.4.0.copyload.i, 11
   tail call void @llvm.assume(i1 %33)
-  %34 = getelementptr inbounds nuw { [10 x i64] }, ptr %9, i64 %.sroa.4.sroa.4.0.copyload.i
+  %34 = getelementptr inbounds nuw [80 x i8], ptr %9, i64 %.sroa.4.sroa.4.0.copyload.i
   %35 = getelementptr inbounds nuw i8, ptr %9, i64 892
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %8, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !213
@@ -1440,7 +1440,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %23 = icmp slt i64 %17, 11
   tail call void @llvm.assume(i1 %23)
   %24 = getelementptr i8, ptr %13, i64 904
-  %25 = getelementptr ptr, ptr %24, i64 %17
+  %25 = getelementptr [8 x i8], ptr %24, i64 %17
   %26 = load ptr, ptr %25, align 8, !noalias !230, !nonnull !13, !noundef !13
   %27 = add i64 %15, -1
   call void @"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$15first_leaf_edge17hda750ea81947145cE.llvm.13509343365583292059"(ptr noalias noundef nonnull sret({ { ptr, i64, {} }, i64, {} }) align 8 captures(none) dereferenceable(24) %5, ptr noundef nonnull %26, i64 noundef %27), !noalias !232
@@ -1451,7 +1451,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %28 = icmp ult i64 %.sroa.4.sroa.4.0.copyload, 11
   tail call void @llvm.assume(i1 %28)
-  %29 = getelementptr inbounds nuw { [10 x i64] }, ptr %7, i64 %.sroa.4.sroa.4.0.copyload
+  %29 = getelementptr inbounds nuw [80 x i8], ptr %7, i64 %.sroa.4.sroa.4.0.copyload
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 892
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 24

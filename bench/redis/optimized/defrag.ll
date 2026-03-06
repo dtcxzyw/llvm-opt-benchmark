@@ -17,7 +17,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.EbucketsType = type { ptr, ptr, i32 }
 %struct.dictDefragFunctions = type { ptr, ptr, ptr }
 %struct.mstrKind = type { ptr, [16 x i32] }
-%struct.zskiplistLevel = type { ptr, i64 }
 %struct.scanLaterZsetData = type { ptr }
 %struct.raxIterator = type { i32, ptr, ptr, ptr, i64, i64, [128 x i8], ptr, %struct.raxStack, ptr }
 %struct.raxStack = type { ptr, i64, i64, [32 x ptr], i32 }
@@ -26,7 +25,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.defragStage = type { ptr, ptr, ptr }
 %struct.defragPubSubCtx = type { ptr, ptr }
 %struct.defragCtx = type { ptr, i32 }
-%struct.redisDb = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i64, i64, ptr }
 
 @server = external local_unnamed_addr global %struct.redisServer, align 8
 @.str = private unnamed_addr constant [9 x i8] c"defrag.c\00", align 1
@@ -499,10 +497,10 @@ define dso_local void @zslUpdateNode(ptr noundef captures(none) %0, ptr noundef 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %15 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !51
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %11 = getelementptr inbounds nuw %struct.zskiplistLevel, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !52
   %13 = icmp eq ptr %12, %1
   br i1 %13, label %14, label %15
@@ -589,7 +587,7 @@ define dso_local ptr @zslDefrag(ptr noundef captures(none) %0, double noundef %1
   %.04372 = phi ptr [ %7, %.preheader.preheader ], [ %.1.lcssa, %.critedge ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %12 = getelementptr inbounds nuw i8, ptr %.04372, i64 24
-  %13 = getelementptr inbounds %struct.zskiplistLevel, ptr %12, i64 %indvars.iv.next
+  %13 = getelementptr inbounds [16 x i8], ptr %12, i64 %indvars.iv.next
   %14 = load ptr, ptr %13, align 8, !tbaa !52
   %.not5359 = icmp eq ptr %14, null
   br i1 %.not5359, label %.critedge, label %.lr.ph.preheader
@@ -630,7 +628,7 @@ define dso_local ptr @zslDefrag(ptr noundef captures(none) %0, double noundef %1
 .critedge2:                                       ; preds = %..critedge2_crit_edge, %.lr.ph87
   %28 = phi ptr [ %.pre, %..critedge2_crit_edge ], [ %19, %.lr.ph87 ]
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  %30 = getelementptr inbounds %struct.zskiplistLevel, ptr %29, i64 %indvars.iv.next
+  %30 = getelementptr inbounds [16 x i8], ptr %29, i64 %indvars.iv.next
   %31 = load ptr, ptr %30, align 8, !tbaa !52
   %.not53 = icmp eq ptr %31, null
   br i1 %.not53, label %.critedge2..critedge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !61
@@ -640,7 +638,7 @@ define dso_local ptr @zslDefrag(ptr noundef captures(none) %0, double noundef %1
 
 .critedge:                                        ; preds = %.lr.ph, %23, %25, %.lr.ph.preheader, %.critedge2..critedge.loopexit_crit_edge, %.preheader
   %.1.lcssa = phi ptr [ %.04372, %.preheader ], [ %28, %.critedge2..critedge.loopexit_crit_edge ], [ %.04372, %.lr.ph.preheader ], [ %.16086, %25 ], [ %28, %.lr.ph ], [ %.16086, %23 ]
-  %32 = getelementptr inbounds ptr, ptr %5, i64 %indvars.iv.next
+  %32 = getelementptr inbounds [8 x i8], ptr %5, i64 %indvars.iv.next
   store ptr %.1.lcssa, ptr %32, align 8, !tbaa !51
   %33 = icmp sgt i64 %indvars.iv, 1
   br i1 %33, label %.preheader, label %._crit_edge, !llvm.loop !63
@@ -3727,7 +3725,7 @@ defragOtherGlobals.exit:                          ; preds = %87
   %151 = phi i32 [ %83, %143 ], [ %.pre135, %145 ]
   %152 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 64), align 8, !tbaa !171
   %153 = sext i32 %151 to i64
-  %154 = getelementptr inbounds %struct.redisDb, ptr %152, i64 %153
+  %154 = getelementptr inbounds [88 x i8], ptr %152, i64 %153
   store ptr %154, ptr @activeDefragCycle.db, align 8, !tbaa !161
   %155 = load ptr, ptr %154, align 8, !tbaa !136
   call void @kvstoreDictLUTDefrag(ptr noundef %155, ptr noundef nonnull @dictDefragTables) #10
@@ -3793,7 +3791,7 @@ defragOtherGlobals.exit:                          ; preds = %87
 
 169:                                              ; preds = %165
   %170 = sext i32 %166 to i64
-  %171 = getelementptr inbounds %struct.defragStage, ptr %4, i64 %170
+  %171 = getelementptr inbounds [24 x i8], ptr %4, i64 %170
   %172 = load ptr, ptr @activeDefragCycle.db, align 8, !tbaa !161
   %173 = load i32, ptr @activeDefragCycle.slot, align 4, !tbaa !162
   %174 = call i32 @defragLaterStep(ptr noundef %172, i32 noundef %173, i64 noundef %45)

@@ -77,7 +77,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"union.std::_Optional_payload_base<google::protobuf::json_internal::MaybeOwnedString>::_Storage" = type { %"class.google::protobuf::json_internal::MaybeOwnedString" }
 %"class.google::protobuf::io::ArrayInputStream" = type { %"class.google::protobuf::io::ZeroCopyInputStream", ptr, i32, i32, i32, i32 }
 %"class.google::protobuf::io::ZeroCopyInputStream" = type { ptr }
-%"struct.google::protobuf::json_internal::MessagePath::Component" = type <{ i32, [4 x i8], %"class.std::basic_string_view", %"class.std::basic_string_view", i32, [4 x i8] }>
 %"class.absl::lts_20240722::StatusOr.69" = type { %"class.absl::lts_20240722::internal_statusor::StatusOrData.70" }
 %"class.absl::lts_20240722::internal_statusor::StatusOrData.70" = type { %union.anon.71, %union.anon.72 }
 %union.anon.71 = type { %"class.absl::lts_20240722::Status" }
@@ -101,22 +100,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.41 = type { %"class.absl::lts_20240722::Status" }
 %union.anon.42 = type { ptr }
 %class.anon.441 = type { ptr, ptr, ptr }
-%"union.absl::lts_20240722::container_internal::map_slot_type" = type { %"struct.std::pair" }
-%"struct.std::pair" = type { %"class.std::__cxx11::basic_string", %"class.std::unique_ptr.88" }
-%"class.std::unique_ptr.88" = type { %"struct.std::__uniq_ptr_data.89" }
-%"struct.std::__uniq_ptr_data.89" = type { %"class.std::__uniq_ptr_impl.90" }
-%"class.std::__uniq_ptr_impl.90" = type { %"class.std::tuple.91" }
-%"class.std::tuple.91" = type { %"struct.std::_Tuple_impl.92" }
-%"struct.std::_Tuple_impl.92" = type { %"struct.std::_Head_base.95" }
-%"struct.std::_Head_base.95" = type { ptr }
-%"union.absl::lts_20240722::container_internal::map_slot_type.112" = type { %"struct.std::pair.113" }
-%"struct.std::pair.113" = type { %"class.std::__cxx11::basic_string", %"class.std::unique_ptr.115" }
-%"class.std::unique_ptr.115" = type { %"struct.std::__uniq_ptr_data.116" }
-%"struct.std::__uniq_ptr_data.116" = type { %"class.std::__uniq_ptr_impl.117" }
-%"class.std::__uniq_ptr_impl.117" = type { %"class.std::tuple.118" }
-%"class.std::tuple.118" = type { %"struct.std::_Tuple_impl.119" }
-%"struct.std::_Tuple_impl.119" = type { %"struct.std::_Head_base.122" }
-%"struct.std::_Head_base.122" = type { ptr }
 %"class.absl::lts_20240722::StatusOr.395" = type { %"class.absl::lts_20240722::internal_statusor::StatusOrData.base.399", [4 x i8] }
 %"class.absl::lts_20240722::internal_statusor::StatusOrData.base.399" = type <{ %union.anon.397, %union.anon.398 }>
 %union.anon.397 = type { %"class.absl::lts_20240722::Status" }
@@ -199,14 +182,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.379 = type { %"class.absl::lts_20240722::Status" }
 %union.anon.380 = type { %"struct.google::protobuf::json_internal::LocationWith.381" }
 %"struct.google::protobuf::json_internal::LocationWith.381" = type { i64, %"struct.google::protobuf::json_internal::JsonLocation" }
-%"class.google::protobuf::EnumValueDescriptor" = type { %"class.google::protobuf::internal::SymbolBaseN", %"class.google::protobuf::internal::SymbolBaseN.405", i32, ptr, ptr, ptr, ptr, ptr }
-%"class.google::protobuf::internal::SymbolBaseN" = type { %"class.google::protobuf::internal::SymbolBase" }
-%"class.google::protobuf::internal::SymbolBase" = type { i8 }
-%"class.google::protobuf::internal::SymbolBaseN.405" = type { %"class.google::protobuf::internal::SymbolBase" }
-%"class.google::protobuf::FieldDescriptor" = type { %"class.google::protobuf::internal::SymbolBase", i8, i8, i8, i32, ptr, ptr, ptr, ptr, %union.anon.194, %union.anon.195, ptr, ptr, ptr, %union.anon.196 }
-%union.anon.194 = type { ptr }
-%union.anon.195 = type { ptr }
-%union.anon.196 = type { i64 }
 %"class.google::protobuf::io::StringOutputStream" = type { %"class.google::protobuf::io::ZeroCopyOutputStream", ptr }
 %"class.google::protobuf::io::ZeroCopyOutputStream" = type { ptr }
 %class.anon.438 = type { ptr, ptr }
@@ -3714,7 +3689,7 @@ _ZNSt6vectorIN6google8protobuf13json_internal11MessagePath9ComponentESaIS4_EE11_
 _ZNSt6vectorIN6google8protobuf13json_internal11MessagePath9ComponentESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i.i: ; preds = %1167, %_ZNSt6vectorIN6google8protobuf13json_internal11MessagePath9ComponentESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i.i
   store ptr %1162, ptr %1129, align 8, !tbaa !30, !noalias !190
   store ptr %1166, ptr %1143, align 8, !tbaa !34, !noalias !190
-  %1168 = getelementptr inbounds nuw %"struct.google::protobuf::json_internal::MessagePath::Component", ptr %1162, i64 %1160
+  %1168 = getelementptr inbounds nuw [48 x i8], ptr %1162, i64 %1160
   store ptr %1168, ptr %1145, align 8, !tbaa !33, !noalias !190
   br label %.noexc128
 
@@ -7589,7 +7564,7 @@ _ZNSt6vectorIN6google8protobuf13json_internal11MessagePath9ComponentESaIS4_EE11_
 _ZNSt6vectorIN6google8protobuf13json_internal11MessagePath9ComponentESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i.i: ; preds = %1150, %_ZNSt6vectorIN6google8protobuf13json_internal11MessagePath9ComponentESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i.i
   store ptr %1145, ptr %1106, align 8, !tbaa !30, !noalias !318
   store ptr %1149, ptr %1126, align 8, !tbaa !34, !noalias !318
-  %1151 = getelementptr inbounds nuw %"struct.google::protobuf::json_internal::MessagePath::Component", ptr %1145, i64 %1143
+  %1151 = getelementptr inbounds nuw [48 x i8], ptr %1145, i64 %1143
   store ptr %1151, ptr %1128, align 8, !tbaa !33, !noalias !318
   br label %.noexc129
 
@@ -8294,7 +8269,7 @@ define linkonce_odr hidden void @_ZN4absl12lts_2024072218container_internal12raw
   %.sroa.013.032 = phi i64 [ %24, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf13json_internal12ResolverPool7MessageESt14default_deleteISF_EEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SI_EEE7destroyEPNS1_13map_slot_typeIS9_SI_EE.exit ], [ %11, %.lr.ph34.preheader ]
   %12 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.sroa.013.032, i1 true)
   %13 = lshr i64 %12, 3
-  %14 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %10, i64 %13
+  %14 = getelementptr inbounds nuw [40 x i8], ptr %10, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %16 = load ptr, ptr %15, align 8, !tbaa !248
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %16, null
@@ -8352,7 +8327,7 @@ _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicy
   %.sroa.07.023 = phi i16 [ %81, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf13json_internal12ResolverPool7MessageESt14default_deleteISF_EEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SI_EEE7destroyEPNS1_13map_slot_typeIS9_SI_EE.exit6 ], [ %31, %.lr.ph30 ]
   %34 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.07.023, i1 true)
   %35 = zext nneg i16 %34 to i64
-  %36 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type", ptr %.0.i28, i64 %35
+  %36 = getelementptr inbounds nuw [40 x i8], ptr %.0.i28, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
   %38 = load ptr, ptr %37, align 8, !tbaa !248
   %.not.i.i.i.i.i.i.i.i2 = icmp eq ptr %38, null
@@ -8555,7 +8530,7 @@ define linkonce_odr hidden void @_ZN4absl12lts_2024072218container_internal12raw
   %.sroa.015.034 = phi i64 [ %40, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf13json_internal12ResolverPool4EnumESt14default_deleteISF_EEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SI_EEE7destroyEPNS1_13map_slot_typeIS9_SI_EE.exit ], [ %11, %.lr.ph36.preheader ]
   %12 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.sroa.015.034, i1 true)
   %13 = lshr i64 %12, 3
-  %14 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type.112", ptr %10, i64 %13
+  %14 = getelementptr inbounds nuw [40 x i8], ptr %10, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %16 = load ptr, ptr %15, align 8, !tbaa !342
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %16, null
@@ -8637,7 +8612,7 @@ _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicy
   %.sroa.09.025 = phi i16 [ %79, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN6google8protobuf13json_internal12ResolverPool4EnumESt14default_deleteISF_EEEENS1_10StringHashENS1_8StringEqESaISt4pairIKS9_SI_EEE7destroyEPNS1_13map_slot_typeIS9_SI_EE.exit8 ], [ %47, %.lr.ph32 ]
   %50 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.09.025, i1 true)
   %51 = zext nneg i16 %50 to i64
-  %52 = getelementptr inbounds nuw %"union.absl::lts_20240722::container_internal::map_slot_type.112", ptr %.0.i30, i64 %51
+  %52 = getelementptr inbounds nuw [40 x i8], ptr %.0.i30, i64 %51
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 32
   %54 = load ptr, ptr %53, align 8, !tbaa !342
   %.not.i.i.i.i.i.i.i.i2 = icmp eq ptr %54, null
@@ -8933,7 +8908,7 @@ _ZNSt6vectorIN6google8protobuf13json_internal11MessagePath9ComponentESaIS4_EE11_
 _ZNSt6vectorIN6google8protobuf13json_internal11MessagePath9ComponentESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i.i: ; preds = %44, %_ZNSt6vectorIN6google8protobuf13json_internal11MessagePath9ComponentESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i.i
   store ptr %39, ptr %7, align 8, !tbaa !30, !noalias !345
   store ptr %43, ptr %20, align 8, !tbaa !34, !noalias !345
-  %45 = getelementptr inbounds nuw %"struct.google::protobuf::json_internal::MessagePath::Component", ptr %39, i64 %37
+  %45 = getelementptr inbounds nuw [48 x i8], ptr %39, i64 %37
   store ptr %45, ptr %22, align 8, !tbaa !33, !noalias !345
   br label %_ZN6google8protobuf13json_internal11MessagePath4PushESt17basic_string_viewIcSt11char_traitsIcEENS0_8internal19FieldDescriptorLite4TypeES6_.exit
 
@@ -9116,7 +9091,7 @@ _ZNSt6vectorIN6google8protobuf13json_internal11MessagePath9ComponentESaIS4_EE11_
 _ZNSt6vectorIN6google8protobuf13json_internal11MessagePath9ComponentESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i.i: ; preds = %47, %_ZNSt6vectorIN6google8protobuf13json_internal11MessagePath9ComponentESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i.i
   store ptr %42, ptr %10, align 8, !tbaa !30, !noalias !352
   store ptr %46, ptr %23, align 8, !tbaa !34, !noalias !352
-  %48 = getelementptr inbounds nuw %"struct.google::protobuf::json_internal::MessagePath::Component", ptr %42, i64 %40
+  %48 = getelementptr inbounds nuw [48 x i8], ptr %42, i64 %40
   store ptr %48, ptr %25, align 8, !tbaa !33, !noalias !352
   br label %_ZN6google8protobuf13json_internal11MessagePath4PushESt17basic_string_viewIcSt11char_traitsIcEENS0_8internal19FieldDescriptorLite4TypeES6_.exit
 
@@ -13913,7 +13888,7 @@ _ZNSt6vectorIN6google8protobuf13json_internal11MessagePath9ComponentESaIS4_EE11_
 _ZNSt6vectorIN6google8protobuf13json_internal11MessagePath9ComponentESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i.i: ; preds = %111, %_ZNSt6vectorIN6google8protobuf13json_internal11MessagePath9ComponentESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i.i
   store ptr %106, ptr %80, align 8, !tbaa !30, !noalias !450
   store ptr %110, ptr %87, align 8, !tbaa !34, !noalias !450
-  %112 = getelementptr inbounds nuw %"struct.google::protobuf::json_internal::MessagePath::Component", ptr %106, i64 %104
+  %112 = getelementptr inbounds nuw [48 x i8], ptr %106, i64 %104
   store ptr %112, ptr %89, align 8, !tbaa !33, !noalias !450
   br label %.noexc.i
 
@@ -16449,7 +16424,7 @@ define linkonce_odr hidden void @_ZN4absl12lts_2024072218container_internal12raw
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 %26
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.sroa.0.0.copyload.i.i.i.i.i = load ptr, ptr %29, align 8, !tbaa !63, !noalias !537
-  %30 = getelementptr inbounds nuw i32, ptr %.sroa.0.0.copyload.i.i.i.i.i, i64 %26
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i, i64 %26
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %28) ]
   br label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIiEENS0_13hash_internal4HashIiEESt8equal_toIiESaIiEE26find_or_prepare_insert_sooIiEESt4pairINSB_8iteratorEbERKT_.exit
 
@@ -16494,7 +16469,7 @@ define linkonce_odr hidden void @_ZN4absl12lts_2024072218container_internal12raw
   %57 = zext nneg i16 %56 to i64
   %58 = add i64 %.sroa.7.0.i, %57
   %59 = and i64 %58, %4
-  %60 = getelementptr inbounds nuw i32, ptr %.sroa.0.0.copyload.i.i.i.i, i64 %59
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.0.copyload.i.i.i.i, i64 %59
   %61 = load i32, ptr %60, align 4, !tbaa !125, !noalias !540
   %62 = icmp eq i32 %61, %34
   br i1 %62, label %.critedge21.i, label %.critedge.i, !prof !109
@@ -16520,7 +16495,7 @@ define linkonce_odr hidden void @_ZN4absl12lts_2024072218container_internal12raw
   %72 = load ptr, ptr %32, align 8, !tbaa !63, !noalias !540
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 %71
   %.sroa.0.0.copyload.i.i.i.i22.i = load ptr, ptr %50, align 8, !tbaa !63, !noalias !540
-  %74 = getelementptr inbounds nuw i32, ptr %.sroa.0.0.copyload.i.i.i.i22.i, i64 %71
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.0.copyload.i.i.i.i22.i, i64 %71
   br label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIiEENS0_13hash_internal4HashIiEESt8equal_toIiESaIiEE30find_or_prepare_insert_non_sooIiEESt4pairINSB_8iteratorEbERKT_.exit
 
 75:                                               ; preds = %.critedge19.i
@@ -16529,7 +16504,7 @@ define linkonce_odr hidden void @_ZN4absl12lts_2024072218container_internal12raw
   br label %51
 
 .critedge21.i:                                    ; preds = %.lr.ph.i
-  %78 = getelementptr inbounds nuw i32, ptr %.sroa.0.0.copyload.i.i.i.i, i64 %59
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.0.copyload.i.i.i.i, i64 %59
   %79 = getelementptr inbounds nuw i8, ptr %33, i64 %59
   br label %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIiEENS0_13hash_internal4HashIiEESt8equal_toIiESaIiEE30find_or_prepare_insert_non_sooIiEESt4pairINSB_8iteratorEbERKT_.exit
 
@@ -16678,7 +16653,7 @@ define linkonce_odr hidden void @_ZN4absl12lts_2024072218container_internal12raw
   %73 = getelementptr i8, ptr %43, i64 %71
   %74 = getelementptr i8, ptr %73, i64 %72
   store i8 %68, ptr %74, align 1, !tbaa !552
-  %75 = getelementptr inbounds nuw i32, ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.011.0.i.i
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.011.0.i.i
   %76 = load i32, ptr %3, align 8
   store i32 %76, ptr %75, align 1
   br label %144
@@ -16699,7 +16674,7 @@ define linkonce_odr hidden void @_ZN4absl12lts_2024072218container_internal12raw
   br i1 %83, label %84, label %128
 
 84:                                               ; preds = %.lr.ph
-  %85 = getelementptr inbounds nuw i32, ptr %.sroa.0.0.copyload.i.i, i64 %.064
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.0.copyload.i.i, i64 %.064
   %86 = load i32, ptr %85, align 4, !tbaa !125
   %87 = zext i32 %86 to i64
   %88 = add i64 %87, ptrtoint (ptr @_ZN4absl12lts_2024072213hash_internal15MixingHashState5kSeedE to i64)
@@ -16761,7 +16736,7 @@ _ZZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolic
   %124 = getelementptr i8, ptr %94, i64 %122
   %125 = getelementptr i8, ptr %124, i64 %123
   store i8 %119, ptr %125, align 1, !tbaa !552
-  %126 = getelementptr inbounds nuw i32, ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.011.0.i.i39
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.011.0.i.i39
   %127 = load i32, ptr %85, align 4
   store i32 %127, ptr %126, align 1
   %.pre = load i64, ptr %24, align 8, !tbaa !543
@@ -17076,7 +17051,7 @@ _ZNSt6vectorIN6google8protobuf13json_internal11MessagePath9ComponentESaIS4_EE11_
 _ZNSt6vectorIN6google8protobuf13json_internal11MessagePath9ComponentESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i: ; preds = %32, %_ZNSt6vectorIN6google8protobuf13json_internal11MessagePath9ComponentESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i
   store ptr %27, ptr %1, align 8, !tbaa !30
   store ptr %31, ptr %7, align 8, !tbaa !34
-  %33 = getelementptr inbounds nuw %"struct.google::protobuf::json_internal::MessagePath::Component", ptr %27, i64 %25
+  %33 = getelementptr inbounds nuw [48 x i8], ptr %27, i64 %25
   store ptr %33, ptr %9, align 8, !tbaa !33
   br label %_ZNSt6vectorIN6google8protobuf13json_internal11MessagePath9ComponentESaIS4_EE9push_backEOS4_.exit
 
@@ -18955,7 +18930,7 @@ define linkonce_odr hidden void @_ZN4absl12lts_2024072218container_internal12raw
   %31 = zext nneg i16 %30 to i64
   %32 = add i64 %.sroa.7.0, %31
   %33 = and i64 %32, %14
-  %34 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.sroa.0.0.copyload.i.i.i, i64 %33
+  %34 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.0.0.copyload.i.i.i, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !24
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %37 = load i64, ptr %36, align 8, !tbaa !29
@@ -18991,7 +18966,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i.i.i.i: ; preds = %39
   %50 = load ptr, ptr %4, align 8, !tbaa !63
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 %49
   %.sroa.0.0.copyload.i.i.i.i25 = load ptr, ptr %23, align 8, !tbaa !63
-  %52 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.sroa.0.0.copyload.i.i.i.i25, i64 %49
+  %52 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.0.0.copyload.i.i.i.i25, i64 %49
   br label %57
 
 53:                                               ; preds = %.critedge21
@@ -19068,8 +19043,8 @@ define linkonce_odr hidden void @_ZN4absl12lts_2024072218container_internal12raw
 
 26:                                               ; preds = %.lr.ph.i
   %27 = xor i64 %.015.i, %20
-  %28 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.sroa.0.0.copyload.i.i.i, i64 %27
-  %29 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.sroa.0.0.copyload.i.i14.i, i64 %.015.i
+  %28 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.0.0.copyload.i.i.i, i64 %27
+  %29 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.0.0.copyload.i.i14.i, i64 %.015.i
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 16
   store ptr %30, ptr %28, align 8, !tbaa !219
   %31 = load ptr, ptr %29, align 8, !tbaa !24
@@ -19119,7 +19094,7 @@ _ZN4absl12lts_2024072218container_internal20common_policy_traitsINS1_17FlatHashS
   br i1 %51, label %52, label %108
 
 52:                                               ; preds = %.lr.ph
-  %53 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.sroa.0.0.copyload.i.i14.i, i64 %.075
+  %53 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.0.0.copyload.i.i14.i, i64 %.075
   %54 = load ptr, ptr %53, align 8, !tbaa !24
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %56 = load i64, ptr %55, align 8, !tbaa !29
@@ -19183,7 +19158,7 @@ _ZN4absl12lts_2024072218container_internal19find_first_non_fullIvEENS1_8FindInfo
   %94 = getelementptr i8, ptr %64, i64 %92
   %95 = getelementptr i8, ptr %94, i64 %93
   store i8 %89, ptr %95, align 1, !tbaa !552
-  %96 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.011.0.i.i49
+  %96 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.0.0.copyload.i.i.i, i64 %.sroa.011.0.i.i49
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 16
   store ptr %97, ptr %96, align 8, !tbaa !219
   %98 = load ptr, ptr %53, align 8, !tbaa !24
@@ -19581,7 +19556,7 @@ define linkonce_odr hidden void @_ZN4absl12lts_2024072218container_internal12raw
   %.sroa.011.030.i = phi i64 [ %23, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_10StringHashENS1_8StringEqESaIS9_EE7destroyEPS9_.exit.i ], [ %13, %.lr.ph32.preheader.i ]
   %14 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.sroa.011.030.i, i1 true)
   %15 = lshr i64 %14, 3
-  %16 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %12, i64 %15
+  %16 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !24
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %19 = icmp eq ptr %17, %18
@@ -19628,7 +19603,7 @@ _ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicy
   %.sroa.05.021.i = phi i16 [ %43, %_ZN4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEENS1_10StringHashENS1_8StringEqESaIS9_EE7destroyEPS9_.exit4.i ], [ %30, %.lr.ph28.i ]
   %33 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.sroa.05.021.i, i1 true)
   %34 = zext nneg i16 %33 to i64
-  %35 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.0.i26.i, i64 %34
+  %35 = getelementptr inbounds nuw [32 x i8], ptr %.0.i26.i, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !24
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %38 = icmp eq ptr %36, %37
@@ -20800,7 +20775,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit87:         ; preds = %_ZN6google8protobuf
   %173 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %174 = load i8, ptr %173, align 2, !tbaa !139
   %175 = zext i8 %174 to i64
-  %176 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %175
+  %176 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %175
   %177 = load i32, ptr %176, align 4, !tbaa !674
   %.pre110 = load double, ptr %6, align 8, !tbaa !372
   switch i32 %177, label %_ZN6google8protobuf13json_internal16Proto2Descriptor7Is32BitEPKNS0_15FieldDescriptorE.exit [
@@ -21056,7 +21031,7 @@ define internal fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_18Pa
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %20 = load i8, ptr %19, align 2, !tbaa !139
   %21 = zext i8 %20 to i64
-  %22 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !674
   %.pre20 = load i64, ptr %4, align 8, !tbaa !60
   %24 = icmp eq i64 %.pre20, 1
@@ -21248,7 +21223,7 @@ define internal fastcc void @_ZN6google8protobuf13json_internal12_GLOBAL__N_19Pa
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %20 = load i8, ptr %19, align 2, !tbaa !139
   %21 = zext i8 %20 to i64
-  %22 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !674
   %.pre18 = load i64, ptr %4, align 8, !tbaa !60
   %24 = icmp eq i64 %.pre18, 1
@@ -24144,7 +24119,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf13json_internal16Proto2Descr
   %24 = tail call noundef ptr @_ZNK6google8protobuf15FieldDescriptor9enum_typeEv(ptr noundef nonnull align 8 dereferenceable(88) %1)
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 56
   %26 = load ptr, ptr %25, align 8, !tbaa !694
-  %27 = getelementptr inbounds nuw %"class.google::protobuf::EnumValueDescriptor", ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [48 x i8], ptr %26, i64 %indvars.iv
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !695
   %30 = load ptr, ptr %29, align 8, !tbaa !24
@@ -24603,7 +24578,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN6google8protobuf13json_internal16Prot
 
 13:                                               ; preds = %.lr.ph, %_ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4typeES6_.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZSteqIcSt11char_traitsIcEEbNSt15__type_identityISt17basic_string_viewIT_T0_EE4typeES6_.exit.thread ]
-  %14 = getelementptr inbounds nuw %"class.google::protobuf::FieldDescriptor", ptr %11, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [88 x i8], ptr %11, i64 %indvars.iv
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 1
   %16 = load i8, ptr %15, align 1
   %17 = and i8 %16, 4
@@ -24618,7 +24593,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN6google8protobuf13json_internal16Prot
   %23 = lshr i8 %22, 4
   %24 = and i8 %23, 7
   %25 = zext nneg i8 %24 to i64
-  %26 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %20, i64 %25
+  %26 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !24
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %29 = load i64, ptr %28, align 8, !tbaa !29
@@ -24724,7 +24699,7 @@ _ZNK6google8protobuf15FieldDescriptor21real_containing_oneofEv.exit9: ; preds = 
   %54 = zext nneg i16 %53 to i64
   %55 = add i64 %.sroa.6.0.i.i.i.i, %54
   %56 = and i64 %55, %19
-  %57 = getelementptr inbounds nuw i32, ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i, i64 %56
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i, i64 %56
   %58 = load i32, ptr %57, align 4, !tbaa !125
   %59 = icmp eq i32 %58, %18
   br i1 %59, label %_ZNK4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIiEENS0_13hash_internal4HashIiEESt8equal_toIiESaIiEE8containsIiEEbRKi.exit, label %60, !prof !109
@@ -24811,7 +24786,7 @@ _ZNK6google8protobuf15FieldDescriptor21real_containing_oneofEv.exit9: ; preds = 
   %108 = zext nneg i16 %107 to i64
   %109 = add i64 %.sroa.6.0.i.i.i.i13, %108
   %110 = and i64 %109, %73
-  %111 = getelementptr inbounds nuw i32, ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i10, i64 %110
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i10, i64 %110
   %112 = load i32, ptr %111, align 4, !tbaa !125
   %113 = icmp eq i32 %112, %72
   br i1 %113, label %_ZNK4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIiEENS0_13hash_internal4HashIiEESt8equal_toIiESaIiEE8containsIiEEbRKi.exit, label %114, !prof !109
@@ -24969,7 +24944,7 @@ _ZNSt6vectorIN6google8protobuf13json_internal11MessagePath9ComponentESaIS4_EE17_
   %.pre = phi ptr [ %.pre.pre, %53 ], [ %13, %_ZNSt6vectorIN6google8protobuf13json_internal11MessagePath9ComponentESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i.i ]
   store ptr %48, ptr %11, align 8, !tbaa !30, !noalias !711
   store ptr %52, ptr %29, align 8, !tbaa !34, !noalias !711
-  %54 = getelementptr inbounds nuw %"struct.google::protobuf::json_internal::MessagePath::Component", ptr %48, i64 %46
+  %54 = getelementptr inbounds nuw [48 x i8], ptr %48, i64 %46
   store ptr %54, ptr %31, align 8, !tbaa !33, !noalias !711
   br label %_ZN6google8protobuf13json_internal11MessagePath4PushESt17basic_string_viewIcSt11char_traitsIcEENS0_8internal19FieldDescriptorLite4TypeES6_.exit
 
@@ -25189,7 +25164,7 @@ _ZNSt6vectorIN6google8protobuf13json_internal11MessagePath9ComponentESaIS4_EE17_
   %.pre = phi ptr [ %.pre.pre, %56 ], [ %16, %_ZNSt6vectorIN6google8protobuf13json_internal11MessagePath9ComponentESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i.i ]
   store ptr %51, ptr %14, align 8, !tbaa !30, !noalias !756
   store ptr %55, ptr %32, align 8, !tbaa !34, !noalias !756
-  %57 = getelementptr inbounds nuw %"struct.google::protobuf::json_internal::MessagePath::Component", ptr %51, i64 %49
+  %57 = getelementptr inbounds nuw [48 x i8], ptr %51, i64 %49
   store ptr %57, ptr %34, align 8, !tbaa !33, !noalias !756
   br label %_ZN6google8protobuf13json_internal11MessagePath4PushESt17basic_string_viewIcSt11char_traitsIcEENS0_8internal19FieldDescriptorLite4TypeES6_.exit
 
@@ -30525,7 +30500,7 @@ _ZNSt6vectorIN6google8protobuf13json_internal11MessagePath9ComponentESaIS4_EE11_
 _ZNSt6vectorIN6google8protobuf13json_internal11MessagePath9ComponentESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i.i35: ; preds = %114, %_ZNSt6vectorIN6google8protobuf13json_internal11MessagePath9ComponentESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i.i32
   store ptr %109, ptr %81, align 8, !tbaa !30, !noalias !1082
   store ptr %113, ptr %90, align 8, !tbaa !34, !noalias !1082
-  %115 = getelementptr inbounds nuw %"struct.google::protobuf::json_internal::MessagePath::Component", ptr %109, i64 %107
+  %115 = getelementptr inbounds nuw [48 x i8], ptr %109, i64 %107
   store ptr %115, ptr %92, align 8, !tbaa !33, !noalias !1082
   br label %.noexc5
 
@@ -30769,7 +30744,7 @@ _ZNSt6vectorIN6google8protobuf13json_internal11MessagePath9ComponentESaIS4_EE11_
 _ZNSt6vectorIN6google8protobuf13json_internal11MessagePath9ComponentESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i.i: ; preds = %210, %_ZNSt6vectorIN6google8protobuf13json_internal11MessagePath9ComponentESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i.i
   store ptr %205, ptr %177, align 8, !tbaa !30, !noalias !1095
   store ptr %209, ptr %186, align 8, !tbaa !34, !noalias !1095
-  %211 = getelementptr inbounds nuw %"struct.google::protobuf::json_internal::MessagePath::Component", ptr %205, i64 %203
+  %211 = getelementptr inbounds nuw [48 x i8], ptr %205, i64 %203
   store ptr %211, ptr %188, align 8, !tbaa !33, !noalias !1095
   br label %.noexc32.i
 
@@ -37855,7 +37830,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN6google8protobuf13json_interna
   %45 = zext nneg i16 %44 to i64
   %46 = add i64 %.sroa.6.0.i.i.i.i, %45
   %47 = and i64 %46, %10
-  %48 = getelementptr inbounds nuw i32, ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i, i64 %47
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i, i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !125
   %50 = icmp eq i32 %49, %7
   br i1 %50, label %_ZNK4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIiEENS0_13hash_internal4HashIiEESt8equal_toIiESaIiEE8containsIiEEbRKi.exit, label %51, !prof !109
@@ -37942,7 +37917,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN6google8protobuf13json_interna
   %99 = zext nneg i16 %98 to i64
   %100 = add i64 %.sroa.6.0.i.i.i.i9, %99
   %101 = and i64 %100, %64
-  %102 = getelementptr inbounds nuw i32, ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i6, i64 %101
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i6, i64 %101
   %103 = load i32, ptr %102, align 4, !tbaa !125
   %104 = icmp eq i32 %103, %63
   br i1 %104, label %_ZNK4absl12lts_2024072218container_internal12raw_hash_setINS1_17FlatHashSetPolicyIiEENS0_13hash_internal4HashIiEESt8equal_toIiESaIiEE8containsIiEEbRKi.exit, label %105, !prof !109
@@ -38026,7 +38001,7 @@ _ZN4absl12lts_202407226StatusD2Ev.exit:           ; preds = %12
   %28 = getelementptr inbounds nuw i8, ptr %18, i64 88
   %29 = load i32, ptr %28, align 8, !tbaa !1743, !noalias !1747
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds ptr, ptr %27, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %27, i64 %30
   %32 = invoke ptr @_ZSt9__find_ifIN6google8protobuf8internal19RepeatedPtrIteratorIKNS1_6OptionEEEN9__gnu_cxx5__ops10_Iter_predIZZNS1_13json_internal10Proto3Type5IsMapEPKNSA_12ResolverPool5FieldEENKUlRKNSC_7MessageEE_clESI_EUlRT_E_EEESK_SK_SK_T0_St26random_access_iterator_tag(ptr nonnull %27, ptr nonnull %31)
           to label %_ZZN6google8protobuf13json_internal10Proto3Type5IsMapEPKNS1_12ResolverPool5FieldEENKUlRKNS3_7MessageEE_clES9_.exit unwind label %10
 

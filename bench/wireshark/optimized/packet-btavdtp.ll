@@ -2715,7 +2715,7 @@ define internal i32 @dissect_aptx(ptr noundef %0, ptr noundef %1, ptr noundef %2
 .split1:                                          ; preds = %.split
   %42 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %34, i1 true)
   %43 = zext nneg i32 %42 to i64
-  %switch.gep = getelementptr inbounds nuw double, ptr @switch.table.dissect_aptx, i64 %43
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_aptx, i64 %43
   %switch.load = load double, ptr %switch.gep, align 8
   %44 = icmp eq i8 %37, 8
   %45 = fmul nnan double %switch.load, 2.000000e+00
@@ -3018,10 +3018,10 @@ define internal noundef i32 @dissect_ldac(ptr noundef %0, ptr noundef %1, ptr no
 
 switch.lookup:                                    ; preds = %60
   %65 = zext nneg i32 %.0113122 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissect_ldac, i64 %65
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_ldac, i64 %65
   %switch.load = load i32, ptr %switch.gep, align 4
   %66 = zext nneg i32 %.0113122 to i64
-  %switch.gep137 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_ldac.1, i64 %66
+  %switch.gep137 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_ldac.1, i64 %66
   %switch.load138 = load i32, ptr %switch.gep137, align 4
   br label %67
 

@@ -2678,7 +2678,7 @@ _ZZN6google8protobuf8internal12VarintParserIiLb0EEEPKcPvS4_PNS1_12ParseContextEE
   %add7.i.i.i = add nsw i32 %12, 1
   store i32 %add7.i.i.i, ptr %add.coerce, align 8
   %idx.ext.i.i.i = sext i32 %12 to i64
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %elem.0.i.i.i, i64 %idx.ext.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds [4 x i8], ptr %elem.0.i.i.i, i64 %idx.ext.i.i.i
   store i32 %conv.i.i20, ptr %add.ptr.i.i.i, align 4
   %13 = load i32, ptr %add.coerce, align 8
   %cmp10.i.i.i = icmp eq i32 %add7.i.i.i, %13
@@ -2765,7 +2765,7 @@ _ZZN6google8protobuf8internal12VarintParserIiLb0EEEPKcPvS4_PNS1_12ParseContextEE
   %add7.i.i.i55 = add nsw i32 %21, 1
   store i32 %add7.i.i.i55, ptr %add.coerce, align 8
   %idx.ext.i.i.i56 = sext i32 %21 to i64
-  %add.ptr.i.i.i57 = getelementptr inbounds i32, ptr %elem.0.i.i.i54, i64 %idx.ext.i.i.i56
+  %add.ptr.i.i.i57 = getelementptr inbounds [4 x i8], ptr %elem.0.i.i.i54, i64 %idx.ext.i.i.i56
   store i32 %conv.i.i53, ptr %add.ptr.i.i.i57, align 4
   %22 = load i32, ptr %add.coerce, align 8
   %cmp10.i.i.i58 = icmp eq i32 %add7.i.i.i55, %22
@@ -2891,7 +2891,7 @@ _ZZN6google8protobuf8internal12VarintParserIiLb0EEEPKcPvS4_PNS1_12ParseContextEE
   %add7.i.i.i103 = add nsw i32 %35, 1
   store i32 %add7.i.i.i103, ptr %add.coerce, align 8
   %idx.ext.i.i.i104 = sext i32 %35 to i64
-  %add.ptr.i.i.i105 = getelementptr inbounds i32, ptr %elem.0.i.i.i102, i64 %idx.ext.i.i.i104
+  %add.ptr.i.i.i105 = getelementptr inbounds [4 x i8], ptr %elem.0.i.i.i102, i64 %idx.ext.i.i.i104
   store i32 %conv.i.i101, ptr %add.ptr.i.i.i105, align 4
   %36 = load i32, ptr %add.coerce, align 8
   %cmp10.i.i.i106 = icmp eq i32 %add7.i.i.i103, %36
@@ -3057,7 +3057,7 @@ _ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
   %cached_blocks_19.i.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 88
   %16 = load ptr, ptr %cached_blocks_19.i.i.i.i, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw ptr, ptr %16, i64 %sub.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %sub.i.i.i.i
   %17 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   store ptr %17, ptr %add.ptr.i.i22, align 8
   store ptr %add.ptr.i.i22, ptr %arrayidx.i.i.i.i, align 8
@@ -3215,7 +3215,7 @@ _ZZN6google8protobuf8internal12VarintParserIjLb0EEEPKcPvS4_PNS1_12ParseContextEE
   %add7.i.i.i = add nsw i32 %12, 1
   store i32 %add7.i.i.i, ptr %add.coerce, align 8
   %idx.ext.i.i.i = sext i32 %12 to i64
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %elem.0.i.i.i, i64 %idx.ext.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds [4 x i8], ptr %elem.0.i.i.i, i64 %idx.ext.i.i.i
   store i32 %conv.i.i20, ptr %add.ptr.i.i.i, align 4
   %13 = load i32, ptr %add.coerce, align 8
   %cmp10.i.i.i = icmp eq i32 %add7.i.i.i, %13
@@ -3302,7 +3302,7 @@ _ZZN6google8protobuf8internal12VarintParserIjLb0EEEPKcPvS4_PNS1_12ParseContextEE
   %add7.i.i.i55 = add nsw i32 %21, 1
   store i32 %add7.i.i.i55, ptr %add.coerce, align 8
   %idx.ext.i.i.i56 = sext i32 %21 to i64
-  %add.ptr.i.i.i57 = getelementptr inbounds i32, ptr %elem.0.i.i.i54, i64 %idx.ext.i.i.i56
+  %add.ptr.i.i.i57 = getelementptr inbounds [4 x i8], ptr %elem.0.i.i.i54, i64 %idx.ext.i.i.i56
   store i32 %conv.i.i53, ptr %add.ptr.i.i.i57, align 4
   %22 = load i32, ptr %add.coerce, align 8
   %cmp10.i.i.i58 = icmp eq i32 %add7.i.i.i55, %22
@@ -3428,7 +3428,7 @@ _ZZN6google8protobuf8internal12VarintParserIjLb0EEEPKcPvS4_PNS1_12ParseContextEE
   %add7.i.i.i103 = add nsw i32 %35, 1
   store i32 %add7.i.i.i103, ptr %add.coerce, align 8
   %idx.ext.i.i.i104 = sext i32 %35 to i64
-  %add.ptr.i.i.i105 = getelementptr inbounds i32, ptr %elem.0.i.i.i102, i64 %idx.ext.i.i.i104
+  %add.ptr.i.i.i105 = getelementptr inbounds [4 x i8], ptr %elem.0.i.i.i102, i64 %idx.ext.i.i.i104
   store i32 %conv.i.i101, ptr %add.ptr.i.i.i105, align 4
   %36 = load i32, ptr %add.coerce, align 8
   %cmp10.i.i.i106 = icmp eq i32 %add7.i.i.i103, %36
@@ -3582,7 +3582,7 @@ _ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
   %cached_blocks_19.i.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 88
   %16 = load ptr, ptr %cached_blocks_19.i.i.i.i, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw ptr, ptr %16, i64 %sub.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %sub.i.i.i.i
   %17 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   store ptr %17, ptr %add.ptr.i.i22, align 8
   store ptr %add.ptr.i.i22, ptr %arrayidx.i.i.i.i, align 8
@@ -3723,7 +3723,7 @@ _ZZN6google8protobuf8internal12VarintParserIlLb0EEEPKcPvS4_PNS1_12ParseContextEE
   %add7.i.i.i = add nsw i32 %12, 1
   store i32 %add7.i.i.i, ptr %add.coerce, align 8
   %idx.ext.i.i.i = sext i32 %12 to i64
-  %add.ptr.i.i.i = getelementptr inbounds i64, ptr %elem.0.i.i.i, i64 %idx.ext.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds [8 x i8], ptr %elem.0.i.i.i, i64 %idx.ext.i.i.i
   store i64 %varint.0.ph.i, ptr %add.ptr.i.i.i, align 8
   %13 = load i32, ptr %add.coerce, align 8
   %cmp10.i.i.i = icmp eq i32 %add7.i.i.i, %13
@@ -3809,7 +3809,7 @@ _ZZN6google8protobuf8internal12VarintParserIlLb0EEEPKcPvS4_PNS1_12ParseContextEE
   %add7.i.i.i53 = add nsw i32 %21, 1
   store i32 %add7.i.i.i53, ptr %add.coerce, align 8
   %idx.ext.i.i.i54 = sext i32 %21 to i64
-  %add.ptr.i.i.i55 = getelementptr inbounds i64, ptr %elem.0.i.i.i52, i64 %idx.ext.i.i.i54
+  %add.ptr.i.i.i55 = getelementptr inbounds [8 x i8], ptr %elem.0.i.i.i52, i64 %idx.ext.i.i.i54
   store i64 %varint.0.ph.i46, ptr %add.ptr.i.i.i55, align 8
   %22 = load i32, ptr %add.coerce, align 8
   %cmp10.i.i.i56 = icmp eq i32 %add7.i.i.i53, %22
@@ -3934,7 +3934,7 @@ _ZZN6google8protobuf8internal12VarintParserIlLb0EEEPKcPvS4_PNS1_12ParseContextEE
   %add7.i.i.i100 = add nsw i32 %35, 1
   store i32 %add7.i.i.i100, ptr %add.coerce, align 8
   %idx.ext.i.i.i101 = sext i32 %35 to i64
-  %add.ptr.i.i.i102 = getelementptr inbounds i64, ptr %elem.0.i.i.i99, i64 %idx.ext.i.i.i101
+  %add.ptr.i.i.i102 = getelementptr inbounds [8 x i8], ptr %elem.0.i.i.i99, i64 %idx.ext.i.i.i101
   store i64 %varint.0.ph.i93, ptr %add.ptr.i.i.i102, align 8
   %36 = load i32, ptr %add.coerce, align 8
   %cmp10.i.i.i103 = icmp eq i32 %add7.i.i.i100, %36
@@ -4085,7 +4085,7 @@ _ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
   %cached_blocks_19.i.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 88
   %16 = load ptr, ptr %cached_blocks_19.i.i.i.i, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw ptr, ptr %16, i64 %sub.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %sub.i.i.i.i
   %17 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   store ptr %17, ptr %add.ptr.i.i21, align 8
   store ptr %add.ptr.i.i21, ptr %arrayidx.i.i.i.i, align 8
@@ -4226,7 +4226,7 @@ _ZZN6google8protobuf8internal12VarintParserImLb0EEEPKcPvS4_PNS1_12ParseContextEE
   %add7.i.i.i = add nsw i32 %12, 1
   store i32 %add7.i.i.i, ptr %add.coerce, align 8
   %idx.ext.i.i.i = sext i32 %12 to i64
-  %add.ptr.i.i.i = getelementptr inbounds i64, ptr %elem.0.i.i.i, i64 %idx.ext.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds [8 x i8], ptr %elem.0.i.i.i, i64 %idx.ext.i.i.i
   store i64 %varint.0.ph.i, ptr %add.ptr.i.i.i, align 8
   %13 = load i32, ptr %add.coerce, align 8
   %cmp10.i.i.i = icmp eq i32 %add7.i.i.i, %13
@@ -4312,7 +4312,7 @@ _ZZN6google8protobuf8internal12VarintParserImLb0EEEPKcPvS4_PNS1_12ParseContextEE
   %add7.i.i.i53 = add nsw i32 %21, 1
   store i32 %add7.i.i.i53, ptr %add.coerce, align 8
   %idx.ext.i.i.i54 = sext i32 %21 to i64
-  %add.ptr.i.i.i55 = getelementptr inbounds i64, ptr %elem.0.i.i.i52, i64 %idx.ext.i.i.i54
+  %add.ptr.i.i.i55 = getelementptr inbounds [8 x i8], ptr %elem.0.i.i.i52, i64 %idx.ext.i.i.i54
   store i64 %varint.0.ph.i46, ptr %add.ptr.i.i.i55, align 8
   %22 = load i32, ptr %add.coerce, align 8
   %cmp10.i.i.i56 = icmp eq i32 %add7.i.i.i53, %22
@@ -4437,7 +4437,7 @@ _ZZN6google8protobuf8internal12VarintParserImLb0EEEPKcPvS4_PNS1_12ParseContextEE
   %add7.i.i.i100 = add nsw i32 %35, 1
   store i32 %add7.i.i.i100, ptr %add.coerce, align 8
   %idx.ext.i.i.i101 = sext i32 %35 to i64
-  %add.ptr.i.i.i102 = getelementptr inbounds i64, ptr %elem.0.i.i.i99, i64 %idx.ext.i.i.i101
+  %add.ptr.i.i.i102 = getelementptr inbounds [8 x i8], ptr %elem.0.i.i.i99, i64 %idx.ext.i.i.i101
   store i64 %varint.0.ph.i93, ptr %add.ptr.i.i.i102, align 8
   %36 = load i32, ptr %add.coerce, align 8
   %cmp10.i.i.i103 = icmp eq i32 %add7.i.i.i100, %36
@@ -4588,7 +4588,7 @@ _ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
   %cached_blocks_19.i.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 88
   %16 = load ptr, ptr %cached_blocks_19.i.i.i.i, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw ptr, ptr %16, i64 %sub.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %sub.i.i.i.i
   %17 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   store ptr %17, ptr %add.ptr.i.i21, align 8
   store ptr %add.ptr.i.i21, ptr %arrayidx.i.i.i.i, align 8
@@ -4734,7 +4734,7 @@ _ZZN6google8protobuf8internal12VarintParserIiLb1EEEPKcPvS4_PNS1_12ParseContextEE
   %add7.i.i.i = add nsw i32 %12, 1
   store i32 %add7.i.i.i, ptr %add.coerce, align 8
   %idx.ext.i.i.i = sext i32 %12 to i64
-  %add.ptr.i.i.i = getelementptr inbounds i32, ptr %elem.0.i.i.i, i64 %idx.ext.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds [4 x i8], ptr %elem.0.i.i.i, i64 %idx.ext.i.i.i
   store i32 %xor.i.i.i, ptr %add.ptr.i.i.i, align 4
   %13 = load i32, ptr %add.coerce, align 8
   %cmp10.i.i.i = icmp eq i32 %add7.i.i.i, %13
@@ -4825,7 +4825,7 @@ _ZZN6google8protobuf8internal12VarintParserIiLb1EEEPKcPvS4_PNS1_12ParseContextEE
   %add7.i.i.i59 = add nsw i32 %21, 1
   store i32 %add7.i.i.i59, ptr %add.coerce, align 8
   %idx.ext.i.i.i60 = sext i32 %21 to i64
-  %add.ptr.i.i.i61 = getelementptr inbounds i32, ptr %elem.0.i.i.i58, i64 %idx.ext.i.i.i60
+  %add.ptr.i.i.i61 = getelementptr inbounds [4 x i8], ptr %elem.0.i.i.i58, i64 %idx.ext.i.i.i60
   store i32 %xor.i.i.i57, ptr %add.ptr.i.i.i61, align 4
   %22 = load i32, ptr %add.coerce, align 8
   %cmp10.i.i.i62 = icmp eq i32 %add7.i.i.i59, %22
@@ -4955,7 +4955,7 @@ _ZZN6google8protobuf8internal12VarintParserIiLb1EEEPKcPvS4_PNS1_12ParseContextEE
   %add7.i.i.i111 = add nsw i32 %35, 1
   store i32 %add7.i.i.i111, ptr %add.coerce, align 8
   %idx.ext.i.i.i112 = sext i32 %35 to i64
-  %add.ptr.i.i.i113 = getelementptr inbounds i32, ptr %elem.0.i.i.i110, i64 %idx.ext.i.i.i112
+  %add.ptr.i.i.i113 = getelementptr inbounds [4 x i8], ptr %elem.0.i.i.i110, i64 %idx.ext.i.i.i112
   store i32 %xor.i.i.i109, ptr %add.ptr.i.i.i113, align 4
   %36 = load i32, ptr %add.coerce, align 8
   %cmp10.i.i.i114 = icmp eq i32 %add7.i.i.i111, %36
@@ -5109,7 +5109,7 @@ _ZZN6google8protobuf8internal12VarintParserIlLb1EEEPKcPvS4_PNS1_12ParseContextEE
   %add7.i.i.i = add nsw i32 %12, 1
   store i32 %add7.i.i.i, ptr %add.coerce, align 8
   %idx.ext.i.i.i = sext i32 %12 to i64
-  %add.ptr.i.i.i = getelementptr inbounds i64, ptr %elem.0.i.i.i, i64 %idx.ext.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds [8 x i8], ptr %elem.0.i.i.i, i64 %idx.ext.i.i.i
   store i64 %xor.i.i.i, ptr %add.ptr.i.i.i, align 8
   %13 = load i32, ptr %add.coerce, align 8
   %cmp10.i.i.i = icmp eq i32 %add7.i.i.i, %13
@@ -5199,7 +5199,7 @@ _ZZN6google8protobuf8internal12VarintParserIlLb1EEEPKcPvS4_PNS1_12ParseContextEE
   %add7.i.i.i57 = add nsw i32 %21, 1
   store i32 %add7.i.i.i57, ptr %add.coerce, align 8
   %idx.ext.i.i.i58 = sext i32 %21 to i64
-  %add.ptr.i.i.i59 = getelementptr inbounds i64, ptr %elem.0.i.i.i56, i64 %idx.ext.i.i.i58
+  %add.ptr.i.i.i59 = getelementptr inbounds [8 x i8], ptr %elem.0.i.i.i56, i64 %idx.ext.i.i.i58
   store i64 %xor.i.i.i55, ptr %add.ptr.i.i.i59, align 8
   %22 = load i32, ptr %add.coerce, align 8
   %cmp10.i.i.i60 = icmp eq i32 %add7.i.i.i57, %22
@@ -5328,7 +5328,7 @@ _ZZN6google8protobuf8internal12VarintParserIlLb1EEEPKcPvS4_PNS1_12ParseContextEE
   %add7.i.i.i108 = add nsw i32 %35, 1
   store i32 %add7.i.i.i108, ptr %add.coerce, align 8
   %idx.ext.i.i.i109 = sext i32 %35 to i64
-  %add.ptr.i.i.i110 = getelementptr inbounds i64, ptr %elem.0.i.i.i107, i64 %idx.ext.i.i.i109
+  %add.ptr.i.i.i110 = getelementptr inbounds [8 x i8], ptr %elem.0.i.i.i107, i64 %idx.ext.i.i.i109
   store i64 %xor.i.i.i106, ptr %add.ptr.i.i.i110, align 8
   %36 = load i32, ptr %add.coerce, align 8
   %cmp10.i.i.i111 = icmp eq i32 %add7.i.i.i108, %36
@@ -5846,7 +5846,7 @@ _ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
   %cached_blocks_19.i.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 88
   %16 = load ptr, ptr %cached_blocks_19.i.i.i.i, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw ptr, ptr %16, i64 %sub.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %sub.i.i.i.i
   %17 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   store ptr %17, ptr %add.ptr.i.i20, align 8
   store ptr %add.ptr.i.i20, ptr %arrayidx.i.i.i.i, align 8
@@ -5914,7 +5914,7 @@ _ZN6google8protobuf13RepeatedFieldIjE7ReserveEi.exit: ; preds = %while.body, %if
   %4 = load ptr, ptr %arena_or_elements_.i.i, align 8
   store i32 %add.i.pre-phi, ptr %out, align 8
   %idx.ext.i = sext i32 %3 to i64
-  %add.ptr.i = getelementptr inbounds i32, ptr %4, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds [4 x i8], ptr %4, i64 %idx.ext.i
   %conv7 = sext i32 %conv5 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %add.ptr.i, ptr align 1 %ptr.addr.055, i64 %conv7, i1 false)
   %sub = sub nsw i32 %size.addr.054, %conv5
@@ -6022,7 +6022,7 @@ lpad:                                             ; preds = %invoke.cont48, %inv
 
 cleanup.done:                                     ; preds = %_ZN6google8protobuf13RepeatedFieldIjE7ReserveEi.exit39
   %idx.ext.i42 = sext i32 %11 to i64
-  %add.ptr.i43 = getelementptr inbounds i32, ptr %12, i64 %idx.ext.i42
+  %add.ptr.i43 = getelementptr inbounds [4 x i8], ptr %12, i64 %idx.ext.i42
   %conv57 = sext i32 %mul30 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr.i43, ptr align 1 %ptr.addr.0.lcssa, i64 %conv57, i1 false)
   %cmp60.not = icmp eq i32 %size.addr.0.lcssa, %mul30
@@ -6127,7 +6127,7 @@ _ZN6google8protobuf13RepeatedFieldIiE7ReserveEi.exit: ; preds = %while.body, %if
   %4 = load ptr, ptr %arena_or_elements_.i.i, align 8
   store i32 %add.i.pre-phi, ptr %out, align 8
   %idx.ext.i = sext i32 %3 to i64
-  %add.ptr.i = getelementptr inbounds i32, ptr %4, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds [4 x i8], ptr %4, i64 %idx.ext.i
   %conv7 = sext i32 %conv5 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %add.ptr.i, ptr align 1 %ptr.addr.055, i64 %conv7, i1 false)
   %sub = sub nsw i32 %size.addr.054, %conv5
@@ -6235,7 +6235,7 @@ lpad:                                             ; preds = %invoke.cont48, %inv
 
 cleanup.done:                                     ; preds = %_ZN6google8protobuf13RepeatedFieldIiE7ReserveEi.exit39
   %idx.ext.i42 = sext i32 %11 to i64
-  %add.ptr.i43 = getelementptr inbounds i32, ptr %12, i64 %idx.ext.i42
+  %add.ptr.i43 = getelementptr inbounds [4 x i8], ptr %12, i64 %idx.ext.i42
   %conv56 = sext i32 %mul30 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr.i43, ptr align 1 %ptr.addr.0.lcssa, i64 %conv56, i1 false)
   %cmp59.not = icmp eq i32 %size.addr.0.lcssa, %mul30
@@ -6329,7 +6329,7 @@ _ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit: ; preds = %while.body, %if
   %4 = load ptr, ptr %arena_or_elements_.i.i, align 8
   store i32 %add.i.pre-phi, ptr %out, align 8
   %idx.ext.i = sext i32 %3 to i64
-  %add.ptr.i = getelementptr inbounds i64, ptr %4, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds [8 x i8], ptr %4, i64 %idx.ext.i
   %conv7 = sext i32 %conv5 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %add.ptr.i, ptr align 1 %ptr.addr.055, i64 %conv7, i1 false)
   %sub = sub nsw i32 %size.addr.054, %conv5
@@ -6437,7 +6437,7 @@ lpad:                                             ; preds = %invoke.cont48, %inv
 
 cleanup.done:                                     ; preds = %_ZN6google8protobuf13RepeatedFieldImE7ReserveEi.exit39
   %idx.ext.i42 = sext i32 %11 to i64
-  %add.ptr.i43 = getelementptr inbounds i64, ptr %12, i64 %idx.ext.i42
+  %add.ptr.i43 = getelementptr inbounds [8 x i8], ptr %12, i64 %idx.ext.i42
   %conv56 = sext i32 %mul30 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i43, ptr align 1 %ptr.addr.0.lcssa, i64 %conv56, i1 false)
   %cmp59.not = icmp eq i32 %size.addr.0.lcssa, %mul30
@@ -6531,7 +6531,7 @@ _ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit: ; preds = %while.body, %if
   %4 = load ptr, ptr %arena_or_elements_.i.i, align 8
   store i32 %add.i.pre-phi, ptr %out, align 8
   %idx.ext.i = sext i32 %3 to i64
-  %add.ptr.i = getelementptr inbounds i64, ptr %4, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds [8 x i8], ptr %4, i64 %idx.ext.i
   %conv7 = sext i32 %conv5 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %add.ptr.i, ptr align 1 %ptr.addr.055, i64 %conv7, i1 false)
   %sub = sub nsw i32 %size.addr.054, %conv5
@@ -6639,7 +6639,7 @@ lpad:                                             ; preds = %invoke.cont48, %inv
 
 cleanup.done:                                     ; preds = %_ZN6google8protobuf13RepeatedFieldIlE7ReserveEi.exit39
   %idx.ext.i42 = sext i32 %11 to i64
-  %add.ptr.i43 = getelementptr inbounds i64, ptr %12, i64 %idx.ext.i42
+  %add.ptr.i43 = getelementptr inbounds [8 x i8], ptr %12, i64 %idx.ext.i42
   %conv56 = sext i32 %mul30 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i43, ptr align 1 %ptr.addr.0.lcssa, i64 %conv56, i1 false)
   %cmp59.not = icmp eq i32 %size.addr.0.lcssa, %mul30
@@ -6733,7 +6733,7 @@ _ZN6google8protobuf13RepeatedFieldIfE7ReserveEi.exit: ; preds = %while.body, %if
   %4 = load ptr, ptr %arena_or_elements_.i.i, align 8
   store i32 %add.i.pre-phi, ptr %out, align 8
   %idx.ext.i = sext i32 %3 to i64
-  %add.ptr.i = getelementptr inbounds float, ptr %4, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds [4 x i8], ptr %4, i64 %idx.ext.i
   %conv7 = sext i32 %conv5 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %add.ptr.i, ptr align 1 %ptr.addr.055, i64 %conv7, i1 false)
   %sub = sub nsw i32 %size.addr.054, %conv5
@@ -6841,7 +6841,7 @@ lpad:                                             ; preds = %invoke.cont48, %inv
 
 cleanup.done:                                     ; preds = %_ZN6google8protobuf13RepeatedFieldIfE7ReserveEi.exit39
   %idx.ext.i42 = sext i32 %11 to i64
-  %add.ptr.i43 = getelementptr inbounds float, ptr %12, i64 %idx.ext.i42
+  %add.ptr.i43 = getelementptr inbounds [4 x i8], ptr %12, i64 %idx.ext.i42
   %conv56 = sext i32 %mul30 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %add.ptr.i43, ptr align 1 %ptr.addr.0.lcssa, i64 %conv56, i1 false)
   %cmp59.not = icmp eq i32 %size.addr.0.lcssa, %mul30
@@ -7012,7 +7012,7 @@ _ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
   %cached_blocks_19.i.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 88
   %16 = load ptr, ptr %cached_blocks_19.i.i.i.i, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw ptr, ptr %16, i64 %sub.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %sub.i.i.i.i
   %17 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   store ptr %17, ptr %add.ptr.i.i22, align 8
   store ptr %add.ptr.i.i22, ptr %arrayidx.i.i.i.i, align 8
@@ -7080,7 +7080,7 @@ _ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit: ; preds = %while.body, %if
   %4 = load ptr, ptr %arena_or_elements_.i.i, align 8
   store i32 %add.i.pre-phi, ptr %out, align 8
   %idx.ext.i = sext i32 %3 to i64
-  %add.ptr.i = getelementptr inbounds double, ptr %4, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds [8 x i8], ptr %4, i64 %idx.ext.i
   %conv7 = sext i32 %conv5 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %add.ptr.i, ptr align 1 %ptr.addr.055, i64 %conv7, i1 false)
   %sub = sub nsw i32 %size.addr.054, %conv5
@@ -7188,7 +7188,7 @@ lpad:                                             ; preds = %invoke.cont48, %inv
 
 cleanup.done:                                     ; preds = %_ZN6google8protobuf13RepeatedFieldIdE7ReserveEi.exit39
   %idx.ext.i42 = sext i32 %11 to i64
-  %add.ptr.i43 = getelementptr inbounds double, ptr %12, i64 %idx.ext.i42
+  %add.ptr.i43 = getelementptr inbounds [8 x i8], ptr %12, i64 %idx.ext.i42
   %conv56 = sext i32 %mul30 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %add.ptr.i43, ptr align 1 %ptr.addr.0.lcssa, i64 %conv56, i1 false)
   %cmp59.not = icmp eq i32 %size.addr.0.lcssa, %mul30
@@ -7356,7 +7356,7 @@ _ZSt4fillIPPN6google8protobuf8internal11SerialArena11CachedBlockEDnEvT_S7_RKT0_.
 if.end.i.i.i.i:                                   ; preds = %if.then.i.i.i
   %cached_blocks_19.i.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 88
   %16 = load ptr, ptr %cached_blocks_19.i.i.i.i, align 8
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw ptr, ptr %16, i64 %sub.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %sub.i.i.i.i
   %17 = load ptr, ptr %arrayidx.i.i.i.i, align 8
   store ptr %17, ptr %add.ptr.i.i21, align 8
   store ptr %add.ptr.i.i21, ptr %arrayidx.i.i.i.i, align 8

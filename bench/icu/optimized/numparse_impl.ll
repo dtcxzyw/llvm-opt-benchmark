@@ -1144,8 +1144,8 @@ _ZN6icu_7713UnicodeStringC2IA2_DsvEERKT_.exit:    ; preds = %_ZN6icu_778internal
 
 238:                                              ; preds = %238, %223
   %.013.i = phi i64 [ 0, %223 ], [ %242, %238 ]
-  %239 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %236, i64 %.013.i
-  %240 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %237, i64 %.013.i
+  %239 = getelementptr inbounds nuw [64 x i8], ptr %236, i64 %.013.i
+  %240 = getelementptr inbounds nuw [64 x i8], ptr %237, i64 %.013.i
   %241 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %239, ptr noundef nonnull align 8 dereferenceable(64) %240) #19
   %242 = add nuw nsw i64 %.013.i, 1
   %.not.i = icmp eq i64 %242, 8
@@ -1713,8 +1713,8 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(1288) ptr @_ZN6icu_7
 
 48:                                               ; preds = %48, %2
   %.013.i = phi i64 [ 0, %2 ], [ %52, %48 ]
-  %49 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %46, i64 %.013.i
-  %50 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %47, i64 %.013.i
+  %49 = getelementptr inbounds nuw [64 x i8], ptr %46, i64 %.013.i
+  %50 = getelementptr inbounds nuw [64 x i8], ptr %47, i64 %.013.i
   %51 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %49, ptr noundef nonnull align 8 dereferenceable(64) %50) #19
   %52 = add nuw nsw i64 %.013.i, 1
   %.not.i = icmp eq i64 %52, 8
@@ -1776,7 +1776,7 @@ define linkonce_odr void @_ZN6icu_778numparse4impl26AffixTokenMatcherWarehouseD2
   %15 = phi i32 [ %3, %.lr.ph.i ], [ %25, %24 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %24 ]
   %16 = load ptr, ptr %5, align 8, !tbaa !122
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.i
   %18 = load ptr, ptr %17, align 8, !tbaa !123
   %19 = icmp eq ptr %18, null
   br i1 %19, label %24, label %20
@@ -1852,8 +1852,8 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(1544) ptr @_ZN6icu_7
 
 5:                                                ; preds = %2, %5
   %.01113 = phi i64 [ 0, %2 ], [ %10, %5 ]
-  %6 = getelementptr inbounds nuw %"class.icu_77::numparse::impl::AffixMatcher", ptr %0, i64 %.01113
-  %7 = getelementptr inbounds nuw %"class.icu_77::numparse::impl::AffixMatcher", ptr %1, i64 %.01113
+  %6 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %.01113
+  %7 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %.01113
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %8, ptr noundef nonnull align 8 dereferenceable(20) %9, i64 20, i1 false)
@@ -1870,8 +1870,8 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(1544) ptr @_ZN6icu_7
 
 15:                                               ; preds = %.preheader, %_ZN6icu_778numparse4impl19AffixPatternMatcheraSEOS2_.exit
   %.014 = phi i64 [ 0, %.preheader ], [ %65, %_ZN6icu_778numparse4impl19AffixPatternMatcheraSEOS2_.exit ]
-  %16 = getelementptr inbounds nuw %"class.icu_77::numparse::impl::AffixPatternMatcher", ptr %3, i64 %.014
-  %17 = getelementptr inbounds nuw %"class.icu_77::numparse::impl::AffixPatternMatcher", ptr %4, i64 %.014
+  %16 = getelementptr inbounds nuw [80 x i8], ptr %3, i64 %.014
+  %17 = getelementptr inbounds nuw [80 x i8], ptr %4, i64 %.014
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 20
@@ -2654,8 +2654,8 @@ _ZN6icu_778numparse4impl19AffixPatternMatcherD2Ev.exit.i: ; preds = %147, %_ZN6i
 
 182:                                              ; preds = %182, %167
   %.013.i = phi i64 [ 0, %167 ], [ %186, %182 ]
-  %183 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %180, i64 %.013.i
-  %184 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %181, i64 %.013.i
+  %183 = getelementptr inbounds nuw [64 x i8], ptr %180, i64 %.013.i
+  %184 = getelementptr inbounds nuw [64 x i8], ptr %181, i64 %.013.i
   %185 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSEOS0_(ptr noundef nonnull align 8 dereferenceable(64) %183, ptr noundef nonnull align 8 dereferenceable(64) %184) #19
   %186 = add nuw nsw i64 %.013.i, 1
   %.not.i = icmp eq i64 %186, 8
@@ -4051,7 +4051,7 @@ _ZN6icu_7715MaybeStackArrayIPKNS_8numparse4impl18NumberParseMatcherELi10EE6resiz
   %23 = load i32, ptr %3, align 4, !tbaa !177
   %24 = sext i32 %23 to i64
   %25 = load ptr, ptr %5, align 8, !tbaa !178
-  %26 = getelementptr inbounds ptr, ptr %25, i64 %24
+  %26 = getelementptr inbounds [8 x i8], ptr %25, i64 %24
   store ptr %1, ptr %26, align 8, !tbaa !185
   %27 = add nsw i32 %23, 1
   store i32 %27, ptr %3, align 4, !tbaa !177
@@ -4106,7 +4106,7 @@ define void @_ZNK6icu_778numparse4impl16NumberParserImpl5parseERKNS_13UnicodeStr
 22:                                               ; preds = %19
   %23 = sext i32 %.021.i to i64
   %24 = load ptr, ptr %18, align 8, !tbaa !178
-  %25 = getelementptr inbounds ptr, ptr %24, i64 %23
+  %25 = getelementptr inbounds [8 x i8], ptr %24, i64 %23
   %26 = load ptr, ptr %25, align 8, !tbaa !185
   %27 = load ptr, ptr %26, align 8, !tbaa !22
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 32
@@ -4167,7 +4167,7 @@ _ZNK6icu_778numparse4impl16NumberParserImpl11parseGreedyERNS_13StringSegmentERNS
 53:                                               ; preds = %.lr.ph, %53
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %53 ]
   %54 = load ptr, ptr %52, align 8, !tbaa !178
-  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %indvars.iv
   %56 = load ptr, ptr %55, align 8, !tbaa !185
   %57 = load ptr, ptr %56, align 8, !tbaa !22
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 40
@@ -4207,7 +4207,7 @@ define void @_ZNK6icu_778numparse4impl16NumberParserImpl11parseGreedyERNS_13Stri
 12:                                               ; preds = %9
   %13 = sext i32 %.021 to i64
   %14 = load ptr, ptr %8, align 8, !tbaa !178
-  %15 = getelementptr inbounds ptr, ptr %14, i64 %13
+  %15 = getelementptr inbounds [8 x i8], ptr %14, i64 %13
   %16 = load ptr, ptr %15, align 8, !tbaa !185
   %17 = load ptr, ptr %16, align 8, !tbaa !22
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
@@ -4335,7 +4335,7 @@ _ZN6icu_778numparse4impl12ParsedNumberC2ERKS2_.exit: ; preds = %17
 43:                                               ; preds = %.lr.ph, %.thread75
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread75 ]
   %44 = load ptr, ptr %33, align 8, !tbaa !178
-  %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv
   %46 = load ptr, ptr %45, align 8, !tbaa !185
   %47 = load ptr, ptr %46, align 8, !tbaa !22
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 32
@@ -4576,7 +4576,7 @@ _ZN6icu_7713UnicodeStringC2IA29_DsvEERKT_.exit._crit_edge: ; preds = %_ZN6icu_77
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %18 = load ptr, ptr %9, align 8, !tbaa !178
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !185
   %21 = load ptr, ptr %20, align 8, !tbaa !22
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 48

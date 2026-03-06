@@ -607,10 +607,10 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_118swapFormatVersion4EPK12UD
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %21 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %22 = load i32, ptr %21, align 4, !tbaa !41
   %23 = tail call i32 @udata_readInt32_77(ptr noundef %0, i32 noundef %22)
-  %24 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   store i32 %23, ptr %24, align 4, !tbaa !41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -635,7 +635,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_118swapFormatVersion4EPK12UD
 
 35:                                               ; preds = %.preheader.thread
   %36 = zext nneg i32 %.fr to i64
-  %37 = getelementptr i32, ptr %6, i64 %36
+  %37 = getelementptr [4 x i8], ptr %6, i64 %36
   %38 = getelementptr i8, ptr %37, i64 -4
   %39 = load i32, ptr %38, align 4, !tbaa !41
   br label %40

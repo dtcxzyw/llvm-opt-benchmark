@@ -1100,7 +1100,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64: ; preds = %29,
 .lr.ph:                                           ; preds = %.preheader, %53
   %.169 = phi i64 [ %54, %53 ], [ 0, %.preheader ]
   %49 = load ptr, ptr %9, align 8, !tbaa !3
-  %50 = getelementptr inbounds nuw i16, ptr %1, i64 %.169
+  %50 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %.169
   %51 = tail call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %49, ptr noundef nonnull @.str.11, ptr noundef %50)
   %52 = icmp slt i32 %51, 1
   br i1 %52, label %._crit_edge, label %53
@@ -1312,7 +1312,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64: ; preds = %29,
 .lr.ph:                                           ; preds = %.preheader, %57
   %.169 = phi i64 [ %58, %57 ], [ 0, %.preheader ]
   %53 = load ptr, ptr %9, align 8, !tbaa !3
-  %54 = getelementptr inbounds nuw i32, ptr %1, i64 %.169
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.169
   %55 = tail call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %53, ptr noundef nonnull @.str.12, ptr noundef %54)
   %56 = icmp slt i32 %55, 1
   br i1 %56, label %._crit_edge, label %57
@@ -1571,10 +1571,10 @@ _ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit121: ; preds = %._crit_edge.us.i11
 .lr.ph:                                           ; preds = %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit121, %.lr.ph
   %.091144 = phi i64 [ %73, %.lr.ph ], [ %59, %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit121 ]
   %73 = add nsw i64 %.091144, -1
-  %74 = getelementptr inbounds nuw i32, ptr %1, i64 %73
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %73
   %75 = load i32, ptr %74, align 4, !tbaa !19
   %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds nuw i64, ptr %1, i64 %73
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %73
   store i64 %76, ptr %77, align 8, !tbaa !33
   %78 = icmp samesign ugt i64 %.091144, 1
   br i1 %78, label %.lr.ph, label %_ZN2THL24THDiskFile_reverseMemoryEPvPKvll.exit, !llvm.loop !34
@@ -1622,7 +1622,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit124: ; preds = %84
   %93 = getelementptr inbounds nuw i8, ptr %81, i64 %.idx
   %94 = load i32, ptr %93, align 4, !tbaa !19
   %95 = sext i32 %94 to i64
-  %96 = getelementptr inbounds nuw i64, ptr %1, i64 %92
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %92
   store i64 %95, ptr %96, align 8, !tbaa !33
   %97 = icmp samesign ugt i64 %.087145, 1
   br i1 %97, label %.lr.ph146, label %._crit_edge, !llvm.loop !35
@@ -1674,7 +1674,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit124: ; preds = %84
 114:                                              ; preds = %.lr.ph149
   %115 = add nuw nsw i64 %.1148, 1
   %116 = load i64, ptr %9, align 8, !tbaa !33
-  %117 = getelementptr inbounds nuw i64, ptr %1, i64 %.1148
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.1148
   store i64 %116, ptr %117, align 8, !tbaa !33
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %exitcond.not = icmp eq i64 %115, %2
@@ -1882,7 +1882,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64: ; preds = %29,
 .lr.ph:                                           ; preds = %.preheader, %57
   %.169 = phi i64 [ %58, %57 ], [ 0, %.preheader ]
   %53 = load ptr, ptr %9, align 8, !tbaa !3
-  %54 = getelementptr inbounds nuw float, ptr %1, i64 %.169
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.169
   %55 = tail call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %53, ptr noundef nonnull @.str.15, ptr noundef %54)
   %56 = icmp slt i32 %55, 1
   br i1 %56, label %._crit_edge, label %57
@@ -2094,7 +2094,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64: ; preds = %29,
 .lr.ph:                                           ; preds = %.preheader, %57
   %.169 = phi i64 [ %58, %57 ], [ 0, %.preheader ]
   %53 = load ptr, ptr %9, align 8, !tbaa !3
-  %54 = getelementptr inbounds nuw double, ptr %1, i64 %.169
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.169
   %55 = tail call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef %53, ptr noundef nonnull @.str.16, ptr noundef %54)
   %56 = icmp slt i32 %55, 1
   br i1 %56, label %._crit_edge, label %57

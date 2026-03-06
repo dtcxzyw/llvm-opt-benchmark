@@ -531,7 +531,7 @@ define dso_local void @taskstats_init_early() local_unnamed_addr #2 section ".in
 
 12:                                               ; preds = %8
   %13 = and i64 %9, 63
-  %14 = getelementptr i64, ptr @__per_cpu_offset, i64 %13
+  %14 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %13
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %15, ptrtoint (ptr @listener_array to i64)
   %17 = inttoptr i64 %16 to ptr
@@ -1131,7 +1131,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @add_del_listener(i32 nound
 
 25:                                               ; preds = %21
   %26 = and i64 %22, 63
-  %27 = getelementptr i64, ptr @__per_cpu_offset, i64 %26
+  %27 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %26
   %28 = load i64, ptr %27, align 8
   %29 = add i64 %28, ptrtoint (ptr @numa_node to i64)
   %30 = inttoptr i64 %29 to ptr
@@ -1211,7 +1211,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @add_del_listener(i32 nound
 
 72:                                               ; preds = %68
   %73 = and i64 %69, 63
-  %74 = getelementptr i64, ptr @__per_cpu_offset, i64 %73
+  %74 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %73
   %75 = load i64, ptr %74, align 8
   %76 = add i64 %75, ptrtoint (ptr @listener_array to i64)
   %77 = inttoptr i64 %76 to ptr

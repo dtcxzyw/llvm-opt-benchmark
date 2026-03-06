@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%struct.rcContour = type { ptr, i32, ptr, i32, i16, i8 }
 
 @.str.2 = private unnamed_addr constant [18 x i8] c"# Recast Navmesh\0A\00", align 1
 @.str.3 = private unnamed_addr constant [11 x i8] c"o NavMesh\0A\00", align 1
@@ -175,12 +174,12 @@ define noundef zeroext i1 @_Z19duDumpPolyMeshToObjR10rcPolyMeshP8duFileIO(ptr no
   %54 = trunc nuw nsw i64 %indvars.iv65 to i32
   %55 = mul i32 %51, %54
   %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds i16, ptr %53, i64 %56
+  %57 = getelementptr inbounds [2 x i8], ptr %53, i64 %56
   br label %58
 
 58:                                               ; preds = %.lr.ph54.us, %62
   %indvars.iv62 = phi i64 [ 2, %.lr.ph54.us ], [ %indvars.iv.next63, %62 ]
-  %59 = getelementptr inbounds nuw i16, ptr %57, i64 %indvars.iv62
+  %59 = getelementptr inbounds nuw [2 x i8], ptr %57, i64 %indvars.iv62
   %60 = load i16, ptr %59, align 2
   %61 = icmp eq i16 %60, -1
   br i1 %61, label %._crit_edge55.us, label %62
@@ -439,7 +438,7 @@ define noundef zeroext i1 @_Z16duDumpContourSetR12rcContourSetP8duFileIO(ptr nou
 .lr.ph:                                           ; preds = %8, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %8 ]
   %59 = load ptr, ptr %0, align 8
-  %60 = getelementptr inbounds nuw %struct.rcContour, ptr %59, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [32 x i8], ptr %59, i64 %indvars.iv
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = load ptr, ptr %1, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 32
@@ -608,7 +607,7 @@ define noundef zeroext i1 @_Z16duReadContourSetR12rcContourSetP8duFileIO(ptr nou
 .lr.ph:                                           ; preds = %39, %117
   %indvars.iv = phi i64 [ %indvars.iv.next, %117 ], [ 0, %39 ]
   %79 = load ptr, ptr %0, align 8
-  %80 = getelementptr inbounds nuw %struct.rcContour, ptr %79, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw [32 x i8], ptr %79, i64 %indvars.iv
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %82 = load ptr, ptr %1, align 8
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 40

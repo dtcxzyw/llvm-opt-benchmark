@@ -3103,7 +3103,7 @@ _ZN6icu_775MutexD2Ev.exit188:                     ; preds = %67, %63
           to label %99 unwind label %109
 
 99:                                               ; preds = %97
-  %100 = getelementptr inbounds nuw i32, ptr @_ZL17gFormatCldrStyles, i64 %31
+  %100 = getelementptr inbounds nuw [4 x i8], ptr @_ZL17gFormatCldrStyles, i64 %31
   %101 = load i32, ptr %100, align 4, !tbaa !93
   %102 = invoke noundef ptr @_ZN6icu_776number4impl5utils18getPatternForStyleERKNS_6LocaleEPKcNS1_16CldrPatternStyleER10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217) %0, ptr noundef %98, i32 noundef %101, ptr noundef nonnull align 4 dereferenceable(4) %3)
           to label %103 unwind label %109
@@ -4172,7 +4172,7 @@ common.resume:                                    ; preds = %38, %30
   br i1 %35, label %_ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit, label %36
 
 36:                                               ; preds = %.lr.ph
-  %37 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %15, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [64 x i8], ptr %15, i64 %indvars.iv
   invoke void @_ZN6icu_7713UnicodeStringC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %34, ptr noundef nonnull align 8 dereferenceable(64) %37)
           to label %_ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit unwind label %38
 

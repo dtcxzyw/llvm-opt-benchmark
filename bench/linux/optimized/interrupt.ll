@@ -185,7 +185,7 @@ select.unfold:                                    ; preds = %21, %7
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 152
   %82 = load ptr, ptr %81, align 8
   %83 = tail call i32 %82(ptr noundef %0) #6
-  %84 = getelementptr i32, ptr %4, i64 %79
+  %84 = getelementptr [4 x i8], ptr %4, i64 %79
   store i32 %83, ptr %84, align 4
   %85 = load i32, ptr %72, align 8
   %86 = add i32 %85, 1
@@ -225,7 +225,7 @@ select.unfold:                                    ; preds = %21, %7
   %108 = load ptr, ptr %107, align 8
   %109 = tail call i32 %108(ptr noundef %0) #6
   %110 = zext nneg i32 %93 to i64
-  %111 = getelementptr i32, ptr %4, i64 %110
+  %111 = getelementptr [4 x i8], ptr %4, i64 %110
   store i32 %109, ptr %111, align 4
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 3240
   %113 = load i32, ptr %112, align 8
@@ -655,7 +655,7 @@ select.unfold:                                    ; preds = %21, %7
 
 362:                                              ; preds = %358
   %363 = getelementptr inbounds nuw i8, ptr %0, i64 1196
-  %364 = getelementptr i32, ptr %363, i64 %196
+  %364 = getelementptr [4 x i8], ptr %363, i64 %196
   %365 = load i32, ptr %364, align 1
   br label %366
 
@@ -789,7 +789,7 @@ select.unfold:                                    ; preds = %21, %7
   %445 = load i32, ptr %444, align 8
   %446 = add i32 %445, -2
   %447 = sext i32 %446 to i64
-  %448 = getelementptr i32, ptr %443, i64 %447
+  %448 = getelementptr [4 x i8], ptr %443, i64 %447
   %449 = load i32, ptr %448, align 1
   tail call void @mei_dma_ring_read(ptr noundef %181, ptr noundef null, i32 noundef %449) #6
   br label %450
@@ -832,7 +832,7 @@ select.unfold:                                    ; preds = %21, %7
   %476 = load i32, ptr %475, align 8
   %477 = add i32 %476, -2
   %478 = sext i32 %477 to i64
-  %479 = getelementptr i32, ptr %474, i64 %478
+  %479 = getelementptr [4 x i8], ptr %474, i64 %478
   %480 = load i32, ptr %479, align 1
   tail call void @mei_dma_ring_read(ptr noundef %0, ptr noundef null, i32 noundef %480) #6
   br label %481

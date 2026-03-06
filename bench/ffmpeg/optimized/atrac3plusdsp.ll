@@ -3,12 +3,6 @@ source_filename = "bench/ffmpeg/original/atrac3plusdsp.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.Atrac3pChanParams = type { i32, i32, i32, i32, i32, [32 x i32], [32 x i32], [32 x i32], [2048 x i16], [5 x i8], [2 x [16 x i8]], ptr, ptr, [2 x [16 x %struct.AtracGainInfo]], ptr, ptr, i32, [2 x [16 x %struct.Atrac3pWavesData]], ptr, ptr }
-%struct.AtracGainInfo = type { i32, [7 x i32], [7 x i32] }
-%struct.Atrac3pWavesData = type { %struct.Atrac3pWaveEnvelope, %struct.Atrac3pWaveEnvelope, i32, i32 }
-%struct.Atrac3pWaveEnvelope = type { i32, i32, i32, i32 }
-%struct.Atrac3pWaveParam = type { i32, i32, i32, i32 }
-
 @ff_atrac3p_qu_to_spec_pos = local_unnamed_addr constant [33 x i16] [i16 0, i16 16, i16 32, i16 48, i16 64, i16 80, i16 96, i16 112, i16 128, i16 160, i16 192, i16 224, i16 256, i16 288, i16 320, i16 352, i16 384, i16 448, i16 512, i16 576, i16 640, i16 704, i16 768, i16 896, i16 1024, i16 1152, i16 1280, i16 1408, i16 1536, i16 1664, i16 1792, i16 1920, i16 2048], align 16
 @ff_atrac3p_sf_tab = local_unnamed_addr constant [64 x float] [float 0x3F9C854000000000, float 0x3FA1F78000000000, float 0x3FA6A30000000000, float 0x3FAC854000000000, float 0x3FB1F78000000000, float 0x3FB6A30000000000, float 0x3FBC854000000000, float 0x3FC1F78000000000, float 0x3FC6A30000000000, float 0x3FCC854000000000, float 0x3FD1F78000000000, float 0x3FD6A30000000000, float 0x3FDC854000000000, float 0x3FE1F78000000000, float 0x3FE6A30000000000, float 0x3FEC854000000000, float 0x3FF1F78000000000, float 0x3FF6A30000000000, float 0x3FFC854000000000, float 0x4001F78000000000, float 0x4006A30000000000, float 0x400C854000000000, float 0x4011F78000000000, float 0x4016A30000000000, float 0x401C854000000000, float 0x4021F78000000000, float 0x4026A30000000000, float 0x402C854000000000, float 0x4031F78000000000, float 0x4036A30000000000, float 0x403C854000000000, float 0x4041F78000000000, float 0x4046A30000000000, float 0x404C854000000000, float 0x4051F78000000000, float 0x4056A30000000000, float 0x405C854000000000, float 0x4061F78000000000, float 0x4066A30000000000, float 0x406C854000000000, float 0x4071F78000000000, float 0x4076A30000000000, float 0x407C854000000000, float 0x4081F78000000000, float 7.243750e+02, float 0x408C854000000000, float 0x4091F78000000000, float 1.448750e+03, float 0x409C854000000000, float 2.299750e+03, float 2.897500e+03, float 0x40AC854000000000, float 4.599500e+03, float 5.795000e+03, float 7.301250e+03, float 9.199000e+03, float 1.159000e+04, float 1.460250e+04, float 1.839800e+04, float 2.318000e+04, float 2.920500e+04, float 3.679600e+04, float 4.636000e+04, float 5.841000e+04], align 16
 @ff_atrac3p_mant_tab = local_unnamed_addr constant [8 x float] [float 0.000000e+00, float 0x3FE7EFC000000000, float 0x3FDCB98000000000, float 0x3FD4848000000000, float 0x3FCA1CC000000000, float 0x3FC3264000000000, float 0x3FB2884000000000, float 0x3FA23CC000000000], align 16
@@ -37,7 +31,7 @@ define void @ff_atrac3p_init_dsp_static() local_unnamed_addr #0 {
   %5 = fmul nnan nsz double %4, 0x3F40000000000000
   %6 = tail call nsz double @llvm.sin.f64(double %5)
   %7 = fptrunc nsz double %6 to float
-  %8 = getelementptr inbounds nuw float, ptr @sine_table, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr @sine_table, i64 %indvars.iv
   store float %7, ptr %8, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 2048
@@ -53,7 +47,7 @@ define void @ff_atrac3p_init_dsp_static() local_unnamed_addr #0 {
   %14 = fsub nsz double 1.000000e+00, %13
   %15 = fmul nsz double %14, 5.000000e-01
   %16 = fptrunc nsz double %15 to float
-  %17 = getelementptr inbounds nuw float, ptr @hann_window, i64 %indvars.iv17
+  %17 = getelementptr inbounds nuw [4 x i8], ptr @hann_window, i64 %indvars.iv17
   store float %16, ptr %17, align 4, !tbaa !4
   %indvars.iv.next18 = add nuw nsw i64 %indvars.iv17, 1
   %exitcond20.not = icmp eq i64 %indvars.iv.next18, 256
@@ -66,7 +60,7 @@ define void @ff_atrac3p_init_dsp_static() local_unnamed_addr #0 {
   %20 = sitofp i32 %19 to float
   %21 = fmul nnan nsz float %20, 2.500000e-01
   %22 = tail call nsz float @llvm.exp2.f32(float %21)
-  %23 = getelementptr inbounds nuw float, ptr @amp_sf_tab, i64 %indvars.iv21
+  %23 = getelementptr inbounds nuw [4 x i8], ptr @amp_sf_tab, i64 %indvars.iv21
   store float %22, ptr %23, align 4, !tbaa !4
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
   %exitcond24.not = icmp eq i64 %indvars.iv.next22, 64
@@ -99,14 +93,14 @@ define void @ff_atrac3p_generate_tones(ptr noundef readonly captures(none) %0, p
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %7, i8 0, i64 512, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %9 = sext i32 %2 to i64
-  %10 = getelementptr inbounds %struct.Atrac3pChanParams, ptr %8, i64 %9
+  %10 = getelementptr inbounds [7800 x i8], ptr %8, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 7792
   %12 = load ptr, ptr %11, align 8, !tbaa !12
   %13 = sext i32 %3 to i64
-  %14 = getelementptr inbounds %struct.Atrac3pWavesData, ptr %12, i64 %13
+  %14 = getelementptr inbounds [40 x i8], ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 7784
   %16 = load ptr, ptr %15, align 8, !tbaa !19
-  %17 = getelementptr inbounds %struct.Atrac3pWavesData, ptr %16, i64 %13
+  %17 = getelementptr inbounds [40 x i8], ptr %16, i64 %13
   %18 = load i32, ptr %17, align 4, !tbaa !20
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %28, label %19
@@ -274,12 +268,12 @@ define void @ff_atrac3p_generate_tones(ptr noundef readonly captures(none) %0, p
 
 99:                                               ; preds = %.preheader, %99
   %indvars.iv = phi i64 [ %indvars.iv.next, %99 ], [ 0, %.preheader ]
-  %100 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %101 = load float, ptr %100, align 4, !tbaa !4
-  %102 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   %103 = load float, ptr %102, align 4, !tbaa !4
   %104 = fadd nsz float %101, %103
-  %105 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %106 = load float, ptr %105, align 4, !tbaa !4
   %107 = fadd nsz float %106, %104
   store float %107, ptr %105, align 4, !tbaa !4
@@ -308,7 +302,7 @@ define internal fastcc void @waves_synth(ptr noundef readonly captures(none) %0,
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %13 = load i32, ptr %12, align 4, !tbaa !39
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds %struct.Atrac3pWaveParam, ptr %11, i64 %14
+  %15 = getelementptr inbounds [16 x i8], ptr %11, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %17 = load i32, ptr %16, align 4, !tbaa !40
   %.not70 = icmp eq i32 %17, 0
@@ -321,7 +315,7 @@ define internal fastcc void @waves_synth(ptr noundef readonly captures(none) %0,
   %19 = getelementptr inbounds nuw i8, ptr %.074.us, i64 4
   %20 = load i32, ptr %19, align 4, !tbaa !42
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds float, ptr @amp_sf_tab, i64 %21
+  %22 = getelementptr inbounds [4 x i8], ptr @amp_sf_tab, i64 %21
   %23 = load float, ptr %22, align 4, !tbaa !4
   %24 = getelementptr inbounds nuw i8, ptr %.074.us, i64 8
   %25 = load i32, ptr %24, align 4, !tbaa !44
@@ -349,10 +343,10 @@ define internal fastcc void @waves_synth(ptr noundef readonly captures(none) %0,
   %.062.in71.us = phi i32 [ %50, %40 ], [ %36, %.lr.ph.split.us ]
   %.062.us = and i32 %.062.in71.us, 2047
   %41 = zext nneg i32 %.062.us to i64
-  %42 = getelementptr inbounds nuw float, ptr @sine_table, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr @sine_table, i64 %41
   %43 = load float, ptr %42, align 4, !tbaa !4
   %44 = fpext nsz float %43 to double
-  %45 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv78
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv78
   %46 = load float, ptr %45, align 4, !tbaa !4
   %47 = fpext nsz float %46 to double
   %48 = tail call nsz double @llvm.fmuladd.f64(double %44, double %30, double %47)
@@ -369,7 +363,7 @@ define internal fastcc void @waves_synth(ptr noundef readonly captures(none) %0,
   %51 = getelementptr inbounds nuw i8, ptr %.074, i64 4
   %52 = load i32, ptr %51, align 4, !tbaa !42
   %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds float, ptr @amp_sf_tab, i64 %53
+  %54 = getelementptr inbounds [4 x i8], ptr @amp_sf_tab, i64 %53
   %55 = load float, ptr %54, align 4, !tbaa !4
   %56 = fpext nsz float %55 to double
   %57 = load i32, ptr %.074, align 4, !tbaa !45
@@ -385,10 +379,10 @@ define internal fastcc void @waves_synth(ptr noundef readonly captures(none) %0,
   %.062.in71 = phi i32 [ %62, %.lr.ph.split ], [ %73, %63 ]
   %.062 = and i32 %.062.in71, 2047
   %64 = zext nneg i32 %.062 to i64
-  %65 = getelementptr inbounds nuw float, ptr @sine_table, i64 %64
+  %65 = getelementptr inbounds nuw [4 x i8], ptr @sine_table, i64 %64
   %66 = load float, ptr %65, align 4, !tbaa !4
   %67 = fpext nsz float %66 to double
-  %68 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %69 = load float, ptr %68, align 4, !tbaa !4
   %70 = fpext nsz float %69 to double
   %71 = tail call nsz double @llvm.fmuladd.f64(double %67, double %56, double %70)
@@ -447,7 +441,7 @@ define internal fastcc void @waves_synth(ptr noundef readonly captures(none) %0,
 
 97:                                               ; preds = %93, %88
   %98 = load float, ptr @hann_window, align 16, !tbaa !4
-  %99 = getelementptr inbounds nuw float, ptr %6, i64 %89
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %89
   %100 = load float, ptr %99, align 4, !tbaa !4
   %101 = fmul nsz float %98, %100
   store float %101, ptr %99, align 4, !tbaa !4
@@ -487,7 +481,7 @@ define internal fastcc void @waves_synth(ptr noundef readonly captures(none) %0,
   %123 = add nsw i32 %reass.sub, 4
   %124 = load float, ptr getelementptr inbounds nuw (i8, ptr @hann_window, i64 384), align 16, !tbaa !4
   %125 = zext nneg i32 %123 to i64
-  %126 = getelementptr float, ptr %6, i64 %125
+  %126 = getelementptr [4 x i8], ptr %6, i64 %125
   %127 = getelementptr i8, ptr %126, i64 -16
   %128 = load float, ptr %127, align 4, !tbaa !4
   %129 = fmul nsz float %124, %128
@@ -544,7 +538,7 @@ define void @ff_atrac3p_power_compensation(ptr noundef readonly captures(none) %
   %19 = phi i32 [ %2, %._crit_edge107 ], [ %17, %10 ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds %struct.Atrac3pChanParams, ptr %20, i64 %21
+  %22 = getelementptr inbounds [7800 x i8], ptr %20, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 4500
   %24 = getelementptr inbounds i8, ptr @subband_to_powgrp, i64 %.pre-phi
   %25 = load i8, ptr %24, align 1, !tbaa !34
@@ -559,9 +553,9 @@ define void @ff_atrac3p_power_compensation(ptr noundef readonly captures(none) %
   %.084 = phi i32 [ %35, %.preheader82 ], [ %4, %18 ]
   %30 = and i32 %.084, 1023
   %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr inbounds nuw float, ptr @noise_tab, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr @noise_tab, i64 %31
   %33 = load float, ptr %32, align 4, !tbaa !4
-  %34 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   store float %33, ptr %34, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %35 = add nsw i32 %.084, 1
@@ -571,10 +565,10 @@ define void @ff_atrac3p_power_compensation(ptr noundef readonly captures(none) %
 36:                                               ; preds = %.preheader82
   %37 = getelementptr inbounds nuw i8, ptr %22, i64 6480
   %38 = load ptr, ptr %37, align 8, !tbaa !56
-  %39 = getelementptr inbounds %struct.AtracGainInfo, ptr %38, i64 %.pre-phi
+  %39 = getelementptr inbounds [60 x i8], ptr %38, i64 %.pre-phi
   %40 = getelementptr inbounds nuw i8, ptr %22, i64 6488
   %41 = load ptr, ptr %40, align 8, !tbaa !57
-  %42 = getelementptr inbounds %struct.AtracGainInfo, ptr %41, i64 %.pre-phi
+  %42 = getelementptr inbounds [60 x i8], ptr %41, i64 %.pre-phi
   %43 = load i32, ptr %39, align 4, !tbaa !58
   %44 = icmp sgt i32 %43, 0
   br i1 %44, label %45, label %49
@@ -608,7 +602,7 @@ define void @ff_atrac3p_power_compensation(ptr noundef readonly captures(none) %
 54:                                               ; preds = %.lr.ph, %54
   %indvars.iv95 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next96, %54 ]
   %.07685 = phi i32 [ 0, %.lr.ph ], [ %.076., %54 ]
-  %55 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv95
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %indvars.iv95
   %56 = load i32, ptr %55, align 4, !tbaa !60
   %57 = sub i32 %.neg81, %56
   %.076. = tail call i32 @llvm.smax.i32(i32 %.07685, i32 %57)
@@ -619,7 +613,7 @@ define void @ff_atrac3p_power_compensation(ptr noundef readonly captures(none) %
 58:                                               ; preds = %.lr.ph89, %58
   %indvars.iv99 = phi i64 [ 0, %.lr.ph89 ], [ %indvars.iv.next100, %58 ]
   %.17787 = phi i32 [ %.076.lcssa, %.lr.ph89 ], [ %.177., %58 ]
-  %59 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv99
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %indvars.iv99
   %60 = load i32, ptr %59, align 4, !tbaa !60
   %61 = sub nsw i32 6, %60
   %.177. = tail call i32 @llvm.smax.i32(i32 %.17787, i32 %61)
@@ -630,7 +624,7 @@ define void @ff_atrac3p_power_compensation(ptr noundef readonly captures(none) %
 ._crit_edge:                                      ; preds = %58, %.preheader
   %.177.lcssa = phi i32 [ %.076.lcssa, %.preheader ], [ %.177., %58 ]
   %62 = zext i8 %28 to i64
-  %63 = getelementptr inbounds nuw float, ptr @pwc_levs, i64 %62
+  %63 = getelementptr inbounds nuw [4 x i8], ptr @pwc_levs, i64 %62
   %64 = load float, ptr %63, align 4, !tbaa !4
   %65 = shl nuw i32 1, %.177.lcssa
   %66 = sitofp i32 %65 to float
@@ -649,7 +643,7 @@ define void @ff_atrac3p_power_compensation(ptr noundef readonly captures(none) %
 
 .lr.ph93:                                         ; preds = %._crit_edge
   %77 = sext i32 %2 to i64
-  %78 = getelementptr inbounds %struct.Atrac3pChanParams, ptr %20, i64 %77
+  %78 = getelementptr inbounds [7800 x i8], ptr %20, i64 %77
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 20
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 148
   %81 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -661,29 +655,29 @@ define void @ff_atrac3p_power_compensation(ptr noundef readonly captures(none) %
 
 86:                                               ; preds = %.lr.ph93, %114
   %indvars.iv104 = phi i64 [ %84, %.lr.ph93 ], [ %indvars.iv.next105, %114 ]
-  %87 = getelementptr inbounds nuw i32, ptr %79, i64 %indvars.iv104
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %indvars.iv104
   %88 = load i32, ptr %87, align 4, !tbaa !60
   %89 = icmp slt i32 %88, 1
   br i1 %89, label %114, label %90
 
 90:                                               ; preds = %86
-  %91 = getelementptr inbounds nuw i32, ptr %80, i64 %indvars.iv104
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %indvars.iv104
   %92 = load i32, ptr %91, align 4, !tbaa !60
   %93 = sext i32 %92 to i64
-  %94 = getelementptr inbounds float, ptr @ff_atrac3p_sf_tab, i64 %93
+  %94 = getelementptr inbounds [4 x i8], ptr @ff_atrac3p_sf_tab, i64 %93
   %95 = load float, ptr %94, align 4, !tbaa !4
   %96 = zext nneg i32 %88 to i64
-  %97 = getelementptr inbounds nuw float, ptr @ff_atrac3p_mant_tab, i64 %96
+  %97 = getelementptr inbounds nuw [4 x i8], ptr @ff_atrac3p_mant_tab, i64 %96
   %98 = load float, ptr %97, align 4, !tbaa !4
   %99 = fmul nsz float %95, %98
   %100 = shl nuw i32 1, %88
   %101 = sitofp i32 %100 to float
   %102 = fdiv nsz float %99, %101
   %103 = fmul nsz float %67, %102
-  %104 = getelementptr inbounds nuw i16, ptr @ff_atrac3p_qu_to_spec_pos, i64 %indvars.iv104
+  %104 = getelementptr inbounds nuw [2 x i8], ptr @ff_atrac3p_qu_to_spec_pos, i64 %indvars.iv104
   %105 = load i16, ptr %104, align 2, !tbaa !63
   %106 = zext i16 %105 to i64
-  %107 = getelementptr inbounds nuw float, ptr %3, i64 %106
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %106
   %108 = getelementptr inbounds nuw i8, ptr %104, i64 2
   %109 = load i16, ptr %108, align 2, !tbaa !63
   %110 = zext i16 %109 to i32
@@ -712,9 +706,9 @@ define void @ff_atrac3p_imdct(ptr noundef readonly captures(none) %0, ptr nounde
 .preheader:                                       ; preds = %7, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %7 ]
   %9 = sub nuw nsw i64 127, %indvars.iv
-  %10 = getelementptr inbounds nuw float, ptr %3, i64 %9
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %9
   %11 = load float, ptr %10, align 4, !tbaa !4
-  %12 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %13 = load float, ptr %12, align 4, !tbaa !4
   store float %13, ptr %10, align 4, !tbaa !4
   store float %11, ptr %12, align 4, !tbaa !4
@@ -777,7 +771,7 @@ define void @ff_atrac3p_ipqf(ptr noundef %0, ptr noundef readonly captures(none)
 
 .preheader67:                                     ; preds = %5, %60
   %indvars.iv93 = phi i64 [ 0, %5 ], [ %indvars.iv.next94, %60 ]
-  %invariant.gep = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv93
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv93
   br label %10
 
 10:                                               ; preds = %.preheader67, %10
@@ -785,7 +779,7 @@ define void @ff_atrac3p_ipqf(ptr noundef %0, ptr noundef readonly captures(none)
   %.idx = shl nuw nsw i64 %indvars.iv, 9
   %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx
   %11 = load float, ptr %gep, align 4, !tbaa !4
-  %12 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   store float %11, ptr %12, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
@@ -795,17 +789,17 @@ define void @ff_atrac3p_ipqf(ptr noundef %0, ptr noundef readonly captures(none)
   call void %1(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %6, i64 noundef 4) #8
   %14 = load i32, ptr %8, align 16, !tbaa !70
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds [8 x float], ptr %2, i64 %15
-  %17 = getelementptr inbounds [8 x float], ptr %9, i64 %15
+  %16 = getelementptr inbounds [32 x i8], ptr %2, i64 %15
+  %17 = getelementptr inbounds [32 x i8], ptr %9, i64 %15
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %16, ptr noundef nonnull align 16 dereferenceable(32) %scevgep, i64 32, i1 false), !tbaa !4
   br label %18
 
 18:                                               ; preds = %13, %18
   %indvars.iv81 = phi i64 [ 0, %13 ], [ %indvars.iv.next82, %18 ]
   %19 = sub nuw nsw i64 7, %indvars.iv81
-  %20 = getelementptr inbounds nuw float, ptr %7, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %19
   %21 = load float, ptr %20, align 4, !tbaa !4
-  %22 = getelementptr inbounds nuw float, ptr %17, i64 %indvars.iv81
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv81
   store float %21, ptr %22, align 4, !tbaa !4
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
   %exitcond84.not = icmp eq i64 %indvars.iv.next82, 8
@@ -821,41 +815,41 @@ define void @ff_atrac3p_ipqf(ptr noundef %0, ptr noundef readonly captures(none)
   %.pn6677.in.in = phi ptr [ %8, %23 ], [ %59, %57 ]
   %.pn6677.in = load i32, ptr %.pn6677.in.in, align 4, !tbaa !60
   %.pn6677 = sext i32 %.pn6677.in to i64
-  %.pn73.pn = getelementptr i32, ptr @mod23_lut, i64 %.pn6677
+  %.pn73.pn = getelementptr [4 x i8], ptr @mod23_lut, i64 %.pn6677
   %.06278.in = getelementptr i8, ptr %.pn73.pn, i64 8
   %.06278 = load i32, ptr %.06278.in, align 4, !tbaa !60
-  %24 = getelementptr inbounds [8 x float], ptr %2, i64 %.pn6677
-  %25 = getelementptr inbounds nuw [16 x float], ptr @ipqf_coeffs1, i64 %indvars.iv89
+  %24 = getelementptr inbounds [32 x i8], ptr %2, i64 %.pn6677
+  %25 = getelementptr inbounds nuw [64 x i8], ptr @ipqf_coeffs1, i64 %indvars.iv89
   %26 = sext i32 %.06278 to i64
-  %27 = getelementptr inbounds [8 x float], ptr %9, i64 %26
-  %28 = getelementptr inbounds nuw [16 x float], ptr @ipqf_coeffs2, i64 %indvars.iv89
+  %27 = getelementptr inbounds [32 x i8], ptr %9, i64 %26
+  %28 = getelementptr inbounds nuw [64 x i8], ptr @ipqf_coeffs2, i64 %indvars.iv89
   br label %29
 
 29:                                               ; preds = %.preheader, %29
   %indvars.iv85 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next86, %29 ]
-  %30 = getelementptr inbounds nuw float, ptr %24, i64 %indvars.iv85
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv85
   %31 = load float, ptr %30, align 4, !tbaa !4
-  %32 = getelementptr inbounds nuw float, ptr %25, i64 %indvars.iv85
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv85
   %33 = load float, ptr %32, align 4, !tbaa !4
-  %34 = getelementptr inbounds nuw float, ptr %27, i64 %indvars.iv85
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv85
   %35 = load float, ptr %34, align 4, !tbaa !4
-  %36 = getelementptr inbounds nuw float, ptr %28, i64 %indvars.iv85
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv85
   %37 = load float, ptr %36, align 4, !tbaa !4
   %38 = fmul nsz float %35, %37
   %39 = call nsz float @llvm.fmuladd.f32(float %31, float %33, float %38)
-  %gep99 = getelementptr inbounds nuw float, ptr %invariant.gep98, i64 %indvars.iv85
+  %gep99 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep98, i64 %indvars.iv85
   %40 = load float, ptr %gep99, align 4, !tbaa !4
   %41 = fadd nsz float %40, %39
   store float %41, ptr %gep99, align 4, !tbaa !4
   %42 = sub nuw nsw i64 7, %indvars.iv85
-  %43 = getelementptr inbounds nuw float, ptr %24, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %42
   %44 = load float, ptr %43, align 4, !tbaa !4
   %45 = or disjoint i64 %indvars.iv85, 8
-  %46 = getelementptr inbounds nuw float, ptr %25, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %45
   %47 = load float, ptr %46, align 4, !tbaa !4
-  %48 = getelementptr inbounds nuw float, ptr %27, i64 %42
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %42
   %49 = load float, ptr %48, align 4, !tbaa !4
-  %50 = getelementptr inbounds nuw float, ptr %28, i64 %45
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %45
   %51 = load float, ptr %50, align 4, !tbaa !4
   %52 = fmul nsz float %49, %51
   %53 = call nsz float @llvm.fmuladd.f32(float %44, float %47, float %52)
@@ -868,7 +862,7 @@ define void @ff_atrac3p_ipqf(ptr noundef %0, ptr noundef readonly captures(none)
   br i1 %exitcond88.not, label %57, label %29, !llvm.loop !73
 
 57:                                               ; preds = %29
-  %58 = getelementptr i32, ptr @mod23_lut, i64 %26
+  %58 = getelementptr [4 x i8], ptr @mod23_lut, i64 %26
   %59 = getelementptr i8, ptr %58, i64 8
   %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
   %exitcond92.not = icmp eq i64 %indvars.iv.next90, 12
@@ -877,7 +871,7 @@ define void @ff_atrac3p_ipqf(ptr noundef %0, ptr noundef readonly captures(none)
 60:                                               ; preds = %57
   %61 = load i32, ptr %8, align 16, !tbaa !70
   %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds i32, ptr @mod23_lut, i64 %62
+  %63 = getelementptr inbounds [4 x i8], ptr @mod23_lut, i64 %62
   %64 = load i32, ptr %63, align 4, !tbaa !60
   store i32 %64, ptr %8, align 16, !tbaa !70
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1

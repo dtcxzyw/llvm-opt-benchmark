@@ -3,9 +3,6 @@ source_filename = "bench/openssl/original/conf_ssl.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.ssl_conf_name_st = type { ptr, ptr, i64 }
-%struct.ssl_conf_cmd_st = type { ptr, ptr }
-
 @ssl_names = internal unnamed_addr global ptr null, align 8
 @ssl_names_count = internal unnamed_addr global i64 0, align 8
 @.str = private unnamed_addr constant [9 x i8] c"ssl_conf\00", align 1
@@ -17,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define ptr @conf_ssl_get(i64 noundef %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @ssl_names, align 8, !tbaa !3
-  %5 = getelementptr inbounds nuw %struct.ssl_conf_name_st, ptr %4, i64 %0
+  %5 = getelementptr inbounds nuw [24 x i8], ptr %4, i64 %0
   %6 = load ptr, ptr %5, align 8, !tbaa !8
   store ptr %6, ptr %1, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -70,7 +67,7 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @conf_ssl_get_cmd(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3) local_unnamed_addr #3 {
-  %5 = getelementptr inbounds nuw %struct.ssl_conf_cmd_st, ptr %0, i64 %1
+  %5 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %1
   %6 = load ptr, ptr %5, align 8, !tbaa !19
   store ptr %6, ptr %2, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -121,7 +118,7 @@ define internal range(i32 0, 2) i32 @ssl_module_init(ptr noundef %0, ptr noundef
 .lr.ph86:                                         ; preds = %16, %.thread65
   %.05685 = phi i64 [ %65, %.thread65 ], [ 0, %16 ]
   %17 = load ptr, ptr @ssl_names, align 8, !tbaa !3
-  %18 = getelementptr inbounds nuw %struct.ssl_conf_name_st, ptr %17, i64 %.05685
+  %18 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %.05685
   %19 = trunc i64 %.05685 to i32
   %20 = tail call ptr @OPENSSL_sk_value(ptr noundef %4, i32 noundef %19) #7
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
@@ -177,7 +174,7 @@ define internal range(i32 0, 2) i32 @ssl_module_init(ptr noundef %0, ptr noundef
   %49 = trunc i64 %.05883 to i32
   %50 = tail call ptr @OPENSSL_sk_value(ptr noundef %23, i32 noundef %49) #7
   %51 = load ptr, ptr %43, align 8, !tbaa !16
-  %52 = getelementptr inbounds nuw %struct.ssl_conf_cmd_st, ptr %51, i64 %.05883
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %51, i64 %.05883
   %53 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %54 = load ptr, ptr %53, align 8, !tbaa !24
   %55 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %54, i32 noundef 46) #6
@@ -226,7 +223,7 @@ define internal void @ssl_module_free(ptr readnone captures(none) %0) #4 {
 .lr.ph14:                                         ; preds = %.preheader, %._crit_edge
   %.013 = phi i64 [ %24, %._crit_edge ], [ 0, %.preheader ]
   %5 = load ptr, ptr @ssl_names, align 8, !tbaa !3
-  %6 = getelementptr inbounds nuw %struct.ssl_conf_name_st, ptr %5, i64 %.013
+  %6 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %.013
   %7 = load ptr, ptr %6, align 8, !tbaa !8
   tail call void @CRYPTO_free(ptr noundef %7, ptr noundef nonnull @.str.1, i32 noundef 49) #7
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -241,11 +238,11 @@ define internal void @ssl_module_free(ptr readnone captures(none) %0) #4 {
 11:                                               ; preds = %.lr.ph, %11
   %.01112 = phi i64 [ 0, %.lr.ph ], [ %19, %11 ]
   %12 = load ptr, ptr %10, align 8, !tbaa !16
-  %13 = getelementptr inbounds nuw %struct.ssl_conf_cmd_st, ptr %12, i64 %.01112
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %.01112
   %14 = load ptr, ptr %13, align 8, !tbaa !19
   tail call void @CRYPTO_free(ptr noundef %14, ptr noundef nonnull @.str.1, i32 noundef 51) #7
   %15 = load ptr, ptr %10, align 8, !tbaa !16
-  %16 = getelementptr inbounds nuw %struct.ssl_conf_cmd_st, ptr %15, i64 %.01112
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %.01112
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !21
   tail call void @CRYPTO_free(ptr noundef %18, ptr noundef nonnull @.str.1, i32 noundef 52) #7

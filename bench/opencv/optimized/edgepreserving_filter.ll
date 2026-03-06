@@ -26,8 +26,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::Scalar_" = type { %"class.cv::Vec" }
 %"class.cv::Vec" = type { %"class.cv::Matx" }
 %"class.cv::Matx" = type { [4 x double] }
-%"class.cv::Vec.13" = type { %"class.cv::Matx.14" }
-%"class.cv::Matx.14" = type { [3 x i8] }
 
 $__clang_call_terminate = comdat any
 
@@ -194,7 +192,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %29, %
 
 .noexc202:                                        ; preds = %59
   store ptr %67, ptr %10, align 8, !tbaa !32
-  %68 = getelementptr inbounds nuw double, ptr %67, i64 %65
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %65
   %69 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %68, ptr %69, align 8, !tbaa !35
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %67, i8 0, i64 %66, i1 false), !tbaa !36
@@ -245,7 +243,7 @@ _ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EEC2EmRKS3_.exit.i: ; preds = %_ZNSt1
   store ptr %85, ptr %11, align 8, !tbaa !40
   %86 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %85, ptr %86, align 8, !tbaa !43
-  %87 = getelementptr inbounds nuw %"class.std::vector", ptr %85, i64 %74
+  %87 = getelementptr inbounds nuw [24 x i8], ptr %85, i64 %74
   %88 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %87, ptr %88, align 8, !tbaa !44
   %89 = invoke noundef ptr @_ZSt18__do_uninit_fill_nIPSt6vectorIdSaIdEEmS2_ET_S4_T0_RKT1_(ptr noundef %85, i64 noundef %74, ptr noundef nonnull align 8 dereferenceable(24) %10)
@@ -626,7 +624,7 @@ _ZN2cv3VecIhLi3EEC2ERKS1_.exit:                   ; preds = %.lr.ph412, %_ZNSt6v
   %229 = load i64, ptr %228, align 8, !tbaa !60
   %230 = mul i64 %229, %indvars.iv
   %231 = getelementptr inbounds nuw i8, ptr %227, i64 %230
-  %232 = getelementptr inbounds nuw %"class.cv::Vec.13", ptr %231, i64 %indvars.iv450
+  %232 = getelementptr inbounds nuw [3 x i8], ptr %231, i64 %indvars.iv450
   %.sroa.0488.0.copyload = load i8, ptr %232, align 1, !tbaa !61
   %.sroa.5489.0..sroa_idx = getelementptr inbounds nuw i8, ptr %232, i64 1
   %.sroa.5489.0.copyload = load i8, ptr %.sroa.5489.0..sroa_idx, align 1, !tbaa !61
@@ -705,7 +703,7 @@ _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIP
   %.pre = phi i32 [ %.pre.pre, %264 ], [ %.pre495, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit16.i.i ]
   store ptr %259, ptr %21, align 8, !tbaa !32
   store ptr %263, ptr %137, align 8, !tbaa !38
-  %265 = getelementptr inbounds nuw double, ptr %259, i64 %257
+  %265 = getelementptr inbounds nuw [8 x i8], ptr %259, i64 %257
   store ptr %265, ptr %138, align 8, !tbaa !35
   br label %_ZNSt6vectorIdSaIdEE9push_backERKd.exit
 
@@ -777,7 +775,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit232:                 ; preds = %277, %279
 .preheader394:                                    ; preds = %.preheader394.preheader, %._crit_edge416
   %indvars.iv456 = phi i64 [ 0, %.preheader394.preheader ], [ %indvars.iv.next457, %._crit_edge416 ]
   %.0146418 = phi double [ 0.000000e+00, %.preheader394.preheader ], [ %.1.lcssa, %._crit_edge416 ]
-  %282 = getelementptr inbounds nuw %"class.std::vector", ptr %179, i64 %indvars.iv456
+  %282 = getelementptr inbounds nuw [24 x i8], ptr %179, i64 %indvars.iv456
   %283 = getelementptr inbounds nuw i8, ptr %282, i64 8
   %284 = load ptr, ptr %283, align 8, !tbaa !38
   %285 = load ptr, ptr %282, align 8, !tbaa !32
@@ -824,20 +822,20 @@ _ZNSt6vectorIdSaIdEED2Ev.exit232:                 ; preds = %277, %279
   %indvars.iv466 = phi i64 [ 0, %.preheader393.us.preheader ], [ %indvars.iv.next467, %._crit_edge427.us ]
   %307 = load ptr, ptr %133, align 8
   %308 = load ptr, ptr %134, align 8
-  %invariant.gep.us = getelementptr %"class.cv::Vec.13", ptr %307, i64 %indvars.iv466
+  %invariant.gep.us = getelementptr [3 x i8], ptr %307, i64 %indvars.iv466
   %309 = add nuw nsw i64 %indvars.iv466, %indvars.iv474
-  %310 = getelementptr inbounds nuw %"class.std::vector.3", ptr %102, i64 %309
-  %311 = getelementptr inbounds nuw %"class.std::vector.3", ptr %113, i64 %309
+  %310 = getelementptr inbounds nuw [24 x i8], ptr %102, i64 %309
+  %311 = getelementptr inbounds nuw [24 x i8], ptr %113, i64 %309
   br i1 %306, label %._crit_edge427.us, label %.lr.ph426.split.us433.preheader
 
 .lr.ph426.split.us433.preheader:                  ; preds = %.preheader393.us
-  %312 = getelementptr inbounds nuw %"class.std::vector", ptr %179, i64 %indvars.iv466
+  %312 = getelementptr inbounds nuw [24 x i8], ptr %179, i64 %indvars.iv466
   %.pre493 = load ptr, ptr %312, align 8, !tbaa !32
   br label %.lr.ph426.split.us433
 
 .lr.ph426.split.us433:                            ; preds = %.lr.ph426.split.us433.preheader, %.critedge.us431
   %indvars.iv461 = phi i64 [ 0, %.lr.ph426.split.us433.preheader ], [ %indvars.iv.next462, %.critedge.us431 ]
-  %313 = getelementptr inbounds nuw double, ptr %.pre493, i64 %indvars.iv461
+  %313 = getelementptr inbounds nuw [8 x i8], ptr %.pre493, i64 %indvars.iv461
   %314 = load double, ptr %313, align 8, !tbaa !36
   %or.cond.us = fcmp ord double %314, %.0141
   br i1 %or.cond.us, label %_ZN2cv3VecIhLi3EEC2ERKS1_.exit239.us, label %.critedge.us431
@@ -856,7 +854,7 @@ _ZN2cv3VecIhLi3EEC2ERKS1_.exit239.us:             ; preds = %.lr.ph426.split.us4
   %319 = fsub double %.0141, %314
   %320 = fmul double %319, %318
   %321 = load ptr, ptr %310, align 8, !tbaa !40
-  %322 = getelementptr inbounds nuw %"class.std::vector", ptr %321, i64 %317
+  %322 = getelementptr inbounds nuw [24 x i8], ptr %321, i64 %317
   %323 = load ptr, ptr %322, align 8, !tbaa !32
   %324 = load double, ptr %323, align 8, !tbaa !36
   %325 = call double @llvm.fmuladd.f64(double %320, double %319, double %324)
@@ -883,7 +881,7 @@ _ZN2cv3VecIhLi3EEC2ERKS1_.exit239.us:             ; preds = %.lr.ph426.split.us4
   %343 = fmul double %341, %342
   %344 = load double, ptr %18, align 8, !tbaa !36
   %345 = load ptr, ptr %311, align 8, !tbaa !40
-  %346 = getelementptr inbounds nuw %"class.std::vector", ptr %345, i64 %317
+  %346 = getelementptr inbounds nuw [24 x i8], ptr %345, i64 %317
   %347 = load ptr, ptr %346, align 8, !tbaa !32
   %348 = load double, ptr %347, align 8, !tbaa !36
   %349 = call double @llvm.fmuladd.f64(double %343, double %344, double %348)
@@ -927,7 +925,7 @@ _ZN2cv3VecIhLi3EEC2ERKS1_.exit239.us:             ; preds = %.lr.ph426.split.us4
 .lr.ph415:                                        ; preds = %.lr.ph415.preheader, %.lr.ph415
   %indvars.iv453 = phi i64 [ 0, %.lr.ph415.preheader ], [ %indvars.iv.next454, %.lr.ph415 ]
   %.1413 = phi double [ %.0146418, %.lr.ph415.preheader ], [ %368, %.lr.ph415 ]
-  %366 = getelementptr inbounds nuw double, ptr %285, i64 %indvars.iv453
+  %366 = getelementptr inbounds nuw [8 x i8], ptr %285, i64 %indvars.iv453
   %367 = load double, ptr %366, align 8, !tbaa !36
   %368 = fadd double %.1413, %367
   %indvars.iv.next454 = add nuw nsw i64 %indvars.iv453, 1
@@ -1026,7 +1024,7 @@ _ZNSt6vectorIS_IdSaIdEESaIS1_EED2Ev.exit251:      ; preds = %_ZSt8_DestroyIPSt6v
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge441
   %indvars.iv480 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next481, %._crit_edge441 ]
-  %385 = getelementptr inbounds nuw %"class.std::vector.3", ptr %113, i64 %indvars.iv480
+  %385 = getelementptr inbounds nuw [24 x i8], ptr %113, i64 %indvars.iv480
   %386 = getelementptr inbounds nuw i8, ptr %385, i64 8
   %387 = load ptr, ptr %386, align 8, !tbaa !43
   %388 = load ptr, ptr %385, align 8, !tbaa !40
@@ -1039,7 +1037,7 @@ _ZNSt6vectorIS_IdSaIdEESaIS1_EED2Ev.exit251:      ; preds = %_ZSt8_DestroyIPSt6v
   br i1 %394, label %.lr.ph440, label %._crit_edge441
 
 .lr.ph440:                                        ; preds = %.preheader
-  %395 = getelementptr inbounds nuw %"class.std::vector.3", ptr %102, i64 %indvars.iv480
+  %395 = getelementptr inbounds nuw [24 x i8], ptr %102, i64 %indvars.iv480
   br label %_ZN2cv3VecIhLi3EEC2ERKS1_.exit300
 
 ._crit_edge443:                                   ; preds = %._crit_edge441, %.preheader392
@@ -1217,14 +1215,14 @@ _ZN2cv3VecIhLi3EEC2ERKS1_.exit300:                ; preds = %.lr.ph440, %_ZN2cv3
   %428 = load i64, ptr %427, align 8, !tbaa !60
   %429 = mul i64 %428, %indvars.iv477
   %430 = getelementptr inbounds nuw i8, ptr %426, i64 %429
-  %431 = getelementptr inbounds nuw %"class.cv::Vec.13", ptr %430, i64 %indvars.iv480
+  %431 = getelementptr inbounds nuw [3 x i8], ptr %430, i64 %indvars.iv480
   %.sroa.0.0.copyload = load i8, ptr %431, align 1, !tbaa !61
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %431, i64 1
   %.sroa.4.0.copyload = load i8, ptr %.sroa.4.0..sroa_idx, align 1, !tbaa !61
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %431, i64 2
   %.sroa.5.0.copyload = load i8, ptr %.sroa.5.0..sroa_idx, align 1, !tbaa !61
   %432 = uitofp i8 %.sroa.0.0.copyload to double
-  %433 = getelementptr inbounds nuw %"class.std::vector", ptr %425, i64 %indvars.iv477
+  %433 = getelementptr inbounds nuw [24 x i8], ptr %425, i64 %indvars.iv477
   %434 = load ptr, ptr %433, align 8, !tbaa !32
   %435 = load double, ptr %434, align 8, !tbaa !36
   %436 = fadd double %435, %432
@@ -1240,7 +1238,7 @@ _ZN2cv3VecIhLi3EEC2ERKS1_.exit300:                ; preds = %.lr.ph440, %_ZN2cv3
   %444 = fadd double %443, %441
   store double %444, ptr %442, align 8, !tbaa !36
   %445 = load ptr, ptr %395, align 8, !tbaa !40
-  %446 = getelementptr inbounds nuw %"class.std::vector", ptr %445, i64 %indvars.iv477
+  %446 = getelementptr inbounds nuw [24 x i8], ptr %445, i64 %indvars.iv477
   %447 = load ptr, ptr %446, align 8, !tbaa !32
   %448 = load double, ptr %447, align 8, !tbaa !36
   %449 = fadd double %448, 1.000000e+00
@@ -1262,10 +1260,10 @@ _ZN2cv3VecIhLi3EEC2ERKS1_.exit300:                ; preds = %.lr.ph440, %_ZN2cv3
   %462 = load i64, ptr %461, align 8, !tbaa !60
   %463 = mul i64 %462, %indvars.iv477
   %464 = getelementptr inbounds nuw i8, ptr %460, i64 %463
-  %465 = getelementptr inbounds nuw %"class.cv::Vec.13", ptr %464, i64 %indvars.iv480
+  %465 = getelementptr inbounds nuw [3 x i8], ptr %464, i64 %indvars.iv480
   store i8 %459, ptr %465, align 1, !tbaa !61
   %466 = load ptr, ptr %385, align 8, !tbaa !40
-  %467 = getelementptr inbounds nuw %"class.std::vector", ptr %466, i64 %indvars.iv477
+  %467 = getelementptr inbounds nuw [24 x i8], ptr %466, i64 %indvars.iv477
   %468 = load ptr, ptr %467, align 8, !tbaa !32
   %469 = getelementptr inbounds nuw i8, ptr %468, i64 8
   %470 = load double, ptr %469, align 8, !tbaa !36
@@ -1275,11 +1273,11 @@ _ZN2cv3VecIhLi3EEC2ERKS1_.exit300:                ; preds = %.lr.ph440, %_ZN2cv3
   %474 = load i64, ptr %473, align 8, !tbaa !60
   %475 = mul i64 %474, %indvars.iv477
   %476 = getelementptr inbounds nuw i8, ptr %472, i64 %475
-  %477 = getelementptr inbounds nuw %"class.cv::Vec.13", ptr %476, i64 %indvars.iv480
+  %477 = getelementptr inbounds nuw [3 x i8], ptr %476, i64 %indvars.iv480
   %478 = getelementptr inbounds nuw i8, ptr %477, i64 1
   store i8 %471, ptr %478, align 1, !tbaa !61
   %479 = load ptr, ptr %385, align 8, !tbaa !40
-  %480 = getelementptr inbounds nuw %"class.std::vector", ptr %479, i64 %indvars.iv477
+  %480 = getelementptr inbounds nuw [24 x i8], ptr %479, i64 %indvars.iv477
   %481 = load ptr, ptr %480, align 8, !tbaa !32
   %482 = getelementptr inbounds nuw i8, ptr %481, i64 16
   %483 = load double, ptr %482, align 8, !tbaa !36
@@ -1289,7 +1287,7 @@ _ZN2cv3VecIhLi3EEC2ERKS1_.exit300:                ; preds = %.lr.ph440, %_ZN2cv3
   %487 = load i64, ptr %486, align 8, !tbaa !60
   %488 = mul i64 %487, %indvars.iv477
   %489 = getelementptr inbounds nuw i8, ptr %485, i64 %488
-  %490 = getelementptr inbounds nuw %"class.cv::Vec.13", ptr %489, i64 %indvars.iv480
+  %490 = getelementptr inbounds nuw [3 x i8], ptr %489, i64 %indvars.iv480
   %491 = getelementptr inbounds nuw i8, ptr %490, i64 2
   store i8 %484, ptr %491, align 1, !tbaa !61
   %indvars.iv.next478 = add nuw nsw i64 %indvars.iv477, 1
@@ -2098,7 +2096,7 @@ _ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !40
   store ptr %.0.lcssa.i.i.i.i32, ptr %4, align 8, !tbaa !43
-  %62 = getelementptr inbounds nuw %"class.std::vector", ptr %20, i64 %16
+  %62 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %62, ptr %61, align 8, !tbaa !44
   ret void
 

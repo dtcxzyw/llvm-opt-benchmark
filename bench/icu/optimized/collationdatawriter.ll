@@ -328,7 +328,7 @@ define noundef i32 @_ZN6icu_7719CollationDataWriter5writeEaPKhRKNS_13CollationDa
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %86
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %86 ]
-  %83 = getelementptr inbounds nuw i32, ptr %67, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %indvars.iv
   %84 = load i32, ptr %83, align 4, !tbaa !35
   %85 = trunc nuw nsw i64 %indvars.iv to i32
   invoke void @_ZN6icu_779UVector3215insertElementAtEiiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(32) %13, i32 noundef %84, i32 noundef %85, ptr noundef nonnull align 4 dereferenceable(4) %9)
@@ -921,7 +921,7 @@ declare noundef i32 @_ZNK6icu_7710UnicodeSet9serializeEPtiR10UErrorCode(ptr noun
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define void @_ZN6icu_7719CollationDataWriter8copyDataEPKiiPKvPh(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #5 align 2 {
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds i32, ptr %0, i64 %5
+  %6 = getelementptr inbounds [4 x i8], ptr %0, i64 %5
   %7 = load i32, ptr %6, align 4, !tbaa !35
   %8 = getelementptr i8, ptr %6, i64 4
   %9 = load i32, ptr %8, align 4, !tbaa !35

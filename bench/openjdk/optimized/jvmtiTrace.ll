@@ -375,7 +375,7 @@ sub_0180:                                         ; preds = %75
 
 110:                                              ; preds = %108
   %111 = sext i32 %.0107187 to i64
-  %112 = getelementptr inbounds i16, ptr @_ZN10JvmtiTrace18_exclude_functionsE, i64 %111
+  %112 = getelementptr inbounds [2 x i8], ptr @_ZN10JvmtiTrace18_exclude_functionsE, i64 %111
   %113 = load i16, ptr %112, align 2
   %114 = sext i16 %113 to i64
   %115 = icmp eq i64 %indvars.iv, %114
@@ -389,7 +389,7 @@ sub_0180:                                         ; preds = %75
   br i1 %.not127159, label %119, label %131
 
 119:                                              ; preds = %118
-  %120 = getelementptr inbounds nuw ptr, ptr @_ZN10JvmtiTrace15_function_namesE, i64 %indvars.iv
+  %120 = getelementptr inbounds nuw [8 x i8], ptr @_ZN10JvmtiTrace15_function_namesE, i64 %indvars.iv
   %121 = load ptr, ptr %120, align 8
   %.not136 = icmp eq ptr %121, null
   br i1 %.not136, label %.critedge, label %122
@@ -470,7 +470,7 @@ sub_0180:                                         ; preds = %75
   %148 = trunc i64 %indvars.iv209 to i32
   %149 = add i32 %148, -50
   %or.cond.i = icmp ult i32 %149, 39
-  %150 = getelementptr inbounds nuw ptr, ptr @_ZN10JvmtiTrace12_event_namesE, i64 %indvars.iv209
+  %150 = getelementptr inbounds nuw [8 x i8], ptr @_ZN10JvmtiTrace12_event_namesE, i64 %indvars.iv209
   %.0.in.i = select i1 %or.cond.i, ptr %150, ptr @_ZZN10JvmtiTrace10event_nameEiE14ext_event_name
   %.0.i = load ptr, ptr %.0.in.i, align 8
   %.not134 = icmp eq ptr %.0.i, null
@@ -643,13 +643,13 @@ define hidden noundef nonnull ptr @_ZN10JvmtiTrace9enum_nameEPPKcPKii(ptr nounde
 .lr.ph17:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv16 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv16, 1
-  %7 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.next
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.next
   %8 = load ptr, ptr %7, align 8
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %.._crit_edge.loopexit_crit_edge, label %.lr.ph, !llvm.loop !11
 
 .lr.ph:                                           ; preds = %.lr.ph17
-  %9 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.next
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.next
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, %2
   br i1 %11, label %._crit_edge, label %.lr.ph17, !llvm.loop !11

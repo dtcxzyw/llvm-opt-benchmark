@@ -3199,7 +3199,7 @@ _ZN7testing15AssertionResultD2Ev.exit44:          ; preds = %102, %_ZNKSt14defau
   %126 = sub nsw i64 %125, %.zext.i.i
   %127 = add nsw i64 %126, %.zext10.i.i
   %128 = srem i64 %127, 7
-  %129 = getelementptr i32, ptr @__const._ZN4absl13time_internal4cctz6detail11get_weekdayERKNS2_10civil_timeINS2_10second_tagEEE.k_weekday_by_mon_off, i64 %128
+  %129 = getelementptr [4 x i8], ptr @__const._ZN4absl13time_internal4cctz6detail11get_weekdayERKNS2_10civil_timeINS2_10second_tagEEE.k_weekday_by_mon_off, i64 %128
   %130 = getelementptr i8, ptr %129, i64 24
   %131 = load i32, ptr %130, align 4, !tbaa !107
   store i32 %131, ptr %14, align 4, !tbaa !107
@@ -3703,7 +3703,7 @@ _ZN4absl13time_internal4cctz6detail4impl13days_per_yearEla.exit122: ; preds = %.
   %.9 = phi i64 [ %109, %108 ], [ %.173, %.loopexit ]
   %.1 = phi i8 [ %spec.select116, %108 ], [ %1, %.loopexit ]
   %93 = sext i8 %.1 to i64
-  %94 = getelementptr inbounds i32, ptr @__const._ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.k_days_per_month, i64 %93
+  %94 = getelementptr inbounds [4 x i8], ptr @__const._ZN4absl13time_internal4cctz6detail4impl14days_per_monthEla.k_days_per_month, i64 %93
   %95 = load i32, ptr %94, align 4, !tbaa !24
   %96 = icmp eq i8 %.1, 2
   %97 = and i64 %.1091, 3
@@ -5978,7 +5978,7 @@ _ZN7testing15AssertionResultD2Ev.exit438:         ; preds = %677, %_ZNKSt14defau
   %701 = sub nsw i64 %700, %.zext.i.i
   %702 = add nsw i64 %701, %.zext10.i.i
   %703 = srem i64 %702, 7
-  %704 = getelementptr i32, ptr @__const._ZN4absl13time_internal4cctz6detail11get_weekdayERKNS2_10civil_timeINS2_10second_tagEEE.k_weekday_by_mon_off, i64 %703
+  %704 = getelementptr [4 x i8], ptr @__const._ZN4absl13time_internal4cctz6detail11get_weekdayERKNS2_10civil_timeINS2_10second_tagEEE.k_weekday_by_mon_off, i64 %703
   %705 = getelementptr i8, ptr %704, i64 24
   %706 = load i32, ptr %705, align 4, !tbaa !107
   store i32 %706, ptr %60, align 4, !tbaa !107
@@ -7628,7 +7628,7 @@ _ZN7testing15AssertionResultD2Ev.exit616:         ; preds = %1224, %_ZNKSt14defa
   %1248 = sub nsw i64 %1247, %.zext.i.i620
   %1249 = add nsw i64 %1248, %.zext10.i.i621
   %1250 = srem i64 %1249, 7
-  %1251 = getelementptr i32, ptr @__const._ZN4absl13time_internal4cctz6detail11get_weekdayERKNS2_10civil_timeINS2_10second_tagEEE.k_weekday_by_mon_off, i64 %1250
+  %1251 = getelementptr [4 x i8], ptr @__const._ZN4absl13time_internal4cctz6detail11get_weekdayERKNS2_10civil_timeINS2_10second_tagEEE.k_weekday_by_mon_off, i64 %1250
   %1252 = getelementptr i8, ptr %1251, i64 24
   %1253 = load i32, ptr %1252, align 4, !tbaa !107
   store i32 %1253, ptr %113, align 4, !tbaa !107
@@ -9322,7 +9322,7 @@ _ZN7testing15AssertionResultD2Ev.exit811:         ; preds = %1777, %_ZNKSt14defa
   %1801 = sub nsw i64 %1800, %.zext.i.i815
   %1802 = add nsw i64 %1801, %.zext10.i.i816
   %1803 = srem i64 %1802, 7
-  %1804 = getelementptr i32, ptr @__const._ZN4absl13time_internal4cctz6detail11get_weekdayERKNS2_10civil_timeINS2_10second_tagEEE.k_weekday_by_mon_off, i64 %1803
+  %1804 = getelementptr [4 x i8], ptr @__const._ZN4absl13time_internal4cctz6detail11get_weekdayERKNS2_10civil_timeINS2_10second_tagEEE.k_weekday_by_mon_off, i64 %1803
   %1805 = getelementptr i8, ptr %1804, i64 24
   %1806 = load i32, ptr %1805, align 4, !tbaa !107
   store i32 %1806, ptr %167, align 4, !tbaa !107
@@ -27276,7 +27276,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !615
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !617
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !619
   ret void
 }
@@ -63581,7 +63581,7 @@ _ZN7testing15AssertionResultD2Ev.exit1376:        ; preds = %2024, %_ZNKSt14defa
   %2048 = sub nsw i64 %2047, %.zext.i.i
   %2049 = add nsw i64 %2048, %.zext10.i.i
   %2050 = srem i64 %2049, 7
-  %2051 = getelementptr i32, ptr @__const._ZN4absl13time_internal4cctz6detail11get_weekdayERKNS2_10civil_timeINS2_10second_tagEEE.k_weekday_by_mon_off, i64 %2050
+  %2051 = getelementptr [4 x i8], ptr @__const._ZN4absl13time_internal4cctz6detail11get_weekdayERKNS2_10civil_timeINS2_10second_tagEEE.k_weekday_by_mon_off, i64 %2050
   %2052 = getelementptr i8, ptr %2051, i64 24
   %2053 = load i32, ptr %2052, align 4, !tbaa !107
   store i32 %2053, ptr %189, align 4, !tbaa !107
@@ -65497,7 +65497,7 @@ _ZN7testing15AssertionResultD2Ev.exit1584:        ; preds = %2660, %_ZNKSt14defa
   %2684 = sub nsw i64 %2683, %.zext.i.i1588
   %2685 = add nsw i64 %2684, %.zext10.i.i1589
   %2686 = srem i64 %2685, 7
-  %2687 = getelementptr i32, ptr @__const._ZN4absl13time_internal4cctz6detail11get_weekdayERKNS2_10civil_timeINS2_10second_tagEEE.k_weekday_by_mon_off, i64 %2686
+  %2687 = getelementptr [4 x i8], ptr @__const._ZN4absl13time_internal4cctz6detail11get_weekdayERKNS2_10civil_timeINS2_10second_tagEEE.k_weekday_by_mon_off, i64 %2686
   %2688 = getelementptr i8, ptr %2687, i64 24
   %2689 = load i32, ptr %2688, align 4, !tbaa !107
   store i32 %2689, ptr %250, align 4, !tbaa !107

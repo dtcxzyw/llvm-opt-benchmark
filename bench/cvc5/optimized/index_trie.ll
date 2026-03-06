@@ -116,7 +116,7 @@ define hidden noundef ptr @_ZN4cvc58internal6theory11quantifiers9IndexTrie6addRe
 11:                                               ; preds = %8
   %12 = load ptr, ptr %4, align 8, !tbaa !3
   %13 = sdiv i64 %2, 64
-  %14 = getelementptr inbounds i64, ptr %12, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %12, i64 %13
   %15 = and i64 %2, -9223372036854775745
   %16 = icmp ugt i64 %15, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %16, i64 -8, i64 0
@@ -159,7 +159,7 @@ common.ret74:                                     ; preds = %6, %_ZNSt4pairIN4cv
 
 .lr.ph:                                           ; preds = %30
   %34 = load ptr, ptr %5, align 8, !tbaa !30
-  %35 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %34, i64 %2
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %2
   %36 = load ptr, ptr %35, align 8, !tbaa !33
   br label %37
 
@@ -191,7 +191,7 @@ common.ret74:                                     ; preds = %6, %_ZNSt4pairIN4cv
   %51 = tail call noundef ptr @_ZN4cvc58internal6theory11quantifiers9IndexTrie6addRecEPNS2_13IndexTrieNodeEmmRKSt6vectorIbSaIbEERKS6_INS0_12NodeTemplateILb1EEESaISC_EE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %48, i64 noundef %49, i64 noundef %50, ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(24) %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %52 = load ptr, ptr %5, align 8, !tbaa !30
-  %53 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %52, i64 %2
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !38)
   %54 = load ptr, ptr %53, align 8, !tbaa !33, !noalias !38
   store ptr %54, ptr %7, align 8, !tbaa !33, !alias.scope !38
@@ -546,7 +546,7 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal6theory11quantifiers9IndexTr
 
 20:                                               ; preds = %._crit_edge, %14
   %21 = phi ptr [ %.pre, %._crit_edge ], [ %9, %14 ]
-  %22 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %21, i64 %2
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %2
   %23 = load ptr, ptr %22, align 8, !tbaa !33
   %24 = load atomic i8, ptr @_ZGVZN4cvc58internal4expr9NodeValue4nullEvE6s_null acquire, align 8
   %25 = icmp eq i8 %24, 0
@@ -592,7 +592,7 @@ _ZNK4cvc58internal12NodeTemplateILb1EE6isNullEv.exit: ; preds = %20, %26, %30
 .lr.ph:                                           ; preds = %36, %.critedge
   %.sroa.032.038 = phi ptr [ %50, %.critedge ], [ %38, %36 ]
   %41 = load ptr, ptr %3, align 8, !tbaa !30
-  %42 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %41, i64 %2
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %2
   %43 = load ptr, ptr %.sroa.032.038, align 8, !tbaa !33
   %44 = load ptr, ptr %42, align 8, !tbaa !33
   %45 = icmp eq ptr %43, %44
@@ -857,7 +857,7 @@ _ZSt8_DestroyIPSt4pairIN4cvc58internal12NodeTemplateILb1EEEPNS2_6theory11quantif
 _ZNSt12_Vector_baseISt4pairIN4cvc58internal12NodeTemplateILb1EEEPNS2_6theory11quantifiers13IndexTrieNodeEESaIS9_EE13_M_deallocateEPS9_m.exit: ; preds = %_ZSt8_DestroyIPSt4pairIN4cvc58internal12NodeTemplateILb1EEEPNS2_6theory11quantifiers13IndexTrieNodeEES9_EvT_SB_RSaIT0_E.exit, %62
   store ptr %22, ptr %0, align 8, !tbaa !45
   store ptr %46, ptr %4, align 8, !tbaa !43
-  %66 = getelementptr inbounds nuw %"struct.std::pair", ptr %22, i64 %16
+  %66 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %16
   store ptr %66, ptr %61, align 8, !tbaa !44
   ret void
 

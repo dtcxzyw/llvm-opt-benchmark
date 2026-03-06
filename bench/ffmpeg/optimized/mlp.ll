@@ -67,7 +67,7 @@ define zeroext i8 @ff_mlp_restart_checksum(ptr noundef %0, i32 noundef %1) local
   %5 = load i8, ptr %0, align 1, !tbaa !4
   %6 = and i8 %5, 63
   %7 = zext nneg i8 %6 to i64
-  %8 = getelementptr inbounds nuw i32, ptr @crc_1D, i64 %7
+  %8 = getelementptr inbounds nuw [4 x i8], ptr @crc_1D, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !7
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %11 = add nsw i32 %4, -2

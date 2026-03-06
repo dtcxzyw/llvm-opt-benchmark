@@ -50,9 +50,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::map" = type { %"class.std::_Rb_tree" }
 %"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::set<std::__cxx11::basic_string<char>>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::set<std::__cxx11::basic_string<char>>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::set<std::__cxx11::basic_string<char>>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::set<std::__cxx11::basic_string<char>>>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
-%"struct.std::pair.96" = type { ptr, %"class.llvm::SMRange" }
-%"class.llvm::SMRange" = type { %"class.llvm::SMLoc", %"class.llvm::SMLoc" }
-%"class.llvm::SMLoc" = type { ptr }
 %"class.llvm::StringRef" = type { ptr, i64 }
 %"class.llvm::Twine" = type <{ %"union.llvm::Twine::Child", %"union.llvm::Twine::Child", i8, i8, [6 x i8] }>
 %"union.llvm::Twine::Child" = type { %struct.anon }
@@ -2276,7 +2273,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit49.i.i:           ; preds = %858, %856
   %875 = getelementptr inbounds nuw i8, ptr %872, i64 160
   %876 = load i32, ptr %875, align 8, !tbaa !143
   %877 = zext i32 %876 to i64
-  %878 = getelementptr inbounds nuw %"struct.std::pair.96", ptr %874, i64 %877
+  %878 = getelementptr inbounds nuw [24 x i8], ptr %874, i64 %877
   %879 = ptrtoint ptr %878 to i64
   %880 = lshr i64 %877, 2
   %.not67.i.i = icmp eq i64 %880, 0
@@ -5774,7 +5771,7 @@ _ZNSt11_Deque_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES
   store ptr %16, ptr %0, align 8, !tbaa !126
   %17 = sub nsw i64 %.sroa.speculated.i, %14
   %18 = lshr i64 %17, 1
-  %19 = getelementptr inbounds nuw ptr, ptr %16, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %18
   %.idx.i = shl nuw nsw i64 %14, 3
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx.i
   br label %.lr.ph.i.i13
@@ -5808,7 +5805,7 @@ _ZNSt11_Deque_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %35, ptr %36, align 8, !tbaa !103
   store ptr %26, ptr %24, align 8, !tbaa !95
-  %37 = getelementptr inbounds nuw %"struct.std::pair.107", ptr %33, i64 %11
+  %37 = getelementptr inbounds nuw [80 x i8], ptr %33, i64 %11
   store ptr %37, ptr %30, align 8, !tbaa !198
   %.not = icmp samesign ult i64 %.0.lcssa.i.i23, 6
   br i1 %.not, label %._crit_edge, label %.lr.ph

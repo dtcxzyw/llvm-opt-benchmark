@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.pg_fe_sasl_mech = type { ptr, ptr, ptr, ptr }
 %struct.PQExpBufferData = type { ptr, i64, i64 }
-%struct.pg_conn_host = type { i32, ptr, ptr, ptr, ptr }
 %struct.passwd = type { ptr, ptr, i32, i32, ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [40 x i8] c"Kerberos 4 authentication not supported\00", align 1
@@ -141,7 +140,7 @@ define range(i32 -1, 1) i32 @pg_fe_sendauth(i32 noundef %0, i32 noundef %1, ptr 
 
 switch.lookup:                                    ; preds = %.thread48.i
   %45 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.pg_fe_sendauth, i64 %45
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.pg_fe_sendauth, i64 %45
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %auth_method_description.exit.i
 
@@ -231,7 +230,7 @@ check_expected_areq.exit:                         ; preds = %.thread.i
   %71 = getelementptr inbounds nuw i8, ptr %2, i64 476
   %72 = load i32, ptr %71, align 4
   %73 = sext i32 %72 to i64
-  %74 = getelementptr inbounds %struct.pg_conn_host, ptr %70, i64 %73
+  %74 = getelementptr inbounds [40 x i8], ptr %70, i64 %73
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 32
   %76 = load ptr, ptr %75, align 8
   %77 = icmp eq ptr %76, null
@@ -521,7 +520,7 @@ pg_password_sendauth.exit:                        ; preds = %100, %117
   %198 = getelementptr inbounds nuw i8, ptr %2, i64 476
   %199 = load i32, ptr %198, align 4
   %200 = sext i32 %199 to i64
-  %201 = getelementptr inbounds %struct.pg_conn_host, ptr %197, i64 %200
+  %201 = getelementptr inbounds [40 x i8], ptr %197, i64 %200
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 32
   %203 = load ptr, ptr %202, align 8
   %204 = icmp eq ptr %203, null

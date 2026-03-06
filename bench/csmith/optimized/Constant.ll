@@ -557,7 +557,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   %96 = sext i8 %94 to i64
   %97 = zext nneg i8 %94 to i64
   %.sink = select i1 %95, i64 %96, i64 %97
-  %98 = getelementptr %"class.std::__cxx11::basic_string", ptr %3, i64 %.sink
+  %98 = getelementptr [32 x i8], ptr %3, i64 %.sink
   %.sink162.sroa.sel.v = select i1 %95, i64 -1536, i64 -1760
   %.sink162.sroa.sel = getelementptr i8, ptr %98, i64 %.sink162.sroa.sel.v
   %99 = load ptr, ptr %.sink162.sroa.sel, align 16, !tbaa !20
@@ -918,7 +918,7 @@ define internal fastcc void @_ZL22GenerateRandomConstantB5cxx11PK4Type(ptr dead_
 
 77:                                               ; preds = %76
   %78 = load ptr, ptr %56, align 8, !tbaa !68
-  %79 = getelementptr inbounds nuw i32, ptr %78, i64 %.032.i309
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %78, i64 %.032.i309
   %80 = load i32, ptr %79, align 4, !tbaa !38
   %81 = icmp eq i32 %80, 0
   br i1 %81, label %.thread, label %84
@@ -931,7 +931,7 @@ define internal fastcc void @_ZL22GenerateRandomConstantB5cxx11PK4Type(ptr dead_
 84:                                               ; preds = %77
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !63
   %85 = load ptr, ptr %48, align 8, !tbaa !67
-  %86 = getelementptr inbounds nuw ptr, ptr %85, i64 %.032.i309
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %.032.i309
   %87 = load ptr, ptr %86, align 8, !tbaa !69
   call void @llvm.experimental.noalias.scope.decl(metadata !70)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !70
@@ -1395,7 +1395,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i21
 228:                                              ; preds = %76
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !63
   %229 = load ptr, ptr %48, align 8, !tbaa !67
-  %230 = getelementptr inbounds nuw ptr, ptr %229, i64 %.032.i309
+  %230 = getelementptr inbounds nuw [8 x i8], ptr %229, i64 %.032.i309
   %231 = load ptr, ptr %230, align 8, !tbaa !69
   invoke fastcc void @_ZL22GenerateRandomConstantB5cxx11PK4Type(ptr dead_on_unwind noalias writable align 8 %10, ptr noundef %231)
           to label %232 unwind label %234
@@ -3895,7 +3895,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %10, %
   br i1 %22, label %23, label %._crit_edge.i.i16
 
 23:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %24 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %17, i64 %2
+  %24 = getelementptr inbounds nuw [32 x i8], ptr %17, i64 %2
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %25, ptr %0, align 8, !tbaa !19
   %26 = load ptr, ptr %24, align 8, !tbaa !20
@@ -4222,7 +4222,7 @@ _ZNSt6vectorIPK10ExpressionSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i: ; 
 _ZNSt6vectorIPK10ExpressionSaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %27, %_ZNSt6vectorIPK10ExpressionSaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
   store ptr %22, ptr %1, align 8, !tbaa !142
   store ptr %26, ptr %3, align 8, !tbaa !136
-  %28 = getelementptr inbounds nuw ptr, ptr %22, i64 %20
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %20
   store ptr %28, ptr %5, align 8, !tbaa !139
   br label %_ZNSt6vectorIPK10ExpressionSaIS2_EE9push_backEOS2_.exit
 

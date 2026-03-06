@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.AVProfile = type { i32, ptr }
 %union.anon = type { ptr }
-%struct.SliceContext = type { ptr, i32, i32, i32, i32, i32 }
 %struct.GetBitContext = type { ptr, ptr, i32, i32, i32 }
 
 @.str = private unnamed_addr constant [7 x i8] c"prores\00", align 1
@@ -538,7 +537,7 @@ decode_frame_header.exit:                         ; preds = %144, %141
   %.096124.i = phi i32 [ 0, %.lr.ph.i ], [ %.298.i, %260 ]
   %.099123.i = phi i32 [ 0, %.lr.ph.i ], [ %.2101.i, %260 ]
   %.0102122.i = phi i32 [ %191, %.lr.ph.i ], [ %.3.i, %260 ]
-  %238 = getelementptr inbounds nuw %struct.SliceContext, ptr %222, i64 %indvars.iv.i
+  %238 = getelementptr inbounds nuw [32 x i8], ptr %222, i64 %indvars.iv.i
   store ptr %.095125.i, ptr %238, align 8, !tbaa !62
   %239 = shl nuw nsw i64 %indvars.iv.i, 1
   %240 = getelementptr inbounds nuw i8, ptr %230, i64 %239
@@ -632,7 +631,7 @@ decode_picture_header.exit:                       ; preds = %265
 276:                                              ; preds = %276, %.lr.ph.i60
   %indvars.iv.i62 = phi i64 [ 0, %.lr.ph.i60 ], [ %indvars.iv.next.i63, %276 ]
   %.018.i = phi i32 [ 0, %.lr.ph.i60 ], [ %280, %276 ]
-  %277 = getelementptr inbounds nuw %struct.SliceContext, ptr %275, i64 %indvars.iv.i62
+  %277 = getelementptr inbounds nuw [32 x i8], ptr %275, i64 %indvars.iv.i62
   %278 = getelementptr inbounds nuw i8, ptr %277, i64 24
   %279 = load i32, ptr %278, align 8, !tbaa !72
   %.lobit.i = lshr i32 %279, 31
@@ -808,7 +807,7 @@ define internal fastcc void @unpack_alpha(ptr noundef captures(none) %0, ptr nou
   store i32 %.sink, ptr %7, align 8, !tbaa !79
   %54 = add nsw i32 %.069, %.168
   %55 = and i32 %54, %6
-  %56 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv
+  %56 = getelementptr inbounds [2 x i8], ptr %1, i64 %indvars.iv
   br i1 %11, label %57, label %62
 
 57:                                               ; preds = %53
@@ -933,7 +932,7 @@ define internal fastcc void @unpack_alpha(ptr noundef captures(none) %0, ptr nou
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %indvars.iv105 = phi i64 [ %indvars.iv.next106, %.lr.ph.split.us ], [ %124, %.lr.ph ]
   %.191.us = phi i32 [ %126, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %125 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv105
+  %125 = getelementptr inbounds [2 x i8], ptr %1, i64 %indvars.iv105
   store i16 %123, ptr %125, align 2, !tbaa !80
   %indvars.iv.next106 = add nsw i64 %indvars.iv105, 1
   %126 = add nuw nsw i32 %.191.us, 1
@@ -954,7 +953,7 @@ define internal fastcc void @unpack_alpha(ptr noundef captures(none) %0, ptr nou
 .lr.ph94.split.us:                                ; preds = %.lr.ph94, %.lr.ph94.split.us
   %indvars.iv111 = phi i64 [ %indvars.iv.next112, %.lr.ph94.split.us ], [ %132, %.lr.ph94 ]
   %.093.us = phi i32 [ %134, %.lr.ph94.split.us ], [ 0, %.lr.ph94 ]
-  %133 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv111
+  %133 = getelementptr inbounds [2 x i8], ptr %1, i64 %indvars.iv111
   store i16 %131, ptr %133, align 2, !tbaa !80
   %indvars.iv.next112 = add nsw i64 %indvars.iv111, 1
   %134 = add nuw nsw i32 %.093.us, 1
@@ -964,7 +963,7 @@ define internal fastcc void @unpack_alpha(ptr noundef captures(none) %0, ptr nou
 .lr.ph94.split:                                   ; preds = %.lr.ph94, %.lr.ph94.split
   %indvars.iv108 = phi i64 [ %indvars.iv.next109, %.lr.ph94.split ], [ %132, %.lr.ph94 ]
   %.093 = phi i32 [ %137, %.lr.ph94.split ], [ 0, %.lr.ph94 ]
-  %136 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv108
+  %136 = getelementptr inbounds [2 x i8], ptr %1, i64 %indvars.iv108
   store i16 %129, ptr %136, align 2, !tbaa !80
   %indvars.iv.next109 = add nsw i64 %indvars.iv108, 1
   %137 = add nuw nsw i32 %.093, 1
@@ -974,7 +973,7 @@ define internal fastcc void @unpack_alpha(ptr noundef captures(none) %0, ptr nou
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv102 = phi i64 [ %indvars.iv.next103, %.lr.ph.split ], [ %124, %.lr.ph ]
   %.191 = phi i32 [ %140, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %139 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv102
+  %139 = getelementptr inbounds [2 x i8], ptr %1, i64 %indvars.iv102
   store i16 %119, ptr %139, align 2, !tbaa !80
   %indvars.iv.next103 = add nsw i64 %indvars.iv102, 1
   %140 = add nuw nsw i32 %.191, 1
@@ -1034,7 +1033,7 @@ define internal range(i32 -1094995529, 1) i32 @decode_slice_thread(ptr noundef %
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 256
   %13 = load ptr, ptr %12, align 8, !tbaa !61
   %14 = sext i32 %2 to i64
-  %15 = getelementptr inbounds %struct.SliceContext, ptr %13, i64 %14
+  %15 = getelementptr inbounds [32 x i8], ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !62
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 112
   %18 = load ptr, ptr %17, align 8, !tbaa !40
@@ -1106,14 +1105,14 @@ define internal range(i32 -1094995529, 1) i32 @decode_slice_thread(ptr noundef %
   %63 = zext i8 %62 to i32
   %64 = mul nsw i32 %30, %63
   %65 = trunc i32 %64 to i16
-  %66 = getelementptr inbounds nuw i16, ptr %8, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %indvars.iv
   store i16 %65, ptr %66, align 2, !tbaa !80
   %67 = getelementptr inbounds nuw i8, ptr %59, i64 %indvars.iv
   %68 = load i8, ptr %67, align 1, !tbaa !39
   %69 = zext i8 %68 to i32
   %70 = mul nsw i32 %30, %69
   %71 = trunc i32 %70 to i16
-  %72 = getelementptr inbounds nuw i16, ptr %9, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %indvars.iv
   store i16 %71, ptr %72, align 2, !tbaa !80
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
@@ -1231,7 +1230,7 @@ define internal range(i32 -1094995529, 1) i32 @decode_slice_thread(ptr noundef %
   %142 = trunc nuw nsw i64 %indvars.iv.i to i32
   %143 = shl i32 %142, 6
   %144 = sext i32 %143 to i64
-  %145 = getelementptr inbounds i16, ptr %7, i64 %144
+  %145 = getelementptr inbounds [2 x i8], ptr %7, i64 %144
   call void %141(ptr noundef nonnull %145) #10
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1633,7 +1632,7 @@ decode_dc_coeffs.exit.i:                          ; preds = %230, %172
   %398 = zext i8 %397 to i32
   %399 = add i32 %393, %398
   %400 = zext i32 %399 to i64
-  %401 = getelementptr inbounds nuw i16, ptr %7, i64 %400
+  %401 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %400
   store i16 %391, ptr %401, align 2, !tbaa !80
   %402 = sub nsw i32 %146, %388
   %403 = icmp slt i32 %402, 1
@@ -1662,7 +1661,7 @@ decode_ac_coeffs.exit.i:                          ; preds = %382, %269, %decode_
   %413 = getelementptr inbounds nuw i8, ptr %.046112.i, i64 128
   call void %411(ptr noundef nonnull %412, i64 noundef %406, ptr noundef nonnull %413, ptr noundef nonnull %8) #10
   %414 = load ptr, ptr %405, align 8, !tbaa !92
-  %415 = getelementptr inbounds i16, ptr %.047111.i, i64 %408
+  %415 = getelementptr inbounds [2 x i8], ptr %.047111.i, i64 %408
   %416 = getelementptr inbounds nuw i8, ptr %.046112.i, i64 256
   call void %414(ptr noundef %415, i64 noundef %406, ptr noundef nonnull %416, ptr noundef nonnull %8) #10
   %417 = load ptr, ptr %405, align 8, !tbaa !92
@@ -1781,7 +1780,7 @@ decode_slice_luma.exit.thread:                    ; preds = %208, %302, %358, %3
   %478 = trunc nuw nsw i64 %indvars.iv.i184 to i32
   %479 = shl i32 %478, 6
   %480 = sext i32 %479 to i64
-  %481 = getelementptr inbounds i16, ptr %6, i64 %480
+  %481 = getelementptr inbounds [2 x i8], ptr %6, i64 %480
   call void %477(ptr noundef nonnull %481) #10
   %indvars.iv.next.i185 = add nuw nsw i64 %indvars.iv.i184, 1
   %exitcond.not.i186 = icmp eq i64 %indvars.iv.next.i185, %wide.trip.count.i182
@@ -1827,8 +1826,8 @@ decode_slice_luma.exit.thread:                    ; preds = %208, %302, %358, %3
   %.02428.i = phi ptr [ %467, %._crit_edge.i179 ], [ %501, %500 ]
   %.127.i = phi i32 [ 0, %._crit_edge.i179 ], [ %503, %500 ]
   call void @llvm.memcpy.p0.p0.i64(ptr align 2 %.02428.i, ptr align 2 %.029.i, i64 %497, i1 false)
-  %501 = getelementptr inbounds i16, ptr %.02428.i, i64 %499
-  %502 = getelementptr inbounds i16, ptr %.029.i, i64 %496
+  %501 = getelementptr inbounds [2 x i8], ptr %.02428.i, i64 %499
+  %502 = getelementptr inbounds [2 x i8], ptr %.029.i, i64 %496
   %503 = add nuw nsw i32 %.127.i, 1
   %exitcond31.not.i = icmp eq i32 %503, 16
   br i1 %exitcond31.not.i, label %decode_slice_alpha.exit, label %500, !llvm.loop !99
@@ -1871,7 +1870,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @decode_slice_chroma(ptr no
   %17 = trunc nuw nsw i64 %indvars.iv to i32
   %18 = shl i32 %17, 6
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds i16, ptr %9, i64 %19
+  %20 = getelementptr inbounds [2 x i8], ptr %9, i64 %19
   call void %16(ptr noundef nonnull %20) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2277,7 +2276,7 @@ decode_dc_coeffs.exit:                            ; preds = %106, %48
   %274 = zext i8 %273 to i32
   %275 = add i32 %269, %274
   %276 = zext i32 %275 to i64
-  %277 = getelementptr inbounds nuw i16, ptr %9, i64 %276
+  %277 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %276
   store i16 %267, ptr %277, align 2, !tbaa !80
   %278 = sub nsw i32 %.018.i, %264
   %279 = icmp slt i32 %278, 1
@@ -2308,7 +2307,7 @@ decode_ac_coeffs.exit:                            ; preds = %145, %258, %decode_
   %286 = load ptr, ptr %281, align 8, !tbaa !92
   call void %286(ptr noundef %.143107, i64 noundef %282, ptr noundef %.141108, ptr noundef nonnull %6) #10
   %287 = load ptr, ptr %281, align 8, !tbaa !92
-  %288 = getelementptr inbounds i16, ptr %.143107, i64 %284
+  %288 = getelementptr inbounds [2 x i8], ptr %.143107, i64 %284
   %289 = getelementptr inbounds nuw i8, ptr %.141108, i64 128
   call void %287(ptr noundef %288, i64 noundef %282, ptr noundef nonnull %289, ptr noundef nonnull %6) #10
   %290 = getelementptr inbounds nuw i8, ptr %.141108, i64 256

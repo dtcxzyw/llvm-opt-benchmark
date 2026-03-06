@@ -11,13 +11,9 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.strbuf = type { i64, i64, ptr }
 %struct.attr_hash_entry = type { %struct.hashmap_entry, ptr, i64, ptr }
 %struct.hashmap_entry = type { ptr, i32 }
-%struct.attr_state = type { ptr, ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%struct.attr_check_item = type { ptr, ptr }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
-%struct.all_attrs_item = type { ptr, ptr, ptr }
-%struct.anon = type { i32, [7 x i8] }
 %struct.hashmap_iter = type { ptr, ptr, i32 }
 
 @git_attr__true = dso_local constant [14 x i8] c"(builtin)true\00", align 1
@@ -451,7 +447,7 @@ st_add.exit95:                                    ; preds = %st_add.exit
 
 84:                                               ; preds = %st_add.exit95
   %85 = getelementptr inbounds nuw i8, ptr %81, i64 40
-  %86 = getelementptr inbounds nuw %struct.attr_state, ptr %85, i64 %.075.lcssa119121
+  %86 = getelementptr inbounds nuw [16 x i8], ptr %85, i64 %.075.lcssa119121
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %86, ptr align 1 %.1, i64 %.177, i1 false)
   store ptr %86, ptr %81, align 8, !tbaa !4
   %87 = getelementptr inbounds nuw i8, ptr %81, i64 8
@@ -494,7 +490,7 @@ st_add.exit95:                                    ; preds = %st_add.exit
 102:                                              ; preds = %.lr.ph109, %102
   %.173108 = phi ptr [ %99, %.lr.ph109 ], [ %104, %102 ]
   %.074107 = phi i64 [ 0, %.lr.ph109 ], [ %105, %102 ]
-  %103 = getelementptr inbounds nuw %struct.attr_state, ptr %101, i64 %.074107
+  %103 = getelementptr inbounds nuw [16 x i8], ptr %101, i64 %.074107
   %104 = call fastcc ptr @parse_attr(ptr noundef %1, i32 noundef %2, ptr noundef nonnull %.173108, ptr noundef nonnull %103)
   %105 = add i64 %.074107, 1
   %106 = load i8, ptr %104, align 1, !tbaa !4
@@ -778,7 +774,7 @@ check_vector_add.exit:                            ; preds = %._crit_edge.i, %st_
   %15 = phi i64 [ %3, %._crit_edge.i ], [ %.pre3.i, %st_mult.exit.i ]
   %16 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %14, %st_mult.exit.i ]
   store i64 %.pre-phi.i, ptr @check_vector, align 8, !tbaa !37
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %15
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %15
   store ptr %1, ptr %17, align 8, !tbaa !42
   %18 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @check_vector, i64 24)) #22
   ret ptr %1
@@ -887,7 +883,7 @@ define dso_local noundef ptr @attr_check_initl(ptr noundef %0, ...) local_unname
 
 53:                                               ; preds = %49
   %54 = load ptr, ptr %27, align 8, !tbaa !51
-  %55 = getelementptr inbounds nuw %struct.attr_check_item, ptr %54, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [16 x i8], ptr %54, i64 %indvars.iv
   store ptr %51, ptr %55, align 8, !tbaa !52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %56 = load i32, ptr %23, align 8, !tbaa !45
@@ -995,7 +991,7 @@ st_mult.exit:                                     ; preds = %6
   %20 = add nsw i32 %18, 1
   store i32 %20, ptr %0, align 8, !tbaa !45
   %21 = sext i32 %18 to i64
-  %22 = getelementptr inbounds %struct.attr_check_item, ptr %19, i64 %21
+  %22 = getelementptr inbounds [16 x i8], ptr %19, i64 %21
   store ptr %1, ptr %22, align 8, !tbaa !52
   ret ptr %22
 }
@@ -1055,7 +1051,7 @@ define dso_local void @attr_check_free(ptr noundef captures(address) %0) local_u
 
 6:                                                ; preds = %13, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %13 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i
   %8 = load ptr, ptr %7, align 8, !tbaa !42
   %9 = icmp eq ptr %8, %0
   br i1 %9, label %.preheader.i, label %13
@@ -1078,9 +1074,9 @@ define dso_local void @attr_check_free(ptr noundef captures(address) %0) local_u
 .lr.ph15.i:                                       ; preds = %.preheader.i, %.lr.ph15.i
   %indvars.iv22.i = phi i64 [ %indvars.iv.next23.i, %.lr.ph15.i ], [ %indvars.iv.i, %.preheader.i ]
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
-  %14 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.next23.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.next23.i
   %15 = load ptr, ptr %14, align 8, !tbaa !42
-  %16 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv22.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv22.i
   store ptr %15, ptr %16, align 8, !tbaa !42
   %exitcond25.not.i = icmp eq i64 %indvars.iv.next23.i, %10
   br i1 %exitcond25.not.i, label %check_vector_remove.exit, label %.lr.ph15.i, !llvm.loop !63
@@ -1147,7 +1143,7 @@ define dso_local void @git_attr_set_direction(i32 noundef %0) local_unnamed_addr
   %11 = phi i64 [ %49, %drop_attr_stack.exit.i ], [ %10, %8 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %drop_attr_stack.exit.i ], [ 0, %8 ]
   %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @check_vector, i64 16), align 8, !tbaa !41
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv.i
   %14 = load ptr, ptr %13, align 8, !tbaa !42
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %16 = load ptr, ptr %15, align 8, !tbaa !57
@@ -1173,7 +1169,7 @@ define dso_local void @git_attr_set_direction(i32 noundef %0) local_unnamed_addr
 24:                                               ; preds = %._crit_edge.i.i, %.lr.ph28.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph28.i.i ], [ %indvars.iv.next.i.i, %._crit_edge.i.i ]
   %25 = load ptr, ptr %23, align 8, !tbaa !66
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv.i.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv.i.i
   %27 = load ptr, ptr %26, align 8, !tbaa !67
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %29 = load i64, ptr %28, align 8, !tbaa !31
@@ -1183,7 +1179,7 @@ define dso_local void @git_attr_set_direction(i32 noundef %0) local_unnamed_addr
 .lr.ph.i5.i:                                      ; preds = %24, %39
   %30 = phi i64 [ %40, %39 ], [ %29, %24 ]
   %.02325.i.i = phi i64 [ %41, %39 ], [ 0, %24 ]
-  %31 = getelementptr inbounds nuw %struct.attr_state, ptr %27, i64 %.02325.i.i
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %.02325.i.i
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 48
   %33 = load ptr, ptr %32, align 8, !tbaa !33
   %34 = icmp eq ptr %33, @git_attr__true
@@ -1319,12 +1315,12 @@ define dso_local void @git_check_attr(ptr noundef %0, ptr noundef %1, ptr nounde
 12:                                               ; preds = %.lr.ph, %compute_builtin_attr.exit
   %13 = phi ptr [ %.pre, %.lr.ph ], [ %84, %compute_builtin_attr.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %compute_builtin_attr.exit ]
-  %14 = getelementptr inbounds nuw %struct.attr_check_item, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !52
   %16 = load i32, ptr %15, align 4, !tbaa !22
   %17 = load ptr, ptr %10, align 8, !tbaa !55
   %18 = zext i32 %16 to i64
-  %19 = getelementptr inbounds nuw %struct.all_attrs_item, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !72
   %22 = icmp eq ptr %21, @git_attr__unknown
@@ -1392,7 +1388,7 @@ canon_mode.exit.thread28.i.i:                     ; preds = %38
 48:                                               ; preds = %canon_mode.exit.thread28.i.i
   %49 = load ptr, ptr %0, align 8, !tbaa !79
   %50 = zext nneg i32 %46 to i64
-  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %50
   %52 = load ptr, ptr %51, align 8, !tbaa !93
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 52
   %54 = load i32, ptr %53, align 4, !tbaa !22
@@ -1424,7 +1420,7 @@ canon_mode.exit.thread.i.i:                       ; preds = %57, %48, %canon_mod
 66:                                               ; preds = %61
   %67 = load ptr, ptr %0, align 8, !tbaa !79
   %68 = zext nneg i32 %64 to i64
-  %69 = getelementptr inbounds nuw ptr, ptr %67, i64 %68
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %68
   %70 = load ptr, ptr %69, align 8, !tbaa !93
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 52
   %72 = load i32, ptr %71, align 4, !tbaa !22
@@ -1441,7 +1437,7 @@ canon_mode.exit.thread.i.i:                       ; preds = %57, %48, %canon_mod
 
 75:                                               ; preds = %74, %73
   %indvars.iv.i.i.i = phi i64 [ 0, %73 ], [ %indvars.iv.next.i.i.i, %74 ]
-  %76 = getelementptr inbounds nuw %struct.anon, ptr @interned_mode_string.mode_string, i64 %indvars.iv.i.i.i
+  %76 = getelementptr inbounds nuw [12 x i8], ptr @interned_mode_string.mode_string, i64 %indvars.iv.i.i.i
   %77 = load i32, ptr %76, align 4, !tbaa !97
   %.not.i26.i.i = icmp eq i32 %77, %.2.i.i
   br i1 %.not.i26.i.i, label %78, label %74
@@ -1463,7 +1459,7 @@ canon_mode.exit.thread.i.i:                       ; preds = %57, %48, %canon_mod
 compute_builtin_attr.exit:                        ; preds = %81, %78, %61, %28, %12
   %.0 = phi ptr [ %21, %12 ], [ null, %28 ], [ null, %61 ], [ %79, %78 ], [ %79, %81 ]
   %84 = load ptr, ptr %9, align 8, !tbaa !51
-  %85 = getelementptr inbounds nuw %struct.attr_check_item, ptr %84, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw [16 x i8], ptr %84, i64 %indvars.iv
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   store ptr %.0, ptr %86, align 8, !tbaa !99
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1641,11 +1637,11 @@ st_mult.exit.i.i.i.i:                             ; preds = %38
 48:                                               ; preds = %st_mult.exit.i.i.i.i, %._crit_edge.i.i.i.i
   %.pre-phi.i.i.i.i = phi i64 [ %35, %._crit_edge.i.i.i.i ], [ %.pre29.i.i.i.i, %st_mult.exit.i.i.i.i ]
   %49 = phi ptr [ %.pre.i.i.i.i, %._crit_edge.i.i.i.i ], [ %47, %st_mult.exit.i.i.i.i ]
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %.pre-phi.i.i.i.i
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %.pre-phi.i.i.i.i
   store i64 0, ptr %50, align 8
   store i32 %34, ptr %29, align 8, !tbaa !65
   %51 = load ptr, ptr %.phi.trans.insert.i.i.i.i, align 8, !tbaa !66
-  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %35
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %35
   store ptr %31, ptr %52, align 8, !tbaa !67
   br label %read_attr_from_array.exit.i.i
 
@@ -2003,7 +1999,7 @@ st_mult.exit.i:                                   ; preds = %174
   %183 = load ptr, ptr %175, align 8, !tbaa !55
   %184 = load i32, ptr %182, align 4, !tbaa !22
   %185 = zext i32 %184 to i64
-  %186 = getelementptr inbounds nuw %struct.all_attrs_item, ptr %183, i64 %185
+  %186 = getelementptr inbounds nuw [24 x i8], ptr %183, i64 %185
   store ptr %182, ptr %186, align 8, !tbaa !74
   %187 = call ptr @hashmap_iter_next(ptr noundef nonnull %5) #22
   %.not27.i = icmp eq ptr %187, null
@@ -2027,7 +2023,7 @@ st_mult.exit.i:                                   ; preds = %174
 
 194:                                              ; preds = %194, %.lr.ph6.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph6.i ], [ %indvars.iv.next.i, %194 ]
-  %195 = getelementptr inbounds nuw %struct.all_attrs_item, ptr %193, i64 %indvars.iv.i
+  %195 = getelementptr inbounds nuw [24 x i8], ptr %193, i64 %indvars.iv.i
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 8
   store ptr @git_attr__unknown, ptr %196, align 8, !tbaa !72
   %197 = getelementptr inbounds nuw i8, ptr %195, i64 16
@@ -2057,7 +2053,7 @@ all_attrs_init.exit:                              ; preds = %194, %188
 204:                                              ; preds = %218, %.lr.ph.i37
   %indvars.iv.i38 = phi i64 [ %203, %.lr.ph.i37 ], [ %205, %218 ]
   %205 = add nsw i64 %indvars.iv.i38, -1
-  %206 = getelementptr inbounds nuw ptr, ptr %202, i64 %205
+  %206 = getelementptr inbounds nuw [8 x i8], ptr %202, i64 %205
   %207 = load ptr, ptr %206, align 8, !tbaa !67
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 24
   %209 = load i8, ptr %208, align 8, !tbaa !4
@@ -2068,7 +2064,7 @@ all_attrs_init.exit:                              ; preds = %194, %188
   %211 = load ptr, ptr %207, align 8, !tbaa !4
   %212 = load i32, ptr %211, align 4, !tbaa !22
   %213 = zext i32 %212 to i64
-  %214 = getelementptr inbounds nuw %struct.all_attrs_item, ptr %193, i64 %213
+  %214 = getelementptr inbounds nuw [24 x i8], ptr %193, i64 %213
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 16
   %216 = load ptr, ptr %215, align 8, !tbaa !113
   %.not16.i = icmp eq ptr %216, null
@@ -2124,7 +2120,7 @@ determine_macros.exit:                            ; preds = %._crit_edge.i39
   %.129.i = phi i32 [ %.02130.i, %.lr.ph.i44 ], [ %.2.i, %path_matches.exit.thread.i ]
   %234 = load ptr, ptr %230, align 8, !tbaa !66
   %235 = add nsw i64 %indvars.iv.i45, -1
-  %236 = getelementptr inbounds nuw ptr, ptr %234, i64 %235
+  %236 = getelementptr inbounds nuw [8 x i8], ptr %234, i64 %235
   %237 = load ptr, ptr %236, align 8, !tbaa !67
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 24
   %239 = load i8, ptr %238, align 8, !tbaa !4
@@ -2219,7 +2215,7 @@ define dso_local void @git_all_attrs(ptr noundef %0, ptr noundef %1, ptr noundef
   %12 = phi i32 [ %6, %.lr.ph ], [ %43, %42 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
   %13 = load ptr, ptr %8, align 8, !tbaa !55
-  %14 = getelementptr inbounds nuw %struct.all_attrs_item, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [24 x i8], ptr %13, i64 %indvars.iv
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !72
   %17 = icmp eq ptr %16, null
@@ -2270,7 +2266,7 @@ attr_check_append.exit:                           ; preds = %._crit_edge.i, %st_
   %38 = add nsw i32 %36, 1
   store i32 %38, ptr %2, align 8, !tbaa !45
   %39 = sext i32 %36 to i64
-  %40 = getelementptr inbounds %struct.attr_check_item, ptr %37, i64 %39
+  %40 = getelementptr inbounds [16 x i8], ptr %37, i64 %39
   store ptr %23, ptr %40, align 8, !tbaa !52
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   store ptr %16, ptr %41, align 8, !tbaa !99
@@ -2343,7 +2339,7 @@ define internal fastcc void @attr_stack_free(ptr noundef captures(none) %0) unna
 7:                                                ; preds = %.lr.ph28, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.lr.ph28 ], [ %indvars.iv.next, %._crit_edge ]
   %8 = load ptr, ptr %6, align 8, !tbaa !66
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !67
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %12 = load i64, ptr %11, align 8, !tbaa !31
@@ -2353,7 +2349,7 @@ define internal fastcc void @attr_stack_free(ptr noundef captures(none) %0) unna
 .lr.ph:                                           ; preds = %7, %22
   %13 = phi i64 [ %23, %22 ], [ %12, %7 ]
   %.02325 = phi i64 [ %24, %22 ], [ 0, %7 ]
-  %14 = getelementptr inbounds nuw %struct.attr_state, ptr %10, i64 %.02325
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %.02325
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %16 = load ptr, ptr %15, align 8, !tbaa !33
   %17 = icmp eq ptr %16, @git_attr__true
@@ -2644,11 +2640,11 @@ st_mult.exit.i:                                   ; preds = %52
 62:                                               ; preds = %st_mult.exit.i, %._crit_edge.i
   %.pre-phi.i = phi i64 [ %49, %._crit_edge.i ], [ %.pre29.i, %st_mult.exit.i ]
   %63 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %61, %st_mult.exit.i ]
-  %64 = getelementptr inbounds nuw ptr, ptr %63, i64 %.pre-phi.i
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %.pre-phi.i
   store i64 0, ptr %64, align 8
   store i32 %48, ptr %34, align 8, !tbaa !65
   %65 = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !66
-  %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %49
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %49
   store ptr %45, ptr %66, align 8, !tbaa !67
   br label %handle_attr_line.exit
 
@@ -2743,7 +2739,7 @@ define internal fastcc ptr @read_attr_from_index(ptr noundef %0, ptr noundef %1,
   %17 = sub nuw nsw i32 -2, %14
   %18 = load ptr, ptr %0, align 8, !tbaa !79
   %19 = zext nneg i32 %17 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !93
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 52
   %23 = load i32, ptr %22, align 4, !tbaa !22
@@ -2901,11 +2897,11 @@ st_mult.exit.i:                                   ; preds = %27
 37:                                               ; preds = %st_mult.exit.i, %._crit_edge.i
   %.pre-phi.i = phi i64 [ %24, %._crit_edge.i ], [ %.pre29.i, %st_mult.exit.i ]
   %38 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %36, %st_mult.exit.i ]
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.pre-phi.i
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %.pre-phi.i
   store i64 0, ptr %39, align 8
   store i32 %23, ptr %13, align 8, !tbaa !65
   %40 = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !66
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %24
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %24
   store ptr %20, ptr %41, align 8, !tbaa !67
   br label %handle_attr_line.exit
 
@@ -2949,11 +2945,11 @@ define internal fastcc range(i32 0, -2147483648) i32 @fill_one(ptr noundef captu
 10:                                               ; preds = %.lr.ph, %macroexpand_one.exit
   %.019 = phi i32 [ %2, %.lr.ph ], [ %.1, %macroexpand_one.exit ]
   %.01718 = phi i64 [ %5, %.lr.ph ], [ %33, %macroexpand_one.exit ]
-  %11 = getelementptr %struct.attr_state, ptr %9, i64 %.01718
+  %11 = getelementptr [16 x i8], ptr %9, i64 %.01718
   %12 = load ptr, ptr %11, align 8, !tbaa !36
   %13 = load i32, ptr %12, align 4, !tbaa !22
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %struct.all_attrs_item, ptr %0, i64 %14
+  %15 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !26
   %18 = icmp eq ptr %17, @git_attr__unknown
@@ -2965,7 +2961,7 @@ define internal fastcc range(i32 0, -2147483648) i32 @fill_one(ptr noundef captu
   store ptr %21, ptr %16, align 8, !tbaa !26
   %22 = add nsw i32 %.019, -1
   %23 = sext i32 %13 to i64
-  %24 = getelementptr inbounds %struct.all_attrs_item, ptr %0, i64 %23
+  %24 = getelementptr inbounds [24 x i8], ptr %0, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8, !tbaa !113
   %.not.i = icmp eq ptr %26, null

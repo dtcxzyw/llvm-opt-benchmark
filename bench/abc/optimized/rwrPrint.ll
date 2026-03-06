@@ -70,7 +70,7 @@ define void @Rwr_GetBushVolume(ptr noundef %0, i32 noundef %1, ptr noundef write
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %7 = load ptr, ptr %6, align 8, !tbaa !25
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %7, i64 %8
   %.01315 = load ptr, ptr %9, align 8, !tbaa !26
   %.not16 = icmp eq ptr %.01315, null
   br i1 %.not16, label %._crit_edge, label %.lr.ph
@@ -87,7 +87,7 @@ define void @Rwr_GetBushVolume(ptr noundef %0, i32 noundef %1, ptr noundef write
   %14 = and i32 %13, 65535
   %15 = load ptr, ptr %10, align 8, !tbaa !27
   %16 = zext nneg i32 %14 to i64
-  %17 = getelementptr inbounds nuw i16, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %16
   %18 = load i16, ptr %17, align 2, !tbaa !28
   %19 = trunc i32 %13 to i16
   %.not14 = icmp eq i16 %18, %19
@@ -127,7 +127,7 @@ define i32 @Rwr_GetBushSumOfVolumes(ptr noundef %0, i32 noundef %1) local_unname
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8, !tbaa !25
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds ptr, ptr %5, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr %5, i64 %6
   %.01113 = load ptr, ptr %7, align 8, !tbaa !26
   %.not14 = icmp eq ptr %.01113, null
   br i1 %.not14, label %._crit_edge, label %.lr.ph
@@ -144,7 +144,7 @@ define i32 @Rwr_GetBushSumOfVolumes(ptr noundef %0, i32 noundef %1) local_unname
   %12 = and i32 %11, 65535
   %13 = load ptr, ptr %8, align 8, !tbaa !27
   %14 = zext nneg i32 %12 to i64
-  %15 = getelementptr inbounds nuw i16, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %14
   %16 = load i16, ptr %15, align 2, !tbaa !28
   %17 = trunc i32 %11 to i16
   %.not12 = icmp eq i16 %16, %17
@@ -357,14 +357,14 @@ define void @Rwr_ManPrint(ptr noundef %0) local_unnamed_addr #1 {
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %.loopexit ]
   %.03042 = phi i32 [ 0, %1 ], [ %.1, %.loopexit ]
   %11 = load ptr, ptr %7, align 8, !tbaa !25
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !26
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.loopexit, label %15
 
 15:                                               ; preds = %10
   %16 = load ptr, ptr %8, align 8, !tbaa !27
-  %17 = getelementptr inbounds nuw i16, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %indvars.iv
   %18 = load i16, ptr %17, align 2, !tbaa !28
   %19 = zext i16 %18 to i64
   %.not = icmp eq i64 %indvars.iv, %19
@@ -381,7 +381,7 @@ define void @Rwr_ManPrint(ptr noundef %0) local_unnamed_addr #1 {
   store i32 0, ptr %4, align 4, !tbaa !22
   call void @Rwr_ManIncTravId(ptr noundef nonnull %0) #7
   %27 = load ptr, ptr %7, align 8, !tbaa !25
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %.01315.i = load ptr, ptr %28, align 8, !tbaa !26
   %.not16.i = icmp eq ptr %.01315.i, null
   br i1 %.not16.i, label %Rwr_GetBushVolume.exit.thread, label %.lr.ph.i
@@ -399,7 +399,7 @@ Rwr_GetBushVolume.exit.thread:                    ; preds = %20
   %31 = and i32 %30, 65535
   %32 = load ptr, ptr %8, align 8, !tbaa !27
   %33 = zext nneg i32 %31 to i64
-  %34 = getelementptr inbounds nuw i16, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [2 x i8], ptr %32, i64 %33
   %35 = load i16, ptr %34, align 2, !tbaa !28
   %36 = trunc i32 %30 to i16
   %.not14.i = icmp eq i16 %35, %36
@@ -420,7 +420,7 @@ Rwr_GetBushVolume.exit.thread:                    ; preds = %20
 Rwr_GetBushVolume.exit:                           ; preds = %39
   %.pre.i = load i32, ptr %4, align 4, !tbaa !22
   %.pre = load ptr, ptr %7, align 8, !tbaa !25
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre, i64 %indvars.iv
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %indvars.iv
   %.01113.i.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !26
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -435,7 +435,7 @@ Rwr_GetBushVolume.exit:                           ; preds = %39
   %43 = and i32 %42, 65535
   %44 = load ptr, ptr %8, align 8, !tbaa !27
   %45 = zext nneg i32 %43 to i64
-  %46 = getelementptr inbounds nuw i16, ptr %44, i64 %45
+  %46 = getelementptr inbounds nuw [2 x i8], ptr %44, i64 %45
   %47 = load i16, ptr %46, align 2, !tbaa !28
   %48 = trunc i32 %42 to i16
   %.not12.i = icmp eq i16 %47, %48
@@ -467,7 +467,7 @@ Rwr_GetBushSumOfVolumes.exit:                     ; preds = %52, %Rwr_GetBushVol
   call void @Extra_PrintBinary(ptr noundef %6, ptr noundef nonnull %5, i32 noundef 16) #7
   %fputc = call i32 @fputc(i32 10, ptr %6)
   %57 = load ptr, ptr %7, align 8, !tbaa !25
-  %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %indvars.iv
   %.03139 = load ptr, ptr %58, align 8, !tbaa !26
   %.not3240 = icmp eq ptr %.03139, null
   br i1 %.not3240, label %.loopexit, label %.lr.ph
@@ -479,7 +479,7 @@ Rwr_GetBushSumOfVolumes.exit:                     ; preds = %52, %Rwr_GetBushVol
   %61 = and i32 %60, 65535
   %62 = load ptr, ptr %8, align 8, !tbaa !27
   %63 = zext nneg i32 %61 to i64
-  %64 = getelementptr inbounds nuw i16, ptr %62, i64 %63
+  %64 = getelementptr inbounds nuw [2 x i8], ptr %62, i64 %63
   %65 = load i16, ptr %64, align 2, !tbaa !28
   %66 = trunc i32 %60 to i16
   %67 = icmp eq i16 %65, %66

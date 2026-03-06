@@ -46,7 +46,7 @@ define noundef i32 @strsm_ilnucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %.0324412.us = phi i64 [ %7, %.lr.ph408.us.preheader ], [ %96, %._crit_edge409.us ]
   %.0335411.us = phi ptr [ %5, %.lr.ph408.us.preheader ], [ %91, %._crit_edge409.us ]
   %.0340410.us = phi ptr [ %2, %.lr.ph408.us.preheader ], [ %94, %._crit_edge409.us ]
-  %15 = getelementptr inbounds float, ptr %.0340410.us, i64 %3
+  %15 = getelementptr inbounds [4 x i8], ptr %.0340410.us, i64 %3
   %16 = getelementptr inbounds i8, ptr %.0340410.us, i64 %.idx367
   %17 = getelementptr inbounds i8, ptr %.0340410.us, i64 %.idx368
   %18 = getelementptr inbounds i8, ptr %.0340410.us, i64 %.idx369
@@ -93,17 +93,17 @@ define noundef i32 @strsm_ilnucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   br i1 %33, label %.preheader386.us, label %.thread
 
 .thread518:                                       ; preds = %.lr.ph.us, %.preheader386.us
-  %34 = getelementptr inbounds nuw float, ptr %.1336388.us, i64 %.0325390.us
-  %35 = getelementptr inbounds float, ptr %34, i64 %30
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %.1336388.us, i64 %.0325390.us
+  %35 = getelementptr inbounds [4 x i8], ptr %34, i64 %30
   store float 1.000000e+00, ptr %35, align 4, !tbaa !3
   br label %74
 
 .lr.ph.us:                                        ; preds = %.preheader386.us, %.lr.ph.us
   %.0315387.us = phi i64 [ %40, %.lr.ph.us ], [ 0, %.preheader386.us ]
   %36 = mul nsw i64 %.0315387.us, %3
-  %37 = getelementptr inbounds float, ptr %.0311391.us, i64 %36
+  %37 = getelementptr inbounds [4 x i8], ptr %.0311391.us, i64 %36
   %38 = load float, ptr %37, align 4, !tbaa !3
-  %39 = getelementptr inbounds nuw float, ptr %.1336388.us, i64 %.0315387.us
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %.1336388.us, i64 %.0315387.us
   store float %38, ptr %39, align 4, !tbaa !3
   %40 = add nuw nsw i64 %.0315387.us, 1
   %exitcond.not = icmp eq i64 %40, %indvars.iv480
@@ -225,7 +225,7 @@ define noundef i32 @strsm_ilnucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %106 = getelementptr inbounds i8, ptr %.0340.lcssa, i64 %.idx349
   %.idx = shl nsw i64 %3, 3
   %107 = getelementptr inbounds i8, ptr %.0340.lcssa, i64 %.idx
-  %108 = getelementptr inbounds float, ptr %.0340.lcssa, i64 %3
+  %108 = getelementptr inbounds [4 x i8], ptr %.0340.lcssa, i64 %3
   %109 = sub i64 0, %.0320.lcssa
   br label %110
 
@@ -256,17 +256,17 @@ define noundef i32 @strsm_ilnucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
 .lr.ph:                                           ; preds = %.preheader385, %.lr.ph
   %.1316422 = phi i64 [ %118, %.lr.ph ], [ 0, %.preheader385 ]
   %114 = mul nsw i64 %.1316422, %3
-  %115 = getelementptr inbounds float, ptr %.1312426, i64 %114
+  %115 = getelementptr inbounds [4 x i8], ptr %.1312426, i64 %114
   %116 = load float, ptr %115, align 4, !tbaa !3
-  %117 = getelementptr inbounds nuw float, ptr %.3338423, i64 %.1316422
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %.3338423, i64 %.1316422
   store float %116, ptr %117, align 4, !tbaa !3
   %118 = add nuw nsw i64 %.1316422, 1
   %exitcond485.not = icmp eq i64 %118, %indvars.iv483
   br i1 %exitcond485.not, label %.thread522, label %.lr.ph, !llvm.loop !11
 
 .thread522:                                       ; preds = %.lr.ph, %.preheader385
-  %119 = getelementptr inbounds nuw float, ptr %.3338423, i64 %.1326425
-  %120 = getelementptr inbounds float, ptr %119, i64 %109
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %.3338423, i64 %.1326425
+  %120 = getelementptr inbounds [4 x i8], ptr %119, i64 %109
   store float 1.000000e+00, ptr %120, align 4, !tbaa !3
   br label %138
 
@@ -339,7 +339,7 @@ define noundef i32 @strsm_ilnucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   %155 = getelementptr inbounds i8, ptr %.1341, i64 %.idx357
   %.idx356 = shl nsw i64 %3, 3
   %156 = getelementptr inbounds i8, ptr %.1341, i64 %.idx356
-  %157 = getelementptr inbounds float, ptr %.1341, i64 %3
+  %157 = getelementptr inbounds [4 x i8], ptr %.1341, i64 %3
   %158 = sub i64 0, %.1321
   br label %159
 
@@ -366,17 +366,17 @@ define noundef i32 @strsm_ilnucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
 .lr.ph438:                                        ; preds = %.preheader384, %.lr.ph438
   %.2317437 = phi i64 [ %167, %.lr.ph438 ], [ 0, %.preheader384 ]
   %163 = mul nsw i64 %.2317437, %3
-  %164 = getelementptr inbounds float, ptr %.2313443, i64 %163
+  %164 = getelementptr inbounds [4 x i8], ptr %.2313443, i64 %163
   %165 = load float, ptr %164, align 4, !tbaa !3
-  %166 = getelementptr inbounds nuw float, ptr %.5440, i64 %.2317437
+  %166 = getelementptr inbounds nuw [4 x i8], ptr %.5440, i64 %.2317437
   store float %165, ptr %166, align 4, !tbaa !3
   %167 = add nuw nsw i64 %.2317437, 1
   %exitcond489.not = icmp eq i64 %167, %indvars.iv487
   br i1 %exitcond489.not, label %.thread526, label %.lr.ph438, !llvm.loop !13
 
 .thread526:                                       ; preds = %.lr.ph438, %.preheader384
-  %168 = getelementptr inbounds nuw float, ptr %.5440, i64 %.2327442
-  %169 = getelementptr inbounds float, ptr %168, i64 %158
+  %168 = getelementptr inbounds nuw [4 x i8], ptr %.5440, i64 %.2327442
+  %169 = getelementptr inbounds [4 x i8], ptr %168, i64 %158
   store float 1.000000e+00, ptr %169, align 4, !tbaa !3
   br label %179
 
@@ -429,7 +429,7 @@ define noundef i32 @strsm_ilnucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   br i1 %191, label %.lr.ph464, label %._crit_edge465
 
 .lr.ph464:                                        ; preds = %189
-  %192 = getelementptr inbounds float, ptr %.2342, i64 %3
+  %192 = getelementptr inbounds [4 x i8], ptr %.2342, i64 %3
   %193 = sub i64 0, %.2322
   br label %194
 
@@ -456,8 +456,8 @@ define noundef i32 @strsm_ilnucopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   br label %.thread530
 
 .thread530:                                       ; preds = %.preheader383, %.lr.ph451.split
-  %199 = getelementptr inbounds nuw float, ptr %.7456, i64 %.3328459
-  %200 = getelementptr inbounds float, ptr %199, i64 %193
+  %199 = getelementptr inbounds nuw [4 x i8], ptr %.7456, i64 %.3328459
+  %200 = getelementptr inbounds [4 x i8], ptr %199, i64 %193
   store float 1.000000e+00, ptr %200, align 4, !tbaa !3
   br label %206
 

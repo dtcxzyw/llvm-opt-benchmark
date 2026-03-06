@@ -81,7 +81,7 @@ define noundef i32 @TS_STATUS_INFO_print_bio(ptr noundef %0, ptr noundef readonl
   br i1 %or.cond, label %6, label %10
 
 6:                                                ; preds = %2
-  %7 = getelementptr inbounds nuw ptr, ptr @TS_STATUS_INFO_print_bio.status_map, i64 %5
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @TS_STATUS_INFO_print_bio.status_map, i64 %5
   %8 = load ptr, ptr %7, align 8, !tbaa !16
   %9 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %0, ptr noundef nonnull @.str.18, ptr noundef %8) #2
   br label %12

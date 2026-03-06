@@ -24,19 +24,8 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_dm_kcopyd_cl
 %struct.qspinlock = type { %union.anon.9 }
 %union.anon.9 = type { %struct.atomic_t }
 %struct.atomic_t = type { i32 }
-%struct.page = type { i64, %union.anon.0, %union.anon.7, %struct.atomic_t, [8 x i8] }
-%union.anon.0 = type { %struct.anon }
-%struct.anon = type { %union.anon.1, ptr, %union.anon.3, i64 }
-%union.anon.1 = type { %struct.list_head }
-%struct.list_head = type { ptr, ptr }
-%union.anon.3 = type { i64 }
-%union.anon.7 = type { %struct.atomic_t }
-%struct.dm_io_region = type { ptr, i64, i64 }
-%struct.kcopyd_job = type { ptr, %struct.list_head, i32, i32, i64, i32, %struct.dm_io_region, i32, [8 x %struct.dm_io_region], ptr, ptr, ptr, %struct.mutex, %struct.atomic_t, i64, i64, ptr }
-%struct.mutex = type { %struct.atomic64_t, %struct.raw_spinlock, %struct.optimistic_spin_queue, %struct.list_head }
-%struct.atomic64_t = type { i64 }
-%struct.optimistic_spin_queue = type { %struct.atomic_t }
 %struct.blk_plug = type { ptr, ptr, i16, i16, i8, i8, %struct.list_head }
+%struct.list_head = type { ptr, ptr }
 %struct.wait_queue_entry = type { i32, ptr, ptr, %struct.list_head }
 %struct.dm_io_request = type { i32, %struct.dm_io_memory, %struct.dm_io_notify, ptr }
 %struct.dm_io_memory = type { i32, i32, %union.anon.13 }
@@ -96,7 +85,7 @@ define dso_local noundef range(i32 -12, 1) i32 @dm_kcopyd_init() local_unnamed_a
   %10 = select i1 %9, i64 %6, i64 %8
   %11 = add i64 %10, sub (i64 ptrtoint (ptr @empty_zero_page to i64), i64 -2147483648)
   %12 = lshr i64 %11, 12
-  %13 = getelementptr %struct.page, ptr %5, i64 %12
+  %13 = getelementptr [64 x i8], ptr %5, i64 %12
   store ptr %13, ptr getelementptr inbounds nuw (i8, ptr @zero_page_list, i64 8), align 8
   br label %14
 
@@ -183,7 +172,7 @@ define dso_local void @dm_kcopyd_copy(ptr noundef %0, ptr noundef readonly captu
 .preheader:                                       ; preds = %28, %35
   %38 = phi i32 [ %36, %35 ], [ 0, %28 ]
   %39 = sext i32 %38 to i64
-  %40 = getelementptr %struct.dm_io_region, ptr %15, i64 %39
+  %40 = getelementptr [24 x i8], ptr %15, i64 %39
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %43 = load ptr, ptr %42, align 8
@@ -232,7 +221,7 @@ define dso_local void @dm_kcopyd_copy(ptr noundef %0, ptr noundef readonly captu
 63:                                               ; preds = %63, %59
   %64 = phi i64 [ 0, %59 ], [ %65, %63 ]
   %65 = add nuw nsw i64 %64, 1
-  %66 = getelementptr %struct.kcopyd_job, ptr %9, i64 %65
+  %66 = getelementptr [360 x i8], ptr %9, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 352
   store ptr %9, ptr %67, align 8
   tail call void @segment_complete(i32 noundef 0, i64 noundef 0, ptr noundef %66)
@@ -883,7 +872,7 @@ define internal void @segment_complete(i32 noundef %0, i64 noundef %1, ptr nound
 55:                                               ; preds = %55, %53
   %56 = phi i32 [ 0, %53 ], [ %63, %55 ]
   %57 = sext i32 %56 to i64
-  %58 = getelementptr %struct.dm_io_region, ptr %54, i64 %57
+  %58 = getelementptr [24 x i8], ptr %54, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %60 = load i64, ptr %59, align 8
   %61 = add i64 %60, %32

@@ -15,11 +15,9 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateCommon.17" = type { %"class.llvm::SmallVectorBase" }
 %"struct.llvm::SmallVectorStorage.18" = type { [48 x i8] }
 %"struct.llvm::sandboxir::EraseFromParent::InstrAndOperands" = type { %"class.llvm::SmallVector.14", ptr }
-%"class.llvm::Use" = type { ptr, ptr, ptr, ptr }
 %"class.llvm::sandboxir::BBIterator" = type { ptr, %"class.llvm::ilist_iterator_w_bits", ptr }
 %"class.llvm::ilist_iterator_w_bits" = type <{ ptr, i8, i8, [6 x i8] }>
 %"class.llvm::sandboxir::Use" = type { ptr, ptr, ptr }
-%"struct.llvm::sandboxir::SwitchRemoveCase::Case" = type { ptr, ptr }
 
 $_ZN4llvm9sandboxir13SwitchAddCase6acceptEv = comdat any
 
@@ -384,7 +382,7 @@ _ZN4llvm15SmallVectorImplIPNS_5ValueEE7reserveEm.exit: ; preds = %46, %53
   %61 = and i32 %55, 134217727
   %62 = zext nneg i32 %61 to i64
   %63 = sub nsw i64 0, %62
-  %64 = getelementptr inbounds %"class.llvm::Use", ptr %48, i64 %63
+  %64 = getelementptr inbounds [32 x i8], ptr %48, i64 %63
   br label %_ZN4llvm4User8operandsEv.exit
 
 _ZN4llvm4User8operandsEv.exit:                    ; preds = %57, %60
@@ -444,7 +442,7 @@ _ZN4llvm11SmallVectorIPNS_5ValueELj6EEC2ERKS3_.exit: ; preds = %._crit_edge, %.s
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_9sandboxir15EraseFromParent16InstrAndOperandsELb0EE28reserveForParamAndGetAddressERS3_m.exit.i, label %79, !prof !65
 
 79:                                               ; preds = %_ZN4llvm11SmallVectorIPNS_5ValueELj6EEC2ERKS3_.exit
-  %80 = getelementptr inbounds nuw %"struct.llvm::sandboxir::EraseFromParent::InstrAndOperands", ptr %.pre3.i, i64 %76
+  %80 = getelementptr inbounds nuw [72 x i8], ptr %.pre3.i, i64 %76
   %81 = icmp uge ptr %5, %.pre3.i
   %82 = icmp ult ptr %5, %80
   %spec.select.i.i.i.i.i = and i1 %81, %82
@@ -468,7 +466,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9sandboxir15EraseFromParent16InstrAndOperan
   %.016.i.i.i = phi ptr [ %5, %_ZN4llvm11SmallVectorIPNS_5ValueELj6EEC2ERKS3_.exit ], [ %87, %83 ], [ %5, %.critedge.i.i.i ]
   %89 = load i32, ptr %8, align 8, !tbaa !30
   %90 = zext i32 %89 to i64
-  %91 = getelementptr inbounds nuw %"struct.llvm::sandboxir::EraseFromParent::InstrAndOperands", ptr %88, i64 %90
+  %91 = getelementptr inbounds nuw [72 x i8], ptr %88, i64 %90
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 16
   store ptr %92, ptr %91, align 8, !tbaa !28
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 8
@@ -534,7 +532,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit: ; preds =
   %116 = phi i32 [ %110, %.lr.ph ], [ %.pre.i18, %113 ]
   %117 = load ptr, ptr %4, align 8, !tbaa !28
   %118 = zext i32 %116 to i64
-  %119 = getelementptr inbounds nuw ptr, ptr %117, i64 %118
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %118
   %120 = ptrtoint ptr %111 to i64
   store i64 %120, ptr %119, align 1
   %121 = load i32, ptr %23, align 8, !tbaa !30
@@ -703,12 +701,12 @@ _ZN4llvm9sandboxir15EraseFromParent16InstrAndOperandsC2ERKS2_.exit: ; preds = %2
   %57 = and i32 %52, 134217727
   %58 = zext nneg i32 %57 to i64
   %59 = sub nsw i64 0, %58
-  %60 = getelementptr inbounds %"class.llvm::Use", ptr %38, i64 %59
+  %60 = getelementptr inbounds [32 x i8], ptr %38, i64 %59
   br label %_ZN4llvm4User14getOperandListEv.exit.i
 
 _ZN4llvm4User14getOperandListEv.exit.i:           ; preds = %56, %54
   %61 = phi ptr [ %55, %54 ], [ %60, %56 ]
-  %62 = getelementptr inbounds nuw %"class.llvm::Use", ptr %61, i64 %.sroa.792.0101
+  %62 = getelementptr inbounds nuw [32 x i8], ptr %61, i64 %.sroa.792.0101
   %63 = load ptr, ptr %62, align 8, !tbaa !67
   %.not.i.i2.i = icmp eq ptr %63, null
   br i1 %.not.i.i2.i, label %_ZN4llvm3Use14removeFromListEv.exit.i.i.i, label %64
@@ -869,12 +867,12 @@ _ZN4llvm9sandboxir15EraseFromParent16InstrAndOperandsD2Ev.exit65: ; preds = %._c
   %117 = and i32 %112, 134217727
   %118 = zext nneg i32 %117 to i64
   %119 = sub nsw i64 0, %118
-  %120 = getelementptr inbounds %"class.llvm::Use", ptr %.pre, i64 %119
+  %120 = getelementptr inbounds [32 x i8], ptr %.pre, i64 %119
   br label %_ZN4llvm4User14getOperandListEv.exit.i67
 
 _ZN4llvm4User14getOperandListEv.exit.i67:         ; preds = %116, %114
   %121 = phi ptr [ %115, %114 ], [ %120, %116 ]
-  %122 = getelementptr inbounds nuw %"class.llvm::Use", ptr %121, i64 %.sroa.7.0104
+  %122 = getelementptr inbounds nuw [32 x i8], ptr %121, i64 %.sroa.7.0104
   %123 = load ptr, ptr %122, align 8, !tbaa !67
   %.not.i.i2.i68 = icmp eq ptr %123, null
   br i1 %.not.i.i2.i68, label %_ZN4llvm3Use14removeFromListEv.exit.i.i.i70, label %124
@@ -1047,7 +1045,7 @@ define dso_local void @_ZN4llvm9sandboxir21CatchSwitchAddHandler6revertERNS0_7Tr
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load i32, ptr %12, align 8, !tbaa !128
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %"class.llvm::Use", ptr %spec.select.i, i64 %14
+  %15 = getelementptr inbounds nuw [32 x i8], ptr %spec.select.i, i64 %14
   tail call void @_ZN4llvm15CatchSwitchInst13removeHandlerENS_15mapped_iteratorIPNS_3UseEPFPNS_10BasicBlockEPNS_5ValueEES5_EE(ptr noundef nonnull align 8 dereferenceable(76) %6, ptr nonnull %15, ptr nonnull @_ZN4llvm15CatchSwitchInst14handler_helperEPNS_5ValueE) #10
   ret void
 }
@@ -1113,7 +1111,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9sandboxir16SwitchRemoveCase4CaseELb1EE9pus
   %31 = phi i32 [ %26, %.lr.ph ], [ %.pre.i, %28 ]
   %32 = load ptr, ptr %5, align 8, !tbaa !28
   %33 = zext i32 %31 to i64
-  %34 = getelementptr inbounds nuw %"struct.llvm::sandboxir::SwitchRemoveCase::Case", ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %33
   store ptr %22, ptr %34, align 1
   %.sroa.2.0..sroa_idx.i12 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store ptr %25, ptr %.sroa.2.0..sroa_idx.i12, align 1
@@ -1350,7 +1348,7 @@ _ZN4llvm15SmallVectorImplIiE7reserveEm.exit.i.i:  ; preds = %2
 17:                                               ; preds = %_ZN4llvm15SmallVectorImplIiE7reserveEm.exit.i.i, %_ZN4llvm15SmallVectorImplIiE7reserveEm.exit.i.thread.i
   %18 = phi ptr [ %.pre, %_ZN4llvm15SmallVectorImplIiE7reserveEm.exit.i.thread.i ], [ %12, %_ZN4llvm15SmallVectorImplIiE7reserveEm.exit.i.i ]
   %.pre8.i5.i = phi i64 [ %16, %_ZN4llvm15SmallVectorImplIiE7reserveEm.exit.i.thread.i ], [ 0, %_ZN4llvm15SmallVectorImplIiE7reserveEm.exit.i.i ]
-  %19 = getelementptr inbounds nuw i32, ptr %18, i64 %.pre8.i5.i
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %.pre8.i5.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %19, ptr align 4 %8, i64 %.idx.i, i1 false)
   %.pre.i.i = load i32, ptr %13, align 8, !tbaa !30
   br label %_ZN4llvm11SmallVectorIiLj8EEC2IivEENS_8ArrayRefIT_EE.exit
@@ -2198,7 +2196,7 @@ _ZSt4moveIPPN4llvm5ValueES3_ET0_T_S5_S4_.exit35:  ; preds = %37, %36, %34
   %.idx40 = shl nuw nsw i64 %.026, 3
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx40
   %44 = load ptr, ptr %0, align 8, !tbaa !28
-  %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %.026
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %.026
   %46 = sub nsw i64 %40, %.026
   %gepdiff = shl nsw i64 %46, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %45, ptr align 8 %43, i64 %gepdiff, i1 false)

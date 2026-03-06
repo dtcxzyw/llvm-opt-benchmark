@@ -2092,7 +2092,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit14: ; preds = %29,
   %44 = getelementptr inbounds nuw i8, ptr %37, i64 152
   %45 = load ptr, ptr %44, align 8, !noalias !115
   %.sink2.i.i.i.i = select i1 %40, ptr %45, ptr %44
-  %46 = getelementptr inbounds nuw ptr, ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
   store ptr %1, ptr %46, align 8, !tbaa !112
   %47 = add i64 %39, 2
   store i64 %47, ptr %38, align 8, !tbaa !31
@@ -2292,7 +2292,7 @@ _ZN4absl13InlinedVectorIPNS_7LogSinkELm16ESaIS2_EE5clearEv.exit: ; preds = %35, 
   %54 = getelementptr inbounds nuw i8, ptr %47, i64 152
   %55 = load ptr, ptr %54, align 8, !noalias !118
   %.sink2.i.i.i.i = select i1 %50, ptr %55, ptr %54
-  %56 = getelementptr inbounds nuw ptr, ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
   store ptr %1, ptr %56, align 8, !tbaa !112
   %57 = add i64 %49, 2
   store i64 %57, ptr %48, align 8, !tbaa !31
@@ -3630,7 +3630,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
 _ZN4absl23inlined_vector_internal13MallocAdapterISaIPNS_7LogSinkEELb0EE8AllocateERS4_m.exit.i: ; preds = %2
   %14 = shl nuw nsw i64 %10, 3
   %15 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #30
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %.sink1.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.sink1.i
   %17 = load ptr, ptr %1, align 8, !tbaa !112
   store ptr %17, ptr %16, align 8, !tbaa !112
   %.not.i = icmp eq i64 %.sink1.i, 0
@@ -3643,7 +3643,7 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaIPNS_7LogSinkEELb0EE8Allocate
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %.012.i = phi i64 [ %22, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %18 = phi ptr [ %21, %.lr.ph.i ], [ %.sink2.i, %.lr.ph.i.preheader ]
-  %19 = getelementptr inbounds nuw ptr, ptr %15, i64 %.012.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.012.i
   %20 = load ptr, ptr %18, align 8, !tbaa !112
   store ptr %20, ptr %19, align 8, !tbaa !112
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 8

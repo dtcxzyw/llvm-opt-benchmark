@@ -114,7 +114,7 @@ common.resume:                                    ; preds = %.body, %.thread, %1
 
 25:                                               ; preds = %21
   %26 = load ptr, ptr %15, align 8, !nonnull !10, !noundef !10
-  %27 = getelementptr inbounds { { { { i32 } }, { { i8 } }, [3 x i8], { { { i64, ptr, {} }, i64 } } }, [4 x i64] }, ptr %26, i64 %14
+  %27 = getelementptr inbounds [64 x i8], ptr %26, i64 %14
   invoke void @"_ZN3std4sync5mutex14Mutex$LT$T$GT$8try_lock17h31c16c1eae8438a1E"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull align 8 %27)
           to label %29 unwind label %.thread.loopexit
 
@@ -168,7 +168,7 @@ common.resume:                                    ; preds = %.body, %.thread, %1
   %47 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %38, %31 ]
   %48 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %49 = load ptr, ptr %48, align 8, !alias.scope !15, !noalias !18, !nonnull !10, !noundef !10
-  %50 = getelementptr inbounds ptr, ptr %49, i64 %47
+  %50 = getelementptr inbounds [8 x i8], ptr %49, i64 %47
   store ptr %1, ptr %50, align 8, !noalias !18
   %51 = load i64, ptr %37, align 8, !alias.scope !15, !noalias !18, !noundef !10
   %52 = add i64 %51, 1

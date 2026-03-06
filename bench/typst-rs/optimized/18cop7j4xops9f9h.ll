@@ -658,7 +658,7 @@ define void @_ZN12typst_syntax3ast6Markup5exprs17h1e00a64927129b78E(ptr noalias 
   %9 = load ptr, ptr %8, align 8, !noalias !91, !nonnull !15, !noundef !15
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %11 = load i64, ptr %10, align 8, !noalias !91, !noundef !15
-  %12 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %9, i64 %11
+  %12 = getelementptr inbounds [32 x i8], ptr %9, i64 %11
   br label %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit
 
 _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = %2, %6
@@ -2397,7 +2397,7 @@ define { ptr, ptr } @_ZN12typst_syntax3ast3Raw5lines17h679710ce599b964cE(ptr noa
   %8 = load ptr, ptr %7, align 8, !noalias !403, !nonnull !15, !noundef !15
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %10 = load i64, ptr %9, align 8, !noalias !403, !noundef !15
-  %11 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %8, i64 %10
+  %11 = getelementptr inbounds [32 x i8], ptr %8, i64 %10
   br label %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit
 
 _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = %1, %5
@@ -3064,7 +3064,7 @@ define noundef align 8 dereferenceable_or_null(32) ptr @_ZN12typst_syntax3ast3Re
   %9 = load ptr, ptr %8, align 8, !noalias !574, !nonnull !15, !noundef !15
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %11 = load i64, ptr %10, align 8, !noalias !574, !noundef !15
-  %12 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %9, i64 %11
+  %12 = getelementptr inbounds [32 x i8], ptr %9, i64 %11
   br label %_ZN12typst_syntax4node10SyntaxNode15cast_last_match17hec7799e6667f450eE.exit
 
 _ZN12typst_syntax4node10SyntaxNode15cast_last_match17hec7799e6667f450eE.exit: ; preds = %1, %6
@@ -3553,7 +3553,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN12typst_syntax3ast8Te
   %9 = load ptr, ptr %8, align 8, !noalias !716, !nonnull !15, !noundef !15
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %11 = load i64, ptr %10, align 8, !noalias !716, !noundef !15
-  %12 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %9, i64 %11
+  %12 = getelementptr inbounds [32 x i8], ptr %9, i64 %11
   br label %_ZN12typst_syntax4node10SyntaxNode15cast_last_match17hfbb8eee42c8141a8E.exit
 
 _ZN12typst_syntax4node10SyntaxNode15cast_last_match17hfbb8eee42c8141a8E.exit: ; preds = %1, %6
@@ -3643,7 +3643,7 @@ define noundef zeroext i1 @_ZN12typst_syntax3ast8Equation5block17hff61b280a7dbb2
   %8 = load ptr, ptr %7, align 8, !noalias !737, !nonnull !15, !noundef !15
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %10 = load i64, ptr %9, align 8, !noalias !737, !noundef !15
-  %11 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %8, i64 %10
+  %11 = getelementptr inbounds [32 x i8], ptr %8, i64 %10
   br label %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit
 
 _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = %1, %5
@@ -3691,7 +3691,7 @@ default.unreachable:                              ; preds = %35, %17
   %27 = load ptr, ptr %26, align 8, !noalias !749, !nonnull !15, !noundef !15
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %29 = load i64, ptr %28, align 8, !noalias !749, !noundef !15
-  %30 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %27, i64 %29
+  %30 = getelementptr inbounds [32 x i8], ptr %27, i64 %29
   br label %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit5
 
 _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit5: ; preds = %23, %24
@@ -3748,7 +3748,7 @@ define { ptr, ptr } @_ZN12typst_syntax3ast4Math5exprs17hec1cd7ea92af7ed5E(ptr no
   %8 = load ptr, ptr %7, align 8, !noalias !761, !nonnull !15, !noundef !15
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %10 = load i64, ptr %9, align 8, !noalias !761, !noundef !15
-  %11 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %8, i64 %10
+  %11 = getelementptr inbounds [32 x i8], ptr %8, i64 %10
   br label %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit
 
 _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = %1, %5
@@ -3882,7 +3882,7 @@ define { i64, ptr } @_ZN12typst_syntax3ast13MathDelimited4open17h404b3d26bb97d88
   %8 = load ptr, ptr %7, align 8, !noalias !786, !nonnull !15, !noundef !15
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %10 = load i64, ptr %9, align 8, !noalias !786, !noundef !15
-  %11 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %8, i64 %10
+  %11 = getelementptr inbounds [32 x i8], ptr %8, i64 %10
   br label %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit
 
 _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = %1, %5
@@ -3991,7 +3991,7 @@ define { i64, ptr } @_ZN12typst_syntax3ast13MathDelimited5close17hfa5fc4dbc46907
   %9 = load ptr, ptr %8, align 8, !noalias !818, !nonnull !15, !noundef !15
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %11 = load i64, ptr %10, align 8, !noalias !818, !noundef !15
-  %12 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %9, i64 %11
+  %12 = getelementptr inbounds [32 x i8], ptr %9, i64 %11
   br label %_ZN12typst_syntax4node10SyntaxNode15cast_last_match17h53ce6bc713427c24E.exit
 
 _ZN12typst_syntax4node10SyntaxNode15cast_last_match17h53ce6bc713427c24E.exit: ; preds = %1, %6
@@ -4026,7 +4026,7 @@ define { i64, ptr } @_ZN12typst_syntax3ast10MathAttach4base17ha70737cd37914d2aE(
   %8 = load ptr, ptr %7, align 8, !noalias !819, !nonnull !15, !noundef !15
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %10 = load i64, ptr %9, align 8, !noalias !819, !noundef !15
-  %11 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %8, i64 %10
+  %11 = getelementptr inbounds [32 x i8], ptr %8, i64 %10
   br label %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit
 
 _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = %1, %5
@@ -4236,7 +4236,7 @@ define noundef align 8 dereferenceable_or_null(32) ptr @_ZN12typst_syntax3ast10M
   %8 = load ptr, ptr %7, align 8, !noalias !859, !nonnull !15, !noundef !15
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %10 = load i64, ptr %9, align 8, !noalias !859, !noundef !15
-  %11 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %8, i64 %10
+  %11 = getelementptr inbounds [32 x i8], ptr %8, i64 %10
   br label %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit
 
 _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = %1, %5
@@ -4311,7 +4311,7 @@ _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = 
 .preheader:                                       ; preds = %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h665ac532187424a4E.exit.i"
   %.017.i = phi i64 [ %19, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h665ac532187424a4E.exit.i" ], [ 0, %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit ]
   %.016.i = phi i64 [ %20, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h665ac532187424a4E.exit.i" ], [ 0, %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit ]
-  %11 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %7, i64 %.016.i
+  %11 = getelementptr inbounds [32 x i8], ptr %7, i64 %.016.i
   %12 = getelementptr i8, ptr %11, i64 24
   %.val21.i = load i8, ptr %12, align 8, !range !13, !alias.scope !878, !noundef !15
   %trunc.i.i.i.i.i = tail call i8 @llvm.usub.sat.i8(i8 %.val21.i, i8 -127)
@@ -4361,7 +4361,7 @@ define { i64, ptr } @_ZN12typst_syntax3ast8MathFrac3num17ha1fd585c6888693aE(ptr 
   %8 = load ptr, ptr %7, align 8, !noalias !888, !nonnull !15, !noundef !15
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %10 = load i64, ptr %9, align 8, !noalias !888, !noundef !15
-  %11 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %8, i64 %10
+  %11 = getelementptr inbounds [32 x i8], ptr %8, i64 %10
   br label %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit
 
 _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = %1, %5
@@ -4410,7 +4410,7 @@ define { i64, ptr } @_ZN12typst_syntax3ast8MathFrac5denom17hbfe1d0578bdec73bE(pt
   %9 = load ptr, ptr %8, align 8, !noalias !900, !nonnull !15, !noundef !15
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %11 = load i64, ptr %10, align 8, !noalias !900, !noundef !15
-  %12 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %9, i64 %11
+  %12 = getelementptr inbounds [32 x i8], ptr %9, i64 %11
   br label %_ZN12typst_syntax4node10SyntaxNode15cast_last_match17h53ce6bc713427c24E.exit
 
 _ZN12typst_syntax4node10SyntaxNode15cast_last_match17h53ce6bc713427c24E.exit: ; preds = %1, %6
@@ -4518,7 +4518,7 @@ define { i64, ptr } @_ZN12typst_syntax3ast8MathRoot8radicand17h66571fa30477bcc4E
   %8 = load ptr, ptr %7, align 8, !noalias !918, !nonnull !15, !noundef !15
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %10 = load i64, ptr %9, align 8, !noalias !918, !noundef !15
-  %11 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %8, i64 %10
+  %11 = getelementptr inbounds [32 x i8], ptr %8, i64 %10
   br label %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit
 
 _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = %1, %5
@@ -5755,7 +5755,7 @@ define { ptr, ptr } @_ZN12typst_syntax3ast4Code5exprs17h490d743cba2f2ac7E(ptr no
   %8 = load ptr, ptr %7, align 8, !noalias !1150, !nonnull !15, !noundef !15
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %10 = load i64, ptr %9, align 8, !noalias !1150, !noundef !15
-  %11 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %8, i64 %10
+  %11 = getelementptr inbounds [32 x i8], ptr %8, i64 %10
   br label %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit
 
 _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = %1, %5
@@ -5840,7 +5840,7 @@ define { i64, ptr } @_ZN12typst_syntax3ast13Parenthesized4expr17h0d0f1fdadc23d0e
   %8 = load ptr, ptr %7, align 8, !noalias !1173, !nonnull !15, !noundef !15
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %10 = load i64, ptr %9, align 8, !noalias !1173, !noundef !15
-  %11 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %8, i64 %10
+  %11 = getelementptr inbounds [32 x i8], ptr %8, i64 %10
   br label %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit
 
 _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = %1, %5
@@ -6011,7 +6011,7 @@ define { ptr, ptr } @_ZN12typst_syntax3ast5Array5items17hd39a6eb541cc3d4eE(ptr n
   %8 = load ptr, ptr %7, align 8, !noalias !1218, !nonnull !15, !noundef !15
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %10 = load i64, ptr %9, align 8, !noalias !1218, !noundef !15
-  %11 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %8, i64 %10
+  %11 = getelementptr inbounds [32 x i8], ptr %8, i64 %10
   br label %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit
 
 _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = %1, %5
@@ -6116,7 +6116,7 @@ define { ptr, ptr } @_ZN12typst_syntax3ast4Dict5items17h233eeedda1dd2533E(ptr no
   %8 = load ptr, ptr %7, align 8, !noalias !1227, !nonnull !15, !noundef !15
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %10 = load i64, ptr %9, align 8, !noalias !1227, !noundef !15
-  %11 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %8, i64 %10
+  %11 = getelementptr inbounds [32 x i8], ptr %8, i64 %10
   br label %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit
 
 _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = %1, %5
@@ -6297,7 +6297,7 @@ define { i64, ptr } @_ZN12typst_syntax3ast5Named4expr17h29ca22c5f26c6110E(ptr no
   %9 = load ptr, ptr %8, align 8, !noalias !1268, !nonnull !15, !noundef !15
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %11 = load i64, ptr %10, align 8, !noalias !1268, !noundef !15
-  %12 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %9, i64 %11
+  %12 = getelementptr inbounds [32 x i8], ptr %9, i64 %11
   br label %_ZN12typst_syntax4node10SyntaxNode15cast_last_match17h53ce6bc713427c24E.exit
 
 _ZN12typst_syntax4node10SyntaxNode15cast_last_match17h53ce6bc713427c24E.exit: ; preds = %1, %6
@@ -6336,7 +6336,7 @@ define void @_ZN12typst_syntax3ast5Named7pattern17h573c28d2839c5047E(ptr noalias
   %11 = load ptr, ptr %10, align 8, !noalias !1279, !nonnull !15, !noundef !15
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %13 = load i64, ptr %12, align 8, !noalias !1279, !noundef !15
-  %14 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %11, i64 %13
+  %14 = getelementptr inbounds [32 x i8], ptr %11, i64 %13
   br label %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit.i
 
 _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit.i: ; preds = %8, %2
@@ -6375,7 +6375,7 @@ define { i64, ptr } @_ZN12typst_syntax3ast5Keyed3key17hec6e1f8daac058d8E(ptr noa
   %8 = load ptr, ptr %7, align 8, !noalias !1286, !nonnull !15, !noundef !15
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %10 = load i64, ptr %9, align 8, !noalias !1286, !noundef !15
-  %11 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %8, i64 %10
+  %11 = getelementptr inbounds [32 x i8], ptr %8, i64 %10
   br label %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit
 
 _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = %1, %5
@@ -6424,7 +6424,7 @@ define { i64, ptr } @_ZN12typst_syntax3ast5Keyed4expr17h9c8289cd1859e3aaE(ptr no
   %9 = load ptr, ptr %8, align 8, !noalias !1298, !nonnull !15, !noundef !15
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %11 = load i64, ptr %10, align 8, !noalias !1298, !noundef !15
-  %12 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %9, i64 %11
+  %12 = getelementptr inbounds [32 x i8], ptr %9, i64 %11
   br label %_ZN12typst_syntax4node10SyntaxNode15cast_last_match17h53ce6bc713427c24E.exit
 
 _ZN12typst_syntax4node10SyntaxNode15cast_last_match17h53ce6bc713427c24E.exit: ; preds = %1, %6
@@ -6459,7 +6459,7 @@ define { i64, ptr } @_ZN12typst_syntax3ast6Spread4expr17h8894697069be831aE(ptr n
   %8 = load ptr, ptr %7, align 8, !noalias !1299, !nonnull !15, !noundef !15
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %10 = load i64, ptr %9, align 8, !noalias !1299, !noundef !15
-  %11 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %8, i64 %10
+  %11 = getelementptr inbounds [32 x i8], ptr %8, i64 %10
   br label %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit
 
 _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = %1, %5
@@ -6563,7 +6563,7 @@ define { i64, ptr } @_ZN12typst_syntax3ast6Spread9sink_expr17h95835c56f3421de6E(
   %8 = load ptr, ptr %7, align 8, !noalias !1325, !nonnull !15, !noundef !15
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %10 = load i64, ptr %9, align 8, !noalias !1325, !noundef !15
-  %11 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %8, i64 %10
+  %11 = getelementptr inbounds [32 x i8], ptr %8, i64 %10
   br label %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit
 
 _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = %1, %5
@@ -6675,7 +6675,7 @@ define { i64, ptr } @_ZN12typst_syntax3ast5Unary4expr17h9602a1a289a045aaE(ptr no
   %9 = load ptr, ptr %8, align 8, !noalias !1349, !nonnull !15, !noundef !15
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %11 = load i64, ptr %10, align 8, !noalias !1349, !noundef !15
-  %12 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %9, i64 %11
+  %12 = getelementptr inbounds [32 x i8], ptr %9, i64 %11
   br label %_ZN12typst_syntax4node10SyntaxNode15cast_last_match17h53ce6bc713427c24E.exit
 
 _ZN12typst_syntax4node10SyntaxNode15cast_last_match17h53ce6bc713427c24E.exit: ; preds = %1, %6
@@ -6729,10 +6729,10 @@ define noundef range(i64 4, 8) i64 @_ZN12typst_syntax3ast4UnOp10precedence17hd69
 define { ptr, i64 } @_ZN12typst_syntax3ast4UnOp6as_str17h463f1a7fc3f12a4cE(i8 noundef %0) unnamed_addr #9 {
 switch.lookup:
   %1 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12typst_syntax3ast4UnOp6as_str17h463f1a7fc3f12a4cE, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN12typst_syntax3ast4UnOp6as_str17h463f1a7fc3f12a4cE, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = zext nneg i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw i64, ptr @switch.table._ZN12typst_syntax3ast4UnOp6as_str17h463f1a7fc3f12a4cE.71, i64 %2
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN12typst_syntax3ast4UnOp6as_str17h463f1a7fc3f12a4cE.71, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1
@@ -6843,7 +6843,7 @@ define { i64, ptr } @_ZN12typst_syntax3ast6Binary3lhs17h49ee5fbce2f67bf4E(ptr no
   %8 = load ptr, ptr %7, align 8, !noalias !1366, !nonnull !15, !noundef !15
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %10 = load i64, ptr %9, align 8, !noalias !1366, !noundef !15
-  %11 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %8, i64 %10
+  %11 = getelementptr inbounds [32 x i8], ptr %8, i64 %10
   br label %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit
 
 _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = %1, %5
@@ -6892,7 +6892,7 @@ define { i64, ptr } @_ZN12typst_syntax3ast6Binary3rhs17h5d6511077f08e2feE(ptr no
   %9 = load ptr, ptr %8, align 8, !noalias !1378, !nonnull !15, !noundef !15
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %11 = load i64, ptr %10, align 8, !noalias !1378, !noundef !15
-  %12 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %9, i64 %11
+  %12 = getelementptr inbounds [32 x i8], ptr %9, i64 %11
   br label %_ZN12typst_syntax4node10SyntaxNode15cast_last_match17h53ce6bc713427c24E.exit
 
 _ZN12typst_syntax4node10SyntaxNode15cast_last_match17h53ce6bc713427c24E.exit: ; preds = %1, %6
@@ -6934,7 +6934,7 @@ switch.lookup:                                    ; preds = %1
 define noundef range(i64 1, 7) i64 @_ZN12typst_syntax3ast5BinOp10precedence17h2766c9fdd4451086E(i8 noundef %0) unnamed_addr #9 {
 switch.lookup:
   %1 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN12typst_syntax3ast5BinOp10precedence17h2766c9fdd4451086E, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN12typst_syntax3ast5BinOp10precedence17h2766c9fdd4451086E, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   ret i64 %switch.load
 }
@@ -6952,10 +6952,10 @@ switch.lookup:
 define { ptr, i64 } @_ZN12typst_syntax3ast5BinOp6as_str17h5597d5757b6d80fbE(i8 noundef %0) unnamed_addr #9 {
 switch.lookup:
   %1 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12typst_syntax3ast5BinOp6as_str17h5597d5757b6d80fbE, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN12typst_syntax3ast5BinOp6as_str17h5597d5757b6d80fbE, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   %2 = zext nneg i8 %0 to i64
-  %switch.gep1 = getelementptr inbounds nuw i64, ptr @switch.table._ZN12typst_syntax3ast5BinOp6as_str17h5597d5757b6d80fbE.72, i64 %2
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN12typst_syntax3ast5BinOp6as_str17h5597d5757b6d80fbE.72, i64 %2
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %3 = insertvalue { ptr, i64 } poison, ptr %switch.load, 0
   %4 = insertvalue { ptr, i64 } %3, i64 %switch.load2, 1
@@ -6976,7 +6976,7 @@ define { i64, ptr } @_ZN12typst_syntax3ast11FieldAccess6target17hb7fe7b8716e3c8b
   %8 = load ptr, ptr %7, align 8, !noalias !1379, !nonnull !15, !noundef !15
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %10 = load i64, ptr %9, align 8, !noalias !1379, !noundef !15
-  %11 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %8, i64 %10
+  %11 = getelementptr inbounds [32 x i8], ptr %8, i64 %10
   br label %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit
 
 _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = %1, %5
@@ -7025,7 +7025,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN12typst_syntax3ast11F
   %9 = load ptr, ptr %8, align 8, !noalias !1391, !nonnull !15, !noundef !15
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %11 = load i64, ptr %10, align 8, !noalias !1391, !noundef !15
-  %12 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %9, i64 %11
+  %12 = getelementptr inbounds [32 x i8], ptr %9, i64 %11
   br label %_ZN12typst_syntax4node10SyntaxNode15cast_last_match17he0d134cdc0890e75E.exit
 
 _ZN12typst_syntax4node10SyntaxNode15cast_last_match17he0d134cdc0890e75E.exit: ; preds = %1, %6
@@ -7055,7 +7055,7 @@ define { i64, ptr } @_ZN12typst_syntax3ast8FuncCall6callee17hcd8091bda38f1bb8E(p
   %8 = load ptr, ptr %7, align 8, !noalias !1392, !nonnull !15, !noundef !15
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %10 = load i64, ptr %9, align 8, !noalias !1392, !noundef !15
-  %11 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %8, i64 %10
+  %11 = getelementptr inbounds [32 x i8], ptr %8, i64 %10
   br label %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit
 
 _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = %1, %5
@@ -7104,7 +7104,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN12typst_syntax3ast8Fu
   %9 = load ptr, ptr %8, align 8, !noalias !1404, !nonnull !15, !noundef !15
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %11 = load i64, ptr %10, align 8, !noalias !1404, !noundef !15
-  %12 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %9, i64 %11
+  %12 = getelementptr inbounds [32 x i8], ptr %9, i64 %11
   br label %_ZN12typst_syntax4node10SyntaxNode15cast_last_match17h638656d86912899cE.exit
 
 _ZN12typst_syntax4node10SyntaxNode15cast_last_match17h638656d86912899cE.exit: ; preds = %1, %6
@@ -7134,7 +7134,7 @@ define { ptr, ptr } @_ZN12typst_syntax3ast4Args5items17h3b432c7ed271e2bfE(ptr no
   %8 = load ptr, ptr %7, align 8, !noalias !1405, !nonnull !15, !noundef !15
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %10 = load i64, ptr %9, align 8, !noalias !1405, !noundef !15
-  %11 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %8, i64 %10
+  %11 = getelementptr inbounds [32 x i8], ptr %8, i64 %10
   br label %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit
 
 _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = %1, %5
@@ -7445,7 +7445,7 @@ define { i64, ptr } @_ZN12typst_syntax3ast7Closure4body17h9af906f8b7adfaf7E(ptr 
   %9 = load ptr, ptr %8, align 8, !noalias !1463, !nonnull !15, !noundef !15
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %11 = load i64, ptr %10, align 8, !noalias !1463, !noundef !15
-  %12 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %9, i64 %11
+  %12 = getelementptr inbounds [32 x i8], ptr %9, i64 %11
   br label %_ZN12typst_syntax4node10SyntaxNode15cast_last_match17h53ce6bc713427c24E.exit
 
 _ZN12typst_syntax4node10SyntaxNode15cast_last_match17h53ce6bc713427c24E.exit: ; preds = %1, %6
@@ -7480,7 +7480,7 @@ define { ptr, ptr } @_ZN12typst_syntax3ast6Params8children17h6b1851315e228be8E(p
   %8 = load ptr, ptr %7, align 8, !noalias !1464, !nonnull !15, !noundef !15
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %10 = load i64, ptr %9, align 8, !noalias !1464, !noundef !15
-  %11 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %8, i64 %10
+  %11 = getelementptr inbounds [32 x i8], ptr %8, i64 %10
   br label %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit
 
 _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = %1, %5
@@ -7975,7 +7975,7 @@ _ZN12typst_syntax3ast13Parenthesized7pattern17h97ec44f340839d2eE.exit: ; preds =
   %67 = load ptr, ptr %66, align 8, !noalias !1572, !nonnull !15, !noundef !15
   %68 = getelementptr inbounds nuw i8, ptr %65, i64 32
   %69 = load i64, ptr %68, align 8, !noalias !1572, !noundef !15
-  %70 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %67, i64 %69
+  %70 = getelementptr inbounds [32 x i8], ptr %67, i64 %69
   br label %_ZN12typst_syntax3ast13Destructuring8bindings17h92a3c318c89a856bE.exit
 
 _ZN12typst_syntax3ast13Destructuring8bindings17h92a3c318c89a856bE.exit: ; preds = %58, %64
@@ -8039,7 +8039,7 @@ define { ptr, ptr } @_ZN12typst_syntax3ast13Destructuring5items17h3128d09023192b
   %8 = load ptr, ptr %7, align 8, !noalias !1579, !nonnull !15, !noundef !15
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %10 = load i64, ptr %9, align 8, !noalias !1579, !noundef !15
-  %11 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %8, i64 %10
+  %11 = getelementptr inbounds [32 x i8], ptr %8, i64 %10
   br label %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit
 
 _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = %1, %5
@@ -8066,7 +8066,7 @@ define void @_ZN12typst_syntax3ast13Destructuring8bindings17h92a3c318c89a856bE(p
   %10 = load ptr, ptr %9, align 8, !noalias !1588, !nonnull !15, !noundef !15
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %12 = load i64, ptr %11, align 8, !noalias !1588, !noundef !15
-  %13 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %10, i64 %12
+  %13 = getelementptr inbounds [32 x i8], ptr %10, i64 %12
   br label %_ZN12typst_syntax3ast13Destructuring5items17h3128d09023192be1E.exit
 
 _ZN12typst_syntax3ast13Destructuring5items17h3128d09023192be1E.exit: ; preds = %2, %7
@@ -8503,7 +8503,7 @@ define { i64, ptr } @_ZN12typst_syntax3ast10LetBinding4init17h2575e00ea41e8e95E(
   %14 = load ptr, ptr %13, align 8, !noalias !1678, !nonnull !15, !noundef !15
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 32
   %16 = load i64, ptr %15, align 8, !noalias !1678, !noundef !15
-  %17 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %14, i64 %16
+  %17 = getelementptr inbounds [32 x i8], ptr %14, i64 %16
   br label %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit
 
 _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = %8, %11
@@ -8539,7 +8539,7 @@ _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = 
   %33 = load ptr, ptr %32, align 8, !noalias !1684, !nonnull !15, !noundef !15
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 32
   %35 = load i64, ptr %34, align 8, !noalias !1684, !noundef !15
-  %36 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %33, i64 %35
+  %36 = getelementptr inbounds [32 x i8], ptr %33, i64 %35
   br label %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit6
 
 _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit6: ; preds = %27, %30
@@ -8575,7 +8575,7 @@ _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit6: ; preds =
   %52 = load ptr, ptr %51, align 8, !noalias !1690, !nonnull !15, !noundef !15
   %53 = getelementptr inbounds nuw i8, ptr %50, i64 32
   %54 = load i64, ptr %53, align 8, !noalias !1690, !noundef !15
-  %55 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %52, i64 %54
+  %55 = getelementptr inbounds [32 x i8], ptr %52, i64 %54
   br label %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit14
 
 _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit14: ; preds = %46, %49
@@ -8762,7 +8762,7 @@ define { i64, ptr } @_ZN12typst_syntax3ast18DestructAssignment5value17h14e6a8484
   %9 = load ptr, ptr %8, align 8, !noalias !1752, !nonnull !15, !noundef !15
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %11 = load i64, ptr %10, align 8, !noalias !1752, !noundef !15
-  %12 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %9, i64 %11
+  %12 = getelementptr inbounds [32 x i8], ptr %9, i64 %11
   br label %_ZN12typst_syntax4node10SyntaxNode15cast_last_match17h53ce6bc713427c24E.exit
 
 _ZN12typst_syntax4node10SyntaxNode15cast_last_match17h53ce6bc713427c24E.exit: ; preds = %1, %6
@@ -8797,7 +8797,7 @@ define { i64, ptr } @_ZN12typst_syntax3ast7SetRule6target17h52e4a0346d76e579E(pt
   %8 = load ptr, ptr %7, align 8, !noalias !1753, !nonnull !15, !noundef !15
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %10 = load i64, ptr %9, align 8, !noalias !1753, !noundef !15
-  %11 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %8, i64 %10
+  %11 = getelementptr inbounds [32 x i8], ptr %8, i64 %10
   br label %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit
 
 _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = %1, %5
@@ -8846,7 +8846,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN12typst_syntax3ast7Se
   %9 = load ptr, ptr %8, align 8, !noalias !1765, !nonnull !15, !noundef !15
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %11 = load i64, ptr %10, align 8, !noalias !1765, !noundef !15
-  %12 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %9, i64 %11
+  %12 = getelementptr inbounds [32 x i8], ptr %9, i64 %11
   br label %_ZN12typst_syntax4node10SyntaxNode15cast_last_match17h638656d86912899cE.exit
 
 _ZN12typst_syntax4node10SyntaxNode15cast_last_match17h638656d86912899cE.exit: ; preds = %1, %6
@@ -9058,7 +9058,7 @@ define { i64, ptr } @_ZN12typst_syntax3ast8ShowRule9transform17h7347f478373c1f72
   %9 = load ptr, ptr %8, align 8, !noalias !1827, !nonnull !15, !noundef !15
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %11 = load i64, ptr %10, align 8, !noalias !1827, !noundef !15
-  %12 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %9, i64 %11
+  %12 = getelementptr inbounds [32 x i8], ptr %9, i64 %11
   br label %_ZN12typst_syntax4node10SyntaxNode15cast_last_match17h53ce6bc713427c24E.exit
 
 _ZN12typst_syntax4node10SyntaxNode15cast_last_match17h53ce6bc713427c24E.exit: ; preds = %1, %6
@@ -9093,7 +9093,7 @@ define { i64, ptr } @_ZN12typst_syntax3ast10Contextual4body17hf867c9814f03e283E(
   %8 = load ptr, ptr %7, align 8, !noalias !1828, !nonnull !15, !noundef !15
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %10 = load i64, ptr %9, align 8, !noalias !1828, !noundef !15
-  %11 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %8, i64 %10
+  %11 = getelementptr inbounds [32 x i8], ptr %8, i64 %10
   br label %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit
 
 _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = %1, %5
@@ -9139,7 +9139,7 @@ define { i64, ptr } @_ZN12typst_syntax3ast11Conditional9condition17h6a3d746704b8
   %8 = load ptr, ptr %7, align 8, !noalias !1834, !nonnull !15, !noundef !15
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %10 = load i64, ptr %9, align 8, !noalias !1834, !noundef !15
-  %11 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %8, i64 %10
+  %11 = getelementptr inbounds [32 x i8], ptr %8, i64 %10
   br label %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit
 
 _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = %1, %5
@@ -9185,7 +9185,7 @@ define { i64, ptr } @_ZN12typst_syntax3ast11Conditional7if_body17hd188f8ce87d0d9
   %8 = load ptr, ptr %7, align 8, !noalias !1840, !nonnull !15, !noundef !15
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %10 = load i64, ptr %9, align 8, !noalias !1840, !noundef !15
-  %11 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %8, i64 %10
+  %11 = getelementptr inbounds [32 x i8], ptr %8, i64 %10
   br label %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit
 
 _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = %1, %5
@@ -9243,7 +9243,7 @@ define { i64, ptr } @_ZN12typst_syntax3ast11Conditional9else_body17hb0a64eb4a3d9
   %8 = load ptr, ptr %7, align 8, !noalias !1857, !nonnull !15, !noundef !15
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %10 = load i64, ptr %9, align 8, !noalias !1857, !noundef !15
-  %11 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %8, i64 %10
+  %11 = getelementptr inbounds [32 x i8], ptr %8, i64 %10
   br label %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit
 
 _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = %1, %5
@@ -9309,7 +9309,7 @@ define { i64, ptr } @_ZN12typst_syntax3ast9WhileLoop9condition17hecf96c921a609f4
   %8 = load ptr, ptr %7, align 8, !noalias !1874, !nonnull !15, !noundef !15
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %10 = load i64, ptr %9, align 8, !noalias !1874, !noundef !15
-  %11 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %8, i64 %10
+  %11 = getelementptr inbounds [32 x i8], ptr %8, i64 %10
   br label %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit
 
 _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = %1, %5
@@ -9358,7 +9358,7 @@ define { i64, ptr } @_ZN12typst_syntax3ast9WhileLoop4body17h4747b9b7b356062cE(pt
   %9 = load ptr, ptr %8, align 8, !noalias !1886, !nonnull !15, !noundef !15
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %11 = load i64, ptr %10, align 8, !noalias !1886, !noundef !15
-  %12 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %9, i64 %11
+  %12 = getelementptr inbounds [32 x i8], ptr %9, i64 %11
   br label %_ZN12typst_syntax4node10SyntaxNode15cast_last_match17h53ce6bc713427c24E.exit
 
 _ZN12typst_syntax4node10SyntaxNode15cast_last_match17h53ce6bc713427c24E.exit: ; preds = %1, %6
@@ -9603,7 +9603,7 @@ define { i64, ptr } @_ZN12typst_syntax3ast7ForLoop4body17h143ba95d9f2e09dcE(ptr 
   %9 = load ptr, ptr %8, align 8, !noalias !1949, !nonnull !15, !noundef !15
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %11 = load i64, ptr %10, align 8, !noalias !1949, !noundef !15
-  %12 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %9, i64 %11
+  %12 = getelementptr inbounds [32 x i8], ptr %9, i64 %11
   br label %_ZN12typst_syntax4node10SyntaxNode15cast_last_match17h53ce6bc713427c24E.exit
 
 _ZN12typst_syntax4node10SyntaxNode15cast_last_match17h53ce6bc713427c24E.exit: ; preds = %1, %6
@@ -9638,7 +9638,7 @@ define { i64, ptr } @_ZN12typst_syntax3ast12ModuleImport6source17hdf0fa4c30e9d18
   %8 = load ptr, ptr %7, align 8, !noalias !1950, !nonnull !15, !noundef !15
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %10 = load i64, ptr %9, align 8, !noalias !1950, !noundef !15
-  %11 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %8, i64 %10
+  %11 = getelementptr inbounds [32 x i8], ptr %8, i64 %10
   br label %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit
 
 _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = %1, %5
@@ -9872,7 +9872,7 @@ define { ptr, ptr } @_ZN12typst_syntax3ast11ImportItems4iter17h3bd68ff9a91fe9bfE
   %8 = load ptr, ptr %7, align 8, !noalias !2026, !nonnull !15, !noundef !15
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %10 = load i64, ptr %9, align 8, !noalias !2026, !noundef !15
-  %11 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %8, i64 %10
+  %11 = getelementptr inbounds [32 x i8], ptr %8, i64 %10
   br label %_ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit
 
 _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit: ; preds = %1, %5
@@ -10234,7 +10234,7 @@ define { i64, ptr } @_ZN12typst_syntax3ast13ModuleInclude6source17h039c2e5246a7d
   %9 = load ptr, ptr %8, align 8, !noalias !2185, !nonnull !15, !noundef !15
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %11 = load i64, ptr %10, align 8, !noalias !2185, !noundef !15
-  %12 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %9, i64 %11
+  %12 = getelementptr inbounds [32 x i8], ptr %9, i64 %11
   br label %_ZN12typst_syntax4node10SyntaxNode15cast_last_match17h53ce6bc713427c24E.exit
 
 _ZN12typst_syntax4node10SyntaxNode15cast_last_match17h53ce6bc713427c24E.exit: ; preds = %1, %6
@@ -10272,7 +10272,7 @@ define { i64, ptr } @_ZN12typst_syntax3ast10FuncReturn4body17h658d0993c27a524cE(
   %9 = load ptr, ptr %8, align 8, !noalias !2192, !nonnull !15, !noundef !15
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %11 = load i64, ptr %10, align 8, !noalias !2192, !noundef !15
-  %12 = getelementptr inbounds { { [24 x i8], i8, [7 x i8] } }, ptr %9, i64 %11
+  %12 = getelementptr inbounds [32 x i8], ptr %9, i64 %11
   br label %_ZN12typst_syntax4node10SyntaxNode15cast_last_match17h53ce6bc713427c24E.exit
 
 _ZN12typst_syntax4node10SyntaxNode15cast_last_match17h53ce6bc713427c24E.exit: ; preds = %1, %6

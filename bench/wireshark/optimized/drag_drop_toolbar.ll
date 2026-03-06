@@ -1238,7 +1238,7 @@ define void @_ZN15DragDropToolBar9dropEventEP10QDropEvent(ptr noundef align 8 de
   %41 = sext i32 %31 to i64
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr ptr, ptr %43, i64 %41
+  %44 = getelementptr [8 x i8], ptr %43, i64 %41
   %45 = load ptr, ptr %44, align 8
   %.not169 = icmp eq ptr %45, null
   %46 = load ptr, ptr %6, align 8
@@ -1309,7 +1309,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %59, %_ZN17QArrayDat
   call void @_ZNK7QWidget7actionsEv(ptr dead_on_unwind nonnull writable sret(%class.QList.5) align 8 %9, ptr noundef align 8 dereferenceable_or_null(40) %0)
   %67 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr ptr, ptr %68, i64 %41
+  %69 = getelementptr [8 x i8], ptr %68, i64 %41
   %70 = load ptr, ptr %69, align 8
   %71 = load ptr, ptr %9, align 8
   %.not.i.i.i88 = icmp eq ptr %71, null
@@ -1988,11 +1988,11 @@ _ZN5QListIP7QActionE6detachEv.exit.i:             ; preds = %_ZNK17QArrayDataPoi
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = icmp slt i32 %1, %2
-  %20 = getelementptr ptr, ptr %18, i64 %12
+  %20 = getelementptr [8 x i8], ptr %18, i64 %12
   %21 = getelementptr i8, ptr %20, i64 8
-  %22 = getelementptr ptr, ptr %18, i64 %13
-  %23 = getelementptr ptr, ptr %18, i64 %13
-  %24 = getelementptr ptr, ptr %18, i64 %12
+  %22 = getelementptr [8 x i8], ptr %18, i64 %13
+  %23 = getelementptr [8 x i8], ptr %18, i64 %13
+  %24 = getelementptr [8 x i8], ptr %18, i64 %12
   %.sink = select i1 %19, ptr %22, ptr %24
   %25 = select i1 %19, ptr %20, ptr %23
   %26 = select i1 %19, ptr %21, ptr %24
@@ -2401,7 +2401,7 @@ _ZN9QtPrivate12QPodArrayOpsIP7QActionE10copyAppendEPKS2_S5_.exit.sink.split: ; p
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %54 = load i64, ptr %53, align 8
-  %55 = getelementptr ptr, ptr %31, i64 %54
+  %55 = getelementptr [8 x i8], ptr %31, i64 %54
   %56 = ashr exact i64 %.idx.sink55, 3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 %55, ptr noundef align 1 %52, i64 noundef %.idx.sink55, i1 noundef false) #19
   %57 = load i64, ptr %53, align 8
@@ -2550,8 +2550,8 @@ _ZNK17QArrayDataPointerIP7QActionE16freeSpaceAtBeginEv.exit33: ; preds = %38
   %56 = sdiv i64 %55, 2
   %57 = call noundef i64 @llvm.smax.i64(i64 %56, i64 0)
   %.pr.pre = load ptr, ptr %1, align 8
-  %58 = getelementptr ptr, ptr %34, i64 %57
-  %59 = getelementptr ptr, ptr %58, i64 %2
+  %58 = getelementptr [8 x i8], ptr %34, i64 %57
+  %59 = getelementptr [8 x i8], ptr %58, i64 %2
   %.not.i34 = icmp eq ptr %.pr.pre, null
   br i1 %.not.i34, label %_ZNK17QArrayDataPointerIP7QActionE5flagsEv.exit, label %60
 
@@ -2664,7 +2664,7 @@ _ZSt4moveIPP7QActionS2_ET0_T_S4_S3_.exit:         ; preds = %29, %32
   br i1 %36, label %.lr.ph110.preheader, label %._crit_edge111
 
 .lr.ph110.preheader:                              ; preds = %35
-  %37 = getelementptr ptr, ptr %.058, i64 %.083
+  %37 = getelementptr [8 x i8], ptr %.058, i64 %.083
   br label %.lr.ph110
 
 ._crit_edge111:                                   ; preds = %.lr.ph110, %35
@@ -2707,7 +2707,7 @@ _ZSt4moveIPP7QActionS2_ET0_T_S4_S3_.exit:         ; preds = %29, %32
   %53 = add i64 %.idx, -8
   %54 = ashr exact i64 %53, 3
   %55 = sub nsw i64 0, %54
-  %56 = getelementptr ptr, ptr %49, i64 %55
+  %56 = getelementptr [8 x i8], ptr %49, i64 %55
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %56, ptr align 8 %.058, i64 %53, i1 false)
   br label %_ZSt13move_backwardIPP7QActionS2_ET0_T_S4_S3_.exit
 
@@ -2716,9 +2716,9 @@ _ZSt13move_backwardIPP7QActionS2_ET0_T_S4_S3_.exit: ; preds = %48, %52
   br label %_ZSt11swap_rangesIPP7QActionS2_ET0_T_S4_S3_.exit
 
 57:                                               ; preds = %46
-  %58 = getelementptr ptr, ptr %.058, i64 %.086
+  %58 = getelementptr [8 x i8], ptr %.058, i64 %.086
   %59 = sub i64 0, %25
-  %60 = getelementptr ptr, ptr %58, i64 %59
+  %60 = getelementptr [8 x i8], ptr %58, i64 %59
   %61 = icmp sgt i64 %.083, 0
   br i1 %61, label %.lr.ph, label %._crit_edge
 

@@ -7,12 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.93" = type { %"struct.std::_Vector_base<LIEF::ELF::DynamicEntryFlags::FLAG, std::allocator<LIEF::ELF::DynamicEntryFlags::FLAG>>::_Vector_impl" }
 %"struct.std::_Vector_base<LIEF::ELF::DynamicEntryFlags::FLAG, std::allocator<LIEF::ELF::DynamicEntryFlags::FLAG>>::_Vector_impl" = type { %"struct.std::_Vector_base<LIEF::ELF::DynamicEntryFlags::FLAG, std::allocator<LIEF::ELF::DynamicEntryFlags::FLAG>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<LIEF::ELF::DynamicEntryFlags::FLAG, std::allocator<LIEF::ELF::DynamicEntryFlags::FLAG>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::unique_ptr.97" = type { %"struct.std::__uniq_ptr_data.98" }
-%"struct.std::__uniq_ptr_data.98" = type { %"class.std::__uniq_ptr_impl.99" }
-%"class.std::__uniq_ptr_impl.99" = type { %"class.std::tuple.100" }
-%"class.std::tuple.100" = type { %"struct.std::_Tuple_impl.101" }
-%"struct.std::_Tuple_impl.101" = type { %"struct.std::_Head_base.104" }
-%"struct.std::_Head_base.104" = type { ptr }
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden void @_ZN4LIEF3ELF22init_c_dynamic_entriesEP12Elf_Binary_tPNS0_6BinaryE(ptr noundef captures(none) initializes((128, 136)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
@@ -51,7 +45,7 @@ _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14defau
 _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit: ; preds = %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit.lr.ph, %119
   %18 = phi ptr [ %6, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit.lr.ph ], [ %122, %119 ]
   %.092 = phi i64 [ 0, %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit.lr.ph ], [ %120, %119 ]
-  %19 = getelementptr inbounds %"class.std::unique_ptr.97", ptr %18, i64 %.092
+  %19 = getelementptr inbounds [8 x i8], ptr %18, i64 %.092
   %20 = load ptr, ptr %19, align 8, !tbaa !26
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load i64, ptr %21, align 8, !tbaa !28
@@ -79,7 +73,7 @@ _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14defau
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store ptr %29, ptr %30, align 8, !tbaa !39
   %31 = load ptr, ptr %13, align 8, !tbaa !13
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %.092
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %.092
   store ptr %24, ptr %32, align 8, !tbaa !24
   br label %119
 
@@ -95,7 +89,7 @@ _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14defau
   %40 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store ptr %39, ptr %40, align 8, !tbaa !43
   %41 = load ptr, ptr %13, align 8, !tbaa !13
-  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %.092
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %.092
   store ptr %34, ptr %42, align 8, !tbaa !24
   br label %119
 
@@ -111,7 +105,7 @@ _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14defau
   %50 = getelementptr inbounds nuw i8, ptr %44, i64 16
   store ptr %49, ptr %50, align 8, !tbaa !47
   %51 = load ptr, ptr %13, align 8, !tbaa !13
-  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %.092
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %.092
   store ptr %44, ptr %52, align 8, !tbaa !24
   br label %119
 
@@ -127,7 +121,7 @@ _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14defau
   %60 = getelementptr inbounds nuw i8, ptr %54, i64 16
   store ptr %59, ptr %60, align 8, !tbaa !51
   %61 = load ptr, ptr %13, align 8, !tbaa !13
-  %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %.092
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %.092
   store ptr %54, ptr %62, align 8, !tbaa !24
   br label %119
 
@@ -160,15 +154,15 @@ _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14defau
   %79 = getelementptr inbounds nuw i8, ptr %76, i64 %74
   store i64 0, ptr %79, align 8, !tbaa !60
   %80 = load ptr, ptr %13, align 8, !tbaa !13
-  %81 = getelementptr inbounds nuw ptr, ptr %80, i64 %.092
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %.092
   store ptr %64, ptr %81, align 8, !tbaa !24
   br label %119
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.08591 = phi i64 [ %85, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %82 = getelementptr inbounds nuw i64, ptr %71, i64 %.08591
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %.08591
   %83 = load i64, ptr %82, align 8, !tbaa !60
-  %84 = getelementptr inbounds nuw i64, ptr %76, i64 %.08591
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %.08591
   store i64 %83, ptr %84, align 8, !tbaa !60
   %85 = add nuw i64 %.08591, 1
   %exitcond.not = icmp eq i64 %85, %78
@@ -184,7 +178,7 @@ _ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14defau
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @_ZNK4LIEF3ELF17DynamicEntryFlags5flagsEv(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.92") align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %20) #8
   %91 = load ptr, ptr %13, align 8, !tbaa !13
-  %92 = getelementptr inbounds nuw ptr, ptr %91, i64 %.092
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %.092
   store ptr %87, ptr %92, align 8, !tbaa !24
   %93 = load ptr, ptr %3, align 8, !tbaa !66
   %.not.i.i.i = icmp eq ptr %93, null
@@ -212,7 +206,7 @@ _ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EED2Ev.exit: ; preds = %86
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNK4LIEF3ELF17DynamicEntryFlags5flagsEv(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.92") align 8 %4, ptr noundef nonnull align 8 dereferenceable(24) %20) #8
   %104 = load ptr, ptr %13, align 8, !tbaa !13
-  %105 = getelementptr inbounds nuw ptr, ptr %104, i64 %.092
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 %.092
   store ptr %100, ptr %105, align 8, !tbaa !24
   %106 = load ptr, ptr %4, align 8, !tbaa !66
   %.not.i.i.i86 = icmp eq ptr %106, null
@@ -233,7 +227,7 @@ _ZNSt6vectorIN4LIEF3ELF17DynamicEntryFlags4FLAGESaIS3_EED2Ev.exit87: ; preds = %
 112:                                              ; preds = %_ZN4LIEF12ref_iteratorIRSt6vectorISt10unique_ptrINS_3ELF12DynamicEntryESt14default_deleteIS4_EESaIS7_EEPS4_N9__gnu_cxx17__normal_iteratorIPS7_S9_EEEixEm.exit
   %113 = call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #7
   %114 = load ptr, ptr %13, align 8, !tbaa !13
-  %115 = getelementptr inbounds nuw ptr, ptr %114, i64 %.092
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %.092
   store ptr %113, ptr %115, align 8, !tbaa !24
   store i64 %22, ptr %113, align 8, !tbaa !69
   %116 = getelementptr inbounds nuw i8, ptr %20, i64 16
@@ -295,7 +289,7 @@ define hidden void @_ZN4LIEF3ELF23destroy_dynamic_entriesEP12Elf_Binary_t(ptr no
 11:                                               ; preds = %.lr.ph, %8
   tail call void @free(ptr noundef nonnull %6) #8
   %12 = add i64 %.028, 1
-  %13 = getelementptr inbounds nuw ptr, ptr %3, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !24
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !74

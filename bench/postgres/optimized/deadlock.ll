@@ -3,11 +3,7 @@ source_filename = "bench/postgres/original/deadlock.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.WAIT_ORDER = type { ptr, ptr, i32 }
-%struct.EDGE = type { ptr, ptr, ptr, i32, i32 }
 %struct.StringInfoData = type { ptr, i32, i32, i32 }
-%struct.DEADLOCK_INFO = type { %struct.LOCKTAG, i32, i32 }
-%struct.LOCKTAG = type { i32, i32, i32, i16, i8, i8 }
 
 @TopMemoryContext = external local_unnamed_addr global ptr, align 8
 @MaxBackends = external local_unnamed_addr global i32, align 4
@@ -141,7 +137,7 @@ define dso_local range(i32 1, 5) i32 @DeadLockCheck(ptr noundef %0) local_unname
 .lr.ph22:                                         ; preds = %.preheader, %._crit_edge
   %indvars.iv26 = phi i64 [ %indvars.iv.next27, %._crit_edge ], [ 0, %.preheader ]
   %14 = load ptr, ptr @waitOrders, align 8
-  %15 = getelementptr inbounds nuw %struct.WAIT_ORDER, ptr %14, i64 %indvars.iv26
+  %15 = getelementptr inbounds nuw [24 x i8], ptr %14, i64 %indvars.iv26
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %18 = load ptr, ptr %17, align 8
@@ -171,7 +167,7 @@ define dso_local range(i32 1, 5) i32 @DeadLockCheck(ptr noundef %0) local_unname
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %dclist_push_tail.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %dclist_push_tail.exit ]
-  %29 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8
   %31 = load ptr, ptr %22, align 8
   %32 = icmp eq ptr %31, null
@@ -248,12 +244,12 @@ define internal fastcc noundef zeroext i1 @DeadLockCheckRecurse(ptr noundef %0) 
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next, %26 ]
   %16 = load ptr, ptr @curConstraints, align 8
   %17 = sext i32 %15 to i64
-  %18 = getelementptr inbounds %struct.EDGE, ptr %16, i64 %17
+  %18 = getelementptr inbounds [32 x i8], ptr %16, i64 %17
   %19 = load ptr, ptr @possibleConstraints, align 8
   %20 = trunc nuw nsw i64 %indvars.iv to i32
   %21 = add i32 %10, %20
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds %struct.EDGE, ptr %19, i64 %22
+  %23 = getelementptr inbounds [32 x i8], ptr %19, i64 %22
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 32, i1 false)
   %24 = add i32 %15, 1
   store i32 %24, ptr @nCurConstraints, align 4
@@ -293,12 +289,12 @@ define internal fastcc noundef zeroext i1 @DeadLockCheckRecurse(ptr noundef %0) 
   %36 = phi i32 [ %.pre, %._crit_edge33 ], [ %29, %.lr.ph.split ]
   %37 = load ptr, ptr @curConstraints, align 8
   %38 = sext i32 %36 to i64
-  %39 = getelementptr inbounds %struct.EDGE, ptr %37, i64 %38
+  %39 = getelementptr inbounds [32 x i8], ptr %37, i64 %38
   %40 = load ptr, ptr @possibleConstraints, align 8
   %41 = trunc nuw nsw i64 %indvars.iv27 to i32
   %42 = add i32 %10, %41
   %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds %struct.EDGE, ptr %40, i64 %43
+  %44 = getelementptr inbounds [32 x i8], ptr %40, i64 %43
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) %44, i64 32, i1 false)
   %45 = add i32 %36, 1
   store i32 %45, ptr @nCurConstraints, align 4
@@ -359,7 +355,7 @@ define dso_local void @DeadLockReport() local_unnamed_addr #4 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %15 ], [ 0, %0 ]
   %6 = phi i32 [ %25, %15 ], [ %4, %0 ]
   %7 = load ptr, ptr @deadlockDetails, align 8
-  %8 = getelementptr inbounds nuw %struct.DEADLOCK_INFO, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %indvars.iv
   %9 = add nsw i32 %6, -1
   %10 = sext i32 %9 to i64
   %11 = icmp slt i64 %indvars.iv, %10
@@ -405,7 +401,7 @@ define dso_local void @DeadLockReport() local_unnamed_addr #4 {
 .lr.ph20:                                         ; preds = %._crit_edge, %.lr.ph20
   %indvars.iv23 = phi i64 [ %indvars.iv.next24, %.lr.ph20 ], [ 0, %._crit_edge ]
   %33 = load ptr, ptr @deadlockDetails, align 8
-  %34 = getelementptr inbounds nuw %struct.DEADLOCK_INFO, ptr %33, i64 %indvars.iv23
+  %34 = getelementptr inbounds nuw [24 x i8], ptr %33, i64 %indvars.iv23
   call void @appendStringInfoChar(ptr noundef nonnull %2, i8 noundef signext 10) #10
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 20
   %36 = load i32, ptr %35, align 4
@@ -494,7 +490,7 @@ define internal fastcc i32 @TestConfiguration(ptr noundef %0) unnamed_addr #0 {
   %3 = load ptr, ptr @possibleConstraints, align 8
   %4 = load i32, ptr @nPossibleConstraints, align 4
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds %struct.EDGE, ptr %3, i64 %5
+  %6 = getelementptr inbounds [32 x i8], ptr %3, i64 %5
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %7 = load i32, ptr @MaxBackends, align 4
   %8 = add i32 %7, %4
@@ -535,7 +531,7 @@ define internal fastcc i32 @TestConfiguration(ptr noundef %0) unnamed_addr #0 {
   %indvars.iv43.i = phi i64 [ %31, %.lr.ph.i ], [ %indvars.iv.next44.i, %TopoSort.exit.i ]
   %.02035.i = phi i32 [ 0, %.lr.ph.i ], [ %.121.i, %TopoSort.exit.i ]
   %34 = phi i32 [ 0, %.lr.ph.i ], [ %187, %TopoSort.exit.i ]
-  %35 = getelementptr inbounds nuw %struct.EDGE, ptr %12, i64 %indvars.iv43.i
+  %35 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 %indvars.iv43.i
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8
   %38 = zext i32 %34 to i64
@@ -550,7 +546,7 @@ define internal fastcc i32 @TestConfiguration(ptr noundef %0) unnamed_addr #0 {
 
 42:                                               ; preds = %39
   %43 = and i64 %indvars.iv.next.i, 2147483647
-  %44 = getelementptr inbounds nuw %struct.WAIT_ORDER, ptr %16, i64 %43
+  %44 = getelementptr inbounds nuw [24 x i8], ptr %16, i64 %43
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, %37
   br i1 %46, label %47, label %39, !llvm.loop !10
@@ -560,10 +556,10 @@ define internal fastcc i32 @TestConfiguration(ptr noundef %0) unnamed_addr #0 {
 
 .critedge.i:                                      ; preds = %39
   %48 = sext i32 %34 to i64
-  %49 = getelementptr inbounds %struct.WAIT_ORDER, ptr %16, i64 %48
+  %49 = getelementptr inbounds [24 x i8], ptr %16, i64 %48
   store ptr %37, ptr %49, align 8
   %50 = sext i32 %.02035.i to i64
-  %51 = getelementptr inbounds ptr, ptr %17, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %17, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store ptr %51, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %37, i64 40
@@ -584,7 +580,7 @@ define internal fastcc i32 @TestConfiguration(ptr noundef %0) unnamed_addr #0 {
   %.sroa.0.0166.i.i = phi ptr [ %63, %.lr.ph.i.i ], [ %58, %.critedge.i ]
   %59 = add i32 %.0125167.i.i, 1
   %60 = sext i32 %.0125167.i.i to i64
-  %61 = getelementptr inbounds ptr, ptr %18, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %18, i64 %60
   store ptr %.sroa.0.0166.i.i, ptr %61, align 8
   %62 = getelementptr inbounds nuw i8, ptr %.sroa.0.0166.i.i, i64 8
   %63 = load ptr, ptr %62, align 8
@@ -660,14 +656,14 @@ define internal fastcc i32 @TestConfiguration(ptr noundef %0) unnamed_addr #0 {
 
 .lr.ph176.i.preheader.us.i:                       ; preds = %.lr.ph185.i.i, %._crit_edge177.thread.i.us.i
   %indvars.iv215.i.us.i = phi i64 [ %indvars.iv.next216.i.us.i, %._crit_edge177.thread.i.us.i ], [ 0, %.lr.ph185.i.i ]
-  %89 = getelementptr inbounds nuw %struct.EDGE, ptr %12, i64 %indvars.iv215.i.us.i
+  %89 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 %indvars.iv215.i.us.i
   %90 = load ptr, ptr %89, align 8
   br label %.lr.ph176.i.us.i
 
 .lr.ph176.i.us.i:                                 ; preds = %103, %.lr.ph176.i.preheader.us.i
   %indvars.iv.i.us.i = phi i64 [ %indvars.iv.next.i.us.i, %103 ], [ %88, %.lr.ph176.i.preheader.us.i ]
   %.0131174.i.us.i = phi i32 [ %.1132.i.us.i, %103 ], [ -1, %.lr.ph176.i.preheader.us.i ]
-  %91 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv.i.us.i
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv.i.us.i
   %92 = load ptr, ptr %91, align 8
   %93 = icmp eq ptr %92, %90
   br i1 %93, label %98, label %94
@@ -684,7 +680,7 @@ define internal fastcc i32 @TestConfiguration(ptr noundef %0) unnamed_addr #0 {
   br i1 %99, label %103, label %101
 
 101:                                              ; preds = %98
-  %102 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv.i.us.i
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv.i.us.i
   store i32 -1, ptr %102, align 4
   br label %103
 
@@ -706,7 +702,7 @@ define internal fastcc i32 @TestConfiguration(ptr noundef %0) unnamed_addr #0 {
 .lr.ph180.i.us.i:                                 ; preds = %121, %106
   %indvars.iv212.i.us.i = phi i64 [ %indvars.iv.next213.i.us.i, %121 ], [ %88, %106 ]
   %.0135178.i.us.i = phi i32 [ %.1136.i.us.i, %121 ], [ -1, %106 ]
-  %109 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv212.i.us.i
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv212.i.us.i
   %110 = load ptr, ptr %109, align 8
   %111 = icmp eq ptr %110, %108
   br i1 %111, label %116, label %112
@@ -723,7 +719,7 @@ define internal fastcc i32 @TestConfiguration(ptr noundef %0) unnamed_addr #0 {
   br i1 %117, label %121, label %119
 
 119:                                              ; preds = %116
-  %120 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv212.i.us.i
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv212.i.us.i
   store i32 -1, ptr %120, align 4
   br label %121
 
@@ -739,14 +735,14 @@ define internal fastcc i32 @TestConfiguration(ptr noundef %0) unnamed_addr #0 {
 
 124:                                              ; preds = %._crit_edge181.i.us.i
   %125 = zext nneg i32 %.1132.i.us.i to i64
-  %126 = getelementptr inbounds nuw i32, ptr %19, i64 %125
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %125
   %127 = load i32, ptr %126, align 4
   %128 = add i32 %127, 1
   store i32 %128, ptr %126, align 4
   %129 = getelementptr inbounds nuw i8, ptr %89, i64 24
   store i32 %.1132.i.us.i, ptr %129, align 8
   %130 = zext nneg i32 %.1136.i.us.i to i64
-  %131 = getelementptr inbounds nuw i32, ptr %25, i64 %130
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %130
   %132 = load i32, ptr %131, align 4
   %133 = getelementptr inbounds nuw i8, ptr %89, i64 28
   store i32 %132, ptr %133, align 4
@@ -776,7 +772,7 @@ define internal fastcc i32 @TestConfiguration(ptr noundef %0) unnamed_addr #0 {
 138:                                              ; preds = %138, %.preheader158.i.i
   %.1139.i.i = phi i32 [ %143, %138 ], [ %.0138202.i.i, %.preheader158.i.i ]
   %139 = sext i32 %.1139.i.i to i64
-  %140 = getelementptr inbounds ptr, ptr %18, i64 %139
+  %140 = getelementptr inbounds [8 x i8], ptr %18, i64 %139
   %141 = load ptr, ptr %140, align 8
   %142 = icmp eq ptr %141, null
   %143 = add i32 %.1139.i.i, -1
@@ -792,13 +788,13 @@ define internal fastcc i32 @TestConfiguration(ptr noundef %0) unnamed_addr #0 {
 
 .lr.ph188.i.i:                                    ; preds = %152, %.lr.ph188.preheader.i.i
   %indvars.iv219.i.i = phi i64 [ %145, %.lr.ph188.preheader.i.i ], [ %indvars.iv.next220.i.i, %152 ]
-  %146 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv219.i.i
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv219.i.i
   %147 = load ptr, ptr %146, align 8
   %.not152.i.i = icmp eq ptr %147, null
   br i1 %.not152.i.i, label %152, label %148
 
 148:                                              ; preds = %.lr.ph188.i.i
-  %149 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv219.i.i
+  %149 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv219.i.i
   %150 = load i32, ptr %149, align 4
   %151 = icmp eq i32 %150, 0
   br i1 %151, label %.lr.ph195.preheader.i.i, label %152
@@ -810,7 +806,7 @@ define internal fastcc i32 @TestConfiguration(ptr noundef %0) unnamed_addr #0 {
 
 .lr.ph195.preheader.i.i:                          ; preds = %148
   %154 = and i64 %indvars.iv219.i.i, 4294967295
-  %155 = getelementptr inbounds nuw ptr, ptr %18, i64 %154
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %154
   %156 = load ptr, ptr %155, align 8
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 792
   %158 = load ptr, ptr %157, align 8
@@ -821,7 +817,7 @@ define internal fastcc i32 @TestConfiguration(ptr noundef %0) unnamed_addr #0 {
 .lr.ph195.i.i:                                    ; preds = %172, %.lr.ph195.preheader.i.i
   %indvars.iv222.i.i = phi i64 [ 0, %.lr.ph195.preheader.i.i ], [ %indvars.iv.next223.i.i, %172 ]
   %.0120193.i.i = phi i32 [ 0, %.lr.ph195.preheader.i.i ], [ %.1.i.i, %172 ]
-  %159 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv222.i.i
+  %159 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv222.i.i
   %160 = load ptr, ptr %159, align 8
   %161 = icmp eq ptr %160, %spec.select.i.i
   br i1 %161, label %167, label %162
@@ -839,7 +835,7 @@ define internal fastcc i32 @TestConfiguration(ptr noundef %0) unnamed_addr #0 {
 167:                                              ; preds = %163, %.lr.ph195.i.i
   %168 = sub i32 %.2127203.i.i, %.0120193.i.i
   %169 = sext i32 %168 to i64
-  %170 = getelementptr inbounds ptr, ptr %51, i64 %169
+  %170 = getelementptr inbounds [8 x i8], ptr %51, i64 %169
   store ptr %160, ptr %170, align 8
   store ptr null, ptr %159, align 8
   %171 = add i32 %.0120193.i.i, 1
@@ -853,7 +849,7 @@ define internal fastcc i32 @TestConfiguration(ptr noundef %0) unnamed_addr #0 {
 
 ._crit_edge196.i.i:                               ; preds = %172
   %173 = sub i32 %.2127203.i.i, %.1.i.i
-  %174 = getelementptr inbounds nuw i32, ptr %25, i64 %154
+  %174 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %154
   %.1134198.i.i = load i32, ptr %174, align 4
   %175 = icmp sgt i32 %.1134198.i.i, 0
   br i1 %175, label %.lr.ph201.i.i, label %.loopexit.i.i
@@ -861,11 +857,11 @@ define internal fastcc i32 @TestConfiguration(ptr noundef %0) unnamed_addr #0 {
 .lr.ph201.i.i:                                    ; preds = %._crit_edge196.i.i, %.lr.ph201.i.i
   %.1134199.i.i = phi i32 [ %.1134.i.i, %.lr.ph201.i.i ], [ %.1134198.i.i, %._crit_edge196.i.i ]
   %176 = zext nneg i32 %.1134199.i.i to i64
-  %177 = getelementptr %struct.EDGE, ptr %12, i64 %176
+  %177 = getelementptr [32 x i8], ptr %12, i64 %176
   %178 = getelementptr i8, ptr %177, i64 -8
   %179 = load i32, ptr %178, align 8
   %180 = sext i32 %179 to i64
-  %181 = getelementptr inbounds i32, ptr %19, i64 %180
+  %181 = getelementptr inbounds [4 x i8], ptr %19, i64 %180
   %182 = load i32, ptr %181, align 4
   %183 = add i32 %182, -1
   store i32 %183, ptr %181, align 4
@@ -895,7 +891,7 @@ ExpandConstraints.exit:                           ; preds = %TopoSort.exit.i
   %indvars.iv = phi i64 [ %indvars.iv.next, %206 ], [ 0, %ExpandConstraints.exit ]
   %.01018 = phi i32 [ %.2, %206 ], [ 0, %ExpandConstraints.exit ]
   %190 = load ptr, ptr @curConstraints, align 8
-  %191 = getelementptr inbounds nuw %struct.EDGE, ptr %190, i64 %indvars.iv
+  %191 = getelementptr inbounds nuw [32 x i8], ptr %190, i64 %indvars.iv
   %192 = load ptr, ptr %191, align 8
   store i32 0, ptr @nVisitedProcs, align 4
   store i32 0, ptr @nDeadlockDetails, align 4
@@ -911,7 +907,7 @@ ExpandConstraints.exit:                           ; preds = %TopoSort.exit.i
 197:                                              ; preds = %194, %.lr.ph
   %.1 = phi i32 [ %.01018, %.lr.ph ], [ %195, %194 ]
   %198 = load ptr, ptr @curConstraints, align 8
-  %199 = getelementptr inbounds nuw %struct.EDGE, ptr %198, i64 %indvars.iv
+  %199 = getelementptr inbounds nuw [32 x i8], ptr %198, i64 %indvars.iv
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 8
   %201 = load ptr, ptr %200, align 8
   store i32 0, ptr @nVisitedProcs, align 4
@@ -970,7 +966,7 @@ define internal fastcc noundef zeroext i1 @FindLockCycleRecurse(ptr noundef %0, 
 .lr.ph:                                           ; preds = %4, %16
   %.03348 = phi i32 [ %17, %16 ], [ 0, %4 ]
   %9 = zext nneg i32 %.03348 to i64
-  %10 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, %spec.select
   br i1 %12, label %13, label %16
@@ -992,7 +988,7 @@ define internal fastcc noundef zeroext i1 @FindLockCycleRecurse(ptr noundef %0, 
   %18 = add i32 %7, 1
   store i32 %18, ptr @nVisitedProcs, align 4
   %19 = sext i32 %7 to i64
-  %20 = getelementptr inbounds ptr, ptr %.pre, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %.pre, i64 %19
   store ptr %spec.select, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %spec.select, i64 8
   %22 = load ptr, ptr %21, align 8
@@ -1067,7 +1063,7 @@ define internal fastcc noundef zeroext i1 @FindLockCycleRecurseMember(ptr nounde
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %17 = load i32, ptr %16, align 8
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds i32, ptr %15, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %15, i64 %18
   %20 = load i32, ptr %19, align 4
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -1130,7 +1126,7 @@ define internal fastcc noundef zeroext i1 @FindLockCycleRecurseMember(ptr nounde
 .critedge:                                        ; preds = %41
   %43 = load ptr, ptr @deadlockDetails, align 8
   %44 = sext i32 %2 to i64
-  %45 = getelementptr inbounds %struct.DEADLOCK_INFO, ptr %43, i64 %44
+  %45 = getelementptr inbounds [24 x i8], ptr %43, i64 %44
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %45, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
   %46 = load i32, ptr %16, align 8
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 16
@@ -1165,7 +1161,7 @@ define internal fastcc noundef zeroext i1 @FindLockCycleRecurseMember(ptr nounde
 
 61:                                               ; preds = %.lr.ph, %65
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %65 ]
-  %62 = getelementptr inbounds nuw %struct.WAIT_ORDER, ptr %27, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [24 x i8], ptr %27, i64 %indvars.iv
   %63 = load ptr, ptr %62, align 8
   %64 = icmp eq ptr %63, %7
   br i1 %64, label %66, label %65
@@ -1177,7 +1173,7 @@ define internal fastcc noundef zeroext i1 @FindLockCycleRecurseMember(ptr nounde
 
 66:                                               ; preds = %61
   %67 = and i64 %indvars.iv, 4294967295
-  %68 = getelementptr inbounds nuw %struct.WAIT_ORDER, ptr %27, i64 %67
+  %68 = getelementptr inbounds nuw [24 x i8], ptr %27, i64 %67
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %70 = load ptr, ptr %69, align 8
   %71 = getelementptr inbounds nuw i8, ptr %68, i64 16
@@ -1192,7 +1188,7 @@ define internal fastcc noundef zeroext i1 @FindLockCycleRecurseMember(ptr nounde
 
 75:                                               ; preds = %.lr.ph215, %89
   %indvars.iv225 = phi i64 [ 0, %.lr.ph215 ], [ %indvars.iv.next226, %89 ]
-  %76 = getelementptr inbounds nuw ptr, ptr %70, i64 %indvars.iv225
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %indvars.iv225
   %77 = load ptr, ptr %76, align 8
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 792
   %79 = load ptr, ptr %78, align 8
@@ -1221,7 +1217,7 @@ define internal fastcc noundef zeroext i1 @FindLockCycleRecurseMember(ptr nounde
 90:                                               ; preds = %87
   %91 = load ptr, ptr @deadlockDetails, align 8
   %92 = sext i32 %2 to i64
-  %93 = getelementptr inbounds %struct.DEADLOCK_INFO, ptr %91, i64 %92
+  %93 = getelementptr inbounds [24 x i8], ptr %91, i64 %92
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %93, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
   %94 = load i32, ptr %16, align 8
   %95 = getelementptr inbounds nuw i8, ptr %93, i64 16
@@ -1232,16 +1228,16 @@ define internal fastcc noundef zeroext i1 @FindLockCycleRecurseMember(ptr nounde
   store i32 %97, ptr %98, align 4
   %99 = load i32, ptr %4, align 4
   %100 = sext i32 %99 to i64
-  %101 = getelementptr inbounds %struct.EDGE, ptr %3, i64 %100
+  %101 = getelementptr inbounds [32 x i8], ptr %3, i64 %100
   store ptr %1, ptr %101, align 8
   %102 = load i32, ptr %4, align 4
   %103 = sext i32 %102 to i64
-  %104 = getelementptr inbounds %struct.EDGE, ptr %3, i64 %103
+  %104 = getelementptr inbounds [32 x i8], ptr %3, i64 %103
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
   store ptr %.172, ptr %105, align 8
   %106 = load i32, ptr %4, align 4
   %107 = sext i32 %106 to i64
-  %108 = getelementptr inbounds %struct.EDGE, ptr %3, i64 %107
+  %108 = getelementptr inbounds [32 x i8], ptr %3, i64 %107
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 16
   store ptr %7, ptr %109, align 8
   %110 = load i32, ptr %4, align 4
@@ -1319,7 +1315,7 @@ define internal fastcc noundef zeroext i1 @FindLockCycleRecurseMember(ptr nounde
 138:                                              ; preds = %133
   %139 = load ptr, ptr @deadlockDetails, align 8
   %140 = sext i32 %2 to i64
-  %141 = getelementptr inbounds %struct.DEADLOCK_INFO, ptr %139, i64 %140
+  %141 = getelementptr inbounds [24 x i8], ptr %139, i64 %140
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %141, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
   %142 = load i32, ptr %16, align 8
   %143 = getelementptr inbounds nuw i8, ptr %141, i64 16
@@ -1330,16 +1326,16 @@ define internal fastcc noundef zeroext i1 @FindLockCycleRecurseMember(ptr nounde
   store i32 %145, ptr %146, align 4
   %147 = load i32, ptr %4, align 4
   %148 = sext i32 %147 to i64
-  %149 = getelementptr inbounds %struct.EDGE, ptr %3, i64 %148
+  %149 = getelementptr inbounds [32 x i8], ptr %3, i64 %148
   store ptr %1, ptr %149, align 8
   %150 = load i32, ptr %4, align 4
   %151 = sext i32 %150 to i64
-  %152 = getelementptr inbounds %struct.EDGE, ptr %3, i64 %151
+  %152 = getelementptr inbounds [32 x i8], ptr %3, i64 %151
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
   store ptr %.sroa.0.1., ptr %153, align 8
   %154 = load i32, ptr %4, align 4
   %155 = sext i32 %154 to i64
-  %156 = getelementptr inbounds %struct.EDGE, ptr %3, i64 %155
+  %156 = getelementptr inbounds [32 x i8], ptr %3, i64 %155
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 16
   store ptr %7, ptr %157, align 8
   %158 = load i32, ptr %4, align 4

@@ -1265,7 +1265,7 @@ _ZN6hermes2vm12JSTypedArrayIsLNS0_8CellKindE36EE2atERNS0_7RuntimeEj.exit: ; pred
   %idx.ext.i.i.i = zext i32 %9 to i64
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 %idx.ext.i.i.i
   %idxprom.i = zext i32 %index to i64
-  %arrayidx.i = getelementptr inbounds nuw i16, ptr %add.ptr.i.i.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [2 x i8], ptr %add.ptr.i.i.i, i64 %idxprom.i
   %10 = load i16, ptr %arrayidx.i, align 2
   %conv.i.i = sitofp i16 %10 to double
   %11 = bitcast double %conv.i.i to i64
@@ -1372,7 +1372,7 @@ _ZN6hermes2vm12JSTypedArrayIsLNS0_8CellKindE36EE2atERNS0_7RuntimeEj.exit: ; pred
   %idx.ext.i.i.i = zext i32 %15 to i64
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 %idx.ext.i.i.i
   %idxprom.i = zext i32 %index to i64
-  %arrayidx.i = getelementptr inbounds nuw i16, ptr %add.ptr.i.i.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [2 x i8], ptr %add.ptr.i.i.i, i64 %idxprom.i
   store i16 %conv.i, ptr %arrayidx.i, align 2
   br label %return
 
@@ -1499,7 +1499,7 @@ _ZN6hermes2vm12JSTypedArrayIsLNS0_8CellKindE36EE5beginERNS0_7RuntimeE.exit: ; pr
   %length_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %7 = load i32, ptr %length_, align 4
   %idx.ext = zext i32 %7 to i64
-  %add.ptr = getelementptr inbounds nuw i16, ptr %add.ptr.i.i, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw [2 x i8], ptr %add.ptr.i.i, i64 %idx.ext
   ret ptr %add.ptr
 }
 
@@ -1533,7 +1533,7 @@ _ZN6hermes2vm12JSTypedArrayIsLNS0_8CellKindE36EE5beginERNS0_7RuntimeE.exit: ; pr
   %idx.ext.i.i = zext i32 %6 to i64
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %5, i64 %idx.ext.i.i
   %idxprom = zext i32 %i to i64
-  %arrayidx = getelementptr inbounds nuw i16, ptr %add.ptr.i.i, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [2 x i8], ptr %add.ptr.i.i, i64 %idxprom
   ret ptr %arrayidx
 }
 
@@ -1865,7 +1865,7 @@ _ZN6hermes2vm12JSTypedArrayIiLNS0_8CellKindE37EE2atERNS0_7RuntimeEj.exit: ; pred
   %idx.ext.i.i.i = zext i32 %9 to i64
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 %idx.ext.i.i.i
   %idxprom.i = zext i32 %index to i64
-  %arrayidx.i = getelementptr inbounds nuw i32, ptr %add.ptr.i.i.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [4 x i8], ptr %add.ptr.i.i.i, i64 %idxprom.i
   %10 = load i32, ptr %arrayidx.i, align 4
   %conv.i.i = sitofp i32 %10 to double
   %11 = bitcast double %conv.i.i to i64
@@ -1971,7 +1971,7 @@ _ZN6hermes2vm12JSTypedArrayIiLNS0_8CellKindE37EE2atERNS0_7RuntimeEj.exit: ; pred
   %idx.ext.i.i.i = zext i32 %15 to i64
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 %idx.ext.i.i.i
   %idxprom.i = zext i32 %index to i64
-  %arrayidx.i = getelementptr inbounds nuw i32, ptr %add.ptr.i.i.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [4 x i8], ptr %add.ptr.i.i.i, i64 %idxprom.i
   store i32 %retval.0.i.i, ptr %arrayidx.i, align 4
   br label %return
 
@@ -2098,7 +2098,7 @@ _ZN6hermes2vm12JSTypedArrayIiLNS0_8CellKindE37EE5beginERNS0_7RuntimeE.exit: ; pr
   %length_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %7 = load i32, ptr %length_, align 4
   %idx.ext = zext i32 %7 to i64
-  %add.ptr = getelementptr inbounds nuw i32, ptr %add.ptr.i.i, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw [4 x i8], ptr %add.ptr.i.i, i64 %idx.ext
   ret ptr %add.ptr
 }
 
@@ -2132,7 +2132,7 @@ _ZN6hermes2vm12JSTypedArrayIiLNS0_8CellKindE37EE5beginERNS0_7RuntimeE.exit: ; pr
   %idx.ext.i.i = zext i32 %6 to i64
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %5, i64 %idx.ext.i.i
   %idxprom = zext i32 %i to i64
-  %arrayidx = getelementptr inbounds nuw i32, ptr %add.ptr.i.i, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [4 x i8], ptr %add.ptr.i.i, i64 %idxprom
   ret ptr %arrayidx
 }
 
@@ -3621,7 +3621,7 @@ _ZN6hermes2vm12JSTypedArrayItLNS0_8CellKindE40EE2atERNS0_7RuntimeEj.exit: ; pred
   %idx.ext.i.i.i = zext i32 %9 to i64
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 %idx.ext.i.i.i
   %idxprom.i = zext i32 %index to i64
-  %arrayidx.i = getelementptr inbounds nuw i16, ptr %add.ptr.i.i.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [2 x i8], ptr %add.ptr.i.i.i, i64 %idxprom.i
   %10 = load i16, ptr %arrayidx.i, align 2
   %conv.i.i = uitofp i16 %10 to double
   %11 = bitcast double %conv.i.i to i64
@@ -3728,7 +3728,7 @@ _ZN6hermes2vm12JSTypedArrayItLNS0_8CellKindE40EE2atERNS0_7RuntimeEj.exit: ; pred
   %idx.ext.i.i.i = zext i32 %15 to i64
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 %idx.ext.i.i.i
   %idxprom.i = zext i32 %index to i64
-  %arrayidx.i = getelementptr inbounds nuw i16, ptr %add.ptr.i.i.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [2 x i8], ptr %add.ptr.i.i.i, i64 %idxprom.i
   store i16 %conv.i, ptr %arrayidx.i, align 2
   br label %return
 
@@ -3855,7 +3855,7 @@ _ZN6hermes2vm12JSTypedArrayItLNS0_8CellKindE40EE5beginERNS0_7RuntimeE.exit: ; pr
   %length_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %7 = load i32, ptr %length_, align 4
   %idx.ext = zext i32 %7 to i64
-  %add.ptr = getelementptr inbounds nuw i16, ptr %add.ptr.i.i, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw [2 x i8], ptr %add.ptr.i.i, i64 %idx.ext
   ret ptr %add.ptr
 }
 
@@ -3889,7 +3889,7 @@ _ZN6hermes2vm12JSTypedArrayItLNS0_8CellKindE40EE5beginERNS0_7RuntimeE.exit: ; pr
   %idx.ext.i.i = zext i32 %6 to i64
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %5, i64 %idx.ext.i.i
   %idxprom = zext i32 %i to i64
-  %arrayidx = getelementptr inbounds nuw i16, ptr %add.ptr.i.i, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [2 x i8], ptr %add.ptr.i.i, i64 %idxprom
   ret ptr %arrayidx
 }
 
@@ -4221,7 +4221,7 @@ _ZN6hermes2vm12JSTypedArrayIjLNS0_8CellKindE41EE2atERNS0_7RuntimeEj.exit: ; pred
   %idx.ext.i.i.i = zext i32 %9 to i64
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 %idx.ext.i.i.i
   %idxprom.i = zext i32 %index to i64
-  %arrayidx.i = getelementptr inbounds nuw i32, ptr %add.ptr.i.i.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [4 x i8], ptr %add.ptr.i.i.i, i64 %idxprom.i
   %10 = load i32, ptr %arrayidx.i, align 4
   %conv.i.i = uitofp i32 %10 to double
   %11 = bitcast double %conv.i.i to i64
@@ -4327,7 +4327,7 @@ _ZN6hermes2vm12JSTypedArrayIjLNS0_8CellKindE41EE2atERNS0_7RuntimeEj.exit: ; pred
   %idx.ext.i.i.i = zext i32 %15 to i64
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 %idx.ext.i.i.i
   %idxprom.i = zext i32 %index to i64
-  %arrayidx.i = getelementptr inbounds nuw i32, ptr %add.ptr.i.i.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [4 x i8], ptr %add.ptr.i.i.i, i64 %idxprom.i
   store i32 %retval.0.i.i, ptr %arrayidx.i, align 4
   br label %return
 
@@ -4454,7 +4454,7 @@ _ZN6hermes2vm12JSTypedArrayIjLNS0_8CellKindE41EE5beginERNS0_7RuntimeE.exit: ; pr
   %length_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %7 = load i32, ptr %length_, align 4
   %idx.ext = zext i32 %7 to i64
-  %add.ptr = getelementptr inbounds nuw i32, ptr %add.ptr.i.i, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw [4 x i8], ptr %add.ptr.i.i, i64 %idx.ext
   ret ptr %add.ptr
 }
 
@@ -4488,7 +4488,7 @@ _ZN6hermes2vm12JSTypedArrayIjLNS0_8CellKindE41EE5beginERNS0_7RuntimeE.exit: ; pr
   %idx.ext.i.i = zext i32 %6 to i64
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %5, i64 %idx.ext.i.i
   %idxprom = zext i32 %i to i64
-  %arrayidx = getelementptr inbounds nuw i32, ptr %add.ptr.i.i, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [4 x i8], ptr %add.ptr.i.i, i64 %idxprom
   ret ptr %arrayidx
 }
 
@@ -4819,7 +4819,7 @@ _ZN6hermes2vm12JSTypedArrayIfLNS0_8CellKindE42EE2atERNS0_7RuntimeEj.exit: ; pred
   %idx.ext.i.i.i = zext i32 %9 to i64
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 %idx.ext.i.i.i
   %idxprom.i = zext i32 %index to i64
-  %arrayidx.i = getelementptr inbounds nuw float, ptr %add.ptr.i.i.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [4 x i8], ptr %add.ptr.i.i.i, i64 %idxprom.i
   %10 = load float, ptr %arrayidx.i, align 4
   %conv.i = fpext float %10 to double
   %11 = fcmp uno float %10, 0.000000e+00
@@ -4911,7 +4911,7 @@ _ZN6hermes2vm12JSTypedArrayIfLNS0_8CellKindE42EE2atERNS0_7RuntimeEj.exit: ; pred
   %idx.ext.i.i.i = zext i32 %15 to i64
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 %idx.ext.i.i.i
   %idxprom.i = zext i32 %index to i64
-  %arrayidx.i = getelementptr inbounds nuw float, ptr %add.ptr.i.i.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [4 x i8], ptr %add.ptr.i.i.i, i64 %idxprom.i
   store float %conv.i, ptr %arrayidx.i, align 4
   br label %return
 
@@ -5038,7 +5038,7 @@ _ZN6hermes2vm12JSTypedArrayIfLNS0_8CellKindE42EE5beginERNS0_7RuntimeE.exit: ; pr
   %length_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %7 = load i32, ptr %length_, align 4
   %idx.ext = zext i32 %7 to i64
-  %add.ptr = getelementptr inbounds nuw float, ptr %add.ptr.i.i, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw [4 x i8], ptr %add.ptr.i.i, i64 %idx.ext
   ret ptr %add.ptr
 }
 
@@ -5072,7 +5072,7 @@ _ZN6hermes2vm12JSTypedArrayIfLNS0_8CellKindE42EE5beginERNS0_7RuntimeE.exit: ; pr
   %idx.ext.i.i = zext i32 %6 to i64
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %5, i64 %idx.ext.i.i
   %idxprom = zext i32 %i to i64
-  %arrayidx = getelementptr inbounds nuw float, ptr %add.ptr.i.i, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [4 x i8], ptr %add.ptr.i.i, i64 %idxprom
   ret ptr %arrayidx
 }
 
@@ -5379,7 +5379,7 @@ _ZN6hermes2vm12JSTypedArrayIdLNS0_8CellKindE43EE2atERNS0_7RuntimeEj.exit: ; pred
   %idx.ext.i.i.i = zext i32 %9 to i64
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 %idx.ext.i.i.i
   %idxprom.i = zext i32 %index to i64
-  %arrayidx.i = getelementptr inbounds nuw double, ptr %add.ptr.i.i.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i.i, i64 %idxprom.i
   %10 = load double, ptr %arrayidx.i, align 8
   %11 = fcmp uno double %10, 0.000000e+00
   %12 = bitcast double %10 to i64
@@ -5468,7 +5468,7 @@ _ZN6hermes2vm12JSTypedArrayIdLNS0_8CellKindE43EE2atERNS0_7RuntimeEj.exit: ; pred
   %idx.ext.i.i.i = zext i32 %14 to i64
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 %idx.ext.i.i.i
   %idxprom.i = zext i32 %index to i64
-  %arrayidx.i = getelementptr inbounds nuw double, ptr %add.ptr.i.i.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i.i, i64 %idxprom.i
   store i64 %retval.sroa.4.0.i21, ptr %arrayidx.i, align 8
   br label %return
 
@@ -5595,7 +5595,7 @@ _ZN6hermes2vm12JSTypedArrayIdLNS0_8CellKindE43EE5beginERNS0_7RuntimeE.exit: ; pr
   %length_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %7 = load i32, ptr %length_, align 4
   %idx.ext = zext i32 %7 to i64
-  %add.ptr = getelementptr inbounds nuw double, ptr %add.ptr.i.i, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i, i64 %idx.ext
   ret ptr %add.ptr
 }
 
@@ -5629,7 +5629,7 @@ _ZN6hermes2vm12JSTypedArrayIdLNS0_8CellKindE43EE5beginERNS0_7RuntimeE.exit: ; pr
   %idx.ext.i.i = zext i32 %6 to i64
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %5, i64 %idx.ext.i.i
   %idxprom = zext i32 %i to i64
-  %arrayidx = getelementptr inbounds nuw double, ptr %add.ptr.i.i, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i, i64 %idxprom
   ret ptr %arrayidx
 }
 
@@ -5948,7 +5948,7 @@ _ZN6hermes2vm12JSTypedArrayIlLNS0_8CellKindE44EE2atERNS0_7RuntimeEj.exit: ; pred
   %idx.ext.i.i.i = zext i32 %11 to i64
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 %idx.ext.i.i.i
   %idxprom.i = zext i32 %index to i64
-  %arrayidx.i = getelementptr inbounds nuw i64, ptr %add.ptr.i.i.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i.i, i64 %idxprom.i
   %12 = load i64, ptr %arrayidx.i, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %value.addr.i.i8)
   store i64 %12, ptr %value.addr.i.i8, align 8
@@ -6098,7 +6098,7 @@ _ZN6hermes2vm12JSTypedArrayIlLNS0_8CellKindE44EE2atERNS0_7RuntimeEj.exit: ; pred
   %idx.ext.i.i.i = zext i32 %18 to i64
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %17, i64 %idx.ext.i.i.i
   %idxprom.i = zext i32 %index to i64
-  %arrayidx.i = getelementptr inbounds nuw i64, ptr %add.ptr.i.i.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i.i, i64 %idxprom.i
   store i64 %cond.i, ptr %arrayidx.i, align 8
   br label %return
 
@@ -6225,7 +6225,7 @@ _ZN6hermes2vm12JSTypedArrayIlLNS0_8CellKindE44EE5beginERNS0_7RuntimeE.exit: ; pr
   %length_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %7 = load i32, ptr %length_, align 4
   %idx.ext = zext i32 %7 to i64
-  %add.ptr = getelementptr inbounds nuw i64, ptr %add.ptr.i.i, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i, i64 %idx.ext
   ret ptr %add.ptr
 }
 
@@ -6259,7 +6259,7 @@ _ZN6hermes2vm12JSTypedArrayIlLNS0_8CellKindE44EE5beginERNS0_7RuntimeE.exit: ; pr
   %idx.ext.i.i = zext i32 %6 to i64
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %5, i64 %idx.ext.i.i
   %idxprom = zext i32 %i to i64
-  %arrayidx = getelementptr inbounds nuw i64, ptr %add.ptr.i.i, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i, i64 %idxprom
   ret ptr %arrayidx
 }
 
@@ -6599,7 +6599,7 @@ _ZN6hermes2vm12JSTypedArrayImLNS0_8CellKindE45EE2atERNS0_7RuntimeEj.exit: ; pred
   %idx.ext.i.i.i = zext i32 %11 to i64
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 %idx.ext.i.i.i
   %idxprom.i = zext i32 %index to i64
-  %arrayidx.i = getelementptr inbounds nuw i64, ptr %add.ptr.i.i.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i.i, i64 %idxprom.i
   %12 = load i64, ptr %arrayidx.i, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %tmp.i.i8)
   store i64 %12, ptr %tmp.i.i8, align 16
@@ -6751,7 +6751,7 @@ _ZN6hermes2vm12JSTypedArrayImLNS0_8CellKindE45EE2atERNS0_7RuntimeEj.exit: ; pred
   %idx.ext.i.i.i = zext i32 %18 to i64
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %17, i64 %idx.ext.i.i.i
   %idxprom.i = zext i32 %index to i64
-  %arrayidx.i = getelementptr inbounds nuw i64, ptr %add.ptr.i.i.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i.i, i64 %idxprom.i
   store i64 %cond.i, ptr %arrayidx.i, align 8
   br label %return
 
@@ -6878,7 +6878,7 @@ _ZN6hermes2vm12JSTypedArrayImLNS0_8CellKindE45EE5beginERNS0_7RuntimeE.exit: ; pr
   %length_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %7 = load i32, ptr %length_, align 4
   %idx.ext = zext i32 %7 to i64
-  %add.ptr = getelementptr inbounds nuw i64, ptr %add.ptr.i.i, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i, i64 %idx.ext
   ret ptr %add.ptr
 }
 
@@ -6912,7 +6912,7 @@ _ZN6hermes2vm12JSTypedArrayImLNS0_8CellKindE45EE5beginERNS0_7RuntimeE.exit: ; pr
   %idx.ext.i.i = zext i32 %6 to i64
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %5, i64 %idx.ext.i.i
   %idxprom = zext i32 %i to i64
-  %arrayidx = getelementptr inbounds nuw i64, ptr %add.ptr.i.i, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i, i64 %idxprom
   ret ptr %arrayidx
 }
 
@@ -7237,7 +7237,7 @@ entry:
   %bf.load.i.i = load i32, ptr %this, align 4
   %bf.lshr.i.i = lshr i32 %bf.load.i.i, 24
   %conv = zext nneg i32 %bf.lshr.i.i to i64
-  %0 = getelementptr ptr, ptr @_ZZN6hermes2vm16JSTypedArrayBase8allocateERNS0_7RuntimeEjE11allocateFns, i64 %conv
+  %0 = getelementptr [8 x i8], ptr @_ZZN6hermes2vm16JSTypedArrayBase8allocateERNS0_7RuntimeEjE11allocateFns, i64 %conv
   %arrayidx = getelementptr i8, ptr %0, i64 -280
   %1 = load ptr, ptr %arrayidx, align 8
   %call2 = tail call ptr %1(ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %length) #10
@@ -7255,7 +7255,7 @@ entry:
   %bf.load.i.i.i = load i32, ptr %0, align 4
   %bf.lshr.i.i.i = lshr i32 %bf.load.i.i.i, 24
   %conv.i = zext nneg i32 %bf.lshr.i.i.i to i64
-  %1 = getelementptr ptr, ptr @_ZZN6hermes2vm16JSTypedArrayBase15allocateSpeciesERNS0_7RuntimeENS0_6HandleIS1_EEjE11allocateFns, i64 %conv.i
+  %1 = getelementptr [8 x i8], ptr @_ZZN6hermes2vm16JSTypedArrayBase15allocateSpeciesERNS0_7RuntimeENS0_6HandleIS1_EEjE11allocateFns, i64 %conv.i
   %arrayidx.i = getelementptr i8, ptr %1, i64 -280
   %2 = load ptr, ptr %arrayidx.i, align 8
   %call5.i = tail call ptr %2(ptr nonnull %src.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %sub) #10
@@ -7347,7 +7347,7 @@ entry:
   %bf.load.i.i = load i32, ptr %0, align 4
   %bf.lshr.i.i = lshr i32 %bf.load.i.i, 24
   %conv = zext nneg i32 %bf.lshr.i.i to i64
-  %1 = getelementptr ptr, ptr @_ZZN6hermes2vm16JSTypedArrayBase15allocateSpeciesERNS0_7RuntimeENS0_6HandleIS1_EEjE11allocateFns, i64 %conv
+  %1 = getelementptr [8 x i8], ptr @_ZZN6hermes2vm16JSTypedArrayBase15allocateSpeciesERNS0_7RuntimeENS0_6HandleIS1_EEjE11allocateFns, i64 %conv
   %arrayidx = getelementptr i8, ptr %1, i64 -280
   %2 = load ptr, ptr %arrayidx, align 8
   %call5 = tail call ptr %2(ptr nonnull %self.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 noundef %length) #10
@@ -7536,7 +7536,7 @@ for.body:                                         ; preds = %_ZN6hermes2vm13Muta
   %bf.load.i.i.i.i15 = load i32, ptr %12, align 4
   %bf.lshr.i.i.i.i16 = lshr i32 %bf.load.i.i.i.i15, 24
   %conv.i.i.i.i = zext nneg i32 %bf.lshr.i.i.i.i16 to i64
-  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw ptr, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 %conv.i.i.i.i
+  %arrayidx.i.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 %conv.i.i.i.i
   %13 = load ptr, ptr %arrayidx.i.i.i.i.i.i, align 8
   %getOwnIndexed.i = getelementptr inbounds nuw i8, ptr %13, i64 72
   %14 = load ptr, ptr %getOwnIndexed.i, align 8
@@ -7548,7 +7548,7 @@ for.body:                                         ; preds = %_ZN6hermes2vm13Muta
   %bf.load.i.i.i.i19 = load i32, ptr %15, align 4
   %bf.lshr.i.i.i.i20 = lshr i32 %bf.load.i.i.i.i19, 24
   %conv.i.i.i.i21 = zext nneg i32 %bf.lshr.i.i.i.i20 to i64
-  %arrayidx.i.i.i.i.i.i22 = getelementptr inbounds nuw ptr, ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 %conv.i.i.i.i21
+  %arrayidx.i.i.i.i.i.i22 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6hermes2vm6VTable11vtableArrayE, i64 %conv.i.i.i.i21
   %16 = load ptr, ptr %arrayidx.i.i.i.i.i.i22, align 8
   %setOwnIndexed.i = getelementptr inbounds nuw i8, ptr %16, i64 80
   %17 = load ptr, ptr %setOwnIndexed.i, align 8

@@ -116,7 +116,7 @@ define hidden ptr @sk_value(ptr noundef readonly captures(address_is_null) %0, i
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !6
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %1
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %1
   %9 = load ptr, ptr %8, align 8, !tbaa !16
   br label %10
 
@@ -138,7 +138,7 @@ define hidden noundef ptr @sk_set(ptr noundef readonly captures(address_is_null)
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !6
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %1
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %1
   store ptr %2, ptr %9, align 8, !tbaa !16
   br label %10
 
@@ -181,7 +181,7 @@ define hidden void @sk_pop_free(ptr noundef captures(address_is_null) %0, ptr no
   %7 = phi i64 [ %4, %.lr.ph ], [ %13, %12 ]
   %.011 = phi i64 [ 0, %.lr.ph ], [ %14, %12 ]
   %8 = load ptr, ptr %5, align 8, !tbaa !6
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %.011
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.011
   %10 = load ptr, ptr %9, align 8, !tbaa !16
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %12, label %11
@@ -267,18 +267,18 @@ define hidden i64 @sk_insert(ptr noundef captures(address_is_null) %0, ptr nound
   br i1 %.not51, label %34, label %32
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds nuw ptr, ptr %31, i64 %29
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %29
   store ptr %1, ptr %33, align 8, !tbaa !16
   br label %41
 
 34:                                               ; preds = %28
-  %35 = getelementptr ptr, ptr %31, i64 %2
+  %35 = getelementptr [8 x i8], ptr %31, i64 %2
   %36 = getelementptr i8, ptr %35, i64 8
   %37 = sub nuw i64 %29, %2
   %38 = shl i64 %37, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %36, ptr align 8 %35, i64 %38, i1 false)
   %39 = load ptr, ptr %30, align 8, !tbaa !6
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %2
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %2
   store ptr %1, ptr %40, align 8, !tbaa !16
   %.pre53 = load i64, ptr %0, align 8, !tbaa !14
   br label %41
@@ -315,7 +315,7 @@ define hidden ptr @sk_delete(ptr noundef captures(address_is_null) %0, i64 nound
 5:                                                ; preds = %3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !6
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %1
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %1
   %9 = load ptr, ptr %8, align 8, !tbaa !16
   %10 = add i64 %4, -1
   %.not19 = icmp eq i64 %1, %10
@@ -358,7 +358,7 @@ define hidden ptr @sk_delete_ptr(ptr noundef captures(address_is_null) %0, ptr n
 
 7:                                                ; preds = %.lr.ph, %19
   %.015 = phi i64 [ 0, %.lr.ph ], [ %20, %19 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %.015
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.015
   %9 = load ptr, ptr %8, align 8, !tbaa !16
   %10 = icmp eq ptr %9, %1
   br i1 %10, label %11, label %19
@@ -369,7 +369,7 @@ define hidden ptr @sk_delete_ptr(ptr noundef captures(address_is_null) %0, ptr n
   br i1 %.not19.i, label %sk_delete.exit, label %13
 
 13:                                               ; preds = %11
-  %14 = getelementptr inbounds nuw ptr, ptr %6, i64 %.015
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.015
   %15 = getelementptr i8, ptr %14, i64 8
   %16 = xor i64 %.015, -1
   %17 = add i64 %4, %16
@@ -419,7 +419,7 @@ define hidden range(i32 0, 2) i32 @sk_find(ptr noundef captures(address_is_null)
 
 13:                                               ; preds = %.lr.ph43, %18
   %.02642 = phi i64 [ 0, %.lr.ph43 ], [ %19, %18 ]
-  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %.02642
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.02642
   %15 = load ptr, ptr %14, align 8, !tbaa !16
   %16 = icmp eq ptr %15, %2
   br i1 %16, label %17, label %18
@@ -501,7 +501,7 @@ bsearch.exit:                                     ; preds = %39
   %.139 = phi i64 [ %56, %55 ], [ %48, %.lr.ph.preheader ]
   %49 = load ptr, ptr %7, align 8, !tbaa !12
   %50 = load ptr, ptr %30, align 8, !tbaa !6
-  %51 = getelementptr ptr, ptr %50, i64 %.139
+  %51 = getelementptr [8 x i8], ptr %50, i64 %.139
   %52 = getelementptr i8, ptr %51, i64 -8
   %53 = call i32 %49(ptr noundef nonnull %4, ptr noundef %52) #17
   %54 = icmp eq i32 %53, 0
@@ -648,12 +648,12 @@ define hidden i64 @sk_push(ptr noundef captures(none) %0, ptr noundef %1) local_
 27:                                               ; preds = %.thread, %26
   %28 = phi ptr [ %8, %.thread ], [ %24, %26 ]
   %29 = phi i64 [ %3, %.thread ], [ %.pre.i, %26 ]
-  %30 = getelementptr inbounds nuw ptr, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %29
   store ptr %1, ptr %30, align 8, !tbaa !16
   br label %36
 
 31:                                               ; preds = %26
-  %32 = getelementptr ptr, ptr %24, i64 %3
+  %32 = getelementptr [8 x i8], ptr %24, i64 %3
   %33 = getelementptr i8, ptr %32, i64 8
   %34 = sub nuw i64 %.pre.i, %3
   %35 = shl i64 %34, 3
@@ -688,7 +688,7 @@ define hidden ptr @sk_pop(ptr noundef captures(address_is_null) %0) local_unname
   %7 = add i64 %4, -1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !6
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %7
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %7
   %11 = load ptr, ptr %10, align 8, !tbaa !16
   store i64 %7, ptr %0, align 8, !tbaa !14
   br label %sk_delete.exit
@@ -814,7 +814,7 @@ define hidden noalias noundef ptr @sk_deep_copy(ptr noundef readonly captures(ad
 
 9:                                                ; preds = %.lr.ph, %21
   %.02431 = phi i64 [ 0, %.lr.ph ], [ %22, %21 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %.02431
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.02431
   %11 = load ptr, ptr %10, align 8, !tbaa !16
   %12 = icmp eq ptr %11, null
   br i1 %12, label %21, label %13
@@ -831,7 +831,7 @@ define hidden noalias noundef ptr @sk_deep_copy(ptr noundef readonly captures(ad
 
 .lr.ph33:                                         ; preds = %.preheader, %19
   %.032 = phi i64 [ %20, %19 ], [ 0, %.preheader ]
-  %16 = getelementptr inbounds nuw ptr, ptr %8, i64 %.032
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.032
   %17 = load ptr, ptr %16, align 8, !tbaa !16
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %19, label %18

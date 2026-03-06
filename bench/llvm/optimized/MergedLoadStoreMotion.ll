@@ -40,11 +40,9 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
 %"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
 %"union.std::_Nocopy_types" = type { { i64, i64 } }
-%"class.llvm::Use" = type { ptr, ptr, ptr, ptr }
 %"class.llvm::DebugLoc" = type { %"class.llvm::TypedTrackingMDRef" }
 %"class.llvm::TypedTrackingMDRef" = type { %"class.llvm::TrackingMDRef" }
 %"class.llvm::TrackingMDRef" = type { ptr }
-%"struct.std::pair" = type { i32, ptr }
 
 $_ZN4llvm13PassInfoMixinINS_25MergedLoadStoreMotionPassEE13printPipelineERNS_11raw_ostreamENS_12function_refIFNS_9StringRefES6_EEE = comdat any
 
@@ -745,7 +743,7 @@ _ZN4llvm9StoreInst10setOperandEjPNS_5ValueE.exit.i.i.i: ; preds = %_ZN4llvm5Valu
   %324 = getelementptr inbounds i8, ptr %303, i64 -8
   %325 = load ptr, ptr %324, align 8, !tbaa !58
   %326 = zext i32 %323 to i64
-  %327 = getelementptr inbounds nuw %"class.llvm::Use", ptr %325, i64 %326
+  %327 = getelementptr inbounds nuw [32 x i8], ptr %325, i64 %326
   %328 = load ptr, ptr %327, align 8, !tbaa !24
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %328, null
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %336, label %329
@@ -788,9 +786,9 @@ _ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit.i.i.i.i: ; preds
   %346 = load ptr, ptr %324, align 8, !tbaa !58
   %347 = load i32, ptr %304, align 8, !tbaa !67
   %348 = zext i32 %347 to i64
-  %349 = getelementptr inbounds nuw %"class.llvm::Use", ptr %346, i64 %348
+  %349 = getelementptr inbounds nuw [32 x i8], ptr %346, i64 %348
   %350 = zext i32 %345 to i64
-  %351 = getelementptr inbounds nuw ptr, ptr %349, i64 %350
+  %351 = getelementptr inbounds nuw [8 x i8], ptr %349, i64 %350
   store ptr %310, ptr %351, align 8, !tbaa !48
   %352 = load ptr, ptr %184, align 8, !tbaa !41
   %353 = load i32, ptr %311, align 4
@@ -814,7 +812,7 @@ _ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit.i.i.i.i: ; preds
   store i32 %363, ptr %311, align 4
   %364 = add nsw i32 %361, -1
   %365 = zext i32 %364 to i64
-  %366 = getelementptr inbounds nuw %"class.llvm::Use", ptr %358, i64 %365
+  %366 = getelementptr inbounds nuw [32 x i8], ptr %358, i64 %365
   %367 = load ptr, ptr %366, align 8, !tbaa !24
   %.not.i.i.i.i.i23.i.i.i.i = icmp eq ptr %367, null
   br i1 %.not.i.i.i.i.i23.i.i.i.i, label %375, label %368
@@ -857,9 +855,9 @@ _ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit.i.i.i.i: ; preds
   %386 = load ptr, ptr %324, align 8, !tbaa !58
   %387 = load i32, ptr %304, align 8, !tbaa !67
   %388 = zext i32 %387 to i64
-  %389 = getelementptr inbounds nuw %"class.llvm::Use", ptr %386, i64 %388
+  %389 = getelementptr inbounds nuw [32 x i8], ptr %386, i64 %388
   %390 = zext i32 %385 to i64
-  %391 = getelementptr inbounds nuw ptr, ptr %389, i64 %390
+  %391 = getelementptr inbounds nuw [8 x i8], ptr %389, i64 %390
   store ptr %352, ptr %391, align 8, !tbaa !48
   %392 = getelementptr inbounds i8, ptr %293, i64 -64
   %393 = load ptr, ptr %392, align 8, !tbaa !24
@@ -1745,7 +1743,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIjPNS_6MDNodeEELb1EE9push_backES4_.exit
   %14 = phi i32 [ %7, %3 ], [ %.pre.i, %10 ]
   %15 = load ptr, ptr %0, align 8, !tbaa !80
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw %"struct.std::pair", ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %16
   store i32 %4, ptr %17, align 1
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %5, ptr %.sroa.22.0..sroa_idx.i, align 1
@@ -1754,7 +1752,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIjPNS_6MDNodeEELb1EE9push_backES4_.exit
   store i32 %19, ptr %6, align 8, !tbaa !115
   %20 = load ptr, ptr %0, align 8, !tbaa !80
   %21 = zext i32 %19 to i64
-  %22 = getelementptr inbounds nuw %"struct.std::pair", ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %21
   %23 = getelementptr inbounds i8, ptr %22, i64 -16
   ret ptr %23
 }

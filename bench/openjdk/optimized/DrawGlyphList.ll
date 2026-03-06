@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.FontManagerNativeIDs = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.ImageRef = type { ptr, ptr, i32, i32, i32, i32, i32, i32 }
 %struct.SurfaceDataBounds = type { i32, i32, i32, i32 }
 %struct.SurfaceDataRasInfo = type { %struct.SurfaceDataBounds, ptr, i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, i32, %union.anon.0 }
 %union.anon.0 = type { ptr, [56 x i8] }
@@ -87,7 +86,7 @@ define hidden noundef ptr @setupBlitVector(ptr noundef %0, ptr noundef %1, i32 n
 .lr.ph176.preheader:                              ; preds = %.preheader
   %50 = sext i32 %2 to i64
   %wide.trip.count187 = zext nneg i32 %15 to i64
-  %invariant.gep203 = getelementptr i64, ptr %45, i64 %50
+  %invariant.gep203 = getelementptr [8 x i8], ptr %45, i64 %50
   br label %.lr.ph176
 
 51:                                               ; preds = %48
@@ -116,51 +115,51 @@ define hidden noundef ptr @setupBlitVector(ptr noundef %0, ptr noundef %1, i32 n
   %65 = add i32 %63, -1
   %66 = sext i32 %65 to i64
   %wide.trip.count = zext nneg i32 %15 to i64
-  %invariant.gep = getelementptr i64, ptr %45, i64 %64
+  %invariant.gep = getelementptr [8 x i8], ptr %45, i64 %64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv179 = phi i64 [ %66, %.lr.ph.preheader ], [ %indvars.iv.next180, %.lr.ph ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %67 = getelementptr float, ptr %55, i64 %indvars.iv179
+  %67 = getelementptr [4 x i8], ptr %55, i64 %indvars.iv179
   %68 = getelementptr i8, ptr %67, i64 4
   %69 = load float, ptr %68, align 4
   %70 = fadd float %9, %69
   %indvars.iv.next180 = add nsw i64 %indvars.iv179, 2
-  %71 = getelementptr inbounds float, ptr %55, i64 %indvars.iv.next180
+  %71 = getelementptr inbounds [4 x i8], ptr %55, i64 %indvars.iv.next180
   %72 = load float, ptr %71, align 4
   %73 = fadd float %14, %72
-  %gep = getelementptr i64, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %indvars.iv
   %74 = load i64, ptr %gep, align 8
   %75 = inttoptr i64 %74 to ptr
   %76 = load ptr, ptr %41, align 8
-  %77 = getelementptr inbounds nuw %struct.ImageRef, ptr %76, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw [40 x i8], ptr %76, i64 %indvars.iv
   store ptr %75, ptr %77, align 8
   %78 = getelementptr inbounds nuw i8, ptr %75, i64 32
   %79 = load ptr, ptr %78, align 8
   %80 = load ptr, ptr %41, align 8
-  %81 = getelementptr inbounds nuw %struct.ImageRef, ptr %80, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw [40 x i8], ptr %80, i64 %indvars.iv
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   store ptr %79, ptr %82, align 8
   %83 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %84 = load i16, ptr %83, align 8
   %85 = zext i16 %84 to i32
   %86 = load ptr, ptr %41, align 8
-  %87 = getelementptr inbounds nuw %struct.ImageRef, ptr %86, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw [40 x i8], ptr %86, i64 %indvars.iv
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 24
   store i32 %85, ptr %88, align 8
   %89 = getelementptr inbounds nuw i8, ptr %75, i64 12
   %90 = load i16, ptr %89, align 4
   %91 = zext i16 %90 to i32
   %92 = load ptr, ptr %41, align 8
-  %93 = getelementptr inbounds nuw %struct.ImageRef, ptr %92, i64 %indvars.iv
+  %93 = getelementptr inbounds nuw [40 x i8], ptr %92, i64 %indvars.iv
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 16
   store i32 %91, ptr %94, align 8
   %95 = getelementptr inbounds nuw i8, ptr %75, i64 10
   %96 = load i16, ptr %95, align 2
   %97 = zext i16 %96 to i32
   %98 = load ptr, ptr %41, align 8
-  %99 = getelementptr inbounds nuw %struct.ImageRef, ptr %98, i64 %indvars.iv
+  %99 = getelementptr inbounds nuw [40 x i8], ptr %98, i64 %indvars.iv
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 28
   store i32 %97, ptr %100, align 4
   %101 = getelementptr inbounds nuw i8, ptr %75, i64 16
@@ -171,7 +170,7 @@ define hidden noundef ptr @setupBlitVector(ptr noundef %0, ptr noundef %1, i32 n
   %.sink208 = select i1 %104, float %105, float %103
   %106 = fptosi float %.sink208 to i32
   %107 = load ptr, ptr %41, align 8
-  %108 = getelementptr inbounds nuw %struct.ImageRef, ptr %107, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw [40 x i8], ptr %107, i64 %indvars.iv
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 32
   store i32 %106, ptr %109, align 8
   %110 = getelementptr inbounds nuw i8, ptr %75, i64 20
@@ -182,7 +181,7 @@ define hidden noundef ptr @setupBlitVector(ptr noundef %0, ptr noundef %1, i32 n
   %.sink212 = select i1 %113, float %114, float %112
   %115 = fptosi float %.sink212 to i32
   %116 = load ptr, ptr %41, align 8
-  %117 = getelementptr inbounds nuw %struct.ImageRef, ptr %116, i64 %indvars.iv
+  %117 = getelementptr inbounds nuw [40 x i8], ptr %116, i64 %indvars.iv
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 36
   store i32 %115, ptr %118, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -204,37 +203,37 @@ define hidden noundef ptr @setupBlitVector(ptr noundef %0, ptr noundef %1, i32 n
   %indvars.iv184 = phi i64 [ 0, %.lr.ph176.preheader ], [ %indvars.iv.next185, %.lr.ph176 ]
   %.1153174 = phi float [ %9, %.lr.ph176.preheader ], [ %171, %.lr.ph176 ]
   %.1155173 = phi float [ %14, %.lr.ph176.preheader ], [ %174, %.lr.ph176 ]
-  %gep204 = getelementptr i64, ptr %invariant.gep203, i64 %indvars.iv184
+  %gep204 = getelementptr [8 x i8], ptr %invariant.gep203, i64 %indvars.iv184
   %125 = load i64, ptr %gep204, align 8
   %126 = inttoptr i64 %125 to ptr
   %127 = load ptr, ptr %41, align 8
-  %128 = getelementptr inbounds nuw %struct.ImageRef, ptr %127, i64 %indvars.iv184
+  %128 = getelementptr inbounds nuw [40 x i8], ptr %127, i64 %indvars.iv184
   store ptr %126, ptr %128, align 8
   %129 = getelementptr inbounds nuw i8, ptr %126, i64 32
   %130 = load ptr, ptr %129, align 8
   %131 = load ptr, ptr %41, align 8
-  %132 = getelementptr inbounds nuw %struct.ImageRef, ptr %131, i64 %indvars.iv184
+  %132 = getelementptr inbounds nuw [40 x i8], ptr %131, i64 %indvars.iv184
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
   store ptr %130, ptr %133, align 8
   %134 = getelementptr inbounds nuw i8, ptr %126, i64 8
   %135 = load i16, ptr %134, align 8
   %136 = zext i16 %135 to i32
   %137 = load ptr, ptr %41, align 8
-  %138 = getelementptr inbounds nuw %struct.ImageRef, ptr %137, i64 %indvars.iv184
+  %138 = getelementptr inbounds nuw [40 x i8], ptr %137, i64 %indvars.iv184
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 24
   store i32 %136, ptr %139, align 8
   %140 = getelementptr inbounds nuw i8, ptr %126, i64 12
   %141 = load i16, ptr %140, align 4
   %142 = zext i16 %141 to i32
   %143 = load ptr, ptr %41, align 8
-  %144 = getelementptr inbounds nuw %struct.ImageRef, ptr %143, i64 %indvars.iv184
+  %144 = getelementptr inbounds nuw [40 x i8], ptr %143, i64 %indvars.iv184
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 16
   store i32 %142, ptr %145, align 8
   %146 = getelementptr inbounds nuw i8, ptr %126, i64 10
   %147 = load i16, ptr %146, align 2
   %148 = zext i16 %147 to i32
   %149 = load ptr, ptr %41, align 8
-  %150 = getelementptr inbounds nuw %struct.ImageRef, ptr %149, i64 %indvars.iv184
+  %150 = getelementptr inbounds nuw [40 x i8], ptr %149, i64 %indvars.iv184
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 28
   store i32 %148, ptr %151, align 4
   %152 = getelementptr inbounds nuw i8, ptr %126, i64 16
@@ -245,7 +244,7 @@ define hidden noundef ptr @setupBlitVector(ptr noundef %0, ptr noundef %1, i32 n
   %.sink216 = select i1 %155, float %156, float %154
   %157 = fptosi float %.sink216 to i32
   %158 = load ptr, ptr %41, align 8
-  %159 = getelementptr inbounds nuw %struct.ImageRef, ptr %158, i64 %indvars.iv184
+  %159 = getelementptr inbounds nuw [40 x i8], ptr %158, i64 %indvars.iv184
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 32
   store i32 %157, ptr %160, align 8
   %161 = getelementptr inbounds nuw i8, ptr %126, i64 20
@@ -256,7 +255,7 @@ define hidden noundef ptr @setupBlitVector(ptr noundef %0, ptr noundef %1, i32 n
   %.sink220 = select i1 %164, float %165, float %163
   %166 = fptosi float %.sink220 to i32
   %167 = load ptr, ptr %41, align 8
-  %168 = getelementptr inbounds nuw %struct.ImageRef, ptr %167, i64 %indvars.iv184
+  %168 = getelementptr inbounds nuw [40 x i8], ptr %167, i64 %indvars.iv184
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 36
   store i32 %166, ptr %169, align 4
   %170 = load float, ptr %126, align 8
@@ -324,7 +323,7 @@ define hidden range(i32 0, 2) i32 @RefineBounds(ptr noundef readonly captures(no
   %12 = phi i32 [ 2147483647, %.lr.ph ], [ %24, %31 ]
   %13 = phi i32 [ -2147483648, %.lr.ph ], [ %28, %31 ]
   %14 = phi i32 [ -2147483648, %.lr.ph ], [ %32, %31 ]
-  %15 = getelementptr inbounds nuw %struct.ImageRef, ptr %10, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [40 x i8], ptr %10, i64 %indvars.iv
   %.sroa.1.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 24
   %.sroa.1.0.copyload = load i32, ptr %.sroa.1.0..sroa_idx, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 28
@@ -501,7 +500,7 @@ define internal fastcc void @drawGlyphList(ptr noundef %0, ptr noundef %1, ptr n
   %43 = phi i32 [ 2147483647, %.lr.ph.i ], [ %55, %62 ]
   %44 = phi i32 [ -2147483648, %.lr.ph.i ], [ %59, %62 ]
   %45 = phi i32 [ -2147483648, %.lr.ph.i ], [ %63, %62 ]
-  %46 = getelementptr inbounds nuw %struct.ImageRef, ptr %41, i64 %indvars.iv.i
+  %46 = getelementptr inbounds nuw [40 x i8], ptr %41, i64 %indvars.iv.i
   %.sroa.1.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %46, i64 24
   %.sroa.1.0.copyload.i = load i32, ptr %.sroa.1.0..sroa_idx.i, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %46, i64 28
@@ -748,7 +747,7 @@ define void @Java_sun_java2d_loops_DrawGlyphListLCD_DrawGlyphListLCD(ptr noundef
   %58 = phi i32 [ 2147483647, %.lr.ph.i.i ], [ %70, %77 ]
   %59 = phi i32 [ -2147483648, %.lr.ph.i.i ], [ %74, %77 ]
   %60 = phi i32 [ -2147483648, %.lr.ph.i.i ], [ %78, %77 ]
-  %61 = getelementptr inbounds nuw %struct.ImageRef, ptr %56, i64 %indvars.iv.i.i
+  %61 = getelementptr inbounds nuw [40 x i8], ptr %56, i64 %indvars.iv.i.i
   %.sroa.1.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %61, i64 24
   %.sroa.1.0.copyload.i.i = load i32, ptr %.sroa.1.0..sroa_idx.i.i, align 8
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %61, i64 28
@@ -856,7 +855,7 @@ RefineBounds.exit.i:                              ; preds = %._crit_edge.i.i
   %107 = call i32 @llvm.smax.i32(i32 %19, i32 100)
   %.0.i.i = call i32 @llvm.umin.i32(i32 %107, i32 250)
   %108 = zext nneg i32 %.0.i.i to i64
-  %109 = getelementptr ptr, ptr @lcdGammaLUT, i64 %108
+  %109 = getelementptr [8 x i8], ptr @lcdGammaLUT, i64 %108
   %110 = getelementptr i8, ptr %109, i64 -800
   %111 = load ptr, ptr %110, align 8
   %.not.i.i = icmp eq ptr %111, null
@@ -866,10 +865,10 @@ RefineBounds.exit.i:                              ; preds = %._crit_edge.i.i
   %113 = add nsw i32 %.0.i.i, -100
   %114 = call noalias dereferenceable_or_null(256) ptr @malloc(i64 noundef 256) #11
   %115 = zext nneg i32 %113 to i64
-  %116 = getelementptr inbounds nuw ptr, ptr @lcdGammaLUT, i64 %115
+  %116 = getelementptr inbounds nuw [8 x i8], ptr @lcdGammaLUT, i64 %115
   store ptr %114, ptr %116, align 8
   %117 = call noalias dereferenceable_or_null(256) ptr @malloc(i64 noundef 256) #11
-  %118 = getelementptr inbounds nuw ptr, ptr @lcdInvGammaLUT, i64 %115
+  %118 = getelementptr inbounds nuw [8 x i8], ptr @lcdInvGammaLUT, i64 %115
   store ptr %117, ptr %118, align 8
   %119 = icmp slt i32 %19, 101
   br i1 %119, label %.preheader.i.i.i, label %125
@@ -922,7 +921,7 @@ RefineBounds.exit.i:                              ; preds = %._crit_edge.i.i
 
 getLCDGammaLUT.exit.i:                            ; preds = %131, %.preheader.i.i.i, %102
   %145 = load ptr, ptr %110, align 8
-  %146 = getelementptr ptr, ptr @lcdInvGammaLUT, i64 %108
+  %146 = getelementptr [8 x i8], ptr @lcdInvGammaLUT, i64 %108
   %147 = getelementptr i8, ptr %146, i64 -800
   %148 = load ptr, ptr %147, align 8
   %.not.i70.i = icmp eq ptr %148, null
@@ -932,10 +931,10 @@ getLCDGammaLUT.exit.i:                            ; preds = %131, %.preheader.i.
   %150 = add nsw i32 %.0.i.i, -100
   %151 = call noalias dereferenceable_or_null(256) ptr @malloc(i64 noundef 256) #11
   %152 = zext nneg i32 %150 to i64
-  %153 = getelementptr inbounds nuw ptr, ptr @lcdGammaLUT, i64 %152
+  %153 = getelementptr inbounds nuw [8 x i8], ptr @lcdGammaLUT, i64 %152
   store ptr %151, ptr %153, align 8
   %154 = call noalias dereferenceable_or_null(256) ptr @malloc(i64 noundef 256) #11
-  %155 = getelementptr inbounds nuw ptr, ptr @lcdInvGammaLUT, i64 %152
+  %155 = getelementptr inbounds nuw [8 x i8], ptr @lcdInvGammaLUT, i64 %152
   store ptr %154, ptr %155, align 8
   %156 = icmp slt i32 %19, 101
   br i1 %156, label %.preheader.i.i74.i, label %162
@@ -1091,7 +1090,7 @@ define hidden noundef ptr @setupLCDBlitVector(ptr noundef %0, ptr noundef %1, i3
 
 56:                                               ; preds = %53
   %57 = sext i32 %2 to i64
-  %58 = getelementptr inbounds i64, ptr %50, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %50, i64 %57
   %59 = load i64, ptr %58, align 8
   %60 = icmp eq i64 %59, 0
   br i1 %60, label %61, label %65
@@ -1126,7 +1125,7 @@ define hidden noundef ptr @setupLCDBlitVector(ptr noundef %0, ptr noundef %1, i3
   %.not261 = icmp eq i8 %.0234, 0
   %73 = sext i32 %2 to i64
   %wide.trip.count283 = zext nneg i32 %15 to i64
-  %invariant.gep306 = getelementptr i64, ptr %50, i64 %73
+  %invariant.gep306 = getelementptr [8 x i8], ptr %50, i64 %73
   br label %190
 
 74:                                               ; preds = %72
@@ -1155,13 +1154,13 @@ define hidden noundef ptr @setupLCDBlitVector(ptr noundef %0, ptr noundef %1, i3
   %87 = add i32 %85, -1
   %88 = sext i32 %87 to i64
   %wide.trip.count = zext nneg i32 %15 to i64
-  %invariant.gep = getelementptr i64, ptr %50, i64 %86
+  %invariant.gep = getelementptr [8 x i8], ptr %50, i64 %86
   br label %89
 
 89:                                               ; preds = %.lr.ph, %174
   %indvars.iv275 = phi i64 [ %88, %.lr.ph ], [ %indvars.iv.next276, %174 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %174 ]
-  %gep = getelementptr i64, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %indvars.iv
   %90 = load i64, ptr %gep, align 8
   %91 = inttoptr i64 %90 to ptr
   %92 = icmp eq i64 %90, 0
@@ -1177,41 +1176,41 @@ define hidden noundef ptr @setupLCDBlitVector(ptr noundef %0, ptr noundef %1, i3
 
 97:                                               ; preds = %89
   %98 = load ptr, ptr %46, align 8
-  %99 = getelementptr inbounds nuw %struct.ImageRef, ptr %98, i64 %indvars.iv
+  %99 = getelementptr inbounds nuw [40 x i8], ptr %98, i64 %indvars.iv
   store ptr %91, ptr %99, align 8
   %100 = getelementptr inbounds nuw i8, ptr %91, i64 32
   %101 = load ptr, ptr %100, align 8
   %102 = load ptr, ptr %46, align 8
-  %103 = getelementptr inbounds nuw %struct.ImageRef, ptr %102, i64 %indvars.iv
+  %103 = getelementptr inbounds nuw [40 x i8], ptr %102, i64 %indvars.iv
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 8
   store ptr %101, ptr %104, align 8
   %105 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %106 = load i16, ptr %105, align 8
   %107 = zext i16 %106 to i32
   %108 = load ptr, ptr %46, align 8
-  %109 = getelementptr inbounds nuw %struct.ImageRef, ptr %108, i64 %indvars.iv
+  %109 = getelementptr inbounds nuw [40 x i8], ptr %108, i64 %indvars.iv
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 24
   store i32 %107, ptr %110, align 8
   %111 = getelementptr inbounds nuw i8, ptr %91, i64 12
   %112 = load i16, ptr %111, align 4
   %113 = zext i16 %112 to i32
   %114 = load ptr, ptr %46, align 8
-  %115 = getelementptr inbounds nuw %struct.ImageRef, ptr %114, i64 %indvars.iv
+  %115 = getelementptr inbounds nuw [40 x i8], ptr %114, i64 %indvars.iv
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 16
   store i32 %113, ptr %116, align 8
   %117 = getelementptr inbounds nuw i8, ptr %91, i64 10
   %118 = load i16, ptr %117, align 2
   %119 = zext i16 %118 to i32
   %120 = load ptr, ptr %46, align 8
-  %121 = getelementptr inbounds nuw %struct.ImageRef, ptr %120, i64 %indvars.iv
+  %121 = getelementptr inbounds nuw [40 x i8], ptr %120, i64 %indvars.iv
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 28
   store i32 %119, ptr %122, align 4
-  %123 = getelementptr float, ptr %78, i64 %indvars.iv275
+  %123 = getelementptr [4 x i8], ptr %78, i64 %indvars.iv275
   %124 = getelementptr i8, ptr %123, i64 4
   %125 = load float, ptr %124, align 4
   %126 = fadd float %9, %125
   %indvars.iv.next276 = add nsw i64 %indvars.iv275, 2
-  %127 = getelementptr inbounds float, ptr %78, i64 %indvars.iv.next276
+  %127 = getelementptr inbounds [4 x i8], ptr %78, i64 %indvars.iv.next276
   %128 = load float, ptr %127, align 4
   %129 = fadd float %14, %128
   br i1 %.not262, label %161, label %130
@@ -1227,11 +1226,11 @@ define hidden noundef ptr @setupLCDBlitVector(ptr noundef %0, ptr noundef %1, i3
   %.sink311 = select i1 %136, float %137, float %135
   %138 = fptosi float %.sink311 to i32
   %139 = load ptr, ptr %46, align 8
-  %140 = getelementptr inbounds nuw %struct.ImageRef, ptr %139, i64 %indvars.iv
+  %140 = getelementptr inbounds nuw [40 x i8], ptr %139, i64 %indvars.iv
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 32
   store i32 %138, ptr %141, align 8
   %142 = load ptr, ptr %46, align 8
-  %143 = getelementptr inbounds nuw %struct.ImageRef, ptr %142, i64 %indvars.iv
+  %143 = getelementptr inbounds nuw [40 x i8], ptr %142, i64 %indvars.iv
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 32
   %145 = load i32, ptr %144, align 8
   %146 = sitofp i32 %145 to float
@@ -1251,7 +1250,7 @@ define hidden noundef ptr @setupLCDBlitVector(ptr noundef %0, ptr noundef %1, i3
   %155 = getelementptr inbounds nuw i8, ptr %143, i64 20
   store i32 %154, ptr %155, align 4
   %156 = load ptr, ptr %46, align 8
-  %157 = getelementptr inbounds nuw %struct.ImageRef, ptr %156, i64 %indvars.iv
+  %157 = getelementptr inbounds nuw [40 x i8], ptr %156, i64 %indvars.iv
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 32
   %159 = load i32, ptr %158, align 8
   %160 = add nsw i32 %159, 1
@@ -1267,11 +1266,11 @@ define hidden noundef ptr @setupLCDBlitVector(ptr noundef %0, ptr noundef %1, i3
   %.sink315 = select i1 %165, float %166, float %164
   %167 = fptosi float %.sink315 to i32
   %168 = load ptr, ptr %46, align 8
-  %169 = getelementptr inbounds nuw %struct.ImageRef, ptr %168, i64 %indvars.iv
+  %169 = getelementptr inbounds nuw [40 x i8], ptr %168, i64 %indvars.iv
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 32
   store i32 %167, ptr %170, align 8
   %171 = load ptr, ptr %46, align 8
-  %172 = getelementptr inbounds nuw %struct.ImageRef, ptr %171, i64 %indvars.iv
+  %172 = getelementptr inbounds nuw [40 x i8], ptr %171, i64 %indvars.iv
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 20
   store i32 0, ptr %173, align 4
   br label %174
@@ -1286,7 +1285,7 @@ define hidden noundef ptr @setupLCDBlitVector(ptr noundef %0, ptr noundef %1, i3
   %.sink319 = select i1 %178, float %179, float %177
   %180 = fptosi float %.sink319 to i32
   %181 = load ptr, ptr %46, align 8
-  %182 = getelementptr inbounds nuw %struct.ImageRef, ptr %181, i64 %indvars.iv
+  %182 = getelementptr inbounds nuw [40 x i8], ptr %181, i64 %indvars.iv
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 36
   store i32 %180, ptr %183, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1308,7 +1307,7 @@ define hidden noundef ptr @setupLCDBlitVector(ptr noundef %0, ptr noundef %1, i3
   %indvars.iv280 = phi i64 [ 0, %.lr.ph272 ], [ %indvars.iv.next281, %268 ]
   %.1236270 = phi float [ %9, %.lr.ph272 ], [ %279, %268 ]
   %.1238269 = phi float [ %14, %.lr.ph272 ], [ %282, %268 ]
-  %gep307 = getelementptr i64, ptr %invariant.gep306, i64 %indvars.iv280
+  %gep307 = getelementptr [8 x i8], ptr %invariant.gep306, i64 %indvars.iv280
   %191 = load i64, ptr %gep307, align 8
   %192 = inttoptr i64 %191 to ptr
   %193 = icmp eq i64 %191, 0
@@ -1324,33 +1323,33 @@ define hidden noundef ptr @setupLCDBlitVector(ptr noundef %0, ptr noundef %1, i3
 
 198:                                              ; preds = %190
   %199 = load ptr, ptr %46, align 8
-  %200 = getelementptr inbounds nuw %struct.ImageRef, ptr %199, i64 %indvars.iv280
+  %200 = getelementptr inbounds nuw [40 x i8], ptr %199, i64 %indvars.iv280
   store ptr %192, ptr %200, align 8
   %201 = getelementptr inbounds nuw i8, ptr %192, i64 32
   %202 = load ptr, ptr %201, align 8
   %203 = load ptr, ptr %46, align 8
-  %204 = getelementptr inbounds nuw %struct.ImageRef, ptr %203, i64 %indvars.iv280
+  %204 = getelementptr inbounds nuw [40 x i8], ptr %203, i64 %indvars.iv280
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 8
   store ptr %202, ptr %205, align 8
   %206 = getelementptr inbounds nuw i8, ptr %192, i64 8
   %207 = load i16, ptr %206, align 8
   %208 = zext i16 %207 to i32
   %209 = load ptr, ptr %46, align 8
-  %210 = getelementptr inbounds nuw %struct.ImageRef, ptr %209, i64 %indvars.iv280
+  %210 = getelementptr inbounds nuw [40 x i8], ptr %209, i64 %indvars.iv280
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 24
   store i32 %208, ptr %211, align 8
   %212 = getelementptr inbounds nuw i8, ptr %192, i64 12
   %213 = load i16, ptr %212, align 4
   %214 = zext i16 %213 to i32
   %215 = load ptr, ptr %46, align 8
-  %216 = getelementptr inbounds nuw %struct.ImageRef, ptr %215, i64 %indvars.iv280
+  %216 = getelementptr inbounds nuw [40 x i8], ptr %215, i64 %indvars.iv280
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 16
   store i32 %214, ptr %217, align 8
   %218 = getelementptr inbounds nuw i8, ptr %192, i64 10
   %219 = load i16, ptr %218, align 2
   %220 = zext i16 %219 to i32
   %221 = load ptr, ptr %46, align 8
-  %222 = getelementptr inbounds nuw %struct.ImageRef, ptr %221, i64 %indvars.iv280
+  %222 = getelementptr inbounds nuw [40 x i8], ptr %221, i64 %indvars.iv280
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 28
   store i32 %220, ptr %223, align 4
   br i1 %.not261, label %255, label %224
@@ -1366,11 +1365,11 @@ define hidden noundef ptr @setupLCDBlitVector(ptr noundef %0, ptr noundef %1, i3
   %.sink323 = select i1 %230, float %231, float %229
   %232 = fptosi float %.sink323 to i32
   %233 = load ptr, ptr %46, align 8
-  %234 = getelementptr inbounds nuw %struct.ImageRef, ptr %233, i64 %indvars.iv280
+  %234 = getelementptr inbounds nuw [40 x i8], ptr %233, i64 %indvars.iv280
   %235 = getelementptr inbounds nuw i8, ptr %234, i64 32
   store i32 %232, ptr %235, align 8
   %236 = load ptr, ptr %46, align 8
-  %237 = getelementptr inbounds nuw %struct.ImageRef, ptr %236, i64 %indvars.iv280
+  %237 = getelementptr inbounds nuw [40 x i8], ptr %236, i64 %indvars.iv280
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 32
   %239 = load i32, ptr %238, align 8
   %240 = sitofp i32 %239 to float
@@ -1390,7 +1389,7 @@ define hidden noundef ptr @setupLCDBlitVector(ptr noundef %0, ptr noundef %1, i3
   %249 = getelementptr inbounds nuw i8, ptr %237, i64 20
   store i32 %248, ptr %249, align 4
   %250 = load ptr, ptr %46, align 8
-  %251 = getelementptr inbounds nuw %struct.ImageRef, ptr %250, i64 %indvars.iv280
+  %251 = getelementptr inbounds nuw [40 x i8], ptr %250, i64 %indvars.iv280
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 32
   %253 = load i32, ptr %252, align 8
   %254 = add nsw i32 %253, 1
@@ -1406,11 +1405,11 @@ define hidden noundef ptr @setupLCDBlitVector(ptr noundef %0, ptr noundef %1, i3
   %.sink327 = select i1 %259, float %260, float %258
   %261 = fptosi float %.sink327 to i32
   %262 = load ptr, ptr %46, align 8
-  %263 = getelementptr inbounds nuw %struct.ImageRef, ptr %262, i64 %indvars.iv280
+  %263 = getelementptr inbounds nuw [40 x i8], ptr %262, i64 %indvars.iv280
   %264 = getelementptr inbounds nuw i8, ptr %263, i64 32
   store i32 %261, ptr %264, align 8
   %265 = load ptr, ptr %46, align 8
-  %266 = getelementptr inbounds nuw %struct.ImageRef, ptr %265, i64 %indvars.iv280
+  %266 = getelementptr inbounds nuw [40 x i8], ptr %265, i64 %indvars.iv280
   %267 = getelementptr inbounds nuw i8, ptr %266, i64 20
   store i32 0, ptr %267, align 4
   br label %268
@@ -1425,7 +1424,7 @@ define hidden noundef ptr @setupLCDBlitVector(ptr noundef %0, ptr noundef %1, i3
   %.sink331 = select i1 %272, float %273, float %271
   %274 = fptosi float %.sink331 to i32
   %275 = load ptr, ptr %46, align 8
-  %276 = getelementptr inbounds nuw %struct.ImageRef, ptr %275, i64 %indvars.iv280
+  %276 = getelementptr inbounds nuw [40 x i8], ptr %275, i64 %indvars.iv280
   %277 = getelementptr inbounds nuw i8, ptr %276, i64 36
   store i32 %274, ptr %277, align 4
   %278 = load float, ptr %192, align 8
@@ -1468,10 +1467,10 @@ define hidden void @initLUT(i32 noundef %0) local_unnamed_addr #4 {
   %2 = add nsw i32 %0, -100
   %3 = tail call noalias dereferenceable_or_null(256) ptr @malloc(i64 noundef 256) #11
   %4 = sext i32 %2 to i64
-  %5 = getelementptr inbounds ptr, ptr @lcdGammaLUT, i64 %4
+  %5 = getelementptr inbounds [8 x i8], ptr @lcdGammaLUT, i64 %4
   store ptr %3, ptr %5, align 8
   %6 = tail call noalias dereferenceable_or_null(256) ptr @malloc(i64 noundef 256) #11
-  %7 = getelementptr inbounds ptr, ptr @lcdInvGammaLUT, i64 %4
+  %7 = getelementptr inbounds [8 x i8], ptr @lcdInvGammaLUT, i64 %4
   store ptr %6, ptr %7, align 8
   %8 = icmp eq i32 %0, 100
   br i1 %8, label %.preheader, label %14

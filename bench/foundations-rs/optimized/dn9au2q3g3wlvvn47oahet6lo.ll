@@ -4613,7 +4613,7 @@ define hidden void @_ZN2h25proto7streams5store5Store12try_for_each17h64ad92dc1db
 
 41:                                               ; preds = %35
   %42 = load ptr, ptr %20, align 8, !nonnull !4, !noundef !4
-  %43 = getelementptr inbounds nuw { i64, i32, i32 }, ptr %42, i64 %.sroa.01.059
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %42, i64 %.sroa.01.059
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 12
   %46 = load i32, ptr %44, align 4, !noundef !4
@@ -4904,7 +4904,7 @@ define hidden void @_ZN2h25proto7streams5store5Store12try_for_each17hbed1b9ffca5
 
 23:                                               ; preds = %18
   %24 = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4
-  %25 = getelementptr inbounds nuw { i64, i32, i32 }, ptr %24, i64 %.sroa.01.049
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %.sroa.01.049
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 12
   %28 = load i32, ptr %26, align 4, !noundef !4
@@ -4992,7 +4992,7 @@ define hidden void @_ZN2h25proto7streams5store5Store8for_each17h1a931c3b8a4b84fd
 
 22:                                               ; preds = %18
   %23 = load ptr, ptr %8, align 8, !alias.scope !280, !noalias !283, !nonnull !4, !noundef !4
-  %24 = getelementptr inbounds nuw { i64, i32, i32 }, ptr %23, i64 %.sroa.01.014.i
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %23, i64 %.sroa.01.014.i
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 12
   %27 = load i32, ptr %25, align 4, !noalias !283, !noundef !4
@@ -5058,7 +5058,7 @@ define hidden void @_ZN2h25proto7streams5store5Store8for_each17hb0a0f16525fd3703
 
 17:                                               ; preds = %13
   %18 = load ptr, ptr %7, align 8, !alias.scope !295, !noalias !298, !nonnull !4, !noundef !4
-  %19 = getelementptr inbounds nuw { i64, i32, i32 }, ptr %18, i64 %.sroa.01.014.i
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %.sroa.01.014.i
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 12
   %22 = load i32, ptr %20, align 4, !noalias !298, !noundef !4
@@ -5129,7 +5129,7 @@ define hidden void @_ZN2h25proto7streams5store5Store8for_each17he094e21f2bb33521
 
 25:                                               ; preds = %21
   %26 = load ptr, ptr %9, align 8, !alias.scope !309, !noalias !312, !nonnull !4, !noundef !4
-  %27 = getelementptr inbounds nuw { i64, i32, i32 }, ptr %26, i64 %.sroa.01.019.i
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %.sroa.01.019.i
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 12
   %30 = load i32, ptr %28, align 4, !noalias !312, !noundef !4
@@ -5289,7 +5289,7 @@ define internal noundef ptr @_ZN3std2io5Write18write_all_vectored17h55612638506d
   br i1 %20, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1654dd0b2705f17fE.exit.thread.i", label %.lr.ph.i
 
 .lr.ph:                                           ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h18fe6ebeb9026e00E.exit.i"
-  %21 = getelementptr inbounds nuw { { { ptr, i64 }, {} } }, ptr %1, i64 %.sroa.0.0.lcssa.i
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %.sroa.0.0.lcssa.i
   %22 = sub nuw i64 %2, %.sroa.0.0.lcssa.i
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %24
@@ -5364,7 +5364,7 @@ default.unreachable:                              ; preds = %30
 
 "_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h18fe6ebeb9026e00E.exit.i14": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1654dd0b2705f17fE.exit.thread.i11"
   %43 = sub nuw i64 %.sroa.8.072, %.sroa.0.0.lcssa.i13
-  %44 = getelementptr inbounds nuw { { { ptr, i64 }, {} } }, ptr %.sroa.0.02973, i64 %.sroa.0.0.lcssa.i13
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.02973, i64 %.sroa.0.0.lcssa.i13
   %45 = icmp eq i64 %.sroa.8.072, %.sroa.0.0.lcssa.i13
   br i1 %45, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h18fe6ebeb9026e00E.exit.thread.i15", label %53
 
@@ -5533,7 +5533,7 @@ define internal noundef ptr @_ZN3std2io5Write18write_all_vectored17hc28a5d2455c7
   br i1 %20, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1654dd0b2705f17fE.exit.thread.i", label %.lr.ph.i
 
 .lr.ph:                                           ; preds = %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h18fe6ebeb9026e00E.exit.i"
-  %21 = getelementptr inbounds nuw { { { ptr, i64 }, {} } }, ptr %1, i64 %.sroa.0.0.lcssa.i
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %.sroa.0.0.lcssa.i
   %22 = sub nuw i64 %2, %.sroa.0.0.lcssa.i
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %24
@@ -5608,7 +5608,7 @@ default.unreachable:                              ; preds = %30
 
 "_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h18fe6ebeb9026e00E.exit.i14": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1654dd0b2705f17fE.exit.thread.i11"
   %43 = sub nuw i64 %.sroa.8.072, %.sroa.0.0.lcssa.i13
-  %44 = getelementptr inbounds nuw { { { ptr, i64 }, {} } }, ptr %.sroa.0.02973, i64 %.sroa.0.0.lcssa.i13
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.02973, i64 %.sroa.0.0.lcssa.i13
   %45 = icmp eq i64 %.sroa.8.072, %.sroa.0.0.lcssa.i13
   br i1 %45, label %"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h18fe6ebeb9026e00E.exit.thread.i15", label %53
 

@@ -131,7 +131,7 @@ define void @_ZN5folly7logging23BridgeFromGoogleLogging4sendEiPKcS3_iPK2tmS3_mi(
 
 switch.lookup:                                    ; preds = %9
   %19 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5folly7logging23BridgeFromGoogleLogging4sendEiPKcS3_iPK2tmS3_mi, i64 %19
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5folly7logging23BridgeFromGoogleLogging4sendEiPKcS3_iPK2tmS3_mi, i64 %19
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN5folly7logging12_GLOBAL__N_115asFollyLogLevelEi.exit
 

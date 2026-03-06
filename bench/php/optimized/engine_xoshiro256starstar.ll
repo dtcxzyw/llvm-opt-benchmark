@@ -126,7 +126,7 @@ define internal noundef zeroext i1 @serialize(ptr noundef %0, ptr noundef %1) #2
 
 6:                                                ; preds = %2, %6
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %6 ]
-  %7 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %8 = call ptr @php_random_bin2hex_le(ptr noundef %7, i64 noundef 8) #7
   store ptr %8, ptr %3, align 8, !tbaa !8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
@@ -173,7 +173,7 @@ define internal noundef zeroext i1 @unserialize(ptr noundef %0, ptr noundef %1) 
   br i1 %.not18, label %14, label %.loopexit
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %16 = tail call zeroext i1 @php_random_hex2bin_le(ptr noundef nonnull %11, ptr noundef %15) #7
   br i1 %16, label %5, label %.loopexit
 
@@ -203,7 +203,7 @@ define dso_local void @php_random_xoshiro256starstar_jump(ptr noundef captures(n
   %6 = phi i64 [ %.promoted39.i, %1 ], [ %28, %11 ]
   %7 = phi i64 [ %.promoted40.i, %1 ], [ %30, %11 ]
   %8 = phi i64 [ %.promoted41.i, %1 ], [ %31, %11 ]
-  %9 = getelementptr inbounds nuw i64, ptr @php_random_xoshiro256starstar_jump.jmp, i64 %indvars.iv54.i
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @php_random_xoshiro256starstar_jump.jmp, i64 %indvars.iv54.i
   %10 = load i64, ptr %9, align 8, !tbaa !4
   br label %12
 
@@ -279,7 +279,7 @@ define dso_local void @php_random_xoshiro256starstar_jump_long(ptr noundef captu
   %6 = phi i64 [ %.promoted39.i, %1 ], [ %28, %11 ]
   %7 = phi i64 [ %.promoted40.i, %1 ], [ %30, %11 ]
   %8 = phi i64 [ %.promoted41.i, %1 ], [ %31, %11 ]
-  %9 = getelementptr inbounds nuw i64, ptr @php_random_xoshiro256starstar_jump_long.jmp, i64 %indvars.iv54.i
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @php_random_xoshiro256starstar_jump_long.jmp, i64 %indvars.iv54.i
   %10 = load i64, ptr %9, align 8, !tbaa !4
   br label %12
 
@@ -369,7 +369,7 @@ define hidden void @zim_Random_Engine_Xoshiro256StarStar_jump(ptr noundef readon
   %13 = phi i64 [ %.promoted39.i.i, %6 ], [ %35, %18 ]
   %14 = phi i64 [ %.promoted40.i.i, %6 ], [ %37, %18 ]
   %15 = phi i64 [ %.promoted41.i.i, %6 ], [ %38, %18 ]
-  %16 = getelementptr inbounds nuw i64, ptr @php_random_xoshiro256starstar_jump.jmp, i64 %indvars.iv54.i.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr @php_random_xoshiro256starstar_jump.jmp, i64 %indvars.iv54.i.i
   %17 = load i64, ptr %16, align 8, !tbaa !4
   br label %19
 
@@ -464,7 +464,7 @@ define hidden void @zim_Random_Engine_Xoshiro256StarStar_jumpLong(ptr noundef re
   %13 = phi i64 [ %.promoted39.i.i, %6 ], [ %35, %18 ]
   %14 = phi i64 [ %.promoted40.i.i, %6 ], [ %37, %18 ]
   %15 = phi i64 [ %.promoted41.i.i, %6 ], [ %38, %18 ]
-  %16 = getelementptr inbounds nuw i64, ptr @php_random_xoshiro256starstar_jump_long.jmp, i64 %indvars.iv54.i.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr @php_random_xoshiro256starstar_jump_long.jmp, i64 %indvars.iv54.i.i
   %17 = load i64, ptr %16, align 8, !tbaa !4
   br label %19
 
@@ -661,7 +661,7 @@ zend_parse_arg_str_or_long.exit:                  ; preds = %14
 
 62:                                               ; preds = %48, %65
   %indvars.iv131 = phi i64 [ 0, %48 ], [ %indvars.iv.next132, %65 ]
-  %63 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv131
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv131
   %64 = shl nuw nsw i64 %indvars.iv131, 3
   %invariant.gep = getelementptr inbounds nuw i8, ptr %49, i64 %64
   br label %66

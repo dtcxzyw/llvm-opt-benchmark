@@ -3,11 +3,6 @@ source_filename = "bench/duckdb/original/backward_references.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.duckdb_brotli::SlotH40" = type { i16, i16 }
-%"struct.duckdb_brotli::SlotH41" = type { i16, i16 }
-%"struct.duckdb_brotli::BankH42" = type { [512 x %"struct.duckdb_brotli::SlotH42"] }
-%"struct.duckdb_brotli::SlotH42" = type { i16, i16 }
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define void @_ZN13duckdb_brotli30BrotliCreateBackwardReferencesEmmPKhmS1_PK19BrotliEncoderParamsPNS_6HasherEPiPmPNS_7CommandES8_S8_(i64 noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef captures(none) %6, ptr noundef captures(none) %7, ptr noundef captures(none) %8, ptr noundef %9, ptr noundef captures(none) %10, ptr noundef captures(none) %11) local_unnamed_addr #0 {
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 88
@@ -299,7 +294,7 @@ _ZN13duckdb_brotliL20PrepareDistanceCacheEPii.exit240: ; preds = %12, %35, %50
   %.0200 = phi i32 [ %132, %.thread ], [ 0, %103 ]
   %.0197 = phi i8 [ %121, %.thread ], [ 0, %103 ]
   %134 = zext nneg i32 %.0200 to i64
-  %135 = getelementptr inbounds nuw ptr, ptr %70, i64 %134
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %134
   %136 = load ptr, ptr %135, align 8, !tbaa !55
   %137 = load i64, ptr %72, align 8, !tbaa !56
   tail call void @llvm.experimental.noalias.scope.decl(metadata !45)
@@ -323,7 +318,7 @@ _ZN13duckdb_brotliL20PrepareDistanceCacheEPii.exit240: ; preds = %12, %35, %50
   %.sroa.0418.2623 = phi i64 [ 0, %.lr.ph628 ], [ %.sroa.0418.6, %205 ]
   %.sroa.18426.2622 = phi i64 [ 0, %.lr.ph628 ], [ %.sroa.18426.6, %205 ]
   %.sroa.29430.2621 = phi i64 [ 2020, %.lr.ph628 ], [ %.sroa.29430.6, %205 ]
-  %144 = getelementptr inbounds nuw i32, ptr %7, i64 %.0139.i624
+  %144 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.0139.i624
   %145 = load i32, ptr %144, align 4, !tbaa !40, !alias.scope !58, !noalias !59
   %146 = sext i32 %145 to i64
   %147 = sub i64 %.0915, %146
@@ -478,9 +473,9 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit271: ; preds = %163, %
   %211 = load i32, ptr %78, align 8, !tbaa !67, !alias.scope !45, !noalias !48
   %212 = shl i32 %210, %211
   %213 = zext i32 %212 to i64
-  %214 = getelementptr inbounds nuw i32, ptr %76, i64 %213
+  %214 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %213
   %215 = zext i32 %210 to i64
-  %216 = getelementptr inbounds nuw i16, ptr %74, i64 %215
+  %216 = getelementptr inbounds nuw [2 x i8], ptr %74, i64 %215
   %217 = load i16, ptr %216, align 2, !tbaa !68, !noalias !61
   %218 = zext i16 %217 to i64
   %219 = load i64, ptr %79, align 8, !tbaa !70, !alias.scope !45, !noalias !48
@@ -503,7 +498,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit271: ; preds = %163, %
   %.sroa.29430.3650 = phi i64 [ %.sroa.29430.2.lcssa, %.lr.ph657 ], [ %.sroa.29430.5, %278 ]
   %224 = add nsw i64 %.1140.i653, -1
   %225 = and i64 %224, %221
-  %226 = getelementptr inbounds nuw i32, ptr %214, i64 %225
+  %226 = getelementptr inbounds nuw [4 x i8], ptr %214, i64 %225
   %227 = load i32, ptr %226, align 4, !tbaa !40, !noalias !61
   %228 = zext i32 %227 to i64
   %229 = sub i64 %.0915, %228
@@ -630,7 +625,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit285: ; preds = %245, %
   %281 = zext i16 %217 to i32
   %282 = and i32 %.pre, %281
   %283 = zext nneg i32 %282 to i64
-  %284 = getelementptr inbounds nuw i32, ptr %214, i64 %283
+  %284 = getelementptr inbounds nuw [4 x i8], ptr %214, i64 %283
   store i32 %280, ptr %284, align 4, !tbaa !40, !noalias !61
   %285 = add i16 %217, 1
   store i16 %285, ptr %216, align 2, !tbaa !68, !noalias !61
@@ -681,7 +676,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit285: ; preds = %245, %
 314:                                              ; preds = %307
   %315 = zext i8 %313 to i64
   %316 = load ptr, ptr %302, align 8, !tbaa !80, !noalias !77
-  %317 = getelementptr inbounds nuw i16, ptr %316, i64 %.0.i290686
+  %317 = getelementptr inbounds nuw [2 x i8], ptr %316, i64 %.0.i290686
   %318 = load i16, ptr %317, align 2, !tbaa !68, !noalias !77
   %319 = zext i16 %318 to i64
   %320 = icmp ult i64 %104, %315
@@ -690,7 +685,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit285: ; preds = %245, %
 321:                                              ; preds = %314
   %322 = load ptr, ptr %136, align 8, !tbaa !81, !noalias !77
   %323 = getelementptr inbounds nuw i8, ptr %322, i64 32
-  %324 = getelementptr inbounds nuw i32, ptr %323, i64 %315
+  %324 = getelementptr inbounds nuw [4 x i8], ptr %323, i64 %315
   %325 = load i32, ptr %324, align 4, !tbaa !40, !noalias !77
   %326 = zext i32 %325 to i64
   %327 = mul nuw nsw i64 %319, %315
@@ -836,9 +831,9 @@ _ZN13duckdb_brotliL18FindLongestMatchH5EPNS_2H5EPKNS_23BrotliEncoderDictionaryEP
   %.sroa.0418.8741 = phi i64 [ %.sroa.0418.7, %.lr.ph744 ], [ %.sroa.0418.14.lcssa, %_ZN13duckdb_brotliL27FindCompoundDictionaryMatchEPKNS_18PreparedDictionaryEPKhmPKimmmmPNS_18HasherSearchResultE.exit401 ]
   %.sroa.18426.8740 = phi i64 [ %.sroa.18426.7, %.lr.ph744 ], [ %.sroa.18426.14.lcssa, %_ZN13duckdb_brotliL27FindCompoundDictionaryMatchEPKNS_18PreparedDictionaryEPKhmPKimmmmPNS_18HasherSearchResultE.exit401 ]
   %.sroa.29430.8739 = phi i64 [ %.sroa.29430.7, %.lr.ph744 ], [ %.sroa.29430.14.lcssa, %_ZN13duckdb_brotliL27FindCompoundDictionaryMatchEPKNS_18PreparedDictionaryEPKhmPKimmmmPNS_18HasherSearchResultE.exit401 ]
-  %395 = getelementptr inbounds nuw ptr, ptr %83, i64 %.0.i233743
+  %395 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %.0.i233743
   %396 = load ptr, ptr %395, align 8, !tbaa !99, !noalias !88
-  %397 = getelementptr inbounds nuw i64, ptr %84, i64 %.0.i233743
+  %397 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %.0.i233743
   %398 = load i64, ptr %397, align 8, !tbaa !29, !noalias !88
   %399 = sub i64 %392, %398
   tail call void @llvm.experimental.noalias.scope.decl(metadata !93)
@@ -862,10 +857,10 @@ _ZN13duckdb_brotliL18FindLongestMatchH5EPNS_2H5EPKNS_23BrotliEncoderDictionaryEP
   %416 = getelementptr inbounds nuw i8, ptr %396, i64 24
   %417 = shl nuw i32 1, %409
   %418 = zext i32 %417 to i64
-  %419 = getelementptr inbounds nuw i32, ptr %416, i64 %418
+  %419 = getelementptr inbounds nuw [4 x i8], ptr %416, i64 %418
   %420 = shl nuw i32 1, %407
   %421 = zext i32 %420 to i64
-  %422 = getelementptr inbounds nuw i16, ptr %419, i64 %421
+  %422 = getelementptr inbounds nuw [2 x i8], ptr %419, i64 %421
   %423 = and i64 %.0.copyload.i165.i347, %415
   %424 = mul i64 %423, 2297779722762296275
   %425 = zext nneg i32 %410 to i64
@@ -873,20 +868,20 @@ _ZN13duckdb_brotliL18FindLongestMatchH5EPNS_2H5EPKNS_23BrotliEncoderDictionaryEP
   %427 = trunc i64 %426 to i32
   %428 = and i32 %412, %427
   %429 = and i64 %426, 4294967295
-  %430 = getelementptr inbounds nuw i16, ptr %419, i64 %429
+  %430 = getelementptr inbounds nuw [2 x i8], ptr %419, i64 %429
   %431 = load i16, ptr %430, align 2, !tbaa !68, !noalias !104
   %432 = zext i16 %431 to i32
   %433 = zext i32 %428 to i64
-  %434 = getelementptr inbounds nuw i32, ptr %416, i64 %433
+  %434 = getelementptr inbounds nuw [4 x i8], ptr %416, i64 %433
   %435 = load i32, ptr %434, align 4, !tbaa !40, !noalias !104
   %436 = add i32 %435, %432
   %437 = zext i32 %436 to i64
-  %438 = getelementptr inbounds nuw i32, ptr %422, i64 %437
+  %438 = getelementptr inbounds nuw [4 x i8], ptr %422, i64 %437
   %.not924 = icmp eq i16 %431, -1
   %439 = getelementptr inbounds nuw i8, ptr %396, i64 4
   %440 = load i32, ptr %439, align 4, !tbaa !108, !noalias !104
   %441 = zext i32 %440 to i64
-  %442 = getelementptr inbounds nuw i32, ptr %422, i64 %441
+  %442 = getelementptr inbounds nuw [4 x i8], ptr %422, i64 %441
   %443 = load i32, ptr %396, align 4, !tbaa !109, !noalias !104
   %444 = icmp eq i32 %443, -558043680
   br i1 %444, label %446, label %445
@@ -910,7 +905,7 @@ _ZN13duckdb_brotliL18FindLongestMatchH5EPNS_2H5EPKNS_23BrotliEncoderDictionaryEP
   %.sroa.0418.13705 = phi i64 [ %.sroa.0418.8741, %446 ], [ %.sroa.0418.16, %497 ]
   %.sroa.18426.13704 = phi i64 [ %.sroa.18426.8740, %446 ], [ %.sroa.18426.16, %497 ]
   %.sroa.29430.13703 = phi i64 [ %.sroa.29430.8739, %446 ], [ %.sroa.29430.16, %497 ]
-  %448 = getelementptr inbounds nuw i32, ptr %7, i64 %.0131.i349707
+  %448 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.0131.i349707
   %449 = load i32, ptr %448, align 4, !tbaa !40, !alias.scope !101, !noalias !110
   %450 = sext i32 %449 to i64
   %.not145.i377 = icmp uge i64 %403, %450
@@ -1232,7 +1227,7 @@ _ZN13duckdb_brotliL29LookupCompoundDictionaryMatchEPKNS_18CompoundDictionaryEPKh
   %.2202 = phi i32 [ %586, %572 ], [ %.1201, %561 ]
   %.2199 = phi i8 [ %575, %572 ], [ %.1198, %561 ]
   %588 = zext nneg i32 %.2202 to i64
-  %589 = getelementptr inbounds nuw ptr, ptr %70, i64 %588
+  %589 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %588
   %590 = load ptr, ptr %589, align 8, !tbaa !55
   tail call void @llvm.experimental.noalias.scope.decl(metadata !114)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !121)
@@ -1252,7 +1247,7 @@ _ZN13duckdb_brotliL29LookupCompoundDictionaryMatchEPKNS_18CompoundDictionaryEPKh
   %.sroa.0.0780 = phi i64 [ 0, %.lr.ph786 ], [ %.sroa.0.4, %656 ]
   %.sroa.12.0779 = phi i64 [ 0, %.lr.ph786 ], [ %.sroa.12.4, %656 ]
   %.sroa.18.0778 = phi i64 [ 2020, %.lr.ph786 ], [ %.sroa.18.4, %656 ]
-  %595 = getelementptr inbounds nuw i32, ptr %7, i64 %.0139.i213781
+  %595 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.0139.i213781
   %596 = load i32, ptr %595, align 4, !tbaa !40, !alias.scope !122, !noalias !123
   %597 = sext i32 %596 to i64
   %598 = sub i64 %567, %597
@@ -1405,9 +1400,9 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %614, %.cr
   %660 = lshr i32 %659, %558
   %661 = shl i32 %660, %559
   %662 = zext i32 %661 to i64
-  %663 = getelementptr inbounds nuw i32, ptr %76, i64 %662
+  %663 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %662
   %664 = zext i32 %660 to i64
-  %665 = getelementptr inbounds nuw i16, ptr %74, i64 %664
+  %665 = getelementptr inbounds nuw [2 x i8], ptr %74, i64 %664
   %666 = load i16, ptr %665, align 2, !tbaa !68, !noalias !124
   %667 = zext i16 %666 to i64
   %spec.select.i216 = tail call i64 @llvm.usub.sat.i64(i64 %667, i64 %219)
@@ -1429,7 +1424,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %614, %.cr
   %.sroa.18.1809 = phi i64 [ %.sroa.18.0.lcssa, %.lr.ph816 ], [ %.sroa.18.3, %727 ]
   %673 = add nsw i64 %.1140.i217812, -1
   %674 = and i64 %673, %670
-  %675 = getelementptr inbounds nuw i32, ptr %663, i64 %674
+  %675 = getelementptr inbounds nuw [4 x i8], ptr %663, i64 %674
   %676 = load i32, ptr %675, align 4, !tbaa !40, !noalias !124
   %677 = zext i32 %676 to i64
   %678 = sub i64 %567, %677
@@ -1556,7 +1551,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit257: ; preds = %694, %
   %730 = zext i16 %666 to i32
   %731 = and i32 %560, %730
   %732 = zext nneg i32 %731 to i64
-  %733 = getelementptr inbounds nuw i32, ptr %663, i64 %732
+  %733 = getelementptr inbounds nuw [4 x i8], ptr %663, i64 %732
   store i32 %729, ptr %733, align 4, !tbaa !40, !noalias !124
   %734 = add i16 %666, 1
   store i16 %734, ptr %665, align 2, !tbaa !68, !noalias !124
@@ -1607,7 +1602,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit257: ; preds = %694, %
 763:                                              ; preds = %756
   %764 = zext i8 %762 to i64
   %765 = load ptr, ptr %751, align 8, !tbaa !80, !noalias !125
-  %766 = getelementptr inbounds nuw i16, ptr %765, i64 %.0.i288846
+  %766 = getelementptr inbounds nuw [2 x i8], ptr %765, i64 %.0.i288846
   %767 = load i16, ptr %766, align 2, !tbaa !68, !noalias !125
   %768 = zext i16 %767 to i64
   %769 = icmp ult i64 %.0191, %764
@@ -1616,7 +1611,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit257: ; preds = %694, %
 770:                                              ; preds = %763
   %771 = load ptr, ptr %590, align 8, !tbaa !81, !noalias !125
   %772 = getelementptr inbounds nuw i8, ptr %771, i64 32
-  %773 = getelementptr inbounds nuw i32, ptr %772, i64 %764
+  %773 = getelementptr inbounds nuw [4 x i8], ptr %772, i64 %764
   %774 = load i32, ptr %773, align 4, !tbaa !40, !noalias !125
   %775 = zext i32 %774 to i64
   %776 = mul nuw nsw i64 %768, %764
@@ -1759,9 +1754,9 @@ _ZN13duckdb_brotliL18FindLongestMatchH5EPNS_2H5EPKNS_23BrotliEncoderDictionaryEP
   %.sroa.12.6901 = phi i64 [ %.sroa.12.5, %.lr.ph904 ], [ %.sroa.12.12.lcssa, %_ZN13duckdb_brotliL27FindCompoundDictionaryMatchEPKNS_18PreparedDictionaryEPKhmPKimmmmPNS_18HasherSearchResultE.exit ]
   %.sroa.18.6900 = phi i64 [ %.sroa.18.5, %.lr.ph904 ], [ %.sroa.18.12.lcssa, %_ZN13duckdb_brotliL27FindCompoundDictionaryMatchEPKNS_18PreparedDictionaryEPKhmPKimmmmPNS_18HasherSearchResultE.exit ]
   %.sroa.29.1899 = phi i32 [ %.sroa.29.0, %.lr.ph904 ], [ %.sroa.29.7.lcssa, %_ZN13duckdb_brotliL27FindCompoundDictionaryMatchEPKNS_18PreparedDictionaryEPKhmPKimmmmPNS_18HasherSearchResultE.exit ]
-  %842 = getelementptr inbounds nuw ptr, ptr %83, i64 %.0.i234903
+  %842 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %.0.i234903
   %843 = load ptr, ptr %842, align 8, !tbaa !99, !noalias !132
-  %844 = getelementptr inbounds nuw i64, ptr %84, i64 %.0.i234903
+  %844 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %.0.i234903
   %845 = load i64, ptr %844, align 8, !tbaa !29, !noalias !132
   %846 = sub i64 %840, %845
   tail call void @llvm.experimental.noalias.scope.decl(metadata !126)
@@ -1785,10 +1780,10 @@ _ZN13duckdb_brotliL18FindLongestMatchH5EPNS_2H5EPKNS_23BrotliEncoderDictionaryEP
   %863 = getelementptr inbounds nuw i8, ptr %843, i64 24
   %864 = shl nuw i32 1, %856
   %865 = zext i32 %864 to i64
-  %866 = getelementptr inbounds nuw i32, ptr %863, i64 %865
+  %866 = getelementptr inbounds nuw [4 x i8], ptr %863, i64 %865
   %867 = shl nuw i32 1, %854
   %868 = zext i32 %867 to i64
-  %869 = getelementptr inbounds nuw i16, ptr %866, i64 %868
+  %869 = getelementptr inbounds nuw [2 x i8], ptr %866, i64 %868
   %870 = and i64 %.0.copyload.i165.i, %862
   %871 = mul i64 %870, 2297779722762296275
   %872 = zext nneg i32 %857 to i64
@@ -1796,20 +1791,20 @@ _ZN13duckdb_brotliL18FindLongestMatchH5EPNS_2H5EPKNS_23BrotliEncoderDictionaryEP
   %874 = trunc i64 %873 to i32
   %875 = and i32 %859, %874
   %876 = and i64 %873, 4294967295
-  %877 = getelementptr inbounds nuw i16, ptr %866, i64 %876
+  %877 = getelementptr inbounds nuw [2 x i8], ptr %866, i64 %876
   %878 = load i16, ptr %877, align 2, !tbaa !68, !noalias !137
   %879 = zext i16 %878 to i32
   %880 = zext i32 %875 to i64
-  %881 = getelementptr inbounds nuw i32, ptr %863, i64 %880
+  %881 = getelementptr inbounds nuw [4 x i8], ptr %863, i64 %880
   %882 = load i32, ptr %881, align 4, !tbaa !40, !noalias !137
   %883 = add i32 %882, %879
   %884 = zext i32 %883 to i64
-  %885 = getelementptr inbounds nuw i32, ptr %869, i64 %884
+  %885 = getelementptr inbounds nuw [4 x i8], ptr %869, i64 %884
   %.not931 = icmp eq i16 %878, -1
   %886 = getelementptr inbounds nuw i8, ptr %843, i64 4
   %887 = load i32, ptr %886, align 4, !tbaa !108, !noalias !137
   %888 = zext i32 %887 to i64
-  %889 = getelementptr inbounds nuw i32, ptr %869, i64 %888
+  %889 = getelementptr inbounds nuw [4 x i8], ptr %869, i64 %888
   %890 = load i32, ptr %843, align 4, !tbaa !109, !noalias !137
   %891 = icmp eq i32 %890, -558043680
   br i1 %891, label %893, label %892
@@ -1833,7 +1828,7 @@ _ZN13duckdb_brotliL18FindLongestMatchH5EPNS_2H5EPKNS_23BrotliEncoderDictionaryEP
   %.sroa.12.11865 = phi i64 [ %.sroa.12.6901, %893 ], [ %.sroa.12.14, %944 ]
   %.sroa.18.11864 = phi i64 [ %.sroa.18.6900, %893 ], [ %.sroa.18.14, %944 ]
   %.sroa.29.6863 = phi i32 [ %.sroa.29.1899, %893 ], [ %.sroa.29.9, %944 ]
-  %895 = getelementptr inbounds nuw i32, ptr %7, i64 %.0131.i325867
+  %895 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.0131.i325867
   %896 = load i32, ptr %895, align 4, !tbaa !40, !alias.scope !136, !noalias !138
   %897 = sext i32 %896 to i64
   %.not145.i = icmp uge i64 %850, %897
@@ -2449,7 +2444,7 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %1164, %_ZN13duckdb_
   %1201 = mul i32 %.val410, 506832829
   %1202 = lshr i32 %1201, %1195
   %1203 = zext i32 %1202 to i64
-  %1204 = getelementptr inbounds nuw i16, ptr %74, i64 %1203
+  %1204 = getelementptr inbounds nuw [2 x i8], ptr %74, i64 %1203
   %1205 = load i16, ptr %1204, align 2, !tbaa !68, !noalias !153
   %1206 = zext i16 %1205 to i32
   %1207 = and i32 %1196, %1206
@@ -2457,8 +2452,8 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %1164, %_ZN13duckdb_
   %1209 = shl i32 %1202, %1197
   %1210 = zext i32 %1209 to i64
   %1211 = trunc i64 %.0.i239909 to i32
-  %1212 = getelementptr inbounds nuw i32, ptr %76, i64 %1208
-  %1213 = getelementptr inbounds nuw i32, ptr %1212, i64 %1210
+  %1212 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %1208
+  %1213 = getelementptr inbounds nuw [4 x i8], ptr %1212, i64 %1210
   store i32 %1211, ptr %1213, align 4, !tbaa !40, !noalias !153
   %1214 = add i16 %1205, 1
   store i16 %1214, ptr %1204, align 2, !tbaa !68, !noalias !153
@@ -2499,7 +2494,7 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %1164, %_ZN13duckdb_
   %1233 = mul i32 %.val409, 506832829
   %1234 = lshr i32 %1233, %1227
   %1235 = zext i32 %1234 to i64
-  %1236 = getelementptr inbounds nuw i16, ptr %74, i64 %1235
+  %1236 = getelementptr inbounds nuw [2 x i8], ptr %74, i64 %1235
   %1237 = load i16, ptr %1236, align 2, !tbaa !68, !noalias !159
   %1238 = zext i16 %1237 to i32
   %1239 = and i32 %1228, %1238
@@ -2507,8 +2502,8 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %1164, %_ZN13duckdb_
   %1241 = shl i32 %1234, %1229
   %1242 = zext i32 %1241 to i64
   %1243 = trunc i64 %.5757 to i32
-  %1244 = getelementptr inbounds nuw i32, ptr %76, i64 %1240
-  %1245 = getelementptr inbounds nuw i32, ptr %1244, i64 %1242
+  %1244 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %1240
+  %1245 = getelementptr inbounds nuw [4 x i8], ptr %1244, i64 %1242
   store i32 %1243, ptr %1245, align 4, !tbaa !40, !noalias !159
   %1246 = add i16 %1237, 1
   store i16 %1246, ptr %1236, align 2, !tbaa !68, !noalias !159
@@ -2539,7 +2534,7 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %1164, %_ZN13duckdb_
   %1260 = mul i32 %.val, 506832829
   %1261 = lshr i32 %1260, %1254
   %1262 = zext i32 %1261 to i64
-  %1263 = getelementptr inbounds nuw i16, ptr %74, i64 %1262
+  %1263 = getelementptr inbounds nuw [2 x i8], ptr %74, i64 %1262
   %1264 = load i16, ptr %1263, align 2, !tbaa !68, !noalias !165
   %1265 = zext i16 %1264 to i32
   %1266 = and i32 %1255, %1265
@@ -2547,8 +2542,8 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %1164, %_ZN13duckdb_
   %1268 = shl i32 %1261, %1256
   %1269 = zext i32 %1268 to i64
   %1270 = trunc i64 %.6751 to i32
-  %1271 = getelementptr inbounds nuw i32, ptr %76, i64 %1267
-  %1272 = getelementptr inbounds nuw i32, ptr %1271, i64 %1269
+  %1271 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %1267
+  %1272 = getelementptr inbounds nuw [4 x i8], ptr %1271, i64 %1269
   store i32 %1270, ptr %1272, align 4, !tbaa !40, !noalias !165
   %1273 = add i16 %1264, 1
   store i16 %1273, ptr %1263, align 2, !tbaa !68, !noalias !165
@@ -2753,7 +2748,7 @@ _ZN13duckdb_brotliL22PrepareDistanceCacheH6EPNS_2H6EPi.exit: ; preds = %12, %35,
   %.0200 = phi i32 [ %131, %.thread ], [ 0, %102 ]
   %.0197 = phi i8 [ %120, %.thread ], [ 0, %102 ]
   %133 = zext nneg i32 %.0200 to i64
-  %134 = getelementptr inbounds nuw ptr, ptr %70, i64 %133
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %133
   %135 = load ptr, ptr %134, align 8, !tbaa !55
   %136 = load i64, ptr %72, align 8, !tbaa !56
   tail call void @llvm.experimental.noalias.scope.decl(metadata !183)
@@ -2777,7 +2772,7 @@ _ZN13duckdb_brotliL22PrepareDistanceCacheH6EPNS_2H6EPi.exit: ; preds = %12, %35,
   %.sroa.0395.7600 = phi i64 [ 0, %.lr.ph605 ], [ %.sroa.0395.15, %204 ]
   %.sroa.18403.7599 = phi i64 [ 0, %.lr.ph605 ], [ %.sroa.18403.15, %204 ]
   %.sroa.29407.7598 = phi i64 [ 2020, %.lr.ph605 ], [ %.sroa.29407.15, %204 ]
-  %143 = getelementptr inbounds nuw i32, ptr %7, i64 %.0144.i601
+  %143 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.0144.i601
   %144 = load i32, ptr %143, align 4, !tbaa !40, !alias.scope !192, !noalias !193
   %145 = sext i32 %144 to i64
   %146 = sub i64 %.0892, %145
@@ -2932,8 +2927,8 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit180.i: ; preds = %162,
   %210 = load i32, ptr %78, align 4, !tbaa !197, !alias.scope !183, !noalias !186
   %211 = zext nneg i32 %210 to i64
   %212 = shl i64 %209, %211
-  %213 = getelementptr inbounds nuw i32, ptr %76, i64 %212
-  %214 = getelementptr inbounds nuw i16, ptr %74, i64 %209
+  %213 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %212
+  %214 = getelementptr inbounds nuw [2 x i8], ptr %74, i64 %209
   %215 = load i16, ptr %214, align 2, !tbaa !68, !noalias !194
   %216 = zext i16 %215 to i64
   %217 = load i64, ptr %79, align 8, !tbaa !198, !alias.scope !183, !noalias !186
@@ -2959,7 +2954,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit180.i: ; preds = %162,
   %.sroa.29407.8627 = phi i64 [ %.sroa.29407.7.lcssa, %.lr.ph634 ], [ %.sroa.29407.14, %280 ]
   %225 = add nsw i64 %.1145.i630, -1
   %226 = and i64 %225, %221
-  %227 = getelementptr inbounds nuw i32, ptr %213, i64 %226
+  %227 = getelementptr inbounds nuw [4 x i8], ptr %213, i64 %226
   %228 = load i32, ptr %227, align 4, !tbaa !40, !noalias !194
   %229 = zext i32 %228 to i64
   %230 = sub i64 %.0892, %229
@@ -3089,7 +3084,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i294: ; preds = %248,
   %283 = zext i16 %215 to i32
   %284 = and i32 %.pre, %283
   %285 = zext nneg i32 %284 to i64
-  %286 = getelementptr inbounds nuw i32, ptr %213, i64 %285
+  %286 = getelementptr inbounds nuw [4 x i8], ptr %213, i64 %285
   store i32 %282, ptr %286, align 4, !tbaa !40, !noalias !194
   %287 = add i16 %215, 1
   store i16 %287, ptr %214, align 2, !tbaa !68, !noalias !194
@@ -3140,7 +3135,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i294: ; preds = %248,
 316:                                              ; preds = %309
   %317 = zext i8 %315 to i64
   %318 = load ptr, ptr %304, align 8, !tbaa !80, !noalias !202
-  %319 = getelementptr inbounds nuw i16, ptr %318, i64 %.0.i.i663
+  %319 = getelementptr inbounds nuw [2 x i8], ptr %318, i64 %.0.i.i663
   %320 = load i16, ptr %319, align 2, !tbaa !68, !noalias !194
   %321 = zext i16 %320 to i64
   %322 = icmp ult i64 %103, %317
@@ -3149,7 +3144,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i294: ; preds = %248,
 323:                                              ; preds = %316
   %324 = load ptr, ptr %135, align 8, !tbaa !81, !noalias !202
   %325 = getelementptr inbounds nuw i8, ptr %324, i64 32
-  %326 = getelementptr inbounds nuw i32, ptr %325, i64 %317
+  %326 = getelementptr inbounds nuw [4 x i8], ptr %325, i64 %317
   %327 = load i32, ptr %326, align 4, !tbaa !40, !noalias !194
   %328 = zext i32 %327 to i64
   %329 = mul nuw nsw i64 %321, %317
@@ -3295,9 +3290,9 @@ _ZN13duckdb_brotliL18FindLongestMatchH6EPNS_2H6EPKNS_23BrotliEncoderDictionaryEP
   %.sroa.0395.2718 = phi i64 [ %.sroa.0395.16, %.lr.ph721 ], [ %.sroa.0395.4.lcssa, %_ZN13duckdb_brotliL27FindCompoundDictionaryMatchEPKNS_18PreparedDictionaryEPKhmPKimmmmPNS_18HasherSearchResultE.exit273 ]
   %.sroa.18403.2717 = phi i64 [ %.sroa.18403.16, %.lr.ph721 ], [ %.sroa.18403.4.lcssa, %_ZN13duckdb_brotliL27FindCompoundDictionaryMatchEPKNS_18PreparedDictionaryEPKhmPKimmmmPNS_18HasherSearchResultE.exit273 ]
   %.sroa.29407.2716 = phi i64 [ %.sroa.29407.16, %.lr.ph721 ], [ %.sroa.29407.4.lcssa, %_ZN13duckdb_brotliL27FindCompoundDictionaryMatchEPKNS_18PreparedDictionaryEPKhmPKimmmmPNS_18HasherSearchResultE.exit273 ]
-  %397 = getelementptr inbounds nuw ptr, ptr %83, i64 %.0.i720
+  %397 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %.0.i720
   %398 = load ptr, ptr %397, align 8, !tbaa !99, !noalias !203
-  %399 = getelementptr inbounds nuw i64, ptr %84, i64 %.0.i720
+  %399 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %.0.i720
   %400 = load i64, ptr %399, align 8, !tbaa !29, !noalias !203
   %401 = sub i64 %394, %400
   tail call void @llvm.experimental.noalias.scope.decl(metadata !207)
@@ -3321,10 +3316,10 @@ _ZN13duckdb_brotliL18FindLongestMatchH6EPNS_2H6EPKNS_23BrotliEncoderDictionaryEP
   %418 = getelementptr inbounds nuw i8, ptr %398, i64 24
   %419 = shl nuw i32 1, %411
   %420 = zext i32 %419 to i64
-  %421 = getelementptr inbounds nuw i32, ptr %418, i64 %420
+  %421 = getelementptr inbounds nuw [4 x i8], ptr %418, i64 %420
   %422 = shl nuw i32 1, %409
   %423 = zext i32 %422 to i64
-  %424 = getelementptr inbounds nuw i16, ptr %421, i64 %423
+  %424 = getelementptr inbounds nuw [2 x i8], ptr %421, i64 %423
   %425 = and i64 %.0.copyload.i165.i219, %417
   %426 = mul i64 %425, 2297779722762296275
   %427 = zext nneg i32 %412 to i64
@@ -3332,20 +3327,20 @@ _ZN13duckdb_brotliL18FindLongestMatchH6EPNS_2H6EPKNS_23BrotliEncoderDictionaryEP
   %429 = trunc i64 %428 to i32
   %430 = and i32 %414, %429
   %431 = and i64 %428, 4294967295
-  %432 = getelementptr inbounds nuw i16, ptr %421, i64 %431
+  %432 = getelementptr inbounds nuw [2 x i8], ptr %421, i64 %431
   %433 = load i16, ptr %432, align 2, !tbaa !68, !noalias !214
   %434 = zext i16 %433 to i32
   %435 = zext i32 %430 to i64
-  %436 = getelementptr inbounds nuw i32, ptr %418, i64 %435
+  %436 = getelementptr inbounds nuw [4 x i8], ptr %418, i64 %435
   %437 = load i32, ptr %436, align 4, !tbaa !40, !noalias !214
   %438 = add i32 %437, %434
   %439 = zext i32 %438 to i64
-  %440 = getelementptr inbounds nuw i32, ptr %424, i64 %439
+  %440 = getelementptr inbounds nuw [4 x i8], ptr %424, i64 %439
   %.not901 = icmp eq i16 %433, -1
   %441 = getelementptr inbounds nuw i8, ptr %398, i64 4
   %442 = load i32, ptr %441, align 4, !tbaa !108, !noalias !214
   %443 = zext i32 %442 to i64
-  %444 = getelementptr inbounds nuw i32, ptr %424, i64 %443
+  %444 = getelementptr inbounds nuw [4 x i8], ptr %424, i64 %443
   %445 = load i32, ptr %398, align 4, !tbaa !109, !noalias !214
   %446 = icmp eq i32 %445, -558043680
   br i1 %446, label %448, label %447
@@ -3369,7 +3364,7 @@ _ZN13duckdb_brotliL18FindLongestMatchH6EPNS_2H6EPKNS_23BrotliEncoderDictionaryEP
   %.sroa.0395.3682 = phi i64 [ %.sroa.0395.2718, %448 ], [ %.sroa.0395.6, %499 ]
   %.sroa.18403.3681 = phi i64 [ %.sroa.18403.2717, %448 ], [ %.sroa.18403.6, %499 ]
   %.sroa.29407.3680 = phi i64 [ %.sroa.29407.2716, %448 ], [ %.sroa.29407.6, %499 ]
-  %450 = getelementptr inbounds nuw i32, ptr %7, i64 %.0131.i221684
+  %450 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.0131.i221684
   %451 = load i32, ptr %450, align 4, !tbaa !40, !alias.scope !213, !noalias !215
   %452 = sext i32 %451 to i64
   %.not145.i249 = icmp uge i64 %405, %452
@@ -3691,7 +3686,7 @@ _ZN13duckdb_brotliL29LookupCompoundDictionaryMatchEPKNS_18CompoundDictionaryEPKh
   %.2202 = phi i32 [ %588, %574 ], [ %.1201, %563 ]
   %.2199 = phi i8 [ %577, %574 ], [ %.1198, %563 ]
   %590 = zext nneg i32 %.2202 to i64
-  %591 = getelementptr inbounds nuw ptr, ptr %70, i64 %590
+  %591 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %590
   %592 = load ptr, ptr %591, align 8, !tbaa !55
   tail call void @llvm.experimental.noalias.scope.decl(metadata !216)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !223)
@@ -3711,7 +3706,7 @@ _ZN13duckdb_brotliL29LookupCompoundDictionaryMatchEPKNS_18CompoundDictionaryEPKh
   %.sroa.0.5757 = phi i64 [ 0, %.lr.ph763 ], [ %.sroa.0.13, %658 ]
   %.sroa.12.5756 = phi i64 [ 0, %.lr.ph763 ], [ %.sroa.12.13, %658 ]
   %.sroa.18.5755 = phi i64 [ 2020, %.lr.ph763 ], [ %.sroa.18.13, %658 ]
-  %597 = getelementptr inbounds nuw i32, ptr %7, i64 %.0144.i303758
+  %597 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.0144.i303758
   %598 = load i32, ptr %597, align 4, !tbaa !40, !alias.scope !224, !noalias !225
   %599 = sext i32 %598 to i64
   %600 = sub i64 %569, %599
@@ -3863,8 +3858,8 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit180.i372: ; preds = %6
   %661 = mul i64 %.0.copyload.i.i388, %207
   %662 = lshr i64 %661, 49
   %663 = shl i64 %662, %561
-  %664 = getelementptr inbounds nuw i32, ptr %76, i64 %663
-  %665 = getelementptr inbounds nuw i16, ptr %74, i64 %662
+  %664 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %663
+  %665 = getelementptr inbounds nuw [2 x i8], ptr %74, i64 %662
   %666 = load i16, ptr %665, align 2, !tbaa !68, !noalias !226
   %667 = zext i16 %666 to i64
   %spec.select.i306 = tail call i64 @llvm.usub.sat.i64(i64 %667, i64 %217)
@@ -3889,7 +3884,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit180.i372: ; preds = %6
   %.sroa.18.6786 = phi i64 [ %.sroa.18.5.lcssa, %.lr.ph793 ], [ %.sroa.18.12, %731 ]
   %676 = add nsw i64 %.1145.i308789, -1
   %677 = and i64 %676, %672
-  %678 = getelementptr inbounds nuw i32, ptr %664, i64 %677
+  %678 = getelementptr inbounds nuw [4 x i8], ptr %664, i64 %677
   %679 = load i32, ptr %678, align 4, !tbaa !40, !noalias !226
   %680 = zext i32 %679 to i64
   %681 = sub i64 %569, %680
@@ -4019,7 +4014,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i351: ; preds = %699,
   %734 = zext i16 %666 to i32
   %735 = and i32 %562, %734
   %736 = zext nneg i32 %735 to i64
-  %737 = getelementptr inbounds nuw i32, ptr %664, i64 %736
+  %737 = getelementptr inbounds nuw [4 x i8], ptr %664, i64 %736
   store i32 %733, ptr %737, align 4, !tbaa !40, !noalias !226
   %738 = add i16 %666, 1
   store i16 %738, ptr %665, align 2, !tbaa !68, !noalias !226
@@ -4070,7 +4065,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i351: ; preds = %699,
 767:                                              ; preds = %760
   %768 = zext i8 %766 to i64
   %769 = load ptr, ptr %755, align 8, !tbaa !80, !noalias !227
-  %770 = getelementptr inbounds nuw i16, ptr %769, i64 %.0.i.i313823
+  %770 = getelementptr inbounds nuw [2 x i8], ptr %769, i64 %.0.i.i313823
   %771 = load i16, ptr %770, align 2, !tbaa !68, !noalias !226
   %772 = zext i16 %771 to i64
   %773 = icmp ult i64 %.0191, %768
@@ -4079,7 +4074,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i351: ; preds = %699,
 774:                                              ; preds = %767
   %775 = load ptr, ptr %592, align 8, !tbaa !81, !noalias !227
   %776 = getelementptr inbounds nuw i8, ptr %775, i64 32
-  %777 = getelementptr inbounds nuw i32, ptr %776, i64 %768
+  %777 = getelementptr inbounds nuw [4 x i8], ptr %776, i64 %768
   %778 = load i32, ptr %777, align 4, !tbaa !40, !noalias !226
   %779 = zext i32 %778 to i64
   %780 = mul nuw nsw i64 %772, %768
@@ -4222,9 +4217,9 @@ _ZN13duckdb_brotliL18FindLongestMatchH6EPNS_2H6EPKNS_23BrotliEncoderDictionaryEP
   %.sroa.12.0878 = phi i64 [ %.sroa.12.14, %.lr.ph881 ], [ %.sroa.12.2.lcssa, %_ZN13duckdb_brotliL27FindCompoundDictionaryMatchEPKNS_18PreparedDictionaryEPKhmPKimmmmPNS_18HasherSearchResultE.exit ]
   %.sroa.18.0877 = phi i64 [ %.sroa.18.14, %.lr.ph881 ], [ %.sroa.18.2.lcssa, %_ZN13duckdb_brotliL27FindCompoundDictionaryMatchEPKNS_18PreparedDictionaryEPKhmPKimmmmPNS_18HasherSearchResultE.exit ]
   %.sroa.29.0876 = phi i32 [ %.sroa.29.9, %.lr.ph881 ], [ %.sroa.29.2.lcssa, %_ZN13duckdb_brotliL27FindCompoundDictionaryMatchEPKNS_18PreparedDictionaryEPKhmPKimmmmPNS_18HasherSearchResultE.exit ]
-  %846 = getelementptr inbounds nuw ptr, ptr %83, i64 %.0.i213880
+  %846 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %.0.i213880
   %847 = load ptr, ptr %846, align 8, !tbaa !99, !noalias !234
-  %848 = getelementptr inbounds nuw i64, ptr %84, i64 %.0.i213880
+  %848 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %.0.i213880
   %849 = load i64, ptr %848, align 8, !tbaa !29, !noalias !234
   %850 = sub i64 %844, %849
   tail call void @llvm.experimental.noalias.scope.decl(metadata !228)
@@ -4248,10 +4243,10 @@ _ZN13duckdb_brotliL18FindLongestMatchH6EPNS_2H6EPKNS_23BrotliEncoderDictionaryEP
   %867 = getelementptr inbounds nuw i8, ptr %847, i64 24
   %868 = shl nuw i32 1, %860
   %869 = zext i32 %868 to i64
-  %870 = getelementptr inbounds nuw i32, ptr %867, i64 %869
+  %870 = getelementptr inbounds nuw [4 x i8], ptr %867, i64 %869
   %871 = shl nuw i32 1, %858
   %872 = zext i32 %871 to i64
-  %873 = getelementptr inbounds nuw i16, ptr %870, i64 %872
+  %873 = getelementptr inbounds nuw [2 x i8], ptr %870, i64 %872
   %874 = and i64 %.0.copyload.i165.i, %866
   %875 = mul i64 %874, 2297779722762296275
   %876 = zext nneg i32 %861 to i64
@@ -4259,20 +4254,20 @@ _ZN13duckdb_brotliL18FindLongestMatchH6EPNS_2H6EPKNS_23BrotliEncoderDictionaryEP
   %878 = trunc i64 %877 to i32
   %879 = and i32 %863, %878
   %880 = and i64 %877, 4294967295
-  %881 = getelementptr inbounds nuw i16, ptr %870, i64 %880
+  %881 = getelementptr inbounds nuw [2 x i8], ptr %870, i64 %880
   %882 = load i16, ptr %881, align 2, !tbaa !68, !noalias !239
   %883 = zext i16 %882 to i32
   %884 = zext i32 %879 to i64
-  %885 = getelementptr inbounds nuw i32, ptr %867, i64 %884
+  %885 = getelementptr inbounds nuw [4 x i8], ptr %867, i64 %884
   %886 = load i32, ptr %885, align 4, !tbaa !40, !noalias !239
   %887 = add i32 %886, %883
   %888 = zext i32 %887 to i64
-  %889 = getelementptr inbounds nuw i32, ptr %873, i64 %888
+  %889 = getelementptr inbounds nuw [4 x i8], ptr %873, i64 %888
   %.not908 = icmp eq i16 %882, -1
   %890 = getelementptr inbounds nuw i8, ptr %847, i64 4
   %891 = load i32, ptr %890, align 4, !tbaa !108, !noalias !239
   %892 = zext i32 %891 to i64
-  %893 = getelementptr inbounds nuw i32, ptr %873, i64 %892
+  %893 = getelementptr inbounds nuw [4 x i8], ptr %873, i64 %892
   %894 = load i32, ptr %847, align 4, !tbaa !109, !noalias !239
   %895 = icmp eq i32 %894, -558043680
   br i1 %895, label %897, label %896
@@ -4296,7 +4291,7 @@ _ZN13duckdb_brotliL18FindLongestMatchH6EPNS_2H6EPKNS_23BrotliEncoderDictionaryEP
   %.sroa.12.1842 = phi i64 [ %.sroa.12.0878, %897 ], [ %.sroa.12.4, %948 ]
   %.sroa.18.1841 = phi i64 [ %.sroa.18.0877, %897 ], [ %.sroa.18.4, %948 ]
   %.sroa.29.1840 = phi i32 [ %.sroa.29.0876, %897 ], [ %.sroa.29.4, %948 ]
-  %899 = getelementptr inbounds nuw i32, ptr %7, i64 %.0131.i844
+  %899 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.0131.i844
   %900 = load i32, ptr %899, align 4, !tbaa !40, !alias.scope !238, !noalias !240
   %901 = sext i32 %900 to i64
   %.not145.i = icmp uge i64 %854, %901
@@ -4913,7 +4908,7 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %1168, %_ZN13duckdb_
   %.0.copyload.i.i387 = load i64, ptr %1205, align 1, !alias.scope !255, !noalias !250
   %1206 = mul i64 %.0.copyload.i.i387, %1199
   %1207 = lshr i64 %1206, 49
-  %1208 = getelementptr inbounds nuw i16, ptr %74, i64 %1207
+  %1208 = getelementptr inbounds nuw [2 x i8], ptr %74, i64 %1207
   %1209 = load i16, ptr %1208, align 2, !tbaa !68, !noalias !250
   %1210 = zext i16 %1209 to i32
   %1211 = and i32 %1200, %1210
@@ -4922,8 +4917,8 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %1168, %_ZN13duckdb_
   %1214 = add i16 %1209, 1
   store i16 %1214, ptr %1208, align 2, !tbaa !68, !noalias !250
   %1215 = trunc i64 %.0.i384886 to i32
-  %1216 = getelementptr i32, ptr %76, i64 %1213
-  %1217 = getelementptr i32, ptr %1216, i64 %1212
+  %1216 = getelementptr [4 x i8], ptr %76, i64 %1213
+  %1217 = getelementptr [4 x i8], ptr %1216, i64 %1212
   store i32 %1215, ptr %1217, align 4, !tbaa !40, !noalias !250
   %1218 = add nuw i64 %.0.i384886, 1
   %exitcond990.not = icmp eq i64 %1218, %1189
@@ -4961,7 +4956,7 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %1168, %_ZN13duckdb_
   %.0.copyload.i.i386 = load i64, ptr %1235, align 1, !alias.scope !264, !noalias !259
   %1236 = mul i64 %.0.copyload.i.i386, %207
   %1237 = lshr i64 %1236, 49
-  %1238 = getelementptr inbounds nuw i16, ptr %74, i64 %1237
+  %1238 = getelementptr inbounds nuw [2 x i8], ptr %74, i64 %1237
   %1239 = load i16, ptr %1238, align 2, !tbaa !68, !noalias !259
   %1240 = zext i16 %1239 to i32
   %1241 = and i32 %1230, %1240
@@ -4970,8 +4965,8 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %1168, %_ZN13duckdb_
   %1244 = add i16 %1239, 1
   store i16 %1244, ptr %1238, align 2, !tbaa !68, !noalias !259
   %1245 = trunc i64 %.5734 to i32
-  %1246 = getelementptr i32, ptr %76, i64 %1243
-  %1247 = getelementptr i32, ptr %1246, i64 %1242
+  %1246 = getelementptr [4 x i8], ptr %76, i64 %1243
+  %1247 = getelementptr [4 x i8], ptr %1246, i64 %1242
   store i32 %1245, ptr %1247, align 4, !tbaa !40, !noalias !259
   %1248 = add i64 %.5187733, 4
   %1249 = add i64 %.5734, 4
@@ -4999,7 +4994,7 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %1168, %_ZN13duckdb_
   %.0.copyload.i.i385 = load i64, ptr %1260, align 1, !alias.scope !273, !noalias !268
   %1261 = mul i64 %.0.copyload.i.i385, %207
   %1262 = lshr i64 %1261, 49
-  %1263 = getelementptr inbounds nuw i16, ptr %74, i64 %1262
+  %1263 = getelementptr inbounds nuw [2 x i8], ptr %74, i64 %1262
   %1264 = load i16, ptr %1263, align 2, !tbaa !68, !noalias !268
   %1265 = zext i16 %1264 to i32
   %1266 = and i32 %1255, %1265
@@ -5008,8 +5003,8 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %1168, %_ZN13duckdb_
   %1269 = add i16 %1264, 1
   store i16 %1269, ptr %1263, align 2, !tbaa !68, !noalias !268
   %1270 = trunc i64 %.6728 to i32
-  %1271 = getelementptr i32, ptr %76, i64 %1268
-  %1272 = getelementptr i32, ptr %1271, i64 %1267
+  %1271 = getelementptr [4 x i8], ptr %76, i64 %1268
+  %1272 = getelementptr [4 x i8], ptr %1271, i64 %1267
   store i32 %1270, ptr %1272, align 4, !tbaa !40, !noalias !268
   %1273 = add i64 %.6188727, 2
   %1274 = add i64 %.6728, 2
@@ -5143,7 +5138,7 @@ define internal fastcc void @_ZL28CreateBackwardReferencesDH40mmPKhmS0_PK19Brotl
   %.0200 = phi i32 [ %83, %.thread ], [ 0, %54 ]
   %.0197 = phi i8 [ %72, %.thread ], [ 0, %54 ]
   %85 = zext nneg i32 %.0200 to i64
-  %86 = getelementptr inbounds nuw ptr, ptr %38, i64 %85
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %85
   %87 = load ptr, ptr %86, align 8, !tbaa !55
   %88 = load i64, ptr %40, align 8, !tbaa !56
   tail call void @llvm.experimental.noalias.scope.decl(metadata !278)
@@ -5168,7 +5163,7 @@ define internal fastcc void @_ZL28CreateBackwardReferencesDH40mmPKhmS0_PK19Brotl
   %.sroa.0408.7617 = phi i64 [ 0, %84 ], [ %.sroa.0408.15, %151 ]
   %.sroa.18416.7616 = phi i64 [ 0, %84 ], [ %.sroa.18416.15, %151 ]
   %.sroa.29420.7615 = phi i64 [ 2020, %84 ], [ %.sroa.29420.15, %151 ]
-  %99 = getelementptr inbounds nuw i32, ptr %7, i64 %.0126.i618
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.0126.i618
   %100 = load i32, ptr %99, align 4, !tbaa !40, !alias.scope !283, !noalias !292
   %101 = sext i32 %100 to i64
   %102 = sub i64 %.0894, %101
@@ -5299,11 +5294,11 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit163.i: ; preds = %112,
   %154 = getelementptr inbounds nuw i8, ptr %89, i64 131072
   %155 = zext nneg i32 %95 to i64
   %156 = load i64, ptr %43, align 8, !tbaa !294, !alias.scope !278, !noalias !286
-  %157 = getelementptr inbounds nuw i32, ptr %89, i64 %155
+  %157 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %155
   %158 = load i32, ptr %157, align 4, !tbaa !40, !noalias !291
   %159 = zext i32 %158 to i64
   %160 = sub i64 %.0894, %159
-  %161 = getelementptr inbounds nuw i16, ptr %154, i64 %155
+  %161 = getelementptr inbounds nuw [2 x i8], ptr %154, i64 %155
   %.not.i283638 = icmp eq i64 %156, 0
   br i1 %.not.i283638, label %.thread436, label %.lr.ph647
 
@@ -5330,7 +5325,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit163.i: ; preds = %112,
   %.0127.i646 = zext i16 %.0127.i646.in to i64
   %168 = sub nuw i64 %.0894, %165
   %169 = and i64 %168, %3
-  %170 = getelementptr inbounds nuw %"struct.duckdb_brotli::SlotH40", ptr %91, i64 %.0127.i646
+  %170 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %.0127.i646
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 2
   %172 = load i16, ptr %171, align 2, !tbaa !296, !noalias !291
   %173 = load i16, ptr %170, align 2, !tbaa !298, !noalias !291
@@ -5459,7 +5454,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i296: ; preds = %187,
   store i8 %96, ptr %225, align 1, !tbaa !54, !noalias !305
   %spec.store.select.i393 = tail call i64 @llvm.umin.i64(i64 %160, i64 65535)
   %226 = trunc nuw i64 %spec.store.select.i393 to i16
-  %227 = getelementptr inbounds nuw %"struct.duckdb_brotli::SlotH40", ptr %91, i64 %223
+  %227 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %223
   store i16 %226, ptr %227, align 2, !tbaa !298, !noalias !305
   %228 = load i16, ptr %161, align 2, !tbaa !68, !noalias !305
   %229 = getelementptr inbounds nuw i8, ptr %227, i64 2
@@ -5514,7 +5509,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i296: ; preds = %187,
 259:                                              ; preds = %252
   %260 = zext i8 %258 to i64
   %261 = load ptr, ptr %247, align 8, !tbaa !80, !noalias !308
-  %262 = getelementptr inbounds nuw i16, ptr %261, i64 %.0.i.i675
+  %262 = getelementptr inbounds nuw [2 x i8], ptr %261, i64 %.0.i.i675
   %263 = load i16, ptr %262, align 2, !tbaa !68, !noalias !307
   %264 = zext i16 %263 to i64
   %265 = icmp ult i64 %55, %260
@@ -5523,7 +5518,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i296: ; preds = %187,
 266:                                              ; preds = %259
   %267 = load ptr, ptr %87, align 8, !tbaa !81, !noalias !308
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 32
-  %269 = getelementptr inbounds nuw i32, ptr %268, i64 %260
+  %269 = getelementptr inbounds nuw [4 x i8], ptr %268, i64 %260
   %270 = load i32, ptr %269, align 4, !tbaa !40, !noalias !307
   %271 = zext i32 %270 to i64
   %272 = mul nuw nsw i64 %264, %260
@@ -5670,9 +5665,9 @@ _ZN13duckdb_brotliL19FindLongestMatchH40EPNS_3H40EPKNS_23BrotliEncoderDictionary
   %.sroa.0408.2728 = phi i64 [ %.sroa.0408.16, %.lr.ph731 ], [ %.sroa.0408.4.lcssa, %_ZN13duckdb_brotliL27FindCompoundDictionaryMatchEPKNS_18PreparedDictionaryEPKhmPKimmmmPNS_18HasherSearchResultE.exit273 ]
   %.sroa.18416.2727 = phi i64 [ %.sroa.18416.16, %.lr.ph731 ], [ %.sroa.18416.4.lcssa, %_ZN13duckdb_brotliL27FindCompoundDictionaryMatchEPKNS_18PreparedDictionaryEPKhmPKimmmmPNS_18HasherSearchResultE.exit273 ]
   %.sroa.29420.2726 = phi i64 [ %.sroa.29420.16, %.lr.ph731 ], [ %.sroa.29420.4.lcssa, %_ZN13duckdb_brotliL27FindCompoundDictionaryMatchEPKNS_18PreparedDictionaryEPKhmPKimmmmPNS_18HasherSearchResultE.exit273 ]
-  %341 = getelementptr inbounds nuw ptr, ptr %46, i64 %.0.i730
+  %341 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %.0.i730
   %342 = load ptr, ptr %341, align 8, !tbaa !99, !noalias !309
-  %343 = getelementptr inbounds nuw i64, ptr %47, i64 %.0.i730
+  %343 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %.0.i730
   %344 = load i64, ptr %343, align 8, !tbaa !29, !noalias !309
   %345 = sub i64 %338, %344
   tail call void @llvm.experimental.noalias.scope.decl(metadata !313)
@@ -5696,10 +5691,10 @@ _ZN13duckdb_brotliL19FindLongestMatchH40EPNS_3H40EPKNS_23BrotliEncoderDictionary
   %362 = getelementptr inbounds nuw i8, ptr %342, i64 24
   %363 = shl nuw i32 1, %355
   %364 = zext i32 %363 to i64
-  %365 = getelementptr inbounds nuw i32, ptr %362, i64 %364
+  %365 = getelementptr inbounds nuw [4 x i8], ptr %362, i64 %364
   %366 = shl nuw i32 1, %353
   %367 = zext i32 %366 to i64
-  %368 = getelementptr inbounds nuw i16, ptr %365, i64 %367
+  %368 = getelementptr inbounds nuw [2 x i8], ptr %365, i64 %367
   %369 = and i64 %.0.copyload.i165.i219, %361
   %370 = mul i64 %369, 2297779722762296275
   %371 = zext nneg i32 %356 to i64
@@ -5707,20 +5702,20 @@ _ZN13duckdb_brotliL19FindLongestMatchH40EPNS_3H40EPKNS_23BrotliEncoderDictionary
   %373 = trunc i64 %372 to i32
   %374 = and i32 %358, %373
   %375 = and i64 %372, 4294967295
-  %376 = getelementptr inbounds nuw i16, ptr %365, i64 %375
+  %376 = getelementptr inbounds nuw [2 x i8], ptr %365, i64 %375
   %377 = load i16, ptr %376, align 2, !tbaa !68, !noalias !320
   %378 = zext i16 %377 to i32
   %379 = zext i32 %374 to i64
-  %380 = getelementptr inbounds nuw i32, ptr %362, i64 %379
+  %380 = getelementptr inbounds nuw [4 x i8], ptr %362, i64 %379
   %381 = load i32, ptr %380, align 4, !tbaa !40, !noalias !320
   %382 = add i32 %381, %378
   %383 = zext i32 %382 to i64
-  %384 = getelementptr inbounds nuw i32, ptr %368, i64 %383
+  %384 = getelementptr inbounds nuw [4 x i8], ptr %368, i64 %383
   %.not901 = icmp eq i16 %377, -1
   %385 = getelementptr inbounds nuw i8, ptr %342, i64 4
   %386 = load i32, ptr %385, align 4, !tbaa !108, !noalias !320
   %387 = zext i32 %386 to i64
-  %388 = getelementptr inbounds nuw i32, ptr %368, i64 %387
+  %388 = getelementptr inbounds nuw [4 x i8], ptr %368, i64 %387
   %389 = load i32, ptr %342, align 4, !tbaa !109, !noalias !320
   %390 = icmp eq i32 %389, -558043680
   br i1 %390, label %392, label %391
@@ -5744,7 +5739,7 @@ _ZN13duckdb_brotliL19FindLongestMatchH40EPNS_3H40EPKNS_23BrotliEncoderDictionary
   %.sroa.0408.3693 = phi i64 [ %.sroa.0408.2728, %392 ], [ %.sroa.0408.6, %443 ]
   %.sroa.18416.3692 = phi i64 [ %.sroa.18416.2727, %392 ], [ %.sroa.18416.6, %443 ]
   %.sroa.29420.3691 = phi i64 [ %.sroa.29420.2726, %392 ], [ %.sroa.29420.6, %443 ]
-  %394 = getelementptr inbounds nuw i32, ptr %7, i64 %.0131.i221695
+  %394 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.0131.i221695
   %395 = load i32, ptr %394, align 4, !tbaa !40, !alias.scope !319, !noalias !321
   %396 = sext i32 %395 to i64
   %.not145.i249 = icmp uge i64 %349, %396
@@ -6063,7 +6058,7 @@ _ZN13duckdb_brotliL29LookupCompoundDictionaryMatchEPKNS_18CompoundDictionaryEPKh
   %.2202 = phi i32 [ %529, %515 ], [ %.1201, %502 ]
   %.2199 = phi i8 [ %518, %515 ], [ %.1198, %502 ]
   %531 = zext nneg i32 %.2202 to i64
-  %532 = getelementptr inbounds nuw ptr, ptr %38, i64 %531
+  %532 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %531
   %533 = load ptr, ptr %532, align 8, !tbaa !55
   tail call void @llvm.experimental.noalias.scope.decl(metadata !330)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !332)
@@ -6087,7 +6082,7 @@ _ZN13duckdb_brotliL29LookupCompoundDictionaryMatchEPKNS_18CompoundDictionaryEPKh
   %.sroa.0.5766 = phi i64 [ 0, %530 ], [ %.sroa.0.13, %596 ]
   %.sroa.12.5765 = phi i64 [ 0, %530 ], [ %.sroa.12.13, %596 ]
   %.sroa.18.5764 = phi i64 [ 2020, %530 ], [ %.sroa.18.13, %596 ]
-  %544 = getelementptr inbounds nuw i32, ptr %7, i64 %.0126.i308767
+  %544 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.0126.i308767
   %545 = load i32, ptr %544, align 4, !tbaa !40, !alias.scope !334, !noalias !340
   %546 = sext i32 %545 to i64
   %547 = sub i64 %510, %546
@@ -6218,11 +6213,11 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit163.i380: ; preds = %5
   %599 = getelementptr inbounds nuw i8, ptr %534, i64 131072
   %600 = zext nneg i32 %540 to i64
   %601 = load i64, ptr %43, align 8, !tbaa !294, !alias.scope !330, !noalias !335
-  %602 = getelementptr inbounds nuw i32, ptr %534, i64 %600
+  %602 = getelementptr inbounds nuw [4 x i8], ptr %534, i64 %600
   %603 = load i32, ptr %602, align 4, !tbaa !40, !noalias !339
   %604 = zext i32 %603 to i64
   %605 = sub i64 %510, %604
-  %606 = getelementptr inbounds nuw i16, ptr %599, i64 %600
+  %606 = getelementptr inbounds nuw [2 x i8], ptr %599, i64 %600
   %.not.i317787 = icmp eq i64 %601, 0
   br i1 %.not.i317787, label %.thread476, label %.lr.ph796
 
@@ -6249,7 +6244,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit163.i380: ; preds = %5
   %.0127.i314795 = zext i16 %.0127.i314795.in to i64
   %613 = sub nuw i64 %510, %610
   %614 = and i64 %613, %3
-  %615 = getelementptr inbounds nuw %"struct.duckdb_brotli::SlotH40", ptr %536, i64 %.0127.i314795
+  %615 = getelementptr inbounds nuw [4 x i8], ptr %536, i64 %.0127.i314795
   %616 = getelementptr inbounds nuw i8, ptr %615, i64 2
   %617 = load i16, ptr %616, align 2, !tbaa !296, !noalias !339
   %618 = load i16, ptr %615, align 2, !tbaa !298, !noalias !339
@@ -6377,7 +6372,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i358: ; preds = %632,
   store i8 %541, ptr %669, align 1, !tbaa !54, !noalias !341
   %spec.store.select.i392 = tail call i64 @llvm.umin.i64(i64 %605, i64 65535)
   %670 = trunc nuw i64 %spec.store.select.i392 to i16
-  %671 = getelementptr inbounds nuw %"struct.duckdb_brotli::SlotH40", ptr %536, i64 %667
+  %671 = getelementptr inbounds nuw [4 x i8], ptr %536, i64 %667
   store i16 %670, ptr %671, align 2, !tbaa !298, !noalias !341
   %672 = load i16, ptr %606, align 2, !tbaa !68, !noalias !341
   %673 = getelementptr inbounds nuw i8, ptr %671, i64 2
@@ -6432,7 +6427,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i358: ; preds = %632,
 703:                                              ; preds = %696
   %704 = zext i8 %702 to i64
   %705 = load ptr, ptr %691, align 8, !tbaa !80, !noalias !343
-  %706 = getelementptr inbounds nuw i16, ptr %705, i64 %.0.i.i326825
+  %706 = getelementptr inbounds nuw [2 x i8], ptr %705, i64 %.0.i.i326825
   %707 = load i16, ptr %706, align 2, !tbaa !68, !noalias !342
   %708 = zext i16 %707 to i64
   %709 = icmp ult i64 %.0191, %704
@@ -6441,7 +6436,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i358: ; preds = %632,
 710:                                              ; preds = %703
   %711 = load ptr, ptr %533, align 8, !tbaa !81, !noalias !343
   %712 = getelementptr inbounds nuw i8, ptr %711, i64 32
-  %713 = getelementptr inbounds nuw i32, ptr %712, i64 %704
+  %713 = getelementptr inbounds nuw [4 x i8], ptr %712, i64 %704
   %714 = load i32, ptr %713, align 4, !tbaa !40, !noalias !342
   %715 = zext i32 %714 to i64
   %716 = mul nuw nsw i64 %708, %704
@@ -6588,9 +6583,9 @@ _ZN13duckdb_brotliL19FindLongestMatchH40EPNS_3H40EPKNS_23BrotliEncoderDictionary
   %.sroa.12.0878 = phi i64 [ %.sroa.12.14, %.lr.ph881 ], [ %.sroa.12.2.lcssa, %_ZN13duckdb_brotliL27FindCompoundDictionaryMatchEPKNS_18PreparedDictionaryEPKhmPKimmmmPNS_18HasherSearchResultE.exit ]
   %.sroa.18.0877 = phi i64 [ %.sroa.18.14, %.lr.ph881 ], [ %.sroa.18.2.lcssa, %_ZN13duckdb_brotliL27FindCompoundDictionaryMatchEPKNS_18PreparedDictionaryEPKhmPKimmmmPNS_18HasherSearchResultE.exit ]
   %.sroa.29.0876 = phi i32 [ %.sroa.29.9, %.lr.ph881 ], [ %.sroa.29.2.lcssa, %_ZN13duckdb_brotliL27FindCompoundDictionaryMatchEPKNS_18PreparedDictionaryEPKhmPKimmmmPNS_18HasherSearchResultE.exit ]
-  %785 = getelementptr inbounds nuw ptr, ptr %46, i64 %.0.i213880
+  %785 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %.0.i213880
   %786 = load ptr, ptr %785, align 8, !tbaa !99, !noalias !344
-  %787 = getelementptr inbounds nuw i64, ptr %47, i64 %.0.i213880
+  %787 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %.0.i213880
   %788 = load i64, ptr %787, align 8, !tbaa !29, !noalias !344
   %789 = sub i64 %782, %788
   tail call void @llvm.experimental.noalias.scope.decl(metadata !348)
@@ -6614,10 +6609,10 @@ _ZN13duckdb_brotliL19FindLongestMatchH40EPNS_3H40EPKNS_23BrotliEncoderDictionary
   %806 = getelementptr inbounds nuw i8, ptr %786, i64 24
   %807 = shl nuw i32 1, %799
   %808 = zext i32 %807 to i64
-  %809 = getelementptr inbounds nuw i32, ptr %806, i64 %808
+  %809 = getelementptr inbounds nuw [4 x i8], ptr %806, i64 %808
   %810 = shl nuw i32 1, %797
   %811 = zext i32 %810 to i64
-  %812 = getelementptr inbounds nuw i16, ptr %809, i64 %811
+  %812 = getelementptr inbounds nuw [2 x i8], ptr %809, i64 %811
   %813 = and i64 %.0.copyload.i165.i, %805
   %814 = mul i64 %813, 2297779722762296275
   %815 = zext nneg i32 %800 to i64
@@ -6625,20 +6620,20 @@ _ZN13duckdb_brotliL19FindLongestMatchH40EPNS_3H40EPKNS_23BrotliEncoderDictionary
   %817 = trunc i64 %816 to i32
   %818 = and i32 %802, %817
   %819 = and i64 %816, 4294967295
-  %820 = getelementptr inbounds nuw i16, ptr %809, i64 %819
+  %820 = getelementptr inbounds nuw [2 x i8], ptr %809, i64 %819
   %821 = load i16, ptr %820, align 2, !tbaa !68, !noalias !355
   %822 = zext i16 %821 to i32
   %823 = zext i32 %818 to i64
-  %824 = getelementptr inbounds nuw i32, ptr %806, i64 %823
+  %824 = getelementptr inbounds nuw [4 x i8], ptr %806, i64 %823
   %825 = load i32, ptr %824, align 4, !tbaa !40, !noalias !355
   %826 = add i32 %825, %822
   %827 = zext i32 %826 to i64
-  %828 = getelementptr inbounds nuw i32, ptr %812, i64 %827
+  %828 = getelementptr inbounds nuw [4 x i8], ptr %812, i64 %827
   %.not908 = icmp eq i16 %821, -1
   %829 = getelementptr inbounds nuw i8, ptr %786, i64 4
   %830 = load i32, ptr %829, align 4, !tbaa !108, !noalias !355
   %831 = zext i32 %830 to i64
-  %832 = getelementptr inbounds nuw i32, ptr %812, i64 %831
+  %832 = getelementptr inbounds nuw [4 x i8], ptr %812, i64 %831
   %833 = load i32, ptr %786, align 4, !tbaa !109, !noalias !355
   %834 = icmp eq i32 %833, -558043680
   br i1 %834, label %836, label %835
@@ -6662,7 +6657,7 @@ _ZN13duckdb_brotliL19FindLongestMatchH40EPNS_3H40EPKNS_23BrotliEncoderDictionary
   %.sroa.12.1843 = phi i64 [ %.sroa.12.0878, %836 ], [ %.sroa.12.4, %887 ]
   %.sroa.18.1842 = phi i64 [ %.sroa.18.0877, %836 ], [ %.sroa.18.4, %887 ]
   %.sroa.29.1841 = phi i32 [ %.sroa.29.0876, %836 ], [ %.sroa.29.4, %887 ]
-  %838 = getelementptr inbounds nuw i32, ptr %7, i64 %.0131.i845
+  %838 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.0131.i845
   %839 = load i32, ptr %838, align 4, !tbaa !40, !alias.scope !354, !noalias !356
   %840 = sext i32 %839 to i64
   %.not145.i = icmp uge i64 %793, %840
@@ -7249,7 +7244,7 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %1090, %_ZN13duckdb_
   %1131 = zext nneg i32 %1130 to i64
   %1132 = add i16 %1126, 1
   %1133 = zext i16 %1126 to i64
-  %1134 = getelementptr inbounds nuw i32, ptr %1121, i64 %1131
+  %1134 = getelementptr inbounds nuw [4 x i8], ptr %1121, i64 %1131
   %1135 = load i32, ptr %1134, align 4, !tbaa !40, !noalias !358
   %1136 = zext i32 %1135 to i64
   %1137 = sub i64 %.0.i391887, %1136
@@ -7259,9 +7254,9 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %1090, %_ZN13duckdb_
   store i8 %1138, ptr %1140, align 1, !tbaa !54, !noalias !358
   %spec.store.select.i = tail call i64 @llvm.umin.i64(i64 %1137, i64 65535)
   %1141 = trunc nuw i64 %spec.store.select.i to i16
-  %1142 = getelementptr inbounds nuw %"struct.duckdb_brotli::SlotH40", ptr %1124, i64 %1133
+  %1142 = getelementptr inbounds nuw [4 x i8], ptr %1124, i64 %1133
   store i16 %1141, ptr %1142, align 2, !tbaa !298, !noalias !358
-  %1143 = getelementptr inbounds nuw i16, ptr %1122, i64 %1131
+  %1143 = getelementptr inbounds nuw [2 x i8], ptr %1122, i64 %1131
   %1144 = load i16, ptr %1143, align 2, !tbaa !68, !noalias !358
   %1145 = getelementptr inbounds nuw i8, ptr %1142, i64 2
   store i16 %1144, ptr %1145, align 2, !tbaa !296, !noalias !358
@@ -7310,7 +7305,7 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %1090, %_ZN13duckdb_
   %1169 = zext nneg i32 %1168 to i64
   %1170 = add i16 %1164, 1
   %1171 = zext i16 %1164 to i64
-  %1172 = getelementptr inbounds nuw i32, ptr %1159, i64 %1169
+  %1172 = getelementptr inbounds nuw [4 x i8], ptr %1159, i64 %1169
   %1173 = load i32, ptr %1172, align 4, !tbaa !40, !noalias !367
   %1174 = zext i32 %1173 to i64
   %1175 = sub i64 %.5743, %1174
@@ -7320,9 +7315,9 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %1090, %_ZN13duckdb_
   store i8 %1176, ptr %1178, align 1, !tbaa !54, !noalias !367
   %spec.store.select.i394 = tail call i64 @llvm.umin.i64(i64 %1175, i64 65535)
   %1179 = trunc nuw i64 %spec.store.select.i394 to i16
-  %1180 = getelementptr inbounds nuw %"struct.duckdb_brotli::SlotH40", ptr %1162, i64 %1171
+  %1180 = getelementptr inbounds nuw [4 x i8], ptr %1162, i64 %1171
   store i16 %1179, ptr %1180, align 2, !tbaa !298, !noalias !367
-  %1181 = getelementptr inbounds nuw i16, ptr %1160, i64 %1169
+  %1181 = getelementptr inbounds nuw [2 x i8], ptr %1160, i64 %1169
   %1182 = load i16, ptr %1181, align 2, !tbaa !68, !noalias !367
   %1183 = getelementptr inbounds nuw i8, ptr %1180, i64 2
   store i16 %1182, ptr %1183, align 2, !tbaa !296, !noalias !367
@@ -7361,7 +7356,7 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %1090, %_ZN13duckdb_
   %1202 = zext nneg i32 %1201 to i64
   %1203 = add i16 %1197, 1
   %1204 = zext i16 %1197 to i64
-  %1205 = getelementptr inbounds nuw i32, ptr %1192, i64 %1202
+  %1205 = getelementptr inbounds nuw [4 x i8], ptr %1192, i64 %1202
   %1206 = load i32, ptr %1205, align 4, !tbaa !40, !noalias !376
   %1207 = zext i32 %1206 to i64
   %1208 = sub i64 %.6737, %1207
@@ -7371,9 +7366,9 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %1090, %_ZN13duckdb_
   store i8 %1209, ptr %1211, align 1, !tbaa !54, !noalias !376
   %spec.store.select.i395 = tail call i64 @llvm.umin.i64(i64 %1208, i64 65535)
   %1212 = trunc nuw i64 %spec.store.select.i395 to i16
-  %1213 = getelementptr inbounds nuw %"struct.duckdb_brotli::SlotH40", ptr %1195, i64 %1204
+  %1213 = getelementptr inbounds nuw [4 x i8], ptr %1195, i64 %1204
   store i16 %1212, ptr %1213, align 2, !tbaa !298, !noalias !376
-  %1214 = getelementptr inbounds nuw i16, ptr %1193, i64 %1202
+  %1214 = getelementptr inbounds nuw [2 x i8], ptr %1193, i64 %1202
   %1215 = load i16, ptr %1214, align 2, !tbaa !68, !noalias !376
   %1216 = getelementptr inbounds nuw i8, ptr %1213, i64 2
   store i16 %1215, ptr %1216, align 2, !tbaa !296, !noalias !376
@@ -7540,7 +7535,7 @@ define internal fastcc void @_ZL28CreateBackwardReferencesDH41mmPKhmS0_PK19Brotl
   %.0200 = phi i32 [ %96, %.thread ], [ 0, %67 ]
   %.0197 = phi i8 [ %85, %.thread ], [ 0, %67 ]
   %98 = zext nneg i32 %.0200 to i64
-  %99 = getelementptr inbounds nuw ptr, ptr %51, i64 %98
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %98
   %100 = load ptr, ptr %99, align 8, !tbaa !55
   %101 = load i64, ptr %53, align 8, !tbaa !56
   tail call void @llvm.experimental.noalias.scope.decl(metadata !392)
@@ -7565,7 +7560,7 @@ define internal fastcc void @_ZL28CreateBackwardReferencesDH41mmPKhmS0_PK19Brotl
   %.sroa.0408.7617 = phi i64 [ 0, %97 ], [ %.sroa.0408.15, %164 ]
   %.sroa.18416.7616 = phi i64 [ 0, %97 ], [ %.sroa.18416.15, %164 ]
   %.sroa.29420.7615 = phi i64 [ 2020, %97 ], [ %.sroa.29420.15, %164 ]
-  %112 = getelementptr inbounds nuw i32, ptr %7, i64 %.0126.i618
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.0126.i618
   %113 = load i32, ptr %112, align 4, !tbaa !40, !alias.scope !397, !noalias !405
   %114 = sext i32 %113 to i64
   %115 = sub i64 %.0894, %114
@@ -7696,11 +7691,11 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit163.i: ; preds = %125,
   %167 = getelementptr inbounds nuw i8, ptr %102, i64 131072
   %168 = zext nneg i32 %108 to i64
   %169 = load i64, ptr %56, align 8, !tbaa !407, !alias.scope !392, !noalias !399
-  %170 = getelementptr inbounds nuw i32, ptr %102, i64 %168
+  %170 = getelementptr inbounds nuw [4 x i8], ptr %102, i64 %168
   %171 = load i32, ptr %170, align 4, !tbaa !40, !noalias !404
   %172 = zext i32 %171 to i64
   %173 = sub i64 %.0894, %172
-  %174 = getelementptr inbounds nuw i16, ptr %167, i64 %168
+  %174 = getelementptr inbounds nuw [2 x i8], ptr %167, i64 %168
   %.not.i283638 = icmp eq i64 %169, 0
   br i1 %.not.i283638, label %.thread436, label %.lr.ph647
 
@@ -7727,7 +7722,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit163.i: ; preds = %125,
   %.0127.i646 = zext i16 %.0127.i646.in to i64
   %181 = sub nuw i64 %.0894, %178
   %182 = and i64 %181, %3
-  %183 = getelementptr inbounds nuw %"struct.duckdb_brotli::SlotH41", ptr %104, i64 %.0127.i646
+  %183 = getelementptr inbounds nuw [4 x i8], ptr %104, i64 %.0127.i646
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 2
   %185 = load i16, ptr %184, align 2, !tbaa !409, !noalias !404
   %186 = load i16, ptr %183, align 2, !tbaa !411, !noalias !404
@@ -7856,7 +7851,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i296: ; preds = %200,
   store i8 %109, ptr %238, align 1, !tbaa !54, !noalias !418
   %spec.store.select.i393 = tail call i64 @llvm.umin.i64(i64 %173, i64 65535)
   %239 = trunc nuw i64 %spec.store.select.i393 to i16
-  %240 = getelementptr inbounds nuw %"struct.duckdb_brotli::SlotH41", ptr %104, i64 %236
+  %240 = getelementptr inbounds nuw [4 x i8], ptr %104, i64 %236
   store i16 %239, ptr %240, align 2, !tbaa !411, !noalias !418
   %241 = load i16, ptr %174, align 2, !tbaa !68, !noalias !418
   %242 = getelementptr inbounds nuw i8, ptr %240, i64 2
@@ -7911,7 +7906,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i296: ; preds = %200,
 272:                                              ; preds = %265
   %273 = zext i8 %271 to i64
   %274 = load ptr, ptr %260, align 8, !tbaa !80, !noalias !421
-  %275 = getelementptr inbounds nuw i16, ptr %274, i64 %.0.i.i675
+  %275 = getelementptr inbounds nuw [2 x i8], ptr %274, i64 %.0.i.i675
   %276 = load i16, ptr %275, align 2, !tbaa !68, !noalias !420
   %277 = zext i16 %276 to i64
   %278 = icmp ult i64 %68, %273
@@ -7920,7 +7915,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i296: ; preds = %200,
 279:                                              ; preds = %272
   %280 = load ptr, ptr %100, align 8, !tbaa !81, !noalias !421
   %281 = getelementptr inbounds nuw i8, ptr %280, i64 32
-  %282 = getelementptr inbounds nuw i32, ptr %281, i64 %273
+  %282 = getelementptr inbounds nuw [4 x i8], ptr %281, i64 %273
   %283 = load i32, ptr %282, align 4, !tbaa !40, !noalias !420
   %284 = zext i32 %283 to i64
   %285 = mul nuw nsw i64 %277, %273
@@ -8067,9 +8062,9 @@ _ZN13duckdb_brotliL19FindLongestMatchH41EPNS_3H41EPKNS_23BrotliEncoderDictionary
   %.sroa.0408.2728 = phi i64 [ %.sroa.0408.16, %.lr.ph731 ], [ %.sroa.0408.4.lcssa, %_ZN13duckdb_brotliL27FindCompoundDictionaryMatchEPKNS_18PreparedDictionaryEPKhmPKimmmmPNS_18HasherSearchResultE.exit273 ]
   %.sroa.18416.2727 = phi i64 [ %.sroa.18416.16, %.lr.ph731 ], [ %.sroa.18416.4.lcssa, %_ZN13duckdb_brotliL27FindCompoundDictionaryMatchEPKNS_18PreparedDictionaryEPKhmPKimmmmPNS_18HasherSearchResultE.exit273 ]
   %.sroa.29420.2726 = phi i64 [ %.sroa.29420.16, %.lr.ph731 ], [ %.sroa.29420.4.lcssa, %_ZN13duckdb_brotliL27FindCompoundDictionaryMatchEPKNS_18PreparedDictionaryEPKhmPKimmmmPNS_18HasherSearchResultE.exit273 ]
-  %354 = getelementptr inbounds nuw ptr, ptr %59, i64 %.0.i730
+  %354 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %.0.i730
   %355 = load ptr, ptr %354, align 8, !tbaa !99, !noalias !422
-  %356 = getelementptr inbounds nuw i64, ptr %60, i64 %.0.i730
+  %356 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %.0.i730
   %357 = load i64, ptr %356, align 8, !tbaa !29, !noalias !422
   %358 = sub i64 %351, %357
   tail call void @llvm.experimental.noalias.scope.decl(metadata !426)
@@ -8093,10 +8088,10 @@ _ZN13duckdb_brotliL19FindLongestMatchH41EPNS_3H41EPKNS_23BrotliEncoderDictionary
   %375 = getelementptr inbounds nuw i8, ptr %355, i64 24
   %376 = shl nuw i32 1, %368
   %377 = zext i32 %376 to i64
-  %378 = getelementptr inbounds nuw i32, ptr %375, i64 %377
+  %378 = getelementptr inbounds nuw [4 x i8], ptr %375, i64 %377
   %379 = shl nuw i32 1, %366
   %380 = zext i32 %379 to i64
-  %381 = getelementptr inbounds nuw i16, ptr %378, i64 %380
+  %381 = getelementptr inbounds nuw [2 x i8], ptr %378, i64 %380
   %382 = and i64 %.0.copyload.i165.i219, %374
   %383 = mul i64 %382, 2297779722762296275
   %384 = zext nneg i32 %369 to i64
@@ -8104,20 +8099,20 @@ _ZN13duckdb_brotliL19FindLongestMatchH41EPNS_3H41EPKNS_23BrotliEncoderDictionary
   %386 = trunc i64 %385 to i32
   %387 = and i32 %371, %386
   %388 = and i64 %385, 4294967295
-  %389 = getelementptr inbounds nuw i16, ptr %378, i64 %388
+  %389 = getelementptr inbounds nuw [2 x i8], ptr %378, i64 %388
   %390 = load i16, ptr %389, align 2, !tbaa !68, !noalias !433
   %391 = zext i16 %390 to i32
   %392 = zext i32 %387 to i64
-  %393 = getelementptr inbounds nuw i32, ptr %375, i64 %392
+  %393 = getelementptr inbounds nuw [4 x i8], ptr %375, i64 %392
   %394 = load i32, ptr %393, align 4, !tbaa !40, !noalias !433
   %395 = add i32 %394, %391
   %396 = zext i32 %395 to i64
-  %397 = getelementptr inbounds nuw i32, ptr %381, i64 %396
+  %397 = getelementptr inbounds nuw [4 x i8], ptr %381, i64 %396
   %.not901 = icmp eq i16 %390, -1
   %398 = getelementptr inbounds nuw i8, ptr %355, i64 4
   %399 = load i32, ptr %398, align 4, !tbaa !108, !noalias !433
   %400 = zext i32 %399 to i64
-  %401 = getelementptr inbounds nuw i32, ptr %381, i64 %400
+  %401 = getelementptr inbounds nuw [4 x i8], ptr %381, i64 %400
   %402 = load i32, ptr %355, align 4, !tbaa !109, !noalias !433
   %403 = icmp eq i32 %402, -558043680
   br i1 %403, label %405, label %404
@@ -8141,7 +8136,7 @@ _ZN13duckdb_brotliL19FindLongestMatchH41EPNS_3H41EPKNS_23BrotliEncoderDictionary
   %.sroa.0408.3693 = phi i64 [ %.sroa.0408.2728, %405 ], [ %.sroa.0408.6, %456 ]
   %.sroa.18416.3692 = phi i64 [ %.sroa.18416.2727, %405 ], [ %.sroa.18416.6, %456 ]
   %.sroa.29420.3691 = phi i64 [ %.sroa.29420.2726, %405 ], [ %.sroa.29420.6, %456 ]
-  %407 = getelementptr inbounds nuw i32, ptr %7, i64 %.0131.i221695
+  %407 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.0131.i221695
   %408 = load i32, ptr %407, align 4, !tbaa !40, !alias.scope !432, !noalias !434
   %409 = sext i32 %408 to i64
   %.not145.i249 = icmp uge i64 %362, %409
@@ -8460,7 +8455,7 @@ _ZN13duckdb_brotliL29LookupCompoundDictionaryMatchEPKNS_18CompoundDictionaryEPKh
   %.2202 = phi i32 [ %542, %528 ], [ %.1201, %515 ]
   %.2199 = phi i8 [ %531, %528 ], [ %.1198, %515 ]
   %544 = zext nneg i32 %.2202 to i64
-  %545 = getelementptr inbounds nuw ptr, ptr %51, i64 %544
+  %545 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %544
   %546 = load ptr, ptr %545, align 8, !tbaa !55
   tail call void @llvm.experimental.noalias.scope.decl(metadata !443)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !445)
@@ -8484,7 +8479,7 @@ _ZN13duckdb_brotliL29LookupCompoundDictionaryMatchEPKNS_18CompoundDictionaryEPKh
   %.sroa.0.5766 = phi i64 [ 0, %543 ], [ %.sroa.0.13, %609 ]
   %.sroa.12.5765 = phi i64 [ 0, %543 ], [ %.sroa.12.13, %609 ]
   %.sroa.18.5764 = phi i64 [ 2020, %543 ], [ %.sroa.18.13, %609 ]
-  %557 = getelementptr inbounds nuw i32, ptr %7, i64 %.0126.i308767
+  %557 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.0126.i308767
   %558 = load i32, ptr %557, align 4, !tbaa !40, !alias.scope !447, !noalias !453
   %559 = sext i32 %558 to i64
   %560 = sub i64 %523, %559
@@ -8615,11 +8610,11 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit163.i380: ; preds = %5
   %612 = getelementptr inbounds nuw i8, ptr %547, i64 131072
   %613 = zext nneg i32 %553 to i64
   %614 = load i64, ptr %56, align 8, !tbaa !407, !alias.scope !443, !noalias !448
-  %615 = getelementptr inbounds nuw i32, ptr %547, i64 %613
+  %615 = getelementptr inbounds nuw [4 x i8], ptr %547, i64 %613
   %616 = load i32, ptr %615, align 4, !tbaa !40, !noalias !452
   %617 = zext i32 %616 to i64
   %618 = sub i64 %523, %617
-  %619 = getelementptr inbounds nuw i16, ptr %612, i64 %613
+  %619 = getelementptr inbounds nuw [2 x i8], ptr %612, i64 %613
   %.not.i317787 = icmp eq i64 %614, 0
   br i1 %.not.i317787, label %.thread476, label %.lr.ph796
 
@@ -8646,7 +8641,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit163.i380: ; preds = %5
   %.0127.i314795 = zext i16 %.0127.i314795.in to i64
   %626 = sub nuw i64 %523, %623
   %627 = and i64 %626, %3
-  %628 = getelementptr inbounds nuw %"struct.duckdb_brotli::SlotH41", ptr %549, i64 %.0127.i314795
+  %628 = getelementptr inbounds nuw [4 x i8], ptr %549, i64 %.0127.i314795
   %629 = getelementptr inbounds nuw i8, ptr %628, i64 2
   %630 = load i16, ptr %629, align 2, !tbaa !409, !noalias !452
   %631 = load i16, ptr %628, align 2, !tbaa !411, !noalias !452
@@ -8774,7 +8769,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i358: ; preds = %645,
   store i8 %554, ptr %682, align 1, !tbaa !54, !noalias !454
   %spec.store.select.i392 = tail call i64 @llvm.umin.i64(i64 %618, i64 65535)
   %683 = trunc nuw i64 %spec.store.select.i392 to i16
-  %684 = getelementptr inbounds nuw %"struct.duckdb_brotli::SlotH41", ptr %549, i64 %680
+  %684 = getelementptr inbounds nuw [4 x i8], ptr %549, i64 %680
   store i16 %683, ptr %684, align 2, !tbaa !411, !noalias !454
   %685 = load i16, ptr %619, align 2, !tbaa !68, !noalias !454
   %686 = getelementptr inbounds nuw i8, ptr %684, i64 2
@@ -8829,7 +8824,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i358: ; preds = %645,
 716:                                              ; preds = %709
   %717 = zext i8 %715 to i64
   %718 = load ptr, ptr %704, align 8, !tbaa !80, !noalias !456
-  %719 = getelementptr inbounds nuw i16, ptr %718, i64 %.0.i.i326825
+  %719 = getelementptr inbounds nuw [2 x i8], ptr %718, i64 %.0.i.i326825
   %720 = load i16, ptr %719, align 2, !tbaa !68, !noalias !455
   %721 = zext i16 %720 to i64
   %722 = icmp ult i64 %.0191, %717
@@ -8838,7 +8833,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i358: ; preds = %645,
 723:                                              ; preds = %716
   %724 = load ptr, ptr %546, align 8, !tbaa !81, !noalias !456
   %725 = getelementptr inbounds nuw i8, ptr %724, i64 32
-  %726 = getelementptr inbounds nuw i32, ptr %725, i64 %717
+  %726 = getelementptr inbounds nuw [4 x i8], ptr %725, i64 %717
   %727 = load i32, ptr %726, align 4, !tbaa !40, !noalias !455
   %728 = zext i32 %727 to i64
   %729 = mul nuw nsw i64 %721, %717
@@ -8985,9 +8980,9 @@ _ZN13duckdb_brotliL19FindLongestMatchH41EPNS_3H41EPKNS_23BrotliEncoderDictionary
   %.sroa.12.0878 = phi i64 [ %.sroa.12.14, %.lr.ph881 ], [ %.sroa.12.2.lcssa, %_ZN13duckdb_brotliL27FindCompoundDictionaryMatchEPKNS_18PreparedDictionaryEPKhmPKimmmmPNS_18HasherSearchResultE.exit ]
   %.sroa.18.0877 = phi i64 [ %.sroa.18.14, %.lr.ph881 ], [ %.sroa.18.2.lcssa, %_ZN13duckdb_brotliL27FindCompoundDictionaryMatchEPKNS_18PreparedDictionaryEPKhmPKimmmmPNS_18HasherSearchResultE.exit ]
   %.sroa.29.0876 = phi i32 [ %.sroa.29.9, %.lr.ph881 ], [ %.sroa.29.2.lcssa, %_ZN13duckdb_brotliL27FindCompoundDictionaryMatchEPKNS_18PreparedDictionaryEPKhmPKimmmmPNS_18HasherSearchResultE.exit ]
-  %798 = getelementptr inbounds nuw ptr, ptr %59, i64 %.0.i213880
+  %798 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %.0.i213880
   %799 = load ptr, ptr %798, align 8, !tbaa !99, !noalias !457
-  %800 = getelementptr inbounds nuw i64, ptr %60, i64 %.0.i213880
+  %800 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %.0.i213880
   %801 = load i64, ptr %800, align 8, !tbaa !29, !noalias !457
   %802 = sub i64 %795, %801
   tail call void @llvm.experimental.noalias.scope.decl(metadata !461)
@@ -9011,10 +9006,10 @@ _ZN13duckdb_brotliL19FindLongestMatchH41EPNS_3H41EPKNS_23BrotliEncoderDictionary
   %819 = getelementptr inbounds nuw i8, ptr %799, i64 24
   %820 = shl nuw i32 1, %812
   %821 = zext i32 %820 to i64
-  %822 = getelementptr inbounds nuw i32, ptr %819, i64 %821
+  %822 = getelementptr inbounds nuw [4 x i8], ptr %819, i64 %821
   %823 = shl nuw i32 1, %810
   %824 = zext i32 %823 to i64
-  %825 = getelementptr inbounds nuw i16, ptr %822, i64 %824
+  %825 = getelementptr inbounds nuw [2 x i8], ptr %822, i64 %824
   %826 = and i64 %.0.copyload.i165.i, %818
   %827 = mul i64 %826, 2297779722762296275
   %828 = zext nneg i32 %813 to i64
@@ -9022,20 +9017,20 @@ _ZN13duckdb_brotliL19FindLongestMatchH41EPNS_3H41EPKNS_23BrotliEncoderDictionary
   %830 = trunc i64 %829 to i32
   %831 = and i32 %815, %830
   %832 = and i64 %829, 4294967295
-  %833 = getelementptr inbounds nuw i16, ptr %822, i64 %832
+  %833 = getelementptr inbounds nuw [2 x i8], ptr %822, i64 %832
   %834 = load i16, ptr %833, align 2, !tbaa !68, !noalias !468
   %835 = zext i16 %834 to i32
   %836 = zext i32 %831 to i64
-  %837 = getelementptr inbounds nuw i32, ptr %819, i64 %836
+  %837 = getelementptr inbounds nuw [4 x i8], ptr %819, i64 %836
   %838 = load i32, ptr %837, align 4, !tbaa !40, !noalias !468
   %839 = add i32 %838, %835
   %840 = zext i32 %839 to i64
-  %841 = getelementptr inbounds nuw i32, ptr %825, i64 %840
+  %841 = getelementptr inbounds nuw [4 x i8], ptr %825, i64 %840
   %.not908 = icmp eq i16 %834, -1
   %842 = getelementptr inbounds nuw i8, ptr %799, i64 4
   %843 = load i32, ptr %842, align 4, !tbaa !108, !noalias !468
   %844 = zext i32 %843 to i64
-  %845 = getelementptr inbounds nuw i32, ptr %825, i64 %844
+  %845 = getelementptr inbounds nuw [4 x i8], ptr %825, i64 %844
   %846 = load i32, ptr %799, align 4, !tbaa !109, !noalias !468
   %847 = icmp eq i32 %846, -558043680
   br i1 %847, label %849, label %848
@@ -9059,7 +9054,7 @@ _ZN13duckdb_brotliL19FindLongestMatchH41EPNS_3H41EPKNS_23BrotliEncoderDictionary
   %.sroa.12.1843 = phi i64 [ %.sroa.12.0878, %849 ], [ %.sroa.12.4, %900 ]
   %.sroa.18.1842 = phi i64 [ %.sroa.18.0877, %849 ], [ %.sroa.18.4, %900 ]
   %.sroa.29.1841 = phi i32 [ %.sroa.29.0876, %849 ], [ %.sroa.29.4, %900 ]
-  %851 = getelementptr inbounds nuw i32, ptr %7, i64 %.0131.i845
+  %851 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.0131.i845
   %852 = load i32, ptr %851, align 4, !tbaa !40, !alias.scope !467, !noalias !469
   %853 = sext i32 %852 to i64
   %.not145.i = icmp uge i64 %806, %853
@@ -9658,7 +9653,7 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %1109, %_ZN13duckdb_
   %1150 = zext nneg i32 %1149 to i64
   %1151 = add i16 %1145, 1
   %1152 = zext i16 %1145 to i64
-  %1153 = getelementptr inbounds nuw i32, ptr %1140, i64 %1150
+  %1153 = getelementptr inbounds nuw [4 x i8], ptr %1140, i64 %1150
   %1154 = load i32, ptr %1153, align 4, !tbaa !40, !noalias !476
   %1155 = zext i32 %1154 to i64
   %1156 = sub i64 %.0.i391887, %1155
@@ -9668,9 +9663,9 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %1109, %_ZN13duckdb_
   store i8 %1157, ptr %1159, align 1, !tbaa !54, !noalias !476
   %spec.store.select.i = tail call i64 @llvm.umin.i64(i64 %1156, i64 65535)
   %1160 = trunc nuw i64 %spec.store.select.i to i16
-  %1161 = getelementptr inbounds nuw %"struct.duckdb_brotli::SlotH41", ptr %1143, i64 %1152
+  %1161 = getelementptr inbounds nuw [4 x i8], ptr %1143, i64 %1152
   store i16 %1160, ptr %1161, align 2, !tbaa !411, !noalias !476
-  %1162 = getelementptr inbounds nuw i16, ptr %1141, i64 %1150
+  %1162 = getelementptr inbounds nuw [2 x i8], ptr %1141, i64 %1150
   %1163 = load i16, ptr %1162, align 2, !tbaa !68, !noalias !476
   %1164 = getelementptr inbounds nuw i8, ptr %1161, i64 2
   store i16 %1163, ptr %1164, align 2, !tbaa !409, !noalias !476
@@ -9719,7 +9714,7 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %1109, %_ZN13duckdb_
   %1188 = zext nneg i32 %1187 to i64
   %1189 = add i16 %1183, 1
   %1190 = zext i16 %1183 to i64
-  %1191 = getelementptr inbounds nuw i32, ptr %1178, i64 %1188
+  %1191 = getelementptr inbounds nuw [4 x i8], ptr %1178, i64 %1188
   %1192 = load i32, ptr %1191, align 4, !tbaa !40, !noalias !485
   %1193 = zext i32 %1192 to i64
   %1194 = sub i64 %.5743, %1193
@@ -9729,9 +9724,9 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %1109, %_ZN13duckdb_
   store i8 %1195, ptr %1197, align 1, !tbaa !54, !noalias !485
   %spec.store.select.i394 = tail call i64 @llvm.umin.i64(i64 %1194, i64 65535)
   %1198 = trunc nuw i64 %spec.store.select.i394 to i16
-  %1199 = getelementptr inbounds nuw %"struct.duckdb_brotli::SlotH41", ptr %1181, i64 %1190
+  %1199 = getelementptr inbounds nuw [4 x i8], ptr %1181, i64 %1190
   store i16 %1198, ptr %1199, align 2, !tbaa !411, !noalias !485
-  %1200 = getelementptr inbounds nuw i16, ptr %1179, i64 %1188
+  %1200 = getelementptr inbounds nuw [2 x i8], ptr %1179, i64 %1188
   %1201 = load i16, ptr %1200, align 2, !tbaa !68, !noalias !485
   %1202 = getelementptr inbounds nuw i8, ptr %1199, i64 2
   store i16 %1201, ptr %1202, align 2, !tbaa !409, !noalias !485
@@ -9770,7 +9765,7 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %1109, %_ZN13duckdb_
   %1221 = zext nneg i32 %1220 to i64
   %1222 = add i16 %1216, 1
   %1223 = zext i16 %1216 to i64
-  %1224 = getelementptr inbounds nuw i32, ptr %1211, i64 %1221
+  %1224 = getelementptr inbounds nuw [4 x i8], ptr %1211, i64 %1221
   %1225 = load i32, ptr %1224, align 4, !tbaa !40, !noalias !494
   %1226 = zext i32 %1225 to i64
   %1227 = sub i64 %.6737, %1226
@@ -9780,9 +9775,9 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %1109, %_ZN13duckdb_
   store i8 %1228, ptr %1230, align 1, !tbaa !54, !noalias !494
   %spec.store.select.i395 = tail call i64 @llvm.umin.i64(i64 %1227, i64 65535)
   %1231 = trunc nuw i64 %spec.store.select.i395 to i16
-  %1232 = getelementptr inbounds nuw %"struct.duckdb_brotli::SlotH41", ptr %1214, i64 %1223
+  %1232 = getelementptr inbounds nuw [4 x i8], ptr %1214, i64 %1223
   store i16 %1231, ptr %1232, align 2, !tbaa !411, !noalias !494
-  %1233 = getelementptr inbounds nuw i16, ptr %1212, i64 %1221
+  %1233 = getelementptr inbounds nuw [2 x i8], ptr %1212, i64 %1221
   %1234 = load i16, ptr %1233, align 2, !tbaa !68, !noalias !494
   %1235 = getelementptr inbounds nuw i8, ptr %1232, i64 2
   store i16 %1234, ptr %1235, align 2, !tbaa !409, !noalias !494
@@ -9968,7 +9963,7 @@ define internal fastcc void @_ZL28CreateBackwardReferencesDH42mmPKhmS0_PK19Brotl
   %.0200 = phi i32 [ %109, %.thread ], [ 0, %80 ]
   %.0197 = phi i8 [ %98, %.thread ], [ 0, %80 ]
   %111 = zext nneg i32 %.0200 to i64
-  %112 = getelementptr inbounds nuw ptr, ptr %65, i64 %111
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %111
   %113 = load ptr, ptr %112, align 8, !tbaa !55
   %114 = load i64, ptr %67, align 8, !tbaa !56
   tail call void @llvm.experimental.noalias.scope.decl(metadata !509)
@@ -9993,7 +9988,7 @@ define internal fastcc void @_ZL28CreateBackwardReferencesDH42mmPKhmS0_PK19Brotl
   %.sroa.0408.7617 = phi i64 [ 0, %110 ], [ %.sroa.0408.15, %177 ]
   %.sroa.18416.7616 = phi i64 [ 0, %110 ], [ %.sroa.18416.15, %177 ]
   %.sroa.29420.7615 = phi i64 [ 2020, %110 ], [ %.sroa.29420.15, %177 ]
-  %125 = getelementptr inbounds nuw i32, ptr %7, i64 %.0126.i618
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.0126.i618
   %126 = load i32, ptr %125, align 4, !tbaa !40, !alias.scope !514, !noalias !522
   %127 = sext i32 %126 to i64
   %128 = sub i64 %.0888, %127
@@ -10125,17 +10120,17 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit163.i: ; preds = %138,
   %181 = zext nneg i32 %121 to i64
   %182 = and i64 %181, 511
   %183 = load i64, ptr %70, align 8, !tbaa !524, !alias.scope !509, !noalias !516
-  %184 = getelementptr inbounds nuw i32, ptr %115, i64 %181
+  %184 = getelementptr inbounds nuw [4 x i8], ptr %115, i64 %181
   %185 = load i32, ptr %184, align 4, !tbaa !40, !noalias !521
   %186 = zext i32 %185 to i64
   %187 = sub i64 %.0888, %186
-  %188 = getelementptr inbounds nuw i16, ptr %180, i64 %181
+  %188 = getelementptr inbounds nuw [2 x i8], ptr %180, i64 %181
   %.not.i283638 = icmp eq i64 %183, 0
   br i1 %.not.i283638, label %.thread436, label %.lr.ph647
 
 .lr.ph647:                                        ; preds = %179
   %189 = load i16, ptr %188, align 2, !tbaa !68, !noalias !521
-  %190 = getelementptr inbounds nuw %"struct.duckdb_brotli::BankH42", ptr %117, i64 %182
+  %190 = getelementptr inbounds nuw [2048 x i8], ptr %117, i64 %182
   br label %191
 
 191:                                              ; preds = %.lr.ph647, %248
@@ -10157,7 +10152,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit163.i: ; preds = %138,
   %.0127.i646 = zext i16 %.0127.i646.in to i64
   %196 = sub nuw i64 %.0888, %193
   %197 = and i64 %196, %3
-  %198 = getelementptr inbounds nuw %"struct.duckdb_brotli::SlotH42", ptr %190, i64 %.0127.i646
+  %198 = getelementptr inbounds nuw [4 x i8], ptr %190, i64 %.0127.i646
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 2
   %200 = load i16, ptr %199, align 2, !tbaa !526, !noalias !521
   %201 = load i16, ptr %198, align 2, !tbaa !528, !noalias !521
@@ -10277,7 +10272,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i296: ; preds = %215,
   %.sroa.18416.8.lcssa = phi i64 [ %.sroa.18416.15, %179 ], [ %.sroa.18416.8640, %191 ], [ %.sroa.18416.9, %248 ]
   %.sroa.0408.8.lcssa = phi i64 [ %.sroa.0408.15, %179 ], [ %.sroa.0408.8641, %191 ], [ %.sroa.0408.9, %248 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !530)
-  %249 = getelementptr inbounds nuw i16, ptr %13, i64 %182
+  %249 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %182
   %250 = load i16, ptr %249, align 2, !tbaa !68, !alias.scope !530, !noalias !533
   %251 = add i16 %250, 1
   store i16 %251, ptr %249, align 2, !tbaa !68, !alias.scope !530, !noalias !533
@@ -10288,8 +10283,8 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i296: ; preds = %215,
   store i8 %122, ptr %255, align 1, !tbaa !54, !noalias !535
   %spec.store.select.i393 = tail call i64 @llvm.umin.i64(i64 %187, i64 65535)
   %256 = trunc nuw i64 %spec.store.select.i393 to i16
-  %257 = getelementptr inbounds nuw %"struct.duckdb_brotli::BankH42", ptr %117, i64 %182
-  %258 = getelementptr inbounds nuw %"struct.duckdb_brotli::SlotH42", ptr %257, i64 %253
+  %257 = getelementptr inbounds nuw [2048 x i8], ptr %117, i64 %182
+  %258 = getelementptr inbounds nuw [4 x i8], ptr %257, i64 %253
   store i16 %256, ptr %258, align 2, !tbaa !528, !noalias !535
   %259 = load i16, ptr %188, align 2, !tbaa !68, !noalias !535
   %260 = getelementptr inbounds nuw i8, ptr %258, i64 2
@@ -10344,7 +10339,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i296: ; preds = %215,
 290:                                              ; preds = %283
   %291 = zext i8 %289 to i64
   %292 = load ptr, ptr %278, align 8, !tbaa !80, !noalias !538
-  %293 = getelementptr inbounds nuw i16, ptr %292, i64 %.0.i.i675
+  %293 = getelementptr inbounds nuw [2 x i8], ptr %292, i64 %.0.i.i675
   %294 = load i16, ptr %293, align 2, !tbaa !68, !noalias !537
   %295 = zext i16 %294 to i64
   %296 = icmp ult i64 %81, %291
@@ -10353,7 +10348,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i296: ; preds = %215,
 297:                                              ; preds = %290
   %298 = load ptr, ptr %113, align 8, !tbaa !81, !noalias !538
   %299 = getelementptr inbounds nuw i8, ptr %298, i64 32
-  %300 = getelementptr inbounds nuw i32, ptr %299, i64 %291
+  %300 = getelementptr inbounds nuw [4 x i8], ptr %299, i64 %291
   %301 = load i32, ptr %300, align 4, !tbaa !40, !noalias !537
   %302 = zext i32 %301 to i64
   %303 = mul nuw nsw i64 %295, %291
@@ -10500,9 +10495,9 @@ _ZN13duckdb_brotliL19FindLongestMatchH42EPNS_3H42EPKNS_23BrotliEncoderDictionary
   %.sroa.0408.2728 = phi i64 [ %.sroa.0408.16, %.lr.ph731 ], [ %.sroa.0408.4.lcssa, %_ZN13duckdb_brotliL27FindCompoundDictionaryMatchEPKNS_18PreparedDictionaryEPKhmPKimmmmPNS_18HasherSearchResultE.exit273 ]
   %.sroa.18416.2727 = phi i64 [ %.sroa.18416.16, %.lr.ph731 ], [ %.sroa.18416.4.lcssa, %_ZN13duckdb_brotliL27FindCompoundDictionaryMatchEPKNS_18PreparedDictionaryEPKhmPKimmmmPNS_18HasherSearchResultE.exit273 ]
   %.sroa.29420.2726 = phi i64 [ %.sroa.29420.16, %.lr.ph731 ], [ %.sroa.29420.4.lcssa, %_ZN13duckdb_brotliL27FindCompoundDictionaryMatchEPKNS_18PreparedDictionaryEPKhmPKimmmmPNS_18HasherSearchResultE.exit273 ]
-  %372 = getelementptr inbounds nuw ptr, ptr %73, i64 %.0.i730
+  %372 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %.0.i730
   %373 = load ptr, ptr %372, align 8, !tbaa !99, !noalias !539
-  %374 = getelementptr inbounds nuw i64, ptr %74, i64 %.0.i730
+  %374 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %.0.i730
   %375 = load i64, ptr %374, align 8, !tbaa !29, !noalias !539
   %376 = sub i64 %369, %375
   tail call void @llvm.experimental.noalias.scope.decl(metadata !543)
@@ -10526,10 +10521,10 @@ _ZN13duckdb_brotliL19FindLongestMatchH42EPNS_3H42EPKNS_23BrotliEncoderDictionary
   %393 = getelementptr inbounds nuw i8, ptr %373, i64 24
   %394 = shl nuw i32 1, %386
   %395 = zext i32 %394 to i64
-  %396 = getelementptr inbounds nuw i32, ptr %393, i64 %395
+  %396 = getelementptr inbounds nuw [4 x i8], ptr %393, i64 %395
   %397 = shl nuw i32 1, %384
   %398 = zext i32 %397 to i64
-  %399 = getelementptr inbounds nuw i16, ptr %396, i64 %398
+  %399 = getelementptr inbounds nuw [2 x i8], ptr %396, i64 %398
   %400 = and i64 %.0.copyload.i165.i219, %392
   %401 = mul i64 %400, 2297779722762296275
   %402 = zext nneg i32 %387 to i64
@@ -10537,20 +10532,20 @@ _ZN13duckdb_brotliL19FindLongestMatchH42EPNS_3H42EPKNS_23BrotliEncoderDictionary
   %404 = trunc i64 %403 to i32
   %405 = and i32 %389, %404
   %406 = and i64 %403, 4294967295
-  %407 = getelementptr inbounds nuw i16, ptr %396, i64 %406
+  %407 = getelementptr inbounds nuw [2 x i8], ptr %396, i64 %406
   %408 = load i16, ptr %407, align 2, !tbaa !68, !noalias !550
   %409 = zext i16 %408 to i32
   %410 = zext i32 %405 to i64
-  %411 = getelementptr inbounds nuw i32, ptr %393, i64 %410
+  %411 = getelementptr inbounds nuw [4 x i8], ptr %393, i64 %410
   %412 = load i32, ptr %411, align 4, !tbaa !40, !noalias !550
   %413 = add i32 %412, %409
   %414 = zext i32 %413 to i64
-  %415 = getelementptr inbounds nuw i32, ptr %399, i64 %414
+  %415 = getelementptr inbounds nuw [4 x i8], ptr %399, i64 %414
   %.not895 = icmp eq i16 %408, -1
   %416 = getelementptr inbounds nuw i8, ptr %373, i64 4
   %417 = load i32, ptr %416, align 4, !tbaa !108, !noalias !550
   %418 = zext i32 %417 to i64
-  %419 = getelementptr inbounds nuw i32, ptr %399, i64 %418
+  %419 = getelementptr inbounds nuw [4 x i8], ptr %399, i64 %418
   %420 = load i32, ptr %373, align 4, !tbaa !109, !noalias !550
   %421 = icmp eq i32 %420, -558043680
   br i1 %421, label %423, label %422
@@ -10574,7 +10569,7 @@ _ZN13duckdb_brotliL19FindLongestMatchH42EPNS_3H42EPKNS_23BrotliEncoderDictionary
   %.sroa.0408.3693 = phi i64 [ %.sroa.0408.2728, %423 ], [ %.sroa.0408.6, %474 ]
   %.sroa.18416.3692 = phi i64 [ %.sroa.18416.2727, %423 ], [ %.sroa.18416.6, %474 ]
   %.sroa.29420.3691 = phi i64 [ %.sroa.29420.2726, %423 ], [ %.sroa.29420.6, %474 ]
-  %425 = getelementptr inbounds nuw i32, ptr %7, i64 %.0131.i221695
+  %425 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.0131.i221695
   %426 = load i32, ptr %425, align 4, !tbaa !40, !alias.scope !549, !noalias !551
   %427 = sext i32 %426 to i64
   %.not145.i249 = icmp uge i64 %380, %427
@@ -10888,7 +10883,7 @@ _ZN13duckdb_brotliL29LookupCompoundDictionaryMatchEPKNS_18CompoundDictionaryEPKh
   %.2202 = phi i32 [ %558, %544 ], [ %.1201, %.preheader569 ]
   %.2199 = phi i8 [ %547, %544 ], [ %.1198, %.preheader569 ]
   %560 = zext nneg i32 %.2202 to i64
-  %561 = getelementptr inbounds nuw ptr, ptr %65, i64 %560
+  %561 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %560
   %562 = load ptr, ptr %561, align 8, !tbaa !55
   tail call void @llvm.experimental.noalias.scope.decl(metadata !552)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !555)
@@ -10912,7 +10907,7 @@ _ZN13duckdb_brotliL29LookupCompoundDictionaryMatchEPKNS_18CompoundDictionaryEPKh
   %.sroa.0.5763 = phi i64 [ 0, %559 ], [ %.sroa.0.13, %625 ]
   %.sroa.12.5762 = phi i64 [ 0, %559 ], [ %.sroa.12.13, %625 ]
   %.sroa.18.5761 = phi i64 [ 2020, %559 ], [ %.sroa.18.13, %625 ]
-  %573 = getelementptr inbounds nuw i32, ptr %7, i64 %.0126.i308764
+  %573 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.0126.i308764
   %574 = load i32, ptr %573, align 4, !tbaa !40, !alias.scope !557, !noalias !565
   %575 = sext i32 %574 to i64
   %576 = sub i64 %539, %575
@@ -11044,17 +11039,17 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit163.i380: ; preds = %5
   %629 = zext nneg i32 %569 to i64
   %630 = and i64 %629, 511
   %631 = load i64, ptr %70, align 8, !tbaa !524, !alias.scope !552, !noalias !559
-  %632 = getelementptr inbounds nuw i32, ptr %563, i64 %629
+  %632 = getelementptr inbounds nuw [4 x i8], ptr %563, i64 %629
   %633 = load i32, ptr %632, align 4, !tbaa !40, !noalias !564
   %634 = zext i32 %633 to i64
   %635 = sub i64 %539, %634
-  %636 = getelementptr inbounds nuw i16, ptr %628, i64 %629
+  %636 = getelementptr inbounds nuw [2 x i8], ptr %628, i64 %629
   %.not.i317784 = icmp eq i64 %631, 0
   br i1 %.not.i317784, label %.thread476, label %.lr.ph793
 
 .lr.ph793:                                        ; preds = %627
   %637 = load i16, ptr %636, align 2, !tbaa !68, !noalias !564
-  %638 = getelementptr inbounds nuw %"struct.duckdb_brotli::BankH42", ptr %565, i64 %630
+  %638 = getelementptr inbounds nuw [2048 x i8], ptr %565, i64 %630
   br label %639
 
 639:                                              ; preds = %.lr.ph793, %696
@@ -11076,7 +11071,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit163.i380: ; preds = %5
   %.0127.i314792 = zext i16 %.0127.i314792.in to i64
   %644 = sub nuw i64 %539, %641
   %645 = and i64 %644, %3
-  %646 = getelementptr inbounds nuw %"struct.duckdb_brotli::SlotH42", ptr %638, i64 %.0127.i314792
+  %646 = getelementptr inbounds nuw [4 x i8], ptr %638, i64 %.0127.i314792
   %647 = getelementptr inbounds nuw i8, ptr %646, i64 2
   %648 = load i16, ptr %647, align 2, !tbaa !526, !noalias !564
   %649 = load i16, ptr %646, align 2, !tbaa !528, !noalias !564
@@ -11196,7 +11191,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i358: ; preds = %663,
   %.sroa.12.6.lcssa = phi i64 [ %.sroa.12.13, %627 ], [ %.sroa.12.6786, %639 ], [ %.sroa.12.7, %696 ]
   %.sroa.0.6.lcssa = phi i64 [ %.sroa.0.13, %627 ], [ %.sroa.0.6787, %639 ], [ %.sroa.0.7, %696 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !566)
-  %697 = getelementptr inbounds nuw i16, ptr %13, i64 %630
+  %697 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %630
   %698 = load i16, ptr %697, align 2, !tbaa !68, !alias.scope !566, !noalias !569
   %699 = add i16 %698, 1
   store i16 %699, ptr %697, align 2, !tbaa !68, !alias.scope !566, !noalias !569
@@ -11207,8 +11202,8 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i358: ; preds = %663,
   store i8 %570, ptr %703, align 1, !tbaa !54, !noalias !571
   %spec.store.select.i392 = tail call i64 @llvm.umin.i64(i64 %635, i64 65535)
   %704 = trunc nuw i64 %spec.store.select.i392 to i16
-  %705 = getelementptr inbounds nuw %"struct.duckdb_brotli::BankH42", ptr %565, i64 %630
-  %706 = getelementptr inbounds nuw %"struct.duckdb_brotli::SlotH42", ptr %705, i64 %701
+  %705 = getelementptr inbounds nuw [2048 x i8], ptr %565, i64 %630
+  %706 = getelementptr inbounds nuw [4 x i8], ptr %705, i64 %701
   store i16 %704, ptr %706, align 2, !tbaa !528, !noalias !571
   %707 = load i16, ptr %636, align 2, !tbaa !68, !noalias !571
   %708 = getelementptr inbounds nuw i8, ptr %706, i64 2
@@ -11263,7 +11258,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i358: ; preds = %663,
 738:                                              ; preds = %731
   %739 = zext i8 %737 to i64
   %740 = load ptr, ptr %726, align 8, !tbaa !80, !noalias !573
-  %741 = getelementptr inbounds nuw i16, ptr %740, i64 %.0.i.i326822
+  %741 = getelementptr inbounds nuw [2 x i8], ptr %740, i64 %.0.i.i326822
   %742 = load i16, ptr %741, align 2, !tbaa !68, !noalias !572
   %743 = zext i16 %742 to i64
   %744 = icmp ult i64 %.0191, %739
@@ -11272,7 +11267,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i358: ; preds = %663,
 745:                                              ; preds = %738
   %746 = load ptr, ptr %562, align 8, !tbaa !81, !noalias !573
   %747 = getelementptr inbounds nuw i8, ptr %746, i64 32
-  %748 = getelementptr inbounds nuw i32, ptr %747, i64 %739
+  %748 = getelementptr inbounds nuw [4 x i8], ptr %747, i64 %739
   %749 = load i32, ptr %748, align 4, !tbaa !40, !noalias !572
   %750 = zext i32 %749 to i64
   %751 = mul nuw nsw i64 %743, %739
@@ -11419,9 +11414,9 @@ _ZN13duckdb_brotliL19FindLongestMatchH42EPNS_3H42EPKNS_23BrotliEncoderDictionary
   %.sroa.12.0875 = phi i64 [ %.sroa.12.14, %.lr.ph878 ], [ %.sroa.12.2.lcssa, %_ZN13duckdb_brotliL27FindCompoundDictionaryMatchEPKNS_18PreparedDictionaryEPKhmPKimmmmPNS_18HasherSearchResultE.exit ]
   %.sroa.18.0874 = phi i64 [ %.sroa.18.14, %.lr.ph878 ], [ %.sroa.18.2.lcssa, %_ZN13duckdb_brotliL27FindCompoundDictionaryMatchEPKNS_18PreparedDictionaryEPKhmPKimmmmPNS_18HasherSearchResultE.exit ]
   %.sroa.29.0873 = phi i32 [ %.sroa.29.9, %.lr.ph878 ], [ %.sroa.29.2.lcssa, %_ZN13duckdb_brotliL27FindCompoundDictionaryMatchEPKNS_18PreparedDictionaryEPKhmPKimmmmPNS_18HasherSearchResultE.exit ]
-  %820 = getelementptr inbounds nuw ptr, ptr %73, i64 %.0.i213877
+  %820 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %.0.i213877
   %821 = load ptr, ptr %820, align 8, !tbaa !99, !noalias !574
-  %822 = getelementptr inbounds nuw i64, ptr %74, i64 %.0.i213877
+  %822 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %.0.i213877
   %823 = load i64, ptr %822, align 8, !tbaa !29, !noalias !574
   %824 = sub i64 %817, %823
   tail call void @llvm.experimental.noalias.scope.decl(metadata !578)
@@ -11445,10 +11440,10 @@ _ZN13duckdb_brotliL19FindLongestMatchH42EPNS_3H42EPKNS_23BrotliEncoderDictionary
   %841 = getelementptr inbounds nuw i8, ptr %821, i64 24
   %842 = shl nuw i32 1, %834
   %843 = zext i32 %842 to i64
-  %844 = getelementptr inbounds nuw i32, ptr %841, i64 %843
+  %844 = getelementptr inbounds nuw [4 x i8], ptr %841, i64 %843
   %845 = shl nuw i32 1, %832
   %846 = zext i32 %845 to i64
-  %847 = getelementptr inbounds nuw i16, ptr %844, i64 %846
+  %847 = getelementptr inbounds nuw [2 x i8], ptr %844, i64 %846
   %848 = and i64 %.0.copyload.i165.i, %840
   %849 = mul i64 %848, 2297779722762296275
   %850 = zext nneg i32 %835 to i64
@@ -11456,20 +11451,20 @@ _ZN13duckdb_brotliL19FindLongestMatchH42EPNS_3H42EPKNS_23BrotliEncoderDictionary
   %852 = trunc i64 %851 to i32
   %853 = and i32 %837, %852
   %854 = and i64 %851, 4294967295
-  %855 = getelementptr inbounds nuw i16, ptr %844, i64 %854
+  %855 = getelementptr inbounds nuw [2 x i8], ptr %844, i64 %854
   %856 = load i16, ptr %855, align 2, !tbaa !68, !noalias !585
   %857 = zext i16 %856 to i32
   %858 = zext i32 %853 to i64
-  %859 = getelementptr inbounds nuw i32, ptr %841, i64 %858
+  %859 = getelementptr inbounds nuw [4 x i8], ptr %841, i64 %858
   %860 = load i32, ptr %859, align 4, !tbaa !40, !noalias !585
   %861 = add i32 %860, %857
   %862 = zext i32 %861 to i64
-  %863 = getelementptr inbounds nuw i32, ptr %847, i64 %862
+  %863 = getelementptr inbounds nuw [4 x i8], ptr %847, i64 %862
   %.not902 = icmp eq i16 %856, -1
   %864 = getelementptr inbounds nuw i8, ptr %821, i64 4
   %865 = load i32, ptr %864, align 4, !tbaa !108, !noalias !585
   %866 = zext i32 %865 to i64
-  %867 = getelementptr inbounds nuw i32, ptr %847, i64 %866
+  %867 = getelementptr inbounds nuw [4 x i8], ptr %847, i64 %866
   %868 = load i32, ptr %821, align 4, !tbaa !109, !noalias !585
   %869 = icmp eq i32 %868, -558043680
   br i1 %869, label %871, label %870
@@ -11493,7 +11488,7 @@ _ZN13duckdb_brotliL19FindLongestMatchH42EPNS_3H42EPKNS_23BrotliEncoderDictionary
   %.sroa.12.1840 = phi i64 [ %.sroa.12.0875, %871 ], [ %.sroa.12.4, %922 ]
   %.sroa.18.1839 = phi i64 [ %.sroa.18.0874, %871 ], [ %.sroa.18.4, %922 ]
   %.sroa.29.1838 = phi i32 [ %.sroa.29.0873, %871 ], [ %.sroa.29.4, %922 ]
-  %873 = getelementptr inbounds nuw i32, ptr %7, i64 %.0131.i842
+  %873 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.0131.i842
   %874 = load i32, ptr %873, align 4, !tbaa !40, !alias.scope !584, !noalias !586
   %875 = sext i32 %874 to i64
   %.not145.i = icmp uge i64 %828, %875
@@ -12101,13 +12096,13 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %1137, %_ZN13duckdb_
   %1176 = lshr i32 %1175, 17
   %1177 = zext nneg i32 %1176 to i64
   %1178 = and i64 %1177, 511
-  %1179 = getelementptr inbounds nuw i16, ptr %13, i64 %1178
+  %1179 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %1178
   %1180 = load i16, ptr %1179, align 2, !tbaa !68, !alias.scope !593, !noalias !596
   %1181 = add i16 %1180, 1
   store i16 %1181, ptr %1179, align 2, !tbaa !68, !alias.scope !593, !noalias !596
   %1182 = and i16 %1180, 511
   %1183 = zext nneg i16 %1182 to i64
-  %1184 = getelementptr inbounds nuw i32, ptr %1168, i64 %1177
+  %1184 = getelementptr inbounds nuw [4 x i8], ptr %1168, i64 %1177
   %1185 = load i32, ptr %1184, align 4, !tbaa !40, !noalias !593
   %1186 = zext i32 %1185 to i64
   %1187 = sub i64 %.0.i391883, %1186
@@ -12117,10 +12112,10 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %1137, %_ZN13duckdb_
   store i8 %1188, ptr %1190, align 1, !tbaa !54, !noalias !593
   %spec.store.select.i = tail call i64 @llvm.umin.i64(i64 %1187, i64 65535)
   %1191 = trunc nuw i64 %spec.store.select.i to i16
-  %1192 = getelementptr inbounds nuw %"struct.duckdb_brotli::BankH42", ptr %1171, i64 %1178
-  %1193 = getelementptr inbounds nuw %"struct.duckdb_brotli::SlotH42", ptr %1192, i64 %1183
+  %1192 = getelementptr inbounds nuw [2048 x i8], ptr %1171, i64 %1178
+  %1193 = getelementptr inbounds nuw [4 x i8], ptr %1192, i64 %1183
   store i16 %1191, ptr %1193, align 2, !tbaa !528, !noalias !593
-  %1194 = getelementptr inbounds nuw i16, ptr %1169, i64 %1177
+  %1194 = getelementptr inbounds nuw [2 x i8], ptr %1169, i64 %1177
   %1195 = load i16, ptr %1194, align 2, !tbaa !68, !noalias !593
   %1196 = getelementptr inbounds nuw i8, ptr %1193, i64 2
   store i16 %1195, ptr %1196, align 2, !tbaa !526, !noalias !593
@@ -12166,13 +12161,13 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %1137, %_ZN13duckdb_
   %1218 = lshr i32 %1217, 17
   %1219 = zext nneg i32 %1218 to i64
   %1220 = and i64 %1219, 511
-  %1221 = getelementptr inbounds nuw i16, ptr %13, i64 %1220
+  %1221 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %1220
   %1222 = load i16, ptr %1221, align 2, !tbaa !68, !alias.scope !602, !noalias !605
   %1223 = add i16 %1222, 1
   store i16 %1223, ptr %1221, align 2, !tbaa !68, !alias.scope !602, !noalias !605
   %1224 = and i16 %1222, 511
   %1225 = zext nneg i16 %1224 to i64
-  %1226 = getelementptr inbounds nuw i32, ptr %1210, i64 %1219
+  %1226 = getelementptr inbounds nuw [4 x i8], ptr %1210, i64 %1219
   %1227 = load i32, ptr %1226, align 4, !tbaa !40, !noalias !602
   %1228 = zext i32 %1227 to i64
   %1229 = sub i64 %.5742, %1228
@@ -12182,10 +12177,10 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %1137, %_ZN13duckdb_
   store i8 %1230, ptr %1232, align 1, !tbaa !54, !noalias !602
   %spec.store.select.i394 = tail call i64 @llvm.umin.i64(i64 %1229, i64 65535)
   %1233 = trunc nuw i64 %spec.store.select.i394 to i16
-  %1234 = getelementptr inbounds nuw %"struct.duckdb_brotli::BankH42", ptr %1213, i64 %1220
-  %1235 = getelementptr inbounds nuw %"struct.duckdb_brotli::SlotH42", ptr %1234, i64 %1225
+  %1234 = getelementptr inbounds nuw [2048 x i8], ptr %1213, i64 %1220
+  %1235 = getelementptr inbounds nuw [4 x i8], ptr %1234, i64 %1225
   store i16 %1233, ptr %1235, align 2, !tbaa !528, !noalias !602
-  %1236 = getelementptr inbounds nuw i16, ptr %1211, i64 %1219
+  %1236 = getelementptr inbounds nuw [2 x i8], ptr %1211, i64 %1219
   %1237 = load i16, ptr %1236, align 2, !tbaa !68, !noalias !602
   %1238 = getelementptr inbounds nuw i8, ptr %1235, i64 2
   store i16 %1237, ptr %1238, align 2, !tbaa !526, !noalias !602
@@ -12221,13 +12216,13 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %1137, %_ZN13duckdb_
   %1255 = lshr i32 %1254, 17
   %1256 = zext nneg i32 %1255 to i64
   %1257 = and i64 %1256, 511
-  %1258 = getelementptr inbounds nuw i16, ptr %13, i64 %1257
+  %1258 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %1257
   %1259 = load i16, ptr %1258, align 2, !tbaa !68, !alias.scope !611, !noalias !614
   %1260 = add i16 %1259, 1
   store i16 %1260, ptr %1258, align 2, !tbaa !68, !alias.scope !611, !noalias !614
   %1261 = and i16 %1259, 511
   %1262 = zext nneg i16 %1261 to i64
-  %1263 = getelementptr inbounds nuw i32, ptr %1247, i64 %1256
+  %1263 = getelementptr inbounds nuw [4 x i8], ptr %1247, i64 %1256
   %1264 = load i32, ptr %1263, align 4, !tbaa !40, !noalias !611
   %1265 = zext i32 %1264 to i64
   %1266 = sub i64 %.6737, %1265
@@ -12237,10 +12232,10 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %1137, %_ZN13duckdb_
   store i8 %1267, ptr %1269, align 1, !tbaa !54, !noalias !611
   %spec.store.select.i395 = tail call i64 @llvm.umin.i64(i64 %1266, i64 65535)
   %1270 = trunc nuw i64 %spec.store.select.i395 to i16
-  %1271 = getelementptr inbounds nuw %"struct.duckdb_brotli::BankH42", ptr %1250, i64 %1257
-  %1272 = getelementptr inbounds nuw %"struct.duckdb_brotli::SlotH42", ptr %1271, i64 %1262
+  %1271 = getelementptr inbounds nuw [2048 x i8], ptr %1250, i64 %1257
+  %1272 = getelementptr inbounds nuw [4 x i8], ptr %1271, i64 %1262
   store i16 %1270, ptr %1272, align 2, !tbaa !528, !noalias !611
-  %1273 = getelementptr inbounds nuw i16, ptr %1248, i64 %1256
+  %1273 = getelementptr inbounds nuw [2 x i8], ptr %1248, i64 %1256
   %1274 = load i16, ptr %1273, align 2, !tbaa !68, !noalias !611
   %1275 = getelementptr inbounds nuw i8, ptr %1272, i64 2
   store i16 %1274, ptr %1275, align 2, !tbaa !526, !noalias !611
@@ -12450,7 +12445,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit126.i334: ; preds = %7
   %104 = shl nuw nsw i64 %.0102.i300577, 3
   %105 = add nuw nsw i64 %104, %60
   %106 = and i64 %105, 1048575
-  %107 = getelementptr inbounds nuw i64, ptr %12, i64 %.0102.i300577
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.0102.i300577
   store i64 %106, ptr %107, align 8, !tbaa !29, !noalias !634
   %108 = add nuw nsw i64 %.0102.i300577, 1
   %exitcond.not = icmp eq i64 %108, 4
@@ -12460,7 +12455,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit126.i334: ; preds = %7
   %.0.i299 = zext i8 %.0.i299.in to i32
   %110 = lshr i64 %.0825, 3
   %111 = and i64 %110, 3
-  %112 = getelementptr inbounds nuw i64, ptr %12, i64 %111
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %111
   %113 = load i64, ptr %112, align 8, !tbaa !29, !noalias !634
   %114 = icmp ugt i64 %52, 7
   br label %115
@@ -12473,9 +12468,9 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit126.i334: ; preds = %7
   %.sroa.0395.8595 = phi i64 [ %.sroa.0395.7, %109 ], [ %.sroa.0395.9, %167 ]
   %.sroa.18404.8594 = phi i64 [ %.sroa.18404.7, %109 ], [ %.sroa.18404.9, %167 ]
   %.sroa.29.8593 = phi i64 [ %.sroa.29.7, %109 ], [ %.sroa.29.9, %167 ]
-  %116 = getelementptr inbounds nuw i64, ptr %12, i64 %.1103.i301596
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.1103.i301596
   %117 = load i64, ptr %116, align 8, !tbaa !29, !noalias !634
-  %118 = getelementptr inbounds nuw i32, ptr %38, i64 %117
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %117
   %119 = load i32, ptr %118, align 4, !tbaa !40, !noalias !632
   %120 = zext i32 %119 to i64
   %121 = sub i64 %.0825, %120
@@ -12593,7 +12588,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i318: ; preds = %131,
 _ZN13duckdb_brotliL19FindLongestMatchH54EPNS_3H54EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit341: ; preds = %167
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !634
   %169 = trunc i64 %.0825 to i32
-  %170 = getelementptr inbounds nuw i32, ptr %38, i64 %113
+  %170 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %113
   store i32 %169, ptr %170, align 4, !tbaa !40, !noalias !632
   tail call void @llvm.experimental.noalias.scope.decl(metadata !637)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !640)
@@ -12642,7 +12637,7 @@ _ZN13duckdb_brotliL19FindLongestMatchH54EPNS_3H54EPKNS_23BrotliEncoderDictionary
 194:                                              ; preds = %177
   %195 = load ptr, ptr %44, align 8, !tbaa !650, !alias.scope !637, !noalias !644
   %196 = zext nneg i32 %179 to i64
-  %197 = getelementptr inbounds nuw i32, ptr %195, i64 %196
+  %197 = getelementptr inbounds nuw [4 x i8], ptr %195, i64 %196
   %198 = load i32, ptr %197, align 4, !tbaa !40, !noalias !649
   %199 = zext i32 %198 to i64
   %200 = trunc i64 %.0.i362619 to i32
@@ -12784,9 +12779,9 @@ _ZN13duckdb_brotliL29FindLongestMatchHROLLING_FASTEPNS_13HROLLING_FASTEPKNS_23Br
   %.sroa.0395.2676 = phi i64 [ %.sroa.0395.12, %.lr.ph678 ], [ %.sroa.0395.4.lcssa, %_ZN13duckdb_brotliL27FindCompoundDictionaryMatchEPKNS_18PreparedDictionaryEPKhmPKimmmmPNS_18HasherSearchResultE.exit273 ]
   %.sroa.18404.2675 = phi i64 [ %.sroa.18404.12, %.lr.ph678 ], [ %.sroa.18404.4.lcssa, %_ZN13duckdb_brotliL27FindCompoundDictionaryMatchEPKNS_18PreparedDictionaryEPKhmPKimmmmPNS_18HasherSearchResultE.exit273 ]
   %.sroa.29.2674 = phi i64 [ %.sroa.29.12, %.lr.ph678 ], [ %.sroa.29.4.lcssa, %_ZN13duckdb_brotliL27FindCompoundDictionaryMatchEPKNS_18PreparedDictionaryEPKhmPKimmmmPNS_18HasherSearchResultE.exit273 ]
-  %251 = getelementptr inbounds nuw ptr, ptr %45, i64 %.0.i677
+  %251 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %.0.i677
   %252 = load ptr, ptr %251, align 8, !tbaa !99, !noalias !652
-  %253 = getelementptr inbounds nuw i64, ptr %46, i64 %.0.i677
+  %253 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %.0.i677
   %254 = load i64, ptr %253, align 8, !tbaa !29, !noalias !652
   %255 = sub i64 %248, %254
   tail call void @llvm.experimental.noalias.scope.decl(metadata !656)
@@ -12810,10 +12805,10 @@ _ZN13duckdb_brotliL29FindLongestMatchHROLLING_FASTEPNS_13HROLLING_FASTEPKNS_23Br
   %272 = getelementptr inbounds nuw i8, ptr %252, i64 24
   %273 = shl nuw i32 1, %265
   %274 = zext i32 %273 to i64
-  %275 = getelementptr inbounds nuw i32, ptr %272, i64 %274
+  %275 = getelementptr inbounds nuw [4 x i8], ptr %272, i64 %274
   %276 = shl nuw i32 1, %263
   %277 = zext i32 %276 to i64
-  %278 = getelementptr inbounds nuw i16, ptr %275, i64 %277
+  %278 = getelementptr inbounds nuw [2 x i8], ptr %275, i64 %277
   %279 = and i64 %.0.copyload.i165.i219, %271
   %280 = mul i64 %279, 2297779722762296275
   %281 = zext nneg i32 %266 to i64
@@ -12821,20 +12816,20 @@ _ZN13duckdb_brotliL29FindLongestMatchHROLLING_FASTEPNS_13HROLLING_FASTEPKNS_23Br
   %283 = trunc i64 %282 to i32
   %284 = and i32 %268, %283
   %285 = and i64 %282, 4294967295
-  %286 = getelementptr inbounds nuw i16, ptr %275, i64 %285
+  %286 = getelementptr inbounds nuw [2 x i8], ptr %275, i64 %285
   %287 = load i16, ptr %286, align 2, !tbaa !68, !noalias !663
   %288 = zext i16 %287 to i32
   %289 = zext i32 %284 to i64
-  %290 = getelementptr inbounds nuw i32, ptr %272, i64 %289
+  %290 = getelementptr inbounds nuw [4 x i8], ptr %272, i64 %289
   %291 = load i32, ptr %290, align 4, !tbaa !40, !noalias !663
   %292 = add i32 %291, %288
   %293 = zext i32 %292 to i64
-  %294 = getelementptr inbounds nuw i32, ptr %278, i64 %293
+  %294 = getelementptr inbounds nuw [4 x i8], ptr %278, i64 %293
   %.not832 = icmp eq i16 %287, -1
   %295 = getelementptr inbounds nuw i8, ptr %252, i64 4
   %296 = load i32, ptr %295, align 4, !tbaa !108, !noalias !663
   %297 = zext i32 %296 to i64
-  %298 = getelementptr inbounds nuw i32, ptr %278, i64 %297
+  %298 = getelementptr inbounds nuw [4 x i8], ptr %278, i64 %297
   %299 = load i32, ptr %252, align 4, !tbaa !109, !noalias !663
   %300 = icmp eq i32 %299, -558043680
   br i1 %300, label %302, label %301
@@ -12857,7 +12852,7 @@ _ZN13duckdb_brotliL29FindLongestMatchHROLLING_FASTEPNS_13HROLLING_FASTEPKNS_23Br
   %.sroa.0395.3643 = phi i64 [ %.sroa.0395.2676, %302 ], [ %.sroa.0395.6, %353 ]
   %.sroa.18404.3642 = phi i64 [ %.sroa.18404.2675, %302 ], [ %.sroa.18404.6, %353 ]
   %.sroa.29.3641 = phi i64 [ %.sroa.29.2674, %302 ], [ %.sroa.29.6, %353 ]
-  %304 = getelementptr inbounds nuw i32, ptr %6, i64 %.0131.i221644
+  %304 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.0131.i221644
   %305 = load i32, ptr %304, align 4, !tbaa !40, !alias.scope !662, !noalias !664
   %306 = sext i32 %305 to i64
   %.not145.i249 = icmp uge i64 %259, %306
@@ -13253,7 +13248,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit126.i: ; preds = %438,
   %471 = shl nuw nsw i64 %.0102.i710, 3
   %472 = add nuw nsw i64 %471, %426
   %473 = and i64 %472, 1048575
-  %474 = getelementptr inbounds nuw i64, ptr %13, i64 %.0102.i710
+  %474 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.0102.i710
   store i64 %473, ptr %474, align 8, !tbaa !29, !noalias !674
   %475 = add nuw nsw i64 %.0102.i710, 1
   %exitcond918.not = icmp eq i64 %475, 4
@@ -13263,7 +13258,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit126.i: ; preds = %438,
   %.0.i279 = zext i8 %.0.i279.in to i32
   %477 = lshr i64 %417, 3
   %478 = and i64 %477, 3
-  %479 = getelementptr inbounds nuw i64, ptr %13, i64 %478
+  %479 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %478
   %480 = load i64, ptr %479, align 8, !tbaa !29, !noalias !674
   %481 = icmp ugt i64 %.0191, 7
   br label %482
@@ -13276,9 +13271,9 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit126.i: ; preds = %438,
   %.sroa.0.6728 = phi i64 [ %.sroa.0.5, %476 ], [ %.sroa.0.7, %534 ]
   %.sroa.12.6727 = phi i64 [ %.sroa.12.5, %476 ], [ %.sroa.12.7, %534 ]
   %.sroa.18.6726 = phi i64 [ %.sroa.18.5, %476 ], [ %.sroa.18.7, %534 ]
-  %483 = getelementptr inbounds nuw i64, ptr %13, i64 %.1103.i729
+  %483 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.1103.i729
   %484 = load i64, ptr %483, align 8, !tbaa !29, !noalias !674
-  %485 = getelementptr inbounds nuw i32, ptr %38, i64 %484
+  %485 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %484
   %486 = load i32, ptr %485, align 4, !tbaa !40, !noalias !670
   %487 = zext i32 %486 to i64
   %488 = sub i64 %417, %487
@@ -13396,7 +13391,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i291: ; preds = %498,
 _ZN13duckdb_brotliL19FindLongestMatchH54EPNS_3H54EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit: ; preds = %534
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !674
   %536 = trunc i64 %417 to i32
-  %537 = getelementptr inbounds nuw i32, ptr %38, i64 %480
+  %537 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %480
   store i32 %536, ptr %537, align 4, !tbaa !40, !noalias !670
   tail call void @llvm.experimental.noalias.scope.decl(metadata !675)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !678)
@@ -13445,7 +13440,7 @@ _ZN13duckdb_brotliL19FindLongestMatchH54EPNS_3H54EPKNS_23BrotliEncoderDictionary
 561:                                              ; preds = %544
   %562 = load ptr, ptr %44, align 8, !tbaa !650, !alias.scope !675, !noalias !680
   %563 = zext nneg i32 %546 to i64
-  %564 = getelementptr inbounds nuw i32, ptr %562, i64 %563
+  %564 = getelementptr inbounds nuw [4 x i8], ptr %562, i64 %563
   %565 = load i32, ptr %564, align 4, !tbaa !40, !noalias !682
   %566 = zext i32 %565 to i64
   %567 = trunc i64 %.0.i343753 to i32
@@ -13580,9 +13575,9 @@ _ZN13duckdb_brotliL29FindLongestMatchHROLLING_FASTEPNS_13HROLLING_FASTEPKNS_23Br
   %.sroa.0.0813 = phi i64 [ %.sroa.0.10, %.lr.ph815 ], [ %.sroa.0.2.lcssa, %_ZN13duckdb_brotliL27FindCompoundDictionaryMatchEPKNS_18PreparedDictionaryEPKhmPKimmmmPNS_18HasherSearchResultE.exit ]
   %.sroa.12.0812 = phi i64 [ %.sroa.12.10, %.lr.ph815 ], [ %.sroa.12.2.lcssa, %_ZN13duckdb_brotliL27FindCompoundDictionaryMatchEPKNS_18PreparedDictionaryEPKhmPKimmmmPNS_18HasherSearchResultE.exit ]
   %.sroa.18.0811 = phi i64 [ %.sroa.18.10, %.lr.ph815 ], [ %.sroa.18.2.lcssa, %_ZN13duckdb_brotliL27FindCompoundDictionaryMatchEPKNS_18PreparedDictionaryEPKhmPKimmmmPNS_18HasherSearchResultE.exit ]
-  %614 = getelementptr inbounds nuw ptr, ptr %45, i64 %.0.i213814
+  %614 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %.0.i213814
   %615 = load ptr, ptr %614, align 8, !tbaa !99, !noalias !689
-  %616 = getelementptr inbounds nuw i64, ptr %46, i64 %.0.i213814
+  %616 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %.0.i213814
   %617 = load i64, ptr %616, align 8, !tbaa !29, !noalias !689
   %618 = sub i64 %612, %617
   tail call void @llvm.experimental.noalias.scope.decl(metadata !683)
@@ -13606,10 +13601,10 @@ _ZN13duckdb_brotliL29FindLongestMatchHROLLING_FASTEPNS_13HROLLING_FASTEPKNS_23Br
   %635 = getelementptr inbounds nuw i8, ptr %615, i64 24
   %636 = shl nuw i32 1, %628
   %637 = zext i32 %636 to i64
-  %638 = getelementptr inbounds nuw i32, ptr %635, i64 %637
+  %638 = getelementptr inbounds nuw [4 x i8], ptr %635, i64 %637
   %639 = shl nuw i32 1, %626
   %640 = zext i32 %639 to i64
-  %641 = getelementptr inbounds nuw i16, ptr %638, i64 %640
+  %641 = getelementptr inbounds nuw [2 x i8], ptr %638, i64 %640
   %642 = and i64 %.0.copyload.i165.i, %634
   %643 = mul i64 %642, 2297779722762296275
   %644 = zext nneg i32 %629 to i64
@@ -13617,20 +13612,20 @@ _ZN13duckdb_brotliL29FindLongestMatchHROLLING_FASTEPNS_13HROLLING_FASTEPKNS_23Br
   %646 = trunc i64 %645 to i32
   %647 = and i32 %631, %646
   %648 = and i64 %645, 4294967295
-  %649 = getelementptr inbounds nuw i16, ptr %638, i64 %648
+  %649 = getelementptr inbounds nuw [2 x i8], ptr %638, i64 %648
   %650 = load i16, ptr %649, align 2, !tbaa !68, !noalias !694
   %651 = zext i16 %650 to i32
   %652 = zext i32 %647 to i64
-  %653 = getelementptr inbounds nuw i32, ptr %635, i64 %652
+  %653 = getelementptr inbounds nuw [4 x i8], ptr %635, i64 %652
   %654 = load i32, ptr %653, align 4, !tbaa !40, !noalias !694
   %655 = add i32 %654, %651
   %656 = zext i32 %655 to i64
-  %657 = getelementptr inbounds nuw i32, ptr %641, i64 %656
+  %657 = getelementptr inbounds nuw [4 x i8], ptr %641, i64 %656
   %.not840 = icmp eq i16 %650, -1
   %658 = getelementptr inbounds nuw i8, ptr %615, i64 4
   %659 = load i32, ptr %658, align 4, !tbaa !108, !noalias !694
   %660 = zext i32 %659 to i64
-  %661 = getelementptr inbounds nuw i32, ptr %641, i64 %660
+  %661 = getelementptr inbounds nuw [4 x i8], ptr %641, i64 %660
   %662 = load i32, ptr %615, align 4, !tbaa !109, !noalias !694
   %663 = icmp eq i32 %662, -558043680
   br i1 %663, label %665, label %664
@@ -13653,7 +13648,7 @@ _ZN13duckdb_brotliL29FindLongestMatchHROLLING_FASTEPNS_13HROLLING_FASTEPKNS_23Br
   %.sroa.0.1780 = phi i64 [ %.sroa.0.0813, %665 ], [ %.sroa.0.4, %716 ]
   %.sroa.12.1779 = phi i64 [ %.sroa.12.0812, %665 ], [ %.sroa.12.4, %716 ]
   %.sroa.18.1778 = phi i64 [ %.sroa.18.0811, %665 ], [ %.sroa.18.4, %716 ]
-  %667 = getelementptr inbounds nuw i32, ptr %6, i64 %.0131.i781
+  %667 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.0131.i781
   %668 = load i32, ptr %667, align 4, !tbaa !40, !alias.scope !693, !noalias !695
   %669 = sext i32 %668 to i64
   %.not145.i = icmp uge i64 %622, %669
@@ -14240,7 +14235,7 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %930, %_ZN13duckdb_b
   %966 = and i64 %.0.i383819, 24
   %967 = add nuw nsw i64 %964, %966
   %968 = and i64 %967, 1048575
-  %969 = getelementptr inbounds nuw i32, ptr %38, i64 %968
+  %969 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %968
   store i32 %965, ptr %969, align 4, !tbaa !40, !noalias !697
   %970 = add nuw i64 %.0.i383819, 1
   %exitcond926.not = icmp eq i64 %970, %951
@@ -14275,7 +14270,7 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %930, %_ZN13duckdb_b
   %987 = and i64 %.5690, 24
   %988 = add nuw nsw i64 %985, %987
   %989 = and i64 %988, 1048575
-  %990 = getelementptr inbounds nuw i32, ptr %38, i64 %989
+  %990 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %989
   store i32 %986, ptr %990, align 4, !tbaa !40, !noalias !701
   %991 = add i64 %.5187689, 4
   %992 = add i64 %.5690, 4
@@ -14300,7 +14295,7 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %930, %_ZN13duckdb_b
   %1003 = and i64 %.6684, 24
   %1004 = add nuw nsw i64 %1001, %1003
   %1005 = and i64 %1004, 1048575
-  %1006 = getelementptr inbounds nuw i32, ptr %38, i64 %1005
+  %1006 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %1005
   store i32 %1002, ptr %1006, align 4, !tbaa !40, !noalias !705
   %1007 = add i64 %.6188683, 2
   %1008 = add i64 %.6684, 2
@@ -14510,7 +14505,7 @@ _ZN13duckdb_brotliL23PrepareDistanceCacheH65EPNS_3H65EPi.exit: ; preds = %12, %3
   %.0200 = phi i32 [ %136, %.thread ], [ 0, %107 ]
   %.0197 = phi i8 [ %125, %.thread ], [ 0, %107 ]
   %138 = zext nneg i32 %.0200 to i64
-  %139 = getelementptr inbounds nuw ptr, ptr %70, i64 %138
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %138
   %140 = load ptr, ptr %139, align 8, !tbaa !55
   %141 = load i64, ptr %72, align 8, !tbaa !56
   tail call void @llvm.experimental.noalias.scope.decl(metadata !737)
@@ -14537,7 +14532,7 @@ _ZN13duckdb_brotliL23PrepareDistanceCacheH65EPNS_3H65EPi.exit: ; preds = %12, %3
   %.sroa.0416.7645 = phi i64 [ 0, %.lr.ph650 ], [ %.sroa.0416.15, %209 ]
   %.sroa.20.7644 = phi i64 [ 0, %.lr.ph650 ], [ %.sroa.20.15, %209 ]
   %.sroa.32.7643 = phi i64 [ 2020, %.lr.ph650 ], [ %.sroa.32.15, %209 ]
-  %148 = getelementptr inbounds nuw i32, ptr %7, i64 %.0144.i.i646
+  %148 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.0144.i.i646
   %149 = load i32, ptr %148, align 4, !tbaa !40, !alias.scope !743, !noalias !744
   %150 = sext i32 %149 to i64
   %151 = sub i64 %.0999, %150
@@ -14692,8 +14687,8 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit180.i.i: ; preds = %16
   %215 = load i32, ptr %78, align 4, !tbaa !197, !alias.scope !725, !noalias !730
   %216 = zext nneg i32 %215 to i64
   %217 = shl i64 %214, %216
-  %218 = getelementptr inbounds nuw i32, ptr %76, i64 %217
-  %219 = getelementptr inbounds nuw i16, ptr %74, i64 %214
+  %218 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %217
+  %219 = getelementptr inbounds nuw [2 x i8], ptr %74, i64 %214
   %220 = load i16, ptr %219, align 2, !tbaa !68, !noalias !746
   %221 = zext i16 %220 to i64
   %222 = load i64, ptr %79, align 8, !tbaa !198, !alias.scope !725, !noalias !730
@@ -14719,7 +14714,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit180.i.i: ; preds = %16
   %.sroa.32.8672 = phi i64 [ %.sroa.32.7.lcssa, %.lr.ph679 ], [ %.sroa.32.14, %285 ]
   %230 = add nsw i64 %.1145.i.i675, -1
   %231 = and i64 %230, %226
-  %232 = getelementptr inbounds nuw i32, ptr %218, i64 %231
+  %232 = getelementptr inbounds nuw [4 x i8], ptr %218, i64 %231
   %233 = load i32, ptr %232, align 4, !tbaa !40, !noalias !746
   %234 = zext i32 %233 to i64
   %235 = sub i64 %.0999, %234
@@ -14849,7 +14844,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i: ; preds = %253, 
   %288 = zext i16 %220 to i32
   %289 = and i32 %.pre, %288
   %290 = zext nneg i32 %289 to i64
-  %291 = getelementptr inbounds nuw i32, ptr %218, i64 %290
+  %291 = getelementptr inbounds nuw [4 x i8], ptr %218, i64 %290
   store i32 %287, ptr %291, align 4, !tbaa !40, !noalias !746
   %292 = add i16 %220, 1
   store i16 %292, ptr %219, align 2, !tbaa !68, !noalias !746
@@ -14900,7 +14895,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i: ; preds = %253, 
 321:                                              ; preds = %314
   %322 = zext i8 %320 to i64
   %323 = load ptr, ptr %309, align 8, !tbaa !80, !noalias !747
-  %324 = getelementptr inbounds nuw i16, ptr %323, i64 %.0.i.i.i708
+  %324 = getelementptr inbounds nuw [2 x i8], ptr %323, i64 %.0.i.i.i708
   %325 = load i16, ptr %324, align 2, !tbaa !68, !noalias !746
   %326 = zext i16 %325 to i64
   %327 = icmp ult i64 %108, %322
@@ -14909,7 +14904,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i: ; preds = %253, 
 328:                                              ; preds = %321
   %329 = load ptr, ptr %140, align 8, !tbaa !81, !noalias !747
   %330 = getelementptr inbounds nuw i8, ptr %329, i64 32
-  %331 = getelementptr inbounds nuw i32, ptr %330, i64 %322
+  %331 = getelementptr inbounds nuw [4 x i8], ptr %330, i64 %322
   %332 = load i32, ptr %331, align 4, !tbaa !40, !noalias !746
   %333 = zext i32 %332 to i64
   %334 = mul nuw nsw i64 %326, %322
@@ -15084,7 +15079,7 @@ _ZN13duckdb_brotliL19FindLongestMatchH65EPNS_3H65EPKNS_23BrotliEncoderDictionary
 420:                                              ; preds = %403
   %421 = load ptr, ptr %87, align 8, !tbaa !761, !alias.scope !748, !noalias !755
   %422 = zext nneg i32 %405 to i64
-  %423 = getelementptr inbounds nuw i32, ptr %421, i64 %422
+  %423 = getelementptr inbounds nuw [4 x i8], ptr %421, i64 %422
   %424 = load i32, ptr %423, align 4, !tbaa !40, !noalias !760
   %425 = zext i32 %424 to i64
   %426 = trunc i64 %.0.i386730 to i32
@@ -15226,9 +15221,9 @@ _ZN13duckdb_brotliL24FindLongestMatchHROLLINGEPNS_8HROLLINGEPKNS_23BrotliEncoder
   %.sroa.0416.2794 = phi i64 [ %.sroa.0416.19, %.lr.ph797 ], [ %.sroa.0416.4.lcssa, %_ZN13duckdb_brotliL27FindCompoundDictionaryMatchEPKNS_18PreparedDictionaryEPKhmPKimmmmPNS_18HasherSearchResultE.exit273 ]
   %.sroa.20.2793 = phi i64 [ %.sroa.20.19, %.lr.ph797 ], [ %.sroa.20.4.lcssa, %_ZN13duckdb_brotliL27FindCompoundDictionaryMatchEPKNS_18PreparedDictionaryEPKhmPKimmmmPNS_18HasherSearchResultE.exit273 ]
   %.sroa.32.2792 = phi i64 [ %.sroa.32.19, %.lr.ph797 ], [ %.sroa.32.4.lcssa, %_ZN13duckdb_brotliL27FindCompoundDictionaryMatchEPKNS_18PreparedDictionaryEPKhmPKimmmmPNS_18HasherSearchResultE.exit273 ]
-  %475 = getelementptr inbounds nuw ptr, ptr %88, i64 %.0.i796
+  %475 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %.0.i796
   %476 = load ptr, ptr %475, align 8, !tbaa !99, !noalias !763
-  %477 = getelementptr inbounds nuw i64, ptr %89, i64 %.0.i796
+  %477 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %.0.i796
   %478 = load i64, ptr %477, align 8, !tbaa !29, !noalias !763
   %479 = sub i64 %472, %478
   tail call void @llvm.experimental.noalias.scope.decl(metadata !767)
@@ -15252,10 +15247,10 @@ _ZN13duckdb_brotliL24FindLongestMatchHROLLINGEPNS_8HROLLINGEPKNS_23BrotliEncoder
   %496 = getelementptr inbounds nuw i8, ptr %476, i64 24
   %497 = shl nuw i32 1, %489
   %498 = zext i32 %497 to i64
-  %499 = getelementptr inbounds nuw i32, ptr %496, i64 %498
+  %499 = getelementptr inbounds nuw [4 x i8], ptr %496, i64 %498
   %500 = shl nuw i32 1, %487
   %501 = zext i32 %500 to i64
-  %502 = getelementptr inbounds nuw i16, ptr %499, i64 %501
+  %502 = getelementptr inbounds nuw [2 x i8], ptr %499, i64 %501
   %503 = and i64 %.0.copyload.i165.i219, %495
   %504 = mul i64 %503, 2297779722762296275
   %505 = zext nneg i32 %490 to i64
@@ -15263,20 +15258,20 @@ _ZN13duckdb_brotliL24FindLongestMatchHROLLINGEPNS_8HROLLINGEPKNS_23BrotliEncoder
   %507 = trunc i64 %506 to i32
   %508 = and i32 %492, %507
   %509 = and i64 %506, 4294967295
-  %510 = getelementptr inbounds nuw i16, ptr %499, i64 %509
+  %510 = getelementptr inbounds nuw [2 x i8], ptr %499, i64 %509
   %511 = load i16, ptr %510, align 2, !tbaa !68, !noalias !774
   %512 = zext i16 %511 to i32
   %513 = zext i32 %508 to i64
-  %514 = getelementptr inbounds nuw i32, ptr %496, i64 %513
+  %514 = getelementptr inbounds nuw [4 x i8], ptr %496, i64 %513
   %515 = load i32, ptr %514, align 4, !tbaa !40, !noalias !774
   %516 = add i32 %515, %512
   %517 = zext i32 %516 to i64
-  %518 = getelementptr inbounds nuw i32, ptr %502, i64 %517
+  %518 = getelementptr inbounds nuw [4 x i8], ptr %502, i64 %517
   %.not1010 = icmp eq i16 %511, -1
   %519 = getelementptr inbounds nuw i8, ptr %476, i64 4
   %520 = load i32, ptr %519, align 4, !tbaa !108, !noalias !774
   %521 = zext i32 %520 to i64
-  %522 = getelementptr inbounds nuw i32, ptr %502, i64 %521
+  %522 = getelementptr inbounds nuw [4 x i8], ptr %502, i64 %521
   %523 = load i32, ptr %476, align 4, !tbaa !109, !noalias !774
   %524 = icmp eq i32 %523, -558043680
   br i1 %524, label %526, label %525
@@ -15300,7 +15295,7 @@ _ZN13duckdb_brotliL24FindLongestMatchHROLLINGEPNS_8HROLLINGEPKNS_23BrotliEncoder
   %.sroa.0416.3758 = phi i64 [ %.sroa.0416.2794, %526 ], [ %.sroa.0416.6, %577 ]
   %.sroa.20.3757 = phi i64 [ %.sroa.20.2793, %526 ], [ %.sroa.20.6, %577 ]
   %.sroa.32.3756 = phi i64 [ %.sroa.32.2792, %526 ], [ %.sroa.32.6, %577 ]
-  %528 = getelementptr inbounds nuw i32, ptr %7, i64 %.0131.i221760
+  %528 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.0131.i221760
   %529 = load i32, ptr %528, align 4, !tbaa !40, !alias.scope !773, !noalias !775
   %530 = sext i32 %529 to i64
   %.not145.i249 = icmp uge i64 %483, %530
@@ -15613,7 +15608,7 @@ _ZN13duckdb_brotliL29LookupCompoundDictionaryMatchEPKNS_18CompoundDictionaryEPKh
   %.2202 = phi i32 [ %660, %646 ], [ %.1201, %.preheader591 ]
   %.2199 = phi i8 [ %649, %646 ], [ %.1198, %.preheader591 ]
   %662 = zext nneg i32 %.2202 to i64
-  %663 = getelementptr inbounds nuw ptr, ptr %70, i64 %662
+  %663 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %662
   %664 = load ptr, ptr %663, align 8, !tbaa !55
   tail call void @llvm.experimental.noalias.scope.decl(metadata !776)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !779)
@@ -15639,7 +15634,7 @@ _ZN13duckdb_brotliL29LookupCompoundDictionaryMatchEPKNS_18CompoundDictionaryEPKh
   %.sroa.0.5833 = phi i64 [ 0, %.lr.ph839 ], [ %.sroa.0.13, %732 ]
   %.sroa.14.5832 = phi i64 [ 0, %.lr.ph839 ], [ %.sroa.14.13, %732 ]
   %.sroa.21.5831 = phi i64 [ 2020, %.lr.ph839 ], [ %.sroa.21.13, %732 ]
-  %671 = getelementptr inbounds nuw i32, ptr %7, i64 %.0144.i.i282834
+  %671 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.0144.i.i282834
   %672 = load i32, ptr %671, align 4, !tbaa !40, !alias.scope !794, !noalias !795
   %673 = sext i32 %672 to i64
   %674 = sub i64 %641, %673
@@ -15793,8 +15788,8 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit180.i.i352: ; preds = 
   %737 = load i32, ptr %78, align 4, !tbaa !197, !alias.scope !790, !noalias !791
   %738 = zext nneg i32 %737 to i64
   %739 = shl i64 %736, %738
-  %740 = getelementptr inbounds nuw i32, ptr %76, i64 %739
-  %741 = getelementptr inbounds nuw i16, ptr %74, i64 %736
+  %740 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %739
+  %741 = getelementptr inbounds nuw [2 x i8], ptr %74, i64 %736
   %742 = load i16, ptr %741, align 2, !tbaa !68, !noalias !797
   %743 = zext i16 %742 to i64
   %spec.select.i.i286 = tail call i64 @llvm.usub.sat.i64(i64 %743, i64 %222)
@@ -15819,7 +15814,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit180.i.i352: ; preds = 
   %.sroa.21.6862 = phi i64 [ %.sroa.21.5.lcssa, %.lr.ph869 ], [ %.sroa.21.12, %807 ]
   %752 = add nsw i64 %.1145.i.i288865, -1
   %753 = and i64 %752, %748
-  %754 = getelementptr inbounds nuw i32, ptr %740, i64 %753
+  %754 = getelementptr inbounds nuw [4 x i8], ptr %740, i64 %753
   %755 = load i32, ptr %754, align 4, !tbaa !40, !noalias !797
   %756 = zext i32 %755 to i64
   %757 = sub i64 %641, %756
@@ -15950,7 +15945,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i331: ; preds = %77
   %811 = load i32, ptr %80, align 8, !tbaa !199, !alias.scope !790, !noalias !791
   %812 = and i32 %811, %810
   %813 = zext nneg i32 %812 to i64
-  %814 = getelementptr inbounds nuw i32, ptr %740, i64 %813
+  %814 = getelementptr inbounds nuw [4 x i8], ptr %740, i64 %813
   store i32 %809, ptr %814, align 4, !tbaa !40, !noalias !797
   %815 = add i16 %742, 1
   store i16 %815, ptr %741, align 2, !tbaa !68, !noalias !797
@@ -16001,7 +15996,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i331: ; preds = %77
 844:                                              ; preds = %837
   %845 = zext i8 %843 to i64
   %846 = load ptr, ptr %832, align 8, !tbaa !80, !noalias !798
-  %847 = getelementptr inbounds nuw i16, ptr %846, i64 %.0.i.i.i293899
+  %847 = getelementptr inbounds nuw [2 x i8], ptr %846, i64 %.0.i.i.i293899
   %848 = load i16, ptr %847, align 2, !tbaa !68, !noalias !797
   %849 = zext i16 %848 to i64
   %850 = icmp ult i64 %.0191, %845
@@ -16010,7 +16005,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i331: ; preds = %77
 851:                                              ; preds = %844
   %852 = load ptr, ptr %664, align 8, !tbaa !81, !noalias !798
   %853 = getelementptr inbounds nuw i8, ptr %852, i64 32
-  %854 = getelementptr inbounds nuw i32, ptr %853, i64 %845
+  %854 = getelementptr inbounds nuw [4 x i8], ptr %853, i64 %845
   %855 = load i32, ptr %854, align 4, !tbaa !40, !noalias !797
   %856 = zext i32 %855 to i64
   %857 = mul nuw nsw i64 %849, %845
@@ -16185,7 +16180,7 @@ _ZN13duckdb_brotliL19FindLongestMatchH65EPNS_3H65EPKNS_23BrotliEncoderDictionary
 943:                                              ; preds = %926
   %944 = load ptr, ptr %87, align 8, !tbaa !761, !alias.scope !799, !noalias !804
   %945 = zext nneg i32 %928 to i64
-  %946 = getelementptr inbounds nuw i32, ptr %944, i64 %945
+  %946 = getelementptr inbounds nuw [4 x i8], ptr %944, i64 %945
   %947 = load i32, ptr %946, align 4, !tbaa !40, !noalias !806
   %948 = zext i32 %947 to i64
   %949 = trunc i64 %.0.i368921 to i32
@@ -16324,9 +16319,9 @@ _ZN13duckdb_brotliL24FindLongestMatchHROLLINGEPNS_8HROLLINGEPKNS_23BrotliEncoder
   %.sroa.14.0985 = phi i64 [ %.sroa.14.17, %.lr.ph988 ], [ %.sroa.14.2.lcssa, %_ZN13duckdb_brotliL27FindCompoundDictionaryMatchEPKNS_18PreparedDictionaryEPKhmPKimmmmPNS_18HasherSearchResultE.exit ]
   %.sroa.21.0984 = phi i64 [ %.sroa.21.17, %.lr.ph988 ], [ %.sroa.21.2.lcssa, %_ZN13duckdb_brotliL27FindCompoundDictionaryMatchEPKNS_18PreparedDictionaryEPKhmPKimmmmPNS_18HasherSearchResultE.exit ]
   %.sroa.34.0983 = phi i32 [ %.sroa.34.12, %.lr.ph988 ], [ %.sroa.34.2.lcssa, %_ZN13duckdb_brotliL27FindCompoundDictionaryMatchEPKNS_18PreparedDictionaryEPKhmPKimmmmPNS_18HasherSearchResultE.exit ]
-  %996 = getelementptr inbounds nuw ptr, ptr %88, i64 %.0.i213987
+  %996 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %.0.i213987
   %997 = load ptr, ptr %996, align 8, !tbaa !99, !noalias !813
-  %998 = getelementptr inbounds nuw i64, ptr %89, i64 %.0.i213987
+  %998 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %.0.i213987
   %999 = load i64, ptr %998, align 8, !tbaa !29, !noalias !813
   %1000 = sub i64 %994, %999
   tail call void @llvm.experimental.noalias.scope.decl(metadata !807)
@@ -16350,10 +16345,10 @@ _ZN13duckdb_brotliL24FindLongestMatchHROLLINGEPNS_8HROLLINGEPKNS_23BrotliEncoder
   %1017 = getelementptr inbounds nuw i8, ptr %997, i64 24
   %1018 = shl nuw i32 1, %1010
   %1019 = zext i32 %1018 to i64
-  %1020 = getelementptr inbounds nuw i32, ptr %1017, i64 %1019
+  %1020 = getelementptr inbounds nuw [4 x i8], ptr %1017, i64 %1019
   %1021 = shl nuw i32 1, %1008
   %1022 = zext i32 %1021 to i64
-  %1023 = getelementptr inbounds nuw i16, ptr %1020, i64 %1022
+  %1023 = getelementptr inbounds nuw [2 x i8], ptr %1020, i64 %1022
   %1024 = and i64 %.0.copyload.i165.i, %1016
   %1025 = mul i64 %1024, 2297779722762296275
   %1026 = zext nneg i32 %1011 to i64
@@ -16361,20 +16356,20 @@ _ZN13duckdb_brotliL24FindLongestMatchHROLLINGEPNS_8HROLLINGEPKNS_23BrotliEncoder
   %1028 = trunc i64 %1027 to i32
   %1029 = and i32 %1013, %1028
   %1030 = and i64 %1027, 4294967295
-  %1031 = getelementptr inbounds nuw i16, ptr %1020, i64 %1030
+  %1031 = getelementptr inbounds nuw [2 x i8], ptr %1020, i64 %1030
   %1032 = load i16, ptr %1031, align 2, !tbaa !68, !noalias !818
   %1033 = zext i16 %1032 to i32
   %1034 = zext i32 %1029 to i64
-  %1035 = getelementptr inbounds nuw i32, ptr %1017, i64 %1034
+  %1035 = getelementptr inbounds nuw [4 x i8], ptr %1017, i64 %1034
   %1036 = load i32, ptr %1035, align 4, !tbaa !40, !noalias !818
   %1037 = add i32 %1036, %1033
   %1038 = zext i32 %1037 to i64
-  %1039 = getelementptr inbounds nuw i32, ptr %1023, i64 %1038
+  %1039 = getelementptr inbounds nuw [4 x i8], ptr %1023, i64 %1038
   %.not1019 = icmp eq i16 %1032, -1
   %1040 = getelementptr inbounds nuw i8, ptr %997, i64 4
   %1041 = load i32, ptr %1040, align 4, !tbaa !108, !noalias !818
   %1042 = zext i32 %1041 to i64
-  %1043 = getelementptr inbounds nuw i32, ptr %1023, i64 %1042
+  %1043 = getelementptr inbounds nuw [4 x i8], ptr %1023, i64 %1042
   %1044 = load i32, ptr %997, align 4, !tbaa !109, !noalias !818
   %1045 = icmp eq i32 %1044, -558043680
   br i1 %1045, label %1047, label %1046
@@ -16398,7 +16393,7 @@ _ZN13duckdb_brotliL24FindLongestMatchHROLLINGEPNS_8HROLLINGEPKNS_23BrotliEncoder
   %.sroa.14.1949 = phi i64 [ %.sroa.14.0985, %1047 ], [ %.sroa.14.4, %1098 ]
   %.sroa.21.1948 = phi i64 [ %.sroa.21.0984, %1047 ], [ %.sroa.21.4, %1098 ]
   %.sroa.34.1947 = phi i32 [ %.sroa.34.0983, %1047 ], [ %.sroa.34.4, %1098 ]
-  %1049 = getelementptr inbounds nuw i32, ptr %7, i64 %.0131.i951
+  %1049 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.0131.i951
   %1050 = load i32, ptr %1049, align 4, !tbaa !40, !alias.scope !817, !noalias !819
   %1051 = sext i32 %1050 to i64
   %.not145.i = icmp uge i64 %1004, %1051
@@ -17019,7 +17014,7 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %1318, %_ZN13duckdb_
   %.0.copyload.i.i.i365 = load i64, ptr %1355, align 1, !alias.scope !847, !noalias !841
   %1356 = mul i64 %.0.copyload.i.i.i365, %1349
   %1357 = lshr i64 %1356, 49
-  %1358 = getelementptr inbounds nuw i16, ptr %74, i64 %1357
+  %1358 = getelementptr inbounds nuw [2 x i8], ptr %74, i64 %1357
   %1359 = load i16, ptr %1358, align 2, !tbaa !68, !noalias !850
   %1360 = zext i16 %1359 to i32
   %1361 = and i32 %1350, %1360
@@ -17028,8 +17023,8 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %1318, %_ZN13duckdb_
   %1364 = add i16 %1359, 1
   store i16 %1364, ptr %1358, align 2, !tbaa !68, !noalias !850
   %1365 = trunc i64 %.0.i.i364993 to i32
-  %1366 = getelementptr i32, ptr %76, i64 %1363
-  %1367 = getelementptr i32, ptr %1366, i64 %1362
+  %1366 = getelementptr [4 x i8], ptr %76, i64 %1363
+  %1367 = getelementptr [4 x i8], ptr %1366, i64 %1362
   store i32 %1365, ptr %1367, align 4, !tbaa !40, !noalias !850
   %1368 = add nuw i64 %.0.i.i364993, 1
   %exitcond1117.not = icmp eq i64 %1368, %1339
@@ -17069,7 +17064,7 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %1318, %_ZN13duckdb_
   %.0.copyload.i.i.i366 = load i64, ptr %1385, align 1, !alias.scope !862, !noalias !851
   %1386 = mul i64 %.0.copyload.i.i.i366, %212
   %1387 = lshr i64 %1386, 49
-  %1388 = getelementptr inbounds nuw i16, ptr %74, i64 %1387
+  %1388 = getelementptr inbounds nuw [2 x i8], ptr %74, i64 %1387
   %1389 = load i16, ptr %1388, align 2, !tbaa !68, !noalias !865
   %1390 = zext i16 %1389 to i32
   %1391 = and i32 %1380, %1390
@@ -17078,8 +17073,8 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %1318, %_ZN13duckdb_
   %1394 = add i16 %1389, 1
   store i16 %1394, ptr %1388, align 2, !tbaa !68, !noalias !865
   %1395 = trunc i64 %.5810 to i32
-  %1396 = getelementptr i32, ptr %76, i64 %1393
-  %1397 = getelementptr i32, ptr %1396, i64 %1392
+  %1396 = getelementptr [4 x i8], ptr %76, i64 %1393
+  %1397 = getelementptr [4 x i8], ptr %1396, i64 %1392
   store i32 %1395, ptr %1397, align 4, !tbaa !40, !noalias !865
   %1398 = add i64 %.5187809, 4
   %1399 = add i64 %.5810, 4
@@ -17109,7 +17104,7 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %1318, %_ZN13duckdb_
   %.0.copyload.i.i.i367 = load i64, ptr %1410, align 1, !alias.scope !878, !noalias !867
   %1411 = mul i64 %.0.copyload.i.i.i367, %212
   %1412 = lshr i64 %1411, 49
-  %1413 = getelementptr inbounds nuw i16, ptr %74, i64 %1412
+  %1413 = getelementptr inbounds nuw [2 x i8], ptr %74, i64 %1412
   %1414 = load i16, ptr %1413, align 2, !tbaa !68, !noalias !881
   %1415 = zext i16 %1414 to i32
   %1416 = and i32 %1405, %1415
@@ -17118,8 +17113,8 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %1318, %_ZN13duckdb_
   %1419 = add i16 %1414, 1
   store i16 %1419, ptr %1413, align 2, !tbaa !68, !noalias !881
   %1420 = trunc i64 %.6804 to i32
-  %1421 = getelementptr i32, ptr %76, i64 %1418
-  %1422 = getelementptr i32, ptr %1421, i64 %1417
+  %1421 = getelementptr [4 x i8], ptr %76, i64 %1418
+  %1422 = getelementptr [4 x i8], ptr %1421, i64 %1417
   store i32 %1420, ptr %1422, align 4, !tbaa !40, !noalias !881
   %1423 = add i64 %.6188803, 2
   %1424 = add i64 %.6804, 2
@@ -17248,7 +17243,7 @@ define internal fastcc void @_ZL27CreateBackwardReferencesNH2mmPKhmS0_PK19Brotli
   %.0184 = phi i32 [ %78, %.thread ], [ 0, %49 ]
   %.0181 = phi i8 [ %67, %.thread ], [ 0, %49 ]
   %80 = zext nneg i32 %.0184 to i64
-  %81 = getelementptr inbounds nuw ptr, ptr %37, i64 %80
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %80
   %82 = load ptr, ptr %81, align 8, !tbaa !55
   %83 = load i64, ptr %39, align 8, !tbaa !56
   tail call void @llvm.experimental.noalias.scope.decl(metadata !886)
@@ -17350,12 +17345,12 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit118.i: ; preds = %99, 
 
 126:                                              ; preds = %123
   %127 = trunc i64 %.0521 to i32
-  %128 = getelementptr inbounds nuw i32, ptr %41, i64 %88
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %88
   store i32 %127, ptr %128, align 4, !tbaa !40, !noalias !895
   br label %.preheader382
 
 .critedge100.i:                                   ; preds = %123, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit118.i, %93, %79
-  %129 = getelementptr inbounds nuw i32, ptr %41, i64 %88
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %88
   %130 = load i32, ptr %129, align 4, !tbaa !40, !noalias !895
   %131 = zext i32 %130 to i64
   %132 = trunc i64 %.0521 to i32
@@ -17487,7 +17482,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i: ; preds = %142, %.
   %195 = getelementptr inbounds nuw i8, ptr %82, i64 24
   %196 = zext i8 %193 to i64
   %197 = load ptr, ptr %195, align 8, !tbaa !80, !noalias !898
-  %198 = getelementptr inbounds nuw i16, ptr %197, i64 %184
+  %198 = getelementptr inbounds nuw [2 x i8], ptr %197, i64 %184
   %199 = load i16, ptr %198, align 2, !tbaa !68, !noalias !895
   %200 = zext i16 %199 to i64
   %201 = icmp ult i64 %50, %196
@@ -17496,7 +17491,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i: ; preds = %142, %.
 202:                                              ; preds = %194
   %203 = load ptr, ptr %82, align 8, !tbaa !81, !noalias !898
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 32
-  %205 = getelementptr inbounds nuw i32, ptr %204, i64 %196
+  %205 = getelementptr inbounds nuw [4 x i8], ptr %204, i64 %196
   %206 = load i32, ptr %205, align 4, !tbaa !40, !noalias !895
   %207 = zext i32 %206 to i64
   %208 = mul nuw nsw i64 %200, %196
@@ -17668,7 +17663,7 @@ _ZN13duckdb_brotliL18FindLongestMatchH2EPNS_2H2EPKNS_23BrotliEncoderDictionaryEP
   %.2186 = phi i32 [ %296, %282 ], [ %.1185, %271 ]
   %.2183 = phi i8 [ %285, %282 ], [ %.1182, %271 ]
   %298 = zext nneg i32 %.2186 to i64
-  %299 = getelementptr inbounds nuw ptr, ptr %37, i64 %298
+  %299 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %298
   %300 = load ptr, ptr %299, align 8, !tbaa !55
   tail call void @llvm.experimental.noalias.scope.decl(metadata !906)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !907)
@@ -17769,12 +17764,12 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit118.i255: ; preds = %3
 
 343:                                              ; preds = %340
   %344 = trunc i64 %277 to i32
-  %345 = getelementptr inbounds nuw i32, ptr %41, i64 %306
+  %345 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %306
   store i32 %344, ptr %345, align 4, !tbaa !40, !noalias !908
   br label %_ZN13duckdb_brotliL18FindLongestMatchH2EPNS_2H2EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit263
 
 .critedge100.i201:                                ; preds = %340, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit118.i255, %309, %297
-  %346 = getelementptr inbounds nuw i32, ptr %41, i64 %306
+  %346 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %306
   %347 = load i32, ptr %346, align 4, !tbaa !40, !noalias !908
   %348 = zext i32 %347 to i64
   %349 = trunc i64 %277 to i32
@@ -17907,7 +17902,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i212: ; preds = %360,
   %413 = getelementptr inbounds nuw i8, ptr %300, i64 24
   %414 = zext i8 %411 to i64
   %415 = load ptr, ptr %413, align 8, !tbaa !80, !noalias !910
-  %416 = getelementptr inbounds nuw i16, ptr %415, i64 %402
+  %416 = getelementptr inbounds nuw [2 x i8], ptr %415, i64 %402
   %417 = load i16, ptr %416, align 2, !tbaa !68, !noalias !908
   %418 = zext i16 %417 to i64
   %419 = icmp ult i64 %.0175, %414
@@ -17916,7 +17911,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i212: ; preds = %360,
 420:                                              ; preds = %412
   %421 = load ptr, ptr %300, align 8, !tbaa !81, !noalias !910
   %422 = getelementptr inbounds nuw i8, ptr %421, i64 32
-  %423 = getelementptr inbounds nuw i32, ptr %422, i64 %414
+  %423 = getelementptr inbounds nuw [4 x i8], ptr %422, i64 %414
   %424 = load i32, ptr %423, align 4, !tbaa !40, !noalias !908
   %425 = zext i32 %424 to i64
   %426 = mul nuw nsw i64 %418, %414
@@ -18348,7 +18343,7 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %633, %_ZN13duckdb_b
   %666 = mul i64 %.val266, 8922571613522624512
   %667 = lshr i64 %666, 48
   %668 = trunc i64 %.0.i264516 to i32
-  %669 = getelementptr inbounds nuw i32, ptr %41, i64 %667
+  %669 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %667
   store i32 %668, ptr %669, align 4, !tbaa !40, !noalias !912
   %670 = add nuw i64 %.0.i264516, 1
   %exitcond.not = icmp eq i64 %670, %654
@@ -18380,7 +18375,7 @@ _ZN13duckdb_brotliL18FindLongestMatchH2EPNS_2H2EPKNS_23BrotliEncoderDictionaryEP
   %683 = mul i64 %.val265, 8922571613522624512
   %684 = lshr i64 %683, 48
   %685 = trunc i64 %.5461 to i32
-  %686 = getelementptr inbounds nuw i32, ptr %41, i64 %684
+  %686 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %684
   store i32 %685, ptr %686, align 4, !tbaa !40, !noalias !916
   %687 = add i64 %.5171460, 4
   %688 = add i64 %.5461, 4
@@ -18402,7 +18397,7 @@ _ZN13duckdb_brotliL18FindLongestMatchH2EPNS_2H2EPKNS_23BrotliEncoderDictionaryEP
   %696 = mul i64 %.val, 8922571613522624512
   %697 = lshr i64 %696, 48
   %698 = trunc i64 %.6456 to i32
-  %699 = getelementptr inbounds nuw i32, ptr %41, i64 %697
+  %699 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %697
   store i32 %698, ptr %699, align 4, !tbaa !40, !noalias !920
   %700 = add i64 %.6172455, 2
   %701 = add i64 %.6456, 2
@@ -18600,7 +18595,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit126.i: ; preds = %62, 
   %.0.i200 = zext i8 %.0.i200.in to i32
   %95 = lshr i64 %.0436, 3
   %96 = and i64 %95, 1
-  %97 = getelementptr inbounds nuw i64, ptr %13, i64 %96
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %96
   %98 = load i64, ptr %97, align 8, !tbaa !29, !noalias !938
   %99 = icmp ugt i64 %45, 7
   br label %100
@@ -18615,7 +18610,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit126.i: ; preds = %62, 
   %.sroa.13.3377 = phi i64 [ %.sroa.13.2, %.critedge ], [ %.sroa.13.4, %152 ]
   %.sroa.21.3376 = phi i64 [ %.sroa.21.2, %.critedge ], [ %.sroa.21.4, %152 ]
   %102 = load i64, ptr %.1103.i379.sroa.phi, align 8, !tbaa !29, !noalias !938
-  %103 = getelementptr inbounds nuw i32, ptr %36, i64 %102
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %102
   %104 = load i32, ptr %103, align 4, !tbaa !40, !noalias !936
   %105 = zext i32 %104 to i64
   %106 = sub i64 %.0436, %105
@@ -18731,7 +18726,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i: ; preds = %116, %.
 _ZN13duckdb_brotliL18FindLongestMatchH3EPNS_2H3EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit: ; preds = %152
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !938
   %153 = trunc i64 %.0436 to i32
-  %154 = getelementptr inbounds nuw i32, ptr %36, i64 %98
+  %154 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %98
   store i32 %153, ptr %154, align 4, !tbaa !40, !noalias !936
   %155 = icmp ugt i64 %.sroa.21.4, 2020
   br i1 %155, label %.preheader330, label %474
@@ -18871,7 +18866,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit126.i239: ; preds = %1
   %.0.i204 = zext i8 %.0.i204.in to i32
   %214 = lshr i64 %164, 3
   %215 = and i64 %214, 1
-  %216 = getelementptr inbounds nuw i64, ptr %12, i64 %215
+  %216 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %215
   %217 = load i64, ptr %216, align 8, !tbaa !29, !noalias !949
   %218 = icmp ugt i64 %.0175, 7
   br label %219
@@ -18886,7 +18881,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit126.i239: ; preds = %1
   %.sroa.7.1425 = phi i64 [ %.sroa.7.0, %.critedge31 ], [ %.sroa.7.2, %271 ]
   %.sroa.10.1424 = phi i64 [ %.sroa.10.0, %.critedge31 ], [ %.sroa.10.2, %271 ]
   %221 = load i64, ptr %.1103.i206427.sroa.phi, align 8, !tbaa !29, !noalias !949
-  %222 = getelementptr inbounds nuw i32, ptr %36, i64 %221
+  %222 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %221
   %223 = load i32, ptr %222, align 4, !tbaa !40, !noalias !948
   %224 = zext i32 %223 to i64
   %225 = sub i64 %164, %224
@@ -19002,7 +18997,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i223: ; preds = %235,
 _ZN13duckdb_brotliL18FindLongestMatchH3EPNS_2H3EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit246: ; preds = %271
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !949
   %272 = trunc i64 %164 to i32
-  %273 = getelementptr inbounds nuw i32, ptr %36, i64 %217
+  %273 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %217
   store i32 %272, ptr %273, align 4, !tbaa !40, !noalias !948
   %274 = add i64 %.sroa.21.0, 175
   %.not196 = icmp ult i64 %.sroa.10.2, %274
@@ -19328,7 +19323,7 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %433, %_ZN13duckdb_b
   %469 = and i64 %.0.i247431, 8
   %470 = add nuw nsw i64 %467, %469
   %471 = and i64 %470, 65535
-  %472 = getelementptr inbounds nuw i32, ptr %36, i64 %471
+  %472 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %471
   store i32 %468, ptr %472, align 4, !tbaa !40, !noalias !951
   %473 = add nuw i64 %.0.i247431, 1
   %exitcond.not = icmp eq i64 %473, %454
@@ -19363,7 +19358,7 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %433, %_ZN13duckdb_b
   %490 = and i64 %.5389, 8
   %491 = add nuw nsw i64 %488, %490
   %492 = and i64 %491, 65535
-  %493 = getelementptr inbounds nuw i32, ptr %36, i64 %492
+  %493 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %492
   store i32 %489, ptr %493, align 4, !tbaa !40, !noalias !955
   %494 = add i64 %.5171388, 4
   %495 = add i64 %.5389, 4
@@ -19388,7 +19383,7 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %433, %_ZN13duckdb_b
   %506 = and i64 %.6384, 8
   %507 = add nuw nsw i64 %504, %506
   %508 = and i64 %507, 65535
-  %509 = getelementptr inbounds nuw i32, ptr %36, i64 %508
+  %509 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %508
   store i32 %505, ptr %509, align 4, !tbaa !40, !noalias !959
   %510 = add i64 %.6172383, 2
   %511 = add i64 %.6384, 2
@@ -19519,7 +19514,7 @@ define internal fastcc void @_ZL27CreateBackwardReferencesNH4mmPKhmS0_PK19Brotli
   %.0184 = phi i32 [ %80, %.thread ], [ 0, %51 ]
   %.0181 = phi i8 [ %69, %.thread ], [ 0, %51 ]
   %82 = zext nneg i32 %.0184 to i64
-  %83 = getelementptr inbounds nuw ptr, ptr %39, i64 %82
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %82
   %84 = load ptr, ptr %83, align 8, !tbaa !55
   %85 = load i64, ptr %41, align 8, !tbaa !56
   tail call void @llvm.experimental.noalias.scope.decl(metadata !966)
@@ -19637,7 +19632,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit136.i: ; preds = %101,
   %134 = shl nuw nsw i64 %.0112.i428, 3
   %135 = add nuw nsw i64 %134, %90
   %136 = and i64 %135, 131071
-  %137 = getelementptr inbounds nuw i64, ptr %14, i64 %.0112.i428
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.0112.i428
   store i64 %136, ptr %137, align 8, !tbaa !29, !noalias !977
   %138 = add nuw nsw i64 %.0112.i428, 1
   %exitcond.not = icmp eq i64 %138, 4
@@ -19647,7 +19642,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit136.i: ; preds = %101,
   %.0.i200 = zext i8 %.0.i200.in to i32
   %140 = lshr i64 %.0545, 3
   %141 = and i64 %140, 3
-  %142 = getelementptr inbounds nuw i64, ptr %14, i64 %141
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %141
   %143 = load i64, ptr %142, align 8, !tbaa !29, !noalias !977
   %144 = icmp ugt i64 %52, 7
   br label %145
@@ -19660,9 +19655,9 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit136.i: ; preds = %101,
   %.sroa.0280.3446 = phi i64 [ %.sroa.0280.2, %139 ], [ %.sroa.0280.8, %197 ]
   %.sroa.14.3445 = phi i64 [ %.sroa.14.2, %139 ], [ %.sroa.14.8, %197 ]
   %.sroa.23290.3444 = phi i64 [ %.sroa.23290.2, %139 ], [ %.sroa.23290.8, %197 ]
-  %146 = getelementptr inbounds nuw i64, ptr %14, i64 %.1113.i447
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.1113.i447
   %147 = load i64, ptr %146, align 8, !tbaa !29, !noalias !977
-  %148 = getelementptr inbounds nuw i32, ptr %43, i64 %147
+  %148 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %147
   %149 = load i32, ptr %148, align 4, !tbaa !40, !noalias !975
   %150 = zext i32 %149 to i64
   %151 = sub i64 %.0545, %150
@@ -19813,7 +19808,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i: ; preds = %161, %.
   %223 = getelementptr inbounds nuw i8, ptr %84, i64 24
   %224 = zext i8 %221 to i64
   %225 = load ptr, ptr %223, align 8, !tbaa !80, !noalias !977
-  %226 = getelementptr inbounds nuw i16, ptr %225, i64 %212
+  %226 = getelementptr inbounds nuw [2 x i8], ptr %225, i64 %212
   %227 = load i16, ptr %226, align 2, !tbaa !68, !noalias !975
   %228 = zext i16 %227 to i64
   %229 = icmp ult i64 %52, %224
@@ -19822,7 +19817,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i: ; preds = %161, %.
 230:                                              ; preds = %222
   %231 = load ptr, ptr %84, align 8, !tbaa !81, !noalias !977
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 32
-  %233 = getelementptr inbounds nuw i32, ptr %232, i64 %224
+  %233 = getelementptr inbounds nuw [4 x i8], ptr %232, i64 %224
   %234 = load i32, ptr %233, align 4, !tbaa !40, !noalias !975
   %235 = zext i32 %234 to i64
   %236 = mul nuw nsw i64 %228, %224
@@ -19944,7 +19939,7 @@ _ZN13duckdb_brotliL18FindLongestMatchH4EPNS_2H4EPKNS_23BrotliEncoderDictionaryEP
   %.sroa.0280.9 = phi i64 [ %.sroa.0280.8, %199 ], [ %.2.i.i.i, %293 ]
   %.sroa.33.6 = phi i32 [ 0, %199 ], [ %296, %293 ]
   %298 = trunc i64 %.0545 to i32
-  %299 = getelementptr inbounds nuw i32, ptr %43, i64 %143
+  %299 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %143
   store i32 %298, ptr %299, align 4, !tbaa !40, !noalias !975
   %300 = icmp ugt i64 %.sroa.23290.9, 2020
   br i1 %300, label %.preheader394, label %735
@@ -20000,7 +19995,7 @@ _ZN13duckdb_brotliL18FindLongestMatchH4EPNS_2H4EPKNS_23BrotliEncoderDictionaryEP
   %.2186 = phi i32 [ %328, %314 ], [ %.1185, %303 ]
   %.2183 = phi i8 [ %317, %314 ], [ %.1182, %303 ]
   %330 = zext nneg i32 %.2186 to i64
-  %331 = getelementptr inbounds nuw ptr, ptr %39, i64 %330
+  %331 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %330
   %332 = load ptr, ptr %331, align 8, !tbaa !55
   tail call void @llvm.experimental.noalias.scope.decl(metadata !988)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !989)
@@ -20117,7 +20112,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit136.i264: ; preds = %3
   %381 = shl nuw nsw i64 %.0112.i205486, 3
   %382 = add nuw nsw i64 %381, %338
   %383 = and i64 %382, 131071
-  %384 = getelementptr inbounds nuw i64, ptr %13, i64 %.0112.i205486
+  %384 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.0112.i205486
   store i64 %383, ptr %384, align 8, !tbaa !29, !noalias !991
   %385 = add nuw nsw i64 %.0112.i205486, 1
   %exitcond598.not = icmp eq i64 %385, 4
@@ -20127,7 +20122,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit136.i264: ; preds = %3
   %.0.i204 = zext i8 %.0.i204.in to i32
   %387 = lshr i64 %309, 3
   %388 = and i64 %387, 3
-  %389 = getelementptr inbounds nuw i64, ptr %13, i64 %388
+  %389 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %388
   %390 = load i64, ptr %389, align 8, !tbaa !29, !noalias !991
   %391 = icmp ugt i64 %.0175, 7
   br label %392
@@ -20140,9 +20135,9 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit136.i264: ; preds = %3
   %.sroa.0.1504 = phi i64 [ %.sroa.0.0, %386 ], [ %.sroa.0.6, %444 ]
   %.sroa.8.1503 = phi i64 [ %.sroa.8.0, %386 ], [ %.sroa.8.6, %444 ]
   %.sroa.12.1502 = phi i64 [ %.sroa.12.0, %386 ], [ %.sroa.12.6, %444 ]
-  %393 = getelementptr inbounds nuw i64, ptr %13, i64 %.1113.i206505
+  %393 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.1113.i206505
   %394 = load i64, ptr %393, align 8, !tbaa !29, !noalias !991
-  %395 = getelementptr inbounds nuw i32, ptr %43, i64 %394
+  %395 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %394
   %396 = load i32, ptr %395, align 4, !tbaa !40, !noalias !990
   %397 = zext i32 %396 to i64
   %398 = sub i64 %309, %397
@@ -20293,7 +20288,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i248: ; preds = %408,
   %470 = getelementptr inbounds nuw i8, ptr %332, i64 24
   %471 = zext i8 %468 to i64
   %472 = load ptr, ptr %470, align 8, !tbaa !80, !noalias !991
-  %473 = getelementptr inbounds nuw i16, ptr %472, i64 %459
+  %473 = getelementptr inbounds nuw [2 x i8], ptr %472, i64 %459
   %474 = load i16, ptr %473, align 2, !tbaa !68, !noalias !990
   %475 = zext i16 %474 to i64
   %476 = icmp ult i64 %.0175, %471
@@ -20302,7 +20297,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i248: ; preds = %408,
 477:                                              ; preds = %469
   %478 = load ptr, ptr %332, align 8, !tbaa !81, !noalias !991
   %479 = getelementptr inbounds nuw i8, ptr %478, i64 32
-  %480 = getelementptr inbounds nuw i32, ptr %479, i64 %471
+  %480 = getelementptr inbounds nuw [4 x i8], ptr %479, i64 %471
   %481 = load i32, ptr %480, align 4, !tbaa !40, !noalias !990
   %482 = zext i32 %481 to i64
   %483 = mul nuw nsw i64 %475, %471
@@ -20424,7 +20419,7 @@ _ZN13duckdb_brotliL18FindLongestMatchH4EPNS_2H4EPKNS_23BrotliEncoderDictionaryEP
   %.sroa.8.7 = phi i64 [ %.sroa.8.6, %446 ], [ %.sroa.8.6, %448 ], [ %.sroa.8.6, %456 ], [ %528, %540 ], [ %.sroa.8.6, %469 ], [ %.sroa.8.6, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i224 ], [ %.sroa.8.6, %515 ], [ %.sroa.8.6, %530 ]
   %.sroa.0.7 = phi i64 [ %.sroa.0.6, %446 ], [ %.sroa.0.6, %448 ], [ %.sroa.0.6, %456 ], [ %.2.i.i.i225, %540 ], [ %.sroa.0.6, %469 ], [ %.sroa.0.6, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i224 ], [ %.sroa.0.6, %515 ], [ %.sroa.0.6, %530 ]
   %545 = trunc i64 %309 to i32
-  %546 = getelementptr inbounds nuw i32, ptr %43, i64 %390
+  %546 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %390
   store i32 %545, ptr %546, align 4, !tbaa !40, !noalias !990
   %547 = add i64 %.sroa.23290.0, 175
   %.not196 = icmp ult i64 %.sroa.12.7, %547
@@ -20740,7 +20735,7 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %692, %_ZN13duckdb_b
   %728 = and i64 %.0.i272530, 24
   %729 = add nuw nsw i64 %726, %728
   %730 = and i64 %729, 131071
-  %731 = getelementptr inbounds nuw i32, ptr %43, i64 %730
+  %731 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %730
   store i32 %727, ptr %731, align 4, !tbaa !40, !noalias !994
   %732 = add nuw i64 %.0.i272530, 1
   %exitcond602.not = icmp eq i64 %732, %713
@@ -20748,7 +20743,7 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %692, %_ZN13duckdb_b
 
 .sink.split:                                      ; preds = %283, %268, %_ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i, %222, %209, %201
   %733 = trunc i64 %.0545 to i32
-  %734 = getelementptr inbounds nuw i32, ptr %43, i64 %143
+  %734 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %143
   store i32 %733, ptr %734, align 4, !tbaa !40, !noalias !975
   br label %735
 
@@ -20781,7 +20776,7 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %692, %_ZN13duckdb_b
   %751 = and i64 %.5538, 24
   %752 = add nuw nsw i64 %749, %751
   %753 = and i64 %752, 131071
-  %754 = getelementptr inbounds nuw i32, ptr %43, i64 %753
+  %754 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %753
   store i32 %750, ptr %754, align 4, !tbaa !40, !noalias !998
   %755 = add i64 %.5171537, 4
   %756 = add i64 %.5538, 4
@@ -20806,7 +20801,7 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %692, %_ZN13duckdb_b
   %767 = and i64 %.6533, 24
   %768 = add nuw nsw i64 %765, %767
   %769 = and i64 %768, 131071
-  %770 = getelementptr inbounds nuw i32, ptr %43, i64 %769
+  %770 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %769
   store i32 %766, ptr %770, align 4, !tbaa !40, !noalias !1002
   %771 = add i64 %.6172532, 2
   %772 = add i64 %.6533, 2
@@ -21006,7 +21001,7 @@ _ZN13duckdb_brotliL20PrepareDistanceCacheEPii.exit221: ; preds = %12, %34, %49
   %.0184 = phi i32 [ %129, %.thread ], [ 0, %100 ]
   %.0181 = phi i8 [ %118, %.thread ], [ 0, %100 ]
   %131 = zext nneg i32 %.0184 to i64
-  %132 = getelementptr inbounds nuw ptr, ptr %69, i64 %131
+  %132 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %131
   %133 = load ptr, ptr %132, align 8, !tbaa !55
   %134 = load i64, ptr %71, align 8, !tbaa !56
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1015)
@@ -21030,7 +21025,7 @@ _ZN13duckdb_brotliL20PrepareDistanceCacheEPii.exit221: ; preds = %12, %34, %49
   %.sroa.0317.2477 = phi i64 [ 0, %.lr.ph482 ], [ %.sroa.0317.6, %202 ]
   %.sroa.15.2476 = phi i64 [ 0, %.lr.ph482 ], [ %.sroa.15.6, %202 ]
   %.sroa.24327.2475 = phi i64 [ 2020, %.lr.ph482 ], [ %.sroa.24327.6, %202 ]
-  %141 = getelementptr inbounds nuw i32, ptr %7, i64 %.0139.i478
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.0139.i478
   %142 = load i32, ptr %141, align 4, !tbaa !40, !alias.scope !1023, !noalias !1024
   %143 = sext i32 %142 to i64
   %144 = sub i64 %.0644, %143
@@ -21185,9 +21180,9 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit252: ; preds = %160, %
   %208 = load i32, ptr %77, align 8, !tbaa !67, !alias.scope !1015, !noalias !1018
   %209 = shl i32 %207, %208
   %210 = zext i32 %209 to i64
-  %211 = getelementptr inbounds nuw i32, ptr %75, i64 %210
+  %211 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %210
   %212 = zext i32 %207 to i64
-  %213 = getelementptr inbounds nuw i16, ptr %73, i64 %212
+  %213 = getelementptr inbounds nuw [2 x i8], ptr %73, i64 %212
   %214 = load i16, ptr %213, align 2, !tbaa !68, !noalias !1025
   %215 = zext i16 %214 to i64
   %216 = load i64, ptr %78, align 8, !tbaa !70, !alias.scope !1015, !noalias !1018
@@ -21210,7 +21205,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit252: ; preds = %160, %
   %.sroa.24327.3504 = phi i64 [ %.sroa.24327.2.lcssa, %.lr.ph511 ], [ %.sroa.24327.5, %275 ]
   %221 = add nsw i64 %.1140.i507, -1
   %222 = and i64 %221, %218
-  %223 = getelementptr inbounds nuw i32, ptr %211, i64 %222
+  %223 = getelementptr inbounds nuw [4 x i8], ptr %211, i64 %222
   %224 = load i32, ptr %223, align 4, !tbaa !40, !noalias !1025
   %225 = zext i32 %224 to i64
   %226 = sub i64 %.0644, %225
@@ -21337,7 +21332,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit266: ; preds = %242, %
   %278 = zext i16 %214 to i32
   %279 = and i32 %.pre, %278
   %280 = zext nneg i32 %279 to i64
-  %281 = getelementptr inbounds nuw i32, ptr %211, i64 %280
+  %281 = getelementptr inbounds nuw [4 x i8], ptr %211, i64 %280
   store i32 %277, ptr %281, align 4, !tbaa !40, !noalias !1025
   %282 = add i16 %214, 1
   store i16 %282, ptr %213, align 2, !tbaa !68, !noalias !1025
@@ -21388,7 +21383,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit266: ; preds = %242, %
 311:                                              ; preds = %304
   %312 = zext i8 %310 to i64
   %313 = load ptr, ptr %299, align 8, !tbaa !80, !noalias !1026
-  %314 = getelementptr inbounds nuw i16, ptr %313, i64 %.0.i271540
+  %314 = getelementptr inbounds nuw [2 x i8], ptr %313, i64 %.0.i271540
   %315 = load i16, ptr %314, align 2, !tbaa !68, !noalias !1026
   %316 = zext i16 %315 to i64
   %317 = icmp ult i64 %101, %312
@@ -21397,7 +21392,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit266: ; preds = %242, %
 318:                                              ; preds = %311
   %319 = load ptr, ptr %133, align 8, !tbaa !81, !noalias !1026
   %320 = getelementptr inbounds nuw i8, ptr %319, i64 32
-  %321 = getelementptr inbounds nuw i32, ptr %320, i64 %312
+  %321 = getelementptr inbounds nuw [4 x i8], ptr %320, i64 %312
   %322 = load i32, ptr %321, align 4, !tbaa !40, !noalias !1026
   %323 = zext i32 %322 to i64
   %324 = mul nuw nsw i64 %316, %312
@@ -21586,7 +21581,7 @@ _ZN13duckdb_brotliL18FindLongestMatchH5EPNS_2H5EPKNS_23BrotliEncoderDictionaryEP
   %.2186 = phi i32 [ %420, %406 ], [ %.1185, %395 ]
   %.2183 = phi i8 [ %409, %406 ], [ %.1182, %395 ]
   %422 = zext nneg i32 %.2186 to i64
-  %423 = getelementptr inbounds nuw ptr, ptr %69, i64 %422
+  %423 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %422
   %424 = load ptr, ptr %423, align 8, !tbaa !55
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1027)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1034)
@@ -21606,7 +21601,7 @@ _ZN13duckdb_brotliL18FindLongestMatchH5EPNS_2H5EPKNS_23BrotliEncoderDictionaryEP
   %.sroa.0.0559 = phi i64 [ 0, %.lr.ph565 ], [ %.sroa.0.4, %490 ]
   %.sroa.9.0558 = phi i64 [ 0, %.lr.ph565 ], [ %.sroa.9.4, %490 ]
   %.sroa.13.0557 = phi i64 [ 2020, %.lr.ph565 ], [ %.sroa.13.4, %490 ]
-  %429 = getelementptr inbounds nuw i32, ptr %7, i64 %.0139.i197560
+  %429 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.0139.i197560
   %430 = load i32, ptr %429, align 4, !tbaa !40, !alias.scope !1035, !noalias !1036
   %431 = sext i32 %430 to i64
   %432 = sub i64 %401, %431
@@ -21759,9 +21754,9 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %448, %.cr
   %494 = lshr i32 %493, %391
   %495 = shl i32 %494, %392
   %496 = zext i32 %495 to i64
-  %497 = getelementptr inbounds nuw i32, ptr %75, i64 %496
+  %497 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %496
   %498 = zext i32 %494 to i64
-  %499 = getelementptr inbounds nuw i16, ptr %73, i64 %498
+  %499 = getelementptr inbounds nuw [2 x i8], ptr %73, i64 %498
   %500 = load i16, ptr %499, align 2, !tbaa !68, !noalias !1037
   %501 = zext i16 %500 to i64
   %spec.select.i200 = tail call i64 @llvm.usub.sat.i64(i64 %501, i64 %216)
@@ -21781,7 +21776,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit: ; preds = %448, %.cr
   %.sroa.13.1588 = phi i64 [ %.sroa.13.0.lcssa, %.lr.ph595 ], [ %.sroa.13.3, %559 ]
   %505 = add nsw i64 %.1140.i201591, -1
   %506 = and i64 %505, %394
-  %507 = getelementptr inbounds nuw i32, ptr %497, i64 %506
+  %507 = getelementptr inbounds nuw [4 x i8], ptr %497, i64 %506
   %508 = load i32, ptr %507, align 4, !tbaa !40, !noalias !1037
   %509 = zext i32 %508 to i64
   %510 = sub i64 %401, %509
@@ -21908,7 +21903,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit238: ; preds = %526, %
   %562 = zext i16 %500 to i32
   %563 = and i32 %393, %562
   %564 = zext nneg i32 %563 to i64
-  %565 = getelementptr inbounds nuw i32, ptr %497, i64 %564
+  %565 = getelementptr inbounds nuw [4 x i8], ptr %497, i64 %564
   store i32 %561, ptr %565, align 4, !tbaa !40, !noalias !1037
   %566 = add i16 %500, 1
   store i16 %566, ptr %499, align 2, !tbaa !68, !noalias !1037
@@ -21959,7 +21954,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit238: ; preds = %526, %
 595:                                              ; preds = %588
   %596 = zext i8 %594 to i64
   %597 = load ptr, ptr %583, align 8, !tbaa !80, !noalias !1038
-  %598 = getelementptr inbounds nuw i16, ptr %597, i64 %.0.i269625
+  %598 = getelementptr inbounds nuw [2 x i8], ptr %597, i64 %.0.i269625
   %599 = load i16, ptr %598, align 2, !tbaa !68, !noalias !1038
   %600 = zext i16 %599 to i64
   %601 = icmp ult i64 %.0175, %596
@@ -21968,7 +21963,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit238: ; preds = %526, %
 602:                                              ; preds = %595
   %603 = load ptr, ptr %424, align 8, !tbaa !81, !noalias !1038
   %604 = getelementptr inbounds nuw i8, ptr %603, i64 32
-  %605 = getelementptr inbounds nuw i32, ptr %604, i64 %596
+  %605 = getelementptr inbounds nuw [4 x i8], ptr %604, i64 %596
   %606 = load i32, ptr %605, align 4, !tbaa !40, !noalias !1038
   %607 = zext i32 %606 to i64
   %608 = mul nuw nsw i64 %600, %596
@@ -22450,7 +22445,7 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %834, %_ZN13duckdb_b
   %871 = mul i32 %.val311, 506832829
   %872 = lshr i32 %871, %865
   %873 = zext i32 %872 to i64
-  %874 = getelementptr inbounds nuw i16, ptr %73, i64 %873
+  %874 = getelementptr inbounds nuw [2 x i8], ptr %73, i64 %873
   %875 = load i16, ptr %874, align 2, !tbaa !68, !noalias !1048
   %876 = zext i16 %875 to i32
   %877 = and i32 %866, %876
@@ -22458,8 +22453,8 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %834, %_ZN13duckdb_b
   %879 = shl i32 %872, %867
   %880 = zext i32 %879 to i64
   %881 = trunc i64 %.0.i220626 to i32
-  %882 = getelementptr inbounds nuw i32, ptr %75, i64 %878
-  %883 = getelementptr inbounds nuw i32, ptr %882, i64 %880
+  %882 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %878
+  %883 = getelementptr inbounds nuw [4 x i8], ptr %882, i64 %880
   store i32 %881, ptr %883, align 4, !tbaa !40, !noalias !1048
   %884 = add i16 %875, 1
   store i16 %884, ptr %874, align 2, !tbaa !68, !noalias !1048
@@ -22500,7 +22495,7 @@ _ZN13duckdb_brotliL18FindLongestMatchH5EPNS_2H5EPKNS_23BrotliEncoderDictionaryEP
   %902 = mul i32 %.val310, 506832829
   %903 = lshr i32 %902, %896
   %904 = zext i32 %903 to i64
-  %905 = getelementptr inbounds nuw i16, ptr %73, i64 %904
+  %905 = getelementptr inbounds nuw [2 x i8], ptr %73, i64 %904
   %906 = load i16, ptr %905, align 2, !tbaa !68, !noalias !1053
   %907 = zext i16 %906 to i32
   %908 = and i32 %897, %907
@@ -22508,8 +22503,8 @@ _ZN13duckdb_brotliL18FindLongestMatchH5EPNS_2H5EPKNS_23BrotliEncoderDictionaryEP
   %910 = shl i32 %903, %898
   %911 = zext i32 %910 to i64
   %912 = trunc i64 %.5636 to i32
-  %913 = getelementptr inbounds nuw i32, ptr %75, i64 %909
-  %914 = getelementptr inbounds nuw i32, ptr %913, i64 %911
+  %913 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %909
+  %914 = getelementptr inbounds nuw [4 x i8], ptr %913, i64 %911
   store i32 %912, ptr %914, align 4, !tbaa !40, !noalias !1053
   %915 = add i16 %906, 1
   store i16 %915, ptr %905, align 2, !tbaa !68, !noalias !1053
@@ -22540,7 +22535,7 @@ _ZN13duckdb_brotliL18FindLongestMatchH5EPNS_2H5EPKNS_23BrotliEncoderDictionaryEP
   %929 = mul i32 %.val, 506832829
   %930 = lshr i32 %929, %923
   %931 = zext i32 %930 to i64
-  %932 = getelementptr inbounds nuw i16, ptr %73, i64 %931
+  %932 = getelementptr inbounds nuw [2 x i8], ptr %73, i64 %931
   %933 = load i16, ptr %932, align 2, !tbaa !68, !noalias !1059
   %934 = zext i16 %933 to i32
   %935 = and i32 %924, %934
@@ -22548,8 +22543,8 @@ _ZN13duckdb_brotliL18FindLongestMatchH5EPNS_2H5EPKNS_23BrotliEncoderDictionaryEP
   %937 = shl i32 %930, %925
   %938 = zext i32 %937 to i64
   %939 = trunc i64 %.6630 to i32
-  %940 = getelementptr inbounds nuw i32, ptr %75, i64 %936
-  %941 = getelementptr inbounds nuw i32, ptr %940, i64 %938
+  %940 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %936
+  %941 = getelementptr inbounds nuw [4 x i8], ptr %940, i64 %938
   store i32 %939, ptr %941, align 4, !tbaa !40, !noalias !1059
   %942 = add i16 %933, 1
   store i16 %942, ptr %932, align 2, !tbaa !68, !noalias !1059
@@ -22751,7 +22746,7 @@ _ZN13duckdb_brotliL22PrepareDistanceCacheH6EPNS_2H6EPi.exit: ; preds = %12, %34,
   %.0184 = phi i32 [ %128, %.thread ], [ 0, %99 ]
   %.0181 = phi i8 [ %117, %.thread ], [ 0, %99 ]
   %130 = zext nneg i32 %.0184 to i64
-  %131 = getelementptr inbounds nuw ptr, ptr %69, i64 %130
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %130
   %132 = load ptr, ptr %131, align 8, !tbaa !55
   %133 = load i64, ptr %71, align 8, !tbaa !56
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1074)
@@ -22775,7 +22770,7 @@ _ZN13duckdb_brotliL22PrepareDistanceCacheH6EPNS_2H6EPi.exit: ; preds = %12, %34,
   %.sroa.0295.2455 = phi i64 [ 0, %.lr.ph460 ], [ %.sroa.0295.10, %201 ]
   %.sroa.15.2454 = phi i64 [ 0, %.lr.ph460 ], [ %.sroa.15.10, %201 ]
   %.sroa.24305.2453 = phi i64 [ 2020, %.lr.ph460 ], [ %.sroa.24305.10, %201 ]
-  %140 = getelementptr inbounds nuw i32, ptr %7, i64 %.0144.i456
+  %140 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.0144.i456
   %141 = load i32, ptr %140, align 4, !tbaa !40, !alias.scope !1082, !noalias !1083
   %142 = sext i32 %141 to i64
   %143 = sub i64 %.0622, %142
@@ -22930,8 +22925,8 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit180.i: ; preds = %159,
   %207 = load i32, ptr %77, align 4, !tbaa !197, !alias.scope !1074, !noalias !1077
   %208 = zext nneg i32 %207 to i64
   %209 = shl i64 %206, %208
-  %210 = getelementptr inbounds nuw i32, ptr %75, i64 %209
-  %211 = getelementptr inbounds nuw i16, ptr %73, i64 %206
+  %210 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %209
+  %211 = getelementptr inbounds nuw [2 x i8], ptr %73, i64 %206
   %212 = load i16, ptr %211, align 2, !tbaa !68, !noalias !1084
   %213 = zext i16 %212 to i64
   %214 = load i64, ptr %78, align 8, !tbaa !198, !alias.scope !1074, !noalias !1077
@@ -22957,7 +22952,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit180.i: ; preds = %159,
   %.sroa.24305.3482 = phi i64 [ %.sroa.24305.2.lcssa, %.lr.ph489 ], [ %.sroa.24305.9, %277 ]
   %222 = add nsw i64 %.1145.i485, -1
   %223 = and i64 %222, %218
-  %224 = getelementptr inbounds nuw i32, ptr %210, i64 %223
+  %224 = getelementptr inbounds nuw [4 x i8], ptr %210, i64 %223
   %225 = load i32, ptr %224, align 4, !tbaa !40, !noalias !1084
   %226 = zext i32 %225 to i64
   %227 = sub i64 %.0622, %226
@@ -23087,7 +23082,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i: ; preds = %245, %.
   %280 = zext i16 %212 to i32
   %281 = and i32 %.pre, %280
   %282 = zext nneg i32 %281 to i64
-  %283 = getelementptr inbounds nuw i32, ptr %210, i64 %282
+  %283 = getelementptr inbounds nuw [4 x i8], ptr %210, i64 %282
   store i32 %279, ptr %283, align 4, !tbaa !40, !noalias !1084
   %284 = add i16 %212, 1
   store i16 %284, ptr %211, align 2, !tbaa !68, !noalias !1084
@@ -23138,7 +23133,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i: ; preds = %245, %.
 313:                                              ; preds = %306
   %314 = zext i8 %312 to i64
   %315 = load ptr, ptr %301, align 8, !tbaa !80, !noalias !1085
-  %316 = getelementptr inbounds nuw i16, ptr %315, i64 %.0.i.i518
+  %316 = getelementptr inbounds nuw [2 x i8], ptr %315, i64 %.0.i.i518
   %317 = load i16, ptr %316, align 2, !tbaa !68, !noalias !1084
   %318 = zext i16 %317 to i64
   %319 = icmp ult i64 %100, %314
@@ -23147,7 +23142,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i: ; preds = %245, %.
 320:                                              ; preds = %313
   %321 = load ptr, ptr %132, align 8, !tbaa !81, !noalias !1085
   %322 = getelementptr inbounds nuw i8, ptr %321, i64 32
-  %323 = getelementptr inbounds nuw i32, ptr %322, i64 %314
+  %323 = getelementptr inbounds nuw [4 x i8], ptr %322, i64 %314
   %324 = load i32, ptr %323, align 4, !tbaa !40, !noalias !1084
   %325 = zext i32 %324 to i64
   %326 = mul nuw nsw i64 %318, %314
@@ -23336,7 +23331,7 @@ _ZN13duckdb_brotliL18FindLongestMatchH6EPNS_2H6EPKNS_23BrotliEncoderDictionaryEP
   %.2186 = phi i32 [ %422, %408 ], [ %.1185, %397 ]
   %.2183 = phi i8 [ %411, %408 ], [ %.1182, %397 ]
   %424 = zext nneg i32 %.2186 to i64
-  %425 = getelementptr inbounds nuw ptr, ptr %69, i64 %424
+  %425 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %424
   %426 = load ptr, ptr %425, align 8, !tbaa !55
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1086)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1093)
@@ -23356,7 +23351,7 @@ _ZN13duckdb_brotliL18FindLongestMatchH6EPNS_2H6EPKNS_23BrotliEncoderDictionaryEP
   %.sroa.0.0537 = phi i64 [ 0, %.lr.ph543 ], [ %.sroa.0.8, %492 ]
   %.sroa.9.0536 = phi i64 [ 0, %.lr.ph543 ], [ %.sroa.9.8, %492 ]
   %.sroa.13.0535 = phi i64 [ 2020, %.lr.ph543 ], [ %.sroa.13.8, %492 ]
-  %431 = getelementptr inbounds nuw i32, ptr %7, i64 %.0144.i205538
+  %431 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.0144.i205538
   %432 = load i32, ptr %431, align 4, !tbaa !40, !alias.scope !1094, !noalias !1095
   %433 = sext i32 %432 to i64
   %434 = sub i64 %403, %433
@@ -23508,8 +23503,8 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit180.i274: ; preds = %4
   %495 = mul i64 %.0.copyload.i.i290, %204
   %496 = lshr i64 %495, 49
   %497 = shl i64 %496, %394
-  %498 = getelementptr inbounds nuw i32, ptr %75, i64 %497
-  %499 = getelementptr inbounds nuw i16, ptr %73, i64 %496
+  %498 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %497
+  %499 = getelementptr inbounds nuw [2 x i8], ptr %73, i64 %496
   %500 = load i16, ptr %499, align 2, !tbaa !68, !noalias !1096
   %501 = zext i16 %500 to i64
   %spec.select.i208 = tail call i64 @llvm.usub.sat.i64(i64 %501, i64 %214)
@@ -23532,7 +23527,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit180.i274: ; preds = %4
   %.sroa.13.1566 = phi i64 [ %.sroa.13.0.lcssa, %.lr.ph573 ], [ %.sroa.13.7, %563 ]
   %508 = add nsw i64 %.1145.i210569, -1
   %509 = and i64 %508, %396
-  %510 = getelementptr inbounds nuw i32, ptr %498, i64 %509
+  %510 = getelementptr inbounds nuw [4 x i8], ptr %498, i64 %509
   %511 = load i32, ptr %510, align 4, !tbaa !40, !noalias !1096
   %512 = zext i32 %511 to i64
   %513 = sub i64 %403, %512
@@ -23662,7 +23657,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i253: ; preds = %531,
   %566 = zext i16 %500 to i32
   %567 = and i32 %395, %566
   %568 = zext nneg i32 %567 to i64
-  %569 = getelementptr inbounds nuw i32, ptr %498, i64 %568
+  %569 = getelementptr inbounds nuw [4 x i8], ptr %498, i64 %568
   store i32 %565, ptr %569, align 4, !tbaa !40, !noalias !1096
   %570 = add i16 %500, 1
   store i16 %570, ptr %499, align 2, !tbaa !68, !noalias !1096
@@ -23713,7 +23708,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i253: ; preds = %531,
 599:                                              ; preds = %592
   %600 = zext i8 %598 to i64
   %601 = load ptr, ptr %587, align 8, !tbaa !80, !noalias !1097
-  %602 = getelementptr inbounds nuw i16, ptr %601, i64 %.0.i.i215603
+  %602 = getelementptr inbounds nuw [2 x i8], ptr %601, i64 %.0.i.i215603
   %603 = load i16, ptr %602, align 2, !tbaa !68, !noalias !1096
   %604 = zext i16 %603 to i64
   %605 = icmp ult i64 %.0175, %600
@@ -23722,7 +23717,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i253: ; preds = %531,
 606:                                              ; preds = %599
   %607 = load ptr, ptr %426, align 8, !tbaa !81, !noalias !1097
   %608 = getelementptr inbounds nuw i8, ptr %607, i64 32
-  %609 = getelementptr inbounds nuw i32, ptr %608, i64 %600
+  %609 = getelementptr inbounds nuw [4 x i8], ptr %608, i64 %600
   %610 = load i32, ptr %609, align 4, !tbaa !40, !noalias !1096
   %611 = zext i32 %610 to i64
   %612 = mul nuw nsw i64 %604, %600
@@ -24205,7 +24200,7 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %838, %_ZN13duckdb_b
   %.0.copyload.i.i289 = load i64, ptr %875, align 1, !alias.scope !1112, !noalias !1107
   %876 = mul i64 %.0.copyload.i.i289, %869
   %877 = lshr i64 %876, 49
-  %878 = getelementptr inbounds nuw i16, ptr %73, i64 %877
+  %878 = getelementptr inbounds nuw [2 x i8], ptr %73, i64 %877
   %879 = load i16, ptr %878, align 2, !tbaa !68, !noalias !1107
   %880 = zext i16 %879 to i32
   %881 = and i32 %870, %880
@@ -24214,8 +24209,8 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %838, %_ZN13duckdb_b
   %884 = add i16 %879, 1
   store i16 %884, ptr %878, align 2, !tbaa !68, !noalias !1107
   %885 = trunc i64 %.0.i286604 to i32
-  %886 = getelementptr i32, ptr %75, i64 %883
-  %887 = getelementptr i32, ptr %886, i64 %882
+  %886 = getelementptr [4 x i8], ptr %75, i64 %883
+  %887 = getelementptr [4 x i8], ptr %886, i64 %882
   store i32 %885, ptr %887, align 4, !tbaa !40, !noalias !1107
   %888 = add nuw i64 %.0.i286604, 1
   %exitcond680.not = icmp eq i64 %888, %859
@@ -24253,7 +24248,7 @@ _ZN13duckdb_brotliL18FindLongestMatchH6EPNS_2H6EPKNS_23BrotliEncoderDictionaryEP
   %.0.copyload.i.i288 = load i64, ptr %904, align 1, !alias.scope !1120, !noalias !1115
   %905 = mul i64 %.0.copyload.i.i288, %204
   %906 = lshr i64 %905, 49
-  %907 = getelementptr inbounds nuw i16, ptr %73, i64 %906
+  %907 = getelementptr inbounds nuw [2 x i8], ptr %73, i64 %906
   %908 = load i16, ptr %907, align 2, !tbaa !68, !noalias !1115
   %909 = zext i16 %908 to i32
   %910 = and i32 %899, %909
@@ -24262,8 +24257,8 @@ _ZN13duckdb_brotliL18FindLongestMatchH6EPNS_2H6EPKNS_23BrotliEncoderDictionaryEP
   %913 = add i16 %908, 1
   store i16 %913, ptr %907, align 2, !tbaa !68, !noalias !1115
   %914 = trunc i64 %.5614 to i32
-  %915 = getelementptr i32, ptr %75, i64 %912
-  %916 = getelementptr i32, ptr %915, i64 %911
+  %915 = getelementptr [4 x i8], ptr %75, i64 %912
+  %916 = getelementptr [4 x i8], ptr %915, i64 %911
   store i32 %914, ptr %916, align 4, !tbaa !40, !noalias !1115
   %917 = add i64 %.5171613, 4
   %918 = add i64 %.5614, 4
@@ -24291,7 +24286,7 @@ _ZN13duckdb_brotliL18FindLongestMatchH6EPNS_2H6EPKNS_23BrotliEncoderDictionaryEP
   %.0.copyload.i.i287 = load i64, ptr %929, align 1, !alias.scope !1129, !noalias !1124
   %930 = mul i64 %.0.copyload.i.i287, %204
   %931 = lshr i64 %930, 49
-  %932 = getelementptr inbounds nuw i16, ptr %73, i64 %931
+  %932 = getelementptr inbounds nuw [2 x i8], ptr %73, i64 %931
   %933 = load i16, ptr %932, align 2, !tbaa !68, !noalias !1124
   %934 = zext i16 %933 to i32
   %935 = and i32 %924, %934
@@ -24300,8 +24295,8 @@ _ZN13duckdb_brotliL18FindLongestMatchH6EPNS_2H6EPKNS_23BrotliEncoderDictionaryEP
   %938 = add i16 %933, 1
   store i16 %938, ptr %932, align 2, !tbaa !68, !noalias !1124
   %939 = trunc i64 %.6608 to i32
-  %940 = getelementptr i32, ptr %75, i64 %937
-  %941 = getelementptr i32, ptr %940, i64 %936
+  %940 = getelementptr [4 x i8], ptr %75, i64 %937
+  %941 = getelementptr [4 x i8], ptr %940, i64 %936
   store i32 %939, ptr %941, align 4, !tbaa !40, !noalias !1124
   %942 = add i64 %.6172607, 2
   %943 = add i64 %.6608, 2
@@ -24432,7 +24427,7 @@ define internal fastcc void @_ZL28CreateBackwardReferencesNH40mmPKhmS0_PK19Brotl
   %.0184 = phi i32 [ %80, %.thread ], [ 0, %51 ]
   %.0181 = phi i8 [ %69, %.thread ], [ 0, %51 ]
   %82 = zext nneg i32 %.0184 to i64
-  %83 = getelementptr inbounds nuw ptr, ptr %37, i64 %82
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %82
   %84 = load ptr, ptr %83, align 8, !tbaa !55
   %85 = load i64, ptr %39, align 8, !tbaa !56
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1134)
@@ -24457,7 +24452,7 @@ define internal fastcc void @_ZL28CreateBackwardReferencesNH40mmPKhmS0_PK19Brotl
   %.sroa.0302.2466 = phi i64 [ 0, %81 ], [ %.sroa.0302.10, %148 ]
   %.sroa.15.2465 = phi i64 [ 0, %81 ], [ %.sroa.15.10, %148 ]
   %.sroa.24312.2464 = phi i64 [ 2020, %81 ], [ %.sroa.24312.10, %148 ]
-  %96 = getelementptr inbounds nuw i32, ptr %7, i64 %.0126.i467
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.0126.i467
   %97 = load i32, ptr %96, align 4, !tbaa !40, !alias.scope !1139, !noalias !1147
   %98 = sext i32 %97 to i64
   %99 = sub i64 %.0623, %98
@@ -24588,11 +24583,11 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit163.i: ; preds = %109,
   %151 = getelementptr inbounds nuw i8, ptr %86, i64 131072
   %152 = zext nneg i32 %92 to i64
   %153 = load i64, ptr %42, align 8, !tbaa !294, !alias.scope !1134, !noalias !1141
-  %154 = getelementptr inbounds nuw i32, ptr %86, i64 %152
+  %154 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %152
   %155 = load i32, ptr %154, align 4, !tbaa !40, !noalias !1146
   %156 = zext i32 %155 to i64
   %157 = sub i64 %.0623, %156
-  %158 = getelementptr inbounds nuw i16, ptr %151, i64 %152
+  %158 = getelementptr inbounds nuw [2 x i8], ptr %151, i64 %152
   %.not.i201487 = icmp eq i64 %153, 0
   br i1 %.not.i201487, label %.thread327, label %.lr.ph496
 
@@ -24619,7 +24614,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit163.i: ; preds = %109,
   %.0127.i495 = zext i16 %.0127.i495.in to i64
   %165 = sub nuw i64 %.0623, %162
   %166 = and i64 %165, %3
-  %167 = getelementptr inbounds nuw %"struct.duckdb_brotli::SlotH40", ptr %88, i64 %.0127.i495
+  %167 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %.0127.i495
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 2
   %169 = load i16, ptr %168, align 2, !tbaa !296, !noalias !1146
   %170 = load i16, ptr %167, align 2, !tbaa !298, !noalias !1146
@@ -24748,7 +24743,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i: ; preds = %184, %.
   store i8 %93, ptr %222, align 1, !tbaa !54, !noalias !1153
   %spec.store.select.i289 = tail call i64 @llvm.umin.i64(i64 %157, i64 65535)
   %223 = trunc nuw i64 %spec.store.select.i289 to i16
-  %224 = getelementptr inbounds nuw %"struct.duckdb_brotli::SlotH40", ptr %88, i64 %220
+  %224 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %220
   store i16 %223, ptr %224, align 2, !tbaa !298, !noalias !1153
   %225 = load i16, ptr %158, align 2, !tbaa !68, !noalias !1153
   %226 = getelementptr inbounds nuw i8, ptr %224, i64 2
@@ -24803,7 +24798,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i: ; preds = %184, %.
 256:                                              ; preds = %249
   %257 = zext i8 %255 to i64
   %258 = load ptr, ptr %244, align 8, !tbaa !80, !noalias !1155
-  %259 = getelementptr inbounds nuw i16, ptr %258, i64 %.0.i.i524
+  %259 = getelementptr inbounds nuw [2 x i8], ptr %258, i64 %.0.i.i524
   %260 = load i16, ptr %259, align 2, !tbaa !68, !noalias !1154
   %261 = zext i16 %260 to i64
   %262 = icmp ult i64 %52, %257
@@ -24812,7 +24807,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i: ; preds = %184, %.
 263:                                              ; preds = %256
   %264 = load ptr, ptr %84, align 8, !tbaa !81, !noalias !1155
   %265 = getelementptr inbounds nuw i8, ptr %264, i64 32
-  %266 = getelementptr inbounds nuw i32, ptr %265, i64 %257
+  %266 = getelementptr inbounds nuw [4 x i8], ptr %265, i64 %257
   %267 = load i32, ptr %266, align 4, !tbaa !40, !noalias !1154
   %268 = zext i32 %267 to i64
   %269 = mul nuw nsw i64 %261, %257
@@ -24996,7 +24991,7 @@ _ZN13duckdb_brotliL19FindLongestMatchH40EPNS_3H40EPKNS_23BrotliEncoderDictionary
   %.2186 = phi i32 [ %360, %346 ], [ %.1185, %334 ]
   %.2183 = phi i8 [ %349, %346 ], [ %.1182, %334 ]
   %362 = zext nneg i32 %.2186 to i64
-  %363 = getelementptr inbounds nuw ptr, ptr %37, i64 %362
+  %363 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %362
   %364 = load ptr, ptr %363, align 8, !tbaa !55
   %365 = load i64, ptr %39, align 8, !tbaa !56
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1164)
@@ -25021,7 +25016,7 @@ _ZN13duckdb_brotliL19FindLongestMatchH40EPNS_3H40EPKNS_23BrotliEncoderDictionary
   %.sroa.0.0542 = phi i64 [ 0, %361 ], [ %.sroa.0.8, %428 ]
   %.sroa.9.0541 = phi i64 [ 0, %361 ], [ %.sroa.9.8, %428 ]
   %.sroa.13.0540 = phi i64 [ 2020, %361 ], [ %.sroa.13.8, %428 ]
-  %376 = getelementptr inbounds nuw i32, ptr %7, i64 %.0126.i204543
+  %376 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.0126.i204543
   %377 = load i32, ptr %376, align 4, !tbaa !40, !alias.scope !1168, !noalias !1174
   %378 = sext i32 %377 to i64
   %379 = sub i64 %341, %378
@@ -25152,11 +25147,11 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit163.i276: ; preds = %3
   %431 = getelementptr inbounds nuw i8, ptr %366, i64 131072
   %432 = zext nneg i32 %372 to i64
   %433 = load i64, ptr %42, align 8, !tbaa !294, !alias.scope !1164, !noalias !1169
-  %434 = getelementptr inbounds nuw i32, ptr %366, i64 %432
+  %434 = getelementptr inbounds nuw [4 x i8], ptr %366, i64 %432
   %435 = load i32, ptr %434, align 4, !tbaa !40, !noalias !1173
   %436 = zext i32 %435 to i64
   %437 = sub i64 %341, %436
-  %438 = getelementptr inbounds nuw i16, ptr %431, i64 %432
+  %438 = getelementptr inbounds nuw [2 x i8], ptr %431, i64 %432
   %.not.i213563 = icmp eq i64 %433, 0
   br i1 %.not.i213563, label %.thread361, label %.lr.ph572
 
@@ -25183,7 +25178,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit163.i276: ; preds = %3
   %.0127.i210571 = zext i16 %.0127.i210571.in to i64
   %445 = sub nuw i64 %341, %442
   %446 = and i64 %445, %3
-  %447 = getelementptr inbounds nuw %"struct.duckdb_brotli::SlotH40", ptr %368, i64 %.0127.i210571
+  %447 = getelementptr inbounds nuw [4 x i8], ptr %368, i64 %.0127.i210571
   %448 = getelementptr inbounds nuw i8, ptr %447, i64 2
   %449 = load i16, ptr %448, align 2, !tbaa !296, !noalias !1173
   %450 = load i16, ptr %447, align 2, !tbaa !298, !noalias !1173
@@ -25311,7 +25306,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i254: ; preds = %464,
   store i8 %373, ptr %501, align 1, !tbaa !54, !noalias !1175
   %spec.store.select.i288 = tail call i64 @llvm.umin.i64(i64 %437, i64 65535)
   %502 = trunc nuw i64 %spec.store.select.i288 to i16
-  %503 = getelementptr inbounds nuw %"struct.duckdb_brotli::SlotH40", ptr %368, i64 %499
+  %503 = getelementptr inbounds nuw [4 x i8], ptr %368, i64 %499
   store i16 %502, ptr %503, align 2, !tbaa !298, !noalias !1175
   %504 = load i16, ptr %438, align 2, !tbaa !68, !noalias !1175
   %505 = getelementptr inbounds nuw i8, ptr %503, i64 2
@@ -25366,7 +25361,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i254: ; preds = %464,
 535:                                              ; preds = %528
   %536 = zext i8 %534 to i64
   %537 = load ptr, ptr %523, align 8, !tbaa !80, !noalias !1177
-  %538 = getelementptr inbounds nuw i16, ptr %537, i64 %.0.i.i222601
+  %538 = getelementptr inbounds nuw [2 x i8], ptr %537, i64 %.0.i.i222601
   %539 = load i16, ptr %538, align 2, !tbaa !68, !noalias !1176
   %540 = zext i16 %539 to i64
   %541 = icmp ult i64 %.0175, %536
@@ -25375,7 +25370,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i254: ; preds = %464,
 542:                                              ; preds = %535
   %543 = load ptr, ptr %364, align 8, !tbaa !81, !noalias !1177
   %544 = getelementptr inbounds nuw i8, ptr %543, i64 32
-  %545 = getelementptr inbounds nuw i32, ptr %544, i64 %536
+  %545 = getelementptr inbounds nuw [4 x i8], ptr %544, i64 %536
   %546 = load i32, ptr %545, align 4, !tbaa !40, !noalias !1176
   %547 = zext i32 %546 to i64
   %548 = mul nuw nsw i64 %540, %536
@@ -25828,7 +25823,7 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %757, %_ZN13duckdb_b
   %798 = zext nneg i32 %797 to i64
   %799 = add i16 %793, 1
   %800 = zext i16 %793 to i64
-  %801 = getelementptr inbounds nuw i32, ptr %788, i64 %798
+  %801 = getelementptr inbounds nuw [4 x i8], ptr %788, i64 %798
   %802 = load i32, ptr %801, align 4, !tbaa !40, !noalias !1179
   %803 = zext i32 %802 to i64
   %804 = sub i64 %.0.i287603, %803
@@ -25838,9 +25833,9 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %757, %_ZN13duckdb_b
   store i8 %805, ptr %807, align 1, !tbaa !54, !noalias !1179
   %spec.store.select.i = tail call i64 @llvm.umin.i64(i64 %804, i64 65535)
   %808 = trunc nuw i64 %spec.store.select.i to i16
-  %809 = getelementptr inbounds nuw %"struct.duckdb_brotli::SlotH40", ptr %791, i64 %800
+  %809 = getelementptr inbounds nuw [4 x i8], ptr %791, i64 %800
   store i16 %808, ptr %809, align 2, !tbaa !298, !noalias !1179
-  %810 = getelementptr inbounds nuw i16, ptr %789, i64 %798
+  %810 = getelementptr inbounds nuw [2 x i8], ptr %789, i64 %798
   %811 = load i16, ptr %810, align 2, !tbaa !68, !noalias !1179
   %812 = getelementptr inbounds nuw i8, ptr %809, i64 2
   store i16 %811, ptr %812, align 2, !tbaa !296, !noalias !1179
@@ -25889,7 +25884,7 @@ _ZN13duckdb_brotliL19FindLongestMatchH40EPNS_3H40EPKNS_23BrotliEncoderDictionary
   %835 = zext nneg i32 %834 to i64
   %836 = add i16 %830, 1
   %837 = zext i16 %830 to i64
-  %838 = getelementptr inbounds nuw i32, ptr %825, i64 %835
+  %838 = getelementptr inbounds nuw [4 x i8], ptr %825, i64 %835
   %839 = load i32, ptr %838, align 4, !tbaa !40, !noalias !1187
   %840 = zext i32 %839 to i64
   %841 = sub i64 %.5614, %840
@@ -25899,9 +25894,9 @@ _ZN13duckdb_brotliL19FindLongestMatchH40EPNS_3H40EPKNS_23BrotliEncoderDictionary
   store i8 %842, ptr %844, align 1, !tbaa !54, !noalias !1187
   %spec.store.select.i290 = tail call i64 @llvm.umin.i64(i64 %841, i64 65535)
   %845 = trunc nuw i64 %spec.store.select.i290 to i16
-  %846 = getelementptr inbounds nuw %"struct.duckdb_brotli::SlotH40", ptr %828, i64 %837
+  %846 = getelementptr inbounds nuw [4 x i8], ptr %828, i64 %837
   store i16 %845, ptr %846, align 2, !tbaa !298, !noalias !1187
-  %847 = getelementptr inbounds nuw i16, ptr %826, i64 %835
+  %847 = getelementptr inbounds nuw [2 x i8], ptr %826, i64 %835
   %848 = load i16, ptr %847, align 2, !tbaa !68, !noalias !1187
   %849 = getelementptr inbounds nuw i8, ptr %846, i64 2
   store i16 %848, ptr %849, align 2, !tbaa !296, !noalias !1187
@@ -25940,7 +25935,7 @@ _ZN13duckdb_brotliL19FindLongestMatchH40EPNS_3H40EPKNS_23BrotliEncoderDictionary
   %868 = zext nneg i32 %867 to i64
   %869 = add i16 %863, 1
   %870 = zext i16 %863 to i64
-  %871 = getelementptr inbounds nuw i32, ptr %858, i64 %868
+  %871 = getelementptr inbounds nuw [4 x i8], ptr %858, i64 %868
   %872 = load i32, ptr %871, align 4, !tbaa !40, !noalias !1196
   %873 = zext i32 %872 to i64
   %874 = sub i64 %.6607, %873
@@ -25950,9 +25945,9 @@ _ZN13duckdb_brotliL19FindLongestMatchH40EPNS_3H40EPKNS_23BrotliEncoderDictionary
   store i8 %875, ptr %877, align 1, !tbaa !54, !noalias !1196
   %spec.store.select.i291 = tail call i64 @llvm.umin.i64(i64 %874, i64 65535)
   %878 = trunc nuw i64 %spec.store.select.i291 to i16
-  %879 = getelementptr inbounds nuw %"struct.duckdb_brotli::SlotH40", ptr %861, i64 %870
+  %879 = getelementptr inbounds nuw [4 x i8], ptr %861, i64 %870
   store i16 %878, ptr %879, align 2, !tbaa !298, !noalias !1196
-  %880 = getelementptr inbounds nuw i16, ptr %859, i64 %868
+  %880 = getelementptr inbounds nuw [2 x i8], ptr %859, i64 %868
   %881 = load i16, ptr %880, align 2, !tbaa !68, !noalias !1196
   %882 = getelementptr inbounds nuw i8, ptr %879, i64 2
   store i16 %881, ptr %882, align 2, !tbaa !296, !noalias !1196
@@ -26116,7 +26111,7 @@ define internal fastcc void @_ZL28CreateBackwardReferencesNH41mmPKhmS0_PK19Brotl
   %.0184 = phi i32 [ %93, %.thread ], [ 0, %64 ]
   %.0181 = phi i8 [ %82, %.thread ], [ 0, %64 ]
   %95 = zext nneg i32 %.0184 to i64
-  %96 = getelementptr inbounds nuw ptr, ptr %50, i64 %95
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %95
   %97 = load ptr, ptr %96, align 8, !tbaa !55
   %98 = load i64, ptr %52, align 8, !tbaa !56
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1211)
@@ -26141,7 +26136,7 @@ define internal fastcc void @_ZL28CreateBackwardReferencesNH41mmPKhmS0_PK19Brotl
   %.sroa.0302.2466 = phi i64 [ 0, %94 ], [ %.sroa.0302.10, %161 ]
   %.sroa.15.2465 = phi i64 [ 0, %94 ], [ %.sroa.15.10, %161 ]
   %.sroa.24312.2464 = phi i64 [ 2020, %94 ], [ %.sroa.24312.10, %161 ]
-  %109 = getelementptr inbounds nuw i32, ptr %7, i64 %.0126.i467
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.0126.i467
   %110 = load i32, ptr %109, align 4, !tbaa !40, !alias.scope !1216, !noalias !1224
   %111 = sext i32 %110 to i64
   %112 = sub i64 %.0623, %111
@@ -26272,11 +26267,11 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit163.i: ; preds = %122,
   %164 = getelementptr inbounds nuw i8, ptr %99, i64 131072
   %165 = zext nneg i32 %105 to i64
   %166 = load i64, ptr %55, align 8, !tbaa !407, !alias.scope !1211, !noalias !1218
-  %167 = getelementptr inbounds nuw i32, ptr %99, i64 %165
+  %167 = getelementptr inbounds nuw [4 x i8], ptr %99, i64 %165
   %168 = load i32, ptr %167, align 4, !tbaa !40, !noalias !1223
   %169 = zext i32 %168 to i64
   %170 = sub i64 %.0623, %169
-  %171 = getelementptr inbounds nuw i16, ptr %164, i64 %165
+  %171 = getelementptr inbounds nuw [2 x i8], ptr %164, i64 %165
   %.not.i201487 = icmp eq i64 %166, 0
   br i1 %.not.i201487, label %.thread327, label %.lr.ph496
 
@@ -26303,7 +26298,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit163.i: ; preds = %122,
   %.0127.i495 = zext i16 %.0127.i495.in to i64
   %178 = sub nuw i64 %.0623, %175
   %179 = and i64 %178, %3
-  %180 = getelementptr inbounds nuw %"struct.duckdb_brotli::SlotH41", ptr %101, i64 %.0127.i495
+  %180 = getelementptr inbounds nuw [4 x i8], ptr %101, i64 %.0127.i495
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 2
   %182 = load i16, ptr %181, align 2, !tbaa !409, !noalias !1223
   %183 = load i16, ptr %180, align 2, !tbaa !411, !noalias !1223
@@ -26432,7 +26427,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i: ; preds = %197, %.
   store i8 %106, ptr %235, align 1, !tbaa !54, !noalias !1230
   %spec.store.select.i289 = tail call i64 @llvm.umin.i64(i64 %170, i64 65535)
   %236 = trunc nuw i64 %spec.store.select.i289 to i16
-  %237 = getelementptr inbounds nuw %"struct.duckdb_brotli::SlotH41", ptr %101, i64 %233
+  %237 = getelementptr inbounds nuw [4 x i8], ptr %101, i64 %233
   store i16 %236, ptr %237, align 2, !tbaa !411, !noalias !1230
   %238 = load i16, ptr %171, align 2, !tbaa !68, !noalias !1230
   %239 = getelementptr inbounds nuw i8, ptr %237, i64 2
@@ -26487,7 +26482,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i: ; preds = %197, %.
 269:                                              ; preds = %262
   %270 = zext i8 %268 to i64
   %271 = load ptr, ptr %257, align 8, !tbaa !80, !noalias !1232
-  %272 = getelementptr inbounds nuw i16, ptr %271, i64 %.0.i.i524
+  %272 = getelementptr inbounds nuw [2 x i8], ptr %271, i64 %.0.i.i524
   %273 = load i16, ptr %272, align 2, !tbaa !68, !noalias !1231
   %274 = zext i16 %273 to i64
   %275 = icmp ult i64 %65, %270
@@ -26496,7 +26491,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i: ; preds = %197, %.
 276:                                              ; preds = %269
   %277 = load ptr, ptr %97, align 8, !tbaa !81, !noalias !1232
   %278 = getelementptr inbounds nuw i8, ptr %277, i64 32
-  %279 = getelementptr inbounds nuw i32, ptr %278, i64 %270
+  %279 = getelementptr inbounds nuw [4 x i8], ptr %278, i64 %270
   %280 = load i32, ptr %279, align 4, !tbaa !40, !noalias !1231
   %281 = zext i32 %280 to i64
   %282 = mul nuw nsw i64 %274, %270
@@ -26680,7 +26675,7 @@ _ZN13duckdb_brotliL19FindLongestMatchH41EPNS_3H41EPKNS_23BrotliEncoderDictionary
   %.2186 = phi i32 [ %373, %359 ], [ %.1185, %347 ]
   %.2183 = phi i8 [ %362, %359 ], [ %.1182, %347 ]
   %375 = zext nneg i32 %.2186 to i64
-  %376 = getelementptr inbounds nuw ptr, ptr %50, i64 %375
+  %376 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %375
   %377 = load ptr, ptr %376, align 8, !tbaa !55
   %378 = load i64, ptr %52, align 8, !tbaa !56
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1241)
@@ -26705,7 +26700,7 @@ _ZN13duckdb_brotliL19FindLongestMatchH41EPNS_3H41EPKNS_23BrotliEncoderDictionary
   %.sroa.0.0542 = phi i64 [ 0, %374 ], [ %.sroa.0.8, %441 ]
   %.sroa.9.0541 = phi i64 [ 0, %374 ], [ %.sroa.9.8, %441 ]
   %.sroa.13.0540 = phi i64 [ 2020, %374 ], [ %.sroa.13.8, %441 ]
-  %389 = getelementptr inbounds nuw i32, ptr %7, i64 %.0126.i204543
+  %389 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.0126.i204543
   %390 = load i32, ptr %389, align 4, !tbaa !40, !alias.scope !1245, !noalias !1251
   %391 = sext i32 %390 to i64
   %392 = sub i64 %354, %391
@@ -26836,11 +26831,11 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit163.i276: ; preds = %4
   %444 = getelementptr inbounds nuw i8, ptr %379, i64 131072
   %445 = zext nneg i32 %385 to i64
   %446 = load i64, ptr %55, align 8, !tbaa !407, !alias.scope !1241, !noalias !1246
-  %447 = getelementptr inbounds nuw i32, ptr %379, i64 %445
+  %447 = getelementptr inbounds nuw [4 x i8], ptr %379, i64 %445
   %448 = load i32, ptr %447, align 4, !tbaa !40, !noalias !1250
   %449 = zext i32 %448 to i64
   %450 = sub i64 %354, %449
-  %451 = getelementptr inbounds nuw i16, ptr %444, i64 %445
+  %451 = getelementptr inbounds nuw [2 x i8], ptr %444, i64 %445
   %.not.i213563 = icmp eq i64 %446, 0
   br i1 %.not.i213563, label %.thread361, label %.lr.ph572
 
@@ -26867,7 +26862,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit163.i276: ; preds = %4
   %.0127.i210571 = zext i16 %.0127.i210571.in to i64
   %458 = sub nuw i64 %354, %455
   %459 = and i64 %458, %3
-  %460 = getelementptr inbounds nuw %"struct.duckdb_brotli::SlotH41", ptr %381, i64 %.0127.i210571
+  %460 = getelementptr inbounds nuw [4 x i8], ptr %381, i64 %.0127.i210571
   %461 = getelementptr inbounds nuw i8, ptr %460, i64 2
   %462 = load i16, ptr %461, align 2, !tbaa !409, !noalias !1250
   %463 = load i16, ptr %460, align 2, !tbaa !411, !noalias !1250
@@ -26995,7 +26990,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i254: ; preds = %477,
   store i8 %386, ptr %514, align 1, !tbaa !54, !noalias !1252
   %spec.store.select.i288 = tail call i64 @llvm.umin.i64(i64 %450, i64 65535)
   %515 = trunc nuw i64 %spec.store.select.i288 to i16
-  %516 = getelementptr inbounds nuw %"struct.duckdb_brotli::SlotH41", ptr %381, i64 %512
+  %516 = getelementptr inbounds nuw [4 x i8], ptr %381, i64 %512
   store i16 %515, ptr %516, align 2, !tbaa !411, !noalias !1252
   %517 = load i16, ptr %451, align 2, !tbaa !68, !noalias !1252
   %518 = getelementptr inbounds nuw i8, ptr %516, i64 2
@@ -27050,7 +27045,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i254: ; preds = %477,
 548:                                              ; preds = %541
   %549 = zext i8 %547 to i64
   %550 = load ptr, ptr %536, align 8, !tbaa !80, !noalias !1254
-  %551 = getelementptr inbounds nuw i16, ptr %550, i64 %.0.i.i222601
+  %551 = getelementptr inbounds nuw [2 x i8], ptr %550, i64 %.0.i.i222601
   %552 = load i16, ptr %551, align 2, !tbaa !68, !noalias !1253
   %553 = zext i16 %552 to i64
   %554 = icmp ult i64 %.0175, %549
@@ -27059,7 +27054,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i254: ; preds = %477,
 555:                                              ; preds = %548
   %556 = load ptr, ptr %377, align 8, !tbaa !81, !noalias !1254
   %557 = getelementptr inbounds nuw i8, ptr %556, i64 32
-  %558 = getelementptr inbounds nuw i32, ptr %557, i64 %549
+  %558 = getelementptr inbounds nuw [4 x i8], ptr %557, i64 %549
   %559 = load i32, ptr %558, align 4, !tbaa !40, !noalias !1253
   %560 = zext i32 %559 to i64
   %561 = mul nuw nsw i64 %553, %549
@@ -27524,7 +27519,7 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %776, %_ZN13duckdb_b
   %817 = zext nneg i32 %816 to i64
   %818 = add i16 %812, 1
   %819 = zext i16 %812 to i64
-  %820 = getelementptr inbounds nuw i32, ptr %807, i64 %817
+  %820 = getelementptr inbounds nuw [4 x i8], ptr %807, i64 %817
   %821 = load i32, ptr %820, align 4, !tbaa !40, !noalias !1261
   %822 = zext i32 %821 to i64
   %823 = sub i64 %.0.i287603, %822
@@ -27534,9 +27529,9 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %776, %_ZN13duckdb_b
   store i8 %824, ptr %826, align 1, !tbaa !54, !noalias !1261
   %spec.store.select.i = tail call i64 @llvm.umin.i64(i64 %823, i64 65535)
   %827 = trunc nuw i64 %spec.store.select.i to i16
-  %828 = getelementptr inbounds nuw %"struct.duckdb_brotli::SlotH41", ptr %810, i64 %819
+  %828 = getelementptr inbounds nuw [4 x i8], ptr %810, i64 %819
   store i16 %827, ptr %828, align 2, !tbaa !411, !noalias !1261
-  %829 = getelementptr inbounds nuw i16, ptr %808, i64 %817
+  %829 = getelementptr inbounds nuw [2 x i8], ptr %808, i64 %817
   %830 = load i16, ptr %829, align 2, !tbaa !68, !noalias !1261
   %831 = getelementptr inbounds nuw i8, ptr %828, i64 2
   store i16 %830, ptr %831, align 2, !tbaa !409, !noalias !1261
@@ -27585,7 +27580,7 @@ _ZN13duckdb_brotliL19FindLongestMatchH41EPNS_3H41EPKNS_23BrotliEncoderDictionary
   %854 = zext nneg i32 %853 to i64
   %855 = add i16 %849, 1
   %856 = zext i16 %849 to i64
-  %857 = getelementptr inbounds nuw i32, ptr %844, i64 %854
+  %857 = getelementptr inbounds nuw [4 x i8], ptr %844, i64 %854
   %858 = load i32, ptr %857, align 4, !tbaa !40, !noalias !1269
   %859 = zext i32 %858 to i64
   %860 = sub i64 %.5614, %859
@@ -27595,9 +27590,9 @@ _ZN13duckdb_brotliL19FindLongestMatchH41EPNS_3H41EPKNS_23BrotliEncoderDictionary
   store i8 %861, ptr %863, align 1, !tbaa !54, !noalias !1269
   %spec.store.select.i290 = tail call i64 @llvm.umin.i64(i64 %860, i64 65535)
   %864 = trunc nuw i64 %spec.store.select.i290 to i16
-  %865 = getelementptr inbounds nuw %"struct.duckdb_brotli::SlotH41", ptr %847, i64 %856
+  %865 = getelementptr inbounds nuw [4 x i8], ptr %847, i64 %856
   store i16 %864, ptr %865, align 2, !tbaa !411, !noalias !1269
-  %866 = getelementptr inbounds nuw i16, ptr %845, i64 %854
+  %866 = getelementptr inbounds nuw [2 x i8], ptr %845, i64 %854
   %867 = load i16, ptr %866, align 2, !tbaa !68, !noalias !1269
   %868 = getelementptr inbounds nuw i8, ptr %865, i64 2
   store i16 %867, ptr %868, align 2, !tbaa !409, !noalias !1269
@@ -27636,7 +27631,7 @@ _ZN13duckdb_brotliL19FindLongestMatchH41EPNS_3H41EPKNS_23BrotliEncoderDictionary
   %887 = zext nneg i32 %886 to i64
   %888 = add i16 %882, 1
   %889 = zext i16 %882 to i64
-  %890 = getelementptr inbounds nuw i32, ptr %877, i64 %887
+  %890 = getelementptr inbounds nuw [4 x i8], ptr %877, i64 %887
   %891 = load i32, ptr %890, align 4, !tbaa !40, !noalias !1278
   %892 = zext i32 %891 to i64
   %893 = sub i64 %.6607, %892
@@ -27646,9 +27641,9 @@ _ZN13duckdb_brotliL19FindLongestMatchH41EPNS_3H41EPKNS_23BrotliEncoderDictionary
   store i8 %894, ptr %896, align 1, !tbaa !54, !noalias !1278
   %spec.store.select.i291 = tail call i64 @llvm.umin.i64(i64 %893, i64 65535)
   %897 = trunc nuw i64 %spec.store.select.i291 to i16
-  %898 = getelementptr inbounds nuw %"struct.duckdb_brotli::SlotH41", ptr %880, i64 %889
+  %898 = getelementptr inbounds nuw [4 x i8], ptr %880, i64 %889
   store i16 %897, ptr %898, align 2, !tbaa !411, !noalias !1278
-  %899 = getelementptr inbounds nuw i16, ptr %878, i64 %887
+  %899 = getelementptr inbounds nuw [2 x i8], ptr %878, i64 %887
   %900 = load i16, ptr %899, align 2, !tbaa !68, !noalias !1278
   %901 = getelementptr inbounds nuw i8, ptr %898, i64 2
   store i16 %900, ptr %901, align 2, !tbaa !409, !noalias !1278
@@ -27831,7 +27826,7 @@ define internal fastcc void @_ZL28CreateBackwardReferencesNH42mmPKhmS0_PK19Brotl
   %.0184 = phi i32 [ %106, %.thread ], [ 0, %77 ]
   %.0181 = phi i8 [ %95, %.thread ], [ 0, %77 ]
   %108 = zext nneg i32 %.0184 to i64
-  %109 = getelementptr inbounds nuw ptr, ptr %64, i64 %108
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %108
   %110 = load ptr, ptr %109, align 8, !tbaa !55
   %111 = load i64, ptr %66, align 8, !tbaa !56
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1293)
@@ -27856,7 +27851,7 @@ define internal fastcc void @_ZL28CreateBackwardReferencesNH42mmPKhmS0_PK19Brotl
   %.sroa.0302.2466 = phi i64 [ 0, %107 ], [ %.sroa.0302.10, %174 ]
   %.sroa.15.2465 = phi i64 [ 0, %107 ], [ %.sroa.15.10, %174 ]
   %.sroa.24312.2464 = phi i64 [ 2020, %107 ], [ %.sroa.24312.10, %174 ]
-  %122 = getelementptr inbounds nuw i32, ptr %7, i64 %.0126.i467
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.0126.i467
   %123 = load i32, ptr %122, align 4, !tbaa !40, !alias.scope !1298, !noalias !1306
   %124 = sext i32 %123 to i64
   %125 = sub i64 %.0617, %124
@@ -27988,17 +27983,17 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit163.i: ; preds = %135,
   %178 = zext nneg i32 %118 to i64
   %179 = and i64 %178, 511
   %180 = load i64, ptr %69, align 8, !tbaa !524, !alias.scope !1293, !noalias !1300
-  %181 = getelementptr inbounds nuw i32, ptr %112, i64 %178
+  %181 = getelementptr inbounds nuw [4 x i8], ptr %112, i64 %178
   %182 = load i32, ptr %181, align 4, !tbaa !40, !noalias !1305
   %183 = zext i32 %182 to i64
   %184 = sub i64 %.0617, %183
-  %185 = getelementptr inbounds nuw i16, ptr %177, i64 %178
+  %185 = getelementptr inbounds nuw [2 x i8], ptr %177, i64 %178
   %.not.i201487 = icmp eq i64 %180, 0
   br i1 %.not.i201487, label %.thread327, label %.lr.ph496
 
 .lr.ph496:                                        ; preds = %176
   %186 = load i16, ptr %185, align 2, !tbaa !68, !noalias !1305
-  %187 = getelementptr inbounds nuw %"struct.duckdb_brotli::BankH42", ptr %114, i64 %179
+  %187 = getelementptr inbounds nuw [2048 x i8], ptr %114, i64 %179
   br label %188
 
 188:                                              ; preds = %.lr.ph496, %245
@@ -28020,7 +28015,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit163.i: ; preds = %135,
   %.0127.i495 = zext i16 %.0127.i495.in to i64
   %193 = sub nuw i64 %.0617, %190
   %194 = and i64 %193, %3
-  %195 = getelementptr inbounds nuw %"struct.duckdb_brotli::SlotH42", ptr %187, i64 %.0127.i495
+  %195 = getelementptr inbounds nuw [4 x i8], ptr %187, i64 %.0127.i495
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 2
   %197 = load i16, ptr %196, align 2, !tbaa !526, !noalias !1305
   %198 = load i16, ptr %195, align 2, !tbaa !528, !noalias !1305
@@ -28140,7 +28135,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i: ; preds = %212, %.
   %.sroa.15.3.lcssa = phi i64 [ %.sroa.15.10, %176 ], [ %.sroa.15.3489, %188 ], [ %.sroa.15.4, %245 ]
   %.sroa.0302.3.lcssa = phi i64 [ %.sroa.0302.10, %176 ], [ %.sroa.0302.3490, %188 ], [ %.sroa.0302.4, %245 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1307)
-  %246 = getelementptr inbounds nuw i16, ptr %13, i64 %179
+  %246 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %179
   %247 = load i16, ptr %246, align 2, !tbaa !68, !alias.scope !1307, !noalias !1310
   %248 = add i16 %247, 1
   store i16 %248, ptr %246, align 2, !tbaa !68, !alias.scope !1307, !noalias !1310
@@ -28151,8 +28146,8 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i: ; preds = %212, %.
   store i8 %119, ptr %252, align 1, !tbaa !54, !noalias !1312
   %spec.store.select.i289 = tail call i64 @llvm.umin.i64(i64 %184, i64 65535)
   %253 = trunc nuw i64 %spec.store.select.i289 to i16
-  %254 = getelementptr inbounds nuw %"struct.duckdb_brotli::BankH42", ptr %114, i64 %179
-  %255 = getelementptr inbounds nuw %"struct.duckdb_brotli::SlotH42", ptr %254, i64 %250
+  %254 = getelementptr inbounds nuw [2048 x i8], ptr %114, i64 %179
+  %255 = getelementptr inbounds nuw [4 x i8], ptr %254, i64 %250
   store i16 %253, ptr %255, align 2, !tbaa !528, !noalias !1312
   %256 = load i16, ptr %185, align 2, !tbaa !68, !noalias !1312
   %257 = getelementptr inbounds nuw i8, ptr %255, i64 2
@@ -28207,7 +28202,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i: ; preds = %212, %.
 287:                                              ; preds = %280
   %288 = zext i8 %286 to i64
   %289 = load ptr, ptr %275, align 8, !tbaa !80, !noalias !1314
-  %290 = getelementptr inbounds nuw i16, ptr %289, i64 %.0.i.i524
+  %290 = getelementptr inbounds nuw [2 x i8], ptr %289, i64 %.0.i.i524
   %291 = load i16, ptr %290, align 2, !tbaa !68, !noalias !1313
   %292 = zext i16 %291 to i64
   %293 = icmp ult i64 %78, %288
@@ -28216,7 +28211,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i: ; preds = %212, %.
 294:                                              ; preds = %287
   %295 = load ptr, ptr %110, align 8, !tbaa !81, !noalias !1314
   %296 = getelementptr inbounds nuw i8, ptr %295, i64 32
-  %297 = getelementptr inbounds nuw i32, ptr %296, i64 %288
+  %297 = getelementptr inbounds nuw [4 x i8], ptr %296, i64 %288
   %298 = load i32, ptr %297, align 4, !tbaa !40, !noalias !1313
   %299 = zext i32 %298 to i64
   %300 = mul nuw nsw i64 %292, %288
@@ -28395,7 +28390,7 @@ _ZN13duckdb_brotliL19FindLongestMatchH42EPNS_3H42EPKNS_23BrotliEncoderDictionary
   %.2186 = phi i32 [ %389, %375 ], [ %.1185, %.preheader432 ]
   %.2183 = phi i8 [ %378, %375 ], [ %.1182, %.preheader432 ]
   %391 = zext nneg i32 %.2186 to i64
-  %392 = getelementptr inbounds nuw ptr, ptr %64, i64 %391
+  %392 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %391
   %393 = load ptr, ptr %392, align 8, !tbaa !55
   %394 = load i64, ptr %66, align 8, !tbaa !56
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1315)
@@ -28420,7 +28415,7 @@ _ZN13duckdb_brotliL19FindLongestMatchH42EPNS_3H42EPKNS_23BrotliEncoderDictionary
   %.sroa.0.0542 = phi i64 [ 0, %390 ], [ %.sroa.0.8, %457 ]
   %.sroa.9.0541 = phi i64 [ 0, %390 ], [ %.sroa.9.8, %457 ]
   %.sroa.13.0540 = phi i64 [ 2020, %390 ], [ %.sroa.13.8, %457 ]
-  %405 = getelementptr inbounds nuw i32, ptr %7, i64 %.0126.i204543
+  %405 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.0126.i204543
   %406 = load i32, ptr %405, align 4, !tbaa !40, !alias.scope !1320, !noalias !1328
   %407 = sext i32 %406 to i64
   %408 = sub i64 %370, %407
@@ -28552,17 +28547,17 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit163.i276: ; preds = %4
   %461 = zext nneg i32 %401 to i64
   %462 = and i64 %461, 511
   %463 = load i64, ptr %69, align 8, !tbaa !524, !alias.scope !1315, !noalias !1322
-  %464 = getelementptr inbounds nuw i32, ptr %395, i64 %461
+  %464 = getelementptr inbounds nuw [4 x i8], ptr %395, i64 %461
   %465 = load i32, ptr %464, align 4, !tbaa !40, !noalias !1327
   %466 = zext i32 %465 to i64
   %467 = sub i64 %370, %466
-  %468 = getelementptr inbounds nuw i16, ptr %460, i64 %461
+  %468 = getelementptr inbounds nuw [2 x i8], ptr %460, i64 %461
   %.not.i213563 = icmp eq i64 %463, 0
   br i1 %.not.i213563, label %.thread361, label %.lr.ph572
 
 .lr.ph572:                                        ; preds = %459
   %469 = load i16, ptr %468, align 2, !tbaa !68, !noalias !1327
-  %470 = getelementptr inbounds nuw %"struct.duckdb_brotli::BankH42", ptr %397, i64 %462
+  %470 = getelementptr inbounds nuw [2048 x i8], ptr %397, i64 %462
   br label %471
 
 471:                                              ; preds = %.lr.ph572, %528
@@ -28584,7 +28579,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit163.i276: ; preds = %4
   %.0127.i210571 = zext i16 %.0127.i210571.in to i64
   %476 = sub nuw i64 %370, %473
   %477 = and i64 %476, %3
-  %478 = getelementptr inbounds nuw %"struct.duckdb_brotli::SlotH42", ptr %470, i64 %.0127.i210571
+  %478 = getelementptr inbounds nuw [4 x i8], ptr %470, i64 %.0127.i210571
   %479 = getelementptr inbounds nuw i8, ptr %478, i64 2
   %480 = load i16, ptr %479, align 2, !tbaa !526, !noalias !1327
   %481 = load i16, ptr %478, align 2, !tbaa !528, !noalias !1327
@@ -28704,7 +28699,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i254: ; preds = %495,
   %.sroa.9.1.lcssa = phi i64 [ %.sroa.9.8, %459 ], [ %.sroa.9.1565, %471 ], [ %.sroa.9.2, %528 ]
   %.sroa.0.1.lcssa = phi i64 [ %.sroa.0.8, %459 ], [ %.sroa.0.1566, %471 ], [ %.sroa.0.2, %528 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1329)
-  %529 = getelementptr inbounds nuw i16, ptr %13, i64 %462
+  %529 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %462
   %530 = load i16, ptr %529, align 2, !tbaa !68, !alias.scope !1329, !noalias !1332
   %531 = add i16 %530, 1
   store i16 %531, ptr %529, align 2, !tbaa !68, !alias.scope !1329, !noalias !1332
@@ -28715,8 +28710,8 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i254: ; preds = %495,
   store i8 %402, ptr %535, align 1, !tbaa !54, !noalias !1334
   %spec.store.select.i288 = tail call i64 @llvm.umin.i64(i64 %467, i64 65535)
   %536 = trunc nuw i64 %spec.store.select.i288 to i16
-  %537 = getelementptr inbounds nuw %"struct.duckdb_brotli::BankH42", ptr %397, i64 %462
-  %538 = getelementptr inbounds nuw %"struct.duckdb_brotli::SlotH42", ptr %537, i64 %533
+  %537 = getelementptr inbounds nuw [2048 x i8], ptr %397, i64 %462
+  %538 = getelementptr inbounds nuw [4 x i8], ptr %537, i64 %533
   store i16 %536, ptr %538, align 2, !tbaa !528, !noalias !1334
   %539 = load i16, ptr %468, align 2, !tbaa !68, !noalias !1334
   %540 = getelementptr inbounds nuw i8, ptr %538, i64 2
@@ -28771,7 +28766,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i254: ; preds = %495,
 570:                                              ; preds = %563
   %571 = zext i8 %569 to i64
   %572 = load ptr, ptr %558, align 8, !tbaa !80, !noalias !1336
-  %573 = getelementptr inbounds nuw i16, ptr %572, i64 %.0.i.i222601
+  %573 = getelementptr inbounds nuw [2 x i8], ptr %572, i64 %.0.i.i222601
   %574 = load i16, ptr %573, align 2, !tbaa !68, !noalias !1335
   %575 = zext i16 %574 to i64
   %576 = icmp ult i64 %.0175, %571
@@ -28780,7 +28775,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i254: ; preds = %495,
 577:                                              ; preds = %570
   %578 = load ptr, ptr %393, align 8, !tbaa !81, !noalias !1336
   %579 = getelementptr inbounds nuw i8, ptr %578, i64 32
-  %580 = getelementptr inbounds nuw i32, ptr %579, i64 %571
+  %580 = getelementptr inbounds nuw [4 x i8], ptr %579, i64 %571
   %581 = load i32, ptr %580, align 4, !tbaa !40, !noalias !1335
   %582 = zext i32 %581 to i64
   %583 = mul nuw nsw i64 %575, %571
@@ -29254,13 +29249,13 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %804, %_ZN13duckdb_b
   %843 = lshr i32 %842, 17
   %844 = zext nneg i32 %843 to i64
   %845 = and i64 %844, 511
-  %846 = getelementptr inbounds nuw i16, ptr %13, i64 %845
+  %846 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %845
   %847 = load i16, ptr %846, align 2, !tbaa !68, !alias.scope !1343, !noalias !1346
   %848 = add i16 %847, 1
   store i16 %848, ptr %846, align 2, !tbaa !68, !alias.scope !1343, !noalias !1346
   %849 = and i16 %847, 511
   %850 = zext nneg i16 %849 to i64
-  %851 = getelementptr inbounds nuw i32, ptr %835, i64 %844
+  %851 = getelementptr inbounds nuw [4 x i8], ptr %835, i64 %844
   %852 = load i32, ptr %851, align 4, !tbaa !40, !noalias !1343
   %853 = zext i32 %852 to i64
   %854 = sub i64 %.0.i287602, %853
@@ -29270,10 +29265,10 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %804, %_ZN13duckdb_b
   store i8 %855, ptr %857, align 1, !tbaa !54, !noalias !1343
   %spec.store.select.i = tail call i64 @llvm.umin.i64(i64 %854, i64 65535)
   %858 = trunc nuw i64 %spec.store.select.i to i16
-  %859 = getelementptr inbounds nuw %"struct.duckdb_brotli::BankH42", ptr %838, i64 %845
-  %860 = getelementptr inbounds nuw %"struct.duckdb_brotli::SlotH42", ptr %859, i64 %850
+  %859 = getelementptr inbounds nuw [2048 x i8], ptr %838, i64 %845
+  %860 = getelementptr inbounds nuw [4 x i8], ptr %859, i64 %850
   store i16 %858, ptr %860, align 2, !tbaa !528, !noalias !1343
-  %861 = getelementptr inbounds nuw i16, ptr %836, i64 %844
+  %861 = getelementptr inbounds nuw [2 x i8], ptr %836, i64 %844
   %862 = load i16, ptr %861, align 2, !tbaa !68, !noalias !1343
   %863 = getelementptr inbounds nuw i8, ptr %860, i64 2
   store i16 %862, ptr %863, align 2, !tbaa !526, !noalias !1343
@@ -29319,13 +29314,13 @@ _ZN13duckdb_brotliL19FindLongestMatchH42EPNS_3H42EPKNS_23BrotliEncoderDictionary
   %884 = lshr i32 %883, 17
   %885 = zext nneg i32 %884 to i64
   %886 = and i64 %885, 511
-  %887 = getelementptr inbounds nuw i16, ptr %13, i64 %886
+  %887 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %886
   %888 = load i16, ptr %887, align 2, !tbaa !68, !alias.scope !1351, !noalias !1354
   %889 = add i16 %888, 1
   store i16 %889, ptr %887, align 2, !tbaa !68, !alias.scope !1351, !noalias !1354
   %890 = and i16 %888, 511
   %891 = zext nneg i16 %890 to i64
-  %892 = getelementptr inbounds nuw i32, ptr %876, i64 %885
+  %892 = getelementptr inbounds nuw [4 x i8], ptr %876, i64 %885
   %893 = load i32, ptr %892, align 4, !tbaa !40, !noalias !1351
   %894 = zext i32 %893 to i64
   %895 = sub i64 %.5610, %894
@@ -29335,10 +29330,10 @@ _ZN13duckdb_brotliL19FindLongestMatchH42EPNS_3H42EPKNS_23BrotliEncoderDictionary
   store i8 %896, ptr %898, align 1, !tbaa !54, !noalias !1351
   %spec.store.select.i290 = tail call i64 @llvm.umin.i64(i64 %895, i64 65535)
   %899 = trunc nuw i64 %spec.store.select.i290 to i16
-  %900 = getelementptr inbounds nuw %"struct.duckdb_brotli::BankH42", ptr %879, i64 %886
-  %901 = getelementptr inbounds nuw %"struct.duckdb_brotli::SlotH42", ptr %900, i64 %891
+  %900 = getelementptr inbounds nuw [2048 x i8], ptr %879, i64 %886
+  %901 = getelementptr inbounds nuw [4 x i8], ptr %900, i64 %891
   store i16 %899, ptr %901, align 2, !tbaa !528, !noalias !1351
-  %902 = getelementptr inbounds nuw i16, ptr %877, i64 %885
+  %902 = getelementptr inbounds nuw [2 x i8], ptr %877, i64 %885
   %903 = load i16, ptr %902, align 2, !tbaa !68, !noalias !1351
   %904 = getelementptr inbounds nuw i8, ptr %901, i64 2
   store i16 %903, ptr %904, align 2, !tbaa !526, !noalias !1351
@@ -29374,13 +29369,13 @@ _ZN13duckdb_brotliL19FindLongestMatchH42EPNS_3H42EPKNS_23BrotliEncoderDictionary
   %921 = lshr i32 %920, 17
   %922 = zext nneg i32 %921 to i64
   %923 = and i64 %922, 511
-  %924 = getelementptr inbounds nuw i16, ptr %13, i64 %923
+  %924 = getelementptr inbounds nuw [2 x i8], ptr %13, i64 %923
   %925 = load i16, ptr %924, align 2, !tbaa !68, !alias.scope !1360, !noalias !1363
   %926 = add i16 %925, 1
   store i16 %926, ptr %924, align 2, !tbaa !68, !alias.scope !1360, !noalias !1363
   %927 = and i16 %925, 511
   %928 = zext nneg i16 %927 to i64
-  %929 = getelementptr inbounds nuw i32, ptr %913, i64 %922
+  %929 = getelementptr inbounds nuw [4 x i8], ptr %913, i64 %922
   %930 = load i32, ptr %929, align 4, !tbaa !40, !noalias !1360
   %931 = zext i32 %930 to i64
   %932 = sub i64 %.6605, %931
@@ -29390,10 +29385,10 @@ _ZN13duckdb_brotliL19FindLongestMatchH42EPNS_3H42EPKNS_23BrotliEncoderDictionary
   store i8 %933, ptr %935, align 1, !tbaa !54, !noalias !1360
   %spec.store.select.i291 = tail call i64 @llvm.umin.i64(i64 %932, i64 65535)
   %936 = trunc nuw i64 %spec.store.select.i291 to i16
-  %937 = getelementptr inbounds nuw %"struct.duckdb_brotli::BankH42", ptr %916, i64 %923
-  %938 = getelementptr inbounds nuw %"struct.duckdb_brotli::SlotH42", ptr %937, i64 %928
+  %937 = getelementptr inbounds nuw [2048 x i8], ptr %916, i64 %923
+  %938 = getelementptr inbounds nuw [4 x i8], ptr %937, i64 %928
   store i16 %936, ptr %938, align 2, !tbaa !528, !noalias !1360
-  %939 = getelementptr inbounds nuw i16, ptr %914, i64 %922
+  %939 = getelementptr inbounds nuw [2 x i8], ptr %914, i64 %922
   %940 = load i16, ptr %939, align 2, !tbaa !68, !noalias !1360
   %941 = getelementptr inbounds nuw i8, ptr %938, i64 2
   store i16 %940, ptr %941, align 2, !tbaa !526, !noalias !1360
@@ -29592,7 +29587,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit126.i: ; preds = %60, 
   %93 = shl nuw nsw i64 %.0102.i360, 3
   %94 = add nuw nsw i64 %93, %49
   %95 = and i64 %94, 1048575
-  %96 = getelementptr inbounds nuw i64, ptr %13, i64 %.0102.i360
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.0102.i360
   store i64 %95, ptr %96, align 8, !tbaa !29, !noalias !1381
   %97 = add nuw nsw i64 %.0102.i360, 1
   %exitcond.not = icmp eq i64 %97, 4
@@ -29602,7 +29597,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit126.i: ; preds = %60, 
   %.0.i200 = zext i8 %.0.i200.in to i32
   %99 = lshr i64 %.0436, 3
   %100 = and i64 %99, 3
-  %101 = getelementptr inbounds nuw i64, ptr %13, i64 %100
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %100
   %102 = load i64, ptr %101, align 8, !tbaa !29, !noalias !1381
   %103 = icmp ugt i64 %43, 7
   br label %104
@@ -29615,9 +29610,9 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit126.i: ; preds = %60, 
   %.sroa.0253.3378 = phi i64 [ %.sroa.0253.2, %98 ], [ %.sroa.0253.4, %156 ]
   %.sroa.13.3377 = phi i64 [ %.sroa.13.2, %98 ], [ %.sroa.13.4, %156 ]
   %.sroa.21.3376 = phi i64 [ %.sroa.21.2, %98 ], [ %.sroa.21.4, %156 ]
-  %105 = getelementptr inbounds nuw i64, ptr %13, i64 %.1103.i379
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.1103.i379
   %106 = load i64, ptr %105, align 8, !tbaa !29, !noalias !1381
-  %107 = getelementptr inbounds nuw i32, ptr %36, i64 %106
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %106
   %108 = load i32, ptr %107, align 4, !tbaa !40, !noalias !1379
   %109 = zext i32 %108 to i64
   %110 = sub i64 %.0436, %109
@@ -29735,7 +29730,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i: ; preds = %120, %.
 _ZN13duckdb_brotliL19FindLongestMatchH54EPNS_3H54EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit: ; preds = %156
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !1381
   %158 = trunc i64 %.0436 to i32
-  %159 = getelementptr inbounds nuw i32, ptr %36, i64 %102
+  %159 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %102
   store i32 %158, ptr %159, align 4, !tbaa !40, !noalias !1379
   %160 = icmp ugt i64 %.sroa.21.4, 2020
   br i1 %160, label %.preheader330, label %486
@@ -29875,7 +29870,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit126.i239: ; preds = %1
   %219 = shl nuw nsw i64 %.0102.i205408, 3
   %220 = add nuw nsw i64 %219, %176
   %221 = and i64 %220, 1048575
-  %222 = getelementptr inbounds nuw i64, ptr %12, i64 %.0102.i205408
+  %222 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.0102.i205408
   store i64 %221, ptr %222, align 8, !tbaa !29, !noalias !1391
   %223 = add nuw nsw i64 %.0102.i205408, 1
   %exitcond474.not = icmp eq i64 %223, 4
@@ -29885,7 +29880,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit126.i239: ; preds = %1
   %.0.i204 = zext i8 %.0.i204.in to i32
   %225 = lshr i64 %169, 3
   %226 = and i64 %225, 3
-  %227 = getelementptr inbounds nuw i64, ptr %12, i64 %226
+  %227 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %226
   %228 = load i64, ptr %227, align 8, !tbaa !29, !noalias !1391
   %229 = icmp ugt i64 %.0175, 7
   br label %230
@@ -29898,9 +29893,9 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit126.i239: ; preds = %1
   %.sroa.0.1426 = phi i64 [ %.sroa.0.0, %224 ], [ %.sroa.0.2, %282 ]
   %.sroa.7.1425 = phi i64 [ %.sroa.7.0, %224 ], [ %.sroa.7.2, %282 ]
   %.sroa.10.1424 = phi i64 [ %.sroa.10.0, %224 ], [ %.sroa.10.2, %282 ]
-  %231 = getelementptr inbounds nuw i64, ptr %12, i64 %.1103.i206427
+  %231 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.1103.i206427
   %232 = load i64, ptr %231, align 8, !tbaa !29, !noalias !1391
-  %233 = getelementptr inbounds nuw i32, ptr %36, i64 %232
+  %233 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %232
   %234 = load i32, ptr %233, align 4, !tbaa !40, !noalias !1390
   %235 = zext i32 %234 to i64
   %236 = sub i64 %169, %235
@@ -30018,7 +30013,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i223: ; preds = %246,
 _ZN13duckdb_brotliL19FindLongestMatchH54EPNS_3H54EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit246: ; preds = %282
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !1391
   %284 = trunc i64 %169 to i32
-  %285 = getelementptr inbounds nuw i32, ptr %36, i64 %228
+  %285 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %228
   store i32 %284, ptr %285, align 4, !tbaa !40, !noalias !1390
   %286 = add i64 %.sroa.21.0, 175
   %.not196 = icmp ult i64 %.sroa.10.2, %286
@@ -30344,7 +30339,7 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %445, %_ZN13duckdb_b
   %481 = and i64 %.0.i247431, 24
   %482 = add nuw nsw i64 %479, %481
   %483 = and i64 %482, 1048575
-  %484 = getelementptr inbounds nuw i32, ptr %36, i64 %483
+  %484 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %483
   store i32 %480, ptr %484, align 4, !tbaa !40, !noalias !1393
   %485 = add nuw i64 %.0.i247431, 1
   %exitcond477.not = icmp eq i64 %485, %466
@@ -30379,7 +30374,7 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %445, %_ZN13duckdb_b
   %502 = and i64 %.5389, 24
   %503 = add nuw nsw i64 %500, %502
   %504 = and i64 %503, 1048575
-  %505 = getelementptr inbounds nuw i32, ptr %36, i64 %504
+  %505 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %504
   store i32 %501, ptr %505, align 4, !tbaa !40, !noalias !1396
   %506 = add i64 %.5171388, 4
   %507 = add i64 %.5389, 4
@@ -30404,7 +30399,7 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %445, %_ZN13duckdb_b
   %518 = and i64 %.6384, 24
   %519 = add nuw nsw i64 %516, %518
   %520 = and i64 %519, 1048575
-  %521 = getelementptr inbounds nuw i32, ptr %36, i64 %520
+  %521 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %520
   store i32 %517, ptr %521, align 4, !tbaa !40, !noalias !1400
   %522 = add i64 %.6172383, 2
   %523 = add i64 %.6384, 2
@@ -30610,7 +30605,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit126.i.i: ; preds = %67
   %.0.i21.i = zext i8 %.0.i21.i.in to i32
   %100 = lshr i64 %.0543, 3
   %101 = and i64 %100, 1
-  %102 = getelementptr inbounds nuw i64, ptr %13, i64 %101
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %101
   %103 = load i64, ptr %102, align 8, !tbaa !29, !noalias !1427
   %104 = icmp ugt i64 %50, 7
   br label %105
@@ -30625,7 +30620,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit126.i.i: ; preds = %67
   %.sroa.15.3428 = phi i64 [ %.sroa.15.2, %.critedge ], [ %.sroa.15.6, %157 ]
   %.sroa.24.3427 = phi i64 [ %.sroa.24.2, %.critedge ], [ %.sroa.24.6, %157 ]
   %107 = load i64, ptr %.1103.i.i430.sroa.phi, align 8, !tbaa !29, !noalias !1427
-  %108 = getelementptr inbounds nuw i32, ptr %36, i64 %107
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %107
   %109 = load i32, ptr %108, align 4, !tbaa !40, !noalias !1424
   %110 = zext i32 %109 to i64
   %111 = sub i64 %.0543, %110
@@ -30741,7 +30736,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i32.i: ; preds = %121
 _ZN13duckdb_brotliL18FindLongestMatchH3EPNS_2H3EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.i: ; preds = %157
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !1427
   %158 = trunc i64 %.0543 to i32
-  %159 = getelementptr inbounds nuw i32, ptr %36, i64 %103
+  %159 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %103
   store i32 %158, ptr %159, align 4, !tbaa !40, !noalias !1424
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1428)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1431)
@@ -30790,7 +30785,7 @@ _ZN13duckdb_brotliL18FindLongestMatchH3EPNS_2H3EPKNS_23BrotliEncoderDictionaryEP
 183:                                              ; preds = %166
   %184 = load ptr, ptr %42, align 8, !tbaa !650, !alias.scope !1433, !noalias !1434
   %185 = zext nneg i32 %168 to i64
-  %186 = getelementptr inbounds nuw i32, ptr %184, i64 %185
+  %186 = getelementptr inbounds nuw [4 x i8], ptr %184, i64 %185
   %187 = load i32, ptr %186, align 4, !tbaa !40, !noalias !1437
   %188 = zext i32 %187 to i64
   %189 = trunc i64 %.0.i.i453 to i32
@@ -31057,7 +31052,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit126.i.i260: ; preds = 
   %.0.i21.i202 = zext i8 %.0.i21.i202.in to i32
   %294 = lshr i64 %244, 3
   %295 = and i64 %294, 1
-  %296 = getelementptr inbounds nuw i64, ptr %12, i64 %295
+  %296 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %295
   %297 = load i64, ptr %296, align 8, !tbaa !29, !noalias !1457
   %298 = icmp ugt i64 %.0175, 7
   br label %299
@@ -31072,7 +31067,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit126.i.i260: ; preds = 
   %.sroa.9.1502 = phi i64 [ %.sroa.9.0, %.critedge46 ], [ %.sroa.9.4, %351 ]
   %.sroa.13.1501 = phi i64 [ %.sroa.13.0, %.critedge46 ], [ %.sroa.13.4, %351 ]
   %301 = load i64, ptr %.1103.i.i204504.sroa.phi, align 8, !tbaa !29, !noalias !1457
-  %302 = getelementptr inbounds nuw i32, ptr %36, i64 %301
+  %302 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %301
   %303 = load i32, ptr %302, align 4, !tbaa !40, !noalias !1456
   %304 = zext i32 %303 to i64
   %305 = sub i64 %244, %304
@@ -31188,7 +31183,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i32.i244: ; preds = %
 _ZN13duckdb_brotliL18FindLongestMatchH3EPNS_2H3EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit.i208: ; preds = %351
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !1457
   %352 = trunc i64 %244 to i32
-  %353 = getelementptr inbounds nuw i32, ptr %36, i64 %297
+  %353 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %297
   store i32 %352, ptr %353, align 4, !tbaa !40, !noalias !1456
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1458)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1461)
@@ -31237,7 +31232,7 @@ _ZN13duckdb_brotliL18FindLongestMatchH3EPNS_2H3EPKNS_23BrotliEncoderDictionaryEP
 377:                                              ; preds = %360
   %378 = load ptr, ptr %42, align 8, !tbaa !650, !alias.scope !1463, !noalias !1464
   %379 = zext nneg i32 %362 to i64
-  %380 = getelementptr inbounds nuw i32, ptr %378, i64 %379
+  %380 = getelementptr inbounds nuw [4 x i8], ptr %378, i64 %379
   %381 = load i32, ptr %380, align 4, !tbaa !40, !noalias !1467
   %382 = zext i32 %381 to i64
   %383 = trunc i64 %.0.i.i211528 to i32
@@ -31684,7 +31679,7 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %587, %_ZN13duckdb_b
   %623 = and i64 %.0.i.i268537, 8
   %624 = add nuw nsw i64 %621, %623
   %625 = and i64 %624, 65535
-  %626 = getelementptr inbounds nuw i32, ptr %36, i64 %625
+  %626 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %625
   store i32 %622, ptr %626, align 4, !tbaa !40, !noalias !1469
   %627 = add nuw i64 %.0.i.i268537, 1
   %exitcond.not = icmp eq i64 %627, %608
@@ -31719,7 +31714,7 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %587, %_ZN13duckdb_b
   %644 = and i64 %.5465, 8
   %645 = add nuw nsw i64 %642, %644
   %646 = and i64 %645, 65535
-  %647 = getelementptr inbounds nuw i32, ptr %36, i64 %646
+  %647 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %646
   store i32 %643, ptr %647, align 4, !tbaa !40, !noalias !1474
   %648 = add i64 %.5171464, 4
   %649 = add i64 %.5465, 4
@@ -31744,7 +31739,7 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %587, %_ZN13duckdb_b
   %660 = and i64 %.6459, 8
   %661 = add nuw nsw i64 %658, %660
   %662 = and i64 %661, 65535
-  %663 = getelementptr inbounds nuw i32, ptr %36, i64 %662
+  %663 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %662
   store i32 %659, ptr %663, align 4, !tbaa !40, !noalias !1480
   %664 = add i64 %.6172458, 2
   %665 = add i64 %.6459, 2
@@ -31943,7 +31938,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit126.i239: ; preds = %6
   %98 = shl nuw nsw i64 %.0102.i205431, 3
   %99 = add nuw nsw i64 %98, %54
   %100 = and i64 %99, 1048575
-  %101 = getelementptr inbounds nuw i64, ptr %12, i64 %.0102.i205431
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.0102.i205431
   store i64 %100, ptr %101, align 8, !tbaa !29, !noalias !1498
   %102 = add nuw nsw i64 %.0102.i205431, 1
   %exitcond.not = icmp eq i64 %102, 4
@@ -31953,7 +31948,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit126.i239: ; preds = %6
   %.0.i204 = zext i8 %.0.i204.in to i32
   %104 = lshr i64 %.0563, 3
   %105 = and i64 %104, 3
-  %106 = getelementptr inbounds nuw i64, ptr %12, i64 %105
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %105
   %107 = load i64, ptr %106, align 8, !tbaa !29, !noalias !1498
   %108 = icmp ugt i64 %48, 7
   br label %109
@@ -31966,9 +31961,9 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit126.i239: ; preds = %6
   %.sroa.0298.3449 = phi i64 [ %.sroa.0298.2, %103 ], [ %.sroa.0298.4, %161 ]
   %.sroa.15.3448 = phi i64 [ %.sroa.15.2, %103 ], [ %.sroa.15.4, %161 ]
   %.sroa.24.3447 = phi i64 [ %.sroa.24.2, %103 ], [ %.sroa.24.4, %161 ]
-  %110 = getelementptr inbounds nuw i64, ptr %12, i64 %.1103.i206450
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.1103.i206450
   %111 = load i64, ptr %110, align 8, !tbaa !29, !noalias !1498
-  %112 = getelementptr inbounds nuw i32, ptr %36, i64 %111
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %111
   %113 = load i32, ptr %112, align 4, !tbaa !40, !noalias !1496
   %114 = zext i32 %113 to i64
   %115 = sub i64 %.0563, %114
@@ -32086,7 +32081,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i223: ; preds = %125,
 _ZN13duckdb_brotliL19FindLongestMatchH54EPNS_3H54EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit246: ; preds = %161
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !1498
   %163 = trunc i64 %.0563 to i32
-  %164 = getelementptr inbounds nuw i32, ptr %36, i64 %107
+  %164 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %107
   store i32 %163, ptr %164, align 4, !tbaa !40, !noalias !1496
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1499)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1502)
@@ -32135,7 +32130,7 @@ _ZN13duckdb_brotliL19FindLongestMatchH54EPNS_3H54EPKNS_23BrotliEncoderDictionary
 188:                                              ; preds = %171
   %189 = load ptr, ptr %42, align 8, !tbaa !650, !alias.scope !1499, !noalias !1504
   %190 = zext nneg i32 %173 to i64
-  %191 = getelementptr inbounds nuw i32, ptr %189, i64 %190
+  %191 = getelementptr inbounds nuw [4 x i8], ptr %189, i64 %190
   %192 = load i32, ptr %191, align 4, !tbaa !40, !noalias !1506
   %193 = zext i32 %192 to i64
   %194 = trunc i64 %.0.i267473 to i32
@@ -32396,7 +32391,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit126.i: ; preds = %265,
   %298 = shl nuw nsw i64 %.0102.i505, 3
   %299 = add nuw nsw i64 %298, %253
   %300 = and i64 %299, 1048575
-  %301 = getelementptr inbounds nuw i64, ptr %13, i64 %.0102.i505
+  %301 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.0102.i505
   store i64 %300, ptr %301, align 8, !tbaa !29, !noalias !1516
   %302 = add nuw nsw i64 %.0102.i505, 1
   %exitcond621.not = icmp eq i64 %302, 4
@@ -32406,7 +32401,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit126.i: ; preds = %265,
   %.0.i200 = zext i8 %.0.i200.in to i32
   %304 = lshr i64 %246, 3
   %305 = and i64 %304, 3
-  %306 = getelementptr inbounds nuw i64, ptr %13, i64 %305
+  %306 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %305
   %307 = load i64, ptr %306, align 8, !tbaa !29, !noalias !1516
   %308 = icmp ugt i64 %.0175, 7
   br label %309
@@ -32419,9 +32414,9 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit126.i: ; preds = %265,
   %.sroa.0.1523 = phi i64 [ %.sroa.0.0, %303 ], [ %.sroa.0.2, %361 ]
   %.sroa.9.1522 = phi i64 [ %.sroa.9.0, %303 ], [ %.sroa.9.2, %361 ]
   %.sroa.13.1521 = phi i64 [ %.sroa.13.0, %303 ], [ %.sroa.13.2, %361 ]
-  %310 = getelementptr inbounds nuw i64, ptr %13, i64 %.1103.i524
+  %310 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.1103.i524
   %311 = load i64, ptr %310, align 8, !tbaa !29, !noalias !1516
-  %312 = getelementptr inbounds nuw i32, ptr %36, i64 %311
+  %312 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %311
   %313 = load i32, ptr %312, align 4, !tbaa !40, !noalias !1512
   %314 = zext i32 %313 to i64
   %315 = sub i64 %246, %314
@@ -32539,7 +32534,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i: ; preds = %325, %.
 _ZN13duckdb_brotliL19FindLongestMatchH54EPNS_3H54EPKNS_23BrotliEncoderDictionaryEPKhmPKimmmmmPNS_18HasherSearchResultE.exit: ; preds = %361
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !1516
   %363 = trunc i64 %246 to i32
-  %364 = getelementptr inbounds nuw i32, ptr %36, i64 %307
+  %364 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %307
   store i32 %363, ptr %364, align 4, !tbaa !40, !noalias !1512
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1517)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1520)
@@ -32588,7 +32583,7 @@ _ZN13duckdb_brotliL19FindLongestMatchH54EPNS_3H54EPKNS_23BrotliEncoderDictionary
 388:                                              ; preds = %371
   %389 = load ptr, ptr %42, align 8, !tbaa !650, !alias.scope !1517, !noalias !1522
   %390 = zext nneg i32 %373 to i64
-  %391 = getelementptr inbounds nuw i32, ptr %389, i64 %390
+  %391 = getelementptr inbounds nuw [4 x i8], ptr %389, i64 %390
   %392 = load i32, ptr %391, align 4, !tbaa !40, !noalias !1524
   %393 = zext i32 %392 to i64
   %394 = trunc i64 %.0.i248548 to i32
@@ -33035,7 +33030,7 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %598, %_ZN13duckdb_b
   %634 = and i64 %.0.i288557, 24
   %635 = add nuw nsw i64 %632, %634
   %636 = and i64 %635, 1048575
-  %637 = getelementptr inbounds nuw i32, ptr %36, i64 %636
+  %637 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %636
   store i32 %633, ptr %637, align 4, !tbaa !40, !noalias !1526
   %638 = add nuw i64 %.0.i288557, 1
   %exitcond625.not = icmp eq i64 %638, %619
@@ -33070,7 +33065,7 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %598, %_ZN13duckdb_b
   %655 = and i64 %.5485, 24
   %656 = add nuw nsw i64 %653, %655
   %657 = and i64 %656, 1048575
-  %658 = getelementptr inbounds nuw i32, ptr %36, i64 %657
+  %658 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %657
   store i32 %654, ptr %658, align 4, !tbaa !40, !noalias !1529
   %659 = add i64 %.5171484, 4
   %660 = add i64 %.5485, 4
@@ -33095,7 +33090,7 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %598, %_ZN13duckdb_b
   %671 = and i64 %.6479, 24
   %672 = add nuw nsw i64 %669, %671
   %673 = and i64 %672, 1048575
-  %674 = getelementptr inbounds nuw i32, ptr %36, i64 %673
+  %674 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %673
   store i32 %670, ptr %674, align 4, !tbaa !40, !noalias !1533
   %675 = add i64 %.6172478, 2
   %676 = add i64 %.6479, 2
@@ -33302,7 +33297,7 @@ _ZN13duckdb_brotliL23PrepareDistanceCacheH65EPNS_3H65EPi.exit: ; preds = %12, %3
   %.0184 = phi i32 [ %133, %.thread ], [ 0, %104 ]
   %.0181 = phi i8 [ %122, %.thread ], [ 0, %104 ]
   %135 = zext nneg i32 %.0184 to i64
-  %136 = getelementptr inbounds nuw ptr, ptr %69, i64 %135
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %135
   %137 = load ptr, ptr %136, align 8, !tbaa !55
   %138 = load i64, ptr %71, align 8, !tbaa !56
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1565)
@@ -33329,7 +33324,7 @@ _ZN13duckdb_brotliL23PrepareDistanceCacheH65EPNS_3H65EPi.exit: ; preds = %12, %3
   %.sroa.0320.2501 = phi i64 [ 0, %.lr.ph506 ], [ %.sroa.0320.10, %206 ]
   %.sroa.17.2500 = phi i64 [ 0, %.lr.ph506 ], [ %.sroa.17.10, %206 ]
   %.sroa.27.2499 = phi i64 [ 2020, %.lr.ph506 ], [ %.sroa.27.10, %206 ]
-  %145 = getelementptr inbounds nuw i32, ptr %7, i64 %.0144.i.i502
+  %145 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.0144.i.i502
   %146 = load i32, ptr %145, align 4, !tbaa !40, !alias.scope !1571, !noalias !1572
   %147 = sext i32 %146 to i64
   %148 = sub i64 %.0729, %147
@@ -33484,8 +33479,8 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit180.i.i: ; preds = %16
   %212 = load i32, ptr %77, align 4, !tbaa !197, !alias.scope !1553, !noalias !1558
   %213 = zext nneg i32 %212 to i64
   %214 = shl i64 %211, %213
-  %215 = getelementptr inbounds nuw i32, ptr %75, i64 %214
-  %216 = getelementptr inbounds nuw i16, ptr %73, i64 %211
+  %215 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %214
+  %216 = getelementptr inbounds nuw [2 x i8], ptr %73, i64 %211
   %217 = load i16, ptr %216, align 2, !tbaa !68, !noalias !1574
   %218 = zext i16 %217 to i64
   %219 = load i64, ptr %78, align 8, !tbaa !198, !alias.scope !1553, !noalias !1558
@@ -33511,7 +33506,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit180.i.i: ; preds = %16
   %.sroa.27.3528 = phi i64 [ %.sroa.27.2.lcssa, %.lr.ph535 ], [ %.sroa.27.9, %282 ]
   %227 = add nsw i64 %.1145.i.i531, -1
   %228 = and i64 %227, %223
-  %229 = getelementptr inbounds nuw i32, ptr %215, i64 %228
+  %229 = getelementptr inbounds nuw [4 x i8], ptr %215, i64 %228
   %230 = load i32, ptr %229, align 4, !tbaa !40, !noalias !1574
   %231 = zext i32 %230 to i64
   %232 = sub i64 %.0729, %231
@@ -33641,7 +33636,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i: ; preds = %250, 
   %285 = zext i16 %217 to i32
   %286 = and i32 %.pre, %285
   %287 = zext nneg i32 %286 to i64
-  %288 = getelementptr inbounds nuw i32, ptr %215, i64 %287
+  %288 = getelementptr inbounds nuw [4 x i8], ptr %215, i64 %287
   store i32 %284, ptr %288, align 4, !tbaa !40, !noalias !1574
   %289 = add i16 %217, 1
   store i16 %289, ptr %216, align 2, !tbaa !68, !noalias !1574
@@ -33692,7 +33687,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i: ; preds = %250, 
 318:                                              ; preds = %311
   %319 = zext i8 %317 to i64
   %320 = load ptr, ptr %306, align 8, !tbaa !80, !noalias !1575
-  %321 = getelementptr inbounds nuw i16, ptr %320, i64 %.0.i.i.i564
+  %321 = getelementptr inbounds nuw [2 x i8], ptr %320, i64 %.0.i.i.i564
   %322 = load i16, ptr %321, align 2, !tbaa !68, !noalias !1574
   %323 = zext i16 %322 to i64
   %324 = icmp ult i64 %105, %319
@@ -33701,7 +33696,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i: ; preds = %250, 
 325:                                              ; preds = %318
   %326 = load ptr, ptr %137, align 8, !tbaa !81, !noalias !1575
   %327 = getelementptr inbounds nuw i8, ptr %326, i64 32
-  %328 = getelementptr inbounds nuw i32, ptr %327, i64 %319
+  %328 = getelementptr inbounds nuw [4 x i8], ptr %327, i64 %319
   %329 = load i32, ptr %328, align 4, !tbaa !40, !noalias !1574
   %330 = zext i32 %329 to i64
   %331 = mul nuw nsw i64 %323, %319
@@ -33876,7 +33871,7 @@ _ZN13duckdb_brotliL19FindLongestMatchH65EPNS_3H65EPKNS_23BrotliEncoderDictionary
 417:                                              ; preds = %400
   %418 = load ptr, ptr %86, align 8, !tbaa !761, !alias.scope !1576, !noalias !1581
   %419 = zext nneg i32 %402 to i64
-  %420 = getelementptr inbounds nuw i32, ptr %418, i64 %419
+  %420 = getelementptr inbounds nuw [4 x i8], ptr %418, i64 %419
   %421 = load i32, ptr %420, align 4, !tbaa !40, !noalias !1583
   %422 = zext i32 %421 to i64
   %423 = trunc i64 %.0.i292586 to i32
@@ -34051,7 +34046,7 @@ _ZN13duckdb_brotliL24FindLongestMatchHROLLINGEPNS_8HROLLINGEPKNS_23BrotliEncoder
   %.2186 = phi i32 [ %493, %479 ], [ %.1185, %.preheader459 ]
   %.2183 = phi i8 [ %482, %479 ], [ %.1182, %.preheader459 ]
   %495 = zext nneg i32 %.2186 to i64
-  %496 = getelementptr inbounds nuw ptr, ptr %69, i64 %495
+  %496 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %495
   %497 = load ptr, ptr %496, align 8, !tbaa !55
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1584)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1587)
@@ -34077,7 +34072,7 @@ _ZN13duckdb_brotliL24FindLongestMatchHROLLINGEPNS_8HROLLINGEPKNS_23BrotliEncoder
   %.sroa.0.0625 = phi i64 [ 0, %.lr.ph631 ], [ %.sroa.0.8, %565 ]
   %.sroa.11.0624 = phi i64 [ 0, %.lr.ph631 ], [ %.sroa.11.8, %565 ]
   %.sroa.16.0623 = phi i64 [ 2020, %.lr.ph631 ], [ %.sroa.16.8, %565 ]
-  %504 = getelementptr inbounds nuw i32, ptr %7, i64 %.0144.i.i201626
+  %504 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.0144.i.i201626
   %505 = load i32, ptr %504, align 4, !tbaa !40, !alias.scope !1602, !noalias !1603
   %506 = sext i32 %505 to i64
   %507 = sub i64 %474, %506
@@ -34231,8 +34226,8 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit180.i.i271: ; preds = 
   %570 = load i32, ptr %77, align 4, !tbaa !197, !alias.scope !1598, !noalias !1599
   %571 = zext nneg i32 %570 to i64
   %572 = shl i64 %569, %571
-  %573 = getelementptr inbounds nuw i32, ptr %75, i64 %572
-  %574 = getelementptr inbounds nuw i16, ptr %73, i64 %569
+  %573 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %572
+  %574 = getelementptr inbounds nuw [2 x i8], ptr %73, i64 %569
   %575 = load i16, ptr %574, align 2, !tbaa !68, !noalias !1605
   %576 = zext i16 %575 to i64
   %spec.select.i.i205 = tail call i64 @llvm.usub.sat.i64(i64 %576, i64 %219)
@@ -34257,7 +34252,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit180.i.i271: ; preds = 
   %.sroa.16.1654 = phi i64 [ %.sroa.16.0.lcssa, %.lr.ph661 ], [ %.sroa.16.7, %639 ]
   %584 = add nsw i64 %.1145.i.i207657, -1
   %585 = and i64 %584, %580
-  %586 = getelementptr inbounds nuw i32, ptr %573, i64 %585
+  %586 = getelementptr inbounds nuw [4 x i8], ptr %573, i64 %585
   %587 = load i32, ptr %586, align 4, !tbaa !40, !noalias !1605
   %588 = zext i32 %587 to i64
   %589 = sub i64 %474, %588
@@ -34387,7 +34382,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i250: ; preds = %60
   %642 = zext i16 %575 to i32
   %643 = and i32 %.pre808, %642
   %644 = zext nneg i32 %643 to i64
-  %645 = getelementptr inbounds nuw i32, ptr %573, i64 %644
+  %645 = getelementptr inbounds nuw [4 x i8], ptr %573, i64 %644
   store i32 %641, ptr %645, align 4, !tbaa !40, !noalias !1605
   %646 = add i16 %575, 1
   store i16 %646, ptr %574, align 2, !tbaa !68, !noalias !1605
@@ -34438,7 +34433,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i250: ; preds = %60
 675:                                              ; preds = %668
   %676 = zext i8 %674 to i64
   %677 = load ptr, ptr %663, align 8, !tbaa !80, !noalias !1606
-  %678 = getelementptr inbounds nuw i16, ptr %677, i64 %.0.i.i.i212691
+  %678 = getelementptr inbounds nuw [2 x i8], ptr %677, i64 %.0.i.i.i212691
   %679 = load i16, ptr %678, align 2, !tbaa !68, !noalias !1605
   %680 = zext i16 %679 to i64
   %681 = icmp ult i64 %.0175, %676
@@ -34447,7 +34442,7 @@ _ZN13duckdb_brotliL24FindMatchLengthWithLimitEPKhS1_m.exit.i.i250: ; preds = %60
 682:                                              ; preds = %675
   %683 = load ptr, ptr %497, align 8, !tbaa !81, !noalias !1606
   %684 = getelementptr inbounds nuw i8, ptr %683, i64 32
-  %685 = getelementptr inbounds nuw i32, ptr %684, i64 %676
+  %685 = getelementptr inbounds nuw [4 x i8], ptr %684, i64 %676
   %686 = load i32, ptr %685, align 4, !tbaa !40, !noalias !1605
   %687 = zext i32 %686 to i64
   %688 = mul nuw nsw i64 %680, %676
@@ -34622,7 +34617,7 @@ _ZN13duckdb_brotliL19FindLongestMatchH65EPNS_3H65EPKNS_23BrotliEncoderDictionary
 774:                                              ; preds = %757
   %775 = load ptr, ptr %86, align 8, !tbaa !761, !alias.scope !1607, !noalias !1612
   %776 = zext nneg i32 %759 to i64
-  %777 = getelementptr inbounds nuw i32, ptr %775, i64 %776
+  %777 = getelementptr inbounds nuw [4 x i8], ptr %775, i64 %776
   %778 = load i32, ptr %777, align 4, !tbaa !40, !noalias !1614
   %779 = zext i32 %778 to i64
   %780 = trunc i64 %.0.i287713 to i32
@@ -35105,7 +35100,7 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %987, %_ZN13duckdb_b
   %.0.copyload.i.i.i284 = load i64, ptr %1024, align 1, !alias.scope !1642, !noalias !1636
   %1025 = mul i64 %.0.copyload.i.i.i284, %1018
   %1026 = lshr i64 %1025, 49
-  %1027 = getelementptr inbounds nuw i16, ptr %73, i64 %1026
+  %1027 = getelementptr inbounds nuw [2 x i8], ptr %73, i64 %1026
   %1028 = load i16, ptr %1027, align 2, !tbaa !68, !noalias !1645
   %1029 = zext i16 %1028 to i32
   %1030 = and i32 %1019, %1029
@@ -35114,8 +35109,8 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %987, %_ZN13duckdb_b
   %1033 = add i16 %1028, 1
   store i16 %1033, ptr %1027, align 2, !tbaa !68, !noalias !1645
   %1034 = trunc i64 %.0.i.i283723 to i32
-  %1035 = getelementptr i32, ptr %75, i64 %1032
-  %1036 = getelementptr i32, ptr %1035, i64 %1031
+  %1035 = getelementptr [4 x i8], ptr %75, i64 %1032
+  %1036 = getelementptr [4 x i8], ptr %1035, i64 %1031
   store i32 %1034, ptr %1036, align 4, !tbaa !40, !noalias !1645
   %1037 = add nuw i64 %.0.i.i283723, 1
   %exitcond807.not = icmp eq i64 %1037, %1008
@@ -35155,7 +35150,7 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %987, %_ZN13duckdb_b
   %.0.copyload.i.i.i285 = load i64, ptr %1054, align 1, !alias.scope !1657, !noalias !1646
   %1055 = mul i64 %.0.copyload.i.i.i285, %209
   %1056 = lshr i64 %1055, 49
-  %1057 = getelementptr inbounds nuw i16, ptr %73, i64 %1056
+  %1057 = getelementptr inbounds nuw [2 x i8], ptr %73, i64 %1056
   %1058 = load i16, ptr %1057, align 2, !tbaa !68, !noalias !1660
   %1059 = zext i16 %1058 to i32
   %1060 = and i32 %1049, %1059
@@ -35164,8 +35159,8 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %987, %_ZN13duckdb_b
   %1063 = add i16 %1058, 1
   store i16 %1063, ptr %1057, align 2, !tbaa !68, !noalias !1660
   %1064 = trunc i64 %.5602 to i32
-  %1065 = getelementptr i32, ptr %75, i64 %1062
-  %1066 = getelementptr i32, ptr %1065, i64 %1061
+  %1065 = getelementptr [4 x i8], ptr %75, i64 %1062
+  %1066 = getelementptr [4 x i8], ptr %1065, i64 %1061
   store i32 %1064, ptr %1066, align 4, !tbaa !40, !noalias !1660
   %1067 = add i64 %.5171601, 4
   %1068 = add i64 %.5602, 4
@@ -35195,7 +35190,7 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %987, %_ZN13duckdb_b
   %.0.copyload.i.i.i286 = load i64, ptr %1079, align 1, !alias.scope !1673, !noalias !1662
   %1080 = mul i64 %.0.copyload.i.i.i286, %209
   %1081 = lshr i64 %1080, 49
-  %1082 = getelementptr inbounds nuw i16, ptr %73, i64 %1081
+  %1082 = getelementptr inbounds nuw [2 x i8], ptr %73, i64 %1081
   %1083 = load i16, ptr %1082, align 2, !tbaa !68, !noalias !1676
   %1084 = zext i16 %1083 to i32
   %1085 = and i32 %1074, %1084
@@ -35204,8 +35199,8 @@ _ZN13duckdb_brotliL18CombineLengthCodesEtti.exit: ; preds = %987, %_ZN13duckdb_b
   %1088 = add i16 %1083, 1
   store i16 %1088, ptr %1082, align 2, !tbaa !68, !noalias !1676
   %1089 = trunc i64 %.6596 to i32
-  %1090 = getelementptr i32, ptr %75, i64 %1087
-  %1091 = getelementptr i32, ptr %1090, i64 %1086
+  %1090 = getelementptr [4 x i8], ptr %75, i64 %1087
+  %1091 = getelementptr [4 x i8], ptr %1090, i64 %1086
   store i32 %1089, ptr %1091, align 4, !tbaa !40, !noalias !1676
   %1092 = add i64 %.6172595, 2
   %1093 = add i64 %.6596, 2

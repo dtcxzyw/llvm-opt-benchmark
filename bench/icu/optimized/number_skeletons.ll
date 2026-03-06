@@ -755,7 +755,7 @@ define noundef range(i32 0, 11) i32 @_ZN6icu_776number4impl14stem_to_object12rou
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6icu_776number4impl14stem_to_object12roundingModeENS1_8skeleton8StemEnumE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN6icu_776number4impl14stem_to_object12roundingModeENS1_8skeleton8StemEnumE, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 }
@@ -1538,7 +1538,7 @@ _ZN6icu_7713umtx_initOnceERNS_9UInitOnceEPFvR10UErrorCodeES3_.exit.thread: ; pre
 _ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit: ; preds = %64
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %66) #18, !srcloc !26
   %67 = sext i32 %65 to i64
-  %68 = getelementptr inbounds i16, ptr %66, i64 %67
+  %68 = getelementptr inbounds [2 x i8], ptr %66, i64 %67
   store i16 0, ptr %68, align 2, !tbaa !19
   %69 = sub nsw i32 %63, %49
   %70 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -1548,7 +1548,7 @@ _ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit: ; preds = %64
 _ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit38: ; preds = %_ZNK6icu_7713UnicodeString7extractEiiNS_9Char16PtrEi.exit
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %70) #18, !srcloc !26
   %71 = sext i32 %69 to i64
-  %72 = getelementptr inbounds i16, ptr %70, i64 %71
+  %72 = getelementptr inbounds [2 x i8], ptr %70, i64 %71
   store i16 0, ptr %72, align 2, !tbaa !19
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) %0, i8 0, i64 480, i1 false)
   invoke void @_ZN6icu_776number4impl10MacroPropsC2Ev(ptr noundef nonnull align 8 dereferenceable(473) %0)
@@ -6070,7 +6070,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.lr.ph:   ; preds = %3
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %_ZNK6icu_7713UnicodeString6charAtEi.exit.lr.ph, %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread
   %indvars.iv = phi i64 [ 0, %_ZNK6icu_7713UnicodeString6charAtEi.exit.lr.ph ], [ %indvars.iv.next, %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread ]
-  %29 = getelementptr inbounds nuw i16, ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %28, i64 %indvars.iv
   %30 = load i16, ptr %29, align 2, !tbaa !19
   %.not = icmp eq i16 %30, 45
   br i1 %.not, label %.critedge.loopexit, label %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread
@@ -6209,7 +6209,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %34, %41, %43
   %.0.i77 = phi ptr [ %74, %72 ], [ %71, %70 ], [ null, %63 ]
   %76 = add nuw nsw i32 %.0.lcssa, 1
   %77 = zext nneg i32 %76 to i64
-  %78 = getelementptr inbounds nuw i16, ptr %.0.i77, i64 %77
+  %78 = getelementptr inbounds nuw [2 x i8], ptr %.0.i77, i64 %77
   store ptr %78, ptr %12, align 8, !tbaa !108
   %79 = icmp slt i16 %66, 0
   %80 = ashr i16 %66, 5
@@ -6323,7 +6323,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %34, %41, %43
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %120
   %indvars.iv103 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next104, %120 ]
-  %121 = getelementptr inbounds nuw %"class.icu_77::MeasureUnit", ptr %13, i64 %indvars.iv103
+  %121 = getelementptr inbounds nuw [24 x i8], ptr %13, i64 %indvars.iv103
   %122 = load ptr, ptr %9, align 8, !tbaa !3
   %123 = invoke noundef ptr @_ZNK6icu_7711MeasureUnit10getSubtypeEv(ptr noundef nonnull align 8 dereferenceable(19) %121)
           to label %.critedge72 unwind label %.loopexit83

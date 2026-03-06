@@ -192,7 +192,7 @@ define hidden void @newhope_poly_uniform(ptr noundef writeonly captures(none) %0
 
 20:                                               ; preds = %10
   %21 = add nuw nsw i64 %.01013, 1
-  %22 = getelementptr inbounds nuw i16, ptr %0, i64 %.01013
+  %22 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %.01013
   store i16 %18, ptr %22, align 2, !tbaa !9
   br label %23
 
@@ -240,7 +240,7 @@ define hidden void @newhope_poly_getnoise(ptr noundef writeonly captures(none) %
 
 4:                                                ; preds = %1, %13
   %.021 = phi i64 [ 0, %1 ], [ %25, %13 ]
-  %5 = getelementptr inbounds nuw i32, ptr %2, i64 %.021
+  %5 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.021
   %6 = load i32, ptr %5, align 4, !tbaa !14
   br label %7
 
@@ -267,7 +267,7 @@ define hidden void @newhope_poly_getnoise(ptr noundef writeonly captures(none) %
   %21 = add nuw nsw i32 %17, %19
   %22 = sub nuw nsw i32 %20, %21
   %23 = trunc nuw nsw i32 %22 to i16
-  %24 = getelementptr inbounds nuw i16, ptr %0, i64 %.021
+  %24 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %.021
   store i16 %23, ptr %24, align 2, !tbaa !9
   %25 = add nuw nsw i64 %.021, 1
   %exitcond22.not = icmp eq i64 %25, 1024
@@ -286,18 +286,18 @@ define hidden void @newhope_poly_pointwise(ptr noundef writeonly captures(none) 
 
 4:                                                ; preds = %3, %4
   %.08 = phi i64 [ 0, %3 ], [ %17, %4 ]
-  %5 = getelementptr inbounds nuw i16, ptr %2, i64 %.08
+  %5 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %.08
   %6 = load i16, ptr %5, align 2, !tbaa !9
   %7 = zext i16 %6 to i32
   %8 = mul nuw nsw i32 %7, 3186
   %9 = tail call zeroext i16 @newhope_montgomery_reduce(i32 noundef %8) #6
-  %10 = getelementptr inbounds nuw i16, ptr %1, i64 %.08
+  %10 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %.08
   %11 = load i16, ptr %10, align 2, !tbaa !9
   %12 = zext i16 %11 to i32
   %13 = zext i16 %9 to i32
   %14 = mul nuw nsw i32 %12, %13
   %15 = tail call zeroext i16 @newhope_montgomery_reduce(i32 noundef %14) #6
-  %16 = getelementptr inbounds nuw i16, ptr %0, i64 %.08
+  %16 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %.08
   store i16 %15, ptr %16, align 2, !tbaa !9
   %17 = add nuw nsw i64 %.08, 1
   %exitcond.not = icmp eq i64 %17, 1024
@@ -315,13 +315,13 @@ define hidden void @newhope_poly_add(ptr noundef writeonly captures(none) %0, pt
 
 4:                                                ; preds = %3, %4
   %.07 = phi i64 [ 0, %3 ], [ %12, %4 ]
-  %5 = getelementptr inbounds nuw i16, ptr %1, i64 %.07
+  %5 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %.07
   %6 = load i16, ptr %5, align 2, !tbaa !9
-  %7 = getelementptr inbounds nuw i16, ptr %2, i64 %.07
+  %7 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %.07
   %8 = load i16, ptr %7, align 2, !tbaa !9
   %9 = add i16 %8, %6
   %10 = tail call zeroext i16 @newhope_barrett_reduce(i16 noundef zeroext %9) #6
-  %11 = getelementptr inbounds nuw i16, ptr %0, i64 %.07
+  %11 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %.07
   store i16 %10, ptr %11, align 2, !tbaa !9
   %12 = add nuw nsw i64 %.07, 1
   %exitcond.not = icmp eq i64 %12, 1024

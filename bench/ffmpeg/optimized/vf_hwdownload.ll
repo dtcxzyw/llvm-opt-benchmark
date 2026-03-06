@@ -224,7 +224,7 @@ define internal range(i32 -2147483648, 1) i32 @hwdownload_config_output(ptr noun
 
 18:                                               ; preds = %21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %19 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.next
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv.next
   %20 = load i32, ptr %19, align 4, !tbaa !63
   %.not23 = icmp eq i32 %20, -1
   br i1 %.not23, label %._crit_edge, label %21, !llvm.loop !65

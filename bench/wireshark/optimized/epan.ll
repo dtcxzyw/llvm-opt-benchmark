@@ -1156,7 +1156,7 @@ define void @epan_dissect_prime_with_hfid_array(ptr noundef readonly captures(no
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
   %7 = load ptr, ptr %5, align 8
   %8 = load ptr, ptr %1, align 8
-  %9 = getelementptr i32, ptr %8, i64 %indvars.iv
+  %9 = getelementptr [4 x i8], ptr %8, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4
   tail call void @proto_tree_prime_with_hfid(ptr noundef %7, i32 noundef %10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

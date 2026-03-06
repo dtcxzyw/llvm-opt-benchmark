@@ -359,7 +359,7 @@ _ZN8smallvec10infallible17h55d20733fd84378eE.exit: ; preds = %"_ZN8smallvec17Sma
   %45 = phi i64 [ %.pre.i, %43 ], [ %41, %37 ]
   %.sroa.03.0.i = phi ptr [ %44, %43 ], [ %.sink10.i.i, %37 ]
   %.sroa.04.0.i = phi ptr [ %11, %43 ], [ %.sink9.i.i, %37 ]
-  %46 = getelementptr inbounds { i8, [4 x i8] }, ptr %.sroa.03.0.i, i64 %45
+  %46 = getelementptr inbounds [5 x i8], ptr %.sroa.03.0.i, i64 %45
   store i40 %.sroa.0.0.copyload.i.i26, ptr %46, align 1
   %47 = load i64, ptr %.sroa.04.0.i, align 8, !alias.scope !39, !noundef !4
   %48 = add i64 %47, 1
@@ -380,7 +380,7 @@ _ZN8smallvec10infallible17h55d20733fd84378eE.exit: ; preds = %"_ZN8smallvec17Sma
   %.sroa.04.1.extract.shift.i = lshr i40 %.sroa.0.0.copyload.i.i, 8
   %.sroa.04.1.extract.trunc.i = trunc nuw i40 %.sroa.04.1.extract.shift.i to i32
   %53 = getelementptr inbounds nuw i8, ptr %.sroa.0.059, i64 5
-  %54 = getelementptr inbounds { i8, [4 x i8] }, ptr %.sink10.i, i64 %storemerge60
+  %54 = getelementptr inbounds [5 x i8], ptr %.sink10.i, i64 %storemerge60
   store i8 %.sroa.04.0.extract.trunc.i, ptr %54, align 1
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %54, i64 1
   store i32 %.sroa.04.1.extract.trunc.i, ptr %.sroa.2.0..sroa_idx, align 1
@@ -502,7 +502,7 @@ _ZN8smallvec10infallible17h55d20733fd84378eE.exit: ; preds = %"_ZN8smallvec17Sma
   %45 = phi i64 [ %.pre.i, %43 ], [ %41, %37 ]
   %.sroa.03.0.i = phi ptr [ %44, %43 ], [ %.sink10.i.i, %37 ]
   %.sroa.04.0.i = phi ptr [ %11, %43 ], [ %.sink9.i.i, %37 ]
-  %46 = getelementptr inbounds { i8, [2 x i8] }, ptr %.sroa.03.0.i, i64 %45
+  %46 = getelementptr inbounds [3 x i8], ptr %.sroa.03.0.i, i64 %45
   store i24 %.sroa.0.0.copyload.i.i26, ptr %46, align 1
   %47 = load i64, ptr %.sroa.04.0.i, align 8, !alias.scope !72, !noundef !4
   %48 = add i64 %47, 1
@@ -523,7 +523,7 @@ _ZN8smallvec10infallible17h55d20733fd84378eE.exit: ; preds = %"_ZN8smallvec17Sma
   %.sroa.04.1.extract.shift.i = lshr i24 %.sroa.0.0.copyload.i.i, 8
   %.sroa.04.1.extract.trunc.i = trunc nuw i24 %.sroa.04.1.extract.shift.i to i16
   %53 = getelementptr inbounds nuw i8, ptr %.sroa.0.059, i64 3
-  %54 = getelementptr inbounds { i8, [2 x i8] }, ptr %.sink10.i, i64 %storemerge60
+  %54 = getelementptr inbounds [3 x i8], ptr %.sink10.i, i64 %storemerge60
   store i8 %.sroa.04.0.extract.trunc.i, ptr %54, align 1
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %54, i64 1
   store i16 %.sroa.04.1.extract.trunc.i, ptr %.sroa.2.0..sroa_idx, align 1
@@ -678,7 +678,7 @@ common.resume:                                    ; preds = %47, %63
   %54 = phi i64 [ %.pre.i, %50 ], [ %45, %41 ]
   %.sroa.01.0.i = phi ptr [ %13, %50 ], [ %.sink9.i.i, %41 ]
   %.sroa.0.0.i12 = phi ptr [ %51, %50 ], [ %.sink10.i.i, %41 ]
-  %55 = getelementptr inbounds { i8, [15 x i8] }, ptr %.sroa.0.0.i12, i64 %54
+  %55 = getelementptr inbounds [16 x i8], ptr %.sroa.0.0.i12, i64 %54
   store i8 %.pr, ptr %55, align 8
   %.sroa.3.0..sroa_idx32 = getelementptr inbounds nuw i8, ptr %55, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.3.0..sroa_idx32, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.3.0..sroa_idx, i64 7, i1 false)
@@ -699,7 +699,7 @@ common.resume:                                    ; preds = %47, %63
   br i1 %59, label %.loopexit44, label %60
 
 60:                                               ; preds = %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h131a1ca5839abb9eE.exit"
-  %61 = getelementptr inbounds { i8, [15 x i8] }, ptr %.sink10.i, i64 %.sroa.7.053
+  %61 = getelementptr inbounds [16 x i8], ptr %.sink10.i, i64 %.sroa.7.053
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %61, ptr noundef nonnull align 8 dereferenceable(16) %5, i64 16, i1 false)
   %62 = add i64 %.sroa.7.053, 1
   %exitcond.not = icmp eq i64 %62, %.sink.i.pre-phi
@@ -812,7 +812,7 @@ define hidden void @"_ZN181_$LT$uv_install_wheel..record.._..$LT$impl$u20$serde.
   br i1 %55, label %56, label %.invoke764
 
 56:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hbd0889890f0e283aE.exit.i.i.i.i"
-  %57 = getelementptr inbounds i64, ptr %48, i64 %39
+  %57 = getelementptr inbounds [8 x i8], ptr %48, i64 %39
   %58 = load i64, ptr %57, align 8, !noalias !121, !noundef !4
   %59 = add nuw i64 %39, 1
   store i64 %59, ptr %19, align 8, !alias.scope !118, !noalias !119
@@ -985,7 +985,7 @@ define hidden void @"_ZN181_$LT$uv_install_wheel..record.._..$LT$impl$u20$serde.
   br i1 %140, label %141, label %.invoke764
 
 141:                                              ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hbd0889890f0e283aE.exit.i.i.i.i.i.i.i"
-  %142 = getelementptr inbounds i64, ptr %136, i64 %126
+  %142 = getelementptr inbounds [8 x i8], ptr %136, i64 %126
   %143 = load i64, ptr %142, align 8, !noalias !168, !noundef !4
   %144 = add nuw i64 %126, 1
   store i64 %144, ptr %32, align 8, !alias.scope !167, !noalias !155
@@ -1776,7 +1776,7 @@ define hidden void @_ZN3csv11byte_record10ByteRecord8validate17hd1f86b6f882f6349
   br label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h221faa5546b414f2E.llvm.3967706017269359750.exit"
 
 15:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hbd0889890f0e283aE.exit"
-  %16 = getelementptr i64, ptr %8, i64 %6
+  %16 = getelementptr [8 x i8], ptr %8, i64 %6
   %17 = getelementptr i8, ptr %16, i64 -8
   %18 = load i64, ptr %17, align 8, !noundef !4
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 48
@@ -1844,7 +1844,7 @@ _ZN4core5slice5ascii8is_ascii17hb022378719fa8ba5E.exit: ; preds = %.lr.ph25.i
   br i1 %.not, label %._crit_edge, label %42
 
 42:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hbd0889890f0e283aE.exit.i"
-  %43 = getelementptr i64, ptr %8, i64 %6
+  %43 = getelementptr [8 x i8], ptr %8, i64 %6
   %44 = getelementptr i8, ptr %43, i64 -8
   %45 = load i64, ptr %44, align 8, !noundef !4
   %46 = icmp ugt i64 %45, %23
@@ -1876,7 +1876,7 @@ _ZN4core5slice5ascii8is_ascii17hb022378719fa8ba5E.exit.thread9: ; preds = %.preh
   br i1 %53, label %54, label %65
 
 54:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hbd0889890f0e283aE.exit.i.i"
-  %55 = getelementptr inbounds i64, ptr %49, i64 %.sroa.9.051
+  %55 = getelementptr inbounds [8 x i8], ptr %49, i64 %.sroa.9.051
   %56 = load i64, ptr %55, align 8, !noalias !292, !noundef !4
   %57 = add nuw i64 %.sroa.9.051, 1
   %58 = load ptr, ptr %25, align 8, !noalias !292, !nonnull !4, !noundef !4
@@ -1958,7 +1958,7 @@ define hidden void @_ZN3csv12deserializer25deserialize_string_record17h52d86529d
   br i1 %.not.i, label %_ZN3csv11byte_record10ByteRecord8as_slice17he619d90130ae8046E.exit, label %15
 
 15:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hbd0889890f0e283aE.exit.i"
-  %16 = getelementptr i64, ptr %10, i64 %8
+  %16 = getelementptr [8 x i8], ptr %10, i64 %8
   %17 = getelementptr i8, ptr %16, i64 -8
   %18 = load i64, ptr %17, align 8, !noundef !4
   %19 = getelementptr inbounds nuw i8, ptr %.val27, i64 48
@@ -1995,7 +1995,7 @@ _ZN3csv11byte_record10ByteRecord8as_slice17he619d90130ae8046E.exit: ; preds = %"
   br i1 %.not.i30, label %_ZN3csv11byte_record10ByteRecord8as_slice17he619d90130ae8046E.exit33, label %33
 
 33:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hbd0889890f0e283aE.exit.i29"
-  %34 = getelementptr i64, ptr %28, i64 %26
+  %34 = getelementptr [8 x i8], ptr %28, i64 %26
   %35 = getelementptr i8, ptr %34, i64 -8
   %36 = load i64, ptr %35, align 8, !noundef !4
   %37 = getelementptr inbounds nuw i8, ptr %.val, i64 48
@@ -2472,7 +2472,7 @@ default.unreachable:                              ; preds = %96, %256
   %79 = getelementptr inbounds i8, ptr %78, i64 %.sroa.05.0.i
   %80 = sub nuw i64 %65, %.sroa.05.0.i
   %81 = sub nuw i64 %71, %.sroa.010.0.i
-  %82 = getelementptr inbounds i64, ptr %76, i64 %.sroa.010.0.i
+  %82 = getelementptr inbounds [8 x i8], ptr %76, i64 %.sroa.010.0.i
   call void @_ZN8csv_core6reader6Reader11read_record17h4a4d999286649cc4E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %9, ptr noalias noundef nonnull align 8 dereferenceable(440) %63, ptr noalias noundef nonnull readonly align 1 %60, i64 noundef %59, ptr noalias noundef nonnull align 1 %79, i64 noundef %80, ptr noalias noundef nonnull align 8 %82, i64 noundef %81), !noalias !360
   %83 = load i8, ptr %44, align 8, !range !338, !noalias !346, !noundef !4
   %84 = load i64, ptr %9, align 8, !noalias !346, !noundef !4
@@ -2831,7 +2831,7 @@ _ZN3std2io8buffered9bufreader6buffer6Buffer8fill_buf17h2a1e253d0698dc32E.exit47:
   %239 = getelementptr inbounds i8, ptr %238, i64 %.sroa.05.0.i28
   %240 = sub nuw i64 %224, %.sroa.05.0.i28
   %241 = sub nuw i64 %231, %.sroa.010.0.i29
-  %242 = getelementptr inbounds i64, ptr %236, i64 %.sroa.010.0.i29
+  %242 = getelementptr inbounds [8 x i8], ptr %236, i64 %.sroa.010.0.i29
   call void @_ZN8csv_core6reader6Reader11read_record17h4a4d999286649cc4E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %7, ptr noalias noundef nonnull align 8 dereferenceable(440) %222, ptr noalias noundef nonnull readonly align 1 %219, i64 noundef %218, ptr noalias noundef nonnull align 1 %239, i64 noundef %240, ptr noalias noundef nonnull align 8 %242, i64 noundef %241), !noalias !402
   %243 = load i8, ptr %201, align 8, !range !338, !noalias !410, !noundef !4
   %244 = load i64, ptr %7, align 8, !noalias !410, !noundef !4
@@ -3435,7 +3435,7 @@ default.unreachable148:                           ; preds = %87
   %68 = getelementptr inbounds i8, ptr %67, i64 %.sroa.05.0.i
   %69 = sub nuw i64 %58, %.sroa.05.0.i
   %70 = sub nuw i64 %63, %.sroa.010.0.i
-  %71 = getelementptr inbounds i64, ptr %66, i64 %.sroa.010.0.i
+  %71 = getelementptr inbounds [8 x i8], ptr %66, i64 %.sroa.010.0.i
   invoke void @_ZN8csv_core6reader6Reader11read_record17h4a4d999286649cc4E(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %4, ptr noalias noundef nonnull align 8 dereferenceable(440) %57, ptr noalias noundef nonnull readonly align 1 %55, i64 noundef %54, ptr noalias noundef nonnull align 1 %68, i64 noundef %69, ptr noalias noundef nonnull align 8 %71, i64 noundef %70)
           to label %.noexc20 unwind label %.loopexit
 
@@ -5265,7 +5265,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN4core6option1
   br i1 %23, label %24, label %39
 
 24:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hbd0889890f0e283aE.exit.i.i.i"
-  %25 = getelementptr inbounds i64, ptr %18, i64 %6
+  %25 = getelementptr inbounds [8 x i8], ptr %18, i64 %6
   %26 = load i64, ptr %25, align 8, !noalias !805, !noundef !4
   %27 = add nuw i64 %6, 1
   store i64 %27, ptr %5, align 8, !alias.scope !805
@@ -6498,7 +6498,7 @@ define hidden void @"_ZN81_$LT$csv..deserializer..DeStringRecord$u20$as$u20$csv.
   br i1 %24, label %25, label %38
 
 25:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hbd0889890f0e283aE.exit.i"
-  %26 = getelementptr inbounds i64, ptr %19, i64 %6
+  %26 = getelementptr inbounds [8 x i8], ptr %19, i64 %6
   %27 = load i64, ptr %26, align 8, !noalias !1033, !noundef !4
   %28 = add nuw i64 %6, 1
   store i64 %28, ptr %5, align 8, !alias.scope !1033
@@ -6609,7 +6609,7 @@ define hidden { ptr, i64 } @"_ZN81_$LT$csv..deserializer..DeStringRecord$u20$as$
   br i1 %23, label %24, label %39
 
 24:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hbd0889890f0e283aE.exit.i.i.i.i"
-  %25 = getelementptr inbounds i64, ptr %18, i64 %6
+  %25 = getelementptr inbounds [8 x i8], ptr %18, i64 %6
   %26 = load i64, ptr %25, align 8, !noalias !1057, !noundef !4
   %27 = add nuw i64 %6, 1
   store i64 %27, ptr %5, align 8, !alias.scope !1056, !noalias !1042
@@ -7985,7 +7985,7 @@ define hidden void @"_ZN96_$LT$$RF$mut$u20$csv..deserializer..DeRecordWrap$LT$T$
   br i1 %27, label %28, label %41
 
 28:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hbd0889890f0e283aE.exit.i.i"
-  %29 = getelementptr inbounds i64, ptr %22, i64 %9
+  %29 = getelementptr inbounds [8 x i8], ptr %22, i64 %9
   %30 = load i64, ptr %29, align 8, !noalias !1372, !noundef !4
   %31 = add nuw i64 %9, 1
   store i64 %31, ptr %8, align 8, !alias.scope !1371, !noalias !1366
@@ -8331,7 +8331,7 @@ define hidden void @"_ZN96_$LT$$RF$mut$u20$csv..deserializer..DeRecordWrap$LT$T$
   br i1 %36, label %37, label %48
 
 37:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hbd0889890f0e283aE.exit.i.i"
-  %38 = getelementptr inbounds i64, ptr %31, i64 %18
+  %38 = getelementptr inbounds [8 x i8], ptr %31, i64 %18
   %39 = load i64, ptr %38, align 8, !noalias !1414, !noundef !4
   %40 = add nuw i64 %18, 1
   store i64 %40, ptr %17, align 8, !alias.scope !1413, !noalias !1408
@@ -8489,7 +8489,7 @@ define hidden void @"_ZN96_$LT$$RF$mut$u20$csv..deserializer..DeRecordWrap$LT$T$
   br i1 %36, label %37, label %48
 
 37:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hbd0889890f0e283aE.exit.i.i"
-  %38 = getelementptr inbounds i64, ptr %31, i64 %18
+  %38 = getelementptr inbounds [8 x i8], ptr %31, i64 %18
   %39 = load i64, ptr %38, align 8, !noalias !1449, !noundef !4
   %40 = add nuw i64 %18, 1
   store i64 %40, ptr %17, align 8, !alias.scope !1448, !noalias !1443
@@ -8624,7 +8624,7 @@ define hidden void @"_ZN96_$LT$$RF$mut$u20$csv..deserializer..DeRecordWrap$LT$T$
   br i1 %24, label %25, label %38
 
 25:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hbd0889890f0e283aE.exit.i.i"
-  %26 = getelementptr inbounds i64, ptr %19, i64 %6
+  %26 = getelementptr inbounds [8 x i8], ptr %19, i64 %6
   %27 = load i64, ptr %26, align 8, !noalias !1481, !noundef !4
   %28 = add nuw i64 %6, 1
   store i64 %28, ptr %5, align 8, !alias.scope !1480, !noalias !1475

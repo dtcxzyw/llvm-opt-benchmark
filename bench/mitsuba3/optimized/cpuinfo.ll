@@ -9,8 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.asmjit::_abi_1_10::CpuFeatures" = type { %"struct.asmjit::_abi_1_10::CpuFeatures::Data" }
 %"struct.asmjit::_abi_1_10::CpuFeatures::Data" = type { %"struct.asmjit::_abi_1_10::Support::Array" }
 %"struct.asmjit::_abi_1_10::Support::Array" = type { [4 x i64] }
-%struct.Vendor = type { [8 x i8], %union.anon }
-%union.anon = type { [3 x i32] }
 
 @_ZN6asmjit9_abi_1_10L13cpuInfoGlobalE = internal global %"class.asmjit::_abi_1_10::CpuInfo" zeroinitializer, align 8
 @_ZN6asmjit9_abi_1_10L18cpuInfoInitializedE = internal unnamed_addr global i1 false, align 4
@@ -75,7 +73,7 @@ define dso_local noundef nonnull align 8 dereferenceable(152) ptr @_ZN6asmjit9_a
 30:                                               ; preds = %29, %25, %21, %17, %13
   %31 = phi i64 [ 4, %29 ], [ 0, %13 ], [ 1, %17 ], [ 2, %21 ], [ 3, %25 ]
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %33 = getelementptr inbounds nuw %struct.Vendor, ptr @_ZZN6asmjit9_abi_1_10L17simplifyCpuVendorERNS0_7CpuInfoEjjjE5table, i64 %31
+  %33 = getelementptr inbounds nuw [20 x i8], ptr @_ZZN6asmjit9_abi_1_10L17simplifyCpuVendorERNS0_7CpuInfoEjjjE5table, i64 %31
   %34 = load i64, ptr %33, align 4
   store i64 %34, ptr %32, align 4
   %35 = icmp eq i32 %9, 0

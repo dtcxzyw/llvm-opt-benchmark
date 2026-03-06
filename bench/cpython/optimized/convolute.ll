@@ -15,7 +15,7 @@ define hidden range(i32 0, 2) i32 @fnt_convolute(ptr noundef %0, ptr noundef %1,
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
   %10 = sext i32 %3 to i64
-  %11 = getelementptr i64, ptr @mpd_moduli, i64 %10
+  %11 = getelementptr [8 x i8], ptr @mpd_moduli, i64 %10
   %12 = load i64, ptr %11, align 8, !tbaa !3
   %13 = add i64 %12, -2
   %14 = tail call fastcc i64 @x64_powmod(i64 noundef %2, i64 noundef %13, i64 noundef %12)
@@ -43,17 +43,17 @@ define hidden range(i32 0, 2) i32 @fnt_convolute(ptr noundef %0, ptr noundef %1,
 .lr.ph:                                           ; preds = %.preheader63, %.lr.ph
   %.05564 = phi i64 [ %34, %.lr.ph ], [ 0, %.preheader63 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %23 = getelementptr i64, ptr %0, i64 %.05564
+  %23 = getelementptr [8 x i8], ptr %0, i64 %.05564
   %24 = load i64, ptr %23, align 8, !tbaa !3
   store i64 %24, ptr %4, align 8, !tbaa !3
-  %25 = getelementptr i64, ptr %1, i64 %.05564
+  %25 = getelementptr [8 x i8], ptr %1, i64 %.05564
   %26 = load i64, ptr %25, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %27 = or disjoint i64 %.05564, 1
-  %28 = getelementptr i64, ptr %0, i64 %27
+  %28 = getelementptr [8 x i8], ptr %0, i64 %27
   %29 = load i64, ptr %28, align 8, !tbaa !3
   store i64 %29, ptr %5, align 8, !tbaa !3
-  %30 = getelementptr i64, ptr %1, i64 %27
+  %30 = getelementptr [8 x i8], ptr %1, i64 %27
   %31 = load i64, ptr %30, align 8, !tbaa !3
   call fastcc void @x64_mulmod2(ptr noundef %4, i64 noundef %26, ptr noundef %5, i64 noundef %31, i64 noundef %12)
   %32 = load i64, ptr %4, align 8, !tbaa !3
@@ -79,7 +79,7 @@ define hidden range(i32 0, 2) i32 @fnt_convolute(ptr noundef %0, ptr noundef %1,
 .lr.ph66:                                         ; preds = %.preheader, %.lr.ph66
   %.165 = phi i64 [ %50, %.lr.ph66 ], [ 0, %.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %38 = getelementptr i64, ptr %0, i64 %.165
+  %38 = getelementptr [8 x i8], ptr %0, i64 %.165
   %39 = load i64, ptr %38, align 8, !tbaa !3
   store i64 %39, ptr %6, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -703,7 +703,7 @@ define hidden range(i32 0, 2) i32 @fnt_autoconvolute(ptr noundef %0, i64 noundef
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = sext i32 %2 to i64
-  %10 = getelementptr i64, ptr @mpd_moduli, i64 %9
+  %10 = getelementptr [8 x i8], ptr @mpd_moduli, i64 %9
   %11 = load i64, ptr %10, align 8, !tbaa !3
   %12 = add i64 %11, -2
   %13 = tail call fastcc i64 @x64_powmod(i64 noundef %1, i64 noundef %12, i64 noundef %11)
@@ -726,7 +726,7 @@ define hidden range(i32 0, 2) i32 @fnt_autoconvolute(ptr noundef %0, i64 noundef
 .lr.ph:                                           ; preds = %.preheader52, %.lr.ph
   %.053 = phi i64 [ %26, %.lr.ph ], [ 0, %.preheader52 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %20 = getelementptr i64, ptr %0, i64 %.053
+  %20 = getelementptr [8 x i8], ptr %0, i64 %.053
   %21 = load i64, ptr %20, align 8, !tbaa !3
   store i64 %21, ptr %3, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -757,7 +757,7 @@ define hidden range(i32 0, 2) i32 @fnt_autoconvolute(ptr noundef %0, i64 noundef
 .lr.ph55:                                         ; preds = %.preheader, %.lr.ph55
   %.154 = phi i64 [ %42, %.lr.ph55 ], [ 0, %.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %30 = getelementptr i64, ptr %0, i64 %.154
+  %30 = getelementptr [8 x i8], ptr %0, i64 %.154
   %31 = load i64, ptr %30, align 8, !tbaa !3
   store i64 %31, ptr %5, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %6)

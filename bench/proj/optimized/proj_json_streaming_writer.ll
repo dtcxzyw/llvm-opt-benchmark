@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%"struct.osgeo::proj::CPLJSonStreamingWriter::State" = type { i8, i8 }
 
 @.str.1 = private unnamed_addr constant [3 x i8] c"\\\22\00", align 1
 @.str.2 = private unnamed_addr constant [3 x i8] c"\\\\\00", align 1
@@ -1025,7 +1024,7 @@ _ZNSt6vectorIN5osgeo4proj22CPLJSonStreamingWriter5StateESaIS3_EE11_S_relocateEPS
 _ZNSt6vectorIN5osgeo4proj22CPLJSonStreamingWriter5StateESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %65, %_ZNSt6vectorIN5osgeo4proj22CPLJSonStreamingWriter5StateESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i
   store ptr %59, ptr %38, align 8, !tbaa !26
   store ptr %64, ptr %39, align 8, !tbaa !35
-  %66 = getelementptr inbounds nuw %"struct.osgeo::proj::CPLJSonStreamingWriter::State", ptr %59, i64 %57
+  %66 = getelementptr inbounds nuw [2 x i8], ptr %59, i64 %57
   store ptr %66, ptr %41, align 8, !tbaa !27
   br label %_ZNSt6vectorIN5osgeo4proj22CPLJSonStreamingWriter5StateESaIS3_EE12emplace_backIJS3_EEERS3_DpOT_.exit
 
@@ -1417,7 +1416,7 @@ _ZNSt6vectorIN5osgeo4proj22CPLJSonStreamingWriter5StateESaIS3_EE11_S_relocateEPS
 _ZNSt6vectorIN5osgeo4proj22CPLJSonStreamingWriter5StateESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %65, %_ZNSt6vectorIN5osgeo4proj22CPLJSonStreamingWriter5StateESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i
   store ptr %59, ptr %38, align 8, !tbaa !26
   store ptr %64, ptr %39, align 8, !tbaa !35
-  %66 = getelementptr inbounds nuw %"struct.osgeo::proj::CPLJSonStreamingWriter::State", ptr %59, i64 %57
+  %66 = getelementptr inbounds nuw [2 x i8], ptr %59, i64 %57
   store ptr %66, ptr %41, align 8, !tbaa !27
   br label %_ZNSt6vectorIN5osgeo4proj22CPLJSonStreamingWriter5StateESaIS3_EE12emplace_backIJS3_EEERS3_DpOT_.exit
 

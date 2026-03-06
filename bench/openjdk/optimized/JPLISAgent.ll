@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.jvmtiCapabilities = type { i64, i64 }
 %struct.jvmtiEventCallbacks = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.jvmtiClassDefinition = type { ptr, i32, ptr }
 
 @.str = private unnamed_addr constant [31 x i8] c"jvmtierror == JVMTI_ERROR_NONE\00", align 1
 @.str.1 = private unnamed_addr constant [60 x i8] c"src/java.instrument/share/native/libinstrument/JPLISAgent.c\00", align 1
@@ -1304,7 +1303,7 @@ define hidden ptr @getObjectArrayFromClasses(ptr noundef %0, ptr noundef readonl
   %22 = load ptr, ptr %0, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 1392
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
   %27 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void %24(ptr noundef nonnull %0, ptr noundef %15, i32 noundef %27, ptr noundef %26) #10
@@ -1565,7 +1564,7 @@ define hidden void @retransformClasses(ptr noundef %0, ptr noundef %1, ptr nound
   %28 = load ptr, ptr %27, align 8
   %29 = trunc nuw nsw i64 %indvars.iv to i32
   %30 = tail call ptr %28(ptr noundef nonnull %0, ptr noundef nonnull %2, i32 noundef %29) #10
-  %31 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv
   store ptr %30, ptr %31, align 8
   %32 = tail call zeroext i8 @checkForThrowable(ptr noundef nonnull %0) #10
   %.not71 = icmp eq i8 %32, 0
@@ -1720,7 +1719,7 @@ define hidden void @redefineClasses(ptr noundef %0, ptr noundef readonly capture
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 272
   %61 = load ptr, ptr %60, align 8
   %62 = tail call ptr (ptr, ptr, ptr, ...) %61(ptr noundef nonnull %0, ptr noundef %55, ptr noundef %27) #10
-  %63 = getelementptr inbounds nuw %struct.jvmtiClassDefinition, ptr %40, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [24 x i8], ptr %40, i64 %indvars.iv
   store ptr %62, ptr %63, align 8
   %64 = tail call zeroext i8 @checkForThrowable(ptr noundef nonnull %0) #10
   %.not140 = icmp eq i8 %64, 0
@@ -1733,7 +1732,7 @@ define hidden void @redefineClasses(ptr noundef %0, ptr noundef readonly capture
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 272
   %69 = load ptr, ptr %68, align 8
   %70 = tail call ptr (ptr, ptr, ptr, ...) %69(ptr noundef nonnull %0, ptr noundef %55, ptr noundef %34) #10
-  %71 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv
   store ptr %70, ptr %71, align 8
   %72 = tail call zeroext i8 @checkForThrowable(ptr noundef nonnull %0) #10
   %.not141 = icmp eq i8 %72, 0
@@ -1802,7 +1801,7 @@ define hidden void @redefineClasses(ptr noundef %0, ptr noundef readonly capture
 .lr.ph158:                                        ; preds = %.lr.ph158.preheader, %110
   %indvars.iv163 = phi i64 [ 0, %.lr.ph158.preheader ], [ %indvars.iv.next164, %110 ]
   %.6156 = phi i8 [ %.5, %.lr.ph158.preheader ], [ %.7, %110 ]
-  %98 = getelementptr inbounds nuw %struct.jvmtiClassDefinition, ptr %40, i64 %indvars.iv163
+  %98 = getelementptr inbounds nuw [24 x i8], ptr %40, i64 %indvars.iv163
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 16
   %100 = load ptr, ptr %99, align 8
   %.not146 = icmp eq ptr %100, null
@@ -1812,7 +1811,7 @@ define hidden void @redefineClasses(ptr noundef %0, ptr noundef readonly capture
   %102 = load ptr, ptr %0, align 8
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 1536
   %104 = load ptr, ptr %103, align 8
-  %105 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv163
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv163
   %106 = load ptr, ptr %105, align 8
   tail call void %104(ptr noundef nonnull %0, ptr noundef %106, ptr noundef nonnull %100, i32 noundef 0) #10
   %.not147 = icmp eq i8 %.6156, 0
@@ -2202,9 +2201,9 @@ define hidden void @setNativeMethodPrefixes(ptr noundef %0, ptr noundef readonly
 
 49:                                               ; preds = %41
   %50 = sext i32 %.07081 to i64
-  %51 = getelementptr inbounds ptr, ptr %17, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %17, i64 %50
   store ptr %45, ptr %51, align 8
-  %52 = getelementptr inbounds ptr, ptr %18, i64 %50
+  %52 = getelementptr inbounds [8 x i8], ptr %18, i64 %50
   store ptr %27, ptr %52, align 8
   %53 = add nsw i32 %.07081, 1
   br label %54
@@ -2236,9 +2235,9 @@ define hidden void @setNativeMethodPrefixes(ptr noundef %0, ptr noundef readonly
   %63 = load ptr, ptr %0, align 8
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 1360
   %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   %69 = load ptr, ptr %68, align 8
   call void %65(ptr noundef nonnull %0, ptr noundef %67, ptr noundef %69) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

@@ -430,7 +430,7 @@ define dso_local noundef i64 @binary_upgrade_create_empty_extension(ptr noundef 
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %61 ]
   %.132 = phi ptr [ %74, %.lr.ph ], [ null, %61 ]
   %68 = load ptr, ptr %2, align 8
-  %69 = getelementptr inbounds nuw i64, ptr %68, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %indvars.iv
   %70 = load i64, ptr %69, align 8
   %71 = inttoptr i64 %70 to ptr
   %72 = call ptr @text_to_cstring(ptr noundef %71) #5

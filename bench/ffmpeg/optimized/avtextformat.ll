@@ -6,9 +6,8 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.0 = type { i64 }
 %struct.anon = type { double, double, ptr, ptr }
 %struct.AVTextFormatter = type { ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32 }
-%struct.AVBPrint = type { ptr, i32, i32, i32, [1 x i8], [1000 x i8] }
 %struct.AVTextFormatOptions = type { i32, i32, i32, i32, i32 }
-%struct.AVTextFormatSection = type { i32, ptr, i32, [12 x i32], ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr }
+%struct.AVBPrint = type { ptr, i32, i32, i32, [1 x i8], [1000 x i8] }
 
 @.str = private unnamed_addr constant [30 x i8] c"Assertion %s failed at %s:%d\0A\00", align 1
 @.str.1 = private unnamed_addr constant [19 x i8] c"ptctx && formatter\00", align 1
@@ -132,7 +131,7 @@ define i32 @avtext_context_close(ptr noundef %0) local_unnamed_addr #0 {
 
 20:                                               ; preds = %18, %20
   %indvars.iv = phi i64 [ 0, %18 ], [ %indvars.iv.next, %20 ]
-  %21 = getelementptr inbounds nuw %struct.AVBPrint, ptr %19, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [1024 x i8], ptr %19, i64 %indvars.iv
   %22 = tail call i32 @av_bprint_finalize(ptr noundef nonnull %21, ptr noundef null) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 12
@@ -200,7 +199,7 @@ define range(i32 -2147483648, 1) i32 @avtext_context_open(ptr noundef writeonly 
 
 26:                                               ; preds = %.preheader90, %26
   %indvars.iv = phi i64 [ 0, %.preheader90 ], [ %indvars.iv.next, %26 ]
-  %27 = getelementptr inbounds nuw %struct.AVBPrint, ptr %19, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [1024 x i8], ptr %19, i64 %indvars.iv
   tail call void @av_bprint_init(ptr noundef nonnull %27, i32 noundef 1, i32 noundef -1) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 12
@@ -488,21 +487,21 @@ define void @avtext_print_section_header(ptr noundef %0, ptr noundef %1, i32 nou
 15:                                               ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %17 = sext i32 %12 to i64
-  %18 = getelementptr inbounds i32, ptr %16, i64 %17
+  %18 = getelementptr inbounds [4 x i8], ptr %16, i64 %17
   store i32 0, ptr %18, align 4, !tbaa !59
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %20 = load i32, ptr %10, align 4, !tbaa !38
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds [100 x i32], ptr %19, i64 %21
+  %22 = getelementptr inbounds [400 x i8], ptr %19, i64 %21
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(400) %22, i8 0, i64 400, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %24 = load ptr, ptr %23, align 8, !tbaa !39
   %25 = zext nneg i32 %2 to i64
-  %26 = getelementptr inbounds nuw %struct.AVTextFormatSection, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [144 x i8], ptr %24, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 4904
   %28 = load i32, ptr %10, align 4, !tbaa !38
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds ptr, ptr %27, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %27, i64 %29
   store ptr %26, ptr %30, align 8, !tbaa !60
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !9
@@ -536,7 +535,7 @@ define void @avtext_print_section_footer(ptr noundef %0) local_unnamed_addr #0 {
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4904
   %7 = zext nneg i32 %3 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !60
   %10 = load i32, ptr %9, align 8, !tbaa !62
   %.not = icmp eq i32 %3, 0
@@ -550,15 +549,15 @@ define void @avtext_print_section_footer(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %15, label %.critedge, label %16
 
 16:                                               ; preds = %11
-  %17 = getelementptr i32, ptr %0, i64 %7
+  %17 = getelementptr [4 x i8], ptr %0, i64 %7
   %18 = getelementptr i8, ptr %17, i64 52
   %19 = load i32, ptr %18, align 4, !tbaa !59
   %20 = add i32 %19, 1
   store i32 %20, ptr %18, align 4, !tbaa !59
-  %21 = getelementptr [100 x i32], ptr %0, i64 %7
+  %21 = getelementptr [400 x i8], ptr %0, i64 %7
   %22 = getelementptr i8, ptr %21, i64 -296
   %23 = sext i32 %10 to i64
-  %24 = getelementptr inbounds i32, ptr %22, i64 %23
+  %24 = getelementptr inbounds [4 x i8], ptr %22, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !59
   %26 = add i32 %25, 1
   store i32 %26, ptr %24, align 4, !tbaa !59
@@ -636,7 +635,7 @@ define void @avtext_print_integer(ptr noundef %0, ptr noundef %1, i64 noundef %2
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 4904
   %24 = zext nneg i32 %20 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !60
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 104
   %28 = load i32, ptr %27, align 8, !tbaa !66
@@ -659,7 +658,7 @@ define void @avtext_print_integer(ptr noundef %0, ptr noundef %1, i64 noundef %2
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %39 = load i32, ptr %19, align 4, !tbaa !38
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds i32, ptr %38, i64 %40
+  %41 = getelementptr inbounds [4 x i8], ptr %38, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !59
   %43 = add i32 %42, 1
   store i32 %43, ptr %41, align 4, !tbaa !59
@@ -694,7 +693,7 @@ define void @avtext_print_unit_int(ptr noundef %0, ptr noundef %1, i32 noundef %
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 4904
   %14 = zext nneg i32 %10 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !60
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 17288
   %18 = load i32, ptr %17, align 8, !tbaa !37
@@ -723,7 +722,7 @@ define void @avtext_print_unit_int(ptr noundef %0, ptr noundef %1, i32 noundef %
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %32 = load i32, ptr %9, align 4, !tbaa !38
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds i32, ptr %31, i64 %33
+  %34 = getelementptr inbounds [4 x i8], ptr %31, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !59
   %36 = add i32 %35, 1
   store i32 %36, ptr %34, align 4, !tbaa !59
@@ -757,7 +756,7 @@ define range(i32 -1094995529, 1) i32 @avtext_print_string(ptr noundef %0, ptr no
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 4904
   %15 = zext nneg i32 %11 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !60
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 17288
   %19 = load i32, ptr %18, align 8, !tbaa !37
@@ -852,7 +851,7 @@ define range(i32 -1094995529, 1) i32 @avtext_print_string(ptr noundef %0, ptr no
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %63 = load i32, ptr %10, align 4, !tbaa !38
   %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds i32, ptr %62, i64 %64
+  %65 = getelementptr inbounds [4 x i8], ptr %62, i64 %64
   %66 = load i32, ptr %65, align 4, !tbaa !59
   %67 = add i32 %66, 1
   store i32 %67, ptr %65, align 4, !tbaa !59
@@ -920,7 +919,7 @@ define internal fastcc noundef nonnull ptr @value_string(ptr noundef readonly ca
   %35 = fptosi double %34 to i64
   %36 = tail call i64 @llvm.smax.i64(i64 %35, i64 0)
   %37 = tail call i64 @llvm.umin.i64(i64 %36, i64 5)
-  %38 = getelementptr inbounds nuw %struct.anon, ptr @si_prefixes, i64 %37
+  %38 = getelementptr inbounds nuw [32 x i8], ptr @si_prefixes, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %.180 = load ptr, ptr %39, align 16, !tbaa !51
   %.pn81 = load double, ptr %38, align 16, !tbaa !71
@@ -934,7 +933,7 @@ define internal fastcc noundef nonnull ptr @value_string(ptr noundef readonly ca
   %43 = fptosi double %42 to i64
   %44 = tail call i64 @llvm.smax.i64(i64 %43, i64 0)
   %45 = tail call i64 @llvm.umin.i64(i64 %44, i64 5)
-  %46 = getelementptr inbounds nuw %struct.anon, ptr @si_prefixes, i64 %45
+  %46 = getelementptr inbounds nuw [32 x i8], ptr @si_prefixes, i64 %45
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %.1 = load ptr, ptr %48, align 8, !tbaa !51
@@ -1148,7 +1147,7 @@ define void @avtext_print_rational(ptr noundef %0, ptr noundef %1, i64 %2, i8 no
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 4904
   %14 = zext nneg i32 %10 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !60
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 17288
   %18 = load i32, ptr %17, align 8, !tbaa !37
@@ -1177,7 +1176,7 @@ define void @avtext_print_rational(ptr noundef %0, ptr noundef %1, i64 %2, i8 no
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %32 = load i32, ptr %9, align 4, !tbaa !38
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds i32, ptr %31, i64 %33
+  %34 = getelementptr inbounds [4 x i8], ptr %31, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !59
   %36 = add i32 %35, 1
   store i32 %36, ptr %34, align 4, !tbaa !59
@@ -1239,7 +1238,7 @@ define void @avtext_print_time(ptr noundef %0, ptr noundef %1, i64 noundef %2, p
 27:                                               ; preds = %23
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 4904
   %29 = zext nneg i32 %25 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !60
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 17288
   %33 = load i32, ptr %32, align 8, !tbaa !37
@@ -1268,7 +1267,7 @@ define void @avtext_print_time(ptr noundef %0, ptr noundef %1, i64 noundef %2, p
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %47 = load i32, ptr %24, align 4, !tbaa !38
   %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds i32, ptr %46, i64 %48
+  %49 = getelementptr inbounds [4 x i8], ptr %46, i64 %48
   %50 = load i32, ptr %49, align 4, !tbaa !59
   %51 = add i32 %50, 1
   store i32 %51, ptr %49, align 4, !tbaa !59
@@ -1434,7 +1433,7 @@ define void @avtext_print_data_hash(ptr noundef %0, ptr noundef %1, ptr noundef 
 22:                                               ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 4904
   %24 = zext nneg i32 %20 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !60
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 17288
   %28 = load i32, ptr %27, align 8, !tbaa !37
@@ -1463,7 +1462,7 @@ define void @avtext_print_data_hash(ptr noundef %0, ptr noundef %1, ptr noundef 
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %42 = load i32, ptr %19, align 4, !tbaa !38
   %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds i32, ptr %41, i64 %43
+  %44 = getelementptr inbounds [4 x i8], ptr %41, i64 %43
   %45 = load i32, ptr %44, align 4, !tbaa !59
   %46 = add i32 %45, 1
   store i32 %46, ptr %44, align 4, !tbaa !59
@@ -1773,7 +1772,7 @@ formatters_register_all.exit:                     ; preds = %1
 
 2:                                                ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %3 = getelementptr inbounds nuw ptr, ptr @registered_formatters, i64 %indvars.iv.next
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @registered_formatters, i64 %indvars.iv.next
   %4 = load ptr, ptr %3, align 8, !tbaa !91
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !92

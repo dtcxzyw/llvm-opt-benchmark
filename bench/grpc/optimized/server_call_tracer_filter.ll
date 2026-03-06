@@ -145,7 +145,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Optional_payload.base" = type { %"struct.std::_Optional_payload_base.base" }
 %"struct.std::_Optional_payload_base.base" = type <{ %"union.std::_Optional_payload_base<std::unique_ptr<grpc_metadata_batch, grpc_core::Arena::PooledDeleter>>::_Storage", i8 }>
 %"union.std::_Optional_payload_base<std::unique_ptr<grpc_metadata_batch, grpc_core::Arena::PooledDeleter>>::_Storage" = type { %"class.std::unique_ptr.81" }
-%"struct.grpc_core::LbCostBinMetadata::ValueType" = type { double, %"class.std::__cxx11::basic_string" }
 %"class.grpc_core::Poll.199" = type { i8, %union.anon.200 }
 %union.anon.200 = type { %"class.std::unique_ptr.81" }
 %"class.absl::lts_20240722::StatusOr" = type { %"class.absl::lts_20240722::internal_statusor::StatusOrData" }
@@ -158,10 +157,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.73" = type { %"struct.std::_Tuple_impl.74" }
 %"struct.std::_Tuple_impl.74" = type { %"struct.std::_Head_base.77" }
 %"struct.std::_Head_base.77" = type { ptr }
-%"struct.grpc_core::filters_detail::Operator" = type { ptr, i64, ptr, ptr, ptr }
-%"struct.grpc_core::filters_detail::ServerTrailingMetadataOperator" = type { ptr, i64, ptr }
-%"struct.grpc_core::filters_detail::Finalizer" = type { ptr, i64, ptr }
-%"struct.grpc_core::filters_detail::ChannelDataDestructor" = type { ptr, ptr }
 %"class.grpc_core::Poll.295" = type { i8, %union.anon.296 }
 %union.anon.296 = type { %"struct.grpc_core::filters_detail::ResultOr" }
 %"struct.grpc_core::filters_detail::ResultOr" = type { %"class.std::unique_ptr.81", %"class.std::unique_ptr.81" }
@@ -501,7 +496,7 @@ _ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %2
 _ZNSt6vectorIPFvPvESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %25, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !26
   store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !23
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !27
   br label %_ZNSt6vectorIPFvPvESaIS2_EE9push_backERKS2_.exit
 
@@ -1097,7 +1092,7 @@ _ZNSt8functionIFN9grpc_core12ArenaPromiseISt10unique_ptrI19grpc_metadata_batchNS
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 56
   %77 = load i16, ptr @_ZN9grpc_core12arena_detail18ArenaContextTraitsINS_19CallTracerInterfaceEE3id_E, align 2, !tbaa !21, !noalias !154
   %78 = zext i16 %77 to i64
-  %79 = getelementptr inbounds nuw ptr, ptr %76, i64 %78
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !28, !noalias !154
   %81 = icmp eq ptr %80, null
   br i1 %81, label %_ZN9grpc_core12_GLOBAL__N_122ServerCallTracerFilter4Call23OnClientInitialMetadataER19grpc_metadata_batch.exit.i.i, label %82
@@ -1559,7 +1554,7 @@ _ZN9grpc_core14promise_detail11PromiseLikeINS_3MapINS_12ArenaPromiseISt10unique_
   %24 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %25 = load i16, ptr @_ZN9grpc_core12arena_detail18ArenaContextTraitsINS_19CallTracerInterfaceEE3id_E, align 2, !tbaa !21
   %26 = zext i16 %25 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr %24, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !28
   %29 = icmp eq ptr %28, null
   br i1 %29, label %36, label %30
@@ -1737,7 +1732,7 @@ define internal void @_ZN9grpc_core15InterceptorListISt10unique_ptrI19grpc_metad
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %13 = load i16, ptr @_ZN9grpc_core12arena_detail18ArenaContextTraitsINS_19CallTracerInterfaceEE3id_E, align 2, !tbaa !21, !noalias !208
   %14 = zext i16 %13 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %12, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !28, !noalias !208
   %17 = icmp eq ptr %16, null
   br i1 %17, label %_ZN9grpc_core4PollISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEED2Ev.exit, label %18
@@ -2352,7 +2347,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072223inlined_vector_internal7Storag
 .lr.ph.i:                                         ; preds = %1, %_ZNSt16allocator_traitsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEE7destroyIS2_EEvRS3_PT_.exit.i
   %.06.i = phi i64 [ %8, %_ZNSt16allocator_traitsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %7, %1 ]
   %8 = add nsw i64 %.06.i, -1
-  %9 = getelementptr inbounds nuw %"struct.grpc_core::LbCostBinMetadata::ValueType", ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [40 x i8], ptr %6, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !10
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -2404,7 +2399,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072223inlined_vector_internal7Storag
 .lr.ph.i:                                         ; preds = %1, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i
   %.06.i = phi i64 [ %8, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i ], [ %7, %1 ]
   %8 = add nsw i64 %.06.i, -1
-  %9 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %12 = icmp eq ptr %10, %11
@@ -2448,7 +2443,7 @@ define internal void @_ZN9grpc_core16CallFinalization13FuncFinalizerIZNS_21promi
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %6 = load i16, ptr @_ZN9grpc_core12arena_detail18ArenaContextTraitsINS_19CallTracerInterfaceEE3id_E, align 2, !tbaa !21
   %7 = zext i16 %6 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %5, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !28
   %10 = icmp eq ptr %9, null
   br i1 %10, label %_ZZN9grpc_core21promise_filter_detail17InterceptFinalizeINS_12_GLOBAL__N_122ServerCallTracerFilter4CallEEEvMT_FvPK20grpc_call_final_infoEPvPS5_ENKUlS8_E_clES8_.exit, label %11
@@ -2534,7 +2529,7 @@ define internal void @_ZN9grpc_core20arena_promise_detail17AllocatedCallableISt1
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 56
   %23 = load i16, ptr @_ZN9grpc_core12arena_detail18ArenaContextTraitsINS_19CallTracerInterfaceEE3id_E, align 2, !tbaa !21, !noalias !256
   %24 = zext i16 %23 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %22, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !28, !noalias !256
   %27 = icmp eq ptr %26, null
   br i1 %27, label %_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit, label %28
@@ -2818,7 +2813,7 @@ _ZNSt6vectorIN9grpc_core14filters_detail8OperatorISt10unique_ptrI19grpc_metadata
 _ZNSt6vectorIN9grpc_core14filters_detail8OperatorISt10unique_ptrI19grpc_metadata_batchNS0_5Arena13PooledDeleterEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i.i.i.i.i.i: ; preds = %62, %_ZNSt6vectorIN9grpc_core14filters_detail8OperatorISt10unique_ptrI19grpc_metadata_batchNS0_5Arena13PooledDeleterEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i.i.i.i.i.i.i
   store ptr %57, ptr %37, align 8, !tbaa !318
   store ptr %61, ptr %38, align 8, !tbaa !316
-  %63 = getelementptr inbounds nuw %"struct.grpc_core::filters_detail::Operator", ptr %57, i64 %55
+  %63 = getelementptr inbounds nuw [40 x i8], ptr %57, i64 %55
   store ptr %63, ptr %40, align 8, !tbaa !317
   br label %_ZN9grpc_core14filters_detail9StackData26AddClientInitialMetadataOpINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvPT_m.exit.i.i.i
 
@@ -2893,7 +2888,7 @@ _ZNSt6vectorIN9grpc_core14filters_detail8OperatorISt10unique_ptrI19grpc_metadata
 _ZNSt6vectorIN9grpc_core14filters_detail8OperatorISt10unique_ptrI19grpc_metadata_batchNS0_5Arena13PooledDeleterEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i.i.i27.i.i.i: ; preds = %89, %_ZNSt6vectorIN9grpc_core14filters_detail8OperatorISt10unique_ptrI19grpc_metadata_batchNS0_5Arena13PooledDeleterEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit16.i.i.i.i.i.i25.i.i.i
   store ptr %84, ptr %64, align 8, !tbaa !318
   store ptr %88, ptr %65, align 8, !tbaa !316
-  %90 = getelementptr inbounds nuw %"struct.grpc_core::filters_detail::Operator", ptr %84, i64 %82
+  %90 = getelementptr inbounds nuw [40 x i8], ptr %84, i64 %82
   store ptr %90, ptr %67, align 8, !tbaa !317
   br label %_ZN9grpc_core14filters_detail9StackData26AddServerInitialMetadataOpINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvPT_m.exit.i.i.i
 
@@ -2964,7 +2959,7 @@ _ZNSt6vectorIN9grpc_core14filters_detail30ServerTrailingMetadataOperatorESaIS2_E
 _ZNSt6vectorIN9grpc_core14filters_detail30ServerTrailingMetadataOperatorESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i.i.i.i.i: ; preds = %116, %_ZNSt6vectorIN9grpc_core14filters_detail30ServerTrailingMetadataOperatorESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i.i.i.i.i.i
   store ptr %111, ptr %91, align 8, !tbaa !321
   store ptr %115, ptr %92, align 8, !tbaa !319
-  %117 = getelementptr inbounds nuw %"struct.grpc_core::filters_detail::ServerTrailingMetadataOperator", ptr %111, i64 %109
+  %117 = getelementptr inbounds nuw [24 x i8], ptr %111, i64 %109
   store ptr %117, ptr %94, align 8, !tbaa !320
   br label %_ZN9grpc_core14filters_detail9StackData27AddServerTrailingMetadataOpINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvPT_m.exit.i.i.i
 
@@ -3035,7 +3030,7 @@ _ZNSt6vectorIN9grpc_core14filters_detail9FinalizerESaIS2_EE11_S_relocateEPS2_S5_
 _ZNSt6vectorIN9grpc_core14filters_detail9FinalizerESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i.i.i.i: ; preds = %143, %_ZNSt6vectorIN9grpc_core14filters_detail9FinalizerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i.i.i.i.i
   store ptr %138, ptr %118, align 8, !tbaa !324
   store ptr %142, ptr %119, align 8, !tbaa !322
-  %144 = getelementptr inbounds nuw %"struct.grpc_core::filters_detail::Finalizer", ptr %138, i64 %136
+  %144 = getelementptr inbounds nuw [24 x i8], ptr %138, i64 %136
   store ptr %144, ptr %121, align 8, !tbaa !323
   br label %145
 
@@ -3110,7 +3105,7 @@ _ZNSt6vectorIN9grpc_core14filters_detail21ChannelDataDestructorESaIS2_EE11_S_rel
 _ZNSt6vectorIN9grpc_core14filters_detail21ChannelDataDestructorESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i.i.i.i: ; preds = %172, %_ZNSt6vectorIN9grpc_core14filters_detail21ChannelDataDestructorESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i.i.i.i.i
   store ptr %167, ptr %146, align 8, !tbaa !327
   store ptr %171, ptr %147, align 8, !tbaa !325
-  %173 = getelementptr inbounds nuw %"struct.grpc_core::filters_detail::ChannelDataDestructor", ptr %167, i64 %165
+  %173 = getelementptr inbounds nuw [16 x i8], ptr %167, i64 %165
   store ptr %173, ptr %149, align 8, !tbaa !326
   br label %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataISt10unique_ptrIN9grpc_core12_GLOBAL__N_122ServerCallTracerFilterESt14default_deleteIS6_EEED2Ev.exit.i.i
 
@@ -3465,7 +3460,7 @@ define internal void @_ZZN9grpc_core14filters_detail9AddOpImplINS_12_GLOBAL__N_1
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %14 = load i16, ptr @_ZN9grpc_core12arena_detail18ArenaContextTraitsINS_19CallTracerInterfaceEE3id_E, align 2, !tbaa !21, !noalias !342
   %15 = zext i16 %14 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %13, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !28, !noalias !342
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZN9grpc_core12_GLOBAL__N_122ServerCallTracerFilter4Call23OnClientInitialMetadataER19grpc_metadata_batch.exit.i, label %19
@@ -3550,7 +3545,7 @@ define internal void @_ZZN9grpc_core14filters_detail9AddOpImplINS_12_GLOBAL__N_1
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %14 = load i16, ptr @_ZN9grpc_core12arena_detail18ArenaContextTraitsINS_19CallTracerInterfaceEE3id_E, align 2, !tbaa !21, !noalias !347
   %15 = zext i16 %14 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %13, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !28, !noalias !347
   %18 = icmp eq ptr %17, null
   br i1 %18, label %_ZN9grpc_core12_GLOBAL__N_122ServerCallTracerFilter4Call23OnServerInitialMetadataER19grpc_metadata_batch.exit.i, label %19
@@ -3629,7 +3624,7 @@ define internal void @_ZZN9grpc_core14filters_detail25AddServerTrailingMetadataI
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %9 = load i16, ptr @_ZN9grpc_core12arena_detail18ArenaContextTraitsINS_19CallTracerInterfaceEE3id_E, align 2, !tbaa !21, !noalias !350
   %10 = zext i16 %9 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %8, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !28, !noalias !350
   %13 = icmp eq ptr %12, null
   br i1 %13, label %_ZZN9grpc_core14filters_detail25AddServerTrailingMetadataINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvPT_mMNS4_4CallEFvR19grpc_metadata_batchERSt6vectorINS0_30ServerTrailingMetadataOperatorESaISC_EEENKUlPvSG_St10unique_ptrIS7_NS_5Arena13PooledDeleterEEE_clESG_SG_SK_.exit, label %14
@@ -3659,7 +3654,7 @@ define internal void @_ZZN9grpc_core14filters_detail9StackData12AddFinalizerINS_
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %7 = load i16, ptr @_ZN9grpc_core12arena_detail18ArenaContextTraitsINS_19CallTracerInterfaceEE3id_E, align 2, !tbaa !21
   %8 = zext i16 %7 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !28
   %11 = icmp eq ptr %10, null
   br i1 %11, label %_ZZN9grpc_core14filters_detail9StackData12AddFinalizerINS_12_GLOBAL__N_122ServerCallTracerFilterEEEvPT_mMNS5_4CallEFvPK20grpc_call_final_infoEENKUlPvSD_SA_E_clESD_SD_SA_.exit, label %12

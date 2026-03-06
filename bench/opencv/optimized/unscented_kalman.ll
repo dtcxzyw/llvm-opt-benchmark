@@ -1994,9 +1994,9 @@ define hidden void @_ZN2cv6detail8tracking14kalman_filters25UnscentedKalmanFilte
   %indvars.iv49.i = phi i64 [ 0, %.preheader36.preheader.i ], [ %indvars.iv.next50.i, %49 ]
   %indvars.iv47.i = phi i64 [ 1, %.preheader36.preheader.i ], [ %indvars.iv.next48.i, %49 ]
   %41 = mul i64 %indvars.iv49.i, %36
-  %42 = getelementptr double, ptr %27, i64 %41
+  %42 = getelementptr [8 x i8], ptr %27, i64 %41
   %43 = mul i64 %indvars.iv49.i, %37
-  %44 = getelementptr double, ptr %33, i64 %43
+  %44 = getelementptr [8 x i8], ptr %33, i64 %43
   br label %50
 
 ._crit_edge.i:                                    ; preds = %49
@@ -2021,9 +2021,9 @@ define hidden void @_ZN2cv6detail8tracking14kalman_filters25UnscentedKalmanFilte
 
 50:                                               ; preds = %50, %.preheader36.i
   %indvars.iv.i = phi i64 [ 0, %.preheader36.i ], [ %indvars.iv.next.i, %50 ]
-  %51 = getelementptr double, ptr %42, i64 %indvars.iv.i
+  %51 = getelementptr [8 x i8], ptr %42, i64 %indvars.iv.i
   %52 = load double, ptr %51, align 8, !tbaa !67
-  %53 = getelementptr double, ptr %44, i64 %indvars.iv.i
+  %53 = getelementptr [8 x i8], ptr %44, i64 %indvars.iv.i
   store double %52, ptr %53, align 8, !tbaa !67
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %indvars.iv47.i
@@ -2090,9 +2090,9 @@ define hidden void @_ZN2cv6detail8tracking14kalman_filters25UnscentedKalmanFilte
   %indvars.iv49.i51 = phi i64 [ 0, %.preheader36.preheader.i48 ], [ %indvars.iv.next50.i56, %90 ]
   %indvars.iv47.i52 = phi i64 [ 1, %.preheader36.preheader.i48 ], [ %indvars.iv.next48.i57, %90 ]
   %82 = mul i64 %indvars.iv49.i51, %77
-  %83 = getelementptr float, ptr %68, i64 %82
+  %83 = getelementptr [4 x i8], ptr %68, i64 %82
   %84 = mul i64 %indvars.iv49.i51, %78
-  %85 = getelementptr float, ptr %74, i64 %84
+  %85 = getelementptr [4 x i8], ptr %74, i64 %84
   br label %91
 
 ._crit_edge.i59:                                  ; preds = %90
@@ -2117,9 +2117,9 @@ define hidden void @_ZN2cv6detail8tracking14kalman_filters25UnscentedKalmanFilte
 
 91:                                               ; preds = %91, %.preheader36.i50
   %indvars.iv.i53 = phi i64 [ 0, %.preheader36.i50 ], [ %indvars.iv.next.i54, %91 ]
-  %92 = getelementptr float, ptr %83, i64 %indvars.iv.i53
+  %92 = getelementptr [4 x i8], ptr %83, i64 %indvars.iv.i53
   %93 = load float, ptr %92, align 4, !tbaa !68
-  %94 = getelementptr float, ptr %85, i64 %indvars.iv.i53
+  %94 = getelementptr [4 x i8], ptr %85, i64 %indvars.iv.i53
   store float %93, ptr %94, align 4, !tbaa !68
   %indvars.iv.next.i54 = add nuw nsw i64 %indvars.iv.i53, 1
   %exitcond.not.i55 = icmp eq i64 %indvars.iv.next.i54, %indvars.iv47.i52

@@ -14,7 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.object_id = type { [32 x i8], i32 }
 %struct.string_list = type { ptr, i64, i64, i8, ptr }
 %struct.option = type { i32, i32, ptr, ptr, ptr, ptr, i32, ptr, i64, ptr, i64, ptr }
-%struct.string_list_item = type { ptr, ptr }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
 %struct.repository = type { ptr, ptr, ptr, ptr, ptr, %struct.strmap, %struct.strmap, %struct.repo_path_cache, ptr, ptr, ptr, ptr, %struct.repo_settings, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, i32, i32, i8 }
@@ -828,7 +827,7 @@ define dso_local range(i32 0, 2) i32 @cmd_ls_files(i32 noundef %0, ptr noundef %
 .lr.ph:                                           ; preds = %318, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %318 ]
   %324 = load ptr, ptr %7, align 8, !tbaa !45
-  %325 = getelementptr inbounds nuw %struct.string_list_item, ptr %324, i64 %indvars.iv
+  %325 = getelementptr inbounds nuw [16 x i8], ptr %324, i64 %indvars.iv
   %326 = load ptr, ptr %325, align 8, !tbaa !46
   %327 = load i32, ptr @exclude_args, align 4, !tbaa !4
   %328 = add nsw i32 %327, -1
@@ -1053,7 +1052,7 @@ get_common_prefix_len.exit.thread:                ; preds = %403, %.thread
   %427 = lshr i32 %426, 1
   %428 = add i32 %427, %.02837.i
   %429 = sext i32 %428 to i64
-  %430 = getelementptr inbounds ptr, ptr %424, i64 %429
+  %430 = getelementptr inbounds [8 x i8], ptr %424, i64 %429
   %431 = load ptr, ptr %430, align 8, !tbaa !75
   %432 = getelementptr inbounds nuw i8, ptr %431, i64 108
   %433 = call i32 @strncmp(ptr noundef nonnull %432, ptr noundef nonnull %404, i64 noundef range(i64 -2147483648, 2147483648) %417) #15
@@ -1074,7 +1073,7 @@ get_common_prefix_len.exit.thread:                ; preds = %403, %.thread
   %438 = zext i32 %436 to i64
   %439 = load ptr, ptr %416, align 8, !tbaa !74
   %440 = zext nneg i32 %spec.select.i94 to i64
-  %441 = getelementptr inbounds nuw ptr, ptr %439, i64 %440
+  %441 = getelementptr inbounds nuw [8 x i8], ptr %439, i64 %440
   %442 = shl nuw nsw i64 %438, 3
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %439, ptr noundef nonnull readonly align 1 dereferenceable(1) %441, i64 %442, i1 false)
   br label %move_array.exit.i
@@ -1219,7 +1218,7 @@ prune_index.exit:                                 ; preds = %get_common_prefix_l
 
 508:                                              ; preds = %525, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.pre-phi.i, %525 ]
-  %509 = getelementptr inbounds nuw i32, ptr %499, i64 %indvars.iv.i
+  %509 = getelementptr inbounds nuw [4 x i8], ptr %499, i64 %indvars.iv.i
   %510 = load i32, ptr %509, align 4, !tbaa !4
   %.not30.i = icmp eq i32 %510, 0
   br i1 %.not30.i, label %._crit_edge.i98, label %511
@@ -1231,7 +1230,7 @@ prune_index.exit:                                 ; preds = %get_common_prefix_l
 511:                                              ; preds = %508
   %512 = load ptr, ptr @tag_resolve_undo, align 8, !tbaa !41
   %513 = load ptr, ptr @the_repository, align 8, !tbaa !21
-  %514 = getelementptr inbounds nuw %struct.object_id, ptr %507, i64 %indvars.iv.i
+  %514 = getelementptr inbounds nuw [36 x i8], ptr %507, i64 %indvars.iv.i
   %515 = load i32, ptr @abbrev, align 4, !tbaa !4
   %516 = call ptr @repo_find_unique_abbrev(ptr noundef %513, ptr noundef nonnull %514, i32 noundef %515) #14
   %517 = add nuw nsw i64 %indvars.iv.i, 1
@@ -1257,7 +1256,7 @@ prune_index.exit:                                 ; preds = %get_common_prefix_l
   %528 = load ptr, ptr %527, align 8, !tbaa !45
   %529 = getelementptr inbounds nuw i8, ptr %527, i64 8
   %530 = load i64, ptr %529, align 8, !tbaa !42
-  %531 = getelementptr inbounds nuw %struct.string_list_item, ptr %528, i64 %530
+  %531 = getelementptr inbounds nuw [16 x i8], ptr %528, i64 %530
   %532 = icmp ult ptr %526, %531
   br i1 %532, label %.lr.ph112, label %show_ru_info.exit
 
@@ -1452,7 +1451,7 @@ define internal fastcc void @show_files(ptr noundef %0, ptr noundef nonnull %1) 
 25:                                               ; preds = %34, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %34 ]
   %26 = load ptr, ptr %24, align 8, !tbaa !86
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv.i
   %28 = load ptr, ptr %27, align 8, !tbaa !87
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = load i32, ptr %28, align 4, !tbaa !4
@@ -1492,7 +1491,7 @@ show_other_files.exit:                            ; preds = %34, %19, %14
 46:                                               ; preds = %.critedge55.i, %.lr.ph68.i
   %indvars.iv79.i = phi i64 [ 0, %.lr.ph68.i ], [ %indvars.iv.next80.i, %.critedge55.i ]
   %47 = load ptr, ptr %44, align 8, !tbaa !86
-  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv79.i
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv79.i
   %49 = load ptr, ptr %48, align 8, !tbaa !87
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 4
   %51 = ptrtoint ptr %50 to i64
@@ -1543,7 +1542,7 @@ show_other_files.exit:                            ; preds = %34, %19, %14
 
 72:                                               ; preds = %78, %.lr.ph66.i
   %indvars.iv.i82 = phi i64 [ %71, %.lr.ph66.i ], [ %indvars.iv.next.i83, %78 ]
-  %73 = getelementptr inbounds nuw ptr, ptr %70, i64 %indvars.iv.i82
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %indvars.iv.i82
   %74 = load ptr, ptr %73, align 8, !tbaa !75
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 56
   %76 = load i32, ptr %75, align 8, !tbaa !4
@@ -1559,7 +1558,7 @@ show_other_files.exit:                            ; preds = %34, %19, %14
 
 79:                                               ; preds = %72
   %80 = and i64 %indvars.iv.i82, 4294967295
-  %81 = getelementptr inbounds nuw ptr, ptr %70, i64 %80
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %80
   %82 = load ptr, ptr %81, align 8, !tbaa !75
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 64
   %84 = load i32, ptr %83, align 8, !tbaa !4
@@ -1592,7 +1591,7 @@ show_other_files.exit:                            ; preds = %34, %19, %14
 .critedge57.i:                                    ; preds = %.lr.ph, %91
   %100 = load ptr, ptr @tag_killed, align 8, !tbaa !41
   %101 = load ptr, ptr %44, align 8, !tbaa !86
-  %102 = getelementptr inbounds nuw ptr, ptr %101, i64 %indvars.iv79.i
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %indvars.iv79.i
   %103 = load ptr, ptr %102, align 8, !tbaa !87
   tail call fastcc void @show_dir_entry(ptr noundef %40, ptr noundef %100, ptr noundef %103)
   br label %.critedge55.i
@@ -1648,7 +1647,7 @@ show_killed_files.exit:                           ; preds = %.critedge55.i, %39,
   %.0100 = phi i32 [ 0, %.lr.ph101 ], [ %225, %.loopexit ]
   %130 = load ptr, ptr %129, align 8, !tbaa !74
   %131 = sext i32 %.0100 to i64
-  %132 = getelementptr inbounds ptr, ptr %130, i64 %131
+  %132 = getelementptr inbounds [8 x i8], ptr %130, i64 %131
   %133 = load ptr, ptr %132, align 8, !tbaa !75
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %125, align 8, !tbaa !93
@@ -1694,7 +1693,7 @@ git_bswap32.exit.i.i:                             ; preds = %construct_fullname.
 
 switch.lookup:                                    ; preds = %git_bswap32.exit.i.i
   %151 = zext nneg i32 %149 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.show_files, i64 %151
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.show_files, i64 %151
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %ce_excluded.exit
 
@@ -1840,7 +1839,7 @@ ce_excluded.exit:                                 ; preds = %git_bswap32.exit.i.
   br i1 %218, label %219, label %.loopexit
 
 219:                                              ; preds = %216
-  %220 = getelementptr inbounds ptr, ptr %211, i64 %indvars.iv.next
+  %220 = getelementptr inbounds [8 x i8], ptr %211, i64 %indvars.iv.next
   %221 = load ptr, ptr %220, align 8, !tbaa !75
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 108
   %223 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %139, ptr noundef nonnull dereferenceable(1) %222) #15

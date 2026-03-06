@@ -16,7 +16,7 @@ define ptr @ASN1_ITEM_lookup(ptr noundef readonly captures(none) %0) local_unnam
 
 4:                                                ; preds = %1, %2
   %.089 = phi i64 [ 0, %1 ], [ %3, %2 ]
-  %5 = getelementptr inbounds nuw ptr, ptr @asn1_item_list, i64 %.089
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @asn1_item_list, i64 %.089
   %6 = load ptr, ptr %5, align 8, !tbaa !5
   %7 = tail call ptr %6() #3
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
@@ -39,7 +39,7 @@ define ptr @ASN1_ITEM_get(i64 noundef %0) local_unnamed_addr #0 {
   br i1 %2, label %7, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds nuw ptr, ptr @asn1_item_list, i64 %0
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @asn1_item_list, i64 %0
   %5 = load ptr, ptr %4, align 8, !tbaa !5
   %6 = tail call ptr %5() #3
   br label %7

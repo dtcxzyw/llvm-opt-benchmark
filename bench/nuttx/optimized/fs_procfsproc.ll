@@ -114,7 +114,7 @@ define internal range(i32 -21, 1) i32 @proc_open(ptr noundef writeonly captures(
 
 .preheader:                                       ; preds = %20, %41
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %41 ], [ 0, %20 ]
-  %24 = getelementptr inbounds nuw ptr, ptr @g_nodeinfo, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr @g_nodeinfo, i64 %indvars.iv.i
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr %25, align 8
   %27 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %26) #15
@@ -234,7 +234,7 @@ define internal i64 @proc_read(ptr noundef captures(none) %0, ptr noundef %1, i6
   %35 = load i16, ptr %34, align 16
   %36 = and i16 %35, 3
   %37 = zext nneg i16 %36 to i64
-  %38 = getelementptr inbounds nuw ptr, ptr @g_ttypenames, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr @g_ttypenames, i64 %37
   %39 = load ptr, ptr %38, align 8
   %40 = call i32 (ptr, i64, ptr, ...) @procfs_snprintf(ptr noundef nonnull %27, i64 noundef 256, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.13, ptr noundef %39) #15
   %41 = sext i32 %40 to i64
@@ -313,7 +313,7 @@ define internal i64 @proc_read(ptr noundef captures(none) %0, ptr noundef %1, i6
   %92 = lshr i16 %91, 3
   %93 = and i16 %92, 3
   %94 = zext nneg i16 %93 to i64
-  %95 = getelementptr inbounds nuw ptr, ptr @g_policy, i64 %94
+  %95 = getelementptr inbounds nuw [8 x i8], ptr @g_policy, i64 %94
   %96 = load ptr, ptr %95, align 8
   %97 = call i32 (ptr, i64, ptr, ...) @procfs_snprintf(ptr noundef nonnull %27, i64 noundef 256, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.21, ptr noundef %96) #15
   %98 = sext i32 %97 to i64
@@ -496,7 +496,7 @@ proc_stack.exit:                                  ; preds = %131, %140, %149
   %.01085.i = phi i64 [ %205, %.lr.ph.i ], [ %218, %217 ]
   %.01104.i = phi ptr [ %206, %.lr.ph.i ], [ %219, %217 ]
   %210 = load ptr, ptr %208, align 8
-  %211 = getelementptr inbounds nuw i32, ptr %210, i64 %indvars.iv.i
+  %211 = getelementptr inbounds nuw [4 x i8], ptr %210, i64 %indvars.iv.i
   %212 = load i32, ptr %211, align 4
   %213 = call i32 (ptr, i64, ptr, ...) @procfs_snprintf(ptr noundef nonnull %162, i64 noundef 256, ptr noundef nonnull @.str.42, i32 noundef %212) #15
   %214 = sext i32 %213 to i64
@@ -744,7 +744,7 @@ define internal range(i32 -20, 1) i32 @proc_opendir(ptr noundef %0, ptr noundef 
 
 30:                                               ; preds = %48, %.tail.thread
   %indvars.iv.i = phi i64 [ 0, %.tail.thread ], [ %indvars.iv.next.i, %48 ]
-  %31 = getelementptr inbounds nuw ptr, ptr @g_nodeinfo, i64 %indvars.iv.i
+  %31 = getelementptr inbounds nuw [8 x i8], ptr @g_nodeinfo, i64 %indvars.iv.i
   %32 = load ptr, ptr %31, align 8
   %33 = load ptr, ptr %32, align 8
   %34 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %33) #15
@@ -849,7 +849,7 @@ define internal range(i32 -2, 1) i32 @proc_readdir(ptr noundef captures(none) %0
 18:                                               ; preds = %12, %17
   %g_groupinfo.sink = phi ptr [ @g_groupinfo, %17 ], [ @g_level0info, %12 ]
   %19 = zext i16 %4 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %g_groupinfo.sink, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %g_groupinfo.sink, i64 %19
   %.018 = load ptr, ptr %20, align 8
   %21 = getelementptr inbounds nuw i8, ptr %.018, i64 17
   %22 = load i8, ptr %21, align 1
@@ -927,7 +927,7 @@ define internal range(i32 -2, 1) i32 @proc_stat(ptr noundef %0, ptr noundef writ
 
 27:                                               ; preds = %45, %25
   %indvars.iv.i = phi i64 [ 0, %25 ], [ %indvars.iv.next.i, %45 ]
-  %28 = getelementptr inbounds nuw ptr, ptr @g_nodeinfo, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw [8 x i8], ptr @g_nodeinfo, i64 %indvars.iv.i
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr %29, align 8
   %31 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %30) #15

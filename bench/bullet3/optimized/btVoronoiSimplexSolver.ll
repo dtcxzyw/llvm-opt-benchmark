@@ -16,21 +16,21 @@ define dso_local void @_ZN22btVoronoiSimplexSolver12removeVertexEi(ptr noundef n
   store i32 %4, ptr %0, align 4, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = sext i32 %4 to i64
-  %7 = getelementptr inbounds %class.btVector3, ptr %5, i64 %6
+  %7 = getelementptr inbounds [16 x i8], ptr %5, i64 %6
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds %class.btVector3, ptr %5, i64 %8
+  %9 = getelementptr inbounds [16 x i8], ptr %5, i64 %8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %9, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !15
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %11 = load i32, ptr %0, align 4, !tbaa !4
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds %class.btVector3, ptr %10, i64 %12
-  %14 = getelementptr inbounds %class.btVector3, ptr %10, i64 %8
+  %13 = getelementptr inbounds [16 x i8], ptr %10, i64 %12
+  %14 = getelementptr inbounds [16 x i8], ptr %10, i64 %8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %14, ptr noundef nonnull align 4 dereferenceable(16) %13, i64 16, i1 false), !tbaa.struct !15
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %16 = load i32, ptr %0, align 4, !tbaa !4
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds %class.btVector3, ptr %15, i64 %17
-  %19 = getelementptr inbounds %class.btVector3, ptr %15, i64 %8
+  %18 = getelementptr inbounds [16 x i8], ptr %15, i64 %17
+  %19 = getelementptr inbounds [16 x i8], ptr %15, i64 %8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %19, ptr noundef nonnull align 4 dereferenceable(16) %18, i64 16, i1 false), !tbaa.struct !15
   ret void
 }
@@ -55,15 +55,15 @@ define dso_local void @_ZN22btVoronoiSimplexSolver14reduceVerticesERK15btUsageBi
   store i32 %9, ptr %0, align 4, !tbaa !4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %11 = zext nneg i32 %9 to i64
-  %12 = getelementptr inbounds nuw %class.btVector3, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 52
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %13, ptr noundef nonnull align 4 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !15
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  %15 = getelementptr inbounds nuw %class.btVector3, ptr %14, i64 %11
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %11
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 132
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %16, ptr noundef nonnull align 4 dereferenceable(16) %15, i64 16, i1 false), !tbaa.struct !15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 164
-  %18 = getelementptr inbounds nuw %class.btVector3, ptr %17, i64 %11
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %11
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 212
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %19, ptr noundef nonnull align 4 dereferenceable(16) %18, i64 16, i1 false), !tbaa.struct !15
   br label %thread-pre-split.thread
@@ -84,15 +84,15 @@ thread-pre-split.thread:                          ; preds = %8, %5, %thread-pre-
   store i32 %25, ptr %0, align 4, !tbaa !4
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %27 = zext nneg i32 %25 to i64
-  %28 = getelementptr inbounds nuw %class.btVector3, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 36
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %29, ptr noundef nonnull align 4 dereferenceable(16) %28, i64 16, i1 false), !tbaa.struct !15
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  %31 = getelementptr inbounds nuw %class.btVector3, ptr %30, i64 %27
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %27
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 116
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %32, ptr noundef nonnull align 4 dereferenceable(16) %31, i64 16, i1 false), !tbaa.struct !15
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 164
-  %34 = getelementptr inbounds nuw %class.btVector3, ptr %33, i64 %27
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 %27
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 196
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %35, ptr noundef nonnull align 4 dereferenceable(16) %34, i64 16, i1 false), !tbaa.struct !15
   br label %.thread
@@ -113,15 +113,15 @@ thread-pre-split.thread:                          ; preds = %8, %5, %thread-pre-
   store i32 %42, ptr %0, align 4, !tbaa !4
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %44 = zext nneg i32 %42 to i64
-  %45 = getelementptr inbounds nuw %class.btVector3, ptr %43, i64 %44
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %43, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 20
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %46, ptr noundef nonnull align 4 dereferenceable(16) %45, i64 16, i1 false), !tbaa.struct !15
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  %48 = getelementptr inbounds nuw %class.btVector3, ptr %47, i64 %44
+  %48 = getelementptr inbounds nuw [16 x i8], ptr %47, i64 %44
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 100
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %49, ptr noundef nonnull align 4 dereferenceable(16) %48, i64 16, i1 false), !tbaa.struct !15
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 164
-  %51 = getelementptr inbounds nuw %class.btVector3, ptr %50, i64 %44
+  %51 = getelementptr inbounds nuw [16 x i8], ptr %50, i64 %44
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 180
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %52, ptr noundef nonnull align 4 dereferenceable(16) %51, i64 16, i1 false), !tbaa.struct !15
   br label %thread-pre-split8.thread
@@ -142,13 +142,13 @@ thread-pre-split8.thread:                         ; preds = %41, %.thread, %thre
   store i32 %58, ptr %0, align 4, !tbaa !4
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %60 = zext nneg i32 %58 to i64
-  %61 = getelementptr inbounds nuw %class.btVector3, ptr %59, i64 %60
+  %61 = getelementptr inbounds nuw [16 x i8], ptr %59, i64 %60
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %59, ptr noundef nonnull align 4 dereferenceable(16) %61, i64 16, i1 false), !tbaa.struct !15
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  %63 = getelementptr inbounds nuw %class.btVector3, ptr %62, i64 %60
+  %63 = getelementptr inbounds nuw [16 x i8], ptr %62, i64 %60
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %62, ptr noundef nonnull align 4 dereferenceable(16) %63, i64 16, i1 false), !tbaa.struct !15
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 164
-  %65 = getelementptr inbounds nuw %class.btVector3, ptr %64, i64 %60
+  %65 = getelementptr inbounds nuw [16 x i8], ptr %64, i64 %60
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %64, ptr noundef nonnull align 4 dereferenceable(16) %65, i64 16, i1 false), !tbaa.struct !15
   br label %66
 
@@ -189,17 +189,17 @@ define dso_local void @_ZN22btVoronoiSimplexSolver9addVertexERK9btVector3S2_S2_(
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %8 = load i32, ptr %0, align 4, !tbaa !4
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds %class.btVector3, ptr %7, i64 %9
+  %10 = getelementptr inbounds [16 x i8], ptr %7, i64 %9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %10, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !15
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %12 = load i32, ptr %0, align 4, !tbaa !4
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds %class.btVector3, ptr %11, i64 %13
+  %14 = getelementptr inbounds [16 x i8], ptr %11, i64 %13
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %14, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !15
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 164
   %16 = load i32, ptr %0, align 4, !tbaa !4
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds %class.btVector3, ptr %15, i64 %17
+  %18 = getelementptr inbounds [16 x i8], ptr %15, i64 %17
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %18, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !15
   %19 = load i32, ptr %0, align 4, !tbaa !4
   %20 = add nsw i32 %19, 1
@@ -415,11 +415,11 @@ thread-pre-split8.thread.i:                       ; preds = %123, %.thread.i
 127:                                              ; preds = %thread-pre-split8.thread.i
   store i32 %124, ptr %0, align 4, !tbaa !4
   %128 = zext nneg i32 %124 to i64
-  %129 = getelementptr inbounds nuw %class.btVector3, ptr %40, i64 %128
+  %129 = getelementptr inbounds nuw [16 x i8], ptr %40, i64 %128
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %40, ptr noundef nonnull align 4 dereferenceable(16) %129, i64 16, i1 false), !tbaa.struct !15
-  %130 = getelementptr inbounds nuw %class.btVector3, ptr %75, i64 %128
+  %130 = getelementptr inbounds nuw [16 x i8], ptr %75, i64 %128
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %75, ptr noundef nonnull align 4 dereferenceable(16) %130, i64 16, i1 false), !tbaa.struct !15
-  %131 = getelementptr inbounds nuw %class.btVector3, ptr %97, i64 %128
+  %131 = getelementptr inbounds nuw [16 x i8], ptr %97, i64 %128
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %97, ptr noundef nonnull align 4 dereferenceable(16) %131, i64 16, i1 false), !tbaa.struct !15
   br label %_ZN22btVoronoiSimplexSolver14reduceVerticesERK15btUsageBitfield.exit
 
@@ -548,13 +548,13 @@ _ZN22btVoronoiSimplexSolver14reduceVerticesERK15btUsageBitfield.exit: ; preds = 
   %224 = add nsw i32 %218, -1
   store i32 %224, ptr %0, align 4, !tbaa !4
   %225 = zext nneg i32 %224 to i64
-  %226 = getelementptr inbounds nuw %class.btVector3, ptr %137, i64 %225
+  %226 = getelementptr inbounds nuw [16 x i8], ptr %137, i64 %225
   %227 = getelementptr inbounds nuw i8, ptr %0, i64 52
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %227, ptr noundef nonnull align 4 dereferenceable(16) %226, i64 16, i1 false), !tbaa.struct !15
-  %228 = getelementptr inbounds nuw %class.btVector3, ptr %141, i64 %225
+  %228 = getelementptr inbounds nuw [16 x i8], ptr %141, i64 %225
   %229 = getelementptr inbounds nuw i8, ptr %0, i64 132
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %229, ptr noundef nonnull align 4 dereferenceable(16) %228, i64 16, i1 false), !tbaa.struct !15
-  %230 = getelementptr inbounds nuw %class.btVector3, ptr %180, i64 %225
+  %230 = getelementptr inbounds nuw [16 x i8], ptr %180, i64 %225
   %231 = getelementptr inbounds nuw i8, ptr %0, i64 212
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %231, ptr noundef nonnull align 4 dereferenceable(16) %230, i64 16, i1 false), !tbaa.struct !15
   br label %thread-pre-split.thread.i154
@@ -578,11 +578,11 @@ thread-pre-split.thread.i154:                     ; preds = %thread-pre-split.i1
   %237 = add nsw i32 %234, -1
   store i32 %237, ptr %0, align 4, !tbaa !4
   %238 = zext nneg i32 %237 to i64
-  %239 = getelementptr inbounds nuw %class.btVector3, ptr %137, i64 %238
+  %239 = getelementptr inbounds nuw [16 x i8], ptr %137, i64 %238
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %139, ptr noundef nonnull align 4 dereferenceable(16) %239, i64 16, i1 false), !tbaa.struct !15
-  %240 = getelementptr inbounds nuw %class.btVector3, ptr %141, i64 %238
+  %240 = getelementptr inbounds nuw [16 x i8], ptr %141, i64 %238
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %165, ptr noundef nonnull align 4 dereferenceable(16) %240, i64 16, i1 false), !tbaa.struct !15
-  %241 = getelementptr inbounds nuw %class.btVector3, ptr %180, i64 %238
+  %241 = getelementptr inbounds nuw [16 x i8], ptr %180, i64 %238
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %201, ptr noundef nonnull align 4 dereferenceable(16) %241, i64 16, i1 false), !tbaa.struct !15
   br label %.thread.i152
 
@@ -605,11 +605,11 @@ thread-pre-split.thread.i154:                     ; preds = %thread-pre-split.i1
   %248 = add nsw i32 %245, -1
   store i32 %248, ptr %0, align 4, !tbaa !4
   %249 = zext nneg i32 %248 to i64
-  %250 = getelementptr inbounds nuw %class.btVector3, ptr %137, i64 %249
+  %250 = getelementptr inbounds nuw [16 x i8], ptr %137, i64 %249
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %138, ptr noundef nonnull align 4 dereferenceable(16) %250, i64 16, i1 false), !tbaa.struct !15
-  %251 = getelementptr inbounds nuw %class.btVector3, ptr %141, i64 %249
+  %251 = getelementptr inbounds nuw [16 x i8], ptr %141, i64 %249
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %151, ptr noundef nonnull align 4 dereferenceable(16) %251, i64 16, i1 false), !tbaa.struct !15
-  %252 = getelementptr inbounds nuw %class.btVector3, ptr %180, i64 %249
+  %252 = getelementptr inbounds nuw [16 x i8], ptr %180, i64 %249
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %189, ptr noundef nonnull align 4 dereferenceable(16) %252, i64 16, i1 false), !tbaa.struct !15
   br label %thread-pre-split8.thread.i150
 
@@ -632,11 +632,11 @@ thread-pre-split8.thread.i150:                    ; preds = %thread-pre-split8.i
   %258 = add nsw i32 %255, -1
   store i32 %258, ptr %0, align 4, !tbaa !4
   %259 = zext nneg i32 %258 to i64
-  %260 = getelementptr inbounds nuw %class.btVector3, ptr %137, i64 %259
+  %260 = getelementptr inbounds nuw [16 x i8], ptr %137, i64 %259
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %137, ptr noundef nonnull align 4 dereferenceable(16) %260, i64 16, i1 false), !tbaa.struct !15
-  %261 = getelementptr inbounds nuw %class.btVector3, ptr %141, i64 %259
+  %261 = getelementptr inbounds nuw [16 x i8], ptr %141, i64 %259
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %141, ptr noundef nonnull align 4 dereferenceable(16) %261, i64 16, i1 false), !tbaa.struct !15
-  %262 = getelementptr inbounds nuw %class.btVector3, ptr %180, i64 %259
+  %262 = getelementptr inbounds nuw [16 x i8], ptr %180, i64 %259
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %180, ptr noundef nonnull align 4 dereferenceable(16) %262, i64 16, i1 false), !tbaa.struct !15
   br label %_ZN22btVoronoiSimplexSolver14reduceVerticesERK15btUsageBitfield.exit157
 
@@ -804,11 +804,11 @@ _ZN22btVoronoiSimplexSolver14reduceVerticesERK15btUsageBitfield.exit157: ; preds
   %389 = add nsw i32 %383, -1
   store i32 %389, ptr %0, align 4, !tbaa !4
   %390 = zext nneg i32 %389 to i64
-  %391 = getelementptr inbounds nuw %class.btVector3, ptr %274, i64 %390
+  %391 = getelementptr inbounds nuw [16 x i8], ptr %274, i64 %390
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %277, ptr noundef nonnull align 4 dereferenceable(16) %391, i64 16, i1 false), !tbaa.struct !15
-  %392 = getelementptr inbounds nuw %class.btVector3, ptr %280, i64 %390
+  %392 = getelementptr inbounds nuw [16 x i8], ptr %280, i64 %390
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %318, ptr noundef nonnull align 4 dereferenceable(16) %392, i64 16, i1 false), !tbaa.struct !15
-  %393 = getelementptr inbounds nuw %class.btVector3, ptr %333, i64 %390
+  %393 = getelementptr inbounds nuw [16 x i8], ptr %333, i64 %390
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %366, ptr noundef nonnull align 4 dereferenceable(16) %393, i64 16, i1 false), !tbaa.struct !15
   br label %thread-pre-split.thread.i242
 
@@ -831,11 +831,11 @@ thread-pre-split.thread.i242:                     ; preds = %thread-pre-split.i2
   %399 = add nsw i32 %396, -1
   store i32 %399, ptr %0, align 4, !tbaa !4
   %400 = zext nneg i32 %399 to i64
-  %401 = getelementptr inbounds nuw %class.btVector3, ptr %274, i64 %400
+  %401 = getelementptr inbounds nuw [16 x i8], ptr %274, i64 %400
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %276, ptr noundef nonnull align 4 dereferenceable(16) %401, i64 16, i1 false), !tbaa.struct !15
-  %402 = getelementptr inbounds nuw %class.btVector3, ptr %280, i64 %400
+  %402 = getelementptr inbounds nuw [16 x i8], ptr %280, i64 %400
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %304, ptr noundef nonnull align 4 dereferenceable(16) %402, i64 16, i1 false), !tbaa.struct !15
-  %403 = getelementptr inbounds nuw %class.btVector3, ptr %333, i64 %400
+  %403 = getelementptr inbounds nuw [16 x i8], ptr %333, i64 %400
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %354, ptr noundef nonnull align 4 dereferenceable(16) %403, i64 16, i1 false), !tbaa.struct !15
   br label %.thread.i240
 
@@ -858,11 +858,11 @@ thread-pre-split.thread.i242:                     ; preds = %thread-pre-split.i2
   %410 = add nsw i32 %407, -1
   store i32 %410, ptr %0, align 4, !tbaa !4
   %411 = zext nneg i32 %410 to i64
-  %412 = getelementptr inbounds nuw %class.btVector3, ptr %274, i64 %411
+  %412 = getelementptr inbounds nuw [16 x i8], ptr %274, i64 %411
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %275, ptr noundef nonnull align 4 dereferenceable(16) %412, i64 16, i1 false), !tbaa.struct !15
-  %413 = getelementptr inbounds nuw %class.btVector3, ptr %280, i64 %411
+  %413 = getelementptr inbounds nuw [16 x i8], ptr %280, i64 %411
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %290, ptr noundef nonnull align 4 dereferenceable(16) %413, i64 16, i1 false), !tbaa.struct !15
-  %414 = getelementptr inbounds nuw %class.btVector3, ptr %333, i64 %411
+  %414 = getelementptr inbounds nuw [16 x i8], ptr %333, i64 %411
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %342, ptr noundef nonnull align 4 dereferenceable(16) %414, i64 16, i1 false), !tbaa.struct !15
   br label %thread-pre-split8.thread.i238
 
@@ -885,11 +885,11 @@ thread-pre-split8.thread.i238:                    ; preds = %thread-pre-split8.i
   %420 = add nsw i32 %417, -1
   store i32 %420, ptr %0, align 4, !tbaa !4
   %421 = zext nneg i32 %420 to i64
-  %422 = getelementptr inbounds nuw %class.btVector3, ptr %274, i64 %421
+  %422 = getelementptr inbounds nuw [16 x i8], ptr %274, i64 %421
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %274, ptr noundef nonnull align 4 dereferenceable(16) %422, i64 16, i1 false), !tbaa.struct !15
-  %423 = getelementptr inbounds nuw %class.btVector3, ptr %280, i64 %421
+  %423 = getelementptr inbounds nuw [16 x i8], ptr %280, i64 %421
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %280, ptr noundef nonnull align 4 dereferenceable(16) %423, i64 16, i1 false), !tbaa.struct !15
-  %424 = getelementptr inbounds nuw %class.btVector3, ptr %333, i64 %421
+  %424 = getelementptr inbounds nuw [16 x i8], ptr %333, i64 %421
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %333, ptr noundef nonnull align 4 dereferenceable(16) %424, i64 16, i1 false), !tbaa.struct !15
   br label %_ZN22btVoronoiSimplexSolver14reduceVerticesERK15btUsageBitfield.exit245
 
@@ -1605,7 +1605,7 @@ define dso_local noundef float @_ZN22btVoronoiSimplexSolver9maxVertexEv(ptr noun
 5:                                                ; preds = %.lr.ph, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %5 ]
   %.0810 = phi float [ 0.000000e+00, %.lr.ph ], [ %.1, %5 ]
-  %6 = getelementptr inbounds nuw %class.btVector3, ptr %4, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %indvars.iv
   %7 = load float, ptr %6, align 4, !tbaa !21
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %9 = load float, ptr %8, align 4, !tbaa !21
@@ -1639,14 +1639,14 @@ define dso_local noundef i32 @_ZNK22btVoronoiSimplexSolver10getSimplexEP9btVecto
 
 10:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds nuw %class.btVector3, ptr %7, i64 %indvars.iv
-  %12 = getelementptr inbounds nuw %class.btVector3, ptr %3, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %11, i64 16, i1 false), !tbaa.struct !15
-  %13 = getelementptr inbounds nuw %class.btVector3, ptr %8, i64 %indvars.iv
-  %14 = getelementptr inbounds nuw %class.btVector3, ptr %1, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %14, ptr noundef nonnull align 4 dereferenceable(16) %13, i64 16, i1 false), !tbaa.struct !15
-  %15 = getelementptr inbounds nuw %class.btVector3, ptr %9, i64 %indvars.iv
-  %16 = getelementptr inbounds nuw %class.btVector3, ptr %2, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %16, ptr noundef nonnull align 4 dereferenceable(16) %15, i64 16, i1 false), !tbaa.struct !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = load i32, ptr %0, align 4, !tbaa !4
@@ -1679,7 +1679,7 @@ define dso_local noundef zeroext i1 @_ZN22btVoronoiSimplexSolver9inSimplexERK9bt
 
 13:                                               ; preds = %13, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
-  %14 = getelementptr inbounds nuw %class.btVector3, ptr %4, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %indvars.iv
   %15 = load float, ptr %14, align 4, !tbaa !21
   %16 = fsub float %6, %15
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 4

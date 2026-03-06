@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.slurm_conf_t = type { i64, ptr, i16, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i16, ptr, ptr, i16, i32, ptr, i32, ptr, i32, i32, ptr, ptr, i64, i64, ptr, i16, i16, ptr, i32, i32, ptr, i32, ptr, i32, i16, i16, i16, ptr, i16, i16, ptr, ptr, i32, i16, i16, ptr, i32, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i16, i16, ptr, i32, i32, i32, i16, i16, ptr, ptr, i16, ptr, ptr, i32, i32, i32, i32, i32, i64, i32, i32, i16, ptr, ptr, i32, ptr, ptr, ptr, i16, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, ptr, ptr, i32, i32, i16, i16, i32, ptr, i16, ptr, i32, i32, i32, i32, i32, i32, ptr, i16, ptr, ptr, i32, i16, ptr, i32, i16, i16, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, i16, ptr, i16, ptr, i16, ptr, i16, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i32, ptr, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, i16, i16, ptr, i16, ptr, ptr, ptr, i32, ptr, i16, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, i32, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, i16, ptr, ptr, ptr, i16, ptr, i16, ptr, i16, i16, ptr }
-%struct.partition_info = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, i32, i64, i32, ptr, ptr, i32, i32, ptr, ptr, i32, i32, i64, i32, i16, i32, i32, ptr, ptr, ptr, ptr, i16, i16, i16, i16, ptr, i16, i16, i32, i16, i32, i32, ptr }
 %struct.slurm_msg = type { %struct.sockaddr_storage, ptr, i32, i32, i32, i8, i32, i8, i32, ptr, ptr, i32, ptr, ptr, i16, i8, i16, i16, %struct.forward, ptr, %struct.sockaddr_storage, ptr }
 %struct.forward = type { %struct.slurm_node_alias_addrs_t, i16, i16, ptr, i32, i16, i16 }
 %struct.slurm_node_alias_addrs_t = type { i64, ptr, ptr, i32, ptr }
@@ -133,7 +132,7 @@ define dso_local void @slurm_print_partition_info_msg(ptr noundef captures(none)
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %3 ]
-  %12 = getelementptr inbounds nuw %struct.partition_info, ptr %7, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [232 x i8], ptr %7, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %13 = call ptr @slurm_sprint_partition_info(ptr noundef readonly %12, i32 noundef %2)
   store ptr %13, ptr %4, align 8
@@ -535,7 +534,7 @@ define dso_local ptr @slurm_sprint_partition_info(ptr noundef readonly captures(
 
 switch.lookup:                                    ; preds = %144
   %153 = zext nneg i16 %151 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.slurm_sprint_partition_info, i64 %153
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.slurm_sprint_partition_info, i64 %153
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %154
 
@@ -887,7 +886,7 @@ define dso_local range(i32 -1, 1) i32 @slurm_load_partitions(i64 noundef %0, ptr
   br label %74
 
 74:                                               ; preds = %71, %69
-  %75 = getelementptr inbounds nuw i64, ptr %40, i64 %indvars.iv.i
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv.i
   %76 = call i32 @pthread_create(ptr noundef %75, ptr noundef nonnull %8, ptr noundef nonnull @_load_part_thread, ptr noundef nonnull %56) #11
   %.not86.i = icmp eq i32 %76, 0
   br i1 %.not86.i, label %79, label %77
@@ -931,7 +930,7 @@ define dso_local range(i32 -1, 1) i32 @slurm_load_partitions(i64 noundef %0, ptr
 
 .lr.ph16.i:                                       ; preds = %.thread.i, %.lr.ph16.preheader.i
   %indvars.iv38.i = phi i64 [ 0, %.lr.ph16.preheader.i ], [ %indvars.iv.next39.i, %.thread.i ]
-  %87 = getelementptr inbounds nuw i64, ptr %40, i64 %indvars.iv38.i
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv38.i
   %88 = load i64, ptr %87, align 8
   %.not81.i = icmp eq i64 %88, 0
   br i1 %.not81.i, label %.thread.i, label %89
@@ -997,7 +996,7 @@ define dso_local range(i32 -1, 1) i32 @slurm_load_partitions(i64 noundef %0, ptr
   store ptr %113, ptr %110, align 8
   %114 = load i32, ptr %107, align 8
   %115 = zext i32 %114 to i64
-  %116 = getelementptr inbounds nuw %struct.partition_info, ptr %113, i64 %115
+  %116 = getelementptr inbounds nuw [232 x i8], ptr %113, i64 %115
   %117 = load ptr, ptr %6, align 8
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 16
   %119 = load ptr, ptr %118, align 8
@@ -1301,7 +1300,7 @@ _load_cluster_parts.exit:                         ; preds = %9
   %31 = phi i32 [ %20, %.lr.ph ], [ %43, %42 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
   %32 = load ptr, ptr %21, align 8
-  %33 = getelementptr inbounds nuw %struct.partition_info, ptr %32, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [232 x i8], ptr %32, i64 %indvars.iv
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 48
   %35 = load ptr, ptr %34, align 8
   %.not = icmp eq ptr %35, null
@@ -1311,7 +1310,7 @@ _load_cluster_parts.exit:                         ; preds = %9
   %37 = load ptr, ptr %22, align 8
   %38 = call ptr @xstrdup(ptr noundef %37) #11
   %39 = load ptr, ptr %21, align 8
-  %40 = getelementptr inbounds nuw %struct.partition_info, ptr %39, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [232 x i8], ptr %39, i64 %indvars.iv
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 48
   store ptr %38, ptr %41, align 8
   %.pre = load i32, ptr %19, align 8

@@ -3797,7 +3797,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26.i, %296
   store ptr %268, ptr %169, align 8, !tbaa !18
   store ptr %295, ptr %174, align 8, !tbaa !26
-  %300 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %268, i64 %264
+  %300 = getelementptr inbounds nuw [32 x i8], ptr %268, i64 %264
   store ptr %300, ptr %191, align 8, !tbaa !20
   %.pre273 = load ptr, ptr %26, align 8, !tbaa !5
   %301 = icmp eq ptr %.pre273, %73

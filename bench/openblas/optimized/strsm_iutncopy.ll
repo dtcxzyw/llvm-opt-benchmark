@@ -47,20 +47,20 @@ define noundef i32 @strsm_iutncopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   br i1 %17, label %.preheader267.us, label %.thread
 
 .thread373:                                       ; preds = %.lr.ph.us, %.preheader267.us
-  %18 = getelementptr inbounds nuw float, ptr %.0272.us, i64 %.0231271.us
-  %19 = getelementptr inbounds float, ptr %18, i64 %14
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %.0272.us, i64 %.0231271.us
+  %19 = getelementptr inbounds [4 x i8], ptr %18, i64 %14
   %20 = load float, ptr %19, align 4, !tbaa !3
   %21 = fdiv float 1.000000e+00, %20
-  %22 = getelementptr inbounds nuw float, ptr %.1242269.us, i64 %.0231271.us
-  %23 = getelementptr inbounds float, ptr %22, i64 %14
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.1242269.us, i64 %.0231271.us
+  %23 = getelementptr inbounds [4 x i8], ptr %22, i64 %14
   store float %21, ptr %23, align 4, !tbaa !3
   br label %76
 
 .lr.ph.us:                                        ; preds = %.preheader267.us, %.lr.ph.us
   %.0221268.us = phi i64 [ %27, %.lr.ph.us ], [ 0, %.preheader267.us ]
-  %24 = getelementptr inbounds nuw float, ptr %.0272.us, i64 %.0221268.us
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %.0272.us, i64 %.0221268.us
   %25 = load float, ptr %24, align 4, !tbaa !3
-  %26 = getelementptr inbounds nuw float, ptr %.1242269.us, i64 %.0221268.us
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %.1242269.us, i64 %.0221268.us
   store float %25, ptr %26, align 4, !tbaa !3
   %27 = add nuw nsw i64 %.0221268.us, 1
   %exitcond.not = icmp eq i64 %27, %indvars.iv335
@@ -137,7 +137,7 @@ define noundef i32 @strsm_iutncopy(i64 noundef %0, i64 noundef %1, ptr noundef r
 
 76:                                               ; preds = %.thread373, %.thread, %28
   %77 = getelementptr inbounds nuw i8, ptr %.1242269.us, i64 64
-  %78 = getelementptr inbounds float, ptr %.0272.us, i64 %3
+  %78 = getelementptr inbounds [4 x i8], ptr %.0272.us, i64 %3
   %79 = add nuw nsw i64 %.0231271.us, 1
   %indvars.iv.next336 = add i64 %indvars.iv335, 1
   %exitcond337.not = icmp eq i64 %79, %0
@@ -191,21 +191,21 @@ define noundef i32 @strsm_iutncopy(i64 noundef %0, i64 noundef %1, ptr noundef r
 
 .lr.ph:                                           ; preds = %.preheader266, %.lr.ph
   %.1222288 = phi i64 [ %97, %.lr.ph ], [ 0, %.preheader266 ]
-  %94 = getelementptr inbounds nuw float, ptr %.1292, i64 %.1222288
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %.1292, i64 %.1222288
   %95 = load float, ptr %94, align 4, !tbaa !3
-  %96 = getelementptr inbounds nuw float, ptr %.3244289, i64 %.1222288
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %.3244289, i64 %.1222288
   store float %95, ptr %96, align 4, !tbaa !3
   %97 = add nuw nsw i64 %.1222288, 1
   %exitcond340.not = icmp eq i64 %97, %indvars.iv338
   br i1 %exitcond340.not, label %.thread377, label %.lr.ph, !llvm.loop !11
 
 .thread377:                                       ; preds = %.lr.ph, %.preheader266
-  %98 = getelementptr inbounds nuw float, ptr %.1292, i64 %.1232291
-  %99 = getelementptr inbounds float, ptr %98, i64 %89
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %.1292, i64 %.1232291
+  %99 = getelementptr inbounds [4 x i8], ptr %98, i64 %89
   %100 = load float, ptr %99, align 4, !tbaa !3
   %101 = fdiv float 1.000000e+00, %100
-  %102 = getelementptr inbounds nuw float, ptr %.3244289, i64 %.1232291
-  %103 = getelementptr inbounds float, ptr %102, i64 %89
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %.3244289, i64 %.1232291
+  %103 = getelementptr inbounds [4 x i8], ptr %102, i64 %89
   store float %101, ptr %103, align 4, !tbaa !3
   br label %128
 
@@ -248,7 +248,7 @@ define noundef i32 @strsm_iutncopy(i64 noundef %0, i64 noundef %1, ptr noundef r
 
 128:                                              ; preds = %.thread377, %.thread375, %104
   %129 = getelementptr inbounds nuw i8, ptr %.3244289, i64 32
-  %130 = getelementptr inbounds float, ptr %.1292, i64 %3
+  %130 = getelementptr inbounds [4 x i8], ptr %.1292, i64 %3
   %131 = add nuw nsw i64 %.1232291, 1
   %indvars.iv.next339 = add i64 %indvars.iv338, 1
   %exitcond341.not = icmp eq i64 %131, %0
@@ -295,21 +295,21 @@ define noundef i32 @strsm_iutncopy(i64 noundef %0, i64 noundef %1, ptr noundef r
 
 .lr.ph297:                                        ; preds = %.preheader265, %.lr.ph297
   %.2223296 = phi i64 [ %146, %.lr.ph297 ], [ 0, %.preheader265 ]
-  %143 = getelementptr inbounds nuw float, ptr %.2302, i64 %.2223296
+  %143 = getelementptr inbounds nuw [4 x i8], ptr %.2302, i64 %.2223296
   %144 = load float, ptr %143, align 4, !tbaa !3
-  %145 = getelementptr inbounds nuw float, ptr %.5299, i64 %.2223296
+  %145 = getelementptr inbounds nuw [4 x i8], ptr %.5299, i64 %.2223296
   store float %144, ptr %145, align 4, !tbaa !3
   %146 = add nuw nsw i64 %.2223296, 1
   %exitcond344.not = icmp eq i64 %146, %indvars.iv342
   br i1 %exitcond344.not, label %.thread381, label %.lr.ph297, !llvm.loop !13
 
 .thread381:                                       ; preds = %.lr.ph297, %.preheader265
-  %147 = getelementptr inbounds nuw float, ptr %.2302, i64 %.2233301
-  %148 = getelementptr inbounds float, ptr %147, i64 %138
+  %147 = getelementptr inbounds nuw [4 x i8], ptr %.2302, i64 %.2233301
+  %148 = getelementptr inbounds [4 x i8], ptr %147, i64 %138
   %149 = load float, ptr %148, align 4, !tbaa !3
   %150 = fdiv float 1.000000e+00, %149
-  %151 = getelementptr inbounds nuw float, ptr %.5299, i64 %.2233301
-  %152 = getelementptr inbounds float, ptr %151, i64 %138
+  %151 = getelementptr inbounds nuw [4 x i8], ptr %.5299, i64 %.2233301
+  %152 = getelementptr inbounds [4 x i8], ptr %151, i64 %138
   store float %150, ptr %152, align 4, !tbaa !3
   br label %165
 
@@ -336,7 +336,7 @@ define noundef i32 @strsm_iutncopy(i64 noundef %0, i64 noundef %1, ptr noundef r
 
 165:                                              ; preds = %.thread381, %.thread379, %153
   %166 = getelementptr inbounds nuw i8, ptr %.5299, i64 16
-  %167 = getelementptr inbounds float, ptr %.2302, i64 %3
+  %167 = getelementptr inbounds [4 x i8], ptr %.2302, i64 %3
   %168 = add nuw nsw i64 %.2233301, 1
   %indvars.iv.next343 = add i64 %indvars.iv342, 1
   %exitcond345.not = icmp eq i64 %168, %0
@@ -386,12 +386,12 @@ define noundef i32 @strsm_iutncopy(i64 noundef %0, i64 noundef %1, ptr noundef r
   br label %.thread385
 
 .thread385:                                       ; preds = %.preheader264, %.lr.ph307.split
-  %181 = getelementptr inbounds nuw float, ptr %.3316, i64 %.3234315
-  %182 = getelementptr inbounds float, ptr %181, i64 %175
+  %181 = getelementptr inbounds nuw [4 x i8], ptr %.3316, i64 %.3234315
+  %182 = getelementptr inbounds [4 x i8], ptr %181, i64 %175
   %183 = load float, ptr %182, align 4, !tbaa !3
   %184 = fdiv float 1.000000e+00, %183
-  %185 = getelementptr inbounds nuw float, ptr %.7312, i64 %.3234315
-  %186 = getelementptr inbounds float, ptr %185, i64 %175
+  %185 = getelementptr inbounds nuw [4 x i8], ptr %.7312, i64 %.3234315
+  %186 = getelementptr inbounds [4 x i8], ptr %185, i64 %175
   store float %184, ptr %186, align 4, !tbaa !3
   br label %193
 
@@ -410,7 +410,7 @@ define noundef i32 @strsm_iutncopy(i64 noundef %0, i64 noundef %1, ptr noundef r
 
 193:                                              ; preds = %.thread385, %.thread383, %187
   %194 = getelementptr inbounds nuw i8, ptr %.7312, i64 8
-  %195 = getelementptr inbounds float, ptr %.3316, i64 %3
+  %195 = getelementptr inbounds [4 x i8], ptr %.3316, i64 %3
   %196 = add nuw nsw i64 %.3234315, 1
   %exitcond346.not = icmp eq i64 %196, %0
   br i1 %exitcond346.not, label %._crit_edge320, label %176, !llvm.loop !15
@@ -453,7 +453,7 @@ define noundef i32 @strsm_iutncopy(i64 noundef %0, i64 noundef %1, ptr noundef r
 
 206:                                              ; preds = %204, %203
   %207 = getelementptr inbounds nuw i8, ptr %.8322, i64 4
-  %208 = getelementptr inbounds float, ptr %.4325, i64 %3
+  %208 = getelementptr inbounds [4 x i8], ptr %.4325, i64 %3
   %209 = add nuw nsw i64 %.4235324, 1
   %exitcond347.not = icmp eq i64 %209, %0
   br i1 %exitcond347.not, label %.loopexit, label %.lr.ph326, !llvm.loop !16

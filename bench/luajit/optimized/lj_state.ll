@@ -3,7 +3,6 @@ source_filename = "bench/luajit/original/lj_state.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.TValue = type { i64 }
 %struct.PRNGState = type { [4 x i64] }
 
 ; Function Attrs: nounwind uwtable
@@ -96,7 +95,7 @@ define internal fastcc void @resizestack(ptr noundef %0, i32 noundef %1) unnamed
   store i64 %14, ptr %3, align 8, !tbaa !15
   %15 = sub i64 %14, %4
   %16 = zext i32 %1 to i64
-  %17 = getelementptr inbounds nuw %union.TValue, ptr %13, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %16
   %18 = ptrtoint ptr %17 to i64
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %18, ptr %19, align 8, !tbaa !16
@@ -204,7 +203,7 @@ define hidden void @lj_state_shrinkstack(ptr noundef %0, i32 noundef %1) local_u
   store i64 %31, ptr %22, align 8, !tbaa !15
   %32 = sub i64 %31, %23
   %33 = zext nneg i32 %21 to i64
-  %34 = getelementptr inbounds nuw %union.TValue, ptr %30, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %33
   %35 = ptrtoint ptr %34 to i64
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %35, ptr %36, align 8, !tbaa !16
@@ -295,7 +294,7 @@ define hidden void @lj_state_growstack(ptr noundef %0, i32 noundef %1) local_unn
   store i64 %19, ptr %10, align 8, !tbaa !15
   %20 = sub i64 %19, %11
   %21 = zext nneg i32 %.0 to i64
-  %22 = getelementptr inbounds nuw %union.TValue, ptr %18, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %21
   %23 = ptrtoint ptr %22 to i64
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i64 %23, ptr %24, align 8, !tbaa !16
@@ -398,7 +397,7 @@ resizestack.exit:                                 ; preds = %.lr.ph44.i, %41
   %74 = getelementptr inbounds i8, ptr %73, i64 -93
   %75 = load i8, ptr %74, align 1, !tbaa !35
   %76 = zext i8 %75 to i64
-  %77 = getelementptr inbounds nuw %union.TValue, ptr %62, i64 %76
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %76
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %77, ptr %78, align 8, !tbaa !14
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 48

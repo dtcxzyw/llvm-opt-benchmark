@@ -13,7 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"union.std::_Optional_payload_base<rawspeed::iRectangle2D>::_Storage" = type { %"class.rawspeed::iRectangle2D" }
 %"class.rawspeed::iRectangle2D" = type { %"class.rawspeed::iPoint2D", %"class.rawspeed::iPoint2D" }
 %"class.rawspeed::iPoint2D" = type { i32, i32 }
-%"struct.rawspeed::NotARational" = type { i32, i32 }
 %"struct.rawspeed::DngTilingDescription" = type <{ ptr, i32, i32, i32, i32, i32, [4 x i8] }>
 %"class.rawspeed::ByteStream" = type { %"class.rawspeed::DataBuffer.base", i32, [4 x i8] }
 %"class.rawspeed::DataBuffer.base" = type { %"class.rawspeed::Buffer.base", i16 }
@@ -33,7 +32,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Rb_tree<rawspeed::Buffer, rawspeed::Buffer, std::_Identity<rawspeed::Buffer>, std::less<rawspeed::Buffer>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
 %"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
 %"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"struct.rawspeed::DngSliceElement" = type <{ ptr, i32, [4 x i8], %"class.rawspeed::ByteStream", i32, i32, i8, i8, [2 x i8], i32, i32, i32, i32, [4 x i8] }>
 %"class.std::vector.11" = type { %"struct.std::_Vector_base.12" }
 %"struct.std::_Vector_base.12" = type { %"struct.std::_Vector_base<const rawspeed::TiffIFD *, std::allocator<const rawspeed::TiffIFD *>>::_Vector_impl" }
 %"struct.std::_Vector_base<const rawspeed::TiffIFD *, std::allocator<const rawspeed::TiffIFD *>>::_Vector_impl" = type { %"struct.std::_Vector_base<const rawspeed::TiffIFD *, std::allocator<const rawspeed::TiffIFD *>>::_Vector_impl_data" }
@@ -59,9 +57,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.rawspeed::RawImageCurveGuard" = type <{ ptr, ptr, i8, [7 x i8] }>
-%"struct.rawspeed::NotARational.104" = type { i32, i32 }
 %"struct.rawspeed::TiffID" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
-%"class.rawspeed::BlackArea" = type <{ i32, i32, i8, [3 x i8] }>
 %"struct.std::array.143" = type { [2 x float] }
 
 $_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz = comdat any
@@ -604,7 +600,7 @@ _ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit.thread: ; preds = %_ZNKSt8_Rb_t
           to label %31 unwind label %_ZNSt6vectorIjSaIjEED2Ev.exit.i.i, !noalias !133
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv.i.i
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv.i.i
   store i32 %30, ptr %32, align 4, !tbaa !138, !noalias !133
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
@@ -962,7 +958,7 @@ define hidden void @_ZNK8rawspeed10DngDecoder16parseColorMatrixEv(ptr noundef no
           to label %30 unwind label %_ZNSt6vectorIN8rawspeed12NotARationalIiEESaIS2_EED2Ev.exit.i.i, !noalias !152
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds nuw %"struct.rawspeed::NotARational", ptr %19, i64 %indvars.iv.i.i
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.i.i
   store i64 %29, ptr %31, align 4, !noalias !152
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %17
@@ -1024,7 +1020,7 @@ _ZNSt12_Vector_baseIN8rawspeed12NotARationalIiEESaIS2_EE13_M_deallocateEPS2_m.ex
   store ptr %50, ptr %36, align 8, !tbaa !160
   %54 = getelementptr inbounds nuw i8, ptr %50, i64 %48
   store ptr %54, ptr %45, align 8, !tbaa !161
-  %55 = getelementptr inbounds nuw %"struct.rawspeed::NotARational", ptr %50, i64 %33
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %33
   store ptr %55, ptr %37, align 8, !tbaa !159
   br label %_ZNSt6vectorIN8rawspeed12NotARationalIiEESaIS2_EE7reserveEm.exit
 
@@ -1113,7 +1109,7 @@ _ZNSt6vectorIN8rawspeed12NotARationalIiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.ex
 _ZNSt6vectorIN8rawspeed12NotARationalIiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %91, %_ZNSt6vectorIN8rawspeed12NotARationalIiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %85, ptr %62, align 8, !tbaa !160
   store ptr %90, ptr %64, align 8, !tbaa !161
-  %92 = getelementptr inbounds nuw %"struct.rawspeed::NotARational", ptr %85, i64 %83
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %83
   store ptr %92, ptr %66, align 8, !tbaa !159
   br label %_ZNSt6vectorIN8rawspeed12NotARationalIiEESaIS2_EE12emplace_backIJRKS2_EEERS2_DpOT_.exit
 
@@ -1700,7 +1696,7 @@ _ZNSt12_Vector_baseIN8rawspeed15DngSliceElementESaIS1_EE13_M_deallocateEPS1_m.ex
   %97 = getelementptr inbounds nuw i8, ptr %5, i64 56
   store ptr %96, ptr %86, align 8, !tbaa !186
   store ptr %96, ptr %97, align 8, !tbaa !187
-  %98 = getelementptr inbounds nuw %"struct.rawspeed::DngSliceElement", ptr %96, i64 %93
+  %98 = getelementptr inbounds nuw [72 x i8], ptr %96, i64 %93
   store ptr %98, ptr %94, align 8, !tbaa !188
   br label %_ZNSt6vectorIN8rawspeed15DngSliceElementESaIS1_EE7reserveEm.exit
 
@@ -2913,7 +2909,7 @@ _ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit79: ; preds = %_ZNKSt8_Rb_treeIN
           to label %50 unwind label %_ZNSt6vectorIN8rawspeed12NotARationalIjEESaIS2_EED2Ev.exit.i.i, !noalias !232
 
 50:                                               ; preds = %.lr.ph.i.i
-  %51 = getelementptr inbounds nuw %"struct.rawspeed::NotARational.104", ptr %47, i64 %indvars.iv.i.i
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv.i.i
   store i64 %49, ptr %51, align 4, !noalias !232
   br i1 %exitcond.not.i.i, label %_ZNK8rawspeed9TiffEntry16getRationalArrayEj.exit, label %.lr.ph.i.i, !llvm.loop !237
 
@@ -3007,7 +3003,7 @@ _ZNK8rawspeed9TiffEntry16getRationalArrayEj.exit: ; preds = %50
           to label %82 unwind label %_ZNSt6vectorIN8rawspeed12NotARationalIjEESaIS2_EED2Ev.exit.i.i86, !noalias !241
 
 82:                                               ; preds = %.lr.ph.i.i84
-  %83 = getelementptr inbounds nuw %"struct.rawspeed::NotARational.104", ptr %77, i64 %indvars.iv.i.i85
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %indvars.iv.i.i85
   store i64 %81, ptr %83, align 4, !noalias !241
   br i1 %exitcond.not.i.i88, label %_ZNK8rawspeed9TiffEntry16getRationalArrayEj.exit90, label %.lr.ph.i.i84, !llvm.loop !237
 
@@ -3149,7 +3145,7 @@ _ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit122: ; preds = %_ZNKSt8_Rb_treeI
           to label %123 unwind label %_ZNSt6vectorIN8rawspeed12NotARationalIjEESaIS2_EED2Ev.exit.i.i128, !noalias !247
 
 123:                                              ; preds = %.lr.ph.i.i126
-  %124 = getelementptr inbounds nuw %"struct.rawspeed::NotARational.104", ptr %120, i64 %indvars.iv.i.i127
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %120, i64 %indvars.iv.i.i127
   store i64 %122, ptr %124, align 4, !noalias !247
   br i1 %exitcond.not.i.i130, label %_ZNK8rawspeed9TiffEntry16getRationalArrayEj.exit131.preheader, label %.lr.ph.i.i126, !llvm.loop !237
 
@@ -3415,7 +3411,7 @@ _ZNK8rawspeed7TiffIFD8hasEntryENS_7TiffTagE.exit162: ; preds = %_ZNKSt8_Rb_treeI
   %225 = shl nuw nsw i64 %224, 1
   %226 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %225) #32, !noalias !262
   store ptr %226, ptr %10, align 8, !tbaa !263, !alias.scope !262
-  %227 = getelementptr inbounds nuw i16, ptr %226, i64 %224
+  %227 = getelementptr inbounds nuw [2 x i8], ptr %226, i64 %224
   %228 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %227, ptr %228, align 8, !tbaa !266, !alias.scope !262
   store i16 0, ptr %226, align 2, !tbaa !267, !noalias !262
@@ -3447,7 +3443,7 @@ _ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i.i.i: ; preds = %.noexc.i.
           to label %238 unwind label %_ZNSt6vectorItSaItEED2Ev.exit.i.i, !noalias !262
 
 238:                                              ; preds = %235
-  %239 = getelementptr inbounds nuw i16, ptr %226, i64 %indvars.iv.i.i164
+  %239 = getelementptr inbounds nuw [2 x i8], ptr %226, i64 %indvars.iv.i.i164
   store i16 %237, ptr %239, align 2, !tbaa !267, !noalias !262
   %indvars.iv.next.i.i165 = add nuw nsw i64 %indvars.iv.i.i164, 1
   %exitcond.not.i.i166 = icmp eq i64 %indvars.iv.next.i.i165, %224
@@ -4140,7 +4136,7 @@ define hidden void @_ZNK8rawspeed10DngDecoder17parseWhiteBalanceEv(ptr noundef n
   %15 = select i1 %13, float %14, float 0.000000e+00
   %16 = load ptr, ptr %9, align 8, !tbaa !72
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 256
-  %18 = getelementptr inbounds nuw float, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv
   store float %15, ptr %18, align 4, !tbaa !288
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -4222,7 +4218,7 @@ define hidden void @_ZNK8rawspeed10DngDecoder17parseWhiteBalanceEv(ptr noundef n
   %76 = fcmp ogt float %75, 0.000000e+00
   %77 = fdiv float 1.000000e+00, %75
   %78 = select i1 %76, float %77, float 0.000000e+00
-  %79 = getelementptr inbounds nuw float, ptr %51, i64 %indvars.iv34
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %indvars.iv34
   store float %78, ptr %79, align 4, !tbaa !288
   %indvars.iv.next35 = add nuw nsw i64 %indvars.iv34, 1
   %exitcond37.not = icmp eq i64 %indvars.iv.next35, 3
@@ -5621,7 +5617,7 @@ define hidden noundef zeroext i1 @_ZNK8rawspeed10DngDecoder17decodeMaskedAreasEP
   %13 = zext i32 %12 to i64
   %14 = shl nuw nsw i64 %13, 2
   %15 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #32, !noalias !300
-  %16 = getelementptr inbounds nuw i32, ptr %15, i64 %13
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %13
   store i32 0, ptr %15, align 4, !tbaa !138, !noalias !300
   %17 = getelementptr i8, ptr %15, i64 4
   %.idx.i.i.i.i.i.i.i.i.i = add nsw i64 %14, -4
@@ -5635,7 +5631,7 @@ define hidden noundef zeroext i1 @_ZNK8rawspeed10DngDecoder17decodeMaskedAreasEP
           to label %21 unwind label %_ZNSt6vectorIjSaIjEED2Ev.exit.i.i, !noalias !300
 
 21:                                               ; preds = %18
-  %22 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv.i.i
   store i32 %20, ptr %22, align 4, !tbaa !138, !noalias !300
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %13
@@ -5827,7 +5823,7 @@ _ZNSt6vectorIN8rawspeed9BlackAreaESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit34.i.
 _ZNSt6vectorIN8rawspeed9BlackAreaESaIS1_EE17_M_realloc_insertIJRiibEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %100, %_ZNSt6vectorIN8rawspeed9BlackAreaESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit34.i.i
   store ptr %93, ptr %70, align 8, !tbaa !282
   store ptr %99, ptr %72, align 8, !tbaa !283
-  %101 = getelementptr inbounds nuw %"class.rawspeed::BlackArea", ptr %93, i64 %91
+  %101 = getelementptr inbounds nuw [12 x i8], ptr %93, i64 %91
   store ptr %101, ptr %74, align 8, !tbaa !306
   br label %_ZNSt6vectorIN8rawspeed9BlackAreaESaIS1_EE12emplace_backIJRiibEEERS1_DpOT_.exit
 
@@ -5933,7 +5929,7 @@ _ZNSt6vectorIN8rawspeed9BlackAreaESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit34.i.
 _ZNSt6vectorIN8rawspeed9BlackAreaESaIS1_EE17_M_realloc_insertIJRiibEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i56: ; preds = %139, %_ZNSt6vectorIN8rawspeed9BlackAreaESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit34.i.i53
   store ptr %132, ptr %109, align 8, !tbaa !282
   store ptr %138, ptr %111, align 8, !tbaa !283
-  %140 = getelementptr inbounds nuw %"class.rawspeed::BlackArea", ptr %132, i64 %130
+  %140 = getelementptr inbounds nuw [12 x i8], ptr %132, i64 %130
   store ptr %140, ptr %113, align 8, !tbaa !306
   br label %_ZNSt6vectorIN8rawspeed9BlackAreaESaIS1_EE12emplace_backIJRiibEEERS1_DpOT_.exit
 
@@ -6189,7 +6185,7 @@ _ZNK8rawspeed10Array2DRefIiE15getAsArray1DRefEv.exit100: ; preds = %80, %87
 
 104:                                              ; preds = %95
   %105 = fptosi float %99 to i32
-  %gep = getelementptr inbounds i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   store i32 %105, ptr %gep, align 4, !tbaa !138
   br i1 %96, label %95, label %94, !llvm.loop !325
 
@@ -6282,7 +6278,7 @@ _ZNK8rawspeed10Array2DRefIiE15getAsArray1DRefEv.exit117: ; preds = %._crit_edge,
   %142 = tail call noundef float @_ZNK8rawspeed9TiffEntry8getFloatEj(ptr noundef nonnull align 8 dereferenceable(48) %115, i32 noundef %.074250)
   %143 = and i32 %.074250, 1
   %144 = zext nneg i32 %143 to i64
-  %145 = getelementptr inbounds nuw float, ptr %3, i64 %144
+  %145 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %144
   %146 = load float, ptr %145, align 4, !tbaa !288
   %147 = fadd float %142, %146
   store float %147, ptr %145, align 4, !tbaa !288
@@ -6302,7 +6298,7 @@ _ZNK8rawspeed10Array2DRefIiE15getAsArray1DRefEv.exit117: ; preds = %._crit_edge,
   %indvars.iv271 = phi i64 [ 0, %_ZNK8rawspeed10Array2DRefIiE15getAsArray1DRefEv.exit117 ], [ %indvars.iv.next272, %153 ]
   %155 = lshr i64 %indvars.iv271, 1
   %156 = and i64 %155, 2147483647
-  %157 = getelementptr inbounds nuw float, ptr %3, i64 %156
+  %157 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %156
   %158 = load float, ptr %157, align 4, !tbaa !288
   %159 = load ptr, ptr %41, align 8, !tbaa !72
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 44
@@ -6323,7 +6319,7 @@ _ZNK8rawspeed10Array2DRefIiE15getAsArray1DRefEv.exit117: ; preds = %._crit_edge,
 169:                                              ; preds = %154
   %170 = icmp samesign ult i64 %indvars.iv271, %.sroa.4147.0
   tail call void @llvm.assume(i1 %170)
-  %171 = getelementptr inbounds nuw i32, ptr %.sroa.0146.0, i64 %indvars.iv271
+  %171 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0146.0, i64 %indvars.iv271
   %172 = load i32, ptr %171, align 4, !tbaa !138
   %173 = fptosi float %164 to i32
   %174 = tail call { i32, i1 } @llvm.sadd.with.overflow.i32(i32 %172, i32 %173)
@@ -6430,7 +6426,7 @@ _ZNK8rawspeed10Array2DRefIiE15getAsArray1DRefEv.exit134: ; preds = %._crit_edge2
   %213 = tail call noundef float @_ZNK8rawspeed9TiffEntry8getFloatEj(ptr noundef nonnull align 8 dereferenceable(48) %186, i32 noundef %.070252)
   %214 = and i32 %.070252, 1
   %215 = zext nneg i32 %214 to i64
-  %216 = getelementptr inbounds nuw float, ptr %4, i64 %215
+  %216 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %215
   %217 = load float, ptr %216, align 4, !tbaa !288
   %218 = fadd float %213, %217
   store float %218, ptr %216, align 4, !tbaa !288
@@ -6453,7 +6449,7 @@ _ZNK8rawspeed10Array2DRefIiE15getAsArray1DRefEv.exit134: ; preds = %._crit_edge2
 226:                                              ; preds = %_ZNK8rawspeed10Array2DRefIiE15getAsArray1DRefEv.exit134, %224
   %indvars.iv274 = phi i64 [ 0, %_ZNK8rawspeed10Array2DRefIiE15getAsArray1DRefEv.exit134 ], [ %indvars.iv.next275, %224 ]
   %227 = and i64 %indvars.iv274, 1
-  %228 = getelementptr inbounds nuw float, ptr %4, i64 %227
+  %228 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %227
   %229 = load float, ptr %228, align 4, !tbaa !288
   %230 = load ptr, ptr %41, align 8, !tbaa !72
   %231 = getelementptr inbounds nuw i8, ptr %230, i64 40
@@ -6474,7 +6470,7 @@ _ZNK8rawspeed10Array2DRefIiE15getAsArray1DRefEv.exit134: ; preds = %._crit_edge2
 240:                                              ; preds = %226
   %241 = icmp samesign ult i64 %indvars.iv274, %.sroa.4.0
   tail call void @llvm.assume(i1 %241)
-  %242 = getelementptr inbounds nuw i32, ptr %.sroa.0.0, i64 %indvars.iv274
+  %242 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.0, i64 %indvars.iv274
   %243 = load i32, ptr %242, align 4, !tbaa !138
   %244 = fptosi float %235 to i32
   %245 = tail call { i32, i1 } @llvm.sadd.with.overflow.i32(i32 %243, i32 %244)
@@ -7089,7 +7085,7 @@ _ZNSt6vectorIN8rawspeed15DngSliceElementESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.ex
 _ZNSt12_Vector_baseIN8rawspeed15DngSliceElementESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN8rawspeed15DngSliceElementESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit34, %76
   store ptr %22, ptr %0, align 8, !tbaa !186
   store ptr %.0.lcssa.i.i.i33, ptr %6, align 8, !tbaa !187
-  %80 = getelementptr inbounds nuw %"struct.rawspeed::DngSliceElement", ptr %22, i64 %18
+  %80 = getelementptr inbounds nuw [72 x i8], ptr %22, i64 %18
   store ptr %80, ptr %75, align 8, !tbaa !188
   ret void
 }

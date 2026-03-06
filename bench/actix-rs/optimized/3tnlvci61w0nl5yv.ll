@@ -621,7 +621,7 @@ _ZN14regex_automata4meta5regex5Regex17search_slots_with17h6af6adf9f5a52a22E.exit
   br i1 %109, label %110, label %_ZN14regex_automata4util4iter8Searcher7advance17h9f6a0ed8ffab89a4E.exit.i.i
 
 110:                                              ; preds = %108
-  %111 = getelementptr inbounds nuw i64, ptr %39, i64 %.061.i.i.i.i.i.i.i
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %.061.i.i.i.i.i.i.i
   %112 = load i64, ptr %111, align 8, !noalias !163, !noundef !9
   %113 = icmp ne i64 %112, 0
   %114 = icmp ult i64 %.0.i.i.i.i.i.i.i, %41
@@ -629,7 +629,7 @@ _ZN14regex_automata4meta5regex5Regex17search_slots_with17h6af6adf9f5a52a22E.exit
   br i1 %or.cond.i.i.i.i.i.i.i, label %115, label %_ZN14regex_automata4util4iter8Searcher7advance17h9f6a0ed8ffab89a4E.exit.i.i
 
 115:                                              ; preds = %110
-  %116 = getelementptr inbounds nuw i64, ptr %39, i64 %.0.i.i.i.i.i.i.i
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %.0.i.i.i.i.i.i.i
   %117 = load i64, ptr %116, align 8, !noalias !163, !noundef !9
   %118 = icmp eq i64 %117, 0
   br i1 %118, label %_ZN14regex_automata4util4iter8Searcher7advance17h9f6a0ed8ffab89a4E.exit.i.i, label %119
@@ -3372,7 +3372,7 @@ _ZN14regex_automata4meta5regex5Regex13captures_iter17hd409573a9de2af9bE.exit: ; 
   br i1 %310, label %311, label %321
 
 311:                                              ; preds = %307
-  %312 = getelementptr inbounds nuw i64, ptr %308, i64 %.061.i
+  %312 = getelementptr inbounds nuw [8 x i8], ptr %308, i64 %.061.i
   %313 = load i64, ptr %312, align 8, !noalias !621, !noundef !9
   %314 = icmp ne i64 %313, 0
   %315 = icmp ult i64 %.0.i, %309
@@ -3380,7 +3380,7 @@ _ZN14regex_automata4meta5regex5Regex13captures_iter17hd409573a9de2af9bE.exit: ; 
   br i1 %or.cond.i, label %316, label %321
 
 316:                                              ; preds = %311
-  %317 = getelementptr inbounds nuw i64, ptr %308, i64 %.0.i
+  %317 = getelementptr inbounds nuw [8 x i8], ptr %308, i64 %.0.i
   %318 = load i64, ptr %317, align 8, !noalias !621, !noundef !9
   %319 = icmp eq i64 %318, 0
   br i1 %319, label %321, label %322
@@ -5472,7 +5472,7 @@ _ZN5alloc6string6String9from_utf817h11549ca97a8af181E.exit: ; preds = %50
 191:                                              ; preds = %._crit_edge.i, %182
   %192 = phi i64 [ %.pre.i182, %._crit_edge.i ], [ %183, %182 ]
   %193 = load ptr, ptr %.sroa.410.0..sroa_idx, align 8, !alias.scope !1012, !noalias !1015, !nonnull !9, !noundef !9
-  %194 = getelementptr inbounds { i64, [18 x i64] }, ptr %193, i64 %192
+  %194 = getelementptr inbounds [152 x i8], ptr %193, i64 %192
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %194, ptr noundef nonnull align 8 dereferenceable(152) %29, i64 152, i1 false)
   %195 = add i64 %192, 1
   store i64 %195, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !1012, !noalias !1015
@@ -6100,7 +6100,7 @@ _ZN9actix_web4http6header19content_disposition10split_once17h324428193170cb49E.e
 382:                                              ; preds = %._crit_edge.i230, %373
   %383 = phi i64 [ %.pre.i231, %._crit_edge.i230 ], [ %374, %373 ]
   %384 = load ptr, ptr %.sroa.410.0..sroa_idx, align 8, !alias.scope !1128, !noalias !1131, !nonnull !9, !noundef !9
-  %385 = getelementptr inbounds { i64, [18 x i64] }, ptr %384, i64 %383
+  %385 = getelementptr inbounds [152 x i8], ptr %384, i64 %383
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %385, ptr noundef nonnull align 8 dereferenceable(152) %24, i64 152, i1 false)
   %386 = add i64 %383, 1
   store i64 %386, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !1128, !noalias !1131
@@ -6196,7 +6196,7 @@ define { ptr, i64 } @_ZN9actix_web4http6header19content_disposition18ContentDisp
   %3 = load ptr, ptr %2, align 8, !nonnull !9, !noundef !9
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !9
-  %6 = getelementptr inbounds { i64, [18 x i64] }, ptr %3, i64 %5
+  %6 = getelementptr inbounds [152 x i8], ptr %3, i64 %5
   br label %7
 
 7:                                                ; preds = %10, %1
@@ -6231,7 +6231,7 @@ define { ptr, i64 } @_ZN9actix_web4http6header19content_disposition18ContentDisp
   %3 = load ptr, ptr %2, align 8, !nonnull !9, !noundef !9
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !9
-  %6 = getelementptr inbounds { i64, [18 x i64] }, ptr %3, i64 %5
+  %6 = getelementptr inbounds [152 x i8], ptr %3, i64 %5
   br label %7
 
 7:                                                ; preds = %10, %1
@@ -6266,7 +6266,7 @@ define noundef align 8 dereferenceable_or_null(120) ptr @_ZN9actix_web4http6head
   %3 = load ptr, ptr %2, align 8, !nonnull !9, !noundef !9
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !9
-  %6 = getelementptr inbounds { i64, [18 x i64] }, ptr %3, i64 %5
+  %6 = getelementptr inbounds [152 x i8], ptr %3, i64 %5
   br label %7
 
 7:                                                ; preds = %10, %1
@@ -6809,7 +6809,7 @@ define noundef zeroext i1 @"_ZN103_$LT$actix_web..http..header..content_disposit
   %17 = load ptr, ptr %16, align 8, !nonnull !9, !noundef !9
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load i64, ptr %18, align 8, !noundef !9
-  %20 = getelementptr inbounds { i64, [18 x i64] }, ptr %17, i64 %19
+  %20 = getelementptr inbounds [152 x i8], ptr %17, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 32

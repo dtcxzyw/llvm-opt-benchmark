@@ -421,7 +421,7 @@ _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i: ; preds = %37, %_ZNSt6vec
   store ptr %34, ptr %11, align 8, !tbaa !52
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 %17
   store ptr %38, ptr %12, align 8, !tbaa !51
-  %39 = getelementptr inbounds nuw i32, ptr %34, i64 %23
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %23
   store ptr %39, ptr %27, align 8, !tbaa !53
   br label %_ZNSt6vectorIjSaIjEE7reserveEm.exit
 
@@ -551,7 +551,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i: ; preds = %85, %.noex
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i: ; preds = %87, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i
   store ptr %82, ptr %55, align 8, !tbaa !52
   store ptr %86, ptr %56, align 8, !tbaa !51
-  %88 = getelementptr inbounds nuw i32, ptr %82, i64 %80
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %82, i64 %80
   store ptr %88, ptr %57, align 8, !tbaa !53
   br label %120
 
@@ -624,7 +624,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i40: ; preds = %115, %.n
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i42: ; preds = %117, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i40
   store ptr %112, ptr %92, align 8, !tbaa !52
   store ptr %116, ptr %93, align 8, !tbaa !51
-  %118 = getelementptr inbounds nuw i32, ptr %112, i64 %110
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %112, i64 %110
   store ptr %118, ptr %95, align 8, !tbaa !53
   br label %120
 
@@ -765,7 +765,7 @@ define noundef i32 @_ZN4base26PersistentSampleMapRecords7GetNextEv(ptr noundef n
   %18 = phi i64 [ %.pre, %._crit_edge ], [ %11, %1 ]
   %19 = add i64 %18, 1
   store i64 %19, ptr %10, align 8, !tbaa !38
-  %20 = getelementptr inbounds nuw i32, ptr %17, i64 %18
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %18
   %21 = load i32, ptr %20, align 4, !tbaa !55
   br label %22
 
@@ -1260,7 +1260,7 @@ _ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25Create
   br label %109
 
 104:                                              ; preds = %.lr.ph.i
-  %105 = getelementptr inbounds nuw i32, ptr %78, i64 %.01528.i
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %78, i64 %.01528.i
   %106 = load i32, ptr %105, align 4, !tbaa !55, !noalias !88
   %107 = getelementptr i8, ptr %105, i64 -4
   %108 = load i32, ptr %107, align 4, !tbaa !55, !noalias !88
@@ -1432,7 +1432,7 @@ _ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25Create
   br label %207
 
 164:                                              ; preds = %145
-  %165 = getelementptr inbounds nuw i32, ptr %138, i64 %139
+  %165 = getelementptr inbounds nuw [4 x i8], ptr %138, i64 %139
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %166 = getelementptr inbounds nuw i8, ptr %2, i64 80
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -1727,9 +1727,9 @@ _ZN4base28PersistentHistogramAllocator27RecordCreateHistogramResultENS0_25Create
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.05286 = phi i64 [ %70, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %67 = getelementptr inbounds nuw i32, ptr %62, i64 %.05286
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %.05286
   %68 = load i32, ptr %67, align 4, !tbaa !55
-  %69 = getelementptr inbounds nuw i32, ptr %58, i64 %.05286
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %.05286
   store i32 %68, ptr %69, align 4, !tbaa !55
   %70 = add nuw i64 %.05286, 1
   %exitcond.not = icmp eq i64 %70, %66
@@ -3140,7 +3140,7 @@ _ZSt22__uninitialized_move_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit: ; preds = %17
   %27 = sub i64 %26, %18
   %28 = ashr exact i64 %27, 2
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds i32, ptr %13, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %13, i64 %29
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %30, ptr align 4 %1, i64 %27, i1 false)
   br label %_ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit
 
@@ -3163,7 +3163,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEmEvRT_T0_.exit:
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES2_jET0_T_S8_S7_RSaIT1_E.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEmEvRT_T0_.exit, %32
   %35 = phi ptr [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEmEvRT_T0_.exit ], [ %.pre, %32 ]
   %36 = sub nuw nsw i64 %9, %20
-  %37 = getelementptr inbounds nuw i32, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %36
   store ptr %37, ptr %12, align 8, !tbaa !51
   %.not.i.i.i.i.i.i.i.i.i52 = icmp eq ptr %13, %1
   br i1 %.not.i.i.i.i.i.i.i.i.i52, label %_ZSt22__uninitialized_move_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit53, label %38
@@ -3246,7 +3246,7 @@ _ZNSt12_Vector_baseIjSaIjEE11_M_allocateEm.exit:  ; preds = %_ZNKSt6vectorIjSaIj
 _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit: ; preds = %66, %68
   store ptr %57, ptr %0, align 8, !tbaa !52
   store ptr %67, ptr %12, align 8, !tbaa !51
-  %69 = getelementptr inbounds nuw i32, ptr %57, i64 %53
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %53
   store ptr %69, ptr %10, align 8, !tbaa !53
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES6_ET0_T_S8_S7_.exit
 

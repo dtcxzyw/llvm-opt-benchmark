@@ -677,7 +677,7 @@ default.unreachable430:                           ; preds = %149
   %.sroa.5237.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 144
   %.sroa.5237.0.copyload = load i64, ptr %.sroa.5237.0..sroa_idx, align 8
   store ptr inttoptr (i64 8 to ptr), ptr %47, align 8
-  %48 = getelementptr inbounds { i64, [9 x i64] }, ptr %.sroa.0235.0.copyload, i64 %.sroa.5237.0.copyload
+  %48 = getelementptr inbounds [80 x i8], ptr %.sroa.0235.0.copyload, i64 %.sroa.5237.0.copyload
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.4236.0..sroa_idx, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !118
   store i64 0, ptr %12, align 8, !noalias !118
@@ -1217,7 +1217,7 @@ define void @_ZN26iox_query_influxql_rewrite16parse_statements17h789fe3191c63cc8
 9:                                                ; preds = %3
   %.sroa.4.sroa.0.0.copyload19 = load ptr, ptr %8, align 8, !alias.scope !250, !nonnull !4, !noundef !4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %10 = getelementptr inbounds { i64, ptr }, ptr %.sroa.4.sroa.0.0.copyload19, i64 %.sroa.4.sroa.7.0.copyload27
+  %10 = getelementptr inbounds [16 x i8], ptr %.sroa.4.sroa.0.0.copyload19, i64 %.sroa.4.sroa.7.0.copyload27
   store ptr %.sroa.4.sroa.0.0.copyload19, ptr %5, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %.sroa.4.sroa.6.0.copyload23, ptr %.sroa.5.0..sroa_idx, align 8

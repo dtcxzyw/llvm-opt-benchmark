@@ -214,7 +214,7 @@ define ptr @mpool_malloc(ptr noundef captures(ret: address, provenance) %0, i64 
   br i1 %.not136, label %alignof.exit, label %switch.lookup
 
 switch.lookup:                                    ; preds = %2
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.mpool_malloc, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.mpool_malloc, i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %alignof.exit
 
@@ -226,7 +226,7 @@ alignof.exit:                                     ; preds = %2, %switch.lookup
 
 6:                                                ; preds = %10, %alignof.exit
   %indvars.iv.i = phi i64 [ 0, %alignof.exit ], [ %indvars.iv.next.i, %10 ]
-  %7 = getelementptr inbounds nuw i32, ptr @fragsz, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw [4 x i8], ptr @fragsz, i64 %indvars.iv.i
   %8 = load i32, ptr %7, align 4, !tbaa !40
   %9 = zext i32 %8 to i64
   %.not.i = icmp ugt i64 %5, %9
@@ -249,7 +249,7 @@ to_bits.exit.thread:                              ; preds = %10, %to_bits.exit
 13:                                               ; preds = %to_bits.exit
   %14 = and i64 %indvars.iv.i, 4294967295
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %14
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %14
   %17 = load ptr, ptr %16, align 8, !tbaa !41
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %from_bits.exit, label %18
@@ -274,7 +274,7 @@ to_bits.exit.thread:                              ; preds = %10, %to_bits.exit
   br label %113
 
 from_bits.exit:                                   ; preds = %13
-  %32 = getelementptr inbounds nuw i32, ptr @fragsz, i64 %14
+  %32 = getelementptr inbounds nuw [4 x i8], ptr @fragsz, i64 %14
   %33 = load i32, ptr %32, align 4, !tbaa !40
   %34 = zext i32 %33 to i64
   br label %35
@@ -305,7 +305,7 @@ from_bits.exit:                                   ; preds = %13
 
 53:                                               ; preds = %56, %41
   %indvars.iv.i.i = phi i64 [ 0, %41 ], [ %indvars.iv.next.i.i, %56 ]
-  %54 = getelementptr inbounds nuw i32, ptr @fragsz, i64 %indvars.iv.i.i
+  %54 = getelementptr inbounds nuw [4 x i8], ptr @fragsz, i64 %indvars.iv.i.i
   %55 = load i32, ptr %54, align 4, !tbaa !40
   %.not.i.i = icmp ult i32 %55, %52
   br i1 %.not.i.i, label %56, label %to_bits.exit.i
@@ -385,7 +385,7 @@ allocate_aligned.exit:                            ; preds = %56, %to_bits.exit.i
 
 98:                                               ; preds = %101, %83
   %indvars.iv.i.i70 = phi i64 [ 0, %83 ], [ %indvars.iv.next.i.i75, %101 ]
-  %99 = getelementptr inbounds nuw i32, ptr @fragsz, i64 %indvars.iv.i.i70
+  %99 = getelementptr inbounds nuw [4 x i8], ptr @fragsz, i64 %indvars.iv.i.i70
   %100 = load i32, ptr %99, align 4, !tbaa !40
   %.not.i.i71 = icmp ult i32 %100, %97
   br i1 %.not.i.i71, label %101, label %to_bits.exit.i72
@@ -439,7 +439,7 @@ define void @mpool_free(ptr noundef captures(none) %0, ptr noundef %1) local_unn
   %10 = getelementptr inbounds i8, ptr %4, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = zext i8 %6 to i64
-  %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !41
   store ptr %14, ptr %10, align 1, !tbaa !3
   store ptr %10, ptr %13, align 8, !tbaa !41
@@ -495,7 +495,7 @@ from_bits.exit.thread:                            ; preds = %8, %6
   br label %39
 
 from_bits.exit:                                   ; preds = %8
-  %13 = getelementptr inbounds nuw i32, ptr @fragsz, i64 %11
+  %13 = getelementptr inbounds nuw [4 x i8], ptr @fragsz, i64 %11
   %14 = load i32, ptr %13, align 4, !tbaa !40
   %15 = zext i32 %14 to i64
   %16 = load i8, ptr %7, align 1, !tbaa !3
@@ -512,7 +512,7 @@ from_bits.exit:                                   ; preds = %8
 from_bits.exit48:                                 ; preds = %19
   %20 = add nuw nsw i64 %11, 4294967295
   %21 = and i64 %20, 4294967295
-  %22 = getelementptr inbounds nuw i32, ptr @fragsz, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr @fragsz, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !40
   %24 = zext i32 %23 to i64
   %reass.sub = sub nsw i64 %24, %17
@@ -535,7 +535,7 @@ mpool_free.exit:                                  ; preds = %27
   %34 = getelementptr inbounds i8, ptr %7, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = zext i8 %30 to i64
-  %37 = getelementptr inbounds nuw ptr, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !41
   store ptr %38, ptr %34, align 1, !tbaa !3
   store ptr %34, ptr %37, align 8, !tbaa !41
@@ -568,7 +568,7 @@ from_bits.exit.thread.i:                          ; preds = %6, %4
   br label %38
 
 from_bits.exit.i:                                 ; preds = %6
-  %11 = getelementptr inbounds nuw i32, ptr @fragsz, i64 %9
+  %11 = getelementptr inbounds nuw [4 x i8], ptr @fragsz, i64 %9
   %12 = load i32, ptr %11, align 4, !tbaa !40
   %13 = zext i32 %12 to i64
   %14 = load i8, ptr %5, align 1, !tbaa !3
@@ -585,7 +585,7 @@ from_bits.exit.i:                                 ; preds = %6
 from_bits.exit48.i:                               ; preds = %17
   %18 = add nuw nsw i64 %9, 4294967295
   %19 = and i64 %18, 4294967295
-  %20 = getelementptr inbounds nuw i32, ptr @fragsz, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr @fragsz, i64 %19
   %21 = load i32, ptr %20, align 4, !tbaa !40
   %22 = zext i32 %21 to i64
   %reass.sub = sub nsw i64 %22, %15
@@ -608,7 +608,7 @@ mpool_free.exit.i:                                ; preds = %25
   %32 = getelementptr inbounds i8, ptr %5, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = zext i8 %28 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !41
   store ptr %36, ptr %32, align 1, !tbaa !3
   store ptr %32, ptr %35, align 8, !tbaa !41
@@ -627,7 +627,7 @@ mpool_realloc.exit:                               ; preds = %3
   %44 = getelementptr inbounds i8, ptr %5, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %46 = zext i8 %40 to i64
-  %47 = getelementptr inbounds nuw ptr, ptr %45, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %46
   %48 = load ptr, ptr %47, align 8, !tbaa !41
   store ptr %48, ptr %44, align 1, !tbaa !3
   store ptr %44, ptr %47, align 8, !tbaa !41
@@ -675,7 +675,7 @@ mpool_free.exit:                                  ; preds = %12
   %21 = getelementptr inbounds i8, ptr %15, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = zext i8 %17 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !41
   store ptr %25, ptr %21, align 1, !tbaa !3
   store ptr %21, ptr %24, align 8, !tbaa !41
@@ -875,7 +875,7 @@ mpool_free.exit:                                  ; preds = %10
   %19 = getelementptr inbounds i8, ptr %13, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = zext i8 %15 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !41
   store ptr %23, ptr %19, align 1, !tbaa !3
   store ptr %19, ptr %22, align 8, !tbaa !41

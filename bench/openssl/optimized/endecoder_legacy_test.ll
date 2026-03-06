@@ -5,8 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.options_st = type { ptr, i32, i32, ptr }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.key_st = type { ptr, i32, ptr, ptr }
-%struct.test_stanza_st = type { ptr, [2 x ptr], i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 
 @test_get_options.options = internal constant [9 x %struct.options_st] [%struct.options_st { ptr @OPT_HELP_STR, i32 1, i32 45, ptr @.str }, %struct.options_st { ptr @OPT_HELP_STR, i32 1, i32 45, ptr @.str.1 }, %struct.options_st { ptr @.str.2, i32 500, i32 45, ptr @.str.3 }, %struct.options_st { ptr @.str.4, i32 501, i32 45, ptr @.str.5 }, %struct.options_st { ptr @.str.6, i32 502, i32 115, ptr @.str.7 }, %struct.options_st { ptr @.str.8, i32 503, i32 110, ptr @.str.9 }, %struct.options_st { ptr @.str.10, i32 504, i32 112, ptr @.str.11 }, %struct.options_st { ptr @.str.12, i32 505, i32 110, ptr @.str.13 }, %struct.options_st zeroinitializer], align 16
 @OPT_HELP_STR = external constant [0 x i8], align 1
@@ -133,7 +131,7 @@ define dso_local range(i32 0, 2) i32 @setup_tests() local_unnamed_addr #1 {
 
 sub_0:                                            ; preds = %8, %64
   %.016 = phi i64 [ 0, %8 ], [ %65, %64 ]
-  %9 = getelementptr inbounds nuw %struct.key_st, ptr @keys, i64 %.016
+  %9 = getelementptr inbounds nuw [32 x i8], ptr @keys, i64 %.016
   %10 = load ptr, ptr %9, align 16, !tbaa !4
   %11 = load i8, ptr %10, align 1
   %.not17 = icmp eq i8 %11, 68
@@ -295,7 +293,7 @@ define internal range(i32 0, 2) i32 @test_key(i32 noundef %0) #1 {
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !15
   %4 = sext i32 %0 to i64
-  %5 = getelementptr inbounds %struct.test_stanza_st, ptr @test_stanzas, i64 %4
+  %5 = getelementptr inbounds [160 x i8], ptr @test_stanzas, i64 %4
   %6 = tail call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 514, ptr noundef nonnull @.str.36, ptr noundef nonnull %5) #5
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %199, label %7
@@ -311,7 +309,7 @@ define internal range(i32 0, 2) i32 @test_key(i32 noundef %0) #1 {
 
 11:                                               ; preds = %9, %7
   %.06.i = phi i64 [ 0, %7 ], [ %10, %9 ]
-  %12 = getelementptr inbounds nuw %struct.key_st, ptr @keys, i64 %.06.i
+  %12 = getelementptr inbounds nuw [32 x i8], ptr @keys, i64 %.06.i
   %13 = load ptr, ptr %12, align 16, !tbaa !4
   %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull readonly dereferenceable(1) %8) #6
   %15 = icmp eq i32 %14, 0
@@ -375,7 +373,7 @@ lookup_key.exit:                                  ; preds = %9, %11
   %.2163 = phi i32 [ 1, %.preheader160 ], [ %.not144, %test_protected_PEM.exit ]
   %45 = phi i1 [ true, %.preheader160 ], [ false, %test_protected_PEM.exit ]
   %.0117162 = phi i64 [ 0, %.preheader160 ], [ 1, %test_protected_PEM.exit ]
-  %46 = getelementptr inbounds nuw ptr, ptr %42, i64 %.0117162
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %.0117162
   %47 = load ptr, ptr %46, align 8, !tbaa !26
   %48 = load ptr, ptr %5, align 16, !tbaa !21
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.14, i32 noundef 536, ptr noundef nonnull @.str.44, ptr noundef %48, ptr noundef %47) #5
@@ -512,7 +510,7 @@ test_protected_PEM.exit:                          ; preds = %44, %56, %60, %63, 
   %.5165 = phi i32 [ %.1, %.preheader158 ], [ %spec.select145, %112 ]
   %113 = phi i1 [ true, %.preheader158 ], [ false, %112 ]
   %.1118164 = phi i64 [ 0, %.preheader158 ], [ 1, %112 ]
-  %114 = getelementptr inbounds nuw ptr, ptr %110, i64 %.1118164
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %110, i64 %.1118164
   %115 = load ptr, ptr %114, align 8, !tbaa !26
   %116 = load ptr, ptr %5, align 16, !tbaa !21
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.14, i32 noundef 556, ptr noundef nonnull @.str.45, ptr noundef %116, ptr noundef %115) #5
@@ -541,7 +539,7 @@ test_protected_PEM.exit:                          ; preds = %44, %56, %60, %63, 
   %.8167 = phi i32 [ %.4, %.preheader156 ], [ %spec.select146, %126 ]
   %127 = phi i1 [ true, %.preheader156 ], [ false, %126 ]
   %.2119166 = phi i64 [ 0, %.preheader156 ], [ 1, %126 ]
-  %128 = getelementptr inbounds nuw ptr, ptr %124, i64 %.2119166
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %.2119166
   %129 = load ptr, ptr %128, align 8, !tbaa !26
   %130 = load ptr, ptr %5, align 16, !tbaa !21
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.14, i32 noundef 574, ptr noundef nonnull @.str.46, ptr noundef %130, ptr noundef %129) #5
@@ -590,7 +588,7 @@ test_protected_PEM.exit:                          ; preds = %44, %56, %60, %63, 
   %.13169 = phi i32 [ %.10, %.preheader154 ], [ %spec.select148, %151 ]
   %152 = phi i1 [ true, %.preheader154 ], [ false, %151 ]
   %.3120168 = phi i64 [ 0, %.preheader154 ], [ 1, %151 ]
-  %153 = getelementptr inbounds nuw ptr, ptr %149, i64 %.3120168
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %149, i64 %.3120168
   %154 = load ptr, ptr %153, align 8, !tbaa !26
   %155 = load ptr, ptr %5, align 16, !tbaa !21
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.14, i32 noundef 611, ptr noundef nonnull @.str.49, ptr noundef %155, ptr noundef %154) #5
@@ -619,7 +617,7 @@ test_protected_PEM.exit:                          ; preds = %44, %56, %60, %63, 
   %.16171 = phi i32 [ %.12, %.preheader152 ], [ %spec.select149, %165 ]
   %166 = phi i1 [ true, %.preheader152 ], [ false, %165 ]
   %.4121170 = phi i64 [ 0, %.preheader152 ], [ 1, %165 ]
-  %167 = getelementptr inbounds nuw ptr, ptr %163, i64 %.4121170
+  %167 = getelementptr inbounds nuw [8 x i8], ptr %163, i64 %.4121170
   %168 = load ptr, ptr %167, align 8, !tbaa !26
   %169 = load ptr, ptr %5, align 16, !tbaa !21
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.14, i32 noundef 631, ptr noundef nonnull @.str.50, ptr noundef %169, ptr noundef %168) #5
@@ -648,7 +646,7 @@ test_protected_PEM.exit:                          ; preds = %44, %56, %60, %63, 
   %.19173 = phi i32 [ %.15, %.preheader ], [ %spec.select150, %179 ]
   %180 = phi i1 [ true, %.preheader ], [ false, %179 ]
   %.5122172 = phi i64 [ 0, %.preheader ], [ 1, %179 ]
-  %181 = getelementptr inbounds nuw ptr, ptr %177, i64 %.5122172
+  %181 = getelementptr inbounds nuw [8 x i8], ptr %177, i64 %.5122172
   %182 = load ptr, ptr %181, align 8, !tbaa !26
   %183 = load ptr, ptr %5, align 16, !tbaa !21
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.14, i32 noundef 649, ptr noundef nonnull @.str.51, ptr noundef %183, ptr noundef %182) #5
@@ -695,7 +693,7 @@ define dso_local void @cleanup_tests() local_unnamed_addr #1 {
 
 1:                                                ; preds = %0, %1
   %.03 = phi i64 [ 0, %0 ], [ %5, %1 ]
-  %2 = getelementptr inbounds nuw %struct.key_st, ptr @keys, i64 %.03
+  %2 = getelementptr inbounds nuw [32 x i8], ptr @keys, i64 %.03
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !13
   tail call void @EVP_PKEY_free(ptr noundef %4) #5

@@ -300,7 +300,7 @@ define ptr @Java_sun_net_spi_DefaultProxySelector_getSystemProxies(ptr noundef %
 .lr.ph108.i:                                      ; preds = %.preheader.i, %115
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %115 ], [ 0, %.preheader.i ]
   %58 = phi ptr [ %117, %115 ], [ %57, %.preheader.i ]
-  %59 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv.i
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv.i
   %60 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %58, ptr noundef nonnull dereferenceable(10) @.str.17, i64 noundef 9) #11
   %.not96.i = icmp eq i32 %60, 0
   br i1 %.not96.i, label %93, label %61
@@ -389,7 +389,7 @@ define ptr @Java_sun_net_spi_DefaultProxySelector_getSystemProxies(ptr noundef %
 
 115:                                              ; preds = %106, %84
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %116 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv.next.i
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv.next.i
   %117 = load ptr, ptr %116, align 8
   %.not95.i = icmp eq ptr %117, null
   br i1 %.not95.i, label %.loopexit.i, label %.lr.ph108.i, !llvm.loop !8

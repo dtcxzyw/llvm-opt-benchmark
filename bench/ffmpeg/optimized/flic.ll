@@ -3,8 +3,6 @@ source_filename = "bench/ffmpeg/original/flic.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.AVIndexEntry = type { i64, i64, i32, i32 }
-
 @.str = private unnamed_addr constant [5 x i8] c"flic\00", align 1
 @.str.1 = private unnamed_addr constant [22 x i8] c"FLI/FLC/FLX animation\00", align 1
 @ff_flic_demuxer = local_unnamed_addr constant { { ptr, ptr, i32, [4 x i8], ptr, ptr, ptr, ptr }, i32, i32, i32, [4 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr } { { ptr, ptr, i32, [4 x i8], ptr, ptr, ptr, ptr } { ptr @.str, ptr @.str.1, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null, ptr null }, i32 0, i32 12, i32 0, [4 x i8] zeroinitializer, ptr @flic_probe, ptr @flic_read_header, ptr @flic_read_packet, ptr null, ptr @flic_read_seek, ptr null, ptr null, ptr null, ptr null, ptr null }, align 8
@@ -307,7 +305,7 @@ define internal i32 @flic_read_packet(ptr noundef readonly captures(none) %0, pt
   %41 = load ptr, ptr %17, align 8, !tbaa !61
   %42 = load i32, ptr %5, align 4, !tbaa !38
   %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds ptr, ptr %41, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr %41, i64 %43
   %45 = load ptr, ptr %44, align 8, !tbaa !62
   %46 = load i64, ptr %12, align 8, !tbaa !57
   %47 = load i32, ptr %18, align 8, !tbaa !64
@@ -370,7 +368,7 @@ define internal range(i32 -1, 1) i32 @flic_read_seek(ptr noundef readonly captur
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8, !tbaa !61
   %9 = sext i32 %1 to i64
-  %10 = getelementptr inbounds ptr, ptr %8, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !62
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 320
   %13 = load ptr, ptr %12, align 8, !tbaa !67
@@ -397,7 +395,7 @@ define internal range(i32 -1, 1) i32 @flic_read_seek(ptr noundef readonly captur
   %.027 = phi i32 [ %21, %19 ], [ %17, %16 ]
   %23 = load ptr, ptr %12, align 8, !tbaa !67
   %24 = zext nneg i32 %.027 to i64
-  %25 = getelementptr inbounds nuw %struct.AVIndexEntry, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %24
   %26 = load i64, ptr %25, align 8, !tbaa !79
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %28 = load i64, ptr %27, align 8, !tbaa !81

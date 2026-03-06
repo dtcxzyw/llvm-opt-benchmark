@@ -7,12 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { ptr }
 %union.anon.0 = type { ptr }
 %union.anon.2 = type { i64 }
-%struct.StackItemRegion = type { i32, i32, i32, i32 }
-%struct.FFFrameSyncIn = type { i32, i32, %struct.AVRational, ptr, ptr, i64, i64, i8, i8, i32, i32 }
-%struct.AVRational = type { i32, i32 }
-%struct._VARectangle = type { i16, i16, i16, i16 }
-%struct._VAProcPipelineParameterBuffer = type { i32, ptr, i32, ptr, i32, i32, i32, i32, ptr, i32, ptr, i32, ptr, i32, i32, ptr, i32, ptr, i32, i32, i32, %struct._VAProcColorProperties, %struct._VAProcColorProperties, i32, ptr, [16 x i32] }
-%struct._VAProcColorProperties = type { i8, i8, i8, i8, i8, [3 x i8] }
 
 @.str = private unnamed_addr constant [13 x i8] c"hstack_vaapi\00", align 1
 @.str.1 = private unnamed_addr constant [16 x i8] c"\22VA-API\22 hstack\00", align 1
@@ -312,7 +306,7 @@ define internal i32 @config_output(ptr noundef %0) #0 {
 
 28:                                               ; preds = %.lr.ph, %27
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %27 ]
-  %29 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8, !tbaa !60
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 36
   %32 = load i32, ptr %31, align 4, !tbaa !62
@@ -404,9 +398,9 @@ define internal i32 @config_output(ptr noundef %0) #0 {
 75:                                               ; preds = %75, %.lr.ph305.i
   %indvars.iv359.i = phi i64 [ 0, %.lr.ph305.i ], [ %indvars.iv.next360.i, %75 ]
   %.0180304.i = phi i32 [ 0, %.lr.ph305.i ], [ %90, %75 ]
-  %76 = getelementptr inbounds nuw ptr, ptr %58, i64 %indvars.iv359.i
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %indvars.iv359.i
   %77 = load ptr, ptr %76, align 8, !tbaa !60
-  %78 = getelementptr inbounds nuw %struct.StackItemRegion, ptr %73, i64 %indvars.iv359.i
+  %78 = getelementptr inbounds nuw [16 x i8], ptr %73, i64 %indvars.iv359.i
   store i32 %.0180304.i, ptr %78, align 4, !tbaa !76
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 4
   store i32 0, ptr %79, align 4, !tbaa !78
@@ -455,9 +449,9 @@ define internal i32 @config_output(ptr noundef %0) #0 {
 104:                                              ; preds = %104, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %104 ]
   %.2189302.i = phi i32 [ 0, %.lr.ph.i ], [ %119, %104 ]
-  %105 = getelementptr inbounds nuw ptr, ptr %58, i64 %indvars.iv.i
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %indvars.iv.i
   %106 = load ptr, ptr %105, align 8, !tbaa !60
-  %107 = getelementptr inbounds nuw %struct.StackItemRegion, ptr %102, i64 %indvars.iv.i
+  %107 = getelementptr inbounds nuw [16 x i8], ptr %102, i64 %indvars.iv.i
   store i32 0, ptr %107, align 4, !tbaa !76
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 4
   store i32 %.2189302.i, ptr %108, align 4, !tbaa !78
@@ -532,7 +526,7 @@ define internal i32 @config_output(ptr noundef %0) #0 {
   %indvars.iv364.i = phi i64 [ %143, %.preheader275.us.i ], [ %indvars.iv.next365.i, %145 ]
   %.0209309.us.i = phi i32 [ 0, %.preheader275.us.i ], [ %150, %145 ]
   %indvars.iv.next365.i = add nsw i64 %indvars.iv364.i, 1
-  %146 = getelementptr inbounds %struct.StackItemRegion, ptr %142, i64 %indvars.iv364.i
+  %146 = getelementptr inbounds [16 x i8], ptr %142, i64 %indvars.iv364.i
   store i32 %.0208314.us.i, ptr %146, align 4, !tbaa !76
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 4
   store i32 %.0209309.us.i, ptr %147, align 4, !tbaa !78
@@ -594,10 +588,10 @@ define internal i32 @config_output(ptr noundef %0) #0 {
   %.3190329.i = phi i32 [ 0, %.lr.ph332.i ], [ %244, %.thread253.i ]
   %.0206327.i = phi ptr [ %157, %.lr.ph332.i ], [ null, %.thread253.i ]
   %162 = load ptr, ptr %57, align 8, !tbaa !59
-  %163 = getelementptr inbounds nuw ptr, ptr %162, i64 %indvars.iv369.i
+  %163 = getelementptr inbounds nuw [8 x i8], ptr %162, i64 %indvars.iv369.i
   %164 = load ptr, ptr %163, align 8, !tbaa !60
   %165 = load ptr, ptr %160, align 8, !tbaa !46
-  %166 = getelementptr inbounds nuw %struct.StackItemRegion, ptr %165, i64 %indvars.iv369.i
+  %166 = getelementptr inbounds nuw [16 x i8], ptr %165, i64 %indvars.iv369.i
   %167 = getelementptr inbounds nuw i8, ptr %164, i64 40
   %168 = load i32, ptr %167, align 8, !tbaa !79
   store i32 %168, ptr %6, align 4, !tbaa !41
@@ -671,7 +665,7 @@ define internal i32 @config_output(ptr noundef %0) #0 {
 
 191:                                              ; preds = %189
   %192 = load ptr, ptr %160, align 8, !tbaa !46
-  %193 = getelementptr inbounds nuw %struct.StackItemRegion, ptr %192, i64 %186
+  %193 = getelementptr inbounds nuw [16 x i8], ptr %192, i64 %186
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 8
   %195 = load i32, ptr %194, align 4, !tbaa !80
   br i1 %.not238.i, label %196, label %198
@@ -704,7 +698,7 @@ define internal i32 @config_output(ptr noundef %0) #0 {
 
 210:                                              ; preds = %208
   %211 = load ptr, ptr %160, align 8, !tbaa !46
-  %212 = getelementptr inbounds nuw %struct.StackItemRegion, ptr %211, i64 %205
+  %212 = getelementptr inbounds nuw [16 x i8], ptr %211, i64 %205
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 12
   %214 = load i32, ptr %213, align 4, !tbaa !81
   br i1 %.not238.i, label %215, label %217
@@ -825,7 +819,7 @@ define internal i32 @config_output(ptr noundef %0) #0 {
 
 263:                                              ; preds = %262, %.lr.ph337.i
   %indvars.iv372.i = phi i64 [ 1, %.lr.ph337.i ], [ %indvars.iv.next373.i, %262 ]
-  %264 = getelementptr inbounds nuw ptr, ptr %261, i64 %indvars.iv372.i
+  %264 = getelementptr inbounds nuw [8 x i8], ptr %261, i64 %indvars.iv372.i
   %265 = load ptr, ptr %264, align 8, !tbaa !60
   %266 = getelementptr inbounds nuw i8, ptr %265, i64 264
   %267 = load i32, ptr %266, align 8, !tbaa !91
@@ -870,7 +864,7 @@ define internal i32 @config_output(ptr noundef %0) #0 {
 285:                                              ; preds = %285, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %285 ]
   %286 = load ptr, ptr %283, align 8, !tbaa !96
-  %287 = getelementptr inbounds nuw %struct.FFFrameSyncIn, ptr %286, i64 %indvars.iv.i.i
+  %287 = getelementptr inbounds nuw [64 x i8], ptr %286, i64 %indvars.iv.i.i
   store i32 0, ptr %287, align 8, !tbaa !97
   %288 = load i32, ptr %284, align 4, !tbaa !100
   %.not.i.i = icmp eq i32 %288, 0
@@ -881,7 +875,7 @@ define internal i32 @config_output(ptr noundef %0) #0 {
   store i32 1, ptr %291, align 4, !tbaa !102
   %292 = getelementptr inbounds nuw i8, ptr %287, i64 8
   %293 = load ptr, ptr %57, align 8, !tbaa !59
-  %294 = getelementptr inbounds nuw ptr, ptr %293, i64 %indvars.iv.i.i
+  %294 = getelementptr inbounds nuw [8 x i8], ptr %293, i64 %indvars.iv.i.i
   %295 = load ptr, ptr %294, align 8, !tbaa !60
   %296 = getelementptr inbounds nuw i8, ptr %295, i64 96
   %297 = load i64, ptr %296, align 8
@@ -926,10 +920,10 @@ config_comm_output.exit:                          ; preds = %init_framesync.exit
 
 317:                                              ; preds = %.lr.ph109, %317
   %indvars.iv125 = phi i64 [ 0, %.lr.ph109 ], [ %indvars.iv.next126, %317 ]
-  %318 = getelementptr inbounds nuw %struct.StackItemRegion, ptr %309, i64 %indvars.iv125
+  %318 = getelementptr inbounds nuw [16 x i8], ptr %309, i64 %indvars.iv125
   %319 = load i32, ptr %318, align 4, !tbaa !76
   %320 = trunc i32 %319 to i16
-  %321 = getelementptr inbounds nuw %struct._VARectangle, ptr %311, i64 %indvars.iv125
+  %321 = getelementptr inbounds nuw [8 x i8], ptr %311, i64 %indvars.iv125
   store i16 %320, ptr %321, align 2, !tbaa !107
   %322 = getelementptr inbounds nuw i8, ptr %318, i64 4
   %323 = load i32, ptr %322, align 4, !tbaa !78
@@ -1053,7 +1047,7 @@ define internal i32 @process_frame(ptr noundef %0) #0 {
 
 48:                                               ; preds = %44, %42
   %49 = load ptr, ptr %4, align 8, !tbaa !118
-  %50 = getelementptr inbounds nuw %struct._VAProcPipelineParameterBuffer, ptr %49, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [224 x i8], ptr %49, i64 %indvars.iv
   %51 = load ptr, ptr %3, align 8, !tbaa !116
   %52 = call i32 @ff_vaapi_vpp_init_params(ptr noundef nonnull %7, ptr noundef %50, ptr noundef %51, ptr noundef nonnull %21) #11
   %.not59 = icmp eq i32 %52, 0
@@ -1073,7 +1067,7 @@ define internal i32 @process_frame(ptr noundef %0) #0 {
   %64 = load i64, ptr %63, align 8, !tbaa !127
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %7, i32 noundef 48, ptr noundef nonnull @.str.18, i32 noundef %40, ptr noundef %57, i32 noundef %60, i32 noundef %62, i64 noundef %64) #11
   %65 = load ptr, ptr %5, align 8, !tbaa !117
-  %66 = getelementptr inbounds nuw %struct._VARectangle, ptr %65, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %indvars.iv
   store i16 0, ptr %66, align 2, !tbaa !107
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 2
   store i16 0, ptr %67, align 2, !tbaa !108
@@ -1089,7 +1083,7 @@ define internal i32 @process_frame(ptr noundef %0) #0 {
   %76 = getelementptr inbounds nuw i8, ptr %66, i64 6
   store i16 %75, ptr %76, align 2, !tbaa !110
   %77 = load ptr, ptr %4, align 8, !tbaa !118
-  %78 = getelementptr inbounds nuw %struct._VAProcPipelineParameterBuffer, ptr %77, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [224 x i8], ptr %77, i64 %indvars.iv
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   store ptr %66, ptr %79, align 8, !tbaa !128
   %80 = getelementptr inbounds nuw i8, ptr %68, i64 24
@@ -1098,7 +1092,7 @@ define internal i32 @process_frame(ptr noundef %0) #0 {
   %83 = trunc i64 %82 to i32
   store i32 %83, ptr %78, align 8, !tbaa !134
   %84 = load ptr, ptr %33, align 8, !tbaa !50
-  %85 = getelementptr inbounds nuw %struct._VARectangle, ptr %84, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %indvars.iv
   %86 = getelementptr inbounds nuw i8, ptr %78, i64 24
   store ptr %85, ptr %86, align 8, !tbaa !135
   %87 = load i32, ptr %34, align 8, !tbaa !136

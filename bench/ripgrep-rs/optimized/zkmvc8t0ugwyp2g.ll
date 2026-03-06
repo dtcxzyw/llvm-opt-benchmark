@@ -299,8 +299,8 @@ define hidden noundef zeroext i1 @_ZN4core3cmp9PartialEq2ne17h64e07ed1d7c6dba9E.
 
 11:                                               ; preds = %.preheader.split
   %12 = add i64 %.sroa.01.0.i.i, 1
-  %13 = getelementptr inbounds { i64, [3 x i64] }, ptr %4, i64 %.sroa.01.0.i.i
-  %14 = getelementptr inbounds { i64, [3 x i64] }, ptr %8, i64 %.sroa.01.0.i.i
+  %13 = getelementptr inbounds [32 x i8], ptr %4, i64 %.sroa.01.0.i.i
+  %14 = getelementptr inbounds [32 x i8], ptr %8, i64 %.sroa.01.0.i.i
   %15 = tail call fastcc noundef zeroext i1 @_ZN4core3cmp9PartialEq2ne17hac15e01eb2e4201aE(ptr noalias noundef readonly align 8 dereferenceable(32) %13, ptr noalias noundef readonly align 8 dereferenceable(32) %14), !noalias !45
   br i1 %15, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h01da03b2db7d5e1aE.llvm.16693049746842284375.exit", label %.preheader.split
 
@@ -367,8 +367,8 @@ define internal fastcc noundef zeroext i1 @_ZN4core3cmp9PartialEq2ne17hac15e01eb
   br i1 %exitcond.not.i.i.not.not, label %30, label %"_ZN61_$LT$globset..glob..Token$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80930101a78a7388E.exit"
 
 30:                                               ; preds = %.preheader.split.i.i
-  %31 = getelementptr inbounds { i32, i32 }, ptr %.val.i, i64 %.sroa.01.0.i.i3
-  %32 = getelementptr inbounds { i32, i32 }, ptr %.val4.i, i64 %.sroa.01.0.i.i3
+  %31 = getelementptr inbounds [8 x i8], ptr %.val.i, i64 %.sroa.01.0.i.i3
+  %32 = getelementptr inbounds [8 x i8], ptr %.val4.i, i64 %.sroa.01.0.i.i3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !59), !noalias !56
   tail call void @llvm.experimental.noalias.scope.decl(metadata !62), !noalias !56
   tail call void @llvm.experimental.noalias.scope.decl(metadata !64), !noalias !56
@@ -414,8 +414,8 @@ _ZN4core3cmp9PartialEq2ne17h64e07ed1d7c6dba9E.llvm.16693049746842284375.exit.loo
 .lr.ph:                                           ; preds = %_ZN4core3cmp9PartialEq2ne17h64e07ed1d7c6dba9E.llvm.16693049746842284375.exit.preheader, %_ZN4core3cmp9PartialEq2ne17h64e07ed1d7c6dba9E.llvm.16693049746842284375.exit.loopexit
   %.sroa.01.0.i.i18 = phi i64 [ %49, %_ZN4core3cmp9PartialEq2ne17h64e07ed1d7c6dba9E.llvm.16693049746842284375.exit.loopexit ], [ 0, %_ZN4core3cmp9PartialEq2ne17h64e07ed1d7c6dba9E.llvm.16693049746842284375.exit.preheader ]
   %49 = add nuw i64 %.sroa.01.0.i.i18, 1
-  %50 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %42, i64 %.sroa.01.0.i.i18
-  %51 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %46, i64 %.sroa.01.0.i.i18
+  %50 = getelementptr inbounds [24 x i8], ptr %42, i64 %.sroa.01.0.i.i18
+  %51 = getelementptr inbounds [24 x i8], ptr %46, i64 %.sroa.01.0.i.i18
   tail call void @llvm.experimental.noalias.scope.decl(metadata !87)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !90)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !92), !noalias !95
@@ -438,8 +438,8 @@ _ZN4core3cmp9PartialEq2ne17h64e07ed1d7c6dba9E.llvm.16693049746842284375.exit.loo
 
 60:                                               ; preds = %.preheader.split
   %61 = add i64 %.sroa.01.0.i.i.i, 1
-  %62 = getelementptr inbounds { i64, [3 x i64] }, ptr %53, i64 %.sroa.01.0.i.i.i
-  %63 = getelementptr inbounds { i64, [3 x i64] }, ptr %57, i64 %.sroa.01.0.i.i.i
+  %62 = getelementptr inbounds [32 x i8], ptr %53, i64 %.sroa.01.0.i.i.i
+  %63 = getelementptr inbounds [32 x i8], ptr %57, i64 %.sroa.01.0.i.i.i
   %64 = tail call fastcc noundef zeroext i1 @_ZN4core3cmp9PartialEq2ne17hac15e01eb2e4201aE(ptr noalias noundef readonly align 8 dereferenceable(32) %62, ptr noalias noundef readonly align 8 dereferenceable(32) %63), !noalias !102
   br i1 %64, label %"_ZN61_$LT$globset..glob..Token$u20$as$u20$core..cmp..PartialEq$GT$2eq17h80930101a78a7388E.exit", label %.preheader.split
 
@@ -634,8 +634,8 @@ define hidden noundef zeroext i1 @"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$cor
 
 11:                                               ; preds = %.preheader.split
   %12 = add i64 %.sroa.01.0.i, 1
-  %13 = getelementptr inbounds { i64, [3 x i64] }, ptr %4, i64 %.sroa.01.0.i
-  %14 = getelementptr inbounds { i64, [3 x i64] }, ptr %8, i64 %.sroa.01.0.i
+  %13 = getelementptr inbounds [32 x i8], ptr %4, i64 %.sroa.01.0.i
+  %14 = getelementptr inbounds [32 x i8], ptr %8, i64 %.sroa.01.0.i
   %15 = tail call fastcc noundef zeroext i1 @_ZN4core3cmp9PartialEq2ne17hac15e01eb2e4201aE(ptr noalias noundef readonly align 8 dereferenceable(32) %13, ptr noalias noundef readonly align 8 dereferenceable(32) %14)
   br i1 %15, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hd796f3b6d0c7785aE.exit", label %.preheader.split
 
@@ -664,8 +664,8 @@ _ZN4core3cmp9PartialEq2ne17h64e07ed1d7c6dba9E.llvm.16693049746842284375.exit.loo
 .lr.ph:                                           ; preds = %_ZN4core3cmp9PartialEq2ne17h64e07ed1d7c6dba9E.llvm.16693049746842284375.exit.preheader, %_ZN4core3cmp9PartialEq2ne17h64e07ed1d7c6dba9E.llvm.16693049746842284375.exit.loopexit
   %.sroa.01.011 = phi i64 [ %5, %_ZN4core3cmp9PartialEq2ne17h64e07ed1d7c6dba9E.llvm.16693049746842284375.exit.loopexit ], [ 0, %_ZN4core3cmp9PartialEq2ne17h64e07ed1d7c6dba9E.llvm.16693049746842284375.exit.preheader ]
   %5 = add nuw i64 %.sroa.01.011, 1
-  %6 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %0, i64 %.sroa.01.011
-  %7 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %2, i64 %.sroa.01.011
+  %6 = getelementptr inbounds [24 x i8], ptr %0, i64 %.sroa.01.011
+  %7 = getelementptr inbounds [24 x i8], ptr %2, i64 %.sroa.01.011
   tail call void @llvm.experimental.noalias.scope.decl(metadata !116)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !119)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !121)
@@ -688,8 +688,8 @@ _ZN4core3cmp9PartialEq2ne17h64e07ed1d7c6dba9E.llvm.16693049746842284375.exit.loo
 
 16:                                               ; preds = %.preheader.split.i
   %17 = add i64 %.sroa.01.0.i.i.i, 1
-  %18 = getelementptr inbounds { i64, [3 x i64] }, ptr %9, i64 %.sroa.01.0.i.i.i
-  %19 = getelementptr inbounds { i64, [3 x i64] }, ptr %13, i64 %.sroa.01.0.i.i.i
+  %18 = getelementptr inbounds [32 x i8], ptr %9, i64 %.sroa.01.0.i.i.i
+  %19 = getelementptr inbounds [32 x i8], ptr %13, i64 %.sroa.01.0.i.i.i
   %20 = tail call fastcc noundef zeroext i1 @_ZN4core3cmp9PartialEq2ne17hac15e01eb2e4201aE(ptr noalias noundef readonly align 8 dereferenceable(32) %18, ptr noalias noundef readonly align 8 dereferenceable(32) %19), !noalias !128
   br i1 %20, label %.thread, label %.preheader.split.i
 }
@@ -1145,8 +1145,8 @@ define hidden noundef zeroext i1 @"_ZN62_$LT$globset..glob..Tokens$u20$as$u20$co
 
 11:                                               ; preds = %.preheader.split.i
   %12 = add i64 %.sroa.01.0.i.i, 1
-  %13 = getelementptr inbounds { i64, [3 x i64] }, ptr %4, i64 %.sroa.01.0.i.i
-  %14 = getelementptr inbounds { i64, [3 x i64] }, ptr %8, i64 %.sroa.01.0.i.i
+  %13 = getelementptr inbounds [32 x i8], ptr %4, i64 %.sroa.01.0.i.i
+  %14 = getelementptr inbounds [32 x i8], ptr %8, i64 %.sroa.01.0.i.i
   %15 = tail call fastcc noundef zeroext i1 @_ZN4core3cmp9PartialEq2ne17hac15e01eb2e4201aE(ptr noalias noundef readonly align 8 dereferenceable(32) %13, ptr noalias noundef readonly align 8 dereferenceable(32) %14), !noalias !225
   br i1 %15, label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h01da03b2db7d5e1aE.llvm.16693049746842284375.exit", label %.preheader.split.i
 

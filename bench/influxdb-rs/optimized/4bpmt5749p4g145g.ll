@@ -45,7 +45,7 @@ define hidden noundef i64 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$G
 10:                                               ; preds = %10, %5
   %.018.i = phi i64 [ %2, %5 ], [ %14, %10 ]
   %.017.i = phi i64 [ 0, %5 ], [ %15, %10 ]
-  %11 = getelementptr inbounds ptr, ptr %0, i64 %.017.i
+  %11 = getelementptr inbounds [8 x i8], ptr %0, i64 %.017.i
   %.val.i = load ptr, ptr %11, align 8, !nonnull !4, !noundef !4
   %12 = getelementptr inbounds nuw i8, ptr %.val.i, i64 64
   %13 = load i64, ptr %12, align 8, !noundef !4
@@ -93,7 +93,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 10:                                               ; preds = %13, %5
   %.val19.i = phi i64 [ %.sroa.6.0.copyload, %5 ], [ %15, %13 ]
   %.0.i = phi i64 [ 0, %5 ], [ %16, %13 ]
-  %11 = getelementptr inbounds ptr, ptr %0, i64 %.0.i
+  %11 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0.i
   %.val20.i = load ptr, ptr %11, align 8, !noalias !18, !nonnull !4, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i), !noalias !21
   %12 = getelementptr inbounds nuw i8, ptr %.val20.i, i64 16
@@ -101,7 +101,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
           to label %13 unwind label %18, !noalias !18
 
 13:                                               ; preds = %10
-  %14 = getelementptr inbounds { { i64, i64 }, { i64, i64 }, { { ptr, i64 }, i64 }, i64, i64, { ptr, [2 x i64] }, { i16, i16 }, [2 x i16] }, ptr %.sroa.9.0.copyload, i64 %.val19.i
+  %14 = getelementptr inbounds [104 x i8], ptr %.sroa.9.0.copyload, i64 %.val19.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %14, ptr noundef nonnull align 8 dereferenceable(104) %.sroa.0.i.i, i64 104, i1 false), !noalias !24
   %15 = add i64 %.val19.i, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0.i.i), !noalias !21
@@ -139,7 +139,7 @@ define hidden noundef i64 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$G
 10:                                               ; preds = %10, %5
   %.018.i = phi i64 [ %2, %5 ], [ %13, %10 ]
   %.017.i = phi i64 [ 0, %5 ], [ %14, %10 ]
-  %11 = getelementptr inbounds { { i64, [117 x i64] }, ptr }, ptr %0, i64 %.017.i
+  %11 = getelementptr inbounds [952 x i8], ptr %0, i64 %.017.i
   %12 = tail call noundef i64 @_ZN7parquet5arrow12arrow_writer17ArrowColumnWriter25get_estimated_total_bytes17h6c256cc3b328ab52E(ptr noundef nonnull align 8 %11)
   %13 = add i64 %12, %.018.i
   %14 = add nuw i64 %.017.i, 1
@@ -1498,7 +1498,7 @@ define hidden void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..funct
   %17 = load ptr, ptr %16, align 8, !alias.scope !367, !noalias !368, !noundef !4
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %19 = load i64, ptr %18, align 8, !alias.scope !367, !noalias !368, !noundef !4
-  %20 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { ptr, [2 x i64] } }, ptr %17, i64 %19
+  %20 = getelementptr inbounds [48 x i8], ptr %17, i64 %19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.sroa.0.i, i64 24, i1 false), !noalias !367
   %.sroa.0.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %20, i64 24
   store ptr %.sroa.0.0.i.i.i, ptr %.sroa.0.sroa.4.0..sroa_idx.i, align 8, !noalias !367
@@ -1753,7 +1753,7 @@ define hidden void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b
   %4 = load ptr, ptr %3, align 8, !alias.scope !479, !noalias !482, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !alias.scope !479, !noalias !482, !noundef !4
-  %7 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { ptr, [2 x i64] } }, ptr %4, i64 %6
+  %7 = getelementptr inbounds [48 x i8], ptr %4, i64 %6
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false), !noalias !479
   %8 = add i64 %6, 1
   store i64 %8, ptr %5, align 8, !alias.scope !479, !noalias !482
@@ -2008,7 +2008,7 @@ _ZN4core3ops8function5FnMut8call_mut17hfa8cb5e32d1b96e3E.llvm.319800506909850814
   %16 = load ptr, ptr %15, align 8, !alias.scope !541, !noalias !542, !noundef !4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load i64, ptr %17, align 8, !alias.scope !541, !noalias !542, !noundef !4
-  %19 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { ptr, [2 x i64] } }, ptr %16, i64 %18
+  %19 = getelementptr inbounds [48 x i8], ptr %16, i64 %18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %19, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.sroa.0, i64 24, i1 false), !noalias !541
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %19, i64 24
   store ptr %.sroa.0.0.i.i, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8, !noalias !541
@@ -2063,7 +2063,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted28_$u7b$$u7b
   %4 = load ptr, ptr %3, align 8, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !4
-  %7 = getelementptr inbounds { { { { ptr, i64 }, i64 } }, { ptr, [2 x i64] } }, ptr %4, i64 %6
+  %7 = getelementptr inbounds [48 x i8], ptr %4, i64 %6
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(48) %1, i64 48, i1 false)
   %8 = add i64 %6, 1
   store i64 %8, ptr %5, align 8
@@ -2486,7 +2486,7 @@ define hidden noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
 10:                                               ; preds = %10, %5
   %.018 = phi i64 [ %2, %5 ], [ %14, %10 ]
   %.017 = phi i64 [ 0, %5 ], [ %15, %10 ]
-  %11 = getelementptr inbounds ptr, ptr %0, i64 %.017
+  %11 = getelementptr inbounds [8 x i8], ptr %0, i64 %.017
   %.val = load ptr, ptr %11, align 8, !nonnull !4, !noundef !4
   %12 = getelementptr inbounds nuw i8, ptr %.val, i64 64
   %13 = load i64, ptr %12, align 8, !noundef !4
@@ -2516,7 +2516,7 @@ define hidden noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
 10:                                               ; preds = %10, %5
   %.018 = phi i64 [ %2, %5 ], [ %13, %10 ]
   %.017 = phi i64 [ 0, %5 ], [ %14, %10 ]
-  %11 = getelementptr inbounds { { i64, [117 x i64] }, ptr }, ptr %0, i64 %.017
+  %11 = getelementptr inbounds [952 x i8], ptr %0, i64 %.017
   %12 = tail call noundef i64 @_ZN7parquet5arrow12arrow_writer17ArrowColumnWriter25get_estimated_total_bytes17h6c256cc3b328ab52E(ptr noundef nonnull align 8 %11)
   %13 = add i64 %12, %.018
   %14 = add nuw i64 %.017, 1
@@ -2556,7 +2556,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 15:                                               ; preds = %18, %5
   %.val19 = phi i64 [ %.promoted, %5 ], [ %20, %18 ]
   %.0 = phi i64 [ 0, %5 ], [ %21, %18 ]
-  %16 = getelementptr inbounds ptr, ptr %0, i64 %.0
+  %16 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0
   %.val20 = load ptr, ptr %16, align 8, !nonnull !4, !noundef !4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !653)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i), !noalias !653
@@ -2567,7 +2567,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 18:                                               ; preds = %15
   tail call void @llvm.experimental.noalias.scope.decl(metadata !656)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !659)
-  %19 = getelementptr inbounds { { i64, i64 }, { i64, i64 }, { { ptr, i64 }, i64 }, i64, i64, { ptr, [2 x i64] }, { i16, i16 }, [2 x i16] }, ptr %11, i64 %.val19
+  %19 = getelementptr inbounds [104 x i8], ptr %11, i64 %.val19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %19, ptr noundef nonnull align 8 dereferenceable(104) %.sroa.0.i, i64 104, i1 false), !noalias !662
   %20 = add i64 %.val19, 1
   store i64 %20, ptr %12, align 8, !alias.scope !662, !noalias !663

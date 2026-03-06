@@ -1271,7 +1271,7 @@ define internal fastcc void @"_ZN4core3ptr54drop_in_place$LT$ockam_node..message
 
 .lr.ph.i.i.i:                                     ; preds = %10, %"_ZN4core3ptr58drop_in_place$LT$ockam_core..routing..address..Address$GT$17h62bc831b6f0e4bcfE.exit.i.i.i"
   %.07.i.i.i = phi i64 [ %17, %"_ZN4core3ptr58drop_in_place$LT$ockam_core..routing..address..Address$GT$17h62bc831b6f0e4bcfE.exit.i.i.i" ], [ 0, %10 ]
-  %16 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %12, i64 %.07.i.i.i
+  %16 = getelementptr inbounds [32 x i8], ptr %12, i64 %.07.i.i.i
   %17 = add nuw i64 %.07.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !275)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !278)
@@ -1354,7 +1354,7 @@ define internal fastcc void @"_ZN4core3ptr54drop_in_place$LT$ockam_node..message
 
 .lr.ph.i.i.i18:                                   ; preds = %42, %"_ZN4core3ptr58drop_in_place$LT$ockam_core..routing..address..Address$GT$17h62bc831b6f0e4bcfE.exit.i.i.i21"
   %.07.i.i.i19 = phi i64 [ %49, %"_ZN4core3ptr58drop_in_place$LT$ockam_core..routing..address..Address$GT$17h62bc831b6f0e4bcfE.exit.i.i.i21" ], [ 0, %42 ]
-  %48 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %44, i64 %.07.i.i.i19
+  %48 = getelementptr inbounds [32 x i8], ptr %44, i64 %.07.i.i.i19
   %49 = add nuw i64 %.07.i.i.i19, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !351)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !354)
@@ -1504,7 +1504,7 @@ define internal fastcc void @"_ZN4core3ptr54drop_in_place$LT$ockam_node..message
 
 .lr.ph.i.i.i36:                                   ; preds = %98, %"_ZN4core3ptr58drop_in_place$LT$ockam_core..routing..address..Address$GT$17h62bc831b6f0e4bcfE.exit.i.i.i39"
   %.07.i.i.i37 = phi i64 [ %105, %"_ZN4core3ptr58drop_in_place$LT$ockam_core..routing..address..Address$GT$17h62bc831b6f0e4bcfE.exit.i.i.i39" ], [ 0, %98 ]
-  %104 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %100, i64 %.07.i.i.i37
+  %104 = getelementptr inbounds [32 x i8], ptr %100, i64 %.07.i.i.i37
   %105 = add nuw i64 %.07.i.i.i37, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !499)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !502)

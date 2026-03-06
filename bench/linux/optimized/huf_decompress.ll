@@ -4,10 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.algo_time_t = type { i32, i32 }
-%struct.HUF_DEltX1 = type { i8, i8 }
 %struct.BIT_DStream_t = type { i64, i32, ptr, ptr, ptr }
-%struct.sortedSymbol_t = type { i8 }
-%struct.HUF_DEltX2 = type { i16, i8, i8 }
 
 @algoTime = internal unnamed_addr constant [16 x [2 x %struct.algo_time_t]] [[2 x %struct.algo_time_t] [%struct.algo_time_t zeroinitializer, %struct.algo_time_t { i32 1, i32 1 }], [2 x %struct.algo_time_t] [%struct.algo_time_t zeroinitializer, %struct.algo_time_t { i32 1, i32 1 }], [2 x %struct.algo_time_t] [%struct.algo_time_t { i32 150, i32 216 }, %struct.algo_time_t { i32 381, i32 119 }], [2 x %struct.algo_time_t] [%struct.algo_time_t { i32 170, i32 205 }, %struct.algo_time_t { i32 514, i32 112 }], [2 x %struct.algo_time_t] [%struct.algo_time_t { i32 177, i32 199 }, %struct.algo_time_t { i32 539, i32 110 }], [2 x %struct.algo_time_t] [%struct.algo_time_t { i32 197, i32 194 }, %struct.algo_time_t { i32 644, i32 107 }], [2 x %struct.algo_time_t] [%struct.algo_time_t { i32 221, i32 192 }, %struct.algo_time_t { i32 735, i32 107 }], [2 x %struct.algo_time_t] [%struct.algo_time_t { i32 256, i32 189 }, %struct.algo_time_t { i32 881, i32 106 }], [2 x %struct.algo_time_t] [%struct.algo_time_t { i32 359, i32 188 }, %struct.algo_time_t { i32 1167, i32 109 }], [2 x %struct.algo_time_t] [%struct.algo_time_t { i32 582, i32 187 }, %struct.algo_time_t { i32 1570, i32 114 }], [2 x %struct.algo_time_t] [%struct.algo_time_t { i32 688, i32 187 }, %struct.algo_time_t { i32 1712, i32 122 }], [2 x %struct.algo_time_t] [%struct.algo_time_t { i32 825, i32 186 }, %struct.algo_time_t { i32 1965, i32 136 }], [2 x %struct.algo_time_t] [%struct.algo_time_t { i32 976, i32 185 }, %struct.algo_time_t { i32 2131, i32 150 }], [2 x %struct.algo_time_t] [%struct.algo_time_t { i32 1180, i32 186 }, %struct.algo_time_t { i32 2070, i32 175 }], [2 x %struct.algo_time_t] [%struct.algo_time_t { i32 1377, i32 185 }, %struct.algo_time_t { i32 1731, i32 202 }], [2 x %struct.algo_time_t] [%struct.algo_time_t { i32 1412, i32 185 }, %struct.algo_time_t { i32 1695, i32 202 }]], align 16
 
@@ -98,9 +95,9 @@ define dso_local i64 @HUF_readDTableX1_wksp_bmi2(ptr noundef captures(none) %0, 
   %54 = trunc i64 %53 to i32
   %55 = sub nsw i32 %54, %27
   %56 = zext i32 %55 to i64
-  %57 = getelementptr i32, ptr %3, i64 %56
+  %57 = getelementptr [4 x i8], ptr %3, i64 %56
   %58 = load i32, ptr %57, align 4
-  %59 = getelementptr i32, ptr %3, i64 %53
+  %59 = getelementptr [4 x i8], ptr %3, i64 %53
   store i32 %58, ptr %59, align 4
   %60 = add nsw i64 %53, -1
   %61 = trunc i64 %60 to i32
@@ -142,10 +139,10 @@ define dso_local i64 @HUF_readDTableX1_wksp_bmi2(ptr noundef captures(none) %0, 
 82:                                               ; preds = %82, %.thread
   %83 = phi i64 [ 0, %.thread ], [ %89, %82 ]
   %84 = phi i32 [ 0, %.thread ], [ %87, %82 ]
-  %85 = getelementptr i32, ptr %3, i64 %83
+  %85 = getelementptr [4 x i8], ptr %3, i64 %83
   %86 = load i32, ptr %85, align 4
   %87 = add i32 %86, %84
-  %88 = getelementptr i32, ptr %74, i64 %83
+  %88 = getelementptr [4 x i8], ptr %74, i64 %83
   store i32 %84, ptr %88, align 4
   %89 = add nuw nsw i64 %83, 1
   %90 = icmp eq i64 %89, %75
@@ -177,7 +174,7 @@ define dso_local i64 @HUF_readDTableX1_wksp_bmi2(ptr noundef captures(none) %0, 
   %106 = load i8, ptr %105, align 1
   %107 = zext i8 %106 to i64
   %108 = trunc i64 %104 to i8
-  %109 = getelementptr i32, ptr %74, i64 %107
+  %109 = getelementptr [4 x i8], ptr %74, i64 %107
   %110 = load i32, ptr %109, align 4
   %111 = add i32 %110, 1
   store i32 %111, ptr %109, align 4
@@ -199,7 +196,7 @@ define dso_local i64 @HUF_readDTableX1_wksp_bmi2(ptr noundef captures(none) %0, 
   %122 = load i8, ptr %121, align 1
   %123 = zext i8 %122 to i64
   %124 = trunc i64 %120 to i8
-  %125 = getelementptr i32, ptr %74, i64 %123
+  %125 = getelementptr [4 x i8], ptr %74, i64 %123
   %126 = load i32, ptr %125, align 4
   %127 = add i32 %126, 1
   store i32 %127, ptr %125, align 4
@@ -219,7 +216,7 @@ define dso_local i64 @HUF_readDTableX1_wksp_bmi2(ptr noundef captures(none) %0, 
   %135 = phi i64 [ 1, %.loopexit23 ], [ %268, %.loopexit17 ]
   %136 = phi i32 [ 0, %.loopexit23 ], [ %267, %.loopexit17 ]
   %137 = phi i32 [ %132, %.loopexit23 ], [ %265, %.loopexit17 ]
-  %138 = getelementptr i32, ptr %3, i64 %135
+  %138 = getelementptr [4 x i8], ptr %3, i64 %135
   %139 = load i32, ptr %138, align 4
   %140 = trunc i64 %135 to i32
   %141 = shl nuw i32 1, %140
@@ -292,7 +289,7 @@ define dso_local i64 @HUF_readDTableX1_wksp_bmi2(ptr noundef captures(none) %0, 
   %178 = getelementptr i8, ptr %133, i64 %177
   %179 = load i8, ptr %178, align 1
   %180 = sext i32 %174 to i64
-  %181 = getelementptr %struct.HUF_DEltX1, ptr %9, i64 %180
+  %181 = getelementptr [2 x i8], ptr %9, i64 %180
   store i8 %144, ptr %181, align 1
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 1
   store i8 %179, ptr %182, align 1
@@ -310,13 +307,13 @@ define dso_local i64 @HUF_readDTableX1_wksp_bmi2(ptr noundef captures(none) %0, 
   %192 = getelementptr i8, ptr %133, i64 %191
   %193 = load i8, ptr %192, align 1
   %194 = sext i32 %188 to i64
-  %195 = getelementptr %struct.HUF_DEltX1, ptr %9, i64 %194
+  %195 = getelementptr [2 x i8], ptr %9, i64 %194
   store i8 %144, ptr %195, align 1
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 1
   store i8 %193, ptr %196, align 1
   %197 = add i32 %188, 1
   %198 = sext i32 %197 to i64
-  %199 = getelementptr %struct.HUF_DEltX1, ptr %9, i64 %198
+  %199 = getelementptr [2 x i8], ptr %9, i64 %198
   store i8 %144, ptr %199, align 1
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 1
   store i8 %193, ptr %200, align 1
@@ -338,7 +335,7 @@ define dso_local i64 @HUF_readDTableX1_wksp_bmi2(ptr noundef captures(none) %0, 
   %214 = or disjoint i64 %213, %157
   %215 = mul nuw i64 %214, 281479271743489
   %216 = sext i32 %206 to i64
-  %217 = getelementptr %struct.HUF_DEltX1, ptr %9, i64 %216
+  %217 = getelementptr [2 x i8], ptr %9, i64 %216
   store i64 %215, ptr %217, align 1
   %218 = add i32 %206, 4
   %219 = add nuw nsw i64 %205, 1
@@ -358,7 +355,7 @@ define dso_local i64 @HUF_readDTableX1_wksp_bmi2(ptr noundef captures(none) %0, 
   %231 = or disjoint i64 %230, %152
   %232 = mul nuw i64 %231, 281479271743489
   %233 = sext i32 %223 to i64
-  %234 = getelementptr %struct.HUF_DEltX1, ptr %9, i64 %233
+  %234 = getelementptr [2 x i8], ptr %9, i64 %233
   store i64 %232, ptr %234, align 1
   %235 = getelementptr i8, ptr %234, i64 8
   store i64 %232, ptr %235, align 1
@@ -383,12 +380,12 @@ define dso_local i64 @HUF_readDTableX1_wksp_bmi2(ptr noundef captures(none) %0, 
 
 251:                                              ; preds = %239
   %252 = sext i32 %241 to i64
-  %253 = getelementptr %struct.HUF_DEltX1, ptr %9, i64 %252
+  %253 = getelementptr [2 x i8], ptr %9, i64 %252
   br label %254
 
 254:                                              ; preds = %254, %251
   %255 = phi i64 [ 0, %251 ], [ %260, %254 ]
-  %256 = getelementptr %struct.HUF_DEltX1, ptr %253, i64 %255
+  %256 = getelementptr [2 x i8], ptr %253, i64 %255
   store i64 %250, ptr %256, align 1
   %257 = getelementptr i8, ptr %256, i64 8
   store i64 %250, ptr %257, align 1
@@ -630,7 +627,7 @@ define internal fastcc i64 @HUF_decompress1X1_usingDTable_internal(ptr noundef w
   %132 = zext nneg i32 %131 to i64
   %133 = shl i64 %127, %132
   %134 = lshr i64 %133, %97
-  %135 = getelementptr %struct.HUF_DEltX1, ptr %12, i64 %134
+  %135 = getelementptr [2 x i8], ptr %12, i64 %134
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 1
   %137 = load i8, ptr %136, align 1
   %138 = load i8, ptr %135, align 1
@@ -642,7 +639,7 @@ define internal fastcc i64 @HUF_decompress1X1_usingDTable_internal(ptr noundef w
   %143 = zext nneg i32 %142 to i64
   %144 = shl i64 %127, %143
   %145 = lshr i64 %144, %97
-  %146 = getelementptr %struct.HUF_DEltX1, ptr %12, i64 %145
+  %146 = getelementptr [2 x i8], ptr %12, i64 %145
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 1
   %148 = load i8, ptr %147, align 1
   %149 = load i8, ptr %146, align 1
@@ -654,7 +651,7 @@ define internal fastcc i64 @HUF_decompress1X1_usingDTable_internal(ptr noundef w
   %154 = zext nneg i32 %153 to i64
   %155 = shl i64 %127, %154
   %156 = lshr i64 %155, %97
-  %157 = getelementptr %struct.HUF_DEltX1, ptr %12, i64 %156
+  %157 = getelementptr [2 x i8], ptr %12, i64 %156
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 1
   %159 = load i8, ptr %158, align 1
   %160 = load i8, ptr %157, align 1
@@ -666,7 +663,7 @@ define internal fastcc i64 @HUF_decompress1X1_usingDTable_internal(ptr noundef w
   %165 = zext nneg i32 %164 to i64
   %166 = shl i64 %127, %165
   %167 = lshr i64 %166, %97
-  %168 = getelementptr %struct.HUF_DEltX1, ptr %12, i64 %167
+  %168 = getelementptr [2 x i8], ptr %12, i64 %167
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 1
   %170 = load i8, ptr %169, align 1
   %171 = load i8, ptr %168, align 1
@@ -735,7 +732,7 @@ define internal fastcc i64 @HUF_decompress1X1_usingDTable_internal(ptr noundef w
   %216 = zext nneg i32 %215 to i64
   %217 = shl i64 %203, %216
   %218 = lshr i64 %217, %211
-  %219 = getelementptr %struct.HUF_DEltX1, ptr %12, i64 %218
+  %219 = getelementptr [2 x i8], ptr %12, i64 %218
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 1
   %221 = load i8, ptr %220, align 1
   %222 = load i8, ptr %219, align 1
@@ -1276,7 +1273,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
   %333 = zext nneg i32 %332 to i64
   %334 = shl i64 %328, %333
   %335 = lshr i64 %334, %303
-  %336 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %335
+  %336 = getelementptr [2 x i8], ptr %19, i64 %335
   %337 = getelementptr inbounds nuw i8, ptr %336, i64 1
   %338 = load i8, ptr %337, align 1
   %339 = load i8, ptr %336, align 1
@@ -1288,7 +1285,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
   %344 = zext nneg i32 %343 to i64
   %345 = shl i64 %329, %344
   %346 = lshr i64 %345, %303
-  %347 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %346
+  %347 = getelementptr [2 x i8], ptr %19, i64 %346
   %348 = getelementptr inbounds nuw i8, ptr %347, i64 1
   %349 = load i8, ptr %348, align 1
   %350 = load i8, ptr %347, align 1
@@ -1300,7 +1297,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
   %355 = zext nneg i32 %354 to i64
   %356 = shl i64 %330, %355
   %357 = lshr i64 %356, %303
-  %358 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %357
+  %358 = getelementptr [2 x i8], ptr %19, i64 %357
   %359 = getelementptr inbounds nuw i8, ptr %358, i64 1
   %360 = load i8, ptr %359, align 1
   %361 = load i8, ptr %358, align 1
@@ -1312,7 +1309,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
   %366 = zext nneg i32 %365 to i64
   %367 = shl i64 %331, %366
   %368 = lshr i64 %367, %303
-  %369 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %368
+  %369 = getelementptr [2 x i8], ptr %19, i64 %368
   %370 = getelementptr inbounds nuw i8, ptr %369, i64 1
   %371 = load i8, ptr %370, align 1
   %372 = load i8, ptr %369, align 1
@@ -1324,7 +1321,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
   %377 = zext nneg i32 %376 to i64
   %378 = shl i64 %328, %377
   %379 = lshr i64 %378, %303
-  %380 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %379
+  %380 = getelementptr [2 x i8], ptr %19, i64 %379
   %381 = getelementptr inbounds nuw i8, ptr %380, i64 1
   %382 = load i8, ptr %381, align 1
   %383 = load i8, ptr %380, align 1
@@ -1335,7 +1332,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
   %387 = zext nneg i32 %386 to i64
   %388 = shl i64 %329, %387
   %389 = lshr i64 %388, %303
-  %390 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %389
+  %390 = getelementptr [2 x i8], ptr %19, i64 %389
   %391 = getelementptr inbounds nuw i8, ptr %390, i64 1
   %392 = load i8, ptr %391, align 1
   %393 = load i8, ptr %390, align 1
@@ -1347,7 +1344,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
   %398 = zext nneg i32 %397 to i64
   %399 = shl i64 %330, %398
   %400 = lshr i64 %399, %303
-  %401 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %400
+  %401 = getelementptr [2 x i8], ptr %19, i64 %400
   %402 = getelementptr inbounds nuw i8, ptr %401, i64 1
   %403 = load i8, ptr %402, align 1
   %404 = load i8, ptr %401, align 1
@@ -1359,7 +1356,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
   %409 = zext nneg i32 %408 to i64
   %410 = shl i64 %331, %409
   %411 = lshr i64 %410, %303
-  %412 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %411
+  %412 = getelementptr [2 x i8], ptr %19, i64 %411
   %413 = getelementptr inbounds nuw i8, ptr %412, i64 1
   %414 = load i8, ptr %413, align 1
   %415 = load i8, ptr %412, align 1
@@ -1372,7 +1369,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
   %421 = zext nneg i32 %420 to i64
   %422 = shl i64 %328, %421
   %423 = lshr i64 %422, %303
-  %424 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %423
+  %424 = getelementptr [2 x i8], ptr %19, i64 %423
   %425 = getelementptr inbounds nuw i8, ptr %424, i64 1
   %426 = load i8, ptr %425, align 1
   %427 = load i8, ptr %424, align 1
@@ -1384,7 +1381,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
   %432 = zext nneg i32 %431 to i64
   %433 = shl i64 %329, %432
   %434 = lshr i64 %433, %303
-  %435 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %434
+  %435 = getelementptr [2 x i8], ptr %19, i64 %434
   %436 = getelementptr inbounds nuw i8, ptr %435, i64 1
   %437 = load i8, ptr %436, align 1
   %438 = load i8, ptr %435, align 1
@@ -1396,7 +1393,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
   %443 = zext nneg i32 %442 to i64
   %444 = shl i64 %330, %443
   %445 = lshr i64 %444, %303
-  %446 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %445
+  %446 = getelementptr [2 x i8], ptr %19, i64 %445
   %447 = getelementptr inbounds nuw i8, ptr %446, i64 1
   %448 = load i8, ptr %447, align 1
   %449 = load i8, ptr %446, align 1
@@ -1408,7 +1405,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
   %454 = zext nneg i32 %453 to i64
   %455 = shl i64 %331, %454
   %456 = lshr i64 %455, %303
-  %457 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %456
+  %457 = getelementptr [2 x i8], ptr %19, i64 %456
   %458 = getelementptr inbounds nuw i8, ptr %457, i64 1
   %459 = load i8, ptr %458, align 1
   %460 = load i8, ptr %457, align 1
@@ -1420,7 +1417,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
   %465 = zext nneg i32 %464 to i64
   %466 = shl i64 %328, %465
   %467 = lshr i64 %466, %303
-  %468 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %467
+  %468 = getelementptr [2 x i8], ptr %19, i64 %467
   %469 = getelementptr inbounds nuw i8, ptr %468, i64 1
   %470 = load i8, ptr %469, align 1
   %471 = load i8, ptr %468, align 1
@@ -1432,7 +1429,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
   %476 = zext nneg i32 %475 to i64
   %477 = shl i64 %329, %476
   %478 = lshr i64 %477, %303
-  %479 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %478
+  %479 = getelementptr [2 x i8], ptr %19, i64 %478
   %480 = getelementptr inbounds nuw i8, ptr %479, i64 1
   %481 = load i8, ptr %480, align 1
   %482 = load i8, ptr %479, align 1
@@ -1444,7 +1441,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
   %487 = zext nneg i32 %486 to i64
   %488 = shl i64 %330, %487
   %489 = lshr i64 %488, %303
-  %490 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %489
+  %490 = getelementptr [2 x i8], ptr %19, i64 %489
   %491 = getelementptr inbounds nuw i8, ptr %490, i64 1
   %492 = load i8, ptr %491, align 1
   %493 = load i8, ptr %490, align 1
@@ -1456,7 +1453,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
   %498 = zext nneg i32 %497 to i64
   %499 = shl i64 %331, %498
   %500 = lshr i64 %499, %303
-  %501 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %500
+  %501 = getelementptr [2 x i8], ptr %19, i64 %500
   %502 = getelementptr inbounds nuw i8, ptr %501, i64 1
   %503 = load i8, ptr %502, align 1
   %504 = load i8, ptr %501, align 1
@@ -1645,7 +1642,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
   %630 = zext nneg i32 %629 to i64
   %631 = shl i64 %storemerge, %630
   %632 = lshr i64 %631, %591
-  %633 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %632
+  %633 = getelementptr [2 x i8], ptr %19, i64 %632
   %634 = getelementptr inbounds nuw i8, ptr %633, i64 1
   %635 = load i8, ptr %634, align 1
   %636 = load i8, ptr %633, align 1
@@ -1660,7 +1657,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
   %643 = zext nneg i32 %642 to i64
   %644 = shl i64 %640, %643
   %645 = lshr i64 %644, %591
-  %646 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %645
+  %646 = getelementptr [2 x i8], ptr %19, i64 %645
   %647 = getelementptr inbounds nuw i8, ptr %646, i64 1
   %648 = load i8, ptr %647, align 1
   %649 = load i8, ptr %646, align 1
@@ -1675,7 +1672,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
   %656 = zext nneg i32 %655 to i64
   %657 = shl i64 %653, %656
   %658 = lshr i64 %657, %591
-  %659 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %658
+  %659 = getelementptr [2 x i8], ptr %19, i64 %658
   %660 = getelementptr inbounds nuw i8, ptr %659, i64 1
   %661 = load i8, ptr %660, align 1
   %662 = load i8, ptr %659, align 1
@@ -1690,7 +1687,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
   %669 = zext nneg i32 %668 to i64
   %670 = shl i64 %666, %669
   %671 = lshr i64 %670, %591
-  %672 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %671
+  %672 = getelementptr [2 x i8], ptr %19, i64 %671
   %673 = getelementptr inbounds nuw i8, ptr %672, i64 1
   %674 = load i8, ptr %673, align 1
   %675 = load i8, ptr %672, align 1
@@ -1727,7 +1724,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
   %695 = zext nneg i32 %694 to i64
   %696 = shl i64 %692, %695
   %697 = lshr i64 %696, %689
-  %698 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %697
+  %698 = getelementptr [2 x i8], ptr %19, i64 %697
   %699 = getelementptr inbounds nuw i8, ptr %698, i64 1
   %700 = load i8, ptr %699, align 1
   %701 = load i8, ptr %698, align 1
@@ -1814,7 +1811,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
   %756 = zext nneg i32 %755 to i64
   %757 = shl i64 %storemerge61, %756
   %758 = lshr i64 %757, %716
-  %759 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %758
+  %759 = getelementptr [2 x i8], ptr %19, i64 %758
   %760 = getelementptr inbounds nuw i8, ptr %759, i64 1
   %761 = load i8, ptr %760, align 1
   %762 = load i8, ptr %759, align 1
@@ -1829,7 +1826,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
   %769 = zext nneg i32 %768 to i64
   %770 = shl i64 %766, %769
   %771 = lshr i64 %770, %716
-  %772 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %771
+  %772 = getelementptr [2 x i8], ptr %19, i64 %771
   %773 = getelementptr inbounds nuw i8, ptr %772, i64 1
   %774 = load i8, ptr %773, align 1
   %775 = load i8, ptr %772, align 1
@@ -1844,7 +1841,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
   %782 = zext nneg i32 %781 to i64
   %783 = shl i64 %779, %782
   %784 = lshr i64 %783, %716
-  %785 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %784
+  %785 = getelementptr [2 x i8], ptr %19, i64 %784
   %786 = getelementptr inbounds nuw i8, ptr %785, i64 1
   %787 = load i8, ptr %786, align 1
   %788 = load i8, ptr %785, align 1
@@ -1859,7 +1856,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
   %795 = zext nneg i32 %794 to i64
   %796 = shl i64 %792, %795
   %797 = lshr i64 %796, %716
-  %798 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %797
+  %798 = getelementptr [2 x i8], ptr %19, i64 %797
   %799 = getelementptr inbounds nuw i8, ptr %798, i64 1
   %800 = load i8, ptr %799, align 1
   %801 = load i8, ptr %798, align 1
@@ -1896,7 +1893,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
   %821 = zext nneg i32 %820 to i64
   %822 = shl i64 %818, %821
   %823 = lshr i64 %822, %815
-  %824 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %823
+  %824 = getelementptr [2 x i8], ptr %19, i64 %823
   %825 = getelementptr inbounds nuw i8, ptr %824, i64 1
   %826 = load i8, ptr %825, align 1
   %827 = load i8, ptr %824, align 1
@@ -1982,7 +1979,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
   %881 = zext nneg i32 %880 to i64
   %882 = shl i64 %storemerge63, %881
   %883 = lshr i64 %882, %841
-  %884 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %883
+  %884 = getelementptr [2 x i8], ptr %19, i64 %883
   %885 = getelementptr inbounds nuw i8, ptr %884, i64 1
   %886 = load i8, ptr %885, align 1
   %887 = load i8, ptr %884, align 1
@@ -1997,7 +1994,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
   %894 = zext nneg i32 %893 to i64
   %895 = shl i64 %891, %894
   %896 = lshr i64 %895, %841
-  %897 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %896
+  %897 = getelementptr [2 x i8], ptr %19, i64 %896
   %898 = getelementptr inbounds nuw i8, ptr %897, i64 1
   %899 = load i8, ptr %898, align 1
   %900 = load i8, ptr %897, align 1
@@ -2012,7 +2009,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
   %907 = zext nneg i32 %906 to i64
   %908 = shl i64 %904, %907
   %909 = lshr i64 %908, %841
-  %910 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %909
+  %910 = getelementptr [2 x i8], ptr %19, i64 %909
   %911 = getelementptr inbounds nuw i8, ptr %910, i64 1
   %912 = load i8, ptr %911, align 1
   %913 = load i8, ptr %910, align 1
@@ -2027,7 +2024,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
   %920 = zext nneg i32 %919 to i64
   %921 = shl i64 %917, %920
   %922 = lshr i64 %921, %841
-  %923 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %922
+  %923 = getelementptr [2 x i8], ptr %19, i64 %922
   %924 = getelementptr inbounds nuw i8, ptr %923, i64 1
   %925 = load i8, ptr %924, align 1
   %926 = load i8, ptr %923, align 1
@@ -2064,7 +2061,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
   %946 = zext nneg i32 %945 to i64
   %947 = shl i64 %943, %946
   %948 = lshr i64 %947, %940
-  %949 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %948
+  %949 = getelementptr [2 x i8], ptr %19, i64 %948
   %950 = getelementptr inbounds nuw i8, ptr %949, i64 1
   %951 = load i8, ptr %950, align 1
   %952 = load i8, ptr %949, align 1
@@ -2151,7 +2148,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
   %1007 = zext nneg i32 %1006 to i64
   %1008 = shl i64 %storemerge65, %1007
   %1009 = lshr i64 %1008, %967
-  %1010 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %1009
+  %1010 = getelementptr [2 x i8], ptr %19, i64 %1009
   %1011 = getelementptr inbounds nuw i8, ptr %1010, i64 1
   %1012 = load i8, ptr %1011, align 1
   %1013 = load i8, ptr %1010, align 1
@@ -2166,7 +2163,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
   %1020 = zext nneg i32 %1019 to i64
   %1021 = shl i64 %1017, %1020
   %1022 = lshr i64 %1021, %967
-  %1023 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %1022
+  %1023 = getelementptr [2 x i8], ptr %19, i64 %1022
   %1024 = getelementptr inbounds nuw i8, ptr %1023, i64 1
   %1025 = load i8, ptr %1024, align 1
   %1026 = load i8, ptr %1023, align 1
@@ -2181,7 +2178,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
   %1033 = zext nneg i32 %1032 to i64
   %1034 = shl i64 %1030, %1033
   %1035 = lshr i64 %1034, %967
-  %1036 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %1035
+  %1036 = getelementptr [2 x i8], ptr %19, i64 %1035
   %1037 = getelementptr inbounds nuw i8, ptr %1036, i64 1
   %1038 = load i8, ptr %1037, align 1
   %1039 = load i8, ptr %1036, align 1
@@ -2196,7 +2193,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
   %1046 = zext nneg i32 %1045 to i64
   %1047 = shl i64 %1043, %1046
   %1048 = lshr i64 %1047, %967
-  %1049 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %1048
+  %1049 = getelementptr [2 x i8], ptr %19, i64 %1048
   %1050 = getelementptr inbounds nuw i8, ptr %1049, i64 1
   %1051 = load i8, ptr %1050, align 1
   %1052 = load i8, ptr %1049, align 1
@@ -2233,7 +2230,7 @@ define internal fastcc i64 @HUF_decompress4X1_usingDTable_internal(ptr noundef %
   %1072 = zext nneg i32 %1071 to i64
   %1073 = shl i64 %1069, %1072
   %1074 = lshr i64 %1073, %1066
-  %1075 = getelementptr %struct.HUF_DEltX1, ptr %19, i64 %1074
+  %1075 = getelementptr [2 x i8], ptr %19, i64 %1074
   %1076 = getelementptr inbounds nuw i8, ptr %1075, i64 1
   %1077 = load i8, ptr %1076, align 1
   %1078 = load i8, ptr %1075, align 1
@@ -2372,7 +2369,7 @@ define dso_local i64 @HUF_readDTableX2_wksp_bmi2(ptr noundef %0, ptr noundef %1,
   %34 = phi i32 [ %41, %31 ], [ %30, %29 ]
   %35 = phi i32 [ %40, %31 ], [ %27, %29 ]
   %36 = zext i32 %35 to i64
-  %37 = getelementptr i32, ptr %19, i64 %36
+  %37 = getelementptr [4 x i8], ptr %19, i64 %36
   %38 = load i32, ptr %37, align 4
   %39 = icmp eq i32 %38, 0
   %40 = add i32 %35, -1
@@ -2397,10 +2394,10 @@ define dso_local i64 @HUF_readDTableX2_wksp_bmi2(ptr noundef %0, ptr noundef %1,
 53:                                               ; preds = %53, %51
   %54 = phi i64 [ 1, %51 ], [ %60, %53 ]
   %55 = phi i32 [ 0, %51 ], [ %58, %53 ]
-  %56 = getelementptr i32, ptr %19, i64 %54
+  %56 = getelementptr [4 x i8], ptr %19, i64 %54
   %57 = load i32, ptr %56, align 4
   %58 = add i32 %57, %55
-  %59 = getelementptr i32, ptr %18, i64 %54
+  %59 = getelementptr [4 x i8], ptr %18, i64 %54
   store i32 %55, ptr %59, align 4
   %60 = add nuw nsw i64 %54, 1
   %61 = icmp eq i64 %60, %52
@@ -2410,7 +2407,7 @@ define dso_local i64 @HUF_readDTableX2_wksp_bmi2(ptr noundef %0, ptr noundef %1,
   %62 = phi i32 [ 0, %44 ], [ %58, %53 ]
   store i32 %62, ptr %18, align 4
   %63 = zext i32 %49 to i64
-  %64 = getelementptr i32, ptr %18, i64 %63
+  %64 = getelementptr [4 x i8], ptr %18, i64 %63
   store i32 %62, ptr %64, align 4
   %65 = load i32, ptr %8, align 4
   %66 = icmp eq i32 %65, 0
@@ -2426,13 +2423,13 @@ define dso_local i64 @HUF_readDTableX2_wksp_bmi2(ptr noundef %0, ptr noundef %1,
   %72 = getelementptr i8, ptr %22, i64 %71
   %73 = load i8, ptr %72, align 1
   %74 = zext i8 %73 to i64
-  %75 = getelementptr i32, ptr %18, i64 %74
+  %75 = getelementptr [4 x i8], ptr %18, i64 %74
   %76 = load i32, ptr %75, align 4
   %77 = add i32 %76, 1
   store i32 %77, ptr %75, align 4
   %78 = trunc i64 %71 to i8
   %79 = zext i32 %76 to i64
-  %80 = getelementptr %struct.sortedSymbol_t, ptr %68, i64 %79
+  %80 = getelementptr i8, ptr %68, i64 %79
   store i8 %78, ptr %80, align 1
   %81 = add nuw nsw i64 %71, 1
   %82 = icmp eq i64 %81, %69
@@ -2451,13 +2448,13 @@ define dso_local i64 @HUF_readDTableX2_wksp_bmi2(ptr noundef %0, ptr noundef %1,
 87:                                               ; preds = %87, %85
   %88 = phi i64 [ 1, %85 ], [ %97, %87 ]
   %89 = phi i32 [ 0, %85 ], [ %95, %87 ]
-  %90 = getelementptr i32, ptr %19, i64 %88
+  %90 = getelementptr [4 x i8], ptr %19, i64 %88
   %91 = load i32, ptr %90, align 4
   %92 = trunc i64 %88 to i32
   %93 = add i32 %84, %92
   %94 = shl i32 %91, %93
   %95 = add i32 %94, %89
-  %96 = getelementptr i32, ptr %3, i64 %88
+  %96 = getelementptr [4 x i8], ptr %3, i64 %88
   store i32 %89, ptr %96, align 4
   %97 = add nuw nsw i64 %88, 1
   %98 = icmp eq i64 %97, %86
@@ -2478,16 +2475,16 @@ define dso_local i64 @HUF_readDTableX2_wksp_bmi2(ptr noundef %0, ptr noundef %1,
 
 .split.us:                                        ; preds = %.split.us.preheader, %.loopexit24.us
   %106 = phi i64 [ %117, %.loopexit24.us ], [ %104, %.split.us.preheader ]
-  %107 = getelementptr [13 x i32], ptr %3, i64 %106
+  %107 = getelementptr [52 x i8], ptr %3, i64 %106
   %108 = trunc i64 %106 to i32
   br label %109
 
 109:                                              ; preds = %109, %.split.us
   %110 = phi i64 [ 1, %.split.us ], [ %115, %109 ]
-  %111 = getelementptr i32, ptr %3, i64 %110
+  %111 = getelementptr [4 x i8], ptr %3, i64 %110
   %112 = load i32, ptr %111, align 4
   %113 = lshr i32 %112, %108
-  %114 = getelementptr i32, ptr %107, i64 %110
+  %114 = getelementptr [4 x i8], ptr %107, i64 %110
   store i32 %113, ptr %114, align 4
   %115 = add nuw nsw i64 %110, 1
   %116 = icmp eq i64 %115, %103
@@ -2507,10 +2504,10 @@ define dso_local i64 @HUF_readDTableX2_wksp_bmi2(ptr noundef %0, ptr noundef %1,
 
 .preheader22:                                     ; preds = %.loopexit25, %HUF_fillDTableX2ForWeight.exit10
   %121 = phi i64 [ %124, %HUF_fillDTableX2ForWeight.exit10 ], [ 1, %.loopexit25 ]
-  %122 = getelementptr i32, ptr %17, i64 %121
+  %122 = getelementptr [4 x i8], ptr %17, i64 %121
   %123 = load i32, ptr %122, align 4
   %124 = add nuw nsw i64 %121, 1
-  %125 = getelementptr i32, ptr %17, i64 %124
+  %125 = getelementptr [4 x i8], ptr %17, i64 %124
   %126 = load i32, ptr %125, align 4
   %127 = trunc i64 %121 to i32
   %128 = sub i32 %30, %127
@@ -2527,15 +2524,15 @@ define dso_local i64 @HUF_readDTableX2_wksp_bmi2(ptr noundef %0, ptr noundef %1,
 135:                                              ; preds = %131
   %136 = add i32 %128, %119
   %137 = call i32 @llvm.smax.i32(i32 %136, i32 1)
-  %138 = getelementptr i32, ptr %3, i64 %121
+  %138 = getelementptr [4 x i8], ptr %3, i64 %121
   %139 = load i32, ptr %138, align 4
   %140 = zext i32 %128 to i64
-  %141 = getelementptr [13 x i32], ptr %3, i64 %140
+  %141 = getelementptr [52 x i8], ptr %3, i64 %140
   %142 = icmp sgt i32 %136, 1
   %143 = shl i32 %128, 16
   %144 = add i32 %143, 16777216
   %145 = zext nneg i32 %137 to i64
-  %146 = getelementptr i32, ptr %141, i64 %145
+  %146 = getelementptr [4 x i8], ptr %141, i64 %145
   %147 = icmp slt i32 %137, %49
   %148 = add i32 %128, %30
   br label %149
@@ -2544,9 +2541,9 @@ define dso_local i64 @HUF_readDTableX2_wksp_bmi2(ptr noundef %0, ptr noundef %1,
   %150 = phi i32 [ %123, %135 ], [ %288, %.loopexit ]
   %151 = phi i32 [ %139, %135 ], [ %287, %.loopexit ]
   %152 = sext i32 %151 to i64
-  %153 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %152
+  %153 = getelementptr [4 x i8], ptr %14, i64 %152
   %154 = sext i32 %150 to i64
-  %155 = getelementptr %struct.sortedSymbol_t, ptr %118, i64 %154
+  %155 = getelementptr i8, ptr %118, i64 %154
   %156 = load i8, ptr %155, align 1
   br i1 %142, label %157, label %.loopexit16
 
@@ -2576,7 +2573,7 @@ define dso_local i64 @HUF_readDTableX2_wksp_bmi2(ptr noundef %0, ptr noundef %1,
 
 169:                                              ; preds = %169, %165
   %170 = phi i64 [ 0, %165 ], [ %175, %169 ]
-  %171 = getelementptr %struct.HUF_DEltX2, ptr %153, i64 %170
+  %171 = getelementptr [4 x i8], ptr %153, i64 %170
   store i64 %161, ptr %171, align 2
   %172 = getelementptr i8, ptr %171, i64 8
   store i64 %161, ptr %172, align 2
@@ -2602,17 +2599,17 @@ define dso_local i64 @HUF_readDTableX2_wksp_bmi2(ptr noundef %0, ptr noundef %1,
 
 180:                                              ; preds = %.preheader, %HUF_fillDTableX2ForWeight.exit
   %181 = phi i64 [ %184, %HUF_fillDTableX2ForWeight.exit ], [ %145, %.preheader ]
-  %182 = getelementptr i32, ptr %17, i64 %181
+  %182 = getelementptr [4 x i8], ptr %17, i64 %181
   %183 = load i32, ptr %182, align 4
   %184 = add nuw nsw i64 %181, 1
-  %185 = getelementptr i32, ptr %17, i64 %184
+  %185 = getelementptr [4 x i8], ptr %17, i64 %184
   %186 = load i32, ptr %185, align 4
   %187 = trunc i64 %181 to i32
   %188 = sub i32 %148, %187
-  %189 = getelementptr i32, ptr %141, i64 %181
+  %189 = getelementptr [4 x i8], ptr %141, i64 %181
   %190 = load i32, ptr %189, align 4
   %191 = zext i32 %190 to i64
-  %192 = getelementptr %struct.HUF_DEltX2, ptr %153, i64 %191
+  %192 = getelementptr [4 x i8], ptr %153, i64 %191
   %193 = sext i32 %183 to i64
   %194 = getelementptr i8, ptr %118, i64 %193
   %195 = sext i32 %186 to i64
@@ -2749,7 +2746,7 @@ define dso_local i64 @HUF_readDTableX2_wksp_bmi2(ptr noundef %0, ptr noundef %1,
   %.reass.reass = or disjoint i32 %272, %invariant.op114
   %273 = zext i32 %.reass.reass to i64
   %274 = mul nuw i64 %273, 4294967297
-  %275 = getelementptr %struct.HUF_DEltX2, ptr %268, i64 %221
+  %275 = getelementptr [4 x i8], ptr %268, i64 %221
   br label %276
 
 276:                                              ; preds = %276, %267
@@ -2781,10 +2778,10 @@ HUF_fillDTableX2ForWeight.exit:                   ; preds = %253, %241, %231, %2
   br i1 %289, label %HUF_fillDTableX2ForWeight.exit10, label %149, !llvm.loop !42
 
 290:                                              ; preds = %.preheader22
-  %291 = getelementptr i32, ptr %3, i64 %121
+  %291 = getelementptr [4 x i8], ptr %3, i64 %121
   %292 = load i32, ptr %291, align 4
   %293 = zext i32 %292 to i64
-  %294 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %293
+  %294 = getelementptr [4 x i8], ptr %14, i64 %293
   %295 = sext i32 %123 to i64
   %296 = getelementptr i8, ptr %118, i64 %295
   %297 = sext i32 %126 to i64
@@ -2910,7 +2907,7 @@ HUF_fillDTableX2ForWeight.exit:                   ; preds = %253, %241, %231, %2
   %369 = or disjoint i32 %362, %368
   %370 = zext i32 %369 to i64
   %371 = mul nuw i64 %370, 4294967297
-  %372 = getelementptr %struct.HUF_DEltX2, ptr %365, i64 %363
+  %372 = getelementptr [4 x i8], ptr %365, i64 %363
   br label %373
 
 373:                                              ; preds = %373, %364
@@ -3163,7 +3160,7 @@ define internal fastcc i64 @HUF_decompress1X2_usingDTable_internal(ptr noundef %
   %137 = zext nneg i32 %136 to i64
   %138 = shl i64 %132, %137
   %139 = lshr i64 %138, %100
-  %140 = getelementptr %struct.HUF_DEltX2, ptr %89, i64 %139
+  %140 = getelementptr [4 x i8], ptr %89, i64 %139
   %141 = load i16, ptr %140, align 2
   store i16 %141, ptr %103, align 1
   %142 = getelementptr inbounds nuw i8, ptr %140, i64 2
@@ -3178,7 +3175,7 @@ define internal fastcc i64 @HUF_decompress1X2_usingDTable_internal(ptr noundef %
   %151 = zext nneg i32 %150 to i64
   %152 = shl i64 %132, %151
   %153 = lshr i64 %152, %100
-  %154 = getelementptr %struct.HUF_DEltX2, ptr %89, i64 %153
+  %154 = getelementptr [4 x i8], ptr %89, i64 %153
   %155 = load i16, ptr %154, align 2
   store i16 %155, ptr %149, align 1
   %156 = getelementptr inbounds nuw i8, ptr %154, i64 2
@@ -3193,7 +3190,7 @@ define internal fastcc i64 @HUF_decompress1X2_usingDTable_internal(ptr noundef %
   %165 = zext nneg i32 %164 to i64
   %166 = shl i64 %132, %165
   %167 = lshr i64 %166, %100
-  %168 = getelementptr %struct.HUF_DEltX2, ptr %89, i64 %167
+  %168 = getelementptr [4 x i8], ptr %89, i64 %167
   %169 = load i16, ptr %168, align 2
   store i16 %169, ptr %163, align 1
   %170 = getelementptr inbounds nuw i8, ptr %168, i64 2
@@ -3208,7 +3205,7 @@ define internal fastcc i64 @HUF_decompress1X2_usingDTable_internal(ptr noundef %
   %179 = zext nneg i32 %178 to i64
   %180 = shl i64 %132, %179
   %181 = lshr i64 %180, %100
-  %182 = getelementptr %struct.HUF_DEltX2, ptr %89, i64 %181
+  %182 = getelementptr [4 x i8], ptr %89, i64 %181
   %183 = load i16, ptr %182, align 2
   store i16 %183, ptr %177, align 1
   %184 = getelementptr inbounds nuw i8, ptr %182, i64 2
@@ -3223,7 +3220,7 @@ define internal fastcc i64 @HUF_decompress1X2_usingDTable_internal(ptr noundef %
   %193 = zext nneg i32 %192 to i64
   %194 = shl i64 %132, %193
   %195 = lshr i64 %194, %100
-  %196 = getelementptr %struct.HUF_DEltX2, ptr %89, i64 %195
+  %196 = getelementptr [4 x i8], ptr %89, i64 %195
   %197 = load i16, ptr %196, align 2
   store i16 %197, ptr %191, align 1
   %198 = getelementptr inbounds nuw i8, ptr %196, i64 2
@@ -3285,7 +3282,7 @@ define internal fastcc i64 @HUF_decompress1X2_usingDTable_internal(ptr noundef %
   %241 = zext nneg i32 %240 to i64
   %242 = shl i64 %236, %241
   %243 = lshr i64 %242, %100
-  %244 = getelementptr %struct.HUF_DEltX2, ptr %89, i64 %243
+  %244 = getelementptr [4 x i8], ptr %89, i64 %243
   %245 = load i16, ptr %244, align 2
   store i16 %245, ptr %207, align 1
   %246 = getelementptr inbounds nuw i8, ptr %244, i64 2
@@ -3300,7 +3297,7 @@ define internal fastcc i64 @HUF_decompress1X2_usingDTable_internal(ptr noundef %
   %255 = zext nneg i32 %254 to i64
   %256 = shl i64 %236, %255
   %257 = lshr i64 %256, %100
-  %258 = getelementptr %struct.HUF_DEltX2, ptr %89, i64 %257
+  %258 = getelementptr [4 x i8], ptr %89, i64 %257
   %259 = load i16, ptr %258, align 2
   store i16 %259, ptr %253, align 1
   %260 = getelementptr inbounds nuw i8, ptr %258, i64 2
@@ -3315,7 +3312,7 @@ define internal fastcc i64 @HUF_decompress1X2_usingDTable_internal(ptr noundef %
   %269 = zext nneg i32 %268 to i64
   %270 = shl i64 %236, %269
   %271 = lshr i64 %270, %100
-  %272 = getelementptr %struct.HUF_DEltX2, ptr %89, i64 %271
+  %272 = getelementptr [4 x i8], ptr %89, i64 %271
   %273 = load i16, ptr %272, align 2
   store i16 %273, ptr %267, align 1
   %274 = getelementptr inbounds nuw i8, ptr %272, i64 2
@@ -3330,7 +3327,7 @@ define internal fastcc i64 @HUF_decompress1X2_usingDTable_internal(ptr noundef %
   %283 = zext nneg i32 %282 to i64
   %284 = shl i64 %236, %283
   %285 = lshr i64 %284, %100
-  %286 = getelementptr %struct.HUF_DEltX2, ptr %89, i64 %285
+  %286 = getelementptr [4 x i8], ptr %89, i64 %285
   %287 = load i16, ptr %286, align 2
   store i16 %287, ptr %281, align 1
   %288 = getelementptr inbounds nuw i8, ptr %286, i64 2
@@ -3456,7 +3453,7 @@ define internal fastcc i64 @HUF_decompress1X2_usingDTable_internal(ptr noundef %
   %376 = zext nneg i32 %375 to i64
   %377 = shl i64 %367, %376
   %378 = lshr i64 %377, %336
-  %379 = getelementptr %struct.HUF_DEltX2, ptr %89, i64 %378
+  %379 = getelementptr [4 x i8], ptr %89, i64 %378
   %380 = load i16, ptr %379, align 2
   store i16 %380, ptr %338, align 1
   %381 = getelementptr inbounds nuw i8, ptr %379, i64 2
@@ -3477,7 +3474,7 @@ define internal fastcc i64 @HUF_decompress1X2_usingDTable_internal(ptr noundef %
   %393 = zext nneg i32 %392 to i64
   %394 = shl i64 %372, %393
   %395 = lshr i64 %394, %336
-  %396 = getelementptr %struct.HUF_DEltX2, ptr %89, i64 %395
+  %396 = getelementptr [4 x i8], ptr %89, i64 %395
   %397 = load i16, ptr %396, align 2
   store i16 %397, ptr %390, align 1
   %398 = getelementptr inbounds nuw i8, ptr %396, i64 2
@@ -3507,7 +3504,7 @@ define internal fastcc i64 @HUF_decompress1X2_usingDTable_internal(ptr noundef %
   %417 = and i32 %416, 63
   %418 = zext nneg i32 %417 to i64
   %419 = lshr i64 %415, %418
-  %420 = getelementptr %struct.HUF_DEltX2, ptr %89, i64 %419
+  %420 = getelementptr [4 x i8], ptr %89, i64 %419
   %421 = load i8, ptr %420, align 2
   store i8 %421, ptr %410, align 1
   %422 = getelementptr inbounds nuw i8, ptr %420, i64 3
@@ -4066,7 +4063,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %334 = zext nneg i32 %333 to i64
   %335 = shl i64 %329, %334
   %336 = lshr i64 %335, %304
-  %337 = getelementptr %struct.HUF_DEltX2, ptr %19, i64 %336
+  %337 = getelementptr [4 x i8], ptr %19, i64 %336
   %338 = load i16, ptr %337, align 2
   store i16 %338, ptr %328, align 1
   %339 = getelementptr inbounds nuw i8, ptr %337, i64 2
@@ -4081,7 +4078,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %348 = zext nneg i32 %347 to i64
   %349 = shl i64 %329, %348
   %350 = lshr i64 %349, %304
-  %351 = getelementptr %struct.HUF_DEltX2, ptr %19, i64 %350
+  %351 = getelementptr [4 x i8], ptr %19, i64 %350
   %352 = load i16, ptr %351, align 2
   store i16 %352, ptr %346, align 1
   %353 = getelementptr inbounds nuw i8, ptr %351, i64 2
@@ -4096,7 +4093,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %362 = zext nneg i32 %361 to i64
   %363 = shl i64 %329, %362
   %364 = lshr i64 %363, %304
-  %365 = getelementptr %struct.HUF_DEltX2, ptr %19, i64 %364
+  %365 = getelementptr [4 x i8], ptr %19, i64 %364
   %366 = load i16, ptr %365, align 2
   store i16 %366, ptr %360, align 1
   %367 = getelementptr inbounds nuw i8, ptr %365, i64 2
@@ -4111,7 +4108,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %376 = zext nneg i32 %375 to i64
   %377 = shl i64 %329, %376
   %378 = lshr i64 %377, %304
-  %379 = getelementptr %struct.HUF_DEltX2, ptr %19, i64 %378
+  %379 = getelementptr [4 x i8], ptr %19, i64 %378
   %380 = load i16, ptr %379, align 2
   store i16 %380, ptr %374, align 1
   %381 = getelementptr inbounds nuw i8, ptr %379, i64 2
@@ -4127,7 +4124,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %390 = zext nneg i32 %389 to i64
   %391 = shl i64 %330, %390
   %392 = lshr i64 %391, %304
-  %393 = getelementptr %struct.HUF_DEltX2, ptr %19, i64 %392
+  %393 = getelementptr [4 x i8], ptr %19, i64 %392
   %394 = load i16, ptr %393, align 2
   store i16 %394, ptr %327, align 1
   %395 = getelementptr inbounds nuw i8, ptr %393, i64 2
@@ -4142,7 +4139,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %404 = zext nneg i32 %403 to i64
   %405 = shl i64 %330, %404
   %406 = lshr i64 %405, %304
-  %407 = getelementptr %struct.HUF_DEltX2, ptr %19, i64 %406
+  %407 = getelementptr [4 x i8], ptr %19, i64 %406
   %408 = load i16, ptr %407, align 2
   store i16 %408, ptr %402, align 1
   %409 = getelementptr inbounds nuw i8, ptr %407, i64 2
@@ -4157,7 +4154,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %418 = zext nneg i32 %417 to i64
   %419 = shl i64 %330, %418
   %420 = lshr i64 %419, %304
-  %421 = getelementptr %struct.HUF_DEltX2, ptr %19, i64 %420
+  %421 = getelementptr [4 x i8], ptr %19, i64 %420
   %422 = load i16, ptr %421, align 2
   store i16 %422, ptr %416, align 1
   %423 = getelementptr inbounds nuw i8, ptr %421, i64 2
@@ -4172,7 +4169,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %432 = zext nneg i32 %431 to i64
   %433 = shl i64 %330, %432
   %434 = lshr i64 %433, %304
-  %435 = getelementptr %struct.HUF_DEltX2, ptr %19, i64 %434
+  %435 = getelementptr [4 x i8], ptr %19, i64 %434
   %436 = load i16, ptr %435, align 2
   store i16 %436, ptr %430, align 1
   %437 = getelementptr inbounds nuw i8, ptr %435, i64 2
@@ -4227,7 +4224,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %471 = zext nneg i32 %470 to i64
   %472 = shl i64 %331, %471
   %473 = lshr i64 %472, %304
-  %474 = getelementptr %struct.HUF_DEltX2, ptr %19, i64 %473
+  %474 = getelementptr [4 x i8], ptr %19, i64 %473
   %475 = load i16, ptr %474, align 2
   store i16 %475, ptr %326, align 1
   %476 = getelementptr inbounds nuw i8, ptr %474, i64 2
@@ -4242,7 +4239,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %485 = zext nneg i32 %484 to i64
   %486 = shl i64 %331, %485
   %487 = lshr i64 %486, %304
-  %488 = getelementptr %struct.HUF_DEltX2, ptr %19, i64 %487
+  %488 = getelementptr [4 x i8], ptr %19, i64 %487
   %489 = load i16, ptr %488, align 2
   store i16 %489, ptr %483, align 1
   %490 = getelementptr inbounds nuw i8, ptr %488, i64 2
@@ -4257,7 +4254,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %499 = zext nneg i32 %498 to i64
   %500 = shl i64 %331, %499
   %501 = lshr i64 %500, %304
-  %502 = getelementptr %struct.HUF_DEltX2, ptr %19, i64 %501
+  %502 = getelementptr [4 x i8], ptr %19, i64 %501
   %503 = load i16, ptr %502, align 2
   store i16 %503, ptr %497, align 1
   %504 = getelementptr inbounds nuw i8, ptr %502, i64 2
@@ -4272,7 +4269,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %513 = zext nneg i32 %512 to i64
   %514 = shl i64 %331, %513
   %515 = lshr i64 %514, %304
-  %516 = getelementptr %struct.HUF_DEltX2, ptr %19, i64 %515
+  %516 = getelementptr [4 x i8], ptr %19, i64 %515
   %517 = load i16, ptr %516, align 2
   store i16 %517, ptr %511, align 1
   %518 = getelementptr inbounds nuw i8, ptr %516, i64 2
@@ -4288,7 +4285,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %527 = zext nneg i32 %526 to i64
   %528 = shl i64 %332, %527
   %529 = lshr i64 %528, %304
-  %530 = getelementptr %struct.HUF_DEltX2, ptr %19, i64 %529
+  %530 = getelementptr [4 x i8], ptr %19, i64 %529
   %531 = load i16, ptr %530, align 2
   store i16 %531, ptr %325, align 1
   %532 = getelementptr inbounds nuw i8, ptr %530, i64 2
@@ -4303,7 +4300,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %541 = zext nneg i32 %540 to i64
   %542 = shl i64 %332, %541
   %543 = lshr i64 %542, %304
-  %544 = getelementptr %struct.HUF_DEltX2, ptr %19, i64 %543
+  %544 = getelementptr [4 x i8], ptr %19, i64 %543
   %545 = load i16, ptr %544, align 2
   store i16 %545, ptr %539, align 1
   %546 = getelementptr inbounds nuw i8, ptr %544, i64 2
@@ -4318,7 +4315,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %555 = zext nneg i32 %554 to i64
   %556 = shl i64 %332, %555
   %557 = lshr i64 %556, %304
-  %558 = getelementptr %struct.HUF_DEltX2, ptr %19, i64 %557
+  %558 = getelementptr [4 x i8], ptr %19, i64 %557
   %559 = load i16, ptr %558, align 2
   store i16 %559, ptr %553, align 1
   %560 = getelementptr inbounds nuw i8, ptr %558, i64 2
@@ -4333,7 +4330,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %569 = zext nneg i32 %568 to i64
   %570 = shl i64 %332, %569
   %571 = lshr i64 %570, %304
-  %572 = getelementptr %struct.HUF_DEltX2, ptr %19, i64 %571
+  %572 = getelementptr [4 x i8], ptr %19, i64 %571
   %573 = load i16, ptr %572, align 2
   store i16 %573, ptr %567, align 1
   %574 = getelementptr inbounds nuw i8, ptr %572, i64 2
@@ -4454,7 +4451,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %656 = zext nneg i32 %655 to i64
   %657 = shl i64 %653, %656
   %658 = lshr i64 %657, %650
-  %659 = getelementptr %struct.HUF_DEltX2, ptr %19, i64 %658
+  %659 = getelementptr [4 x i8], ptr %19, i64 %658
   %660 = load i16, ptr %659, align 2
   store i16 %660, ptr %652, align 1
   %661 = getelementptr inbounds nuw i8, ptr %659, i64 2
@@ -4472,7 +4469,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %672 = zext nneg i32 %671 to i64
   %673 = shl i64 %670, %672
   %674 = lshr i64 %673, %650
-  %675 = getelementptr %struct.HUF_DEltX2, ptr %19, i64 %674
+  %675 = getelementptr [4 x i8], ptr %19, i64 %674
   %676 = load i16, ptr %675, align 2
   store i16 %676, ptr %669, align 1
   %677 = getelementptr inbounds nuw i8, ptr %675, i64 2
@@ -4490,7 +4487,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %688 = zext nneg i32 %687 to i64
   %689 = shl i64 %686, %688
   %690 = lshr i64 %689, %650
-  %691 = getelementptr %struct.HUF_DEltX2, ptr %19, i64 %690
+  %691 = getelementptr [4 x i8], ptr %19, i64 %690
   %692 = load i16, ptr %691, align 2
   store i16 %692, ptr %685, align 1
   %693 = getelementptr inbounds nuw i8, ptr %691, i64 2
@@ -4508,7 +4505,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %704 = zext nneg i32 %703 to i64
   %705 = shl i64 %702, %704
   %706 = lshr i64 %705, %650
-  %707 = getelementptr %struct.HUF_DEltX2, ptr %19, i64 %706
+  %707 = getelementptr [4 x i8], ptr %19, i64 %706
   %708 = load i16, ptr %707, align 2
   store i16 %708, ptr %701, align 1
   %709 = getelementptr inbounds nuw i8, ptr %707, i64 2
@@ -4526,7 +4523,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %720 = zext nneg i32 %719 to i64
   %721 = shl i64 %718, %720
   %722 = lshr i64 %721, %650
-  %723 = getelementptr %struct.HUF_DEltX2, ptr %19, i64 %722
+  %723 = getelementptr [4 x i8], ptr %19, i64 %722
   %724 = load i16, ptr %723, align 2
   store i16 %724, ptr %717, align 1
   %725 = getelementptr inbounds nuw i8, ptr %723, i64 2
@@ -4553,7 +4550,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %743 = zext nneg i32 %742 to i64
   %744 = shl i64 %740, %743
   %745 = lshr i64 %744, %641
-  %746 = getelementptr %struct.HUF_DEltX2, ptr %19, i64 %745
+  %746 = getelementptr [4 x i8], ptr %19, i64 %745
   %747 = load i16, ptr %746, align 2
   store i16 %747, ptr %739, align 1
   %748 = getelementptr inbounds nuw i8, ptr %746, i64 2
@@ -4571,7 +4568,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %759 = zext nneg i32 %758 to i64
   %760 = shl i64 %757, %759
   %761 = lshr i64 %760, %641
-  %762 = getelementptr %struct.HUF_DEltX2, ptr %19, i64 %761
+  %762 = getelementptr [4 x i8], ptr %19, i64 %761
   %763 = load i16, ptr %762, align 2
   store i16 %763, ptr %756, align 1
   %764 = getelementptr inbounds nuw i8, ptr %762, i64 2
@@ -4589,7 +4586,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %775 = zext nneg i32 %774 to i64
   %776 = shl i64 %773, %775
   %777 = lshr i64 %776, %641
-  %778 = getelementptr %struct.HUF_DEltX2, ptr %19, i64 %777
+  %778 = getelementptr [4 x i8], ptr %19, i64 %777
   %779 = load i16, ptr %778, align 2
   store i16 %779, ptr %772, align 1
   %780 = getelementptr inbounds nuw i8, ptr %778, i64 2
@@ -4607,7 +4604,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %791 = zext nneg i32 %790 to i64
   %792 = shl i64 %789, %791
   %793 = lshr i64 %792, %641
-  %794 = getelementptr %struct.HUF_DEltX2, ptr %19, i64 %793
+  %794 = getelementptr [4 x i8], ptr %19, i64 %793
   %795 = load i16, ptr %794, align 2
   store i16 %795, ptr %788, align 1
   %796 = getelementptr inbounds nuw i8, ptr %794, i64 2
@@ -4711,7 +4708,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %862 = zext nneg i32 %861 to i64
   %863 = shl i64 %storemerge, %862
   %864 = lshr i64 %863, %821
-  %865 = getelementptr %struct.HUF_DEltX2, ptr %19, i64 %864
+  %865 = getelementptr [4 x i8], ptr %19, i64 %864
   %866 = load i16, ptr %865, align 2
   store i16 %866, ptr %823, align 1
   %867 = getelementptr inbounds nuw i8, ptr %865, i64 2
@@ -4735,7 +4732,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %881 = zext nneg i32 %880 to i64
   %882 = shl i64 %879, %881
   %883 = lshr i64 %882, %821
-  %884 = getelementptr %struct.HUF_DEltX2, ptr %19, i64 %883
+  %884 = getelementptr [4 x i8], ptr %19, i64 %883
   %885 = load i16, ptr %884, align 2
   store i16 %885, ptr %878, align 1
   %886 = getelementptr inbounds nuw i8, ptr %884, i64 2
@@ -4767,7 +4764,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %906 = and i32 %905, 63
   %907 = zext nneg i32 %906 to i64
   %908 = lshr i64 %904, %907
-  %909 = getelementptr %struct.HUF_DEltX2, ptr %19, i64 %908
+  %909 = getelementptr [4 x i8], ptr %19, i64 %908
   %910 = load i8, ptr %909, align 2
   store i8 %910, ptr %896, align 1
   %911 = getelementptr inbounds nuw i8, ptr %909, i64 3
@@ -4848,7 +4845,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %963 = zext nneg i32 %962 to i64
   %964 = shl i64 %960, %963
   %965 = lshr i64 %964, %957
-  %966 = getelementptr %struct.HUF_DEltX2, ptr %19, i64 %965
+  %966 = getelementptr [4 x i8], ptr %19, i64 %965
   %967 = load i16, ptr %966, align 2
   store i16 %967, ptr %959, align 1
   %968 = getelementptr inbounds nuw i8, ptr %966, i64 2
@@ -4866,7 +4863,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %979 = zext nneg i32 %978 to i64
   %980 = shl i64 %977, %979
   %981 = lshr i64 %980, %957
-  %982 = getelementptr %struct.HUF_DEltX2, ptr %19, i64 %981
+  %982 = getelementptr [4 x i8], ptr %19, i64 %981
   %983 = load i16, ptr %982, align 2
   store i16 %983, ptr %976, align 1
   %984 = getelementptr inbounds nuw i8, ptr %982, i64 2
@@ -4884,7 +4881,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %995 = zext nneg i32 %994 to i64
   %996 = shl i64 %993, %995
   %997 = lshr i64 %996, %957
-  %998 = getelementptr %struct.HUF_DEltX2, ptr %19, i64 %997
+  %998 = getelementptr [4 x i8], ptr %19, i64 %997
   %999 = load i16, ptr %998, align 2
   store i16 %999, ptr %992, align 1
   %1000 = getelementptr inbounds nuw i8, ptr %998, i64 2
@@ -4902,7 +4899,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %1011 = zext nneg i32 %1010 to i64
   %1012 = shl i64 %1009, %1011
   %1013 = lshr i64 %1012, %957
-  %1014 = getelementptr %struct.HUF_DEltX2, ptr %19, i64 %1013
+  %1014 = getelementptr [4 x i8], ptr %19, i64 %1013
   %1015 = load i16, ptr %1014, align 2
   store i16 %1015, ptr %1008, align 1
   %1016 = getelementptr inbounds nuw i8, ptr %1014, i64 2
@@ -4920,7 +4917,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %1027 = zext nneg i32 %1026 to i64
   %1028 = shl i64 %1025, %1027
   %1029 = lshr i64 %1028, %957
-  %1030 = getelementptr %struct.HUF_DEltX2, ptr %19, i64 %1029
+  %1030 = getelementptr [4 x i8], ptr %19, i64 %1029
   %1031 = load i16, ptr %1030, align 2
   store i16 %1031, ptr %1024, align 1
   %1032 = getelementptr inbounds nuw i8, ptr %1030, i64 2
@@ -4947,7 +4944,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %1050 = zext nneg i32 %1049 to i64
   %1051 = shl i64 %1047, %1050
   %1052 = lshr i64 %1051, %948
-  %1053 = getelementptr %struct.HUF_DEltX2, ptr %19, i64 %1052
+  %1053 = getelementptr [4 x i8], ptr %19, i64 %1052
   %1054 = load i16, ptr %1053, align 2
   store i16 %1054, ptr %1046, align 1
   %1055 = getelementptr inbounds nuw i8, ptr %1053, i64 2
@@ -4965,7 +4962,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %1066 = zext nneg i32 %1065 to i64
   %1067 = shl i64 %1064, %1066
   %1068 = lshr i64 %1067, %948
-  %1069 = getelementptr %struct.HUF_DEltX2, ptr %19, i64 %1068
+  %1069 = getelementptr [4 x i8], ptr %19, i64 %1068
   %1070 = load i16, ptr %1069, align 2
   store i16 %1070, ptr %1063, align 1
   %1071 = getelementptr inbounds nuw i8, ptr %1069, i64 2
@@ -4983,7 +4980,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %1082 = zext nneg i32 %1081 to i64
   %1083 = shl i64 %1080, %1082
   %1084 = lshr i64 %1083, %948
-  %1085 = getelementptr %struct.HUF_DEltX2, ptr %19, i64 %1084
+  %1085 = getelementptr [4 x i8], ptr %19, i64 %1084
   %1086 = load i16, ptr %1085, align 2
   store i16 %1086, ptr %1079, align 1
   %1087 = getelementptr inbounds nuw i8, ptr %1085, i64 2
@@ -5001,7 +4998,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %1098 = zext nneg i32 %1097 to i64
   %1099 = shl i64 %1096, %1098
   %1100 = lshr i64 %1099, %948
-  %1101 = getelementptr %struct.HUF_DEltX2, ptr %19, i64 %1100
+  %1101 = getelementptr [4 x i8], ptr %19, i64 %1100
   %1102 = load i16, ptr %1101, align 2
   store i16 %1102, ptr %1095, align 1
   %1103 = getelementptr inbounds nuw i8, ptr %1101, i64 2
@@ -5105,7 +5102,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %1169 = zext nneg i32 %1168 to i64
   %1170 = shl i64 %storemerge90, %1169
   %1171 = lshr i64 %1170, %1128
-  %1172 = getelementptr %struct.HUF_DEltX2, ptr %19, i64 %1171
+  %1172 = getelementptr [4 x i8], ptr %19, i64 %1171
   %1173 = load i16, ptr %1172, align 2
   store i16 %1173, ptr %1130, align 1
   %1174 = getelementptr inbounds nuw i8, ptr %1172, i64 2
@@ -5129,7 +5126,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %1188 = zext nneg i32 %1187 to i64
   %1189 = shl i64 %1186, %1188
   %1190 = lshr i64 %1189, %1128
-  %1191 = getelementptr %struct.HUF_DEltX2, ptr %19, i64 %1190
+  %1191 = getelementptr [4 x i8], ptr %19, i64 %1190
   %1192 = load i16, ptr %1191, align 2
   store i16 %1192, ptr %1185, align 1
   %1193 = getelementptr inbounds nuw i8, ptr %1191, i64 2
@@ -5161,7 +5158,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %1213 = and i32 %1212, 63
   %1214 = zext nneg i32 %1213 to i64
   %1215 = lshr i64 %1211, %1214
-  %1216 = getelementptr %struct.HUF_DEltX2, ptr %19, i64 %1215
+  %1216 = getelementptr [4 x i8], ptr %19, i64 %1215
   %1217 = load i8, ptr %1216, align 2
   store i8 %1217, ptr %1203, align 1
   %1218 = getelementptr inbounds nuw i8, ptr %1216, i64 3
@@ -5241,7 +5238,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %1269 = zext nneg i32 %1268 to i64
   %1270 = shl i64 %1266, %1269
   %1271 = lshr i64 %1270, %1263
-  %1272 = getelementptr %struct.HUF_DEltX2, ptr %19, i64 %1271
+  %1272 = getelementptr [4 x i8], ptr %19, i64 %1271
   %1273 = load i16, ptr %1272, align 2
   store i16 %1273, ptr %1265, align 1
   %1274 = getelementptr inbounds nuw i8, ptr %1272, i64 2
@@ -5259,7 +5256,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %1285 = zext nneg i32 %1284 to i64
   %1286 = shl i64 %1283, %1285
   %1287 = lshr i64 %1286, %1263
-  %1288 = getelementptr %struct.HUF_DEltX2, ptr %19, i64 %1287
+  %1288 = getelementptr [4 x i8], ptr %19, i64 %1287
   %1289 = load i16, ptr %1288, align 2
   store i16 %1289, ptr %1282, align 1
   %1290 = getelementptr inbounds nuw i8, ptr %1288, i64 2
@@ -5277,7 +5274,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %1301 = zext nneg i32 %1300 to i64
   %1302 = shl i64 %1299, %1301
   %1303 = lshr i64 %1302, %1263
-  %1304 = getelementptr %struct.HUF_DEltX2, ptr %19, i64 %1303
+  %1304 = getelementptr [4 x i8], ptr %19, i64 %1303
   %1305 = load i16, ptr %1304, align 2
   store i16 %1305, ptr %1298, align 1
   %1306 = getelementptr inbounds nuw i8, ptr %1304, i64 2
@@ -5295,7 +5292,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %1317 = zext nneg i32 %1316 to i64
   %1318 = shl i64 %1315, %1317
   %1319 = lshr i64 %1318, %1263
-  %1320 = getelementptr %struct.HUF_DEltX2, ptr %19, i64 %1319
+  %1320 = getelementptr [4 x i8], ptr %19, i64 %1319
   %1321 = load i16, ptr %1320, align 2
   store i16 %1321, ptr %1314, align 1
   %1322 = getelementptr inbounds nuw i8, ptr %1320, i64 2
@@ -5313,7 +5310,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %1333 = zext nneg i32 %1332 to i64
   %1334 = shl i64 %1331, %1333
   %1335 = lshr i64 %1334, %1263
-  %1336 = getelementptr %struct.HUF_DEltX2, ptr %19, i64 %1335
+  %1336 = getelementptr [4 x i8], ptr %19, i64 %1335
   %1337 = load i16, ptr %1336, align 2
   store i16 %1337, ptr %1330, align 1
   %1338 = getelementptr inbounds nuw i8, ptr %1336, i64 2
@@ -5340,7 +5337,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %1356 = zext nneg i32 %1355 to i64
   %1357 = shl i64 %1353, %1356
   %1358 = lshr i64 %1357, %1254
-  %1359 = getelementptr %struct.HUF_DEltX2, ptr %19, i64 %1358
+  %1359 = getelementptr [4 x i8], ptr %19, i64 %1358
   %1360 = load i16, ptr %1359, align 2
   store i16 %1360, ptr %1352, align 1
   %1361 = getelementptr inbounds nuw i8, ptr %1359, i64 2
@@ -5358,7 +5355,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %1372 = zext nneg i32 %1371 to i64
   %1373 = shl i64 %1370, %1372
   %1374 = lshr i64 %1373, %1254
-  %1375 = getelementptr %struct.HUF_DEltX2, ptr %19, i64 %1374
+  %1375 = getelementptr [4 x i8], ptr %19, i64 %1374
   %1376 = load i16, ptr %1375, align 2
   store i16 %1376, ptr %1369, align 1
   %1377 = getelementptr inbounds nuw i8, ptr %1375, i64 2
@@ -5376,7 +5373,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %1388 = zext nneg i32 %1387 to i64
   %1389 = shl i64 %1386, %1388
   %1390 = lshr i64 %1389, %1254
-  %1391 = getelementptr %struct.HUF_DEltX2, ptr %19, i64 %1390
+  %1391 = getelementptr [4 x i8], ptr %19, i64 %1390
   %1392 = load i16, ptr %1391, align 2
   store i16 %1392, ptr %1385, align 1
   %1393 = getelementptr inbounds nuw i8, ptr %1391, i64 2
@@ -5394,7 +5391,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %1404 = zext nneg i32 %1403 to i64
   %1405 = shl i64 %1402, %1404
   %1406 = lshr i64 %1405, %1254
-  %1407 = getelementptr %struct.HUF_DEltX2, ptr %19, i64 %1406
+  %1407 = getelementptr [4 x i8], ptr %19, i64 %1406
   %1408 = load i16, ptr %1407, align 2
   store i16 %1408, ptr %1401, align 1
   %1409 = getelementptr inbounds nuw i8, ptr %1407, i64 2
@@ -5498,7 +5495,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %1475 = zext nneg i32 %1474 to i64
   %1476 = shl i64 %storemerge92, %1475
   %1477 = lshr i64 %1476, %1434
-  %1478 = getelementptr %struct.HUF_DEltX2, ptr %19, i64 %1477
+  %1478 = getelementptr [4 x i8], ptr %19, i64 %1477
   %1479 = load i16, ptr %1478, align 2
   store i16 %1479, ptr %1436, align 1
   %1480 = getelementptr inbounds nuw i8, ptr %1478, i64 2
@@ -5522,7 +5519,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %1494 = zext nneg i32 %1493 to i64
   %1495 = shl i64 %1492, %1494
   %1496 = lshr i64 %1495, %1434
-  %1497 = getelementptr %struct.HUF_DEltX2, ptr %19, i64 %1496
+  %1497 = getelementptr [4 x i8], ptr %19, i64 %1496
   %1498 = load i16, ptr %1497, align 2
   store i16 %1498, ptr %1491, align 1
   %1499 = getelementptr inbounds nuw i8, ptr %1497, i64 2
@@ -5554,7 +5551,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %1519 = and i32 %1518, 63
   %1520 = zext nneg i32 %1519 to i64
   %1521 = lshr i64 %1517, %1520
-  %1522 = getelementptr %struct.HUF_DEltX2, ptr %19, i64 %1521
+  %1522 = getelementptr [4 x i8], ptr %19, i64 %1521
   %1523 = load i8, ptr %1522, align 2
   store i8 %1523, ptr %1509, align 1
   %1524 = getelementptr inbounds nuw i8, ptr %1522, i64 3
@@ -5635,7 +5632,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %1576 = zext nneg i32 %1575 to i64
   %1577 = shl i64 %1573, %1576
   %1578 = lshr i64 %1577, %1570
-  %1579 = getelementptr %struct.HUF_DEltX2, ptr %19, i64 %1578
+  %1579 = getelementptr [4 x i8], ptr %19, i64 %1578
   %1580 = load i16, ptr %1579, align 2
   store i16 %1580, ptr %1572, align 1
   %1581 = getelementptr inbounds nuw i8, ptr %1579, i64 2
@@ -5653,7 +5650,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %1592 = zext nneg i32 %1591 to i64
   %1593 = shl i64 %1590, %1592
   %1594 = lshr i64 %1593, %1570
-  %1595 = getelementptr %struct.HUF_DEltX2, ptr %19, i64 %1594
+  %1595 = getelementptr [4 x i8], ptr %19, i64 %1594
   %1596 = load i16, ptr %1595, align 2
   store i16 %1596, ptr %1589, align 1
   %1597 = getelementptr inbounds nuw i8, ptr %1595, i64 2
@@ -5671,7 +5668,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %1608 = zext nneg i32 %1607 to i64
   %1609 = shl i64 %1606, %1608
   %1610 = lshr i64 %1609, %1570
-  %1611 = getelementptr %struct.HUF_DEltX2, ptr %19, i64 %1610
+  %1611 = getelementptr [4 x i8], ptr %19, i64 %1610
   %1612 = load i16, ptr %1611, align 2
   store i16 %1612, ptr %1605, align 1
   %1613 = getelementptr inbounds nuw i8, ptr %1611, i64 2
@@ -5689,7 +5686,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %1624 = zext nneg i32 %1623 to i64
   %1625 = shl i64 %1622, %1624
   %1626 = lshr i64 %1625, %1570
-  %1627 = getelementptr %struct.HUF_DEltX2, ptr %19, i64 %1626
+  %1627 = getelementptr [4 x i8], ptr %19, i64 %1626
   %1628 = load i16, ptr %1627, align 2
   store i16 %1628, ptr %1621, align 1
   %1629 = getelementptr inbounds nuw i8, ptr %1627, i64 2
@@ -5707,7 +5704,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %1640 = zext nneg i32 %1639 to i64
   %1641 = shl i64 %1638, %1640
   %1642 = lshr i64 %1641, %1570
-  %1643 = getelementptr %struct.HUF_DEltX2, ptr %19, i64 %1642
+  %1643 = getelementptr [4 x i8], ptr %19, i64 %1642
   %1644 = load i16, ptr %1643, align 2
   store i16 %1644, ptr %1637, align 1
   %1645 = getelementptr inbounds nuw i8, ptr %1643, i64 2
@@ -5734,7 +5731,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %1663 = zext nneg i32 %1662 to i64
   %1664 = shl i64 %1660, %1663
   %1665 = lshr i64 %1664, %1559
-  %1666 = getelementptr %struct.HUF_DEltX2, ptr %19, i64 %1665
+  %1666 = getelementptr [4 x i8], ptr %19, i64 %1665
   %1667 = load i16, ptr %1666, align 2
   store i16 %1667, ptr %1659, align 1
   %1668 = getelementptr inbounds nuw i8, ptr %1666, i64 2
@@ -5752,7 +5749,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %1679 = zext nneg i32 %1678 to i64
   %1680 = shl i64 %1677, %1679
   %1681 = lshr i64 %1680, %1559
-  %1682 = getelementptr %struct.HUF_DEltX2, ptr %19, i64 %1681
+  %1682 = getelementptr [4 x i8], ptr %19, i64 %1681
   %1683 = load i16, ptr %1682, align 2
   store i16 %1683, ptr %1676, align 1
   %1684 = getelementptr inbounds nuw i8, ptr %1682, i64 2
@@ -5770,7 +5767,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %1695 = zext nneg i32 %1694 to i64
   %1696 = shl i64 %1693, %1695
   %1697 = lshr i64 %1696, %1559
-  %1698 = getelementptr %struct.HUF_DEltX2, ptr %19, i64 %1697
+  %1698 = getelementptr [4 x i8], ptr %19, i64 %1697
   %1699 = load i16, ptr %1698, align 2
   store i16 %1699, ptr %1692, align 1
   %1700 = getelementptr inbounds nuw i8, ptr %1698, i64 2
@@ -5788,7 +5785,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %1711 = zext nneg i32 %1710 to i64
   %1712 = shl i64 %1709, %1711
   %1713 = lshr i64 %1712, %1559
-  %1714 = getelementptr %struct.HUF_DEltX2, ptr %19, i64 %1713
+  %1714 = getelementptr [4 x i8], ptr %19, i64 %1713
   %1715 = load i16, ptr %1714, align 2
   store i16 %1715, ptr %1708, align 1
   %1716 = getelementptr inbounds nuw i8, ptr %1714, i64 2
@@ -5894,7 +5891,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %1784 = zext nneg i32 %1783 to i64
   %1785 = shl i64 %storemerge94, %1784
   %1786 = lshr i64 %1785, %1743
-  %1787 = getelementptr %struct.HUF_DEltX2, ptr %19, i64 %1786
+  %1787 = getelementptr [4 x i8], ptr %19, i64 %1786
   %1788 = load i16, ptr %1787, align 2
   store i16 %1788, ptr %1745, align 1
   %1789 = getelementptr inbounds nuw i8, ptr %1787, i64 2
@@ -5918,7 +5915,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %1803 = zext nneg i32 %1802 to i64
   %1804 = shl i64 %1801, %1803
   %1805 = lshr i64 %1804, %1743
-  %1806 = getelementptr %struct.HUF_DEltX2, ptr %19, i64 %1805
+  %1806 = getelementptr [4 x i8], ptr %19, i64 %1805
   %1807 = load i16, ptr %1806, align 2
   store i16 %1807, ptr %1800, align 1
   %1808 = getelementptr inbounds nuw i8, ptr %1806, i64 2
@@ -5955,7 +5952,7 @@ define internal fastcc i64 @HUF_decompress4X2_usingDTable_internal(ptr noundef %
   %1828 = and i32 %1827, 63
   %1829 = zext nneg i32 %1828 to i64
   %1830 = lshr i64 %1826, %1829
-  %1831 = getelementptr %struct.HUF_DEltX2, ptr %19, i64 %1830
+  %1831 = getelementptr [4 x i8], ptr %19, i64 %1830
   %1832 = load i8, ptr %1831, align 2
   store i8 %1832, ptr %1818, align 1
   %1833 = getelementptr inbounds nuw i8, ptr %1831, i64 3
@@ -6112,7 +6109,7 @@ define dso_local range(i32 0, 2) i32 @HUF_selectDecoder(i64 noundef %0, i64 noun
   %9 = phi i64 [ %7, %4 ], [ 15, %2 ]
   %10 = lshr i64 %0, 8
   %11 = trunc i64 %10 to i32
-  %12 = getelementptr [2 x %struct.algo_time_t], ptr @algoTime, i64 %9
+  %12 = getelementptr [16 x i8], ptr @algoTime, i64 %9
   %13 = load i32, ptr %12, align 16
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %15 = load i32, ptr %14, align 4
@@ -6154,7 +6151,7 @@ define dso_local i64 @HUF_decompress4X_hufOnly_wksp(ptr noundef %0, ptr noundef 
   %18 = phi i64 [ %16, %13 ], [ 15, %11 ]
   %19 = lshr i64 %2, 8
   %20 = trunc i64 %19 to i32
-  %21 = getelementptr [2 x %struct.algo_time_t], ptr @algoTime, i64 %18
+  %21 = getelementptr [16 x i8], ptr @algoTime, i64 %18
   %22 = load i32, ptr %21, align 16
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 4
   %24 = load i32, ptr %23, align 4
@@ -6246,7 +6243,7 @@ define dso_local i64 @HUF_decompress1X_DCtx_wksp(ptr noundef %0, ptr noundef %1,
   %25 = phi i64 [ %23, %20 ], [ 15, %18 ]
   %26 = lshr i64 %2, 8
   %27 = trunc i64 %26 to i32
-  %28 = getelementptr [2 x %struct.algo_time_t], ptr @algoTime, i64 %25
+  %28 = getelementptr [16 x i8], ptr @algoTime, i64 %25
   %29 = load i32, ptr %28, align 16
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %31 = load i32, ptr %30, align 4
@@ -6382,7 +6379,7 @@ define dso_local i64 @HUF_decompress4X_hufOnly_wksp_bmi2(ptr noundef %0, ptr nou
   %19 = phi i64 [ %17, %14 ], [ 15, %12 ]
   %20 = lshr i64 %2, 8
   %21 = trunc i64 %20 to i32
-  %22 = getelementptr [2 x %struct.algo_time_t], ptr @algoTime, i64 %19
+  %22 = getelementptr [16 x i8], ptr @algoTime, i64 %19
   %23 = load i32, ptr %22, align 16
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %25 = load i32, ptr %24, align 4
@@ -6610,7 +6607,7 @@ define internal fastcc i64 @HUF_decompress1X1_usingDTable_internal_bmi2(ptr noun
   %127 = zext nneg i32 %126 to i64
   %128 = shl i64 %122, %127
   %129 = lshr i64 %128, %92
-  %130 = getelementptr %struct.HUF_DEltX1, ptr %7, i64 %129
+  %130 = getelementptr [2 x i8], ptr %7, i64 %129
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 1
   %132 = load i8, ptr %131, align 1
   %133 = load i8, ptr %130, align 1
@@ -6622,7 +6619,7 @@ define internal fastcc i64 @HUF_decompress1X1_usingDTable_internal_bmi2(ptr noun
   %138 = zext nneg i32 %137 to i64
   %139 = shl i64 %122, %138
   %140 = lshr i64 %139, %92
-  %141 = getelementptr %struct.HUF_DEltX1, ptr %7, i64 %140
+  %141 = getelementptr [2 x i8], ptr %7, i64 %140
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 1
   %143 = load i8, ptr %142, align 1
   %144 = load i8, ptr %141, align 1
@@ -6634,7 +6631,7 @@ define internal fastcc i64 @HUF_decompress1X1_usingDTable_internal_bmi2(ptr noun
   %149 = zext nneg i32 %148 to i64
   %150 = shl i64 %122, %149
   %151 = lshr i64 %150, %92
-  %152 = getelementptr %struct.HUF_DEltX1, ptr %7, i64 %151
+  %152 = getelementptr [2 x i8], ptr %7, i64 %151
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 1
   %154 = load i8, ptr %153, align 1
   %155 = load i8, ptr %152, align 1
@@ -6646,7 +6643,7 @@ define internal fastcc i64 @HUF_decompress1X1_usingDTable_internal_bmi2(ptr noun
   %160 = zext nneg i32 %159 to i64
   %161 = shl i64 %122, %160
   %162 = lshr i64 %161, %92
-  %163 = getelementptr %struct.HUF_DEltX1, ptr %7, i64 %162
+  %163 = getelementptr [2 x i8], ptr %7, i64 %162
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 1
   %165 = load i8, ptr %164, align 1
   %166 = load i8, ptr %163, align 1
@@ -6715,7 +6712,7 @@ define internal fastcc i64 @HUF_decompress1X1_usingDTable_internal_bmi2(ptr noun
   %211 = zext nneg i32 %210 to i64
   %212 = shl i64 %198, %211
   %213 = lshr i64 %212, %206
-  %214 = getelementptr %struct.HUF_DEltX1, ptr %7, i64 %213
+  %214 = getelementptr [2 x i8], ptr %7, i64 %213
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 1
   %216 = load i8, ptr %215, align 1
   %217 = load i8, ptr %214, align 1
@@ -7538,7 +7535,7 @@ BIT_initDStream.exit:                             ; preds = %291
   %403 = zext nneg i32 %402 to i64
   %404 = shl i64 %398, %403
   %405 = lshr i64 %404, %377
-  %406 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %405
+  %406 = getelementptr [2 x i8], ptr %14, i64 %405
   %407 = getelementptr inbounds nuw i8, ptr %406, i64 1
   %408 = load i8, ptr %407, align 1
   %409 = load i8, ptr %406, align 1
@@ -7550,7 +7547,7 @@ BIT_initDStream.exit:                             ; preds = %291
   %414 = zext nneg i32 %413 to i64
   %415 = shl i64 %399, %414
   %416 = lshr i64 %415, %377
-  %417 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %416
+  %417 = getelementptr [2 x i8], ptr %14, i64 %416
   %418 = getelementptr inbounds nuw i8, ptr %417, i64 1
   %419 = load i8, ptr %418, align 1
   %420 = load i8, ptr %417, align 1
@@ -7562,7 +7559,7 @@ BIT_initDStream.exit:                             ; preds = %291
   %425 = zext nneg i32 %424 to i64
   %426 = shl i64 %400, %425
   %427 = lshr i64 %426, %377
-  %428 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %427
+  %428 = getelementptr [2 x i8], ptr %14, i64 %427
   %429 = getelementptr inbounds nuw i8, ptr %428, i64 1
   %430 = load i8, ptr %429, align 1
   %431 = load i8, ptr %428, align 1
@@ -7574,7 +7571,7 @@ BIT_initDStream.exit:                             ; preds = %291
   %436 = zext nneg i32 %435 to i64
   %437 = shl i64 %401, %436
   %438 = lshr i64 %437, %377
-  %439 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %438
+  %439 = getelementptr [2 x i8], ptr %14, i64 %438
   %440 = getelementptr inbounds nuw i8, ptr %439, i64 1
   %441 = load i8, ptr %440, align 1
   %442 = load i8, ptr %439, align 1
@@ -7586,7 +7583,7 @@ BIT_initDStream.exit:                             ; preds = %291
   %447 = zext nneg i32 %446 to i64
   %448 = shl i64 %398, %447
   %449 = lshr i64 %448, %377
-  %450 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %449
+  %450 = getelementptr [2 x i8], ptr %14, i64 %449
   %451 = getelementptr inbounds nuw i8, ptr %450, i64 1
   %452 = load i8, ptr %451, align 1
   %453 = load i8, ptr %450, align 1
@@ -7597,7 +7594,7 @@ BIT_initDStream.exit:                             ; preds = %291
   %457 = zext nneg i32 %456 to i64
   %458 = shl i64 %399, %457
   %459 = lshr i64 %458, %377
-  %460 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %459
+  %460 = getelementptr [2 x i8], ptr %14, i64 %459
   %461 = getelementptr inbounds nuw i8, ptr %460, i64 1
   %462 = load i8, ptr %461, align 1
   %463 = load i8, ptr %460, align 1
@@ -7609,7 +7606,7 @@ BIT_initDStream.exit:                             ; preds = %291
   %468 = zext nneg i32 %467 to i64
   %469 = shl i64 %400, %468
   %470 = lshr i64 %469, %377
-  %471 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %470
+  %471 = getelementptr [2 x i8], ptr %14, i64 %470
   %472 = getelementptr inbounds nuw i8, ptr %471, i64 1
   %473 = load i8, ptr %472, align 1
   %474 = load i8, ptr %471, align 1
@@ -7621,7 +7618,7 @@ BIT_initDStream.exit:                             ; preds = %291
   %479 = zext nneg i32 %478 to i64
   %480 = shl i64 %401, %479
   %481 = lshr i64 %480, %377
-  %482 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %481
+  %482 = getelementptr [2 x i8], ptr %14, i64 %481
   %483 = getelementptr inbounds nuw i8, ptr %482, i64 1
   %484 = load i8, ptr %483, align 1
   %485 = load i8, ptr %482, align 1
@@ -7634,7 +7631,7 @@ BIT_initDStream.exit:                             ; preds = %291
   %491 = zext nneg i32 %490 to i64
   %492 = shl i64 %398, %491
   %493 = lshr i64 %492, %377
-  %494 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %493
+  %494 = getelementptr [2 x i8], ptr %14, i64 %493
   %495 = getelementptr inbounds nuw i8, ptr %494, i64 1
   %496 = load i8, ptr %495, align 1
   %497 = load i8, ptr %494, align 1
@@ -7646,7 +7643,7 @@ BIT_initDStream.exit:                             ; preds = %291
   %502 = zext nneg i32 %501 to i64
   %503 = shl i64 %399, %502
   %504 = lshr i64 %503, %377
-  %505 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %504
+  %505 = getelementptr [2 x i8], ptr %14, i64 %504
   %506 = getelementptr inbounds nuw i8, ptr %505, i64 1
   %507 = load i8, ptr %506, align 1
   %508 = load i8, ptr %505, align 1
@@ -7658,7 +7655,7 @@ BIT_initDStream.exit:                             ; preds = %291
   %513 = zext nneg i32 %512 to i64
   %514 = shl i64 %400, %513
   %515 = lshr i64 %514, %377
-  %516 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %515
+  %516 = getelementptr [2 x i8], ptr %14, i64 %515
   %517 = getelementptr inbounds nuw i8, ptr %516, i64 1
   %518 = load i8, ptr %517, align 1
   %519 = load i8, ptr %516, align 1
@@ -7670,7 +7667,7 @@ BIT_initDStream.exit:                             ; preds = %291
   %524 = zext nneg i32 %523 to i64
   %525 = shl i64 %401, %524
   %526 = lshr i64 %525, %377
-  %527 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %526
+  %527 = getelementptr [2 x i8], ptr %14, i64 %526
   %528 = getelementptr inbounds nuw i8, ptr %527, i64 1
   %529 = load i8, ptr %528, align 1
   %530 = load i8, ptr %527, align 1
@@ -7682,7 +7679,7 @@ BIT_initDStream.exit:                             ; preds = %291
   %535 = zext nneg i32 %534 to i64
   %536 = shl i64 %398, %535
   %537 = lshr i64 %536, %377
-  %538 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %537
+  %538 = getelementptr [2 x i8], ptr %14, i64 %537
   %539 = getelementptr inbounds nuw i8, ptr %538, i64 1
   %540 = load i8, ptr %539, align 1
   %541 = load i8, ptr %538, align 1
@@ -7694,7 +7691,7 @@ BIT_initDStream.exit:                             ; preds = %291
   %546 = zext nneg i32 %545 to i64
   %547 = shl i64 %399, %546
   %548 = lshr i64 %547, %377
-  %549 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %548
+  %549 = getelementptr [2 x i8], ptr %14, i64 %548
   %550 = getelementptr inbounds nuw i8, ptr %549, i64 1
   %551 = load i8, ptr %550, align 1
   %552 = load i8, ptr %549, align 1
@@ -7706,7 +7703,7 @@ BIT_initDStream.exit:                             ; preds = %291
   %557 = zext nneg i32 %556 to i64
   %558 = shl i64 %400, %557
   %559 = lshr i64 %558, %377
-  %560 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %559
+  %560 = getelementptr [2 x i8], ptr %14, i64 %559
   %561 = getelementptr inbounds nuw i8, ptr %560, i64 1
   %562 = load i8, ptr %561, align 1
   %563 = load i8, ptr %560, align 1
@@ -7718,7 +7715,7 @@ BIT_initDStream.exit:                             ; preds = %291
   %568 = zext nneg i32 %567 to i64
   %569 = shl i64 %401, %568
   %570 = lshr i64 %569, %377
-  %571 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %570
+  %571 = getelementptr [2 x i8], ptr %14, i64 %570
   %572 = getelementptr inbounds nuw i8, ptr %571, i64 1
   %573 = load i8, ptr %572, align 1
   %574 = load i8, ptr %571, align 1
@@ -7907,7 +7904,7 @@ BIT_initDStream.exit:                             ; preds = %291
   %700 = zext nneg i32 %699 to i64
   %701 = shl i64 %storemerge, %700
   %702 = lshr i64 %701, %661
-  %703 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %702
+  %703 = getelementptr [2 x i8], ptr %14, i64 %702
   %704 = getelementptr inbounds nuw i8, ptr %703, i64 1
   %705 = load i8, ptr %704, align 1
   %706 = load i8, ptr %703, align 1
@@ -7922,7 +7919,7 @@ BIT_initDStream.exit:                             ; preds = %291
   %713 = zext nneg i32 %712 to i64
   %714 = shl i64 %710, %713
   %715 = lshr i64 %714, %661
-  %716 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %715
+  %716 = getelementptr [2 x i8], ptr %14, i64 %715
   %717 = getelementptr inbounds nuw i8, ptr %716, i64 1
   %718 = load i8, ptr %717, align 1
   %719 = load i8, ptr %716, align 1
@@ -7937,7 +7934,7 @@ BIT_initDStream.exit:                             ; preds = %291
   %726 = zext nneg i32 %725 to i64
   %727 = shl i64 %723, %726
   %728 = lshr i64 %727, %661
-  %729 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %728
+  %729 = getelementptr [2 x i8], ptr %14, i64 %728
   %730 = getelementptr inbounds nuw i8, ptr %729, i64 1
   %731 = load i8, ptr %730, align 1
   %732 = load i8, ptr %729, align 1
@@ -7952,7 +7949,7 @@ BIT_initDStream.exit:                             ; preds = %291
   %739 = zext nneg i32 %738 to i64
   %740 = shl i64 %736, %739
   %741 = lshr i64 %740, %661
-  %742 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %741
+  %742 = getelementptr [2 x i8], ptr %14, i64 %741
   %743 = getelementptr inbounds nuw i8, ptr %742, i64 1
   %744 = load i8, ptr %743, align 1
   %745 = load i8, ptr %742, align 1
@@ -7989,7 +7986,7 @@ BIT_initDStream.exit:                             ; preds = %291
   %765 = zext nneg i32 %764 to i64
   %766 = shl i64 %762, %765
   %767 = lshr i64 %766, %759
-  %768 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %767
+  %768 = getelementptr [2 x i8], ptr %14, i64 %767
   %769 = getelementptr inbounds nuw i8, ptr %768, i64 1
   %770 = load i8, ptr %769, align 1
   %771 = load i8, ptr %768, align 1
@@ -8076,7 +8073,7 @@ BIT_initDStream.exit:                             ; preds = %291
   %826 = zext nneg i32 %825 to i64
   %827 = shl i64 %storemerge63, %826
   %828 = lshr i64 %827, %786
-  %829 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %828
+  %829 = getelementptr [2 x i8], ptr %14, i64 %828
   %830 = getelementptr inbounds nuw i8, ptr %829, i64 1
   %831 = load i8, ptr %830, align 1
   %832 = load i8, ptr %829, align 1
@@ -8091,7 +8088,7 @@ BIT_initDStream.exit:                             ; preds = %291
   %839 = zext nneg i32 %838 to i64
   %840 = shl i64 %836, %839
   %841 = lshr i64 %840, %786
-  %842 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %841
+  %842 = getelementptr [2 x i8], ptr %14, i64 %841
   %843 = getelementptr inbounds nuw i8, ptr %842, i64 1
   %844 = load i8, ptr %843, align 1
   %845 = load i8, ptr %842, align 1
@@ -8106,7 +8103,7 @@ BIT_initDStream.exit:                             ; preds = %291
   %852 = zext nneg i32 %851 to i64
   %853 = shl i64 %849, %852
   %854 = lshr i64 %853, %786
-  %855 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %854
+  %855 = getelementptr [2 x i8], ptr %14, i64 %854
   %856 = getelementptr inbounds nuw i8, ptr %855, i64 1
   %857 = load i8, ptr %856, align 1
   %858 = load i8, ptr %855, align 1
@@ -8121,7 +8118,7 @@ BIT_initDStream.exit:                             ; preds = %291
   %865 = zext nneg i32 %864 to i64
   %866 = shl i64 %862, %865
   %867 = lshr i64 %866, %786
-  %868 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %867
+  %868 = getelementptr [2 x i8], ptr %14, i64 %867
   %869 = getelementptr inbounds nuw i8, ptr %868, i64 1
   %870 = load i8, ptr %869, align 1
   %871 = load i8, ptr %868, align 1
@@ -8158,7 +8155,7 @@ BIT_initDStream.exit:                             ; preds = %291
   %891 = zext nneg i32 %890 to i64
   %892 = shl i64 %888, %891
   %893 = lshr i64 %892, %885
-  %894 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %893
+  %894 = getelementptr [2 x i8], ptr %14, i64 %893
   %895 = getelementptr inbounds nuw i8, ptr %894, i64 1
   %896 = load i8, ptr %895, align 1
   %897 = load i8, ptr %894, align 1
@@ -8244,7 +8241,7 @@ BIT_initDStream.exit:                             ; preds = %291
   %951 = zext nneg i32 %950 to i64
   %952 = shl i64 %storemerge65, %951
   %953 = lshr i64 %952, %911
-  %954 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %953
+  %954 = getelementptr [2 x i8], ptr %14, i64 %953
   %955 = getelementptr inbounds nuw i8, ptr %954, i64 1
   %956 = load i8, ptr %955, align 1
   %957 = load i8, ptr %954, align 1
@@ -8259,7 +8256,7 @@ BIT_initDStream.exit:                             ; preds = %291
   %964 = zext nneg i32 %963 to i64
   %965 = shl i64 %961, %964
   %966 = lshr i64 %965, %911
-  %967 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %966
+  %967 = getelementptr [2 x i8], ptr %14, i64 %966
   %968 = getelementptr inbounds nuw i8, ptr %967, i64 1
   %969 = load i8, ptr %968, align 1
   %970 = load i8, ptr %967, align 1
@@ -8274,7 +8271,7 @@ BIT_initDStream.exit:                             ; preds = %291
   %977 = zext nneg i32 %976 to i64
   %978 = shl i64 %974, %977
   %979 = lshr i64 %978, %911
-  %980 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %979
+  %980 = getelementptr [2 x i8], ptr %14, i64 %979
   %981 = getelementptr inbounds nuw i8, ptr %980, i64 1
   %982 = load i8, ptr %981, align 1
   %983 = load i8, ptr %980, align 1
@@ -8289,7 +8286,7 @@ BIT_initDStream.exit:                             ; preds = %291
   %990 = zext nneg i32 %989 to i64
   %991 = shl i64 %987, %990
   %992 = lshr i64 %991, %911
-  %993 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %992
+  %993 = getelementptr [2 x i8], ptr %14, i64 %992
   %994 = getelementptr inbounds nuw i8, ptr %993, i64 1
   %995 = load i8, ptr %994, align 1
   %996 = load i8, ptr %993, align 1
@@ -8326,7 +8323,7 @@ BIT_initDStream.exit:                             ; preds = %291
   %1016 = zext nneg i32 %1015 to i64
   %1017 = shl i64 %1013, %1016
   %1018 = lshr i64 %1017, %1010
-  %1019 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %1018
+  %1019 = getelementptr [2 x i8], ptr %14, i64 %1018
   %1020 = getelementptr inbounds nuw i8, ptr %1019, i64 1
   %1021 = load i8, ptr %1020, align 1
   %1022 = load i8, ptr %1019, align 1
@@ -8411,7 +8408,7 @@ BIT_initDStream.exit:                             ; preds = %291
   %1075 = zext nneg i32 %1074 to i64
   %1076 = shl i64 %storemerge67, %1075
   %1077 = lshr i64 %1076, %1035
-  %1078 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %1077
+  %1078 = getelementptr [2 x i8], ptr %14, i64 %1077
   %1079 = getelementptr inbounds nuw i8, ptr %1078, i64 1
   %1080 = load i8, ptr %1079, align 1
   %1081 = load i8, ptr %1078, align 1
@@ -8426,7 +8423,7 @@ BIT_initDStream.exit:                             ; preds = %291
   %1088 = zext nneg i32 %1087 to i64
   %1089 = shl i64 %1085, %1088
   %1090 = lshr i64 %1089, %1035
-  %1091 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %1090
+  %1091 = getelementptr [2 x i8], ptr %14, i64 %1090
   %1092 = getelementptr inbounds nuw i8, ptr %1091, i64 1
   %1093 = load i8, ptr %1092, align 1
   %1094 = load i8, ptr %1091, align 1
@@ -8441,7 +8438,7 @@ BIT_initDStream.exit:                             ; preds = %291
   %1101 = zext nneg i32 %1100 to i64
   %1102 = shl i64 %1098, %1101
   %1103 = lshr i64 %1102, %1035
-  %1104 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %1103
+  %1104 = getelementptr [2 x i8], ptr %14, i64 %1103
   %1105 = getelementptr inbounds nuw i8, ptr %1104, i64 1
   %1106 = load i8, ptr %1105, align 1
   %1107 = load i8, ptr %1104, align 1
@@ -8456,7 +8453,7 @@ BIT_initDStream.exit:                             ; preds = %291
   %1114 = zext nneg i32 %1113 to i64
   %1115 = shl i64 %1111, %1114
   %1116 = lshr i64 %1115, %1035
-  %1117 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %1116
+  %1117 = getelementptr [2 x i8], ptr %14, i64 %1116
   %1118 = getelementptr inbounds nuw i8, ptr %1117, i64 1
   %1119 = load i8, ptr %1118, align 1
   %1120 = load i8, ptr %1117, align 1
@@ -8493,7 +8490,7 @@ BIT_initDStream.exit:                             ; preds = %291
   %1140 = zext nneg i32 %1139 to i64
   %1141 = shl i64 %1137, %1140
   %1142 = lshr i64 %1141, %1134
-  %1143 = getelementptr %struct.HUF_DEltX1, ptr %14, i64 %1142
+  %1143 = getelementptr [2 x i8], ptr %14, i64 %1142
   %1144 = getelementptr inbounds nuw i8, ptr %1143, i64 1
   %1145 = load i8, ptr %1144, align 1
   %1146 = load i8, ptr %1143, align 1
@@ -8743,7 +8740,7 @@ define internal fastcc i64 @HUF_decompress1X2_usingDTable_internal_bmi2(ptr noun
   %132 = zext nneg i32 %131 to i64
   %133 = shl i64 %127, %132
   %134 = lshr i64 %133, %95
-  %135 = getelementptr %struct.HUF_DEltX2, ptr %84, i64 %134
+  %135 = getelementptr [4 x i8], ptr %84, i64 %134
   %136 = load i16, ptr %135, align 2
   store i16 %136, ptr %98, align 1
   %137 = getelementptr inbounds nuw i8, ptr %135, i64 2
@@ -8758,7 +8755,7 @@ define internal fastcc i64 @HUF_decompress1X2_usingDTable_internal_bmi2(ptr noun
   %146 = zext nneg i32 %145 to i64
   %147 = shl i64 %127, %146
   %148 = lshr i64 %147, %95
-  %149 = getelementptr %struct.HUF_DEltX2, ptr %84, i64 %148
+  %149 = getelementptr [4 x i8], ptr %84, i64 %148
   %150 = load i16, ptr %149, align 2
   store i16 %150, ptr %144, align 1
   %151 = getelementptr inbounds nuw i8, ptr %149, i64 2
@@ -8773,7 +8770,7 @@ define internal fastcc i64 @HUF_decompress1X2_usingDTable_internal_bmi2(ptr noun
   %160 = zext nneg i32 %159 to i64
   %161 = shl i64 %127, %160
   %162 = lshr i64 %161, %95
-  %163 = getelementptr %struct.HUF_DEltX2, ptr %84, i64 %162
+  %163 = getelementptr [4 x i8], ptr %84, i64 %162
   %164 = load i16, ptr %163, align 2
   store i16 %164, ptr %158, align 1
   %165 = getelementptr inbounds nuw i8, ptr %163, i64 2
@@ -8788,7 +8785,7 @@ define internal fastcc i64 @HUF_decompress1X2_usingDTable_internal_bmi2(ptr noun
   %174 = zext nneg i32 %173 to i64
   %175 = shl i64 %127, %174
   %176 = lshr i64 %175, %95
-  %177 = getelementptr %struct.HUF_DEltX2, ptr %84, i64 %176
+  %177 = getelementptr [4 x i8], ptr %84, i64 %176
   %178 = load i16, ptr %177, align 2
   store i16 %178, ptr %172, align 1
   %179 = getelementptr inbounds nuw i8, ptr %177, i64 2
@@ -8803,7 +8800,7 @@ define internal fastcc i64 @HUF_decompress1X2_usingDTable_internal_bmi2(ptr noun
   %188 = zext nneg i32 %187 to i64
   %189 = shl i64 %127, %188
   %190 = lshr i64 %189, %95
-  %191 = getelementptr %struct.HUF_DEltX2, ptr %84, i64 %190
+  %191 = getelementptr [4 x i8], ptr %84, i64 %190
   %192 = load i16, ptr %191, align 2
   store i16 %192, ptr %186, align 1
   %193 = getelementptr inbounds nuw i8, ptr %191, i64 2
@@ -8865,7 +8862,7 @@ define internal fastcc i64 @HUF_decompress1X2_usingDTable_internal_bmi2(ptr noun
   %236 = zext nneg i32 %235 to i64
   %237 = shl i64 %231, %236
   %238 = lshr i64 %237, %95
-  %239 = getelementptr %struct.HUF_DEltX2, ptr %84, i64 %238
+  %239 = getelementptr [4 x i8], ptr %84, i64 %238
   %240 = load i16, ptr %239, align 2
   store i16 %240, ptr %202, align 1
   %241 = getelementptr inbounds nuw i8, ptr %239, i64 2
@@ -8880,7 +8877,7 @@ define internal fastcc i64 @HUF_decompress1X2_usingDTable_internal_bmi2(ptr noun
   %250 = zext nneg i32 %249 to i64
   %251 = shl i64 %231, %250
   %252 = lshr i64 %251, %95
-  %253 = getelementptr %struct.HUF_DEltX2, ptr %84, i64 %252
+  %253 = getelementptr [4 x i8], ptr %84, i64 %252
   %254 = load i16, ptr %253, align 2
   store i16 %254, ptr %248, align 1
   %255 = getelementptr inbounds nuw i8, ptr %253, i64 2
@@ -8895,7 +8892,7 @@ define internal fastcc i64 @HUF_decompress1X2_usingDTable_internal_bmi2(ptr noun
   %264 = zext nneg i32 %263 to i64
   %265 = shl i64 %231, %264
   %266 = lshr i64 %265, %95
-  %267 = getelementptr %struct.HUF_DEltX2, ptr %84, i64 %266
+  %267 = getelementptr [4 x i8], ptr %84, i64 %266
   %268 = load i16, ptr %267, align 2
   store i16 %268, ptr %262, align 1
   %269 = getelementptr inbounds nuw i8, ptr %267, i64 2
@@ -8910,7 +8907,7 @@ define internal fastcc i64 @HUF_decompress1X2_usingDTable_internal_bmi2(ptr noun
   %278 = zext nneg i32 %277 to i64
   %279 = shl i64 %231, %278
   %280 = lshr i64 %279, %95
-  %281 = getelementptr %struct.HUF_DEltX2, ptr %84, i64 %280
+  %281 = getelementptr [4 x i8], ptr %84, i64 %280
   %282 = load i16, ptr %281, align 2
   store i16 %282, ptr %276, align 1
   %283 = getelementptr inbounds nuw i8, ptr %281, i64 2
@@ -9036,7 +9033,7 @@ define internal fastcc i64 @HUF_decompress1X2_usingDTable_internal_bmi2(ptr noun
   %371 = zext nneg i32 %370 to i64
   %372 = shl i64 %362, %371
   %373 = lshr i64 %372, %331
-  %374 = getelementptr %struct.HUF_DEltX2, ptr %84, i64 %373
+  %374 = getelementptr [4 x i8], ptr %84, i64 %373
   %375 = load i16, ptr %374, align 2
   store i16 %375, ptr %333, align 1
   %376 = getelementptr inbounds nuw i8, ptr %374, i64 2
@@ -9057,7 +9054,7 @@ define internal fastcc i64 @HUF_decompress1X2_usingDTable_internal_bmi2(ptr noun
   %388 = zext nneg i32 %387 to i64
   %389 = shl i64 %367, %388
   %390 = lshr i64 %389, %331
-  %391 = getelementptr %struct.HUF_DEltX2, ptr %84, i64 %390
+  %391 = getelementptr [4 x i8], ptr %84, i64 %390
   %392 = load i16, ptr %391, align 2
   store i16 %392, ptr %385, align 1
   %393 = getelementptr inbounds nuw i8, ptr %391, i64 2
@@ -9087,7 +9084,7 @@ define internal fastcc i64 @HUF_decompress1X2_usingDTable_internal_bmi2(ptr noun
   %412 = and i32 %411, 63
   %413 = zext nneg i32 %412 to i64
   %414 = lshr i64 %410, %413
-  %415 = getelementptr %struct.HUF_DEltX2, ptr %84, i64 %414
+  %415 = getelementptr [4 x i8], ptr %84, i64 %414
   %416 = load i8, ptr %415, align 2
   store i8 %416, ptr %405, align 1
   %417 = getelementptr inbounds nuw i8, ptr %415, i64 3
@@ -9717,7 +9714,7 @@ BIT_initDStream.exit:                             ; preds = %292
   %404 = zext nneg i32 %403 to i64
   %405 = shl i64 %399, %404
   %406 = lshr i64 %405, %378
-  %407 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %406
+  %407 = getelementptr [4 x i8], ptr %14, i64 %406
   %408 = load i16, ptr %407, align 2
   store i16 %408, ptr %398, align 1
   %409 = getelementptr inbounds nuw i8, ptr %407, i64 2
@@ -9732,7 +9729,7 @@ BIT_initDStream.exit:                             ; preds = %292
   %418 = zext nneg i32 %417 to i64
   %419 = shl i64 %399, %418
   %420 = lshr i64 %419, %378
-  %421 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %420
+  %421 = getelementptr [4 x i8], ptr %14, i64 %420
   %422 = load i16, ptr %421, align 2
   store i16 %422, ptr %416, align 1
   %423 = getelementptr inbounds nuw i8, ptr %421, i64 2
@@ -9747,7 +9744,7 @@ BIT_initDStream.exit:                             ; preds = %292
   %432 = zext nneg i32 %431 to i64
   %433 = shl i64 %399, %432
   %434 = lshr i64 %433, %378
-  %435 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %434
+  %435 = getelementptr [4 x i8], ptr %14, i64 %434
   %436 = load i16, ptr %435, align 2
   store i16 %436, ptr %430, align 1
   %437 = getelementptr inbounds nuw i8, ptr %435, i64 2
@@ -9762,7 +9759,7 @@ BIT_initDStream.exit:                             ; preds = %292
   %446 = zext nneg i32 %445 to i64
   %447 = shl i64 %399, %446
   %448 = lshr i64 %447, %378
-  %449 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %448
+  %449 = getelementptr [4 x i8], ptr %14, i64 %448
   %450 = load i16, ptr %449, align 2
   store i16 %450, ptr %444, align 1
   %451 = getelementptr inbounds nuw i8, ptr %449, i64 2
@@ -9778,7 +9775,7 @@ BIT_initDStream.exit:                             ; preds = %292
   %460 = zext nneg i32 %459 to i64
   %461 = shl i64 %400, %460
   %462 = lshr i64 %461, %378
-  %463 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %462
+  %463 = getelementptr [4 x i8], ptr %14, i64 %462
   %464 = load i16, ptr %463, align 2
   store i16 %464, ptr %397, align 1
   %465 = getelementptr inbounds nuw i8, ptr %463, i64 2
@@ -9793,7 +9790,7 @@ BIT_initDStream.exit:                             ; preds = %292
   %474 = zext nneg i32 %473 to i64
   %475 = shl i64 %400, %474
   %476 = lshr i64 %475, %378
-  %477 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %476
+  %477 = getelementptr [4 x i8], ptr %14, i64 %476
   %478 = load i16, ptr %477, align 2
   store i16 %478, ptr %472, align 1
   %479 = getelementptr inbounds nuw i8, ptr %477, i64 2
@@ -9808,7 +9805,7 @@ BIT_initDStream.exit:                             ; preds = %292
   %488 = zext nneg i32 %487 to i64
   %489 = shl i64 %400, %488
   %490 = lshr i64 %489, %378
-  %491 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %490
+  %491 = getelementptr [4 x i8], ptr %14, i64 %490
   %492 = load i16, ptr %491, align 2
   store i16 %492, ptr %486, align 1
   %493 = getelementptr inbounds nuw i8, ptr %491, i64 2
@@ -9823,7 +9820,7 @@ BIT_initDStream.exit:                             ; preds = %292
   %502 = zext nneg i32 %501 to i64
   %503 = shl i64 %400, %502
   %504 = lshr i64 %503, %378
-  %505 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %504
+  %505 = getelementptr [4 x i8], ptr %14, i64 %504
   %506 = load i16, ptr %505, align 2
   store i16 %506, ptr %500, align 1
   %507 = getelementptr inbounds nuw i8, ptr %505, i64 2
@@ -9878,7 +9875,7 @@ BIT_initDStream.exit:                             ; preds = %292
   %541 = zext nneg i32 %540 to i64
   %542 = shl i64 %401, %541
   %543 = lshr i64 %542, %378
-  %544 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %543
+  %544 = getelementptr [4 x i8], ptr %14, i64 %543
   %545 = load i16, ptr %544, align 2
   store i16 %545, ptr %396, align 1
   %546 = getelementptr inbounds nuw i8, ptr %544, i64 2
@@ -9893,7 +9890,7 @@ BIT_initDStream.exit:                             ; preds = %292
   %555 = zext nneg i32 %554 to i64
   %556 = shl i64 %401, %555
   %557 = lshr i64 %556, %378
-  %558 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %557
+  %558 = getelementptr [4 x i8], ptr %14, i64 %557
   %559 = load i16, ptr %558, align 2
   store i16 %559, ptr %553, align 1
   %560 = getelementptr inbounds nuw i8, ptr %558, i64 2
@@ -9908,7 +9905,7 @@ BIT_initDStream.exit:                             ; preds = %292
   %569 = zext nneg i32 %568 to i64
   %570 = shl i64 %401, %569
   %571 = lshr i64 %570, %378
-  %572 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %571
+  %572 = getelementptr [4 x i8], ptr %14, i64 %571
   %573 = load i16, ptr %572, align 2
   store i16 %573, ptr %567, align 1
   %574 = getelementptr inbounds nuw i8, ptr %572, i64 2
@@ -9923,7 +9920,7 @@ BIT_initDStream.exit:                             ; preds = %292
   %583 = zext nneg i32 %582 to i64
   %584 = shl i64 %401, %583
   %585 = lshr i64 %584, %378
-  %586 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %585
+  %586 = getelementptr [4 x i8], ptr %14, i64 %585
   %587 = load i16, ptr %586, align 2
   store i16 %587, ptr %581, align 1
   %588 = getelementptr inbounds nuw i8, ptr %586, i64 2
@@ -9939,7 +9936,7 @@ BIT_initDStream.exit:                             ; preds = %292
   %597 = zext nneg i32 %596 to i64
   %598 = shl i64 %402, %597
   %599 = lshr i64 %598, %378
-  %600 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %599
+  %600 = getelementptr [4 x i8], ptr %14, i64 %599
   %601 = load i16, ptr %600, align 2
   store i16 %601, ptr %395, align 1
   %602 = getelementptr inbounds nuw i8, ptr %600, i64 2
@@ -9954,7 +9951,7 @@ BIT_initDStream.exit:                             ; preds = %292
   %611 = zext nneg i32 %610 to i64
   %612 = shl i64 %402, %611
   %613 = lshr i64 %612, %378
-  %614 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %613
+  %614 = getelementptr [4 x i8], ptr %14, i64 %613
   %615 = load i16, ptr %614, align 2
   store i16 %615, ptr %609, align 1
   %616 = getelementptr inbounds nuw i8, ptr %614, i64 2
@@ -9969,7 +9966,7 @@ BIT_initDStream.exit:                             ; preds = %292
   %625 = zext nneg i32 %624 to i64
   %626 = shl i64 %402, %625
   %627 = lshr i64 %626, %378
-  %628 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %627
+  %628 = getelementptr [4 x i8], ptr %14, i64 %627
   %629 = load i16, ptr %628, align 2
   store i16 %629, ptr %623, align 1
   %630 = getelementptr inbounds nuw i8, ptr %628, i64 2
@@ -9984,7 +9981,7 @@ BIT_initDStream.exit:                             ; preds = %292
   %639 = zext nneg i32 %638 to i64
   %640 = shl i64 %402, %639
   %641 = lshr i64 %640, %378
-  %642 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %641
+  %642 = getelementptr [4 x i8], ptr %14, i64 %641
   %643 = load i16, ptr %642, align 2
   store i16 %643, ptr %637, align 1
   %644 = getelementptr inbounds nuw i8, ptr %642, i64 2
@@ -10111,7 +10108,7 @@ BIT_initDStream.exit:                             ; preds = %292
   %728 = zext nneg i32 %727 to i64
   %729 = shl i64 %725, %728
   %730 = lshr i64 %729, %721
-  %731 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %730
+  %731 = getelementptr [4 x i8], ptr %14, i64 %730
   %732 = load i16, ptr %731, align 2
   store i16 %732, ptr %726, align 1
   %733 = getelementptr inbounds nuw i8, ptr %731, i64 2
@@ -10129,7 +10126,7 @@ BIT_initDStream.exit:                             ; preds = %292
   %744 = zext nneg i32 %743 to i64
   %745 = shl i64 %742, %744
   %746 = lshr i64 %745, %721
-  %747 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %746
+  %747 = getelementptr [4 x i8], ptr %14, i64 %746
   %748 = load i16, ptr %747, align 2
   store i16 %748, ptr %741, align 1
   %749 = getelementptr inbounds nuw i8, ptr %747, i64 2
@@ -10147,7 +10144,7 @@ BIT_initDStream.exit:                             ; preds = %292
   %760 = zext nneg i32 %759 to i64
   %761 = shl i64 %758, %760
   %762 = lshr i64 %761, %721
-  %763 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %762
+  %763 = getelementptr [4 x i8], ptr %14, i64 %762
   %764 = load i16, ptr %763, align 2
   store i16 %764, ptr %757, align 1
   %765 = getelementptr inbounds nuw i8, ptr %763, i64 2
@@ -10165,7 +10162,7 @@ BIT_initDStream.exit:                             ; preds = %292
   %776 = zext nneg i32 %775 to i64
   %777 = shl i64 %774, %776
   %778 = lshr i64 %777, %721
-  %779 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %778
+  %779 = getelementptr [4 x i8], ptr %14, i64 %778
   %780 = load i16, ptr %779, align 2
   store i16 %780, ptr %773, align 1
   %781 = getelementptr inbounds nuw i8, ptr %779, i64 2
@@ -10183,7 +10180,7 @@ BIT_initDStream.exit:                             ; preds = %292
   %792 = zext nneg i32 %791 to i64
   %793 = shl i64 %790, %792
   %794 = lshr i64 %793, %721
-  %795 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %794
+  %795 = getelementptr [4 x i8], ptr %14, i64 %794
   %796 = load i16, ptr %795, align 2
   store i16 %796, ptr %789, align 1
   %797 = getelementptr inbounds nuw i8, ptr %795, i64 2
@@ -10257,7 +10254,7 @@ BIT_reloadDStream.exit:                           ; preds = %811, %820
   %844 = zext nneg i32 %843 to i64
   %845 = shl i64 %841, %844
   %846 = lshr i64 %845, %711
-  %847 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %846
+  %847 = getelementptr [4 x i8], ptr %14, i64 %846
   %848 = load i16, ptr %847, align 2
   store i16 %848, ptr %842, align 1
   %849 = getelementptr inbounds nuw i8, ptr %847, i64 2
@@ -10275,7 +10272,7 @@ BIT_reloadDStream.exit:                           ; preds = %811, %820
   %860 = zext nneg i32 %859 to i64
   %861 = shl i64 %858, %860
   %862 = lshr i64 %861, %711
-  %863 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %862
+  %863 = getelementptr [4 x i8], ptr %14, i64 %862
   %864 = load i16, ptr %863, align 2
   store i16 %864, ptr %857, align 1
   %865 = getelementptr inbounds nuw i8, ptr %863, i64 2
@@ -10293,7 +10290,7 @@ BIT_reloadDStream.exit:                           ; preds = %811, %820
   %876 = zext nneg i32 %875 to i64
   %877 = shl i64 %874, %876
   %878 = lshr i64 %877, %711
-  %879 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %878
+  %879 = getelementptr [4 x i8], ptr %14, i64 %878
   %880 = load i16, ptr %879, align 2
   store i16 %880, ptr %873, align 1
   %881 = getelementptr inbounds nuw i8, ptr %879, i64 2
@@ -10311,7 +10308,7 @@ BIT_reloadDStream.exit:                           ; preds = %811, %820
   %892 = zext nneg i32 %891 to i64
   %893 = shl i64 %890, %892
   %894 = lshr i64 %893, %711
-  %895 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %894
+  %895 = getelementptr [4 x i8], ptr %14, i64 %894
   %896 = load i16, ptr %895, align 2
   store i16 %896, ptr %889, align 1
   %897 = getelementptr inbounds nuw i8, ptr %895, i64 2
@@ -10462,7 +10459,7 @@ BIT_reloadDStream.exit.thread:                    ; preds = %917, %839, %BIT_rel
   %992 = zext nneg i32 %991 to i64
   %993 = shl i64 %storemerge113, %992
   %994 = lshr i64 %993, %951
-  %995 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %994
+  %995 = getelementptr [4 x i8], ptr %14, i64 %994
   %996 = load i16, ptr %995, align 2
   store i16 %996, ptr %953, align 1
   %997 = getelementptr inbounds nuw i8, ptr %995, i64 2
@@ -10486,7 +10483,7 @@ BIT_reloadDStream.exit.thread:                    ; preds = %917, %839, %BIT_rel
   %1011 = zext nneg i32 %1010 to i64
   %1012 = shl i64 %1009, %1011
   %1013 = lshr i64 %1012, %951
-  %1014 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %1013
+  %1014 = getelementptr [4 x i8], ptr %14, i64 %1013
   %1015 = load i16, ptr %1014, align 2
   store i16 %1015, ptr %1008, align 1
   %1016 = getelementptr inbounds nuw i8, ptr %1014, i64 2
@@ -10518,7 +10515,7 @@ BIT_reloadDStream.exit.thread:                    ; preds = %917, %839, %BIT_rel
   %1036 = and i32 %1035, 63
   %1037 = zext nneg i32 %1036 to i64
   %1038 = lshr i64 %1034, %1037
-  %1039 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %1038
+  %1039 = getelementptr [4 x i8], ptr %14, i64 %1038
   %1040 = load i8, ptr %1039, align 2
   store i8 %1040, ptr %1026, align 1
   %1041 = getelementptr inbounds nuw i8, ptr %1039, i64 3
@@ -10605,7 +10602,7 @@ BIT_reloadDStream.exit.thread:                    ; preds = %917, %839, %BIT_rel
   %1095 = zext nneg i32 %1094 to i64
   %1096 = shl i64 %1092, %1095
   %1097 = lshr i64 %1096, %1088
-  %1098 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %1097
+  %1098 = getelementptr [4 x i8], ptr %14, i64 %1097
   %1099 = load i16, ptr %1098, align 2
   store i16 %1099, ptr %1093, align 1
   %1100 = getelementptr inbounds nuw i8, ptr %1098, i64 2
@@ -10623,7 +10620,7 @@ BIT_reloadDStream.exit.thread:                    ; preds = %917, %839, %BIT_rel
   %1111 = zext nneg i32 %1110 to i64
   %1112 = shl i64 %1109, %1111
   %1113 = lshr i64 %1112, %1088
-  %1114 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %1113
+  %1114 = getelementptr [4 x i8], ptr %14, i64 %1113
   %1115 = load i16, ptr %1114, align 2
   store i16 %1115, ptr %1108, align 1
   %1116 = getelementptr inbounds nuw i8, ptr %1114, i64 2
@@ -10641,7 +10638,7 @@ BIT_reloadDStream.exit.thread:                    ; preds = %917, %839, %BIT_rel
   %1127 = zext nneg i32 %1126 to i64
   %1128 = shl i64 %1125, %1127
   %1129 = lshr i64 %1128, %1088
-  %1130 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %1129
+  %1130 = getelementptr [4 x i8], ptr %14, i64 %1129
   %1131 = load i16, ptr %1130, align 2
   store i16 %1131, ptr %1124, align 1
   %1132 = getelementptr inbounds nuw i8, ptr %1130, i64 2
@@ -10659,7 +10656,7 @@ BIT_reloadDStream.exit.thread:                    ; preds = %917, %839, %BIT_rel
   %1143 = zext nneg i32 %1142 to i64
   %1144 = shl i64 %1141, %1143
   %1145 = lshr i64 %1144, %1088
-  %1146 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %1145
+  %1146 = getelementptr [4 x i8], ptr %14, i64 %1145
   %1147 = load i16, ptr %1146, align 2
   store i16 %1147, ptr %1140, align 1
   %1148 = getelementptr inbounds nuw i8, ptr %1146, i64 2
@@ -10677,7 +10674,7 @@ BIT_reloadDStream.exit.thread:                    ; preds = %917, %839, %BIT_rel
   %1159 = zext nneg i32 %1158 to i64
   %1160 = shl i64 %1157, %1159
   %1161 = lshr i64 %1160, %1088
-  %1162 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %1161
+  %1162 = getelementptr [4 x i8], ptr %14, i64 %1161
   %1163 = load i16, ptr %1162, align 2
   store i16 %1163, ptr %1156, align 1
   %1164 = getelementptr inbounds nuw i8, ptr %1162, i64 2
@@ -10751,7 +10748,7 @@ BIT_reloadDStream.exit76:                         ; preds = %1178, %1187
   %1211 = zext nneg i32 %1210 to i64
   %1212 = shl i64 %1208, %1211
   %1213 = lshr i64 %1212, %1078
-  %1214 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %1213
+  %1214 = getelementptr [4 x i8], ptr %14, i64 %1213
   %1215 = load i16, ptr %1214, align 2
   store i16 %1215, ptr %1209, align 1
   %1216 = getelementptr inbounds nuw i8, ptr %1214, i64 2
@@ -10769,7 +10766,7 @@ BIT_reloadDStream.exit76:                         ; preds = %1178, %1187
   %1227 = zext nneg i32 %1226 to i64
   %1228 = shl i64 %1225, %1227
   %1229 = lshr i64 %1228, %1078
-  %1230 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %1229
+  %1230 = getelementptr [4 x i8], ptr %14, i64 %1229
   %1231 = load i16, ptr %1230, align 2
   store i16 %1231, ptr %1224, align 1
   %1232 = getelementptr inbounds nuw i8, ptr %1230, i64 2
@@ -10787,7 +10784,7 @@ BIT_reloadDStream.exit76:                         ; preds = %1178, %1187
   %1243 = zext nneg i32 %1242 to i64
   %1244 = shl i64 %1241, %1243
   %1245 = lshr i64 %1244, %1078
-  %1246 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %1245
+  %1246 = getelementptr [4 x i8], ptr %14, i64 %1245
   %1247 = load i16, ptr %1246, align 2
   store i16 %1247, ptr %1240, align 1
   %1248 = getelementptr inbounds nuw i8, ptr %1246, i64 2
@@ -10805,7 +10802,7 @@ BIT_reloadDStream.exit76:                         ; preds = %1178, %1187
   %1259 = zext nneg i32 %1258 to i64
   %1260 = shl i64 %1257, %1259
   %1261 = lshr i64 %1260, %1078
-  %1262 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %1261
+  %1262 = getelementptr [4 x i8], ptr %14, i64 %1261
   %1263 = load i16, ptr %1262, align 2
   store i16 %1263, ptr %1256, align 1
   %1264 = getelementptr inbounds nuw i8, ptr %1262, i64 2
@@ -10956,7 +10953,7 @@ BIT_reloadDStream.exit76.thread:                  ; preds = %1284, %1206, %BIT_r
   %1359 = zext nneg i32 %1358 to i64
   %1360 = shl i64 %storemerge119, %1359
   %1361 = lshr i64 %1360, %1318
-  %1362 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %1361
+  %1362 = getelementptr [4 x i8], ptr %14, i64 %1361
   %1363 = load i16, ptr %1362, align 2
   store i16 %1363, ptr %1320, align 1
   %1364 = getelementptr inbounds nuw i8, ptr %1362, i64 2
@@ -10980,7 +10977,7 @@ BIT_reloadDStream.exit76.thread:                  ; preds = %1284, %1206, %BIT_r
   %1378 = zext nneg i32 %1377 to i64
   %1379 = shl i64 %1376, %1378
   %1380 = lshr i64 %1379, %1318
-  %1381 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %1380
+  %1381 = getelementptr [4 x i8], ptr %14, i64 %1380
   %1382 = load i16, ptr %1381, align 2
   store i16 %1382, ptr %1375, align 1
   %1383 = getelementptr inbounds nuw i8, ptr %1381, i64 2
@@ -11012,7 +11009,7 @@ BIT_reloadDStream.exit76.thread:                  ; preds = %1284, %1206, %BIT_r
   %1403 = and i32 %1402, 63
   %1404 = zext nneg i32 %1403 to i64
   %1405 = lshr i64 %1401, %1404
-  %1406 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %1405
+  %1406 = getelementptr [4 x i8], ptr %14, i64 %1405
   %1407 = load i8, ptr %1406, align 2
   store i8 %1407, ptr %1393, align 1
   %1408 = getelementptr inbounds nuw i8, ptr %1406, i64 3
@@ -11098,7 +11095,7 @@ BIT_reloadDStream.exit76.thread:                  ; preds = %1284, %1206, %BIT_r
   %1461 = zext nneg i32 %1460 to i64
   %1462 = shl i64 %1458, %1461
   %1463 = lshr i64 %1462, %1454
-  %1464 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %1463
+  %1464 = getelementptr [4 x i8], ptr %14, i64 %1463
   %1465 = load i16, ptr %1464, align 2
   store i16 %1465, ptr %1459, align 1
   %1466 = getelementptr inbounds nuw i8, ptr %1464, i64 2
@@ -11116,7 +11113,7 @@ BIT_reloadDStream.exit76.thread:                  ; preds = %1284, %1206, %BIT_r
   %1477 = zext nneg i32 %1476 to i64
   %1478 = shl i64 %1475, %1477
   %1479 = lshr i64 %1478, %1454
-  %1480 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %1479
+  %1480 = getelementptr [4 x i8], ptr %14, i64 %1479
   %1481 = load i16, ptr %1480, align 2
   store i16 %1481, ptr %1474, align 1
   %1482 = getelementptr inbounds nuw i8, ptr %1480, i64 2
@@ -11134,7 +11131,7 @@ BIT_reloadDStream.exit76.thread:                  ; preds = %1284, %1206, %BIT_r
   %1493 = zext nneg i32 %1492 to i64
   %1494 = shl i64 %1491, %1493
   %1495 = lshr i64 %1494, %1454
-  %1496 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %1495
+  %1496 = getelementptr [4 x i8], ptr %14, i64 %1495
   %1497 = load i16, ptr %1496, align 2
   store i16 %1497, ptr %1490, align 1
   %1498 = getelementptr inbounds nuw i8, ptr %1496, i64 2
@@ -11152,7 +11149,7 @@ BIT_reloadDStream.exit76.thread:                  ; preds = %1284, %1206, %BIT_r
   %1509 = zext nneg i32 %1508 to i64
   %1510 = shl i64 %1507, %1509
   %1511 = lshr i64 %1510, %1454
-  %1512 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %1511
+  %1512 = getelementptr [4 x i8], ptr %14, i64 %1511
   %1513 = load i16, ptr %1512, align 2
   store i16 %1513, ptr %1506, align 1
   %1514 = getelementptr inbounds nuw i8, ptr %1512, i64 2
@@ -11170,7 +11167,7 @@ BIT_reloadDStream.exit76.thread:                  ; preds = %1284, %1206, %BIT_r
   %1525 = zext nneg i32 %1524 to i64
   %1526 = shl i64 %1523, %1525
   %1527 = lshr i64 %1526, %1454
-  %1528 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %1527
+  %1528 = getelementptr [4 x i8], ptr %14, i64 %1527
   %1529 = load i16, ptr %1528, align 2
   store i16 %1529, ptr %1522, align 1
   %1530 = getelementptr inbounds nuw i8, ptr %1528, i64 2
@@ -11244,7 +11241,7 @@ BIT_reloadDStream.exit78:                         ; preds = %1544, %1553
   %1577 = zext nneg i32 %1576 to i64
   %1578 = shl i64 %1574, %1577
   %1579 = lshr i64 %1578, %1444
-  %1580 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %1579
+  %1580 = getelementptr [4 x i8], ptr %14, i64 %1579
   %1581 = load i16, ptr %1580, align 2
   store i16 %1581, ptr %1575, align 1
   %1582 = getelementptr inbounds nuw i8, ptr %1580, i64 2
@@ -11262,7 +11259,7 @@ BIT_reloadDStream.exit78:                         ; preds = %1544, %1553
   %1593 = zext nneg i32 %1592 to i64
   %1594 = shl i64 %1591, %1593
   %1595 = lshr i64 %1594, %1444
-  %1596 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %1595
+  %1596 = getelementptr [4 x i8], ptr %14, i64 %1595
   %1597 = load i16, ptr %1596, align 2
   store i16 %1597, ptr %1590, align 1
   %1598 = getelementptr inbounds nuw i8, ptr %1596, i64 2
@@ -11280,7 +11277,7 @@ BIT_reloadDStream.exit78:                         ; preds = %1544, %1553
   %1609 = zext nneg i32 %1608 to i64
   %1610 = shl i64 %1607, %1609
   %1611 = lshr i64 %1610, %1444
-  %1612 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %1611
+  %1612 = getelementptr [4 x i8], ptr %14, i64 %1611
   %1613 = load i16, ptr %1612, align 2
   store i16 %1613, ptr %1606, align 1
   %1614 = getelementptr inbounds nuw i8, ptr %1612, i64 2
@@ -11298,7 +11295,7 @@ BIT_reloadDStream.exit78:                         ; preds = %1544, %1553
   %1625 = zext nneg i32 %1624 to i64
   %1626 = shl i64 %1623, %1625
   %1627 = lshr i64 %1626, %1444
-  %1628 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %1627
+  %1628 = getelementptr [4 x i8], ptr %14, i64 %1627
   %1629 = load i16, ptr %1628, align 2
   store i16 %1629, ptr %1622, align 1
   %1630 = getelementptr inbounds nuw i8, ptr %1628, i64 2
@@ -11449,7 +11446,7 @@ BIT_reloadDStream.exit78.thread:                  ; preds = %1650, %1572, %BIT_r
   %1725 = zext nneg i32 %1724 to i64
   %1726 = shl i64 %storemerge125, %1725
   %1727 = lshr i64 %1726, %1684
-  %1728 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %1727
+  %1728 = getelementptr [4 x i8], ptr %14, i64 %1727
   %1729 = load i16, ptr %1728, align 2
   store i16 %1729, ptr %1686, align 1
   %1730 = getelementptr inbounds nuw i8, ptr %1728, i64 2
@@ -11473,7 +11470,7 @@ BIT_reloadDStream.exit78.thread:                  ; preds = %1650, %1572, %BIT_r
   %1744 = zext nneg i32 %1743 to i64
   %1745 = shl i64 %1742, %1744
   %1746 = lshr i64 %1745, %1684
-  %1747 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %1746
+  %1747 = getelementptr [4 x i8], ptr %14, i64 %1746
   %1748 = load i16, ptr %1747, align 2
   store i16 %1748, ptr %1741, align 1
   %1749 = getelementptr inbounds nuw i8, ptr %1747, i64 2
@@ -11505,7 +11502,7 @@ BIT_reloadDStream.exit78.thread:                  ; preds = %1650, %1572, %BIT_r
   %1769 = and i32 %1768, 63
   %1770 = zext nneg i32 %1769 to i64
   %1771 = lshr i64 %1767, %1770
-  %1772 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %1771
+  %1772 = getelementptr [4 x i8], ptr %14, i64 %1771
   %1773 = load i8, ptr %1772, align 2
   store i8 %1773, ptr %1759, align 1
   %1774 = getelementptr inbounds nuw i8, ptr %1772, i64 3
@@ -11592,7 +11589,7 @@ BIT_reloadDStream.exit78.thread:                  ; preds = %1650, %1572, %BIT_r
   %1828 = zext nneg i32 %1827 to i64
   %1829 = shl i64 %1825, %1828
   %1830 = lshr i64 %1829, %1821
-  %1831 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %1830
+  %1831 = getelementptr [4 x i8], ptr %14, i64 %1830
   %1832 = load i16, ptr %1831, align 2
   store i16 %1832, ptr %1826, align 1
   %1833 = getelementptr inbounds nuw i8, ptr %1831, i64 2
@@ -11610,7 +11607,7 @@ BIT_reloadDStream.exit78.thread:                  ; preds = %1650, %1572, %BIT_r
   %1844 = zext nneg i32 %1843 to i64
   %1845 = shl i64 %1842, %1844
   %1846 = lshr i64 %1845, %1821
-  %1847 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %1846
+  %1847 = getelementptr [4 x i8], ptr %14, i64 %1846
   %1848 = load i16, ptr %1847, align 2
   store i16 %1848, ptr %1841, align 1
   %1849 = getelementptr inbounds nuw i8, ptr %1847, i64 2
@@ -11628,7 +11625,7 @@ BIT_reloadDStream.exit78.thread:                  ; preds = %1650, %1572, %BIT_r
   %1860 = zext nneg i32 %1859 to i64
   %1861 = shl i64 %1858, %1860
   %1862 = lshr i64 %1861, %1821
-  %1863 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %1862
+  %1863 = getelementptr [4 x i8], ptr %14, i64 %1862
   %1864 = load i16, ptr %1863, align 2
   store i16 %1864, ptr %1857, align 1
   %1865 = getelementptr inbounds nuw i8, ptr %1863, i64 2
@@ -11646,7 +11643,7 @@ BIT_reloadDStream.exit78.thread:                  ; preds = %1650, %1572, %BIT_r
   %1876 = zext nneg i32 %1875 to i64
   %1877 = shl i64 %1874, %1876
   %1878 = lshr i64 %1877, %1821
-  %1879 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %1878
+  %1879 = getelementptr [4 x i8], ptr %14, i64 %1878
   %1880 = load i16, ptr %1879, align 2
   store i16 %1880, ptr %1873, align 1
   %1881 = getelementptr inbounds nuw i8, ptr %1879, i64 2
@@ -11664,7 +11661,7 @@ BIT_reloadDStream.exit78.thread:                  ; preds = %1650, %1572, %BIT_r
   %1892 = zext nneg i32 %1891 to i64
   %1893 = shl i64 %1890, %1892
   %1894 = lshr i64 %1893, %1821
-  %1895 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %1894
+  %1895 = getelementptr [4 x i8], ptr %14, i64 %1894
   %1896 = load i16, ptr %1895, align 2
   store i16 %1896, ptr %1889, align 1
   %1897 = getelementptr inbounds nuw i8, ptr %1895, i64 2
@@ -11738,7 +11735,7 @@ BIT_reloadDStream.exit80:                         ; preds = %1911, %1920
   %1944 = zext nneg i32 %1943 to i64
   %1945 = shl i64 %1941, %1944
   %1946 = lshr i64 %1945, %1809
-  %1947 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %1946
+  %1947 = getelementptr [4 x i8], ptr %14, i64 %1946
   %1948 = load i16, ptr %1947, align 2
   store i16 %1948, ptr %1942, align 1
   %1949 = getelementptr inbounds nuw i8, ptr %1947, i64 2
@@ -11756,7 +11753,7 @@ BIT_reloadDStream.exit80:                         ; preds = %1911, %1920
   %1960 = zext nneg i32 %1959 to i64
   %1961 = shl i64 %1958, %1960
   %1962 = lshr i64 %1961, %1809
-  %1963 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %1962
+  %1963 = getelementptr [4 x i8], ptr %14, i64 %1962
   %1964 = load i16, ptr %1963, align 2
   store i16 %1964, ptr %1957, align 1
   %1965 = getelementptr inbounds nuw i8, ptr %1963, i64 2
@@ -11774,7 +11771,7 @@ BIT_reloadDStream.exit80:                         ; preds = %1911, %1920
   %1976 = zext nneg i32 %1975 to i64
   %1977 = shl i64 %1974, %1976
   %1978 = lshr i64 %1977, %1809
-  %1979 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %1978
+  %1979 = getelementptr [4 x i8], ptr %14, i64 %1978
   %1980 = load i16, ptr %1979, align 2
   store i16 %1980, ptr %1973, align 1
   %1981 = getelementptr inbounds nuw i8, ptr %1979, i64 2
@@ -11792,7 +11789,7 @@ BIT_reloadDStream.exit80:                         ; preds = %1911, %1920
   %1992 = zext nneg i32 %1991 to i64
   %1993 = shl i64 %1990, %1992
   %1994 = lshr i64 %1993, %1809
-  %1995 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %1994
+  %1995 = getelementptr [4 x i8], ptr %14, i64 %1994
   %1996 = load i16, ptr %1995, align 2
   store i16 %1996, ptr %1989, align 1
   %1997 = getelementptr inbounds nuw i8, ptr %1995, i64 2
@@ -11943,7 +11940,7 @@ BIT_reloadDStream.exit80.thread:                  ; preds = %2017, %1939, %BIT_r
   %2092 = zext nneg i32 %2091 to i64
   %2093 = shl i64 %storemerge131, %2092
   %2094 = lshr i64 %2093, %2051
-  %2095 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %2094
+  %2095 = getelementptr [4 x i8], ptr %14, i64 %2094
   %2096 = load i16, ptr %2095, align 2
   store i16 %2096, ptr %2053, align 1
   %2097 = getelementptr inbounds nuw i8, ptr %2095, i64 2
@@ -11967,7 +11964,7 @@ BIT_reloadDStream.exit80.thread:                  ; preds = %2017, %1939, %BIT_r
   %2111 = zext nneg i32 %2110 to i64
   %2112 = shl i64 %2109, %2111
   %2113 = lshr i64 %2112, %2051
-  %2114 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %2113
+  %2114 = getelementptr [4 x i8], ptr %14, i64 %2113
   %2115 = load i16, ptr %2114, align 2
   store i16 %2115, ptr %2108, align 1
   %2116 = getelementptr inbounds nuw i8, ptr %2114, i64 2
@@ -12004,7 +12001,7 @@ BIT_reloadDStream.exit80.thread:                  ; preds = %2017, %1939, %BIT_r
   %2136 = and i32 %2135, 63
   %2137 = zext nneg i32 %2136 to i64
   %2138 = lshr i64 %2134, %2137
-  %2139 = getelementptr %struct.HUF_DEltX2, ptr %14, i64 %2138
+  %2139 = getelementptr [4 x i8], ptr %14, i64 %2138
   %2140 = load i8, ptr %2139, align 2
   store i8 %2140, ptr %2126, align 1
   %2141 = getelementptr inbounds nuw i8, ptr %2139, i64 3

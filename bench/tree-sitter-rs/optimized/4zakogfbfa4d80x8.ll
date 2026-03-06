@@ -241,7 +241,7 @@ _ZN14regex_automata4meta5regex5Regex17search_slots_with17h8984827c8519266fE.exit
   br i1 %116, label %118, label %"_ZN103_$LT$regex_automata..meta..regex..CapturesMatches$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17ha483752b0a2e2074E.exit"
 
 118:                                              ; preds = %114
-  %119 = getelementptr inbounds nuw i64, ptr %117, i64 %.061.i.i.i
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %.061.i.i.i
   %120 = load i64, ptr %119, align 8, !noalias !59, !noundef !4
   %121 = icmp ne i64 %120, 0
   %122 = icmp ult i64 %.0.i.i.i, %115
@@ -249,7 +249,7 @@ _ZN14regex_automata4meta5regex5Regex17search_slots_with17h8984827c8519266fE.exit
   br i1 %or.cond.i.i.i, label %123, label %"_ZN103_$LT$regex_automata..meta..regex..CapturesMatches$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17ha483752b0a2e2074E.exit"
 
 123:                                              ; preds = %118
-  %124 = getelementptr inbounds nuw i64, ptr %117, i64 %.0.i.i.i
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %.0.i.i.i
   %125 = load i64, ptr %124, align 8, !noalias !59, !noundef !4
   %126 = icmp eq i64 %125, 0
   br i1 %126, label %"_ZN103_$LT$regex_automata..meta..regex..CapturesMatches$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next28_$u7b$$u7b$closure$u7d$$u7d$17ha483752b0a2e2074E.exit", label %127

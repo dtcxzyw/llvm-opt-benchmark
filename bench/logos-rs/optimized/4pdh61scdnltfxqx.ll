@@ -101,7 +101,7 @@ define zeroext i1 @"_ZN13logos_codegen5graph5impls5debug79_$LT$impl$u20$core..fm
   store i64 0, ptr %.sroa.3.0..sroa_idx, align 8
   %28 = load ptr, ptr %23, align 8
   %29 = load i64, ptr %13, align 8
-  %30 = getelementptr inbounds { i8, i8 }, ptr %28, i64 %29
+  %30 = getelementptr inbounds [2 x i8], ptr %28, i64 %29
   store ptr %28, ptr %11, align 8
   %31 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %30, ptr %31, align 8
@@ -314,12 +314,12 @@ define hidden void @_ZN13logos_codegen5graph4rope4Rope6prefix17h0716dd12a0758169
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds { i8, i8 }, ptr %8, i64 %10
+  %11 = getelementptr inbounds [2 x i8], ptr %8, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %15 = load i64, ptr %14, align 8
-  %16 = getelementptr inbounds { i8, i8 }, ptr %13, i64 %15
+  %16 = getelementptr inbounds [2 x i8], ptr %13, i64 %15
   call void @_ZN4core4iter6traits8iterator8Iterator3zip17hb1d212de24a243f6E(ptr nonnull sret([56 x i8]) align 8 %5, ptr %8, ptr %11, ptr %13, ptr %16)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, ptr noundef nonnull align 8 dereferenceable(56) %5, i64 56, i1 false)
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 56
@@ -415,7 +415,7 @@ define hidden void @_ZN13logos_codegen5graph4rope7Pattern8to_bytes17he146391181b
   store i64 0, ptr %24, align 8
   %25 = load ptr, ptr %18, align 8
   %26 = load i64, ptr %6, align 8
-  %27 = getelementptr inbounds { i8, i8 }, ptr %25, i64 %26
+  %27 = getelementptr inbounds [2 x i8], ptr %25, i64 %26
   store ptr %25, ptr %4, align 8
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %27, ptr %28, align 8

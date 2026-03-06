@@ -95,15 +95,15 @@ define weak_odr dso_local noundef double @_ZN3igl12signed_angleIN5Eigen5BlockIKN
   %indvars.iv = phi i64 [ 0, %3 ], [ 1, %23 ]
   %.02833 = phi double [ 0.000000e+00, %3 ], [ %36, %23 ]
   %.02932 = phi double [ 0.000000e+00, %3 ], [ %35, %23 ]
-  %25 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %26 = load double, ptr %25, align 8, !tbaa !21
   %27 = mul nuw nsw i64 %8, %indvars.iv
-  %28 = getelementptr inbounds double, ptr %4, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %4, i64 %27
   %29 = load double, ptr %28, align 8, !tbaa !21
   %30 = fsub double %26, %29
   store double %30, ptr %indvars.iv.sroa.phi70, align 8, !tbaa !21
   %31 = mul nuw nsw i64 %13, %indvars.iv
-  %32 = getelementptr inbounds double, ptr %9, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %9, i64 %31
   %33 = load double, ptr %32, align 8, !tbaa !21
   %34 = fsub double %26, %33
   store double %34, ptr %indvars.iv.sroa.phi, align 8, !tbaa !21
@@ -207,15 +207,15 @@ define weak_odr dso_local noundef double @_ZN3igl12signed_angleIN5Eigen5BlockIKN
   %indvars.iv = phi i64 [ 0, %3 ], [ 1, %23 ]
   %.02833 = phi double [ 0.000000e+00, %3 ], [ %36, %23 ]
   %.02932 = phi double [ 0.000000e+00, %3 ], [ %35, %23 ]
-  %25 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %26 = load double, ptr %25, align 8, !tbaa !21
   %27 = mul nuw nsw i64 %8, %indvars.iv
-  %28 = getelementptr inbounds double, ptr %4, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %4, i64 %27
   %29 = load double, ptr %28, align 8, !tbaa !21
   %30 = fsub double %26, %29
   store double %30, ptr %indvars.iv.sroa.phi70, align 8, !tbaa !21
   %31 = mul nuw nsw i64 %13, %indvars.iv
-  %32 = getelementptr inbounds double, ptr %9, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %9, i64 %31
   %33 = load double, ptr %32, align 8, !tbaa !21
   %34 = fsub double %26, %33
   store double %34, ptr %indvars.iv.sroa.phi, align 8, !tbaa !21
@@ -310,15 +310,15 @@ define weak_odr dso_local noundef double @_ZN3igl12signed_angleIN5Eigen5BlockIKN
   %indvars.iv = phi i64 [ 0, %3 ], [ 1, %23 ]
   %.02833 = phi double [ 0.000000e+00, %3 ], [ %36, %23 ]
   %.02932 = phi double [ 0.000000e+00, %3 ], [ %35, %23 ]
-  %25 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %26 = load double, ptr %25, align 8, !tbaa !21
   %27 = mul nuw nsw i64 %8, %indvars.iv
-  %28 = getelementptr inbounds double, ptr %4, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %4, i64 %27
   %29 = load double, ptr %28, align 8, !tbaa !21
   %30 = fsub double %26, %29
   store double %30, ptr %indvars.iv.sroa.phi70, align 8, !tbaa !21
   %31 = mul nuw nsw i64 %13, %indvars.iv
-  %32 = getelementptr inbounds double, ptr %9, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %9, i64 %31
   %33 = load double, ptr %32, align 8, !tbaa !21
   %34 = fsub double %26, %33
   store double %34, ptr %indvars.iv.sroa.phi, align 8, !tbaa !21
@@ -419,15 +419,15 @@ define weak_odr dso_local noundef double @_ZN3igl12signed_angleIN5Eigen5BlockIKN
   %.02833 = phi double [ 0.000000e+00, %3 ], [ %42, %28 ]
   %.02932 = phi double [ 0.000000e+00, %3 ], [ %41, %28 ]
   %30 = mul nuw nsw i64 %8, %indvars.iv
-  %31 = getelementptr inbounds double, ptr %4, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %4, i64 %30
   %32 = load double, ptr %31, align 8, !tbaa !21
   %33 = mul nuw nsw i64 %13, %indvars.iv
-  %34 = getelementptr inbounds double, ptr %9, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %9, i64 %33
   %35 = load double, ptr %34, align 8, !tbaa !21
   %36 = fsub double %32, %35
   store double %36, ptr %indvars.iv.sroa.phi70, align 8, !tbaa !21
   %37 = mul nuw nsw i64 %18, %indvars.iv
-  %38 = getelementptr inbounds double, ptr %14, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %14, i64 %37
   %39 = load double, ptr %38, align 8, !tbaa !21
   %40 = fsub double %32, %39
   store double %40, ptr %indvars.iv.sroa.phi, align 8, !tbaa !21
@@ -514,13 +514,13 @@ define weak_odr dso_local noundef double @_ZN3igl12signed_angleIN5Eigen5BlockIKN
   %indvars.iv = phi i64 [ 0, %3 ], [ 1, %15 ]
   %.02833 = phi double [ 0.000000e+00, %3 ], [ %26, %15 ]
   %.02932 = phi double [ 0.000000e+00, %3 ], [ %25, %15 ]
-  %17 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %18 = load double, ptr %17, align 8, !tbaa !21
-  %19 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %20 = load double, ptr %19, align 8, !tbaa !21
   %21 = fsub double %18, %20
   store double %21, ptr %indvars.iv.sroa.phi70, align 8, !tbaa !21
-  %22 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %23 = load double, ptr %22, align 8, !tbaa !21
   %24 = fsub double %18, %23
   store double %24, ptr %indvars.iv.sroa.phi, align 8, !tbaa !21
@@ -607,13 +607,13 @@ define weak_odr dso_local noundef double @_ZN3igl12signed_angleIN5Eigen5BlockIKN
   %indvars.iv = phi i64 [ 0, %3 ], [ 1, %15 ]
   %.02833 = phi double [ 0.000000e+00, %3 ], [ %26, %15 ]
   %.02932 = phi double [ 0.000000e+00, %3 ], [ %25, %15 ]
-  %17 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %18 = load double, ptr %17, align 8, !tbaa !21
-  %19 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %20 = load double, ptr %19, align 8, !tbaa !21
   %21 = fsub double %18, %20
   store double %21, ptr %indvars.iv.sroa.phi70, align 8, !tbaa !21
-  %22 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %23 = load double, ptr %22, align 8, !tbaa !21
   %24 = fsub double %18, %23
   store double %24, ptr %indvars.iv.sroa.phi, align 8, !tbaa !21
@@ -708,15 +708,15 @@ define weak_odr dso_local noundef float @_ZN3igl12signed_angleIN5Eigen5BlockIKNS
   %indvars.iv = phi i64 [ 0, %3 ], [ 1, %21 ]
   %.02834 = phi float [ 0.000000e+00, %3 ], [ %34, %21 ]
   %.02933 = phi float [ 0.000000e+00, %3 ], [ %33, %21 ]
-  %23 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %24 = load float, ptr %23, align 4, !tbaa !55
   %25 = mul nuw nsw i64 %8, %indvars.iv
-  %26 = getelementptr inbounds float, ptr %4, i64 %25
+  %26 = getelementptr inbounds [4 x i8], ptr %4, i64 %25
   %27 = load float, ptr %26, align 4, !tbaa !55
   %28 = fsub float %24, %27
   store float %28, ptr %indvars.iv.sroa.phi69, align 4, !tbaa !55
   %29 = mul nuw nsw i64 %13, %indvars.iv
-  %30 = getelementptr inbounds float, ptr %9, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %9, i64 %29
   %31 = load float, ptr %30, align 4, !tbaa !55
   %32 = fsub float %24, %31
   store float %32, ptr %indvars.iv.sroa.phi, align 4, !tbaa !55
@@ -809,13 +809,13 @@ define weak_odr dso_local noundef float @_ZN3igl12signed_angleIN5Eigen5BlockIKNS
   %indvars.iv = phi i64 [ 0, %3 ], [ 1, %13 ]
   %.02834 = phi float [ 0.000000e+00, %3 ], [ %24, %13 ]
   %.02933 = phi float [ 0.000000e+00, %3 ], [ %23, %13 ]
-  %15 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %16 = load float, ptr %15, align 4, !tbaa !55
-  %17 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %18 = load float, ptr %17, align 4, !tbaa !55
   %19 = fsub float %16, %18
   store float %19, ptr %indvars.iv.sroa.phi69, align 4, !tbaa !55
-  %20 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %21 = load float, ptr %20, align 4, !tbaa !55
   %22 = fsub float %16, %21
   store float %22, ptr %indvars.iv.sroa.phi, align 4, !tbaa !55
@@ -913,15 +913,15 @@ define weak_odr dso_local noundef float @_ZN3igl12signed_angleIN5Eigen5BlockIKNS
   %indvars.iv = phi i64 [ 0, %3 ], [ 1, %21 ]
   %.02834 = phi float [ 0.000000e+00, %3 ], [ %34, %21 ]
   %.02933 = phi float [ 0.000000e+00, %3 ], [ %33, %21 ]
-  %23 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %24 = load float, ptr %23, align 4, !tbaa !55
   %25 = mul nuw nsw i64 %8, %indvars.iv
-  %26 = getelementptr inbounds float, ptr %4, i64 %25
+  %26 = getelementptr inbounds [4 x i8], ptr %4, i64 %25
   %27 = load float, ptr %26, align 4, !tbaa !55
   %28 = fsub float %24, %27
   store float %28, ptr %indvars.iv.sroa.phi69, align 4, !tbaa !55
   %29 = mul nuw nsw i64 %13, %indvars.iv
-  %30 = getelementptr inbounds float, ptr %9, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %9, i64 %29
   %31 = load float, ptr %30, align 4, !tbaa !55
   %32 = fsub float %24, %31
   store float %32, ptr %indvars.iv.sroa.phi, align 4, !tbaa !55
@@ -1025,15 +1025,15 @@ define weak_odr dso_local noundef double @_ZN3igl12signed_angleIN5Eigen5BlockIKN
   %.02833 = phi double [ 0.000000e+00, %3 ], [ %42, %28 ]
   %.02932 = phi double [ 0.000000e+00, %3 ], [ %41, %28 ]
   %30 = mul nuw nsw i64 %8, %indvars.iv
-  %31 = getelementptr inbounds double, ptr %4, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %4, i64 %30
   %32 = load double, ptr %31, align 8, !tbaa !21
   %33 = mul nuw nsw i64 %13, %indvars.iv
-  %34 = getelementptr inbounds double, ptr %9, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %9, i64 %33
   %35 = load double, ptr %34, align 8, !tbaa !21
   %36 = fsub double %32, %35
   store double %36, ptr %indvars.iv.sroa.phi70, align 8, !tbaa !21
   %37 = mul nuw nsw i64 %18, %indvars.iv
-  %38 = getelementptr inbounds double, ptr %14, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %14, i64 %37
   %39 = load double, ptr %38, align 8, !tbaa !21
   %40 = fsub double %32, %39
   store double %40, ptr %indvars.iv.sroa.phi, align 8, !tbaa !21
@@ -1128,15 +1128,15 @@ define weak_odr dso_local noundef double @_ZN3igl12signed_angleIN5Eigen5BlockIKN
   %indvars.iv = phi i64 [ 0, %3 ], [ 1, %23 ]
   %.02833 = phi double [ 0.000000e+00, %3 ], [ %36, %23 ]
   %.02932 = phi double [ 0.000000e+00, %3 ], [ %35, %23 ]
-  %25 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %26 = load double, ptr %25, align 8, !tbaa !21
   %27 = mul nuw nsw i64 %8, %indvars.iv
-  %28 = getelementptr inbounds double, ptr %4, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %4, i64 %27
   %29 = load double, ptr %28, align 8, !tbaa !21
   %30 = fsub double %26, %29
   store double %30, ptr %indvars.iv.sroa.phi70, align 8, !tbaa !21
   %31 = mul nuw nsw i64 %13, %indvars.iv
-  %32 = getelementptr inbounds double, ptr %9, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %9, i64 %31
   %33 = load double, ptr %32, align 8, !tbaa !21
   %34 = fsub double %26, %33
   store double %34, ptr %indvars.iv.sroa.phi, align 8, !tbaa !21
@@ -1231,15 +1231,15 @@ define weak_odr dso_local noundef double @_ZN3igl12signed_angleIN5Eigen5BlockIKN
   %indvars.iv = phi i64 [ 0, %3 ], [ 1, %23 ]
   %.02833 = phi double [ 0.000000e+00, %3 ], [ %36, %23 ]
   %.02932 = phi double [ 0.000000e+00, %3 ], [ %35, %23 ]
-  %25 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %26 = load double, ptr %25, align 8, !tbaa !21
   %27 = mul nuw nsw i64 %8, %indvars.iv
-  %28 = getelementptr inbounds double, ptr %4, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %4, i64 %27
   %29 = load double, ptr %28, align 8, !tbaa !21
   %30 = fsub double %26, %29
   store double %30, ptr %indvars.iv.sroa.phi70, align 8, !tbaa !21
   %31 = mul nuw nsw i64 %13, %indvars.iv
-  %32 = getelementptr inbounds double, ptr %9, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %9, i64 %31
   %33 = load double, ptr %32, align 8, !tbaa !21
   %34 = fsub double %26, %33
   store double %34, ptr %indvars.iv.sroa.phi, align 8, !tbaa !21
@@ -1334,15 +1334,15 @@ define weak_odr dso_local noundef double @_ZN3igl12signed_angleIN5Eigen5BlockIKN
   %indvars.iv = phi i64 [ 0, %3 ], [ 1, %23 ]
   %.02833 = phi double [ 0.000000e+00, %3 ], [ %36, %23 ]
   %.02932 = phi double [ 0.000000e+00, %3 ], [ %35, %23 ]
-  %25 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %26 = load double, ptr %25, align 8, !tbaa !21
   %27 = mul nuw nsw i64 %8, %indvars.iv
-  %28 = getelementptr inbounds double, ptr %4, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %4, i64 %27
   %29 = load double, ptr %28, align 8, !tbaa !21
   %30 = fsub double %26, %29
   store double %30, ptr %indvars.iv.sroa.phi70, align 8, !tbaa !21
   %31 = mul nuw nsw i64 %13, %indvars.iv
-  %32 = getelementptr inbounds double, ptr %9, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %9, i64 %31
   %33 = load double, ptr %32, align 8, !tbaa !21
   %34 = fsub double %26, %33
   store double %34, ptr %indvars.iv.sroa.phi, align 8, !tbaa !21
@@ -1437,15 +1437,15 @@ define weak_odr dso_local noundef float @_ZN3igl12signed_angleIN5Eigen5BlockIKNS
   %indvars.iv = phi i64 [ 0, %3 ], [ 1, %21 ]
   %.02834 = phi float [ 0.000000e+00, %3 ], [ %34, %21 ]
   %.02933 = phi float [ 0.000000e+00, %3 ], [ %33, %21 ]
-  %23 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %24 = load float, ptr %23, align 4, !tbaa !55
   %25 = mul nuw nsw i64 %8, %indvars.iv
-  %26 = getelementptr inbounds float, ptr %4, i64 %25
+  %26 = getelementptr inbounds [4 x i8], ptr %4, i64 %25
   %27 = load float, ptr %26, align 4, !tbaa !55
   %28 = fsub float %24, %27
   store float %28, ptr %indvars.iv.sroa.phi69, align 4, !tbaa !55
   %29 = mul nuw nsw i64 %13, %indvars.iv
-  %30 = getelementptr inbounds float, ptr %9, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %9, i64 %29
   %31 = load float, ptr %30, align 4, !tbaa !55
   %32 = fsub float %24, %31
   store float %32, ptr %indvars.iv.sroa.phi, align 4, !tbaa !55
@@ -1535,13 +1535,13 @@ define weak_odr dso_local noundef float @_ZN3igl12signed_angleIN5Eigen5BlockIKNS
   %indvars.iv = phi i64 [ 0, %3 ], [ 1, %13 ]
   %.02834 = phi float [ 0.000000e+00, %3 ], [ %24, %13 ]
   %.02933 = phi float [ 0.000000e+00, %3 ], [ %23, %13 ]
-  %15 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %16 = load float, ptr %15, align 4, !tbaa !55
-  %17 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %18 = load float, ptr %17, align 4, !tbaa !55
   %19 = fsub float %16, %18
   store float %19, ptr %indvars.iv.sroa.phi69, align 4, !tbaa !55
-  %20 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %21 = load float, ptr %20, align 4, !tbaa !55
   %22 = fsub float %16, %21
   store float %22, ptr %indvars.iv.sroa.phi, align 4, !tbaa !55

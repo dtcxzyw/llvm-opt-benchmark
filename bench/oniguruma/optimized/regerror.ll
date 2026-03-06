@@ -426,7 +426,7 @@ define dso_local range(i32 0, 2) i32 @onig_is_error_code_needs_param(i32 noundef
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.onig_is_error_code_needs_param, i64 %3
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.onig_is_error_code_needs_param, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 

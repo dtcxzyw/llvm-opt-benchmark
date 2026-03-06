@@ -215,7 +215,7 @@ define dso_local noundef i32 @__blk_mq_debugfs_rq_show(ptr noundef %0, ptr nound
   br i1 %or.cond, label %30, label %33
 
 30:                                               ; preds = %27
-  %31 = getelementptr ptr, ptr @cmd_flag_name, i64 %19
+  %31 = getelementptr [8 x i8], ptr @cmd_flag_name, i64 %19
   %32 = load ptr, ptr %31, align 8
   tail call void @seq_puts(ptr noundef %0, ptr noundef nonnull %32) #9
   br label %35
@@ -262,7 +262,7 @@ define dso_local noundef i32 @__blk_mq_debugfs_rq_show(ptr noundef %0, ptr nound
   br i1 %or.cond9, label %55, label %58
 
 55:                                               ; preds = %52
-  %56 = getelementptr ptr, ptr @rqf_name, i64 %44
+  %56 = getelementptr [8 x i8], ptr @rqf_name, i64 %44
   %57 = load ptr, ptr %56, align 8
   tail call void @seq_puts(ptr noundef %0, ptr noundef nonnull %57) #9
   br label %60
@@ -292,7 +292,7 @@ define dso_local noundef i32 @__blk_mq_debugfs_rq_show(ptr noundef %0, ptr nound
 
 69:                                               ; preds = %64
   %70 = zext nneg i32 %66 to i64
-  %71 = getelementptr ptr, ptr @blk_mq_rq_state_name_array, i64 %70
+  %71 = getelementptr [8 x i8], ptr @blk_mq_rq_state_name_array, i64 %70
   %72 = load ptr, ptr %71, align 8
   br label %73
 
@@ -621,7 +621,7 @@ define dso_local void @blk_mq_debugfs_register_hctx(ptr noundef readonly capture
 36:                                               ; preds = %.loopexit, %34
   %37 = phi i64 [ 0, %34 ], [ %62, %.loopexit ]
   %38 = load ptr, ptr %35, align 64
-  %39 = getelementptr ptr, ptr %38, i64 %37
+  %39 = getelementptr [8 x i8], ptr %38, i64 %37
   %40 = load ptr, ptr %39, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %3, i8 0, i64 20, i1 false), !annotation !15
@@ -1134,7 +1134,7 @@ define internal noundef i32 @queue_state_show(ptr noundef readonly captures(none
   br i1 %or.cond, label %17, label %20
 
 17:                                               ; preds = %14
-  %18 = getelementptr ptr, ptr @blk_queue_flag_name, i64 %6
+  %18 = getelementptr [8 x i8], ptr @blk_queue_flag_name, i64 %6
   %19 = load ptr, ptr %18, align 8
   tail call void @seq_puts(ptr noundef %1, ptr noundef nonnull %19) #9
   br label %22
@@ -1313,7 +1313,7 @@ define internal noundef i32 @hctx_state_show(ptr noundef readonly captures(none)
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %14
-  %17 = getelementptr ptr, ptr @hctx_state_name, i64 %6
+  %17 = getelementptr [8 x i8], ptr @hctx_state_name, i64 %6
   %18 = load ptr, ptr %17, align 8
   tail call void @seq_puts(ptr noundef %1, ptr noundef nonnull %18) #9
   br label %21
@@ -1343,7 +1343,7 @@ define internal noundef i32 @hctx_flags_show(ptr noundef readonly captures(none)
   %7 = and i32 %6, 1
   tail call void @seq_puts(ptr noundef %1, ptr noundef nonnull @.str.102) #9
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr ptr, ptr @alloc_policy_name, i64 %8
+  %9 = getelementptr [8 x i8], ptr @alloc_policy_name, i64 %8
   %10 = load ptr, ptr %9, align 8
   tail call void @seq_puts(ptr noundef %1, ptr noundef %10) #9
   tail call void @seq_puts(ptr noundef %1, ptr noundef nonnull @.str.103) #9
@@ -1376,7 +1376,7 @@ define internal noundef i32 @hctx_flags_show(ptr noundef readonly captures(none)
   br i1 %or.cond, label %30, label %27
 
 27:                                               ; preds = %24
-  %28 = getelementptr ptr, ptr @hctx_flag_name, i64 %16
+  %28 = getelementptr [8 x i8], ptr @hctx_flag_name, i64 %16
   %29 = load ptr, ptr %28, align 8
   tail call void @seq_puts(ptr noundef %1, ptr noundef nonnull %29) #9
   br label %32
@@ -1568,7 +1568,7 @@ define internal noundef i32 @hctx_type_show(ptr noundef readonly captures(none) 
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 252
   %4 = load i16, ptr %3, align 4
   %5 = zext i16 %4 to i64
-  %6 = getelementptr ptr, ptr @hctx_types, i64 %5
+  %6 = getelementptr [8 x i8], ptr @hctx_types, i64 %5
   %7 = load ptr, ptr %6, align 8
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %1, ptr noundef nonnull @.str.118, ptr noundef %7) #9
   ret i32 0

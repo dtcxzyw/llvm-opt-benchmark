@@ -4,12 +4,10 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %union.TValue = type { i64 }
-%struct.Node = type { %union.TValue, %union.TValue, %struct.MRef }
-%struct.MRef = type { i64 }
-%struct.CType = type { i32, i32, i16, i16, %struct.GCRef }
-%struct.GCRef = type { i64 }
 %struct.SBufExt = type { ptr, ptr, ptr, %struct.MRef, %union.anon.2, ptr, %struct.GCRef, %struct.GCRef, i32 }
+%struct.MRef = type { i64 }
 %union.anon.2 = type { %struct.GCRef }
+%struct.GCRef = type { i64 }
 
 @lj_obj_itypename = external hidden local_unnamed_addr constant [14 x ptr], align 16
 @switch.table.lj_serialize_peektype = private unnamed_addr constant [19 x i32] [i32 0, i32 1, i32 2, i32 3, i32 3, i32 3, i32 14, i32 14, i32 11, i32 11, i32 11, i32 11, i32 11, i32 11, i32 11, i32 4, i32 10, i32 10, i32 10], align 4
@@ -49,7 +47,7 @@ define hidden void @lj_serialize_dict_prep_str(ptr noundef %0, ptr noundef %1) l
 21:                                               ; preds = %17
   %22 = load i64, ptr %15, align 8, !tbaa !13
   %23 = inttoptr i64 %22 to ptr
-  %24 = getelementptr inbounds nuw %union.TValue, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv
   %25 = load i64, ptr %24, align 8, !tbaa !14
   %26 = ashr i64 %25, 47
   switch i64 %26, label %34 [
@@ -133,7 +131,7 @@ define hidden void @lj_serialize_dict_prep_mt(ptr noundef %0, ptr noundef %1) lo
 21:                                               ; preds = %17
   %22 = load i64, ptr %15, align 8, !tbaa !13
   %23 = inttoptr i64 %22 to ptr
-  %24 = getelementptr inbounds nuw %union.TValue, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv
   %25 = load i64, ptr %24, align 8, !tbaa !14
   %26 = ashr i64 %25, 47
   switch i64 %26, label %34 [
@@ -339,7 +337,7 @@ serialize_more.exit217:                           ; preds = %48, %56
 
 86:                                               ; preds = %84
   %.0183 = add nsw i64 %.0183.in, -1
-  %87 = getelementptr inbounds nuw %union.TValue, ptr %82, i64 %.0183
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %.0183
   %88 = load i64, ptr %87, align 8, !tbaa !14
   %89 = icmp eq i64 %88, -1
   br i1 %89, label %84, label %.thread, !llvm.loop !29
@@ -371,7 +369,7 @@ serialize_more.exit217:                           ; preds = %48, %56
 100:                                              ; preds = %95, %100
   %indvars.iv = phi i64 [ 0, %95 ], [ %indvars.iv.next, %100 ]
   %.1176260 = phi i32 [ 0, %95 ], [ %105, %100 ]
-  %101 = getelementptr inbounds nuw %struct.Node, ptr %98, i64 %indvars.iv
+  %101 = getelementptr inbounds nuw [24 x i8], ptr %98, i64 %indvars.iv
   %102 = load i64, ptr %101, align 8, !tbaa !14
   %103 = icmp ne i64 %102, -1
   %104 = zext i1 %103 to i32
@@ -413,7 +411,7 @@ serialize_more.exit217:                           ; preds = %48, %56
   %128 = load i32, ptr %127, align 4, !tbaa !4
   %129 = and i32 %128, %123
   %130 = zext i32 %129 to i64
-  %131 = getelementptr inbounds nuw %struct.Node, ptr %126, i64 %130
+  %131 = getelementptr inbounds nuw [24 x i8], ptr %126, i64 %130
   br label %132
 
 132:                                              ; preds = %154, %111
@@ -533,13 +531,13 @@ serialize_wu124.exit238:                          ; preds = %184, %181, %seriali
   %189 = inttoptr i64 %188 to ptr
   %190 = lshr i32 %.0181, 2
   %191 = zext i32 %.0174 to i64
-  %192 = getelementptr inbounds nuw %union.TValue, ptr %189, i64 %191
+  %192 = getelementptr inbounds nuw [8 x i8], ptr %189, i64 %191
   %193 = icmp ult i32 %190, %.0174
   br i1 %193, label %.lr.ph.preheader, label %.loopexit252
 
 .lr.ph.preheader:                                 ; preds = %186
   %194 = zext nneg i32 %190 to i64
-  %195 = getelementptr inbounds nuw %union.TValue, ptr %189, i64 %194
+  %195 = getelementptr inbounds nuw [8 x i8], ptr %189, i64 %194
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -560,7 +558,7 @@ serialize_wu124.exit238:                          ; preds = %184, %181, %seriali
   %202 = inttoptr i64 %201 to ptr
   %203 = load i32, ptr %93, align 4, !tbaa !4
   %204 = zext i32 %203 to i64
-  %205 = getelementptr inbounds nuw %struct.Node, ptr %202, i64 %204
+  %205 = getelementptr inbounds nuw [24 x i8], ptr %202, i64 %204
   %206 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %207 = load i64, ptr %206, align 8, !tbaa !38
   %.not209 = icmp eq i64 %207, 0
@@ -597,7 +595,7 @@ serialize_wu124.exit238:                          ; preds = %184, %181, %seriali
   %225 = load i32, ptr %210, align 4, !tbaa !4
   %226 = and i32 %225, %222
   %227 = zext i32 %226 to i64
-  %228 = getelementptr inbounds nuw %struct.Node, ptr %224, i64 %227
+  %228 = getelementptr inbounds nuw [24 x i8], ptr %224, i64 %227
   br label %229
 
 229:                                              ; preds = %252, %218
@@ -761,7 +759,7 @@ serialize_wu124.exit240:                          ; preds = %250, %247, %seriali
 
 316:                                              ; preds = %316, %297
   %.pn = phi i64 [ %315, %297 ], [ %320, %316 ]
-  %.0.i243 = getelementptr inbounds nuw %struct.CType, ptr %314, i64 %.pn
+  %.0.i243 = getelementptr inbounds nuw [24 x i8], ptr %314, i64 %.pn
   %317 = load i32, ptr %.0.i243, align 8, !tbaa !61
   %318 = icmp slt i32 %317, -1879048192
   %319 = and i32 %317, 65535
@@ -859,7 +857,7 @@ serialize_more.exit229:                           ; preds = %350, %358
   %374 = getelementptr inbounds nuw i8, ptr %373, i64 112
   %375 = load i64, ptr %374, align 8, !tbaa !66
   %376 = inttoptr i64 %375 to ptr
-  %377 = getelementptr inbounds nuw i32, ptr %376, i64 %364
+  %377 = getelementptr inbounds nuw [4 x i8], ptr %376, i64 %364
   %378 = load i32, ptr %377, align 4, !tbaa !67
   %379 = zext i32 %378 to i64
   %380 = shl nuw i64 %379, 32
@@ -920,7 +918,7 @@ serialize_more.exit231:                           ; preds = %lightudV.exit, %392
   %408 = ashr i64 %407, 47
   %409 = tail call i64 @llvm.umax.i64(i64 %408, i64 -14)
   %spec.select213 = xor i64 %409, -1
-  %410 = getelementptr inbounds nuw ptr, ptr @lj_obj_itypename, i64 %spec.select213
+  %410 = getelementptr inbounds nuw [8 x i8], ptr @lj_obj_itypename, i64 %spec.select213
   %411 = load ptr, ptr %410, align 8, !tbaa !68
   tail call void (ptr, i32, ...) @lj_err_callerv(ptr noundef %.pre-phi277, i32 noundef 3810, ptr noundef %411) #12
   unreachable
@@ -1085,7 +1083,7 @@ serialize_ru124.exit177.thread197:                ; preds = %serialize_ru124.exi
   %75 = load i64, ptr %74, align 8, !tbaa !13
   %76 = inttoptr i64 %75 to ptr
   %77 = zext i32 %65 to i64
-  %78 = getelementptr inbounds nuw %union.TValue, ptr %76, i64 %77
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %77
   %79 = load i64, ptr %78, align 8, !tbaa !14
   %.mask167 = and i64 %79, -140737488355328
   %80 = icmp eq i64 %.mask167, -703687441776640
@@ -1181,7 +1179,7 @@ serialize_ru124.exit179.thread206:                ; preds = %serialize_ru124.exi
   %120 = load i64, ptr %119, align 8, !tbaa !13
   %121 = inttoptr i64 %120 to ptr
   %122 = zext i32 %110 to i64
-  %123 = getelementptr inbounds nuw %union.TValue, ptr %121, i64 %122
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %121, i64 %122
   %124 = load i64, ptr %123, align 8, !tbaa !14
   %.mask = and i64 %124, -140737488355328
   %125 = icmp eq i64 %.mask, -1688849860263936
@@ -1332,12 +1330,12 @@ serialize_ru124.exit185.thread231:                ; preds = %serialize_ru124.exi
   %186 = icmp samesign ugt i32 %142, 11
   %187 = zext i1 %186 to i64
   %188 = zext i32 %174 to i64
-  %189 = getelementptr inbounds nuw %union.TValue, ptr %185, i64 %188
+  %189 = getelementptr inbounds nuw [8 x i8], ptr %185, i64 %188
   %190 = icmp samesign ult i64 %187, %188
   br i1 %190, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %182
-  %191 = getelementptr inbounds nuw %union.TValue, ptr %185, i64 %187
+  %191 = getelementptr inbounds nuw [8 x i8], ptr %185, i64 %187
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -1649,7 +1647,7 @@ serialize_ru124.exit.thread4:                     ; preds = %7, %thread-pre-spli
 
 switch.lookup:                                    ; preds = %serialize_ru124.exit.thread4
   %15 = zext nneg i32 %13 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.lj_serialize_peektype, i64 %15
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.lj_serialize_peektype, i64 %15
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %serialize_ru124.exit.thread
 

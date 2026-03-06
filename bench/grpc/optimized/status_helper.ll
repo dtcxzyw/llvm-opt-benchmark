@@ -253,7 +253,7 @@ define void @_ZN9grpc_core12StatusSetStrEPN4absl12lts_202407226StatusENS_17Statu
 
 switch.lookup:                                    ; preds = %4
   %9 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN9grpc_core12StatusGetStrB5cxx11ERKN4absl12lts_202407226StatusENS_17StatusStrPropertyE, i64 %9
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN9grpc_core12StatusGetStrB5cxx11ERKN4absl12lts_202407226StatusENS_17StatusStrPropertyE, i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
   %10 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #28
   call void @_ZN4absl12lts_202407224CordC2ESt17basic_string_viewIcSt11char_traitsIcEENS0_13cord_internal18CordzUpdateTracker16MethodIdentifierE(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 %2, ptr %3, i32 noundef 9)
@@ -344,7 +344,7 @@ define void @_ZN9grpc_core12StatusSetIntEPN4absl12lts_202407226StatusENS_17Statu
 
 switch.lookup:                                    ; preds = %3
   %9 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN9grpc_core12StatusGetIntERKN4absl12lts_202407226StatusENS_17StatusIntPropertyE, i64 %9
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN9grpc_core12StatusGetIntERKN4absl12lts_202407226StatusENS_17StatusIntPropertyE, i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
   %10 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #28
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -1030,7 +1030,7 @@ define { i64, i8 } @_ZN9grpc_core12StatusGetIntERKN4absl12lts_202407226StatusENS
 
 switch.lookup:                                    ; preds = %2
   %10 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN9grpc_core12StatusGetIntERKN4absl12lts_202407226StatusENS_17StatusIntPropertyE, i64 %10
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN9grpc_core12StatusGetIntERKN4absl12lts_202407226StatusENS_17StatusIntPropertyE, i64 %10
   %switch.load = load ptr, ptr %switch.gep, align 8
   %11 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #28
   tail call void @llvm.experimental.noalias.scope.decl(metadata !34)
@@ -1254,7 +1254,7 @@ define void @_ZN9grpc_core12StatusGetStrB5cxx11ERKN4absl12lts_202407226StatusENS
 
 switch.lookup:                                    ; preds = %3
   %8 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN9grpc_core12StatusGetStrB5cxx11ERKN4absl12lts_202407226StatusENS_17StatusStrPropertyE, i64 %8
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN9grpc_core12StatusGetStrB5cxx11ERKN4absl12lts_202407226StatusENS_17StatusStrPropertyE, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   %9 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %switch.load) #28
   tail call void @llvm.experimental.noalias.scope.decl(metadata !47)
@@ -2200,7 +2200,7 @@ _ZNSt6vectorIN4absl12lts_202407226StatusESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.ex
 _ZNSt6vectorIN4absl12lts_202407226StatusESaIS2_EE9push_backEOS2_.exit: ; preds = %_ZNSt6vectorIN4absl12lts_202407226StatusESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i, %92
   store ptr %85, ptr %0, align 8, !tbaa !116
   store ptr %91, ptr %33, align 8, !tbaa !108
-  %93 = getelementptr inbounds nuw %"class.absl::lts_20240722::Status", ptr %85, i64 %83
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %83
   store ptr %93, ptr %34, align 8, !tbaa !117
   %.pre = load i64, ptr %5, align 8, !tbaa !8
   %94 = trunc i64 %.pre to i1
@@ -2589,7 +2589,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %121 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %120, ptr %14, align 8, !tbaa !123
   store ptr %120, ptr %121, align 8, !tbaa !126
-  %122 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %120, i64 %114
+  %122 = getelementptr inbounds nuw [32 x i8], ptr %120, i64 %114
   store ptr %122, ptr %118, align 8, !tbaa !127
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE7reserveEm.exit
 
@@ -3837,7 +3837,7 @@ _ZN9grpc_core5SliceD2Ev.exit30:                   ; preds = %_ZN9grpc_core5Slice
 
 .lr.ph:                                           ; preds = %google_rpc_Status_details.exit, %_ZN4absl12lts_202407224CordD2Ev.exit
   %.02147 = phi i64 [ %92, %_ZN4absl12lts_202407224CordD2Ev.exit ], [ 0, %google_rpc_Status_details.exit ]
-  %67 = getelementptr inbounds nuw ptr, ptr %40, i64 %.02147
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.02147
   %68 = load ptr, ptr %67, align 8, !tbaa !179
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %.sroa.010.0.copyload11.i31 = load ptr, ptr %69, align 1
@@ -4330,7 +4330,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !123
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !126
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !127
   ret void
 }
@@ -6026,7 +6026,7 @@ _ZN4absl12lts_2024072213cord_internal11SkipCrcNodeEPNS1_7CordRepE.exit.i.i.i.i.i
   %143 = load i8, ptr %142, align 1, !noalias !227
   %144 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %145 = zext i8 %140 to i64
-  %146 = getelementptr inbounds nuw ptr, ptr %144, i64 %145
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %144, i64 %145
   store ptr %.0.i.i.i.i.i.i.i.i.i, ptr %146, align 8, !tbaa !240, !alias.scope !227
   %147 = getelementptr inbounds nuw i8, ptr %6, i64 44
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 %145
@@ -6041,9 +6041,9 @@ _ZN4absl12lts_2024072213cord_internal11SkipCrcNodeEPNS1_7CordRepE.exit.i.i.i.i.i
   %.01619.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %151, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i ], [ %.0.i.i.i.i.i.i.i.i.i, %138 ]
   %indvars.iv.next.i.i.i.i.i.i.i.i.i.i.i = add nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i.i, -1
   %149 = getelementptr inbounds nuw i8, ptr %.01619.i.i.i.i.i.i.i.i.i.i.i, i64 16
-  %150 = getelementptr inbounds nuw ptr, ptr %149, i64 %.021.i.i.i.i.i.i.i.i.i.i.i
+  %150 = getelementptr inbounds nuw [8 x i8], ptr %149, i64 %.021.i.i.i.i.i.i.i.i.i.i.i
   %151 = load ptr, ptr %150, align 8, !tbaa !242, !noalias !227
-  %152 = getelementptr inbounds nuw ptr, ptr %144, i64 %indvars.iv.next.i.i.i.i.i.i.i.i.i.i.i
+  %152 = getelementptr inbounds nuw [8 x i8], ptr %144, i64 %indvars.iv.next.i.i.i.i.i.i.i.i.i.i.i
   store ptr %151, ptr %152, align 8, !tbaa !240, !alias.scope !227
   %153 = getelementptr inbounds nuw i8, ptr %151, i64 14
   %154 = load i8, ptr %153, align 1, !noalias !227
@@ -6057,7 +6057,7 @@ _ZN4absl12lts_2024072213cord_internal21CordRepBtreeNavigator9InitFirstEPNS1_12Co
   %.0.lcssa.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %.018.i.i.i.i.i.i.i.i.i.i.i, %138 ], [ %.0.i.i.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i.i.i ]
   %157 = load ptr, ptr %144, align 8, !tbaa !240, !alias.scope !227
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 16
-  %159 = getelementptr inbounds nuw ptr, ptr %158, i64 %.0.lcssa.i.i.i.i.i.i.i.i.i.i.i
+  %159 = getelementptr inbounds nuw [8 x i8], ptr %158, i64 %.0.lcssa.i.i.i.i.i.i.i.i.i.i.i
   %160 = load ptr, ptr %159, align 8, !tbaa !242, !noalias !227
   %161 = load i64, ptr %.0.i.i.i.i.i.i.i.i.i, align 8, !tbaa !40, !noalias !227
   %162 = load i64, ptr %160, align 8, !tbaa !40, !noalias !227
@@ -6207,7 +6207,7 @@ _ZNK4absl12lts_202407224Cord10ChunkRange5beginEv.exit.i.i.i.i: ; preds = %196, %
 
 _ZNK4absl12lts_2024072213cord_internal18CordRepBtreeReadercvbEv.exit.i.i.i.i.i: ; preds = %219
   %222 = zext nneg i32 %220 to i64
-  %223 = getelementptr inbounds nuw ptr, ptr %204, i64 %222
+  %223 = getelementptr inbounds nuw [8 x i8], ptr %204, i64 %222
   %224 = load ptr, ptr %223, align 8, !tbaa !240
   %.not2.i.i.i.i.i = icmp eq ptr %224, null
   br i1 %.not2.i.i.i.i.i, label %_ZNK4absl12lts_2024072213cord_internal18CordRepBtreeReadercvbEv.exit.thread.i.i.i.i.i, label %225
@@ -6235,7 +6235,7 @@ _ZNK4absl12lts_2024072213cord_internal18CordRepBtreeReadercvbEv.exit.i.i.i.i.i: 
 
 236:                                              ; preds = %.preheader.i.i.i.i
   %indvars.iv.next.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i, 1
-  %237 = getelementptr inbounds nuw ptr, ptr %204, i64 %indvars.iv.next.i.i.i.i.i.i.i.i.i
+  %237 = getelementptr inbounds nuw [8 x i8], ptr %204, i64 %indvars.iv.next.i.i.i.i.i.i.i.i.i
   %238 = load ptr, ptr %237, align 8, !tbaa !240
   %239 = getelementptr inbounds nuw i8, ptr %205, i64 %indvars.iv.next.i.i.i.i.i.i.i.i.i
   %240 = load i8, ptr %239, align 1, !tbaa !12
@@ -6260,10 +6260,10 @@ _ZNK4absl12lts_2024072213cord_internal18CordRepBtreeReadercvbEv.exit.i.i.i.i.i: 
   %.017.i.i.i.i.i.i.i.i.i = phi ptr [ %254, %251 ], [ %238, %247 ]
   %.016.i.i.i.i.i.i.i.i.i = phi i64 [ %258, %251 ], [ %242, %247 ]
   %252 = getelementptr inbounds nuw i8, ptr %.017.i.i.i.i.i.i.i.i.i, i64 16
-  %253 = getelementptr inbounds nuw ptr, ptr %252, i64 %.016.i.i.i.i.i.i.i.i.i
+  %253 = getelementptr inbounds nuw [8 x i8], ptr %252, i64 %.016.i.i.i.i.i.i.i.i.i
   %254 = load ptr, ptr %253, align 8, !tbaa !242
   %indvars.iv.next41.i.i.i.i.i.i.i.i.i = add nsw i64 %indvars.iv40.i.i.i.i.i.i.i.i.i, -1
-  %255 = getelementptr inbounds ptr, ptr %204, i64 %indvars.iv.next41.i.i.i.i.i.i.i.i.i
+  %255 = getelementptr inbounds [8 x i8], ptr %204, i64 %indvars.iv.next41.i.i.i.i.i.i.i.i.i
   store ptr %254, ptr %255, align 8, !tbaa !240
   %256 = getelementptr inbounds nuw i8, ptr %254, i64 14
   %257 = load i8, ptr %256, align 1, !tbaa !12
@@ -6288,7 +6288,7 @@ _ZN4absl12lts_2024072213cord_internal21CordRepBtreeNavigator6NextUpEv.exit.sink.
   %.lcssa12.sink.i.i.i.i.i.i.i.i = phi ptr [ %228, %261 ], [ %254, %_ZN4absl12lts_2024072213cord_internal21CordRepBtreeNavigator6NextUpEv.exit.sink.split.i.loopexit.i.i.i.i.i.i.i ]
   %.lcssa.sink.i.i.i.i.i.i.i.i = phi i64 [ %263, %261 ], [ %258, %_ZN4absl12lts_2024072213cord_internal21CordRepBtreeNavigator6NextUpEv.exit.sink.split.i.loopexit.i.i.i.i.i.i.i ]
   %264 = getelementptr inbounds nuw i8, ptr %.lcssa12.sink.i.i.i.i.i.i.i.i, i64 16
-  %265 = getelementptr inbounds nuw ptr, ptr %264, i64 %.lcssa.sink.i.i.i.i.i.i.i.i
+  %265 = getelementptr inbounds nuw [8 x i8], ptr %264, i64 %.lcssa.sink.i.i.i.i.i.i.i.i
   %266 = load ptr, ptr %265, align 8, !tbaa !242
   br label %_ZN4absl12lts_2024072213cord_internal21CordRepBtreeNavigator4NextEv.exit.i.i.i.i.i.i.i
 

@@ -374,7 +374,7 @@ define dso_local noundef range(i32 -22, 1) i32 @setup_APIC_eilvt(i8 noundef zero
 
 18:                                               ; preds = %4
   %19 = zext nneg i8 %0 to i64
-  %20 = getelementptr %struct.atomic_t, ptr @eilvt_offsets, i64 %19
+  %20 = getelementptr [4 x i8], ptr @eilvt_offsets, i64 %19
   %21 = load volatile i32, ptr %20, align 4
   %22 = icmp ne i32 %15, 65536
   %23 = and i32 %15, 16711679
@@ -621,12 +621,12 @@ define internal fastcc void @setup_APIC_timer() unnamed_addr #1 align 16 {
   %10 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #19, !srcloc !24
   %11 = and i32 %10, 63
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr [1 x i64], ptr @cpu_bit_bitmap, i64 %12
+  %13 = getelementptr [8 x i8], ptr @cpu_bit_bitmap, i64 %12
   %14 = getelementptr i8, ptr %13, i64 8
   %15 = lshr i32 %10, 6
   %16 = zext nneg i32 %15 to i64
   %17 = sub nsw i64 0, %16
-  %18 = getelementptr i64, ptr %14, i64 %17
+  %18 = getelementptr [8 x i8], ptr %14, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 176
   store ptr %18, ptr %19, align 16
   %20 = tail call i64 asm "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds nuw (i8, ptr @cpu_info, i64 56)) #19, !srcloc !19
@@ -970,12 +970,12 @@ define dso_local void @setup_secondary_APIC_clock() local_unnamed_addr #1 align 
   %10 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #19, !srcloc !24
   %11 = and i32 %10, 63
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr [1 x i64], ptr @cpu_bit_bitmap, i64 %12
+  %13 = getelementptr [8 x i8], ptr @cpu_bit_bitmap, i64 %12
   %14 = getelementptr i8, ptr %13, i64 8
   %15 = lshr i32 %10, 6
   %16 = zext nneg i32 %15 to i64
   %17 = sub nsw i64 0, %16
-  %18 = getelementptr i64, ptr %14, i64 %17
+  %18 = getelementptr [8 x i8], ptr %14, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 176
   store ptr %18, ptr %19, align 16
   %20 = tail call i64 asm "movq %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) getelementptr inbounds nuw (i8, ptr @cpu_info, i64 56)) #19, !srcloc !19
@@ -1596,7 +1596,7 @@ define internal fastcc void @setup_local_APIC() unnamed_addr #1 align 16 {
   %32 = shl i32 %31, 4
   %33 = add i32 %32, 512
   %34 = call i32 @__SCT__apic_call_read(i32 noundef %33) #17
-  %35 = getelementptr i32, ptr %1, i64 %30
+  %35 = getelementptr [4 x i8], ptr %1, i64 %30
   store i32 %34, ptr %35, align 4
   %36 = add nuw nsw i64 %30, 1
   %37 = icmp eq i64 %36, 8
@@ -1608,7 +1608,7 @@ define internal fastcc void @setup_local_APIC() unnamed_addr #1 align 16 {
   %40 = shl i32 %39, 4
   %41 = add i32 %40, 256
   %42 = call i32 @__SCT__apic_call_read(i32 noundef %41) #17
-  %43 = getelementptr i32, ptr %2, i64 %38
+  %43 = getelementptr [4 x i8], ptr %2, i64 %38
   store i32 %42, ptr %43, align 4
   %44 = add nuw nsw i64 %38, 1
   %45 = icmp eq i64 %44, 8
@@ -2150,7 +2150,7 @@ define internal void @__sysvec_error_interrupt(ptr readnone captures(none) %0) #
   br i1 %42, label %43, label %47
 
 43:                                               ; preds = %.preheader
-  %44 = getelementptr ptr, ptr @__sysvec_error_interrupt.error_interrupt_reason, i64 %38
+  %44 = getelementptr [8 x i8], ptr @__sysvec_error_interrupt.error_interrupt_reason, i64 %38
   %45 = load ptr, ptr %44, align 8
   %46 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.71, ptr noundef %45) #18
   %.pre = load i32, ptr @apic_verbosity, align 4
@@ -2244,7 +2244,7 @@ define dso_local void @disconnect_bsp_APIC(i32 noundef %0) local_unnamed_addr #1
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none)
 define dso_local zeroext i1 @arch_match_cpu_phys_id(i32 noundef %0, i64 noundef %1) local_unnamed_addr #9 align 16 {
   %3 = sext i32 %0 to i64
-  %4 = getelementptr i32, ptr @cpuid_to_apicid, i64 %3
+  %4 = getelementptr [4 x i8], ptr @cpuid_to_apicid, i64 %3
   %5 = load i32, ptr %4, align 4
   %6 = zext i32 %5 to i64
   %7 = icmp eq i64 %1, %6
@@ -2270,7 +2270,7 @@ define internal noundef i32 @smp_init_primary_thread_mask() #0 section ".init.te
   br i1 %7, label %15, label %8
 
 8:                                                ; preds = %.preheader
-  %9 = getelementptr i32, ptr @cpuid_to_apicid, i64 %5
+  %9 = getelementptr [4 x i8], ptr @cpuid_to_apicid, i64 %5
   %10 = load i32, ptr %9, align 4
   %11 = shl nsw i32 -1, %6
   %12 = xor i32 %11, -1
@@ -2351,7 +2351,7 @@ define dso_local range(i32 -22, -2147483648) i32 @generic_processor_info(i32 nou
 
 32:                                               ; preds = %37, %30
   %33 = phi i64 [ 0, %30 ], [ %38, %37 ]
-  %34 = getelementptr i32, ptr @cpuid_to_apicid, i64 %33
+  %34 = getelementptr [4 x i8], ptr @cpuid_to_apicid, i64 %33
   %35 = load i32, ptr %34, align 4
   %36 = icmp eq i32 %35, %0
   br i1 %36, label %50, label %37
@@ -2383,7 +2383,7 @@ define dso_local range(i32 -22, -2147483648) i32 @generic_processor_info(i32 nou
 
 46:                                               ; preds = %.loopexit
   %47 = sext i32 %28 to i64
-  %48 = getelementptr i32, ptr @cpuid_to_apicid, i64 %47
+  %48 = getelementptr [4 x i8], ptr @cpuid_to_apicid, i64 %47
   store i32 %0, ptr %48, align 4
   %49 = add nuw i32 %28, 1
   store i32 %49, ptr @nr_logical_cpuids, align 4
@@ -2411,11 +2411,11 @@ define dso_local range(i32 -22, -2147483648) i32 @generic_processor_info(i32 nou
   br i1 %59, label %63, label %61
 
 61:                                               ; preds = %57
-  %62 = getelementptr i32, ptr %58, i64 %60
+  %62 = getelementptr [4 x i8], ptr %58, i64 %60
   br label %68
 
 63:                                               ; preds = %57
-  %64 = getelementptr i64, ptr @__per_cpu_offset, i64 %60
+  %64 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %60
   %65 = load i64, ptr %64, align 8
   %66 = add i64 %65, ptrtoint (ptr @x86_cpu_to_apicid to i64)
   %67 = inttoptr i64 %66 to ptr

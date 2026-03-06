@@ -360,7 +360,7 @@ define internal void @RescalerExportRowExpand_SSE2(ptr noundef readonly captures
 .lr.ph122:                                        ; preds = %.lr.ph122.preheader, %.lr.ph122
   %indvars.iv138 = phi i64 [ 0, %.lr.ph122.preheader ], [ %indvars.iv.next139, %.lr.ph122 ]
   %indvars.iv136 = phi i64 [ 8, %.lr.ph122.preheader ], [ %indvars.iv.next137, %.lr.ph122 ]
-  %25 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv138
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv138
   %.val = load <2 x i64>, ptr %25, align 1, !tbaa !16
   %26 = getelementptr i8, ptr %25, i64 16
   %.val73 = load <2 x i64>, ptr %26, align 1, !tbaa !16
@@ -397,7 +397,7 @@ define internal void @RescalerExportRowExpand_SSE2(ptr noundef readonly captures
 
 .lr.ph125:                                        ; preds = %.lr.ph125.preheader, %.lr.ph125
   %indvars.iv143 = phi i64 [ %24, %.lr.ph125.preheader ], [ %indvars.iv.next144, %.lr.ph125 ]
-  %52 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv143
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv143
   %53 = load i32, ptr %52, align 4, !tbaa !27
   %54 = zext i32 %53 to i64
   %55 = load i32, ptr %13, align 8, !tbaa !24
@@ -457,7 +457,7 @@ define internal void @RescalerExportRowExpand_SSE2(ptr noundef readonly captures
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv128 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next129, %.lr.ph ]
   %indvars.iv = phi i64 [ 8, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %87 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv128
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv128
   %.val74 = load <2 x i64>, ptr %87, align 1, !tbaa !16
   %88 = getelementptr i8, ptr %87, i64 16
   %.val75 = load <2 x i64>, ptr %88, align 1, !tbaa !16
@@ -469,7 +469,7 @@ define internal void @RescalerExportRowExpand_SSE2(ptr noundef readonly captures
   %94 = mul nuw <2 x i64> %93, %78
   %95 = mul nuw <2 x i64> %89, %78
   %96 = mul nuw <2 x i64> %90, %78
-  %97 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv128
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv128
   %.val76 = load <2 x i64>, ptr %97, align 1, !tbaa !16
   %98 = getelementptr i8, ptr %97, i64 16
   %.val77 = load <2 x i64>, ptr %98, align 1, !tbaa !16
@@ -522,11 +522,11 @@ define internal void @RescalerExportRowExpand_SSE2(ptr noundef readonly captures
 
 140:                                              ; preds = %.lr.ph119, %140
   %indvars.iv133 = phi i64 [ %86, %.lr.ph119 ], [ %indvars.iv.next134, %140 ]
-  %141 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv133
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv133
   %142 = load i32, ptr %141, align 4, !tbaa !27
   %143 = zext i32 %142 to i64
   %144 = mul nuw i64 %143, %85
-  %145 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv133
+  %145 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv133
   %146 = load i32, ptr %145, align 4, !tbaa !27
   %147 = zext i32 %146 to i64
   %148 = mul nuw i64 %74, %147
@@ -608,13 +608,13 @@ define internal void @RescalerExportRowShrink_SSE2(ptr noundef readonly captures
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv137 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next138, %.lr.ph ]
   %indvars.iv = phi i64 [ 8, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %33 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv137
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv137
   %.val = load <2 x i64>, ptr %33, align 1, !tbaa !16
   %34 = getelementptr i8, ptr %33, i64 16
   %.val87 = load <2 x i64>, ptr %34, align 1, !tbaa !16
   %35 = lshr <2 x i64> %.val, splat (i64 32)
   %36 = lshr <2 x i64> %.val87, splat (i64 32)
-  %37 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv137
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv137
   %.val88 = load <2 x i64>, ptr %37, align 1, !tbaa !16
   %38 = getelementptr i8, ptr %37, i64 16
   %.val89 = load <2 x i64>, ptr %38, align 1, !tbaa !16
@@ -673,13 +673,13 @@ define internal void @RescalerExportRowShrink_SSE2(ptr noundef readonly captures
 
 84:                                               ; preds = %.lr.ph128, %84
   %indvars.iv142 = phi i64 [ %32, %.lr.ph128 ], [ %indvars.iv.next143, %84 ]
-  %85 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv142
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv142
   %86 = load i32, ptr %85, align 4, !tbaa !27
   %87 = zext i32 %86 to i64
   %88 = mul nuw i64 %87, %31
   %89 = lshr i64 %88, 32
   %90 = trunc nuw i64 %89 to i32
-  %91 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv142
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv142
   %92 = load i32, ptr %91, align 4, !tbaa !27
   %93 = sub i32 %92, %90
   %94 = zext i32 %93 to i64
@@ -725,7 +725,7 @@ define internal void @RescalerExportRowShrink_SSE2(ptr noundef readonly captures
 .lr.ph131:                                        ; preds = %.lr.ph131.preheader, %.lr.ph131
   %indvars.iv147 = phi i64 [ 0, %.lr.ph131.preheader ], [ %indvars.iv.next148, %.lr.ph131 ]
   %indvars.iv145 = phi i64 [ 8, %.lr.ph131.preheader ], [ %indvars.iv.next146, %.lr.ph131 ]
-  %111 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv147
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv147
   %.val90 = load <2 x i64>, ptr %111, align 1, !tbaa !16
   %112 = getelementptr i8, ptr %111, i64 16
   %.val91 = load <2 x i64>, ptr %112, align 1, !tbaa !16
@@ -763,7 +763,7 @@ define internal void @RescalerExportRowShrink_SSE2(ptr noundef readonly captures
 
 138:                                              ; preds = %.lr.ph134, %138
   %indvars.iv152 = phi i64 [ %110, %.lr.ph134 ], [ %indvars.iv.next153, %138 ]
-  %139 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv152
+  %139 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv152
   %140 = load i32, ptr %139, align 4, !tbaa !27
   %141 = zext i32 %140 to i64
   %142 = mul nuw i64 %141, %109

@@ -15,7 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"class.net::StrikeRegister::InternalNode" = type { [2 x i32] }
 %"class.std::set" = type { %"class.std::_Rb_tree" }
 %"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<unsigned int, unsigned int, std::_Identity<unsigned int>, std::less<unsigned int>>::_Rb_tree_impl" }
 %"struct.std::_Rb_tree<unsigned int, unsigned int, std::_Identity<unsigned int>, std::less<unsigned int>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
@@ -189,7 +188,7 @@ _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit: ; preds = %27
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit
   %.lcssa11.i = phi i64 [ 0, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit ], [ %38, %.lr.ph.i ]
-  %31 = getelementptr inbounds nuw %"class.net::StrikeRegister::InternalNode", ptr %.pre.i, i64 %.lcssa11.i
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i, i64 %.lcssa11.i
   store i32 -2147483647, ptr %31, align 4, !tbaa !3
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %32, align 4, !tbaa !25
@@ -200,7 +199,7 @@ _ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit: ; preds = %27
 
 .lr.ph.i:                                         ; preds = %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %_ZNSt10unique_ptrIA_hSt14default_deleteIS0_EE5resetIPhvEEvT_.exit ]
-  %34 = getelementptr inbounds nuw %"class.net::StrikeRegister::InternalNode", ptr %.pre.i, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i, i64 %indvars.iv.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %35 = trunc nuw i64 %indvars.iv.next.i to i32
   store i32 %35, ptr %34, align 4, !tbaa !3
@@ -283,7 +282,7 @@ define void @_ZN3net14StrikeRegister5ResetEv(ptr noundef nonnull align 8 capture
 
 ._crit_edge:                                      ; preds = %1, %._crit_edge.loopexit
   %.lcssa11 = phi i64 [ %4, %._crit_edge.loopexit ], [ 0, %1 ]
-  %5 = getelementptr inbounds nuw %"class.net::StrikeRegister::InternalNode", ptr %.pre, i64 %.lcssa11
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %.lcssa11
   store i32 -2147483647, ptr %5, align 4, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 0, ptr %6, align 4, !tbaa !25
@@ -295,7 +294,7 @@ define void @_ZN3net14StrikeRegister5ResetEv(ptr noundef nonnull align 8 capture
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
-  %8 = getelementptr inbounds nuw %"class.net::StrikeRegister::InternalNode", ptr %.pre, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %indvars.iv
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = trunc nuw i64 %indvars.iv.next to i32
   store i32 %9, ptr %8, align 4, !tbaa !3
@@ -407,7 +406,7 @@ define noundef range(i32 0, 6) i32 @_ZN3net14StrikeRegister6InsertEPKhj(ptr noun
   %.023.i = phi i32 [ %.0.i, %.lr.ph.i ], [ %.021.i, %.critedge ]
   %.01722.i = phi ptr [ %23, %.lr.ph.i ], [ %12, %.critedge ]
   %22 = zext nneg i32 %.023.i to i64
-  %23 = getelementptr inbounds nuw %"class.net::StrikeRegister::InternalNode", ptr %14, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %22
   %.0.in.i = load i32, ptr %23, align 4, !tbaa !3
   %.0.i = lshr i32 %.0.in.i, 8
   %24 = icmp sgt i32 %.0.in.i, -1
@@ -455,7 +454,7 @@ define noundef range(i32 0, 6) i32 @_ZN3net14StrikeRegister6InsertEPKhj(ptr noun
   %52 = load i32, ptr %.018.lcssa.i, align 4, !tbaa !3
   %53 = lshr i32 %52, 8
   %54 = zext nneg i32 %53 to i64
-  %55 = getelementptr inbounds nuw %"class.net::StrikeRegister::InternalNode", ptr %14, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %54
   store i32 %20, ptr %55, align 4, !tbaa !3
   store i32 %53, ptr %7, align 8, !tbaa !24
   %56 = load i32, ptr %.018.lcssa.i, align 4, !tbaa !3
@@ -561,7 +560,7 @@ _ZNK3net14StrikeRegister13GetValidRangeEj.exit:   ; preds = %68, %90
 112:                                              ; preds = %112, %.lr.ph.i91
   %.01013.i = phi i32 [ %.01012.i, %.lr.ph.i91 ], [ %.010.i, %112 ]
   %113 = zext nneg i32 %.01013.i to i64
-  %114 = getelementptr inbounds nuw %"class.net::StrikeRegister::InternalNode", ptr %111, i64 %113
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %113
   %115 = load i32, ptr %114, align 4, !tbaa !3
   %116 = and i32 %115, 255
   %117 = zext nneg i32 %116 to i64
@@ -574,7 +573,7 @@ _ZNK3net14StrikeRegister13GetValidRangeEj.exit:   ; preds = %68, %90
   %124 = zext i8 %123 to i64
   %125 = add nuw nsw i64 %124, 1
   %126 = lshr i64 %125, 8
-  %127 = getelementptr inbounds nuw i32, ptr %114, i64 %126
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %126
   %128 = load i32, ptr %127, align 4, !tbaa !3
   %.010.i = lshr i32 %128, 8
   %129 = icmp sgt i32 %128, -1
@@ -610,7 +609,7 @@ _ZNK3net14StrikeRegister9BestMatchEPKh.exit.thread: ; preds = %102
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %147 = load ptr, ptr %146, align 8, !tbaa !22
   %148 = zext i32 %.lcssa115 to i64
-  %149 = getelementptr inbounds nuw %"class.net::StrikeRegister::InternalNode", ptr %147, i64 %148
+  %149 = getelementptr inbounds nuw [8 x i8], ptr %147, i64 %148
   %150 = load i32, ptr %149, align 4, !tbaa !3
   store i32 %150, ptr %7, align 8, !tbaa !24
   %151 = mul i32 %.lcssa117, 24
@@ -627,7 +626,7 @@ _ZNK3net14StrikeRegister9BestMatchEPKh.exit.thread: ; preds = %102
 .lr.ph.i98:                                       ; preds = %.preheader.i93, %.lr.ph.i98
   %.01013.i99 = phi i32 [ %.010.i100, %.lr.ph.i98 ], [ %.01012.i, %.preheader.i93 ]
   %156 = zext nneg i32 %.01013.i99 to i64
-  %157 = getelementptr inbounds nuw %"class.net::StrikeRegister::InternalNode", ptr %147, i64 %156
+  %157 = getelementptr inbounds nuw [8 x i8], ptr %147, i64 %156
   %158 = load i32, ptr %157, align 4, !tbaa !3
   %159 = and i32 %158, 255
   %160 = zext nneg i32 %159 to i64
@@ -640,7 +639,7 @@ _ZNK3net14StrikeRegister9BestMatchEPKh.exit.thread: ; preds = %102
   %167 = zext i8 %166 to i64
   %168 = add nuw nsw i64 %167, 1
   %169 = lshr i64 %168, 8
-  %170 = getelementptr inbounds nuw i32, ptr %157, i64 %169
+  %170 = getelementptr inbounds nuw [4 x i8], ptr %157, i64 %169
   %171 = load i32, ptr %170, align 4, !tbaa !3
   %.010.i100 = lshr i32 %171, 8
   %172 = icmp sgt i32 %171, -1
@@ -699,9 +698,9 @@ _ZNK3net14StrikeRegister9BestMatchEPKh.exit101:   ; preds = %.lr.ph.i98, %.prehe
   %197 = icmp eq i8 %196, -1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %153, ptr noundef nonnull align 16 dereferenceable(24) %4, i64 24, i1 false)
   %198 = load ptr, ptr %146, align 8, !tbaa !22
-  %199 = getelementptr inbounds nuw %"class.net::StrikeRegister::InternalNode", ptr %198, i64 %148
+  %199 = getelementptr inbounds nuw [8 x i8], ptr %198, i64 %148
   %200 = zext i1 %197 to i64
-  %201 = getelementptr inbounds nuw i32, ptr %199, i64 %200
+  %201 = getelementptr inbounds nuw [4 x i8], ptr %199, i64 %200
   %202 = load i32, ptr %201, align 4, !tbaa !3
   %203 = and i32 %202, 255
   %204 = shl i32 %.lcssa117, 8
@@ -727,7 +726,7 @@ _ZNK3net14StrikeRegister9BestMatchEPKh.exit101:   ; preds = %.lr.ph.i98, %.prehe
   %218 = lshr i32 %216, 8
   %219 = load ptr, ptr %146, align 8, !tbaa !22
   %220 = zext nneg i32 %218 to i64
-  %221 = getelementptr inbounds nuw %"class.net::StrikeRegister::InternalNode", ptr %219, i64 %220
+  %221 = getelementptr inbounds nuw [8 x i8], ptr %219, i64 %220
   %222 = load i32, ptr %221, align 4, !tbaa !3
   %223 = trunc i32 %222 to i8
   %224 = icmp ult i8 %.074.lcssa, %223
@@ -737,7 +736,7 @@ _ZNK3net14StrikeRegister9BestMatchEPKh.exit101:   ; preds = %.lr.ph.i98, %.prehe
   %225 = lshr i32 %259, 8
   %226 = load ptr, ptr %146, align 8, !tbaa !22
   %227 = zext nneg i32 %225 to i64
-  %228 = getelementptr inbounds nuw %"class.net::StrikeRegister::InternalNode", ptr %226, i64 %227
+  %228 = getelementptr inbounds nuw [8 x i8], ptr %226, i64 %227
   %229 = load i32, ptr %228, align 4, !tbaa !3
   %230 = trunc i32 %229 to i8
   %231 = icmp ult i8 %.074.lcssa, %230
@@ -784,7 +783,7 @@ _ZNK3net14StrikeRegister9BestMatchEPKh.exit101:   ; preds = %.lr.ph.i98, %.prehe
   %255 = zext i8 %254 to i64
   %256 = add nuw nsw i64 %255, 1
   %257 = lshr i64 %256, 8
-  %258 = getelementptr inbounds nuw i32, ptr %234, i64 %257
+  %258 = getelementptr inbounds nuw [4 x i8], ptr %234, i64 %257
   %259 = load i32, ptr %258, align 4, !tbaa !3
   %260 = icmp sgt i32 %259, -1
   br i1 %260, label %.lr.ph, label %.thread111
@@ -795,7 +794,7 @@ _ZNK3net14StrikeRegister9BestMatchEPKh.exit101:   ; preds = %.lr.ph.i98, %.prehe
   %262 = xor i1 %197, true
   %263 = and i32 %261, -256
   %264 = zext i1 %262 to i64
-  %265 = getelementptr inbounds nuw i32, ptr %199, i64 %264
+  %265 = getelementptr inbounds nuw [4 x i8], ptr %199, i64 %264
   %266 = load i32, ptr %265, align 4, !tbaa !3
   %267 = and i32 %266, 255
   %268 = or disjoint i32 %267, %263
@@ -834,7 +833,7 @@ define void @_ZN3net14StrikeRegister14DropOldestNodeEv(ptr noundef nonnull align
   %.023 = phi i32 [ %.021, %.lr.ph ], [ %.0, %6 ]
   %.01722 = phi ptr [ %2, %.lr.ph ], [ %8, %6 ]
   %7 = zext nneg i32 %.023 to i64
-  %8 = getelementptr inbounds nuw %"class.net::StrikeRegister::InternalNode", ptr %5, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %7
   %.0.in = load i32, ptr %8, align 4, !tbaa !3
   %.0 = lshr i32 %.0.in, 8
   %9 = icmp sgt i32 %.0.in, -1
@@ -888,7 +887,7 @@ define void @_ZN3net14StrikeRegister14DropOldestNodeEv(ptr noundef nonnull align
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %44 = load ptr, ptr %43, align 8, !tbaa !22
   %45 = zext nneg i32 %42 to i64
-  %46 = getelementptr inbounds nuw %"class.net::StrikeRegister::InternalNode", ptr %44, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %45
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %48 = load i32, ptr %47, align 8, !tbaa !24
   store i32 %48, ptr %46, align 4, !tbaa !3
@@ -978,7 +977,7 @@ define noundef range(i32 0, -2147483646) i32 @_ZNK3net14StrikeRegister9BestMatch
 9:                                                ; preds = %.lr.ph, %9
   %.01013 = phi i32 [ %.01012, %.lr.ph ], [ %.010, %9 ]
   %10 = zext nneg i32 %.01013 to i64
-  %11 = getelementptr inbounds nuw %"class.net::StrikeRegister::InternalNode", ptr %8, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !3
   %13 = and i32 %12, 255
   %14 = zext nneg i32 %13 to i64
@@ -991,7 +990,7 @@ define noundef range(i32 0, -2147483646) i32 @_ZNK3net14StrikeRegister9BestMatch
   %21 = zext i8 %20 to i64
   %22 = add nuw nsw i64 %21, 1
   %23 = lshr i64 %22, 8
-  %24 = getelementptr inbounds nuw i32, ptr %11, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !3
   %.010 = lshr i32 %25, 8
   %26 = icmp sgt i32 %25, -1
@@ -1038,7 +1037,7 @@ define noundef i32 @_ZN3net14StrikeRegister19GetFreeInternalNodeEv(ptr noundef n
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8, !tbaa !22
   %6 = zext i32 %3 to i64
-  %7 = getelementptr inbounds nuw %"class.net::StrikeRegister::InternalNode", ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !3
   store i32 %8, ptr %2, align 8, !tbaa !24
   ret i32 %3
@@ -1336,7 +1335,7 @@ _ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE10_M_insert_IRKjNS5_11_Alloc_nod
   %82 = phi i32 [ %.pre, %.noexc40 ], [ %.pre.i.pre.pre.i.i, %68 ]
   %83 = load ptr, ptr %23, align 8, !tbaa !22
   %84 = zext i32 %82 to i64
-  %85 = getelementptr inbounds nuw %"class.net::StrikeRegister::InternalNode", ptr %83, i64 %84
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %84
   %storemerge = load i32, ptr %85, align 4, !tbaa !3
   store i32 %storemerge, ptr %3, align 4, !tbaa !3
   %.not = icmp eq i32 %storemerge, -2147483647
@@ -1718,7 +1717,7 @@ _ZN7logging11CheckLTImplIjjEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   %37 = load ptr, ptr %36, align 8, !tbaa !22
   %38 = load i32, ptr %9, align 4, !tbaa !3
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw %"class.net::StrikeRegister::InternalNode", ptr %37, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %39
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4, !tbaa !3
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
@@ -1881,7 +1880,7 @@ _ZN7logging11CheckEQImplImjEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 93:                                               ; preds = %79, %_ZNSt6vectorISt4pairIjbESaIS1_EED2Ev.exit
   %94 = phi i1 [ true, %79 ], [ false, %_ZNSt6vectorISt4pairIjbESaIS1_EED2Ev.exit ]
   %indvars.iv = phi i64 [ 0, %79 ], [ 1, %_ZNSt6vectorISt4pairIjbESaIS1_EED2Ev.exit ]
-  %95 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv
   %96 = load i32, ptr %95, align 4, !tbaa !3
   %97 = lshr i32 %96, 8
   %.not = icmp sgt i32 %96, -1
@@ -2505,7 +2504,7 @@ define void @_ZN3net14StrikeRegister16FreeInternalNodeEj(ptr noundef nonnull ali
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8, !tbaa !22
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw %"class.net::StrikeRegister::InternalNode", ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load i32, ptr %7, align 8, !tbaa !24
   store i32 %8, ptr %6, align 4, !tbaa !3

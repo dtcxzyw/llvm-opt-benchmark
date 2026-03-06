@@ -5,20 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"class.std::locale::id" = type { i64 }
-%"class.std::unique_ptr.83" = type { %"struct.std::__uniq_ptr_data.84" }
-%"struct.std::__uniq_ptr_data.84" = type { %"class.std::__uniq_ptr_impl.85" }
-%"class.std::__uniq_ptr_impl.85" = type { %"class.std::tuple.86" }
-%"class.std::tuple.86" = type { %"struct.std::_Tuple_impl.87" }
-%"struct.std::_Tuple_impl.87" = type { %"struct.std::_Head_base.90" }
-%"struct.std::_Head_base.90" = type { ptr }
-%"class.std::vector.91" = type { %"struct.std::_Vector_base.92" }
-%"struct.std::_Vector_base.92" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.101" = type { %"struct.std::_Vector_base.102" }
-%"struct.std::_Vector_base.102" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" }
-%"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 $_ZNK8LightGBM4Tree7GetLeafEPKd = comdat any
 
@@ -78,7 +64,7 @@ define void @_ZNK8LightGBM4GBDT10PredictRawEPKdPdPKNS_27PredictionEarlyStopInsta
   %24 = load ptr, ptr %17, align 8, !tbaa !121
   %25 = sext i32 %23 to i64
   %wide.trip.count = zext nneg i32 %21 to i64
-  %invariant.gep = getelementptr %"class.std::unique_ptr.83", ptr %24, i64 %25
+  %invariant.gep = getelementptr [8 x i8], ptr %24, i64 %25
   br label %29
 
 ._crit_edge:                                      ; preds = %_ZNK8LightGBM4Tree7PredictEPKd.exit, %.preheader
@@ -89,7 +75,7 @@ define void @_ZNK8LightGBM4GBDT10PredictRawEPKdPdPKNS_27PredictionEarlyStopInsta
 
 29:                                               ; preds = %.lr.ph, %_ZNK8LightGBM4Tree7PredictEPKd.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK8LightGBM4Tree7PredictEPKd.exit ]
-  %gep = getelementptr %"class.std::unique_ptr.83", ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %indvars.iv
   %30 = load ptr, ptr %gep, align 8, !tbaa !126
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 548
   %32 = load i8, ptr %31, align 4, !tbaa !128, !range !148, !noundef !149
@@ -124,10 +110,10 @@ define void @_ZNK8LightGBM4GBDT10PredictRawEPKdPdPKNS_27PredictionEarlyStopInsta
 52:                                               ; preds = %_ZNK8LightGBM4Tree8DecisionEdi.exit.i40, %.preheader.i35
   %.014.i36 = phi i32 [ 0, %.preheader.i35 ], [ %.0.i.i42, %_ZNK8LightGBM4Tree8DecisionEdi.exit.i40 ]
   %53 = zext nneg i32 %.014.i36 to i64
-  %54 = getelementptr inbounds nuw i32, ptr %43, i64 %53
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %53
   %55 = load i32, ptr %54, align 4, !tbaa !154
   %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds double, ptr %1, i64 %56
+  %57 = getelementptr inbounds [8 x i8], ptr %1, i64 %56
   %58 = load double, ptr %57, align 8, !tbaa !155
   %59 = getelementptr inbounds nuw i8, ptr %45, i64 %53
   %60 = load i8, ptr %59, align 1, !tbaa !156
@@ -145,11 +131,11 @@ define void @_ZNK8LightGBM4GBDT10PredictRawEPKdPdPKNS_27PredictionEarlyStopInsta
   br i1 %66, label %_ZNK8LightGBM4Tree8DecisionEdi.exit.i40, label %67
 
 67:                                               ; preds = %64
-  %68 = getelementptr inbounds nuw double, ptr %47, i64 %53
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %53
   %69 = load double, ptr %68, align 8, !tbaa !155
   %70 = fptosi double %69 to i32
   %71 = sext i32 %70 to i64
-  %72 = getelementptr i32, ptr %49, i64 %71
+  %72 = getelementptr [4 x i8], ptr %49, i64 %71
   %73 = load i32, ptr %72, align 4, !tbaa !154
   %74 = getelementptr i8, ptr %72, i64 4
   %75 = load i32, ptr %74, align 4, !tbaa !154
@@ -160,10 +146,10 @@ define void @_ZNK8LightGBM4GBDT10PredictRawEPKdPdPKNS_27PredictionEarlyStopInsta
 
 _ZN8LightGBM6CommonL12FindInBitsetIiEEbPKjiT_.exit.i.i.i43: ; preds = %67
   %78 = sext i32 %73 to i64
-  %79 = getelementptr inbounds i32, ptr %51, i64 %78
+  %79 = getelementptr inbounds [4 x i8], ptr %51, i64 %78
   %80 = and i32 %65, 31
   %81 = zext nneg i32 %77 to i64
-  %82 = getelementptr inbounds nuw i32, ptr %79, i64 %81
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %81
   %83 = load i32, ptr %82, align 4, !tbaa !154
   %84 = lshr i32 %83, %80
   %85 = trunc i32 %84 to i1
@@ -199,7 +185,7 @@ _ZN8LightGBM6CommonL12FindInBitsetIiEEbPKjiT_.exit.thread.i.i.i39: ; preds = %_Z
   br label %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i.i46
 
 98:                                               ; preds = %94, %91, %86
-  %99 = getelementptr inbounds nuw double, ptr %47, i64 %53
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %53
   %100 = load double, ptr %99, align 8, !tbaa !155
   %101 = fcmp ugt double %.017.i.i.i45, %100
   br label %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i.i46
@@ -213,7 +199,7 @@ _ZNK8LightGBM4Tree8DecisionEdi.exit.i40:          ; preds = %_ZNK8LightGBM4Tree1
   %.sink.i.i41 = phi i64 [ 40, %_ZN8LightGBM6CommonL12FindInBitsetIiEEbPKjiT_.exit.thread.i.i.i39 ], [ 40, %64 ], [ 40, %62 ], [ %.19.i.i.i48, %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i.i46 ], [ 16, %_ZN8LightGBM6CommonL12FindInBitsetIiEEbPKjiT_.exit.i.i.i43 ]
   %102 = getelementptr inbounds nuw i8, ptr %30, i64 %.sink.i.i41
   %103 = load ptr, ptr %102, align 8, !tbaa !152
-  %104 = getelementptr inbounds nuw i32, ptr %103, i64 %53
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %103, i64 %53
   %.0.i.i42 = load i32, ptr %104, align 4, !tbaa !154
   %105 = icmp sgt i32 %.0.i.i42, -1
   br i1 %105, label %52, label %_ZNK8LightGBM4Tree7GetLeafEPKd.exit50, !llvm.loop !157
@@ -221,10 +207,10 @@ _ZNK8LightGBM4Tree8DecisionEdi.exit.i40:          ; preds = %_ZNK8LightGBM4Tree1
 .preheader11.i25:                                 ; preds = %38, %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i29
   %.213.i26 = phi i32 [ %.0.i9.i32, %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i29 ], [ 0, %38 ]
   %106 = zext nneg i32 %.213.i26 to i64
-  %107 = getelementptr inbounds nuw i32, ptr %43, i64 %106
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %106
   %108 = load i32, ptr %107, align 4, !tbaa !154
   %109 = sext i32 %108 to i64
-  %110 = getelementptr inbounds double, ptr %1, i64 %109
+  %110 = getelementptr inbounds [8 x i8], ptr %1, i64 %109
   %111 = load double, ptr %110, align 8, !tbaa !155
   %112 = getelementptr inbounds nuw i8, ptr %45, i64 %106
   %113 = load i8, ptr %112, align 1, !tbaa !156
@@ -254,7 +240,7 @@ _ZNK8LightGBM4Tree8DecisionEdi.exit.i40:          ; preds = %_ZNK8LightGBM4Tree1
   br label %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i29
 
 125:                                              ; preds = %121, %118, %.preheader11.i25
-  %126 = getelementptr inbounds nuw double, ptr %47, i64 %106
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %106
   %127 = load double, ptr %126, align 8, !tbaa !155
   %128 = fcmp ugt double %.017.i.i28, %127
   br label %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i29
@@ -264,7 +250,7 @@ _ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i29: ; preds = %125, %123
   %.19.i.i31 = select i1 %.sink20.i.i30, i64 40, i64 16
   %129 = getelementptr inbounds nuw i8, ptr %30, i64 %.19.i.i31
   %130 = load ptr, ptr %129, align 8, !tbaa !152
-  %131 = getelementptr inbounds nuw i32, ptr %130, i64 %106
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %130, i64 %106
   %.0.i9.i32 = load i32, ptr %131, align 4, !tbaa !154
   %132 = icmp sgt i32 %.0.i9.i32, -1
   br i1 %132, label %.preheader11.i25, label %_ZNK8LightGBM4Tree7GetLeafEPKd.exit50, !llvm.loop !159
@@ -279,11 +265,11 @@ _ZNK8LightGBM4Tree7GetLeafEPKd.exit50:            ; preds = %_ZNK8LightGBM4Tree1
   %136 = phi i64 [ %134, %_ZNK8LightGBM4Tree7GetLeafEPKd.exit50 ], [ 0, %37 ]
   %137 = getelementptr inbounds nuw i8, ptr %30, i64 576
   %138 = load ptr, ptr %137, align 8, !tbaa !160
-  %139 = getelementptr inbounds nuw double, ptr %138, i64 %136
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %138, i64 %136
   %140 = load double, ptr %139, align 8, !tbaa !155
   %141 = getelementptr inbounds nuw i8, ptr %30, i64 600
   %142 = load ptr, ptr %141, align 8, !tbaa !161
-  %143 = getelementptr inbounds nuw %"class.std::vector.91", ptr %142, i64 %136
+  %143 = getelementptr inbounds nuw [24 x i8], ptr %142, i64 %136
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
   %145 = load ptr, ptr %144, align 8, !tbaa !162
   %146 = load ptr, ptr %143, align 8, !tbaa !152
@@ -297,23 +283,23 @@ _ZNK8LightGBM4Tree7GetLeafEPKd.exit50:            ; preds = %_ZNK8LightGBM4Tree1
   %150 = ashr exact i64 %149, 2
   %151 = getelementptr inbounds nuw i8, ptr %30, i64 552
   %152 = load ptr, ptr %151, align 8
-  %153 = getelementptr inbounds nuw %"class.std::vector.101", ptr %152, i64 %136
+  %153 = getelementptr inbounds nuw [24 x i8], ptr %152, i64 %136
   br label %154
 
 154:                                              ; preds = %161, %.lr.ph.i
   %.02135.i = phi double [ %140, %.lr.ph.i ], [ %165, %161 ]
   %.02734.i = phi i64 [ 0, %.lr.ph.i ], [ %166, %161 ]
-  %155 = getelementptr inbounds nuw i32, ptr %146, i64 %.02734.i
+  %155 = getelementptr inbounds nuw [4 x i8], ptr %146, i64 %.02734.i
   %156 = load i32, ptr %155, align 4, !tbaa !154
   %157 = sext i32 %156 to i64
-  %158 = getelementptr inbounds double, ptr %1, i64 %157
+  %158 = getelementptr inbounds [8 x i8], ptr %1, i64 %157
   %159 = load double, ptr %158, align 8, !tbaa !155
   %160 = fcmp uno double %159, 0.000000e+00
   br i1 %160, label %.thread30.i, label %161
 
 161:                                              ; preds = %154
   %162 = load ptr, ptr %153, align 8, !tbaa !160
-  %163 = getelementptr inbounds nuw double, ptr %162, i64 %.02734.i
+  %163 = getelementptr inbounds nuw [8 x i8], ptr %162, i64 %.02734.i
   %164 = load double, ptr %163, align 8, !tbaa !155
   %165 = call double @llvm.fmuladd.f64(double %164, double %159, double %.02135.i)
   %166 = add nuw i64 %.02734.i, 1
@@ -323,7 +309,7 @@ _ZNK8LightGBM4Tree7GetLeafEPKd.exit50:            ; preds = %_ZNK8LightGBM4Tree1
 .thread30.i:                                      ; preds = %154
   %167 = getelementptr inbounds nuw i8, ptr %30, i64 336
   %168 = load ptr, ptr %167, align 8, !tbaa !160
-  %169 = getelementptr inbounds nuw double, ptr %168, i64 %136
+  %169 = getelementptr inbounds nuw [8 x i8], ptr %168, i64 %136
   %170 = load double, ptr %169, align 8, !tbaa !155
   br label %_ZNK8LightGBM4Tree7PredictEPKd.exit
 
@@ -352,10 +338,10 @@ _ZNK8LightGBM4Tree7GetLeafEPKd.exit50:            ; preds = %_ZNK8LightGBM4Tree1
 186:                                              ; preds = %_ZNK8LightGBM4Tree8DecisionEdi.exit.i, %.preheader.i
   %.014.i = phi i32 [ 0, %.preheader.i ], [ %.0.i.i, %_ZNK8LightGBM4Tree8DecisionEdi.exit.i ]
   %187 = zext nneg i32 %.014.i to i64
-  %188 = getelementptr inbounds nuw i32, ptr %177, i64 %187
+  %188 = getelementptr inbounds nuw [4 x i8], ptr %177, i64 %187
   %189 = load i32, ptr %188, align 4, !tbaa !154
   %190 = sext i32 %189 to i64
-  %191 = getelementptr inbounds double, ptr %1, i64 %190
+  %191 = getelementptr inbounds [8 x i8], ptr %1, i64 %190
   %192 = load double, ptr %191, align 8, !tbaa !155
   %193 = getelementptr inbounds nuw i8, ptr %179, i64 %187
   %194 = load i8, ptr %193, align 1, !tbaa !156
@@ -373,11 +359,11 @@ _ZNK8LightGBM4Tree7GetLeafEPKd.exit50:            ; preds = %_ZNK8LightGBM4Tree1
   br i1 %200, label %_ZNK8LightGBM4Tree8DecisionEdi.exit.i, label %201
 
 201:                                              ; preds = %198
-  %202 = getelementptr inbounds nuw double, ptr %181, i64 %187
+  %202 = getelementptr inbounds nuw [8 x i8], ptr %181, i64 %187
   %203 = load double, ptr %202, align 8, !tbaa !155
   %204 = fptosi double %203 to i32
   %205 = sext i32 %204 to i64
-  %206 = getelementptr i32, ptr %183, i64 %205
+  %206 = getelementptr [4 x i8], ptr %183, i64 %205
   %207 = load i32, ptr %206, align 4, !tbaa !154
   %208 = getelementptr i8, ptr %206, i64 4
   %209 = load i32, ptr %208, align 4, !tbaa !154
@@ -388,10 +374,10 @@ _ZNK8LightGBM4Tree7GetLeafEPKd.exit50:            ; preds = %_ZNK8LightGBM4Tree1
 
 _ZN8LightGBM6CommonL12FindInBitsetIiEEbPKjiT_.exit.i.i.i: ; preds = %201
   %212 = sext i32 %207 to i64
-  %213 = getelementptr inbounds i32, ptr %185, i64 %212
+  %213 = getelementptr inbounds [4 x i8], ptr %185, i64 %212
   %214 = and i32 %199, 31
   %215 = zext nneg i32 %211 to i64
-  %216 = getelementptr inbounds nuw i32, ptr %213, i64 %215
+  %216 = getelementptr inbounds nuw [4 x i8], ptr %213, i64 %215
   %217 = load i32, ptr %216, align 4, !tbaa !154
   %218 = lshr i32 %217, %214
   %219 = trunc i32 %218 to i1
@@ -427,7 +413,7 @@ _ZN8LightGBM6CommonL12FindInBitsetIiEEbPKjiT_.exit.thread.i.i.i: ; preds = %_ZN8
   br label %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i.i
 
 232:                                              ; preds = %228, %225, %220
-  %233 = getelementptr inbounds nuw double, ptr %181, i64 %187
+  %233 = getelementptr inbounds nuw [8 x i8], ptr %181, i64 %187
   %234 = load double, ptr %233, align 8, !tbaa !155
   %235 = fcmp ugt double %.017.i.i.i, %234
   br label %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i.i
@@ -441,7 +427,7 @@ _ZNK8LightGBM4Tree8DecisionEdi.exit.i:            ; preds = %_ZNK8LightGBM4Tree1
   %.sink.i.i = phi i64 [ 40, %_ZN8LightGBM6CommonL12FindInBitsetIiEEbPKjiT_.exit.thread.i.i.i ], [ 40, %198 ], [ 40, %196 ], [ %.19.i.i.i, %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i.i ], [ 16, %_ZN8LightGBM6CommonL12FindInBitsetIiEEbPKjiT_.exit.i.i.i ]
   %236 = getelementptr inbounds nuw i8, ptr %30, i64 %.sink.i.i
   %237 = load ptr, ptr %236, align 8, !tbaa !152
-  %238 = getelementptr inbounds nuw i32, ptr %237, i64 %187
+  %238 = getelementptr inbounds nuw [4 x i8], ptr %237, i64 %187
   %.0.i.i = load i32, ptr %238, align 4, !tbaa !154
   %239 = icmp sgt i32 %.0.i.i, -1
   br i1 %239, label %186, label %_ZNK8LightGBM4Tree7GetLeafEPKd.exit, !llvm.loop !157
@@ -449,10 +435,10 @@ _ZNK8LightGBM4Tree8DecisionEdi.exit.i:            ; preds = %_ZNK8LightGBM4Tree1
 .preheader11.i:                                   ; preds = %172, %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i
   %.213.i = phi i32 [ %.0.i9.i, %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i ], [ 0, %172 ]
   %240 = zext nneg i32 %.213.i to i64
-  %241 = getelementptr inbounds nuw i32, ptr %177, i64 %240
+  %241 = getelementptr inbounds nuw [4 x i8], ptr %177, i64 %240
   %242 = load i32, ptr %241, align 4, !tbaa !154
   %243 = sext i32 %242 to i64
-  %244 = getelementptr inbounds double, ptr %1, i64 %243
+  %244 = getelementptr inbounds [8 x i8], ptr %1, i64 %243
   %245 = load double, ptr %244, align 8, !tbaa !155
   %246 = getelementptr inbounds nuw i8, ptr %179, i64 %240
   %247 = load i8, ptr %246, align 1, !tbaa !156
@@ -482,7 +468,7 @@ _ZNK8LightGBM4Tree8DecisionEdi.exit.i:            ; preds = %_ZNK8LightGBM4Tree1
   br label %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i
 
 259:                                              ; preds = %255, %252, %.preheader11.i
-  %260 = getelementptr inbounds nuw double, ptr %181, i64 %240
+  %260 = getelementptr inbounds nuw [8 x i8], ptr %181, i64 %240
   %261 = load double, ptr %260, align 8, !tbaa !155
   %262 = fcmp ugt double %.017.i.i, %261
   br label %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i
@@ -492,7 +478,7 @@ _ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i:  ; preds = %259, %257
   %.19.i.i = select i1 %.sink20.i.i, i64 40, i64 16
   %263 = getelementptr inbounds nuw i8, ptr %30, i64 %.19.i.i
   %264 = load ptr, ptr %263, align 8, !tbaa !152
-  %265 = getelementptr inbounds nuw i32, ptr %264, i64 %240
+  %265 = getelementptr inbounds nuw [4 x i8], ptr %264, i64 %240
   %.0.i9.i = load i32, ptr %265, align 4, !tbaa !154
   %266 = icmp sgt i32 %.0.i9.i, -1
   br i1 %266, label %.preheader11.i, label %_ZNK8LightGBM4Tree7GetLeafEPKd.exit, !llvm.loop !159
@@ -503,7 +489,7 @@ _ZNK8LightGBM4Tree7GetLeafEPKd.exit:              ; preds = %_ZNK8LightGBM4Tree1
   %268 = getelementptr inbounds nuw i8, ptr %30, i64 336
   %269 = zext nneg i32 %267 to i64
   %270 = load ptr, ptr %268, align 8, !tbaa !160
-  %271 = getelementptr inbounds nuw double, ptr %270, i64 %269
+  %271 = getelementptr inbounds nuw [8 x i8], ptr %270, i64 %269
   %272 = load double, ptr %271, align 8, !tbaa !155
   br label %_ZNK8LightGBM4Tree7PredictEPKd.exit
 
@@ -515,7 +501,7 @@ _ZNK8LightGBM4Tree7GetLeafEPKd.exit:              ; preds = %_ZNK8LightGBM4Tree1
 
 _ZNK8LightGBM4Tree7PredictEPKd.exit:              ; preds = %161, %135, %.thread30.i, %_ZNK8LightGBM4Tree7GetLeafEPKd.exit, %273
   %.1.i = phi double [ %276, %273 ], [ %272, %_ZNK8LightGBM4Tree7GetLeafEPKd.exit ], [ %170, %.thread30.i ], [ %140, %135 ], [ %165, %161 ]
-  %277 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %277 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %278 = load double, ptr %277, align 8, !tbaa !155
   %279 = fadd double %.1.i, %278
   store double %279, ptr %277, align 8, !tbaa !155
@@ -579,10 +565,10 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM4Tree7GetLeafEPKd(ptr noundef nonn
 16:                                               ; preds = %.preheader, %_ZNK8LightGBM4Tree8DecisionEdi.exit
   %.014 = phi i32 [ 0, %.preheader ], [ %.0.i, %_ZNK8LightGBM4Tree8DecisionEdi.exit ]
   %17 = zext nneg i32 %.014 to i64
-  %18 = getelementptr inbounds nuw i32, ptr %7, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !154
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds double, ptr %1, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %1, i64 %20
   %22 = load double, ptr %21, align 8, !tbaa !155
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 %17
   %24 = load i8, ptr %23, align 1, !tbaa !156
@@ -600,11 +586,11 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM4Tree7GetLeafEPKd(ptr noundef nonn
   br i1 %30, label %_ZNK8LightGBM4Tree8DecisionEdi.exit, label %31
 
 31:                                               ; preds = %28
-  %32 = getelementptr inbounds nuw double, ptr %11, i64 %17
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %17
   %33 = load double, ptr %32, align 8, !tbaa !155
   %34 = fptosi double %33 to i32
   %35 = sext i32 %34 to i64
-  %36 = getelementptr i32, ptr %13, i64 %35
+  %36 = getelementptr [4 x i8], ptr %13, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !154
   %38 = getelementptr i8, ptr %36, i64 4
   %39 = load i32, ptr %38, align 4, !tbaa !154
@@ -615,10 +601,10 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM4Tree7GetLeafEPKd(ptr noundef nonn
 
 _ZN8LightGBM6CommonL12FindInBitsetIiEEbPKjiT_.exit.i.i: ; preds = %31
   %42 = sext i32 %37 to i64
-  %43 = getelementptr inbounds i32, ptr %15, i64 %42
+  %43 = getelementptr inbounds [4 x i8], ptr %15, i64 %42
   %44 = and i32 %29, 31
   %45 = zext nneg i32 %41 to i64
-  %46 = getelementptr inbounds nuw i32, ptr %43, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !154
   %48 = lshr i32 %47, %44
   %49 = trunc i32 %48 to i1
@@ -654,7 +640,7 @@ _ZN8LightGBM6CommonL12FindInBitsetIiEEbPKjiT_.exit.thread.i.i: ; preds = %_ZN8Li
   br label %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i
 
 62:                                               ; preds = %58, %55, %50
-  %63 = getelementptr inbounds nuw double, ptr %11, i64 %17
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %17
   %64 = load double, ptr %63, align 8, !tbaa !155
   %65 = fcmp ugt double %.017.i.i, %64
   br label %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i
@@ -668,7 +654,7 @@ _ZNK8LightGBM4Tree8DecisionEdi.exit:              ; preds = %26, %28, %_ZN8Light
   %.sink.i = phi i64 [ 40, %_ZN8LightGBM6CommonL12FindInBitsetIiEEbPKjiT_.exit.thread.i.i ], [ 40, %28 ], [ 40, %26 ], [ %.19.i.i, %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i ], [ 16, %_ZN8LightGBM6CommonL12FindInBitsetIiEEbPKjiT_.exit.i.i ]
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink.i
   %67 = load ptr, ptr %66, align 8, !tbaa !152
-  %68 = getelementptr inbounds nuw i32, ptr %67, i64 %17
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %17
   %.0.i = load i32, ptr %68, align 4, !tbaa !154
   %69 = icmp sgt i32 %.0.i, -1
   br i1 %69, label %16, label %.loopexit, !llvm.loop !157
@@ -676,10 +662,10 @@ _ZNK8LightGBM4Tree8DecisionEdi.exit:              ; preds = %26, %28, %_ZN8Light
 .preheader11:                                     ; preds = %2, %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit
   %.213 = phi i32 [ %.0.i9, %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit ], [ 0, %2 ]
   %70 = zext nneg i32 %.213 to i64
-  %71 = getelementptr inbounds nuw i32, ptr %7, i64 %70
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %70
   %72 = load i32, ptr %71, align 4, !tbaa !154
   %73 = sext i32 %72 to i64
-  %74 = getelementptr inbounds double, ptr %1, i64 %73
+  %74 = getelementptr inbounds [8 x i8], ptr %1, i64 %73
   %75 = load double, ptr %74, align 8, !tbaa !155
   %76 = getelementptr inbounds nuw i8, ptr %9, i64 %70
   %77 = load i8, ptr %76, align 1, !tbaa !156
@@ -709,7 +695,7 @@ _ZNK8LightGBM4Tree8DecisionEdi.exit:              ; preds = %26, %28, %_ZN8Light
   br label %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit
 
 89:                                               ; preds = %85, %82, %.preheader11
-  %90 = getelementptr inbounds nuw double, ptr %11, i64 %70
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %70
   %91 = load double, ptr %90, align 8, !tbaa !155
   %92 = fcmp ugt double %.017.i, %91
   br label %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit
@@ -719,7 +705,7 @@ _ZNK8LightGBM4Tree17NumericalDecisionEdi.exit:    ; preds = %87, %89
   %.19.i = select i1 %.sink20.i, i64 40, i64 16
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 %.19.i
   %94 = load ptr, ptr %93, align 8, !tbaa !152
-  %95 = getelementptr inbounds nuw i32, ptr %94, i64 %70
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %70
   %.0.i9 = load i32, ptr %95, align 4, !tbaa !154
   %96 = icmp sgt i32 %.0.i9, -1
   br i1 %96, label %.preheader11, label %.loopexit, !llvm.loop !159
@@ -785,7 +771,7 @@ define void @_ZNK8LightGBM4GBDT15PredictRawByMapERKSt13unordered_mapIidSt4hashIi
   %32 = add nsw i32 %30, %31
   %33 = sext i32 %32 to i64
   %34 = load ptr, ptr %17, align 8, !tbaa !121
-  %35 = getelementptr inbounds nuw %"class.std::unique_ptr.83", ptr %34, i64 %33
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %33
   %36 = load ptr, ptr %35, align 8, !tbaa !126
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 548
   %38 = load i8, ptr %37, align 4, !tbaa !128, !range !148, !noundef !149
@@ -807,11 +793,11 @@ define void @_ZNK8LightGBM4GBDT15PredictRawByMapERKSt13unordered_mapIidSt4hashIi
   %48 = phi i64 [ %46, %44 ], [ 0, %43 ]
   %49 = getelementptr inbounds nuw i8, ptr %36, i64 576
   %50 = load ptr, ptr %49, align 8, !tbaa !160
-  %51 = getelementptr inbounds nuw double, ptr %50, i64 %48
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %48
   %52 = load double, ptr %51, align 8, !tbaa !155
   %53 = getelementptr inbounds nuw i8, ptr %36, i64 600
   %54 = load ptr, ptr %53, align 8, !tbaa !161
-  %55 = getelementptr inbounds nuw %"class.std::vector.91", ptr %54, i64 %48
+  %55 = getelementptr inbounds nuw [24 x i8], ptr %54, i64 %48
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load ptr, ptr %56, align 8, !tbaa !162
   %58 = load ptr, ptr %55, align 8, !tbaa !152
@@ -829,13 +815,13 @@ define void @_ZNK8LightGBM4GBDT15PredictRawByMapERKSt13unordered_mapIidSt4hashIi
   %65 = load ptr, ptr %1, align 8
   %66 = getelementptr inbounds nuw i8, ptr %36, i64 552
   %67 = load ptr, ptr %66, align 8
-  %68 = getelementptr inbounds nuw %"class.std::vector.101", ptr %67, i64 %48
+  %68 = getelementptr inbounds nuw [24 x i8], ptr %67, i64 %48
   br i1 %.not.not.i.i.i, label %.lr.ph.split.us.i, label %.lr.ph.split.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %.thread.us.i
   %.02364.us.i = phi double [ %.442.us.i, %.thread.us.i ], [ %52, %.lr.ph.i ]
   %.02763.us.i = phi i64 [ %81, %.thread.us.i ], [ 0, %.lr.ph.i ]
-  %69 = getelementptr inbounds nuw i32, ptr %58, i64 %.02763.us.i
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %.02763.us.i
   %70 = load i32, ptr %69, align 4, !tbaa !154
   br label %71
 
@@ -853,7 +839,7 @@ define void @_ZNK8LightGBM4GBDT15PredictRawByMapERKSt13unordered_mapIidSt4hashIi
 
 76:                                               ; preds = %_ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE4findERS5_.exit.loopexit.us.i
   %77 = load ptr, ptr %68, align 8, !tbaa !160
-  %78 = getelementptr inbounds nuw double, ptr %77, i64 %.02763.us.i
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %.02763.us.i
   %79 = load double, ptr %78, align 8, !tbaa !155
   %80 = call double @llvm.fmuladd.f64(double %79, double %83, double %.02364.us.i)
   br label %.thread.us.i
@@ -873,11 +859,11 @@ _ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE4findERS5_.exit
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.thread.i
   %.02364.i = phi double [ %.442.i, %.thread.i ], [ %52, %.lr.ph.i ]
   %.02763.i = phi i64 [ %112, %.thread.i ], [ 0, %.lr.ph.i ]
-  %85 = getelementptr inbounds nuw i32, ptr %58, i64 %.02763.i
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %.02763.i
   %86 = load i32, ptr %85, align 4, !tbaa !154
   %87 = sext i32 %86 to i64
   %88 = urem i64 %87, %64
-  %89 = getelementptr inbounds nuw ptr, ptr %65, i64 %88
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %88
   %90 = load ptr, ptr %89, align 8, !tbaa !181
   %.not.i.i.i.i.i = icmp eq ptr %90, null
   br i1 %.not.i.i.i.i.i, label %.thread.i, label %91
@@ -919,7 +905,7 @@ _ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE4findERS5_.exit
 
 107:                                              ; preds = %_ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE4findERS5_.exit.i
   %108 = load ptr, ptr %68, align 8, !tbaa !160
-  %109 = getelementptr inbounds nuw double, ptr %108, i64 %.02763.i
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %.02763.i
   %110 = load double, ptr %109, align 8, !tbaa !155
   %111 = call double @llvm.fmuladd.f64(double %110, double %105, double %.02364.i)
   br label %.thread.i
@@ -933,7 +919,7 @@ _ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE4findERS5_.exit
 .thread55.i:                                      ; preds = %_ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE4findERS5_.exit.i, %_ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE4findERS5_.exit.loopexit.us.i
   %113 = getelementptr inbounds nuw i8, ptr %36, i64 336
   %114 = load ptr, ptr %113, align 8, !tbaa !160
-  %115 = getelementptr inbounds nuw double, ptr %114, i64 %48
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %48
   %116 = load double, ptr %115, align 8, !tbaa !155
   br label %_ZNK8LightGBM4Tree12PredictByMapERKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE.exit
 
@@ -945,7 +931,7 @@ _ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE4findERS5_.exit
   %120 = getelementptr inbounds nuw i8, ptr %36, i64 336
   %121 = sext i32 %119 to i64
   %122 = load ptr, ptr %120, align 8, !tbaa !160
-  %123 = getelementptr inbounds nuw double, ptr %122, i64 %121
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %121
   %124 = load double, ptr %123, align 8, !tbaa !155
   br label %_ZNK8LightGBM4Tree12PredictByMapERKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE.exit
 
@@ -957,7 +943,7 @@ _ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE4findERS5_.exit
 
 _ZNK8LightGBM4Tree12PredictByMapERKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE.exit: ; preds = %.thread.i, %.thread.us.i, %47, %.thread55.i, %118, %125
   %.1.i = phi double [ %128, %125 ], [ %124, %118 ], [ %116, %.thread55.i ], [ %52, %47 ], [ %.442.us.i, %.thread.us.i ], [ %.442.i, %.thread.i ]
-  %129 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %130 = load double, ptr %129, align 8, !tbaa !155
   %131 = fadd double %.1.i, %130
   store double %131, ptr %129, align 8, !tbaa !155
@@ -1027,7 +1013,7 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM4Tree12GetLeafByMapERKSt13unordere
 22:                                               ; preds = %.preheader, %_ZNK8LightGBM4Tree8DecisionEdi.exit
   %.0104 = phi i32 [ 0, %.preheader ], [ %.0.i, %_ZNK8LightGBM4Tree8DecisionEdi.exit ]
   %23 = zext nneg i32 %.0104 to i64
-  %24 = getelementptr inbounds nuw i32, ptr %7, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %23
   %25 = load i32, ptr %24, align 4
   br i1 %.not.not.i.i.i, label %.preheader168, label %30
 
@@ -1046,7 +1032,7 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM4Tree12GetLeafByMapERKSt13unordere
 30:                                               ; preds = %22
   %31 = sext i32 %25 to i64
   %32 = urem i64 %31, %11
-  %33 = getelementptr inbounds nuw ptr, ptr %12, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !181
   %.not.i.i.i.i.i = icmp eq ptr %34, null
   br i1 %.not.i.i.i.i.i, label %.thread63, label %35
@@ -1101,7 +1087,7 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM4Tree12GetLeafByMapERKSt13unordere
 
 .thread:                                          ; preds = %.loopexit76..thread_crit_edge, %35
   %.pre-phi125 = phi i64 [ %.pre124, %.loopexit76..thread_crit_edge ], [ %32, %35 ]
-  %52 = getelementptr inbounds nuw ptr, ptr %12, i64 %.pre-phi125
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.pre-phi125
   %53 = load ptr, ptr %52, align 8, !tbaa !181
   %.not.i.i.i.i.i15 = icmp eq ptr %53, null
   br i1 %.not.i.i.i.i.i15, label %.loopexit.i.i, label %54
@@ -1166,11 +1152,11 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM4Tree12GetLeafByMapERKSt13unordere
   br i1 %79, label %_ZNK8LightGBM4Tree8DecisionEdi.exit, label %80
 
 80:                                               ; preds = %.thread65
-  %81 = getelementptr inbounds nuw double, ptr %17, i64 %23
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %23
   %82 = load double, ptr %81, align 8, !tbaa !155
   %83 = fptosi double %82 to i32
   %84 = sext i32 %83 to i64
-  %85 = getelementptr i32, ptr %19, i64 %84
+  %85 = getelementptr [4 x i8], ptr %19, i64 %84
   %86 = load i32, ptr %85, align 4, !tbaa !154
   %87 = getelementptr i8, ptr %85, i64 4
   %88 = load i32, ptr %87, align 4, !tbaa !154
@@ -1181,10 +1167,10 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM4Tree12GetLeafByMapERKSt13unordere
 
 _ZN8LightGBM6CommonL12FindInBitsetIiEEbPKjiT_.exit.i.i: ; preds = %80
   %91 = sext i32 %86 to i64
-  %92 = getelementptr inbounds i32, ptr %21, i64 %91
+  %92 = getelementptr inbounds [4 x i8], ptr %21, i64 %91
   %93 = and i32 %78, 31
   %94 = zext nneg i32 %90 to i64
-  %95 = getelementptr inbounds nuw i32, ptr %92, i64 %94
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %94
   %96 = load i32, ptr %95, align 4, !tbaa !154
   %97 = lshr i32 %96, %93
   %98 = trunc i32 %97 to i1
@@ -1222,7 +1208,7 @@ _ZN8LightGBM6CommonL12FindInBitsetIiEEbPKjiT_.exit.thread.i.i: ; preds = %_ZN8Li
   br label %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i
 
 113:                                              ; preds = %109, %106, %99
-  %114 = getelementptr inbounds nuw double, ptr %17, i64 %23
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %23
   %115 = load double, ptr %114, align 8, !tbaa !155
   %116 = fcmp ugt double %.017.i.i, %115
   br label %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i
@@ -1236,7 +1222,7 @@ _ZNK8LightGBM4Tree8DecisionEdi.exit:              ; preds = %75, %.thread65, %_Z
   %.sink.i = phi i64 [ 40, %_ZN8LightGBM6CommonL12FindInBitsetIiEEbPKjiT_.exit.thread.i.i ], [ 40, %.thread65 ], [ 40, %75 ], [ %.19.i.i, %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit.i ], [ 16, %_ZN8LightGBM6CommonL12FindInBitsetIiEEbPKjiT_.exit.i.i ]
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink.i
   %118 = load ptr, ptr %117, align 8, !tbaa !152
-  %119 = getelementptr inbounds nuw i32, ptr %118, i64 %23
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %23
   %.0.i = load i32, ptr %119, align 4, !tbaa !154
   %120 = icmp sgt i32 %.0.i, -1
   br i1 %120, label %22, label %.loopexit79, !llvm.loop !185
@@ -1244,7 +1230,7 @@ _ZNK8LightGBM4Tree8DecisionEdi.exit:              ; preds = %75, %.thread65, %_Z
 .preheader86:                                     ; preds = %2, %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit
   %.2103 = phi i32 [ %.0.i54, %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit ], [ 0, %2 ]
   %121 = zext nneg i32 %.2103 to i64
-  %122 = getelementptr inbounds nuw i32, ptr %7, i64 %121
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %121
   %123 = load i32, ptr %122, align 4
   br i1 %.not.not.i.i.i, label %.preheader175, label %128
 
@@ -1263,7 +1249,7 @@ _ZNK8LightGBM4Tree8DecisionEdi.exit:              ; preds = %75, %.thread65, %_Z
 128:                                              ; preds = %.preheader86
   %129 = sext i32 %123 to i64
   %130 = urem i64 %129, %11
-  %131 = getelementptr inbounds nuw ptr, ptr %12, i64 %130
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %130
   %132 = load ptr, ptr %131, align 8, !tbaa !181
   %.not.i.i.i.i.i28 = icmp eq ptr %132, null
   br i1 %.not.i.i.i.i.i28, label %_ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE5countERS5_.exit40.thread, label %133
@@ -1318,7 +1304,7 @@ _ZNK8LightGBM4Tree8DecisionEdi.exit:              ; preds = %75, %.thread65, %_Z
 
 .thread70:                                        ; preds = %.loopexit83..thread70_crit_edge, %133
   %.pre-phi129 = phi i64 [ %.pre128, %.loopexit83..thread70_crit_edge ], [ %130, %133 ]
-  %150 = getelementptr inbounds nuw ptr, ptr %12, i64 %.pre-phi129
+  %150 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.pre-phi129
   %151 = load ptr, ptr %150, align 8, !tbaa !181
   %.not.i.i.i.i.i42 = icmp eq ptr %151, null
   br i1 %.not.i.i.i.i.i42, label %.loopexit.i.i48, label %152
@@ -1391,7 +1377,7 @@ _ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE5countERS5_.exi
   br label %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit
 
 181:                                              ; preds = %177, %174, %_ZNKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE5countERS5_.exit40.thread
-  %182 = getelementptr inbounds nuw double, ptr %17, i64 %121
+  %182 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %121
   %183 = load double, ptr %182, align 8, !tbaa !155
   %184 = fcmp ugt double %.017.i, %183
   br label %_ZNK8LightGBM4Tree17NumericalDecisionEdi.exit
@@ -1401,7 +1387,7 @@ _ZNK8LightGBM4Tree17NumericalDecisionEdi.exit:    ; preds = %179, %181
   %.19.i = select i1 %.sink20.i, i64 40, i64 16
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 %.19.i
   %186 = load ptr, ptr %185, align 8, !tbaa !152
-  %187 = getelementptr inbounds nuw i32, ptr %186, i64 %121
+  %187 = getelementptr inbounds nuw [4 x i8], ptr %186, i64 %121
   %.0.i54 = load i32, ptr %187, align 4, !tbaa !154
   %188 = icmp sgt i32 %.0.i54, -1
   br i1 %188, label %.preheader86, label %.loopexit79, !llvm.loop !186
@@ -1443,7 +1429,7 @@ define void @_ZNK8LightGBM4GBDT7PredictEPKdPdPKNS_27PredictionEarlyStopInstanceE
 
 17:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
-  %18 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %19 = load double, ptr %18, align 8, !tbaa !155
   %20 = fdiv double %19, %16
   store double %20, ptr %18, align 8, !tbaa !155
@@ -1494,7 +1480,7 @@ define void @_ZNK8LightGBM4GBDT12PredictByMapERKSt13unordered_mapIidSt4hashIiESt
 
 17:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
-  %18 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %19 = load double, ptr %18, align 8, !tbaa !155
   %20 = fdiv double %19, %16
   store double %20, ptr %18, align 8, !tbaa !155
@@ -1532,7 +1518,7 @@ define void @_ZNK8LightGBM4GBDT16PredictLeafIndexEPKdPd(ptr noundef nonnull read
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %13 = load ptr, ptr %12, align 8, !tbaa !121
   %14 = sext i32 %8 to i64
-  %15 = getelementptr inbounds %"class.std::unique_ptr.83", ptr %13, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %13, i64 %14
   %16 = icmp sgt i32 %11, 0
   br i1 %16, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1545,7 +1531,7 @@ define void @_ZNK8LightGBM4GBDT16PredictLeafIndexEPKdPd(ptr noundef nonnull read
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNK8LightGBM4Tree16PredictLeafIndexEPKd.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZNK8LightGBM4Tree16PredictLeafIndexEPKd.exit ]
-  %17 = getelementptr inbounds nuw %"class.std::unique_ptr.83", ptr %15, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !126
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 12
   %20 = load i32, ptr %19, align 4, !tbaa !150
@@ -1559,7 +1545,7 @@ define void @_ZNK8LightGBM4GBDT16PredictLeafIndexEPKdPd(ptr noundef nonnull read
 
 _ZNK8LightGBM4Tree16PredictLeafIndexEPKd.exit:    ; preds = %.lr.ph, %22
   %.0.i = phi double [ %24, %22 ], [ 0.000000e+00, %.lr.ph ]
-  %25 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   store double %.0.i, ptr %25, align 8, !tbaa !155
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1579,7 +1565,7 @@ define void @_ZNK8LightGBM4GBDT21PredictLeafIndexByMapERKSt13unordered_mapIidSt4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %13 = load ptr, ptr %12, align 8, !tbaa !121
   %14 = sext i32 %8 to i64
-  %15 = getelementptr inbounds %"class.std::unique_ptr.83", ptr %13, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %13, i64 %14
   %16 = icmp sgt i32 %11, 0
   br i1 %16, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1592,7 +1578,7 @@ define void @_ZNK8LightGBM4GBDT21PredictLeafIndexByMapERKSt13unordered_mapIidSt4
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNK8LightGBM4Tree21PredictLeafIndexByMapERKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZNK8LightGBM4Tree21PredictLeafIndexByMapERKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE.exit ]
-  %17 = getelementptr inbounds nuw %"class.std::unique_ptr.83", ptr %15, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !126
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 12
   %20 = load i32, ptr %19, align 4, !tbaa !150
@@ -1606,7 +1592,7 @@ define void @_ZNK8LightGBM4GBDT21PredictLeafIndexByMapERKSt13unordered_mapIidSt4
 
 _ZNK8LightGBM4Tree21PredictLeafIndexByMapERKSt13unordered_mapIidSt4hashIiESt8equal_toIiESaISt4pairIKidEEE.exit: ; preds = %.lr.ph, %22
   %.0.i = phi double [ %24, %22 ], [ 0.000000e+00, %.lr.ph ]
-  %25 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   store double %.0.i, ptr %25, align 8, !tbaa !155
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

@@ -429,7 +429,7 @@ define dso_local zeroext i16 @slurm_job_preempt_mode(ptr noundef %0) local_unnam
 .preheader:                                       ; preds = %7, %10
   %11 = phi i1 [ false, %10 ], [ true, %7 ]
   %indvars.iv = phi i64 [ 1, %10 ], [ 0, %7 ]
-  %12 = getelementptr inbounds nuw i16, ptr @slurm_job_preempt_mode.preempt_modes, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [2 x i8], ptr @slurm_job_preempt_mode.preempt_modes, i64 %indvars.iv
   %13 = load i16, ptr %12, align 2
   store i16 %13, ptr %4, align 2
   %14 = load ptr, ptr %8, align 8

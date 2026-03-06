@@ -7,8 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.exr_attr_v2i_t = type { i32, i32 }
 %struct.exr_attr_v2f_t = type { float, float }
 %struct.exr_attr_chlist_t = type { i32, i32, ptr }
-%struct.exr_attr_chlist_entry_t = type { %struct.exr_attr_string_t, i32, i8, [3 x i8], i32, i32 }
-%struct.exr_attr_string_t = type { i32, i32, ptr }
 
 @.str = private unnamed_addr constant [29 x i8] c"Part index (%d) out of range\00", align 1
 @.str.1 = private unnamed_addr constant [36 x i8] c"Source part index (%d) out of range\00", align 1
@@ -191,7 +189,7 @@ define i32 @exr_get_attribute_count(ptr noundef %0, i32 noundef %1, ptr noundef 
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %27 = load ptr, ptr %26, align 8, !tbaa !24
   %28 = zext nneg i32 %1 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !25
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load i32, ptr %31, align 8, !tbaa !26
@@ -267,7 +265,7 @@ define i32 @exr_get_attribute_by_index(ptr noundef %0, i32 noundef %1, i32 nound
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %29 = load ptr, ptr %28, align 8, !tbaa !24
   %30 = zext nneg i32 %1 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !25
   %.not45 = icmp eq ptr %4, null
   br i1 %.not45, label %33, label %43
@@ -344,7 +342,7 @@ define i32 @exr_get_attribute_by_index(ptr noundef %0, i32 noundef %1, i32 nound
   %71 = getelementptr inbounds nuw i8, ptr %32, i64 %.sink
   %.038 = load ptr, ptr %71, align 8, !tbaa !29
   %72 = zext nneg i32 %3 to i64
-  %73 = getelementptr inbounds nuw ptr, ptr %.038, i64 %72
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %.038, i64 %72
   %74 = load ptr, ptr %73, align 8, !tbaa !30
   store ptr %74, ptr %4, align 8, !tbaa !30
   %75 = load i8, ptr %0, align 8, !tbaa !3
@@ -428,7 +426,7 @@ define i32 @exr_get_attribute_by_name(ptr noundef %0, i32 noundef %1, ptr nounde
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %40 = load ptr, ptr %39, align 8, !tbaa !24
   %41 = zext nneg i32 %1 to i64
-  %42 = getelementptr inbounds nuw ptr, ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %41
   %43 = load ptr, ptr %42, align 8, !tbaa !25
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %0, ptr noundef nonnull %44, ptr noundef %2, ptr noundef nonnull %5) #6
@@ -503,7 +501,7 @@ define i32 @exr_get_attribute_list(ptr noundef %0, i32 noundef %1, i32 noundef %
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %29 = load ptr, ptr %28, align 8, !tbaa !24
   %30 = zext nneg i32 %1 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !25
   %.not44 = icmp eq ptr %3, null
   br i1 %.not44, label %33, label %43
@@ -632,7 +630,7 @@ define i32 @exr_attr_declare_by_type(ptr noundef %0, i32 noundef %1, ptr noundef
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %27 = load ptr, ptr %26, align 8, !tbaa !24
   %28 = zext nneg i32 %1 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !25
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = tail call i32 @exr_attr_list_add_by_type(ptr noundef nonnull %0, ptr noundef nonnull %31, ptr noundef %2, ptr noundef %3, i32 noundef 0, ptr noundef null, ptr noundef %4) #6
@@ -688,7 +686,7 @@ define i32 @exr_attr_declare(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %27 = load ptr, ptr %26, align 8, !tbaa !24
   %28 = zext nneg i32 %1 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !25
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = tail call i32 @exr_attr_list_add(ptr noundef nonnull %0, ptr noundef nonnull %31, ptr noundef %2, i32 noundef %3, i32 noundef 0, ptr noundef null, ptr noundef %4) #6
@@ -770,7 +768,7 @@ define i32 @exr_set_compression(ptr noundef %0, i32 noundef %1, i32 noundef %2) 
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %18 = load ptr, ptr %17, align 8, !tbaa !24
   %19 = zext nneg i32 %1 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !25
   %22 = load i8, ptr %0, align 8, !tbaa !3
   switch i8 %22, label %33 [
@@ -885,7 +883,7 @@ define i32 @exr_set_data_window(ptr noundef %0, i32 noundef %1, ptr noundef read
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %23 = load ptr, ptr %22, align 8, !tbaa !24
   %24 = zext nneg i32 %1 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !25
   %27 = load i8, ptr %0, align 8, !tbaa !3
   switch i8 %27, label %38 [
@@ -997,7 +995,7 @@ define i32 @exr_set_display_window(ptr noundef %0, i32 noundef %1, ptr noundef r
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %23 = load ptr, ptr %22, align 8, !tbaa !24
   %24 = zext nneg i32 %1 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !25
   %27 = load i8, ptr %0, align 8, !tbaa !3
   switch i8 %27, label %38 [
@@ -1108,7 +1106,7 @@ define i32 @exr_set_lineorder(ptr noundef %0, i32 noundef %1, i32 noundef %2) lo
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %24 = load ptr, ptr %23, align 8, !tbaa !24
   %25 = zext nneg i32 %1 to i64
-  %26 = getelementptr inbounds nuw ptr, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !25
   %28 = load i8, ptr %0, align 8, !tbaa !3
   switch i8 %28, label %39 [
@@ -1209,7 +1207,7 @@ define i32 @exr_set_pixel_aspect_ratio(ptr noundef %0, i32 noundef %1, float nou
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %18 = load ptr, ptr %17, align 8, !tbaa !24
   %19 = zext nneg i32 %1 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !25
   %22 = load i8, ptr %0, align 8, !tbaa !3
   switch i8 %22, label %33 [
@@ -1307,7 +1305,7 @@ define i32 @exr_set_screen_window_center(ptr noundef %0, i32 noundef %1, ptr nou
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %18 = load ptr, ptr %17, align 8, !tbaa !24
   %19 = zext nneg i32 %1 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !25
   %22 = load i8, ptr %0, align 8, !tbaa !3
   switch i8 %22, label %33 [
@@ -1419,7 +1417,7 @@ define i32 @exr_set_screen_window_width(ptr noundef %0, i32 noundef %1, float no
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %18 = load ptr, ptr %17, align 8, !tbaa !24
   %19 = zext nneg i32 %1 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !25
   %22 = load i8, ptr %0, align 8, !tbaa !3
   switch i8 %22, label %33 [
@@ -1541,7 +1539,7 @@ define i32 @exr_copy_unset_attributes(ptr noundef %0, i32 noundef %1, ptr nounde
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %21 = load ptr, ptr %20, align 8, !tbaa !24
   %22 = zext nneg i32 %1 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !25
   %.not55 = icmp eq ptr %2, null
   br i1 %.not55, label %25, label %27
@@ -1588,7 +1586,7 @@ define i32 @exr_copy_unset_attributes(ptr noundef %0, i32 noundef %1, ptr nounde
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 472
   %47 = load ptr, ptr %46, align 8, !tbaa !24
   %48 = zext nneg i32 %3 to i64
-  %49 = getelementptr inbounds nuw ptr, ptr %47, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !25
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 16
@@ -1629,7 +1627,7 @@ define i32 @exr_copy_unset_attributes(ptr noundef %0, i32 noundef %1, ptr nounde
 
 76:                                               ; preds = %72
   %77 = load ptr, ptr %52, align 8, !tbaa !52
-  %78 = getelementptr inbounds nuw ptr, ptr %77, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %indvars.iv
   %79 = load ptr, ptr %78, align 8, !tbaa !30
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr null, ptr %6, align 8, !tbaa !30
@@ -2259,7 +2257,7 @@ define i32 @exr_get_channels(ptr noundef %0, i32 noundef %1, ptr noundef writeon
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %38 = load ptr, ptr %37, align 8, !tbaa !24
   %39 = zext nneg i32 %1 to i64
-  %40 = getelementptr inbounds nuw ptr, ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !25
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 32
   %43 = load ptr, ptr %42, align 8, !tbaa !81
@@ -2348,7 +2346,7 @@ define i32 @exr_add_channel(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %22 = load ptr, ptr %21, align 8, !tbaa !24
   %23 = zext nneg i32 %1 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !25
   %26 = load i8, ptr %0, align 8, !tbaa !3
   switch i8 %26, label %37 [
@@ -2460,7 +2458,7 @@ define i32 @exr_set_channels(ptr noundef %0, i32 noundef %1, ptr noundef %2) loc
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %24 = load ptr, ptr %23, align 8, !tbaa !24
   %25 = zext nneg i32 %1 to i64
-  %26 = getelementptr inbounds nuw ptr, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !25
   %28 = load i8, ptr %0, align 8, !tbaa !3
   switch i8 %28, label %39 [
@@ -2614,7 +2612,7 @@ define i32 @exr_get_compression(ptr noundef %0, i32 noundef %1, ptr noundef writ
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %38 = load ptr, ptr %37, align 8, !tbaa !24
   %39 = zext nneg i32 %1 to i64
-  %40 = getelementptr inbounds nuw ptr, ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !25
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 40
   %43 = load ptr, ptr %42, align 8, !tbaa !31
@@ -2743,7 +2741,7 @@ define i32 @exr_get_data_window(ptr noundef %0, i32 noundef %1, ptr noundef writ
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %38 = load ptr, ptr %37, align 8, !tbaa !24
   %39 = zext nneg i32 %1 to i64
-  %40 = getelementptr inbounds nuw ptr, ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !25
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 48
   %43 = load ptr, ptr %42, align 8, !tbaa !39
@@ -2869,7 +2867,7 @@ define i32 @exr_get_display_window(ptr noundef %0, i32 noundef %1, ptr noundef w
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %38 = load ptr, ptr %37, align 8, !tbaa !24
   %39 = zext nneg i32 %1 to i64
-  %40 = getelementptr inbounds nuw ptr, ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !25
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 56
   %43 = load ptr, ptr %42, align 8, !tbaa !41
@@ -2995,7 +2993,7 @@ define i32 @exr_get_lineorder(ptr noundef %0, i32 noundef %1, ptr noundef writeo
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %38 = load ptr, ptr %37, align 8, !tbaa !24
   %39 = zext nneg i32 %1 to i64
-  %40 = getelementptr inbounds nuw ptr, ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !25
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 64
   %43 = load ptr, ptr %42, align 8, !tbaa !42
@@ -3122,7 +3120,7 @@ define i32 @exr_get_pixel_aspect_ratio(ptr noundef %0, i32 noundef %1, ptr nound
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %38 = load ptr, ptr %37, align 8, !tbaa !24
   %39 = zext nneg i32 %1 to i64
-  %40 = getelementptr inbounds nuw ptr, ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !25
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 72
   %43 = load ptr, ptr %42, align 8, !tbaa !44
@@ -3248,7 +3246,7 @@ define i32 @exr_get_screen_window_center(ptr noundef %0, i32 noundef %1, ptr nou
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %38 = load ptr, ptr %37, align 8, !tbaa !24
   %39 = zext nneg i32 %1 to i64
-  %40 = getelementptr inbounds nuw ptr, ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !25
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 80
   %43 = load ptr, ptr %42, align 8, !tbaa !45
@@ -3375,7 +3373,7 @@ define i32 @exr_get_screen_window_width(ptr noundef %0, i32 noundef %1, ptr noun
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %38 = load ptr, ptr %37, align 8, !tbaa !24
   %39 = zext nneg i32 %1 to i64
-  %40 = getelementptr inbounds nuw ptr, ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !25
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 88
   %43 = load ptr, ptr %42, align 8, !tbaa !49
@@ -3481,7 +3479,7 @@ define i32 @exr_get_tile_descriptor(ptr noundef %0, i32 noundef %1, ptr noundef 
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %30 = load ptr, ptr %29, align 8, !tbaa !24
   %31 = zext nneg i32 %1 to i64
-  %32 = getelementptr inbounds nuw ptr, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !25
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 96
   %35 = load ptr, ptr %34, align 8, !tbaa !83
@@ -3612,7 +3610,7 @@ define i32 @exr_set_tile_descriptor(ptr noundef %0, i32 noundef %1, i32 noundef 
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %21 = load ptr, ptr %20, align 8, !tbaa !24
   %22 = zext nneg i32 %1 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !25
   %25 = load i8, ptr %0, align 8, !tbaa !3
   switch i8 %25, label %36 [
@@ -3774,7 +3772,7 @@ define i32 @exr_get_name(ptr noundef %0, i32 noundef %1, ptr noundef writeonly c
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %38 = load ptr, ptr %37, align 8, !tbaa !24
   %39 = zext nneg i32 %1 to i64
-  %40 = getelementptr inbounds nuw ptr, ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !25
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 104
   %43 = load ptr, ptr %42, align 8, !tbaa !89
@@ -3865,7 +3863,7 @@ define i32 @exr_set_name(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_u
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %18 = load ptr, ptr %17, align 8, !tbaa !24
   %19 = zext nneg i32 %1 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !25
   %22 = load i8, ptr %0, align 8, !tbaa !3
   switch i8 %22, label %33 [
@@ -3960,7 +3958,7 @@ define i32 @exr_set_name(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_u
 
 71:                                               ; preds = %.lr.ph
   %72 = load ptr, ptr %17, align 8, !tbaa !24
-  %73 = getelementptr inbounds nuw ptr, ptr %72, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %indvars.iv
   %74 = load ptr, ptr %73, align 8, !tbaa !25
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 104
   %76 = load ptr, ptr %75, align 8, !tbaa !89
@@ -4120,7 +4118,7 @@ define i32 @exr_get_version(ptr noundef %0, i32 noundef %1, ptr noundef writeonl
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %38 = load ptr, ptr %37, align 8, !tbaa !24
   %39 = zext nneg i32 %1 to i64
-  %40 = getelementptr inbounds nuw ptr, ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !25
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 120
   %43 = load ptr, ptr %42, align 8, !tbaa !93
@@ -4213,7 +4211,7 @@ define i32 @exr_set_version(ptr noundef %0, i32 noundef %1, i32 noundef %2) loca
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %19 = load ptr, ptr %18, align 8, !tbaa !24
   %20 = zext nneg i32 %1 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !25
   %23 = load i8, ptr %0, align 8, !tbaa !3
   switch i8 %23, label %34 [
@@ -4311,7 +4309,7 @@ define i32 @exr_set_chunk_count(ptr noundef %0, i32 noundef %1, i32 noundef %2) 
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %18 = load ptr, ptr %17, align 8, !tbaa !24
   %19 = zext nneg i32 %1 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !25
   %22 = load i8, ptr %0, align 8, !tbaa !3
   switch i8 %22, label %33 [
@@ -4430,7 +4428,7 @@ define i32 @exr_attr_get_box2i(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %29 = load ptr, ptr %28, align 8, !tbaa !24
   %30 = zext nneg i32 %1 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !25
   %.not47 = icmp eq ptr %2, null
   br i1 %.not47, label %36, label %33
@@ -4612,7 +4610,7 @@ define i32 @exr_attr_set_box2i(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %42 = load ptr, ptr %41, align 8, !tbaa !24
   %43 = zext nneg i32 %1 to i64
-  %44 = getelementptr inbounds nuw ptr, ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %43
   %45 = load ptr, ptr %44, align 8, !tbaa !25
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %0, ptr noundef nonnull %46, ptr noundef %2, ptr noundef nonnull %5) #6
@@ -4746,7 +4744,7 @@ define i32 @exr_attr_get_box2f(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %29 = load ptr, ptr %28, align 8, !tbaa !24
   %30 = zext nneg i32 %1 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !25
   %.not47 = icmp eq ptr %2, null
   br i1 %.not47, label %36, label %33
@@ -4906,7 +4904,7 @@ define i32 @exr_attr_set_box2f(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %32 = load ptr, ptr %31, align 8, !tbaa !24
   %33 = zext nneg i32 %1 to i64
-  %34 = getelementptr inbounds nuw ptr, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !25
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %0, ptr noundef nonnull %36, ptr noundef %2, ptr noundef nonnull %5) #6
@@ -5036,7 +5034,7 @@ define i32 @exr_attr_get_channels(ptr noundef %0, i32 noundef %1, ptr noundef %2
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %29 = load ptr, ptr %28, align 8, !tbaa !24
   %30 = zext nneg i32 %1 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !25
   %.not47 = icmp eq ptr %2, null
   br i1 %.not47, label %36, label %33
@@ -5176,7 +5174,7 @@ define i32 @exr_attr_set_channels(ptr noundef %0, i32 noundef %1, ptr noundef %2
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %21 = load ptr, ptr %20, align 8, !tbaa !24
   %22 = zext nneg i32 %1 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !25
   %.not88 = icmp eq ptr %2, null
   br i1 %.not88, label %31, label %25
@@ -5255,7 +5253,7 @@ define i32 @exr_attr_set_channels(ptr noundef %0, i32 noundef %1, ptr noundef %2
 57:                                               ; preds = %.lr.ph, %56
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %56 ]
   %58 = load ptr, ptr %55, align 8, !tbaa !99
-  %59 = getelementptr inbounds nuw %struct.exr_attr_chlist_entry_t, ptr %58, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [32 x i8], ptr %58, i64 %indvars.iv
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load ptr, ptr %60, align 8, !tbaa !100
   %62 = load i32, ptr %59, align 8, !tbaa !102
@@ -5356,7 +5354,7 @@ define i32 @exr_attr_get_chromaticities(ptr noundef %0, i32 noundef %1, ptr noun
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %29 = load ptr, ptr %28, align 8, !tbaa !24
   %30 = zext nneg i32 %1 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !25
   %.not47 = icmp eq ptr %2, null
   br i1 %.not47, label %36, label %33
@@ -5516,7 +5514,7 @@ define i32 @exr_attr_set_chromaticities(ptr noundef %0, i32 noundef %1, ptr noun
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %32 = load ptr, ptr %31, align 8, !tbaa !24
   %33 = zext nneg i32 %1 to i64
-  %34 = getelementptr inbounds nuw ptr, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !25
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %0, ptr noundef nonnull %36, ptr noundef %2, ptr noundef nonnull %5) #6
@@ -5646,7 +5644,7 @@ define i32 @exr_attr_get_compression(ptr noundef %0, i32 noundef %1, ptr noundef
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %29 = load ptr, ptr %28, align 8, !tbaa !24
   %30 = zext nneg i32 %1 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !25
   %.not47 = icmp eq ptr %2, null
   br i1 %.not47, label %36, label %33
@@ -5831,7 +5829,7 @@ define i32 @exr_attr_set_compression(ptr noundef %0, i32 noundef %1, ptr noundef
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %45 = load ptr, ptr %44, align 8, !tbaa !24
   %46 = zext nneg i32 %1 to i64
-  %47 = getelementptr inbounds nuw ptr, ptr %45, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %46
   %48 = load ptr, ptr %47, align 8, !tbaa !25
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %0, ptr noundef nonnull %49, ptr noundef %2, ptr noundef nonnull %5) #6
@@ -5949,7 +5947,7 @@ define i32 @exr_attr_get_double(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %29 = load ptr, ptr %28, align 8, !tbaa !24
   %30 = zext nneg i32 %1 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !25
   %.not47 = icmp eq ptr %2, null
   br i1 %.not47, label %36, label %33
@@ -6109,7 +6107,7 @@ define i32 @exr_attr_set_double(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %32 = load ptr, ptr %31, align 8, !tbaa !24
   %33 = zext nneg i32 %1 to i64
-  %34 = getelementptr inbounds nuw ptr, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !25
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %0, ptr noundef nonnull %36, ptr noundef %2, ptr noundef nonnull %5) #6
@@ -6223,7 +6221,7 @@ define i32 @exr_attr_get_envmap(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %29 = load ptr, ptr %28, align 8, !tbaa !24
   %30 = zext nneg i32 %1 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !25
   %.not47 = icmp eq ptr %2, null
   br i1 %.not47, label %36, label %33
@@ -6395,7 +6393,7 @@ define i32 @exr_attr_set_envmap(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %39 = load ptr, ptr %38, align 8, !tbaa !24
   %40 = zext nneg i32 %1 to i64
-  %41 = getelementptr inbounds nuw ptr, ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !25
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %0, ptr noundef nonnull %43, ptr noundef %2, ptr noundef nonnull %5) #6
@@ -6513,7 +6511,7 @@ define i32 @exr_attr_get_float(ptr noundef %0, i32 noundef %1, ptr noundef %2, p
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %29 = load ptr, ptr %28, align 8, !tbaa !24
   %30 = zext nneg i32 %1 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !25
   %.not47 = icmp eq ptr %2, null
   br i1 %.not47, label %36, label %33
@@ -6695,7 +6693,7 @@ define i32 @exr_attr_set_float(ptr noundef %0, i32 noundef %1, ptr noundef %2, f
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %42 = load ptr, ptr %41, align 8, !tbaa !24
   %43 = zext nneg i32 %1 to i64
-  %44 = getelementptr inbounds nuw ptr, ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %43
   %45 = load ptr, ptr %44, align 8, !tbaa !25
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %0, ptr noundef nonnull %46, ptr noundef %2, ptr noundef nonnull %5) #6
@@ -6813,7 +6811,7 @@ define i32 @exr_attr_get_float_vector(ptr noundef %0, i32 noundef %1, ptr nounde
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %30 = load ptr, ptr %29, align 8, !tbaa !24
   %31 = zext nneg i32 %1 to i64
-  %32 = getelementptr inbounds nuw ptr, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !25
   %.not45 = icmp eq ptr %2, null
   br i1 %.not45, label %37, label %34
@@ -6954,7 +6952,7 @@ define i32 @exr_attr_set_float_vector(ptr noundef %0, i32 noundef %1, ptr nounde
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %23 = load ptr, ptr %22, align 8, !tbaa !24
   %24 = zext nneg i32 %1 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !25
   %27 = load i8, ptr %0, align 8, !tbaa !3
   switch i8 %27, label %38 [
@@ -7155,7 +7153,7 @@ define i32 @exr_attr_get_int(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %29 = load ptr, ptr %28, align 8, !tbaa !24
   %30 = zext nneg i32 %1 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !25
   %.not47 = icmp eq ptr %2, null
   br i1 %.not47, label %36, label %33
@@ -7337,7 +7335,7 @@ define i32 @exr_attr_set_int(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %40 = load ptr, ptr %39, align 8, !tbaa !24
   %41 = zext nneg i32 %1 to i64
-  %42 = getelementptr inbounds nuw ptr, ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %41
   %43 = load ptr, ptr %42, align 8, !tbaa !25
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %0, ptr noundef nonnull %44, ptr noundef %2, ptr noundef nonnull %5) #6
@@ -7455,7 +7453,7 @@ define i32 @exr_attr_get_keycode(ptr noundef %0, i32 noundef %1, ptr noundef %2,
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %29 = load ptr, ptr %28, align 8, !tbaa !24
   %30 = zext nneg i32 %1 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !25
   %.not47 = icmp eq ptr %2, null
   br i1 %.not47, label %36, label %33
@@ -7615,7 +7613,7 @@ define i32 @exr_attr_set_keycode(ptr noundef %0, i32 noundef %1, ptr noundef %2,
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %32 = load ptr, ptr %31, align 8, !tbaa !24
   %33 = zext nneg i32 %1 to i64
-  %34 = getelementptr inbounds nuw ptr, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !25
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %0, ptr noundef nonnull %36, ptr noundef %2, ptr noundef nonnull %5) #6
@@ -7745,7 +7743,7 @@ define i32 @exr_attr_get_lineorder(ptr noundef %0, i32 noundef %1, ptr noundef %
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %29 = load ptr, ptr %28, align 8, !tbaa !24
   %30 = zext nneg i32 %1 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !25
   %.not47 = icmp eq ptr %2, null
   br i1 %.not47, label %36, label %33
@@ -7930,7 +7928,7 @@ define i32 @exr_attr_set_lineorder(ptr noundef %0, i32 noundef %1, ptr noundef %
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %45 = load ptr, ptr %44, align 8, !tbaa !24
   %46 = zext nneg i32 %1 to i64
-  %47 = getelementptr inbounds nuw ptr, ptr %45, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %46
   %48 = load ptr, ptr %47, align 8, !tbaa !25
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %0, ptr noundef nonnull %49, ptr noundef %2, ptr noundef nonnull %5) #6
@@ -8048,7 +8046,7 @@ define i32 @exr_attr_get_m33f(ptr noundef %0, i32 noundef %1, ptr noundef %2, pt
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %29 = load ptr, ptr %28, align 8, !tbaa !24
   %30 = zext nneg i32 %1 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !25
   %.not47 = icmp eq ptr %2, null
   br i1 %.not47, label %36, label %33
@@ -8208,7 +8206,7 @@ define i32 @exr_attr_set_m33f(ptr noundef %0, i32 noundef %1, ptr noundef %2, pt
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %32 = load ptr, ptr %31, align 8, !tbaa !24
   %33 = zext nneg i32 %1 to i64
-  %34 = getelementptr inbounds nuw ptr, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !25
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %0, ptr noundef nonnull %36, ptr noundef %2, ptr noundef nonnull %5) #6
@@ -8338,7 +8336,7 @@ define i32 @exr_attr_get_m33d(ptr noundef %0, i32 noundef %1, ptr noundef %2, pt
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %29 = load ptr, ptr %28, align 8, !tbaa !24
   %30 = zext nneg i32 %1 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !25
   %.not47 = icmp eq ptr %2, null
   br i1 %.not47, label %36, label %33
@@ -8498,7 +8496,7 @@ define i32 @exr_attr_set_m33d(ptr noundef %0, i32 noundef %1, ptr noundef %2, pt
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %32 = load ptr, ptr %31, align 8, !tbaa !24
   %33 = zext nneg i32 %1 to i64
-  %34 = getelementptr inbounds nuw ptr, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !25
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %0, ptr noundef nonnull %36, ptr noundef %2, ptr noundef nonnull %5) #6
@@ -8628,7 +8626,7 @@ define i32 @exr_attr_get_m44f(ptr noundef %0, i32 noundef %1, ptr noundef %2, pt
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %29 = load ptr, ptr %28, align 8, !tbaa !24
   %30 = zext nneg i32 %1 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !25
   %.not47 = icmp eq ptr %2, null
   br i1 %.not47, label %36, label %33
@@ -8788,7 +8786,7 @@ define i32 @exr_attr_set_m44f(ptr noundef %0, i32 noundef %1, ptr noundef %2, pt
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %32 = load ptr, ptr %31, align 8, !tbaa !24
   %33 = zext nneg i32 %1 to i64
-  %34 = getelementptr inbounds nuw ptr, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !25
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %0, ptr noundef nonnull %36, ptr noundef %2, ptr noundef nonnull %5) #6
@@ -8918,7 +8916,7 @@ define i32 @exr_attr_get_m44d(ptr noundef %0, i32 noundef %1, ptr noundef %2, pt
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %29 = load ptr, ptr %28, align 8, !tbaa !24
   %30 = zext nneg i32 %1 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !25
   %.not47 = icmp eq ptr %2, null
   br i1 %.not47, label %36, label %33
@@ -9078,7 +9076,7 @@ define i32 @exr_attr_set_m44d(ptr noundef %0, i32 noundef %1, ptr noundef %2, pt
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %32 = load ptr, ptr %31, align 8, !tbaa !24
   %33 = zext nneg i32 %1 to i64
-  %34 = getelementptr inbounds nuw ptr, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !25
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %0, ptr noundef nonnull %36, ptr noundef %2, ptr noundef nonnull %5) #6
@@ -9208,7 +9206,7 @@ define i32 @exr_attr_get_preview(ptr noundef %0, i32 noundef %1, ptr noundef %2,
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %29 = load ptr, ptr %28, align 8, !tbaa !24
   %30 = zext nneg i32 %1 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !25
   %.not47 = icmp eq ptr %2, null
   br i1 %.not47, label %36, label %33
@@ -9368,7 +9366,7 @@ define i32 @exr_attr_set_preview(ptr noundef %0, i32 noundef %1, ptr noundef %2,
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %32 = load ptr, ptr %31, align 8, !tbaa !24
   %33 = zext nneg i32 %1 to i64
-  %34 = getelementptr inbounds nuw ptr, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !25
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %0, ptr noundef nonnull %36, ptr noundef %2, ptr noundef nonnull %5) #6
@@ -9564,7 +9562,7 @@ define i32 @exr_attr_get_rational(ptr noundef %0, i32 noundef %1, ptr noundef %2
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %29 = load ptr, ptr %28, align 8, !tbaa !24
   %30 = zext nneg i32 %1 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !25
   %.not47 = icmp eq ptr %2, null
   br i1 %.not47, label %36, label %33
@@ -9725,7 +9723,7 @@ define i32 @exr_attr_set_rational(ptr noundef %0, i32 noundef %1, ptr noundef %2
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %32 = load ptr, ptr %31, align 8, !tbaa !24
   %33 = zext nneg i32 %1 to i64
-  %34 = getelementptr inbounds nuw ptr, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !25
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %0, ptr noundef nonnull %36, ptr noundef %2, ptr noundef nonnull %5) #6
@@ -9856,7 +9854,7 @@ define i32 @exr_attr_get_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %30 = load ptr, ptr %29, align 8, !tbaa !24
   %31 = zext nneg i32 %1 to i64
-  %32 = getelementptr inbounds nuw ptr, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !25
   %.not45 = icmp eq ptr %2, null
   br i1 %.not45, label %37, label %34
@@ -9995,7 +9993,7 @@ define i32 @exr_attr_set_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, 
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %20 = load ptr, ptr %19, align 8, !tbaa !24
   %21 = zext nneg i32 %1 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !25
   %.not103 = icmp eq ptr %2, null
   br i1 %.not103, label %..critedge_crit_edge, label %24
@@ -10288,7 +10286,7 @@ define i32 @exr_attr_get_string_vector(ptr noundef %0, i32 noundef %1, ptr nound
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %30 = load ptr, ptr %29, align 8, !tbaa !24
   %31 = zext nneg i32 %1 to i64
-  %32 = getelementptr inbounds nuw ptr, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !25
   %.not61 = icmp eq ptr %2, null
   br i1 %.not61, label %37, label %34
@@ -10427,10 +10425,10 @@ define i32 @exr_attr_get_string_vector(ptr noundef %0, i32 noundef %1, ptr nound
   %104 = phi ptr [ %111, %.lr.ph ], [ %88, %.preheader ]
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %106 = load ptr, ptr %105, align 8, !tbaa !99
-  %107 = getelementptr inbounds nuw %struct.exr_attr_string_t, ptr %106, i64 %indvars.iv
+  %107 = getelementptr inbounds nuw [16 x i8], ptr %106, i64 %indvars.iv
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %109 = load ptr, ptr %108, align 8, !tbaa !70
-  %110 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   store ptr %109, ptr %110, align 8, !tbaa !90
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %111 = load ptr, ptr %87, align 8, !tbaa !35
@@ -10488,7 +10486,7 @@ define i32 @exr_attr_set_string_vector(ptr noundef %0, i32 noundef %1, ptr nound
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %21 = load ptr, ptr %20, align 8, !tbaa !24
   %22 = zext nneg i32 %1 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !25
   %25 = load i8, ptr %0, align 8, !tbaa !3
   switch i8 %25, label %36 [
@@ -10573,7 +10571,7 @@ define i32 @exr_attr_set_string_vector(ptr noundef %0, i32 noundef %1, ptr nound
   %68 = load ptr, ptr %6, align 8, !tbaa !30
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 24
   %70 = load ptr, ptr %69, align 8, !tbaa !35
-  %71 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv193
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv193
   %72 = load ptr, ptr %71, align 8, !tbaa !90
   %73 = trunc nuw nsw i64 %indvars.iv193 to i32
   %74 = call i32 @exr_attr_string_vector_set_entry(ptr noundef nonnull %0, ptr noundef %70, i32 noundef %73, ptr noundef %72) #6
@@ -10635,7 +10633,7 @@ define i32 @exr_attr_set_string_vector(ptr noundef %0, i32 noundef %1, ptr nound
 
 .lr.ph163:                                        ; preds = %.lr.ph163.preheader, %134
   %indvars.iv187 = phi i64 [ 0, %.lr.ph163.preheader ], [ %indvars.iv.next188, %134 ]
-  %103 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv187
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv187
   %104 = load ptr, ptr %103, align 8, !tbaa !90
   %.not138 = icmp eq ptr %104, null
   br i1 %.not138, label %105, label %110
@@ -10654,7 +10652,7 @@ define i32 @exr_attr_set_string_vector(ptr noundef %0, i32 noundef %1, ptr nound
   %114 = load ptr, ptr %113, align 8, !tbaa !35
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %116 = load ptr, ptr %115, align 8, !tbaa !99
-  %117 = getelementptr inbounds nuw %struct.exr_attr_string_t, ptr %116, i64 %indvars.iv187
+  %117 = getelementptr inbounds nuw [16 x i8], ptr %116, i64 %indvars.iv187
   %118 = load i32, ptr %117, align 8, !tbaa !71
   %119 = sext i32 %118 to i64
   %.not139 = icmp eq i64 %111, %119
@@ -10670,7 +10668,7 @@ define i32 @exr_attr_set_string_vector(ptr noundef %0, i32 noundef %1, ptr nound
   %127 = load ptr, ptr %126, align 8, !tbaa !35
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %129 = load ptr, ptr %128, align 8, !tbaa !99
-  %130 = getelementptr inbounds nuw %struct.exr_attr_string_t, ptr %129, i64 %indvars.iv187
+  %130 = getelementptr inbounds nuw [16 x i8], ptr %129, i64 %indvars.iv187
   %131 = load i32, ptr %130, align 8, !tbaa !71
   %132 = trunc i64 %111 to i32
   %133 = call i32 (ptr, i32, ptr, ...) %124(ptr noundef nonnull %0, i32 noundef 3, ptr noundef nonnull @.str.101, ptr noundef %2, i32 noundef %121, i32 noundef %131, i32 noundef %132) #6
@@ -10691,7 +10689,7 @@ define i32 @exr_attr_set_string_vector(ptr noundef %0, i32 noundef %1, ptr nound
   %140 = load ptr, ptr %6, align 8, !tbaa !30
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 24
   %142 = load ptr, ptr %141, align 8, !tbaa !35
-  %143 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv190
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv190
   %144 = load ptr, ptr %143, align 8, !tbaa !90
   %145 = trunc nuw nsw i64 %indvars.iv190 to i32
   %146 = call i32 @exr_attr_string_vector_set_entry(ptr noundef nonnull %0, ptr noundef %142, i32 noundef %145, ptr noundef %144) #6
@@ -10730,7 +10728,7 @@ define i32 @exr_attr_set_string_vector(ptr noundef %0, i32 noundef %1, ptr nound
   %162 = load ptr, ptr %6, align 8, !tbaa !30
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 24
   %164 = load ptr, ptr %163, align 8, !tbaa !35
-  %165 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %165 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %166 = load ptr, ptr %165, align 8, !tbaa !90
   %167 = trunc nuw nsw i64 %indvars.iv to i32
   %168 = call i32 @exr_attr_string_vector_set_entry(ptr noundef nonnull %0, ptr noundef %164, i32 noundef %167, ptr noundef %166) #6
@@ -10804,7 +10802,7 @@ define i32 @exr_attr_get_tiledesc(ptr noundef %0, i32 noundef %1, ptr noundef %2
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %29 = load ptr, ptr %28, align 8, !tbaa !24
   %30 = zext nneg i32 %1 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !25
   %.not47 = icmp eq ptr %2, null
   br i1 %.not47, label %36, label %33
@@ -10989,7 +10987,7 @@ define i32 @exr_attr_set_tiledesc(ptr noundef %0, i32 noundef %1, ptr noundef %2
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %47 = load ptr, ptr %46, align 8, !tbaa !24
   %48 = zext nneg i32 %1 to i64
-  %49 = getelementptr inbounds nuw ptr, ptr %47, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !25
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %0, ptr noundef nonnull %51, ptr noundef %2, ptr noundef nonnull %5) #6
@@ -11123,7 +11121,7 @@ define i32 @exr_attr_get_timecode(ptr noundef %0, i32 noundef %1, ptr noundef %2
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %29 = load ptr, ptr %28, align 8, !tbaa !24
   %30 = zext nneg i32 %1 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !25
   %.not47 = icmp eq ptr %2, null
   br i1 %.not47, label %36, label %33
@@ -11284,7 +11282,7 @@ define i32 @exr_attr_set_timecode(ptr noundef %0, i32 noundef %1, ptr noundef %2
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %32 = load ptr, ptr %31, align 8, !tbaa !24
   %33 = zext nneg i32 %1 to i64
-  %34 = getelementptr inbounds nuw ptr, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !25
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %0, ptr noundef nonnull %36, ptr noundef %2, ptr noundef nonnull %5) #6
@@ -11415,7 +11413,7 @@ define i32 @exr_attr_get_v2i(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %29 = load ptr, ptr %28, align 8, !tbaa !24
   %30 = zext nneg i32 %1 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !25
   %.not47 = icmp eq ptr %2, null
   br i1 %.not47, label %36, label %33
@@ -11576,7 +11574,7 @@ define i32 @exr_attr_set_v2i(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %32 = load ptr, ptr %31, align 8, !tbaa !24
   %33 = zext nneg i32 %1 to i64
-  %34 = getelementptr inbounds nuw ptr, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !25
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %0, ptr noundef nonnull %36, ptr noundef %2, ptr noundef nonnull %5) #6
@@ -11707,7 +11705,7 @@ define i32 @exr_attr_get_v2f(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %29 = load ptr, ptr %28, align 8, !tbaa !24
   %30 = zext nneg i32 %1 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !25
   %.not47 = icmp eq ptr %2, null
   br i1 %.not47, label %36, label %33
@@ -11881,7 +11879,7 @@ define i32 @exr_attr_set_v2f(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %38 = load ptr, ptr %37, align 8, !tbaa !24
   %39 = zext nneg i32 %1 to i64
-  %40 = getelementptr inbounds nuw ptr, ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !25
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %0, ptr noundef nonnull %42, ptr noundef %2, ptr noundef nonnull %5) #6
@@ -12016,7 +12014,7 @@ define i32 @exr_attr_get_v2d(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %29 = load ptr, ptr %28, align 8, !tbaa !24
   %30 = zext nneg i32 %1 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !25
   %.not47 = icmp eq ptr %2, null
   br i1 %.not47, label %36, label %33
@@ -12176,7 +12174,7 @@ define i32 @exr_attr_set_v2d(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %32 = load ptr, ptr %31, align 8, !tbaa !24
   %33 = zext nneg i32 %1 to i64
-  %34 = getelementptr inbounds nuw ptr, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !25
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %0, ptr noundef nonnull %36, ptr noundef %2, ptr noundef nonnull %5) #6
@@ -12306,7 +12304,7 @@ define i32 @exr_attr_get_v3i(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %29 = load ptr, ptr %28, align 8, !tbaa !24
   %30 = zext nneg i32 %1 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !25
   %.not47 = icmp eq ptr %2, null
   br i1 %.not47, label %36, label %33
@@ -12466,7 +12464,7 @@ define i32 @exr_attr_set_v3i(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %32 = load ptr, ptr %31, align 8, !tbaa !24
   %33 = zext nneg i32 %1 to i64
-  %34 = getelementptr inbounds nuw ptr, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !25
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %0, ptr noundef nonnull %36, ptr noundef %2, ptr noundef nonnull %5) #6
@@ -12596,7 +12594,7 @@ define i32 @exr_attr_get_v3f(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %29 = load ptr, ptr %28, align 8, !tbaa !24
   %30 = zext nneg i32 %1 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !25
   %.not47 = icmp eq ptr %2, null
   br i1 %.not47, label %36, label %33
@@ -12756,7 +12754,7 @@ define i32 @exr_attr_set_v3f(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %32 = load ptr, ptr %31, align 8, !tbaa !24
   %33 = zext nneg i32 %1 to i64
-  %34 = getelementptr inbounds nuw ptr, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !25
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %0, ptr noundef nonnull %36, ptr noundef %2, ptr noundef nonnull %5) #6
@@ -12886,7 +12884,7 @@ define i32 @exr_attr_get_v3d(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %29 = load ptr, ptr %28, align 8, !tbaa !24
   %30 = zext nneg i32 %1 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !25
   %.not47 = icmp eq ptr %2, null
   br i1 %.not47, label %36, label %33
@@ -13046,7 +13044,7 @@ define i32 @exr_attr_set_v3d(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %32 = load ptr, ptr %31, align 8, !tbaa !24
   %33 = zext nneg i32 %1 to i64
-  %34 = getelementptr inbounds nuw ptr, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !25
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %0, ptr noundef nonnull %36, ptr noundef %2, ptr noundef nonnull %5) #6
@@ -13176,7 +13174,7 @@ define i32 @exr_attr_get_user(ptr noundef %0, i32 noundef %1, ptr noundef %2, pt
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %31 = load ptr, ptr %30, align 8, !tbaa !24
   %32 = zext nneg i32 %1 to i64
-  %33 = getelementptr inbounds nuw ptr, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !25
   %.not55 = icmp eq ptr %2, null
   br i1 %.not55, label %38, label %35
@@ -13366,7 +13364,7 @@ define i32 @exr_attr_set_user(ptr noundef %0, i32 noundef %1, ptr noundef %2, pt
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %34 = load ptr, ptr %33, align 8, !tbaa !24
   %35 = zext nneg i32 %1 to i64
-  %36 = getelementptr inbounds nuw ptr, ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !25
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = call i32 @exr_attr_list_find_by_name(ptr noundef nonnull %0, ptr noundef nonnull %38, ptr noundef %2, ptr noundef nonnull %7) #6

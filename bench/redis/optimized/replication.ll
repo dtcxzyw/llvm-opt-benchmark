@@ -1569,7 +1569,7 @@ prepareReplicasToWrite.exit:                      ; preds = %canFeedReplicaReplB
 
 47:                                               ; preds = %46
   %48 = zext nneg i32 %1 to i64
-  %49 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 800), i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 800), i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !99
   br label %57
 
@@ -1678,7 +1678,7 @@ feedReplicationBufferWithObject.exit:             ; preds = %63, %67, %72, %75, 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %feedReplicationBufferWithObject.exit45
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %feedReplicationBufferWithObject.exit45 ]
-  %103 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %104 = load ptr, ptr %103, align 8, !tbaa !99
   %105 = call i64 @stringObjectLen(ptr noundef %104) #21
   store i8 36, ptr %9, align 16, !tbaa !53
@@ -2003,7 +2003,7 @@ define dso_local void @replicationFeedMonitors(ptr noundef %0, ptr noundef %1, i
 39:                                               ; preds = %.lr.ph, %77
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %77 ]
   %.150 = phi ptr [ %.038, %.lr.ph ], [ %.3, %77 ]
-  %40 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %41 = load ptr, ptr %40, align 8, !tbaa !99
   %42 = load i32, ptr %41, align 8
   %43 = and i32 %42, 240
@@ -3542,7 +3542,7 @@ define dso_local void @replconfCommand(ptr noundef %0) local_unnamed_addr #0 {
 22:                                               ; preds = %.lr.ph225, %239
   %indvars.iv280 = phi i64 [ 1, %.lr.ph225 ], [ %indvars.iv.next281, %239 ]
   %23 = load ptr, ptr %13, align 8, !tbaa !127
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv280
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv280
   %25 = load ptr, ptr %24, align 8, !tbaa !99
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !89
@@ -3739,7 +3739,7 @@ default.unreachable:                              ; preds = %60
 
 120:                                              ; preds = %116
   %121 = load ptr, ptr %13, align 8, !tbaa !127
-  %122 = getelementptr inbounds nuw ptr, ptr %121, i64 %indvars.iv280
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %121, i64 %indvars.iv280
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 16
   %124 = load ptr, ptr %123, align 8, !tbaa !99
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 8
@@ -3750,7 +3750,7 @@ default.unreachable:                              ; preds = %60
 
 128:                                              ; preds = %120
   %129 = zext nneg i32 %118 to i64
-  %130 = getelementptr inbounds nuw ptr, ptr %121, i64 %129
+  %130 = getelementptr inbounds nuw [8 x i8], ptr %121, i64 %129
   %131 = load ptr, ptr %130, align 8, !tbaa !99
   %132 = call i32 @getLongLongFromObject(ptr noundef %131, ptr noundef nonnull %3) #21
   %.not137 = icmp eq i32 %132, 0
@@ -3891,7 +3891,7 @@ default.unreachable:                              ; preds = %60
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %201
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %201 ]
-  %198 = getelementptr inbounds nuw ptr, ptr %190, i64 %indvars.iv
+  %198 = getelementptr inbounds nuw [8 x i8], ptr %190, i64 %indvars.iv
   %199 = load ptr, ptr %198, align 8, !tbaa !162
   %200 = call i32 @strcasecmp(ptr noundef %199, ptr noundef nonnull @.str.88) #22
   %.not144 = icmp eq i32 %200, 0
@@ -4743,7 +4743,7 @@ define dso_local void @rdbPipeReadHandler(ptr readnone captures(none) %0, i32 no
   %28 = phi i32 [ %26, %.lr.ph65.preheader ], [ %37, %36 ]
   %29 = phi ptr [ %.pre, %.lr.ph65.preheader ], [ %38, %36 ]
   %indvars.iv71 = phi i64 [ 0, %.lr.ph65.preheader ], [ %indvars.iv.next72, %36 ]
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv71
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv71
   %31 = load ptr, ptr %30, align 8, !tbaa !185
   %.not50 = icmp eq ptr %31, null
   br i1 %.not50, label %36, label %32
@@ -4753,7 +4753,7 @@ define dso_local void @rdbPipeReadHandler(ptr readnone captures(none) %0, i32 no
   %.val52 = load ptr, ptr %33, align 8, !tbaa !169
   tail call void @freeClient(ptr noundef %.val52) #21
   %34 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6856), align 8, !tbaa !184
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv71
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv71
   store ptr null, ptr %35, align 8, !tbaa !185
   %.pre74 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6864), align 8, !tbaa !183
   br label %36
@@ -4795,7 +4795,7 @@ define dso_local void @rdbPipeReadHandler(ptr readnone captures(none) %0, i32 no
 51:                                               ; preds = %.lr.ph60, %51
   %indvars.iv68 = phi i64 [ 0, %.lr.ph60 ], [ %indvars.iv.next69, %51 ]
   %.03557 = phi i32 [ 0, %.lr.ph60 ], [ %.136, %51 ]
-  %52 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv68
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv68
   %53 = load ptr, ptr %52, align 8, !tbaa !185
   %.not49 = icmp ne ptr %53, null
   %54 = zext i1 %.not49 to i32
@@ -4824,7 +4824,7 @@ define dso_local void @rdbPipeReadHandler(ptr readnone captures(none) %0, i32 no
   %indvars.iv = phi i64 [ %indvars.iv.next, %106 ], [ 0, %.preheader ]
   %.03755 = phi i32 [ %.138, %106 ], [ 0, %.preheader ]
   %61 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6856), align 8, !tbaa !184
-  %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv
   %63 = load ptr, ptr %62, align 8, !tbaa !185
   %.not46 = icmp eq ptr %63, null
   br i1 %.not46, label %106, label %64
@@ -4864,7 +4864,7 @@ define dso_local void @rdbPipeReadHandler(ptr readnone captures(none) %0, i32 no
 84:                                               ; preds = %76, %79
   tail call void @freeClient(ptr noundef %.val51) #21
   %85 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6856), align 8, !tbaa !184
-  %86 = getelementptr inbounds nuw ptr, ptr %85, i64 %indvars.iv
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %indvars.iv
   store ptr null, ptr %86, align 8, !tbaa !185
   br label %106
 
@@ -7244,7 +7244,7 @@ define dso_local ptr @sendCommandArgv(ptr noundef %0, i32 noundef %1, ptr nounde
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %indvars.iv32 = phi i64 [ %indvars.iv.next33, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %.02228.us = phi ptr [ %15, %.lr.ph.split.us ], [ %6, %.lr.ph ]
-  %8 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv32
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv32
   %9 = load ptr, ptr %8, align 8, !tbaa !162
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #22
   %11 = trunc i64 %10 to i32
@@ -7260,9 +7260,9 @@ define dso_local ptr @sendCommandArgv(ptr noundef %0, i32 noundef %1, ptr nounde
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
   %.02228 = phi ptr [ %24, %.lr.ph.split ], [ %6, %.lr.ph ]
-  %16 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !162
-  %18 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %19 = load i64, ptr %18, align 8, !tbaa !78
   %20 = trunc i64 %19 to i32
   %21 = tail call ptr (ptr, ptr, ...) @sdscatfmt(ptr noundef %.02228, ptr noundef nonnull @.str.150, i32 noundef %20) #21
@@ -8035,7 +8035,7 @@ receiveSynchronousResponse.exit:                  ; preds = %41
 86:                                               ; preds = %82, %80
   %.0 = phi i32 [ 2, %82 ], [ 1, %80 ]
   %87 = zext nneg i32 %.0 to i64
-  %88 = getelementptr inbounds nuw ptr, ptr %6, i64 %87
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %87
   store ptr %79, ptr %88, align 8, !tbaa !162
   %89 = getelementptr inbounds i8, ptr %79, i64 -1
   %90 = load i8, ptr %89, align 1, !tbaa !53
@@ -8079,7 +8079,7 @@ receiveSynchronousResponse.exit:                  ; preds = %41
 
 sdslen.exit:                                      ; preds = %86, %93, %96, %100, %104, %108
   %.0.i139 = phi i64 [ %110, %108 ], [ %95, %93 ], [ %99, %96 ], [ %103, %100 ], [ %107, %104 ], [ 0, %86 ]
-  %111 = getelementptr inbounds nuw i64, ptr %7, i64 %87
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %87
   store i64 %.0.i139, ptr %111, align 8, !tbaa !78
   %112 = add nuw nsw i32 %.0, 1
   %113 = call ptr @sendCommandArgv(ptr noundef nonnull %0, i32 noundef %112, ptr noundef nonnull %6, ptr noundef nonnull %7)
@@ -8793,7 +8793,7 @@ define internal void @rdbChannelFullSyncWithMaster(ptr noundef %0) #0 {
 34:                                               ; preds = %30, %28
   %.018.i = phi i32 [ 2, %30 ], [ 1, %28 ]
   %35 = zext nneg i32 %.018.i to i64
-  %36 = getelementptr inbounds nuw ptr, ptr %6, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %35
   store ptr %27, ptr %36, align 8, !tbaa !162
   %37 = getelementptr inbounds i8, ptr %27, i64 -1
   %38 = load i8, ptr %37, align 1, !tbaa !53
@@ -8837,7 +8837,7 @@ define internal void @rdbChannelFullSyncWithMaster(ptr noundef %0) #0 {
 
 sdslen.exit.i:                                    ; preds = %56, %52, %48, %44, %41, %34
   %.0.i.i = phi i64 [ %58, %56 ], [ %43, %41 ], [ %47, %44 ], [ %51, %48 ], [ %55, %52 ], [ 0, %34 ]
-  %59 = getelementptr inbounds nuw i64, ptr %7, i64 %35
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %35
   store i64 %.0.i.i, ptr %59, align 8, !tbaa !78
   %60 = add nuw nsw i32 %.018.i, 1
   %61 = call ptr @sendCommandArgv(ptr noundef nonnull %0, i32 noundef %60, ptr noundef nonnull %6, ptr noundef nonnull %7)
@@ -11953,7 +11953,7 @@ define dso_local noundef nonnull ptr @getFailoverStateString() local_unnamed_add
 
 switch.lookup:                                    ; preds = %0
   %3 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.getFailoverStateString, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.getFailoverStateString, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -12030,7 +12030,7 @@ define dso_local void @failoverCommand(ptr noundef %0) local_unnamed_addr #0 {
   %.06291 = phi i32 [ 1, %.lr.ph ], [ %73, %72 ]
   %27 = load ptr, ptr %24, align 8, !tbaa !127
   %28 = sext i32 %.06291 to i64
-  %29 = getelementptr inbounds ptr, ptr %27, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !99
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !89
@@ -12048,7 +12048,7 @@ define dso_local void @failoverCommand(ptr noundef %0) local_unnamed_addr #0 {
 
 39:                                               ; preds = %34
   %40 = sext i32 %35 to i64
-  %41 = getelementptr inbounds ptr, ptr %27, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %27, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !99
   %43 = call i32 @getLongFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %42, ptr noundef nonnull %2, ptr noundef null) #21
   %.not71 = icmp eq i32 %43, 0
@@ -12077,7 +12077,7 @@ define dso_local void @failoverCommand(ptr noundef %0) local_unnamed_addr #0 {
 
 54:                                               ; preds = %50
   %55 = sext i32 %51 to i64
-  %56 = getelementptr inbounds ptr, ptr %27, i64 %55
+  %56 = getelementptr inbounds [8 x i8], ptr %27, i64 %55
   %57 = load ptr, ptr %56, align 8, !tbaa !99
   %58 = call i32 @getLongFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %57, ptr noundef nonnull %3, ptr noundef null) #21
   %.not73 = icmp eq i32 %58, 0
@@ -12085,7 +12085,7 @@ define dso_local void @failoverCommand(ptr noundef %0) local_unnamed_addr #0 {
 
 59:                                               ; preds = %54
   %60 = load ptr, ptr %24, align 8, !tbaa !127
-  %61 = getelementptr ptr, ptr %60, i64 %28
+  %61 = getelementptr [8 x i8], ptr %60, i64 %28
   %62 = getelementptr i8, ptr %61, i64 8
   %63 = load ptr, ptr %62, align 8, !tbaa !99
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8

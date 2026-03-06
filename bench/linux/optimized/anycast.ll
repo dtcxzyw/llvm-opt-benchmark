@@ -371,7 +371,7 @@ define dso_local i32 @__ipv6_dev_ac_inc(ptr noundef %0, ptr noundef %1) local_un
   %100 = lshr i32 %99, 24
   tail call void @_raw_spin_lock(ptr noundef nonnull @acaddr_hash_lock) #6
   %101 = zext nneg i32 %100 to i64
-  %102 = getelementptr %struct.hlist_head, ptr @inet6_acaddr_lst, i64 %101
+  %102 = getelementptr [8 x i8], ptr @inet6_acaddr_lst, i64 %101
   %103 = load ptr, ptr %102, align 8
   store ptr %103, ptr %72, align 8
   %104 = getelementptr inbounds nuw i8, ptr %47, i64 40
@@ -974,7 +974,7 @@ define dso_local noundef zeroext i1 @ipv6_chk_acast_addr(ptr noundef readonly ca
   %45 = mul i32 %44, 1640531527
   %46 = lshr i32 %45, 24
   %47 = zext nneg i32 %46 to i64
-  %48 = getelementptr %struct.hlist_head, ptr @inet6_acaddr_lst, i64 %47
+  %48 = getelementptr [8 x i8], ptr @inet6_acaddr_lst, i64 %47
   %49 = load volatile ptr, ptr %48, align 8
   %50 = icmp eq ptr %49, null
   %51 = getelementptr i8, ptr %49, i64 -32
@@ -1109,7 +1109,7 @@ define dso_local void @ipv6_anycast_cleanup() local_unnamed_addr #0 align 16 {
 
 1:                                                ; preds = %7, %0
   %2 = phi i64 [ 0, %0 ], [ %8, %7 ]
-  %3 = getelementptr %struct.hlist_head, ptr @inet6_acaddr_lst, i64 %2
+  %3 = getelementptr [8 x i8], ptr @inet6_acaddr_lst, i64 %2
   %4 = load volatile ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
   br i1 %5, label %7, label %6, !prof !5

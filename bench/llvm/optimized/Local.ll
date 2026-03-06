@@ -8,7 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.anon = type { ptr, i64 }
 %"class.llvm::TypeSize" = type { %"class.llvm::details::FixedOrScalableQuantity.base", [7 x i8] }
 %"class.llvm::details::FixedOrScalableQuantity.base" = type <{ i64, i8 }>
-%"class.llvm::Use" = type { ptr, ptr, ptr, ptr }
 
 $_ZN4llvm13IRBuilderBase9CreateMulEPNS_5ValueES2_RKNS_5TwineEbb = comdat any
 
@@ -65,7 +64,7 @@ define dso_local noundef ptr @_ZN4llvm13emitGEPOffsetEPNS_13IRBuilderBaseERKNS_1
   %32 = and i32 %26, 134217727
   %33 = zext nneg i32 %32 to i64
   %34 = sub nsw i64 0, %33
-  %35 = getelementptr inbounds %"class.llvm::Use", ptr %2, i64 %34
+  %35 = getelementptr inbounds [32 x i8], ptr %2, i64 %34
   br label %_ZN4llvm4User6op_endEv.exit
 
 _ZN4llvm4User6op_endEv.exit:                      ; preds = %28, %31
@@ -150,7 +149,7 @@ _ZN4llvm4User6op_endEv.exit:                      ; preds = %28, %31
   %76 = call noundef ptr @_ZNK4llvm10DataLayout15getStructLayoutEPNS_10StructTypeE(ptr noundef nonnull align 8 dereferenceable(496) %1, ptr noundef nonnull %70) #5
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 24
   %78 = and i64 %.0.i, 4294967295
-  %79 = getelementptr inbounds nuw %"class.llvm::TypeSize", ptr %77, i64 %78
+  %79 = getelementptr inbounds nuw [16 x i8], ptr %77, i64 %78
   %.sroa.0.0.copyload.i = load i64, ptr %79, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %79, i64 8
   %.sroa.2.0.copyload.i = load i8, ptr %.sroa.2.0..sroa_idx.i, align 8

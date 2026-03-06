@@ -428,7 +428,7 @@ _ZN7rocksdb8Random644NextEv.exit:                 ; preds = %_ZN7rocksdb10WriteB
           to label %.noexc unwind label %118
 
 .noexc:                                           ; preds = %57
-  %60 = getelementptr inbounds nuw i16, ptr %59, i64 %56
+  %60 = getelementptr inbounds nuw [2 x i8], ptr %59, i64 %56
   store i16 0, ptr %59, align 2, !tbaa !57
   %61 = getelementptr i8, ptr %59, i64 2
   %62 = add nsw i64 %56, -1
@@ -3493,7 +3493,7 @@ _ZNSt13random_deviceclEv.exit:                    ; preds = %_ZNSt13random_devic
 22:                                               ; preds = %22, %_ZNSt13random_deviceclEv.exit
   %store_forwarded = phi i64 [ %21, %_ZNSt13random_deviceclEv.exit ], [ %28, %22 ]
   %.011.i.i.i = phi i64 [ 1, %_ZNSt13random_deviceclEv.exit ], [ %29, %22 ]
-  %23 = getelementptr i64, ptr %3, i64 %.011.i.i.i
+  %23 = getelementptr [8 x i8], ptr %3, i64 %.011.i.i.i
   %24 = lshr i64 %store_forwarded, 30
   %25 = xor i64 %24, %store_forwarded
   %26 = mul nuw nsw i64 %25, 1812433253
@@ -4251,7 +4251,7 @@ define void @_ZN7rocksdb25RandomTransactionInserter6VerifyEPNS_2DBEtmbPNS_8Rando
           to label %.noexc unwind label %108
 
 .noexc:                                           ; preds = %68
-  %71 = getelementptr inbounds nuw i16, ptr %70, i64 %67
+  %71 = getelementptr inbounds nuw [2 x i8], ptr %70, i64 %67
   store i16 0, ptr %70, align 2, !tbaa !57
   %72 = getelementptr i8, ptr %70, i64 2
   %73 = add nsw i64 %67, -1
@@ -5138,10 +5138,10 @@ define linkonce_odr noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm15
 6:                                                ; preds = %6, %5
   %7 = phi i64 [ %.pre.i, %5 ], [ %12, %6 ]
   %.021.i = phi i64 [ 0, %5 ], [ %10, %6 ]
-  %8 = getelementptr inbounds nuw i64, ptr %0, i64 %.021.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.021.i
   %9 = and i64 %7, -2147483648
   %10 = add nuw nsw i64 %.021.i, 1
-  %11 = getelementptr inbounds nuw i64, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %10
   %12 = load i64, ptr %11, align 8, !tbaa !42
   %13 = and i64 %12, 2147483646
   %14 = or disjoint i64 %13, %9
@@ -5165,10 +5165,10 @@ define linkonce_odr noundef i64 @_ZNSt23mersenne_twister_engineImLm64ELm312ELm15
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
   %22 = phi i64 [ %27, %.preheader.i ], [ %.pre24.i, %.preheader.preheader.i ]
   %.01822.i = phi i64 [ %25, %.preheader.i ], [ 156, %.preheader.preheader.i ]
-  %23 = getelementptr inbounds nuw i64, ptr %0, i64 %.01822.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.01822.i
   %24 = and i64 %22, -2147483648
   %25 = add nuw nsw i64 %.01822.i, 1
-  %26 = getelementptr inbounds nuw i64, ptr %0, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %25
   %27 = load i64, ptr %26, align 8, !tbaa !42
   %28 = and i64 %27, 2147483646
   %29 = or disjoint i64 %28, %24
@@ -5206,7 +5206,7 @@ _ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm2
   %51 = phi i64 [ 0, %_ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm29ELm6148914691236517205ELm17ELm8202884508482404352ELm37ELm18444473444759240704ELm43ELm6364136223846793005EE11_M_gen_randEv.exit ], [ %3, %1 ]
   %52 = add nuw nsw i64 %51, 1
   store i64 %52, ptr %2, align 8, !tbaa !200
-  %53 = getelementptr inbounds nuw i64, ptr %0, i64 %51
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %51
   %54 = load i64, ptr %53, align 8, !tbaa !42
   %55 = lshr i64 %54, 29
   %56 = and i64 %55, 22906492245
@@ -5436,7 +5436,7 @@ define linkonce_odr void @_ZSt7shuffleIN9__gnu_cxx17__normal_iteratorIPtSt6vecto
   store i64 1, ptr %20, align 8, !tbaa !216
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %22 = call noundef i64 @_ZNSt24uniform_int_distributionImEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEmRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(5000) %2, ptr noundef nonnull align 8 dereferenceable(16) %5)
-  %23 = getelementptr inbounds i16, ptr %0, i64 %22
+  %23 = getelementptr inbounds [2 x i8], ptr %0, i64 %22
   %24 = load i16, ptr %16, align 2, !tbaa !57
   %25 = load i16, ptr %23, align 2, !tbaa !57
   store i16 %25, ptr %16, align 2, !tbaa !57
@@ -5470,13 +5470,13 @@ define linkonce_odr void @_ZSt7shuffleIN9__gnu_cxx17__normal_iteratorIPtSt6vecto
   %37 = udiv i64 %36, %33
   %38 = urem i64 %36, %33
   %39 = getelementptr inbounds nuw i8, ptr %.sroa.018.140, i64 2
-  %40 = getelementptr inbounds i16, ptr %0, i64 %37
+  %40 = getelementptr inbounds [2 x i8], ptr %0, i64 %37
   %41 = load i16, ptr %.sroa.018.140, align 2, !tbaa !57
   %42 = load i16, ptr %40, align 2, !tbaa !57
   store i16 %42, ptr %.sroa.018.140, align 2, !tbaa !57
   store i16 %41, ptr %40, align 2, !tbaa !57
   %43 = getelementptr inbounds nuw i8, ptr %.sroa.018.140, i64 4
-  %44 = getelementptr inbounds i16, ptr %0, i64 %38
+  %44 = getelementptr inbounds [2 x i8], ptr %0, i64 %38
   %45 = load i16, ptr %39, align 2, !tbaa !57
   %46 = load i16, ptr %44, align 2, !tbaa !57
   store i16 %46, ptr %39, align 2, !tbaa !57
@@ -5510,7 +5510,7 @@ define linkonce_odr void @_ZSt7shuffleIN9__gnu_cxx17__normal_iteratorIPtSt6vecto
   store i64 0, ptr %7, align 8, !tbaa !214
   store i64 %53, ptr %49, align 8, !tbaa !216
   %54 = call noundef i64 @_ZNSt24uniform_int_distributionImEclISt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EEEEmRT_RKNS0_10param_typeE(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(5000) %2, ptr noundef nonnull align 8 dereferenceable(16) %7)
-  %55 = getelementptr inbounds i16, ptr %0, i64 %54
+  %55 = getelementptr inbounds [2 x i8], ptr %0, i64 %54
   %56 = load i16, ptr %.sroa.0.043, align 2, !tbaa !57
   %57 = load i16, ptr %55, align 2, !tbaa !57
   store i16 %57, ptr %.sroa.0.043, align 2, !tbaa !57
@@ -5610,10 +5610,10 @@ define linkonce_odr noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm39
 6:                                                ; preds = %6, %5
   %7 = phi i64 [ %.pre.i, %5 ], [ %12, %6 ]
   %.021.i = phi i64 [ 0, %5 ], [ %10, %6 ]
-  %8 = getelementptr inbounds nuw i64, ptr %0, i64 %.021.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.021.i
   %9 = and i64 %7, -2147483648
   %10 = add nuw nsw i64 %.021.i, 1
-  %11 = getelementptr inbounds nuw i64, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %10
   %12 = load i64, ptr %11, align 8, !tbaa !42
   %13 = and i64 %12, 2147483646
   %14 = or disjoint i64 %13, %9
@@ -5637,10 +5637,10 @@ define linkonce_odr noundef i64 @_ZNSt23mersenne_twister_engineImLm32ELm624ELm39
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
   %22 = phi i64 [ %27, %.preheader.i ], [ %.pre24.i, %.preheader.preheader.i ]
   %.01822.i = phi i64 [ %25, %.preheader.i ], [ 227, %.preheader.preheader.i ]
-  %23 = getelementptr inbounds nuw i64, ptr %0, i64 %.01822.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.01822.i
   %24 = and i64 %22, -2147483648
   %25 = add nuw nsw i64 %.01822.i, 1
-  %26 = getelementptr inbounds nuw i64, ptr %0, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %25
   %27 = load i64, ptr %26, align 8, !tbaa !42
   %28 = and i64 %27, 2147483646
   %29 = or disjoint i64 %28, %24
@@ -5678,7 +5678,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %51 = phi i64 [ 0, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit ], [ %3, %1 ]
   %52 = add nuw nsw i64 %51, 1
   store i64 %52, ptr %2, align 8, !tbaa !155
-  %53 = getelementptr inbounds nuw i64, ptr %0, i64 %51
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %51
   %54 = load i64, ptr %53, align 8, !tbaa !42
   %55 = lshr i64 %54, 11
   %56 = and i64 %55, 4294967295

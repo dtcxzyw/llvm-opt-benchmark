@@ -508,11 +508,11 @@ define internal noundef i32 @do_chromakey16_slice(ptr noundef readonly captures(
 59:                                               ; preds = %59, %54
   %indvars.iv.i.us = phi i64 [ 0, %54 ], [ %indvars.iv.next.i.us, %59 ]
   %.02628.i.us = phi double [ 0.000000e+00, %54 ], [ %74, %59 ]
-  %60 = getelementptr inbounds nuw i16, ptr %5, i64 %indvars.iv.i.us
+  %60 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %indvars.iv.i.us
   %61 = load i16, ptr %60, align 2, !tbaa !55
   %62 = zext i16 %61 to i32
   %63 = sub nsw i32 %62, %56
-  %64 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv.i.us
+  %64 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %indvars.iv.i.us
   %65 = load i16, ptr %64, align 2, !tbaa !55
   %66 = zext i16 %65 to i32
   %67 = sub nsw i32 %66, %58
@@ -549,7 +549,7 @@ define internal noundef i32 @do_chromakey16_slice(ptr noundef readonly captures(
 do_chromakey_pixel16.exit.us:                     ; preds = %80, %77
   %.025.in.i.us = phi double [ %86, %80 ], [ %79, %77 ]
   %.025.i.us = fptoui double %.025.in.i.us to i16
-  %87 = getelementptr inbounds nuw i16, ptr %52, i64 %indvars.iv70
+  %87 = getelementptr inbounds nuw [2 x i8], ptr %52, i64 %indvars.iv70
   store i16 %.025.i.us, ptr %87, align 2, !tbaa !55
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond73.not = icmp eq i64 %indvars.iv.next71, %wide.trip.count
@@ -564,8 +564,8 @@ do_chromakey_pixel16.exit.us:                     ; preds = %80, %77
 
 90:                                               ; preds = %.preheader.split.us58
   %91 = add nuw nsw i64 %indvars.iv62, %115
-  %92 = getelementptr inbounds nuw i16, ptr %6, i64 %91
-  %93 = getelementptr inbounds nuw i16, ptr %5, i64 %91
+  %92 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %91
+  %93 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %91
   %94 = trunc i64 %88 to i32
   %95 = add i32 %94, -1
   %96 = lshr i32 %95, %37
@@ -618,9 +618,9 @@ get_pixel16_uv.exit.us57:                         ; preds = %90, %.preheader.spl
 
 119:                                              ; preds = %4, %119
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %119 ]
-  %120 = getelementptr inbounds nuw i16, ptr %5, i64 %indvars.iv
+  %120 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %indvars.iv
   store i16 %12, ptr %120, align 2, !tbaa !55
-  %121 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv
+  %121 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %indvars.iv
   store i16 %14, ptr %121, align 2, !tbaa !55
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9

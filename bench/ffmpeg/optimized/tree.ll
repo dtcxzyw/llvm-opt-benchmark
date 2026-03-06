@@ -34,7 +34,7 @@ define ptr @av_tree_find(ptr noundef readonly captures(address_is_null) %0, ptr 
 .split.split.us:                                  ; preds = %.lr.ph.split.us
   %isnotneg = icmp sgt i32 %7, -1
   %8 = zext i1 %isnotneg to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %.tr.ph57, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %.tr.ph57, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !10
   %.not43 = icmp eq ptr %10, null
   br i1 %.not43, label %.loopexit, label %.lr.ph
@@ -51,11 +51,11 @@ define ptr @av_tree_find(ptr noundef readonly captures(address_is_null) %0, ptr 
   %14 = load ptr, ptr %11, align 8, !tbaa !4
   %15 = lshr i32 %13, 31
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr %.tr36.ph58, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %.tr36.ph58, i64 %16
   store ptr %14, ptr %17, align 8, !tbaa !12
   %isnotneg33 = icmp sgt i32 %13, -1
   %18 = zext i1 %isnotneg33 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr %.tr44, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.tr44, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !10
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %.loopexit, label %.lr.ph.split
@@ -122,7 +122,7 @@ define ptr @av_tree_insert(ptr noundef captures(none) %0, ptr noundef %1, ptr no
   %.neg = sext i1 %.not93 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %21 = zext i1 %.not93 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr %6, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !10
   %24 = call ptr @av_tree_find(ptr noundef %23, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %5)
   %25 = load ptr, ptr %.sroa.sel.idx.sroa.phi, align 8, !tbaa !12
@@ -140,7 +140,7 @@ define ptr @av_tree_insert(ptr noundef captures(none) %0, ptr noundef %1, ptr no
   %.083 = phi ptr [ %1, %7 ], [ %25, %20 ]
   %28 = lshr i32 %.084, 31
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %6, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %29
   %31 = call ptr @av_tree_insert(ptr noundef nonnull %30, ptr noundef %.083, ptr noundef %2, ptr noundef %3)
   %.not96 = icmp eq ptr %31, null
   br i1 %.not96, label %32, label %97
@@ -151,7 +151,7 @@ define ptr @av_tree_insert(ptr noundef captures(none) %0, ptr noundef %1, ptr no
   %35 = zext i1 %34 to i32
   %36 = xor i32 %28, %35
   %37 = zext nneg i32 %36 to i64
-  %38 = getelementptr inbounds nuw ptr, ptr %6, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %37
   %39 = shl nuw nsw i32 %36, 1
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %41 = load i32, ptr %40, align 8, !tbaa !13
@@ -181,24 +181,24 @@ define ptr @av_tree_insert(ptr noundef captures(none) %0, ptr noundef %1, ptr no
 51:                                               ; preds = %44
   %52 = xor i32 %36, 1
   %53 = zext nneg i32 %52 to i64
-  %54 = getelementptr inbounds nuw ptr, ptr %45, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %53
   %55 = load ptr, ptr %54, align 8, !tbaa !10
   store ptr %55, ptr %0, align 8, !tbaa !10
-  %56 = getelementptr inbounds nuw ptr, ptr %55, i64 %37
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %37
   %57 = load ptr, ptr %56, align 8, !tbaa !10
   %58 = load ptr, ptr %38, align 8, !tbaa !10
-  %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %53
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %53
   store ptr %57, ptr %59, align 8, !tbaa !10
   %60 = load ptr, ptr %38, align 8, !tbaa !10
   %61 = load ptr, ptr %0, align 8, !tbaa !10
-  %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %37
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %37
   store ptr %60, ptr %62, align 8, !tbaa !10
   %63 = load ptr, ptr %0, align 8, !tbaa !10
-  %64 = getelementptr inbounds nuw ptr, ptr %63, i64 %53
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %53
   %65 = load ptr, ptr %64, align 8, !tbaa !10
   store ptr %65, ptr %38, align 8, !tbaa !10
   %66 = load ptr, ptr %0, align 8, !tbaa !10
-  %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %53
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %53
   store ptr %6, ptr %67, align 8, !tbaa !10
   %68 = load ptr, ptr %0, align 8, !tbaa !10
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 24
@@ -224,11 +224,11 @@ define ptr @av_tree_insert(ptr noundef captures(none) %0, ptr noundef %1, ptr no
   %80 = load ptr, ptr %38, align 8, !tbaa !10
   %81 = xor i32 %36, 1
   %82 = zext nneg i32 %81 to i64
-  %83 = getelementptr inbounds nuw ptr, ptr %80, i64 %82
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %82
   %84 = load ptr, ptr %83, align 8, !tbaa !10
   store ptr %84, ptr %38, align 8, !tbaa !10
   %85 = load ptr, ptr %0, align 8, !tbaa !10
-  %86 = getelementptr inbounds nuw ptr, ptr %85, i64 %82
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %82
   store ptr %6, ptr %86, align 8, !tbaa !10
   %87 = load ptr, ptr %0, align 8, !tbaa !10
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 24

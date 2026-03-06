@@ -205,7 +205,7 @@ define dso_local void @free_pid(ptr noundef %0) local_unnamed_addr #0 align 16 {
 5:                                                ; preds = %24, %1
   %6 = phi i32 [ 0, %1 ], [ %28, %24 ]
   %7 = sext i32 %6 to i64
-  %8 = getelementptr %struct.upid, ptr %4, i64 %7
+  %8 = getelementptr [16 x i8], ptr %4, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 40
@@ -346,7 +346,7 @@ define dso_local ptr @alloc_pid(ptr noundef %0, ptr noundef readonly captures(no
   %28 = trunc i64 %22 to i32
   %29 = sub i32 %27, %28
   %30 = zext i32 %29 to i64
-  %31 = getelementptr i32, ptr %1, i64 %30
+  %31 = getelementptr [4 x i8], ptr %1, i64 %30
   %32 = load i32, ptr %31, align 4
   %33 = icmp sgt i32 %32, 0
   %34 = load i32, ptr @pid_max, align 4
@@ -431,7 +431,7 @@ define dso_local ptr @alloc_pid(ptr noundef %0, ptr noundef readonly captures(no
   br label %.loopexit15
 
 82:                                               ; preds = %76
-  %83 = getelementptr %struct.upid, ptr %19, i64 %22
+  %83 = getelementptr [16 x i8], ptr %19, i64 %22
   store i32 %68, ptr %83, align 8
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   store ptr %23, ptr %84, align 8
@@ -483,7 +483,7 @@ define dso_local ptr @alloc_pid(ptr noundef %0, ptr noundef readonly captures(no
 
 111:                                              ; preds = %101
   %112 = zext i32 %107 to i64
-  %113 = getelementptr %struct.upid, ptr %106, i64 %112
+  %113 = getelementptr [16 x i8], ptr %106, i64 %112
   %114 = icmp ult ptr %113, %106
   br i1 %114, label %.loopexit14, label %.preheader
 
@@ -528,7 +528,7 @@ define dso_local ptr @alloc_pid(ptr noundef %0, ptr noundef readonly captures(no
 135:                                              ; preds = %135, %133
   %136 = phi i32 [ %130, %133 ], [ %144, %135 ]
   %137 = sext i32 %136 to i64
-  %138 = getelementptr %struct.upid, ptr %134, i64 %137
+  %138 = getelementptr [16 x i8], ptr %134, i64 %137
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 8
   %140 = load ptr, ptr %139, align 8
   %141 = load i32, ptr %138, align 8
@@ -663,7 +663,7 @@ define dso_local void @attach_pid(ptr noundef %0, i32 noundef %1) local_unnamed_
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 360
   %10 = zext i32 %1 to i64
-  %11 = getelementptr ptr, ptr %9, i64 %10
+  %11 = getelementptr [8 x i8], ptr %9, i64 %10
   br label %12
 
 12:                                               ; preds = %6, %4
@@ -671,9 +671,9 @@ define dso_local void @attach_pid(ptr noundef %0, i32 noundef %1) local_unnamed_
   %13 = phi ptr [ %11, %6 ], [ %5, %4 ]
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1424
-  %16 = getelementptr %struct.hlist_node, ptr %15, i64 %.pre-phi
+  %16 = getelementptr [16 x i8], ptr %15, i64 %.pre-phi
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %18 = getelementptr %struct.hlist_head, ptr %17, i64 %.pre-phi
+  %18 = getelementptr [8 x i8], ptr %17, i64 %.pre-phi
   %19 = load ptr, ptr %18, align 8
   store ptr %19, ptr %16, align 8
   %20 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -706,7 +706,7 @@ define dso_local void @detach_pid(ptr noundef %0, i32 noundef %1) local_unnamed_
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 360
   %10 = zext i32 %1 to i64
-  %11 = getelementptr ptr, ptr %9, i64 %10
+  %11 = getelementptr [8 x i8], ptr %9, i64 %10
   br label %12
 
 12:                                               ; preds = %6, %4
@@ -714,7 +714,7 @@ define dso_local void @detach_pid(ptr noundef %0, i32 noundef %1) local_unnamed_
   %13 = phi ptr [ %11, %6 ], [ %5, %4 ]
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1424
-  %16 = getelementptr %struct.hlist_node, ptr %15, i64 %.pre-phi
+  %16 = getelementptr [16 x i8], ptr %15, i64 %.pre-phi
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load ptr, ptr %18, align 8
@@ -740,7 +740,7 @@ define dso_local void @detach_pid(ptr noundef %0, i32 noundef %1) local_unnamed_
 
 28:                                               ; preds = %25
   %29 = add nsw i64 %26, -1
-  %30 = getelementptr %struct.hlist_head, ptr %24, i64 %29
+  %30 = getelementptr [8 x i8], ptr %24, i64 %29
   %31 = load volatile ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
   br i1 %32, label %25, label %.loopexit, !llvm.loop !26
@@ -767,7 +767,7 @@ define dso_local void @change_pid(ptr noundef %0, i32 noundef %1, ptr noundef %2
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 360
   %11 = zext i32 %1 to i64
-  %12 = getelementptr ptr, ptr %10, i64 %11
+  %12 = getelementptr [8 x i8], ptr %10, i64 %11
   br label %13
 
 13:                                               ; preds = %7, %5
@@ -775,7 +775,7 @@ define dso_local void @change_pid(ptr noundef %0, i32 noundef %1, ptr noundef %2
   %14 = phi ptr [ %12, %7 ], [ %6, %5 ]
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 1424
-  %17 = getelementptr %struct.hlist_node, ptr %16, i64 %.pre-phi
+  %17 = getelementptr [16 x i8], ptr %16, i64 %.pre-phi
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %20 = load ptr, ptr %19, align 8
@@ -801,7 +801,7 @@ define dso_local void @change_pid(ptr noundef %0, i32 noundef %1, ptr noundef %2
 
 29:                                               ; preds = %26
   %30 = add nsw i64 %27, -1
-  %31 = getelementptr %struct.hlist_head, ptr %25, i64 %30
+  %31 = getelementptr [8 x i8], ptr %25, i64 %30
   %32 = load volatile ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
   br i1 %33, label %26, label %.loopexit, !llvm.loop !26
@@ -821,14 +821,14 @@ define dso_local void @change_pid(ptr noundef %0, i32 noundef %1, ptr noundef %2
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 1880
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 360
-  %41 = getelementptr ptr, ptr %40, i64 %.pre-phi
+  %41 = getelementptr [8 x i8], ptr %40, i64 %.pre-phi
   br label %42
 
 42:                                               ; preds = %37, %35
   %43 = phi ptr [ %36, %35 ], [ %41, %37 ]
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
-  %46 = getelementptr %struct.hlist_head, ptr %45, i64 %.pre-phi
+  %46 = getelementptr [8 x i8], ptr %45, i64 %.pre-phi
   %47 = load ptr, ptr %46, align 8
   store ptr %47, ptr %17, align 8
   store volatile ptr %46, ptr %19, align 8
@@ -910,9 +910,9 @@ define dso_local void @transfer_pid(ptr noundef %0, ptr noundef %1, i32 noundef 
 9:                                                ; preds = %5, %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1424
   %11 = zext i32 %2 to i64
-  %12 = getelementptr %struct.hlist_node, ptr %10, i64 %11
+  %12 = getelementptr [16 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 1424
-  %14 = getelementptr %struct.hlist_node, ptr %13, i64 %11
+  %14 = getelementptr [16 x i8], ptr %13, i64 %11
   %15 = load ptr, ptr %12, align 8
   store ptr %15, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -944,7 +944,7 @@ define dso_local ptr @pid_task(ptr noundef %0, i32 noundef %1) #3 align 16 {
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = zext i32 %1 to i64
-  %7 = getelementptr %struct.hlist_head, ptr %5, i64 %6
+  %7 = getelementptr [8 x i8], ptr %5, i64 %6
   %8 = load volatile ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   %10 = shl nuw nsw i64 %6, 4
@@ -1091,7 +1091,7 @@ define dso_local ptr @get_task_pid(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 360
   %10 = zext i32 %1 to i64
-  %11 = getelementptr ptr, ptr %9, i64 %10
+  %11 = getelementptr [8 x i8], ptr %9, i64 %10
   br label %12
 
 12:                                               ; preds = %6, %4
@@ -1130,7 +1130,7 @@ define dso_local ptr @get_pid_task(ptr noundef %0, i32 noundef %1) #0 align 16 {
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = zext i32 %1 to i64
-  %7 = getelementptr %struct.hlist_head, ptr %5, i64 %6
+  %7 = getelementptr [8 x i8], ptr %5, i64 %6
   %8 = load volatile ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   %10 = shl nuw nsw i64 %6, 4
@@ -1227,7 +1227,7 @@ define dso_local i32 @pid_nr_ns(ptr noundef readonly captures(address_is_null) %
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %12 = zext i32 %6 to i64
-  %13 = getelementptr %struct.upid, ptr %11, i64 %12
+  %13 = getelementptr [16 x i8], ptr %11, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, %1
@@ -1277,7 +1277,7 @@ define dso_local i32 @pid_vnr(ptr noundef readonly captures(address_is_null) %0)
 23:                                               ; preds = %17
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %25 = zext i32 %19 to i64
-  %26 = getelementptr %struct.upid, ptr %24, i64 %25
+  %26 = getelementptr [16 x i8], ptr %24, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, %15
@@ -1330,7 +1330,7 @@ define dso_local i32 @__task_pid_nr_ns(ptr noundef %0, i32 noundef %1, ptr nound
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 360
   %27 = zext i32 %1 to i64
-  %28 = getelementptr ptr, ptr %26, i64 %27
+  %28 = getelementptr [8 x i8], ptr %26, i64 %27
   br label %29
 
 29:                                               ; preds = %23, %21
@@ -1350,7 +1350,7 @@ define dso_local i32 @__task_pid_nr_ns(ptr noundef %0, i32 noundef %1, ptr nound
 39:                                               ; preds = %33
   %40 = getelementptr inbounds nuw i8, ptr %31, i64 96
   %41 = zext i32 %35 to i64
-  %42 = getelementptr %struct.upid, ptr %40, i64 %41
+  %42 = getelementptr [16 x i8], ptr %40, i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, %19

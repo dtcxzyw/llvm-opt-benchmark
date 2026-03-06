@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local noundef nonnull ptr @_ZN5clang6driver6phases12getPhaseNameENS1_2IDE(i32 noundef %0) local_unnamed_addr #0 {
 switch.lookup:
   %1 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang6driver6phases12getPhaseNameENS1_2IDE, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang6driver6phases12getPhaseNameENS1_2IDE, i64 %1
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }

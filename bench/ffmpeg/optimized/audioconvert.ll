@@ -16,7 +16,7 @@ define noalias ptr @swri_audio_convert_alloc(i32 noundef %0, i32 noundef %1, i32
   %8 = mul nsw i32 %7, 12
   %9 = add nsw i32 %8, %6
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds ptr, ptr @fmt_pair_to_conv_functions, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr @fmt_pair_to_conv_functions, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !4
   %.not = icmp eq ptr %12, null
   br i1 %.not, label %36, label %13
@@ -72,7 +72,7 @@ define noalias ptr @swri_audio_convert_alloc(i32 noundef %0, i32 noundef %1, i32
 
 switch.lookup:                                    ; preds = %.split
   %34 = zext nneg i32 %32 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.swri_audio_convert_alloc, i64 %34
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.swri_audio_convert_alloc, i64 %34
   %switch.load = load ptr, ptr %switch.gep, align 8
   %35 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store ptr %switch.load, ptr %35, align 8, !tbaa !14
@@ -186,7 +186,7 @@ define noundef i32 @swri_audio_convert(ptr noundef %0, ptr noundef %1, ptr nound
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.091112 = phi i32 [ 0, %.lr.ph.preheader ], [ %31, %.lr.ph ]
-  %27 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8, !tbaa !15
   %29 = ptrtoint ptr %28 to i64
   %30 = trunc i64 %29 to i32
@@ -215,7 +215,7 @@ define noundef i32 @swri_audio_convert(ptr noundef %0, ptr noundef %1, ptr nound
 .lr.ph117:                                        ; preds = %.lr.ph117.preheader, %.lr.ph117
   %indvars.iv128 = phi i64 [ 0, %.lr.ph117.preheader ], [ %indvars.iv.next129, %.lr.ph117 ]
   %.092114 = phi i32 [ 0, %.lr.ph117.preheader ], [ %40, %.lr.ph117 ]
-  %36 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv128
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv128
   %37 = load ptr, ptr %36, align 8, !tbaa !15
   %38 = ptrtoint ptr %37 to i64
   %39 = trunc i64 %38 to i32
@@ -266,8 +266,8 @@ define noundef i32 @swri_audio_convert(ptr noundef %0, ptr noundef %1, ptr nound
 .lr.ph122:                                        ; preds = %.lr.ph122.preheader, %66
   %indvars.iv133 = phi i64 [ 0, %.lr.ph122.preheader ], [ %indvars.iv.next134, %66 ]
   %59 = load ptr, ptr %43, align 8, !tbaa !14
-  %60 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv133
-  %61 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv133
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv133
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv133
   %62 = load i32, ptr %5, align 4, !tbaa !17
   %.not105 = icmp eq i32 %62, 0
   br i1 %.not105, label %63, label %66
@@ -324,7 +324,7 @@ define noundef i32 @swri_audio_convert(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %.not106, label %.thread, label %87
 
 87:                                               ; preds = %83
-  %88 = getelementptr inbounds nuw i32, ptr %85, i64 %indvars.iv138
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %85, i64 %indvars.iv138
   %89 = load i32, ptr %88, align 4, !tbaa !27
   %90 = icmp slt i32 %89, 0
   br i1 %90, label %102, label %.thread
@@ -344,14 +344,14 @@ define noundef i32 @swri_audio_convert(ptr noundef %0, ptr noundef %1, ptr nound
   %97 = load i32, ptr %77, align 4, !tbaa !20
   %98 = mul nsw i32 %97, %96
   %99 = zext nneg i32 %91 to i64
-  %100 = getelementptr inbounds nuw ptr, ptr %2, i64 %99
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %99
   %101 = load ptr, ptr %100, align 8, !tbaa !15
   br label %102
 
 102:                                              ; preds = %87, %95
   %103 = phi i32 [ %98, %95 ], [ 0, %87 ]
   %104 = phi ptr [ %101, %95 ], [ %74, %87 ]
-  %105 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv138
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv138
   %106 = load ptr, ptr %105, align 8, !tbaa !15
   %.not108 = icmp eq ptr %106, null
   br i1 %.not108, label %114, label %107

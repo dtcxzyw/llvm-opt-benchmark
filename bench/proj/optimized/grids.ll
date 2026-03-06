@@ -43,12 +43,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.80" = type { %"struct.std::_Tuple_impl.81" }
 %"struct.std::_Tuple_impl.81" = type { %"struct.std::_Head_base.84" }
 %"struct.std::_Head_base.84" = type { ptr }
-%"class.std::unique_ptr.85" = type { %"struct.std::__uniq_ptr_data.86" }
-%"struct.std::__uniq_ptr_data.86" = type { %"class.std::__uniq_ptr_impl.87" }
-%"class.std::__uniq_ptr_impl.87" = type { %"class.std::tuple.88" }
-%"class.std::tuple.88" = type { %"struct.std::_Tuple_impl.89" }
-%"struct.std::_Tuple_impl.89" = type { %"struct.std::_Head_base.92" }
-%"struct.std::_Head_base.92" = type { ptr }
 %"class.std::unique_ptr.107" = type { %"struct.std::__uniq_ptr_data.108" }
 %"struct.std::__uniq_ptr_data.108" = type { %"class.std::__uniq_ptr_impl.109" }
 %"class.std::__uniq_ptr_impl.109" = type { %"class.std::tuple.110" }
@@ -121,12 +115,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.218" = type { %"struct.std::_Tuple_impl.219" }
 %"struct.std::_Tuple_impl.219" = type { %"struct.std::_Head_base.222" }
 %"struct.std::_Head_base.222" = type { ptr }
-%"class.std::unique_ptr.224" = type { %"struct.std::__uniq_ptr_data.225" }
-%"struct.std::__uniq_ptr_data.225" = type { %"class.std::__uniq_ptr_impl.226" }
-%"class.std::__uniq_ptr_impl.226" = type { %"class.std::tuple.227" }
-%"class.std::tuple.227" = type { %"struct.std::_Tuple_impl.228" }
-%"struct.std::_Tuple_impl.228" = type { %"struct.std::_Head_base.231" }
-%"struct.std::_Head_base.231" = type { ptr }
 %"class.std::unique_ptr.245" = type { %"struct.std::__uniq_ptr_data.246" }
 %"struct.std::__uniq_ptr_data.246" = type { %"class.std::__uniq_ptr_impl.247" }
 %"class.std::__uniq_ptr_impl.247" = type { %"class.std::tuple.248" }
@@ -1026,7 +1014,7 @@ define linkonce_odr hidden void @_ZN5osgeo4proj5lru115CacheImSt6vectorIfSaIfEENS
   %18 = load i64, ptr %17, align 8, !tbaa !50
   %19 = urem i64 %16, %18
   %20 = load ptr, ptr %4, align 8, !tbaa !51
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %19
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %19
   %22 = load ptr, ptr %21, align 8, !tbaa !52
   %.not.i.i.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i.i.i, label %.loopexit24, label %23
@@ -1086,7 +1074,7 @@ _ZNSt13unordered_mapImSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6ve
   %51 = load i64, ptr %50, align 8, !tbaa !50
   %52 = urem i64 %49, %51
   %53 = load ptr, ptr %4, align 8, !tbaa !51
-  %54 = getelementptr inbounds nuw ptr, ptr %53, i64 %52
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %52
   %55 = load ptr, ptr %54, align 8, !tbaa !52
   %.not.i.i.i.i9 = icmp eq ptr %55, null
   br i1 %.not.i.i.i.i9, label %.loopexit.i.i, label %56
@@ -1225,7 +1213,7 @@ define hidden noundef ptr @_ZN5osgeo4proj14FloatLineCache3getEjj(ptr noundef non
   %20 = load i64, ptr %19, align 8, !tbaa !50
   %21 = urem i64 %7, %20
   %22 = load ptr, ptr %18, align 8, !tbaa !51
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %21
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %21
   %24 = load ptr, ptr %23, align 8, !tbaa !52
   %.not.i.i.i.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i.i.i.i, label %_ZN5osgeo4proj5lru115CacheImSt6vectorIfSaIfEENS1_8NullLockESt13unordered_mapImSt14_List_iteratorINS1_12KeyValuePairImS5_EEESt4hashImESt8equal_toImESaISt4pairIKmSB_EEEE6getPtrERSH_.exit, label %25
@@ -1732,7 +1720,7 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj20GTXVerticalShiftGrid7valueAtE
   %21 = load i64, ptr %20, align 8, !tbaa !50
   %22 = urem i64 %8, %21
   %23 = load ptr, ptr %19, align 8, !tbaa !51
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %22
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %22
   %25 = load ptr, ptr %24, align 8, !tbaa !52
   %.not.i.i.i.i.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i.i.i.i.i, label %.loopexit, label %26
@@ -1811,7 +1799,7 @@ _ZNSt13unordered_mapImSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6ve
   br i1 %61, label %62, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 62:                                               ; preds = %60
-  %63 = getelementptr inbounds nuw float, ptr %52, i64 %49
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %49
   %.not.i.i = icmp eq ptr %51, %63
   br i1 %.not.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %64
 
@@ -1915,7 +1903,7 @@ _ZN5osgeo4projL10swap_wordsEPvmm.exit.loopexit:   ; preds = %._crit_edge.us.i
 _ZN5osgeo4projL10swap_wordsEPvmm.exit:            ; preds = %_ZN5osgeo4projL10swap_wordsEPvmm.exit.loopexit, %100
   %113 = phi ptr [ %.pre43, %_ZN5osgeo4projL10swap_wordsEPvmm.exit.loopexit ], [ %101, %100 ]
   %114 = sext i32 %1 to i64
-  %115 = getelementptr inbounds nuw float, ptr %113, i64 %114
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %113, i64 %114
   %116 = load float, ptr %115, align 4, !tbaa !38
   store float %116, ptr %3, align 4, !tbaa !38
   %117 = load ptr, ptr %6, align 8, !tbaa !78
@@ -1964,7 +1952,7 @@ _ZN5osgeo4proj14FloatLineCache6insertEjjRKSt6vectorIfSaIfEE.exit: ; preds = %_ZN
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 24
   %138 = sext i32 %1 to i64
   %139 = load ptr, ptr %137, align 8, !tbaa !73
-  %140 = getelementptr inbounds nuw float, ptr %139, i64 %138
+  %140 = getelementptr inbounds nuw [4 x i8], ptr %139, i64 %138
   %141 = load float, ptr %140, align 4, !tbaa !38
   store float %141, ptr %3, align 4, !tbaa !38
   br label %142
@@ -2162,7 +2150,7 @@ define linkonce_odr hidden void @_ZN5osgeo4proj5lru115CacheImSt6vectorIhSaIhEENS
   %18 = load i64, ptr %17, align 8, !tbaa !123
   %19 = urem i64 %16, %18
   %20 = load ptr, ptr %4, align 8, !tbaa !124
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %19
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %19
   %22 = load ptr, ptr %21, align 8, !tbaa !52
   %.not.i.i.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i.i.i, label %.loopexit24, label %23
@@ -2222,7 +2210,7 @@ _ZNSt13unordered_mapImSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6ve
   %51 = load i64, ptr %50, align 8, !tbaa !123
   %52 = urem i64 %49, %51
   %53 = load ptr, ptr %4, align 8, !tbaa !124
-  %54 = getelementptr inbounds nuw ptr, ptr %53, i64 %52
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %52
   %55 = load ptr, ptr %54, align 8, !tbaa !52
   %.not.i.i.i.i9 = icmp eq ptr %55, null
   br i1 %.not.i.i.i.i9, label %.loopexit.i.i, label %56
@@ -2361,7 +2349,7 @@ define hidden noundef ptr @_ZN5osgeo4proj10BlockCache3getEjj(ptr noundef nonnull
   %20 = load i64, ptr %19, align 8, !tbaa !123
   %21 = urem i64 %7, %20
   %22 = load ptr, ptr %18, align 8, !tbaa !124
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %21
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %21
   %24 = load ptr, ptr %23, align 8, !tbaa !52
   %.not.i.i.i.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i.i.i.i, label %_ZN5osgeo4proj5lru115CacheImSt6vectorIhSaIhEENS1_8NullLockESt13unordered_mapImSt14_List_iteratorINS1_12KeyValuePairImS5_EEESt4hashImESt8equal_toImESaISt4pairIKmSB_EEEE6getPtrERSH_.exit, label %25
@@ -3150,7 +3138,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit:               ; preds = %303
   br i1 %318, label %319, label %_ZNSt6vectorIdSaIdEE6resizeEmRKd.exit
 
 319:                                              ; preds = %314
-  %320 = getelementptr inbounds nuw double, ptr %316, i64 %.pre-phi490
+  %320 = getelementptr inbounds nuw [8 x i8], ptr %316, i64 %.pre-phi490
   %.not.i.i151 = icmp eq ptr %317, %320
   br i1 %.not.i.i151, label %_ZNSt6vectorIdSaIdEE6resizeEmRKd.exit, label %321
 
@@ -3205,7 +3193,7 @@ _ZNSt6vectorIdSaIdEE6resizeEmRKd.exit:            ; preds = %321, %319, %314, %3
 333:                                              ; preds = %331
   %334 = zext nneg i32 %.0 to i64
   %335 = load ptr, ptr %78, align 8, !tbaa !198
-  %336 = getelementptr inbounds nuw double, ptr %335, i64 %334
+  %336 = getelementptr inbounds nuw [8 x i8], ptr %335, i64 %334
   store double %332, ptr %336, align 8, !tbaa !37
   br label %392
 
@@ -3278,7 +3266,7 @@ _ZNSt6vectorIdSaIdEE6resizeEm.exit155:            ; preds = %356
   br i1 %371, label %372, label %_ZNSt6vectorIdSaIdEE6resizeEmRKd.exit158
 
 372:                                              ; preds = %367
-  %373 = getelementptr inbounds nuw double, ptr %369, i64 %.pre-phi403492
+  %373 = getelementptr inbounds nuw [8 x i8], ptr %369, i64 %.pre-phi403492
   %.not.i.i156 = icmp eq ptr %370, %373
   br i1 %.not.i.i156, label %_ZNSt6vectorIdSaIdEE6resizeEmRKd.exit158, label %374
 
@@ -3323,7 +3311,7 @@ _ZNSt6vectorIdSaIdEE6resizeEmRKd.exit158:         ; preds = %374, %372, %367, %3
 386:                                              ; preds = %384
   %387 = zext nneg i32 %.0 to i64
   %388 = load ptr, ptr %79, align 8, !tbaa !198
-  %389 = getelementptr inbounds nuw double, ptr %388, i64 %387
+  %389 = getelementptr inbounds nuw [8 x i8], ptr %388, i64 %387
   store double %385, ptr %389, align 8, !tbaa !37
   br label %392
 
@@ -4181,7 +4169,7 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj9GTiffGrid7valueAtEtiiRf(ptr no
   %79 = load i64, ptr %78, align 8, !tbaa !123
   %80 = urem i64 %66, %79
   %81 = load ptr, ptr %77, align 8, !tbaa !124
-  %82 = getelementptr inbounds nuw ptr, ptr %81, i64 %80
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %80
   %83 = load ptr, ptr %82, align 8, !tbaa !52
   %.not.i.i.i.i.i.i = icmp eq ptr %83, null
   br i1 %.not.i.i.i.i.i.i, label %.loopexit, label %84
@@ -4410,7 +4398,7 @@ _ZN5osgeo4proj10BlockCache3getEjj.exit:           ; preds = %56, %_ZNSt7__cxx114
 202:                                              ; preds = %_ZN5osgeo4proj10BlockCache3getEjj.exit
   %203 = load ptr, ptr %.075, align 8, !tbaa !138
   %204 = zext i32 %.1 to i64
-  %205 = getelementptr inbounds nuw i16, ptr %203, i64 %204
+  %205 = getelementptr inbounds nuw [2 x i8], ptr %203, i64 %204
   %206 = load i16, ptr %205, align 2, !tbaa !211
   %207 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %208 = load i8, ptr %207, align 8, !tbaa !199, !range !13, !noundef !14
@@ -4442,11 +4430,11 @@ _ZN5osgeo4proj10BlockCache3getEjj.exit:           ; preds = %56, %_ZNSt7__cxx114
   br label %_ZNK5osgeo4proj9GTiffGrid9readValueIsEEfRKSt6vectorIhSaIhEEjt.exit
 
 226:                                              ; preds = %215
-  %227 = getelementptr inbounds nuw double, ptr %220, i64 %216
+  %227 = getelementptr inbounds nuw [8 x i8], ptr %220, i64 %216
   %228 = load double, ptr %227, align 8, !tbaa !37
   %229 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %230 = load ptr, ptr %229, align 8, !tbaa !198
-  %231 = getelementptr inbounds nuw double, ptr %230, i64 %216
+  %231 = getelementptr inbounds nuw [8 x i8], ptr %230, i64 %216
   %232 = load double, ptr %231, align 8, !tbaa !37
   %233 = sitofp i16 %206 to double
   %234 = call double @llvm.fmuladd.f64(double %233, double %228, double %232)
@@ -4461,7 +4449,7 @@ _ZNK5osgeo4proj9GTiffGrid9readValueIsEEfRKSt6vectorIhSaIhEEjt.exit: ; preds = %2
 236:                                              ; preds = %_ZN5osgeo4proj10BlockCache3getEjj.exit
   %237 = load ptr, ptr %.075, align 8, !tbaa !138
   %238 = zext i32 %.1 to i64
-  %239 = getelementptr inbounds nuw i16, ptr %237, i64 %238
+  %239 = getelementptr inbounds nuw [2 x i8], ptr %237, i64 %238
   %240 = load i16, ptr %239, align 2, !tbaa !211
   %241 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %242 = load i8, ptr %241, align 8, !tbaa !199, !range !13, !noundef !14
@@ -4493,11 +4481,11 @@ _ZNK5osgeo4proj9GTiffGrid9readValueIsEEfRKSt6vectorIhSaIhEEjt.exit: ; preds = %2
   br label %_ZNK5osgeo4proj9GTiffGrid9readValueItEEfRKSt6vectorIhSaIhEEjt.exit
 
 260:                                              ; preds = %249
-  %261 = getelementptr inbounds nuw double, ptr %254, i64 %250
+  %261 = getelementptr inbounds nuw [8 x i8], ptr %254, i64 %250
   %262 = load double, ptr %261, align 8, !tbaa !37
   %263 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %264 = load ptr, ptr %263, align 8, !tbaa !198
-  %265 = getelementptr inbounds nuw double, ptr %264, i64 %250
+  %265 = getelementptr inbounds nuw [8 x i8], ptr %264, i64 %250
   %266 = load double, ptr %265, align 8, !tbaa !37
   %267 = uitofp i16 %240 to double
   %268 = call double @llvm.fmuladd.f64(double %267, double %262, double %266)
@@ -4512,7 +4500,7 @@ _ZNK5osgeo4proj9GTiffGrid9readValueItEEfRKSt6vectorIhSaIhEEjt.exit: ; preds = %2
 270:                                              ; preds = %_ZN5osgeo4proj10BlockCache3getEjj.exit
   %271 = load ptr, ptr %.075, align 8, !tbaa !138
   %272 = zext i32 %.1 to i64
-  %273 = getelementptr inbounds nuw i32, ptr %271, i64 %272
+  %273 = getelementptr inbounds nuw [4 x i8], ptr %271, i64 %272
   %274 = load i32, ptr %273, align 4, !tbaa !212
   %275 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %276 = load i8, ptr %275, align 8, !tbaa !199, !range !13, !noundef !14
@@ -4544,11 +4532,11 @@ _ZNK5osgeo4proj9GTiffGrid9readValueItEEfRKSt6vectorIhSaIhEEjt.exit: ; preds = %2
   br label %_ZNK5osgeo4proj9GTiffGrid9readValueIiEEfRKSt6vectorIhSaIhEEjt.exit
 
 294:                                              ; preds = %283
-  %295 = getelementptr inbounds nuw double, ptr %288, i64 %284
+  %295 = getelementptr inbounds nuw [8 x i8], ptr %288, i64 %284
   %296 = load double, ptr %295, align 8, !tbaa !37
   %297 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %298 = load ptr, ptr %297, align 8, !tbaa !198
-  %299 = getelementptr inbounds nuw double, ptr %298, i64 %284
+  %299 = getelementptr inbounds nuw [8 x i8], ptr %298, i64 %284
   %300 = load double, ptr %299, align 8, !tbaa !37
   %301 = sitofp i32 %274 to double
   %302 = call double @llvm.fmuladd.f64(double %301, double %296, double %300)
@@ -4563,7 +4551,7 @@ _ZNK5osgeo4proj9GTiffGrid9readValueIiEEfRKSt6vectorIhSaIhEEjt.exit: ; preds = %2
 304:                                              ; preds = %_ZN5osgeo4proj10BlockCache3getEjj.exit
   %305 = load ptr, ptr %.075, align 8, !tbaa !138
   %306 = zext i32 %.1 to i64
-  %307 = getelementptr inbounds nuw i32, ptr %305, i64 %306
+  %307 = getelementptr inbounds nuw [4 x i8], ptr %305, i64 %306
   %308 = load i32, ptr %307, align 4, !tbaa !212
   %309 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %310 = load i8, ptr %309, align 8, !tbaa !199, !range !13, !noundef !14
@@ -4595,11 +4583,11 @@ _ZNK5osgeo4proj9GTiffGrid9readValueIiEEfRKSt6vectorIhSaIhEEjt.exit: ; preds = %2
   br label %_ZNK5osgeo4proj9GTiffGrid9readValueIjEEfRKSt6vectorIhSaIhEEjt.exit
 
 328:                                              ; preds = %317
-  %329 = getelementptr inbounds nuw double, ptr %322, i64 %318
+  %329 = getelementptr inbounds nuw [8 x i8], ptr %322, i64 %318
   %330 = load double, ptr %329, align 8, !tbaa !37
   %331 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %332 = load ptr, ptr %331, align 8, !tbaa !198
-  %333 = getelementptr inbounds nuw double, ptr %332, i64 %318
+  %333 = getelementptr inbounds nuw [8 x i8], ptr %332, i64 %318
   %334 = load double, ptr %333, align 8, !tbaa !37
   %335 = uitofp i32 %308 to double
   %336 = call double @llvm.fmuladd.f64(double %335, double %330, double %334)
@@ -4614,7 +4602,7 @@ _ZNK5osgeo4proj9GTiffGrid9readValueIjEEfRKSt6vectorIhSaIhEEjt.exit: ; preds = %3
 338:                                              ; preds = %_ZN5osgeo4proj10BlockCache3getEjj.exit
   %339 = load ptr, ptr %.075, align 8, !tbaa !138
   %340 = zext i32 %.1 to i64
-  %341 = getelementptr inbounds nuw float, ptr %339, i64 %340
+  %341 = getelementptr inbounds nuw [4 x i8], ptr %339, i64 %340
   %342 = load float, ptr %341, align 4, !tbaa !38
   %343 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %344 = load i8, ptr %343, align 8, !tbaa !199, !range !13, !noundef !14
@@ -4639,11 +4627,11 @@ _ZNK5osgeo4proj9GTiffGrid9readValueIjEEfRKSt6vectorIhSaIhEEjt.exit: ; preds = %3
   br i1 %359, label %360, label %_ZNK5osgeo4proj9GTiffGrid9readValueIfEEfRKSt6vectorIhSaIhEEjt.exit
 
 360:                                              ; preds = %349
-  %361 = getelementptr inbounds nuw double, ptr %354, i64 %350
+  %361 = getelementptr inbounds nuw [8 x i8], ptr %354, i64 %350
   %362 = load double, ptr %361, align 8, !tbaa !37
   %363 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %364 = load ptr, ptr %363, align 8, !tbaa !198
-  %365 = getelementptr inbounds nuw double, ptr %364, i64 %350
+  %365 = getelementptr inbounds nuw [8 x i8], ptr %364, i64 %350
   %366 = load double, ptr %365, align 8, !tbaa !37
   %367 = fpext float %342 to double
   %368 = call double @llvm.fmuladd.f64(double %367, double %362, double %366)
@@ -4658,7 +4646,7 @@ _ZNK5osgeo4proj9GTiffGrid9readValueIfEEfRKSt6vectorIhSaIhEEjt.exit: ; preds = %3
 370:                                              ; preds = %_ZN5osgeo4proj10BlockCache3getEjj.exit
   %371 = load ptr, ptr %.075, align 8, !tbaa !138
   %372 = zext i32 %.1 to i64
-  %373 = getelementptr inbounds nuw double, ptr %371, i64 %372
+  %373 = getelementptr inbounds nuw [8 x i8], ptr %371, i64 %372
   %374 = load double, ptr %373, align 8, !tbaa !37
   %375 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %376 = load i8, ptr %375, align 8, !tbaa !199, !range !13, !noundef !14
@@ -4686,11 +4674,11 @@ _ZNK5osgeo4proj9GTiffGrid9readValueIfEEfRKSt6vectorIhSaIhEEjt.exit: ; preds = %3
   br i1 %393, label %394, label %_ZNK5osgeo4proj9GTiffGrid9readValueIdEEfRKSt6vectorIhSaIhEEjt.exit
 
 394:                                              ; preds = %383
-  %395 = getelementptr inbounds nuw double, ptr %388, i64 %384
+  %395 = getelementptr inbounds nuw [8 x i8], ptr %388, i64 %384
   %396 = load double, ptr %395, align 8, !tbaa !37
   %397 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %398 = load ptr, ptr %397, align 8, !tbaa !198
-  %399 = getelementptr inbounds nuw double, ptr %398, i64 %384
+  %399 = getelementptr inbounds nuw [8 x i8], ptr %398, i64 %384
   %400 = load double, ptr %399, align 8, !tbaa !37
   %401 = call double @llvm.fmuladd.f64(double %374, double %396, double %400)
   br label %_ZNK5osgeo4proj9GTiffGrid9readValueIdEEfRKSt6vectorIhSaIhEEjt.exit
@@ -5141,9 +5129,9 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj9GTiffGrid8valuesAtEiiiiiPKiPfR
   %200 = add i32 %198, %199
   %201 = load ptr, ptr %.0166, align 8, !tbaa !138
   %202 = zext i32 %200 to i64
-  %203 = getelementptr inbounds nuw float, ptr %201, i64 %202
+  %203 = getelementptr inbounds nuw [4 x i8], ptr %201, i64 %202
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %.0155246, ptr align 4 %203, i64 %186, i1 false)
-  %204 = getelementptr inbounds float, ptr %.0155246, i64 %185
+  %204 = getelementptr inbounds [4 x i8], ptr %.0155246, i64 %185
   %205 = add nuw nsw i32 %.0172245, 1
   %exitcond285.not = icmp eq i32 %205, %4
   br i1 %exitcond285.not, label %.loopexit, label %187, !llvm.loop !213
@@ -5178,7 +5166,7 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj9GTiffGrid8valuesAtEiiiiiPKiPfR
   %220 = add i32 %218, %219
   %221 = load ptr, ptr %.0166, align 8, !tbaa !138
   %222 = zext i32 %220 to i64
-  %223 = getelementptr inbounds nuw float, ptr %221, i64 %222
+  %223 = getelementptr inbounds nuw [4 x i8], ptr %221, i64 %222
   br label %224
 
 224:                                              ; preds = %.lr.ph.us, %224
@@ -5188,7 +5176,7 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj9GTiffGrid8valuesAtEiiiiiPKiPfR
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.6161221.us, ptr noundef nonnull align 4 dereferenceable(12) %.0150222.us, i64 12, i1 false)
   %225 = load i16, ptr %178, align 8, !tbaa !170
   %226 = zext i16 %225 to i64
-  %227 = getelementptr inbounds nuw float, ptr %.0150222.us, i64 %226
+  %227 = getelementptr inbounds nuw [4 x i8], ptr %.0150222.us, i64 %226
   %228 = getelementptr inbounds nuw i8, ptr %.6161221.us, i64 12
   %229 = add nuw nsw i32 %.0149223.us, 1
   %exitcond.not = icmp eq i32 %229, %3
@@ -5220,7 +5208,7 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj9GTiffGrid8valuesAtEiiiiiPKiPfR
   %243 = add i32 %241, %242
   %244 = load ptr, ptr %.0166, align 8, !tbaa !138
   %245 = zext i32 %243 to i64
-  %246 = getelementptr inbounds nuw float, ptr %244, i64 %245
+  %246 = getelementptr inbounds nuw [4 x i8], ptr %244, i64 %245
   br label %247
 
 247:                                              ; preds = %.lr.ph.us233, %247
@@ -5231,7 +5219,7 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj9GTiffGrid8valuesAtEiiiiiPKiPfR
   store i64 %248, ptr %.4159227.us, align 4
   %249 = load i16, ptr %178, align 8, !tbaa !170
   %250 = zext i16 %249 to i64
-  %251 = getelementptr inbounds nuw float, ptr %.0154228.us, i64 %250
+  %251 = getelementptr inbounds nuw [4 x i8], ptr %.0154228.us, i64 %250
   %252 = getelementptr inbounds nuw i8, ptr %.4159227.us, i64 8
   %253 = add nuw nsw i32 %.0153229.us, 1
   %exitcond281.not = icmp eq i32 %253, %3
@@ -5263,7 +5251,7 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj9GTiffGrid8valuesAtEiiiiiPKiPfR
   %267 = add i32 %265, %266
   %268 = load ptr, ptr %.0166, align 8, !tbaa !138
   %269 = zext i32 %267 to i64
-  %270 = getelementptr inbounds nuw float, ptr %268, i64 %269
+  %270 = getelementptr inbounds nuw [4 x i8], ptr %268, i64 %269
   br label %271
 
 271:                                              ; preds = %.lr.ph.us242, %271
@@ -5274,7 +5262,7 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj9GTiffGrid8valuesAtEiiiiiPKiPfR
   store i32 %272, ptr %.2157238.us, align 4
   %273 = load i16, ptr %178, align 8, !tbaa !170
   %274 = zext i16 %273 to i64
-  %275 = getelementptr inbounds nuw float, ptr %.0165236.us, i64 %274
+  %275 = getelementptr inbounds nuw [4 x i8], ptr %.0165236.us, i64 %274
   %276 = getelementptr inbounds nuw i8, ptr %.2157238.us, i64 4
   %277 = add nuw nsw i32 %.0164237.us, 1
   %exitcond283.not = icmp eq i32 %277, %3
@@ -5320,7 +5308,7 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj9GTiffGrid8valuesAtEiiiiiPKiPfR
 285:                                              ; preds = %298, %.preheader.us.us.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %298 ], [ 0, %.preheader.us.us.us ]
   %.10248.us.us.us = phi ptr [ %299, %298 ], [ %.8252.us.us.us, %.preheader.us.us.us ]
-  %286 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %286 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %287 = load i32, ptr %286, align 4, !tbaa !212
   %288 = trunc i32 %287 to i16
   %289 = tail call noundef zeroext i1 @_ZNK5osgeo4proj9GTiffGrid7valueAtEtiiRf(ptr noundef nonnull align 8 dereferenceable(340) %0, i16 noundef zeroext %288, i32 noundef %.0147253.us.us.us, i32 noundef %.0148258.us.us, ptr noundef nonnull align 4 dereferenceable(4) %.10248.us.us.us)
@@ -6060,7 +6048,7 @@ define hidden void @_ZN5osgeo4proj12GTiffDataset8nextGridEv(ptr dead_on_unwind n
   %.193175 = phi i1 [ false, %.lr.ph ], [ %.395.ph, %171 ]
   %157 = phi i1 [ true, %.lr.ph ], [ %.ph, %171 ]
   %158 = phi i8 [ 1, %.lr.ph ], [ %172, %171 ]
-  %159 = getelementptr inbounds nuw i16, ptr %154, i64 %indvars.iv181
+  %159 = getelementptr inbounds nuw [2 x i8], ptr %154, i64 %indvars.iv181
   %160 = load i16, ptr %159, align 2, !tbaa !211
   switch i16 %160, label %171 [
     i16 1024, label %161
@@ -6068,7 +6056,7 @@ define hidden void @_ZN5osgeo4proj12GTiffDataset8nextGridEv(ptr dead_on_unwind n
   ]
 
 161:                                              ; preds = %156
-  %162 = getelementptr inbounds nuw i16, ptr %154, i64 %indvars.iv
+  %162 = getelementptr inbounds nuw [2 x i8], ptr %154, i64 %indvars.iv
   %163 = load i16, ptr %162, align 2, !tbaa !211
   switch i16 %163, label %.thread142 [
     i16 1, label %164
@@ -6079,7 +6067,7 @@ define hidden void @_ZN5osgeo4proj12GTiffDataset8nextGridEv(ptr dead_on_unwind n
   br label %171
 
 165:                                              ; preds = %156
-  %166 = getelementptr inbounds nuw i16, ptr %154, i64 %indvars.iv
+  %166 = getelementptr inbounds nuw [2 x i8], ptr %154, i64 %indvars.iv
   %167 = load i16, ptr %166, align 2, !tbaa !211
   %168 = icmp eq i16 %167, 1
   %spec.select = select i1 %168, i1 true, i1 %.193175
@@ -7823,7 +7811,7 @@ _ZNSt6vectorISt10unique_ptrIN5osgeo4proj17VerticalShiftGridESt14default_deleteIS
 .noexc97:                                         ; preds = %306, %_ZNSt6vectorISt10unique_ptrIN5osgeo4proj17VerticalShiftGridESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i144
   store ptr %299, ptr %22, align 8, !tbaa !82
   store ptr %305, ptr %69, align 8, !tbaa !85
-  %307 = getelementptr inbounds nuw %"class.std::unique_ptr.85", ptr %299, i64 %297
+  %307 = getelementptr inbounds nuw [8 x i8], ptr %299, i64 %297
   br label %_ZN5osgeo4projL19insertIntoHierarchyINS0_10GTiffVGridENS0_17VerticalShiftGridEEEvP6pj_ctxOSt10unique_ptrIT_St14default_deleteIS7_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_RSt6vectorIS6_IT0_S8_ISL_EESaISN_EERSt3mapISH_PS7_St4lessISH_ESaISt4pairISI_SS_EEE.exit.sink.split
 
 ._crit_edge.i.i.sink.split.i:                     ; preds = %_ZNK5osgeo4proj12ExtentAndRes8containsERKS1_.exit.i, %258, %252, %245, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5osgeo4proj10GTiffVGridESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit108.i, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN5osgeo4proj10GTiffVGridEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_lower_boundEPSt13_Rb_tree_nodeISC_EPSt18_Rb_tree_node_baseRS7_.exit.i.i92.i, %227
@@ -8090,7 +8078,7 @@ _ZNSt6vectorISt10unique_ptrIN5osgeo4proj17VerticalShiftGridESt14default_deleteIS
 .noexc101:                                        ; preds = %417, %_ZNSt6vectorISt10unique_ptrIN5osgeo4proj17VerticalShiftGridESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i
   store ptr %410, ptr %22, align 8, !tbaa !82
   store ptr %416, ptr %69, align 8, !tbaa !85
-  %418 = getelementptr inbounds nuw %"class.std::unique_ptr.85", ptr %410, i64 %408
+  %418 = getelementptr inbounds nuw [8 x i8], ptr %410, i64 %408
   br label %_ZN5osgeo4projL19insertIntoHierarchyINS0_10GTiffVGridENS0_17VerticalShiftGridEEEvP6pj_ctxOSt10unique_ptrIT_St14default_deleteIS7_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_RSt6vectorIS6_IT0_S8_ISL_EESaISN_EERSt3mapISH_PS7_St4lessISH_ESaISt4pairISI_SS_EEE.exit.sink.split
 
 _ZN5osgeo4projL19insertIntoHierarchyINS0_10GTiffVGridENS0_17VerticalShiftGridEEEvP6pj_ctxOSt10unique_ptrIT_St14default_deleteIS7_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_RSt6vectorIS6_IT0_S8_ISL_EESaISN_EERSt3mapISH_PS7_St4lessISH_ESaISt4pairISI_SS_EEE.exit.sink.split: ; preds = %.noexc97, %.noexc101
@@ -8442,7 +8430,7 @@ _ZNSt6vectorISt10unique_ptrIN5osgeo4proj17VerticalShiftGridESt14default_deleteIS
 .noexc:                                           ; preds = %59, %_ZNSt6vectorISt10unique_ptrIN5osgeo4proj17VerticalShiftGridESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i
   store ptr %52, ptr %21, align 8, !tbaa !82
   store ptr %58, ptr %32, align 8, !tbaa !85
-  %60 = getelementptr inbounds nuw %"class.std::unique_ptr.85", ptr %52, i64 %50
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %50
   store ptr %60, ptr %34, align 8, !tbaa !89
   br label %_ZNSt10unique_ptrIN5osgeo4proj21NullVerticalShiftGridESt14default_deleteIS2_EED2Ev.exit
 
@@ -8684,7 +8672,7 @@ _ZNSt6vectorISt10unique_ptrIN5osgeo4proj17VerticalShiftGridESt14default_deleteIS
 .noexc85:                                         ; preds = %147, %_ZNSt6vectorISt10unique_ptrIN5osgeo4proj17VerticalShiftGridESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i130
   store ptr %140, ptr %119, align 8, !tbaa !82
   store ptr %146, ptr %120, align 8, !tbaa !85
-  %148 = getelementptr inbounds nuw %"class.std::unique_ptr.85", ptr %140, i64 %138
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %140, i64 %138
   store ptr %148, ptr %122, align 8, !tbaa !89
   br label %_ZNSt10unique_ptrIN5osgeo4proj17VerticalShiftGridESt14default_deleteIS2_EED2Ev.exit89
 
@@ -10468,7 +10456,7 @@ define hidden noundef zeroext i1 @_ZNK5osgeo4proj8NTv2Grid7valueAtEiibRfS2_(ptr 
   %28 = load i64, ptr %27, align 8, !tbaa !50
   %29 = urem i64 %15, %28
   %30 = load ptr, ptr %26, align 8, !tbaa !51
-  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %29
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %29
   %32 = load ptr, ptr %31, align 8, !tbaa !52
   %.not.i.i.i.i.i.i = icmp eq ptr %32, null
   br i1 %.not.i.i.i.i.i.i, label %.loopexit, label %33
@@ -10547,7 +10535,7 @@ _ZNSt13unordered_mapImSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6ve
   br i1 %69, label %70, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 70:                                               ; preds = %68
-  %71 = getelementptr inbounds nuw float, ptr %60, i64 %57
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %57
   %.not.i.i = icmp eq ptr %59, %71
   br i1 %.not.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %72
 
@@ -10648,7 +10636,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %._ZNSt6vectorIfSaIf
   br i1 %125, label %126, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit51
 
 126:                                              ; preds = %124
-  %127 = getelementptr inbounds nuw float, ptr %.pre79, i64 %115
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %.pre79, i64 %115
   %.not.i.i50 = icmp eq ptr %116, %127
   br i1 %.not.i.i50, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit51, label %128
 
@@ -10807,7 +10795,7 @@ _ZN5osgeo4proj14FloatLineCache6insertEjjRKSt6vectorIfSaIfEE.exit: ; preds = %._c
   %195 = shl nsw i32 %1, 1
   %196 = sext i32 %195 to i64
   %197 = load ptr, ptr %194, align 8, !tbaa !73
-  %198 = getelementptr float, ptr %197, i64 %196
+  %198 = getelementptr [4 x i8], ptr %197, i64 %196
   %199 = load float, ptr %198, align 4, !tbaa !38
   %200 = fpext float %199 to double
   %201 = fmul double %200, 0x3ED455A5B2FF8F9D
@@ -14046,7 +14034,7 @@ _ZNSt6vectorISt10unique_ptrIN5osgeo4proj19HorizontalShiftGridESt14default_delete
 .noexc:                                           ; preds = %62, %_ZNSt6vectorISt10unique_ptrIN5osgeo4proj19HorizontalShiftGridESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i
   store ptr %55, ptr %24, align 8, !tbaa !294
   store ptr %61, ptr %35, align 8, !tbaa !297
-  %63 = getelementptr inbounds nuw %"class.std::unique_ptr.151", ptr %55, i64 %53
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %53
   store ptr %63, ptr %37, align 8, !tbaa !301
   br label %_ZNSt10unique_ptrIN5osgeo4proj23NullHorizontalShiftGridESt14default_deleteIS2_EED2Ev.exit
 
@@ -16551,7 +16539,7 @@ _ZNSt6vectorISt10unique_ptrIN5osgeo4proj16GenericShiftGridESt14default_deleteIS3
 .noexc124:                                        ; preds = %341, %_ZNSt6vectorISt10unique_ptrIN5osgeo4proj16GenericShiftGridESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i162
   store ptr %334, ptr %23, align 8, !tbaa !386
   store ptr %340, ptr %68, align 8, !tbaa !389
-  %342 = getelementptr inbounds nuw %"class.std::unique_ptr.224", ptr %334, i64 %332
+  %342 = getelementptr inbounds nuw [8 x i8], ptr %334, i64 %332
   br label %_ZN5osgeo4projL19insertIntoHierarchyINS0_16GTiffGenericGridENS0_16GenericShiftGridEEEvP6pj_ctxOSt10unique_ptrIT_St14default_deleteIS7_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_RSt6vectorIS6_IT0_S8_ISL_EESaISN_EERSt3mapISH_PS7_St4lessISH_ESaISt4pairISI_SS_EEE.exit.sink.split
 
 ._crit_edge.i.i.sink.split.i:                     ; preds = %_ZNK5osgeo4proj12ExtentAndRes8containsERKS1_.exit.i, %293, %287, %280, %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN5osgeo4proj16GTiffGenericGridESt4lessIS5_ESaISt4pairIKS5_S9_EEE4findERSD_.exit108.i, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_PN5osgeo4proj16GTiffGenericGridEESt10_Select1stISC_ESt4lessIS5_ESaISC_EE14_M_lower_boundEPSt13_Rb_tree_nodeISC_EPSt18_Rb_tree_node_baseRS7_.exit.i.i92.i, %262
@@ -16840,7 +16828,7 @@ _ZNSt6vectorISt10unique_ptrIN5osgeo4proj16GenericShiftGridESt14default_deleteIS3
 .noexc128:                                        ; preds = %464, %_ZNSt6vectorISt10unique_ptrIN5osgeo4proj16GenericShiftGridESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i
   store ptr %457, ptr %23, align 8, !tbaa !386
   store ptr %463, ptr %68, align 8, !tbaa !389
-  %465 = getelementptr inbounds nuw %"class.std::unique_ptr.224", ptr %457, i64 %455
+  %465 = getelementptr inbounds nuw [8 x i8], ptr %457, i64 %455
   br label %_ZN5osgeo4projL19insertIntoHierarchyINS0_16GTiffGenericGridENS0_16GenericShiftGridEEEvP6pj_ctxOSt10unique_ptrIT_St14default_deleteIS7_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_RSt6vectorIS6_IT0_S8_ISL_EESaISN_EERSt3mapISH_PS7_St4lessISH_ESaISt4pairISI_SS_EEE.exit.sink.split
 
 _ZN5osgeo4projL19insertIntoHierarchyINS0_16GTiffGenericGridENS0_16GenericShiftGridEEEvP6pj_ctxOSt10unique_ptrIT_St14default_deleteIS7_EERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESJ_RSt6vectorIS6_IT0_S8_ISL_EESaISN_EERSt3mapISH_PS7_St4lessISH_ESaISt4pairISI_SS_EEE.exit.sink.split: ; preds = %.noexc124, %.noexc128
@@ -17044,7 +17032,7 @@ define noundef zeroext i1 @_ZNK5osgeo4proj16GenericShiftGrid8valuesAtEiiiiiPKiPf
 14:                                               ; preds = %21, %.preheader.us.us.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %21 ], [ 0, %.preheader.us.us.us ]
   %.33447.us.us.us = phi ptr [ %22, %21 ], [ %.13249.us.us.us, %.preheader.us.us.us ]
-  %15 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4, !tbaa !212
   %17 = load ptr, ptr %0, align 8, !tbaa !19
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 72
@@ -17244,7 +17232,7 @@ _ZNSt6vectorISt10unique_ptrIN5osgeo4proj16GenericShiftGridESt14default_deleteIS3
 .noexc:                                           ; preds = %58, %_ZNSt6vectorISt10unique_ptrIN5osgeo4proj16GenericShiftGridESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i
   store ptr %51, ptr %20, align 8, !tbaa !386
   store ptr %57, ptr %31, align 8, !tbaa !389
-  %59 = getelementptr inbounds nuw %"class.std::unique_ptr.224", ptr %51, i64 %49
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %49
   store ptr %59, ptr %33, align 8, !tbaa !393
   br label %_ZNSt10unique_ptrIN5osgeo4proj20NullGenericShiftGridESt14default_deleteIS2_EED2Ev.exit
 
@@ -18551,7 +18539,7 @@ _ZNSt6vectorISt10unique_ptrIN5osgeo4proj19GenericShiftGridSetESt14default_delete
 _ZNSt6vectorISt10unique_ptrIN5osgeo4proj19GenericShiftGridSetESt14default_deleteIS3_EESaIS6_EE12emplace_backIJS6_EEERS6_DpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN5osgeo4proj19GenericShiftGridSetESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i, %133
   store ptr %127, ptr %8, align 8, !tbaa !472
   store ptr %132, ptr %56, align 8, !tbaa !463
-  %134 = getelementptr inbounds nuw %"class.std::unique_ptr.245", ptr %127, i64 %125
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %127, i64 %125
   store ptr %134, ptr %57, align 8, !tbaa !473
   %.pr = load ptr, ptr %9, align 8, !tbaa !431
   %.not.i71 = icmp eq ptr %.pr, null
@@ -19196,7 +19184,7 @@ _ZNSt6vectorISt10unique_ptrIN5osgeo4proj22HorizontalShiftGridSetESt14default_del
 _ZNSt6vectorISt10unique_ptrIN5osgeo4proj22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EE12emplace_backIJS6_EEERS6_DpOT_.exit.i: ; preds = %132, %_ZNSt6vectorISt10unique_ptrIN5osgeo4proj22HorizontalShiftGridSetESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i.i
   store ptr %126, ptr %5, align 8, !tbaa !493, !noalias !479
   store ptr %131, ptr %57, align 8, !tbaa !482, !noalias !479
-  %133 = getelementptr inbounds nuw %"class.std::unique_ptr.183", ptr %126, i64 %124
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %124
   store ptr %133, ptr %58, align 8, !tbaa !494, !noalias !479
   %.pr.i = load ptr, ptr %8, align 8, !tbaa !359, !noalias !479
   %.not.i53.i = icmp eq ptr %.pr.i, null
@@ -20551,7 +20539,7 @@ _ZNSt6vectorISt10unique_ptrIN5osgeo4proj20VerticalShiftGridSetESt14default_delet
 _ZNSt6vectorISt10unique_ptrIN5osgeo4proj20VerticalShiftGridSetESt14default_deleteIS3_EESaIS6_EE12emplace_backIJS6_EEERS6_DpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN5osgeo4proj20VerticalShiftGridSetESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i, %133
   store ptr %127, ptr %8, align 8, !tbaa !507
   store ptr %132, ptr %56, align 8, !tbaa !498
-  %134 = getelementptr inbounds nuw %"class.std::unique_ptr.107", ptr %127, i64 %125
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %127, i64 %125
   store ptr %134, ptr %57, align 8, !tbaa !508
   %.pr = load ptr, ptr %9, align 8, !tbaa !280
   %.not.i71 = icmp eq ptr %.pr, null
@@ -24766,7 +24754,7 @@ _ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePair
 31:                                               ; preds = %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRS1_.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRS1_.exit ], [ %1, %5 ]
   %32 = load ptr, ptr %0, align 8, !tbaa !51
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0
   %34 = load ptr, ptr %33, align 8, !tbaa !52
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %38, label %35
@@ -24792,7 +24780,7 @@ _ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePair
   %44 = load i64, ptr %9, align 8, !tbaa !50
   %45 = load i64, ptr %43, align 8, !tbaa !29
   %46 = urem i64 %45, %44
-  %47 = getelementptr inbounds nuw ptr, ptr %32, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %46
   store ptr %3, ptr %47, align 8, !tbaa !52
   br label %48
 
@@ -24856,7 +24844,7 @@ _ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePair
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
   %16 = load i64, ptr %15, align 8, !tbaa !29
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !52
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -24871,7 +24859,7 @@ _ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePair
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !52
   br label %28
 
@@ -24946,7 +24934,7 @@ _ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePair
   %19 = load i64, ptr %18, align 8, !tbaa !50
   %20 = urem i64 %8, %19
   %.pre = load ptr, ptr %0, align 8, !tbaa !51
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre, i64 %20
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %20
   %.pre41 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !52
   br label %_ZNKSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS1_m.exit
 
@@ -24956,7 +24944,7 @@ _ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePair
   %24 = load i64, ptr %23, align 8, !tbaa !50
   %25 = urem i64 %22, %24
   %26 = load ptr, ptr %0, align 8, !tbaa !51
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %25
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %25
   %28 = load ptr, ptr %27, align 8, !tbaa !52
   %.not.i25 = icmp eq ptr %28, null
   br i1 %.not.i25, label %.critedge, label %29
@@ -24969,7 +24957,7 @@ _ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePair
   br i1 %33, label %_ZNKSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS1_m.exit.thread, label %.lr.ph.i
 
 _ZNKSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS1_m.exit.thread: ; preds = %29
-  %34 = getelementptr inbounds nuw ptr, ptr %26, i64 %25
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %25
   %35 = load ptr, ptr %30, align 8, !tbaa !47
   %.not18.i2756 = icmp eq ptr %35, null
   br i1 %.not18.i2756, label %._crit_edge.i.i, label %50
@@ -25007,7 +24995,7 @@ _ZNKSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePai
   br i1 %46, label %48, label %68
 
 48:                                               ; preds = %_ZNKSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS1_m.exit
-  %49 = getelementptr inbounds nuw ptr, ptr %45, i64 %.018
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %.018
   br i1 %.not18.i27, label %._crit_edge.i.i, label %50
 
 50:                                               ; preds = %_ZNKSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS1_m.exit.thread, %48
@@ -25026,7 +25014,7 @@ _ZNKSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePai
   br i1 %.not9.i.i, label %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNSE_15_Hash_node_baseEPNSE_10_Hash_nodeISC_Lb0EEE.exit, label %59
 
 59:                                               ; preds = %50
-  %60 = getelementptr inbounds nuw ptr, ptr %53, i64 %58
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %58
   store ptr %52, ptr %60, align 8, !tbaa !52
   br label %._crit_edge.i.i
 
@@ -25059,7 +25047,7 @@ _ZNKSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePai
   br i1 %.not17.i, label %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNSE_15_Hash_node_baseEPNSE_10_Hash_nodeISC_Lb0EEE.exit, label %73
 
 73:                                               ; preds = %69
-  %74 = getelementptr inbounds nuw ptr, ptr %45, i64 %72
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %72
   store ptr %.016, ptr %74, align 8, !tbaa !52
   br label %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIfSaIfEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNSE_15_Hash_node_baseEPNSE_10_Hash_nodeISC_Lb0EEE.exit
 
@@ -25171,9 +25159,9 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36: ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !73
-  %39 = getelementptr inbounds nuw float, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !119
-  %40 = getelementptr inbounds nuw float, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !76
   br label %41
 
@@ -25417,7 +25405,7 @@ _ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePair
 31:                                               ; preds = %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRS1_.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRS1_.exit ], [ %1, %5 ]
   %32 = load ptr, ptr %0, align 8, !tbaa !124
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0
   %34 = load ptr, ptr %33, align 8, !tbaa !52
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %38, label %35
@@ -25443,7 +25431,7 @@ _ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePair
   %44 = load i64, ptr %9, align 8, !tbaa !123
   %45 = load i64, ptr %43, align 8, !tbaa !29
   %46 = urem i64 %45, %44
-  %47 = getelementptr inbounds nuw ptr, ptr %32, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %46
   store ptr %3, ptr %47, align 8, !tbaa !52
   br label %48
 
@@ -25505,7 +25493,7 @@ _ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePair
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 8
   %16 = load i64, ptr %15, align 8, !tbaa !29
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !52
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -25520,7 +25508,7 @@ _ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePair
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !52
   br label %28
 
@@ -25595,7 +25583,7 @@ _ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePair
   %19 = load i64, ptr %18, align 8, !tbaa !123
   %20 = urem i64 %8, %19
   %.pre = load ptr, ptr %0, align 8, !tbaa !124
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre, i64 %20
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %20
   %.pre41 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !52
   br label %_ZNKSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS1_m.exit
 
@@ -25605,7 +25593,7 @@ _ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePair
   %24 = load i64, ptr %23, align 8, !tbaa !123
   %25 = urem i64 %22, %24
   %26 = load ptr, ptr %0, align 8, !tbaa !124
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %25
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %25
   %28 = load ptr, ptr %27, align 8, !tbaa !52
   %.not.i25 = icmp eq ptr %28, null
   br i1 %.not.i25, label %.critedge, label %29
@@ -25618,7 +25606,7 @@ _ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePair
   br i1 %33, label %_ZNKSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS1_m.exit.thread, label %.lr.ph.i
 
 _ZNKSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS1_m.exit.thread: ; preds = %29
-  %34 = getelementptr inbounds nuw ptr, ptr %26, i64 %25
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %25
   %35 = load ptr, ptr %30, align 8, !tbaa !47
   %.not18.i2756 = icmp eq ptr %35, null
   br i1 %.not18.i2756, label %._crit_edge.i.i, label %50
@@ -25656,7 +25644,7 @@ _ZNKSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePai
   br i1 %46, label %48, label %68
 
 48:                                               ; preds = %_ZNKSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS1_m.exit
-  %49 = getelementptr inbounds nuw ptr, ptr %45, i64 %.018
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %.018
   br i1 %.not18.i27, label %._crit_edge.i.i, label %50
 
 50:                                               ; preds = %_ZNKSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE19_M_find_before_nodeEmRS1_m.exit.thread, %48
@@ -25675,7 +25663,7 @@ _ZNKSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePai
   br i1 %.not9.i.i, label %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNSE_15_Hash_node_baseEPNSE_10_Hash_nodeISC_Lb0EEE.exit, label %59
 
 59:                                               ; preds = %50
-  %60 = getelementptr inbounds nuw ptr, ptr %53, i64 %58
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %58
   store ptr %52, ptr %60, align 8, !tbaa !52
   br label %._crit_edge.i.i
 
@@ -25708,7 +25696,7 @@ _ZNKSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePai
   br i1 %.not17.i, label %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNSE_15_Hash_node_baseEPNSE_10_Hash_nodeISC_Lb0EEE.exit, label %73
 
 73:                                               ; preds = %69
-  %74 = getelementptr inbounds nuw ptr, ptr %45, i64 %72
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %72
   store ptr %.016, ptr %74, align 8, !tbaa !52
   br label %_ZNSt10_HashtableImSt4pairIKmSt14_List_iteratorIN5osgeo4proj5lru1112KeyValuePairImSt6vectorIhSaIhEEEEEESaISC_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENSE_18_Mod_range_hashingENSE_20_Default_ranged_hashENSE_20_Prime_rehash_policyENSE_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNSE_15_Hash_node_baseEPNSE_10_Hash_nodeISC_Lb0EEE.exit
 
@@ -26428,9 +26416,9 @@ _ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit36: ; preds = %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !198
-  %39 = getelementptr inbounds nuw double, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !197
-  %40 = getelementptr inbounds nuw double, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !200
   br label %41
 
@@ -26478,7 +26466,7 @@ define linkonce_odr void @_ZNSt6vectorIdSaIdEE14_M_fill_insertEN9__gnu_cxx17__no
 
 _ZSt22__uninitialized_move_aIPdS0_SaIdEET0_T_S3_S2_RT1_.exit: ; preds = %23, %20
   %24 = phi ptr [ %.pre, %23 ], [ %9, %20 ]
-  %25 = getelementptr inbounds nuw double, ptr %24, i64 %2
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %2
   store ptr %25, ptr %8, align 8, !tbaa !197
   %.not.i.i.i.i.i = icmp eq ptr %21, %1
   br i1 %.not.i.i.i.i.i, label %_ZSt13move_backwardIPdS0_ET0_T_S2_S1_.exit, label %26
@@ -26487,7 +26475,7 @@ _ZSt22__uninitialized_move_aIPdS0_SaIdEET0_T_S3_S2_RT1_.exit: ; preds = %23, %20
   %27 = sub i64 %22, %16
   %28 = ashr exact i64 %27, 3
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds double, ptr %9, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %9, i64 %29
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %30, ptr align 8 %1, i64 %27, i1 false)
   br label %_ZSt13move_backwardIPdS0_ET0_T_S2_S1_.exit
 
@@ -26598,7 +26586,7 @@ _ZSt24__uninitialized_fill_n_aIPdmddET_S1_T0_RKT1_RSaIT2_E.exit80: ; preds = %.l
   br label %_ZSt34__uninitialized_move_if_noexcept_aIPdS0_SaIdEET0_T_S3_S2_RT1_.exit
 
 _ZSt34__uninitialized_move_if_noexcept_aIPdS0_SaIdEET0_T_S3_S2_RT1_.exit: ; preds = %67, %_ZSt24__uninitialized_fill_n_aIPdmddET_S1_T0_RKT1_RSaIT2_E.exit80
-  %68 = getelementptr inbounds nuw double, ptr %63, i64 %2
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %2
   %69 = sub i64 %11, %56
   %.not.i.i.i.i.i.i.i.i.i82 = icmp eq ptr %9, %1
   br i1 %.not.i.i.i.i.i.i.i.i.i82, label %71, label %70
@@ -26620,7 +26608,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPdS0_SaIdEET0_T_S3_S2_RT1_.exit: ; pred
 _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit: ; preds = %71, %73
   store ptr %62, ptr %0, align 8, !tbaa !198
   store ptr %72, ptr %8, align 8, !tbaa !197
-  %75 = getelementptr inbounds nuw double, ptr %62, i64 %55
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %55
   store ptr %75, ptr %6, align 8, !tbaa !200
   br label %_ZSt4fillIPddEvT_S1_RKT0_.exit
 
@@ -26939,7 +26927,7 @@ _ZNSt6vectorISt10unique_ptrIN5osgeo4proj17VerticalShiftGridESt14default_deleteIS
 _ZNSt12_Vector_baseISt10unique_ptrIN5osgeo4proj17VerticalShiftGridESt14default_deleteIS3_EESaIS6_EE13_M_deallocateEPS6_m.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN5osgeo4proj17VerticalShiftGridESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22, %31
   store ptr %20, ptr %0, align 8, !tbaa !82
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !85
-  %35 = getelementptr inbounds nuw %"class.std::unique_ptr.85", ptr %20, i64 %16
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %35, ptr %30, align 8, !tbaa !89
   ret void
 }
@@ -27629,7 +27617,7 @@ _ZNSt6vectorISt10unique_ptrIN5osgeo4proj19HorizontalShiftGridESt14default_delete
 _ZNSt12_Vector_baseISt10unique_ptrIN5osgeo4proj19HorizontalShiftGridESt14default_deleteIS3_EESaIS6_EE13_M_deallocateEPS6_m.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN5osgeo4proj19HorizontalShiftGridESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22, %31
   store ptr %20, ptr %0, align 8, !tbaa !294
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !297
-  %35 = getelementptr inbounds nuw %"class.std::unique_ptr.151", ptr %20, i64 %16
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %35, ptr %30, align 8, !tbaa !301
   ret void
 }
@@ -28222,7 +28210,7 @@ _ZNSt6vectorISt10unique_ptrIN5osgeo4proj19HorizontalShiftGridESt14default_delete
 _ZNSt12_Vector_baseISt10unique_ptrIN5osgeo4proj19HorizontalShiftGridESt14default_deleteIS3_EESaIS6_EE13_M_deallocateEPS6_m.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN5osgeo4proj19HorizontalShiftGridESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22, %31
   store ptr %20, ptr %0, align 8, !tbaa !294
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !297
-  %35 = getelementptr inbounds nuw %"class.std::unique_ptr.151", ptr %20, i64 %16
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %35, ptr %30, align 8, !tbaa !301
   ret void
 }
@@ -28910,7 +28898,7 @@ _ZNSt6vectorISt10unique_ptrIN5osgeo4proj19HorizontalShiftGridESt14default_delete
 _ZNSt12_Vector_baseISt10unique_ptrIN5osgeo4proj19HorizontalShiftGridESt14default_deleteIS3_EESaIS6_EE13_M_deallocateEPS6_m.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN5osgeo4proj19HorizontalShiftGridESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22, %31
   store ptr %20, ptr %0, align 8, !tbaa !294
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !297
-  %35 = getelementptr inbounds nuw %"class.std::unique_ptr.151", ptr %20, i64 %16
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %35, ptr %30, align 8, !tbaa !301
   ret void
 }
@@ -28998,7 +28986,7 @@ _ZNSt6vectorISt10unique_ptrIN5osgeo4proj16GenericShiftGridESt14default_deleteIS3
 _ZNSt12_Vector_baseISt10unique_ptrIN5osgeo4proj16GenericShiftGridESt14default_deleteIS3_EESaIS6_EE13_M_deallocateEPS6_m.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN5osgeo4proj16GenericShiftGridESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22, %31
   store ptr %20, ptr %0, align 8, !tbaa !386
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !389
-  %35 = getelementptr inbounds nuw %"class.std::unique_ptr.224", ptr %20, i64 %16
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %35, ptr %30, align 8, !tbaa !393
   ret void
 }

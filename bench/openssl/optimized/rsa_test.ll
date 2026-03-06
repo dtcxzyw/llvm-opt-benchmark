@@ -196,7 +196,7 @@ define internal range(i32 0, 2) i32 @test_rsa_security_bit(i32 noundef %0) #0 {
   %2 = alloca [2000 x i8], align 16
   %3 = tail call ptr @RSA_new() #5
   %4 = sext i32 %0 to i64
-  %5 = getelementptr inbounds %struct.anon, ptr @rsa_security_bits_cases, i64 %4
+  %5 = getelementptr inbounds [8 x i8], ptr @rsa_security_bits_cases, i64 %4
   %6 = load i32, ptr %5, align 8, !tbaa !15
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %8 = load i32, ptr %7, align 4, !tbaa !17

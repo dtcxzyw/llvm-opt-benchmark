@@ -218,7 +218,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Slice_x867forwardERKSt6v
   br label %75
 
 58:                                               ; preds = %53
-  %59 = getelementptr inbounds nuw i32, ptr %27, i64 %.0482882
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %.0482882
   %60 = load i32, ptr %59, align 4, !tbaa !25
   %61 = icmp slt i32 %60, 0
   %62 = select i1 %61, i32 %37, i32 0
@@ -227,7 +227,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Slice_x867forwardERKSt6v
   br label %75
 
 65:                                               ; preds = %50
-  %66 = getelementptr inbounds nuw i32, ptr %25, i64 %.0482882
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %.0482882
   %67 = load i32, ptr %66, align 4, !tbaa !25
   %68 = icmp eq i32 %67, -233
   br i1 %68, label %69, label %75
@@ -250,7 +250,7 @@ define hidden noundef range(i32 -100, 1) i32 @_ZNK4ncnn9Slice_x867forwardERKSt6v
   %.0510 = select i1 %80, i32 4, i32 1
   %81 = select i1 %80, i64 2, i64 0
   %82 = shl i64 %48, %81
-  %83 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %52, i64 %.0482882
+  %83 = getelementptr inbounds nuw [72 x i8], ptr %52, i64 %.0482882
   %84 = sdiv i32 %.0509, %.0510
   %85 = load ptr, ptr %49, align 8, !tbaa !46
   tail call void @_ZN4ncnn3Mat6createEimiPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %83, i32 noundef %84, i64 noundef %82, i32 noundef %.0510, ptr noundef %85)
@@ -271,7 +271,7 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %75
 95:                                               ; preds = %_ZNK4ncnn3Mat5emptyEv.exit
   %96 = load ptr, ptr %17, align 8, !tbaa !16
   %97 = sext i32 %.0480883 to i64
-  %98 = getelementptr inbounds float, ptr %96, i64 %97
+  %98 = getelementptr inbounds [4 x i8], ptr %96, i64 %97
   %99 = getelementptr inbounds nuw i8, ptr %83, i64 44
   %100 = load i32, ptr %99, align 4, !tbaa !40
   %101 = sext i32 %100 to i64
@@ -342,7 +342,7 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %75
   br label %159
 
 142:                                              ; preds = %137
-  %143 = getelementptr inbounds nuw i32, ptr %27, i64 %.0513885
+  %143 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %.0513885
   %144 = load i32, ptr %143, align 4, !tbaa !25
   %145 = icmp slt i32 %144, 0
   %146 = select i1 %145, i32 %120, i32 0
@@ -351,7 +351,7 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %75
   br label %159
 
 149:                                              ; preds = %134
-  %150 = getelementptr inbounds nuw i32, ptr %25, i64 %.0513885
+  %150 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %.0513885
   %151 = load i32, ptr %150, align 4, !tbaa !25
   %152 = icmp eq i32 %151, -233
   br i1 %152, label %153, label %159
@@ -374,7 +374,7 @@ _ZNK4ncnn3Mat5emptyEv.exit:                       ; preds = %75
   %.0519 = select i1 %164, i32 4, i32 1
   %165 = select i1 %164, i64 2, i64 0
   %166 = shl i64 %132, %165
-  %167 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %136, i64 %.0513885
+  %167 = getelementptr inbounds nuw [72 x i8], ptr %136, i64 %.0513885
   %168 = sdiv i32 %.0514, %.0519
   %169 = load ptr, ptr %133, align 8, !tbaa !46
   tail call void @_ZN4ncnn3Mat6createEiimiPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %167, i32 noundef %117, i32 noundef %168, i64 noundef %166, i32 noundef %.0519, ptr noundef %169)
@@ -466,7 +466,7 @@ _ZN4ncnn3Mat6addrefEv.exit676:                    ; preds = %._crit_edge, %217
 .lr.ph891:                                        ; preds = %.critedge614, %.lr.ph891
   %.0520890 = phi i64 [ %224, %.lr.ph891 ], [ 0, %.critedge614 ]
   %.0859888 = phi i32 [ %.sroa.speculated849, %.lr.ph891 ], [ %190, %.critedge614 ]
-  %221 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %183, i64 %.0520890
+  %221 = getelementptr inbounds nuw [72 x i8], ptr %183, i64 %.0520890
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 24
   %223 = load i32, ptr %222, align 4, !tbaa !25
   %.sroa.speculated849 = tail call i32 @llvm.smin.i32(i32 %223, i32 %.0859888)
@@ -559,7 +559,7 @@ _ZN4ncnn3MatD2Ev.exit656:                         ; preds = %237, %234, %243, %2
   %267 = phi ptr [ %253, %.lr.ph908 ], [ %323, %321 ]
   %.0539906 = phi ptr [ %255, %.lr.ph908 ], [ %.3542, %321 ]
   %.0543905 = phi i64 [ 0, %.lr.ph908 ], [ %324, %321 ]
-  %268 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %266, i64 %.0543905
+  %268 = getelementptr inbounds nuw [72 x i8], ptr %266, i64 %.0543905
   %269 = getelementptr inbounds nuw i8, ptr %268, i64 24
   %270 = load i32, ptr %269, align 8, !tbaa !24
   %271 = icmp eq i32 %270, 4
@@ -598,9 +598,9 @@ _ZN4ncnn3MatD2Ev.exit656:                         ; preds = %237, %234, %243, %2
 .lr.ph899.us:                                     ; preds = %.lr.ph899.us.preheader, %._crit_edge900.us
   %indvars.iv = phi i64 [ 0, %.lr.ph899.us.preheader ], [ %indvars.iv.next, %._crit_edge900.us ]
   %.2541902.us = phi ptr [ %.0539906, %.lr.ph899.us.preheader ], [ %304, %._crit_edge900.us ]
-  %286 = getelementptr inbounds nuw float, ptr %.2541902.us, i64 %257
-  %287 = getelementptr inbounds nuw float, ptr %.2541902.us, i64 %259
-  %288 = getelementptr inbounds nuw float, ptr %.2541902.us, i64 %261
+  %286 = getelementptr inbounds nuw [4 x i8], ptr %.2541902.us, i64 %257
+  %287 = getelementptr inbounds nuw [4 x i8], ptr %.2541902.us, i64 %259
+  %288 = getelementptr inbounds nuw [4 x i8], ptr %.2541902.us, i64 %261
   %.reass.us = mul i64 %factor.op.mul, %indvars.iv
   %289 = getelementptr inbounds nuw i8, ptr %275, i64 %.reass.us
   br label %290
@@ -633,7 +633,7 @@ _ZN4ncnn3MatD2Ev.exit656:                         ; preds = %237, %234, %243, %2
   br i1 %exitcond979.not, label %._crit_edge900.us, label %290, !llvm.loop !56
 
 ._crit_edge900.us:                                ; preds = %290
-  %304 = getelementptr inbounds nuw float, ptr %.2541902.us, i64 %264
+  %304 = getelementptr inbounds nuw [4 x i8], ptr %.2541902.us, i64 %264
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond981.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond981.not, label %.loopexit875, label %.lr.ph899.us, !llvm.loop !57
@@ -658,7 +658,7 @@ _ZN4ncnn3MatD2Ev.exit656:                         ; preds = %237, %234, %243, %2
   %317 = load i32, ptr %308, align 8, !tbaa !24
   %318 = mul nsw i32 %317, %311
   %319 = sext i32 %318 to i64
-  %320 = getelementptr inbounds float, ptr %.1540, i64 %319
+  %320 = getelementptr inbounds [4 x i8], ptr %.1540, i64 %319
   %.pre995 = load ptr, ptr %121, align 8, !tbaa !41
   %.pre996 = load ptr, ptr %2, align 8, !tbaa !18
   br label %321
@@ -763,7 +763,7 @@ _ZN4ncnn3MatD2Ev.exit655:                         ; preds = %331, %._crit_edge90
   br label %388
 
 371:                                              ; preds = %366
-  %372 = getelementptr inbounds nuw i32, ptr %27, i64 %.0567911
+  %372 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %.0567911
   %373 = load i32, ptr %372, align 4, !tbaa !25
   %374 = icmp slt i32 %373, 0
   %375 = select i1 %374, i32 %352, i32 0
@@ -772,7 +772,7 @@ _ZN4ncnn3MatD2Ev.exit655:                         ; preds = %331, %._crit_edge90
   br label %388
 
 378:                                              ; preds = %363
-  %379 = getelementptr inbounds nuw i32, ptr %25, i64 %.0567911
+  %379 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %.0567911
   %380 = load i32, ptr %379, align 4, !tbaa !25
   %381 = icmp eq i32 %380, -233
   br i1 %381, label %382, label %388
@@ -787,7 +787,7 @@ _ZN4ncnn3MatD2Ev.exit655:                         ; preds = %331, %._crit_edge90
 
 388:                                              ; preds = %378, %382, %369, %371
   %.0572 = phi i32 [ %370, %369 ], [ %377, %371 ], [ %387, %382 ], [ %380, %378 ]
-  %389 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %365, i64 %.0567911
+  %389 = getelementptr inbounds nuw [72 x i8], ptr %365, i64 %.0567911
   %390 = load i32, ptr %8, align 4, !tbaa !25
   %391 = load i64, ptr %5, align 8, !tbaa !23
   %392 = load i32, ptr %6, align 4, !tbaa !25
@@ -884,7 +884,7 @@ _ZNK4ncnn3Mat5emptyEv.exit648:                    ; preds = %388
   br label %465
 
 448:                                              ; preds = %443
-  %449 = getelementptr inbounds nuw i32, ptr %27, i64 %.0569917
+  %449 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %.0569917
   %450 = load i32, ptr %449, align 4, !tbaa !25
   %451 = icmp slt i32 %450, 0
   %452 = select i1 %451, i32 %428, i32 0
@@ -893,7 +893,7 @@ _ZNK4ncnn3Mat5emptyEv.exit648:                    ; preds = %388
   br label %465
 
 455:                                              ; preds = %440
-  %456 = getelementptr inbounds nuw i32, ptr %25, i64 %.0569917
+  %456 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %.0569917
   %457 = load i32, ptr %456, align 4, !tbaa !25
   %458 = icmp eq i32 %457, -233
   br i1 %458, label %459, label %465
@@ -920,7 +920,7 @@ _ZNK4ncnn3Mat5emptyEv.exit648:                    ; preds = %388
   %474 = udiv i64 %471, %473
   %475 = select i1 %470, i64 2, i64 0
   %476 = shl i64 %474, %475
-  %477 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %442, i64 %.0569917
+  %477 = getelementptr inbounds nuw [72 x i8], ptr %442, i64 %.0569917
   %478 = sdiv i32 %.0568, %.0564
   %479 = load ptr, ptr %439, align 8, !tbaa !46
   call void @_ZN4ncnn3Mat6createEiiiimiPNS_9AllocatorE(ptr noundef nonnull align 8 dereferenceable(72) %477, i32 noundef %420, i32 noundef %422, i32 noundef %424, i32 noundef %478, i64 noundef %476, i32 noundef %.0564, ptr noundef %479)
@@ -1011,7 +1011,7 @@ _ZN4ncnn3Mat6addrefEv.exit:                       ; preds = %._crit_edge924, %52
 .lr.ph923:                                        ; preds = %.critedge622, %.lr.ph923
   %.0561922 = phi i64 [ %533, %.lr.ph923 ], [ 0, %.critedge622 ]
   %.0861920 = phi i32 [ %.sroa.speculated, %.lr.ph923 ], [ %501, %.critedge622 ]
-  %530 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %494, i64 %.0561922
+  %530 = getelementptr inbounds nuw [72 x i8], ptr %494, i64 %.0561922
   %531 = getelementptr inbounds nuw i8, ptr %530, i64 24
   %532 = load i32, ptr %531, align 4, !tbaa !25
   %.sroa.speculated = call i32 @llvm.smin.i32(i32 %532, i32 %.0861920)
@@ -1058,7 +1058,7 @@ _ZNK4ncnn3Mat5emptyEv.exit650:                    ; preds = %535
   %552 = phi ptr [ %547, %.lr.ph951 ], [ %628, %626 ]
   %.0556949 = phi i64 [ 0, %.lr.ph951 ], [ %629, %626 ]
   %.0557948 = phi i32 [ 0, %.lr.ph951 ], [ %.3560, %626 ]
-  %553 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %551, i64 %.0556949
+  %553 = getelementptr inbounds nuw [72 x i8], ptr %551, i64 %.0556949
   %554 = getelementptr inbounds nuw i8, ptr %553, i64 24
   %555 = load i32, ptr %554, align 8, !tbaa !24
   %556 = icmp eq i32 %555, 4
@@ -1334,7 +1334,7 @@ _ZN4ncnn3MatD2Ev.exit664:                         ; preds = %651, %543, %657, %6
   br label %710
 
 693:                                              ; preds = %688
-  %694 = getelementptr inbounds nuw i32, ptr %27, i64 %.0536955
+  %694 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %.0536955
   %695 = load i32, ptr %694, align 4, !tbaa !25
   %696 = icmp slt i32 %695, 0
   %697 = select i1 %696, i32 %672, i32 0
@@ -1343,7 +1343,7 @@ _ZN4ncnn3MatD2Ev.exit664:                         ; preds = %651, %543, %657, %6
   br label %710
 
 700:                                              ; preds = %685
-  %701 = getelementptr inbounds nuw i32, ptr %25, i64 %.0536955
+  %701 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %.0536955
   %702 = load i32, ptr %701, align 4, !tbaa !25
   %703 = icmp eq i32 %702, -233
   br i1 %703, label %704, label %710
@@ -1358,7 +1358,7 @@ _ZN4ncnn3MatD2Ev.exit664:                         ; preds = %651, %543, %657, %6
 
 710:                                              ; preds = %700, %704, %691, %693
   %.0535 = phi i32 [ %692, %691 ], [ %699, %693 ], [ %709, %704 ], [ %702, %700 ]
-  %711 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %687, i64 %.0536955
+  %711 = getelementptr inbounds nuw [72 x i8], ptr %687, i64 %.0536955
   %712 = load i32, ptr %10, align 4, !tbaa !25
   %713 = load i32, ptr %11, align 4, !tbaa !25
   %714 = load i64, ptr %5, align 8, !tbaa !23
@@ -1456,7 +1456,7 @@ _ZNK4ncnn3Mat5emptyEv.exit651:                    ; preds = %710
   br label %782
 
 765:                                              ; preds = %760
-  %766 = getelementptr inbounds nuw i32, ptr %27, i64 %.0516960
+  %766 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %.0516960
   %767 = load i32, ptr %766, align 4, !tbaa !25
   %768 = icmp slt i32 %767, 0
   %769 = select i1 %768, i32 %742, i32 0
@@ -1465,7 +1465,7 @@ _ZNK4ncnn3Mat5emptyEv.exit651:                    ; preds = %710
   br label %782
 
 772:                                              ; preds = %757
-  %773 = getelementptr inbounds nuw i32, ptr %25, i64 %.0516960
+  %773 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %.0516960
   %774 = load i32, ptr %773, align 4, !tbaa !25
   %775 = icmp eq i32 %774, -233
   br i1 %775, label %776, label %782
@@ -1480,7 +1480,7 @@ _ZNK4ncnn3Mat5emptyEv.exit651:                    ; preds = %710
 
 782:                                              ; preds = %772, %776, %763, %765
   %.0515 = phi i32 [ %764, %763 ], [ %771, %765 ], [ %781, %776 ], [ %774, %772 ]
-  %783 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %759, i64 %.0516960
+  %783 = getelementptr inbounds nuw [72 x i8], ptr %759, i64 %.0516960
   %784 = load i32, ptr %12, align 4, !tbaa !25
   %785 = load i32, ptr %13, align 4, !tbaa !25
   %786 = load i32, ptr %14, align 4, !tbaa !25
@@ -1573,7 +1573,7 @@ _ZNK4ncnn3Mat5emptyEv.exit652:                    ; preds = %782
   br label %854
 
 837:                                              ; preds = %832
-  %838 = getelementptr inbounds nuw i32, ptr %27, i64 %.0484965
+  %838 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %.0484965
   %839 = load i32, ptr %838, align 4, !tbaa !25
   %840 = icmp slt i32 %839, 0
   %841 = select i1 %840, i32 %818, i32 0
@@ -1582,7 +1582,7 @@ _ZNK4ncnn3Mat5emptyEv.exit652:                    ; preds = %782
   br label %854
 
 844:                                              ; preds = %829
-  %845 = getelementptr inbounds nuw i32, ptr %25, i64 %.0484965
+  %845 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %.0484965
   %846 = load i32, ptr %845, align 4, !tbaa !25
   %847 = icmp eq i32 %846, -233
   br i1 %847, label %848, label %854
@@ -1597,7 +1597,7 @@ _ZNK4ncnn3Mat5emptyEv.exit652:                    ; preds = %782
 
 854:                                              ; preds = %844, %848, %835, %837
   %.0483 = phi i32 [ %836, %835 ], [ %843, %837 ], [ %853, %848 ], [ %846, %844 ]
-  %855 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %831, i64 %.0484965
+  %855 = getelementptr inbounds nuw [72 x i8], ptr %831, i64 %.0484965
   %856 = load i32, ptr %15, align 4, !tbaa !25
   %857 = load i64, ptr %5, align 8, !tbaa !23
   %858 = load i32, ptr %6, align 4, !tbaa !25
@@ -1854,7 +1854,7 @@ define internal void @_ZNK4ncnn9Slice_x867forwardERKSt6vectorINS_3MatESaIS2_EERS
   %39 = phi ptr [ %59, %.lr.ph ], [ %26, %.lr.ph.preheader ]
   %.02831 = phi ptr [ %56, %.lr.ph ], [ %34, %.lr.ph.preheader ]
   %.02930 = phi i64 [ %57, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %40 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %39, i64 %.02930
+  %40 = getelementptr inbounds nuw [72 x i8], ptr %39, i64 %.02930
   %41 = load ptr, ptr %40, align 8, !tbaa !16
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 44
   %43 = load i32, ptr %42, align 4, !tbaa !40
@@ -1871,7 +1871,7 @@ define internal void @_ZNK4ncnn9Slice_x867forwardERKSt6vectorINS_3MatESaIS2_EERS
   %53 = load i32, ptr %6, align 4, !tbaa !25
   %54 = mul nsw i32 %53, %52
   %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds float, ptr %.02831, i64 %55
+  %56 = getelementptr inbounds [4 x i8], ptr %.02831, i64 %55
   %57 = add nuw i64 %.02930, 1
   %58 = load ptr, ptr %22, align 8, !tbaa !41
   %59 = load ptr, ptr %4, align 8, !tbaa !18
@@ -2023,7 +2023,7 @@ define internal void @_ZNK4ncnn9Slice_x867forwardERKSt6vectorINS_3MatESaIS2_EERS
   %49 = phi ptr [ %79, %.noexc ], [ %38, %.preheader ]
   %.188 = phi ptr [ %76, %.noexc ], [ %.03490, %.preheader ]
   %.03687 = phi i64 [ %77, %.noexc ], [ 0, %.preheader ]
-  %50 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %49, i64 %.03687
+  %50 = getelementptr inbounds nuw [72 x i8], ptr %49, i64 %.03687
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 44
   %52 = load i32, ptr %51, align 4, !tbaa !40
   %53 = getelementptr inbounds nuw i8, ptr %50, i64 48
@@ -2050,7 +2050,7 @@ define internal void @_ZNK4ncnn9Slice_x867forwardERKSt6vectorINS_3MatESaIS2_EERS
   %73 = load i32, ptr %7, align 4, !tbaa !25
   %74 = mul nsw i32 %73, %55
   %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds float, ptr %.188, i64 %75
+  %76 = getelementptr inbounds [4 x i8], ptr %.188, i64 %75
   %77 = add nuw i64 %.03687, 1
   %78 = load ptr, ptr %23, align 8, !tbaa !41
   %79 = load ptr, ptr %5, align 8, !tbaa !18
@@ -2204,7 +2204,7 @@ define internal void @_ZNK4ncnn9Slice_x867forwardERKSt6vectorINS_3MatESaIS2_EERS
   %61 = phi ptr [ %92, %.noexc ], [ %49, %.preheader ]
   %.289 = phi ptr [ %89, %.noexc ], [ %.191, %.preheader ]
   %.03788 = phi i64 [ %90, %.noexc ], [ 0, %.preheader ]
-  %62 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %61, i64 %.03788
+  %62 = getelementptr inbounds nuw [72 x i8], ptr %61, i64 %.03788
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 44
   %64 = load i32, ptr %63, align 4, !tbaa !40, !noalias !98
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 48
@@ -2232,7 +2232,7 @@ define internal void @_ZNK4ncnn9Slice_x867forwardERKSt6vectorINS_3MatESaIS2_EERS
   %86 = load i32, ptr %8, align 4, !tbaa !25
   %87 = mul nsw i32 %86, %85
   %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds float, ptr %.289, i64 %88
+  %89 = getelementptr inbounds [4 x i8], ptr %.289, i64 %88
   %90 = add nuw i64 %.03788, 1
   %91 = load ptr, ptr %24, align 8, !tbaa !41
   %92 = load ptr, ptr %6, align 8, !tbaa !18
@@ -2327,7 +2327,7 @@ define internal void @_ZNK4ncnn9Slice_x867forwardERKSt6vectorINS_3MatESaIS2_EERS
   %37 = phi ptr [ %64, %.noexc ], [ %25, %.noexc.preheader ]
   %.03165 = phi ptr [ %61, %.noexc ], [ %32, %.noexc.preheader ]
   %.03264 = phi i64 [ %62, %.noexc ], [ 0, %.noexc.preheader ]
-  %38 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %37, i64 %.03264
+  %38 = getelementptr inbounds nuw [72 x i8], ptr %37, i64 %.03264
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 44
   %40 = load i32, ptr %39, align 4, !tbaa !40
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 48
@@ -2351,7 +2351,7 @@ define internal void @_ZNK4ncnn9Slice_x867forwardERKSt6vectorINS_3MatESaIS2_EERS
   %58 = load i32, ptr %6, align 4, !tbaa !25
   %59 = mul nsw i32 %58, %54
   %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds float, ptr %.03165, i64 %60
+  %61 = getelementptr inbounds [4 x i8], ptr %.03165, i64 %60
   %62 = add nuw i64 %.03264, 1
   %63 = load ptr, ptr %22, align 8, !tbaa !41
   %64 = load ptr, ptr %4, align 8, !tbaa !18

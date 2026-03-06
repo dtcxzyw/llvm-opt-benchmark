@@ -34,12 +34,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.icu_77::LocalPointerBase.7" = type { ptr }
 %"class.icu_77::LocalPointer.36" = type { %"class.icu_77::LocalPointerBase.37" }
 %"class.icu_77::LocalPointerBase.37" = type { ptr }
-%"class.icu_77::number::impl::PropertiesAffixPatternProvider" = type <{ %"class.icu_77::number::impl::AffixPatternProvider", %"class.icu_77::UnicodeString", %"class.icu_77::UnicodeString", %"class.icu_77::UnicodeString", %"class.icu_77::UnicodeString", i8, i8, i8, [5 x i8] }>
-%"class.icu_77::number::impl::AffixPatternProvider" = type { ptr }
-%"class.icu_77::UnicodeString" = type { %"class.icu_77::Replaceable", %"union.icu_77::UnicodeString::StackBufferOrFields" }
-%"class.icu_77::Replaceable" = type { %"class.icu_77::UObject" }
-%"union.icu_77::UnicodeString::StackBufferOrFields" = type { %struct.anon.4, [32 x i8] }
-%struct.anon.4 = type { i16, i32, i32, ptr }
 %"class.icu_77::number::FormattedNumber" = type <{ %"class.icu_77::FormattedValue", ptr, i32, [4 x i8] }>
 %"class.icu_77::FormattedValue" = type { ptr }
 %"class.icu_77::FormattedStringBuilder" = type { i8, %"union.icu_77::FormattedStringBuilder::ValueOrHeapArray", %"union.icu_77::FormattedStringBuilder::ValueOrHeapArray.39", i32, i32 }
@@ -47,6 +41,10 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.anon.38 = type { ptr, i32 }
 %"union.icu_77::FormattedStringBuilder::ValueOrHeapArray.39" = type { %struct.anon.40, [24 x i8] }
 %struct.anon.40 = type { ptr, i32 }
+%"class.icu_77::UnicodeString" = type { %"class.icu_77::Replaceable", %"union.icu_77::UnicodeString::StackBufferOrFields" }
+%"class.icu_77::Replaceable" = type { %"class.icu_77::UObject" }
+%"union.icu_77::UnicodeString::StackBufferOrFields" = type { %struct.anon.4, [32 x i8] }
+%struct.anon.4 = type { i16, i32, i32, ptr }
 
 $_ZN6icu_7715MaybeStackArrayIcLi40EEC5Ev = comdat any
 
@@ -3841,8 +3839,8 @@ define linkonce_odr void @_ZN6icu_776number4impl24AutoAffixPatternProvider5setTo
 
 27:                                               ; preds = %27, %24
   %.07.i = phi i64 [ 0, %24 ], [ %44, %27 ]
-  %28 = getelementptr inbounds nuw %"class.icu_77::number::impl::PropertiesAffixPatternProvider", ptr %25, i64 %.07.i
-  %29 = getelementptr inbounds nuw %"class.icu_77::number::impl::PropertiesAffixPatternProvider", ptr %26, i64 %.07.i
+  %28 = getelementptr inbounds nuw [272 x i8], ptr %25, i64 %.07.i
+  %29 = getelementptr inbounds nuw [272 x i8], ptr %26, i64 %.07.i
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %32 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %30, ptr noundef nonnull align 8 dereferenceable(64) %31)

@@ -1743,7 +1743,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i: ; preds = %34, %.noex
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i: ; preds = %36, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i
   store ptr %31, ptr %11, align 8, !tbaa !102
   store ptr %35, ptr %12, align 8, !tbaa !100
-  %37 = getelementptr inbounds nuw i64, ptr %31, i64 %29
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %29
   store ptr %37, ptr %14, align 8, !tbaa !101
   br label %_ZNSt6vectorImSaImEE9push_backERKm.exit
 
@@ -4202,7 +4202,7 @@ _ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i: ; preds = %30, %_ZNSt6vec
   %.pre = phi i64 [ %.pre.pre, %30 ], [ %20, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit.i ]
   store ptr %29, ptr %4, align 8, !tbaa !102
   store ptr %29, ptr %6, align 8, !tbaa !100
-  %31 = getelementptr inbounds nuw i64, ptr %29, i64 %24
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %24
   store ptr %31, ptr %13, align 8, !tbaa !101
   br label %_ZNSt6vectorImSaImEE7reserveEm.exit
 
@@ -7106,7 +7106,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN5
   br i1 %23, label %24, label %_ZNSt6vectorIPN5boost4wave8grammars15defined_grammarINSt7__cxx114listINS1_8cpplexer9lex_tokenINS1_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEENS0_19fast_pool_allocatorISL_NS0_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEE10definitionINS0_6spirit7classic7scannerINS8_20unput_queue_iteratorISt14_List_iteratorISL_ESL_SQ_EENSU_16scanner_policiesINSU_28skip_parser_iteration_policyINSU_11alternativeINSU_5chlitINS1_8token_idEEES15_EENSU_16iteration_policyEEENSU_12match_policyENSU_13action_policyEEEEEEESaIS1E_EE6resizeEm.exit
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds nuw ptr, ptr %11, i64 %19
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %19
   %.not.i.i = icmp eq ptr %10, %25
   br i1 %.not.i.i, label %_ZNSt6vectorIPN5boost4wave8grammars15defined_grammarINSt7__cxx114listINS1_8cpplexer9lex_tokenINS1_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEENS0_19fast_pool_allocatorISL_NS0_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEE10definitionINS0_6spirit7classic7scannerINS8_20unput_queue_iteratorISt14_List_iteratorISL_ESL_SQ_EENSU_16scanner_policiesINSU_28skip_parser_iteration_policyINSU_11alternativeINSU_5chlitINS1_8token_idEEES15_EENSU_16iteration_policyEEENSU_12match_policyENSU_13action_policyEEEEEEESaIS1E_EE6resizeEm.exit, label %26
 
@@ -7116,7 +7116,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN5
 
 _ZNSt6vectorIPN5boost4wave8grammars15defined_grammarINSt7__cxx114listINS1_8cpplexer9lex_tokenINS1_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEENS0_19fast_pool_allocatorISL_NS0_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEE10definitionINS0_6spirit7classic7scannerINS8_20unput_queue_iteratorISt14_List_iteratorISL_ESL_SQ_EENSU_16scanner_policiesINSU_28skip_parser_iteration_policyINSU_11alternativeINSU_5chlitINS1_8token_idEEES15_EENSU_16iteration_policyEEENSU_12match_policyENSU_13action_policyEEEEEEESaIS1E_EE6resizeEm.exit: ; preds = %26, %24, %22, %20, %2
   %27 = phi ptr [ %11, %26 ], [ %11, %24 ], [ %11, %22 ], [ %.pre, %20 ], [ %11, %2 ]
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %7
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %7
   %29 = load ptr, ptr %28, align 8, !tbaa !17
   %.not17 = icmp eq ptr %29, null
   br i1 %.not17, label %30, label %97
@@ -7253,7 +7253,7 @@ _ZNSt6vectorIPN5boost6spirit7classic4impl19grammar_helper_baseINS2_7grammarINS0_
 _ZNSt6vectorIPN5boost6spirit7classic4impl19grammar_helper_baseINS2_7grammarINS0_4wave8grammars15defined_grammarINSt7__cxx114listINS6_8cpplexer9lex_tokenINS6_4util13file_positionINSD_11flex_stringIcSt11char_traitsIcESaIcENSD_9CowStringINSD_22AllocatorStringStorageIcSI_EEPcEEEEEEEENS0_19fast_pool_allocatorISQ_NS0_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS2_14parser_contextINS2_5nil_tEEEEEEESaIS12_EE17_M_realloc_insertIJRKS12_EEEvN9__gnu_cxx17__normal_iteratorIPS12_S14_EEDpOT_.exit.i.i: ; preds = %69, %_ZNSt6vectorIPN5boost6spirit7classic4impl19grammar_helper_baseINS2_7grammarINS0_4wave8grammars15defined_grammarINSt7__cxx114listINS6_8cpplexer9lex_tokenINS6_4util13file_positionINSD_11flex_stringIcSt11char_traitsIcESaIcENSD_9CowStringINSD_22AllocatorStringStorageIcSI_EEPcEEEEEEEENS0_19fast_pool_allocatorISQ_NS0_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS2_14parser_contextINS2_5nil_tEEEEEEESaIS12_EE11_S_relocateEPS12_S15_S15_RS13_.exit16.i.i.i
   store ptr %64, ptr %5, align 8, !tbaa !54
   store ptr %68, ptr %44, align 8, !tbaa !223
-  %70 = getelementptr inbounds nuw ptr, ptr %64, i64 %62
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %62
   store ptr %70, ptr %46, align 8, !tbaa !56
   br label %_ZN5boost6spirit7classic4impl19grammar_helper_listINS1_7grammarINS_4wave8grammars15defined_grammarINSt7__cxx114listINS5_8cpplexer9lex_tokenINS5_4util13file_positionINSC_11flex_stringIcSt11char_traitsIcESaIcENSC_9CowStringINSC_22AllocatorStringStorageIcSH_EEPcEEEEEEEENS_19fast_pool_allocatorISP_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_14parser_contextINS1_5nil_tEEEEEE9push_backEPNS2_19grammar_helper_baseISZ_EE.exit
 
@@ -7263,7 +7263,7 @@ _ZN5boost6spirit7classic4impl19grammar_helper_listINS1_7grammarINS_4wave8grammar
   %73 = add i64 %72, 1
   store i64 %73, ptr %71, align 8, !tbaa !224
   %74 = load ptr, ptr %8, align 8, !tbaa !208
-  %75 = getelementptr inbounds nuw ptr, ptr %74, i64 %7
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %7
   store ptr %31, ptr %75, align 8, !tbaa !17
   %76 = load i8, ptr %43, align 8, !tbaa !92, !range !78, !noundef !79
   %77 = trunc nuw i8 %76 to i1
@@ -7455,7 +7455,7 @@ define linkonce_odr hidden noundef i32 @_ZN5boost6spirit7classic4impl14grammar_h
   br i1 %.not, label %13, label %_ZN5boost10shared_ptrINS_6spirit7classic4impl14grammar_helperINS2_7grammarINS_4wave8grammars15defined_grammarINSt7__cxx114listINS6_8cpplexer9lex_tokenINS6_4util13file_positionINSD_11flex_stringIcSt11char_traitsIcESaIcENSD_9CowStringINSD_22AllocatorStringStorageIcSI_EEPcEEEEEEEENS_19fast_pool_allocatorISQ_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS2_14parser_contextINS2_5nil_tEEEEESW_NS2_7scannerINSD_20unput_queue_iteratorISt14_List_iteratorISQ_ESQ_SV_EENS2_16scanner_policiesINS2_28skip_parser_iteration_policyINS2_11alternativeINS2_5chlitINS6_8token_idEEES1B_EENS2_16iteration_policyEEENS2_12match_policyENS2_13action_policyEEEEEEEE5resetEv.exit
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds nuw ptr, ptr %8, i64 %4
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %4
   %15 = load ptr, ptr %14, align 8, !tbaa !17
   %16 = icmp eq ptr %15, null
   br i1 %16, label %31, label %17
@@ -7492,7 +7492,7 @@ _ZN5boost4wave8grammars15defined_grammarINSt7__cxx114listINS0_8cpplexer9lex_toke
 
 31:                                               ; preds = %_ZN5boost4wave8grammars15defined_grammarINSt7__cxx114listINS0_8cpplexer9lex_tokenINS0_4util13file_positionINS7_11flex_stringIcSt11char_traitsIcESaIcENS7_9CowStringINS7_22AllocatorStringStorageIcSC_EEPcEEEEEEEENS_19fast_pool_allocatorISK_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEE10definitionINS_6spirit7classic7scannerINS7_20unput_queue_iteratorISt14_List_iteratorISK_ESK_SP_EENST_16scanner_policiesINST_28skip_parser_iteration_policyINST_11alternativeINST_5chlitINS0_8token_idEEES14_EENST_16iteration_policyEEENST_12match_policyENST_13action_policyEEEEEED2Ev.exit, %13
   %32 = phi ptr [ %.pre, %_ZN5boost4wave8grammars15defined_grammarINSt7__cxx114listINS0_8cpplexer9lex_tokenINS0_4util13file_positionINS7_11flex_stringIcSt11char_traitsIcESaIcENS7_9CowStringINS7_22AllocatorStringStorageIcSC_EEPcEEEEEEEENS_19fast_pool_allocatorISK_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEE10definitionINS_6spirit7classic7scannerINS7_20unput_queue_iteratorISt14_List_iteratorISK_ESK_SP_EENST_16scanner_policiesINST_28skip_parser_iteration_policyINST_11alternativeINST_5chlitINS0_8token_idEEES14_EENST_16iteration_policyEEENST_12match_policyENST_13action_policyEEEEEED2Ev.exit ], [ %8, %13 ]
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %4
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %4
   store ptr null, ptr %33, align 8, !tbaa !17
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %35 = load i64, ptr %34, align 8, !tbaa !224
@@ -7835,9 +7835,9 @@ _ZNSt6vectorIPN5boost4wave8grammars15defined_grammarINSt7__cxx114listINS1_8cpple
 
 _ZNSt12_Vector_baseIPN5boost4wave8grammars15defined_grammarINSt7__cxx114listINS1_8cpplexer9lex_tokenINS1_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEENS0_19fast_pool_allocatorISL_NS0_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEE10definitionINS0_6spirit7classic7scannerINS8_20unput_queue_iteratorISt14_List_iteratorISL_ESL_SQ_EENSU_16scanner_policiesINSU_28skip_parser_iteration_policyINSU_11alternativeINSU_5chlitINS1_8token_idEEES15_EENSU_16iteration_policyEEENSU_12match_policyENSU_13action_policyEEEEEEESaIS1E_EE13_M_deallocateEPS1E_m.exit36: ; preds = %_ZNSt6vectorIPN5boost4wave8grammars15defined_grammarINSt7__cxx114listINS1_8cpplexer9lex_tokenINS1_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEENS0_19fast_pool_allocatorISL_NS0_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEE10definitionINS0_6spirit7classic7scannerINS8_20unput_queue_iteratorISt14_List_iteratorISL_ESL_SQ_EENSU_16scanner_policiesINSU_28skip_parser_iteration_policyINSU_11alternativeINSU_5chlitINS1_8token_idEEES15_EENSU_16iteration_policyEEENSU_12match_policyENSU_13action_policyEEEEEEESaIS1E_EE11_S_relocateEPS1E_S1H_S1H_RS1F_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !208
-  %39 = getelementptr inbounds nuw ptr, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !213
-  %40 = getelementptr inbounds nuw ptr, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !212
   br label %41
 
@@ -11318,7 +11318,7 @@ _ZN5boost4wave8cpplexer14token_is_validINS0_4util13file_positionINS3_11flex_stri
   br label %_ZNK5boost6spirit7classic16iteration_policy3getINS1_7scannerINS_4wave4util20unput_queue_iteratorINS5_8cpplexer12lex_iteratorINS8_9lex_tokenINS6_13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSF_EEPcEEEEEEEEEESN_NSt7__cxx114listISN_NS_19fast_pool_allocatorISN_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_27no_skipper_iteration_policyINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS5_8token_idEEES13_EES2_EEEENS1_12match_policyENS1_13action_policyEEEEEEENT_5ref_tERKS1B_.exit
 
 43:                                               ; preds = %11
-  %44 = getelementptr inbounds nuw %"class.boost::wave::cpplexer::lex_token", ptr %16, i64 %22
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %22
   br label %_ZNK5boost6spirit7classic16iteration_policy3getINS1_7scannerINS_4wave4util20unput_queue_iteratorINS5_8cpplexer12lex_iteratorINS8_9lex_tokenINS6_13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSF_EEPcEEEEEEEEEESN_NSt7__cxx114listISN_NS_19fast_pool_allocatorISN_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_27no_skipper_iteration_policyINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS5_8token_idEEES13_EES2_EEEENS1_12match_policyENS1_13action_policyEEEEEEENT_5ref_tERKS1B_.exit
 
 _ZNK5boost6spirit7classic16iteration_policy3getINS1_7scannerINS_4wave4util20unput_queue_iteratorINS5_8cpplexer12lex_iteratorINS8_9lex_tokenINS6_13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSF_EEPcEEEEEEEEEESN_NSt7__cxx114listISN_NS_19fast_pool_allocatorISN_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_27no_skipper_iteration_policyINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS5_8token_idEEES13_EES2_EEEENS1_12match_policyENS1_13action_policyEEEEEEENT_5ref_tERKS1B_.exit: ; preds = %9, %_ZN5boost4wave8cpplexer14token_is_validINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEEEbRKNS1_9lex_tokenIT_EE.exit.thread.i.i.i.i.i.i.i.i, %43
@@ -11625,7 +11625,7 @@ _ZSt8_DestroyIPN5boost4wave8cpplexer9lex_tokenINS1_4util13file_positionINS4_11fl
 _ZNSt12_Vector_baseIN5boost4wave8cpplexer9lex_tokenINS1_4util13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS9_EEPcEEEEEEEESaISH_EE13_M_deallocateEPSH_m.exit: ; preds = %_ZSt8_DestroyIPN5boost4wave8cpplexer9lex_tokenINS1_4util13file_positionINS4_11flex_stringIcSt11char_traitsIcESaIcENS4_9CowStringINS4_22AllocatorStringStorageIcS9_EEPcEEEEEEEESH_EvT_SJ_RSaIT0_E.exit, %41
   store ptr %20, ptr %0, align 8, !tbaa !297
   store ptr %.0.lcssa.i.i.i.i.i35, ptr %4, align 8, !tbaa !299
-  %45 = getelementptr inbounds nuw %"class.boost::wave::cpplexer::lex_token", ptr %20, i64 %16
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %45, ptr %40, align 8, !tbaa !301
   ret void
 }
@@ -12000,7 +12000,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN5
   br i1 %23, label %24, label %_ZNSt6vectorIPN5boost4wave8grammars15defined_grammarINSt7__cxx114listINS1_8cpplexer9lex_tokenINS1_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEENS0_19fast_pool_allocatorISL_NS0_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEE10definitionINS0_6spirit7classic7scannerINS8_20unput_queue_iteratorINS6_12lex_iteratorISL_EESL_SQ_EENSU_16scanner_policiesINSU_28skip_parser_iteration_policyINSU_11alternativeINSU_5chlitINS1_8token_idEEES15_EENSU_16iteration_policyEEENSU_12match_policyENSU_13action_policyEEEEEEESaIS1E_EE6resizeEm.exit
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds nuw ptr, ptr %11, i64 %19
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %19
   %.not.i.i = icmp eq ptr %10, %25
   br i1 %.not.i.i, label %_ZNSt6vectorIPN5boost4wave8grammars15defined_grammarINSt7__cxx114listINS1_8cpplexer9lex_tokenINS1_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEENS0_19fast_pool_allocatorISL_NS0_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEE10definitionINS0_6spirit7classic7scannerINS8_20unput_queue_iteratorINS6_12lex_iteratorISL_EESL_SQ_EENSU_16scanner_policiesINSU_28skip_parser_iteration_policyINSU_11alternativeINSU_5chlitINS1_8token_idEEES15_EENSU_16iteration_policyEEENSU_12match_policyENSU_13action_policyEEEEEEESaIS1E_EE6resizeEm.exit, label %26
 
@@ -12010,7 +12010,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN5
 
 _ZNSt6vectorIPN5boost4wave8grammars15defined_grammarINSt7__cxx114listINS1_8cpplexer9lex_tokenINS1_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEENS0_19fast_pool_allocatorISL_NS0_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEE10definitionINS0_6spirit7classic7scannerINS8_20unput_queue_iteratorINS6_12lex_iteratorISL_EESL_SQ_EENSU_16scanner_policiesINSU_28skip_parser_iteration_policyINSU_11alternativeINSU_5chlitINS1_8token_idEEES15_EENSU_16iteration_policyEEENSU_12match_policyENSU_13action_policyEEEEEEESaIS1E_EE6resizeEm.exit: ; preds = %26, %24, %22, %20, %2
   %27 = phi ptr [ %11, %26 ], [ %11, %24 ], [ %11, %22 ], [ %.pre, %20 ], [ %11, %2 ]
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %7
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %7
   %29 = load ptr, ptr %28, align 8, !tbaa !17
   %.not17 = icmp eq ptr %29, null
   br i1 %.not17, label %30, label %97
@@ -12147,7 +12147,7 @@ _ZNSt6vectorIPN5boost6spirit7classic4impl19grammar_helper_baseINS2_7grammarINS0_
 _ZNSt6vectorIPN5boost6spirit7classic4impl19grammar_helper_baseINS2_7grammarINS0_4wave8grammars15defined_grammarINSt7__cxx114listINS6_8cpplexer9lex_tokenINS6_4util13file_positionINSD_11flex_stringIcSt11char_traitsIcESaIcENSD_9CowStringINSD_22AllocatorStringStorageIcSI_EEPcEEEEEEEENS0_19fast_pool_allocatorISQ_NS0_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS2_14parser_contextINS2_5nil_tEEEEEEESaIS12_EE17_M_realloc_insertIJRKS12_EEEvN9__gnu_cxx17__normal_iteratorIPS12_S14_EEDpOT_.exit.i.i: ; preds = %69, %_ZNSt6vectorIPN5boost6spirit7classic4impl19grammar_helper_baseINS2_7grammarINS0_4wave8grammars15defined_grammarINSt7__cxx114listINS6_8cpplexer9lex_tokenINS6_4util13file_positionINSD_11flex_stringIcSt11char_traitsIcESaIcENSD_9CowStringINSD_22AllocatorStringStorageIcSI_EEPcEEEEEEEENS0_19fast_pool_allocatorISQ_NS0_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS2_14parser_contextINS2_5nil_tEEEEEEESaIS12_EE11_S_relocateEPS12_S15_S15_RS13_.exit16.i.i.i
   store ptr %64, ptr %5, align 8, !tbaa !54
   store ptr %68, ptr %44, align 8, !tbaa !223
-  %70 = getelementptr inbounds nuw ptr, ptr %64, i64 %62
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %62
   store ptr %70, ptr %46, align 8, !tbaa !56
   br label %_ZN5boost6spirit7classic4impl19grammar_helper_listINS1_7grammarINS_4wave8grammars15defined_grammarINSt7__cxx114listINS5_8cpplexer9lex_tokenINS5_4util13file_positionINSC_11flex_stringIcSt11char_traitsIcESaIcENSC_9CowStringINSC_22AllocatorStringStorageIcSH_EEPcEEEEEEEENS_19fast_pool_allocatorISP_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_14parser_contextINS1_5nil_tEEEEEE9push_backEPNS2_19grammar_helper_baseISZ_EE.exit
 
@@ -12157,7 +12157,7 @@ _ZN5boost6spirit7classic4impl19grammar_helper_listINS1_7grammarINS_4wave8grammar
   %73 = add i64 %72, 1
   store i64 %73, ptr %71, align 8, !tbaa !339
   %74 = load ptr, ptr %8, align 8, !tbaa !329
-  %75 = getelementptr inbounds nuw ptr, ptr %74, i64 %7
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %7
   store ptr %31, ptr %75, align 8, !tbaa !17
   %76 = load i8, ptr %43, align 8, !tbaa !92, !range !78, !noundef !79
   %77 = trunc nuw i8 %76 to i1
@@ -12345,7 +12345,7 @@ define linkonce_odr hidden noundef i32 @_ZN5boost6spirit7classic4impl14grammar_h
   br i1 %.not, label %13, label %_ZN5boost10shared_ptrINS_6spirit7classic4impl14grammar_helperINS2_7grammarINS_4wave8grammars15defined_grammarINSt7__cxx114listINS6_8cpplexer9lex_tokenINS6_4util13file_positionINSD_11flex_stringIcSt11char_traitsIcESaIcENSD_9CowStringINSD_22AllocatorStringStorageIcSI_EEPcEEEEEEEENS_19fast_pool_allocatorISQ_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS2_14parser_contextINS2_5nil_tEEEEESW_NS2_7scannerINSD_20unput_queue_iteratorINSB_12lex_iteratorISQ_EESQ_SV_EENS2_16scanner_policiesINS2_28skip_parser_iteration_policyINS2_11alternativeINS2_5chlitINS6_8token_idEEES1B_EENS2_16iteration_policyEEENS2_12match_policyENS2_13action_policyEEEEEEEE5resetEv.exit
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds nuw ptr, ptr %8, i64 %4
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %4
   %15 = load ptr, ptr %14, align 8, !tbaa !17
   %16 = icmp eq ptr %15, null
   br i1 %16, label %31, label %17
@@ -12382,7 +12382,7 @@ _ZN5boost4wave8grammars15defined_grammarINSt7__cxx114listINS0_8cpplexer9lex_toke
 
 31:                                               ; preds = %_ZN5boost4wave8grammars15defined_grammarINSt7__cxx114listINS0_8cpplexer9lex_tokenINS0_4util13file_positionINS7_11flex_stringIcSt11char_traitsIcESaIcENS7_9CowStringINS7_22AllocatorStringStorageIcSC_EEPcEEEEEEEENS_19fast_pool_allocatorISK_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEE10definitionINS_6spirit7classic7scannerINS7_20unput_queue_iteratorINS5_12lex_iteratorISK_EESK_SP_EENST_16scanner_policiesINST_28skip_parser_iteration_policyINST_11alternativeINST_5chlitINS0_8token_idEEES14_EENST_16iteration_policyEEENST_12match_policyENST_13action_policyEEEEEED2Ev.exit, %13
   %32 = phi ptr [ %.pre, %_ZN5boost4wave8grammars15defined_grammarINSt7__cxx114listINS0_8cpplexer9lex_tokenINS0_4util13file_positionINS7_11flex_stringIcSt11char_traitsIcESaIcENS7_9CowStringINS7_22AllocatorStringStorageIcSC_EEPcEEEEEEEENS_19fast_pool_allocatorISK_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEE10definitionINS_6spirit7classic7scannerINS7_20unput_queue_iteratorINS5_12lex_iteratorISK_EESK_SP_EENST_16scanner_policiesINST_28skip_parser_iteration_policyINST_11alternativeINST_5chlitINS0_8token_idEEES14_EENST_16iteration_policyEEENST_12match_policyENST_13action_policyEEEEEED2Ev.exit ], [ %8, %13 ]
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %4
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %4
   store ptr null, ptr %33, align 8, !tbaa !17
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %35 = load i64, ptr %34, align 8, !tbaa !339
@@ -12730,9 +12730,9 @@ _ZNSt6vectorIPN5boost4wave8grammars15defined_grammarINSt7__cxx114listINS1_8cpple
 
 _ZNSt12_Vector_baseIPN5boost4wave8grammars15defined_grammarINSt7__cxx114listINS1_8cpplexer9lex_tokenINS1_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEENS0_19fast_pool_allocatorISL_NS0_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEE10definitionINS0_6spirit7classic7scannerINS8_20unput_queue_iteratorINS6_12lex_iteratorISL_EESL_SQ_EENSU_16scanner_policiesINSU_28skip_parser_iteration_policyINSU_11alternativeINSU_5chlitINS1_8token_idEEES15_EENSU_16iteration_policyEEENSU_12match_policyENSU_13action_policyEEEEEEESaIS1E_EE13_M_deallocateEPS1E_m.exit36: ; preds = %_ZNSt6vectorIPN5boost4wave8grammars15defined_grammarINSt7__cxx114listINS1_8cpplexer9lex_tokenINS1_4util13file_positionINS8_11flex_stringIcSt11char_traitsIcESaIcENS8_9CowStringINS8_22AllocatorStringStorageIcSD_EEPcEEEEEEEENS0_19fast_pool_allocatorISL_NS0_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEE10definitionINS0_6spirit7classic7scannerINS8_20unput_queue_iteratorINS6_12lex_iteratorISL_EESL_SQ_EENSU_16scanner_policiesINSU_28skip_parser_iteration_policyINSU_11alternativeINSU_5chlitINS1_8token_idEEES15_EENSU_16iteration_policyEEENSU_12match_policyENSU_13action_policyEEEEEEESaIS1E_EE11_S_relocateEPS1E_S1H_S1H_RS1F_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !329
-  %39 = getelementptr inbounds nuw ptr, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !334
-  %40 = getelementptr inbounds nuw ptr, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !333
   br label %41
 
@@ -13501,7 +13501,7 @@ _ZN5boost4wave8cpplexer14token_is_validINS0_4util13file_positionINS3_11flex_stri
   br label %_ZNK5boost6spirit7classic16iteration_policy3getINS1_7scannerINS_4wave4util20unput_queue_iteratorINS5_8cpplexer12lex_iteratorINS8_9lex_tokenINS6_13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSF_EEPcEEEEEEEEEESN_NSt7__cxx114listISN_NS_19fast_pool_allocatorISN_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS5_8token_idEEES12_EES2_EENS1_12match_policyENS1_13action_policyEEEEEEENT_5ref_tERKS19_.exit
 
 43:                                               ; preds = %11
-  %44 = getelementptr inbounds nuw %"class.boost::wave::cpplexer::lex_token", ptr %16, i64 %22
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %22
   br label %_ZNK5boost6spirit7classic16iteration_policy3getINS1_7scannerINS_4wave4util20unput_queue_iteratorINS5_8cpplexer12lex_iteratorINS8_9lex_tokenINS6_13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSF_EEPcEEEEEEEEEESN_NSt7__cxx114listISN_NS_19fast_pool_allocatorISN_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS5_8token_idEEES12_EES2_EENS1_12match_policyENS1_13action_policyEEEEEEENT_5ref_tERKS19_.exit
 
 _ZNK5boost6spirit7classic16iteration_policy3getINS1_7scannerINS_4wave4util20unput_queue_iteratorINS5_8cpplexer12lex_iteratorINS8_9lex_tokenINS6_13file_positionINS6_11flex_stringIcSt11char_traitsIcESaIcENS6_9CowStringINS6_22AllocatorStringStorageIcSF_EEPcEEEEEEEEEESN_NSt7__cxx114listISN_NS_19fast_pool_allocatorISN_NS_33default_user_allocator_new_deleteESt5mutexLj32ELj0EEEEEEENS1_16scanner_policiesINS1_28skip_parser_iteration_policyINS1_11alternativeINS1_5chlitINS5_8token_idEEES12_EES2_EENS1_12match_policyENS1_13action_policyEEEEEEENT_5ref_tERKS19_.exit: ; preds = %9, %_ZN5boost4wave8cpplexer14token_is_validINS0_4util13file_positionINS3_11flex_stringIcSt11char_traitsIcESaIcENS3_9CowStringINS3_22AllocatorStringStorageIcS8_EEPcEEEEEEEEbRKNS1_9lex_tokenIT_EE.exit.thread.i.i.i.i.i.i.i.i, %43

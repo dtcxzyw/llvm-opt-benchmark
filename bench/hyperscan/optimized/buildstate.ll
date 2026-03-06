@@ -18,7 +18,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
 %"struct.std::__detail::_Hash_node_base" = type { ptr }
 %"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
-%"class.ue2::PositionInfo" = type { i32, i32 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -30,6 +29,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.42" = type { %"struct.std::_Head_base.43" }
 %"struct.std::_Head_base.43" = type { ptr }
 %"class.std::tuple.44" = type { i8 }
+%"class.ue2::PositionInfo" = type { i32, i32 }
 %"struct.std::pair.35" = type <{ %"class.ue2::flat_detail::iter_wrapper", i8, [7 x i8] }>
 %"class.ue2::flat_detail::iter_wrapper" = type { %"class.boost::container::vec_iterator" }
 %"class.boost::container::vec_iterator" = type { ptr }
@@ -517,7 +517,7 @@ _ZNSt6vectorIN3ue212PositionInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i
   br label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
 _ZNSt6vectorIN3ue212PositionInfoESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %57, %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i
-  %58 = getelementptr inbounds nuw %"class.ue2::PositionInfo", ptr %50, i64 %48
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %48
   br label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE9push_backERKS1_.exit
 
 59:                                               ; preds = %.lr.ph
@@ -1424,7 +1424,7 @@ _ZNSt6vectorIN3ue212PositionInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i
   br label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i48.i
 
 _ZNSt6vectorIN3ue212PositionInfoESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i48.i: ; preds = %83, %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i45.i
-  %84 = getelementptr inbounds nuw %"class.ue2::PositionInfo", ptr %74, i64 %72
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %72
   br label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE9push_backEOS1_.exit49.i
 
 _ZNSt6vectorIN3ue212PositionInfoESaIS1_EE9push_backEOS1_.exit49.i: ; preds = %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i48.i, %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE9push_backEOS1_.exit.i
@@ -1563,7 +1563,7 @@ _ZNSt6vectorIN3ue212PositionInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i
   br label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i62.i
 
 _ZNSt6vectorIN3ue212PositionInfoESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i62.i: ; preds = %135, %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i59.i
-  %136 = getelementptr inbounds nuw %"class.ue2::PositionInfo", ptr %129, i64 %127
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %129, i64 %127
   br label %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE9push_backEOS1_.exit63.i
 
 _ZNSt6vectorIN3ue212PositionInfoESaIS1_EE9push_backEOS1_.exit63.i: ; preds = %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i62.i, %115, %_ZNSt6vectorIN3ue212PositionInfoESaIS1_EE9push_backEOS1_.exit49.i
@@ -1960,7 +1960,7 @@ _ZNSt3mapIjN3ue28flat_setINS0_12PositionInfoESt4lessIS2_ESaIS2_EEES3_IjESaISt4pa
   %54 = load ptr, ptr %53, align 8, !noalias !55
   %55 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i27, i64 48
   %56 = load i64, ptr %55, align 8, !noalias !60
-  %57 = getelementptr inbounds nuw %"class.ue2::PositionInfo", ptr %54, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %56
   %58 = ptrtoint ptr %54 to i64
   %59 = icmp sgt i64 %56, 0
   br i1 %59, label %_ZSt7advanceIN5boost9container12vec_iteratorIPN3ue212PositionInfoELb0EEElEvRT_T0_.exit.i.i.i, label %_ZSt11lower_boundIN5boost9container12vec_iteratorIPN3ue212PositionInfoELb0EEES4_St4lessIS4_EET_S9_S9_RKT0_T1_.exit.i
@@ -1969,7 +1969,7 @@ _ZSt7advanceIN5boost9container12vec_iteratorIPN3ue212PositionInfoELb0EEElEvRT_T0
   %60 = phi ptr [ %68, %_ZSt7advanceIN5boost9container12vec_iteratorIPN3ue212PositionInfoELb0EEElEvRT_T0_.exit.i.i.i ], [ %54, %_ZNSt3mapIjN3ue28flat_setINS0_12PositionInfoESt4lessIS2_ESaIS2_EEES3_IjESaISt4pairIKjS6_EEEixEOj.exit ]
   %.012.i.i.i = phi i64 [ %.1.i.i.i, %_ZSt7advanceIN5boost9container12vec_iteratorIPN3ue212PositionInfoELb0EEElEvRT_T0_.exit.i.i.i ], [ %56, %_ZNSt3mapIjN3ue28flat_setINS0_12PositionInfoESt4lessIS2_ESaIS2_EEES3_IjESaISt4pairIKjS6_EEEixEOj.exit ]
   %61 = lshr i64 %.012.i.i.i, 1
-  %62 = getelementptr inbounds nuw %"class.ue2::PositionInfo", ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   %63 = load i32, ptr %62, align 4, !noalias !63
   %64 = icmp ult i32 %63, %40
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 8
@@ -2142,7 +2142,7 @@ _ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIN3ue2
   %135 = sub i64 %134, %127
   %136 = ashr exact i64 %135, 3
   %137 = sub nsw i64 0, %136
-  %138 = getelementptr inbounds %"class.ue2::PositionInfo", ptr %57, i64 %137
+  %138 = getelementptr inbounds [8 x i8], ptr %57, i64 %137
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %138, ptr nonnull align 4 %70, i64 %135, i1 false), !noalias !70
   br label %_ZN5boost9container13move_backwardIPN3ue212PositionInfoES4_EENS0_3dtl37enable_if_memtransfer_copy_assignableIT_T0_S8_E4typeES7_S7_S8_.exit.i.i.i.i.i
 
@@ -3275,7 +3275,7 @@ define linkonce_odr hidden void @_ZN3ue28flat_setINS_12PositionInfoESt4lessIS1_E
   %6 = load ptr, ptr %1, align 8, !noalias !105
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8, !noalias !108
-  %9 = getelementptr inbounds nuw %"class.ue2::PositionInfo", ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %8
   %10 = ptrtoint ptr %6 to i64
   %11 = icmp sgt i64 %8, 0
   br i1 %11, label %_ZSt7advanceIN5boost9container12vec_iteratorIPN3ue212PositionInfoELb0EEElEvRT_T0_.exit.i.preheader.i, label %_ZSt11lower_boundIN5boost9container12vec_iteratorIPN3ue212PositionInfoELb0EEES4_St4lessIS4_EET_S9_S9_RKT0_T1_.exit
@@ -3288,7 +3288,7 @@ _ZSt7advanceIN5boost9container12vec_iteratorIPN3ue212PositionInfoELb0EEElEvRT_T0
   %13 = phi ptr [ %21, %_ZSt7advanceIN5boost9container12vec_iteratorIPN3ue212PositionInfoELb0EEElEvRT_T0_.exit.i.i ], [ %6, %_ZSt7advanceIN5boost9container12vec_iteratorIPN3ue212PositionInfoELb0EEElEvRT_T0_.exit.i.preheader.i ]
   %.012.i.i = phi i64 [ %.1.i.i, %_ZSt7advanceIN5boost9container12vec_iteratorIPN3ue212PositionInfoELb0EEElEvRT_T0_.exit.i.i ], [ %8, %_ZSt7advanceIN5boost9container12vec_iteratorIPN3ue212PositionInfoELb0EEElEvRT_T0_.exit.i.preheader.i ]
   %14 = lshr i64 %.012.i.i, 1
-  %15 = getelementptr inbounds nuw %"class.ue2::PositionInfo", ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %14
   %16 = load i32, ptr %15, align 4, !noalias !111
   %17 = icmp ult i32 %16, %12
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -3362,7 +3362,7 @@ _ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIN3ue2
   %48 = sub i64 %47, %40
   %49 = ashr exact i64 %48, 3
   %50 = sub nsw i64 0, %49
-  %51 = getelementptr inbounds %"class.ue2::PositionInfo", ptr %9, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %9, i64 %50
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %51, ptr nonnull align 4 %23, i64 %48, i1 false), !noalias !116
   br label %_ZN5boost9container13move_backwardIPN3ue212PositionInfoES4_EENS0_3dtl37enable_if_memtransfer_copy_assignableIT_T0_S8_E4typeES7_S7_S8_.exit.i.i.i.i
 
@@ -3896,8 +3896,8 @@ _ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIN3ue212Pos
 39:                                               ; preds = %38
   %40 = shl i64 %36, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %34, ptr align 4 %1, i64 %40, i1 false)
-  %41 = getelementptr inbounds %"class.ue2::PositionInfo", ptr %1, i64 %36
-  %42 = getelementptr inbounds nuw %"class.ue2::PositionInfo", ptr %34, i64 %36
+  %41 = getelementptr inbounds [8 x i8], ptr %1, i64 %36
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %36
   br label %_ZN5boost9container18copy_n_source_destINS_13move_iteratorIPN3ue212PositionInfoEEEmS5_EENS0_3dtl37enable_if_memtransfer_copy_assignableIT_T1_S9_E4typeES9_T0_RSA_.exit.i
 
 _ZN5boost9container18copy_n_source_destINS_13move_iteratorIPN3ue212PositionInfoEEEmS5_EENS0_3dtl37enable_if_memtransfer_copy_assignableIT_T1_S9_E4typeES9_T0_RSA_.exit.i: ; preds = %39, %38
@@ -4020,7 +4020,7 @@ _ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIN3ue212Pos
 .thread.i:                                        ; preds = %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIN3ue212PositionInfoESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE8allocateEm.exit
   %37 = load i64, ptr %4, align 4
   store i64 %37, ptr %36, align 4
-  %38 = getelementptr inbounds nuw %"class.ue2::PositionInfo", ptr %36, i64 %3
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %3
   br label %_ZN5boost9container6vectorIN3ue212PositionInfoENS0_22small_vector_allocatorIS3_SaIvEvEEvE40priv_forward_range_insert_new_allocationINS0_3dtl17insert_copy_proxyIS6_PS3_EEEEvSB_mSB_mT_.exit
 
 39:                                               ; preds = %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIN3ue212PositionInfoESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE8allocateEm.exit
@@ -4036,8 +4036,8 @@ _ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIN3ue212Pos
   %.0.i.i.i = phi ptr [ %41, %40 ], [ %36, %39 ]
   %43 = load i64, ptr %4, align 4
   store i64 %43, ptr %.0.i.i.i, align 4
-  %44 = getelementptr inbounds nuw %"class.ue2::PositionInfo", ptr %.0.i.i.i, i64 %3
-  %45 = getelementptr inbounds nuw %"class.ue2::PositionInfo", ptr %7, i64 %15
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i, i64 %3
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %15
   %46 = icmp ne ptr %6, %45
   %47 = icmp ne ptr %6, null
   %spec.select.i.i21.i = and i1 %47, %46
@@ -4081,7 +4081,7 @@ define linkonce_odr hidden void @_ZN3ue28flat_setINS_12PositionInfoESt4lessIS1_E
   %6 = load ptr, ptr %1, align 8, !noalias !128
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8, !noalias !131
-  %9 = getelementptr inbounds nuw %"class.ue2::PositionInfo", ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %8
   %10 = ptrtoint ptr %6 to i64
   %11 = icmp sgt i64 %8, 0
   br i1 %11, label %_ZSt7advanceIN5boost9container12vec_iteratorIPN3ue212PositionInfoELb0EEElEvRT_T0_.exit.i.preheader.i, label %_ZSt11lower_boundIN5boost9container12vec_iteratorIPN3ue212PositionInfoELb0EEES4_St4lessIS4_EET_S9_S9_RKT0_T1_.exit
@@ -4094,7 +4094,7 @@ _ZSt7advanceIN5boost9container12vec_iteratorIPN3ue212PositionInfoELb0EEElEvRT_T0
   %13 = phi ptr [ %21, %_ZSt7advanceIN5boost9container12vec_iteratorIPN3ue212PositionInfoELb0EEElEvRT_T0_.exit.i.i ], [ %6, %_ZSt7advanceIN5boost9container12vec_iteratorIPN3ue212PositionInfoELb0EEElEvRT_T0_.exit.i.preheader.i ]
   %.012.i.i = phi i64 [ %.1.i.i, %_ZSt7advanceIN5boost9container12vec_iteratorIPN3ue212PositionInfoELb0EEElEvRT_T0_.exit.i.i ], [ %8, %_ZSt7advanceIN5boost9container12vec_iteratorIPN3ue212PositionInfoELb0EEElEvRT_T0_.exit.i.preheader.i ]
   %14 = lshr i64 %.012.i.i, 1
-  %15 = getelementptr inbounds nuw %"class.ue2::PositionInfo", ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %14
   %16 = load i32, ptr %15, align 4, !noalias !134
   %17 = icmp ult i32 %16, %12
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -4168,7 +4168,7 @@ _ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIN3ue2
   %48 = sub i64 %47, %40
   %49 = ashr exact i64 %48, 3
   %50 = sub nsw i64 0, %49
-  %51 = getelementptr inbounds %"class.ue2::PositionInfo", ptr %9, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %9, i64 %50
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %51, ptr nonnull align 4 %23, i64 %48, i1 false), !noalias !139
   br label %_ZN5boost9container13move_backwardIPN3ue212PositionInfoES4_EENS0_3dtl37enable_if_memtransfer_copy_assignableIT_T0_S8_E4typeES7_S7_S8_.exit.i.i.i.i
 
@@ -4258,7 +4258,7 @@ _ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIN3ue212Pos
 .thread.i:                                        ; preds = %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIN3ue212PositionInfoESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE8allocateEm.exit
   %37 = load i64, ptr %4, align 4
   store i64 %37, ptr %36, align 4
-  %38 = getelementptr inbounds nuw %"class.ue2::PositionInfo", ptr %36, i64 %3
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %3
   br label %_ZN5boost9container6vectorIN3ue212PositionInfoENS0_22small_vector_allocatorIS3_SaIvEvEEvE40priv_forward_range_insert_new_allocationINS0_3dtl17insert_move_proxyIS6_PS3_EEEEvSB_mSB_mT_.exit
 
 39:                                               ; preds = %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIN3ue212PositionInfoESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE8allocateEm.exit
@@ -4274,8 +4274,8 @@ _ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIN3ue212Pos
   %.0.i.i.i = phi ptr [ %41, %40 ], [ %36, %39 ]
   %43 = load i64, ptr %4, align 4
   store i64 %43, ptr %.0.i.i.i, align 4
-  %44 = getelementptr inbounds nuw %"class.ue2::PositionInfo", ptr %.0.i.i.i, i64 %3
-  %45 = getelementptr inbounds nuw %"class.ue2::PositionInfo", ptr %7, i64 %15
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i, i64 %3
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %15
   %46 = icmp ne ptr %6, %45
   %47 = icmp ne ptr %6, null
   %spec.select.i.i21.i = and i1 %47, %46
@@ -4480,7 +4480,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableISt4pairIjiES1_SaIS1_EN
 
 32:                                               ; preds = %.loopexit
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %31
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %31
   %35 = load ptr, ptr %34, align 8
   %.not.i.i = icmp eq ptr %35, null
   br i1 %.not.i.i, label %.critedge28, label %36
@@ -4599,7 +4599,7 @@ _ZNSt10_HashtableISt4pairIjiES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_EN3
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %2, ptr %32, align 8
   %33 = load ptr, ptr %0, align 8
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %41, label %36
@@ -4608,7 +4608,7 @@ _ZNSt10_HashtableISt4pairIjiES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_EN3
   %37 = load ptr, ptr %35, align 8
   store ptr %37, ptr %3, align 8
   %38 = load ptr, ptr %0, align 8
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %.0
   %40 = load ptr, ptr %39, align 8
   store ptr %3, ptr %40, align 8
   br label %_ZNSt10_HashtableISt4pairIjiES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_EN3ue210ue2_hasherENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE22_M_insert_bucket_beginEmPNS3_10_Hash_nodeIS1_Lb1EEE.exit
@@ -4628,13 +4628,13 @@ _ZNSt10_HashtableISt4pairIjiES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_EN3
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %49 = load i64, ptr %48, align 8
   %50 = urem i64 %49, %47
-  %51 = getelementptr inbounds nuw ptr, ptr %46, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %50
   store ptr %3, ptr %51, align 8
   br label %52
 
 52:                                               ; preds = %45, %41
   %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds nuw ptr, ptr %53, i64 %.0
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %.0
   store ptr %42, ptr %54, align 8
   br label %_ZNSt10_HashtableISt4pairIjiES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_EN3ue210ue2_hasherENS3_18_Mod_range_hashingENS3_20_Default_ranged_hashENS3_20_Prime_rehash_policyENS3_17_Hashtable_traitsILb1ELb1ELb1EEEE22_M_insert_bucket_beginEmPNS3_10_Hash_nodeIS1_Lb1EEE.exit
 
@@ -4694,7 +4694,7 @@ _ZNSt10_HashtableISt4pairIjiES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_EN3
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 16
   %16 = load i64, ptr %15, align 8
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -4709,7 +4709,7 @@ _ZNSt10_HashtableISt4pairIjiES1_SaIS1_ENSt8__detail9_IdentityESt8equal_toIS1_EN3
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8
   br label %28
 
@@ -4796,7 +4796,7 @@ _ZSt22__uninitialized_move_aIPN3ue212PositionInfoES2_SaIS1_EET0_T_S5_S4_RT1_.exi
   %31 = sub i64 %30, %18
   %32 = ashr exact i64 %31, 3
   %33 = sub nsw i64 0, %32
-  %34 = getelementptr inbounds %"class.ue2::PositionInfo", ptr %13, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %13, i64 %33
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %34, ptr align 4 %1, i64 %31, i1 false)
   br label %_ZSt13move_backwardIPN3ue212PositionInfoES2_ET0_T_S4_S3_.exit
 
@@ -4826,7 +4826,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN3ue212PositionInf
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN3ue212PositionInfoESt6vectorIS3_SaIS3_EEEEPS3_S3_ET0_T_SC_SB_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN3ue212PositionInfoESt6vectorIS3_SaIS3_EEEEPS3_S3_ET0_T_SC_SB_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN3ue212PositionInfoESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit
   %39 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN3ue212PositionInfoESt6vectorIS3_SaIS3_EEEEPS3_S3_ET0_T_SC_SB_RSaIT1_E.exit.loopexit ], [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN3ue212PositionInfoESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit ]
   %40 = sub nuw nsw i64 %9, %20
-  %41 = getelementptr inbounds nuw %"class.ue2::PositionInfo", ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %40
   store ptr %41, ptr %12, align 8
   %.not11.i.i.i.i.i53 = icmp eq ptr %1, %13
   br i1 %.not11.i.i.i.i.i53, label %_ZSt22__uninitialized_move_aIPN3ue212PositionInfoES2_SaIS1_EET0_T_S5_S4_RT1_.exit59, label %.lr.ph.i.i.i.i.i54
@@ -4938,7 +4938,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN3ue212PositionInfoES2_SaIS1_EET0_T_S5
 _ZNSt12_Vector_baseIN3ue212PositionInfoESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN3ue212PositionInfoES2_SaIS1_EET0_T_S5_S4_RT1_.exit81, %73
   store ptr %63, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i.i80, ptr %12, align 8
-  %74 = getelementptr inbounds nuw %"class.ue2::PositionInfo", ptr %63, i64 %59
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %59
   store ptr %74, ptr %10, align 8
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN3ue212PositionInfoESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit
 

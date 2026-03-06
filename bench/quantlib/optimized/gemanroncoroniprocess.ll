@@ -712,7 +712,7 @@ invoke.cont8:                                     ; preds = %.noexc10, %invoke.c
   %22 = phi i64 [ %.pre.i.i.i, %.noexc10 ], [ %20, %invoke.cont ]
   %inc.i.i.i = add i64 %22, 1
   store i64 %inc.i.i.i, ptr %mti.i.i.i, align 8, !tbaa !82
-  %arrayidx.i.i.i = getelementptr inbounds nuw i64, ptr %19, i64 %22
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %22
   %23 = load i64, ptr %arrayidx.i.i.i, align 8, !tbaa !72
   %shr.i.i.i = lshr i64 %23, 11
   %xor.i.i.i = xor i64 %shr.i.i.i, %23
@@ -758,7 +758,7 @@ invoke.cont17:                                    ; preds = %.noexc37, %invoke.c
   %26 = phi i64 [ %.pre.i.i.i36, %.noexc37 ], [ %25, %invoke.cont15 ]
   %inc.i.i.i18 = add i64 %26, 1
   store i64 %inc.i.i.i18, ptr %mti.i.i.i16, align 8, !tbaa !82
-  %arrayidx.i.i.i19 = getelementptr inbounds nuw i64, ptr %24, i64 %26
+  %arrayidx.i.i.i19 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %26
   %27 = load i64, ptr %arrayidx.i.i.i19, align 8, !tbaa !72
   %shr.i.i.i20 = lshr i64 %27, 11
   %xor.i.i.i21 = xor i64 %shr.i.i.i20, %27

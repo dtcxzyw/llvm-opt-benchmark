@@ -104,7 +104,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_14GlobalVariableELb1EE9push_backES3_.exit
   %23 = phi i32 [ %13, %18 ], [ %.pre.i, %20 ]
   %24 = load ptr, ptr %5, align 8, !tbaa !3
   %25 = zext i32 %23 to i64
-  %26 = getelementptr inbounds nuw ptr, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %25
   %27 = ptrtoint ptr %14 to i64
   store i64 %27, ptr %26, align 1
   %28 = load i32, ptr %7, align 8, !tbaa !9
@@ -241,7 +241,7 @@ _ZN4llvm17PreservedAnalyses7abandonINS_26ModuleSummaryIndexAnalysisEEEvv.exit.th
   %78 = add i32 %70, -1
   store i32 %78, ptr %48, align 4, !tbaa !26
   %79 = zext i32 %78 to i64
-  %80 = getelementptr inbounds nuw ptr, ptr %69, i64 %79
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %79
   %81 = load ptr, ptr %80, align 8, !tbaa !30
   store ptr %81, ptr %.01217.i.i.i.i48, align 8, !tbaa !30
   br label %_ZN4llvm15SmallPtrSetImplIPvE5eraseES1_.exit.i.i35
@@ -794,7 +794,7 @@ _ZN4llvm15SmallVectorImplIPKNS_14GlobalVariableEE6appendESt16initializer_listIS3
   %.pre8.i.i = phi i32 [ %25, %30 ], [ %.pre8.pre.i.i, %32 ]
   %35 = load ptr, ptr %3, align 8, !tbaa !3
   %36 = zext i32 %.pre8.i.i to i64
-  %37 = getelementptr inbounds nuw ptr, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %36
   store ptr %26, ptr %37, align 1
   %.pre.i.i = load i32, ptr %19, align 8, !tbaa !9
   %38 = add i32 %.pre.i.i, 1

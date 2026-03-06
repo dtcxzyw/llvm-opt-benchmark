@@ -880,7 +880,7 @@ _ZNKSt6vectorItSaItEE12_M_check_lenEmPKc.exit.i:  ; preds = %138
   %143 = getelementptr i8, ptr %142, i64 2
   %.idx.i.i.i.i.i31.i = add nsw i64 %141, -2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %143, i8 0, i64 %.idx.i.i.i.i.i31.i, i1 false), !tbaa !35
-  %144 = getelementptr inbounds nuw i16, ptr %142, i64 %48
+  %144 = getelementptr inbounds nuw [2 x i8], ptr %142, i64 %48
   %145 = ptrtoint ptr %144 to i64
   br label %_ZNSt6vectorItSaItEE6resizeEm.exit
 
@@ -1823,9 +1823,9 @@ _ZNSt6vectorIhSaIhEED2Ev.exit330.thread:          ; preds = %544
   %558 = getelementptr inbounds nuw i8, ptr %.sroa.0369.1, i64 %indvars.iv
   %559 = load i8, ptr %558, align 1, !tbaa !37
   %560 = zext i8 %559 to i64
-  %561 = getelementptr inbounds nuw float, ptr %12, i64 %560
+  %561 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %560
   %562 = load float, ptr %561, align 4, !tbaa !38
-  %563 = getelementptr inbounds nuw float, ptr %556, i64 %indvars.iv
+  %563 = getelementptr inbounds nuw [4 x i8], ptr %556, i64 %indvars.iv
   store float %562, ptr %563, align 4, !tbaa !38
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

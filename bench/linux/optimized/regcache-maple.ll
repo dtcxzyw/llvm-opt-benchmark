@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %struct.regcache_ops = type { ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.reg_default = type { i32, i32 }
 %struct.ma_state = type { ptr, i64, i64, ptr, i64, i64, ptr, i32, i8, i8, i8, i8 }
 
 @.str = private unnamed_addr constant [6 x i8] c"maple\00", align 1
@@ -43,11 +42,11 @@ define internal i32 @regcache_maple_init(ptr noundef captures(none) %0) #0 align
   %16 = phi i32 [ 1, %11 ], [ %33, %30 ]
   %17 = load ptr, ptr %12, align 8
   %18 = sext i32 %16 to i64
-  %19 = getelementptr %struct.reg_default, ptr %17, i64 %18
+  %19 = getelementptr [8 x i8], ptr %17, i64 %18
   %20 = load i32, ptr %19, align 4
   %21 = add i32 %16, -1
   %22 = sext i32 %21 to i64
-  %23 = getelementptr %struct.reg_default, ptr %17, i64 %22
+  %23 = getelementptr [8 x i8], ptr %17, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = add i32 %24, 1
   %26 = icmp eq i32 %20, %25
@@ -170,7 +169,7 @@ define internal noundef range(i32 -2, 1) i32 @regcache_maple_read(ptr noundef re
 17:                                               ; preds = %3
   %18 = load i64, ptr %7, align 8
   %19 = sub i64 %8, %18
-  %20 = getelementptr i64, ptr %15, i64 %19
+  %20 = getelementptr [8 x i8], ptr %15, i64 %19
   %21 = load i64, ptr %20, align 8
   %22 = trunc i64 %21 to i32
   store i32 %22, ptr %2, align 4
@@ -214,7 +213,7 @@ define internal i32 @regcache_maple_write(ptr noundef readonly captures(none) %0
   %18 = zext i32 %2 to i64
   %19 = load i64, ptr %7, align 8
   %20 = sub i64 %8, %19
-  %21 = getelementptr i64, ptr %15, i64 %20
+  %21 = getelementptr [8 x i8], ptr %15, i64 %20
   store i64 %18, ptr %21, align 8
   call void @__rcu_read_unlock() #10
   br label %71
@@ -278,7 +277,7 @@ define internal i32 @regcache_maple_write(ptr noundef readonly captures(none) %0
 58:                                               ; preds = %57, %56
   %59 = zext i32 %2 to i64
   %60 = sub i64 %8, %36
-  %61 = getelementptr i64, ptr %54, i64 %60
+  %61 = getelementptr [8 x i8], ptr %54, i64 %60
   store i64 %59, ptr %61, align 8
   br i1 %39, label %64, label %62
 
@@ -362,7 +361,7 @@ define internal i32 @regcache_maple_sync(ptr noundef initializes((549, 550)) %0,
   %32 = phi i8 [ %49, %48 ], [ %21, %.preheader7 ]
   %33 = load i64, ptr %7, align 8
   %34 = sub i64 %29, %33
-  %35 = getelementptr i64, ptr %19, i64 %34
+  %35 = getelementptr [8 x i8], ptr %19, i64 %34
   %36 = load i64, ptr %35, align 8
   %37 = trunc i64 %36 to i32
   %38 = call zeroext i1 @regcache_reg_needs_sync(ptr noundef %0, i32 noundef %30, i32 noundef %37) #10
@@ -485,7 +484,7 @@ define internal i32 @regcache_maple_drop(ptr noundef readonly captures(none) %0,
   br i1 %44, label %45, label %52
 
 45:                                               ; preds = %39
-  %46 = getelementptr i64, ptr %25, i64 %23
+  %46 = getelementptr [8 x i8], ptr %25, i64 %23
   %47 = sub nuw i64 %43, %10
   %48 = shl i64 %47, 3
   %49 = load i32, ptr %21, align 8
@@ -601,11 +600,11 @@ define internal fastcc i32 @regcache_maple_insert_block(ptr noundef readonly cap
   %35 = trunc i64 %34 to i32
   %36 = add i32 %1, %35
   %37 = sext i32 %36 to i64
-  %.split = getelementptr %struct.reg_default, ptr %32, i64 %37
+  %.split = getelementptr [8 x i8], ptr %32, i64 %37
   %38 = getelementptr i8, ptr %.split, i64 4
   %39 = load i32, ptr %38, align 4
   %40 = zext i32 %39 to i64
-  %41 = getelementptr i64, ptr %26, i64 %34
+  %41 = getelementptr [8 x i8], ptr %26, i64 %34
   store i64 %40, ptr %41, align 8
   %42 = add nuw nsw i64 %34, 1
   %43 = icmp eq i64 %42, %22
@@ -615,10 +614,10 @@ define internal fastcc i32 @regcache_maple_insert_block(ptr noundef readonly cap
   tail call void @_raw_spin_lock(ptr noundef %6) #10
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr %struct.reg_default, ptr %45, i64 %8
+  %46 = getelementptr [8 x i8], ptr %45, i64 %8
   %47 = load i32, ptr %46, align 4
   %48 = zext i32 %47 to i64
-  %49 = getelementptr %struct.reg_default, ptr %45, i64 %10
+  %49 = getelementptr [8 x i8], ptr %45, i64 %10
   %50 = load i32, ptr %49, align 4
   %51 = zext i32 %50 to i64
   store i32 1, ptr %15, align 8
@@ -723,7 +722,7 @@ define internal fastcc i32 @regcache_maple_sync_block(ptr noundef %0, ptr nounde
   %28 = sub i32 %27, %3
   %29 = load i64, ptr %24, align 8
   %30 = sub i64 %26, %29
-  %31 = getelementptr i64, ptr %1, i64 %30
+  %31 = getelementptr [8 x i8], ptr %1, i64 %30
   %32 = load i64, ptr %31, align 8
   %33 = trunc i64 %32 to i32
   tail call void @regcache_set_val(ptr noundef %0, ptr noundef nonnull %17, i32 noundef %28, i32 noundef %33) #10
@@ -756,7 +755,7 @@ define internal fastcc i32 @regcache_maple_sync_block(ptr noundef %0, ptr nounde
   %48 = trunc i64 %47 to i32
   %49 = load i64, ptr %42, align 8
   %50 = sub i64 %47, %49
-  %51 = getelementptr i64, ptr %1, i64 %50
+  %51 = getelementptr [8 x i8], ptr %1, i64 %50
   %52 = load i64, ptr %51, align 8
   %53 = trunc i64 %52 to i32
   %54 = tail call i32 @_regmap_write(ptr noundef %0, i32 noundef %48, i32 noundef %53) #10

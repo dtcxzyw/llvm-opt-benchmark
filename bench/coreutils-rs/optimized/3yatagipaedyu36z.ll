@@ -878,10 +878,10 @@ switch.lookup:
   %trunc = trunc nuw i32 %2 to i8
   %switch.tableidx = xor i8 %trunc, -128
   %3 = zext i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN62_$LT$nix..errno..consts..Errno$u20$as$u20$core..fmt..Debug$GT$3fmt17h3a12f75c6fc82d08E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN62_$LT$nix..errno..consts..Errno$u20$as$u20$core..fmt..Debug$GT$3fmt17h3a12f75c6fc82d08E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext i8 %switch.tableidx to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN62_$LT$nix..errno..consts..Errno$u20$as$u20$core..fmt..Debug$GT$3fmt17h3a12f75c6fc82d08E.9", i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN62_$LT$nix..errno..consts..Errno$u20$as$u20$core..fmt..Debug$GT$3fmt17h3a12f75c6fc82d08E.9", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -1266,7 +1266,7 @@ _ZN6uucore4mods5error11UUsageError3new17h073b83ef739f04cdE.exit: ; preds = %.noe
   %29 = phi i64 [ %.pre.i, %28 ], [ %25, %22 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %31 = load ptr, ptr %30, align 8, !alias.scope !192, !noalias !195, !nonnull !5, !noundef !5
-  %32 = getelementptr inbounds { ptr, i64 }, ptr %31, i64 %29
+  %32 = getelementptr inbounds [16 x i8], ptr %31, i64 %29
   store ptr %1, ptr %32, align 8, !noalias !195
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store i64 %2, ptr %33, align 8
@@ -3286,7 +3286,7 @@ define void @_ZN6uu_env6uu_app17hd22ed0baa540e871E(ptr noalias noundef writeonly
   %467 = phi i64 [ %.pre.i.i, %.noexc.i218 ], [ %458, %455 ]
   %468 = getelementptr inbounds nuw i8, ptr %50, i64 136
   %469 = load ptr, ptr %468, align 8, !alias.scope !826, !noalias !831, !nonnull !5, !noundef !5
-  %470 = getelementptr inbounds { { { { ptr, i64 } } } }, ptr %469, i64 %467
+  %470 = getelementptr inbounds [16 x i8], ptr %469, i64 %467
   store ptr @anon.154ebb479e863579ac523698efcc26ae.178, ptr %470, align 8, !noalias !831
   %471 = getelementptr inbounds nuw i8, ptr %470, i64 8
   store i64 5, ptr %471, align 8, !noalias !836
@@ -4541,7 +4541,7 @@ _ZN6uu_env16debug_print_args17h41b86b97cb4c6f83E.exit: ; preds = %.noexc29, %.no
 83:                                               ; preds = %63
   %84 = ptrtoint ptr %69 to i64
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %67) ]
-  %85 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %67, i64 %84
+  %85 = getelementptr inbounds [24 x i8], ptr %67, i64 %84
   store ptr %67, ptr %17, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %67, ptr %.sroa.42.0..sroa_idx, align 8
@@ -4867,7 +4867,7 @@ define void @_ZN6uu_env10EnvAppData28process_all_string_arguments17h5f5c91a2e7f2
 79:                                               ; preds = %._crit_edge.i, %68
   %80 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %71, %68 ]
   %81 = load ptr, ptr %10, align 8, !alias.scope !1172, !noalias !1175, !nonnull !5, !noundef !5
-  %82 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } } }, ptr %81, i64 %80
+  %82 = getelementptr inbounds [24 x i8], ptr %81, i64 %80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %82, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %83 = load i64, ptr %11, align 8, !alias.scope !1172, !noalias !1175, !noundef !5
   %84 = add i64 %83, 1
@@ -6519,7 +6519,7 @@ _ZN12clap_builder6parser5error12MatchesError6unwrap17h45c0acf0ffcfb409E.exit: ; 
 .thread.i:                                        ; preds = %._crit_edge.i.i, %207
   %219 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %208, %207 ]
   %220 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !1516, !noalias !1519, !nonnull !5, !noundef !5
-  %221 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [2 x i64] } }, ptr %220, i64 %219
+  %221 = getelementptr inbounds [48 x i8], ptr %220, i64 %219
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %221, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false), !noalias !1515
   %222 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !1516, !noalias !1519, !noundef !5
   %223 = add i64 %222, 1

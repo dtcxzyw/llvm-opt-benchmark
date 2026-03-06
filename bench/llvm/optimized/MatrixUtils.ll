@@ -11,10 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::cfg::Update" = type { ptr, %"class.llvm::PointerIntPair" }
 %"class.llvm::PointerIntPair" = type { %"struct.llvm::detail::PunnedPointer" }
 %"struct.llvm::detail::PunnedPointer" = type { [8 x i8] }
-%"class.llvm::Use" = type { ptr, ptr, ptr, ptr }
-%"struct.llvm::detail::DenseMapPair" = type { %"struct.std::pair.40" }
-%"struct.std::pair.40" = type { ptr, ptr }
-%"struct.std::pair.42" = type { ptr, i64 }
 
 $_ZN4llvm13IRBuilderBase10CreateICmpENS_7CmpInst9PredicateEPNS_5ValueES4_RKNS_5TwineE = comdat any
 
@@ -153,7 +149,7 @@ _ZN4llvm10BasicBlock13getTerminatorEv.exit:
   %78 = getelementptr inbounds i8, ptr %61, i64 -8
   %79 = load ptr, ptr %78, align 8, !tbaa !60
   %80 = zext i32 %77 to i64
-  %81 = getelementptr inbounds nuw %"class.llvm::Use", ptr %79, i64 %80
+  %81 = getelementptr inbounds nuw [32 x i8], ptr %79, i64 %80
   %82 = load ptr, ptr %81, align 8, !tbaa !61
   %.not.i.i.i.i.i = icmp eq ptr %82, null
   br i1 %.not.i.i.i.i.i, label %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i, label %83
@@ -203,9 +199,9 @@ _ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit: ; preds = %_ZN4
   %100 = load ptr, ptr %78, align 8, !tbaa !60
   %101 = load i32, ptr %62, align 8, !tbaa !49
   %102 = zext i32 %101 to i64
-  %103 = getelementptr inbounds nuw %"class.llvm::Use", ptr %100, i64 %102
+  %103 = getelementptr inbounds nuw [32 x i8], ptr %100, i64 %102
   %104 = zext i32 %99 to i64
-  %105 = getelementptr inbounds nuw ptr, ptr %103, i64 %104
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %104
   store ptr %0, ptr %105, align 8, !tbaa !68
   %106 = getelementptr inbounds nuw i8, ptr %6, i64 48
   store ptr %45, ptr %106, align 8, !tbaa !69
@@ -318,7 +314,7 @@ _ZN4llvm13IRBuilderBase9CreateAddEPNS_5ValueES2_RKNS_5TwineEbb.exit: ; preds = %
   %157 = add nsw i32 %154, -1
   %158 = load ptr, ptr %78, align 8, !tbaa !60
   %159 = zext i32 %157 to i64
-  %160 = getelementptr inbounds nuw %"class.llvm::Use", ptr %158, i64 %159
+  %160 = getelementptr inbounds nuw [32 x i8], ptr %158, i64 %159
   %161 = load ptr, ptr %160, align 8, !tbaa !61
   %.not.i.i.i.i.i67 = icmp eq ptr %161, null
   br i1 %.not.i.i.i.i.i67, label %_ZN4llvm3Use14removeFromListEv.exit.i.i.i.i.i69, label %162
@@ -368,9 +364,9 @@ _ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit74: ; preds = %_Z
   %179 = load ptr, ptr %78, align 8, !tbaa !60
   %180 = load i32, ptr %62, align 8, !tbaa !49
   %181 = zext i32 %180 to i64
-  %182 = getelementptr inbounds nuw %"class.llvm::Use", ptr %179, i64 %181
+  %182 = getelementptr inbounds nuw [32 x i8], ptr %179, i64 %181
   %183 = zext i32 %178 to i64
-  %184 = getelementptr inbounds nuw ptr, ptr %182, i64 %183
+  %184 = getelementptr inbounds nuw [8 x i8], ptr %182, i64 %183
   store ptr %45, ptr %184, align 8, !tbaa !68
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %186 = load ptr, ptr %185, align 8, !tbaa !48
@@ -647,7 +643,7 @@ _ZNSt6vectorIPN4llvm4LoopESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i: ; p
 _ZNSt6vectorIPN4llvm4LoopESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %96, %_ZNSt6vectorIPN4llvm4LoopESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
   store ptr %91, ptr %71, align 8, !tbaa !146
   store ptr %95, ptr %72, align 8, !tbaa !143
-  %97 = getelementptr inbounds nuw ptr, ptr %91, i64 %89
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %89
   store ptr %97, ptr %74, align 8, !tbaa !144
   br label %_ZN4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE12addChildLoopEPS2_.exit
 
@@ -711,7 +707,7 @@ _ZNSt6vectorIPN4llvm4LoopESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i62: ;
 _ZNSt6vectorIPN4llvm4LoopESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i64: ; preds = %123, %_ZNSt6vectorIPN4llvm4LoopESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i62
   store ptr %118, ptr %98, align 8, !tbaa !146
   store ptr %122, ptr %99, align 8, !tbaa !143
-  %124 = getelementptr inbounds nuw ptr, ptr %118, i64 %116
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %118, i64 %116
   store ptr %124, ptr %101, align 8, !tbaa !144
   br label %_ZN4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE12addChildLoopEPS2_.exit65
 
@@ -731,7 +727,7 @@ _ZN4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE12addChildLoopEPS2_.exit65: ; preds 
   %135 = add i32 %127, -1
   %.01826.i.i.i.i = and i32 %135, %134
   %136 = zext nneg i32 %.01826.i.i.i.i to i64
-  %137 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %125, i64 %136
+  %137 = getelementptr inbounds nuw [16 x i8], ptr %125, i64 %136
   %138 = load ptr, ptr %137, align 8, !tbaa !68
   %139 = icmp eq ptr %1, %138
   br i1 %139, label %_ZNK4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE10getLoopForEPKS1_.exit, label %.lr.ph.i.i.i.i, !prof !151
@@ -748,14 +744,14 @@ _ZN4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE12addChildLoopEPS2_.exit65: ; preds 
   %144 = add i32 %.01627.i.i.i.i, %.01828.i.i.i.i
   %.018.i.i.i.i = and i32 %144, %135
   %145 = zext i32 %.018.i.i.i.i to i64
-  %146 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %125, i64 %145
+  %146 = getelementptr inbounds nuw [16 x i8], ptr %125, i64 %145
   %147 = load ptr, ptr %146, align 8, !tbaa !68
   %148 = icmp eq ptr %1, %147
   br i1 %148, label %_ZNK4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE10getLoopForEPKS1_.exit, label %.lr.ph.i.i.i.i, !prof !152, !llvm.loop !153
 
 _ZNK4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE10getLoopForEPKS1_.exit: ; preds = %142, %129
   %149 = phi i64 [ %136, %129 ], [ %145, %142 ]
-  %150 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %125, i64 %149
+  %150 = getelementptr inbounds nuw [16 x i8], ptr %125, i64 %149
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 8
   %152 = load ptr, ptr %151, align 8, !tbaa !145
   %.not = icmp eq ptr %152, null
@@ -821,7 +817,7 @@ _ZNSt6vectorIPN4llvm4LoopESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i70: ;
 _ZNSt6vectorIPN4llvm4LoopESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i72: ; preds = %179, %_ZNSt6vectorIPN4llvm4LoopESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i70
   store ptr %174, ptr %154, align 8, !tbaa !146
   store ptr %178, ptr %155, align 8, !tbaa !143
-  %180 = getelementptr inbounds nuw ptr, ptr %174, i64 %172
+  %180 = getelementptr inbounds nuw [8 x i8], ptr %174, i64 %172
   store ptr %180, ptr %157, align 8, !tbaa !144
   br label %_ZN4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE12addChildLoopEPS2_.exit73
 
@@ -884,7 +880,7 @@ _ZNSt6vectorIPN4llvm4LoopESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i78: ;
 _ZNSt6vectorIPN4llvm4LoopESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i80: ; preds = %206, %_ZNSt6vectorIPN4llvm4LoopESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i78
   store ptr %201, ptr %181, align 8, !tbaa !146
   store ptr %205, ptr %182, align 8, !tbaa !143
-  %207 = getelementptr inbounds nuw ptr, ptr %201, i64 %199
+  %207 = getelementptr inbounds nuw [8 x i8], ptr %201, i64 %199
   store ptr %207, ptr %184, align 8, !tbaa !144
   br label %_ZN4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE12addChildLoopEPS2_.exit73
 
@@ -1122,7 +1118,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds 
   %21 = phi i32 [ %14, %10 ], [ %.pre.i, %17 ]
   %22 = load ptr, ptr %12, align 8, !tbaa !96
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %"struct.std::pair.42", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %23
   store ptr %11, ptr %24, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %8, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -1163,7 +1159,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Start
   %47 = phi i32 [ %40, %32 ], [ %.pre.i.i, %43 ]
   %48 = load ptr, ptr %33, align 8, !tbaa !96
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   %51 = ptrtoint ptr %39 to i64
   store i64 %51, ptr %50, align 1
   %52 = load i32, ptr %34, align 8, !tbaa !97

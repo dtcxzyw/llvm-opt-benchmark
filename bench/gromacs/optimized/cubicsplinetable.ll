@@ -741,9 +741,9 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit.i
 
 249:                                              ; preds = %249, %242
   %.021.i = phi i64 [ 0, %242 ], [ %253, %249 ]
-  %250 = getelementptr float, ptr %245, i64 %.021.i
+  %250 = getelementptr [4 x i8], ptr %245, i64 %.021.i
   %251 = load float, ptr %250, align 4, !tbaa !35
-  %252 = getelementptr float, ptr %246, i64 %.021.i
+  %252 = getelementptr [4 x i8], ptr %246, i64 %.021.i
   store float %251, ptr %252, align 4, !tbaa !35
   %253 = add nuw nsw i64 %.021.i, 1
   %exitcond.not.i = icmp eq i64 %253, 4
@@ -1537,9 +1537,9 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE11_S_relocateEPf
 
 _ZNSt12_Vector_baseIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE13_M_deallocateEPfm.exit: ; preds = %_ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE11_S_relocateEPfS5_S5_RS3_.exit, %35
   store ptr %26, ptr %0, align 8, !tbaa !44
-  %36 = getelementptr inbounds nuw float, ptr %30, i64 %1
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %1
   store ptr %36, ptr %4, align 8, !tbaa !70
-  %37 = getelementptr inbounds nuw float, ptr %26, i64 %24
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %24
   store ptr %37, ptr %11, align 8, !tbaa !71
   br label %38
 
@@ -2286,14 +2286,14 @@ _ZNSt6vectorIdSaIdEED2Ev.exit98.thread.i:         ; preds = %203
 
 226:                                              ; preds = %216
   %227 = sext i32 %221 to i64
-  %228 = getelementptr inbounds double, ptr %.sroa.5186.0.copyload, i64 %227
+  %228 = getelementptr inbounds [8 x i8], ptr %.sroa.5186.0.copyload, i64 %227
   %229 = load double, ptr %228, align 8, !tbaa !37
   %230 = tail call noundef double @llvm.fabs.f64(double %229)
   %231 = fcmp ogt double %230, 0x471A36E2D0E56042
   br i1 %231, label %263, label %232
 
 232:                                              ; preds = %226
-  %233 = getelementptr inbounds double, ptr %.sroa.7.0.copyload, i64 %227
+  %233 = getelementptr inbounds [8 x i8], ptr %.sroa.7.0.copyload, i64 %227
   %234 = load double, ptr %233, align 8, !tbaa !37
   %235 = tail call noundef double @llvm.fabs.f64(double %234)
   %236 = fcmp ogt double %235, 0x471A36E2D0E56042
@@ -2302,12 +2302,12 @@ _ZNSt6vectorIdSaIdEED2Ev.exit98.thread.i:         ; preds = %203
 237:                                              ; preds = %232
   %238 = add nsw i32 %221, 1
   %239 = sext i32 %238 to i64
-  %240 = getelementptr inbounds double, ptr %.sroa.5186.0.copyload, i64 %239
+  %240 = getelementptr inbounds [8 x i8], ptr %.sroa.5186.0.copyload, i64 %239
   %241 = load double, ptr %240, align 8, !tbaa !37
-  %242 = getelementptr inbounds double, ptr %.sroa.7.0.copyload, i64 %239
+  %242 = getelementptr inbounds [8 x i8], ptr %.sroa.7.0.copyload, i64 %239
   %243 = load double, ptr %242, align 8, !tbaa !37
-  %244 = getelementptr inbounds nuw double, ptr %199, i64 %indvars.iv.i
-  %245 = getelementptr inbounds nuw double, ptr %204, i64 %indvars.iv.i
+  %244 = getelementptr inbounds nuw [8 x i8], ptr %199, i64 %indvars.iv.i
+  %245 = getelementptr inbounds nuw [8 x i8], ptr %204, i64 %indvars.iv.i
   %246 = fmul double %.sroa.9.0.copyload, %234
   %247 = fsub double %241, %229
   %248 = tail call double @llvm.fmuladd.f64(double %234, double 2.000000e+00, double %243)
@@ -2330,17 +2330,17 @@ _ZNSt6vectorIdSaIdEED2Ev.exit98.thread.i:         ; preds = %203
   br label %274
 
 263:                                              ; preds = %232, %226, %216
-  %264 = getelementptr inbounds nuw double, ptr %199, i64 %.07554.i
+  %264 = getelementptr inbounds nuw [8 x i8], ptr %199, i64 %.07554.i
   %265 = load double, ptr %264, align 8, !tbaa !37
-  %266 = getelementptr inbounds nuw double, ptr %204, i64 %.07554.i
+  %266 = getelementptr inbounds nuw [8 x i8], ptr %204, i64 %.07554.i
   %267 = load double, ptr %266, align 8, !tbaa !37
   %268 = sub i64 %indvars.iv.i, %.07554.i
   %269 = uitofp i64 %268 to double
   %270 = fmul double %267, %269
   %271 = tail call double @llvm.fmuladd.f64(double %270, double %73, double %265)
-  %272 = getelementptr inbounds nuw double, ptr %199, i64 %indvars.iv.i
+  %272 = getelementptr inbounds nuw [8 x i8], ptr %199, i64 %indvars.iv.i
   store double %271, ptr %272, align 8, !tbaa !37
-  %273 = getelementptr inbounds nuw double, ptr %204, i64 %indvars.iv.i
+  %273 = getelementptr inbounds nuw [8 x i8], ptr %204, i64 %indvars.iv.i
   store double %267, ptr %273, align 8, !tbaa !37
   br label %274
 
@@ -2358,18 +2358,18 @@ _ZNSt6vectorIdSaIdEED2Ev.exit98.thread.i:         ; preds = %203
   br i1 %277, label %278, label %283
 
 278:                                              ; preds = %276
-  %279 = getelementptr inbounds nuw double, ptr %199, i64 %indvars.iv.next61.i
+  %279 = getelementptr inbounds nuw [8 x i8], ptr %199, i64 %indvars.iv.next61.i
   %280 = load double, ptr %279, align 8, !tbaa !37
-  %281 = getelementptr inbounds nuw double, ptr %204, i64 %indvars.iv.next61.i
+  %281 = getelementptr inbounds nuw [8 x i8], ptr %204, i64 %indvars.iv.next61.i
   %282 = load double, ptr %281, align 8, !tbaa !37
   br label %283
 
 283:                                              ; preds = %278, %276
   %284 = phi double [ %280, %278 ], [ 0.000000e+00, %276 ]
   %285 = phi double [ %282, %278 ], [ 0.000000e+00, %276 ]
-  %286 = getelementptr inbounds nuw double, ptr %199, i64 %indvars.iv60.i
+  %286 = getelementptr inbounds nuw [8 x i8], ptr %199, i64 %indvars.iv60.i
   %287 = load double, ptr %286, align 8, !tbaa !37
-  %288 = getelementptr inbounds nuw double, ptr %204, i64 %indvars.iv60.i
+  %288 = getelementptr inbounds nuw [8 x i8], ptr %204, i64 %indvars.iv60.i
   %289 = load double, ptr %288, align 8, !tbaa !37
   %290 = fmul double %73, %289
   %291 = fsub double %284, %287
@@ -2475,9 +2475,9 @@ _ZNSt6vectorIfN3gmx9AllocatorIfNS0_23AlignedAllocationPolicyEEEE6resizeEm.exit.i
 
 335:                                              ; preds = %335, %328
   %.021.i = phi i64 [ 0, %328 ], [ %339, %335 ]
-  %336 = getelementptr float, ptr %331, i64 %.021.i
+  %336 = getelementptr [4 x i8], ptr %331, i64 %.021.i
   %337 = load float, ptr %336, align 4, !tbaa !35
-  %338 = getelementptr float, ptr %332, i64 %.021.i
+  %338 = getelementptr [4 x i8], ptr %332, i64 %.021.i
   store float %337, ptr %338, align 4, !tbaa !35
   %339 = add nuw nsw i64 %.021.i, 1
   %exitcond.not.i140 = icmp eq i64 %339, 4

@@ -433,7 +433,7 @@ add_tablespace_mapping.exit:                      ; preds = %76
 
 118:                                              ; preds = %113, %108, %.sink.split, %106
   %119 = sext i32 %0 to i64
-  %120 = getelementptr ptr, ptr %1, i64 %119
+  %120 = getelementptr [8 x i8], ptr %1, i64 %119
   %121 = getelementptr i8, ptr %120, i64 -8
   %122 = load ptr, ptr %121, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
@@ -515,7 +515,7 @@ read_pg_version_file.exit:                        ; preds = %147, %150
   %152 = load i32, ptr @optind, align 4
   %153 = sub i32 %0, %152
   %154 = sext i32 %152 to i64
-  %155 = getelementptr inbounds ptr, ptr %1, i64 %154
+  %155 = getelementptr inbounds [8 x i8], ptr %1, i64 %154
   %156 = add i32 %153, -1
   %157 = icmp sgt i32 %156, -1
   br i1 %157, label %.lr.ph.preheader.i, label %._crit_edge.i100
@@ -530,7 +530,7 @@ read_pg_version_file.exit:                        ; preds = %147, %150
   %.02950.i = phi i1 [ false, %.lr.ph.preheader.i ], [ %.130.i, %186 ]
   %.03149.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.132.i, %186 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %159 = getelementptr inbounds nuw ptr, ptr %155, i64 %indvars.iv.i
+  %159 = getelementptr inbounds nuw [8 x i8], ptr %155, i64 %indvars.iv.i
   %160 = load ptr, ptr %159, align 8
   %161 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.21, ptr noundef %160, ptr noundef nonnull @.str.22) #12
   %162 = load i32, ptr @__pg_log_level, align 4
@@ -626,7 +626,7 @@ read_pg_version_file.exit:                        ; preds = %147, %150
 check_control_files.exit:                         ; preds = %191, %192
   %193 = load i32, ptr @optind, align 4
   %194 = sext i32 %193 to i64
-  %195 = getelementptr inbounds ptr, ptr %1, i64 %194
+  %195 = getelementptr inbounds [8 x i8], ptr %1, i64 %194
   %196 = call ptr @makeStringInfo() #12
   br i1 %157, label %.lr.ph.preheader.i105, label %check_backup_label_files.exit
 
@@ -644,7 +644,7 @@ check_control_files.exit:                         ; preds = %191, %192
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %198 = getelementptr inbounds nuw ptr, ptr %195, i64 %indvars.iv.i107
+  %198 = getelementptr inbounds nuw [8 x i8], ptr %195, i64 %indvars.iv.i107
   %199 = load ptr, ptr %198, align 8
   %200 = call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef nonnull %8, i64 noundef 1024, ptr noundef nonnull @.str.43, ptr noundef %199) #12
   %201 = load i32, ptr @__pg_log_level, align 4
@@ -685,7 +685,7 @@ check_control_files.exit:                         ; preds = %191, %192
   br i1 %or.cond.i, label %215, label %218
 
 215:                                              ; preds = %211
-  %216 = getelementptr inbounds nuw ptr, ptr %195, i64 %indvars.iv.i107
+  %216 = getelementptr inbounds nuw [8 x i8], ptr %195, i64 %indvars.iv.i107
   %217 = load ptr, ptr %216, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.47, ptr noundef %217) #12
   call void @exit(i32 noundef 1) #13
@@ -713,7 +713,7 @@ check_control_files.exit:                         ; preds = %191, %192
   br i1 %.not45.i, label %230, label %227
 
 227:                                              ; preds = %225
-  %228 = getelementptr inbounds nuw ptr, ptr %195, i64 %indvars.iv.i107
+  %228 = getelementptr inbounds nuw [8 x i8], ptr %195, i64 %indvars.iv.i107
   %229 = load ptr, ptr %228, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.49, ptr noundef %229, i32 noundef %226, i32 noundef %.03977.i) #12
   call void @exit(i32 noundef 1) #13
@@ -725,7 +725,7 @@ check_control_files.exit:                         ; preds = %191, %192
   br i1 %.not46.i, label %.critedge.i, label %232
 
 232:                                              ; preds = %230
-  %233 = getelementptr inbounds nuw ptr, ptr %195, i64 %indvars.iv.i107
+  %233 = getelementptr inbounds nuw [8 x i8], ptr %195, i64 %indvars.iv.i107
   %234 = load ptr, ptr %233, align 8
   %235 = lshr i64 %231, 32
   %236 = trunc nuw i64 %235 to i32
@@ -774,7 +774,7 @@ check_backup_label_files.exit:                    ; preds = %check_control_files
   %250 = xor i32 %249, -1
   %251 = add i32 %0, %250
   %252 = sext i32 %249 to i64
-  %253 = getelementptr inbounds ptr, ptr %1, i64 %252
+  %253 = getelementptr inbounds [8 x i8], ptr %1, i64 %252
   %254 = call ptr @load_backup_manifests(i32 noundef %153, ptr noundef nonnull %253) #12
   %255 = icmp sgt i32 %153, 0
   br i1 %255, label %.lr.ph.preheader, label %._crit_edge
@@ -785,7 +785,7 @@ check_backup_label_files.exit:                    ; preds = %check_control_files
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %267
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %267 ]
-  %256 = getelementptr inbounds nuw ptr, ptr %254, i64 %indvars.iv
+  %256 = getelementptr inbounds nuw [8 x i8], ptr %254, i64 %indvars.iv
   %257 = load ptr, ptr %256, align 8
   %.not97 = icmp eq ptr %257, null
   br i1 %.not97, label %267, label %258
@@ -796,8 +796,8 @@ check_backup_label_files.exit:                    ; preds = %check_control_files
   br i1 %.not98, label %267, label %260
 
 260:                                              ; preds = %258
-  %261 = getelementptr inbounds nuw ptr, ptr %254, i64 %indvars.iv
-  %262 = getelementptr inbounds nuw ptr, ptr %253, i64 %indvars.iv
+  %261 = getelementptr inbounds nuw [8 x i8], ptr %254, i64 %indvars.iv
+  %262 = getelementptr inbounds nuw [8 x i8], ptr %253, i64 %indvars.iv
   %263 = load ptr, ptr %262, align 8
   %264 = call ptr (ptr, ...) @psprintf(ptr noundef nonnull @.str.21, ptr noundef %263, ptr noundef nonnull @.str.22) #12
   %265 = load ptr, ptr %261, align 8
@@ -1101,7 +1101,7 @@ scan_for_existing_tablespaces.exit:               ; preds = %._crit_edge88.i
   %378 = load ptr, ptr %29, align 8
   %379 = call ptr @create_manifest_writer(ptr noundef %378, i64 noundef %.028.lcssa.i) #12
   %380 = sext i32 %251 to i64
-  %381 = getelementptr inbounds ptr, ptr %254, i64 %380
+  %381 = getelementptr inbounds [8 x i8], ptr %254, i64 %380
   %382 = load ptr, ptr %381, align 8
   %383 = icmp eq ptr %382, null
   br i1 %383, label %384, label %._crit_edge245
@@ -1271,7 +1271,7 @@ scan_for_existing_tablespaces.exit:               ; preds = %._crit_edge88.i
 
 454:                                              ; preds = %._crit_edge187
   %455 = sext i32 %251 to i64
-  %456 = getelementptr inbounds ptr, ptr %254, i64 %455
+  %456 = getelementptr inbounds [8 x i8], ptr %254, i64 %455
   %457 = load ptr, ptr %456, align 8
   %458 = getelementptr inbounds nuw i8, ptr %457, i64 16
   %459 = load ptr, ptr %458, align 8
@@ -1536,7 +1536,7 @@ define internal fastcc void @process_directory_recursively(i32 noundef %0, ptr n
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %22 = sext i32 %4 to i64
-  %23 = getelementptr inbounds ptr, ptr %6, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %6, i64 %22
   %24 = load ptr, ptr %23, align 8
   %.not.not = icmp eq i32 %0, 0
   br i1 %.not.not, label %25, label %49

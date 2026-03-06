@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.aes_key_st = type { [60 x i32], i32 }
-%struct.ige_test = type { [16 x i8], [32 x i8], [64 x i8], [64 x i8], i64, i32 }
-%struct.bi_ige_test = type { [32 x i8], [32 x i8], [64 x i8], [64 x i8], [64 x i8], i64, i64, i32 }
 
 @rkey = internal global [16 x i8] zeroinitializer, align 16
 @rkey2 = internal global [16 x i8] zeroinitializer, align 16
@@ -375,7 +373,7 @@ define internal range(i32 0, 2) i32 @test_ige_vectors(i32 noundef %0) #0 {
   %3 = alloca [64 x i8], align 16
   %4 = alloca [32 x i8], align 16
   %5 = sext i32 %0 to i64
-  %6 = getelementptr inbounds %struct.ige_test, ptr @ige_test_vectors, i64 %5
+  %6 = getelementptr inbounds [192 x i8], ptr @ige_test_vectors, i64 %5
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -444,7 +442,7 @@ define internal range(i32 0, 2) i32 @test_bi_ige_vectors(i32 noundef %0) #0 {
   %3 = alloca %struct.aes_key_st, align 4
   %4 = alloca [64 x i8], align 16
   %5 = sext i32 %0 to i64
-  %6 = getelementptr inbounds %struct.bi_ige_test, ptr @bi_ige_test_vectors, i64 %5
+  %6 = getelementptr inbounds [280 x i8], ptr @bi_ige_test_vectors, i64 %5
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)

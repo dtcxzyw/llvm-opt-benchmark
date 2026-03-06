@@ -772,9 +772,9 @@ define void @_ZN20pingora_header_serde11HeaderSerde9serialize17hf7403978be8838e6
 switch.lookup:                                    ; preds = %.noexc23
   %101 = load i8, ptr %98, align 8, !range !59, !noalias !48, !noundef !7
   %102 = zext nneg i8 %101 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN20pingora_header_serde11HeaderSerde9serialize17hf7403978be8838e6E, i64 %102
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN20pingora_header_serde11HeaderSerde9serialize17hf7403978be8838e6E, i64 %102
   %103 = zext nneg i8 %101 to i64
-  %switch.gep43 = getelementptr inbounds nuw i64, ptr @switch.table._ZN20pingora_header_serde11HeaderSerde9serialize17hf7403978be8838e6E.17, i64 %103
+  %switch.gep43 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN20pingora_header_serde11HeaderSerde9serialize17hf7403978be8838e6E.17, i64 %103
   br label %_ZN4http6header4name14StandardHeader6as_str17hf5c1eaba1d6e352fE.exit.i.i
 
 _ZN4http6header4name14StandardHeader6as_str17hf5c1eaba1d6e352fE.exit.i.i: ; preds = %switch.lookup, %99

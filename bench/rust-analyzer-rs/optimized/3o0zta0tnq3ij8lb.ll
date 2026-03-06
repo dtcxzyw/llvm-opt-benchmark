@@ -243,7 +243,7 @@ define internal void @"_ZN3std2io5impls60_$LT$impl$u20$std..io..Read$u20$for$u20
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define internal void @"_ZN3std2io5impls60_$LT$impl$u20$std..io..Read$u20$for$u20$$RF$$u5b$u8$u5d$$GT$13read_vectored17h9e67117e01d38945E"(ptr noalias noundef writeonly sret({ i64, [1 x i64] }) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 8 captures(none) dereferenceable(16) %1, ptr noalias noundef nonnull readonly align 8 captures(address) %2, i64 noundef %3) unnamed_addr #4 personality ptr @rust_eh_personality {
-  %5 = getelementptr inbounds { { { ptr, i64 }, {} } }, ptr %2, i64 %3
+  %5 = getelementptr inbounds [16 x i8], ptr %2, i64 %3
   %.promoted = load ptr, ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.promoted14 = load i64, ptr %6, align 8
@@ -1549,7 +1549,7 @@ define hidden void @"_ZN6object4read5macho4file25MachOFile$LT$Mach$C$R$GT$16segm
   %.not = icmp ult i64 %2, %5
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !nonnull !7
-  %8 = getelementptr inbounds { { ptr, i64 }, ptr }, ptr %7, i64 %2
+  %8 = getelementptr inbounds [24 x i8], ptr %7, i64 %2
   %9 = ptrtoint ptr %8 to i64
   %.sink = select i1 %.not, i64 %9, i64 28
   %anon.9cc5293831a93561e2b560572d2ac46a.55.llvm.17912211610495965179.sink = select i1 %.not, ptr null, ptr @anon.9cc5293831a93561e2b560572d2ac46a.55.llvm.17912211610495965179
@@ -1566,7 +1566,7 @@ define hidden void @"_ZN6object4read5macho4file25MachOFile$LT$Mach$C$R$GT$16segm
   %.not = icmp ult i64 %2, %5
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !nonnull !7
-  %8 = getelementptr inbounds { { ptr, i64 }, ptr }, ptr %7, i64 %2
+  %8 = getelementptr inbounds [24 x i8], ptr %7, i64 %2
   %9 = ptrtoint ptr %8 to i64
   %.sink = select i1 %.not, i64 %9, i64 28
   %anon.9cc5293831a93561e2b560572d2ac46a.55.llvm.17912211610495965179.sink = select i1 %.not, ptr null, ptr @anon.9cc5293831a93561e2b560572d2ac46a.55.llvm.17912211610495965179
@@ -1590,7 +1590,7 @@ define hidden void @"_ZN6object4read5macho7section28MachOSection$LT$Mach$C$R$GT$
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !263, !noalias !266, !nonnull !7
-  %12 = getelementptr inbounds { { ptr, i64 }, ptr }, ptr %11, i64 %4
+  %12 = getelementptr inbounds [24 x i8], ptr %11, i64 %4
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8, !nonnull !7, !align !268, !noundef !7
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 128
@@ -1662,7 +1662,7 @@ define hidden void @"_ZN6object4read5macho7section28MachOSection$LT$Mach$C$R$GT$
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !286, !noalias !289, !nonnull !7
-  %12 = getelementptr inbounds { { ptr, i64 }, ptr }, ptr %11, i64 %4
+  %12 = getelementptr inbounds [24 x i8], ptr %11, i64 %4
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load ptr, ptr %13, align 8, !nonnull !7, !align !8, !noundef !7
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 128
@@ -4678,7 +4678,7 @@ _ZN7memmap211MmapOptions7get_len17h53ded0f1fcabf3f9E.llvm.13576623291743085369.e
   br label %84
 
 75:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17hccb4202e8eb5488cE.exit.i"
-  %76 = getelementptr inbounds nuw i64, ptr @anon.9cc5293831a93561e2b560572d2ac46a.87, i64 %.0..0..0..0..0..pr.i
+  %76 = getelementptr inbounds nuw [8 x i8], ptr @anon.9cc5293831a93561e2b560572d2ac46a.87, i64 %.0..0..0..0..0..pr.i
   %77 = load i64, ptr %76, align 8, !noalias !485, !noundef !7
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %9, ptr nonnull align 8 %8, i64 %77, i1 false), !noalias !485
   %.0..0..0..0..0..0..pr.i = load i64, ptr %9, align 8, !noalias !485
@@ -4693,11 +4693,11 @@ _ZN7memmap211MmapOptions7get_len17h53ded0f1fcabf3f9E.llvm.13576623291743085369.e
 
 79:                                               ; preds = %75
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %80 = getelementptr inbounds i64, ptr @anon.9cc5293831a93561e2b560572d2ac46a.87, i64 %.0..0..0..0..0..0..pr.i
+  %80 = getelementptr inbounds [8 x i8], ptr @anon.9cc5293831a93561e2b560572d2ac46a.87, i64 %.0..0..0..0..0..0..pr.i
   %81 = load i64, ptr %80, align 8, !noalias !485, !noundef !7
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %6, ptr nonnull align 8 %9, i64 %81, i1 false), !noalias !485
   %.0..0..0..0..0..0.30.i = load i64, ptr %6, align 8, !noalias !485
-  %82 = getelementptr inbounds i64, ptr @anon.9cc5293831a93561e2b560572d2ac46a.87, i64 %.0..0..0..0..0..0.30.i
+  %82 = getelementptr inbounds [8 x i8], ptr @anon.9cc5293831a93561e2b560572d2ac46a.87, i64 %.0..0..0..0..0..0.30.i
   %83 = load i64, ptr %82, align 8, !noalias !485, !noundef !7
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %10, ptr nonnull align 8 %6, i64 %83, i1 false), !noalias !485
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

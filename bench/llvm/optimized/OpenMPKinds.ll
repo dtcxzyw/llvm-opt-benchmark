@@ -1125,7 +1125,7 @@ define dso_local noundef ptr @_ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3om
 
 switch.lookup28:                                  ; preds = %2
   %3 = sext i32 %1 to i64
-  %4 = getelementptr ptr, ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.2, i64 %3
+  %4 = getelementptr [8 x i8], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.2, i64 %3
   %switch.gep29 = getelementptr i8, ptr %4, i64 -16
   %switch.load30 = load ptr, ptr %switch.gep29, align 8
   br label %36
@@ -1160,115 +1160,115 @@ switch.lookup28:                                  ; preds = %2
 
 switch.lookup:                                    ; preds = %2
   %17 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj, i64 %17
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj, i64 %17
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %36
 
 switch.lookup31:                                  ; preds = %2
   %18 = zext nneg i32 %1 to i64
-  %switch.gep32 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.3, i64 %18
+  %switch.gep32 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.3, i64 %18
   %switch.load33 = load ptr, ptr %switch.gep32, align 8
   br label %36
 
 switch.lookup34:                                  ; preds = %2
   %19 = zext nneg i32 %1 to i64
-  %switch.gep35 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.15, i64 %19
+  %switch.gep35 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.15, i64 %19
   %switch.load36 = load ptr, ptr %switch.gep35, align 8
   br label %36
 
 switch.lookup37:                                  ; preds = %2
   %20 = zext nneg i32 %1 to i64
-  %switch.gep38 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.5, i64 %20
+  %switch.gep38 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.5, i64 %20
   %switch.load39 = load ptr, ptr %switch.gep38, align 8
   br label %36
 
 switch.lookup40:                                  ; preds = %2
   %21 = zext nneg i32 %1 to i64
-  %switch.gep41 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.6, i64 %21
+  %switch.gep41 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.6, i64 %21
   %switch.load42 = load ptr, ptr %switch.gep41, align 8
   br label %36
 
 switch.lookup43:                                  ; preds = %2
   %22 = zext nneg i32 %1 to i64
-  %switch.gep44 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.7, i64 %22
+  %switch.gep44 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.7, i64 %22
   %switch.load45 = load ptr, ptr %switch.gep44, align 8
   br label %36
 
 switch.lookup46:                                  ; preds = %2, %2
   %23 = zext nneg i32 %1 to i64
-  %switch.gep47 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.8, i64 %23
+  %switch.gep47 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.8, i64 %23
   %switch.load48 = load ptr, ptr %switch.gep47, align 8
   br label %36
 
 switch.lookup49:                                  ; preds = %2
   %24 = zext nneg i32 %1 to i64
-  %switch.gep50 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.9, i64 %24
+  %switch.gep50 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.9, i64 %24
   %switch.load51 = load ptr, ptr %switch.gep50, align 8
   br label %36
 
 switch.lookup52:                                  ; preds = %2
   %25 = zext nneg i32 %1 to i64
-  %switch.gep53 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.10, i64 %25
+  %switch.gep53 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.10, i64 %25
   %switch.load54 = load ptr, ptr %switch.gep53, align 8
   br label %36
 
 switch.lookup55:                                  ; preds = %2
   %26 = zext nneg i32 %1 to i64
-  %switch.gep56 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.11, i64 %26
+  %switch.gep56 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.11, i64 %26
   %switch.load57 = load ptr, ptr %switch.gep56, align 8
   br label %36
 
 switch.lookup58:                                  ; preds = %2
   %27 = zext nneg i32 %1 to i64
-  %switch.gep59 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.12, i64 %27
+  %switch.gep59 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.12, i64 %27
   %switch.load60 = load ptr, ptr %switch.gep59, align 8
   br label %36
 
 switch.lookup61:                                  ; preds = %2
   %28 = zext nneg i32 %1 to i64
-  %switch.gep62 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.13, i64 %28
+  %switch.gep62 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.13, i64 %28
   %switch.load63 = load ptr, ptr %switch.gep62, align 8
   br label %36
 
 switch.lookup64:                                  ; preds = %2
   %29 = zext nneg i32 %1 to i64
-  %switch.gep65 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.14, i64 %29
+  %switch.gep65 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.14, i64 %29
   %switch.load66 = load ptr, ptr %switch.gep65, align 8
   br label %36
 
 switch.lookup67:                                  ; preds = %2
   %30 = zext nneg i32 %1 to i64
-  %switch.gep68 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.15, i64 %30
+  %switch.gep68 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.15, i64 %30
   %switch.load69 = load ptr, ptr %switch.gep68, align 8
   br label %36
 
 switch.lookup70:                                  ; preds = %2
   %31 = zext nneg i32 %1 to i64
-  %switch.gep71 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.16, i64 %31
+  %switch.gep71 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.16, i64 %31
   %switch.load72 = load ptr, ptr %switch.gep71, align 8
   br label %36
 
 switch.lookup73:                                  ; preds = %2
   %32 = zext nneg i32 %1 to i64
-  %switch.gep74 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.17, i64 %32
+  %switch.gep74 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.17, i64 %32
   %switch.load75 = load ptr, ptr %switch.gep74, align 8
   br label %36
 
 switch.lookup76:                                  ; preds = %2
   %33 = zext nneg i32 %1 to i64
-  %switch.gep77 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.18, i64 %33
+  %switch.gep77 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.18, i64 %33
   %switch.load78 = load ptr, ptr %switch.gep77, align 8
   br label %36
 
 switch.lookup79:                                  ; preds = %2
   %34 = zext nneg i32 %1 to i64
-  %switch.gep80 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.19, i64 %34
+  %switch.gep80 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.19, i64 %34
   %switch.load81 = load ptr, ptr %switch.gep80, align 8
   br label %36
 
 switch.lookup82:                                  ; preds = %2
   %35 = zext nneg i32 %1 to i64
-  %switch.gep83 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.20, i64 %35
+  %switch.gep83 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang29getOpenMPSimpleClauseTypeNameEN4llvm3omp6ClauseEj.20, i64 %35
   %switch.load84 = load ptr, ptr %switch.gep83, align 8
   br label %36
 
@@ -2080,7 +2080,7 @@ define dso_local noundef zeroext i1 @_ZN5clang28isOpenMPGenericLoopDirectiveEN4l
 
 7:                                                ; preds = %3
   %8 = extractvalue { ptr, i64 } %4, 0
-  %9 = getelementptr i32, ptr %8, i64 %5
+  %9 = getelementptr [4 x i8], ptr %8, i64 %5
   %10 = getelementptr i8, ptr %9, i64 -4
   %11 = load i32, ptr %10, align 4, !tbaa !3
   %12 = icmp eq i32 %11, 107
@@ -2438,7 +2438,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit.i: 
   %20 = phi i32 [ %15, %14 ], [ %.pre.i.i, %17 ]
   %21 = load ptr, ptr %0, align 8, !tbaa !15
   %22 = zext i32 %20 to i64
-  %23 = getelementptr inbounds nuw i32, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %22
   store i32 45, ptr %23, align 1
   %24 = load i32, ptr %7, align 8, !tbaa !9
   %25 = add i32 %24, 1
@@ -2462,7 +2462,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit5.i:
   %32 = phi i32 [ %27, %26 ], [ %.pre.i4.i, %29 ]
   %33 = load ptr, ptr %0, align 8, !tbaa !15
   %34 = zext i32 %32 to i64
-  %35 = getelementptr inbounds nuw i32, ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %34
   store i32 46, ptr %35, align 1
   %36 = load i32, ptr %7, align 8, !tbaa !9
   %37 = add i32 %36, 1
@@ -2486,7 +2486,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit8.i:
   %44 = phi i32 [ %39, %38 ], [ %.pre.i7.i, %41 ]
   %45 = load ptr, ptr %0, align 8, !tbaa !15
   %46 = zext i32 %44 to i64
-  %47 = getelementptr inbounds nuw i32, ptr %45, i64 %46
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %46
   store i32 48, ptr %47, align 1
   %48 = load i32, ptr %7, align 8, !tbaa !9
   %49 = add i32 %48, 1
@@ -2510,7 +2510,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit11.i
   %56 = phi i32 [ %51, %50 ], [ %.pre.i10.i, %53 ]
   %57 = load ptr, ptr %0, align 8, !tbaa !15
   %58 = zext i32 %56 to i64
-  %59 = getelementptr inbounds nuw i32, ptr %57, i64 %58
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %58
   store i32 87, ptr %59, align 1
   %60 = load i32, ptr %7, align 8, !tbaa !9
   %61 = add i32 %60, 1
@@ -2530,7 +2530,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit14.i
   %66 = phi i32 [ %61, %_ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit11.i ], [ %.pre.i13.i, %63 ]
   %67 = load ptr, ptr %0, align 8, !tbaa !15
   %68 = zext i32 %66 to i64
-  %69 = getelementptr inbounds nuw i32, ptr %67, i64 %68
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %68
   store i32 69, ptr %69, align 1
   %70 = load i32, ptr %7, align 8, !tbaa !9
   %71 = add i32 %70, 1
@@ -2554,7 +2554,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit17.i
   %78 = phi i32 [ %73, %72 ], [ %.pre.i16.i, %75 ]
   %79 = load ptr, ptr %0, align 8, !tbaa !15
   %80 = zext i32 %78 to i64
-  %81 = getelementptr inbounds nuw i32, ptr %79, i64 %80
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %80
   store i32 87, ptr %81, align 1
   %82 = load i32, ptr %7, align 8, !tbaa !9
   %83 = add i32 %82, 1
@@ -2578,7 +2578,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit20.i
   %90 = phi i32 [ %85, %84 ], [ %.pre.i19.i, %87 ]
   %91 = load ptr, ptr %0, align 8, !tbaa !15
   %92 = zext i32 %90 to i64
-  %93 = getelementptr inbounds nuw i32, ptr %91, i64 %92
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %92
   store i32 93, ptr %93, align 1
   %94 = load i32, ptr %7, align 8, !tbaa !9
   %95 = add i32 %94, 1
@@ -2602,7 +2602,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit23.i
   %102 = phi i32 [ %97, %96 ], [ %.pre.i22.i, %99 ]
   %103 = load ptr, ptr %0, align 8, !tbaa !15
   %104 = zext i32 %102 to i64
-  %105 = getelementptr inbounds nuw i32, ptr %103, i64 %104
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %103, i64 %104
   store i32 89, ptr %105, align 1
   %106 = load i32, ptr %7, align 8, !tbaa !9
   %107 = add i32 %106, 1
@@ -2730,7 +2730,7 @@ _ZN4llvm12is_containedIRNS_15SmallVectorImplINS_3omp9DirectiveEEES3_EEbOT_RKT0_.
 _ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit17: ; preds = %_ZN4llvm12is_containedIRNS_15SmallVectorImplINS_3omp9DirectiveEEES3_EEbOT_RKT0_.exit.thread.i, %151
   %.pre-phi = phi i64 [ %112, %_ZN4llvm12is_containedIRNS_15SmallVectorImplINS_3omp9DirectiveEEES3_EEbOT_RKT0_.exit.thread.i ], [ %.pre37, %151 ]
   %153 = phi ptr [ %111, %_ZN4llvm12is_containedIRNS_15SmallVectorImplINS_3omp9DirectiveEEES3_EEbOT_RKT0_.exit.thread.i ], [ %.pre, %151 ]
-  %154 = getelementptr inbounds nuw i32, ptr %153, i64 %.pre-phi
+  %154 = getelementptr inbounds nuw [4 x i8], ptr %153, i64 %.pre-phi
   store i32 48, ptr %154, align 1
   %155 = load i32, ptr %7, align 8, !tbaa !9
   %156 = add i32 %155, 1
@@ -2771,7 +2771,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit17: 
 _ZN4llvm23SmallVectorTemplateBaseINS_3omp9DirectiveELb1EE9push_backES2_.exit: ; preds = %166, %169
   %172 = phi i64 [ 0, %166 ], [ %171, %169 ]
   %173 = load ptr, ptr %0, align 8, !tbaa !15
-  %174 = getelementptr inbounds nuw i32, ptr %173, i64 %172
+  %174 = getelementptr inbounds nuw [4 x i8], ptr %173, i64 %172
   store i32 102, ptr %174, align 1
   %175 = load i32, ptr %10, align 8, !tbaa !9
   %176 = add i32 %175, 1

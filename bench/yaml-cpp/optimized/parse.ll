@@ -2456,7 +2456,7 @@ _ZNSt12_Vector_baseIN4YAML4NodeESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8, !tbaa !81
   store ptr %63, ptr %5, align 8, !tbaa !84
-  %94 = getelementptr inbounds nuw %"class.YAML::Node", ptr %23, i64 %17
+  %94 = getelementptr inbounds nuw [64 x i8], ptr %23, i64 %17
   store ptr %94, ptr %93, align 8, !tbaa !108
   ret void
 

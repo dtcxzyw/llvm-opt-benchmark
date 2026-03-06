@@ -14,7 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.pugi::xml_node" = type { ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %"class.rawspeed::iPoint2D" = type { i32, i32 }
-%"class.rawspeed::BlackArea" = type <{ i32, i32, i8, [3 x i8] }>
 %"class.pugi::xml_object_range.26" = type { %"class.pugi::xml_named_node_iterator", %"class.pugi::xml_named_node_iterator" }
 %"class.pugi::xml_named_node_iterator" = type { %"class.pugi::xml_node", %"class.pugi::xml_node", ptr }
 %"class.std::vector.28" = type { %"struct.std::_Vector_base.29" }
@@ -33,7 +32,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base" }
 %"struct.std::_Head_base" = type { ptr }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<void>>::_Auto_node" = type { ptr, ptr }
-%"class.rawspeed::CameraSensorInfo" = type { i32, i32, i32, i32, %"class.std::vector.28" }
 
 $_ZN8rawspeed14ThrowExceptionINS_23CameraMetadataExceptionEEEvPKcz = comdat any
 
@@ -1834,14 +1832,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit27: ; preds = %_ZN
 
 101:                                              ; preds = %99
   %102 = load ptr, ptr %38, align 8, !tbaa !84
-  %103 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %102, i64 %37
+  %103 = getelementptr inbounds nuw [32 x i8], ptr %102, i64 %37
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %103)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit unwind label %48
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit: ; preds = %101
   %104 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %105 = load ptr, ptr %104, align 8, !tbaa !84
-  %106 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %105, i64 %37
+  %106 = getelementptr inbounds nuw [32 x i8], ptr %105, i64 %37
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %18, ptr noundef nonnull align 8 dereferenceable(32) %106)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit28 unwind label %48
 
@@ -3114,7 +3112,7 @@ _ZNSt6vectorIN8rawspeed9BlackAreaESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit34.i.
 _ZNSt6vectorIN8rawspeed9BlackAreaESaIS1_EE17_M_realloc_insertIJRiS5_bEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %89, %_ZNSt6vectorIN8rawspeed9BlackAreaESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit34.i.i
   store ptr %82, ptr %33, align 8, !tbaa !71
   store ptr %88, ptr %34, align 8, !tbaa !98
-  %90 = getelementptr inbounds nuw %"class.rawspeed::BlackArea", ptr %82, i64 %80
+  %90 = getelementptr inbounds nuw [12 x i8], ptr %82, i64 %80
   store ptr %90, ptr %35, align 8, !tbaa !72
   br label %_ZNSt6vectorIN8rawspeed9BlackAreaESaIS1_EE12emplace_backIJRiS5_bEEERS1_DpOT_.exit
 
@@ -3258,7 +3256,7 @@ _ZNSt6vectorIN8rawspeed9BlackAreaESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit34.i.
 _ZNSt6vectorIN8rawspeed9BlackAreaESaIS1_EE17_M_realloc_insertIJRiS5_bEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i42: ; preds = %142, %_ZNSt6vectorIN8rawspeed9BlackAreaESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit34.i.i39
   store ptr %135, ptr %33, align 8, !tbaa !71
   store ptr %141, ptr %34, align 8, !tbaa !98
-  %143 = getelementptr inbounds nuw %"class.rawspeed::BlackArea", ptr %135, i64 %133
+  %143 = getelementptr inbounds nuw [12 x i8], ptr %135, i64 %133
   store ptr %143, ptr %35, align 8, !tbaa !72
   br label %_ZNSt6vectorIN8rawspeed9BlackAreaESaIS1_EE12emplace_backIJRiS5_bEEERS1_DpOT_.exit
 
@@ -4517,7 +4515,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i: ; preds = %127, %.n
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i: ; preds = %129, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i
   store ptr %124, ptr %0, align 8, !tbaa !77
   store ptr %128, ptr %62, align 8, !tbaa !125
-  %130 = getelementptr inbounds nuw i32, ptr %124, i64 %122
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %124, i64 %122
   store ptr %130, ptr %63, align 8, !tbaa !80
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
 
@@ -4658,7 +4656,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
   br i1 %48, label %49, label %_ZNSt6vectorIN8rawspeed12NotARationalIiEESaIS2_EE6resizeEmRKS2_.exit
 
 49:                                               ; preds = %47
-  %50 = getelementptr inbounds nuw %"struct.rawspeed::NotARational", ptr %39, i64 %35
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %35
   %.not.i.i26 = icmp eq ptr %38, %50
   br i1 %.not.i.i26, label %_ZNSt6vectorIN8rawspeed12NotARationalIiEESaIS2_EE6resizeEmRKS2_.exit, label %51
 
@@ -5022,7 +5020,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit46: ; preds = %.bo
   %151 = load ptr, ptr %33, align 8, !tbaa !133
   %152 = mul i32 %74, 3
   %153 = zext i32 %152 to i64
-  %154 = getelementptr inbounds nuw %"struct.rawspeed::NotARational", ptr %151, i64 %153
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %151, i64 %153
   %155 = tail call ptr @__errno_location() #34
   br label %156
 
@@ -5330,7 +5328,7 @@ _ZNSt6vectorIPKN8rawspeed16CameraSensorInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_
   br label %_ZNSt6vectorIPKN8rawspeed16CameraSensorInfoESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIPKN8rawspeed16CameraSensorInfoESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %39, %_ZNSt6vectorIPKN8rawspeed16CameraSensorInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
-  %40 = getelementptr inbounds nuw ptr, ptr %34, i64 %32
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %32
   br label %_ZNSt6vectorIPKN8rawspeed16CameraSensorInfoESaIS3_EE9push_backEOS3_.exit
 
 .loopexit:                                        ; preds = %_ZNKSt6vectorIPKN8rawspeed16CameraSensorInfoESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
@@ -8121,7 +8119,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit39, %75
   store ptr %22, ptr %0, align 8, !tbaa !84
   store ptr %.0.lcssa.i.i.i38, ptr %4, align 8, !tbaa !85
-  %79 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %79 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %79, ptr %74, align 8, !tbaa !87
   ret void
 
@@ -9019,7 +9017,7 @@ _ZNSt6vectorIN8rawspeed16CameraSensorInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.e
 _ZNSt12_Vector_baseIN8rawspeed16CameraSensorInfoESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN8rawspeed16CameraSensorInfoESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit36, %53
   store ptr %26, ptr %0, align 8, !tbaa !75
   store ptr %.0.lcssa.i.i.i35, ptr %8, align 8, !tbaa !76
-  %57 = getelementptr inbounds nuw %"class.rawspeed::CameraSensorInfo", ptr %26, i64 %20
+  %57 = getelementptr inbounds nuw [40 x i8], ptr %26, i64 %20
   store ptr %57, ptr %52, align 8, !tbaa !83
   ret void
 
@@ -9204,7 +9202,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN8rawspeed12NotARationalIiEESaIS2_
 
 _ZSt22__uninitialized_move_aIPN8rawspeed12NotARationalIiEES3_SaIS2_EET0_T_S6_S5_RT1_.exit: ; preds = %23, %20
   %24 = phi ptr [ %.pre, %23 ], [ %9, %20 ]
-  %25 = getelementptr inbounds nuw %"struct.rawspeed::NotARational", ptr %24, i64 %2
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %2
   store ptr %25, ptr %8, align 8, !tbaa !129
   %.not.i.i.i.i.i = icmp eq ptr %21, %1
   br i1 %.not.i.i.i.i.i, label %_ZSt13move_backwardIPN8rawspeed12NotARationalIiEES3_ET0_T_S5_S4_.exit, label %26
@@ -9213,7 +9211,7 @@ _ZSt22__uninitialized_move_aIPN8rawspeed12NotARationalIiEES3_SaIS2_EET0_T_S6_S5_
   %27 = sub i64 %22, %16
   %28 = ashr exact i64 %27, 3
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds %"struct.rawspeed::NotARational", ptr %9, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %9, i64 %29
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %30, ptr align 4 %1, i64 %27, i1 false)
   br label %_ZSt13move_backwardIPN8rawspeed12NotARationalIiEES3_ET0_T_S5_S4_.exit
 
@@ -9324,7 +9322,7 @@ _ZSt24__uninitialized_fill_n_aIPN8rawspeed12NotARationalIiEEmS2_S2_ET_S4_T0_RKT1
   br label %_ZSt34__uninitialized_move_if_noexcept_aIPN8rawspeed12NotARationalIiEES3_SaIS2_EET0_T_S6_S5_RT1_.exit
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN8rawspeed12NotARationalIiEES3_SaIS2_EET0_T_S6_S5_RT1_.exit: ; preds = %67, %_ZSt24__uninitialized_fill_n_aIPN8rawspeed12NotARationalIiEEmS2_S2_ET_S4_T0_RKT1_RSaIT2_E.exit80
-  %68 = getelementptr inbounds nuw %"struct.rawspeed::NotARational", ptr %63, i64 %2
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %2
   %69 = sub i64 %11, %56
   %.not.i.i.i.i.i.i.i.i.i82 = icmp eq ptr %9, %1
   br i1 %.not.i.i.i.i.i.i.i.i.i82, label %71, label %70
@@ -9346,7 +9344,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN8rawspeed12NotARationalIiEES3_SaIS2_E
 _ZNSt12_Vector_baseIN8rawspeed12NotARationalIiEESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %71, %73
   store ptr %62, ptr %0, align 8, !tbaa !69
   store ptr %72, ptr %8, align 8, !tbaa !129
-  %75 = getelementptr inbounds nuw %"struct.rawspeed::NotARational", ptr %62, i64 %55
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %55
   store ptr %75, ptr %6, align 8, !tbaa !70
   br label %_ZSt4fillIPN8rawspeed12NotARationalIiEES2_EvT_S4_RKT0_.exit
 
@@ -9663,7 +9661,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit39, %74
   store ptr %22, ptr %0, align 8, !tbaa !84
   store ptr %.0.lcssa.i.i.i38, ptr %4, align 8, !tbaa !85
-  %78 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %78 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %78, ptr %73, align 8, !tbaa !87
   ret void
 

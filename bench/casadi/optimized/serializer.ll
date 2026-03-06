@@ -4463,7 +4463,7 @@ define linkonce_odr hidden void @_ZN6casadi19DeserializingStream6unpackINS_2MXEE
   br i1 %16, label %17, label %_ZNSt6vectorIN6casadi2MXESaIS1_EE6resizeEm.exit
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds nuw %"class.casadi::MX", ptr %7, i64 %4
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %4
   %.not.i.i = icmp eq ptr %6, %18
   br i1 %.not.i.i, label %_ZNSt6vectorIN6casadi2MXESaIS1_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -7286,7 +7286,7 @@ define linkonce_odr hidden void @_ZN6casadi19DeserializingStream6unpackINS_8Spar
   br i1 %16, label %17, label %_ZNSt6vectorIN6casadi8SparsityESaIS1_EE6resizeEm.exit
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds nuw %"class.casadi::Sparsity", ptr %7, i64 %4
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %4
   %.not.i.i = icmp eq ptr %6, %18
   br i1 %.not.i.i, label %_ZNSt6vectorIN6casadi8SparsityESaIS1_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -8336,7 +8336,7 @@ define linkonce_odr hidden void @_ZN6casadi19DeserializingStream6unpackINS_6Matr
   br i1 %17, label %18, label %_ZNSt6vectorIN6casadi6MatrixIdEESaIS2_EE6resizeEm.exit
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds nuw %"class.casadi::Matrix.71", ptr %8, i64 %5
+  %19 = getelementptr inbounds nuw [40 x i8], ptr %8, i64 %5
   %.not.i.i = icmp eq ptr %7, %19
   br i1 %.not.i.i, label %_ZNSt6vectorIN6casadi6MatrixIdEESaIS2_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -9418,7 +9418,7 @@ define linkonce_odr hidden void @_ZN6casadi19DeserializingStream6unpackINS_6Lins
   br i1 %16, label %17, label %_ZNSt6vectorIN6casadi6LinsolESaIS1_EE6resizeEm.exit
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds nuw %"class.casadi::Linsol", ptr %7, i64 %4
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %4
   %.not.i.i = icmp eq ptr %6, %18
   br i1 %.not.i.i, label %_ZNSt6vectorIN6casadi6LinsolESaIS1_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -10404,7 +10404,7 @@ define linkonce_odr hidden void @_ZN6casadi19DeserializingStream6unpackINS_8Func
   br i1 %16, label %17, label %_ZNSt6vectorIN6casadi8FunctionESaIS1_EE6resizeEm.exit
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds nuw %"class.casadi::Function", ptr %7, i64 %4
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %4
   %.not.i.i = icmp eq ptr %6, %18
   br i1 %.not.i.i, label %_ZNSt6vectorIN6casadi8FunctionESaIS1_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -11391,7 +11391,7 @@ define linkonce_odr hidden void @_ZN6casadi19DeserializingStream6unpackINS_11Gen
   br i1 %16, label %17, label %_ZNSt6vectorIN6casadi11GenericTypeESaIS1_EE6resizeEm.exit
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds nuw %"class.casadi::GenericType", ptr %7, i64 %4
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %4
   %.not.i.i = icmp eq ptr %6, %18
   br i1 %.not.i.i, label %_ZNSt6vectorIN6casadi11GenericTypeESaIS1_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -14197,7 +14197,7 @@ define linkonce_odr hidden void @_ZN6casadi19DeserializingStream6unpackINSt7__cx
   br i1 %16, label %17, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %7, i64 %4
+  %18 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 %4
   %.not.i.i = icmp eq ptr %6, %18
   br i1 %.not.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -15330,9 +15330,9 @@ _ZSt8_DestroyIPN6casadi2MXES1_EvT_S3_RSaIT0_E.exit63: ; preds = %.lr.ph.i.i.i60,
 
 _ZNSt12_Vector_baseIN6casadi2MXESaIS1_EE13_M_deallocateEPS1_m.exit65: ; preds = %_ZSt8_DestroyIPN6casadi2MXES1_EvT_S3_RSaIT0_E.exit63, %76
   store ptr %38, ptr %0, align 8, !tbaa !103
-  %80 = getelementptr inbounds nuw %"class.casadi::MX", ptr %39, i64 %1
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %1
   store ptr %80, ptr %4, align 8, !tbaa !107
-  %81 = getelementptr inbounds nuw %"class.casadi::MX", ptr %38, i64 %36
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %36
   store ptr %81, ptr %11, align 8, !tbaa !106
   br label %82
 
@@ -15372,7 +15372,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN6casadi6MatrixINS0_6SXElemEEESaIS
   br i1 %14, label %15, label %_ZNSt6vectorIN6casadi6MatrixINS0_6SXElemEEESaIS3_EE15_M_erase_at_endEPS3_.exit
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds nuw %"class.casadi::Matrix", ptr %5, i64 %1
+  %16 = getelementptr inbounds nuw [40 x i8], ptr %5, i64 %1
   %.not.i = icmp eq ptr %4, %16
   br i1 %.not.i, label %_ZNSt6vectorIN6casadi6MatrixINS0_6SXElemEEESaIS3_EE15_M_erase_at_endEPS3_.exit, label %.lr.ph.i.i.i.i
 
@@ -15618,7 +15618,7 @@ _ZSt10_ConstructIN6casadi6MatrixINS0_6SXElemEEEJRKS3_EEvPT_DpOT0_.exit.i.i.i.i.i
 .body:                                            ; preds = %62
   %68 = extractvalue { ptr, i32 } %63, 0
   %69 = tail call ptr @__cxa_begin_catch(ptr %68) #24
-  %70 = getelementptr inbounds nuw %"class.casadi::Matrix", ptr %39, i64 %1
+  %70 = getelementptr inbounds nuw [40 x i8], ptr %39, i64 %1
   invoke void @_ZSt8_DestroyIPN6casadi6MatrixINS0_6SXElemEEES3_EvT_S5_RSaIT0_E(ptr noundef nonnull %39, ptr noundef nonnull %70, ptr noundef nonnull align 1 dereferenceable(1) %0)
           to label %_ZNSt12_Vector_baseIN6casadi6MatrixINS0_6SXElemEEESaIS3_EE13_M_deallocateEPS3_m.exit unwind label %71
 
@@ -15697,9 +15697,9 @@ _ZSt8_DestroyIPN6casadi6MatrixINS0_6SXElemEEES3_EvT_S5_RSaIT0_E.exit: ; preds = 
 
 _ZNSt12_Vector_baseIN6casadi6MatrixINS0_6SXElemEEESaIS3_EE13_M_deallocateEPS3_m.exit53: ; preds = %_ZSt8_DestroyIPN6casadi6MatrixINS0_6SXElemEEES3_EvT_S5_RSaIT0_E.exit, %90
   store ptr %38, ptr %0, align 8, !tbaa !110
-  %94 = getelementptr inbounds nuw %"class.casadi::Matrix", ptr %39, i64 %1
+  %94 = getelementptr inbounds nuw [40 x i8], ptr %39, i64 %1
   store ptr %94, ptr %4, align 8, !tbaa !114
-  %95 = getelementptr inbounds nuw %"class.casadi::Matrix", ptr %38, i64 %36
+  %95 = getelementptr inbounds nuw [40 x i8], ptr %38, i64 %36
   store ptr %95, ptr %11, align 8, !tbaa !113
   br label %96
 
@@ -15958,7 +15958,7 @@ _ZSt10_ConstructIN6casadi8SparsityEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = 
 .body:                                            ; preds = %63
   %69 = extractvalue { ptr, i32 } %64, 0
   %70 = tail call ptr @__cxa_begin_catch(ptr %69) #24
-  %71 = getelementptr inbounds nuw %"class.casadi::Sparsity", ptr %39, i64 %1
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %1
   invoke void @_ZSt8_DestroyIPN6casadi8SparsityES1_EvT_S3_RSaIT0_E(ptr noundef nonnull %39, ptr noundef nonnull %71, ptr noundef nonnull align 1 dereferenceable(1) %0)
           to label %_ZNSt12_Vector_baseIN6casadi8SparsityESaIS1_EE13_M_deallocateEPS1_m.exit unwind label %72
 
@@ -16003,9 +16003,9 @@ _ZSt8_DestroyIPN6casadi8SparsityES1_EvT_S3_RSaIT0_E.exit: ; preds = %_ZSt8_Destr
 
 _ZNSt12_Vector_baseIN6casadi8SparsityESaIS1_EE13_M_deallocateEPS1_m.exit53: ; preds = %_ZSt8_DestroyIPN6casadi8SparsityES1_EvT_S3_RSaIT0_E.exit, %78
   store ptr %38, ptr %0, align 8, !tbaa !158
-  %82 = getelementptr inbounds nuw %"class.casadi::Sparsity", ptr %39, i64 %1
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %1
   store ptr %82, ptr %4, align 8, !tbaa !155
-  %83 = getelementptr inbounds nuw %"class.casadi::Sparsity", ptr %38, i64 %36
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %36
   store ptr %83, ptr %11, align 8, !tbaa !161
   br label %84
 
@@ -16212,7 +16212,7 @@ _ZSt10_ConstructIN6casadi6MatrixIdEEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds =
 .body:                                            ; preds = %62
   %68 = extractvalue { ptr, i32 } %63, 0
   %69 = tail call ptr @__cxa_begin_catch(ptr %68) #24
-  %70 = getelementptr inbounds nuw %"class.casadi::Matrix.71", ptr %39, i64 %1
+  %70 = getelementptr inbounds nuw [40 x i8], ptr %39, i64 %1
   invoke void @_ZSt8_DestroyIPN6casadi6MatrixIdEES2_EvT_S4_RSaIT0_E(ptr noundef nonnull %39, ptr noundef nonnull %70, ptr noundef nonnull align 1 dereferenceable(1) %0)
           to label %_ZNSt12_Vector_baseIN6casadi6MatrixIdEESaIS2_EE13_M_deallocateEPS2_m.exit unwind label %71
 
@@ -16273,9 +16273,9 @@ _ZSt8_DestroyIPN6casadi6MatrixIdEES2_EvT_S4_RSaIT0_E.exit: ; preds = %_ZSt8_Dest
 
 _ZNSt12_Vector_baseIN6casadi6MatrixIdEESaIS2_EE13_M_deallocateEPS2_m.exit53: ; preds = %_ZSt8_DestroyIPN6casadi6MatrixIdEES2_EvT_S4_RSaIT0_E.exit, %86
   store ptr %38, ptr %0, align 8, !tbaa !184
-  %90 = getelementptr inbounds nuw %"class.casadi::Matrix.71", ptr %39, i64 %1
+  %90 = getelementptr inbounds nuw [40 x i8], ptr %39, i64 %1
   store ptr %90, ptr %4, align 8, !tbaa !181
-  %91 = getelementptr inbounds nuw %"class.casadi::Matrix.71", ptr %38, i64 %36
+  %91 = getelementptr inbounds nuw [40 x i8], ptr %38, i64 %36
   store ptr %91, ptr %11, align 8, !tbaa !187
   br label %92
 
@@ -16532,7 +16532,7 @@ _ZSt10_ConstructIN6casadi6LinsolEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i: ; preds = %.
 .body:                                            ; preds = %63
   %69 = extractvalue { ptr, i32 } %64, 0
   %70 = tail call ptr @__cxa_begin_catch(ptr %69) #24
-  %71 = getelementptr inbounds nuw %"class.casadi::Linsol", ptr %39, i64 %1
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %1
   invoke void @_ZSt8_DestroyIPN6casadi6LinsolES1_EvT_S3_RSaIT0_E(ptr noundef nonnull %39, ptr noundef nonnull %71, ptr noundef nonnull align 1 dereferenceable(1) %0)
           to label %_ZNSt12_Vector_baseIN6casadi6LinsolESaIS1_EE13_M_deallocateEPS1_m.exit unwind label %72
 
@@ -16577,9 +16577,9 @@ _ZSt8_DestroyIPN6casadi6LinsolES1_EvT_S3_RSaIT0_E.exit: ; preds = %_ZSt8_Destroy
 
 _ZNSt12_Vector_baseIN6casadi6LinsolESaIS1_EE13_M_deallocateEPS1_m.exit53: ; preds = %_ZSt8_DestroyIPN6casadi6LinsolES1_EvT_S3_RSaIT0_E.exit, %78
   store ptr %38, ptr %0, align 8, !tbaa !206
-  %82 = getelementptr inbounds nuw %"class.casadi::Linsol", ptr %39, i64 %1
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %1
   store ptr %82, ptr %4, align 8, !tbaa !203
-  %83 = getelementptr inbounds nuw %"class.casadi::Linsol", ptr %38, i64 %36
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %36
   store ptr %83, ptr %11, align 8, !tbaa !209
   br label %84
 
@@ -16845,9 +16845,9 @@ _ZSt8_DestroyIPN6casadi8FunctionES1_EvT_S3_RSaIT0_E.exit63: ; preds = %.lr.ph.i.
 
 _ZNSt12_Vector_baseIN6casadi8FunctionESaIS1_EE13_M_deallocateEPS1_m.exit65: ; preds = %_ZSt8_DestroyIPN6casadi8FunctionES1_EvT_S3_RSaIT0_E.exit63, %76
   store ptr %38, ptr %0, align 8, !tbaa !228
-  %80 = getelementptr inbounds nuw %"class.casadi::Function", ptr %39, i64 %1
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %1
   store ptr %80, ptr %4, align 8, !tbaa !225
-  %81 = getelementptr inbounds nuw %"class.casadi::Function", ptr %38, i64 %36
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %36
   store ptr %81, ptr %11, align 8, !tbaa !231
   br label %82
 
@@ -17102,7 +17102,7 @@ _ZSt10_ConstructIN6casadi11GenericTypeEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i: ; pred
 .body:                                            ; preds = %63
   %69 = extractvalue { ptr, i32 } %64, 0
   %70 = tail call ptr @__cxa_begin_catch(ptr %69) #24
-  %71 = getelementptr inbounds nuw %"class.casadi::GenericType", ptr %39, i64 %1
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %1
   invoke void @_ZSt8_DestroyIPN6casadi11GenericTypeES1_EvT_S3_RSaIT0_E(ptr noundef nonnull %39, ptr noundef nonnull %71, ptr noundef nonnull align 1 dereferenceable(1) %0)
           to label %_ZNSt12_Vector_baseIN6casadi11GenericTypeESaIS1_EE13_M_deallocateEPS1_m.exit unwind label %72
 
@@ -17147,9 +17147,9 @@ _ZSt8_DestroyIPN6casadi11GenericTypeES1_EvT_S3_RSaIT0_E.exit: ; preds = %_ZSt8_D
 
 _ZNSt12_Vector_baseIN6casadi11GenericTypeESaIS1_EE13_M_deallocateEPS1_m.exit53: ; preds = %_ZSt8_DestroyIPN6casadi11GenericTypeES1_EvT_S3_RSaIT0_E.exit, %78
   store ptr %38, ptr %0, align 8, !tbaa !250
-  %82 = getelementptr inbounds nuw %"class.casadi::GenericType", ptr %39, i64 %1
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %1
   store ptr %82, ptr %4, align 8, !tbaa !247
-  %83 = getelementptr inbounds nuw %"class.casadi::GenericType", ptr %38, i64 %36
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %36
   store ptr %83, ptr %11, align 8, !tbaa !253
   br label %84
 
@@ -17256,9 +17256,9 @@ _ZNSt6vectorIxSaIxEE11_S_relocateEPxS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIxSaIxEE13_M_deallocateEPxm.exit36: ; preds = %_ZNSt6vectorIxSaIxEE11_S_relocateEPxS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !269
-  %39 = getelementptr inbounds nuw i64, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !266
-  %40 = getelementptr inbounds nuw i64, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !271
   br label %41
 
@@ -17358,9 +17358,9 @@ _ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit36: ; preds = %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !171
-  %39 = getelementptr inbounds nuw double, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !286
-  %40 = getelementptr inbounds nuw double, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !174
   br label %41
 
@@ -17500,9 +17500,9 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit41: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %50
   store ptr %29, ptr %0, align 8, !tbaa !36
-  %54 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %30, i64 %1
+  %54 = getelementptr inbounds nuw [32 x i8], ptr %30, i64 %1
   store ptr %54, ptr %4, align 8, !tbaa !38
-  %55 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %29, i64 %27
+  %55 = getelementptr inbounds nuw [32 x i8], ptr %29, i64 %27
   store ptr %55, ptr %11, align 8, !tbaa !41
   br label %56
 

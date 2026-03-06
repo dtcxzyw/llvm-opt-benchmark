@@ -3480,7 +3480,7 @@ define void @_ZN7glslang22TBuiltInParseablesHlsl10initializeEi8EProfileRKNS_10Sp
 .preheader461:                                    ; preds = %4, %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit.thread
   %.0..promoted509 = phi i32 [ undef, %4 ], [ %.0..promoted510, %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit.thread ]
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %_ZN12_GLOBAL__N_110IsEndOfArgEPKc.exit.thread ]
-  %30 = getelementptr inbounds nuw %struct.anon, ptr @_ZZN7glslang22TBuiltInParseablesHlsl10initializeEi8EProfileRKNS_10SpvVersionEE14hlslIntrinsics, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [48 x i8], ptr @_ZZN7glslang22TBuiltInParseablesHlsl10initializeEi8EProfileRKNS_10SpvVersionEE14hlslIntrinsics, i64 %indvars.iv
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 40
   %32 = load i32, ptr %31, align 8
   br label %35
@@ -5421,7 +5421,7 @@ define void @_ZN7glslang22TBuiltInParseablesHlsl16identifyBuiltInsEi8EProfileRKN
   %10 = phi ptr [ %17, %.lr.ph.i ], [ %9, %6 ]
   %11 = phi i64 [ %15, %.lr.ph.i ], [ 0, %6 ]
   %.06.i = phi i32 [ %14, %.lr.ph.i ], [ 0, %6 ]
-  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %13, ptr noundef nonnull @.str.10, i32 noundef 209) #12
   %14 = add i32 %.06.i, 1
@@ -5443,7 +5443,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit: ; preds = %.
   %24 = phi ptr [ %31, %.lr.ph.i188 ], [ %17, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit ]
   %25 = phi i64 [ %29, %.lr.ph.i188 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit ]
   %.06.i189 = phi i32 [ %28, %.lr.ph.i188 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit ]
-  %26 = getelementptr inbounds nuw ptr, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %25
   %27 = load ptr, ptr %26, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %27, ptr noundef nonnull @.str.13, i32 noundef 194) #12
   %28 = add i32 %.06.i189, 1
@@ -5465,7 +5465,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit190: ; preds =
   %38 = phi ptr [ %45, %.lr.ph.i192 ], [ %31, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit190 ]
   %39 = phi i64 [ %43, %.lr.ph.i192 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit190 ]
   %.06.i193 = phi i32 [ %42, %.lr.ph.i192 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit190 ]
-  %40 = getelementptr inbounds nuw ptr, ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %39
   %41 = load ptr, ptr %40, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %41, ptr noundef nonnull @.str.14, i32 noundef 453) #12
   %42 = add i32 %.06.i193, 1
@@ -5487,7 +5487,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit194: ; preds =
   %52 = phi ptr [ %59, %.lr.ph.i196 ], [ %45, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit194 ]
   %53 = phi i64 [ %57, %.lr.ph.i196 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit194 ]
   %.06.i197 = phi i32 [ %56, %.lr.ph.i196 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit194 ]
-  %54 = getelementptr inbounds nuw ptr, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %53
   %55 = load ptr, ptr %54, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %55, ptr noundef nonnull @.str.18, i32 noundef 309) #12
   %56 = add i32 %.06.i197, 1
@@ -5509,7 +5509,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit198: ; preds =
   %66 = phi ptr [ %73, %.lr.ph.i200 ], [ %59, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit198 ]
   %67 = phi i64 [ %71, %.lr.ph.i200 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit198 ]
   %.06.i201 = phi i32 [ %70, %.lr.ph.i200 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit198 ]
-  %68 = getelementptr inbounds nuw ptr, ptr %66, i64 %67
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %67
   %69 = load ptr, ptr %68, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %69, ptr noundef nonnull @.str.19, i32 noundef 788) #12
   %70 = add i32 %.06.i201, 1
@@ -5531,7 +5531,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit202: ; preds =
   %80 = phi ptr [ %87, %.lr.ph.i204 ], [ %73, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit202 ]
   %81 = phi i64 [ %85, %.lr.ph.i204 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit202 ]
   %.06.i205 = phi i32 [ %84, %.lr.ph.i204 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit202 ]
-  %82 = getelementptr inbounds nuw ptr, ptr %80, i64 %81
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %81
   %83 = load ptr, ptr %82, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %83, ptr noundef nonnull @.str.20, i32 noundef 452) #12
   %84 = add i32 %.06.i205, 1
@@ -5553,7 +5553,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit206: ; preds =
   %94 = phi ptr [ %101, %.lr.ph.i208 ], [ %87, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit206 ]
   %95 = phi i64 [ %99, %.lr.ph.i208 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit206 ]
   %.06.i209 = phi i32 [ %98, %.lr.ph.i208 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit206 ]
-  %96 = getelementptr inbounds nuw ptr, ptr %94, i64 %95
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %95
   %97 = load ptr, ptr %96, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %97, ptr noundef nonnull @.str.21, i32 noundef 798) #12
   %98 = add i32 %.06.i209, 1
@@ -5575,7 +5575,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit210: ; preds =
   %108 = phi ptr [ %115, %.lr.ph.i212 ], [ %101, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit210 ]
   %109 = phi i64 [ %113, %.lr.ph.i212 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit210 ]
   %.06.i213 = phi i32 [ %112, %.lr.ph.i212 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit210 ]
-  %110 = getelementptr inbounds nuw ptr, ptr %108, i64 %109
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %109
   %111 = load ptr, ptr %110, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %111, ptr noundef nonnull @.str.27, i32 noundef 231) #12
   %112 = add i32 %.06.i213, 1
@@ -5597,7 +5597,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit214: ; preds =
   %122 = phi ptr [ %129, %.lr.ph.i216 ], [ %115, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit214 ]
   %123 = phi i64 [ %127, %.lr.ph.i216 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit214 ]
   %.06.i217 = phi i32 [ %126, %.lr.ph.i216 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit214 ]
-  %124 = getelementptr inbounds nuw ptr, ptr %122, i64 %123
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %123
   %125 = load ptr, ptr %124, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %125, ptr noundef nonnull @.str.28, i32 noundef 193) #12
   %126 = add i32 %.06.i217, 1
@@ -5619,7 +5619,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit218: ; preds =
   %136 = phi ptr [ %143, %.lr.ph.i220 ], [ %129, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit218 ]
   %137 = phi i64 [ %141, %.lr.ph.i220 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit218 ]
   %.06.i221 = phi i32 [ %140, %.lr.ph.i220 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit218 ]
-  %138 = getelementptr inbounds nuw ptr, ptr %136, i64 %137
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %136, i64 %137
   %139 = load ptr, ptr %138, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %139, ptr noundef nonnull @.str.29, i32 noundef 229) #12
   %140 = add i32 %.06.i221, 1
@@ -5641,7 +5641,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit222: ; preds =
   %150 = phi ptr [ %157, %.lr.ph.i224 ], [ %143, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit222 ]
   %151 = phi i64 [ %155, %.lr.ph.i224 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit222 ]
   %.06.i225 = phi i32 [ %154, %.lr.ph.i224 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit222 ]
-  %152 = getelementptr inbounds nuw ptr, ptr %150, i64 %151
+  %152 = getelementptr inbounds nuw [8 x i8], ptr %150, i64 %151
   %153 = load ptr, ptr %152, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %153, ptr noundef nonnull @.str.32, i32 noundef 230) #12
   %154 = add i32 %.06.i225, 1
@@ -5663,7 +5663,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit226: ; preds =
   %164 = phi ptr [ %171, %.lr.ph.i228 ], [ %157, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit226 ]
   %165 = phi i64 [ %169, %.lr.ph.i228 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit226 ]
   %.06.i229 = phi i32 [ %168, %.lr.ph.i228 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit226 ]
-  %166 = getelementptr inbounds nuw ptr, ptr %164, i64 %165
+  %166 = getelementptr inbounds nuw [8 x i8], ptr %164, i64 %165
   %167 = load ptr, ptr %166, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %167, ptr noundef nonnull @.str.34, i32 noundef 195) #12
   %168 = add i32 %.06.i229, 1
@@ -5685,7 +5685,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit230: ; preds =
   %178 = phi ptr [ %185, %.lr.ph.i232 ], [ %171, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit230 ]
   %179 = phi i64 [ %183, %.lr.ph.i232 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit230 ]
   %.06.i233 = phi i32 [ %182, %.lr.ph.i232 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit230 ]
-  %180 = getelementptr inbounds nuw ptr, ptr %178, i64 %179
+  %180 = getelementptr inbounds nuw [8 x i8], ptr %178, i64 %179
   %181 = load ptr, ptr %180, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %181, ptr noundef nonnull @.str.35, i32 noundef 195) #12
   %182 = add i32 %.06.i233, 1
@@ -5707,7 +5707,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit234: ; preds =
   %192 = phi ptr [ %199, %.lr.ph.i236 ], [ %185, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit234 ]
   %193 = phi i64 [ %197, %.lr.ph.i236 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit234 ]
   %.06.i237 = phi i32 [ %196, %.lr.ph.i236 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit234 ]
-  %194 = getelementptr inbounds nuw ptr, ptr %192, i64 %193
+  %194 = getelementptr inbounds nuw [8 x i8], ptr %192, i64 %193
   %195 = load ptr, ptr %194, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %195, ptr noundef nonnull @.str.38, i32 noundef 215) #12
   %196 = add i32 %.06.i237, 1
@@ -5729,7 +5729,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit238: ; preds =
   %206 = phi ptr [ %213, %.lr.ph.i240 ], [ %199, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit238 ]
   %207 = phi i64 [ %211, %.lr.ph.i240 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit238 ]
   %.06.i241 = phi i32 [ %210, %.lr.ph.i240 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit238 ]
-  %208 = getelementptr inbounds nuw ptr, ptr %206, i64 %207
+  %208 = getelementptr inbounds nuw [8 x i8], ptr %206, i64 %207
   %209 = load ptr, ptr %208, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %209, ptr noundef nonnull @.str.40, i32 noundef 220) #12
   %210 = add i32 %.06.i241, 1
@@ -5751,7 +5751,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit242: ; preds =
   %220 = phi ptr [ %227, %.lr.ph.i244 ], [ %213, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit242 ]
   %221 = phi i64 [ %225, %.lr.ph.i244 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit242 ]
   %.06.i245 = phi i32 [ %224, %.lr.ph.i244 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit242 ]
-  %222 = getelementptr inbounds nuw ptr, ptr %220, i64 %221
+  %222 = getelementptr inbounds nuw [8 x i8], ptr %220, i64 %221
   %223 = load ptr, ptr %222, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %223, ptr noundef nonnull @.str.43, i32 noundef 771) #12
   %224 = add i32 %.06.i245, 1
@@ -5773,7 +5773,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit246: ; preds =
   %234 = phi ptr [ %241, %.lr.ph.i248 ], [ %227, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit246 ]
   %235 = phi i64 [ %239, %.lr.ph.i248 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit246 ]
   %.06.i249 = phi i32 [ %238, %.lr.ph.i248 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit246 ]
-  %236 = getelementptr inbounds nuw ptr, ptr %234, i64 %235
+  %236 = getelementptr inbounds nuw [8 x i8], ptr %234, i64 %235
   %237 = load ptr, ptr %236, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %237, ptr noundef nonnull @.str.45, i32 noundef 191) #12
   %238 = add i32 %.06.i249, 1
@@ -5795,7 +5795,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit250: ; preds =
   %248 = phi ptr [ %255, %.lr.ph.i252 ], [ %241, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit250 ]
   %249 = phi i64 [ %253, %.lr.ph.i252 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit250 ]
   %.06.i253 = phi i32 [ %252, %.lr.ph.i252 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit250 ]
-  %250 = getelementptr inbounds nuw ptr, ptr %248, i64 %249
+  %250 = getelementptr inbounds nuw [8 x i8], ptr %248, i64 %249
   %251 = load ptr, ptr %250, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %251, ptr noundef nonnull @.str.46, i32 noundef 197) #12
   %252 = add i32 %.06.i253, 1
@@ -5817,7 +5817,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit254: ; preds =
   %262 = phi ptr [ %269, %.lr.ph.i256 ], [ %255, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit254 ]
   %263 = phi i64 [ %267, %.lr.ph.i256 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit254 ]
   %.06.i257 = phi i32 [ %266, %.lr.ph.i256 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit254 ]
-  %264 = getelementptr inbounds nuw ptr, ptr %262, i64 %263
+  %264 = getelementptr inbounds nuw [8 x i8], ptr %262, i64 %263
   %265 = load ptr, ptr %264, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %265, ptr noundef nonnull @.str.47, i32 noundef 693) #12
   %266 = add i32 %.06.i257, 1
@@ -5839,7 +5839,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit258: ; preds =
   %276 = phi ptr [ %283, %.lr.ph.i260 ], [ %269, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit258 ]
   %277 = phi i64 [ %281, %.lr.ph.i260 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit258 ]
   %.06.i261 = phi i32 [ %280, %.lr.ph.i260 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit258 ]
-  %278 = getelementptr inbounds nuw ptr, ptr %276, i64 %277
+  %278 = getelementptr inbounds nuw [8 x i8], ptr %276, i64 %277
   %279 = load ptr, ptr %278, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %279, ptr noundef nonnull @.str.50, i32 noundef 276) #12
   %280 = add i32 %.06.i261, 1
@@ -5861,7 +5861,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit262: ; preds =
   %290 = phi ptr [ %297, %.lr.ph.i264 ], [ %283, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit262 ]
   %291 = phi i64 [ %295, %.lr.ph.i264 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit262 ]
   %.06.i265 = phi i32 [ %294, %.lr.ph.i264 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit262 ]
-  %292 = getelementptr inbounds nuw ptr, ptr %290, i64 %291
+  %292 = getelementptr inbounds nuw [8 x i8], ptr %290, i64 %291
   %293 = load ptr, ptr %292, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %293, ptr noundef nonnull @.str.52, i32 noundef 799) #12
   %294 = add i32 %.06.i265, 1
@@ -5883,7 +5883,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit266: ; preds =
   %304 = phi ptr [ %311, %.lr.ph.i268 ], [ %297, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit266 ]
   %305 = phi i64 [ %309, %.lr.ph.i268 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit266 ]
   %.06.i269 = phi i32 [ %308, %.lr.ph.i268 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit266 ]
-  %306 = getelementptr inbounds nuw ptr, ptr %304, i64 %305
+  %306 = getelementptr inbounds nuw [8 x i8], ptr %304, i64 %305
   %307 = load ptr, ptr %306, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %307, ptr noundef nonnull @.str.54, i32 noundef 284) #12
   %308 = add i32 %.06.i269, 1
@@ -5905,7 +5905,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit270: ; preds =
   %318 = phi ptr [ %325, %.lr.ph.i272 ], [ %311, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit270 ]
   %319 = phi i64 [ %323, %.lr.ph.i272 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit270 ]
   %.06.i273 = phi i32 [ %322, %.lr.ph.i272 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit270 ]
-  %320 = getelementptr inbounds nuw ptr, ptr %318, i64 %319
+  %320 = getelementptr inbounds nuw [8 x i8], ptr %318, i64 %319
   %321 = load ptr, ptr %320, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %321, ptr noundef nonnull @.str.55, i32 noundef 290) #12
   %322 = add i32 %.06.i273, 1
@@ -5927,7 +5927,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit274: ; preds =
   %332 = phi ptr [ %339, %.lr.ph.i276 ], [ %325, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit274 ]
   %333 = phi i64 [ %337, %.lr.ph.i276 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit274 ]
   %.06.i277 = phi i32 [ %336, %.lr.ph.i276 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit274 ]
-  %334 = getelementptr inbounds nuw ptr, ptr %332, i64 %333
+  %334 = getelementptr inbounds nuw [8 x i8], ptr %332, i64 %333
   %335 = load ptr, ptr %334, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %335, ptr noundef nonnull @.str.56, i32 noundef 287) #12
   %336 = add i32 %.06.i277, 1
@@ -5949,7 +5949,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit278: ; preds =
   %346 = phi ptr [ %353, %.lr.ph.i280 ], [ %339, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit278 ]
   %347 = phi i64 [ %351, %.lr.ph.i280 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit278 ]
   %.06.i281 = phi i32 [ %350, %.lr.ph.i280 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit278 ]
-  %348 = getelementptr inbounds nuw ptr, ptr %346, i64 %347
+  %348 = getelementptr inbounds nuw [8 x i8], ptr %346, i64 %347
   %349 = load ptr, ptr %348, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %349, ptr noundef nonnull @.str.57, i32 noundef 285) #12
   %350 = add i32 %.06.i281, 1
@@ -5971,7 +5971,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit282: ; preds =
   %360 = phi ptr [ %367, %.lr.ph.i284 ], [ %353, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit282 ]
   %361 = phi i64 [ %365, %.lr.ph.i284 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit282 ]
   %.06.i285 = phi i32 [ %364, %.lr.ph.i284 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit282 ]
-  %362 = getelementptr inbounds nuw ptr, ptr %360, i64 %361
+  %362 = getelementptr inbounds nuw [8 x i8], ptr %360, i64 %361
   %363 = load ptr, ptr %362, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %363, ptr noundef nonnull @.str.58, i32 noundef 291) #12
   %364 = add i32 %.06.i285, 1
@@ -5993,7 +5993,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit286: ; preds =
   %374 = phi ptr [ %381, %.lr.ph.i288 ], [ %367, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit286 ]
   %375 = phi i64 [ %379, %.lr.ph.i288 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit286 ]
   %.06.i289 = phi i32 [ %378, %.lr.ph.i288 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit286 ]
-  %376 = getelementptr inbounds nuw ptr, ptr %374, i64 %375
+  %376 = getelementptr inbounds nuw [8 x i8], ptr %374, i64 %375
   %377 = load ptr, ptr %376, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %377, ptr noundef nonnull @.str.59, i32 noundef 288) #12
   %378 = add i32 %.06.i289, 1
@@ -6015,7 +6015,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit290: ; preds =
   %388 = phi ptr [ %395, %.lr.ph.i292 ], [ %381, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit290 ]
   %389 = phi i64 [ %393, %.lr.ph.i292 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit290 ]
   %.06.i293 = phi i32 [ %392, %.lr.ph.i292 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit290 ]
-  %390 = getelementptr inbounds nuw ptr, ptr %388, i64 %389
+  %390 = getelementptr inbounds nuw [8 x i8], ptr %388, i64 %389
   %391 = load ptr, ptr %390, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %391, ptr noundef nonnull @.str.60, i32 noundef 189) #12
   %392 = add i32 %.06.i293, 1
@@ -6037,7 +6037,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit294: ; preds =
   %402 = phi ptr [ %409, %.lr.ph.i296 ], [ %395, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit294 ]
   %403 = phi i64 [ %407, %.lr.ph.i296 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit294 ]
   %.06.i297 = phi i32 [ %406, %.lr.ph.i296 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit294 ]
-  %404 = getelementptr inbounds nuw ptr, ptr %402, i64 %403
+  %404 = getelementptr inbounds nuw [8 x i8], ptr %402, i64 %403
   %405 = load ptr, ptr %404, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %405, ptr noundef nonnull @.str.61, i32 noundef 299) #12
   %406 = add i32 %.06.i297, 1
@@ -6059,7 +6059,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit298: ; preds =
   %416 = phi ptr [ %423, %.lr.ph.i300 ], [ %409, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit298 ]
   %417 = phi i64 [ %421, %.lr.ph.i300 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit298 ]
   %.06.i301 = phi i32 [ %420, %.lr.ph.i300 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit298 ]
-  %418 = getelementptr inbounds nuw ptr, ptr %416, i64 %417
+  %418 = getelementptr inbounds nuw [8 x i8], ptr %416, i64 %417
   %419 = load ptr, ptr %418, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %419, ptr noundef nonnull @.str.62, i32 noundef 789) #12
   %420 = add i32 %.06.i301, 1
@@ -6081,7 +6081,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit302: ; preds =
   %430 = phi ptr [ %437, %.lr.ph.i304 ], [ %423, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit302 ]
   %431 = phi i64 [ %435, %.lr.ph.i304 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit302 ]
   %.06.i305 = phi i32 [ %434, %.lr.ph.i304 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit302 ]
-  %432 = getelementptr inbounds nuw ptr, ptr %430, i64 %431
+  %432 = getelementptr inbounds nuw [8 x i8], ptr %430, i64 %431
   %433 = load ptr, ptr %432, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %433, ptr noundef nonnull @.str.63, i32 noundef 790) #12
   %434 = add i32 %.06.i305, 1
@@ -6103,7 +6103,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit306: ; preds =
   %444 = phi ptr [ %451, %.lr.ph.i308 ], [ %437, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit306 ]
   %445 = phi i64 [ %449, %.lr.ph.i308 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit306 ]
   %.06.i309 = phi i32 [ %448, %.lr.ph.i308 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit306 ]
-  %446 = getelementptr inbounds nuw ptr, ptr %444, i64 %445
+  %446 = getelementptr inbounds nuw [8 x i8], ptr %444, i64 %445
   %447 = load ptr, ptr %446, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %447, ptr noundef nonnull @.str.64, i32 noundef 274) #12
   %448 = add i32 %.06.i309, 1
@@ -6125,7 +6125,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit310: ; preds =
   %458 = phi ptr [ %465, %.lr.ph.i312 ], [ %451, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit310 ]
   %459 = phi i64 [ %463, %.lr.ph.i312 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit310 ]
   %.06.i313 = phi i32 [ %462, %.lr.ph.i312 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit310 ]
-  %460 = getelementptr inbounds nuw ptr, ptr %458, i64 %459
+  %460 = getelementptr inbounds nuw [8 x i8], ptr %458, i64 %459
   %461 = load ptr, ptr %460, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %461, ptr noundef nonnull @.str.66, i32 noundef 275) #12
   %462 = add i32 %.06.i313, 1
@@ -6147,7 +6147,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit314: ; preds =
   %472 = phi ptr [ %479, %.lr.ph.i316 ], [ %465, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit314 ]
   %473 = phi i64 [ %477, %.lr.ph.i316 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit314 ]
   %.06.i317 = phi i32 [ %476, %.lr.ph.i316 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit314 ]
-  %474 = getelementptr inbounds nuw ptr, ptr %472, i64 %473
+  %474 = getelementptr inbounds nuw [8 x i8], ptr %472, i64 %473
   %475 = load ptr, ptr %474, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %475, ptr noundef nonnull @.str.68, i32 noundef 778) #12
   %476 = add i32 %.06.i317, 1
@@ -6169,7 +6169,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit318: ; preds =
   %486 = phi ptr [ %493, %.lr.ph.i320 ], [ %479, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit318 ]
   %487 = phi i64 [ %491, %.lr.ph.i320 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit318 ]
   %.06.i321 = phi i32 [ %490, %.lr.ph.i320 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit318 ]
-  %488 = getelementptr inbounds nuw ptr, ptr %486, i64 %487
+  %488 = getelementptr inbounds nuw [8 x i8], ptr %486, i64 %487
   %489 = load ptr, ptr %488, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %489, ptr noundef nonnull @.str.70, i32 noundef 293) #12
   %490 = add i32 %.06.i321, 1
@@ -6191,7 +6191,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit322: ; preds =
   %500 = phi ptr [ %507, %.lr.ph.i324 ], [ %493, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit322 ]
   %501 = phi i64 [ %505, %.lr.ph.i324 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit322 ]
   %.06.i325 = phi i32 [ %504, %.lr.ph.i324 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit322 ]
-  %502 = getelementptr inbounds nuw ptr, ptr %500, i64 %501
+  %502 = getelementptr inbounds nuw [8 x i8], ptr %500, i64 %501
   %503 = load ptr, ptr %502, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %503, ptr noundef nonnull @.str.71, i32 noundef 294) #12
   %504 = add i32 %.06.i325, 1
@@ -6213,7 +6213,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit326: ; preds =
   %514 = phi ptr [ %521, %.lr.ph.i328 ], [ %507, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit326 ]
   %515 = phi i64 [ %519, %.lr.ph.i328 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit326 ]
   %.06.i329 = phi i32 [ %518, %.lr.ph.i328 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit326 ]
-  %516 = getelementptr inbounds nuw ptr, ptr %514, i64 %515
+  %516 = getelementptr inbounds nuw [8 x i8], ptr %514, i64 %515
   %517 = load ptr, ptr %516, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %517, ptr noundef nonnull @.str.74, i32 noundef 793) #12
   %518 = add i32 %.06.i329, 1
@@ -6235,7 +6235,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit330: ; preds =
   %528 = phi ptr [ %535, %.lr.ph.i332 ], [ %521, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit330 ]
   %529 = phi i64 [ %533, %.lr.ph.i332 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit330 ]
   %.06.i333 = phi i32 [ %532, %.lr.ph.i332 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit330 ]
-  %530 = getelementptr inbounds nuw ptr, ptr %528, i64 %529
+  %530 = getelementptr inbounds nuw [8 x i8], ptr %528, i64 %529
   %531 = load ptr, ptr %530, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %531, ptr noundef nonnull @.str.77, i32 noundef 203) #12
   %532 = add i32 %.06.i333, 1
@@ -6257,7 +6257,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit334: ; preds =
   %542 = phi ptr [ %549, %.lr.ph.i336 ], [ %535, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit334 ]
   %543 = phi i64 [ %547, %.lr.ph.i336 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit334 ]
   %.06.i337 = phi i32 [ %546, %.lr.ph.i336 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit334 ]
-  %544 = getelementptr inbounds nuw ptr, ptr %542, i64 %543
+  %544 = getelementptr inbounds nuw [8 x i8], ptr %542, i64 %543
   %545 = load ptr, ptr %544, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %545, ptr noundef nonnull @.str.78, i32 noundef 205) #12
   %546 = add i32 %.06.i337, 1
@@ -6279,7 +6279,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit338: ; preds =
   %556 = phi ptr [ %563, %.lr.ph.i340 ], [ %549, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit338 ]
   %557 = phi i64 [ %561, %.lr.ph.i340 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit338 ]
   %.06.i341 = phi i32 [ %560, %.lr.ph.i340 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit338 ]
-  %558 = getelementptr inbounds nuw ptr, ptr %556, i64 %557
+  %558 = getelementptr inbounds nuw [8 x i8], ptr %556, i64 %557
   %559 = load ptr, ptr %558, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %559, ptr noundef nonnull @.str.79, i32 noundef 795) #12
   %560 = add i32 %.06.i341, 1
@@ -6301,7 +6301,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit342: ; preds =
   %570 = phi ptr [ %577, %.lr.ph.i344 ], [ %563, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit342 ]
   %571 = phi i64 [ %575, %.lr.ph.i344 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit342 ]
   %.06.i345 = phi i32 [ %574, %.lr.ph.i344 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit342 ]
-  %572 = getelementptr inbounds nuw ptr, ptr %570, i64 %571
+  %572 = getelementptr inbounds nuw [8 x i8], ptr %570, i64 %571
   %573 = load ptr, ptr %572, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %573, ptr noundef nonnull @.str.80, i32 noundef 794) #12
   %574 = add i32 %.06.i345, 1
@@ -6323,7 +6323,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit346: ; preds =
   %584 = phi ptr [ %591, %.lr.ph.i348 ], [ %577, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit346 ]
   %585 = phi i64 [ %589, %.lr.ph.i348 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit346 ]
   %.06.i349 = phi i32 [ %588, %.lr.ph.i348 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit346 ]
-  %586 = getelementptr inbounds nuw ptr, ptr %584, i64 %585
+  %586 = getelementptr inbounds nuw [8 x i8], ptr %584, i64 %585
   %587 = load ptr, ptr %586, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %587, ptr noundef nonnull @.str.81, i32 noundef 278) #12
   %588 = add i32 %.06.i349, 1
@@ -6345,7 +6345,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit350: ; preds =
   %598 = phi ptr [ %605, %.lr.ph.i352 ], [ %591, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit350 ]
   %599 = phi i64 [ %603, %.lr.ph.i352 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit350 ]
   %.06.i353 = phi i32 [ %602, %.lr.ph.i352 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit350 ]
-  %600 = getelementptr inbounds nuw ptr, ptr %598, i64 %599
+  %600 = getelementptr inbounds nuw [8 x i8], ptr %598, i64 %599
   %601 = load ptr, ptr %600, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %601, ptr noundef nonnull @.str.84, i32 noundef 695) #12
   %602 = add i32 %.06.i353, 1
@@ -6367,7 +6367,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit354: ; preds =
   %612 = phi ptr [ %619, %.lr.ph.i356 ], [ %605, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit354 ]
   %613 = phi i64 [ %617, %.lr.ph.i356 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit354 ]
   %.06.i357 = phi i32 [ %616, %.lr.ph.i356 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit354 ]
-  %614 = getelementptr inbounds nuw ptr, ptr %612, i64 %613
+  %614 = getelementptr inbounds nuw [8 x i8], ptr %612, i64 %613
   %615 = load ptr, ptr %614, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %615, ptr noundef nonnull @.str.85, i32 noundef 694) #12
   %616 = add i32 %.06.i357, 1
@@ -6389,7 +6389,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit358: ; preds =
   %626 = phi ptr [ %633, %.lr.ph.i360 ], [ %619, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit358 ]
   %627 = phi i64 [ %631, %.lr.ph.i360 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit358 ]
   %.06.i361 = phi i32 [ %630, %.lr.ph.i360 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit358 ]
-  %628 = getelementptr inbounds nuw ptr, ptr %626, i64 %627
+  %628 = getelementptr inbounds nuw [8 x i8], ptr %626, i64 %627
   %629 = load ptr, ptr %628, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %629, ptr noundef nonnull @.str.86, i32 noundef 211) #12
   %630 = add i32 %.06.i361, 1
@@ -6411,7 +6411,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit362: ; preds =
   %640 = phi ptr [ %647, %.lr.ph.i364 ], [ %633, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit362 ]
   %641 = phi i64 [ %645, %.lr.ph.i364 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit362 ]
   %.06.i365 = phi i32 [ %644, %.lr.ph.i364 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit362 ]
-  %642 = getelementptr inbounds nuw ptr, ptr %640, i64 %641
+  %642 = getelementptr inbounds nuw [8 x i8], ptr %640, i64 %641
   %643 = load ptr, ptr %642, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %643, ptr noundef nonnull @.str.87, i32 noundef 226) #12
   %644 = add i32 %.06.i365, 1
@@ -6433,7 +6433,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit366: ; preds =
   %654 = phi ptr [ %661, %.lr.ph.i368 ], [ %647, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit366 ]
   %655 = phi i64 [ %659, %.lr.ph.i368 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit366 ]
   %.06.i369 = phi i32 [ %658, %.lr.ph.i368 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit366 ]
-  %656 = getelementptr inbounds nuw ptr, ptr %654, i64 %655
+  %656 = getelementptr inbounds nuw [8 x i8], ptr %654, i64 %655
   %657 = load ptr, ptr %656, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %657, ptr noundef nonnull @.str.89, i32 noundef 160) #12
   %658 = add i32 %.06.i369, 1
@@ -6455,7 +6455,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit370: ; preds =
   %668 = phi ptr [ %675, %.lr.ph.i372 ], [ %661, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit370 ]
   %669 = phi i64 [ %673, %.lr.ph.i372 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit370 ]
   %.06.i373 = phi i32 [ %672, %.lr.ph.i372 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit370 ]
-  %670 = getelementptr inbounds nuw ptr, ptr %668, i64 %669
+  %670 = getelementptr inbounds nuw [8 x i8], ptr %668, i64 %669
   %671 = load ptr, ptr %670, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %671, ptr noundef nonnull @.str.90, i32 noundef 216) #12
   %672 = add i32 %.06.i373, 1
@@ -6477,7 +6477,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit374: ; preds =
   %682 = phi ptr [ %689, %.lr.ph.i376 ], [ %675, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit374 ]
   %683 = phi i64 [ %687, %.lr.ph.i376 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit374 ]
   %.06.i377 = phi i32 [ %686, %.lr.ph.i376 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit374 ]
-  %684 = getelementptr inbounds nuw ptr, ptr %682, i64 %683
+  %684 = getelementptr inbounds nuw [8 x i8], ptr %682, i64 %683
   %685 = load ptr, ptr %684, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %685, ptr noundef nonnull @.str.91, i32 noundef 227) #12
   %686 = add i32 %.06.i377, 1
@@ -6499,7 +6499,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit378: ; preds =
   %696 = phi ptr [ %703, %.lr.ph.i380 ], [ %689, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit378 ]
   %697 = phi i64 [ %701, %.lr.ph.i380 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit378 ]
   %.06.i381 = phi i32 [ %700, %.lr.ph.i380 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit378 ]
-  %698 = getelementptr inbounds nuw ptr, ptr %696, i64 %697
+  %698 = getelementptr inbounds nuw [8 x i8], ptr %696, i64 %697
   %699 = load ptr, ptr %698, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %699, ptr noundef nonnull @.str.92, i32 noundef 286) #12
   %700 = add i32 %.06.i381, 1
@@ -6521,7 +6521,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit382: ; preds =
   %710 = phi ptr [ %717, %.lr.ph.i384 ], [ %703, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit382 ]
   %711 = phi i64 [ %715, %.lr.ph.i384 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit382 ]
   %.06.i385 = phi i32 [ %714, %.lr.ph.i384 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit382 ]
-  %712 = getelementptr inbounds nuw ptr, ptr %710, i64 %711
+  %712 = getelementptr inbounds nuw [8 x i8], ptr %710, i64 %711
   %713 = load ptr, ptr %712, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %713, ptr noundef nonnull @.str.96, i32 noundef 791) #12
   %714 = add i32 %.06.i385, 1
@@ -6543,7 +6543,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit386: ; preds =
   %724 = phi ptr [ %731, %.lr.ph.i388 ], [ %717, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit386 ]
   %725 = phi i64 [ %729, %.lr.ph.i388 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit386 ]
   %.06.i389 = phi i32 [ %728, %.lr.ph.i388 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit386 ]
-  %726 = getelementptr inbounds nuw ptr, ptr %724, i64 %725
+  %726 = getelementptr inbounds nuw [8 x i8], ptr %724, i64 %725
   %727 = load ptr, ptr %726, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %727, ptr noundef nonnull @.str.97, i32 noundef 792) #12
   %728 = add i32 %.06.i389, 1
@@ -6565,7 +6565,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit390: ; preds =
   %738 = phi ptr [ %745, %.lr.ph.i392 ], [ %731, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit390 ]
   %739 = phi i64 [ %743, %.lr.ph.i392 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit390 ]
   %.06.i393 = phi i32 [ %742, %.lr.ph.i392 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit390 ]
-  %740 = getelementptr inbounds nuw ptr, ptr %738, i64 %739
+  %740 = getelementptr inbounds nuw [8 x i8], ptr %738, i64 %739
   %741 = load ptr, ptr %740, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %741, ptr noundef nonnull @.str.98, i32 noundef 779) #12
   %742 = add i32 %.06.i393, 1
@@ -6587,7 +6587,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit394: ; preds =
   %752 = phi ptr [ %759, %.lr.ph.i396 ], [ %745, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit394 ]
   %753 = phi i64 [ %757, %.lr.ph.i396 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit394 ]
   %.06.i397 = phi i32 [ %756, %.lr.ph.i396 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit394 ]
-  %754 = getelementptr inbounds nuw ptr, ptr %752, i64 %753
+  %754 = getelementptr inbounds nuw [8 x i8], ptr %752, i64 %753
   %755 = load ptr, ptr %754, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %755, ptr noundef nonnull @.str.101, i32 noundef 780) #12
   %756 = add i32 %.06.i397, 1
@@ -6609,7 +6609,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit398: ; preds =
   %766 = phi ptr [ %773, %.lr.ph.i400 ], [ %759, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit398 ]
   %767 = phi i64 [ %771, %.lr.ph.i400 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit398 ]
   %.06.i401 = phi i32 [ %770, %.lr.ph.i400 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit398 ]
-  %768 = getelementptr inbounds nuw ptr, ptr %766, i64 %767
+  %768 = getelementptr inbounds nuw [8 x i8], ptr %766, i64 %767
   %769 = load ptr, ptr %768, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %769, ptr noundef nonnull @.str.103, i32 noundef 781) #12
   %770 = add i32 %.06.i401, 1
@@ -6631,7 +6631,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit402: ; preds =
   %780 = phi ptr [ %787, %.lr.ph.i404 ], [ %773, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit402 ]
   %781 = phi i64 [ %785, %.lr.ph.i404 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit402 ]
   %.06.i405 = phi i32 [ %784, %.lr.ph.i404 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit402 ]
-  %782 = getelementptr inbounds nuw ptr, ptr %780, i64 %781
+  %782 = getelementptr inbounds nuw [8 x i8], ptr %780, i64 %781
   %783 = load ptr, ptr %782, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %783, ptr noundef nonnull @.str.106, i32 noundef 782) #12
   %784 = add i32 %.06.i405, 1
@@ -6653,7 +6653,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit406: ; preds =
   %794 = phi ptr [ %801, %.lr.ph.i408 ], [ %787, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit406 ]
   %795 = phi i64 [ %799, %.lr.ph.i408 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit406 ]
   %.06.i409 = phi i32 [ %798, %.lr.ph.i408 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit406 ]
-  %796 = getelementptr inbounds nuw ptr, ptr %794, i64 %795
+  %796 = getelementptr inbounds nuw [8 x i8], ptr %794, i64 %795
   %797 = load ptr, ptr %796, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %797, ptr noundef nonnull @.str.107, i32 noundef 783) #12
   %798 = add i32 %.06.i409, 1
@@ -6675,7 +6675,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit410: ; preds =
   %808 = phi ptr [ %815, %.lr.ph.i412 ], [ %801, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit410 ]
   %809 = phi i64 [ %813, %.lr.ph.i412 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit410 ]
   %.06.i413 = phi i32 [ %812, %.lr.ph.i412 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit410 ]
-  %810 = getelementptr inbounds nuw ptr, ptr %808, i64 %809
+  %810 = getelementptr inbounds nuw [8 x i8], ptr %808, i64 %809
   %811 = load ptr, ptr %810, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %811, ptr noundef nonnull @.str.108, i32 noundef 784) #12
   %812 = add i32 %.06.i413, 1
@@ -6697,7 +6697,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit414: ; preds =
   %822 = phi ptr [ %829, %.lr.ph.i416 ], [ %815, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit414 ]
   %823 = phi i64 [ %827, %.lr.ph.i416 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit414 ]
   %.06.i417 = phi i32 [ %826, %.lr.ph.i416 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit414 ]
-  %824 = getelementptr inbounds nuw ptr, ptr %822, i64 %823
+  %824 = getelementptr inbounds nuw [8 x i8], ptr %822, i64 %823
   %825 = load ptr, ptr %824, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %825, ptr noundef nonnull @.str.109, i32 noundef 785) #12
   %826 = add i32 %.06.i417, 1
@@ -6719,7 +6719,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit418: ; preds =
   %836 = phi ptr [ %843, %.lr.ph.i420 ], [ %829, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit418 ]
   %837 = phi i64 [ %841, %.lr.ph.i420 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit418 ]
   %.06.i421 = phi i32 [ %840, %.lr.ph.i420 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit418 ]
-  %838 = getelementptr inbounds nuw ptr, ptr %836, i64 %837
+  %838 = getelementptr inbounds nuw [8 x i8], ptr %836, i64 %837
   %839 = load ptr, ptr %838, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %839, ptr noundef nonnull @.str.110, i32 noundef 786) #12
   %840 = add i32 %.06.i421, 1
@@ -6741,7 +6741,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit422: ; preds =
   %850 = phi ptr [ %857, %.lr.ph.i424 ], [ %843, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit422 ]
   %851 = phi i64 [ %855, %.lr.ph.i424 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit422 ]
   %.06.i425 = phi i32 [ %854, %.lr.ph.i424 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit422 ]
-  %852 = getelementptr inbounds nuw ptr, ptr %850, i64 %851
+  %852 = getelementptr inbounds nuw [8 x i8], ptr %850, i64 %851
   %853 = load ptr, ptr %852, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %853, ptr noundef nonnull @.str.111, i32 noundef 787) #12
   %854 = add i32 %.06.i425, 1
@@ -6763,7 +6763,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit426: ; preds =
   %864 = phi ptr [ %871, %.lr.ph.i428 ], [ %857, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit426 ]
   %865 = phi i64 [ %869, %.lr.ph.i428 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit426 ]
   %.06.i429 = phi i32 [ %868, %.lr.ph.i428 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit426 ]
-  %866 = getelementptr inbounds nuw ptr, ptr %864, i64 %865
+  %866 = getelementptr inbounds nuw [8 x i8], ptr %864, i64 %865
   %867 = load ptr, ptr %866, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %867, ptr noundef nonnull @.str.112, i32 noundef 772) #12
   %868 = add i32 %.06.i429, 1
@@ -6785,7 +6785,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit430: ; preds =
   %878 = phi ptr [ %885, %.lr.ph.i432 ], [ %871, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit430 ]
   %879 = phi i64 [ %883, %.lr.ph.i432 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit430 ]
   %.06.i433 = phi i32 [ %882, %.lr.ph.i432 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit430 ]
-  %880 = getelementptr inbounds nuw ptr, ptr %878, i64 %879
+  %880 = getelementptr inbounds nuw [8 x i8], ptr %878, i64 %879
   %881 = load ptr, ptr %880, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %881, ptr noundef nonnull @.str.113, i32 noundef 225) #12
   %882 = add i32 %.06.i433, 1
@@ -6807,7 +6807,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit434: ; preds =
   %892 = phi ptr [ %899, %.lr.ph.i436 ], [ %885, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit434 ]
   %893 = phi i64 [ %897, %.lr.ph.i436 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit434 ]
   %.06.i437 = phi i32 [ %896, %.lr.ph.i436 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit434 ]
-  %894 = getelementptr inbounds nuw ptr, ptr %892, i64 %893
+  %894 = getelementptr inbounds nuw [8 x i8], ptr %892, i64 %893
   %895 = load ptr, ptr %894, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %895, ptr noundef nonnull @.str.114, i32 noundef 224) #12
   %896 = add i32 %.06.i437, 1
@@ -6829,7 +6829,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit438: ; preds =
   %906 = phi ptr [ %913, %.lr.ph.i440 ], [ %899, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit438 ]
   %907 = phi i64 [ %911, %.lr.ph.i440 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit438 ]
   %.06.i441 = phi i32 [ %910, %.lr.ph.i440 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit438 ]
-  %908 = getelementptr inbounds nuw ptr, ptr %906, i64 %907
+  %908 = getelementptr inbounds nuw [8 x i8], ptr %906, i64 %907
   %909 = load ptr, ptr %908, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %909, ptr noundef nonnull @.str.115, i32 noundef 228) #12
   %910 = add i32 %.06.i441, 1
@@ -6851,7 +6851,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit442: ; preds =
   %920 = phi ptr [ %927, %.lr.ph.i444 ], [ %913, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit442 ]
   %921 = phi i64 [ %925, %.lr.ph.i444 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit442 ]
   %.06.i445 = phi i32 [ %924, %.lr.ph.i444 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit442 ]
-  %922 = getelementptr inbounds nuw ptr, ptr %920, i64 %921
+  %922 = getelementptr inbounds nuw [8 x i8], ptr %920, i64 %921
   %923 = load ptr, ptr %922, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %923, ptr noundef nonnull @.str.116, i32 noundef 273) #12
   %924 = add i32 %.06.i445, 1
@@ -6873,7 +6873,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit446: ; preds =
   %934 = phi ptr [ %941, %.lr.ph.i448 ], [ %927, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit446 ]
   %935 = phi i64 [ %939, %.lr.ph.i448 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit446 ]
   %.06.i449 = phi i32 [ %938, %.lr.ph.i448 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit446 ]
-  %936 = getelementptr inbounds nuw ptr, ptr %934, i64 %935
+  %936 = getelementptr inbounds nuw [8 x i8], ptr %934, i64 %935
   %937 = load ptr, ptr %936, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %937, ptr noundef nonnull @.str.117, i32 noundef 221) #12
   %938 = add i32 %.06.i449, 1
@@ -6895,7 +6895,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit450: ; preds =
   %948 = phi ptr [ %955, %.lr.ph.i452 ], [ %941, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit450 ]
   %949 = phi i64 [ %953, %.lr.ph.i452 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit450 ]
   %.06.i453 = phi i32 [ %952, %.lr.ph.i452 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit450 ]
-  %950 = getelementptr inbounds nuw ptr, ptr %948, i64 %949
+  %950 = getelementptr inbounds nuw [8 x i8], ptr %948, i64 %949
   %951 = load ptr, ptr %950, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %951, ptr noundef nonnull @.str.120, i32 noundef 796) #12
   %952 = add i32 %.06.i453, 1
@@ -6919,7 +6919,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit454: ; preds =
   %963 = phi ptr [ %970, %.lr.ph.i456 ], [ %962, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit454 ]
   %964 = phi i64 [ %968, %.lr.ph.i456 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit454 ]
   %.06.i457 = phi i32 [ %967, %.lr.ph.i456 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit454 ]
-  %965 = getelementptr inbounds nuw ptr, ptr %963, i64 %964
+  %965 = getelementptr inbounds nuw [8 x i8], ptr %963, i64 %964
   %966 = load ptr, ptr %965, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %966, ptr noundef nonnull @.str.122, i32 noundef 204) #12
   %967 = add i32 %.06.i457, 1
@@ -6941,7 +6941,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit458: ; preds =
   %977 = phi ptr [ %984, %.lr.ph.i460 ], [ %970, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit458 ]
   %978 = phi i64 [ %982, %.lr.ph.i460 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit458 ]
   %.06.i461 = phi i32 [ %981, %.lr.ph.i460 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit458 ]
-  %979 = getelementptr inbounds nuw ptr, ptr %977, i64 %978
+  %979 = getelementptr inbounds nuw [8 x i8], ptr %977, i64 %978
   %980 = load ptr, ptr %979, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %980, ptr noundef nonnull @.str.123, i32 noundef 773) #12
   %981 = add i32 %.06.i461, 1
@@ -6963,7 +6963,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit462: ; preds =
   %991 = phi ptr [ %998, %.lr.ph.i464 ], [ %984, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit462 ]
   %992 = phi i64 [ %996, %.lr.ph.i464 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit462 ]
   %.06.i465 = phi i32 [ %995, %.lr.ph.i464 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit462 ]
-  %993 = getelementptr inbounds nuw ptr, ptr %991, i64 %992
+  %993 = getelementptr inbounds nuw [8 x i8], ptr %991, i64 %992
   %994 = load ptr, ptr %993, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %994, ptr noundef nonnull @.str.124, i32 noundef 206) #12
   %995 = add i32 %.06.i465, 1
@@ -6985,7 +6985,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit466: ; preds =
   %1005 = phi ptr [ %1012, %.lr.ph.i468 ], [ %998, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit466 ]
   %1006 = phi i64 [ %1010, %.lr.ph.i468 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit466 ]
   %.06.i469 = phi i32 [ %1009, %.lr.ph.i468 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit466 ]
-  %1007 = getelementptr inbounds nuw ptr, ptr %1005, i64 %1006
+  %1007 = getelementptr inbounds nuw [8 x i8], ptr %1005, i64 %1006
   %1008 = load ptr, ptr %1007, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1008, ptr noundef nonnull @.str.125, i32 noundef 226) #12
   %1009 = add i32 %.06.i469, 1
@@ -7007,7 +7007,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit470: ; preds =
   %1019 = phi ptr [ %1026, %.lr.ph.i472 ], [ %1012, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit470 ]
   %1020 = phi i64 [ %1024, %.lr.ph.i472 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit470 ]
   %.06.i473 = phi i32 [ %1023, %.lr.ph.i472 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit470 ]
-  %1021 = getelementptr inbounds nuw ptr, ptr %1019, i64 %1020
+  %1021 = getelementptr inbounds nuw [8 x i8], ptr %1019, i64 %1020
   %1022 = load ptr, ptr %1021, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1022, ptr noundef nonnull @.str.127, i32 noundef 219) #12
   %1023 = add i32 %.06.i473, 1
@@ -7029,7 +7029,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit474: ; preds =
   %1033 = phi ptr [ %1040, %.lr.ph.i476 ], [ %1026, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit474 ]
   %1034 = phi i64 [ %1038, %.lr.ph.i476 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit474 ]
   %.06.i477 = phi i32 [ %1037, %.lr.ph.i476 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit474 ]
-  %1035 = getelementptr inbounds nuw ptr, ptr %1033, i64 %1034
+  %1035 = getelementptr inbounds nuw [8 x i8], ptr %1033, i64 %1034
   %1036 = load ptr, ptr %1035, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1036, ptr noundef nonnull @.str.129, i32 noundef 218) #12
   %1037 = add i32 %.06.i477, 1
@@ -7051,7 +7051,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit478: ; preds =
   %1047 = phi ptr [ %1054, %.lr.ph.i480 ], [ %1040, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit478 ]
   %1048 = phi i64 [ %1052, %.lr.ph.i480 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit478 ]
   %.06.i481 = phi i32 [ %1051, %.lr.ph.i480 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit478 ]
-  %1049 = getelementptr inbounds nuw ptr, ptr %1047, i64 %1048
+  %1049 = getelementptr inbounds nuw [8 x i8], ptr %1047, i64 %1048
   %1050 = load ptr, ptr %1049, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1050, ptr noundef nonnull @.str.130, i32 noundef 217) #12
   %1051 = add i32 %.06.i481, 1
@@ -7073,7 +7073,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit482: ; preds =
   %1061 = phi ptr [ %1068, %.lr.ph.i484 ], [ %1054, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit482 ]
   %1062 = phi i64 [ %1066, %.lr.ph.i484 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit482 ]
   %.06.i485 = phi i32 [ %1065, %.lr.ph.i484 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit482 ]
-  %1063 = getelementptr inbounds nuw ptr, ptr %1061, i64 %1062
+  %1063 = getelementptr inbounds nuw [8 x i8], ptr %1061, i64 %1062
   %1064 = load ptr, ptr %1063, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1064, ptr noundef nonnull @.str.3, i32 noundef 777) #12
   %1065 = add i32 %.06.i485, 1
@@ -7095,7 +7095,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit486: ; preds =
   %1075 = phi ptr [ %1082, %.lr.ph.i488 ], [ %1068, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit486 ]
   %1076 = phi i64 [ %1080, %.lr.ph.i488 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit486 ]
   %.06.i489 = phi i32 [ %1079, %.lr.ph.i488 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit486 ]
-  %1077 = getelementptr inbounds nuw ptr, ptr %1075, i64 %1076
+  %1077 = getelementptr inbounds nuw [8 x i8], ptr %1075, i64 %1076
   %1078 = load ptr, ptr %1077, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1078, ptr noundef nonnull @.str.142, i32 noundef 277) #12
   %1079 = add i32 %.06.i489, 1
@@ -7117,7 +7117,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit490: ; preds =
   %1089 = phi ptr [ %1096, %.lr.ph.i492 ], [ %1082, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit490 ]
   %1090 = phi i64 [ %1094, %.lr.ph.i492 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit490 ]
   %.06.i493 = phi i32 [ %1093, %.lr.ph.i492 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit490 ]
-  %1091 = getelementptr inbounds nuw ptr, ptr %1089, i64 %1090
+  %1091 = getelementptr inbounds nuw [8 x i8], ptr %1089, i64 %1090
   %1092 = load ptr, ptr %1091, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1092, ptr noundef nonnull @.str.143, i32 noundef 202) #12
   %1093 = add i32 %.06.i493, 1
@@ -7139,7 +7139,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit494: ; preds =
   %1103 = phi ptr [ %1110, %.lr.ph.i496 ], [ %1096, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit494 ]
   %1104 = phi i64 [ %1108, %.lr.ph.i496 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit494 ]
   %.06.i497 = phi i32 [ %1107, %.lr.ph.i496 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit494 ]
-  %1105 = getelementptr inbounds nuw ptr, ptr %1103, i64 %1104
+  %1105 = getelementptr inbounds nuw [8 x i8], ptr %1103, i64 %1104
   %1106 = load ptr, ptr %1105, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1106, ptr noundef nonnull @.str.144, i32 noundef 463) #12
   %1107 = add i32 %.06.i497, 1
@@ -7161,7 +7161,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit498: ; preds =
   %1117 = phi ptr [ %1124, %.lr.ph.i500 ], [ %1110, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit498 ]
   %1118 = phi i64 [ %1122, %.lr.ph.i500 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit498 ]
   %.06.i501 = phi i32 [ %1121, %.lr.ph.i500 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit498 ]
-  %1119 = getelementptr inbounds nuw ptr, ptr %1117, i64 %1118
+  %1119 = getelementptr inbounds nuw [8 x i8], ptr %1117, i64 %1118
   %1120 = load ptr, ptr %1119, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1120, ptr noundef nonnull @.str.161, i32 noundef 188) #12
   %1121 = add i32 %.06.i501, 1
@@ -7183,7 +7183,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit502: ; preds =
   %1131 = phi ptr [ %1138, %.lr.ph.i504 ], [ %1124, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit502 ]
   %1132 = phi i64 [ %1136, %.lr.ph.i504 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit502 ]
   %.06.i505 = phi i32 [ %1135, %.lr.ph.i504 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit502 ]
-  %1133 = getelementptr inbounds nuw ptr, ptr %1131, i64 %1132
+  %1133 = getelementptr inbounds nuw [8 x i8], ptr %1131, i64 %1132
   %1134 = load ptr, ptr %1133, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1134, ptr noundef nonnull @.str.162, i32 noundef 774) #12
   %1135 = add i32 %.06.i505, 1
@@ -7205,7 +7205,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit506: ; preds =
   %1145 = phi ptr [ %1152, %.lr.ph.i508 ], [ %1138, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit506 ]
   %1146 = phi i64 [ %1150, %.lr.ph.i508 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit506 ]
   %.06.i509 = phi i32 [ %1149, %.lr.ph.i508 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit506 ]
-  %1147 = getelementptr inbounds nuw ptr, ptr %1145, i64 %1146
+  %1147 = getelementptr inbounds nuw [8 x i8], ptr %1145, i64 %1146
   %1148 = load ptr, ptr %1147, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1148, ptr noundef nonnull @.str.164, i32 noundef 279) #12
   %1149 = add i32 %.06.i509, 1
@@ -7227,7 +7227,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit510: ; preds =
   %1159 = phi ptr [ %1166, %.lr.ph.i512 ], [ %1152, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit510 ]
   %1160 = phi i64 [ %1164, %.lr.ph.i512 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit510 ]
   %.06.i513 = phi i32 [ %1163, %.lr.ph.i512 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit510 ]
-  %1161 = getelementptr inbounds nuw ptr, ptr %1159, i64 %1160
+  %1161 = getelementptr inbounds nuw [8 x i8], ptr %1159, i64 %1160
   %1162 = load ptr, ptr %1161, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1162, ptr noundef nonnull @.str.166, i32 noundef 280) #12
   %1163 = add i32 %.06.i513, 1
@@ -7249,7 +7249,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit514: ; preds =
   %1173 = phi ptr [ %1180, %.lr.ph.i516 ], [ %1166, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit514 ]
   %1174 = phi i64 [ %1178, %.lr.ph.i516 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit514 ]
   %.06.i517 = phi i32 [ %1177, %.lr.ph.i516 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit514 ]
-  %1175 = getelementptr inbounds nuw ptr, ptr %1173, i64 %1174
+  %1175 = getelementptr inbounds nuw [8 x i8], ptr %1173, i64 %1174
   %1176 = load ptr, ptr %1175, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1176, ptr noundef nonnull @.str.168, i32 noundef 692) #12
   %1177 = add i32 %.06.i517, 1
@@ -7271,7 +7271,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit518: ; preds =
   %1187 = phi ptr [ %1194, %.lr.ph.i520 ], [ %1180, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit518 ]
   %1188 = phi i64 [ %1192, %.lr.ph.i520 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit518 ]
   %.06.i521 = phi i32 [ %1191, %.lr.ph.i520 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit518 ]
-  %1189 = getelementptr inbounds nuw ptr, ptr %1187, i64 %1188
+  %1189 = getelementptr inbounds nuw [8 x i8], ptr %1187, i64 %1188
   %1190 = load ptr, ptr %1189, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1190, ptr noundef nonnull @.str.169, i32 noundef 213) #12
   %1191 = add i32 %.06.i521, 1
@@ -7293,7 +7293,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit522: ; preds =
   %1201 = phi ptr [ %1208, %.lr.ph.i524 ], [ %1194, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit522 ]
   %1202 = phi i64 [ %1206, %.lr.ph.i524 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit522 ]
   %.06.i525 = phi i32 [ %1205, %.lr.ph.i524 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit522 ]
-  %1203 = getelementptr inbounds nuw ptr, ptr %1201, i64 %1202
+  %1203 = getelementptr inbounds nuw [8 x i8], ptr %1201, i64 %1202
   %1204 = load ptr, ptr %1203, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1204, ptr noundef nonnull @.str.170, i32 noundef 208) #12
   %1205 = add i32 %.06.i525, 1
@@ -7315,7 +7315,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit526: ; preds =
   %1215 = phi ptr [ %1222, %.lr.ph.i528 ], [ %1208, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit526 ]
   %1216 = phi i64 [ %1220, %.lr.ph.i528 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit526 ]
   %.06.i529 = phi i32 [ %1219, %.lr.ph.i528 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit526 ]
-  %1217 = getelementptr inbounds nuw ptr, ptr %1215, i64 %1216
+  %1217 = getelementptr inbounds nuw [8 x i8], ptr %1215, i64 %1216
   %1218 = load ptr, ptr %1217, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1218, ptr noundef nonnull @.str.171, i32 noundef 775) #12
   %1219 = add i32 %.06.i529, 1
@@ -7337,7 +7337,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit530: ; preds =
   %1229 = phi ptr [ %1236, %.lr.ph.i532 ], [ %1222, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit530 ]
   %1230 = phi i64 [ %1234, %.lr.ph.i532 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit530 ]
   %.06.i533 = phi i32 [ %1233, %.lr.ph.i532 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit530 ]
-  %1231 = getelementptr inbounds nuw ptr, ptr %1229, i64 %1230
+  %1231 = getelementptr inbounds nuw [8 x i8], ptr %1229, i64 %1230
   %1232 = load ptr, ptr %1231, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1232, ptr noundef nonnull @.str.172, i32 noundef 210) #12
   %1233 = add i32 %.06.i533, 1
@@ -7359,7 +7359,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit534: ; preds =
   %1243 = phi ptr [ %1250, %.lr.ph.i536 ], [ %1236, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit534 ]
   %1244 = phi i64 [ %1248, %.lr.ph.i536 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit534 ]
   %.06.i537 = phi i32 [ %1247, %.lr.ph.i536 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit534 ]
-  %1245 = getelementptr inbounds nuw ptr, ptr %1243, i64 %1244
+  %1245 = getelementptr inbounds nuw [8 x i8], ptr %1243, i64 %1244
   %1246 = load ptr, ptr %1245, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1246, ptr noundef nonnull @.str.174, i32 noundef 190) #12
   %1247 = add i32 %.06.i537, 1
@@ -7381,7 +7381,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit538: ; preds =
   %1257 = phi ptr [ %1264, %.lr.ph.i540 ], [ %1250, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit538 ]
   %1258 = phi i64 [ %1262, %.lr.ph.i540 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit538 ]
   %.06.i541 = phi i32 [ %1261, %.lr.ph.i540 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit538 ]
-  %1259 = getelementptr inbounds nuw ptr, ptr %1257, i64 %1258
+  %1259 = getelementptr inbounds nuw [8 x i8], ptr %1257, i64 %1258
   %1260 = load ptr, ptr %1259, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1260, ptr noundef nonnull @.str.175, i32 noundef 776) #12
   %1261 = add i32 %.06.i541, 1
@@ -7403,7 +7403,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit542: ; preds =
   %1271 = phi ptr [ %1278, %.lr.ph.i544 ], [ %1264, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit542 ]
   %1272 = phi i64 [ %1276, %.lr.ph.i544 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit542 ]
   %.06.i545 = phi i32 [ %1275, %.lr.ph.i544 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit542 ]
-  %1273 = getelementptr inbounds nuw ptr, ptr %1271, i64 %1272
+  %1273 = getelementptr inbounds nuw [8 x i8], ptr %1271, i64 %1272
   %1274 = load ptr, ptr %1273, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1274, ptr noundef nonnull @.str.177, i32 noundef 196) #12
   %1275 = add i32 %.06.i545, 1
@@ -7425,7 +7425,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit546: ; preds =
   %1285 = phi ptr [ %1292, %.lr.ph.i548 ], [ %1278, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit546 ]
   %1286 = phi i64 [ %1290, %.lr.ph.i548 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit546 ]
   %.06.i549 = phi i32 [ %1289, %.lr.ph.i548 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit546 ]
-  %1287 = getelementptr inbounds nuw ptr, ptr %1285, i64 %1286
+  %1287 = getelementptr inbounds nuw [8 x i8], ptr %1285, i64 %1286
   %1288 = load ptr, ptr %1287, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1288, ptr noundef nonnull @.str.178, i32 noundef 223) #12
   %1289 = add i32 %.06.i549, 1
@@ -7447,7 +7447,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit550: ; preds =
   %1299 = phi ptr [ %1306, %.lr.ph.i552 ], [ %1292, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit550 ]
   %1300 = phi i64 [ %1304, %.lr.ph.i552 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit550 ]
   %.06.i553 = phi i32 [ %1303, %.lr.ph.i552 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit550 ]
-  %1301 = getelementptr inbounds nuw ptr, ptr %1299, i64 %1300
+  %1301 = getelementptr inbounds nuw [8 x i8], ptr %1299, i64 %1300
   %1302 = load ptr, ptr %1301, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1302, ptr noundef nonnull @.str.179, i32 noundef 207) #12
   %1303 = add i32 %.06.i553, 1
@@ -7469,7 +7469,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit554: ; preds =
   %1313 = phi ptr [ %1320, %.lr.ph.i556 ], [ %1306, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit554 ]
   %1314 = phi i64 [ %1318, %.lr.ph.i556 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit554 ]
   %.06.i557 = phi i32 [ %1317, %.lr.ph.i556 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit554 ]
-  %1315 = getelementptr inbounds nuw ptr, ptr %1313, i64 %1314
+  %1315 = getelementptr inbounds nuw [8 x i8], ptr %1313, i64 %1314
   %1316 = load ptr, ptr %1315, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1316, ptr noundef nonnull @.str.180, i32 noundef 222) #12
   %1317 = add i32 %.06.i557, 1
@@ -7491,7 +7491,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit558: ; preds =
   %1327 = phi ptr [ %1334, %.lr.ph.i560 ], [ %1320, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit558 ]
   %1328 = phi i64 [ %1332, %.lr.ph.i560 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit558 ]
   %.06.i561 = phi i32 [ %1331, %.lr.ph.i560 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit558 ]
-  %1329 = getelementptr inbounds nuw ptr, ptr %1327, i64 %1328
+  %1329 = getelementptr inbounds nuw [8 x i8], ptr %1327, i64 %1328
   %1330 = load ptr, ptr %1329, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1330, ptr noundef nonnull @.str.181, i32 noundef 192) #12
   %1331 = add i32 %.06.i561, 1
@@ -7513,7 +7513,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit562: ; preds =
   %1341 = phi ptr [ %1348, %.lr.ph.i564 ], [ %1334, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit562 ]
   %1342 = phi i64 [ %1346, %.lr.ph.i564 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit562 ]
   %.06.i565 = phi i32 [ %1345, %.lr.ph.i564 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit562 ]
-  %1343 = getelementptr inbounds nuw ptr, ptr %1341, i64 %1342
+  %1343 = getelementptr inbounds nuw [8 x i8], ptr %1341, i64 %1342
   %1344 = load ptr, ptr %1343, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1344, ptr noundef nonnull @.str.182, i32 noundef 198) #12
   %1345 = add i32 %.06.i565, 1
@@ -7535,7 +7535,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit566: ; preds =
   %1355 = phi ptr [ %1362, %.lr.ph.i568 ], [ %1348, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit566 ]
   %1356 = phi i64 [ %1360, %.lr.ph.i568 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit566 ]
   %.06.i569 = phi i32 [ %1359, %.lr.ph.i568 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit566 ]
-  %1357 = getelementptr inbounds nuw ptr, ptr %1355, i64 %1356
+  %1357 = getelementptr inbounds nuw [8 x i8], ptr %1355, i64 %1356
   %1358 = load ptr, ptr %1357, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1358, ptr noundef nonnull @.str.183, i32 noundef 630) #12
   %1359 = add i32 %.06.i569, 1
@@ -7557,7 +7557,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit570: ; preds =
   %1369 = phi ptr [ %1376, %.lr.ph.i572 ], [ %1362, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit570 ]
   %1370 = phi i64 [ %1374, %.lr.ph.i572 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit570 ]
   %.06.i573 = phi i32 [ %1373, %.lr.ph.i572 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit570 ]
-  %1371 = getelementptr inbounds nuw ptr, ptr %1369, i64 %1370
+  %1371 = getelementptr inbounds nuw [8 x i8], ptr %1369, i64 %1370
   %1372 = load ptr, ptr %1371, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1372, ptr noundef nonnull @.str.187, i32 noundef 797) #12
   %1373 = add i32 %.06.i573, 1
@@ -7579,7 +7579,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit574: ; preds =
   %1383 = phi ptr [ %1390, %.lr.ph.i576 ], [ %1376, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit574 ]
   %1384 = phi i64 [ %1388, %.lr.ph.i576 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit574 ]
   %.06.i577 = phi i32 [ %1387, %.lr.ph.i576 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit574 ]
-  %1385 = getelementptr inbounds nuw ptr, ptr %1383, i64 %1384
+  %1385 = getelementptr inbounds nuw [8 x i8], ptr %1383, i64 %1384
   %1386 = load ptr, ptr %1385, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1386, ptr noundef nonnull @.str.189, i32 noundef 640) #12
   %1387 = add i32 %.06.i577, 1
@@ -7601,7 +7601,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit578: ; preds =
   %1397 = phi ptr [ %1404, %.lr.ph.i580 ], [ %1390, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit578 ]
   %1398 = phi i64 [ %1402, %.lr.ph.i580 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit578 ]
   %.06.i581 = phi i32 [ %1401, %.lr.ph.i580 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit578 ]
-  %1399 = getelementptr inbounds nuw ptr, ptr %1397, i64 %1398
+  %1399 = getelementptr inbounds nuw [8 x i8], ptr %1397, i64 %1398
   %1400 = load ptr, ptr %1399, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1400, ptr noundef nonnull @.str.191, i32 noundef 632) #12
   %1401 = add i32 %.06.i581, 1
@@ -7623,7 +7623,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit582: ; preds =
   %1411 = phi ptr [ %1418, %.lr.ph.i584 ], [ %1404, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit582 ]
   %1412 = phi i64 [ %1416, %.lr.ph.i584 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit582 ]
   %.06.i585 = phi i32 [ %1415, %.lr.ph.i584 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit582 ]
-  %1413 = getelementptr inbounds nuw ptr, ptr %1411, i64 %1412
+  %1413 = getelementptr inbounds nuw [8 x i8], ptr %1411, i64 %1412
   %1414 = load ptr, ptr %1413, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1414, ptr noundef nonnull @.str.192, i32 noundef 631) #12
   %1415 = add i32 %.06.i585, 1
@@ -7645,7 +7645,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit586: ; preds =
   %1425 = phi ptr [ %1432, %.lr.ph.i588 ], [ %1418, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit586 ]
   %1426 = phi i64 [ %1430, %.lr.ph.i588 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit586 ]
   %.06.i589 = phi i32 [ %1429, %.lr.ph.i588 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit586 ]
-  %1427 = getelementptr inbounds nuw ptr, ptr %1425, i64 %1426
+  %1427 = getelementptr inbounds nuw [8 x i8], ptr %1425, i64 %1426
   %1428 = load ptr, ptr %1427, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1428, ptr noundef nonnull @.str.193, i32 noundef 630) #12
   %1429 = add i32 %.06.i589, 1
@@ -7667,7 +7667,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit590: ; preds =
   %1439 = phi ptr [ %1446, %.lr.ph.i592 ], [ %1432, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit590 ]
   %1440 = phi i64 [ %1444, %.lr.ph.i592 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit590 ]
   %.06.i593 = phi i32 [ %1443, %.lr.ph.i592 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit590 ]
-  %1441 = getelementptr inbounds nuw ptr, ptr %1439, i64 %1440
+  %1441 = getelementptr inbounds nuw [8 x i8], ptr %1439, i64 %1440
   %1442 = load ptr, ptr %1441, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1442, ptr noundef nonnull @.str.195, i32 noundef 797) #12
   %1443 = add i32 %.06.i593, 1
@@ -7689,7 +7689,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit594: ; preds =
   %1453 = phi ptr [ %1460, %.lr.ph.i596 ], [ %1446, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit594 ]
   %1454 = phi i64 [ %1458, %.lr.ph.i596 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit594 ]
   %.06.i597 = phi i32 [ %1457, %.lr.ph.i596 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit594 ]
-  %1455 = getelementptr inbounds nuw ptr, ptr %1453, i64 %1454
+  %1455 = getelementptr inbounds nuw [8 x i8], ptr %1453, i64 %1454
   %1456 = load ptr, ptr %1455, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1456, ptr noundef nonnull @.str.197, i32 noundef 640) #12
   %1457 = add i32 %.06.i597, 1
@@ -7711,7 +7711,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit598: ; preds =
   %1467 = phi ptr [ %1474, %.lr.ph.i600 ], [ %1460, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit598 ]
   %1468 = phi i64 [ %1472, %.lr.ph.i600 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit598 ]
   %.06.i601 = phi i32 [ %1471, %.lr.ph.i600 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit598 ]
-  %1469 = getelementptr inbounds nuw ptr, ptr %1467, i64 %1468
+  %1469 = getelementptr inbounds nuw [8 x i8], ptr %1467, i64 %1468
   %1470 = load ptr, ptr %1469, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1470, ptr noundef nonnull @.str.198, i32 noundef 632) #12
   %1471 = add i32 %.06.i601, 1
@@ -7733,7 +7733,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit602: ; preds =
   %1481 = phi ptr [ %1488, %.lr.ph.i604 ], [ %1474, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit602 ]
   %1482 = phi i64 [ %1486, %.lr.ph.i604 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit602 ]
   %.06.i605 = phi i32 [ %1485, %.lr.ph.i604 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit602 ]
-  %1483 = getelementptr inbounds nuw ptr, ptr %1481, i64 %1482
+  %1483 = getelementptr inbounds nuw [8 x i8], ptr %1481, i64 %1482
   %1484 = load ptr, ptr %1483, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1484, ptr noundef nonnull @.str.199, i32 noundef 631) #12
   %1485 = add i32 %.06.i605, 1
@@ -7755,7 +7755,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit606: ; preds =
   %1495 = phi ptr [ %1502, %.lr.ph.i608 ], [ %1488, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit606 ]
   %1496 = phi i64 [ %1500, %.lr.ph.i608 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit606 ]
   %.06.i609 = phi i32 [ %1499, %.lr.ph.i608 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit606 ]
-  %1497 = getelementptr inbounds nuw ptr, ptr %1495, i64 %1496
+  %1497 = getelementptr inbounds nuw [8 x i8], ptr %1495, i64 %1496
   %1498 = load ptr, ptr %1497, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1498, ptr noundef nonnull @.str.200, i32 noundef 630) #12
   %1499 = add i32 %.06.i609, 1
@@ -7777,7 +7777,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit610: ; preds =
   %1509 = phi ptr [ %1516, %.lr.ph.i612 ], [ %1502, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit610 ]
   %1510 = phi i64 [ %1514, %.lr.ph.i612 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit610 ]
   %.06.i613 = phi i32 [ %1513, %.lr.ph.i612 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit610 ]
-  %1511 = getelementptr inbounds nuw ptr, ptr %1509, i64 %1510
+  %1511 = getelementptr inbounds nuw [8 x i8], ptr %1509, i64 %1510
   %1512 = load ptr, ptr %1511, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1512, ptr noundef nonnull @.str.202, i32 noundef 797) #12
   %1513 = add i32 %.06.i613, 1
@@ -7799,7 +7799,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit614: ; preds =
   %1523 = phi ptr [ %1530, %.lr.ph.i616 ], [ %1516, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit614 ]
   %1524 = phi i64 [ %1528, %.lr.ph.i616 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit614 ]
   %.06.i617 = phi i32 [ %1527, %.lr.ph.i616 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit614 ]
-  %1525 = getelementptr inbounds nuw ptr, ptr %1523, i64 %1524
+  %1525 = getelementptr inbounds nuw [8 x i8], ptr %1523, i64 %1524
   %1526 = load ptr, ptr %1525, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1526, ptr noundef nonnull @.str.204, i32 noundef 640) #12
   %1527 = add i32 %.06.i617, 1
@@ -7821,7 +7821,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit618: ; preds =
   %1537 = phi ptr [ %1544, %.lr.ph.i620 ], [ %1530, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit618 ]
   %1538 = phi i64 [ %1542, %.lr.ph.i620 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit618 ]
   %.06.i621 = phi i32 [ %1541, %.lr.ph.i620 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit618 ]
-  %1539 = getelementptr inbounds nuw ptr, ptr %1537, i64 %1538
+  %1539 = getelementptr inbounds nuw [8 x i8], ptr %1537, i64 %1538
   %1540 = load ptr, ptr %1539, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1540, ptr noundef nonnull @.str.205, i32 noundef 632) #12
   %1541 = add i32 %.06.i621, 1
@@ -7843,7 +7843,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit622: ; preds =
   %1551 = phi ptr [ %1558, %.lr.ph.i624 ], [ %1544, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit622 ]
   %1552 = phi i64 [ %1556, %.lr.ph.i624 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit622 ]
   %.06.i625 = phi i32 [ %1555, %.lr.ph.i624 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit622 ]
-  %1553 = getelementptr inbounds nuw ptr, ptr %1551, i64 %1552
+  %1553 = getelementptr inbounds nuw [8 x i8], ptr %1551, i64 %1552
   %1554 = load ptr, ptr %1553, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1554, ptr noundef nonnull @.str.206, i32 noundef 631) #12
   %1555 = add i32 %.06.i625, 1
@@ -7865,7 +7865,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit626: ; preds =
   %1565 = phi ptr [ %1572, %.lr.ph.i628 ], [ %1558, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit626 ]
   %1566 = phi i64 [ %1570, %.lr.ph.i628 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit626 ]
   %.06.i629 = phi i32 [ %1569, %.lr.ph.i628 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit626 ]
-  %1567 = getelementptr inbounds nuw ptr, ptr %1565, i64 %1566
+  %1567 = getelementptr inbounds nuw [8 x i8], ptr %1565, i64 %1566
   %1568 = load ptr, ptr %1567, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1568, ptr noundef nonnull @.str.207, i32 noundef 630) #12
   %1569 = add i32 %.06.i629, 1
@@ -7887,7 +7887,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit630: ; preds =
   %1579 = phi ptr [ %1586, %.lr.ph.i632 ], [ %1572, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit630 ]
   %1580 = phi i64 [ %1584, %.lr.ph.i632 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit630 ]
   %.06.i633 = phi i32 [ %1583, %.lr.ph.i632 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit630 ]
-  %1581 = getelementptr inbounds nuw ptr, ptr %1579, i64 %1580
+  %1581 = getelementptr inbounds nuw [8 x i8], ptr %1579, i64 %1580
   %1582 = load ptr, ptr %1581, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1582, ptr noundef nonnull @.str.210, i32 noundef 797) #12
   %1583 = add i32 %.06.i633, 1
@@ -7909,7 +7909,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit634: ; preds =
   %1593 = phi ptr [ %1600, %.lr.ph.i636 ], [ %1586, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit634 ]
   %1594 = phi i64 [ %1598, %.lr.ph.i636 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit634 ]
   %.06.i637 = phi i32 [ %1597, %.lr.ph.i636 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit634 ]
-  %1595 = getelementptr inbounds nuw ptr, ptr %1593, i64 %1594
+  %1595 = getelementptr inbounds nuw [8 x i8], ptr %1593, i64 %1594
   %1596 = load ptr, ptr %1595, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1596, ptr noundef nonnull @.str.211, i32 noundef 640) #12
   %1597 = add i32 %.06.i637, 1
@@ -7931,7 +7931,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit638: ; preds =
   %1607 = phi ptr [ %1614, %.lr.ph.i640 ], [ %1600, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit638 ]
   %1608 = phi i64 [ %1612, %.lr.ph.i640 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit638 ]
   %.06.i641 = phi i32 [ %1611, %.lr.ph.i640 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit638 ]
-  %1609 = getelementptr inbounds nuw ptr, ptr %1607, i64 %1608
+  %1609 = getelementptr inbounds nuw [8 x i8], ptr %1607, i64 %1608
   %1610 = load ptr, ptr %1609, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1610, ptr noundef nonnull @.str.212, i32 noundef 632) #12
   %1611 = add i32 %.06.i641, 1
@@ -7953,7 +7953,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit642: ; preds =
   %1621 = phi ptr [ %1628, %.lr.ph.i644 ], [ %1614, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit642 ]
   %1622 = phi i64 [ %1626, %.lr.ph.i644 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit642 ]
   %.06.i645 = phi i32 [ %1625, %.lr.ph.i644 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit642 ]
-  %1623 = getelementptr inbounds nuw ptr, ptr %1621, i64 %1622
+  %1623 = getelementptr inbounds nuw [8 x i8], ptr %1621, i64 %1622
   %1624 = load ptr, ptr %1623, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1624, ptr noundef nonnull @.str.213, i32 noundef 631) #12
   %1625 = add i32 %.06.i645, 1
@@ -7975,7 +7975,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit646: ; preds =
   %1635 = phi ptr [ %1642, %.lr.ph.i648 ], [ %1628, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit646 ]
   %1636 = phi i64 [ %1640, %.lr.ph.i648 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit646 ]
   %.06.i649 = phi i32 [ %1639, %.lr.ph.i648 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit646 ]
-  %1637 = getelementptr inbounds nuw ptr, ptr %1635, i64 %1636
+  %1637 = getelementptr inbounds nuw [8 x i8], ptr %1635, i64 %1636
   %1638 = load ptr, ptr %1637, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1638, ptr noundef nonnull @.str.214, i32 noundef 301) #12
   %1639 = add i32 %.06.i649, 1
@@ -7997,7 +7997,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit650: ; preds =
   %1649 = phi ptr [ %1656, %.lr.ph.i652 ], [ %1642, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit650 ]
   %1650 = phi i64 [ %1654, %.lr.ph.i652 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit650 ]
   %.06.i653 = phi i32 [ %1653, %.lr.ph.i652 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit650 ]
-  %1651 = getelementptr inbounds nuw ptr, ptr %1649, i64 %1650
+  %1651 = getelementptr inbounds nuw [8 x i8], ptr %1649, i64 %1650
   %1652 = load ptr, ptr %1651, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1652, ptr noundef nonnull @.str.217, i32 noundef 212) #12
   %1653 = add i32 %.06.i653, 1
@@ -8019,7 +8019,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit654: ; preds =
   %1663 = phi ptr [ %1670, %.lr.ph.i656 ], [ %1656, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit654 ]
   %1664 = phi i64 [ %1668, %.lr.ph.i656 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit654 ]
   %.06.i657 = phi i32 [ %1667, %.lr.ph.i656 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit654 ]
-  %1665 = getelementptr inbounds nuw ptr, ptr %1663, i64 %1664
+  %1665 = getelementptr inbounds nuw [8 x i8], ptr %1663, i64 %1664
   %1666 = load ptr, ptr %1665, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1666, ptr noundef nonnull @.str.355, i32 noundef 800) #12
   %1667 = add i32 %.06.i657, 1
@@ -8041,7 +8041,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit658: ; preds =
   %1677 = phi ptr [ %1684, %.lr.ph.i660 ], [ %1670, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit658 ]
   %1678 = phi i64 [ %1682, %.lr.ph.i660 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit658 ]
   %.06.i661 = phi i32 [ %1681, %.lr.ph.i660 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit658 ]
-  %1679 = getelementptr inbounds nuw ptr, ptr %1677, i64 %1678
+  %1679 = getelementptr inbounds nuw [8 x i8], ptr %1677, i64 %1678
   %1680 = load ptr, ptr %1679, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1680, ptr noundef nonnull @.str.356, i32 noundef 801) #12
   %1681 = add i32 %.06.i661, 1
@@ -8063,7 +8063,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit662: ; preds =
   %1691 = phi ptr [ %1698, %.lr.ph.i664 ], [ %1684, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit662 ]
   %1692 = phi i64 [ %1696, %.lr.ph.i664 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit662 ]
   %.06.i665 = phi i32 [ %1695, %.lr.ph.i664 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit662 ]
-  %1693 = getelementptr inbounds nuw ptr, ptr %1691, i64 %1692
+  %1693 = getelementptr inbounds nuw [8 x i8], ptr %1691, i64 %1692
   %1694 = load ptr, ptr %1693, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1694, ptr noundef nonnull @.str.357, i32 noundef 802) #12
   %1695 = add i32 %.06.i665, 1
@@ -8085,7 +8085,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit666: ; preds =
   %1705 = phi ptr [ %1712, %.lr.ph.i668 ], [ %1698, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit666 ]
   %1706 = phi i64 [ %1710, %.lr.ph.i668 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit666 ]
   %.06.i669 = phi i32 [ %1709, %.lr.ph.i668 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit666 ]
-  %1707 = getelementptr inbounds nuw ptr, ptr %1705, i64 %1706
+  %1707 = getelementptr inbounds nuw [8 x i8], ptr %1705, i64 %1706
   %1708 = load ptr, ptr %1707, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1708, ptr noundef nonnull @.str.358, i32 noundef 803) #12
   %1709 = add i32 %.06.i669, 1
@@ -8107,7 +8107,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit670: ; preds =
   %1719 = phi ptr [ %1726, %.lr.ph.i672 ], [ %1712, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit670 ]
   %1720 = phi i64 [ %1724, %.lr.ph.i672 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit670 ]
   %.06.i673 = phi i32 [ %1723, %.lr.ph.i672 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit670 ]
-  %1721 = getelementptr inbounds nuw ptr, ptr %1719, i64 %1720
+  %1721 = getelementptr inbounds nuw [8 x i8], ptr %1719, i64 %1720
   %1722 = load ptr, ptr %1721, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1722, ptr noundef nonnull @.str.359, i32 noundef 804) #12
   %1723 = add i32 %.06.i673, 1
@@ -8129,7 +8129,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit674: ; preds =
   %1733 = phi ptr [ %1740, %.lr.ph.i676 ], [ %1726, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit674 ]
   %1734 = phi i64 [ %1738, %.lr.ph.i676 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit674 ]
   %.06.i677 = phi i32 [ %1737, %.lr.ph.i676 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit674 ]
-  %1735 = getelementptr inbounds nuw ptr, ptr %1733, i64 %1734
+  %1735 = getelementptr inbounds nuw [8 x i8], ptr %1733, i64 %1734
   %1736 = load ptr, ptr %1735, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1736, ptr noundef nonnull @.str.360, i32 noundef 805) #12
   %1737 = add i32 %.06.i677, 1
@@ -8151,7 +8151,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit678: ; preds =
   %1747 = phi ptr [ %1754, %.lr.ph.i680 ], [ %1740, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit678 ]
   %1748 = phi i64 [ %1752, %.lr.ph.i680 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit678 ]
   %.06.i681 = phi i32 [ %1751, %.lr.ph.i680 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit678 ]
-  %1749 = getelementptr inbounds nuw ptr, ptr %1747, i64 %1748
+  %1749 = getelementptr inbounds nuw [8 x i8], ptr %1747, i64 %1748
   %1750 = load ptr, ptr %1749, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1750, ptr noundef nonnull @.str.361, i32 noundef 806) #12
   %1751 = add i32 %.06.i681, 1
@@ -8173,7 +8173,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit682: ; preds =
   %1761 = phi ptr [ %1768, %.lr.ph.i684 ], [ %1754, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit682 ]
   %1762 = phi i64 [ %1766, %.lr.ph.i684 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit682 ]
   %.06.i685 = phi i32 [ %1765, %.lr.ph.i684 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit682 ]
-  %1763 = getelementptr inbounds nuw ptr, ptr %1761, i64 %1762
+  %1763 = getelementptr inbounds nuw [8 x i8], ptr %1761, i64 %1762
   %1764 = load ptr, ptr %1763, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1764, ptr noundef nonnull @.str.362, i32 noundef 807) #12
   %1765 = add i32 %.06.i685, 1
@@ -8195,7 +8195,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit686: ; preds =
   %1775 = phi ptr [ %1782, %.lr.ph.i688 ], [ %1768, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit686 ]
   %1776 = phi i64 [ %1780, %.lr.ph.i688 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit686 ]
   %.06.i689 = phi i32 [ %1779, %.lr.ph.i688 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit686 ]
-  %1777 = getelementptr inbounds nuw ptr, ptr %1775, i64 %1776
+  %1777 = getelementptr inbounds nuw [8 x i8], ptr %1775, i64 %1776
   %1778 = load ptr, ptr %1777, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1778, ptr noundef nonnull @.str.363, i32 noundef 808) #12
   %1779 = add i32 %.06.i689, 1
@@ -8217,7 +8217,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit690: ; preds =
   %1789 = phi ptr [ %1796, %.lr.ph.i692 ], [ %1782, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit690 ]
   %1790 = phi i64 [ %1794, %.lr.ph.i692 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit690 ]
   %.06.i693 = phi i32 [ %1793, %.lr.ph.i692 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit690 ]
-  %1791 = getelementptr inbounds nuw ptr, ptr %1789, i64 %1790
+  %1791 = getelementptr inbounds nuw [8 x i8], ptr %1789, i64 %1790
   %1792 = load ptr, ptr %1791, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1792, ptr noundef nonnull @.str.364, i32 noundef 809) #12
   %1793 = add i32 %.06.i693, 1
@@ -8239,7 +8239,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit694: ; preds =
   %1803 = phi ptr [ %1810, %.lr.ph.i696 ], [ %1796, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit694 ]
   %1804 = phi i64 [ %1808, %.lr.ph.i696 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit694 ]
   %.06.i697 = phi i32 [ %1807, %.lr.ph.i696 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit694 ]
-  %1805 = getelementptr inbounds nuw ptr, ptr %1803, i64 %1804
+  %1805 = getelementptr inbounds nuw [8 x i8], ptr %1803, i64 %1804
   %1806 = load ptr, ptr %1805, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1806, ptr noundef nonnull @.str.365, i32 noundef 810) #12
   %1807 = add i32 %.06.i697, 1
@@ -8261,7 +8261,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit698: ; preds =
   %1817 = phi ptr [ %1824, %.lr.ph.i700 ], [ %1810, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit698 ]
   %1818 = phi i64 [ %1822, %.lr.ph.i700 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit698 ]
   %.06.i701 = phi i32 [ %1821, %.lr.ph.i700 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit698 ]
-  %1819 = getelementptr inbounds nuw ptr, ptr %1817, i64 %1818
+  %1819 = getelementptr inbounds nuw [8 x i8], ptr %1817, i64 %1818
   %1820 = load ptr, ptr %1819, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1820, ptr noundef nonnull @.str.366, i32 noundef 811) #12
   %1821 = add i32 %.06.i701, 1
@@ -8283,7 +8283,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit702: ; preds =
   %1831 = phi ptr [ %1838, %.lr.ph.i704 ], [ %1824, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit702 ]
   %1832 = phi i64 [ %1836, %.lr.ph.i704 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit702 ]
   %.06.i705 = phi i32 [ %1835, %.lr.ph.i704 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit702 ]
-  %1833 = getelementptr inbounds nuw ptr, ptr %1831, i64 %1832
+  %1833 = getelementptr inbounds nuw [8 x i8], ptr %1831, i64 %1832
   %1834 = load ptr, ptr %1833, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1834, ptr noundef nonnull @.str.367, i32 noundef 812) #12
   %1835 = add i32 %.06.i705, 1
@@ -8305,7 +8305,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit706: ; preds =
   %1845 = phi ptr [ %1852, %.lr.ph.i708 ], [ %1838, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit706 ]
   %1846 = phi i64 [ %1850, %.lr.ph.i708 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit706 ]
   %.06.i709 = phi i32 [ %1849, %.lr.ph.i708 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit706 ]
-  %1847 = getelementptr inbounds nuw ptr, ptr %1845, i64 %1846
+  %1847 = getelementptr inbounds nuw [8 x i8], ptr %1845, i64 %1846
   %1848 = load ptr, ptr %1847, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1848, ptr noundef nonnull @.str.368, i32 noundef 813) #12
   %1849 = add i32 %.06.i709, 1
@@ -8327,7 +8327,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit710: ; preds =
   %1859 = phi ptr [ %1866, %.lr.ph.i712 ], [ %1852, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit710 ]
   %1860 = phi i64 [ %1864, %.lr.ph.i712 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit710 ]
   %.06.i713 = phi i32 [ %1863, %.lr.ph.i712 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit710 ]
-  %1861 = getelementptr inbounds nuw ptr, ptr %1859, i64 %1860
+  %1861 = getelementptr inbounds nuw [8 x i8], ptr %1859, i64 %1860
   %1862 = load ptr, ptr %1861, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1862, ptr noundef nonnull @.str.369, i32 noundef 814) #12
   %1863 = add i32 %.06.i713, 1
@@ -8349,7 +8349,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit714: ; preds =
   %1873 = phi ptr [ %1880, %.lr.ph.i716 ], [ %1866, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit714 ]
   %1874 = phi i64 [ %1878, %.lr.ph.i716 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit714 ]
   %.06.i717 = phi i32 [ %1877, %.lr.ph.i716 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit714 ]
-  %1875 = getelementptr inbounds nuw ptr, ptr %1873, i64 %1874
+  %1875 = getelementptr inbounds nuw [8 x i8], ptr %1873, i64 %1874
   %1876 = load ptr, ptr %1875, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1876, ptr noundef nonnull @.str.370, i32 noundef 815) #12
   %1877 = add i32 %.06.i717, 1
@@ -8371,7 +8371,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit718: ; preds =
   %1887 = phi ptr [ %1894, %.lr.ph.i720 ], [ %1880, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit718 ]
   %1888 = phi i64 [ %1892, %.lr.ph.i720 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit718 ]
   %.06.i721 = phi i32 [ %1891, %.lr.ph.i720 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit718 ]
-  %1889 = getelementptr inbounds nuw ptr, ptr %1887, i64 %1888
+  %1889 = getelementptr inbounds nuw [8 x i8], ptr %1887, i64 %1888
   %1890 = load ptr, ptr %1889, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1890, ptr noundef nonnull @.str.371, i32 noundef 816) #12
   %1891 = add i32 %.06.i721, 1
@@ -8393,7 +8393,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit722: ; preds =
   %1901 = phi ptr [ %1908, %.lr.ph.i724 ], [ %1894, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit722 ]
   %1902 = phi i64 [ %1906, %.lr.ph.i724 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit722 ]
   %.06.i725 = phi i32 [ %1905, %.lr.ph.i724 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit722 ]
-  %1903 = getelementptr inbounds nuw ptr, ptr %1901, i64 %1902
+  %1903 = getelementptr inbounds nuw [8 x i8], ptr %1901, i64 %1902
   %1904 = load ptr, ptr %1903, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1904, ptr noundef nonnull @.str.372, i32 noundef 817) #12
   %1905 = add i32 %.06.i725, 1
@@ -8417,7 +8417,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit726: ; preds =
   %1916 = phi ptr [ %1923, %.lr.ph.i728 ], [ %1915, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit726 ]
   %1917 = phi i64 [ %1921, %.lr.ph.i728 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit726 ]
   %.06.i729 = phi i32 [ %1920, %.lr.ph.i728 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit726 ]
-  %1918 = getelementptr inbounds nuw ptr, ptr %1916, i64 %1917
+  %1918 = getelementptr inbounds nuw [8 x i8], ptr %1916, i64 %1917
   %1919 = load ptr, ptr %1918, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1919, ptr noundef nonnull @.str.373, i32 noundef 818) #12
   %1920 = add i32 %.06.i729, 1
@@ -8439,7 +8439,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit730: ; preds =
   %1930 = phi ptr [ %1937, %.lr.ph.i732 ], [ %1923, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit730 ]
   %1931 = phi i64 [ %1935, %.lr.ph.i732 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit730 ]
   %.06.i733 = phi i32 [ %1934, %.lr.ph.i732 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit730 ]
-  %1932 = getelementptr inbounds nuw ptr, ptr %1930, i64 %1931
+  %1932 = getelementptr inbounds nuw [8 x i8], ptr %1930, i64 %1931
   %1933 = load ptr, ptr %1932, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1933, ptr noundef nonnull @.str.374, i32 noundef 819) #12
   %1934 = add i32 %.06.i733, 1
@@ -8461,7 +8461,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit734: ; preds =
   %1944 = phi ptr [ %1951, %.lr.ph.i736 ], [ %1937, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit734 ]
   %1945 = phi i64 [ %1949, %.lr.ph.i736 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit734 ]
   %.06.i737 = phi i32 [ %1948, %.lr.ph.i736 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit734 ]
-  %1946 = getelementptr inbounds nuw ptr, ptr %1944, i64 %1945
+  %1946 = getelementptr inbounds nuw [8 x i8], ptr %1944, i64 %1945
   %1947 = load ptr, ptr %1946, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1947, ptr noundef nonnull @.str.375, i32 noundef 820) #12
   %1948 = add i32 %.06.i737, 1
@@ -8483,7 +8483,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit738: ; preds =
   %1958 = phi ptr [ %1965, %.lr.ph.i740 ], [ %1951, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit738 ]
   %1959 = phi i64 [ %1963, %.lr.ph.i740 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit738 ]
   %.06.i741 = phi i32 [ %1962, %.lr.ph.i740 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit738 ]
-  %1960 = getelementptr inbounds nuw ptr, ptr %1958, i64 %1959
+  %1960 = getelementptr inbounds nuw [8 x i8], ptr %1958, i64 %1959
   %1961 = load ptr, ptr %1960, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1961, ptr noundef nonnull @.str.376, i32 noundef 821) #12
   %1962 = add i32 %.06.i741, 1
@@ -8505,7 +8505,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit742: ; preds =
   %1972 = phi ptr [ %1979, %.lr.ph.i744 ], [ %1965, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit742 ]
   %1973 = phi i64 [ %1977, %.lr.ph.i744 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit742 ]
   %.06.i745 = phi i32 [ %1976, %.lr.ph.i744 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit742 ]
-  %1974 = getelementptr inbounds nuw ptr, ptr %1972, i64 %1973
+  %1974 = getelementptr inbounds nuw [8 x i8], ptr %1972, i64 %1973
   %1975 = load ptr, ptr %1974, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1975, ptr noundef nonnull @.str.377, i32 noundef 779) #12
   %1976 = add i32 %.06.i745, 1
@@ -8527,7 +8527,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit746: ; preds =
   %1986 = phi ptr [ %1993, %.lr.ph.i748 ], [ %1979, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit746 ]
   %1987 = phi i64 [ %1991, %.lr.ph.i748 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit746 ]
   %.06.i749 = phi i32 [ %1990, %.lr.ph.i748 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit746 ]
-  %1988 = getelementptr inbounds nuw ptr, ptr %1986, i64 %1987
+  %1988 = getelementptr inbounds nuw [8 x i8], ptr %1986, i64 %1987
   %1989 = load ptr, ptr %1988, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %1989, ptr noundef nonnull @.str.378, i32 noundef 780) #12
   %1990 = add i32 %.06.i749, 1
@@ -8549,7 +8549,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit750: ; preds =
   %2000 = phi ptr [ %2007, %.lr.ph.i752 ], [ %1993, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit750 ]
   %2001 = phi i64 [ %2005, %.lr.ph.i752 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit750 ]
   %.06.i753 = phi i32 [ %2004, %.lr.ph.i752 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit750 ]
-  %2002 = getelementptr inbounds nuw ptr, ptr %2000, i64 %2001
+  %2002 = getelementptr inbounds nuw [8 x i8], ptr %2000, i64 %2001
   %2003 = load ptr, ptr %2002, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %2003, ptr noundef nonnull @.str.379, i32 noundef 781) #12
   %2004 = add i32 %.06.i753, 1
@@ -8571,7 +8571,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit754: ; preds =
   %2014 = phi ptr [ %2021, %.lr.ph.i756 ], [ %2007, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit754 ]
   %2015 = phi i64 [ %2019, %.lr.ph.i756 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit754 ]
   %.06.i757 = phi i32 [ %2018, %.lr.ph.i756 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit754 ]
-  %2016 = getelementptr inbounds nuw ptr, ptr %2014, i64 %2015
+  %2016 = getelementptr inbounds nuw [8 x i8], ptr %2014, i64 %2015
   %2017 = load ptr, ptr %2016, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %2017, ptr noundef nonnull @.str.380, i32 noundef 782) #12
   %2018 = add i32 %.06.i757, 1
@@ -8593,7 +8593,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit758: ; preds =
   %2028 = phi ptr [ %2035, %.lr.ph.i760 ], [ %2021, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit758 ]
   %2029 = phi i64 [ %2033, %.lr.ph.i760 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit758 ]
   %.06.i761 = phi i32 [ %2032, %.lr.ph.i760 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit758 ]
-  %2030 = getelementptr inbounds nuw ptr, ptr %2028, i64 %2029
+  %2030 = getelementptr inbounds nuw [8 x i8], ptr %2028, i64 %2029
   %2031 = load ptr, ptr %2030, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %2031, ptr noundef nonnull @.str.381, i32 noundef 783) #12
   %2032 = add i32 %.06.i761, 1
@@ -8615,7 +8615,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit762: ; preds =
   %2042 = phi ptr [ %2049, %.lr.ph.i764 ], [ %2035, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit762 ]
   %2043 = phi i64 [ %2047, %.lr.ph.i764 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit762 ]
   %.06.i765 = phi i32 [ %2046, %.lr.ph.i764 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit762 ]
-  %2044 = getelementptr inbounds nuw ptr, ptr %2042, i64 %2043
+  %2044 = getelementptr inbounds nuw [8 x i8], ptr %2042, i64 %2043
   %2045 = load ptr, ptr %2044, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %2045, ptr noundef nonnull @.str.382, i32 noundef 784) #12
   %2046 = add i32 %.06.i765, 1
@@ -8637,7 +8637,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit766: ; preds =
   %2056 = phi ptr [ %2063, %.lr.ph.i768 ], [ %2049, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit766 ]
   %2057 = phi i64 [ %2061, %.lr.ph.i768 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit766 ]
   %.06.i769 = phi i32 [ %2060, %.lr.ph.i768 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit766 ]
-  %2058 = getelementptr inbounds nuw ptr, ptr %2056, i64 %2057
+  %2058 = getelementptr inbounds nuw [8 x i8], ptr %2056, i64 %2057
   %2059 = load ptr, ptr %2058, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %2059, ptr noundef nonnull @.str.383, i32 noundef 785) #12
   %2060 = add i32 %.06.i769, 1
@@ -8659,7 +8659,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit770: ; preds =
   %2070 = phi ptr [ %2077, %.lr.ph.i772 ], [ %2063, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit770 ]
   %2071 = phi i64 [ %2075, %.lr.ph.i772 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit770 ]
   %.06.i773 = phi i32 [ %2074, %.lr.ph.i772 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit770 ]
-  %2072 = getelementptr inbounds nuw ptr, ptr %2070, i64 %2071
+  %2072 = getelementptr inbounds nuw [8 x i8], ptr %2070, i64 %2071
   %2073 = load ptr, ptr %2072, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %2073, ptr noundef nonnull @.str.384, i32 noundef 786) #12
   %2074 = add i32 %.06.i773, 1
@@ -8681,7 +8681,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit774: ; preds =
   %2084 = phi ptr [ %2091, %.lr.ph.i776 ], [ %2077, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit774 ]
   %2085 = phi i64 [ %2089, %.lr.ph.i776 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit774 ]
   %.06.i777 = phi i32 [ %2088, %.lr.ph.i776 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit774 ]
-  %2086 = getelementptr inbounds nuw ptr, ptr %2084, i64 %2085
+  %2086 = getelementptr inbounds nuw [8 x i8], ptr %2084, i64 %2085
   %2087 = load ptr, ptr %2086, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %2087, ptr noundef nonnull @.str.385, i32 noundef 787) #12
   %2088 = add i32 %.06.i777, 1
@@ -8703,7 +8703,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit778: ; preds =
   %2098 = phi ptr [ %2105, %.lr.ph.i780 ], [ %2091, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit778 ]
   %2099 = phi i64 [ %2103, %.lr.ph.i780 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit778 ]
   %.06.i781 = phi i32 [ %2102, %.lr.ph.i780 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit778 ]
-  %2100 = getelementptr inbounds nuw ptr, ptr %2098, i64 %2099
+  %2100 = getelementptr inbounds nuw [8 x i8], ptr %2098, i64 %2099
   %2101 = load ptr, ptr %2100, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %2101, ptr noundef nonnull @.str.386, i32 noundef 822) #12
   %2102 = add i32 %.06.i781, 1
@@ -8725,7 +8725,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit782: ; preds =
   %2112 = phi ptr [ %2119, %.lr.ph.i784 ], [ %2105, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit782 ]
   %2113 = phi i64 [ %2117, %.lr.ph.i784 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit782 ]
   %.06.i785 = phi i32 [ %2116, %.lr.ph.i784 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit782 ]
-  %2114 = getelementptr inbounds nuw ptr, ptr %2112, i64 %2113
+  %2114 = getelementptr inbounds nuw [8 x i8], ptr %2112, i64 %2113
   %2115 = load ptr, ptr %2114, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %2115, ptr noundef nonnull @.str.387, i32 noundef 823) #12
   %2116 = add i32 %.06.i785, 1
@@ -8747,7 +8747,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit786: ; preds =
   %2126 = phi ptr [ %2133, %.lr.ph.i788 ], [ %2119, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit786 ]
   %2127 = phi i64 [ %2131, %.lr.ph.i788 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit786 ]
   %.06.i789 = phi i32 [ %2130, %.lr.ph.i788 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit786 ]
-  %2128 = getelementptr inbounds nuw ptr, ptr %2126, i64 %2127
+  %2128 = getelementptr inbounds nuw [8 x i8], ptr %2126, i64 %2127
   %2129 = load ptr, ptr %2128, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %2129, ptr noundef nonnull @.str.388, i32 noundef 824) #12
   %2130 = add i32 %.06.i789, 1
@@ -8769,7 +8769,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit790: ; preds =
   %2140 = phi ptr [ %2147, %.lr.ph.i792 ], [ %2133, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit790 ]
   %2141 = phi i64 [ %2145, %.lr.ph.i792 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit790 ]
   %.06.i793 = phi i32 [ %2144, %.lr.ph.i792 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit790 ]
-  %2142 = getelementptr inbounds nuw ptr, ptr %2140, i64 %2141
+  %2142 = getelementptr inbounds nuw [8 x i8], ptr %2140, i64 %2141
   %2143 = load ptr, ptr %2142, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %2143, ptr noundef nonnull @.str.389, i32 noundef 825) #12
   %2144 = add i32 %.06.i793, 1
@@ -8791,7 +8791,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit794: ; preds =
   %2154 = phi ptr [ %2161, %.lr.ph.i796 ], [ %2147, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit794 ]
   %2155 = phi i64 [ %2159, %.lr.ph.i796 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit794 ]
   %.06.i797 = phi i32 [ %2158, %.lr.ph.i796 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit794 ]
-  %2156 = getelementptr inbounds nuw ptr, ptr %2154, i64 %2155
+  %2156 = getelementptr inbounds nuw [8 x i8], ptr %2154, i64 %2155
   %2157 = load ptr, ptr %2156, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %2157, ptr noundef nonnull @.str.390, i32 noundef 827) #12
   %2158 = add i32 %.06.i797, 1
@@ -8813,7 +8813,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit798: ; preds =
   %2168 = phi ptr [ %2175, %.lr.ph.i800 ], [ %2161, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit798 ]
   %2169 = phi i64 [ %2173, %.lr.ph.i800 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit798 ]
   %.06.i801 = phi i32 [ %2172, %.lr.ph.i800 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit798 ]
-  %2170 = getelementptr inbounds nuw ptr, ptr %2168, i64 %2169
+  %2170 = getelementptr inbounds nuw [8 x i8], ptr %2168, i64 %2169
   %2171 = load ptr, ptr %2170, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %2171, ptr noundef nonnull @.str.391, i32 noundef 827) #12
   %2172 = add i32 %.06.i801, 1
@@ -8835,7 +8835,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit802: ; preds =
   %2182 = phi ptr [ %2189, %.lr.ph.i804 ], [ %2175, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit802 ]
   %2183 = phi i64 [ %2187, %.lr.ph.i804 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit802 ]
   %.06.i805 = phi i32 [ %2186, %.lr.ph.i804 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit802 ]
-  %2184 = getelementptr inbounds nuw ptr, ptr %2182, i64 %2183
+  %2184 = getelementptr inbounds nuw [8 x i8], ptr %2182, i64 %2183
   %2185 = load ptr, ptr %2184, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %2185, ptr noundef nonnull @.str.392, i32 noundef 828) #12
   %2186 = add i32 %.06.i805, 1
@@ -8857,7 +8857,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit806: ; preds =
   %2196 = phi ptr [ %2203, %.lr.ph.i808 ], [ %2189, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit806 ]
   %2197 = phi i64 [ %2201, %.lr.ph.i808 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit806 ]
   %.06.i809 = phi i32 [ %2200, %.lr.ph.i808 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit806 ]
-  %2198 = getelementptr inbounds nuw ptr, ptr %2196, i64 %2197
+  %2198 = getelementptr inbounds nuw [8 x i8], ptr %2196, i64 %2197
   %2199 = load ptr, ptr %2198, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %2199, ptr noundef nonnull @.str.393, i32 noundef 829) #12
   %2200 = add i32 %.06.i809, 1
@@ -8879,7 +8879,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit810: ; preds =
   %2210 = phi ptr [ %2217, %.lr.ph.i812 ], [ %2203, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit810 ]
   %2211 = phi i64 [ %2215, %.lr.ph.i812 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit810 ]
   %.06.i813 = phi i32 [ %2214, %.lr.ph.i812 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit810 ]
-  %2212 = getelementptr inbounds nuw ptr, ptr %2210, i64 %2211
+  %2212 = getelementptr inbounds nuw [8 x i8], ptr %2210, i64 %2211
   %2213 = load ptr, ptr %2212, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %2213, ptr noundef nonnull @.str.394, i32 noundef 830) #12
   %2214 = add i32 %.06.i813, 1
@@ -8901,7 +8901,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit814: ; preds =
   %2224 = phi ptr [ %2231, %.lr.ph.i816 ], [ %2217, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit814 ]
   %2225 = phi i64 [ %2229, %.lr.ph.i816 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit814 ]
   %.06.i817 = phi i32 [ %2228, %.lr.ph.i816 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit814 ]
-  %2226 = getelementptr inbounds nuw ptr, ptr %2224, i64 %2225
+  %2226 = getelementptr inbounds nuw [8 x i8], ptr %2224, i64 %2225
   %2227 = load ptr, ptr %2226, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %2227, ptr noundef nonnull @.str.395, i32 noundef 831) #12
   %2228 = add i32 %.06.i817, 1
@@ -8923,7 +8923,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit818: ; preds =
   %2238 = phi ptr [ %2245, %.lr.ph.i820 ], [ %2231, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit818 ]
   %2239 = phi i64 [ %2243, %.lr.ph.i820 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit818 ]
   %.06.i821 = phi i32 [ %2242, %.lr.ph.i820 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit818 ]
-  %2240 = getelementptr inbounds nuw ptr, ptr %2238, i64 %2239
+  %2240 = getelementptr inbounds nuw [8 x i8], ptr %2238, i64 %2239
   %2241 = load ptr, ptr %2240, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %2241, ptr noundef nonnull @.str.396, i32 noundef 832) #12
   %2242 = add i32 %.06.i821, 1
@@ -8945,7 +8945,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit822: ; preds =
   %2252 = phi ptr [ %2259, %.lr.ph.i824 ], [ %2245, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit822 ]
   %2253 = phi i64 [ %2257, %.lr.ph.i824 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit822 ]
   %.06.i825 = phi i32 [ %2256, %.lr.ph.i824 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit822 ]
-  %2254 = getelementptr inbounds nuw ptr, ptr %2252, i64 %2253
+  %2254 = getelementptr inbounds nuw [8 x i8], ptr %2252, i64 %2253
   %2255 = load ptr, ptr %2254, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %2255, ptr noundef nonnull @.str.323, i32 noundef 327) #12
   %2256 = add i32 %.06.i825, 1
@@ -8967,7 +8967,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit826: ; preds =
   %2266 = phi ptr [ %2273, %.lr.ph.i828 ], [ %2259, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit826 ]
   %2267 = phi i64 [ %2271, %.lr.ph.i828 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit826 ]
   %.06.i829 = phi i32 [ %2270, %.lr.ph.i828 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit826 ]
-  %2268 = getelementptr inbounds nuw ptr, ptr %2266, i64 %2267
+  %2268 = getelementptr inbounds nuw [8 x i8], ptr %2266, i64 %2267
   %2269 = load ptr, ptr %2268, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %2269, ptr noundef nonnull @.str.324, i32 noundef 834) #12
   %2270 = add i32 %.06.i829, 1
@@ -8989,7 +8989,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit830: ; preds =
   %2280 = phi ptr [ %2287, %.lr.ph.i832 ], [ %2273, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit830 ]
   %2281 = phi i64 [ %2285, %.lr.ph.i832 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit830 ]
   %.06.i833 = phi i32 [ %2284, %.lr.ph.i832 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit830 ]
-  %2282 = getelementptr inbounds nuw ptr, ptr %2280, i64 %2281
+  %2282 = getelementptr inbounds nuw [8 x i8], ptr %2280, i64 %2281
   %2283 = load ptr, ptr %2282, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %2283, ptr noundef nonnull @.str.325, i32 noundef 835) #12
   %2284 = add i32 %.06.i833, 1
@@ -9011,7 +9011,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit834: ; preds =
   %2294 = phi ptr [ %2301, %.lr.ph.i836 ], [ %2287, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit834 ]
   %2295 = phi i64 [ %2299, %.lr.ph.i836 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit834 ]
   %.06.i837 = phi i32 [ %2298, %.lr.ph.i836 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit834 ]
-  %2296 = getelementptr inbounds nuw ptr, ptr %2294, i64 %2295
+  %2296 = getelementptr inbounds nuw [8 x i8], ptr %2294, i64 %2295
   %2297 = load ptr, ptr %2296, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %2297, ptr noundef nonnull @.str.326, i32 noundef 329) #12
   %2298 = add i32 %.06.i837, 1
@@ -9033,7 +9033,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit838: ; preds =
   %2308 = phi ptr [ %2315, %.lr.ph.i840 ], [ %2301, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit838 ]
   %2309 = phi i64 [ %2313, %.lr.ph.i840 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit838 ]
   %.06.i841 = phi i32 [ %2312, %.lr.ph.i840 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit838 ]
-  %2310 = getelementptr inbounds nuw ptr, ptr %2308, i64 %2309
+  %2310 = getelementptr inbounds nuw [8 x i8], ptr %2308, i64 %2309
   %2311 = load ptr, ptr %2310, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %2311, ptr noundef nonnull @.str.327, i32 noundef 328) #12
   %2312 = add i32 %.06.i841, 1
@@ -9055,7 +9055,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit842: ; preds =
   %2322 = phi ptr [ %2329, %.lr.ph.i844 ], [ %2315, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit842 ]
   %2323 = phi i64 [ %2327, %.lr.ph.i844 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit842 ]
   %.06.i845 = phi i32 [ %2326, %.lr.ph.i844 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit842 ]
-  %2324 = getelementptr inbounds nuw ptr, ptr %2322, i64 %2323
+  %2324 = getelementptr inbounds nuw [8 x i8], ptr %2322, i64 %2323
   %2325 = load ptr, ptr %2324, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %2325, ptr noundef nonnull @.str.328, i32 noundef 333) #12
   %2326 = add i32 %.06.i845, 1
@@ -9077,7 +9077,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit846: ; preds =
   %2336 = phi ptr [ %2343, %.lr.ph.i848 ], [ %2329, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit846 ]
   %2337 = phi i64 [ %2341, %.lr.ph.i848 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit846 ]
   %.06.i849 = phi i32 [ %2340, %.lr.ph.i848 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit846 ]
-  %2338 = getelementptr inbounds nuw ptr, ptr %2336, i64 %2337
+  %2338 = getelementptr inbounds nuw [8 x i8], ptr %2336, i64 %2337
   %2339 = load ptr, ptr %2338, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %2339, ptr noundef nonnull @.str.332, i32 noundef 332) #12
   %2340 = add i32 %.06.i849, 1
@@ -9099,7 +9099,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit850: ; preds =
   %2350 = phi ptr [ %2357, %.lr.ph.i852 ], [ %2343, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit850 ]
   %2351 = phi i64 [ %2355, %.lr.ph.i852 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit850 ]
   %.06.i853 = phi i32 [ %2354, %.lr.ph.i852 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit850 ]
-  %2352 = getelementptr inbounds nuw ptr, ptr %2350, i64 %2351
+  %2352 = getelementptr inbounds nuw [8 x i8], ptr %2350, i64 %2351
   %2353 = load ptr, ptr %2352, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %2353, ptr noundef nonnull @.str.329, i32 noundef 341) #12
   %2354 = add i32 %.06.i853, 1
@@ -9121,7 +9121,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit854: ; preds =
   %2364 = phi ptr [ %2371, %.lr.ph.i856 ], [ %2357, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit854 ]
   %2365 = phi i64 [ %2369, %.lr.ph.i856 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit854 ]
   %.06.i857 = phi i32 [ %2368, %.lr.ph.i856 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit854 ]
-  %2366 = getelementptr inbounds nuw ptr, ptr %2364, i64 %2365
+  %2366 = getelementptr inbounds nuw [8 x i8], ptr %2364, i64 %2365
   %2367 = load ptr, ptr %2366, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %2367, ptr noundef nonnull @.str.333, i32 noundef 330) #12
   %2368 = add i32 %.06.i857, 1
@@ -9143,7 +9143,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit858: ; preds =
   %2378 = phi ptr [ %2385, %.lr.ph.i860 ], [ %2371, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit858 ]
   %2379 = phi i64 [ %2383, %.lr.ph.i860 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit858 ]
   %.06.i861 = phi i32 [ %2382, %.lr.ph.i860 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit858 ]
-  %2380 = getelementptr inbounds nuw ptr, ptr %2378, i64 %2379
+  %2380 = getelementptr inbounds nuw [8 x i8], ptr %2378, i64 %2379
   %2381 = load ptr, ptr %2380, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %2381, ptr noundef nonnull @.str.334, i32 noundef 330) #12
   %2382 = add i32 %.06.i861, 1
@@ -9165,7 +9165,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit862: ; preds =
   %2392 = phi ptr [ %2399, %.lr.ph.i864 ], [ %2385, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit862 ]
   %2393 = phi i64 [ %2397, %.lr.ph.i864 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit862 ]
   %.06.i865 = phi i32 [ %2396, %.lr.ph.i864 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit862 ]
-  %2394 = getelementptr inbounds nuw ptr, ptr %2392, i64 %2393
+  %2394 = getelementptr inbounds nuw [8 x i8], ptr %2392, i64 %2393
   %2395 = load ptr, ptr %2394, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %2395, ptr noundef nonnull @.str.335, i32 noundef 836) #12
   %2396 = add i32 %.06.i865, 1
@@ -9187,7 +9187,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit866: ; preds =
   %2406 = phi ptr [ %2413, %.lr.ph.i868 ], [ %2399, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit866 ]
   %2407 = phi i64 [ %2411, %.lr.ph.i868 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit866 ]
   %.06.i869 = phi i32 [ %2410, %.lr.ph.i868 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit866 ]
-  %2408 = getelementptr inbounds nuw ptr, ptr %2406, i64 %2407
+  %2408 = getelementptr inbounds nuw [8 x i8], ptr %2406, i64 %2407
   %2409 = load ptr, ptr %2408, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %2409, ptr noundef nonnull @.str.336, i32 noundef 347) #12
   %2410 = add i32 %.06.i869, 1
@@ -9209,7 +9209,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit870: ; preds =
   %2420 = phi ptr [ %2427, %.lr.ph.i872 ], [ %2413, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit870 ]
   %2421 = phi i64 [ %2425, %.lr.ph.i872 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit870 ]
   %.06.i873 = phi i32 [ %2424, %.lr.ph.i872 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit870 ]
-  %2422 = getelementptr inbounds nuw ptr, ptr %2420, i64 %2421
+  %2422 = getelementptr inbounds nuw [8 x i8], ptr %2420, i64 %2421
   %2423 = load ptr, ptr %2422, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %2423, ptr noundef nonnull @.str.337, i32 noundef 348) #12
   %2424 = add i32 %.06.i873, 1
@@ -9231,7 +9231,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit874: ; preds =
   %2434 = phi ptr [ %2441, %.lr.ph.i876 ], [ %2427, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit874 ]
   %2435 = phi i64 [ %2439, %.lr.ph.i876 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit874 ]
   %.06.i877 = phi i32 [ %2438, %.lr.ph.i876 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit874 ]
-  %2436 = getelementptr inbounds nuw ptr, ptr %2434, i64 %2435
+  %2436 = getelementptr inbounds nuw [8 x i8], ptr %2434, i64 %2435
   %2437 = load ptr, ptr %2436, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %2437, ptr noundef nonnull @.str.338, i32 noundef 351) #12
   %2438 = add i32 %.06.i877, 1
@@ -9253,7 +9253,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit878: ; preds =
   %2448 = phi ptr [ %2455, %.lr.ph.i880 ], [ %2441, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit878 ]
   %2449 = phi i64 [ %2453, %.lr.ph.i880 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit878 ]
   %.06.i881 = phi i32 [ %2452, %.lr.ph.i880 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit878 ]
-  %2450 = getelementptr inbounds nuw ptr, ptr %2448, i64 %2449
+  %2450 = getelementptr inbounds nuw [8 x i8], ptr %2448, i64 %2449
   %2451 = load ptr, ptr %2450, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %2451, ptr noundef nonnull @.str.339, i32 noundef 352) #12
   %2452 = add i32 %.06.i881, 1
@@ -9275,7 +9275,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit882: ; preds =
   %2462 = phi ptr [ %2469, %.lr.ph.i884 ], [ %2455, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit882 ]
   %2463 = phi i64 [ %2467, %.lr.ph.i884 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit882 ]
   %.06.i885 = phi i32 [ %2466, %.lr.ph.i884 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit882 ]
-  %2464 = getelementptr inbounds nuw ptr, ptr %2462, i64 %2463
+  %2464 = getelementptr inbounds nuw [8 x i8], ptr %2462, i64 %2463
   %2465 = load ptr, ptr %2464, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %2465, ptr noundef nonnull @.str.340, i32 noundef 353) #12
   %2466 = add i32 %.06.i885, 1
@@ -9297,7 +9297,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit886: ; preds =
   %2476 = phi ptr [ %2483, %.lr.ph.i888 ], [ %2469, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit886 ]
   %2477 = phi i64 [ %2481, %.lr.ph.i888 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit886 ]
   %.06.i889 = phi i32 [ %2480, %.lr.ph.i888 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit886 ]
-  %2478 = getelementptr inbounds nuw ptr, ptr %2476, i64 %2477
+  %2478 = getelementptr inbounds nuw [8 x i8], ptr %2476, i64 %2477
   %2479 = load ptr, ptr %2478, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %2479, ptr noundef nonnull @.str.341, i32 noundef 349) #12
   %2480 = add i32 %.06.i889, 1
@@ -9319,7 +9319,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit890: ; preds =
   %2490 = phi ptr [ %2497, %.lr.ph.i892 ], [ %2483, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit890 ]
   %2491 = phi i64 [ %2495, %.lr.ph.i892 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit890 ]
   %.06.i893 = phi i32 [ %2494, %.lr.ph.i892 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit890 ]
-  %2492 = getelementptr inbounds nuw ptr, ptr %2490, i64 %2491
+  %2492 = getelementptr inbounds nuw [8 x i8], ptr %2490, i64 %2491
   %2493 = load ptr, ptr %2492, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %2493, ptr noundef nonnull @.str.342, i32 noundef 350) #12
   %2494 = add i32 %.06.i893, 1
@@ -9341,7 +9341,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit894: ; preds =
   %2504 = phi ptr [ %2511, %.lr.ph.i896 ], [ %2497, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit894 ]
   %2505 = phi i64 [ %2509, %.lr.ph.i896 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit894 ]
   %.06.i897 = phi i32 [ %2508, %.lr.ph.i896 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit894 ]
-  %2506 = getelementptr inbounds nuw ptr, ptr %2504, i64 %2505
+  %2506 = getelementptr inbounds nuw [8 x i8], ptr %2504, i64 %2505
   %2507 = load ptr, ptr %2506, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %2507, ptr noundef nonnull @.str.343, i32 noundef 354) #12
   %2508 = add i32 %.06.i897, 1
@@ -9363,7 +9363,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit898: ; preds =
   %2518 = phi ptr [ %2525, %.lr.ph.i900 ], [ %2511, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit898 ]
   %2519 = phi i64 [ %2523, %.lr.ph.i900 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit898 ]
   %.06.i901 = phi i32 [ %2522, %.lr.ph.i900 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit898 ]
-  %2520 = getelementptr inbounds nuw ptr, ptr %2518, i64 %2519
+  %2520 = getelementptr inbounds nuw [8 x i8], ptr %2518, i64 %2519
   %2521 = load ptr, ptr %2520, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %2521, ptr noundef nonnull @.str.344, i32 noundef 355) #12
   %2522 = add i32 %.06.i901, 1
@@ -9385,7 +9385,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit902: ; preds =
   %2532 = phi ptr [ %2539, %.lr.ph.i904 ], [ %2525, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit902 ]
   %2533 = phi i64 [ %2537, %.lr.ph.i904 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit902 ]
   %.06.i905 = phi i32 [ %2536, %.lr.ph.i904 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit902 ]
-  %2534 = getelementptr inbounds nuw ptr, ptr %2532, i64 %2533
+  %2534 = getelementptr inbounds nuw [8 x i8], ptr %2532, i64 %2533
   %2535 = load ptr, ptr %2534, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %2535, ptr noundef nonnull @.str.345, i32 noundef 837) #12
   %2536 = add i32 %.06.i905, 1
@@ -9407,7 +9407,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit906: ; preds =
   %2546 = phi ptr [ %2553, %.lr.ph.i908 ], [ %2539, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit906 ]
   %2547 = phi i64 [ %2551, %.lr.ph.i908 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit906 ]
   %.06.i909 = phi i32 [ %2550, %.lr.ph.i908 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit906 ]
-  %2548 = getelementptr inbounds nuw ptr, ptr %2546, i64 %2547
+  %2548 = getelementptr inbounds nuw [8 x i8], ptr %2546, i64 %2547
   %2549 = load ptr, ptr %2548, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %2549, ptr noundef nonnull @.str.346, i32 noundef 376) #12
   %2550 = add i32 %.06.i909, 1
@@ -9429,7 +9429,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit910: ; preds =
   %2560 = phi ptr [ %2567, %.lr.ph.i912 ], [ %2553, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit910 ]
   %2561 = phi i64 [ %2565, %.lr.ph.i912 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit910 ]
   %.06.i913 = phi i32 [ %2564, %.lr.ph.i912 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit910 ]
-  %2562 = getelementptr inbounds nuw ptr, ptr %2560, i64 %2561
+  %2562 = getelementptr inbounds nuw [8 x i8], ptr %2560, i64 %2561
   %2563 = load ptr, ptr %2562, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %2563, ptr noundef nonnull @.str.347, i32 noundef 377) #12
   %2564 = add i32 %.06.i913, 1
@@ -9451,7 +9451,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit914: ; preds =
   %2574 = phi ptr [ %2581, %.lr.ph.i916 ], [ %2567, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit914 ]
   %2575 = phi i64 [ %2579, %.lr.ph.i916 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit914 ]
   %.06.i917 = phi i32 [ %2578, %.lr.ph.i916 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit914 ]
-  %2576 = getelementptr inbounds nuw ptr, ptr %2574, i64 %2575
+  %2576 = getelementptr inbounds nuw [8 x i8], ptr %2574, i64 %2575
   %2577 = load ptr, ptr %2576, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %2577, ptr noundef nonnull @.str.348, i32 noundef 378) #12
   %2578 = add i32 %.06.i917, 1
@@ -9473,7 +9473,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit918: ; preds =
   %2588 = phi ptr [ %2595, %.lr.ph.i920 ], [ %2581, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit918 ]
   %2589 = phi i64 [ %2593, %.lr.ph.i920 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit918 ]
   %.06.i921 = phi i32 [ %2592, %.lr.ph.i920 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit918 ]
-  %2590 = getelementptr inbounds nuw ptr, ptr %2588, i64 %2589
+  %2590 = getelementptr inbounds nuw [8 x i8], ptr %2588, i64 %2589
   %2591 = load ptr, ptr %2590, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %2591, ptr noundef nonnull @.str.349, i32 noundef 375) #12
   %2592 = add i32 %.06.i921, 1
@@ -9495,7 +9495,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit922: ; preds =
   %2602 = phi ptr [ %2609, %.lr.ph.i924 ], [ %2595, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit922 ]
   %2603 = phi i64 [ %2607, %.lr.ph.i924 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit922 ]
   %.06.i925 = phi i32 [ %2606, %.lr.ph.i924 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit922 ]
-  %2604 = getelementptr inbounds nuw ptr, ptr %2602, i64 %2603
+  %2604 = getelementptr inbounds nuw [8 x i8], ptr %2602, i64 %2603
   %2605 = load ptr, ptr %2604, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %2605, ptr noundef nonnull @.str.397, i32 noundef 618) #12
   %2606 = add i32 %.06.i925, 1
@@ -9517,7 +9517,7 @@ _ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit926: ; preds =
   %2616 = phi ptr [ %2623, %.lr.ph.i928 ], [ %2609, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit926 ]
   %2617 = phi i64 [ %2621, %.lr.ph.i928 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit926 ]
   %.06.i929 = phi i32 [ %2620, %.lr.ph.i928 ], [ 0, %_ZN7glslang12TSymbolTable16relateToOperatorEPKcNS_9TOperatorE.exit926 ]
-  %2618 = getelementptr inbounds nuw ptr, ptr %2616, i64 %2617
+  %2618 = getelementptr inbounds nuw [8 x i8], ptr %2616, i64 %2617
   %2619 = load ptr, ptr %2618, align 8
   tail call void @_ZN7glslang17TSymbolTableLevel16relateToOperatorEPKcNS_9TOperatorE(ptr noundef nonnull align 8 dereferenceable(101) %2619, ptr noundef nonnull @.str.398, i32 noundef 619) #12
   %2620 = add i32 %.06.i929, 1
@@ -9562,7 +9562,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZNK7glslan
 define linkonce_odr noundef nonnull align 8 dereferenceable(40) ptr @_ZNK7glslang18TBuiltInParseables14getStageStringB5cxx11E11EShLanguage(ptr noundef nonnull align 8 dereferenceable(608) %0, i32 noundef %1) unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = zext i32 %1 to i64
-  %5 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i64 %4
+  %5 = getelementptr inbounds nuw [40 x i8], ptr %3, i64 %4
   ret ptr %5
 }
 

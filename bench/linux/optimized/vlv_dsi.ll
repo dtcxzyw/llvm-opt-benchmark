@@ -345,7 +345,7 @@ define dso_local void @vlv_dsi_init(ptr noundef %0) local_unnamed_addr #0 align 
 .thread:                                          ; preds = %129
   %132 = load i32, ptr %2, align 4
   %133 = sext i32 %132 to i64
-  %134 = getelementptr ptr, ptr %120, i64 %133
+  %134 = getelementptr [8 x i8], ptr %120, i64 %133
   store ptr %130, ptr %134, align 8
   br label %135
 

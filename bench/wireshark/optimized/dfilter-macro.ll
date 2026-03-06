@@ -175,7 +175,7 @@ start_is_field_reference.exit.thread:             ; preds = %38, %35, %32, %star
 
 63:                                               ; preds = %31
   %64 = zext i8 %16 to i64
-  %65 = getelementptr i16, ptr %12, i64 %64
+  %65 = getelementptr [2 x i8], ptr %12, i64 %64
   %66 = load i16, ptr %65, align 2
   %67 = trunc i16 %66 to i1
   %68 = icmp eq i8 %16, 95
@@ -255,7 +255,7 @@ g_string_append_c_inline.exit217:                 ; preds = %92, %98
 
 112:                                              ; preds = %g_string_append_c_inline.exit
   %113 = zext i8 %16 to i64
-  %114 = getelementptr i16, ptr %12, i64 %113
+  %114 = getelementptr [2 x i8], ptr %12, i64 %113
   %115 = load i16, ptr %114, align 2
   %116 = trunc i16 %115 to i1
   %117 = icmp eq i8 %16, 95
@@ -352,7 +352,7 @@ g_string_append_c_inline.exit217:                 ; preds = %92, %98
 
 156:                                              ; preds = %g_string_append_c_inline.exit
   %157 = zext i8 %16 to i64
-  %158 = getelementptr i16, ptr %12, i64 %157
+  %158 = getelementptr [2 x i8], ptr %12, i64 %157
   %159 = load i16, ptr %158, align 2
   %160 = trunc i16 %159 to i1
   %161 = icmp eq i8 %16, 95
@@ -1044,7 +1044,7 @@ define void @dfilter_macro_reload() local_unnamed_addr #0 {
   %.01319.i = phi ptr [ %20, %19 ], [ %6, %10 ]
   %14 = phi i8 [ %.pr.i, %19 ], [ %8, %10 ]
   %15 = zext i8 %14 to i64
-  %16 = getelementptr i16, ptr %3, i64 %15
+  %16 = getelementptr [2 x i8], ptr %3, i64 %15
   %17 = load i16, ptr %16, align 2
   %.not16.i = trunc i16 %17 to i1
   %18 = icmp eq i8 %14, 95
@@ -1223,7 +1223,7 @@ define internal fastcc noalias ptr @dfilter_macro_resolve(ptr noundef %0, ptr no
 .preheader43:                                     ; preds = %13, %.preheader43
   %.1 = phi i32 [ %17, %.preheader43 ], [ 0, %13 ]
   %14 = sext i32 %.1 to i64
-  %15 = getelementptr ptr, ptr %1, i64 %14
+  %15 = getelementptr [8 x i8], ptr %1, i64 %14
   %16 = load ptr, ptr %15, align 8
   %.not39 = icmp eq ptr %16, null
   %17 = add i32 %.1, 1
@@ -1267,7 +1267,7 @@ define internal fastcc noalias ptr @dfilter_macro_resolve(ptr noundef %0, ptr no
   %32 = getelementptr i8, ptr %.03047, i64 4
   %33 = load i32, ptr %.03047, align 4
   %34 = sext i32 %33 to i64
-  %35 = getelementptr ptr, ptr %1, i64 %34
+  %35 = getelementptr [8 x i8], ptr %1, i64 %34
   %36 = load ptr, ptr %35, align 8
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %29, ptr noundef nonnull @.str.13, ptr noundef %36, ptr noundef nonnull %31)
   %.029 = getelementptr i8, ptr %.02948, i64 8

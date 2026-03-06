@@ -52,10 +52,10 @@ define i32 @cs_spsolve(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nound
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %36, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %37 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
+  %37 = getelementptr inbounds [4 x i8], ptr %3, i64 %indvars.iv
   %38 = load i32, ptr %37, align 4, !tbaa !15
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds double, ptr %4, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr %4, i64 %39
   store double 0.000000e+00, ptr %40, align 8, !tbaa !16
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -63,7 +63,7 @@ define i32 @cs_spsolve(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nound
 
 ._crit_edge:                                      ; preds = %.lr.ph, %19
   %41 = sext i32 %2 to i64
-  %42 = getelementptr inbounds i32, ptr %29, i64 %41
+  %42 = getelementptr inbounds [4 x i8], ptr %29, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !15
   %44 = getelementptr i8, ptr %42, i64 4
   %45 = load i32, ptr %44, align 4, !tbaa !15
@@ -87,13 +87,13 @@ define i32 @cs_spsolve(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nound
 
 .lr.ph102.split.us:                               ; preds = %.lr.ph102, %.loopexit.us
   %indvars.iv124 = phi i64 [ %indvars.iv.next125, %.loopexit.us ], [ %48, %.lr.ph102 ]
-  %49 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv124
+  %49 = getelementptr inbounds [4 x i8], ptr %3, i64 %indvars.iv124
   %50 = load i32, ptr %49, align 4, !tbaa !15
   br i1 %.not90, label %55, label %51
 
 51:                                               ; preds = %.lr.ph102.split.us
   %52 = sext i32 %50 to i64
-  %53 = getelementptr inbounds i32, ptr %5, i64 %52
+  %53 = getelementptr inbounds [4 x i8], ptr %5, i64 %52
   %54 = load i32, ptr %53, align 4, !tbaa !15
   br label %55
 
@@ -104,15 +104,15 @@ define i32 @cs_spsolve(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nound
 
 58:                                               ; preds = %55
   %59 = zext nneg i32 %56 to i64
-  %60 = getelementptr inbounds nuw i32, ptr %21, i64 %59
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %59
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 4
   %62 = load i32, ptr %61, align 4, !tbaa !15
   %63 = sext i32 %62 to i64
-  %64 = getelementptr double, ptr %25, i64 %63
+  %64 = getelementptr [8 x i8], ptr %25, i64 %63
   %65 = getelementptr i8, ptr %64, i64 -8
   %66 = load double, ptr %65, align 8, !tbaa !16
   %67 = sext i32 %50 to i64
-  %68 = getelementptr inbounds double, ptr %4, i64 %67
+  %68 = getelementptr inbounds [8 x i8], ptr %4, i64 %67
   %69 = load double, ptr %68, align 8, !tbaa !16
   %70 = fdiv double %69, %66
   store double %70, ptr %68, align 8, !tbaa !16
@@ -128,13 +128,13 @@ define i32 @cs_spsolve(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nound
 
 .lr.ph100.us:                                     ; preds = %.lr.ph100.us.preheader, %.lr.ph100.us
   %indvars.iv119 = phi i64 [ %74, %.lr.ph100.us.preheader ], [ %indvars.iv.next120, %.lr.ph100.us ]
-  %75 = getelementptr inbounds double, ptr %25, i64 %indvars.iv119
+  %75 = getelementptr inbounds [8 x i8], ptr %25, i64 %indvars.iv119
   %76 = load double, ptr %75, align 8, !tbaa !16
   %77 = load double, ptr %68, align 8, !tbaa !16
-  %78 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv119
+  %78 = getelementptr inbounds [4 x i8], ptr %23, i64 %indvars.iv119
   %79 = load i32, ptr %78, align 4, !tbaa !15
   %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds double, ptr %4, i64 %80
+  %81 = getelementptr inbounds [8 x i8], ptr %4, i64 %80
   %82 = load double, ptr %81, align 8, !tbaa !16
   %83 = fneg double %76
   %84 = tail call double @llvm.fmuladd.f64(double %83, double %77, double %82)
@@ -150,12 +150,12 @@ define i32 @cs_spsolve(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nound
 
 .lr.ph97:                                         ; preds = %.lr.ph97.preheader, %.lr.ph97
   %indvars.iv105 = phi i64 [ %47, %.lr.ph97.preheader ], [ %indvars.iv.next106, %.lr.ph97 ]
-  %85 = getelementptr inbounds double, ptr %33, i64 %indvars.iv105
+  %85 = getelementptr inbounds [8 x i8], ptr %33, i64 %indvars.iv105
   %86 = load double, ptr %85, align 8, !tbaa !16
-  %87 = getelementptr inbounds i32, ptr %31, i64 %indvars.iv105
+  %87 = getelementptr inbounds [4 x i8], ptr %31, i64 %indvars.iv105
   %88 = load i32, ptr %87, align 4, !tbaa !15
   %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds double, ptr %4, i64 %89
+  %90 = getelementptr inbounds [8 x i8], ptr %4, i64 %89
   store double %86, ptr %90, align 8, !tbaa !16
   %indvars.iv.next106 = add nsw i64 %indvars.iv105, 1
   %exitcond109.not = icmp eq i64 %indvars.iv.next106, %wide.trip.count108
@@ -163,13 +163,13 @@ define i32 @cs_spsolve(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nound
 
 .lr.ph102.split:                                  ; preds = %.lr.ph102, %.loopexit
   %indvars.iv114 = phi i64 [ %indvars.iv.next115, %.loopexit ], [ %48, %.lr.ph102 ]
-  %91 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv114
+  %91 = getelementptr inbounds [4 x i8], ptr %3, i64 %indvars.iv114
   %92 = load i32, ptr %91, align 4, !tbaa !15
   br i1 %.not90, label %97, label %93
 
 93:                                               ; preds = %.lr.ph102.split
   %94 = sext i32 %92 to i64
-  %95 = getelementptr inbounds i32, ptr %5, i64 %94
+  %95 = getelementptr inbounds [4 x i8], ptr %5, i64 %94
   %96 = load i32, ptr %95, align 4, !tbaa !15
   br label %97
 
@@ -180,13 +180,13 @@ define i32 @cs_spsolve(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nound
 
 100:                                              ; preds = %97
   %101 = zext nneg i32 %98 to i64
-  %102 = getelementptr inbounds nuw i32, ptr %21, i64 %101
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %101
   %103 = load i32, ptr %102, align 4, !tbaa !15
   %104 = sext i32 %103 to i64
-  %105 = getelementptr inbounds double, ptr %25, i64 %104
+  %105 = getelementptr inbounds [8 x i8], ptr %25, i64 %104
   %106 = load double, ptr %105, align 8, !tbaa !16
   %107 = sext i32 %92 to i64
-  %108 = getelementptr inbounds double, ptr %4, i64 %107
+  %108 = getelementptr inbounds [8 x i8], ptr %4, i64 %107
   %109 = load double, ptr %108, align 8, !tbaa !16
   %110 = fdiv double %109, %106
   store double %110, ptr %108, align 8, !tbaa !16
@@ -202,13 +202,13 @@ define i32 @cs_spsolve(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nound
 
 .lr.ph100:                                        ; preds = %.lr.ph100.preheader, %.lr.ph100
   %indvars.iv110 = phi i64 [ %115, %.lr.ph100.preheader ], [ %indvars.iv.next111, %.lr.ph100 ]
-  %116 = getelementptr inbounds double, ptr %25, i64 %indvars.iv110
+  %116 = getelementptr inbounds [8 x i8], ptr %25, i64 %indvars.iv110
   %117 = load double, ptr %116, align 8, !tbaa !16
   %118 = load double, ptr %108, align 8, !tbaa !16
-  %119 = getelementptr inbounds i32, ptr %23, i64 %indvars.iv110
+  %119 = getelementptr inbounds [4 x i8], ptr %23, i64 %indvars.iv110
   %120 = load i32, ptr %119, align 4, !tbaa !15
   %121 = sext i32 %120 to i64
-  %122 = getelementptr inbounds double, ptr %4, i64 %121
+  %122 = getelementptr inbounds [8 x i8], ptr %4, i64 %121
   %123 = load double, ptr %122, align 8, !tbaa !16
   %124 = fneg double %117
   %125 = tail call double @llvm.fmuladd.f64(double %124, double %118, double %123)

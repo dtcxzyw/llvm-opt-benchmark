@@ -447,8 +447,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_blk_io_sched
 %struct.trace_event_buffer = type { ptr, ptr, ptr, ptr, i32, ptr }
 %struct.wait_queue_entry = type { i32, ptr, ptr, %struct.list_head }
 %struct.bio_list = type { ptr, ptr }
-%struct.local_t = type { %struct.atomic64_t }
-%struct.atomic64_t = type { i64 }
 
 @__tpstrtab_block_touch_buffer = internal constant [19 x i8] c"block_touch_buffer\00", section "__tracepoints_strings", align 16
 @__SCK__tp_func_block_touch_buffer = dso_local global %struct.static_call_key { ptr @__traceiter_block_touch_buffer, %union.anon.0 { i64 1 } }, align 8
@@ -1760,7 +1758,7 @@ define internal void @trace_event_raw_event_block_rq_completion(ptr noundef %0, 
 
 40:                                               ; preds = %30
   %41 = zext nneg i8 %2 to i64
-  %42 = getelementptr %struct.anon.8, ptr @blk_errors, i64 %41
+  %42 = getelementptr [16 x i8], ptr @blk_errors, i64 %41
   %43 = load i32, ptr %42, align 16
   br label %44
 
@@ -1864,7 +1862,7 @@ define internal void @perf_trace_block_rq_completion(ptr noundef %0, ptr noundef
 
 51:                                               ; preds = %41
   %52 = zext nneg i8 %2 to i64
-  %53 = getelementptr %struct.anon.8, ptr @blk_errors, i64 %52
+  %53 = getelementptr [16 x i8], ptr @blk_errors, i64 %52
   %54 = load i32, ptr %53, align 16
   br label %55
 
@@ -2175,7 +2173,7 @@ define internal void @trace_event_raw_event_block_bio_complete(ptr noundef %0, p
 
 39:                                               ; preds = %17
   %40 = zext nneg i8 %36 to i64
-  %41 = getelementptr %struct.anon.8, ptr @blk_errors, i64 %40
+  %41 = getelementptr [16 x i8], ptr @blk_errors, i64 %40
   %42 = load i32, ptr %41, align 16
   br label %43
 
@@ -2269,7 +2267,7 @@ define internal void @perf_trace_block_bio_complete(ptr noundef %0, ptr readnone
 
 50:                                               ; preds = %19
   %51 = zext nneg i8 %47 to i64
-  %52 = getelementptr %struct.anon.8, ptr @blk_errors, i64 %51
+  %52 = getelementptr [16 x i8], ptr @blk_errors, i64 %51
   %53 = load i32, ptr %52, align 16
   br label %54
 
@@ -3126,7 +3124,7 @@ define dso_local ptr @blk_op_str(i32 noundef %0) #3 align 16 {
   br i1 %7, label %8, label %11
 
 8:                                                ; preds = %3
-  %9 = getelementptr ptr, ptr @blk_op_name, i64 %4
+  %9 = getelementptr [8 x i8], ptr @blk_op_name, i64 %4
   %10 = load ptr, ptr %9, align 8
   br label %11
 
@@ -3141,7 +3139,7 @@ define dso_local zeroext i8 @errno_to_blk_status(i32 noundef %0) #4 align 16 {
 
 2:                                                ; preds = %9, %1
   %3 = phi i64 [ 0, %1 ], [ %10, %9 ]
-  %4 = getelementptr %struct.anon.8, ptr @blk_errors, i64 %3
+  %4 = getelementptr [16 x i8], ptr @blk_errors, i64 %3
   %5 = load i32, ptr %4, align 16
   %6 = icmp eq i32 %5, %0
   br i1 %6, label %7, label %9
@@ -3173,7 +3171,7 @@ define dso_local i32 @blk_status_to_errno(i8 noundef zeroext %0) #1 align 16 {
 
 4:                                                ; preds = %1
   %5 = zext nneg i8 %0 to i64
-  %6 = getelementptr %struct.anon.8, ptr @blk_errors, i64 %5
+  %6 = getelementptr [16 x i8], ptr @blk_errors, i64 %5
   %7 = load i32, ptr %6, align 16
   br label %8
 
@@ -3195,7 +3193,7 @@ define dso_local ptr @blk_status_to_str(i8 noundef zeroext %0) #1 align 16 {
 
 4:                                                ; preds = %1
   %5 = zext nneg i8 %0 to i64
-  %.split = getelementptr %struct.anon.8, ptr @blk_errors, i64 %5
+  %.split = getelementptr [16 x i8], ptr @blk_errors, i64 %5
   %6 = getelementptr i8, ptr %.split, i64 8
   %7 = load ptr, ptr %6, align 8
   br label %8
@@ -5076,14 +5074,14 @@ define dso_local noundef i64 @bdev_start_io_acct(ptr noundef %0, i32 noundef %1,
   %31 = ptrtoint ptr %30 to i64
   %32 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #20, !srcloc !104
   %33 = sext i32 %32 to i64
-  %34 = getelementptr i64, ptr @__per_cpu_offset, i64 %33
+  %34 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %33
   %35 = load i64, ptr %34, align 8
   %36 = add i64 %35, %31
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 136
   %39 = and i32 %1, 1
   %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr %struct.local_t, ptr %38, i64 %40
+  %41 = getelementptr [8 x i8], ptr %38, i64 %40
   tail call void asm sideeffect " incq $0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %41, ptr elementtype(i64) %41) #19, !srcloc !105
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !106
   %42 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #19, !srcloc !79
@@ -5161,14 +5159,14 @@ define dso_local i64 @bio_start_io_acct(ptr noundef readonly captures(none) %0) 
   %34 = ptrtoint ptr %33 to i64
   %35 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #20, !srcloc !104
   %36 = sext i32 %35 to i64
-  %37 = getelementptr i64, ptr @__per_cpu_offset, i64 %36
+  %37 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %36
   %38 = load i64, ptr %37, align 8
   %39 = add i64 %38, %34
   %40 = inttoptr i64 %39 to ptr
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 136
   %42 = and i32 %5, 1
   %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr %struct.local_t, ptr %41, i64 %43
+  %44 = getelementptr [8 x i8], ptr %41, i64 %43
   tail call void asm sideeffect " incq $0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %44, ptr elementtype(i64) %44) #19, !srcloc !105
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !106
   %45 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #19, !srcloc !79
@@ -5241,7 +5239,7 @@ define dso_local void @bdev_end_io_acct(ptr noundef %0, i32 noundef %1, i32 noun
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 64
   %40 = zext nneg i32 %35 to i64
-  %41 = getelementptr i64, ptr %39, i64 %40
+  %41 = getelementptr [8 x i8], ptr %39, i64 %40
   tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %41, ptr elementtype(i64) %41) #19, !srcloc !109
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 49
   %43 = load i8, ptr %42, align 1
@@ -5256,7 +5254,7 @@ define dso_local void @bdev_end_io_acct(ptr noundef %0, i32 noundef %1, i32 noun
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 32
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 64
-  %53 = getelementptr i64, ptr %52, i64 %40
+  %53 = getelementptr [8 x i8], ptr %52, i64 %40
   tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %53, ptr elementtype(i64) %53) #19, !srcloc !110
   br label %54
 
@@ -5264,7 +5262,7 @@ define dso_local void @bdev_end_io_acct(ptr noundef %0, i32 noundef %1, i32 noun
   %55 = zext i32 %2 to i64
   %56 = load ptr, ptr %37, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 32
-  %58 = getelementptr i64, ptr %57, i64 %40
+  %58 = getelementptr [8 x i8], ptr %57, i64 %40
   tail call void asm "addq $1, %gs:$0", "=*m,re,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %58, i64 %55, ptr elementtype(i64) %58) #19, !srcloc !111
   %59 = load i8, ptr %42, align 1
   %60 = icmp eq i8 %59, 0
@@ -5278,7 +5276,7 @@ define dso_local void @bdev_end_io_acct(ptr noundef %0, i32 noundef %1, i32 noun
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 32
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 32
-  %69 = getelementptr i64, ptr %68, i64 %40
+  %69 = getelementptr [8 x i8], ptr %68, i64 %40
   tail call void asm "addq $1, %gs:$0", "=*m,re,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %69, i64 %55, ptr elementtype(i64) %69) #19, !srcloc !112
   br label %70
 
@@ -5287,7 +5285,7 @@ define dso_local void @bdev_end_io_acct(ptr noundef %0, i32 noundef %1, i32 noun
   %72 = zext i32 %71 to i64
   %73 = mul nuw nsw i64 %72, 1000
   %74 = load ptr, ptr %37, align 8
-  %75 = getelementptr i64, ptr %74, i64 %40
+  %75 = getelementptr [8 x i8], ptr %74, i64 %40
   tail call void asm "addq $1, %gs:$0", "=*m,re,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %75, i64 %73, ptr elementtype(i64) %75) #19, !srcloc !113
   %76 = load i8, ptr %42, align 1
   %77 = icmp eq i8 %76, 0
@@ -5303,7 +5301,7 @@ define dso_local void @bdev_end_io_acct(ptr noundef %0, i32 noundef %1, i32 noun
   %85 = load ptr, ptr %84, align 8
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 32
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr i64, ptr %87, i64 %40
+  %88 = getelementptr [8 x i8], ptr %87, i64 %40
   tail call void asm "addq $1, %gs:$0", "=*m,re,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %88, i64 %81, ptr elementtype(i64) %88) #19, !srcloc !114
   br label %89
 
@@ -5312,13 +5310,13 @@ define dso_local void @bdev_end_io_acct(ptr noundef %0, i32 noundef %1, i32 noun
   %91 = ptrtoint ptr %90 to i64
   %92 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #20, !srcloc !115
   %93 = sext i32 %92 to i64
-  %94 = getelementptr i64, ptr @__per_cpu_offset, i64 %93
+  %94 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %93
   %95 = load i64, ptr %94, align 8
   %96 = add i64 %95, %91
   %97 = inttoptr i64 %96 to ptr
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 136
   %99 = zext nneg i32 %33 to i64
-  %100 = getelementptr %struct.local_t, ptr %98, i64 %99
+  %100 = getelementptr [8 x i8], ptr %98, i64 %99
   tail call void asm sideeffect " decq $0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %100, ptr elementtype(i64) %100) #19, !srcloc !116
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #19, !srcloc !117
   %101 = tail call i8 asm sideeffect "decl %gs:$0\0A\09/* output condition code e*/\0A", "=*m,={@cce},*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #19, !srcloc !79

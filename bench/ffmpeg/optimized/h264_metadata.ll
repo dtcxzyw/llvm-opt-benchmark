@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.AVBitStreamFilter = type { ptr, ptr, ptr }
 %union.anon = type { i64 }
 %struct.AVRational = type { i32, i32 }
-%struct.CodedBitstreamUnit = type { i32, ptr, i64, i64, ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [14 x i8] c"h264_metadata\00", align 1
 @h264_metadata_codec_ids = internal constant [2 x i32] [i32 27, i32 0], align 4
@@ -263,7 +262,7 @@ define internal range(i32 -2147483648, 1) i32 @h264_metadata_update_fragment(ptr
   %indvars.iv = phi i64 [ %22, %.lr.ph ], [ %indvars.iv.next, %30 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %24 = load ptr, ptr %21, align 8, !tbaa !37
-  %25 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %24, i64 %indvars.iv.next
+  %25 = getelementptr inbounds nuw [56 x i8], ptr %24, i64 %indvars.iv.next
   %26 = load i32, ptr %25, align 8, !tbaa !38
   %27 = icmp eq i32 %26, 9
   br i1 %27, label %28, label %30
@@ -302,7 +301,7 @@ define internal range(i32 -2147483648, 1) i32 @h264_metadata_update_fragment(ptr
 41:                                               ; preds = %.loopexit.i, %.lr.ph.i
   %indvars.iv45.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next46.i, %.loopexit.i ]
   %.02941.i = phi i32 [ 255, %.lr.ph.i ], [ %.3.i, %.loopexit.i ]
-  %42 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %40, i64 %indvars.iv45.i
+  %42 = getelementptr inbounds nuw [56 x i8], ptr %40, i64 %indvars.iv45.i
   %43 = load i32, ptr %42, align 8, !tbaa !38
   switch i32 %43, label %.loopexit.i [
     i32 1, label %44
@@ -321,7 +320,7 @@ define internal range(i32 -2147483648, 1) i32 @h264_metadata_update_fragment(ptr
 51:                                               ; preds = %51, %44
   %indvars.iv.i = phi i64 [ 0, %44 ], [ %indvars.iv.next.i, %51 ]
   %.139.i = phi i32 [ %.02941.i, %44 ], [ %.2.i, %51 ]
-  %52 = getelementptr inbounds nuw i32, ptr @h264_metadata_insert_aud.primary_pic_type_table, i64 %indvars.iv.i
+  %52 = getelementptr inbounds nuw [4 x i8], ptr @h264_metadata_insert_aud.primary_pic_type_table, i64 %indvars.iv.i
   %53 = load i32, ptr %52, align 4, !tbaa !45
   %54 = and i32 %53, %50
   %.not36.i = icmp eq i32 %54, 0
@@ -388,7 +387,7 @@ h264_metadata_insert_aud.exit:                    ; preds = %30, %17, %64, %32
   %indvars.iv130 = phi i64 [ 0, %.lr.ph114 ], [ %indvars.iv.next131, %h264_metadata_update_sps.exit ]
   %.062113 = phi i32 [ 0, %.lr.ph114 ], [ %.1, %h264_metadata_update_sps.exit ]
   %74 = load ptr, ptr %72, align 8, !tbaa !37
-  %75 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %74, i64 %indvars.iv130
+  %75 = getelementptr inbounds nuw [56 x i8], ptr %74, i64 %indvars.iv130
   %76 = load i32, ptr %75, align 8, !tbaa !38
   %77 = icmp eq i32 %76, 7
   br i1 %77, label %78, label %h264_metadata_update_sps.exit
@@ -420,7 +419,7 @@ h264_metadata_insert_aud.exit:                    ; preds = %30, %17, %64, %32
 
 93:                                               ; preds = %101, %87
   %indvars.iv.i76 = phi i64 [ 1, %87 ], [ %indvars.iv.next.i77, %101 ]
-  %94 = getelementptr inbounds nuw %struct.AVRational, ptr @ff_h2645_pixel_aspect, i64 %indvars.iv.i76
+  %94 = getelementptr inbounds nuw [8 x i8], ptr @ff_h2645_pixel_aspect, i64 %indvars.iv.i76
   %95 = load i32, ptr %94, align 8, !tbaa !51
   %96 = icmp eq i32 %91, %95
   br i1 %96, label %97, label %101
@@ -1011,7 +1010,7 @@ h264_metadata_update_sps.exit:                    ; preds = %369, %368, %73
   %indvars.iv133 = phi i64 [ %401, %.lr.ph118 ], [ %indvars.iv.next134, %409 ]
   %indvars.iv.next134 = add nsw i64 %indvars.iv133, -1
   %403 = load ptr, ptr %400, align 8, !tbaa !37
-  %404 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %403, i64 %indvars.iv.next134
+  %404 = getelementptr inbounds nuw [56 x i8], ptr %403, i64 %indvars.iv.next134
   %405 = load i32, ptr %404, align 8, !tbaa !38
   %406 = icmp eq i32 %405, 12
   br i1 %406, label %407, label %409
@@ -1124,11 +1123,11 @@ h264_metadata_update_sps.exit:                    ; preds = %369, %368, %73
 
 463:                                              ; preds = %463, %462
   %indvars.iv.i82 = phi i64 [ 0, %462 ], [ %indvars.iv.next.i83, %463 ]
-  %464 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i82
+  %464 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv.i82
   %465 = load i32, ptr %464, align 4, !tbaa !45
   %466 = sitofp i32 %465 to double
   %467 = fmul nnan nsz double %466, 0x3EF0000000000000
-  %468 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv.i82
+  %468 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i82
   store double %467, ptr %468, align 8, !tbaa !134
   %indvars.iv.next.i83 = add nuw nsw i64 %indvars.iv.i82, 1
   %exitcond.not.i84 = icmp eq i64 %indvars.iv.next.i83, 9
@@ -1154,7 +1153,7 @@ h264_metadata_update_sps.exit:                    ; preds = %369, %368, %73
 
 483:                                              ; preds = %483, %469
   %indvars.iv126.i = phi i64 [ 0, %469 ], [ %indvars.iv.next127.i, %483 ]
-  %484 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv126.i
+  %484 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv126.i
   %485 = load double, ptr %484, align 8, !tbaa !134
   %486 = fdiv nsz double %485, %.078.i
   store double %486, ptr %484, align 8, !tbaa !134

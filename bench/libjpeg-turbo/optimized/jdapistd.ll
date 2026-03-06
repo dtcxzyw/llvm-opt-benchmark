@@ -494,7 +494,7 @@ define void @jpeg_crop_scanline(ptr noundef %0, ptr noundef captures(address_is_
   %147 = trunc i64 %146 to i32
   %148 = load ptr, ptr %4, align 8, !tbaa !49
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 32
-  %150 = getelementptr inbounds nuw i32, ptr %149, i64 %indvars.iv
+  %150 = getelementptr inbounds nuw [4 x i8], ptr %149, i64 %indvars.iv
   store i32 %147, ptr %150, align 4, !tbaa !67
   %151 = load i32, ptr %1, align 4, !tbaa !67
   %152 = load i32, ptr %60, align 8, !tbaa !68
@@ -506,7 +506,7 @@ define void @jpeg_crop_scanline(ptr noundef %0, ptr noundef captures(address_is_
   %158 = add i32 %157, -1
   %159 = load ptr, ptr %4, align 8, !tbaa !49
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 72
-  %161 = getelementptr inbounds nuw i32, ptr %160, i64 %indvars.iv
+  %161 = getelementptr inbounds nuw [4 x i8], ptr %160, i64 %indvars.iv
   store i32 %158, ptr %161, align 4, !tbaa !67
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %162 = getelementptr inbounds nuw i8, ptr %.098109, i64 96
@@ -947,9 +947,9 @@ read_and_discard_scanlines.exit:                  ; preds = %115, %116
   %150 = load i32, ptr %149, align 4, !tbaa !88
   %151 = mul nsw i32 %150, %148
   %152 = sdiv i32 %151, %71
-  %153 = getelementptr inbounds nuw ptr, ptr %141, i64 %indvars.iv52.i
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %141, i64 %indvars.iv52.i
   %154 = load ptr, ptr %153, align 8, !tbaa !112
-  %155 = getelementptr inbounds nuw ptr, ptr %143, i64 %indvars.iv52.i
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %143, i64 %indvars.iv52.i
   %156 = load ptr, ptr %155, align 8, !tbaa !112
   %157 = icmp sgt i32 %152, 0
   br i1 %157, label %.lr.ph.i194, label %._crit_edge.i193
@@ -965,23 +965,23 @@ read_and_discard_scanlines.exit:                  ; preds = %115, %116
 163:                                              ; preds = %163, %.lr.ph.i194
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i194 ], [ %indvars.iv.next.i, %163 ]
   %164 = add nsw i64 %indvars.iv.i, %160
-  %165 = getelementptr inbounds ptr, ptr %154, i64 %164
+  %165 = getelementptr inbounds [8 x i8], ptr %154, i64 %164
   %166 = load ptr, ptr %165, align 8, !tbaa !100
   %167 = sub nsw i64 %indvars.iv.i, %161
-  %168 = getelementptr inbounds ptr, ptr %154, i64 %167
+  %168 = getelementptr inbounds [8 x i8], ptr %154, i64 %167
   store ptr %166, ptr %168, align 8, !tbaa !100
-  %169 = getelementptr inbounds ptr, ptr %156, i64 %164
+  %169 = getelementptr inbounds [8 x i8], ptr %156, i64 %164
   %170 = load ptr, ptr %169, align 8, !tbaa !100
-  %171 = getelementptr inbounds ptr, ptr %156, i64 %167
+  %171 = getelementptr inbounds [8 x i8], ptr %156, i64 %167
   store ptr %170, ptr %171, align 8, !tbaa !100
-  %172 = getelementptr inbounds nuw ptr, ptr %154, i64 %indvars.iv.i
+  %172 = getelementptr inbounds nuw [8 x i8], ptr %154, i64 %indvars.iv.i
   %173 = load ptr, ptr %172, align 8, !tbaa !100
   %174 = add nsw i64 %indvars.iv.i, %162
-  %175 = getelementptr inbounds ptr, ptr %154, i64 %174
+  %175 = getelementptr inbounds [8 x i8], ptr %154, i64 %174
   store ptr %173, ptr %175, align 8, !tbaa !100
-  %176 = getelementptr inbounds nuw ptr, ptr %156, i64 %indvars.iv.i
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %156, i64 %indvars.iv.i
   %177 = load ptr, ptr %176, align 8, !tbaa !100
-  %178 = getelementptr inbounds ptr, ptr %156, i64 %174
+  %178 = getelementptr inbounds [8 x i8], ptr %156, i64 %174
   store ptr %177, ptr %178, align 8, !tbaa !100
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i195 = icmp eq i64 %indvars.iv.next.i, %161

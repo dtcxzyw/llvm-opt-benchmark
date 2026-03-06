@@ -169,13 +169,13 @@ define void @_Z19gmx_stats_add_pointP9gmx_statsdddd(ptr noundef captures(none) %
 
 40:                                               ; preds = %.lr.ph, %40
   %indvars.iv = phi i64 [ %39, %.lr.ph ], [ %indvars.iv.next, %40 ]
-  %41 = getelementptr inbounds double, ptr %36, i64 %indvars.iv
+  %41 = getelementptr inbounds [8 x i8], ptr %36, i64 %indvars.iv
   store double 0.000000e+00, ptr %41, align 8, !tbaa !18
-  %42 = getelementptr inbounds double, ptr %37, i64 %indvars.iv
+  %42 = getelementptr inbounds [8 x i8], ptr %37, i64 %indvars.iv
   store double 0.000000e+00, ptr %42, align 8, !tbaa !18
-  %43 = getelementptr inbounds double, ptr %38, i64 %indvars.iv
+  %43 = getelementptr inbounds [8 x i8], ptr %38, i64 %indvars.iv
   store double 0.000000e+00, ptr %43, align 8, !tbaa !18
-  %44 = getelementptr inbounds double, ptr %32, i64 %indvars.iv
+  %44 = getelementptr inbounds [8 x i8], ptr %32, i64 %indvars.iv
   store double 0.000000e+00, ptr %44, align 8, !tbaa !18
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -187,17 +187,17 @@ define void @_Z19gmx_stats_add_pointP9gmx_statsdddd(ptr noundef captures(none) %
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %48 = load ptr, ptr %47, align 8, !tbaa !4
   %49 = sext i32 %46 to i64
-  %50 = getelementptr inbounds double, ptr %48, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %48, i64 %49
   store double %1, ptr %50, align 8, !tbaa !18
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %52 = load ptr, ptr %51, align 8, !tbaa !12
-  %53 = getelementptr inbounds double, ptr %52, i64 %49
+  %53 = getelementptr inbounds [8 x i8], ptr %52, i64 %49
   store double %2, ptr %53, align 8, !tbaa !18
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %55 = load ptr, ptr %54, align 8, !tbaa !13
-  %56 = getelementptr inbounds double, ptr %55, i64 %49
+  %56 = getelementptr inbounds [8 x i8], ptr %55, i64 %49
   store double %3, ptr %56, align 8, !tbaa !18
-  %57 = getelementptr inbounds double, ptr %45, i64 %49
+  %57 = getelementptr inbounds [8 x i8], ptr %45, i64 %49
   store double %4, ptr %57, align 8, !tbaa !18
   %58 = add nsw i32 %46, 1
   store i32 %58, ptr %6, align 4, !tbaa !15
@@ -317,9 +317,9 @@ define internal fastcc void @_ZL17gmx_stats_computeP9gmx_statsi(ptr noundef capt
   %.0157167.us = phi double [ %32, %.preheader.split.us ], [ 0.000000e+00, %.preheader ]
   %.0158166.us = phi double [ %34, %.preheader.split.us ], [ 0.000000e+00, %.preheader ]
   %.0160165.us = phi double [ %23, %.preheader.split.us ], [ 0.000000e+00, %.preheader ]
-  %17 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %18 = load double, ptr %17, align 8, !tbaa !18
-  %19 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %20 = load double, ptr %19, align 8, !tbaa !18
   %21 = fsub double %18, %20
   %22 = fmul double %21, %21
@@ -416,14 +416,14 @@ define internal fastcc void @_ZL17gmx_stats_computeP9gmx_statsi(ptr noundef capt
   %.0157167 = phi double [ %95, %.preheader.split ], [ 0.000000e+00, %.preheader ]
   %.0158166 = phi double [ %97, %.preheader.split ], [ 0.000000e+00, %.preheader ]
   %.0160165 = phi double [ %80, %.preheader.split ], [ 0.000000e+00, %.preheader ]
-  %74 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv213
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv213
   %75 = load double, ptr %74, align 8, !tbaa !18
-  %76 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv213
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv213
   %77 = load double, ptr %76, align 8, !tbaa !18
   %78 = fsub double %75, %77
   %79 = fmul double %78, %78
   %80 = fadd double %.0160165, %79
-  %81 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv213
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv213
   %82 = load double, ptr %81, align 8, !tbaa !18
   %83 = fcmp une double %82, 0.000000e+00
   %84 = fmul double %82, %82
@@ -453,13 +453,13 @@ define internal fastcc void @_ZL17gmx_stats_computeP9gmx_statsi(ptr noundef capt
 100:                                              ; preds = %.lr.ph, %100
   %indvars.iv218 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next219, %100 ]
   %.0161187 = phi double [ 0.000000e+00, %.lr.ph ], [ %112, %100 ]
-  %101 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv218
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv218
   %102 = load double, ptr %101, align 8, !tbaa !18
   %103 = fcmp ogt double %102, 0.000000e+00
   %. = select i1 %103, double %102, double 1.000000e+00
-  %104 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv218
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv218
   %105 = load double, ptr %104, align 8, !tbaa !18
-  %106 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv218
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv218
   %107 = load double, ptr %106, align 8, !tbaa !18
   %108 = tail call double @llvm.fmuladd.f64(double %69, double %107, double %72)
   %109 = fsub double %105, %108
@@ -1093,10 +1093,10 @@ _Z16gmx_stats_get_abP9gmx_statsiPfS1_S1_S1_S1_S1_.exit: ; preds = %24, %25
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %37 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %38 = load float, ptr %37, align 4, !tbaa !23
   %39 = fpext float %38 to double
-  %40 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %41 = load float, ptr %40, align 4, !tbaa !23
   %42 = fpext float %41 to double
   tail call void @_Z19gmx_stats_add_pointP9gmx_statsdddd(ptr noundef %8, double noundef %39, double noundef %42, double noundef 0.000000e+00, double noundef 0.000000e+00)
@@ -1184,9 +1184,9 @@ _Z16gmx_stats_get_abP9gmx_statsiPfS1_S1_S1_S1_S1_.exit: ; preds = %24, %25
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %37 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %38 = load double, ptr %37, align 8, !tbaa !18
-  %39 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %40 = load float, ptr %39, align 4, !tbaa !23
   %41 = fpext float %40 to double
   tail call void @_Z19gmx_stats_add_pointP9gmx_statsdddd(ptr noundef %8, double noundef %38, double noundef %41, double noundef 0.000000e+00, double noundef 0.000000e+00)
@@ -1352,13 +1352,13 @@ _Z16gmx_stats_get_abP9gmx_statsiPfS1_S1_S1_S1_S1_.exit: ; preds = %53, %54
 
 66:                                               ; preds = %26, %66
   %indvars.iv = phi i64 [ 0, %26 ], [ %indvars.iv.next, %66 ]
-  %67 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %68 = load float, ptr %67, align 4, !tbaa !23
   %69 = fpext float %68 to double
-  %70 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %71 = load float, ptr %70, align 4, !tbaa !23
   %72 = fpext float %71 to double
-  %73 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %74 = load float, ptr %73, align 4, !tbaa !23
   %75 = fpext float %74 to double
   tail call void @_Z19gmx_stats_add_pointP9gmx_statsdddd(ptr noundef %27, double noundef %69, double noundef %72, double noundef 0.000000e+00, double noundef %75)

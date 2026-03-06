@@ -1766,7 +1766,7 @@ define hidden noundef zeroext i1 @_ZN2cv2ml22LogisticRegressionImpl13set_label_m
 
 50:                                               ; preds = %46, %43
   %51 = load ptr, ptr %25, align 8, !tbaa !110
-  %52 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %indvars.iv
   br label %_ZN2cv3Mat2atIiEERT_i.exit
 
 53:                                               ; preds = %46
@@ -1796,7 +1796,7 @@ define hidden noundef zeroext i1 @_ZN2cv2ml22LogisticRegressionImpl13set_label_m
   %72 = mul i64 %70, %71
   %73 = getelementptr inbounds nuw i8, ptr %68, i64 %72
   %74 = sext i32 %.recomposed to i64
-  %75 = getelementptr inbounds i32, ptr %73, i64 %74
+  %75 = getelementptr inbounds [4 x i8], ptr %73, i64 %74
   br label %_ZN2cv3Mat2atIiEERT_i.exit
 
 _ZN2cv3Mat2atIiEERT_i.exit:                       ; preds = %50, %57, %63

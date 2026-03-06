@@ -1186,7 +1186,7 @@ define internal fastcc void @_ZL12DisplayImageN2cv3MatENSt7__cxx1112basic_string
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %49 ]
   %43 = phi ptr [ %22, %.lr.ph ], [ %51, %49 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %44 = getelementptr inbounds nuw %"class.cv::Mat", ptr %43, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [96 x i8], ptr %43, i64 %indvars.iv
   store i32 0, ptr %29, align 8, !tbaa !42
   store i32 0, ptr %30, align 4, !tbaa !44
   store i32 16842752, ptr %6, align 8, !tbaa !45
@@ -1195,8 +1195,8 @@ define internal fastcc void @_ZL12DisplayImageN2cv3MatENSt7__cxx1112basic_string
           to label %46 unwind label %58
 
 46:                                               ; preds = %42
-  %47 = getelementptr inbounds nuw double, ptr %18, i64 %indvars.iv
-  %48 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv
   invoke void @_ZN2cv9minMaxLocERKNS_11_InputArrayEPdS3_PNS_6Point_IiEES6_S2_(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull %48, ptr noundef nonnull %47, ptr noundef null, ptr noundef null, ptr noundef nonnull align 8 dereferenceable(24) %45)
           to label %49 unwind label %58
 

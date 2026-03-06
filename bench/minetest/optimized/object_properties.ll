@@ -25,7 +25,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::basic_ostream.base" = type { ptr }
 %"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
 %"class.std::allocator.5" = type { i8 }
-%"class.irr::video::SColor" = type { i32 }
 
 $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_ = comdat any
 
@@ -1365,7 +1364,7 @@ for.body:                                         ; preds = %for.inc, %for.body.
   %conv241 = phi i64 [ 0, %for.body.lr.ph ], [ %conv, %for.inc ]
   %i.0240 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %ret.0239 = phi i8 [ 1, %for.body.lr.ph ], [ %ret.1, %for.inc ]
-  %_M_string_length.i43.split = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %4, i64 %conv241
+  %_M_string_length.i43.split = getelementptr inbounds nuw [32 x i8], ptr %4, i64 %conv241
   %_M_string_length.i43 = getelementptr inbounds nuw i8, ptr %_M_string_length.i43.split, i64 8
   %6 = load i64, ptr %_M_string_length.i43, align 8, !tbaa !11
   %cmp6 = icmp ugt i64 %6, 65535
@@ -1456,7 +1455,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %if.e
 
 _ZN11StreamProxylsEPFRSoS0_E.exit:                ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit, %_ZN11StreamProxylsIRA36_KcEERS_OT_.exit, %_ZN11StreamProxylsIjEERS_OT_.exit, %_ZN11StreamProxylsIRA9_KcEERS_OT_.exit, %_ZN9LogStreamlsIRPKcEER11StreamProxyOT_.exit, %_ZTW13warningstream.exit
   %15 = load ptr, ptr %this, align 8, !tbaa !53
-  %add.ptr.i53 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %15, i64 %conv241
+  %add.ptr.i53 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 %conv241
   %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i53, i64 8
   store i64 0, ptr %_M_string_length.i.i.i, align 8, !tbaa !11
   %16 = load ptr, ptr %add.ptr.i53, align 8, !tbaa !50
@@ -3478,7 +3477,7 @@ _ZNSt6vectorIN3irr5video6SColorESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx1
   %incdec.ptr.i.i.i76 = phi ptr [ %incdec.ptr.i.i.i75, %if.then.i41.i.i.i ], [ %incdec.ptr.i.i.i, %_ZNSt6vectorIN3irr5video6SColorESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i ]
   store ptr %call5.i.i.i.i.i.i, ptr %colors, align 8, !tbaa !51
   store ptr %incdec.ptr.i.i.i76, ptr %_M_finish.i.i325, align 8, !tbaa !49
-  %add.ptr19.i.i.i = getelementptr inbounds nuw %"class.irr::video::SColor", ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i490, align 8, !tbaa !47
   br label %_ZNSt6vectorIN3irr5video6SColorESaIS2_EE9push_backEOS2_.exit
 
@@ -4271,7 +4270,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %cond.i47, ptr %this, align 8, !tbaa !53
   store ptr %__cur.0.lcssa.i.i.i63, ptr %_M_finish.i.i, align 8, !tbaa !54
-  %add.ptr26 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %cond.i47, i64 %cond.i
+  %add.ptr26 = getelementptr inbounds nuw [32 x i8], ptr %cond.i47, i64 %cond.i
   store ptr %add.ptr26, ptr %_M_end_of_storage, align 8, !tbaa !113
   ret void
 
@@ -4495,7 +4494,7 @@ _ZNSt12_Vector_baseIN3irr5video6SColorESaIS2_EE13_M_deallocateEPS2_m.exit: ; pre
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !51
   store ptr %__cur.0.lcssa.i.i.i61, ptr %_M_finish.i.i, align 8, !tbaa !49
-  %add.ptr32 = getelementptr inbounds nuw %"class.irr::video::SColor", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr32 = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr32, ptr %_M_end_of_storage, align 8, !tbaa !47
   ret void
 }
@@ -4692,7 +4691,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %cond.i31, ptr %this, align 8, !tbaa !53
   store ptr %__cur.0.lcssa.i.i.i46, ptr %_M_finish.i.i, align 8, !tbaa !54
-  %add.ptr19 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %cond.i31, i64 %cond.i
+  %add.ptr19 = getelementptr inbounds nuw [32 x i8], ptr %cond.i31, i64 %cond.i
   store ptr %add.ptr19, ptr %_M_end_of_storage, align 8, !tbaa !113
   ret void
 }

@@ -26,7 +26,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.cpuinfo_x86 = type { i8, i8, i8, i8, i32, [5 x i32], i8, i8, i8, i32, i32, %union.anon.6, [16 x i8], [64 x i8], %struct.cpuinfo_topology, i32, i32, i32, i32, i32, i32, i64, i64, i16, i16, i16, i16, i8, i32, i8, i8 }
 %union.anon.6 = type { i64, [88 x i8] }
 %struct.cpuinfo_topology = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.cpufreq_frequency_table = type { i32, i32, i32 }
 
 @od_ops.0 = internal unnamed_addr global ptr @generic_powersave_bias_target, align 8
 @__UNIQUE_ID___addressable_od_register_powersave_bias_handler332 = internal global ptr @od_register_powersave_bias_handler, section ".discard.addressable", align 8
@@ -547,7 +546,7 @@ define internal i32 @generic_powersave_bias_target(ptr noundef %0, i32 noundef %
 
 195:                                              ; preds = %.split97
   %196 = sext i32 %.us-phi99 to i64
-  %.split28.us = getelementptr %struct.cpufreq_frequency_table, ptr %9, i64 %196
+  %.split28.us = getelementptr [12 x i8], ptr %9, i64 %196
   %197 = getelementptr i8, ptr %.split28.us, i64 8
   %198 = load i32, ptr %197, align 4
   %199 = sub i32 %184, %198
@@ -650,7 +649,7 @@ define internal i32 @generic_powersave_bias_target(ptr noundef %0, i32 noundef %
 
 251:                                              ; preds = %249
   %252 = sext i32 %237 to i64
-  %.split = getelementptr %struct.cpufreq_frequency_table, ptr %9, i64 %252
+  %.split = getelementptr [12 x i8], ptr %9, i64 %252
   %253 = getelementptr i8, ptr %.split, i64 8
   %254 = load i32, ptr %253, align 4
   %255 = sub i32 %254, %233
@@ -680,7 +679,7 @@ define internal i32 @generic_powersave_bias_target(ptr noundef %0, i32 noundef %
 .loopexit59:                                      ; preds = %.loopexit57.us, %.loopexit54.us.us, %.loopexit51.us, %.loopexit48.us.us, %.loopexit45, %.loopexit42.us, %263, %227
   %267 = phi i32 [ %228, %227 ], [ 0, %263 ], [ %207, %.loopexit42.us ], [ %125, %.loopexit54.us.us ], [ %.us-phi82.us.us, %.loopexit48.us.us ], [ %264, %.loopexit45 ], [ %87, %.loopexit51.us ], [ %.us-phi.us, %.loopexit57.us ]
   %268 = zext i32 %267 to i64
-  %.split29 = getelementptr %struct.cpufreq_frequency_table, ptr %9, i64 %268
+  %.split29 = getelementptr [12 x i8], ptr %9, i64 %268
   %269 = getelementptr i8, ptr %.split29, i64 8
   %270 = load i32, ptr %269, align 4
   %271 = load i32, ptr %15, align 4
@@ -827,7 +826,7 @@ define internal i32 @generic_powersave_bias_target(ptr noundef %0, i32 noundef %
 .loopexit36:                                      ; preds = %.preheader38.split, %341, %294, %.preheader38.split.us, %.preheader35.split, %322, %305, %.preheader35.split.us, %.split122.us
   %347 = phi i32 [ %327, %.split122.us ], [ %290, %294 ], [ %314, %322 ], [ %301, %305 ], [ %302, %.preheader35.split.us ], [ %315, %.preheader35.split ], [ %291, %.preheader38.split.us ], [ %334, %.preheader38.split ], [ %333, %341 ]
   %348 = zext i32 %347 to i64
-  %.split30 = getelementptr %struct.cpufreq_frequency_table, ptr %9, i64 %348
+  %.split30 = getelementptr [12 x i8], ptr %9, i64 %348
   %349 = getelementptr i8, ptr %.split30, i64 8
   %350 = load i32, ptr %349, align 4
   br i1 %279, label %351, label %355
@@ -935,7 +934,7 @@ define internal i32 @generic_powersave_bias_target(ptr noundef %0, i32 noundef %
 .loopexit:                                        ; preds = %393, %.preheader32, %.preheader.split, %377, %362, %.preheader.split.us, %397
   %404 = phi i32 [ %399, %397 ], [ %369, %377 ], [ %358, %362 ], [ %359, %.preheader.split.us ], [ %370, %.preheader.split ], [ %385, %.preheader32 ], [ %384, %393 ]
   %405 = zext i32 %404 to i64
-  %.split31 = getelementptr %struct.cpufreq_frequency_table, ptr %9, i64 %405
+  %.split31 = getelementptr [12 x i8], ptr %9, i64 %405
   %406 = getelementptr i8, ptr %.split31, i64 8
   %407 = load i32, ptr %406, align 4
   %408 = icmp eq i32 %407, %350

@@ -19,14 +19,9 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::basic_string_view" = type { i64, ptr }
 %"class.absl::ByChar" = type { i8 }
 %"class.absl::strings_internal::SplitIterator" = type <{ i64, i32, [4 x i8], %"class.std::basic_string_view", ptr, %"class.absl::ByChar", [7 x i8] }>
-%"struct.std::pair" = type <{ %"class.std::basic_string_view", i32, [4 x i8] }>
 %"struct.std::vector<absl::log_internal::(anonymous namespace)::VModuleInfo>::_Temporary_value" = type { ptr, %"union.std::vector<absl::log_internal::(anonymous namespace)::VModuleInfo>::_Temporary_value::_Storage" }
 %"union.std::vector<absl::log_internal::(anonymous namespace)::VModuleInfo>::_Temporary_value::_Storage" = type { %"struct.absl::log_internal::(anonymous namespace)::VModuleInfo" }
 %"struct.absl::log_internal::(anonymous namespace)::VModuleInfo" = type { %"class.std::__cxx11::basic_string", i8, i32 }
-%"class.std::function" = type { %"class.std::_Function_base", ptr }
-%"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
-%"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
-%"union.std::_Nocopy_types" = type { { i64, i64 } }
 
 $_ZN4absl13base_internal14SpinLockHolderD2Ev = comdat any
 
@@ -949,7 +944,7 @@ _ZNSt6vectorISt4pairISt17basic_string_viewIcSt11char_traitsIcEEiESaIS5_EE11_S_re
   br label %_ZNSt6vectorISt4pairISt17basic_string_viewIcSt11char_traitsIcEEiESaIS5_EE17_M_realloc_insertIJRKS4_RiEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i
 
 _ZNSt6vectorISt4pairISt17basic_string_viewIcSt11char_traitsIcEEiESaIS5_EE17_M_realloc_insertIJRKS4_RiEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i: ; preds = %79, %_ZNSt6vectorISt4pairISt17basic_string_viewIcSt11char_traitsIcEEiESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit33.i.i
-  %80 = getelementptr inbounds nuw %"struct.std::pair", ptr %73, i64 %71
+  %80 = getelementptr inbounds nuw [24 x i8], ptr %73, i64 %71
   br label %_ZNSt6vectorISt4pairISt17basic_string_viewIcSt11char_traitsIcEEiESaIS5_EE12emplace_backIJRKS4_RiEEERS5_DpOT_.exit
 
 _ZNSt6vectorISt4pairISt17basic_string_viewIcSt11char_traitsIcEEiESaIS5_EE12emplace_backIJRKS4_RiEEERS5_DpOT_.exit: ; preds = %.preheader, %45, %55, %58, %_ZNSt6vectorISt4pairISt17basic_string_viewIcSt11char_traitsIcEEiESaIS5_EE17_M_realloc_insertIJRKS4_RiEEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i
@@ -2783,7 +2778,7 @@ _ZNSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE11_S_reloca
 _ZNSt12_Vector_baseIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN4absl12log_internal12_GLOBAL__N_111VModuleInfoESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit47, %80
   store ptr %21, ptr %0, align 8, !tbaa !40
   store ptr %.0.lcssa.i.i.i46, ptr %4, align 8, !tbaa !42
-  %84 = getelementptr inbounds nuw %"struct.absl::log_internal::(anonymous namespace)::VModuleInfo", ptr %21, i64 %15
+  %84 = getelementptr inbounds nuw [40 x i8], ptr %21, i64 %15
   store ptr %84, ptr %79, align 8, !tbaa !43
   ret void
 
@@ -2997,7 +2992,7 @@ _ZNSt6vectorISt8functionIFvvEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit25: ; pre
 _ZNSt12_Vector_baseISt8functionIFvvEESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorISt8functionIFvvEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit25, %47
   store ptr %20, ptr %0, align 8, !tbaa !110
   store ptr %.0.lcssa.i.i.i24, ptr %4, align 8, !tbaa !93
-  %51 = getelementptr inbounds nuw %"class.std::function", ptr %20, i64 %16
+  %51 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %16
   store ptr %51, ptr %46, align 8, !tbaa !95
   ret void
 }

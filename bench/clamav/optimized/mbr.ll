@@ -64,7 +64,7 @@ define range(i32 0, 575) i32 @cli_mbr_check(ptr noundef readonly captures(none) 
 
 .preheader:                                       ; preds = %6, %13
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %13 ], [ 0, %6 ]
-  %14 = getelementptr inbounds nuw %struct.mbr_partition_entry, ptr %4, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %indvars.iv.i
   %15 = load i8, ptr %14, align 1, !tbaa !11
   switch i8 %15, label %.sink.split.i [
     i8 0, label %16
@@ -184,7 +184,7 @@ fmap_readn.exit.thread:                           ; preds = %17, %15, %fmap_read
 
 .preheader:                                       ; preds = %22, %28
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %28 ], [ 0, %22 ]
-  %29 = getelementptr inbounds nuw %struct.mbr_partition_entry, ptr %3, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv.i
   %30 = load i8, ptr %29, align 1, !tbaa !11
   switch i8 %30, label %.sink.split.i [
     i8 0, label %31
@@ -295,7 +295,7 @@ fmap_readn.exit.thread:                           ; preds = %18, %16, %fmap_read
 
 27:                                               ; preds = %26, %23
   %indvars.iv.i = phi i64 [ 0, %23 ], [ %indvars.iv.next.i, %26 ]
-  %28 = getelementptr inbounds nuw %struct.mbr_partition_entry, ptr %4, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %indvars.iv.i
   %29 = load i8, ptr %28, align 8, !tbaa !11
   switch i8 %29, label %mbr_check_mbr.exit [
     i8 0, label %30
@@ -377,7 +377,7 @@ mbr_check_mbr.exit:                               ; preds = %27, %30, %40, %41
 69:                                               ; preds = %64
   %70 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.4, i32 noundef %70) #6
-  %71 = getelementptr inbounds nuw %struct.mbr_partition_entry, ptr %4, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %indvars.iv
   %72 = load i8, ptr %71, align 8, !tbaa !11
   %73 = zext i8 %72 to i32
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.5, i32 noundef %73) #6
@@ -497,7 +497,7 @@ mbr_check_ebr.exit.i:                             ; preds = %109, %105
 115:                                              ; preds = %.backedge.i
   %116 = trunc nuw nsw i64 %indvars.iv.i83 to i32
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.13, i32 noundef %116) #6
-  %117 = getelementptr inbounds nuw %struct.mbr_partition_entry, ptr %3, i64 %indvars.iv.i83
+  %117 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv.i83
   %118 = load i8, ptr %117, align 1, !tbaa !11
   %119 = zext i8 %118 to i32
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.5, i32 noundef %119) #6
@@ -598,7 +598,7 @@ default.unreachable:                              ; preds = %138, %134, %131
   br i1 %.not74.i, label %.backedge.i.outer.backedge, label %mbr_scanextprtn.exit.thread
 
 151:                                              ; preds = %.backedge.i
-  %152 = getelementptr inbounds nuw %struct.mbr_partition_entry, ptr %3, i64 %indvars.iv.i83
+  %152 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv.i83
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 4
   %154 = load i8, ptr %153, align 1, !tbaa !8
   %.not73.i = icmp eq i8 %154, 0
@@ -710,7 +710,7 @@ define internal fastcc i32 @mbr_primary_partition_intersection(ptr noundef nonnu
   br i1 %18, label %19, label %.critedge
 
 19:                                               ; preds = %14
-  %20 = getelementptr inbounds nuw %struct.mbr_partition_entry, ptr %1, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %22 = load i8, ptr %21, align 4, !tbaa !8
   %23 = icmp eq i8 %22, 0

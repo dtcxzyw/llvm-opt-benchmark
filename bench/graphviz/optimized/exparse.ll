@@ -8,7 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.Error_info_s = type { i32, i32, i32, i32, i32, ptr, ptr }
 %union.EX_STYPE = type { ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%union.yyalloc = type { %union.EX_STYPE }
 
 @typename = internal unnamed_addr constant [6 x ptr] [ptr @.str.60, ptr @.str.61, ptr @.str.62, ptr @.str.63, ptr @.str.64, ptr @.str.65], align 16
 @typecast = internal unnamed_addr constant [6 x [6 x i32]] [[6 x i32] [i32 320, i32 318, i32 318, i32 318, i32 317, i32 319], [6 x i32] [i32 315, i32 0, i32 0, i32 0, i32 309, i32 310], [6 x i32] [i32 315, i32 0, i32 0, i32 0, i32 309, i32 310], [6 x i32] [i32 315, i32 0, i32 0, i32 0, i32 309, i32 310], [6 x i32] [i32 314, i32 307, i32 307, i32 307, i32 0, i32 308], [6 x i32] [i32 316, i32 313, i32 313, i32 313, i32 312, i32 0]], align 16
@@ -545,7 +544,7 @@ define void @exfreenode(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 97:                                               ; preds = %.preheader, %100
   %.0122 = phi i64 [ 0, %.preheader ], [ %101, %100 ]
-  %98 = getelementptr inbounds nuw ptr, ptr %96, i64 %.0122
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %.0122
   %99 = load ptr, ptr %98, align 8, !tbaa !35
   %.not105 = icmp eq ptr %99, null
   br i1 %.not105, label %.critedge, label %100
@@ -633,7 +632,7 @@ define ptr @extypename(ptr noundef readonly captures(none) %0, i64 noundef %1) l
   %5 = icmp samesign ult i64 %1, 264
   %6 = add nsw i64 %1, -258
   %7 = select i1 %5, i64 %6, i64 0
-  %8 = getelementptr inbounds nuw ptr, ptr @typename, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr @typename, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !42
   br label %16
 
@@ -703,12 +702,12 @@ switch.early.test:                                ; preds = %7
   %or.cond = icmp ult i64 %12, 5
   %13 = add nsw i64 %.fr, -258
   %14 = select i1 %or.cond, i64 %13, i64 0
-  %15 = getelementptr inbounds nuw [6 x i32], ptr @typecast, i64 %14
+  %15 = getelementptr inbounds nuw [24 x i8], ptr @typecast, i64 %14
   %16 = add i64 %2, -259
   %or.cond5 = icmp ult i64 %16, 5
   %17 = add nsw i64 %2, -258
   %18 = select i1 %or.cond5, i64 %17, i64 0
-  %19 = getelementptr inbounds i32, ptr %15, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %15, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !49
   %.not112 = icmp eq i32 %20, 0
   br i1 %.not112, label %262, label %21
@@ -731,7 +730,7 @@ switch.early.test:                                ; preds = %7
 29:                                               ; preds = %28
   %30 = icmp samesign ult i64 %.fr, 264
   %31 = select i1 %30, i64 %13, i64 0
-  %32 = getelementptr inbounds nuw ptr, ptr @typename, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr @typename, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !42
   br label %extypename.exit
 
@@ -749,7 +748,7 @@ extypename.exit:                                  ; preds = %29, %34
 39:                                               ; preds = %extypename.exit
   %40 = icmp samesign ult i64 %2, 264
   %41 = select i1 %40, i64 %17, i64 0
-  %42 = getelementptr inbounds nuw ptr, ptr @typename, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr @typename, i64 %41
   %43 = load ptr, ptr %42, align 8, !tbaa !42
   br label %extypename.exit120
 
@@ -814,7 +813,7 @@ extypename.exit120:                               ; preds = %39, %44
   %76 = icmp samesign ult i64 %73, 264
   %77 = add nsw i64 %73, -258
   %78 = select i1 %76, i64 %77, i64 0
-  %79 = getelementptr inbounds nuw ptr, ptr @typename, i64 %78
+  %79 = getelementptr inbounds nuw [8 x i8], ptr @typename, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !42
   br label %extypename.exit122
 
@@ -842,7 +841,7 @@ extypename.exit122:                               ; preds = %75, %81
   %93 = icmp samesign ult i64 %90, 264
   %94 = add nsw i64 %90, -258
   %95 = select i1 %93, i64 %94, i64 0
-  %96 = getelementptr inbounds nuw ptr, ptr @typename, i64 %95
+  %96 = getelementptr inbounds nuw [8 x i8], ptr @typename, i64 %95
   %97 = load ptr, ptr %96, align 8, !tbaa !42
   br label %extypename.exit124
 
@@ -861,7 +860,7 @@ extypename.exit124:                               ; preds = %92, %98
 104:                                              ; preds = %extypename.exit124
   %105 = icmp samesign ult i64 %2, 264
   %106 = select i1 %105, i64 %17, i64 0
-  %107 = getelementptr inbounds nuw ptr, ptr @typename, i64 %106
+  %107 = getelementptr inbounds nuw [8 x i8], ptr @typename, i64 %106
   %108 = load ptr, ptr %107, align 8, !tbaa !42
   br label %extypename.exit126
 
@@ -886,7 +885,7 @@ extypename.exit126:                               ; preds = %104, %109
   %118 = icmp samesign ult i64 %115, 264
   %119 = add nsw i64 %115, -258
   %120 = select i1 %118, i64 %119, i64 0
-  %121 = getelementptr inbounds nuw ptr, ptr @typename, i64 %120
+  %121 = getelementptr inbounds nuw [8 x i8], ptr @typename, i64 %120
   %122 = load ptr, ptr %121, align 8, !tbaa !42
   br label %extypename.exit128
 
@@ -905,7 +904,7 @@ extypename.exit128:                               ; preds = %117, %123
 129:                                              ; preds = %extypename.exit128
   %130 = icmp samesign ult i64 %2, 264
   %131 = select i1 %130, i64 %17, i64 0
-  %132 = getelementptr inbounds nuw ptr, ptr @typename, i64 %131
+  %132 = getelementptr inbounds nuw [8 x i8], ptr @typename, i64 %131
   %133 = load ptr, ptr %132, align 8, !tbaa !42
   br label %extypename.exit130
 
@@ -985,7 +984,7 @@ extypename.exit130:                               ; preds = %129, %134
   %168 = icmp samesign ult i64 %165, 264
   %169 = add nsw i64 %165, -258
   %170 = select i1 %168, i64 %169, i64 0
-  %171 = getelementptr inbounds nuw ptr, ptr @typename, i64 %170
+  %171 = getelementptr inbounds nuw [8 x i8], ptr @typename, i64 %170
   %172 = load ptr, ptr %171, align 8, !tbaa !42
   br label %extypename.exit132
 
@@ -1004,7 +1003,7 @@ extypename.exit132:                               ; preds = %167, %173
 179:                                              ; preds = %extypename.exit132
   %180 = icmp samesign ult i64 %2, 264
   %181 = select i1 %180, i64 %17, i64 0
-  %182 = getelementptr inbounds nuw ptr, ptr @typename, i64 %181
+  %182 = getelementptr inbounds nuw [8 x i8], ptr @typename, i64 %181
   %183 = load ptr, ptr %182, align 8, !tbaa !42
   br label %extypename.exit134
 
@@ -1038,7 +1037,7 @@ extypename.exit134:                               ; preds = %179, %184
   %200 = icmp samesign ult i64 %197, 264
   %201 = add nsw i64 %197, -258
   %202 = select i1 %200, i64 %201, i64 0
-  %203 = getelementptr inbounds nuw ptr, ptr @typename, i64 %202
+  %203 = getelementptr inbounds nuw [8 x i8], ptr @typename, i64 %202
   %204 = load ptr, ptr %203, align 8, !tbaa !42
   br label %extypename.exit136
 
@@ -1057,7 +1056,7 @@ extypename.exit136:                               ; preds = %199, %205
 211:                                              ; preds = %extypename.exit136
   %212 = icmp samesign ult i64 %2, 264
   %213 = select i1 %212, i64 %17, i64 0
-  %214 = getelementptr inbounds nuw ptr, ptr @typename, i64 %213
+  %214 = getelementptr inbounds nuw [8 x i8], ptr @typename, i64 %213
   %215 = load ptr, ptr %214, align 8, !tbaa !42
   br label %extypename.exit138
 
@@ -1530,7 +1529,7 @@ define range(i32 0, 3) i32 @ex_parse() local_unnamed_addr #0 {
   br label %18
 
 18:                                               ; preds = %.thread, %17, %13
-  %19 = getelementptr inbounds i16, ptr %.0679, i64 %.0676
+  %19 = getelementptr inbounds [2 x i8], ptr %.0679, i64 %.0676
   %20 = getelementptr inbounds i8, ptr %19, i64 -2
   %.not789 = icmp ugt ptr %20, %.0682
   br i1 %.not789, label %.thread984, label %21
@@ -1559,7 +1558,7 @@ define range(i32 0, 3) i32 @ex_parse() local_unnamed_addr #0 {
   %35 = shl nsw i64 %spec.store.select, 1
   %36 = add nsw i64 %35, 7
   %37 = sdiv i64 %36, 8
-  %38 = getelementptr inbounds %union.yyalloc, ptr %32, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %32, i64 %37
   %39 = shl i64 %26, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %38, ptr align 8 %.0689, i64 %39, i1 false)
   %.not791 = icmp eq ptr %.0679, %1
@@ -1570,9 +1569,9 @@ define range(i32 0, 3) i32 @ex_parse() local_unnamed_addr #0 {
   br label %41
 
 41:                                               ; preds = %33, %40
-  %42 = getelementptr inbounds i16, ptr %32, i64 %26
+  %42 = getelementptr inbounds [2 x i8], ptr %32, i64 %26
   %43 = getelementptr inbounds i8, ptr %42, i64 -2
-  %44 = getelementptr inbounds %union.EX_STYPE, ptr %38, i64 %26
+  %44 = getelementptr inbounds [8 x i8], ptr %38, i64 %26
   %45 = getelementptr inbounds i8, ptr %44, i64 -8
   %46 = load i32, ptr @ex_debug, align 4, !tbaa !49
   %.not792 = icmp eq i32 %46, 0
@@ -1598,7 +1597,7 @@ define range(i32 0, 3) i32 @ex_parse() local_unnamed_addr #0 {
 
 52:                                               ; preds = %.thread984
   %53 = sext i32 %.0672 to i64
-  %54 = getelementptr inbounds i16, ptr @yypact, i64 %53
+  %54 = getelementptr inbounds [2 x i8], ptr @yypact, i64 %53
   %55 = load i16, ptr %54, align 2, !tbaa !76
   %56 = sext i16 %55 to i32
   %57 = icmp eq i16 %55, -180
@@ -1673,7 +1672,7 @@ define range(i32 0, 3) i32 @ex_parse() local_unnamed_addr #0 {
   %94 = icmp slt i32 %88, 106
   %95 = select i1 %94, ptr @.str.69, ptr @.str.70
   %96 = sext i32 %88 to i64
-  %97 = getelementptr inbounds ptr, ptr @yytname, i64 %96
+  %97 = getelementptr inbounds [8 x i8], ptr @yytname, i64 %96
   %98 = load ptr, ptr %97, align 8, !tbaa !42
   %99 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %93, ptr noundef nonnull @.str.68, ptr noundef nonnull %95, ptr noundef %98) #27
   %fputc.i = call i32 @fputc(i32 41, ptr %93)
@@ -1689,14 +1688,14 @@ define range(i32 0, 3) i32 @ex_parse() local_unnamed_addr #0 {
 
 103:                                              ; preds = %101
   %104 = zext nneg i32 %102 to i64
-  %105 = getelementptr inbounds nuw i16, ptr @yycheck, i64 %104
+  %105 = getelementptr inbounds nuw [2 x i8], ptr @yycheck, i64 %104
   %106 = load i16, ptr %105, align 2, !tbaa !76
   %107 = sext i16 %106 to i32
   %.not797 = icmp eq i32 %.0706, %107
   br i1 %.not797, label %108, label %127
 
 108:                                              ; preds = %103
-  %109 = getelementptr inbounds nuw i16, ptr @yytable, i64 %104
+  %109 = getelementptr inbounds nuw [2 x i8], ptr @yytable, i64 %104
   %110 = load i16, ptr %109, align 2, !tbaa !76
   %111 = sext i16 %110 to i32
   %112 = icmp slt i16 %110, 1
@@ -1746,7 +1745,7 @@ define range(i32 0, 3) i32 @ex_parse() local_unnamed_addr #0 {
   %135 = load i8, ptr %134, align 1, !tbaa !27
   %136 = sext i8 %135 to i64
   %137 = sub nsw i64 1, %136
-  %138 = getelementptr inbounds %union.EX_STYPE, ptr %.2695, i64 %137
+  %138 = getelementptr inbounds [8 x i8], ptr %.2695, i64 %137
   %139 = load i64, ptr %138, align 8, !tbaa !27
   %140 = inttoptr i64 %139 to ptr
   %141 = load i32, ptr @ex_debug, align 4, !tbaa !49
@@ -2582,7 +2581,7 @@ exisAssign.exit.thread:                           ; preds = %301, %309, %exisAss
   %530 = icmp samesign ult i64 %520, 264
   %531 = add nsw i64 %520, -258
   %532 = select i1 %530, i64 %531, i64 0
-  %533 = getelementptr inbounds nuw ptr, ptr @typename, i64 %532
+  %533 = getelementptr inbounds nuw [8 x i8], ptr @typename, i64 %532
   %534 = load ptr, ptr %533, align 8, !tbaa !42
   br label %extypename.exit
 
@@ -2607,7 +2606,7 @@ extypename.exit:                                  ; preds = %529, %535
   %545 = icmp samesign ult i64 %542, 264
   %546 = add nsw i64 %542, -258
   %547 = select i1 %545, i64 %546, i64 0
-  %548 = getelementptr inbounds nuw ptr, ptr @typename, i64 %547
+  %548 = getelementptr inbounds nuw [8 x i8], ptr @typename, i64 %547
   %549 = load ptr, ptr %548, align 8, !tbaa !42
   br label %extypename.exit908
 
@@ -2997,7 +2996,7 @@ exisAssign.exit909.thread:                        ; preds = %569, %577, %exisAss
   %752 = load ptr, ptr %751, align 8, !tbaa !101
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %749, ptr align 8 %752, i64 %747, i1 false)
   %753 = load ptr, ptr %750, align 8, !tbaa !27
-  %754 = getelementptr inbounds nuw ptr, ptr %753, i64 %743
+  %754 = getelementptr inbounds nuw [8 x i8], ptr %753, i64 %743
   store ptr null, ptr %754, align 8, !tbaa !106
   br label %755
 
@@ -3079,7 +3078,7 @@ exisAssign.exit909.thread:                        ; preds = %569, %577, %exisAss
   %798 = load i64, ptr %797, align 8, !tbaa !104
   %799 = add i64 %798, 1
   store i64 %799, ptr %797, align 8, !tbaa !104
-  %800 = getelementptr inbounds nuw ptr, ptr %796, i64 %798
+  %800 = getelementptr inbounds nuw [8 x i8], ptr %796, i64 %798
   store ptr %793, ptr %800, align 8, !tbaa !106
   br label %.loopexit1008
 
@@ -3911,7 +3910,7 @@ exisAssign.exit909.thread:                        ; preds = %569, %577, %exisAss
   %.not.i = icmp eq ptr %1238, null
   %1239 = and i64 %1234, 15
   %.0.in.v.i = select i1 %.not.i, ptr @a2t, ptr %1238
-  %.0.in.i = getelementptr inbounds nuw i32, ptr %.0.in.v.i, i64 %1239
+  %.0.in.i = getelementptr inbounds nuw [4 x i8], ptr %.0.in.v.i, i64 %1239
   %.0.i910 = load i32, ptr %.0.in.i, align 4, !tbaa !49
   %1240 = sext i32 %.0.i910 to i64
   %1241 = getelementptr inbounds nuw i8, ptr %1232, i64 96
@@ -3939,7 +3938,7 @@ exisAssign.exit909.thread:                        ; preds = %569, %577, %exisAss
   %.not.i911 = icmp eq ptr %1256, null
   %1257 = and i64 %1252, 15
   %.0.in.v.i912 = select i1 %.not.i911, ptr @a2t, ptr %1256
-  %.0.in.i913 = getelementptr inbounds nuw i32, ptr %.0.in.v.i912, i64 %1257
+  %.0.in.i913 = getelementptr inbounds nuw [4 x i8], ptr %.0.in.v.i912, i64 %1257
   %.0.i914 = load i32, ptr %.0.in.i913, align 4, !tbaa !49
   %1258 = sext i32 %.0.i914 to i64
   %1259 = getelementptr inbounds i8, ptr %.2695, i64 -8
@@ -3974,7 +3973,7 @@ exisAssign.exit909.thread:                        ; preds = %569, %577, %exisAss
   %.not.i915 = icmp eq ptr %1279, null
   %1280 = and i64 %1275, 15
   %.0.in.v.i916 = select i1 %.not.i915, ptr @a2t, ptr %1279
-  %.0.in.i917 = getelementptr inbounds nuw i32, ptr %.0.in.v.i916, i64 %1280
+  %.0.in.i917 = getelementptr inbounds nuw [4 x i8], ptr %.0.in.v.i916, i64 %1280
   %.0.i918 = load i32, ptr %.0.in.i917, align 4, !tbaa !49
   %1281 = sext i32 %.0.i918 to i64
   %1282 = getelementptr inbounds i8, ptr %.2695, i64 -8
@@ -4556,7 +4555,7 @@ thread-pre-split:                                 ; preds = %1482, %1496
   %1623 = icmp samesign ult i64 %1613, 264
   %1624 = add nsw i64 %1613, -258
   %1625 = select i1 %1623, i64 %1624, i64 0
-  %1626 = getelementptr inbounds nuw ptr, ptr @typename, i64 %1625
+  %1626 = getelementptr inbounds nuw [8 x i8], ptr @typename, i64 %1625
   %1627 = load ptr, ptr %1626, align 8, !tbaa !42
   br label %extypename.exit920
 
@@ -4581,7 +4580,7 @@ extypename.exit920:                               ; preds = %1622, %1628
   %1638 = icmp samesign ult i64 %1635, 264
   %1639 = add nsw i64 %1635, -258
   %1640 = select i1 %1638, i64 %1639, i64 0
-  %1641 = getelementptr inbounds nuw ptr, ptr @typename, i64 %1640
+  %1641 = getelementptr inbounds nuw [8 x i8], ptr @typename, i64 %1640
   %1642 = load ptr, ptr %1641, align 8, !tbaa !42
   br label %extypename.exit922
 
@@ -4794,7 +4793,7 @@ extypename.exit922:                               ; preds = %1637, %1643
   %1764 = icmp samesign ult i64 %1755, 264
   %1765 = add nsw i64 %1755, -258
   %1766 = select i1 %1764, i64 %1765, i64 0
-  %1767 = getelementptr inbounds nuw ptr, ptr @typename, i64 %1766
+  %1767 = getelementptr inbounds nuw [8 x i8], ptr @typename, i64 %1766
   %1768 = load ptr, ptr %1767, align 8, !tbaa !42
   br label %extypename.exit924
 
@@ -4819,7 +4818,7 @@ extypename.exit924:                               ; preds = %1763, %1769
   %1779 = icmp samesign ult i64 %1776, 264
   %1780 = add nsw i64 %1776, -258
   %1781 = select i1 %1779, i64 %1780, i64 0
-  %1782 = getelementptr inbounds nuw ptr, ptr @typename, i64 %1781
+  %1782 = getelementptr inbounds nuw [8 x i8], ptr @typename, i64 %1781
   %1783 = load ptr, ptr %1782, align 8, !tbaa !42
   br label %extypename.exit926
 
@@ -5324,7 +5323,7 @@ extypename.exit926:                               ; preds = %1778, %1784
   %2075 = icmp eq i32 %.0702, 0
   %2076 = select i1 %2075, ptr @.str.69, ptr @.str.70
   %2077 = zext i8 %2074 to i64
-  %2078 = getelementptr inbounds nuw ptr, ptr @yytname, i64 %2077
+  %2078 = getelementptr inbounds nuw [8 x i8], ptr @yytname, i64 %2077
   %2079 = load ptr, ptr %2078, align 8, !tbaa !42
   %2080 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2072, ptr noundef nonnull @.str.68, ptr noundef nonnull %2076, ptr noundef %2079) #27
   %fputc.i927 = call i32 @fputc(i32 41, ptr %2072)
@@ -5335,13 +5334,13 @@ extypename.exit926:                               ; preds = %1778, %1784
 2082:                                             ; preds = %.loopexit1008._crit_edge, %2069
   %.pre-phi = phi i64 [ %.pre1090, %.loopexit1008._crit_edge ], [ %2077, %2069 ]
   %2083 = sub nsw i64 0, %136
-  %2084 = getelementptr inbounds %union.EX_STYPE, ptr %.2695, i64 %2083
-  %2085 = getelementptr inbounds i16, ptr %.2684, i64 %2083
+  %2084 = getelementptr inbounds [8 x i8], ptr %.2695, i64 %2083
+  %2085 = getelementptr inbounds [2 x i8], ptr %.2684, i64 %2083
   %2086 = getelementptr inbounds nuw i8, ptr %2084, i64 8
   %2087 = ptrtoint ptr %.sroa.0.1 to i64
   store i64 %2087, ptr %2086, align 8, !tbaa !27
   %2088 = add nsw i64 %.pre-phi, -106
-  %2089 = getelementptr inbounds i16, ptr @yypgoto, i64 %2088
+  %2089 = getelementptr inbounds [2 x i8], ptr @yypgoto, i64 %2088
   %2090 = load i16, ptr %2089, align 2, !tbaa !76
   %2091 = sext i16 %2090 to i32
   %2092 = load i16, ptr %2085, align 2, !tbaa !76
@@ -5352,17 +5351,17 @@ extypename.exit926:                               ; preds = %1778, %1784
 
 2095:                                             ; preds = %2082
   %2096 = zext nneg i32 %2094 to i64
-  %2097 = getelementptr inbounds nuw i16, ptr @yycheck, i64 %2096
+  %2097 = getelementptr inbounds nuw [2 x i8], ptr @yycheck, i64 %2096
   %2098 = load i16, ptr %2097, align 2, !tbaa !76
   %2099 = icmp eq i16 %2098, %2092
   br i1 %2099, label %2100, label %2102
 
 2100:                                             ; preds = %2095
-  %2101 = getelementptr inbounds nuw i16, ptr @yytable, i64 %2096
+  %2101 = getelementptr inbounds nuw [2 x i8], ptr @yytable, i64 %2096
   br label %2104
 
 2102:                                             ; preds = %2095, %2082
-  %2103 = getelementptr inbounds i16, ptr @yydefgoto, i64 %2088
+  %2103 = getelementptr inbounds [2 x i8], ptr @yydefgoto, i64 %2088
   br label %2104
 
 2104:                                             ; preds = %2102, %2100
@@ -5421,7 +5420,7 @@ extypename.exit926:                               ; preds = %1778, %1784
   %2130 = icmp slt i32 %2116, 106
   %2131 = select i1 %2130, ptr @.str.69, ptr @.str.70
   %2132 = sext i32 %2116 to i64
-  %2133 = getelementptr inbounds ptr, ptr @yytname, i64 %2132
+  %2133 = getelementptr inbounds [8 x i8], ptr @yytname, i64 %2132
   %2134 = load ptr, ptr %2133, align 8, !tbaa !42
   %2135 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2129, ptr noundef nonnull @.str.68, ptr noundef nonnull %2131, ptr noundef %2134) #27
   %fputc.i.i = call i32 @fputc(i32 41, ptr %2129)
@@ -5448,13 +5447,13 @@ yydestruct.exit:                                  ; preds = %2124, %2126
 2141:                                             ; preds = %2137
   %2142 = sext i16 %2138 to i64
   %2143 = add nsw i64 %2142, 1
-  %2144 = getelementptr inbounds nuw i16, ptr @yycheck, i64 %2143
+  %2144 = getelementptr inbounds nuw [2 x i8], ptr @yycheck, i64 %2143
   %2145 = load i16, ptr %2144, align 2, !tbaa !76
   %2146 = icmp eq i16 %2145, 1
   br i1 %2146, label %2147, label %2151
 
 2147:                                             ; preds = %2141
-  %2148 = getelementptr inbounds nuw i16, ptr @yytable, i64 %2143
+  %2148 = getelementptr inbounds nuw [2 x i8], ptr @yytable, i64 %2143
   %2149 = load i16, ptr %2148, align 2, !tbaa !76
   %2150 = icmp sgt i16 %2149, 0
   br i1 %2150, label %2176, label %2151
@@ -5482,7 +5481,7 @@ yydestruct.exit932:                               ; preds = %2153
   %2162 = icmp ult i8 %2158, 106
   %2163 = select i1 %2162, ptr @.str.69, ptr @.str.70
   %2164 = zext i8 %2158 to i64
-  %2165 = getelementptr inbounds nuw ptr, ptr @yytname, i64 %2164
+  %2165 = getelementptr inbounds nuw [8 x i8], ptr @yytname, i64 %2164
   %2166 = load ptr, ptr %2165, align 8, !tbaa !42
   %2167 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2161, ptr noundef nonnull @.str.68, ptr noundef nonnull %2163, ptr noundef %2166) #27
   %fputc.i.i930 = call i32 @fputc(i32 41, ptr %2161)
@@ -5504,7 +5503,7 @@ yydestruct.exit932:                               ; preds = %2153
   %2174 = getelementptr inbounds i8, ptr %.5698, i64 -8
   %2175 = sext i16 %.in1007 to i32
   %.phi.trans.insert1082 = sext i16 %.in1007 to i64
-  %.phi.trans.insert1083 = getelementptr inbounds i16, ptr @yypact, i64 %.phi.trans.insert1082
+  %.phi.trans.insert1083 = getelementptr inbounds [2 x i8], ptr @yypact, i64 %.phi.trans.insert1082
   %.pre1084 = load i16, ptr %.phi.trans.insert1083, align 2, !tbaa !76
   br label %2137
 
@@ -5566,7 +5565,7 @@ yydestruct.exit932:                               ; preds = %2153
   %2205 = icmp slt i32 %2199, 106
   %2206 = select i1 %2205, ptr @.str.69, ptr @.str.70
   %2207 = sext i32 %2199 to i64
-  %2208 = getelementptr inbounds ptr, ptr @yytname, i64 %2207
+  %2208 = getelementptr inbounds [8 x i8], ptr @yytname, i64 %2207
   %2209 = load ptr, ptr %2208, align 8, !tbaa !42
   %2210 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2204, ptr noundef nonnull @.str.68, ptr noundef nonnull %2206, ptr noundef %2209) #27
   %fputc.i.i934 = call i32 @fputc(i32 41, ptr %2204)
@@ -5607,7 +5606,7 @@ yydestruct.exit936.thread:                        ; preds = %2198, %2212, %yydes
   %2224 = icmp ult i8 %2220, 106
   %2225 = select i1 %2224, ptr @.str.69, ptr @.str.70
   %2226 = zext i8 %2220 to i64
-  %2227 = getelementptr inbounds nuw ptr, ptr @yytname, i64 %2226
+  %2227 = getelementptr inbounds nuw [8 x i8], ptr @yytname, i64 %2226
   %2228 = load ptr, ptr %2227, align 8, !tbaa !42
   %2229 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %2223, ptr noundef nonnull @.str.68, ptr noundef nonnull %2225, ptr noundef %2228) #27
   %fputc.i.i938 = call i32 @fputc(i32 41, ptr %2223)
@@ -5647,7 +5646,7 @@ define void @exclose(ptr noundef captures(address_is_null) %0) local_unnamed_add
 
 3:                                                ; preds = %.preheader, %8
   %.037 = phi i64 [ 3, %.preheader ], [ %9, %8 ]
-  %4 = getelementptr inbounds nuw ptr, ptr %2, i64 %.037
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.037
   %5 = load ptr, ptr %4, align 8, !tbaa !75
   %.not36 = icmp eq ptr %5, null
   br i1 %.not36, label %8, label %6
@@ -5806,7 +5805,7 @@ define internal fastcc void @yy_symbol_print(ptr noundef captures(none) %0, i32 
   %3 = icmp slt i32 %1, 106
   %4 = select i1 %3, ptr @.str.69, ptr @.str.70
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds ptr, ptr @yytname, i64 %5
+  %6 = getelementptr inbounds [8 x i8], ptr @yytname, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !42
   %8 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.68, ptr noundef nonnull %4, ptr noundef %7) #24
   %fputc = tail call i32 @fputc(i32 41, ptr %0)
@@ -5816,7 +5815,7 @@ define internal fastcc void @yy_symbol_print(ptr noundef captures(none) %0, i32 
 ; Function Attrs: cold nofree nounwind uwtable
 define internal fastcc void @yy_reduce_print(ptr noundef nonnull readonly captures(none) %0, i32 noundef range(i32 0, 32769) %1) unnamed_addr #12 {
   %3 = zext nneg i32 %1 to i64
-  %4 = getelementptr inbounds nuw i16, ptr @yyrline, i64 %3
+  %4 = getelementptr inbounds nuw [2 x i8], ptr @yyrline, i64 %3
   %5 = load i16, ptr %4, align 2, !tbaa !76
   %6 = sext i16 %5 to i32
   %7 = getelementptr inbounds nuw i8, ptr @yyr2, i64 %3
@@ -5840,7 +5839,7 @@ define internal fastcc void @yy_reduce_print(ptr noundef nonnull readonly captur
   %16 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.73, i32 noundef %15) #27
   %17 = load ptr, ptr @stderr, align 8, !tbaa !75
   %18 = sub nsw i64 %indvars.iv.next, %13
-  %19 = getelementptr inbounds i16, ptr %0, i64 %18
+  %19 = getelementptr inbounds [2 x i8], ptr %0, i64 %18
   %20 = load i16, ptr %19, align 2, !tbaa !76
   %21 = sext i16 %20 to i64
   %22 = getelementptr inbounds i8, ptr @yystos, i64 %21
@@ -5848,7 +5847,7 @@ define internal fastcc void @yy_reduce_print(ptr noundef nonnull readonly captur
   %24 = icmp ult i8 %23, 106
   %25 = select i1 %24, ptr @.str.69, ptr @.str.70
   %26 = zext i8 %23 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr @yytname, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr @yytname, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !42
   %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %17, ptr noundef nonnull @.str.68, ptr noundef nonnull %25, ptr noundef %28) #27
   %fputc.i = tail call i32 @fputc(i32 41, ptr %17)
@@ -5945,7 +5944,7 @@ define internal fastcc void @checkBinary(ptr noundef readonly captures(none) %0,
   %19 = icmp samesign ult i64 %15, 264
   %20 = add nsw i64 %15, -258
   %21 = select i1 %19, i64 %20, i64 0
-  %22 = getelementptr inbounds nuw ptr, ptr @typename, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr @typename, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !42
   br label %extypename.exit
 
@@ -5966,7 +5965,7 @@ extypename.exit:                                  ; preds = %18, %24
   %32 = icmp samesign ult i64 %29, 264
   %33 = add nsw i64 %29, -258
   %34 = select i1 %32, i64 %33, i64 0
-  %35 = getelementptr inbounds nuw ptr, ptr @typename, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @typename, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !42
   br label %extypename.exit14
 
@@ -5989,7 +5988,7 @@ extypename.exit14:                                ; preds = %31, %37
   %44 = icmp samesign ult i64 %15, 264
   %45 = add nsw i64 %15, -258
   %46 = select i1 %44, i64 %45, i64 0
-  %47 = getelementptr inbounds nuw ptr, ptr @typename, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr @typename, i64 %46
   %48 = load ptr, ptr %47, align 8, !tbaa !42
   br label %extypename.exit16
 
@@ -6036,7 +6035,7 @@ define internal fastcc noundef ptr @call(ptr noundef %0, ptr noundef captures(ad
   %.not.i3 = icmp eq ptr %17, null
   %18 = and i64 %.02, 15
   %.0.in.v.i4 = select i1 %.not.i3, ptr @a2t, ptr %17
-  %.0.in.i5 = getelementptr inbounds nuw i32, ptr %.0.in.v.i4, i64 %18
+  %.0.in.i5 = getelementptr inbounds nuw [4 x i8], ptr %.0.in.v.i4, i64 %18
   %.0.i6 = load i32, ptr %.0.in.i5, align 4, !tbaa !49
   %.not7 = icmp eq i32 %.0.i6, 0
   br i1 %.not7, label %._crit_edge, label %.lr.ph
@@ -6077,7 +6076,7 @@ define internal fastcc noundef ptr @call(ptr noundef %0, ptr noundef captures(ad
   %.not.i = icmp eq ptr %35, null
   %36 = and i64 %.0, 15
   %.0.in.v.i = select i1 %.not.i, ptr @a2t, ptr %35
-  %.0.in.i = getelementptr inbounds nuw i32, ptr %.0.in.v.i, i64 %36
+  %.0.in.i = getelementptr inbounds nuw [4 x i8], ptr %.0.in.v.i, i64 %36
   %.0.i = load i32, ptr %.0.in.i, align 4, !tbaa !49
   %.not = icmp eq i32 %.0.i, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !129
@@ -6324,7 +6323,7 @@ define internal fastcc noundef ptr @exnewsplit(ptr noundef readonly captures(non
   %22 = icmp samesign ult i64 %19, 264
   %23 = add nsw i64 %19, -258
   %24 = select i1 %22, i64 %23, i64 0
-  %25 = getelementptr inbounds nuw ptr, ptr @typename, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr @typename, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !42
   br label %extypename.exit
 
@@ -6358,7 +6357,7 @@ extypename.exit:                                  ; preds = %21, %27
   %42 = icmp samesign ult i64 %39, 264
   %43 = add nsw i64 %39, -258
   %44 = select i1 %42, i64 %43, i64 0
-  %45 = getelementptr inbounds nuw ptr, ptr @typename, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr @typename, i64 %44
   %46 = load ptr, ptr %45, align 8, !tbaa !42
   br label %extypename.exit37
 
@@ -6390,7 +6389,7 @@ extypename.exit37:                                ; preds = %41, %47
   %60 = icmp samesign ult i64 %57, 264
   %61 = add nsw i64 %57, -258
   %62 = select i1 %60, i64 %61, i64 0
-  %63 = getelementptr inbounds nuw ptr, ptr @typename, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i8], ptr @typename, i64 %62
   %64 = load ptr, ptr %63, align 8, !tbaa !42
   br label %extypename.exit39
 
@@ -6426,7 +6425,7 @@ extypename.exit39:                                ; preds = %59, %65
   %79 = icmp samesign ult i64 %76, 264
   %80 = add nsw i64 %76, -258
   %81 = select i1 %79, i64 %80, i64 0
-  %82 = getelementptr inbounds nuw ptr, ptr @typename, i64 %81
+  %82 = getelementptr inbounds nuw [8 x i8], ptr @typename, i64 %81
   %83 = load ptr, ptr %82, align 8, !tbaa !42
   br label %extypename.exit41
 
@@ -6533,7 +6532,7 @@ extypename.exit49.i:                              ; preds = %25
   br i1 %32, label %33, label %38
 
 33:                                               ; preds = %.thread53.i
-  %34 = getelementptr [6 x i32], ptr @typecast, i64 %9
+  %34 = getelementptr [24 x i8], ptr @typecast, i64 %9
   %35 = getelementptr i8, ptr %34, i64 -6172
   %36 = load i32, ptr %35, align 4, !tbaa !49
   %37 = sext i32 %36 to i64
@@ -6566,7 +6565,7 @@ extypename.exit49.i:                              ; preds = %25
   %51 = icmp samesign ult i64 %48, 264
   %52 = add nsw i64 %48, -258
   %53 = select i1 %51, i64 %52, i64 0
-  %54 = getelementptr inbounds nuw ptr, ptr @typename, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr @typename, i64 %53
   %55 = load ptr, ptr %54, align 8, !tbaa !42
   br label %extypename.exit51.i
 
@@ -6844,7 +6843,7 @@ define internal fastcc ptr @preprint(ptr noundef %0) unnamed_addr #0 {
   %73 = load ptr, ptr %72, align 8, !tbaa !27
   %74 = add nsw i32 %.0109, 1
   %75 = sext i32 %.0109 to i64
-  %76 = getelementptr inbounds ptr, ptr %61, i64 %75
+  %76 = getelementptr inbounds [8 x i8], ptr %61, i64 %75
   store ptr %73, ptr %76, align 8, !tbaa !35
   %77 = getelementptr inbounds nuw i8, ptr %.2, i64 40
   %78 = load ptr, ptr %77, align 8, !tbaa !27
@@ -7415,7 +7414,7 @@ define ptr @exop(i64 noundef %0) local_unnamed_addr #16 {
 
 2:                                                ; preds = %1, %7
   %.02639 = phi i64 [ 0, %1 ], [ %8, %7 ]
-  %3 = getelementptr inbounds nuw ptr, ptr @yytname, i64 %.02639
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @yytname, i64 %.02639
   %4 = load ptr, ptr %3, align 8, !tbaa !42
   %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(9) @.str.58) #29
   %6 = icmp eq i32 %5, 0
@@ -7437,7 +7436,7 @@ define ptr @exop(i64 noundef %0) local_unnamed_addr #16 {
 .preheader:                                       ; preds = %.preheader.lr.ph, %30
   %.02342 = phi i64 [ %.02639, %.preheader.lr.ph ], [ %.124, %30 ]
   %.02541 = phi i64 [ %.02639, %.preheader.lr.ph ], [ %31, %30 ]
-  %11 = getelementptr inbounds nuw ptr, ptr @yytname, i64 %.02541
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @yytname, i64 %.02541
   %12 = load ptr, ptr %11, align 8, !tbaa !42
   br label %13
 

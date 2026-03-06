@@ -67,13 +67,13 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.dropbox::oxygen::nn.54" = type { %"class.std::shared_ptr.55" }
 %"class.std::shared_ptr.55" = type { %"class.std::__shared_ptr.56" }
 %"class.std::__shared_ptr.56" = type { ptr, %"class.std::__shared_count" }
-%"class.dropbox::oxygen::nn.106" = type { %"class.std::shared_ptr.107" }
-%"class.std::shared_ptr.107" = type { %"class.std::__shared_ptr.108" }
-%"class.std::__shared_ptr.108" = type { ptr, %"class.std::__shared_count" }
 %"class.std::vector.134" = type { %"struct.std::_Vector_base.135" }
 %"struct.std::_Vector_base.135" = type { %"struct.std::_Vector_base<dropbox::oxygen::nn<std::shared_ptr<osgeo::proj::operation::OperationParameter>>, std::allocator<dropbox::oxygen::nn<std::shared_ptr<osgeo::proj::operation::OperationParameter>>>>::_Vector_impl" }
 %"struct.std::_Vector_base<dropbox::oxygen::nn<std::shared_ptr<osgeo::proj::operation::OperationParameter>>, std::allocator<dropbox::oxygen::nn<std::shared_ptr<osgeo::proj::operation::OperationParameter>>>>::_Vector_impl" = type { %"struct.std::_Vector_base<dropbox::oxygen::nn<std::shared_ptr<osgeo::proj::operation::OperationParameter>>, std::allocator<dropbox::oxygen::nn<std::shared_ptr<osgeo::proj::operation::OperationParameter>>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<dropbox::oxygen::nn<std::shared_ptr<osgeo::proj::operation::OperationParameter>>, std::allocator<dropbox::oxygen::nn<std::shared_ptr<osgeo::proj::operation::OperationParameter>>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"class.dropbox::oxygen::nn.106" = type { %"class.std::shared_ptr.107" }
+%"class.std::shared_ptr.107" = type { %"class.std::__shared_ptr.108" }
+%"class.std::__shared_ptr.108" = type { ptr, %"class.std::__shared_count" }
 %"struct.osgeo::proj::operation::VectorOfValues" = type { %"class.std::vector.139" }
 %"class.std::vector.139" = type { %"struct.std::_Vector_base.140" }
 %"struct.std::_Vector_base.140" = type { %"struct.std::_Vector_base<dropbox::oxygen::nn<std::shared_ptr<osgeo::proj::operation::ParameterValue>>, std::allocator<dropbox::oxygen::nn<std::shared_ptr<osgeo::proj::operation::ParameterValue>>>>::_Vector_impl" }
@@ -88,7 +88,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.dropbox::oxygen::nn.150" = type { %"class.std::shared_ptr.151" }
 %"class.std::shared_ptr.151" = type { %"class.std::__shared_ptr.152" }
 %"class.std::__shared_ptr.152" = type { ptr, %"class.std::__shared_count" }
-%"struct.osgeo::proj::operation::ESRIMethodMapping" = type { ptr, ptr, i32, ptr }
 %"class.std::allocator.118" = type { i8 }
 %"struct.osgeo::proj::io::JSONFormatter::ObjectContext" = type { ptr }
 %"struct.osgeo::proj::CPLJSonStreamingWriter::ArrayContext" = type <{ ptr, i8, i8, [6 x i8] }>
@@ -2623,8 +2622,8 @@ _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation21GeneralP
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %44 = load ptr, ptr %3, align 8, !tbaa !68
-  %45 = getelementptr inbounds nuw %"class.dropbox::oxygen::nn.106", ptr %44, i64 %.038
-  %46 = getelementptr inbounds nuw %"class.dropbox::oxygen::nn.74", ptr %43, i64 %.038
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %44, i64 %.038
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %43, i64 %.038
   invoke void @_ZN5osgeo4proj9operation23OperationParameterValue6createERKN7dropbox6oxygen2nnISt10shared_ptrINS1_18OperationParameterEEEERKNS5_IS6_INS1_14ParameterValueEEEE(ptr dead_on_unwind nonnull writable sret(%"class.dropbox::oxygen::nn.102") align 8 %9, ptr noundef nonnull align 8 dereferenceable(16) %45, ptr noundef nonnull align 8 dereferenceable(16) %46)
           to label %47 unwind label %109
 
@@ -3085,7 +3084,7 @@ define internal fastcc void @_ZN5osgeo4proj9operationL16createConversionERKNS0_4
 19:                                               ; preds = %.lr.ph, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEED2Ev.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEED2Ev.exit ]
   %20 = phi ptr [ %15, %.lr.ph ], [ %75, %_ZN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEED2Ev.exit ]
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !79
   %.not29 = icmp eq ptr %22, null
   br i1 %.not29, label %.critedge, label %23
@@ -11599,7 +11598,7 @@ define internal fastcc void @_ZN5osgeo4proj9operationL26getESRIMethodNameAndPara
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %14
   %.01523.us.i = phi i64 [ %15, %14 ], [ 0, %.lr.ph.i ]
-  %10 = getelementptr inbounds nuw %"struct.osgeo::proj::operation::ESRIMethodMapping", ptr %8, i64 %.01523.us.i
+  %10 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 %.01523.us.i
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !377
   %13 = call noundef zeroext i1 @_ZN5osgeo4proj8internal8ci_equalERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %12) #32
@@ -11619,7 +11618,7 @@ define internal fastcc void @_ZN5osgeo4proj9operationL26getESRIMethodNameAndPara
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %17
   %.01523.i = phi i64 [ %18, %17 ], [ 0, %.lr.ph.i ]
-  %20 = getelementptr inbounds nuw %"struct.osgeo::proj::operation::ESRIMethodMapping", ptr %8, i64 %.01523.i
+  %20 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 %.01523.i
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load i32, ptr %21, align 8, !tbaa !380
   %23 = icmp eq i32 %22, %2
@@ -12071,7 +12070,7 @@ _ZNSt12__shared_ptrIN5osgeo4proj9operation10ConversionELN9__gnu_cxx12_Lock_polic
 
 96:                                               ; preds = %.lr.ph, %205
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %205 ]
-  %97 = getelementptr inbounds nuw %"struct.osgeo::proj::operation::ESRIParamMapping", ptr %86, i64 %indvars.iv
+  %97 = getelementptr inbounds nuw [40 x i8], ptr %86, i64 %indvars.iv
   call void @_ZN5osgeo4proj2io12WKTFormatter9startNodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEb(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) @_ZN5osgeo4proj2io12WKTConstants9PARAMETERB5cxx11E, i1 noundef zeroext false)
   %98 = load ptr, ptr %97, align 8, !tbaa !384
   call void @_ZN5osgeo4proj2io12WKTFormatter15addQuotedStringEPKc(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %98)
@@ -12399,7 +12398,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit232: ; preds = %19
 205:                                              ; preds = %175, %173, %148, %149, %130, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit229
   call void @_ZN5osgeo4proj2io12WKTFormatter7endNodeEv(ptr noundef nonnull align 8 dereferenceable(8) %1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %206 = getelementptr inbounds nuw %"struct.osgeo::proj::operation::ESRIParamMapping", ptr %86, i64 %indvars.iv.next
+  %206 = getelementptr inbounds nuw [40 x i8], ptr %86, i64 %indvars.iv.next
   %207 = load ptr, ptr %206, align 8, !tbaa !384
   %.not = icmp eq ptr %207, null
   br i1 %.not, label %.critedge201, label %96, !llvm.loop !393
@@ -15132,7 +15131,7 @@ _ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   %72 = phi ptr [ %60, %.lr.ph ], [ %107, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ]
   %.049101 = phi i64 [ 2, %.lr.ph ], [ %105, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %72, i64 %.049101
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %72, i64 %.049101
   invoke void @_ZN5osgeo4proj8internal5splitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEc(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.357") align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %73, i8 noundef signext 61)
           to label %74 unwind label %83
 
@@ -15163,7 +15162,7 @@ _ZNSt12__shared_ptrIN5osgeo4proj3crs3CRSELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
 87:                                               ; preds = %74
   %88 = load ptr, ptr %4, align 8, !tbaa !426
-  %89 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %88, i64 %.049101
+  %89 = getelementptr inbounds nuw [32 x i8], ptr %88, i64 %.049101
   invoke void @_ZN5osgeo4proj2io19PROJStringFormatter8addParamERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(32) %89)
           to label %90 unwind label %85
 
@@ -18494,7 +18493,7 @@ thread-pre-split:                                 ; preds = %1167, %1175, %1173
 1187:                                             ; preds = %.invoke, %1167, %1133
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %1188 = load ptr, ptr %1128, align 8, !tbaa !74
-  %1189 = getelementptr inbounds nuw ptr, ptr %1188, i64 %indvars.iv.next
+  %1189 = getelementptr inbounds nuw [8 x i8], ptr %1188, i64 %indvars.iv.next
   %1190 = load ptr, ptr %1189, align 8, !tbaa !79
   %.not550 = icmp eq ptr %1190, null
   br i1 %.not550, label %.thread876, label %1133, !llvm.loop !453
@@ -21684,7 +21683,7 @@ _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18Operatio
 _ZNSt12_Vector_baseIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEEESaIS9_EE13_M_deallocateEPS9_m.exit: ; preds = %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation18OperationParameterEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit22, %40
   store ptr %20, ptr %0, align 8, !tbaa !68
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !65
-  %44 = getelementptr inbounds nuw %"class.dropbox::oxygen::nn.106", ptr %20, i64 %16
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %44, ptr %39, align 8, !tbaa !85
   ret void
 }
@@ -21881,7 +21880,7 @@ _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation21GeneralP
 _ZNSt12_Vector_baseIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation21GeneralParameterValueEEEESaIS9_EE13_M_deallocateEPS9_m.exit: ; preds = %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation21GeneralParameterValueEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit32, %40
   store ptr %20, ptr %0, align 8, !tbaa !55
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8, !tbaa !46
-  %44 = getelementptr inbounds nuw %"class.dropbox::oxygen::nn.54", ptr %20, i64 %16
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %44, ptr %39, align 8, !tbaa !48
   ret void
 }
@@ -22002,7 +22001,7 @@ _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation21GeneralP
 _ZNSt12_Vector_baseIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation21GeneralParameterValueEEEESaIS9_EE13_M_deallocateEPS9_m.exit: ; preds = %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation21GeneralParameterValueEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit22, %48
   store ptr %20, ptr %0, align 8, !tbaa !55
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !46
-  %52 = getelementptr inbounds nuw %"class.dropbox::oxygen::nn.54", ptr %20, i64 %16
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %52, ptr %47, align 8, !tbaa !48
   ret void
 }
@@ -22105,7 +22104,7 @@ _ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation21GeneralP
 _ZNSt12_Vector_baseIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation21GeneralParameterValueEEEESaIS9_EE13_M_deallocateEPS9_m.exit: ; preds = %_ZNSt6vectorIN7dropbox6oxygen2nnISt10shared_ptrIN5osgeo4proj9operation21GeneralParameterValueEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit22, %40
   store ptr %20, ptr %0, align 8, !tbaa !55
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !46
-  %44 = getelementptr inbounds nuw %"class.dropbox::oxygen::nn.54", ptr %20, i64 %16
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %44, ptr %39, align 8, !tbaa !48
   ret void
 }

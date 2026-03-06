@@ -15,7 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.test_rwlock_data = type { i64, %struct._PyRWMutex, %struct.PyEvent, %struct.PyEvent, %struct.PyEvent, %struct.PyEvent }
 %struct._PyRecursiveMutex = type { %struct.PyMutex, i64, i64 }
 %struct.bench_data_locks = type { i32, i32, i32, [200 x i8], ptr, %struct.PyMutex, double, i64 }
-%struct.bench_thread_data = type { ptr, i64, %struct.PyEvent }
 
 @.str = private unnamed_addr constant [16 x i8] c"test_lock_basic\00", align 1
 @.str.1 = private unnamed_addr constant [22 x i8] c"test_lock_two_threads\00", align 1
@@ -218,7 +217,7 @@ define internal noundef nonnull ptr @test_lock_counter(ptr readnone captures(non
 
 5:                                                ; preds = %2, %5
   %.078 = phi i64 [ 0, %2 ], [ %8, %5 ]
-  %6 = getelementptr %struct.thread_data_counter, ptr %4, i64 %.078
+  %6 = getelementptr [16 x i8], ptr %4, i64 %.078
   store ptr %3, ptr %6, align 16, !tbaa !13
   %7 = call i64 @PyThread_start_new_thread(ptr noundef nonnull @counter_thread, ptr noundef nonnull %6) #6
   %8 = add nuw nsw i64 %.078, 1
@@ -233,7 +232,7 @@ define internal noundef nonnull ptr @test_lock_counter(ptr readnone captures(non
 
 .preheader:                                       ; preds = %5, %.preheader
   %.09 = phi i64 [ %15, %.preheader ], [ 0, %5 ]
-  %13 = getelementptr %struct.thread_data_counter, ptr %4, i64 %.09
+  %13 = getelementptr [16 x i8], ptr %4, i64 %.09
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   call void @PyEvent_Wait(ptr noundef nonnull %14) #6
   %15 = add nuw nsw i64 %.09, 1
@@ -262,7 +261,7 @@ define internal noundef nonnull ptr @test_lock_counter_slow(ptr readnone capture
 
 5:                                                ; preds = %2, %5
   %.078 = phi i64 [ 0, %2 ], [ %8, %5 ]
-  %6 = getelementptr %struct.thread_data_counter, ptr %4, i64 %.078
+  %6 = getelementptr [16 x i8], ptr %4, i64 %.078
   store ptr %3, ptr %6, align 16, !tbaa !13
   %7 = call i64 @PyThread_start_new_thread(ptr noundef nonnull @slow_counter_thread, ptr noundef nonnull %6) #6
   %8 = add nuw nsw i64 %.078, 1
@@ -277,7 +276,7 @@ define internal noundef nonnull ptr @test_lock_counter_slow(ptr readnone capture
 
 .preheader:                                       ; preds = %5, %.preheader
   %.09 = phi i64 [ %15, %.preheader ], [ 0, %5 ]
-  %13 = getelementptr %struct.thread_data_counter, ptr %4, i64 %.09
+  %13 = getelementptr [16 x i8], ptr %4, i64 %.09
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   call void @PyEvent_Wait(ptr noundef nonnull %14) #6
   %15 = add nuw nsw i64 %.09, 1
@@ -930,7 +929,7 @@ define internal fastcc ptr @_testinternalcapi_benchmark_locks_impl(i64 noundef %
 
 .lr.ph:                                           ; preds = %.preheader4, %.lr.ph
   %.0405 = phi i64 [ %31, %.lr.ph ], [ 0, %.preheader4 ]
-  %29 = getelementptr %struct.bench_thread_data, ptr %16, i64 %.0405
+  %29 = getelementptr [24 x i8], ptr %16, i64 %.0405
   store ptr %5, ptr %29, align 8, !tbaa !44
   %30 = call i64 @PyThread_start_new_thread(ptr noundef nonnull @thread_benchmark_locks, ptr noundef nonnull %29) #6
   %31 = add nuw nsw i64 %.0405, 1
@@ -962,7 +961,7 @@ define internal fastcc ptr @_testinternalcapi_benchmark_locks_impl(i64 noundef %
 
 .lr.ph8:                                          ; preds = %.lr.ph8.preheader, %.lr.ph8
   %.0396 = phi i64 [ %47, %.lr.ph8 ], [ 0, %.lr.ph8.preheader ]
-  %45 = getelementptr %struct.bench_thread_data, ptr %16, i64 %.0396
+  %45 = getelementptr [24 x i8], ptr %16, i64 %.0396
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   call void @PyEvent_Wait(ptr noundef nonnull %46) #6
   %47 = add nuw nsw i64 %.0396, 1
@@ -971,7 +970,7 @@ define internal fastcc ptr @_testinternalcapi_benchmark_locks_impl(i64 noundef %
 
 48:                                               ; preds = %.lr.ph11, %61
   %.03710 = phi i64 [ 0, %.lr.ph11 ], [ %64, %61 ]
-  %49 = getelementptr %struct.bench_thread_data, ptr %16, i64 %.03710
+  %49 = getelementptr [24 x i8], ptr %16, i64 %.03710
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load i64, ptr %50, align 8, !tbaa !50
   %52 = call ptr @PyLong_FromSsize_t(i64 noundef %51) #6
@@ -1001,7 +1000,7 @@ define internal fastcc ptr @_testinternalcapi_benchmark_locks_impl(i64 noundef %
 
 61:                                               ; preds = %57
   %62 = load ptr, ptr %44, align 8, !tbaa !65
-  %63 = getelementptr ptr, ptr %62, i64 %.03710
+  %63 = getelementptr [8 x i8], ptr %62, i64 %.03710
   store ptr %52, ptr %63, align 8, !tbaa !24
   %64 = add nuw nsw i64 %.03710, 1
   %exitcond14.not = icmp eq i64 %64, %0

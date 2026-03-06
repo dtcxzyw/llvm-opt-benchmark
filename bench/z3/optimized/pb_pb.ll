@@ -4,14 +4,10 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"struct.std::pair" = type { i32, %"class.sat::literal" }
-%"class.sat::literal" = type { i32 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator" = type { i8 }
-%class.svector.15 = type { %class.vector.16 }
-%class.vector.16 = type { ptr }
 %class.svector.11 = type { %class.vector.12 }
 %class.vector.12 = type { ptr }
 
@@ -171,8 +167,8 @@ _ZNK6vectorISt4pairIjN3sat7literalEELb0EjE4sizeEv.exit19: ; preds = %5, %8
 
 30:                                               ; preds = %.lr.ph, %40
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %40 ]
-  %31 = getelementptr inbounds nuw %"struct.std::pair", ptr %6, i64 %indvars.iv
-  %32 = getelementptr inbounds nuw %"struct.std::pair", ptr %29, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv
   %33 = load i32, ptr %31, align 4, !tbaa !32
   store i32 %33, ptr %32, align 4, !tbaa !32
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 4
@@ -227,7 +223,7 @@ define hidden void @_ZN2pb3pbc14update_max_sumEv(ptr noundef nonnull align 8 cap
   ret void
 
 11:                                               ; preds = %42
-  %12 = getelementptr inbounds nuw %"struct.std::pair", ptr %9, i64 %indvars.iv.next
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.next
   %13 = load i32, ptr %12, align 4, !tbaa !9
   %.sroa.speculated = tail call i32 @llvm.umin.i32(i32 %13, i32 %8)
   store i32 %.sroa.speculated, ptr %12, align 4, !tbaa !32
@@ -451,7 +447,7 @@ define hidden void @_ZN2pb3pbc6negateEv(ptr noundef nonnull align 8 captures(non
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
   %.01627 = phi i32 [ 0, %.lr.ph ], [ %27, %24 ]
   %.02426 = phi i32 [ 0, %.lr.ph ], [ %.sroa.speculated, %24 ]
-  %17 = getelementptr inbounds nuw %"struct.std::pair", ptr %7, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %19 = load i32, ptr %18, align 8, !tbaa !45
   %20 = xor i32 %19, 1
@@ -480,7 +476,7 @@ define hidden void @_ZN2pb3pbc6negateEv(ptr noundef nonnull align 8 captures(non
 
 30:                                               ; preds = %.lr.ph32, %30
   %indvars.iv36 = phi i64 [ 0, %.lr.ph32 ], [ %indvars.iv.next37, %30 ]
-  %31 = getelementptr inbounds nuw %"struct.std::pair", ptr %14, i64 %indvars.iv36
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv36
   %32 = load i32, ptr %31, align 4, !tbaa !9
   %33 = tail call i32 @llvm.umin.i32(i32 %32, i32 %11)
   store i32 %33, ptr %31, align 4, !tbaa !32
@@ -519,7 +515,7 @@ define hidden noundef zeroext i1 @_ZNK2pb3pbc11is_watchingEN3sat7literalE(ptr no
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds nuw %"struct.std::pair", ptr %3, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %.sroa.0.0.copyload.i = load i64, ptr %6, align 4
   %.sroa.3.0.extract.shift = lshr i64 %.sroa.0.0.copyload.i, 32
   %.sroa.3.0.extract.trunc = trunc nuw i64 %.sroa.3.0.extract.shift to i32
@@ -700,7 +696,7 @@ define hidden void @_ZN2pb3pbc11clear_watchERNS_16solver_interfaceE(ptr noundef 
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %.sroa.0.0.copyload = load i32, ptr %7, align 8, !tbaa !9
   tail call void @_ZN2pb10constraint15unwatch_literalERNS_16solver_interfaceEN3sat7literalE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 %.sroa.0.0.copyload)
@@ -799,7 +795,7 @@ define hidden noundef zeroext i1 @_ZN2pb3pbc10init_watchERNS_16solver_interfaceE
   %.078106 = phi i32 [ 0, %.lr.ph ], [ %.280, %53 ]
   %.081105 = phi i32 [ 0, %.lr.ph ], [ %.283, %53 ]
   %.084104 = phi i32 [ 0, %.lr.ph ], [ %.185, %53 ]
-  %33 = getelementptr inbounds nuw %"struct.std::pair", ptr %28, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %.sroa.019.0.copyload = load i32, ptr %34, align 8, !tbaa !9
   %35 = load ptr, ptr %1, align 8, !tbaa !26
@@ -824,7 +820,7 @@ define hidden noundef zeroext i1 @_ZN2pb3pbc10init_watchERNS_16solver_interfaceE
 
 46:                                               ; preds = %41, %39
   %.not91 = icmp ule i32 %.076107, %27
-  %47 = getelementptr inbounds nuw %"struct.std::pair", ptr %28, i64 %40
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %40
   %48 = load i32, ptr %47, align 4, !tbaa !32
   %49 = zext i1 %.not91 to i32
   %.182 = add i32 %.081105, %49
@@ -848,7 +844,7 @@ define hidden noundef zeroext i1 @_ZN2pb3pbc10init_watchERNS_16solver_interfaceE
   %.084.lcssa146 = phi i32 [ 0, %._crit_edge.thread ], [ %.185, %._crit_edge ]
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %56 = zext i32 %.084.lcssa146 to i64
-  %57 = getelementptr inbounds nuw %"struct.std::pair", ptr %55, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %56
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 4
   %.sroa.015.0.copyload = load i32, ptr %58, align 8, !tbaa !9
   %59 = load ptr, ptr %1, align 8, !tbaa !26
@@ -887,7 +883,7 @@ define hidden noundef zeroext i1 @_ZN2pb3pbc10init_watchERNS_16solver_interfaceE
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 40
   %73 = load ptr, ptr %72, align 8
   %74 = tail call noundef i32 %73(ptr noundef nonnull align 8 dereferenceable(8) %1, i32 %.sroa.015.0112)
-  %75 = getelementptr inbounds nuw %"struct.std::pair", ptr %55, i64 %indvars.iv126
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv126
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 4
   %.sroa.08.0.copyload = load i32, ptr %76, align 8, !tbaa !9
   %77 = load ptr, ptr %1, align 8, !tbaa !26
@@ -926,7 +922,7 @@ define hidden noundef zeroext i1 @_ZN2pb3pbc10init_watchERNS_16solver_interfaceE
 
 .lr.ph119:                                        ; preds = %.lr.ph119.preheader, %.lr.ph119
   %indvars.iv130 = phi i64 [ 0, %.lr.ph119.preheader ], [ %indvars.iv.next131, %.lr.ph119 ]
-  %89 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %indvars.iv130
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv130
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 80
   %.sroa.03.0.copyload = load i32, ptr %90, align 8, !tbaa !9
   tail call void @_ZN2pb10constraint13watch_literalERNS_16solver_interfaceEN3sat7literalE(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, i32 %.sroa.03.0.copyload)
@@ -936,7 +932,7 @@ define hidden noundef zeroext i1 @_ZN2pb3pbc10init_watchERNS_16solver_interfaceE
 
 .lr.ph122:                                        ; preds = %.lr.ph122.preheader, %.lr.ph122
   %indvars.iv135 = phi i64 [ 0, %.lr.ph122.preheader ], [ %indvars.iv.next136, %.lr.ph122 ]
-  %91 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %indvars.iv135
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv135
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 80
   %.sroa.0.0.copyload = load i32, ptr %92, align 8, !tbaa !9
   %93 = load ptr, ptr %1, align 8, !tbaa !26
@@ -1363,7 +1359,7 @@ define hidden noundef range(i32 -1, 2) i32 @_ZNK2pb3pbc4evalERK7svectorI5lbooljE
   %14 = trunc i32 %.sroa.5.0.copyload to i1
   %15 = lshr i32 %.sroa.5.0.copyload, 1
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw i32, ptr %8, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !70
   %19 = sub nsw i32 0, %18
   %20 = select i1 %14, i32 %19, i32 %18
@@ -1465,7 +1461,7 @@ define hidden void @_ZNK2pb3pbc13init_use_listERN3sat12ext_use_listE(ptr noundef
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 4
   %10 = load ptr, ptr %1, align 8, !tbaa !72
   %11 = zext i32 %.sroa.3.0.copyload to i64
-  %12 = getelementptr inbounds nuw %class.svector.15, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !75
   %14 = icmp eq ptr %13, null
   br i1 %14, label %21, label %15
@@ -1490,7 +1486,7 @@ _ZN3sat12ext_use_list6insertENS_7literalEm.exit:  ; preds = %15, %21
   %23 = phi ptr [ %.pre.i.i, %21 ], [ %13, %15 ]
   %24 = getelementptr inbounds i8, ptr %23, i64 -4
   %25 = zext i32 %22 to i64
-  %26 = getelementptr inbounds nuw i64, ptr %23, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %25
   store i64 %4, ptr %26, align 8, !tbaa !78
   %27 = add i32 %22, 1
   store i32 %27, ptr %24, align 4, !tbaa !9
@@ -1614,7 +1610,7 @@ define linkonce_odr hidden void @_ZNK2pb3pbc8literalsEv(ptr dead_on_unwind noali
   %20 = phi i32 [ %.pre2.i, %.noexc ], [ %13, %11 ]
   %21 = getelementptr inbounds i8, ptr %19, i64 -4
   %22 = zext i32 %20 to i64
-  %23 = getelementptr inbounds nuw %"class.sat::literal", ptr %19, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %22
   store i32 %.sroa.4.0.extract.trunc, ptr %23, align 4, !tbaa !9
   %24 = add i32 %20, 1
   store i32 %24, ptr %21, align 4, !tbaa !9
@@ -1636,9 +1632,9 @@ define linkonce_odr hidden void @_ZNK2pb3pbc8literalsEv(ptr dead_on_unwind noali
 define linkonce_odr hidden void @_ZN2pb3pbc4swapEjj(ptr noundef nonnull align 8 dereferenceable(76) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #10 comdat align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw %"struct.std::pair", ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %5
   %7 = zext i32 %2 to i64
-  %8 = getelementptr inbounds nuw %"struct.std::pair", ptr %4, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %7
   %9 = load i32, ptr %6, align 4, !tbaa !9
   %10 = load i32, ptr %8, align 4, !tbaa !9
   store i32 %10, ptr %6, align 4, !tbaa !9
@@ -1655,7 +1651,7 @@ define linkonce_odr hidden void @_ZN2pb3pbc4swapEjj(ptr noundef nonnull align 8 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden i32 @_ZNK2pb3pbc7get_litEj(ptr noundef nonnull align 8 dereferenceable(76) %0, i32 noundef %1) unnamed_addr #10 comdat align 2 {
   %3 = zext i32 %1 to i64
-  %4 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %3
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %.sroa.0.0.copyload = load i32, ptr %5, align 8, !tbaa !9
   ret i32 %.sroa.0.0.copyload
@@ -1664,7 +1660,7 @@ define linkonce_odr hidden i32 @_ZNK2pb3pbc7get_litEj(ptr noundef nonnull align 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN2pb3pbc7set_litEjN3sat7literalE(ptr noundef nonnull align 8 dereferenceable(76) %0, i32 noundef %1, i32 %2) unnamed_addr #10 comdat align 2 {
   %4 = zext i32 %1 to i64
-  %5 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 80
   store i32 %2, ptr %6, align 8, !tbaa !9
   ret void
@@ -1696,7 +1692,7 @@ define linkonce_odr hidden void @_ZN2pb3pbc5set_kEj(ptr noundef nonnull align 8 
 define linkonce_odr hidden noundef i32 @_ZNK2pb3pbc9get_coeffEj(ptr noundef nonnull align 8 dereferenceable(76) %0, i32 noundef %1) unnamed_addr #10 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %4 = zext i32 %1 to i64
-  %5 = getelementptr inbounds nuw %"struct.std::pair", ptr %3, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %4
   %6 = load i32, ptr %5, align 4, !tbaa !32
   ret i32 %6
 }

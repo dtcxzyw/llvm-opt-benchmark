@@ -6953,7 +6953,7 @@ define ptr @l_Array_forIn_x27Unsafe_loop___at_Lean_Server_FileWorker_Hover_rewri
 8:                                                ; preds = %.lr.ph, %1185
   %.0427977 = phi i64 [ %4, %.lr.ph ], [ %1186, %1185 ]
   %.0429976 = phi ptr [ %5, %.lr.ph ], [ %.5, %1185 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %.0427977
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.0427977
   %10 = load ptr, ptr %9, align 8, !tbaa !10
   %11 = ptrtoint ptr %10 to i64
   %12 = trunc i64 %11 to i1

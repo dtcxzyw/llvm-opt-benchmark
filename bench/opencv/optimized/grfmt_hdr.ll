@@ -1077,7 +1077,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
 .lr.ph:                                           ; preds = %60, %75
   %.02553 = phi i64 [ %76, %75 ], [ 0, %60 ]
   %.02652 = phi i32 [ %.1, %75 ], [ 1, %60 ]
-  %70 = getelementptr inbounds nuw i32, ptr %63, i64 %.02553
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %.02553
   %71 = load i32, ptr %70, align 4, !tbaa !90
   %cond = icmp eq i32 %71, 80
   br i1 %cond, label %72, label %75
@@ -1187,7 +1187,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit: ; preds = %_ZNSt6vectorIN2c
   store ptr %9, ptr %0, align 8, !tbaa !58
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %9, ptr %10, align 8, !tbaa !59
-  %11 = getelementptr inbounds nuw %"class.cv::Mat", ptr %9, i64 %1
+  %11 = getelementptr inbounds nuw [96 x i8], ptr %9, i64 %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %11, ptr %12, align 8, !tbaa !92
   br label %.lr.ph.i.i.i.i.i

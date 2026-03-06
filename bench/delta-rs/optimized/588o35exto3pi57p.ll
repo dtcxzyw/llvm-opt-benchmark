@@ -506,10 +506,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
   %.val = load i8, ptr %2, align 1, !range !32, !noundef !4
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hcda9aba5b5bc5e01E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hcda9aba5b5bc5e01E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hcda9aba5b5bc5e01E.13", i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hcda9aba5b5bc5e01E.13", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -850,7 +850,7 @@ define hidden void @"_ZN99_$LT$dashmap..iter..Iter$LT$K$C$V$C$S$C$M$GT$$u20$as$u
   %38 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i95, i1 true)
   %39 = zext nneg i16 %38 to i64
   %40 = sub nsw i64 0, %39
-  %41 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i16, [1 x i16] }, i32, i32, i32, i32, i32, { i8, [16 x i8] }, [7 x i8] }, { { { { { ptr, ptr } }, {}, {} } } } }, ptr %.val3.i.i94, i64 %40
+  %41 = getelementptr inbounds [104 x i8], ptr %.val3.i.i94, i64 %40
   %42 = getelementptr inbounds i8, ptr %41, i64 -16
   %43 = getelementptr inbounds i8, ptr %41, i64 -104
   store ptr %..val, ptr %0, align 8
@@ -868,7 +868,7 @@ define hidden void @"_ZN99_$LT$dashmap..iter..Iter$LT$K$C$V$C$S$C$M$GT$$u20$as$u
   %46 = load ptr, ptr %32, align 8, !alias.scope !47, !nonnull !4, !align !10, !noundef !4
   %47 = icmp ult i64 %31, %.val21
   call void @llvm.assume(i1 %47)
-  %48 = getelementptr inbounds { { { i64 } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, ptr %46, i64 %31
+  %48 = getelementptr inbounds [56 x i8], ptr %46, i64 %31
   %49 = call noundef i64 @_ZN4core4sync6atomic11atomic_load17h6f1e7a0917245b19E.llvm.7530649560028716548(ptr noundef nonnull align 8 %48, i8 noundef 0), !noalias !47
   %50 = call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %49, i64 4)
   %51 = extractvalue { i64, i1 } %50, 1

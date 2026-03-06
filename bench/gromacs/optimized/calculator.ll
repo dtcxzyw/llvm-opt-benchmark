@@ -17,157 +17,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
 %"struct.std::__detail::_Hash_node_base" = type { ptr }
 %"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
-%"class.std::vector.12" = type { %"struct.std::_Vector_base.13" }
-%"struct.std::_Vector_base.13" = type { %"struct.std::_Vector_base<gmx::BasicVector<float>, std::allocator<gmx::BasicVector<float>>>::_Vector_impl" }
-%"struct.std::_Vector_base<gmx::BasicVector<float>, std::allocator<gmx::BasicVector<float>>>::_Vector_impl" = type { %"struct.std::_Vector_base<gmx::BasicVector<float>, std::allocator<gmx::BasicVector<float>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<gmx::BasicVector<float>, std::allocator<gmx::BasicVector<float>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::tuple.25" = type { %"struct.std::_Tuple_impl.26" }
-%"struct.std::_Tuple_impl.26" = type { %"struct.std::_Tuple_impl.27", %"struct.std::_Head_base.182" }
-%"struct.std::_Tuple_impl.27" = type { %"struct.std::_Tuple_impl.28", %"struct.std::_Head_base.175" }
-%"struct.std::_Tuple_impl.28" = type { %"struct.std::_Tuple_impl.29", %"struct.std::_Head_base.168" }
-%"struct.std::_Tuple_impl.29" = type { %"struct.std::_Tuple_impl.30", %"struct.std::_Head_base.161" }
-%"struct.std::_Tuple_impl.30" = type { %"struct.std::_Tuple_impl.31", %"struct.std::_Head_base.154" }
-%"struct.std::_Tuple_impl.31" = type { %"struct.std::_Tuple_impl.32", %"struct.std::_Head_base.147" }
-%"struct.std::_Tuple_impl.32" = type { %"struct.std::_Tuple_impl.33", %"struct.std::_Head_base.135" }
-%"struct.std::_Tuple_impl.33" = type { %"struct.std::_Tuple_impl.34", %"struct.std::_Head_base.128" }
-%"struct.std::_Tuple_impl.34" = type { %"struct.std::_Tuple_impl.35", %"struct.std::_Head_base.121" }
-%"struct.std::_Tuple_impl.35" = type { %"struct.std::_Tuple_impl.36", %"struct.std::_Head_base.114" }
-%"struct.std::_Tuple_impl.36" = type { %"struct.std::_Tuple_impl.37", %"struct.std::_Head_base.107" }
-%"struct.std::_Tuple_impl.37" = type { %"struct.std::_Tuple_impl.38", %"struct.std::_Head_base.100" }
-%"struct.std::_Tuple_impl.38" = type { %"struct.std::_Tuple_impl.39", %"struct.std::_Head_base.93" }
-%"struct.std::_Tuple_impl.39" = type { %"struct.std::_Tuple_impl.40", %"struct.std::_Head_base.81" }
-%"struct.std::_Tuple_impl.40" = type { %"struct.std::_Tuple_impl.41", %"struct.std::_Head_base.74" }
-%"struct.std::_Tuple_impl.41" = type { %"struct.std::_Tuple_impl.42", %"struct.std::_Head_base.67" }
-%"struct.std::_Tuple_impl.42" = type { %"struct.std::_Tuple_impl.43", %"struct.std::_Head_base.55" }
-%"struct.std::_Tuple_impl.43" = type { %"struct.std::_Head_base.44" }
-%"struct.std::_Head_base.44" = type { %"struct.nblib::ListedTypeData" }
-%"struct.nblib::ListedTypeData" = type { %"class.std::vector.45", %"class.std::vector.50" }
-%"class.std::vector.45" = type { %"struct.std::_Vector_base.46" }
-%"struct.std::_Vector_base.46" = type { %"struct.std::_Vector_base<nblib::Default5Center, std::allocator<nblib::Default5Center>>::_Vector_impl" }
-%"struct.std::_Vector_base<nblib::Default5Center, std::allocator<nblib::Default5Center>>::_Vector_impl" = type { %"struct.std::_Vector_base<nblib::Default5Center, std::allocator<nblib::Default5Center>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<nblib::Default5Center, std::allocator<nblib::Default5Center>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.50" = type { %"struct.std::_Vector_base.51" }
-%"struct.std::_Vector_base.51" = type { %"struct.std::_Vector_base<std::array<int, 6>, std::allocator<std::array<int, 6>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::array<int, 6>, std::allocator<std::array<int, 6>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::array<int, 6>, std::allocator<std::array<int, 6>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::array<int, 6>, std::allocator<std::array<int, 6>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::_Head_base.55" = type { %"struct.nblib::ListedTypeData.56" }
-%"struct.nblib::ListedTypeData.56" = type { %"class.std::vector.57", %"class.std::vector.62" }
-%"class.std::vector.57" = type { %"struct.std::_Vector_base.58" }
-%"struct.std::_Vector_base.58" = type { %"struct.std::_Vector_base<nblib::RyckaertBellemanDihedral, std::allocator<nblib::RyckaertBellemanDihedral>>::_Vector_impl" }
-%"struct.std::_Vector_base<nblib::RyckaertBellemanDihedral, std::allocator<nblib::RyckaertBellemanDihedral>>::_Vector_impl" = type { %"struct.std::_Vector_base<nblib::RyckaertBellemanDihedral, std::allocator<nblib::RyckaertBellemanDihedral>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<nblib::RyckaertBellemanDihedral, std::allocator<nblib::RyckaertBellemanDihedral>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.62" = type { %"struct.std::_Vector_base.63" }
-%"struct.std::_Vector_base.63" = type { %"struct.std::_Vector_base<std::array<int, 5>, std::allocator<std::array<int, 5>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::array<int, 5>, std::allocator<std::array<int, 5>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::array<int, 5>, std::allocator<std::array<int, 5>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::array<int, 5>, std::allocator<std::array<int, 5>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::_Head_base.67" = type { %"struct.nblib::ListedTypeData.68" }
-%"struct.nblib::ListedTypeData.68" = type { %"class.std::vector.69", %"class.std::vector.62" }
-%"class.std::vector.69" = type { %"struct.std::_Vector_base.70" }
-%"struct.std::_Vector_base.70" = type { %"struct.std::_Vector_base<nblib::ImproperDihedral, std::allocator<nblib::ImproperDihedral>>::_Vector_impl" }
-%"struct.std::_Vector_base<nblib::ImproperDihedral, std::allocator<nblib::ImproperDihedral>>::_Vector_impl" = type { %"struct.std::_Vector_base<nblib::ImproperDihedral, std::allocator<nblib::ImproperDihedral>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<nblib::ImproperDihedral, std::allocator<nblib::ImproperDihedral>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::_Head_base.74" = type { %"struct.nblib::ListedTypeData.75" }
-%"struct.nblib::ListedTypeData.75" = type { %"class.std::vector.76", %"class.std::vector.62" }
-%"class.std::vector.76" = type { %"struct.std::_Vector_base.77" }
-%"struct.std::_Vector_base.77" = type { %"struct.std::_Vector_base<nblib::ProperDihedral, std::allocator<nblib::ProperDihedral>>::_Vector_impl" }
-%"struct.std::_Vector_base<nblib::ProperDihedral, std::allocator<nblib::ProperDihedral>>::_Vector_impl" = type { %"struct.std::_Vector_base<nblib::ProperDihedral, std::allocator<nblib::ProperDihedral>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<nblib::ProperDihedral, std::allocator<nblib::ProperDihedral>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::_Head_base.81" = type { %"struct.nblib::ListedTypeData.82" }
-%"struct.nblib::ListedTypeData.82" = type { %"class.std::vector.83", %"class.std::vector.88" }
-%"class.std::vector.83" = type { %"struct.std::_Vector_base.84" }
-%"struct.std::_Vector_base.84" = type { %"struct.std::_Vector_base<nblib::TwoParameterInteraction<nblib::LinearAngleParameter>, std::allocator<nblib::TwoParameterInteraction<nblib::LinearAngleParameter>>>::_Vector_impl" }
-%"struct.std::_Vector_base<nblib::TwoParameterInteraction<nblib::LinearAngleParameter>, std::allocator<nblib::TwoParameterInteraction<nblib::LinearAngleParameter>>>::_Vector_impl" = type { %"struct.std::_Vector_base<nblib::TwoParameterInteraction<nblib::LinearAngleParameter>, std::allocator<nblib::TwoParameterInteraction<nblib::LinearAngleParameter>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<nblib::TwoParameterInteraction<nblib::LinearAngleParameter>, std::allocator<nblib::TwoParameterInteraction<nblib::LinearAngleParameter>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.88" = type { %"struct.std::_Vector_base.89" }
-%"struct.std::_Vector_base.89" = type { %"struct.std::_Vector_base<std::array<int, 4>, std::allocator<std::array<int, 4>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::array<int, 4>, std::allocator<std::array<int, 4>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::array<int, 4>, std::allocator<std::array<int, 4>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::array<int, 4>, std::allocator<std::array<int, 4>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::_Head_base.93" = type { %"struct.nblib::ListedTypeData.94" }
-%"struct.nblib::ListedTypeData.94" = type { %"class.std::vector.95", %"class.std::vector.88" }
-%"class.std::vector.95" = type { %"struct.std::_Vector_base.96" }
-%"struct.std::_Vector_base.96" = type { %"struct.std::_Vector_base<nblib::CrossBondAngle, std::allocator<nblib::CrossBondAngle>>::_Vector_impl" }
-%"struct.std::_Vector_base<nblib::CrossBondAngle, std::allocator<nblib::CrossBondAngle>>::_Vector_impl" = type { %"struct.std::_Vector_base<nblib::CrossBondAngle, std::allocator<nblib::CrossBondAngle>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<nblib::CrossBondAngle, std::allocator<nblib::CrossBondAngle>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::_Head_base.100" = type { %"struct.nblib::ListedTypeData.101" }
-%"struct.nblib::ListedTypeData.101" = type { %"class.std::vector.102", %"class.std::vector.88" }
-%"class.std::vector.102" = type { %"struct.std::_Vector_base.103" }
-%"struct.std::_Vector_base.103" = type { %"struct.std::_Vector_base<nblib::CrossBondBond, std::allocator<nblib::CrossBondBond>>::_Vector_impl" }
-%"struct.std::_Vector_base<nblib::CrossBondBond, std::allocator<nblib::CrossBondBond>>::_Vector_impl" = type { %"struct.std::_Vector_base<nblib::CrossBondBond, std::allocator<nblib::CrossBondBond>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<nblib::CrossBondBond, std::allocator<nblib::CrossBondBond>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::_Head_base.107" = type { %"struct.nblib::ListedTypeData.108" }
-%"struct.nblib::ListedTypeData.108" = type { %"class.std::vector.109", %"class.std::vector.88" }
-%"class.std::vector.109" = type { %"struct.std::_Vector_base.110" }
-%"struct.std::_Vector_base.110" = type { %"struct.std::_Vector_base<nblib::CosineParamAngle<nblib::RestrictedAngleParameter>, std::allocator<nblib::CosineParamAngle<nblib::RestrictedAngleParameter>>>::_Vector_impl" }
-%"struct.std::_Vector_base<nblib::CosineParamAngle<nblib::RestrictedAngleParameter>, std::allocator<nblib::CosineParamAngle<nblib::RestrictedAngleParameter>>>::_Vector_impl" = type { %"struct.std::_Vector_base<nblib::CosineParamAngle<nblib::RestrictedAngleParameter>, std::allocator<nblib::CosineParamAngle<nblib::RestrictedAngleParameter>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<nblib::CosineParamAngle<nblib::RestrictedAngleParameter>, std::allocator<nblib::CosineParamAngle<nblib::RestrictedAngleParameter>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::_Head_base.114" = type { %"struct.nblib::ListedTypeData.115" }
-%"struct.nblib::ListedTypeData.115" = type { %"class.std::vector.116", %"class.std::vector.88" }
-%"class.std::vector.116" = type { %"struct.std::_Vector_base.117" }
-%"struct.std::_Vector_base.117" = type { %"struct.std::_Vector_base<nblib::QuarticAngle, std::allocator<nblib::QuarticAngle>>::_Vector_impl" }
-%"struct.std::_Vector_base<nblib::QuarticAngle, std::allocator<nblib::QuarticAngle>>::_Vector_impl" = type { %"struct.std::_Vector_base<nblib::QuarticAngle, std::allocator<nblib::QuarticAngle>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<nblib::QuarticAngle, std::allocator<nblib::QuarticAngle>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::_Head_base.121" = type { %"struct.nblib::ListedTypeData.122" }
-%"struct.nblib::ListedTypeData.122" = type { %"class.std::vector.123", %"class.std::vector.88" }
-%"class.std::vector.123" = type { %"struct.std::_Vector_base.124" }
-%"struct.std::_Vector_base.124" = type { %"struct.std::_Vector_base<nblib::CosineParamAngle<nblib::G96AngleParameter>, std::allocator<nblib::CosineParamAngle<nblib::G96AngleParameter>>>::_Vector_impl" }
-%"struct.std::_Vector_base<nblib::CosineParamAngle<nblib::G96AngleParameter>, std::allocator<nblib::CosineParamAngle<nblib::G96AngleParameter>>>::_Vector_impl" = type { %"struct.std::_Vector_base<nblib::CosineParamAngle<nblib::G96AngleParameter>, std::allocator<nblib::CosineParamAngle<nblib::G96AngleParameter>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<nblib::CosineParamAngle<nblib::G96AngleParameter>, std::allocator<nblib::CosineParamAngle<nblib::G96AngleParameter>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::_Head_base.128" = type { %"struct.nblib::ListedTypeData.129" }
-%"struct.nblib::ListedTypeData.129" = type { %"class.std::vector.130", %"class.std::vector.88" }
-%"class.std::vector.130" = type { %"struct.std::_Vector_base.131" }
-%"struct.std::_Vector_base.131" = type { %"struct.std::_Vector_base<nblib::AngleInteractionType<nblib::HarmonicAngleParameter>, std::allocator<nblib::AngleInteractionType<nblib::HarmonicAngleParameter>>>::_Vector_impl" }
-%"struct.std::_Vector_base<nblib::AngleInteractionType<nblib::HarmonicAngleParameter>, std::allocator<nblib::AngleInteractionType<nblib::HarmonicAngleParameter>>>::_Vector_impl" = type { %"struct.std::_Vector_base<nblib::AngleInteractionType<nblib::HarmonicAngleParameter>, std::allocator<nblib::AngleInteractionType<nblib::HarmonicAngleParameter>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<nblib::AngleInteractionType<nblib::HarmonicAngleParameter>, std::allocator<nblib::AngleInteractionType<nblib::HarmonicAngleParameter>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::_Head_base.135" = type { %"struct.nblib::ListedTypeData.136" }
-%"struct.nblib::ListedTypeData.136" = type { %"class.std::vector.137", %"class.std::vector.142" }
-%"class.std::vector.137" = type { %"struct.std::_Vector_base.138" }
-%"struct.std::_Vector_base.138" = type { %"struct.std::_Vector_base<nblib::PairLJType, std::allocator<nblib::PairLJType>>::_Vector_impl" }
-%"struct.std::_Vector_base<nblib::PairLJType, std::allocator<nblib::PairLJType>>::_Vector_impl" = type { %"struct.std::_Vector_base<nblib::PairLJType, std::allocator<nblib::PairLJType>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<nblib::PairLJType, std::allocator<nblib::PairLJType>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.142" = type { %"struct.std::_Vector_base.143" }
-%"struct.std::_Vector_base.143" = type { %"struct.std::_Vector_base<std::array<int, 3>, std::allocator<std::array<int, 3>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::array<int, 3>, std::allocator<std::array<int, 3>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::array<int, 3>, std::allocator<std::array<int, 3>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::array<int, 3>, std::allocator<std::array<int, 3>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::_Head_base.147" = type { %"struct.nblib::ListedTypeData.148" }
-%"struct.nblib::ListedTypeData.148" = type { %"class.std::vector.149", %"class.std::vector.142" }
-%"class.std::vector.149" = type { %"struct.std::_Vector_base.150" }
-%"struct.std::_Vector_base.150" = type { %"struct.std::_Vector_base<nblib::TwoParameterInteraction<nblib::HalfAttractiveQuarticBondTypeParameter>, std::allocator<nblib::TwoParameterInteraction<nblib::HalfAttractiveQuarticBondTypeParameter>>>::_Vector_impl" }
-%"struct.std::_Vector_base<nblib::TwoParameterInteraction<nblib::HalfAttractiveQuarticBondTypeParameter>, std::allocator<nblib::TwoParameterInteraction<nblib::HalfAttractiveQuarticBondTypeParameter>>>::_Vector_impl" = type { %"struct.std::_Vector_base<nblib::TwoParameterInteraction<nblib::HalfAttractiveQuarticBondTypeParameter>, std::allocator<nblib::TwoParameterInteraction<nblib::HalfAttractiveQuarticBondTypeParameter>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<nblib::TwoParameterInteraction<nblib::HalfAttractiveQuarticBondTypeParameter>, std::allocator<nblib::TwoParameterInteraction<nblib::HalfAttractiveQuarticBondTypeParameter>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::_Head_base.154" = type { %"struct.nblib::ListedTypeData.155" }
-%"struct.nblib::ListedTypeData.155" = type { %"class.std::vector.156", %"class.std::vector.142" }
-%"class.std::vector.156" = type { %"struct.std::_Vector_base.157" }
-%"struct.std::_Vector_base.157" = type { %"struct.std::_Vector_base<nblib::TwoParameterInteraction<nblib::FENEBondTypeParameter>, std::allocator<nblib::TwoParameterInteraction<nblib::FENEBondTypeParameter>>>::_Vector_impl" }
-%"struct.std::_Vector_base<nblib::TwoParameterInteraction<nblib::FENEBondTypeParameter>, std::allocator<nblib::TwoParameterInteraction<nblib::FENEBondTypeParameter>>>::_Vector_impl" = type { %"struct.std::_Vector_base<nblib::TwoParameterInteraction<nblib::FENEBondTypeParameter>, std::allocator<nblib::TwoParameterInteraction<nblib::FENEBondTypeParameter>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<nblib::TwoParameterInteraction<nblib::FENEBondTypeParameter>, std::allocator<nblib::TwoParameterInteraction<nblib::FENEBondTypeParameter>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::_Head_base.161" = type { %"struct.nblib::ListedTypeData.162" }
-%"struct.nblib::ListedTypeData.162" = type { %"class.std::vector.163", %"class.std::vector.142" }
-%"class.std::vector.163" = type { %"struct.std::_Vector_base.164" }
-%"struct.std::_Vector_base.164" = type { %"struct.std::_Vector_base<nblib::MorseBondType, std::allocator<nblib::MorseBondType>>::_Vector_impl" }
-%"struct.std::_Vector_base<nblib::MorseBondType, std::allocator<nblib::MorseBondType>>::_Vector_impl" = type { %"struct.std::_Vector_base<nblib::MorseBondType, std::allocator<nblib::MorseBondType>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<nblib::MorseBondType, std::allocator<nblib::MorseBondType>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::_Head_base.168" = type { %"struct.nblib::ListedTypeData.169" }
-%"struct.nblib::ListedTypeData.169" = type { %"class.std::vector.170", %"class.std::vector.142" }
-%"class.std::vector.170" = type { %"struct.std::_Vector_base.171" }
-%"struct.std::_Vector_base.171" = type { %"struct.std::_Vector_base<nblib::CubicBondType, std::allocator<nblib::CubicBondType>>::_Vector_impl" }
-%"struct.std::_Vector_base<nblib::CubicBondType, std::allocator<nblib::CubicBondType>>::_Vector_impl" = type { %"struct.std::_Vector_base<nblib::CubicBondType, std::allocator<nblib::CubicBondType>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<nblib::CubicBondType, std::allocator<nblib::CubicBondType>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::_Head_base.175" = type { %"struct.nblib::ListedTypeData.176" }
-%"struct.nblib::ListedTypeData.176" = type { %"class.std::vector.177", %"class.std::vector.142" }
-%"class.std::vector.177" = type { %"struct.std::_Vector_base.178" }
-%"struct.std::_Vector_base.178" = type { %"struct.std::_Vector_base<nblib::G96BondType, std::allocator<nblib::G96BondType>>::_Vector_impl" }
-%"struct.std::_Vector_base<nblib::G96BondType, std::allocator<nblib::G96BondType>>::_Vector_impl" = type { %"struct.std::_Vector_base<nblib::G96BondType, std::allocator<nblib::G96BondType>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<nblib::G96BondType, std::allocator<nblib::G96BondType>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::_Head_base.182" = type { %"struct.nblib::ListedTypeData.183" }
-%"struct.nblib::ListedTypeData.183" = type { %"class.std::vector.184", %"class.std::vector.142" }
-%"class.std::vector.184" = type { %"struct.std::_Vector_base.185" }
-%"struct.std::_Vector_base.185" = type { %"struct.std::_Vector_base<nblib::TwoParameterInteraction<nblib::HarmonicBondTypeParameter>, std::allocator<nblib::TwoParameterInteraction<nblib::HarmonicBondTypeParameter>>>::_Vector_impl" }
-%"struct.std::_Vector_base<nblib::TwoParameterInteraction<nblib::HarmonicBondTypeParameter>, std::allocator<nblib::TwoParameterInteraction<nblib::HarmonicBondTypeParameter>>>::_Vector_impl" = type { %"struct.std::_Vector_base<nblib::TwoParameterInteraction<nblib::HarmonicBondTypeParameter>, std::allocator<nblib::TwoParameterInteraction<nblib::HarmonicBondTypeParameter>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<nblib::TwoParameterInteraction<nblib::HarmonicBondTypeParameter>, std::allocator<nblib::TwoParameterInteraction<nblib::HarmonicBondTypeParameter>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::array.191" = type { [3 x i32] }
-%"struct.std::array.212" = type { [4 x i32] }
-%"struct.std::array.236" = type { [5 x i32] }
-%"struct.std::array.247" = type { [6 x i32] }
 %"class.gmx::ArrayRef.254" = type { %"struct.gmx::ArrayRefIter.255", %"struct.gmx::ArrayRefIter.255" }
 %"struct.gmx::ArrayRefIter.255" = type { ptr }
 %"class.gmx::ArrayRef.251" = type { %"struct.gmx::ArrayRefIter.252", %"struct.gmx::ArrayRefIter.252" }
@@ -180,40 +29,15 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.261" = type { %"struct.std::_Vector_base<std::array<float, 18>, std::allocator<std::array<float, 18>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::array<float, 18>, std::allocator<std::array<float, 18>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::array<float, 18>, std::allocator<std::array<float, 18>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::array<float, 18>, std::allocator<std::array<float, 18>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::array" = type { [18 x float] }
-%"class.gmx::BasicVector" = type { [3 x float] }
 %class.anon.428 = type { %class.anon.427 }
 %class.anon.427 = type { ptr, %"class.gmx::ArrayRef.251", %"class.gmx::ArrayRef", ptr, ptr }
+%"struct.std::array" = type { [18 x float] }
 %class.anon.266 = type { %class.anon.265 }
 %class.anon.265 = type { ptr, %"class.gmx::ArrayRef.251", %"class.gmx::ArrayRef", ptr, ptr }
 %"class.nblib::NoPbc" = type { i8 }
+%"class.gmx::BasicVector" = type { [3 x float] }
 %"class.nblib::KernelEnergy" = type { %"struct.std::array.273" }
 %"struct.std::array.273" = type { [4 x float] }
-%"class.nblib::TwoParameterInteraction" = type { float, float }
-%"class.nblib::G96BondType" = type { %"class.nblib::TwoParameterInteraction.196" }
-%"class.nblib::TwoParameterInteraction.196" = type { float, float }
-%"class.nblib::CubicBondType" = type { float, float, float }
-%"class.nblib::MorseBondType" = type { float, float, float }
-%"class.nblib::TwoParameterInteraction.203" = type { float, float }
-%"class.nblib::TwoParameterInteraction.206" = type { float, float }
-%"class.nblib::PairLJType" = type { %"struct.nblib::StrongType", %"struct.nblib::StrongType.209" }
-%"struct.nblib::StrongType" = type { float }
-%"struct.nblib::StrongType.209" = type { float }
-%"class.nblib::AngleInteractionType" = type { %"class.nblib::TwoParameterInteraction.214" }
-%"class.nblib::TwoParameterInteraction.214" = type { float, float }
-%"class.nblib::CosineParamAngle" = type { %"class.nblib::TwoParameterInteraction.218" }
-%"class.nblib::TwoParameterInteraction.218" = type { float, float }
-%"class.nblib::QuarticAngle" = type { %"struct.std::array.221", %"struct.nblib::StrongType.222" }
-%"struct.std::array.221" = type { [5 x float] }
-%"struct.nblib::StrongType.222" = type { float }
-%"class.nblib::CosineParamAngle.225" = type { %"class.nblib::TwoParameterInteraction.226" }
-%"class.nblib::TwoParameterInteraction.226" = type { float, float }
-%"class.nblib::CrossBondBond" = type { float, float, float }
-%"class.nblib::CrossBondAngle" = type { float, float, float, float }
-%"class.nblib::TwoParameterInteraction.233" = type { float, float }
-%"class.nblib::ProperDihedral" = type { float, float, i32 }
-%"class.nblib::ImproperDihedral" = type { %"class.nblib::TwoParameterInteraction.241" }
-%"class.nblib::TwoParameterInteraction.241" = type { float, float }
 %"class.nblib::RyckaertBellemanDihedral" = type { %"struct.std::array.244" }
 %"struct.std::array.244" = type { [6 x float] }
 %"class.gmx::ArrayRef.429" = type { %"struct.gmx::ArrayRefIter.430", %"struct.gmx::ArrayRefIter.430" }
@@ -1464,7 +1288,7 @@ _ZNSt12_Vector_baseIN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEESaIS5_EEC2
 
 .noexc11:                                         ; preds = %_ZNSt12_Vector_baseIN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEESaIS5_EEC2EmRKS6_.exit.i
   store ptr %17, ptr %12, align 8, !tbaa !20
-  %18 = getelementptr inbounds nuw %"class.nblib::ForceBufferProxy", ptr %17, i64 %13
+  %18 = getelementptr inbounds nuw [80 x i8], ptr %17, i64 %13
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store ptr %18, ptr %19, align 8, !tbaa !38
   br label %.lr.ph.i.i.i.i.i
@@ -1505,7 +1329,7 @@ _ZNSt12_Vector_baseISt6vectorIN3gmx11BasicVectorIfEESaIS3_EESaIS5_EEC2EmRKS6_.ex
 
 .noexc15:                                         ; preds = %.lr.ph.preheader.i.i.i.i.i
   store ptr %32, ptr %30, align 8, !tbaa !9
-  %33 = getelementptr inbounds nuw %"class.std::vector.12", ptr %32, i64 %13
+  %33 = getelementptr inbounds nuw [24 x i8], ptr %32, i64 %13
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %32, i8 0, i64 %31, i1 false)
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %32, i64 %31
   br label %34
@@ -1562,7 +1386,7 @@ _ZNSt6vectorISt5tupleIJN5nblib14ListedTypeDataINS1_23TwoParameterInteractionINS1
 
 .noexc19:                                         ; preds = %.lr.ph.preheader.i.i.i.i.i.i
   store ptr %48, ptr %8, align 8, !tbaa !39, !alias.scope !158
-  %49 = getelementptr inbounds nuw %"class.std::tuple.25", ptr %48, i64 %45
+  %49 = getelementptr inbounds nuw [864 x i8], ptr %48, i64 %45
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %48, i8 0, i64 %47, i1 false), !noalias !158
   %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %48, i64 %47
   br label %_ZNSt12_Vector_baseISt5tupleIJN5nblib14ListedTypeDataINS1_23TwoParameterInteractionINS1_25HarmonicBondTypeParameterEEEEENS2_INS1_11G96BondTypeEEENS2_INS1_13CubicBondTypeEEENS2_INS1_13MorseBondTypeEEENS2_INS3_INS1_21FENEBondTypeParameterEEEEENS2_INS3_INS1_38HalfAttractiveQuarticBondTypeParameterEEEEENS2_INS1_10PairLJTypeEEENS2_INS1_20AngleInteractionTypeINS1_22HarmonicAngleParameterEEEEENS2_INS1_16CosineParamAngleINS1_17G96AngleParameterEEEEENS2_INS1_12QuarticAngleEEENS2_INSP_INS1_24RestrictedAngleParameterEEEEENS2_INS1_13CrossBondBondEEENS2_INS1_14CrossBondAngleEEENS2_INS3_INS1_20LinearAngleParameterEEEEENS2_INS1_14ProperDihedralEEENS2_INS1_16ImproperDihedralEEENS2_INS1_24RyckaertBellemanDihedralEEENS2_INS1_14Default5CenterEEEEESaIS1D_EEC2EmRKS1E_.exit.thread.i.i
@@ -1804,7 +1628,7 @@ define internal void @_ZN5nblib21ListedForceCalculatorC2ERKSt5tupleIJNS_14Listed
   store float 1.000000e+00, ptr %25, align 8, !tbaa !153
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %26, i8 0, i64 16, i1 false)
   %41 = load ptr, ptr %27, align 8, !tbaa !20
-  %42 = getelementptr inbounds nuw %"class.nblib::ForceBufferProxy", ptr %41, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [80 x i8], ptr %41, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %42, ptr noundef nonnull align 8 dereferenceable(80) %10, i64 24, i1 false)
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %44 = icmp eq ptr %10, %42
@@ -1867,7 +1691,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   %70 = load i32, ptr %69, align 4, !tbaa !161
   %71 = sext i32 %70 to i64
   %72 = urem i64 %71, %63
-  %73 = getelementptr inbounds nuw ptr, ptr %62, i64 %72
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %72
   store ptr %46, ptr %73, align 8, !tbaa !175
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEaSEOS4_.exit.thread
 
@@ -1914,7 +1738,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEED2Ev.exit: ; preds = %_ZNSt10
 84:                                               ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEED2Ev.exit
   %85 = getelementptr inbounds nuw i8, ptr %83, i64 540
   %86 = load ptr, ptr %29, align 8, !tbaa !9
-  %87 = getelementptr inbounds nuw %"class.std::vector.12", ptr %86, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw [24 x i8], ptr %86, i64 %indvars.iv
   %88 = load ptr, ptr %87, align 8, !tbaa !13
   %89 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %90 = getelementptr inbounds nuw i8, ptr %87, i64 16
@@ -2074,7 +1898,7 @@ _ZN5nblib6detailL17computeChunkIndexEiii.exit:    ; preds = %.lr.ph.i.i, %22
   %26 = load ptr, ptr %3, align 8, !tbaa !180
   %27 = sext i32 %.0.i to i64
   %28 = load ptr, ptr %26, align 8, !tbaa !39
-  %29 = getelementptr inbounds nuw %"class.std::tuple.25", ptr %28, i64 %27
+  %29 = getelementptr inbounds nuw [864 x i8], ptr %28, i64 %27
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 840
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 848
   %32 = load ptr, ptr %31, align 8, !tbaa !186
@@ -2134,7 +1958,7 @@ _ZNSt6vectorISt5arrayIiLm3EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; p
 _ZNSt6vectorISt5arrayIiLm3EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %56, %_ZNSt6vectorISt5arrayIiLm3EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %51, ptr %30, align 8, !tbaa !45
   store ptr %55, ptr %31, align 8, !tbaa !186
-  %57 = getelementptr inbounds nuw %"struct.std::array.191", ptr %51, i64 %49
+  %57 = getelementptr inbounds nuw [12 x i8], ptr %51, i64 %49
   store ptr %57, ptr %33, align 8, !tbaa !48
   br label %_ZNSt6vectorISt5arrayIiLm3EESaIS1_EE9push_backERKS1_.exit
 
@@ -2200,7 +2024,7 @@ _ZN5nblib6detailL17computeChunkIndexEiii.exit:    ; preds = %.lr.ph.i.i, %22
   %26 = load ptr, ptr %3, align 8, !tbaa !180
   %27 = sext i32 %.0.i to i64
   %28 = load ptr, ptr %26, align 8, !tbaa !39
-  %29 = getelementptr inbounds nuw %"class.std::tuple.25", ptr %28, i64 %27
+  %29 = getelementptr inbounds nuw [864 x i8], ptr %28, i64 %27
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 792
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 800
   %32 = load ptr, ptr %31, align 8, !tbaa !186
@@ -2260,7 +2084,7 @@ _ZNSt6vectorISt5arrayIiLm3EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; p
 _ZNSt6vectorISt5arrayIiLm3EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %56, %_ZNSt6vectorISt5arrayIiLm3EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %51, ptr %30, align 8, !tbaa !45
   store ptr %55, ptr %31, align 8, !tbaa !186
-  %57 = getelementptr inbounds nuw %"struct.std::array.191", ptr %51, i64 %49
+  %57 = getelementptr inbounds nuw [12 x i8], ptr %51, i64 %49
   store ptr %57, ptr %33, align 8, !tbaa !48
   br label %_ZNSt6vectorISt5arrayIiLm3EESaIS1_EE9push_backERKS1_.exit
 
@@ -2326,7 +2150,7 @@ _ZN5nblib6detailL17computeChunkIndexEiii.exit:    ; preds = %.lr.ph.i.i, %22
   %26 = load ptr, ptr %3, align 8, !tbaa !180
   %27 = sext i32 %.0.i to i64
   %28 = load ptr, ptr %26, align 8, !tbaa !39
-  %29 = getelementptr inbounds nuw %"class.std::tuple.25", ptr %28, i64 %27
+  %29 = getelementptr inbounds nuw [864 x i8], ptr %28, i64 %27
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 744
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 752
   %32 = load ptr, ptr %31, align 8, !tbaa !186
@@ -2386,7 +2210,7 @@ _ZNSt6vectorISt5arrayIiLm3EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; p
 _ZNSt6vectorISt5arrayIiLm3EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %56, %_ZNSt6vectorISt5arrayIiLm3EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %51, ptr %30, align 8, !tbaa !45
   store ptr %55, ptr %31, align 8, !tbaa !186
-  %57 = getelementptr inbounds nuw %"struct.std::array.191", ptr %51, i64 %49
+  %57 = getelementptr inbounds nuw [12 x i8], ptr %51, i64 %49
   store ptr %57, ptr %33, align 8, !tbaa !48
   br label %_ZNSt6vectorISt5arrayIiLm3EESaIS1_EE9push_backERKS1_.exit
 
@@ -2452,7 +2276,7 @@ _ZN5nblib6detailL17computeChunkIndexEiii.exit:    ; preds = %.lr.ph.i.i, %22
   %26 = load ptr, ptr %3, align 8, !tbaa !180
   %27 = sext i32 %.0.i to i64
   %28 = load ptr, ptr %26, align 8, !tbaa !39
-  %29 = getelementptr inbounds nuw %"class.std::tuple.25", ptr %28, i64 %27
+  %29 = getelementptr inbounds nuw [864 x i8], ptr %28, i64 %27
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 696
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 704
   %32 = load ptr, ptr %31, align 8, !tbaa !186
@@ -2512,7 +2336,7 @@ _ZNSt6vectorISt5arrayIiLm3EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; p
 _ZNSt6vectorISt5arrayIiLm3EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %56, %_ZNSt6vectorISt5arrayIiLm3EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %51, ptr %30, align 8, !tbaa !45
   store ptr %55, ptr %31, align 8, !tbaa !186
-  %57 = getelementptr inbounds nuw %"struct.std::array.191", ptr %51, i64 %49
+  %57 = getelementptr inbounds nuw [12 x i8], ptr %51, i64 %49
   store ptr %57, ptr %33, align 8, !tbaa !48
   br label %_ZNSt6vectorISt5arrayIiLm3EESaIS1_EE9push_backERKS1_.exit
 
@@ -2578,7 +2402,7 @@ _ZN5nblib6detailL17computeChunkIndexEiii.exit:    ; preds = %.lr.ph.i.i, %22
   %26 = load ptr, ptr %3, align 8, !tbaa !180
   %27 = sext i32 %.0.i to i64
   %28 = load ptr, ptr %26, align 8, !tbaa !39
-  %29 = getelementptr inbounds nuw %"class.std::tuple.25", ptr %28, i64 %27
+  %29 = getelementptr inbounds nuw [864 x i8], ptr %28, i64 %27
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 648
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 656
   %32 = load ptr, ptr %31, align 8, !tbaa !186
@@ -2638,7 +2462,7 @@ _ZNSt6vectorISt5arrayIiLm3EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; p
 _ZNSt6vectorISt5arrayIiLm3EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %56, %_ZNSt6vectorISt5arrayIiLm3EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %51, ptr %30, align 8, !tbaa !45
   store ptr %55, ptr %31, align 8, !tbaa !186
-  %57 = getelementptr inbounds nuw %"struct.std::array.191", ptr %51, i64 %49
+  %57 = getelementptr inbounds nuw [12 x i8], ptr %51, i64 %49
   store ptr %57, ptr %33, align 8, !tbaa !48
   br label %_ZNSt6vectorISt5arrayIiLm3EESaIS1_EE9push_backERKS1_.exit
 
@@ -2704,7 +2528,7 @@ _ZN5nblib6detailL17computeChunkIndexEiii.exit:    ; preds = %.lr.ph.i.i, %22
   %26 = load ptr, ptr %3, align 8, !tbaa !180
   %27 = sext i32 %.0.i to i64
   %28 = load ptr, ptr %26, align 8, !tbaa !39
-  %29 = getelementptr inbounds nuw %"class.std::tuple.25", ptr %28, i64 %27
+  %29 = getelementptr inbounds nuw [864 x i8], ptr %28, i64 %27
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 600
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 608
   %32 = load ptr, ptr %31, align 8, !tbaa !186
@@ -2764,7 +2588,7 @@ _ZNSt6vectorISt5arrayIiLm3EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; p
 _ZNSt6vectorISt5arrayIiLm3EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %56, %_ZNSt6vectorISt5arrayIiLm3EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %51, ptr %30, align 8, !tbaa !45
   store ptr %55, ptr %31, align 8, !tbaa !186
-  %57 = getelementptr inbounds nuw %"struct.std::array.191", ptr %51, i64 %49
+  %57 = getelementptr inbounds nuw [12 x i8], ptr %51, i64 %49
   store ptr %57, ptr %33, align 8, !tbaa !48
   br label %_ZNSt6vectorISt5arrayIiLm3EESaIS1_EE9push_backERKS1_.exit
 
@@ -2830,7 +2654,7 @@ _ZN5nblib6detailL17computeChunkIndexEiii.exit:    ; preds = %.lr.ph.i.i, %22
   %26 = load ptr, ptr %3, align 8, !tbaa !180
   %27 = sext i32 %.0.i to i64
   %28 = load ptr, ptr %26, align 8, !tbaa !39
-  %29 = getelementptr inbounds nuw %"class.std::tuple.25", ptr %28, i64 %27
+  %29 = getelementptr inbounds nuw [864 x i8], ptr %28, i64 %27
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 552
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 560
   %32 = load ptr, ptr %31, align 8, !tbaa !186
@@ -2890,7 +2714,7 @@ _ZNSt6vectorISt5arrayIiLm3EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; p
 _ZNSt6vectorISt5arrayIiLm3EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %56, %_ZNSt6vectorISt5arrayIiLm3EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %51, ptr %30, align 8, !tbaa !45
   store ptr %55, ptr %31, align 8, !tbaa !186
-  %57 = getelementptr inbounds nuw %"struct.std::array.191", ptr %51, i64 %49
+  %57 = getelementptr inbounds nuw [12 x i8], ptr %51, i64 %49
   store ptr %57, ptr %33, align 8, !tbaa !48
   br label %_ZNSt6vectorISt5arrayIiLm3EESaIS1_EE9push_backERKS1_.exit
 
@@ -2970,7 +2794,7 @@ _ZN5nblib6detailL17computeChunkIndexEiii.exit:    ; preds = %_ZSt11min_elementIP
   %30 = load ptr, ptr %3, align 8, !tbaa !180
   %31 = sext i32 %.0.i to i64
   %32 = load ptr, ptr %30, align 8, !tbaa !39
-  %33 = getelementptr inbounds nuw %"class.std::tuple.25", ptr %32, i64 %31
+  %33 = getelementptr inbounds nuw [864 x i8], ptr %32, i64 %31
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 504
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 512
   %36 = load ptr, ptr %35, align 8, !tbaa !191
@@ -3030,7 +2854,7 @@ _ZNSt6vectorISt5arrayIiLm4EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; p
 _ZNSt6vectorISt5arrayIiLm4EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %60, %_ZNSt6vectorISt5arrayIiLm4EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %55, ptr %34, align 8, !tbaa !77
   store ptr %59, ptr %35, align 8, !tbaa !191
-  %61 = getelementptr inbounds nuw %"struct.std::array.212", ptr %55, i64 %53
+  %61 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %53
   store ptr %61, ptr %37, align 8, !tbaa !80
   br label %_ZNSt6vectorISt5arrayIiLm4EESaIS1_EE9push_backERKS1_.exit
 
@@ -3110,7 +2934,7 @@ _ZN5nblib6detailL17computeChunkIndexEiii.exit:    ; preds = %_ZSt11min_elementIP
   %30 = load ptr, ptr %3, align 8, !tbaa !180
   %31 = sext i32 %.0.i to i64
   %32 = load ptr, ptr %30, align 8, !tbaa !39
-  %33 = getelementptr inbounds nuw %"class.std::tuple.25", ptr %32, i64 %31
+  %33 = getelementptr inbounds nuw [864 x i8], ptr %32, i64 %31
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 456
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 464
   %36 = load ptr, ptr %35, align 8, !tbaa !191
@@ -3170,7 +2994,7 @@ _ZNSt6vectorISt5arrayIiLm4EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; p
 _ZNSt6vectorISt5arrayIiLm4EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %60, %_ZNSt6vectorISt5arrayIiLm4EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %55, ptr %34, align 8, !tbaa !77
   store ptr %59, ptr %35, align 8, !tbaa !191
-  %61 = getelementptr inbounds nuw %"struct.std::array.212", ptr %55, i64 %53
+  %61 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %53
   store ptr %61, ptr %37, align 8, !tbaa !80
   br label %_ZNSt6vectorISt5arrayIiLm4EESaIS1_EE9push_backERKS1_.exit
 
@@ -3250,7 +3074,7 @@ _ZN5nblib6detailL17computeChunkIndexEiii.exit:    ; preds = %_ZSt11min_elementIP
   %30 = load ptr, ptr %3, align 8, !tbaa !180
   %31 = sext i32 %.0.i to i64
   %32 = load ptr, ptr %30, align 8, !tbaa !39
-  %33 = getelementptr inbounds nuw %"class.std::tuple.25", ptr %32, i64 %31
+  %33 = getelementptr inbounds nuw [864 x i8], ptr %32, i64 %31
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 408
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 416
   %36 = load ptr, ptr %35, align 8, !tbaa !191
@@ -3310,7 +3134,7 @@ _ZNSt6vectorISt5arrayIiLm4EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; p
 _ZNSt6vectorISt5arrayIiLm4EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %60, %_ZNSt6vectorISt5arrayIiLm4EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %55, ptr %34, align 8, !tbaa !77
   store ptr %59, ptr %35, align 8, !tbaa !191
-  %61 = getelementptr inbounds nuw %"struct.std::array.212", ptr %55, i64 %53
+  %61 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %53
   store ptr %61, ptr %37, align 8, !tbaa !80
   br label %_ZNSt6vectorISt5arrayIiLm4EESaIS1_EE9push_backERKS1_.exit
 
@@ -3390,7 +3214,7 @@ _ZN5nblib6detailL17computeChunkIndexEiii.exit:    ; preds = %_ZSt11min_elementIP
   %30 = load ptr, ptr %3, align 8, !tbaa !180
   %31 = sext i32 %.0.i to i64
   %32 = load ptr, ptr %30, align 8, !tbaa !39
-  %33 = getelementptr inbounds nuw %"class.std::tuple.25", ptr %32, i64 %31
+  %33 = getelementptr inbounds nuw [864 x i8], ptr %32, i64 %31
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 360
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 368
   %36 = load ptr, ptr %35, align 8, !tbaa !191
@@ -3450,7 +3274,7 @@ _ZNSt6vectorISt5arrayIiLm4EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; p
 _ZNSt6vectorISt5arrayIiLm4EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %60, %_ZNSt6vectorISt5arrayIiLm4EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %55, ptr %34, align 8, !tbaa !77
   store ptr %59, ptr %35, align 8, !tbaa !191
-  %61 = getelementptr inbounds nuw %"struct.std::array.212", ptr %55, i64 %53
+  %61 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %53
   store ptr %61, ptr %37, align 8, !tbaa !80
   br label %_ZNSt6vectorISt5arrayIiLm4EESaIS1_EE9push_backERKS1_.exit
 
@@ -3530,7 +3354,7 @@ _ZN5nblib6detailL17computeChunkIndexEiii.exit:    ; preds = %_ZSt11min_elementIP
   %30 = load ptr, ptr %3, align 8, !tbaa !180
   %31 = sext i32 %.0.i to i64
   %32 = load ptr, ptr %30, align 8, !tbaa !39
-  %33 = getelementptr inbounds nuw %"class.std::tuple.25", ptr %32, i64 %31
+  %33 = getelementptr inbounds nuw [864 x i8], ptr %32, i64 %31
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 312
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 320
   %36 = load ptr, ptr %35, align 8, !tbaa !191
@@ -3590,7 +3414,7 @@ _ZNSt6vectorISt5arrayIiLm4EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; p
 _ZNSt6vectorISt5arrayIiLm4EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %60, %_ZNSt6vectorISt5arrayIiLm4EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %55, ptr %34, align 8, !tbaa !77
   store ptr %59, ptr %35, align 8, !tbaa !191
-  %61 = getelementptr inbounds nuw %"struct.std::array.212", ptr %55, i64 %53
+  %61 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %53
   store ptr %61, ptr %37, align 8, !tbaa !80
   br label %_ZNSt6vectorISt5arrayIiLm4EESaIS1_EE9push_backERKS1_.exit
 
@@ -3670,7 +3494,7 @@ _ZN5nblib6detailL17computeChunkIndexEiii.exit:    ; preds = %_ZSt11min_elementIP
   %30 = load ptr, ptr %3, align 8, !tbaa !180
   %31 = sext i32 %.0.i to i64
   %32 = load ptr, ptr %30, align 8, !tbaa !39
-  %33 = getelementptr inbounds nuw %"class.std::tuple.25", ptr %32, i64 %31
+  %33 = getelementptr inbounds nuw [864 x i8], ptr %32, i64 %31
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 264
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 272
   %36 = load ptr, ptr %35, align 8, !tbaa !191
@@ -3730,7 +3554,7 @@ _ZNSt6vectorISt5arrayIiLm4EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; p
 _ZNSt6vectorISt5arrayIiLm4EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %60, %_ZNSt6vectorISt5arrayIiLm4EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %55, ptr %34, align 8, !tbaa !77
   store ptr %59, ptr %35, align 8, !tbaa !191
-  %61 = getelementptr inbounds nuw %"struct.std::array.212", ptr %55, i64 %53
+  %61 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %53
   store ptr %61, ptr %37, align 8, !tbaa !80
   br label %_ZNSt6vectorISt5arrayIiLm4EESaIS1_EE9push_backERKS1_.exit
 
@@ -3810,7 +3634,7 @@ _ZN5nblib6detailL17computeChunkIndexEiii.exit:    ; preds = %_ZSt11min_elementIP
   %30 = load ptr, ptr %3, align 8, !tbaa !180
   %31 = sext i32 %.0.i to i64
   %32 = load ptr, ptr %30, align 8, !tbaa !39
-  %33 = getelementptr inbounds nuw %"class.std::tuple.25", ptr %32, i64 %31
+  %33 = getelementptr inbounds nuw [864 x i8], ptr %32, i64 %31
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 216
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 224
   %36 = load ptr, ptr %35, align 8, !tbaa !191
@@ -3870,7 +3694,7 @@ _ZNSt6vectorISt5arrayIiLm4EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; p
 _ZNSt6vectorISt5arrayIiLm4EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %60, %_ZNSt6vectorISt5arrayIiLm4EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %55, ptr %34, align 8, !tbaa !77
   store ptr %59, ptr %35, align 8, !tbaa !191
-  %61 = getelementptr inbounds nuw %"struct.std::array.212", ptr %55, i64 %53
+  %61 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %53
   store ptr %61, ptr %37, align 8, !tbaa !80
   br label %_ZNSt6vectorISt5arrayIiLm4EESaIS1_EE9push_backERKS1_.exit
 
@@ -3950,7 +3774,7 @@ _ZN5nblib6detailL17computeChunkIndexEiii.exit:    ; preds = %_ZSt11min_elementIP
   %30 = load ptr, ptr %3, align 8, !tbaa !180
   %31 = sext i32 %.0.i to i64
   %32 = load ptr, ptr %30, align 8, !tbaa !39
-  %33 = getelementptr inbounds nuw %"class.std::tuple.25", ptr %32, i64 %31
+  %33 = getelementptr inbounds nuw [864 x i8], ptr %32, i64 %31
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 168
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 176
   %36 = load ptr, ptr %35, align 8, !tbaa !194
@@ -4010,7 +3834,7 @@ _ZNSt6vectorISt5arrayIiLm5EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; p
 _ZNSt6vectorISt5arrayIiLm5EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %60, %_ZNSt6vectorISt5arrayIiLm5EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %55, ptr %34, align 8, !tbaa !109
   store ptr %59, ptr %35, align 8, !tbaa !194
-  %61 = getelementptr inbounds nuw %"struct.std::array.236", ptr %55, i64 %53
+  %61 = getelementptr inbounds nuw [20 x i8], ptr %55, i64 %53
   store ptr %61, ptr %37, align 8, !tbaa !112
   br label %_ZNSt6vectorISt5arrayIiLm5EESaIS1_EE9push_backERKS1_.exit
 
@@ -4090,7 +3914,7 @@ _ZN5nblib6detailL17computeChunkIndexEiii.exit:    ; preds = %_ZSt11min_elementIP
   %30 = load ptr, ptr %3, align 8, !tbaa !180
   %31 = sext i32 %.0.i to i64
   %32 = load ptr, ptr %30, align 8, !tbaa !39
-  %33 = getelementptr inbounds nuw %"class.std::tuple.25", ptr %32, i64 %31
+  %33 = getelementptr inbounds nuw [864 x i8], ptr %32, i64 %31
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 120
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 128
   %36 = load ptr, ptr %35, align 8, !tbaa !194
@@ -4150,7 +3974,7 @@ _ZNSt6vectorISt5arrayIiLm5EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; p
 _ZNSt6vectorISt5arrayIiLm5EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %60, %_ZNSt6vectorISt5arrayIiLm5EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %55, ptr %34, align 8, !tbaa !109
   store ptr %59, ptr %35, align 8, !tbaa !194
-  %61 = getelementptr inbounds nuw %"struct.std::array.236", ptr %55, i64 %53
+  %61 = getelementptr inbounds nuw [20 x i8], ptr %55, i64 %53
   store ptr %61, ptr %37, align 8, !tbaa !112
   br label %_ZNSt6vectorISt5arrayIiLm5EESaIS1_EE9push_backERKS1_.exit
 
@@ -4230,7 +4054,7 @@ _ZN5nblib6detailL17computeChunkIndexEiii.exit:    ; preds = %_ZSt11min_elementIP
   %30 = load ptr, ptr %3, align 8, !tbaa !180
   %31 = sext i32 %.0.i to i64
   %32 = load ptr, ptr %30, align 8, !tbaa !39
-  %33 = getelementptr inbounds nuw %"class.std::tuple.25", ptr %32, i64 %31
+  %33 = getelementptr inbounds nuw [864 x i8], ptr %32, i64 %31
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 72
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 80
   %36 = load ptr, ptr %35, align 8, !tbaa !194
@@ -4290,7 +4114,7 @@ _ZNSt6vectorISt5arrayIiLm5EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; p
 _ZNSt6vectorISt5arrayIiLm5EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %60, %_ZNSt6vectorISt5arrayIiLm5EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %55, ptr %34, align 8, !tbaa !109
   store ptr %59, ptr %35, align 8, !tbaa !194
-  %61 = getelementptr inbounds nuw %"struct.std::array.236", ptr %55, i64 %53
+  %61 = getelementptr inbounds nuw [20 x i8], ptr %55, i64 %53
   store ptr %61, ptr %37, align 8, !tbaa !112
   br label %_ZNSt6vectorISt5arrayIiLm5EESaIS1_EE9push_backERKS1_.exit
 
@@ -4369,7 +4193,7 @@ _ZN5nblib6detailL17computeChunkIndexEiii.exit:    ; preds = %_ZSt11min_elementIP
   %29 = load ptr, ptr %3, align 8, !tbaa !180
   %30 = sext i32 %.0.i to i64
   %31 = load ptr, ptr %29, align 8, !tbaa !39
-  %32 = getelementptr inbounds nuw %"class.std::tuple.25", ptr %31, i64 %30
+  %32 = getelementptr inbounds nuw [864 x i8], ptr %31, i64 %30
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %35 = load ptr, ptr %34, align 8, !tbaa !197
@@ -4429,7 +4253,7 @@ _ZNSt6vectorISt5arrayIiLm6EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; p
 _ZNSt6vectorISt5arrayIiLm6EESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %59, %_ZNSt6vectorISt5arrayIiLm6EESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %54, ptr %33, align 8, !tbaa !125
   store ptr %58, ptr %34, align 8, !tbaa !197
-  %60 = getelementptr inbounds nuw %"struct.std::array.247", ptr %54, i64 %52
+  %60 = getelementptr inbounds nuw [24 x i8], ptr %54, i64 %52
   store ptr %60, ptr %36, align 8, !tbaa !128
   br label %_ZNSt6vectorISt5arrayIiLm6EESaIS1_EE9push_backERKS1_.exit
 
@@ -6600,7 +6424,7 @@ _ZNSt12_Vector_baseISt5arrayIfLm18EESaIS1_EEC2EmRKS2_.exit.thread.i: ; preds = %
 
 .noexc43:                                         ; preds = %44
   store ptr %46, ptr %13, align 8, !tbaa !230
-  %47 = getelementptr inbounds nuw %"struct.std::array", ptr %46, i64 %41
+  %47 = getelementptr inbounds nuw [72 x i8], ptr %46, i64 %41
   %48 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %47, ptr %48, align 8, !tbaa !233
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(72) %46, i8 0, i64 72, i1 false)
@@ -6721,9 +6545,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47: ; preds = %70
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %86 ]
   %.sroa.0.169 = phi <2 x float> [ zeroinitializer, %.lr.ph ], [ %.sroa.0.4.vec.insert.i.i49, %86 ]
   %.sroa.10.068 = phi float [ 0.000000e+00, %.lr.ph ], [ %97, %86 ]
-  %87 = getelementptr inbounds nuw %"class.std::vector.12", ptr %82, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw [24 x i8], ptr %82, i64 %indvars.iv
   %88 = load ptr, ptr %87, align 8, !tbaa !13
-  %89 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %88, i64 %indvars.iv78
+  %89 = getelementptr inbounds nuw [12 x i8], ptr %88, i64 %indvars.iv78
   %.sroa.0.0.vec.extract54 = extractelement <2 x float> %.sroa.0.169, i64 0
   %90 = load float, ptr %89, align 4, !tbaa !172
   %91 = fadd float %.sroa.0.0.vec.extract54, %90
@@ -6743,7 +6567,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47: ; preds = %70
 ._crit_edge:                                      ; preds = %86, %.preheader67
   %.sroa.10.0.lcssa = phi float [ 0.000000e+00, %.preheader67 ], [ %97, %86 ]
   %.sroa.0.1.lcssa = phi <2 x float> [ zeroinitializer, %.preheader67 ], [ %.sroa.0.4.vec.insert.i.i49, %86 ]
-  %98 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %.sroa.0.0.copyload.i44, i64 %indvars.iv78
+  %98 = getelementptr inbounds nuw [12 x i8], ptr %.sroa.0.0.copyload.i44, i64 %indvars.iv78
   %99 = load float, ptr %98, align 4, !tbaa !172
   %.sroa.0.0.vec.extract = extractelement <2 x float> %.sroa.0.1.lcssa, i64 0
   %100 = fadd float %.sroa.0.0.vec.extract, %99
@@ -6764,7 +6588,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit47: ; preds = %70
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %115
   %indvars.iv86 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next87, %115 ]
-  %107 = getelementptr inbounds nuw %"struct.std::array", ptr %85, i64 %indvars.iv86
+  %107 = getelementptr inbounds nuw [72 x i8], ptr %85, i64 %indvars.iv86
   br label %116
 
 ._crit_edge75:                                    ; preds = %115, %.preheader66
@@ -6794,9 +6618,9 @@ _ZNSt6vectorISt5arrayIfLm18EESaIS1_EED2Ev.exit:   ; preds = %._crit_edge75, %109
 
 116:                                              ; preds = %.preheader, %116
   %indvars.iv82 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next83, %116 ]
-  %117 = getelementptr inbounds nuw float, ptr %107, i64 %indvars.iv82
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %107, i64 %indvars.iv82
   %118 = load float, ptr %117, align 4, !tbaa !172
-  %119 = getelementptr inbounds nuw float, ptr %39, i64 %indvars.iv82
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv82
   %120 = load float, ptr %119, align 4, !tbaa !172
   %121 = fadd float %118, %120
   store float %121, ptr %119, align 4, !tbaa !172
@@ -6988,7 +6812,7 @@ define internal void @_ZN5nblib21ListedForceCalculator24computeForcesAndEnergies
 32:                                               ; preds = %.lr.ph, %124
   %indvars.iv = phi i64 [ %31, %.lr.ph ], [ %indvars.iv.next, %124 ]
   %33 = load ptr, ptr %25, align 8, !tbaa !9
-  %34 = getelementptr inbounds nuw %"class.std::vector.12", ptr %33, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [24 x i8], ptr %33, i64 %indvars.iv
   %35 = load ptr, ptr %34, align 8, !tbaa !13
   %36 = ptrtoint ptr %35 to i64
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
@@ -7011,7 +6835,7 @@ define internal void @_ZN5nblib21ListedForceCalculator24computeForcesAndEnergies
 
 _ZSt4fillIN3gmx12ArrayRefIterINS0_11BasicVectorIfEEEES3_EvT_S5_RKT0_.exit: ; preds = %.lr.ph.i.i.i.preheader, %32
   %47 = load ptr, ptr %26, align 8, !tbaa !20
-  %48 = getelementptr inbounds nuw %"class.nblib::ForceBufferProxy", ptr %47, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [80 x i8], ptr %47, i64 %indvars.iv
   %49 = load ptr, ptr %3, align 8, !tbaa !222
   %50 = load ptr, ptr %27, align 8, !tbaa !222
   %51 = ptrtoint ptr %50 to i64
@@ -7048,7 +6872,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEE13clearOutliersEv.exit: ; pre
 65:                                               ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEE13clearOutliersEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.039)
   %66 = load ptr, ptr %28, align 8, !tbaa !39
-  %67 = getelementptr inbounds nuw %"class.std::tuple.25", ptr %66, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [864 x i8], ptr %66, i64 %indvars.iv
   %68 = load ptr, ptr %6, align 8, !tbaa !247
   %69 = load ptr, ptr %29, align 8, !tbaa !247
   %70 = ptrtoint ptr %69 to i64
@@ -7091,7 +6915,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEE13clearOutliersEv.exit: ; pre
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(72) %.sroa.039, ptr noundef nonnull align 4 dereferenceable(72) %11, i64 72, i1 false), !tbaa.struct !234
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !249
   %93 = load ptr, ptr %5, align 8, !tbaa !230
-  %94 = getelementptr inbounds nuw %"struct.std::array", ptr %93, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw [72 x i8], ptr %93, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(72) %94, ptr noundef nonnull align 4 dereferenceable(72) %.sroa.039, i64 72, i1 false), !tbaa.struct !234
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.039)
   br label %124
@@ -7099,7 +6923,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEE13clearOutliersEv.exit: ; pre
 95:                                               ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEE13clearOutliersEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.034)
   %96 = load ptr, ptr %28, align 8, !tbaa !39
-  %97 = getelementptr inbounds nuw %"class.std::tuple.25", ptr %96, i64 %indvars.iv
+  %97 = getelementptr inbounds nuw [864 x i8], ptr %96, i64 %indvars.iv
   %98 = load ptr, ptr %6, align 8, !tbaa !247
   %99 = load ptr, ptr %29, align 8, !tbaa !247
   %100 = ptrtoint ptr %99 to i64
@@ -7142,7 +6966,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEE13clearOutliersEv.exit: ; pre
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(72) %.sroa.034, ptr noundef nonnull align 4 dereferenceable(72) %9, i64 72, i1 false), !tbaa.struct !234
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !252
   %122 = load ptr, ptr %5, align 8, !tbaa !230
-  %123 = getelementptr inbounds nuw %"struct.std::array", ptr %122, i64 %indvars.iv
+  %123 = getelementptr inbounds nuw [72 x i8], ptr %122, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(72) %123, ptr noundef nonnull align 4 dereferenceable(72) %.sroa.034, i64 72, i1 false), !tbaa.struct !234
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.034)
@@ -7223,7 +7047,7 @@ define internal void @_ZN5nblib21ListedForceCalculator24computeForcesAndEnergies
 
 .lr.ph34:                                         ; preds = %.lr.ph39.split
   %25 = load ptr, ptr %17, align 8, !tbaa !20
-  %26 = getelementptr inbounds nuw %"class.nblib::ForceBufferProxy", ptr %25, i64 %indvars.iv43
+  %26 = getelementptr inbounds nuw [80 x i8], ptr %25, i64 %indvars.iv43
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 20
   br label %33
@@ -7245,7 +7069,7 @@ define internal void @_ZN5nblib21ListedForceCalculator24computeForcesAndEnergies
   %34 = phi i32 [ %22, %.lr.ph34 ], [ %38, %._crit_edge ]
   %indvars.iv = phi i64 [ 0, %.lr.ph34 ], [ %indvars.iv.next, %._crit_edge ]
   %35 = load ptr, ptr %17, align 8, !tbaa !20
-  %36 = getelementptr inbounds nuw %"class.nblib::ForceBufferProxy", ptr %35, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [80 x i8], ptr %35, i64 %indvars.iv
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 40
   %.sroa.025.029 = load ptr, ptr %37, align 8, !tbaa !33
   %.not2830 = icmp eq ptr %.sroa.025.029, null
@@ -7283,7 +7107,7 @@ define internal void @_ZN5nblib21ListedForceCalculator24computeForcesAndEnergies
   %49 = sext i32 %42 to i64
   %50 = load i64, ptr %3, align 8
   %51 = inttoptr i64 %50 to ptr
-  %52 = getelementptr inbounds %"class.gmx::BasicVector", ptr %51, i64 %49
+  %52 = getelementptr inbounds [12 x i8], ptr %51, i64 %49
   %53 = load float, ptr %52, align 4, !tbaa !172
   %54 = fadd float %.sroa.0.0.copyload, %53
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 4
@@ -8113,21 +7937,21 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %sext = shl i64 %.sroa.01.0.copyload, 32
   %24 = ashr exact i64 %sext, 32
-  %25 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %24
+  %25 = getelementptr inbounds [12 x i8], ptr %4, i64 %24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %25, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %26 = ashr i64 %.sroa.01.0.copyload, 32
-  %27 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %26
+  %27 = getelementptr inbounds [12 x i8], ptr %4, i64 %26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %27, i64 12, i1 false), !tbaa.struct !187
   %28 = sext i32 %.sroa.22.0.copyload to i64
-  %29 = getelementptr inbounds %"class.nblib::TwoParameterInteraction", ptr %2, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %2, i64 %28
   %30 = load float, ptr %29, align 4
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load float, ptr %.sroa_idx, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %32 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %12)
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds %"class.gmx::BasicVector", ptr %23, i64 %33
+  %34 = getelementptr inbounds [12 x i8], ptr %23, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %23, i64 264
   %36 = load i32, ptr %15, align 8, !tbaa !164
   %.not.i15 = icmp sle i32 %36, %.sroa.096.0.extract.trunc
@@ -8139,7 +7963,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
 39:                                               ; preds = %22
   %40 = load i64, ptr %6, align 8
   %41 = inttoptr i64 %40 to ptr
-  %42 = getelementptr inbounds %"class.gmx::BasicVector", ptr %41, i64 %24
+  %42 = getelementptr inbounds [12 x i8], ptr %41, i64 %24
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit18
 
 43:                                               ; preds = %22
@@ -8163,7 +7987,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %50 = load i64, ptr %19, align 8, !tbaa !36
   %51 = urem i64 %24, %50
   %52 = load ptr, ptr %17, align 8, !tbaa !35
-  %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %51
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %51
   %54 = load ptr, ptr %53, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %54, null
   br i1 %.not.i.i.i.i.i, label %.loopexit118.thread, label %55
@@ -8205,7 +8029,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.pre = load i64, ptr %19, align 8, !tbaa !36
   %.pre150 = load ptr, ptr %17, align 8, !tbaa !35
   %.pre157 = urem i64 %24, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre150, i64 %.pre157
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre150, i64 %.pre157
   %.pre160 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit118
 
@@ -8277,7 +8101,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %87 = load i64, ptr %19, align 8, !tbaa !36
   %88 = urem i64 %24, %87
   %89 = load ptr, ptr %17, align 8, !tbaa !35
-  %90 = getelementptr inbounds nuw ptr, ptr %89, i64 %88
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %88
   %91 = load ptr, ptr %90, align 8, !tbaa !175
   %.not.i.i.i.i20 = icmp eq ptr %91, null
   br i1 %.not.i.i.i.i20, label %.loopexit.i.i26, label %92
@@ -8342,7 +8166,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit18: ; preds = %39, %
 112:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit18
   %113 = load i64, ptr %6, align 8
   %114 = inttoptr i64 %113 to ptr
-  %115 = getelementptr inbounds %"class.gmx::BasicVector", ptr %114, i64 %26
+  %115 = getelementptr inbounds [12 x i8], ptr %114, i64 %26
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit
 
 116:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit18
@@ -8366,7 +8190,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit18: ; preds = %39, %
   %123 = load i64, ptr %19, align 8, !tbaa !36
   %124 = urem i64 %26, %123
   %125 = load ptr, ptr %17, align 8, !tbaa !35
-  %126 = getelementptr inbounds nuw ptr, ptr %125, i64 %124
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %125, i64 %124
   %127 = load ptr, ptr %126, align 8, !tbaa !175
   %.not.i.i.i.i.i32 = icmp eq ptr %127, null
   br i1 %.not.i.i.i.i.i32, label %.loopexit.thread, label %128
@@ -8408,7 +8232,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit18: ; preds = %39, %
   %.pre153 = load i64, ptr %19, align 8, !tbaa !36
   %.pre154 = load ptr, ptr %17, align 8, !tbaa !35
   %.pre158 = urem i64 %26, %.pre153
-  %.phi.trans.insert161 = getelementptr inbounds nuw ptr, ptr %.pre154, i64 %.pre158
+  %.phi.trans.insert161 = getelementptr inbounds nuw [8 x i8], ptr %.pre154, i64 %.pre158
   %.pre162 = load ptr, ptr %.phi.trans.insert161, align 8, !tbaa !175
   br label %.loopexit
 
@@ -8474,7 +8298,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %160 = load i64, ptr %19, align 8, !tbaa !36
   %161 = urem i64 %26, %160
   %162 = load ptr, ptr %17, align 8, !tbaa !35
-  %163 = getelementptr inbounds nuw ptr, ptr %162, i64 %161
+  %163 = getelementptr inbounds nuw [8 x i8], ptr %162, i64 %161
   %164 = load ptr, ptr %163, align 8, !tbaa !175
   %.not.i.i.i.i56 = icmp eq ptr %164, null
   br i1 %.not.i.i.i.i56, label %.loopexit.i.i62, label %165
@@ -8615,9 +8439,9 @@ _ZN5nblib16computeTwoCenterINS_23TwoParameterInteractionINS_25HarmonicBondTypePa
 
 234:                                              ; preds = %234, %_ZN5nblib16computeTwoCenterINS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEEN3gmx11BasicVectorIfEES6_EEDaRKT_RKT0_PSA_SD_PT1_SF_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib16computeTwoCenterINS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEEN3gmx11BasicVectorIfEES6_EEDaRKT_RKT0_PSA_SD_PT1_SF_.exit ], [ %240, %234 ]
-  %235 = getelementptr inbounds nuw float, ptr %14, i64 %.05.i
+  %235 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %.05.i
   %236 = load float, ptr %235, align 4, !tbaa !172
-  %237 = getelementptr inbounds nuw float, ptr %13, i64 %.05.i
+  %237 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %.05.i
   %238 = load float, ptr %237, align 4, !tbaa !172
   %239 = fadd float %236, %238
   store float %239, ptr %237, align 4, !tbaa !172
@@ -8695,7 +8519,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
 31:                                               ; preds = %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit ], [ %1, %5 ]
   %32 = load ptr, ptr %0, align 8, !tbaa !35
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0
   %34 = load ptr, ptr %33, align 8, !tbaa !175
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %38, label %35
@@ -8722,7 +8546,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   %45 = load i32, ptr %43, align 4, !tbaa !161
   %46 = sext i32 %45 to i64
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %32, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !175
   br label %49
 
@@ -8787,7 +8611,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   %16 = load i32, ptr %15, align 8, !tbaa !161
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
-  %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !175
   %.not27 = icmp eq ptr %20, null
   br i1 %.not27, label %21, label %26
@@ -8802,7 +8626,7 @@ _ZNSt10_HashtableIiSt4pairIKiN3gmx11BasicVectorIfEEESaIS5_ENSt8__detail10_Select
   br i1 %.not28, label %29, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %25, align 8, !tbaa !175
   br label %29
 
@@ -8890,21 +8714,21 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %sext = shl i64 %.sroa.01.0.copyload, 32
   %24 = ashr exact i64 %sext, 32
-  %25 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %24
+  %25 = getelementptr inbounds [12 x i8], ptr %4, i64 %24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %25, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %26 = ashr i64 %.sroa.01.0.copyload, 32
-  %27 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %26
+  %27 = getelementptr inbounds [12 x i8], ptr %4, i64 %26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %27, i64 12, i1 false), !tbaa.struct !187
   %28 = sext i32 %.sroa.22.0.copyload to i64
-  %29 = getelementptr inbounds %"class.nblib::G96BondType", ptr %2, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %2, i64 %28
   %30 = load float, ptr %29, align 4
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load float, ptr %.sroa_idx, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %32 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %12)
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds %"class.gmx::BasicVector", ptr %23, i64 %33
+  %34 = getelementptr inbounds [12 x i8], ptr %23, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %23, i64 264
   %36 = load i32, ptr %15, align 8, !tbaa !164
   %.not.i11.i = icmp sle i32 %36, %.sroa.093.0.extract.trunc
@@ -8916,7 +8740,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
 39:                                               ; preds = %22
   %40 = load i64, ptr %6, align 8
   %41 = inttoptr i64 %40 to ptr
-  %42 = getelementptr inbounds %"class.gmx::BasicVector", ptr %41, i64 %24
+  %42 = getelementptr inbounds [12 x i8], ptr %41, i64 %24
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
 
 43:                                               ; preds = %22
@@ -8940,7 +8764,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %50 = load i64, ptr %19, align 8, !tbaa !36
   %51 = urem i64 %24, %50
   %52 = load ptr, ptr %17, align 8, !tbaa !35
-  %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %51
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %51
   %54 = load ptr, ptr %53, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %54, null
   br i1 %.not.i.i.i.i.i, label %.loopexit115.thread, label %55
@@ -8982,7 +8806,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.pre = load i64, ptr %19, align 8, !tbaa !36
   %.pre147 = load ptr, ptr %17, align 8, !tbaa !35
   %.pre154 = urem i64 %24, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre147, i64 %.pre154
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre147, i64 %.pre154
   %.pre157 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit115
 
@@ -9054,7 +8878,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %87 = load i64, ptr %19, align 8, !tbaa !36
   %88 = urem i64 %24, %87
   %89 = load ptr, ptr %17, align 8, !tbaa !35
-  %90 = getelementptr inbounds nuw ptr, ptr %89, i64 %88
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %88
   %91 = load ptr, ptr %90, align 8, !tbaa !175
   %.not.i.i.i.i17 = icmp eq ptr %91, null
   br i1 %.not.i.i.i.i17, label %.loopexit.i.i23, label %92
@@ -9119,7 +8943,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
 112:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
   %113 = load i64, ptr %6, align 8
   %114 = inttoptr i64 %113 to ptr
-  %115 = getelementptr inbounds %"class.gmx::BasicVector", ptr %114, i64 %26
+  %115 = getelementptr inbounds [12 x i8], ptr %114, i64 %26
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_11G96BondTypeES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEES6_NS_13CubicBondTypeENS_13MorseBondTypeENSC_INS_21FENEBondTypeParameterEEENSC_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit
 
 116:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
@@ -9143,7 +8967,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %123 = load i64, ptr %19, align 8, !tbaa !36
   %124 = urem i64 %26, %123
   %125 = load ptr, ptr %17, align 8, !tbaa !35
-  %126 = getelementptr inbounds nuw ptr, ptr %125, i64 %124
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %125, i64 %124
   %127 = load ptr, ptr %126, align 8, !tbaa !175
   %.not.i.i.i.i.i29 = icmp eq ptr %127, null
   br i1 %.not.i.i.i.i.i29, label %.loopexit.thread, label %128
@@ -9185,7 +9009,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %.pre150 = load i64, ptr %19, align 8, !tbaa !36
   %.pre151 = load ptr, ptr %17, align 8, !tbaa !35
   %.pre155 = urem i64 %26, %.pre150
-  %.phi.trans.insert158 = getelementptr inbounds nuw ptr, ptr %.pre151, i64 %.pre155
+  %.phi.trans.insert158 = getelementptr inbounds nuw [8 x i8], ptr %.pre151, i64 %.pre155
   %.pre159 = load ptr, ptr %.phi.trans.insert158, align 8, !tbaa !175
   br label %.loopexit
 
@@ -9251,7 +9075,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %160 = load i64, ptr %19, align 8, !tbaa !36
   %161 = urem i64 %26, %160
   %162 = load ptr, ptr %17, align 8, !tbaa !35
-  %163 = getelementptr inbounds nuw ptr, ptr %162, i64 %161
+  %163 = getelementptr inbounds nuw [8 x i8], ptr %162, i64 %161
   %164 = load ptr, ptr %163, align 8, !tbaa !175
   %.not.i.i.i.i53 = icmp eq ptr %164, null
   br i1 %.not.i.i.i.i53, label %.loopexit.i.i59, label %165
@@ -9395,9 +9219,9 @@ _ZN5nblib16computeTwoCenterINS_11G96BondTypeEN3gmx11BasicVectorIfEES4_EEDaRKT_RK
 
 237:                                              ; preds = %237, %_ZN5nblib16computeTwoCenterINS_11G96BondTypeEN3gmx11BasicVectorIfEES4_EEDaRKT_RKT0_PS8_SB_PT1_SD_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib16computeTwoCenterINS_11G96BondTypeEN3gmx11BasicVectorIfEES4_EEDaRKT_RKT0_PS8_SB_PT1_SD_.exit ], [ %243, %237 ]
-  %238 = getelementptr inbounds nuw float, ptr %14, i64 %.05.i
+  %238 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %.05.i
   %239 = load float, ptr %238, align 4, !tbaa !172
-  %240 = getelementptr inbounds nuw float, ptr %13, i64 %.05.i
+  %240 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %.05.i
   %241 = load float, ptr %240, align 4, !tbaa !172
   %242 = fadd float %239, %241
   store float %242, ptr %240, align 4, !tbaa !172
@@ -9464,14 +9288,14 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %sext = shl i64 %.sroa.01.0.copyload, 32
   %24 = ashr exact i64 %sext, 32
-  %25 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %24
+  %25 = getelementptr inbounds [12 x i8], ptr %4, i64 %24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %25, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %26 = ashr i64 %.sroa.01.0.copyload, 32
-  %27 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %26
+  %27 = getelementptr inbounds [12 x i8], ptr %4, i64 %26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %27, i64 12, i1 false), !tbaa.struct !187
   %28 = sext i32 %.sroa.22.0.copyload to i64
-  %29 = getelementptr inbounds %"class.nblib::CubicBondType", ptr %2, i64 %28
+  %29 = getelementptr inbounds [12 x i8], ptr %2, i64 %28
   %.sroa.082.0.copyload = load float, ptr %29, align 4, !tbaa !172
   %.sroa.483.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 4
   %.sroa.483.0.copyload = load float, ptr %.sroa.483.0..sroa_idx, align 4, !tbaa !172
@@ -9480,7 +9304,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %30 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %12)
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds %"class.gmx::BasicVector", ptr %23, i64 %31
+  %32 = getelementptr inbounds [12 x i8], ptr %23, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %23, i64 264
   %34 = load i32, ptr %15, align 8, !tbaa !164
   %.not.i11.i = icmp sle i32 %34, %.sroa.093.0.extract.trunc
@@ -9492,7 +9316,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
 37:                                               ; preds = %22
   %38 = load i64, ptr %6, align 8
   %39 = inttoptr i64 %38 to ptr
-  %40 = getelementptr inbounds %"class.gmx::BasicVector", ptr %39, i64 %24
+  %40 = getelementptr inbounds [12 x i8], ptr %39, i64 %24
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
 
 41:                                               ; preds = %22
@@ -9516,7 +9340,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %48 = load i64, ptr %19, align 8, !tbaa !36
   %49 = urem i64 %24, %48
   %50 = load ptr, ptr %17, align 8, !tbaa !35
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %49
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %49
   %52 = load ptr, ptr %51, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %52, null
   br i1 %.not.i.i.i.i.i, label %.loopexit115.thread, label %53
@@ -9558,7 +9382,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.pre = load i64, ptr %19, align 8, !tbaa !36
   %.pre147 = load ptr, ptr %17, align 8, !tbaa !35
   %.pre154 = urem i64 %24, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre147, i64 %.pre154
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre147, i64 %.pre154
   %.pre157 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit115
 
@@ -9630,7 +9454,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %85 = load i64, ptr %19, align 8, !tbaa !36
   %86 = urem i64 %24, %85
   %87 = load ptr, ptr %17, align 8, !tbaa !35
-  %88 = getelementptr inbounds nuw ptr, ptr %87, i64 %86
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %86
   %89 = load ptr, ptr %88, align 8, !tbaa !175
   %.not.i.i.i.i17 = icmp eq ptr %89, null
   br i1 %.not.i.i.i.i17, label %.loopexit.i.i23, label %90
@@ -9695,7 +9519,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
 110:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
   %111 = load i64, ptr %6, align 8
   %112 = inttoptr i64 %111 to ptr
-  %113 = getelementptr inbounds %"class.gmx::BasicVector", ptr %112, i64 %26
+  %113 = getelementptr inbounds [12 x i8], ptr %112, i64 %26
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_13CubicBondTypeES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEENS_11G96BondTypeES6_NS_13MorseBondTypeENSC_INS_21FENEBondTypeParameterEEENSC_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit
 
 114:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
@@ -9719,7 +9543,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %121 = load i64, ptr %19, align 8, !tbaa !36
   %122 = urem i64 %26, %121
   %123 = load ptr, ptr %17, align 8, !tbaa !35
-  %124 = getelementptr inbounds nuw ptr, ptr %123, i64 %122
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %123, i64 %122
   %125 = load ptr, ptr %124, align 8, !tbaa !175
   %.not.i.i.i.i.i29 = icmp eq ptr %125, null
   br i1 %.not.i.i.i.i.i29, label %.loopexit.thread, label %126
@@ -9761,7 +9585,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %.pre150 = load i64, ptr %19, align 8, !tbaa !36
   %.pre151 = load ptr, ptr %17, align 8, !tbaa !35
   %.pre155 = urem i64 %26, %.pre150
-  %.phi.trans.insert158 = getelementptr inbounds nuw ptr, ptr %.pre151, i64 %.pre155
+  %.phi.trans.insert158 = getelementptr inbounds nuw [8 x i8], ptr %.pre151, i64 %.pre155
   %.pre159 = load ptr, ptr %.phi.trans.insert158, align 8, !tbaa !175
   br label %.loopexit
 
@@ -9827,7 +9651,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %158 = load i64, ptr %19, align 8, !tbaa !36
   %159 = urem i64 %26, %158
   %160 = load ptr, ptr %17, align 8, !tbaa !35
-  %161 = getelementptr inbounds nuw ptr, ptr %160, i64 %159
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %160, i64 %159
   %162 = load ptr, ptr %161, align 8, !tbaa !175
   %.not.i.i.i.i53 = icmp eq ptr %162, null
   br i1 %.not.i.i.i.i53, label %.loopexit.i.i59, label %163
@@ -9972,9 +9796,9 @@ _ZN5nblib16computeTwoCenterINS_13CubicBondTypeEN3gmx11BasicVectorIfEES4_EEDaRKT_
 
 236:                                              ; preds = %236, %_ZN5nblib16computeTwoCenterINS_13CubicBondTypeEN3gmx11BasicVectorIfEES4_EEDaRKT_RKT0_PS8_SB_PT1_SD_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib16computeTwoCenterINS_13CubicBondTypeEN3gmx11BasicVectorIfEES4_EEDaRKT_RKT0_PS8_SB_PT1_SD_.exit ], [ %242, %236 ]
-  %237 = getelementptr inbounds nuw float, ptr %14, i64 %.05.i
+  %237 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %.05.i
   %238 = load float, ptr %237, align 4, !tbaa !172
-  %239 = getelementptr inbounds nuw float, ptr %13, i64 %.05.i
+  %239 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %.05.i
   %240 = load float, ptr %239, align 4, !tbaa !172
   %241 = fadd float %238, %240
   store float %241, ptr %239, align 4, !tbaa !172
@@ -10044,14 +9868,14 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %sext = shl i64 %.sroa.01.0.copyload, 32
   %24 = ashr exact i64 %sext, 32
-  %25 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %24
+  %25 = getelementptr inbounds [12 x i8], ptr %4, i64 %24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %25, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %26 = ashr i64 %.sroa.01.0.copyload, 32
-  %27 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %26
+  %27 = getelementptr inbounds [12 x i8], ptr %4, i64 %26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %27, i64 12, i1 false), !tbaa.struct !187
   %28 = sext i32 %.sroa.22.0.copyload to i64
-  %29 = getelementptr inbounds %"class.nblib::MorseBondType", ptr %2, i64 %28
+  %29 = getelementptr inbounds [12 x i8], ptr %2, i64 %28
   %.sroa.082.0.copyload = load float, ptr %29, align 4, !tbaa !172
   %.sroa.483.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 4
   %.sroa.483.0.copyload = load float, ptr %.sroa.483.0..sroa_idx, align 4, !tbaa !172
@@ -10060,7 +9884,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %30 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %12)
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds %"class.gmx::BasicVector", ptr %23, i64 %31
+  %32 = getelementptr inbounds [12 x i8], ptr %23, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %23, i64 264
   %34 = load i32, ptr %15, align 8, !tbaa !164
   %.not.i11.i = icmp sle i32 %34, %.sroa.093.0.extract.trunc
@@ -10072,7 +9896,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
 37:                                               ; preds = %22
   %38 = load i64, ptr %6, align 8
   %39 = inttoptr i64 %38 to ptr
-  %40 = getelementptr inbounds %"class.gmx::BasicVector", ptr %39, i64 %24
+  %40 = getelementptr inbounds [12 x i8], ptr %39, i64 %24
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
 
 41:                                               ; preds = %22
@@ -10096,7 +9920,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %48 = load i64, ptr %19, align 8, !tbaa !36
   %49 = urem i64 %24, %48
   %50 = load ptr, ptr %17, align 8, !tbaa !35
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %49
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %49
   %52 = load ptr, ptr %51, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %52, null
   br i1 %.not.i.i.i.i.i, label %.loopexit115.thread, label %53
@@ -10138,7 +9962,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.pre = load i64, ptr %19, align 8, !tbaa !36
   %.pre147 = load ptr, ptr %17, align 8, !tbaa !35
   %.pre154 = urem i64 %24, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre147, i64 %.pre154
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre147, i64 %.pre154
   %.pre157 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit115
 
@@ -10210,7 +10034,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %85 = load i64, ptr %19, align 8, !tbaa !36
   %86 = urem i64 %24, %85
   %87 = load ptr, ptr %17, align 8, !tbaa !35
-  %88 = getelementptr inbounds nuw ptr, ptr %87, i64 %86
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %86
   %89 = load ptr, ptr %88, align 8, !tbaa !175
   %.not.i.i.i.i17 = icmp eq ptr %89, null
   br i1 %.not.i.i.i.i17, label %.loopexit.i.i23, label %90
@@ -10275,7 +10099,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
 110:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
   %111 = load i64, ptr %6, align 8
   %112 = inttoptr i64 %111 to ptr
-  %113 = getelementptr inbounds %"class.gmx::BasicVector", ptr %112, i64 %26
+  %113 = getelementptr inbounds [12 x i8], ptr %112, i64 %26
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_13MorseBondTypeES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeES6_NSC_INS_21FENEBondTypeParameterEEENSC_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit
 
 114:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
@@ -10299,7 +10123,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %121 = load i64, ptr %19, align 8, !tbaa !36
   %122 = urem i64 %26, %121
   %123 = load ptr, ptr %17, align 8, !tbaa !35
-  %124 = getelementptr inbounds nuw ptr, ptr %123, i64 %122
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %123, i64 %122
   %125 = load ptr, ptr %124, align 8, !tbaa !175
   %.not.i.i.i.i.i29 = icmp eq ptr %125, null
   br i1 %.not.i.i.i.i.i29, label %.loopexit.thread, label %126
@@ -10341,7 +10165,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %.pre150 = load i64, ptr %19, align 8, !tbaa !36
   %.pre151 = load ptr, ptr %17, align 8, !tbaa !35
   %.pre155 = urem i64 %26, %.pre150
-  %.phi.trans.insert158 = getelementptr inbounds nuw ptr, ptr %.pre151, i64 %.pre155
+  %.phi.trans.insert158 = getelementptr inbounds nuw [8 x i8], ptr %.pre151, i64 %.pre155
   %.pre159 = load ptr, ptr %.phi.trans.insert158, align 8, !tbaa !175
   br label %.loopexit
 
@@ -10407,7 +10231,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %158 = load i64, ptr %19, align 8, !tbaa !36
   %159 = urem i64 %26, %158
   %160 = load ptr, ptr %17, align 8, !tbaa !35
-  %161 = getelementptr inbounds nuw ptr, ptr %160, i64 %159
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %160, i64 %159
   %162 = load ptr, ptr %161, align 8, !tbaa !175
   %.not.i.i.i.i53 = icmp eq ptr %162, null
   br i1 %.not.i.i.i.i53, label %.loopexit.i.i59, label %163
@@ -10553,9 +10377,9 @@ _ZN5nblib16computeTwoCenterINS_13MorseBondTypeEN3gmx11BasicVectorIfEES4_EEDaRKT_
 
 237:                                              ; preds = %237, %_ZN5nblib16computeTwoCenterINS_13MorseBondTypeEN3gmx11BasicVectorIfEES4_EEDaRKT_RKT0_PS8_SB_PT1_SD_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib16computeTwoCenterINS_13MorseBondTypeEN3gmx11BasicVectorIfEES4_EEDaRKT_RKT0_PS8_SB_PT1_SD_.exit ], [ %243, %237 ]
-  %238 = getelementptr inbounds nuw float, ptr %14, i64 %.05.i
+  %238 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %.05.i
   %239 = load float, ptr %238, align 4, !tbaa !172
-  %240 = getelementptr inbounds nuw float, ptr %13, i64 %.05.i
+  %240 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %.05.i
   %241 = load float, ptr %240, align 4, !tbaa !172
   %242 = fadd float %239, %241
   store float %242, ptr %240, align 4, !tbaa !172
@@ -10625,21 +10449,21 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %sext = shl i64 %.sroa.01.0.copyload, 32
   %24 = ashr exact i64 %sext, 32
-  %25 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %24
+  %25 = getelementptr inbounds [12 x i8], ptr %4, i64 %24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %25, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %26 = ashr i64 %.sroa.01.0.copyload, 32
-  %27 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %26
+  %27 = getelementptr inbounds [12 x i8], ptr %4, i64 %26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %27, i64 12, i1 false), !tbaa.struct !187
   %28 = sext i32 %.sroa.22.0.copyload to i64
-  %29 = getelementptr inbounds %"class.nblib::TwoParameterInteraction.203", ptr %2, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %2, i64 %28
   %30 = load float, ptr %29, align 4
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load float, ptr %.sroa_idx, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %32 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %12)
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds %"class.gmx::BasicVector", ptr %23, i64 %33
+  %34 = getelementptr inbounds [12 x i8], ptr %23, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %23, i64 264
   %36 = load i32, ptr %15, align 8, !tbaa !164
   %.not.i11.i = icmp sle i32 %36, %.sroa.093.0.extract.trunc
@@ -10651,7 +10475,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
 39:                                               ; preds = %22
   %40 = load i64, ptr %6, align 8
   %41 = inttoptr i64 %40 to ptr
-  %42 = getelementptr inbounds %"class.gmx::BasicVector", ptr %41, i64 %24
+  %42 = getelementptr inbounds [12 x i8], ptr %41, i64 %24
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
 
 43:                                               ; preds = %22
@@ -10675,7 +10499,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %50 = load i64, ptr %19, align 8, !tbaa !36
   %51 = urem i64 %24, %50
   %52 = load ptr, ptr %17, align 8, !tbaa !35
-  %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %51
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %51
   %54 = load ptr, ptr %53, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %54, null
   br i1 %.not.i.i.i.i.i, label %.loopexit115.thread, label %55
@@ -10717,7 +10541,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.pre = load i64, ptr %19, align 8, !tbaa !36
   %.pre147 = load ptr, ptr %17, align 8, !tbaa !35
   %.pre154 = urem i64 %24, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre147, i64 %.pre154
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre147, i64 %.pre154
   %.pre157 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit115
 
@@ -10789,7 +10613,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %87 = load i64, ptr %19, align 8, !tbaa !36
   %88 = urem i64 %24, %87
   %89 = load ptr, ptr %17, align 8, !tbaa !35
-  %90 = getelementptr inbounds nuw ptr, ptr %89, i64 %88
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %88
   %91 = load ptr, ptr %90, align 8, !tbaa !175
   %.not.i.i.i.i17 = icmp eq ptr %91, null
   br i1 %.not.i.i.i.i17, label %.loopexit.i.i23, label %92
@@ -10854,7 +10678,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
 112:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
   %113 = load i64, ptr %6, align 8
   %114 = inttoptr i64 %113 to ptr
-  %115 = getelementptr inbounds %"class.gmx::BasicVector", ptr %114, i64 %26
+  %115 = getelementptr inbounds [12 x i8], ptr %114, i64 %26
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_23TwoParameterInteractionINS_21FENEBondTypeParameterEEES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS6_INS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeENS_13MorseBondTypeES8_NS6_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit
 
 116:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
@@ -10878,7 +10702,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %123 = load i64, ptr %19, align 8, !tbaa !36
   %124 = urem i64 %26, %123
   %125 = load ptr, ptr %17, align 8, !tbaa !35
-  %126 = getelementptr inbounds nuw ptr, ptr %125, i64 %124
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %125, i64 %124
   %127 = load ptr, ptr %126, align 8, !tbaa !175
   %.not.i.i.i.i.i29 = icmp eq ptr %127, null
   br i1 %.not.i.i.i.i.i29, label %.loopexit.thread, label %128
@@ -10920,7 +10744,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %.pre150 = load i64, ptr %19, align 8, !tbaa !36
   %.pre151 = load ptr, ptr %17, align 8, !tbaa !35
   %.pre155 = urem i64 %26, %.pre150
-  %.phi.trans.insert158 = getelementptr inbounds nuw ptr, ptr %.pre151, i64 %.pre155
+  %.phi.trans.insert158 = getelementptr inbounds nuw [8 x i8], ptr %.pre151, i64 %.pre155
   %.pre159 = load ptr, ptr %.phi.trans.insert158, align 8, !tbaa !175
   br label %.loopexit
 
@@ -10986,7 +10810,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %160 = load i64, ptr %19, align 8, !tbaa !36
   %161 = urem i64 %26, %160
   %162 = load ptr, ptr %17, align 8, !tbaa !35
-  %163 = getelementptr inbounds nuw ptr, ptr %162, i64 %161
+  %163 = getelementptr inbounds nuw [8 x i8], ptr %162, i64 %161
   %164 = load ptr, ptr %163, align 8, !tbaa !175
   %.not.i.i.i.i53 = icmp eq ptr %164, null
   br i1 %.not.i.i.i.i53, label %.loopexit.i.i59, label %165
@@ -11133,9 +10957,9 @@ _ZN5nblib16computeTwoCenterINS_23TwoParameterInteractionINS_21FENEBondTypeParame
 
 240:                                              ; preds = %240, %_ZN5nblib16computeTwoCenterINS_23TwoParameterInteractionINS_21FENEBondTypeParameterEEEN3gmx11BasicVectorIfEES6_EEDaRKT_RKT0_PSA_SD_PT1_SF_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib16computeTwoCenterINS_23TwoParameterInteractionINS_21FENEBondTypeParameterEEEN3gmx11BasicVectorIfEES6_EEDaRKT_RKT0_PSA_SD_PT1_SF_.exit ], [ %246, %240 ]
-  %241 = getelementptr inbounds nuw float, ptr %14, i64 %.05.i
+  %241 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %.05.i
   %242 = load float, ptr %241, align 4, !tbaa !172
-  %243 = getelementptr inbounds nuw float, ptr %13, i64 %.05.i
+  %243 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %.05.i
   %244 = load float, ptr %243, align 4, !tbaa !172
   %245 = fadd float %242, %244
   store float %245, ptr %243, align 4, !tbaa !172
@@ -11205,21 +11029,21 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %sext = shl i64 %.sroa.01.0.copyload, 32
   %24 = ashr exact i64 %sext, 32
-  %25 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %24
+  %25 = getelementptr inbounds [12 x i8], ptr %4, i64 %24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %25, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %26 = ashr i64 %.sroa.01.0.copyload, 32
-  %27 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %26
+  %27 = getelementptr inbounds [12 x i8], ptr %4, i64 %26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %27, i64 12, i1 false), !tbaa.struct !187
   %28 = sext i32 %.sroa.22.0.copyload to i64
-  %29 = getelementptr inbounds %"class.nblib::TwoParameterInteraction.206", ptr %2, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %2, i64 %28
   %30 = load float, ptr %29, align 4
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load float, ptr %.sroa_idx, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %32 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %12)
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds %"class.gmx::BasicVector", ptr %23, i64 %33
+  %34 = getelementptr inbounds [12 x i8], ptr %23, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %23, i64 264
   %36 = load i32, ptr %15, align 8, !tbaa !164
   %.not.i11.i = icmp sle i32 %36, %.sroa.093.0.extract.trunc
@@ -11231,7 +11055,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
 39:                                               ; preds = %22
   %40 = load i64, ptr %6, align 8
   %41 = inttoptr i64 %40 to ptr
-  %42 = getelementptr inbounds %"class.gmx::BasicVector", ptr %41, i64 %24
+  %42 = getelementptr inbounds [12 x i8], ptr %41, i64 %24
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
 
 43:                                               ; preds = %22
@@ -11255,7 +11079,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %50 = load i64, ptr %19, align 8, !tbaa !36
   %51 = urem i64 %24, %50
   %52 = load ptr, ptr %17, align 8, !tbaa !35
-  %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %51
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %51
   %54 = load ptr, ptr %53, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %54, null
   br i1 %.not.i.i.i.i.i, label %.loopexit115.thread, label %55
@@ -11297,7 +11121,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.pre = load i64, ptr %19, align 8, !tbaa !36
   %.pre147 = load ptr, ptr %17, align 8, !tbaa !35
   %.pre154 = urem i64 %24, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre147, i64 %.pre154
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre147, i64 %.pre154
   %.pre157 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit115
 
@@ -11369,7 +11193,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %87 = load i64, ptr %19, align 8, !tbaa !36
   %88 = urem i64 %24, %87
   %89 = load ptr, ptr %17, align 8, !tbaa !35
-  %90 = getelementptr inbounds nuw ptr, ptr %89, i64 %88
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %88
   %91 = load ptr, ptr %90, align 8, !tbaa !175
   %.not.i.i.i.i17 = icmp eq ptr %91, null
   br i1 %.not.i.i.i.i17, label %.loopexit.i.i23, label %92
@@ -11434,7 +11258,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
 112:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
   %113 = load i64, ptr %6, align 8
   %114 = inttoptr i64 %113 to ptr
-  %115 = getelementptr inbounds %"class.gmx::BasicVector", ptr %114, i64 %26
+  %115 = getelementptr inbounds [12 x i8], ptr %114, i64 %26
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_23TwoParameterInteractionINS_38HalfAttractiveQuarticBondTypeParameterEEES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS6_INS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeENS_13MorseBondTypeENS6_INS_21FENEBondTypeParameterEEES8_NS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit
 
 116:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
@@ -11458,7 +11282,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %123 = load i64, ptr %19, align 8, !tbaa !36
   %124 = urem i64 %26, %123
   %125 = load ptr, ptr %17, align 8, !tbaa !35
-  %126 = getelementptr inbounds nuw ptr, ptr %125, i64 %124
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %125, i64 %124
   %127 = load ptr, ptr %126, align 8, !tbaa !175
   %.not.i.i.i.i.i29 = icmp eq ptr %127, null
   br i1 %.not.i.i.i.i.i29, label %.loopexit.thread, label %128
@@ -11500,7 +11324,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %.pre150 = load i64, ptr %19, align 8, !tbaa !36
   %.pre151 = load ptr, ptr %17, align 8, !tbaa !35
   %.pre155 = urem i64 %26, %.pre150
-  %.phi.trans.insert158 = getelementptr inbounds nuw ptr, ptr %.pre151, i64 %.pre155
+  %.phi.trans.insert158 = getelementptr inbounds nuw [8 x i8], ptr %.pre151, i64 %.pre155
   %.pre159 = load ptr, ptr %.phi.trans.insert158, align 8, !tbaa !175
   br label %.loopexit
 
@@ -11566,7 +11390,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %160 = load i64, ptr %19, align 8, !tbaa !36
   %161 = urem i64 %26, %160
   %162 = load ptr, ptr %17, align 8, !tbaa !35
-  %163 = getelementptr inbounds nuw ptr, ptr %162, i64 %161
+  %163 = getelementptr inbounds nuw [8 x i8], ptr %162, i64 %161
   %164 = load ptr, ptr %163, align 8, !tbaa !175
   %.not.i.i.i.i53 = icmp eq ptr %164, null
   br i1 %.not.i.i.i.i53, label %.loopexit.i.i59, label %165
@@ -11711,9 +11535,9 @@ _ZN5nblib16computeTwoCenterINS_23TwoParameterInteractionINS_38HalfAttractiveQuar
 
 238:                                              ; preds = %238, %_ZN5nblib16computeTwoCenterINS_23TwoParameterInteractionINS_38HalfAttractiveQuarticBondTypeParameterEEEN3gmx11BasicVectorIfEES6_EEDaRKT_RKT0_PSA_SD_PT1_SF_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib16computeTwoCenterINS_23TwoParameterInteractionINS_38HalfAttractiveQuarticBondTypeParameterEEEN3gmx11BasicVectorIfEES6_EEDaRKT_RKT0_PSA_SD_PT1_SF_.exit ], [ %244, %238 ]
-  %239 = getelementptr inbounds nuw float, ptr %14, i64 %.05.i
+  %239 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %.05.i
   %240 = load float, ptr %239, align 4, !tbaa !172
-  %241 = getelementptr inbounds nuw float, ptr %13, i64 %.05.i
+  %241 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %.05.i
   %242 = load float, ptr %241, align 4, !tbaa !172
   %243 = fadd float %240, %242
   store float %243, ptr %241, align 4, !tbaa !172
@@ -11780,21 +11604,21 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %sext = shl i64 %.sroa.01.0.copyload, 32
   %24 = ashr exact i64 %sext, 32
-  %25 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %24
+  %25 = getelementptr inbounds [12 x i8], ptr %4, i64 %24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %25, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %26 = ashr i64 %.sroa.01.0.copyload, 32
-  %27 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %26
+  %27 = getelementptr inbounds [12 x i8], ptr %4, i64 %26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %27, i64 12, i1 false), !tbaa.struct !187
   %28 = sext i32 %.sroa.22.0.copyload to i64
-  %29 = getelementptr inbounds %"class.nblib::PairLJType", ptr %2, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %2, i64 %28
   %30 = load float, ptr %29, align 4
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load float, ptr %.sroa_idx, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %32 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %12)
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds %"class.gmx::BasicVector", ptr %23, i64 %33
+  %34 = getelementptr inbounds [12 x i8], ptr %23, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %23, i64 264
   %36 = load i32, ptr %15, align 8, !tbaa !164
   %.not.i11.i = icmp sle i32 %36, %.sroa.094.0.extract.trunc
@@ -11806,7 +11630,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
 39:                                               ; preds = %22
   %40 = load i64, ptr %6, align 8
   %41 = inttoptr i64 %40 to ptr
-  %42 = getelementptr inbounds %"class.gmx::BasicVector", ptr %41, i64 %24
+  %42 = getelementptr inbounds [12 x i8], ptr %41, i64 %24
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
 
 43:                                               ; preds = %22
@@ -11830,7 +11654,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %50 = load i64, ptr %19, align 8, !tbaa !36
   %51 = urem i64 %24, %50
   %52 = load ptr, ptr %17, align 8, !tbaa !35
-  %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %51
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %51
   %54 = load ptr, ptr %53, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %54, null
   br i1 %.not.i.i.i.i.i, label %.loopexit116.thread, label %55
@@ -11872,7 +11696,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.pre = load i64, ptr %19, align 8, !tbaa !36
   %.pre148 = load ptr, ptr %17, align 8, !tbaa !35
   %.pre155 = urem i64 %24, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre148, i64 %.pre155
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre148, i64 %.pre155
   %.pre158 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit116
 
@@ -11944,7 +11768,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %87 = load i64, ptr %19, align 8, !tbaa !36
   %88 = urem i64 %24, %87
   %89 = load ptr, ptr %17, align 8, !tbaa !35
-  %90 = getelementptr inbounds nuw ptr, ptr %89, i64 %88
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %88
   %91 = load ptr, ptr %90, align 8, !tbaa !175
   %.not.i.i.i.i17 = icmp eq ptr %91, null
   br i1 %.not.i.i.i.i17, label %.loopexit.i.i23, label %92
@@ -12009,7 +11833,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
 112:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
   %113 = load i64, ptr %6, align 8
   %114 = inttoptr i64 %113 to ptr
-  %115 = getelementptr inbounds %"class.gmx::BasicVector", ptr %114, i64 %26
+  %115 = getelementptr inbounds [12 x i8], ptr %114, i64 %26
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_10PairLJTypeES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeENS_13MorseBondTypeENSC_INS_21FENEBondTypeParameterEEENSC_INS_38HalfAttractiveQuarticBondTypeParameterEEES6_EEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit
 
 116:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
@@ -12033,7 +11857,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %123 = load i64, ptr %19, align 8, !tbaa !36
   %124 = urem i64 %26, %123
   %125 = load ptr, ptr %17, align 8, !tbaa !35
-  %126 = getelementptr inbounds nuw ptr, ptr %125, i64 %124
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %125, i64 %124
   %127 = load ptr, ptr %126, align 8, !tbaa !175
   %.not.i.i.i.i.i29 = icmp eq ptr %127, null
   br i1 %.not.i.i.i.i.i29, label %.loopexit.thread, label %128
@@ -12075,7 +11899,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %.pre151 = load i64, ptr %19, align 8, !tbaa !36
   %.pre152 = load ptr, ptr %17, align 8, !tbaa !35
   %.pre156 = urem i64 %26, %.pre151
-  %.phi.trans.insert159 = getelementptr inbounds nuw ptr, ptr %.pre152, i64 %.pre156
+  %.phi.trans.insert159 = getelementptr inbounds nuw [8 x i8], ptr %.pre152, i64 %.pre156
   %.pre160 = load ptr, ptr %.phi.trans.insert159, align 8, !tbaa !175
   br label %.loopexit
 
@@ -12141,7 +11965,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %160 = load i64, ptr %19, align 8, !tbaa !36
   %161 = urem i64 %26, %160
   %162 = load ptr, ptr %17, align 8, !tbaa !35
-  %163 = getelementptr inbounds nuw ptr, ptr %162, i64 %161
+  %163 = getelementptr inbounds nuw [8 x i8], ptr %162, i64 %161
   %164 = load ptr, ptr %163, align 8, !tbaa !175
   %.not.i.i.i.i53 = icmp eq ptr %164, null
   br i1 %.not.i.i.i.i53, label %.loopexit.i.i59, label %165
@@ -12285,9 +12109,9 @@ _ZN5nblib16computeTwoCenterINS_10PairLJTypeEN3gmx11BasicVectorIfEES4_EEDaRKT_RKT
 
 237:                                              ; preds = %237, %_ZN5nblib16computeTwoCenterINS_10PairLJTypeEN3gmx11BasicVectorIfEES4_EEDaRKT_RKT0_PS8_SB_PT1_SD_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib16computeTwoCenterINS_10PairLJTypeEN3gmx11BasicVectorIfEES4_EEDaRKT_RKT0_PS8_SB_PT1_SD_.exit ], [ %243, %237 ]
-  %238 = getelementptr inbounds nuw float, ptr %14, i64 %.05.i
+  %238 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %.05.i
   %239 = load float, ptr %238, align 4, !tbaa !172
-  %240 = getelementptr inbounds nuw float, ptr %13, i64 %.05.i
+  %240 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %.05.i
   %241 = load float, ptr %240, align 4, !tbaa !172
   %242 = fadd float %239, %241
   store float %242, ptr %240, align 4, !tbaa !172
@@ -12360,19 +12184,19 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %sext = shl i64 %.sroa.0.0.copyload, 32
   %27 = ashr exact i64 %sext, 32
-  %28 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %27
+  %28 = getelementptr inbounds [12 x i8], ptr %4, i64 %27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %28, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %29 = ashr i64 %.sroa.0.0.copyload, 32
-  %30 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %29
+  %30 = getelementptr inbounds [12 x i8], ptr %4, i64 %29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %30, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %sext190 = shl i64 %.sroa.2.0.copyload, 32
   %31 = ashr exact i64 %sext190, 32
-  %32 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %31
+  %32 = getelementptr inbounds [12 x i8], ptr %4, i64 %31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %32, i64 12, i1 false), !tbaa.struct !187
   %33 = ashr i64 %.sroa.2.0.copyload, 32
-  %34 = getelementptr inbounds %"class.nblib::AngleInteractionType", ptr %2, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %2, i64 %33
   %35 = load float, ptr %34, align 4
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 4
   %36 = load float, ptr %.sroa_idx, align 4
@@ -12383,9 +12207,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %38 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %14)
   %39 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %15)
   %40 = sext i32 %37 to i64
-  %41 = getelementptr inbounds %"class.gmx::BasicVector", ptr %26, i64 %40
+  %41 = getelementptr inbounds [12 x i8], ptr %26, i64 %40
   %42 = sext i32 %38 to i64
-  %43 = getelementptr inbounds %"class.gmx::BasicVector", ptr %26, i64 %42
+  %43 = getelementptr inbounds [12 x i8], ptr %26, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %26, i64 264
   %.sroa.07.0.copyload.i = load <2 x float>, ptr %13, align 8
   %.sroa.28.0.copyload.i = load float, ptr %.sroa.28.0..sroa_idx.i, align 8, !tbaa !188
@@ -12549,7 +12373,7 @@ _ZN5nblib23spreadThreeCenterForcesIfN3gmx11BasicVectorIfEEEEvT_S4_RKNS2_IS4_EES7
 155:                                              ; preds = %_ZN5nblib23spreadThreeCenterForcesIfN3gmx11BasicVectorIfEEEEvT_S4_RKNS2_IS4_EES7_PS5_S8_S8_PT0_SA_SA_.exit
   %156 = load i64, ptr %6, align 8
   %157 = inttoptr i64 %156 to ptr
-  %158 = getelementptr inbounds %"class.gmx::BasicVector", ptr %157, i64 %27
+  %158 = getelementptr inbounds [12 x i8], ptr %157, i64 %27
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
 
 159:                                              ; preds = %_ZN5nblib23spreadThreeCenterForcesIfN3gmx11BasicVectorIfEEEEvT_S4_RKNS2_IS4_EES7_PS5_S8_S8_PT0_SA_SA_.exit
@@ -12573,7 +12397,7 @@ _ZN5nblib23spreadThreeCenterForcesIfN3gmx11BasicVectorIfEEEEvT_S4_RKNS2_IS4_EES7
   %166 = load i64, ptr %22, align 8, !tbaa !36
   %167 = urem i64 %27, %166
   %168 = load ptr, ptr %20, align 8, !tbaa !35
-  %169 = getelementptr inbounds nuw ptr, ptr %168, i64 %167
+  %169 = getelementptr inbounds nuw [8 x i8], ptr %168, i64 %167
   %170 = load ptr, ptr %169, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %170, null
   br i1 %.not.i.i.i.i.i, label %.loopexit197.thread, label %171
@@ -12615,7 +12439,7 @@ _ZN5nblib23spreadThreeCenterForcesIfN3gmx11BasicVectorIfEEEEvT_S4_RKNS2_IS4_EES7
   %.pre = load i64, ptr %22, align 8, !tbaa !36
   %.pre244 = load ptr, ptr %20, align 8, !tbaa !35
   %.pre251 = urem i64 %27, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre244, i64 %.pre251
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre244, i64 %.pre251
   %.pre256 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit197
 
@@ -12687,7 +12511,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %203 = load i64, ptr %22, align 8, !tbaa !36
   %204 = urem i64 %27, %203
   %205 = load ptr, ptr %20, align 8, !tbaa !35
-  %206 = getelementptr inbounds nuw ptr, ptr %205, i64 %204
+  %206 = getelementptr inbounds nuw [8 x i8], ptr %205, i64 %204
   %207 = load ptr, ptr %206, align 8, !tbaa !175
   %.not.i.i.i.i13 = icmp eq ptr %207, null
   br i1 %.not.i.i.i.i13, label %.loopexit.i.i19, label %208
@@ -12764,7 +12588,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
 236:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
   %237 = load i64, ptr %6, align 8
   %238 = inttoptr i64 %237 to ptr
-  %239 = getelementptr inbounds %"class.gmx::BasicVector", ptr %238, i64 %29
+  %239 = getelementptr inbounds [12 x i8], ptr %238, i64 %29
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
 
 240:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
@@ -12788,7 +12612,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %247 = load i64, ptr %22, align 8, !tbaa !36
   %248 = urem i64 %29, %247
   %249 = load ptr, ptr %20, align 8, !tbaa !35
-  %250 = getelementptr inbounds nuw ptr, ptr %249, i64 %248
+  %250 = getelementptr inbounds nuw [8 x i8], ptr %249, i64 %248
   %251 = load ptr, ptr %250, align 8, !tbaa !175
   %.not.i.i.i.i.i25 = icmp eq ptr %251, null
   br i1 %.not.i.i.i.i.i25, label %.loopexit194.thread, label %252
@@ -12830,7 +12654,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %.pre245 = load i64, ptr %22, align 8, !tbaa !36
   %.pre246 = load ptr, ptr %20, align 8, !tbaa !35
   %.pre252 = urem i64 %29, %.pre245
-  %.phi.trans.insert257 = getelementptr inbounds nuw ptr, ptr %.pre246, i64 %.pre252
+  %.phi.trans.insert257 = getelementptr inbounds nuw [8 x i8], ptr %.pre246, i64 %.pre252
   %.pre258 = load ptr, ptr %.phi.trans.insert257, align 8, !tbaa !175
   br label %.loopexit194
 
@@ -12896,7 +12720,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %284 = load i64, ptr %22, align 8, !tbaa !36
   %285 = urem i64 %29, %284
   %286 = load ptr, ptr %20, align 8, !tbaa !35
-  %287 = getelementptr inbounds nuw ptr, ptr %286, i64 %285
+  %287 = getelementptr inbounds nuw [8 x i8], ptr %286, i64 %285
   %288 = load ptr, ptr %287, align 8, !tbaa !175
   %.not.i.i.i.i49 = icmp eq ptr %288, null
   br i1 %.not.i.i.i.i49, label %.loopexit.i.i55, label %289
@@ -12973,7 +12797,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
 317:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
   %318 = load i64, ptr %6, align 8
   %319 = inttoptr i64 %318 to ptr
-  %320 = getelementptr inbounds %"class.gmx::BasicVector", ptr %319, i64 %31
+  %320 = getelementptr inbounds [12 x i8], ptr %319, i64 %31
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJS8_NS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSE_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
 
 321:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
@@ -12997,7 +12821,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %328 = load i64, ptr %22, align 8, !tbaa !36
   %329 = urem i64 %31, %328
   %330 = load ptr, ptr %20, align 8, !tbaa !35
-  %331 = getelementptr inbounds nuw ptr, ptr %330, i64 %329
+  %331 = getelementptr inbounds nuw [8 x i8], ptr %330, i64 %329
   %332 = load ptr, ptr %331, align 8, !tbaa !175
   %.not.i.i.i.i.i63 = icmp eq ptr %332, null
   br i1 %.not.i.i.i.i.i63, label %.loopexit.thread, label %333
@@ -13039,7 +12863,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %.pre247 = load i64, ptr %22, align 8, !tbaa !36
   %.pre248 = load ptr, ptr %20, align 8, !tbaa !35
   %.pre254 = urem i64 %31, %.pre247
-  %.phi.trans.insert259 = getelementptr inbounds nuw ptr, ptr %.pre248, i64 %.pre254
+  %.phi.trans.insert259 = getelementptr inbounds nuw [8 x i8], ptr %.pre248, i64 %.pre254
   %.pre260 = load ptr, ptr %.phi.trans.insert259, align 8, !tbaa !175
   br label %.loopexit
 
@@ -13105,7 +12929,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %365 = load i64, ptr %22, align 8, !tbaa !36
   %366 = urem i64 %31, %365
   %367 = load ptr, ptr %20, align 8, !tbaa !35
-  %368 = getelementptr inbounds nuw ptr, ptr %367, i64 %366
+  %368 = getelementptr inbounds nuw [8 x i8], ptr %367, i64 %366
   %369 = load ptr, ptr %368, align 8, !tbaa !175
   %.not.i.i.i.i87 = icmp eq ptr %369, null
   br i1 %.not.i.i.i.i87, label %.loopexit.i.i93, label %370
@@ -13184,9 +13008,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 395:                                              ; preds = %395, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJS8_NS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSE_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJS8_NS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSE_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit ], [ %401, %395 ]
-  %396 = getelementptr inbounds nuw float, ptr %17, i64 %.05.i
+  %396 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %.05.i
   %397 = load float, ptr %396, align 4, !tbaa !172
-  %398 = getelementptr inbounds nuw float, ptr %16, i64 %.05.i
+  %398 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.05.i
   %399 = load float, ptr %398, align 4, !tbaa !172
   %400 = fadd float %397, %399
   store float %400, ptr %398, align 4, !tbaa !172
@@ -13265,19 +13089,19 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %sext = shl i64 %.sroa.0.0.copyload, 32
   %27 = ashr exact i64 %sext, 32
-  %28 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %27
+  %28 = getelementptr inbounds [12 x i8], ptr %4, i64 %27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %28, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %29 = ashr i64 %.sroa.0.0.copyload, 32
-  %30 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %29
+  %30 = getelementptr inbounds [12 x i8], ptr %4, i64 %29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %30, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %sext190 = shl i64 %.sroa.2.0.copyload, 32
   %31 = ashr exact i64 %sext190, 32
-  %32 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %31
+  %32 = getelementptr inbounds [12 x i8], ptr %4, i64 %31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %32, i64 12, i1 false), !tbaa.struct !187
   %33 = ashr i64 %.sroa.2.0.copyload, 32
-  %34 = getelementptr inbounds %"class.nblib::CosineParamAngle", ptr %2, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %2, i64 %33
   %35 = load float, ptr %34, align 4
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 4
   %36 = load float, ptr %.sroa_idx, align 4
@@ -13288,9 +13112,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %38 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %14)
   %39 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %15)
   %40 = sext i32 %37 to i64
-  %41 = getelementptr inbounds %"class.gmx::BasicVector", ptr %26, i64 %40
+  %41 = getelementptr inbounds [12 x i8], ptr %26, i64 %40
   %42 = sext i32 %38 to i64
-  %43 = getelementptr inbounds %"class.gmx::BasicVector", ptr %26, i64 %42
+  %43 = getelementptr inbounds [12 x i8], ptr %26, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %26, i64 264
   %.sroa.07.0.copyload.i = load <2 x float>, ptr %13, align 8
   %.sroa.28.0.copyload.i = load float, ptr %.sroa.28.0..sroa_idx.i, align 8, !tbaa !188
@@ -13460,7 +13284,7 @@ _ZN5nblib23spreadThreeCenterForcesIfN3gmx11BasicVectorIfEEEEvT_S4_RKNS2_IS4_EES7
 161:                                              ; preds = %_ZN5nblib23spreadThreeCenterForcesIfN3gmx11BasicVectorIfEEEEvT_S4_RKNS2_IS4_EES7_PS5_S8_S8_PT0_SA_SA_.exit
   %162 = load i64, ptr %6, align 8
   %163 = inttoptr i64 %162 to ptr
-  %164 = getelementptr inbounds %"class.gmx::BasicVector", ptr %163, i64 %27
+  %164 = getelementptr inbounds [12 x i8], ptr %163, i64 %27
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
 
 165:                                              ; preds = %_ZN5nblib23spreadThreeCenterForcesIfN3gmx11BasicVectorIfEEEEvT_S4_RKNS2_IS4_EES7_PS5_S8_S8_PT0_SA_SA_.exit
@@ -13484,7 +13308,7 @@ _ZN5nblib23spreadThreeCenterForcesIfN3gmx11BasicVectorIfEEEEvT_S4_RKNS2_IS4_EES7
   %172 = load i64, ptr %22, align 8, !tbaa !36
   %173 = urem i64 %27, %172
   %174 = load ptr, ptr %20, align 8, !tbaa !35
-  %175 = getelementptr inbounds nuw ptr, ptr %174, i64 %173
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %174, i64 %173
   %176 = load ptr, ptr %175, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %176, null
   br i1 %.not.i.i.i.i.i, label %.loopexit197.thread, label %177
@@ -13526,7 +13350,7 @@ _ZN5nblib23spreadThreeCenterForcesIfN3gmx11BasicVectorIfEEEEvT_S4_RKNS2_IS4_EES7
   %.pre = load i64, ptr %22, align 8, !tbaa !36
   %.pre244 = load ptr, ptr %20, align 8, !tbaa !35
   %.pre251 = urem i64 %27, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre244, i64 %.pre251
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre244, i64 %.pre251
   %.pre256 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit197
 
@@ -13598,7 +13422,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %209 = load i64, ptr %22, align 8, !tbaa !36
   %210 = urem i64 %27, %209
   %211 = load ptr, ptr %20, align 8, !tbaa !35
-  %212 = getelementptr inbounds nuw ptr, ptr %211, i64 %210
+  %212 = getelementptr inbounds nuw [8 x i8], ptr %211, i64 %210
   %213 = load ptr, ptr %212, align 8, !tbaa !175
   %.not.i.i.i.i13 = icmp eq ptr %213, null
   br i1 %.not.i.i.i.i13, label %.loopexit.i.i19, label %214
@@ -13675,7 +13499,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
 242:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
   %243 = load i64, ptr %6, align 8
   %244 = inttoptr i64 %243 to ptr
-  %245 = getelementptr inbounds %"class.gmx::BasicVector", ptr %244, i64 %29
+  %245 = getelementptr inbounds [12 x i8], ptr %244, i64 %29
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
 
 246:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
@@ -13699,7 +13523,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %253 = load i64, ptr %22, align 8, !tbaa !36
   %254 = urem i64 %29, %253
   %255 = load ptr, ptr %20, align 8, !tbaa !35
-  %256 = getelementptr inbounds nuw ptr, ptr %255, i64 %254
+  %256 = getelementptr inbounds nuw [8 x i8], ptr %255, i64 %254
   %257 = load ptr, ptr %256, align 8, !tbaa !175
   %.not.i.i.i.i.i25 = icmp eq ptr %257, null
   br i1 %.not.i.i.i.i.i25, label %.loopexit194.thread, label %258
@@ -13741,7 +13565,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %.pre245 = load i64, ptr %22, align 8, !tbaa !36
   %.pre246 = load ptr, ptr %20, align 8, !tbaa !35
   %.pre252 = urem i64 %29, %.pre245
-  %.phi.trans.insert257 = getelementptr inbounds nuw ptr, ptr %.pre246, i64 %.pre252
+  %.phi.trans.insert257 = getelementptr inbounds nuw [8 x i8], ptr %.pre246, i64 %.pre252
   %.pre258 = load ptr, ptr %.phi.trans.insert257, align 8, !tbaa !175
   br label %.loopexit194
 
@@ -13807,7 +13631,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %290 = load i64, ptr %22, align 8, !tbaa !36
   %291 = urem i64 %29, %290
   %292 = load ptr, ptr %20, align 8, !tbaa !35
-  %293 = getelementptr inbounds nuw ptr, ptr %292, i64 %291
+  %293 = getelementptr inbounds nuw [8 x i8], ptr %292, i64 %291
   %294 = load ptr, ptr %293, align 8, !tbaa !175
   %.not.i.i.i.i49 = icmp eq ptr %294, null
   br i1 %.not.i.i.i.i49, label %.loopexit.i.i55, label %295
@@ -13884,7 +13708,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
 323:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
   %324 = load i64, ptr %6, align 8
   %325 = inttoptr i64 %324 to ptr
-  %326 = getelementptr inbounds %"class.gmx::BasicVector", ptr %325, i64 %31
+  %326 = getelementptr inbounds [12 x i8], ptr %325, i64 %31
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16CosineParamAngleINS_17G96AngleParameterEEES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEES8_NS_12QuarticAngleENS6_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
 
 327:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
@@ -13908,7 +13732,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %334 = load i64, ptr %22, align 8, !tbaa !36
   %335 = urem i64 %31, %334
   %336 = load ptr, ptr %20, align 8, !tbaa !35
-  %337 = getelementptr inbounds nuw ptr, ptr %336, i64 %335
+  %337 = getelementptr inbounds nuw [8 x i8], ptr %336, i64 %335
   %338 = load ptr, ptr %337, align 8, !tbaa !175
   %.not.i.i.i.i.i63 = icmp eq ptr %338, null
   br i1 %.not.i.i.i.i.i63, label %.loopexit.thread, label %339
@@ -13950,7 +13774,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %.pre247 = load i64, ptr %22, align 8, !tbaa !36
   %.pre248 = load ptr, ptr %20, align 8, !tbaa !35
   %.pre254 = urem i64 %31, %.pre247
-  %.phi.trans.insert259 = getelementptr inbounds nuw ptr, ptr %.pre248, i64 %.pre254
+  %.phi.trans.insert259 = getelementptr inbounds nuw [8 x i8], ptr %.pre248, i64 %.pre254
   %.pre260 = load ptr, ptr %.phi.trans.insert259, align 8, !tbaa !175
   br label %.loopexit
 
@@ -14016,7 +13840,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %371 = load i64, ptr %22, align 8, !tbaa !36
   %372 = urem i64 %31, %371
   %373 = load ptr, ptr %20, align 8, !tbaa !35
-  %374 = getelementptr inbounds nuw ptr, ptr %373, i64 %372
+  %374 = getelementptr inbounds nuw [8 x i8], ptr %373, i64 %372
   %375 = load ptr, ptr %374, align 8, !tbaa !175
   %.not.i.i.i.i87 = icmp eq ptr %375, null
   br i1 %.not.i.i.i.i87, label %.loopexit.i.i93, label %376
@@ -14095,9 +13919,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 401:                                              ; preds = %401, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16CosineParamAngleINS_17G96AngleParameterEEES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEES8_NS_12QuarticAngleENS6_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16CosineParamAngleINS_17G96AngleParameterEEES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEES8_NS_12QuarticAngleENS6_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit ], [ %407, %401 ]
-  %402 = getelementptr inbounds nuw float, ptr %17, i64 %.05.i
+  %402 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %.05.i
   %403 = load float, ptr %402, align 4, !tbaa !172
-  %404 = getelementptr inbounds nuw float, ptr %16, i64 %.05.i
+  %404 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.05.i
   %405 = load float, ptr %404, align 4, !tbaa !172
   %406 = fadd float %403, %405
   store float %406, ptr %404, align 4, !tbaa !172
@@ -14173,19 +13997,19 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %sext = shl i64 %.sroa.0.0.copyload, 32
   %27 = ashr exact i64 %sext, 32
-  %28 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %27
+  %28 = getelementptr inbounds [12 x i8], ptr %4, i64 %27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %28, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %29 = ashr i64 %.sroa.0.0.copyload, 32
-  %30 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %29
+  %30 = getelementptr inbounds [12 x i8], ptr %4, i64 %29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %30, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %sext196 = shl i64 %.sroa.2.0.copyload, 32
   %31 = ashr exact i64 %sext196, 32
-  %32 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %31
+  %32 = getelementptr inbounds [12 x i8], ptr %4, i64 %31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %32, i64 12, i1 false), !tbaa.struct !187
   %33 = ashr i64 %.sroa.2.0.copyload, 32
-  %34 = getelementptr inbounds %"class.nblib::QuarticAngle", ptr %2, i64 %33
+  %34 = getelementptr inbounds [24 x i8], ptr %2, i64 %33
   %.sroa.0152.0.copyload = load float, ptr %34, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 4
   %.sroa.5.0.copyload = load float, ptr %.sroa.5.0..sroa_idx, align 4
@@ -14204,9 +14028,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %36 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %14)
   %37 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %15)
   %38 = sext i32 %35 to i64
-  %39 = getelementptr inbounds %"class.gmx::BasicVector", ptr %26, i64 %38
+  %39 = getelementptr inbounds [12 x i8], ptr %26, i64 %38
   %40 = sext i32 %36 to i64
-  %41 = getelementptr inbounds %"class.gmx::BasicVector", ptr %26, i64 %40
+  %41 = getelementptr inbounds [12 x i8], ptr %26, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %26, i64 264
   %.sroa.07.0.copyload.i = load <2 x float>, ptr %13, align 8
   %.sroa.28.0.copyload.i = load float, ptr %.sroa.28.0..sroa_idx.i, align 8, !tbaa !188
@@ -14401,7 +14225,7 @@ _ZN5nblib23spreadThreeCenterForcesIfN3gmx11BasicVectorIfEEEEvT_S4_RKNS2_IS4_EES7
 156:                                              ; preds = %_ZN5nblib23spreadThreeCenterForcesIfN3gmx11BasicVectorIfEEEEvT_S4_RKNS2_IS4_EES7_PS5_S8_S8_PT0_SA_SA_.exit
   %157 = load i64, ptr %6, align 8
   %158 = inttoptr i64 %157 to ptr
-  %159 = getelementptr inbounds %"class.gmx::BasicVector", ptr %158, i64 %27
+  %159 = getelementptr inbounds [12 x i8], ptr %158, i64 %27
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
 
 160:                                              ; preds = %_ZN5nblib23spreadThreeCenterForcesIfN3gmx11BasicVectorIfEEEEvT_S4_RKNS2_IS4_EES7_PS5_S8_S8_PT0_SA_SA_.exit
@@ -14425,7 +14249,7 @@ _ZN5nblib23spreadThreeCenterForcesIfN3gmx11BasicVectorIfEEEEvT_S4_RKNS2_IS4_EES7
   %167 = load i64, ptr %22, align 8, !tbaa !36
   %168 = urem i64 %27, %167
   %169 = load ptr, ptr %20, align 8, !tbaa !35
-  %170 = getelementptr inbounds nuw ptr, ptr %169, i64 %168
+  %170 = getelementptr inbounds nuw [8 x i8], ptr %169, i64 %168
   %171 = load ptr, ptr %170, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %171, null
   br i1 %.not.i.i.i.i.i, label %.loopexit203.thread, label %172
@@ -14467,7 +14291,7 @@ _ZN5nblib23spreadThreeCenterForcesIfN3gmx11BasicVectorIfEEEEvT_S4_RKNS2_IS4_EES7
   %.pre = load i64, ptr %22, align 8, !tbaa !36
   %.pre266 = load ptr, ptr %20, align 8, !tbaa !35
   %.pre273 = urem i64 %27, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre266, i64 %.pre273
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre266, i64 %.pre273
   %.pre278 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit203
 
@@ -14539,7 +14363,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %204 = load i64, ptr %22, align 8, !tbaa !36
   %205 = urem i64 %27, %204
   %206 = load ptr, ptr %20, align 8, !tbaa !35
-  %207 = getelementptr inbounds nuw ptr, ptr %206, i64 %205
+  %207 = getelementptr inbounds nuw [8 x i8], ptr %206, i64 %205
   %208 = load ptr, ptr %207, align 8, !tbaa !175
   %.not.i.i.i.i13 = icmp eq ptr %208, null
   br i1 %.not.i.i.i.i13, label %.loopexit.i.i19, label %209
@@ -14616,7 +14440,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
 237:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
   %238 = load i64, ptr %6, align 8
   %239 = inttoptr i64 %238 to ptr
-  %240 = getelementptr inbounds %"class.gmx::BasicVector", ptr %239, i64 %29
+  %240 = getelementptr inbounds [12 x i8], ptr %239, i64 %29
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
 
 241:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
@@ -14640,7 +14464,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %248 = load i64, ptr %22, align 8, !tbaa !36
   %249 = urem i64 %29, %248
   %250 = load ptr, ptr %20, align 8, !tbaa !35
-  %251 = getelementptr inbounds nuw ptr, ptr %250, i64 %249
+  %251 = getelementptr inbounds nuw [8 x i8], ptr %250, i64 %249
   %252 = load ptr, ptr %251, align 8, !tbaa !175
   %.not.i.i.i.i.i25 = icmp eq ptr %252, null
   br i1 %.not.i.i.i.i.i25, label %.loopexit200.thread, label %253
@@ -14682,7 +14506,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %.pre267 = load i64, ptr %22, align 8, !tbaa !36
   %.pre268 = load ptr, ptr %20, align 8, !tbaa !35
   %.pre274 = urem i64 %29, %.pre267
-  %.phi.trans.insert279 = getelementptr inbounds nuw ptr, ptr %.pre268, i64 %.pre274
+  %.phi.trans.insert279 = getelementptr inbounds nuw [8 x i8], ptr %.pre268, i64 %.pre274
   %.pre280 = load ptr, ptr %.phi.trans.insert279, align 8, !tbaa !175
   br label %.loopexit200
 
@@ -14748,7 +14572,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %285 = load i64, ptr %22, align 8, !tbaa !36
   %286 = urem i64 %29, %285
   %287 = load ptr, ptr %20, align 8, !tbaa !35
-  %288 = getelementptr inbounds nuw ptr, ptr %287, i64 %286
+  %288 = getelementptr inbounds nuw [8 x i8], ptr %287, i64 %286
   %289 = load ptr, ptr %288, align 8, !tbaa !175
   %.not.i.i.i.i49 = icmp eq ptr %289, null
   br i1 %.not.i.i.i.i49, label %.loopexit.i.i55, label %290
@@ -14825,7 +14649,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
 318:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
   %319 = load i64, ptr %6, align 8
   %320 = inttoptr i64 %319 to ptr
-  %321 = getelementptr inbounds %"class.gmx::BasicVector", ptr %320, i64 %31
+  %321 = getelementptr inbounds [12 x i8], ptr %320, i64 %31
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_12QuarticAngleES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEES6_NSF_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
 
 322:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
@@ -14849,7 +14673,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %329 = load i64, ptr %22, align 8, !tbaa !36
   %330 = urem i64 %31, %329
   %331 = load ptr, ptr %20, align 8, !tbaa !35
-  %332 = getelementptr inbounds nuw ptr, ptr %331, i64 %330
+  %332 = getelementptr inbounds nuw [8 x i8], ptr %331, i64 %330
   %333 = load ptr, ptr %332, align 8, !tbaa !175
   %.not.i.i.i.i.i63 = icmp eq ptr %333, null
   br i1 %.not.i.i.i.i.i63, label %.loopexit.thread, label %334
@@ -14891,7 +14715,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %.pre269 = load i64, ptr %22, align 8, !tbaa !36
   %.pre270 = load ptr, ptr %20, align 8, !tbaa !35
   %.pre276 = urem i64 %31, %.pre269
-  %.phi.trans.insert281 = getelementptr inbounds nuw ptr, ptr %.pre270, i64 %.pre276
+  %.phi.trans.insert281 = getelementptr inbounds nuw [8 x i8], ptr %.pre270, i64 %.pre276
   %.pre282 = load ptr, ptr %.phi.trans.insert281, align 8, !tbaa !175
   br label %.loopexit
 
@@ -14957,7 +14781,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %366 = load i64, ptr %22, align 8, !tbaa !36
   %367 = urem i64 %31, %366
   %368 = load ptr, ptr %20, align 8, !tbaa !35
-  %369 = getelementptr inbounds nuw ptr, ptr %368, i64 %367
+  %369 = getelementptr inbounds nuw [8 x i8], ptr %368, i64 %367
   %370 = load ptr, ptr %369, align 8, !tbaa !175
   %.not.i.i.i.i87 = icmp eq ptr %370, null
   br i1 %.not.i.i.i.i87, label %.loopexit.i.i93, label %371
@@ -15036,9 +14860,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 396:                                              ; preds = %396, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_12QuarticAngleES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEES6_NSF_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_12QuarticAngleES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEES6_NSF_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit ], [ %402, %396 ]
-  %397 = getelementptr inbounds nuw float, ptr %17, i64 %.05.i
+  %397 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %.05.i
   %398 = load float, ptr %397, align 4, !tbaa !172
-  %399 = getelementptr inbounds nuw float, ptr %16, i64 %.05.i
+  %399 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.05.i
   %400 = load float, ptr %399, align 4, !tbaa !172
   %401 = fadd float %398, %400
   store float %401, ptr %399, align 4, !tbaa !172
@@ -15111,19 +14935,19 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %sext = shl i64 %.sroa.0.0.copyload, 32
   %27 = ashr exact i64 %sext, 32
-  %28 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %27
+  %28 = getelementptr inbounds [12 x i8], ptr %4, i64 %27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %28, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %29 = ashr i64 %.sroa.0.0.copyload, 32
-  %30 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %29
+  %30 = getelementptr inbounds [12 x i8], ptr %4, i64 %29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %30, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %sext190 = shl i64 %.sroa.2.0.copyload, 32
   %31 = ashr exact i64 %sext190, 32
-  %32 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %31
+  %32 = getelementptr inbounds [12 x i8], ptr %4, i64 %31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %32, i64 12, i1 false), !tbaa.struct !187
   %33 = ashr i64 %.sroa.2.0.copyload, 32
-  %34 = getelementptr inbounds %"class.nblib::CosineParamAngle.225", ptr %2, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %2, i64 %33
   %35 = load float, ptr %34, align 4
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 4
   %36 = load float, ptr %.sroa_idx, align 4
@@ -15134,9 +14958,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %38 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %14)
   %39 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %15)
   %40 = sext i32 %37 to i64
-  %41 = getelementptr inbounds %"class.gmx::BasicVector", ptr %26, i64 %40
+  %41 = getelementptr inbounds [12 x i8], ptr %26, i64 %40
   %42 = sext i32 %38 to i64
-  %43 = getelementptr inbounds %"class.gmx::BasicVector", ptr %26, i64 %42
+  %43 = getelementptr inbounds [12 x i8], ptr %26, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %26, i64 264
   %.sroa.07.0.copyload.i = load <2 x float>, ptr %13, align 8
   %.sroa.28.0.copyload.i = load float, ptr %.sroa.28.0..sroa_idx.i, align 8, !tbaa !188
@@ -15309,7 +15133,7 @@ _ZN5nblib23spreadThreeCenterForcesIfN3gmx11BasicVectorIfEEEEvT_S4_RKNS2_IS4_EES7
 164:                                              ; preds = %_ZN5nblib23spreadThreeCenterForcesIfN3gmx11BasicVectorIfEEEEvT_S4_RKNS2_IS4_EES7_PS5_S8_S8_PT0_SA_SA_.exit
   %165 = load i64, ptr %6, align 8
   %166 = inttoptr i64 %165 to ptr
-  %167 = getelementptr inbounds %"class.gmx::BasicVector", ptr %166, i64 %27
+  %167 = getelementptr inbounds [12 x i8], ptr %166, i64 %27
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
 
 168:                                              ; preds = %_ZN5nblib23spreadThreeCenterForcesIfN3gmx11BasicVectorIfEEEEvT_S4_RKNS2_IS4_EES7_PS5_S8_S8_PT0_SA_SA_.exit
@@ -15333,7 +15157,7 @@ _ZN5nblib23spreadThreeCenterForcesIfN3gmx11BasicVectorIfEEEEvT_S4_RKNS2_IS4_EES7
   %175 = load i64, ptr %22, align 8, !tbaa !36
   %176 = urem i64 %27, %175
   %177 = load ptr, ptr %20, align 8, !tbaa !35
-  %178 = getelementptr inbounds nuw ptr, ptr %177, i64 %176
+  %178 = getelementptr inbounds nuw [8 x i8], ptr %177, i64 %176
   %179 = load ptr, ptr %178, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %179, null
   br i1 %.not.i.i.i.i.i, label %.loopexit197.thread, label %180
@@ -15375,7 +15199,7 @@ _ZN5nblib23spreadThreeCenterForcesIfN3gmx11BasicVectorIfEEEEvT_S4_RKNS2_IS4_EES7
   %.pre = load i64, ptr %22, align 8, !tbaa !36
   %.pre244 = load ptr, ptr %20, align 8, !tbaa !35
   %.pre251 = urem i64 %27, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre244, i64 %.pre251
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre244, i64 %.pre251
   %.pre256 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit197
 
@@ -15447,7 +15271,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %212 = load i64, ptr %22, align 8, !tbaa !36
   %213 = urem i64 %27, %212
   %214 = load ptr, ptr %20, align 8, !tbaa !35
-  %215 = getelementptr inbounds nuw ptr, ptr %214, i64 %213
+  %215 = getelementptr inbounds nuw [8 x i8], ptr %214, i64 %213
   %216 = load ptr, ptr %215, align 8, !tbaa !175
   %.not.i.i.i.i13 = icmp eq ptr %216, null
   br i1 %.not.i.i.i.i13, label %.loopexit.i.i19, label %217
@@ -15524,7 +15348,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
 245:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
   %246 = load i64, ptr %6, align 8
   %247 = inttoptr i64 %246 to ptr
-  %248 = getelementptr inbounds %"class.gmx::BasicVector", ptr %247, i64 %29
+  %248 = getelementptr inbounds [12 x i8], ptr %247, i64 %29
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
 
 249:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
@@ -15548,7 +15372,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %256 = load i64, ptr %22, align 8, !tbaa !36
   %257 = urem i64 %29, %256
   %258 = load ptr, ptr %20, align 8, !tbaa !35
-  %259 = getelementptr inbounds nuw ptr, ptr %258, i64 %257
+  %259 = getelementptr inbounds nuw [8 x i8], ptr %258, i64 %257
   %260 = load ptr, ptr %259, align 8, !tbaa !175
   %.not.i.i.i.i.i25 = icmp eq ptr %260, null
   br i1 %.not.i.i.i.i.i25, label %.loopexit194.thread, label %261
@@ -15590,7 +15414,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %.pre245 = load i64, ptr %22, align 8, !tbaa !36
   %.pre246 = load ptr, ptr %20, align 8, !tbaa !35
   %.pre252 = urem i64 %29, %.pre245
-  %.phi.trans.insert257 = getelementptr inbounds nuw ptr, ptr %.pre246, i64 %.pre252
+  %.phi.trans.insert257 = getelementptr inbounds nuw [8 x i8], ptr %.pre246, i64 %.pre252
   %.pre258 = load ptr, ptr %.phi.trans.insert257, align 8, !tbaa !175
   br label %.loopexit194
 
@@ -15656,7 +15480,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %293 = load i64, ptr %22, align 8, !tbaa !36
   %294 = urem i64 %29, %293
   %295 = load ptr, ptr %20, align 8, !tbaa !35
-  %296 = getelementptr inbounds nuw ptr, ptr %295, i64 %294
+  %296 = getelementptr inbounds nuw [8 x i8], ptr %295, i64 %294
   %297 = load ptr, ptr %296, align 8, !tbaa !175
   %.not.i.i.i.i49 = icmp eq ptr %297, null
   br i1 %.not.i.i.i.i49, label %.loopexit.i.i55, label %298
@@ -15733,7 +15557,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
 326:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
   %327 = load i64, ptr %6, align 8
   %328 = inttoptr i64 %327 to ptr
-  %329 = getelementptr inbounds %"class.gmx::BasicVector", ptr %328, i64 %31
+  %329 = getelementptr inbounds [12 x i8], ptr %328, i64 %31
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16CosineParamAngleINS_24RestrictedAngleParameterEEES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS6_INS_17G96AngleParameterEEENS_12QuarticAngleES8_NS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
 
 330:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
@@ -15757,7 +15581,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %337 = load i64, ptr %22, align 8, !tbaa !36
   %338 = urem i64 %31, %337
   %339 = load ptr, ptr %20, align 8, !tbaa !35
-  %340 = getelementptr inbounds nuw ptr, ptr %339, i64 %338
+  %340 = getelementptr inbounds nuw [8 x i8], ptr %339, i64 %338
   %341 = load ptr, ptr %340, align 8, !tbaa !175
   %.not.i.i.i.i.i63 = icmp eq ptr %341, null
   br i1 %.not.i.i.i.i.i63, label %.loopexit.thread, label %342
@@ -15799,7 +15623,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %.pre247 = load i64, ptr %22, align 8, !tbaa !36
   %.pre248 = load ptr, ptr %20, align 8, !tbaa !35
   %.pre254 = urem i64 %31, %.pre247
-  %.phi.trans.insert259 = getelementptr inbounds nuw ptr, ptr %.pre248, i64 %.pre254
+  %.phi.trans.insert259 = getelementptr inbounds nuw [8 x i8], ptr %.pre248, i64 %.pre254
   %.pre260 = load ptr, ptr %.phi.trans.insert259, align 8, !tbaa !175
   br label %.loopexit
 
@@ -15865,7 +15689,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %374 = load i64, ptr %22, align 8, !tbaa !36
   %375 = urem i64 %31, %374
   %376 = load ptr, ptr %20, align 8, !tbaa !35
-  %377 = getelementptr inbounds nuw ptr, ptr %376, i64 %375
+  %377 = getelementptr inbounds nuw [8 x i8], ptr %376, i64 %375
   %378 = load ptr, ptr %377, align 8, !tbaa !175
   %.not.i.i.i.i87 = icmp eq ptr %378, null
   br i1 %.not.i.i.i.i87, label %.loopexit.i.i93, label %379
@@ -15944,9 +15768,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 404:                                              ; preds = %404, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16CosineParamAngleINS_24RestrictedAngleParameterEEES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS6_INS_17G96AngleParameterEEENS_12QuarticAngleES8_NS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16CosineParamAngleINS_24RestrictedAngleParameterEEES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS6_INS_17G96AngleParameterEEENS_12QuarticAngleES8_NS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit ], [ %410, %404 ]
-  %405 = getelementptr inbounds nuw float, ptr %17, i64 %.05.i
+  %405 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %.05.i
   %406 = load float, ptr %405, align 4, !tbaa !172
-  %407 = getelementptr inbounds nuw float, ptr %16, i64 %.05.i
+  %407 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.05.i
   %408 = load float, ptr %407, align 4, !tbaa !172
   %409 = fadd float %406, %408
   store float %409, ptr %407, align 4, !tbaa !172
@@ -16019,19 +15843,19 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %sext = shl i64 %.sroa.0.0.copyload, 32
   %27 = ashr exact i64 %sext, 32
-  %28 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %27
+  %28 = getelementptr inbounds [12 x i8], ptr %4, i64 %27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %28, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %29 = ashr i64 %.sroa.0.0.copyload, 32
-  %30 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %29
+  %30 = getelementptr inbounds [12 x i8], ptr %4, i64 %29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %30, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %sext251 = shl i64 %.sroa.2.0.copyload, 32
   %31 = ashr exact i64 %sext251, 32
-  %32 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %31
+  %32 = getelementptr inbounds [12 x i8], ptr %4, i64 %31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %32, i64 12, i1 false), !tbaa.struct !187
   %33 = ashr i64 %.sroa.2.0.copyload, 32
-  %34 = getelementptr inbounds %"class.nblib::CrossBondBond", ptr %2, i64 %33
+  %34 = getelementptr inbounds [12 x i8], ptr %2, i64 %33
   %.sroa.0179.0.copyload = load float, ptr %34, align 4, !tbaa !172
   %.sroa.4180.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 4
   %.sroa.4180.0.copyload = load float, ptr %.sroa.4180.0..sroa_idx, align 4, !tbaa !172
@@ -16044,9 +15868,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %36 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %14)
   %37 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %15)
   %38 = sext i32 %35 to i64
-  %39 = getelementptr inbounds %"class.gmx::BasicVector", ptr %26, i64 %38
+  %39 = getelementptr inbounds [12 x i8], ptr %26, i64 %38
   %40 = sext i32 %36 to i64
-  %41 = getelementptr inbounds %"class.gmx::BasicVector", ptr %26, i64 %40
+  %41 = getelementptr inbounds [12 x i8], ptr %26, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %26, i64 264
   %.sroa.021.0.copyload.i = load <2 x float>, ptr %13, align 8
   %.sroa.222.0.copyload.i = load float, ptr %.sroa.222.0..sroa_idx.i, align 8, !tbaa !188
@@ -16142,7 +15966,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
 107:                                              ; preds = %25
   %108 = load i64, ptr %6, align 8
   %109 = inttoptr i64 %108 to ptr
-  %110 = getelementptr inbounds %"class.gmx::BasicVector", ptr %109, i64 %27
+  %110 = getelementptr inbounds [12 x i8], ptr %109, i64 %27
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
 
 111:                                              ; preds = %25
@@ -16166,7 +15990,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %118 = load i64, ptr %22, align 8, !tbaa !36
   %119 = urem i64 %27, %118
   %120 = load ptr, ptr %20, align 8, !tbaa !35
-  %121 = getelementptr inbounds nuw ptr, ptr %120, i64 %119
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %120, i64 %119
   %122 = load ptr, ptr %121, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %122, null
   br i1 %.not.i.i.i.i.i, label %.loopexit258.thread, label %123
@@ -16208,7 +16032,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.pre = load i64, ptr %22, align 8, !tbaa !36
   %.pre305 = load ptr, ptr %20, align 8, !tbaa !35
   %.pre312 = urem i64 %27, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre305, i64 %.pre312
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre305, i64 %.pre312
   %.pre317 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit258
 
@@ -16280,7 +16104,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %155 = load i64, ptr %22, align 8, !tbaa !36
   %156 = urem i64 %27, %155
   %157 = load ptr, ptr %20, align 8, !tbaa !35
-  %158 = getelementptr inbounds nuw ptr, ptr %157, i64 %156
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %157, i64 %156
   %159 = load ptr, ptr %158, align 8, !tbaa !175
   %.not.i.i.i.i39 = icmp eq ptr %159, null
   br i1 %.not.i.i.i.i39, label %.loopexit.i.i45, label %160
@@ -16355,7 +16179,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
 188:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
   %189 = load i64, ptr %6, align 8
   %190 = inttoptr i64 %189 to ptr
-  %191 = getelementptr inbounds %"class.gmx::BasicVector", ptr %190, i64 %29
+  %191 = getelementptr inbounds [12 x i8], ptr %190, i64 %29
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
 
 192:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
@@ -16379,7 +16203,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %199 = load i64, ptr %22, align 8, !tbaa !36
   %200 = urem i64 %29, %199
   %201 = load ptr, ptr %20, align 8, !tbaa !35
-  %202 = getelementptr inbounds nuw ptr, ptr %201, i64 %200
+  %202 = getelementptr inbounds nuw [8 x i8], ptr %201, i64 %200
   %203 = load ptr, ptr %202, align 8, !tbaa !175
   %.not.i.i.i.i.i53 = icmp eq ptr %203, null
   br i1 %.not.i.i.i.i.i53, label %.loopexit255.thread, label %204
@@ -16421,7 +16245,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %.pre306 = load i64, ptr %22, align 8, !tbaa !36
   %.pre307 = load ptr, ptr %20, align 8, !tbaa !35
   %.pre313 = urem i64 %29, %.pre306
-  %.phi.trans.insert318 = getelementptr inbounds nuw ptr, ptr %.pre307, i64 %.pre313
+  %.phi.trans.insert318 = getelementptr inbounds nuw [8 x i8], ptr %.pre307, i64 %.pre313
   %.pre319 = load ptr, ptr %.phi.trans.insert318, align 8, !tbaa !175
   br label %.loopexit255
 
@@ -16487,7 +16311,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %236 = load i64, ptr %22, align 8, !tbaa !36
   %237 = urem i64 %29, %236
   %238 = load ptr, ptr %20, align 8, !tbaa !35
-  %239 = getelementptr inbounds nuw ptr, ptr %238, i64 %237
+  %239 = getelementptr inbounds nuw [8 x i8], ptr %238, i64 %237
   %240 = load ptr, ptr %239, align 8, !tbaa !175
   %.not.i.i.i.i77 = icmp eq ptr %240, null
   br i1 %.not.i.i.i.i77, label %.loopexit.i.i83, label %241
@@ -16562,7 +16386,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
 269:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
   %270 = load i64, ptr %6, align 8
   %271 = inttoptr i64 %270 to ptr
-  %272 = getelementptr inbounds %"class.gmx::BasicVector", ptr %271, i64 %31
+  %272 = getelementptr inbounds [12 x i8], ptr %271, i64 %31
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_13CrossBondBondES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSF_INS_24RestrictedAngleParameterEEES6_NS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
 
 273:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
@@ -16586,7 +16410,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %280 = load i64, ptr %22, align 8, !tbaa !36
   %281 = urem i64 %31, %280
   %282 = load ptr, ptr %20, align 8, !tbaa !35
-  %283 = getelementptr inbounds nuw ptr, ptr %282, i64 %281
+  %283 = getelementptr inbounds nuw [8 x i8], ptr %282, i64 %281
   %284 = load ptr, ptr %283, align 8, !tbaa !175
   %.not.i.i.i.i.i91 = icmp eq ptr %284, null
   br i1 %.not.i.i.i.i.i91, label %.loopexit.thread, label %285
@@ -16628,7 +16452,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %.pre308 = load i64, ptr %22, align 8, !tbaa !36
   %.pre309 = load ptr, ptr %20, align 8, !tbaa !35
   %.pre315 = urem i64 %31, %.pre308
-  %.phi.trans.insert320 = getelementptr inbounds nuw ptr, ptr %.pre309, i64 %.pre315
+  %.phi.trans.insert320 = getelementptr inbounds nuw [8 x i8], ptr %.pre309, i64 %.pre315
   %.pre321 = load ptr, ptr %.phi.trans.insert320, align 8, !tbaa !175
   br label %.loopexit
 
@@ -16694,7 +16518,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %317 = load i64, ptr %22, align 8, !tbaa !36
   %318 = urem i64 %31, %317
   %319 = load ptr, ptr %20, align 8, !tbaa !35
-  %320 = getelementptr inbounds nuw ptr, ptr %319, i64 %318
+  %320 = getelementptr inbounds nuw [8 x i8], ptr %319, i64 %318
   %321 = load ptr, ptr %320, align 8, !tbaa !175
   %.not.i.i.i.i115 = icmp eq ptr %321, null
   br i1 %.not.i.i.i.i115, label %.loopexit.i.i121, label %322
@@ -16771,9 +16595,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 347:                                              ; preds = %347, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_13CrossBondBondES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSF_INS_24RestrictedAngleParameterEEES6_NS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_13CrossBondBondES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSF_INS_24RestrictedAngleParameterEEES6_NS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit ], [ %353, %347 ]
-  %348 = getelementptr inbounds nuw float, ptr %17, i64 %.05.i
+  %348 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %.05.i
   %349 = load float, ptr %348, align 4, !tbaa !172
-  %350 = getelementptr inbounds nuw float, ptr %16, i64 %.05.i
+  %350 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.05.i
   %351 = load float, ptr %350, align 4, !tbaa !172
   %352 = fadd float %349, %351
   store float %352, ptr %350, align 4, !tbaa !172
@@ -16847,19 +16671,19 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %sext = shl i64 %.sroa.0.0.copyload, 32
   %27 = ashr exact i64 %sext, 32
-  %28 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %27
+  %28 = getelementptr inbounds [12 x i8], ptr %4, i64 %27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %28, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %29 = ashr i64 %.sroa.0.0.copyload, 32
-  %30 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %29
+  %30 = getelementptr inbounds [12 x i8], ptr %4, i64 %29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %30, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %sext281 = shl i64 %.sroa.2.0.copyload, 32
   %31 = ashr exact i64 %sext281, 32
-  %32 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %31
+  %32 = getelementptr inbounds [12 x i8], ptr %4, i64 %31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %32, i64 12, i1 false), !tbaa.struct !187
   %33 = ashr i64 %.sroa.2.0.copyload, 32
-  %34 = getelementptr inbounds %"class.nblib::CrossBondAngle", ptr %2, i64 %33
+  %34 = getelementptr inbounds [16 x i8], ptr %2, i64 %33
   %.sroa.0198.0.copyload = load float, ptr %34, align 4, !tbaa !172
   %.sroa.4199.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 4
   %.sroa.4199.0.copyload = load float, ptr %.sroa.4199.0..sroa_idx, align 4, !tbaa !172
@@ -16874,9 +16698,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %36 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %14)
   %37 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %15)
   %38 = sext i32 %35 to i64
-  %39 = getelementptr inbounds %"class.gmx::BasicVector", ptr %26, i64 %38
+  %39 = getelementptr inbounds [12 x i8], ptr %26, i64 %38
   %40 = sext i32 %36 to i64
-  %41 = getelementptr inbounds %"class.gmx::BasicVector", ptr %26, i64 %40
+  %41 = getelementptr inbounds [12 x i8], ptr %26, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %26, i64 264
   %.sroa.043.0.copyload.i = load <2 x float>, ptr %13, align 8
   %.sroa.244.0.copyload.i = load float, ptr %.sroa.244.0..sroa_idx.i, align 8, !tbaa !188
@@ -16994,7 +16818,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
 124:                                              ; preds = %25
   %125 = load i64, ptr %6, align 8
   %126 = inttoptr i64 %125 to ptr
-  %127 = getelementptr inbounds %"class.gmx::BasicVector", ptr %126, i64 %27
+  %127 = getelementptr inbounds [12 x i8], ptr %126, i64 %27
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
 
 128:                                              ; preds = %25
@@ -17018,7 +16842,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %135 = load i64, ptr %22, align 8, !tbaa !36
   %136 = urem i64 %27, %135
   %137 = load ptr, ptr %20, align 8, !tbaa !35
-  %138 = getelementptr inbounds nuw ptr, ptr %137, i64 %136
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %137, i64 %136
   %139 = load ptr, ptr %138, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %139, null
   br i1 %.not.i.i.i.i.i, label %.loopexit288.thread, label %140
@@ -17060,7 +16884,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.pre = load i64, ptr %22, align 8, !tbaa !36
   %.pre335 = load ptr, ptr %20, align 8, !tbaa !35
   %.pre342 = urem i64 %27, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre335, i64 %.pre342
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre335, i64 %.pre342
   %.pre347 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit288
 
@@ -17132,7 +16956,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %172 = load i64, ptr %22, align 8, !tbaa !36
   %173 = urem i64 %27, %172
   %174 = load ptr, ptr %20, align 8, !tbaa !35
-  %175 = getelementptr inbounds nuw ptr, ptr %174, i64 %173
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %174, i64 %173
   %176 = load ptr, ptr %175, align 8, !tbaa !175
   %.not.i.i.i.i58 = icmp eq ptr %176, null
   br i1 %.not.i.i.i.i58, label %.loopexit.i.i64, label %177
@@ -17207,7 +17031,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
 205:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
   %206 = load i64, ptr %6, align 8
   %207 = inttoptr i64 %206 to ptr
-  %208 = getelementptr inbounds %"class.gmx::BasicVector", ptr %207, i64 %29
+  %208 = getelementptr inbounds [12 x i8], ptr %207, i64 %29
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
 
 209:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
@@ -17231,7 +17055,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %216 = load i64, ptr %22, align 8, !tbaa !36
   %217 = urem i64 %29, %216
   %218 = load ptr, ptr %20, align 8, !tbaa !35
-  %219 = getelementptr inbounds nuw ptr, ptr %218, i64 %217
+  %219 = getelementptr inbounds nuw [8 x i8], ptr %218, i64 %217
   %220 = load ptr, ptr %219, align 8, !tbaa !175
   %.not.i.i.i.i.i72 = icmp eq ptr %220, null
   br i1 %.not.i.i.i.i.i72, label %.loopexit285.thread, label %221
@@ -17273,7 +17097,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %.pre336 = load i64, ptr %22, align 8, !tbaa !36
   %.pre337 = load ptr, ptr %20, align 8, !tbaa !35
   %.pre343 = urem i64 %29, %.pre336
-  %.phi.trans.insert348 = getelementptr inbounds nuw ptr, ptr %.pre337, i64 %.pre343
+  %.phi.trans.insert348 = getelementptr inbounds nuw [8 x i8], ptr %.pre337, i64 %.pre343
   %.pre349 = load ptr, ptr %.phi.trans.insert348, align 8, !tbaa !175
   br label %.loopexit285
 
@@ -17339,7 +17163,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %253 = load i64, ptr %22, align 8, !tbaa !36
   %254 = urem i64 %29, %253
   %255 = load ptr, ptr %20, align 8, !tbaa !35
-  %256 = getelementptr inbounds nuw ptr, ptr %255, i64 %254
+  %256 = getelementptr inbounds nuw [8 x i8], ptr %255, i64 %254
   %257 = load ptr, ptr %256, align 8, !tbaa !175
   %.not.i.i.i.i96 = icmp eq ptr %257, null
   br i1 %.not.i.i.i.i96, label %.loopexit.i.i102, label %258
@@ -17414,7 +17238,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
 286:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
   %287 = load i64, ptr %6, align 8
   %288 = inttoptr i64 %287 to ptr
-  %289 = getelementptr inbounds %"class.gmx::BasicVector", ptr %288, i64 %31
+  %289 = getelementptr inbounds [12 x i8], ptr %288, i64 %31
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_14CrossBondAngleES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSF_INS_24RestrictedAngleParameterEEENS_13CrossBondBondES6_NS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
 
 290:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
@@ -17438,7 +17262,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %297 = load i64, ptr %22, align 8, !tbaa !36
   %298 = urem i64 %31, %297
   %299 = load ptr, ptr %20, align 8, !tbaa !35
-  %300 = getelementptr inbounds nuw ptr, ptr %299, i64 %298
+  %300 = getelementptr inbounds nuw [8 x i8], ptr %299, i64 %298
   %301 = load ptr, ptr %300, align 8, !tbaa !175
   %.not.i.i.i.i.i110 = icmp eq ptr %301, null
   br i1 %.not.i.i.i.i.i110, label %.loopexit.thread, label %302
@@ -17480,7 +17304,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %.pre338 = load i64, ptr %22, align 8, !tbaa !36
   %.pre339 = load ptr, ptr %20, align 8, !tbaa !35
   %.pre345 = urem i64 %31, %.pre338
-  %.phi.trans.insert350 = getelementptr inbounds nuw ptr, ptr %.pre339, i64 %.pre345
+  %.phi.trans.insert350 = getelementptr inbounds nuw [8 x i8], ptr %.pre339, i64 %.pre345
   %.pre351 = load ptr, ptr %.phi.trans.insert350, align 8, !tbaa !175
   br label %.loopexit
 
@@ -17546,7 +17370,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %334 = load i64, ptr %22, align 8, !tbaa !36
   %335 = urem i64 %31, %334
   %336 = load ptr, ptr %20, align 8, !tbaa !35
-  %337 = getelementptr inbounds nuw ptr, ptr %336, i64 %335
+  %337 = getelementptr inbounds nuw [8 x i8], ptr %336, i64 %335
   %338 = load ptr, ptr %337, align 8, !tbaa !175
   %.not.i.i.i.i134 = icmp eq ptr %338, null
   br i1 %.not.i.i.i.i134, label %.loopexit.i.i140, label %339
@@ -17623,9 +17447,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 364:                                              ; preds = %364, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_14CrossBondAngleES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSF_INS_24RestrictedAngleParameterEEENS_13CrossBondBondES6_NS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_14CrossBondAngleES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSF_INS_24RestrictedAngleParameterEEENS_13CrossBondBondES6_NS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit ], [ %370, %364 ]
-  %365 = getelementptr inbounds nuw float, ptr %17, i64 %.05.i
+  %365 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %.05.i
   %366 = load float, ptr %365, align 4, !tbaa !172
-  %367 = getelementptr inbounds nuw float, ptr %16, i64 %.05.i
+  %367 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.05.i
   %368 = load float, ptr %367, align 4, !tbaa !172
   %369 = fadd float %366, %368
   store float %369, ptr %367, align 4, !tbaa !172
@@ -17700,19 +17524,19 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %sext = shl i64 %.sroa.0.0.copyload, 32
   %31 = ashr exact i64 %sext, 32
-  %32 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %31
+  %32 = getelementptr inbounds [12 x i8], ptr %4, i64 %31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %32, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %33 = ashr i64 %.sroa.0.0.copyload, 32
-  %34 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %33
+  %34 = getelementptr inbounds [12 x i8], ptr %4, i64 %33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %34, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %sext274 = shl i64 %.sroa.2.0.copyload, 32
   %35 = ashr exact i64 %sext274, 32
-  %36 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %35
+  %36 = getelementptr inbounds [12 x i8], ptr %4, i64 %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %36, i64 12, i1 false), !tbaa.struct !187
   %37 = ashr i64 %.sroa.2.0.copyload, 32
-  %38 = getelementptr inbounds %"class.nblib::TwoParameterInteraction.233", ptr %2, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %2, i64 %37
   %39 = load float, ptr %38, align 4
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 4
   %40 = load float, ptr %.sroa_idx, align 4
@@ -17723,9 +17547,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %42 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %14)
   %43 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %15)
   %44 = sext i32 %41 to i64
-  %45 = getelementptr inbounds %"class.gmx::BasicVector", ptr %30, i64 %44
+  %45 = getelementptr inbounds [12 x i8], ptr %30, i64 %44
   %46 = sext i32 %42 to i64
-  %47 = getelementptr inbounds %"class.gmx::BasicVector", ptr %30, i64 %46
+  %47 = getelementptr inbounds [12 x i8], ptr %30, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %30, i64 264
   %49 = fadd float %40, -1.000000e+00
   %50 = load float, ptr %14, align 4, !tbaa !172
@@ -17821,7 +17645,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
 122:                                              ; preds = %29
   %123 = load i64, ptr %6, align 8
   %124 = inttoptr i64 %123 to ptr
-  %125 = getelementptr inbounds %"class.gmx::BasicVector", ptr %124, i64 %31
+  %125 = getelementptr inbounds [12 x i8], ptr %124, i64 %31
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
 
 126:                                              ; preds = %29
@@ -17845,7 +17669,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %133 = load i64, ptr %26, align 8, !tbaa !36
   %134 = urem i64 %31, %133
   %135 = load ptr, ptr %24, align 8, !tbaa !35
-  %136 = getelementptr inbounds nuw ptr, ptr %135, i64 %134
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %135, i64 %134
   %137 = load ptr, ptr %136, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %137, null
   br i1 %.not.i.i.i.i.i, label %.loopexit281.thread, label %138
@@ -17887,7 +17711,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.pre = load i64, ptr %26, align 8, !tbaa !36
   %.pre328 = load ptr, ptr %24, align 8, !tbaa !35
   %.pre335 = urem i64 %31, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre328, i64 %.pre335
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre328, i64 %.pre335
   %.pre340 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit281
 
@@ -17959,7 +17783,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %170 = load i64, ptr %26, align 8, !tbaa !36
   %171 = urem i64 %31, %170
   %172 = load ptr, ptr %24, align 8, !tbaa !35
-  %173 = getelementptr inbounds nuw ptr, ptr %172, i64 %171
+  %173 = getelementptr inbounds nuw [8 x i8], ptr %172, i64 %171
   %174 = load ptr, ptr %173, align 8, !tbaa !175
   %.not.i.i.i.i48 = icmp eq ptr %174, null
   br i1 %.not.i.i.i.i48, label %.loopexit.i.i54, label %175
@@ -18034,7 +17858,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
 203:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
   %204 = load i64, ptr %6, align 8
   %205 = inttoptr i64 %204 to ptr
-  %206 = getelementptr inbounds %"class.gmx::BasicVector", ptr %205, i64 %33
+  %206 = getelementptr inbounds [12 x i8], ptr %205, i64 %33
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
 
 207:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
@@ -18058,7 +17882,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %214 = load i64, ptr %26, align 8, !tbaa !36
   %215 = urem i64 %33, %214
   %216 = load ptr, ptr %24, align 8, !tbaa !35
-  %217 = getelementptr inbounds nuw ptr, ptr %216, i64 %215
+  %217 = getelementptr inbounds nuw [8 x i8], ptr %216, i64 %215
   %218 = load ptr, ptr %217, align 8, !tbaa !175
   %.not.i.i.i.i.i62 = icmp eq ptr %218, null
   br i1 %.not.i.i.i.i.i62, label %.loopexit278.thread, label %219
@@ -18100,7 +17924,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %.pre329 = load i64, ptr %26, align 8, !tbaa !36
   %.pre330 = load ptr, ptr %24, align 8, !tbaa !35
   %.pre336 = urem i64 %33, %.pre329
-  %.phi.trans.insert341 = getelementptr inbounds nuw ptr, ptr %.pre330, i64 %.pre336
+  %.phi.trans.insert341 = getelementptr inbounds nuw [8 x i8], ptr %.pre330, i64 %.pre336
   %.pre342 = load ptr, ptr %.phi.trans.insert341, align 8, !tbaa !175
   br label %.loopexit278
 
@@ -18166,7 +17990,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %251 = load i64, ptr %26, align 8, !tbaa !36
   %252 = urem i64 %33, %251
   %253 = load ptr, ptr %24, align 8, !tbaa !35
-  %254 = getelementptr inbounds nuw ptr, ptr %253, i64 %252
+  %254 = getelementptr inbounds nuw [8 x i8], ptr %253, i64 %252
   %255 = load ptr, ptr %254, align 8, !tbaa !175
   %.not.i.i.i.i86 = icmp eq ptr %255, null
   br i1 %.not.i.i.i.i86, label %.loopexit.i.i92, label %256
@@ -18241,7 +18065,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
 284:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
   %285 = load i64, ptr %6, align 8
   %286 = inttoptr i64 %285 to ptr
-  %287 = getelementptr inbounds %"class.gmx::BasicVector", ptr %286, i64 %35
+  %287 = getelementptr inbounds [12 x i8], ptr %286, i64 %35
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_23TwoParameterInteractionINS_20LinearAngleParameterEEES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSH_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleES8_EEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
 
 288:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
@@ -18265,7 +18089,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %295 = load i64, ptr %26, align 8, !tbaa !36
   %296 = urem i64 %35, %295
   %297 = load ptr, ptr %24, align 8, !tbaa !35
-  %298 = getelementptr inbounds nuw ptr, ptr %297, i64 %296
+  %298 = getelementptr inbounds nuw [8 x i8], ptr %297, i64 %296
   %299 = load ptr, ptr %298, align 8, !tbaa !175
   %.not.i.i.i.i.i100 = icmp eq ptr %299, null
   br i1 %.not.i.i.i.i.i100, label %.loopexit.thread, label %300
@@ -18307,7 +18131,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %.pre331 = load i64, ptr %26, align 8, !tbaa !36
   %.pre332 = load ptr, ptr %24, align 8, !tbaa !35
   %.pre338 = urem i64 %35, %.pre331
-  %.phi.trans.insert343 = getelementptr inbounds nuw ptr, ptr %.pre332, i64 %.pre338
+  %.phi.trans.insert343 = getelementptr inbounds nuw [8 x i8], ptr %.pre332, i64 %.pre338
   %.pre344 = load ptr, ptr %.phi.trans.insert343, align 8, !tbaa !175
   br label %.loopexit
 
@@ -18373,7 +18197,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %332 = load i64, ptr %26, align 8, !tbaa !36
   %333 = urem i64 %35, %332
   %334 = load ptr, ptr %24, align 8, !tbaa !35
-  %335 = getelementptr inbounds nuw ptr, ptr %334, i64 %333
+  %335 = getelementptr inbounds nuw [8 x i8], ptr %334, i64 %333
   %336 = load ptr, ptr %335, align 8, !tbaa !175
   %.not.i.i.i.i124 = icmp eq ptr %336, null
   br i1 %.not.i.i.i.i124, label %.loopexit.i.i130, label %337
@@ -18450,9 +18274,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 362:                                              ; preds = %362, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_23TwoParameterInteractionINS_20LinearAngleParameterEEES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSH_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleES8_EEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_23TwoParameterInteractionINS_20LinearAngleParameterEEES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSH_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleES8_EEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit ], [ %368, %362 ]
-  %363 = getelementptr inbounds nuw float, ptr %17, i64 %.05.i
+  %363 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %.05.i
   %364 = load float, ptr %363, align 4, !tbaa !172
-  %365 = getelementptr inbounds nuw float, ptr %16, i64 %.05.i
+  %365 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.05.i
   %366 = load float, ptr %365, align 4, !tbaa !172
   %367 = fadd float %364, %366
   store float %367, ptr %365, align 4, !tbaa !172
@@ -18530,19 +18354,19 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %28 = load ptr, ptr %7, align 8, !tbaa !222
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %29 = sext i32 %.sroa.0146.sroa.0.0.copyload to i64
-  %30 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %29
+  %30 = getelementptr inbounds [12 x i8], ptr %4, i64 %29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %30, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %31 = sext i32 %.sroa.0146.sroa.2.0.copyload to i64
-  %32 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %31
+  %32 = getelementptr inbounds [12 x i8], ptr %4, i64 %31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %32, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %33 = sext i32 %.sroa.0146.sroa.3.0.copyload to i64
-  %34 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %33
+  %34 = getelementptr inbounds [12 x i8], ptr %4, i64 %33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %34, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %35 = sext i32 %.sroa.0146.sroa.4.0.copyload to i64
-  %36 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %35
+  %36 = getelementptr inbounds [12 x i8], ptr %4, i64 %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %13, ptr noundef nonnull align 4 dereferenceable(12) %36, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
@@ -18553,7 +18377,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %39 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %13, ptr noundef nonnull align 4 dereferenceable(12) %16)
   %40 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %13, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %17)
   %41 = sext i32 %.sroa.0146.sroa.5.0.copyload to i64
-  %42 = getelementptr inbounds %"class.nblib::ProperDihedral", ptr %2, i64 %41
+  %42 = getelementptr inbounds [12 x i8], ptr %2, i64 %41
   %.sroa.0171.0.copyload = load float, ptr %42, align 4, !tbaa !172
   %.sroa.4172.0..sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 4
   %.sroa.4172.0.copyload = load float, ptr %.sroa.4172.0..sroa_idx, align 4, !tbaa !172
@@ -18641,11 +18465,11 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %105 = fmul float %104, %86
   %106 = getelementptr inbounds nuw i8, ptr %28, i64 264
   %107 = sext i32 %40 to i64
-  %108 = getelementptr inbounds %"class.gmx::BasicVector", ptr %28, i64 %107
+  %108 = getelementptr inbounds [12 x i8], ptr %28, i64 %107
   %109 = sext i32 %38 to i64
-  %110 = getelementptr inbounds %"class.gmx::BasicVector", ptr %28, i64 %109
+  %110 = getelementptr inbounds [12 x i8], ptr %28, i64 %109
   %111 = sext i32 %37 to i64
-  %112 = getelementptr inbounds %"class.gmx::BasicVector", ptr %28, i64 %111
+  %112 = getelementptr inbounds [12 x i8], ptr %28, i64 %111
   %113 = fdiv float 1.000000e+00, %98
   %sqrt.i = call float @llvm.sqrt.f32(float %98)
   %114 = fneg float %105
@@ -18774,7 +18598,7 @@ _ZN5nblib22spreadFourCenterForcesIfN3gmx11BasicVectorIfEEEEvT_RKNS2_IS4_EES7_S7_
 198:                                              ; preds = %_ZN5nblib22spreadFourCenterForcesIfN3gmx11BasicVectorIfEEEEvT_RKNS2_IS4_EES7_S7_S7_S7_PS5_S8_S8_S8_PT0_SA_SA_SA_.exit
   %199 = load i64, ptr %6, align 8
   %200 = inttoptr i64 %199 to ptr
-  %201 = getelementptr inbounds %"class.gmx::BasicVector", ptr %200, i64 %29
+  %201 = getelementptr inbounds [12 x i8], ptr %200, i64 %29
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i
 
 202:                                              ; preds = %_ZN5nblib22spreadFourCenterForcesIfN3gmx11BasicVectorIfEEEEvT_RKNS2_IS4_EES7_S7_S7_S7_PS5_S8_S8_S8_PT0_SA_SA_SA_.exit
@@ -18798,7 +18622,7 @@ _ZN5nblib22spreadFourCenterForcesIfN3gmx11BasicVectorIfEEEEvT_RKNS2_IS4_EES7_S7_
   %209 = load i64, ptr %24, align 8, !tbaa !36
   %210 = urem i64 %29, %209
   %211 = load ptr, ptr %22, align 8, !tbaa !35
-  %212 = getelementptr inbounds nuw ptr, ptr %211, i64 %210
+  %212 = getelementptr inbounds nuw [8 x i8], ptr %211, i64 %210
   %213 = load ptr, ptr %212, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %213, null
   br i1 %.not.i.i.i.i.i, label %.loopexit267.thread, label %214
@@ -18840,7 +18664,7 @@ _ZN5nblib22spreadFourCenterForcesIfN3gmx11BasicVectorIfEEEEvT_RKNS2_IS4_EES7_S7_
   %.pre = load i64, ptr %24, align 8, !tbaa !36
   %.pre329 = load ptr, ptr %22, align 8, !tbaa !35
   %.pre338 = urem i64 %29, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre329, i64 %.pre338
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre329, i64 %.pre338
   %.pre345 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit267
 
@@ -18912,7 +18736,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %246 = load i64, ptr %24, align 8, !tbaa !36
   %247 = urem i64 %29, %246
   %248 = load ptr, ptr %22, align 8, !tbaa !35
-  %249 = getelementptr inbounds nuw ptr, ptr %248, i64 %247
+  %249 = getelementptr inbounds nuw [8 x i8], ptr %248, i64 %247
   %250 = load ptr, ptr %249, align 8, !tbaa !175
   %.not.i.i.i.i15 = icmp eq ptr %250, null
   br i1 %.not.i.i.i.i15, label %.loopexit.i.i21, label %251
@@ -18989,7 +18813,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
 279:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i
   %280 = load i64, ptr %6, align 8
   %281 = inttoptr i64 %280 to ptr
-  %282 = getelementptr inbounds %"class.gmx::BasicVector", ptr %281, i64 %31
+  %282 = getelementptr inbounds [12 x i8], ptr %281, i64 %31
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i
 
 283:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i
@@ -19013,7 +18837,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
   %290 = load i64, ptr %24, align 8, !tbaa !36
   %291 = urem i64 %31, %290
   %292 = load ptr, ptr %22, align 8, !tbaa !35
-  %293 = getelementptr inbounds nuw ptr, ptr %292, i64 %291
+  %293 = getelementptr inbounds nuw [8 x i8], ptr %292, i64 %291
   %294 = load ptr, ptr %293, align 8, !tbaa !175
   %.not.i.i.i.i.i27 = icmp eq ptr %294, null
   br i1 %.not.i.i.i.i.i27, label %.loopexit264.thread, label %295
@@ -19055,7 +18879,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
   %.pre330 = load i64, ptr %24, align 8, !tbaa !36
   %.pre331 = load ptr, ptr %22, align 8, !tbaa !35
   %.pre339 = urem i64 %31, %.pre330
-  %.phi.trans.insert346 = getelementptr inbounds nuw ptr, ptr %.pre331, i64 %.pre339
+  %.phi.trans.insert346 = getelementptr inbounds nuw [8 x i8], ptr %.pre331, i64 %.pre339
   %.pre347 = load ptr, ptr %.phi.trans.insert346, align 8, !tbaa !175
   br label %.loopexit264
 
@@ -19121,7 +18945,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %327 = load i64, ptr %24, align 8, !tbaa !36
   %328 = urem i64 %31, %327
   %329 = load ptr, ptr %22, align 8, !tbaa !35
-  %330 = getelementptr inbounds nuw ptr, ptr %329, i64 %328
+  %330 = getelementptr inbounds nuw [8 x i8], ptr %329, i64 %328
   %331 = load ptr, ptr %330, align 8, !tbaa !175
   %.not.i.i.i.i51 = icmp eq ptr %331, null
   br i1 %.not.i.i.i.i51, label %.loopexit.i.i57, label %332
@@ -19198,7 +19022,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
 360:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i
   %361 = load i64, ptr %6, align 8
   %362 = inttoptr i64 %361 to ptr
-  %363 = getelementptr inbounds %"class.gmx::BasicVector", ptr %362, i64 %33
+  %363 = getelementptr inbounds [12 x i8], ptr %362, i64 %33
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i
 
 364:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i
@@ -19222,7 +19046,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
   %371 = load i64, ptr %24, align 8, !tbaa !36
   %372 = urem i64 %33, %371
   %373 = load ptr, ptr %22, align 8, !tbaa !35
-  %374 = getelementptr inbounds nuw ptr, ptr %373, i64 %372
+  %374 = getelementptr inbounds nuw [8 x i8], ptr %373, i64 %372
   %375 = load ptr, ptr %374, align 8, !tbaa !175
   %.not.i.i.i.i.i65 = icmp eq ptr %375, null
   br i1 %.not.i.i.i.i.i65, label %.loopexit261.thread, label %376
@@ -19264,7 +19088,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
   %.pre332 = load i64, ptr %24, align 8, !tbaa !36
   %.pre333 = load ptr, ptr %22, align 8, !tbaa !35
   %.pre341 = urem i64 %33, %.pre332
-  %.phi.trans.insert348 = getelementptr inbounds nuw ptr, ptr %.pre333, i64 %.pre341
+  %.phi.trans.insert348 = getelementptr inbounds nuw [8 x i8], ptr %.pre333, i64 %.pre341
   %.pre349 = load ptr, ptr %.phi.trans.insert348, align 8, !tbaa !175
   br label %.loopexit261
 
@@ -19330,7 +19154,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %408 = load i64, ptr %24, align 8, !tbaa !36
   %409 = urem i64 %33, %408
   %410 = load ptr, ptr %22, align 8, !tbaa !35
-  %411 = getelementptr inbounds nuw ptr, ptr %410, i64 %409
+  %411 = getelementptr inbounds nuw [8 x i8], ptr %410, i64 %409
   %412 = load ptr, ptr %411, align 8, !tbaa !175
   %.not.i.i.i.i89 = icmp eq ptr %412, null
   br i1 %.not.i.i.i.i89, label %.loopexit.i.i95, label %413
@@ -19407,7 +19231,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
 441:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i
   %442 = load i64, ptr %6, align 8
   %443 = inttoptr i64 %442 to ptr
-  %444 = getelementptr inbounds %"class.gmx::BasicVector", ptr %443, i64 %35
+  %444 = getelementptr inbounds [12 x i8], ptr %443, i64 %35
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_14ProperDihedralES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJS6_NS_16ImproperDihedralENS_24RyckaertBellemanDihedralEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit
 
 445:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i
@@ -19431,7 +19255,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
   %452 = load i64, ptr %24, align 8, !tbaa !36
   %453 = urem i64 %35, %452
   %454 = load ptr, ptr %22, align 8, !tbaa !35
-  %455 = getelementptr inbounds nuw ptr, ptr %454, i64 %453
+  %455 = getelementptr inbounds nuw [8 x i8], ptr %454, i64 %453
   %456 = load ptr, ptr %455, align 8, !tbaa !175
   %.not.i.i.i.i.i103 = icmp eq ptr %456, null
   br i1 %.not.i.i.i.i.i103, label %.loopexit.thread, label %457
@@ -19473,7 +19297,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
   %.pre334 = load i64, ptr %24, align 8, !tbaa !36
   %.pre335 = load ptr, ptr %22, align 8, !tbaa !35
   %.pre343 = urem i64 %35, %.pre334
-  %.phi.trans.insert350 = getelementptr inbounds nuw ptr, ptr %.pre335, i64 %.pre343
+  %.phi.trans.insert350 = getelementptr inbounds nuw [8 x i8], ptr %.pre335, i64 %.pre343
   %.pre351 = load ptr, ptr %.phi.trans.insert350, align 8, !tbaa !175
   br label %.loopexit
 
@@ -19539,7 +19363,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %489 = load i64, ptr %24, align 8, !tbaa !36
   %490 = urem i64 %35, %489
   %491 = load ptr, ptr %22, align 8, !tbaa !35
-  %492 = getelementptr inbounds nuw ptr, ptr %491, i64 %490
+  %492 = getelementptr inbounds nuw [8 x i8], ptr %491, i64 %490
   %493 = load ptr, ptr %492, align 8, !tbaa !175
   %.not.i.i.i.i127 = icmp eq ptr %493, null
   br i1 %.not.i.i.i.i127, label %.loopexit.i.i133, label %494
@@ -19620,9 +19444,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 519:                                              ; preds = %519, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_14ProperDihedralES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJS6_NS_16ImproperDihedralENS_24RyckaertBellemanDihedralEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_14ProperDihedralES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJS6_NS_16ImproperDihedralENS_24RyckaertBellemanDihedralEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit ], [ %525, %519 ]
-  %520 = getelementptr inbounds nuw float, ptr %19, i64 %.05.i
+  %520 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.05.i
   %521 = load float, ptr %520, align 4, !tbaa !172
-  %522 = getelementptr inbounds nuw float, ptr %18, i64 %.05.i
+  %522 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %.05.i
   %523 = load float, ptr %522, align 4, !tbaa !172
   %524 = fadd float %521, %523
   store float %524, ptr %522, align 4, !tbaa !172
@@ -19706,19 +19530,19 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %28 = load ptr, ptr %7, align 8, !tbaa !222
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %29 = sext i32 %.sroa.0146.sroa.0.0.copyload to i64
-  %30 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %29
+  %30 = getelementptr inbounds [12 x i8], ptr %4, i64 %29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %30, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %31 = sext i32 %.sroa.0146.sroa.2.0.copyload to i64
-  %32 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %31
+  %32 = getelementptr inbounds [12 x i8], ptr %4, i64 %31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %32, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %33 = sext i32 %.sroa.0146.sroa.3.0.copyload to i64
-  %34 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %33
+  %34 = getelementptr inbounds [12 x i8], ptr %4, i64 %33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %34, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %35 = sext i32 %.sroa.0146.sroa.4.0.copyload to i64
-  %36 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %35
+  %36 = getelementptr inbounds [12 x i8], ptr %4, i64 %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %13, ptr noundef nonnull align 4 dereferenceable(12) %36, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
@@ -19729,14 +19553,14 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %39 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %13, ptr noundef nonnull align 4 dereferenceable(12) %16)
   %40 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %13, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %17)
   %41 = sext i32 %37 to i64
-  %42 = getelementptr inbounds %"class.gmx::BasicVector", ptr %28, i64 %41
+  %42 = getelementptr inbounds [12 x i8], ptr %28, i64 %41
   %43 = sext i32 %38 to i64
-  %44 = getelementptr inbounds %"class.gmx::BasicVector", ptr %28, i64 %43
+  %44 = getelementptr inbounds [12 x i8], ptr %28, i64 %43
   %45 = sext i32 %40 to i64
-  %46 = getelementptr inbounds %"class.gmx::BasicVector", ptr %28, i64 %45
+  %46 = getelementptr inbounds [12 x i8], ptr %28, i64 %45
   %47 = getelementptr inbounds nuw i8, ptr %28, i64 264
   %48 = sext i32 %.sroa.0146.sroa.5.0.copyload to i64
-  %49 = getelementptr inbounds %"class.nblib::ImproperDihedral", ptr %2, i64 %48
+  %49 = getelementptr inbounds [8 x i8], ptr %2, i64 %48
   %50 = load float, ptr %49, align 4
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 4
   %51 = load float, ptr %.sroa_idx, align 4
@@ -19964,7 +19788,7 @@ _ZN5nblib22spreadFourCenterForcesIfN3gmx11BasicVectorIfEEEEvT_RKNS2_IS4_EES7_S7_
 204:                                              ; preds = %_ZN5nblib22spreadFourCenterForcesIfN3gmx11BasicVectorIfEEEEvT_RKNS2_IS4_EES7_S7_S7_S7_PS5_S8_S8_S8_PT0_SA_SA_SA_.exit
   %205 = load i64, ptr %6, align 8
   %206 = inttoptr i64 %205 to ptr
-  %207 = getelementptr inbounds %"class.gmx::BasicVector", ptr %206, i64 %29
+  %207 = getelementptr inbounds [12 x i8], ptr %206, i64 %29
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i
 
 208:                                              ; preds = %_ZN5nblib22spreadFourCenterForcesIfN3gmx11BasicVectorIfEEEEvT_RKNS2_IS4_EES7_S7_S7_S7_PS5_S8_S8_S8_PT0_SA_SA_SA_.exit
@@ -19988,7 +19812,7 @@ _ZN5nblib22spreadFourCenterForcesIfN3gmx11BasicVectorIfEEEEvT_RKNS2_IS4_EES7_S7_
   %215 = load i64, ptr %24, align 8, !tbaa !36
   %216 = urem i64 %29, %215
   %217 = load ptr, ptr %22, align 8, !tbaa !35
-  %218 = getelementptr inbounds nuw ptr, ptr %217, i64 %216
+  %218 = getelementptr inbounds nuw [8 x i8], ptr %217, i64 %216
   %219 = load ptr, ptr %218, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %219, null
   br i1 %.not.i.i.i.i.i, label %.loopexit267.thread, label %220
@@ -20030,7 +19854,7 @@ _ZN5nblib22spreadFourCenterForcesIfN3gmx11BasicVectorIfEEEEvT_RKNS2_IS4_EES7_S7_
   %.pre = load i64, ptr %24, align 8, !tbaa !36
   %.pre329 = load ptr, ptr %22, align 8, !tbaa !35
   %.pre338 = urem i64 %29, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre329, i64 %.pre338
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre329, i64 %.pre338
   %.pre345 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit267
 
@@ -20102,7 +19926,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %252 = load i64, ptr %24, align 8, !tbaa !36
   %253 = urem i64 %29, %252
   %254 = load ptr, ptr %22, align 8, !tbaa !35
-  %255 = getelementptr inbounds nuw ptr, ptr %254, i64 %253
+  %255 = getelementptr inbounds nuw [8 x i8], ptr %254, i64 %253
   %256 = load ptr, ptr %255, align 8, !tbaa !175
   %.not.i.i.i.i15 = icmp eq ptr %256, null
   br i1 %.not.i.i.i.i15, label %.loopexit.i.i21, label %257
@@ -20179,7 +20003,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
 285:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i
   %286 = load i64, ptr %6, align 8
   %287 = inttoptr i64 %286 to ptr
-  %288 = getelementptr inbounds %"class.gmx::BasicVector", ptr %287, i64 %31
+  %288 = getelementptr inbounds [12 x i8], ptr %287, i64 %31
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i
 
 289:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i
@@ -20203,7 +20027,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
   %296 = load i64, ptr %24, align 8, !tbaa !36
   %297 = urem i64 %31, %296
   %298 = load ptr, ptr %22, align 8, !tbaa !35
-  %299 = getelementptr inbounds nuw ptr, ptr %298, i64 %297
+  %299 = getelementptr inbounds nuw [8 x i8], ptr %298, i64 %297
   %300 = load ptr, ptr %299, align 8, !tbaa !175
   %.not.i.i.i.i.i27 = icmp eq ptr %300, null
   br i1 %.not.i.i.i.i.i27, label %.loopexit264.thread, label %301
@@ -20245,7 +20069,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
   %.pre330 = load i64, ptr %24, align 8, !tbaa !36
   %.pre331 = load ptr, ptr %22, align 8, !tbaa !35
   %.pre339 = urem i64 %31, %.pre330
-  %.phi.trans.insert346 = getelementptr inbounds nuw ptr, ptr %.pre331, i64 %.pre339
+  %.phi.trans.insert346 = getelementptr inbounds nuw [8 x i8], ptr %.pre331, i64 %.pre339
   %.pre347 = load ptr, ptr %.phi.trans.insert346, align 8, !tbaa !175
   br label %.loopexit264
 
@@ -20311,7 +20135,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %333 = load i64, ptr %24, align 8, !tbaa !36
   %334 = urem i64 %31, %333
   %335 = load ptr, ptr %22, align 8, !tbaa !35
-  %336 = getelementptr inbounds nuw ptr, ptr %335, i64 %334
+  %336 = getelementptr inbounds nuw [8 x i8], ptr %335, i64 %334
   %337 = load ptr, ptr %336, align 8, !tbaa !175
   %.not.i.i.i.i51 = icmp eq ptr %337, null
   br i1 %.not.i.i.i.i51, label %.loopexit.i.i57, label %338
@@ -20388,7 +20212,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
 366:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i
   %367 = load i64, ptr %6, align 8
   %368 = inttoptr i64 %367 to ptr
-  %369 = getelementptr inbounds %"class.gmx::BasicVector", ptr %368, i64 %33
+  %369 = getelementptr inbounds [12 x i8], ptr %368, i64 %33
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i
 
 370:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i
@@ -20412,7 +20236,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
   %377 = load i64, ptr %24, align 8, !tbaa !36
   %378 = urem i64 %33, %377
   %379 = load ptr, ptr %22, align 8, !tbaa !35
-  %380 = getelementptr inbounds nuw ptr, ptr %379, i64 %378
+  %380 = getelementptr inbounds nuw [8 x i8], ptr %379, i64 %378
   %381 = load ptr, ptr %380, align 8, !tbaa !175
   %.not.i.i.i.i.i65 = icmp eq ptr %381, null
   br i1 %.not.i.i.i.i.i65, label %.loopexit261.thread, label %382
@@ -20454,7 +20278,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
   %.pre332 = load i64, ptr %24, align 8, !tbaa !36
   %.pre333 = load ptr, ptr %22, align 8, !tbaa !35
   %.pre341 = urem i64 %33, %.pre332
-  %.phi.trans.insert348 = getelementptr inbounds nuw ptr, ptr %.pre333, i64 %.pre341
+  %.phi.trans.insert348 = getelementptr inbounds nuw [8 x i8], ptr %.pre333, i64 %.pre341
   %.pre349 = load ptr, ptr %.phi.trans.insert348, align 8, !tbaa !175
   br label %.loopexit261
 
@@ -20520,7 +20344,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %414 = load i64, ptr %24, align 8, !tbaa !36
   %415 = urem i64 %33, %414
   %416 = load ptr, ptr %22, align 8, !tbaa !35
-  %417 = getelementptr inbounds nuw ptr, ptr %416, i64 %415
+  %417 = getelementptr inbounds nuw [8 x i8], ptr %416, i64 %415
   %418 = load ptr, ptr %417, align 8, !tbaa !175
   %.not.i.i.i.i89 = icmp eq ptr %418, null
   br i1 %.not.i.i.i.i89, label %.loopexit.i.i95, label %419
@@ -20597,7 +20421,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
 447:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i
   %448 = load i64, ptr %6, align 8
   %449 = inttoptr i64 %448 to ptr
-  %450 = getelementptr inbounds %"class.gmx::BasicVector", ptr %449, i64 %35
+  %450 = getelementptr inbounds [12 x i8], ptr %449, i64 %35
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16ImproperDihedralES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_14ProperDihedralES6_NS_24RyckaertBellemanDihedralEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit
 
 451:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i
@@ -20621,7 +20445,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
   %458 = load i64, ptr %24, align 8, !tbaa !36
   %459 = urem i64 %35, %458
   %460 = load ptr, ptr %22, align 8, !tbaa !35
-  %461 = getelementptr inbounds nuw ptr, ptr %460, i64 %459
+  %461 = getelementptr inbounds nuw [8 x i8], ptr %460, i64 %459
   %462 = load ptr, ptr %461, align 8, !tbaa !175
   %.not.i.i.i.i.i103 = icmp eq ptr %462, null
   br i1 %.not.i.i.i.i.i103, label %.loopexit.thread, label %463
@@ -20663,7 +20487,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
   %.pre334 = load i64, ptr %24, align 8, !tbaa !36
   %.pre335 = load ptr, ptr %22, align 8, !tbaa !35
   %.pre343 = urem i64 %35, %.pre334
-  %.phi.trans.insert350 = getelementptr inbounds nuw ptr, ptr %.pre335, i64 %.pre343
+  %.phi.trans.insert350 = getelementptr inbounds nuw [8 x i8], ptr %.pre335, i64 %.pre343
   %.pre351 = load ptr, ptr %.phi.trans.insert350, align 8, !tbaa !175
   br label %.loopexit
 
@@ -20729,7 +20553,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %495 = load i64, ptr %24, align 8, !tbaa !36
   %496 = urem i64 %35, %495
   %497 = load ptr, ptr %22, align 8, !tbaa !35
-  %498 = getelementptr inbounds nuw ptr, ptr %497, i64 %496
+  %498 = getelementptr inbounds nuw [8 x i8], ptr %497, i64 %496
   %499 = load ptr, ptr %498, align 8, !tbaa !175
   %.not.i.i.i.i127 = icmp eq ptr %499, null
   br i1 %.not.i.i.i.i127, label %.loopexit.i.i133, label %500
@@ -20810,9 +20634,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 525:                                              ; preds = %525, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16ImproperDihedralES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_14ProperDihedralES6_NS_24RyckaertBellemanDihedralEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16ImproperDihedralES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_14ProperDihedralES6_NS_24RyckaertBellemanDihedralEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit ], [ %531, %525 ]
-  %526 = getelementptr inbounds nuw float, ptr %19, i64 %.05.i
+  %526 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.05.i
   %527 = load float, ptr %526, align 4, !tbaa !172
-  %528 = getelementptr inbounds nuw float, ptr %18, i64 %.05.i
+  %528 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %.05.i
   %529 = load float, ptr %528, align 4, !tbaa !172
   %530 = fadd float %527, %529
   store float %530, ptr %528, align 4, !tbaa !172
@@ -20891,19 +20715,19 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %29 = load ptr, ptr %7, align 8, !tbaa !222
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %30 = sext i32 %.sroa.0147.sroa.0.0.copyload to i64
-  %31 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %30
+  %31 = getelementptr inbounds [12 x i8], ptr %4, i64 %30
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %31, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %32 = sext i32 %.sroa.0147.sroa.2.0.copyload to i64
-  %33 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %32
+  %33 = getelementptr inbounds [12 x i8], ptr %4, i64 %32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %33, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %34 = sext i32 %.sroa.0147.sroa.3.0.copyload to i64
-  %35 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %34
+  %35 = getelementptr inbounds [12 x i8], ptr %4, i64 %34
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %35, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %36 = sext i32 %.sroa.0147.sroa.4.0.copyload to i64
-  %37 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %36
+  %37 = getelementptr inbounds [12 x i8], ptr %4, i64 %36
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %13, ptr noundef nonnull align 4 dereferenceable(12) %37, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
@@ -20915,7 +20739,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %41 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %13, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %42 = sext i32 %.sroa.0147.sroa.5.0.copyload to i64
-  %43 = getelementptr inbounds %"class.nblib::RyckaertBellemanDihedral", ptr %2, i64 %42
+  %43 = getelementptr inbounds [24 x i8], ptr %2, i64 %42
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %18, ptr noundef nonnull align 4 dereferenceable(24) %43, i64 24, i1 false), !tbaa.struct !198
   %.sroa.010.0.copyload.i = load <2 x float>, ptr %14, align 8
   %.sroa.211.0.copyload.i = load float, ptr %.sroa.211.0..sroa_idx.i, align 8, !tbaa !188
@@ -20984,7 +20808,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.01727.i = phi float [ 1.000000e+00, %28 ], [ %96, %89 ]
   %.02326.i = phi float [ 0.000000e+00, %28 ], [ %95, %89 ]
   %.02425.i = phi float [ %88, %28 ], [ %97, %89 ]
-  %90 = getelementptr inbounds nuw float, ptr %18, i64 %indvars.iv.i
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv.i
   %91 = load float, ptr %90, align 4, !tbaa !172, !noalias !290
   %92 = fmul float %.01727.i, %91
   %93 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -21017,11 +20841,11 @@ _ZN5nblib16fourCenterKernelIfEEDaT_RKNS_24RyckaertBellemanDihedralE.exit: ; pred
 111:                                              ; preds = %_ZN5nblib16fourCenterKernelIfEEDaT_RKNS_24RyckaertBellemanDihedralE.exit
   %112 = getelementptr inbounds nuw i8, ptr %29, i64 264
   %113 = sext i32 %41 to i64
-  %114 = getelementptr inbounds %"class.gmx::BasicVector", ptr %29, i64 %113
+  %114 = getelementptr inbounds [12 x i8], ptr %29, i64 %113
   %115 = sext i32 %39 to i64
-  %116 = getelementptr inbounds %"class.gmx::BasicVector", ptr %29, i64 %115
+  %116 = getelementptr inbounds [12 x i8], ptr %29, i64 %115
   %117 = sext i32 %38 to i64
-  %118 = getelementptr inbounds %"class.gmx::BasicVector", ptr %29, i64 %117
+  %118 = getelementptr inbounds [12 x i8], ptr %29, i64 %117
   %119 = fneg float %95
   %120 = fmul float %98, %119
   %121 = fdiv float 1.000000e+00, %107
@@ -21152,7 +20976,7 @@ _ZN5nblib22spreadFourCenterForcesIfN3gmx11BasicVectorIfEEEEvT_RKNS2_IS4_EES7_S7_
 206:                                              ; preds = %_ZN5nblib22spreadFourCenterForcesIfN3gmx11BasicVectorIfEEEEvT_RKNS2_IS4_EES7_S7_S7_S7_PS5_S8_S8_S8_PT0_SA_SA_SA_.exit
   %207 = load i64, ptr %6, align 8
   %208 = inttoptr i64 %207 to ptr
-  %209 = getelementptr inbounds %"class.gmx::BasicVector", ptr %208, i64 %30
+  %209 = getelementptr inbounds [12 x i8], ptr %208, i64 %30
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i
 
 210:                                              ; preds = %_ZN5nblib22spreadFourCenterForcesIfN3gmx11BasicVectorIfEEEEvT_RKNS2_IS4_EES7_S7_S7_S7_PS5_S8_S8_S8_PT0_SA_SA_SA_.exit
@@ -21176,7 +21000,7 @@ _ZN5nblib22spreadFourCenterForcesIfN3gmx11BasicVectorIfEEEEvT_RKNS2_IS4_EES7_S7_
   %217 = load i64, ptr %25, align 8, !tbaa !36
   %218 = urem i64 %30, %217
   %219 = load ptr, ptr %23, align 8, !tbaa !35
-  %220 = getelementptr inbounds nuw ptr, ptr %219, i64 %218
+  %220 = getelementptr inbounds nuw [8 x i8], ptr %219, i64 %218
   %221 = load ptr, ptr %220, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %221, null
   br i1 %.not.i.i.i.i.i, label %.loopexit265.thread, label %222
@@ -21218,7 +21042,7 @@ _ZN5nblib22spreadFourCenterForcesIfN3gmx11BasicVectorIfEEEEvT_RKNS2_IS4_EES7_S7_
   %.pre = load i64, ptr %25, align 8, !tbaa !36
   %.pre347 = load ptr, ptr %23, align 8, !tbaa !35
   %.pre356 = urem i64 %30, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre347, i64 %.pre356
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre347, i64 %.pre356
   %.pre363 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit265
 
@@ -21290,7 +21114,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %254 = load i64, ptr %25, align 8, !tbaa !36
   %255 = urem i64 %30, %254
   %256 = load ptr, ptr %23, align 8, !tbaa !35
-  %257 = getelementptr inbounds nuw ptr, ptr %256, i64 %255
+  %257 = getelementptr inbounds nuw [8 x i8], ptr %256, i64 %255
   %258 = load ptr, ptr %257, align 8, !tbaa !175
   %.not.i.i.i.i15 = icmp eq ptr %258, null
   br i1 %.not.i.i.i.i15, label %.loopexit.i.i21, label %259
@@ -21367,7 +21191,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
 287:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i
   %288 = load i64, ptr %6, align 8
   %289 = inttoptr i64 %288 to ptr
-  %290 = getelementptr inbounds %"class.gmx::BasicVector", ptr %289, i64 %32
+  %290 = getelementptr inbounds [12 x i8], ptr %289, i64 %32
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i
 
 291:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i
@@ -21391,7 +21215,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
   %298 = load i64, ptr %25, align 8, !tbaa !36
   %299 = urem i64 %32, %298
   %300 = load ptr, ptr %23, align 8, !tbaa !35
-  %301 = getelementptr inbounds nuw ptr, ptr %300, i64 %299
+  %301 = getelementptr inbounds nuw [8 x i8], ptr %300, i64 %299
   %302 = load ptr, ptr %301, align 8, !tbaa !175
   %.not.i.i.i.i.i27 = icmp eq ptr %302, null
   br i1 %.not.i.i.i.i.i27, label %.loopexit262.thread, label %303
@@ -21433,7 +21257,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
   %.pre348 = load i64, ptr %25, align 8, !tbaa !36
   %.pre349 = load ptr, ptr %23, align 8, !tbaa !35
   %.pre357 = urem i64 %32, %.pre348
-  %.phi.trans.insert364 = getelementptr inbounds nuw ptr, ptr %.pre349, i64 %.pre357
+  %.phi.trans.insert364 = getelementptr inbounds nuw [8 x i8], ptr %.pre349, i64 %.pre357
   %.pre365 = load ptr, ptr %.phi.trans.insert364, align 8, !tbaa !175
   br label %.loopexit262
 
@@ -21499,7 +21323,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %335 = load i64, ptr %25, align 8, !tbaa !36
   %336 = urem i64 %32, %335
   %337 = load ptr, ptr %23, align 8, !tbaa !35
-  %338 = getelementptr inbounds nuw ptr, ptr %337, i64 %336
+  %338 = getelementptr inbounds nuw [8 x i8], ptr %337, i64 %336
   %339 = load ptr, ptr %338, align 8, !tbaa !175
   %.not.i.i.i.i51 = icmp eq ptr %339, null
   br i1 %.not.i.i.i.i51, label %.loopexit.i.i57, label %340
@@ -21576,7 +21400,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
 368:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i
   %369 = load i64, ptr %6, align 8
   %370 = inttoptr i64 %369 to ptr
-  %371 = getelementptr inbounds %"class.gmx::BasicVector", ptr %370, i64 %34
+  %371 = getelementptr inbounds [12 x i8], ptr %370, i64 %34
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i
 
 372:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i
@@ -21600,7 +21424,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
   %379 = load i64, ptr %25, align 8, !tbaa !36
   %380 = urem i64 %34, %379
   %381 = load ptr, ptr %23, align 8, !tbaa !35
-  %382 = getelementptr inbounds nuw ptr, ptr %381, i64 %380
+  %382 = getelementptr inbounds nuw [8 x i8], ptr %381, i64 %380
   %383 = load ptr, ptr %382, align 8, !tbaa !175
   %.not.i.i.i.i.i65 = icmp eq ptr %383, null
   br i1 %.not.i.i.i.i.i65, label %.loopexit259.thread, label %384
@@ -21642,7 +21466,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
   %.pre350 = load i64, ptr %25, align 8, !tbaa !36
   %.pre351 = load ptr, ptr %23, align 8, !tbaa !35
   %.pre359 = urem i64 %34, %.pre350
-  %.phi.trans.insert366 = getelementptr inbounds nuw ptr, ptr %.pre351, i64 %.pre359
+  %.phi.trans.insert366 = getelementptr inbounds nuw [8 x i8], ptr %.pre351, i64 %.pre359
   %.pre367 = load ptr, ptr %.phi.trans.insert366, align 8, !tbaa !175
   br label %.loopexit259
 
@@ -21708,7 +21532,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %416 = load i64, ptr %25, align 8, !tbaa !36
   %417 = urem i64 %34, %416
   %418 = load ptr, ptr %23, align 8, !tbaa !35
-  %419 = getelementptr inbounds nuw ptr, ptr %418, i64 %417
+  %419 = getelementptr inbounds nuw [8 x i8], ptr %418, i64 %417
   %420 = load ptr, ptr %419, align 8, !tbaa !175
   %.not.i.i.i.i89 = icmp eq ptr %420, null
   br i1 %.not.i.i.i.i89, label %.loopexit.i.i95, label %421
@@ -21785,7 +21609,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
 449:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i
   %450 = load i64, ptr %6, align 8
   %451 = inttoptr i64 %450 to ptr
-  %452 = getelementptr inbounds %"class.gmx::BasicVector", ptr %451, i64 %36
+  %452 = getelementptr inbounds [12 x i8], ptr %451, i64 %36
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_24RyckaertBellemanDihedralES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_14ProperDihedralENS_16ImproperDihedralES6_EEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit
 
 453:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i
@@ -21809,7 +21633,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
   %460 = load i64, ptr %25, align 8, !tbaa !36
   %461 = urem i64 %36, %460
   %462 = load ptr, ptr %23, align 8, !tbaa !35
-  %463 = getelementptr inbounds nuw ptr, ptr %462, i64 %461
+  %463 = getelementptr inbounds nuw [8 x i8], ptr %462, i64 %461
   %464 = load ptr, ptr %463, align 8, !tbaa !175
   %.not.i.i.i.i.i103 = icmp eq ptr %464, null
   br i1 %.not.i.i.i.i.i103, label %.loopexit.thread, label %465
@@ -21851,7 +21675,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
   %.pre352 = load i64, ptr %25, align 8, !tbaa !36
   %.pre353 = load ptr, ptr %23, align 8, !tbaa !35
   %.pre361 = urem i64 %36, %.pre352
-  %.phi.trans.insert368 = getelementptr inbounds nuw ptr, ptr %.pre353, i64 %.pre361
+  %.phi.trans.insert368 = getelementptr inbounds nuw [8 x i8], ptr %.pre353, i64 %.pre361
   %.pre369 = load ptr, ptr %.phi.trans.insert368, align 8, !tbaa !175
   br label %.loopexit
 
@@ -21917,7 +21741,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %497 = load i64, ptr %25, align 8, !tbaa !36
   %498 = urem i64 %36, %497
   %499 = load ptr, ptr %23, align 8, !tbaa !35
-  %500 = getelementptr inbounds nuw ptr, ptr %499, i64 %498
+  %500 = getelementptr inbounds nuw [8 x i8], ptr %499, i64 %498
   %501 = load ptr, ptr %500, align 8, !tbaa !175
   %.not.i.i.i.i127 = icmp eq ptr %501, null
   br i1 %.not.i.i.i.i127, label %.loopexit.i.i133, label %502
@@ -21999,9 +21823,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 527:                                              ; preds = %527, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_24RyckaertBellemanDihedralES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_14ProperDihedralENS_16ImproperDihedralES6_EEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_24RyckaertBellemanDihedralES4_S4_NS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_14ProperDihedralENS_16ImproperDihedralES6_EEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit ], [ %533, %527 ]
-  %528 = getelementptr inbounds nuw float, ptr %20, i64 %.05.i
+  %528 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %.05.i
   %529 = load float, ptr %528, align 4, !tbaa !172
-  %530 = getelementptr inbounds nuw float, ptr %19, i64 %.05.i
+  %530 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.05.i
   %531 = load float, ptr %530, align 4, !tbaa !172
   %532 = fadd float %529, %531
   store float %532, ptr %530, align 4, !tbaa !172
@@ -22062,23 +21886,23 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.016.sroa.5.0.copyload = load i32, ptr %.sroa.016.sroa.5.0..sroa.017.0..sroa_idx, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %21 = sext i32 %.sroa.016.sroa.0.0.copyload to i64
-  %22 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %21
+  %22 = getelementptr inbounds [12 x i8], ptr %4, i64 %21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %22, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %23 = sext i32 %.sroa.016.sroa.2.0.copyload to i64
-  %24 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %23
+  %24 = getelementptr inbounds [12 x i8], ptr %4, i64 %23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %24, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %25 = sext i32 %.sroa.016.sroa.3.0.copyload to i64
-  %26 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %25
+  %26 = getelementptr inbounds [12 x i8], ptr %4, i64 %25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %26, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %27 = sext i32 %.sroa.016.sroa.4.0.copyload to i64
-  %28 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %27
+  %28 = getelementptr inbounds [12 x i8], ptr %4, i64 %27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %13, ptr noundef nonnull align 4 dereferenceable(12) %28, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %29 = sext i32 %.sroa.016.sroa.5.0.copyload to i64
-  %30 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %29
+  %30 = getelementptr inbounds [12 x i8], ptr %4, i64 %29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %14, ptr noundef nonnull align 4 dereferenceable(12) %30, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -22102,9 +21926,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
 
 35:                                               ; preds = %35, %.lr.ph
   %.05.i = phi i64 [ 0, %.lr.ph ], [ %41, %35 ]
-  %36 = getelementptr inbounds nuw float, ptr %20, i64 %.05.i
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %.05.i
   %37 = load float, ptr %36, align 4, !tbaa !172
-  %38 = getelementptr inbounds nuw float, ptr %19, i64 %.05.i
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.05.i
   %39 = load float, ptr %38, align 4, !tbaa !172
   %40 = fadd float %37, %39
   store float %40, ptr %38, align 4, !tbaa !172
@@ -22720,9 +22544,9 @@ define linkonce_odr void @_ZZN5nblib14for_each_tupleIRZNS_18reduceListedForcesIN
 
 484:                                              ; preds = %484, %.lr.ph.i.i
   %.05.i.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %490, %484 ]
-  %485 = getelementptr inbounds nuw float, ptr %21, i64 %.05.i.i.i
+  %485 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %.05.i.i.i
   %486 = load float, ptr %485, align 4, !tbaa !172
-  %487 = getelementptr inbounds nuw float, ptr %20, i64 %.05.i.i.i
+  %487 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %.05.i.i.i
   %488 = load float, ptr %487, align 4, !tbaa !172
   %489 = fadd float %486, %488
   store float %489, ptr %487, align 4, !tbaa !172
@@ -22805,21 +22629,21 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.098.4.extract.trunc = trunc nuw i64 %.sroa.098.4.extract.shift to i32
   %sext = shl i64 %.sroa.01.0.copyload, 32
   %21 = ashr exact i64 %sext, 32
-  %22 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %21
+  %22 = getelementptr inbounds [12 x i8], ptr %4, i64 %21
   %.sroa.087.0.copyload = load float, ptr %22, align 4
   %.sroa.488.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 4
   %.sroa.488.0.copyload = load float, ptr %.sroa.488.0..sroa_idx, align 4
   %.sroa.589.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 8
   %.sroa.589.0.copyload = load float, ptr %.sroa.589.0..sroa_idx, align 4, !tbaa !188
   %23 = ashr i64 %.sroa.01.0.copyload, 32
-  %24 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %23
+  %24 = getelementptr inbounds [12 x i8], ptr %4, i64 %23
   %.sroa.084.0.copyload = load float, ptr %24, align 4
   %.sroa.485.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 4
   %.sroa.485.0.copyload = load float, ptr %.sroa.485.0..sroa_idx, align 4
   %.sroa.586.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 8
   %.sroa.586.0.copyload = load float, ptr %.sroa.586.0..sroa_idx, align 4, !tbaa !188
   %25 = sext i32 %.sroa.22.0.copyload to i64
-  %26 = getelementptr inbounds %"class.nblib::TwoParameterInteraction", ptr %2, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %2, i64 %25
   %27 = load float, ptr %26, align 4
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 4
   %28 = load float, ptr %.sroa_idx, align 4
@@ -22837,7 +22661,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
 36:                                               ; preds = %19
   %37 = load i64, ptr %6, align 8
   %38 = inttoptr i64 %37 to ptr
-  %39 = getelementptr inbounds %"class.gmx::BasicVector", ptr %38, i64 %21
+  %39 = getelementptr inbounds [12 x i8], ptr %38, i64 %21
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
 
 40:                                               ; preds = %19
@@ -22861,7 +22685,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %47 = load i64, ptr %16, align 8, !tbaa !36
   %48 = urem i64 %21, %47
   %49 = load ptr, ptr %14, align 8, !tbaa !35
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %48
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %48
   %51 = load ptr, ptr %50, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %51, null
   br i1 %.not.i.i.i.i.i, label %.loopexit120.thread, label %52
@@ -22903,7 +22727,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.pre = load i64, ptr %16, align 8, !tbaa !36
   %.pre152 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre159 = urem i64 %21, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre152, i64 %.pre159
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre152, i64 %.pre159
   %.pre162 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit120
 
@@ -22975,7 +22799,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %84 = load i64, ptr %16, align 8, !tbaa !36
   %85 = urem i64 %21, %84
   %86 = load ptr, ptr %14, align 8, !tbaa !35
-  %87 = getelementptr inbounds nuw ptr, ptr %86, i64 %85
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %85
   %88 = load ptr, ptr %87, align 8, !tbaa !175
   %.not.i.i.i.i14 = icmp eq ptr %88, null
   br i1 %.not.i.i.i.i14, label %.loopexit.i.i20, label %89
@@ -23040,7 +22864,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
 109:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
   %110 = load i64, ptr %6, align 8
   %111 = inttoptr i64 %110 to ptr
-  %112 = getelementptr inbounds %"class.gmx::BasicVector", ptr %111, i64 %23
+  %112 = getelementptr inbounds [12 x i8], ptr %111, i64 %23
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit.i
 
 113:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
@@ -23064,7 +22888,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %120 = load i64, ptr %16, align 8, !tbaa !36
   %121 = urem i64 %23, %120
   %122 = load ptr, ptr %14, align 8, !tbaa !35
-  %123 = getelementptr inbounds nuw ptr, ptr %122, i64 %121
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %121
   %124 = load ptr, ptr %123, align 8, !tbaa !175
   %.not.i.i.i.i.i26 = icmp eq ptr %124, null
   br i1 %.not.i.i.i.i.i26, label %.loopexit.thread, label %125
@@ -23106,7 +22930,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %.pre155 = load i64, ptr %16, align 8, !tbaa !36
   %.pre156 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre160 = urem i64 %23, %.pre155
-  %.phi.trans.insert163 = getelementptr inbounds nuw ptr, ptr %.pre156, i64 %.pre160
+  %.phi.trans.insert163 = getelementptr inbounds nuw [8 x i8], ptr %.pre156, i64 %.pre160
   %.pre164 = load ptr, ptr %.phi.trans.insert163, align 8, !tbaa !175
   br label %.loopexit
 
@@ -23172,7 +22996,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %157 = load i64, ptr %16, align 8, !tbaa !36
   %158 = urem i64 %23, %157
   %159 = load ptr, ptr %14, align 8, !tbaa !35
-  %160 = getelementptr inbounds nuw ptr, ptr %159, i64 %158
+  %160 = getelementptr inbounds nuw [8 x i8], ptr %159, i64 %158
   %161 = load ptr, ptr %160, align 8, !tbaa !175
   %.not.i.i.i.i50 = icmp eq ptr %161, null
   br i1 %.not.i.i.i.i50, label %.loopexit.i.i56, label %162
@@ -23295,9 +23119,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 224:                                              ; preds = %224, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJS8_NS_11G96BondTypeENS_13CubicBondTypeENS_13MorseBondTypeENS6_INS_21FENEBondTypeParameterEEENS6_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJS8_NS_11G96BondTypeENS_13CubicBondTypeENS_13MorseBondTypeENS6_INS_21FENEBondTypeParameterEEENS6_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit ], [ %230, %224 ]
-  %225 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
+  %225 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.05.i
   %226 = load float, ptr %225, align 4, !tbaa !172
-  %227 = getelementptr inbounds nuw float, ptr %10, i64 %.05.i
+  %227 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.05.i
   %228 = load float, ptr %227, align 4, !tbaa !172
   %229 = fadd float %226, %228
   store float %229, ptr %227, align 4, !tbaa !172
@@ -23359,21 +23183,21 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.098.4.extract.trunc = trunc nuw i64 %.sroa.098.4.extract.shift to i32
   %sext = shl i64 %.sroa.01.0.copyload, 32
   %21 = ashr exact i64 %sext, 32
-  %22 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %21
+  %22 = getelementptr inbounds [12 x i8], ptr %4, i64 %21
   %.sroa.087.0.copyload = load float, ptr %22, align 4
   %.sroa.488.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 4
   %.sroa.488.0.copyload = load float, ptr %.sroa.488.0..sroa_idx, align 4
   %.sroa.589.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 8
   %.sroa.589.0.copyload = load float, ptr %.sroa.589.0..sroa_idx, align 4, !tbaa !188
   %23 = ashr i64 %.sroa.01.0.copyload, 32
-  %24 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %23
+  %24 = getelementptr inbounds [12 x i8], ptr %4, i64 %23
   %.sroa.084.0.copyload = load float, ptr %24, align 4
   %.sroa.485.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 4
   %.sroa.485.0.copyload = load float, ptr %.sroa.485.0..sroa_idx, align 4
   %.sroa.586.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 8
   %.sroa.586.0.copyload = load float, ptr %.sroa.586.0..sroa_idx, align 4, !tbaa !188
   %25 = sext i32 %.sroa.22.0.copyload to i64
-  %26 = getelementptr inbounds %"class.nblib::G96BondType", ptr %2, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %2, i64 %25
   %27 = load float, ptr %26, align 4
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 4
   %28 = load float, ptr %.sroa_idx, align 4
@@ -23391,7 +23215,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
 36:                                               ; preds = %19
   %37 = load i64, ptr %6, align 8
   %38 = inttoptr i64 %37 to ptr
-  %39 = getelementptr inbounds %"class.gmx::BasicVector", ptr %38, i64 %21
+  %39 = getelementptr inbounds [12 x i8], ptr %38, i64 %21
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
 
 40:                                               ; preds = %19
@@ -23415,7 +23239,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %47 = load i64, ptr %16, align 8, !tbaa !36
   %48 = urem i64 %21, %47
   %49 = load ptr, ptr %14, align 8, !tbaa !35
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %48
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %48
   %51 = load ptr, ptr %50, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %51, null
   br i1 %.not.i.i.i.i.i, label %.loopexit120.thread, label %52
@@ -23457,7 +23281,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.pre = load i64, ptr %16, align 8, !tbaa !36
   %.pre152 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre159 = urem i64 %21, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre152, i64 %.pre159
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre152, i64 %.pre159
   %.pre162 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit120
 
@@ -23529,7 +23353,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %84 = load i64, ptr %16, align 8, !tbaa !36
   %85 = urem i64 %21, %84
   %86 = load ptr, ptr %14, align 8, !tbaa !35
-  %87 = getelementptr inbounds nuw ptr, ptr %86, i64 %85
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %85
   %88 = load ptr, ptr %87, align 8, !tbaa !175
   %.not.i.i.i.i14 = icmp eq ptr %88, null
   br i1 %.not.i.i.i.i14, label %.loopexit.i.i20, label %89
@@ -23594,7 +23418,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
 109:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
   %110 = load i64, ptr %6, align 8
   %111 = inttoptr i64 %110 to ptr
-  %112 = getelementptr inbounds %"class.gmx::BasicVector", ptr %111, i64 %23
+  %112 = getelementptr inbounds [12 x i8], ptr %111, i64 %23
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit.i
 
 113:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
@@ -23618,7 +23442,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %120 = load i64, ptr %16, align 8, !tbaa !36
   %121 = urem i64 %23, %120
   %122 = load ptr, ptr %14, align 8, !tbaa !35
-  %123 = getelementptr inbounds nuw ptr, ptr %122, i64 %121
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %121
   %124 = load ptr, ptr %123, align 8, !tbaa !175
   %.not.i.i.i.i.i26 = icmp eq ptr %124, null
   br i1 %.not.i.i.i.i.i26, label %.loopexit.thread, label %125
@@ -23660,7 +23484,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %.pre155 = load i64, ptr %16, align 8, !tbaa !36
   %.pre156 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre160 = urem i64 %23, %.pre155
-  %.phi.trans.insert163 = getelementptr inbounds nuw ptr, ptr %.pre156, i64 %.pre160
+  %.phi.trans.insert163 = getelementptr inbounds nuw [8 x i8], ptr %.pre156, i64 %.pre160
   %.pre164 = load ptr, ptr %.phi.trans.insert163, align 8, !tbaa !175
   br label %.loopexit
 
@@ -23726,7 +23550,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %157 = load i64, ptr %16, align 8, !tbaa !36
   %158 = urem i64 %23, %157
   %159 = load ptr, ptr %14, align 8, !tbaa !35
-  %160 = getelementptr inbounds nuw ptr, ptr %159, i64 %158
+  %160 = getelementptr inbounds nuw [8 x i8], ptr %159, i64 %158
   %161 = load ptr, ptr %160, align 8, !tbaa !175
   %.not.i.i.i.i50 = icmp eq ptr %161, null
   br i1 %.not.i.i.i.i50, label %.loopexit.i.i56, label %162
@@ -23852,9 +23676,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 227:                                              ; preds = %227, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_11G96BondTypeES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEES6_NS_13CubicBondTypeENS_13MorseBondTypeENSC_INS_21FENEBondTypeParameterEEENSC_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_11G96BondTypeES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEES6_NS_13CubicBondTypeENS_13MorseBondTypeENSC_INS_21FENEBondTypeParameterEEENSC_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit ], [ %233, %227 ]
-  %228 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
+  %228 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.05.i
   %229 = load float, ptr %228, align 4, !tbaa !172
-  %230 = getelementptr inbounds nuw float, ptr %10, i64 %.05.i
+  %230 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.05.i
   %231 = load float, ptr %230, align 4, !tbaa !172
   %232 = fadd float %229, %231
   store float %232, ptr %230, align 4, !tbaa !172
@@ -23916,21 +23740,21 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.098.4.extract.trunc = trunc nuw i64 %.sroa.098.4.extract.shift to i32
   %sext = shl i64 %.sroa.01.0.copyload, 32
   %21 = ashr exact i64 %sext, 32
-  %22 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %21
+  %22 = getelementptr inbounds [12 x i8], ptr %4, i64 %21
   %.sroa.087.0.copyload = load float, ptr %22, align 4
   %.sroa.488.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 4
   %.sroa.488.0.copyload = load float, ptr %.sroa.488.0..sroa_idx, align 4
   %.sroa.589.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 8
   %.sroa.589.0.copyload = load float, ptr %.sroa.589.0..sroa_idx, align 4, !tbaa !188
   %23 = ashr i64 %.sroa.01.0.copyload, 32
-  %24 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %23
+  %24 = getelementptr inbounds [12 x i8], ptr %4, i64 %23
   %.sroa.084.0.copyload = load float, ptr %24, align 4
   %.sroa.485.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 4
   %.sroa.485.0.copyload = load float, ptr %.sroa.485.0..sroa_idx, align 4
   %.sroa.586.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 8
   %.sroa.586.0.copyload = load float, ptr %.sroa.586.0..sroa_idx, align 4, !tbaa !188
   %25 = sext i32 %.sroa.22.0.copyload to i64
-  %26 = getelementptr inbounds %"class.nblib::CubicBondType", ptr %2, i64 %25
+  %26 = getelementptr inbounds [12 x i8], ptr %2, i64 %25
   %.sroa.081.0.copyload = load float, ptr %26, align 4, !tbaa !172
   %.sroa.482.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 4
   %.sroa.482.0.copyload = load float, ptr %.sroa.482.0..sroa_idx, align 4, !tbaa !172
@@ -23950,7 +23774,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
 34:                                               ; preds = %19
   %35 = load i64, ptr %6, align 8
   %36 = inttoptr i64 %35 to ptr
-  %37 = getelementptr inbounds %"class.gmx::BasicVector", ptr %36, i64 %21
+  %37 = getelementptr inbounds [12 x i8], ptr %36, i64 %21
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
 
 38:                                               ; preds = %19
@@ -23974,7 +23798,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %45 = load i64, ptr %16, align 8, !tbaa !36
   %46 = urem i64 %21, %45
   %47 = load ptr, ptr %14, align 8, !tbaa !35
-  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %46
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %46
   %49 = load ptr, ptr %48, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %49, null
   br i1 %.not.i.i.i.i.i, label %.loopexit120.thread, label %50
@@ -24016,7 +23840,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.pre = load i64, ptr %16, align 8, !tbaa !36
   %.pre152 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre159 = urem i64 %21, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre152, i64 %.pre159
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre152, i64 %.pre159
   %.pre162 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit120
 
@@ -24088,7 +23912,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %82 = load i64, ptr %16, align 8, !tbaa !36
   %83 = urem i64 %21, %82
   %84 = load ptr, ptr %14, align 8, !tbaa !35
-  %85 = getelementptr inbounds nuw ptr, ptr %84, i64 %83
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %83
   %86 = load ptr, ptr %85, align 8, !tbaa !175
   %.not.i.i.i.i14 = icmp eq ptr %86, null
   br i1 %.not.i.i.i.i14, label %.loopexit.i.i20, label %87
@@ -24153,7 +23977,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
 107:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
   %108 = load i64, ptr %6, align 8
   %109 = inttoptr i64 %108 to ptr
-  %110 = getelementptr inbounds %"class.gmx::BasicVector", ptr %109, i64 %23
+  %110 = getelementptr inbounds [12 x i8], ptr %109, i64 %23
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit.i
 
 111:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
@@ -24177,7 +24001,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %118 = load i64, ptr %16, align 8, !tbaa !36
   %119 = urem i64 %23, %118
   %120 = load ptr, ptr %14, align 8, !tbaa !35
-  %121 = getelementptr inbounds nuw ptr, ptr %120, i64 %119
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %120, i64 %119
   %122 = load ptr, ptr %121, align 8, !tbaa !175
   %.not.i.i.i.i.i26 = icmp eq ptr %122, null
   br i1 %.not.i.i.i.i.i26, label %.loopexit.thread, label %123
@@ -24219,7 +24043,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %.pre155 = load i64, ptr %16, align 8, !tbaa !36
   %.pre156 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre160 = urem i64 %23, %.pre155
-  %.phi.trans.insert163 = getelementptr inbounds nuw ptr, ptr %.pre156, i64 %.pre160
+  %.phi.trans.insert163 = getelementptr inbounds nuw [8 x i8], ptr %.pre156, i64 %.pre160
   %.pre164 = load ptr, ptr %.phi.trans.insert163, align 8, !tbaa !175
   br label %.loopexit
 
@@ -24285,7 +24109,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %155 = load i64, ptr %16, align 8, !tbaa !36
   %156 = urem i64 %23, %155
   %157 = load ptr, ptr %14, align 8, !tbaa !35
-  %158 = getelementptr inbounds nuw ptr, ptr %157, i64 %156
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %157, i64 %156
   %159 = load ptr, ptr %158, align 8, !tbaa !175
   %.not.i.i.i.i50 = icmp eq ptr %159, null
   br i1 %.not.i.i.i.i50, label %.loopexit.i.i56, label %160
@@ -24412,9 +24236,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 226:                                              ; preds = %226, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_13CubicBondTypeES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEENS_11G96BondTypeES6_NS_13MorseBondTypeENSC_INS_21FENEBondTypeParameterEEENSC_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_13CubicBondTypeES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEENS_11G96BondTypeES6_NS_13MorseBondTypeENSC_INS_21FENEBondTypeParameterEEENSC_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit ], [ %232, %226 ]
-  %227 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
+  %227 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.05.i
   %228 = load float, ptr %227, align 4, !tbaa !172
-  %229 = getelementptr inbounds nuw float, ptr %10, i64 %.05.i
+  %229 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.05.i
   %230 = load float, ptr %229, align 4, !tbaa !172
   %231 = fadd float %228, %230
   store float %231, ptr %229, align 4, !tbaa !172
@@ -24476,21 +24300,21 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.098.4.extract.trunc = trunc nuw i64 %.sroa.098.4.extract.shift to i32
   %sext = shl i64 %.sroa.01.0.copyload, 32
   %21 = ashr exact i64 %sext, 32
-  %22 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %21
+  %22 = getelementptr inbounds [12 x i8], ptr %4, i64 %21
   %.sroa.087.0.copyload = load float, ptr %22, align 4
   %.sroa.488.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 4
   %.sroa.488.0.copyload = load float, ptr %.sroa.488.0..sroa_idx, align 4
   %.sroa.589.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 8
   %.sroa.589.0.copyload = load float, ptr %.sroa.589.0..sroa_idx, align 4, !tbaa !188
   %23 = ashr i64 %.sroa.01.0.copyload, 32
-  %24 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %23
+  %24 = getelementptr inbounds [12 x i8], ptr %4, i64 %23
   %.sroa.084.0.copyload = load float, ptr %24, align 4
   %.sroa.485.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 4
   %.sroa.485.0.copyload = load float, ptr %.sroa.485.0..sroa_idx, align 4
   %.sroa.586.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 8
   %.sroa.586.0.copyload = load float, ptr %.sroa.586.0..sroa_idx, align 4, !tbaa !188
   %25 = sext i32 %.sroa.22.0.copyload to i64
-  %26 = getelementptr inbounds %"class.nblib::MorseBondType", ptr %2, i64 %25
+  %26 = getelementptr inbounds [12 x i8], ptr %2, i64 %25
   %.sroa.081.0.copyload = load float, ptr %26, align 4, !tbaa !172
   %.sroa.482.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 4
   %.sroa.482.0.copyload = load float, ptr %.sroa.482.0..sroa_idx, align 4, !tbaa !172
@@ -24510,7 +24334,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
 34:                                               ; preds = %19
   %35 = load i64, ptr %6, align 8
   %36 = inttoptr i64 %35 to ptr
-  %37 = getelementptr inbounds %"class.gmx::BasicVector", ptr %36, i64 %21
+  %37 = getelementptr inbounds [12 x i8], ptr %36, i64 %21
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
 
 38:                                               ; preds = %19
@@ -24534,7 +24358,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %45 = load i64, ptr %16, align 8, !tbaa !36
   %46 = urem i64 %21, %45
   %47 = load ptr, ptr %14, align 8, !tbaa !35
-  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %46
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %46
   %49 = load ptr, ptr %48, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %49, null
   br i1 %.not.i.i.i.i.i, label %.loopexit120.thread, label %50
@@ -24576,7 +24400,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.pre = load i64, ptr %16, align 8, !tbaa !36
   %.pre152 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre159 = urem i64 %21, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre152, i64 %.pre159
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre152, i64 %.pre159
   %.pre162 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit120
 
@@ -24648,7 +24472,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %82 = load i64, ptr %16, align 8, !tbaa !36
   %83 = urem i64 %21, %82
   %84 = load ptr, ptr %14, align 8, !tbaa !35
-  %85 = getelementptr inbounds nuw ptr, ptr %84, i64 %83
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %83
   %86 = load ptr, ptr %85, align 8, !tbaa !175
   %.not.i.i.i.i14 = icmp eq ptr %86, null
   br i1 %.not.i.i.i.i14, label %.loopexit.i.i20, label %87
@@ -24713,7 +24537,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
 107:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
   %108 = load i64, ptr %6, align 8
   %109 = inttoptr i64 %108 to ptr
-  %110 = getelementptr inbounds %"class.gmx::BasicVector", ptr %109, i64 %23
+  %110 = getelementptr inbounds [12 x i8], ptr %109, i64 %23
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit.i
 
 111:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
@@ -24737,7 +24561,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %118 = load i64, ptr %16, align 8, !tbaa !36
   %119 = urem i64 %23, %118
   %120 = load ptr, ptr %14, align 8, !tbaa !35
-  %121 = getelementptr inbounds nuw ptr, ptr %120, i64 %119
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %120, i64 %119
   %122 = load ptr, ptr %121, align 8, !tbaa !175
   %.not.i.i.i.i.i26 = icmp eq ptr %122, null
   br i1 %.not.i.i.i.i.i26, label %.loopexit.thread, label %123
@@ -24779,7 +24603,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %.pre155 = load i64, ptr %16, align 8, !tbaa !36
   %.pre156 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre160 = urem i64 %23, %.pre155
-  %.phi.trans.insert163 = getelementptr inbounds nuw ptr, ptr %.pre156, i64 %.pre160
+  %.phi.trans.insert163 = getelementptr inbounds nuw [8 x i8], ptr %.pre156, i64 %.pre160
   %.pre164 = load ptr, ptr %.phi.trans.insert163, align 8, !tbaa !175
   br label %.loopexit
 
@@ -24845,7 +24669,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %155 = load i64, ptr %16, align 8, !tbaa !36
   %156 = urem i64 %23, %155
   %157 = load ptr, ptr %14, align 8, !tbaa !35
-  %158 = getelementptr inbounds nuw ptr, ptr %157, i64 %156
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %157, i64 %156
   %159 = load ptr, ptr %158, align 8, !tbaa !175
   %.not.i.i.i.i50 = icmp eq ptr %159, null
   br i1 %.not.i.i.i.i50, label %.loopexit.i.i56, label %160
@@ -24973,9 +24797,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 227:                                              ; preds = %227, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_13MorseBondTypeES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeES6_NSC_INS_21FENEBondTypeParameterEEENSC_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_13MorseBondTypeES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeES6_NSC_INS_21FENEBondTypeParameterEEENSC_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit ], [ %233, %227 ]
-  %228 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
+  %228 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.05.i
   %229 = load float, ptr %228, align 4, !tbaa !172
-  %230 = getelementptr inbounds nuw float, ptr %10, i64 %.05.i
+  %230 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.05.i
   %231 = load float, ptr %230, align 4, !tbaa !172
   %232 = fadd float %229, %231
   store float %232, ptr %230, align 4, !tbaa !172
@@ -25037,21 +24861,21 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.098.4.extract.trunc = trunc nuw i64 %.sroa.098.4.extract.shift to i32
   %sext = shl i64 %.sroa.01.0.copyload, 32
   %21 = ashr exact i64 %sext, 32
-  %22 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %21
+  %22 = getelementptr inbounds [12 x i8], ptr %4, i64 %21
   %.sroa.087.0.copyload = load float, ptr %22, align 4
   %.sroa.488.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 4
   %.sroa.488.0.copyload = load float, ptr %.sroa.488.0..sroa_idx, align 4
   %.sroa.589.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 8
   %.sroa.589.0.copyload = load float, ptr %.sroa.589.0..sroa_idx, align 4, !tbaa !188
   %23 = ashr i64 %.sroa.01.0.copyload, 32
-  %24 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %23
+  %24 = getelementptr inbounds [12 x i8], ptr %4, i64 %23
   %.sroa.084.0.copyload = load float, ptr %24, align 4
   %.sroa.485.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 4
   %.sroa.485.0.copyload = load float, ptr %.sroa.485.0..sroa_idx, align 4
   %.sroa.586.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 8
   %.sroa.586.0.copyload = load float, ptr %.sroa.586.0..sroa_idx, align 4, !tbaa !188
   %25 = sext i32 %.sroa.22.0.copyload to i64
-  %26 = getelementptr inbounds %"class.nblib::TwoParameterInteraction.203", ptr %2, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %2, i64 %25
   %27 = load float, ptr %26, align 4
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 4
   %28 = load float, ptr %.sroa_idx, align 4
@@ -25069,7 +24893,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
 36:                                               ; preds = %19
   %37 = load i64, ptr %6, align 8
   %38 = inttoptr i64 %37 to ptr
-  %39 = getelementptr inbounds %"class.gmx::BasicVector", ptr %38, i64 %21
+  %39 = getelementptr inbounds [12 x i8], ptr %38, i64 %21
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
 
 40:                                               ; preds = %19
@@ -25093,7 +24917,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %47 = load i64, ptr %16, align 8, !tbaa !36
   %48 = urem i64 %21, %47
   %49 = load ptr, ptr %14, align 8, !tbaa !35
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %48
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %48
   %51 = load ptr, ptr %50, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %51, null
   br i1 %.not.i.i.i.i.i, label %.loopexit120.thread, label %52
@@ -25135,7 +24959,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.pre = load i64, ptr %16, align 8, !tbaa !36
   %.pre152 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre159 = urem i64 %21, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre152, i64 %.pre159
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre152, i64 %.pre159
   %.pre162 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit120
 
@@ -25207,7 +25031,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %84 = load i64, ptr %16, align 8, !tbaa !36
   %85 = urem i64 %21, %84
   %86 = load ptr, ptr %14, align 8, !tbaa !35
-  %87 = getelementptr inbounds nuw ptr, ptr %86, i64 %85
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %85
   %88 = load ptr, ptr %87, align 8, !tbaa !175
   %.not.i.i.i.i14 = icmp eq ptr %88, null
   br i1 %.not.i.i.i.i14, label %.loopexit.i.i20, label %89
@@ -25272,7 +25096,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
 109:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
   %110 = load i64, ptr %6, align 8
   %111 = inttoptr i64 %110 to ptr
-  %112 = getelementptr inbounds %"class.gmx::BasicVector", ptr %111, i64 %23
+  %112 = getelementptr inbounds [12 x i8], ptr %111, i64 %23
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit.i
 
 113:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
@@ -25296,7 +25120,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %120 = load i64, ptr %16, align 8, !tbaa !36
   %121 = urem i64 %23, %120
   %122 = load ptr, ptr %14, align 8, !tbaa !35
-  %123 = getelementptr inbounds nuw ptr, ptr %122, i64 %121
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %121
   %124 = load ptr, ptr %123, align 8, !tbaa !175
   %.not.i.i.i.i.i26 = icmp eq ptr %124, null
   br i1 %.not.i.i.i.i.i26, label %.loopexit.thread, label %125
@@ -25338,7 +25162,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %.pre155 = load i64, ptr %16, align 8, !tbaa !36
   %.pre156 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre160 = urem i64 %23, %.pre155
-  %.phi.trans.insert163 = getelementptr inbounds nuw ptr, ptr %.pre156, i64 %.pre160
+  %.phi.trans.insert163 = getelementptr inbounds nuw [8 x i8], ptr %.pre156, i64 %.pre160
   %.pre164 = load ptr, ptr %.phi.trans.insert163, align 8, !tbaa !175
   br label %.loopexit
 
@@ -25404,7 +25228,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %157 = load i64, ptr %16, align 8, !tbaa !36
   %158 = urem i64 %23, %157
   %159 = load ptr, ptr %14, align 8, !tbaa !35
-  %160 = getelementptr inbounds nuw ptr, ptr %159, i64 %158
+  %160 = getelementptr inbounds nuw [8 x i8], ptr %159, i64 %158
   %161 = load ptr, ptr %160, align 8, !tbaa !175
   %.not.i.i.i.i50 = icmp eq ptr %161, null
   br i1 %.not.i.i.i.i50, label %.loopexit.i.i56, label %162
@@ -25533,9 +25357,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 230:                                              ; preds = %230, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_23TwoParameterInteractionINS_21FENEBondTypeParameterEEES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS6_INS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeENS_13MorseBondTypeES8_NS6_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_23TwoParameterInteractionINS_21FENEBondTypeParameterEEES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS6_INS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeENS_13MorseBondTypeES8_NS6_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit ], [ %236, %230 ]
-  %231 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
+  %231 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.05.i
   %232 = load float, ptr %231, align 4, !tbaa !172
-  %233 = getelementptr inbounds nuw float, ptr %10, i64 %.05.i
+  %233 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.05.i
   %234 = load float, ptr %233, align 4, !tbaa !172
   %235 = fadd float %232, %234
   store float %235, ptr %233, align 4, !tbaa !172
@@ -25597,21 +25421,21 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.098.4.extract.trunc = trunc nuw i64 %.sroa.098.4.extract.shift to i32
   %sext = shl i64 %.sroa.01.0.copyload, 32
   %21 = ashr exact i64 %sext, 32
-  %22 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %21
+  %22 = getelementptr inbounds [12 x i8], ptr %4, i64 %21
   %.sroa.087.0.copyload = load float, ptr %22, align 4
   %.sroa.488.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 4
   %.sroa.488.0.copyload = load float, ptr %.sroa.488.0..sroa_idx, align 4
   %.sroa.589.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 8
   %.sroa.589.0.copyload = load float, ptr %.sroa.589.0..sroa_idx, align 4, !tbaa !188
   %23 = ashr i64 %.sroa.01.0.copyload, 32
-  %24 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %23
+  %24 = getelementptr inbounds [12 x i8], ptr %4, i64 %23
   %.sroa.084.0.copyload = load float, ptr %24, align 4
   %.sroa.485.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 4
   %.sroa.485.0.copyload = load float, ptr %.sroa.485.0..sroa_idx, align 4
   %.sroa.586.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 8
   %.sroa.586.0.copyload = load float, ptr %.sroa.586.0..sroa_idx, align 4, !tbaa !188
   %25 = sext i32 %.sroa.22.0.copyload to i64
-  %26 = getelementptr inbounds %"class.nblib::TwoParameterInteraction.206", ptr %2, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %2, i64 %25
   %27 = load float, ptr %26, align 4
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 4
   %28 = load float, ptr %.sroa_idx, align 4
@@ -25629,7 +25453,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
 36:                                               ; preds = %19
   %37 = load i64, ptr %6, align 8
   %38 = inttoptr i64 %37 to ptr
-  %39 = getelementptr inbounds %"class.gmx::BasicVector", ptr %38, i64 %21
+  %39 = getelementptr inbounds [12 x i8], ptr %38, i64 %21
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
 
 40:                                               ; preds = %19
@@ -25653,7 +25477,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %47 = load i64, ptr %16, align 8, !tbaa !36
   %48 = urem i64 %21, %47
   %49 = load ptr, ptr %14, align 8, !tbaa !35
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %48
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %48
   %51 = load ptr, ptr %50, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %51, null
   br i1 %.not.i.i.i.i.i, label %.loopexit120.thread, label %52
@@ -25695,7 +25519,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.pre = load i64, ptr %16, align 8, !tbaa !36
   %.pre152 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre159 = urem i64 %21, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre152, i64 %.pre159
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre152, i64 %.pre159
   %.pre162 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit120
 
@@ -25767,7 +25591,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %84 = load i64, ptr %16, align 8, !tbaa !36
   %85 = urem i64 %21, %84
   %86 = load ptr, ptr %14, align 8, !tbaa !35
-  %87 = getelementptr inbounds nuw ptr, ptr %86, i64 %85
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %85
   %88 = load ptr, ptr %87, align 8, !tbaa !175
   %.not.i.i.i.i14 = icmp eq ptr %88, null
   br i1 %.not.i.i.i.i14, label %.loopexit.i.i20, label %89
@@ -25832,7 +25656,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
 109:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
   %110 = load i64, ptr %6, align 8
   %111 = inttoptr i64 %110 to ptr
-  %112 = getelementptr inbounds %"class.gmx::BasicVector", ptr %111, i64 %23
+  %112 = getelementptr inbounds [12 x i8], ptr %111, i64 %23
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit.i
 
 113:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
@@ -25856,7 +25680,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %120 = load i64, ptr %16, align 8, !tbaa !36
   %121 = urem i64 %23, %120
   %122 = load ptr, ptr %14, align 8, !tbaa !35
-  %123 = getelementptr inbounds nuw ptr, ptr %122, i64 %121
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %121
   %124 = load ptr, ptr %123, align 8, !tbaa !175
   %.not.i.i.i.i.i26 = icmp eq ptr %124, null
   br i1 %.not.i.i.i.i.i26, label %.loopexit.thread, label %125
@@ -25898,7 +25722,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %.pre155 = load i64, ptr %16, align 8, !tbaa !36
   %.pre156 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre160 = urem i64 %23, %.pre155
-  %.phi.trans.insert163 = getelementptr inbounds nuw ptr, ptr %.pre156, i64 %.pre160
+  %.phi.trans.insert163 = getelementptr inbounds nuw [8 x i8], ptr %.pre156, i64 %.pre160
   %.pre164 = load ptr, ptr %.phi.trans.insert163, align 8, !tbaa !175
   br label %.loopexit
 
@@ -25964,7 +25788,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %157 = load i64, ptr %16, align 8, !tbaa !36
   %158 = urem i64 %23, %157
   %159 = load ptr, ptr %14, align 8, !tbaa !35
-  %160 = getelementptr inbounds nuw ptr, ptr %159, i64 %158
+  %160 = getelementptr inbounds nuw [8 x i8], ptr %159, i64 %158
   %161 = load ptr, ptr %160, align 8, !tbaa !175
   %.not.i.i.i.i50 = icmp eq ptr %161, null
   br i1 %.not.i.i.i.i50, label %.loopexit.i.i56, label %162
@@ -26091,9 +25915,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 228:                                              ; preds = %228, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_23TwoParameterInteractionINS_38HalfAttractiveQuarticBondTypeParameterEEES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS6_INS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeENS_13MorseBondTypeENS6_INS_21FENEBondTypeParameterEEES8_NS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_23TwoParameterInteractionINS_38HalfAttractiveQuarticBondTypeParameterEEES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS6_INS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeENS_13MorseBondTypeENS6_INS_21FENEBondTypeParameterEEES8_NS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit ], [ %234, %228 ]
-  %229 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
+  %229 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.05.i
   %230 = load float, ptr %229, align 4, !tbaa !172
-  %231 = getelementptr inbounds nuw float, ptr %10, i64 %.05.i
+  %231 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.05.i
   %232 = load float, ptr %231, align 4, !tbaa !172
   %233 = fadd float %230, %232
   store float %233, ptr %231, align 4, !tbaa !172
@@ -26155,21 +25979,21 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.099.4.extract.trunc = trunc nuw i64 %.sroa.099.4.extract.shift to i32
   %sext = shl i64 %.sroa.01.0.copyload, 32
   %21 = ashr exact i64 %sext, 32
-  %22 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %21
+  %22 = getelementptr inbounds [12 x i8], ptr %4, i64 %21
   %.sroa.088.0.copyload = load float, ptr %22, align 4
   %.sroa.489.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 4
   %.sroa.489.0.copyload = load float, ptr %.sroa.489.0..sroa_idx, align 4
   %.sroa.590.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 8
   %.sroa.590.0.copyload = load float, ptr %.sroa.590.0..sroa_idx, align 4, !tbaa !188
   %23 = ashr i64 %.sroa.01.0.copyload, 32
-  %24 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %23
+  %24 = getelementptr inbounds [12 x i8], ptr %4, i64 %23
   %.sroa.085.0.copyload = load float, ptr %24, align 4
   %.sroa.486.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 4
   %.sroa.486.0.copyload = load float, ptr %.sroa.486.0..sroa_idx, align 4
   %.sroa.587.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 8
   %.sroa.587.0.copyload = load float, ptr %.sroa.587.0..sroa_idx, align 4, !tbaa !188
   %25 = sext i32 %.sroa.22.0.copyload to i64
-  %26 = getelementptr inbounds %"class.nblib::PairLJType", ptr %2, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %2, i64 %25
   %27 = load float, ptr %26, align 4
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 4
   %28 = load float, ptr %.sroa_idx, align 4
@@ -26187,7 +26011,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
 36:                                               ; preds = %19
   %37 = load i64, ptr %6, align 8
   %38 = inttoptr i64 %37 to ptr
-  %39 = getelementptr inbounds %"class.gmx::BasicVector", ptr %38, i64 %21
+  %39 = getelementptr inbounds [12 x i8], ptr %38, i64 %21
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
 
 40:                                               ; preds = %19
@@ -26211,7 +26035,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %47 = load i64, ptr %16, align 8, !tbaa !36
   %48 = urem i64 %21, %47
   %49 = load ptr, ptr %14, align 8, !tbaa !35
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %48
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %48
   %51 = load ptr, ptr %50, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %51, null
   br i1 %.not.i.i.i.i.i, label %.loopexit121.thread, label %52
@@ -26253,7 +26077,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.pre = load i64, ptr %16, align 8, !tbaa !36
   %.pre153 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre160 = urem i64 %21, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre153, i64 %.pre160
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre153, i64 %.pre160
   %.pre163 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit121
 
@@ -26325,7 +26149,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %84 = load i64, ptr %16, align 8, !tbaa !36
   %85 = urem i64 %21, %84
   %86 = load ptr, ptr %14, align 8, !tbaa !35
-  %87 = getelementptr inbounds nuw ptr, ptr %86, i64 %85
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %85
   %88 = load ptr, ptr %87, align 8, !tbaa !175
   %.not.i.i.i.i14 = icmp eq ptr %88, null
   br i1 %.not.i.i.i.i14, label %.loopexit.i.i20, label %89
@@ -26390,7 +26214,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
 109:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
   %110 = load i64, ptr %6, align 8
   %111 = inttoptr i64 %110 to ptr
-  %112 = getelementptr inbounds %"class.gmx::BasicVector", ptr %111, i64 %23
+  %112 = getelementptr inbounds [12 x i8], ptr %111, i64 %23
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit.i
 
 113:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
@@ -26414,7 +26238,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %120 = load i64, ptr %16, align 8, !tbaa !36
   %121 = urem i64 %23, %120
   %122 = load ptr, ptr %14, align 8, !tbaa !35
-  %123 = getelementptr inbounds nuw ptr, ptr %122, i64 %121
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %121
   %124 = load ptr, ptr %123, align 8, !tbaa !175
   %.not.i.i.i.i.i26 = icmp eq ptr %124, null
   br i1 %.not.i.i.i.i.i26, label %.loopexit.thread, label %125
@@ -26456,7 +26280,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %.pre156 = load i64, ptr %16, align 8, !tbaa !36
   %.pre157 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre161 = urem i64 %23, %.pre156
-  %.phi.trans.insert164 = getelementptr inbounds nuw ptr, ptr %.pre157, i64 %.pre161
+  %.phi.trans.insert164 = getelementptr inbounds nuw [8 x i8], ptr %.pre157, i64 %.pre161
   %.pre165 = load ptr, ptr %.phi.trans.insert164, align 8, !tbaa !175
   br label %.loopexit
 
@@ -26522,7 +26346,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %157 = load i64, ptr %16, align 8, !tbaa !36
   %158 = urem i64 %23, %157
   %159 = load ptr, ptr %14, align 8, !tbaa !35
-  %160 = getelementptr inbounds nuw ptr, ptr %159, i64 %158
+  %160 = getelementptr inbounds nuw [8 x i8], ptr %159, i64 %158
   %161 = load ptr, ptr %160, align 8, !tbaa !175
   %.not.i.i.i.i50 = icmp eq ptr %161, null
   br i1 %.not.i.i.i.i50, label %.loopexit.i.i56, label %162
@@ -26648,9 +26472,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 227:                                              ; preds = %227, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_10PairLJTypeES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeENS_13MorseBondTypeENSC_INS_21FENEBondTypeParameterEEENSC_INS_38HalfAttractiveQuarticBondTypeParameterEEES6_EEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_10PairLJTypeES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeENS_13MorseBondTypeENSC_INS_21FENEBondTypeParameterEEENSC_INS_38HalfAttractiveQuarticBondTypeParameterEEES6_EEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit ], [ %233, %227 ]
-  %228 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
+  %228 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.05.i
   %229 = load float, ptr %228, align 4, !tbaa !172
-  %230 = getelementptr inbounds nuw float, ptr %10, i64 %.05.i
+  %230 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.05.i
   %231 = load float, ptr %230, align 4, !tbaa !172
   %232 = fadd float %229, %231
   store float %232, ptr %230, align 4, !tbaa !172
@@ -26714,14 +26538,14 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.5195.8.extract.trunc = trunc i64 %.sroa.2.0.copyload to i32
   %sext = shl i64 %.sroa.0.0.copyload, 32
   %21 = ashr exact i64 %sext, 32
-  %22 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %21
+  %22 = getelementptr inbounds [12 x i8], ptr %4, i64 %21
   %.sroa.0179.0.copyload = load float, ptr %22, align 4
   %.sroa.5181.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 4
   %.sroa.5181.0.copyload = load float, ptr %.sroa.5181.0..sroa_idx, align 4
   %.sroa.7183.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 8
   %.sroa.7183.0.copyload = load float, ptr %.sroa.7183.0..sroa_idx, align 4, !tbaa !188
   %23 = ashr i64 %.sroa.0.0.copyload, 32
-  %24 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %23
+  %24 = getelementptr inbounds [12 x i8], ptr %4, i64 %23
   %.sroa.0173.0.copyload = load float, ptr %24, align 4
   %.sroa.5175.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 4
   %.sroa.5175.0.copyload = load float, ptr %.sroa.5175.0..sroa_idx, align 4
@@ -26729,14 +26553,14 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.7177.0.copyload = load float, ptr %.sroa.7177.0..sroa_idx, align 4, !tbaa !188
   %sext222 = shl i64 %.sroa.2.0.copyload, 32
   %25 = ashr exact i64 %sext222, 32
-  %26 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %25
+  %26 = getelementptr inbounds [12 x i8], ptr %4, i64 %25
   %.sroa.0168.0.copyload = load float, ptr %26, align 4
   %.sroa.5170.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 4
   %.sroa.5170.0.copyload = load float, ptr %.sroa.5170.0..sroa_idx, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 8
   %.sroa.7.0.copyload = load float, ptr %.sroa.7.0..sroa_idx, align 4, !tbaa !188
   %27 = ashr i64 %.sroa.2.0.copyload, 32
-  %28 = getelementptr inbounds %"class.nblib::AngleInteractionType", ptr %2, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %2, i64 %27
   %29 = load float, ptr %28, align 4
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = load float, ptr %.sroa_idx, align 4
@@ -26883,7 +26707,7 @@ _ZN5nblib23spreadThreeCenterForcesIfN3gmx11BasicVectorIfEEEEvT_S4_RKNS2_IS4_EES7
 138:                                              ; preds = %_ZN5nblib23spreadThreeCenterForcesIfN3gmx11BasicVectorIfEEEEvT_S4_RKNS2_IS4_EES7_PS5_S8_S8_PT0_SA_SA_.exit
   %139 = load i64, ptr %6, align 8
   %140 = inttoptr i64 %139 to ptr
-  %141 = getelementptr inbounds %"class.gmx::BasicVector", ptr %140, i64 %21
+  %141 = getelementptr inbounds [12 x i8], ptr %140, i64 %21
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
 
 142:                                              ; preds = %_ZN5nblib23spreadThreeCenterForcesIfN3gmx11BasicVectorIfEEEEvT_S4_RKNS2_IS4_EES7_PS5_S8_S8_PT0_SA_SA_.exit
@@ -26907,7 +26731,7 @@ _ZN5nblib23spreadThreeCenterForcesIfN3gmx11BasicVectorIfEEEEvT_S4_RKNS2_IS4_EES7
   %149 = load i64, ptr %16, align 8, !tbaa !36
   %150 = urem i64 %21, %149
   %151 = load ptr, ptr %14, align 8, !tbaa !35
-  %152 = getelementptr inbounds nuw ptr, ptr %151, i64 %150
+  %152 = getelementptr inbounds nuw [8 x i8], ptr %151, i64 %150
   %153 = load ptr, ptr %152, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %153, null
   br i1 %.not.i.i.i.i.i, label %.loopexit229.thread, label %154
@@ -26949,7 +26773,7 @@ _ZN5nblib23spreadThreeCenterForcesIfN3gmx11BasicVectorIfEEEEvT_S4_RKNS2_IS4_EES7
   %.pre = load i64, ptr %16, align 8, !tbaa !36
   %.pre276 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre283 = urem i64 %21, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre276, i64 %.pre283
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre276, i64 %.pre283
   %.pre288 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit229
 
@@ -27021,7 +26845,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %186 = load i64, ptr %16, align 8, !tbaa !36
   %187 = urem i64 %21, %186
   %188 = load ptr, ptr %14, align 8, !tbaa !35
-  %189 = getelementptr inbounds nuw ptr, ptr %188, i64 %187
+  %189 = getelementptr inbounds nuw [8 x i8], ptr %188, i64 %187
   %190 = load ptr, ptr %189, align 8, !tbaa !175
   %.not.i.i.i.i19 = icmp eq ptr %190, null
   br i1 %.not.i.i.i.i19, label %.loopexit.i.i25, label %191
@@ -27098,7 +26922,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
 219:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
   %220 = load i64, ptr %6, align 8
   %221 = inttoptr i64 %220 to ptr
-  %222 = getelementptr inbounds %"class.gmx::BasicVector", ptr %221, i64 %23
+  %222 = getelementptr inbounds [12 x i8], ptr %221, i64 %23
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
 
 223:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
@@ -27122,7 +26946,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %230 = load i64, ptr %16, align 8, !tbaa !36
   %231 = urem i64 %23, %230
   %232 = load ptr, ptr %14, align 8, !tbaa !35
-  %233 = getelementptr inbounds nuw ptr, ptr %232, i64 %231
+  %233 = getelementptr inbounds nuw [8 x i8], ptr %232, i64 %231
   %234 = load ptr, ptr %233, align 8, !tbaa !175
   %.not.i.i.i.i.i33 = icmp eq ptr %234, null
   br i1 %.not.i.i.i.i.i33, label %.loopexit226.thread, label %235
@@ -27164,7 +26988,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %.pre277 = load i64, ptr %16, align 8, !tbaa !36
   %.pre278 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre284 = urem i64 %23, %.pre277
-  %.phi.trans.insert289 = getelementptr inbounds nuw ptr, ptr %.pre278, i64 %.pre284
+  %.phi.trans.insert289 = getelementptr inbounds nuw [8 x i8], ptr %.pre278, i64 %.pre284
   %.pre290 = load ptr, ptr %.phi.trans.insert289, align 8, !tbaa !175
   br label %.loopexit226
 
@@ -27230,7 +27054,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %267 = load i64, ptr %16, align 8, !tbaa !36
   %268 = urem i64 %23, %267
   %269 = load ptr, ptr %14, align 8, !tbaa !35
-  %270 = getelementptr inbounds nuw ptr, ptr %269, i64 %268
+  %270 = getelementptr inbounds nuw [8 x i8], ptr %269, i64 %268
   %271 = load ptr, ptr %270, align 8, !tbaa !175
   %.not.i.i.i.i57 = icmp eq ptr %271, null
   br i1 %.not.i.i.i.i57, label %.loopexit.i.i63, label %272
@@ -27307,7 +27131,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
 300:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
   %301 = load i64, ptr %6, align 8
   %302 = inttoptr i64 %301 to ptr
-  %303 = getelementptr inbounds %"class.gmx::BasicVector", ptr %302, i64 %25
+  %303 = getelementptr inbounds [12 x i8], ptr %302, i64 %25
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJS8_NS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSE_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
 
 304:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
@@ -27331,7 +27155,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %311 = load i64, ptr %16, align 8, !tbaa !36
   %312 = urem i64 %25, %311
   %313 = load ptr, ptr %14, align 8, !tbaa !35
-  %314 = getelementptr inbounds nuw ptr, ptr %313, i64 %312
+  %314 = getelementptr inbounds nuw [8 x i8], ptr %313, i64 %312
   %315 = load ptr, ptr %314, align 8, !tbaa !175
   %.not.i.i.i.i.i71 = icmp eq ptr %315, null
   br i1 %.not.i.i.i.i.i71, label %.loopexit.thread, label %316
@@ -27373,7 +27197,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %.pre279 = load i64, ptr %16, align 8, !tbaa !36
   %.pre280 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre286 = urem i64 %25, %.pre279
-  %.phi.trans.insert291 = getelementptr inbounds nuw ptr, ptr %.pre280, i64 %.pre286
+  %.phi.trans.insert291 = getelementptr inbounds nuw [8 x i8], ptr %.pre280, i64 %.pre286
   %.pre292 = load ptr, ptr %.phi.trans.insert291, align 8, !tbaa !175
   br label %.loopexit
 
@@ -27439,7 +27263,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %348 = load i64, ptr %16, align 8, !tbaa !36
   %349 = urem i64 %25, %348
   %350 = load ptr, ptr %14, align 8, !tbaa !35
-  %351 = getelementptr inbounds nuw ptr, ptr %350, i64 %349
+  %351 = getelementptr inbounds nuw [8 x i8], ptr %350, i64 %349
   %352 = load ptr, ptr %351, align 8, !tbaa !175
   %.not.i.i.i.i95 = icmp eq ptr %352, null
   br i1 %.not.i.i.i.i95, label %.loopexit.i.i101, label %353
@@ -27512,9 +27336,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 378:                                              ; preds = %378, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJS8_NS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSE_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJS8_NS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSE_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit ], [ %384, %378 ]
-  %379 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
+  %379 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.05.i
   %380 = load float, ptr %379, align 4, !tbaa !172
-  %381 = getelementptr inbounds nuw float, ptr %10, i64 %.05.i
+  %381 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.05.i
   %382 = load float, ptr %381, align 4, !tbaa !172
   %383 = fadd float %380, %382
   store float %383, ptr %381, align 4, !tbaa !172
@@ -27578,14 +27402,14 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.5195.8.extract.trunc = trunc i64 %.sroa.2.0.copyload to i32
   %sext = shl i64 %.sroa.0.0.copyload, 32
   %21 = ashr exact i64 %sext, 32
-  %22 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %21
+  %22 = getelementptr inbounds [12 x i8], ptr %4, i64 %21
   %.sroa.0179.0.copyload = load float, ptr %22, align 4
   %.sroa.5181.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 4
   %.sroa.5181.0.copyload = load float, ptr %.sroa.5181.0..sroa_idx, align 4
   %.sroa.7183.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 8
   %.sroa.7183.0.copyload = load float, ptr %.sroa.7183.0..sroa_idx, align 4, !tbaa !188
   %23 = ashr i64 %.sroa.0.0.copyload, 32
-  %24 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %23
+  %24 = getelementptr inbounds [12 x i8], ptr %4, i64 %23
   %.sroa.0173.0.copyload = load float, ptr %24, align 4
   %.sroa.5175.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 4
   %.sroa.5175.0.copyload = load float, ptr %.sroa.5175.0..sroa_idx, align 4
@@ -27593,14 +27417,14 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.7177.0.copyload = load float, ptr %.sroa.7177.0..sroa_idx, align 4, !tbaa !188
   %sext222 = shl i64 %.sroa.2.0.copyload, 32
   %25 = ashr exact i64 %sext222, 32
-  %26 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %25
+  %26 = getelementptr inbounds [12 x i8], ptr %4, i64 %25
   %.sroa.0168.0.copyload = load float, ptr %26, align 4
   %.sroa.5170.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 4
   %.sroa.5170.0.copyload = load float, ptr %.sroa.5170.0..sroa_idx, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 8
   %.sroa.7.0.copyload = load float, ptr %.sroa.7.0..sroa_idx, align 4, !tbaa !188
   %27 = ashr i64 %.sroa.2.0.copyload, 32
-  %28 = getelementptr inbounds %"class.nblib::CosineParamAngle", ptr %2, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %2, i64 %27
   %29 = load float, ptr %28, align 4
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = load float, ptr %.sroa_idx, align 4
@@ -27753,7 +27577,7 @@ _ZN5nblib23spreadThreeCenterForcesIfN3gmx11BasicVectorIfEEEEvT_S4_RKNS2_IS4_EES7
 144:                                              ; preds = %_ZN5nblib23spreadThreeCenterForcesIfN3gmx11BasicVectorIfEEEEvT_S4_RKNS2_IS4_EES7_PS5_S8_S8_PT0_SA_SA_.exit
   %145 = load i64, ptr %6, align 8
   %146 = inttoptr i64 %145 to ptr
-  %147 = getelementptr inbounds %"class.gmx::BasicVector", ptr %146, i64 %21
+  %147 = getelementptr inbounds [12 x i8], ptr %146, i64 %21
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
 
 148:                                              ; preds = %_ZN5nblib23spreadThreeCenterForcesIfN3gmx11BasicVectorIfEEEEvT_S4_RKNS2_IS4_EES7_PS5_S8_S8_PT0_SA_SA_.exit
@@ -27777,7 +27601,7 @@ _ZN5nblib23spreadThreeCenterForcesIfN3gmx11BasicVectorIfEEEEvT_S4_RKNS2_IS4_EES7
   %155 = load i64, ptr %16, align 8, !tbaa !36
   %156 = urem i64 %21, %155
   %157 = load ptr, ptr %14, align 8, !tbaa !35
-  %158 = getelementptr inbounds nuw ptr, ptr %157, i64 %156
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %157, i64 %156
   %159 = load ptr, ptr %158, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %159, null
   br i1 %.not.i.i.i.i.i, label %.loopexit229.thread, label %160
@@ -27819,7 +27643,7 @@ _ZN5nblib23spreadThreeCenterForcesIfN3gmx11BasicVectorIfEEEEvT_S4_RKNS2_IS4_EES7
   %.pre = load i64, ptr %16, align 8, !tbaa !36
   %.pre276 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre283 = urem i64 %21, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre276, i64 %.pre283
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre276, i64 %.pre283
   %.pre288 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit229
 
@@ -27891,7 +27715,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %192 = load i64, ptr %16, align 8, !tbaa !36
   %193 = urem i64 %21, %192
   %194 = load ptr, ptr %14, align 8, !tbaa !35
-  %195 = getelementptr inbounds nuw ptr, ptr %194, i64 %193
+  %195 = getelementptr inbounds nuw [8 x i8], ptr %194, i64 %193
   %196 = load ptr, ptr %195, align 8, !tbaa !175
   %.not.i.i.i.i19 = icmp eq ptr %196, null
   br i1 %.not.i.i.i.i19, label %.loopexit.i.i25, label %197
@@ -27968,7 +27792,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
 225:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
   %226 = load i64, ptr %6, align 8
   %227 = inttoptr i64 %226 to ptr
-  %228 = getelementptr inbounds %"class.gmx::BasicVector", ptr %227, i64 %23
+  %228 = getelementptr inbounds [12 x i8], ptr %227, i64 %23
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
 
 229:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
@@ -27992,7 +27816,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %236 = load i64, ptr %16, align 8, !tbaa !36
   %237 = urem i64 %23, %236
   %238 = load ptr, ptr %14, align 8, !tbaa !35
-  %239 = getelementptr inbounds nuw ptr, ptr %238, i64 %237
+  %239 = getelementptr inbounds nuw [8 x i8], ptr %238, i64 %237
   %240 = load ptr, ptr %239, align 8, !tbaa !175
   %.not.i.i.i.i.i33 = icmp eq ptr %240, null
   br i1 %.not.i.i.i.i.i33, label %.loopexit226.thread, label %241
@@ -28034,7 +27858,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %.pre277 = load i64, ptr %16, align 8, !tbaa !36
   %.pre278 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre284 = urem i64 %23, %.pre277
-  %.phi.trans.insert289 = getelementptr inbounds nuw ptr, ptr %.pre278, i64 %.pre284
+  %.phi.trans.insert289 = getelementptr inbounds nuw [8 x i8], ptr %.pre278, i64 %.pre284
   %.pre290 = load ptr, ptr %.phi.trans.insert289, align 8, !tbaa !175
   br label %.loopexit226
 
@@ -28100,7 +27924,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %273 = load i64, ptr %16, align 8, !tbaa !36
   %274 = urem i64 %23, %273
   %275 = load ptr, ptr %14, align 8, !tbaa !35
-  %276 = getelementptr inbounds nuw ptr, ptr %275, i64 %274
+  %276 = getelementptr inbounds nuw [8 x i8], ptr %275, i64 %274
   %277 = load ptr, ptr %276, align 8, !tbaa !175
   %.not.i.i.i.i57 = icmp eq ptr %277, null
   br i1 %.not.i.i.i.i57, label %.loopexit.i.i63, label %278
@@ -28177,7 +28001,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
 306:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
   %307 = load i64, ptr %6, align 8
   %308 = inttoptr i64 %307 to ptr
-  %309 = getelementptr inbounds %"class.gmx::BasicVector", ptr %308, i64 %25
+  %309 = getelementptr inbounds [12 x i8], ptr %308, i64 %25
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16CosineParamAngleINS_17G96AngleParameterEEES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEES8_NS_12QuarticAngleENS6_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
 
 310:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
@@ -28201,7 +28025,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %317 = load i64, ptr %16, align 8, !tbaa !36
   %318 = urem i64 %25, %317
   %319 = load ptr, ptr %14, align 8, !tbaa !35
-  %320 = getelementptr inbounds nuw ptr, ptr %319, i64 %318
+  %320 = getelementptr inbounds nuw [8 x i8], ptr %319, i64 %318
   %321 = load ptr, ptr %320, align 8, !tbaa !175
   %.not.i.i.i.i.i71 = icmp eq ptr %321, null
   br i1 %.not.i.i.i.i.i71, label %.loopexit.thread, label %322
@@ -28243,7 +28067,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %.pre279 = load i64, ptr %16, align 8, !tbaa !36
   %.pre280 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre286 = urem i64 %25, %.pre279
-  %.phi.trans.insert291 = getelementptr inbounds nuw ptr, ptr %.pre280, i64 %.pre286
+  %.phi.trans.insert291 = getelementptr inbounds nuw [8 x i8], ptr %.pre280, i64 %.pre286
   %.pre292 = load ptr, ptr %.phi.trans.insert291, align 8, !tbaa !175
   br label %.loopexit
 
@@ -28309,7 +28133,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %354 = load i64, ptr %16, align 8, !tbaa !36
   %355 = urem i64 %25, %354
   %356 = load ptr, ptr %14, align 8, !tbaa !35
-  %357 = getelementptr inbounds nuw ptr, ptr %356, i64 %355
+  %357 = getelementptr inbounds nuw [8 x i8], ptr %356, i64 %355
   %358 = load ptr, ptr %357, align 8, !tbaa !175
   %.not.i.i.i.i95 = icmp eq ptr %358, null
   br i1 %.not.i.i.i.i95, label %.loopexit.i.i101, label %359
@@ -28382,9 +28206,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 384:                                              ; preds = %384, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16CosineParamAngleINS_17G96AngleParameterEEES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEES8_NS_12QuarticAngleENS6_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16CosineParamAngleINS_17G96AngleParameterEEES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEES8_NS_12QuarticAngleENS6_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit ], [ %390, %384 ]
-  %385 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
+  %385 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.05.i
   %386 = load float, ptr %385, align 4, !tbaa !172
-  %387 = getelementptr inbounds nuw float, ptr %10, i64 %.05.i
+  %387 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.05.i
   %388 = load float, ptr %387, align 4, !tbaa !172
   %389 = fadd float %386, %388
   store float %389, ptr %387, align 4, !tbaa !172
@@ -28448,14 +28272,14 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.5202.8.extract.trunc = trunc i64 %.sroa.2.0.copyload to i32
   %sext = shl i64 %.sroa.0.0.copyload, 32
   %21 = ashr exact i64 %sext, 32
-  %22 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %21
+  %22 = getelementptr inbounds [12 x i8], ptr %4, i64 %21
   %.sroa.0186.0.copyload = load float, ptr %22, align 4
   %.sroa.5188.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 4
   %.sroa.5188.0.copyload = load float, ptr %.sroa.5188.0..sroa_idx, align 4
   %.sroa.7190.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 8
   %.sroa.7190.0.copyload = load float, ptr %.sroa.7190.0..sroa_idx, align 4, !tbaa !188
   %23 = ashr i64 %.sroa.0.0.copyload, 32
-  %24 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %23
+  %24 = getelementptr inbounds [12 x i8], ptr %4, i64 %23
   %.sroa.0180.0.copyload = load float, ptr %24, align 4
   %.sroa.5182.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 4
   %.sroa.5182.0.copyload = load float, ptr %.sroa.5182.0..sroa_idx, align 4
@@ -28463,14 +28287,14 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.7184.0.copyload = load float, ptr %.sroa.7184.0..sroa_idx, align 4, !tbaa !188
   %sext229 = shl i64 %.sroa.2.0.copyload, 32
   %25 = ashr exact i64 %sext229, 32
-  %26 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %25
+  %26 = getelementptr inbounds [12 x i8], ptr %4, i64 %25
   %.sroa.0174.0.copyload = load float, ptr %26, align 4
   %.sroa.5176.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 4
   %.sroa.5176.0.copyload = load float, ptr %.sroa.5176.0..sroa_idx, align 4
   %.sroa.7178.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 8
   %.sroa.7178.0.copyload = load float, ptr %.sroa.7178.0..sroa_idx, align 4, !tbaa !188
   %27 = ashr i64 %.sroa.2.0.copyload, 32
-  %28 = getelementptr inbounds %"class.nblib::QuarticAngle", ptr %2, i64 %27
+  %28 = getelementptr inbounds [24 x i8], ptr %2, i64 %27
   %.sroa.0166.0.copyload = load float, ptr %28, align 4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 4
   %.sroa.5167.0.copyload = load float, ptr %.sroa.5167.0..sroa_idx, align 4
@@ -28656,7 +28480,7 @@ _ZN5nblib23spreadThreeCenterForcesIfN3gmx11BasicVectorIfEEEEvT_S4_RKNS2_IS4_EES7
 139:                                              ; preds = %_ZN5nblib23spreadThreeCenterForcesIfN3gmx11BasicVectorIfEEEEvT_S4_RKNS2_IS4_EES7_PS5_S8_S8_PT0_SA_SA_.exit
   %140 = load i64, ptr %6, align 8
   %141 = inttoptr i64 %140 to ptr
-  %142 = getelementptr inbounds %"class.gmx::BasicVector", ptr %141, i64 %21
+  %142 = getelementptr inbounds [12 x i8], ptr %141, i64 %21
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
 
 143:                                              ; preds = %_ZN5nblib23spreadThreeCenterForcesIfN3gmx11BasicVectorIfEEEEvT_S4_RKNS2_IS4_EES7_PS5_S8_S8_PT0_SA_SA_.exit
@@ -28680,7 +28504,7 @@ _ZN5nblib23spreadThreeCenterForcesIfN3gmx11BasicVectorIfEEEEvT_S4_RKNS2_IS4_EES7
   %150 = load i64, ptr %16, align 8, !tbaa !36
   %151 = urem i64 %21, %150
   %152 = load ptr, ptr %14, align 8, !tbaa !35
-  %153 = getelementptr inbounds nuw ptr, ptr %152, i64 %151
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %152, i64 %151
   %154 = load ptr, ptr %153, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %154, null
   br i1 %.not.i.i.i.i.i, label %.loopexit236.thread, label %155
@@ -28722,7 +28546,7 @@ _ZN5nblib23spreadThreeCenterForcesIfN3gmx11BasicVectorIfEEEEvT_S4_RKNS2_IS4_EES7
   %.pre = load i64, ptr %16, align 8, !tbaa !36
   %.pre299 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre306 = urem i64 %21, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre299, i64 %.pre306
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre299, i64 %.pre306
   %.pre311 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit236
 
@@ -28794,7 +28618,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %187 = load i64, ptr %16, align 8, !tbaa !36
   %188 = urem i64 %21, %187
   %189 = load ptr, ptr %14, align 8, !tbaa !35
-  %190 = getelementptr inbounds nuw ptr, ptr %189, i64 %188
+  %190 = getelementptr inbounds nuw [8 x i8], ptr %189, i64 %188
   %191 = load ptr, ptr %190, align 8, !tbaa !175
   %.not.i.i.i.i19 = icmp eq ptr %191, null
   br i1 %.not.i.i.i.i19, label %.loopexit.i.i25, label %192
@@ -28871,7 +28695,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
 220:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
   %221 = load i64, ptr %6, align 8
   %222 = inttoptr i64 %221 to ptr
-  %223 = getelementptr inbounds %"class.gmx::BasicVector", ptr %222, i64 %23
+  %223 = getelementptr inbounds [12 x i8], ptr %222, i64 %23
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
 
 224:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
@@ -28895,7 +28719,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %231 = load i64, ptr %16, align 8, !tbaa !36
   %232 = urem i64 %23, %231
   %233 = load ptr, ptr %14, align 8, !tbaa !35
-  %234 = getelementptr inbounds nuw ptr, ptr %233, i64 %232
+  %234 = getelementptr inbounds nuw [8 x i8], ptr %233, i64 %232
   %235 = load ptr, ptr %234, align 8, !tbaa !175
   %.not.i.i.i.i.i33 = icmp eq ptr %235, null
   br i1 %.not.i.i.i.i.i33, label %.loopexit233.thread, label %236
@@ -28937,7 +28761,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %.pre300 = load i64, ptr %16, align 8, !tbaa !36
   %.pre301 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre307 = urem i64 %23, %.pre300
-  %.phi.trans.insert312 = getelementptr inbounds nuw ptr, ptr %.pre301, i64 %.pre307
+  %.phi.trans.insert312 = getelementptr inbounds nuw [8 x i8], ptr %.pre301, i64 %.pre307
   %.pre313 = load ptr, ptr %.phi.trans.insert312, align 8, !tbaa !175
   br label %.loopexit233
 
@@ -29003,7 +28827,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %268 = load i64, ptr %16, align 8, !tbaa !36
   %269 = urem i64 %23, %268
   %270 = load ptr, ptr %14, align 8, !tbaa !35
-  %271 = getelementptr inbounds nuw ptr, ptr %270, i64 %269
+  %271 = getelementptr inbounds nuw [8 x i8], ptr %270, i64 %269
   %272 = load ptr, ptr %271, align 8, !tbaa !175
   %.not.i.i.i.i57 = icmp eq ptr %272, null
   br i1 %.not.i.i.i.i57, label %.loopexit.i.i63, label %273
@@ -29080,7 +28904,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
 301:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
   %302 = load i64, ptr %6, align 8
   %303 = inttoptr i64 %302 to ptr
-  %304 = getelementptr inbounds %"class.gmx::BasicVector", ptr %303, i64 %25
+  %304 = getelementptr inbounds [12 x i8], ptr %303, i64 %25
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_12QuarticAngleES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEES6_NSF_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
 
 305:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
@@ -29104,7 +28928,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %312 = load i64, ptr %16, align 8, !tbaa !36
   %313 = urem i64 %25, %312
   %314 = load ptr, ptr %14, align 8, !tbaa !35
-  %315 = getelementptr inbounds nuw ptr, ptr %314, i64 %313
+  %315 = getelementptr inbounds nuw [8 x i8], ptr %314, i64 %313
   %316 = load ptr, ptr %315, align 8, !tbaa !175
   %.not.i.i.i.i.i71 = icmp eq ptr %316, null
   br i1 %.not.i.i.i.i.i71, label %.loopexit.thread, label %317
@@ -29146,7 +28970,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %.pre302 = load i64, ptr %16, align 8, !tbaa !36
   %.pre303 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre309 = urem i64 %25, %.pre302
-  %.phi.trans.insert314 = getelementptr inbounds nuw ptr, ptr %.pre303, i64 %.pre309
+  %.phi.trans.insert314 = getelementptr inbounds nuw [8 x i8], ptr %.pre303, i64 %.pre309
   %.pre315 = load ptr, ptr %.phi.trans.insert314, align 8, !tbaa !175
   br label %.loopexit
 
@@ -29212,7 +29036,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %349 = load i64, ptr %16, align 8, !tbaa !36
   %350 = urem i64 %25, %349
   %351 = load ptr, ptr %14, align 8, !tbaa !35
-  %352 = getelementptr inbounds nuw ptr, ptr %351, i64 %350
+  %352 = getelementptr inbounds nuw [8 x i8], ptr %351, i64 %350
   %353 = load ptr, ptr %352, align 8, !tbaa !175
   %.not.i.i.i.i95 = icmp eq ptr %353, null
   br i1 %.not.i.i.i.i95, label %.loopexit.i.i101, label %354
@@ -29285,9 +29109,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 379:                                              ; preds = %379, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_12QuarticAngleES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEES6_NSF_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_12QuarticAngleES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEES6_NSF_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit ], [ %385, %379 ]
-  %380 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
+  %380 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.05.i
   %381 = load float, ptr %380, align 4, !tbaa !172
-  %382 = getelementptr inbounds nuw float, ptr %10, i64 %.05.i
+  %382 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.05.i
   %383 = load float, ptr %382, align 4, !tbaa !172
   %384 = fadd float %381, %383
   store float %384, ptr %382, align 4, !tbaa !172
@@ -29351,14 +29175,14 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.5195.8.extract.trunc = trunc i64 %.sroa.2.0.copyload to i32
   %sext = shl i64 %.sroa.0.0.copyload, 32
   %21 = ashr exact i64 %sext, 32
-  %22 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %21
+  %22 = getelementptr inbounds [12 x i8], ptr %4, i64 %21
   %.sroa.0179.0.copyload = load float, ptr %22, align 4
   %.sroa.5181.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 4
   %.sroa.5181.0.copyload = load float, ptr %.sroa.5181.0..sroa_idx, align 4
   %.sroa.7183.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 8
   %.sroa.7183.0.copyload = load float, ptr %.sroa.7183.0..sroa_idx, align 4, !tbaa !188
   %23 = ashr i64 %.sroa.0.0.copyload, 32
-  %24 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %23
+  %24 = getelementptr inbounds [12 x i8], ptr %4, i64 %23
   %.sroa.0173.0.copyload = load float, ptr %24, align 4
   %.sroa.5175.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 4
   %.sroa.5175.0.copyload = load float, ptr %.sroa.5175.0..sroa_idx, align 4
@@ -29366,14 +29190,14 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.7177.0.copyload = load float, ptr %.sroa.7177.0..sroa_idx, align 4, !tbaa !188
   %sext222 = shl i64 %.sroa.2.0.copyload, 32
   %25 = ashr exact i64 %sext222, 32
-  %26 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %25
+  %26 = getelementptr inbounds [12 x i8], ptr %4, i64 %25
   %.sroa.0168.0.copyload = load float, ptr %26, align 4
   %.sroa.5170.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 4
   %.sroa.5170.0.copyload = load float, ptr %.sroa.5170.0..sroa_idx, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 8
   %.sroa.7.0.copyload = load float, ptr %.sroa.7.0..sroa_idx, align 4, !tbaa !188
   %27 = ashr i64 %.sroa.2.0.copyload, 32
-  %28 = getelementptr inbounds %"class.nblib::CosineParamAngle.225", ptr %2, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %2, i64 %27
   %29 = load float, ptr %28, align 4
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = load float, ptr %.sroa_idx, align 4
@@ -29529,7 +29353,7 @@ _ZN5nblib23spreadThreeCenterForcesIfN3gmx11BasicVectorIfEEEEvT_S4_RKNS2_IS4_EES7
 147:                                              ; preds = %_ZN5nblib23spreadThreeCenterForcesIfN3gmx11BasicVectorIfEEEEvT_S4_RKNS2_IS4_EES7_PS5_S8_S8_PT0_SA_SA_.exit
   %148 = load i64, ptr %6, align 8
   %149 = inttoptr i64 %148 to ptr
-  %150 = getelementptr inbounds %"class.gmx::BasicVector", ptr %149, i64 %21
+  %150 = getelementptr inbounds [12 x i8], ptr %149, i64 %21
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
 
 151:                                              ; preds = %_ZN5nblib23spreadThreeCenterForcesIfN3gmx11BasicVectorIfEEEEvT_S4_RKNS2_IS4_EES7_PS5_S8_S8_PT0_SA_SA_.exit
@@ -29553,7 +29377,7 @@ _ZN5nblib23spreadThreeCenterForcesIfN3gmx11BasicVectorIfEEEEvT_S4_RKNS2_IS4_EES7
   %158 = load i64, ptr %16, align 8, !tbaa !36
   %159 = urem i64 %21, %158
   %160 = load ptr, ptr %14, align 8, !tbaa !35
-  %161 = getelementptr inbounds nuw ptr, ptr %160, i64 %159
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %160, i64 %159
   %162 = load ptr, ptr %161, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %162, null
   br i1 %.not.i.i.i.i.i, label %.loopexit229.thread, label %163
@@ -29595,7 +29419,7 @@ _ZN5nblib23spreadThreeCenterForcesIfN3gmx11BasicVectorIfEEEEvT_S4_RKNS2_IS4_EES7
   %.pre = load i64, ptr %16, align 8, !tbaa !36
   %.pre276 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre283 = urem i64 %21, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre276, i64 %.pre283
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre276, i64 %.pre283
   %.pre288 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit229
 
@@ -29667,7 +29491,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %195 = load i64, ptr %16, align 8, !tbaa !36
   %196 = urem i64 %21, %195
   %197 = load ptr, ptr %14, align 8, !tbaa !35
-  %198 = getelementptr inbounds nuw ptr, ptr %197, i64 %196
+  %198 = getelementptr inbounds nuw [8 x i8], ptr %197, i64 %196
   %199 = load ptr, ptr %198, align 8, !tbaa !175
   %.not.i.i.i.i19 = icmp eq ptr %199, null
   br i1 %.not.i.i.i.i19, label %.loopexit.i.i25, label %200
@@ -29744,7 +29568,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
 228:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
   %229 = load i64, ptr %6, align 8
   %230 = inttoptr i64 %229 to ptr
-  %231 = getelementptr inbounds %"class.gmx::BasicVector", ptr %230, i64 %23
+  %231 = getelementptr inbounds [12 x i8], ptr %230, i64 %23
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
 
 232:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
@@ -29768,7 +29592,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %239 = load i64, ptr %16, align 8, !tbaa !36
   %240 = urem i64 %23, %239
   %241 = load ptr, ptr %14, align 8, !tbaa !35
-  %242 = getelementptr inbounds nuw ptr, ptr %241, i64 %240
+  %242 = getelementptr inbounds nuw [8 x i8], ptr %241, i64 %240
   %243 = load ptr, ptr %242, align 8, !tbaa !175
   %.not.i.i.i.i.i33 = icmp eq ptr %243, null
   br i1 %.not.i.i.i.i.i33, label %.loopexit226.thread, label %244
@@ -29810,7 +29634,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %.pre277 = load i64, ptr %16, align 8, !tbaa !36
   %.pre278 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre284 = urem i64 %23, %.pre277
-  %.phi.trans.insert289 = getelementptr inbounds nuw ptr, ptr %.pre278, i64 %.pre284
+  %.phi.trans.insert289 = getelementptr inbounds nuw [8 x i8], ptr %.pre278, i64 %.pre284
   %.pre290 = load ptr, ptr %.phi.trans.insert289, align 8, !tbaa !175
   br label %.loopexit226
 
@@ -29876,7 +29700,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %276 = load i64, ptr %16, align 8, !tbaa !36
   %277 = urem i64 %23, %276
   %278 = load ptr, ptr %14, align 8, !tbaa !35
-  %279 = getelementptr inbounds nuw ptr, ptr %278, i64 %277
+  %279 = getelementptr inbounds nuw [8 x i8], ptr %278, i64 %277
   %280 = load ptr, ptr %279, align 8, !tbaa !175
   %.not.i.i.i.i57 = icmp eq ptr %280, null
   br i1 %.not.i.i.i.i57, label %.loopexit.i.i63, label %281
@@ -29953,7 +29777,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
 309:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
   %310 = load i64, ptr %6, align 8
   %311 = inttoptr i64 %310 to ptr
-  %312 = getelementptr inbounds %"class.gmx::BasicVector", ptr %311, i64 %25
+  %312 = getelementptr inbounds [12 x i8], ptr %311, i64 %25
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16CosineParamAngleINS_24RestrictedAngleParameterEEES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS6_INS_17G96AngleParameterEEENS_12QuarticAngleES8_NS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
 
 313:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
@@ -29977,7 +29801,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %320 = load i64, ptr %16, align 8, !tbaa !36
   %321 = urem i64 %25, %320
   %322 = load ptr, ptr %14, align 8, !tbaa !35
-  %323 = getelementptr inbounds nuw ptr, ptr %322, i64 %321
+  %323 = getelementptr inbounds nuw [8 x i8], ptr %322, i64 %321
   %324 = load ptr, ptr %323, align 8, !tbaa !175
   %.not.i.i.i.i.i71 = icmp eq ptr %324, null
   br i1 %.not.i.i.i.i.i71, label %.loopexit.thread, label %325
@@ -30019,7 +29843,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %.pre279 = load i64, ptr %16, align 8, !tbaa !36
   %.pre280 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre286 = urem i64 %25, %.pre279
-  %.phi.trans.insert291 = getelementptr inbounds nuw ptr, ptr %.pre280, i64 %.pre286
+  %.phi.trans.insert291 = getelementptr inbounds nuw [8 x i8], ptr %.pre280, i64 %.pre286
   %.pre292 = load ptr, ptr %.phi.trans.insert291, align 8, !tbaa !175
   br label %.loopexit
 
@@ -30085,7 +29909,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %357 = load i64, ptr %16, align 8, !tbaa !36
   %358 = urem i64 %25, %357
   %359 = load ptr, ptr %14, align 8, !tbaa !35
-  %360 = getelementptr inbounds nuw ptr, ptr %359, i64 %358
+  %360 = getelementptr inbounds nuw [8 x i8], ptr %359, i64 %358
   %361 = load ptr, ptr %360, align 8, !tbaa !175
   %.not.i.i.i.i95 = icmp eq ptr %361, null
   br i1 %.not.i.i.i.i95, label %.loopexit.i.i101, label %362
@@ -30158,9 +29982,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 387:                                              ; preds = %387, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16CosineParamAngleINS_24RestrictedAngleParameterEEES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS6_INS_17G96AngleParameterEEENS_12QuarticAngleES8_NS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16CosineParamAngleINS_24RestrictedAngleParameterEEES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS6_INS_17G96AngleParameterEEENS_12QuarticAngleES8_NS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit ], [ %393, %387 ]
-  %388 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
+  %388 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.05.i
   %389 = load float, ptr %388, align 4, !tbaa !172
-  %390 = getelementptr inbounds nuw float, ptr %10, i64 %.05.i
+  %390 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.05.i
   %391 = load float, ptr %390, align 4, !tbaa !172
   %392 = fadd float %389, %391
   store float %392, ptr %390, align 4, !tbaa !172
@@ -30224,14 +30048,14 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.5222.8.extract.trunc = trunc i64 %.sroa.2.0.copyload to i32
   %sext = shl i64 %.sroa.0.0.copyload, 32
   %21 = ashr exact i64 %sext, 32
-  %22 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %21
+  %22 = getelementptr inbounds [12 x i8], ptr %4, i64 %21
   %.sroa.0206.0.copyload = load float, ptr %22, align 4
   %.sroa.5208.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 4
   %.sroa.5208.0.copyload = load float, ptr %.sroa.5208.0..sroa_idx, align 4
   %.sroa.7210.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 8
   %.sroa.7210.0.copyload = load float, ptr %.sroa.7210.0..sroa_idx, align 4, !tbaa !188
   %23 = ashr i64 %.sroa.0.0.copyload, 32
-  %24 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %23
+  %24 = getelementptr inbounds [12 x i8], ptr %4, i64 %23
   %.sroa.0200.0.copyload = load float, ptr %24, align 4
   %.sroa.5202.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 4
   %.sroa.5202.0.copyload = load float, ptr %.sroa.5202.0..sroa_idx, align 4
@@ -30239,14 +30063,14 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.7204.0.copyload = load float, ptr %.sroa.7204.0..sroa_idx, align 4, !tbaa !188
   %sext283 = shl i64 %.sroa.2.0.copyload, 32
   %25 = ashr exact i64 %sext283, 32
-  %26 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %25
+  %26 = getelementptr inbounds [12 x i8], ptr %4, i64 %25
   %.sroa.0195.0.copyload = load float, ptr %26, align 4
   %.sroa.5197.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 4
   %.sroa.5197.0.copyload = load float, ptr %.sroa.5197.0..sroa_idx, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 8
   %.sroa.7.0.copyload = load float, ptr %.sroa.7.0..sroa_idx, align 4, !tbaa !188
   %27 = ashr i64 %.sroa.2.0.copyload, 32
-  %28 = getelementptr inbounds %"class.nblib::CrossBondBond", ptr %2, i64 %27
+  %28 = getelementptr inbounds [12 x i8], ptr %2, i64 %27
   %.sroa.0193.0.copyload = load float, ptr %28, align 4, !tbaa !172
   %.sroa.4194.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 4
   %.sroa.4194.0.copyload = load float, ptr %.sroa.4194.0..sroa_idx, align 4, !tbaa !172
@@ -30323,7 +30147,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
 86:                                               ; preds = %19
   %87 = load i64, ptr %6, align 8
   %88 = inttoptr i64 %87 to ptr
-  %89 = getelementptr inbounds %"class.gmx::BasicVector", ptr %88, i64 %21
+  %89 = getelementptr inbounds [12 x i8], ptr %88, i64 %21
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
 
 90:                                               ; preds = %19
@@ -30347,7 +30171,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %97 = load i64, ptr %16, align 8, !tbaa !36
   %98 = urem i64 %21, %97
   %99 = load ptr, ptr %14, align 8, !tbaa !35
-  %100 = getelementptr inbounds nuw ptr, ptr %99, i64 %98
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %98
   %101 = load ptr, ptr %100, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %101, null
   br i1 %.not.i.i.i.i.i, label %.loopexit290.thread, label %102
@@ -30389,7 +30213,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.pre = load i64, ptr %16, align 8, !tbaa !36
   %.pre337 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre344 = urem i64 %21, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre337, i64 %.pre344
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre337, i64 %.pre344
   %.pre349 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit290
 
@@ -30461,7 +30285,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %134 = load i64, ptr %16, align 8, !tbaa !36
   %135 = urem i64 %21, %134
   %136 = load ptr, ptr %14, align 8, !tbaa !35
-  %137 = getelementptr inbounds nuw ptr, ptr %136, i64 %135
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %136, i64 %135
   %138 = load ptr, ptr %137, align 8, !tbaa !175
   %.not.i.i.i.i46 = icmp eq ptr %138, null
   br i1 %.not.i.i.i.i46, label %.loopexit.i.i52, label %139
@@ -30536,7 +30360,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
 167:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
   %168 = load i64, ptr %6, align 8
   %169 = inttoptr i64 %168 to ptr
-  %170 = getelementptr inbounds %"class.gmx::BasicVector", ptr %169, i64 %23
+  %170 = getelementptr inbounds [12 x i8], ptr %169, i64 %23
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
 
 171:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
@@ -30560,7 +30384,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %178 = load i64, ptr %16, align 8, !tbaa !36
   %179 = urem i64 %23, %178
   %180 = load ptr, ptr %14, align 8, !tbaa !35
-  %181 = getelementptr inbounds nuw ptr, ptr %180, i64 %179
+  %181 = getelementptr inbounds nuw [8 x i8], ptr %180, i64 %179
   %182 = load ptr, ptr %181, align 8, !tbaa !175
   %.not.i.i.i.i.i60 = icmp eq ptr %182, null
   br i1 %.not.i.i.i.i.i60, label %.loopexit287.thread, label %183
@@ -30602,7 +30426,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %.pre338 = load i64, ptr %16, align 8, !tbaa !36
   %.pre339 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre345 = urem i64 %23, %.pre338
-  %.phi.trans.insert350 = getelementptr inbounds nuw ptr, ptr %.pre339, i64 %.pre345
+  %.phi.trans.insert350 = getelementptr inbounds nuw [8 x i8], ptr %.pre339, i64 %.pre345
   %.pre351 = load ptr, ptr %.phi.trans.insert350, align 8, !tbaa !175
   br label %.loopexit287
 
@@ -30668,7 +30492,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %215 = load i64, ptr %16, align 8, !tbaa !36
   %216 = urem i64 %23, %215
   %217 = load ptr, ptr %14, align 8, !tbaa !35
-  %218 = getelementptr inbounds nuw ptr, ptr %217, i64 %216
+  %218 = getelementptr inbounds nuw [8 x i8], ptr %217, i64 %216
   %219 = load ptr, ptr %218, align 8, !tbaa !175
   %.not.i.i.i.i84 = icmp eq ptr %219, null
   br i1 %.not.i.i.i.i84, label %.loopexit.i.i90, label %220
@@ -30743,7 +30567,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
 248:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
   %249 = load i64, ptr %6, align 8
   %250 = inttoptr i64 %249 to ptr
-  %251 = getelementptr inbounds %"class.gmx::BasicVector", ptr %250, i64 %25
+  %251 = getelementptr inbounds [12 x i8], ptr %250, i64 %25
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_13CrossBondBondES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSF_INS_24RestrictedAngleParameterEEES6_NS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
 
 252:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
@@ -30767,7 +30591,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %259 = load i64, ptr %16, align 8, !tbaa !36
   %260 = urem i64 %25, %259
   %261 = load ptr, ptr %14, align 8, !tbaa !35
-  %262 = getelementptr inbounds nuw ptr, ptr %261, i64 %260
+  %262 = getelementptr inbounds nuw [8 x i8], ptr %261, i64 %260
   %263 = load ptr, ptr %262, align 8, !tbaa !175
   %.not.i.i.i.i.i98 = icmp eq ptr %263, null
   br i1 %.not.i.i.i.i.i98, label %.loopexit.thread, label %264
@@ -30809,7 +30633,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %.pre340 = load i64, ptr %16, align 8, !tbaa !36
   %.pre341 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre347 = urem i64 %25, %.pre340
-  %.phi.trans.insert352 = getelementptr inbounds nuw ptr, ptr %.pre341, i64 %.pre347
+  %.phi.trans.insert352 = getelementptr inbounds nuw [8 x i8], ptr %.pre341, i64 %.pre347
   %.pre353 = load ptr, ptr %.phi.trans.insert352, align 8, !tbaa !175
   br label %.loopexit
 
@@ -30875,7 +30699,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %296 = load i64, ptr %16, align 8, !tbaa !36
   %297 = urem i64 %25, %296
   %298 = load ptr, ptr %14, align 8, !tbaa !35
-  %299 = getelementptr inbounds nuw ptr, ptr %298, i64 %297
+  %299 = getelementptr inbounds nuw [8 x i8], ptr %298, i64 %297
   %300 = load ptr, ptr %299, align 8, !tbaa !175
   %.not.i.i.i.i122 = icmp eq ptr %300, null
   br i1 %.not.i.i.i.i122, label %.loopexit.i.i128, label %301
@@ -30946,9 +30770,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 326:                                              ; preds = %326, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_13CrossBondBondES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSF_INS_24RestrictedAngleParameterEEES6_NS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_13CrossBondBondES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSF_INS_24RestrictedAngleParameterEEES6_NS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit ], [ %332, %326 ]
-  %327 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
+  %327 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.05.i
   %328 = load float, ptr %327, align 4, !tbaa !172
-  %329 = getelementptr inbounds nuw float, ptr %10, i64 %.05.i
+  %329 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.05.i
   %330 = load float, ptr %329, align 4, !tbaa !172
   %331 = fadd float %328, %330
   store float %331, ptr %329, align 4, !tbaa !172
@@ -31012,14 +30836,14 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.5248.8.extract.trunc = trunc i64 %.sroa.2.0.copyload to i32
   %sext = shl i64 %.sroa.0.0.copyload, 32
   %21 = ashr exact i64 %sext, 32
-  %22 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %21
+  %22 = getelementptr inbounds [12 x i8], ptr %4, i64 %21
   %.sroa.0232.0.copyload = load float, ptr %22, align 4
   %.sroa.5234.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 4
   %.sroa.5234.0.copyload = load float, ptr %.sroa.5234.0..sroa_idx, align 4
   %.sroa.7236.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 8
   %.sroa.7236.0.copyload = load float, ptr %.sroa.7236.0..sroa_idx, align 4, !tbaa !188
   %23 = ashr i64 %.sroa.0.0.copyload, 32
-  %24 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %23
+  %24 = getelementptr inbounds [12 x i8], ptr %4, i64 %23
   %.sroa.0226.0.copyload = load float, ptr %24, align 4
   %.sroa.5228.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 4
   %.sroa.5228.0.copyload = load float, ptr %.sroa.5228.0..sroa_idx, align 4
@@ -31027,14 +30851,14 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.7230.0.copyload = load float, ptr %.sroa.7230.0..sroa_idx, align 4, !tbaa !188
   %sext319 = shl i64 %.sroa.2.0.copyload, 32
   %25 = ashr exact i64 %sext319, 32
-  %26 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %25
+  %26 = getelementptr inbounds [12 x i8], ptr %4, i64 %25
   %.sroa.0221.0.copyload = load float, ptr %26, align 4
   %.sroa.5223.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 4
   %.sroa.5223.0.copyload = load float, ptr %.sroa.5223.0..sroa_idx, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 8
   %.sroa.7.0.copyload = load float, ptr %.sroa.7.0..sroa_idx, align 4, !tbaa !188
   %27 = ashr i64 %.sroa.2.0.copyload, 32
-  %28 = getelementptr inbounds %"class.nblib::CrossBondAngle", ptr %2, i64 %27
+  %28 = getelementptr inbounds [16 x i8], ptr %2, i64 %27
   %.sroa.0218.0.copyload = load float, ptr %28, align 4, !tbaa !172
   %.sroa.4219.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 4
   %.sroa.4219.0.copyload = load float, ptr %.sroa.4219.0..sroa_idx, align 4, !tbaa !172
@@ -31132,7 +30956,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
 104:                                              ; preds = %19
   %105 = load i64, ptr %6, align 8
   %106 = inttoptr i64 %105 to ptr
-  %107 = getelementptr inbounds %"class.gmx::BasicVector", ptr %106, i64 %21
+  %107 = getelementptr inbounds [12 x i8], ptr %106, i64 %21
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
 
 108:                                              ; preds = %19
@@ -31156,7 +30980,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %115 = load i64, ptr %16, align 8, !tbaa !36
   %116 = urem i64 %21, %115
   %117 = load ptr, ptr %14, align 8, !tbaa !35
-  %118 = getelementptr inbounds nuw ptr, ptr %117, i64 %116
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %116
   %119 = load ptr, ptr %118, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %119, null
   br i1 %.not.i.i.i.i.i, label %.loopexit326.thread, label %120
@@ -31198,7 +31022,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.pre = load i64, ptr %16, align 8, !tbaa !36
   %.pre373 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre380 = urem i64 %21, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre373, i64 %.pre380
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre373, i64 %.pre380
   %.pre385 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit326
 
@@ -31270,7 +31094,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %152 = load i64, ptr %16, align 8, !tbaa !36
   %153 = urem i64 %21, %152
   %154 = load ptr, ptr %14, align 8, !tbaa !35
-  %155 = getelementptr inbounds nuw ptr, ptr %154, i64 %153
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %154, i64 %153
   %156 = load ptr, ptr %155, align 8, !tbaa !175
   %.not.i.i.i.i65 = icmp eq ptr %156, null
   br i1 %.not.i.i.i.i65, label %.loopexit.i.i71, label %157
@@ -31345,7 +31169,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
 185:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
   %186 = load i64, ptr %6, align 8
   %187 = inttoptr i64 %186 to ptr
-  %188 = getelementptr inbounds %"class.gmx::BasicVector", ptr %187, i64 %23
+  %188 = getelementptr inbounds [12 x i8], ptr %187, i64 %23
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
 
 189:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
@@ -31369,7 +31193,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %196 = load i64, ptr %16, align 8, !tbaa !36
   %197 = urem i64 %23, %196
   %198 = load ptr, ptr %14, align 8, !tbaa !35
-  %199 = getelementptr inbounds nuw ptr, ptr %198, i64 %197
+  %199 = getelementptr inbounds nuw [8 x i8], ptr %198, i64 %197
   %200 = load ptr, ptr %199, align 8, !tbaa !175
   %.not.i.i.i.i.i79 = icmp eq ptr %200, null
   br i1 %.not.i.i.i.i.i79, label %.loopexit323.thread, label %201
@@ -31411,7 +31235,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %.pre374 = load i64, ptr %16, align 8, !tbaa !36
   %.pre375 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre381 = urem i64 %23, %.pre374
-  %.phi.trans.insert386 = getelementptr inbounds nuw ptr, ptr %.pre375, i64 %.pre381
+  %.phi.trans.insert386 = getelementptr inbounds nuw [8 x i8], ptr %.pre375, i64 %.pre381
   %.pre387 = load ptr, ptr %.phi.trans.insert386, align 8, !tbaa !175
   br label %.loopexit323
 
@@ -31477,7 +31301,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %233 = load i64, ptr %16, align 8, !tbaa !36
   %234 = urem i64 %23, %233
   %235 = load ptr, ptr %14, align 8, !tbaa !35
-  %236 = getelementptr inbounds nuw ptr, ptr %235, i64 %234
+  %236 = getelementptr inbounds nuw [8 x i8], ptr %235, i64 %234
   %237 = load ptr, ptr %236, align 8, !tbaa !175
   %.not.i.i.i.i103 = icmp eq ptr %237, null
   br i1 %.not.i.i.i.i103, label %.loopexit.i.i109, label %238
@@ -31552,7 +31376,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
 266:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
   %267 = load i64, ptr %6, align 8
   %268 = inttoptr i64 %267 to ptr
-  %269 = getelementptr inbounds %"class.gmx::BasicVector", ptr %268, i64 %25
+  %269 = getelementptr inbounds [12 x i8], ptr %268, i64 %25
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_14CrossBondAngleES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSF_INS_24RestrictedAngleParameterEEENS_13CrossBondBondES6_NS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
 
 270:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
@@ -31576,7 +31400,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %277 = load i64, ptr %16, align 8, !tbaa !36
   %278 = urem i64 %25, %277
   %279 = load ptr, ptr %14, align 8, !tbaa !35
-  %280 = getelementptr inbounds nuw ptr, ptr %279, i64 %278
+  %280 = getelementptr inbounds nuw [8 x i8], ptr %279, i64 %278
   %281 = load ptr, ptr %280, align 8, !tbaa !175
   %.not.i.i.i.i.i117 = icmp eq ptr %281, null
   br i1 %.not.i.i.i.i.i117, label %.loopexit.thread, label %282
@@ -31618,7 +31442,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %.pre376 = load i64, ptr %16, align 8, !tbaa !36
   %.pre377 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre383 = urem i64 %25, %.pre376
-  %.phi.trans.insert388 = getelementptr inbounds nuw ptr, ptr %.pre377, i64 %.pre383
+  %.phi.trans.insert388 = getelementptr inbounds nuw [8 x i8], ptr %.pre377, i64 %.pre383
   %.pre389 = load ptr, ptr %.phi.trans.insert388, align 8, !tbaa !175
   br label %.loopexit
 
@@ -31684,7 +31508,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %314 = load i64, ptr %16, align 8, !tbaa !36
   %315 = urem i64 %25, %314
   %316 = load ptr, ptr %14, align 8, !tbaa !35
-  %317 = getelementptr inbounds nuw ptr, ptr %316, i64 %315
+  %317 = getelementptr inbounds nuw [8 x i8], ptr %316, i64 %315
   %318 = load ptr, ptr %317, align 8, !tbaa !175
   %.not.i.i.i.i141 = icmp eq ptr %318, null
   br i1 %.not.i.i.i.i141, label %.loopexit.i.i147, label %319
@@ -31755,9 +31579,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 344:                                              ; preds = %344, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_14CrossBondAngleES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSF_INS_24RestrictedAngleParameterEEENS_13CrossBondBondES6_NS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_14CrossBondAngleES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSF_INS_24RestrictedAngleParameterEEENS_13CrossBondBondES6_NS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit ], [ %350, %344 ]
-  %345 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
+  %345 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.05.i
   %346 = load float, ptr %345, align 4, !tbaa !172
-  %347 = getelementptr inbounds nuw float, ptr %10, i64 %.05.i
+  %347 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.05.i
   %348 = load float, ptr %347, align 4, !tbaa !172
   %349 = fadd float %346, %348
   store float %349, ptr %347, align 4, !tbaa !172
@@ -31821,14 +31645,14 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.5231.8.extract.trunc = trunc i64 %.sroa.2.0.copyload to i32
   %sext = shl i64 %.sroa.0.0.copyload, 32
   %21 = ashr exact i64 %sext, 32
-  %22 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %21
+  %22 = getelementptr inbounds [12 x i8], ptr %4, i64 %21
   %.sroa.0215.0.copyload = load float, ptr %22, align 4
   %.sroa.5217.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 4
   %.sroa.5217.0.copyload = load float, ptr %.sroa.5217.0..sroa_idx, align 4
   %.sroa.7219.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 8
   %.sroa.7219.0.copyload = load float, ptr %.sroa.7219.0..sroa_idx, align 4, !tbaa !188
   %23 = ashr i64 %.sroa.0.0.copyload, 32
-  %24 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %23
+  %24 = getelementptr inbounds [12 x i8], ptr %4, i64 %23
   %.sroa.0209.0.copyload = load float, ptr %24, align 4
   %.sroa.5211.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 4
   %.sroa.5211.0.copyload = load float, ptr %.sroa.5211.0..sroa_idx, align 4
@@ -31836,14 +31660,14 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.7213.0.copyload = load float, ptr %.sroa.7213.0..sroa_idx, align 4, !tbaa !188
   %sext304 = shl i64 %.sroa.2.0.copyload, 32
   %25 = ashr exact i64 %sext304, 32
-  %26 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %25
+  %26 = getelementptr inbounds [12 x i8], ptr %4, i64 %25
   %.sroa.0204.0.copyload = load float, ptr %26, align 4
   %.sroa.5206.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 4
   %.sroa.5206.0.copyload = load float, ptr %.sroa.5206.0..sroa_idx, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 8
   %.sroa.7.0.copyload = load float, ptr %.sroa.7.0..sroa_idx, align 4, !tbaa !188
   %27 = ashr i64 %.sroa.2.0.copyload, 32
-  %28 = getelementptr inbounds %"class.nblib::TwoParameterInteraction.233", ptr %2, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %2, i64 %27
   %29 = load float, ptr %28, align 4
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = load float, ptr %.sroa_idx, align 4
@@ -31924,7 +31748,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
 95:                                               ; preds = %19
   %96 = load i64, ptr %6, align 8
   %97 = inttoptr i64 %96 to ptr
-  %98 = getelementptr inbounds %"class.gmx::BasicVector", ptr %97, i64 %21
+  %98 = getelementptr inbounds [12 x i8], ptr %97, i64 %21
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
 
 99:                                               ; preds = %19
@@ -31948,7 +31772,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %106 = load i64, ptr %16, align 8, !tbaa !36
   %107 = urem i64 %21, %106
   %108 = load ptr, ptr %14, align 8, !tbaa !35
-  %109 = getelementptr inbounds nuw ptr, ptr %108, i64 %107
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %107
   %110 = load ptr, ptr %109, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %110, null
   br i1 %.not.i.i.i.i.i, label %.loopexit311.thread, label %111
@@ -31990,7 +31814,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.pre = load i64, ptr %16, align 8, !tbaa !36
   %.pre358 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre365 = urem i64 %21, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre358, i64 %.pre365
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre358, i64 %.pre365
   %.pre370 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit311
 
@@ -32062,7 +31886,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %143 = load i64, ptr %16, align 8, !tbaa !36
   %144 = urem i64 %21, %143
   %145 = load ptr, ptr %14, align 8, !tbaa !35
-  %146 = getelementptr inbounds nuw ptr, ptr %145, i64 %144
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %145, i64 %144
   %147 = load ptr, ptr %146, align 8, !tbaa !175
   %.not.i.i.i.i55 = icmp eq ptr %147, null
   br i1 %.not.i.i.i.i55, label %.loopexit.i.i61, label %148
@@ -32137,7 +31961,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
 176:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
   %177 = load i64, ptr %6, align 8
   %178 = inttoptr i64 %177 to ptr
-  %179 = getelementptr inbounds %"class.gmx::BasicVector", ptr %178, i64 %23
+  %179 = getelementptr inbounds [12 x i8], ptr %178, i64 %23
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
 
 180:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
@@ -32161,7 +31985,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %187 = load i64, ptr %16, align 8, !tbaa !36
   %188 = urem i64 %23, %187
   %189 = load ptr, ptr %14, align 8, !tbaa !35
-  %190 = getelementptr inbounds nuw ptr, ptr %189, i64 %188
+  %190 = getelementptr inbounds nuw [8 x i8], ptr %189, i64 %188
   %191 = load ptr, ptr %190, align 8, !tbaa !175
   %.not.i.i.i.i.i69 = icmp eq ptr %191, null
   br i1 %.not.i.i.i.i.i69, label %.loopexit308.thread, label %192
@@ -32203,7 +32027,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %.pre359 = load i64, ptr %16, align 8, !tbaa !36
   %.pre360 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre366 = urem i64 %23, %.pre359
-  %.phi.trans.insert371 = getelementptr inbounds nuw ptr, ptr %.pre360, i64 %.pre366
+  %.phi.trans.insert371 = getelementptr inbounds nuw [8 x i8], ptr %.pre360, i64 %.pre366
   %.pre372 = load ptr, ptr %.phi.trans.insert371, align 8, !tbaa !175
   br label %.loopexit308
 
@@ -32269,7 +32093,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %224 = load i64, ptr %16, align 8, !tbaa !36
   %225 = urem i64 %23, %224
   %226 = load ptr, ptr %14, align 8, !tbaa !35
-  %227 = getelementptr inbounds nuw ptr, ptr %226, i64 %225
+  %227 = getelementptr inbounds nuw [8 x i8], ptr %226, i64 %225
   %228 = load ptr, ptr %227, align 8, !tbaa !175
   %.not.i.i.i.i93 = icmp eq ptr %228, null
   br i1 %.not.i.i.i.i93, label %.loopexit.i.i99, label %229
@@ -32344,7 +32168,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
 257:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
   %258 = load i64, ptr %6, align 8
   %259 = inttoptr i64 %258 to ptr
-  %260 = getelementptr inbounds %"class.gmx::BasicVector", ptr %259, i64 %25
+  %260 = getelementptr inbounds [12 x i8], ptr %259, i64 %25
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_23TwoParameterInteractionINS_20LinearAngleParameterEEES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSH_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleES8_EEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
 
 261:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
@@ -32368,7 +32192,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %268 = load i64, ptr %16, align 8, !tbaa !36
   %269 = urem i64 %25, %268
   %270 = load ptr, ptr %14, align 8, !tbaa !35
-  %271 = getelementptr inbounds nuw ptr, ptr %270, i64 %269
+  %271 = getelementptr inbounds nuw [8 x i8], ptr %270, i64 %269
   %272 = load ptr, ptr %271, align 8, !tbaa !175
   %.not.i.i.i.i.i107 = icmp eq ptr %272, null
   br i1 %.not.i.i.i.i.i107, label %.loopexit.thread, label %273
@@ -32410,7 +32234,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %.pre361 = load i64, ptr %16, align 8, !tbaa !36
   %.pre362 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre368 = urem i64 %25, %.pre361
-  %.phi.trans.insert373 = getelementptr inbounds nuw ptr, ptr %.pre362, i64 %.pre368
+  %.phi.trans.insert373 = getelementptr inbounds nuw [8 x i8], ptr %.pre362, i64 %.pre368
   %.pre374 = load ptr, ptr %.phi.trans.insert373, align 8, !tbaa !175
   br label %.loopexit
 
@@ -32476,7 +32300,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %305 = load i64, ptr %16, align 8, !tbaa !36
   %306 = urem i64 %25, %305
   %307 = load ptr, ptr %14, align 8, !tbaa !35
-  %308 = getelementptr inbounds nuw ptr, ptr %307, i64 %306
+  %308 = getelementptr inbounds nuw [8 x i8], ptr %307, i64 %306
   %309 = load ptr, ptr %308, align 8, !tbaa !175
   %.not.i.i.i.i131 = icmp eq ptr %309, null
   br i1 %.not.i.i.i.i131, label %.loopexit.i.i137, label %310
@@ -32547,9 +32371,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 335:                                              ; preds = %335, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_23TwoParameterInteractionINS_20LinearAngleParameterEEES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSH_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleES8_EEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_23TwoParameterInteractionINS_20LinearAngleParameterEEES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSH_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleES8_EEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit ], [ %341, %335 ]
-  %336 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
+  %336 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.05.i
   %337 = load float, ptr %336, align 4, !tbaa !172
-  %338 = getelementptr inbounds nuw float, ptr %10, i64 %.05.i
+  %338 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.05.i
   %339 = load float, ptr %338, align 4, !tbaa !172
   %340 = fadd float %337, %339
   store float %340, ptr %338, align 4, !tbaa !172
@@ -32615,28 +32439,28 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.0158.sroa.5.0.copyload = load i32, ptr %.sroa.0158.sroa.5.0..sroa.0159.0..sroa_idx, align 4, !tbaa !188
   %20 = load ptr, ptr %7, align 8, !tbaa !222
   %21 = sext i32 %.sroa.0158.sroa.0.0.copyload to i64
-  %22 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %21
+  %22 = getelementptr inbounds [12 x i8], ptr %4, i64 %21
   %.sroa.0260.0.copyload = load float, ptr %22, align 4
   %.sroa.4261.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 4
   %.sroa.4261.0.copyload = load float, ptr %.sroa.4261.0..sroa_idx, align 4
   %.sroa.5262.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 8
   %.sroa.5262.0.copyload = load float, ptr %.sroa.5262.0..sroa_idx, align 4, !tbaa !188
   %23 = sext i32 %.sroa.0158.sroa.2.0.copyload to i64
-  %24 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %23
+  %24 = getelementptr inbounds [12 x i8], ptr %4, i64 %23
   %.sroa.0251.0.copyload = load float, ptr %24, align 4
   %.sroa.6254.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 4
   %.sroa.6254.0.copyload = load float, ptr %.sroa.6254.0..sroa_idx, align 4
   %.sroa.9257.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 8
   %.sroa.9257.0.copyload = load float, ptr %.sroa.9257.0..sroa_idx, align 4, !tbaa !188
   %25 = sext i32 %.sroa.0158.sroa.3.0.copyload to i64
-  %26 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %25
+  %26 = getelementptr inbounds [12 x i8], ptr %4, i64 %25
   %.sroa.0245.0.copyload = load float, ptr %26, align 4
   %.sroa.5247.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 4
   %.sroa.5247.0.copyload = load float, ptr %.sroa.5247.0..sroa_idx, align 4
   %.sroa.7249.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 8
   %.sroa.7249.0.copyload = load float, ptr %.sroa.7249.0..sroa_idx, align 4, !tbaa !188
   %27 = sext i32 %.sroa.0158.sroa.4.0.copyload to i64
-  %28 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %27
+  %28 = getelementptr inbounds [12 x i8], ptr %4, i64 %27
   %.sroa.0239.0.copyload = load float, ptr %28, align 4
   %.sroa.5241.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 4
   %.sroa.5241.0.copyload = load float, ptr %.sroa.5241.0..sroa_idx, align 4
@@ -32652,7 +32476,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %36 = fsub float %.sroa.5247.0.copyload, %.sroa.5241.0.copyload
   %37 = fsub float %.sroa.7249.0.copyload, %.sroa.7243.0.copyload
   %38 = sext i32 %.sroa.0158.sroa.5.0.copyload to i64
-  %39 = getelementptr inbounds %"class.nblib::ProperDihedral", ptr %2, i64 %38
+  %39 = getelementptr inbounds [12 x i8], ptr %2, i64 %38
   %.sroa.0183.0.copyload = load float, ptr %39, align 4, !tbaa !172
   %.sroa.4184.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 4
   %.sroa.4184.0.copyload = load float, ptr %.sroa.4184.0..sroa_idx, align 4, !tbaa !172
@@ -32828,7 +32652,7 @@ _ZN5nblib22spreadFourCenterForcesIfN3gmx11BasicVectorIfEEEEvT_RKNS2_IS4_EES7_S7_
 174:                                              ; preds = %_ZN5nblib22spreadFourCenterForcesIfN3gmx11BasicVectorIfEEEEvT_RKNS2_IS4_EES7_S7_S7_S7_PS5_S8_S8_S8_PT0_SA_SA_SA_.exit
   %175 = load i64, ptr %6, align 8
   %176 = inttoptr i64 %175 to ptr
-  %177 = getelementptr inbounds %"class.gmx::BasicVector", ptr %176, i64 %21
+  %177 = getelementptr inbounds [12 x i8], ptr %176, i64 %21
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i
 
 178:                                              ; preds = %_ZN5nblib22spreadFourCenterForcesIfN3gmx11BasicVectorIfEEEEvT_RKNS2_IS4_EES7_S7_S7_S7_PS5_S8_S8_S8_PT0_SA_SA_SA_.exit
@@ -32852,7 +32676,7 @@ _ZN5nblib22spreadFourCenterForcesIfN3gmx11BasicVectorIfEEEEvT_RKNS2_IS4_EES7_S7_
   %185 = load i64, ptr %16, align 8, !tbaa !36
   %186 = urem i64 %21, %185
   %187 = load ptr, ptr %14, align 8, !tbaa !35
-  %188 = getelementptr inbounds nuw ptr, ptr %187, i64 %186
+  %188 = getelementptr inbounds nuw [8 x i8], ptr %187, i64 %186
   %189 = load ptr, ptr %188, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %189, null
   br i1 %.not.i.i.i.i.i, label %.loopexit313.thread, label %190
@@ -32894,7 +32718,7 @@ _ZN5nblib22spreadFourCenterForcesIfN3gmx11BasicVectorIfEEEEvT_RKNS2_IS4_EES7_S7_
   %.pre = load i64, ptr %16, align 8, !tbaa !36
   %.pre375 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre384 = urem i64 %21, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre375, i64 %.pre384
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre375, i64 %.pre384
   %.pre391 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit313
 
@@ -32966,7 +32790,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %222 = load i64, ptr %16, align 8, !tbaa !36
   %223 = urem i64 %21, %222
   %224 = load ptr, ptr %14, align 8, !tbaa !35
-  %225 = getelementptr inbounds nuw ptr, ptr %224, i64 %223
+  %225 = getelementptr inbounds nuw [8 x i8], ptr %224, i64 %223
   %226 = load ptr, ptr %225, align 8, !tbaa !175
   %.not.i.i.i.i25 = icmp eq ptr %226, null
   br i1 %.not.i.i.i.i25, label %.loopexit.i.i31, label %227
@@ -33043,7 +32867,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
 255:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i
   %256 = load i64, ptr %6, align 8
   %257 = inttoptr i64 %256 to ptr
-  %258 = getelementptr inbounds %"class.gmx::BasicVector", ptr %257, i64 %23
+  %258 = getelementptr inbounds [12 x i8], ptr %257, i64 %23
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i
 
 259:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i
@@ -33067,7 +32891,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
   %266 = load i64, ptr %16, align 8, !tbaa !36
   %267 = urem i64 %23, %266
   %268 = load ptr, ptr %14, align 8, !tbaa !35
-  %269 = getelementptr inbounds nuw ptr, ptr %268, i64 %267
+  %269 = getelementptr inbounds nuw [8 x i8], ptr %268, i64 %267
   %270 = load ptr, ptr %269, align 8, !tbaa !175
   %.not.i.i.i.i.i39 = icmp eq ptr %270, null
   br i1 %.not.i.i.i.i.i39, label %.loopexit310.thread, label %271
@@ -33109,7 +32933,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
   %.pre376 = load i64, ptr %16, align 8, !tbaa !36
   %.pre377 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre385 = urem i64 %23, %.pre376
-  %.phi.trans.insert392 = getelementptr inbounds nuw ptr, ptr %.pre377, i64 %.pre385
+  %.phi.trans.insert392 = getelementptr inbounds nuw [8 x i8], ptr %.pre377, i64 %.pre385
   %.pre393 = load ptr, ptr %.phi.trans.insert392, align 8, !tbaa !175
   br label %.loopexit310
 
@@ -33175,7 +32999,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %303 = load i64, ptr %16, align 8, !tbaa !36
   %304 = urem i64 %23, %303
   %305 = load ptr, ptr %14, align 8, !tbaa !35
-  %306 = getelementptr inbounds nuw ptr, ptr %305, i64 %304
+  %306 = getelementptr inbounds nuw [8 x i8], ptr %305, i64 %304
   %307 = load ptr, ptr %306, align 8, !tbaa !175
   %.not.i.i.i.i63 = icmp eq ptr %307, null
   br i1 %.not.i.i.i.i63, label %.loopexit.i.i69, label %308
@@ -33252,7 +33076,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
 336:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i
   %337 = load i64, ptr %6, align 8
   %338 = inttoptr i64 %337 to ptr
-  %339 = getelementptr inbounds %"class.gmx::BasicVector", ptr %338, i64 %25
+  %339 = getelementptr inbounds [12 x i8], ptr %338, i64 %25
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i
 
 340:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i
@@ -33276,7 +33100,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
   %347 = load i64, ptr %16, align 8, !tbaa !36
   %348 = urem i64 %25, %347
   %349 = load ptr, ptr %14, align 8, !tbaa !35
-  %350 = getelementptr inbounds nuw ptr, ptr %349, i64 %348
+  %350 = getelementptr inbounds nuw [8 x i8], ptr %349, i64 %348
   %351 = load ptr, ptr %350, align 8, !tbaa !175
   %.not.i.i.i.i.i77 = icmp eq ptr %351, null
   br i1 %.not.i.i.i.i.i77, label %.loopexit307.thread, label %352
@@ -33318,7 +33142,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
   %.pre378 = load i64, ptr %16, align 8, !tbaa !36
   %.pre379 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre387 = urem i64 %25, %.pre378
-  %.phi.trans.insert394 = getelementptr inbounds nuw ptr, ptr %.pre379, i64 %.pre387
+  %.phi.trans.insert394 = getelementptr inbounds nuw [8 x i8], ptr %.pre379, i64 %.pre387
   %.pre395 = load ptr, ptr %.phi.trans.insert394, align 8, !tbaa !175
   br label %.loopexit307
 
@@ -33384,7 +33208,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %384 = load i64, ptr %16, align 8, !tbaa !36
   %385 = urem i64 %25, %384
   %386 = load ptr, ptr %14, align 8, !tbaa !35
-  %387 = getelementptr inbounds nuw ptr, ptr %386, i64 %385
+  %387 = getelementptr inbounds nuw [8 x i8], ptr %386, i64 %385
   %388 = load ptr, ptr %387, align 8, !tbaa !175
   %.not.i.i.i.i101 = icmp eq ptr %388, null
   br i1 %.not.i.i.i.i101, label %.loopexit.i.i107, label %389
@@ -33461,7 +33285,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
 417:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i
   %418 = load i64, ptr %6, align 8
   %419 = inttoptr i64 %418 to ptr
-  %420 = getelementptr inbounds %"class.gmx::BasicVector", ptr %419, i64 %27
+  %420 = getelementptr inbounds [12 x i8], ptr %419, i64 %27
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_14ProperDihedralES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJS6_NS_16ImproperDihedralENS_24RyckaertBellemanDihedralEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit
 
 421:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i
@@ -33485,7 +33309,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
   %428 = load i64, ptr %16, align 8, !tbaa !36
   %429 = urem i64 %27, %428
   %430 = load ptr, ptr %14, align 8, !tbaa !35
-  %431 = getelementptr inbounds nuw ptr, ptr %430, i64 %429
+  %431 = getelementptr inbounds nuw [8 x i8], ptr %430, i64 %429
   %432 = load ptr, ptr %431, align 8, !tbaa !175
   %.not.i.i.i.i.i115 = icmp eq ptr %432, null
   br i1 %.not.i.i.i.i.i115, label %.loopexit.thread, label %433
@@ -33527,7 +33351,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
   %.pre380 = load i64, ptr %16, align 8, !tbaa !36
   %.pre381 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre389 = urem i64 %27, %.pre380
-  %.phi.trans.insert396 = getelementptr inbounds nuw ptr, ptr %.pre381, i64 %.pre389
+  %.phi.trans.insert396 = getelementptr inbounds nuw [8 x i8], ptr %.pre381, i64 %.pre389
   %.pre397 = load ptr, ptr %.phi.trans.insert396, align 8, !tbaa !175
   br label %.loopexit
 
@@ -33593,7 +33417,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %465 = load i64, ptr %16, align 8, !tbaa !36
   %466 = urem i64 %27, %465
   %467 = load ptr, ptr %14, align 8, !tbaa !35
-  %468 = getelementptr inbounds nuw ptr, ptr %467, i64 %466
+  %468 = getelementptr inbounds nuw [8 x i8], ptr %467, i64 %466
   %469 = load ptr, ptr %468, align 8, !tbaa !175
   %.not.i.i.i.i139 = icmp eq ptr %469, null
   br i1 %.not.i.i.i.i139, label %.loopexit.i.i145, label %470
@@ -33666,9 +33490,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 495:                                              ; preds = %495, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_14ProperDihedralES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJS6_NS_16ImproperDihedralENS_24RyckaertBellemanDihedralEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_14ProperDihedralES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJS6_NS_16ImproperDihedralENS_24RyckaertBellemanDihedralEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit ], [ %501, %495 ]
-  %496 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
+  %496 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.05.i
   %497 = load float, ptr %496, align 4, !tbaa !172
-  %498 = getelementptr inbounds nuw float, ptr %10, i64 %.05.i
+  %498 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.05.i
   %499 = load float, ptr %498, align 4, !tbaa !172
   %500 = fadd float %497, %499
   store float %500, ptr %498, align 4, !tbaa !172
@@ -33734,28 +33558,28 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.0158.sroa.5.0.copyload = load i32, ptr %.sroa.0158.sroa.5.0..sroa.0159.0..sroa_idx, align 4, !tbaa !188
   %20 = load ptr, ptr %7, align 8, !tbaa !222
   %21 = sext i32 %.sroa.0158.sroa.0.0.copyload to i64
-  %22 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %21
+  %22 = getelementptr inbounds [12 x i8], ptr %4, i64 %21
   %.sroa.0260.0.copyload = load float, ptr %22, align 4
   %.sroa.4261.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 4
   %.sroa.4261.0.copyload = load float, ptr %.sroa.4261.0..sroa_idx, align 4
   %.sroa.5262.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 8
   %.sroa.5262.0.copyload = load float, ptr %.sroa.5262.0..sroa_idx, align 4, !tbaa !188
   %23 = sext i32 %.sroa.0158.sroa.2.0.copyload to i64
-  %24 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %23
+  %24 = getelementptr inbounds [12 x i8], ptr %4, i64 %23
   %.sroa.0251.0.copyload = load float, ptr %24, align 4
   %.sroa.6254.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 4
   %.sroa.6254.0.copyload = load float, ptr %.sroa.6254.0..sroa_idx, align 4
   %.sroa.9257.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 8
   %.sroa.9257.0.copyload = load float, ptr %.sroa.9257.0..sroa_idx, align 4, !tbaa !188
   %25 = sext i32 %.sroa.0158.sroa.3.0.copyload to i64
-  %26 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %25
+  %26 = getelementptr inbounds [12 x i8], ptr %4, i64 %25
   %.sroa.0245.0.copyload = load float, ptr %26, align 4
   %.sroa.5247.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 4
   %.sroa.5247.0.copyload = load float, ptr %.sroa.5247.0..sroa_idx, align 4
   %.sroa.7249.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 8
   %.sroa.7249.0.copyload = load float, ptr %.sroa.7249.0..sroa_idx, align 4, !tbaa !188
   %27 = sext i32 %.sroa.0158.sroa.4.0.copyload to i64
-  %28 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %27
+  %28 = getelementptr inbounds [12 x i8], ptr %4, i64 %27
   %.sroa.0239.0.copyload = load float, ptr %28, align 4
   %.sroa.5241.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 4
   %.sroa.5241.0.copyload = load float, ptr %.sroa.5241.0..sroa_idx, align 4
@@ -33772,7 +33596,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %37 = fsub float %.sroa.7249.0.copyload, %.sroa.7243.0.copyload
   %38 = getelementptr inbounds nuw i8, ptr %20, i64 264
   %39 = sext i32 %.sroa.0158.sroa.5.0.copyload to i64
-  %40 = getelementptr inbounds %"class.nblib::ImproperDihedral", ptr %2, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr %2, i64 %39
   %41 = load float, ptr %40, align 4
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 4
   %42 = load float, ptr %.sroa_idx, align 4
@@ -33961,7 +33785,7 @@ _ZN5nblib22spreadFourCenterForcesIfN3gmx11BasicVectorIfEEEEvT_RKNS2_IS4_EES7_S7_
 180:                                              ; preds = %_ZN5nblib22spreadFourCenterForcesIfN3gmx11BasicVectorIfEEEEvT_RKNS2_IS4_EES7_S7_S7_S7_PS5_S8_S8_S8_PT0_SA_SA_SA_.exit
   %181 = load i64, ptr %6, align 8
   %182 = inttoptr i64 %181 to ptr
-  %183 = getelementptr inbounds %"class.gmx::BasicVector", ptr %182, i64 %21
+  %183 = getelementptr inbounds [12 x i8], ptr %182, i64 %21
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i
 
 184:                                              ; preds = %_ZN5nblib22spreadFourCenterForcesIfN3gmx11BasicVectorIfEEEEvT_RKNS2_IS4_EES7_S7_S7_S7_PS5_S8_S8_S8_PT0_SA_SA_SA_.exit
@@ -33985,7 +33809,7 @@ _ZN5nblib22spreadFourCenterForcesIfN3gmx11BasicVectorIfEEEEvT_RKNS2_IS4_EES7_S7_
   %191 = load i64, ptr %16, align 8, !tbaa !36
   %192 = urem i64 %21, %191
   %193 = load ptr, ptr %14, align 8, !tbaa !35
-  %194 = getelementptr inbounds nuw ptr, ptr %193, i64 %192
+  %194 = getelementptr inbounds nuw [8 x i8], ptr %193, i64 %192
   %195 = load ptr, ptr %194, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %195, null
   br i1 %.not.i.i.i.i.i, label %.loopexit313.thread, label %196
@@ -34027,7 +33851,7 @@ _ZN5nblib22spreadFourCenterForcesIfN3gmx11BasicVectorIfEEEEvT_RKNS2_IS4_EES7_S7_
   %.pre = load i64, ptr %16, align 8, !tbaa !36
   %.pre375 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre384 = urem i64 %21, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre375, i64 %.pre384
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre375, i64 %.pre384
   %.pre391 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit313
 
@@ -34099,7 +33923,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %228 = load i64, ptr %16, align 8, !tbaa !36
   %229 = urem i64 %21, %228
   %230 = load ptr, ptr %14, align 8, !tbaa !35
-  %231 = getelementptr inbounds nuw ptr, ptr %230, i64 %229
+  %231 = getelementptr inbounds nuw [8 x i8], ptr %230, i64 %229
   %232 = load ptr, ptr %231, align 8, !tbaa !175
   %.not.i.i.i.i25 = icmp eq ptr %232, null
   br i1 %.not.i.i.i.i25, label %.loopexit.i.i31, label %233
@@ -34176,7 +34000,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
 261:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i
   %262 = load i64, ptr %6, align 8
   %263 = inttoptr i64 %262 to ptr
-  %264 = getelementptr inbounds %"class.gmx::BasicVector", ptr %263, i64 %23
+  %264 = getelementptr inbounds [12 x i8], ptr %263, i64 %23
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i
 
 265:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i
@@ -34200,7 +34024,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
   %272 = load i64, ptr %16, align 8, !tbaa !36
   %273 = urem i64 %23, %272
   %274 = load ptr, ptr %14, align 8, !tbaa !35
-  %275 = getelementptr inbounds nuw ptr, ptr %274, i64 %273
+  %275 = getelementptr inbounds nuw [8 x i8], ptr %274, i64 %273
   %276 = load ptr, ptr %275, align 8, !tbaa !175
   %.not.i.i.i.i.i39 = icmp eq ptr %276, null
   br i1 %.not.i.i.i.i.i39, label %.loopexit310.thread, label %277
@@ -34242,7 +34066,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
   %.pre376 = load i64, ptr %16, align 8, !tbaa !36
   %.pre377 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre385 = urem i64 %23, %.pre376
-  %.phi.trans.insert392 = getelementptr inbounds nuw ptr, ptr %.pre377, i64 %.pre385
+  %.phi.trans.insert392 = getelementptr inbounds nuw [8 x i8], ptr %.pre377, i64 %.pre385
   %.pre393 = load ptr, ptr %.phi.trans.insert392, align 8, !tbaa !175
   br label %.loopexit310
 
@@ -34308,7 +34132,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %309 = load i64, ptr %16, align 8, !tbaa !36
   %310 = urem i64 %23, %309
   %311 = load ptr, ptr %14, align 8, !tbaa !35
-  %312 = getelementptr inbounds nuw ptr, ptr %311, i64 %310
+  %312 = getelementptr inbounds nuw [8 x i8], ptr %311, i64 %310
   %313 = load ptr, ptr %312, align 8, !tbaa !175
   %.not.i.i.i.i63 = icmp eq ptr %313, null
   br i1 %.not.i.i.i.i63, label %.loopexit.i.i69, label %314
@@ -34385,7 +34209,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
 342:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i
   %343 = load i64, ptr %6, align 8
   %344 = inttoptr i64 %343 to ptr
-  %345 = getelementptr inbounds %"class.gmx::BasicVector", ptr %344, i64 %25
+  %345 = getelementptr inbounds [12 x i8], ptr %344, i64 %25
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i
 
 346:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i
@@ -34409,7 +34233,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
   %353 = load i64, ptr %16, align 8, !tbaa !36
   %354 = urem i64 %25, %353
   %355 = load ptr, ptr %14, align 8, !tbaa !35
-  %356 = getelementptr inbounds nuw ptr, ptr %355, i64 %354
+  %356 = getelementptr inbounds nuw [8 x i8], ptr %355, i64 %354
   %357 = load ptr, ptr %356, align 8, !tbaa !175
   %.not.i.i.i.i.i77 = icmp eq ptr %357, null
   br i1 %.not.i.i.i.i.i77, label %.loopexit307.thread, label %358
@@ -34451,7 +34275,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
   %.pre378 = load i64, ptr %16, align 8, !tbaa !36
   %.pre379 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre387 = urem i64 %25, %.pre378
-  %.phi.trans.insert394 = getelementptr inbounds nuw ptr, ptr %.pre379, i64 %.pre387
+  %.phi.trans.insert394 = getelementptr inbounds nuw [8 x i8], ptr %.pre379, i64 %.pre387
   %.pre395 = load ptr, ptr %.phi.trans.insert394, align 8, !tbaa !175
   br label %.loopexit307
 
@@ -34517,7 +34341,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %390 = load i64, ptr %16, align 8, !tbaa !36
   %391 = urem i64 %25, %390
   %392 = load ptr, ptr %14, align 8, !tbaa !35
-  %393 = getelementptr inbounds nuw ptr, ptr %392, i64 %391
+  %393 = getelementptr inbounds nuw [8 x i8], ptr %392, i64 %391
   %394 = load ptr, ptr %393, align 8, !tbaa !175
   %.not.i.i.i.i101 = icmp eq ptr %394, null
   br i1 %.not.i.i.i.i101, label %.loopexit.i.i107, label %395
@@ -34594,7 +34418,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
 423:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i
   %424 = load i64, ptr %6, align 8
   %425 = inttoptr i64 %424 to ptr
-  %426 = getelementptr inbounds %"class.gmx::BasicVector", ptr %425, i64 %27
+  %426 = getelementptr inbounds [12 x i8], ptr %425, i64 %27
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16ImproperDihedralES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_14ProperDihedralES6_NS_24RyckaertBellemanDihedralEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit
 
 427:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i
@@ -34618,7 +34442,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
   %434 = load i64, ptr %16, align 8, !tbaa !36
   %435 = urem i64 %27, %434
   %436 = load ptr, ptr %14, align 8, !tbaa !35
-  %437 = getelementptr inbounds nuw ptr, ptr %436, i64 %435
+  %437 = getelementptr inbounds nuw [8 x i8], ptr %436, i64 %435
   %438 = load ptr, ptr %437, align 8, !tbaa !175
   %.not.i.i.i.i.i115 = icmp eq ptr %438, null
   br i1 %.not.i.i.i.i.i115, label %.loopexit.thread, label %439
@@ -34660,7 +34484,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
   %.pre380 = load i64, ptr %16, align 8, !tbaa !36
   %.pre381 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre389 = urem i64 %27, %.pre380
-  %.phi.trans.insert396 = getelementptr inbounds nuw ptr, ptr %.pre381, i64 %.pre389
+  %.phi.trans.insert396 = getelementptr inbounds nuw [8 x i8], ptr %.pre381, i64 %.pre389
   %.pre397 = load ptr, ptr %.phi.trans.insert396, align 8, !tbaa !175
   br label %.loopexit
 
@@ -34726,7 +34550,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %471 = load i64, ptr %16, align 8, !tbaa !36
   %472 = urem i64 %27, %471
   %473 = load ptr, ptr %14, align 8, !tbaa !35
-  %474 = getelementptr inbounds nuw ptr, ptr %473, i64 %472
+  %474 = getelementptr inbounds nuw [8 x i8], ptr %473, i64 %472
   %475 = load ptr, ptr %474, align 8, !tbaa !175
   %.not.i.i.i.i139 = icmp eq ptr %475, null
   br i1 %.not.i.i.i.i139, label %.loopexit.i.i145, label %476
@@ -34799,9 +34623,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 501:                                              ; preds = %501, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16ImproperDihedralES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_14ProperDihedralES6_NS_24RyckaertBellemanDihedralEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16ImproperDihedralES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_14ProperDihedralES6_NS_24RyckaertBellemanDihedralEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit ], [ %507, %501 ]
-  %502 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
+  %502 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.05.i
   %503 = load float, ptr %502, align 4, !tbaa !172
-  %504 = getelementptr inbounds nuw float, ptr %10, i64 %.05.i
+  %504 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.05.i
   %505 = load float, ptr %504, align 4, !tbaa !172
   %506 = fadd float %503, %505
   store float %506, ptr %504, align 4, !tbaa !172
@@ -34868,28 +34692,28 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.0159.sroa.5.0.copyload = load i32, ptr %.sroa.0159.sroa.5.0..sroa.0160.0..sroa_idx, align 4, !tbaa !188
   %21 = load ptr, ptr %7, align 8, !tbaa !222
   %22 = sext i32 %.sroa.0159.sroa.0.0.copyload to i64
-  %23 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %22
+  %23 = getelementptr inbounds [12 x i8], ptr %4, i64 %22
   %.sroa.0258.0.copyload = load float, ptr %23, align 4
   %.sroa.4259.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 4
   %.sroa.4259.0.copyload = load float, ptr %.sroa.4259.0..sroa_idx, align 4
   %.sroa.5260.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 8
   %.sroa.5260.0.copyload = load float, ptr %.sroa.5260.0..sroa_idx, align 4, !tbaa !188
   %24 = sext i32 %.sroa.0159.sroa.2.0.copyload to i64
-  %25 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %24
+  %25 = getelementptr inbounds [12 x i8], ptr %4, i64 %24
   %.sroa.0249.0.copyload = load float, ptr %25, align 4
   %.sroa.6252.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 4
   %.sroa.6252.0.copyload = load float, ptr %.sroa.6252.0..sroa_idx, align 4
   %.sroa.9255.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 8
   %.sroa.9255.0.copyload = load float, ptr %.sroa.9255.0..sroa_idx, align 4, !tbaa !188
   %26 = sext i32 %.sroa.0159.sroa.3.0.copyload to i64
-  %27 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %26
+  %27 = getelementptr inbounds [12 x i8], ptr %4, i64 %26
   %.sroa.0243.0.copyload = load float, ptr %27, align 4
   %.sroa.5245.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 4
   %.sroa.5245.0.copyload = load float, ptr %.sroa.5245.0..sroa_idx, align 4
   %.sroa.7247.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 8
   %.sroa.7247.0.copyload = load float, ptr %.sroa.7247.0..sroa_idx, align 4, !tbaa !188
   %28 = sext i32 %.sroa.0159.sroa.4.0.copyload to i64
-  %29 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %28
+  %29 = getelementptr inbounds [12 x i8], ptr %4, i64 %28
   %.sroa.0237.0.copyload = load float, ptr %29, align 4
   %.sroa.5239.0..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 4
   %.sroa.5239.0.copyload = load float, ptr %.sroa.5239.0..sroa_idx, align 4
@@ -34906,7 +34730,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %38 = fsub float %.sroa.7247.0.copyload, %.sroa.7241.0.copyload
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %39 = sext i32 %.sroa.0159.sroa.5.0.copyload to i64
-  %40 = getelementptr inbounds %"class.nblib::RyckaertBellemanDihedral", ptr %2, i64 %39
+  %40 = getelementptr inbounds [24 x i8], ptr %2, i64 %39
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %10, ptr noundef nonnull align 4 dereferenceable(24) %40, i64 24, i1 false), !tbaa.struct !198
   %41 = fneg float %34
   %42 = fmul float %32, %41
@@ -34963,7 +34787,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.01727.i = phi float [ 1.000000e+00, %20 ], [ %93, %86 ]
   %.02326.i = phi float [ 0.000000e+00, %20 ], [ %92, %86 ]
   %.02425.i = phi float [ %85, %20 ], [ %94, %86 ]
-  %87 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv.i
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv.i
   %88 = load float, ptr %87, align 4, !tbaa !172, !noalias !318
   %89 = fmul float %.01727.i, %88
   %90 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -35098,7 +34922,7 @@ _ZN5nblib22spreadFourCenterForcesIfN3gmx11BasicVectorIfEEEEvT_RKNS2_IS4_EES7_S7_
 182:                                              ; preds = %_ZN5nblib22spreadFourCenterForcesIfN3gmx11BasicVectorIfEEEEvT_RKNS2_IS4_EES7_S7_S7_S7_PS5_S8_S8_S8_PT0_SA_SA_SA_.exit
   %183 = load i64, ptr %6, align 8
   %184 = inttoptr i64 %183 to ptr
-  %185 = getelementptr inbounds %"class.gmx::BasicVector", ptr %184, i64 %22
+  %185 = getelementptr inbounds [12 x i8], ptr %184, i64 %22
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i
 
 186:                                              ; preds = %_ZN5nblib22spreadFourCenterForcesIfN3gmx11BasicVectorIfEEEEvT_RKNS2_IS4_EES7_S7_S7_S7_PS5_S8_S8_S8_PT0_SA_SA_SA_.exit
@@ -35122,7 +34946,7 @@ _ZN5nblib22spreadFourCenterForcesIfN3gmx11BasicVectorIfEEEEvT_RKNS2_IS4_EES7_S7_
   %193 = load i64, ptr %17, align 8, !tbaa !36
   %194 = urem i64 %22, %193
   %195 = load ptr, ptr %15, align 8, !tbaa !35
-  %196 = getelementptr inbounds nuw ptr, ptr %195, i64 %194
+  %196 = getelementptr inbounds nuw [8 x i8], ptr %195, i64 %194
   %197 = load ptr, ptr %196, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %197, null
   br i1 %.not.i.i.i.i.i, label %.loopexit311.thread, label %198
@@ -35164,7 +34988,7 @@ _ZN5nblib22spreadFourCenterForcesIfN3gmx11BasicVectorIfEEEEvT_RKNS2_IS4_EES7_S7_
   %.pre = load i64, ptr %17, align 8, !tbaa !36
   %.pre393 = load ptr, ptr %15, align 8, !tbaa !35
   %.pre402 = urem i64 %22, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre393, i64 %.pre402
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre393, i64 %.pre402
   %.pre409 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit311
 
@@ -35236,7 +35060,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %230 = load i64, ptr %17, align 8, !tbaa !36
   %231 = urem i64 %22, %230
   %232 = load ptr, ptr %15, align 8, !tbaa !35
-  %233 = getelementptr inbounds nuw ptr, ptr %232, i64 %231
+  %233 = getelementptr inbounds nuw [8 x i8], ptr %232, i64 %231
   %234 = load ptr, ptr %233, align 8, !tbaa !175
   %.not.i.i.i.i25 = icmp eq ptr %234, null
   br i1 %.not.i.i.i.i25, label %.loopexit.i.i31, label %235
@@ -35313,7 +35137,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
 263:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i
   %264 = load i64, ptr %6, align 8
   %265 = inttoptr i64 %264 to ptr
-  %266 = getelementptr inbounds %"class.gmx::BasicVector", ptr %265, i64 %24
+  %266 = getelementptr inbounds [12 x i8], ptr %265, i64 %24
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i
 
 267:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i
@@ -35337,7 +35161,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
   %274 = load i64, ptr %17, align 8, !tbaa !36
   %275 = urem i64 %24, %274
   %276 = load ptr, ptr %15, align 8, !tbaa !35
-  %277 = getelementptr inbounds nuw ptr, ptr %276, i64 %275
+  %277 = getelementptr inbounds nuw [8 x i8], ptr %276, i64 %275
   %278 = load ptr, ptr %277, align 8, !tbaa !175
   %.not.i.i.i.i.i39 = icmp eq ptr %278, null
   br i1 %.not.i.i.i.i.i39, label %.loopexit308.thread, label %279
@@ -35379,7 +35203,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
   %.pre394 = load i64, ptr %17, align 8, !tbaa !36
   %.pre395 = load ptr, ptr %15, align 8, !tbaa !35
   %.pre403 = urem i64 %24, %.pre394
-  %.phi.trans.insert410 = getelementptr inbounds nuw ptr, ptr %.pre395, i64 %.pre403
+  %.phi.trans.insert410 = getelementptr inbounds nuw [8 x i8], ptr %.pre395, i64 %.pre403
   %.pre411 = load ptr, ptr %.phi.trans.insert410, align 8, !tbaa !175
   br label %.loopexit308
 
@@ -35445,7 +35269,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %311 = load i64, ptr %17, align 8, !tbaa !36
   %312 = urem i64 %24, %311
   %313 = load ptr, ptr %15, align 8, !tbaa !35
-  %314 = getelementptr inbounds nuw ptr, ptr %313, i64 %312
+  %314 = getelementptr inbounds nuw [8 x i8], ptr %313, i64 %312
   %315 = load ptr, ptr %314, align 8, !tbaa !175
   %.not.i.i.i.i63 = icmp eq ptr %315, null
   br i1 %.not.i.i.i.i63, label %.loopexit.i.i69, label %316
@@ -35522,7 +35346,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
 344:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i
   %345 = load i64, ptr %6, align 8
   %346 = inttoptr i64 %345 to ptr
-  %347 = getelementptr inbounds %"class.gmx::BasicVector", ptr %346, i64 %26
+  %347 = getelementptr inbounds [12 x i8], ptr %346, i64 %26
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i
 
 348:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i
@@ -35546,7 +35370,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
   %355 = load i64, ptr %17, align 8, !tbaa !36
   %356 = urem i64 %26, %355
   %357 = load ptr, ptr %15, align 8, !tbaa !35
-  %358 = getelementptr inbounds nuw ptr, ptr %357, i64 %356
+  %358 = getelementptr inbounds nuw [8 x i8], ptr %357, i64 %356
   %359 = load ptr, ptr %358, align 8, !tbaa !175
   %.not.i.i.i.i.i77 = icmp eq ptr %359, null
   br i1 %.not.i.i.i.i.i77, label %.loopexit305.thread, label %360
@@ -35588,7 +35412,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
   %.pre396 = load i64, ptr %17, align 8, !tbaa !36
   %.pre397 = load ptr, ptr %15, align 8, !tbaa !35
   %.pre405 = urem i64 %26, %.pre396
-  %.phi.trans.insert412 = getelementptr inbounds nuw ptr, ptr %.pre397, i64 %.pre405
+  %.phi.trans.insert412 = getelementptr inbounds nuw [8 x i8], ptr %.pre397, i64 %.pre405
   %.pre413 = load ptr, ptr %.phi.trans.insert412, align 8, !tbaa !175
   br label %.loopexit305
 
@@ -35654,7 +35478,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %392 = load i64, ptr %17, align 8, !tbaa !36
   %393 = urem i64 %26, %392
   %394 = load ptr, ptr %15, align 8, !tbaa !35
-  %395 = getelementptr inbounds nuw ptr, ptr %394, i64 %393
+  %395 = getelementptr inbounds nuw [8 x i8], ptr %394, i64 %393
   %396 = load ptr, ptr %395, align 8, !tbaa !175
   %.not.i.i.i.i101 = icmp eq ptr %396, null
   br i1 %.not.i.i.i.i101, label %.loopexit.i.i107, label %397
@@ -35731,7 +35555,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
 425:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i
   %426 = load i64, ptr %6, align 8
   %427 = inttoptr i64 %426 to ptr
-  %428 = getelementptr inbounds %"class.gmx::BasicVector", ptr %427, i64 %28
+  %428 = getelementptr inbounds [12 x i8], ptr %427, i64 %28
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_24RyckaertBellemanDihedralES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_14ProperDihedralENS_16ImproperDihedralES6_EEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit
 
 429:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i
@@ -35755,7 +35579,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
   %436 = load i64, ptr %17, align 8, !tbaa !36
   %437 = urem i64 %28, %436
   %438 = load ptr, ptr %15, align 8, !tbaa !35
-  %439 = getelementptr inbounds nuw ptr, ptr %438, i64 %437
+  %439 = getelementptr inbounds nuw [8 x i8], ptr %438, i64 %437
   %440 = load ptr, ptr %439, align 8, !tbaa !175
   %.not.i.i.i.i.i115 = icmp eq ptr %440, null
   br i1 %.not.i.i.i.i.i115, label %.loopexit.thread, label %441
@@ -35797,7 +35621,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
   %.pre398 = load i64, ptr %17, align 8, !tbaa !36
   %.pre399 = load ptr, ptr %15, align 8, !tbaa !35
   %.pre407 = urem i64 %28, %.pre398
-  %.phi.trans.insert414 = getelementptr inbounds nuw ptr, ptr %.pre399, i64 %.pre407
+  %.phi.trans.insert414 = getelementptr inbounds nuw [8 x i8], ptr %.pre399, i64 %.pre407
   %.pre415 = load ptr, ptr %.phi.trans.insert414, align 8, !tbaa !175
   br label %.loopexit
 
@@ -35863,7 +35687,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %473 = load i64, ptr %17, align 8, !tbaa !36
   %474 = urem i64 %28, %473
   %475 = load ptr, ptr %15, align 8, !tbaa !35
-  %476 = getelementptr inbounds nuw ptr, ptr %475, i64 %474
+  %476 = getelementptr inbounds nuw [8 x i8], ptr %475, i64 %474
   %477 = load ptr, ptr %476, align 8, !tbaa !175
   %.not.i.i.i.i139 = icmp eq ptr %477, null
   br i1 %.not.i.i.i.i139, label %.loopexit.i.i145, label %478
@@ -35937,9 +35761,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 503:                                              ; preds = %503, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_24RyckaertBellemanDihedralES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_14ProperDihedralENS_16ImproperDihedralES6_EEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_24RyckaertBellemanDihedralES4_S4_NS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_14ProperDihedralENS_16ImproperDihedralES6_EEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit ], [ %509, %503 ]
-  %504 = getelementptr inbounds nuw float, ptr %12, i64 %.05.i
+  %504 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %.05.i
   %505 = load float, ptr %504, align 4, !tbaa !172
-  %506 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
+  %506 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.05.i
   %507 = load float, ptr %506, align 4, !tbaa !172
   %508 = fadd float %505, %507
   store float %508, ptr %506, align 4, !tbaa !172
@@ -36089,7 +35913,7 @@ _ZNSt12_Vector_baseISt5arrayIfLm18EESaIS1_EEC2EmRKS2_.exit.thread.i: ; preds = %
   %41 = mul nuw nsw i64 %39, 72
   %42 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %41) #29
   store ptr %42, ptr %13, align 8, !tbaa !230
-  %43 = getelementptr inbounds nuw %"struct.std::array", ptr %42, i64 %39
+  %43 = getelementptr inbounds nuw [72 x i8], ptr %42, i64 %39
   %44 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %43, ptr %44, align 8, !tbaa !233
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(72) %42, i8 0, i64 72, i1 false)
@@ -36127,7 +35951,7 @@ _ZNSt12_Vector_baseISt5arrayIfLm18EESaIS1_EEC2EmRKS2_.exit.thread.i: ; preds = %
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %63
   %indvars.iv27 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next28, %63 ]
-  %55 = getelementptr inbounds nuw %"struct.std::array", ptr %54, i64 %indvars.iv27
+  %55 = getelementptr inbounds nuw [72 x i8], ptr %54, i64 %indvars.iv27
   br label %64
 
 ._crit_edge:                                      ; preds = %63, %.loopexit
@@ -36157,9 +35981,9 @@ _ZNSt6vectorISt5arrayIfLm18EESaIS1_EED2Ev.exit:   ; preds = %._crit_edge, %57
 
 64:                                               ; preds = %.preheader, %64
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %64 ]
-  %65 = getelementptr inbounds nuw float, ptr %55, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %indvars.iv
   %66 = load float, ptr %65, align 4, !tbaa !172
-  %67 = getelementptr inbounds nuw float, ptr %37, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %indvars.iv
   %68 = load float, ptr %67, align 4, !tbaa !172
   %69 = fadd float %66, %68
   store float %69, ptr %67, align 4, !tbaa !172
@@ -36233,7 +36057,7 @@ define internal void @_ZN5nblib21ListedForceCalculator24computeForcesAndEnergies
 31:                                               ; preds = %.lr.ph, %109
   %indvars.iv = phi i64 [ %30, %.lr.ph ], [ %indvars.iv.next, %109 ]
   %32 = load ptr, ptr %25, align 8, !tbaa !20
-  %33 = getelementptr inbounds nuw %"class.nblib::ForceBufferProxy", ptr %32, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [80 x i8], ptr %32, i64 %indvars.iv
   %34 = load ptr, ptr %3, align 8, !tbaa !222
   %35 = load ptr, ptr %26, align 8, !tbaa !222
   %36 = ptrtoint ptr %35 to i64
@@ -36270,7 +36094,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEE13clearOutliersEv.exit: ; pre
 50:                                               ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEE13clearOutliersEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.036)
   %51 = load ptr, ptr %27, align 8, !tbaa !39
-  %52 = getelementptr inbounds nuw %"class.std::tuple.25", ptr %51, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [864 x i8], ptr %51, i64 %indvars.iv
   %53 = load ptr, ptr %6, align 8, !tbaa !247
   %54 = load ptr, ptr %28, align 8, !tbaa !247
   %55 = ptrtoint ptr %54 to i64
@@ -36312,7 +36136,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEE13clearOutliersEv.exit: ; pre
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(72) %.sroa.036, ptr noundef nonnull align 4 dereferenceable(72) %11, i64 72, i1 false), !tbaa.struct !234
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !323
   %78 = load ptr, ptr %5, align 8, !tbaa !230
-  %79 = getelementptr inbounds nuw %"struct.std::array", ptr %78, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw [72 x i8], ptr %78, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(72) %79, ptr noundef nonnull align 4 dereferenceable(72) %.sroa.036, i64 72, i1 false), !tbaa.struct !234
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.036)
   br label %109
@@ -36320,7 +36144,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEE13clearOutliersEv.exit: ; pre
 80:                                               ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEE13clearOutliersEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.031)
   %81 = load ptr, ptr %27, align 8, !tbaa !39
-  %82 = getelementptr inbounds nuw %"class.std::tuple.25", ptr %81, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw [864 x i8], ptr %81, i64 %indvars.iv
   %83 = load ptr, ptr %6, align 8, !tbaa !247
   %84 = load ptr, ptr %28, align 8, !tbaa !247
   %85 = ptrtoint ptr %84 to i64
@@ -36362,7 +36186,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEE13clearOutliersEv.exit: ; pre
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(72) %.sroa.031, ptr noundef nonnull align 4 dereferenceable(72) %9, i64 72, i1 false), !tbaa.struct !234
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !326
   %107 = load ptr, ptr %5, align 8, !tbaa !230
-  %108 = getelementptr inbounds nuw %"struct.std::array", ptr %107, i64 %indvars.iv
+  %108 = getelementptr inbounds nuw [72 x i8], ptr %107, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(72) %108, ptr noundef nonnull align 4 dereferenceable(72) %.sroa.031, i64 72, i1 false), !tbaa.struct !234
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.031)
@@ -36443,7 +36267,7 @@ define internal void @_ZN5nblib21ListedForceCalculator24computeForcesAndEnergies
 
 .lr.ph34:                                         ; preds = %.lr.ph39.split
   %25 = load ptr, ptr %17, align 8, !tbaa !20
-  %26 = getelementptr inbounds nuw %"class.nblib::ForceBufferProxy", ptr %25, i64 %indvars.iv43
+  %26 = getelementptr inbounds nuw [80 x i8], ptr %25, i64 %indvars.iv43
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 20
   br label %33
@@ -36465,7 +36289,7 @@ define internal void @_ZN5nblib21ListedForceCalculator24computeForcesAndEnergies
   %34 = phi i32 [ %22, %.lr.ph34 ], [ %38, %._crit_edge ]
   %indvars.iv = phi i64 [ 0, %.lr.ph34 ], [ %indvars.iv.next, %._crit_edge ]
   %35 = load ptr, ptr %17, align 8, !tbaa !20
-  %36 = getelementptr inbounds nuw %"class.nblib::ForceBufferProxy", ptr %35, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [80 x i8], ptr %35, i64 %indvars.iv
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 40
   %.sroa.025.029 = load ptr, ptr %37, align 8, !tbaa !33
   %.not2830 = icmp eq ptr %.sroa.025.029, null
@@ -36503,7 +36327,7 @@ define internal void @_ZN5nblib21ListedForceCalculator24computeForcesAndEnergies
   %49 = sext i32 %42 to i64
   %50 = load i64, ptr %3, align 8
   %51 = inttoptr i64 %50 to ptr
-  %52 = getelementptr inbounds %"class.gmx::BasicVector", ptr %51, i64 %49
+  %52 = getelementptr inbounds [12 x i8], ptr %51, i64 %49
   %53 = load float, ptr %52, align 4, !tbaa !172
   %54 = fadd float %.sroa.0.0.copyload, %53
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 4
@@ -37205,14 +37029,14 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %sext = shl i64 %.sroa.01.0.copyload, 32
   %23 = ashr exact i64 %sext, 32
-  %24 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %23
+  %24 = getelementptr inbounds [12 x i8], ptr %4, i64 %23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %24, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %25 = ashr i64 %.sroa.01.0.copyload, 32
-  %26 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %25
+  %26 = getelementptr inbounds [12 x i8], ptr %4, i64 %25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %26, i64 12, i1 false), !tbaa.struct !187
   %27 = sext i32 %.sroa.22.0.copyload to i64
-  %28 = getelementptr inbounds %"class.nblib::TwoParameterInteraction", ptr %2, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %2, i64 %27
   %29 = load float, ptr %28, align 4
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = load float, ptr %.sroa_idx, align 4
@@ -37228,7 +37052,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
 35:                                               ; preds = %22
   %36 = load i64, ptr %6, align 8
   %37 = inttoptr i64 %36 to ptr
-  %38 = getelementptr inbounds %"class.gmx::BasicVector", ptr %37, i64 %23
+  %38 = getelementptr inbounds [12 x i8], ptr %37, i64 %23
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
 
 39:                                               ; preds = %22
@@ -37252,7 +37076,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %46 = load i64, ptr %19, align 8, !tbaa !36
   %47 = urem i64 %23, %46
   %48 = load ptr, ptr %17, align 8, !tbaa !35
-  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %47
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %47
   %50 = load ptr, ptr %49, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %50, null
   br i1 %.not.i.i.i.i.i, label %.loopexit115.thread, label %51
@@ -37294,7 +37118,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.pre = load i64, ptr %19, align 8, !tbaa !36
   %.pre147 = load ptr, ptr %17, align 8, !tbaa !35
   %.pre154 = urem i64 %23, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre147, i64 %.pre154
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre147, i64 %.pre154
   %.pre157 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit115
 
@@ -37366,7 +37190,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %83 = load i64, ptr %19, align 8, !tbaa !36
   %84 = urem i64 %23, %83
   %85 = load ptr, ptr %17, align 8, !tbaa !35
-  %86 = getelementptr inbounds nuw ptr, ptr %85, i64 %84
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %84
   %87 = load ptr, ptr %86, align 8, !tbaa !175
   %.not.i.i.i.i17 = icmp eq ptr %87, null
   br i1 %.not.i.i.i.i17, label %.loopexit.i.i23, label %88
@@ -37431,7 +37255,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
 108:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
   %109 = load i64, ptr %6, align 8
   %110 = inttoptr i64 %109 to ptr
-  %111 = getelementptr inbounds %"class.gmx::BasicVector", ptr %110, i64 %25
+  %111 = getelementptr inbounds [12 x i8], ptr %110, i64 %25
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJS8_NS_11G96BondTypeENS_13CubicBondTypeENS_13MorseBondTypeENS6_INS_21FENEBondTypeParameterEEENS6_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit
 
 112:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
@@ -37455,7 +37279,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %119 = load i64, ptr %19, align 8, !tbaa !36
   %120 = urem i64 %25, %119
   %121 = load ptr, ptr %17, align 8, !tbaa !35
-  %122 = getelementptr inbounds nuw ptr, ptr %121, i64 %120
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %121, i64 %120
   %123 = load ptr, ptr %122, align 8, !tbaa !175
   %.not.i.i.i.i.i29 = icmp eq ptr %123, null
   br i1 %.not.i.i.i.i.i29, label %.loopexit.thread, label %124
@@ -37497,7 +37321,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %.pre150 = load i64, ptr %19, align 8, !tbaa !36
   %.pre151 = load ptr, ptr %17, align 8, !tbaa !35
   %.pre155 = urem i64 %25, %.pre150
-  %.phi.trans.insert158 = getelementptr inbounds nuw ptr, ptr %.pre151, i64 %.pre155
+  %.phi.trans.insert158 = getelementptr inbounds nuw [8 x i8], ptr %.pre151, i64 %.pre155
   %.pre159 = load ptr, ptr %.phi.trans.insert158, align 8, !tbaa !175
   br label %.loopexit
 
@@ -37563,7 +37387,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %156 = load i64, ptr %19, align 8, !tbaa !36
   %157 = urem i64 %25, %156
   %158 = load ptr, ptr %17, align 8, !tbaa !35
-  %159 = getelementptr inbounds nuw ptr, ptr %158, i64 %157
+  %159 = getelementptr inbounds nuw [8 x i8], ptr %158, i64 %157
   %160 = load ptr, ptr %159, align 8, !tbaa !175
   %.not.i.i.i.i53 = icmp eq ptr %160, null
   br i1 %.not.i.i.i.i53, label %.loopexit.i.i59, label %161
@@ -37680,9 +37504,9 @@ _ZN5nblib16computeTwoCenterINS_23TwoParameterInteractionINS_25HarmonicBondTypePa
 
 214:                                              ; preds = %214, %_ZN5nblib16computeTwoCenterINS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEEN3gmx11BasicVectorIfEEDnEEDaRKT_RKT0_PSA_SD_PT1_SF_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib16computeTwoCenterINS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEEN3gmx11BasicVectorIfEEDnEEDaRKT_RKT0_PSA_SD_PT1_SF_.exit ], [ %220, %214 ]
-  %215 = getelementptr inbounds nuw float, ptr %14, i64 %.05.i
+  %215 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %.05.i
   %216 = load float, ptr %215, align 4, !tbaa !172
-  %217 = getelementptr inbounds nuw float, ptr %13, i64 %.05.i
+  %217 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %.05.i
   %218 = load float, ptr %217, align 4, !tbaa !172
   %219 = fadd float %216, %218
   store float %219, ptr %217, align 4, !tbaa !172
@@ -37748,14 +37572,14 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %sext = shl i64 %.sroa.01.0.copyload, 32
   %23 = ashr exact i64 %sext, 32
-  %24 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %23
+  %24 = getelementptr inbounds [12 x i8], ptr %4, i64 %23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %24, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %25 = ashr i64 %.sroa.01.0.copyload, 32
-  %26 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %25
+  %26 = getelementptr inbounds [12 x i8], ptr %4, i64 %25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %26, i64 12, i1 false), !tbaa.struct !187
   %27 = sext i32 %.sroa.22.0.copyload to i64
-  %28 = getelementptr inbounds %"class.nblib::G96BondType", ptr %2, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %2, i64 %27
   %29 = load float, ptr %28, align 4
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = load float, ptr %.sroa_idx, align 4
@@ -37771,7 +37595,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
 35:                                               ; preds = %22
   %36 = load i64, ptr %6, align 8
   %37 = inttoptr i64 %36 to ptr
-  %38 = getelementptr inbounds %"class.gmx::BasicVector", ptr %37, i64 %23
+  %38 = getelementptr inbounds [12 x i8], ptr %37, i64 %23
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
 
 39:                                               ; preds = %22
@@ -37795,7 +37619,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %46 = load i64, ptr %19, align 8, !tbaa !36
   %47 = urem i64 %23, %46
   %48 = load ptr, ptr %17, align 8, !tbaa !35
-  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %47
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %47
   %50 = load ptr, ptr %49, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %50, null
   br i1 %.not.i.i.i.i.i, label %.loopexit115.thread, label %51
@@ -37837,7 +37661,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.pre = load i64, ptr %19, align 8, !tbaa !36
   %.pre147 = load ptr, ptr %17, align 8, !tbaa !35
   %.pre154 = urem i64 %23, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre147, i64 %.pre154
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre147, i64 %.pre154
   %.pre157 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit115
 
@@ -37909,7 +37733,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %83 = load i64, ptr %19, align 8, !tbaa !36
   %84 = urem i64 %23, %83
   %85 = load ptr, ptr %17, align 8, !tbaa !35
-  %86 = getelementptr inbounds nuw ptr, ptr %85, i64 %84
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %84
   %87 = load ptr, ptr %86, align 8, !tbaa !175
   %.not.i.i.i.i17 = icmp eq ptr %87, null
   br i1 %.not.i.i.i.i17, label %.loopexit.i.i23, label %88
@@ -37974,7 +37798,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
 108:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
   %109 = load i64, ptr %6, align 8
   %110 = inttoptr i64 %109 to ptr
-  %111 = getelementptr inbounds %"class.gmx::BasicVector", ptr %110, i64 %25
+  %111 = getelementptr inbounds [12 x i8], ptr %110, i64 %25
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_11G96BondTypeES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEES6_NS_13CubicBondTypeENS_13MorseBondTypeENSC_INS_21FENEBondTypeParameterEEENSC_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit
 
 112:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
@@ -37998,7 +37822,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %119 = load i64, ptr %19, align 8, !tbaa !36
   %120 = urem i64 %25, %119
   %121 = load ptr, ptr %17, align 8, !tbaa !35
-  %122 = getelementptr inbounds nuw ptr, ptr %121, i64 %120
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %121, i64 %120
   %123 = load ptr, ptr %122, align 8, !tbaa !175
   %.not.i.i.i.i.i29 = icmp eq ptr %123, null
   br i1 %.not.i.i.i.i.i29, label %.loopexit.thread, label %124
@@ -38040,7 +37864,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %.pre150 = load i64, ptr %19, align 8, !tbaa !36
   %.pre151 = load ptr, ptr %17, align 8, !tbaa !35
   %.pre155 = urem i64 %25, %.pre150
-  %.phi.trans.insert158 = getelementptr inbounds nuw ptr, ptr %.pre151, i64 %.pre155
+  %.phi.trans.insert158 = getelementptr inbounds nuw [8 x i8], ptr %.pre151, i64 %.pre155
   %.pre159 = load ptr, ptr %.phi.trans.insert158, align 8, !tbaa !175
   br label %.loopexit
 
@@ -38106,7 +37930,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %156 = load i64, ptr %19, align 8, !tbaa !36
   %157 = urem i64 %25, %156
   %158 = load ptr, ptr %17, align 8, !tbaa !35
-  %159 = getelementptr inbounds nuw ptr, ptr %158, i64 %157
+  %159 = getelementptr inbounds nuw [8 x i8], ptr %158, i64 %157
   %160 = load ptr, ptr %159, align 8, !tbaa !175
   %.not.i.i.i.i53 = icmp eq ptr %160, null
   br i1 %.not.i.i.i.i53, label %.loopexit.i.i59, label %161
@@ -38226,9 +38050,9 @@ _ZN5nblib16computeTwoCenterINS_11G96BondTypeEN3gmx11BasicVectorIfEEDnEEDaRKT_RKT
 
 217:                                              ; preds = %217, %_ZN5nblib16computeTwoCenterINS_11G96BondTypeEN3gmx11BasicVectorIfEEDnEEDaRKT_RKT0_PS8_SB_PT1_SD_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib16computeTwoCenterINS_11G96BondTypeEN3gmx11BasicVectorIfEEDnEEDaRKT_RKT0_PS8_SB_PT1_SD_.exit ], [ %223, %217 ]
-  %218 = getelementptr inbounds nuw float, ptr %14, i64 %.05.i
+  %218 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %.05.i
   %219 = load float, ptr %218, align 4, !tbaa !172
-  %220 = getelementptr inbounds nuw float, ptr %13, i64 %.05.i
+  %220 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %.05.i
   %221 = load float, ptr %220, align 4, !tbaa !172
   %222 = fadd float %219, %221
   store float %222, ptr %220, align 4, !tbaa !172
@@ -38294,14 +38118,14 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %sext = shl i64 %.sroa.01.0.copyload, 32
   %23 = ashr exact i64 %sext, 32
-  %24 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %23
+  %24 = getelementptr inbounds [12 x i8], ptr %4, i64 %23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %24, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %25 = ashr i64 %.sroa.01.0.copyload, 32
-  %26 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %25
+  %26 = getelementptr inbounds [12 x i8], ptr %4, i64 %25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %26, i64 12, i1 false), !tbaa.struct !187
   %27 = sext i32 %.sroa.22.0.copyload to i64
-  %28 = getelementptr inbounds %"class.nblib::CubicBondType", ptr %2, i64 %27
+  %28 = getelementptr inbounds [12 x i8], ptr %2, i64 %27
   %.sroa.082.0.copyload = load float, ptr %28, align 4, !tbaa !172
   %.sroa.483.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 4
   %.sroa.483.0.copyload = load float, ptr %.sroa.483.0..sroa_idx, align 4, !tbaa !172
@@ -38319,7 +38143,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
 33:                                               ; preds = %22
   %34 = load i64, ptr %6, align 8
   %35 = inttoptr i64 %34 to ptr
-  %36 = getelementptr inbounds %"class.gmx::BasicVector", ptr %35, i64 %23
+  %36 = getelementptr inbounds [12 x i8], ptr %35, i64 %23
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
 
 37:                                               ; preds = %22
@@ -38343,7 +38167,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %44 = load i64, ptr %19, align 8, !tbaa !36
   %45 = urem i64 %23, %44
   %46 = load ptr, ptr %17, align 8, !tbaa !35
-  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %45
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %45
   %48 = load ptr, ptr %47, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %48, null
   br i1 %.not.i.i.i.i.i, label %.loopexit115.thread, label %49
@@ -38385,7 +38209,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.pre = load i64, ptr %19, align 8, !tbaa !36
   %.pre147 = load ptr, ptr %17, align 8, !tbaa !35
   %.pre154 = urem i64 %23, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre147, i64 %.pre154
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre147, i64 %.pre154
   %.pre157 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit115
 
@@ -38457,7 +38281,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %81 = load i64, ptr %19, align 8, !tbaa !36
   %82 = urem i64 %23, %81
   %83 = load ptr, ptr %17, align 8, !tbaa !35
-  %84 = getelementptr inbounds nuw ptr, ptr %83, i64 %82
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %82
   %85 = load ptr, ptr %84, align 8, !tbaa !175
   %.not.i.i.i.i17 = icmp eq ptr %85, null
   br i1 %.not.i.i.i.i17, label %.loopexit.i.i23, label %86
@@ -38522,7 +38346,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
 106:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
   %107 = load i64, ptr %6, align 8
   %108 = inttoptr i64 %107 to ptr
-  %109 = getelementptr inbounds %"class.gmx::BasicVector", ptr %108, i64 %25
+  %109 = getelementptr inbounds [12 x i8], ptr %108, i64 %25
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_13CubicBondTypeES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEENS_11G96BondTypeES6_NS_13MorseBondTypeENSC_INS_21FENEBondTypeParameterEEENSC_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit
 
 110:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
@@ -38546,7 +38370,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %117 = load i64, ptr %19, align 8, !tbaa !36
   %118 = urem i64 %25, %117
   %119 = load ptr, ptr %17, align 8, !tbaa !35
-  %120 = getelementptr inbounds nuw ptr, ptr %119, i64 %118
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %119, i64 %118
   %121 = load ptr, ptr %120, align 8, !tbaa !175
   %.not.i.i.i.i.i29 = icmp eq ptr %121, null
   br i1 %.not.i.i.i.i.i29, label %.loopexit.thread, label %122
@@ -38588,7 +38412,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %.pre150 = load i64, ptr %19, align 8, !tbaa !36
   %.pre151 = load ptr, ptr %17, align 8, !tbaa !35
   %.pre155 = urem i64 %25, %.pre150
-  %.phi.trans.insert158 = getelementptr inbounds nuw ptr, ptr %.pre151, i64 %.pre155
+  %.phi.trans.insert158 = getelementptr inbounds nuw [8 x i8], ptr %.pre151, i64 %.pre155
   %.pre159 = load ptr, ptr %.phi.trans.insert158, align 8, !tbaa !175
   br label %.loopexit
 
@@ -38654,7 +38478,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %154 = load i64, ptr %19, align 8, !tbaa !36
   %155 = urem i64 %25, %154
   %156 = load ptr, ptr %17, align 8, !tbaa !35
-  %157 = getelementptr inbounds nuw ptr, ptr %156, i64 %155
+  %157 = getelementptr inbounds nuw [8 x i8], ptr %156, i64 %155
   %158 = load ptr, ptr %157, align 8, !tbaa !175
   %.not.i.i.i.i53 = icmp eq ptr %158, null
   br i1 %.not.i.i.i.i53, label %.loopexit.i.i59, label %159
@@ -38775,9 +38599,9 @@ _ZN5nblib16computeTwoCenterINS_13CubicBondTypeEN3gmx11BasicVectorIfEEDnEEDaRKT_R
 
 216:                                              ; preds = %216, %_ZN5nblib16computeTwoCenterINS_13CubicBondTypeEN3gmx11BasicVectorIfEEDnEEDaRKT_RKT0_PS8_SB_PT1_SD_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib16computeTwoCenterINS_13CubicBondTypeEN3gmx11BasicVectorIfEEDnEEDaRKT_RKT0_PS8_SB_PT1_SD_.exit ], [ %222, %216 ]
-  %217 = getelementptr inbounds nuw float, ptr %14, i64 %.05.i
+  %217 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %.05.i
   %218 = load float, ptr %217, align 4, !tbaa !172
-  %219 = getelementptr inbounds nuw float, ptr %13, i64 %.05.i
+  %219 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %.05.i
   %220 = load float, ptr %219, align 4, !tbaa !172
   %221 = fadd float %218, %220
   store float %221, ptr %219, align 4, !tbaa !172
@@ -38843,14 +38667,14 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %sext = shl i64 %.sroa.01.0.copyload, 32
   %23 = ashr exact i64 %sext, 32
-  %24 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %23
+  %24 = getelementptr inbounds [12 x i8], ptr %4, i64 %23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %24, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %25 = ashr i64 %.sroa.01.0.copyload, 32
-  %26 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %25
+  %26 = getelementptr inbounds [12 x i8], ptr %4, i64 %25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %26, i64 12, i1 false), !tbaa.struct !187
   %27 = sext i32 %.sroa.22.0.copyload to i64
-  %28 = getelementptr inbounds %"class.nblib::MorseBondType", ptr %2, i64 %27
+  %28 = getelementptr inbounds [12 x i8], ptr %2, i64 %27
   %.sroa.082.0.copyload = load float, ptr %28, align 4, !tbaa !172
   %.sroa.483.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 4
   %.sroa.483.0.copyload = load float, ptr %.sroa.483.0..sroa_idx, align 4, !tbaa !172
@@ -38868,7 +38692,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
 33:                                               ; preds = %22
   %34 = load i64, ptr %6, align 8
   %35 = inttoptr i64 %34 to ptr
-  %36 = getelementptr inbounds %"class.gmx::BasicVector", ptr %35, i64 %23
+  %36 = getelementptr inbounds [12 x i8], ptr %35, i64 %23
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
 
 37:                                               ; preds = %22
@@ -38892,7 +38716,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %44 = load i64, ptr %19, align 8, !tbaa !36
   %45 = urem i64 %23, %44
   %46 = load ptr, ptr %17, align 8, !tbaa !35
-  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %45
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %45
   %48 = load ptr, ptr %47, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %48, null
   br i1 %.not.i.i.i.i.i, label %.loopexit115.thread, label %49
@@ -38934,7 +38758,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.pre = load i64, ptr %19, align 8, !tbaa !36
   %.pre147 = load ptr, ptr %17, align 8, !tbaa !35
   %.pre154 = urem i64 %23, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre147, i64 %.pre154
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre147, i64 %.pre154
   %.pre157 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit115
 
@@ -39006,7 +38830,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %81 = load i64, ptr %19, align 8, !tbaa !36
   %82 = urem i64 %23, %81
   %83 = load ptr, ptr %17, align 8, !tbaa !35
-  %84 = getelementptr inbounds nuw ptr, ptr %83, i64 %82
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %82
   %85 = load ptr, ptr %84, align 8, !tbaa !175
   %.not.i.i.i.i17 = icmp eq ptr %85, null
   br i1 %.not.i.i.i.i17, label %.loopexit.i.i23, label %86
@@ -39071,7 +38895,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
 106:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
   %107 = load i64, ptr %6, align 8
   %108 = inttoptr i64 %107 to ptr
-  %109 = getelementptr inbounds %"class.gmx::BasicVector", ptr %108, i64 %25
+  %109 = getelementptr inbounds [12 x i8], ptr %108, i64 %25
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_13MorseBondTypeES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeES6_NSC_INS_21FENEBondTypeParameterEEENSC_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit
 
 110:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
@@ -39095,7 +38919,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %117 = load i64, ptr %19, align 8, !tbaa !36
   %118 = urem i64 %25, %117
   %119 = load ptr, ptr %17, align 8, !tbaa !35
-  %120 = getelementptr inbounds nuw ptr, ptr %119, i64 %118
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %119, i64 %118
   %121 = load ptr, ptr %120, align 8, !tbaa !175
   %.not.i.i.i.i.i29 = icmp eq ptr %121, null
   br i1 %.not.i.i.i.i.i29, label %.loopexit.thread, label %122
@@ -39137,7 +38961,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %.pre150 = load i64, ptr %19, align 8, !tbaa !36
   %.pre151 = load ptr, ptr %17, align 8, !tbaa !35
   %.pre155 = urem i64 %25, %.pre150
-  %.phi.trans.insert158 = getelementptr inbounds nuw ptr, ptr %.pre151, i64 %.pre155
+  %.phi.trans.insert158 = getelementptr inbounds nuw [8 x i8], ptr %.pre151, i64 %.pre155
   %.pre159 = load ptr, ptr %.phi.trans.insert158, align 8, !tbaa !175
   br label %.loopexit
 
@@ -39203,7 +39027,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %154 = load i64, ptr %19, align 8, !tbaa !36
   %155 = urem i64 %25, %154
   %156 = load ptr, ptr %17, align 8, !tbaa !35
-  %157 = getelementptr inbounds nuw ptr, ptr %156, i64 %155
+  %157 = getelementptr inbounds nuw [8 x i8], ptr %156, i64 %155
   %158 = load ptr, ptr %157, align 8, !tbaa !175
   %.not.i.i.i.i53 = icmp eq ptr %158, null
   br i1 %.not.i.i.i.i53, label %.loopexit.i.i59, label %159
@@ -39325,9 +39149,9 @@ _ZN5nblib16computeTwoCenterINS_13MorseBondTypeEN3gmx11BasicVectorIfEEDnEEDaRKT_R
 
 217:                                              ; preds = %217, %_ZN5nblib16computeTwoCenterINS_13MorseBondTypeEN3gmx11BasicVectorIfEEDnEEDaRKT_RKT0_PS8_SB_PT1_SD_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib16computeTwoCenterINS_13MorseBondTypeEN3gmx11BasicVectorIfEEDnEEDaRKT_RKT0_PS8_SB_PT1_SD_.exit ], [ %223, %217 ]
-  %218 = getelementptr inbounds nuw float, ptr %14, i64 %.05.i
+  %218 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %.05.i
   %219 = load float, ptr %218, align 4, !tbaa !172
-  %220 = getelementptr inbounds nuw float, ptr %13, i64 %.05.i
+  %220 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %.05.i
   %221 = load float, ptr %220, align 4, !tbaa !172
   %222 = fadd float %219, %221
   store float %222, ptr %220, align 4, !tbaa !172
@@ -39393,14 +39217,14 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %sext = shl i64 %.sroa.01.0.copyload, 32
   %23 = ashr exact i64 %sext, 32
-  %24 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %23
+  %24 = getelementptr inbounds [12 x i8], ptr %4, i64 %23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %24, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %25 = ashr i64 %.sroa.01.0.copyload, 32
-  %26 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %25
+  %26 = getelementptr inbounds [12 x i8], ptr %4, i64 %25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %26, i64 12, i1 false), !tbaa.struct !187
   %27 = sext i32 %.sroa.22.0.copyload to i64
-  %28 = getelementptr inbounds %"class.nblib::TwoParameterInteraction.203", ptr %2, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %2, i64 %27
   %29 = load float, ptr %28, align 4
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = load float, ptr %.sroa_idx, align 4
@@ -39416,7 +39240,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
 35:                                               ; preds = %22
   %36 = load i64, ptr %6, align 8
   %37 = inttoptr i64 %36 to ptr
-  %38 = getelementptr inbounds %"class.gmx::BasicVector", ptr %37, i64 %23
+  %38 = getelementptr inbounds [12 x i8], ptr %37, i64 %23
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
 
 39:                                               ; preds = %22
@@ -39440,7 +39264,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %46 = load i64, ptr %19, align 8, !tbaa !36
   %47 = urem i64 %23, %46
   %48 = load ptr, ptr %17, align 8, !tbaa !35
-  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %47
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %47
   %50 = load ptr, ptr %49, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %50, null
   br i1 %.not.i.i.i.i.i, label %.loopexit115.thread, label %51
@@ -39482,7 +39306,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.pre = load i64, ptr %19, align 8, !tbaa !36
   %.pre147 = load ptr, ptr %17, align 8, !tbaa !35
   %.pre154 = urem i64 %23, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre147, i64 %.pre154
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre147, i64 %.pre154
   %.pre157 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit115
 
@@ -39554,7 +39378,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %83 = load i64, ptr %19, align 8, !tbaa !36
   %84 = urem i64 %23, %83
   %85 = load ptr, ptr %17, align 8, !tbaa !35
-  %86 = getelementptr inbounds nuw ptr, ptr %85, i64 %84
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %84
   %87 = load ptr, ptr %86, align 8, !tbaa !175
   %.not.i.i.i.i17 = icmp eq ptr %87, null
   br i1 %.not.i.i.i.i17, label %.loopexit.i.i23, label %88
@@ -39619,7 +39443,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
 108:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
   %109 = load i64, ptr %6, align 8
   %110 = inttoptr i64 %109 to ptr
-  %111 = getelementptr inbounds %"class.gmx::BasicVector", ptr %110, i64 %25
+  %111 = getelementptr inbounds [12 x i8], ptr %110, i64 %25
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_23TwoParameterInteractionINS_21FENEBondTypeParameterEEES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS6_INS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeENS_13MorseBondTypeES8_NS6_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit
 
 112:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
@@ -39643,7 +39467,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %119 = load i64, ptr %19, align 8, !tbaa !36
   %120 = urem i64 %25, %119
   %121 = load ptr, ptr %17, align 8, !tbaa !35
-  %122 = getelementptr inbounds nuw ptr, ptr %121, i64 %120
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %121, i64 %120
   %123 = load ptr, ptr %122, align 8, !tbaa !175
   %.not.i.i.i.i.i29 = icmp eq ptr %123, null
   br i1 %.not.i.i.i.i.i29, label %.loopexit.thread, label %124
@@ -39685,7 +39509,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %.pre150 = load i64, ptr %19, align 8, !tbaa !36
   %.pre151 = load ptr, ptr %17, align 8, !tbaa !35
   %.pre155 = urem i64 %25, %.pre150
-  %.phi.trans.insert158 = getelementptr inbounds nuw ptr, ptr %.pre151, i64 %.pre155
+  %.phi.trans.insert158 = getelementptr inbounds nuw [8 x i8], ptr %.pre151, i64 %.pre155
   %.pre159 = load ptr, ptr %.phi.trans.insert158, align 8, !tbaa !175
   br label %.loopexit
 
@@ -39751,7 +39575,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %156 = load i64, ptr %19, align 8, !tbaa !36
   %157 = urem i64 %25, %156
   %158 = load ptr, ptr %17, align 8, !tbaa !35
-  %159 = getelementptr inbounds nuw ptr, ptr %158, i64 %157
+  %159 = getelementptr inbounds nuw [8 x i8], ptr %158, i64 %157
   %160 = load ptr, ptr %159, align 8, !tbaa !175
   %.not.i.i.i.i53 = icmp eq ptr %160, null
   br i1 %.not.i.i.i.i53, label %.loopexit.i.i59, label %161
@@ -39874,9 +39698,9 @@ _ZN5nblib16computeTwoCenterINS_23TwoParameterInteractionINS_21FENEBondTypeParame
 
 220:                                              ; preds = %220, %_ZN5nblib16computeTwoCenterINS_23TwoParameterInteractionINS_21FENEBondTypeParameterEEEN3gmx11BasicVectorIfEEDnEEDaRKT_RKT0_PSA_SD_PT1_SF_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib16computeTwoCenterINS_23TwoParameterInteractionINS_21FENEBondTypeParameterEEEN3gmx11BasicVectorIfEEDnEEDaRKT_RKT0_PSA_SD_PT1_SF_.exit ], [ %226, %220 ]
-  %221 = getelementptr inbounds nuw float, ptr %14, i64 %.05.i
+  %221 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %.05.i
   %222 = load float, ptr %221, align 4, !tbaa !172
-  %223 = getelementptr inbounds nuw float, ptr %13, i64 %.05.i
+  %223 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %.05.i
   %224 = load float, ptr %223, align 4, !tbaa !172
   %225 = fadd float %222, %224
   store float %225, ptr %223, align 4, !tbaa !172
@@ -39942,14 +39766,14 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %sext = shl i64 %.sroa.01.0.copyload, 32
   %23 = ashr exact i64 %sext, 32
-  %24 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %23
+  %24 = getelementptr inbounds [12 x i8], ptr %4, i64 %23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %24, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %25 = ashr i64 %.sroa.01.0.copyload, 32
-  %26 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %25
+  %26 = getelementptr inbounds [12 x i8], ptr %4, i64 %25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %26, i64 12, i1 false), !tbaa.struct !187
   %27 = sext i32 %.sroa.22.0.copyload to i64
-  %28 = getelementptr inbounds %"class.nblib::TwoParameterInteraction.206", ptr %2, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %2, i64 %27
   %29 = load float, ptr %28, align 4
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = load float, ptr %.sroa_idx, align 4
@@ -39965,7 +39789,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
 35:                                               ; preds = %22
   %36 = load i64, ptr %6, align 8
   %37 = inttoptr i64 %36 to ptr
-  %38 = getelementptr inbounds %"class.gmx::BasicVector", ptr %37, i64 %23
+  %38 = getelementptr inbounds [12 x i8], ptr %37, i64 %23
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
 
 39:                                               ; preds = %22
@@ -39989,7 +39813,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %46 = load i64, ptr %19, align 8, !tbaa !36
   %47 = urem i64 %23, %46
   %48 = load ptr, ptr %17, align 8, !tbaa !35
-  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %47
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %47
   %50 = load ptr, ptr %49, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %50, null
   br i1 %.not.i.i.i.i.i, label %.loopexit115.thread, label %51
@@ -40031,7 +39855,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.pre = load i64, ptr %19, align 8, !tbaa !36
   %.pre147 = load ptr, ptr %17, align 8, !tbaa !35
   %.pre154 = urem i64 %23, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre147, i64 %.pre154
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre147, i64 %.pre154
   %.pre157 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit115
 
@@ -40103,7 +39927,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %83 = load i64, ptr %19, align 8, !tbaa !36
   %84 = urem i64 %23, %83
   %85 = load ptr, ptr %17, align 8, !tbaa !35
-  %86 = getelementptr inbounds nuw ptr, ptr %85, i64 %84
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %84
   %87 = load ptr, ptr %86, align 8, !tbaa !175
   %.not.i.i.i.i17 = icmp eq ptr %87, null
   br i1 %.not.i.i.i.i17, label %.loopexit.i.i23, label %88
@@ -40168,7 +39992,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
 108:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
   %109 = load i64, ptr %6, align 8
   %110 = inttoptr i64 %109 to ptr
-  %111 = getelementptr inbounds %"class.gmx::BasicVector", ptr %110, i64 %25
+  %111 = getelementptr inbounds [12 x i8], ptr %110, i64 %25
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_23TwoParameterInteractionINS_38HalfAttractiveQuarticBondTypeParameterEEES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS6_INS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeENS_13MorseBondTypeENS6_INS_21FENEBondTypeParameterEEES8_NS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit
 
 112:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
@@ -40192,7 +40016,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %119 = load i64, ptr %19, align 8, !tbaa !36
   %120 = urem i64 %25, %119
   %121 = load ptr, ptr %17, align 8, !tbaa !35
-  %122 = getelementptr inbounds nuw ptr, ptr %121, i64 %120
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %121, i64 %120
   %123 = load ptr, ptr %122, align 8, !tbaa !175
   %.not.i.i.i.i.i29 = icmp eq ptr %123, null
   br i1 %.not.i.i.i.i.i29, label %.loopexit.thread, label %124
@@ -40234,7 +40058,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %.pre150 = load i64, ptr %19, align 8, !tbaa !36
   %.pre151 = load ptr, ptr %17, align 8, !tbaa !35
   %.pre155 = urem i64 %25, %.pre150
-  %.phi.trans.insert158 = getelementptr inbounds nuw ptr, ptr %.pre151, i64 %.pre155
+  %.phi.trans.insert158 = getelementptr inbounds nuw [8 x i8], ptr %.pre151, i64 %.pre155
   %.pre159 = load ptr, ptr %.phi.trans.insert158, align 8, !tbaa !175
   br label %.loopexit
 
@@ -40300,7 +40124,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %156 = load i64, ptr %19, align 8, !tbaa !36
   %157 = urem i64 %25, %156
   %158 = load ptr, ptr %17, align 8, !tbaa !35
-  %159 = getelementptr inbounds nuw ptr, ptr %158, i64 %157
+  %159 = getelementptr inbounds nuw [8 x i8], ptr %158, i64 %157
   %160 = load ptr, ptr %159, align 8, !tbaa !175
   %.not.i.i.i.i53 = icmp eq ptr %160, null
   br i1 %.not.i.i.i.i53, label %.loopexit.i.i59, label %161
@@ -40421,9 +40245,9 @@ _ZN5nblib16computeTwoCenterINS_23TwoParameterInteractionINS_38HalfAttractiveQuar
 
 218:                                              ; preds = %218, %_ZN5nblib16computeTwoCenterINS_23TwoParameterInteractionINS_38HalfAttractiveQuarticBondTypeParameterEEEN3gmx11BasicVectorIfEEDnEEDaRKT_RKT0_PSA_SD_PT1_SF_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib16computeTwoCenterINS_23TwoParameterInteractionINS_38HalfAttractiveQuarticBondTypeParameterEEEN3gmx11BasicVectorIfEEDnEEDaRKT_RKT0_PSA_SD_PT1_SF_.exit ], [ %224, %218 ]
-  %219 = getelementptr inbounds nuw float, ptr %14, i64 %.05.i
+  %219 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %.05.i
   %220 = load float, ptr %219, align 4, !tbaa !172
-  %221 = getelementptr inbounds nuw float, ptr %13, i64 %.05.i
+  %221 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %.05.i
   %222 = load float, ptr %221, align 4, !tbaa !172
   %223 = fadd float %220, %222
   store float %223, ptr %221, align 4, !tbaa !172
@@ -40489,14 +40313,14 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %sext = shl i64 %.sroa.01.0.copyload, 32
   %23 = ashr exact i64 %sext, 32
-  %24 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %23
+  %24 = getelementptr inbounds [12 x i8], ptr %4, i64 %23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %24, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %25 = ashr i64 %.sroa.01.0.copyload, 32
-  %26 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %25
+  %26 = getelementptr inbounds [12 x i8], ptr %4, i64 %25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %26, i64 12, i1 false), !tbaa.struct !187
   %27 = sext i32 %.sroa.22.0.copyload to i64
-  %28 = getelementptr inbounds %"class.nblib::PairLJType", ptr %2, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %2, i64 %27
   %29 = load float, ptr %28, align 4
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = load float, ptr %.sroa_idx, align 4
@@ -40512,7 +40336,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
 35:                                               ; preds = %22
   %36 = load i64, ptr %6, align 8
   %37 = inttoptr i64 %36 to ptr
-  %38 = getelementptr inbounds %"class.gmx::BasicVector", ptr %37, i64 %23
+  %38 = getelementptr inbounds [12 x i8], ptr %37, i64 %23
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
 
 39:                                               ; preds = %22
@@ -40536,7 +40360,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %46 = load i64, ptr %19, align 8, !tbaa !36
   %47 = urem i64 %23, %46
   %48 = load ptr, ptr %17, align 8, !tbaa !35
-  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %47
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %47
   %50 = load ptr, ptr %49, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %50, null
   br i1 %.not.i.i.i.i.i, label %.loopexit116.thread, label %51
@@ -40578,7 +40402,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.pre = load i64, ptr %19, align 8, !tbaa !36
   %.pre148 = load ptr, ptr %17, align 8, !tbaa !35
   %.pre155 = urem i64 %23, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre148, i64 %.pre155
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre148, i64 %.pre155
   %.pre158 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit116
 
@@ -40650,7 +40474,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %83 = load i64, ptr %19, align 8, !tbaa !36
   %84 = urem i64 %23, %83
   %85 = load ptr, ptr %17, align 8, !tbaa !35
-  %86 = getelementptr inbounds nuw ptr, ptr %85, i64 %84
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %84
   %87 = load ptr, ptr %86, align 8, !tbaa !175
   %.not.i.i.i.i17 = icmp eq ptr %87, null
   br i1 %.not.i.i.i.i17, label %.loopexit.i.i23, label %88
@@ -40715,7 +40539,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
 108:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
   %109 = load i64, ptr %6, align 8
   %110 = inttoptr i64 %109 to ptr
-  %111 = getelementptr inbounds %"class.gmx::BasicVector", ptr %110, i64 %25
+  %111 = getelementptr inbounds [12 x i8], ptr %110, i64 %25
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_10PairLJTypeES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeENS_13MorseBondTypeENSC_INS_21FENEBondTypeParameterEEENSC_INS_38HalfAttractiveQuarticBondTypeParameterEEES6_EEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit
 
 112:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
@@ -40739,7 +40563,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %119 = load i64, ptr %19, align 8, !tbaa !36
   %120 = urem i64 %25, %119
   %121 = load ptr, ptr %17, align 8, !tbaa !35
-  %122 = getelementptr inbounds nuw ptr, ptr %121, i64 %120
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %121, i64 %120
   %123 = load ptr, ptr %122, align 8, !tbaa !175
   %.not.i.i.i.i.i29 = icmp eq ptr %123, null
   br i1 %.not.i.i.i.i.i29, label %.loopexit.thread, label %124
@@ -40781,7 +40605,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %.pre151 = load i64, ptr %19, align 8, !tbaa !36
   %.pre152 = load ptr, ptr %17, align 8, !tbaa !35
   %.pre156 = urem i64 %25, %.pre151
-  %.phi.trans.insert159 = getelementptr inbounds nuw ptr, ptr %.pre152, i64 %.pre156
+  %.phi.trans.insert159 = getelementptr inbounds nuw [8 x i8], ptr %.pre152, i64 %.pre156
   %.pre160 = load ptr, ptr %.phi.trans.insert159, align 8, !tbaa !175
   br label %.loopexit
 
@@ -40847,7 +40671,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %156 = load i64, ptr %19, align 8, !tbaa !36
   %157 = urem i64 %25, %156
   %158 = load ptr, ptr %17, align 8, !tbaa !35
-  %159 = getelementptr inbounds nuw ptr, ptr %158, i64 %157
+  %159 = getelementptr inbounds nuw [8 x i8], ptr %158, i64 %157
   %160 = load ptr, ptr %159, align 8, !tbaa !175
   %.not.i.i.i.i53 = icmp eq ptr %160, null
   br i1 %.not.i.i.i.i53, label %.loopexit.i.i59, label %161
@@ -40967,9 +40791,9 @@ _ZN5nblib16computeTwoCenterINS_10PairLJTypeEN3gmx11BasicVectorIfEEDnEEDaRKT_RKT0
 
 217:                                              ; preds = %217, %_ZN5nblib16computeTwoCenterINS_10PairLJTypeEN3gmx11BasicVectorIfEEDnEEDaRKT_RKT0_PS8_SB_PT1_SD_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib16computeTwoCenterINS_10PairLJTypeEN3gmx11BasicVectorIfEEDnEEDaRKT_RKT0_PS8_SB_PT1_SD_.exit ], [ %223, %217 ]
-  %218 = getelementptr inbounds nuw float, ptr %14, i64 %.05.i
+  %218 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %.05.i
   %219 = load float, ptr %218, align 4, !tbaa !172
-  %220 = getelementptr inbounds nuw float, ptr %13, i64 %.05.i
+  %220 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %.05.i
   %221 = load float, ptr %220, align 4, !tbaa !172
   %222 = fadd float %219, %221
   store float %222, ptr %220, align 4, !tbaa !172
@@ -41041,19 +40865,19 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %sext = shl i64 %.sroa.0.0.copyload, 32
   %26 = ashr exact i64 %sext, 32
-  %27 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %26
+  %27 = getelementptr inbounds [12 x i8], ptr %4, i64 %26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %27, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %28 = ashr i64 %.sroa.0.0.copyload, 32
-  %29 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %28
+  %29 = getelementptr inbounds [12 x i8], ptr %4, i64 %28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %29, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %sext190 = shl i64 %.sroa.2.0.copyload, 32
   %30 = ashr exact i64 %sext190, 32
-  %31 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %30
+  %31 = getelementptr inbounds [12 x i8], ptr %4, i64 %30
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %31, i64 12, i1 false), !tbaa.struct !187
   %32 = ashr i64 %.sroa.2.0.copyload, 32
-  %33 = getelementptr inbounds %"class.nblib::AngleInteractionType", ptr %2, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %2, i64 %32
   %34 = load float, ptr %33, align 4
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 4
   %35 = load float, ptr %.sroa_idx, align 4
@@ -41189,7 +41013,7 @@ _ZN5nblib23spreadThreeCenterForcesIfDnEEvT_S1_RKN3gmx11BasicVectorIS1_EES6_PS4_S
 125:                                              ; preds = %_ZN5nblib23spreadThreeCenterForcesIfDnEEvT_S1_RKN3gmx11BasicVectorIS1_EES6_PS4_S7_S7_PT0_S9_S9_.exit
   %126 = load i64, ptr %6, align 8
   %127 = inttoptr i64 %126 to ptr
-  %128 = getelementptr inbounds %"class.gmx::BasicVector", ptr %127, i64 %26
+  %128 = getelementptr inbounds [12 x i8], ptr %127, i64 %26
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
 
 129:                                              ; preds = %_ZN5nblib23spreadThreeCenterForcesIfDnEEvT_S1_RKN3gmx11BasicVectorIS1_EES6_PS4_S7_S7_PT0_S9_S9_.exit
@@ -41213,7 +41037,7 @@ _ZN5nblib23spreadThreeCenterForcesIfDnEEvT_S1_RKN3gmx11BasicVectorIS1_EES6_PS4_S
   %136 = load i64, ptr %22, align 8, !tbaa !36
   %137 = urem i64 %26, %136
   %138 = load ptr, ptr %20, align 8, !tbaa !35
-  %139 = getelementptr inbounds nuw ptr, ptr %138, i64 %137
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %138, i64 %137
   %140 = load ptr, ptr %139, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %140, null
   br i1 %.not.i.i.i.i.i, label %.loopexit197.thread, label %141
@@ -41255,7 +41079,7 @@ _ZN5nblib23spreadThreeCenterForcesIfDnEEvT_S1_RKN3gmx11BasicVectorIS1_EES6_PS4_S
   %.pre = load i64, ptr %22, align 8, !tbaa !36
   %.pre244 = load ptr, ptr %20, align 8, !tbaa !35
   %.pre251 = urem i64 %26, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre244, i64 %.pre251
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre244, i64 %.pre251
   %.pre256 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit197
 
@@ -41327,7 +41151,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %173 = load i64, ptr %22, align 8, !tbaa !36
   %174 = urem i64 %26, %173
   %175 = load ptr, ptr %20, align 8, !tbaa !35
-  %176 = getelementptr inbounds nuw ptr, ptr %175, i64 %174
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %175, i64 %174
   %177 = load ptr, ptr %176, align 8, !tbaa !175
   %.not.i.i.i.i13 = icmp eq ptr %177, null
   br i1 %.not.i.i.i.i13, label %.loopexit.i.i19, label %178
@@ -41404,7 +41228,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
 206:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
   %207 = load i64, ptr %6, align 8
   %208 = inttoptr i64 %207 to ptr
-  %209 = getelementptr inbounds %"class.gmx::BasicVector", ptr %208, i64 %28
+  %209 = getelementptr inbounds [12 x i8], ptr %208, i64 %28
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
 
 210:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
@@ -41428,7 +41252,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %217 = load i64, ptr %22, align 8, !tbaa !36
   %218 = urem i64 %28, %217
   %219 = load ptr, ptr %20, align 8, !tbaa !35
-  %220 = getelementptr inbounds nuw ptr, ptr %219, i64 %218
+  %220 = getelementptr inbounds nuw [8 x i8], ptr %219, i64 %218
   %221 = load ptr, ptr %220, align 8, !tbaa !175
   %.not.i.i.i.i.i25 = icmp eq ptr %221, null
   br i1 %.not.i.i.i.i.i25, label %.loopexit194.thread, label %222
@@ -41470,7 +41294,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %.pre245 = load i64, ptr %22, align 8, !tbaa !36
   %.pre246 = load ptr, ptr %20, align 8, !tbaa !35
   %.pre252 = urem i64 %28, %.pre245
-  %.phi.trans.insert257 = getelementptr inbounds nuw ptr, ptr %.pre246, i64 %.pre252
+  %.phi.trans.insert257 = getelementptr inbounds nuw [8 x i8], ptr %.pre246, i64 %.pre252
   %.pre258 = load ptr, ptr %.phi.trans.insert257, align 8, !tbaa !175
   br label %.loopexit194
 
@@ -41536,7 +41360,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %254 = load i64, ptr %22, align 8, !tbaa !36
   %255 = urem i64 %28, %254
   %256 = load ptr, ptr %20, align 8, !tbaa !35
-  %257 = getelementptr inbounds nuw ptr, ptr %256, i64 %255
+  %257 = getelementptr inbounds nuw [8 x i8], ptr %256, i64 %255
   %258 = load ptr, ptr %257, align 8, !tbaa !175
   %.not.i.i.i.i49 = icmp eq ptr %258, null
   br i1 %.not.i.i.i.i49, label %.loopexit.i.i55, label %259
@@ -41613,7 +41437,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
 287:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
   %288 = load i64, ptr %6, align 8
   %289 = inttoptr i64 %288 to ptr
-  %290 = getelementptr inbounds %"class.gmx::BasicVector", ptr %289, i64 %30
+  %290 = getelementptr inbounds [12 x i8], ptr %289, i64 %30
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJS8_NS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSE_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
 
 291:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
@@ -41637,7 +41461,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %298 = load i64, ptr %22, align 8, !tbaa !36
   %299 = urem i64 %30, %298
   %300 = load ptr, ptr %20, align 8, !tbaa !35
-  %301 = getelementptr inbounds nuw ptr, ptr %300, i64 %299
+  %301 = getelementptr inbounds nuw [8 x i8], ptr %300, i64 %299
   %302 = load ptr, ptr %301, align 8, !tbaa !175
   %.not.i.i.i.i.i63 = icmp eq ptr %302, null
   br i1 %.not.i.i.i.i.i63, label %.loopexit.thread, label %303
@@ -41679,7 +41503,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %.pre247 = load i64, ptr %22, align 8, !tbaa !36
   %.pre248 = load ptr, ptr %20, align 8, !tbaa !35
   %.pre254 = urem i64 %30, %.pre247
-  %.phi.trans.insert259 = getelementptr inbounds nuw ptr, ptr %.pre248, i64 %.pre254
+  %.phi.trans.insert259 = getelementptr inbounds nuw [8 x i8], ptr %.pre248, i64 %.pre254
   %.pre260 = load ptr, ptr %.phi.trans.insert259, align 8, !tbaa !175
   br label %.loopexit
 
@@ -41745,7 +41569,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %335 = load i64, ptr %22, align 8, !tbaa !36
   %336 = urem i64 %30, %335
   %337 = load ptr, ptr %20, align 8, !tbaa !35
-  %338 = getelementptr inbounds nuw ptr, ptr %337, i64 %336
+  %338 = getelementptr inbounds nuw [8 x i8], ptr %337, i64 %336
   %339 = load ptr, ptr %338, align 8, !tbaa !175
   %.not.i.i.i.i87 = icmp eq ptr %339, null
   br i1 %.not.i.i.i.i87, label %.loopexit.i.i93, label %340
@@ -41824,9 +41648,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 365:                                              ; preds = %365, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJS8_NS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSE_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJS8_NS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSE_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit ], [ %371, %365 ]
-  %366 = getelementptr inbounds nuw float, ptr %17, i64 %.05.i
+  %366 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %.05.i
   %367 = load float, ptr %366, align 4, !tbaa !172
-  %368 = getelementptr inbounds nuw float, ptr %16, i64 %.05.i
+  %368 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.05.i
   %369 = load float, ptr %368, align 4, !tbaa !172
   %370 = fadd float %367, %369
   store float %370, ptr %368, align 4, !tbaa !172
@@ -41898,19 +41722,19 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %sext = shl i64 %.sroa.0.0.copyload, 32
   %26 = ashr exact i64 %sext, 32
-  %27 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %26
+  %27 = getelementptr inbounds [12 x i8], ptr %4, i64 %26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %27, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %28 = ashr i64 %.sroa.0.0.copyload, 32
-  %29 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %28
+  %29 = getelementptr inbounds [12 x i8], ptr %4, i64 %28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %29, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %sext190 = shl i64 %.sroa.2.0.copyload, 32
   %30 = ashr exact i64 %sext190, 32
-  %31 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %30
+  %31 = getelementptr inbounds [12 x i8], ptr %4, i64 %30
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %31, i64 12, i1 false), !tbaa.struct !187
   %32 = ashr i64 %.sroa.2.0.copyload, 32
-  %33 = getelementptr inbounds %"class.nblib::CosineParamAngle", ptr %2, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %2, i64 %32
   %34 = load float, ptr %33, align 4
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 4
   %35 = load float, ptr %.sroa_idx, align 4
@@ -42052,7 +41876,7 @@ _ZN5nblib23spreadThreeCenterForcesIfDnEEvT_S1_RKN3gmx11BasicVectorIS1_EES6_PS4_S
 131:                                              ; preds = %_ZN5nblib23spreadThreeCenterForcesIfDnEEvT_S1_RKN3gmx11BasicVectorIS1_EES6_PS4_S7_S7_PT0_S9_S9_.exit
   %132 = load i64, ptr %6, align 8
   %133 = inttoptr i64 %132 to ptr
-  %134 = getelementptr inbounds %"class.gmx::BasicVector", ptr %133, i64 %26
+  %134 = getelementptr inbounds [12 x i8], ptr %133, i64 %26
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
 
 135:                                              ; preds = %_ZN5nblib23spreadThreeCenterForcesIfDnEEvT_S1_RKN3gmx11BasicVectorIS1_EES6_PS4_S7_S7_PT0_S9_S9_.exit
@@ -42076,7 +41900,7 @@ _ZN5nblib23spreadThreeCenterForcesIfDnEEvT_S1_RKN3gmx11BasicVectorIS1_EES6_PS4_S
   %142 = load i64, ptr %22, align 8, !tbaa !36
   %143 = urem i64 %26, %142
   %144 = load ptr, ptr %20, align 8, !tbaa !35
-  %145 = getelementptr inbounds nuw ptr, ptr %144, i64 %143
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %144, i64 %143
   %146 = load ptr, ptr %145, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %146, null
   br i1 %.not.i.i.i.i.i, label %.loopexit197.thread, label %147
@@ -42118,7 +41942,7 @@ _ZN5nblib23spreadThreeCenterForcesIfDnEEvT_S1_RKN3gmx11BasicVectorIS1_EES6_PS4_S
   %.pre = load i64, ptr %22, align 8, !tbaa !36
   %.pre244 = load ptr, ptr %20, align 8, !tbaa !35
   %.pre251 = urem i64 %26, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre244, i64 %.pre251
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre244, i64 %.pre251
   %.pre256 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit197
 
@@ -42190,7 +42014,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %179 = load i64, ptr %22, align 8, !tbaa !36
   %180 = urem i64 %26, %179
   %181 = load ptr, ptr %20, align 8, !tbaa !35
-  %182 = getelementptr inbounds nuw ptr, ptr %181, i64 %180
+  %182 = getelementptr inbounds nuw [8 x i8], ptr %181, i64 %180
   %183 = load ptr, ptr %182, align 8, !tbaa !175
   %.not.i.i.i.i13 = icmp eq ptr %183, null
   br i1 %.not.i.i.i.i13, label %.loopexit.i.i19, label %184
@@ -42267,7 +42091,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
 212:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
   %213 = load i64, ptr %6, align 8
   %214 = inttoptr i64 %213 to ptr
-  %215 = getelementptr inbounds %"class.gmx::BasicVector", ptr %214, i64 %28
+  %215 = getelementptr inbounds [12 x i8], ptr %214, i64 %28
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
 
 216:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
@@ -42291,7 +42115,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %223 = load i64, ptr %22, align 8, !tbaa !36
   %224 = urem i64 %28, %223
   %225 = load ptr, ptr %20, align 8, !tbaa !35
-  %226 = getelementptr inbounds nuw ptr, ptr %225, i64 %224
+  %226 = getelementptr inbounds nuw [8 x i8], ptr %225, i64 %224
   %227 = load ptr, ptr %226, align 8, !tbaa !175
   %.not.i.i.i.i.i25 = icmp eq ptr %227, null
   br i1 %.not.i.i.i.i.i25, label %.loopexit194.thread, label %228
@@ -42333,7 +42157,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %.pre245 = load i64, ptr %22, align 8, !tbaa !36
   %.pre246 = load ptr, ptr %20, align 8, !tbaa !35
   %.pre252 = urem i64 %28, %.pre245
-  %.phi.trans.insert257 = getelementptr inbounds nuw ptr, ptr %.pre246, i64 %.pre252
+  %.phi.trans.insert257 = getelementptr inbounds nuw [8 x i8], ptr %.pre246, i64 %.pre252
   %.pre258 = load ptr, ptr %.phi.trans.insert257, align 8, !tbaa !175
   br label %.loopexit194
 
@@ -42399,7 +42223,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %260 = load i64, ptr %22, align 8, !tbaa !36
   %261 = urem i64 %28, %260
   %262 = load ptr, ptr %20, align 8, !tbaa !35
-  %263 = getelementptr inbounds nuw ptr, ptr %262, i64 %261
+  %263 = getelementptr inbounds nuw [8 x i8], ptr %262, i64 %261
   %264 = load ptr, ptr %263, align 8, !tbaa !175
   %.not.i.i.i.i49 = icmp eq ptr %264, null
   br i1 %.not.i.i.i.i49, label %.loopexit.i.i55, label %265
@@ -42476,7 +42300,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
 293:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
   %294 = load i64, ptr %6, align 8
   %295 = inttoptr i64 %294 to ptr
-  %296 = getelementptr inbounds %"class.gmx::BasicVector", ptr %295, i64 %30
+  %296 = getelementptr inbounds [12 x i8], ptr %295, i64 %30
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16CosineParamAngleINS_17G96AngleParameterEEES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEES8_NS_12QuarticAngleENS6_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
 
 297:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
@@ -42500,7 +42324,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %304 = load i64, ptr %22, align 8, !tbaa !36
   %305 = urem i64 %30, %304
   %306 = load ptr, ptr %20, align 8, !tbaa !35
-  %307 = getelementptr inbounds nuw ptr, ptr %306, i64 %305
+  %307 = getelementptr inbounds nuw [8 x i8], ptr %306, i64 %305
   %308 = load ptr, ptr %307, align 8, !tbaa !175
   %.not.i.i.i.i.i63 = icmp eq ptr %308, null
   br i1 %.not.i.i.i.i.i63, label %.loopexit.thread, label %309
@@ -42542,7 +42366,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %.pre247 = load i64, ptr %22, align 8, !tbaa !36
   %.pre248 = load ptr, ptr %20, align 8, !tbaa !35
   %.pre254 = urem i64 %30, %.pre247
-  %.phi.trans.insert259 = getelementptr inbounds nuw ptr, ptr %.pre248, i64 %.pre254
+  %.phi.trans.insert259 = getelementptr inbounds nuw [8 x i8], ptr %.pre248, i64 %.pre254
   %.pre260 = load ptr, ptr %.phi.trans.insert259, align 8, !tbaa !175
   br label %.loopexit
 
@@ -42608,7 +42432,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %341 = load i64, ptr %22, align 8, !tbaa !36
   %342 = urem i64 %30, %341
   %343 = load ptr, ptr %20, align 8, !tbaa !35
-  %344 = getelementptr inbounds nuw ptr, ptr %343, i64 %342
+  %344 = getelementptr inbounds nuw [8 x i8], ptr %343, i64 %342
   %345 = load ptr, ptr %344, align 8, !tbaa !175
   %.not.i.i.i.i87 = icmp eq ptr %345, null
   br i1 %.not.i.i.i.i87, label %.loopexit.i.i93, label %346
@@ -42687,9 +42511,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 371:                                              ; preds = %371, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16CosineParamAngleINS_17G96AngleParameterEEES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEES8_NS_12QuarticAngleENS6_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16CosineParamAngleINS_17G96AngleParameterEEES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEES8_NS_12QuarticAngleENS6_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit ], [ %377, %371 ]
-  %372 = getelementptr inbounds nuw float, ptr %17, i64 %.05.i
+  %372 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %.05.i
   %373 = load float, ptr %372, align 4, !tbaa !172
-  %374 = getelementptr inbounds nuw float, ptr %16, i64 %.05.i
+  %374 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.05.i
   %375 = load float, ptr %374, align 4, !tbaa !172
   %376 = fadd float %373, %375
   store float %376, ptr %374, align 4, !tbaa !172
@@ -42761,19 +42585,19 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %sext = shl i64 %.sroa.0.0.copyload, 32
   %26 = ashr exact i64 %sext, 32
-  %27 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %26
+  %27 = getelementptr inbounds [12 x i8], ptr %4, i64 %26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %27, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %28 = ashr i64 %.sroa.0.0.copyload, 32
-  %29 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %28
+  %29 = getelementptr inbounds [12 x i8], ptr %4, i64 %28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %29, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %sext196 = shl i64 %.sroa.2.0.copyload, 32
   %30 = ashr exact i64 %sext196, 32
-  %31 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %30
+  %31 = getelementptr inbounds [12 x i8], ptr %4, i64 %30
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %31, i64 12, i1 false), !tbaa.struct !187
   %32 = ashr i64 %.sroa.2.0.copyload, 32
-  %33 = getelementptr inbounds %"class.nblib::QuarticAngle", ptr %2, i64 %32
+  %33 = getelementptr inbounds [24 x i8], ptr %2, i64 %32
   %.sroa.0152.0.copyload = load float, ptr %33, align 4
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 4
   %.sroa.5.0.copyload = load float, ptr %.sroa.5.0..sroa_idx, align 4
@@ -42948,7 +42772,7 @@ _ZN5nblib23spreadThreeCenterForcesIfDnEEvT_S1_RKN3gmx11BasicVectorIS1_EES6_PS4_S
 126:                                              ; preds = %_ZN5nblib23spreadThreeCenterForcesIfDnEEvT_S1_RKN3gmx11BasicVectorIS1_EES6_PS4_S7_S7_PT0_S9_S9_.exit
   %127 = load i64, ptr %6, align 8
   %128 = inttoptr i64 %127 to ptr
-  %129 = getelementptr inbounds %"class.gmx::BasicVector", ptr %128, i64 %26
+  %129 = getelementptr inbounds [12 x i8], ptr %128, i64 %26
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
 
 130:                                              ; preds = %_ZN5nblib23spreadThreeCenterForcesIfDnEEvT_S1_RKN3gmx11BasicVectorIS1_EES6_PS4_S7_S7_PT0_S9_S9_.exit
@@ -42972,7 +42796,7 @@ _ZN5nblib23spreadThreeCenterForcesIfDnEEvT_S1_RKN3gmx11BasicVectorIS1_EES6_PS4_S
   %137 = load i64, ptr %22, align 8, !tbaa !36
   %138 = urem i64 %26, %137
   %139 = load ptr, ptr %20, align 8, !tbaa !35
-  %140 = getelementptr inbounds nuw ptr, ptr %139, i64 %138
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %139, i64 %138
   %141 = load ptr, ptr %140, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %141, null
   br i1 %.not.i.i.i.i.i, label %.loopexit203.thread, label %142
@@ -43014,7 +42838,7 @@ _ZN5nblib23spreadThreeCenterForcesIfDnEEvT_S1_RKN3gmx11BasicVectorIS1_EES6_PS4_S
   %.pre = load i64, ptr %22, align 8, !tbaa !36
   %.pre266 = load ptr, ptr %20, align 8, !tbaa !35
   %.pre273 = urem i64 %26, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre266, i64 %.pre273
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre266, i64 %.pre273
   %.pre278 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit203
 
@@ -43086,7 +42910,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %174 = load i64, ptr %22, align 8, !tbaa !36
   %175 = urem i64 %26, %174
   %176 = load ptr, ptr %20, align 8, !tbaa !35
-  %177 = getelementptr inbounds nuw ptr, ptr %176, i64 %175
+  %177 = getelementptr inbounds nuw [8 x i8], ptr %176, i64 %175
   %178 = load ptr, ptr %177, align 8, !tbaa !175
   %.not.i.i.i.i13 = icmp eq ptr %178, null
   br i1 %.not.i.i.i.i13, label %.loopexit.i.i19, label %179
@@ -43163,7 +42987,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
 207:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
   %208 = load i64, ptr %6, align 8
   %209 = inttoptr i64 %208 to ptr
-  %210 = getelementptr inbounds %"class.gmx::BasicVector", ptr %209, i64 %28
+  %210 = getelementptr inbounds [12 x i8], ptr %209, i64 %28
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
 
 211:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
@@ -43187,7 +43011,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %218 = load i64, ptr %22, align 8, !tbaa !36
   %219 = urem i64 %28, %218
   %220 = load ptr, ptr %20, align 8, !tbaa !35
-  %221 = getelementptr inbounds nuw ptr, ptr %220, i64 %219
+  %221 = getelementptr inbounds nuw [8 x i8], ptr %220, i64 %219
   %222 = load ptr, ptr %221, align 8, !tbaa !175
   %.not.i.i.i.i.i25 = icmp eq ptr %222, null
   br i1 %.not.i.i.i.i.i25, label %.loopexit200.thread, label %223
@@ -43229,7 +43053,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %.pre267 = load i64, ptr %22, align 8, !tbaa !36
   %.pre268 = load ptr, ptr %20, align 8, !tbaa !35
   %.pre274 = urem i64 %28, %.pre267
-  %.phi.trans.insert279 = getelementptr inbounds nuw ptr, ptr %.pre268, i64 %.pre274
+  %.phi.trans.insert279 = getelementptr inbounds nuw [8 x i8], ptr %.pre268, i64 %.pre274
   %.pre280 = load ptr, ptr %.phi.trans.insert279, align 8, !tbaa !175
   br label %.loopexit200
 
@@ -43295,7 +43119,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %255 = load i64, ptr %22, align 8, !tbaa !36
   %256 = urem i64 %28, %255
   %257 = load ptr, ptr %20, align 8, !tbaa !35
-  %258 = getelementptr inbounds nuw ptr, ptr %257, i64 %256
+  %258 = getelementptr inbounds nuw [8 x i8], ptr %257, i64 %256
   %259 = load ptr, ptr %258, align 8, !tbaa !175
   %.not.i.i.i.i49 = icmp eq ptr %259, null
   br i1 %.not.i.i.i.i49, label %.loopexit.i.i55, label %260
@@ -43372,7 +43196,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
 288:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
   %289 = load i64, ptr %6, align 8
   %290 = inttoptr i64 %289 to ptr
-  %291 = getelementptr inbounds %"class.gmx::BasicVector", ptr %290, i64 %30
+  %291 = getelementptr inbounds [12 x i8], ptr %290, i64 %30
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_12QuarticAngleES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEES6_NSF_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
 
 292:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
@@ -43396,7 +43220,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %299 = load i64, ptr %22, align 8, !tbaa !36
   %300 = urem i64 %30, %299
   %301 = load ptr, ptr %20, align 8, !tbaa !35
-  %302 = getelementptr inbounds nuw ptr, ptr %301, i64 %300
+  %302 = getelementptr inbounds nuw [8 x i8], ptr %301, i64 %300
   %303 = load ptr, ptr %302, align 8, !tbaa !175
   %.not.i.i.i.i.i63 = icmp eq ptr %303, null
   br i1 %.not.i.i.i.i.i63, label %.loopexit.thread, label %304
@@ -43438,7 +43262,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %.pre269 = load i64, ptr %22, align 8, !tbaa !36
   %.pre270 = load ptr, ptr %20, align 8, !tbaa !35
   %.pre276 = urem i64 %30, %.pre269
-  %.phi.trans.insert281 = getelementptr inbounds nuw ptr, ptr %.pre270, i64 %.pre276
+  %.phi.trans.insert281 = getelementptr inbounds nuw [8 x i8], ptr %.pre270, i64 %.pre276
   %.pre282 = load ptr, ptr %.phi.trans.insert281, align 8, !tbaa !175
   br label %.loopexit
 
@@ -43504,7 +43328,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %336 = load i64, ptr %22, align 8, !tbaa !36
   %337 = urem i64 %30, %336
   %338 = load ptr, ptr %20, align 8, !tbaa !35
-  %339 = getelementptr inbounds nuw ptr, ptr %338, i64 %337
+  %339 = getelementptr inbounds nuw [8 x i8], ptr %338, i64 %337
   %340 = load ptr, ptr %339, align 8, !tbaa !175
   %.not.i.i.i.i87 = icmp eq ptr %340, null
   br i1 %.not.i.i.i.i87, label %.loopexit.i.i93, label %341
@@ -43583,9 +43407,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 366:                                              ; preds = %366, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_12QuarticAngleES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEES6_NSF_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_12QuarticAngleES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEES6_NSF_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit ], [ %372, %366 ]
-  %367 = getelementptr inbounds nuw float, ptr %17, i64 %.05.i
+  %367 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %.05.i
   %368 = load float, ptr %367, align 4, !tbaa !172
-  %369 = getelementptr inbounds nuw float, ptr %16, i64 %.05.i
+  %369 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.05.i
   %370 = load float, ptr %369, align 4, !tbaa !172
   %371 = fadd float %368, %370
   store float %371, ptr %369, align 4, !tbaa !172
@@ -43657,19 +43481,19 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %sext = shl i64 %.sroa.0.0.copyload, 32
   %26 = ashr exact i64 %sext, 32
-  %27 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %26
+  %27 = getelementptr inbounds [12 x i8], ptr %4, i64 %26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %27, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %28 = ashr i64 %.sroa.0.0.copyload, 32
-  %29 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %28
+  %29 = getelementptr inbounds [12 x i8], ptr %4, i64 %28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %29, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %sext190 = shl i64 %.sroa.2.0.copyload, 32
   %30 = ashr exact i64 %sext190, 32
-  %31 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %30
+  %31 = getelementptr inbounds [12 x i8], ptr %4, i64 %30
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %31, i64 12, i1 false), !tbaa.struct !187
   %32 = ashr i64 %.sroa.2.0.copyload, 32
-  %33 = getelementptr inbounds %"class.nblib::CosineParamAngle.225", ptr %2, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %2, i64 %32
   %34 = load float, ptr %33, align 4
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 4
   %35 = load float, ptr %.sroa_idx, align 4
@@ -43814,7 +43638,7 @@ _ZN5nblib23spreadThreeCenterForcesIfDnEEvT_S1_RKN3gmx11BasicVectorIS1_EES6_PS4_S
 134:                                              ; preds = %_ZN5nblib23spreadThreeCenterForcesIfDnEEvT_S1_RKN3gmx11BasicVectorIS1_EES6_PS4_S7_S7_PT0_S9_S9_.exit
   %135 = load i64, ptr %6, align 8
   %136 = inttoptr i64 %135 to ptr
-  %137 = getelementptr inbounds %"class.gmx::BasicVector", ptr %136, i64 %26
+  %137 = getelementptr inbounds [12 x i8], ptr %136, i64 %26
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
 
 138:                                              ; preds = %_ZN5nblib23spreadThreeCenterForcesIfDnEEvT_S1_RKN3gmx11BasicVectorIS1_EES6_PS4_S7_S7_PT0_S9_S9_.exit
@@ -43838,7 +43662,7 @@ _ZN5nblib23spreadThreeCenterForcesIfDnEEvT_S1_RKN3gmx11BasicVectorIS1_EES6_PS4_S
   %145 = load i64, ptr %22, align 8, !tbaa !36
   %146 = urem i64 %26, %145
   %147 = load ptr, ptr %20, align 8, !tbaa !35
-  %148 = getelementptr inbounds nuw ptr, ptr %147, i64 %146
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %147, i64 %146
   %149 = load ptr, ptr %148, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %149, null
   br i1 %.not.i.i.i.i.i, label %.loopexit197.thread, label %150
@@ -43880,7 +43704,7 @@ _ZN5nblib23spreadThreeCenterForcesIfDnEEvT_S1_RKN3gmx11BasicVectorIS1_EES6_PS4_S
   %.pre = load i64, ptr %22, align 8, !tbaa !36
   %.pre244 = load ptr, ptr %20, align 8, !tbaa !35
   %.pre251 = urem i64 %26, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre244, i64 %.pre251
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre244, i64 %.pre251
   %.pre256 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit197
 
@@ -43952,7 +43776,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %182 = load i64, ptr %22, align 8, !tbaa !36
   %183 = urem i64 %26, %182
   %184 = load ptr, ptr %20, align 8, !tbaa !35
-  %185 = getelementptr inbounds nuw ptr, ptr %184, i64 %183
+  %185 = getelementptr inbounds nuw [8 x i8], ptr %184, i64 %183
   %186 = load ptr, ptr %185, align 8, !tbaa !175
   %.not.i.i.i.i13 = icmp eq ptr %186, null
   br i1 %.not.i.i.i.i13, label %.loopexit.i.i19, label %187
@@ -44029,7 +43853,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
 215:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
   %216 = load i64, ptr %6, align 8
   %217 = inttoptr i64 %216 to ptr
-  %218 = getelementptr inbounds %"class.gmx::BasicVector", ptr %217, i64 %28
+  %218 = getelementptr inbounds [12 x i8], ptr %217, i64 %28
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
 
 219:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
@@ -44053,7 +43877,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %226 = load i64, ptr %22, align 8, !tbaa !36
   %227 = urem i64 %28, %226
   %228 = load ptr, ptr %20, align 8, !tbaa !35
-  %229 = getelementptr inbounds nuw ptr, ptr %228, i64 %227
+  %229 = getelementptr inbounds nuw [8 x i8], ptr %228, i64 %227
   %230 = load ptr, ptr %229, align 8, !tbaa !175
   %.not.i.i.i.i.i25 = icmp eq ptr %230, null
   br i1 %.not.i.i.i.i.i25, label %.loopexit194.thread, label %231
@@ -44095,7 +43919,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %.pre245 = load i64, ptr %22, align 8, !tbaa !36
   %.pre246 = load ptr, ptr %20, align 8, !tbaa !35
   %.pre252 = urem i64 %28, %.pre245
-  %.phi.trans.insert257 = getelementptr inbounds nuw ptr, ptr %.pre246, i64 %.pre252
+  %.phi.trans.insert257 = getelementptr inbounds nuw [8 x i8], ptr %.pre246, i64 %.pre252
   %.pre258 = load ptr, ptr %.phi.trans.insert257, align 8, !tbaa !175
   br label %.loopexit194
 
@@ -44161,7 +43985,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %263 = load i64, ptr %22, align 8, !tbaa !36
   %264 = urem i64 %28, %263
   %265 = load ptr, ptr %20, align 8, !tbaa !35
-  %266 = getelementptr inbounds nuw ptr, ptr %265, i64 %264
+  %266 = getelementptr inbounds nuw [8 x i8], ptr %265, i64 %264
   %267 = load ptr, ptr %266, align 8, !tbaa !175
   %.not.i.i.i.i49 = icmp eq ptr %267, null
   br i1 %.not.i.i.i.i49, label %.loopexit.i.i55, label %268
@@ -44238,7 +44062,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
 296:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
   %297 = load i64, ptr %6, align 8
   %298 = inttoptr i64 %297 to ptr
-  %299 = getelementptr inbounds %"class.gmx::BasicVector", ptr %298, i64 %30
+  %299 = getelementptr inbounds [12 x i8], ptr %298, i64 %30
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16CosineParamAngleINS_24RestrictedAngleParameterEEES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS6_INS_17G96AngleParameterEEENS_12QuarticAngleES8_NS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
 
 300:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
@@ -44262,7 +44086,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %307 = load i64, ptr %22, align 8, !tbaa !36
   %308 = urem i64 %30, %307
   %309 = load ptr, ptr %20, align 8, !tbaa !35
-  %310 = getelementptr inbounds nuw ptr, ptr %309, i64 %308
+  %310 = getelementptr inbounds nuw [8 x i8], ptr %309, i64 %308
   %311 = load ptr, ptr %310, align 8, !tbaa !175
   %.not.i.i.i.i.i63 = icmp eq ptr %311, null
   br i1 %.not.i.i.i.i.i63, label %.loopexit.thread, label %312
@@ -44304,7 +44128,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %.pre247 = load i64, ptr %22, align 8, !tbaa !36
   %.pre248 = load ptr, ptr %20, align 8, !tbaa !35
   %.pre254 = urem i64 %30, %.pre247
-  %.phi.trans.insert259 = getelementptr inbounds nuw ptr, ptr %.pre248, i64 %.pre254
+  %.phi.trans.insert259 = getelementptr inbounds nuw [8 x i8], ptr %.pre248, i64 %.pre254
   %.pre260 = load ptr, ptr %.phi.trans.insert259, align 8, !tbaa !175
   br label %.loopexit
 
@@ -44370,7 +44194,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %344 = load i64, ptr %22, align 8, !tbaa !36
   %345 = urem i64 %30, %344
   %346 = load ptr, ptr %20, align 8, !tbaa !35
-  %347 = getelementptr inbounds nuw ptr, ptr %346, i64 %345
+  %347 = getelementptr inbounds nuw [8 x i8], ptr %346, i64 %345
   %348 = load ptr, ptr %347, align 8, !tbaa !175
   %.not.i.i.i.i87 = icmp eq ptr %348, null
   br i1 %.not.i.i.i.i87, label %.loopexit.i.i93, label %349
@@ -44449,9 +44273,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 374:                                              ; preds = %374, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16CosineParamAngleINS_24RestrictedAngleParameterEEES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS6_INS_17G96AngleParameterEEENS_12QuarticAngleES8_NS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16CosineParamAngleINS_24RestrictedAngleParameterEEES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS6_INS_17G96AngleParameterEEENS_12QuarticAngleES8_NS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit ], [ %380, %374 ]
-  %375 = getelementptr inbounds nuw float, ptr %17, i64 %.05.i
+  %375 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %.05.i
   %376 = load float, ptr %375, align 4, !tbaa !172
-  %377 = getelementptr inbounds nuw float, ptr %16, i64 %.05.i
+  %377 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.05.i
   %378 = load float, ptr %377, align 4, !tbaa !172
   %379 = fadd float %376, %378
   store float %379, ptr %377, align 4, !tbaa !172
@@ -44523,19 +44347,19 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %sext = shl i64 %.sroa.0.0.copyload, 32
   %26 = ashr exact i64 %sext, 32
-  %27 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %26
+  %27 = getelementptr inbounds [12 x i8], ptr %4, i64 %26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %27, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %28 = ashr i64 %.sroa.0.0.copyload, 32
-  %29 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %28
+  %29 = getelementptr inbounds [12 x i8], ptr %4, i64 %28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %29, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %sext232 = shl i64 %.sroa.2.0.copyload, 32
   %30 = ashr exact i64 %sext232, 32
-  %31 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %30
+  %31 = getelementptr inbounds [12 x i8], ptr %4, i64 %30
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %31, i64 12, i1 false), !tbaa.struct !187
   %32 = ashr i64 %.sroa.2.0.copyload, 32
-  %33 = getelementptr inbounds %"class.nblib::CrossBondBond", ptr %2, i64 %32
+  %33 = getelementptr inbounds [12 x i8], ptr %2, i64 %32
   %.sroa.0175.0.copyload = load float, ptr %33, align 4, !tbaa !172
   %.sroa.4176.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 4
   %.sroa.4176.0.copyload = load float, ptr %.sroa.4176.0..sroa_idx, align 4, !tbaa !172
@@ -44605,7 +44429,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
 77:                                               ; preds = %25
   %78 = load i64, ptr %6, align 8
   %79 = inttoptr i64 %78 to ptr
-  %80 = getelementptr inbounds %"class.gmx::BasicVector", ptr %79, i64 %26
+  %80 = getelementptr inbounds [12 x i8], ptr %79, i64 %26
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
 
 81:                                               ; preds = %25
@@ -44629,7 +44453,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %88 = load i64, ptr %22, align 8, !tbaa !36
   %89 = urem i64 %26, %88
   %90 = load ptr, ptr %20, align 8, !tbaa !35
-  %91 = getelementptr inbounds nuw ptr, ptr %90, i64 %89
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %89
   %92 = load ptr, ptr %91, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %92, null
   br i1 %.not.i.i.i.i.i, label %.loopexit239.thread, label %93
@@ -44671,7 +44495,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.pre = load i64, ptr %22, align 8, !tbaa !36
   %.pre286 = load ptr, ptr %20, align 8, !tbaa !35
   %.pre293 = urem i64 %26, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre286, i64 %.pre293
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre286, i64 %.pre293
   %.pre298 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit239
 
@@ -44743,7 +44567,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %125 = load i64, ptr %22, align 8, !tbaa !36
   %126 = urem i64 %26, %125
   %127 = load ptr, ptr %20, align 8, !tbaa !35
-  %128 = getelementptr inbounds nuw ptr, ptr %127, i64 %126
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %127, i64 %126
   %129 = load ptr, ptr %128, align 8, !tbaa !175
   %.not.i.i.i.i35 = icmp eq ptr %129, null
   br i1 %.not.i.i.i.i35, label %.loopexit.i.i41, label %130
@@ -44818,7 +44642,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
 158:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
   %159 = load i64, ptr %6, align 8
   %160 = inttoptr i64 %159 to ptr
-  %161 = getelementptr inbounds %"class.gmx::BasicVector", ptr %160, i64 %28
+  %161 = getelementptr inbounds [12 x i8], ptr %160, i64 %28
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
 
 162:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
@@ -44842,7 +44666,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %169 = load i64, ptr %22, align 8, !tbaa !36
   %170 = urem i64 %28, %169
   %171 = load ptr, ptr %20, align 8, !tbaa !35
-  %172 = getelementptr inbounds nuw ptr, ptr %171, i64 %170
+  %172 = getelementptr inbounds nuw [8 x i8], ptr %171, i64 %170
   %173 = load ptr, ptr %172, align 8, !tbaa !175
   %.not.i.i.i.i.i49 = icmp eq ptr %173, null
   br i1 %.not.i.i.i.i.i49, label %.loopexit236.thread, label %174
@@ -44884,7 +44708,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %.pre287 = load i64, ptr %22, align 8, !tbaa !36
   %.pre288 = load ptr, ptr %20, align 8, !tbaa !35
   %.pre294 = urem i64 %28, %.pre287
-  %.phi.trans.insert299 = getelementptr inbounds nuw ptr, ptr %.pre288, i64 %.pre294
+  %.phi.trans.insert299 = getelementptr inbounds nuw [8 x i8], ptr %.pre288, i64 %.pre294
   %.pre300 = load ptr, ptr %.phi.trans.insert299, align 8, !tbaa !175
   br label %.loopexit236
 
@@ -44950,7 +44774,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %206 = load i64, ptr %22, align 8, !tbaa !36
   %207 = urem i64 %28, %206
   %208 = load ptr, ptr %20, align 8, !tbaa !35
-  %209 = getelementptr inbounds nuw ptr, ptr %208, i64 %207
+  %209 = getelementptr inbounds nuw [8 x i8], ptr %208, i64 %207
   %210 = load ptr, ptr %209, align 8, !tbaa !175
   %.not.i.i.i.i73 = icmp eq ptr %210, null
   br i1 %.not.i.i.i.i73, label %.loopexit.i.i79, label %211
@@ -45025,7 +44849,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
 239:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
   %240 = load i64, ptr %6, align 8
   %241 = inttoptr i64 %240 to ptr
-  %242 = getelementptr inbounds %"class.gmx::BasicVector", ptr %241, i64 %30
+  %242 = getelementptr inbounds [12 x i8], ptr %241, i64 %30
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_13CrossBondBondES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSF_INS_24RestrictedAngleParameterEEES6_NS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
 
 243:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
@@ -45049,7 +44873,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %250 = load i64, ptr %22, align 8, !tbaa !36
   %251 = urem i64 %30, %250
   %252 = load ptr, ptr %20, align 8, !tbaa !35
-  %253 = getelementptr inbounds nuw ptr, ptr %252, i64 %251
+  %253 = getelementptr inbounds nuw [8 x i8], ptr %252, i64 %251
   %254 = load ptr, ptr %253, align 8, !tbaa !175
   %.not.i.i.i.i.i87 = icmp eq ptr %254, null
   br i1 %.not.i.i.i.i.i87, label %.loopexit.thread, label %255
@@ -45091,7 +44915,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %.pre289 = load i64, ptr %22, align 8, !tbaa !36
   %.pre290 = load ptr, ptr %20, align 8, !tbaa !35
   %.pre296 = urem i64 %30, %.pre289
-  %.phi.trans.insert301 = getelementptr inbounds nuw ptr, ptr %.pre290, i64 %.pre296
+  %.phi.trans.insert301 = getelementptr inbounds nuw [8 x i8], ptr %.pre290, i64 %.pre296
   %.pre302 = load ptr, ptr %.phi.trans.insert301, align 8, !tbaa !175
   br label %.loopexit
 
@@ -45157,7 +44981,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %287 = load i64, ptr %22, align 8, !tbaa !36
   %288 = urem i64 %30, %287
   %289 = load ptr, ptr %20, align 8, !tbaa !35
-  %290 = getelementptr inbounds nuw ptr, ptr %289, i64 %288
+  %290 = getelementptr inbounds nuw [8 x i8], ptr %289, i64 %288
   %291 = load ptr, ptr %290, align 8, !tbaa !175
   %.not.i.i.i.i111 = icmp eq ptr %291, null
   br i1 %.not.i.i.i.i111, label %.loopexit.i.i117, label %292
@@ -45234,9 +45058,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 317:                                              ; preds = %317, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_13CrossBondBondES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSF_INS_24RestrictedAngleParameterEEES6_NS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_13CrossBondBondES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSF_INS_24RestrictedAngleParameterEEES6_NS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit ], [ %323, %317 ]
-  %318 = getelementptr inbounds nuw float, ptr %17, i64 %.05.i
+  %318 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %.05.i
   %319 = load float, ptr %318, align 4, !tbaa !172
-  %320 = getelementptr inbounds nuw float, ptr %16, i64 %.05.i
+  %320 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.05.i
   %321 = load float, ptr %320, align 4, !tbaa !172
   %322 = fadd float %319, %321
   store float %322, ptr %320, align 4, !tbaa !172
@@ -45309,19 +45133,19 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %sext = shl i64 %.sroa.0.0.copyload, 32
   %26 = ashr exact i64 %sext, 32
-  %27 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %26
+  %27 = getelementptr inbounds [12 x i8], ptr %4, i64 %26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %27, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %28 = ashr i64 %.sroa.0.0.copyload, 32
-  %29 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %28
+  %29 = getelementptr inbounds [12 x i8], ptr %4, i64 %28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %29, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %sext262 = shl i64 %.sroa.2.0.copyload, 32
   %30 = ashr exact i64 %sext262, 32
-  %31 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %30
+  %31 = getelementptr inbounds [12 x i8], ptr %4, i64 %30
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %31, i64 12, i1 false), !tbaa.struct !187
   %32 = ashr i64 %.sroa.2.0.copyload, 32
-  %33 = getelementptr inbounds %"class.nblib::CrossBondAngle", ptr %2, i64 %32
+  %33 = getelementptr inbounds [16 x i8], ptr %2, i64 %32
   %.sroa.0194.0.copyload = load float, ptr %33, align 4, !tbaa !172
   %.sroa.4195.0..sroa_idx = getelementptr inbounds nuw i8, ptr %33, i64 4
   %.sroa.4195.0.copyload = load float, ptr %.sroa.4195.0..sroa_idx, align 4, !tbaa !172
@@ -45415,7 +45239,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
 94:                                               ; preds = %25
   %95 = load i64, ptr %6, align 8
   %96 = inttoptr i64 %95 to ptr
-  %97 = getelementptr inbounds %"class.gmx::BasicVector", ptr %96, i64 %26
+  %97 = getelementptr inbounds [12 x i8], ptr %96, i64 %26
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
 
 98:                                               ; preds = %25
@@ -45439,7 +45263,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %105 = load i64, ptr %22, align 8, !tbaa !36
   %106 = urem i64 %26, %105
   %107 = load ptr, ptr %20, align 8, !tbaa !35
-  %108 = getelementptr inbounds nuw ptr, ptr %107, i64 %106
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %106
   %109 = load ptr, ptr %108, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %109, null
   br i1 %.not.i.i.i.i.i, label %.loopexit269.thread, label %110
@@ -45481,7 +45305,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.pre = load i64, ptr %22, align 8, !tbaa !36
   %.pre316 = load ptr, ptr %20, align 8, !tbaa !35
   %.pre323 = urem i64 %26, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre316, i64 %.pre323
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre316, i64 %.pre323
   %.pre328 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit269
 
@@ -45553,7 +45377,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %142 = load i64, ptr %22, align 8, !tbaa !36
   %143 = urem i64 %26, %142
   %144 = load ptr, ptr %20, align 8, !tbaa !35
-  %145 = getelementptr inbounds nuw ptr, ptr %144, i64 %143
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %144, i64 %143
   %146 = load ptr, ptr %145, align 8, !tbaa !175
   %.not.i.i.i.i54 = icmp eq ptr %146, null
   br i1 %.not.i.i.i.i54, label %.loopexit.i.i60, label %147
@@ -45628,7 +45452,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
 175:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
   %176 = load i64, ptr %6, align 8
   %177 = inttoptr i64 %176 to ptr
-  %178 = getelementptr inbounds %"class.gmx::BasicVector", ptr %177, i64 %28
+  %178 = getelementptr inbounds [12 x i8], ptr %177, i64 %28
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
 
 179:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
@@ -45652,7 +45476,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %186 = load i64, ptr %22, align 8, !tbaa !36
   %187 = urem i64 %28, %186
   %188 = load ptr, ptr %20, align 8, !tbaa !35
-  %189 = getelementptr inbounds nuw ptr, ptr %188, i64 %187
+  %189 = getelementptr inbounds nuw [8 x i8], ptr %188, i64 %187
   %190 = load ptr, ptr %189, align 8, !tbaa !175
   %.not.i.i.i.i.i68 = icmp eq ptr %190, null
   br i1 %.not.i.i.i.i.i68, label %.loopexit266.thread, label %191
@@ -45694,7 +45518,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %.pre317 = load i64, ptr %22, align 8, !tbaa !36
   %.pre318 = load ptr, ptr %20, align 8, !tbaa !35
   %.pre324 = urem i64 %28, %.pre317
-  %.phi.trans.insert329 = getelementptr inbounds nuw ptr, ptr %.pre318, i64 %.pre324
+  %.phi.trans.insert329 = getelementptr inbounds nuw [8 x i8], ptr %.pre318, i64 %.pre324
   %.pre330 = load ptr, ptr %.phi.trans.insert329, align 8, !tbaa !175
   br label %.loopexit266
 
@@ -45760,7 +45584,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %223 = load i64, ptr %22, align 8, !tbaa !36
   %224 = urem i64 %28, %223
   %225 = load ptr, ptr %20, align 8, !tbaa !35
-  %226 = getelementptr inbounds nuw ptr, ptr %225, i64 %224
+  %226 = getelementptr inbounds nuw [8 x i8], ptr %225, i64 %224
   %227 = load ptr, ptr %226, align 8, !tbaa !175
   %.not.i.i.i.i92 = icmp eq ptr %227, null
   br i1 %.not.i.i.i.i92, label %.loopexit.i.i98, label %228
@@ -45835,7 +45659,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
 256:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
   %257 = load i64, ptr %6, align 8
   %258 = inttoptr i64 %257 to ptr
-  %259 = getelementptr inbounds %"class.gmx::BasicVector", ptr %258, i64 %30
+  %259 = getelementptr inbounds [12 x i8], ptr %258, i64 %30
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_14CrossBondAngleES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSF_INS_24RestrictedAngleParameterEEENS_13CrossBondBondES6_NS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
 
 260:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
@@ -45859,7 +45683,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %267 = load i64, ptr %22, align 8, !tbaa !36
   %268 = urem i64 %30, %267
   %269 = load ptr, ptr %20, align 8, !tbaa !35
-  %270 = getelementptr inbounds nuw ptr, ptr %269, i64 %268
+  %270 = getelementptr inbounds nuw [8 x i8], ptr %269, i64 %268
   %271 = load ptr, ptr %270, align 8, !tbaa !175
   %.not.i.i.i.i.i106 = icmp eq ptr %271, null
   br i1 %.not.i.i.i.i.i106, label %.loopexit.thread, label %272
@@ -45901,7 +45725,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %.pre319 = load i64, ptr %22, align 8, !tbaa !36
   %.pre320 = load ptr, ptr %20, align 8, !tbaa !35
   %.pre326 = urem i64 %30, %.pre319
-  %.phi.trans.insert331 = getelementptr inbounds nuw ptr, ptr %.pre320, i64 %.pre326
+  %.phi.trans.insert331 = getelementptr inbounds nuw [8 x i8], ptr %.pre320, i64 %.pre326
   %.pre332 = load ptr, ptr %.phi.trans.insert331, align 8, !tbaa !175
   br label %.loopexit
 
@@ -45967,7 +45791,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %304 = load i64, ptr %22, align 8, !tbaa !36
   %305 = urem i64 %30, %304
   %306 = load ptr, ptr %20, align 8, !tbaa !35
-  %307 = getelementptr inbounds nuw ptr, ptr %306, i64 %305
+  %307 = getelementptr inbounds nuw [8 x i8], ptr %306, i64 %305
   %308 = load ptr, ptr %307, align 8, !tbaa !175
   %.not.i.i.i.i130 = icmp eq ptr %308, null
   br i1 %.not.i.i.i.i130, label %.loopexit.i.i136, label %309
@@ -46044,9 +45868,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 334:                                              ; preds = %334, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_14CrossBondAngleES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSF_INS_24RestrictedAngleParameterEEENS_13CrossBondBondES6_NS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_14CrossBondAngleES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSF_INS_24RestrictedAngleParameterEEENS_13CrossBondBondES6_NS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit ], [ %340, %334 ]
-  %335 = getelementptr inbounds nuw float, ptr %17, i64 %.05.i
+  %335 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %.05.i
   %336 = load float, ptr %335, align 4, !tbaa !172
-  %337 = getelementptr inbounds nuw float, ptr %16, i64 %.05.i
+  %337 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.05.i
   %338 = load float, ptr %337, align 4, !tbaa !172
   %339 = fadd float %336, %338
   store float %339, ptr %337, align 4, !tbaa !172
@@ -46120,19 +45944,19 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %sext = shl i64 %.sroa.0.0.copyload, 32
   %30 = ashr exact i64 %sext, 32
-  %31 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %30
+  %31 = getelementptr inbounds [12 x i8], ptr %4, i64 %30
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %31, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %32 = ashr i64 %.sroa.0.0.copyload, 32
-  %33 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %32
+  %33 = getelementptr inbounds [12 x i8], ptr %4, i64 %32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %33, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %sext255 = shl i64 %.sroa.2.0.copyload, 32
   %34 = ashr exact i64 %sext255, 32
-  %35 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %34
+  %35 = getelementptr inbounds [12 x i8], ptr %4, i64 %34
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %35, i64 12, i1 false), !tbaa.struct !187
   %36 = ashr i64 %.sroa.2.0.copyload, 32
-  %37 = getelementptr inbounds %"class.nblib::TwoParameterInteraction.233", ptr %2, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %2, i64 %36
   %38 = load float, ptr %37, align 4
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %37, i64 4
   %39 = load float, ptr %.sroa_idx, align 4
@@ -46200,7 +46024,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
 92:                                               ; preds = %29
   %93 = load i64, ptr %6, align 8
   %94 = inttoptr i64 %93 to ptr
-  %95 = getelementptr inbounds %"class.gmx::BasicVector", ptr %94, i64 %30
+  %95 = getelementptr inbounds [12 x i8], ptr %94, i64 %30
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
 
 96:                                               ; preds = %29
@@ -46224,7 +46048,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %103 = load i64, ptr %26, align 8, !tbaa !36
   %104 = urem i64 %30, %103
   %105 = load ptr, ptr %24, align 8, !tbaa !35
-  %106 = getelementptr inbounds nuw ptr, ptr %105, i64 %104
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %104
   %107 = load ptr, ptr %106, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %107, null
   br i1 %.not.i.i.i.i.i, label %.loopexit262.thread, label %108
@@ -46266,7 +46090,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.pre = load i64, ptr %26, align 8, !tbaa !36
   %.pre309 = load ptr, ptr %24, align 8, !tbaa !35
   %.pre316 = urem i64 %30, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre309, i64 %.pre316
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre309, i64 %.pre316
   %.pre321 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit262
 
@@ -46338,7 +46162,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %140 = load i64, ptr %26, align 8, !tbaa !36
   %141 = urem i64 %30, %140
   %142 = load ptr, ptr %24, align 8, !tbaa !35
-  %143 = getelementptr inbounds nuw ptr, ptr %142, i64 %141
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %142, i64 %141
   %144 = load ptr, ptr %143, align 8, !tbaa !175
   %.not.i.i.i.i44 = icmp eq ptr %144, null
   br i1 %.not.i.i.i.i44, label %.loopexit.i.i50, label %145
@@ -46413,7 +46237,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
 173:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
   %174 = load i64, ptr %6, align 8
   %175 = inttoptr i64 %174 to ptr
-  %176 = getelementptr inbounds %"class.gmx::BasicVector", ptr %175, i64 %32
+  %176 = getelementptr inbounds [12 x i8], ptr %175, i64 %32
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
 
 177:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
@@ -46437,7 +46261,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %184 = load i64, ptr %26, align 8, !tbaa !36
   %185 = urem i64 %32, %184
   %186 = load ptr, ptr %24, align 8, !tbaa !35
-  %187 = getelementptr inbounds nuw ptr, ptr %186, i64 %185
+  %187 = getelementptr inbounds nuw [8 x i8], ptr %186, i64 %185
   %188 = load ptr, ptr %187, align 8, !tbaa !175
   %.not.i.i.i.i.i58 = icmp eq ptr %188, null
   br i1 %.not.i.i.i.i.i58, label %.loopexit259.thread, label %189
@@ -46479,7 +46303,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %.pre310 = load i64, ptr %26, align 8, !tbaa !36
   %.pre311 = load ptr, ptr %24, align 8, !tbaa !35
   %.pre317 = urem i64 %32, %.pre310
-  %.phi.trans.insert322 = getelementptr inbounds nuw ptr, ptr %.pre311, i64 %.pre317
+  %.phi.trans.insert322 = getelementptr inbounds nuw [8 x i8], ptr %.pre311, i64 %.pre317
   %.pre323 = load ptr, ptr %.phi.trans.insert322, align 8, !tbaa !175
   br label %.loopexit259
 
@@ -46545,7 +46369,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %221 = load i64, ptr %26, align 8, !tbaa !36
   %222 = urem i64 %32, %221
   %223 = load ptr, ptr %24, align 8, !tbaa !35
-  %224 = getelementptr inbounds nuw ptr, ptr %223, i64 %222
+  %224 = getelementptr inbounds nuw [8 x i8], ptr %223, i64 %222
   %225 = load ptr, ptr %224, align 8, !tbaa !175
   %.not.i.i.i.i82 = icmp eq ptr %225, null
   br i1 %.not.i.i.i.i82, label %.loopexit.i.i88, label %226
@@ -46620,7 +46444,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
 254:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
   %255 = load i64, ptr %6, align 8
   %256 = inttoptr i64 %255 to ptr
-  %257 = getelementptr inbounds %"class.gmx::BasicVector", ptr %256, i64 %34
+  %257 = getelementptr inbounds [12 x i8], ptr %256, i64 %34
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_23TwoParameterInteractionINS_20LinearAngleParameterEEES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSH_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleES8_EEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
 
 258:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
@@ -46644,7 +46468,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %265 = load i64, ptr %26, align 8, !tbaa !36
   %266 = urem i64 %34, %265
   %267 = load ptr, ptr %24, align 8, !tbaa !35
-  %268 = getelementptr inbounds nuw ptr, ptr %267, i64 %266
+  %268 = getelementptr inbounds nuw [8 x i8], ptr %267, i64 %266
   %269 = load ptr, ptr %268, align 8, !tbaa !175
   %.not.i.i.i.i.i96 = icmp eq ptr %269, null
   br i1 %.not.i.i.i.i.i96, label %.loopexit.thread, label %270
@@ -46686,7 +46510,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %.pre312 = load i64, ptr %26, align 8, !tbaa !36
   %.pre313 = load ptr, ptr %24, align 8, !tbaa !35
   %.pre319 = urem i64 %34, %.pre312
-  %.phi.trans.insert324 = getelementptr inbounds nuw ptr, ptr %.pre313, i64 %.pre319
+  %.phi.trans.insert324 = getelementptr inbounds nuw [8 x i8], ptr %.pre313, i64 %.pre319
   %.pre325 = load ptr, ptr %.phi.trans.insert324, align 8, !tbaa !175
   br label %.loopexit
 
@@ -46752,7 +46576,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %302 = load i64, ptr %26, align 8, !tbaa !36
   %303 = urem i64 %34, %302
   %304 = load ptr, ptr %24, align 8, !tbaa !35
-  %305 = getelementptr inbounds nuw ptr, ptr %304, i64 %303
+  %305 = getelementptr inbounds nuw [8 x i8], ptr %304, i64 %303
   %306 = load ptr, ptr %305, align 8, !tbaa !175
   %.not.i.i.i.i120 = icmp eq ptr %306, null
   br i1 %.not.i.i.i.i120, label %.loopexit.i.i126, label %307
@@ -46829,9 +46653,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 332:                                              ; preds = %332, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_23TwoParameterInteractionINS_20LinearAngleParameterEEES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSH_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleES8_EEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_23TwoParameterInteractionINS_20LinearAngleParameterEEES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSH_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleES8_EEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit ], [ %338, %332 ]
-  %333 = getelementptr inbounds nuw float, ptr %17, i64 %.05.i
+  %333 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %.05.i
   %334 = load float, ptr %333, align 4, !tbaa !172
-  %335 = getelementptr inbounds nuw float, ptr %16, i64 %.05.i
+  %335 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.05.i
   %336 = load float, ptr %335, align 4, !tbaa !172
   %337 = fadd float %334, %336
   store float %337, ptr %335, align 4, !tbaa !172
@@ -46908,19 +46732,19 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.0146.sroa.5.0.copyload = load i32, ptr %.sroa.0146.sroa.5.0..sroa.0147.0..sroa_idx, align 4, !tbaa !188
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %28 = sext i32 %.sroa.0146.sroa.0.0.copyload to i64
-  %29 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %28
+  %29 = getelementptr inbounds [12 x i8], ptr %4, i64 %28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %29, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %30 = sext i32 %.sroa.0146.sroa.2.0.copyload to i64
-  %31 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %30
+  %31 = getelementptr inbounds [12 x i8], ptr %4, i64 %30
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %31, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %32 = sext i32 %.sroa.0146.sroa.3.0.copyload to i64
-  %33 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %32
+  %33 = getelementptr inbounds [12 x i8], ptr %4, i64 %32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %33, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %34 = sext i32 %.sroa.0146.sroa.4.0.copyload to i64
-  %35 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %34
+  %35 = getelementptr inbounds [12 x i8], ptr %4, i64 %34
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %13, ptr noundef nonnull align 4 dereferenceable(12) %35, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
@@ -46931,7 +46755,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %38 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %13, ptr noundef nonnull align 4 dereferenceable(12) %16)
   %39 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %13, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %17)
   %40 = sext i32 %.sroa.0146.sroa.5.0.copyload to i64
-  %41 = getelementptr inbounds %"class.nblib::ProperDihedral", ptr %2, i64 %40
+  %41 = getelementptr inbounds [12 x i8], ptr %2, i64 %40
   %.sroa.0171.0.copyload = load float, ptr %41, align 4, !tbaa !172
   %.sroa.4172.0..sroa_idx = getelementptr inbounds nuw i8, ptr %41, i64 4
   %.sroa.4172.0.copyload = load float, ptr %.sroa.4172.0..sroa_idx, align 4, !tbaa !172
@@ -47097,7 +46921,7 @@ _ZN5nblib22spreadFourCenterForcesIfDnEEvT_RKN3gmx11BasicVectorIS1_EES6_S6_S6_S6_
 158:                                              ; preds = %_ZN5nblib22spreadFourCenterForcesIfDnEEvT_RKN3gmx11BasicVectorIS1_EES6_S6_S6_S6_PS4_S7_S7_S7_PT0_S9_S9_S9_.exit
   %159 = load i64, ptr %6, align 8
   %160 = inttoptr i64 %159 to ptr
-  %161 = getelementptr inbounds %"class.gmx::BasicVector", ptr %160, i64 %28
+  %161 = getelementptr inbounds [12 x i8], ptr %160, i64 %28
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i
 
 162:                                              ; preds = %_ZN5nblib22spreadFourCenterForcesIfDnEEvT_RKN3gmx11BasicVectorIS1_EES6_S6_S6_S6_PS4_S7_S7_S7_PT0_S9_S9_S9_.exit
@@ -47121,7 +46945,7 @@ _ZN5nblib22spreadFourCenterForcesIfDnEEvT_RKN3gmx11BasicVectorIS1_EES6_S6_S6_S6_
   %169 = load i64, ptr %24, align 8, !tbaa !36
   %170 = urem i64 %28, %169
   %171 = load ptr, ptr %22, align 8, !tbaa !35
-  %172 = getelementptr inbounds nuw ptr, ptr %171, i64 %170
+  %172 = getelementptr inbounds nuw [8 x i8], ptr %171, i64 %170
   %173 = load ptr, ptr %172, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %173, null
   br i1 %.not.i.i.i.i.i, label %.loopexit267.thread, label %174
@@ -47163,7 +46987,7 @@ _ZN5nblib22spreadFourCenterForcesIfDnEEvT_RKN3gmx11BasicVectorIS1_EES6_S6_S6_S6_
   %.pre = load i64, ptr %24, align 8, !tbaa !36
   %.pre329 = load ptr, ptr %22, align 8, !tbaa !35
   %.pre338 = urem i64 %28, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre329, i64 %.pre338
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre329, i64 %.pre338
   %.pre345 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit267
 
@@ -47235,7 +47059,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %206 = load i64, ptr %24, align 8, !tbaa !36
   %207 = urem i64 %28, %206
   %208 = load ptr, ptr %22, align 8, !tbaa !35
-  %209 = getelementptr inbounds nuw ptr, ptr %208, i64 %207
+  %209 = getelementptr inbounds nuw [8 x i8], ptr %208, i64 %207
   %210 = load ptr, ptr %209, align 8, !tbaa !175
   %.not.i.i.i.i15 = icmp eq ptr %210, null
   br i1 %.not.i.i.i.i15, label %.loopexit.i.i21, label %211
@@ -47312,7 +47136,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
 239:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i
   %240 = load i64, ptr %6, align 8
   %241 = inttoptr i64 %240 to ptr
-  %242 = getelementptr inbounds %"class.gmx::BasicVector", ptr %241, i64 %30
+  %242 = getelementptr inbounds [12 x i8], ptr %241, i64 %30
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i
 
 243:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i
@@ -47336,7 +47160,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
   %250 = load i64, ptr %24, align 8, !tbaa !36
   %251 = urem i64 %30, %250
   %252 = load ptr, ptr %22, align 8, !tbaa !35
-  %253 = getelementptr inbounds nuw ptr, ptr %252, i64 %251
+  %253 = getelementptr inbounds nuw [8 x i8], ptr %252, i64 %251
   %254 = load ptr, ptr %253, align 8, !tbaa !175
   %.not.i.i.i.i.i27 = icmp eq ptr %254, null
   br i1 %.not.i.i.i.i.i27, label %.loopexit264.thread, label %255
@@ -47378,7 +47202,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
   %.pre330 = load i64, ptr %24, align 8, !tbaa !36
   %.pre331 = load ptr, ptr %22, align 8, !tbaa !35
   %.pre339 = urem i64 %30, %.pre330
-  %.phi.trans.insert346 = getelementptr inbounds nuw ptr, ptr %.pre331, i64 %.pre339
+  %.phi.trans.insert346 = getelementptr inbounds nuw [8 x i8], ptr %.pre331, i64 %.pre339
   %.pre347 = load ptr, ptr %.phi.trans.insert346, align 8, !tbaa !175
   br label %.loopexit264
 
@@ -47444,7 +47268,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %287 = load i64, ptr %24, align 8, !tbaa !36
   %288 = urem i64 %30, %287
   %289 = load ptr, ptr %22, align 8, !tbaa !35
-  %290 = getelementptr inbounds nuw ptr, ptr %289, i64 %288
+  %290 = getelementptr inbounds nuw [8 x i8], ptr %289, i64 %288
   %291 = load ptr, ptr %290, align 8, !tbaa !175
   %.not.i.i.i.i51 = icmp eq ptr %291, null
   br i1 %.not.i.i.i.i51, label %.loopexit.i.i57, label %292
@@ -47521,7 +47345,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
 320:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i
   %321 = load i64, ptr %6, align 8
   %322 = inttoptr i64 %321 to ptr
-  %323 = getelementptr inbounds %"class.gmx::BasicVector", ptr %322, i64 %32
+  %323 = getelementptr inbounds [12 x i8], ptr %322, i64 %32
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i
 
 324:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i
@@ -47545,7 +47369,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
   %331 = load i64, ptr %24, align 8, !tbaa !36
   %332 = urem i64 %32, %331
   %333 = load ptr, ptr %22, align 8, !tbaa !35
-  %334 = getelementptr inbounds nuw ptr, ptr %333, i64 %332
+  %334 = getelementptr inbounds nuw [8 x i8], ptr %333, i64 %332
   %335 = load ptr, ptr %334, align 8, !tbaa !175
   %.not.i.i.i.i.i65 = icmp eq ptr %335, null
   br i1 %.not.i.i.i.i.i65, label %.loopexit261.thread, label %336
@@ -47587,7 +47411,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
   %.pre332 = load i64, ptr %24, align 8, !tbaa !36
   %.pre333 = load ptr, ptr %22, align 8, !tbaa !35
   %.pre341 = urem i64 %32, %.pre332
-  %.phi.trans.insert348 = getelementptr inbounds nuw ptr, ptr %.pre333, i64 %.pre341
+  %.phi.trans.insert348 = getelementptr inbounds nuw [8 x i8], ptr %.pre333, i64 %.pre341
   %.pre349 = load ptr, ptr %.phi.trans.insert348, align 8, !tbaa !175
   br label %.loopexit261
 
@@ -47653,7 +47477,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %368 = load i64, ptr %24, align 8, !tbaa !36
   %369 = urem i64 %32, %368
   %370 = load ptr, ptr %22, align 8, !tbaa !35
-  %371 = getelementptr inbounds nuw ptr, ptr %370, i64 %369
+  %371 = getelementptr inbounds nuw [8 x i8], ptr %370, i64 %369
   %372 = load ptr, ptr %371, align 8, !tbaa !175
   %.not.i.i.i.i89 = icmp eq ptr %372, null
   br i1 %.not.i.i.i.i89, label %.loopexit.i.i95, label %373
@@ -47730,7 +47554,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
 401:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i
   %402 = load i64, ptr %6, align 8
   %403 = inttoptr i64 %402 to ptr
-  %404 = getelementptr inbounds %"class.gmx::BasicVector", ptr %403, i64 %34
+  %404 = getelementptr inbounds [12 x i8], ptr %403, i64 %34
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_14ProperDihedralES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJS6_NS_16ImproperDihedralENS_24RyckaertBellemanDihedralEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit
 
 405:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i
@@ -47754,7 +47578,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
   %412 = load i64, ptr %24, align 8, !tbaa !36
   %413 = urem i64 %34, %412
   %414 = load ptr, ptr %22, align 8, !tbaa !35
-  %415 = getelementptr inbounds nuw ptr, ptr %414, i64 %413
+  %415 = getelementptr inbounds nuw [8 x i8], ptr %414, i64 %413
   %416 = load ptr, ptr %415, align 8, !tbaa !175
   %.not.i.i.i.i.i103 = icmp eq ptr %416, null
   br i1 %.not.i.i.i.i.i103, label %.loopexit.thread, label %417
@@ -47796,7 +47620,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
   %.pre334 = load i64, ptr %24, align 8, !tbaa !36
   %.pre335 = load ptr, ptr %22, align 8, !tbaa !35
   %.pre343 = urem i64 %34, %.pre334
-  %.phi.trans.insert350 = getelementptr inbounds nuw ptr, ptr %.pre335, i64 %.pre343
+  %.phi.trans.insert350 = getelementptr inbounds nuw [8 x i8], ptr %.pre335, i64 %.pre343
   %.pre351 = load ptr, ptr %.phi.trans.insert350, align 8, !tbaa !175
   br label %.loopexit
 
@@ -47862,7 +47686,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %449 = load i64, ptr %24, align 8, !tbaa !36
   %450 = urem i64 %34, %449
   %451 = load ptr, ptr %22, align 8, !tbaa !35
-  %452 = getelementptr inbounds nuw ptr, ptr %451, i64 %450
+  %452 = getelementptr inbounds nuw [8 x i8], ptr %451, i64 %450
   %453 = load ptr, ptr %452, align 8, !tbaa !175
   %.not.i.i.i.i127 = icmp eq ptr %453, null
   br i1 %.not.i.i.i.i127, label %.loopexit.i.i133, label %454
@@ -47943,9 +47767,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 479:                                              ; preds = %479, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_14ProperDihedralES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJS6_NS_16ImproperDihedralENS_24RyckaertBellemanDihedralEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_14ProperDihedralES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJS6_NS_16ImproperDihedralENS_24RyckaertBellemanDihedralEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit ], [ %485, %479 ]
-  %480 = getelementptr inbounds nuw float, ptr %19, i64 %.05.i
+  %480 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.05.i
   %481 = load float, ptr %480, align 4, !tbaa !172
-  %482 = getelementptr inbounds nuw float, ptr %18, i64 %.05.i
+  %482 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %.05.i
   %483 = load float, ptr %482, align 4, !tbaa !172
   %484 = fadd float %481, %483
   store float %484, ptr %482, align 4, !tbaa !172
@@ -48022,19 +47846,19 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.0146.sroa.5.0.copyload = load i32, ptr %.sroa.0146.sroa.5.0..sroa.0147.0..sroa_idx, align 4, !tbaa !188
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %28 = sext i32 %.sroa.0146.sroa.0.0.copyload to i64
-  %29 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %28
+  %29 = getelementptr inbounds [12 x i8], ptr %4, i64 %28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %29, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %30 = sext i32 %.sroa.0146.sroa.2.0.copyload to i64
-  %31 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %30
+  %31 = getelementptr inbounds [12 x i8], ptr %4, i64 %30
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %31, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %32 = sext i32 %.sroa.0146.sroa.3.0.copyload to i64
-  %33 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %32
+  %33 = getelementptr inbounds [12 x i8], ptr %4, i64 %32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %33, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %34 = sext i32 %.sroa.0146.sroa.4.0.copyload to i64
-  %35 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %34
+  %35 = getelementptr inbounds [12 x i8], ptr %4, i64 %34
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %13, ptr noundef nonnull align 4 dereferenceable(12) %35, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
@@ -48045,7 +47869,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %38 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %13, ptr noundef nonnull align 4 dereferenceable(12) %16)
   %39 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %13, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %17)
   %40 = sext i32 %.sroa.0146.sroa.5.0.copyload to i64
-  %41 = getelementptr inbounds %"class.nblib::ImproperDihedral", ptr %2, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %2, i64 %40
   %42 = load float, ptr %41, align 4
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %41, i64 4
   %43 = load float, ptr %.sroa_idx, align 4
@@ -48225,7 +48049,7 @@ _ZN5nblib22spreadFourCenterForcesIfDnEEvT_RKN3gmx11BasicVectorIS1_EES6_S6_S6_S6_
 164:                                              ; preds = %_ZN5nblib22spreadFourCenterForcesIfDnEEvT_RKN3gmx11BasicVectorIS1_EES6_S6_S6_S6_PS4_S7_S7_S7_PT0_S9_S9_S9_.exit
   %165 = load i64, ptr %6, align 8
   %166 = inttoptr i64 %165 to ptr
-  %167 = getelementptr inbounds %"class.gmx::BasicVector", ptr %166, i64 %28
+  %167 = getelementptr inbounds [12 x i8], ptr %166, i64 %28
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i
 
 168:                                              ; preds = %_ZN5nblib22spreadFourCenterForcesIfDnEEvT_RKN3gmx11BasicVectorIS1_EES6_S6_S6_S6_PS4_S7_S7_S7_PT0_S9_S9_S9_.exit
@@ -48249,7 +48073,7 @@ _ZN5nblib22spreadFourCenterForcesIfDnEEvT_RKN3gmx11BasicVectorIS1_EES6_S6_S6_S6_
   %175 = load i64, ptr %24, align 8, !tbaa !36
   %176 = urem i64 %28, %175
   %177 = load ptr, ptr %22, align 8, !tbaa !35
-  %178 = getelementptr inbounds nuw ptr, ptr %177, i64 %176
+  %178 = getelementptr inbounds nuw [8 x i8], ptr %177, i64 %176
   %179 = load ptr, ptr %178, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %179, null
   br i1 %.not.i.i.i.i.i, label %.loopexit267.thread, label %180
@@ -48291,7 +48115,7 @@ _ZN5nblib22spreadFourCenterForcesIfDnEEvT_RKN3gmx11BasicVectorIS1_EES6_S6_S6_S6_
   %.pre = load i64, ptr %24, align 8, !tbaa !36
   %.pre329 = load ptr, ptr %22, align 8, !tbaa !35
   %.pre338 = urem i64 %28, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre329, i64 %.pre338
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre329, i64 %.pre338
   %.pre345 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit267
 
@@ -48363,7 +48187,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %212 = load i64, ptr %24, align 8, !tbaa !36
   %213 = urem i64 %28, %212
   %214 = load ptr, ptr %22, align 8, !tbaa !35
-  %215 = getelementptr inbounds nuw ptr, ptr %214, i64 %213
+  %215 = getelementptr inbounds nuw [8 x i8], ptr %214, i64 %213
   %216 = load ptr, ptr %215, align 8, !tbaa !175
   %.not.i.i.i.i15 = icmp eq ptr %216, null
   br i1 %.not.i.i.i.i15, label %.loopexit.i.i21, label %217
@@ -48440,7 +48264,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
 245:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i
   %246 = load i64, ptr %6, align 8
   %247 = inttoptr i64 %246 to ptr
-  %248 = getelementptr inbounds %"class.gmx::BasicVector", ptr %247, i64 %30
+  %248 = getelementptr inbounds [12 x i8], ptr %247, i64 %30
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i
 
 249:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i
@@ -48464,7 +48288,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
   %256 = load i64, ptr %24, align 8, !tbaa !36
   %257 = urem i64 %30, %256
   %258 = load ptr, ptr %22, align 8, !tbaa !35
-  %259 = getelementptr inbounds nuw ptr, ptr %258, i64 %257
+  %259 = getelementptr inbounds nuw [8 x i8], ptr %258, i64 %257
   %260 = load ptr, ptr %259, align 8, !tbaa !175
   %.not.i.i.i.i.i27 = icmp eq ptr %260, null
   br i1 %.not.i.i.i.i.i27, label %.loopexit264.thread, label %261
@@ -48506,7 +48330,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
   %.pre330 = load i64, ptr %24, align 8, !tbaa !36
   %.pre331 = load ptr, ptr %22, align 8, !tbaa !35
   %.pre339 = urem i64 %30, %.pre330
-  %.phi.trans.insert346 = getelementptr inbounds nuw ptr, ptr %.pre331, i64 %.pre339
+  %.phi.trans.insert346 = getelementptr inbounds nuw [8 x i8], ptr %.pre331, i64 %.pre339
   %.pre347 = load ptr, ptr %.phi.trans.insert346, align 8, !tbaa !175
   br label %.loopexit264
 
@@ -48572,7 +48396,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %293 = load i64, ptr %24, align 8, !tbaa !36
   %294 = urem i64 %30, %293
   %295 = load ptr, ptr %22, align 8, !tbaa !35
-  %296 = getelementptr inbounds nuw ptr, ptr %295, i64 %294
+  %296 = getelementptr inbounds nuw [8 x i8], ptr %295, i64 %294
   %297 = load ptr, ptr %296, align 8, !tbaa !175
   %.not.i.i.i.i51 = icmp eq ptr %297, null
   br i1 %.not.i.i.i.i51, label %.loopexit.i.i57, label %298
@@ -48649,7 +48473,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
 326:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i
   %327 = load i64, ptr %6, align 8
   %328 = inttoptr i64 %327 to ptr
-  %329 = getelementptr inbounds %"class.gmx::BasicVector", ptr %328, i64 %32
+  %329 = getelementptr inbounds [12 x i8], ptr %328, i64 %32
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i
 
 330:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i
@@ -48673,7 +48497,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
   %337 = load i64, ptr %24, align 8, !tbaa !36
   %338 = urem i64 %32, %337
   %339 = load ptr, ptr %22, align 8, !tbaa !35
-  %340 = getelementptr inbounds nuw ptr, ptr %339, i64 %338
+  %340 = getelementptr inbounds nuw [8 x i8], ptr %339, i64 %338
   %341 = load ptr, ptr %340, align 8, !tbaa !175
   %.not.i.i.i.i.i65 = icmp eq ptr %341, null
   br i1 %.not.i.i.i.i.i65, label %.loopexit261.thread, label %342
@@ -48715,7 +48539,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
   %.pre332 = load i64, ptr %24, align 8, !tbaa !36
   %.pre333 = load ptr, ptr %22, align 8, !tbaa !35
   %.pre341 = urem i64 %32, %.pre332
-  %.phi.trans.insert348 = getelementptr inbounds nuw ptr, ptr %.pre333, i64 %.pre341
+  %.phi.trans.insert348 = getelementptr inbounds nuw [8 x i8], ptr %.pre333, i64 %.pre341
   %.pre349 = load ptr, ptr %.phi.trans.insert348, align 8, !tbaa !175
   br label %.loopexit261
 
@@ -48781,7 +48605,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %374 = load i64, ptr %24, align 8, !tbaa !36
   %375 = urem i64 %32, %374
   %376 = load ptr, ptr %22, align 8, !tbaa !35
-  %377 = getelementptr inbounds nuw ptr, ptr %376, i64 %375
+  %377 = getelementptr inbounds nuw [8 x i8], ptr %376, i64 %375
   %378 = load ptr, ptr %377, align 8, !tbaa !175
   %.not.i.i.i.i89 = icmp eq ptr %378, null
   br i1 %.not.i.i.i.i89, label %.loopexit.i.i95, label %379
@@ -48858,7 +48682,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
 407:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i
   %408 = load i64, ptr %6, align 8
   %409 = inttoptr i64 %408 to ptr
-  %410 = getelementptr inbounds %"class.gmx::BasicVector", ptr %409, i64 %34
+  %410 = getelementptr inbounds [12 x i8], ptr %409, i64 %34
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16ImproperDihedralES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_14ProperDihedralES6_NS_24RyckaertBellemanDihedralEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit
 
 411:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i
@@ -48882,7 +48706,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
   %418 = load i64, ptr %24, align 8, !tbaa !36
   %419 = urem i64 %34, %418
   %420 = load ptr, ptr %22, align 8, !tbaa !35
-  %421 = getelementptr inbounds nuw ptr, ptr %420, i64 %419
+  %421 = getelementptr inbounds nuw [8 x i8], ptr %420, i64 %419
   %422 = load ptr, ptr %421, align 8, !tbaa !175
   %.not.i.i.i.i.i103 = icmp eq ptr %422, null
   br i1 %.not.i.i.i.i.i103, label %.loopexit.thread, label %423
@@ -48924,7 +48748,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
   %.pre334 = load i64, ptr %24, align 8, !tbaa !36
   %.pre335 = load ptr, ptr %22, align 8, !tbaa !35
   %.pre343 = urem i64 %34, %.pre334
-  %.phi.trans.insert350 = getelementptr inbounds nuw ptr, ptr %.pre335, i64 %.pre343
+  %.phi.trans.insert350 = getelementptr inbounds nuw [8 x i8], ptr %.pre335, i64 %.pre343
   %.pre351 = load ptr, ptr %.phi.trans.insert350, align 8, !tbaa !175
   br label %.loopexit
 
@@ -48990,7 +48814,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %455 = load i64, ptr %24, align 8, !tbaa !36
   %456 = urem i64 %34, %455
   %457 = load ptr, ptr %22, align 8, !tbaa !35
-  %458 = getelementptr inbounds nuw ptr, ptr %457, i64 %456
+  %458 = getelementptr inbounds nuw [8 x i8], ptr %457, i64 %456
   %459 = load ptr, ptr %458, align 8, !tbaa !175
   %.not.i.i.i.i127 = icmp eq ptr %459, null
   br i1 %.not.i.i.i.i127, label %.loopexit.i.i133, label %460
@@ -49071,9 +48895,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 485:                                              ; preds = %485, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16ImproperDihedralES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_14ProperDihedralES6_NS_24RyckaertBellemanDihedralEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16ImproperDihedralES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_14ProperDihedralES6_NS_24RyckaertBellemanDihedralEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit ], [ %491, %485 ]
-  %486 = getelementptr inbounds nuw float, ptr %19, i64 %.05.i
+  %486 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.05.i
   %487 = load float, ptr %486, align 4, !tbaa !172
-  %488 = getelementptr inbounds nuw float, ptr %18, i64 %.05.i
+  %488 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %.05.i
   %489 = load float, ptr %488, align 4, !tbaa !172
   %490 = fadd float %487, %489
   store float %490, ptr %488, align 4, !tbaa !172
@@ -49151,19 +48975,19 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.0147.sroa.5.0.copyload = load i32, ptr %.sroa.0147.sroa.5.0..sroa.0148.0..sroa_idx, align 4, !tbaa !188
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %29 = sext i32 %.sroa.0147.sroa.0.0.copyload to i64
-  %30 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %29
+  %30 = getelementptr inbounds [12 x i8], ptr %4, i64 %29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %30, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %31 = sext i32 %.sroa.0147.sroa.2.0.copyload to i64
-  %32 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %31
+  %32 = getelementptr inbounds [12 x i8], ptr %4, i64 %31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %32, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %33 = sext i32 %.sroa.0147.sroa.3.0.copyload to i64
-  %34 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %33
+  %34 = getelementptr inbounds [12 x i8], ptr %4, i64 %33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %34, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %35 = sext i32 %.sroa.0147.sroa.4.0.copyload to i64
-  %36 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %35
+  %36 = getelementptr inbounds [12 x i8], ptr %4, i64 %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %13, ptr noundef nonnull align 4 dereferenceable(12) %36, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
@@ -49175,7 +48999,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %40 = call noundef i32 @_Z11pbc_dx_aiucPK5t_pbcPKfS3_Pf(ptr noundef nonnull align 4 dereferenceable(384) %8, ptr noundef nonnull align 4 dereferenceable(12) %13, ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %17)
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %41 = sext i32 %.sroa.0147.sroa.5.0.copyload to i64
-  %42 = getelementptr inbounds %"class.nblib::RyckaertBellemanDihedral", ptr %2, i64 %41
+  %42 = getelementptr inbounds [24 x i8], ptr %2, i64 %41
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %18, ptr noundef nonnull align 4 dereferenceable(24) %42, i64 24, i1 false), !tbaa.struct !198
   %.sroa.010.0.copyload.i = load <2 x float>, ptr %14, align 8
   %.sroa.211.0.copyload.i = load float, ptr %.sroa.211.0..sroa_idx.i, align 8, !tbaa !188
@@ -49244,7 +49068,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.01727.i = phi float [ 1.000000e+00, %28 ], [ %95, %88 ]
   %.02326.i = phi float [ 0.000000e+00, %28 ], [ %94, %88 ]
   %.02425.i = phi float [ %87, %28 ], [ %96, %88 ]
-  %89 = getelementptr inbounds nuw float, ptr %18, i64 %indvars.iv.i
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv.i
   %90 = load float, ptr %89, align 4, !tbaa !172, !noalias !357
   %91 = fmul float %.01727.i, %90
   %92 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -49357,7 +49181,7 @@ _ZN5nblib22spreadFourCenterForcesIfDnEEvT_RKN3gmx11BasicVectorIS1_EES6_S6_S6_S6_
 166:                                              ; preds = %_ZN5nblib22spreadFourCenterForcesIfDnEEvT_RKN3gmx11BasicVectorIS1_EES6_S6_S6_S6_PS4_S7_S7_S7_PT0_S9_S9_S9_.exit
   %167 = load i64, ptr %6, align 8
   %168 = inttoptr i64 %167 to ptr
-  %169 = getelementptr inbounds %"class.gmx::BasicVector", ptr %168, i64 %29
+  %169 = getelementptr inbounds [12 x i8], ptr %168, i64 %29
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i
 
 170:                                              ; preds = %_ZN5nblib22spreadFourCenterForcesIfDnEEvT_RKN3gmx11BasicVectorIS1_EES6_S6_S6_S6_PS4_S7_S7_S7_PT0_S9_S9_S9_.exit
@@ -49381,7 +49205,7 @@ _ZN5nblib22spreadFourCenterForcesIfDnEEvT_RKN3gmx11BasicVectorIS1_EES6_S6_S6_S6_
   %177 = load i64, ptr %25, align 8, !tbaa !36
   %178 = urem i64 %29, %177
   %179 = load ptr, ptr %23, align 8, !tbaa !35
-  %180 = getelementptr inbounds nuw ptr, ptr %179, i64 %178
+  %180 = getelementptr inbounds nuw [8 x i8], ptr %179, i64 %178
   %181 = load ptr, ptr %180, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %181, null
   br i1 %.not.i.i.i.i.i, label %.loopexit265.thread, label %182
@@ -49423,7 +49247,7 @@ _ZN5nblib22spreadFourCenterForcesIfDnEEvT_RKN3gmx11BasicVectorIS1_EES6_S6_S6_S6_
   %.pre = load i64, ptr %25, align 8, !tbaa !36
   %.pre347 = load ptr, ptr %23, align 8, !tbaa !35
   %.pre356 = urem i64 %29, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre347, i64 %.pre356
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre347, i64 %.pre356
   %.pre363 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit265
 
@@ -49495,7 +49319,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %214 = load i64, ptr %25, align 8, !tbaa !36
   %215 = urem i64 %29, %214
   %216 = load ptr, ptr %23, align 8, !tbaa !35
-  %217 = getelementptr inbounds nuw ptr, ptr %216, i64 %215
+  %217 = getelementptr inbounds nuw [8 x i8], ptr %216, i64 %215
   %218 = load ptr, ptr %217, align 8, !tbaa !175
   %.not.i.i.i.i15 = icmp eq ptr %218, null
   br i1 %.not.i.i.i.i15, label %.loopexit.i.i21, label %219
@@ -49572,7 +49396,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
 247:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i
   %248 = load i64, ptr %6, align 8
   %249 = inttoptr i64 %248 to ptr
-  %250 = getelementptr inbounds %"class.gmx::BasicVector", ptr %249, i64 %31
+  %250 = getelementptr inbounds [12 x i8], ptr %249, i64 %31
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i
 
 251:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i
@@ -49596,7 +49420,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
   %258 = load i64, ptr %25, align 8, !tbaa !36
   %259 = urem i64 %31, %258
   %260 = load ptr, ptr %23, align 8, !tbaa !35
-  %261 = getelementptr inbounds nuw ptr, ptr %260, i64 %259
+  %261 = getelementptr inbounds nuw [8 x i8], ptr %260, i64 %259
   %262 = load ptr, ptr %261, align 8, !tbaa !175
   %.not.i.i.i.i.i27 = icmp eq ptr %262, null
   br i1 %.not.i.i.i.i.i27, label %.loopexit262.thread, label %263
@@ -49638,7 +49462,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
   %.pre348 = load i64, ptr %25, align 8, !tbaa !36
   %.pre349 = load ptr, ptr %23, align 8, !tbaa !35
   %.pre357 = urem i64 %31, %.pre348
-  %.phi.trans.insert364 = getelementptr inbounds nuw ptr, ptr %.pre349, i64 %.pre357
+  %.phi.trans.insert364 = getelementptr inbounds nuw [8 x i8], ptr %.pre349, i64 %.pre357
   %.pre365 = load ptr, ptr %.phi.trans.insert364, align 8, !tbaa !175
   br label %.loopexit262
 
@@ -49704,7 +49528,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %295 = load i64, ptr %25, align 8, !tbaa !36
   %296 = urem i64 %31, %295
   %297 = load ptr, ptr %23, align 8, !tbaa !35
-  %298 = getelementptr inbounds nuw ptr, ptr %297, i64 %296
+  %298 = getelementptr inbounds nuw [8 x i8], ptr %297, i64 %296
   %299 = load ptr, ptr %298, align 8, !tbaa !175
   %.not.i.i.i.i51 = icmp eq ptr %299, null
   br i1 %.not.i.i.i.i51, label %.loopexit.i.i57, label %300
@@ -49781,7 +49605,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
 328:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i
   %329 = load i64, ptr %6, align 8
   %330 = inttoptr i64 %329 to ptr
-  %331 = getelementptr inbounds %"class.gmx::BasicVector", ptr %330, i64 %33
+  %331 = getelementptr inbounds [12 x i8], ptr %330, i64 %33
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i
 
 332:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i
@@ -49805,7 +49629,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
   %339 = load i64, ptr %25, align 8, !tbaa !36
   %340 = urem i64 %33, %339
   %341 = load ptr, ptr %23, align 8, !tbaa !35
-  %342 = getelementptr inbounds nuw ptr, ptr %341, i64 %340
+  %342 = getelementptr inbounds nuw [8 x i8], ptr %341, i64 %340
   %343 = load ptr, ptr %342, align 8, !tbaa !175
   %.not.i.i.i.i.i65 = icmp eq ptr %343, null
   br i1 %.not.i.i.i.i.i65, label %.loopexit259.thread, label %344
@@ -49847,7 +49671,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
   %.pre350 = load i64, ptr %25, align 8, !tbaa !36
   %.pre351 = load ptr, ptr %23, align 8, !tbaa !35
   %.pre359 = urem i64 %33, %.pre350
-  %.phi.trans.insert366 = getelementptr inbounds nuw ptr, ptr %.pre351, i64 %.pre359
+  %.phi.trans.insert366 = getelementptr inbounds nuw [8 x i8], ptr %.pre351, i64 %.pre359
   %.pre367 = load ptr, ptr %.phi.trans.insert366, align 8, !tbaa !175
   br label %.loopexit259
 
@@ -49913,7 +49737,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %376 = load i64, ptr %25, align 8, !tbaa !36
   %377 = urem i64 %33, %376
   %378 = load ptr, ptr %23, align 8, !tbaa !35
-  %379 = getelementptr inbounds nuw ptr, ptr %378, i64 %377
+  %379 = getelementptr inbounds nuw [8 x i8], ptr %378, i64 %377
   %380 = load ptr, ptr %379, align 8, !tbaa !175
   %.not.i.i.i.i89 = icmp eq ptr %380, null
   br i1 %.not.i.i.i.i89, label %.loopexit.i.i95, label %381
@@ -49990,7 +49814,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
 409:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i
   %410 = load i64, ptr %6, align 8
   %411 = inttoptr i64 %410 to ptr
-  %412 = getelementptr inbounds %"class.gmx::BasicVector", ptr %411, i64 %35
+  %412 = getelementptr inbounds [12 x i8], ptr %411, i64 %35
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_24RyckaertBellemanDihedralES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_14ProperDihedralENS_16ImproperDihedralES6_EEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit
 
 413:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i
@@ -50014,7 +49838,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
   %420 = load i64, ptr %25, align 8, !tbaa !36
   %421 = urem i64 %35, %420
   %422 = load ptr, ptr %23, align 8, !tbaa !35
-  %423 = getelementptr inbounds nuw ptr, ptr %422, i64 %421
+  %423 = getelementptr inbounds nuw [8 x i8], ptr %422, i64 %421
   %424 = load ptr, ptr %423, align 8, !tbaa !175
   %.not.i.i.i.i.i103 = icmp eq ptr %424, null
   br i1 %.not.i.i.i.i.i103, label %.loopexit.thread, label %425
@@ -50056,7 +49880,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
   %.pre352 = load i64, ptr %25, align 8, !tbaa !36
   %.pre353 = load ptr, ptr %23, align 8, !tbaa !35
   %.pre361 = urem i64 %35, %.pre352
-  %.phi.trans.insert368 = getelementptr inbounds nuw ptr, ptr %.pre353, i64 %.pre361
+  %.phi.trans.insert368 = getelementptr inbounds nuw [8 x i8], ptr %.pre353, i64 %.pre361
   %.pre369 = load ptr, ptr %.phi.trans.insert368, align 8, !tbaa !175
   br label %.loopexit
 
@@ -50122,7 +49946,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %457 = load i64, ptr %25, align 8, !tbaa !36
   %458 = urem i64 %35, %457
   %459 = load ptr, ptr %23, align 8, !tbaa !35
-  %460 = getelementptr inbounds nuw ptr, ptr %459, i64 %458
+  %460 = getelementptr inbounds nuw [8 x i8], ptr %459, i64 %458
   %461 = load ptr, ptr %460, align 8, !tbaa !175
   %.not.i.i.i.i127 = icmp eq ptr %461, null
   br i1 %.not.i.i.i.i127, label %.loopexit.i.i133, label %462
@@ -50204,9 +50028,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 487:                                              ; preds = %487, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_24RyckaertBellemanDihedralES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_14ProperDihedralENS_16ImproperDihedralES6_EEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_24RyckaertBellemanDihedralES4_DnNS_9PbcHolderETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_14ProperDihedralENS_16ImproperDihedralES6_EEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit ], [ %493, %487 ]
-  %488 = getelementptr inbounds nuw float, ptr %20, i64 %.05.i
+  %488 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %.05.i
   %489 = load float, ptr %488, align 4, !tbaa !172
-  %490 = getelementptr inbounds nuw float, ptr %19, i64 %.05.i
+  %490 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.05.i
   %491 = load float, ptr %490, align 4, !tbaa !172
   %492 = fadd float %489, %491
   store float %492, ptr %490, align 4, !tbaa !172
@@ -50267,23 +50091,23 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.016.sroa.5.0.copyload = load i32, ptr %.sroa.016.sroa.5.0..sroa.017.0..sroa_idx, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %21 = sext i32 %.sroa.016.sroa.0.0.copyload to i64
-  %22 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %21
+  %22 = getelementptr inbounds [12 x i8], ptr %4, i64 %21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) %22, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %23 = sext i32 %.sroa.016.sroa.2.0.copyload to i64
-  %24 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %23
+  %24 = getelementptr inbounds [12 x i8], ptr %4, i64 %23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 4 dereferenceable(12) %24, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %25 = sext i32 %.sroa.016.sroa.3.0.copyload to i64
-  %26 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %25
+  %26 = getelementptr inbounds [12 x i8], ptr %4, i64 %25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 4 dereferenceable(12) %26, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %27 = sext i32 %.sroa.016.sroa.4.0.copyload to i64
-  %28 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %27
+  %28 = getelementptr inbounds [12 x i8], ptr %4, i64 %27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %13, ptr noundef nonnull align 4 dereferenceable(12) %28, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %29 = sext i32 %.sroa.016.sroa.5.0.copyload to i64
-  %30 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %29
+  %30 = getelementptr inbounds [12 x i8], ptr %4, i64 %29
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %14, ptr noundef nonnull align 4 dereferenceable(12) %30, i64 12, i1 false), !tbaa.struct !187
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -50307,9 +50131,9 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
 
 35:                                               ; preds = %35, %.lr.ph
   %.05.i = phi i64 [ 0, %.lr.ph ], [ %41, %35 ]
-  %36 = getelementptr inbounds nuw float, ptr %20, i64 %.05.i
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %.05.i
   %37 = load float, ptr %36, align 4, !tbaa !172
-  %38 = getelementptr inbounds nuw float, ptr %19, i64 %.05.i
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %.05.i
   %39 = load float, ptr %38, align 4, !tbaa !172
   %40 = fadd float %37, %39
   store float %40, ptr %38, align 4, !tbaa !172
@@ -50925,9 +50749,9 @@ define linkonce_odr void @_ZZN5nblib14for_each_tupleIRZNS_18reduceListedForcesIN
 
 484:                                              ; preds = %484, %.lr.ph.i.i
   %.05.i.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %490, %484 ]
-  %485 = getelementptr inbounds nuw float, ptr %21, i64 %.05.i.i.i
+  %485 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %.05.i.i.i
   %486 = load float, ptr %485, align 4, !tbaa !172
-  %487 = getelementptr inbounds nuw float, ptr %20, i64 %.05.i.i.i
+  %487 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %.05.i.i.i
   %488 = load float, ptr %487, align 4, !tbaa !172
   %489 = fadd float %486, %488
   store float %489, ptr %487, align 4, !tbaa !172
@@ -51009,21 +50833,21 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.098.4.extract.trunc = trunc nuw i64 %.sroa.098.4.extract.shift to i32
   %sext = shl i64 %.sroa.01.0.copyload, 32
   %20 = ashr exact i64 %sext, 32
-  %21 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %20
+  %21 = getelementptr inbounds [12 x i8], ptr %4, i64 %20
   %.sroa.087.0.copyload = load float, ptr %21, align 4
   %.sroa.488.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 4
   %.sroa.488.0.copyload = load float, ptr %.sroa.488.0..sroa_idx, align 4
   %.sroa.589.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.sroa.589.0.copyload = load float, ptr %.sroa.589.0..sroa_idx, align 4, !tbaa !188
   %22 = ashr i64 %.sroa.01.0.copyload, 32
-  %23 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %22
+  %23 = getelementptr inbounds [12 x i8], ptr %4, i64 %22
   %.sroa.084.0.copyload = load float, ptr %23, align 4
   %.sroa.485.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 4
   %.sroa.485.0.copyload = load float, ptr %.sroa.485.0..sroa_idx, align 4
   %.sroa.586.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 8
   %.sroa.586.0.copyload = load float, ptr %.sroa.586.0..sroa_idx, align 4, !tbaa !188
   %24 = sext i32 %.sroa.22.0.copyload to i64
-  %25 = getelementptr inbounds %"class.nblib::TwoParameterInteraction", ptr %2, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %2, i64 %24
   %26 = load float, ptr %25, align 4
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 4
   %27 = load float, ptr %.sroa_idx, align 4
@@ -51040,7 +50864,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
 34:                                               ; preds = %19
   %35 = load i64, ptr %6, align 8
   %36 = inttoptr i64 %35 to ptr
-  %37 = getelementptr inbounds %"class.gmx::BasicVector", ptr %36, i64 %20
+  %37 = getelementptr inbounds [12 x i8], ptr %36, i64 %20
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
 
 38:                                               ; preds = %19
@@ -51064,7 +50888,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %45 = load i64, ptr %16, align 8, !tbaa !36
   %46 = urem i64 %20, %45
   %47 = load ptr, ptr %14, align 8, !tbaa !35
-  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %46
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %46
   %49 = load ptr, ptr %48, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %49, null
   br i1 %.not.i.i.i.i.i, label %.loopexit120.thread, label %50
@@ -51106,7 +50930,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.pre = load i64, ptr %16, align 8, !tbaa !36
   %.pre152 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre159 = urem i64 %20, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre152, i64 %.pre159
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre152, i64 %.pre159
   %.pre162 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit120
 
@@ -51178,7 +51002,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %82 = load i64, ptr %16, align 8, !tbaa !36
   %83 = urem i64 %20, %82
   %84 = load ptr, ptr %14, align 8, !tbaa !35
-  %85 = getelementptr inbounds nuw ptr, ptr %84, i64 %83
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %83
   %86 = load ptr, ptr %85, align 8, !tbaa !175
   %.not.i.i.i.i14 = icmp eq ptr %86, null
   br i1 %.not.i.i.i.i14, label %.loopexit.i.i20, label %87
@@ -51243,7 +51067,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
 107:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
   %108 = load i64, ptr %6, align 8
   %109 = inttoptr i64 %108 to ptr
-  %110 = getelementptr inbounds %"class.gmx::BasicVector", ptr %109, i64 %22
+  %110 = getelementptr inbounds [12 x i8], ptr %109, i64 %22
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit.i
 
 111:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
@@ -51267,7 +51091,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %118 = load i64, ptr %16, align 8, !tbaa !36
   %119 = urem i64 %22, %118
   %120 = load ptr, ptr %14, align 8, !tbaa !35
-  %121 = getelementptr inbounds nuw ptr, ptr %120, i64 %119
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %120, i64 %119
   %122 = load ptr, ptr %121, align 8, !tbaa !175
   %.not.i.i.i.i.i26 = icmp eq ptr %122, null
   br i1 %.not.i.i.i.i.i26, label %.loopexit.thread, label %123
@@ -51309,7 +51133,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %.pre155 = load i64, ptr %16, align 8, !tbaa !36
   %.pre156 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre160 = urem i64 %22, %.pre155
-  %.phi.trans.insert163 = getelementptr inbounds nuw ptr, ptr %.pre156, i64 %.pre160
+  %.phi.trans.insert163 = getelementptr inbounds nuw [8 x i8], ptr %.pre156, i64 %.pre160
   %.pre164 = load ptr, ptr %.phi.trans.insert163, align 8, !tbaa !175
   br label %.loopexit
 
@@ -51375,7 +51199,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %155 = load i64, ptr %16, align 8, !tbaa !36
   %156 = urem i64 %22, %155
   %157 = load ptr, ptr %14, align 8, !tbaa !35
-  %158 = getelementptr inbounds nuw ptr, ptr %157, i64 %156
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %157, i64 %156
   %159 = load ptr, ptr %158, align 8, !tbaa !175
   %.not.i.i.i.i50 = icmp eq ptr %159, null
   br i1 %.not.i.i.i.i50, label %.loopexit.i.i56, label %160
@@ -51483,9 +51307,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 211:                                              ; preds = %211, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJS8_NS_11G96BondTypeENS_13CubicBondTypeENS_13MorseBondTypeENS6_INS_21FENEBondTypeParameterEEENS6_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJS8_NS_11G96BondTypeENS_13CubicBondTypeENS_13MorseBondTypeENS6_INS_21FENEBondTypeParameterEEENS6_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit ], [ %217, %211 ]
-  %212 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
+  %212 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.05.i
   %213 = load float, ptr %212, align 4, !tbaa !172
-  %214 = getelementptr inbounds nuw float, ptr %10, i64 %.05.i
+  %214 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.05.i
   %215 = load float, ptr %214, align 4, !tbaa !172
   %216 = fadd float %213, %215
   store float %216, ptr %214, align 4, !tbaa !172
@@ -51546,21 +51370,21 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.098.4.extract.trunc = trunc nuw i64 %.sroa.098.4.extract.shift to i32
   %sext = shl i64 %.sroa.01.0.copyload, 32
   %20 = ashr exact i64 %sext, 32
-  %21 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %20
+  %21 = getelementptr inbounds [12 x i8], ptr %4, i64 %20
   %.sroa.087.0.copyload = load float, ptr %21, align 4
   %.sroa.488.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 4
   %.sroa.488.0.copyload = load float, ptr %.sroa.488.0..sroa_idx, align 4
   %.sroa.589.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.sroa.589.0.copyload = load float, ptr %.sroa.589.0..sroa_idx, align 4, !tbaa !188
   %22 = ashr i64 %.sroa.01.0.copyload, 32
-  %23 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %22
+  %23 = getelementptr inbounds [12 x i8], ptr %4, i64 %22
   %.sroa.084.0.copyload = load float, ptr %23, align 4
   %.sroa.485.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 4
   %.sroa.485.0.copyload = load float, ptr %.sroa.485.0..sroa_idx, align 4
   %.sroa.586.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 8
   %.sroa.586.0.copyload = load float, ptr %.sroa.586.0..sroa_idx, align 4, !tbaa !188
   %24 = sext i32 %.sroa.22.0.copyload to i64
-  %25 = getelementptr inbounds %"class.nblib::G96BondType", ptr %2, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %2, i64 %24
   %26 = load float, ptr %25, align 4
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 4
   %27 = load float, ptr %.sroa_idx, align 4
@@ -51577,7 +51401,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
 34:                                               ; preds = %19
   %35 = load i64, ptr %6, align 8
   %36 = inttoptr i64 %35 to ptr
-  %37 = getelementptr inbounds %"class.gmx::BasicVector", ptr %36, i64 %20
+  %37 = getelementptr inbounds [12 x i8], ptr %36, i64 %20
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
 
 38:                                               ; preds = %19
@@ -51601,7 +51425,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %45 = load i64, ptr %16, align 8, !tbaa !36
   %46 = urem i64 %20, %45
   %47 = load ptr, ptr %14, align 8, !tbaa !35
-  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %46
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %46
   %49 = load ptr, ptr %48, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %49, null
   br i1 %.not.i.i.i.i.i, label %.loopexit120.thread, label %50
@@ -51643,7 +51467,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.pre = load i64, ptr %16, align 8, !tbaa !36
   %.pre152 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre159 = urem i64 %20, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre152, i64 %.pre159
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre152, i64 %.pre159
   %.pre162 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit120
 
@@ -51715,7 +51539,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %82 = load i64, ptr %16, align 8, !tbaa !36
   %83 = urem i64 %20, %82
   %84 = load ptr, ptr %14, align 8, !tbaa !35
-  %85 = getelementptr inbounds nuw ptr, ptr %84, i64 %83
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %83
   %86 = load ptr, ptr %85, align 8, !tbaa !175
   %.not.i.i.i.i14 = icmp eq ptr %86, null
   br i1 %.not.i.i.i.i14, label %.loopexit.i.i20, label %87
@@ -51780,7 +51604,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
 107:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
   %108 = load i64, ptr %6, align 8
   %109 = inttoptr i64 %108 to ptr
-  %110 = getelementptr inbounds %"class.gmx::BasicVector", ptr %109, i64 %22
+  %110 = getelementptr inbounds [12 x i8], ptr %109, i64 %22
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit.i
 
 111:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
@@ -51804,7 +51628,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %118 = load i64, ptr %16, align 8, !tbaa !36
   %119 = urem i64 %22, %118
   %120 = load ptr, ptr %14, align 8, !tbaa !35
-  %121 = getelementptr inbounds nuw ptr, ptr %120, i64 %119
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %120, i64 %119
   %122 = load ptr, ptr %121, align 8, !tbaa !175
   %.not.i.i.i.i.i26 = icmp eq ptr %122, null
   br i1 %.not.i.i.i.i.i26, label %.loopexit.thread, label %123
@@ -51846,7 +51670,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %.pre155 = load i64, ptr %16, align 8, !tbaa !36
   %.pre156 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre160 = urem i64 %22, %.pre155
-  %.phi.trans.insert163 = getelementptr inbounds nuw ptr, ptr %.pre156, i64 %.pre160
+  %.phi.trans.insert163 = getelementptr inbounds nuw [8 x i8], ptr %.pre156, i64 %.pre160
   %.pre164 = load ptr, ptr %.phi.trans.insert163, align 8, !tbaa !175
   br label %.loopexit
 
@@ -51912,7 +51736,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %155 = load i64, ptr %16, align 8, !tbaa !36
   %156 = urem i64 %22, %155
   %157 = load ptr, ptr %14, align 8, !tbaa !35
-  %158 = getelementptr inbounds nuw ptr, ptr %157, i64 %156
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %157, i64 %156
   %159 = load ptr, ptr %158, align 8, !tbaa !175
   %.not.i.i.i.i50 = icmp eq ptr %159, null
   br i1 %.not.i.i.i.i50, label %.loopexit.i.i56, label %160
@@ -52023,9 +51847,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 214:                                              ; preds = %214, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_11G96BondTypeES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEES6_NS_13CubicBondTypeENS_13MorseBondTypeENSC_INS_21FENEBondTypeParameterEEENSC_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_11G96BondTypeES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEES6_NS_13CubicBondTypeENS_13MorseBondTypeENSC_INS_21FENEBondTypeParameterEEENSC_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit ], [ %220, %214 ]
-  %215 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
+  %215 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.05.i
   %216 = load float, ptr %215, align 4, !tbaa !172
-  %217 = getelementptr inbounds nuw float, ptr %10, i64 %.05.i
+  %217 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.05.i
   %218 = load float, ptr %217, align 4, !tbaa !172
   %219 = fadd float %216, %218
   store float %219, ptr %217, align 4, !tbaa !172
@@ -52086,21 +51910,21 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.098.4.extract.trunc = trunc nuw i64 %.sroa.098.4.extract.shift to i32
   %sext = shl i64 %.sroa.01.0.copyload, 32
   %20 = ashr exact i64 %sext, 32
-  %21 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %20
+  %21 = getelementptr inbounds [12 x i8], ptr %4, i64 %20
   %.sroa.087.0.copyload = load float, ptr %21, align 4
   %.sroa.488.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 4
   %.sroa.488.0.copyload = load float, ptr %.sroa.488.0..sroa_idx, align 4
   %.sroa.589.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.sroa.589.0.copyload = load float, ptr %.sroa.589.0..sroa_idx, align 4, !tbaa !188
   %22 = ashr i64 %.sroa.01.0.copyload, 32
-  %23 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %22
+  %23 = getelementptr inbounds [12 x i8], ptr %4, i64 %22
   %.sroa.084.0.copyload = load float, ptr %23, align 4
   %.sroa.485.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 4
   %.sroa.485.0.copyload = load float, ptr %.sroa.485.0..sroa_idx, align 4
   %.sroa.586.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 8
   %.sroa.586.0.copyload = load float, ptr %.sroa.586.0..sroa_idx, align 4, !tbaa !188
   %24 = sext i32 %.sroa.22.0.copyload to i64
-  %25 = getelementptr inbounds %"class.nblib::CubicBondType", ptr %2, i64 %24
+  %25 = getelementptr inbounds [12 x i8], ptr %2, i64 %24
   %.sroa.081.0.copyload = load float, ptr %25, align 4, !tbaa !172
   %.sroa.482.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 4
   %.sroa.482.0.copyload = load float, ptr %.sroa.482.0..sroa_idx, align 4, !tbaa !172
@@ -52119,7 +51943,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
 32:                                               ; preds = %19
   %33 = load i64, ptr %6, align 8
   %34 = inttoptr i64 %33 to ptr
-  %35 = getelementptr inbounds %"class.gmx::BasicVector", ptr %34, i64 %20
+  %35 = getelementptr inbounds [12 x i8], ptr %34, i64 %20
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
 
 36:                                               ; preds = %19
@@ -52143,7 +51967,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %43 = load i64, ptr %16, align 8, !tbaa !36
   %44 = urem i64 %20, %43
   %45 = load ptr, ptr %14, align 8, !tbaa !35
-  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %44
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %44
   %47 = load ptr, ptr %46, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %47, null
   br i1 %.not.i.i.i.i.i, label %.loopexit120.thread, label %48
@@ -52185,7 +52009,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.pre = load i64, ptr %16, align 8, !tbaa !36
   %.pre152 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre159 = urem i64 %20, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre152, i64 %.pre159
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre152, i64 %.pre159
   %.pre162 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit120
 
@@ -52257,7 +52081,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %80 = load i64, ptr %16, align 8, !tbaa !36
   %81 = urem i64 %20, %80
   %82 = load ptr, ptr %14, align 8, !tbaa !35
-  %83 = getelementptr inbounds nuw ptr, ptr %82, i64 %81
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %81
   %84 = load ptr, ptr %83, align 8, !tbaa !175
   %.not.i.i.i.i14 = icmp eq ptr %84, null
   br i1 %.not.i.i.i.i14, label %.loopexit.i.i20, label %85
@@ -52322,7 +52146,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
 105:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
   %106 = load i64, ptr %6, align 8
   %107 = inttoptr i64 %106 to ptr
-  %108 = getelementptr inbounds %"class.gmx::BasicVector", ptr %107, i64 %22
+  %108 = getelementptr inbounds [12 x i8], ptr %107, i64 %22
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit.i
 
 109:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
@@ -52346,7 +52170,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %116 = load i64, ptr %16, align 8, !tbaa !36
   %117 = urem i64 %22, %116
   %118 = load ptr, ptr %14, align 8, !tbaa !35
-  %119 = getelementptr inbounds nuw ptr, ptr %118, i64 %117
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %118, i64 %117
   %120 = load ptr, ptr %119, align 8, !tbaa !175
   %.not.i.i.i.i.i26 = icmp eq ptr %120, null
   br i1 %.not.i.i.i.i.i26, label %.loopexit.thread, label %121
@@ -52388,7 +52212,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %.pre155 = load i64, ptr %16, align 8, !tbaa !36
   %.pre156 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre160 = urem i64 %22, %.pre155
-  %.phi.trans.insert163 = getelementptr inbounds nuw ptr, ptr %.pre156, i64 %.pre160
+  %.phi.trans.insert163 = getelementptr inbounds nuw [8 x i8], ptr %.pre156, i64 %.pre160
   %.pre164 = load ptr, ptr %.phi.trans.insert163, align 8, !tbaa !175
   br label %.loopexit
 
@@ -52454,7 +52278,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %153 = load i64, ptr %16, align 8, !tbaa !36
   %154 = urem i64 %22, %153
   %155 = load ptr, ptr %14, align 8, !tbaa !35
-  %156 = getelementptr inbounds nuw ptr, ptr %155, i64 %154
+  %156 = getelementptr inbounds nuw [8 x i8], ptr %155, i64 %154
   %157 = load ptr, ptr %156, align 8, !tbaa !175
   %.not.i.i.i.i50 = icmp eq ptr %157, null
   br i1 %.not.i.i.i.i50, label %.loopexit.i.i56, label %158
@@ -52566,9 +52390,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 213:                                              ; preds = %213, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_13CubicBondTypeES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEENS_11G96BondTypeES6_NS_13MorseBondTypeENSC_INS_21FENEBondTypeParameterEEENSC_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_13CubicBondTypeES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEENS_11G96BondTypeES6_NS_13MorseBondTypeENSC_INS_21FENEBondTypeParameterEEENSC_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit ], [ %219, %213 ]
-  %214 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
+  %214 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.05.i
   %215 = load float, ptr %214, align 4, !tbaa !172
-  %216 = getelementptr inbounds nuw float, ptr %10, i64 %.05.i
+  %216 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.05.i
   %217 = load float, ptr %216, align 4, !tbaa !172
   %218 = fadd float %215, %217
   store float %218, ptr %216, align 4, !tbaa !172
@@ -52629,21 +52453,21 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.098.4.extract.trunc = trunc nuw i64 %.sroa.098.4.extract.shift to i32
   %sext = shl i64 %.sroa.01.0.copyload, 32
   %20 = ashr exact i64 %sext, 32
-  %21 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %20
+  %21 = getelementptr inbounds [12 x i8], ptr %4, i64 %20
   %.sroa.087.0.copyload = load float, ptr %21, align 4
   %.sroa.488.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 4
   %.sroa.488.0.copyload = load float, ptr %.sroa.488.0..sroa_idx, align 4
   %.sroa.589.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.sroa.589.0.copyload = load float, ptr %.sroa.589.0..sroa_idx, align 4, !tbaa !188
   %22 = ashr i64 %.sroa.01.0.copyload, 32
-  %23 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %22
+  %23 = getelementptr inbounds [12 x i8], ptr %4, i64 %22
   %.sroa.084.0.copyload = load float, ptr %23, align 4
   %.sroa.485.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 4
   %.sroa.485.0.copyload = load float, ptr %.sroa.485.0..sroa_idx, align 4
   %.sroa.586.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 8
   %.sroa.586.0.copyload = load float, ptr %.sroa.586.0..sroa_idx, align 4, !tbaa !188
   %24 = sext i32 %.sroa.22.0.copyload to i64
-  %25 = getelementptr inbounds %"class.nblib::MorseBondType", ptr %2, i64 %24
+  %25 = getelementptr inbounds [12 x i8], ptr %2, i64 %24
   %.sroa.081.0.copyload = load float, ptr %25, align 4, !tbaa !172
   %.sroa.482.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 4
   %.sroa.482.0.copyload = load float, ptr %.sroa.482.0..sroa_idx, align 4, !tbaa !172
@@ -52662,7 +52486,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
 32:                                               ; preds = %19
   %33 = load i64, ptr %6, align 8
   %34 = inttoptr i64 %33 to ptr
-  %35 = getelementptr inbounds %"class.gmx::BasicVector", ptr %34, i64 %20
+  %35 = getelementptr inbounds [12 x i8], ptr %34, i64 %20
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
 
 36:                                               ; preds = %19
@@ -52686,7 +52510,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %43 = load i64, ptr %16, align 8, !tbaa !36
   %44 = urem i64 %20, %43
   %45 = load ptr, ptr %14, align 8, !tbaa !35
-  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %44
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %44
   %47 = load ptr, ptr %46, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %47, null
   br i1 %.not.i.i.i.i.i, label %.loopexit120.thread, label %48
@@ -52728,7 +52552,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.pre = load i64, ptr %16, align 8, !tbaa !36
   %.pre152 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre159 = urem i64 %20, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre152, i64 %.pre159
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre152, i64 %.pre159
   %.pre162 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit120
 
@@ -52800,7 +52624,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %80 = load i64, ptr %16, align 8, !tbaa !36
   %81 = urem i64 %20, %80
   %82 = load ptr, ptr %14, align 8, !tbaa !35
-  %83 = getelementptr inbounds nuw ptr, ptr %82, i64 %81
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %81
   %84 = load ptr, ptr %83, align 8, !tbaa !175
   %.not.i.i.i.i14 = icmp eq ptr %84, null
   br i1 %.not.i.i.i.i14, label %.loopexit.i.i20, label %85
@@ -52865,7 +52689,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
 105:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
   %106 = load i64, ptr %6, align 8
   %107 = inttoptr i64 %106 to ptr
-  %108 = getelementptr inbounds %"class.gmx::BasicVector", ptr %107, i64 %22
+  %108 = getelementptr inbounds [12 x i8], ptr %107, i64 %22
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit.i
 
 109:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
@@ -52889,7 +52713,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %116 = load i64, ptr %16, align 8, !tbaa !36
   %117 = urem i64 %22, %116
   %118 = load ptr, ptr %14, align 8, !tbaa !35
-  %119 = getelementptr inbounds nuw ptr, ptr %118, i64 %117
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %118, i64 %117
   %120 = load ptr, ptr %119, align 8, !tbaa !175
   %.not.i.i.i.i.i26 = icmp eq ptr %120, null
   br i1 %.not.i.i.i.i.i26, label %.loopexit.thread, label %121
@@ -52931,7 +52755,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %.pre155 = load i64, ptr %16, align 8, !tbaa !36
   %.pre156 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre160 = urem i64 %22, %.pre155
-  %.phi.trans.insert163 = getelementptr inbounds nuw ptr, ptr %.pre156, i64 %.pre160
+  %.phi.trans.insert163 = getelementptr inbounds nuw [8 x i8], ptr %.pre156, i64 %.pre160
   %.pre164 = load ptr, ptr %.phi.trans.insert163, align 8, !tbaa !175
   br label %.loopexit
 
@@ -52997,7 +52821,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %153 = load i64, ptr %16, align 8, !tbaa !36
   %154 = urem i64 %22, %153
   %155 = load ptr, ptr %14, align 8, !tbaa !35
-  %156 = getelementptr inbounds nuw ptr, ptr %155, i64 %154
+  %156 = getelementptr inbounds nuw [8 x i8], ptr %155, i64 %154
   %157 = load ptr, ptr %156, align 8, !tbaa !175
   %.not.i.i.i.i50 = icmp eq ptr %157, null
   br i1 %.not.i.i.i.i50, label %.loopexit.i.i56, label %158
@@ -53110,9 +52934,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 214:                                              ; preds = %214, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_13MorseBondTypeES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeES6_NSC_INS_21FENEBondTypeParameterEEENSC_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_13MorseBondTypeES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeES6_NSC_INS_21FENEBondTypeParameterEEENSC_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit ], [ %220, %214 ]
-  %215 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
+  %215 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.05.i
   %216 = load float, ptr %215, align 4, !tbaa !172
-  %217 = getelementptr inbounds nuw float, ptr %10, i64 %.05.i
+  %217 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.05.i
   %218 = load float, ptr %217, align 4, !tbaa !172
   %219 = fadd float %216, %218
   store float %219, ptr %217, align 4, !tbaa !172
@@ -53173,21 +52997,21 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.098.4.extract.trunc = trunc nuw i64 %.sroa.098.4.extract.shift to i32
   %sext = shl i64 %.sroa.01.0.copyload, 32
   %20 = ashr exact i64 %sext, 32
-  %21 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %20
+  %21 = getelementptr inbounds [12 x i8], ptr %4, i64 %20
   %.sroa.087.0.copyload = load float, ptr %21, align 4
   %.sroa.488.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 4
   %.sroa.488.0.copyload = load float, ptr %.sroa.488.0..sroa_idx, align 4
   %.sroa.589.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.sroa.589.0.copyload = load float, ptr %.sroa.589.0..sroa_idx, align 4, !tbaa !188
   %22 = ashr i64 %.sroa.01.0.copyload, 32
-  %23 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %22
+  %23 = getelementptr inbounds [12 x i8], ptr %4, i64 %22
   %.sroa.084.0.copyload = load float, ptr %23, align 4
   %.sroa.485.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 4
   %.sroa.485.0.copyload = load float, ptr %.sroa.485.0..sroa_idx, align 4
   %.sroa.586.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 8
   %.sroa.586.0.copyload = load float, ptr %.sroa.586.0..sroa_idx, align 4, !tbaa !188
   %24 = sext i32 %.sroa.22.0.copyload to i64
-  %25 = getelementptr inbounds %"class.nblib::TwoParameterInteraction.203", ptr %2, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %2, i64 %24
   %26 = load float, ptr %25, align 4
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 4
   %27 = load float, ptr %.sroa_idx, align 4
@@ -53204,7 +53028,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
 34:                                               ; preds = %19
   %35 = load i64, ptr %6, align 8
   %36 = inttoptr i64 %35 to ptr
-  %37 = getelementptr inbounds %"class.gmx::BasicVector", ptr %36, i64 %20
+  %37 = getelementptr inbounds [12 x i8], ptr %36, i64 %20
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
 
 38:                                               ; preds = %19
@@ -53228,7 +53052,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %45 = load i64, ptr %16, align 8, !tbaa !36
   %46 = urem i64 %20, %45
   %47 = load ptr, ptr %14, align 8, !tbaa !35
-  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %46
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %46
   %49 = load ptr, ptr %48, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %49, null
   br i1 %.not.i.i.i.i.i, label %.loopexit120.thread, label %50
@@ -53270,7 +53094,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.pre = load i64, ptr %16, align 8, !tbaa !36
   %.pre152 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre159 = urem i64 %20, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre152, i64 %.pre159
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre152, i64 %.pre159
   %.pre162 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit120
 
@@ -53342,7 +53166,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %82 = load i64, ptr %16, align 8, !tbaa !36
   %83 = urem i64 %20, %82
   %84 = load ptr, ptr %14, align 8, !tbaa !35
-  %85 = getelementptr inbounds nuw ptr, ptr %84, i64 %83
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %83
   %86 = load ptr, ptr %85, align 8, !tbaa !175
   %.not.i.i.i.i14 = icmp eq ptr %86, null
   br i1 %.not.i.i.i.i14, label %.loopexit.i.i20, label %87
@@ -53407,7 +53231,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
 107:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
   %108 = load i64, ptr %6, align 8
   %109 = inttoptr i64 %108 to ptr
-  %110 = getelementptr inbounds %"class.gmx::BasicVector", ptr %109, i64 %22
+  %110 = getelementptr inbounds [12 x i8], ptr %109, i64 %22
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit.i
 
 111:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
@@ -53431,7 +53255,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %118 = load i64, ptr %16, align 8, !tbaa !36
   %119 = urem i64 %22, %118
   %120 = load ptr, ptr %14, align 8, !tbaa !35
-  %121 = getelementptr inbounds nuw ptr, ptr %120, i64 %119
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %120, i64 %119
   %122 = load ptr, ptr %121, align 8, !tbaa !175
   %.not.i.i.i.i.i26 = icmp eq ptr %122, null
   br i1 %.not.i.i.i.i.i26, label %.loopexit.thread, label %123
@@ -53473,7 +53297,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %.pre155 = load i64, ptr %16, align 8, !tbaa !36
   %.pre156 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre160 = urem i64 %22, %.pre155
-  %.phi.trans.insert163 = getelementptr inbounds nuw ptr, ptr %.pre156, i64 %.pre160
+  %.phi.trans.insert163 = getelementptr inbounds nuw [8 x i8], ptr %.pre156, i64 %.pre160
   %.pre164 = load ptr, ptr %.phi.trans.insert163, align 8, !tbaa !175
   br label %.loopexit
 
@@ -53539,7 +53363,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %155 = load i64, ptr %16, align 8, !tbaa !36
   %156 = urem i64 %22, %155
   %157 = load ptr, ptr %14, align 8, !tbaa !35
-  %158 = getelementptr inbounds nuw ptr, ptr %157, i64 %156
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %157, i64 %156
   %159 = load ptr, ptr %158, align 8, !tbaa !175
   %.not.i.i.i.i50 = icmp eq ptr %159, null
   br i1 %.not.i.i.i.i50, label %.loopexit.i.i56, label %160
@@ -53653,9 +53477,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 217:                                              ; preds = %217, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_23TwoParameterInteractionINS_21FENEBondTypeParameterEEES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS6_INS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeENS_13MorseBondTypeES8_NS6_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_23TwoParameterInteractionINS_21FENEBondTypeParameterEEES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS6_INS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeENS_13MorseBondTypeES8_NS6_INS_38HalfAttractiveQuarticBondTypeParameterEEENS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit ], [ %223, %217 ]
-  %218 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
+  %218 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.05.i
   %219 = load float, ptr %218, align 4, !tbaa !172
-  %220 = getelementptr inbounds nuw float, ptr %10, i64 %.05.i
+  %220 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.05.i
   %221 = load float, ptr %220, align 4, !tbaa !172
   %222 = fadd float %219, %221
   store float %222, ptr %220, align 4, !tbaa !172
@@ -53716,21 +53540,21 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.098.4.extract.trunc = trunc nuw i64 %.sroa.098.4.extract.shift to i32
   %sext = shl i64 %.sroa.01.0.copyload, 32
   %20 = ashr exact i64 %sext, 32
-  %21 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %20
+  %21 = getelementptr inbounds [12 x i8], ptr %4, i64 %20
   %.sroa.087.0.copyload = load float, ptr %21, align 4
   %.sroa.488.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 4
   %.sroa.488.0.copyload = load float, ptr %.sroa.488.0..sroa_idx, align 4
   %.sroa.589.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.sroa.589.0.copyload = load float, ptr %.sroa.589.0..sroa_idx, align 4, !tbaa !188
   %22 = ashr i64 %.sroa.01.0.copyload, 32
-  %23 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %22
+  %23 = getelementptr inbounds [12 x i8], ptr %4, i64 %22
   %.sroa.084.0.copyload = load float, ptr %23, align 4
   %.sroa.485.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 4
   %.sroa.485.0.copyload = load float, ptr %.sroa.485.0..sroa_idx, align 4
   %.sroa.586.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 8
   %.sroa.586.0.copyload = load float, ptr %.sroa.586.0..sroa_idx, align 4, !tbaa !188
   %24 = sext i32 %.sroa.22.0.copyload to i64
-  %25 = getelementptr inbounds %"class.nblib::TwoParameterInteraction.206", ptr %2, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %2, i64 %24
   %26 = load float, ptr %25, align 4
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 4
   %27 = load float, ptr %.sroa_idx, align 4
@@ -53747,7 +53571,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
 34:                                               ; preds = %19
   %35 = load i64, ptr %6, align 8
   %36 = inttoptr i64 %35 to ptr
-  %37 = getelementptr inbounds %"class.gmx::BasicVector", ptr %36, i64 %20
+  %37 = getelementptr inbounds [12 x i8], ptr %36, i64 %20
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
 
 38:                                               ; preds = %19
@@ -53771,7 +53595,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %45 = load i64, ptr %16, align 8, !tbaa !36
   %46 = urem i64 %20, %45
   %47 = load ptr, ptr %14, align 8, !tbaa !35
-  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %46
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %46
   %49 = load ptr, ptr %48, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %49, null
   br i1 %.not.i.i.i.i.i, label %.loopexit120.thread, label %50
@@ -53813,7 +53637,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.pre = load i64, ptr %16, align 8, !tbaa !36
   %.pre152 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre159 = urem i64 %20, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre152, i64 %.pre159
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre152, i64 %.pre159
   %.pre162 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit120
 
@@ -53885,7 +53709,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %82 = load i64, ptr %16, align 8, !tbaa !36
   %83 = urem i64 %20, %82
   %84 = load ptr, ptr %14, align 8, !tbaa !35
-  %85 = getelementptr inbounds nuw ptr, ptr %84, i64 %83
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %83
   %86 = load ptr, ptr %85, align 8, !tbaa !175
   %.not.i.i.i.i14 = icmp eq ptr %86, null
   br i1 %.not.i.i.i.i14, label %.loopexit.i.i20, label %87
@@ -53950,7 +53774,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
 107:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
   %108 = load i64, ptr %6, align 8
   %109 = inttoptr i64 %108 to ptr
-  %110 = getelementptr inbounds %"class.gmx::BasicVector", ptr %109, i64 %22
+  %110 = getelementptr inbounds [12 x i8], ptr %109, i64 %22
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit.i
 
 111:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
@@ -53974,7 +53798,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %118 = load i64, ptr %16, align 8, !tbaa !36
   %119 = urem i64 %22, %118
   %120 = load ptr, ptr %14, align 8, !tbaa !35
-  %121 = getelementptr inbounds nuw ptr, ptr %120, i64 %119
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %120, i64 %119
   %122 = load ptr, ptr %121, align 8, !tbaa !175
   %.not.i.i.i.i.i26 = icmp eq ptr %122, null
   br i1 %.not.i.i.i.i.i26, label %.loopexit.thread, label %123
@@ -54016,7 +53840,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %.pre155 = load i64, ptr %16, align 8, !tbaa !36
   %.pre156 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre160 = urem i64 %22, %.pre155
-  %.phi.trans.insert163 = getelementptr inbounds nuw ptr, ptr %.pre156, i64 %.pre160
+  %.phi.trans.insert163 = getelementptr inbounds nuw [8 x i8], ptr %.pre156, i64 %.pre160
   %.pre164 = load ptr, ptr %.phi.trans.insert163, align 8, !tbaa !175
   br label %.loopexit
 
@@ -54082,7 +53906,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %155 = load i64, ptr %16, align 8, !tbaa !36
   %156 = urem i64 %22, %155
   %157 = load ptr, ptr %14, align 8, !tbaa !35
-  %158 = getelementptr inbounds nuw ptr, ptr %157, i64 %156
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %157, i64 %156
   %159 = load ptr, ptr %158, align 8, !tbaa !175
   %.not.i.i.i.i50 = icmp eq ptr %159, null
   br i1 %.not.i.i.i.i50, label %.loopexit.i.i56, label %160
@@ -54194,9 +54018,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 215:                                              ; preds = %215, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_23TwoParameterInteractionINS_38HalfAttractiveQuarticBondTypeParameterEEES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS6_INS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeENS_13MorseBondTypeENS6_INS_21FENEBondTypeParameterEEES8_NS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_23TwoParameterInteractionINS_38HalfAttractiveQuarticBondTypeParameterEEES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS6_INS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeENS_13MorseBondTypeENS6_INS_21FENEBondTypeParameterEEES8_NS_10PairLJTypeEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit ], [ %221, %215 ]
-  %216 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
+  %216 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.05.i
   %217 = load float, ptr %216, align 4, !tbaa !172
-  %218 = getelementptr inbounds nuw float, ptr %10, i64 %.05.i
+  %218 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.05.i
   %219 = load float, ptr %218, align 4, !tbaa !172
   %220 = fadd float %217, %219
   store float %220, ptr %218, align 4, !tbaa !172
@@ -54257,21 +54081,21 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.099.4.extract.trunc = trunc nuw i64 %.sroa.099.4.extract.shift to i32
   %sext = shl i64 %.sroa.01.0.copyload, 32
   %20 = ashr exact i64 %sext, 32
-  %21 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %20
+  %21 = getelementptr inbounds [12 x i8], ptr %4, i64 %20
   %.sroa.088.0.copyload = load float, ptr %21, align 4
   %.sroa.489.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 4
   %.sroa.489.0.copyload = load float, ptr %.sroa.489.0..sroa_idx, align 4
   %.sroa.590.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.sroa.590.0.copyload = load float, ptr %.sroa.590.0..sroa_idx, align 4, !tbaa !188
   %22 = ashr i64 %.sroa.01.0.copyload, 32
-  %23 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %22
+  %23 = getelementptr inbounds [12 x i8], ptr %4, i64 %22
   %.sroa.085.0.copyload = load float, ptr %23, align 4
   %.sroa.486.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 4
   %.sroa.486.0.copyload = load float, ptr %.sroa.486.0..sroa_idx, align 4
   %.sroa.587.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 8
   %.sroa.587.0.copyload = load float, ptr %.sroa.587.0..sroa_idx, align 4, !tbaa !188
   %24 = sext i32 %.sroa.22.0.copyload to i64
-  %25 = getelementptr inbounds %"class.nblib::PairLJType", ptr %2, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %2, i64 %24
   %26 = load float, ptr %25, align 4
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 4
   %27 = load float, ptr %.sroa_idx, align 4
@@ -54288,7 +54112,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
 34:                                               ; preds = %19
   %35 = load i64, ptr %6, align 8
   %36 = inttoptr i64 %35 to ptr
-  %37 = getelementptr inbounds %"class.gmx::BasicVector", ptr %36, i64 %20
+  %37 = getelementptr inbounds [12 x i8], ptr %36, i64 %20
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
 
 38:                                               ; preds = %19
@@ -54312,7 +54136,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %45 = load i64, ptr %16, align 8, !tbaa !36
   %46 = urem i64 %20, %45
   %47 = load ptr, ptr %14, align 8, !tbaa !35
-  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %46
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %46
   %49 = load ptr, ptr %48, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %49, null
   br i1 %.not.i.i.i.i.i, label %.loopexit121.thread, label %50
@@ -54354,7 +54178,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.pre = load i64, ptr %16, align 8, !tbaa !36
   %.pre153 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre160 = urem i64 %20, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre153, i64 %.pre160
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre153, i64 %.pre160
   %.pre163 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit121
 
@@ -54426,7 +54250,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %82 = load i64, ptr %16, align 8, !tbaa !36
   %83 = urem i64 %20, %82
   %84 = load ptr, ptr %14, align 8, !tbaa !35
-  %85 = getelementptr inbounds nuw ptr, ptr %84, i64 %83
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %83
   %86 = load ptr, ptr %85, align 8, !tbaa !175
   %.not.i.i.i.i14 = icmp eq ptr %86, null
   br i1 %.not.i.i.i.i14, label %.loopexit.i.i20, label %87
@@ -54491,7 +54315,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
 107:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
   %108 = load i64, ptr %6, align 8
   %109 = inttoptr i64 %108 to ptr
-  %110 = getelementptr inbounds %"class.gmx::BasicVector", ptr %109, i64 %22
+  %110 = getelementptr inbounds [12 x i8], ptr %109, i64 %22
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit.i
 
 111:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i
@@ -54515,7 +54339,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %118 = load i64, ptr %16, align 8, !tbaa !36
   %119 = urem i64 %22, %118
   %120 = load ptr, ptr %14, align 8, !tbaa !35
-  %121 = getelementptr inbounds nuw ptr, ptr %120, i64 %119
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %120, i64 %119
   %122 = load ptr, ptr %121, align 8, !tbaa !175
   %.not.i.i.i.i.i26 = icmp eq ptr %122, null
   br i1 %.not.i.i.i.i.i26, label %.loopexit.thread, label %123
@@ -54557,7 +54381,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit14.i: ; preds = %_ZN
   %.pre156 = load i64, ptr %16, align 8, !tbaa !36
   %.pre157 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre161 = urem i64 %22, %.pre156
-  %.phi.trans.insert164 = getelementptr inbounds nuw ptr, ptr %.pre157, i64 %.pre161
+  %.phi.trans.insert164 = getelementptr inbounds nuw [8 x i8], ptr %.pre157, i64 %.pre161
   %.pre165 = load ptr, ptr %.phi.trans.insert164, align 8, !tbaa !175
   br label %.loopexit
 
@@ -54623,7 +54447,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %155 = load i64, ptr %16, align 8, !tbaa !36
   %156 = urem i64 %22, %155
   %157 = load ptr, ptr %14, align 8, !tbaa !35
-  %158 = getelementptr inbounds nuw ptr, ptr %157, i64 %156
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %157, i64 %156
   %159 = load ptr, ptr %158, align 8, !tbaa !175
   %.not.i.i.i.i50 = icmp eq ptr %159, null
   br i1 %.not.i.i.i.i50, label %.loopexit.i.i56, label %160
@@ -54734,9 +54558,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 214:                                              ; preds = %214, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_10PairLJTypeES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeENS_13MorseBondTypeENSC_INS_21FENEBondTypeParameterEEENSC_INS_38HalfAttractiveQuarticBondTypeParameterEEES6_EEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_10PairLJTypeES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_23TwoParameterInteractionINS_25HarmonicBondTypeParameterEEENS_11G96BondTypeENS_13CubicBondTypeENS_13MorseBondTypeENSC_INS_21FENEBondTypeParameterEEENSC_INS_38HalfAttractiveQuarticBondTypeParameterEEES6_EEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSW_IKT1_EEPT_NSW_IT2_EERKT3_.exit ], [ %220, %214 ]
-  %215 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
+  %215 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.05.i
   %216 = load float, ptr %215, align 4, !tbaa !172
-  %217 = getelementptr inbounds nuw float, ptr %10, i64 %.05.i
+  %217 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.05.i
   %218 = load float, ptr %217, align 4, !tbaa !172
   %219 = fadd float %216, %218
   store float %219, ptr %217, align 4, !tbaa !172
@@ -54799,14 +54623,14 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.5195.8.extract.trunc = trunc i64 %.sroa.2.0.copyload to i32
   %sext = shl i64 %.sroa.0.0.copyload, 32
   %20 = ashr exact i64 %sext, 32
-  %21 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %20
+  %21 = getelementptr inbounds [12 x i8], ptr %4, i64 %20
   %.sroa.0179.0.copyload = load float, ptr %21, align 4
   %.sroa.5181.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 4
   %.sroa.5181.0.copyload = load float, ptr %.sroa.5181.0..sroa_idx, align 4
   %.sroa.7183.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.sroa.7183.0.copyload = load float, ptr %.sroa.7183.0..sroa_idx, align 4, !tbaa !188
   %22 = ashr i64 %.sroa.0.0.copyload, 32
-  %23 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %22
+  %23 = getelementptr inbounds [12 x i8], ptr %4, i64 %22
   %.sroa.0173.0.copyload = load float, ptr %23, align 4
   %.sroa.5175.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 4
   %.sroa.5175.0.copyload = load float, ptr %.sroa.5175.0..sroa_idx, align 4
@@ -54814,14 +54638,14 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.7177.0.copyload = load float, ptr %.sroa.7177.0..sroa_idx, align 4, !tbaa !188
   %sext222 = shl i64 %.sroa.2.0.copyload, 32
   %24 = ashr exact i64 %sext222, 32
-  %25 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %24
+  %25 = getelementptr inbounds [12 x i8], ptr %4, i64 %24
   %.sroa.0168.0.copyload = load float, ptr %25, align 4
   %.sroa.5170.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 4
   %.sroa.5170.0.copyload = load float, ptr %.sroa.5170.0..sroa_idx, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 8
   %.sroa.7.0.copyload = load float, ptr %.sroa.7.0..sroa_idx, align 4, !tbaa !188
   %26 = ashr i64 %.sroa.2.0.copyload, 32
-  %27 = getelementptr inbounds %"class.nblib::AngleInteractionType", ptr %2, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %2, i64 %26
   %28 = load float, ptr %27, align 4
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 4
   %29 = load float, ptr %.sroa_idx, align 4
@@ -54949,7 +54773,7 @@ _ZN5nblib23spreadThreeCenterForcesIfDnEEvT_S1_RKN3gmx11BasicVectorIS1_EES6_PS4_S
 122:                                              ; preds = %_ZN5nblib23spreadThreeCenterForcesIfDnEEvT_S1_RKN3gmx11BasicVectorIS1_EES6_PS4_S7_S7_PT0_S9_S9_.exit
   %123 = load i64, ptr %6, align 8
   %124 = inttoptr i64 %123 to ptr
-  %125 = getelementptr inbounds %"class.gmx::BasicVector", ptr %124, i64 %20
+  %125 = getelementptr inbounds [12 x i8], ptr %124, i64 %20
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
 
 126:                                              ; preds = %_ZN5nblib23spreadThreeCenterForcesIfDnEEvT_S1_RKN3gmx11BasicVectorIS1_EES6_PS4_S7_S7_PT0_S9_S9_.exit
@@ -54973,7 +54797,7 @@ _ZN5nblib23spreadThreeCenterForcesIfDnEEvT_S1_RKN3gmx11BasicVectorIS1_EES6_PS4_S
   %133 = load i64, ptr %16, align 8, !tbaa !36
   %134 = urem i64 %20, %133
   %135 = load ptr, ptr %14, align 8, !tbaa !35
-  %136 = getelementptr inbounds nuw ptr, ptr %135, i64 %134
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %135, i64 %134
   %137 = load ptr, ptr %136, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %137, null
   br i1 %.not.i.i.i.i.i, label %.loopexit229.thread, label %138
@@ -55015,7 +54839,7 @@ _ZN5nblib23spreadThreeCenterForcesIfDnEEvT_S1_RKN3gmx11BasicVectorIS1_EES6_PS4_S
   %.pre = load i64, ptr %16, align 8, !tbaa !36
   %.pre276 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre283 = urem i64 %20, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre276, i64 %.pre283
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre276, i64 %.pre283
   %.pre288 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit229
 
@@ -55087,7 +54911,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %170 = load i64, ptr %16, align 8, !tbaa !36
   %171 = urem i64 %20, %170
   %172 = load ptr, ptr %14, align 8, !tbaa !35
-  %173 = getelementptr inbounds nuw ptr, ptr %172, i64 %171
+  %173 = getelementptr inbounds nuw [8 x i8], ptr %172, i64 %171
   %174 = load ptr, ptr %173, align 8, !tbaa !175
   %.not.i.i.i.i19 = icmp eq ptr %174, null
   br i1 %.not.i.i.i.i19, label %.loopexit.i.i25, label %175
@@ -55164,7 +54988,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
 203:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
   %204 = load i64, ptr %6, align 8
   %205 = inttoptr i64 %204 to ptr
-  %206 = getelementptr inbounds %"class.gmx::BasicVector", ptr %205, i64 %22
+  %206 = getelementptr inbounds [12 x i8], ptr %205, i64 %22
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
 
 207:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
@@ -55188,7 +55012,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %214 = load i64, ptr %16, align 8, !tbaa !36
   %215 = urem i64 %22, %214
   %216 = load ptr, ptr %14, align 8, !tbaa !35
-  %217 = getelementptr inbounds nuw ptr, ptr %216, i64 %215
+  %217 = getelementptr inbounds nuw [8 x i8], ptr %216, i64 %215
   %218 = load ptr, ptr %217, align 8, !tbaa !175
   %.not.i.i.i.i.i33 = icmp eq ptr %218, null
   br i1 %.not.i.i.i.i.i33, label %.loopexit226.thread, label %219
@@ -55230,7 +55054,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %.pre277 = load i64, ptr %16, align 8, !tbaa !36
   %.pre278 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre284 = urem i64 %22, %.pre277
-  %.phi.trans.insert289 = getelementptr inbounds nuw ptr, ptr %.pre278, i64 %.pre284
+  %.phi.trans.insert289 = getelementptr inbounds nuw [8 x i8], ptr %.pre278, i64 %.pre284
   %.pre290 = load ptr, ptr %.phi.trans.insert289, align 8, !tbaa !175
   br label %.loopexit226
 
@@ -55296,7 +55120,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %251 = load i64, ptr %16, align 8, !tbaa !36
   %252 = urem i64 %22, %251
   %253 = load ptr, ptr %14, align 8, !tbaa !35
-  %254 = getelementptr inbounds nuw ptr, ptr %253, i64 %252
+  %254 = getelementptr inbounds nuw [8 x i8], ptr %253, i64 %252
   %255 = load ptr, ptr %254, align 8, !tbaa !175
   %.not.i.i.i.i57 = icmp eq ptr %255, null
   br i1 %.not.i.i.i.i57, label %.loopexit.i.i63, label %256
@@ -55373,7 +55197,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
 284:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
   %285 = load i64, ptr %6, align 8
   %286 = inttoptr i64 %285 to ptr
-  %287 = getelementptr inbounds %"class.gmx::BasicVector", ptr %286, i64 %24
+  %287 = getelementptr inbounds [12 x i8], ptr %286, i64 %24
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJS8_NS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSE_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
 
 288:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
@@ -55397,7 +55221,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %295 = load i64, ptr %16, align 8, !tbaa !36
   %296 = urem i64 %24, %295
   %297 = load ptr, ptr %14, align 8, !tbaa !35
-  %298 = getelementptr inbounds nuw ptr, ptr %297, i64 %296
+  %298 = getelementptr inbounds nuw [8 x i8], ptr %297, i64 %296
   %299 = load ptr, ptr %298, align 8, !tbaa !175
   %.not.i.i.i.i.i71 = icmp eq ptr %299, null
   br i1 %.not.i.i.i.i.i71, label %.loopexit.thread, label %300
@@ -55439,7 +55263,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %.pre279 = load i64, ptr %16, align 8, !tbaa !36
   %.pre280 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre286 = urem i64 %24, %.pre279
-  %.phi.trans.insert291 = getelementptr inbounds nuw ptr, ptr %.pre280, i64 %.pre286
+  %.phi.trans.insert291 = getelementptr inbounds nuw [8 x i8], ptr %.pre280, i64 %.pre286
   %.pre292 = load ptr, ptr %.phi.trans.insert291, align 8, !tbaa !175
   br label %.loopexit
 
@@ -55505,7 +55329,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %332 = load i64, ptr %16, align 8, !tbaa !36
   %333 = urem i64 %24, %332
   %334 = load ptr, ptr %14, align 8, !tbaa !35
-  %335 = getelementptr inbounds nuw ptr, ptr %334, i64 %333
+  %335 = getelementptr inbounds nuw [8 x i8], ptr %334, i64 %333
   %336 = load ptr, ptr %335, align 8, !tbaa !175
   %.not.i.i.i.i95 = icmp eq ptr %336, null
   br i1 %.not.i.i.i.i95, label %.loopexit.i.i101, label %337
@@ -55578,9 +55402,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 362:                                              ; preds = %362, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJS8_NS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSE_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJS8_NS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSE_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit ], [ %368, %362 ]
-  %363 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
+  %363 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.05.i
   %364 = load float, ptr %363, align 4, !tbaa !172
-  %365 = getelementptr inbounds nuw float, ptr %10, i64 %.05.i
+  %365 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.05.i
   %366 = load float, ptr %365, align 4, !tbaa !172
   %367 = fadd float %364, %366
   store float %367, ptr %365, align 4, !tbaa !172
@@ -55643,14 +55467,14 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.5195.8.extract.trunc = trunc i64 %.sroa.2.0.copyload to i32
   %sext = shl i64 %.sroa.0.0.copyload, 32
   %20 = ashr exact i64 %sext, 32
-  %21 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %20
+  %21 = getelementptr inbounds [12 x i8], ptr %4, i64 %20
   %.sroa.0179.0.copyload = load float, ptr %21, align 4
   %.sroa.5181.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 4
   %.sroa.5181.0.copyload = load float, ptr %.sroa.5181.0..sroa_idx, align 4
   %.sroa.7183.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.sroa.7183.0.copyload = load float, ptr %.sroa.7183.0..sroa_idx, align 4, !tbaa !188
   %22 = ashr i64 %.sroa.0.0.copyload, 32
-  %23 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %22
+  %23 = getelementptr inbounds [12 x i8], ptr %4, i64 %22
   %.sroa.0173.0.copyload = load float, ptr %23, align 4
   %.sroa.5175.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 4
   %.sroa.5175.0.copyload = load float, ptr %.sroa.5175.0..sroa_idx, align 4
@@ -55658,14 +55482,14 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.7177.0.copyload = load float, ptr %.sroa.7177.0..sroa_idx, align 4, !tbaa !188
   %sext222 = shl i64 %.sroa.2.0.copyload, 32
   %24 = ashr exact i64 %sext222, 32
-  %25 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %24
+  %25 = getelementptr inbounds [12 x i8], ptr %4, i64 %24
   %.sroa.0168.0.copyload = load float, ptr %25, align 4
   %.sroa.5170.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 4
   %.sroa.5170.0.copyload = load float, ptr %.sroa.5170.0..sroa_idx, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 8
   %.sroa.7.0.copyload = load float, ptr %.sroa.7.0..sroa_idx, align 4, !tbaa !188
   %26 = ashr i64 %.sroa.2.0.copyload, 32
-  %27 = getelementptr inbounds %"class.nblib::CosineParamAngle", ptr %2, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %2, i64 %26
   %28 = load float, ptr %27, align 4
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 4
   %29 = load float, ptr %.sroa_idx, align 4
@@ -55799,7 +55623,7 @@ _ZN5nblib23spreadThreeCenterForcesIfDnEEvT_S1_RKN3gmx11BasicVectorIS1_EES6_PS4_S
 128:                                              ; preds = %_ZN5nblib23spreadThreeCenterForcesIfDnEEvT_S1_RKN3gmx11BasicVectorIS1_EES6_PS4_S7_S7_PT0_S9_S9_.exit
   %129 = load i64, ptr %6, align 8
   %130 = inttoptr i64 %129 to ptr
-  %131 = getelementptr inbounds %"class.gmx::BasicVector", ptr %130, i64 %20
+  %131 = getelementptr inbounds [12 x i8], ptr %130, i64 %20
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
 
 132:                                              ; preds = %_ZN5nblib23spreadThreeCenterForcesIfDnEEvT_S1_RKN3gmx11BasicVectorIS1_EES6_PS4_S7_S7_PT0_S9_S9_.exit
@@ -55823,7 +55647,7 @@ _ZN5nblib23spreadThreeCenterForcesIfDnEEvT_S1_RKN3gmx11BasicVectorIS1_EES6_PS4_S
   %139 = load i64, ptr %16, align 8, !tbaa !36
   %140 = urem i64 %20, %139
   %141 = load ptr, ptr %14, align 8, !tbaa !35
-  %142 = getelementptr inbounds nuw ptr, ptr %141, i64 %140
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %141, i64 %140
   %143 = load ptr, ptr %142, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %143, null
   br i1 %.not.i.i.i.i.i, label %.loopexit229.thread, label %144
@@ -55865,7 +55689,7 @@ _ZN5nblib23spreadThreeCenterForcesIfDnEEvT_S1_RKN3gmx11BasicVectorIS1_EES6_PS4_S
   %.pre = load i64, ptr %16, align 8, !tbaa !36
   %.pre276 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre283 = urem i64 %20, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre276, i64 %.pre283
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre276, i64 %.pre283
   %.pre288 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit229
 
@@ -55937,7 +55761,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %176 = load i64, ptr %16, align 8, !tbaa !36
   %177 = urem i64 %20, %176
   %178 = load ptr, ptr %14, align 8, !tbaa !35
-  %179 = getelementptr inbounds nuw ptr, ptr %178, i64 %177
+  %179 = getelementptr inbounds nuw [8 x i8], ptr %178, i64 %177
   %180 = load ptr, ptr %179, align 8, !tbaa !175
   %.not.i.i.i.i19 = icmp eq ptr %180, null
   br i1 %.not.i.i.i.i19, label %.loopexit.i.i25, label %181
@@ -56014,7 +55838,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
 209:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
   %210 = load i64, ptr %6, align 8
   %211 = inttoptr i64 %210 to ptr
-  %212 = getelementptr inbounds %"class.gmx::BasicVector", ptr %211, i64 %22
+  %212 = getelementptr inbounds [12 x i8], ptr %211, i64 %22
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
 
 213:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
@@ -56038,7 +55862,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %220 = load i64, ptr %16, align 8, !tbaa !36
   %221 = urem i64 %22, %220
   %222 = load ptr, ptr %14, align 8, !tbaa !35
-  %223 = getelementptr inbounds nuw ptr, ptr %222, i64 %221
+  %223 = getelementptr inbounds nuw [8 x i8], ptr %222, i64 %221
   %224 = load ptr, ptr %223, align 8, !tbaa !175
   %.not.i.i.i.i.i33 = icmp eq ptr %224, null
   br i1 %.not.i.i.i.i.i33, label %.loopexit226.thread, label %225
@@ -56080,7 +55904,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %.pre277 = load i64, ptr %16, align 8, !tbaa !36
   %.pre278 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre284 = urem i64 %22, %.pre277
-  %.phi.trans.insert289 = getelementptr inbounds nuw ptr, ptr %.pre278, i64 %.pre284
+  %.phi.trans.insert289 = getelementptr inbounds nuw [8 x i8], ptr %.pre278, i64 %.pre284
   %.pre290 = load ptr, ptr %.phi.trans.insert289, align 8, !tbaa !175
   br label %.loopexit226
 
@@ -56146,7 +55970,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %257 = load i64, ptr %16, align 8, !tbaa !36
   %258 = urem i64 %22, %257
   %259 = load ptr, ptr %14, align 8, !tbaa !35
-  %260 = getelementptr inbounds nuw ptr, ptr %259, i64 %258
+  %260 = getelementptr inbounds nuw [8 x i8], ptr %259, i64 %258
   %261 = load ptr, ptr %260, align 8, !tbaa !175
   %.not.i.i.i.i57 = icmp eq ptr %261, null
   br i1 %.not.i.i.i.i57, label %.loopexit.i.i63, label %262
@@ -56223,7 +56047,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
 290:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
   %291 = load i64, ptr %6, align 8
   %292 = inttoptr i64 %291 to ptr
-  %293 = getelementptr inbounds %"class.gmx::BasicVector", ptr %292, i64 %24
+  %293 = getelementptr inbounds [12 x i8], ptr %292, i64 %24
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16CosineParamAngleINS_17G96AngleParameterEEES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEES8_NS_12QuarticAngleENS6_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
 
 294:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
@@ -56247,7 +56071,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %301 = load i64, ptr %16, align 8, !tbaa !36
   %302 = urem i64 %24, %301
   %303 = load ptr, ptr %14, align 8, !tbaa !35
-  %304 = getelementptr inbounds nuw ptr, ptr %303, i64 %302
+  %304 = getelementptr inbounds nuw [8 x i8], ptr %303, i64 %302
   %305 = load ptr, ptr %304, align 8, !tbaa !175
   %.not.i.i.i.i.i71 = icmp eq ptr %305, null
   br i1 %.not.i.i.i.i.i71, label %.loopexit.thread, label %306
@@ -56289,7 +56113,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %.pre279 = load i64, ptr %16, align 8, !tbaa !36
   %.pre280 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre286 = urem i64 %24, %.pre279
-  %.phi.trans.insert291 = getelementptr inbounds nuw ptr, ptr %.pre280, i64 %.pre286
+  %.phi.trans.insert291 = getelementptr inbounds nuw [8 x i8], ptr %.pre280, i64 %.pre286
   %.pre292 = load ptr, ptr %.phi.trans.insert291, align 8, !tbaa !175
   br label %.loopexit
 
@@ -56355,7 +56179,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %338 = load i64, ptr %16, align 8, !tbaa !36
   %339 = urem i64 %24, %338
   %340 = load ptr, ptr %14, align 8, !tbaa !35
-  %341 = getelementptr inbounds nuw ptr, ptr %340, i64 %339
+  %341 = getelementptr inbounds nuw [8 x i8], ptr %340, i64 %339
   %342 = load ptr, ptr %341, align 8, !tbaa !175
   %.not.i.i.i.i95 = icmp eq ptr %342, null
   br i1 %.not.i.i.i.i95, label %.loopexit.i.i101, label %343
@@ -56428,9 +56252,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 368:                                              ; preds = %368, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16CosineParamAngleINS_17G96AngleParameterEEES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEES8_NS_12QuarticAngleENS6_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16CosineParamAngleINS_17G96AngleParameterEEES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEES8_NS_12QuarticAngleENS6_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit ], [ %374, %368 ]
-  %369 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
+  %369 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.05.i
   %370 = load float, ptr %369, align 4, !tbaa !172
-  %371 = getelementptr inbounds nuw float, ptr %10, i64 %.05.i
+  %371 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.05.i
   %372 = load float, ptr %371, align 4, !tbaa !172
   %373 = fadd float %370, %372
   store float %373, ptr %371, align 4, !tbaa !172
@@ -56493,14 +56317,14 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.5202.8.extract.trunc = trunc i64 %.sroa.2.0.copyload to i32
   %sext = shl i64 %.sroa.0.0.copyload, 32
   %20 = ashr exact i64 %sext, 32
-  %21 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %20
+  %21 = getelementptr inbounds [12 x i8], ptr %4, i64 %20
   %.sroa.0186.0.copyload = load float, ptr %21, align 4
   %.sroa.5188.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 4
   %.sroa.5188.0.copyload = load float, ptr %.sroa.5188.0..sroa_idx, align 4
   %.sroa.7190.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.sroa.7190.0.copyload = load float, ptr %.sroa.7190.0..sroa_idx, align 4, !tbaa !188
   %22 = ashr i64 %.sroa.0.0.copyload, 32
-  %23 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %22
+  %23 = getelementptr inbounds [12 x i8], ptr %4, i64 %22
   %.sroa.0180.0.copyload = load float, ptr %23, align 4
   %.sroa.5182.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 4
   %.sroa.5182.0.copyload = load float, ptr %.sroa.5182.0..sroa_idx, align 4
@@ -56508,14 +56332,14 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.7184.0.copyload = load float, ptr %.sroa.7184.0..sroa_idx, align 4, !tbaa !188
   %sext229 = shl i64 %.sroa.2.0.copyload, 32
   %24 = ashr exact i64 %sext229, 32
-  %25 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %24
+  %25 = getelementptr inbounds [12 x i8], ptr %4, i64 %24
   %.sroa.0174.0.copyload = load float, ptr %25, align 4
   %.sroa.5176.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 4
   %.sroa.5176.0.copyload = load float, ptr %.sroa.5176.0..sroa_idx, align 4
   %.sroa.7178.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 8
   %.sroa.7178.0.copyload = load float, ptr %.sroa.7178.0..sroa_idx, align 4, !tbaa !188
   %26 = ashr i64 %.sroa.2.0.copyload, 32
-  %27 = getelementptr inbounds %"class.nblib::QuarticAngle", ptr %2, i64 %26
+  %27 = getelementptr inbounds [24 x i8], ptr %2, i64 %26
   %.sroa.0166.0.copyload = load float, ptr %27, align 4
   %.sroa.5167.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 4
   %.sroa.5167.0.copyload = load float, ptr %.sroa.5167.0..sroa_idx, align 4
@@ -56682,7 +56506,7 @@ _ZN5nblib23spreadThreeCenterForcesIfDnEEvT_S1_RKN3gmx11BasicVectorIS1_EES6_PS4_S
 123:                                              ; preds = %_ZN5nblib23spreadThreeCenterForcesIfDnEEvT_S1_RKN3gmx11BasicVectorIS1_EES6_PS4_S7_S7_PT0_S9_S9_.exit
   %124 = load i64, ptr %6, align 8
   %125 = inttoptr i64 %124 to ptr
-  %126 = getelementptr inbounds %"class.gmx::BasicVector", ptr %125, i64 %20
+  %126 = getelementptr inbounds [12 x i8], ptr %125, i64 %20
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
 
 127:                                              ; preds = %_ZN5nblib23spreadThreeCenterForcesIfDnEEvT_S1_RKN3gmx11BasicVectorIS1_EES6_PS4_S7_S7_PT0_S9_S9_.exit
@@ -56706,7 +56530,7 @@ _ZN5nblib23spreadThreeCenterForcesIfDnEEvT_S1_RKN3gmx11BasicVectorIS1_EES6_PS4_S
   %134 = load i64, ptr %16, align 8, !tbaa !36
   %135 = urem i64 %20, %134
   %136 = load ptr, ptr %14, align 8, !tbaa !35
-  %137 = getelementptr inbounds nuw ptr, ptr %136, i64 %135
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %136, i64 %135
   %138 = load ptr, ptr %137, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %138, null
   br i1 %.not.i.i.i.i.i, label %.loopexit236.thread, label %139
@@ -56748,7 +56572,7 @@ _ZN5nblib23spreadThreeCenterForcesIfDnEEvT_S1_RKN3gmx11BasicVectorIS1_EES6_PS4_S
   %.pre = load i64, ptr %16, align 8, !tbaa !36
   %.pre299 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre306 = urem i64 %20, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre299, i64 %.pre306
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre299, i64 %.pre306
   %.pre311 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit236
 
@@ -56820,7 +56644,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %171 = load i64, ptr %16, align 8, !tbaa !36
   %172 = urem i64 %20, %171
   %173 = load ptr, ptr %14, align 8, !tbaa !35
-  %174 = getelementptr inbounds nuw ptr, ptr %173, i64 %172
+  %174 = getelementptr inbounds nuw [8 x i8], ptr %173, i64 %172
   %175 = load ptr, ptr %174, align 8, !tbaa !175
   %.not.i.i.i.i19 = icmp eq ptr %175, null
   br i1 %.not.i.i.i.i19, label %.loopexit.i.i25, label %176
@@ -56897,7 +56721,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
 204:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
   %205 = load i64, ptr %6, align 8
   %206 = inttoptr i64 %205 to ptr
-  %207 = getelementptr inbounds %"class.gmx::BasicVector", ptr %206, i64 %22
+  %207 = getelementptr inbounds [12 x i8], ptr %206, i64 %22
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
 
 208:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
@@ -56921,7 +56745,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %215 = load i64, ptr %16, align 8, !tbaa !36
   %216 = urem i64 %22, %215
   %217 = load ptr, ptr %14, align 8, !tbaa !35
-  %218 = getelementptr inbounds nuw ptr, ptr %217, i64 %216
+  %218 = getelementptr inbounds nuw [8 x i8], ptr %217, i64 %216
   %219 = load ptr, ptr %218, align 8, !tbaa !175
   %.not.i.i.i.i.i33 = icmp eq ptr %219, null
   br i1 %.not.i.i.i.i.i33, label %.loopexit233.thread, label %220
@@ -56963,7 +56787,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %.pre300 = load i64, ptr %16, align 8, !tbaa !36
   %.pre301 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre307 = urem i64 %22, %.pre300
-  %.phi.trans.insert312 = getelementptr inbounds nuw ptr, ptr %.pre301, i64 %.pre307
+  %.phi.trans.insert312 = getelementptr inbounds nuw [8 x i8], ptr %.pre301, i64 %.pre307
   %.pre313 = load ptr, ptr %.phi.trans.insert312, align 8, !tbaa !175
   br label %.loopexit233
 
@@ -57029,7 +56853,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %252 = load i64, ptr %16, align 8, !tbaa !36
   %253 = urem i64 %22, %252
   %254 = load ptr, ptr %14, align 8, !tbaa !35
-  %255 = getelementptr inbounds nuw ptr, ptr %254, i64 %253
+  %255 = getelementptr inbounds nuw [8 x i8], ptr %254, i64 %253
   %256 = load ptr, ptr %255, align 8, !tbaa !175
   %.not.i.i.i.i57 = icmp eq ptr %256, null
   br i1 %.not.i.i.i.i57, label %.loopexit.i.i63, label %257
@@ -57106,7 +56930,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
 285:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
   %286 = load i64, ptr %6, align 8
   %287 = inttoptr i64 %286 to ptr
-  %288 = getelementptr inbounds %"class.gmx::BasicVector", ptr %287, i64 %24
+  %288 = getelementptr inbounds [12 x i8], ptr %287, i64 %24
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_12QuarticAngleES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEES6_NSF_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
 
 289:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
@@ -57130,7 +56954,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %296 = load i64, ptr %16, align 8, !tbaa !36
   %297 = urem i64 %24, %296
   %298 = load ptr, ptr %14, align 8, !tbaa !35
-  %299 = getelementptr inbounds nuw ptr, ptr %298, i64 %297
+  %299 = getelementptr inbounds nuw [8 x i8], ptr %298, i64 %297
   %300 = load ptr, ptr %299, align 8, !tbaa !175
   %.not.i.i.i.i.i71 = icmp eq ptr %300, null
   br i1 %.not.i.i.i.i.i71, label %.loopexit.thread, label %301
@@ -57172,7 +56996,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %.pre302 = load i64, ptr %16, align 8, !tbaa !36
   %.pre303 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre309 = urem i64 %24, %.pre302
-  %.phi.trans.insert314 = getelementptr inbounds nuw ptr, ptr %.pre303, i64 %.pre309
+  %.phi.trans.insert314 = getelementptr inbounds nuw [8 x i8], ptr %.pre303, i64 %.pre309
   %.pre315 = load ptr, ptr %.phi.trans.insert314, align 8, !tbaa !175
   br label %.loopexit
 
@@ -57238,7 +57062,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %333 = load i64, ptr %16, align 8, !tbaa !36
   %334 = urem i64 %24, %333
   %335 = load ptr, ptr %14, align 8, !tbaa !35
-  %336 = getelementptr inbounds nuw ptr, ptr %335, i64 %334
+  %336 = getelementptr inbounds nuw [8 x i8], ptr %335, i64 %334
   %337 = load ptr, ptr %336, align 8, !tbaa !175
   %.not.i.i.i.i95 = icmp eq ptr %337, null
   br i1 %.not.i.i.i.i95, label %.loopexit.i.i101, label %338
@@ -57311,9 +57135,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 363:                                              ; preds = %363, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_12QuarticAngleES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEES6_NSF_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_12QuarticAngleES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEES6_NSF_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit ], [ %369, %363 ]
-  %364 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
+  %364 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.05.i
   %365 = load float, ptr %364, align 4, !tbaa !172
-  %366 = getelementptr inbounds nuw float, ptr %10, i64 %.05.i
+  %366 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.05.i
   %367 = load float, ptr %366, align 4, !tbaa !172
   %368 = fadd float %365, %367
   store float %368, ptr %366, align 4, !tbaa !172
@@ -57376,14 +57200,14 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.5195.8.extract.trunc = trunc i64 %.sroa.2.0.copyload to i32
   %sext = shl i64 %.sroa.0.0.copyload, 32
   %20 = ashr exact i64 %sext, 32
-  %21 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %20
+  %21 = getelementptr inbounds [12 x i8], ptr %4, i64 %20
   %.sroa.0179.0.copyload = load float, ptr %21, align 4
   %.sroa.5181.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 4
   %.sroa.5181.0.copyload = load float, ptr %.sroa.5181.0..sroa_idx, align 4
   %.sroa.7183.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.sroa.7183.0.copyload = load float, ptr %.sroa.7183.0..sroa_idx, align 4, !tbaa !188
   %22 = ashr i64 %.sroa.0.0.copyload, 32
-  %23 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %22
+  %23 = getelementptr inbounds [12 x i8], ptr %4, i64 %22
   %.sroa.0173.0.copyload = load float, ptr %23, align 4
   %.sroa.5175.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 4
   %.sroa.5175.0.copyload = load float, ptr %.sroa.5175.0..sroa_idx, align 4
@@ -57391,14 +57215,14 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.7177.0.copyload = load float, ptr %.sroa.7177.0..sroa_idx, align 4, !tbaa !188
   %sext222 = shl i64 %.sroa.2.0.copyload, 32
   %24 = ashr exact i64 %sext222, 32
-  %25 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %24
+  %25 = getelementptr inbounds [12 x i8], ptr %4, i64 %24
   %.sroa.0168.0.copyload = load float, ptr %25, align 4
   %.sroa.5170.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 4
   %.sroa.5170.0.copyload = load float, ptr %.sroa.5170.0..sroa_idx, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 8
   %.sroa.7.0.copyload = load float, ptr %.sroa.7.0..sroa_idx, align 4, !tbaa !188
   %26 = ashr i64 %.sroa.2.0.copyload, 32
-  %27 = getelementptr inbounds %"class.nblib::CosineParamAngle.225", ptr %2, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %2, i64 %26
   %28 = load float, ptr %27, align 4
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 4
   %29 = load float, ptr %.sroa_idx, align 4
@@ -57535,7 +57359,7 @@ _ZN5nblib23spreadThreeCenterForcesIfDnEEvT_S1_RKN3gmx11BasicVectorIS1_EES6_PS4_S
 131:                                              ; preds = %_ZN5nblib23spreadThreeCenterForcesIfDnEEvT_S1_RKN3gmx11BasicVectorIS1_EES6_PS4_S7_S7_PT0_S9_S9_.exit
   %132 = load i64, ptr %6, align 8
   %133 = inttoptr i64 %132 to ptr
-  %134 = getelementptr inbounds %"class.gmx::BasicVector", ptr %133, i64 %20
+  %134 = getelementptr inbounds [12 x i8], ptr %133, i64 %20
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
 
 135:                                              ; preds = %_ZN5nblib23spreadThreeCenterForcesIfDnEEvT_S1_RKN3gmx11BasicVectorIS1_EES6_PS4_S7_S7_PT0_S9_S9_.exit
@@ -57559,7 +57383,7 @@ _ZN5nblib23spreadThreeCenterForcesIfDnEEvT_S1_RKN3gmx11BasicVectorIS1_EES6_PS4_S
   %142 = load i64, ptr %16, align 8, !tbaa !36
   %143 = urem i64 %20, %142
   %144 = load ptr, ptr %14, align 8, !tbaa !35
-  %145 = getelementptr inbounds nuw ptr, ptr %144, i64 %143
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %144, i64 %143
   %146 = load ptr, ptr %145, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %146, null
   br i1 %.not.i.i.i.i.i, label %.loopexit229.thread, label %147
@@ -57601,7 +57425,7 @@ _ZN5nblib23spreadThreeCenterForcesIfDnEEvT_S1_RKN3gmx11BasicVectorIS1_EES6_PS4_S
   %.pre = load i64, ptr %16, align 8, !tbaa !36
   %.pre276 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre283 = urem i64 %20, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre276, i64 %.pre283
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre276, i64 %.pre283
   %.pre288 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit229
 
@@ -57673,7 +57497,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %179 = load i64, ptr %16, align 8, !tbaa !36
   %180 = urem i64 %20, %179
   %181 = load ptr, ptr %14, align 8, !tbaa !35
-  %182 = getelementptr inbounds nuw ptr, ptr %181, i64 %180
+  %182 = getelementptr inbounds nuw [8 x i8], ptr %181, i64 %180
   %183 = load ptr, ptr %182, align 8, !tbaa !175
   %.not.i.i.i.i19 = icmp eq ptr %183, null
   br i1 %.not.i.i.i.i19, label %.loopexit.i.i25, label %184
@@ -57750,7 +57574,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
 212:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
   %213 = load i64, ptr %6, align 8
   %214 = inttoptr i64 %213 to ptr
-  %215 = getelementptr inbounds %"class.gmx::BasicVector", ptr %214, i64 %22
+  %215 = getelementptr inbounds [12 x i8], ptr %214, i64 %22
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
 
 216:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
@@ -57774,7 +57598,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %223 = load i64, ptr %16, align 8, !tbaa !36
   %224 = urem i64 %22, %223
   %225 = load ptr, ptr %14, align 8, !tbaa !35
-  %226 = getelementptr inbounds nuw ptr, ptr %225, i64 %224
+  %226 = getelementptr inbounds nuw [8 x i8], ptr %225, i64 %224
   %227 = load ptr, ptr %226, align 8, !tbaa !175
   %.not.i.i.i.i.i33 = icmp eq ptr %227, null
   br i1 %.not.i.i.i.i.i33, label %.loopexit226.thread, label %228
@@ -57816,7 +57640,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %.pre277 = load i64, ptr %16, align 8, !tbaa !36
   %.pre278 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre284 = urem i64 %22, %.pre277
-  %.phi.trans.insert289 = getelementptr inbounds nuw ptr, ptr %.pre278, i64 %.pre284
+  %.phi.trans.insert289 = getelementptr inbounds nuw [8 x i8], ptr %.pre278, i64 %.pre284
   %.pre290 = load ptr, ptr %.phi.trans.insert289, align 8, !tbaa !175
   br label %.loopexit226
 
@@ -57882,7 +57706,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %260 = load i64, ptr %16, align 8, !tbaa !36
   %261 = urem i64 %22, %260
   %262 = load ptr, ptr %14, align 8, !tbaa !35
-  %263 = getelementptr inbounds nuw ptr, ptr %262, i64 %261
+  %263 = getelementptr inbounds nuw [8 x i8], ptr %262, i64 %261
   %264 = load ptr, ptr %263, align 8, !tbaa !175
   %.not.i.i.i.i57 = icmp eq ptr %264, null
   br i1 %.not.i.i.i.i57, label %.loopexit.i.i63, label %265
@@ -57959,7 +57783,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
 293:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
   %294 = load i64, ptr %6, align 8
   %295 = inttoptr i64 %294 to ptr
-  %296 = getelementptr inbounds %"class.gmx::BasicVector", ptr %295, i64 %24
+  %296 = getelementptr inbounds [12 x i8], ptr %295, i64 %24
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16CosineParamAngleINS_24RestrictedAngleParameterEEES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS6_INS_17G96AngleParameterEEENS_12QuarticAngleES8_NS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
 
 297:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
@@ -57983,7 +57807,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %304 = load i64, ptr %16, align 8, !tbaa !36
   %305 = urem i64 %24, %304
   %306 = load ptr, ptr %14, align 8, !tbaa !35
-  %307 = getelementptr inbounds nuw ptr, ptr %306, i64 %305
+  %307 = getelementptr inbounds nuw [8 x i8], ptr %306, i64 %305
   %308 = load ptr, ptr %307, align 8, !tbaa !175
   %.not.i.i.i.i.i71 = icmp eq ptr %308, null
   br i1 %.not.i.i.i.i.i71, label %.loopexit.thread, label %309
@@ -58025,7 +57849,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %.pre279 = load i64, ptr %16, align 8, !tbaa !36
   %.pre280 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre286 = urem i64 %24, %.pre279
-  %.phi.trans.insert291 = getelementptr inbounds nuw ptr, ptr %.pre280, i64 %.pre286
+  %.phi.trans.insert291 = getelementptr inbounds nuw [8 x i8], ptr %.pre280, i64 %.pre286
   %.pre292 = load ptr, ptr %.phi.trans.insert291, align 8, !tbaa !175
   br label %.loopexit
 
@@ -58091,7 +57915,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %341 = load i64, ptr %16, align 8, !tbaa !36
   %342 = urem i64 %24, %341
   %343 = load ptr, ptr %14, align 8, !tbaa !35
-  %344 = getelementptr inbounds nuw ptr, ptr %343, i64 %342
+  %344 = getelementptr inbounds nuw [8 x i8], ptr %343, i64 %342
   %345 = load ptr, ptr %344, align 8, !tbaa !175
   %.not.i.i.i.i95 = icmp eq ptr %345, null
   br i1 %.not.i.i.i.i95, label %.loopexit.i.i101, label %346
@@ -58164,9 +57988,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 371:                                              ; preds = %371, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16CosineParamAngleINS_24RestrictedAngleParameterEEES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS6_INS_17G96AngleParameterEEENS_12QuarticAngleES8_NS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16CosineParamAngleINS_24RestrictedAngleParameterEEES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS6_INS_17G96AngleParameterEEENS_12QuarticAngleES8_NS_13CrossBondBondENS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit ], [ %377, %371 ]
-  %372 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
+  %372 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.05.i
   %373 = load float, ptr %372, align 4, !tbaa !172
-  %374 = getelementptr inbounds nuw float, ptr %10, i64 %.05.i
+  %374 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.05.i
   %375 = load float, ptr %374, align 4, !tbaa !172
   %376 = fadd float %373, %375
   store float %376, ptr %374, align 4, !tbaa !172
@@ -58229,14 +58053,14 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.5218.8.extract.trunc = trunc i64 %.sroa.2.0.copyload to i32
   %sext = shl i64 %.sroa.0.0.copyload, 32
   %20 = ashr exact i64 %sext, 32
-  %21 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %20
+  %21 = getelementptr inbounds [12 x i8], ptr %4, i64 %20
   %.sroa.0202.0.copyload = load float, ptr %21, align 4
   %.sroa.5204.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 4
   %.sroa.5204.0.copyload = load float, ptr %.sroa.5204.0..sroa_idx, align 4
   %.sroa.7206.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.sroa.7206.0.copyload = load float, ptr %.sroa.7206.0..sroa_idx, align 4, !tbaa !188
   %22 = ashr i64 %.sroa.0.0.copyload, 32
-  %23 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %22
+  %23 = getelementptr inbounds [12 x i8], ptr %4, i64 %22
   %.sroa.0196.0.copyload = load float, ptr %23, align 4
   %.sroa.5198.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 4
   %.sroa.5198.0.copyload = load float, ptr %.sroa.5198.0..sroa_idx, align 4
@@ -58244,14 +58068,14 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.7200.0.copyload = load float, ptr %.sroa.7200.0..sroa_idx, align 4, !tbaa !188
   %sext264 = shl i64 %.sroa.2.0.copyload, 32
   %24 = ashr exact i64 %sext264, 32
-  %25 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %24
+  %25 = getelementptr inbounds [12 x i8], ptr %4, i64 %24
   %.sroa.0191.0.copyload = load float, ptr %25, align 4
   %.sroa.5193.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 4
   %.sroa.5193.0.copyload = load float, ptr %.sroa.5193.0..sroa_idx, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 8
   %.sroa.7.0.copyload = load float, ptr %.sroa.7.0..sroa_idx, align 4, !tbaa !188
   %26 = ashr i64 %.sroa.2.0.copyload, 32
-  %27 = getelementptr inbounds %"class.nblib::CrossBondBond", ptr %2, i64 %26
+  %27 = getelementptr inbounds [12 x i8], ptr %2, i64 %26
   %.sroa.0189.0.copyload = load float, ptr %27, align 4, !tbaa !172
   %.sroa.4190.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 4
   %.sroa.4190.0.copyload = load float, ptr %.sroa.4190.0..sroa_idx, align 4, !tbaa !172
@@ -58309,7 +58133,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
 70:                                               ; preds = %19
   %71 = load i64, ptr %6, align 8
   %72 = inttoptr i64 %71 to ptr
-  %73 = getelementptr inbounds %"class.gmx::BasicVector", ptr %72, i64 %20
+  %73 = getelementptr inbounds [12 x i8], ptr %72, i64 %20
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
 
 74:                                               ; preds = %19
@@ -58333,7 +58157,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %81 = load i64, ptr %16, align 8, !tbaa !36
   %82 = urem i64 %20, %81
   %83 = load ptr, ptr %14, align 8, !tbaa !35
-  %84 = getelementptr inbounds nuw ptr, ptr %83, i64 %82
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %82
   %85 = load ptr, ptr %84, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %85, null
   br i1 %.not.i.i.i.i.i, label %.loopexit271.thread, label %86
@@ -58375,7 +58199,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.pre = load i64, ptr %16, align 8, !tbaa !36
   %.pre318 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre325 = urem i64 %20, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre318, i64 %.pre325
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre318, i64 %.pre325
   %.pre330 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit271
 
@@ -58447,7 +58271,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %118 = load i64, ptr %16, align 8, !tbaa !36
   %119 = urem i64 %20, %118
   %120 = load ptr, ptr %14, align 8, !tbaa !35
-  %121 = getelementptr inbounds nuw ptr, ptr %120, i64 %119
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %120, i64 %119
   %122 = load ptr, ptr %121, align 8, !tbaa !175
   %.not.i.i.i.i42 = icmp eq ptr %122, null
   br i1 %.not.i.i.i.i42, label %.loopexit.i.i48, label %123
@@ -58522,7 +58346,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
 151:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
   %152 = load i64, ptr %6, align 8
   %153 = inttoptr i64 %152 to ptr
-  %154 = getelementptr inbounds %"class.gmx::BasicVector", ptr %153, i64 %22
+  %154 = getelementptr inbounds [12 x i8], ptr %153, i64 %22
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
 
 155:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
@@ -58546,7 +58370,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %162 = load i64, ptr %16, align 8, !tbaa !36
   %163 = urem i64 %22, %162
   %164 = load ptr, ptr %14, align 8, !tbaa !35
-  %165 = getelementptr inbounds nuw ptr, ptr %164, i64 %163
+  %165 = getelementptr inbounds nuw [8 x i8], ptr %164, i64 %163
   %166 = load ptr, ptr %165, align 8, !tbaa !175
   %.not.i.i.i.i.i56 = icmp eq ptr %166, null
   br i1 %.not.i.i.i.i.i56, label %.loopexit268.thread, label %167
@@ -58588,7 +58412,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %.pre319 = load i64, ptr %16, align 8, !tbaa !36
   %.pre320 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre326 = urem i64 %22, %.pre319
-  %.phi.trans.insert331 = getelementptr inbounds nuw ptr, ptr %.pre320, i64 %.pre326
+  %.phi.trans.insert331 = getelementptr inbounds nuw [8 x i8], ptr %.pre320, i64 %.pre326
   %.pre332 = load ptr, ptr %.phi.trans.insert331, align 8, !tbaa !175
   br label %.loopexit268
 
@@ -58654,7 +58478,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %199 = load i64, ptr %16, align 8, !tbaa !36
   %200 = urem i64 %22, %199
   %201 = load ptr, ptr %14, align 8, !tbaa !35
-  %202 = getelementptr inbounds nuw ptr, ptr %201, i64 %200
+  %202 = getelementptr inbounds nuw [8 x i8], ptr %201, i64 %200
   %203 = load ptr, ptr %202, align 8, !tbaa !175
   %.not.i.i.i.i80 = icmp eq ptr %203, null
   br i1 %.not.i.i.i.i80, label %.loopexit.i.i86, label %204
@@ -58729,7 +58553,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
 232:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
   %233 = load i64, ptr %6, align 8
   %234 = inttoptr i64 %233 to ptr
-  %235 = getelementptr inbounds %"class.gmx::BasicVector", ptr %234, i64 %24
+  %235 = getelementptr inbounds [12 x i8], ptr %234, i64 %24
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_13CrossBondBondES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSF_INS_24RestrictedAngleParameterEEES6_NS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
 
 236:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
@@ -58753,7 +58577,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %243 = load i64, ptr %16, align 8, !tbaa !36
   %244 = urem i64 %24, %243
   %245 = load ptr, ptr %14, align 8, !tbaa !35
-  %246 = getelementptr inbounds nuw ptr, ptr %245, i64 %244
+  %246 = getelementptr inbounds nuw [8 x i8], ptr %245, i64 %244
   %247 = load ptr, ptr %246, align 8, !tbaa !175
   %.not.i.i.i.i.i94 = icmp eq ptr %247, null
   br i1 %.not.i.i.i.i.i94, label %.loopexit.thread, label %248
@@ -58795,7 +58619,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %.pre321 = load i64, ptr %16, align 8, !tbaa !36
   %.pre322 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre328 = urem i64 %24, %.pre321
-  %.phi.trans.insert333 = getelementptr inbounds nuw ptr, ptr %.pre322, i64 %.pre328
+  %.phi.trans.insert333 = getelementptr inbounds nuw [8 x i8], ptr %.pre322, i64 %.pre328
   %.pre334 = load ptr, ptr %.phi.trans.insert333, align 8, !tbaa !175
   br label %.loopexit
 
@@ -58861,7 +58685,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %280 = load i64, ptr %16, align 8, !tbaa !36
   %281 = urem i64 %24, %280
   %282 = load ptr, ptr %14, align 8, !tbaa !35
-  %283 = getelementptr inbounds nuw ptr, ptr %282, i64 %281
+  %283 = getelementptr inbounds nuw [8 x i8], ptr %282, i64 %281
   %284 = load ptr, ptr %283, align 8, !tbaa !175
   %.not.i.i.i.i118 = icmp eq ptr %284, null
   br i1 %.not.i.i.i.i118, label %.loopexit.i.i124, label %285
@@ -58932,9 +58756,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 310:                                              ; preds = %310, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_13CrossBondBondES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSF_INS_24RestrictedAngleParameterEEES6_NS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_13CrossBondBondES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSF_INS_24RestrictedAngleParameterEEES6_NS_14CrossBondAngleENS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit ], [ %316, %310 ]
-  %311 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
+  %311 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.05.i
   %312 = load float, ptr %311, align 4, !tbaa !172
-  %313 = getelementptr inbounds nuw float, ptr %10, i64 %.05.i
+  %313 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.05.i
   %314 = load float, ptr %313, align 4, !tbaa !172
   %315 = fadd float %312, %314
   store float %315, ptr %313, align 4, !tbaa !172
@@ -58997,14 +58821,14 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.5244.8.extract.trunc = trunc i64 %.sroa.2.0.copyload to i32
   %sext = shl i64 %.sroa.0.0.copyload, 32
   %20 = ashr exact i64 %sext, 32
-  %21 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %20
+  %21 = getelementptr inbounds [12 x i8], ptr %4, i64 %20
   %.sroa.0228.0.copyload = load float, ptr %21, align 4
   %.sroa.5230.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 4
   %.sroa.5230.0.copyload = load float, ptr %.sroa.5230.0..sroa_idx, align 4
   %.sroa.7232.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.sroa.7232.0.copyload = load float, ptr %.sroa.7232.0..sroa_idx, align 4, !tbaa !188
   %22 = ashr i64 %.sroa.0.0.copyload, 32
-  %23 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %22
+  %23 = getelementptr inbounds [12 x i8], ptr %4, i64 %22
   %.sroa.0222.0.copyload = load float, ptr %23, align 4
   %.sroa.5224.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 4
   %.sroa.5224.0.copyload = load float, ptr %.sroa.5224.0..sroa_idx, align 4
@@ -59012,14 +58836,14 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.7226.0.copyload = load float, ptr %.sroa.7226.0..sroa_idx, align 4, !tbaa !188
   %sext300 = shl i64 %.sroa.2.0.copyload, 32
   %24 = ashr exact i64 %sext300, 32
-  %25 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %24
+  %25 = getelementptr inbounds [12 x i8], ptr %4, i64 %24
   %.sroa.0217.0.copyload = load float, ptr %25, align 4
   %.sroa.5219.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 4
   %.sroa.5219.0.copyload = load float, ptr %.sroa.5219.0..sroa_idx, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 8
   %.sroa.7.0.copyload = load float, ptr %.sroa.7.0..sroa_idx, align 4, !tbaa !188
   %26 = ashr i64 %.sroa.2.0.copyload, 32
-  %27 = getelementptr inbounds %"class.nblib::CrossBondAngle", ptr %2, i64 %26
+  %27 = getelementptr inbounds [16 x i8], ptr %2, i64 %26
   %.sroa.0214.0.copyload = load float, ptr %27, align 4, !tbaa !172
   %.sroa.4215.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 4
   %.sroa.4215.0.copyload = load float, ptr %.sroa.4215.0..sroa_idx, align 4, !tbaa !172
@@ -59098,7 +58922,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
 88:                                               ; preds = %19
   %89 = load i64, ptr %6, align 8
   %90 = inttoptr i64 %89 to ptr
-  %91 = getelementptr inbounds %"class.gmx::BasicVector", ptr %90, i64 %20
+  %91 = getelementptr inbounds [12 x i8], ptr %90, i64 %20
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
 
 92:                                               ; preds = %19
@@ -59122,7 +58946,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %99 = load i64, ptr %16, align 8, !tbaa !36
   %100 = urem i64 %20, %99
   %101 = load ptr, ptr %14, align 8, !tbaa !35
-  %102 = getelementptr inbounds nuw ptr, ptr %101, i64 %100
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %100
   %103 = load ptr, ptr %102, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %103, null
   br i1 %.not.i.i.i.i.i, label %.loopexit307.thread, label %104
@@ -59164,7 +58988,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.pre = load i64, ptr %16, align 8, !tbaa !36
   %.pre354 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre361 = urem i64 %20, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre354, i64 %.pre361
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre354, i64 %.pre361
   %.pre366 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit307
 
@@ -59236,7 +59060,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %136 = load i64, ptr %16, align 8, !tbaa !36
   %137 = urem i64 %20, %136
   %138 = load ptr, ptr %14, align 8, !tbaa !35
-  %139 = getelementptr inbounds nuw ptr, ptr %138, i64 %137
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %138, i64 %137
   %140 = load ptr, ptr %139, align 8, !tbaa !175
   %.not.i.i.i.i61 = icmp eq ptr %140, null
   br i1 %.not.i.i.i.i61, label %.loopexit.i.i67, label %141
@@ -59311,7 +59135,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
 169:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
   %170 = load i64, ptr %6, align 8
   %171 = inttoptr i64 %170 to ptr
-  %172 = getelementptr inbounds %"class.gmx::BasicVector", ptr %171, i64 %22
+  %172 = getelementptr inbounds [12 x i8], ptr %171, i64 %22
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
 
 173:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
@@ -59335,7 +59159,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %180 = load i64, ptr %16, align 8, !tbaa !36
   %181 = urem i64 %22, %180
   %182 = load ptr, ptr %14, align 8, !tbaa !35
-  %183 = getelementptr inbounds nuw ptr, ptr %182, i64 %181
+  %183 = getelementptr inbounds nuw [8 x i8], ptr %182, i64 %181
   %184 = load ptr, ptr %183, align 8, !tbaa !175
   %.not.i.i.i.i.i75 = icmp eq ptr %184, null
   br i1 %.not.i.i.i.i.i75, label %.loopexit304.thread, label %185
@@ -59377,7 +59201,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %.pre355 = load i64, ptr %16, align 8, !tbaa !36
   %.pre356 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre362 = urem i64 %22, %.pre355
-  %.phi.trans.insert367 = getelementptr inbounds nuw ptr, ptr %.pre356, i64 %.pre362
+  %.phi.trans.insert367 = getelementptr inbounds nuw [8 x i8], ptr %.pre356, i64 %.pre362
   %.pre368 = load ptr, ptr %.phi.trans.insert367, align 8, !tbaa !175
   br label %.loopexit304
 
@@ -59443,7 +59267,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %217 = load i64, ptr %16, align 8, !tbaa !36
   %218 = urem i64 %22, %217
   %219 = load ptr, ptr %14, align 8, !tbaa !35
-  %220 = getelementptr inbounds nuw ptr, ptr %219, i64 %218
+  %220 = getelementptr inbounds nuw [8 x i8], ptr %219, i64 %218
   %221 = load ptr, ptr %220, align 8, !tbaa !175
   %.not.i.i.i.i99 = icmp eq ptr %221, null
   br i1 %.not.i.i.i.i99, label %.loopexit.i.i105, label %222
@@ -59518,7 +59342,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
 250:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
   %251 = load i64, ptr %6, align 8
   %252 = inttoptr i64 %251 to ptr
-  %253 = getelementptr inbounds %"class.gmx::BasicVector", ptr %252, i64 %24
+  %253 = getelementptr inbounds [12 x i8], ptr %252, i64 %24
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_14CrossBondAngleES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSF_INS_24RestrictedAngleParameterEEENS_13CrossBondBondES6_NS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
 
 254:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
@@ -59542,7 +59366,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %261 = load i64, ptr %16, align 8, !tbaa !36
   %262 = urem i64 %24, %261
   %263 = load ptr, ptr %14, align 8, !tbaa !35
-  %264 = getelementptr inbounds nuw ptr, ptr %263, i64 %262
+  %264 = getelementptr inbounds nuw [8 x i8], ptr %263, i64 %262
   %265 = load ptr, ptr %264, align 8, !tbaa !175
   %.not.i.i.i.i.i113 = icmp eq ptr %265, null
   br i1 %.not.i.i.i.i.i113, label %.loopexit.thread, label %266
@@ -59584,7 +59408,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %.pre357 = load i64, ptr %16, align 8, !tbaa !36
   %.pre358 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre364 = urem i64 %24, %.pre357
-  %.phi.trans.insert369 = getelementptr inbounds nuw ptr, ptr %.pre358, i64 %.pre364
+  %.phi.trans.insert369 = getelementptr inbounds nuw [8 x i8], ptr %.pre358, i64 %.pre364
   %.pre370 = load ptr, ptr %.phi.trans.insert369, align 8, !tbaa !175
   br label %.loopexit
 
@@ -59650,7 +59474,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %298 = load i64, ptr %16, align 8, !tbaa !36
   %299 = urem i64 %24, %298
   %300 = load ptr, ptr %14, align 8, !tbaa !35
-  %301 = getelementptr inbounds nuw ptr, ptr %300, i64 %299
+  %301 = getelementptr inbounds nuw [8 x i8], ptr %300, i64 %299
   %302 = load ptr, ptr %301, align 8, !tbaa !175
   %.not.i.i.i.i137 = icmp eq ptr %302, null
   br i1 %.not.i.i.i.i137, label %.loopexit.i.i143, label %303
@@ -59721,9 +59545,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 328:                                              ; preds = %328, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_14CrossBondAngleES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSF_INS_24RestrictedAngleParameterEEENS_13CrossBondBondES6_NS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_14CrossBondAngleES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSF_INS_24RestrictedAngleParameterEEENS_13CrossBondBondES6_NS_23TwoParameterInteractionINS_20LinearAngleParameterEEEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit ], [ %334, %328 ]
-  %329 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
+  %329 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.05.i
   %330 = load float, ptr %329, align 4, !tbaa !172
-  %331 = getelementptr inbounds nuw float, ptr %10, i64 %.05.i
+  %331 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.05.i
   %332 = load float, ptr %331, align 4, !tbaa !172
   %333 = fadd float %330, %332
   store float %333, ptr %331, align 4, !tbaa !172
@@ -59786,14 +59610,14 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.5227.8.extract.trunc = trunc i64 %.sroa.2.0.copyload to i32
   %sext = shl i64 %.sroa.0.0.copyload, 32
   %20 = ashr exact i64 %sext, 32
-  %21 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %20
+  %21 = getelementptr inbounds [12 x i8], ptr %4, i64 %20
   %.sroa.0211.0.copyload = load float, ptr %21, align 4
   %.sroa.5213.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 4
   %.sroa.5213.0.copyload = load float, ptr %.sroa.5213.0..sroa_idx, align 4
   %.sroa.7215.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.sroa.7215.0.copyload = load float, ptr %.sroa.7215.0..sroa_idx, align 4, !tbaa !188
   %22 = ashr i64 %.sroa.0.0.copyload, 32
-  %23 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %22
+  %23 = getelementptr inbounds [12 x i8], ptr %4, i64 %22
   %.sroa.0205.0.copyload = load float, ptr %23, align 4
   %.sroa.5207.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 4
   %.sroa.5207.0.copyload = load float, ptr %.sroa.5207.0..sroa_idx, align 4
@@ -59801,14 +59625,14 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.7209.0.copyload = load float, ptr %.sroa.7209.0..sroa_idx, align 4, !tbaa !188
   %sext285 = shl i64 %.sroa.2.0.copyload, 32
   %24 = ashr exact i64 %sext285, 32
-  %25 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %24
+  %25 = getelementptr inbounds [12 x i8], ptr %4, i64 %24
   %.sroa.0200.0.copyload = load float, ptr %25, align 4
   %.sroa.5202.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 4
   %.sroa.5202.0.copyload = load float, ptr %.sroa.5202.0..sroa_idx, align 4
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 8
   %.sroa.7.0.copyload = load float, ptr %.sroa.7.0..sroa_idx, align 4, !tbaa !188
   %26 = ashr i64 %.sroa.2.0.copyload, 32
-  %27 = getelementptr inbounds %"class.nblib::TwoParameterInteraction.233", ptr %2, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %2, i64 %26
   %28 = load float, ptr %27, align 4
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 4
   %29 = load float, ptr %.sroa_idx, align 4
@@ -59870,7 +59694,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
 79:                                               ; preds = %19
   %80 = load i64, ptr %6, align 8
   %81 = inttoptr i64 %80 to ptr
-  %82 = getelementptr inbounds %"class.gmx::BasicVector", ptr %81, i64 %20
+  %82 = getelementptr inbounds [12 x i8], ptr %81, i64 %20
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
 
 83:                                               ; preds = %19
@@ -59894,7 +59718,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %90 = load i64, ptr %16, align 8, !tbaa !36
   %91 = urem i64 %20, %90
   %92 = load ptr, ptr %14, align 8, !tbaa !35
-  %93 = getelementptr inbounds nuw ptr, ptr %92, i64 %91
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %91
   %94 = load ptr, ptr %93, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %94, null
   br i1 %.not.i.i.i.i.i, label %.loopexit292.thread, label %95
@@ -59936,7 +59760,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.pre = load i64, ptr %16, align 8, !tbaa !36
   %.pre339 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre346 = urem i64 %20, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre339, i64 %.pre346
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre339, i64 %.pre346
   %.pre351 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit292
 
@@ -60008,7 +59832,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %127 = load i64, ptr %16, align 8, !tbaa !36
   %128 = urem i64 %20, %127
   %129 = load ptr, ptr %14, align 8, !tbaa !35
-  %130 = getelementptr inbounds nuw ptr, ptr %129, i64 %128
+  %130 = getelementptr inbounds nuw [8 x i8], ptr %129, i64 %128
   %131 = load ptr, ptr %130, align 8, !tbaa !175
   %.not.i.i.i.i51 = icmp eq ptr %131, null
   br i1 %.not.i.i.i.i51, label %.loopexit.i.i57, label %132
@@ -60083,7 +59907,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
 160:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
   %161 = load i64, ptr %6, align 8
   %162 = inttoptr i64 %161 to ptr
-  %163 = getelementptr inbounds %"class.gmx::BasicVector", ptr %162, i64 %22
+  %163 = getelementptr inbounds [12 x i8], ptr %162, i64 %22
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
 
 164:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i
@@ -60107,7 +59931,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %171 = load i64, ptr %16, align 8, !tbaa !36
   %172 = urem i64 %22, %171
   %173 = load ptr, ptr %14, align 8, !tbaa !35
-  %174 = getelementptr inbounds nuw ptr, ptr %173, i64 %172
+  %174 = getelementptr inbounds nuw [8 x i8], ptr %173, i64 %172
   %175 = load ptr, ptr %174, align 8, !tbaa !175
   %.not.i.i.i.i.i65 = icmp eq ptr %175, null
   br i1 %.not.i.i.i.i.i65, label %.loopexit289.thread, label %176
@@ -60149,7 +59973,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit26.i: ; preds = %_ZN
   %.pre340 = load i64, ptr %16, align 8, !tbaa !36
   %.pre341 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre347 = urem i64 %22, %.pre340
-  %.phi.trans.insert352 = getelementptr inbounds nuw ptr, ptr %.pre341, i64 %.pre347
+  %.phi.trans.insert352 = getelementptr inbounds nuw [8 x i8], ptr %.pre341, i64 %.pre347
   %.pre353 = load ptr, ptr %.phi.trans.insert352, align 8, !tbaa !175
   br label %.loopexit289
 
@@ -60215,7 +60039,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %208 = load i64, ptr %16, align 8, !tbaa !36
   %209 = urem i64 %22, %208
   %210 = load ptr, ptr %14, align 8, !tbaa !35
-  %211 = getelementptr inbounds nuw ptr, ptr %210, i64 %209
+  %211 = getelementptr inbounds nuw [8 x i8], ptr %210, i64 %209
   %212 = load ptr, ptr %211, align 8, !tbaa !175
   %.not.i.i.i.i89 = icmp eq ptr %212, null
   br i1 %.not.i.i.i.i89, label %.loopexit.i.i95, label %213
@@ -60290,7 +60114,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
 241:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
   %242 = load i64, ptr %6, align 8
   %243 = inttoptr i64 %242 to ptr
-  %244 = getelementptr inbounds %"class.gmx::BasicVector", ptr %243, i64 %24
+  %244 = getelementptr inbounds [12 x i8], ptr %243, i64 %24
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_23TwoParameterInteractionINS_20LinearAngleParameterEEES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSH_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleES8_EEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
 
 245:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i
@@ -60314,7 +60138,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %252 = load i64, ptr %16, align 8, !tbaa !36
   %253 = urem i64 %24, %252
   %254 = load ptr, ptr %14, align 8, !tbaa !35
-  %255 = getelementptr inbounds nuw ptr, ptr %254, i64 %253
+  %255 = getelementptr inbounds nuw [8 x i8], ptr %254, i64 %253
   %256 = load ptr, ptr %255, align 8, !tbaa !175
   %.not.i.i.i.i.i103 = icmp eq ptr %256, null
   br i1 %.not.i.i.i.i.i103, label %.loopexit.thread, label %257
@@ -60356,7 +60180,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit22.i: ; preds = %_ZN
   %.pre342 = load i64, ptr %16, align 8, !tbaa !36
   %.pre343 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre349 = urem i64 %24, %.pre342
-  %.phi.trans.insert354 = getelementptr inbounds nuw ptr, ptr %.pre343, i64 %.pre349
+  %.phi.trans.insert354 = getelementptr inbounds nuw [8 x i8], ptr %.pre343, i64 %.pre349
   %.pre355 = load ptr, ptr %.phi.trans.insert354, align 8, !tbaa !175
   br label %.loopexit
 
@@ -60422,7 +60246,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %289 = load i64, ptr %16, align 8, !tbaa !36
   %290 = urem i64 %24, %289
   %291 = load ptr, ptr %14, align 8, !tbaa !35
-  %292 = getelementptr inbounds nuw ptr, ptr %291, i64 %290
+  %292 = getelementptr inbounds nuw [8 x i8], ptr %291, i64 %290
   %293 = load ptr, ptr %292, align 8, !tbaa !175
   %.not.i.i.i.i127 = icmp eq ptr %293, null
   br i1 %.not.i.i.i.i127, label %.loopexit.i.i133, label %294
@@ -60493,9 +60317,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 319:                                              ; preds = %319, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_23TwoParameterInteractionINS_20LinearAngleParameterEEES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSH_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleES8_EEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_23TwoParameterInteractionINS_20LinearAngleParameterEEES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_20AngleInteractionTypeINS_22HarmonicAngleParameterEEENS_16CosineParamAngleINS_17G96AngleParameterEEENS_12QuarticAngleENSH_INS_24RestrictedAngleParameterEEENS_13CrossBondBondENS_14CrossBondAngleES8_EEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISC_vEEELi1EEENS2_8ArrayRefIKSC_EENSZ_IKT1_EEPT_NSZ_IT2_EERKT3_.exit ], [ %325, %319 ]
-  %320 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
+  %320 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.05.i
   %321 = load float, ptr %320, align 4, !tbaa !172
-  %322 = getelementptr inbounds nuw float, ptr %10, i64 %.05.i
+  %322 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.05.i
   %323 = load float, ptr %322, align 4, !tbaa !172
   %324 = fadd float %321, %323
   store float %324, ptr %322, align 4, !tbaa !172
@@ -60560,28 +60384,28 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.0158.sroa.5.0..sroa.0159.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0159.0340, i64 16
   %.sroa.0158.sroa.5.0.copyload = load i32, ptr %.sroa.0158.sroa.5.0..sroa.0159.0..sroa_idx, align 4, !tbaa !188
   %20 = sext i32 %.sroa.0158.sroa.0.0.copyload to i64
-  %21 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %20
+  %21 = getelementptr inbounds [12 x i8], ptr %4, i64 %20
   %.sroa.0260.0.copyload = load float, ptr %21, align 4
   %.sroa.4261.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 4
   %.sroa.4261.0.copyload = load float, ptr %.sroa.4261.0..sroa_idx, align 4
   %.sroa.5262.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.sroa.5262.0.copyload = load float, ptr %.sroa.5262.0..sroa_idx, align 4, !tbaa !188
   %22 = sext i32 %.sroa.0158.sroa.2.0.copyload to i64
-  %23 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %22
+  %23 = getelementptr inbounds [12 x i8], ptr %4, i64 %22
   %.sroa.0251.0.copyload = load float, ptr %23, align 4
   %.sroa.6254.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 4
   %.sroa.6254.0.copyload = load float, ptr %.sroa.6254.0..sroa_idx, align 4
   %.sroa.9257.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 8
   %.sroa.9257.0.copyload = load float, ptr %.sroa.9257.0..sroa_idx, align 4, !tbaa !188
   %24 = sext i32 %.sroa.0158.sroa.3.0.copyload to i64
-  %25 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %24
+  %25 = getelementptr inbounds [12 x i8], ptr %4, i64 %24
   %.sroa.0245.0.copyload = load float, ptr %25, align 4
   %.sroa.5247.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 4
   %.sroa.5247.0.copyload = load float, ptr %.sroa.5247.0..sroa_idx, align 4
   %.sroa.7249.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 8
   %.sroa.7249.0.copyload = load float, ptr %.sroa.7249.0..sroa_idx, align 4, !tbaa !188
   %26 = sext i32 %.sroa.0158.sroa.4.0.copyload to i64
-  %27 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %26
+  %27 = getelementptr inbounds [12 x i8], ptr %4, i64 %26
   %.sroa.0239.0.copyload = load float, ptr %27, align 4
   %.sroa.5241.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 4
   %.sroa.5241.0.copyload = load float, ptr %.sroa.5241.0..sroa_idx, align 4
@@ -60597,7 +60421,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %35 = fsub float %.sroa.5247.0.copyload, %.sroa.5241.0.copyload
   %36 = fsub float %.sroa.7249.0.copyload, %.sroa.7243.0.copyload
   %37 = sext i32 %.sroa.0158.sroa.5.0.copyload to i64
-  %38 = getelementptr inbounds %"class.nblib::ProperDihedral", ptr %2, i64 %37
+  %38 = getelementptr inbounds [12 x i8], ptr %2, i64 %37
   %.sroa.0183.0.copyload = load float, ptr %38, align 4, !tbaa !172
   %.sroa.4184.0..sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 4
   %.sroa.4184.0.copyload = load float, ptr %.sroa.4184.0..sroa_idx, align 4, !tbaa !172
@@ -60751,7 +60575,7 @@ _ZN5nblib22spreadFourCenterForcesIfDnEEvT_RKN3gmx11BasicVectorIS1_EES6_S6_S6_S6_
 155:                                              ; preds = %_ZN5nblib22spreadFourCenterForcesIfDnEEvT_RKN3gmx11BasicVectorIS1_EES6_S6_S6_S6_PS4_S7_S7_S7_PT0_S9_S9_S9_.exit
   %156 = load i64, ptr %6, align 8
   %157 = inttoptr i64 %156 to ptr
-  %158 = getelementptr inbounds %"class.gmx::BasicVector", ptr %157, i64 %20
+  %158 = getelementptr inbounds [12 x i8], ptr %157, i64 %20
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i
 
 159:                                              ; preds = %_ZN5nblib22spreadFourCenterForcesIfDnEEvT_RKN3gmx11BasicVectorIS1_EES6_S6_S6_S6_PS4_S7_S7_S7_PT0_S9_S9_S9_.exit
@@ -60775,7 +60599,7 @@ _ZN5nblib22spreadFourCenterForcesIfDnEEvT_RKN3gmx11BasicVectorIS1_EES6_S6_S6_S6_
   %166 = load i64, ptr %16, align 8, !tbaa !36
   %167 = urem i64 %20, %166
   %168 = load ptr, ptr %14, align 8, !tbaa !35
-  %169 = getelementptr inbounds nuw ptr, ptr %168, i64 %167
+  %169 = getelementptr inbounds nuw [8 x i8], ptr %168, i64 %167
   %170 = load ptr, ptr %169, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %170, null
   br i1 %.not.i.i.i.i.i, label %.loopexit313.thread, label %171
@@ -60817,7 +60641,7 @@ _ZN5nblib22spreadFourCenterForcesIfDnEEvT_RKN3gmx11BasicVectorIS1_EES6_S6_S6_S6_
   %.pre = load i64, ptr %16, align 8, !tbaa !36
   %.pre375 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre384 = urem i64 %20, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre375, i64 %.pre384
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre375, i64 %.pre384
   %.pre391 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit313
 
@@ -60889,7 +60713,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %203 = load i64, ptr %16, align 8, !tbaa !36
   %204 = urem i64 %20, %203
   %205 = load ptr, ptr %14, align 8, !tbaa !35
-  %206 = getelementptr inbounds nuw ptr, ptr %205, i64 %204
+  %206 = getelementptr inbounds nuw [8 x i8], ptr %205, i64 %204
   %207 = load ptr, ptr %206, align 8, !tbaa !175
   %.not.i.i.i.i25 = icmp eq ptr %207, null
   br i1 %.not.i.i.i.i25, label %.loopexit.i.i31, label %208
@@ -60966,7 +60790,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
 236:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i
   %237 = load i64, ptr %6, align 8
   %238 = inttoptr i64 %237 to ptr
-  %239 = getelementptr inbounds %"class.gmx::BasicVector", ptr %238, i64 %22
+  %239 = getelementptr inbounds [12 x i8], ptr %238, i64 %22
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i
 
 240:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i
@@ -60990,7 +60814,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
   %247 = load i64, ptr %16, align 8, !tbaa !36
   %248 = urem i64 %22, %247
   %249 = load ptr, ptr %14, align 8, !tbaa !35
-  %250 = getelementptr inbounds nuw ptr, ptr %249, i64 %248
+  %250 = getelementptr inbounds nuw [8 x i8], ptr %249, i64 %248
   %251 = load ptr, ptr %250, align 8, !tbaa !175
   %.not.i.i.i.i.i39 = icmp eq ptr %251, null
   br i1 %.not.i.i.i.i.i39, label %.loopexit310.thread, label %252
@@ -61032,7 +60856,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
   %.pre376 = load i64, ptr %16, align 8, !tbaa !36
   %.pre377 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre385 = urem i64 %22, %.pre376
-  %.phi.trans.insert392 = getelementptr inbounds nuw ptr, ptr %.pre377, i64 %.pre385
+  %.phi.trans.insert392 = getelementptr inbounds nuw [8 x i8], ptr %.pre377, i64 %.pre385
   %.pre393 = load ptr, ptr %.phi.trans.insert392, align 8, !tbaa !175
   br label %.loopexit310
 
@@ -61098,7 +60922,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %284 = load i64, ptr %16, align 8, !tbaa !36
   %285 = urem i64 %22, %284
   %286 = load ptr, ptr %14, align 8, !tbaa !35
-  %287 = getelementptr inbounds nuw ptr, ptr %286, i64 %285
+  %287 = getelementptr inbounds nuw [8 x i8], ptr %286, i64 %285
   %288 = load ptr, ptr %287, align 8, !tbaa !175
   %.not.i.i.i.i63 = icmp eq ptr %288, null
   br i1 %.not.i.i.i.i63, label %.loopexit.i.i69, label %289
@@ -61175,7 +60999,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
 317:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i
   %318 = load i64, ptr %6, align 8
   %319 = inttoptr i64 %318 to ptr
-  %320 = getelementptr inbounds %"class.gmx::BasicVector", ptr %319, i64 %24
+  %320 = getelementptr inbounds [12 x i8], ptr %319, i64 %24
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i
 
 321:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i
@@ -61199,7 +61023,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
   %328 = load i64, ptr %16, align 8, !tbaa !36
   %329 = urem i64 %24, %328
   %330 = load ptr, ptr %14, align 8, !tbaa !35
-  %331 = getelementptr inbounds nuw ptr, ptr %330, i64 %329
+  %331 = getelementptr inbounds nuw [8 x i8], ptr %330, i64 %329
   %332 = load ptr, ptr %331, align 8, !tbaa !175
   %.not.i.i.i.i.i77 = icmp eq ptr %332, null
   br i1 %.not.i.i.i.i.i77, label %.loopexit307.thread, label %333
@@ -61241,7 +61065,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
   %.pre378 = load i64, ptr %16, align 8, !tbaa !36
   %.pre379 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre387 = urem i64 %24, %.pre378
-  %.phi.trans.insert394 = getelementptr inbounds nuw ptr, ptr %.pre379, i64 %.pre387
+  %.phi.trans.insert394 = getelementptr inbounds nuw [8 x i8], ptr %.pre379, i64 %.pre387
   %.pre395 = load ptr, ptr %.phi.trans.insert394, align 8, !tbaa !175
   br label %.loopexit307
 
@@ -61307,7 +61131,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %365 = load i64, ptr %16, align 8, !tbaa !36
   %366 = urem i64 %24, %365
   %367 = load ptr, ptr %14, align 8, !tbaa !35
-  %368 = getelementptr inbounds nuw ptr, ptr %367, i64 %366
+  %368 = getelementptr inbounds nuw [8 x i8], ptr %367, i64 %366
   %369 = load ptr, ptr %368, align 8, !tbaa !175
   %.not.i.i.i.i101 = icmp eq ptr %369, null
   br i1 %.not.i.i.i.i101, label %.loopexit.i.i107, label %370
@@ -61384,7 +61208,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
 398:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i
   %399 = load i64, ptr %6, align 8
   %400 = inttoptr i64 %399 to ptr
-  %401 = getelementptr inbounds %"class.gmx::BasicVector", ptr %400, i64 %26
+  %401 = getelementptr inbounds [12 x i8], ptr %400, i64 %26
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_14ProperDihedralES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJS6_NS_16ImproperDihedralENS_24RyckaertBellemanDihedralEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit
 
 402:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i
@@ -61408,7 +61232,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
   %409 = load i64, ptr %16, align 8, !tbaa !36
   %410 = urem i64 %26, %409
   %411 = load ptr, ptr %14, align 8, !tbaa !35
-  %412 = getelementptr inbounds nuw ptr, ptr %411, i64 %410
+  %412 = getelementptr inbounds nuw [8 x i8], ptr %411, i64 %410
   %413 = load ptr, ptr %412, align 8, !tbaa !175
   %.not.i.i.i.i.i115 = icmp eq ptr %413, null
   br i1 %.not.i.i.i.i.i115, label %.loopexit.thread, label %414
@@ -61450,7 +61274,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
   %.pre380 = load i64, ptr %16, align 8, !tbaa !36
   %.pre381 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre389 = urem i64 %26, %.pre380
-  %.phi.trans.insert396 = getelementptr inbounds nuw ptr, ptr %.pre381, i64 %.pre389
+  %.phi.trans.insert396 = getelementptr inbounds nuw [8 x i8], ptr %.pre381, i64 %.pre389
   %.pre397 = load ptr, ptr %.phi.trans.insert396, align 8, !tbaa !175
   br label %.loopexit
 
@@ -61516,7 +61340,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %446 = load i64, ptr %16, align 8, !tbaa !36
   %447 = urem i64 %26, %446
   %448 = load ptr, ptr %14, align 8, !tbaa !35
-  %449 = getelementptr inbounds nuw ptr, ptr %448, i64 %447
+  %449 = getelementptr inbounds nuw [8 x i8], ptr %448, i64 %447
   %450 = load ptr, ptr %449, align 8, !tbaa !175
   %.not.i.i.i.i139 = icmp eq ptr %450, null
   br i1 %.not.i.i.i.i139, label %.loopexit.i.i145, label %451
@@ -61589,9 +61413,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 476:                                              ; preds = %476, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_14ProperDihedralES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJS6_NS_16ImproperDihedralENS_24RyckaertBellemanDihedralEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_14ProperDihedralES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJS6_NS_16ImproperDihedralENS_24RyckaertBellemanDihedralEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit ], [ %482, %476 ]
-  %477 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
+  %477 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.05.i
   %478 = load float, ptr %477, align 4, !tbaa !172
-  %479 = getelementptr inbounds nuw float, ptr %10, i64 %.05.i
+  %479 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.05.i
   %480 = load float, ptr %479, align 4, !tbaa !172
   %481 = fadd float %478, %480
   store float %481, ptr %479, align 4, !tbaa !172
@@ -61656,28 +61480,28 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.0158.sroa.5.0..sroa.0159.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0159.0340, i64 16
   %.sroa.0158.sroa.5.0.copyload = load i32, ptr %.sroa.0158.sroa.5.0..sroa.0159.0..sroa_idx, align 4, !tbaa !188
   %20 = sext i32 %.sroa.0158.sroa.0.0.copyload to i64
-  %21 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %20
+  %21 = getelementptr inbounds [12 x i8], ptr %4, i64 %20
   %.sroa.0260.0.copyload = load float, ptr %21, align 4
   %.sroa.4261.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 4
   %.sroa.4261.0.copyload = load float, ptr %.sroa.4261.0..sroa_idx, align 4
   %.sroa.5262.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.sroa.5262.0.copyload = load float, ptr %.sroa.5262.0..sroa_idx, align 4, !tbaa !188
   %22 = sext i32 %.sroa.0158.sroa.2.0.copyload to i64
-  %23 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %22
+  %23 = getelementptr inbounds [12 x i8], ptr %4, i64 %22
   %.sroa.0251.0.copyload = load float, ptr %23, align 4
   %.sroa.6254.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 4
   %.sroa.6254.0.copyload = load float, ptr %.sroa.6254.0..sroa_idx, align 4
   %.sroa.9257.0..sroa_idx = getelementptr inbounds nuw i8, ptr %23, i64 8
   %.sroa.9257.0.copyload = load float, ptr %.sroa.9257.0..sroa_idx, align 4, !tbaa !188
   %24 = sext i32 %.sroa.0158.sroa.3.0.copyload to i64
-  %25 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %24
+  %25 = getelementptr inbounds [12 x i8], ptr %4, i64 %24
   %.sroa.0245.0.copyload = load float, ptr %25, align 4
   %.sroa.5247.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 4
   %.sroa.5247.0.copyload = load float, ptr %.sroa.5247.0..sroa_idx, align 4
   %.sroa.7249.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 8
   %.sroa.7249.0.copyload = load float, ptr %.sroa.7249.0..sroa_idx, align 4, !tbaa !188
   %26 = sext i32 %.sroa.0158.sroa.4.0.copyload to i64
-  %27 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %26
+  %27 = getelementptr inbounds [12 x i8], ptr %4, i64 %26
   %.sroa.0239.0.copyload = load float, ptr %27, align 4
   %.sroa.5241.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 4
   %.sroa.5241.0.copyload = load float, ptr %.sroa.5241.0..sroa_idx, align 4
@@ -61693,7 +61517,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %35 = fsub float %.sroa.5247.0.copyload, %.sroa.5241.0.copyload
   %36 = fsub float %.sroa.7249.0.copyload, %.sroa.7243.0.copyload
   %37 = sext i32 %.sroa.0158.sroa.5.0.copyload to i64
-  %38 = getelementptr inbounds %"class.nblib::ImproperDihedral", ptr %2, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %2, i64 %37
   %39 = load float, ptr %38, align 4
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 4
   %40 = load float, ptr %.sroa_idx, align 4
@@ -61861,7 +61685,7 @@ _ZN5nblib22spreadFourCenterForcesIfDnEEvT_RKN3gmx11BasicVectorIS1_EES6_S6_S6_S6_
 161:                                              ; preds = %_ZN5nblib22spreadFourCenterForcesIfDnEEvT_RKN3gmx11BasicVectorIS1_EES6_S6_S6_S6_PS4_S7_S7_S7_PT0_S9_S9_S9_.exit
   %162 = load i64, ptr %6, align 8
   %163 = inttoptr i64 %162 to ptr
-  %164 = getelementptr inbounds %"class.gmx::BasicVector", ptr %163, i64 %20
+  %164 = getelementptr inbounds [12 x i8], ptr %163, i64 %20
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i
 
 165:                                              ; preds = %_ZN5nblib22spreadFourCenterForcesIfDnEEvT_RKN3gmx11BasicVectorIS1_EES6_S6_S6_S6_PS4_S7_S7_S7_PT0_S9_S9_S9_.exit
@@ -61885,7 +61709,7 @@ _ZN5nblib22spreadFourCenterForcesIfDnEEvT_RKN3gmx11BasicVectorIS1_EES6_S6_S6_S6_
   %172 = load i64, ptr %16, align 8, !tbaa !36
   %173 = urem i64 %20, %172
   %174 = load ptr, ptr %14, align 8, !tbaa !35
-  %175 = getelementptr inbounds nuw ptr, ptr %174, i64 %173
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %174, i64 %173
   %176 = load ptr, ptr %175, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %176, null
   br i1 %.not.i.i.i.i.i, label %.loopexit313.thread, label %177
@@ -61927,7 +61751,7 @@ _ZN5nblib22spreadFourCenterForcesIfDnEEvT_RKN3gmx11BasicVectorIS1_EES6_S6_S6_S6_
   %.pre = load i64, ptr %16, align 8, !tbaa !36
   %.pre375 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre384 = urem i64 %20, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre375, i64 %.pre384
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre375, i64 %.pre384
   %.pre391 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit313
 
@@ -61999,7 +61823,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %209 = load i64, ptr %16, align 8, !tbaa !36
   %210 = urem i64 %20, %209
   %211 = load ptr, ptr %14, align 8, !tbaa !35
-  %212 = getelementptr inbounds nuw ptr, ptr %211, i64 %210
+  %212 = getelementptr inbounds nuw [8 x i8], ptr %211, i64 %210
   %213 = load ptr, ptr %212, align 8, !tbaa !175
   %.not.i.i.i.i25 = icmp eq ptr %213, null
   br i1 %.not.i.i.i.i25, label %.loopexit.i.i31, label %214
@@ -62076,7 +61900,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
 242:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i
   %243 = load i64, ptr %6, align 8
   %244 = inttoptr i64 %243 to ptr
-  %245 = getelementptr inbounds %"class.gmx::BasicVector", ptr %244, i64 %22
+  %245 = getelementptr inbounds [12 x i8], ptr %244, i64 %22
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i
 
 246:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i
@@ -62100,7 +61924,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
   %253 = load i64, ptr %16, align 8, !tbaa !36
   %254 = urem i64 %22, %253
   %255 = load ptr, ptr %14, align 8, !tbaa !35
-  %256 = getelementptr inbounds nuw ptr, ptr %255, i64 %254
+  %256 = getelementptr inbounds nuw [8 x i8], ptr %255, i64 %254
   %257 = load ptr, ptr %256, align 8, !tbaa !175
   %.not.i.i.i.i.i39 = icmp eq ptr %257, null
   br i1 %.not.i.i.i.i.i39, label %.loopexit310.thread, label %258
@@ -62142,7 +61966,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
   %.pre376 = load i64, ptr %16, align 8, !tbaa !36
   %.pre377 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre385 = urem i64 %22, %.pre376
-  %.phi.trans.insert392 = getelementptr inbounds nuw ptr, ptr %.pre377, i64 %.pre385
+  %.phi.trans.insert392 = getelementptr inbounds nuw [8 x i8], ptr %.pre377, i64 %.pre385
   %.pre393 = load ptr, ptr %.phi.trans.insert392, align 8, !tbaa !175
   br label %.loopexit310
 
@@ -62208,7 +62032,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %290 = load i64, ptr %16, align 8, !tbaa !36
   %291 = urem i64 %22, %290
   %292 = load ptr, ptr %14, align 8, !tbaa !35
-  %293 = getelementptr inbounds nuw ptr, ptr %292, i64 %291
+  %293 = getelementptr inbounds nuw [8 x i8], ptr %292, i64 %291
   %294 = load ptr, ptr %293, align 8, !tbaa !175
   %.not.i.i.i.i63 = icmp eq ptr %294, null
   br i1 %.not.i.i.i.i63, label %.loopexit.i.i69, label %295
@@ -62285,7 +62109,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
 323:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i
   %324 = load i64, ptr %6, align 8
   %325 = inttoptr i64 %324 to ptr
-  %326 = getelementptr inbounds %"class.gmx::BasicVector", ptr %325, i64 %24
+  %326 = getelementptr inbounds [12 x i8], ptr %325, i64 %24
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i
 
 327:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i
@@ -62309,7 +62133,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
   %334 = load i64, ptr %16, align 8, !tbaa !36
   %335 = urem i64 %24, %334
   %336 = load ptr, ptr %14, align 8, !tbaa !35
-  %337 = getelementptr inbounds nuw ptr, ptr %336, i64 %335
+  %337 = getelementptr inbounds nuw [8 x i8], ptr %336, i64 %335
   %338 = load ptr, ptr %337, align 8, !tbaa !175
   %.not.i.i.i.i.i77 = icmp eq ptr %338, null
   br i1 %.not.i.i.i.i.i77, label %.loopexit307.thread, label %339
@@ -62351,7 +62175,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
   %.pre378 = load i64, ptr %16, align 8, !tbaa !36
   %.pre379 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre387 = urem i64 %24, %.pre378
-  %.phi.trans.insert394 = getelementptr inbounds nuw ptr, ptr %.pre379, i64 %.pre387
+  %.phi.trans.insert394 = getelementptr inbounds nuw [8 x i8], ptr %.pre379, i64 %.pre387
   %.pre395 = load ptr, ptr %.phi.trans.insert394, align 8, !tbaa !175
   br label %.loopexit307
 
@@ -62417,7 +62241,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %371 = load i64, ptr %16, align 8, !tbaa !36
   %372 = urem i64 %24, %371
   %373 = load ptr, ptr %14, align 8, !tbaa !35
-  %374 = getelementptr inbounds nuw ptr, ptr %373, i64 %372
+  %374 = getelementptr inbounds nuw [8 x i8], ptr %373, i64 %372
   %375 = load ptr, ptr %374, align 8, !tbaa !175
   %.not.i.i.i.i101 = icmp eq ptr %375, null
   br i1 %.not.i.i.i.i101, label %.loopexit.i.i107, label %376
@@ -62494,7 +62318,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
 404:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i
   %405 = load i64, ptr %6, align 8
   %406 = inttoptr i64 %405 to ptr
-  %407 = getelementptr inbounds %"class.gmx::BasicVector", ptr %406, i64 %26
+  %407 = getelementptr inbounds [12 x i8], ptr %406, i64 %26
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16ImproperDihedralES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_14ProperDihedralES6_NS_24RyckaertBellemanDihedralEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit
 
 408:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i
@@ -62518,7 +62342,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
   %415 = load i64, ptr %16, align 8, !tbaa !36
   %416 = urem i64 %26, %415
   %417 = load ptr, ptr %14, align 8, !tbaa !35
-  %418 = getelementptr inbounds nuw ptr, ptr %417, i64 %416
+  %418 = getelementptr inbounds nuw [8 x i8], ptr %417, i64 %416
   %419 = load ptr, ptr %418, align 8, !tbaa !175
   %.not.i.i.i.i.i115 = icmp eq ptr %419, null
   br i1 %.not.i.i.i.i.i115, label %.loopexit.thread, label %420
@@ -62560,7 +62384,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
   %.pre380 = load i64, ptr %16, align 8, !tbaa !36
   %.pre381 = load ptr, ptr %14, align 8, !tbaa !35
   %.pre389 = urem i64 %26, %.pre380
-  %.phi.trans.insert396 = getelementptr inbounds nuw ptr, ptr %.pre381, i64 %.pre389
+  %.phi.trans.insert396 = getelementptr inbounds nuw [8 x i8], ptr %.pre381, i64 %.pre389
   %.pre397 = load ptr, ptr %.phi.trans.insert396, align 8, !tbaa !175
   br label %.loopexit
 
@@ -62626,7 +62450,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %452 = load i64, ptr %16, align 8, !tbaa !36
   %453 = urem i64 %26, %452
   %454 = load ptr, ptr %14, align 8, !tbaa !35
-  %455 = getelementptr inbounds nuw ptr, ptr %454, i64 %453
+  %455 = getelementptr inbounds nuw [8 x i8], ptr %454, i64 %453
   %456 = load ptr, ptr %455, align 8, !tbaa !175
   %.not.i.i.i.i139 = icmp eq ptr %456, null
   br i1 %.not.i.i.i.i139, label %.loopexit.i.i145, label %457
@@ -62699,9 +62523,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 482:                                              ; preds = %482, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16ImproperDihedralES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_14ProperDihedralES6_NS_24RyckaertBellemanDihedralEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_16ImproperDihedralES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_14ProperDihedralES6_NS_24RyckaertBellemanDihedralEEEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit ], [ %488, %482 ]
-  %483 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
+  %483 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.05.i
   %484 = load float, ptr %483, align 4, !tbaa !172
-  %485 = getelementptr inbounds nuw float, ptr %10, i64 %.05.i
+  %485 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.05.i
   %486 = load float, ptr %485, align 4, !tbaa !172
   %487 = fadd float %484, %486
   store float %487, ptr %485, align 4, !tbaa !172
@@ -62767,28 +62591,28 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.sroa.0159.sroa.5.0..sroa.0160.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0160.0348, i64 16
   %.sroa.0159.sroa.5.0.copyload = load i32, ptr %.sroa.0159.sroa.5.0..sroa.0160.0..sroa_idx, align 4, !tbaa !188
   %21 = sext i32 %.sroa.0159.sroa.0.0.copyload to i64
-  %22 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %21
+  %22 = getelementptr inbounds [12 x i8], ptr %4, i64 %21
   %.sroa.0258.0.copyload = load float, ptr %22, align 4
   %.sroa.4259.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 4
   %.sroa.4259.0.copyload = load float, ptr %.sroa.4259.0..sroa_idx, align 4
   %.sroa.5260.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 8
   %.sroa.5260.0.copyload = load float, ptr %.sroa.5260.0..sroa_idx, align 4, !tbaa !188
   %23 = sext i32 %.sroa.0159.sroa.2.0.copyload to i64
-  %24 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %23
+  %24 = getelementptr inbounds [12 x i8], ptr %4, i64 %23
   %.sroa.0249.0.copyload = load float, ptr %24, align 4
   %.sroa.6252.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 4
   %.sroa.6252.0.copyload = load float, ptr %.sroa.6252.0..sroa_idx, align 4
   %.sroa.9255.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 8
   %.sroa.9255.0.copyload = load float, ptr %.sroa.9255.0..sroa_idx, align 4, !tbaa !188
   %25 = sext i32 %.sroa.0159.sroa.3.0.copyload to i64
-  %26 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %25
+  %26 = getelementptr inbounds [12 x i8], ptr %4, i64 %25
   %.sroa.0243.0.copyload = load float, ptr %26, align 4
   %.sroa.5245.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 4
   %.sroa.5245.0.copyload = load float, ptr %.sroa.5245.0..sroa_idx, align 4
   %.sroa.7247.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 8
   %.sroa.7247.0.copyload = load float, ptr %.sroa.7247.0..sroa_idx, align 4, !tbaa !188
   %27 = sext i32 %.sroa.0159.sroa.4.0.copyload to i64
-  %28 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %27
+  %28 = getelementptr inbounds [12 x i8], ptr %4, i64 %27
   %.sroa.0237.0.copyload = load float, ptr %28, align 4
   %.sroa.5239.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 4
   %.sroa.5239.0.copyload = load float, ptr %.sroa.5239.0..sroa_idx, align 4
@@ -62805,7 +62629,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %37 = fsub float %.sroa.7247.0.copyload, %.sroa.7241.0.copyload
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %38 = sext i32 %.sroa.0159.sroa.5.0.copyload to i64
-  %39 = getelementptr inbounds %"class.nblib::RyckaertBellemanDihedral", ptr %2, i64 %38
+  %39 = getelementptr inbounds [24 x i8], ptr %2, i64 %38
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %10, ptr noundef nonnull align 4 dereferenceable(24) %39, i64 24, i1 false), !tbaa.struct !198
   %40 = fneg float %33
   %41 = fmul float %31, %40
@@ -62862,7 +62686,7 @@ define linkonce_odr { <2 x float>, <2 x float> } @_ZN5nblib13computeForcesISt5ar
   %.01727.i = phi float [ 1.000000e+00, %20 ], [ %92, %85 ]
   %.02326.i = phi float [ 0.000000e+00, %20 ], [ %91, %85 ]
   %.02425.i = phi float [ %84, %20 ], [ %93, %85 ]
-  %86 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv.i
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv.i
   %87 = load float, ptr %86, align 4, !tbaa !172, !noalias !383
   %88 = fmul float %.01727.i, %87
   %89 = trunc nuw nsw i64 %indvars.iv.i to i32
@@ -62975,7 +62799,7 @@ _ZN5nblib22spreadFourCenterForcesIfDnEEvT_RKN3gmx11BasicVectorIS1_EES6_S6_S6_S6_
 163:                                              ; preds = %_ZN5nblib22spreadFourCenterForcesIfDnEEvT_RKN3gmx11BasicVectorIS1_EES6_S6_S6_S6_PS4_S7_S7_S7_PT0_S9_S9_S9_.exit
   %164 = load i64, ptr %6, align 8
   %165 = inttoptr i64 %164 to ptr
-  %166 = getelementptr inbounds %"class.gmx::BasicVector", ptr %165, i64 %21
+  %166 = getelementptr inbounds [12 x i8], ptr %165, i64 %21
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i
 
 167:                                              ; preds = %_ZN5nblib22spreadFourCenterForcesIfDnEEvT_RKN3gmx11BasicVectorIS1_EES6_S6_S6_S6_PS4_S7_S7_S7_PT0_S9_S9_S9_.exit
@@ -62999,7 +62823,7 @@ _ZN5nblib22spreadFourCenterForcesIfDnEEvT_RKN3gmx11BasicVectorIS1_EES6_S6_S6_S6_
   %174 = load i64, ptr %17, align 8, !tbaa !36
   %175 = urem i64 %21, %174
   %176 = load ptr, ptr %15, align 8, !tbaa !35
-  %177 = getelementptr inbounds nuw ptr, ptr %176, i64 %175
+  %177 = getelementptr inbounds nuw [8 x i8], ptr %176, i64 %175
   %178 = load ptr, ptr %177, align 8, !tbaa !175
   %.not.i.i.i.i.i = icmp eq ptr %178, null
   br i1 %.not.i.i.i.i.i, label %.loopexit311.thread, label %179
@@ -63041,7 +62865,7 @@ _ZN5nblib22spreadFourCenterForcesIfDnEEvT_RKN3gmx11BasicVectorIS1_EES6_S6_S6_S6_
   %.pre = load i64, ptr %17, align 8, !tbaa !36
   %.pre393 = load ptr, ptr %15, align 8, !tbaa !35
   %.pre402 = urem i64 %21, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre393, i64 %.pre402
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre393, i64 %.pre402
   %.pre409 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !175
   br label %.loopexit311
 
@@ -63113,7 +62937,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %211 = load i64, ptr %17, align 8, !tbaa !36
   %212 = urem i64 %21, %211
   %213 = load ptr, ptr %15, align 8, !tbaa !35
-  %214 = getelementptr inbounds nuw ptr, ptr %213, i64 %212
+  %214 = getelementptr inbounds nuw [8 x i8], ptr %213, i64 %212
   %215 = load ptr, ptr %214, align 8, !tbaa !175
   %.not.i.i.i.i25 = icmp eq ptr %215, null
   br i1 %.not.i.i.i.i25, label %.loopexit.i.i31, label %216
@@ -63190,7 +63014,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
 244:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i
   %245 = load i64, ptr %6, align 8
   %246 = inttoptr i64 %245 to ptr
-  %247 = getelementptr inbounds %"class.gmx::BasicVector", ptr %246, i64 %23
+  %247 = getelementptr inbounds [12 x i8], ptr %246, i64 %23
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i
 
 248:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i
@@ -63214,7 +63038,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
   %255 = load i64, ptr %17, align 8, !tbaa !36
   %256 = urem i64 %23, %255
   %257 = load ptr, ptr %15, align 8, !tbaa !35
-  %258 = getelementptr inbounds nuw ptr, ptr %257, i64 %256
+  %258 = getelementptr inbounds nuw [8 x i8], ptr %257, i64 %256
   %259 = load ptr, ptr %258, align 8, !tbaa !175
   %.not.i.i.i.i.i39 = icmp eq ptr %259, null
   br i1 %.not.i.i.i.i.i39, label %.loopexit308.thread, label %260
@@ -63256,7 +63080,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit48.i: ; preds = %_ZN
   %.pre394 = load i64, ptr %17, align 8, !tbaa !36
   %.pre395 = load ptr, ptr %15, align 8, !tbaa !35
   %.pre403 = urem i64 %23, %.pre394
-  %.phi.trans.insert410 = getelementptr inbounds nuw ptr, ptr %.pre395, i64 %.pre403
+  %.phi.trans.insert410 = getelementptr inbounds nuw [8 x i8], ptr %.pre395, i64 %.pre403
   %.pre411 = load ptr, ptr %.phi.trans.insert410, align 8, !tbaa !175
   br label %.loopexit308
 
@@ -63322,7 +63146,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %292 = load i64, ptr %17, align 8, !tbaa !36
   %293 = urem i64 %23, %292
   %294 = load ptr, ptr %15, align 8, !tbaa !35
-  %295 = getelementptr inbounds nuw ptr, ptr %294, i64 %293
+  %295 = getelementptr inbounds nuw [8 x i8], ptr %294, i64 %293
   %296 = load ptr, ptr %295, align 8, !tbaa !175
   %.not.i.i.i.i63 = icmp eq ptr %296, null
   br i1 %.not.i.i.i.i63, label %.loopexit.i.i69, label %297
@@ -63399,7 +63223,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
 325:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i
   %326 = load i64, ptr %6, align 8
   %327 = inttoptr i64 %326 to ptr
-  %328 = getelementptr inbounds %"class.gmx::BasicVector", ptr %327, i64 %25
+  %328 = getelementptr inbounds [12 x i8], ptr %327, i64 %25
   br label %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i
 
 329:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i
@@ -63423,7 +63247,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
   %336 = load i64, ptr %17, align 8, !tbaa !36
   %337 = urem i64 %25, %336
   %338 = load ptr, ptr %15, align 8, !tbaa !35
-  %339 = getelementptr inbounds nuw ptr, ptr %338, i64 %337
+  %339 = getelementptr inbounds nuw [8 x i8], ptr %338, i64 %337
   %340 = load ptr, ptr %339, align 8, !tbaa !175
   %.not.i.i.i.i.i77 = icmp eq ptr %340, null
   br i1 %.not.i.i.i.i.i77, label %.loopexit305.thread, label %341
@@ -63465,7 +63289,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit44.i: ; preds = %_ZN
   %.pre396 = load i64, ptr %17, align 8, !tbaa !36
   %.pre397 = load ptr, ptr %15, align 8, !tbaa !35
   %.pre405 = urem i64 %25, %.pre396
-  %.phi.trans.insert412 = getelementptr inbounds nuw ptr, ptr %.pre397, i64 %.pre405
+  %.phi.trans.insert412 = getelementptr inbounds nuw [8 x i8], ptr %.pre397, i64 %.pre405
   %.pre413 = load ptr, ptr %.phi.trans.insert412, align 8, !tbaa !175
   br label %.loopexit305
 
@@ -63531,7 +63355,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %373 = load i64, ptr %17, align 8, !tbaa !36
   %374 = urem i64 %25, %373
   %375 = load ptr, ptr %15, align 8, !tbaa !35
-  %376 = getelementptr inbounds nuw ptr, ptr %375, i64 %374
+  %376 = getelementptr inbounds nuw [8 x i8], ptr %375, i64 %374
   %377 = load ptr, ptr %376, align 8, !tbaa !175
   %.not.i.i.i.i101 = icmp eq ptr %377, null
   br i1 %.not.i.i.i.i101, label %.loopexit.i.i107, label %378
@@ -63608,7 +63432,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
 406:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i
   %407 = load i64, ptr %6, align 8
   %408 = inttoptr i64 %407 to ptr
-  %409 = getelementptr inbounds %"class.gmx::BasicVector", ptr %408, i64 %27
+  %409 = getelementptr inbounds [12 x i8], ptr %408, i64 %27
   br label %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_24RyckaertBellemanDihedralES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_14ProperDihedralENS_16ImproperDihedralES6_EEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit
 
 410:                                              ; preds = %_ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i
@@ -63632,7 +63456,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
   %417 = load i64, ptr %17, align 8, !tbaa !36
   %418 = urem i64 %27, %417
   %419 = load ptr, ptr %15, align 8, !tbaa !35
-  %420 = getelementptr inbounds nuw ptr, ptr %419, i64 %418
+  %420 = getelementptr inbounds nuw [8 x i8], ptr %419, i64 %418
   %421 = load ptr, ptr %420, align 8, !tbaa !175
   %.not.i.i.i.i.i115 = icmp eq ptr %421, null
   br i1 %.not.i.i.i.i.i115, label %.loopexit.thread, label %422
@@ -63674,7 +63498,7 @@ _ZN5nblib16ForceBufferProxyIN3gmx11BasicVectorIfEEEixEi.exit40.i: ; preds = %_ZN
   %.pre398 = load i64, ptr %17, align 8, !tbaa !36
   %.pre399 = load ptr, ptr %15, align 8, !tbaa !35
   %.pre407 = urem i64 %27, %.pre398
-  %.phi.trans.insert414 = getelementptr inbounds nuw ptr, ptr %.pre399, i64 %.pre407
+  %.phi.trans.insert414 = getelementptr inbounds nuw [8 x i8], ptr %.pre399, i64 %.pre407
   %.pre415 = load ptr, ptr %.phi.trans.insert414, align 8, !tbaa !175
   br label %.loopexit
 
@@ -63740,7 +63564,7 @@ _ZNKSt13unordered_mapIiN3gmx11BasicVectorIfEESt4hashIiESt8equal_toIiESaISt4pairI
   %454 = load i64, ptr %17, align 8, !tbaa !36
   %455 = urem i64 %27, %454
   %456 = load ptr, ptr %15, align 8, !tbaa !35
-  %457 = getelementptr inbounds nuw ptr, ptr %456, i64 %455
+  %457 = getelementptr inbounds nuw [8 x i8], ptr %456, i64 %455
   %458 = load ptr, ptr %457, align 8, !tbaa !175
   %.not.i.i.i.i139 = icmp eq ptr %458, null
   br i1 %.not.i.i.i.i139, label %.loopexit.i.i145, label %459
@@ -63814,9 +63638,9 @@ _ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_
 
 484:                                              ; preds = %484, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_24RyckaertBellemanDihedralES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_14ProperDihedralENS_16ImproperDihedralES6_EEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit
   %.05.i = phi i64 [ 0, %_ZN5nblib19dispatchInteractionINS_16ForceBufferProxyIN3gmx11BasicVectorIfEEEENS_24RyckaertBellemanDihedralES4_DnNS_5NoPbcETnPNSt9enable_ifIXtlNS_8ContainsIT0_NS_8TypeListIJNS_14ProperDihedralENS_16ImproperDihedralES6_EEEEEEEvE4typeELPv0EEEDaSt5arrayIiXpltlNS_7NCenterISA_vEEELi1EEENS2_8ArrayRefIKSA_EENSO_IKT1_EEPT_NSO_IT2_EERKT3_.exit ], [ %490, %484 ]
-  %485 = getelementptr inbounds nuw float, ptr %12, i64 %.05.i
+  %485 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %.05.i
   %486 = load float, ptr %485, align 4, !tbaa !172
-  %487 = getelementptr inbounds nuw float, ptr %11, i64 %.05.i
+  %487 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %.05.i
   %488 = load float, ptr %487, align 4, !tbaa !172
   %489 = fadd float %486, %488
   store float %489, ptr %487, align 4, !tbaa !172

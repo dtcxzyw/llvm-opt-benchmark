@@ -232,7 +232,7 @@ define dso_local noundef zeroext i1 @tsc_store_and_check_tsc_adjust(i1 noundef z
   br label %25
 
 25:                                               ; preds = %23, %16
-  %26 = getelementptr i64, ptr @__per_cpu_offset, i64 %5
+  %26 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %5
   %27 = load i64, ptr %26, align 8
   %28 = add i64 %27, ptrtoint (ptr @cpu_core_map to i64)
   %29 = icmp eq i64 %28, 0
@@ -301,7 +301,7 @@ define dso_local noundef zeroext i1 @tsc_store_and_check_tsc_adjust(i1 noundef z
 
 61:                                               ; preds = %.thread
   %62 = zext i32 %.ph to i64
-  %63 = getelementptr i64, ptr @__per_cpu_offset, i64 %62
+  %63 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %62
   %64 = load i64, ptr %63, align 8
   %65 = add i64 %64, ptrtoint (ptr @tsc_adjust to i64)
   %66 = inttoptr i64 %65 to ptr
@@ -376,7 +376,7 @@ define dso_local void @check_tsc_sync_target() local_unnamed_addr #0 align 16 {
   %20 = inttoptr i64 %4 to ptr
   %21 = tail call i32 @smp_call_function_single(i32 noundef %19, ptr noundef nonnull @check_tsc_sync_source, ptr noundef %20, i32 noundef 0) #8
   %22 = sext i32 %3 to i64
-  %23 = getelementptr i64, ptr @__per_cpu_offset, i64 %22
+  %23 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %25
 

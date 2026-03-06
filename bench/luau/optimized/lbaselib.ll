@@ -680,7 +680,7 @@ define internal noundef i32 @_ZL13luaB_tonumberP9lua_State(ptr noundef %0) #0 {
   %20 = phi ptr [ %16, %.preheader ], [ %26, %19 ]
   %21 = load i8, ptr %20, align 1, !tbaa !34
   %22 = zext i8 %21 to i64
-  %23 = getelementptr inbounds nuw i16, ptr %18, i64 %22
+  %23 = getelementptr inbounds nuw [2 x i8], ptr %18, i64 %22
   %24 = load i16, ptr %23, align 2, !tbaa !40
   %25 = and i16 %24, 8192
   %.not22 = icmp eq i16 %25, 0

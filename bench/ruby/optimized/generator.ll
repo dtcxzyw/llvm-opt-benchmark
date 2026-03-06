@@ -3120,7 +3120,7 @@ fbuffer_append_str.exit:                          ; preds = %.lr.ph, %ruby_nonem
 
 rb_array_const_ptr.exit:                          ; preds = %.loopexit61, %101
   %.0.i56 = phi ptr [ %102, %101 ], [ %54, %.loopexit61 ]
-  %103 = getelementptr inbounds nuw i64, ptr %.0.i56, i64 %indvars.iv67
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %.0.i56, i64 %indvars.iv67
   %104 = load i64, ptr %103, align 8, !tbaa !6
   call void @generate_json(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, i64 noundef %104)
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1

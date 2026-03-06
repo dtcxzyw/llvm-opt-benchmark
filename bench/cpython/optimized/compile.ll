@@ -913,13 +913,11 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.anon.805 = type { i32 }
 %struct._err_stackitem = type { ptr, ptr }
 %struct._typeobject = type { %struct.PyVarObject, ptr, i64, i64, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, i8, i16 }
-%struct._PyCompile_FBlockInfo = type { i32, %struct._PyJumpTargetLabel, %struct._Py_SourceLocation, %struct._PyJumpTargetLabel, ptr }
-%struct._Py_SourceLocation = type { i32, i32, i32, i32 }
-%struct._PyJumpTargetLabel = type { i32 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %struct.instruction_sequence = type { %struct._object, ptr, i32, i32, i32, ptr, i32, ptr }
 %struct.PyCompilerFlags = type { i32, i32 }
 %struct._PyFutureFeatures = type { i32, %struct._Py_SourceLocation }
+%struct._Py_SourceLocation = type { i32, i32, i32, i32 }
 
 @.str = private unnamed_addr constant [5 x i8] c"self\00", align 1
 @.str.1 = private unnamed_addr constant [24 x i8] c"compile.c compiler unit\00", align 1
@@ -988,7 +986,7 @@ define hidden range(i32 -1, 1) i32 @_PyCompile_MaybeAddStaticAttributeToClass(pt
   %20 = load ptr, ptr %14, align 8, !tbaa !10
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load ptr, ptr %21, align 8, !tbaa !25
-  %23 = getelementptr ptr, ptr %22, i64 %.019
+  %23 = getelementptr [8 x i8], ptr %22, i64 %.019
   %24 = load ptr, ptr %23, align 8, !tbaa !28
   %25 = tail call ptr @PyCapsule_GetPointer(ptr noundef %24, ptr noundef nonnull @.str.1) #11
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
@@ -1215,7 +1213,7 @@ _Py_NewRef.exit:                                  ; preds = %22, %25
 
 43:                                               ; preds = %36
   %44 = load ptr, ptr %35, align 8, !tbaa !25
-  %45 = getelementptr ptr, ptr %44, i64 %.01731.i
+  %45 = getelementptr [8 x i8], ptr %44, i64 %.01731.i
   %46 = load ptr, ptr %45, align 8, !tbaa !28
   %47 = tail call i32 @PyDict_SetItem(ptr noundef nonnull %31, ptr noundef %46, ptr noundef nonnull %37) #11
   %48 = icmp slt i32 %47, 0
@@ -1892,7 +1890,7 @@ Py_DECREF.exit85:                                 ; preds = %17, %19, %22
   %.045107 = phi i64 [ %3, %.lr.ph ], [ %.146, %Py_DECREF.exit63 ]
   %.051106 = phi i64 [ 0, %.lr.ph ], [ %110, %Py_DECREF.exit63 ]
   %34 = load ptr, ptr %30, align 8, !tbaa !25
-  %35 = getelementptr ptr, ptr %34, i64 %.051106
+  %35 = getelementptr [8 x i8], ptr %34, i64 %.051106
   %36 = load ptr, ptr %35, align 8, !tbaa !28
   %37 = tail call ptr @PyDict_GetItemWithError(ptr noundef %0, ptr noundef %36) #11
   %.not56 = icmp eq ptr %37, null
@@ -2126,7 +2124,7 @@ define internal fastcc range(i32 -1, 1) i32 @compiler_set_qualname(ptr noundef r
 9:                                                ; preds = %1
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !25
-  %12 = getelementptr ptr, ptr %11, i64 %.val
+  %12 = getelementptr [8 x i8], ptr %11, i64 %.val
   %13 = getelementptr i8, ptr %12, i64 -8
   %14 = load ptr, ptr %13, align 8, !tbaa !28
   %15 = tail call ptr @PyCapsule_GetPointer(ptr noundef %14, ptr noundef nonnull @.str.1) #11
@@ -2150,7 +2148,7 @@ define internal fastcc range(i32 -1, 1) i32 @compiler_set_qualname(ptr noundef r
   %27 = load ptr, ptr %5, align 8, !tbaa !10
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %29 = load ptr, ptr %28, align 8, !tbaa !25
-  %30 = getelementptr ptr, ptr %29, i64 %.val
+  %30 = getelementptr [8 x i8], ptr %29, i64 %.val
   %31 = getelementptr i8, ptr %30, i64 -16
   %32 = load ptr, ptr %31, align 8, !tbaa !28
   %33 = tail call ptr @PyCapsule_GetPointer(ptr noundef %32, ptr noundef nonnull @.str.1) #11
@@ -2314,7 +2312,7 @@ Py_INCREF.exit:                                   ; preds = %13, %6, %1
 22:                                               ; preds = %Py_INCREF.exit
   %23 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %24 = load ptr, ptr %23, align 8, !tbaa !25
-  %25 = getelementptr ptr, ptr %24, i64 %20
+  %25 = getelementptr [8 x i8], ptr %24, i64 %20
   %26 = load ptr, ptr %25, align 8, !tbaa !28
   %27 = tail call ptr @PyCapsule_GetPointer(ptr noundef %26, ptr noundef nonnull @.str.1) #11
   store ptr %27, ptr %15, align 8, !tbaa !42
@@ -2396,7 +2394,7 @@ define hidden range(i32 -1, 1) i32 @_PyCompile_PushFBlock(ptr noundef readonly c
   %17 = add nsw i32 %11, 1
   store i32 %17, ptr %10, align 8, !tbaa !59
   %18 = sext i32 %11 to i64
-  %19 = getelementptr %struct._PyCompile_FBlockInfo, ptr %16, i64 %18
+  %19 = getelementptr [40 x i8], ptr %16, i64 %18
   store i32 %3, ptr %19, align 8, !tbaa !73
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i32 %4, ptr %20, align 4, !tbaa !46
@@ -2476,7 +2474,7 @@ define hidden ptr @_PyCompile_TopFBlock(ptr noundef readonly captures(none) %0) 
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %8 = add i32 %5, -1
   %9 = sext i32 %8 to i64
-  %10 = getelementptr %struct._PyCompile_FBlockInfo, ptr %7, i64 %9
+  %10 = getelementptr [40 x i8], ptr %7, i64 %9
   %.0 = select i1 %6, ptr null, ptr %10
   ret ptr %.0
 }
@@ -3592,7 +3590,7 @@ Py_DECREF.exit122:                                ; preds = %22, %25, %28
 
 34:                                               ; preds = %.lr.ph158, %Py_DECREF.exit120
   %.083156 = phi i64 [ 0, %.lr.ph158 ], [ %65, %Py_DECREF.exit120 ]
-  %35 = getelementptr ptr, ptr %33, i64 %.083156
+  %35 = getelementptr [8 x i8], ptr %33, i64 %.083156
   %36 = load ptr, ptr %35, align 8, !tbaa !28
   %37 = call fastcc ptr @const_cache_insert(ptr noundef %0, ptr noundef %36, i1 noundef zeroext true)
   %.not101 = icmp eq ptr %37, null
@@ -3786,7 +3784,7 @@ _Py_NewRef.exit141:                               ; preds = %97, %102
 
 Py_DECREF.exit110:                                ; preds = %95, %_Py_NewRef.exit141, %105, %108
   %.073 = phi ptr [ %84, %95 ], [ %99, %_Py_NewRef.exit141 ], [ %99, %105 ], [ %99, %108 ]
-  %109 = getelementptr ptr, ptr %81, i64 %.081154
+  %109 = getelementptr [8 x i8], ptr %81, i64 %.081154
   store ptr %.073, ptr %109, align 8, !tbaa !28
   %110 = add i64 %.081154, 1
   %111 = call i32 @_PySet_NextEntry(ptr noundef %1, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7) #11
@@ -4994,7 +4992,7 @@ define internal fastcc ptr @consts_dict_keys_inorder(ptr noundef %0) unnamed_add
 
 _Py_NewRef.exit:                                  ; preds = %18, %22
   %.val9 = load ptr, ptr %9, align 8, !tbaa !25
-  %24 = getelementptr ptr, ptr %.val9, i64 %12
+  %24 = getelementptr [8 x i8], ptr %.val9, i64 %12
   store ptr %19, ptr %24, align 8, !tbaa !28
   %25 = call i32 @PyDict_Next(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef nonnull %2, ptr noundef nonnull %3) #11
   %.not = icmp eq i32 %25, 0

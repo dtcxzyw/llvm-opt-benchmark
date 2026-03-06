@@ -34,7 +34,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.47 = type { %"struct.std::_Rb_tree_const_iterator" }
 %"struct.std::_Rb_tree_const_iterator" = type { ptr }
 %"class.llvm::DWARFDie" = type { ptr, ptr }
-%"class.llvm::DWARFDebugInfoEntry" = type { i64, i32, i32, ptr }
 %"class.std::optional.26" = type { %"struct.std::_Optional_base.27" }
 %"struct.std::_Optional_base.27" = type { %"struct.std::_Optional_payload.29" }
 %"struct.std::_Optional_payload.29" = type { %"struct.std::_Optional_payload_base.base.31", [7 x i8] }
@@ -125,8 +124,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Head_base.139" = type { i8 }
 %"struct.std::_Head_base.140" = type { i32 }
 %"class.llvm::iterator_range" = type { %"class.llvm::DWARFDie::attribute_iterator", %"class.llvm::DWARFDie::attribute_iterator" }
-%"struct.llvm::DWARFAbbreviationDeclaration::AttributeSpec" = type { i16, i16, %union.anon.276 }
-%union.anon.276 = type { i64 }
 %"class.llvm::formatv_object.220" = type { %"class.llvm::formatv_object_base.base", %"class.std::tuple.221", %"struct.std::array" }
 %"class.std::tuple.221" = type { %"struct.std::_Tuple_impl.222" }
 %"struct.std::_Tuple_impl.222" = type { %"struct.std::_Head_base.223" }
@@ -137,12 +134,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.227" = type { %"struct.std::_Head_base.228" }
 %"struct.std::_Head_base.228" = type { %"class.llvm::support::detail::provider_format_adapter.229" }
 %"class.llvm::support::detail::provider_format_adapter.229" = type { %"class.llvm::support::detail::format_adapter", ptr }
-%"class.std::unique_ptr.159" = type { %"struct.std::__uniq_ptr_data.160" }
-%"struct.std::__uniq_ptr_data.160" = type { %"class.std::__uniq_ptr_impl.161" }
-%"class.std::__uniq_ptr_impl.161" = type { %"class.std::tuple.162" }
-%"class.std::tuple.162" = type { %"struct.std::_Tuple_impl.163" }
-%"struct.std::_Tuple_impl.163" = type { %"struct.std::_Head_base.166" }
-%"struct.std::_Head_base.166" = type { ptr }
 %"class.llvm::format_object.215" = type <{ %"class.llvm::format_object_base", %"class.std::tuple.216", [6 x i8] }>
 %"class.std::tuple.216" = type { %"struct.std::_Tuple_impl.217" }
 %"struct.std::_Tuple_impl.217" = type { %"struct.std::_Head_base.218" }
@@ -779,7 +770,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8DWARFDieELb1EE9push_backES1_.exit:
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %30 = load ptr, ptr %5, align 8, !tbaa !55
   %31 = zext i32 %29 to i64
-  %32 = getelementptr inbounds nuw %"class.llvm::DWARFDie", ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %31
   %33 = getelementptr inbounds i8, ptr %32, i64 -16
   %.sroa.0.0.copyload.i = load ptr, ptr %33, align 8, !tbaa !34
   %.sroa.2.0..sroa_idx.i15 = getelementptr inbounds i8, ptr %32, i64 -8
@@ -964,7 +955,7 @@ _ZN4llvm8SmallSetINS_8DWARFDieELj3ESt4lessIS1_EE10insertImplIRKS1_EESt4pairINS_1
 
 _ZNK4llvm8SmallSetINS_8DWARFDieELj3ESt4lessIS1_EE5vfindERKS1_.exit.i: ; preds = %98, %.lr.ph.i.i
   %.1.i.i = phi ptr [ %.0912.i.i, %.lr.ph.i.i ], [ %91, %98 ]
-  %100 = getelementptr inbounds nuw %"class.llvm::DWARFDie", ptr %88, i64 %90
+  %100 = getelementptr inbounds nuw [16 x i8], ptr %88, i64 %90
   %.not.i28 = icmp eq ptr %.1.i.i, %100
   br i1 %.not.i28, label %101, label %_ZN4llvm8SmallSetINS_8DWARFDieELj3ESt4lessIS1_EE10insertImplIRKS1_EESt4pairINS_16SmallSetIteratorIS1_Lj3ES3_EEbEOT_.exit.thread84
 
@@ -988,7 +979,7 @@ _ZNK4llvm8SmallSetINS_8DWARFDieELj3ESt4lessIS1_EE5vfindERKS1_.exit.i: ; preds = 
 _ZN4llvm23SmallVectorTemplateBaseINS_8DWARFDieELb1EE9push_backES1_.exit.i: ; preds = %104, %.thread.i
   %.pre-phi.i = phi i64 [ %90, %.thread.i ], [ %.pre38.i, %104 ]
   %106 = phi ptr [ %88, %.thread.i ], [ %.pre.i29, %104 ]
-  %107 = getelementptr inbounds nuw %"class.llvm::DWARFDie", ptr %106, i64 %.pre-phi.i
+  %107 = getelementptr inbounds nuw [16 x i8], ptr %106, i64 %.pre-phi.i
   store ptr %53, ptr %107, align 1, !noalias !75
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %107, i64 8
   store ptr %54, ptr %.sroa.2.0..sroa_idx.i.i, align 1, !noalias !75
@@ -1087,7 +1078,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8DWARFDieELb1EE9push_backES1_.exit26: ; pre
   %142 = phi i32 [ %137, %_ZN4llvm8SmallSetINS_8DWARFDieELj3ESt4lessIS1_EE10insertImplIRKS1_EESt4pairINS_16SmallSetIteratorIS1_Lj3ES3_EEbEOT_.exit.thread ], [ %.pre.i24, %139 ]
   %143 = load ptr, ptr %5, align 8, !tbaa !55
   %144 = zext i32 %142 to i64
-  %145 = getelementptr inbounds nuw %"class.llvm::DWARFDie", ptr %143, i64 %144
+  %145 = getelementptr inbounds nuw [16 x i8], ptr %143, i64 %144
   store ptr %53, ptr %145, align 1
   %.sroa.2.0..sroa_idx.i25 = getelementptr inbounds nuw i8, ptr %145, i64 8
   store ptr %54, ptr %.sroa.2.0..sroa_idx.i25, align 1
@@ -1216,7 +1207,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm19DWARFDebugInfoEntryESt6vect
   %.014.i.i.i.i = phi i64 [ %.1.i.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm19DWARFDebugInfoEntryESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i.i.i ], [ %21, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm19DWARFDebugInfoEntryESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.preheader.i.i.i.i ]
   %.sroa.012.013.i.i.i.i = phi ptr [ %.sroa.012.1.i.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm19DWARFDebugInfoEntryESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i.i.i ], [ %14, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm19DWARFDebugInfoEntryESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.preheader.i.i.i.i ]
   %22 = lshr i64 %.014.i.i.i.i, 1
-  %23 = getelementptr inbounds nuw %"class.llvm::DWARFDebugInfoEntry", ptr %.sroa.012.013.i.i.i.i, i64 %22
+  %23 = getelementptr inbounds nuw [24 x i8], ptr %.sroa.012.013.i.i.i.i, i64 %22
   %24 = load i64, ptr %23, align 8, !tbaa !54
   %25 = icmp ult i64 %24, %12
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 24
@@ -1242,7 +1233,7 @@ _ZN4llvm9DWARFUnit20getDIEIndexForOffsetEm.exit.i: ; preds = %30
   %34 = sub i64 %33, %18
   %35 = sdiv exact i64 %34, 24
   %36 = and i64 %35, 4294967295
-  %37 = getelementptr inbounds nuw %"class.llvm::DWARFDebugInfoEntry", ptr %14, i64 %36
+  %37 = getelementptr inbounds nuw [24 x i8], ptr %14, i64 %36
   br label %_ZN4llvm9DWARFUnit15getDIEForOffsetEm.exit
 
 38:                                               ; preds = %2
@@ -1280,7 +1271,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm19DWARFDebugInfoEntryESt6vect
   %.014.i.i.i.i30 = phi i64 [ %.1.i.i.i.i35, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm19DWARFDebugInfoEntryESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i.i.i29 ], [ %57, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm19DWARFDebugInfoEntryESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.preheader.i.i.i.i28 ]
   %.sroa.012.013.i.i.i.i31 = phi ptr [ %.sroa.012.1.i.i.i.i34, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm19DWARFDebugInfoEntryESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i.i.i29 ], [ %50, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm19DWARFDebugInfoEntryESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.preheader.i.i.i.i28 ]
   %58 = lshr i64 %.014.i.i.i.i30, 1
-  %59 = getelementptr inbounds nuw %"class.llvm::DWARFDebugInfoEntry", ptr %.sroa.012.013.i.i.i.i31, i64 %58
+  %59 = getelementptr inbounds nuw [24 x i8], ptr %.sroa.012.013.i.i.i.i31, i64 %58
   %60 = load i64, ptr %59, align 8, !tbaa !54
   %61 = icmp ult i64 %60, %40
   %62 = getelementptr inbounds nuw i8, ptr %59, i64 24
@@ -1306,7 +1297,7 @@ _ZN4llvm9DWARFUnit20getDIEIndexForOffsetEm.exit.i27: ; preds = %66
   %70 = sub i64 %69, %54
   %71 = sdiv exact i64 %70, 24
   %72 = and i64 %71, 4294967295
-  %73 = getelementptr inbounds nuw %"class.llvm::DWARFDebugInfoEntry", ptr %50, i64 %72
+  %73 = getelementptr inbounds nuw [24 x i8], ptr %50, i64 %72
   br label %_ZN4llvm9DWARFUnit15getDIEForOffsetEm.exit
 
 74:                                               ; preds = %38
@@ -1352,7 +1343,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm19DWARFDebugInfoEntryESt6vect
   %.014.i.i.i.i47 = phi i64 [ %.1.i.i.i.i52, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm19DWARFDebugInfoEntryESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i.i.i46 ], [ %101, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm19DWARFDebugInfoEntryESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.preheader.i.i.i.i45 ]
   %.sroa.012.013.i.i.i.i48 = phi ptr [ %.sroa.012.1.i.i.i.i51, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm19DWARFDebugInfoEntryESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i.i.i46 ], [ %94, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm19DWARFDebugInfoEntryESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.preheader.i.i.i.i45 ]
   %102 = lshr i64 %.014.i.i.i.i47, 1
-  %103 = getelementptr inbounds nuw %"class.llvm::DWARFDebugInfoEntry", ptr %.sroa.012.013.i.i.i.i48, i64 %102
+  %103 = getelementptr inbounds nuw [24 x i8], ptr %.sroa.012.013.i.i.i.i48, i64 %102
   %104 = load i64, ptr %103, align 8, !tbaa !54
   %105 = icmp ult i64 %104, %92
   %106 = getelementptr inbounds nuw i8, ptr %103, i64 24
@@ -1378,7 +1369,7 @@ _ZN4llvm9DWARFUnit20getDIEIndexForOffsetEm.exit.i44: ; preds = %110
   %114 = sub i64 %113, %98
   %115 = sdiv exact i64 %114, 24
   %116 = and i64 %115, 4294967295
-  %117 = getelementptr inbounds nuw %"class.llvm::DWARFDebugInfoEntry", ptr %94, i64 %116
+  %117 = getelementptr inbounds nuw [24 x i8], ptr %94, i64 %116
   br label %_ZN4llvm9DWARFUnit15getDIEForOffsetEm.exit
 
 _ZN4llvm9DWARFUnit15getDIEForOffsetEm.exit:       ; preds = %_ZN4llvm9DWARFUnit20getDIEIndexForOffsetEm.exit.i44, %110, %_ZN4llvm15partition_pointIRSt6vectorINS_19DWARFDebugInfoEntryESaIS2_EEZNS_9DWARFUnit20getDIEIndexForOffsetEmEUlRKS2_E_RS2_EEDaOT_T0_.exit.i.i37, %_ZN4llvm9DWARFUnit20getDIEIndexForOffsetEm.exit.i27, %66, %_ZN4llvm15partition_pointIRSt6vectorINS_19DWARFDebugInfoEntryESaIS2_EEZNS_9DWARFUnit20getDIEIndexForOffsetEmEUlRKS2_E_RS2_EEDaOT_T0_.exit.i.i20, %_ZN4llvm9DWARFUnit20getDIEIndexForOffsetEm.exit.i, %30, %_ZN4llvm15partition_pointIRSt6vectorINS_19DWARFDebugInfoEntryESaIS2_EEZNS_9DWARFUnit20getDIEIndexForOffsetEmEUlRKS2_E_RS2_EEDaOT_T0_.exit.i.i, %74, %78, %43
@@ -1471,7 +1462,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm19DWARFDebugInfoEntryESt6vect
   %.014.i.i.i.i = phi i64 [ %.1.i.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm19DWARFDebugInfoEntryESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i.i.i ], [ %40, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm19DWARFDebugInfoEntryESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.preheader.i.i.i.i ]
   %.sroa.012.013.i.i.i.i = phi ptr [ %.sroa.012.1.i.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm19DWARFDebugInfoEntryESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.i.i.i.i ], [ %33, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN4llvm19DWARFDebugInfoEntryESt6vectorIS3_SaIS3_EEEElEvRT_T0_.exit.preheader.i.i.i.i ]
   %41 = lshr i64 %.014.i.i.i.i, 1
-  %42 = getelementptr inbounds nuw %"class.llvm::DWARFDebugInfoEntry", ptr %.sroa.012.013.i.i.i.i, i64 %41
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %.sroa.012.013.i.i.i.i, i64 %41
   %43 = load i64, ptr %42, align 8, !tbaa !54
   %44 = icmp ult i64 %43, %31
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 24
@@ -1497,7 +1488,7 @@ _ZN4llvm9DWARFUnit20getDIEIndexForOffsetEm.exit.i: ; preds = %49
   %53 = sub i64 %52, %37
   %54 = sdiv exact i64 %53, 24
   %55 = and i64 %54, 4294967295
-  %56 = getelementptr inbounds nuw %"class.llvm::DWARFDebugInfoEntry", ptr %33, i64 %55
+  %56 = getelementptr inbounds nuw [24 x i8], ptr %33, i64 %55
   br label %57
 
 57:                                               ; preds = %_ZN4llvm9DWARFUnit20getDIEIndexForOffsetEm.exit.i, %49, %_ZN4llvm15partition_pointIRSt6vectorINS_19DWARFDebugInfoEntryESaIS2_EEZNS_9DWARFUnit20getDIEIndexForOffsetEmEUlRKS2_E_RS2_EEDaOT_T0_.exit.i.i
@@ -3836,7 +3827,7 @@ _ZNK4llvm8DWARFDie6getTagEv.exit:                 ; preds = %200, %206
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 288
   %233 = zext i32 %229 to i64
   %234 = load ptr, ptr %232, align 8, !tbaa !355
-  %235 = getelementptr inbounds nuw %"class.llvm::DWARFDebugInfoEntry", ptr %234, i64 %233
+  %235 = getelementptr inbounds nuw [24 x i8], ptr %234, i64 %233
   %236 = load i64, ptr %235, align 8, !tbaa !54
   %237 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr @.str.6, ptr %237, align 8, !tbaa !212, !alias.scope !356
@@ -4068,7 +4059,7 @@ _ZN4llvm13DIDumpOptionsD2Ev.exit64:               ; preds = %_ZNSt14_Function_ba
   %334 = zext i32 %329 to i64
   %335 = getelementptr inbounds nuw i8, ptr %327, i64 8
   %336 = load ptr, ptr %335, align 8, !tbaa !55
-  %337 = getelementptr inbounds nuw %"struct.llvm::DWARFAbbreviationDeclaration::AttributeSpec", ptr %336, i64 %334
+  %337 = getelementptr inbounds nuw [16 x i8], ptr %336, i64 %334
   %338 = load i16, ptr %337, align 8, !tbaa !367
   store i16 %338, ptr %277, align 4, !tbaa !369
   %339 = load i32, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !tbaa !370
@@ -6637,7 +6628,7 @@ define dso_local noundef nonnull align 8 dereferenceable(84) ptr @_ZN4llvm8DWARF
   %18 = zext i32 %12 to i64
   %19 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !55
-  %21 = getelementptr inbounds nuw %"struct.llvm::DWARFAbbreviationDeclaration::AttributeSpec", ptr %20, i64 %18
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %18
   %22 = load i16, ptr %21, align 8, !tbaa !367
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i16 %22, ptr %16, align 4, !tbaa !369
@@ -7045,7 +7036,7 @@ define dso_local void @_ZN4llvm8DWARFDie18attribute_iterator14updateForIndexERKN
   %13 = zext i32 %2 to i64
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !55
-  %16 = getelementptr inbounds nuw %"struct.llvm::DWARFAbbreviationDeclaration::AttributeSpec", ptr %15, i64 %13
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %13
   %17 = load i16, ptr %16, align 8, !tbaa !367
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i16 %17, ptr %11, align 4, !tbaa !369
@@ -7548,7 +7539,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i, %68
   store ptr %61, ptr %40, align 8, !tbaa !461
   store ptr %67, ptr %41, align 8, !tbaa !458
-  %69 = getelementptr inbounds nuw %"class.std::unique_ptr.159", ptr %61, i64 %59
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %59
   store ptr %69, ptr %43, align 8, !tbaa !460
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit
 
@@ -7698,7 +7689,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit52: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i49, %130
   store ptr %124, ptr %79, align 8, !tbaa !461
   store ptr %.0.lcssa.i.i.i21.i50, ptr %83, align 8, !tbaa !458
-  %131 = getelementptr inbounds nuw %"class.std::unique_ptr.159", ptr %124, i64 %122
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %122
   store ptr %131, ptr %85, align 8, !tbaa !460
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit21
 
@@ -7821,7 +7812,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, %31
   store ptr %20, ptr %0, align 8, !tbaa !461
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !458
-  %35 = getelementptr inbounds nuw %"class.std::unique_ptr.159", ptr %20, i64 %16
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %35, ptr %30, align 8, !tbaa !460
   ret void
 }
@@ -8984,7 +8975,7 @@ define linkonce_odr hidden void @_ZN4llvm8SmallSetINS_8DWARFDieELj3ESt4lessIS1_E
 
 _ZNK4llvm8SmallSetINS_8DWARFDieELj3ESt4lessIS1_EE5vfindERKS1_.exit: ; preds = %.lr.ph.i, %22
   %.1.i = phi ptr [ %.0912.i, %.lr.ph.i ], [ %15, %22 ]
-  %24 = getelementptr inbounds nuw %"class.llvm::DWARFDie", ptr %11, i64 %14
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %14
   %.not = icmp eq ptr %.1.i, %24
   br i1 %.not, label %25, label %43
 
@@ -9010,7 +9001,7 @@ _ZNK4llvm8SmallSetINS_8DWARFDieELj3ESt4lessIS1_EE5vfindERKS1_.exit: ; preds = %.
 _ZN4llvm23SmallVectorTemplateBaseINS_8DWARFDieELb1EE9push_backES1_.exit: ; preds = %.thread, %29
   %.pre-phi = phi i64 [ %14, %.thread ], [ %.pre38, %29 ]
   %32 = phi ptr [ %11, %.thread ], [ %.pre, %29 ]
-  %33 = getelementptr inbounds nuw %"class.llvm::DWARFDie", ptr %32, i64 %.pre-phi
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %.pre-phi
   store ptr %.sroa.05.0.copyload.pre, ptr %33, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr %.sroa.26.0.copyload.pre, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -9019,7 +9010,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8DWARFDieELb1EE9push_backES1_.exit: ; preds
   store i32 %35, ptr %12, align 8, !tbaa !57
   %36 = load ptr, ptr %1, align 8, !tbaa !55
   %37 = zext i32 %35 to i64
-  %38 = getelementptr inbounds nuw %"class.llvm::DWARFDie", ptr %36, i64 %37
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %36, i64 %37
   %39 = getelementptr inbounds i8, ptr %38, i64 -16
   br label %43
 
@@ -11003,7 +10994,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit: ; preds = %77, %8
   %83 = phi i32 [ %78, %77 ], [ %.pre.i31, %80 ]
   %84 = load ptr, ptr %18, align 8, !tbaa !55
   %85 = zext i32 %83 to i64
-  %86 = getelementptr inbounds nuw ptr, ptr %84, i64 %85
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %85
   store i64 ptrtoint (ptr @.str.79 to i64), ptr %86, align 1
   %87 = load i32, ptr %71, align 8, !tbaa !57
   %88 = add i32 %87, 1
@@ -11052,7 +11043,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit41: ; preds = %95, 
   %101 = phi i32 [ %96, %95 ], [ %.pre.i40, %98 ]
   %102 = load ptr, ptr %18, align 8, !tbaa !55
   %103 = zext i32 %101 to i64
-  %104 = getelementptr inbounds nuw ptr, ptr %102, i64 %103
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 %103
   store i64 ptrtoint (ptr @.str.80 to i64), ptr %104, align 1
   %105 = load i32, ptr %71, align 8, !tbaa !57
   %106 = add i32 %105, 1
@@ -11080,7 +11071,7 @@ _ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit: ; preds = %107
   br i1 %114, label %switch.lookup, label %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit.thread
 
 switch.lookup:                                    ; preds = %111
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4llvm16DWARFTypePrinterINS_8DWARFDieEE26appendUnqualifiedNameAfterES1_S1_b, i64 %113
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvm16DWARFTypePrinterINS_8DWARFDieEE26appendUnqualifiedNameAfterES1_S1_b, i64 %113
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_(ptr noundef nonnull align 8 dereferenceable(16) %18, ptr noundef nonnull %switch.load)
   br label %_ZNK4llvm8DWARFDie4findENS_5dwarf9AttributeE.exit.thread
@@ -16372,7 +16363,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE28reserveForParamAndGetAddressERS2_m.e
   %11 = phi i32 [ %4, %2 ], [ %.pre, %7 ]
   %12 = load ptr, ptr %0, align 8, !tbaa !55
   %13 = zext i32 %11 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %13
   %15 = ptrtoint ptr %1 to i64
   store i64 %15, ptr %14, align 1
   %16 = load i32, ptr %3, align 8, !tbaa !57

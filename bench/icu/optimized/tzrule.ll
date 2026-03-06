@@ -1676,9 +1676,9 @@ _ZNKSt9type_infoneERKS_.exit.thread19:            ; preds = %4, %_ZNKSt9type_inf
 
 37:                                               ; preds = %37, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
-  %38 = getelementptr inbounds nuw double, ptr %34, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv
   %39 = load double, ptr %38, align 8, !tbaa !24
-  %40 = getelementptr inbounds nuw double, ptr %36, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv
   %41 = load double, ptr %40, align 8, !tbaa !24
   %42 = fcmp oeq double %39, %41
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1721,7 +1721,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7721TimeArrayTimeZoneRule14ge
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %10 = load ptr, ptr %9, align 8, !tbaa !32
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds nuw double, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %11
   %13 = load double, ptr %12, align 8, !tbaa !24
   store double %13, ptr %2, align 8, !tbaa !24
   br label %14
@@ -1822,9 +1822,9 @@ _ZNK6icu_7712TimeZoneRule14isEquivalentToERKS0_.exit: ; preds = %_ZNKSt9type_inf
 
 47:                                               ; preds = %.lr.ph, %46
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %46 ]
-  %48 = getelementptr inbounds nuw double, ptr %43, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv
   %49 = load double, ptr %48, align 8, !tbaa !24
-  %50 = getelementptr inbounds nuw double, ptr %45, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv
   %51 = load double, ptr %50, align 8, !tbaa !24
   %52 = fcmp une double %49, %51
   br i1 %52, label %_ZNKSt9type_infoneERKS_.exit.thread, label %46
@@ -1897,7 +1897,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7721TimeArrayTimeZoneRule13ge
 
 12:                                               ; preds = %8
   %13 = zext nneg i32 %6 to i64
-  %14 = getelementptr double, ptr %10, i64 %13
+  %14 = getelementptr [8 x i8], ptr %10, i64 %13
   %15 = getelementptr i8, ptr %14, i64 -8
   %16 = load double, ptr %15, align 8, !tbaa !24
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -1938,7 +1938,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7721TimeArrayTimeZoneRule12ge
   %16 = sitofp i32 %3 to double
   %.not = icmp eq i8 %4, 0
   %17 = zext nneg i32 %.01620 to i64
-  %18 = getelementptr inbounds nuw double, ptr %11, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %17
   %19 = load double, ptr %18, align 8, !tbaa !24
   br i1 %.not.i, label %.lr.ph.split.us, label %.lr.ph.split
 
@@ -1960,7 +1960,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7721TimeArrayTimeZoneRule12ge
 
 22:                                               ; preds = %.lr.ph70.split
   %indvars.iv.next100 = add nsw i64 %indvars.iv99, -1
-  %23 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv.next100
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.next100
   %24 = load double, ptr %23, align 8, !tbaa !24
   %25 = fcmp olt double %24, %1
   br i1 %25, label %.thread.loopexit123.split.loop.exit, label %.lr.ph70.split, !llvm.loop !37
@@ -1974,7 +1974,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7721TimeArrayTimeZoneRule12ge
 
 .lr.ph.split.us.split.split:                      ; preds = %.lr.ph160
   %indvars.iv.next106 = add nsw i64 %indvars.iv105159, -1
-  %27 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv.next106
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.next106
   %28 = load double, ptr %27, align 8, !tbaa !24
   %or.cond75 = fcmp ugt double %28, %1
   br i1 %or.cond75, label %.lr.ph160, label %.lr.ph.split.us.split.split..thread.loopexit_crit_edge, !llvm.loop !37
@@ -2004,7 +2004,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7721TimeArrayTimeZoneRule12ge
 
 34:                                               ; preds = %.lr.ph54
   %indvars.iv.next94 = add nsw i64 %indvars.iv93, -1
-  %35 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv.next94
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.next94
   %36 = load double, ptr %35, align 8, !tbaa !24
   %37 = fsub double %36, %14
   %38 = fsub double %37, %16
@@ -2020,7 +2020,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7721TimeArrayTimeZoneRule12ge
 
 .lr.ph.split.split.us.split:                      ; preds = %.lr.ph155
   %indvars.iv.next97 = add nsw i64 %indvars.iv96154, -1
-  %42 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv.next97
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.next97
   %43 = load double, ptr %42, align 8, !tbaa !24
   %44 = fsub double %43, %14
   %45 = fsub double %44, %16
@@ -2047,7 +2047,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7721TimeArrayTimeZoneRule12ge
 
 49:                                               ; preds = %.lr.ph49
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %50 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv.next
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.next
   %51 = load double, ptr %50, align 8, !tbaa !24
   %52 = fsub double %51, %14
   %53 = fcmp olt double %52, %1
@@ -2062,7 +2062,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7721TimeArrayTimeZoneRule12ge
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph151
   %indvars.iv.next91 = add nsw i64 %indvars.iv90150, -1
-  %56 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv.next91
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.next91
   %57 = load double, ptr %56, align 8, !tbaa !24
   %58 = fsub double %57, %14
   %or.cond77 = fcmp ugt double %58, %1
@@ -2151,7 +2151,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7721TimeArrayTimeZoneRule16ge
 
 .lr.ph43.split:                                   ; preds = %.lr.ph43.split.preheader, %17
   %indvars.iv95 = phi i64 [ %16, %.lr.ph43.split.preheader ], [ %indvars.iv.next96, %17 ]
-  %19 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv95
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv95
   %20 = load double, ptr %19, align 8, !tbaa !24
   %21 = fcmp olt double %20, %1
   br i1 %21, label %.critedge, label %17
@@ -2168,7 +2168,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7721TimeArrayTimeZoneRule16ge
 
 25:                                               ; preds = %.split.us.split.split
   %26 = add nsw i64 %indvars.iv87, -1
-  %27 = getelementptr inbounds nuw double, ptr %10, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %26
   %28 = load double, ptr %27, align 8, !tbaa !24
   %or.cond46 = fcmp ugt double %28, %1
   br i1 %or.cond46, label %.split.us.split.split, label %.critedge, !llvm.loop !38
@@ -2195,7 +2195,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7721TimeArrayTimeZoneRule16ge
 .lr.ph34:                                         ; preds = %.lr.ph34.preheader, %32
   %indvars.iv84 = phi i64 [ %31, %.lr.ph34.preheader ], [ %indvars.iv.next85, %32 ]
   %indvars.iv.next85 = add nsw i64 %indvars.iv84, -1
-  %34 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.next85
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.next85
   %35 = load double, ptr %34, align 8, !tbaa !24
   %36 = fsub double %35, %13
   %37 = fsub double %36, %14
@@ -2210,7 +2210,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7721TimeArrayTimeZoneRule16ge
 
 41:                                               ; preds = %.split.split.us.split
   %42 = add nsw i64 %indvars.iv80, -1
-  %43 = getelementptr inbounds nuw double, ptr %10, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %42
   %44 = load double, ptr %43, align 8, !tbaa !24
   %45 = fsub double %44, %13
   %46 = fsub double %45, %14
@@ -2239,7 +2239,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7721TimeArrayTimeZoneRule16ge
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %50
   %indvars.iv77 = phi i64 [ %49, %.lr.ph.preheader ], [ %indvars.iv.next78, %50 ]
   %indvars.iv.next78 = add nsw i64 %indvars.iv77, -1
-  %52 = getelementptr inbounds nuw double, ptr %10, i64 %indvars.iv.next78
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.next78
   %53 = load double, ptr %52, align 8, !tbaa !24
   %54 = fsub double %53, %13
   %55 = fcmp olt double %54, %1
@@ -2253,7 +2253,7 @@ define noundef signext range(i8 0, 2) i8 @_ZNK6icu_7721TimeArrayTimeZoneRule16ge
 
 58:                                               ; preds = %.split.split.split
   %59 = add nsw i64 %indvars.iv, -1
-  %60 = getelementptr inbounds nuw double, ptr %10, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %59
   %61 = load double, ptr %60, align 8, !tbaa !24
   %62 = fsub double %61, %13
   %or.cond48 = fcmp ugt double %62, %1

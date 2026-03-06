@@ -3113,7 +3113,7 @@ define internal i32 @dissect_r3_message(ptr noundef %0, ptr noundef %1, ptr noun
 
 68:                                               ; preds = %63
   %69 = zext nneg i8 %53 to i64
-  %70 = getelementptr ptr, ptr @r3command_dissect, i64 %69
+  %70 = getelementptr [8 x i8], ptr @r3command_dissect, i64 %69
   %71 = load ptr, ptr %70, align 8
   call void %71(ptr noundef %0, i32 noundef range(i32 0, -1) %.08298.i, i32 noundef 0, ptr noundef %1, ptr noundef %62)
   br label %dissect_r3_command.exit.i
@@ -3130,7 +3130,7 @@ define internal i32 @dissect_r3_message(ptr noundef %0, ptr noundef %1, ptr noun
 
 77:                                               ; preds = %72
   %78 = zext nneg i8 %53 to i64
-  %79 = getelementptr ptr, ptr @r3commandmfg_dissect, i64 %78
+  %79 = getelementptr [8 x i8], ptr @r3commandmfg_dissect, i64 %78
   %80 = load ptr, ptr %79, align 8
   call void %80(ptr noundef %0, i32 noundef range(i32 0, -1) %.08298.i, i32 noundef 0, ptr noundef %1, ptr noundef %62)
   br label %dissect_r3_command.exit.i
@@ -3313,7 +3313,7 @@ define internal void @dissect_r3_cmd_response(ptr noundef %0, i32 noundef %1, i3
 
 25:                                               ; preds = %20
   %26 = zext nneg i8 %8 to i64
-  %27 = getelementptr ptr, ptr @r3response_dissect, i64 %26
+  %27 = getelementptr [8 x i8], ptr @r3response_dissect, i64 %26
   %28 = load ptr, ptr %27, align 8
   tail call void %28(ptr noundef %10, i32 noundef 0, i32 noundef %2, ptr noundef %3, ptr noundef %4)
   br label %29
@@ -3505,7 +3505,7 @@ define internal void @dissect_r3_cmd_setconfig(ptr noundef %0, i32 noundef %1, i
 
 32:                                               ; preds = %30
   %33 = zext i8 %18 to i64
-  %34 = getelementptr i32, ptr @configMap, i64 %33
+  %34 = getelementptr [4 x i8], ptr @configMap, i64 %33
   %35 = load i32, ptr %34, align 4
   %36 = add i32 %.072, 2
   switch i32 %35, label %57 [
@@ -3689,7 +3689,7 @@ define internal void @dissect_r3_cmd_manageuser(ptr noundef %0, i32 noundef %1, 
 
 44:                                               ; preds = %40
   %45 = zext nneg i8 %21 to i64
-  %46 = getelementptr i32, ptr @hf_r3_adduserparamtypearray, i64 %45
+  %46 = getelementptr [4 x i8], ptr @hf_r3_adduserparamtypearray, i64 %45
   %47 = load i32, ptr %46, align 4
   %48 = tail call ptr @proto_tree_add_item(ptr noundef %.094, i32 noundef %47, ptr noundef %10, i32 noundef %39, i32 noundef 1, i32 noundef -2147483648)
   br label %94
@@ -3710,7 +3710,7 @@ define internal void @dissect_r3_cmd_manageuser(ptr noundef %0, i32 noundef %1, 
 
 56:                                               ; preds = %38, %38
   %57 = zext nneg i8 %21 to i64
-  %58 = getelementptr i32, ptr @hf_r3_adduserparamtypearray, i64 %57
+  %58 = getelementptr [4 x i8], ptr @hf_r3_adduserparamtypearray, i64 %57
   %59 = load i32, ptr %58, align 4
   %60 = tail call ptr @proto_tree_add_item(ptr noundef %.094, i32 noundef %59, ptr noundef %10, i32 noundef %39, i32 noundef %.092, i32 noundef 0)
   br label %94
@@ -3944,7 +3944,7 @@ define internal void @dissect_r3_cmd_definecalendar(ptr noundef %0, i32 noundef 
   %21 = or disjoint i32 %20, 1
   %22 = tail call i32 @tvb_get_letohl(ptr noundef %11, i32 noundef %21)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %23 = getelementptr i32, ptr @ett_r3definecalendarmonth, i64 %indvars.iv.next
+  %23 = getelementptr [4 x i8], ptr @ett_r3definecalendarmonth, i64 %indvars.iv.next
   %24 = load i32, ptr %23, align 4
   %25 = trunc nuw nsw i64 %indvars.iv.next to i32
   %26 = tail call ptr @val_to_str_ext_const(i32 noundef %25, ptr noundef nonnull @r3_monthnames_ext, ptr noundef nonnull @.str.2141)
@@ -4822,7 +4822,7 @@ define internal void @dissect_r3_response_hasdata(ptr noundef %0, i32 noundef %1
   tail call void @tvb_ensure_bytes_exist(ptr noundef %0, i32 noundef 0, i32 noundef %37)
   %38 = tail call ptr @tvb_new_subset_length(ptr noundef %0, i32 noundef 4, i32 noundef %37)
   %39 = zext nneg i8 %11 to i64
-  %40 = getelementptr ptr, ptr @r3upstreamcommand_dissect, i64 %39
+  %40 = getelementptr [8 x i8], ptr @r3upstreamcommand_dissect, i64 %39
   %41 = load ptr, ptr %40, align 8
   tail call void %41(ptr noundef %38, i32 noundef 0, i32 noundef %37, ptr noundef %3, ptr noundef %.0)
   br label %42
@@ -5152,7 +5152,7 @@ define internal void @dissect_r3_upstreamcommand_mfg(ptr noundef %0, i32 noundef
 
 24:                                               ; preds = %9
   %25 = zext nneg i8 %11 to i64
-  %26 = getelementptr ptr, ptr @r3upstreammfgfield_dissect, i64 %25
+  %26 = getelementptr [8 x i8], ptr @r3upstreammfgfield_dissect, i64 %25
   %27 = load ptr, ptr %26, align 8
   call void %27(ptr noundef %10, i32 noundef 0, i32 noundef %2, ptr noundef %3, ptr noundef %17)
   br label %28
@@ -5446,14 +5446,14 @@ define internal fastcc void @dissect_r3_upstreamfields(ptr noundef %0, i32 nound
 
 28:                                               ; preds = %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26, %26
   %29 = zext nneg i8 %11 to i64
-  %30 = getelementptr i32, ptr @hf_r3_upstreamfieldarray, i64 %29
+  %30 = getelementptr [4 x i8], ptr @hf_r3_upstreamfieldarray, i64 %29
   %31 = load i32, ptr %30, align 4
   %32 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %31, ptr noundef %0, i32 noundef %27, i32 noundef %.0234, i32 noundef -2147483648)
   br label %223
 
 33:                                               ; preds = %26, %26, %26
   %34 = zext nneg i8 %11 to i64
-  %35 = getelementptr i32, ptr @hf_r3_upstreamfieldarray, i64 %34
+  %35 = getelementptr [4 x i8], ptr @hf_r3_upstreamfieldarray, i64 %34
   %36 = load i32, ptr %35, align 4
   %37 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %36, ptr noundef %0, i32 noundef %27, i32 noundef %.0234, i32 noundef 0)
   br label %223
@@ -5879,7 +5879,7 @@ define internal void @dissect_r3_upstreammfgfield_adcs(ptr noundef %0, i32 nound
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %12 = getelementptr i32, ptr @hf_r3_adc, i64 %indvars.iv
+  %12 = getelementptr [4 x i8], ptr @hf_r3_adc, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4
   %14 = trunc nuw nsw i64 %indvars.iv to i32
   %15 = tail call ptr @proto_tree_add_item(ptr noundef nonnull %4, i32 noundef %13, ptr noundef %0, i32 noundef %14, i32 noundef 1, i32 noundef -2147483648)
@@ -5993,7 +5993,7 @@ define internal void @dissect_r3_upstreammfgfield_checkpointlog(ptr noundef %0, 
 36:                                               ; preds = %34, %31, %29, %25, %.lr.ph
   %.036 = phi i64 [ %switch.select43, %34 ], [ 8, %.lr.ph ], [ 2, %25 ], [ 3, %29 ], [ 4, %31 ]
   %37 = load ptr, ptr %6, align 8
-  %38 = getelementptr ptr, ptr @dissect_r3_upstreammfgfield_checkpointlog.resets, i64 %.036
+  %38 = getelementptr [8 x i8], ptr @dissect_r3_upstreammfgfield_checkpointlog.resets, i64 %.036
   %39 = load ptr, ptr %38, align 8
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %37, ptr noundef nonnull @.str.2043, ptr noundef %39, ptr noundef %23)
   %40 = load i32, ptr @hf_r3_checkpointlog_rcon, align 4
@@ -7569,7 +7569,7 @@ define internal void @dissect_r3_cmdmfg_forceoptions(ptr noundef %0, i32 noundef
 
 switch.lookup:                                    ; preds = %17
   %35 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_r3_cmdmfg_forceoptions, i64 %35
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_r3_cmdmfg_forceoptions, i64 %35
   %switch.load = load ptr, ptr %switch.gep, align 8
   %narrow = add nsw i8 %32, -2
   %switch.offset = zext i8 %narrow to i32

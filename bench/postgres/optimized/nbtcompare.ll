@@ -238,9 +238,9 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @btoidvectorcmp(ptr noun
 
 19:                                               ; preds = %.lr.ph, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
-  %20 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv
   %21 = load i32, ptr %20, align 4
-  %22 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4
   %.not22 = icmp eq i32 %21, %23
   br i1 %.not22, label %18, label %24

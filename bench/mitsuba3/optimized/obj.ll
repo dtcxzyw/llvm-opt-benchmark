@@ -39,12 +39,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.drjit::StaticArrayImpl.140" = type { %"struct.drjit::StaticArrayImpl.141" }
 %"struct.drjit::StaticArrayImpl.141" = type { <4 x float> }
 %"struct.std::__1::array" = type { [3 x i32] }
-%"struct.mitsuba::Vector" = type { %"struct.drjit::StaticArrayImpl.136" }
-%"struct.drjit::StaticArrayImpl.136" = type { %"struct.drjit::StaticArrayImpl.137" }
-%"struct.drjit::StaticArrayImpl.137" = type { <4 x float> }
-%"struct.mitsuba::Vector.144" = type { %"struct.drjit::StaticArrayImpl.145" }
-%"struct.drjit::StaticArrayImpl.145" = type { [2 x float] }
-%struct.VertexBinding = type { %"struct.std::__1::array", i32, ptr }
 %"class.std::__1::function" = type { %"class.std::__1::__function::__value_func" }
 %"class.std::__1::__function::__value_func" = type { %"struct.std::__1::aligned_storage<24>::type", ptr, [8 x i8] }
 %"struct.std::__1::aligned_storage<24>::type" = type { [32 x i8] }
@@ -552,9 +546,9 @@ _ZN7mitsuba10filesystem4pathD2Ev.exit452:         ; preds = %_ZNSt3__112basic_st
   %126 = sub i64 %125, %116
   %127 = ashr exact i64 %126, 4
   %128 = getelementptr inbounds i8, ptr %124, i64 %126
-  %129 = getelementptr inbounds nuw %"struct.mitsuba::Vector", ptr %124, i64 %110
+  %129 = getelementptr inbounds nuw [16 x i8], ptr %124, i64 %110
   %130 = sub nsw i64 0, %127
-  %131 = getelementptr inbounds %"struct.mitsuba::Vector", ptr %128, i64 %130
+  %131 = getelementptr inbounds [16 x i8], ptr %128, i64 %130
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %131, ptr align 16 %114, i64 %126, i1 false)
   store ptr %131, ptr %22, align 8
   store ptr %128, ptr %121, align 8
@@ -589,9 +583,9 @@ _ZNSt3__16vectorIN7mitsuba6VectorIfLm3EEENS_9allocatorIS3_EEE7reserveEm.exit: ; 
   %147 = sub i64 %146, %137
   %148 = ashr exact i64 %147, 4
   %149 = getelementptr inbounds i8, ptr %145, i64 %147
-  %150 = getelementptr inbounds nuw %"struct.mitsuba::Normal", ptr %145, i64 %110
+  %150 = getelementptr inbounds nuw [16 x i8], ptr %145, i64 %110
   %151 = sub nsw i64 0, %148
-  %152 = getelementptr inbounds %"struct.mitsuba::Normal", ptr %149, i64 %151
+  %152 = getelementptr inbounds [16 x i8], ptr %149, i64 %151
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %152, ptr align 16 %135, i64 %147, i1 false)
   store ptr %152, ptr %23, align 8
   store ptr %149, ptr %142, align 8
@@ -626,9 +620,9 @@ _ZNSt3__16vectorIN7mitsuba6NormalIfLm3EEENS_9allocatorIS3_EEE7reserveEm.exit: ; 
   %168 = sub i64 %167, %158
   %169 = ashr exact i64 %168, 3
   %170 = getelementptr inbounds i8, ptr %166, i64 %168
-  %171 = getelementptr inbounds nuw %"struct.mitsuba::Vector.144", ptr %166, i64 %110
+  %171 = getelementptr inbounds nuw [8 x i8], ptr %166, i64 %110
   %172 = sub nsw i64 0, %169
-  %173 = getelementptr inbounds %"struct.mitsuba::Vector.144", ptr %170, i64 %172
+  %173 = getelementptr inbounds [8 x i8], ptr %170, i64 %172
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %173, ptr align 4 %156, i64 %168, i1 false)
   store ptr %173, ptr %24, align 8
   store ptr %170, ptr %163, align 8
@@ -664,9 +658,9 @@ _ZNSt3__114__split_bufferINS_5arrayIjLm3EEERNS_9allocatorIS2_EEE5clearB8ne190000
   %188 = ptrtoint ptr %185 to i64
   %189 = sub i64 %188, %180
   %190 = getelementptr inbounds i8, ptr %187, i64 %189
-  %191 = getelementptr inbounds nuw %"struct.std::__1::array", ptr %187, i64 %175
+  %191 = getelementptr inbounds nuw [12 x i8], ptr %187, i64 %175
   %.neg.i.i = sdiv exact i64 %189, -12
-  %192 = getelementptr inbounds %"struct.std::__1::array", ptr %190, i64 %.neg.i.i
+  %192 = getelementptr inbounds [12 x i8], ptr %190, i64 %.neg.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %192, ptr align 4 %.promoted.fr.i.i.i.i.i, i64 %189, i1 false)
   store ptr %192, ptr %25, align 8
   store ptr %190, ptr %184, align 8
@@ -699,7 +693,7 @@ _ZNSt3__16vectorINS_5arrayIjLm3EEENS_9allocatorIS2_EEE7reserveEm.exit: ; preds =
   br i1 %205, label %206, label %_ZNSt3__16vectorIZN7mitsuba7OBJMeshIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEC1ERKNS1_10PropertiesEE13VertexBindingNS_9allocatorISC_EEE6resizeEm.exit
 
 206:                                              ; preds = %204
-  %207 = getelementptr inbounds nuw %struct.VertexBinding, ptr %196, i64 %110
+  %207 = getelementptr inbounds nuw [24 x i8], ptr %196, i64 %110
   store ptr %207, ptr %194, align 8
   br label %_ZNSt3__16vectorIZN7mitsuba7OBJMeshIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEC1ERKNS1_10PropertiesEE13VertexBindingNS_9allocatorISC_EEE6resizeEm.exit
 
@@ -866,7 +860,7 @@ _ZN7mitsuba7advanceILb1ELm4EEEvPPKcS2_RAT0__S1_.exit: ; preds = %254
           to label %_ZN7mitsuba6string6strtofIfEET_PKcPPc.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 _ZN7mitsuba6string6strtofIfEET_PKcPPc.exit:       ; preds = %261
-  %266 = getelementptr inbounds nuw float, ptr %29, i64 %.0388707
+  %266 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %.0388707
   store float %265, ptr %266, align 4
   %267 = load ptr, ptr %28, align 8
   %268 = icmp eq ptr %267, %262
@@ -960,11 +954,11 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIN7mitsuba6VectorIfLm3EEEE
 
 .noexc470:                                        ; preds = %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIN7mitsuba6VectorIfLm3EEEEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERS8_m.exit.i.i.i
   %314 = getelementptr inbounds i8, ptr %313, i64 %302
-  %315 = getelementptr inbounds nuw %"struct.mitsuba::Vector", ptr %313, i64 %.0.i.i.i
+  %315 = getelementptr inbounds nuw [16 x i8], ptr %313, i64 %.0.i.i.i
   store <4 x float> %281, ptr %314, align 16
   %316 = getelementptr inbounds nuw i8, ptr %314, i64 16
   %317 = sub nsw i64 0, %303
-  %318 = getelementptr inbounds %"struct.mitsuba::Vector", ptr %314, i64 %317
+  %318 = getelementptr inbounds [16 x i8], ptr %314, i64 %317
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %318, ptr align 16 %299, i64 %302, i1 false)
   store ptr %318, ptr %22, align 8
   store ptr %315, ptr %112, align 8
@@ -1008,7 +1002,7 @@ _ZNSt3__16vectorIN7mitsuba6VectorIfLm3EEENS_9allocatorIS3_EEE9push_backB8ne19000
           to label %_ZN7mitsuba6string6strtofIfEET_PKcPPc.exit472 unwind label %.loopexit666
 
 _ZN7mitsuba6string6strtofIfEET_PKcPPc.exit472:    ; preds = %328
-  %333 = getelementptr inbounds nuw float, ptr %30, i64 %.0389713
+  %333 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %.0389713
   store float %332, ptr %333, align 4
   %334 = load ptr, ptr %28, align 8
   %335 = icmp eq ptr %334, %329
@@ -1099,11 +1093,11 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIN7mitsuba6NormalIfLm3EEEE
 
 .noexc480:                                        ; preds = %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIN7mitsuba6NormalIfLm3EEEEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERS8_m.exit.i.i.i
   %383 = getelementptr inbounds i8, ptr %382, i64 %371
-  %384 = getelementptr inbounds nuw %"struct.mitsuba::Normal", ptr %382, i64 %.0.i.i.i475
+  %384 = getelementptr inbounds nuw [16 x i8], ptr %382, i64 %.0.i.i.i475
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %383, ptr noundef nonnull align 16 dereferenceable(16) %30, i64 16, i1 false)
   %385 = getelementptr inbounds nuw i8, ptr %383, i64 16
   %386 = sub nsw i64 0, %372
-  %387 = getelementptr inbounds %"struct.mitsuba::Normal", ptr %383, i64 %386
+  %387 = getelementptr inbounds [16 x i8], ptr %383, i64 %386
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %387, ptr align 16 %368, i64 %371, i1 false)
   store ptr %387, ptr %23, align 8
   store ptr %384, ptr %133, align 8
@@ -1209,7 +1203,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIN7mitsuba6VectorIfLm2EEEE
 
 .noexc490:                                        ; preds = %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIN7mitsuba6VectorIfLm2EEEEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERS8_m.exit.i.i.i
   %428 = getelementptr inbounds i8, ptr %427, i64 %416
-  %429 = getelementptr inbounds nuw %"struct.mitsuba::Vector.144", ptr %427, i64 %.0.i.i.i485
+  %429 = getelementptr inbounds nuw [8 x i8], ptr %427, i64 %.0.i.i.i485
   %.sroa.0.0..sroa.0.0.895 = load i32, ptr %.sroa.0, align 8
   %.sroa.3.0..sroa.3.4.893896 = load i32, ptr %.sroa.3, align 4
   store i32 %.sroa.0.0..sroa.0.0.895, ptr %428, align 4
@@ -1217,7 +1211,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIN7mitsuba6VectorIfLm2EEEE
   store i32 %.sroa.3.0..sroa.3.4.893896, ptr %.sroa_idx889, align 4
   %430 = getelementptr inbounds nuw i8, ptr %428, i64 8
   %431 = sub nsw i64 0, %417
-  %432 = getelementptr inbounds %"struct.mitsuba::Vector.144", ptr %428, i64 %431
+  %432 = getelementptr inbounds [8 x i8], ptr %428, i64 %431
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %432, ptr align 4 %413, i64 %416, i1 false)
   store ptr %432, ptr %24, align 8
   store ptr %429, ptr %154, align 8
@@ -1256,7 +1250,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIN7mitsuba6VectorIfLm2EEEE
 
 443:                                              ; preds = %.lr.ph
   %444 = trunc i64 %.in to i32
-  %445 = getelementptr inbounds nuw i32, ptr %31, i64 %.0390705
+  %445 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %.0390705
   store i32 %444, ptr %445, align 4
   br label %446
 
@@ -1316,7 +1310,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIN7mitsuba6VectorIfLm2EEEE
 
 _ZNSt3__16vectorIZN7mitsuba7OBJMeshIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEC1ERKNS1_10PropertiesEE13VertexBindingNS_9allocatorISC_EEE6resizeEm.exit492: ; preds = %._ZNSt3__16vectorIZN7mitsuba7OBJMeshIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEC1ERKNS1_10PropertiesEE13VertexBindingNS_9allocatorISC_EEE6resizeEm.exit492_crit_edge, %463
   %473 = phi ptr [ %.pre, %._ZNSt3__16vectorIZN7mitsuba7OBJMeshIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEC1ERKNS1_10PropertiesEE13VertexBindingNS_9allocatorISC_EEE6resizeEm.exit492_crit_edge ], [ %465, %463 ]
-  %474 = getelementptr inbounds nuw %struct.VertexBinding, ptr %473, i64 %455
+  %474 = getelementptr inbounds nuw [24 x i8], ptr %473, i64 %455
   br label %475
 
 475:                                              ; preds = %_ZNSt3__16vectorIZN7mitsuba7OBJMeshIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEC1ERKNS1_10PropertiesEE13VertexBindingNS_9allocatorISC_EEE6resizeEm.exit492, %476
@@ -1369,7 +1363,7 @@ _ZNSt3__16vectorIZN7mitsuba7OBJMeshIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEE
   br i1 %491, label %492, label %494
 
 492:                                              ; preds = %490
-  %493 = getelementptr inbounds nuw i32, ptr %32, i64 %.0393704
+  %493 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %.0393704
   store i32 %.0385, ptr %493, align 4
   br label %496
 
@@ -1503,16 +1497,16 @@ _ZNSt3__16vectorIZN7mitsuba7OBJMeshIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEE
   %554 = load i32, ptr %553, align 4
   %555 = mul i32 %554, 3
   %556 = zext i32 %555 to i64
-  %557 = getelementptr inbounds nuw float, ptr %520, i64 %556
+  %557 = getelementptr inbounds nuw [4 x i8], ptr %520, i64 %556
   %558 = shl i32 %554, 1
   %559 = zext i32 %558 to i64
-  %560 = getelementptr inbounds nuw float, ptr %527, i64 %559
+  %560 = getelementptr inbounds nuw [4 x i8], ptr %527, i64 %559
   %.sroa.0579.0.copyload.us.us = load i32, ptr %.0375721.us.us, align 8
   %.sroa.2.0..0375.sroa_idx.us.us = getelementptr inbounds nuw i8, ptr %.0375721.us.us, i64 4
   %.sroa.2.0.copyload.us.us = load i32, ptr %.sroa.2.0..0375.sroa_idx.us.us, align 4
   %561 = add i32 %.sroa.0579.0.copyload.us.us, -1
   %562 = zext i32 %561 to i64
-  %563 = getelementptr inbounds nuw %"struct.mitsuba::Vector", ptr %533, i64 %562
+  %563 = getelementptr inbounds nuw [16 x i8], ptr %533, i64 %562
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %557, ptr noundef nonnull align 16 dereferenceable(12) %563, i64 12, i1 false)
   %.not426.us.us = icmp eq i32 %.sroa.2.0.copyload.us.us, 0
   br i1 %.not426.us.us, label %570, label %564
@@ -1524,7 +1518,7 @@ _ZNSt3__16vectorIZN7mitsuba7OBJMeshIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEE
   br i1 %.not427.us.us, label %567, label %.split.us
 
 567:                                              ; preds = %564
-  %568 = getelementptr inbounds nuw %"struct.mitsuba::Vector.144", ptr %536, i64 %566
+  %568 = getelementptr inbounds nuw [8 x i8], ptr %536, i64 %566
   %569 = load i64, ptr %568, align 4
   store i64 %569, ptr %560, align 1
   br label %570
@@ -1554,11 +1548,11 @@ _ZNSt3__16vectorIZN7mitsuba7OBJMeshIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEE
   %575 = load i32, ptr %574, align 4
   %576 = mul i32 %575, 3
   %577 = zext i32 %576 to i64
-  %578 = getelementptr inbounds nuw float, ptr %520, i64 %577
-  %579 = getelementptr inbounds nuw float, ptr %522, i64 %577
+  %578 = getelementptr inbounds nuw [4 x i8], ptr %520, i64 %577
+  %579 = getelementptr inbounds nuw [4 x i8], ptr %522, i64 %577
   %580 = shl i32 %575, 1
   %581 = zext i32 %580 to i64
-  %582 = getelementptr inbounds nuw float, ptr %527, i64 %581
+  %582 = getelementptr inbounds nuw [4 x i8], ptr %527, i64 %581
   %.sroa.0579.0.copyload = load i32, ptr %.0375721, align 8
   %.sroa.2.0..0375.sroa_idx = getelementptr inbounds nuw i8, ptr %.0375721, i64 4
   %.sroa.2.0.copyload = load i32, ptr %.sroa.2.0..0375.sroa_idx, align 4
@@ -1566,7 +1560,7 @@ _ZNSt3__16vectorIZN7mitsuba7OBJMeshIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEE
   %.sroa.5582.0.copyload = load i32, ptr %.sroa.5582.0..0375.sroa_idx, align 8
   %583 = add i32 %.sroa.0579.0.copyload, -1
   %584 = zext i32 %583 to i64
-  %585 = getelementptr inbounds nuw %"struct.mitsuba::Vector", ptr %533, i64 %584
+  %585 = getelementptr inbounds nuw [16 x i8], ptr %533, i64 %584
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %578, ptr noundef nonnull align 16 dereferenceable(12) %585, i64 12, i1 false)
   %.not426 = icmp eq i32 %.sroa.2.0.copyload, 0
   br i1 %.not426, label %619, label %586
@@ -1655,7 +1649,7 @@ _ZNSt3__16vectorIZN7mitsuba7OBJMeshIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEE
   br label %_ZNSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEED2B8ne190000Ev.exit542
 
 616:                                              ; preds = %586
-  %617 = getelementptr inbounds nuw %"struct.mitsuba::Vector.144", ptr %536, i64 %588
+  %617 = getelementptr inbounds nuw [8 x i8], ptr %536, i64 %588
   %618 = load i64, ptr %617, align 4
   store i64 %618, ptr %582, align 1
   br label %619
@@ -1732,7 +1726,7 @@ _ZNSt3__16vectorIZN7mitsuba7OBJMeshIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEE
   br label %_ZNSt3__110unique_ptrIA_fNS_14default_deleteIS1_EEED2B8ne190000Ev.exit542
 
 645:                                              ; preds = %620
-  %646 = getelementptr inbounds nuw %"struct.mitsuba::Normal", ptr %546, i64 %622
+  %646 = getelementptr inbounds nuw [16 x i8], ptr %546, i64 %622
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %579, ptr noundef nonnull align 16 dereferenceable(12) %646, i64 12, i1 false)
   br label %647
 
@@ -2542,11 +2536,11 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_5arrayIjLm3EEEEEEENS_1
   %26 = mul nuw i64 %.0.i.i, 12
   %27 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %26) #26
   %28 = getelementptr inbounds i8, ptr %27, i64 %14
-  %29 = getelementptr inbounds nuw %"struct.std::__1::array", ptr %27, i64 %.0.i.i
+  %29 = getelementptr inbounds nuw [12 x i8], ptr %27, i64 %.0.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %28, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 12
   %.neg.i.i = sdiv exact i64 %14, -12
-  %31 = getelementptr inbounds %"struct.std::__1::array", ptr %28, i64 %.neg.i.i
+  %31 = getelementptr inbounds [12 x i8], ptr %28, i64 %.neg.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %31, ptr align 4 %.promoted.fr.i.i.i.i.i, i64 %14, i1 false)
   store ptr %31, ptr %0, align 8
   store ptr %30, ptr %3, align 8
@@ -3215,7 +3209,7 @@ _ZN10tinyformat6detail24printFormatStringLiteralERNSt3__113basic_ostreamIcNS1_11
 
 67:                                               ; preds = %_ZN10tinyformat6detail24printFormatStringLiteralERNSt3__113basic_ostreamIcNS1_11char_traitsIcEEEEPKc.exit
   %68 = sext i32 %66 to i64
-  %69 = getelementptr inbounds %"class.tinyformat::detail::FormatArg", ptr %2, i64 %68
+  %69 = getelementptr inbounds [24 x i8], ptr %2, i64 %68
   %70 = load i8, ptr %8, align 1
   %71 = trunc i8 %70 to i1
   br i1 %71, label %77, label %72
@@ -3773,7 +3767,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit: ; preds = %.lr.ph.i
   %153 = add nsw i32 %150, 1
   store i32 %153, ptr %5, align 4
   %154 = sext i32 %150 to i64
-  %155 = getelementptr inbounds %"class.tinyformat::detail::FormatArg", ptr %4, i64 %154
+  %155 = getelementptr inbounds [24 x i8], ptr %4, i64 %154
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 16
   %157 = load ptr, ptr %156, align 8
   %158 = load ptr, ptr %155, align 8
@@ -3866,7 +3860,7 @@ _ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit86: ; preds = %1
   %206 = add nsw i32 %203, 1
   store i32 %206, ptr %5, align 4
   %207 = sext i32 %203 to i64
-  %208 = getelementptr inbounds %"class.tinyformat::detail::FormatArg", ptr %4, i64 %207
+  %208 = getelementptr inbounds [24 x i8], ptr %4, i64 %207
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 16
   %210 = load ptr, ptr %209, align 8
   %211 = load ptr, ptr %208, align 8
@@ -5434,7 +5428,7 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIZN7mitsuba7OBJMeshIfN5drj
 _ZNSt3__114__split_bufferIZN7mitsuba7OBJMeshIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEC1ERKNS1_10PropertiesEE13VertexBindingRNS_9allocatorISC_EEE5clearB8ne190000Ev.exit.i: ; preds = %_ZNKSt3__16vectorIZN7mitsuba7OBJMeshIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEC1ERKNS1_10PropertiesEE13VertexBindingNS_9allocatorISC_EEE11__recommendB8ne190000Em.exit, %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIZN7mitsuba7OBJMeshIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEC1ERKNS2_10PropertiesEE13VertexBindingEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERSH_m.exit.i
   %storemerge.i = phi ptr [ %32, %_ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIZN7mitsuba7OBJMeshIfN5drjit6MatrixINS2_8SpectrumIfLm4EEELm4EEEEC1ERKNS2_10PropertiesEE13VertexBindingEEEENS_19__allocation_resultINS_16allocator_traitsIT_E7pointerEEERSH_m.exit.i ], [ null, %_ZNKSt3__16vectorIZN7mitsuba7OBJMeshIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEC1ERKNS1_10PropertiesEE13VertexBindingNS_9allocatorISC_EEE11__recommendB8ne190000Em.exit ]
   %33 = getelementptr inbounds i8, ptr %storemerge.i, i64 %19
-  %34 = getelementptr inbounds nuw %struct.VertexBinding, ptr %storemerge.i, i64 %.0.i
+  %34 = getelementptr inbounds nuw [24 x i8], ptr %storemerge.i, i64 %.0.i
   %.idx.i8 = mul i64 %1, 24
   %35 = add i64 %.idx.i8, -24
   %36 = urem i64 %35, 24
@@ -5443,7 +5437,7 @@ _ZNSt3__114__split_bufferIZN7mitsuba7OBJMeshIfN5drjit6MatrixINS1_8SpectrumIfLm4E
   tail call void @llvm.memset.p0.i64(ptr align 8 %33, i8 0, i64 %38, i1 false)
   %scevgep.i9 = getelementptr i8, ptr %33, i64 %38
   %.neg.i = sdiv exact i64 %19, -24
-  %39 = getelementptr inbounds %struct.VertexBinding, ptr %33, i64 %.neg.i
+  %39 = getelementptr inbounds [24 x i8], ptr %33, i64 %.neg.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %39, ptr align 8 %.promoted.fr.i.i.i.i, i64 %19, i1 false)
   store ptr %39, ptr %0, align 8
   store ptr %scevgep.i9, ptr %5, align 8

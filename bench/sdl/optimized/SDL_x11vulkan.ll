@@ -3,10 +3,8 @@ source_filename = "bench/sdl/original/SDL_x11vulkan.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.VkExtensionProperties = type { [256 x i8], i32 }
 %struct.VkXcbSurfaceCreateInfoKHR = type { i32, ptr, i32, ptr, i32 }
 %struct.VkXlibSurfaceCreateInfoKHR = type { i32, ptr, i32, ptr, i64 }
-%struct.Screen = type { ptr, ptr, i64, i32, i32, i32, i32, i32, ptr, i32, ptr, ptr, i64, i64, i64, i32, i32, i32, i32, i64 }
 
 @.str = private unnamed_addr constant [22 x i8] c"Vulkan already loaded\00", align 1
 @.str.1 = private unnamed_addr constant [19 x i8] c"SDL_VULKAN_LIBRARY\00", align 1
@@ -101,7 +99,7 @@ define hidden zeroext i1 @X11_Vulkan_LoadLibrary(ptr noundef %0, ptr noundef %1)
   %.04572 = phi i1 [ %.1, %36 ], [ false, %.preheader ]
   %.04671 = phi i1 [ %.147, %36 ], [ false, %.preheader ]
   %.04870 = phi i1 [ %.149, %36 ], [ false, %.preheader ]
-  %27 = getelementptr inbounds nuw %struct.VkExtensionProperties, ptr %25, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [260 x i8], ptr %25, i64 %indvars.iv
   %28 = call i32 @SDL_strcmp_REAL(ptr noundef nonnull @.str.5, ptr noundef nonnull %27) #5
   %29 = icmp eq i32 %28, 0
   br i1 %29, label %36, label %30
@@ -441,7 +439,7 @@ define hidden zeroext i1 @X11_Vulkan_GetPresentationSupport(ptr noundef readonly
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 224
   %23 = load i32, ptr %22, align 8
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds %struct.Screen, ptr %21, i64 %24
+  %25 = getelementptr inbounds [128 x i8], ptr %21, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 64
   %27 = load ptr, ptr %26, align 8
   %28 = tail call i64 %18(ptr noundef %27) #5

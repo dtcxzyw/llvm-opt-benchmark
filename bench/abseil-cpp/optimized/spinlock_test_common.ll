@@ -4441,7 +4441,7 @@ _ZNSt6vectorISt6threadSaIS0_EE9push_backEOS0_.exit: ; preds = %.lr.ph.i.i.i.i40,
   call void @_ZdlPvm(ptr noundef nonnull %17, i64 noundef %41) #22
   store ptr %50, ptr %2, align 8, !tbaa !120
   store ptr %56, ptr %9, align 8, !tbaa !123
-  %57 = getelementptr inbounds nuw %"class.std::thread", ptr %50, i64 %48
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %48
   store ptr %57, ptr %8, align 8, !tbaa !124
   %.sroa.0.0.copyload.i.i.pr = load i64, ptr %3, align 8, !tbaa !51
   %.not.i = icmp eq i64 %.sroa.0.0.copyload.i.i.pr, 0
@@ -4594,7 +4594,7 @@ _ZNSt6vectorISt6threadSaIS0_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPSt6t
 99:                                               ; preds = %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit, %_ZN7testing15AssertionResultD2Ev.exit
   %.058 = phi i64 [ 1, %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit ], [ %141, %_ZN7testing15AssertionResultD2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %100 = getelementptr inbounds nuw i32, ptr @_ZN4absl13base_internal12_GLOBAL__N_16valuesE, i64 %.058
+  %100 = getelementptr inbounds nuw [4 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_16valuesE, i64 %.058
   %101 = load i32, ptr @_ZN4absl13base_internal12_GLOBAL__N_16valuesE, align 16, !tbaa !27, !noalias !147
   %102 = load i32, ptr %100, align 4, !tbaa !27, !noalias !147
   %103 = icmp eq i32 %101, %102
@@ -4799,7 +4799,7 @@ _ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit: ; preds = %_ZN4a
   %.0926 = phi i64 [ %61, %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit ], [ 0, %_ZN4absl13base_internal14SpinLockHolderC2EPNS0_8SpinLockE.exit.preheader ]
   %22 = add nuw nsw i64 %.0926, %3
   %23 = urem i64 %22, 10
-  %24 = getelementptr inbounds nuw i32, ptr @_ZN4absl13base_internal12_GLOBAL__N_16valuesE, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr @_ZN4absl13base_internal12_GLOBAL__N_16valuesE, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !27
   %reass.sub = sub i32 %25, %0
   %26 = add i32 %reass.sub, 1640531527
@@ -5377,7 +5377,7 @@ _ZNSt6vectorISt6threadSaIS0_EE9push_backEOS0_.exit34: ; preds = %.lr.ph.i.i.i.i4
   call void @_ZdlPvm(ptr noundef nonnull %43, i64 noundef %68) #22
   store ptr %77, ptr %7, align 8, !tbaa !120
   store ptr %83, ptr %28, align 8, !tbaa !123
-  %84 = getelementptr inbounds nuw %"class.std::thread", ptr %77, i64 %75
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %75
   store ptr %84, ptr %29, align 8, !tbaa !124
   %.sroa.0.0.copyload.i.i35.pr = load i64, ptr %9, align 8, !tbaa !51
   %.not.i36 = icmp eq i64 %.sroa.0.0.copyload.i.i35.pr, 0

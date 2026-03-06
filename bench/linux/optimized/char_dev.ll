@@ -65,7 +65,7 @@ define dso_local void @chrdev_show(ptr noundef %0, i64 noundef %1) local_unnamed
   %3 = trunc i64 %1 to i32
   %4 = urem i32 %3, 255
   %5 = zext nneg i32 %4 to i64
-  %6 = getelementptr ptr, ptr @chrdevs, i64 %5
+  %6 = getelementptr [8 x i8], ptr @chrdevs, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.loopexit, label %.preheader
@@ -138,7 +138,7 @@ define dso_local i32 @register_chrdev_region(i32 noundef %0, i32 noundef %1, ptr
   %25 = urem i16 %.lhs.trunc, 255
   tail call void @mutex_lock(ptr noundef nonnull @chrdevs_lock) #9
   %26 = zext nneg i16 %25 to i64
-  %27 = getelementptr ptr, ptr @chrdevs, i64 %26
+  %27 = getelementptr [8 x i8], ptr @chrdevs, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
   br i1 %29, label %.loopexit, label %.preheader
@@ -224,7 +224,7 @@ define internal fastcc ptr @__register_chrdev_region(i32 noundef %0, i32 noundef
 .preheader19:                                     ; preds = %19, %26
   %21 = phi i32 [ %27, %26 ], [ 254, %19 ]
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr ptr, ptr @chrdevs, i64 %22
+  %23 = getelementptr [8 x i8], ptr @chrdevs, i64 %22
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
   br i1 %25, label %.loopexit17, label %26
@@ -238,7 +238,7 @@ define internal fastcc ptr @__register_chrdev_region(i32 noundef %0, i32 noundef
   %29 = phi i32 [ %42, %41 ], [ 511, %26 ]
   %30 = urem i32 %29, 255
   %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr ptr, ptr @chrdevs, i64 %31
+  %32 = getelementptr [8 x i8], ptr @chrdevs, i64 %31
   br label %33
 
 33:                                               ; preds = %37, %.preheader18
@@ -273,7 +273,7 @@ define internal fastcc ptr @__register_chrdev_region(i32 noundef %0, i32 noundef
   %50 = phi i32 [ %0, %19 ], [ %44, %.loopexit17 ]
   %51 = urem i32 %50, 255
   %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr ptr, ptr @chrdevs, i64 %52
+  %53 = getelementptr [8 x i8], ptr @chrdevs, i64 %52
   %54 = load ptr, ptr %53, align 8
   %55 = icmp eq ptr %54, null
   br i1 %55, label %.loopexit, label %.preheader
@@ -457,7 +457,7 @@ define dso_local i32 @__register_chrdev(i32 noundef %0, i32 noundef %1, i32 noun
   %50 = urem i32 %49, 255
   tail call void @mutex_lock(ptr noundef nonnull @chrdevs_lock) #9
   %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr ptr, ptr @chrdevs, i64 %51
+  %52 = getelementptr [8 x i8], ptr @chrdevs, i64 %51
   %53 = load ptr, ptr %52, align 8
   %54 = icmp eq ptr %53, null
   br i1 %54, label %.loopexit, label %.preheader
@@ -586,7 +586,7 @@ define dso_local void @unregister_chrdev_region(i32 noundef %0, i32 noundef %1) 
   %12 = urem i16 %.lhs.trunc, 255
   tail call void @mutex_lock(ptr noundef nonnull @chrdevs_lock) #9
   %13 = zext nneg i16 %12 to i64
-  %14 = getelementptr ptr, ptr @chrdevs, i64 %13
+  %14 = getelementptr [8 x i8], ptr @chrdevs, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %.loopexit, label %.preheader
@@ -637,7 +637,7 @@ define dso_local void @__unregister_chrdev(i32 noundef %0, i32 noundef %1, i32 n
   %5 = urem i32 %0, 255
   tail call void @mutex_lock(ptr noundef nonnull @chrdevs_lock) #9
   %6 = zext nneg i32 %5 to i64
-  %7 = getelementptr ptr, ptr @chrdevs, i64 %6
+  %7 = getelementptr [8 x i8], ptr @chrdevs, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %.thread, label %.preheader

@@ -84,7 +84,7 @@ get_object_type.exit:                             ; preds = %4, %20
 
 58:                                               ; preds = %get_object_type.exit
   %59 = zext nneg i32 %41 to i64
-  %60 = getelementptr inbounds nuw i32, ptr @ff_mpeg4audio_sample_rates, i64 %59
+  %60 = getelementptr inbounds nuw [4 x i8], ptr @ff_mpeg4audio_sample_rates, i64 %59
   %61 = load i32, ptr %60, align 4, !tbaa !16
   %.pre = load i32, ptr %5, align 8, !tbaa !4
   %.pre124 = load i32, ptr %6, align 8, !tbaa !11
@@ -196,7 +196,7 @@ get_sample_rate.exit:                             ; preds = %45, %58
 
 122:                                              ; preds = %97
   %123 = zext nneg i32 %105 to i64
-  %124 = getelementptr inbounds nuw i32, ptr @ff_mpeg4audio_sample_rates, i64 %123
+  %124 = getelementptr inbounds nuw [4 x i8], ptr @ff_mpeg4audio_sample_rates, i64 %123
   %125 = load i32, ptr %124, align 4, !tbaa !16
   %.pre125 = load i32, ptr %5, align 8, !tbaa !4
   %.pre126 = load i32, ptr %6, align 8, !tbaa !11
@@ -493,7 +493,7 @@ get_object_type.exit103:                          ; preds = %253
 
 317:                                              ; preds = %291
   %318 = zext nneg i32 %300 to i64
-  %319 = getelementptr inbounds nuw i32, ptr @ff_mpeg4audio_sample_rates, i64 %318
+  %319 = getelementptr inbounds nuw [4 x i8], ptr @ff_mpeg4audio_sample_rates, i64 %318
   %320 = load i32, ptr %319, align 4, !tbaa !16
   br label %get_sample_rate.exit104
 

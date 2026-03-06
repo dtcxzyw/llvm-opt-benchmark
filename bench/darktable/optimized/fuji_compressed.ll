@@ -4,11 +4,11 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.i_pair = type { i32, i32 }
+%struct.fuji_compressed_block = type { i32, i32, i64, i32, i32, ptr, i32, ptr, [3 x %struct.fuji_grads], [3 x %struct.fuji_grads], ptr, [18 x ptr] }
 %struct.fuji_grads = type { [41 x %struct.int_pair], [3 x [5 x %struct.int_pair]] }
 %struct.int_pair = type { i32, i32 }
-%struct.fuji_q_table = type { ptr, i32, i32, i32, i32, i32 }
-%struct.fuji_compressed_block = type { i32, i32, i64, i32, i32, ptr, i32, ptr, [3 x %struct.fuji_grads], [3 x %struct.fuji_grads], ptr, [18 x ptr] }
 %struct.fuji_compressed_params = type { [4 x %struct.fuji_q_table], ptr, i32, i32, i32, i16 }
+%struct.fuji_q_table = type { ptr, i32, i32, i32, i32, i32 }
 
 $_ZTI17LibRaw_exceptions = comdat any
 
@@ -650,8 +650,8 @@ define void @_Z15init_main_gradsPK22fuji_compressed_paramsP21fuji_compressed_blo
 
 .preheader:                                       ; preds = %2, %12
   %indvars.iv24 = phi i64 [ 0, %2 ], [ %indvars.iv.next25, %12 ]
-  %9 = getelementptr inbounds nuw %struct.fuji_grads, ptr %7, i64 %indvars.iv24
-  %10 = getelementptr inbounds nuw %struct.fuji_grads, ptr %8, i64 %indvars.iv24
+  %9 = getelementptr inbounds nuw [448 x i8], ptr %7, i64 %indvars.iv24
+  %10 = getelementptr inbounds nuw [448 x i8], ptr %8, i64 %indvars.iv24
   br label %13
 
 11:                                               ; preds = %12
@@ -664,11 +664,11 @@ define void @_Z15init_main_gradsPK22fuji_compressed_paramsP21fuji_compressed_blo
 
 13:                                               ; preds = %.preheader, %13
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %13 ]
-  %14 = getelementptr inbounds nuw %struct.int_pair, ptr %9, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   store i32 %spec.select, ptr %14, align 8, !tbaa !93
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   store i32 1, ptr %15, align 4, !tbaa !95
-  %16 = getelementptr inbounds nuw %struct.int_pair, ptr %10, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   store i32 %spec.select, ptr %16, align 8, !tbaa !93
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
   store i32 1, ptr %17, align 4, !tbaa !95
@@ -786,8 +786,8 @@ _ZL16fuji_fill_bufferP21fuji_compressed_block.exit: ; preds = %30, %63
 76:                                               ; preds = %5, %76
   %store_forwarded = phi ptr [ %26, %5 ], [ %79, %76 ]
   %indvars.iv = phi i64 [ 1, %5 ], [ %indvars.iv.next, %76 ]
-  %77 = getelementptr ptr, ptr %27, i64 %indvars.iv
-  %78 = getelementptr inbounds nuw i16, ptr %store_forwarded, i64 %29
+  %77 = getelementptr [8 x i8], ptr %27, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [2 x i8], ptr %store_forwarded, i64 %29
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 4
   store ptr %79, ptr %77, align 8, !tbaa !105
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -806,8 +806,8 @@ _ZL16fuji_fill_bufferP21fuji_compressed_block.exit: ; preds = %30, %63
 
 .preheader.i:                                     ; preds = %89, %80
   %indvars.iv24.i = phi i64 [ 0, %80 ], [ %indvars.iv.next25.i, %89 ]
-  %87 = getelementptr inbounds nuw %struct.fuji_grads, ptr %85, i64 %indvars.iv24.i
-  %88 = getelementptr inbounds nuw %struct.fuji_grads, ptr %86, i64 %indvars.iv24.i
+  %87 = getelementptr inbounds nuw [448 x i8], ptr %85, i64 %indvars.iv24.i
+  %88 = getelementptr inbounds nuw [448 x i8], ptr %86, i64 %indvars.iv24.i
   br label %90
 
 89:                                               ; preds = %90
@@ -817,11 +817,11 @@ _ZL16fuji_fill_bufferP21fuji_compressed_block.exit: ; preds = %30, %63
 
 90:                                               ; preds = %90, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %90 ]
-  %91 = getelementptr inbounds nuw %struct.int_pair, ptr %87, i64 %indvars.iv.i
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %indvars.iv.i
   store i32 %spec.select.i61, ptr %91, align 8, !tbaa !93
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 4
   store i32 1, ptr %92, align 4, !tbaa !95
-  %93 = getelementptr inbounds nuw %struct.int_pair, ptr %88, i64 %indvars.iv.i
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %indvars.iv.i
   store i32 %spec.select.i61, ptr %93, align 8, !tbaa !93
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 4
   store i32 1, ptr %94, align 4, !tbaa !95
@@ -836,7 +836,7 @@ _ZL16fuji_fill_bufferP21fuji_compressed_block.exit: ; preds = %30, %63
 .preheader62:                                     ; preds = %_ZL16fuji_fill_bufferP21fuji_compressed_block.exit, %.loopexit
   %indvars.iv78 = phi i64 [ %indvars.iv.next79, %.loopexit ], [ 0, %_ZL16fuji_fill_bufferP21fuji_compressed_block.exit ]
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
-  %95 = getelementptr inbounds nuw %struct.fuji_q_table, ptr %2, i64 %indvars.iv.next79
+  %95 = getelementptr inbounds nuw [32 x i8], ptr %2, i64 %indvars.iv.next79
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 12
   %97 = load i32, ptr %96, align 4, !tbaa !22
   %98 = add nsw i32 %97, 32
@@ -846,11 +846,11 @@ _ZL16fuji_fill_bufferP21fuji_compressed_block.exit: ; preds = %30, %63
 
 .preheader:                                       ; preds = %.preheader62, %105
   %indvars.iv74 = phi i64 [ 0, %.preheader62 ], [ %indvars.iv.next75, %105 ]
-  %100 = getelementptr inbounds nuw %struct.fuji_grads, ptr %1, i64 %indvars.iv74
+  %100 = getelementptr inbounds nuw [448 x i8], ptr %1, i64 %indvars.iv74
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 376
-  %102 = getelementptr inbounds nuw [5 x %struct.int_pair], ptr %101, i64 %indvars.iv78
+  %102 = getelementptr inbounds nuw [40 x i8], ptr %101, i64 %indvars.iv78
   %103 = getelementptr inbounds nuw i8, ptr %100, i64 1720
-  %104 = getelementptr inbounds nuw [5 x %struct.int_pair], ptr %103, i64 %indvars.iv78
+  %104 = getelementptr inbounds nuw [40 x i8], ptr %103, i64 %indvars.iv78
   br label %106
 
 105:                                              ; preds = %106
@@ -860,11 +860,11 @@ _ZL16fuji_fill_bufferP21fuji_compressed_block.exit: ; preds = %30, %63
 
 106:                                              ; preds = %.preheader, %106
   %indvars.iv70 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next71, %106 ]
-  %107 = getelementptr inbounds nuw %struct.int_pair, ptr %102, i64 %indvars.iv70
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 %indvars.iv70
   store i32 %spec.select, ptr %107, align 8, !tbaa !93
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 4
   store i32 1, ptr %108, align 4, !tbaa !95
-  %109 = getelementptr inbounds nuw %struct.int_pair, ptr %104, i64 %indvars.iv70
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 %indvars.iv70
   store i32 %spec.select, ptr %109, align 8, !tbaa !93
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 4
   store i32 1, ptr %110, align 4, !tbaa !95
@@ -897,16 +897,16 @@ define void @_ZN6LibRaw19copy_line_to_xtransEP21fuji_compressed_blockiii(ptr nou
 
 16:                                               ; preds = %5, %16
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %16 ]
-  %17 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !105
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 2
-  %21 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   store ptr %20, ptr %21, align 8, !tbaa !105
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 120
   %23 = load ptr, ptr %22, align 8, !tbaa !105
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 2
-  %25 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   store ptr %24, ptr %25, align 8, !tbaa !105
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -924,7 +924,7 @@ define void @_ZN6LibRaw19copy_line_to_xtransEP21fuji_compressed_blockiii(ptr nou
   %30 = mul nsw i32 %10, %3
   %31 = add nsw i32 %29, %30
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds i16, ptr %14, i64 %32
+  %33 = getelementptr inbounds [2 x i8], ptr %14, i64 %32
   %wide.trip.count = zext i32 %4 to i64
   br label %.preheader.us
 
@@ -934,9 +934,9 @@ define void @_ZN6LibRaw19copy_line_to_xtransEP21fuji_compressed_blockiii(ptr nou
   %34 = getelementptr inbounds nuw [6 x i8], ptr %26, i64 %indvars.iv56
   %35 = lshr i64 %indvars.iv56, 1
   %36 = and i64 %35, 2147483647
-  %37 = getelementptr inbounds nuw ptr, ptr %6, i64 %36
-  %38 = getelementptr inbounds nuw ptr, ptr %8, i64 %36
-  %39 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv56
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %36
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %36
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv56
   br label %40
 
 40:                                               ; preds = %.preheader.us, %48
@@ -969,9 +969,9 @@ define void @_ZN6LibRaw19copy_line_to_xtransEP21fuji_compressed_blockiii(ptr nou
   %55 = add nuw nsw i32 %54, %53
   %56 = add nuw nsw i32 %55, %51
   %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr inbounds nuw i16, ptr %.038.us, i64 %57
+  %58 = getelementptr inbounds nuw [2 x i8], ptr %.038.us, i64 %57
   %59 = load i16, ptr %58, align 2, !tbaa !120
-  %60 = getelementptr inbounds nuw i16, ptr %.03644.us, i64 %indvars.iv52
+  %60 = getelementptr inbounds nuw [2 x i8], ptr %.03644.us, i64 %indvars.iv52
   store i16 %59, ptr %60, align 2, !tbaa !120
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
   %exitcond55.not = icmp eq i64 %indvars.iv.next53, %wide.trip.count
@@ -981,17 +981,17 @@ define void @_ZN6LibRaw19copy_line_to_xtransEP21fuji_compressed_blockiii(ptr nou
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %61 = load i16, ptr %11, align 2, !tbaa !117
   %62 = zext i16 %61 to i64
-  %63 = getelementptr inbounds nuw i16, ptr %.03644.us, i64 %62
+  %63 = getelementptr inbounds nuw [2 x i8], ptr %.03644.us, i64 %62
   %exitcond59.not = icmp eq i64 %indvars.iv.next57, 6
   br i1 %exitcond59.not, label %.split.us, label %.preheader.us, !llvm.loop !122
 
 .preheader40:                                     ; preds = %16, %.preheader40
   %indvars.iv48 = phi i64 [ %indvars.iv.next49, %.preheader40 ], [ 0, %16 ]
-  %64 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv48
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv48
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 2800
   %66 = load ptr, ptr %65, align 8, !tbaa !105
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 2
-  %68 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv48
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv48
   store ptr %67, ptr %68, align 8, !tbaa !105
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next49, 6
@@ -1045,16 +1045,16 @@ define void @_ZN6LibRaw18copy_line_to_bayerEP21fuji_compressed_blockiii(ptr noun
 
 27:                                               ; preds = %19, %27
   %indvars.iv61 = phi i64 [ 0, %19 ], [ %indvars.iv.next62, %27 ]
-  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv61
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv61
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8, !tbaa !105
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 2
-  %32 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv61
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv61
   store ptr %31, ptr %32, align 8, !tbaa !105
   %33 = getelementptr inbounds nuw i8, ptr %28, i64 120
   %34 = load ptr, ptr %33, align 8, !tbaa !105
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 2
-  %36 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv61
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv61
   store ptr %35, ptr %36, align 8, !tbaa !105
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next62, 3
@@ -1071,7 +1071,7 @@ define void @_ZN6LibRaw18copy_line_to_bayerEP21fuji_compressed_blockiii(ptr noun
   %40 = mul nsw i32 %21, %3
   %41 = add nsw i32 %39, %40
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds i16, ptr %25, i64 %42
+  %43 = getelementptr inbounds [2 x i8], ptr %25, i64 %42
   %wide.trip.count = zext i32 %4 to i64
   br label %.preheader.us
 
@@ -1079,18 +1079,18 @@ define void @_ZN6LibRaw18copy_line_to_bayerEP21fuji_compressed_blockiii(ptr noun
   %indvars.iv72 = phi i64 [ 0, %.preheader.us.preheader ], [ %indvars.iv.next73, %._crit_edge.us ]
   %.04154.us = phi ptr [ %43, %.preheader.us.preheader ], [ %65, %._crit_edge.us ]
   %44 = and i64 %indvars.iv72, 1
-  %45 = getelementptr inbounds nuw [2 x i32], ptr %9, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %44
   %46 = lshr i64 %indvars.iv72, 1
   %47 = and i64 %46, 2147483647
-  %48 = getelementptr inbounds nuw ptr, ptr %6, i64 %47
-  %49 = getelementptr inbounds nuw ptr, ptr %8, i64 %47
-  %50 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv72
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %47
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %47
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv72
   br label %51
 
 51:                                               ; preds = %.preheader.us, %57
   %indvars.iv68 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next69, %57 ]
   %52 = and i64 %indvars.iv68, 1
-  %53 = getelementptr inbounds nuw i32, ptr %45, i64 %52
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %52
   %54 = load i32, ptr %53, align 4, !tbaa !6
   switch i32 %54, label %56 [
     i32 0, label %55
@@ -1108,9 +1108,9 @@ define void @_ZN6LibRaw18copy_line_to_bayerEP21fuji_compressed_blockiii(ptr noun
   %.045.us = load ptr, ptr %.045.in.us, align 8, !tbaa !105
   %58 = lshr i64 %indvars.iv68, 1
   %59 = and i64 %58, 2147483647
-  %60 = getelementptr inbounds nuw i16, ptr %.045.us, i64 %59
+  %60 = getelementptr inbounds nuw [2 x i8], ptr %.045.us, i64 %59
   %61 = load i16, ptr %60, align 2, !tbaa !120
-  %62 = getelementptr inbounds nuw i16, ptr %.04154.us, i64 %indvars.iv68
+  %62 = getelementptr inbounds nuw [2 x i8], ptr %.04154.us, i64 %indvars.iv68
   store i16 %61, ptr %62, align 2, !tbaa !120
   %indvars.iv.next69 = add nuw nsw i64 %indvars.iv68, 1
   %exitcond71.not = icmp eq i64 %indvars.iv.next69, %wide.trip.count
@@ -1120,17 +1120,17 @@ define void @_ZN6LibRaw18copy_line_to_bayerEP21fuji_compressed_blockiii(ptr noun
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %63 = load i16, ptr %22, align 2, !tbaa !117
   %64 = zext i16 %63 to i64
-  %65 = getelementptr inbounds nuw i16, ptr %.04154.us, i64 %64
+  %65 = getelementptr inbounds nuw [2 x i8], ptr %.04154.us, i64 %64
   %exitcond75.not = icmp eq i64 %indvars.iv.next73, 6
   br i1 %exitcond75.not, label %.split.us, label %.preheader.us, !llvm.loop !128
 
 .preheader47:                                     ; preds = %27, %.preheader47
   %indvars.iv64 = phi i64 [ %indvars.iv.next65, %.preheader47 ], [ 0, %27 ]
-  %66 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv64
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv64
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 2800
   %68 = load ptr, ptr %67, align 8, !tbaa !105
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 2
-  %70 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv64
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv64
   store ptr %69, ptr %70, align 8, !tbaa !105
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %exitcond67.not = icmp eq i64 %indvars.iv.next65, 6
@@ -1181,17 +1181,17 @@ define void @_ZN6LibRaw19xtrans_decode_blockEP21fuji_compressed_blockPK22fuji_co
   %24 = load ptr, ptr %8, align 8, !tbaa !105
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 2
   %26 = sext i32 %.0370 to i64
-  %27 = getelementptr inbounds i16, ptr %25, i64 %26
-  %28 = getelementptr inbounds i16, ptr %27, i64 %10
+  %27 = getelementptr inbounds [2 x i8], ptr %25, i64 %26
+  %28 = getelementptr inbounds [2 x i8], ptr %27, i64 %10
   %29 = load i16, ptr %28, align 2, !tbaa !120
   %30 = zext i16 %29 to i32
-  %31 = getelementptr inbounds i16, ptr %27, i64 %12
+  %31 = getelementptr inbounds [2 x i8], ptr %27, i64 %12
   %32 = load i16, ptr %31, align 2, !tbaa !120
   %33 = zext i16 %32 to i32
-  %34 = getelementptr inbounds i16, ptr %27, i64 %14
+  %34 = getelementptr inbounds [2 x i8], ptr %27, i64 %14
   %35 = load i16, ptr %34, align 2, !tbaa !120
   %36 = zext i16 %35 to i32
-  %37 = getelementptr inbounds i16, ptr %27, i64 %17
+  %37 = getelementptr inbounds [2 x i8], ptr %27, i64 %17
   %38 = load i16, ptr %37, align 2, !tbaa !120
   %39 = zext i16 %38 to i32
   %40 = sub nsw i32 %33, %30
@@ -1277,16 +1277,16 @@ _ZL30fuji_decode_interpolation_eveniPti.exit:     ; preds = %48, %57, %59
 
 88:                                               ; preds = %88, %._crit_edge
   %indvars.iv.i.i = phi i64 [ 2, %._crit_edge ], [ %indvars.iv.next.i.i, %88 ]
-  %89 = getelementptr ptr, ptr %86, i64 %indvars.iv.i.i
+  %89 = getelementptr [8 x i8], ptr %86, i64 %indvars.iv.i.i
   %90 = getelementptr i8, ptr %89, i64 -8
   %91 = load ptr, ptr %90, align 8, !tbaa !105
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 2
   %93 = load i16, ptr %92, align 2, !tbaa !120
   %94 = load ptr, ptr %89, align 8, !tbaa !105
   store i16 %93, ptr %94, align 2, !tbaa !120
-  %95 = getelementptr inbounds nuw i16, ptr %91, i64 %87
+  %95 = getelementptr inbounds nuw [2 x i8], ptr %91, i64 %87
   %96 = load i16, ptr %95, align 2, !tbaa !120
-  %97 = getelementptr inbounds nuw i16, ptr %94, i64 %87
+  %97 = getelementptr inbounds nuw [2 x i8], ptr %94, i64 %87
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 2
   store i16 %96, ptr %98, align 2, !tbaa !120
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -1295,16 +1295,16 @@ _ZL30fuji_decode_interpolation_eveniPti.exit:     ; preds = %48, %57, %59
 
 _ZL15fuji_extend_redPPti.exit:                    ; preds = %88, %_ZL15fuji_extend_redPPti.exit
   %indvars.iv.i.i292 = phi i64 [ %indvars.iv.next.i.i293, %_ZL15fuji_extend_redPPti.exit ], [ 7, %88 ]
-  %99 = getelementptr ptr, ptr %86, i64 %indvars.iv.i.i292
+  %99 = getelementptr [8 x i8], ptr %86, i64 %indvars.iv.i.i292
   %100 = getelementptr i8, ptr %99, i64 -8
   %101 = load ptr, ptr %100, align 8, !tbaa !105
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 2
   %103 = load i16, ptr %102, align 2, !tbaa !120
   %104 = load ptr, ptr %99, align 8, !tbaa !105
   store i16 %103, ptr %104, align 2, !tbaa !120
-  %105 = getelementptr inbounds nuw i16, ptr %101, i64 %87
+  %105 = getelementptr inbounds nuw [2 x i8], ptr %101, i64 %87
   %106 = load i16, ptr %105, align 2, !tbaa !120
-  %107 = getelementptr inbounds nuw i16, ptr %104, i64 %87
+  %107 = getelementptr inbounds nuw [2 x i8], ptr %104, i64 %87
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 2
   store i16 %106, ptr %108, align 2, !tbaa !120
   %indvars.iv.next.i.i293 = add nuw nsw i64 %indvars.iv.i.i292, 1
@@ -1352,17 +1352,17 @@ _ZL17fuji_extend_greenPPti.exit.preheader:        ; preds = %_ZL15fuji_extend_re
   %130 = load ptr, ptr %111, align 8, !tbaa !105
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 2
   %132 = sext i32 %.0252373 to i64
-  %133 = getelementptr inbounds i16, ptr %131, i64 %132
-  %134 = getelementptr inbounds i16, ptr %133, i64 %113
+  %133 = getelementptr inbounds [2 x i8], ptr %131, i64 %132
+  %134 = getelementptr inbounds [2 x i8], ptr %133, i64 %113
   %135 = load i16, ptr %134, align 2, !tbaa !120
   %136 = zext i16 %135 to i32
-  %137 = getelementptr inbounds i16, ptr %133, i64 %115
+  %137 = getelementptr inbounds [2 x i8], ptr %133, i64 %115
   %138 = load i16, ptr %137, align 2, !tbaa !120
   %139 = zext i16 %138 to i32
-  %140 = getelementptr inbounds i16, ptr %133, i64 %117
+  %140 = getelementptr inbounds [2 x i8], ptr %133, i64 %117
   %141 = load i16, ptr %140, align 2, !tbaa !120
   %142 = zext i16 %141 to i32
-  %143 = getelementptr inbounds i16, ptr %133, i64 %120
+  %143 = getelementptr inbounds [2 x i8], ptr %133, i64 %120
   %144 = load i16, ptr %143, align 2, !tbaa !120
   %145 = zext i16 %144 to i32
   %146 = sub nsw i32 %139, %136
@@ -1437,16 +1437,16 @@ _ZL17fuji_extend_greenPPti.exit:                  ; preds = %172, %170
 
 186:                                              ; preds = %.preheader365, %186
   %indvars.iv.i.i299 = phi i64 [ %indvars.iv.next.i.i300, %186 ], [ 7, %.preheader365 ]
-  %187 = getelementptr ptr, ptr %86, i64 %indvars.iv.i.i299
+  %187 = getelementptr [8 x i8], ptr %86, i64 %indvars.iv.i.i299
   %188 = getelementptr i8, ptr %187, i64 -8
   %189 = load ptr, ptr %188, align 8, !tbaa !105
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 2
   %191 = load i16, ptr %190, align 2, !tbaa !120
   %192 = load ptr, ptr %187, align 8, !tbaa !105
   store i16 %191, ptr %192, align 2, !tbaa !120
-  %193 = getelementptr inbounds nuw i16, ptr %189, i64 %87
+  %193 = getelementptr inbounds nuw [2 x i8], ptr %189, i64 %87
   %194 = load i16, ptr %193, align 2, !tbaa !120
-  %195 = getelementptr inbounds nuw i16, ptr %192, i64 %87
+  %195 = getelementptr inbounds nuw [2 x i8], ptr %192, i64 %87
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 2
   store i16 %194, ptr %196, align 2, !tbaa !120
   %indvars.iv.next.i.i300 = add nuw nsw i64 %indvars.iv.i.i299, 1
@@ -1455,16 +1455,16 @@ _ZL17fuji_extend_greenPPti.exit:                  ; preds = %172, %170
 
 _ZL17fuji_extend_greenPPti.exit302:               ; preds = %186, %_ZL17fuji_extend_greenPPti.exit302
   %indvars.iv.i.i303 = phi i64 [ %indvars.iv.next.i.i304, %_ZL17fuji_extend_greenPPti.exit302 ], [ 15, %186 ]
-  %197 = getelementptr ptr, ptr %86, i64 %indvars.iv.i.i303
+  %197 = getelementptr [8 x i8], ptr %86, i64 %indvars.iv.i.i303
   %198 = getelementptr i8, ptr %197, i64 -8
   %199 = load ptr, ptr %198, align 8, !tbaa !105
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 2
   %201 = load i16, ptr %200, align 2, !tbaa !120
   %202 = load ptr, ptr %197, align 8, !tbaa !105
   store i16 %201, ptr %202, align 2, !tbaa !120
-  %203 = getelementptr inbounds nuw i16, ptr %199, i64 %87
+  %203 = getelementptr inbounds nuw [2 x i8], ptr %199, i64 %87
   %204 = load i16, ptr %203, align 2, !tbaa !120
-  %205 = getelementptr inbounds nuw i16, ptr %202, i64 %87
+  %205 = getelementptr inbounds nuw [2 x i8], ptr %202, i64 %87
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 2
   store i16 %204, ptr %206, align 2, !tbaa !120
   %indvars.iv.next.i.i304 = add nuw nsw i64 %indvars.iv.i.i303, 1
@@ -1517,17 +1517,17 @@ _ZL16fuji_extend_bluePPti.exit.preheader:         ; preds = %_ZL17fuji_extend_gr
 
 229:                                              ; preds = %222
   %230 = sext i32 %.2382 to i64
-  %231 = getelementptr inbounds i16, ptr %225, i64 %230
-  %232 = getelementptr inbounds i16, ptr %231, i64 %210
+  %231 = getelementptr inbounds [2 x i8], ptr %225, i64 %230
+  %232 = getelementptr inbounds [2 x i8], ptr %231, i64 %210
   %233 = load i16, ptr %232, align 2, !tbaa !120
   %234 = zext i16 %233 to i32
-  %235 = getelementptr inbounds i16, ptr %231, i64 %212
+  %235 = getelementptr inbounds [2 x i8], ptr %231, i64 %212
   %236 = load i16, ptr %235, align 2, !tbaa !120
   %237 = zext i16 %236 to i32
-  %238 = getelementptr inbounds i16, ptr %231, i64 %214
+  %238 = getelementptr inbounds [2 x i8], ptr %231, i64 %214
   %239 = load i16, ptr %238, align 2, !tbaa !120
   %240 = zext i16 %239 to i32
-  %241 = getelementptr inbounds i16, ptr %231, i64 %217
+  %241 = getelementptr inbounds [2 x i8], ptr %231, i64 %217
   %242 = load i16, ptr %241, align 2, !tbaa !120
   %243 = zext i16 %242 to i32
   %244 = sub nsw i32 %237, %234
@@ -1576,17 +1576,17 @@ _ZL30fuji_decode_interpolation_eveniPti.exit309:  ; preds = %252, %261, %263
   %269 = load ptr, ptr %218, align 8, !tbaa !105
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 2
   %271 = sext i32 %.4274379 to i64
-  %272 = getelementptr inbounds i16, ptr %270, i64 %271
-  %273 = getelementptr inbounds i16, ptr %272, i64 %210
+  %272 = getelementptr inbounds [2 x i8], ptr %270, i64 %271
+  %273 = getelementptr inbounds [2 x i8], ptr %272, i64 %210
   %274 = load i16, ptr %273, align 2, !tbaa !120
   %275 = zext i16 %274 to i32
-  %276 = getelementptr inbounds i16, ptr %272, i64 %212
+  %276 = getelementptr inbounds [2 x i8], ptr %272, i64 %212
   %277 = load i16, ptr %276, align 2, !tbaa !120
   %278 = zext i16 %277 to i32
-  %279 = getelementptr inbounds i16, ptr %272, i64 %214
+  %279 = getelementptr inbounds [2 x i8], ptr %272, i64 %214
   %280 = load i16, ptr %279, align 2, !tbaa !120
   %281 = zext i16 %280 to i32
-  %282 = getelementptr inbounds i16, ptr %272, i64 %217
+  %282 = getelementptr inbounds [2 x i8], ptr %272, i64 %217
   %283 = load i16, ptr %282, align 2, !tbaa !120
   %284 = zext i16 %283 to i32
   %285 = sub nsw i32 %278, %275
@@ -1661,16 +1661,16 @@ _ZL16fuji_extend_bluePPti.exit:                   ; preds = %311, %309
 
 325:                                              ; preds = %.preheader364, %325
   %indvars.iv.i.i314 = phi i64 [ %indvars.iv.next.i.i315, %325 ], [ 2, %.preheader364 ]
-  %326 = getelementptr ptr, ptr %86, i64 %indvars.iv.i.i314
+  %326 = getelementptr [8 x i8], ptr %86, i64 %indvars.iv.i.i314
   %327 = getelementptr i8, ptr %326, i64 -8
   %328 = load ptr, ptr %327, align 8, !tbaa !105
   %329 = getelementptr inbounds nuw i8, ptr %328, i64 2
   %330 = load i16, ptr %329, align 2, !tbaa !120
   %331 = load ptr, ptr %326, align 8, !tbaa !105
   store i16 %330, ptr %331, align 2, !tbaa !120
-  %332 = getelementptr inbounds nuw i16, ptr %328, i64 %87
+  %332 = getelementptr inbounds nuw [2 x i8], ptr %328, i64 %87
   %333 = load i16, ptr %332, align 2, !tbaa !120
-  %334 = getelementptr inbounds nuw i16, ptr %331, i64 %87
+  %334 = getelementptr inbounds nuw [2 x i8], ptr %331, i64 %87
   %335 = getelementptr inbounds nuw i8, ptr %334, i64 2
   store i16 %333, ptr %335, align 2, !tbaa !120
   %indvars.iv.next.i.i315 = add nuw nsw i64 %indvars.iv.i.i314, 1
@@ -1679,16 +1679,16 @@ _ZL16fuji_extend_bluePPti.exit:                   ; preds = %311, %309
 
 _ZL15fuji_extend_redPPti.exit317:                 ; preds = %325, %_ZL15fuji_extend_redPPti.exit317
   %indvars.iv.i.i318 = phi i64 [ %indvars.iv.next.i.i319, %_ZL15fuji_extend_redPPti.exit317 ], [ 7, %325 ]
-  %336 = getelementptr ptr, ptr %86, i64 %indvars.iv.i.i318
+  %336 = getelementptr [8 x i8], ptr %86, i64 %indvars.iv.i.i318
   %337 = getelementptr i8, ptr %336, i64 -8
   %338 = load ptr, ptr %337, align 8, !tbaa !105
   %339 = getelementptr inbounds nuw i8, ptr %338, i64 2
   %340 = load i16, ptr %339, align 2, !tbaa !120
   %341 = load ptr, ptr %336, align 8, !tbaa !105
   store i16 %340, ptr %341, align 2, !tbaa !120
-  %342 = getelementptr inbounds nuw i16, ptr %338, i64 %87
+  %342 = getelementptr inbounds nuw [2 x i8], ptr %338, i64 %87
   %343 = load i16, ptr %342, align 2, !tbaa !120
-  %344 = getelementptr inbounds nuw i16, ptr %341, i64 %87
+  %344 = getelementptr inbounds nuw [2 x i8], ptr %341, i64 %87
   %345 = getelementptr inbounds nuw i8, ptr %344, i64 2
   store i16 %343, ptr %345, align 2, !tbaa !120
   %indvars.iv.next.i.i319 = add nuw nsw i64 %indvars.iv.i.i318, 1
@@ -1741,17 +1741,17 @@ _ZL17fuji_extend_greenPPti.exit321.preheader:     ; preds = %_ZL15fuji_extend_re
 
 371:                                              ; preds = %361
   %372 = sext i32 %.2254387 to i64
-  %373 = getelementptr inbounds i16, ptr %370, i64 %372
-  %374 = getelementptr inbounds i16, ptr %373, i64 %350
+  %373 = getelementptr inbounds [2 x i8], ptr %370, i64 %372
+  %374 = getelementptr inbounds [2 x i8], ptr %373, i64 %350
   %375 = load i16, ptr %374, align 2, !tbaa !120
   %376 = zext i16 %375 to i32
-  %377 = getelementptr inbounds i16, ptr %373, i64 %352
+  %377 = getelementptr inbounds [2 x i8], ptr %373, i64 %352
   %378 = load i16, ptr %377, align 2, !tbaa !120
   %379 = zext i16 %378 to i32
-  %380 = getelementptr inbounds i16, ptr %373, i64 %354
+  %380 = getelementptr inbounds [2 x i8], ptr %373, i64 %354
   %381 = load i16, ptr %380, align 2, !tbaa !120
   %382 = zext i16 %381 to i32
-  %383 = getelementptr inbounds i16, ptr %373, i64 %357
+  %383 = getelementptr inbounds [2 x i8], ptr %373, i64 %357
   %384 = load i16, ptr %383, align 2, !tbaa !120
   %385 = zext i16 %384 to i32
   %386 = sub nsw i32 %379, %376
@@ -1835,16 +1835,16 @@ _ZL17fuji_extend_greenPPti.exit321:               ; preds = %416, %414
 
 430:                                              ; preds = %.preheader363, %430
   %indvars.iv.i.i326 = phi i64 [ %indvars.iv.next.i.i327, %430 ], [ 7, %.preheader363 ]
-  %431 = getelementptr ptr, ptr %86, i64 %indvars.iv.i.i326
+  %431 = getelementptr [8 x i8], ptr %86, i64 %indvars.iv.i.i326
   %432 = getelementptr i8, ptr %431, i64 -8
   %433 = load ptr, ptr %432, align 8, !tbaa !105
   %434 = getelementptr inbounds nuw i8, ptr %433, i64 2
   %435 = load i16, ptr %434, align 2, !tbaa !120
   %436 = load ptr, ptr %431, align 8, !tbaa !105
   store i16 %435, ptr %436, align 2, !tbaa !120
-  %437 = getelementptr inbounds nuw i16, ptr %433, i64 %87
+  %437 = getelementptr inbounds nuw [2 x i8], ptr %433, i64 %87
   %438 = load i16, ptr %437, align 2, !tbaa !120
-  %439 = getelementptr inbounds nuw i16, ptr %436, i64 %87
+  %439 = getelementptr inbounds nuw [2 x i8], ptr %436, i64 %87
   %440 = getelementptr inbounds nuw i8, ptr %439, i64 2
   store i16 %438, ptr %440, align 2, !tbaa !120
   %indvars.iv.next.i.i327 = add nuw nsw i64 %indvars.iv.i.i326, 1
@@ -1853,16 +1853,16 @@ _ZL17fuji_extend_greenPPti.exit321:               ; preds = %416, %414
 
 _ZL17fuji_extend_greenPPti.exit329:               ; preds = %430, %_ZL17fuji_extend_greenPPti.exit329
   %indvars.iv.i.i330 = phi i64 [ %indvars.iv.next.i.i331, %_ZL17fuji_extend_greenPPti.exit329 ], [ 15, %430 ]
-  %441 = getelementptr ptr, ptr %86, i64 %indvars.iv.i.i330
+  %441 = getelementptr [8 x i8], ptr %86, i64 %indvars.iv.i.i330
   %442 = getelementptr i8, ptr %441, i64 -8
   %443 = load ptr, ptr %442, align 8, !tbaa !105
   %444 = getelementptr inbounds nuw i8, ptr %443, i64 2
   %445 = load i16, ptr %444, align 2, !tbaa !120
   %446 = load ptr, ptr %441, align 8, !tbaa !105
   store i16 %445, ptr %446, align 2, !tbaa !120
-  %447 = getelementptr inbounds nuw i16, ptr %443, i64 %87
+  %447 = getelementptr inbounds nuw [2 x i8], ptr %443, i64 %87
   %448 = load i16, ptr %447, align 2, !tbaa !120
-  %449 = getelementptr inbounds nuw i16, ptr %446, i64 %87
+  %449 = getelementptr inbounds nuw [2 x i8], ptr %446, i64 %87
   %450 = getelementptr inbounds nuw i8, ptr %449, i64 2
   store i16 %448, ptr %450, align 2, !tbaa !120
   %indvars.iv.next.i.i331 = add nuw nsw i64 %indvars.iv.i.i330, 1
@@ -1910,17 +1910,17 @@ _ZL16fuji_extend_bluePPti.exit333.preheader:      ; preds = %_ZL17fuji_extend_gr
 
 471:                                              ; preds = %466
   %472 = sext i32 %.4396 to i64
-  %473 = getelementptr inbounds i16, ptr %470, i64 %472
-  %474 = getelementptr inbounds i16, ptr %473, i64 %454
+  %473 = getelementptr inbounds [2 x i8], ptr %470, i64 %472
+  %474 = getelementptr inbounds [2 x i8], ptr %473, i64 %454
   %475 = load i16, ptr %474, align 2, !tbaa !120
   %476 = zext i16 %475 to i32
-  %477 = getelementptr inbounds i16, ptr %473, i64 %456
+  %477 = getelementptr inbounds [2 x i8], ptr %473, i64 %456
   %478 = load i16, ptr %477, align 2, !tbaa !120
   %479 = zext i16 %478 to i32
-  %480 = getelementptr inbounds i16, ptr %473, i64 %458
+  %480 = getelementptr inbounds [2 x i8], ptr %473, i64 %458
   %481 = load i16, ptr %480, align 2, !tbaa !120
   %482 = zext i16 %481 to i32
-  %483 = getelementptr inbounds i16, ptr %473, i64 %461
+  %483 = getelementptr inbounds [2 x i8], ptr %473, i64 %461
   %484 = load i16, ptr %483, align 2, !tbaa !120
   %485 = zext i16 %484 to i32
   %486 = sub nsw i32 %479, %476
@@ -2009,16 +2009,16 @@ _ZL16fuji_extend_bluePPti.exit333:                ; preds = %521, %519
 
 535:                                              ; preds = %.preheader362, %535
   %indvars.iv.i.i338 = phi i64 [ %indvars.iv.next.i.i339, %535 ], [ 2, %.preheader362 ]
-  %536 = getelementptr ptr, ptr %86, i64 %indvars.iv.i.i338
+  %536 = getelementptr [8 x i8], ptr %86, i64 %indvars.iv.i.i338
   %537 = getelementptr i8, ptr %536, i64 -8
   %538 = load ptr, ptr %537, align 8, !tbaa !105
   %539 = getelementptr inbounds nuw i8, ptr %538, i64 2
   %540 = load i16, ptr %539, align 2, !tbaa !120
   %541 = load ptr, ptr %536, align 8, !tbaa !105
   store i16 %540, ptr %541, align 2, !tbaa !120
-  %542 = getelementptr inbounds nuw i16, ptr %538, i64 %87
+  %542 = getelementptr inbounds nuw [2 x i8], ptr %538, i64 %87
   %543 = load i16, ptr %542, align 2, !tbaa !120
-  %544 = getelementptr inbounds nuw i16, ptr %541, i64 %87
+  %544 = getelementptr inbounds nuw [2 x i8], ptr %541, i64 %87
   %545 = getelementptr inbounds nuw i8, ptr %544, i64 2
   store i16 %543, ptr %545, align 2, !tbaa !120
   %indvars.iv.next.i.i339 = add nuw nsw i64 %indvars.iv.i.i338, 1
@@ -2027,16 +2027,16 @@ _ZL16fuji_extend_bluePPti.exit333:                ; preds = %521, %519
 
 _ZL15fuji_extend_redPPti.exit341:                 ; preds = %535, %_ZL15fuji_extend_redPPti.exit341
   %indvars.iv.i.i342 = phi i64 [ %indvars.iv.next.i.i343, %_ZL15fuji_extend_redPPti.exit341 ], [ 7, %535 ]
-  %546 = getelementptr ptr, ptr %86, i64 %indvars.iv.i.i342
+  %546 = getelementptr [8 x i8], ptr %86, i64 %indvars.iv.i.i342
   %547 = getelementptr i8, ptr %546, i64 -8
   %548 = load ptr, ptr %547, align 8, !tbaa !105
   %549 = getelementptr inbounds nuw i8, ptr %548, i64 2
   %550 = load i16, ptr %549, align 2, !tbaa !120
   %551 = load ptr, ptr %546, align 8, !tbaa !105
   store i16 %550, ptr %551, align 2, !tbaa !120
-  %552 = getelementptr inbounds nuw i16, ptr %548, i64 %87
+  %552 = getelementptr inbounds nuw [2 x i8], ptr %548, i64 %87
   %553 = load i16, ptr %552, align 2, !tbaa !120
-  %554 = getelementptr inbounds nuw i16, ptr %551, i64 %87
+  %554 = getelementptr inbounds nuw [2 x i8], ptr %551, i64 %87
   %555 = getelementptr inbounds nuw i8, ptr %554, i64 2
   store i16 %553, ptr %555, align 2, !tbaa !120
   %indvars.iv.next.i.i343 = add nuw nsw i64 %indvars.iv.i.i342, 1
@@ -2079,17 +2079,17 @@ _ZL17fuji_extend_greenPPti.exit345.preheader:     ; preds = %_ZL15fuji_extend_re
   %572 = load ptr, ptr %556, align 8, !tbaa !105
   %573 = getelementptr inbounds nuw i8, ptr %572, i64 2
   %574 = sext i32 %.10280399 to i64
-  %575 = getelementptr inbounds i16, ptr %573, i64 %574
-  %576 = getelementptr inbounds i16, ptr %575, i64 %558
+  %575 = getelementptr inbounds [2 x i8], ptr %573, i64 %574
+  %576 = getelementptr inbounds [2 x i8], ptr %575, i64 %558
   %577 = load i16, ptr %576, align 2, !tbaa !120
   %578 = zext i16 %577 to i32
-  %579 = getelementptr inbounds i16, ptr %575, i64 %560
+  %579 = getelementptr inbounds [2 x i8], ptr %575, i64 %560
   %580 = load i16, ptr %579, align 2, !tbaa !120
   %581 = zext i16 %580 to i32
-  %582 = getelementptr inbounds i16, ptr %575, i64 %562
+  %582 = getelementptr inbounds [2 x i8], ptr %575, i64 %562
   %583 = load i16, ptr %582, align 2, !tbaa !120
   %584 = zext i16 %583 to i32
-  %585 = getelementptr inbounds i16, ptr %575, i64 %565
+  %585 = getelementptr inbounds [2 x i8], ptr %575, i64 %565
   %586 = load i16, ptr %585, align 2, !tbaa !120
   %587 = zext i16 %586 to i32
   %588 = sub nsw i32 %581, %578
@@ -2144,17 +2144,17 @@ _ZL30fuji_decode_interpolation_eveniPti.exit349:  ; preds = %596, %605, %607
 
 618:                                              ; preds = %_ZL30fuji_decode_interpolation_eveniPti.exit349
   %619 = sext i32 %.4256401 to i64
-  %620 = getelementptr inbounds i16, ptr %614, i64 %619
-  %621 = getelementptr inbounds i16, ptr %620, i64 %558
+  %620 = getelementptr inbounds [2 x i8], ptr %614, i64 %619
+  %621 = getelementptr inbounds [2 x i8], ptr %620, i64 %558
   %622 = load i16, ptr %621, align 2, !tbaa !120
   %623 = zext i16 %622 to i32
-  %624 = getelementptr inbounds i16, ptr %620, i64 %560
+  %624 = getelementptr inbounds [2 x i8], ptr %620, i64 %560
   %625 = load i16, ptr %624, align 2, !tbaa !120
   %626 = zext i16 %625 to i32
-  %627 = getelementptr inbounds i16, ptr %620, i64 %562
+  %627 = getelementptr inbounds [2 x i8], ptr %620, i64 %562
   %628 = load i16, ptr %627, align 2, !tbaa !120
   %629 = zext i16 %628 to i32
-  %630 = getelementptr inbounds i16, ptr %620, i64 %565
+  %630 = getelementptr inbounds [2 x i8], ptr %620, i64 %565
   %631 = load i16, ptr %630, align 2, !tbaa !120
   %632 = zext i16 %631 to i32
   %633 = sub nsw i32 %626, %623
@@ -2233,16 +2233,16 @@ _ZL17fuji_extend_greenPPti.exit345:               ; preds = %660, %658
 
 674:                                              ; preds = %.preheader, %674
   %indvars.iv.i.i354 = phi i64 [ %indvars.iv.next.i.i355, %674 ], [ 7, %.preheader ]
-  %675 = getelementptr ptr, ptr %86, i64 %indvars.iv.i.i354
+  %675 = getelementptr [8 x i8], ptr %86, i64 %indvars.iv.i.i354
   %676 = getelementptr i8, ptr %675, i64 -8
   %677 = load ptr, ptr %676, align 8, !tbaa !105
   %678 = getelementptr inbounds nuw i8, ptr %677, i64 2
   %679 = load i16, ptr %678, align 2, !tbaa !120
   %680 = load ptr, ptr %675, align 8, !tbaa !105
   store i16 %679, ptr %680, align 2, !tbaa !120
-  %681 = getelementptr inbounds nuw i16, ptr %677, i64 %87
+  %681 = getelementptr inbounds nuw [2 x i8], ptr %677, i64 %87
   %682 = load i16, ptr %681, align 2, !tbaa !120
-  %683 = getelementptr inbounds nuw i16, ptr %680, i64 %87
+  %683 = getelementptr inbounds nuw [2 x i8], ptr %680, i64 %87
   %684 = getelementptr inbounds nuw i8, ptr %683, i64 2
   store i16 %682, ptr %684, align 2, !tbaa !120
   %indvars.iv.next.i.i355 = add nuw nsw i64 %indvars.iv.i.i354, 1
@@ -2251,16 +2251,16 @@ _ZL17fuji_extend_greenPPti.exit345:               ; preds = %660, %658
 
 _ZL17fuji_extend_greenPPti.exit357:               ; preds = %674, %_ZL17fuji_extend_greenPPti.exit357
   %indvars.iv.i.i358 = phi i64 [ %indvars.iv.next.i.i359, %_ZL17fuji_extend_greenPPti.exit357 ], [ 15, %674 ]
-  %685 = getelementptr ptr, ptr %86, i64 %indvars.iv.i.i358
+  %685 = getelementptr [8 x i8], ptr %86, i64 %indvars.iv.i.i358
   %686 = getelementptr i8, ptr %685, i64 -8
   %687 = load ptr, ptr %686, align 8, !tbaa !105
   %688 = getelementptr inbounds nuw i8, ptr %687, i64 2
   %689 = load i16, ptr %688, align 2, !tbaa !120
   %690 = load ptr, ptr %685, align 8, !tbaa !105
   store i16 %689, ptr %690, align 2, !tbaa !120
-  %691 = getelementptr inbounds nuw i16, ptr %687, i64 %87
+  %691 = getelementptr inbounds nuw [2 x i8], ptr %687, i64 %87
   %692 = load i16, ptr %691, align 2, !tbaa !120
-  %693 = getelementptr inbounds nuw i16, ptr %690, i64 %87
+  %693 = getelementptr inbounds nuw [2 x i8], ptr %690, i64 %87
   %694 = getelementptr inbounds nuw i8, ptr %693, i64 2
   store i16 %692, ptr %694, align 2, !tbaa !120
   %indvars.iv.next.i.i359 = add nuw nsw i64 %indvars.iv.i.i358, 1
@@ -2287,29 +2287,29 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL23fuji_decode_sample_even
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !6
   %8 = sext i32 %3 to i64
-  %9 = getelementptr inbounds i16, ptr %2, i64 %8
+  %9 = getelementptr inbounds [2 x i8], ptr %2, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 148
   %11 = load i16, ptr %10, align 4, !tbaa !90
   %12 = zext i16 %11 to i32
   %13 = sub nuw nsw i32 -2, %12
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds i16, ptr %9, i64 %14
+  %15 = getelementptr inbounds [2 x i8], ptr %9, i64 %14
   %16 = load i16, ptr %15, align 2, !tbaa !120
   %17 = zext i16 %16 to i32
   %18 = sub nuw nsw i32 -3, %12
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds i16, ptr %9, i64 %19
+  %20 = getelementptr inbounds [2 x i8], ptr %9, i64 %19
   %21 = load i16, ptr %20, align 2, !tbaa !120
   %22 = zext i16 %21 to i32
   %23 = xor i32 %12, -1
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds i16, ptr %9, i64 %24
+  %25 = getelementptr inbounds [2 x i8], ptr %9, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !120
   %27 = zext i16 %26 to i32
   %28 = shl nuw nsw i32 %12, 1
   %29 = sub nuw nsw i32 -4, %28
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds i16, ptr %9, i64 %30
+  %31 = getelementptr inbounds [2 x i8], ptr %9, i64 %30
   %32 = load i16, ptr %31, align 2, !tbaa !120
   %33 = zext i16 %32 to i32
   %34 = sub nsw i32 %22, %17
@@ -2338,14 +2338,14 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL23fuji_decode_sample_even
 
 47:                                               ; preds = %.lr.ph, %46
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %46 ]
-  %48 = getelementptr inbounds nuw %struct.fuji_q_table, ptr %1, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %50 = load i32, ptr %49, align 8, !tbaa !21
   %.not = icmp sgt i32 %43, %50
   br i1 %.not, label %46, label %51
 
 51:                                               ; preds = %47
-  %52 = getelementptr [5 x %struct.int_pair], ptr %4, i64 %indvars.iv
+  %52 = getelementptr [40 x i8], ptr %4, i64 %indvars.iv
   %53 = getelementptr i8, ptr %52, i64 288
   br label %.loopexit
 
@@ -2413,7 +2413,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL23fuji_decode_sample_even
 
 97:                                               ; preds = %88
   %98 = zext nneg i32 %72 to i64
-  %99 = getelementptr inbounds nuw %struct.int_pair, ptr %.0120, i64 %98
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %.0120, i64 %98
   %100 = load i32, ptr %99, align 4, !tbaa !93
   %101 = getelementptr inbounds nuw i8, ptr %99, i64 4
   %102 = load i32, ptr %101, align 4, !tbaa !95
@@ -2476,7 +2476,7 @@ _ZL7bitDiffii.exit:                               ; preds = %.preheader.i, %104,
   %storemerge129 = phi i32 [ %123, %122 ], [ %121, %120 ]
   %125 = tail call i32 @llvm.abs.i32(i32 %storemerge129, i1 true)
   %126 = zext nneg i32 %72 to i64
-  %127 = getelementptr inbounds nuw %struct.int_pair, ptr %.0120, i64 %126
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %.0120, i64 %126
   %128 = load i32, ptr %127, align 4, !tbaa !93
   %129 = add nsw i32 %128, %125
   store i32 %129, ptr %127, align 4, !tbaa !93
@@ -2562,7 +2562,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL22fuji_decode_sample_oddP
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4, !tbaa !6
   %8 = sext i32 %3 to i64
-  %9 = getelementptr inbounds i16, ptr %2, i64 %8
+  %9 = getelementptr inbounds [2 x i8], ptr %2, i64 %8
   %10 = getelementptr inbounds i8, ptr %9, i64 -2
   %11 = load i16, ptr %10, align 2, !tbaa !120
   %12 = zext i16 %11 to i32
@@ -2571,17 +2571,17 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL22fuji_decode_sample_oddP
   %15 = zext i16 %14 to i32
   %16 = sub nuw nsw i32 -2, %15
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds i16, ptr %9, i64 %17
+  %18 = getelementptr inbounds [2 x i8], ptr %9, i64 %17
   %19 = load i16, ptr %18, align 2, !tbaa !120
   %20 = zext i16 %19 to i32
   %21 = sub nuw nsw i32 -3, %15
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds i16, ptr %9, i64 %22
+  %23 = getelementptr inbounds [2 x i8], ptr %9, i64 %22
   %24 = load i16, ptr %23, align 2, !tbaa !120
   %25 = zext i16 %24 to i32
   %26 = xor i32 %15, -1
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds i16, ptr %9, i64 %27
+  %28 = getelementptr inbounds [2 x i8], ptr %9, i64 %27
   %29 = load i16, ptr %28, align 2, !tbaa !120
   %30 = getelementptr inbounds nuw i8, ptr %9, i64 2
   %31 = load i16, ptr %30, align 2, !tbaa !120
@@ -2610,14 +2610,14 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL22fuji_decode_sample_oddP
 
 44:                                               ; preds = %.lr.ph, %43
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %43 ]
-  %45 = getelementptr inbounds nuw %struct.fuji_q_table, ptr %1, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load i32, ptr %46, align 8, !tbaa !21
   %.not = icmp sgt i32 %40, %47
   br i1 %.not, label %43, label %48
 
 48:                                               ; preds = %44
-  %49 = getelementptr [5 x %struct.int_pair], ptr %4, i64 %indvars.iv
+  %49 = getelementptr [40 x i8], ptr %4, i64 %indvars.iv
   %50 = getelementptr i8, ptr %49, i64 288
   br label %.loopexit
 
@@ -2680,7 +2680,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL22fuji_decode_sample_oddP
 
 91:                                               ; preds = %82
   %92 = zext nneg i32 %68 to i64
-  %93 = getelementptr inbounds nuw %struct.int_pair, ptr %.0110, i64 %92
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %.0110, i64 %92
   %94 = load i32, ptr %93, align 4, !tbaa !93
   %95 = getelementptr inbounds nuw i8, ptr %93, i64 4
   %96 = load i32, ptr %95, align 4, !tbaa !95
@@ -2743,7 +2743,7 @@ _ZL7bitDiffii.exit:                               ; preds = %.preheader.i, %98, 
   %storemerge119 = phi i32 [ %117, %116 ], [ %115, %114 ]
   %119 = tail call i32 @llvm.abs.i32(i32 %storemerge119, i1 true)
   %120 = zext nneg i32 %68 to i64
-  %121 = getelementptr inbounds nuw %struct.int_pair, ptr %.0110, i64 %120
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %.0110, i64 %120
   %122 = load i32, ptr %121, align 4, !tbaa !93
   %123 = add nsw i32 %122, %119
   store i32 %123, ptr %121, align 4, !tbaa !93
@@ -2894,16 +2894,16 @@ define void @_ZN6LibRaw23fuji_bayer_decode_blockEP21fuji_compressed_blockPK22fuj
 
 44:                                               ; preds = %44, %._crit_edge
   %indvars.iv.i.i = phi i64 [ 2, %._crit_edge ], [ %indvars.iv.next.i.i, %44 ]
-  %45 = getelementptr ptr, ptr %42, i64 %indvars.iv.i.i
+  %45 = getelementptr [8 x i8], ptr %42, i64 %indvars.iv.i.i
   %46 = getelementptr i8, ptr %45, i64 -8
   %47 = load ptr, ptr %46, align 8, !tbaa !105
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 2
   %49 = load i16, ptr %48, align 2, !tbaa !120
   %50 = load ptr, ptr %45, align 8, !tbaa !105
   store i16 %49, ptr %50, align 2, !tbaa !120
-  %51 = getelementptr inbounds nuw i16, ptr %47, i64 %43
+  %51 = getelementptr inbounds nuw [2 x i8], ptr %47, i64 %43
   %52 = load i16, ptr %51, align 2, !tbaa !120
-  %53 = getelementptr inbounds nuw i16, ptr %50, i64 %43
+  %53 = getelementptr inbounds nuw [2 x i8], ptr %50, i64 %43
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 2
   store i16 %52, ptr %54, align 2, !tbaa !120
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -2912,16 +2912,16 @@ define void @_ZN6LibRaw23fuji_bayer_decode_blockEP21fuji_compressed_blockPK22fuj
 
 _ZL15fuji_extend_redPPti.exit:                    ; preds = %44, %_ZL15fuji_extend_redPPti.exit
   %indvars.iv.i.i285 = phi i64 [ %indvars.iv.next.i.i286, %_ZL15fuji_extend_redPPti.exit ], [ 7, %44 ]
-  %55 = getelementptr ptr, ptr %42, i64 %indvars.iv.i.i285
+  %55 = getelementptr [8 x i8], ptr %42, i64 %indvars.iv.i.i285
   %56 = getelementptr i8, ptr %55, i64 -8
   %57 = load ptr, ptr %56, align 8, !tbaa !105
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 2
   %59 = load i16, ptr %58, align 2, !tbaa !120
   %60 = load ptr, ptr %55, align 8, !tbaa !105
   store i16 %59, ptr %60, align 2, !tbaa !120
-  %61 = getelementptr inbounds nuw i16, ptr %57, i64 %43
+  %61 = getelementptr inbounds nuw [2 x i8], ptr %57, i64 %43
   %62 = load i16, ptr %61, align 2, !tbaa !120
-  %63 = getelementptr inbounds nuw i16, ptr %60, i64 %43
+  %63 = getelementptr inbounds nuw [2 x i8], ptr %60, i64 %43
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 2
   store i16 %62, ptr %64, align 2, !tbaa !120
   %indvars.iv.next.i.i286 = add nuw nsw i64 %indvars.iv.i.i285, 1
@@ -2995,16 +2995,16 @@ _ZL17fuji_extend_greenPPti.exit:                  ; preds = %84, %82
 
 98:                                               ; preds = %.preheader330, %98
   %indvars.iv.i.i288 = phi i64 [ %indvars.iv.next.i.i289, %98 ], [ 7, %.preheader330 ]
-  %99 = getelementptr ptr, ptr %42, i64 %indvars.iv.i.i288
+  %99 = getelementptr [8 x i8], ptr %42, i64 %indvars.iv.i.i288
   %100 = getelementptr i8, ptr %99, i64 -8
   %101 = load ptr, ptr %100, align 8, !tbaa !105
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 2
   %103 = load i16, ptr %102, align 2, !tbaa !120
   %104 = load ptr, ptr %99, align 8, !tbaa !105
   store i16 %103, ptr %104, align 2, !tbaa !120
-  %105 = getelementptr inbounds nuw i16, ptr %101, i64 %43
+  %105 = getelementptr inbounds nuw [2 x i8], ptr %101, i64 %43
   %106 = load i16, ptr %105, align 2, !tbaa !120
-  %107 = getelementptr inbounds nuw i16, ptr %104, i64 %43
+  %107 = getelementptr inbounds nuw [2 x i8], ptr %104, i64 %43
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 2
   store i16 %106, ptr %108, align 2, !tbaa !120
   %indvars.iv.next.i.i289 = add nuw nsw i64 %indvars.iv.i.i288, 1
@@ -3013,16 +3013,16 @@ _ZL17fuji_extend_greenPPti.exit:                  ; preds = %84, %82
 
 _ZL17fuji_extend_greenPPti.exit291:               ; preds = %98, %_ZL17fuji_extend_greenPPti.exit291
   %indvars.iv.i.i292 = phi i64 [ %indvars.iv.next.i.i293, %_ZL17fuji_extend_greenPPti.exit291 ], [ 15, %98 ]
-  %109 = getelementptr ptr, ptr %42, i64 %indvars.iv.i.i292
+  %109 = getelementptr [8 x i8], ptr %42, i64 %indvars.iv.i.i292
   %110 = getelementptr i8, ptr %109, i64 -8
   %111 = load ptr, ptr %110, align 8, !tbaa !105
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 2
   %113 = load i16, ptr %112, align 2, !tbaa !120
   %114 = load ptr, ptr %109, align 8, !tbaa !105
   store i16 %113, ptr %114, align 2, !tbaa !120
-  %115 = getelementptr inbounds nuw i16, ptr %111, i64 %43
+  %115 = getelementptr inbounds nuw [2 x i8], ptr %111, i64 %43
   %116 = load i16, ptr %115, align 2, !tbaa !120
-  %117 = getelementptr inbounds nuw i16, ptr %114, i64 %43
+  %117 = getelementptr inbounds nuw [2 x i8], ptr %114, i64 %43
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 2
   store i16 %116, ptr %118, align 2, !tbaa !120
   %indvars.iv.next.i.i293 = add nuw nsw i64 %indvars.iv.i.i292, 1
@@ -3096,16 +3096,16 @@ _ZL16fuji_extend_bluePPti.exit:                   ; preds = %138, %136
 
 152:                                              ; preds = %.preheader329, %152
   %indvars.iv.i.i295 = phi i64 [ %indvars.iv.next.i.i296, %152 ], [ 2, %.preheader329 ]
-  %153 = getelementptr ptr, ptr %42, i64 %indvars.iv.i.i295
+  %153 = getelementptr [8 x i8], ptr %42, i64 %indvars.iv.i.i295
   %154 = getelementptr i8, ptr %153, i64 -8
   %155 = load ptr, ptr %154, align 8, !tbaa !105
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 2
   %157 = load i16, ptr %156, align 2, !tbaa !120
   %158 = load ptr, ptr %153, align 8, !tbaa !105
   store i16 %157, ptr %158, align 2, !tbaa !120
-  %159 = getelementptr inbounds nuw i16, ptr %155, i64 %43
+  %159 = getelementptr inbounds nuw [2 x i8], ptr %155, i64 %43
   %160 = load i16, ptr %159, align 2, !tbaa !120
-  %161 = getelementptr inbounds nuw i16, ptr %158, i64 %43
+  %161 = getelementptr inbounds nuw [2 x i8], ptr %158, i64 %43
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 2
   store i16 %160, ptr %162, align 2, !tbaa !120
   %indvars.iv.next.i.i296 = add nuw nsw i64 %indvars.iv.i.i295, 1
@@ -3114,16 +3114,16 @@ _ZL16fuji_extend_bluePPti.exit:                   ; preds = %138, %136
 
 _ZL15fuji_extend_redPPti.exit298:                 ; preds = %152, %_ZL15fuji_extend_redPPti.exit298
   %indvars.iv.i.i299 = phi i64 [ %indvars.iv.next.i.i300, %_ZL15fuji_extend_redPPti.exit298 ], [ 7, %152 ]
-  %163 = getelementptr ptr, ptr %42, i64 %indvars.iv.i.i299
+  %163 = getelementptr [8 x i8], ptr %42, i64 %indvars.iv.i.i299
   %164 = getelementptr i8, ptr %163, i64 -8
   %165 = load ptr, ptr %164, align 8, !tbaa !105
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 2
   %167 = load i16, ptr %166, align 2, !tbaa !120
   %168 = load ptr, ptr %163, align 8, !tbaa !105
   store i16 %167, ptr %168, align 2, !tbaa !120
-  %169 = getelementptr inbounds nuw i16, ptr %165, i64 %43
+  %169 = getelementptr inbounds nuw [2 x i8], ptr %165, i64 %43
   %170 = load i16, ptr %169, align 2, !tbaa !120
-  %171 = getelementptr inbounds nuw i16, ptr %168, i64 %43
+  %171 = getelementptr inbounds nuw [2 x i8], ptr %168, i64 %43
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 2
   store i16 %170, ptr %172, align 2, !tbaa !120
   %indvars.iv.next.i.i300 = add nuw nsw i64 %indvars.iv.i.i299, 1
@@ -3197,16 +3197,16 @@ _ZL17fuji_extend_greenPPti.exit302:               ; preds = %192, %190
 
 206:                                              ; preds = %.preheader328, %206
   %indvars.iv.i.i303 = phi i64 [ %indvars.iv.next.i.i304, %206 ], [ 7, %.preheader328 ]
-  %207 = getelementptr ptr, ptr %42, i64 %indvars.iv.i.i303
+  %207 = getelementptr [8 x i8], ptr %42, i64 %indvars.iv.i.i303
   %208 = getelementptr i8, ptr %207, i64 -8
   %209 = load ptr, ptr %208, align 8, !tbaa !105
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 2
   %211 = load i16, ptr %210, align 2, !tbaa !120
   %212 = load ptr, ptr %207, align 8, !tbaa !105
   store i16 %211, ptr %212, align 2, !tbaa !120
-  %213 = getelementptr inbounds nuw i16, ptr %209, i64 %43
+  %213 = getelementptr inbounds nuw [2 x i8], ptr %209, i64 %43
   %214 = load i16, ptr %213, align 2, !tbaa !120
-  %215 = getelementptr inbounds nuw i16, ptr %212, i64 %43
+  %215 = getelementptr inbounds nuw [2 x i8], ptr %212, i64 %43
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 2
   store i16 %214, ptr %216, align 2, !tbaa !120
   %indvars.iv.next.i.i304 = add nuw nsw i64 %indvars.iv.i.i303, 1
@@ -3215,16 +3215,16 @@ _ZL17fuji_extend_greenPPti.exit302:               ; preds = %192, %190
 
 _ZL17fuji_extend_greenPPti.exit306:               ; preds = %206, %_ZL17fuji_extend_greenPPti.exit306
   %indvars.iv.i.i307 = phi i64 [ %indvars.iv.next.i.i308, %_ZL17fuji_extend_greenPPti.exit306 ], [ 15, %206 ]
-  %217 = getelementptr ptr, ptr %42, i64 %indvars.iv.i.i307
+  %217 = getelementptr [8 x i8], ptr %42, i64 %indvars.iv.i.i307
   %218 = getelementptr i8, ptr %217, i64 -8
   %219 = load ptr, ptr %218, align 8, !tbaa !105
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 2
   %221 = load i16, ptr %220, align 2, !tbaa !120
   %222 = load ptr, ptr %217, align 8, !tbaa !105
   store i16 %221, ptr %222, align 2, !tbaa !120
-  %223 = getelementptr inbounds nuw i16, ptr %219, i64 %43
+  %223 = getelementptr inbounds nuw [2 x i8], ptr %219, i64 %43
   %224 = load i16, ptr %223, align 2, !tbaa !120
-  %225 = getelementptr inbounds nuw i16, ptr %222, i64 %43
+  %225 = getelementptr inbounds nuw [2 x i8], ptr %222, i64 %43
   %226 = getelementptr inbounds nuw i8, ptr %225, i64 2
   store i16 %224, ptr %226, align 2, !tbaa !120
   %indvars.iv.next.i.i308 = add nuw nsw i64 %indvars.iv.i.i307, 1
@@ -3298,16 +3298,16 @@ _ZL16fuji_extend_bluePPti.exit310:                ; preds = %246, %244
 
 260:                                              ; preds = %.preheader327, %260
   %indvars.iv.i.i311 = phi i64 [ %indvars.iv.next.i.i312, %260 ], [ 2, %.preheader327 ]
-  %261 = getelementptr ptr, ptr %42, i64 %indvars.iv.i.i311
+  %261 = getelementptr [8 x i8], ptr %42, i64 %indvars.iv.i.i311
   %262 = getelementptr i8, ptr %261, i64 -8
   %263 = load ptr, ptr %262, align 8, !tbaa !105
   %264 = getelementptr inbounds nuw i8, ptr %263, i64 2
   %265 = load i16, ptr %264, align 2, !tbaa !120
   %266 = load ptr, ptr %261, align 8, !tbaa !105
   store i16 %265, ptr %266, align 2, !tbaa !120
-  %267 = getelementptr inbounds nuw i16, ptr %263, i64 %43
+  %267 = getelementptr inbounds nuw [2 x i8], ptr %263, i64 %43
   %268 = load i16, ptr %267, align 2, !tbaa !120
-  %269 = getelementptr inbounds nuw i16, ptr %266, i64 %43
+  %269 = getelementptr inbounds nuw [2 x i8], ptr %266, i64 %43
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 2
   store i16 %268, ptr %270, align 2, !tbaa !120
   %indvars.iv.next.i.i312 = add nuw nsw i64 %indvars.iv.i.i311, 1
@@ -3316,16 +3316,16 @@ _ZL16fuji_extend_bluePPti.exit310:                ; preds = %246, %244
 
 _ZL15fuji_extend_redPPti.exit314:                 ; preds = %260, %_ZL15fuji_extend_redPPti.exit314
   %indvars.iv.i.i315 = phi i64 [ %indvars.iv.next.i.i316, %_ZL15fuji_extend_redPPti.exit314 ], [ 7, %260 ]
-  %271 = getelementptr ptr, ptr %42, i64 %indvars.iv.i.i315
+  %271 = getelementptr [8 x i8], ptr %42, i64 %indvars.iv.i.i315
   %272 = getelementptr i8, ptr %271, i64 -8
   %273 = load ptr, ptr %272, align 8, !tbaa !105
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 2
   %275 = load i16, ptr %274, align 2, !tbaa !120
   %276 = load ptr, ptr %271, align 8, !tbaa !105
   store i16 %275, ptr %276, align 2, !tbaa !120
-  %277 = getelementptr inbounds nuw i16, ptr %273, i64 %43
+  %277 = getelementptr inbounds nuw [2 x i8], ptr %273, i64 %43
   %278 = load i16, ptr %277, align 2, !tbaa !120
-  %279 = getelementptr inbounds nuw i16, ptr %276, i64 %43
+  %279 = getelementptr inbounds nuw [2 x i8], ptr %276, i64 %43
   %280 = getelementptr inbounds nuw i8, ptr %279, i64 2
   store i16 %278, ptr %280, align 2, !tbaa !120
   %indvars.iv.next.i.i316 = add nuw nsw i64 %indvars.iv.i.i315, 1
@@ -3399,16 +3399,16 @@ _ZL17fuji_extend_greenPPti.exit318:               ; preds = %300, %298
 
 314:                                              ; preds = %.preheader, %314
   %indvars.iv.i.i319 = phi i64 [ %indvars.iv.next.i.i320, %314 ], [ 7, %.preheader ]
-  %315 = getelementptr ptr, ptr %42, i64 %indvars.iv.i.i319
+  %315 = getelementptr [8 x i8], ptr %42, i64 %indvars.iv.i.i319
   %316 = getelementptr i8, ptr %315, i64 -8
   %317 = load ptr, ptr %316, align 8, !tbaa !105
   %318 = getelementptr inbounds nuw i8, ptr %317, i64 2
   %319 = load i16, ptr %318, align 2, !tbaa !120
   %320 = load ptr, ptr %315, align 8, !tbaa !105
   store i16 %319, ptr %320, align 2, !tbaa !120
-  %321 = getelementptr inbounds nuw i16, ptr %317, i64 %43
+  %321 = getelementptr inbounds nuw [2 x i8], ptr %317, i64 %43
   %322 = load i16, ptr %321, align 2, !tbaa !120
-  %323 = getelementptr inbounds nuw i16, ptr %320, i64 %43
+  %323 = getelementptr inbounds nuw [2 x i8], ptr %320, i64 %43
   %324 = getelementptr inbounds nuw i8, ptr %323, i64 2
   store i16 %322, ptr %324, align 2, !tbaa !120
   %indvars.iv.next.i.i320 = add nuw nsw i64 %indvars.iv.i.i319, 1
@@ -3417,16 +3417,16 @@ _ZL17fuji_extend_greenPPti.exit318:               ; preds = %300, %298
 
 _ZL17fuji_extend_greenPPti.exit322:               ; preds = %314, %_ZL17fuji_extend_greenPPti.exit322
   %indvars.iv.i.i323 = phi i64 [ %indvars.iv.next.i.i324, %_ZL17fuji_extend_greenPPti.exit322 ], [ 15, %314 ]
-  %325 = getelementptr ptr, ptr %42, i64 %indvars.iv.i.i323
+  %325 = getelementptr [8 x i8], ptr %42, i64 %indvars.iv.i.i323
   %326 = getelementptr i8, ptr %325, i64 -8
   %327 = load ptr, ptr %326, align 8, !tbaa !105
   %328 = getelementptr inbounds nuw i8, ptr %327, i64 2
   %329 = load i16, ptr %328, align 2, !tbaa !120
   %330 = load ptr, ptr %325, align 8, !tbaa !105
   store i16 %329, ptr %330, align 2, !tbaa !120
-  %331 = getelementptr inbounds nuw i16, ptr %327, i64 %43
+  %331 = getelementptr inbounds nuw [2 x i8], ptr %327, i64 %43
   %332 = load i16, ptr %331, align 2, !tbaa !120
-  %333 = getelementptr inbounds nuw i16, ptr %330, i64 %43
+  %333 = getelementptr inbounds nuw [2 x i8], ptr %330, i64 %43
   %334 = getelementptr inbounds nuw i8, ptr %333, i64 2
   store i16 %332, ptr %334, align 2, !tbaa !120
   %indvars.iv.next.i.i324 = add nuw nsw i64 %indvars.iv.i.i323, 1
@@ -3554,8 +3554,8 @@ define void @_ZN6LibRaw17fuji_decode_stripEP22fuji_compressed_paramsixjPh(ptr no
 
 .preheader.i:                                     ; preds = %75, %67
   %indvars.iv24.i = phi i64 [ 0, %67 ], [ %indvars.iv.next25.i, %75 ]
-  %73 = getelementptr inbounds nuw %struct.fuji_grads, ptr %48, i64 %indvars.iv24.i
-  %74 = getelementptr inbounds nuw %struct.fuji_grads, ptr %49, i64 %indvars.iv24.i
+  %73 = getelementptr inbounds nuw [448 x i8], ptr %48, i64 %indvars.iv24.i
+  %74 = getelementptr inbounds nuw [448 x i8], ptr %49, i64 %indvars.iv24.i
   br label %76
 
 75:                                               ; preds = %76
@@ -3565,11 +3565,11 @@ define void @_ZN6LibRaw17fuji_decode_stripEP22fuji_compressed_paramsixjPh(ptr no
 
 76:                                               ; preds = %76, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %76 ]
-  %77 = getelementptr inbounds nuw %struct.int_pair, ptr %73, i64 %indvars.iv.i
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %indvars.iv.i
   store i32 %spec.select.i, ptr %77, align 8, !tbaa !93
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 4
   store i32 1, ptr %78, align 4, !tbaa !95
-  %79 = getelementptr inbounds nuw %struct.int_pair, ptr %74, i64 %indvars.iv.i
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %indvars.iv.i
   store i32 %spec.select.i, ptr %79, align 8, !tbaa !93
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 4
   store i32 1, ptr %80, align 4, !tbaa !95
@@ -3600,15 +3600,15 @@ _Z15init_main_gradsPK22fuji_compressed_paramsP21fuji_compressed_block.exit: ; pr
 
 88:                                               ; preds = %.preheader85, %88
   %indvars.iv = phi i64 [ %indvars.iv.next, %88 ], [ 0, %.preheader85 ]
-  %89 = getelementptr inbounds nuw %struct.i_pair, ptr @__const._ZN6LibRaw17fuji_decode_stripEP22fuji_compressed_paramsixjPh.mtable, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZN6LibRaw17fuji_decode_stripEP22fuji_compressed_paramsixjPh.mtable, i64 %indvars.iv
   %90 = load i32, ptr %89, align 8, !tbaa !148
   %91 = sext i32 %90 to i64
-  %92 = getelementptr inbounds ptr, ptr %51, i64 %91
+  %92 = getelementptr inbounds [8 x i8], ptr %51, i64 %91
   %93 = load ptr, ptr %92, align 8, !tbaa !105
   %94 = getelementptr inbounds nuw i8, ptr %89, i64 4
   %95 = load i32, ptr %94, align 4, !tbaa !150
   %96 = sext i32 %95 to i64
-  %97 = getelementptr inbounds ptr, ptr %51, i64 %96
+  %97 = getelementptr inbounds [8 x i8], ptr %51, i64 %96
   %98 = load ptr, ptr %97, align 8, !tbaa !105
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %93, ptr noundef nonnull align 2 dereferenceable(1) %98, i64 %52, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3626,16 +3626,16 @@ _Z15init_main_gradsPK22fuji_compressed_paramsP21fuji_compressed_block.exit: ; pr
 
 103:                                              ; preds = %103, %99
   %indvars.iv.i62 = phi i64 [ 0, %99 ], [ %indvars.iv.next.i63, %103 ]
-  %104 = getelementptr inbounds nuw ptr, ptr %51, i64 %indvars.iv.i62
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %indvars.iv.i62
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 16
   %106 = load ptr, ptr %105, align 8, !tbaa !105
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 2
-  %108 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv.i62
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv.i62
   store ptr %107, ptr %108, align 8, !tbaa !105
   %109 = getelementptr inbounds nuw i8, ptr %104, i64 120
   %110 = load ptr, ptr %109, align 8, !tbaa !105
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 2
-  %112 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.i62
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.i62
   store ptr %111, ptr %112, align 8, !tbaa !105
   %indvars.iv.next.i63 = add nuw nsw i64 %indvars.iv.i62, 1
   %exitcond.not.i64 = icmp eq i64 %indvars.iv.next.i63, 3
@@ -3652,7 +3652,7 @@ _Z15init_main_gradsPK22fuji_compressed_paramsP21fuji_compressed_block.exit: ; pr
   %117 = mul nsw i32 %100, %2
   %118 = add nsw i32 %116, %117
   %119 = sext i32 %118 to i64
-  %120 = getelementptr inbounds i16, ptr %102, i64 %119
+  %120 = getelementptr inbounds [2 x i8], ptr %102, i64 %119
   br label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
@@ -3661,9 +3661,9 @@ _Z15init_main_gradsPK22fuji_compressed_paramsP21fuji_compressed_block.exit: ; pr
   %121 = getelementptr inbounds nuw [6 x i8], ptr %55, i64 %indvars.iv56.i
   %122 = lshr i64 %indvars.iv56.i, 1
   %123 = and i64 %122, 2147483647
-  %124 = getelementptr inbounds nuw ptr, ptr %11, i64 %123
-  %125 = getelementptr inbounds nuw ptr, ptr %13, i64 %123
-  %126 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv56.i
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %123
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %123
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv56.i
   br label %127
 
 127:                                              ; preds = %135, %.preheader.us.i
@@ -3696,9 +3696,9 @@ _Z15init_main_gradsPK22fuji_compressed_paramsP21fuji_compressed_block.exit: ; pr
   %142 = add nuw nsw i32 %141, %140
   %143 = add nuw nsw i32 %142, %138
   %144 = zext nneg i32 %143 to i64
-  %145 = getelementptr inbounds nuw i16, ptr %.038.us.i, i64 %144
+  %145 = getelementptr inbounds nuw [2 x i8], ptr %.038.us.i, i64 %144
   %146 = load i16, ptr %145, align 2, !tbaa !120
-  %147 = getelementptr inbounds nuw i16, ptr %.03644.us.i, i64 %indvars.iv52.i
+  %147 = getelementptr inbounds nuw [2 x i8], ptr %.03644.us.i, i64 %indvars.iv52.i
   store i16 %146, ptr %147, align 2, !tbaa !120
   %indvars.iv.next53.i = add nuw nsw i64 %indvars.iv52.i, 1
   %exitcond55.not.i = icmp eq i64 %indvars.iv.next53.i, %wide.trip.count.i69
@@ -3708,17 +3708,17 @@ _Z15init_main_gradsPK22fuji_compressed_paramsP21fuji_compressed_block.exit: ; pr
   %indvars.iv.next57.i = add nuw nsw i64 %indvars.iv56.i, 1
   %148 = load i16, ptr %33, align 2, !tbaa !117
   %149 = zext i16 %148 to i64
-  %150 = getelementptr inbounds nuw i16, ptr %.03644.us.i, i64 %149
+  %150 = getelementptr inbounds nuw [2 x i8], ptr %.03644.us.i, i64 %149
   %exitcond59.not.i = icmp eq i64 %indvars.iv.next57.i, 6
   br i1 %exitcond59.not.i, label %_ZN6LibRaw19copy_line_to_xtransEP21fuji_compressed_blockiii.exit, label %.preheader.us.i, !llvm.loop !122
 
 .preheader40.i:                                   ; preds = %103, %.preheader40.i
   %indvars.iv48.i = phi i64 [ %indvars.iv.next49.i, %.preheader40.i ], [ 0, %103 ]
-  %151 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv48.i
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv48.i
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 2800
   %153 = load ptr, ptr %152, align 8, !tbaa !105
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 2
-  %155 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv48.i
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv48.i
   store ptr %154, ptr %155, align 8, !tbaa !105
   %indvars.iv.next49.i = add nuw nsw i64 %indvars.iv48.i, 1
   %exitcond51.not.i = icmp eq i64 %indvars.iv.next49.i, 6
@@ -3763,16 +3763,16 @@ _ZN6LibRaw19copy_line_to_xtransEP21fuji_compressed_blockiii.exit: ; preds = %._c
 
 169:                                              ; preds = %169, %165
   %indvars.iv61.i = phi i64 [ 0, %165 ], [ %indvars.iv.next62.i, %169 ]
-  %170 = getelementptr inbounds nuw ptr, ptr %51, i64 %indvars.iv61.i
+  %170 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %indvars.iv61.i
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 16
   %172 = load ptr, ptr %171, align 8, !tbaa !105
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 2
-  %174 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv61.i
+  %174 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv61.i
   store ptr %173, ptr %174, align 8, !tbaa !105
   %175 = getelementptr inbounds nuw i8, ptr %170, i64 120
   %176 = load ptr, ptr %175, align 8, !tbaa !105
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 2
-  %178 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv61.i
+  %178 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv61.i
   store ptr %177, ptr %178, align 8, !tbaa !105
   %indvars.iv.next62.i = add nuw nsw i64 %indvars.iv61.i, 1
   %exitcond.not.i66 = icmp eq i64 %indvars.iv.next62.i, 3
@@ -3789,25 +3789,25 @@ _ZN6LibRaw19copy_line_to_xtransEP21fuji_compressed_blockiii.exit: ; preds = %._c
   %183 = mul nsw i32 %166, %2
   %184 = add nsw i32 %182, %183
   %185 = sext i32 %184 to i64
-  %186 = getelementptr inbounds i16, ptr %168, i64 %185
+  %186 = getelementptr inbounds [2 x i8], ptr %168, i64 %185
   br label %.preheader.us.i70
 
 .preheader.us.i70:                                ; preds = %._crit_edge.us.i71, %.preheader.us.preheader.i68
   %indvars.iv72.i = phi i64 [ 0, %.preheader.us.preheader.i68 ], [ %indvars.iv.next73.i, %._crit_edge.us.i71 ]
   %.04154.us.i = phi ptr [ %186, %.preheader.us.preheader.i68 ], [ %208, %._crit_edge.us.i71 ]
   %187 = and i64 %indvars.iv72.i, 1
-  %188 = getelementptr inbounds nuw [2 x i32], ptr %10, i64 %187
+  %188 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %187
   %189 = lshr i64 %indvars.iv72.i, 1
   %190 = and i64 %189, 2147483647
-  %191 = getelementptr inbounds nuw ptr, ptr %7, i64 %190
-  %192 = getelementptr inbounds nuw ptr, ptr %9, i64 %190
-  %193 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv72.i
+  %191 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %190
+  %192 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %190
+  %193 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv72.i
   br label %194
 
 194:                                              ; preds = %200, %.preheader.us.i70
   %indvars.iv68.i = phi i64 [ 0, %.preheader.us.i70 ], [ %indvars.iv.next69.i, %200 ]
   %195 = and i64 %indvars.iv68.i, 1
-  %196 = getelementptr inbounds nuw i32, ptr %188, i64 %195
+  %196 = getelementptr inbounds nuw [4 x i8], ptr %188, i64 %195
   %197 = load i32, ptr %196, align 4, !tbaa !6
   switch i32 %197, label %199 [
     i32 0, label %198
@@ -3825,9 +3825,9 @@ _ZN6LibRaw19copy_line_to_xtransEP21fuji_compressed_blockiii.exit: ; preds = %._c
   %.045.us.i = load ptr, ptr %.045.in.us.i, align 8, !tbaa !105
   %201 = lshr i64 %indvars.iv68.i, 1
   %202 = and i64 %201, 2147483647
-  %203 = getelementptr inbounds nuw i16, ptr %.045.us.i, i64 %202
+  %203 = getelementptr inbounds nuw [2 x i8], ptr %.045.us.i, i64 %202
   %204 = load i16, ptr %203, align 2, !tbaa !120
-  %205 = getelementptr inbounds nuw i16, ptr %.04154.us.i, i64 %indvars.iv68.i
+  %205 = getelementptr inbounds nuw [2 x i8], ptr %.04154.us.i, i64 %indvars.iv68.i
   store i16 %204, ptr %205, align 2, !tbaa !120
   %indvars.iv.next69.i = add nuw nsw i64 %indvars.iv68.i, 1
   %exitcond71.not.i = icmp eq i64 %indvars.iv.next69.i, %wide.trip.count.i69
@@ -3837,17 +3837,17 @@ _ZN6LibRaw19copy_line_to_xtransEP21fuji_compressed_blockiii.exit: ; preds = %._c
   %indvars.iv.next73.i = add nuw nsw i64 %indvars.iv72.i, 1
   %206 = load i16, ptr %33, align 2, !tbaa !117
   %207 = zext i16 %206 to i64
-  %208 = getelementptr inbounds nuw i16, ptr %.04154.us.i, i64 %207
+  %208 = getelementptr inbounds nuw [2 x i8], ptr %.04154.us.i, i64 %207
   %exitcond75.not.i = icmp eq i64 %indvars.iv.next73.i, 6
   br i1 %exitcond75.not.i, label %_ZN6LibRaw18copy_line_to_bayerEP21fuji_compressed_blockiii.exit, label %.preheader.us.i70, !llvm.loop !128
 
 .preheader47.i:                                   ; preds = %169, %.preheader47.i
   %indvars.iv64.i = phi i64 [ %indvars.iv.next65.i, %.preheader47.i ], [ 0, %169 ]
-  %209 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv64.i
+  %209 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv64.i
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 2800
   %211 = load ptr, ptr %210, align 8, !tbaa !105
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 2
-  %213 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv64.i
+  %213 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv64.i
   store ptr %212, ptr %213, align 8, !tbaa !105
   %indvars.iv.next65.i = add nuw nsw i64 %indvars.iv64.i, 1
   %exitcond67.not.i = icmp eq i64 %indvars.iv.next65.i, 6
@@ -3869,10 +3869,10 @@ _ZN6LibRaw18copy_line_to_bayerEP21fuji_compressed_blockiii.exit: ; preds = %._cr
 
 218:                                              ; preds = %.preheader, %218
   %indvars.iv78 = phi i64 [ %indvars.iv.next79, %218 ], [ 0, %.preheader ]
-  %219 = getelementptr inbounds nuw %struct.i_pair, ptr @__const._ZN6LibRaw17fuji_decode_stripEP22fuji_compressed_paramsixjPh.ztable, i64 %indvars.iv78
+  %219 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZN6LibRaw17fuji_decode_stripEP22fuji_compressed_paramsixjPh.ztable, i64 %indvars.iv78
   %220 = load i32, ptr %219, align 8, !tbaa !148
   %221 = sext i32 %220 to i64
-  %222 = getelementptr inbounds ptr, ptr %51, i64 %221
+  %222 = getelementptr inbounds [8 x i8], ptr %51, i64 %221
   %223 = load ptr, ptr %222, align 8, !tbaa !105
   %224 = getelementptr inbounds nuw i8, ptr %219, i64 4
   %225 = load i32, ptr %224, align 4, !tbaa !150
@@ -3887,9 +3887,9 @@ _ZN6LibRaw18copy_line_to_bayerEP21fuji_compressed_blockiii.exit: ; preds = %._cr
   store i16 %231, ptr %232, align 2, !tbaa !120
   %233 = load i16, ptr %27, align 4, !tbaa !90
   %234 = zext i16 %233 to i64
-  %235 = getelementptr inbounds nuw i16, ptr %229, i64 %234
+  %235 = getelementptr inbounds nuw [2 x i8], ptr %229, i64 %234
   %236 = load i16, ptr %235, align 2, !tbaa !120
-  %237 = getelementptr inbounds nuw i16, ptr %232, i64 %234
+  %237 = getelementptr inbounds nuw [2 x i8], ptr %232, i64 %234
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 2
   store i16 %236, ptr %238, align 2, !tbaa !120
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
@@ -4017,7 +4017,7 @@ define void @_ZN6LibRaw24fuji_compressed_load_rawEv(ptr noundef nonnull align 8 
 
 .lr.ph:                                           ; preds = %59, %_ZN6LibRaw5sgetnEiPh.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN6LibRaw5sgetnEiPh.exit ], [ 0, %59 ]
-  %65 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph
@@ -4044,12 +4044,12 @@ _ZN6LibRaw5sgetnEiPh.exit:                        ; preds = %.lr.ph.i
 .lr.ph42:                                         ; preds = %.lr.ph42.preheader, %.lr.ph42
   %76 = phi i64 [ %62, %.lr.ph42.preheader ], [ %81, %.lr.ph42 ]
   %indvars.iv45 = phi i64 [ 1, %.lr.ph42.preheader ], [ %indvars.iv.next46, %.lr.ph42 ]
-  %77 = getelementptr i32, ptr %8, i64 %indvars.iv45
+  %77 = getelementptr [4 x i8], ptr %8, i64 %indvars.iv45
   %78 = getelementptr i8, ptr %77, i64 -4
   %79 = load i32, ptr %78, align 4, !tbaa !6
   %80 = zext i32 %79 to i64
   %81 = add nsw i64 %76, %80
-  %82 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv45
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv45
   store i64 %81, ptr %82, align 8, !tbaa !155
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next46, %wide.trip.count
@@ -4100,9 +4100,9 @@ define void @_ZN6LibRaw16fuji_decode_loopEP22fuji_compressed_paramsiPxPjPh(ptr n
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
   %indvars.iv17 = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next18, %.lr.ph.split.us ]
-  %13 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv17
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv17
   %14 = load i64, ptr %13, align 8, !tbaa !155
-  %15 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv17
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv17
   %16 = load i32, ptr %15, align 4, !tbaa !6
   %17 = trunc nuw nsw i64 %indvars.iv17 to i32
   tail call void @_ZN6LibRaw17fuji_decode_stripEP22fuji_compressed_paramsixjPh(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef %1, i32 noundef %17, i64 noundef %14, i32 noundef %16, ptr noundef null)
@@ -4112,9 +4112,9 @@ define void @_ZN6LibRaw16fuji_decode_loopEP22fuji_compressed_paramsiPxPjPh(ptr n
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.lr.ph.split
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %.lr.ph.split ]
-  %18 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %19 = load i64, ptr %18, align 8, !tbaa !155
-  %20 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %21 = load i32, ptr %20, align 4, !tbaa !6
   %22 = mul nsw i64 %indvars.iv, %12
   %23 = getelementptr inbounds i8, ptr %5, i64 %22

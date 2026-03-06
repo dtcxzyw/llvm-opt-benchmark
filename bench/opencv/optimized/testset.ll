@@ -18,8 +18,8 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::Matx" = type { [4 x double] }
 %"class.cv::_InputArray" = type { i32, ptr, %"class.cv::Size_" }
 %"class.cv::Size_" = type { i32, i32 }
-%"struct.cv::ml::PairDI" = type { double, i32 }
 %"struct.__gnu_cxx::__ops::_Iter_comp_iter" = type { i8 }
+%"struct.cv::ml::PairDI" = type { double, i32 }
 
 $_ZN2cv7MatExprD2Ev = comdat any
 
@@ -359,7 +359,7 @@ _ZNSt6vectorIN2cv2ml6PairDIESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: ; preds =
 
 116:                                              ; preds = %.lr.ph, %125
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %125 ]
-  %117 = getelementptr inbounds nuw %"struct.cv::ml::PairDI", ptr %105, i64 %indvars.iv
+  %117 = getelementptr inbounds nuw [16 x i8], ptr %105, i64 %indvars.iv
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %119 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %119, ptr %118, align 8, !tbaa !52
@@ -489,11 +489,11 @@ _ZNSt6vectorIN2cv2ml6PairDIESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: ; preds =
   %160 = mul nuw nsw i32 %159, %0
   %161 = udiv i32 %160, %.sroa.speculated105
   %162 = zext nneg i32 %161 to i64
-  %163 = getelementptr %"struct.cv::ml::PairDI", ptr %.sroa.095.0141148, i64 %162
+  %163 = getelementptr [16 x i8], ptr %.sroa.095.0141148, i64 %162
   %164 = getelementptr i8, ptr %163, i64 -16
   %165 = load double, ptr %164, align 8, !tbaa !60
   %166 = and i64 %.146121, 4294967295
-  %167 = getelementptr inbounds nuw %"struct.cv::ml::PairDI", ptr %.sroa.095.0141148, i64 %166
+  %167 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.095.0141148, i64 %166
   %168 = load double, ptr %167, align 8, !tbaa !48
   %169 = fcmp olt double %165, %168
   %.sroa.speculated = select i1 %169, double %168, double %165
@@ -505,7 +505,7 @@ _ZNSt6vectorIN2cv2ml6PairDIESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: ; preds =
 
 174:                                              ; preds = %158, %_ZN2cv3Mat2atIiEERT_i.exit
   %indvars.iv125 = phi i64 [ %166, %158 ], [ %indvars.iv.next126, %_ZN2cv3Mat2atIiEERT_i.exit ]
-  %175 = getelementptr inbounds nuw %"struct.cv::ml::PairDI", ptr %.sroa.095.0141148, i64 %indvars.iv125
+  %175 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.095.0141148, i64 %indvars.iv125
   %176 = load double, ptr %175, align 8, !tbaa !60
   %177 = fcmp ugt double %176, %.sroa.speculated
   br i1 %177, label %.critedge, label %178
@@ -525,7 +525,7 @@ _ZNSt6vectorIN2cv2ml6PairDIESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: ; preds =
 
 186:                                              ; preds = %183, %178
   %187 = sext i32 %180 to i64
-  %188 = getelementptr inbounds i32, ptr %172, i64 %187
+  %188 = getelementptr inbounds [4 x i8], ptr %172, i64 %187
   br label %_ZN2cv3Mat2atIiEERT_i.exit
 
 189:                                              ; preds = %183
@@ -550,7 +550,7 @@ _ZNSt6vectorIN2cv2ml6PairDIESaIS2_EE17_S_check_init_lenEmRKS3_.exit.i: ; preds =
   %203 = mul i64 %201, %202
   %204 = getelementptr inbounds nuw i8, ptr %172, i64 %203
   %205 = sext i32 %.recomposed to i64
-  %206 = getelementptr inbounds i32, ptr %204, i64 %205
+  %206 = getelementptr inbounds [4 x i8], ptr %204, i64 %205
   br label %_ZN2cv3Mat2atIiEERT_i.exit
 
 _ZN2cv3Mat2atIiEERT_i.exit:                       ; preds = %197, %192, %186
@@ -715,7 +715,7 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_it
 
 18:                                               ; preds = %14
   %19 = lshr i64 %15, 1
-  %20 = getelementptr inbounds nuw %"struct.cv::ml::PairDI", ptr %0, i64 %19
+  %20 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %19
   %21 = getelementptr inbounds i8, ptr %storemerge18, i64 -16
   tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN2cv2ml6PairDIESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterINS3_9CmpPairDIEEEEvT_SE_SE_SE_T0_(ptr %0, ptr nonnull %12, ptr %20, ptr nonnull %21)
   br label %22
@@ -964,7 +964,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN2cv2ml6PairDIESt6vectorIS4_
   %54 = sub i64 %53, %6
   %55 = ashr exact i64 %54, 4
   %56 = sub nsw i64 0, %55
-  %57 = getelementptr inbounds %"struct.cv::ml::PairDI", ptr %52, i64 %56
+  %57 = getelementptr inbounds [16 x i8], ptr %52, i64 %56
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %57, ptr noundef nonnull align 8 dereferenceable(1) %0, i64 %54, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !47
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1040,9 +1040,9 @@ define linkonce_odr hidden void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iterato
   %.040.i.i = phi i64 [ %30, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv2ml9CmpPairDIEEclINS_17__normal_iteratorIPNS3_6PairDIESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.thread38.i.i ], [ 0, %.lr.ph ]
   %15 = shl i64 %.040.i.i, 1
   %16 = add i64 %15, 2
-  %17 = getelementptr inbounds %"struct.cv::ml::PairDI", ptr %0, i64 %16
+  %17 = getelementptr inbounds [16 x i8], ptr %0, i64 %16
   %18 = or disjoint i64 %15, 1
-  %19 = getelementptr inbounds %"struct.cv::ml::PairDI", ptr %0, i64 %18
+  %19 = getelementptr inbounds [16 x i8], ptr %0, i64 %18
   %20 = load double, ptr %17, align 8, !tbaa !60
   %21 = load double, ptr %19, align 8, !tbaa !60
   %22 = fcmp olt double %20, %21
@@ -1066,8 +1066,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv2ml9CmpPairDIEEclINS_17__normal_iterato
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv2ml9CmpPairDIEEclINS_17__normal_iteratorIPNS3_6PairDIESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.thread38.i.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv2ml9CmpPairDIEEclINS_17__normal_iteratorIPNS3_6PairDIESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.thread.i.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv2ml9CmpPairDIEEclINS_17__normal_iteratorIPNS3_6PairDIESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i.i, %23
   %30 = phi i64 [ %18, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv2ml9CmpPairDIEEclINS_17__normal_iteratorIPNS3_6PairDIESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.thread.i.i ], [ %16, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv2ml9CmpPairDIEEclINS_17__normal_iteratorIPNS3_6PairDIESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i.i ], [ %16, %23 ]
-  %31 = getelementptr inbounds %"struct.cv::ml::PairDI", ptr %0, i64 %30
-  %32 = getelementptr inbounds %"struct.cv::ml::PairDI", ptr %0, i64 %.040.i.i
+  %31 = getelementptr inbounds [16 x i8], ptr %0, i64 %30
+  %32 = getelementptr inbounds [16 x i8], ptr %0, i64 %.040.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 8 dereferenceable(16) %31, i64 16, i1 false), !tbaa.struct !47
   %33 = icmp slt i64 %30, %13
   br i1 %33, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !74
@@ -1087,8 +1087,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv2ml9CmpPairDIEEclINS_17__normal_iterato
 40:                                               ; preds = %36
   %41 = shl nsw i64 %.0.lcssa.i.i, 1
   %42 = or disjoint i64 %41, 1
-  %43 = getelementptr inbounds %"struct.cv::ml::PairDI", ptr %0, i64 %42
-  %44 = getelementptr inbounds %"struct.cv::ml::PairDI", ptr %0, i64 %.0.lcssa.i.i
+  %43 = getelementptr inbounds [16 x i8], ptr %0, i64 %42
+  %44 = getelementptr inbounds [16 x i8], ptr %0, i64 %.0.lcssa.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef nonnull align 8 dereferenceable(16) %43, i64 16, i1 false), !tbaa.struct !47
   br label %45
 
@@ -1101,7 +1101,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv2ml9CmpPairDIEEclINS_17__normal_iterato
   %.020.i.i.i = phi i64 [ %.0921.i.i89.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv2ml9CmpPairDIEEclINS_17__normal_iteratorIPNS3_6PairDIESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.thread.i.i.i ], [ %.1.i.i, %45 ]
   %.0921.in.i.i.i = add nsw i64 %.020.i.i.i, -1
   %.0921.i.i89.i = lshr i64 %.0921.in.i.i.i, 1
-  %47 = getelementptr inbounds nuw %"struct.cv::ml::PairDI", ptr %0, i64 %.0921.i.i89.i
+  %47 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %.0921.i.i89.i
   %48 = load double, ptr %47, align 8, !tbaa !60
   %49 = fcmp olt double %48, %.sroa.03.0.copyload.i
   br i1 %49, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv2ml9CmpPairDIEEclINS_17__normal_iteratorIPNS3_6PairDIESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.thread.i.i.i, label %50
@@ -1117,14 +1117,14 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv2ml9CmpPairDIEEclINS_17__normal_iterator
   br i1 %54, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv2ml9CmpPairDIEEclINS_17__normal_iteratorIPNS3_6PairDIESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.thread.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv2ml6PairDIESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterINS3_9CmpPairDIEEEEvT_SE_SE_RT0_.exit
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv2ml9CmpPairDIEEclINS_17__normal_iteratorIPNS3_6PairDIESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.thread.i.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv2ml9CmpPairDIEEclINS_17__normal_iteratorIPNS3_6PairDIESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.i.i.i, %.lr.ph.i.i.i
-  %55 = getelementptr inbounds nuw %"struct.cv::ml::PairDI", ptr %0, i64 %.020.i.i.i
+  %55 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %.020.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %55, ptr noundef nonnull align 8 dereferenceable(16) %47, i64 16, i1 false), !tbaa.struct !47
   %.not.i = icmp eq i64 %.0921.i.i89.i, 0
   br i1 %.not.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv2ml6PairDIESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterINS3_9CmpPairDIEEEEvT_SE_SE_RT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !75
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN2cv2ml6PairDIESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterINS3_9CmpPairDIEEEEvT_SE_SE_RT0_.exit: ; preds = %50, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv2ml9CmpPairDIEEclINS_17__normal_iteratorIPNS3_6PairDIESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv2ml9CmpPairDIEEclINS_17__normal_iteratorIPNS3_6PairDIESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.thread.i.i.i, %45
   %.0.lcssa.i.i.i = phi i64 [ %.1.i.i, %45 ], [ %.020.i.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv2ml9CmpPairDIEEclINS_17__normal_iteratorIPNS3_6PairDIESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.i.i.i ], [ 0, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv2ml9CmpPairDIEEclINS_17__normal_iteratorIPNS3_6PairDIESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.thread.i.i.i ], [ %.020.i.i.i, %50 ]
-  %56 = getelementptr inbounds %"struct.cv::ml::PairDI", ptr %0, i64 %.0.lcssa.i.i.i
+  %56 = getelementptr inbounds [16 x i8], ptr %0, i64 %.0.lcssa.i.i.i
   store double %.sroa.03.0.copyload.i, ptr %56, align 8, !tbaa !48
   %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %56, i64 8
   store i32 %.sroa.4.0.copyload.i, ptr %.sroa.3.0..sroa.0.0..sroa_idx.i.i.i, align 8, !tbaa !49
@@ -1153,13 +1153,13 @@ define linkonce_odr hidden void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iterato
   %15 = icmp eq i64 %14, 0
   %16 = lshr exact i64 %10, 1
   %17 = or disjoint i64 %10, 1
-  %18 = getelementptr inbounds nuw %"struct.cv::ml::PairDI", ptr %0, i64 %17
-  %19 = getelementptr inbounds nuw %"struct.cv::ml::PairDI", ptr %0, i64 %16
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %17
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %16
   br label %20
 
 20:                                               ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN2cv2ml6PairDIESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterINS3_9CmpPairDIEEEEvT_T0_SF_T1_T2_.exit, %9
   %.010 = phi i64 [ %11, %9 ], [ %57, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN2cv2ml6PairDIESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterINS3_9CmpPairDIEEEEvT_T0_SF_T1_T2_.exit ]
-  %21 = getelementptr inbounds %"struct.cv::ml::PairDI", ptr %0, i64 %.010
+  %21 = getelementptr inbounds [16 x i8], ptr %0, i64 %.010
   %.sroa.03.0.copyload = load double, ptr %21, align 8, !tbaa !48
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !49
@@ -1170,9 +1170,9 @@ define linkonce_odr hidden void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iterato
   %.040.i = phi i64 [ %38, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv2ml9CmpPairDIEEclINS_17__normal_iteratorIPNS3_6PairDIESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.thread38.i ], [ %.010, %20 ]
   %23 = shl i64 %.040.i, 1
   %24 = add i64 %23, 2
-  %25 = getelementptr inbounds %"struct.cv::ml::PairDI", ptr %0, i64 %24
+  %25 = getelementptr inbounds [16 x i8], ptr %0, i64 %24
   %26 = or disjoint i64 %23, 1
-  %27 = getelementptr inbounds %"struct.cv::ml::PairDI", ptr %0, i64 %26
+  %27 = getelementptr inbounds [16 x i8], ptr %0, i64 %26
   %28 = load double, ptr %25, align 8, !tbaa !60
   %29 = load double, ptr %27, align 8, !tbaa !60
   %30 = fcmp olt double %28, %29
@@ -1196,8 +1196,8 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv2ml9CmpPairDIEEclINS_17__normal_iterato
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv2ml9CmpPairDIEEclINS_17__normal_iteratorIPNS3_6PairDIESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.thread38.i: ; preds = %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv2ml9CmpPairDIEEclINS_17__normal_iteratorIPNS3_6PairDIESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.thread.i, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv2ml9CmpPairDIEEclINS_17__normal_iteratorIPNS3_6PairDIESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i, %31
   %38 = phi i64 [ %26, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv2ml9CmpPairDIEEclINS_17__normal_iteratorIPNS3_6PairDIESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.thread.i ], [ %24, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv2ml9CmpPairDIEEclINS_17__normal_iteratorIPNS3_6PairDIESt6vectorIS8_SaIS8_EEEESD_EEbT_T0_.exit.i ], [ %24, %31 ]
-  %39 = getelementptr inbounds %"struct.cv::ml::PairDI", ptr %0, i64 %38
-  %40 = getelementptr inbounds %"struct.cv::ml::PairDI", ptr %0, i64 %.040.i
+  %39 = getelementptr inbounds [16 x i8], ptr %0, i64 %38
+  %40 = getelementptr inbounds [16 x i8], ptr %0, i64 %.040.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull align 8 dereferenceable(16) %39, i64 16, i1 false), !tbaa.struct !47
   %41 = icmp slt i64 %38, %13
   br i1 %41, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !74
@@ -1221,7 +1221,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN2cv2ml9CmpPairDIEEclINS_17__normal_iterato
   %.020.i.i = phi i64 [ %.0921.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv2ml9CmpPairDIEEclINS_17__normal_iteratorIPNS3_6PairDIESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.thread.i.i ], [ %.1.i, %44 ]
   %.0921.in.i.i = add nsw i64 %.020.i.i, -1
   %.0921.i.i = sdiv i64 %.0921.in.i.i, 2
-  %46 = getelementptr inbounds %"struct.cv::ml::PairDI", ptr %0, i64 %.0921.i.i
+  %46 = getelementptr inbounds [16 x i8], ptr %0, i64 %.0921.i.i
   %47 = load double, ptr %46, align 8, !tbaa !60
   %48 = fcmp olt double %47, %.sroa.03.0.copyload
   br i1 %48, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv2ml9CmpPairDIEEclINS_17__normal_iteratorIPNS3_6PairDIESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.thread.i.i, label %49
@@ -1237,14 +1237,14 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv2ml9CmpPairDIEEclINS_17__normal_iterator
   br i1 %53, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv2ml9CmpPairDIEEclINS_17__normal_iteratorIPNS3_6PairDIESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.thread.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN2cv2ml6PairDIESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterINS3_9CmpPairDIEEEEvT_T0_SF_T1_T2_.exit
 
 _ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv2ml9CmpPairDIEEclINS_17__normal_iteratorIPNS3_6PairDIESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.thread.i.i: ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv2ml9CmpPairDIEEclINS_17__normal_iteratorIPNS3_6PairDIESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.i.i, %.lr.ph.i.i
-  %54 = getelementptr inbounds %"struct.cv::ml::PairDI", ptr %0, i64 %.020.i.i
+  %54 = getelementptr inbounds [16 x i8], ptr %0, i64 %.020.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %54, ptr noundef nonnull align 8 dereferenceable(16) %46, i64 16, i1 false), !tbaa.struct !47
   %55 = icmp sgt i64 %.0921.i.i, %.010
   br i1 %55, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN2cv2ml6PairDIESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterINS3_9CmpPairDIEEEEvT_T0_SF_T1_T2_.exit, !llvm.loop !75
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN2cv2ml6PairDIESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_comp_iterINS3_9CmpPairDIEEEEvT_T0_SF_T1_T2_.exit: ; preds = %49, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv2ml9CmpPairDIEEclINS_17__normal_iteratorIPNS3_6PairDIESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv2ml9CmpPairDIEEclINS_17__normal_iteratorIPNS3_6PairDIESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.thread.i.i, %44
   %.0.lcssa.i.i = phi i64 [ %.1.i, %44 ], [ %.020.i.i, %49 ], [ %.0921.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv2ml9CmpPairDIEEclINS_17__normal_iteratorIPNS3_6PairDIESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.thread.i.i ], [ %.020.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN2cv2ml9CmpPairDIEEclINS_17__normal_iteratorIPNS3_6PairDIESt6vectorIS8_SaIS8_EEEES8_EEbT_RT0_.exit.i.i ]
-  %56 = getelementptr inbounds %"struct.cv::ml::PairDI", ptr %0, i64 %.0.lcssa.i.i
+  %56 = getelementptr inbounds [16 x i8], ptr %0, i64 %.0.lcssa.i.i
   store double %.sroa.03.0.copyload, ptr %56, align 8, !tbaa !48
   %.sroa.3.0..sroa.0.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %56, i64 8
   store i32 %.sroa.4.0.copyload, ptr %.sroa.3.0..sroa.0.0..sroa_idx.i.i, align 8, !tbaa !49

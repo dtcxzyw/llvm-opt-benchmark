@@ -2150,7 +2150,7 @@ define internal fastcc i32 @netfs_writepages_region(ptr noundef %0, ptr noundef 
   %53 = lshr i64 %50, %52
   %54 = and i64 %53, 63
   %55 = getelementptr inbounds nuw i8, ptr %44, i64 40
-  %56 = getelementptr ptr, ptr %55, i64 %54
+  %56 = getelementptr [8 x i8], ptr %55, i64 %54
   %57 = load volatile ptr, ptr %56, align 8
   %58 = ptrtoint ptr %57 to i64
   %59 = and i64 %58, 3
@@ -2162,7 +2162,7 @@ define internal fastcc i32 @netfs_writepages_region(ptr noundef %0, ptr noundef 
 63:                                               ; preds = %49
   %64 = lshr i64 %58, 2
   %65 = and i64 %64, 255
-  %66 = getelementptr ptr, ptr %55, i64 %65
+  %66 = getelementptr [8 x i8], ptr %55, i64 %65
   br label %67
 
 67:                                               ; preds = %63, %46
@@ -2520,7 +2520,7 @@ define internal fastcc i32 @netfs_writepages_region(ptr noundef %0, ptr noundef 
   %278 = lshr i64 %275, %277
   %279 = and i64 %278, 63
   %280 = getelementptr inbounds nuw i8, ptr %269, i64 40
-  %281 = getelementptr ptr, ptr %280, i64 %279
+  %281 = getelementptr [8 x i8], ptr %280, i64 %279
   %282 = load volatile ptr, ptr %281, align 8
   %283 = ptrtoint ptr %282 to i64
   %284 = and i64 %283, 3
@@ -2532,7 +2532,7 @@ define internal fastcc i32 @netfs_writepages_region(ptr noundef %0, ptr noundef 
 288:                                              ; preds = %274
   %289 = lshr i64 %283, 2
   %290 = and i64 %289, 255
-  %291 = getelementptr ptr, ptr %280, i64 %290
+  %291 = getelementptr [8 x i8], ptr %280, i64 %290
   br label %292
 
 292:                                              ; preds = %288, %271
@@ -2700,7 +2700,7 @@ define internal fastcc i32 @netfs_writepages_region(ptr noundef %0, ptr noundef 
   %402 = add i8 %401, 1
   store i8 %402, ptr %5, align 8
   %403 = zext i8 %401 to i64
-  %404 = getelementptr ptr, ptr %18, i64 %403
+  %404 = getelementptr [8 x i8], ptr %18, i64 %403
   store ptr %246, ptr %404, align 8
   %405 = icmp ne i8 %402, 15
   %406 = icmp eq i8 %400, 0
@@ -2751,7 +2751,7 @@ define internal fastcc i32 @netfs_writepages_region(ptr noundef %0, ptr noundef 
 
 435:                                              ; preds = %429
   %436 = zext i8 %430 to i64
-  %437 = getelementptr ptr, ptr %428, i64 %436
+  %437 = getelementptr [8 x i8], ptr %428, i64 %436
   %438 = load volatile ptr, ptr %437, align 8
   %439 = ptrtoint ptr %438 to i64
   %440 = and i64 %439, 3
@@ -2796,7 +2796,7 @@ define internal fastcc i32 @netfs_writepages_region(ptr noundef %0, ptr noundef 
 
 .preheader44:                                     ; preds = %.loopexit46, %482
   %456 = phi i64 [ %483, %482 ], [ 0, %.loopexit46 ]
-  %457 = getelementptr ptr, ptr %18, i64 %456
+  %457 = getelementptr [8 x i8], ptr %18, i64 %456
   %458 = load ptr, ptr %457, align 8
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_netfs_folio, i64 8), i32 2) #11
           to label %479 [label %459], !srcloc !10
@@ -3826,7 +3826,7 @@ define internal fastcc void @netfs_pages_written_back(ptr noundef readonly captu
 
 318:                                              ; preds = %312
   %319 = zext i8 %313 to i64
-  %320 = getelementptr ptr, ptr %311, i64 %319
+  %320 = getelementptr [8 x i8], ptr %311, i64 %319
   %321 = load volatile ptr, ptr %320, align 8
   %322 = ptrtoint ptr %321 to i64
   %323 = and i64 %322, 3

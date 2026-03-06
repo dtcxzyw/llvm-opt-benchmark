@@ -3,11 +3,6 @@ source_filename = "bench/hyperscan/original/catchup.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.mq_item = type { i32, i64, i64 }
-%struct.mq = type { ptr, i32, i32, ptr, ptr, i64, ptr, i64, ptr, i64, ptr, i8, ptr, ptr, [10 x %struct.mq_item] }
-%struct.NfaInfo = type { i32, i32, i32, i32, i8, i8, i8 }
-%struct.queue_match = type { i64, i32 }
-
 @mmbit_maxlevel_direct_lut = external local_unnamed_addr constant [32 x i8], align 16
 @mmbit_root_offset_from_level = external local_unnamed_addr constant [7 x i32], align 16
 @mmbit_keyshift_lut = external local_unnamed_addr constant [32 x i8], align 16
@@ -69,7 +64,7 @@ define hidden range(i64 -1, 1) i64 @roseCatchUpMPV_i(ptr noundef %0, i64 noundef
 
 41:                                               ; preds = %60, %38
   %indvars.iv = phi i64 [ %indvars.iv.next, %60 ], [ 0, %38 ]
-  %42 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv
   %43 = load i32, ptr %42, align 4
   %44 = zext i32 %43 to i64
   %45 = shl nuw nsw i64 %44, 3
@@ -156,7 +151,7 @@ roseSuffixInfoIsExhausted.exit:                   ; preds = %mmbit_isset.exit.th
 .lr.ph268:                                        ; preds = %.lr.ph156.preheader, %.lr.ph156
   %indvars.iv196267 = phi i64 [ %indvars.iv.next197, %.lr.ph156 ], [ 0, %.lr.ph156.preheader ]
   %indvars.iv.next197 = add nuw nsw i64 %indvars.iv196267, 1
-  %94 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next197
+  %94 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next197
   %95 = load i32, ptr %94, align 4
   %96 = zext i32 %95 to i64
   %97 = shl nuw nsw i64 %96, 3
@@ -213,7 +208,7 @@ mmbit_unset.exit78:                               ; preds = %.lr.ph268, %80, %.t
 .lr.ph271:                                        ; preds = %.lr.ph160.preheader, %.lr.ph160
   %indvars.iv199270 = phi i64 [ %indvars.iv.next200, %.lr.ph160 ], [ 0, %.lr.ph160.preheader ]
   %indvars.iv.next200 = add nuw nsw i64 %indvars.iv199270, 1
-  %124 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next200
+  %124 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next200
   %125 = load i32, ptr %124, align 4
   %126 = zext i32 %125 to i64
   %127 = shl nuw nsw i64 %126, 3
@@ -253,7 +248,7 @@ mmbit_isset.exit.thread:                          ; preds = %mmbit_isset.exit, %
 144:                                              ; preds = %.thread122, %137
   %.029.i = phi i32 [ 0, %137 ], [ %163, %.thread122 ]
   %145 = zext nneg i32 %.029.i to i64
-  %146 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %145
+  %146 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %145
   %147 = load i32, ptr %146, align 4
   %148 = zext i32 %147 to i64
   %149 = shl nuw nsw i64 %148, 3
@@ -274,7 +269,7 @@ mmbit_isset.exit.thread:                          ; preds = %mmbit_isset.exit, %
   %.130.i163 = phi i32 [ %156, %.lr.ph164 ], [ %.029.i, %153 ]
   %156 = add i32 %.130.i163, 1
   %157 = zext i32 %156 to i64
-  %158 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %157
+  %158 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %157
   %159 = load i32, ptr %158, align 4
   %160 = zext i32 %159 to i64
   %161 = shl nuw nsw i64 %160, 3
@@ -371,7 +366,7 @@ ensureQueueActive.exit:                           ; preds = %.thread122, %mmbit_
   %213 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %214 = load i32, ptr %213, align 8
   %215 = zext i32 %214 to i64
-  %216 = getelementptr inbounds nuw %struct.mq_item, ptr %7, i64 %215
+  %216 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %215
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 112
   %218 = load i64, ptr %217, align 8
   %219 = icmp slt i64 %1, %218
@@ -382,7 +377,7 @@ ensureQueueActive.exit:                           ; preds = %.thread122, %mmbit_
   %222 = load i32, ptr %221, align 4
   %223 = add i32 %222, -1
   %224 = zext i32 %223 to i64
-  %225 = getelementptr inbounds nuw %struct.mq_item, ptr %7, i64 %224
+  %225 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %224
   %226 = getelementptr inbounds nuw i8, ptr %225, i64 112
   %227 = load i64, ptr %226, align 8
   %.not.i72 = icmp slt i64 %1, %227
@@ -391,7 +386,7 @@ ensureQueueActive.exit:                           ; preds = %.thread122, %mmbit_
 228:                                              ; preds = %220
   %229 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %230 = zext i32 %222 to i64
-  %231 = getelementptr inbounds nuw %struct.mq_item, ptr %229, i64 %230
+  %231 = getelementptr inbounds nuw [24 x i8], ptr %229, i64 %230
   store i32 1, ptr %231, align 8, !alias.scope !10
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 8
   store i64 %1, ptr %232, align 8, !alias.scope !10
@@ -454,7 +449,7 @@ ensureEnd.exit:                                   ; preds = %220, %228
 .lr.ph275:                                        ; preds = %.lr.ph168.preheader, %.lr.ph168
   %indvars.iv202274 = phi i64 [ %indvars.iv.next203, %.lr.ph168 ], [ 0, %.lr.ph168.preheader ]
   %indvars.iv.next203 = add nuw nsw i64 %indvars.iv202274, 1
-  %265 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next203
+  %265 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next203
   %266 = load i32, ptr %265, align 4
   %267 = zext i32 %266 to i64
   %268 = shl nuw nsw i64 %267, 3
@@ -510,7 +505,7 @@ mmbit_unset.exit:                                 ; preds = %.lr.ph275, %251, %.
 .lr.ph279:                                        ; preds = %.lr.ph172.preheader, %.lr.ph172
   %indvars.iv205278 = phi i64 [ %indvars.iv.next206, %.lr.ph172 ], [ 0, %.lr.ph172.preheader ]
   %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205278, 1
-  %294 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next206
+  %294 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next206
   %295 = load i32, ptr %294, align 4
   %296 = zext i32 %295 to i64
   %297 = shl nuw nsw i64 %296, 3
@@ -646,7 +641,7 @@ define internal range(i32 0, 2) i32 @roseNfaFinalBlastAdaptor(i64 noundef %0, i6
 
 36:                                               ; preds = %55, %33
   %indvars.iv = phi i64 [ %indvars.iv.next, %55 ], [ 0, %33 ]
-  %37 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv
   %38 = load i32, ptr %37, align 4
   %39 = zext i32 %38 to i64
   %40 = shl nuw nsw i64 %39, 3
@@ -982,7 +977,7 @@ get_lowhi_masks.exit:                             ; preds = %189, %130
   %148 = add i64 %147, -1
   %..i81 = tail call i64 @llvm.umin.i64(i64 %148, i64 %142)
   %149 = zext i32 %.056.i76 to i64
-  %150 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %149
+  %150 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %149
   %151 = load i32, ptr %150, align 4
   %152 = zext i32 %151 to i64
   %153 = shl nuw nsw i64 %152, 3
@@ -1107,7 +1102,7 @@ mmbit_iterate_bounded.exit:                       ; preds = %.thread162, %57, %.
 242:                                              ; preds = %.lr.ph297, %mmbit_iterate_bounded.exit49
   %.0295 = phi i32 [ %.013.i, %.lr.ph297 ], [ %.013.i48, %mmbit_iterate_bounded.exit49 ]
   %243 = zext i32 %.0295 to i64
-  %244 = getelementptr inbounds nuw %struct.mq, ptr %13, i64 %243
+  %244 = getelementptr inbounds nuw [344 x i8], ptr %13, i64 %243
   %245 = load ptr, ptr %192, align 8
   br i1 %193, label %246, label %mmbit_set_i.exit
 
@@ -1119,7 +1114,7 @@ mmbit_iterate_bounded.exit:                       ; preds = %.thread162, %57, %.
 
 250:                                              ; preds = %.thread176, %246
   %indvars.iv331 = phi i64 [ %indvars.iv.next332, %.thread176 ], [ 0, %246 ]
-  %251 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv331
+  %251 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv331
   %252 = load i32, ptr %251, align 4
   %253 = zext i32 %252 to i64
   %254 = shl nuw nsw i64 %253, 3
@@ -1152,7 +1147,7 @@ mmbit_iterate_bounded.exit:                       ; preds = %.thread162, %57, %.
   %.130.i269 = phi i32 [ %273, %.lr.ph271 ], [ %270, %268 ]
   %273 = add i32 %.130.i269, 1
   %274 = zext i32 %273 to i64
-  %275 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %274
+  %275 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %274
   %276 = load i32, ptr %275, align 4
   %277 = zext i32 %276 to i64
   %278 = shl nuw nsw i64 %277, 3
@@ -1196,7 +1191,7 @@ mmbit_set_i.exit.thread:                          ; preds = %.lr.ph271, %268, %m
   %301 = load i32, ptr %198, align 4
   %302 = zext i32 %301 to i64
   %303 = getelementptr inbounds nuw i8, ptr %0, i64 %302
-  %304 = getelementptr inbounds nuw %struct.NfaInfo, ptr %303, i64 %243
+  %304 = getelementptr inbounds nuw [20 x i8], ptr %303, i64 %243
   %305 = load i32, ptr %304, align 4
   %306 = zext i32 %305 to i64
   %307 = getelementptr inbounds nuw i8, ptr %0, i64 %306
@@ -1264,7 +1259,7 @@ ensureQueueActive.exit:                           ; preds = %.thread176, %mmbit_
   %344 = load i32, ptr %343, align 4
   %345 = add i32 %344, -1
   %346 = zext i32 %345 to i64
-  %347 = getelementptr inbounds nuw %struct.mq_item, ptr %244, i64 %346
+  %347 = getelementptr inbounds nuw [24 x i8], ptr %244, i64 %346
   %348 = getelementptr inbounds nuw i8, ptr %347, i64 112
   %349 = load i64, ptr %348, align 8
   %.not.i43 = icmp slt i64 %15, %349
@@ -1273,7 +1268,7 @@ ensureQueueActive.exit:                           ; preds = %.thread176, %mmbit_
 350:                                              ; preds = %ensureQueueActive.exit
   %351 = getelementptr inbounds nuw i8, ptr %244, i64 104
   %352 = zext i32 %344 to i64
-  %353 = getelementptr inbounds nuw %struct.mq_item, ptr %351, i64 %352
+  %353 = getelementptr inbounds nuw [24 x i8], ptr %351, i64 %352
   store i32 1, ptr %353, align 8, !alias.scope !19
   %354 = getelementptr inbounds nuw i8, ptr %353, i64 8
   store i64 %15, ptr %354, align 8, !alias.scope !19
@@ -1295,7 +1290,7 @@ ensureEnd.exit:                                   ; preds = %ensureQueueActive.e
   %360 = getelementptr inbounds nuw i8, ptr %244, i64 8
   %361 = load i32, ptr %360, align 8
   %362 = zext i32 %361 to i64
-  %363 = getelementptr inbounds nuw %struct.mq_item, ptr %244, i64 %362
+  %363 = getelementptr inbounds nuw [24 x i8], ptr %244, i64 %362
   %364 = getelementptr inbounds nuw i8, ptr %363, i64 112
   %365 = load i64, ptr %364, align 8
   %366 = load ptr, ptr %209, align 8
@@ -1308,14 +1303,14 @@ ensureEnd.exit:                                   ; preds = %ensureQueueActive.e
   %368 = add i32 %.012.i285, -1
   %369 = lshr i32 %368, 1
   %370 = zext nneg i32 %369 to i64
-  %371 = getelementptr inbounds nuw %struct.queue_match, ptr %366, i64 %370
+  %371 = getelementptr inbounds nuw [16 x i8], ptr %366, i64 %370
   %372 = load i64, ptr %371, align 8
   %373 = icmp ult i64 %372, %365
   br i1 %373, label %pq_insert.exit.loopexit, label %374
 
 374:                                              ; preds = %.lr.ph287
   %375 = zext i32 %.012.i285 to i64
-  %376 = getelementptr inbounds nuw %struct.queue_match, ptr %366, i64 %375
+  %376 = getelementptr inbounds nuw [16 x i8], ptr %366, i64 %375
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %376, ptr noundef nonnull align 8 dereferenceable(16) %371, i64 16, i1 false)
   %.not.i133 = icmp eq i32 %369, 0
   br i1 %.not.i133, label %pq_insert.exit.loopexit, label %.lr.ph287
@@ -1327,7 +1322,7 @@ pq_insert.exit.loopexit:                          ; preds = %.lr.ph287, %374
 
 pq_insert.exit:                                   ; preds = %pq_insert.exit.loopexit, %359
   %.012.i.lcssa = phi i64 [ 0, %359 ], [ %377, %pq_insert.exit.loopexit ]
-  %378 = getelementptr inbounds nuw %struct.queue_match, ptr %366, i64 %.012.i.lcssa
+  %378 = getelementptr inbounds nuw [16 x i8], ptr %366, i64 %.012.i.lcssa
   store i64 %365, ptr %378, align 8
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %378, i64 8
   store i32 %.0295, ptr %.sroa.3.0..sroa_idx.i, align 8
@@ -1385,7 +1380,7 @@ pq_insert.exit:                                   ; preds = %pq_insert.exit.loop
 .lr.ph450:                                        ; preds = %.lr.ph277.preheader, %.lr.ph277
   %indvars.iv334449 = phi i64 [ %indvars.iv.next335, %.lr.ph277 ], [ 0, %.lr.ph277.preheader ]
   %indvars.iv.next335 = add nuw nsw i64 %indvars.iv334449, 1
-  %416 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next335
+  %416 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next335
   %417 = load i32, ptr %416, align 4
   %418 = zext i32 %417 to i64
   %419 = shl nuw nsw i64 %418, 3
@@ -1472,7 +1467,7 @@ mmbit_unset.exit:                                 ; preds = %.lr.ph450, %395, %.
 .lr.ph455:                                        ; preds = %.lr.ph283.preheader, %.lr.ph283
   %indvars.iv337454 = phi i64 [ %indvars.iv.next338, %.lr.ph283 ], [ 0, %.lr.ph283.preheader ]
   %indvars.iv.next338 = add nuw nsw i64 %indvars.iv337454, 1
-  %474 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next338
+  %474 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next338
   %475 = load i32, ptr %474, align 4
   %476 = zext i32 %475 to i64
   %477 = shl nuw nsw i64 %476, 3
@@ -1733,7 +1728,7 @@ get_lowhi_masks.exit132:                          ; preds = %639, %584
   %598 = add i64 %597, -1
   %..i = tail call i64 @llvm.umin.i64(i64 %598, i64 %592)
   %599 = zext i32 %.056.i to i64
-  %600 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %599
+  %600 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %599
   %601 = load i32, ptr %600, align 4
   %602 = zext i32 %601 to i64
   %603 = shl nuw nsw i64 %602, 3
@@ -1868,7 +1863,7 @@ define hidden void @blockInitSufPQ(ptr noundef %0, ptr noundef captures(none) %1
   %50 = load i32, ptr %24, align 4
   %51 = zext i32 %50 to i64
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 %51
-  %53 = getelementptr inbounds nuw %struct.NfaInfo, ptr %52, i64 %indvars.iv366
+  %53 = getelementptr inbounds nuw [20 x i8], ptr %52, i64 %indvars.iv366
   br i1 %.not, label %57, label %54
 
 54:                                               ; preds = %49
@@ -2441,7 +2436,7 @@ nfaRevAccelCheck.exit:                            ; preds = %66, %355
 
 372:                                              ; preds = %.thread202, %367
   %indvars.iv = phi i64 [ %indvars.iv.next, %.thread202 ], [ 0, %367 ]
-  %373 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv
+  %373 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv
   %374 = load i32, ptr %373, align 4
   %375 = zext i32 %374 to i64
   %376 = shl nuw nsw i64 %375, 3
@@ -2474,7 +2469,7 @@ nfaRevAccelCheck.exit:                            ; preds = %66, %355
   %.130.i283 = phi i32 [ %395, %.lr.ph ], [ %392, %390 ]
   %395 = add i32 %.130.i283, 1
   %396 = zext i32 %395 to i64
-  %397 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %396
+  %397 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %396
   %398 = load i32, ptr %397, align 4
   %399 = zext i32 %398 to i64
   %400 = shl nuw nsw i64 %399, 3
@@ -2523,7 +2518,7 @@ mmbit_set_i.exit134:                              ; preds = %.thread202, %.lr.ph
 
 427:                                              ; preds = %.thread205, %422
   %indvars.iv357 = phi i64 [ %indvars.iv.next358, %.thread205 ], [ 0, %422 ]
-  %428 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv357
+  %428 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv357
   %429 = load i32, ptr %428, align 4
   %430 = zext i32 %429 to i64
   %431 = shl nuw nsw i64 %430, 3
@@ -2556,7 +2551,7 @@ mmbit_set_i.exit134:                              ; preds = %.thread202, %.lr.ph
   %.130.i143287 = phi i32 [ %450, %.lr.ph288 ], [ %447, %445 ]
   %450 = add i32 %.130.i143287, 1
   %451 = zext i32 %450 to i64
-  %452 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %451
+  %452 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %451
   %453 = load i32, ptr %452, align 4
   %454 = zext i32 %453 to i64
   %455 = shl nuw nsw i64 %454, 3
@@ -2582,11 +2577,11 @@ mmbit_set_i.exit134:                              ; preds = %.thread202, %.lr.ph
   br i1 %.not.i141, label %mmbit_set_i.exit, label %427
 
 mmbit_set_i.exit:                                 ; preds = %.thread205, %.lr.ph288, %445, %413
-  %468 = getelementptr inbounds nuw %struct.mq, ptr %6, i64 %indvars.iv366
+  %468 = getelementptr inbounds nuw [344 x i8], ptr %6, i64 %indvars.iv366
   %469 = load i32, ptr %24, align 4
   %470 = zext i32 %469 to i64
   %471 = getelementptr inbounds nuw i8, ptr %0, i64 %470
-  %472 = getelementptr inbounds nuw %struct.NfaInfo, ptr %471, i64 %indvars.iv366
+  %472 = getelementptr inbounds nuw [20 x i8], ptr %471, i64 %indvars.iv366
   %473 = load i32, ptr %472, align 4
   %474 = zext i32 %473 to i64
   %475 = getelementptr inbounds nuw i8, ptr %0, i64 %474
@@ -2657,7 +2652,7 @@ mmbit_set_i.exit:                                 ; preds = %.thread205, %.lr.ph
 513:                                              ; preds = %mmbit_set_i.exit
   %514 = load i32, ptr %477, align 8
   %515 = zext i32 %514 to i64
-  %516 = getelementptr inbounds nuw %struct.mq_item, ptr %468, i64 %515
+  %516 = getelementptr inbounds nuw [24 x i8], ptr %468, i64 %515
   %517 = getelementptr inbounds nuw i8, ptr %516, i64 112
   %518 = load i64, ptr %517, align 8
   %519 = load ptr, ptr %46, align 8
@@ -2670,14 +2665,14 @@ mmbit_set_i.exit:                                 ; preds = %.thread205, %.lr.ph
   %521 = add i32 %.012.i300, -1
   %522 = lshr i32 %521, 1
   %523 = zext nneg i32 %522 to i64
-  %524 = getelementptr inbounds nuw %struct.queue_match, ptr %519, i64 %523
+  %524 = getelementptr inbounds nuw [16 x i8], ptr %519, i64 %523
   %525 = load i64, ptr %524, align 8
   %526 = icmp ult i64 %525, %518
   br i1 %526, label %pq_insert.exit.loopexit, label %527
 
 527:                                              ; preds = %.lr.ph301
   %528 = zext i32 %.012.i300 to i64
-  %529 = getelementptr inbounds nuw %struct.queue_match, ptr %519, i64 %528
+  %529 = getelementptr inbounds nuw [16 x i8], ptr %519, i64 %528
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %529, ptr noundef nonnull align 8 dereferenceable(16) %524, i64 16, i1 false)
   %.not.i69 = icmp eq i32 %522, 0
   br i1 %.not.i69, label %pq_insert.exit.loopexit, label %.lr.ph301
@@ -2689,7 +2684,7 @@ pq_insert.exit.loopexit:                          ; preds = %.lr.ph301, %527
 
 pq_insert.exit:                                   ; preds = %pq_insert.exit.loopexit, %513
   %.012.i.lcssa = phi i64 [ 0, %513 ], [ %530, %pq_insert.exit.loopexit ]
-  %531 = getelementptr inbounds nuw %struct.queue_match, ptr %519, i64 %.012.i.lcssa
+  %531 = getelementptr inbounds nuw [16 x i8], ptr %519, i64 %.012.i.lcssa
   store i64 %518, ptr %531, align 8
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %531, i64 8
   %532 = trunc nuw i64 %indvars.iv366 to i32
@@ -2749,7 +2744,7 @@ pq_insert.exit:                                   ; preds = %pq_insert.exit.loop
 .lr.ph506:                                        ; preds = %.lr.ph293.preheader, %.lr.ph293
   %indvars.iv360505 = phi i64 [ %indvars.iv.next361, %.lr.ph293 ], [ 0, %.lr.ph293.preheader ]
   %indvars.iv.next361 = add nuw nsw i64 %indvars.iv360505, 1
-  %571 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next361
+  %571 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next361
   %572 = load i32, ptr %571, align 4
   %573 = zext i32 %572 to i64
   %574 = shl nuw nsw i64 %573, 3
@@ -2837,7 +2832,7 @@ mmbit_unset.exit:                                 ; preds = %.lr.ph506, %549, %.
 .lr.ph511:                                        ; preds = %.lr.ph298.preheader, %.lr.ph298
   %indvars.iv363510 = phi i64 [ %indvars.iv.next364, %.lr.ph298 ], [ 0, %.lr.ph298.preheader ]
   %indvars.iv.next364 = add nuw nsw i64 %indvars.iv363510, 1
-  %630 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next364
+  %630 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next364
   %631 = load i32, ptr %630, align 4
   %632 = zext i32 %631 to i64
   %633 = shl nuw nsw i64 %632, 3
@@ -3142,7 +3137,7 @@ get_lowhi_masks.exit:                             ; preds = %173, %116
   %133 = add i64 %132, -1
   %..i34 = tail call i64 @llvm.umin.i64(i64 %133, i64 %127)
   %134 = zext i32 %.056.i to i64
-  %135 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %134
+  %135 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %134
   %136 = load i32, ptr %135, align 4
   %137 = zext i32 %136 to i64
   %138 = shl nuw nsw i64 %137, 3
@@ -3242,7 +3237,7 @@ mmbit_iterate_bounded.exit.i:                     ; preds = %159, %.thread187
 198:                                              ; preds = %207, %191
   %.014.i.i160 = phi i32 [ 0, %191 ], [ %208, %207 ]
   %199 = zext nneg i32 %.014.i.i160 to i64
-  %200 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %199
+  %200 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %199
   %201 = load i32, ptr %200, align 4
   %202 = zext i32 %201 to i64
   %203 = shl nuw nsw i64 %202, 3
@@ -3568,7 +3563,7 @@ mmbit_get_flat_block.exit.i:                      ; preds = %362, %354, %351, %3
 
 379:                                              ; preds = %.backedge
   %380 = zext i32 %.1.i95 to i64
-  %381 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %380
+  %381 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %380
   %382 = load i32, ptr %381, align 4
   %383 = zext i32 %382 to i64
   %384 = shl nuw nsw i64 %383, 3
@@ -3631,11 +3626,11 @@ mmbit_iterate.exit:                               ; preds = %392, %.thread241, %
 
 413:                                              ; preds = %409
   %414 = zext i32 %.050.i480 to i64
-  %415 = getelementptr inbounds nuw %struct.mq, ptr %412, i64 %414
+  %415 = getelementptr inbounds nuw [344 x i8], ptr %412, i64 %414
   %416 = load i32, ptr %242, align 4
   %417 = zext i32 %416 to i64
   %418 = getelementptr inbounds nuw i8, ptr %4, i64 %417
-  %419 = getelementptr inbounds nuw %struct.NfaInfo, ptr %418, i64 %414
+  %419 = getelementptr inbounds nuw [20 x i8], ptr %418, i64 %414
   %420 = load ptr, ptr %243, align 8
   %421 = getelementptr inbounds nuw i8, ptr %419, i64 12
   %422 = load i32, ptr %421, align 4
@@ -3671,7 +3666,7 @@ mmbit_iterate.exit:                               ; preds = %392, %.thread241, %
 
 438:                                              ; preds = %457, %435
   %indvars.iv695 = phi i64 [ %indvars.iv.next696, %457 ], [ 0, %435 ]
-  %439 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv695
+  %439 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv695
   %440 = load i32, ptr %439, align 4
   %441 = zext i32 %440 to i64
   %442 = shl nuw nsw i64 %441, 3
@@ -3776,7 +3771,7 @@ roseSuffixInfoIsExhausted.exit.i:                 ; preds = %mmbit_isset.exit.i.
 .lr.ph1070:                                       ; preds = %.lr.ph492.preheader, %.lr.ph492
   %indvars.iv6991069 = phi i64 [ %indvars.iv.next700, %.lr.ph492 ], [ 0, %.lr.ph492.preheader ]
   %indvars.iv.next700 = add nuw nsw i64 %indvars.iv6991069, 1
-  %509 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next700
+  %509 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next700
   %510 = load i32, ptr %509, align 4
   %511 = zext i32 %510 to i64
   %512 = shl nuw nsw i64 %511, 3
@@ -3866,7 +3861,7 @@ mmbit_unset.exit.i:                               ; preds = %.lr.ph1070, %484, %
 .lr.ph1076:                                       ; preds = %.lr.ph498.preheader, %.lr.ph498
   %indvars.iv7031075 = phi i64 [ %indvars.iv.next704, %.lr.ph498 ], [ 0, %.lr.ph498.preheader ]
   %indvars.iv.next704 = add nuw nsw i64 %indvars.iv7031075, 1
-  %570 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next704
+  %570 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next704
   %571 = load i32, ptr %570, align 4
   %572 = zext i32 %571 to i64
   %573 = shl nuw nsw i64 %572, 3
@@ -3922,7 +3917,7 @@ mmbit_isset.exit.i.thread:                        ; preds = %mmbit_isset.exit.i,
 
 605:                                              ; preds = %.thread260, %597
   %indvars.iv707 = phi i64 [ %indvars.iv.next708, %.thread260 ], [ 0, %597 ]
-  %606 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv707
+  %606 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv707
   %607 = load i32, ptr %606, align 4
   %608 = zext i32 %607 to i64
   %609 = shl nuw nsw i64 %608, 3
@@ -3955,7 +3950,7 @@ mmbit_isset.exit.i.thread:                        ; preds = %mmbit_isset.exit.i,
   %.130.i.i502 = phi i32 [ %628, %.lr.ph504 ], [ %625, %623 ]
   %628 = add i32 %.130.i.i502, 1
   %629 = zext i32 %628 to i64
-  %630 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %629
+  %630 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %629
   %631 = load i32, ptr %630, align 4
   %632 = zext i32 %631 to i64
   %633 = shl nuw nsw i64 %632, 3
@@ -3999,7 +3994,7 @@ mmbit_set_i.exit.i.thread:                        ; preds = %.lr.ph504, %623, %m
   %656 = load i32, ptr %242, align 4
   %657 = zext i32 %656 to i64
   %658 = getelementptr inbounds nuw i8, ptr %4, i64 %657
-  %659 = getelementptr inbounds nuw %struct.NfaInfo, ptr %658, i64 %414
+  %659 = getelementptr inbounds nuw [20 x i8], ptr %658, i64 %414
   %660 = load i32, ptr %659, align 4
   %661 = zext i32 %660 to i64
   %662 = getelementptr inbounds nuw i8, ptr %4, i64 %661
@@ -4066,7 +4061,7 @@ ensureQueueActive.exit.i:                         ; preds = %.thread260, %queue_
   %698 = getelementptr inbounds nuw i8, ptr %415, i64 8
   %699 = load i32, ptr %698, align 8
   %700 = zext i32 %699 to i64
-  %701 = getelementptr inbounds nuw %struct.mq_item, ptr %415, i64 %700
+  %701 = getelementptr inbounds nuw [24 x i8], ptr %415, i64 %700
   %702 = getelementptr inbounds nuw i8, ptr %701, i64 112
   %703 = load i64, ptr %702, align 8
   %704 = icmp slt i64 %0, %703
@@ -4077,7 +4072,7 @@ ensureQueueActive.exit.i:                         ; preds = %.thread260, %queue_
   %707 = load i32, ptr %706, align 4
   %708 = add i32 %707, -1
   %709 = zext i32 %708 to i64
-  %710 = getelementptr inbounds nuw %struct.mq_item, ptr %415, i64 %709
+  %710 = getelementptr inbounds nuw [24 x i8], ptr %415, i64 %709
   %711 = getelementptr inbounds nuw i8, ptr %710, i64 112
   %712 = load i64, ptr %711, align 8
   %.not.i48.i = icmp slt i64 %0, %712
@@ -4086,7 +4081,7 @@ ensureQueueActive.exit.i:                         ; preds = %.thread260, %queue_
 713:                                              ; preds = %705
   %714 = getelementptr inbounds nuw i8, ptr %415, i64 104
   %715 = zext i32 %707 to i64
-  %716 = getelementptr inbounds nuw %struct.mq_item, ptr %714, i64 %715
+  %716 = getelementptr inbounds nuw [24 x i8], ptr %714, i64 %715
   store i32 1, ptr %716, align 8, !alias.scope !41
   %717 = getelementptr inbounds nuw i8, ptr %716, i64 8
   store i64 %0, ptr %717, align 8, !alias.scope !41
@@ -4168,7 +4163,7 @@ ensureEnd.exit.i:                                 ; preds = %713, %705
 .lr.ph1094:                                       ; preds = %.lr.ph535.preheader, %.lr.ph535
   %indvars.iv7271093 = phi i64 [ %indvars.iv.next728, %.lr.ph535 ], [ 0, %.lr.ph535.preheader ]
   %indvars.iv.next728 = add nuw nsw i64 %indvars.iv7271093, 1
-  %767 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next728
+  %767 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next728
   %768 = load i32, ptr %767, align 4
   %769 = zext i32 %768 to i64
   %770 = shl nuw nsw i64 %769, 3
@@ -4258,7 +4253,7 @@ mmbit_unset.exit54.i:                             ; preds = %.lr.ph1094, %742, %
 .lr.ph1100:                                       ; preds = %.lr.ph541.preheader, %.lr.ph541
   %indvars.iv7311099 = phi i64 [ %indvars.iv.next732, %.lr.ph541 ], [ 0, %.lr.ph541.preheader ]
   %indvars.iv.next732 = add nuw nsw i64 %indvars.iv7311099, 1
-  %828 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next732
+  %828 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next732
   %829 = load i32, ptr %828, align 4
   %830 = zext i32 %829 to i64
   %831 = shl nuw nsw i64 %830, 3
@@ -4324,7 +4319,7 @@ mmbit_unset.exit54.i:                             ; preds = %.lr.ph1094, %742, %
 862:                                              ; preds = %.preheader338
   %863 = load i32, ptr %698, align 8
   %864 = zext i32 %863 to i64
-  %865 = getelementptr inbounds nuw %struct.mq_item, ptr %415, i64 %864
+  %865 = getelementptr inbounds nuw [24 x i8], ptr %415, i64 %864
   %866 = getelementptr inbounds nuw i8, ptr %865, i64 112
   %867 = load i64, ptr %866, align 8
   %868 = icmp eq i64 %867, %183
@@ -4341,14 +4336,14 @@ mmbit_unset.exit54.i:                             ; preds = %.lr.ph1094, %742, %
   %872 = add i32 %.012.i.i135518, -1
   %873 = lshr i32 %872, 1
   %874 = zext nneg i32 %873 to i64
-  %875 = getelementptr inbounds nuw %struct.queue_match, ptr %870, i64 %874
+  %875 = getelementptr inbounds nuw [16 x i8], ptr %870, i64 %874
   %876 = load i64, ptr %875, align 8
   %877 = icmp ult i64 %876, %867
   br i1 %877, label %.thread273.loopexit, label %878
 
 878:                                              ; preds = %.lr.ph520
   %879 = zext i32 %.012.i.i135518 to i64
-  %880 = getelementptr inbounds nuw %struct.queue_match, ptr %870, i64 %879
+  %880 = getelementptr inbounds nuw [16 x i8], ptr %870, i64 %879
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %880, ptr noundef nonnull align 8 dereferenceable(16) %875, i64 16, i1 false)
   %.not.i47.i136 = icmp eq i32 %873, 0
   br i1 %.not.i47.i136, label %.thread273.loopexit, label %.lr.ph520
@@ -4360,7 +4355,7 @@ mmbit_unset.exit54.i:                             ; preds = %.lr.ph1094, %742, %
 
 .thread273:                                       ; preds = %.thread273.loopexit, %869
   %.012.i.i135.lcssa = phi i64 [ 0, %869 ], [ %881, %.thread273.loopexit ]
-  %882 = getelementptr inbounds nuw %struct.queue_match, ptr %870, i64 %.012.i.i135.lcssa
+  %882 = getelementptr inbounds nuw [16 x i8], ptr %870, i64 %.012.i.i135.lcssa
   store i64 %867, ptr %882, align 8
   %.sroa.3.0..sroa_idx.i.i141 = getelementptr inbounds nuw i8, ptr %882, i64 8
   store i32 %.050.i480, ptr %.sroa.3.0..sroa_idx.i.i141, align 8
@@ -4432,7 +4427,7 @@ mmbit_unset.exit54.i:                             ; preds = %.lr.ph1094, %742, %
 .lr.ph1082:                                       ; preds = %.lr.ph510.preheader, %.lr.ph510
   %indvars.iv7111081 = phi i64 [ %indvars.iv.next712, %.lr.ph510 ], [ 0, %.lr.ph510.preheader ]
   %indvars.iv.next712 = add nuw nsw i64 %indvars.iv7111081, 1
-  %928 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next712
+  %928 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next712
   %929 = load i32, ptr %928, align 4
   %930 = zext i32 %929 to i64
   %931 = shl nuw nsw i64 %930, 3
@@ -4522,7 +4517,7 @@ mmbit_unset.exit.i120:                            ; preds = %.lr.ph1082, %903, %
 .lr.ph1088:                                       ; preds = %.lr.ph516.preheader, %.lr.ph516
   %indvars.iv7151087 = phi i64 [ %indvars.iv.next716, %.lr.ph516 ], [ 0, %.lr.ph516.preheader ]
   %indvars.iv.next716 = add nuw nsw i64 %indvars.iv7151087, 1
-  %989 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next716
+  %989 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next716
   %990 = load i32, ptr %989, align 4
   %991 = zext i32 %990 to i64
   %992 = shl nuw nsw i64 %991, 3
@@ -4590,9 +4585,9 @@ mmbit_unset.exit.i120:                            ; preds = %.lr.ph1082, %903, %
 1025:                                             ; preds = %.lr.ph526, %1025
   %indvars.iv721 = phi i64 [ %1019, %.lr.ph526 ], [ %indvars.iv.next722, %1025 ]
   %indvars.iv719 = phi i64 [ 0, %.lr.ph526 ], [ %indvars.iv.next720, %1025 ]
-  %1026 = getelementptr inbounds nuw %struct.mq_item, ptr %1018, i64 %indvars.iv719
+  %1026 = getelementptr inbounds nuw [24 x i8], ptr %1018, i64 %indvars.iv719
   %indvars.iv.next722 = add nuw nsw i64 %indvars.iv721, 1
-  %1027 = getelementptr inbounds nuw %struct.mq_item, ptr %1018, i64 %indvars.iv721
+  %1027 = getelementptr inbounds nuw [24 x i8], ptr %1018, i64 %indvars.iv721
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1026, ptr noundef nonnull align 8 dereferenceable(24) %1027, i64 24, i1 false)
   %indvars.iv.next720 = add nuw nsw i64 %indvars.iv719, 1
   %1028 = icmp samesign ult i64 %indvars.iv.next722, %1020
@@ -4611,11 +4606,11 @@ mmbit_unset.exit.i120:                            ; preds = %.lr.ph1082, %903, %
 1030:                                             ; preds = %409
   %1031 = load i32, ptr %241, align 4
   %1032 = zext i32 %.050.i480 to i64
-  %1033 = getelementptr inbounds nuw %struct.mq, ptr %412, i64 %1032
+  %1033 = getelementptr inbounds nuw [344 x i8], ptr %412, i64 %1032
   %1034 = load i32, ptr %242, align 4
   %1035 = zext i32 %1034 to i64
   %1036 = getelementptr inbounds nuw i8, ptr %4, i64 %1035
-  %1037 = getelementptr inbounds nuw %struct.NfaInfo, ptr %1036, i64 %1032
+  %1037 = getelementptr inbounds nuw [20 x i8], ptr %1036, i64 %1032
   %1038 = load ptr, ptr %243, align 8
   %1039 = getelementptr inbounds nuw i8, ptr %1037, i64 12
   %1040 = load i32, ptr %1039, align 4
@@ -4651,7 +4646,7 @@ mmbit_unset.exit.i120:                            ; preds = %.lr.ph1082, %903, %
 
 1056:                                             ; preds = %1075, %1053
   %indvars.iv670 = phi i64 [ %indvars.iv.next671, %1075 ], [ 0, %1053 ]
-  %1057 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv670
+  %1057 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv670
   %1058 = load i32, ptr %1057, align 4
   %1059 = zext i32 %1058 to i64
   %1060 = shl nuw nsw i64 %1059, 3
@@ -4751,7 +4746,7 @@ roseSuffixInfoIsExhausted.exit.i64:               ; preds = %mmbit_isset.exit.i6
 .lr.ph1047:                                       ; preds = %.lr.ph442.preheader, %.lr.ph442
   %indvars.iv6731046 = phi i64 [ %indvars.iv.next674, %.lr.ph442 ], [ 0, %.lr.ph442.preheader ]
   %indvars.iv.next674 = add nuw nsw i64 %indvars.iv6731046, 1
-  %1122 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next674
+  %1122 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next674
   %1123 = load i32, ptr %1122, align 4
   %1124 = zext i32 %1123 to i64
   %1125 = shl nuw nsw i64 %1124, 3
@@ -4838,7 +4833,7 @@ mmbit_unset.exit.i67:                             ; preds = %.lr.ph1047, %1101, 
 .lr.ph1052:                                       ; preds = %.lr.ph448.preheader, %.lr.ph448
   %indvars.iv6761051 = phi i64 [ %indvars.iv.next677, %.lr.ph448 ], [ 0, %.lr.ph448.preheader ]
   %indvars.iv.next677 = add nuw nsw i64 %indvars.iv6761051, 1
-  %1180 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next677
+  %1180 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next677
   %1181 = load i32, ptr %1180, align 4
   %1182 = zext i32 %1181 to i64
   %1183 = shl nuw nsw i64 %1182, 3
@@ -4893,7 +4888,7 @@ mmbit_isset.exit.i62.thread:                      ; preds = %mmbit_isset.exit.i6
 
 1214:                                             ; preds = %.thread288, %1206
   %indvars.iv679 = phi i64 [ %indvars.iv.next680, %.thread288 ], [ 0, %1206 ]
-  %1215 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv679
+  %1215 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv679
   %1216 = load i32, ptr %1215, align 4
   %1217 = zext i32 %1216 to i64
   %1218 = shl nuw nsw i64 %1217, 3
@@ -4926,7 +4921,7 @@ mmbit_isset.exit.i62.thread:                      ; preds = %mmbit_isset.exit.i6
   %.130.i.i83452 = phi i32 [ %1237, %.lr.ph454 ], [ %1234, %1232 ]
   %1237 = add i32 %.130.i.i83452, 1
   %1238 = zext i32 %1237 to i64
-  %1239 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %1238
+  %1239 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %1238
   %1240 = load i32, ptr %1239, align 4
   %1241 = zext i32 %1240 to i64
   %1242 = shl nuw nsw i64 %1241, 3
@@ -4970,7 +4965,7 @@ mmbit_set_i.exit.i75.thread:                      ; preds = %.lr.ph454, %1232, %
   %1265 = load i32, ptr %242, align 4
   %1266 = zext i32 %1265 to i64
   %1267 = getelementptr inbounds nuw i8, ptr %4, i64 %1266
-  %1268 = getelementptr inbounds nuw %struct.NfaInfo, ptr %1267, i64 %1032
+  %1268 = getelementptr inbounds nuw [20 x i8], ptr %1267, i64 %1032
   %1269 = load i32, ptr %1268, align 4
   %1270 = zext i32 %1269 to i64
   %1271 = getelementptr inbounds nuw i8, ptr %4, i64 %1270
@@ -5037,7 +5032,7 @@ ensureQueueActive.exit.i76:                       ; preds = %.thread288, %queue_
   %1307 = getelementptr inbounds nuw i8, ptr %1033, i64 8
   %1308 = load i32, ptr %1307, align 8
   %1309 = zext i32 %1308 to i64
-  %1310 = getelementptr inbounds nuw %struct.mq_item, ptr %1033, i64 %1309
+  %1310 = getelementptr inbounds nuw [24 x i8], ptr %1033, i64 %1309
   %1311 = getelementptr inbounds nuw i8, ptr %1310, i64 112
   %1312 = load i64, ptr %1311, align 8
   %1313 = icmp slt i64 %0, %1312
@@ -5048,7 +5043,7 @@ ensureQueueActive.exit.i76:                       ; preds = %.thread288, %queue_
   %1316 = load i32, ptr %1315, align 4
   %1317 = add i32 %1316, -1
   %1318 = zext i32 %1317 to i64
-  %1319 = getelementptr inbounds nuw %struct.mq_item, ptr %1033, i64 %1318
+  %1319 = getelementptr inbounds nuw [24 x i8], ptr %1033, i64 %1318
   %1320 = getelementptr inbounds nuw i8, ptr %1319, i64 112
   %1321 = load i64, ptr %1320, align 8
   %.not.i30.i = icmp slt i64 %0, %1321
@@ -5057,7 +5052,7 @@ ensureQueueActive.exit.i76:                       ; preds = %.thread288, %queue_
 1322:                                             ; preds = %1314
   %1323 = getelementptr inbounds nuw i8, ptr %1033, i64 104
   %1324 = zext i32 %1316 to i64
-  %1325 = getelementptr inbounds nuw %struct.mq_item, ptr %1323, i64 %1324
+  %1325 = getelementptr inbounds nuw [24 x i8], ptr %1323, i64 %1324
   store i32 1, ptr %1325, align 8, !alias.scope !53
   %1326 = getelementptr inbounds nuw i8, ptr %1325, i64 8
   store i64 %0, ptr %1326, align 8, !alias.scope !53
@@ -5082,7 +5077,7 @@ ensureEnd.exit.i77:                               ; preds = %1322, %1314
 1333:                                             ; preds = %1330
   %1334 = load i32, ptr %1307, align 8
   %1335 = zext i32 %1334 to i64
-  %1336 = getelementptr inbounds nuw %struct.mq_item, ptr %1033, i64 %1335
+  %1336 = getelementptr inbounds nuw [24 x i8], ptr %1033, i64 %1335
   %1337 = getelementptr inbounds nuw i8, ptr %1336, i64 112
   %1338 = load i64, ptr %1337, align 8
   %1339 = icmp eq i64 %1338, %183
@@ -5099,14 +5094,14 @@ ensureEnd.exit.i77:                               ; preds = %1322, %1314
   %1343 = add i32 %.012.i.i468, -1
   %1344 = lshr i32 %1343, 1
   %1345 = zext nneg i32 %1344 to i64
-  %1346 = getelementptr inbounds nuw %struct.queue_match, ptr %1341, i64 %1345
+  %1346 = getelementptr inbounds nuw [16 x i8], ptr %1341, i64 %1345
   %1347 = load i64, ptr %1346, align 8
   %1348 = icmp ult i64 %1347, %1338
   br i1 %1348, label %.thread299.loopexit, label %1349
 
 1349:                                             ; preds = %.lr.ph470
   %1350 = zext i32 %.012.i.i468 to i64
-  %1351 = getelementptr inbounds nuw %struct.queue_match, ptr %1341, i64 %1350
+  %1351 = getelementptr inbounds nuw [16 x i8], ptr %1341, i64 %1350
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1351, ptr noundef nonnull align 8 dereferenceable(16) %1346, i64 16, i1 false)
   %.not.i47.i113 = icmp eq i32 %1344, 0
   br i1 %.not.i47.i113, label %.thread299.loopexit, label %.lr.ph470
@@ -5118,7 +5113,7 @@ ensureEnd.exit.i77:                               ; preds = %1322, %1314
 
 .thread299:                                       ; preds = %.thread299.loopexit, %1340
   %.012.i.i.lcssa = phi i64 [ 0, %1340 ], [ %1352, %.thread299.loopexit ]
-  %1353 = getelementptr inbounds nuw %struct.queue_match, ptr %1341, i64 %.012.i.i.lcssa
+  %1353 = getelementptr inbounds nuw [16 x i8], ptr %1341, i64 %.012.i.i.lcssa
   store i64 %1338, ptr %1353, align 8
   %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1353, i64 8
   store i32 %.050.i480, ptr %.sroa.3.0..sroa_idx.i.i, align 8
@@ -5186,7 +5181,7 @@ ensureEnd.exit.i77:                               ; preds = %1322, %1314
 .lr.ph1058:                                       ; preds = %.lr.ph460.preheader, %.lr.ph460
   %indvars.iv6821057 = phi i64 [ %indvars.iv.next683, %.lr.ph460 ], [ 0, %.lr.ph460.preheader ]
   %indvars.iv.next683 = add nuw nsw i64 %indvars.iv6821057, 1
-  %1395 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next683
+  %1395 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next683
   %1396 = load i32, ptr %1395, align 4
   %1397 = zext i32 %1396 to i64
   %1398 = shl nuw nsw i64 %1397, 3
@@ -5273,7 +5268,7 @@ mmbit_unset.exit.i105:                            ; preds = %.lr.ph1058, %1374, 
 .lr.ph1064:                                       ; preds = %.lr.ph466.preheader, %.lr.ph466
   %indvars.iv6851063 = phi i64 [ %indvars.iv.next686, %.lr.ph466 ], [ 0, %.lr.ph466.preheader ]
   %indvars.iv.next686 = add nuw nsw i64 %indvars.iv6851063, 1
-  %1453 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next686
+  %1453 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next686
   %1454 = load i32, ptr %1453, align 4
   %1455 = zext i32 %1454 to i64
   %1456 = shl nuw nsw i64 %1455, 3
@@ -5341,9 +5336,9 @@ mmbit_unset.exit.i105:                            ; preds = %.lr.ph1058, %1374, 
 1489:                                             ; preds = %.lr.ph475, %1489
   %indvars.iv690 = phi i64 [ %1483, %.lr.ph475 ], [ %indvars.iv.next691, %1489 ]
   %indvars.iv688 = phi i64 [ 0, %.lr.ph475 ], [ %indvars.iv.next689, %1489 ]
-  %1490 = getelementptr inbounds nuw %struct.mq_item, ptr %1482, i64 %indvars.iv688
+  %1490 = getelementptr inbounds nuw [24 x i8], ptr %1482, i64 %indvars.iv688
   %indvars.iv.next691 = add nuw nsw i64 %indvars.iv690, 1
-  %1491 = getelementptr inbounds nuw %struct.mq_item, ptr %1482, i64 %indvars.iv690
+  %1491 = getelementptr inbounds nuw [24 x i8], ptr %1482, i64 %indvars.iv690
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1490, ptr noundef nonnull align 8 dereferenceable(24) %1491, i64 24, i1 false)
   %indvars.iv.next689 = add nuw nsw i64 %indvars.iv688, 1
   %1492 = icmp samesign ult i64 %indvars.iv.next691, %1484
@@ -5404,7 +5399,7 @@ mmbit_iterate_bounded.exit.i.thread:              ; preds = %166, %buildSufPQ_fi
 1519:                                             ; preds = %1528, %1512
   %.014.i.i150 = phi i32 [ 0, %1512 ], [ %1529, %1528 ]
   %1520 = zext nneg i32 %.014.i.i150 to i64
-  %1521 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %1520
+  %1521 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %1520
   %1522 = load i32, ptr %1521, align 4
   %1523 = zext i32 %1522 to i64
   %1524 = shl nuw nsw i64 %1523, 3
@@ -5531,7 +5526,7 @@ define internal fastcc range(i64 -1, 1) i64 @roseCatchUpNfas(ptr noundef %0, i64
 60:                                               ; preds = %69, %53
   %.014.i.i = phi i32 [ 0, %53 ], [ %70, %69 ]
   %61 = zext nneg i32 %.014.i.i to i64
-  %62 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %61
+  %62 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %61
   %63 = load i32, ptr %62, align 4
   %64 = zext i32 %63 to i64
   %65 = shl nuw nsw i64 %64, 3
@@ -5576,7 +5571,7 @@ roseCatchUpMPV.exit:                              ; preds = %69, %canSkipCatchUp
 
 80:                                               ; preds = %roseCatchUpMPV.exit.thread180, %roseCatchUpMPV.exit
   %81 = zext i32 %37 to i64
-  %82 = getelementptr inbounds nuw %struct.mq, ptr %8, i64 %81
+  %82 = getelementptr inbounds nuw [344 x i8], ptr %8, i64 %81
   %83 = load i32, ptr %23, align 8
   %.not67 = icmp ult i32 %37, %83
   br i1 %.not67, label %84, label %86
@@ -5616,7 +5611,7 @@ findSecondPlace.exit:                             ; preds = %86, %86, %89, %93
   %100 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %101 = load i32, ptr %100, align 8
   %102 = zext i32 %101 to i64
-  %103 = getelementptr inbounds nuw %struct.mq_item, ptr %82, i64 %102
+  %103 = getelementptr inbounds nuw [24 x i8], ptr %82, i64 %102
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 112
   %105 = load i64, ptr %104, align 8
   %106 = icmp eq i64 %.0.i78, %105
@@ -5635,7 +5630,7 @@ findSecondPlace.exit:                             ; preds = %86, %86, %89, %93
 111:                                              ; preds = %107
   %112 = load i32, ptr %100, align 8
   %113 = zext i32 %112 to i64
-  %114 = getelementptr inbounds nuw %struct.mq_item, ptr %82, i64 %113
+  %114 = getelementptr inbounds nuw [24 x i8], ptr %82, i64 %113
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 112
   %116 = load i64, ptr %115, align 8
   %117 = load ptr, ptr %13, align 8
@@ -5657,16 +5652,16 @@ findSecondPlace.exit:                             ; preds = %86, %86, %89, %93
 
 .lr.ph308._crit_edge:                             ; preds = %.lr.ph308
   %.pre436.phi.trans.insert = zext i32 %120 to i64
-  %.phi.trans.insert438.phi.trans.insert = getelementptr inbounds nuw %struct.queue_match, ptr %117, i64 %.pre436.phi.trans.insert
+  %.phi.trans.insert438.phi.trans.insert = getelementptr inbounds nuw [16 x i8], ptr %117, i64 %.pre436.phi.trans.insert
   %.pre439.pre = load i64, ptr %.phi.trans.insert438.phi.trans.insert, align 8
   br label %133
 
 124:                                              ; preds = %.lr.ph308
   %125 = zext i32 %122 to i64
-  %126 = getelementptr inbounds nuw %struct.queue_match, ptr %117, i64 %125
+  %126 = getelementptr inbounds nuw [16 x i8], ptr %117, i64 %125
   %127 = load i64, ptr %126, align 8
   %128 = zext i32 %120 to i64
-  %129 = getelementptr inbounds nuw %struct.queue_match, ptr %117, i64 %128
+  %129 = getelementptr inbounds nuw [16 x i8], ptr %117, i64 %128
   %130 = load i64, ptr %129, align 8
   %131 = icmp ult i64 %127, %130
   br i1 %131, label %133, label %132
@@ -5682,9 +5677,9 @@ findSecondPlace.exit:                             ; preds = %86, %86, %89, %93
   br i1 %135, label %136, label %pq_sift.exit111.loopexit
 
 136:                                              ; preds = %133
-  %137 = getelementptr inbounds nuw %struct.queue_match, ptr %117, i64 %.pre-phi437
+  %137 = getelementptr inbounds nuw [16 x i8], ptr %117, i64 %.pre-phi437
   %138 = zext i32 %.026.i105306 to i64
-  %139 = getelementptr inbounds nuw %struct.queue_match, ptr %117, i64 %138
+  %139 = getelementptr inbounds nuw [16 x i8], ptr %117, i64 %138
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %139, ptr noundef nonnull align 8 dereferenceable(16) %137, i64 16, i1 false)
   %140 = shl i32 %.025.i108, 1
   %141 = or disjoint i32 %140, 1
@@ -5698,7 +5693,7 @@ pq_sift.exit111.loopexit:                         ; preds = %133, %136
 
 pq_sift.exit111:                                  ; preds = %pq_sift.exit111.loopexit, %111
   %.026.i105.lcssa = phi i64 [ 0, %111 ], [ %143, %pq_sift.exit111.loopexit ]
-  %144 = getelementptr inbounds nuw %struct.queue_match, ptr %117, i64 %.026.i105.lcssa
+  %144 = getelementptr inbounds nuw [16 x i8], ptr %117, i64 %.026.i105.lcssa
   store i64 %116, ptr %144, align 8
   br label %runExistingNfaToNextMatch.exitthread-pre-split
 
@@ -5757,7 +5752,7 @@ pq_sift.exit111:                                  ; preds = %pq_sift.exit111.loo
 .lr.ph623:                                        ; preds = %.lr.ph299.preheader, %.lr.ph299
   %indvars.iv403622 = phi i64 [ %indvars.iv.next404, %.lr.ph299 ], [ 0, %.lr.ph299.preheader ]
   %indvars.iv.next404 = add nuw nsw i64 %indvars.iv403622, 1
-  %183 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next404
+  %183 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next404
   %184 = load i32, ptr %183, align 4
   %185 = zext i32 %184 to i64
   %186 = shl nuw nsw i64 %185, 3
@@ -5844,7 +5839,7 @@ mmbit_unset.exit.i:                               ; preds = %.lr.ph623, %162, %.
 .lr.ph629:                                        ; preds = %.lr.ph305.preheader, %.lr.ph305
   %indvars.iv407628 = phi i64 [ %indvars.iv.next408, %.lr.ph305 ], [ 0, %.lr.ph305.preheader ]
   %indvars.iv.next408 = add nuw nsw i64 %indvars.iv407628, 1
-  %241 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next408
+  %241 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next408
   %242 = load i32, ptr %241, align 4
   %243 = zext i32 %242 to i64
   %244 = shl nuw nsw i64 %243, 3
@@ -5913,9 +5908,9 @@ mmbit_unset.exit.i:                               ; preds = %.lr.ph623, %162, %.
 278:                                              ; preds = %.lr.ph314, %278
   %indvars.iv413 = phi i64 [ %272, %.lr.ph314 ], [ %indvars.iv.next414, %278 ]
   %indvars.iv411 = phi i64 [ 0, %.lr.ph314 ], [ %indvars.iv.next412, %278 ]
-  %279 = getelementptr inbounds nuw %struct.mq_item, ptr %271, i64 %indvars.iv411
+  %279 = getelementptr inbounds nuw [24 x i8], ptr %271, i64 %indvars.iv411
   %indvars.iv.next414 = add nuw nsw i64 %indvars.iv413, 1
-  %280 = getelementptr inbounds nuw %struct.mq_item, ptr %271, i64 %indvars.iv413
+  %280 = getelementptr inbounds nuw [24 x i8], ptr %271, i64 %indvars.iv413
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %279, ptr noundef nonnull align 8 dereferenceable(24) %280, i64 24, i1 false)
   %indvars.iv.next412 = add nuw nsw i64 %indvars.iv411, 1
   %281 = icmp samesign ult i64 %indvars.iv.next414, %273
@@ -5936,7 +5931,7 @@ fatbit_unset.exit.i:                              ; preds = %.lr.ph629, %219, %2
   %284 = load i32, ptr %14, align 8
   %285 = add i32 %284, -1
   %286 = zext i32 %285 to i64
-  %287 = getelementptr inbounds nuw %struct.queue_match, ptr %283, i64 %286
+  %287 = getelementptr inbounds nuw [16 x i8], ptr %283, i64 %286
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %283, ptr noundef nonnull align 8 dereferenceable(16) %287, i64 16, i1 false)
   %.sroa.0.0.copyload.i.i132 = load i64, ptr %283, align 8
   %.sroa.5.0..sroa_idx.i.i133 = getelementptr inbounds nuw i8, ptr %283, i64 8
@@ -5954,16 +5949,16 @@ fatbit_unset.exit.i:                              ; preds = %.lr.ph629, %219, %2
 
 .lr.ph319._crit_edge:                             ; preds = %.lr.ph319
   %.pre440.phi.trans.insert = zext i32 %289 to i64
-  %.phi.trans.insert442.phi.trans.insert = getelementptr inbounds nuw %struct.queue_match, ptr %283, i64 %.pre440.phi.trans.insert
+  %.phi.trans.insert442.phi.trans.insert = getelementptr inbounds nuw [16 x i8], ptr %283, i64 %.pre440.phi.trans.insert
   %.pre443.pre = load i64, ptr %.phi.trans.insert442.phi.trans.insert, align 8
   br label %302
 
 293:                                              ; preds = %.lr.ph319
   %294 = zext i32 %291 to i64
-  %295 = getelementptr inbounds nuw %struct.queue_match, ptr %283, i64 %294
+  %295 = getelementptr inbounds nuw [16 x i8], ptr %283, i64 %294
   %296 = load i64, ptr %295, align 8
   %297 = zext i32 %289 to i64
-  %298 = getelementptr inbounds nuw %struct.queue_match, ptr %283, i64 %297
+  %298 = getelementptr inbounds nuw [16 x i8], ptr %283, i64 %297
   %299 = load i64, ptr %298, align 8
   %300 = icmp ult i64 %296, %299
   br i1 %300, label %302, label %301
@@ -5979,9 +5974,9 @@ fatbit_unset.exit.i:                              ; preds = %.lr.ph629, %219, %2
   br i1 %304, label %305, label %pq_pop.exit141.loopexit
 
 305:                                              ; preds = %302
-  %306 = getelementptr inbounds nuw %struct.queue_match, ptr %283, i64 %.pre-phi441
+  %306 = getelementptr inbounds nuw [16 x i8], ptr %283, i64 %.pre-phi441
   %307 = zext i32 %.026.i.i135318 to i64
-  %308 = getelementptr inbounds nuw %struct.queue_match, ptr %283, i64 %307
+  %308 = getelementptr inbounds nuw [16 x i8], ptr %283, i64 %307
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %308, ptr noundef nonnull align 8 dereferenceable(16) %306, i64 16, i1 false)
   %309 = shl i32 %.025.i.i138, 1
   %310 = or disjoint i32 %309, 1
@@ -5995,7 +5990,7 @@ pq_pop.exit141.loopexit:                          ; preds = %302, %305
 
 pq_pop.exit141:                                   ; preds = %pq_pop.exit141.loopexit, %fatbit_unset.exit.i
   %.026.i.i135.lcssa = phi i64 [ 0, %fatbit_unset.exit.i ], [ %312, %pq_pop.exit141.loopexit ]
-  %313 = getelementptr inbounds nuw %struct.queue_match, ptr %283, i64 %.026.i.i135.lcssa
+  %313 = getelementptr inbounds nuw [16 x i8], ptr %283, i64 %.026.i.i135.lcssa
   store i64 %.sroa.0.0.copyload.i.i132, ptr %313, align 8
   %.sroa.5.0..sroa_idx5.i.i137 = getelementptr inbounds nuw i8, ptr %313, i64 8
   store i64 %.sroa.5.0.copyload.i.i134, ptr %.sroa.5.0..sroa_idx5.i.i137, align 8
@@ -6071,7 +6066,7 @@ pq_pop.exit141:                                   ; preds = %pq_pop.exit141.loop
 .lr.ph611:                                        ; preds = %.lr.ph282.preheader, %.lr.ph282
   %indvars.iv395610 = phi i64 [ %indvars.iv.next396, %.lr.ph282 ], [ 0, %.lr.ph282.preheader ]
   %indvars.iv.next396 = add nuw nsw i64 %indvars.iv395610, 1
-  %359 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next396
+  %359 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next396
   %360 = load i32, ptr %359, align 4
   %361 = zext i32 %360 to i64
   %362 = shl nuw nsw i64 %361, 3
@@ -6158,7 +6153,7 @@ mmbit_unset.exit:                                 ; preds = %.lr.ph611, %338, %.
 .lr.ph617:                                        ; preds = %.lr.ph288.preheader, %.lr.ph288
   %indvars.iv399616 = phi i64 [ %indvars.iv.next400, %.lr.ph288 ], [ 0, %.lr.ph288.preheader ]
   %indvars.iv.next400 = add nuw nsw i64 %indvars.iv399616, 1
-  %417 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next400
+  %417 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next400
   %418 = load i32, ptr %417, align 4
   %419 = zext i32 %418 to i64
   %420 = shl nuw nsw i64 %419, 3
@@ -6201,7 +6196,7 @@ fatbit_unset.exit:                                ; preds = %.lr.ph617, %395, %.
   %442 = load i32, ptr %14, align 8
   %443 = add i32 %442, -1
   %444 = zext i32 %443 to i64
-  %445 = getelementptr inbounds nuw %struct.queue_match, ptr %441, i64 %444
+  %445 = getelementptr inbounds nuw [16 x i8], ptr %441, i64 %444
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %441, ptr noundef nonnull align 8 dereferenceable(16) %445, i64 16, i1 false)
   %.sroa.0.0.copyload.i.i122 = load i64, ptr %441, align 8
   %.sroa.5.0..sroa_idx.i.i123 = getelementptr inbounds nuw i8, ptr %441, i64 8
@@ -6219,16 +6214,16 @@ fatbit_unset.exit:                                ; preds = %.lr.ph617, %395, %.
 
 .lr.ph290._crit_edge:                             ; preds = %.lr.ph290
   %.pre432.phi.trans.insert = zext i32 %447 to i64
-  %.phi.trans.insert434.phi.trans.insert = getelementptr inbounds nuw %struct.queue_match, ptr %441, i64 %.pre432.phi.trans.insert
+  %.phi.trans.insert434.phi.trans.insert = getelementptr inbounds nuw [16 x i8], ptr %441, i64 %.pre432.phi.trans.insert
   %.pre435.pre = load i64, ptr %.phi.trans.insert434.phi.trans.insert, align 8
   br label %460
 
 451:                                              ; preds = %.lr.ph290
   %452 = zext i32 %449 to i64
-  %453 = getelementptr inbounds nuw %struct.queue_match, ptr %441, i64 %452
+  %453 = getelementptr inbounds nuw [16 x i8], ptr %441, i64 %452
   %454 = load i64, ptr %453, align 8
   %455 = zext i32 %447 to i64
-  %456 = getelementptr inbounds nuw %struct.queue_match, ptr %441, i64 %455
+  %456 = getelementptr inbounds nuw [16 x i8], ptr %441, i64 %455
   %457 = load i64, ptr %456, align 8
   %458 = icmp ult i64 %454, %457
   br i1 %458, label %460, label %459
@@ -6244,9 +6239,9 @@ fatbit_unset.exit:                                ; preds = %.lr.ph617, %395, %.
   br i1 %462, label %463, label %pq_pop.exit131.loopexit
 
 463:                                              ; preds = %460
-  %464 = getelementptr inbounds nuw %struct.queue_match, ptr %441, i64 %.pre-phi433
+  %464 = getelementptr inbounds nuw [16 x i8], ptr %441, i64 %.pre-phi433
   %465 = zext i32 %.026.i.i125289 to i64
-  %466 = getelementptr inbounds nuw %struct.queue_match, ptr %441, i64 %465
+  %466 = getelementptr inbounds nuw [16 x i8], ptr %441, i64 %465
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %466, ptr noundef nonnull align 8 dereferenceable(16) %464, i64 16, i1 false)
   %467 = shl i32 %.025.i.i128, 1
   %468 = or disjoint i32 %467, 1
@@ -6260,7 +6255,7 @@ pq_pop.exit131.loopexit:                          ; preds = %460, %463
 
 pq_pop.exit131:                                   ; preds = %pq_pop.exit131.loopexit, %fatbit_unset.exit
   %.026.i.i125.lcssa = phi i64 [ 0, %fatbit_unset.exit ], [ %470, %pq_pop.exit131.loopexit ]
-  %471 = getelementptr inbounds nuw %struct.queue_match, ptr %441, i64 %.026.i.i125.lcssa
+  %471 = getelementptr inbounds nuw [16 x i8], ptr %441, i64 %.026.i.i125.lcssa
   store i64 %.sroa.0.0.copyload.i.i122, ptr %471, align 8
   %.sroa.5.0..sroa_idx5.i.i127 = getelementptr inbounds nuw i8, ptr %471, i64 8
   store i64 %.sroa.5.0.copyload.i.i124, ptr %.sroa.5.0..sroa_idx5.i.i127, align 8
@@ -6289,7 +6284,7 @@ pq_pop.exit131:                                   ; preds = %pq_pop.exit131.loop
   %484 = load i32, ptr %14, align 8
   %485 = add i32 %484, -1
   %486 = zext i32 %485 to i64
-  %487 = getelementptr inbounds nuw %struct.queue_match, ptr %483, i64 %486
+  %487 = getelementptr inbounds nuw [16 x i8], ptr %483, i64 %486
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %483, ptr noundef nonnull align 8 dereferenceable(16) %487, i64 16, i1 false)
   %.sroa.0.0.copyload.i.i112 = load i64, ptr %483, align 8
   %.sroa.5.0..sroa_idx.i.i113 = getelementptr inbounds nuw i8, ptr %483, i64 8
@@ -6307,16 +6302,16 @@ pq_pop.exit131:                                   ; preds = %pq_pop.exit131.loop
 
 .lr.ph273._crit_edge:                             ; preds = %.lr.ph273
   %.pre428.phi.trans.insert = zext i32 %489 to i64
-  %.phi.trans.insert430.phi.trans.insert = getelementptr inbounds nuw %struct.queue_match, ptr %483, i64 %.pre428.phi.trans.insert
+  %.phi.trans.insert430.phi.trans.insert = getelementptr inbounds nuw [16 x i8], ptr %483, i64 %.pre428.phi.trans.insert
   %.pre431.pre = load i64, ptr %.phi.trans.insert430.phi.trans.insert, align 8
   br label %502
 
 493:                                              ; preds = %.lr.ph273
   %494 = zext i32 %491 to i64
-  %495 = getelementptr inbounds nuw %struct.queue_match, ptr %483, i64 %494
+  %495 = getelementptr inbounds nuw [16 x i8], ptr %483, i64 %494
   %496 = load i64, ptr %495, align 8
   %497 = zext i32 %489 to i64
-  %498 = getelementptr inbounds nuw %struct.queue_match, ptr %483, i64 %497
+  %498 = getelementptr inbounds nuw [16 x i8], ptr %483, i64 %497
   %499 = load i64, ptr %498, align 8
   %500 = icmp ult i64 %496, %499
   br i1 %500, label %502, label %501
@@ -6332,9 +6327,9 @@ pq_pop.exit131:                                   ; preds = %pq_pop.exit131.loop
   br i1 %504, label %505, label %pq_pop.exit121.loopexit
 
 505:                                              ; preds = %502
-  %506 = getelementptr inbounds nuw %struct.queue_match, ptr %483, i64 %.pre-phi429
+  %506 = getelementptr inbounds nuw [16 x i8], ptr %483, i64 %.pre-phi429
   %507 = zext i32 %.026.i.i115271 to i64
-  %508 = getelementptr inbounds nuw %struct.queue_match, ptr %483, i64 %507
+  %508 = getelementptr inbounds nuw [16 x i8], ptr %483, i64 %507
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %508, ptr noundef nonnull align 8 dereferenceable(16) %506, i64 16, i1 false)
   %509 = shl i32 %.025.i.i118, 1
   %510 = or disjoint i32 %509, 1
@@ -6348,7 +6343,7 @@ pq_pop.exit121.loopexit:                          ; preds = %502, %505
 
 pq_pop.exit121:                                   ; preds = %pq_pop.exit121.loopexit, %479
   %.026.i.i115.lcssa = phi i64 [ 0, %479 ], [ %512, %pq_pop.exit121.loopexit ]
-  %513 = getelementptr inbounds nuw %struct.queue_match, ptr %483, i64 %.026.i.i115.lcssa
+  %513 = getelementptr inbounds nuw [16 x i8], ptr %483, i64 %.026.i.i115.lcssa
   store i64 %.sroa.0.0.copyload.i.i112, ptr %513, align 8
   %.sroa.5.0..sroa_idx5.i.i117 = getelementptr inbounds nuw i8, ptr %513, i64 8
   store i64 %.sroa.5.0.copyload.i.i114, ptr %.sroa.5.0..sroa_idx5.i.i117, align 8
@@ -6366,7 +6361,7 @@ pq_pop.exit121:                                   ; preds = %pq_pop.exit121.loop
   %520 = load i32, ptr %14, align 8
   %521 = add i32 %520, -1
   %522 = zext i32 %521 to i64
-  %523 = getelementptr inbounds nuw %struct.queue_match, ptr %519, i64 %522
+  %523 = getelementptr inbounds nuw [16 x i8], ptr %519, i64 %522
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %519, ptr noundef nonnull align 8 dereferenceable(16) %523, i64 16, i1 false)
   %.sroa.0.0.copyload.i.i = load i64, ptr %519, align 8
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %519, i64 8
@@ -6384,16 +6379,16 @@ pq_pop.exit121:                                   ; preds = %pq_pop.exit121.loop
 
 .lr.ph329._crit_edge:                             ; preds = %.lr.ph329
   %.pre424.phi.trans.insert = zext i32 %525 to i64
-  %.phi.trans.insert426.phi.trans.insert = getelementptr inbounds nuw %struct.queue_match, ptr %519, i64 %.pre424.phi.trans.insert
+  %.phi.trans.insert426.phi.trans.insert = getelementptr inbounds nuw [16 x i8], ptr %519, i64 %.pre424.phi.trans.insert
   %.pre427.pre = load i64, ptr %.phi.trans.insert426.phi.trans.insert, align 8
   br label %538
 
 529:                                              ; preds = %.lr.ph329
   %530 = zext i32 %527 to i64
-  %531 = getelementptr inbounds nuw %struct.queue_match, ptr %519, i64 %530
+  %531 = getelementptr inbounds nuw [16 x i8], ptr %519, i64 %530
   %532 = load i64, ptr %531, align 8
   %533 = zext i32 %525 to i64
-  %534 = getelementptr inbounds nuw %struct.queue_match, ptr %519, i64 %533
+  %534 = getelementptr inbounds nuw [16 x i8], ptr %519, i64 %533
   %535 = load i64, ptr %534, align 8
   %536 = icmp ult i64 %532, %535
   br i1 %536, label %538, label %537
@@ -6409,9 +6404,9 @@ pq_pop.exit121:                                   ; preds = %pq_pop.exit121.loop
   br i1 %540, label %541, label %pq_pop.exit.loopexit
 
 541:                                              ; preds = %538
-  %542 = getelementptr inbounds nuw %struct.queue_match, ptr %519, i64 %.pre-phi425
+  %542 = getelementptr inbounds nuw [16 x i8], ptr %519, i64 %.pre-phi425
   %543 = zext i32 %.026.i.i327 to i64
-  %544 = getelementptr inbounds nuw %struct.queue_match, ptr %519, i64 %543
+  %544 = getelementptr inbounds nuw [16 x i8], ptr %519, i64 %543
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %544, ptr noundef nonnull align 8 dereferenceable(16) %542, i64 16, i1 false)
   %545 = shl i32 %.025.i.i, 1
   %546 = or disjoint i32 %545, 1
@@ -6425,7 +6420,7 @@ pq_pop.exit.loopexit:                             ; preds = %538, %541
 
 pq_pop.exit:                                      ; preds = %pq_pop.exit.loopexit, %518
   %.026.i.i.lcssa = phi i64 [ 0, %518 ], [ %548, %pq_pop.exit.loopexit ]
-  %549 = getelementptr inbounds nuw %struct.queue_match, ptr %519, i64 %.026.i.i.lcssa
+  %549 = getelementptr inbounds nuw [16 x i8], ptr %519, i64 %.026.i.i.lcssa
   store i64 %.sroa.0.0.copyload.i.i, ptr %549, align 8
   %.sroa.5.0..sroa_idx5.i.i = getelementptr inbounds nuw i8, ptr %549, i64 8
   store i64 %.sroa.5.0.copyload.i.i, ptr %.sroa.5.0..sroa_idx5.i.i, align 8
@@ -6445,7 +6440,7 @@ pq_pop.exit:                                      ; preds = %pq_pop.exit.loopexi
 555:                                              ; preds = %552
   %556 = load i32, ptr %100, align 8
   %557 = zext i32 %556 to i64
-  %558 = getelementptr inbounds nuw %struct.mq_item, ptr %82, i64 %557
+  %558 = getelementptr inbounds nuw [24 x i8], ptr %82, i64 %557
   %559 = getelementptr inbounds nuw i8, ptr %558, i64 112
   %560 = load i64, ptr %559, align 8
   %561 = load ptr, ptr %13, align 8
@@ -6467,16 +6462,16 @@ pq_pop.exit:                                      ; preds = %pq_pop.exit.loopexi
 
 .lr.ph259._crit_edge:                             ; preds = %.lr.ph259
   %.pre.phi.trans.insert = zext i32 %564 to i64
-  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw %struct.queue_match, ptr %561, i64 %.pre.phi.trans.insert
+  %.phi.trans.insert.phi.trans.insert = getelementptr inbounds nuw [16 x i8], ptr %561, i64 %.pre.phi.trans.insert
   %.pre419.pre = load i64, ptr %.phi.trans.insert.phi.trans.insert, align 8
   br label %577
 
 568:                                              ; preds = %.lr.ph259
   %569 = zext i32 %566 to i64
-  %570 = getelementptr inbounds nuw %struct.queue_match, ptr %561, i64 %569
+  %570 = getelementptr inbounds nuw [16 x i8], ptr %561, i64 %569
   %571 = load i64, ptr %570, align 8
   %572 = zext i32 %564 to i64
-  %573 = getelementptr inbounds nuw %struct.queue_match, ptr %561, i64 %572
+  %573 = getelementptr inbounds nuw [16 x i8], ptr %561, i64 %572
   %574 = load i64, ptr %573, align 8
   %575 = icmp ult i64 %571, %574
   br i1 %575, label %577, label %576
@@ -6492,9 +6487,9 @@ pq_pop.exit:                                      ; preds = %pq_pop.exit.loopexi
   br i1 %579, label %580, label %pq_sift.exit.loopexit
 
 580:                                              ; preds = %577
-  %581 = getelementptr inbounds nuw %struct.queue_match, ptr %561, i64 %.pre-phi
+  %581 = getelementptr inbounds nuw [16 x i8], ptr %561, i64 %.pre-phi
   %582 = zext i32 %.026.i258 to i64
-  %583 = getelementptr inbounds nuw %struct.queue_match, ptr %561, i64 %582
+  %583 = getelementptr inbounds nuw [16 x i8], ptr %561, i64 %582
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %583, ptr noundef nonnull align 8 dereferenceable(16) %581, i64 16, i1 false)
   %584 = shl i32 %.025.i, 1
   %585 = or disjoint i32 %584, 1
@@ -6508,7 +6503,7 @@ pq_sift.exit.loopexit:                            ; preds = %577, %580
 
 pq_sift.exit:                                     ; preds = %pq_sift.exit.loopexit, %555
   %.026.i.lcssa = phi i64 [ 0, %555 ], [ %587, %pq_sift.exit.loopexit ]
-  %588 = getelementptr inbounds nuw %struct.queue_match, ptr %561, i64 %.026.i.lcssa
+  %588 = getelementptr inbounds nuw [16 x i8], ptr %561, i64 %.026.i.lcssa
   store i64 %560, ptr %588, align 8
   br label %runExistingNfaToNextMatch.exitthread-pre-split
 
@@ -6561,7 +6556,7 @@ pq_sift.exit:                                     ; preds = %pq_sift.exit.loopex
 .lr.ph600:                                        ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv599 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv599, 1
-  %624 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next
+  %624 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next
   %625 = load i32, ptr %624, align 4
   %626 = zext i32 %625 to i64
   %627 = shl nuw nsw i64 %626, 3
@@ -6648,7 +6643,7 @@ mmbit_unset.exit.i82:                             ; preds = %.lr.ph600, %603, %.
 .lr.ph605:                                        ; preds = %.lr.ph257.preheader, %.lr.ph257
   %indvars.iv385604 = phi i64 [ %indvars.iv.next386, %.lr.ph257 ], [ 0, %.lr.ph257.preheader ]
   %indvars.iv.next386 = add nuw nsw i64 %indvars.iv385604, 1
-  %682 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next386
+  %682 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next386
   %683 = load i32, ptr %682, align 4
   %684 = zext i32 %683 to i64
   %685 = shl nuw nsw i64 %684, 3
@@ -6716,9 +6711,9 @@ mmbit_unset.exit.i82:                             ; preds = %.lr.ph600, %603, %.
 718:                                              ; preds = %.lr.ph263, %718
   %indvars.iv390 = phi i64 [ %712, %.lr.ph263 ], [ %indvars.iv.next391, %718 ]
   %indvars.iv388 = phi i64 [ 0, %.lr.ph263 ], [ %indvars.iv.next389, %718 ]
-  %719 = getelementptr inbounds nuw %struct.mq_item, ptr %711, i64 %indvars.iv388
+  %719 = getelementptr inbounds nuw [24 x i8], ptr %711, i64 %indvars.iv388
   %indvars.iv.next391 = add nuw nsw i64 %indvars.iv390, 1
-  %720 = getelementptr inbounds nuw %struct.mq_item, ptr %711, i64 %indvars.iv390
+  %720 = getelementptr inbounds nuw [24 x i8], ptr %711, i64 %indvars.iv390
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %719, ptr noundef nonnull align 8 dereferenceable(24) %720, i64 24, i1 false)
   %indvars.iv.next389 = add nuw nsw i64 %indvars.iv388, 1
   %721 = icmp samesign ult i64 %indvars.iv.next391, %713
@@ -6739,7 +6734,7 @@ fatbit_unset.exit.i84:                            ; preds = %.lr.ph605, %660, %6
   %724 = load i32, ptr %14, align 8
   %725 = add i32 %724, -1
   %726 = zext i32 %725 to i64
-  %727 = getelementptr inbounds nuw %struct.queue_match, ptr %723, i64 %726
+  %727 = getelementptr inbounds nuw [16 x i8], ptr %723, i64 %726
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %723, ptr noundef nonnull align 8 dereferenceable(16) %727, i64 16, i1 false)
   %.sroa.0.0.copyload.i.i142 = load i64, ptr %723, align 8
   %.sroa.5.0..sroa_idx.i.i143 = getelementptr inbounds nuw i8, ptr %723, i64 8
@@ -6757,16 +6752,16 @@ fatbit_unset.exit.i84:                            ; preds = %.lr.ph605, %660, %6
 
 .lr.ph267._crit_edge:                             ; preds = %.lr.ph267
   %.pre420.phi.trans.insert = zext i32 %729 to i64
-  %.phi.trans.insert422.phi.trans.insert = getelementptr inbounds nuw %struct.queue_match, ptr %723, i64 %.pre420.phi.trans.insert
+  %.phi.trans.insert422.phi.trans.insert = getelementptr inbounds nuw [16 x i8], ptr %723, i64 %.pre420.phi.trans.insert
   %.pre423.pre = load i64, ptr %.phi.trans.insert422.phi.trans.insert, align 8
   br label %742
 
 733:                                              ; preds = %.lr.ph267
   %734 = zext i32 %731 to i64
-  %735 = getelementptr inbounds nuw %struct.queue_match, ptr %723, i64 %734
+  %735 = getelementptr inbounds nuw [16 x i8], ptr %723, i64 %734
   %736 = load i64, ptr %735, align 8
   %737 = zext i32 %729 to i64
-  %738 = getelementptr inbounds nuw %struct.queue_match, ptr %723, i64 %737
+  %738 = getelementptr inbounds nuw [16 x i8], ptr %723, i64 %737
   %739 = load i64, ptr %738, align 8
   %740 = icmp ult i64 %736, %739
   br i1 %740, label %742, label %741
@@ -6782,9 +6777,9 @@ fatbit_unset.exit.i84:                            ; preds = %.lr.ph605, %660, %6
   br i1 %744, label %745, label %pq_pop.exit151.loopexit
 
 745:                                              ; preds = %742
-  %746 = getelementptr inbounds nuw %struct.queue_match, ptr %723, i64 %.pre-phi421
+  %746 = getelementptr inbounds nuw [16 x i8], ptr %723, i64 %.pre-phi421
   %747 = zext i32 %.026.i.i145266 to i64
-  %748 = getelementptr inbounds nuw %struct.queue_match, ptr %723, i64 %747
+  %748 = getelementptr inbounds nuw [16 x i8], ptr %723, i64 %747
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %748, ptr noundef nonnull align 8 dereferenceable(16) %746, i64 16, i1 false)
   %749 = shl i32 %.025.i.i148, 1
   %750 = or disjoint i32 %749, 1
@@ -6798,7 +6793,7 @@ pq_pop.exit151.loopexit:                          ; preds = %742, %745
 
 pq_pop.exit151:                                   ; preds = %pq_pop.exit151.loopexit, %fatbit_unset.exit.i84
   %.026.i.i145.lcssa = phi i64 [ 0, %fatbit_unset.exit.i84 ], [ %752, %pq_pop.exit151.loopexit ]
-  %753 = getelementptr inbounds nuw %struct.queue_match, ptr %723, i64 %.026.i.i145.lcssa
+  %753 = getelementptr inbounds nuw [16 x i8], ptr %723, i64 %.026.i.i145.lcssa
   store i64 %.sroa.0.0.copyload.i.i142, ptr %753, align 8
   %.sroa.5.0..sroa_idx5.i.i147 = getelementptr inbounds nuw i8, ptr %753, i64 8
   store i64 %.sroa.5.0.copyload.i.i144, ptr %.sroa.5.0..sroa_idx5.i.i147, align 8
@@ -7081,7 +7076,7 @@ get_lowhi_masks.exit:                             ; preds = %173, %116
   %133 = add i64 %132, -1
   %..i22 = tail call i64 @llvm.umin.i64(i64 %133, i64 %127)
   %134 = zext i32 %.056.i to i64
-  %135 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %134
+  %135 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %134
   %136 = load i32, ptr %135, align 4
   %137 = zext i32 %136 to i64
   %138 = shl nuw nsw i64 %137, 3
@@ -7181,7 +7176,7 @@ mmbit_iterate_bounded.exit.i:                     ; preds = %159, %.thread163
 198:                                              ; preds = %207, %191
   %.014.i.i138 = phi i32 [ 0, %191 ], [ %208, %207 ]
   %199 = zext nneg i32 %.014.i.i138 to i64
-  %200 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %199
+  %200 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %199
   %201 = load i32, ptr %200, align 4
   %202 = zext i32 %201 to i64
   %203 = shl nuw nsw i64 %202, 3
@@ -7507,7 +7502,7 @@ mmbit_get_flat_block.exit.i:                      ; preds = %362, %354, %351, %3
 
 379:                                              ; preds = %.backedge
   %380 = zext i32 %.1.i83 to i64
-  %381 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %380
+  %381 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %380
   %382 = load i32, ptr %381, align 4
   %383 = zext i32 %382 to i64
   %384 = shl nuw nsw i64 %383, 3
@@ -7570,11 +7565,11 @@ mmbit_iterate.exit:                               ; preds = %392, %.thread217, %
 
 413:                                              ; preds = %409
   %414 = zext i32 %.050.i446 to i64
-  %415 = getelementptr inbounds nuw %struct.mq, ptr %412, i64 %414
+  %415 = getelementptr inbounds nuw [344 x i8], ptr %412, i64 %414
   %416 = load i32, ptr %242, align 4
   %417 = zext i32 %416 to i64
   %418 = getelementptr inbounds nuw i8, ptr %4, i64 %417
-  %419 = getelementptr inbounds nuw %struct.NfaInfo, ptr %418, i64 %414
+  %419 = getelementptr inbounds nuw [20 x i8], ptr %418, i64 %414
   %420 = load ptr, ptr %243, align 8
   %421 = getelementptr inbounds nuw i8, ptr %419, i64 12
   %422 = load i32, ptr %421, align 4
@@ -7610,7 +7605,7 @@ mmbit_iterate.exit:                               ; preds = %392, %.thread217, %
 
 438:                                              ; preds = %457, %435
   %indvars.iv661 = phi i64 [ %indvars.iv.next662, %457 ], [ 0, %435 ]
-  %439 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv661
+  %439 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv661
   %440 = load i32, ptr %439, align 4
   %441 = zext i32 %440 to i64
   %442 = shl nuw nsw i64 %441, 3
@@ -7715,7 +7710,7 @@ roseSuffixInfoIsExhausted.exit.i:                 ; preds = %mmbit_isset.exit.i.
 .lr.ph1035:                                       ; preds = %.lr.ph458.preheader, %.lr.ph458
   %indvars.iv6651034 = phi i64 [ %indvars.iv.next666, %.lr.ph458 ], [ 0, %.lr.ph458.preheader ]
   %indvars.iv.next666 = add nuw nsw i64 %indvars.iv6651034, 1
-  %509 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next666
+  %509 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next666
   %510 = load i32, ptr %509, align 4
   %511 = zext i32 %510 to i64
   %512 = shl nuw nsw i64 %511, 3
@@ -7805,7 +7800,7 @@ mmbit_unset.exit.i:                               ; preds = %.lr.ph1035, %484, %
 .lr.ph1041:                                       ; preds = %.lr.ph464.preheader, %.lr.ph464
   %indvars.iv6691040 = phi i64 [ %indvars.iv.next670, %.lr.ph464 ], [ 0, %.lr.ph464.preheader ]
   %indvars.iv.next670 = add nuw nsw i64 %indvars.iv6691040, 1
-  %570 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next670
+  %570 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next670
   %571 = load i32, ptr %570, align 4
   %572 = zext i32 %571 to i64
   %573 = shl nuw nsw i64 %572, 3
@@ -7861,7 +7856,7 @@ mmbit_isset.exit.i.thread:                        ; preds = %mmbit_isset.exit.i,
 
 605:                                              ; preds = %.thread236, %597
   %indvars.iv673 = phi i64 [ %indvars.iv.next674, %.thread236 ], [ 0, %597 ]
-  %606 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv673
+  %606 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv673
   %607 = load i32, ptr %606, align 4
   %608 = zext i32 %607 to i64
   %609 = shl nuw nsw i64 %608, 3
@@ -7894,7 +7889,7 @@ mmbit_isset.exit.i.thread:                        ; preds = %mmbit_isset.exit.i,
   %.130.i.i468 = phi i32 [ %628, %.lr.ph470 ], [ %625, %623 ]
   %628 = add i32 %.130.i.i468, 1
   %629 = zext i32 %628 to i64
-  %630 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %629
+  %630 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %629
   %631 = load i32, ptr %630, align 4
   %632 = zext i32 %631 to i64
   %633 = shl nuw nsw i64 %632, 3
@@ -7938,7 +7933,7 @@ mmbit_set_i.exit.i.thread:                        ; preds = %.lr.ph470, %623, %m
   %656 = load i32, ptr %242, align 4
   %657 = zext i32 %656 to i64
   %658 = getelementptr inbounds nuw i8, ptr %4, i64 %657
-  %659 = getelementptr inbounds nuw %struct.NfaInfo, ptr %658, i64 %414
+  %659 = getelementptr inbounds nuw [20 x i8], ptr %658, i64 %414
   %660 = load i32, ptr %659, align 4
   %661 = zext i32 %660 to i64
   %662 = getelementptr inbounds nuw i8, ptr %4, i64 %661
@@ -8005,7 +8000,7 @@ ensureQueueActive.exit.i:                         ; preds = %.thread236, %queue_
   %698 = getelementptr inbounds nuw i8, ptr %415, i64 8
   %699 = load i32, ptr %698, align 8
   %700 = zext i32 %699 to i64
-  %701 = getelementptr inbounds nuw %struct.mq_item, ptr %415, i64 %700
+  %701 = getelementptr inbounds nuw [24 x i8], ptr %415, i64 %700
   %702 = getelementptr inbounds nuw i8, ptr %701, i64 112
   %703 = load i64, ptr %702, align 8
   %704 = icmp slt i64 %0, %703
@@ -8016,7 +8011,7 @@ ensureQueueActive.exit.i:                         ; preds = %.thread236, %queue_
   %707 = load i32, ptr %706, align 4
   %708 = add i32 %707, -1
   %709 = zext i32 %708 to i64
-  %710 = getelementptr inbounds nuw %struct.mq_item, ptr %415, i64 %709
+  %710 = getelementptr inbounds nuw [24 x i8], ptr %415, i64 %709
   %711 = getelementptr inbounds nuw i8, ptr %710, i64 112
   %712 = load i64, ptr %711, align 8
   %.not.i48.i = icmp slt i64 %0, %712
@@ -8025,7 +8020,7 @@ ensureQueueActive.exit.i:                         ; preds = %.thread236, %queue_
 713:                                              ; preds = %705
   %714 = getelementptr inbounds nuw i8, ptr %415, i64 104
   %715 = zext i32 %707 to i64
-  %716 = getelementptr inbounds nuw %struct.mq_item, ptr %714, i64 %715
+  %716 = getelementptr inbounds nuw [24 x i8], ptr %714, i64 %715
   store i32 1, ptr %716, align 8, !alias.scope !71
   %717 = getelementptr inbounds nuw i8, ptr %716, i64 8
   store i64 %0, ptr %717, align 8, !alias.scope !71
@@ -8107,7 +8102,7 @@ ensureEnd.exit.i:                                 ; preds = %713, %705
 .lr.ph1059:                                       ; preds = %.lr.ph501.preheader, %.lr.ph501
   %indvars.iv6931058 = phi i64 [ %indvars.iv.next694, %.lr.ph501 ], [ 0, %.lr.ph501.preheader ]
   %indvars.iv.next694 = add nuw nsw i64 %indvars.iv6931058, 1
-  %767 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next694
+  %767 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next694
   %768 = load i32, ptr %767, align 4
   %769 = zext i32 %768 to i64
   %770 = shl nuw nsw i64 %769, 3
@@ -8197,7 +8192,7 @@ mmbit_unset.exit54.i:                             ; preds = %.lr.ph1059, %742, %
 .lr.ph1065:                                       ; preds = %.lr.ph507.preheader, %.lr.ph507
   %indvars.iv6971064 = phi i64 [ %indvars.iv.next698, %.lr.ph507 ], [ 0, %.lr.ph507.preheader ]
   %indvars.iv.next698 = add nuw nsw i64 %indvars.iv6971064, 1
-  %828 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next698
+  %828 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next698
   %829 = load i32, ptr %828, align 4
   %830 = zext i32 %829 to i64
   %831 = shl nuw nsw i64 %830, 3
@@ -8263,7 +8258,7 @@ mmbit_unset.exit54.i:                             ; preds = %.lr.ph1059, %742, %
 862:                                              ; preds = %.preheader304
   %863 = load i32, ptr %698, align 8
   %864 = zext i32 %863 to i64
-  %865 = getelementptr inbounds nuw %struct.mq_item, ptr %415, i64 %864
+  %865 = getelementptr inbounds nuw [24 x i8], ptr %415, i64 %864
   %866 = getelementptr inbounds nuw i8, ptr %865, i64 112
   %867 = load i64, ptr %866, align 8
   %868 = icmp eq i64 %867, %183
@@ -8280,14 +8275,14 @@ mmbit_unset.exit54.i:                             ; preds = %.lr.ph1059, %742, %
   %872 = add i32 %.012.i.i123484, -1
   %873 = lshr i32 %872, 1
   %874 = zext nneg i32 %873 to i64
-  %875 = getelementptr inbounds nuw %struct.queue_match, ptr %870, i64 %874
+  %875 = getelementptr inbounds nuw [16 x i8], ptr %870, i64 %874
   %876 = load i64, ptr %875, align 8
   %877 = icmp ult i64 %876, %867
   br i1 %877, label %.thread249.loopexit, label %878
 
 878:                                              ; preds = %.lr.ph486
   %879 = zext i32 %.012.i.i123484 to i64
-  %880 = getelementptr inbounds nuw %struct.queue_match, ptr %870, i64 %879
+  %880 = getelementptr inbounds nuw [16 x i8], ptr %870, i64 %879
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %880, ptr noundef nonnull align 8 dereferenceable(16) %875, i64 16, i1 false)
   %.not.i47.i124 = icmp eq i32 %873, 0
   br i1 %.not.i47.i124, label %.thread249.loopexit, label %.lr.ph486
@@ -8299,7 +8294,7 @@ mmbit_unset.exit54.i:                             ; preds = %.lr.ph1059, %742, %
 
 .thread249:                                       ; preds = %.thread249.loopexit, %869
   %.012.i.i123.lcssa = phi i64 [ 0, %869 ], [ %881, %.thread249.loopexit ]
-  %882 = getelementptr inbounds nuw %struct.queue_match, ptr %870, i64 %.012.i.i123.lcssa
+  %882 = getelementptr inbounds nuw [16 x i8], ptr %870, i64 %.012.i.i123.lcssa
   store i64 %867, ptr %882, align 8
   %.sroa.3.0..sroa_idx.i.i129 = getelementptr inbounds nuw i8, ptr %882, i64 8
   store i32 %.050.i446, ptr %.sroa.3.0..sroa_idx.i.i129, align 8
@@ -8371,7 +8366,7 @@ mmbit_unset.exit54.i:                             ; preds = %.lr.ph1059, %742, %
 .lr.ph1047:                                       ; preds = %.lr.ph476.preheader, %.lr.ph476
   %indvars.iv6771046 = phi i64 [ %indvars.iv.next678, %.lr.ph476 ], [ 0, %.lr.ph476.preheader ]
   %indvars.iv.next678 = add nuw nsw i64 %indvars.iv6771046, 1
-  %928 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next678
+  %928 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next678
   %929 = load i32, ptr %928, align 4
   %930 = zext i32 %929 to i64
   %931 = shl nuw nsw i64 %930, 3
@@ -8461,7 +8456,7 @@ mmbit_unset.exit.i108:                            ; preds = %.lr.ph1047, %903, %
 .lr.ph1053:                                       ; preds = %.lr.ph482.preheader, %.lr.ph482
   %indvars.iv6811052 = phi i64 [ %indvars.iv.next682, %.lr.ph482 ], [ 0, %.lr.ph482.preheader ]
   %indvars.iv.next682 = add nuw nsw i64 %indvars.iv6811052, 1
-  %989 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next682
+  %989 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next682
   %990 = load i32, ptr %989, align 4
   %991 = zext i32 %990 to i64
   %992 = shl nuw nsw i64 %991, 3
@@ -8529,9 +8524,9 @@ mmbit_unset.exit.i108:                            ; preds = %.lr.ph1047, %903, %
 1025:                                             ; preds = %.lr.ph492, %1025
   %indvars.iv687 = phi i64 [ %1019, %.lr.ph492 ], [ %indvars.iv.next688, %1025 ]
   %indvars.iv685 = phi i64 [ 0, %.lr.ph492 ], [ %indvars.iv.next686, %1025 ]
-  %1026 = getelementptr inbounds nuw %struct.mq_item, ptr %1018, i64 %indvars.iv685
+  %1026 = getelementptr inbounds nuw [24 x i8], ptr %1018, i64 %indvars.iv685
   %indvars.iv.next688 = add nuw nsw i64 %indvars.iv687, 1
-  %1027 = getelementptr inbounds nuw %struct.mq_item, ptr %1018, i64 %indvars.iv687
+  %1027 = getelementptr inbounds nuw [24 x i8], ptr %1018, i64 %indvars.iv687
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1026, ptr noundef nonnull align 8 dereferenceable(24) %1027, i64 24, i1 false)
   %indvars.iv.next686 = add nuw nsw i64 %indvars.iv685, 1
   %1028 = icmp samesign ult i64 %indvars.iv.next688, %1020
@@ -8550,11 +8545,11 @@ mmbit_unset.exit.i108:                            ; preds = %.lr.ph1047, %903, %
 1030:                                             ; preds = %409
   %1031 = load i32, ptr %241, align 4
   %1032 = zext i32 %.050.i446 to i64
-  %1033 = getelementptr inbounds nuw %struct.mq, ptr %412, i64 %1032
+  %1033 = getelementptr inbounds nuw [344 x i8], ptr %412, i64 %1032
   %1034 = load i32, ptr %242, align 4
   %1035 = zext i32 %1034 to i64
   %1036 = getelementptr inbounds nuw i8, ptr %4, i64 %1035
-  %1037 = getelementptr inbounds nuw %struct.NfaInfo, ptr %1036, i64 %1032
+  %1037 = getelementptr inbounds nuw [20 x i8], ptr %1036, i64 %1032
   %1038 = load ptr, ptr %243, align 8
   %1039 = getelementptr inbounds nuw i8, ptr %1037, i64 12
   %1040 = load i32, ptr %1039, align 4
@@ -8590,7 +8585,7 @@ mmbit_unset.exit.i108:                            ; preds = %.lr.ph1047, %903, %
 
 1056:                                             ; preds = %1075, %1053
   %indvars.iv636 = phi i64 [ %indvars.iv.next637, %1075 ], [ 0, %1053 ]
-  %1057 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv636
+  %1057 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv636
   %1058 = load i32, ptr %1057, align 4
   %1059 = zext i32 %1058 to i64
   %1060 = shl nuw nsw i64 %1059, 3
@@ -8690,7 +8685,7 @@ roseSuffixInfoIsExhausted.exit.i52:               ; preds = %mmbit_isset.exit.i5
 .lr.ph1012:                                       ; preds = %.lr.ph408.preheader, %.lr.ph408
   %indvars.iv6391011 = phi i64 [ %indvars.iv.next640, %.lr.ph408 ], [ 0, %.lr.ph408.preheader ]
   %indvars.iv.next640 = add nuw nsw i64 %indvars.iv6391011, 1
-  %1122 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next640
+  %1122 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next640
   %1123 = load i32, ptr %1122, align 4
   %1124 = zext i32 %1123 to i64
   %1125 = shl nuw nsw i64 %1124, 3
@@ -8777,7 +8772,7 @@ mmbit_unset.exit.i55:                             ; preds = %.lr.ph1012, %1101, 
 .lr.ph1017:                                       ; preds = %.lr.ph414.preheader, %.lr.ph414
   %indvars.iv6421016 = phi i64 [ %indvars.iv.next643, %.lr.ph414 ], [ 0, %.lr.ph414.preheader ]
   %indvars.iv.next643 = add nuw nsw i64 %indvars.iv6421016, 1
-  %1180 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next643
+  %1180 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next643
   %1181 = load i32, ptr %1180, align 4
   %1182 = zext i32 %1181 to i64
   %1183 = shl nuw nsw i64 %1182, 3
@@ -8832,7 +8827,7 @@ mmbit_isset.exit.i50.thread:                      ; preds = %mmbit_isset.exit.i5
 
 1214:                                             ; preds = %.thread264, %1206
   %indvars.iv645 = phi i64 [ %indvars.iv.next646, %.thread264 ], [ 0, %1206 ]
-  %1215 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv645
+  %1215 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv645
   %1216 = load i32, ptr %1215, align 4
   %1217 = zext i32 %1216 to i64
   %1218 = shl nuw nsw i64 %1217, 3
@@ -8865,7 +8860,7 @@ mmbit_isset.exit.i50.thread:                      ; preds = %mmbit_isset.exit.i5
   %.130.i.i71418 = phi i32 [ %1237, %.lr.ph420 ], [ %1234, %1232 ]
   %1237 = add i32 %.130.i.i71418, 1
   %1238 = zext i32 %1237 to i64
-  %1239 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %1238
+  %1239 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %1238
   %1240 = load i32, ptr %1239, align 4
   %1241 = zext i32 %1240 to i64
   %1242 = shl nuw nsw i64 %1241, 3
@@ -8909,7 +8904,7 @@ mmbit_set_i.exit.i63.thread:                      ; preds = %.lr.ph420, %1232, %
   %1265 = load i32, ptr %242, align 4
   %1266 = zext i32 %1265 to i64
   %1267 = getelementptr inbounds nuw i8, ptr %4, i64 %1266
-  %1268 = getelementptr inbounds nuw %struct.NfaInfo, ptr %1267, i64 %1032
+  %1268 = getelementptr inbounds nuw [20 x i8], ptr %1267, i64 %1032
   %1269 = load i32, ptr %1268, align 4
   %1270 = zext i32 %1269 to i64
   %1271 = getelementptr inbounds nuw i8, ptr %4, i64 %1270
@@ -8976,7 +8971,7 @@ ensureQueueActive.exit.i64:                       ; preds = %.thread264, %queue_
   %1307 = getelementptr inbounds nuw i8, ptr %1033, i64 8
   %1308 = load i32, ptr %1307, align 8
   %1309 = zext i32 %1308 to i64
-  %1310 = getelementptr inbounds nuw %struct.mq_item, ptr %1033, i64 %1309
+  %1310 = getelementptr inbounds nuw [24 x i8], ptr %1033, i64 %1309
   %1311 = getelementptr inbounds nuw i8, ptr %1310, i64 112
   %1312 = load i64, ptr %1311, align 8
   %1313 = icmp slt i64 %0, %1312
@@ -8987,7 +8982,7 @@ ensureQueueActive.exit.i64:                       ; preds = %.thread264, %queue_
   %1316 = load i32, ptr %1315, align 4
   %1317 = add i32 %1316, -1
   %1318 = zext i32 %1317 to i64
-  %1319 = getelementptr inbounds nuw %struct.mq_item, ptr %1033, i64 %1318
+  %1319 = getelementptr inbounds nuw [24 x i8], ptr %1033, i64 %1318
   %1320 = getelementptr inbounds nuw i8, ptr %1319, i64 112
   %1321 = load i64, ptr %1320, align 8
   %.not.i30.i = icmp slt i64 %0, %1321
@@ -8996,7 +8991,7 @@ ensureQueueActive.exit.i64:                       ; preds = %.thread264, %queue_
 1322:                                             ; preds = %1314
   %1323 = getelementptr inbounds nuw i8, ptr %1033, i64 104
   %1324 = zext i32 %1316 to i64
-  %1325 = getelementptr inbounds nuw %struct.mq_item, ptr %1323, i64 %1324
+  %1325 = getelementptr inbounds nuw [24 x i8], ptr %1323, i64 %1324
   store i32 1, ptr %1325, align 8, !alias.scope !83
   %1326 = getelementptr inbounds nuw i8, ptr %1325, i64 8
   store i64 %0, ptr %1326, align 8, !alias.scope !83
@@ -9021,7 +9016,7 @@ ensureEnd.exit.i65:                               ; preds = %1322, %1314
 1333:                                             ; preds = %1330
   %1334 = load i32, ptr %1307, align 8
   %1335 = zext i32 %1334 to i64
-  %1336 = getelementptr inbounds nuw %struct.mq_item, ptr %1033, i64 %1335
+  %1336 = getelementptr inbounds nuw [24 x i8], ptr %1033, i64 %1335
   %1337 = getelementptr inbounds nuw i8, ptr %1336, i64 112
   %1338 = load i64, ptr %1337, align 8
   %1339 = icmp eq i64 %1338, %183
@@ -9038,14 +9033,14 @@ ensureEnd.exit.i65:                               ; preds = %1322, %1314
   %1343 = add i32 %.012.i.i434, -1
   %1344 = lshr i32 %1343, 1
   %1345 = zext nneg i32 %1344 to i64
-  %1346 = getelementptr inbounds nuw %struct.queue_match, ptr %1341, i64 %1345
+  %1346 = getelementptr inbounds nuw [16 x i8], ptr %1341, i64 %1345
   %1347 = load i64, ptr %1346, align 8
   %1348 = icmp ult i64 %1347, %1338
   br i1 %1348, label %.thread275.loopexit, label %1349
 
 1349:                                             ; preds = %.lr.ph436
   %1350 = zext i32 %.012.i.i434 to i64
-  %1351 = getelementptr inbounds nuw %struct.queue_match, ptr %1341, i64 %1350
+  %1351 = getelementptr inbounds nuw [16 x i8], ptr %1341, i64 %1350
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %1351, ptr noundef nonnull align 8 dereferenceable(16) %1346, i64 16, i1 false)
   %.not.i47.i101 = icmp eq i32 %1344, 0
   br i1 %.not.i47.i101, label %.thread275.loopexit, label %.lr.ph436
@@ -9057,7 +9052,7 @@ ensureEnd.exit.i65:                               ; preds = %1322, %1314
 
 .thread275:                                       ; preds = %.thread275.loopexit, %1340
   %.012.i.i.lcssa = phi i64 [ 0, %1340 ], [ %1352, %.thread275.loopexit ]
-  %1353 = getelementptr inbounds nuw %struct.queue_match, ptr %1341, i64 %.012.i.i.lcssa
+  %1353 = getelementptr inbounds nuw [16 x i8], ptr %1341, i64 %.012.i.i.lcssa
   store i64 %1338, ptr %1353, align 8
   %.sroa.3.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %1353, i64 8
   store i32 %.050.i446, ptr %.sroa.3.0..sroa_idx.i.i, align 8
@@ -9125,7 +9120,7 @@ ensureEnd.exit.i65:                               ; preds = %1322, %1314
 .lr.ph1023:                                       ; preds = %.lr.ph426.preheader, %.lr.ph426
   %indvars.iv6481022 = phi i64 [ %indvars.iv.next649, %.lr.ph426 ], [ 0, %.lr.ph426.preheader ]
   %indvars.iv.next649 = add nuw nsw i64 %indvars.iv6481022, 1
-  %1395 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next649
+  %1395 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next649
   %1396 = load i32, ptr %1395, align 4
   %1397 = zext i32 %1396 to i64
   %1398 = shl nuw nsw i64 %1397, 3
@@ -9212,7 +9207,7 @@ mmbit_unset.exit.i93:                             ; preds = %.lr.ph1023, %1374, 
 .lr.ph1029:                                       ; preds = %.lr.ph432.preheader, %.lr.ph432
   %indvars.iv6511028 = phi i64 [ %indvars.iv.next652, %.lr.ph432 ], [ 0, %.lr.ph432.preheader ]
   %indvars.iv.next652 = add nuw nsw i64 %indvars.iv6511028, 1
-  %1453 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next652
+  %1453 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv.next652
   %1454 = load i32, ptr %1453, align 4
   %1455 = zext i32 %1454 to i64
   %1456 = shl nuw nsw i64 %1455, 3
@@ -9280,9 +9275,9 @@ mmbit_unset.exit.i93:                             ; preds = %.lr.ph1023, %1374, 
 1489:                                             ; preds = %.lr.ph441, %1489
   %indvars.iv656 = phi i64 [ %1483, %.lr.ph441 ], [ %indvars.iv.next657, %1489 ]
   %indvars.iv654 = phi i64 [ 0, %.lr.ph441 ], [ %indvars.iv.next655, %1489 ]
-  %1490 = getelementptr inbounds nuw %struct.mq_item, ptr %1482, i64 %indvars.iv654
+  %1490 = getelementptr inbounds nuw [24 x i8], ptr %1482, i64 %indvars.iv654
   %indvars.iv.next657 = add nuw nsw i64 %indvars.iv656, 1
-  %1491 = getelementptr inbounds nuw %struct.mq_item, ptr %1482, i64 %indvars.iv656
+  %1491 = getelementptr inbounds nuw [24 x i8], ptr %1482, i64 %indvars.iv656
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1490, ptr noundef nonnull align 8 dereferenceable(24) %1491, i64 24, i1 false)
   %indvars.iv.next655 = add nuw nsw i64 %indvars.iv654, 1
   %1492 = icmp samesign ult i64 %indvars.iv.next657, %1484
@@ -9353,7 +9348,7 @@ define internal range(i32 0, 2) i32 @roseNfaBlastAdaptor(i64 noundef %0, i64 nou
   %21 = zext i32 %20 to i64
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 %21
   %23 = zext i32 %16 to i64
-  %24 = getelementptr inbounds nuw %struct.NfaInfo, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [20 x i8], ptr %22, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 12
   %26 = load i32, ptr %25, align 4
   %.not.i.i = icmp eq i32 %26, 0
@@ -9389,7 +9384,7 @@ define internal range(i32 0, 2) i32 @roseNfaBlastAdaptor(i64 noundef %0, i64 nou
 
 43:                                               ; preds = %62, %40
   %indvars.iv = phi i64 [ %indvars.iv.next, %62 ], [ 0, %40 ]
-  %44 = getelementptr inbounds nuw i32, ptr @mmbit_root_offset_from_level, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [4 x i8], ptr @mmbit_root_offset_from_level, i64 %indvars.iv
   %45 = load i32, ptr %44, align 4
   %46 = zext i32 %45 to i64
   %47 = shl nuw nsw i64 %46, 3

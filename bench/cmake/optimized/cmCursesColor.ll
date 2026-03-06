@@ -202,7 +202,7 @@ select.unfold:                                    ; preds = %33
   %57 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN13cmCursesColor8GetColorEcsE3env, i64 8), align 8, !tbaa !16
   %58 = urem i64 %56, %57
   %59 = load ptr, ptr @_ZZN13cmCursesColor8GetColorEcsE3env, align 8, !tbaa !5
-  %60 = getelementptr inbounds nuw ptr, ptr %59, i64 %58
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %58
   %61 = load ptr, ptr %60, align 8, !tbaa !27
   %.not.i.i.i.i = icmp eq ptr %61, null
   br i1 %.not.i.i.i.i, label %_ZNSt13unordered_mapIcsSt4hashIcESt8equal_toIcESaISt4pairIKcsEEE4findERS5_.exit.thread, label %62
@@ -351,7 +351,7 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt10_HashtableIcSt4pairIKcsESaIS2_
   %14 = load i64, ptr %13, align 8, !tbaa !16
   %15 = urem i64 %12, %14
   %16 = load ptr, ptr %0, align 8, !tbaa !5
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %15
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %15
   %18 = load ptr, ptr %17, align 8, !tbaa !27
   %.not.i.i = icmp eq ptr %18, null
   br i1 %.not.i.i, label %.critedge28, label %31
@@ -487,7 +487,7 @@ _ZNSt10_HashtableIcSt4pairIKcsESaIS2_ENSt8__detail10_Select1stESt8equal_toIcESt4
 31:                                               ; preds = %_ZNSt10_HashtableIcSt4pairIKcsESaIS2_ENSt8__detail10_Select1stESt8equal_toIcESt4hashIcENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableIcSt4pairIKcsESaIS2_ENSt8__detail10_Select1stESt8equal_toIcESt4hashIcENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit ], [ %1, %5 ]
   %32 = load ptr, ptr %0, align 8, !tbaa !5
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0
   %34 = load ptr, ptr %33, align 8, !tbaa !27
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %38, label %35
@@ -514,7 +514,7 @@ _ZNSt10_HashtableIcSt4pairIKcsESaIS2_ENSt8__detail10_Select1stESt8equal_toIcESt4
   %45 = load i8, ptr %43, align 1, !tbaa !18
   %46 = sext i8 %45 to i64
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %32, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !27
   br label %49
 
@@ -592,7 +592,7 @@ _ZNSt10_HashtableIcSt4pairIKcsESaIS2_ENSt8__detail10_Select1stESt8equal_toIcESt4
   %16 = load i8, ptr %15, align 8, !tbaa !18
   %17 = sext i8 %16 to i64
   %18 = urem i64 %17, %1
-  %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !27
   %.not27 = icmp eq ptr %20, null
   br i1 %.not27, label %21, label %26
@@ -607,7 +607,7 @@ _ZNSt10_HashtableIcSt4pairIKcsESaIS2_ENSt8__detail10_Select1stESt8equal_toIcESt4
   br i1 %.not28, label %29, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %25, align 8, !tbaa !27
   br label %29
 

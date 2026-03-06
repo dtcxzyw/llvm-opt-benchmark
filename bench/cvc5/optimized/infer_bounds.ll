@@ -5,12 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"class.cvc5::internal::NodeTemplate" = type { ptr }
-%"class.cvc5::internal::theory::arith::linear::inferbounds::InferBoundAlgorithm" = type { i32, %"class.std::optional" }
-%"class.std::optional" = type { %"struct.std::_Optional_base" }
-%"struct.std::_Optional_base" = type { %"struct.std::_Optional_payload" }
-%"struct.std::_Optional_payload" = type { %"struct.std::_Optional_payload_base.base", [3 x i8] }
-%"struct.std::_Optional_payload_base.base" = type <{ %"union.std::_Optional_payload_base<int>::_Storage", i8 }>
-%"union.std::_Optional_payload_base<int>::_Storage" = type { i32 }
 %"class.cvc5::internal::Rational" = type { %class.__gmp_expr }
 %class.__gmp_expr = type { [1 x %struct.__mpq_struct] }
 %struct.__mpq_struct = type { %struct.__mpz_struct, %struct.__mpz_struct }
@@ -252,7 +246,7 @@ _ZNSt6vectorIN4cvc58internal6theory5arith6linear11inferbounds19InferBoundAlgorit
 _ZNSt6vectorIN4cvc58internal6theory5arith6linear11inferbounds19InferBoundAlgorithmESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i: ; preds = %27, %_ZNSt6vectorIN4cvc58internal6theory5arith6linear11inferbounds19InferBoundAlgorithmESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i.i.i
   store ptr %22, ptr %0, align 8, !tbaa !14
   store ptr %26, ptr %2, align 8, !tbaa !19
-  %28 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::inferbounds::InferBoundAlgorithm", ptr %22, i64 %20
+  %28 = getelementptr inbounds nuw [12 x i8], ptr %22, i64 %20
   store ptr %28, ptr %4, align 8, !tbaa !18
   br label %_ZN4cvc58internal6theory5arith6linear30ArithEntailmentCheckParameters12addAlgorithmERKNS3_11inferbounds19InferBoundAlgorithmE.exit
 
@@ -323,7 +317,7 @@ _ZNSt6vectorIN4cvc58internal6theory5arith6linear11inferbounds19InferBoundAlgorit
 _ZNSt6vectorIN4cvc58internal6theory5arith6linear11inferbounds19InferBoundAlgorithmESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i18: ; preds = %52, %_ZNSt6vectorIN4cvc58internal6theory5arith6linear11inferbounds19InferBoundAlgorithmESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i.i.i15
   store ptr %47, ptr %0, align 8, !tbaa !14
   store ptr %51, ptr %2, align 8, !tbaa !19
-  %53 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::inferbounds::InferBoundAlgorithm", ptr %47, i64 %45
+  %53 = getelementptr inbounds nuw [12 x i8], ptr %47, i64 %45
   store ptr %53, ptr %4, align 8, !tbaa !18
   br label %_ZN4cvc58internal6theory5arith6linear30ArithEntailmentCheckParameters12addAlgorithmERKNS3_11inferbounds19InferBoundAlgorithmE.exit19
 
@@ -397,7 +391,7 @@ _ZNSt6vectorIN4cvc58internal6theory5arith6linear11inferbounds19InferBoundAlgorit
 _ZNSt6vectorIN4cvc58internal6theory5arith6linear11inferbounds19InferBoundAlgorithmESaIS6_EE17_M_realloc_insertIJRKS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i: ; preds = %28, %_ZNSt6vectorIN4cvc58internal6theory5arith6linear11inferbounds19InferBoundAlgorithmESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i.i
   store ptr %23, ptr %0, align 8, !tbaa !14
   store ptr %27, ptr %3, align 8, !tbaa !19
-  %29 = getelementptr inbounds nuw %"class.cvc5::internal::theory::arith::linear::inferbounds::InferBoundAlgorithm", ptr %23, i64 %21
+  %29 = getelementptr inbounds nuw [12 x i8], ptr %23, i64 %21
   store ptr %29, ptr %5, align 8, !tbaa !18
   br label %_ZNSt6vectorIN4cvc58internal6theory5arith6linear11inferbounds19InferBoundAlgorithmESaIS6_EE9push_backERKS6_.exit
 

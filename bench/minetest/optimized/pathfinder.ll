@@ -26,42 +26,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base<irr::core::vector3d<short>, std::allocator<irr::core::vector3d<short>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %class.Pathfinder = type { i32, i32, i32, i32, i32, i32, i8, %"class.irr::core::vector3d", %"class.irr::core::vector3d", %"class.irr::core::aabbox3d", ptr, ptr, ptr }
 %"class.irr::core::aabbox3d" = type { %"class.irr::core::vector3d", %"class.irr::core::vector3d" }
-%struct.ContentFeatures = type <{ [6 x %struct.TileSpec], [6 x %struct.TileSpec], i8, i8, i8, i8, i8, i8, i8, i8, %"class.std::__cxx11::basic_string", %"class.std::unordered_map.77", i8, i8, i8, [5 x i8], %"class.std::__cxx11::basic_string", [24 x ptr], %"class.irr::video::SColor", float, [6 x %struct.TileDef], [6 x %struct.TileDef], [6 x %struct.TileDef], i8, [3 x i8], %"class.irr::video::SColor", %"class.std::__cxx11::basic_string", ptr, i8, i8, [6 x i8], %"class.std::vector.93", %"class.std::vector.98", %"class.irr::video::SColor", i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [3 x i8], i32, %"class.std::__cxx11::basic_string", i8, i8, i8, [5 x i8], %"class.std::__cxx11::basic_string", i16, [6 x i8], %"class.std::__cxx11::basic_string", i16, i8, i8, i8, i8, i8, i8, %struct.NodeBox, %struct.NodeBox, %struct.NodeBox, %struct.SoundSpec, %struct.SoundSpec, %struct.SoundSpec, i8, i8, [6 x i8] }>
-%struct.TileSpec = type { i8, i8, i8, [5 x i8], [2 x %struct.TileLayer] }
-%struct.TileLayer = type <{ ptr, ptr, ptr, i32, i32, i16, i16, i8, i8, i8, i8, ptr, %"class.irr::video::SColor", i8, [3 x i8] }>
-%"class.std::unordered_map.77" = type { %"class.std::_Hashtable.78" }
-%"class.std::_Hashtable.78" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"struct.std::__detail::_Hash_node_base" = type { ptr }
-%"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
-%struct.TileDef = type <{ %"class.std::__cxx11::basic_string", i8, i8, i8, i8, %"class.irr::video::SColor", i8, i8, [2 x i8], %struct.TileAnimationParams, [4 x i8] }>
-%struct.TileAnimationParams = type { i8, %union.anon.91 }
-%union.anon.91 = type { %struct.anon }
-%struct.anon = type { i32, i32, float }
-%"class.std::vector.93" = type { %"struct.std::_Vector_base.94" }
-%"struct.std::_Vector_base.94" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.98" = type { %"struct.std::_Vector_base.99" }
-%"struct.std::_Vector_base.99" = type { %"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.irr::video::SColor" = type { i32 }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%struct.NodeBox = type { i8, %"class.std::vector.103", %"class.irr::core::aabbox3d.67", %"class.irr::core::aabbox3d.67", %"class.irr::core::aabbox3d.67", %"class.std::shared_ptr" }
-%"class.std::vector.103" = type { %"struct.std::_Vector_base.104" }
-%"struct.std::_Vector_base.104" = type { %"struct.std::_Vector_base<irr::core::aabbox3d<float>, std::allocator<irr::core::aabbox3d<float>>>::_Vector_impl" }
-%"struct.std::_Vector_base<irr::core::aabbox3d<float>, std::allocator<irr::core::aabbox3d<float>>>::_Vector_impl" = type { %"struct.std::_Vector_base<irr::core::aabbox3d<float>, std::allocator<irr::core::aabbox3d<float>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<irr::core::aabbox3d<float>, std::allocator<irr::core::aabbox3d<float>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.irr::core::aabbox3d.67" = type { %"class.irr::core::vector3d.68", %"class.irr::core::vector3d.68" }
-%"class.irr::core::vector3d.68" = type { float, float, float }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%struct.SoundSpec = type <{ %"class.std::__cxx11::basic_string", float, float, float, float, i8, i8, [6 x i8] }>
 %class.PathCost = type <{ i8, [3 x i8], i32, i32, i8, [3 x i8] }>
-%class.PathGridnode = type { i8, i8, i8, i32, i32, %"class.irr::core::vector3d", %"class.irr::core::vector3d", [4 x %class.PathCost], i8, i8, i8, i8 }
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base" }
 %"struct.std::_Head_base" = type { ptr }
@@ -391,7 +356,7 @@ if.end119:                                        ; preds = %if.else, %if.then10
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %cond.false.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end119
-  %add.ptr.i.i.i = getelementptr inbounds nuw %struct.ContentFeatures, ptr %20, i64 %conv.i.i376
+  %add.ptr.i.i.i = getelementptr inbounds nuw [3712 x i8], ptr %20, i64 %conv.i.i376
   %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 1456
   %21 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !49
   %cmp.i.i.i = icmp eq i64 %21, 0
@@ -510,7 +475,7 @@ if.end137:                                        ; preds = %invoke.cont124
   br i1 %cmp.i.i394, label %land.lhs.true.i.i398, label %cond.false.i.i395
 
 land.lhs.true.i.i398:                             ; preds = %if.end137
-  %add.ptr.i.i.i399 = getelementptr inbounds nuw %struct.ContentFeatures, ptr %37, i64 %conv.i.i388
+  %add.ptr.i.i.i399 = getelementptr inbounds nuw [3712 x i8], ptr %37, i64 %conv.i.i388
   %_M_string_length.i.i.i.i400 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i399, i64 1456
   %38 = load i64, ptr %_M_string_length.i.i.i.i400, align 8, !tbaa !49
   %cmp.i.i.i401 = icmp eq i64 %38, 0
@@ -1148,7 +1113,7 @@ _ZNSt12_Vector_baseIN3irr4core8vector3dIsEESaIS3_EE13_M_deallocateEPS3_m.exit.i:
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %call5.i.i.i.i586, ptr %agg.result, align 8, !tbaa !116
   store ptr %call5.i.i.i.i586, ptr %_M_finish.i.i, align 8, !tbaa !118
-  %add.ptr21.i = getelementptr inbounds nuw %"class.irr::core::vector3d", ptr %call5.i.i.i.i586, i64 %conv276
+  %add.ptr21.i = getelementptr inbounds nuw [6 x i8], ptr %call5.i.i.i.i586, i64 %conv276
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !119
   br label %invoke.cont277
 
@@ -1251,7 +1216,7 @@ if.then.i41.i.i:                                  ; preds = %_ZNSt6vectorIN3irr4
 _ZNSt6vectorIN3irr4core8vector3dIsEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %if.then.i41.i.i, %_ZNSt6vectorIN3irr4core8vector3dIsEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit40.i.i
   store ptr %call5.i.i.i.i.i611, ptr %agg.result, align 8, !tbaa !116
   store ptr %incdec.ptr.i.i609, ptr %_M_finish.i605, align 8, !tbaa !118
-  %add.ptr19.i.i = getelementptr inbounds nuw %"class.irr::core::vector3d", ptr %call5.i.i.i.i.i611, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw [6 x i8], ptr %call5.i.i.i.i.i611, i64 %cond.i.i.i
   store ptr %add.ptr19.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !119
   br label %for.inc
 
@@ -1886,7 +1851,7 @@ if.end23:                                         ; preds = %entry
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %cond.false.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end23
-  %add.ptr.i.i.i = getelementptr inbounds nuw %struct.ContentFeatures, ptr %12, i64 %conv.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [3712 x i8], ptr %12, i64 %conv.i.i
   %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 1456
   %13 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !49
   %cmp.i.i.i = icmp eq i64 %13, 0
@@ -1909,7 +1874,7 @@ lor.lhs.false25:                                  ; preds = %_ZNK14NodeDefManage
   br i1 %cmp.i.i104, label %land.lhs.true.i.i108, label %cond.false.i.i105
 
 land.lhs.true.i.i108:                             ; preds = %lor.lhs.false25
-  %add.ptr.i.i.i109 = getelementptr inbounds nuw %struct.ContentFeatures, ptr %12, i64 %conv.i.i98
+  %add.ptr.i.i.i109 = getelementptr inbounds nuw [3712 x i8], ptr %12, i64 %conv.i.i98
   %_M_string_length.i.i.i.i110 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i109, i64 1456
   %15 = load i64, ptr %_M_string_length.i.i.i.i110, align 8, !tbaa !49
   %cmp.i.i.i111 = icmp eq i64 %15, 0
@@ -1930,7 +1895,7 @@ while.end32:                                      ; preds = %_ZNK14NodeDefManage
   br i1 %cmp.i.i, label %land.lhs.true.i.i123, label %cond.false.i.i120
 
 land.lhs.true.i.i123:                             ; preds = %while.end32
-  %add.ptr.i.i.i124 = getelementptr inbounds nuw %struct.ContentFeatures, ptr %12, i64 %conv.i.i
+  %add.ptr.i.i.i124 = getelementptr inbounds nuw [3712 x i8], ptr %12, i64 %conv.i.i
   %_M_string_length.i.i.i.i125 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i124, i64 1456
   %17 = load i64, ptr %_M_string_length.i.i.i.i125, align 8, !tbaa !49
   %cmp.i.i.i126 = icmp eq i64 %17, 0
@@ -2191,7 +2156,7 @@ if.end11:                                         ; preds = %if.end
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %cond.false.i.i
 
 land.lhs.true.i.i:                                ; preds = %if.end11
-  %add.ptr.i.i.i = getelementptr inbounds nuw %struct.ContentFeatures, ptr %17, i64 %conv.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [3712 x i8], ptr %17, i64 %conv.i.i
   %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 1456
   %18 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !49
   %cmp.i.i.i = icmp eq i64 %18, 0
@@ -2279,7 +2244,7 @@ if.end31:                                         ; preds = %if.then13
   br i1 %cmp.i.i291, label %land.lhs.true.i.i295, label %cond.false.i.i292
 
 land.lhs.true.i.i295:                             ; preds = %if.end31
-  %add.ptr.i.i.i296 = getelementptr inbounds nuw %struct.ContentFeatures, ptr %30, i64 %conv.i.i285
+  %add.ptr.i.i.i296 = getelementptr inbounds nuw [3712 x i8], ptr %30, i64 %conv.i.i285
   %_M_string_length.i.i.i.i297 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i296, i64 1456
   %31 = load i64, ptr %_M_string_length.i.i.i.i297, align 8, !tbaa !49
   %cmp.i.i.i298 = icmp eq i64 %31, 0
@@ -2331,7 +2296,7 @@ land.lhs.true:                                    ; preds = %land.lhs.true.prehe
   br i1 %cmp.i.i322, label %land.lhs.true.i.i326, label %cond.false.i.i323
 
 land.lhs.true.i.i326:                             ; preds = %land.lhs.true
-  %add.ptr.i.i.i327 = getelementptr inbounds nuw %struct.ContentFeatures, ptr %37, i64 %conv.i.i316
+  %add.ptr.i.i.i327 = getelementptr inbounds nuw [3712 x i8], ptr %37, i64 %conv.i.i316
   %_M_string_length.i.i.i.i328 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i327, i64 1456
   %38 = load i64, ptr %_M_string_length.i.i.i.i328, align 8, !tbaa !49
   %cmp.i.i.i329 = icmp eq i64 %38, 0
@@ -2370,7 +2335,7 @@ land.lhs.true78:                                  ; preds = %while.end66
   br i1 %cmp.i.i322, label %land.lhs.true.i.i350, label %cond.false.i.i347
 
 land.lhs.true.i.i350:                             ; preds = %land.lhs.true78
-  %add.ptr.i.i.i351 = getelementptr inbounds nuw %struct.ContentFeatures, ptr %37, i64 %conv.i.i316
+  %add.ptr.i.i.i351 = getelementptr inbounds nuw [3712 x i8], ptr %37, i64 %conv.i.i316
   %_M_string_length.i.i.i.i352 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i351, i64 1456
   %43 = load i64, ptr %_M_string_length.i.i.i.i352, align 8, !tbaa !49
   %cmp.i.i.i353 = icmp eq i64 %43, 0
@@ -2480,7 +2445,7 @@ land.lhs.true134:                                 ; preds = %if.end156, %land.lh
   br i1 %cmp.i.i369, label %land.lhs.true.i.i373, label %cond.false.i.i370
 
 land.lhs.true.i.i373:                             ; preds = %land.lhs.true134
-  %add.ptr.i.i.i374 = getelementptr inbounds nuw %struct.ContentFeatures, ptr %58, i64 %conv.i.i363
+  %add.ptr.i.i.i374 = getelementptr inbounds nuw [3712 x i8], ptr %58, i64 %conv.i.i363
   %_M_string_length.i.i.i.i375 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i374, i64 1456
   %59 = load i64, ptr %_M_string_length.i.i.i.i375, align 8, !tbaa !49
   %cmp.i.i.i376 = icmp eq i64 %59, 0
@@ -2511,7 +2476,7 @@ lor.lhs.false:                                    ; preds = %while.body147
   br i1 %cmp.i.i384, label %land.lhs.true.i.i388, label %cond.false.i.i385
 
 land.lhs.true.i.i388:                             ; preds = %lor.lhs.false
-  %add.ptr.i.i.i389 = getelementptr inbounds nuw %struct.ContentFeatures, ptr %58, i64 %conv.i.i378
+  %add.ptr.i.i.i389 = getelementptr inbounds nuw [3712 x i8], ptr %58, i64 %conv.i.i378
   %_M_string_length.i.i.i.i390 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i389, i64 1456
   %62 = load i64, ptr %_M_string_length.i.i.i.i390, align 8, !tbaa !49
   %cmp.i.i.i391 = icmp eq i64 %62, 0
@@ -2578,7 +2543,7 @@ lor.lhs.false173:                                 ; preds = %_ZNK14NodeDefManage
   br i1 %cmp.i.i417, label %land.lhs.true.i.i421, label %cond.false.i.i418
 
 land.lhs.true.i.i421:                             ; preds = %lor.lhs.false173
-  %add.ptr.i.i.i422 = getelementptr inbounds nuw %struct.ContentFeatures, ptr %67, i64 %conv.i.i411.pre-phi
+  %add.ptr.i.i.i422 = getelementptr inbounds nuw [3712 x i8], ptr %67, i64 %conv.i.i411.pre-phi
   %_M_string_length.i.i.i.i423 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i422, i64 1456
   %68 = load i64, ptr %_M_string_length.i.i.i.i423, align 8, !tbaa !49
   %cmp.i.i.i424 = icmp eq i64 %68, 0
@@ -2606,7 +2571,7 @@ land.lhs.true189:                                 ; preds = %_ZNK14NodeDefManage
   br i1 %cmp.i.i432, label %land.lhs.true.i.i436, label %cond.false.i.i433
 
 land.lhs.true.i.i436:                             ; preds = %land.lhs.true189
-  %add.ptr.i.i.i437 = getelementptr inbounds nuw %struct.ContentFeatures, ptr %67, i64 %conv.i.i426
+  %add.ptr.i.i.i437 = getelementptr inbounds nuw [3712 x i8], ptr %67, i64 %conv.i.i426
   %_M_string_length.i.i.i.i438 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i437, i64 1456
   %71 = load i64, ptr %_M_string_length.i.i.i.i438, align 8, !tbaa !49
   %cmp.i.i.i439 = icmp eq i64 %71, 0
@@ -2884,7 +2849,7 @@ entry:
   %add5 = add i32 %add, %mul3
   %conv6 = sext i32 %add5 to i64
   %2 = load ptr, ptr %m_nodes_array, align 8, !tbaa !153
-  %add.ptr.i = getelementptr inbounds %class.PathGridnode, ptr %2, i64 %conv6
+  %add.ptr.i = getelementptr inbounds [92 x i8], ptr %2, i64 %conv6
   ret ptr %add.ptr.i
 }
 
@@ -3172,7 +3137,7 @@ land.lhs.true:                                    ; preds = %while.body, %land.l
   br i1 %cmp.i.i, label %land.lhs.true.i.i, label %cond.false.i.i
 
 land.lhs.true.i.i:                                ; preds = %land.lhs.true
-  %add.ptr.i.i.i = getelementptr inbounds nuw %struct.ContentFeatures, ptr %5, i64 %conv.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [3712 x i8], ptr %5, i64 %conv.i.i
   %_M_string_length.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 1456
   %6 = load i64, ptr %_M_string_length.i.i.i.i, align 8, !tbaa !49
   %cmp.i.i.i = icmp eq i64 %6, 0
@@ -3216,7 +3181,7 @@ land.lhs.true26:                                  ; preds = %while.end
   br i1 %cmp.i.i, label %land.lhs.true.i.i87, label %cond.false.i.i84
 
 land.lhs.true.i.i87:                              ; preds = %land.lhs.true26
-  %add.ptr.i.i.i88 = getelementptr inbounds nuw %struct.ContentFeatures, ptr %5, i64 %conv.i.i
+  %add.ptr.i.i.i88 = getelementptr inbounds nuw [3712 x i8], ptr %5, i64 %conv.i.i
   %_M_string_length.i.i.i.i89 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i88, i64 1456
   %10 = load i64, ptr %_M_string_length.i.i.i.i89, align 8, !tbaa !49
   %cmp.i.i.i90 = icmp eq i64 %10, 0
@@ -4475,7 +4440,7 @@ if.then.i41.i.i:                                  ; preds = %_ZNSt6vectorIN3irr4
 _ZNSt6vectorIN3irr4core8vector3dIsEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %if.then.i41.i.i, %_ZNSt6vectorIN3irr4core8vector3dIsEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit40.i.i
   store ptr %call5.i.i.i.i.i, ptr %path, align 8, !tbaa !116
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8, !tbaa !118
-  %add.ptr19.i.i = getelementptr inbounds nuw %"class.irr::core::vector3d", ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw [6 x i8], ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
   store ptr %add.ptr19.i.i, ptr %_M_end_of_storage.i, align 8, !tbaa !119
   br label %_ZNSt6vectorIN3irr4core8vector3dIsEESaIS3_EE9push_backERKS3_.exit
 
@@ -4576,7 +4541,7 @@ if.then.i41.i:                                    ; preds = %_ZNSt6vectorIN3irr4
 _ZNSt6vectorIN3irr4core8vector3dIsEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit: ; preds = %if.then.i41.i, %_ZNSt6vectorIN3irr4core8vector3dIsEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit40.i
   store ptr %call5.i.i.i.i, ptr %this, align 8, !tbaa !116
   store ptr %incdec.ptr.i, ptr %_M_finish, align 8, !tbaa !118
-  %add.ptr19.i = getelementptr inbounds nuw %"class.irr::core::vector3d", ptr %call5.i.i.i.i, i64 %cond.i.i
+  %add.ptr19.i = getelementptr inbounds nuw [6 x i8], ptr %call5.i.i.i.i, i64 %cond.i.i
   store ptr %add.ptr19.i, ptr %_M_end_of_storage, align 8, !tbaa !119
   br label %if.end
 
@@ -4790,7 +4755,7 @@ if.then.i41.i.i:                                  ; preds = %_ZNSt6vectorIN3irr4
 _ZNSt6vectorIN3irr4core8vector3dIsEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %if.then.i41.i.i, %_ZNSt6vectorIN3irr4core8vector3dIsEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit40.i.i
   store ptr %call5.i.i.i.i.i, ptr %this, align 8, !tbaa !116
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8, !tbaa !118
-  %add.ptr19.i.i = getelementptr inbounds nuw %"class.irr::core::vector3d", ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw [6 x i8], ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
   store ptr %add.ptr19.i.i, ptr %_M_end_of_storage.i, align 8, !tbaa !119
   br label %_ZNSt6vectorIN3irr4core8vector3dIsEESaIS3_EE9push_backERKS3_.exit
 
@@ -5252,9 +5217,9 @@ if.then.i104:                                     ; preds = %try.cont
 
 _ZNSt12_Vector_baseI12PathGridnodeSaIS0_EE13_M_deallocateEPS0_m.exit105: ; preds = %if.then.i104, %try.cont
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !153
-  %add.ptr45 = getelementptr inbounds nuw %class.PathGridnode, ptr %add.ptr, i64 %__n
+  %add.ptr45 = getelementptr inbounds nuw [92 x i8], ptr %add.ptr, i64 %__n
   store ptr %add.ptr45, ptr %_M_finish.i, align 8, !tbaa !180
-  %add.ptr48 = getelementptr inbounds nuw %class.PathGridnode, ptr %call5.i.i.i, i64 %4
+  %add.ptr48 = getelementptr inbounds nuw [92 x i8], ptr %call5.i.i.i, i64 %4
   store ptr %add.ptr48, ptr %_M_end_of_storage, align 8, !tbaa !181
   br label %if.end52
 
@@ -5896,9 +5861,9 @@ while.body:                                       ; preds = %while.body, %while.
   %__holeIndex.addr.069 = phi i64 [ %__holeIndex, %while.body.lr.ph ], [ %11, %while.body ]
   %add = shl i64 %__holeIndex.addr.069, 1
   %mul = add i64 %add, 2
-  %add.ptr.i = getelementptr inbounds %"class.irr::core::vector3d", ptr %__first.coerce, i64 %mul
+  %add.ptr.i = getelementptr inbounds [6 x i8], ptr %__first.coerce, i64 %mul
   %sub5 = or disjoint i64 %add, 1
-  %add.ptr.i55 = getelementptr inbounds %"class.irr::core::vector3d", ptr %__first.coerce, i64 %sub5
+  %add.ptr.i55 = getelementptr inbounds [6 x i8], ptr %__first.coerce, i64 %sub5
   %agg.tmp.sroa.0.0.copyload.i = load i48, ptr %add.ptr.i, align 2, !tbaa.struct !24
   %agg.tmp3.sroa.0.0.copyload.i = load i48, ptr %add.ptr.i55, align 2, !tbaa.struct !24
   %pos.sroa.0.0.extract.trunc.i.i.i = trunc i48 %agg.tmp.sroa.0.0.copyload.i to i16
@@ -5955,8 +5920,8 @@ while.body:                                       ; preds = %while.body, %while.
   %cond.fr = freeze i1 %cmp.i.i
   %.not = and i1 %or.cond.i.i.not1, %cond.fr
   %11 = select i1 %.not, i64 %sub5, i64 %mul
-  %add.ptr.i56 = getelementptr inbounds %"class.irr::core::vector3d", ptr %__first.coerce, i64 %11
-  %add.ptr.i57 = getelementptr inbounds %"class.irr::core::vector3d", ptr %__first.coerce, i64 %__holeIndex.addr.069
+  %add.ptr.i56 = getelementptr inbounds [6 x i8], ptr %__first.coerce, i64 %11
+  %add.ptr.i57 = getelementptr inbounds [6 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.069
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %add.ptr.i57, ptr noundef nonnull align 2 dereferenceable(6) %add.ptr.i56, i64 6, i1 false), !tbaa.struct !24
   %cmp = icmp slt i64 %11, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !185
@@ -5976,8 +5941,8 @@ land.lhs.true:                                    ; preds = %while.end
 if.then22:                                        ; preds = %land.lhs.true
   %add23 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub26 = or disjoint i64 %add23, 1
-  %add.ptr.i58 = getelementptr inbounds %"class.irr::core::vector3d", ptr %__first.coerce, i64 %sub26
-  %add.ptr.i59 = getelementptr inbounds %"class.irr::core::vector3d", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
+  %add.ptr.i58 = getelementptr inbounds [6 x i8], ptr %__first.coerce, i64 %sub26
+  %add.ptr.i59 = getelementptr inbounds [6 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %add.ptr.i59, ptr noundef nonnull align 2 dereferenceable(6) %add.ptr.i58, i64 6, i1 false), !tbaa.struct !24
   br label %if.end35
 
@@ -6009,7 +5974,7 @@ land.rhs:                                         ; preds = %while.body, %land.r
   %__holeIndex.addr.033 = phi i64 [ %__holeIndex, %land.rhs.lr.ph ], [ %__parent.034, %while.body ]
   %__parent.034.in = add nsw i64 %__holeIndex.addr.033, -1
   %__parent.034 = sdiv i64 %__parent.034.in, 2
-  %add.ptr.i = getelementptr inbounds %"class.irr::core::vector3d", ptr %__first.coerce, i64 %__parent.034
+  %add.ptr.i = getelementptr inbounds [6 x i8], ptr %__first.coerce, i64 %__parent.034
   %agg.tmp.sroa.0.0.copyload.i = load i48, ptr %add.ptr.i, align 2, !tbaa.struct !24
   %0 = load ptr, ptr %__comp, align 8, !tbaa !186
   %pos.sroa.0.0.extract.trunc.i.i.i = trunc i48 %agg.tmp.sroa.0.0.copyload.i to i16
@@ -6070,14 +6035,14 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valI26PathfinderCompareHeuristicEclINS_17__norma
   br i1 %cmp.i.i, label %while.body, label %while.end
 
 while.body:                                       ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valI26PathfinderCompareHeuristicEclINS_17__normal_iteratorIPN3irr4core8vector3dIsEESt6vectorIS9_SaIS9_EEEES9_EEbT_RT0_.exit
-  %add.ptr.i24 = getelementptr inbounds %"class.irr::core::vector3d", ptr %__first.coerce, i64 %__holeIndex.addr.033
+  %add.ptr.i24 = getelementptr inbounds [6 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.033
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %add.ptr.i24, ptr noundef nonnull align 2 dereferenceable(6) %add.ptr.i, i64 6, i1 false), !tbaa.struct !24
   %cmp = icmp sgt i64 %__parent.034, %__topIndex
   br i1 %cmp, label %land.rhs, label %while.end, !llvm.loop !188
 
 while.end:                                        ; preds = %while.body, %_ZN9__gnu_cxx5__ops14_Iter_comp_valI26PathfinderCompareHeuristicEclINS_17__normal_iteratorIPN3irr4core8vector3dIsEESt6vectorIS9_SaIS9_EEEES9_EEbT_RT0_.exit, %land.rhs, %entry
   %__holeIndex.addr.0.lcssa = phi i64 [ %__holeIndex, %entry ], [ %__holeIndex.addr.033, %_ZN9__gnu_cxx5__ops14_Iter_comp_valI26PathfinderCompareHeuristicEclINS_17__normal_iteratorIPN3irr4core8vector3dIsEESt6vectorIS9_SaIS9_EEEES9_EEbT_RT0_.exit ], [ %__parent.034, %while.body ], [ %__holeIndex.addr.033, %land.rhs ]
-  %add.ptr.i25 = getelementptr inbounds %"class.irr::core::vector3d", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
+  %add.ptr.i25 = getelementptr inbounds [6 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
   store i48 %__value.coerce, ptr %add.ptr.i25, align 2, !tbaa.struct !24
   ret void
 }

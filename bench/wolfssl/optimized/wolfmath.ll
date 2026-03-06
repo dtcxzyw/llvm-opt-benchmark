@@ -66,7 +66,7 @@ define i64 @get_digit(ptr noundef readonly captures(address_is_null) %0, i32 nou
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = zext nneg i32 %1 to i64
-  %11 = getelementptr inbounds nuw i64, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %10
   %12 = load i64, ptr %11, align 8, !tbaa !11
   br label %13
 
@@ -120,15 +120,15 @@ get_digit.exit.lr.ph.split:                       ; preds = %.preheader45
 
 get_digit.exit:                                   ; preds = %get_digit.exit.lr.ph.split, %get_digit.exit
   %indvars.iv = phi i64 [ 0, %get_digit.exit.lr.ph.split ], [ %indvars.iv.next, %get_digit.exit ]
-  %25 = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %26 = load i64, ptr %25, align 8, !tbaa !11
   %.not.i36 = icmp samesign ult i64 %indvars.iv, %18
-  %27 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv
   %28 = load i64, ptr %27, align 8, !tbaa !11
   %29 = select i1 %.not.i36, i64 %28, i64 0
   %.0.i37 = xor i64 %26, %29
   %30 = and i64 %.0.i37, %5
-  %31 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv
   %32 = xor i64 %28, %30
   store i64 %32, ptr %31, align 8, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -141,13 +141,13 @@ get_digit.exit:                                   ; preds = %get_digit.exit.lr.p
   br i1 %.not.i39, label %34, label %get_digit.exit44
 
 34:                                               ; preds = %33
-  %35 = getelementptr inbounds nuw i64, ptr %21, i64 %indvars.iv63
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv63
   %36 = load i64, ptr %35, align 8, !tbaa !11
   br label %get_digit.exit44
 
 get_digit.exit44:                                 ; preds = %34, %33
   %.0.i40 = phi i64 [ 0, %33 ], [ %36, %34 ]
-  %37 = getelementptr inbounds nuw i64, ptr %22, i64 %indvars.iv63
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv63
   %38 = load i64, ptr %37, align 8, !tbaa !11
   %39 = xor i64 %38, %.0.i40
   %40 = and i64 %39, %5
@@ -210,7 +210,7 @@ define i32 @mp_rand(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unname
 .preheader:                                       ; preds = %.critedge30, %23
   %18 = load i16, ptr %0, align 8, !tbaa !8
   %19 = zext i16 %18 to i64
-  %20 = getelementptr i64, ptr %0, i64 %19
+  %20 = getelementptr [8 x i8], ptr %0, i64 %19
   %21 = load i64, ptr %20, align 8, !tbaa !11
   %22 = icmp eq i64 %21, 0
   br i1 %22, label %23, label %.critedge

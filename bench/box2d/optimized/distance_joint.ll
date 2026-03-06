@@ -6,15 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.b2BodyState = type { %struct.b2Vec2, float, i32, %struct.b2Vec2, %struct.b2Rot }
 %struct.b2Vec2 = type { float, float }
 %struct.b2Rot = type { float, float }
-%struct.b2Body = type { [32 x i8], ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, float, float, float, float, i32, i32, i32, i16, i8, i8, i8, i8 }
-%struct.b2SolverSet = type { %struct.b2BodySimArray, %struct.b2BodyStateArray, %struct.b2JointSimArray, %struct.b2ContactSimArray, %struct.b2IslandSimArray, i32 }
-%struct.b2BodySimArray = type { ptr, i32, i32 }
-%struct.b2BodyStateArray = type { ptr, i32, i32 }
-%struct.b2JointSimArray = type { ptr, i32, i32 }
-%struct.b2ContactSimArray = type { ptr, i32, i32 }
-%struct.b2IslandSimArray = type { ptr, i32, i32 }
-%struct.b2BodySim = type { %struct.b2Transform, %struct.b2Vec2, %struct.b2Rot, %struct.b2Vec2, %struct.b2Vec2, %struct.b2Vec2, float, float, float, float, float, float, float, float, i32, i8, i8, i8, i8, i8 }
-%struct.b2Transform = type { %struct.b2Vec2, %struct.b2Rot }
 
 @b2_lengthUnitsPerMeter = external local_unnamed_addr global float, align 4
 @__const.b2SolveDistanceJoint.dummyState = private unnamed_addr constant %struct.b2BodyState { %struct.b2Vec2 zeroinitializer, float 0.000000e+00, i32 0, %struct.b2Vec2 zeroinitializer, %struct.b2Rot { float 1.000000e+00, float 0.000000e+00 } }, align 4
@@ -413,29 +404,29 @@ define hidden void @b2PrepareDistanceJoint(ptr noundef captures(none) initialize
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 1032
   %.val = load ptr, ptr %9, align 8, !tbaa !90
   %10 = sext i32 %4 to i64
-  %11 = getelementptr inbounds %struct.b2Body, ptr %.val, i64 %10
+  %11 = getelementptr inbounds [128 x i8], ptr %.val, i64 %10
   %12 = sext i32 %6 to i64
-  %13 = getelementptr inbounds %struct.b2Body, ptr %.val, i64 %12
+  %13 = getelementptr inbounds [128 x i8], ptr %.val, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 1072
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %16 = load i32, ptr %15, align 8, !tbaa !91
   %.val84 = load ptr, ptr %14, align 8, !tbaa !93
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds %struct.b2SolverSet, ptr %.val84, i64 %17
+  %18 = getelementptr inbounds [88 x i8], ptr %.val84, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %20 = load i32, ptr %19, align 8, !tbaa !91
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds %struct.b2SolverSet, ptr %.val84, i64 %21
+  %22 = getelementptr inbounds [88 x i8], ptr %.val84, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 44
   %24 = load i32, ptr %23, align 4, !tbaa !94
   %25 = getelementptr inbounds nuw i8, ptr %13, i64 44
   %26 = load i32, ptr %25, align 4, !tbaa !94
   %.val86 = load ptr, ptr %18, align 8, !tbaa !95
   %27 = sext i32 %24 to i64
-  %28 = getelementptr inbounds %struct.b2BodySim, ptr %.val86, i64 %27
+  %28 = getelementptr inbounds [100 x i8], ptr %.val86, i64 %27
   %.val87 = load ptr, ptr %22, align 8, !tbaa !95
   %29 = sext i32 %26 to i64
-  %30 = getelementptr inbounds %struct.b2BodySim, ptr %.val87, i64 %29
+  %30 = getelementptr inbounds [100 x i8], ptr %.val87, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 60
   %32 = load float, ptr %31, align 4, !tbaa !97
   %33 = getelementptr inbounds nuw i8, ptr %28, i64 64
@@ -627,7 +618,7 @@ define hidden void @b2WarmStartDistanceJoint(ptr noundef readonly captures(none)
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %17 = load ptr, ptr %16, align 8, !tbaa !111
   %18 = sext i32 %13 to i64
-  %19 = getelementptr inbounds %struct.b2BodyState, ptr %17, i64 %18
+  %19 = getelementptr inbounds [32 x i8], ptr %17, i64 %18
   br label %20
 
 20:                                               ; preds = %2, %15
@@ -641,7 +632,7 @@ define hidden void @b2WarmStartDistanceJoint(ptr noundef readonly captures(none)
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %27 = load ptr, ptr %26, align 8, !tbaa !111
   %28 = sext i32 %23 to i64
-  %29 = getelementptr inbounds %struct.b2BodyState, ptr %27, i64 %28
+  %29 = getelementptr inbounds [32 x i8], ptr %27, i64 %28
   br label %30
 
 30:                                               ; preds = %20, %25
@@ -789,7 +780,7 @@ define hidden void @b2SolveDistanceJoint(ptr noundef captures(none) %0, ptr noun
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %19 = load ptr, ptr %18, align 8, !tbaa !111
   %20 = sext i32 %15 to i64
-  %21 = getelementptr inbounds %struct.b2BodyState, ptr %19, i64 %20
+  %21 = getelementptr inbounds [32 x i8], ptr %19, i64 %20
   br label %22
 
 22:                                               ; preds = %3, %17
@@ -803,7 +794,7 @@ define hidden void @b2SolveDistanceJoint(ptr noundef captures(none) %0, ptr noun
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %29 = load ptr, ptr %28, align 8, !tbaa !111
   %30 = sext i32 %25 to i64
-  %31 = getelementptr inbounds %struct.b2BodyState, ptr %29, i64 %30
+  %31 = getelementptr inbounds [32 x i8], ptr %29, i64 %30
   %.sroa.0147.0.copyload.pre = load <2 x float>, ptr %31, align 4
   br label %32
 

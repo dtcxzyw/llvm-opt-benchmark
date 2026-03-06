@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"struct.std::piecewise_construct_t" = type { i8 }
-%"struct.llvm::FaultMaps::FaultInfo" = type { i32, ptr, ptr }
 %"class.std::tuple.248" = type { %"struct.std::_Tuple_impl.249" }
 %"struct.std::_Tuple_impl.249" = type { %"struct.std::_Head_base.250" }
 %"struct.std::_Head_base.250" = type { ptr }
@@ -148,7 +147,7 @@ _ZNSt6vectorIN4llvm9FaultMaps9FaultInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exi
 _ZNSt6vectorIN4llvm9FaultMaps9FaultInfoESaIS2_EE17_M_realloc_insertIJRNS1_9FaultKindERPKNS0_6MCExprESB_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %54, %_ZNSt6vectorIN4llvm9FaultMaps9FaultInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit24.i.i
   store ptr %47, ptr %25, align 8, !tbaa !183
   store ptr %53, ptr %26, align 8, !tbaa !173
-  %55 = getelementptr inbounds nuw %"struct.llvm::FaultMaps::FaultInfo", ptr %47, i64 %45
+  %55 = getelementptr inbounds nuw [24 x i8], ptr %47, i64 %45
   store ptr %55, ptr %28, align 8, !tbaa !176
   br label %_ZNSt6vectorIN4llvm9FaultMaps9FaultInfoESaIS2_EE12emplace_backIJRNS1_9FaultKindERPKNS0_6MCExprESB_EEERS2_DpOT_.exit
 
@@ -443,7 +442,7 @@ declare void @_ZN4llvm10MCStreamer9emitValueEPKNS_6MCExprEjNS_5SMLocE(ptr nounde
 define dso_local noundef nonnull ptr @_ZN4llvm9FaultMaps17faultTypeToStringENS0_9FaultKindE(i32 noundef %0) local_unnamed_addr #4 align 2 {
 switch.lookup:
   %1 = sext i32 %0 to i64
-  %2 = getelementptr ptr, ptr @switch.table._ZN4llvm9FaultMaps17faultTypeToStringENS0_9FaultKindE, i64 %1
+  %2 = getelementptr [8 x i8], ptr @switch.table._ZN4llvm9FaultMaps17faultTypeToStringENS0_9FaultKindE, i64 %1
   %switch.gep = getelementptr i8, ptr %2, i64 -8
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load

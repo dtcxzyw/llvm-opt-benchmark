@@ -1839,7 +1839,7 @@ define hidden zeroext i16 @de_bearer_cap(ptr noundef %0, ptr noundef %1, ptr nou
   %.sink489 = select i1 %19, i32 %16, i32 %17
   %switch.table.de_bearer_cap.2.sink = select i1 %cond, ptr %spec.select490, ptr @switch.table.de_bearer_cap.2
   %20 = zext nneg i32 %.sink489 to i64
-  %switch.gep487 = getelementptr inbounds nuw ptr, ptr %switch.table.de_bearer_cap.2.sink, i64 %20
+  %switch.gep487 = getelementptr inbounds nuw [8 x i8], ptr %switch.table.de_bearer_cap.2.sink, i64 %20
   %switch.load488 = load ptr, ptr %switch.gep487, align 8
   br label %21
 
@@ -4009,7 +4009,7 @@ define internal noundef zeroext i16 @de_tp_sub_channel(ptr noundef %0, ptr nound
 
 switch.lookup:                                    ; preds = %7
   %19 = zext nneg i32 %12 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.de_tp_sub_channel, i64 %19
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.de_tp_sub_channel, i64 %19
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %20
 
@@ -4732,8 +4732,8 @@ define hidden void @proto_register_gsm_a_dtap() local_unnamed_addr #1 {
 23:                                               ; preds = %0, %23
   %indvars.iv62 = phi i64 [ 22, %0 ], [ %indvars.iv.next63, %23 ]
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %23 ]
-  %24 = getelementptr i32, ptr @ett_gsm_dtap_msg_mm, i64 %indvars.iv
-  %25 = getelementptr ptr, ptr %1, i64 %indvars.iv62
+  %24 = getelementptr [4 x i8], ptr @ett_gsm_dtap_msg_mm, i64 %indvars.iv
+  %25 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv62
   store ptr %24, ptr %25, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %indvars.iv.next63 = add nuw nsw i64 %indvars.iv62, 1
@@ -4743,8 +4743,8 @@ define hidden void @proto_register_gsm_a_dtap() local_unnamed_addr #1 {
 .preheader45:                                     ; preds = %23, %.preheader45
   %indvars.iv69 = phi i64 [ %indvars.iv.next70, %.preheader45 ], [ 46, %23 ]
   %indvars.iv67 = phi i64 [ %indvars.iv.next68, %.preheader45 ], [ 0, %23 ]
-  %26 = getelementptr i32, ptr @ett_gsm_dtap_msg_cc, i64 %indvars.iv67
-  %27 = getelementptr ptr, ptr %1, i64 %indvars.iv69
+  %26 = getelementptr [4 x i8], ptr @ett_gsm_dtap_msg_cc, i64 %indvars.iv67
+  %27 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv69
   store ptr %26, ptr %27, align 8
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %indvars.iv.next70 = add nuw nsw i64 %indvars.iv69, 1
@@ -4754,8 +4754,8 @@ define hidden void @proto_register_gsm_a_dtap() local_unnamed_addr #1 {
 .preheader44:                                     ; preds = %.preheader45, %.preheader44
   %indvars.iv77 = phi i64 [ %indvars.iv.next78, %.preheader44 ], [ 82, %.preheader45 ]
   %indvars.iv75 = phi i64 [ %indvars.iv.next76, %.preheader44 ], [ 0, %.preheader45 ]
-  %28 = getelementptr i32, ptr @ett_gsm_dtap_msg_sms, i64 %indvars.iv75
-  %29 = getelementptr ptr, ptr %1, i64 %indvars.iv77
+  %28 = getelementptr [4 x i8], ptr @ett_gsm_dtap_msg_sms, i64 %indvars.iv75
+  %29 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv77
   store ptr %28, ptr %29, align 8
   %indvars.iv.next76 = add nuw nsw i64 %indvars.iv75, 1
   %indvars.iv.next78 = add nuw nsw i64 %indvars.iv77, 1
@@ -4765,8 +4765,8 @@ define hidden void @proto_register_gsm_a_dtap() local_unnamed_addr #1 {
 .preheader43:                                     ; preds = %.preheader44, %.preheader43
   %indvars.iv85 = phi i64 [ %indvars.iv.next86, %.preheader43 ], [ 86, %.preheader44 ]
   %indvars.iv83 = phi i64 [ %indvars.iv.next84, %.preheader43 ], [ 0, %.preheader44 ]
-  %30 = getelementptr i32, ptr @ett_gsm_dtap_msg_ss, i64 %indvars.iv83
-  %31 = getelementptr ptr, ptr %1, i64 %indvars.iv85
+  %30 = getelementptr [4 x i8], ptr @ett_gsm_dtap_msg_ss, i64 %indvars.iv83
+  %31 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv85
   store ptr %30, ptr %31, align 8
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
   %indvars.iv.next86 = add nuw nsw i64 %indvars.iv85, 1
@@ -4776,8 +4776,8 @@ define hidden void @proto_register_gsm_a_dtap() local_unnamed_addr #1 {
 .preheader42:                                     ; preds = %.preheader43, %.preheader42
   %indvars.iv93 = phi i64 [ %indvars.iv.next94, %.preheader42 ], [ 90, %.preheader43 ]
   %indvars.iv91 = phi i64 [ %indvars.iv.next92, %.preheader42 ], [ 0, %.preheader43 ]
-  %32 = getelementptr i32, ptr @ett_gsm_dtap_msg_tp, i64 %indvars.iv91
-  %33 = getelementptr ptr, ptr %1, i64 %indvars.iv93
+  %32 = getelementptr [4 x i8], ptr @ett_gsm_dtap_msg_tp, i64 %indvars.iv91
+  %33 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv93
   store ptr %32, ptr %33, align 8
   %indvars.iv.next92 = add nuw nsw i64 %indvars.iv91, 1
   %indvars.iv.next94 = add nuw nsw i64 %indvars.iv93, 1
@@ -4787,8 +4787,8 @@ define hidden void @proto_register_gsm_a_dtap() local_unnamed_addr #1 {
 .preheader:                                       ; preds = %.preheader42, %.preheader
   %indvars.iv101 = phi i64 [ %indvars.iv.next102, %.preheader ], [ 132, %.preheader42 ]
   %indvars.iv99 = phi i64 [ %indvars.iv.next100, %.preheader ], [ 0, %.preheader42 ]
-  %34 = getelementptr i32, ptr @ett_gsm_dtap_elem, i64 %indvars.iv99
-  %35 = getelementptr ptr, ptr %1, i64 %indvars.iv101
+  %34 = getelementptr [4 x i8], ptr @ett_gsm_dtap_elem, i64 %indvars.iv99
+  %35 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv101
   store ptr %34, ptr %35, align 8
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
@@ -4861,7 +4861,7 @@ define internal i32 @dissect_dtap(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %spec.store.select = select i1 %19, i32 0, i32 %18
   store i32 %spec.store.select, ptr @dissect_dtap.tap_current, align 4
   %20 = zext i32 %spec.store.select to i64
-  %21 = getelementptr %struct._gsm_a_tap_rec_t, ptr @dissect_dtap.tap_rec, i64 %20
+  %21 = getelementptr [8 x i8], ptr @dissect_dtap.tap_rec, i64 %20
   store ptr %21, ptr @dissect_dtap.tap_p, align 8
   store ptr %2, ptr @g_tree, align 8
   %22 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef 0)
@@ -4917,7 +4917,7 @@ define internal i32 @dissect_dtap(ptr noundef %0, ptr noundef %1, ptr noundef %2
   store i32 0, ptr %8, align 4
   %42 = load i32, ptr %6, align 4
   %43 = sext i32 %42 to i64
-  %44 = getelementptr ptr, ptr @dtap_msg_gcc, i64 %43
+  %44 = getelementptr [8 x i8], ptr @dtap_msg_gcc, i64 %43
   %45 = load ptr, ptr %44, align 8
   store ptr %45, ptr %5, align 8
   br label %46
@@ -4939,7 +4939,7 @@ define internal i32 @dissect_dtap(ptr noundef %0, ptr noundef %1, ptr noundef %2
   store i32 0, ptr %8, align 4
   %53 = load i32, ptr %6, align 4
   %54 = sext i32 %53 to i64
-  %55 = getelementptr ptr, ptr @dtap_msg_bcc, i64 %54
+  %55 = getelementptr [8 x i8], ptr @dtap_msg_bcc, i64 %54
   %56 = load ptr, ptr %55, align 8
   store ptr %56, ptr %5, align 8
   br label %57
@@ -4960,10 +4960,10 @@ define internal i32 @dissect_dtap(ptr noundef %0, ptr noundef %1, ptr noundef %2
 63:                                               ; preds = %59
   %64 = load i32, ptr %6, align 4
   %65 = sext i32 %64 to i64
-  %66 = getelementptr i32, ptr @ett_gsm_dtap_msg_cc, i64 %65
+  %66 = getelementptr [4 x i8], ptr @ett_gsm_dtap_msg_cc, i64 %65
   %67 = load i32, ptr %66, align 4
   store i32 %67, ptr %8, align 4
-  %68 = getelementptr ptr, ptr @dtap_msg_cc_fcn, i64 %65
+  %68 = getelementptr [8 x i8], ptr @dtap_msg_cc_fcn, i64 %65
   %69 = load ptr, ptr %68, align 8
   store ptr %69, ptr %5, align 8
   br label %70
@@ -4984,10 +4984,10 @@ define internal i32 @dissect_dtap(ptr noundef %0, ptr noundef %1, ptr noundef %2
 76:                                               ; preds = %72
   %77 = load i32, ptr %6, align 4
   %78 = sext i32 %77 to i64
-  %79 = getelementptr i32, ptr @ett_gsm_dtap_msg_mm, i64 %78
+  %79 = getelementptr [4 x i8], ptr @ett_gsm_dtap_msg_mm, i64 %78
   %80 = load i32, ptr %79, align 4
   store i32 %80, ptr %8, align 4
-  %81 = getelementptr ptr, ptr @dtap_msg_mm_fcn, i64 %78
+  %81 = getelementptr [8 x i8], ptr @dtap_msg_mm_fcn, i64 %78
   %82 = load ptr, ptr %81, align 8
   store ptr %82, ptr %5, align 8
   br label %83
@@ -5017,10 +5017,10 @@ define internal i32 @dissect_dtap(ptr noundef %0, ptr noundef %1, ptr noundef %2
 91:                                               ; preds = %87
   %92 = load i32, ptr %6, align 4
   %93 = sext i32 %92 to i64
-  %94 = getelementptr i32, ptr @ett_gsm_dtap_msg_sms, i64 %93
+  %94 = getelementptr [4 x i8], ptr @ett_gsm_dtap_msg_sms, i64 %93
   %95 = load i32, ptr %94, align 4
   store i32 %95, ptr %8, align 4
-  %96 = getelementptr ptr, ptr @dtap_msg_sms_fcn, i64 %93
+  %96 = getelementptr [8 x i8], ptr @dtap_msg_sms_fcn, i64 %93
   %97 = load ptr, ptr %96, align 8
   store ptr %97, ptr %5, align 8
   br label %122
@@ -5042,10 +5042,10 @@ define internal i32 @dissect_dtap(ptr noundef %0, ptr noundef %1, ptr noundef %2
 104:                                              ; preds = %99
   %105 = load i32, ptr %6, align 4
   %106 = sext i32 %105 to i64
-  %107 = getelementptr i32, ptr @ett_gsm_dtap_msg_ss, i64 %106
+  %107 = getelementptr [4 x i8], ptr @ett_gsm_dtap_msg_ss, i64 %106
   %108 = load i32, ptr %107, align 4
   store i32 %108, ptr %8, align 4
-  %109 = getelementptr ptr, ptr @dtap_msg_ss_fcn, i64 %106
+  %109 = getelementptr [8 x i8], ptr @dtap_msg_ss_fcn, i64 %106
   %110 = load ptr, ptr %109, align 8
   store ptr %110, ptr %5, align 8
   br label %122
@@ -5062,10 +5062,10 @@ define internal i32 @dissect_dtap(ptr noundef %0, ptr noundef %1, ptr noundef %2
 115:                                              ; preds = %111
   %116 = load i32, ptr %6, align 4
   %117 = sext i32 %116 to i64
-  %118 = getelementptr i32, ptr @ett_gsm_dtap_msg_tp, i64 %117
+  %118 = getelementptr [4 x i8], ptr @ett_gsm_dtap_msg_tp, i64 %117
   %119 = load i32, ptr %118, align 4
   store i32 %119, ptr %8, align 4
-  %120 = getelementptr ptr, ptr @dtap_msg_tp_fcn, i64 %117
+  %120 = getelementptr [8 x i8], ptr @dtap_msg_tp_fcn, i64 %117
   %121 = load ptr, ptr %120, align 8
   store ptr %121, ptr %5, align 8
   br label %122

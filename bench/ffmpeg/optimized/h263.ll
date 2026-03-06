@@ -74,12 +74,12 @@ define void @ff_h263_update_motion_val(ptr noundef readonly captures(none) %0) l
 35:                                               ; preds = %26, %35
   %36 = phi i1 [ true, %26 ], [ false, %35 ]
   %indvars.iv = phi i64 [ 0, %26 ], [ 1, %35 ]
-  %37 = getelementptr inbounds nuw [2 x i32], ptr %21, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv
   %38 = load i32, ptr %37, align 8, !tbaa !39
   %39 = trunc i32 %38 to i16
-  %40 = getelementptr inbounds nuw [2 x ptr], ptr %33, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 %indvars.iv
   %41 = load ptr, ptr %40, align 8, !tbaa !42
-  %42 = getelementptr inbounds [2 x i16], ptr %41, i64 %34
+  %42 = getelementptr inbounds [4 x i8], ptr %41, i64 %34
   store i16 %39, ptr %42, align 2, !tbaa !43
   %43 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %44 = load i32, ptr %43, align 4, !tbaa !39
@@ -127,26 +127,26 @@ define void @ff_h263_update_motion_val(ptr noundef readonly captures(none) %0) l
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 1224
   %76 = load ptr, ptr %75, align 8, !tbaa !42
   %77 = sext i32 %13 to i64
-  %78 = getelementptr inbounds [2 x i16], ptr %76, i64 %77
+  %78 = getelementptr inbounds [4 x i8], ptr %76, i64 %77
   store i16 %74, ptr %78, align 2, !tbaa !43
   %79 = trunc i32 %.065 to i16
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 2
   store i16 %79, ptr %80, align 2, !tbaa !43
   %81 = add nsw i32 %13, 1
   %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds [2 x i16], ptr %76, i64 %82
+  %83 = getelementptr inbounds [4 x i8], ptr %76, i64 %82
   store i16 %74, ptr %83, align 2, !tbaa !43
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 2
   store i16 %79, ptr %84, align 2, !tbaa !43
   %85 = add nsw i32 %13, %11
   %86 = sext i32 %85 to i64
-  %87 = getelementptr inbounds [2 x i16], ptr %76, i64 %86
+  %87 = getelementptr inbounds [4 x i8], ptr %76, i64 %86
   store i16 %74, ptr %87, align 2, !tbaa !43
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 2
   store i16 %79, ptr %88, align 2, !tbaa !43
   %89 = add nsw i32 %81, %11
   %90 = sext i32 %89 to i64
-  %91 = getelementptr inbounds [2 x i16], ptr %76, i64 %90
+  %91 = getelementptr inbounds [4 x i8], ptr %76, i64 %90
   store i16 %74, ptr %91, align 2, !tbaa !43
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 2
   store i16 %79, ptr %92, align 2, !tbaa !43
@@ -181,7 +181,7 @@ define void @ff_h263_loop_filter(ptr noundef readonly captures(none) %0) local_u
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 1240
   %23 = load ptr, ptr %22, align 8, !tbaa !50
   %24 = sext i32 %15 to i64
-  %25 = getelementptr inbounds i32, ptr %23, i64 %24
+  %25 = getelementptr inbounds [4 x i8], ptr %23, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !39
   %27 = and i32 %26, 131072
   %.not = icmp eq i32 %27, 0
@@ -213,7 +213,7 @@ define void @ff_h263_loop_filter(ptr noundef readonly captures(none) %0) local_u
   %42 = load i32, ptr %10, align 4, !tbaa !36
   %43 = sub nsw i32 %15, %42
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds i32, ptr %41, i64 %44
+  %45 = getelementptr inbounds [4 x i8], ptr %41, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !39
   %47 = and i32 %46, 131072
   %.not128 = icmp eq i32 %47, 0
@@ -281,7 +281,7 @@ define void @ff_h263_loop_filter(ptr noundef readonly captures(none) %0) local_u
   %82 = xor i32 %81, -1
   %83 = add i32 %15, %82
   %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds i32, ptr %80, i64 %84
+  %85 = getelementptr inbounds [4 x i8], ptr %80, i64 %84
   %86 = load i32, ptr %85, align 4, !tbaa !39
   %87 = and i32 %86, 131072
   %.not133 = icmp eq i32 %87, 0
@@ -364,7 +364,7 @@ define void @ff_h263_loop_filter(ptr noundef readonly captures(none) %0) local_u
   %132 = load ptr, ptr %22, align 8, !tbaa !50
   %133 = add nsw i32 %15, -1
   %134 = sext i32 %133 to i64
-  %135 = getelementptr inbounds i32, ptr %132, i64 %134
+  %135 = getelementptr inbounds [4 x i8], ptr %132, i64 %134
   %136 = load i32, ptr %135, align 4, !tbaa !39
   %137 = and i32 %136, 131072
   %.not137 = icmp eq i32 %137, 0
@@ -419,14 +419,14 @@ define ptr @ff_h263_pred_motion(ptr noundef readonly captures(none) %0, i32 noun
   %7 = load i32, ptr %6, align 8, !tbaa !38
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1224
   %9 = sext i32 %2 to i64
-  %10 = getelementptr inbounds ptr, ptr %8, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !42
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 3364
   %13 = sext i32 %1 to i64
-  %14 = getelementptr inbounds i32, ptr %12, i64 %13
+  %14 = getelementptr inbounds [4 x i8], ptr %12, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !39
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds [2 x i16], ptr %11, i64 %16
+  %17 = getelementptr inbounds [4 x i8], ptr %11, i64 %16
   %18 = getelementptr inbounds i8, ptr %17, i64 -4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 4140
   %20 = load i32, ptr %19, align 4, !tbaa !57
@@ -466,11 +466,11 @@ define ptr @ff_h263_pred_motion(ptr noundef readonly captures(none) %0, i32 noun
   br i1 %.not84, label %77, label %37
 
 37:                                               ; preds = %34
-  %38 = getelementptr inbounds nuw i32, ptr @ff_h263_pred_motion.off, i64 %13
+  %38 = getelementptr inbounds nuw [4 x i8], ptr @ff_h263_pred_motion.off, i64 %13
   %39 = load i32, ptr %38, align 4, !tbaa !39
   %40 = sub nsw i32 %39, %7
   %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds [2 x i16], ptr %17, i64 %41
+  %42 = getelementptr inbounds [4 x i8], ptr %17, i64 %41
   %43 = icmp eq i32 %26, 0
   br i1 %43, label %44, label %50
 
@@ -567,11 +567,11 @@ mid_pred.exit88:                                  ; preds = %70, %72, %74, %76
   br i1 %.not, label %125, label %93
 
 93:                                               ; preds = %90
-  %94 = getelementptr inbounds nuw i32, ptr @ff_h263_pred_motion.off, i64 %13
+  %94 = getelementptr inbounds nuw [4 x i8], ptr @ff_h263_pred_motion.off, i64 %13
   %95 = load i32, ptr %94, align 4, !tbaa !39
   %96 = sub nsw i32 %95, %7
   %97 = sext i32 %96 to i64
-  %98 = getelementptr inbounds [2 x i16], ptr %17, i64 %97
+  %98 = getelementptr inbounds [4 x i8], ptr %17, i64 %97
   %99 = load i16, ptr %18, align 2, !tbaa !43
   %100 = sext i16 %99 to i32
   %101 = load i16, ptr %98, align 2, !tbaa !43
@@ -641,12 +641,12 @@ mid_pred.exit96:                                  ; preds = %118, %120, %122, %1
 131:                                              ; preds = %23
   %132 = sub nsw i32 0, %7
   %133 = sext i32 %132 to i64
-  %134 = getelementptr inbounds [2 x i16], ptr %17, i64 %133
-  %135 = getelementptr inbounds i32, ptr @ff_h263_pred_motion.off, i64 %13
+  %134 = getelementptr inbounds [4 x i8], ptr %17, i64 %133
+  %135 = getelementptr inbounds [4 x i8], ptr @ff_h263_pred_motion.off, i64 %13
   %136 = load i32, ptr %135, align 4, !tbaa !39
   %137 = sub nsw i32 %136, %7
   %138 = sext i32 %137 to i64
-  %139 = getelementptr inbounds [2 x i16], ptr %17, i64 %138
+  %139 = getelementptr inbounds [4 x i8], ptr %17, i64 %138
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 3348
   %141 = load i32, ptr %140, align 4, !tbaa !37
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 3960
@@ -729,12 +729,12 @@ mid_pred.exit104:                                 ; preds = %171, %173, %174, %1
 177:                                              ; preds = %5
   %178 = sub nsw i32 0, %7
   %179 = sext i32 %178 to i64
-  %180 = getelementptr inbounds [2 x i16], ptr %17, i64 %179
-  %181 = getelementptr inbounds i32, ptr @ff_h263_pred_motion.off, i64 %13
+  %180 = getelementptr inbounds [4 x i8], ptr %17, i64 %179
+  %181 = getelementptr inbounds [4 x i8], ptr @ff_h263_pred_motion.off, i64 %13
   %182 = load i32, ptr %181, align 4, !tbaa !39
   %183 = sub nsw i32 %182, %7
   %184 = sext i32 %183 to i64
-  %185 = getelementptr inbounds [2 x i16], ptr %17, i64 %184
+  %185 = getelementptr inbounds [4 x i8], ptr %17, i64 %184
   %186 = load i16, ptr %18, align 2, !tbaa !43
   %187 = sext i16 %186 to i32
   %188 = load i16, ptr %180, align 2, !tbaa !43

@@ -142,11 +142,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.173" = type { %"struct.std::_Vector_base<grpc_event_engine::experimental::EventEngine::ResolvedAddress, std::allocator<grpc_event_engine::experimental::EventEngine::ResolvedAddress>>::_Vector_impl" }
 %"struct.std::_Vector_base<grpc_event_engine::experimental::EventEngine::ResolvedAddress, std::allocator<grpc_event_engine::experimental::EventEngine::ResolvedAddress>>::_Vector_impl" = type { %"struct.std::_Vector_base<grpc_event_engine::experimental::EventEngine::ResolvedAddress, std::allocator<grpc_event_engine::experimental::EventEngine::ResolvedAddress>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<grpc_event_engine::experimental::EventEngine::ResolvedAddress, std::allocator<grpc_event_engine::experimental::EventEngine::ResolvedAddress>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.grpc_core::EndpointAddresses" = type { %"class.std::vector.121", %"class.grpc_core::ChannelArgs" }
-%"class.std::vector.121" = type { %"struct.std::_Vector_base.122" }
-%"struct.std::_Vector_base.122" = type { %"struct.std::_Vector_base<grpc_resolved_address, std::allocator<grpc_resolved_address>>::_Vector_impl" }
-%"struct.std::_Vector_base<grpc_resolved_address, std::allocator<grpc_resolved_address>>::_Vector_impl" = type { %"struct.std::_Vector_base<grpc_resolved_address, std::allocator<grpc_resolved_address>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<grpc_resolved_address, std::allocator<grpc_resolved_address>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.absl::lts_20240722::StatusOr.138" = type { %"class.absl::lts_20240722::internal_statusor::StatusOrData.139" }
 %"class.absl::lts_20240722::internal_statusor::StatusOrData.139" = type { %union.anon.140, %union.anon.141 }
 %union.anon.140 = type { %"class.absl::lts_20240722::Status" }
@@ -5098,7 +5093,7 @@ _ZNSt12_Vector_baseIN9grpc_core17EndpointAddressesESaIS1_EE13_M_deallocateEPS1_m
   store ptr %19, ptr %0, align 8, !tbaa !127
   %36 = getelementptr inbounds nuw i8, ptr %19, i64 %17
   store ptr %36, ptr %14, align 8, !tbaa !130
-  %37 = getelementptr inbounds nuw %"class.grpc_core::EndpointAddresses", ptr %19, i64 %1
+  %37 = getelementptr inbounds nuw [32 x i8], ptr %19, i64 %1
   store ptr %37, ptr %6, align 8, !tbaa !131
   br label %38
 
@@ -7065,7 +7060,7 @@ _ZNSt6vectorIN9grpc_core17EndpointAddressesESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_
 _ZNSt12_Vector_baseIN9grpc_core17EndpointAddressesESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN9grpc_core17EndpointAddressesESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit35, %45
   store ptr %21, ptr %0, align 8, !tbaa !127
   store ptr %.0.lcssa.i.i.i34, ptr %5, align 8, !tbaa !130
-  %49 = getelementptr inbounds nuw %"class.grpc_core::EndpointAddresses", ptr %21, i64 %17
+  %49 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 %17
   store ptr %49, ptr %44, align 8, !tbaa !131
   ret void
 
@@ -10955,7 +10950,7 @@ _ZNSt6vectorIN9grpc_core17EndpointAddressesESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_
 _ZNSt12_Vector_baseIN9grpc_core17EndpointAddressesESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN9grpc_core17EndpointAddressesESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit35, %45
   store ptr %21, ptr %0, align 8, !tbaa !127
   store ptr %.0.lcssa.i.i.i34, ptr %5, align 8, !tbaa !130
-  %49 = getelementptr inbounds nuw %"class.grpc_core::EndpointAddresses", ptr %21, i64 %17
+  %49 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 %17
   store ptr %49, ptr %44, align 8, !tbaa !131
   ret void
 

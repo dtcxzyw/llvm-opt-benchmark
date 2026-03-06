@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.AVCodecTag = type { i32, i32 }
-%struct.AVIndexEntry = type { i64, i64, i32, i32 }
 
 @.str = private unnamed_addr constant [4 x i8] c"caf\00", align 1
 @.str.1 = private unnamed_addr constant [30 x i8] c"Apple CAF (Core Audio Format)\00", align 1
@@ -893,7 +892,7 @@ define internal range(i32 -2147483648, 1) i32 @read_packet(ptr noundef readonly 
 45:                                               ; preds = %39
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 320
   %47 = load ptr, ptr %46, align 8, !tbaa !77
-  %48 = getelementptr %struct.AVIndexEntry, ptr %47, i64 %41
+  %48 = getelementptr [24 x i8], ptr %47, i64 %41
   %49 = getelementptr i8, ptr %48, i64 24
   %50 = load i64, ptr %49, align 8, !tbaa !78
   %51 = load i64, ptr %48, align 8, !tbaa !78
@@ -916,7 +915,7 @@ define internal range(i32 -2147483648, 1) i32 @read_packet(ptr noundef readonly 
   %64 = load i64, ptr %63, align 8, !tbaa !60
   %65 = getelementptr inbounds nuw i8, ptr %7, i64 320
   %66 = load ptr, ptr %65, align 8, !tbaa !77
-  %67 = getelementptr inbounds %struct.AVIndexEntry, ptr %66, i64 %41
+  %67 = getelementptr inbounds [24 x i8], ptr %66, i64 %41
   %68 = load i64, ptr %67, align 8, !tbaa !78
   %69 = sub nsw i64 %64, %68
   %70 = trunc i64 %69 to i32
@@ -1012,7 +1011,7 @@ define internal range(i32 -1, 1) i32 @read_seek(ptr noundef readonly captures(no
   %32 = sext i32 %31 to i64
   %33 = getelementptr inbounds nuw i8, ptr %7, i64 320
   %34 = load ptr, ptr %33, align 8, !tbaa !77
-  %35 = getelementptr inbounds %struct.AVIndexEntry, ptr %34, i64 %32
+  %35 = getelementptr inbounds [24 x i8], ptr %34, i64 %32
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load i64, ptr %36, align 8, !tbaa !80
   %38 = load i64, ptr %35, align 8, !tbaa !78

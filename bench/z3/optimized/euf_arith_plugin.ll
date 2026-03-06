@@ -969,7 +969,7 @@ define hidden void @_ZN3euf12arith_plugin4undoEv(ptr noundef nonnull align 8 der
 _ZN6vectorIN3euf12arith_plugin6undo_tELb0EjE4backEv.exit: ; preds = %._ZN6vectorIN3euf12arith_plugin6undo_tELb0EjE4backEv.exit_crit_edge, %5
   %.pre-phi = phi i32 [ %.pre1, %._ZN6vectorIN3euf12arith_plugin6undo_tELb0EjE4backEv.exit_crit_edge ], [ %8, %5 ]
   %.0.i.i = phi i64 [ 4294967295, %._ZN6vectorIN3euf12arith_plugin6undo_tELb0EjE4backEv.exit_crit_edge ], [ %9, %5 ]
-  %10 = getelementptr inbounds nuw i32, ptr %3, i64 %.0.i.i
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.0.i.i
   %11 = load i32, ptr %10, align 4, !tbaa !129
   %12 = getelementptr inbounds i8, ptr %3, i64 -4
   store i32 %.pre-phi, ptr %12, align 4, !tbaa !123
@@ -1139,7 +1139,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN3euf12arith_pluginC1ERNS1_
   %13 = phi ptr [ %.pre.i.i.i.i, %11 ], [ %3, %5 ]
   %14 = getelementptr inbounds i8, ptr %13, i64 -4
   %15 = zext i32 %12 to i64
-  %16 = getelementptr inbounds nuw i32, ptr %13, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %15
   store i32 0, ptr %16, align 4, !tbaa !129
   %17 = add i32 %12, 1
   store i32 %17, ptr %14, align 4, !tbaa !123
@@ -1432,7 +1432,7 @@ define internal void @"_ZNSt17_Function_handlerIFvvEZN3euf12arith_pluginC1ERNS1_
   %13 = phi ptr [ %.pre.i.i.i.i, %11 ], [ %3, %5 ]
   %14 = getelementptr inbounds i8, ptr %13, i64 -4
   %15 = zext i32 %12 to i64
-  %16 = getelementptr inbounds nuw i32, ptr %13, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %15
   store i32 1, ptr %16, align 4, !tbaa !129
   %17 = add i32 %12, 1
   store i32 %17, ptr %14, align 4, !tbaa !123

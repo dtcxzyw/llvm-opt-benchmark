@@ -3012,13 +3012,13 @@ define internal fastcc range(i32 -30, 1) i32 @heap_add_entry(ptr noundef %0, ptr
   %32 = add nsw i32 %.04351, -1
   %33 = lshr i32 %32, 1
   %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %.pre55, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.pre55, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !66
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 40
   %38 = load i64, ptr %37, align 8, !tbaa !160
   %.not49 = icmp ult i64 %10, %38
   %39 = zext nneg i32 %.04351 to i64
-  %40 = getelementptr inbounds nuw ptr, ptr %.pre55, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %.pre55, i64 %39
   br i1 %.not49, label %42, label %41
 
 41:                                               ; preds = %.lr.ph
@@ -3401,11 +3401,11 @@ define internal fastcc range(i32 -30, 1) i32 @parse_rockridge(ptr noundef %0, pt
   %147 = lshr i32 %146, 1
   %148 = load ptr, ptr %122, align 8, !tbaa !174
   %149 = zext nneg i32 %147 to i64
-  %150 = getelementptr inbounds nuw %struct.read_ce_req, ptr %148, i64 %149
+  %150 = getelementptr inbounds nuw [16 x i8], ptr %148, i64 %149
   %151 = load i64, ptr %150, align 8, !tbaa !175
   %.not69.i = icmp ult i64 %100, %151
   %152 = zext nneg i32 %.06171.i to i64
-  %153 = getelementptr inbounds nuw %struct.read_ce_req, ptr %148, i64 %152
+  %153 = getelementptr inbounds nuw [16 x i8], ptr %148, i64 %152
   br i1 %.not69.i, label %156, label %154
 
 154:                                              ; preds = %.lr.ph.i
@@ -4616,7 +4616,7 @@ heap_get_entry.exit.thread:                       ; preds = %rede_get_entry.exit
   %26 = add nsw i32 %23, -1
   store i32 %26, ptr %9, align 4, !tbaa !157
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds nuw ptr, ptr %24, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !66
   store ptr %29, ptr %24, align 8, !tbaa !66
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 40
@@ -4629,7 +4629,7 @@ heap_get_entry.exit.thread:                       ; preds = %rede_get_entry.exit
   %33 = phi i32 [ %55, %49 ], [ 0, %22 ]
   %.03748.i = phi i32 [ %.038.i, %49 ], [ 0, %22 ]
   %34 = sext i32 %32 to i64
-  %35 = getelementptr inbounds ptr, ptr %24, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %24, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !66
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 40
   %38 = load i64, ptr %37, align 8, !tbaa !160
@@ -4639,7 +4639,7 @@ heap_get_entry.exit.thread:                       ; preds = %rede_get_entry.exit
 
 41:                                               ; preds = %.lr.ph.i
   %42 = sext i32 %39 to i64
-  %43 = getelementptr inbounds ptr, ptr %24, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %24, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !66
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 40
   %46 = load i64, ptr %45, align 8, !tbaa !160
@@ -4656,9 +4656,9 @@ heap_get_entry.exit.thread:                       ; preds = %rede_get_entry.exit
 
 49:                                               ; preds = %48
   %50 = sext i32 %.03748.i to i64
-  %51 = getelementptr inbounds ptr, ptr %24, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %24, i64 %50
   %52 = sext i32 %.038.i to i64
-  %53 = getelementptr inbounds ptr, ptr %24, i64 %52
+  %53 = getelementptr inbounds [8 x i8], ptr %24, i64 %52
   %54 = load ptr, ptr %53, align 8, !tbaa !66
   store ptr %54, ptr %51, align 8, !tbaa !66
   store ptr %29, ptr %53, align 8, !tbaa !66
@@ -5248,7 +5248,7 @@ rede_add_entry.exit170:                           ; preds = %145
   %323 = add nsw i32 %320, -1
   store i32 %323, ptr %293, align 8, !tbaa !172
   %324 = zext nneg i32 %323 to i64
-  %325 = getelementptr inbounds nuw %struct.read_ce_req, ptr %304, i64 %324
+  %325 = getelementptr inbounds nuw [16 x i8], ptr %304, i64 %324
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %304, ptr noundef nonnull align 8 dereferenceable(16) %325, i64 16, i1 false), !tbaa.struct !178
   %326 = load ptr, ptr %291, align 8, !tbaa !174
   %327 = load i64, ptr %326, align 8, !tbaa !175
@@ -5263,7 +5263,7 @@ rede_add_entry.exit170:                           ; preds = %145
   %.03242.i.i = phi i32 [ %.031.i.i, %344 ], [ 0, %322 ]
   %332 = load ptr, ptr %291, align 8, !tbaa !174
   %333 = sext i32 %330 to i64
-  %334 = getelementptr inbounds %struct.read_ce_req, ptr %332, i64 %333
+  %334 = getelementptr inbounds [16 x i8], ptr %332, i64 %333
   %335 = load i64, ptr %334, align 8, !tbaa !175
   %336 = add nsw i32 %331, 2
   %337 = icmp slt i32 %336, %329
@@ -5271,7 +5271,7 @@ rede_add_entry.exit170:                           ; preds = %145
 
 338:                                              ; preds = %.lr.ph.i.i
   %339 = sext i32 %336 to i64
-  %340 = getelementptr inbounds %struct.read_ce_req, ptr %332, i64 %339
+  %340 = getelementptr inbounds [16 x i8], ptr %332, i64 %339
   %341 = load i64, ptr %340, align 8, !tbaa !175
   %342 = icmp ult i64 %341, %335
   %spec.select.i.i = select i1 %342, i32 %336, i32 %330
@@ -5286,13 +5286,13 @@ rede_add_entry.exit170:                           ; preds = %145
 
 344:                                              ; preds = %343
   %345 = sext i32 %.03242.i.i to i64
-  %346 = getelementptr inbounds %struct.read_ce_req, ptr %332, i64 %345
+  %346 = getelementptr inbounds [16 x i8], ptr %332, i64 %345
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %346, i64 16, i1 false), !tbaa.struct !178
   %347 = sext i32 %.031.i.i to i64
-  %348 = getelementptr inbounds %struct.read_ce_req, ptr %332, i64 %347
+  %348 = getelementptr inbounds [16 x i8], ptr %332, i64 %347
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %346, ptr noundef nonnull align 8 dereferenceable(16) %348, i64 16, i1 false), !tbaa.struct !178
   %349 = load ptr, ptr %291, align 8, !tbaa !174
-  %350 = getelementptr inbounds %struct.read_ce_req, ptr %349, i64 %347
+  %350 = getelementptr inbounds [16 x i8], ptr %349, i64 %347
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %350, ptr noundef nonnull align 8 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !178
   %351 = shl nsw i32 %.031.i.i, 1
   %352 = or disjoint i32 %351, 1
@@ -5471,7 +5471,7 @@ rede_get_entry.exit162.thread233:                 ; preds = %170, %369, %378, %r
   %425 = add nsw i32 %421, -1
   store i32 %425, ptr %9, align 4, !tbaa !157
   %426 = zext nneg i32 %425 to i64
-  %427 = getelementptr inbounds nuw ptr, ptr %401, i64 %426
+  %427 = getelementptr inbounds nuw [8 x i8], ptr %401, i64 %426
   %428 = load ptr, ptr %427, align 8, !tbaa !66
   store ptr %428, ptr %401, align 8, !tbaa !66
   %429 = getelementptr inbounds nuw i8, ptr %428, i64 40
@@ -5484,7 +5484,7 @@ rede_get_entry.exit162.thread233:                 ; preds = %170, %369, %378, %r
   %432 = phi i32 [ %454, %448 ], [ 0, %423 ]
   %.03748.i189 = phi i32 [ %.038.i190, %448 ], [ 0, %423 ]
   %433 = sext i32 %431 to i64
-  %434 = getelementptr inbounds ptr, ptr %401, i64 %433
+  %434 = getelementptr inbounds [8 x i8], ptr %401, i64 %433
   %435 = load ptr, ptr %434, align 8, !tbaa !66
   %436 = getelementptr inbounds nuw i8, ptr %435, i64 40
   %437 = load i64, ptr %436, align 8, !tbaa !160
@@ -5494,7 +5494,7 @@ rede_get_entry.exit162.thread233:                 ; preds = %170, %369, %378, %r
 
 440:                                              ; preds = %.lr.ph.i188
   %441 = sext i32 %438 to i64
-  %442 = getelementptr inbounds ptr, ptr %401, i64 %441
+  %442 = getelementptr inbounds [8 x i8], ptr %401, i64 %441
   %443 = load ptr, ptr %442, align 8, !tbaa !66
   %444 = getelementptr inbounds nuw i8, ptr %443, i64 40
   %445 = load i64, ptr %444, align 8, !tbaa !160
@@ -5511,9 +5511,9 @@ rede_get_entry.exit162.thread233:                 ; preds = %170, %369, %378, %r
 
 448:                                              ; preds = %447
   %449 = sext i32 %.03748.i189 to i64
-  %450 = getelementptr inbounds ptr, ptr %401, i64 %449
+  %450 = getelementptr inbounds [8 x i8], ptr %401, i64 %449
   %451 = sext i32 %.038.i190 to i64
-  %452 = getelementptr inbounds ptr, ptr %401, i64 %451
+  %452 = getelementptr inbounds [8 x i8], ptr %401, i64 %451
   %453 = load ptr, ptr %452, align 8, !tbaa !66
   store ptr %453, ptr %450, align 8, !tbaa !66
   store ptr %428, ptr %452, align 8, !tbaa !66

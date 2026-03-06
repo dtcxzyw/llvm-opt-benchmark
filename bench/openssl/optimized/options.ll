@@ -68,9 +68,9 @@ define ptr @test_get_argument(i64 noundef %0) local_unnamed_addr #0 {
   br i1 %or.cond, label %14, label %10
 
 10:                                               ; preds = %5
-  %11 = getelementptr inbounds nuw i32, ptr @used, i64 %0
+  %11 = getelementptr inbounds nuw [4 x i8], ptr @used, i64 %0
   store i32 1, ptr %11, align 4, !tbaa !5
-  %12 = getelementptr inbounds nuw ptr, ptr %2, i64 %0
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %0
   %13 = load ptr, ptr %12, align 8, !tbaa !9
   br label %14
 
@@ -98,13 +98,13 @@ define void @opt_check_usage() local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %12 ]
-  %4 = getelementptr inbounds nuw i32, ptr @used, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [4 x i8], ptr @used, i64 %indvars.iv
   %5 = load i32, ptr %4, align 4, !tbaa !5
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %12
 
 7:                                                ; preds = %.lr.ph
-  %8 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !9
   %10 = trunc nuw nsw i64 %indvars.iv to i32
   %11 = tail call i32 (ptr, ...) @test_printf_stderr(ptr noundef nonnull @.str.2, i32 noundef %10, ptr noundef %9) #6

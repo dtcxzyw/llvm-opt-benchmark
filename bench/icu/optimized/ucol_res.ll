@@ -2719,7 +2719,7 @@ define ptr @ucol_getAvailable_77(i32 noundef %0) local_unnamed_addr #1 {
 
 6:                                                ; preds = %1
   %7 = sext i32 %0 to i64
-  %8 = getelementptr inbounds %"class.icu_77::Locale", ptr %3, i64 %7
+  %8 = getelementptr inbounds [224 x i8], ptr %3, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = load ptr, ptr %9, align 8, !tbaa !35
   br label %11

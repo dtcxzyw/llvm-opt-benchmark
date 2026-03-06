@@ -55,7 +55,7 @@ define noundef range(i32 0, 2) i32 @_ZN3gmx18LegacyMdrunOptions21updateFromComma
 
 .lr.ph.i:                                         ; preds = %11, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %11 ]
-  %12 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i
   %13 = load ptr, ptr %12, align 8, !tbaa !10
   %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %13, ptr noundef nonnull dereferenceable(10) @.str.9) #13
   %15 = icmp eq i32 %14, 0

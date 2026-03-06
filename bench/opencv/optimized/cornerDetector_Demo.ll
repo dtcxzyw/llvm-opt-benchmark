@@ -20,8 +20,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::_InputArray" = type { i32, ptr, %"class.cv::Size_" }
 %"class.cv::Size_" = type { i32, i32 }
 %"class.cv::_OutputArray" = type { %"class.cv::_InputArray" }
-%"class.cv::Vec" = type { %"class.cv::Matx" }
-%"class.cv::Matx" = type { [6 x float] }
 %"class.cv::_InputOutputArray" = type { %"class.cv::_OutputArray" }
 %"class.cv::Scalar_" = type { %"class.cv::Vec.0" }
 %"class.cv::Vec.0" = type { %"class.cv::Matx.1" }
@@ -506,7 +504,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit122: ; preds = %.b
 
 166:                                              ; preds = %.preheader.us, %166
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %166 ]
-  %167 = getelementptr inbounds nuw %"class.cv::Vec", ptr %163, i64 %indvars.iv
+  %167 = getelementptr inbounds nuw [24 x i8], ptr %163, i64 %indvars.iv
   %168 = load float, ptr %167, align 4, !tbaa !62
   %169 = getelementptr inbounds nuw i8, ptr %167, i64 4
   %170 = load float, ptr %169, align 4, !tbaa !62
@@ -514,7 +512,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit122: ; preds = %.b
   %172 = fmul float %171, %171
   %173 = fmul float %172, 0xBFA47AE140000000
   %174 = call float @llvm.fmuladd.f32(float %168, float %170, float %173)
-  %175 = getelementptr inbounds nuw float, ptr %165, i64 %indvars.iv
+  %175 = getelementptr inbounds nuw [4 x i8], ptr %165, i64 %indvars.iv
   store float %174, ptr %175, align 4, !tbaa !62
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1242,7 +1240,7 @@ define hidden void @_Z17myHarris_functioniPv(i32 %0, ptr readnone captures(none)
   %54 = load i64, ptr %52, align 8, !tbaa !10
   %55 = mul i64 %54, %indvars.iv28
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 %55
-  %57 = getelementptr inbounds nuw float, ptr %56, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv
   %58 = load float, ptr %57, align 4, !tbaa !62
   %59 = fpext float %58 to double
   %60 = fsub double %50, %51
@@ -1509,7 +1507,7 @@ define hidden void @_Z20myShiTomasi_functioniPv(i32 %0, ptr readnone captures(no
   %54 = load i64, ptr %52, align 8, !tbaa !10
   %55 = mul i64 %54, %indvars.iv28
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 %55
-  %57 = getelementptr inbounds nuw float, ptr %56, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv
   %58 = load float, ptr %57, align 4, !tbaa !62
   %59 = fpext float %58 to double
   %60 = fsub double %50, %51

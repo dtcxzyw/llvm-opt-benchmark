@@ -4666,9 +4666,9 @@ _ZN2cvL27softfloat_propagateNaNF32UIEmm.exit.i:   ; preds = %9
   %52 = and i64 %51, 14
   %53 = or disjoint i64 %52, %47
   %54 = lshr i32 %50, 12
-  %55 = getelementptr inbounds nuw i16, ptr @_ZN2cvL30softfloat_approxRecipSqrt_1k0sE, i64 %53
+  %55 = getelementptr inbounds nuw [2 x i8], ptr @_ZN2cvL30softfloat_approxRecipSqrt_1k0sE, i64 %53
   %56 = load i16, ptr %55, align 2, !tbaa !103, !noalias !100
-  %57 = getelementptr inbounds nuw i16, ptr @_ZN2cvL30softfloat_approxRecipSqrt_1k1sE, i64 %53
+  %57 = getelementptr inbounds nuw [2 x i8], ptr @_ZN2cvL30softfloat_approxRecipSqrt_1k1sE, i64 %53
   %58 = load i16, ptr %57, align 2, !tbaa !103, !noalias !100
   %59 = zext i16 %58 to i32
   %60 = and i32 %54, 65535
@@ -4867,9 +4867,9 @@ _ZN2cvL27softfloat_propagateNaNF64UIEmm.exit.i:   ; preds = %8
   %48 = and i64 %47, 14
   %49 = or disjoint i64 %48, %43
   %50 = lshr i32 %46, 12
-  %51 = getelementptr inbounds nuw i16, ptr @_ZN2cvL30softfloat_approxRecipSqrt_1k0sE, i64 %49
+  %51 = getelementptr inbounds nuw [2 x i8], ptr @_ZN2cvL30softfloat_approxRecipSqrt_1k0sE, i64 %49
   %52 = load i16, ptr %51, align 2, !tbaa !103, !noalias !105
-  %53 = getelementptr inbounds nuw i16, ptr @_ZN2cvL30softfloat_approxRecipSqrt_1k1sE, i64 %49
+  %53 = getelementptr inbounds nuw [2 x i8], ptr @_ZN2cvL30softfloat_approxRecipSqrt_1k1sE, i64 %49
   %54 = load i16, ptr %53, align 2, !tbaa !103, !noalias !105
   %55 = zext i16 %54 to i32
   %56 = and i32 %50, 65535
@@ -5362,7 +5362,7 @@ _ZNK2cv10softdoublemiERKS0_.exit:                 ; preds = %183, %184
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %15, ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL14EXPPOLY_32F_A0E)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %186 = and i64 %.0.i.i16, 63
-  %187 = getelementptr inbounds nuw i64, ptr @_ZN2cvL6expTabE, i64 %186
+  %187 = getelementptr inbounds nuw [8 x i8], ptr @_ZN2cvL6expTabE, i64 %186
   %188 = load i64, ptr %187, align 8, !tbaa !144
   store i64 %188, ptr %16, align 8, !tbaa !27, !alias.scope !145
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %14, ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 8 dereferenceable(8) %16)
@@ -5806,7 +5806,7 @@ _ZNK2cv10softdoublemiERKS0_.exit:                 ; preds = %157, %158
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %14, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) @_ZN2cvL14EXPPOLY_32F_A0E)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %159 = and i64 %.0.i.i.i, 63
-  %160 = getelementptr inbounds nuw i64, ptr @_ZN2cvL6expTabE, i64 %159
+  %160 = getelementptr inbounds nuw [8 x i8], ptr @_ZN2cvL6expTabE, i64 %159
   %161 = load i64, ptr %160, align 8, !tbaa !144
   store i64 %161, ptr %15, align 8, !tbaa !27, !alias.scope !207
   call void @_ZNK2cv10softdoublemlERKS0_(ptr dead_on_unwind nonnull writable sret(%"struct.cv::softdouble") align 8 %13, ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull align 8 dereferenceable(8) %15)
@@ -6007,7 +6007,7 @@ _ZN2cv10softdoublemIERKS0_.exit:                  ; preds = %32, %26
   call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %4, i64 noundef %37, i64 noundef 4607182418800017408, i1 noundef zeroext false)
   %38 = shl nuw nsw i32 %34, 1
   %39 = zext nneg i32 %38 to i64
-  %40 = getelementptr inbounds nuw i64, ptr @_ZN2cvL9icvLogTabE, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr @_ZN2cvL9icvLogTabE, i64 %39
   %41 = load i64, ptr %40, align 16, !tbaa !144
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 8
@@ -6459,7 +6459,7 @@ _ZN2cv10softdoublemIERKS0_.exit:                  ; preds = %113, %110, %107
   call fastcc void @_ZN2cvL20softfloat_subMagsF64Emmb(ptr dead_on_unwind noalias nonnull writable align 8 %18, i64 noundef %120, i64 noundef 4607182418800017408, i1 noundef zeroext false)
   %121 = shl nuw nsw i32 %118, 1
   %122 = zext nneg i32 %121 to i64
-  %123 = getelementptr inbounds nuw i64, ptr @_ZN2cvL9icvLogTabE, i64 %122
+  %123 = getelementptr inbounds nuw [8 x i8], ptr @_ZN2cvL9icvLogTabE, i64 %122
   %124 = load i64, ptr %123, align 16, !tbaa !144
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %125 = getelementptr inbounds nuw i8, ptr %123, i64 8

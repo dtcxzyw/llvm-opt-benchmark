@@ -175,7 +175,7 @@ define ptr @ossl_cmp_bodytype_to_string(i32 noundef %0) local_unnamed_addr #2 {
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw ptr, ptr @ossl_cmp_bodytype_to_string.type_names, i64 %3
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @ossl_cmp_bodytype_to_string.type_names, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !16
   br label %6
 

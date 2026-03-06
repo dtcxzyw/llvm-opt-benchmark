@@ -321,7 +321,7 @@ define internal fastcc noundef zeroext i1 @color_filters_get(ptr noundef writeon
   %8 = trunc nuw nsw i64 %indvars.iv.i to i32
   %9 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, i32 noundef %8)
   %10 = add nsw i64 %indvars.iv.i, -1
-  %11 = getelementptr ptr, ptr %4, i64 %10
+  %11 = getelementptr [8 x i8], ptr %4, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i64 @strtoul(ptr noundef captures(none) %12, ptr noundef null, i32 noundef 16) #14
   %14 = lshr i64 %13, 16
@@ -333,7 +333,7 @@ define internal fastcc noundef zeroext i1 @color_filters_get(ptr noundef writeon
   %20 = mul nuw i16 %19, 257
   %21 = and i16 %18, 255
   %22 = mul nuw i16 %21, 257
-  %23 = getelementptr ptr, ptr %6, i64 %10
+  %23 = getelementptr [8 x i8], ptr %6, i64 %10
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i64 @strtoul(ptr noundef captures(none) %24, ptr noundef null, i32 noundef 16) #14
   %26 = lshr i64 %25, 16
@@ -929,7 +929,7 @@ getc_unlocked.exit96:                             ; preds = %28
   %36 = phi i32 [ %33, %getc_unlocked.exit96.thread ], [ %34, %getc_unlocked.exit96 ]
   %37 = and i32 %36, 255
   %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr i16, ptr %17, i64 %38
+  %39 = getelementptr [2 x i8], ptr %17, i64 %38
   %40 = load i16, ptr %39, align 2
   %41 = and i16 %40, 256
   %.not90 = icmp eq i16 %41, 0

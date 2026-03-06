@@ -28,7 +28,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::Scalar_" = type { %"class.cv::Vec" }
 %"class.cv::Vec" = type { %"class.cv::Matx" }
 %"class.cv::Matx" = type { [4 x double] }
-%"class.cv::Point_.3" = type { float, float }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -980,7 +979,7 @@ _ZNSolsEPFRSoS_E.exit._crit_edge:                 ; preds = %_ZNSolsEPFRSoS_E.ex
   store i64 0, ptr %59, align 8
   store i32 50397184, ptr %11, align 8, !tbaa !49
   store ptr %6, ptr %58, align 8, !tbaa !51
-  %82 = getelementptr inbounds nuw %"class.cv::Point_.3", ptr %81, i64 %.01161
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %.01161
   %83 = load float, ptr %82, align 4, !tbaa !57
   %84 = insertelement <4 x float> poison, float %83, i64 0
   %85 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %84)

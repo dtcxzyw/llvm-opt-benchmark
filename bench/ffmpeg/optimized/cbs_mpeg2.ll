@@ -8,7 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.0 = type { %struct.anon.1 }
 %struct.anon.1 = type { i32, [2 x i64] }
 %struct.GetBitContext = type { ptr, ptr, i32, i32, i32 }
-%struct.CodedBitstreamUnit = type { i32, ptr, i64, i64, ptr, ptr, ptr }
 
 @ff_cbs_type_mpeg2 = local_unnamed_addr constant { i32, [4 x i8], ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr } { i32 2, [4 x i8] zeroinitializer, ptr null, i64 8, ptr @cbs_mpeg2_unit_types, ptr @cbs_mpeg2_split_fragment, ptr @cbs_mpeg2_read_unit, ptr @cbs_mpeg2_write_unit, ptr null, ptr @cbs_mpeg2_assemble_fragment, ptr null, ptr null }, align 8
 @cbs_mpeg2_unit_types = internal constant <{ { i32, %union.anon, i32, [4 x i8], i64, { { i32, [4 x i8], [2 x i64] } } }, { i32, { %struct.anon, [4 x i8] }, i32, [4 x i8], i64, { { i32, [4 x i8], [2 x i64] } } }, { i32, %union.anon, i32, [4 x i8], i64, { { i32, [4 x i8], [2 x i64] } } }, { i32, %union.anon, i32, [4 x i8], i64, { { i32, [4 x i8], [2 x i64] } } }, { i32, %union.anon, i32, [4 x i8], i64, { { i32, [4 x i8], [2 x i64] } } }, { i32, %union.anon, i32, [4 x i8], i64, { { i32, [4 x i8], [2 x i64] } } }, { i32, %union.anon, i32, [4 x i8], i64, { { i32, [4 x i8], [2 x i64] } } }, { i32, %union.anon, i32, [4 x i8], i64, %union.anon.0 } }> <{ { i32, %union.anon, i32, [4 x i8], i64, { { i32, [4 x i8], [2 x i64] } } } { i32 1, %union.anon zeroinitializer, i32 0, [4 x i8] zeroinitializer, i64 40, { { i32, [4 x i8], [2 x i64] } } { { i32, [4 x i8], [2 x i64] } { i32 1, [4 x i8] zeroinitializer, [2 x i64] [i64 16, i64 0] } } }, { i32, { %struct.anon, [4 x i8] }, i32, [4 x i8], i64, { { i32, [4 x i8], [2 x i64] } } } { i32 -1, { %struct.anon, [4 x i8] } { %struct.anon { i32 1, i32 175 }, [4 x i8] zeroinitializer }, i32 0, [4 x i8] zeroinitializer, i64 64, { { i32, [4 x i8], [2 x i64] } } { { i32, [4 x i8], [2 x i64] } { i32 2, [4 x i8] zeroinitializer, [2 x i64] [i64 8, i64 32] } } }, { i32, %union.anon, i32, [4 x i8], i64, { { i32, [4 x i8], [2 x i64] } } } { i32 1, %union.anon { [3 x i32] [i32 178, i32 0, i32 0] }, i32 0, [4 x i8] zeroinitializer, i64 32, { { i32, [4 x i8], [2 x i64] } } { { i32, [4 x i8], [2 x i64] } { i32 1, [4 x i8] zeroinitializer, [2 x i64] [i64 8, i64 0] } } }, { i32, %union.anon, i32, [4 x i8], i64, { { i32, [4 x i8], [2 x i64] } } } { i32 1, %union.anon { [3 x i32] [i32 179, i32 0, i32 0] }, i32 0, [4 x i8] zeroinitializer, i64 148, { { i32, [4 x i8], [2 x i64] } } zeroinitializer }, { i32, %union.anon, i32, [4 x i8], i64, { { i32, [4 x i8], [2 x i64] } } } { i32 1, %union.anon { [3 x i32] [i32 181, i32 0, i32 0] }, i32 0, [4 x i8] zeroinitializer, i64 262, { { i32, [4 x i8], [2 x i64] } } zeroinitializer }, { i32, %union.anon, i32, [4 x i8], i64, { { i32, [4 x i8], [2 x i64] } } } { i32 1, %union.anon { [3 x i32] [i32 183, i32 0, i32 0] }, i32 0, [4 x i8] zeroinitializer, i64 1, { { i32, [4 x i8], [2 x i64] } } zeroinitializer }, { i32, %union.anon, i32, [4 x i8], i64, { { i32, [4 x i8], [2 x i64] } } } { i32 1, %union.anon { [3 x i32] [i32 184, i32 0, i32 0] }, i32 0, [4 x i8] zeroinitializer, i64 12, { { i32, [4 x i8], [2 x i64] } } zeroinitializer }, { i32, %union.anon, i32, [4 x i8], i64, %union.anon.0 } zeroinitializer }>, align 16
@@ -1647,7 +1646,7 @@ cbs_mpeg2_read_quant_matrix_extension.exit.i:     ; preds = %672, %.critedge.i37
 694:                                              ; preds = %689
   %695 = load i32, ptr %29, align 4, !tbaa !4
   %696 = trunc i32 %695 to i16
-  %697 = getelementptr inbounds nuw i16, ptr %677, i64 %indvars.iv.i40.i
+  %697 = getelementptr inbounds nuw [2 x i8], ptr %677, i64 %indvars.iv.i40.i
   store i16 %696, ptr %697, align 2, !tbaa !123
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
@@ -1671,7 +1670,7 @@ cbs_mpeg2_read_quant_matrix_extension.exit.i:     ; preds = %672, %.critedge.i37
 704:                                              ; preds = %700
   %705 = load i32, ptr %32, align 4, !tbaa !4
   %706 = trunc i32 %705 to i16
-  %707 = getelementptr inbounds nuw i16, ptr %684, i64 %indvars.iv.i40.i
+  %707 = getelementptr inbounds nuw [2 x i8], ptr %684, i64 %indvars.iv.i40.i
   store i16 %706, ptr %707, align 2, !tbaa !123
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
@@ -3420,7 +3419,7 @@ cbs_mpeg2_write_quant_matrix_extension.exit.i.i:  ; preds = %631, %648, %665, %6
   store i32 1, ptr %4, align 4, !tbaa !4
   %703 = trunc nuw nsw i64 %indvars.iv.i35.i.i to i32
   store i32 %703, ptr %695, align 4, !tbaa !4
-  %704 = getelementptr inbounds nuw i16, ptr %690, i64 %indvars.iv.i35.i.i
+  %704 = getelementptr inbounds nuw [2 x i8], ptr %690, i64 %indvars.iv.i35.i.i
   %705 = load i16, ptr %704, align 2, !tbaa !123
   %706 = sext i16 %705 to i32
   %707 = call i32 @ff_cbs_write_signed(ptr noundef %0, ptr noundef %2, i32 noundef 16, ptr noundef nonnull @.str.72, ptr noundef nonnull %4, i32 noundef %706, i32 noundef -32768, i32 noundef 32767) #7
@@ -3435,7 +3434,7 @@ cbs_mpeg2_write_quant_matrix_extension.exit.i.i:  ; preds = %631, %648, %665, %6
 712:                                              ; preds = %709
   store i32 1, ptr %5, align 4, !tbaa !4
   store i32 %703, ptr %696, align 4, !tbaa !4
-  %713 = getelementptr inbounds nuw i16, ptr %697, i64 %indvars.iv.i35.i.i
+  %713 = getelementptr inbounds nuw [2 x i8], ptr %697, i64 %indvars.iv.i35.i.i
   %714 = load i16, ptr %713, align 2, !tbaa !123
   %715 = sext i16 %714 to i32
   %716 = call i32 @ff_cbs_write_signed(ptr noundef %0, ptr noundef %2, i32 noundef 16, ptr noundef nonnull @.str.73, ptr noundef nonnull %5, i32 noundef %715, i32 noundef -32768, i32 noundef 32767) #7
@@ -3762,7 +3761,7 @@ define internal range(i32 -12, 1) i32 @cbs_mpeg2_assemble_fragment(ptr readnone 
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
   %.03739 = phi i64 [ 0, %.lr.ph ], [ %13, %8 ]
-  %9 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %7, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [56 x i8], ptr %7, i64 %indvars.iv
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load i64, ptr %10, align 8, !tbaa !21
   %12 = add i64 %.03739, 3
@@ -3795,7 +3794,7 @@ define internal range(i32 -12, 1) i32 @cbs_mpeg2_assemble_fragment(ptr readnone 
   %indvars.iv49 = phi i64 [ 0, %.lr.ph44 ], [ %indvars.iv.next50, %23 ]
   %.03641 = phi i64 [ 0, %.lr.ph44 ], [ %36, %23 ]
   %24 = load ptr, ptr %22, align 8, !tbaa !170
-  %25 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %24, i64 %indvars.iv49
+  %25 = getelementptr inbounds nuw [56 x i8], ptr %24, i64 %indvars.iv49
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 %.03641
   store i8 0, ptr %26, align 1, !tbaa !45
   %27 = getelementptr i8, ptr %26, i64 1

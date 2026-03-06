@@ -4703,7 +4703,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr44drop
   %431 = icmp eq <16 x i8> %.val3.i.i.i.i, splat (i8 117)
   %432 = icmp eq <16 x i8> %.val.i.i.i.i, splat (i8 101)
   %narrow.i.i.i.i = select <16 x i1> %431, <16 x i1> %432, <16 x i1> zeroinitializer
-  %433 = getelementptr inbounds nuw i16, ptr %24, i64 %.sroa.023.045.i.i.i
+  %433 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %.sroa.023.045.i.i.i
   store <16 x i1> %narrow.i.i.i.i, ptr %433, align 2, !noalias !734
   %exitcond.not.i.i.i = icmp eq i64 %427, 4
   br i1 %exitcond.not.i.i.i, label %.preheader42.i.i.i, label %426
@@ -4721,7 +4721,7 @@ common.ret:                                       ; preds = %"_ZN4core3ptr44drop
   %.sroa.028.047.i.i.i = phi i64 [ %439, %443 ], [ 0, %426 ]
   %.sroa.014.246.i.i.i = phi i8 [ %.sroa.014.3.i.i.i, %443 ], [ 0, %426 ]
   %439 = add nuw nsw i64 %.sroa.028.047.i.i.i, 1
-  %440 = getelementptr inbounds nuw i16, ptr %24, i64 %.sroa.028.047.i.i.i
+  %440 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %.sroa.028.047.i.i.i
   %441 = load i16, ptr %440, align 2, !noalias !734, !noundef !4
   %442 = icmp eq i16 %441, 0
   br i1 %442, label %443, label %444

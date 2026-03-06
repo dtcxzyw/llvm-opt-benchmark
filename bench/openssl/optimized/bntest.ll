@@ -1009,7 +1009,7 @@ define internal range(i32 0, 2) i32 @test_sub() #1 {
   store i32 %37, ptr @rand_neg.neg, align 4, !tbaa !12
   %38 = and i32 %36, 7
   %39 = zext nneg i32 %38 to i64
-  %40 = getelementptr inbounds nuw i32, ptr @rand_neg.sign, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr @rand_neg.sign, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !12
   tail call void @BN_set_negative(ptr noundef %1, i32 noundef %41) #9
   %42 = load i32, ptr @rand_neg.neg, align 4, !tbaa !12
@@ -1017,7 +1017,7 @@ define internal range(i32 0, 2) i32 @test_sub() #1 {
   store i32 %43, ptr @rand_neg.neg, align 4, !tbaa !12
   %44 = and i32 %42, 7
   %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr inbounds nuw i32, ptr @rand_neg.sign, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr @rand_neg.sign, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !12
   tail call void @BN_set_negative(ptr noundef %4, i32 noundef %47) #9
   br label %48
@@ -1156,7 +1156,7 @@ define internal range(i32 0, 2) i32 @test_div_recip() #1 {
   store i32 %49, ptr @rand_neg.neg, align 4, !tbaa !12
   %50 = and i32 %48, 7
   %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds nuw i32, ptr @rand_neg.sign, i64 %51
+  %52 = getelementptr inbounds nuw [4 x i8], ptr @rand_neg.sign, i64 %51
   %53 = load i32, ptr %52, align 4, !tbaa !12
   tail call void @BN_set_negative(ptr noundef %1, i32 noundef %53) #9
   %54 = load i32, ptr @rand_neg.neg, align 4, !tbaa !12
@@ -1164,7 +1164,7 @@ define internal range(i32 0, 2) i32 @test_div_recip() #1 {
   store i32 %55, ptr @rand_neg.neg, align 4, !tbaa !12
   %56 = and i32 %54, 7
   %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr inbounds nuw i32, ptr @rand_neg.sign, i64 %57
+  %58 = getelementptr inbounds nuw [4 x i8], ptr @rand_neg.sign, i64 %57
   %59 = load i32, ptr %58, align 4, !tbaa !12
   tail call void @BN_set_negative(ptr noundef %4, i32 noundef %59) #9
   %60 = load ptr, ptr @ctx, align 8, !tbaa !6
@@ -1235,7 +1235,7 @@ declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_signed_mod_replace_ab(i32 noundef %0) #1 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds %struct.anon, ptr @signed_mod_tests, i64 %2
+  %3 = getelementptr inbounds [16 x i8], ptr @signed_mod_tests, i64 %2
   %4 = load i32, ptr %3, align 16, !tbaa !15
   %5 = tail call ptr @BN_new() #9
   %6 = icmp eq ptr %5, null
@@ -1385,7 +1385,7 @@ set_signed_bn.exit36:                             ; preds = %38, %47, %48
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_signed_mod_replace_ba(i32 noundef %0) #1 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds %struct.anon, ptr @signed_mod_tests, i64 %2
+  %3 = getelementptr inbounds [16 x i8], ptr @signed_mod_tests, i64 %2
   %4 = load i32, ptr %3, align 16, !tbaa !15
   %5 = tail call ptr @BN_new() #9
   %6 = icmp eq ptr %5, null
@@ -1593,7 +1593,7 @@ define internal range(i32 0, 2) i32 @test_mod() #1 {
   store i32 %30, ptr @rand_neg.neg, align 4, !tbaa !12
   %31 = and i32 %29, 7
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds nuw i32, ptr @rand_neg.sign, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr @rand_neg.sign, i64 %32
   %34 = load i32, ptr %33, align 4, !tbaa !12
   tail call void @BN_set_negative(ptr noundef %1, i32 noundef %34) #9
   %35 = load i32, ptr @rand_neg.neg, align 4, !tbaa !12
@@ -1601,7 +1601,7 @@ define internal range(i32 0, 2) i32 @test_mod() #1 {
   store i32 %36, ptr @rand_neg.neg, align 4, !tbaa !12
   %37 = and i32 %35, 7
   %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr inbounds nuw i32, ptr @rand_neg.sign, i64 %38
+  %39 = getelementptr inbounds nuw [4 x i8], ptr @rand_neg.sign, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !12
   tail call void @BN_set_negative(ptr noundef %4, i32 noundef %40) #9
   %41 = load ptr, ptr @ctx, align 8, !tbaa !6
@@ -2575,7 +2575,7 @@ define internal range(i32 0, 2) i32 @test_kronecker() #1 {
   store i32 %19, ptr @rand_neg.neg, align 4, !tbaa !12
   %20 = and i32 %18, 7
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds nuw i32, ptr @rand_neg.sign, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr @rand_neg.sign, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !12
   tail call void @BN_set_negative(ptr noundef %4, i32 noundef %23) #9
   br label %26
@@ -2600,7 +2600,7 @@ define internal range(i32 0, 2) i32 @test_kronecker() #1 {
   store i32 %33, ptr @rand_neg.neg, align 4, !tbaa !12
   %34 = and i32 %32, 7
   %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds nuw i32, ptr @rand_neg.sign, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr @rand_neg.sign, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !12
   tail call void @BN_set_negative(ptr noundef %1, i32 noundef %37) #9
   %38 = tail call ptr @BN_copy(ptr noundef %10, ptr noundef %4) #9
@@ -3948,7 +3948,7 @@ define internal range(i32 0, 2) i32 @test_mpi(i32 noundef %0) #1 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %4 = sext i32 %0 to i64
-  %5 = getelementptr inbounds %struct.mpitest_st, ptr @kMPITests, i64 %4
+  %5 = getelementptr inbounds [24 x i8], ptr @kMPITests, i64 %4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = tail call ptr @BN_new() #9
   store ptr %6, ptr %3, align 8, !tbaa !21
@@ -4021,7 +4021,7 @@ define internal range(i32 0, 2) i32 @test_bn2signed(i32 noundef %0) #1 {
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = sext i32 %0 to i64
-  %6 = getelementptr inbounds %struct.mpitest_st, ptr @kSignedTests_BE, i64 %5
+  %6 = getelementptr inbounds [24 x i8], ptr @kSignedTests_BE, i64 %5
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %7 = tail call ptr @BN_new() #9
   store ptr %7, ptr %4, align 8, !tbaa !21
@@ -5159,7 +5159,7 @@ define internal range(i32 0, 2) i32 @test_gf2m_add() #1 {
   store i32 %21, ptr @rand_neg.neg, align 4, !tbaa !12
   %22 = and i32 %20, 7
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw i32, ptr @rand_neg.sign, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr @rand_neg.sign, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !12
   tail call void @BN_set_negative(ptr noundef %1, i32 noundef %25) #9
   %26 = load i32, ptr @rand_neg.neg, align 4, !tbaa !12
@@ -5167,7 +5167,7 @@ define internal range(i32 0, 2) i32 @test_gf2m_add() #1 {
   store i32 %27, ptr @rand_neg.neg, align 4, !tbaa !12
   %28 = and i32 %26, 7
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds nuw i32, ptr @rand_neg.sign, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr @rand_neg.sign, i64 %29
   %31 = load i32, ptr %30, align 4, !tbaa !12
   tail call void @BN_set_negative(ptr noundef %4, i32 noundef %31) #9
   %32 = tail call i32 @BN_GF2m_add(ptr noundef %7, ptr noundef %1, ptr noundef %4) #9
@@ -6369,7 +6369,7 @@ define internal range(i32 0, 2) i32 @test_is_prime(i32 noundef %0) #1 {
 
 .preheader:                                       ; preds = %1
   %4 = sext i32 %0 to i64
-  %5 = getelementptr inbounds i32, ptr @primes, i64 %4
+  %5 = getelementptr inbounds [4 x i8], ptr @primes, i64 %4
   %6 = load i32, ptr %5, align 4, !tbaa !12
   %7 = sext i32 %6 to i64
   br label %8
@@ -6411,7 +6411,7 @@ define internal range(i32 0, 2) i32 @test_not_prime(i32 noundef %0) #1 {
 
 .preheader:                                       ; preds = %1
   %4 = sext i32 %0 to i64
-  %5 = getelementptr inbounds i32, ptr @not_primes, i64 %4
+  %5 = getelementptr inbounds [4 x i8], ptr @not_primes, i64 %4
   %6 = load i32, ptr %5, align 4, !tbaa !12
   %7 = sext i32 %6 to i64
   br label %8
@@ -6601,7 +6601,7 @@ define internal range(i32 0, 2) i32 @test_mod_exp(i32 noundef %0) #1 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = sext i32 %0 to i64
-  %6 = getelementptr inbounds %struct.mod_exp_test_st, ptr @ModExpTests, i64 %5
+  %6 = getelementptr inbounds [32 x i8], ptr @ModExpTests, i64 %5
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -6691,7 +6691,7 @@ define internal range(i32 0, 2) i32 @test_mod_exp_consttime(i32 noundef %0) #1 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = sext i32 %0 to i64
-  %6 = getelementptr inbounds %struct.mod_exp_test_st, ptr @ModExpTests, i64 %5
+  %6 = getelementptr inbounds [32 x i8], ptr @ModExpTests, i64 %5
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -6882,7 +6882,7 @@ define internal range(i32 0, 2) i32 @test_rand_range() #1 {
 1:                                                ; preds = %0, %test_rand_range_single.exit
   %.09 = phi i64 [ 0, %0 ], [ %50, %test_rand_range_single.exit ]
   %.068 = phi i32 [ 0, %0 ], [ %49, %test_rand_range_single.exit ]
-  %2 = getelementptr inbounds nuw %struct.anon.0, ptr @rand_range_cases, i64 %.09
+  %2 = getelementptr inbounds nuw [16 x i8], ptr @rand_range_cases, i64 %.09
   %3 = load i32, ptr %2, align 16, !tbaa !61
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %5 = load i32, ptr %4, align 4, !tbaa !64
@@ -6945,7 +6945,7 @@ define internal range(i32 0, 2) i32 @test_rand_range() #1 {
 
 34:                                               ; preds = %30
   %35 = and i64 %31, 4294967295
-  %36 = getelementptr inbounds nuw i64, ptr %13, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %35
   %37 = load i64, ptr %36, align 8, !tbaa !66
   %38 = add i64 %37, 1
   store i64 %38, ptr %36, align 8, !tbaa !66
@@ -6956,7 +6956,7 @@ define internal range(i32 0, 2) i32 @test_rand_range() #1 {
 .lr.ph55.i:                                       ; preds = %.lr.ph55.i, %.lr.ph55.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph55.preheader.i ], [ %indvars.iv.next.i, %.lr.ph55.i ]
   %.054.i = phi double [ 0.000000e+00, %.lr.ph55.preheader.i ], [ %44, %.lr.ph55.i ]
-  %40 = getelementptr inbounds nuw i64, ptr %13, i64 %indvars.iv.i
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv.i
   %41 = load i64, ptr %40, align 8, !tbaa !66
   %42 = uitofp i64 %41 to double
   %43 = fsub double %42, %10

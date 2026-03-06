@@ -1297,7 +1297,7 @@ define dso_local void @_ZNK4llvm11ms_demangle13NodeArrayNode6outputERNS_16itaniu
 _ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit.us: ; preds = %.lr.ph, %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit.us
   %.011.us = phi i64 [ %28, %_ZN4llvm16itanium_demangle12OutputBufferlsESt17basic_string_viewIcSt11char_traitsIcEE.exit.us ], [ 1, %.lr.ph ]
   %22 = load ptr, ptr %10, align 8, !tbaa !36
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %.011.us
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %.011.us
   %24 = load ptr, ptr %23, align 8, !tbaa !37
   %25 = load ptr, ptr %24, align 8, !tbaa !13
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
@@ -1344,7 +1344,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16
   %45 = add i64 %44, %3
   store i64 %45, ptr %20, align 8, !tbaa !16
   %46 = load ptr, ptr %10, align 8, !tbaa !36
-  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %.011
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %.011
   %48 = load ptr, ptr %47, align 8, !tbaa !37
   %49 = load ptr, ptr %48, align 8, !tbaa !13
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
@@ -2043,7 +2043,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i29: ; preds = %._ZN4llvm
   %125 = load i64, ptr %107, align 8, !tbaa !16
   %126 = add i64 %125, 2
   store i64 %126, ptr %107, align 8, !tbaa !16
-  %127 = getelementptr inbounds nuw i64, ptr %109, i64 %indvars.iv
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %109, i64 %indvars.iv
   %128 = load i64, ptr %127, align 8, !tbaa !21
   %129 = tail call noundef i64 @llvm.abs.i64(i64 %128, i1 true)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -6377,7 +6377,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16
   %39 = load ptr, ptr %4, align 8, !tbaa !113
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load ptr, ptr %40, align 8, !tbaa !36
-  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %.010
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %.010
   %43 = load ptr, ptr %42, align 8, !tbaa !37
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load i64, ptr %44, align 8, !tbaa !54
@@ -6580,7 +6580,7 @@ define dso_local void @_ZNK4llvm11ms_demangle18VariableSymbolNode6outputERNS_16i
 
 switch.lookup:                                    ; preds = %3
   %7 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK4llvm11ms_demangle18VariableSymbolNode6outputERNS_16itanium_demangle12OutputBufferENS0_11OutputFlagsE, i64 %7
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK4llvm11ms_demangle18VariableSymbolNode6outputERNS_16itanium_demangle12OutputBufferENS0_11OutputFlagsE, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   %8 = and i32 %2, 4
   %9 = icmp eq i32 %8, 0

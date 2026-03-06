@@ -168,7 +168,7 @@ _ZNSt6vectorIN4Luau7CodeGen3X6411RegisterX64ESaIS3_EE7reserveEm.exit.i: ; preds 
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %44, ptr %2, align 8, !tbaa !47, !noalias !11
   store ptr %44, ptr %47, align 8, !tbaa !50, !noalias !11
-  %48 = getelementptr inbounds nuw %"struct.Luau::CodeGen::X64::RegisterX64", ptr %44, i64 %42
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 %42
   store ptr %48, ptr %43, align 8, !tbaa !51, !noalias !11
   %wide.trip.count.i = zext nneg i8 %31 to i64
   br label %49
@@ -232,7 +232,7 @@ _ZNKSt6vectorIN4Luau7CodeGen3X6411RegisterX64ESaIS3_EE12_M_check_lenEmPKc.exit.i
 
 _ZNSt12_Vector_baseIN4Luau7CodeGen3X6411RegisterX64ESaIS3_EE11_M_allocateEm.exit.i.i.i: ; preds = %72, %_ZNKSt6vectorIN4Luau7CodeGen3X6411RegisterX64ESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i
   %74 = phi ptr [ null, %_ZNKSt6vectorIN4Luau7CodeGen3X6411RegisterX64ESaIS3_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %73, %72 ]
-  %75 = getelementptr inbounds nuw %"struct.Luau::CodeGen::X64::RegisterX64", ptr %74, i64 %65
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 %65
   %76 = trunc nuw i64 %51 to i8
   store i8 %76, ptr %75, align 1, !tbaa !52, !noalias !11
   %77 = icmp sgt i64 %65, 0
@@ -254,7 +254,7 @@ _ZNSt6vectorIN4Luau7CodeGen3X6411RegisterX64ESaIS3_EE11_S_relocateEPS3_S6_S6_RS4
 _ZNSt6vectorIN4Luau7CodeGen3X6411RegisterX64ESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %80, %_ZNSt6vectorIN4Luau7CodeGen3X6411RegisterX64ESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %74, ptr %2, align 8, !tbaa !47, !noalias !11
   store ptr %79, ptr %47, align 8, !tbaa !50, !noalias !11
-  %81 = getelementptr inbounds nuw %"struct.Luau::CodeGen::X64::RegisterX64", ptr %74, i64 %71
+  %81 = getelementptr inbounds nuw i8, ptr %74, i64 %71
   store ptr %81, ptr %43, align 8, !tbaa !51, !noalias !11
   br label %_ZNSt6vectorIN4Luau7CodeGen3X6411RegisterX64ESaIS3_EE9push_backERKS3_.exit.i
 

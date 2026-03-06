@@ -16,10 +16,6 @@ module asm ".previous"
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
 %"class.std::locale" = type { ptr }
-%"class.std::vector.65" = type { %"struct.std::_Vector_base.66" }
-%"struct.std::_Vector_base.66" = type { %"struct.std::_Vector_base<MeshFace *, std::allocator<MeshFace *>>::_Vector_impl" }
-%"struct.std::_Vector_base<MeshFace *, std::allocator<MeshFace *>>::_Vector_impl" = type { %"struct.std::_Vector_base<MeshFace *, std::allocator<MeshFace *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<MeshFace *, std::allocator<MeshFace *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::vector.71" = type { %"struct.std::_Vector_base.72" }
 %"struct.std::_Vector_base.72" = type { %"struct.std::_Vector_base<std::shared_ptr<QImage>, std::allocator<std::shared_ptr<QImage>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::shared_ptr<QImage>, std::allocator<std::shared_ptr<QImage>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::shared_ptr<QImage>, std::allocator<std::shared_ptr<QImage>>>::_Vector_impl_data" }
@@ -45,14 +41,10 @@ module asm ".previous"
 %"class.std::__shared_count" = type { ptr }
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%struct.TextureSize = type { i32, i32 }
-%"class.vcg::TexCoord2" = type <{ [1 x %"class.vcg::Point2.42"], [1 x i16], [6 x i8] }>
-%"class.vcg::Point2.42" = type { [2 x double] }
 %"class.std::allocator.44" = type { i8 }
 %"struct.std::_Rb_tree<vcg::PointerToAttribute, vcg::PointerToAttribute, std::_Identity<vcg::PointerToAttribute>, std::less<vcg::PointerToAttribute>>::_Alloc_node" = type { ptr }
 %"class.vcg::PointerToAttribute" = type { ptr, %"class.std::__cxx11::basic_string", i32, i32, i32, %"struct.std::type_index" }
 %"struct.std::type_index" = type { ptr }
-%struct.TexCoordStorage = type { [3 x %"class.vcg::TexCoord2"] }
 
 $_Z11ensure_failPKcS0_j = comdat any
 
@@ -299,7 +291,7 @@ _ZNSt6vectorIS_IP8MeshFaceSaIS1_EESaIS3_EE5clearEv.exit: ; preds = %2, %_ZSt8_De
   br i1 %28, label %29, label %_ZNSt6vectorIS_IP8MeshFaceSaIS1_EESaIS3_EE6resizeEm.exit
 
 29:                                               ; preds = %27
-  %30 = getelementptr inbounds nuw %"class.std::vector.65", ptr %19, i64 %18
+  %30 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %18
   %.not.i.i14 = icmp eq ptr %3, %30
   br i1 %.not.i.i14, label %_ZNSt6vectorIS_IP8MeshFaceSaIS1_EESaIS3_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i15
 
@@ -343,7 +335,7 @@ _ZNSt6vectorIS_IP8MeshFaceSaIS1_EESaIS3_EE6resizeEm.exit: ; preds = %25, %27, %2
 41:                                               ; preds = %.lr.ph42
   %42 = sext i16 %37 to i64
   %43 = load ptr, ptr %1, align 8
-  %44 = getelementptr inbounds %"class.std::vector.65", ptr %43, i64 %42
+  %44 = getelementptr inbounds [24 x i8], ptr %43, i64 %42
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 16
@@ -402,7 +394,7 @@ _ZNSt6vectorIP8MeshFaceSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; pred
 _ZNSt6vectorIP8MeshFaceSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %70, %_ZNSt6vectorIP8MeshFaceSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
   store ptr %65, ptr %44, align 8
   store ptr %69, ptr %45, align 8
-  %71 = getelementptr inbounds nuw ptr, ptr %65, i64 %63
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %63
   store ptr %71, ptr %47, align 8
   br label %_ZNSt6vectorIP8MeshFaceSaIS1_EE9push_backEOS1_.exit
 
@@ -536,9 +528,9 @@ _ZNSt6vectorIS_IP8MeshFaceSaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; p
 
 _ZNSt12_Vector_baseISt6vectorIP8MeshFaceSaIS2_EESaIS4_EE13_M_deallocateEPS4_m.exit36: ; preds = %_ZNSt6vectorIS_IP8MeshFaceSaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %38
   store ptr %26, ptr %0, align 8
-  %39 = getelementptr inbounds nuw %"class.std::vector.65", ptr %27, i64 %1
+  %39 = getelementptr inbounds nuw [24 x i8], ptr %27, i64 %1
   store ptr %39, ptr %4, align 8
-  %40 = getelementptr inbounds nuw %"class.std::vector.65", ptr %26, i64 %24
+  %40 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %24
   store ptr %40, ptr %11, align 8
   br label %41
 
@@ -635,7 +627,7 @@ define void @_Z13RenderTextureR4MeshSt10shared_ptrI13TextureObjectERKSt6vectorI1
 43:                                               ; preds = %.lr.ph121, %_ZNSt10shared_ptrI6QImageED2Ev.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph121 ], [ %indvars.iv.next, %_ZNSt10shared_ptrI6QImageED2Ev.exit ]
   %44 = load ptr, ptr %16, align 8
-  %45 = getelementptr inbounds nuw %"class.std::vector.65", ptr %44, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [24 x i8], ptr %44, i64 %indvars.iv
   %46 = load ptr, ptr %2, align 8
   store ptr %46, ptr %18, align 8
   %47 = load ptr, ptr %36, align 8
@@ -661,7 +653,7 @@ define void @_Z13RenderTextureR4MeshSt10shared_ptrI13TextureObjectERKSt6vectorI1
 
 _ZNSt10shared_ptrI13TextureObjectEC2ERKS1_.exit:  ; preds = %43, %51, %54
   %56 = load ptr, ptr %3, align 8
-  %57 = getelementptr inbounds nuw %struct.TextureSize, ptr %56, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv
   %58 = load i32, ptr %57, align 4
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 4
   %60 = load i32, ptr %59, align 4
@@ -872,7 +864,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3
   %157 = sub i64 %156, %69
   %158 = ashr exact i64 %157, 3
   %159 = sub nsw i64 0, %158
-  %160 = getelementptr inbounds ptr, ptr %155, i64 %159
+  %160 = getelementptr inbounds [8 x i8], ptr %155, i64 %159
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %160, ptr noundef nonnull align 8 dereferenceable(1) %64, i64 %157, i1 false), !noalias !13
   br label %"_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops14_Val_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_T0_.exit.i36.i.i.i.i"
 
@@ -1020,7 +1012,7 @@ _ZNSt6vectorI11TextureSizeSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i.i: ;
   br label %_ZNSt6vectorI11TextureSizeSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i
 
 _ZNSt6vectorI11TextureSizeSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i: ; preds = %206, %_ZNSt6vectorI11TextureSizeSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i.i
-  %207 = getelementptr inbounds nuw %struct.TextureSize, ptr %202, i64 %200
+  %207 = getelementptr inbounds nuw [8 x i8], ptr %202, i64 %200
   br label %_ZNSt6vectorI11TextureSizeSaIS0_EE9push_backEOS0_.exit.i
 
 _ZNSt6vectorI11TextureSizeSaIS0_EE9push_backEOS0_.exit.i: ; preds = %_ZNSt6vectorI11TextureSizeSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i, %189
@@ -1093,7 +1085,7 @@ _ZNSt6vectorI11TextureSizeSaIS0_EE9push_backEOS0_.exit.i: ; preds = %_ZNSt6vecto
   %237 = load i16, ptr %236, align 2, !noalias !13
   %238 = getelementptr inbounds nuw i8, ptr %227, i64 96
   %239 = sext i16 %237 to i64
-  %240 = getelementptr inbounds %struct.TextureSize, ptr %.sroa.0160.0.i, i64 %239
+  %240 = getelementptr inbounds [8 x i8], ptr %.sroa.0160.0.i, i64 %239
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 4
   %242 = getelementptr inbounds nuw i8, ptr %227, i64 192
   %243 = getelementptr inbounds nuw i8, ptr %227, i64 193
@@ -1104,7 +1096,7 @@ _ZNSt6vectorI11TextureSizeSaIS0_EE9push_backEOS0_.exit.i: ; preds = %_ZNSt6vecto
 246:                                              ; preds = %246, %226
   %indvars.iv.i = phi i64 [ 0, %226 ], [ %indvars.iv.next.i, %246 ]
   %.178200.i = phi ptr [ %.077203.i, %226 ], [ %280, %246 ]
-  %247 = getelementptr inbounds nuw %"class.vcg::TexCoord2", ptr %238, i64 %indvars.iv.i
+  %247 = getelementptr inbounds nuw [24 x i8], ptr %238, i64 %indvars.iv.i
   %248 = load double, ptr %247, align 8, !noalias !13
   %249 = fptrunc double %248 to float
   %250 = getelementptr inbounds nuw i8, ptr %.178200.i, i64 4
@@ -1121,7 +1113,7 @@ _ZNSt6vectorI11TextureSizeSaIS0_EE9push_backEOS0_.exit.i: ; preds = %_ZNSt6vecto
   %259 = sdiv exact i64 %257, 3
   %260 = getelementptr inbounds i8, ptr %258, i64 %259
   %261 = getelementptr inbounds nuw i8, ptr %.178200.i, i64 8
-  %262 = getelementptr inbounds nuw %"class.vcg::TexCoord2", ptr %260, i64 %indvars.iv.i
+  %262 = getelementptr inbounds nuw [24 x i8], ptr %260, i64 %indvars.iv.i
   %.sroa.0138.0.copyload.i = load double, ptr %262, align 8, !noalias !13
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %262, i64 8
   %.sroa.2.0.copyload.i = load double, ptr %.sroa.2.0..sroa_idx.i, align 8, !noalias !13
@@ -1658,7 +1650,7 @@ _ZN7logging6BufferlsIiEERS0_RKT_.exit.i:          ; preds = %_ZN7logging6Bufferl
           to label %475 unwind label %.loopexit.split-lp.i.loopexit.split-lp.loopexit.split-lp.i, !noalias !13
 
 475:                                              ; preds = %473
-  %476 = getelementptr inbounds nuw %class.QImage, ptr %464, i64 %indvars.iv.i.i
+  %476 = getelementptr inbounds nuw [32 x i8], ptr %464, i64 %indvars.iv.i.i
   %477 = getelementptr inbounds nuw i8, ptr %476, i64 24
   %478 = load ptr, ptr %477, align 8, !noalias !13
   %479 = load ptr, ptr %40, align 8, !noalias !13
@@ -1899,7 +1891,7 @@ _ZN3vcgL11PullPushMipER6QImageS1_j.exit.i:        ; preds = %.noexc116.i, %.noex
 
 .lr.ph:                                           ; preds = %591, %594
   %indvars.iv42.i.i118 = phi i64 [ %indvars.iv.next43.i.i, %594 ], [ %indvars.iv.i.i, %591 ]
-  %592 = getelementptr %class.QImage, ptr %464, i64 %indvars.iv42.i.i118
+  %592 = getelementptr [32 x i8], ptr %464, i64 %indvars.iv42.i.i118
   %593 = getelementptr i8, ptr %592, i64 -32
   invoke fastcc void @_ZN3vcgL12PullPushFillER6QImageS1_j(ptr noundef nonnull align 8 dereferenceable(32) %593, ptr noundef nonnull align 8 dereferenceable(32) %592, i32 noundef -2147418368)
           to label %594 unwind label %.loopexit.loopexit.i.i, !noalias !13
@@ -2934,7 +2926,7 @@ _ZNSt12_Vector_baseI15TexCoordStorageSaIS0_EE13_M_deallocateEPS0_m.exit.i.i: ; p
   %35 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store ptr %34, ptr %21, align 8
   store ptr %34, ptr %35, align 8
-  %36 = getelementptr inbounds nuw %struct.TexCoordStorage, ptr %34, i64 %28
+  %36 = getelementptr inbounds nuw [72 x i8], ptr %34, i64 %28
   store ptr %36, ptr %32, align 8
   br label %_ZNSt6vectorI15TexCoordStorageSaIS0_EE7reserveEm.exit.i
 
@@ -3049,7 +3041,7 @@ _ZNSt12_Vector_baseI15TexCoordStorageSaIS0_EE13_M_deallocateEPS0_m.exit.i.i: ; p
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr %19, ptr %6, align 8
   store ptr %19, ptr %20, align 8
-  %21 = getelementptr inbounds nuw %struct.TexCoordStorage, ptr %19, i64 %13
+  %21 = getelementptr inbounds nuw [72 x i8], ptr %19, i64 %13
   store ptr %21, ptr %17, align 8
   br label %_ZNSt6vectorI15TexCoordStorageSaIS0_EE7reserveEm.exit.i
 
@@ -3096,7 +3088,7 @@ _ZN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EE15TexCoordStorageEC2ERKS4_.ex
 43:                                               ; preds = %.lr.ph, %43
   %.021 = phi i64 [ 0, %.lr.ph ], [ %55, %43 ]
   %44 = load ptr, ptr %6, align 8
-  %45 = getelementptr inbounds %struct.TexCoordStorage, ptr %44, i64 %.021
+  %45 = getelementptr inbounds [72 x i8], ptr %44, i64 %.021
   %46 = load ptr, ptr %1, align 8
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 40
@@ -3105,7 +3097,7 @@ _ZN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EE15TexCoordStorageEC2ERKS4_.ex
   %51 = load i32, ptr %42, align 8
   %52 = sext i32 %51 to i64
   %53 = mul i64 %.021, %52
-  %54 = getelementptr inbounds %struct.TexCoordStorage, ptr %50, i64 %53
+  %54 = getelementptr inbounds [72 x i8], ptr %50, i64 %53
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %45, ptr noundef nonnull align 8 dereferenceable(72) %54, i64 72, i1 false)
   %55 = add nuw i64 %.021, 1
   %56 = load ptr, ptr %22, align 8
@@ -3359,9 +3351,9 @@ _ZNSt6vectorI15TexCoordStorageSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit.i: ; pre
 
 _ZNSt12_Vector_baseI15TexCoordStorageSaIS0_EE13_M_deallocateEPS0_m.exit36.i: ; preds = %33, %_ZNSt6vectorI15TexCoordStorageSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit.i
   store ptr %28, ptr %0, align 8
-  %34 = getelementptr inbounds nuw %struct.TexCoordStorage, ptr %29, i64 %12
+  %34 = getelementptr inbounds nuw [72 x i8], ptr %29, i64 %12
   store ptr %34, ptr %3, align 8
-  %35 = getelementptr inbounds nuw %struct.TexCoordStorage, ptr %28, i64 %26
+  %35 = getelementptr inbounds nuw [72 x i8], ptr %28, i64 %26
   store ptr %35, ptr %13, align 8
   br label %_ZNSt6vectorI15TexCoordStorageSaIS0_EE17_M_default_appendEm.exit
 
@@ -3370,7 +3362,7 @@ _ZNSt12_Vector_baseI15TexCoordStorageSaIS0_EE13_M_deallocateEPS0_m.exit36.i: ; p
   br i1 %37, label %38, label %_ZNSt6vectorI15TexCoordStorageSaIS0_EE17_M_default_appendEm.exit
 
 38:                                               ; preds = %36
-  %39 = getelementptr inbounds %struct.TexCoordStorage, ptr %5, i64 %1
+  %39 = getelementptr inbounds [72 x i8], ptr %5, i64 %1
   %.not.i4 = icmp eq ptr %4, %39
   br i1 %.not.i4, label %_ZNSt6vectorI15TexCoordStorageSaIS0_EE17_M_default_appendEm.exit, label %40
 
@@ -3456,14 +3448,14 @@ define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EE15T
   %8 = phi ptr [ %17, %15 ], [ %5, %2 ]
   %.07 = phi i64 [ %18, %15 ], [ 0, %2 ]
   %9 = load ptr, ptr %1, align 8
-  %10 = getelementptr inbounds i64, ptr %9, i64 %.07
+  %10 = getelementptr inbounds [8 x i8], ptr %9, i64 %.07
   %11 = load i64, ptr %10, align 8
   %.not = icmp eq i64 %11, -1
   br i1 %.not, label %15, label %12
 
 12:                                               ; preds = %.lr.ph
-  %13 = getelementptr inbounds %struct.TexCoordStorage, ptr %7, i64 %.07
-  %14 = getelementptr inbounds %struct.TexCoordStorage, ptr %7, i64 %11
+  %13 = getelementptr inbounds [72 x i8], ptr %7, i64 %.07
+  %14 = getelementptr inbounds [72 x i8], ptr %7, i64 %11
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %14, ptr noundef nonnull align 8 dereferenceable(72) %13, i64 72, i1 false)
   %.pre = load ptr, ptr %4, align 8
   %.pre9 = load ptr, ptr %3, align 8
@@ -3515,7 +3507,7 @@ define linkonce_odr noundef ptr @_ZNK3vcg14SimpleTempDataISt6vectorI8MeshFaceSaI
 define linkonce_odr noundef ptr @_ZN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EE15TexCoordStorageE2AtEm(ptr noundef nonnull align 8 dereferenceable(44) %0, i64 noundef %1) unnamed_addr #3 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %struct.TexCoordStorage, ptr %4, i64 %1
+  %5 = getelementptr inbounds [72 x i8], ptr %4, i64 %1
   ret ptr %5
 }
 
@@ -3523,7 +3515,7 @@ define linkonce_odr noundef ptr @_ZN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS
 define linkonce_odr noundef ptr @_ZNK3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EE15TexCoordStorageE2AtEm(ptr noundef nonnull align 8 dereferenceable(44) %0, i64 noundef %1) unnamed_addr #3 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
-  %5 = getelementptr inbounds %struct.TexCoordStorage, ptr %4, i64 %1
+  %5 = getelementptr inbounds [72 x i8], ptr %4, i64 %1
   ret ptr %5
 }
 
@@ -3535,7 +3527,7 @@ define linkonce_odr void @_ZN3vcg14SimpleTempDataISt6vectorI8MeshFaceSaIS2_EE15T
   %8 = tail call noundef ptr %7(ptr noundef nonnull align 8 dereferenceable(8) %3, i64 noundef %2)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds %struct.TexCoordStorage, ptr %10, i64 %1
+  %11 = getelementptr inbounds [72 x i8], ptr %10, i64 %1
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %11, ptr noundef nonnull align 8 dereferenceable(72) %8, i64 72, i1 false)
   ret void
 }
@@ -3821,13 +3813,13 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %18 = and i64 %.lcssa51, 8
   %19 = icmp eq i64 %18, 0
   %20 = or disjoint i64 %14, 1
-  %21 = getelementptr inbounds nuw ptr, ptr %0, i64 %20
-  %22 = getelementptr inbounds nuw ptr, ptr %0, i64 %15
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %20
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %15
   br label %23
 
 23:                                               ; preds = %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_T0_SL_T1_T2_.exit.i.i.i", %.split.i.i.i
   %.0.i.i.i = phi i64 [ %15, %.split.i.i.i ], [ %79, %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_T0_SL_T1_T2_.exit.i.i.i" ]
-  %phi.call.i.i.i = getelementptr inbounds ptr, ptr %0, i64 %.0.i.i.i
+  %phi.call.i.i.i = getelementptr inbounds [8 x i8], ptr %0, i64 %.0.i.i.i
   %24 = load ptr, ptr %phi.call.i.i.i, align 8
   %25 = icmp slt i64 %.0.i.i.i, %17
   br i1 %25, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
@@ -3836,9 +3828,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %.038.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ %.0.i.i.i, %23 ]
   %26 = shl i64 %.038.i.i.i.i, 1
   %27 = add i64 %26, 2
-  %28 = getelementptr inbounds ptr, ptr %0, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %0, i64 %27
   %29 = or disjoint i64 %26, 1
-  %30 = getelementptr inbounds ptr, ptr %0, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %0, i64 %29
   %.val.val.i.i.i.i = load ptr, ptr %3, align 8
   %31 = getelementptr i8, ptr %.val.val.i.i.i.i, i64 8
   %.val.val.val.i.i.i.i = load ptr, ptr %31, align 8
@@ -3862,9 +3854,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %45 = load i16, ptr %44, align 2
   %46 = icmp slt i16 %39, %45
   %spec.select.i.i.i.i = select i1 %46, i64 %29, i64 %27
-  %47 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i.i.i.i
+  %47 = getelementptr inbounds [8 x i8], ptr %0, i64 %spec.select.i.i.i.i
   %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds ptr, ptr %0, i64 %.038.i.i.i.i
+  %49 = getelementptr inbounds [8 x i8], ptr %0, i64 %.038.i.i.i.i
   store ptr %48, ptr %49, align 8
   %50 = icmp slt i64 %spec.select.i.i.i.i, %17
   br i1 %50, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !45
@@ -3893,7 +3885,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %.010.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ %.0911.i.i.i.i.i, %74 ]
   %.0911.in.i.i.i.i.i = add nsw i64 %.010.i.i.i.i.i, -1
   %.0911.i.i.i.i.i = sdiv i64 %.0911.in.i.i.i.i.i, 2
-  %58 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0911.i.i.i.i.i
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.0911.i.i.i.i.i
   %.val.val.i.i.i.i.i = load ptr, ptr %3, align 8
   %59 = getelementptr i8, ptr %.val.val.i.i.i.i.i, i64 8
   %.val.val.val.i.i.i.i.i = load ptr, ptr %59, align 8
@@ -3917,14 +3909,14 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br i1 %73, label %74, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_T0_SL_T1_T2_.exit.i.i.i"
 
 74:                                               ; preds = %57
-  %75 = getelementptr inbounds nuw ptr, ptr %0, i64 %.010.i.i.i.i.i
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.010.i.i.i.i.i
   store ptr %.val2.i.i.i.i.i.i, ptr %75, align 8
   %76 = icmp sgt i64 %.0911.i.i.i.i.i, %.0.i.i.i
   br i1 %76, label %57, label %"_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_T0_SL_T1_T2_.exit.i.i.i", !llvm.loop !46
 
 "_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_T0_SL_T1_T2_.exit.i.i.i": ; preds = %74, %57, %54
   %.0.lcssa.i.i.i.i.i = phi i64 [ %.1.i.i.i.i, %54 ], [ %.010.i.i.i.i.i, %57 ], [ %.0911.i.i.i.i.i, %74 ]
-  %77 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0.lcssa.i.i.i.i.i
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.0.lcssa.i.i.i.i.i
   store ptr %24, ptr %77, align 8
   %78 = icmp eq i64 %.0.i.i.i, 0
   %79 = add nsw i64 %.0.i.i.i, -1
@@ -3952,9 +3944,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %.038.i.i = phi i64 [ %spec.select.i.i, %.lr.ph.i.i ], [ 0, %.lr.ph.i9.i ]
   %90 = shl i64 %.038.i.i, 1
   %91 = add i64 %90, 2
-  %92 = getelementptr inbounds ptr, ptr %0, i64 %91
+  %92 = getelementptr inbounds [8 x i8], ptr %0, i64 %91
   %93 = or disjoint i64 %90, 1
-  %94 = getelementptr inbounds ptr, ptr %0, i64 %93
+  %94 = getelementptr inbounds [8 x i8], ptr %0, i64 %93
   %.val.val.i.i = load ptr, ptr %3, align 8
   %95 = getelementptr i8, ptr %.val.val.i.i, i64 8
   %.val.val.val.i.i = load ptr, ptr %95, align 8
@@ -3978,9 +3970,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %109 = load i16, ptr %108, align 2
   %110 = icmp slt i16 %103, %109
   %spec.select.i.i = select i1 %110, i64 %93, i64 %91
-  %111 = getelementptr inbounds ptr, ptr %0, i64 %spec.select.i.i
+  %111 = getelementptr inbounds [8 x i8], ptr %0, i64 %spec.select.i.i
   %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr inbounds ptr, ptr %0, i64 %.038.i.i
+  %113 = getelementptr inbounds [8 x i8], ptr %0, i64 %.038.i.i
   store ptr %112, ptr %113, align 8
   %114 = icmp slt i64 %spec.select.i.i, %88
   br i1 %114, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !45
@@ -4000,9 +3992,9 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
 .thread.i:                                        ; preds = %117
   %121 = shl nuw nsw i64 %.0.lcssa.i.i, 1
   %122 = or disjoint i64 %121, 1
-  %123 = getelementptr inbounds nuw ptr, ptr %0, i64 %122
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %122
   %124 = load ptr, ptr %123, align 8
-  %125 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i.i
+  %125 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0.lcssa.i.i
   store ptr %124, ptr %125, align 8
   br label %.lr.ph.i.i.i
 
@@ -4019,7 +4011,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %.010.i.i.i = phi i64 [ %.1.i8.i, %.lr.ph.i.i.i ], [ %.0911.i.i910.i, %145 ]
   %.0911.in.i.i.i = add nsw i64 %.010.i.i.i, -1
   %.0911.i.i910.i = lshr i64 %.0911.in.i.i.i, 1
-  %129 = getelementptr inbounds nuw ptr, ptr %0, i64 %.0911.i.i910.i
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.0911.i.i910.i
   %.val.val.i.i.i = load ptr, ptr %3, align 8
   %130 = getelementptr i8, ptr %.val.val.i.i.i, i64 8
   %.val.val.val.i.i.i = load ptr, ptr %130, align 8
@@ -4043,14 +4035,14 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   br i1 %144, label %145, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_SK_SK_RT0_.exit"
 
 145:                                              ; preds = %128
-  %146 = getelementptr inbounds ptr, ptr %0, i64 %.010.i.i.i
+  %146 = getelementptr inbounds [8 x i8], ptr %0, i64 %.010.i.i.i
   store ptr %.val2.i.i.i.i, ptr %146, align 8
   %.not11.i = icmp eq i64 %.0911.i.i910.i, 0
   br i1 %.not11.i, label %"_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_SK_SK_RT0_.exit", label %128, !llvm.loop !46
 
 "_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_SK_SK_RT0_.exit": ; preds = %128, %145, %126
   %.0.lcssa.i.i.i = phi i64 [ 0, %126 ], [ %.010.i.i.i, %128 ], [ 0, %145 ]
-  %147 = getelementptr inbounds ptr, ptr %0, i64 %.0.lcssa.i.i.i
+  %147 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0.lcssa.i.i.i
   store ptr %82, ptr %147, align 8
   %148 = icmp sgt i64 %85, 8
   br i1 %148, label %.lr.ph.i9.i, label %"_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPP8MeshFaceSt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_comp_iterIZL13RenderTextureRS7_R4MeshSt10shared_ptrI13TextureObjectEb10RenderModeiiE3$_0EEEvT_SK_SK_T0_.exit", !llvm.loop !48
@@ -4061,7 +4053,7 @@ define internal fastcc void @"_ZSt16__introsort_loopIN9__gnu_cxx17__normal_itera
   %149 = phi i64 [ %224, %12 ], [ %8, %.lr.ph ]
   %150 = add nsw i64 %.02855, -1
   %151 = lshr i64 %149, 1
-  %152 = getelementptr inbounds nuw ptr, ptr %0, i64 %151
+  %152 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %151
   %153 = getelementptr inbounds i8, ptr %storemerge2756, i64 -8
   %.val29.val.i.i = load ptr, ptr %3, align 8
   %154 = getelementptr i8, ptr %.val29.val.i.i, i64 8
@@ -5089,7 +5081,7 @@ _ZNSt12_Vector_baseISt10shared_ptrI6QImageESaIS2_EE13_M_deallocateEPS2_m.exit: ;
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i21, ptr %4, align 8
-  %49 = getelementptr inbounds nuw %"class.std::shared_ptr.81", ptr %20, i64 %16
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %49, ptr %48, align 8
   ret void
 }

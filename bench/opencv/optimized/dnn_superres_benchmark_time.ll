@@ -1533,7 +1533,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i:               ; preds = %.noexc253
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #21
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %587 = load ptr, ptr %53, align 8, !tbaa !79
-  %588 = getelementptr inbounds nuw %"class.cv::Mat", ptr %587, i64 %indvars.iv.i
+  %588 = getelementptr inbounds nuw [96 x i8], ptr %587, i64 %indvars.iv.i
   store i32 0, ptr %554, align 8, !tbaa !71
   store i32 0, ptr %555, align 4, !tbaa !73
   store i32 16842752, ptr %8, align 8, !tbaa !74
@@ -1549,7 +1549,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i:               ; preds = %.noexc253
 590:                                              ; preds = %581
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %591 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pr.i, i64 %indvars.iv.i
+  %591 = getelementptr inbounds nuw [32 x i8], ptr %.pr.i, i64 %indvars.iv.i
   %592 = load ptr, ptr %591, align 8, !tbaa !39
   %593 = getelementptr inbounds nuw i8, ptr %591, i64 8
   %594 = load i64, ptr %593, align 8, !tbaa !41
@@ -1644,7 +1644,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i69
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit71.i: ; preds = %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strERKNS_12basic_stringIcS2_S3_EE.exit.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i69.i
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  %622 = getelementptr inbounds nuw double, ptr %527, i64 %indvars.iv.i
+  %622 = getelementptr inbounds nuw [8 x i8], ptr %527, i64 %indvars.iv.i
   %623 = load double, ptr %622, align 8, !tbaa !77
   %624 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %559, double noundef %623)
           to label %625 unwind label %647

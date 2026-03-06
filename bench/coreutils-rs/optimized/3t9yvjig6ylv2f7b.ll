@@ -391,7 +391,7 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function5impls79_$LT$impl$u20$co
   %24 = phi i64 [ %.pre.i.i, %23 ], [ %20, %16 ]
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %26 = load ptr, ptr %25, align 8, !alias.scope !48, !noalias !45, !nonnull !5, !noundef !5
-  %27 = getelementptr inbounds i32, ptr %26, i64 %24
+  %27 = getelementptr inbounds [4 x i8], ptr %26, i64 %24
   store i32 %4, ptr %27, align 4, !noalias !45
   %28 = load i64, ptr %19, align 8, !alias.scope !48, !noalias !45, !noundef !5
   %29 = add i64 %28, 1
@@ -499,7 +499,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2383e404def94019E.ll
   %9 = phi i64 [ %.pre, %7 ], [ %4, %2 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
-  %12 = getelementptr inbounds i32, ptr %11, i64 %9
+  %12 = getelementptr inbounds [4 x i8], ptr %11, i64 %9
   store i32 %1, ptr %12, align 4
   %13 = load i64, ptr %3, align 8, !noundef !5
   %14 = add i64 %13, 1
@@ -585,7 +585,7 @@ define hidden noundef zeroext i1 @"_ZN8uu_split24handle_extract_obs_lines28_$u7b
   %23 = phi i64 [ %.pre.i, %22 ], [ %19, %15 ]
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %25 = load ptr, ptr %24, align 8, !alias.scope !74, !nonnull !5, !noundef !5
-  %26 = getelementptr inbounds i32, ptr %25, i64 %23
+  %26 = getelementptr inbounds [4 x i8], ptr %25, i64 %23
   store i32 %3, ptr %26, align 4
   %27 = load i64, ptr %18, align 8, !alias.scope !74, !noundef !5
   %28 = add i64 %27, 1
@@ -1355,7 +1355,7 @@ define hidden { ptr, ptr } @_ZN8uu_split16n_chunks_by_byte17hcc1428d62b9948d0E(p
 
 105:                                              ; preds = %100
   %106 = load ptr, ptr %64, align 8, !alias.scope !221, !noalias !224, !nonnull !5, !noundef !5
-  %107 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [5 x i64] }, i8, [7 x i8] }, ptr %106, i64 %92
+  %107 = getelementptr inbounds [80 x i8], ptr %106, i64 %92
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 24
   %109 = load i64, ptr %108, align 8, !range !96, !noalias !228, !noundef !5
   %.not.i115.us = icmp eq i64 %109, -9223372036854775808
@@ -2356,7 +2356,7 @@ define hidden { ptr, ptr } @_ZN8uu_split16n_chunks_by_line17hefc43b8ad5adb128E(p
 
 153:                                              ; preds = %149
   %154 = load ptr, ptr %62, align 8, !alias.scope !355, !noalias !358, !nonnull !5, !noundef !5
-  %155 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [5 x i64] }, i8, [7 x i8] }, ptr %154, i64 %150
+  %155 = getelementptr inbounds [80 x i8], ptr %154, i64 %150
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 24
   %157 = load i64, ptr %156, align 8, !range !96, !noalias !361, !noundef !5
   %.not.i = icmp eq i64 %157, -9223372036854775808
@@ -2936,7 +2936,7 @@ _ZN3std2io7BufRead10read_until17h1cb7998f71d54764E.exit.us: ; preds = %.split.us
 
 88:                                               ; preds = %82
   %89 = load ptr, ptr %22, align 8, !alias.scope !432, !noalias !435, !nonnull !5, !noundef !5
-  %90 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [5 x i64] }, i8, [7 x i8] }, ptr %89, i64 %85
+  %90 = getelementptr inbounds [80 x i8], ptr %89, i64 %85
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 24
   %92 = load i64, ptr %91, align 8, !range !96, !noalias !438, !noundef !5
   %.not.i.us = icmp eq i64 %92, -9223372036854775808

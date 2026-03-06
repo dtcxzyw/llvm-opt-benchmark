@@ -49,7 +49,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::Scalar_" = type { %"class.cv::Vec" }
 %"class.cv::Vec" = type { %"class.cv::Matx" }
 %"class.cv::Matx" = type { [4 x double] }
-%"class.cv::Rect_" = type { i32, i32, i32, i32 }
 %"class.std::allocator" = type { i8 }
 
 $_ZNSt12__shared_ptrIN2cv21DetectionBasedTracker9IDetectorELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
@@ -799,7 +798,7 @@ _ZNSt12__shared_ptrIN2cv21DetectionBasedTracker9IDetectorELN9__gnu_cxx12_Lock_po
   store i64 0, ptr %225, align 8
   store i32 50397184, ptr %21, align 8, !tbaa !57
   store ptr %16, ptr %224, align 8, !tbaa !59
-  %241 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %240, i64 %.09117
+  %241 = getelementptr inbounds nuw [16 x i8], ptr %240, i64 %.09117
   %.sroa.0.0.copyload = load i64, ptr %241, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %241, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 4

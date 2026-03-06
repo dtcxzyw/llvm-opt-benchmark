@@ -3,13 +3,6 @@ source_filename = "bench/redis/original/lgc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.lua_TValue = type { %union.Value, i32 }
-%union.Value = type { ptr }
-%struct.Node = type { %struct.lua_TValue, %union.TKey }
-%union.TKey = type { %struct.anon.2 }
-%struct.anon.2 = type { %union.Value, i32, ptr }
-%struct.LocVar = type { ptr, i32, i32 }
-
 ; Function Attrs: nounwind uwtable
 define hidden i64 @luaC_separateudata(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -233,7 +226,7 @@ define hidden void @luaC_freeall(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
   %10 = load ptr, ptr %3, align 8, !tbaa !47
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %12 = tail call fastcc ptr @sweeplist(ptr noundef nonnull %0, ptr noundef %11, i64 noundef -3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %13 = load i32, ptr %7, align 4, !tbaa !46
@@ -536,7 +529,7 @@ propagateall.exit.i:                              ; preds = %.lr.ph.i28.i, %12, 
 
 43:                                               ; preds = %51, %41
   %indvars.iv.i.i = phi i64 [ 0, %41 ], [ %indvars.iv.next.i.i, %51 ]
-  %44 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv.i.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv.i.i
   %45 = load ptr, ptr %44, align 8, !tbaa !63
   %.not.i30.i = icmp eq ptr %45, null
   br i1 %.not.i30.i, label %51, label %46
@@ -737,7 +730,7 @@ propagateall.exit54.i:                            ; preds = %.lr.ph.i50.i, %mark
   %indvars.iv.i57.i = phi i64 [ %125, %.lr.ph.i56.i ], [ %indvars.iv.next.i58.i, %iscleared.exit.thread.i.i ]
   %indvars.iv.next.i58.i = add nsw i64 %indvars.iv.i57.i, -1
   %127 = load ptr, ptr %124, align 8, !tbaa !69
-  %128 = getelementptr inbounds %struct.lua_TValue, ptr %127, i64 %indvars.iv.next.i58.i
+  %128 = getelementptr inbounds [16 x i8], ptr %127, i64 %indvars.iv.next.i58.i
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 8
   %130 = load i32, ptr %129, align 8, !tbaa !45
   %131 = icmp sgt i32 %130, 3
@@ -789,7 +782,7 @@ iscleared.exit.thread.i.i:                        ; preds = %iscleared.exit.thre
 150:                                              ; preds = %removeentry.exit.i.i, %.loopexit.i.i
   %indvars.iv54.i.i = phi i64 [ %149, %.loopexit.i.i ], [ %indvars.iv.next55.i.i, %removeentry.exit.i.i ]
   %151 = load ptr, ptr %147, align 8, !tbaa !72
-  %152 = getelementptr inbounds %struct.Node, ptr %151, i64 %indvars.iv54.i.i
+  %152 = getelementptr inbounds [40 x i8], ptr %151, i64 %indvars.iv54.i.i
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
   %154 = load i32, ptr %153, align 8, !tbaa !73
   %155 = icmp eq i32 %154, 0
@@ -899,7 +892,7 @@ atomic.exit:                                      ; preds = %189, %propagateall.
   %209 = add nsw i32 %208, 1
   store i32 %209, ptr %207, align 4, !tbaa !78
   %210 = sext i32 %208 to i64
-  %211 = getelementptr inbounds ptr, ptr %206, i64 %210
+  %211 = getelementptr inbounds [8 x i8], ptr %206, i64 %210
   %212 = tail call fastcc ptr @sweeplist(ptr noundef nonnull %0, ptr noundef %211, i64 noundef -3)
   %213 = load i32, ptr %207, align 4, !tbaa !78
   %214 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -1128,7 +1121,7 @@ define internal fastcc void @markroot(ptr noundef readonly captures(none) %0) un
 
 37:                                               ; preds = %45, %35
   %indvars.iv.i = phi i64 [ 0, %35 ], [ %indvars.iv.next.i, %45 ]
-  %38 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv.i
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv.i
   %39 = load ptr, ptr %38, align 8, !tbaa !63
   %.not.i = icmp eq ptr %39, null
   br i1 %.not.i, label %45, label %40
@@ -1525,7 +1518,7 @@ define internal fastcc range(i64 -120259084216, 120259084417) i64 @propagatemark
   %indvars.iv.i = phi i64 [ %51, %.lr.ph.i ], [ %indvars.iv.next.i, %64 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %53 = load ptr, ptr %50, align 8, !tbaa !69
-  %54 = getelementptr inbounds %struct.lua_TValue, ptr %53, i64 %indvars.iv.next.i
+  %54 = getelementptr inbounds [16 x i8], ptr %53, i64 %indvars.iv.next.i
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load i32, ptr %55, align 8, !tbaa !45
   %57 = icmp sgt i32 %56, 3
@@ -1570,7 +1563,7 @@ define internal fastcc range(i64 -120259084216, 120259084417) i64 @propagatemark
 .split.us.split.us.i:                             ; preds = %.loopexit.thread.i, %removeentry.exit.us.us.i
   %indvars.iv103.i = phi i64 [ %indvars.iv.next104.i, %removeentry.exit.us.us.i ], [ %76, %.loopexit.thread.i ]
   %77 = load ptr, ptr %74, align 8, !tbaa !72
-  %78 = getelementptr inbounds %struct.Node, ptr %77, i64 %indvars.iv103.i
+  %78 = getelementptr inbounds [40 x i8], ptr %77, i64 %indvars.iv103.i
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %80 = load i32, ptr %79, align 8, !tbaa !73
   %81 = icmp eq i32 %80, 0
@@ -1594,7 +1587,7 @@ removeentry.exit.us.us.i:                         ; preds = %86, %82, %.split.us
 .split.us.split.i:                                ; preds = %.loopexit.i, %removeentry.exit.us.i
   %indvars.iv100.i = phi i64 [ %indvars.iv.next101.i, %removeentry.exit.us.i ], [ %70, %.loopexit.i ]
   %88 = load ptr, ptr %68, align 8, !tbaa !72
-  %89 = getelementptr inbounds %struct.Node, ptr %88, i64 %indvars.iv100.i
+  %89 = getelementptr inbounds [40 x i8], ptr %88, i64 %indvars.iv100.i
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %91 = load i32, ptr %90, align 8, !tbaa !73
   %92 = icmp eq i32 %91, 0
@@ -1634,7 +1627,7 @@ removeentry.exit.us.i:                            ; preds = %105, %101, %100, %9
 .split.split.us.i:                                ; preds = %.loopexit.thread.i, %removeentry.exit.us88.i
   %indvars.iv97.i = phi i64 [ %indvars.iv.next98.i, %removeentry.exit.us88.i ], [ %76, %.loopexit.thread.i ]
   %107 = load ptr, ptr %74, align 8, !tbaa !72
-  %108 = getelementptr inbounds %struct.Node, ptr %107, i64 %indvars.iv97.i
+  %108 = getelementptr inbounds [40 x i8], ptr %107, i64 %indvars.iv97.i
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 8
   %110 = load i32, ptr %109, align 8, !tbaa !73
   %111 = icmp eq i32 %110, 0
@@ -1674,7 +1667,7 @@ removeentry.exit.us88.i:                          ; preds = %124, %123, %122, %1
 .split.split.i:                                   ; preds = %.loopexit.i, %removeentry.exit.i
   %indvars.iv94.i = phi i64 [ %indvars.iv.next95.i, %removeentry.exit.i ], [ %70, %.loopexit.i ]
   %126 = load ptr, ptr %68, align 8, !tbaa !72
-  %127 = getelementptr inbounds %struct.Node, ptr %126, i64 %indvars.iv94.i
+  %127 = getelementptr inbounds [40 x i8], ptr %126, i64 %indvars.iv94.i
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 8
   %129 = load i32, ptr %128, align 8, !tbaa !73
   %130 = icmp eq i32 %129, 0
@@ -1785,7 +1778,7 @@ traversetable.exit:                               ; preds = %removeentry.exit.i,
 183:                                              ; preds = %195, %.lr.ph.i44
   %184 = phi i8 [ %181, %.lr.ph.i44 ], [ %196, %195 ]
   %indvars.iv.i45 = phi i64 [ 0, %.lr.ph.i44 ], [ %indvars.iv.next.i46, %195 ]
-  %185 = getelementptr inbounds nuw %struct.lua_TValue, ptr %182, i64 %indvars.iv.i45
+  %185 = getelementptr inbounds nuw [16 x i8], ptr %182, i64 %indvars.iv.i45
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 8
   %187 = load i32, ptr %186, align 8, !tbaa !28
   %188 = icmp sgt i32 %187, 3
@@ -1837,7 +1830,7 @@ traversetable.exit:                               ; preds = %removeentry.exit.i,
 210:                                              ; preds = %218, %.lr.ph32.i
   %211 = phi i8 [ %208, %.lr.ph32.i ], [ %219, %218 ]
   %indvars.iv37.i = phi i64 [ 0, %.lr.ph32.i ], [ %indvars.iv.next38.i, %218 ]
-  %212 = getelementptr inbounds nuw ptr, ptr %209, i64 %indvars.iv37.i
+  %212 = getelementptr inbounds nuw [8 x i8], ptr %209, i64 %indvars.iv37.i
   %213 = load ptr, ptr %212, align 8, !tbaa !28
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 9
   %215 = load i8, ptr %214, align 1, !tbaa !28
@@ -2062,7 +2055,7 @@ traversestack.exit:                               ; preds = %._crit_edge43.i, %2
   %331 = phi i32 [ %323, %.lr.ph.i56 ], [ %344, %343 ]
   %indvars.iv.i57 = phi i64 [ 0, %.lr.ph.i56 ], [ %indvars.iv.next.i58, %343 ]
   %332 = load ptr, ptr %325, align 8, !tbaa !110
-  %333 = getelementptr inbounds nuw %struct.lua_TValue, ptr %332, i64 %indvars.iv.i57
+  %333 = getelementptr inbounds nuw [16 x i8], ptr %332, i64 %indvars.iv.i57
   %334 = getelementptr inbounds nuw i8, ptr %333, i64 8
   %335 = load i32, ptr %334, align 8, !tbaa !45
   %336 = icmp sgt i32 %335, 3
@@ -2102,7 +2095,7 @@ traversestack.exit:                               ; preds = %._crit_edge43.i, %2
   %352 = phi i32 [ %327, %.lr.ph48.i ], [ %361, %360 ]
   %indvars.iv54.i = phi i64 [ 0, %.lr.ph48.i ], [ %indvars.iv.next55.i, %360 ]
   %353 = load ptr, ptr %329, align 8, !tbaa !113
-  %354 = getelementptr inbounds nuw ptr, ptr %353, i64 %indvars.iv54.i
+  %354 = getelementptr inbounds nuw [8 x i8], ptr %353, i64 %indvars.iv54.i
   %355 = load ptr, ptr %354, align 8, !tbaa !33
   %.not42.i = icmp eq ptr %355, null
   br i1 %.not42.i, label %360, label %356
@@ -2141,7 +2134,7 @@ traversestack.exit:                               ; preds = %._crit_edge43.i, %2
   %370 = phi i32 [ %348, %.lr.ph50.i ], [ %380, %379 ]
   %indvars.iv57.i = phi i64 [ 0, %.lr.ph50.i ], [ %indvars.iv.next58.i, %379 ]
   %371 = load ptr, ptr %350, align 8, !tbaa !116
-  %372 = getelementptr inbounds nuw ptr, ptr %371, i64 %indvars.iv57.i
+  %372 = getelementptr inbounds nuw [8 x i8], ptr %371, i64 %indvars.iv57.i
   %373 = load ptr, ptr %372, align 8, !tbaa !117
   %.not40.i = icmp eq ptr %373, null
   br i1 %.not40.i, label %379, label %374
@@ -2169,7 +2162,7 @@ traversestack.exit:                               ; preds = %._crit_edge43.i, %2
   %384 = phi i32 [ %366, %.lr.ph52.i ], [ %393, %392 ]
   %indvars.iv60.i = phi i64 [ 0, %.lr.ph52.i ], [ %indvars.iv.next61.i, %392 ]
   %385 = load ptr, ptr %368, align 8, !tbaa !120
-  %386 = getelementptr inbounds nuw %struct.LocVar, ptr %385, i64 %indvars.iv60.i
+  %386 = getelementptr inbounds nuw [16 x i8], ptr %385, i64 %indvars.iv60.i
   %387 = load ptr, ptr %386, align 8, !tbaa !121
   %.not39.i = icmp eq ptr %387, null
   br i1 %.not39.i, label %392, label %388

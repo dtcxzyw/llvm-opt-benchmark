@@ -3875,7 +3875,7 @@ define hidden void @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V$C$A$GT$
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.04.0.copyload.i, i64 368
   %24 = icmp ult i64 %.sroa.56.0.copyload.i, 12
   call void @llvm.assume(i1 %24)
-  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %.sroa.56.0.copyload.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.sroa.56.0.copyload.i
   %26 = load ptr, ptr %25, align 8, !noalias !689, !nonnull !13, !noundef !13
   %27 = add i64 %.sroa.45.0.copyload.i, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !680
@@ -3996,7 +3996,7 @@ define hidden { ptr, ptr } @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.04.0.copyload.i.i, i64 368
   %28 = icmp ult i64 %.sroa.56.0.copyload.i.i, 12
   call void @llvm.assume(i1 %28)
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %.sroa.56.0.copyload.i.i
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.sroa.56.0.copyload.i.i
   %30 = load ptr, ptr %29, align 8, !noalias !706, !nonnull !13, !noundef !13
   %31 = add i64 %.sroa.45.0.copyload.i.i, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !697
@@ -4056,7 +4056,7 @@ define hidden { ptr, ptr } @"_ZN5alloc11collections5btree3map25BTreeMap$LT$K$C$V
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !694
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.4.0.ph.i, i64 176
-  %45 = getelementptr inbounds { [2 x i64] }, ptr %44, i64 %.sroa.9.0.ph.i
+  %45 = getelementptr inbounds [16 x i8], ptr %44, i64 %.sroa.9.0.ph.i
   %46 = load ptr, ptr %45, align 8, !noalias !707, !nonnull !13, !noundef !13
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %48 = load ptr, ptr %47, align 8, !noalias !707, !nonnull !13, !align !351, !noundef !13
@@ -4720,8 +4720,8 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
   %.sroa.6.0147 = phi i64 [ 0, %.lr.ph149 ], [ %39, %45 ]
   %36 = icmp samesign ult i64 %.sroa.6.0147, 11
   call void @llvm.assume(i1 %36)
-  %37 = getelementptr inbounds nuw i128, ptr %1, i64 %.sroa.6.0147
-  %38 = getelementptr inbounds nuw { [2 x i64] }, ptr %33, i64 %.sroa.6.0147
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %.sroa.6.0147
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 %.sroa.6.0147
   %39 = add nuw nsw i64 %.sroa.6.0147, 1
   %.val124 = load i128, ptr %37, align 16, !noundef !13
   %.val127 = load ptr, ptr %38, align 8, !nonnull !13, !noundef !13
@@ -4847,8 +4847,8 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
   %.sroa.7.0146 = phi i64 [ 0, %.lr.ph ], [ %84, %103 ]
   %81 = icmp samesign ult i64 %.sroa.7.0146, 11
   call void @llvm.assume(i1 %81)
-  %82 = getelementptr inbounds nuw i128, ptr %1, i64 %.sroa.7.0146
-  %83 = getelementptr inbounds nuw { [2 x i64] }, ptr %76, i64 %.sroa.7.0146
+  %82 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %.sroa.7.0146
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %76, i64 %.sroa.7.0146
   %84 = add nuw nsw i64 %.sroa.7.0146, 1
   %.val = load i128, ptr %82, align 16, !noundef !13
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -4867,7 +4867,7 @@ define hidden void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val126) ]
   store ptr %.val125, ptr %8, align 8
   store ptr %.val126, ptr %77, align 8
-  %90 = getelementptr inbounds nuw ptr, ptr %18, i64 %84
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %84
   %91 = load ptr, ptr %90, align 8, !nonnull !13, !noundef !13
   invoke void @"_ZN96_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone13clone_subtree17h130be098bf2b7f4fE.llvm.16397499954887149854"(ptr noalias noundef nonnull sret({ { ptr, [1 x i64] }, i64, { {} }, {} }) align 8 captures(none) dereferenceable(24) %7, ptr noundef nonnull %91, i64 noundef %20)
           to label %92 unwind label %114

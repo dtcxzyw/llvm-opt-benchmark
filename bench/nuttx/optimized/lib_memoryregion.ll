@@ -3,8 +3,6 @@ source_filename = "bench/nuttx/original/lib_memoryregion.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.memory_region_s = type { i64, i64, i32 }
-
 ; Function Attrs: nofree norecurse nounwind uwtable
 define range(i64 -22, 6148914691236517207) i64 @parse_memory_region(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
@@ -68,20 +66,20 @@ define range(i64 -22, 6148914691236517207) i64 @parse_memory_region(ptr noundef 
 
 25:                                               ; preds = %.lr.ph49
   %26 = udiv i64 %.248, 3
-  %27 = getelementptr inbounds nuw %struct.memory_region_s, ptr %1, i64 %26
+  %27 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %26
   store i64 %24, ptr %27, align 8
   br label %36
 
 28:                                               ; preds = %.lr.ph49
   %29 = udiv i64 %.248, 3
-  %30 = getelementptr inbounds nuw %struct.memory_region_s, ptr %1, i64 %29
+  %30 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i64 %24, ptr %31, align 8
   br label %36
 
 32:                                               ; preds = %.lr.ph49
   %33 = trunc i64 %24 to i32
-  %34 = getelementptr inbounds nuw %struct.memory_region_s, ptr %1, i64 %23
+  %34 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %23
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store i32 %33, ptr %35, align 8
   br label %36
@@ -166,20 +164,20 @@ parse_memory_region.exit.thread22:                ; preds = %parse_memory_region
 
 24:                                               ; preds = %.lr.ph49.i
   %25 = udiv i64 %.248.i, 3
-  %26 = getelementptr inbounds nuw %struct.memory_region_s, ptr %17, i64 %25
+  %26 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %25
   store i64 %23, ptr %26, align 8
   br label %35
 
 27:                                               ; preds = %.lr.ph49.i
   %28 = udiv i64 %.248.i, 3
-  %29 = getelementptr inbounds nuw %struct.memory_region_s, ptr %17, i64 %28
+  %29 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i64 %23, ptr %30, align 8
   br label %35
 
 31:                                               ; preds = %.lr.ph49.i
   %32 = trunc i64 %23 to i32
-  %33 = getelementptr inbounds nuw %struct.memory_region_s, ptr %17, i64 %22
+  %33 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %22
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   store i32 %32, ptr %34, align 8
   br label %35

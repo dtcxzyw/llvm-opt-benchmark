@@ -1500,7 +1500,7 @@ define dso_local noundef range(i32 0, 4) i32 @usb_stor_CB_transport(ptr noundef 
   %84 = lshr i32 %78, 15
   %85 = and i32 %84, 15
   %86 = zext nneg i32 %85 to i64
-  %87 = getelementptr ptr, ptr %83, i64 %86
+  %87 = getelementptr [8 x i8], ptr %83, i64 %86
   %88 = load ptr, ptr %87, align 8
   %89 = icmp eq ptr %88, null
   br i1 %89, label %96, label %90

@@ -3,10 +3,6 @@ source_filename = "bench/postgres/original/attmap.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.nameData = type { [64 x i8] }
-%struct.CompactAttribute = type { i32, i16, i8, i8, i8, i8, i8, i8, i8 }
-
 @.str = private unnamed_addr constant [3 x i8] c"%s\00", align 1
 @.str.1 = private unnamed_addr constant [63 x i8] c"Returned type %s does not match expected type %s in column %d.\00", align 1
 @.str.2 = private unnamed_addr constant [9 x i8] c"attmap.c\00", align 1
@@ -86,7 +82,7 @@ define dso_local ptr @build_attrmap_by_position(ptr noundef readonly captures(no
   %19 = shl nsw i64 %18, 4
   %20 = getelementptr i8, ptr %1, i64 %19
   %21 = getelementptr i8, ptr %20, i64 24
-  %22 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %21, i64 %indvars.iv105
+  %22 = getelementptr inbounds nuw [100 x i8], ptr %21, i64 %indvars.iv105
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 91
   %24 = load i8, ptr %23, align 1, !range !4, !noundef !5
   %25 = trunc nuw i8 %24 to i1
@@ -112,7 +108,7 @@ define dso_local ptr @build_attrmap_by_position(ptr noundef readonly captures(no
 
 39:                                               ; preds = %.lr.ph, %69
   %indvars.iv = phi i64 [ %38, %.lr.ph ], [ %indvars.iv.next, %69 ]
-  %40 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %37, i64 %indvars.iv
+  %40 = getelementptr inbounds [100 x i8], ptr %37, i64 %indvars.iv
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 91
   %42 = load i8, ptr %41, align 1, !range !4, !noundef !5
   %43 = trunc nuw i8 %42 to i1
@@ -151,7 +147,7 @@ define dso_local ptr @build_attrmap_by_position(ptr noundef readonly captures(no
 65:                                               ; preds = %49
   %66 = add nsw i32 %45, 1
   %67 = trunc i32 %66 to i16
-  %68 = getelementptr inbounds nuw i16, ptr %16, i64 %indvars.iv105
+  %68 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %indvars.iv105
   store i16 %67, ptr %68, align 2
   %.pre = load ptr, ptr %5, align 8
   br label %.loopexit
@@ -166,7 +162,7 @@ define dso_local ptr @build_attrmap_by_position(ptr noundef readonly captures(no
   %70 = phi ptr [ %.pre, %65 ], [ %15, %26 ], [ %15, %69 ]
   %.360 = phi i32 [ %66, %65 ], [ %.05782, %26 ], [ %32, %69 ]
   %.2 = phi i32 [ %46, %65 ], [ %.05184, %26 ], [ %.05184, %69 ]
-  %71 = getelementptr inbounds nuw i16, ptr %70, i64 %indvars.iv105
+  %71 = getelementptr inbounds nuw [2 x i8], ptr %70, i64 %indvars.iv105
   %72 = load i16, ptr %71, align 2
   %73 = icmp ne i16 %72, 0
   %spec.select = select i1 %73, i1 %.05283, i1 false
@@ -187,7 +183,7 @@ define dso_local ptr @build_attrmap_by_position(ptr noundef readonly captures(no
   %indvars.iv108 = phi i64 [ %14, %.lr.ph93.preheader ], [ %indvars.iv.next109, %.lr.ph93 ]
   %.392 = phi i32 [ %.051.lcssa, %.lr.ph93.preheader ], [ %spec.select66, %.lr.ph93 ]
   %.35591 = phi i1 [ %.052.lcssa, %.lr.ph93.preheader ], [ %spec.select65, %.lr.ph93 ]
-  %77 = getelementptr %struct.CompactAttribute, ptr %0, i64 %indvars.iv108
+  %77 = getelementptr [16 x i8], ptr %0, i64 %indvars.iv108
   %78 = getelementptr i8, ptr %77, i64 33
   %79 = load i8, ptr %78, align 1, !range !4, !noundef !5
   %80 = trunc nuw i8 %79 to i1
@@ -230,14 +226,14 @@ define dso_local ptr @build_attrmap_by_position(ptr noundef readonly captures(no
 
 .lr.ph.i:                                         ; preds = %121, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %121 ]
-  %93 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %90, i64 %indvars.iv.i
+  %93 = getelementptr inbounds nuw [16 x i8], ptr %90, i64 %indvars.iv.i
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %95 = load i8, ptr %94, align 4, !range !4, !noundef !5
   %96 = trunc nuw i8 %95 to i1
   br i1 %96, label %check_attrmap_match.exit.thread, label %97
 
 97:                                               ; preds = %.lr.ph.i
-  %98 = getelementptr inbounds nuw i16, ptr %11, i64 %indvars.iv.i
+  %98 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %indvars.iv.i
   %99 = load i16, ptr %98, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %100 = sext i16 %99 to i64
@@ -245,7 +241,7 @@ define dso_local ptr @build_attrmap_by_position(ptr noundef readonly captures(no
   br i1 %101, label %121, label %102
 
 102:                                              ; preds = %97
-  %103 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %89, i64 %indvars.iv.i
+  %103 = getelementptr inbounds nuw [16 x i8], ptr %89, i64 %indvars.iv.i
   %104 = icmp eq i16 %99, 0
   br i1 %104, label %105, label %check_attrmap_match.exit.thread
 
@@ -329,7 +325,7 @@ define dso_local ptr @build_attrmap_by_name(ptr noundef readonly captures(none) 
   %15 = shl nsw i64 %14, 4
   %16 = getelementptr i8, ptr %1, i64 %15
   %17 = getelementptr i8, ptr %16, i64 24
-  %18 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %17, i64 %indvars.iv87
+  %18 = getelementptr inbounds nuw [100 x i8], ptr %17, i64 %indvars.iv87
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 91
   %20 = load i8, ptr %19, align 1, !range !4, !noundef !5
   %21 = trunc nuw i8 %20 to i1
@@ -355,7 +351,7 @@ define dso_local ptr @build_attrmap_by_name(ptr noundef readonly captures(none) 
   %.not.us.us = icmp slt i32 %33, %.fr62
   %spec.store.select.us.us = select i1 %.not.us.us, i32 %33, i32 0
   %34 = sext i32 %spec.store.select.us.us to i64
-  %35 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %31, i64 %34
+  %35 = getelementptr inbounds [100 x i8], ptr %31, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 91
   %37 = load i8, ptr %36, align 1, !range !4, !noundef !5
   %38 = trunc nuw i8 %37 to i1
@@ -383,7 +379,7 @@ define dso_local ptr @build_attrmap_by_name(ptr noundef readonly captures(none) 
   %50 = getelementptr inbounds nuw i8, ptr %35, i64 74
   %51 = load i16, ptr %50, align 2
   %52 = load ptr, ptr %6, align 8
-  %53 = getelementptr inbounds nuw i16, ptr %52, i64 %indvars.iv87
+  %53 = getelementptr inbounds nuw [2 x i8], ptr %52, i64 %indvars.iv87
   store i16 %51, ptr %53, align 2
   br label %..loopexit_crit_edge.us.us
 
@@ -408,7 +404,7 @@ define dso_local ptr @build_attrmap_by_name(ptr noundef readonly captures(none) 
   %60 = shl nsw i64 %59, 4
   %61 = getelementptr i8, ptr %1, i64 %60
   %62 = getelementptr i8, ptr %61, i64 24
-  %63 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %62, i64 %indvars.iv81
+  %63 = getelementptr inbounds nuw [100 x i8], ptr %62, i64 %indvars.iv81
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 91
   %65 = load i8, ptr %64, align 1, !range !4, !noundef !5
   %66 = trunc nuw i8 %65 to i1
@@ -434,7 +430,7 @@ define dso_local ptr @build_attrmap_by_name(ptr noundef readonly captures(none) 
   %.not.us = icmp slt i32 %78, %.fr62
   %spec.store.select.us = select i1 %.not.us, i32 %78, i32 0
   %79 = sext i32 %spec.store.select.us to i64
-  %80 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %76, i64 %79
+  %80 = getelementptr inbounds [100 x i8], ptr %76, i64 %79
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 91
   %82 = load i8, ptr %81, align 1, !range !4, !noundef !5
   %83 = trunc nuw i8 %82 to i1
@@ -461,14 +457,14 @@ define dso_local ptr @build_attrmap_by_name(ptr noundef readonly captures(none) 
 94:                                               ; preds = %91
   %95 = getelementptr inbounds nuw i8, ptr %80, i64 74
   %96 = load i16, ptr %95, align 2
-  %97 = getelementptr inbounds nuw i16, ptr %57, i64 %indvars.iv81
+  %97 = getelementptr inbounds nuw [2 x i8], ptr %57, i64 %indvars.iv81
   store i16 %96, ptr %97, align 2
   %.pre = load ptr, ptr %6, align 8
   br label %..loopexit_crit_edge.us
 
 ..loopexit_crit_edge.us:                          ; preds = %101, %94
   %98 = phi ptr [ %.pre, %94 ], [ %56, %101 ]
-  %99 = getelementptr inbounds nuw i16, ptr %98, i64 %indvars.iv81
+  %99 = getelementptr inbounds nuw [2 x i8], ptr %98, i64 %indvars.iv81
   %100 = load i16, ptr %99, align 2
   %.not63 = icmp eq i16 %100, 0
   br i1 %.not63, label %.split57.us, label %103
@@ -500,14 +496,14 @@ define dso_local ptr @build_attrmap_by_name(ptr noundef readonly captures(none) 
 
 .lr.ph55.split.split:                             ; preds = %.lr.ph55.split.split.preheader, %138
   %indvars.iv = phi i64 [ 0, %.lr.ph55.split.split.preheader ], [ %indvars.iv.next, %138 ]
-  %111 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %110, i64 %indvars.iv
+  %111 = getelementptr inbounds nuw [100 x i8], ptr %110, i64 %indvars.iv
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 91
   %113 = load i8, ptr %112, align 1, !range !4, !noundef !5
   %114 = trunc nuw i8 %113 to i1
   br i1 %114, label %138, label %.loopexit
 
 .loopexit:                                        ; preds = %.lr.ph55.split.split
-  %115 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv
+  %115 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %indvars.iv
   %116 = load i16, ptr %115, align 2
   %.not = icmp eq i16 %116, 0
   br i1 %.not, label %.split57, label %138
@@ -588,7 +584,7 @@ define dso_local ptr @build_attrmap_by_name_if_req(ptr noundef readonly captures
 
 .lr.ph.i:                                         ; preds = %41, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %41 ]
-  %12 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %8, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %indvars.iv.i
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i8, ptr %13, align 4, !range !4, !noundef !5
   %15 = trunc nuw i8 %14 to i1
@@ -596,7 +592,7 @@ define dso_local ptr @build_attrmap_by_name_if_req(ptr noundef readonly captures
 
 16:                                               ; preds = %.lr.ph.i
   %17 = load ptr, ptr %4, align 8
-  %18 = getelementptr inbounds nuw i16, ptr %17, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %indvars.iv.i
   %19 = load i16, ptr %18, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %20 = sext i16 %19 to i64
@@ -604,7 +600,7 @@ define dso_local ptr @build_attrmap_by_name_if_req(ptr noundef readonly captures
   br i1 %21, label %41, label %22
 
 22:                                               ; preds = %16
-  %23 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %7, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %indvars.iv.i
   %24 = icmp eq i16 %19, 0
   br i1 %24, label %25, label %check_attrmap_match.exit.thread
 

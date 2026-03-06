@@ -462,7 +462,7 @@ define hidden noundef nonnull ptr @"_ZN9hashbrown3raw5inner21RawIterRange$LT$T$G
   %8 = and i16 %7, %.lcssa
   store i16 %8, ptr %2, align 8, !alias.scope !27
   %9 = sub nsw i64 0, %6
-  %10 = getelementptr inbounds i32, ptr %.val3, i64 %9
+  %10 = getelementptr inbounds [4 x i8], ptr %.val3, i64 %9
   ret ptr %10
 
 11:                                               ; preds = %.lr.ph, %11
@@ -611,7 +611,7 @@ _ZN9hashbrown3raw5inner13RawTableInner20full_buckets_indices17h5723d79da7bb3e3aE
   tail call void @llvm.experimental.noalias.scope.decl(metadata !65)
   %.val.i = load ptr, ptr %0, align 8, !alias.scope !65, !noalias !66, !nonnull !7, !noundef !7
   %58 = sub nsw i64 0, %56
-  %59 = getelementptr inbounds i32, ptr %.val.i, i64 %58
+  %59 = getelementptr inbounds [4 x i8], ptr %.val.i, i64 %58
   %60 = getelementptr inbounds i8, ptr %59, i64 -4
   %.val4.i = load i32, ptr %60, align 4, !noalias !57, !noundef !7
   %61 = zext i32 %.val4.i to i64
@@ -632,8 +632,8 @@ _ZN9hashbrown3raw5inner13RawTableInner20full_buckets_indices17h5723d79da7bb3e3aE
 
 66:                                               ; preds = %66, %.thread62
   %.05.i = phi i64 [ 0, %.thread62 ], [ %71, %66 ]
-  %67 = getelementptr inbounds nuw i64, ptr %0, i64 %.05.i
-  %68 = getelementptr inbounds nuw i64, ptr %.sroa.6.0..sroa_idx.i.i, i64 %.05.i
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.05.i
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.6.0..sroa_idx.i.i, i64 %.05.i
   %69 = load i64, ptr %67, align 8
   %70 = load i64, ptr %68, align 8
   store i64 %70, ptr %67, align 8
@@ -675,7 +675,7 @@ _ZN4core3ptr19swap_nonoverlapping17hac5944f220a127f1E.exit: ; preds = %66
 
 82:                                               ; preds = %._crit_edge97
   %83 = load ptr, ptr %43, align 8, !alias.scope !67, !noalias !70, !nonnull !7, !noundef !7
-  %84 = getelementptr inbounds nuw { { i32, i32 }, i16, [1 x i16] }, ptr %83, i64 %61
+  %84 = getelementptr inbounds nuw [12 x i8], ptr %83, i64 %61
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %86 = load i16, ptr %85, align 2, !range !87, !alias.scope !88, !noalias !97, !noundef !7
   %87 = zext nneg i16 %86 to i64
@@ -839,7 +839,7 @@ _ZN9hashbrown3raw5inner13RawTableInner23prepare_rehash_in_place17hec44d3ca530279
   %165 = sub nuw nsw i64 -4, %164
   %166 = getelementptr inbounds i8, ptr %160, i64 %165
   %167 = sub nsw i64 0, %.sroa.02.0.i.i92
-  %168 = getelementptr inbounds i32, ptr %160, i64 %167
+  %168 = getelementptr inbounds [4 x i8], ptr %160, i64 %167
   %169 = getelementptr inbounds i8, ptr %168, i64 -4
   %.val4.i1687 = load i32, ptr %169, align 4, !noalias !122, !noundef !7
   %170 = zext i32 %.val4.i1687 to i64
@@ -850,7 +850,7 @@ _ZN9hashbrown3raw5inner13RawTableInner23prepare_rehash_in_place17hec44d3ca530279
 _ZN4core3ptr19swap_nonoverlapping17heabb200ad77939d0E.exit.loopexit: ; preds = %.preheader70
   tail call void @llvm.experimental.noalias.scope.decl(metadata !132)
   %.val.i14 = load ptr, ptr %0, align 8, !alias.scope !132, !noalias !134, !nonnull !7, !noundef !7
-  %173 = getelementptr inbounds i32, ptr %.val.i14, i64 %167
+  %173 = getelementptr inbounds [4 x i8], ptr %.val.i14, i64 %167
   %174 = getelementptr inbounds i8, ptr %173, i64 -4
   %.val4.i16 = load i32, ptr %174, align 4, !noalias !135, !noundef !7
   %175 = zext i32 %.val4.i16 to i64
@@ -871,7 +871,7 @@ _ZN4core3ptr19swap_nonoverlapping17heabb200ad77939d0E.exit.loopexit: ; preds = %
   %178 = phi i64 [ %175, %_ZN4core3ptr19swap_nonoverlapping17heabb200ad77939d0E.exit.loopexit ], [ %170, %163 ]
   %.val.i1488 = phi ptr [ %.val.i14, %_ZN4core3ptr19swap_nonoverlapping17heabb200ad77939d0E.exit.loopexit ], [ %160, %163 ]
   %179 = load ptr, ptr %155, align 8, !alias.scope !126, !noalias !138, !nonnull !7, !noundef !7
-  %180 = getelementptr inbounds nuw { { i32, i32 }, i16, [1 x i16] }, ptr %179, i64 %178
+  %180 = getelementptr inbounds nuw [12 x i8], ptr %179, i64 %178
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 8
   %182 = load i16, ptr %181, align 2, !range !87, !alias.scope !140, !noalias !149, !noundef !7
   %183 = zext nneg i16 %182 to i64

@@ -440,7 +440,7 @@ define dso_local range(i32 0, 2) i32 @cmd_checkout_index(i32 noundef %0, ptr nou
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %198
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %198 ]
   %.03758 = phi i32 [ 0, %.lr.ph.preheader ], [ %201, %198 ]
-  %191 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %191 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %192 = load ptr, ptr %191, align 8, !tbaa !49
   %193 = load i32, ptr %7, align 4, !tbaa !4
   %.not51 = icmp eq i32 %193, 0
@@ -589,7 +589,7 @@ strbuf_setlen.exit:                               ; preds = %219, %221
   %.03569.i = phi ptr [ null, %.lr.ph.i ], [ %.1.i, %.thread.thread.i ]
   %.03668.i = phi i32 [ 0, %.lr.ph.i ], [ %.137.i, %.thread.thread.i ]
   %245 = load ptr, ptr %244, align 8, !tbaa !71
-  %246 = getelementptr inbounds nuw ptr, ptr %245, i64 %indvars.iv.i
+  %246 = getelementptr inbounds nuw [8 x i8], ptr %245, i64 %indvars.iv.i
   %247 = load ptr, ptr %246, align 8, !tbaa !72
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 52
   %249 = load i32, ptr %248, align 4, !tbaa !4
@@ -619,7 +619,7 @@ strbuf_setlen.exit:                               ; preds = %219, %221
   %261 = getelementptr inbounds nuw i8, ptr %260, i64 384
   %262 = load ptr, ptr %261, align 8, !tbaa !41
   %263 = load ptr, ptr %262, align 8, !tbaa !71
-  %264 = getelementptr inbounds nuw ptr, ptr %263, i64 %indvars.iv.i
+  %264 = getelementptr inbounds nuw [8 x i8], ptr %263, i64 %indvars.iv.i
   %265 = load ptr, ptr %264, align 8, !tbaa !72
   br label %266
 
@@ -911,7 +911,7 @@ define internal fastcc range(i32 -1, 1) i32 @checkout_file(ptr noundef %0, ptr n
   %15 = ashr exact i64 %sext, 32
   %16 = zext i32 %spec.select to i64
   %17 = load ptr, ptr %11, align 8, !tbaa !71
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %16
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %16
   %19 = load ptr, ptr %18, align 8, !tbaa !72
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 64
   %21 = load i32, ptr %20, align 8, !tbaa !4
@@ -920,7 +920,7 @@ define internal fastcc range(i32 -1, 1) i32 @checkout_file(ptr noundef %0, ptr n
 
 22:                                               ; preds = %51
   %23 = load ptr, ptr %54, align 8, !tbaa !71
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv.next
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv.next
   %25 = load ptr, ptr %24, align 8, !tbaa !72
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 64
   %27 = load i32, ptr %26, align 8, !tbaa !4

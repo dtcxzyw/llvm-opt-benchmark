@@ -14,8 +14,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon.9 = type { %struct.anon.10 }
 %struct.anon.10 = type { i64, i64 }
 %union.anon.12 = type { [12 x i32] }
-%struct._fpreg = type { [4 x i16], i16 }
-%struct._fpxreg = type { [4 x i16], i16, [3 x i16] }
 %struct.user_i387_ia32_struct = type { i32, i32, i32, i32, i32, i32, i32, [20 x i32] }
 
 @mxcsr_feature_mask = external dso_local local_unnamed_addr global i32, align 4
@@ -424,8 +422,8 @@ define internal fastcc void @__convert_from_fxsr(ptr noundef writeonly captures(
 
 97:                                               ; preds = %97, %94
   %98 = phi i64 [ 0, %94 ], [ %101, %97 ]
-  %99 = getelementptr %struct._fpreg, ptr %66, i64 %98
-  %100 = getelementptr %struct._fpxreg, ptr %4, i64 %98
+  %99 = getelementptr [10 x i8], ptr %66, i64 %98
+  %100 = getelementptr [16 x i8], ptr %4, i64 %98
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 2 dereferenceable(10) %99, ptr noundef align 2 dereferenceable(10) %100, i64 10, i1 false)
   %101 = add nuw nsw i64 %98, 1
   %102 = icmp eq i64 %101, 8
@@ -485,8 +483,8 @@ define dso_local void @convert_to_fxsr(ptr noundef writeonly captures(none) init
 
 41:                                               ; preds = %41, %2
   %42 = phi i64 [ 0, %2 ], [ %45, %41 ]
-  %43 = getelementptr %struct._fpxreg, ptr %4, i64 %42
-  %44 = getelementptr %struct._fpreg, ptr %3, i64 %42
+  %43 = getelementptr [16 x i8], ptr %4, i64 %42
+  %44 = getelementptr [10 x i8], ptr %3, i64 %42
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 2 dereferenceable(10) %43, ptr noundef align 2 dereferenceable(10) %44, i64 10, i1 false)
   %45 = add nuw nsw i64 %42, 1
   %46 = icmp eq i64 %45, 8
@@ -644,8 +642,8 @@ define dso_local noundef range(i32 -22, 1) i32 @fpregs_set(ptr noundef captures(
 
 68:                                               ; preds = %68, %26
   %69 = phi i64 [ 0, %26 ], [ %72, %68 ]
-  %70 = getelementptr %struct._fpxreg, ptr %31, i64 %69
-  %71 = getelementptr %struct._fpreg, ptr %30, i64 %69
+  %70 = getelementptr [16 x i8], ptr %31, i64 %69
+  %71 = getelementptr [10 x i8], ptr %30, i64 %69
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 2 dereferenceable(10) %70, ptr noundef align 2 dereferenceable(10) %71, i64 10, i1 false)
   %72 = add nuw nsw i64 %69, 1
   %73 = icmp eq i64 %72, 8

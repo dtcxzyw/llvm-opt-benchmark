@@ -11,9 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.7 = type { %struct.anon.8 }
 %struct.anon.8 = type { i32, i16, i16, i8, i8, [6 x i8] }
 %struct.timeval = type { i64, i64 }
-%struct.FWCfgEntry = type { i32, i8, ptr, ptr, ptr, ptr }
-%struct.anon.5 = type { ptr, i32 }
-%struct.fw_cfg_file = type { i32, i16, i16, [56 x i8] }
 %struct.ErrorPropagator = type { ptr, ptr }
 %struct.fw_cfg_dma_access = type { i32, i32, i64 }
 
@@ -226,7 +223,7 @@ define dso_local void @fw_cfg_add_bytes(ptr noundef readonly captures(none) %0, 
 
 10:                                               ; preds = %8
   %11 = zext nneg i16 %1 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr @key_name.fw_cfg_wellknown_keys, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @key_name.fw_cfg_wellknown_keys, i64 %11
   %13 = load ptr, ptr %12, align 8
   br label %trace_key_name.exit
 
@@ -292,10 +289,10 @@ trace_fw_cfg_add_bytes.exit:                      ; preds = %trace_key_name.exit
   %.lobit.i = lshr i16 %1, 15
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %43 = zext nneg i16 %.lobit.i to i64
-  %44 = getelementptr inbounds nuw ptr, ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %43
   %45 = load ptr, ptr %44, align 8
   %46 = zext nneg i16 %33 to i64
-  %47 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %45, i64 %46
+  %47 = getelementptr inbounds nuw [40 x i8], ptr %45, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = load ptr, ptr %48, align 8
   %50 = icmp eq ptr %49, null
@@ -309,22 +306,22 @@ fw_cfg_add_bytes_callback.exit:                   ; preds = %41
   store ptr %2, ptr %48, align 8
   %52 = trunc nuw i64 %3 to i32
   %53 = load ptr, ptr %44, align 8
-  %54 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %53, i64 %46
+  %54 = getelementptr inbounds nuw [40 x i8], ptr %53, i64 %46
   store i32 %52, ptr %54, align 8
   %55 = load ptr, ptr %44, align 8
-  %56 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %55, i64 %46
+  %56 = getelementptr inbounds nuw [40 x i8], ptr %55, i64 %46
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 24
   store ptr null, ptr %57, align 8
   %58 = load ptr, ptr %44, align 8
-  %59 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %58, i64 %46
+  %59 = getelementptr inbounds nuw [40 x i8], ptr %58, i64 %46
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 32
   store ptr null, ptr %60, align 8
   %61 = load ptr, ptr %44, align 8
-  %62 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %61, i64 %46
+  %62 = getelementptr inbounds nuw [40 x i8], ptr %61, i64 %46
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   store ptr null, ptr %63, align 8
   %64 = load ptr, ptr %44, align 8
-  %65 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %64, i64 %46
+  %65 = getelementptr inbounds nuw [40 x i8], ptr %64, i64 %46
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 4
   store i8 0, ptr %66, align 4
   ret void
@@ -347,7 +344,7 @@ define dso_local void @fw_cfg_add_string(ptr noundef readonly captures(none) %0,
 
 10:                                               ; preds = %8
   %11 = zext nneg i16 %1 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr @key_name.fw_cfg_wellknown_keys, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @key_name.fw_cfg_wellknown_keys, i64 %11
   %13 = load ptr, ptr %12, align 8
   br label %trace_key_name.exit
 
@@ -432,18 +429,18 @@ fw_cfg_modify_bytes_read.exit:                    ; preds = %3
   %.lobit.i = lshr i16 %1, 15
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %17 = zext nneg i16 %.lobit.i to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = zext nneg i16 %8 to i64
-  %21 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [40 x i8], ptr %19, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8
   store ptr %7, ptr %22, align 8
   %24 = load ptr, ptr %18, align 8
-  %25 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %24, i64 %20
+  %25 = getelementptr inbounds nuw [40 x i8], ptr %24, i64 %20
   store i32 %6, ptr %25, align 8
   %26 = load ptr, ptr %18, align 8
-  %27 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %26, i64 %20
+  %27 = getelementptr inbounds nuw [40 x i8], ptr %26, i64 %20
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   store i8 0, ptr %28, align 4
   tail call void @g_free(ptr noundef %23) #18
@@ -470,7 +467,7 @@ define dso_local void @fw_cfg_add_i16(ptr noundef readonly captures(none) %0, i1
 
 10:                                               ; preds = %8
   %11 = zext nneg i16 %1 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr @key_name.fw_cfg_wellknown_keys, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @key_name.fw_cfg_wellknown_keys, i64 %11
   %13 = load ptr, ptr %12, align 8
   br label %trace_key_name.exit
 
@@ -547,18 +544,18 @@ fw_cfg_modify_bytes_read.exit:                    ; preds = %3
   %.lobit.i = lshr i16 %1, 15
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %13 = zext nneg i16 %.lobit.i to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = zext nneg i16 %5 to i64
-  %17 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [40 x i8], ptr %15, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   store ptr %4, ptr %18, align 8
   %20 = load ptr, ptr %14, align 8
-  %21 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %20, i64 %16
+  %21 = getelementptr inbounds nuw [40 x i8], ptr %20, i64 %16
   store i32 2, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
-  %23 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %22, i64 %16
+  %23 = getelementptr inbounds nuw [40 x i8], ptr %22, i64 %16
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store i8 0, ptr %24, align 4
   tail call void @g_free(ptr noundef %19) #18
@@ -583,7 +580,7 @@ define dso_local void @fw_cfg_add_i32(ptr noundef readonly captures(none) %0, i1
 
 10:                                               ; preds = %8
   %11 = zext nneg i16 %1 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr @key_name.fw_cfg_wellknown_keys, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @key_name.fw_cfg_wellknown_keys, i64 %11
   %13 = load ptr, ptr %12, align 8
   br label %trace_key_name.exit
 
@@ -655,18 +652,18 @@ fw_cfg_modify_bytes_read.exit:                    ; preds = %3
   %.lobit.i = lshr i16 %1, 15
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %13 = zext nneg i16 %.lobit.i to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = zext nneg i16 %5 to i64
-  %17 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [40 x i8], ptr %15, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   store ptr %4, ptr %18, align 8
   %20 = load ptr, ptr %14, align 8
-  %21 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %20, i64 %16
+  %21 = getelementptr inbounds nuw [40 x i8], ptr %20, i64 %16
   store i32 4, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
-  %23 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %22, i64 %16
+  %23 = getelementptr inbounds nuw [40 x i8], ptr %22, i64 %16
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store i8 0, ptr %24, align 4
   tail call void @g_free(ptr noundef %19) #18
@@ -691,7 +688,7 @@ define dso_local void @fw_cfg_add_i64(ptr noundef readonly captures(none) %0, i1
 
 10:                                               ; preds = %8
   %11 = zext nneg i16 %1 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr @key_name.fw_cfg_wellknown_keys, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @key_name.fw_cfg_wellknown_keys, i64 %11
   %13 = load ptr, ptr %12, align 8
   br label %trace_key_name.exit
 
@@ -763,18 +760,18 @@ fw_cfg_modify_bytes_read.exit:                    ; preds = %3
   %.lobit.i = lshr i16 %1, 15
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %13 = zext nneg i16 %.lobit.i to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = zext nneg i16 %5 to i64
-  %17 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [40 x i8], ptr %15, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8
   store ptr %4, ptr %18, align 8
   %20 = load ptr, ptr %14, align 8
-  %21 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %20, i64 %16
+  %21 = getelementptr inbounds nuw [40 x i8], ptr %20, i64 %16
   store i32 8, ptr %21, align 8
   %22 = load ptr, ptr %14, align 8
-  %23 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %22, i64 %16
+  %23 = getelementptr inbounds nuw [40 x i8], ptr %22, i64 %16
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   store i8 0, ptr %24, align 4
   tail call void @g_free(ptr noundef %19) #18
@@ -882,7 +879,7 @@ define dso_local void @fw_cfg_add_file_callback(ptr noundef %0, ptr noundef %1, 
   br i1 %.not.i, label %40, label %48
 
 40:                                               ; preds = %.preheader.i
-  %41 = getelementptr inbounds nuw %struct.anon.5, ptr @fw_cfg_order, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw [16 x i8], ptr @fw_cfg_order, i64 %indvars.iv.i
   %42 = load ptr, ptr %41, align 16
   %43 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %42) #20
   %44 = icmp eq i32 %43, 0
@@ -915,7 +912,7 @@ get_fw_cfg_order.exit:                            ; preds = %35, %45, %49
 53:                                               ; preds = %.lr.ph, %59
   %.091103 = phi i32 [ %24, %.lr.ph ], [ %60, %59 ]
   %54 = zext nneg i32 %.091103 to i64
-  %55 = getelementptr i32, ptr %52, i64 %54
+  %55 = getelementptr [4 x i8], ptr %52, i64 %54
   %56 = getelementptr i8, ptr %55, i64 -4
   %57 = load i32, ptr %56, align 4
   %58 = icmp slt i32 %.09.i, %57
@@ -928,7 +925,7 @@ get_fw_cfg_order.exit:                            ; preds = %35, %45, %49
 
 .lr.ph107:                                        ; preds = %.lr.ph107.preheader, %66
   %indvars.iv = phi i64 [ %34, %.lr.ph107.preheader ], [ %indvars.iv.next, %66 ]
-  %62 = getelementptr %struct.fw_cfg_file, ptr %22, i64 %indvars.iv
+  %62 = getelementptr [64 x i8], ptr %22, i64 %indvars.iv
   %63 = getelementptr i8, ptr %62, i64 -52
   %64 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %63) #20
   %65 = icmp slt i32 %64, 0
@@ -966,26 +963,26 @@ get_fw_cfg_order.exit:                            ; preds = %35, %45, %49
   %indvars.iv122 = phi i64 [ %72, %.lr.ph112 ], [ %indvars.iv.next123, %74 ]
   %75 = load ptr, ptr %13, align 8
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 4
-  %77 = getelementptr inbounds %struct.fw_cfg_file, ptr %76, i64 %indvars.iv122
+  %77 = getelementptr inbounds [64 x i8], ptr %76, i64 %indvars.iv122
   %indvars.iv.next123 = add nsw i64 %indvars.iv122, -1
-  %78 = getelementptr inbounds %struct.fw_cfg_file, ptr %76, i64 %indvars.iv.next123
+  %78 = getelementptr inbounds [64 x i8], ptr %76, i64 %indvars.iv.next123
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %77, ptr noundef nonnull align 4 dereferenceable(64) %78, i64 64, i1 false)
   %79 = add nsw i64 %indvars.iv122, 32
   %80 = trunc i64 %79 to i16
   %81 = tail call noundef i16 @llvm.bswap.i16(i16 %80)
   %82 = load ptr, ptr %13, align 8
-  %83 = getelementptr %struct.fw_cfg_file, ptr %82, i64 %indvars.iv122
+  %83 = getelementptr [64 x i8], ptr %82, i64 %indvars.iv122
   %84 = getelementptr i8, ptr %83, i64 8
   store i16 %81, ptr %84, align 4
   %85 = load ptr, ptr %70, align 16
-  %86 = getelementptr inbounds %struct.FWCfgEntry, ptr %85, i64 %79
-  %87 = getelementptr %struct.FWCfgEntry, ptr %85, i64 %indvars.iv122
+  %86 = getelementptr inbounds [40 x i8], ptr %85, i64 %79
+  %87 = getelementptr [40 x i8], ptr %85, i64 %indvars.iv122
   %88 = getelementptr i8, ptr %87, i64 1240
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %86, ptr noundef nonnull align 8 dereferenceable(40) %88, i64 40, i1 false)
   %89 = load ptr, ptr %71, align 16
-  %90 = getelementptr inbounds i32, ptr %89, i64 %indvars.iv.next123
+  %90 = getelementptr inbounds [4 x i8], ptr %89, i64 %indvars.iv.next123
   %91 = load i32, ptr %90, align 4
-  %92 = getelementptr inbounds i32, ptr %89, i64 %indvars.iv122
+  %92 = getelementptr inbounds [4 x i8], ptr %89, i64 %indvars.iv122
   store i32 %91, ptr %92, align 4
   %93 = icmp sgt i64 %indvars.iv.next123, %73
   br i1 %93, label %74, label %._crit_edge, !llvm.loop !12
@@ -996,16 +993,16 @@ get_fw_cfg_order.exit:                            ; preds = %35, %45, %49
   %.pre-phi = phi i64 [ %.pre128, %.critedge.._crit_edge_crit_edge ], [ %73, %74 ]
   %94 = load ptr, ptr %13, align 8
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 4
-  %96 = getelementptr inbounds %struct.fw_cfg_file, ptr %95, i64 %.pre-phi
+  %96 = getelementptr inbounds [64 x i8], ptr %95, i64 %.pre-phi
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(64) %96, i8 noundef 0, i64 noundef 64, i1 noundef false) #18
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %98 = load ptr, ptr %97, align 16
   %99 = add nsw i32 %.192135, 32
   %100 = sext i32 %99 to i64
-  %101 = getelementptr inbounds %struct.FWCfgEntry, ptr %98, i64 %100
+  %101 = getelementptr inbounds [40 x i8], ptr %98, i64 %100
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %101, i8 noundef 0, i64 noundef 40, i1 noundef false) #18
   %102 = load ptr, ptr %13, align 8
-  %103 = getelementptr %struct.fw_cfg_file, ptr %102, i64 %.pre-phi
+  %103 = getelementptr [64 x i8], ptr %102, i64 %.pre-phi
   %104 = getelementptr i8, ptr %103, i64 12
   tail call void @pstrcpy(ptr noundef %104, i32 noundef 56, ptr noundef %1) #18
   %.not96113 = icmp slt i32 %24, 0
@@ -1025,9 +1022,9 @@ get_fw_cfg_order.exit:                            ; preds = %35, %45, %49
 107:                                              ; preds = %.lr.ph116
   %108 = load ptr, ptr %13, align 8
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 4
-  %110 = getelementptr inbounds %struct.fw_cfg_file, ptr %109, i64 %.pre-phi
+  %110 = getelementptr inbounds [64 x i8], ptr %109, i64 %.pre-phi
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
-  %112 = getelementptr inbounds nuw %struct.fw_cfg_file, ptr %109, i64 %indvars.iv125
+  %112 = getelementptr inbounds nuw [64 x i8], ptr %109, i64 %indvars.iv125
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %114 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %111, ptr noundef nonnull dereferenceable(1) %113) #20
   %115 = icmp eq i32 %114, 0
@@ -1062,10 +1059,10 @@ get_fw_cfg_order.exit:                            ; preds = %35, %45, %49
   %126 = and i16 %118, 16383
   %.lobit.i = lshr i16 %118, 15
   %127 = zext nneg i16 %.lobit.i to i64
-  %128 = getelementptr inbounds nuw ptr, ptr %97, i64 %127
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %127
   %129 = load ptr, ptr %128, align 8
   %130 = zext nneg i16 %126 to i64
-  %131 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %129, i64 %130
+  %131 = getelementptr inbounds nuw [40 x i8], ptr %129, i64 %130
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 8
   %133 = load ptr, ptr %132, align 8
   %134 = icmp eq ptr %133, null
@@ -1079,42 +1076,42 @@ fw_cfg_add_bytes_callback.exit:                   ; preds = %125
   store ptr %5, ptr %132, align 8
   %136 = trunc nuw i64 %6 to i32
   %137 = load ptr, ptr %128, align 8
-  %138 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %137, i64 %130
+  %138 = getelementptr inbounds nuw [40 x i8], ptr %137, i64 %130
   store i32 %136, ptr %138, align 8
   %139 = load ptr, ptr %128, align 8
-  %140 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %139, i64 %130
+  %140 = getelementptr inbounds nuw [40 x i8], ptr %139, i64 %130
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 24
   store ptr %2, ptr %141, align 8
   %142 = load ptr, ptr %128, align 8
-  %143 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %142, i64 %130
+  %143 = getelementptr inbounds nuw [40 x i8], ptr %142, i64 %130
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 32
   store ptr %3, ptr %144, align 8
   %145 = load ptr, ptr %128, align 8
-  %146 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %145, i64 %130
+  %146 = getelementptr inbounds nuw [40 x i8], ptr %145, i64 %130
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 16
   store ptr %4, ptr %147, align 8
   %148 = xor i1 %7, true
   %149 = load ptr, ptr %128, align 8
-  %150 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %149, i64 %130
+  %150 = getelementptr inbounds nuw [40 x i8], ptr %149, i64 %130
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 4
   %152 = zext i1 %148 to i8
   store i8 %152, ptr %151, align 4
   %153 = tail call noundef i32 @llvm.bswap.i32(i32 %136)
   %154 = load ptr, ptr %13, align 8
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 4
-  %156 = getelementptr inbounds %struct.fw_cfg_file, ptr %155, i64 %.pre-phi
+  %156 = getelementptr inbounds [64 x i8], ptr %155, i64 %.pre-phi
   store i32 %153, ptr %156, align 4
   %157 = tail call noundef i16 @llvm.bswap.i16(i16 %118)
   %158 = load ptr, ptr %13, align 8
-  %159 = getelementptr %struct.fw_cfg_file, ptr %158, i64 %.pre-phi
+  %159 = getelementptr [64 x i8], ptr %158, i64 %.pre-phi
   %160 = getelementptr i8, ptr %159, i64 8
   store i16 %157, ptr %160, align 4
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 832
   %162 = load ptr, ptr %161, align 16
-  %163 = getelementptr inbounds i32, ptr %162, i64 %.pre-phi
+  %163 = getelementptr inbounds [4 x i8], ptr %162, i64 %.pre-phi
   store i32 %.0137, ptr %163, align 4
   %164 = load ptr, ptr %13, align 8
-  %165 = getelementptr %struct.fw_cfg_file, ptr %164, i64 %.pre-phi
+  %165 = getelementptr [64 x i8], ptr %164, i64 %.pre-phi
   %166 = getelementptr i8, ptr %165, i64 12
   %167 = load i32, ptr @trace_events_enabled_count, align 4
   %.not.i.i = icmp eq i32 %167, 0
@@ -1237,7 +1234,7 @@ define dso_local ptr @fw_cfg_modify_file(ptr noundef %0, ptr noundef %1, ptr nou
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %56
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %56 ]
-  %12 = getelementptr %struct.fw_cfg_file, ptr %6, i64 %indvars.iv
+  %12 = getelementptr [64 x i8], ptr %6, i64 %indvars.iv
   %13 = getelementptr i8, ptr %12, i64 12
   %14 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %13) #20
   %15 = icmp eq i32 %14, 0
@@ -1265,25 +1262,25 @@ fw_cfg_modify_bytes_read.exit:                    ; preds = %16
   %.lobit.i = lshr i16 %18, 15
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %28 = zext nneg i16 %.lobit.i to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8
   %31 = zext nneg i16 %19 to i64
-  %32 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [40 x i8], ptr %30, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load ptr, ptr %33, align 8
   store ptr %2, ptr %33, align 8
   %35 = trunc nuw i64 %3 to i32
   %36 = load ptr, ptr %29, align 8
-  %37 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %36, i64 %31
+  %37 = getelementptr inbounds nuw [40 x i8], ptr %36, i64 %31
   store i32 %35, ptr %37, align 8
   %38 = load ptr, ptr %29, align 8
-  %39 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %38, i64 %31
+  %39 = getelementptr inbounds nuw [40 x i8], ptr %38, i64 %31
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
   store i8 0, ptr %40, align 4
   %41 = tail call noundef i32 @llvm.bswap.i32(i32 %35)
   %42 = load ptr, ptr %5, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 4
-  %44 = getelementptr inbounds nuw %struct.fw_cfg_file, ptr %43, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [64 x i8], ptr %43, i64 %indvars.iv
   store i32 %41, ptr %44, align 4
   %45 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %1, ptr noundef nonnull dereferenceable(16) @.str.71) #20
   %.not.i = icmp eq i32 %45, 0
@@ -1633,11 +1630,11 @@ define internal i64 @fw_cfg_data_read(ptr noundef %0, i64 %1, i32 noundef %2) #1
   %.lobit = lshr i16 %6, 15
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %11 = zext nneg i16 %.lobit to i64
-  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = and i16 %6, 16383
   %15 = zext nneg i16 %14 to i64
-  %16 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %13, i64 %15
+  %16 = getelementptr inbounds nuw [40 x i8], ptr %13, i64 %15
   %17 = add i32 %2, -1
   %or.cond30 = icmp ult i32 %17, 8
   br i1 %or.cond30, label %19, label %18
@@ -1787,10 +1784,10 @@ define internal fastcc void @fw_cfg_select(ptr noundef initializes((848, 850), (
   %.lobit = lshr i16 %1, 15
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %14 = zext nneg i16 %.lobit to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = zext nneg i16 %5 to i64
-  %18 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [40 x i8], ptr %16, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load ptr, ptr %19, align 8
   %.not19 = icmp eq ptr %20, null
@@ -1817,7 +1814,7 @@ define internal fastcc void @fw_cfg_select(ptr noundef initializes((848, 850), (
 
 29:                                               ; preds = %27
   %30 = zext nneg i16 %1 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr @key_name.fw_cfg_wellknown_keys, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr @key_name.fw_cfg_wellknown_keys, i64 %30
   %32 = load ptr, ptr %31, align 8
   br label %trace_key_name.exit
 
@@ -1925,7 +1922,7 @@ define internal noundef i32 @fw_cfg_acpi_mr_restore_post_load(ptr noundef readon
 18:                                               ; preds = %.lr.ph, %81
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %81 ]
   %19 = load ptr, ptr %6, align 8
-  %20 = getelementptr %struct.fw_cfg_file, ptr %19, i64 %indvars.iv
+  %20 = getelementptr [64 x i8], ptr %19, i64 %indvars.iv
   %21 = getelementptr i8, ptr %20, i64 12
   %22 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(16) @.str.71) #20
   %.not21 = icmp eq i32 %22, 0
@@ -1952,10 +1949,10 @@ fw_cfg_update_mr.exit:                            ; preds = %23
   store i64 0, ptr %5, align 8, !annotation !7
   %.lobit.i = lshr i16 %25, 15
   %33 = zext nneg i16 %.lobit.i to i64
-  %34 = getelementptr inbounds nuw ptr, ptr %15, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %33
   %35 = load ptr, ptr %34, align 8
   %36 = zext nneg i16 %27 to i64
-  %37 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [40 x i8], ptr %35, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = call ptr @memory_region_from_host(ptr noundef %39, ptr noundef nonnull %5) #18
@@ -1989,10 +1986,10 @@ fw_cfg_update_mr.exit26:                          ; preds = %43
   store i64 0, ptr %4, align 8, !annotation !7
   %.lobit.i25 = lshr i16 %45, 15
   %53 = zext nneg i16 %.lobit.i25 to i64
-  %54 = getelementptr inbounds nuw ptr, ptr %15, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %53
   %55 = load ptr, ptr %54, align 8
   %56 = zext nneg i16 %47 to i64
-  %57 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %55, i64 %56
+  %57 = getelementptr inbounds nuw [40 x i8], ptr %55, i64 %56
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load ptr, ptr %58, align 8
   %60 = call ptr @memory_region_from_host(ptr noundef %59, ptr noundef nonnull %4) #18
@@ -2026,10 +2023,10 @@ fw_cfg_update_mr.exit29:                          ; preds = %63
   store i64 0, ptr %3, align 8, !annotation !7
   %.lobit.i28 = lshr i16 %65, 15
   %73 = zext nneg i16 %.lobit.i28 to i64
-  %74 = getelementptr inbounds nuw ptr, ptr %15, i64 %73
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %73
   %75 = load ptr, ptr %74, align 8
   %76 = zext nneg i16 %67 to i64
-  %77 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %75, i64 %76
+  %77 = getelementptr inbounds nuw [40 x i8], ptr %75, i64 %76
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %79 = load ptr, ptr %78, align 8
   %80 = call ptr @memory_region_from_host(ptr noundef %79, ptr noundef nonnull %3) #18
@@ -2560,11 +2557,11 @@ define internal fastcc void @fw_cfg_dma_transfer(ptr noundef %0) unnamed_addr #1
   %.lobit = lshr i16 %29, 15
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %33 = zext nneg i16 %.lobit to i64
-  %34 = getelementptr inbounds nuw ptr, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %33
   %35 = load ptr, ptr %34, align 8
   %36 = and i16 %29, 16383
   %37 = zext nneg i16 %36 to i64
-  %38 = getelementptr inbounds nuw %struct.FWCfgEntry, ptr %35, i64 %37
+  %38 = getelementptr inbounds nuw [40 x i8], ptr %35, i64 %37
   br label %39
 
 39:                                               ; preds = %27, %31

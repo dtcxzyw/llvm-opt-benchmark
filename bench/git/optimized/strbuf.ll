@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.strbuf = type { i64, i64, ptr }
-%struct.string_list_item = type { ptr, ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 @strbuf_slopbuf = dso_local global [1 x i8] zeroinitializer, align 1
@@ -842,7 +841,7 @@ st_mult.exit:                                     ; preds = %25
 32:                                               ; preds = %st_mult.exit, %strbuf_init.exit
   %.147 = phi ptr [ %31, %st_mult.exit ], [ %.04669, %strbuf_init.exit ]
   %.2 = phi i64 [ %., %st_mult.exit ], [ %.04371, %strbuf_init.exit ]
-  %33 = getelementptr inbounds nuw ptr, ptr %.147, i64 %.04570
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %.147, i64 %.04570
   store ptr %16, ptr %33, align 8, !tbaa !22
   %34 = getelementptr inbounds i8, ptr %.073, i64 %17
   %35 = sub i64 %.04272, %17
@@ -876,7 +875,7 @@ st_mult.exit61:                                   ; preds = %38
 
 45:                                               ; preds = %st_mult.exit61, %._crit_edge
   %.248 = phi ptr [ %44, %st_mult.exit61 ], [ %.046.lcssa, %._crit_edge ]
-  %46 = getelementptr inbounds nuw ptr, ptr %.248, i64 %.045.lcssa
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %.248, i64 %.045.lcssa
   store ptr null, ptr %46, align 8, !tbaa !22
   ret ptr %.248
 }
@@ -981,7 +980,7 @@ define dso_local void @strbuf_add_separated_string_list(ptr noundef captures(non
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %2, align 8, !tbaa !25
   %7 = load i64, ptr %5, align 8, !tbaa !29
-  %8 = getelementptr inbounds nuw %struct.string_list_item, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %7
   %9 = icmp ult ptr %4, %8
   br i1 %9, label %.lr.ph18, label %.critedge
 
@@ -1002,7 +1001,7 @@ define dso_local void @strbuf_add_separated_string_list(ptr noundef captures(non
   %15 = getelementptr inbounds nuw i8, ptr %.0101317, i64 16
   %16 = load ptr, ptr %2, align 8, !tbaa !25
   %17 = load i64, ptr %5, align 8, !tbaa !29
-  %18 = getelementptr inbounds nuw %struct.string_list_item, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %17
   %19 = icmp ult ptr %15, %18
   br i1 %19, label %.lr.ph18, label %.critedge
 

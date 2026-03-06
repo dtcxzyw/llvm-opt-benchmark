@@ -11,7 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.hashmap_iter = type { ptr, ptr, i32 }
 %struct.string_list = type { ptr, i64, i64, i8, ptr }
 %struct.object_id = type { [32 x i8], i32 }
-%struct.write_transaction_table_arg = type { ptr, ptr, ptr, ptr, i64, i64, i64, i32 }
 %struct.write_copy_arg = type { ptr, ptr, ptr, ptr, ptr, i32 }
 %struct.reftable_iterator = type { ptr, ptr }
 %struct.reftable_log_record = type { ptr, i64, i64, i32, %union.anon.0 }
@@ -22,7 +21,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.reflog_expiry_arg = type { ptr, ptr, ptr, %struct.object_id, ptr, i64 }
 %struct.reftable_ref_record = type { ptr, i64, i64, i32, %union.anon }
 %union.anon = type { ptr, [56 x i8] }
-%struct.reftable_transaction_update = type { ptr, %struct.object_id }
 %struct.ident_split = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [9 x i8] c"reftable\00", align 1
@@ -607,7 +605,7 @@ reftable_be_downcast.exit:                        ; preds = %15
 30:                                               ; preds = %.lr.ph, %45
   %.0160358 = phi i64 [ 0, %.lr.ph ], [ %46, %45 ]
   %31 = load ptr, ptr %27, align 8, !tbaa !81
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %.0160358
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %.0160358
   %33 = load ptr, ptr %32, align 8, !tbaa !82
   %34 = call fastcc i32 @prepare_transaction_update(ptr noundef null, ptr noundef nonnull %0, ptr noundef %24, ptr noundef %33, ptr noundef %2)
   %.not220 = icmp eq i32 %34, 0
@@ -615,7 +613,7 @@ reftable_be_downcast.exit:                        ; preds = %15
 
 35:                                               ; preds = %30
   %36 = load ptr, ptr %27, align 8, !tbaa !81
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %.0160358
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %.0160358
   %38 = load ptr, ptr %37, align 8, !tbaa !82
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 88
   %40 = load i32, ptr %39, align 8, !tbaa !54
@@ -637,12 +635,12 @@ reftable_be_downcast.exit:                        ; preds = %15
 .lr.ph360:                                        ; preds = %.lr.ph360.preheader, %.lr.ph360
   %49 = phi ptr [ %54, %.lr.ph360 ], [ %.pre, %.lr.ph360.preheader ]
   %.1359 = phi i64 [ %60, %.lr.ph360 ], [ 0, %.lr.ph360.preheader ]
-  %50 = getelementptr inbounds nuw %struct.write_transaction_table_arg, ptr %49, i64 %.1359
+  %50 = getelementptr inbounds nuw [64 x i8], ptr %49, i64 %.1359
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 48
   %52 = load i64, ptr %51, align 8, !tbaa !85
   %53 = call ptr @xcalloc(i64 noundef %52, i64 noundef 48) #20
   %54 = load ptr, ptr %24, align 8, !tbaa !80
-  %55 = getelementptr inbounds nuw %struct.write_transaction_table_arg, ptr %54, i64 %.1359
+  %55 = getelementptr inbounds nuw [64 x i8], ptr %54, i64 %.1359
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 24
   store ptr %53, ptr %56, align 8, !tbaa !91
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 48
@@ -689,7 +687,7 @@ reftable_be_downcast.exit:                        ; preds = %15
 78:                                               ; preds = %.lr.ph362, %249
   %.2361 = phi i64 [ 0, %.lr.ph362 ], [ %250, %249 ]
   %79 = load ptr, ptr %71, align 8, !tbaa !81
-  %80 = getelementptr inbounds nuw ptr, ptr %79, i64 %.2361
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %.2361
   %81 = load ptr, ptr %80, align 8, !tbaa !82
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %10, i8 0, i64 36, i1 false)
@@ -1128,12 +1126,12 @@ _.exit264:                                        ; preds = %231, %232
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %.010.i = phi i64 [ %267, %.lr.ph.i ], [ 0, %.preheader.i ]
   %259 = load ptr, ptr %24, align 8, !tbaa !80
-  %260 = getelementptr inbounds nuw %struct.write_transaction_table_arg, ptr %259, i64 %.010.i
+  %260 = getelementptr inbounds nuw [64 x i8], ptr %259, i64 %.010.i
   %261 = getelementptr inbounds nuw i8, ptr %260, i64 16
   %262 = load ptr, ptr %261, align 8, !tbaa !101
   call void @reftable_addition_destroy(ptr noundef %262) #20
   %263 = load ptr, ptr %24, align 8, !tbaa !80
-  %264 = getelementptr inbounds nuw %struct.write_transaction_table_arg, ptr %263, i64 %.010.i
+  %264 = getelementptr inbounds nuw [64 x i8], ptr %263, i64 %.010.i
   %265 = getelementptr inbounds nuw i8, ptr %264, i64 24
   %266 = load ptr, ptr %265, align 8, !tbaa !91
   call void @free(ptr noundef %266) #20
@@ -1203,7 +1201,7 @@ define internal range(i32 -1, 1) i32 @reftable_be_transaction_finish(ptr readnon
   %.02232 = phi i64 [ 0, %.lr.ph ], [ %10, %9 ]
   %14 = load i32, ptr %8, align 4, !tbaa !104
   %15 = load ptr, ptr %5, align 8, !tbaa !80
-  %16 = getelementptr inbounds nuw %struct.write_transaction_table_arg, ptr %15, i64 %.02232
+  %16 = getelementptr inbounds nuw [64 x i8], ptr %15, i64 %.02232
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 56
   store i32 %14, ptr %17, align 8, !tbaa !105
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 16
@@ -1214,7 +1212,7 @@ define internal range(i32 -1, 1) i32 @reftable_be_transaction_finish(ptr readnon
 
 22:                                               ; preds = %13
   %23 = load ptr, ptr %5, align 8, !tbaa !80
-  %24 = getelementptr inbounds nuw %struct.write_transaction_table_arg, ptr %23, i64 %.02232
+  %24 = getelementptr inbounds nuw [64 x i8], ptr %23, i64 %.02232
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %26 = load ptr, ptr %25, align 8, !tbaa !101
   %27 = tail call i32 @reftable_addition_commit(ptr noundef %26) #20
@@ -1235,12 +1233,12 @@ define internal range(i32 -1, 1) i32 @reftable_be_transaction_finish(ptr readnon
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %.010.i = phi i64 [ %38, %.lr.ph.i ], [ 0, %.preheader.i ]
   %30 = load ptr, ptr %5, align 8, !tbaa !80
-  %31 = getelementptr inbounds nuw %struct.write_transaction_table_arg, ptr %30, i64 %.010.i
+  %31 = getelementptr inbounds nuw [64 x i8], ptr %30, i64 %.010.i
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load ptr, ptr %32, align 8, !tbaa !101
   tail call void @reftable_addition_destroy(ptr noundef %33) #20
   %34 = load ptr, ptr %5, align 8, !tbaa !80
-  %35 = getelementptr inbounds nuw %struct.write_transaction_table_arg, ptr %34, i64 %.010.i
+  %35 = getelementptr inbounds nuw [64 x i8], ptr %34, i64 %.010.i
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8, !tbaa !91
   tail call void @free(ptr noundef %37) #20
@@ -1301,12 +1299,12 @@ define internal noundef i32 @reftable_be_transaction_abort(ptr readnone captures
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %.010.i = phi i64 [ %17, %.lr.ph.i ], [ 0, %.preheader.i ]
   %9 = load ptr, ptr %5, align 8, !tbaa !80
-  %10 = getelementptr inbounds nuw %struct.write_transaction_table_arg, ptr %9, i64 %.010.i
+  %10 = getelementptr inbounds nuw [64 x i8], ptr %9, i64 %.010.i
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !101
   tail call void @reftable_addition_destroy(ptr noundef %12) #20
   %13 = load ptr, ptr %5, align 8, !tbaa !80
-  %14 = getelementptr inbounds nuw %struct.write_transaction_table_arg, ptr %13, i64 %.010.i
+  %14 = getelementptr inbounds nuw [64 x i8], ptr %13, i64 %.010.i
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8, !tbaa !91
   tail call void @free(ptr noundef %16) #20
@@ -1903,7 +1901,7 @@ st_mult.exit.us:                                  ; preds = %40
 46:                                               ; preds = %st_mult.exit.us, %37
   %.450.us = phi ptr [ %45, %st_mult.exit.us ], [ %.14793.us108, %37 ]
   %.345.us = phi i64 [ %..us, %st_mult.exit.us ], [ %.04294.us107, %37 ]
-  %47 = getelementptr inbounds nuw %struct.reftable_log_record, ptr %.450.us, i64 %.13995.us106
+  %47 = getelementptr inbounds nuw [144 x i8], ptr %.450.us, i64 %.13995.us106
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %47, ptr noundef nonnull align 8 dereferenceable(144) %8, i64 144, i1 false), !tbaa.struct !124
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -1940,7 +1938,7 @@ st_mult.exit.us:                                  ; preds = %40
 52:                                               ; preds = %.lr.ph115, %51
   %.036114 = phi i64 [ %.13995.us106, %.lr.ph115 ], [ %53, %51 ]
   %53 = add i64 %.036114, -1
-  %54 = getelementptr inbounds nuw %struct.reftable_log_record, ptr %.14793.us108, i64 %53
+  %54 = getelementptr inbounds nuw [144 x i8], ptr %.14793.us108, i64 %53
   %.val = load ptr, ptr %50, align 8, !tbaa !95
   %55 = getelementptr i8, ptr %.val, i64 400
   %.val.val = load ptr, ptr %55, align 8, !tbaa !26
@@ -1967,7 +1965,7 @@ st_mult.exit.us:                                  ; preds = %40
 
 .lr.ph120:                                        ; preds = %.loopexit, %.lr.ph120
   %.137119 = phi i64 [ %58, %.lr.ph120 ], [ 0, %.loopexit ]
-  %57 = getelementptr inbounds nuw %struct.reftable_log_record, ptr %.046, i64 %.137119
+  %57 = getelementptr inbounds nuw [144 x i8], ptr %.046, i64 %.137119
   call void @reftable_log_record_release(ptr noundef %57) #20
   %58 = add nuw i64 %.137119, 1
   %exitcond.not = icmp eq i64 %58, %.038
@@ -2424,7 +2422,7 @@ reftable_be_downcast.exit:                        ; preds = %24
 
 77:                                               ; preds = %.preheader239, %79
   %.0811.i.i = phi i64 [ %80, %79 ], [ 0, %.preheader239 ]
-  %78 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
+  %78 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i = icmp eq ptr %70, %78
   br i1 %.not.i.i, label %.split.loop.exit9.i.i, label %79
 
@@ -2454,7 +2452,7 @@ oidread.exit:                                     ; preds = %79, %.split.loop.ex
 
 85:                                               ; preds = %.preheader238, %87
   %.0811.i.i114 = phi i64 [ %88, %87 ], [ 0, %.preheader238 ]
-  %86 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i114
+  %86 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i114
   %.not.i.i115 = icmp eq ptr %70, %86
   br i1 %.not.i.i115, label %.split.loop.exit9.i.i118, label %87
 
@@ -2508,7 +2506,7 @@ st_mult.exit:                                     ; preds = %95
 102:                                              ; preds = %st_mult.exit, %92
   %.393 = phi ptr [ %101, %st_mult.exit ], [ %.191165, %92 ]
   %.3 = phi i64 [ %., %st_mult.exit ], [ %.082167, %92 ]
-  %103 = getelementptr inbounds nuw %struct.reftable_log_record, ptr %.393, i64 %.185166
+  %103 = getelementptr inbounds nuw [144 x i8], ptr %.393, i64 %.185166
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %103, ptr noundef nonnull align 8 dereferenceable(144) %16, i64 144, i1 false), !tbaa.struct !124
   br label %104
 
@@ -2547,10 +2545,10 @@ st_mult.exit:                                     ; preds = %95
   %.in = phi i64 [ %.185166, %.lr.ph172 ], [ %114, %163 ]
   %.087171 = phi ptr [ null, %.lr.ph172 ], [ %.188, %163 ]
   %114 = add i64 %.in, -1
-  %115 = getelementptr inbounds nuw %struct.reftable_log_record, ptr %108, i64 %114
+  %115 = getelementptr inbounds nuw [144 x i8], ptr %108, i64 %114
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
-  %116 = getelementptr inbounds nuw %struct.reftable_log_record, ptr %.191165, i64 %114
+  %116 = getelementptr inbounds nuw [144 x i8], ptr %.191165, i64 %114
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %115, ptr noundef nonnull align 8 dereferenceable(144) %116, i64 144, i1 false), !tbaa.struct !124
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 32
   %118 = getelementptr inbounds nuw i8, ptr %116, i64 64
@@ -2575,7 +2573,7 @@ st_mult.exit:                                     ; preds = %95
 
 129:                                              ; preds = %.preheader235, %131
   %.0811.i.i123 = phi i64 [ %132, %131 ], [ 0, %.preheader235 ]
-  %130 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i123
+  %130 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i123
   %.not.i.i124 = icmp eq ptr %121, %130
   br i1 %.not.i.i124, label %.split.loop.exit9.i.i127, label %131
 
@@ -2610,7 +2608,7 @@ oidread.exit128:                                  ; preds = %131, %.split.loop.e
 
 142:                                              ; preds = %.preheader234, %144
   %.0811.i.i129 = phi i64 [ %145, %144 ], [ 0, %.preheader234 ]
-  %143 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i129
+  %143 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i129
   %.not.i.i130 = icmp eq ptr %134, %143
   br i1 %.not.i.i130, label %.split.loop.exit9.i.i133, label %144
 
@@ -2695,7 +2693,7 @@ oidread.exit134:                                  ; preds = %144, %.split.loop.e
 
 179:                                              ; preds = %.preheader, %181
   %.0811.i.i137 = phi i64 [ %182, %181 ], [ 0, %.preheader ]
-  %180 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i137
+  %180 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i137
   %.not.i.i138 = icmp eq ptr %172, %180
   br i1 %.not.i.i138, label %.split.loop.exit9.i.i141, label %181
 
@@ -2762,7 +2760,7 @@ oidread.exit142:                                  ; preds = %181, %.split.loop.e
 
 .lr.ph176:                                        ; preds = %202, %.lr.ph176
   %.1174 = phi i64 [ %205, %.lr.ph176 ], [ 0, %202 ]
-  %204 = getelementptr inbounds nuw %struct.reftable_log_record, ptr %.090, i64 %.1174
+  %204 = getelementptr inbounds nuw [144 x i8], ptr %.090, i64 %.1174
   call void @reftable_log_record_release(ptr noundef %204) #20
   %205 = add nuw i64 %.1174, 1
   %exitcond.not = icmp eq i64 %205, %.084
@@ -3020,7 +3018,7 @@ select.unfold.preheader:                          ; preds = %5
 
 select.unfold:                                    ; preds = %13
   %14 = load ptr, ptr %2, align 8, !tbaa !80
-  %15 = getelementptr inbounds nuw %struct.write_transaction_table_arg, ptr %14, i64 %.04666
+  %15 = getelementptr inbounds nuw [64 x i8], ptr %14, i64 %.04666
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !158
   %18 = icmp ne ptr %17, %12
@@ -3092,7 +3090,7 @@ st_mult.exit:                                     ; preds = %32
   %41 = phi i64 [ %27, %._crit_edge ], [ %.pre67, %st_mult.exit ]
   %42 = phi ptr [ %.pre, %._crit_edge ], [ %39, %st_mult.exit ]
   store i64 %.pre-phi, ptr %10, align 8, !tbaa !77
-  %43 = getelementptr inbounds nuw %struct.write_transaction_table_arg, ptr %42, i64 %41
+  %43 = getelementptr inbounds nuw [64 x i8], ptr %42, i64 %41
   store ptr %1, ptr %43, align 8, !tbaa !160
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store ptr %12, ptr %44, align 8, !tbaa !158
@@ -3330,7 +3328,7 @@ strbuf_setlen.exit:                               ; preds = %23, %27
 42:                                               ; preds = %35, %38
   %.0 = phi i64 [ 2, %38 ], [ 1, %35 ]
   %43 = call ptr @reftable_ref_record_val1(ptr noundef nonnull %6) #20
-  %44 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0
+  %44 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load i64, ptr %45, align 16, !tbaa !137
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %2, ptr readonly align 1 %43, i64 %46, i1 false)
@@ -3459,7 +3457,7 @@ st_mult.exit:                                     ; preds = %21
   %31 = phi i64 [ %16, %._crit_edge ], [ %.pre14, %st_mult.exit ]
   %32 = phi ptr [ %.pre, %._crit_edge ], [ %29, %st_mult.exit ]
   %33 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %34 = getelementptr inbounds nuw %struct.reftable_transaction_update, ptr %32, i64 %31
+  %34 = getelementptr inbounds nuw [48 x i8], ptr %32, i64 %31
   store ptr %2, ptr %34, align 8, !tbaa !168
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %35, ptr noundef nonnull readonly align 4 dereferenceable(32) %3, i64 32, i1 false)
@@ -3471,7 +3469,7 @@ st_mult.exit:                                     ; preds = %21
   %40 = load i64, ptr %15, align 8, !tbaa !167
   %41 = add i64 %40, 1
   store i64 %41, ptr %15, align 8, !tbaa !167
-  %42 = getelementptr inbounds nuw %struct.reftable_transaction_update, ptr %39, i64 %40
+  %42 = getelementptr inbounds nuw [48 x i8], ptr %39, i64 %40
   store ptr %42, ptr %7, align 8, !tbaa !57
   br label %43
 
@@ -3599,7 +3597,7 @@ sane_qsort.exit:                                  ; preds = %20, %25
   %.0150300 = phi i64 [ 0, %.lr.ph304 ], [ %221, %.thread220 ]
   %.0152299 = phi i32 [ 0, %.lr.ph304 ], [ %.5157226, %.thread220 ]
   %51 = load ptr, ptr %21, align 8, !tbaa !91
-  %52 = getelementptr inbounds nuw %struct.reftable_transaction_update, ptr %51, i64 %.0150300
+  %52 = getelementptr inbounds nuw [48 x i8], ptr %51, i64 %.0150300
   %53 = load ptr, ptr %52, align 8, !tbaa !168
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 88
   %55 = load i32, ptr %54, align 8, !tbaa !54
@@ -3685,7 +3683,7 @@ st_mult.exit.us:                                  ; preds = %81
 87:                                               ; preds = %st_mult.exit.us, %78
   %.6145.us = phi i64 [ %..us, %st_mult.exit.us ], [ %.2141258.us293, %78 ]
   %.5.us = phi ptr [ %86, %st_mult.exit.us ], [ %.2260.us291, %78 ]
-  %88 = getelementptr inbounds nuw %struct.reftable_log_record, ptr %.5.us, i64 %.2132259.us292
+  %88 = getelementptr inbounds nuw [144 x i8], ptr %.5.us, i64 %.2132259.us292
   %89 = call ptr @xstrdup(ptr noundef nonnull %69) #20
   store ptr %89, ptr %88, align 8, !tbaa !123
   %90 = getelementptr inbounds nuw i8, ptr %88, i64 24
@@ -3798,7 +3796,7 @@ st_mult.exit203:                                  ; preds = %121
 128:                                              ; preds = %st_mult.exit203, %.critedge
   %.11 = phi i64 [ %.195, %st_mult.exit203 ], [ %.0139301, %.critedge ]
   %.9 = phi ptr [ %127, %st_mult.exit203 ], [ %.0123303, %.critedge ]
-  %129 = getelementptr inbounds nuw %struct.reftable_log_record, ptr %.9, i64 %.0130302
+  %129 = getelementptr inbounds nuw [144 x i8], ptr %.9, i64 %.0130302
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %129, i8 0, i64 144, i1 false)
   %130 = getelementptr inbounds nuw i8, ptr %53, i64 120
   %131 = load ptr, ptr %130, align 8, !tbaa !96
@@ -4010,7 +4008,7 @@ st_mult.exit203:                                  ; preds = %121
 
 .lr.ph309:                                        ; preds = %.loopexit, %.lr.ph309
   %.1151307 = phi i64 [ %228, %.lr.ph309 ], [ 0, %.loopexit ]
-  %227 = getelementptr inbounds nuw %struct.reftable_log_record, ptr %.10, i64 %.1151307
+  %227 = getelementptr inbounds nuw [144 x i8], ptr %.10, i64 %.1151307
   call void @reftable_log_record_release(ptr noundef %227) #20
   %228 = add nuw i64 %.1151307, 1
   %exitcond.not = icmp eq i64 %228, %.8138
@@ -4397,7 +4395,7 @@ st_mult.exit:                                     ; preds = %81
   %160 = phi i64 [ 1, %st_mult.exit ], [ %156, %.thread232 ]
   %.3173237 = phi i64 [ 0, %st_mult.exit ], [ %.1171.ph, %.thread232 ]
   %.6182 = phi ptr [ %158, %st_mult.exit ], [ %83, %.thread232 ]
-  %161 = getelementptr inbounds nuw %struct.reftable_log_record, ptr %.6182, i64 %.3173237
+  %161 = getelementptr inbounds nuw [144 x i8], ptr %.6182, i64 %.3173237
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %161, i8 0, i64 144, i1 false)
   call void @reftable_log_record_release(ptr noundef nonnull %161) #20
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 24
@@ -4529,7 +4527,7 @@ st_mult.exit226:                                  ; preds = %234
 241:                                              ; preds = %st_mult.exit226, %231
   %.8184 = phi ptr [ %240, %st_mult.exit226 ], [ %.7183248, %231 ]
   %.11 = phi i64 [ %., %st_mult.exit226 ], [ %.9250, %231 ]
-  %242 = getelementptr inbounds nuw %struct.reftable_log_record, ptr %.8184, i64 %.4174249
+  %242 = getelementptr inbounds nuw [144 x i8], ptr %.8184, i64 %.4174249
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %242, ptr noundef nonnull align 8 dereferenceable(144) %5, i64 144, i1 false), !tbaa.struct !124
   %243 = load ptr, ptr %43, align 8, !tbaa !114
   %244 = call ptr @xstrdup(ptr noundef %243) #20
@@ -4563,7 +4561,7 @@ st_mult.exit229:                                  ; preds = %249
 256:                                              ; preds = %st_mult.exit229, %246
   %.10186 = phi ptr [ %255, %st_mult.exit229 ], [ %.8184, %246 ]
   %.14 = phi i64 [ %.216, %st_mult.exit229 ], [ %.11, %246 ]
-  %257 = getelementptr inbounds nuw %struct.reftable_log_record, ptr %.10186, i64 %232
+  %257 = getelementptr inbounds nuw [144 x i8], ptr %.10186, i64 %232
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %257, i8 0, i64 144, i1 false)
   %258 = load ptr, ptr %22, align 8, !tbaa !113
   %259 = call ptr @xstrdup(ptr noundef %258) #20
@@ -4596,7 +4594,7 @@ st_mult.exit229:                                  ; preds = %249
 
 .lr.ph254:                                        ; preds = %.loopexit, %.lr.ph254
   %.0167253 = phi i64 [ %267, %.lr.ph254 ], [ 0, %.loopexit ]
-  %266 = getelementptr inbounds nuw %struct.reftable_log_record, ptr %.0176, i64 %.0167253
+  %266 = getelementptr inbounds nuw [144 x i8], ptr %.0176, i64 %.0167253
   call void @reftable_log_record_release(ptr noundef %266) #20
   %267 = add nuw i64 %.0167253, 1
   %exitcond.not = icmp eq i64 %267, %.0170
@@ -4707,7 +4705,7 @@ st_mult.exit.i:                                   ; preds = %30
   %.346.i = phi i64 [ %..i, %st_mult.exit.i ], [ %.04382.i, %.critedge.i ]
   %.2.i = phi ptr [ %36, %st_mult.exit.i ], [ %.04183.i, %.critedge.i ]
   %38 = tail call ptr @xstrdup(ptr noundef nonnull %18) #20
-  %39 = getelementptr inbounds nuw ptr, ptr %.2.i, i64 %.04881.i
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %.2.i, i64 %.04881.i
   store ptr %38, ptr %39, align 8, !tbaa !96
   br label %.loopexit.i
 
@@ -4716,7 +4714,7 @@ st_mult.exit.i:                                   ; preds = %30
   %.144.ph.i = phi i64 [ %.346.i, %37 ], [ %.04382.i, %.lr.ph.i ]
   %.142.ph.i = phi ptr [ %.2.i, %37 ], [ %.04183.i, %.lr.ph.i ]
   %40 = add i64 %.03984.i, 1
-  %41 = getelementptr inbounds nuw ptr, ptr %3, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !96
   %.not57.i = icmp eq ptr %42, null
   br i1 %.not57.i, label %._crit_edge.i, label %.preheader.i
@@ -4755,7 +4753,7 @@ st_mult.exit65.i:                                 ; preds = %46
 
 53:                                               ; preds = %st_mult.exit65.i, %sane_qsort.exit.i
   %.4.i = phi ptr [ %52, %st_mult.exit65.i ], [ %.142.ph.i, %sane_qsort.exit.i ]
-  %54 = getelementptr inbounds nuw ptr, ptr %.4.i, i64 %.149.ph.i
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %.4.i, i64 %.149.ph.i
   store ptr null, ptr %54, align 8, !tbaa !96
   br label %filter_exclude_patterns.exit
 
@@ -4868,7 +4866,7 @@ define internal range(i32 -2, 1) i32 @reftable_ref_iterator_advance(ptr noundef 
 
 40:                                               ; preds = %38
   %.promoted.i = load i64, ptr %13, align 8, !tbaa !197
-  %41 = getelementptr inbounds nuw ptr, ptr %39, i64 %.promoted.i
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %.promoted.i
   %42 = load ptr, ptr %41, align 8, !tbaa !96
   %.not33.i = icmp eq ptr %42, null
   br i1 %.not33.i, label %should_exclude_current_ref.exit.thread, label %.lr.ph.i
@@ -4904,7 +4902,7 @@ define internal range(i32 -2, 1) i32 @reftable_ref_iterator_advance(ptr noundef 
   %57 = add i64 %47, 1
   store i64 %57, ptr %13, align 8, !tbaa !197
   store i64 0, ptr %14, align 8, !tbaa !198
-  %58 = getelementptr inbounds nuw ptr, ptr %39, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %57
   %59 = load ptr, ptr %58, align 8, !tbaa !96
   %.not.i = icmp eq ptr %59, null
   br i1 %.not.i, label %should_exclude_current_ref.exit.thread, label %44
@@ -4963,7 +4961,7 @@ should_exclude_current_ref.exit.thread:           ; preds = %56, %40, %54, %38
 
 82:                                               ; preds = %.preheader, %84
   %.0811.i.i = phi i64 [ %85, %84 ], [ 0, %.preheader ]
-  %83 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
+  %83 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i = icmp eq ptr %74, %83
   br i1 %.not.i.i, label %.split.loop.exit9.i.i, label %84
 
@@ -4998,7 +4996,7 @@ should_exclude_current_ref.exit.thread:           ; preds = %56, %40, %54, %38
 
 98:                                               ; preds = %.preheader216, %100
   %.0811.i.i82 = phi i64 [ %101, %100 ], [ 0, %.preheader216 ]
-  %99 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i82
+  %99 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i82
   %.not.i.i83 = icmp eq ptr %90, %99
   br i1 %.not.i.i83, label %.split.loop.exit9.i.i86, label %100
 
@@ -5027,7 +5025,7 @@ should_exclude_current_ref.exit.thread:           ; preds = %56, %40, %54, %38
 
 111:                                              ; preds = %113, %107
   %.0811.i.i88 = phi i64 [ 0, %107 ], [ %114, %113 ]
-  %112 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i88
+  %112 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i88
   %.not.i.i89 = icmp eq ptr %110, %112
   br i1 %.not.i.i89, label %.split.loop.exit9.i.i92, label %113
 
@@ -5093,7 +5091,7 @@ should_exclude_current_ref.exit.thread:           ; preds = %56, %40, %54, %38
 
 134:                                              ; preds = %136, %130
   %.0811.i.i94 = phi i64 [ 0, %130 ], [ %137, %136 ]
-  %135 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i94
+  %135 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i94
   %.not.i.i95 = icmp eq ptr %133, %135
   br i1 %.not.i.i95, label %.split.loop.exit9.i.i98, label %136
 
@@ -5223,7 +5221,7 @@ define internal range(i32 -1, 1) i32 @reftable_ref_iterator_peel(ptr noundef rea
 
 21:                                               ; preds = %.preheader, %23
   %.0811.i.i = phi i64 [ %24, %23 ], [ 0, %.preheader ]
-  %22 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
+  %22 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i = icmp eq ptr %13, %22
   br i1 %.not.i.i, label %.split.loop.exit9.i.i, label %23
 
@@ -5274,7 +5272,7 @@ define internal noundef i32 @reftable_ref_iterator_abort(ptr noundef %0) #0 {
   tail call void @free(ptr noundef nonnull %7) #20
   %8 = add i64 %.013, 1
   %9 = load ptr, ptr %4, align 8, !tbaa !193
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %8
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %8
   %11 = load ptr, ptr %10, align 8, !tbaa !96
   %.not11 = icmp eq ptr %11, null
   br i1 %.not11, label %._crit_edge, label %.lr.ph, !llvm.loop !203
@@ -5442,7 +5440,7 @@ define internal fastcc i32 @yield_log_record(ptr readonly captures(address) %.8.
 
 14:                                               ; preds = %.preheader13, %16
   %.0811.i.i = phi i64 [ %17, %16 ], [ 0, %.preheader13 ]
-  %15 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
+  %15 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i = icmp eq ptr %.8.val.400.val, %15
   br i1 %.not.i.i, label %.split.loop.exit9.i.i, label %16
 
@@ -5473,7 +5471,7 @@ oidread.exit:                                     ; preds = %16, %.split.loop.ex
 
 23:                                               ; preds = %.preheader, %25
   %.0811.i.i13 = phi i64 [ %26, %25 ], [ 0, %.preheader ]
-  %24 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i13
+  %24 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i13
   %.not.i.i14 = icmp eq ptr %.8.val.400.val, %24
   br i1 %.not.i.i14, label %.split.loop.exit9.i.i17, label %25
 
@@ -5650,7 +5648,7 @@ define internal i32 @write_reflog_expiry_table(ptr noundef %0, ptr noundef %1) #
 13:                                               ; preds = %.lr.ph, %13
   %.03851 = phi i64 [ 0, %.lr.ph ], [ %19, %13 ]
   %.04050 = phi i64 [ 0, %.lr.ph ], [ %spec.select, %13 ]
-  %14 = getelementptr inbounds nuw %struct.reftable_log_record, ptr %12, i64 %.03851
+  %14 = getelementptr inbounds nuw [144 x i8], ptr %12, i64 %.03851
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load i32, ptr %15, align 8, !tbaa !141
   %17 = icmp eq i32 %16, 1
@@ -5740,7 +5738,7 @@ define internal i32 @write_reflog_expiry_table(ptr noundef %0, ptr noundef %1) #
 .lr.ph54:                                         ; preds = %46, %49
   %.13952 = phi i64 [ %50, %49 ], [ 0, %46 ]
   %53 = load ptr, ptr %47, align 8, !tbaa !146
-  %54 = getelementptr inbounds nuw %struct.reftable_log_record, ptr %53, i64 %.13952
+  %54 = getelementptr inbounds nuw [144 x i8], ptr %53, i64 %.13952
   %55 = call i32 @reftable_writer_add_log(ptr noundef %0, ptr noundef %54) #20
   %.not49 = icmp eq i32 %55, 0
   br i1 %.not49, label %49, label %.loopexit

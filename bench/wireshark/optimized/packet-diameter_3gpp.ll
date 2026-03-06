@@ -2887,7 +2887,7 @@ qos_calc_bitrate.exit:                            ; preds = %60, %66, %69
 
 switch.lookup:                                    ; preds = %56
   %73 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_diameter_3ggp_qos_susbscribed, i64 %73
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_diameter_3ggp_qos_susbscribed, i64 %73
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %74
 
@@ -2932,7 +2932,7 @@ qos_calc_bitrate.exit282:                         ; preds = %81, %87, %90
 
 switch.lookup364:                                 ; preds = %77
   %94 = zext nneg i8 %switch.tableidx363 to i64
-  %switch.gep365 = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_diameter_3ggp_qos_susbscribed.1, i64 %94
+  %switch.gep365 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_diameter_3ggp_qos_susbscribed.1, i64 %94
   %switch.load366 = load ptr, ptr %switch.gep365, align 8
   br label %95
 
@@ -3036,7 +3036,7 @@ qos_calc_bitrate.exit284:                         ; preds = %136, %142, %145
 
 switch.lookup368:                                 ; preds = %132
   %149 = zext nneg i8 %switch.tableidx367 to i64
-  %switch.gep369 = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_diameter_3ggp_qos_susbscribed.2, i64 %149
+  %switch.gep369 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_diameter_3ggp_qos_susbscribed.2, i64 %149
   %switch.load370 = load ptr, ptr %switch.gep369, align 8
   br label %150
 
@@ -3081,7 +3081,7 @@ qos_calc_bitrate.exit286:                         ; preds = %157, %163, %166
 
 switch.lookup372:                                 ; preds = %153
   %170 = zext nneg i8 %switch.tableidx371 to i64
-  %switch.gep373 = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_diameter_3ggp_qos_susbscribed.3, i64 %170
+  %switch.gep373 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_diameter_3ggp_qos_susbscribed.3, i64 %170
   %switch.load374 = load ptr, ptr %switch.gep373, align 8
   br label %171
 

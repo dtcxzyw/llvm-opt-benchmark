@@ -1376,7 +1376,7 @@ while.body.i.i:                                   ; preds = %invoke.cont220, %wh
   %__len.09.i.i = phi i64 [ %__len.1.i.i, %while.body.i.i ], [ %sub.ptr.div.i.i.i.i.i, %invoke.cont220 ]
   %__first.sroa.0.08.i.i = phi ptr [ %__first.sroa.0.1.i.i, %while.body.i.i ], [ %94, %invoke.cont220 ]
   %shr.i.i = lshr i64 %__len.09.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %__first.sroa.0.08.i.i, i64 %shr.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %__first.sroa.0.08.i.i, i64 %shr.i.i
   %100 = load i64, ptr %add.ptr.i.i.i.i.i, align 8, !tbaa !126
   %cmp.i.i5.i.i = icmp slt i64 %99, %100
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i, i64 8
@@ -1652,7 +1652,7 @@ cond.false.i248:                                  ; preds = %invoke.cont278
 invoke.cont280:                                   ; preds = %.noexc250, %invoke.cont278
   %134 = phi ptr [ %133, %invoke.cont278 ], [ %.pre.i249, %.noexc250 ]
   %135 = load ptr, ptr %fixedPayDates, align 8, !tbaa !125
-  %add.ptr.i252 = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %135, i64 %i.0532
+  %add.ptr.i252 = getelementptr inbounds nuw [8 x i8], ptr %135, i64 %i.0532
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp285)
   %136 = load ptr, ptr %exercise, align 8, !tbaa !79
   %cmp.not.i253 = icmp eq ptr %136, null
@@ -1946,7 +1946,7 @@ invoke.cont342:                                   ; preds = %.noexc350, %invoke.
   %180 = load ptr, ptr %fixedResetDates, align 8, !tbaa !125
   %add.ptr.i355 = getelementptr inbounds nuw i8, ptr %180, i64 %sub.ptr.sub.i
   %181 = load ptr, ptr %fixedPayDates, align 8, !tbaa !125
-  %add.ptr.i356 = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %181, i64 %i.0532
+  %add.ptr.i356 = getelementptr inbounds nuw [8 x i8], ptr %181, i64 %i.0532
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp353)
   call void @llvm.lifetime.start.p0(ptr nonnull %retval.i357)
   invoke void @_ZN8QuantLib4DateC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %retval.i357)
@@ -2055,7 +2055,7 @@ _ZN8QuantLib6HandleINS_18YieldTermStructureEED2Ev.exit394: ; preds = %invoke.con
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp353)
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp337)
   %198 = load ptr, ptr %amounts, align 8, !tbaa !121
-  %add.ptr.i395 = getelementptr inbounds nuw double, ptr %198, i64 %i.0532
+  %add.ptr.i395 = getelementptr inbounds nuw [8 x i8], ptr %198, i64 %i.0532
   %199 = load double, ptr %add.ptr.i395, align 8, !tbaa !124
   %200 = call double @llvm.fmuladd.f64(double %199, double %call364, double %value.0531)
   %inc = add i64 %i.0532, 1
@@ -6854,7 +6854,7 @@ cond.false.i:                                     ; preds = %for.body
 _ZNK5boost10shared_ptrIN8QuantLib15Gaussian1dModelEEptEv.exit: ; preds = %for.body, %cond.false.i
   %6 = phi ptr [ %5, %for.body ], [ %.pre.i, %cond.false.i ]
   %7 = load ptr, ptr %times_, align 8, !tbaa !125
-  %add.ptr.i = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %7, i64 %i.072
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %i.072
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp)
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i, i8 0, i64 16, i1 false)
@@ -7069,7 +7069,7 @@ _ZN8QuantLib6HandleINS_18YieldTermStructureEED2Ev.exit61: ; preds = %_ZN8QuantLi
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
   %41 = load ptr, ptr %amounts_, align 8, !tbaa !201
   %42 = load ptr, ptr %41, align 8, !tbaa !121
-  %add.ptr.i62 = getelementptr inbounds nuw double, ptr %42, i64 %i.072
+  %add.ptr.i62 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %i.072
   %43 = load double, ptr %add.ptr.i62, align 8, !tbaa !124
   %neg = fneg double %43
   %44 = call double @llvm.fmuladd.f64(double %neg, double %div, double %value.073)

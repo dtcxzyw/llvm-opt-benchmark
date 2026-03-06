@@ -100,7 +100,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc
   %13 = getelementptr inbounds nuw i8, ptr %.sroa.04.05, i64 368
   %14 = icmp ult i16 %11, 12
   tail call void @llvm.assume(i1 %14)
-  %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %12
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %12
   %16 = load ptr, ptr %15, align 8, !noalias !5, !nonnull !3, !noundef !3
   %17 = add i64 %.sroa.03.06, -1
   %18 = icmp eq i64 %17, 0
@@ -184,7 +184,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5alloc11colle
   %19 = getelementptr inbounds nuw i8, ptr %.sroa.04.05.i, i64 368
   %20 = icmp ult i16 %17, 12
   tail call void @llvm.assume(i1 %20)
-  %21 = getelementptr inbounds nuw ptr, ptr %19, i64 %18
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %18
   %22 = load ptr, ptr %21, align 8, !noalias !12, !nonnull !3, !noundef !3
   %23 = add i64 %.sroa.03.06.i, -1
   %24 = icmp eq i64 %23, 0

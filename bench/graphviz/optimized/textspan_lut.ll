@@ -111,7 +111,7 @@ define double @estimate_text_width_1pt(ptr noundef %0, ptr noundef readonly capt
 17:                                               ; preds = %16, %15, %.lr.ph
   %.06.i = phi i32 [ %13, %.lr.ph ], [ 32, %16 ], [ 32, %15 ]
   %18 = zext nneg i32 %.06.i to i64
-  %19 = getelementptr inbounds nuw i16, ptr %6, i64 %18
+  %19 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %18
   %20 = load i16, ptr %19, align 2, !tbaa !11
   %21 = icmp eq i16 %20, -1
   br i1 %21, label %22, label %estimate_character_width_canonical.exit
@@ -142,7 +142,7 @@ define internal fastcc nonnull ptr @get_metrics_for_font_family(ptr noundef %0) 
 
 3:                                                ; preds = %1, %font_in_list_permissive.exit
   %.01030 = phi i64 [ 0, %1 ], [ %70, %font_in_list_permissive.exit ]
-  %4 = getelementptr inbounds nuw %struct.FontFamilyMetrics, ptr @all_font_metrics, i64 %.01030
+  %4 = getelementptr inbounds nuw [1040 x i8], ptr @all_font_metrics, i64 %.01030
   %5 = load ptr, ptr %4, align 16, !tbaa !15
   %6 = load ptr, ptr %5, align 8, !tbaa !16
   %.not24.not.i = icmp eq ptr %6, null
@@ -178,7 +178,7 @@ define internal fastcc nonnull ptr @get_metrics_for_font_family(ptr noundef %0) 
 
 .loopexit.us.us.i:                                ; preds = %.lr.ph61.i.us.us.i
   %18 = add i64 %.0725.us.us.i, 1
-  %19 = getelementptr inbounds nuw ptr, ptr %5, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !16
   %.not.us.us.not.i = icmp eq ptr %20, null
   br i1 %.not.us.us.not.i, label %font_in_list_permissive.exit, label %.preheader37.i.us.us.i, !llvm.loop !19
@@ -229,10 +229,10 @@ define internal fastcc nonnull ptr @get_metrics_for_font_family(ptr noundef %0) 
   %38 = tail call ptr @__ctype_tolower_loc() #18
   %39 = load ptr, ptr %38, align 8, !tbaa !21
   %40 = sext i8 %24 to i64
-  %41 = getelementptr inbounds i32, ptr %39, i64 %40
+  %41 = getelementptr inbounds [4 x i8], ptr %39, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !23
   %43 = sext i8 %32 to i64
-  %44 = getelementptr inbounds i32, ptr %39, i64 %43
+  %44 = getelementptr inbounds [4 x i8], ptr %39, i64 %43
   %45 = load i32, ptr %44, align 4, !tbaa !23
   %.not36.i.i = icmp eq i32 %42, %45
   br i1 %.not36.i.i, label %46, label %.loopexit.i
@@ -286,7 +286,7 @@ define internal fastcc nonnull ptr @get_metrics_for_font_family(ptr noundef %0) 
 
 .loopexit.i:                                      ; preds = %37, %.lr.ph58.i.i, %.lr.ph61.i.i
   %67 = add i64 %.0725.i, 1
-  %68 = getelementptr inbounds nuw ptr, ptr %5, i64 %67
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %67
   %69 = load ptr, ptr %68, align 8, !tbaa !16
   %.not.not.i = icmp eq ptr %69, null
   br i1 %.not.not.i, label %font_in_list_permissive.exit, label %.lr.ph.split.i, !llvm.loop !19

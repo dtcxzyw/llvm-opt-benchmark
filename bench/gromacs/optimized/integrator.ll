@@ -11,15 +11,8 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.1" = type { %"struct.std::_Vector_base<nblib::ParticleType, std::allocator<nblib::ParticleType>>::_Vector_impl" }
 %"struct.std::_Vector_base<nblib::ParticleType, std::allocator<nblib::ParticleType>>::_Vector_impl" = type { %"struct.std::_Vector_base<nblib::ParticleType, std::allocator<nblib::ParticleType>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<nblib::ParticleType, std::allocator<nblib::ParticleType>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.nblib::ParticleType" = type <{ %"struct.nblib::StrongType.179", %"struct.nblib::StrongType", [4 x i8] }>
-%"struct.nblib::StrongType.179" = type { %"class.std::__cxx11::basic_string" }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%"struct.nblib::StrongType" = type { float }
 %"class.gmx::ArrayRef.186" = type { %"struct.gmx::ArrayRefIter.187", %"struct.gmx::ArrayRefIter.187" }
 %"struct.gmx::ArrayRefIter.187" = type { ptr }
-%"class.gmx::BasicVector" = type { [3 x float] }
 
 $_ZNSt6vectorIN5nblib12ParticleTypeESaIS1_EED2Ev = comdat any
 
@@ -63,7 +56,7 @@ define void @_ZN5nblib8LeapFrogC2ERKNS_8TopologyERKNS_3BoxE(ptr noundef nonnull 
   br i1 %21, label %22, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw float, ptr %12, i64 %9
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %9
   %.not.i.i = icmp eq ptr %11, %23
   br i1 %.not.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %24
 
@@ -107,7 +100,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %18, %20, %22, %24
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %38
   %39 = load ptr, ptr %4, align 8, !tbaa !13
-  %40 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv
   %41 = load i32, ptr %40, align 4, !tbaa !16
   %42 = load ptr, ptr %25, align 8, !tbaa !18
   %43 = ptrtoint ptr %42 to i64
@@ -122,14 +115,14 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %38
 46:                                               ; preds = %_ZNSt6vectorIiSaIiEED2Ev.exit
   %47 = sext i32 %41 to i64
   %48 = load ptr, ptr %5, align 8, !tbaa !19
-  %49 = getelementptr inbounds nuw %"class.nblib::ParticleType", ptr %48, i64 %47
+  %49 = getelementptr inbounds nuw [40 x i8], ptr %48, i64 %47
   %50 = invoke float @_ZNK5nblib12ParticleType4massEv(ptr noundef nonnull align 8 dereferenceable(40) %49)
           to label %51 unwind label %73
 
 51:                                               ; preds = %46
   %52 = fdiv float 1.000000e+00, %50
   %53 = load ptr, ptr %0, align 8, !tbaa !12
-  %54 = getelementptr inbounds nuw float, ptr %53, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %indvars.iv
   store float %52, ptr %54, align 4, !tbaa !22
   %55 = load ptr, ptr %5, align 8, !tbaa !19
   %56 = load ptr, ptr %26, align 8, !tbaa !24
@@ -367,9 +360,9 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36: ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !12
-  %39 = getelementptr inbounds nuw float, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !8
-  %40 = getelementptr inbounds nuw float, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !34
   br label %41
 
@@ -472,10 +465,10 @@ define void @_ZN5nblib8LeapFrog9integrateEfN3gmx8ArrayRefINS1_11BasicVectorIfEEE
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %19
   %.01520 = phi i64 [ 0, %.preheader.lr.ph ], [ %20, %19 ]
-  %15 = getelementptr inbounds %"class.gmx::BasicVector", ptr %13, i64 %.01520
-  %16 = getelementptr inbounds nuw float, ptr %14, i64 %.01520
-  %17 = getelementptr inbounds %"class.gmx::BasicVector", ptr %4, i64 %.01520
-  %18 = getelementptr inbounds %"class.gmx::BasicVector", ptr %2, i64 %.01520
+  %15 = getelementptr inbounds [12 x i8], ptr %13, i64 %.01520
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %.01520
+  %17 = getelementptr inbounds [12 x i8], ptr %4, i64 %.01520
+  %18 = getelementptr inbounds [12 x i8], ptr %2, i64 %.01520
   br label %21
 
 ._crit_edge:                                      ; preds = %19, %7
@@ -488,15 +481,15 @@ define void @_ZN5nblib8LeapFrog9integrateEfN3gmx8ArrayRefINS1_11BasicVectorIfEEE
 
 21:                                               ; preds = %.preheader, %21
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %21 ]
-  %22 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   %23 = load float, ptr %22, align 4, !tbaa !22
   %24 = fmul float %1, %23
   %25 = load float, ptr %16, align 4, !tbaa !22
-  %26 = getelementptr inbounds nuw float, ptr %17, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv
   %27 = load float, ptr %26, align 4, !tbaa !22
   %28 = tail call float @llvm.fmuladd.f32(float %24, float %25, float %27)
   store float %28, ptr %26, align 4, !tbaa !22
-  %29 = getelementptr inbounds nuw float, ptr %18, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv
   %30 = load float, ptr %29, align 4, !tbaa !22
   %31 = tail call float @llvm.fmuladd.f32(float %28, float %1, float %30)
   store float %31, ptr %29, align 4, !tbaa !22

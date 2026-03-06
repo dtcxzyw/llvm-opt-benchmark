@@ -203,7 +203,7 @@ Abc_Clock.exit:                                   ; preds = %6, %11
 .lr.ph96:                                         ; preds = %.preheader88, %.lr.ph96
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph96 ], [ 0, %.preheader88 ]
   %46 = call i64 @Abc_RandomW(i32 noundef 0) #14
-  %47 = getelementptr inbounds nuw i64, ptr %22, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv
   store i64 %46, ptr %47, align 8, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond107.not = icmp eq i64 %indvars.iv.next, %32
@@ -228,7 +228,7 @@ Abc_TtClear.exit:                                 ; preds = %48, %.lr.ph.prehead
   %51 = and i32 %50, %35
   %52 = lshr i32 %51, 6
   %53 = zext nneg i32 %52 to i64
-  %54 = getelementptr inbounds nuw i64, ptr %22, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %53
   %55 = load i64, ptr %54, align 8, !tbaa !19
   %56 = and i32 %51, 63
   %57 = zext nneg i32 %56 to i64
@@ -238,7 +238,7 @@ Abc_TtClear.exit:                                 ; preds = %48, %.lr.ph.prehead
   br i1 %.not75, label %60, label %49, !llvm.loop !21
 
 60:                                               ; preds = %49
-  %61 = getelementptr inbounds nuw i64, ptr %22, i64 %53
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %53
   %62 = or i64 %58, %55
   store i64 %62, ptr %61, align 8, !tbaa !19
   %63 = add nuw nsw i32 %.16694, 1
@@ -311,7 +311,7 @@ Vec_IntGrow.exit.i.i:                             ; preds = %77, %75, %85, %83, 
   %93 = add nuw nsw i64 %92, 4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep.i.i, i8 0, i64 %93, i1 false), !tbaa !3
   %94 = zext nneg i32 %67 to i64
-  %95 = getelementptr inbounds nuw i32, ptr %.val81116, i64 %94
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %.val81116, i64 %94
   store i32 0, ptr %95, align 4, !tbaa !3
   br label %96
 
@@ -320,7 +320,7 @@ Vec_IntGrow.exit.i.i:                             ; preds = %77, %75, %85, %83, 
   %.val81 = phi ptr [ %.val81118, %.loopexit._crit_edge ], [ %.val81116, %Vec_IntGrow.exit.i.i ]
   %97 = phi i32 [ %45, %.loopexit._crit_edge ], [ %87, %Vec_IntGrow.exit.i.i ]
   %.val115 = phi i32 [ %.val, %.loopexit._crit_edge ], [ %69, %Vec_IntGrow.exit.i.i ]
-  %98 = getelementptr inbounds i32, ptr %.val81, i64 %.pre-phi
+  %98 = getelementptr inbounds [4 x i8], ptr %.val81, i64 %.pre-phi
   %99 = load i32, ptr %98, align 4, !tbaa !3
   %100 = add nsw i32 %99, 1
   store i32 %100, ptr %98, align 4, !tbaa !3
@@ -356,7 +356,7 @@ Vec_IntGrow.exit.i.i:                             ; preds = %77, %75, %85, %83, 
 
 112:                                              ; preds = %.lr.ph101, %121
   %indvars.iv109 = phi i64 [ 0, %.lr.ph101 ], [ %indvars.iv.next110, %121 ]
-  %113 = getelementptr inbounds nuw i32, ptr %.val81, i64 %indvars.iv109
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %.val81, i64 %indvars.iv109
   %114 = load i32, ptr %113, align 4, !tbaa !3
   %.not74 = icmp eq i32 %114, 0
   br i1 %.not74, label %121, label %115

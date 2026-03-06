@@ -8,13 +8,13 @@ target triple = "x86_64-pc-linux-gnu"
 %class.LogDecorators = type { i32 }
 %union.JfrNativeSettings = type { [164 x %struct.jfrNativeEventSetting] }
 %struct.jfrNativeEventSetting = type { i64, i64, i8, i8, i8, [5 x i8] }
-%class.ZRelocationSetSelectorGroupStats = type { i64, i64, i64, i64, i64, i64 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %class.EventZRelocationSetGroup = type { %class.JfrEvent.base, i64, i64, i64, i64, i64, i64 }
 %class.JfrEvent.base = type <{ i64, i64, i8, i8, i8 }>
 %class.EventZRelocationSet = type { %class.JfrEvent.base.4, i64, i64, i64 }
 %class.JfrEvent.base.4 = type <{ i64, i64, i8, i8, i8 }>
 %class.ZRelocationSetSelectorStats = type { [16 x %class.ZRelocationSetSelectorGroupStats], [16 x %class.ZRelocationSetSelectorGroupStats], [16 x %class.ZRelocationSetSelectorGroupStats], i64 }
+%class.ZRelocationSetSelectorGroupStats = type { i64, i64, i64, i64, i64, i64 }
 %class.JfrFlush = type { ptr }
 %class.EventWriterHost = type { %class.WriterHost.base, [7 x i8] }
 %class.WriterHost.base = type <{ %class.MemoryWriterHost, i8 }>
@@ -171,12 +171,12 @@ _ZN18ZArrayIteratorImplIP5ZPageLb0EEC2EPK18GrowableArrayCHeapIS1_L8MEMFLAGS5EE.e
 .lr.ph:                                           ; preds = %_ZN18ZArrayIteratorImplIP5ZPageLb0EEC2EPK18GrowableArrayCHeapIS1_L8MEMFLAGS5EE.exit, %.lr.ph
   %.sroa.024.045 = phi i64 [ %12, %.lr.ph ], [ 0, %_ZN18ZArrayIteratorImplIP5ZPageLb0EEC2EPK18GrowableArrayCHeapIS1_L8MEMFLAGS5EE.exit ]
   %12 = add i64 %.sroa.024.045, 1
-  %13 = getelementptr inbounds ptr, ptr %10, i64 %.sroa.024.045
+  %13 = getelementptr inbounds [8 x i8], ptr %10, i64 %.sroa.024.045
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %16 = load volatile i64, ptr %15, align 8
   %17 = lshr i64 %16, %5
-  %18 = getelementptr inbounds i32, ptr %1, i64 %17
+  %18 = getelementptr inbounds [4 x i8], ptr %1, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = add nsw i32 %19, 1
   store i32 %20, ptr %18, align 4
@@ -189,7 +189,7 @@ _ZN18ZArrayIteratorImplIP5ZPageLb0EE4nextEPS1_.exit.preheader: ; preds = %.lr.ph
 _ZN18ZArrayIteratorImplIP5ZPageLb0EE4nextEPS1_.exit: ; preds = %_ZN18ZArrayIteratorImplIP5ZPageLb0EE4nextEPS1_.exit.preheader, %_ZN18ZArrayIteratorImplIP5ZPageLb0EE4nextEPS1_.exit
   %.047 = phi i32 [ %23, %_ZN18ZArrayIteratorImplIP5ZPageLb0EE4nextEPS1_.exit ], [ 0, %_ZN18ZArrayIteratorImplIP5ZPageLb0EE4nextEPS1_.exit.preheader ]
   %.01546 = phi i64 [ %24, %_ZN18ZArrayIteratorImplIP5ZPageLb0EE4nextEPS1_.exit ], [ 0, %_ZN18ZArrayIteratorImplIP5ZPageLb0EE4nextEPS1_.exit.preheader ]
-  %21 = getelementptr inbounds nuw i32, ptr %1, i64 %.01546
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.01546
   %22 = load i32, ptr %21, align 4
   store i32 %.047, ptr %21, align 4
   %23 = add nsw i32 %22, %.047
@@ -222,17 +222,17 @@ _ZN18GrowableArrayCHeapIP5ZPageL8MEMFLAGS5EEC2EiiRKS1_.exit: ; preds = %.lr.ph.p
 .lr.ph50:                                         ; preds = %_ZN18GrowableArrayCHeapIP5ZPageL8MEMFLAGS5EEC2EiiRKS1_.exit, %.lr.ph50
   %.sroa.0.049 = phi i64 [ %32, %.lr.ph50 ], [ 0, %_ZN18GrowableArrayCHeapIP5ZPageL8MEMFLAGS5EEC2EiiRKS1_.exit ]
   %32 = add i64 %.sroa.0.049, 1
-  %33 = getelementptr inbounds ptr, ptr %30, i64 %.sroa.0.049
+  %33 = getelementptr inbounds [8 x i8], ptr %30, i64 %.sroa.0.049
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 48
   %36 = load volatile i64, ptr %35, align 8
   %37 = lshr i64 %36, %5
-  %38 = getelementptr inbounds i32, ptr %1, i64 %37
+  %38 = getelementptr inbounds [4 x i8], ptr %1, i64 %37
   %39 = load i32, ptr %38, align 4
   %40 = add nsw i32 %39, 1
   store i32 %40, ptr %38, align 4
   %41 = sext i32 %39 to i64
-  %42 = getelementptr inbounds ptr, ptr %.0.i.i3538, i64 %41
+  %42 = getelementptr inbounds [8 x i8], ptr %.0.i.i3538, i64 %41
   store ptr %34, ptr %42, align 8
   %.not43 = icmp eq i64 %32, %31
   br i1 %.not43, label %_ZN18ZArrayIteratorImplIP5ZPageLb0EE4nextEPS1_.exit17.loopexit, label %.lr.ph50, !llvm.loop !9
@@ -308,7 +308,7 @@ define hidden void @_ZN27ZRelocationSetSelectorGroup12select_innerEv(ptr noundef
   %.05463 = phi i64 [ 0, %.lr.ph ], [ %24, %78 ]
   %.05562 = phi i64 [ 0, %.lr.ph ], [ %33, %78 ]
   %18 = load ptr, ptr %7, align 8
-  %19 = getelementptr ptr, ptr %18, i64 %indvars.iv
+  %19 = getelementptr [8 x i8], ptr %18, i64 %indvars.iv
   %20 = getelementptr i8, ptr %19, i64 -8
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 48
@@ -352,11 +352,11 @@ define hidden void @_ZN27ZRelocationSetSelectorGroup12select_innerEv(ptr noundef
   %55 = getelementptr inbounds nuw i8, ptr %21, i64 2
   %56 = load i8, ptr %55, align 2
   %57 = zext i8 %56 to i64
-  %58 = getelementptr inbounds nuw i64, ptr %3, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %57
   %59 = load i64, ptr %58, align 8
   %60 = add i64 %59, %23
   store i64 %60, ptr %58, align 8
-  %61 = getelementptr inbounds nuw i64, ptr %2, i64 %57
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %57
   %62 = load i64, ptr %61, align 8
   %63 = add i64 %62, 1
   store i64 %63, ptr %61, align 8
@@ -395,7 +395,7 @@ define hidden void @_ZN27ZRelocationSetSelectorGroup12select_innerEv(ptr noundef
   %80 = phi i32 [ %12, %.lr.ph70 ], [ %90, %89 ]
   %indvars.iv73 = phi i64 [ %16, %.lr.ph70 ], [ %indvars.iv.next74, %89 ]
   %81 = load ptr, ptr %14, align 8
-  %82 = getelementptr inbounds nuw ptr, ptr %81, i64 %indvars.iv73
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %indvars.iv73
   %83 = load ptr, ptr %82, align 8
   store ptr %83, ptr %4, align 8
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 1
@@ -424,12 +424,12 @@ define hidden void @_ZN27ZRelocationSetSelectorGroup12select_innerEv(ptr noundef
 
 95:                                               ; preds = %._crit_edge, %95
   %indvars.iv76 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next77, %95 ]
-  %96 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv76
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv76
   %97 = load i64, ptr %96, align 8
-  %98 = getelementptr inbounds nuw %class.ZRelocationSetSelectorGroupStats, ptr %94, i64 %indvars.iv76
+  %98 = getelementptr inbounds nuw [48 x i8], ptr %94, i64 %indvars.iv76
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 40
   store i64 %97, ptr %99, align 8
-  %100 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv76
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv76
   %101 = load i64, ptr %100, align 8
   %102 = getelementptr inbounds nuw i8, ptr %98, i64 32
   store i64 %101, ptr %102, align 8
@@ -513,9 +513,9 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIP5ZPage1
 
 23:                                               ; preds = %23, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %23 ]
-  %24 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv.i.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.i.i
   %25 = load ptr, ptr %18, align 8
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv.i.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv.i.i
   %27 = load ptr, ptr %26, align 8
   store ptr %27, ptr %24, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -532,7 +532,7 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIP5ZPage1
 
 .lr.ph18.i.i:                                     ; preds = %.lr.ph18.i.i, %.lr.ph18.preheader.i.i
   %indvars.iv20.i.i = phi i64 [ %22, %.lr.ph18.preheader.i.i ], [ %indvars.iv.next21.i.i, %.lr.ph18.i.i ]
-  %33 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv20.i.i
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv20.i.i
   store ptr null, ptr %33, align 8
   %indvars.iv.next21.i.i = add nuw nsw i64 %indvars.iv20.i.i, 1
   %34 = load i32, ptr %4, align 4
@@ -556,7 +556,7 @@ _ZN26GrowableArrayWithAllocatorIP5ZPage18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE4gr
   store i32 %41, ptr %0, align 8
   %42 = load ptr, ptr %1, align 8
   %43 = sext i32 %40 to i64
-  %44 = getelementptr inbounds ptr, ptr %39, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr %39, i64 %43
   store ptr %42, ptr %44, align 8
   ret i32 %40
 }
@@ -623,7 +623,7 @@ _ZN24EventZRelocationSetGroupC2E14EventStartTime.exit: ; preds = %11, %16
 26:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %26 ]
   %27 = load ptr, ptr %23, align 8
-  %28 = getelementptr ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr [8 x i8], ptr %27, i64 %indvars.iv
   %29 = getelementptr i8, ptr %28, i64 -8
   %30 = load ptr, ptr %29, align 8
   store ptr %30, ptr %3, align 8
@@ -643,7 +643,7 @@ _ZN24EventZRelocationSetGroupC2E14EventStartTime.exit: ; preds = %11, %16
   %.sroa.714.027 = phi i64 [ 0, %.loopexit ], [ %42, %33 ]
   %.sroa.0.026 = phi i64 [ 0, %.loopexit ], [ %36, %33 ]
   %.sroa.4.025 = phi i64 [ 0, %.loopexit ], [ %39, %33 ]
-  %34 = getelementptr inbounds nuw %class.ZRelocationSetSelectorGroupStats, ptr %32, i64 %indvars.iv36
+  %34 = getelementptr inbounds nuw [48 x i8], ptr %32, i64 %indvars.iv36
   %35 = load i64, ptr %34, align 8
   %36 = add i64 %35, %.sroa.0.026
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
@@ -792,7 +792,7 @@ _ZN19EventZRelocationSetC2E14EventStartTime.exit: ; preds = %1, %7
 11:                                               ; preds = %11, %_ZN19EventZRelocationSetC2E14EventStartTime.exit
   %indvars.iv.i = phi i64 [ 0, %_ZN19EventZRelocationSetC2E14EventStartTime.exit ], [ %indvars.iv.next.i, %11 ]
   %.010.i = phi i64 [ 0, %_ZN19EventZRelocationSetC2E14EventStartTime.exit ], [ %21, %11 ]
-  %12 = getelementptr inbounds nuw %class.ZRelocationSetSelectorGroupStats, ptr %0, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %indvars.iv.i
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 96
   %14 = load i64, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 952
@@ -809,7 +809,7 @@ _ZN19EventZRelocationSetC2E14EventStartTime.exit: ; preds = %1, %7
 _ZNK22ZRelocationSetSelector5totalEv.exit:        ; preds = %11, %_ZNK22ZRelocationSetSelector5totalEv.exit
   %indvars.iv.i1 = phi i64 [ %indvars.iv.next.i3, %_ZNK22ZRelocationSetSelector5totalEv.exit ], [ 0, %11 ]
   %.010.i2 = phi i64 [ %31, %_ZNK22ZRelocationSetSelector5totalEv.exit ], [ 0, %11 ]
-  %22 = getelementptr inbounds nuw %class.ZRelocationSetSelectorGroupStats, ptr %0, i64 %indvars.iv.i1
+  %22 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %indvars.iv.i1
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 112
   %24 = load i64, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 968
@@ -826,7 +826,7 @@ _ZNK22ZRelocationSetSelector5totalEv.exit:        ; preds = %11, %_ZNK22ZRelocat
 _ZNK22ZRelocationSetSelector5emptyEv.exit:        ; preds = %_ZNK22ZRelocationSetSelector5totalEv.exit, %_ZNK22ZRelocationSetSelector5emptyEv.exit
   %indvars.iv.i5 = phi i64 [ %indvars.iv.next.i7, %_ZNK22ZRelocationSetSelector5emptyEv.exit ], [ 0, %_ZNK22ZRelocationSetSelector5totalEv.exit ]
   %.010.i6 = phi i64 [ %41, %_ZNK22ZRelocationSetSelector5emptyEv.exit ], [ 0, %_ZNK22ZRelocationSetSelector5totalEv.exit ]
-  %32 = getelementptr inbounds nuw %class.ZRelocationSetSelectorGroupStats, ptr %0, i64 %indvars.iv.i5
+  %32 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %indvars.iv.i5
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 128
   %34 = load i64, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 984
@@ -901,7 +901,7 @@ define hidden void @_ZNK22ZRelocationSetSelector5statsEv(ptr dead_on_unwind noal
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader ], [ 0, %.preheader.preheader ]
   %.010.i = phi i64 [ %16, %.preheader ], [ 0, %.preheader.preheader ]
-  %7 = getelementptr inbounds nuw %class.ZRelocationSetSelectorGroupStats, ptr %1, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw [48 x i8], ptr %1, i64 %indvars.iv.i
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %9 = load i64, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 952

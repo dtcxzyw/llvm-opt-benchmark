@@ -503,7 +503,7 @@ define dso_local void @zend_llist_sort(ptr noundef captures(none) %0, ptr nounde
 
 .lr.ph74:                                         ; preds = %._crit_edge, %.lr.ph74
   %.06572 = phi i64 [ %21, %.lr.ph74 ], [ 1, %._crit_edge ]
-  %15 = getelementptr ptr, ptr %8, i64 %.06572
+  %15 = getelementptr [8 x i8], ptr %8, i64 %.06572
   %16 = getelementptr i8, ptr %15, i64 -8
   %17 = load ptr, ptr %16, align 8, !tbaa !17
   %18 = load ptr, ptr %15, align 8, !tbaa !17
@@ -517,7 +517,7 @@ define dso_local void @zend_llist_sort(ptr noundef captures(none) %0, ptr nounde
 
 ._crit_edge75:                                    ; preds = %.lr.ph74, %._crit_edge
   %.065.lcssa = phi i64 [ 1, %._crit_edge ], [ %13, %.lr.ph74 ]
-  %22 = getelementptr ptr, ptr %8, i64 %.065.lcssa
+  %22 = getelementptr [8 x i8], ptr %8, i64 %.065.lcssa
   %23 = getelementptr i8, ptr %22, i64 -8
   %24 = load ptr, ptr %23, align 8, !tbaa !17
   store ptr null, ptr %24, align 8, !tbaa !16

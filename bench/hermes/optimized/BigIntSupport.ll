@@ -45,7 +45,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base.45" = type { %"struct.std::_Vector_base<hermes::bigint::BigIntTableEntry, std::allocator<hermes::bigint::BigIntTableEntry>>::_Vector_impl" }
 %"struct.std::_Vector_base<hermes::bigint::BigIntTableEntry, std::allocator<hermes::bigint::BigIntTableEntry>>::_Vector_impl" = type { %"struct.std::_Vector_base<hermes::bigint::BigIntTableEntry, std::allocator<hermes::bigint::BigIntTableEntry>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<hermes::bigint::BigIntTableEntry, std::allocator<hermes::bigint::BigIntTableEntry>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.hermes::bigint::BigIntTableEntry" = type { i32, i32 }
 
 $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag = comdat any
 
@@ -202,7 +201,7 @@ entry:
 land.rhs:                                         ; preds = %entry
   %sub = add i32 %src.coerce1, -1
   %idxprom = zext i32 %sub to i64
-  %arrayidx = getelementptr inbounds nuw i64, ptr %src.coerce0, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %src.coerce0, i64 %idxprom
   %0 = load i64, ptr %arrayidx, align 8
   %cmp2 = icmp slt i64 %0, 0
   br label %land.end
@@ -368,7 +367,7 @@ if.then:                                          ; preds = %entry
 _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit: ; preds = %entry
   %sub.i = add i32 %src.coerce1, -1
   %idxprom.i = zext i32 %sub.i to i64
-  %arrayidx.i = getelementptr inbounds nuw i64, ptr %src.coerce0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %src.coerce0, i64 %idxprom.i
   %0 = load i64, ptr %arrayidx.i, align 8
   %cmp2.i = icmp slt i64 %0, 0
   %cond = select i1 %cmp2.i, i32 %src.coerce1, i32 0
@@ -407,7 +406,7 @@ _ZN6hermes6bigint10TmpStorageC2Ej.exit:           ; preds = %if.end.i.i.i, %for.
   br i1 %cmp2.i, label %if.then3, label %if.end13
 
 if.then3:                                         ; preds = %_ZN6hermes6bigint10TmpStorageC2Ej.exit
-  %add.ptr.i = getelementptr inbounds nuw i64, ptr %2, i64 %conv.i
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %conv.i
   store ptr %add.ptr.i, ptr %data_.i, align 8
   %mul.i.i = shl i32 %src.coerce1, 3
   %conv.i.i = zext i32 %mul.i.i to i64
@@ -456,7 +455,7 @@ if.end13:                                         ; preds = %if.then3, %cond.end
   %src.sroa.0.0 = phi ptr [ %src.coerce0, %_ZN6hermes6bigint10TmpStorageC2Ej.exit ], [ %2, %cond.end.i.i.i ], [ %2, %if.then3 ]
   %src.sroa.8.0 = phi i32 [ %src.coerce1, %_ZN6hermes6bigint10TmpStorageC2Ej.exit ], [ %10, %cond.end.i.i.i ], [ 0, %if.then3 ]
   %idx.ext = zext i32 %src.sroa.8.0 to i64
-  %add.ptr = getelementptr inbounds nuw i64, ptr %src.sroa.0.0, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw [8 x i8], ptr %src.sroa.0.0, i64 %idx.ext
   %add.ptr16 = getelementptr inbounds i8, ptr %add.ptr, i64 -8
   %11 = load i64, ptr %add.ptr16, align 8
   %tobool17.not = icmp eq i64 %11, 0
@@ -2599,11 +2598,11 @@ _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i: ; preds
 _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i
   %sub.i.i.i = add i32 %src.coerce1, -1
   %idxprom.i.i.i = zext i32 %sub.i.i.i to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw i64, ptr %src.coerce0, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %src.coerce0, i64 %idxprom.i.i.i
   %5 = load i64, ptr %arrayidx.i.i.i, align 8
   %.fr.i.i = freeze i64 %5
   %6 = zext nneg i32 %4 to i64
-  %7 = getelementptr i64, ptr %rhs.addr.i, i64 %6
+  %7 = getelementptr [8 x i8], ptr %rhs.addr.i, i64 %6
   %arrayidx.i14.i.i = getelementptr i8, ptr %7, i64 -8
   %8 = load i64, ptr %arrayidx.i14.i.i, align 8
   %9 = xor i64 %8, %.fr.i.i
@@ -2649,7 +2648,7 @@ _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit: ; preds = %_ZN6her
   %mul163 = phi i32 [ %mul16266, %_ZN6hermes6bigint7compareENS0_18ImmutableBigIntRefEl.exit.thread.thread ], [ %mul1, %if.end ]
   %sub.i = add i32 %src.coerce1, -1
   %idxprom.i = zext i32 %sub.i to i64
-  %arrayidx.i = getelementptr inbounds nuw i64, ptr %src.coerce0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %src.coerce0, i64 %idxprom.i
   %11 = load i64, ptr %arrayidx.i, align 8
   %cmp2.i = icmp slt i64 %11, 0
   %conv = zext i32 %src.coerce1 to i64
@@ -2851,7 +2850,7 @@ _ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit: ; pred
 _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit
   %sub.i.i = add i32 %lhs.coerce1, -1
   %idxprom.i.i = zext i32 %sub.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds nuw i64, ptr %lhs.coerce0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %lhs.coerce0, i64 %idxprom.i.i
   %8 = load i64, ptr %arrayidx.i.i, align 8
   %.fr.i = freeze i64 %8
   %cmp2.i.i = icmp slt i64 %.fr.i, 0
@@ -2864,7 +2863,7 @@ _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i: ; preds =
 
 _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i
   %9 = zext nneg i32 %7 to i64
-  %10 = getelementptr i64, ptr %rhs.addr, i64 %9
+  %10 = getelementptr [8 x i8], ptr %rhs.addr, i64 %9
   %arrayidx.i1421.i = getelementptr i8, ptr %10, i64 -8
   %11 = load i64, ptr %arrayidx.i1421.i, align 8
   %cmp2.i1522.i = icmp slt i64 %11, 0
@@ -2875,7 +2874,7 @@ _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10
 
 _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i
   %12 = zext nneg i32 %7 to i64
-  %13 = getelementptr i64, ptr %rhs.addr, i64 %12
+  %13 = getelementptr [8 x i8], ptr %rhs.addr, i64 %12
   %arrayidx.i14.i = getelementptr i8, ptr %13, i64 -8
   %14 = load i64, ptr %arrayidx.i14.i, align 8
   %15 = xor i64 %14, %.fr.i
@@ -2987,7 +2986,7 @@ for.body.i.i.i.i.i.i.i.preheader.i:               ; preds = %if.end.i.i.i, %if.e
 _ZN6hermes6bigint10TmpStorageC2Ej.exit:           ; preds = %if.end.i.i.i, %for.body.i.i.i.i.i.i.i.preheader.i
   %1 = phi ptr [ %.pre.i, %for.body.i.i.i.i.i.i.i.preheader.i ], [ %add.ptr.i.i.i.i.i.i, %if.end.i.i.i ]
   %data_.i = getelementptr inbounds nuw i8, ptr %tmp, i64 48
-  %add.ptr.i = getelementptr inbounds nuw i64, ptr %1, i64 %conv.i
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %conv.i
   store ptr %add.ptr.i, ptr %data_.i, align 8
   %mul.i = and i32 %sub1.i.i, 16376
   %conv.i3 = zext nneg i32 %mul.i to i64
@@ -3077,7 +3076,7 @@ entry:
 _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit: ; preds = %entry
   %sub.i = add i32 %lhs.coerce1, -1
   %idxprom.i = zext i32 %sub.i to i64
-  %arrayidx.i = getelementptr inbounds nuw i64, ptr %lhs.coerce0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %lhs.coerce0, i64 %idxprom.i
   %0 = load i64, ptr %arrayidx.i, align 8
   %.fr = freeze i64 %0
   %cmp2.i = icmp slt i64 %.fr, 0
@@ -3091,7 +3090,7 @@ _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread: ; preds = %
 _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread
   %sub.i1219 = add i32 %rhs.coerce1, -1
   %idxprom.i1320 = zext i32 %sub.i1219 to i64
-  %arrayidx.i1421 = getelementptr inbounds nuw i64, ptr %rhs.coerce0, i64 %idxprom.i1320
+  %arrayidx.i1421 = getelementptr inbounds nuw [8 x i8], ptr %rhs.coerce0, i64 %idxprom.i1320
   %1 = load i64, ptr %arrayidx.i1421, align 8
   %cmp2.i1522 = icmp slt i64 %1, 0
   br i1 %cmp2.i1522, label %return, label %if.else19
@@ -3102,7 +3101,7 @@ _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10
 _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit
   %sub.i12 = add i32 %rhs.coerce1, -1
   %idxprom.i13 = zext i32 %sub.i12 to i64
-  %arrayidx.i14 = getelementptr inbounds nuw i64, ptr %rhs.coerce0, i64 %idxprom.i13
+  %arrayidx.i14 = getelementptr inbounds nuw [8 x i8], ptr %rhs.coerce0, i64 %idxprom.i13
   %2 = load i64, ptr %arrayidx.i14, align 8
   %3 = xor i64 %2, %.fr
   %4 = icmp slt i64 %3, 0
@@ -3192,7 +3191,7 @@ entry:
 _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit: ; preds = %entry
   %sub.i = add i32 %src.coerce1, -1
   %idxprom.i = zext i32 %sub.i to i64
-  %arrayidx.i = getelementptr inbounds nuw i64, ptr %src.coerce0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %src.coerce0, i64 %idxprom.i
   %0 = load i64, ptr %arrayidx.i, align 8
   %cmp2.i = icmp slt i64 %0, 0
   br i1 %cmp2.i, label %if.end, label %if.then
@@ -3242,7 +3241,7 @@ entry:
 _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i: ; preds = %entry
   %sub.i.i = add i32 %src.coerce1, -1
   %idxprom.i.i = zext i32 %sub.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds nuw i64, ptr %src.coerce0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %src.coerce0, i64 %idxprom.i.i
   %0 = load i64, ptr %arrayidx.i.i, align 8
   %cmp2.i.i = icmp slt i64 %0, 0
   br i1 %cmp2.i.i, label %if.end.i, label %if.then.i
@@ -3366,11 +3365,11 @@ if.end32:                                         ; preds = %if.end8
   %mul5.i = shl nsw i64 %sub.i, 3
   %sub.i.i = add nuw nsw i64 %.sroa.speculated39, 4294967295
   %idxprom.i.i = and i64 %sub.i.i, 4294967295
-  %arrayidx.i.i28 = getelementptr inbounds nuw i64, ptr %src.coerce0, i64 %idxprom.i.i
+  %arrayidx.i.i28 = getelementptr inbounds nuw [8 x i8], ptr %src.coerce0, i64 %idxprom.i.i
   %14 = load i64, ptr %arrayidx.i.i28, align 8
   %shr.neg.i.i.i = ashr i64 %14, 63
   %15 = trunc nsw i64 %shr.neg.i.i.i to i8
-  %add.ptr.i = getelementptr inbounds nuw i64, ptr %dst.coerce0, i64 %.sroa.speculated39
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %dst.coerce0, i64 %.sroa.speculated39
   %conv8.i = and i64 %mul5.i, 4294967288
   tail call void @llvm.memset.p0.i64(ptr align 8 %add.ptr.i, i8 %15, i64 %conv8.i, i1 false)
   %16 = load i32, ptr %dst.coerce1, align 4
@@ -3383,7 +3382,7 @@ if.then36:                                        ; preds = %if.end32
   br i1 %cmp37, label %land.end, label %land.end.thread
 
 land.end:                                         ; preds = %if.then36
-  %arrayidx = getelementptr inbounds nuw i64, ptr %dst.coerce0, i64 %div19
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %dst.coerce0, i64 %div19
   %17 = load i64, ptr %arrayidx, align 8
   %sh_prom = and i64 %sub, 63
   %shl = shl nuw i64 1, %sh_prom
@@ -3400,7 +3399,7 @@ if.then42.thread:                                 ; preds = %land.end.thread
   %sub.i2953 = xor i32 %conv, 63
   %sh_prom.i.i.i54 = zext nneg i32 %sub.i2953 to i64
   %shr.i.i.i55 = lshr i64 -1, %sh_prom.i.i.i54
-  %arrayidx50.phi.trans.insert = getelementptr inbounds nuw i64, ptr %dst.coerce0, i64 %div19
+  %arrayidx50.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %dst.coerce0, i64 %div19
   %.pre = load i64, ptr %arrayidx50.phi.trans.insert, align 8
   br label %if.else
 
@@ -3419,7 +3418,7 @@ if.then46:                                        ; preds = %if.then42
 if.else:                                          ; preds = %if.then42.thread, %if.then42
   %19 = phi i64 [ %.pre, %if.then42.thread ], [ %17, %if.then42 ]
   %shr.i.i.i56 = phi i64 [ %shr.i.i.i55, %if.then42.thread ], [ %shr.i.i.i, %if.then42 ]
-  %arrayidx50 = getelementptr inbounds nuw i64, ptr %dst.coerce0, i64 %div19
+  %arrayidx50 = getelementptr inbounds nuw [8 x i8], ptr %dst.coerce0, i64 %div19
   %and51 = and i64 %19, %shr.i.i.i56
   store i64 %and51, ptr %arrayidx50, align 8
   br label %if.end53
@@ -3435,7 +3434,7 @@ if.end53:                                         ; preds = %land.end.thread, %i
   %25 = shl i32 %24, 3
   %26 = zext i32 %25 to i64
   %cond = select i1 %cmp57, i64 %26, i64 0
-  %add.ptr = getelementptr inbounds nuw i64, ptr %dst.coerce0, i64 %div19
+  %add.ptr = getelementptr inbounds nuw [8 x i8], ptr %dst.coerce0, i64 %div19
   %add.ptr64 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 8
   %27 = sext i1 %20 to i8
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %add.ptr64, i8 %27, i64 %cond, i1 false)
@@ -3518,7 +3517,7 @@ entry:
 land.rhs.i:                                       ; preds = %entry
   %sub.i = add i32 %src.coerce1, -1
   %idxprom.i = zext i32 %sub.i to i64
-  %arrayidx.i = getelementptr inbounds nuw i64, ptr %src.coerce0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %src.coerce0, i64 %idxprom.i
   %0 = load i64, ptr %arrayidx.i, align 8
   %.lobit = lshr i64 %0, 63
   %1 = trunc nuw nsw i64 %.lobit to i32
@@ -3550,7 +3549,7 @@ if.end.i:                                         ; preds = %entry
 cond.false.i.i:                                   ; preds = %if.end.i
   %sub.i.i = add i32 %src.coerce1, -1
   %idxprom.i.i = zext i32 %sub.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds nuw i64, ptr %src.coerce0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %src.coerce0, i64 %idxprom.i.i
   %2 = load i64, ptr %arrayidx.i.i, align 8
   %shr.neg.i.i.i = ashr i64 %2, 63
   %3 = trunc nsw i64 %shr.neg.i.i.i to i8
@@ -3559,7 +3558,7 @@ cond.false.i.i:                                   ; preds = %if.end.i
 if.end:                                           ; preds = %if.end.i, %cond.false.i.i
   %cond.i.i = phi i8 [ %3, %cond.false.i.i ], [ 0, %if.end.i ]
   %idx.ext.i = zext i32 %src.coerce1 to i64
-  %add.ptr.i = getelementptr inbounds nuw i64, ptr %dst.coerce0, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %dst.coerce0, i64 %idx.ext.i
   %conv8.i = zext i32 %mul5.i to i64
   tail call void @llvm.memset.p0.i64(ptr align 8 %add.ptr.i, i8 %cond.i.i, i64 %conv8.i, i1 false)
   %4 = load i32, ptr %dst.coerce1, align 4
@@ -3645,7 +3644,7 @@ if.end.i:                                         ; preds = %entry
 cond.false.i.i:                                   ; preds = %if.end.i
   %sub.i.i = add i32 %rhs.coerce1, -1
   %idxprom.i.i = zext i32 %sub.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds nuw i64, ptr %rhs.coerce0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %rhs.coerce0, i64 %idxprom.i.i
   %2 = load i64, ptr %arrayidx.i.i, align 8
   %shr.neg.i.i.i = ashr i64 %2, 63
   %3 = trunc nsw i64 %shr.neg.i.i.i to i8
@@ -3654,7 +3653,7 @@ cond.false.i.i:                                   ; preds = %if.end.i
 if.end:                                           ; preds = %if.end.i, %cond.false.i.i
   %cond.i.i = phi i8 [ %3, %cond.false.i.i ], [ 0, %if.end.i ]
   %idx.ext.i = zext i32 %rhs.coerce1 to i64
-  %add.ptr.i = getelementptr inbounds nuw i64, ptr %lhs.coerce0, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %lhs.coerce0, i64 %idx.ext.i
   %conv8.i = zext i32 %mul5.i to i64
   tail call void @llvm.memset.p0.i64(ptr align 8 %add.ptr.i, i8 %cond.i.i, i64 %conv8.i, i1 false)
   %4 = load i32, ptr %lhs.coerce1, align 4
@@ -3759,7 +3758,7 @@ if.end.i.i:                                       ; preds = %if.end9.i
 cond.false.i.i.i:                                 ; preds = %if.end.i.i
   %sub.i.i.i = add i32 %rhs.coerce1.lhs.coerce1, -1
   %idxprom.i.i.i = zext i32 %sub.i.i.i to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw i64, ptr %rhs.coerce0.lhs.coerce0, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %rhs.coerce0.lhs.coerce0, i64 %idxprom.i.i.i
   %3 = load i64, ptr %arrayidx.i.i.i, align 8
   %shr.neg.i.i.i.i = ashr i64 %3, 63
   %4 = trunc nsw i64 %shr.neg.i.i.i.i to i8
@@ -3768,7 +3767,7 @@ cond.false.i.i.i:                                 ; preds = %if.end.i.i
 if.end12.i:                                       ; preds = %cond.false.i.i.i, %if.end.i.i
   %cond.i.i.i = phi i8 [ %4, %cond.false.i.i.i ], [ 0, %if.end.i.i ]
   %idx.ext.i.i = zext i32 %rhs.coerce1.lhs.coerce1 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw i64, ptr %dst.coerce0, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %dst.coerce0, i64 %idx.ext.i.i
   %conv8.i.i = zext i32 %mul5.i.i to i64
   tail call void @llvm.memset.p0.i64(ptr align 8 %add.ptr.i.i, i8 %cond.i.i.i, i64 %conv8.i.i, i1 false)
   tail call void @_ZN4llvh5APInt5tcAndEPmPKmj(ptr noundef %dst.coerce0, ptr noundef %lhs.coerce0.rhs.coerce0, i32 noundef %lhs.coerce1.rhs.coerce1) #18
@@ -3876,7 +3875,7 @@ if.end.i.i:                                       ; preds = %if.end9.i
 cond.false.i.i.i:                                 ; preds = %if.end.i.i
   %sub.i.i.i = add i32 %rhs.coerce1.lhs.coerce1, -1
   %idxprom.i.i.i = zext i32 %sub.i.i.i to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw i64, ptr %rhs.coerce0.lhs.coerce0, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %rhs.coerce0.lhs.coerce0, i64 %idxprom.i.i.i
   %3 = load i64, ptr %arrayidx.i.i.i, align 8
   %shr.neg.i.i.i.i = ashr i64 %3, 63
   %4 = trunc nsw i64 %shr.neg.i.i.i.i to i8
@@ -3885,7 +3884,7 @@ cond.false.i.i.i:                                 ; preds = %if.end.i.i
 if.end12.i:                                       ; preds = %cond.false.i.i.i, %if.end.i.i
   %cond.i.i.i = phi i8 [ %4, %cond.false.i.i.i ], [ 0, %if.end.i.i ]
   %idx.ext.i.i = zext i32 %rhs.coerce1.lhs.coerce1 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw i64, ptr %dst.coerce0, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %dst.coerce0, i64 %idx.ext.i.i
   %conv8.i.i = zext i32 %mul5.i.i to i64
   tail call void @llvm.memset.p0.i64(ptr align 8 %add.ptr.i.i, i8 %cond.i.i.i, i64 %conv8.i.i, i1 false)
   tail call void @_ZN4llvh5APInt4tcOrEPmPKmj(ptr noundef %dst.coerce0, ptr noundef %lhs.coerce0.rhs.coerce0, i32 noundef %lhs.coerce1.rhs.coerce1) #18
@@ -3987,7 +3986,7 @@ if.end.i.i:                                       ; preds = %if.end9.i
 cond.false.i.i.i:                                 ; preds = %if.end.i.i
   %sub.i.i.i = add i32 %rhs.coerce1.lhs.coerce1, -1
   %idxprom.i.i.i = zext i32 %sub.i.i.i to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw i64, ptr %rhs.coerce0.lhs.coerce0, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %rhs.coerce0.lhs.coerce0, i64 %idxprom.i.i.i
   %3 = load i64, ptr %arrayidx.i.i.i, align 8
   %shr.neg.i.i.i.i = ashr i64 %3, 63
   %4 = trunc nsw i64 %shr.neg.i.i.i.i to i8
@@ -3996,7 +3995,7 @@ cond.false.i.i.i:                                 ; preds = %if.end.i.i
 if.end12.i:                                       ; preds = %cond.false.i.i.i, %if.end.i.i
   %cond.i.i.i = phi i8 [ %4, %cond.false.i.i.i ], [ 0, %if.end.i.i ]
   %idx.ext.i.i = zext i32 %rhs.coerce1.lhs.coerce1 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw i64, ptr %dst.coerce0, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %dst.coerce0, i64 %idx.ext.i.i
   %conv8.i.i = zext i32 %mul5.i.i to i64
   tail call void @llvm.memset.p0.i64(ptr align 8 %add.ptr.i.i, i8 %cond.i.i.i, i64 %conv8.i.i, i1 false)
   tail call void @_ZN4llvh5APInt5tcXorEPmPKmj(ptr noundef %dst.coerce0, ptr noundef %lhs.coerce0.rhs.coerce0, i32 noundef %lhs.coerce1.rhs.coerce1) #18
@@ -4099,7 +4098,7 @@ if.end.i.i:                                       ; preds = %if.end9.i
 cond.false.i.i.i:                                 ; preds = %if.end.i.i
   %sub.i.i.i = add i32 %rhs.coerce1.lhs.coerce1, -1
   %idxprom.i.i.i = zext i32 %sub.i.i.i to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw i64, ptr %rhs.coerce0.lhs.coerce0, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %rhs.coerce0.lhs.coerce0, i64 %idxprom.i.i.i
   %3 = load i64, ptr %arrayidx.i.i.i, align 8
   %shr.neg.i.i.i.i = ashr i64 %3, 63
   %4 = trunc nsw i64 %shr.neg.i.i.i.i to i8
@@ -4108,19 +4107,19 @@ cond.false.i.i.i:                                 ; preds = %if.end.i.i
 if.end12.i:                                       ; preds = %cond.false.i.i.i, %if.end.i.i
   %cond.i.i.i = phi i8 [ %4, %cond.false.i.i.i ], [ 0, %if.end.i.i ]
   %idx.ext.i.i = zext i32 %rhs.coerce1.lhs.coerce1 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw i64, ptr %dst.coerce0, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %dst.coerce0, i64 %idx.ext.i.i
   %conv8.i.i = zext i32 %mul5.i.i to i64
   tail call void @llvm.memset.p0.i64(ptr align 8 %add.ptr.i.i, i8 %cond.i.i.i, i64 %conv8.i.i, i1 false)
   %call15.i = tail call noundef i64 @_ZN4llvh5APInt5tcAddEPmPKmmj(ptr noundef %dst.coerce0, ptr noundef %lhs.coerce0.rhs.coerce0, i64 noundef 0, i32 noundef %lhs.coerce1.rhs.coerce1) #18
   %idx.ext.i = zext i32 %lhs.coerce1.rhs.coerce1 to i64
-  %add.ptr.i = getelementptr inbounds nuw i64, ptr %dst.coerce0, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %dst.coerce0, i64 %idx.ext.i
   %cmp.i6.i = icmp eq i32 %lhs.coerce1.rhs.coerce1, 0
   br i1 %cmp.i6.i, label %_ZN6hermes6bigint12_GLOBAL__N_124getBigIntRefSignExtValueINS0_18ImmutableBigIntRefEEEmRKT_.exit.i, label %cond.false.i.i
 
 cond.false.i.i:                                   ; preds = %if.end12.i
   %sub.i7.i = add i32 %lhs.coerce1.rhs.coerce1, -1
   %idxprom.i.i = zext i32 %sub.i7.i to i64
-  %arrayidx.i.i = getelementptr inbounds nuw i64, ptr %lhs.coerce0.rhs.coerce0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %lhs.coerce0.rhs.coerce0, i64 %idxprom.i.i
   %5 = load i64, ptr %arrayidx.i.i, align 8
   %shr.neg.i.i.i = ashr i64 %5, 63
   br label %_ZN6hermes6bigint12_GLOBAL__N_124getBigIntRefSignExtValueINS0_18ImmutableBigIntRefEEEmRKT_.exit.i
@@ -4323,7 +4322,7 @@ if.end.i.i:                                       ; preds = %if.end9.i
 cond.false.i.i.i:                                 ; preds = %if.end.i.i
   %sub.i.i.i = add i32 %rhs.coerce1.lhs.coerce1, -1
   %idxprom.i.i.i = zext i32 %sub.i.i.i to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw i64, ptr %rhs.coerce0.lhs.coerce0, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %rhs.coerce0.lhs.coerce0, i64 %idxprom.i.i.i
   %4 = load i64, ptr %arrayidx.i.i.i, align 8
   %shr.neg.i.i.i.i = ashr i64 %4, 63
   %5 = trunc nsw i64 %shr.neg.i.i.i.i to i8
@@ -4332,19 +4331,19 @@ cond.false.i.i.i:                                 ; preds = %if.end.i.i
 if.end12.i:                                       ; preds = %cond.false.i.i.i, %if.end.i.i
   %cond.i.i.i = phi i8 [ %5, %cond.false.i.i.i ], [ 0, %if.end.i.i ]
   %idx.ext.i.i = zext i32 %rhs.coerce1.lhs.coerce1 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw i64, ptr %dst.coerce0, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %dst.coerce0, i64 %idx.ext.i.i
   %conv8.i.i = zext i32 %mul5.i.i to i64
   tail call void @llvm.memset.p0.i64(ptr align 8 %add.ptr.i.i, i8 %cond.i.i.i, i64 %conv8.i.i, i1 false)
   %call15.i = tail call noundef i64 @_ZN4llvh5APInt10tcSubtractEPmPKmmj(ptr noundef %dst.coerce0, ptr noundef %lhs.coerce0.rhs.coerce0, i64 noundef 0, i32 noundef %lhs.coerce1.rhs.coerce1) #18
   %idx.ext.i = zext i32 %lhs.coerce1.rhs.coerce1 to i64
-  %add.ptr.i = getelementptr inbounds nuw i64, ptr %dst.coerce0, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %dst.coerce0, i64 %idx.ext.i
   %cmp.i6.i = icmp eq i32 %lhs.coerce1.rhs.coerce1, 0
   br i1 %cmp.i6.i, label %_ZN6hermes6bigint12_GLOBAL__N_124getBigIntRefSignExtValueINS0_18ImmutableBigIntRefEEEmRKT_.exit.i, label %cond.false.i.i
 
 cond.false.i.i:                                   ; preds = %if.end12.i
   %sub.i7.i = add i32 %lhs.coerce1.rhs.coerce1, -1
   %idxprom.i.i = zext i32 %sub.i7.i to i64
-  %arrayidx.i.i = getelementptr inbounds nuw i64, ptr %lhs.coerce0.rhs.coerce0, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %lhs.coerce0.rhs.coerce0, i64 %idxprom.i.i
   %6 = load i64, ptr %arrayidx.i.i, align 8
   %shr.neg.i.i.i = ashr i64 %6, 63
   br label %_ZN6hermes6bigint12_GLOBAL__N_124getBigIntRefSignExtValueINS0_18ImmutableBigIntRefEEEmRKT_.exit.i
@@ -4531,7 +4530,7 @@ entry:
 land.rhs.i:                                       ; preds = %entry
   %sub.i = add i32 %lhs.coerce1, -1
   %idxprom.i = zext i32 %sub.i to i64
-  %arrayidx.i = getelementptr inbounds nuw i64, ptr %lhs.coerce0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %lhs.coerce0, i64 %idxprom.i
   %0 = load i64, ptr %arrayidx.i, align 8
   %cmp2.i = icmp slt i64 %0, 0
   br label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit
@@ -4548,7 +4547,7 @@ _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit28.thread: ; preds =
 _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit28: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit
   %sub.i24 = add i32 %rhs.coerce1, -1
   %idxprom.i25 = zext i32 %sub.i24 to i64
-  %arrayidx.i26 = getelementptr inbounds nuw i64, ptr %rhs.coerce0, i64 %idxprom.i25
+  %arrayidx.i26 = getelementptr inbounds nuw [8 x i8], ptr %rhs.coerce0, i64 %idxprom.i25
   %2 = load i64, ptr %arrayidx.i26, align 8
   %.fr = freeze i64 %2
   %cmp2.i27 = icmp slt i64 %.fr, 0
@@ -4597,7 +4596,7 @@ _ZN6hermes6bigint10TmpStorageC2Ej.exit:           ; preds = %if.end.i.i.i, %for.
 
 if.then:                                          ; preds = %_ZN6hermes6bigint10TmpStorageC2Ej.exit
   %idx.ext.i = zext i32 %cond113 to i64
-  %add.ptr.i = getelementptr inbounds nuw i64, ptr %7, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %idx.ext.i
   store ptr %add.ptr.i, ptr %data_.i, align 8
   %cmp.i.i = icmp ult i32 %cond113, %lhs.coerce1
   br i1 %cmp.i.i, label %cleanup, label %if.end.i.i
@@ -4613,7 +4612,7 @@ if.end.i.i:                                       ; preds = %if.then
 cond.false.i.i.i:                                 ; preds = %if.end.i.i
   %sub.i.i.i = add i32 %lhs.coerce1, -1
   %idxprom.i.i.i = zext i32 %sub.i.i.i to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw i64, ptr %lhs.coerce0, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %lhs.coerce0, i64 %idxprom.i.i.i
   %8 = load i64, ptr %arrayidx.i.i.i, align 8, !noalias !46
   %shr.neg.i.i.i.i = ashr i64 %8, 63
   %9 = trunc nsw i64 %shr.neg.i.i.i.i to i8
@@ -4622,7 +4621,7 @@ cond.false.i.i.i:                                 ; preds = %if.end.i.i
 if.end.i:                                         ; preds = %cond.false.i.i.i, %if.end.i.i
   %cond.i.i.i = phi i8 [ %9, %cond.false.i.i.i ], [ 0, %if.end.i.i ]
   %idx.ext.i.i = zext i32 %lhs.coerce1 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw i64, ptr %7, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %idx.ext.i.i
   %conv8.i.i = zext i32 %mul5.i.i to i64
   call void @llvm.memset.p0.i64(ptr align 8 %add.ptr.i.i, i8 %cond.i.i.i, i64 %conv8.i.i, i1 false), !noalias !46
   call void @_ZN4llvh5APInt8tcNegateEPmj(ptr noundef %7, i32 noundef %cond113) #18, !noalias !46
@@ -4675,7 +4674,7 @@ if.end21:                                         ; preds = %if.end.i, %cond.end
 if.then23:                                        ; preds = %if.end21
   %18 = load ptr, ptr %data_.i, align 8
   %idx.ext.i34 = zext i32 %5 to i64
-  %add.ptr.i35 = getelementptr inbounds nuw i64, ptr %18, i64 %idx.ext.i34
+  %add.ptr.i35 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %idx.ext.i34
   store ptr %add.ptr.i35, ptr %data_.i, align 8
   %cmp.i.i36 = icmp ult i32 %5, %rhs.coerce1
   br i1 %cmp.i.i36, label %cleanup, label %if.end.i.i37
@@ -4691,7 +4690,7 @@ if.end.i.i37:                                     ; preds = %if.then23
 cond.false.i.i.i43:                               ; preds = %if.end.i.i37
   %sub.i.i.i44 = add i32 %rhs.coerce1, -1
   %idxprom.i.i.i45 = zext i32 %sub.i.i.i44 to i64
-  %arrayidx.i.i.i46 = getelementptr inbounds nuw i64, ptr %rhs.coerce0, i64 %idxprom.i.i.i45
+  %arrayidx.i.i.i46 = getelementptr inbounds nuw [8 x i8], ptr %rhs.coerce0, i64 %idxprom.i.i.i45
   %19 = load i64, ptr %arrayidx.i.i.i46, align 8, !noalias !49
   %shr.neg.i.i.i.i47 = ashr i64 %19, 63
   %20 = trunc nsw i64 %shr.neg.i.i.i.i47 to i8
@@ -4700,7 +4699,7 @@ cond.false.i.i.i43:                               ; preds = %if.end.i.i37
 if.end.i48:                                       ; preds = %cond.false.i.i.i43, %if.end.i.i37
   %cond.i.i.i49 = phi i8 [ %20, %cond.false.i.i.i43 ], [ 0, %if.end.i.i37 ]
   %idx.ext.i.i50 = zext i32 %rhs.coerce1 to i64
-  %add.ptr.i.i51 = getelementptr inbounds nuw i64, ptr %18, i64 %idx.ext.i.i50
+  %add.ptr.i.i51 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %idx.ext.i.i50
   %conv8.i.i52 = zext i32 %mul5.i.i41 to i64
   call void @llvm.memset.p0.i64(ptr align 8 %add.ptr.i.i51, i8 %cond.i.i.i49, i64 %conv8.i.i52, i1 false), !noalias !49
   call void @_ZN4llvh5APInt8tcNegateEPmj(ptr noundef %18, i32 noundef %5) #18, !noalias !49
@@ -4767,7 +4766,7 @@ if.then46:                                        ; preds = %if.end43
   call void @_ZN4llvh5APInt14tcFullMultiplyEPmPKmS3_jj(ptr noundef %dst.coerce0, ptr noundef %lhs.sroa.0.0, ptr noundef %rhs.sroa.0.0, i32 noundef %lhs.sroa.7.0, i32 noundef %rhs.sroa.7.0) #18
   %add54 = add i32 %rhs.sroa.7.0, %lhs.sroa.7.0
   %idx.ext = zext i32 %add54 to i64
-  %add.ptr = getelementptr inbounds nuw i64, ptr %dst.coerce0, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw [8 x i8], ptr %dst.coerce0, i64 %idx.ext
   %30 = load i32, ptr %dst.coerce1, align 4
   %sub = sub i32 %30, %add54
   %mul = shl i32 %sub, 3
@@ -4922,11 +4921,11 @@ _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i: ; preds
 _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i
   %sub.i.i.i = add i32 %rhs.8.val, -1
   %idxprom.i.i.i = zext i32 %sub.i.i.i to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw i64, ptr %rhs.0.val, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %rhs.0.val, i64 %idxprom.i.i.i
   %6 = load i64, ptr %arrayidx.i.i.i, align 8
   %.fr.i.i = freeze i64 %6
   %7 = zext nneg i32 %5 to i64
-  %8 = getelementptr i64, ptr %rhs.addr.i, i64 %7
+  %8 = getelementptr [8 x i8], ptr %rhs.addr.i, i64 %7
   %arrayidx.i14.i.i = getelementptr i8, ptr %8, i64 -8
   %9 = load i64, ptr %arrayidx.i14.i.i, align 8
   %10 = xor i64 %9, %.fr.i.i
@@ -4955,7 +4954,7 @@ if.end13:                                         ; preds = %_ZN6hermes6bigint7c
 land.rhs.i:                                       ; preds = %if.end13
   %sub.i = add i32 %lhs.coerce1, -1
   %idxprom.i = zext i32 %sub.i to i64
-  %arrayidx.i = getelementptr inbounds nuw i64, ptr %lhs.coerce0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %lhs.coerce0, i64 %idxprom.i
   %12 = load i64, ptr %arrayidx.i, align 8
   %cmp2.i = icmp slt i64 %12, 0
   br label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit
@@ -4967,7 +4966,7 @@ _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit: ; preds = %if.end1
 land.rhs.i27:                                     ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit
   %sub.i28 = add i32 %rhs.8.val, -1
   %idxprom.i29 = zext i32 %sub.i28 to i64
-  %arrayidx.i30 = getelementptr inbounds nuw i64, ptr %rhs.0.val, i64 %idxprom.i29
+  %arrayidx.i30 = getelementptr inbounds nuw [8 x i8], ptr %rhs.0.val, i64 %idxprom.i29
   %14 = load i64, ptr %arrayidx.i30, align 8
   %cmp2.i31 = icmp slt i64 %14, 0
   br label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit32
@@ -5015,17 +5014,17 @@ _ZN6hermes6bigint10TmpStorageC2Ej.exit:           ; preds = %if.end.i.i.i, %for.
   %18 = phi ptr [ %.pre.i, %for.body.i.i.i.i.i.i.i.preheader.i ], [ %add.ptr.i.i.i.i.i.i, %if.end.i.i.i ]
   %data_.i = getelementptr inbounds nuw i8, ptr %tmpStorage, i64 48
   %idx.ext.i = zext i32 %add.i.i to i64
-  %add.ptr.i = getelementptr inbounds nuw i64, ptr %18, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %idx.ext.i
   %add.i.i.cond35 = select i1 %cmp, i32 %add.i.i, i32 %cond35
   %rem.coerce0.add.ptr.i = select i1 %cmp, ptr %rem.coerce0, ptr %add.ptr.i
   %add.ptr.i.quoc.coerce0 = select i1 %cmp, ptr %add.ptr.i, ptr %quoc.coerce0
   %idx.ext.i38.pn = zext i32 %add.i.i.cond35 to i64
-  %storemerge = getelementptr inbounds nuw i64, ptr %add.ptr.i, i64 %idx.ext.i38.pn
+  %storemerge = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i, i64 %idx.ext.i38.pn
   store ptr %storemerge, ptr %data_.i, align 8
   br i1 %16, label %if.then53, label %if.end67
 
 if.then53:                                        ; preds = %_ZN6hermes6bigint10TmpStorageC2Ej.exit
-  %add.ptr.i42 = getelementptr inbounds nuw i64, ptr %storemerge, i64 %idx.ext.i
+  %add.ptr.i42 = getelementptr inbounds nuw [8 x i8], ptr %storemerge, i64 %idx.ext.i
   store ptr %add.ptr.i42, ptr %data_.i, align 8
   %cmp.i = icmp ult i32 %add.i.i, %rhs.8.val
   br i1 %cmp.i, label %_ZN6hermes6bigint12_GLOBAL__N_134initNonCanonicalWithReadOnlyBigIntERNS0_16MutableBigIntRefERKNS0_18ImmutableBigIntRefE.exit, label %if.end.i
@@ -5041,7 +5040,7 @@ if.end.i:                                         ; preds = %if.then53
 cond.false.i.i:                                   ; preds = %if.end.i
   %sub.i.i = add i32 %rhs.8.val, -1
   %idxprom.i.i = zext i32 %sub.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds nuw i64, ptr %rhs.0.val, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %rhs.0.val, i64 %idxprom.i.i
   %19 = load i64, ptr %arrayidx.i.i, align 8
   %shr.neg.i.i.i = ashr i64 %19, 63
   %20 = trunc nsw i64 %shr.neg.i.i.i to i8
@@ -5050,7 +5049,7 @@ cond.false.i.i:                                   ; preds = %if.end.i
 _ZN6hermes6bigint12_GLOBAL__N_124getBigIntRefSignExtValueINS0_18ImmutableBigIntRefEEEmRKT_.exit.i: ; preds = %cond.false.i.i, %if.end.i
   %cond.i.i = phi i8 [ %20, %cond.false.i.i ], [ 0, %if.end.i ]
   %idx.ext.i45 = zext i32 %rhs.8.val to i64
-  %add.ptr.i46 = getelementptr inbounds nuw i64, ptr %storemerge, i64 %idx.ext.i45
+  %add.ptr.i46 = getelementptr inbounds nuw [8 x i8], ptr %storemerge, i64 %idx.ext.i45
   %conv8.i = zext i32 %mul5.i to i64
   call void @llvm.memset.p0.i64(ptr align 8 %add.ptr.i46, i8 %cond.i.i, i64 %conv8.i, i1 false)
   br label %_ZN6hermes6bigint12_GLOBAL__N_134initNonCanonicalWithReadOnlyBigIntERNS0_16MutableBigIntRefERKNS0_18ImmutableBigIntRefE.exit
@@ -5080,7 +5079,7 @@ if.end.i49:                                       ; preds = %if.end67
 cond.false.i.i55:                                 ; preds = %if.end.i49
   %sub.i.i56 = add i32 %lhs.coerce1, -1
   %idxprom.i.i57 = zext i32 %sub.i.i56 to i64
-  %arrayidx.i.i58 = getelementptr inbounds nuw i64, ptr %lhs.coerce0, i64 %idxprom.i.i57
+  %arrayidx.i.i58 = getelementptr inbounds nuw [8 x i8], ptr %lhs.coerce0, i64 %idxprom.i.i57
   %23 = load i64, ptr %arrayidx.i.i58, align 8
   %shr.neg.i.i.i59 = ashr i64 %23, 63
   %24 = trunc nsw i64 %shr.neg.i.i.i59 to i8
@@ -5089,7 +5088,7 @@ cond.false.i.i55:                                 ; preds = %if.end.i49
 _ZN6hermes6bigint12_GLOBAL__N_124getBigIntRefSignExtValueINS0_18ImmutableBigIntRefEEEmRKT_.exit.i60: ; preds = %cond.false.i.i55, %if.end.i49
   %cond.i.i61 = phi i8 [ %24, %cond.false.i.i55 ], [ 0, %if.end.i49 ]
   %idx.ext.i62 = zext i32 %lhs.coerce1 to i64
-  %add.ptr.i63 = getelementptr inbounds nuw i64, ptr %add.ptr.i.quoc.coerce0, i64 %idx.ext.i62
+  %add.ptr.i63 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.quoc.coerce0, i64 %idx.ext.i62
   %conv8.i64 = zext i32 %mul5.i53 to i64
   call void @llvm.memset.p0.i64(ptr align 8 %add.ptr.i63, i8 %cond.i.i61, i64 %conv8.i64, i1 false)
   br label %_ZN6hermes6bigint12_GLOBAL__N_134initNonCanonicalWithReadOnlyBigIntERNS0_16MutableBigIntRefERKNS0_18ImmutableBigIntRefE.exit66
@@ -5296,7 +5295,7 @@ _ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i.threa
 _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i.thread: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i.thread.thread
   %sub.i.i.i417 = add i32 %rhs.coerce1, -1
   %idxprom.i.i.i418 = zext i32 %sub.i.i.i417 to i64
-  %arrayidx.i.i.i419 = getelementptr inbounds nuw i64, ptr %rhs.coerce0, i64 %idxprom.i.i.i418
+  %arrayidx.i.i.i419 = getelementptr inbounds nuw [8 x i8], ptr %rhs.coerce0, i64 %idxprom.i.i.i418
   %5 = load i64, ptr %arrayidx.i.i.i419, align 8
   %.fr.i.i420 = freeze i64 %5
   %cmp2.i.i.i421 = icmp slt i64 %.fr.i.i420, 0
@@ -5305,7 +5304,7 @@ _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i.thread: ; preds
 _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i.thread
   %sub.i.i.i = add i32 %rhs.coerce1, -1
   %idxprom.i.i.i = zext i32 %sub.i.i.i to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw i64, ptr %rhs.coerce0, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %rhs.coerce0, i64 %idxprom.i.i.i
   %6 = load i64, ptr %arrayidx.i.i.i, align 8
   %.fr.i.i = freeze i64 %6
   %cmp2.i.i.i = icmp slt i64 %.fr.i.i, 0
@@ -5318,7 +5317,7 @@ _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i: ; preds
 
 _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i
   %7 = zext nneg i32 %4 to i64
-  %8 = getelementptr i64, ptr %rhs.addr.i, i64 %7
+  %8 = getelementptr [8 x i8], ptr %rhs.addr.i, i64 %7
   %arrayidx.i1421.i.i = getelementptr i8, ptr %8, i64 -8
   %9 = load i64, ptr %arrayidx.i1421.i.i, align 8
   %cmp2.i1522.i.i = icmp sgt i64 %9, -1
@@ -5333,7 +5332,7 @@ _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10
 
 _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i
   %10 = zext nneg i32 %4 to i64
-  %11 = getelementptr i64, ptr %rhs.addr.i, i64 %10
+  %11 = getelementptr [8 x i8], ptr %rhs.addr.i, i64 %10
   %arrayidx.i14.i.i = getelementptr i8, ptr %11, i64 -8
   %12 = load i64, ptr %arrayidx.i14.i.i, align 8
   %13 = xor i64 %12, %.fr.i.i
@@ -5416,7 +5415,7 @@ _ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i37: ; 
 
 _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i45: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i37
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr i64, ptr %rhs.addr.i27, i64 %21
+  %22 = getelementptr [8 x i8], ptr %rhs.addr.i27, i64 %21
   %arrayidx.i1421.i.i46 = getelementptr i8, ptr %22, i64 -8
   %23 = load i64, ptr %arrayidx.i1421.i.i46, align 8
   %cmp2.i1522.i.i47 = icmp slt i64 %23, 0
@@ -5455,7 +5454,7 @@ while.body.i.i.i.i58:                             ; preds = %land.rhs.i.i.i.i62,
 _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i74.thread: ; preds = %while.body.i.i.i.i58
   %sub.i.i.i75307 = add i32 %rhs.coerce1, -1
   %idxprom.i.i.i76308 = zext i32 %sub.i.i.i75307 to i64
-  %arrayidx.i.i.i77309 = getelementptr inbounds nuw i64, ptr %rhs.coerce0, i64 %idxprom.i.i.i76308
+  %arrayidx.i.i.i77309 = getelementptr inbounds nuw [8 x i8], ptr %rhs.coerce0, i64 %idxprom.i.i.i76308
   %27 = load i64, ptr %arrayidx.i.i.i77309, align 8
   %.fr.i.i78310 = freeze i64 %27
   %cmp2.i.i.i79311 = icmp slt i64 %.fr.i.i78310, 0
@@ -5469,7 +5468,7 @@ _ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i67: ; 
   %30 = lshr i32 %29, 3
   %sub.i.i.i75 = add i32 %rhs.coerce1, -1
   %idxprom.i.i.i76 = zext i32 %sub.i.i.i75 to i64
-  %arrayidx.i.i.i77 = getelementptr inbounds nuw i64, ptr %rhs.coerce0, i64 %idxprom.i.i.i76
+  %arrayidx.i.i.i77 = getelementptr inbounds nuw [8 x i8], ptr %rhs.coerce0, i64 %idxprom.i.i.i76
   %31 = load i64, ptr %arrayidx.i.i.i77, align 8
   %.fr.i.i78 = freeze i64 %31
   %cmp2.i.i.i79 = icmp slt i64 %.fr.i.i78, 0
@@ -5481,7 +5480,7 @@ _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10
 
 _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i81: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i67
   %32 = zext nneg i32 %30 to i64
-  %33 = getelementptr i64, ptr %rhs.addr.i57, i64 %32
+  %33 = getelementptr [8 x i8], ptr %rhs.addr.i57, i64 %32
   %arrayidx.i14.i.i82 = getelementptr i8, ptr %33, i64 -8
   %34 = load i64, ptr %arrayidx.i14.i.i82, align 8
   %35 = xor i64 %34, %.fr.i.i78
@@ -5579,11 +5578,11 @@ _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i149: ; pr
 _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i130: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i123
   %sub.i.i.i124 = add i32 %lhs.coerce1, -1
   %idxprom.i.i.i125 = zext i32 %sub.i.i.i124 to i64
-  %arrayidx.i.i.i126 = getelementptr inbounds nuw i64, ptr %lhs.coerce0, i64 %idxprom.i.i.i125
+  %arrayidx.i.i.i126 = getelementptr inbounds nuw [8 x i8], ptr %lhs.coerce0, i64 %idxprom.i.i.i125
   %44 = load i64, ptr %arrayidx.i.i.i126, align 8
   %.fr.i.i127 = freeze i64 %44
   %45 = zext nneg i32 %43 to i64
-  %46 = getelementptr i64, ptr %rhs.addr.i106, i64 %45
+  %46 = getelementptr [8 x i8], ptr %rhs.addr.i106, i64 %45
   %arrayidx.i14.i.i131 = getelementptr i8, ptr %46, i64 -8
   %47 = load i64, ptr %arrayidx.i14.i.i131, align 8
   %48 = xor i64 %47, %.fr.i.i127
@@ -5654,11 +5653,11 @@ _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i198: ; pr
 _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i179: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i172
   %sub.i.i.i173 = add i32 %lhs.coerce1, -1
   %idxprom.i.i.i174 = zext i32 %sub.i.i.i173 to i64
-  %arrayidx.i.i.i175 = getelementptr inbounds nuw i64, ptr %lhs.coerce0, i64 %idxprom.i.i.i174
+  %arrayidx.i.i.i175 = getelementptr inbounds nuw [8 x i8], ptr %lhs.coerce0, i64 %idxprom.i.i.i174
   %56 = load i64, ptr %arrayidx.i.i.i175, align 8
   %.fr.i.i176 = freeze i64 %56
   %57 = zext nneg i32 %55 to i64
-  %58 = getelementptr i64, ptr %rhs.addr.i155, i64 %57
+  %58 = getelementptr [8 x i8], ptr %rhs.addr.i155, i64 %57
   %arrayidx.i14.i.i180 = getelementptr i8, ptr %58, i64 -8
   %59 = load i64, ptr %arrayidx.i14.i.i180, align 8
   %60 = xor i64 %59, %.fr.i.i176
@@ -5723,11 +5722,11 @@ _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i228: ; preds =
   %67 = phi i32 [ %66, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i221 ], [ 1, %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i214.thread.thread ]
   %sub.i.i.i222 = add i32 %lhs.coerce1, -1
   %idxprom.i.i.i223 = zext i32 %sub.i.i.i222 to i64
-  %arrayidx.i.i.i224 = getelementptr inbounds nuw i64, ptr %lhs.coerce0, i64 %idxprom.i.i.i223
+  %arrayidx.i.i.i224 = getelementptr inbounds nuw [8 x i8], ptr %lhs.coerce0, i64 %idxprom.i.i.i223
   %68 = load i64, ptr %arrayidx.i.i.i224, align 8
   %.fr.i.i225 = freeze i64 %68
   %69 = zext nneg i32 %67 to i64
-  %70 = getelementptr i64, ptr %rhs.addr.i204, i64 %69
+  %70 = getelementptr [8 x i8], ptr %rhs.addr.i204, i64 %69
   %arrayidx.i14.i.i229 = getelementptr i8, ptr %70, i64 -8
   %71 = load i64, ptr %arrayidx.i14.i.i229, align 8
   %72 = xor i64 %71, %.fr.i.i225
@@ -5793,7 +5792,7 @@ if.end10.i:                                       ; preds = %if.end.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %dst.coerce0, i8 0, i64 %conv8.i.i, i1 false)
   %shl.i = shl nuw i64 1, %rem.i
   %idxprom.i = zext nneg i32 %div6.i to i64
-  %arrayidx.i = getelementptr inbounds nuw i64, ptr %dst.coerce0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %dst.coerce0, i64 %idxprom.i
   store i64 %shl.i, ptr %arrayidx.i, align 8
   br label %if.end89
 
@@ -5822,7 +5821,7 @@ if.end10.i259:                                    ; preds = %if.end.i257
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %dst.coerce0, i8 0, i64 %conv8.i.i261, i1 false)
   %shl.i263 = shl nuw i64 1, %rem.i255
   %idxprom.i264 = zext nneg i32 %div6.i253 to i64
-  %arrayidx.i265 = getelementptr inbounds nuw i64, ptr %dst.coerce0, i64 %idxprom.i264
+  %arrayidx.i265 = getelementptr inbounds nuw [8 x i8], ptr %dst.coerce0, i64 %idxprom.i264
   store i64 %shl.i263, ptr %arrayidx.i265, align 8
   br label %_ZN6hermes6bigint12_GLOBAL__N_120exponentiatePowerOf2ENS0_16MutableBigIntRefEj.exit267
 
@@ -6224,11 +6223,11 @@ _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i: ; preds
 _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i
   %sub.i.i.i = add i32 %result.val30.val39.val, -1
   %idxprom.i.i.i = zext i32 %sub.i.i.i to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw i64, ptr %result.val30.val, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %result.val30.val, i64 %idxprom.i.i.i
   %35 = load i64, ptr %arrayidx.i.i.i, align 8
   %.fr.i.i = freeze i64 %35
   %36 = zext nneg i32 %34 to i64
-  %37 = getelementptr i64, ptr %rhs.addr.i, i64 %36
+  %37 = getelementptr [8 x i8], ptr %rhs.addr.i, i64 %36
   %arrayidx.i14.i.i = getelementptr i8, ptr %37, i64 -8
   %38 = load i64, ptr %arrayidx.i14.i.i, align 8
   %39 = xor i64 %38, %.fr.i.i
@@ -6382,7 +6381,7 @@ if.end.i:                                         ; preds = %if.then67
 cond.false.i.i:                                   ; preds = %if.end.i
   %sub.i.i = add i32 %result.val34.val35.val, -1
   %idxprom.i.i = zext i32 %sub.i.i to i64
-  %arrayidx.i.i165 = getelementptr inbounds nuw i64, ptr %result.val34.val, i64 %idxprom.i.i
+  %arrayidx.i.i165 = getelementptr inbounds nuw [8 x i8], ptr %result.val34.val, i64 %idxprom.i.i
   %61 = load i64, ptr %arrayidx.i.i165, align 8
   %shr.neg.i.i.i = ashr i64 %61, 63
   %62 = trunc nsw i64 %shr.neg.i.i.i to i8
@@ -6392,7 +6391,7 @@ _ZN6hermes6bigint12_GLOBAL__N_124getBigIntRefSignExtValueINS0_18ImmutableBigIntR
   %cond.i.i = phi i8 [ %62, %cond.false.i.i ], [ 0, %if.end.i ]
   %63 = load ptr, ptr %nextResult.sroa.0.1, align 8
   %idx.ext.i166 = zext i32 %result.val34.val35.val to i64
-  %add.ptr.i167 = getelementptr inbounds nuw i64, ptr %63, i64 %idx.ext.i166
+  %add.ptr.i167 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %idx.ext.i166
   %conv8.i = zext i32 %mul5.i to i64
   call void @llvm.memset.p0.i64(ptr align 8 %add.ptr.i167, i8 %cond.i.i, i64 %conv8.i, i1 false)
   br label %cleanup
@@ -6439,7 +6438,7 @@ entry:
 land.rhs.i:                                       ; preds = %entry
   %sub.i = add i32 %shiftAmnt.coerce1, -1
   %idxprom.i = zext i32 %sub.i to i64
-  %arrayidx.i = getelementptr inbounds nuw i64, ptr %shiftAmnt.coerce0, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %shiftAmnt.coerce0, i64 %idxprom.i
   %0 = load i64, ptr %arrayidx.i, align 8
   %cmp2.i = icmp slt i64 %0, 0
   br label %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit
@@ -6478,7 +6477,7 @@ _ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i.threa
 _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i.thread: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i.thread.thread
   %sub.i.i.i100 = add i32 %shiftAmnt.coerce1, -1
   %idxprom.i.i.i101 = zext i32 %sub.i.i.i100 to i64
-  %arrayidx.i.i.i102 = getelementptr inbounds nuw i64, ptr %shiftAmnt.coerce0, i64 %idxprom.i.i.i101
+  %arrayidx.i.i.i102 = getelementptr inbounds nuw [8 x i8], ptr %shiftAmnt.coerce0, i64 %idxprom.i.i.i101
   %7 = load i64, ptr %arrayidx.i.i.i102, align 8
   %.fr.i.i103 = freeze i64 %7
   %cmp2.i.i.i104 = icmp slt i64 %.fr.i.i103, 0
@@ -6487,7 +6486,7 @@ _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i.thread: ; preds
 _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i.thread
   %sub.i.i.i = add i32 %shiftAmnt.coerce1, -1
   %idxprom.i.i.i = zext i32 %sub.i.i.i to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw i64, ptr %shiftAmnt.coerce0, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %shiftAmnt.coerce0, i64 %idxprom.i.i.i
   %8 = load i64, ptr %arrayidx.i.i.i, align 8
   %.fr.i.i = freeze i64 %8
   %cmp2.i.i.i = icmp slt i64 %.fr.i.i, 0
@@ -6501,7 +6500,7 @@ _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i: ; preds
 _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i.thread.thread, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i
   %9 = phi i32 [ %6, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i ], [ 1, %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i.thread.thread ]
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr i64, ptr %rhs.addr.i, i64 %10
+  %11 = getelementptr [8 x i8], ptr %rhs.addr.i, i64 %10
   %arrayidx.i1421.i.i = getelementptr i8, ptr %11, i64 -8
   %12 = load i64, ptr %arrayidx.i1421.i.i, align 8
   %cmp2.i1522.i.i = icmp sgt i64 %12, -1
@@ -6515,7 +6514,7 @@ _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i: ; preds = %_
   %.fr.i.i106 = phi i64 [ %.fr.i.i103, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i.thread ], [ %.fr.i.i, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i ]
   %13 = phi i32 [ 1, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i.thread ], [ %6, %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i ]
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr i64, ptr %rhs.addr.i, i64 %14
+  %15 = getelementptr [8 x i8], ptr %rhs.addr.i, i64 %14
   %arrayidx.i14.i.i = getelementptr i8, ptr %15, i64 -8
   %16 = load i64, ptr %arrayidx.i14.i.i, align 8
   %17 = xor i64 %16, %.fr.i.i106
@@ -6592,7 +6591,7 @@ _ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i17.thr
 _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i24.thread: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i17.thread.thread
   %sub.i.i.i25109 = add i32 %shiftAmnt.coerce1, -1
   %idxprom.i.i.i26110 = zext i32 %sub.i.i.i25109 to i64
-  %arrayidx.i.i.i27111 = getelementptr inbounds nuw i64, ptr %shiftAmnt.coerce0, i64 %idxprom.i.i.i26110
+  %arrayidx.i.i.i27111 = getelementptr inbounds nuw [8 x i8], ptr %shiftAmnt.coerce0, i64 %idxprom.i.i.i26110
   %25 = load i64, ptr %arrayidx.i.i.i27111, align 8
   %.fr.i.i28112 = freeze i64 %25
   %cmp2.i.i.i29113 = icmp slt i64 %.fr.i.i28112, 0
@@ -6601,7 +6600,7 @@ _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i24.thread: ; pre
 _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i24: ; preds = %_ZN6hermes6bigint12_GLOBAL__N_131makeImmutableRefFromSignedDigitERl.exit.i17.thread
   %sub.i.i.i25 = add i32 %shiftAmnt.coerce1, -1
   %idxprom.i.i.i26 = zext i32 %sub.i.i.i25 to i64
-  %arrayidx.i.i.i27 = getelementptr inbounds nuw i64, ptr %shiftAmnt.coerce0, i64 %idxprom.i.i.i26
+  %arrayidx.i.i.i27 = getelementptr inbounds nuw [8 x i8], ptr %shiftAmnt.coerce0, i64 %idxprom.i.i.i26
   %26 = load i64, ptr %arrayidx.i.i.i27, align 8
   %.fr.i.i28 = freeze i64 %26
   %cmp2.i.i.i29 = icmp slt i64 %.fr.i.i28, 0
@@ -6614,7 +6613,7 @@ _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i50: ; pre
 
 _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread._ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16_crit_edge.i.i52: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.thread.i.i50
   %27 = zext nneg i32 %24 to i64
-  %28 = getelementptr i64, ptr %rhs.addr.i7, i64 %27
+  %28 = getelementptr [8 x i8], ptr %rhs.addr.i7, i64 %27
   %arrayidx.i1421.i.i53 = getelementptr i8, ptr %28, i64 -8
   %29 = load i64, ptr %arrayidx.i1421.i.i53, align 8
   %cmp2.i1522.i.i54 = icmp sgt i64 %29, -1
@@ -6625,7 +6624,7 @@ _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit._ZN6hermes6bigint10
 
 _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit16.i.i31: ; preds = %_ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit.i.i24
   %30 = zext nneg i32 %24 to i64
-  %31 = getelementptr i64, ptr %rhs.addr.i7, i64 %30
+  %31 = getelementptr [8 x i8], ptr %rhs.addr.i7, i64 %30
   %arrayidx.i14.i.i32 = getelementptr i8, ptr %31, i64 -8
   %32 = load i64, ptr %arrayidx.i14.i.i32, align 8
   %33 = xor i64 %32, %.fr.i.i28
@@ -6745,7 +6744,7 @@ if.end.i.i:                                       ; preds = %entry
 cond.false.i.i.i:                                 ; preds = %if.end.i.i
   %sub.i.i.i = add i32 %lhs.coerce1, -1
   %idxprom.i.i.i = zext i32 %sub.i.i.i to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw i64, ptr %lhs.coerce0, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %lhs.coerce0, i64 %idxprom.i.i.i
   %5 = load i64, ptr %arrayidx.i.i.i, align 8
   %shr.neg.i.i.i.i = ashr i64 %5, 63
   %6 = trunc nsw i64 %shr.neg.i.i.i.i to i8
@@ -6754,7 +6753,7 @@ cond.false.i.i.i:                                 ; preds = %if.end.i.i
 if.end9.i:                                        ; preds = %cond.false.i.i.i, %if.end.i.i
   %cond.i.i.i = phi i8 [ %6, %cond.false.i.i.i ], [ 0, %if.end.i.i ]
   %idx.ext.i.i = zext i32 %lhs.coerce1 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw i64, ptr %dst.coerce0, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %dst.coerce0, i64 %idx.ext.i.i
   %conv8.i.i = zext i32 %mul5.i.i to i64
   tail call void @llvm.memset.p0.i64(ptr align 8 %add.ptr.i.i, i8 %cond.i.i.i, i64 %conv8.i.i, i1 false)
   %7 = load i32, ptr %dst.coerce1, align 4
@@ -6847,7 +6846,7 @@ if.end.i.i:                                       ; preds = %entry
 cond.false.i.i.i:                                 ; preds = %if.end.i.i
   %sub.i.i.i = add i32 %lhs.coerce1, -1
   %idxprom.i.i.i = zext i32 %sub.i.i.i to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw i64, ptr %lhs.coerce0, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %lhs.coerce0, i64 %idxprom.i.i.i
   %5 = load i64, ptr %arrayidx.i.i.i, align 8
   %shr.neg.i.i.i.i = ashr i64 %5, 63
   %6 = trunc nsw i64 %shr.neg.i.i.i.i to i8
@@ -6856,7 +6855,7 @@ cond.false.i.i.i:                                 ; preds = %if.end.i.i
 if.end9.i:                                        ; preds = %cond.false.i.i.i, %if.end.i.i
   %cond.i.i.i = phi i8 [ %6, %cond.false.i.i.i ], [ 0, %if.end.i.i ]
   %idx.ext.i.i = zext i32 %lhs.coerce1 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw i64, ptr %dst.coerce0, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %dst.coerce0, i64 %idx.ext.i.i
   %conv8.i.i = zext i32 %mul5.i.i to i64
   tail call void @llvm.memset.p0.i64(ptr align 8 %add.ptr.i.i, i8 %cond.i.i.i, i64 %conv8.i.i, i1 false)
   %7 = load i32, ptr %dst.coerce1, align 4
@@ -6965,7 +6964,7 @@ _ZNSt12_Vector_baseIN6hermes6bigint16BigIntTableEntryESaIS2_EE13_M_deallocateEPS
   %call5.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #20
   store ptr %call5.i.i.i.i, ptr %agg.result, align 8
   store ptr %call5.i.i.i.i, ptr %_M_finish.i.i, align 8
-  %add.ptr21.i = getelementptr inbounds nuw %"struct.hermes::bigint::BigIntTableEntry", ptr %call5.i.i.i.i, i64 %add12.i.i
+  %add.ptr21.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i, i64 %add12.i.i
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8
   br label %_ZNSt6vectorIN6hermes6bigint16BigIntTableEntryESaIS2_EE7reserveEm.exit
 
@@ -7092,7 +7091,7 @@ if.then.i18.i.i.i:                                ; preds = %_ZNSt6vectorIN6herm
 _ZNSt6vectorIN6hermes6bigint16BigIntTableEntryESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %if.then.i18.i.i.i, %_ZNSt6vectorIN6hermes6bigint16BigIntTableEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i
   store ptr %call5.i.i.i.i.i.i, ptr %agg.result, align 8
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i20, align 8
-  %add.ptr19.i.i.i = getelementptr inbounds nuw %"struct.hermes::bigint::BigIntTableEntry", ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8
   br label %_ZNSt6vectorIN6hermes6bigint16BigIntTableEntryESaIS2_EE9push_backEOS2_.exit
 
@@ -7253,7 +7252,7 @@ entry:
 _ZN6hermes6bigint10isNegativeENS0_18ImmutableBigIntRefE.exit: ; preds = %entry
   %sub.i = add i32 %numDigits, -1
   %idxprom.i = zext i32 %sub.i to i64
-  %arrayidx.i = getelementptr inbounds nuw i64, ptr %digits, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %digits, i64 %idxprom.i
   %0 = load i64, ptr %arrayidx.i, align 8
   %cmp2.i = icmp slt i64 %0, 0
   br i1 %cmp2.i, label %if.then, label %if.end5.critedge

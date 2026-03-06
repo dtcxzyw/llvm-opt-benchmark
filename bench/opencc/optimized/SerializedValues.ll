@@ -20,12 +20,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__shared_count" = type { ptr }
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.9" }
-%"struct.std::_Head_base.9" = type { ptr }
 
 $_ZNSt12__shared_ptrIN6opencc7LexiconELN9__gnu_cxx12_Lock_policyE2EED2Ev = comdat any
 
@@ -403,7 +397,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
 .lr.ph:                                           ; preds = %.preheader, %75
   %indvars.iv = phi i32 [ %indvars.iv.next, %75 ], [ 0, %.preheader ]
   %.12235 = phi i64 [ %76, %75 ], [ %.02139, %.preheader ]
-  %58 = getelementptr inbounds nuw i16, ptr %.pre, i64 %.12235
+  %58 = getelementptr inbounds nuw [2 x i8], ptr %.pre, i64 %.12235
   %59 = load i16, ptr %58, align 2, !tbaa !34
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i16 %59, ptr %3, align 2, !tbaa !34
@@ -753,7 +747,7 @@ _ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit16.i.i.i: ; preds = %99, %.no
 _ZNSt6vectorItSaItEE17_M_realloc_insertIJtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i.i: ; preds = %101, %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit16.i.i.i
   store ptr %96, ptr %2, align 8, !tbaa !26
   store ptr %100, ptr %22, align 8, !tbaa !45
-  %102 = getelementptr inbounds nuw i16, ptr %96, i64 %94
+  %102 = getelementptr inbounds nuw [2 x i8], ptr %96, i64 %94
   store ptr %102, ptr %23, align 8, !tbaa !29
   %.pre79 = load i64, ptr %75, align 8, !tbaa !9
   br label %_ZNSt6vectorItSaItEE9push_backEOt.exit
@@ -1537,7 +1531,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26.i, %221
   store ptr %193, ptr %11, align 8, !tbaa !41
   store ptr %220, ptr %115, align 8, !tbaa !44
-  %225 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %193, i64 %189
+  %225 = getelementptr inbounds nuw [32 x i8], ptr %193, i64 %189
   store ptr %225, ptr %116, align 8, !tbaa !43
   %.pre149 = load ptr, ptr %12, align 8, !tbaa !24
   %226 = icmp eq ptr %.pre149, %113
@@ -1681,7 +1675,7 @@ _ZNSt6vectorISt10unique_ptrIN6opencc9DictEntryESt14default_deleteIS2_EESaIS5_EE1
 _ZNSt6vectorISt10unique_ptrIN6opencc9DictEntryESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJRPS2_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i: ; preds = %268, %_ZNSt6vectorISt10unique_ptrIN6opencc9DictEntryESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i
   store ptr %262, ptr %242, align 8, !tbaa !23
   store ptr %267, ptr %243, align 8, !tbaa !20
-  %269 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %262, i64 %260
+  %269 = getelementptr inbounds nuw [8 x i8], ptr %262, i64 %260
   store ptr %269, ptr %245, align 8, !tbaa !67
   br label %_ZN6opencc7Lexicon3AddEPNS_9DictEntryE.exit
 

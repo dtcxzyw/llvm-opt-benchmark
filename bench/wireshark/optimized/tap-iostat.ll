@@ -17,10 +17,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.erf_ehdr = type { i64 }
 %union.anon.3 = type { i32 }
 %struct.Buffer = type { ptr, i64, i64, i64 }
-%struct._io_stat_item_t = type { ptr, ptr, ptr, i64, i32, i32, i32, %union.anon }
-%union.anon = type { i64 }
-%struct.calc_type_ent_t = type { ptr, i32 }
-%struct.column_width = type { i32, i32 }
 
 @.str = private unnamed_addr constant [8 x i8] c"io,stat\00", align 1
 @iostat_ui = internal global { i32, [4 x i8], ptr, ptr, ptr, i64, ptr } { i32 3, [4 x i8] zeroinitializer, ptr null, ptr @.str, ptr @iostat_init, i64 0, ptr null }, align 8
@@ -320,9 +316,9 @@ define internal void @iostat_init(ptr noundef %0, ptr readnone captures(none) %1
 
 .lr.ph209:                                        ; preds = %.loopexit, %.lr.ph209
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph209 ], [ 0, %.loopexit ]
-  %100 = getelementptr i64, ptr %92, i64 %indvars.iv
+  %100 = getelementptr [8 x i8], ptr %92, i64 %indvars.iv
   store i64 0, ptr %100, align 8
-  %101 = getelementptr i32, ptr %94, i64 %indvars.iv
+  %101 = getelementptr [4 x i8], ptr %94, i64 %indvars.iv
   store i32 0, ptr %101, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %102 = icmp samesign ult i64 %indvars.iv.next, %86
@@ -462,39 +458,39 @@ define internal fastcc noundef zeroext i1 @register_io_tap(ptr noundef %0, i32 n
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = zext i32 %1 to i64
-  %8 = getelementptr %struct._io_stat_item_t, ptr %6, i64 %7
+  %8 = getelementptr [56 x i8], ptr %6, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %8, ptr %9, align 8
   %10 = load ptr, ptr %5, align 8
-  %11 = getelementptr %struct._io_stat_item_t, ptr %10, i64 %7
+  %11 = getelementptr [56 x i8], ptr %10, i64 %7
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr null, ptr %12, align 8
   %13 = load ptr, ptr %5, align 8
-  %14 = getelementptr %struct._io_stat_item_t, ptr %13, i64 %7
+  %14 = getelementptr [56 x i8], ptr %13, i64 %7
   store ptr %0, ptr %14, align 8
   %15 = load ptr, ptr %5, align 8
-  %16 = getelementptr %struct._io_stat_item_t, ptr %15, i64 %7
+  %16 = getelementptr [56 x i8], ptr %15, i64 %7
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   store i64 0, ptr %17, align 8
   %18 = load ptr, ptr %5, align 8
-  %19 = getelementptr %struct._io_stat_item_t, ptr %18, i64 %7
+  %19 = getelementptr [56 x i8], ptr %18, i64 %7
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 36
   store i32 0, ptr %20, align 4
   %21 = load ptr, ptr %5, align 8
-  %22 = getelementptr %struct._io_stat_item_t, ptr %21, i64 %7
+  %22 = getelementptr [56 x i8], ptr %21, i64 %7
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 48
   store i64 0, ptr %23, align 8
   %24 = load ptr, ptr %5, align 8
-  %25 = getelementptr %struct._io_stat_item_t, ptr %24, i64 %7
+  %25 = getelementptr [56 x i8], ptr %24, i64 %7
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
   store i32 0, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr ptr, ptr %28, i64 %7
+  %29 = getelementptr [8 x i8], ptr %28, i64 %7
   store ptr %2, ptr %29, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %31 = load ptr, ptr %30, align 8
-  %32 = getelementptr i32, ptr %31, i64 %7
+  %32 = getelementptr [4 x i8], ptr %31, i64 %7
   store i32 2, ptr %32, align 4
   %.not125 = icmp eq ptr %2, null
   br i1 %.not125, label %.split.us, label %.split
@@ -503,12 +499,12 @@ define internal fastcc noundef zeroext i1 @register_io_tap(ptr noundef %0, i32 n
   %.0114150.us = phi ptr [ %spec.select.us, %.split.us ], [ null, %4 ]
   %.0115149.us = phi i32 [ %39, %.split.us ], [ 0, %4 ]
   %33 = load ptr, ptr %30, align 8
-  %34 = getelementptr i32, ptr %33, i64 %7
+  %34 = getelementptr [4 x i8], ptr %33, i64 %7
   %35 = load i32, ptr %34, align 4
   %switch138.us = icmp ult i32 %35, 2
   %spec.select.us = select i1 %switch138.us, ptr @.str.13, ptr %.0114150.us
   %36 = load ptr, ptr %5, align 8
-  %37 = getelementptr %struct._io_stat_item_t, ptr %36, i64 %7
+  %37 = getelementptr [56 x i8], ptr %36, i64 %7
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 32
   store i32 %1, ptr %38, align 8
   %39 = add nuw nsw i32 %.0115149.us, 1
@@ -525,14 +521,14 @@ define internal fastcc noundef zeroext i1 @register_io_tap(ptr noundef %0, i32 n
   br i1 %43, label %44, label %93
 
 44:                                               ; preds = %.split
-  %45 = getelementptr %struct.calc_type_ent_t, ptr @calc_type_table, i64 %indvars.iv
+  %45 = getelementptr [16 x i8], ptr @calc_type_table, i64 %indvars.iv
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load i32, ptr %46, align 8
   %48 = load ptr, ptr %30, align 8
-  %49 = getelementptr i32, ptr %48, i64 %7
+  %49 = getelementptr [4 x i8], ptr %48, i64 %7
   store i32 %47, ptr %49, align 4
   %50 = load ptr, ptr %5, align 8
-  %51 = getelementptr %struct._io_stat_item_t, ptr %50, i64 %7
+  %51 = getelementptr [56 x i8], ptr %50, i64 %7
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 32
   store i32 %1, ptr %52, align 8
   %53 = getelementptr i8, ptr %2, i64 %41
@@ -555,7 +551,7 @@ define internal fastcc noundef zeroext i1 @register_io_tap(ptr noundef %0, i32 n
 
 63:                                               ; preds = %56
   %64 = load ptr, ptr %30, align 8
-  %65 = getelementptr i32, ptr %64, i64 %7
+  %65 = getelementptr [4 x i8], ptr %64, i64 %7
   %66 = load i32, ptr %65, align 4
   %switch136 = icmp ult i32 %66, 2
   %.not127 = icmp eq ptr %59, %58
@@ -592,7 +588,7 @@ define internal fastcc noundef zeroext i1 @register_io_tap(ptr noundef %0, i32 n
   store i8 0, ptr %83, align 1
   %84 = getelementptr i8, ptr %59, i64 1
   %85 = load ptr, ptr %30, align 8
-  %86 = getelementptr i32, ptr %85, i64 %7
+  %86 = getelementptr [4 x i8], ptr %85, i64 %7
   %87 = load i32, ptr %86, align 4
   %switch137 = icmp ult i32 %87, 2
   br i1 %switch137, label %.thread, label %88
@@ -611,12 +607,12 @@ define internal fastcc noundef zeroext i1 @register_io_tap(ptr noundef %0, i32 n
 
 93:                                               ; preds = %.split
   %94 = load ptr, ptr %30, align 8
-  %95 = getelementptr i32, ptr %94, i64 %7
+  %95 = getelementptr [4 x i8], ptr %94, i64 %7
   %96 = load i32, ptr %95, align 4
   %switch138 = icmp ult i32 %96, 2
   %spec.select = select i1 %switch138, ptr @.str.13, ptr %.0114150
   %97 = load ptr, ptr %5, align 8
-  %98 = getelementptr %struct._io_stat_item_t, ptr %97, i64 %7
+  %98 = getelementptr [56 x i8], ptr %97, i64 %7
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 32
   store i32 %1, ptr %99, align 8
   br label %100
@@ -624,7 +620,7 @@ define internal fastcc noundef zeroext i1 @register_io_tap(ptr noundef %0, i32 n
 100:                                              ; preds = %93, %44
   %.3 = phi ptr [ %.0114150, %44 ], [ %spec.select, %93 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %101 = getelementptr %struct.calc_type_ent_t, ptr @calc_type_table, i64 %indvars.iv.next
+  %101 = getelementptr [16 x i8], ptr @calc_type_table, i64 %indvars.iv.next
   %102 = load ptr, ptr %101, align 16
   %.not = icmp eq i64 %indvars.iv.next, 9
   br i1 %.not, label %.thread, label %.split, !llvm.loop !12
@@ -634,10 +630,10 @@ define internal fastcc noundef zeroext i1 @register_io_tap(ptr noundef %0, i32 n
   %105 = load i32, ptr %104, align 8
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %107 = load ptr, ptr %106, align 8
-  %108 = getelementptr i32, ptr %107, i64 %7
+  %108 = getelementptr [4 x i8], ptr %107, i64 %7
   store i32 %105, ptr %108, align 4
   %109 = load ptr, ptr %30, align 8
-  %110 = getelementptr i32, ptr %109, i64 %7
+  %110 = getelementptr [4 x i8], ptr %109, i64 %7
   %111 = load i32, ptr %110, align 4
   %switch139 = icmp ult i32 %111, 3
   br i1 %switch139, label %.thread, label %112
@@ -696,7 +692,7 @@ define internal fastcc noundef zeroext i1 @register_io_tap(ptr noundef %0, i32 n
   %.1144 = phi ptr [ %84, %125 ], [ %84, %103 ], [ %84, %120 ], [ %84, %115 ], [ %84, %112 ], [ %84, %112 ], [ %84, %112 ], [ %84, %112 ], [ %84, %112 ], [ %84, %112 ], [ %84, %112 ], [ %84, %112 ], [ %84, %112 ], [ %84, %112 ], [ %84, %75 ], [ %spec.select.us, %.split.us ], [ %.3, %100 ]
   tail call void @g_free(ptr noundef %.0112145)
   %129 = load ptr, ptr %5, align 8
-  %130 = getelementptr %struct._io_stat_item_t, ptr %129, i64 %7
+  %130 = getelementptr [56 x i8], ptr %129, i64 %7
   %.not131 = icmp eq i32 %1, 0
   %131 = select i1 %.not131, ptr @iostat_draw, ptr null
   %132 = tail call ptr @register_tap_listener(ptr noundef nonnull @.str.17, ptr noundef %130, ptr noundef %.1144, i32 noundef 1, ptr noundef null, ptr noundef nonnull @iostat_packet, ptr noundef %131, ptr noundef null)
@@ -876,7 +872,7 @@ define internal noundef i32 @iostat_packet(ptr noundef captures(none) %0, ptr no
   %63 = load ptr, ptr %62, align 8
   %64 = getelementptr inbounds nuw i8, ptr %.0398.lcssa, i64 32
   %65 = sext i32 %59 to i64
-  %66 = getelementptr i32, ptr %63, i64 %65
+  %66 = getelementptr [4 x i8], ptr %63, i64 %65
   %67 = load i32, ptr %66, align 4
   switch i32 %67, label %.loopexit [
     i32 0, label %68
@@ -900,7 +896,7 @@ define internal noundef i32 @iostat_packet(ptr noundef captures(none) %0, ptr no
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr i32, ptr %75, i64 %65
+  %76 = getelementptr [4 x i8], ptr %75, i64 %65
   %77 = load i32, ptr %76, align 4
   %78 = tail call ptr @proto_get_finfo_ptr_array(ptr noundef %73, i32 noundef %77)
   %.not447 = icmp eq ptr %78, null
@@ -911,7 +907,7 @@ define internal noundef i32 @iostat_packet(ptr noundef captures(none) %0, ptr no
   %81 = load ptr, ptr %80, align 8
   %82 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %83 = load ptr, ptr %82, align 8
-  %84 = getelementptr i32, ptr %83, i64 %65
+  %84 = getelementptr [4 x i8], ptr %83, i64 %65
   %85 = load i32, ptr %84, align 4
   %86 = tail call ptr @proto_get_finfo_ptr_array(ptr noundef %81, i32 noundef %85)
   %.not446 = icmp eq ptr %86, null
@@ -932,7 +928,7 @@ define internal noundef i32 @iostat_packet(ptr noundef captures(none) %0, ptr no
   %91 = load ptr, ptr %82, align 8
   %92 = load i32, ptr %64, align 8
   %93 = sext i32 %92 to i64
-  %94 = getelementptr i32, ptr %91, i64 %93
+  %94 = getelementptr [4 x i8], ptr %91, i64 %93
   %95 = load i32, ptr %94, align 4
   %96 = tail call i32 @proto_registrar_get_ftype(i32 noundef %95)
   switch i32 %96, label %169 [
@@ -959,7 +955,7 @@ define internal noundef i32 @iostat_packet(ptr noundef captures(none) %0, ptr no
 
 97:                                               ; preds = %90, %90, %90, %90
   %98 = load ptr, ptr %86, align 8
-  %99 = getelementptr ptr, ptr %98, i64 %indvars.iv509
+  %99 = getelementptr [8 x i8], ptr %98, i64 %indvars.iv509
   %100 = load ptr, ptr %99, align 8
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 48
   %102 = load ptr, ptr %101, align 8
@@ -972,7 +968,7 @@ define internal noundef i32 @iostat_packet(ptr noundef captures(none) %0, ptr no
 
 107:                                              ; preds = %90, %90, %90, %90
   %108 = load ptr, ptr %86, align 8
-  %109 = getelementptr ptr, ptr %108, i64 %indvars.iv509
+  %109 = getelementptr [8 x i8], ptr %108, i64 %indvars.iv509
   %110 = load ptr, ptr %109, align 8
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 48
   %112 = load ptr, ptr %111, align 8
@@ -984,7 +980,7 @@ define internal noundef i32 @iostat_packet(ptr noundef captures(none) %0, ptr no
 
 116:                                              ; preds = %90, %90, %90, %90
   %117 = load ptr, ptr %86, align 8
-  %118 = getelementptr ptr, ptr %117, i64 %indvars.iv509
+  %118 = getelementptr [8 x i8], ptr %117, i64 %indvars.iv509
   %119 = load ptr, ptr %118, align 8
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 48
   %121 = load ptr, ptr %120, align 8
@@ -997,7 +993,7 @@ define internal noundef i32 @iostat_packet(ptr noundef captures(none) %0, ptr no
 
 126:                                              ; preds = %90, %90, %90, %90
   %127 = load ptr, ptr %86, align 8
-  %128 = getelementptr ptr, ptr %127, i64 %indvars.iv509
+  %128 = getelementptr [8 x i8], ptr %127, i64 %indvars.iv509
   %129 = load ptr, ptr %128, align 8
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 48
   %131 = load ptr, ptr %130, align 8
@@ -1009,7 +1005,7 @@ define internal noundef i32 @iostat_packet(ptr noundef captures(none) %0, ptr no
 
 135:                                              ; preds = %90
   %136 = load ptr, ptr %86, align 8
-  %137 = getelementptr ptr, ptr %136, i64 %indvars.iv509
+  %137 = getelementptr [8 x i8], ptr %136, i64 %indvars.iv509
   %138 = load ptr, ptr %137, align 8
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 48
   %140 = load ptr, ptr %139, align 8
@@ -1022,7 +1018,7 @@ define internal noundef i32 @iostat_packet(ptr noundef captures(none) %0, ptr no
 
 145:                                              ; preds = %90
   %146 = load ptr, ptr %86, align 8
-  %147 = getelementptr ptr, ptr %146, i64 %indvars.iv509
+  %147 = getelementptr [8 x i8], ptr %146, i64 %indvars.iv509
   %148 = load ptr, ptr %147, align 8
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 48
   %150 = load ptr, ptr %149, align 8
@@ -1034,7 +1030,7 @@ define internal noundef i32 @iostat_packet(ptr noundef captures(none) %0, ptr no
 
 154:                                              ; preds = %90
   %155 = load ptr, ptr %86, align 8
-  %156 = getelementptr ptr, ptr %155, i64 %indvars.iv509
+  %156 = getelementptr [8 x i8], ptr %155, i64 %indvars.iv509
   %157 = load ptr, ptr %156, align 8
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 48
   %159 = load ptr, ptr %158, align 8
@@ -1066,7 +1062,7 @@ define internal noundef i32 @iostat_packet(ptr noundef captures(none) %0, ptr no
   %176 = load ptr, ptr %175, align 8
   %177 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %178 = load ptr, ptr %177, align 8
-  %179 = getelementptr i32, ptr %178, i64 %65
+  %179 = getelementptr [4 x i8], ptr %178, i64 %65
   %180 = load i32, ptr %179, align 4
   %181 = tail call ptr @proto_get_finfo_ptr_array(ptr noundef %176, i32 noundef %180)
   %.not445 = icmp eq ptr %181, null
@@ -1076,7 +1072,7 @@ define internal noundef i32 @iostat_packet(ptr noundef captures(none) %0, ptr no
   %183 = load ptr, ptr %177, align 8
   %184 = load i32, ptr %64, align 8
   %185 = sext i32 %184 to i64
-  %186 = getelementptr i32, ptr %183, i64 %185
+  %186 = getelementptr [4 x i8], ptr %183, i64 %185
   %187 = load i32, ptr %186, align 4
   %188 = tail call i32 @proto_registrar_get_ftype(i32 noundef %187)
   %189 = getelementptr inbounds nuw i8, ptr %181, i64 8
@@ -1096,7 +1092,7 @@ define internal noundef i32 @iostat_packet(ptr noundef captures(none) %0, ptr no
 switch.lookup:                                    ; preds = %.lr.ph485, %272
   %indvars.iv506 = phi i64 [ %indvars.iv.next507, %272 ], [ 0, %.lr.ph485 ]
   %193 = load ptr, ptr %181, align 8
-  %194 = getelementptr ptr, ptr %193, i64 %indvars.iv506
+  %194 = getelementptr [8 x i8], ptr %193, i64 %indvars.iv506
   %195 = load ptr, ptr %194, align 8
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 48
   %197 = load ptr, ptr %196, align 8
@@ -1266,7 +1262,7 @@ switch.lookup:                                    ; preds = %.lr.ph485, %272
   %278 = load ptr, ptr %277, align 8
   %279 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %280 = load ptr, ptr %279, align 8
-  %281 = getelementptr i32, ptr %280, i64 %65
+  %281 = getelementptr [4 x i8], ptr %280, i64 %65
   %282 = load i32, ptr %281, align 4
   %283 = tail call ptr @proto_get_finfo_ptr_array(ptr noundef %278, i32 noundef %282)
   %.not444 = icmp eq ptr %283, null
@@ -1276,7 +1272,7 @@ switch.lookup:                                    ; preds = %.lr.ph485, %272
   %285 = load ptr, ptr %279, align 8
   %286 = load i32, ptr %64, align 8
   %287 = sext i32 %286 to i64
-  %288 = getelementptr i32, ptr %285, i64 %287
+  %288 = getelementptr [4 x i8], ptr %285, i64 %287
   %289 = load i32, ptr %288, align 4
   %290 = tail call i32 @proto_registrar_get_ftype(i32 noundef %289)
   %291 = getelementptr inbounds nuw i8, ptr %283, i64 8
@@ -1296,7 +1292,7 @@ switch.lookup:                                    ; preds = %.lr.ph485, %272
 switch.lookup553:                                 ; preds = %.lr.ph482, %346
   %indvars.iv503 = phi i64 [ %indvars.iv.next504, %346 ], [ 0, %.lr.ph482 ]
   %295 = load ptr, ptr %283, align 8
-  %296 = getelementptr ptr, ptr %295, i64 %indvars.iv503
+  %296 = getelementptr [8 x i8], ptr %295, i64 %indvars.iv503
   %297 = load ptr, ptr %296, align 8
   %298 = getelementptr inbounds nuw i8, ptr %297, i64 48
   %299 = load ptr, ptr %298, align 8
@@ -1417,7 +1413,7 @@ switch.lookup553:                                 ; preds = %.lr.ph482, %346
   %352 = load ptr, ptr %351, align 8
   %353 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %354 = load ptr, ptr %353, align 8
-  %355 = getelementptr i32, ptr %354, i64 %65
+  %355 = getelementptr [4 x i8], ptr %354, i64 %65
   %356 = load i32, ptr %355, align 4
   %357 = tail call ptr @proto_get_finfo_ptr_array(ptr noundef %352, i32 noundef %356)
   %.not443 = icmp eq ptr %357, null
@@ -1427,7 +1423,7 @@ switch.lookup553:                                 ; preds = %.lr.ph482, %346
   %359 = load ptr, ptr %353, align 8
   %360 = load i32, ptr %64, align 8
   %361 = sext i32 %360 to i64
-  %362 = getelementptr i32, ptr %359, i64 %361
+  %362 = getelementptr [4 x i8], ptr %359, i64 %361
   %363 = load i32, ptr %362, align 4
   %364 = tail call i32 @proto_registrar_get_ftype(i32 noundef %363)
   %365 = getelementptr inbounds nuw i8, ptr %357, i64 8
@@ -1469,7 +1465,7 @@ switch.lookup553:                                 ; preds = %.lr.ph482, %346
 
 372:                                              ; preds = %369, %369, %369, %369
   %373 = load ptr, ptr %357, align 8
-  %374 = getelementptr ptr, ptr %373, i64 %indvars.iv500
+  %374 = getelementptr [8 x i8], ptr %373, i64 %indvars.iv500
   %375 = load ptr, ptr %374, align 8
   %376 = getelementptr inbounds nuw i8, ptr %375, i64 48
   %377 = load ptr, ptr %376, align 8
@@ -1482,7 +1478,7 @@ switch.lookup553:                                 ; preds = %.lr.ph482, %346
 
 382:                                              ; preds = %369, %369, %369, %369
   %383 = load ptr, ptr %357, align 8
-  %384 = getelementptr ptr, ptr %383, i64 %indvars.iv500
+  %384 = getelementptr [8 x i8], ptr %383, i64 %indvars.iv500
   %385 = load ptr, ptr %384, align 8
   %386 = getelementptr inbounds nuw i8, ptr %385, i64 48
   %387 = load ptr, ptr %386, align 8
@@ -1494,7 +1490,7 @@ switch.lookup553:                                 ; preds = %.lr.ph482, %346
 
 391:                                              ; preds = %369, %369, %369, %369
   %392 = load ptr, ptr %357, align 8
-  %393 = getelementptr ptr, ptr %392, i64 %indvars.iv500
+  %393 = getelementptr [8 x i8], ptr %392, i64 %indvars.iv500
   %394 = load ptr, ptr %393, align 8
   %395 = getelementptr inbounds nuw i8, ptr %394, i64 48
   %396 = load ptr, ptr %395, align 8
@@ -1507,7 +1503,7 @@ switch.lookup553:                                 ; preds = %.lr.ph482, %346
 
 401:                                              ; preds = %369, %369, %369, %369
   %402 = load ptr, ptr %357, align 8
-  %403 = getelementptr ptr, ptr %402, i64 %indvars.iv500
+  %403 = getelementptr [8 x i8], ptr %402, i64 %indvars.iv500
   %404 = load ptr, ptr %403, align 8
   %405 = getelementptr inbounds nuw i8, ptr %404, i64 48
   %406 = load ptr, ptr %405, align 8
@@ -1519,7 +1515,7 @@ switch.lookup553:                                 ; preds = %.lr.ph482, %346
 
 410:                                              ; preds = %369
   %411 = load ptr, ptr %357, align 8
-  %412 = getelementptr ptr, ptr %411, i64 %indvars.iv500
+  %412 = getelementptr [8 x i8], ptr %411, i64 %indvars.iv500
   %413 = load ptr, ptr %412, align 8
   %414 = getelementptr inbounds nuw i8, ptr %413, i64 48
   %415 = load ptr, ptr %414, align 8
@@ -1532,7 +1528,7 @@ switch.lookup553:                                 ; preds = %.lr.ph482, %346
 
 420:                                              ; preds = %369
   %421 = load ptr, ptr %357, align 8
-  %422 = getelementptr ptr, ptr %421, i64 %indvars.iv500
+  %422 = getelementptr [8 x i8], ptr %421, i64 %indvars.iv500
   %423 = load ptr, ptr %422, align 8
   %424 = getelementptr inbounds nuw i8, ptr %423, i64 48
   %425 = load ptr, ptr %424, align 8
@@ -1544,7 +1540,7 @@ switch.lookup553:                                 ; preds = %.lr.ph482, %346
 
 429:                                              ; preds = %369
   %430 = load ptr, ptr %357, align 8
-  %431 = getelementptr ptr, ptr %430, i64 %indvars.iv500
+  %431 = getelementptr [8 x i8], ptr %430, i64 %indvars.iv500
   %432 = load ptr, ptr %431, align 8
   %433 = getelementptr inbounds nuw i8, ptr %432, i64 48
   %434 = load ptr, ptr %433, align 8
@@ -1576,7 +1572,7 @@ switch.lookup553:                                 ; preds = %.lr.ph482, %346
   %451 = load ptr, ptr %450, align 8
   %452 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %453 = load ptr, ptr %452, align 8
-  %454 = getelementptr i32, ptr %453, i64 %65
+  %454 = getelementptr [4 x i8], ptr %453, i64 %65
   %455 = load i32, ptr %454, align 4
   %456 = tail call ptr @proto_get_finfo_ptr_array(ptr noundef %451, i32 noundef %455)
   %.not440 = icmp eq ptr %456, null
@@ -1586,7 +1582,7 @@ switch.lookup553:                                 ; preds = %.lr.ph482, %346
   %458 = load ptr, ptr %452, align 8
   %459 = load i32, ptr %64, align 8
   %460 = sext i32 %459 to i64
-  %461 = getelementptr i32, ptr %458, i64 %460
+  %461 = getelementptr [4 x i8], ptr %458, i64 %460
   %462 = load i32, ptr %461, align 4
   %463 = tail call i32 @proto_registrar_get_ftype(i32 noundef %462)
   %.not441 = icmp eq i32 %463, 25
@@ -1611,7 +1607,7 @@ switch.lookup553:                                 ; preds = %.lr.ph482, %346
 470:                                              ; preds = %.lr.ph476, %.loopexit461
   %indvars.iv = phi i64 [ 0, %.lr.ph476 ], [ %indvars.iv.next, %.loopexit461 ]
   %471 = load ptr, ptr %456, align 8
-  %472 = getelementptr ptr, ptr %471, i64 %indvars.iv
+  %472 = getelementptr [8 x i8], ptr %471, i64 %indvars.iv
   %473 = load ptr, ptr %472, align 8
   %474 = getelementptr inbounds nuw i8, ptr %473, i64 48
   %475 = load ptr, ptr %474, align 8
@@ -1684,7 +1680,7 @@ switch.lookup553:                                 ; preds = %.lr.ph482, %346
   %509 = load ptr, ptr %62, align 8
   %510 = load i32, ptr %64, align 8
   %511 = sext i32 %510 to i64
-  %512 = getelementptr i32, ptr %509, i64 %511
+  %512 = getelementptr [4 x i8], ptr %509, i64 %511
   %513 = load i32, ptr %512, align 4
   switch i32 %513, label %607 [
     i32 0, label %514
@@ -1701,7 +1697,7 @@ switch.lookup553:                                 ; preds = %.lr.ph482, %346
 514:                                              ; preds = %.loopexit, %.loopexit
   %515 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %516 = load ptr, ptr %515, align 8
-  %517 = getelementptr i32, ptr %516, i64 %511
+  %517 = getelementptr [4 x i8], ptr %516, i64 %511
   %518 = load i32, ptr %517, align 4
   %519 = load i32, ptr %61, align 4
   %. = tail call i32 @llvm.umax.i32(i32 %518, i32 %519)
@@ -1709,7 +1705,7 @@ switch.lookup553:                                 ; preds = %.lr.ph482, %346
   %520 = load ptr, ptr %62, align 8
   %521 = load i32, ptr %64, align 8
   %522 = sext i32 %521 to i64
-  %523 = getelementptr i32, ptr %520, i64 %522
+  %523 = getelementptr [4 x i8], ptr %520, i64 %522
   %524 = load i32, ptr %523, align 4
   %525 = icmp eq i32 %524, 2
   br i1 %525, label %526, label %607
@@ -1717,7 +1713,7 @@ switch.lookup553:                                 ; preds = %.lr.ph482, %346
 526:                                              ; preds = %514
   %527 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %528 = load ptr, ptr %527, align 8
-  %529 = getelementptr i64, ptr %528, i64 %522
+  %529 = getelementptr [8 x i8], ptr %528, i64 %522
   %530 = load i64, ptr %529, align 8
   %531 = getelementptr inbounds nuw i8, ptr %.0398.lcssa, i64 48
   %532 = load i64, ptr %531, align 8
@@ -1728,7 +1724,7 @@ switch.lookup553:                                 ; preds = %.lr.ph482, %346
 533:                                              ; preds = %.loopexit, %.loopexit, %.loopexit
   %534 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %535 = load ptr, ptr %534, align 8
-  %536 = getelementptr i64, ptr %535, i64 %511
+  %536 = getelementptr [8 x i8], ptr %535, i64 %511
   %537 = load i64, ptr %536, align 8
   %538 = getelementptr inbounds nuw i8, ptr %.0398.lcssa, i64 48
   %539 = load i64, ptr %538, align 8
@@ -1739,14 +1735,14 @@ switch.lookup553:                                 ; preds = %.lr.ph482, %346
 540:                                              ; preds = %.loopexit, %.loopexit, %.loopexit
   %541 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %542 = load ptr, ptr %541, align 8
-  %543 = getelementptr i32, ptr %542, i64 %511
+  %543 = getelementptr [4 x i8], ptr %542, i64 %511
   %544 = load i32, ptr %543, align 4
   %545 = tail call i32 @proto_registrar_get_ftype(i32 noundef %544)
   %546 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %547 = load ptr, ptr %546, align 8
   %548 = load i32, ptr %64, align 8
   %549 = sext i32 %548 to i64
-  %550 = getelementptr i64, ptr %547, i64 %549
+  %550 = getelementptr [8 x i8], ptr %547, i64 %549
   %551 = load i64, ptr %550, align 8
   %552 = getelementptr inbounds nuw i8, ptr %.0398.lcssa, i64 48
   switch i32 %545, label %564 [
@@ -1793,14 +1789,14 @@ switch.lookup553:                                 ; preds = %.lr.ph482, %346
 570:                                              ; preds = %566
   %571 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %572 = load ptr, ptr %571, align 8
-  %573 = getelementptr i32, ptr %572, i64 %511
+  %573 = getelementptr [4 x i8], ptr %572, i64 %511
   %574 = load i32, ptr %573, align 4
   %575 = tail call i32 @proto_registrar_get_ftype(i32 noundef %574)
   %576 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %577 = load ptr, ptr %576, align 8
   %578 = load i32, ptr %64, align 8
   %579 = sext i32 %578 to i64
-  %580 = getelementptr i64, ptr %577, i64 %579
+  %580 = getelementptr [8 x i8], ptr %577, i64 %579
   %581 = load i64, ptr %580, align 8
   %582 = getelementptr inbounds nuw i8, ptr %.0398.lcssa, i64 48
   switch i32 %575, label %602 [
@@ -1886,8 +1882,8 @@ define internal void @iostat_draw(ptr noundef readonly captures(none) %0) #0 {
 
 22:                                               ; preds = %.lr.ph, %22
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
-  %23 = getelementptr %struct._io_stat_item_t, ptr %.pre, i64 %indvars.iv
-  %24 = getelementptr ptr, ptr %20, i64 %indvars.iv
+  %23 = getelementptr [56 x i8], ptr %.pre, i64 %indvars.iv
+  %24 = getelementptr [8 x i8], ptr %20, i64 %indvars.iv
   store ptr %23, ptr %24, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %10
@@ -2067,14 +2063,14 @@ magnitude.exit626:                                ; preds = %78, %75, %._crit_ed
   %.0562687 = phi ptr [ null, %.lr.ph690 ], [ %.2564, %224 ]
   %.0566686 = phi i32 [ %.1575, %.lr.ph690 ], [ %.2568, %224 ]
   %97 = load ptr, ptr %92, align 8
-  %98 = getelementptr i32, ptr %97, i64 %indvars.iv770
+  %98 = getelementptr [4 x i8], ptr %97, i64 %indvars.iv770
   %99 = load i32, ptr %98, align 4
   %100 = icmp eq i32 %99, 2
   br i1 %100, label %.thread, label %101
 
 101:                                              ; preds = %96
   %102 = zext i32 %99 to i64
-  %103 = getelementptr %struct.calc_type_ent_t, ptr @calc_type_table, i64 %102
+  %103 = getelementptr [16 x i8], ptr @calc_type_table, i64 %102
   %104 = load ptr, ptr %103, align 16
   %105 = tail call i64 @strlen(ptr noundef %104) #17
   %106 = trunc i64 %105 to i32
@@ -2088,7 +2084,7 @@ magnitude.exit626:                                ; preds = %78, %75, %._crit_ed
 .thread:                                          ; preds = %96, %101
   %108 = phi i1 [ false, %96 ], [ %107, %101 ]
   %109 = load ptr, ptr %95, align 8
-  %110 = getelementptr i32, ptr %109, i64 %indvars.iv770
+  %110 = getelementptr [4 x i8], ptr %109, i64 %indvars.iv770
   %111 = load i32, ptr %110, align 4
   %112 = zext i32 %111 to i64
   br label %113
@@ -2108,7 +2104,7 @@ magnitude.exit626:                                ; preds = %78, %75, %._crit_ed
 magnitude.exit631:                                ; preds = %113, %116
   %.lcssa.i630 = phi i32 [ %114, %113 ], [ 15, %116 ]
   %118 = tail call i32 @llvm.umax.i32(i32 %.lcssa.i630, i32 6)
-  %119 = getelementptr %struct.column_width, ptr %11, i64 %indvars.iv770
+  %119 = getelementptr [8 x i8], ptr %11, i64 %indvars.iv770
   store i32 %118, ptr %119, align 4
   %120 = add i32 %.0566686, 3
   %121 = add i32 %120, %118
@@ -2121,7 +2117,7 @@ magnitude.exit631:                                ; preds = %113, %116
 
 125:                                              ; preds = %magnitude.exit631
   %126 = load ptr, ptr %93, align 8
-  %127 = getelementptr i64, ptr %126, i64 %indvars.iv770
+  %127 = getelementptr [8 x i8], ptr %126, i64 %indvars.iv770
   %128 = load i64, ptr %127, align 8
   br label %129
 
@@ -2156,7 +2152,7 @@ magnitude.exit636:                                ; preds = %129, %132
 
 141:                                              ; preds = %101, %101
   %142 = load ptr, ptr %93, align 8
-  %143 = getelementptr i64, ptr %142, i64 %indvars.iv770
+  %143 = getelementptr [8 x i8], ptr %142, i64 %indvars.iv770
   %144 = load i64, ptr %143, align 8
   br label %145
 
@@ -2175,7 +2171,7 @@ magnitude.exit636:                                ; preds = %129, %132
 magnitude.exit641:                                ; preds = %145, %148
   %.lcssa.i640 = phi i32 [ %146, %145 ], [ 15, %148 ]
   %150 = tail call i32 @llvm.umax.i32(i32 %.lcssa.i640, i32 5)
-  %151 = getelementptr %struct.column_width, ptr %11, i64 %indvars.iv770
+  %151 = getelementptr [8 x i8], ptr %11, i64 %indvars.iv770
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 4
   store i32 %150, ptr %152, align 4
   %153 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull @iostat_draw.val_mag_s, i64 noundef 3, i32 noundef 2, i64 noundef 3, ptr noundef nonnull @.str.31, i32 noundef %150)
@@ -2184,7 +2180,7 @@ magnitude.exit641:                                ; preds = %145, %148
 
 155:                                              ; preds = %101
   %156 = load ptr, ptr %94, align 8
-  %157 = getelementptr i32, ptr %156, i64 %indvars.iv770
+  %157 = getelementptr [4 x i8], ptr %156, i64 %indvars.iv770
   %158 = load i32, ptr %157, align 4
   %159 = tail call i32 @proto_registrar_get_ftype(i32 noundef %158)
   switch i32 %159, label %200 [
@@ -2195,7 +2191,7 @@ magnitude.exit641:                                ; preds = %145, %148
 
 160:                                              ; preds = %155, %155
   %161 = load ptr, ptr %93, align 8
-  %162 = getelementptr i64, ptr %161, i64 %indvars.iv770
+  %162 = getelementptr [8 x i8], ptr %161, i64 %indvars.iv770
   %163 = load i64, ptr %162, align 8
   br label %164
 
@@ -2216,7 +2212,7 @@ magnitude.exit646:                                ; preds = %164, %167
   %169 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull @iostat_draw.val_mag_s, i64 noundef 3, i32 noundef 2, i64 noundef 3, ptr noundef nonnull @.str.31, i32 noundef %.lcssa.i645)
   %170 = tail call noalias ptr (ptr, ...) @g_strconcat(ptr noundef nonnull @.str.32, ptr noundef nonnull @iostat_draw.val_mag_s, ptr noundef nonnull @.str.35, ptr noundef null)
   %171 = add i32 %.lcssa.i645, 7
-  %172 = getelementptr %struct.column_width, ptr %11, i64 %indvars.iv770
+  %172 = getelementptr [8 x i8], ptr %11, i64 %indvars.iv770
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 4
   store i32 %171, ptr %173, align 4
   br label %217
@@ -2229,7 +2225,7 @@ magnitude.exit646:                                ; preds = %164, %167
 
 175:                                              ; preds = %174
   %176 = load ptr, ptr %93, align 8
-  %177 = getelementptr i64, ptr %176, i64 %indvars.iv770
+  %177 = getelementptr [8 x i8], ptr %176, i64 %indvars.iv770
   %178 = load i64, ptr %177, align 8
   %179 = udiv i64 %178, %spec.select
   store i64 %179, ptr %177, align 8
@@ -2237,7 +2233,7 @@ magnitude.exit646:                                ; preds = %164, %167
 
 180:                                              ; preds = %174
   %181 = load ptr, ptr %93, align 8
-  %182 = getelementptr i64, ptr %181, i64 %indvars.iv770
+  %182 = getelementptr [8 x i8], ptr %181, i64 %indvars.iv770
   %183 = load i64, ptr %182, align 8
   %184 = add i64 %183, 500000000
   %185 = udiv i64 %184, 1000000000
@@ -2246,7 +2242,7 @@ magnitude.exit646:                                ; preds = %164, %167
 
 186:                                              ; preds = %174, %180, %175
   %187 = load ptr, ptr %93, align 8
-  %188 = getelementptr i64, ptr %187, i64 %indvars.iv770
+  %188 = getelementptr [8 x i8], ptr %187, i64 %indvars.iv770
   %189 = load i64, ptr %188, align 8
   br label %190
 
@@ -2267,14 +2263,14 @@ magnitude.exit651:                                ; preds = %190, %193
   %195 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull @iostat_draw.val_mag_s, i64 noundef 3, i32 noundef 2, i64 noundef 3, ptr noundef nonnull @.str.31, i32 noundef %.lcssa.i650)
   %196 = tail call noalias ptr (ptr, ...) @g_strconcat(ptr noundef nonnull @.str.32, ptr noundef nonnull @iostat_draw.val_mag_s, ptr noundef nonnull @.str.36, ptr noundef null)
   %197 = add i32 %.lcssa.i650, 7
-  %198 = getelementptr %struct.column_width, ptr %11, i64 %indvars.iv770
+  %198 = getelementptr [8 x i8], ptr %11, i64 %indvars.iv770
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 4
   store i32 %197, ptr %199, align 4
   br label %217
 
 200:                                              ; preds = %155
   %201 = load ptr, ptr %93, align 8
-  %202 = getelementptr i64, ptr %201, i64 %indvars.iv770
+  %202 = getelementptr [8 x i8], ptr %201, i64 %indvars.iv770
   %203 = load i64, ptr %202, align 8
   br label %204
 
@@ -2293,7 +2289,7 @@ magnitude.exit651:                                ; preds = %190, %193
 magnitude.exit656:                                ; preds = %204, %207
   %.lcssa.i655 = phi i32 [ %205, %204 ], [ 15, %207 ]
   %209 = tail call i32 @llvm.umax.i32(i32 %106, i32 %.lcssa.i655)
-  %210 = getelementptr %struct.column_width, ptr %11, i64 %indvars.iv770
+  %210 = getelementptr [8 x i8], ptr %11, i64 %indvars.iv770
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 4
   store i32 %209, ptr %211, align 4
   %212 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef nonnull @iostat_draw.val_mag_s, i64 noundef 3, i32 noundef 2, i64 noundef 3, ptr noundef nonnull @.str.31, i32 noundef %209)
@@ -2320,7 +2316,7 @@ magnitude.exit656:                                ; preds = %204, %207
 
 217:                                              ; preds = %magnitude.exit646, %magnitude.exit651, %215, %213, %magnitude.exit656, %magnitude.exit641
   %.3565 = phi ptr [ %.0562687, %magnitude.exit656 ], [ %214, %213 ], [ %216, %215 ], [ %170, %magnitude.exit646 ], [ %196, %magnitude.exit651 ], [ %154, %magnitude.exit641 ]
-  %218 = getelementptr %struct.column_width, ptr %11, i64 %indvars.iv770
+  %218 = getelementptr [8 x i8], ptr %11, i64 %indvars.iv770
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 4
   %220 = load i32, ptr %219, align 4
   %221 = add i32 %.0566686, 3
@@ -2331,7 +2327,7 @@ magnitude.exit656:                                ; preds = %204, %207
 .sink.split:                                      ; preds = %217, %140
   %.3565.sink = phi ptr [ %.1563, %140 ], [ %.3565, %217 ]
   %.2568.ph = phi i32 [ %.1567, %140 ], [ %222, %217 ]
-  %223 = getelementptr ptr, ptr %12, i64 %indvars.iv770
+  %223 = getelementptr [8 x i8], ptr %12, i64 %indvars.iv770
   store ptr %.3565.sink, ptr %223, align 8
   br label %224
 
@@ -2351,7 +2347,7 @@ magnitude.exit656:                                ; preds = %204, %207
 228:                                              ; preds = %._crit_edge691, %235
   %indvars.iv775 = phi i64 [ 0, %._crit_edge691 ], [ %indvars.iv.next776, %235 ]
   %.0576693 = phi i32 [ 0, %._crit_edge691 ], [ %236, %235 ]
-  %229 = getelementptr ptr, ptr %227, i64 %indvars.iv775
+  %229 = getelementptr [8 x i8], ptr %227, i64 %indvars.iv775
   %230 = load ptr, ptr %229, align 8
   %.not611 = icmp eq ptr %230, null
   br i1 %.not611, label %235, label %231
@@ -2486,7 +2482,7 @@ magnitude.exit656:                                ; preds = %204, %207
   %305 = trunc nuw i64 %indvars.iv.next785 to i32
   %306 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull %304, i32 noundef %305)
   %307 = load ptr, ptr %298, align 8
-  %308 = getelementptr ptr, ptr %307, i64 %indvars.iv784
+  %308 = getelementptr [8 x i8], ptr %307, i64 %indvars.iv784
   %309 = load ptr, ptr %308, align 8
   %.not608 = icmp eq ptr %309, null
   br i1 %.not608, label %310, label %312
@@ -2591,9 +2587,9 @@ magnitude.exit656:                                ; preds = %204, %207
 360:                                              ; preds = %.lr.ph722, %385
   %indvars.iv790 = phi i64 [ 0, %.lr.ph722 ], [ %indvars.iv.next791, %385 ]
   %361 = load ptr, ptr %359, align 8
-  %362 = getelementptr i32, ptr %361, i64 %indvars.iv790
+  %362 = getelementptr [4 x i8], ptr %361, i64 %indvars.iv790
   %363 = load i32, ptr %362, align 4
-  %364 = getelementptr %struct.column_width, ptr %11, i64 %indvars.iv790
+  %364 = getelementptr [8 x i8], ptr %11, i64 %indvars.iv790
   switch i32 %363, label %379 [
     i32 2, label %365
     i32 0, label %374
@@ -2656,10 +2652,10 @@ magnitude.exit656:                                ; preds = %204, %207
 
 switch.lookup:                                    ; preds = %394
   %397 = zext nneg i32 %395 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.iostat_draw, i64 %397
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.iostat_draw, i64 %397
   %switch.load = load ptr, ptr %switch.gep, align 8
   %398 = zext nneg i32 %395 to i64
-  %switch.gep863 = getelementptr inbounds nuw i32, ptr @switch.table.iostat_draw.1, i64 %398
+  %switch.gep863 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.iostat_draw.1, i64 %398
   %switch.load864 = load i32, ptr %switch.gep863, align 4
   %399 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull %switch.load)
   br label %400
@@ -2679,7 +2675,7 @@ switch.lookup:                                    ; preds = %394
 406:                                              ; preds = %.lr.ph726, %495
   %indvars.iv795 = phi i64 [ 0, %.lr.ph726 ], [ %indvars.iv.next796, %495 ]
   %407 = load ptr, ptr %405, align 8
-  %408 = getelementptr i32, ptr %407, i64 %indvars.iv795
+  %408 = getelementptr [4 x i8], ptr %407, i64 %indvars.iv795
   %409 = load i32, ptr %408, align 4
   switch i32 %409, label %469 [
     i32 0, label %410
@@ -2687,7 +2683,7 @@ switch.lookup:                                    ; preds = %394
   ]
 
 410:                                              ; preds = %406
-  %411 = getelementptr %struct.column_width, ptr %11, i64 %indvars.iv795
+  %411 = getelementptr [8 x i8], ptr %11, i64 %indvars.iv795
   %412 = load i32, ptr %411, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %5, ptr noundef nonnull align 1 dereferenceable(7) @__const.printcenter.spaces, i64 7, i1 false)
@@ -2729,7 +2725,7 @@ printcenter.exit:                                 ; preds = %421, %423, %426, %4
   br label %495
 
 430:                                              ; preds = %406
-  %431 = getelementptr %struct.column_width, ptr %11, i64 %indvars.iv795
+  %431 = getelementptr [8 x i8], ptr %11, i64 %indvars.iv795
   %432 = load i32, ptr %431, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %4, ptr noundef nonnull align 1 dereferenceable(7) @__const.printcenter.spaces, i64 7, i1 false)
@@ -2811,9 +2807,9 @@ printcenter.exit666:                              ; preds = %460, %462, %465, %4
 
 469:                                              ; preds = %406
   %470 = zext i32 %409 to i64
-  %471 = getelementptr %struct.calc_type_ent_t, ptr @calc_type_table, i64 %470
+  %471 = getelementptr [16 x i8], ptr @calc_type_table, i64 %470
   %472 = load ptr, ptr %471, align 16
-  %473 = getelementptr %struct.column_width, ptr %11, i64 %indvars.iv795
+  %473 = getelementptr [8 x i8], ptr %11, i64 %indvars.iv795
   %474 = getelementptr inbounds nuw i8, ptr %473, i64 4
   %475 = load i32, ptr %474, align 4
   %476 = call i64 @strlen(ptr noundef %472) #17
@@ -3159,16 +3155,16 @@ printcenter.exit671:                              ; preds = %486, %488, %491, %4
 
 664:                                              ; preds = %.lr.ph737, %776
   %indvars.iv804 = phi i64 [ 0, %.lr.ph737 ], [ %indvars.iv.next805, %776 ]
-  %665 = getelementptr ptr, ptr %12, i64 %indvars.iv804
+  %665 = getelementptr [8 x i8], ptr %12, i64 %indvars.iv804
   %666 = load ptr, ptr %665, align 8
-  %667 = getelementptr ptr, ptr %528, i64 %indvars.iv804
+  %667 = getelementptr [8 x i8], ptr %528, i64 %indvars.iv804
   %668 = load ptr, ptr %667, align 8
   %.not607 = icmp eq ptr %668, null
   br i1 %.not607, label %774, label %669
 
 669:                                              ; preds = %664
   %670 = load ptr, ptr %534, align 8
-  %671 = getelementptr i32, ptr %670, i64 %indvars.iv804
+  %671 = getelementptr [4 x i8], ptr %670, i64 %indvars.iv804
   %672 = load i32, ptr %671, align 4
   switch i32 %672, label %769 [
     i32 0, label %673
@@ -3204,7 +3200,7 @@ printcenter.exit671:                              ; preds = %486, %488, %491, %4
 
 687:                                              ; preds = %669, %669, %669
   %688 = load ptr, ptr %535, align 8
-  %689 = getelementptr i32, ptr %688, i64 %indvars.iv804
+  %689 = getelementptr [4 x i8], ptr %688, i64 %indvars.iv804
   %690 = load i32, ptr %689, align 4
   %691 = call i32 @proto_registrar_get_ftype(i32 noundef %690)
   %692 = getelementptr inbounds nuw i8, ptr %668, i64 48
@@ -3247,7 +3243,7 @@ printcenter.exit671:                              ; preds = %486, %488, %491, %4
   %714 = load i32, ptr %713, align 8
   %spec.store.select = call i32 @llvm.umax.i32(i32 %714, i32 1)
   %715 = load ptr, ptr %535, align 8
-  %716 = getelementptr i32, ptr %715, i64 %indvars.iv804
+  %716 = getelementptr [4 x i8], ptr %715, i64 %indvars.iv804
   %717 = load i32, ptr %716, align 4
   %718 = call i32 @proto_registrar_get_ftype(i32 noundef %717)
   %719 = getelementptr inbounds nuw i8, ptr %668, i64 48
@@ -3295,7 +3291,7 @@ printcenter.exit671:                              ; preds = %486, %488, %491, %4
 
 747:                                              ; preds = %669
   %748 = load ptr, ptr %535, align 8
-  %749 = getelementptr i32, ptr %748, i64 %indvars.iv804
+  %749 = getelementptr [4 x i8], ptr %748, i64 %indvars.iv804
   %750 = load i32, ptr %749, align 4
   %751 = call i32 @proto_registrar_get_ftype(i32 noundef %750)
   %cond = icmp eq i32 %751, 25
@@ -3384,7 +3380,7 @@ printcenter.exit671:                              ; preds = %486, %488, %491, %4
 789:                                              ; preds = %.lr.ph748, %789
   %indvars.iv811 = phi i64 [ 0, %.lr.ph748 ], [ %indvars.iv.next812, %789 ]
   %790 = load ptr, ptr %788, align 8
-  %791 = getelementptr ptr, ptr %790, i64 %indvars.iv811
+  %791 = getelementptr [8 x i8], ptr %790, i64 %indvars.iv811
   %792 = load ptr, ptr %791, align 8
   call void @g_free(ptr noundef %792)
   %indvars.iv.next812 = add nuw nsw i64 %indvars.iv811, 1

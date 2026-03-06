@@ -2791,7 +2791,7 @@ _ZNSt6vectorIN4llvm8codeview20LocalVariableAddrGapESaIS2_EE11_S_relocateEPS2_S5_
 _ZNSt6vectorIN4llvm8codeview20LocalVariableAddrGapESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %110, %_ZNSt6vectorIN4llvm8codeview20LocalVariableAddrGapESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
   store ptr %103, ptr %2, align 8, !tbaa !173
   store ptr %109, ptr %54, align 8, !tbaa !170
-  %111 = getelementptr inbounds nuw %"struct.llvm::codeview::LocalVariableAddrGap", ptr %103, i64 %101
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %103, i64 %101
   store ptr %111, ptr %55, align 8, !tbaa !172
   br label %_ZNSt6vectorIN4llvm8codeview20LocalVariableAddrGapESaIS2_EE9push_backERKS2_.exit
 
@@ -4791,7 +4791,7 @@ _ZNSt6vectorIN4llvm8codeview9TypeIndexESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
 _ZNSt6vectorIN4llvm8codeview9TypeIndexESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %117, %_ZNSt6vectorIN4llvm8codeview9TypeIndexESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i
   store ptr %110, ptr %12, align 8, !tbaa !249, !noalias !243
   store ptr %116, ptr %87, align 8, !tbaa !246, !noalias !243
-  %118 = getelementptr inbounds nuw %"class.llvm::codeview::TypeIndex", ptr %110, i64 %108
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %110, i64 %108
   store ptr %118, ptr %88, align 8, !tbaa !267, !noalias !243
   br label %_ZNSt6vectorIN4llvm8codeview9TypeIndexESaIS2_EE9push_backERKS2_.exit.i
 
@@ -5242,7 +5242,7 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i:
 _ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %120, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i
   store ptr %115, ptr %20, align 8, !tbaa !281, !noalias !275
   store ptr %119, ptr %93, align 8, !tbaa !278, !noalias !275
-  %121 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %115, i64 %113
+  %121 = getelementptr inbounds nuw [16 x i8], ptr %115, i64 %113
   store ptr %121, ptr %94, align 8, !tbaa !299, !noalias !275
   br label %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE9push_backERKS1_.exit.i
 

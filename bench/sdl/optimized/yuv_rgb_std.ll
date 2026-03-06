@@ -3,9 +3,6 @@ source_filename = "bench/sdl/original/yuv_rgb_std.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.YUV2RGBParam = type { i8, i16, i16, i16, i16, i16 }
-%struct.RGB2YUVParam = type { i8, [3 x [3 x i16]] }
-
 @YUV2RGB = internal unnamed_addr constant [5 x { i8, i8, i16, i16, i16, i16, i16 }] [{ i8, i8, i16, i16, i16, i16, i16 } { i8 0, i8 0, i16 64, i16 90, i16 -22, i16 -46, i16 113 }, { i8, i8, i16, i16, i16, i16, i16 } { i8 16, i8 0, i16 75, i16 102, i16 -25, i16 -52, i16 129 }, { i8, i8, i16, i16, i16, i16, i16 } { i8 0, i8 0, i16 64, i16 101, i16 -12, i16 -30, i16 119 }, { i8, i8, i16, i16, i16, i16, i16 } { i8 16, i8 0, i16 75, i16 115, i16 -14, i16 -34, i16 135 }, { i8, i8, i16, i16, i16, i16, i16 } { i8 0, i8 0, i16 64, i16 94, i16 -11, i16 -37, i16 121 }], align 16
 @clampU8.lut = internal unnamed_addr constant [512 x i8] c"\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\00\01\02\03\04\05\06\07\08\09\0A\0B\0C\0D\0E\0F\10\11\12\13\14\15\16\17\18\19\1A\1B\1C\1D\1E\1F !\22#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~\7F\80\81\82\83\84\85\86\87\88\89\8A\8B\8C\8D\8E\8F\90\91\92\93\94\95\96\97\98\99\9A\9B\9C\9D\9E\9F\A0\A1\A2\A3\A4\A5\A6\A7\A8\A9\AA\AB\AC\AD\AE\AF\B0\B1\B2\B3\B4\B5\B6\B7\B8\B9\BA\BB\BC\BD\BE\BF\C0\C1\C2\C3\C4\C5\C6\C7\C8\C9\CA\CB\CC\CD\CE\CF\D0\D1\D2\D3\D4\D5\D6\D7\D8\D9\DA\DB\DC\DD\DE\DF\E0\E1\E2\E3\E4\E5\E6\E7\E8\E9\EA\EB\EC\ED\EE\EF\F0\F1\F2\F3\F4\F5\F6\F7\F8\F9\FA\FB\FC\FD\FE\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF\FF", align 16
 @RGB2YUV = internal unnamed_addr constant [5 x { i8, i8, [3 x [3 x i16]] }] [{ i8, i8, [3 x [3 x i16]] } { i8 0, i8 0, [3 x [3 x i16]] [[3 x i16] [i16 19, i16 38, i16 7], [3 x i16] [i16 -11, i16 -21, i16 32], [3 x i16] [i16 32, i16 -27, i16 -5]] }, { i8, i8, [3 x [3 x i16]] } { i8 16, i8 0, [3 x [3 x i16]] [[3 x i16] [i16 16, i16 32, i16 6], [3 x i16] [i16 -9, i16 -19, i16 28], [3 x i16] [i16 28, i16 -24, i16 -5]] }, { i8, i8, [3 x [3 x i16]] } { i8 0, i8 0, [3 x [3 x i16]] [[3 x i16] [i16 14, i16 46, i16 5], [3 x i16] [i16 -7, i16 -25, i16 32], [3 x i16] [i16 32, i16 -29, i16 -3]] }, { i8, i8, [3 x [3 x i16]] } { i8 16, i8 0, [3 x [3 x i16]] [[3 x i16] [i16 12, i16 39, i16 4], [3 x i16] [i16 -6, i16 -22, i16 28], [3 x i16] [i16 28, i16 -26, i16 -3]] }, { i8, i8, [3 x [3 x i16]] } { i8 0, i8 0, [3 x [3 x i16]] [[3 x i16] [i16 17, i16 43, i16 4], [3 x i16] [i16 -9, i16 -23, i16 32], [3 x i16] [i16 32, i16 -29, i16 -3]] }], align 16
@@ -13,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @yuv420_rgb565_std(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6, ptr noundef writeonly captures(none) %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = zext i32 %9 to i64
-  %12 = getelementptr inbounds nuw %struct.YUV2RGBParam, ptr @YUV2RGB, i64 %11
+  %12 = getelementptr inbounds nuw [12 x i8], ptr @YUV2RGB, i64 %11
   %13 = add i32 %1, -1
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %._crit_edge226.thread, label %.lr.ph225
@@ -564,7 +561,7 @@ define hidden void @yuv420_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nounde
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @yuv420_rgb24_std(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6, ptr noundef writeonly captures(none) %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = zext i32 %9 to i64
-  %12 = getelementptr inbounds nuw %struct.YUV2RGBParam, ptr @YUV2RGB, i64 %11
+  %12 = getelementptr inbounds nuw [12 x i8], ptr @YUV2RGB, i64 %11
   %13 = add i32 %1, -1
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %._crit_edge244.thread, label %.lr.ph243
@@ -1061,7 +1058,7 @@ define hidden void @yuv420_rgb24_std(i32 noundef %0, i32 noundef %1, ptr noundef
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @yuv420_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6, ptr noundef writeonly captures(none) %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = zext i32 %9 to i64
-  %12 = getelementptr inbounds nuw %struct.YUV2RGBParam, ptr @YUV2RGB, i64 %11
+  %12 = getelementptr inbounds nuw [12 x i8], ptr @YUV2RGB, i64 %11
   %13 = add i32 %1, -1
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %._crit_edge226.thread, label %.lr.ph225
@@ -1603,7 +1600,7 @@ define hidden void @yuv420_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @yuv420_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6, ptr noundef writeonly captures(none) %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = zext i32 %9 to i64
-  %12 = getelementptr inbounds nuw %struct.YUV2RGBParam, ptr @YUV2RGB, i64 %11
+  %12 = getelementptr inbounds nuw [12 x i8], ptr @YUV2RGB, i64 %11
   %13 = add i32 %1, -1
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %._crit_edge226.thread, label %.lr.ph225
@@ -2145,7 +2142,7 @@ define hidden void @yuv420_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @yuv420_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6, ptr noundef writeonly captures(none) %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = zext i32 %9 to i64
-  %12 = getelementptr inbounds nuw %struct.YUV2RGBParam, ptr @YUV2RGB, i64 %11
+  %12 = getelementptr inbounds nuw [12 x i8], ptr @YUV2RGB, i64 %11
   %13 = add i32 %1, -1
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %._crit_edge226.thread, label %.lr.ph225
@@ -2678,7 +2675,7 @@ define hidden void @yuv420_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @yuv420_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6, ptr noundef writeonly captures(none) %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = zext i32 %9 to i64
-  %12 = getelementptr inbounds nuw %struct.YUV2RGBParam, ptr @YUV2RGB, i64 %11
+  %12 = getelementptr inbounds nuw [12 x i8], ptr @YUV2RGB, i64 %11
   %13 = add i32 %1, -1
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %._crit_edge226.thread, label %.lr.ph225
@@ -3211,7 +3208,7 @@ define hidden void @yuv420_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @yuv422_rgb565_std(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6, ptr noundef writeonly captures(none) %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = zext i32 %9 to i64
-  %12 = getelementptr inbounds nuw %struct.YUV2RGBParam, ptr @YUV2RGB, i64 %11
+  %12 = getelementptr inbounds nuw [12 x i8], ptr @YUV2RGB, i64 %11
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %._crit_edge97, label %.lr.ph96
 
@@ -3436,7 +3433,7 @@ define hidden void @yuv422_rgb24_std(i32 noundef %0, i32 noundef %1, ptr noundef
 
 .lr.ph102:                                        ; preds = %10
   %11 = zext i32 %9 to i64
-  %12 = getelementptr inbounds nuw %struct.YUV2RGBParam, ptr @YUV2RGB, i64 %11
+  %12 = getelementptr inbounds nuw [12 x i8], ptr @YUV2RGB, i64 %11
   %13 = add i32 %0, -1
   %.not105 = icmp eq i32 %13, 0
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 4
@@ -3683,7 +3680,7 @@ define hidden void @yuv422_rgb24_std(i32 noundef %0, i32 noundef %1, ptr noundef
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @yuv422_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6, ptr noundef writeonly captures(none) %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = zext i32 %9 to i64
-  %12 = getelementptr inbounds nuw %struct.YUV2RGBParam, ptr @YUV2RGB, i64 %11
+  %12 = getelementptr inbounds nuw [12 x i8], ptr @YUV2RGB, i64 %11
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %._crit_edge97, label %.lr.ph96
 
@@ -3901,7 +3898,7 @@ define hidden void @yuv422_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @yuv422_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6, ptr noundef writeonly captures(none) %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = zext i32 %9 to i64
-  %12 = getelementptr inbounds nuw %struct.YUV2RGBParam, ptr @YUV2RGB, i64 %11
+  %12 = getelementptr inbounds nuw [12 x i8], ptr @YUV2RGB, i64 %11
   %.not = icmp eq i32 %1, 0
   br i1 %.not, label %._crit_edge97, label %.lr.ph96
 
@@ -4123,7 +4120,7 @@ define hidden void @yuv422_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef 
 
 .lr.ph96:                                         ; preds = %10
   %11 = zext i32 %9 to i64
-  %12 = getelementptr inbounds nuw %struct.YUV2RGBParam, ptr @YUV2RGB, i64 %11
+  %12 = getelementptr inbounds nuw [12 x i8], ptr @YUV2RGB, i64 %11
   %13 = add i32 %0, -1
   %.not99 = icmp eq i32 %13, 0
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 4
@@ -4390,7 +4387,7 @@ define hidden void @yuv422_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef 
 
 .lr.ph96:                                         ; preds = %10
   %11 = zext i32 %9 to i64
-  %12 = getelementptr inbounds nuw %struct.YUV2RGBParam, ptr @YUV2RGB, i64 %11
+  %12 = getelementptr inbounds nuw [12 x i8], ptr @YUV2RGB, i64 %11
   %13 = add i32 %0, -1
   %.not99 = icmp eq i32 %13, 0
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 4
@@ -4653,7 +4650,7 @@ define hidden void @yuv422_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @yuvnv12_rgb565_std(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6, ptr noundef writeonly captures(none) %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = zext i32 %9 to i64
-  %12 = getelementptr inbounds nuw %struct.YUV2RGBParam, ptr @YUV2RGB, i64 %11
+  %12 = getelementptr inbounds nuw [12 x i8], ptr @YUV2RGB, i64 %11
   %13 = add i32 %1, -1
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %._crit_edge226.thread, label %.lr.ph225
@@ -5204,7 +5201,7 @@ define hidden void @yuvnv12_rgb565_std(i32 noundef %0, i32 noundef %1, ptr nound
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @yuvnv12_rgb24_std(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6, ptr noundef writeonly captures(none) %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = zext i32 %9 to i64
-  %12 = getelementptr inbounds nuw %struct.YUV2RGBParam, ptr @YUV2RGB, i64 %11
+  %12 = getelementptr inbounds nuw [12 x i8], ptr @YUV2RGB, i64 %11
   %13 = add i32 %1, -1
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %._crit_edge244.thread, label %.lr.ph243
@@ -5701,7 +5698,7 @@ define hidden void @yuvnv12_rgb24_std(i32 noundef %0, i32 noundef %1, ptr nounde
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @yuvnv12_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6, ptr noundef writeonly captures(none) %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = zext i32 %9 to i64
-  %12 = getelementptr inbounds nuw %struct.YUV2RGBParam, ptr @YUV2RGB, i64 %11
+  %12 = getelementptr inbounds nuw [12 x i8], ptr @YUV2RGB, i64 %11
   %13 = add i32 %1, -1
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %._crit_edge226.thread, label %.lr.ph225
@@ -6243,7 +6240,7 @@ define hidden void @yuvnv12_rgba_std(i32 noundef %0, i32 noundef %1, ptr noundef
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @yuvnv12_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6, ptr noundef writeonly captures(none) %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = zext i32 %9 to i64
-  %12 = getelementptr inbounds nuw %struct.YUV2RGBParam, ptr @YUV2RGB, i64 %11
+  %12 = getelementptr inbounds nuw [12 x i8], ptr @YUV2RGB, i64 %11
   %13 = add i32 %1, -1
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %._crit_edge226.thread, label %.lr.ph225
@@ -6785,7 +6782,7 @@ define hidden void @yuvnv12_bgra_std(i32 noundef %0, i32 noundef %1, ptr noundef
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @yuvnv12_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6, ptr noundef writeonly captures(none) %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = zext i32 %9 to i64
-  %12 = getelementptr inbounds nuw %struct.YUV2RGBParam, ptr @YUV2RGB, i64 %11
+  %12 = getelementptr inbounds nuw [12 x i8], ptr @YUV2RGB, i64 %11
   %13 = add i32 %1, -1
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %._crit_edge226.thread, label %.lr.ph225
@@ -7318,7 +7315,7 @@ define hidden void @yuvnv12_argb_std(i32 noundef %0, i32 noundef %1, ptr noundef
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @yuvnv12_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6, ptr noundef writeonly captures(none) %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = zext i32 %9 to i64
-  %12 = getelementptr inbounds nuw %struct.YUV2RGBParam, ptr @YUV2RGB, i64 %11
+  %12 = getelementptr inbounds nuw [12 x i8], ptr @YUV2RGB, i64 %11
   %13 = add i32 %1, -1
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %._crit_edge226.thread, label %.lr.ph225
@@ -7851,7 +7848,7 @@ define hidden void @yuvnv12_abgr_std(i32 noundef %0, i32 noundef %1, ptr noundef
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @yuvp010_xbgr2101010_std(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i32 noundef %5, i32 noundef %6, ptr noundef writeonly captures(none) %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = zext i32 %9 to i64
-  %12 = getelementptr inbounds nuw %struct.YUV2RGBParam, ptr @YUV2RGB, i64 %11
+  %12 = getelementptr inbounds nuw [12 x i8], ptr @YUV2RGB, i64 %11
   %13 = lshr i32 %5, 1
   %14 = lshr i32 %6, 1
   %15 = add i32 %1, -1
@@ -7876,18 +7873,18 @@ define hidden void @yuvp010_xbgr2101010_std(i32 noundef %0, i32 noundef %1, ptr 
   %26 = trunc nuw i64 %indvars.iv to i32
   %27 = mul i32 %13, %26
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw i16, ptr %2, i64 %28
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %28
   %30 = lshr exact i64 %indvars.iv, 1
   %31 = trunc nuw nsw i64 %30 to i32
   %32 = mul i32 %14, %31
   %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds nuw i16, ptr %3, i64 %33
-  %35 = getelementptr inbounds nuw i16, ptr %4, i64 %33
+  %34 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %33
+  %35 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %33
   %36 = trunc i64 %indvars.iv to i32
   %37 = or disjoint i32 %36, 1
   %38 = mul i32 %37, %13
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw i16, ptr %2, i64 %39
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %39
   %41 = mul i32 %8, %26
   %42 = zext i32 %41 to i64
   %43 = getelementptr inbounds nuw i8, ptr %7, i64 %42
@@ -8134,12 +8131,12 @@ define hidden void @yuvp010_xbgr2101010_std(i32 noundef %0, i32 noundef %1, ptr 
 ._crit_edge304.thread:                            ; preds = %10, %._crit_edge304
   %246 = mul i32 %15, %13
   %247 = zext i32 %246 to i64
-  %248 = getelementptr inbounds nuw i16, ptr %2, i64 %247
+  %248 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %247
   %249 = lshr exact i32 %15, 1
   %250 = mul i32 %249, %14
   %251 = zext i32 %250 to i64
-  %252 = getelementptr inbounds nuw i16, ptr %3, i64 %251
-  %253 = getelementptr inbounds nuw i16, ptr %4, i64 %251
+  %252 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %251
+  %253 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %251
   %254 = mul i32 %15, %8
   %255 = zext i32 %254 to i64
   %256 = getelementptr inbounds nuw i8, ptr %7, i64 %255
@@ -8314,7 +8311,7 @@ define hidden void @yuvp010_xbgr2101010_std(i32 noundef %0, i32 noundef %1, ptr 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @rgb24_yuv420_std(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5, ptr noundef writeonly captures(none) %6, i32 noundef %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #0 {
   %11 = zext i32 %9 to i64
-  %12 = getelementptr inbounds nuw %struct.RGB2YUVParam, ptr @RGB2YUV, i64 %11
+  %12 = getelementptr inbounds nuw [20 x i8], ptr @RGB2YUV, i64 %11
   %13 = add i32 %1, -1
   %.not = icmp eq i32 %13, 0
   br i1 %.not, label %._crit_edge163, label %.lr.ph162

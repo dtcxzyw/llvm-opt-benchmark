@@ -3,20 +3,6 @@ source_filename = "bench/rocksdb/original/volatile_tier_impl.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"class.rocksdb::port::RWMutex" = type { %union.pthread_rwlock_t }
-%union.pthread_rwlock_t = type { %struct.__pthread_rwlock_arch_t }
-%struct.__pthread_rwlock_arch_t = type { i32, i32, i32, i32, i32, i32, i32, i32, i8, [7 x i8], i64, i32 }
-%"class.rocksdb::LRUList" = type { ptr, %"class.rocksdb::port::Mutex", ptr, ptr }
-%"class.rocksdb::port::Mutex" = type { %union.pthread_mutex_t }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%"struct.rocksdb::HashTable<rocksdb::VolatileCacheTier::CacheData *, rocksdb::VolatileCacheTier::CacheDataHash, rocksdb::VolatileCacheTier::CacheDataEqual>::Bucket" = type { %"class.std::__cxx11::list" }
-%"class.std::__cxx11::list" = type { %"class.std::__cxx11::_List_base" }
-%"class.std::__cxx11::_List_base" = type { %"struct.std::__cxx11::_List_base<rocksdb::VolatileCacheTier::CacheData *, std::allocator<rocksdb::VolatileCacheTier::CacheData *>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<rocksdb::VolatileCacheTier::CacheData *, std::allocator<rocksdb::VolatileCacheTier::CacheData *>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"struct.std::__detail::_List_node_header" = type { %"struct.std::__detail::_List_node_base", i64 }
-%"struct.std::__detail::_List_node_base" = type { ptr, ptr }
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::map<std::__cxx11::basic_string<char>, double>, std::allocator<std::map<std::__cxx11::basic_string<char>, double>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::map<std::__cxx11::basic_string<char>, double>, std::allocator<std::map<std::__cxx11::basic_string<char>, double>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::map<std::__cxx11::basic_string<char>, double>, std::allocator<std::map<std::__cxx11::basic_string<char>, double>>>::_Vector_impl_data" }
@@ -187,15 +173,15 @@ define void @_ZN7rocksdb17VolatileCacheTierD2Ev(ptr noundef nonnull align 8 dere
   %12 = urem i32 %11, %10
   %13 = zext i32 %12 to i64
   %14 = load ptr, ptr %6, align 8, !tbaa !27
-  %15 = getelementptr inbounds nuw %"class.rocksdb::port::RWMutex", ptr %14, i64 %13
+  %15 = getelementptr inbounds nuw [56 x i8], ptr %14, i64 %13
   invoke void @_ZN7rocksdb4port7RWMutex9WriteLockEv(ptr noundef nonnull align 8 dereferenceable(56) %15)
           to label %.noexc unwind label %94
 
 .noexc:                                           ; preds = %9
   %16 = load ptr, ptr %7, align 8, !tbaa !28
-  %17 = getelementptr inbounds nuw %"class.rocksdb::LRUList", ptr %16, i64 %13
+  %17 = getelementptr inbounds nuw [64 x i8], ptr %16, i64 %13
   %18 = load ptr, ptr %8, align 8, !tbaa !30
-  %19 = getelementptr inbounds nuw %"struct.rocksdb::HashTable<rocksdb::VolatileCacheTier::CacheData *, rocksdb::VolatileCacheTier::CacheDataHash, rocksdb::VolatileCacheTier::CacheDataEqual>::Bucket", ptr %18, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [24 x i8], ptr %18, i64 %indvars.iv.i
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 56
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 48
@@ -1612,7 +1598,7 @@ _ZNK7rocksdb17VolatileCacheTier13CacheDataHashclEPKNS0_9CacheDataE.exit: ; preds
   %14 = urem i64 %7, %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !30
-  %17 = getelementptr inbounds nuw %"struct.rocksdb::HashTable<rocksdb::VolatileCacheTier::CacheData *, rocksdb::VolatileCacheTier::CacheDataHash, rocksdb::VolatileCacheTier::CacheDataEqual>::Bucket", ptr %16, i64 %14
+  %17 = getelementptr inbounds nuw [24 x i8], ptr %16, i64 %14
   %18 = trunc nuw i64 %14 to i32
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %20 = load i32, ptr %19, align 8, !tbaa !26
@@ -1620,10 +1606,10 @@ _ZNK7rocksdb17VolatileCacheTier13CacheDataHashclEPKNS0_9CacheDataE.exit: ; preds
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = zext i32 %21 to i64
   %24 = load ptr, ptr %22, align 8, !tbaa !28
-  %25 = getelementptr inbounds nuw %"class.rocksdb::LRUList", ptr %24, i64 %23
+  %25 = getelementptr inbounds nuw [64 x i8], ptr %24, i64 %23
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %27 = load ptr, ptr %26, align 8, !tbaa !27
-  %28 = getelementptr inbounds nuw %"class.rocksdb::port::RWMutex", ptr %27, i64 %23
+  %28 = getelementptr inbounds nuw [56 x i8], ptr %27, i64 %23
   tail call void @_ZN7rocksdb4port7RWMutex9WriteLockEv(ptr noundef nonnull align 8 dereferenceable(56) %28)
   %.sroa.05.010.i.i = load ptr, ptr %17, align 8, !tbaa !31
   %.not11.i.i = icmp eq ptr %.sroa.05.010.i.i, %17
@@ -2012,7 +1998,7 @@ _ZNK7rocksdb17VolatileCacheTier13CacheDataHashclEPKNS0_9CacheDataE.exit: ; preds
   %15 = urem i64 %8, %14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !30
-  %18 = getelementptr inbounds nuw %"struct.rocksdb::HashTable<rocksdb::VolatileCacheTier::CacheData *, rocksdb::VolatileCacheTier::CacheDataHash, rocksdb::VolatileCacheTier::CacheDataEqual>::Bucket", ptr %17, i64 %15
+  %18 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %15
   %19 = trunc nuw i64 %15 to i32
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %21 = load i32, ptr %20, align 8, !tbaa !26
@@ -2020,10 +2006,10 @@ _ZNK7rocksdb17VolatileCacheTier13CacheDataHashclEPKNS0_9CacheDataE.exit: ; preds
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %24 = zext i32 %22 to i64
   %25 = load ptr, ptr %23, align 8, !tbaa !28
-  %26 = getelementptr inbounds nuw %"class.rocksdb::LRUList", ptr %25, i64 %24
+  %26 = getelementptr inbounds nuw [64 x i8], ptr %25, i64 %24
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %28 = load ptr, ptr %27, align 8, !tbaa !27
-  %29 = getelementptr inbounds nuw %"class.rocksdb::port::RWMutex", ptr %28, i64 %24
+  %29 = getelementptr inbounds nuw [56 x i8], ptr %28, i64 %24
   tail call void @_ZN7rocksdb4port7RWMutex8ReadLockEv(ptr noundef nonnull align 8 dereferenceable(56) %29)
   %.sroa.05.010.i.i = load ptr, ptr %18, align 8, !tbaa !31
   %.not11.i.i = icmp eq ptr %.sroa.05.010.i.i, %18
@@ -2205,10 +2191,10 @@ define linkonce_odr noundef ptr @_ZN7rocksdb18EvictableHashTableINS_17VolatileCa
   %22 = add nuw nsw i64 %.046, %16
   %23 = urem i64 %22, %21
   %24 = load ptr, ptr %18, align 8, !tbaa !27
-  %25 = getelementptr inbounds nuw %"class.rocksdb::port::RWMutex", ptr %24, i64 %23
+  %25 = getelementptr inbounds nuw [56 x i8], ptr %24, i64 %23
   tail call void @_ZN7rocksdb4port7RWMutex9WriteLockEv(ptr noundef nonnull align 8 dereferenceable(56) %25)
   %26 = load ptr, ptr %19, align 8, !tbaa !28
-  %27 = getelementptr inbounds nuw %"class.rocksdb::LRUList", ptr %26, i64 %23
+  %27 = getelementptr inbounds nuw [64 x i8], ptr %26, i64 %23
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   invoke void @_ZN7rocksdb4port5Mutex4LockEv(ptr noundef nonnull align 8 dereferenceable(40) %28)
           to label %.noexc unwind label %82
@@ -2264,7 +2250,7 @@ _ZNK7rocksdb17VolatileCacheTier13CacheDataHashclEPKNS0_9CacheDataE.exit: ; preds
   %53 = urem i64 %46, %52
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %55 = load ptr, ptr %54, align 8, !tbaa !30
-  %56 = getelementptr inbounds nuw %"struct.rocksdb::HashTable<rocksdb::VolatileCacheTier::CacheData *, rocksdb::VolatileCacheTier::CacheDataHash, rocksdb::VolatileCacheTier::CacheDataEqual>::Bucket", ptr %55, i64 %53
+  %56 = getelementptr inbounds nuw [24 x i8], ptr %55, i64 %53
   %.sroa.05.010.i.i = load ptr, ptr %56, align 8, !tbaa !31
   %.not11.i.i = icmp eq ptr %.sroa.05.010.i.i, %56
   br i1 %.not11.i.i, label %_ZN7rocksdb9HashTableIPNS_17VolatileCacheTier9CacheDataENS1_13CacheDataHashENS1_14CacheDataEqualEE5EraseEPNS6_6BucketERKS3_PS3_.exit, label %.lr.ph.i.i
@@ -3379,7 +3365,7 @@ _ZNSt6vectorISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4less
 _ZNSt12_Vector_baseISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4lessIS6_ESaISt4pairIKS6_dEEESaISD_EE13_M_deallocateEPSD_m.exit: ; preds = %_ZNSt6vectorISt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdSt4lessIS6_ESaISt4pairIKS6_dEEESaISD_EE11_S_relocateEPSD_SG_SG_RSE_.exit38, %82
   store ptr %23, ptr %0, align 8, !tbaa !91
   store ptr %.0.lcssa.i.i.i37, ptr %5, align 8, !tbaa !80
-  %86 = getelementptr inbounds nuw %"class.std::map", ptr %23, i64 %17
+  %86 = getelementptr inbounds nuw [48 x i8], ptr %23, i64 %17
   store ptr %86, ptr %81, align 8, !tbaa !83
   ret void
 

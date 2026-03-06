@@ -132,7 +132,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 
 57:                                               ; preds = %70, %51
   %58 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !37, !noalias !38, !nonnull !7, !noundef !7
-  %59 = getelementptr inbounds { { { ptr, i64 } }, {}, {} }, ptr %58, i64 %54
+  %59 = getelementptr inbounds [16 x i8], ptr %58, i64 %54
   store ptr %47, ptr %59, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   store i64 %53, ptr %60, align 8
@@ -375,7 +375,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 
 71:                                               ; preds = %83, %65
   %72 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !92, !noalias !97, !nonnull !7, !noundef !7
-  %73 = getelementptr inbounds { { { ptr, i64 } }, {}, {} }, ptr %72, i64 %68
+  %73 = getelementptr inbounds [16 x i8], ptr %72, i64 %68
   store ptr %61, ptr %73, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   store i64 %67, ptr %74, align 8

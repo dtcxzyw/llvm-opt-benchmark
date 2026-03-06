@@ -697,7 +697,7 @@ define ptr @Ptngc_comp_get_huff_algo_name(i32 noundef %0) local_unnamed_addr #0 
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw ptr, ptr @huff_algo_names, i64 %3
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @huff_algo_names, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !14
   br label %6
 

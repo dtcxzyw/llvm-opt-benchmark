@@ -63,7 +63,7 @@ define hidden noundef nonnull ptr @_ZN4cvc58internal8toStringENS0_13TrustNodeKin
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4cvc58internallsERSoNS0_9TrustNodeE, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4cvc58internallsERSoNS0_9TrustNodeE, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -79,7 +79,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internall
 
 switch.lookup:                                    ; preds = %2
   %4 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4cvc58internallsERSoNS0_9TrustNodeE, i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4cvc58internallsERSoNS0_9TrustNodeE, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN4cvc58internal8toStringENS0_13TrustNodeKindE.exit
 
@@ -1729,7 +1729,7 @@ define hidden void @_ZNK4cvc58internal9TrustNode7getNodeEv(ptr dead_on_unwind no
   %31 = icmp eq i32 %30, 2
   %spec.select.i.i = select i1 %31, i64 2, i64 1
   %32 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %spec.select.i.i
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %spec.select.i.i
   %34 = load ptr, ptr %33, align 8, !tbaa !64, !noalias !61
   store ptr %34, ptr %0, align 8, !tbaa !3, !alias.scope !61
   %35 = load i64, ptr %34, align 8, !noalias !61
@@ -1771,7 +1771,7 @@ define hidden void @_ZNK4cvc58internal9TrustNode7getNodeEv(ptr dead_on_unwind no
   %59 = icmp eq i32 %58, 2
   %60 = getelementptr inbounds nuw i8, ptr %51, i64 24
   %61 = zext i1 %59 to i64
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   %63 = load ptr, ptr %62, align 8, !tbaa !64, !noalias !65
   store ptr %63, ptr %0, align 8, !tbaa !3, !alias.scope !65
   %64 = load i64, ptr %63, align 8, !noalias !65
@@ -2106,7 +2106,7 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4cvc58internall
 
 switch.lookup:                                    ; preds = %2
   %8 = zext nneg i32 %6 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4cvc58internallsERSoNS0_9TrustNodeE, i64 %8
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4cvc58internallsERSoNS0_9TrustNodeE, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN4cvc58internallsERSoNS0_13TrustNodeKindE.exit
 

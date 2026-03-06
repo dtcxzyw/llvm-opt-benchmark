@@ -100,9 +100,9 @@ define hidden void @_sodium_argon2_fill_segment_ref(ptr noundef readonly capture
 
 47:                                               ; preds = %45, %41
   %48 = phi i64 [ %46, %45 ], [ %42, %41 ]
-  %49 = getelementptr i64, ptr %7, i64 %43
+  %49 = getelementptr [8 x i8], ptr %7, i64 %43
   %50 = load i64, ptr %49, align 8
-  %51 = getelementptr i64, ptr %22, i64 %indvars.iv.i
+  %51 = getelementptr [8 x i8], ptr %22, i64 %indvars.iv.i
   store i64 %50, ptr %51, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %52 = load i32, ptr %38, align 4
@@ -163,7 +163,7 @@ generate_addresses.exit:                          ; preds = %47, %21
   br i1 %.not91, label %86, label %84
 
 84:                                               ; preds = %78
-  %85 = getelementptr i64, ptr %58, i64 %indvars.iv
+  %85 = getelementptr [8 x i8], ptr %58, i64 %indvars.iv
   br label %92
 
 86:                                               ; preds = %78
@@ -171,7 +171,7 @@ generate_addresses.exit:                          ; preds = %47, %21
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %89 = load ptr, ptr %88, align 8
   %90 = zext i32 %spec.select67 to i64
-  %91 = getelementptr %struct.block_, ptr %89, i64 %90
+  %91 = getelementptr [1024 x i8], ptr %89, i64 %90
   br label %92
 
 92:                                               ; preds = %86, %84
@@ -258,12 +258,12 @@ index_alpha.exit:                                 ; preds = %97, %102, %106, %11
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 8
   %141 = load ptr, ptr %140, align 8
   %142 = mul nuw i64 %.062, %131
-  %143 = getelementptr %struct.block_, ptr %141, i64 %142
-  %144 = getelementptr %struct.block_, ptr %143, i64 %138
+  %143 = getelementptr [1024 x i8], ptr %141, i64 %142
+  %144 = getelementptr [1024 x i8], ptr %143, i64 %138
   %145 = zext i32 %.06096 to i64
-  %146 = getelementptr %struct.block_, ptr %141, i64 %145
+  %146 = getelementptr [1024 x i8], ptr %141, i64 %145
   %147 = zext i32 %spec.select67 to i64
-  %148 = getelementptr %struct.block_, ptr %141, i64 %147
+  %148 = getelementptr [1024 x i8], ptr %141, i64 %147
   br i1 %59, label %150, label %149
 
 149:                                              ; preds = %index_alpha.exit
@@ -278,9 +278,9 @@ index_alpha.exit:                                 ; preds = %97, %102, %106, %11
 
 151:                                              ; preds = %151, %150
   %indvars.iv.i.i = phi i64 [ 0, %150 ], [ %indvars.iv.next.i.i, %151 ]
-  %152 = getelementptr i64, ptr %148, i64 %indvars.iv.i.i
+  %152 = getelementptr [8 x i8], ptr %148, i64 %indvars.iv.i.i
   %153 = load i64, ptr %152, align 8
-  %154 = getelementptr i64, ptr %4, i64 %indvars.iv.i.i
+  %154 = getelementptr [8 x i8], ptr %4, i64 %indvars.iv.i.i
   %155 = load i64, ptr %154, align 8
   %156 = xor i64 %155, %153
   store i64 %156, ptr %154, align 8
@@ -920,9 +920,9 @@ xor_block.exit.i:                                 ; preds = %151
 
 735:                                              ; preds = %735, %734
   %indvars.iv.i391.i = phi i64 [ 0, %734 ], [ %indvars.iv.next.i392.i, %735 ]
-  %736 = getelementptr i64, ptr %4, i64 %indvars.iv.i391.i
+  %736 = getelementptr [8 x i8], ptr %4, i64 %indvars.iv.i391.i
   %737 = load i64, ptr %736, align 8
-  %738 = getelementptr i64, ptr %146, i64 %indvars.iv.i391.i
+  %738 = getelementptr [8 x i8], ptr %146, i64 %indvars.iv.i391.i
   %739 = load i64, ptr %738, align 8
   %740 = xor i64 %739, %737
   store i64 %740, ptr %738, align 8
@@ -959,9 +959,9 @@ define internal fastcc void @fill_block_with_xor(ptr noundef readonly captures(n
 
 6:                                                ; preds = %6, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %6 ]
-  %7 = getelementptr i64, ptr %0, i64 %indvars.iv.i
+  %7 = getelementptr [8 x i8], ptr %0, i64 %indvars.iv.i
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr i64, ptr %4, i64 %indvars.iv.i
+  %9 = getelementptr [8 x i8], ptr %4, i64 %indvars.iv.i
   %10 = load i64, ptr %9, align 8
   %11 = xor i64 %10, %8
   store i64 %11, ptr %9, align 8
@@ -975,9 +975,9 @@ xor_block.exit:                                   ; preds = %6
 
 12:                                               ; preds = %12, %xor_block.exit
   %indvars.iv.i392 = phi i64 [ 0, %xor_block.exit ], [ %indvars.iv.next.i393, %12 ]
-  %13 = getelementptr i64, ptr %2, i64 %indvars.iv.i392
+  %13 = getelementptr [8 x i8], ptr %2, i64 %indvars.iv.i392
   %14 = load i64, ptr %13, align 8
-  %15 = getelementptr i64, ptr %5, i64 %indvars.iv.i392
+  %15 = getelementptr [8 x i8], ptr %5, i64 %indvars.iv.i392
   %16 = load i64, ptr %15, align 8
   %17 = xor i64 %16, %14
   store i64 %17, ptr %15, align 8
@@ -1613,9 +1613,9 @@ xor_block.exit395:                                ; preds = %12, %xor_block.exit
 
 595:                                              ; preds = %595, %594
   %indvars.iv.i396 = phi i64 [ 0, %594 ], [ %indvars.iv.next.i397, %595 ]
-  %596 = getelementptr i64, ptr %4, i64 %indvars.iv.i396
+  %596 = getelementptr [8 x i8], ptr %4, i64 %indvars.iv.i396
   %597 = load i64, ptr %596, align 8
-  %598 = getelementptr i64, ptr %2, i64 %indvars.iv.i396
+  %598 = getelementptr [8 x i8], ptr %2, i64 %indvars.iv.i396
   %599 = load i64, ptr %598, align 8
   %600 = xor i64 %599, %597
   store i64 %600, ptr %598, align 8

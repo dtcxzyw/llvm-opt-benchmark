@@ -67,7 +67,7 @@ for.cond:                                         ; preds = %for.body
 for.body:                                         ; preds = %post.exit, %for.cond
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond ], [ 0, %post.exit ]
   %6 = load ptr, ptr @threads, align 8
-  %add.ptr = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
+  %add.ptr = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %call = tail call i32 @uv_thread_join(ptr noundef %add.ptr) #9
   %tobool.not = icmp eq i32 %call, 0
   br i1 %tobool.not, label %for.cond, label %if.then2
@@ -269,7 +269,7 @@ for.cond35.preheader.i:                           ; preds = %for.cond.i
 for.body.i:                                       ; preds = %if.end28.i, %for.cond.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.cond.i ], [ 0, %if.end28.i ]
   %6 = load ptr, ptr @threads, align 8
-  %add.ptr.i = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.i
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.i
   %call31.i = call i32 @uv_thread_create_ex(ptr noundef %add.ptr.i, ptr noundef nonnull %config.i, ptr noundef nonnull @worker, ptr noundef nonnull %sem.i) #9
   %tobool32.not.i = icmp eq i32 %call31.i, 0
   br i1 %tobool32.not.i, label %for.cond.i, label %if.then33.i
@@ -487,10 +487,10 @@ entry:
 
 switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.uv_cancel, i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.uv_cancel, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep13 = getelementptr inbounds nuw i64, ptr @switch.table.uv_cancel.4, i64 %3
+  %switch.gep13 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.uv_cancel.4, i64 %3
   %switch.load14 = load i64, ptr %switch.gep13, align 8
   %loop12 = getelementptr inbounds nuw i8, ptr %req, i64 %switch.load
   %work_req13 = getelementptr inbounds nuw i8, ptr %req, i64 %switch.load14

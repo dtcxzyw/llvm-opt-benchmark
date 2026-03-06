@@ -52,8 +52,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::basic_ostream.base" = type { ptr }
 %"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
 %"class.std::basic_streambuf" = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, %"class.std::locale" }
-%"struct.entt::internal::dense_map_node" = type { i64, %"struct.std::pair.82" }
-%"struct.std::pair.82" = type { i32, i64 }
 %"struct.testing::internal::CodeLocation" = type <{ %"class.std::__cxx11::basic_string", i32, [4 x i8] }>
 
 $_ZN7testing8internal16SuiteApiResolverINS_4TestEE19GetSetUpCaseOrSuiteEPKci = comdat any
@@ -1250,7 +1248,7 @@ _ZN7testing7MessageD2Ev.exit71:                   ; preds = %_ZNKSt14default_del
 
 .lr.ph.i.i.i.i:                                   ; preds = %.noexc82, %117
   %.sroa.311.0.i.i = phi i64 [ %118, %117 ], [ 0, %.noexc82 ]
-  %110 = getelementptr inbounds nuw i64, ptr %16, i64 %.sroa.311.0.i.i
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.sroa.311.0.i.i
   %111 = load i64, ptr %110, align 8, !tbaa !20, !noalias !45
   %.not1.i.i.i.i = icmp eq i64 %111, 0
   br i1 %.not1.i.i.i.i, label %117, label %.lr.ph.i.preheader
@@ -1260,7 +1258,7 @@ _ZN7testing7MessageD2Ev.exit71:                   ; preds = %_ZNKSt14default_del
   %113 = and i64 %.sroa.311.0.i.i, 1
   %.idx164 = mul i64 %112, 24
   %114 = getelementptr i8, ptr %108, i64 %.idx164
-  %115 = getelementptr i64, ptr %114, i64 %113
+  %115 = getelementptr [8 x i8], ptr %114, i64 %113
   store i64 1, ptr %115, align 8, !tbaa !20, !noalias !48
   %116 = add nuw i64 %.sroa.311.0.i.i, 1
   %.not2.i.i.i77165 = icmp eq i64 %116, 4
@@ -1276,7 +1274,7 @@ _ZN7testing7MessageD2Ev.exit71:                   ; preds = %_ZNKSt14default_del
   %120 = and i64 %.sroa.624.1.i, 1
   %.idx = mul i64 %119, 24
   %121 = getelementptr i8, ptr %108, i64 %.idx
-  %122 = getelementptr i64, ptr %121, i64 %120
+  %122 = getelementptr [8 x i8], ptr %121, i64 %120
   store i64 1, ptr %122, align 8, !tbaa !20, !noalias !48
   %123 = add i64 %.sroa.624.1.i, 1
   %.not2.i.i.i77 = icmp eq i64 %123, 4
@@ -1284,7 +1282,7 @@ _ZN7testing7MessageD2Ev.exit71:                   ; preds = %_ZNKSt14default_del
 
 .lr.ph.i.i.i78:                                   ; preds = %.lr.ph.i.preheader, %.lr.ph.i.i.i78.backedge
   %.sroa.624.1.i = phi i64 [ %.sroa.624.1.i.be, %.lr.ph.i.i.i78.backedge ], [ %116, %.lr.ph.i.preheader ]
-  %124 = getelementptr inbounds i64, ptr %16, i64 %.sroa.624.1.i
+  %124 = getelementptr inbounds [8 x i8], ptr %16, i64 %.sroa.624.1.i
   %125 = load i64, ptr %124, align 8, !tbaa !20
   %.not1.i.i.i79 = icmp eq i64 %125, 0
   br i1 %.not1.i.i.i79, label %126, label %.lr.ph.i.loopexit
@@ -1821,7 +1819,7 @@ _ZN4entt16adjacency_matrixINS_12directed_tagESaImEED2Ev.exit: ; preds = %_ZNKSt1
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN4entt16adjacency_matrixINS_12directed_tagESaImEED2Ev.exit, %74
   %.sroa.311.0.i.i = phi i64 [ %75, %74 ], [ 0, %_ZN4entt16adjacency_matrixINS_12directed_tagESaImEED2Ev.exit ]
-  %72 = getelementptr inbounds nuw i64, ptr %70, i64 %.sroa.311.0.i.i
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %.sroa.311.0.i.i
   %73 = load i64, ptr %72, align 8, !tbaa !20, !noalias !53
   %.not1.i.i.i.i = icmp eq i64 %73, 0
   br i1 %.not1.i.i.i.i, label %74, label %77
@@ -2115,7 +2113,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 .lr.ph.i.i.i.i155:                                ; preds = %162, %165
   %.sroa.311.0.i.i156 = phi i64 [ %166, %165 ], [ 0, %162 ]
-  %163 = getelementptr inbounds nuw i64, ptr %70, i64 %.sroa.311.0.i.i156
+  %163 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %.sroa.311.0.i.i156
   %164 = load i64, ptr %163, align 8, !tbaa !20, !noalias !59
   %.not1.i.i.i.i157 = icmp eq i64 %164, 0
   br i1 %.not1.i.i.i.i157, label %165, label %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i
@@ -2269,7 +2267,7 @@ _ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i: ; preds = %.lr.ph.
 
 .lr.ph.i.i.i.i215:                                ; preds = %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i, %211
   %.sroa.311.0.i.i216 = phi i64 [ %212, %211 ], [ 0, %_ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i ]
-  %209 = getelementptr inbounds nuw i64, ptr %70, i64 %.sroa.311.0.i.i216
+  %209 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %.sroa.311.0.i.i216
   %210 = load i64, ptr %209, align 8, !tbaa !20, !noalias !62
   %.not1.i.i.i.i217 = icmp eq i64 %210, 0
   br i1 %.not1.i.i.i.i217, label %211, label %254
@@ -2773,7 +2771,7 @@ _ZNSt16allocator_traitsISaImEE8allocateERS0_m.exit.i.i.i.i.i:
 
 .lr.ph.i.i.i.i:                                   ; preds = %38, %42
   %.sroa.311.0.i.i = phi i64 [ %43, %42 ], [ 0, %38 ]
-  %40 = getelementptr inbounds nuw i64, ptr %34, i64 %.sroa.311.0.i.i
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %.sroa.311.0.i.i
   %41 = load i64, ptr %40, align 8, !tbaa !20, !noalias !68
   %.not1.i.i.i.i = icmp eq i64 %41, 0
   br i1 %.not1.i.i.i.i, label %42, label %87
@@ -3217,7 +3215,7 @@ _ZN7testing7MessageD2Ev.exit194:                  ; preds = %_ZNKSt14default_del
 
 .lr.ph.i.i.i.i201:                                ; preds = %.noexc212, %187
   %.sroa.311.0.i.i202 = phi i64 [ %188, %187 ], [ 0, %.noexc212 ]
-  %180 = getelementptr inbounds nuw i64, ptr %34, i64 %.sroa.311.0.i.i202
+  %180 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %.sroa.311.0.i.i202
   %181 = load i64, ptr %180, align 8, !tbaa !20, !noalias !71
   %.not1.i.i.i.i203 = icmp eq i64 %181, 0
   br i1 %.not1.i.i.i.i203, label %187, label %.lr.ph.i.preheader
@@ -3227,7 +3225,7 @@ _ZN7testing7MessageD2Ev.exit194:                  ; preds = %_ZNKSt14default_del
   %183 = urem i64 %.sroa.311.0.i.i202, 3
   %.idx493 = shl i64 %182, 5
   %184 = getelementptr i8, ptr %178, i64 %.idx493
-  %185 = getelementptr i64, ptr %184, i64 %183
+  %185 = getelementptr [8 x i8], ptr %184, i64 %183
   store i64 1, ptr %185, align 8, !tbaa !20, !noalias !74
   %186 = add nuw i64 %.sroa.311.0.i.i202, 1
   %.not2.i.i.i205494 = icmp eq i64 %186, 9
@@ -3243,7 +3241,7 @@ _ZN7testing7MessageD2Ev.exit194:                  ; preds = %_ZNKSt14default_del
   %190 = urem i64 %.sroa.624.1.i, 3
   %.idx = shl i64 %189, 5
   %191 = getelementptr i8, ptr %178, i64 %.idx
-  %192 = getelementptr i64, ptr %191, i64 %190
+  %192 = getelementptr [8 x i8], ptr %191, i64 %190
   store i64 1, ptr %192, align 8, !tbaa !20, !noalias !74
   %193 = add i64 %.sroa.624.1.i, 1
   %.not2.i.i.i205 = icmp eq i64 %193, 9
@@ -3251,7 +3249,7 @@ _ZN7testing7MessageD2Ev.exit194:                  ; preds = %_ZNKSt14default_del
 
 .lr.ph.i.i.i206:                                  ; preds = %.lr.ph.i.preheader, %.lr.ph.i.i.i206.backedge
   %.sroa.624.1.i = phi i64 [ %.sroa.624.1.i.be, %.lr.ph.i.i.i206.backedge ], [ %186, %.lr.ph.i.preheader ]
-  %194 = getelementptr inbounds i64, ptr %34, i64 %.sroa.624.1.i
+  %194 = getelementptr inbounds [8 x i8], ptr %34, i64 %.sroa.624.1.i
   %195 = load i64, ptr %194, align 8, !tbaa !20
   %.not1.i.i.i207 = icmp eq i64 %195, 0
   br i1 %.not1.i.i.i207, label %196, label %.lr.ph.i.loopexit
@@ -3283,7 +3281,7 @@ _ZN7testing7MessageD2Ev.exit194:                  ; preds = %_ZNKSt14default_del
 
 .lr.ph.i.i.i.i239:                                ; preds = %201, %205
   %.sroa.311.0.i.i240 = phi i64 [ %206, %205 ], [ 0, %201 ]
-  %203 = getelementptr inbounds nuw i64, ptr %178, i64 %.sroa.311.0.i.i240
+  %203 = getelementptr inbounds nuw [8 x i8], ptr %178, i64 %.sroa.311.0.i.i240
   %204 = load i64, ptr %203, align 8, !tbaa !20, !noalias !83
   %.not1.i.i.i.i241 = icmp eq i64 %204, 0
   br i1 %.not1.i.i.i.i241, label %205, label %250
@@ -5559,7 +5557,7 @@ _ZN7testing7MessageD2Ev.exit188:                  ; preds = %_ZNKSt14default_del
 
 .lr.ph.i.i.i.i:                                   ; preds = %165, %168
   %.sroa.311.0.i.i = phi i64 [ %169, %168 ], [ 0, %165 ]
-  %166 = getelementptr inbounds nuw i64, ptr %30, i64 %.sroa.311.0.i.i
+  %166 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.sroa.311.0.i.i
   %167 = load i64, ptr %166, align 8, !tbaa !20, !noalias !95
   %.not1.i.i.i.i = icmp eq i64 %167, 0
   br i1 %.not1.i.i.i.i, label %168, label %211
@@ -5708,7 +5706,7 @@ _ZN7testing7MessageD2Ev.exit233:                  ; preds = %_ZNKSt14default_del
 
 .lr.ph.i.i.i.i298:                                ; preds = %211, %214
   %.sroa.311.0.i.i299 = phi i64 [ %215, %214 ], [ 0, %211 ]
-  %212 = getelementptr inbounds nuw i64, ptr %30, i64 %.sroa.311.0.i.i299
+  %212 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.sroa.311.0.i.i299
   %213 = load i64, ptr %212, align 8, !tbaa !20, !noalias !98
   %.not1.i.i.i.i300 = icmp eq i64 %213, 0
   br i1 %.not1.i.i.i.i300, label %214, label %257
@@ -6327,7 +6325,7 @@ define hidden void @_ZN35AdjacencyMatrix_InsertDirected_Test8TestBodyEv(ptr nonn
 
 .lr.ph.i.i.i:                                     ; preds = %1, %33
   %.sroa.5.0.i = phi i64 [ %34, %33 ], [ 1, %1 ]
-  %31 = getelementptr inbounds nuw i64, ptr %29, i64 %.sroa.5.0.i
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %.sroa.5.0.i
   %32 = load i64, ptr %31, align 8, !tbaa !20, !noalias !101
   %.not1.i.i.i = icmp eq i64 %32, 0
   br i1 %.not1.i.i.i, label %33, label %35
@@ -6358,7 +6356,7 @@ define hidden void @_ZN35AdjacencyMatrix_InsertDirected_Test8TestBodyEv(ptr nonn
 
 .lr.ph.i.i.i112:                                  ; preds = %35, %41
   %.sroa.5.0.i113 = phi i64 [ %42, %41 ], [ 2, %35 ]
-  %39 = getelementptr inbounds nuw i64, ptr %29, i64 %.sroa.5.0.i113
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %.sroa.5.0.i113
   %40 = load i64, ptr %39, align 8, !tbaa !20, !noalias !110
   %.not1.i.i.i114 = icmp eq i64 %40, 0
   br i1 %.not1.i.i.i114, label %41, label %43
@@ -6388,7 +6386,7 @@ define hidden void @_ZN35AdjacencyMatrix_InsertDirected_Test8TestBodyEv(ptr nonn
 
 .lr.ph.i.i.i124:                                  ; preds = %43, %48
   %.sroa.5.0.i125 = phi i64 [ %49, %48 ], [ 1, %43 ]
-  %46 = getelementptr inbounds nuw i64, ptr %29, i64 %.sroa.5.0.i125
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %.sroa.5.0.i125
   %47 = load i64, ptr %46, align 8, !tbaa !20, !noalias !113
   %.not1.i.i.i126 = icmp eq i64 %47, 0
   br i1 %.not1.i.i.i126, label %48, label %50
@@ -7393,7 +7391,7 @@ define hidden void @_ZN37AdjacencyMatrix_InsertUndirected_Test8TestBodyEv(ptr no
 
 .lr.ph.i.i.i:                                     ; preds = %1, %34
   %.sroa.5.0.i = phi i64 [ %35, %34 ], [ 1, %1 ]
-  %32 = getelementptr inbounds nuw i64, ptr %29, i64 %.sroa.5.0.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %.sroa.5.0.i
   %33 = load i64, ptr %32, align 8, !tbaa !20, !noalias !123
   %.not1.i.i.i = icmp eq i64 %33, 0
   br i1 %.not1.i.i.i, label %34, label %36
@@ -7426,7 +7424,7 @@ define hidden void @_ZN37AdjacencyMatrix_InsertUndirected_Test8TestBodyEv(ptr no
 
 .lr.ph.i.i.i112:                                  ; preds = %36, %43
   %.sroa.5.0.i113 = phi i64 [ %44, %43 ], [ 2, %36 ]
-  %41 = getelementptr inbounds nuw i64, ptr %29, i64 %.sroa.5.0.i113
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %.sroa.5.0.i113
   %42 = load i64, ptr %41, align 8, !tbaa !20, !noalias !126
   %.not1.i.i.i114 = icmp eq i64 %42, 0
   br i1 %.not1.i.i.i114, label %43, label %45
@@ -7457,7 +7455,7 @@ define hidden void @_ZN37AdjacencyMatrix_InsertUndirected_Test8TestBodyEv(ptr no
 
 .lr.ph.i.i.i124:                                  ; preds = %45, %50
   %.sroa.5.0.i125 = phi i64 [ %51, %50 ], [ 1, %45 ]
-  %48 = getelementptr inbounds nuw i64, ptr %29, i64 %.sroa.5.0.i125
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %.sroa.5.0.i125
   %49 = load i64, ptr %48, align 8, !tbaa !20, !noalias !129
   %.not1.i.i.i126 = icmp eq i64 %49, 0
   br i1 %.not1.i.i.i126, label %50, label %52
@@ -9679,7 +9677,7 @@ define hidden void @_ZN26AdjacencyMatrix_Clear_Test8TestBodyEv(ptr nonnull readn
 
 .lr.ph.i.i.i.i:                                   ; preds = %1, %17
   %.sroa.311.0.i.i = phi i64 [ %18, %17 ], [ 0, %1 ]
-  %15 = getelementptr inbounds nuw i64, ptr %12, i64 %.sroa.311.0.i.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.sroa.311.0.i.i
   %16 = load i64, ptr %15, align 8, !tbaa !20, !noalias !144
   %.not1.i.i.i.i = icmp eq i64 %16, 0
   br i1 %.not1.i.i.i.i, label %17, label %60
@@ -11283,7 +11281,7 @@ define hidden void @_ZN33AdjacencyMatrix_EdgeIterator_Test8TestBodyEv(ptr nonnul
 
 .lr.ph.i.i.i98:                                   ; preds = %.lr.ph.i.i.i98.preheader, %40
   %.sroa.311.0.i = phi i64 [ %41, %40 ], [ 0, %.lr.ph.i.i.i98.preheader ]
-  %38 = getelementptr inbounds nuw i64, ptr %35, i64 %.sroa.311.0.i
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.sroa.311.0.i
   %39 = load i64, ptr %38, align 8, !tbaa !20, !noalias !163
   %.not1.i.i.i99 = icmp eq i64 %39, 0
   br i1 %.not1.i.i.i99, label %40, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit
@@ -11987,7 +11985,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 249:                                              ; preds = %253, %.lr.ph.i.i.i176
   %250 = phi i64 [ %246, %.lr.ph.i.i.i176 ], [ %254, %253 ]
-  %251 = getelementptr inbounds i64, ptr %248, i64 %250
+  %251 = getelementptr inbounds [8 x i8], ptr %248, i64 %250
   %252 = load i64, ptr %251, align 8, !tbaa !20, !noalias !180
   %.not1.i.i.i177 = icmp eq i64 %252, 0
   br i1 %.not1.i.i.i177, label %253, label %_ZN4entt8internal13edge_iteratorIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEEppEi.exit
@@ -12353,7 +12351,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 366:                                              ; preds = %370, %.lr.ph.i.i
   %367 = phi i64 [ %363, %.lr.ph.i.i ], [ %371, %370 ]
-  %368 = getelementptr inbounds i64, ptr %365, i64 %367
+  %368 = getelementptr inbounds [8 x i8], ptr %365, i64 %367
   %369 = load i64, ptr %368, align 8, !tbaa !20
   %.not1.i.i = icmp eq i64 %369, 0
   br i1 %.not1.i.i, label %370, label %_ZN4entt8internal13edge_iteratorIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEEppEv.exit
@@ -13584,7 +13582,7 @@ define hidden void @_ZN34AdjacencyMatrix_EdgesDirected_Test8TestBodyEv(ptr nonnu
 
 .lr.ph.i.i.i:                                     ; preds = %1, %31
   %.sroa.311.0.i = phi i64 [ %32, %31 ], [ 0, %1 ]
-  %29 = getelementptr inbounds nuw i64, ptr %27, i64 %.sroa.311.0.i
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.sroa.311.0.i
   %30 = load i64, ptr %29, align 8, !tbaa !20, !noalias !191
   %.not1.i.i.i = icmp eq i64 %30, 0
   br i1 %.not1.i.i.i, label %31, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit
@@ -13774,7 +13772,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 .lr.ph.i.i.i90:                                   ; preds = %.lr.ph.i.i.i90.preheader, %82
   %.sroa.311.0.i91 = phi i64 [ %83, %82 ], [ 0, %.lr.ph.i.i.i90.preheader ]
-  %80 = getelementptr inbounds nuw i64, ptr %27, i64 %.sroa.311.0.i91
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.sroa.311.0.i91
   %81 = load i64, ptr %80, align 8, !tbaa !20, !noalias !200
   %.not1.i.i.i92 = icmp eq i64 %81, 0
   br i1 %.not1.i.i.i92, label %82, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit103
@@ -13979,13 +13977,13 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br i1 %.not2.i.i.i125, label %139, label %.lr.ph.i.i.i126.preheader
 
 .lr.ph.i.i.i126.preheader:                        ; preds = %130
-  %132 = getelementptr inbounds i64, ptr %27, i64 %131
+  %132 = getelementptr inbounds [8 x i8], ptr %27, i64 %131
   %133 = load i64, ptr %132, align 8, !tbaa !20, !noalias !203
   %.not1.i.i.i127275 = icmp eq i64 %133, 0
   br i1 %.not1.i.i.i127275, label %.lr.ph, label %.loopexit
 
 .lr.ph.i.i.i126:                                  ; preds = %.lr.ph
-  %134 = getelementptr inbounds i64, ptr %27, i64 %137
+  %134 = getelementptr inbounds [8 x i8], ptr %27, i64 %137
   %135 = load i64, ptr %134, align 8, !tbaa !20, !noalias !203
   %.not1.i.i.i127 = icmp eq i64 %135, 0
   br i1 %.not1.i.i.i127, label %.lr.ph, label %.loopexit, !llvm.loop !51
@@ -14349,13 +14347,13 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 .lr.ph.i.i:                                       ; preds = %248
   %.sroa.10220.0..sroa_idx223.promoted = load i64, ptr %.sroa.10220.0..sroa_idx223, align 8
-  %250 = getelementptr inbounds i64, ptr %27, i64 %249
+  %250 = getelementptr inbounds [8 x i8], ptr %27, i64 %249
   %251 = load i64, ptr %250, align 8, !tbaa !20
   %.not1.i.i340 = icmp eq i64 %251, 0
   br i1 %.not1.i.i340, label %.lr.ph341, label %._crit_edge
 
 252:                                              ; preds = %.lr.ph341
-  %253 = getelementptr inbounds i64, ptr %27, i64 %256
+  %253 = getelementptr inbounds [8 x i8], ptr %27, i64 %256
   %254 = load i64, ptr %253, align 8, !tbaa !20
   %.not1.i.i = icmp eq i64 %254, 0
   br i1 %.not1.i.i, label %.lr.ph341, label %._crit_edge, !llvm.loop !51
@@ -14565,7 +14563,7 @@ define hidden void @_ZN46AdjacencyMatrix_EdgesBackwardOnlyDirected_Test8TestBody
 
 .lr.ph.i.i.i:                                     ; preds = %1, %25
   %.sroa.311.0.i = phi i64 [ %26, %25 ], [ 0, %1 ]
-  %23 = getelementptr inbounds nuw i64, ptr %22, i64 %.sroa.311.0.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %.sroa.311.0.i
   %24 = load i64, ptr %23, align 8, !tbaa !20, !noalias !206
   %.not1.i.i.i = icmp eq i64 %24, 0
   br i1 %.not1.i.i.i, label %25, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit
@@ -14754,7 +14752,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 .lr.ph.i.i.i66:                                   ; preds = %.lr.ph.i.i.i66.preheader, %76
   %.sroa.311.0.i67 = phi i64 [ %77, %76 ], [ 0, %.lr.ph.i.i.i66.preheader ]
-  %74 = getelementptr inbounds nuw i64, ptr %22, i64 %.sroa.311.0.i67
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %.sroa.311.0.i67
   %75 = load i64, ptr %74, align 8, !tbaa !20, !noalias !212
   %.not1.i.i.i68 = icmp eq i64 %75, 0
   br i1 %.not1.i.i.i68, label %76, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE5edgesEv.exit79
@@ -14959,13 +14957,13 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br i1 %.not2.i.i.i101, label %134, label %.lr.ph.i.i.i102.preheader
 
 .lr.ph.i.i.i102.preheader:                        ; preds = %124
-  %126 = getelementptr inbounds i64, ptr %22, i64 %125
+  %126 = getelementptr inbounds [8 x i8], ptr %22, i64 %125
   %127 = load i64, ptr %126, align 8, !tbaa !20, !noalias !215
   %.not1.i.i.i103213 = icmp eq i64 %127, 0
   br i1 %.not1.i.i.i103213, label %.lr.ph, label %.loopexit
 
 .lr.ph.i.i.i102:                                  ; preds = %.lr.ph
-  %128 = getelementptr inbounds i64, ptr %22, i64 %131
+  %128 = getelementptr inbounds [8 x i8], ptr %22, i64 %131
   %129 = load i64, ptr %128, align 8, !tbaa !20, !noalias !215
   %.not1.i.i.i103 = icmp eq i64 %129, 0
   br i1 %.not1.i.i.i103, label %.lr.ph, label %.loopexit, !llvm.loop !51
@@ -15364,7 +15362,7 @@ define hidden void @_ZN36AdjacencyMatrix_EdgesUndirected_Test8TestBodyEv(ptr non
 
 .lr.ph.i.i.i:                                     ; preds = %1, %41
   %.sroa.311.0.i = phi i64 [ %42, %41 ], [ 0, %1 ]
-  %39 = getelementptr inbounds nuw i64, ptr %37, i64 %.sroa.311.0.i
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %.sroa.311.0.i
   %40 = load i64, ptr %39, align 8, !tbaa !20, !noalias !218
   %.not1.i.i.i = icmp eq i64 %40, 0
   br i1 %.not1.i.i.i, label %41, label %_ZNK4entt16adjacency_matrixINS_14undirected_tagESaImEE5edgesEv.exit
@@ -15558,7 +15556,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 .lr.ph.i.i.i114:                                  ; preds = %.lr.ph.i.i.i114.preheader, %94
   %.sroa.311.0.i115 = phi i64 [ %95, %94 ], [ 0, %.lr.ph.i.i.i114.preheader ]
-  %92 = getelementptr inbounds nuw i64, ptr %37, i64 %.sroa.311.0.i115
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %.sroa.311.0.i115
   %93 = load i64, ptr %92, align 8, !tbaa !20, !noalias !227
   %.not1.i.i.i116 = icmp eq i64 %93, 0
   br i1 %.not1.i.i.i116, label %94, label %_ZNK4entt16adjacency_matrixINS_14undirected_tagESaImEE5edgesEv.exit127
@@ -15763,13 +15761,13 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br i1 %.not2.i.i.i149, label %151, label %.lr.ph.i.i.i150.preheader
 
 .lr.ph.i.i.i150.preheader:                        ; preds = %142
-  %144 = getelementptr inbounds i64, ptr %37, i64 %143
+  %144 = getelementptr inbounds [8 x i8], ptr %37, i64 %143
   %145 = load i64, ptr %144, align 8, !tbaa !20, !noalias !230
   %.not1.i.i.i151365 = icmp eq i64 %145, 0
   br i1 %.not1.i.i.i151365, label %.lr.ph, label %.loopexit364
 
 .lr.ph.i.i.i150:                                  ; preds = %.lr.ph
-  %146 = getelementptr inbounds i64, ptr %37, i64 %149
+  %146 = getelementptr inbounds [8 x i8], ptr %37, i64 %149
   %147 = load i64, ptr %146, align 8, !tbaa !20, !noalias !230
   %.not1.i.i.i151 = icmp eq i64 %147, 0
   br i1 %.not1.i.i.i151, label %.lr.ph, label %.loopexit364, !llvm.loop !51
@@ -16133,13 +16131,13 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 .lr.ph.i.i:                                       ; preds = %260
   %.sroa.10308.0..sroa_idx311.promoted = load i64, ptr %.sroa.10308.0..sroa_idx311, align 8
-  %262 = getelementptr inbounds i64, ptr %37, i64 %261
+  %262 = getelementptr inbounds [8 x i8], ptr %37, i64 %261
   %263 = load i64, ptr %262, align 8, !tbaa !20
   %.not1.i.i457 = icmp eq i64 %263, 0
   br i1 %.not1.i.i457, label %.lr.ph458, label %.loopexit363.loopexit
 
 264:                                              ; preds = %.lr.ph458
-  %265 = getelementptr inbounds i64, ptr %37, i64 %268
+  %265 = getelementptr inbounds [8 x i8], ptr %37, i64 %268
   %266 = load i64, ptr %265, align 8, !tbaa !20
   %.not1.i.i = icmp eq i64 %266, 0
   br i1 %.not1.i.i, label %.lr.ph458, label %.loopexit363.loopexit, !llvm.loop !51
@@ -16336,13 +16334,13 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 .lr.ph.i.i223:                                    ; preds = %324
   %.sroa.10308.0..sroa_idx311.promoted450 = load i64, ptr %.sroa.10308.0..sroa_idx311, align 8
-  %326 = getelementptr inbounds i64, ptr %37, i64 %325
+  %326 = getelementptr inbounds [8 x i8], ptr %37, i64 %325
   %327 = load i64, ptr %326, align 8, !tbaa !20
   %.not1.i.i224463 = icmp eq i64 %327, 0
   br i1 %.not1.i.i224463, label %.lr.ph464, label %.loopexit.loopexit
 
 328:                                              ; preds = %.lr.ph464
-  %329 = getelementptr inbounds i64, ptr %37, i64 %332
+  %329 = getelementptr inbounds [8 x i8], ptr %37, i64 %332
   %330 = load i64, ptr %329, align 8, !tbaa !20
   %.not1.i.i224 = icmp eq i64 %330, 0
   br i1 %.not1.i.i224, label %.lr.ph464, label %.loopexit.loopexit, !llvm.loop !51
@@ -16539,13 +16537,13 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 .lr.ph.i.i253:                                    ; preds = %388
   %.sroa.10308.0..sroa_idx311.promoted451 = load i64, ptr %.sroa.10308.0..sroa_idx311, align 8
-  %390 = getelementptr inbounds i64, ptr %37, i64 %389
+  %390 = getelementptr inbounds [8 x i8], ptr %37, i64 %389
   %391 = load i64, ptr %390, align 8, !tbaa !20
   %.not1.i.i254470 = icmp eq i64 %391, 0
   br i1 %.not1.i.i254470, label %.lr.ph471, label %._crit_edge
 
 392:                                              ; preds = %.lr.ph471
-  %393 = getelementptr inbounds i64, ptr %37, i64 %396
+  %393 = getelementptr inbounds [8 x i8], ptr %37, i64 %396
   %394 = load i64, ptr %393, align 8, !tbaa !20
   %.not1.i.i254 = icmp eq i64 %394, 0
   br i1 %.not1.i.i254, label %.lr.ph471, label %._crit_edge, !llvm.loop !51
@@ -16761,7 +16759,7 @@ define hidden void @_ZN48AdjacencyMatrix_EdgesBackwardOnlyUndirected_Test8TestBo
 
 .lr.ph.i.i.i:                                     ; preds = %1, %31
   %.sroa.311.0.i = phi i64 [ %32, %31 ], [ 0, %1 ]
-  %29 = getelementptr inbounds nuw i64, ptr %27, i64 %.sroa.311.0.i
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.sroa.311.0.i
   %30 = load i64, ptr %29, align 8, !tbaa !20, !noalias !233
   %.not1.i.i.i = icmp eq i64 %30, 0
   br i1 %.not1.i.i.i, label %31, label %_ZNK4entt16adjacency_matrixINS_14undirected_tagESaImEE5edgesEv.exit
@@ -16951,7 +16949,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 .lr.ph.i.i.i78:                                   ; preds = %.lr.ph.i.i.i78.preheader, %82
   %.sroa.311.0.i79 = phi i64 [ %83, %82 ], [ 0, %.lr.ph.i.i.i78.preheader ]
-  %80 = getelementptr inbounds nuw i64, ptr %27, i64 %.sroa.311.0.i79
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.sroa.311.0.i79
   %81 = load i64, ptr %80, align 8, !tbaa !20, !noalias !239
   %.not1.i.i.i80 = icmp eq i64 %81, 0
   br i1 %.not1.i.i.i80, label %82, label %_ZNK4entt16adjacency_matrixINS_14undirected_tagESaImEE5edgesEv.exit91
@@ -17155,13 +17153,13 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   br i1 %.not2.i.i.i113, label %139, label %.lr.ph.i.i.i114.preheader
 
 .lr.ph.i.i.i114.preheader:                        ; preds = %130
-  %132 = getelementptr inbounds i64, ptr %27, i64 %131
+  %132 = getelementptr inbounds [8 x i8], ptr %27, i64 %131
   %133 = load i64, ptr %132, align 8, !tbaa !20, !noalias !242
   %.not1.i.i.i115266 = icmp eq i64 %133, 0
   br i1 %.not1.i.i.i115266, label %.lr.ph, label %.loopexit265
 
 .lr.ph.i.i.i114:                                  ; preds = %.lr.ph
-  %134 = getelementptr inbounds i64, ptr %27, i64 %137
+  %134 = getelementptr inbounds [8 x i8], ptr %27, i64 %137
   %135 = load i64, ptr %134, align 8, !tbaa !20, !noalias !242
   %.not1.i.i.i115 = icmp eq i64 %135, 0
   br i1 %.not1.i.i.i115, label %.lr.ph, label %.loopexit265, !llvm.loop !51
@@ -17357,13 +17355,13 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 .lr.ph.i.i.i138:                                  ; preds = %193
   %.sroa.10211.0..sroa_idx214.promoted = load i64, ptr %.sroa.10211.0..sroa_idx214, align 8
-  %195 = getelementptr inbounds i64, ptr %27, i64 %194
+  %195 = getelementptr inbounds [8 x i8], ptr %27, i64 %194
   %196 = load i64, ptr %195, align 8, !tbaa !20, !noalias !245
   %.not1.i.i.i139319 = icmp eq i64 %196, 0
   br i1 %.not1.i.i.i139319, label %.lr.ph320, label %.loopexit.loopexit
 
 197:                                              ; preds = %.lr.ph320
-  %198 = getelementptr inbounds i64, ptr %27, i64 %201
+  %198 = getelementptr inbounds [8 x i8], ptr %27, i64 %201
   %199 = load i64, ptr %198, align 8, !tbaa !20, !noalias !245
   %.not1.i.i.i139 = icmp eq i64 %199, 0
   br i1 %.not1.i.i.i139, label %.lr.ph320, label %.loopexit.loopexit, !llvm.loop !51
@@ -17751,7 +17749,7 @@ define hidden void @_ZN37AdjacencyMatrix_OutEdgesDirected_Test8TestBodyEv(ptr no
 
 .lr.ph.i.i.i:                                     ; preds = %1, %30
   %.sroa.314.0.i = phi i64 [ %31, %30 ], [ 0, %1 ]
-  %28 = getelementptr inbounds nuw i64, ptr %26, i64 %.sroa.314.0.i
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %.sroa.314.0.i
   %29 = load i64, ptr %28, align 8, !tbaa !20, !noalias !248
   %.not1.i.i.i = icmp eq i64 %29, 0
   br i1 %.not1.i.i.i, label %30, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE9out_edgesEm.exit
@@ -17941,7 +17939,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 .lr.ph.i.i.i90:                                   ; preds = %.lr.ph.i.i.i90.preheader, %81
   %.sroa.314.0.i91 = phi i64 [ %82, %81 ], [ 0, %.lr.ph.i.i.i90.preheader ]
-  %79 = getelementptr inbounds nuw i64, ptr %26, i64 %.sroa.314.0.i91
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %.sroa.314.0.i91
   %80 = load i64, ptr %79, align 8, !tbaa !20, !noalias !257
   %.not1.i.i.i92 = icmp eq i64 %80, 0
   br i1 %.not1.i.i.i92, label %81, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE9out_edgesEm.exit103
@@ -18147,7 +18145,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 .lr.ph.i.i.i126:                                  ; preds = %129, %134
   %131 = phi i64 [ %135, %134 ], [ %130, %129 ]
-  %132 = getelementptr inbounds i64, ptr %26, i64 %131
+  %132 = getelementptr inbounds [8 x i8], ptr %26, i64 %131
   %133 = load i64, ptr %132, align 8, !tbaa !20, !noalias !260
   %.not1.i.i.i127 = icmp eq i64 %133, 0
   br i1 %.not1.i.i.i127, label %134, label %.loopexit
@@ -18494,7 +18492,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 .lr.ph.i.i.i171:                                  ; preds = %238, %241
   %.sroa.314.0.i172 = phi i64 [ %242, %241 ], [ 6, %238 ]
-  %239 = getelementptr inbounds nuw i64, ptr %26, i64 %.sroa.314.0.i172
+  %239 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %.sroa.314.0.i172
   %240 = load i64, ptr %239, align 8, !tbaa !20, !noalias !268
   %.not1.i.i.i173 = icmp eq i64 %240, 0
   br i1 %.not1.i.i.i173, label %241, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE9out_edgesEm.exit184
@@ -18712,7 +18710,7 @@ define hidden void @_ZN49AdjacencyMatrix_OutEdgesBackwardOnlyDirected_Test8TestB
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %1
   %.not.i.i.i = phi i1 [ true, %.lr.ph.i.i.i ], [ false, %1 ]
   %.sroa.314.0.i = phi i64 [ 3, %.lr.ph.i.i.i ], [ 2, %1 ]
-  %27 = getelementptr inbounds nuw i64, ptr %26, i64 %.sroa.314.0.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %.sroa.314.0.i
   %28 = load i64, ptr %27, align 8, !tbaa !20, !noalias !271
   %.not1.i.i.i = icmp ne i64 %28, 0
   %brmerge = or i1 %.not1.i.i.i, %.not.i.i.i
@@ -18897,7 +18895,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .lr.ph.i.i.i78:                                   ; preds = %.lr.ph.i.i.i78, %.lr.ph.i.i.i78.preheader
   %.not.i.i.i90 = phi i1 [ true, %.lr.ph.i.i.i78 ], [ false, %.lr.ph.i.i.i78.preheader ]
   %.sroa.314.0.i79 = phi i64 [ 3, %.lr.ph.i.i.i78 ], [ 2, %.lr.ph.i.i.i78.preheader ]
-  %75 = getelementptr inbounds nuw i64, ptr %26, i64 %.sroa.314.0.i79
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %.sroa.314.0.i79
   %76 = load i64, ptr %75, align 8, !tbaa !20, !noalias !277
   %.not1.i.i.i80 = icmp ne i64 %76, 0
   %brmerge339 = or i1 %.not1.i.i.i80, %.not.i.i.i90
@@ -19098,7 +19096,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 .lr.ph.i.i.i114:                                  ; preds = %123, %128
   %125 = phi i64 [ %129, %128 ], [ %124, %123 ]
-  %126 = getelementptr inbounds i64, ptr %26, i64 %125
+  %126 = getelementptr inbounds [8 x i8], ptr %26, i64 %125
   %127 = load i64, ptr %126, align 8, !tbaa !20, !noalias !280
   %.not1.i.i.i115 = icmp eq i64 %127, 0
   br i1 %.not1.i.i.i115, label %128, label %.loopexit
@@ -19446,7 +19444,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .lr.ph.i.i.i159:                                  ; preds = %.lr.ph.i.i.i159, %232
   %.not.i.i.i171 = phi i1 [ true, %.lr.ph.i.i.i159 ], [ false, %232 ]
   %.sroa.314.0.i160 = phi i64 [ 1, %.lr.ph.i.i.i159 ], [ 0, %232 ]
-  %233 = getelementptr inbounds nuw i64, ptr %26, i64 %.sroa.314.0.i160
+  %233 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %.sroa.314.0.i160
   %234 = load i64, ptr %233, align 8, !tbaa !20, !noalias !288
   %.not1.i.i.i161 = icmp ne i64 %234, 0
   %brmerge340 = or i1 %.not1.i.i.i161, %.not.i.i.i171
@@ -19668,7 +19666,7 @@ define hidden void @_ZN39AdjacencyMatrix_OutEdgesUndirected_Test8TestBodyEv(ptr 
 
 .lr.ph.i.i.i:                                     ; preds = %1, %39
   %.sroa.314.0.i = phi i64 [ %40, %39 ], [ 0, %1 ]
-  %37 = getelementptr inbounds nuw i64, ptr %35, i64 %.sroa.314.0.i
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.sroa.314.0.i
   %38 = load i64, ptr %37, align 8, !tbaa !20, !noalias !291
   %.not1.i.i.i = icmp eq i64 %38, 0
   br i1 %.not1.i.i.i, label %39, label %_ZNK4entt16adjacency_matrixINS_14undirected_tagESaImEE9out_edgesEm.exit
@@ -19862,7 +19860,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 .lr.ph.i.i.i114:                                  ; preds = %.lr.ph.i.i.i114.preheader, %92
   %.sroa.314.0.i115 = phi i64 [ %93, %92 ], [ 0, %.lr.ph.i.i.i114.preheader ]
-  %90 = getelementptr inbounds nuw i64, ptr %35, i64 %.sroa.314.0.i115
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.sroa.314.0.i115
   %91 = load i64, ptr %90, align 8, !tbaa !20, !noalias !300
   %.not1.i.i.i116 = icmp eq i64 %91, 0
   br i1 %.not1.i.i.i116, label %92, label %_ZNK4entt16adjacency_matrixINS_14undirected_tagESaImEE9out_edgesEm.exit127
@@ -20068,7 +20066,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 .lr.ph.i.i.i150:                                  ; preds = %140, %145
   %142 = phi i64 [ %146, %145 ], [ %141, %140 ]
-  %143 = getelementptr inbounds i64, ptr %35, i64 %142
+  %143 = getelementptr inbounds [8 x i8], ptr %35, i64 %142
   %144 = load i64, ptr %143, align 8, !tbaa !20, !noalias !303
   %.not1.i.i.i151 = icmp eq i64 %144, 0
   br i1 %.not1.i.i.i151, label %145, label %.loopexit410
@@ -20415,7 +20413,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 .lr.ph.i.i.i195:                                  ; preds = %249, %252
   %.sroa.314.0.i196 = phi i64 [ %253, %252 ], [ 6, %249 ]
-  %250 = getelementptr inbounds nuw i64, ptr %35, i64 %.sroa.314.0.i196
+  %250 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.sroa.314.0.i196
   %251 = load i64, ptr %250, align 8, !tbaa !20, !noalias !311
   %.not1.i.i.i197 = icmp eq i64 %251, 0
   br i1 %.not1.i.i.i197, label %252, label %_ZNK4entt16adjacency_matrixINS_14undirected_tagESaImEE9out_edgesEm.exit208
@@ -20613,7 +20611,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 305:                                              ; preds = %309, %.lr.ph.i.i.i232
   %306 = phi i64 [ %302, %.lr.ph.i.i.i232 ], [ %310, %309 ]
-  %307 = getelementptr inbounds i64, ptr %304, i64 %306
+  %307 = getelementptr inbounds [8 x i8], ptr %304, i64 %306
   %308 = load i64, ptr %307, align 8, !tbaa !20, !noalias !314
   %.not1.i.i.i233 = icmp eq i64 %308, 0
   br i1 %.not1.i.i.i233, label %309, label %.loopexit
@@ -21003,7 +21001,7 @@ define hidden void @_ZN51AdjacencyMatrix_OutEdgesBackwardOnlyUndirected_Test8Tes
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %1
   %.not.i.i.i = phi i1 [ true, %.lr.ph.i.i.i ], [ false, %1 ]
   %.sroa.314.0.i = phi i64 [ 3, %.lr.ph.i.i.i ], [ 2, %1 ]
-  %37 = getelementptr inbounds nuw i64, ptr %35, i64 %.sroa.314.0.i
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.sroa.314.0.i
   %38 = load i64, ptr %37, align 8, !tbaa !20, !noalias !322
   %.not1.i.i.i = icmp ne i64 %38, 0
   %brmerge = or i1 %.not1.i.i.i, %.not.i.i.i
@@ -21189,7 +21187,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .lr.ph.i.i.i102:                                  ; preds = %.lr.ph.i.i.i102, %.lr.ph.i.i.i102.preheader
   %.not.i.i.i114 = phi i1 [ true, %.lr.ph.i.i.i102 ], [ false, %.lr.ph.i.i.i102.preheader ]
   %.sroa.314.0.i103 = phi i64 [ 3, %.lr.ph.i.i.i102 ], [ 2, %.lr.ph.i.i.i102.preheader ]
-  %85 = getelementptr inbounds nuw i64, ptr %35, i64 %.sroa.314.0.i103
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.sroa.314.0.i103
   %86 = load i64, ptr %85, align 8, !tbaa !20, !noalias !328
   %.not1.i.i.i104 = icmp ne i64 %86, 0
   %brmerge456 = or i1 %.not1.i.i.i104, %.not.i.i.i114
@@ -21390,7 +21388,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 .lr.ph.i.i.i138:                                  ; preds = %133, %138
   %135 = phi i64 [ %139, %138 ], [ %134, %133 ]
-  %136 = getelementptr inbounds i64, ptr %35, i64 %135
+  %136 = getelementptr inbounds [8 x i8], ptr %35, i64 %135
   %137 = load i64, ptr %136, align 8, !tbaa !20, !noalias !331
   %.not1.i.i.i139 = icmp eq i64 %137, 0
   br i1 %.not1.i.i.i139, label %138, label %.loopexit388
@@ -21738,7 +21736,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 .lr.ph.i.i.i183:                                  ; preds = %.lr.ph.i.i.i183, %242
   %.not.i.i.i195 = phi i1 [ true, %.lr.ph.i.i.i183 ], [ false, %242 ]
   %.sroa.314.0.i184 = phi i64 [ 1, %.lr.ph.i.i.i183 ], [ 0, %242 ]
-  %243 = getelementptr inbounds nuw i64, ptr %35, i64 %.sroa.314.0.i184
+  %243 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.sroa.314.0.i184
   %244 = load i64, ptr %243, align 8, !tbaa !20, !noalias !339
   %.not1.i.i.i185 = icmp ne i64 %244, 0
   %brmerge457 = or i1 %.not1.i.i.i185, %.not.i.i.i195
@@ -21931,7 +21929,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 296:                                              ; preds = %300, %.lr.ph.i.i.i220
   %297 = phi i64 [ %293, %.lr.ph.i.i.i220 ], [ %301, %300 ]
-  %298 = getelementptr inbounds i64, ptr %295, i64 %297
+  %298 = getelementptr inbounds [8 x i8], ptr %295, i64 %297
   %299 = load i64, ptr %298, align 8, !tbaa !20, !noalias !342
   %.not1.i.i.i221 = icmp eq i64 %299, 0
   br i1 %.not1.i.i.i221, label %300, label %.loopexit
@@ -22311,7 +22309,7 @@ define hidden void @_ZN36AdjacencyMatrix_InEdgesDirected_Test8TestBodyEv(ptr non
 
 .lr.ph.i.i.i:                                     ; preds = %1, %30
   %.sroa.314.0.i = phi i64 [ %31, %30 ], [ 1, %1 ]
-  %28 = getelementptr inbounds nuw i64, ptr %26, i64 %.sroa.314.0.i
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %.sroa.314.0.i
   %29 = load i64, ptr %28, align 8, !tbaa !20, !noalias !350
   %.not1.i.i.i = icmp eq i64 %29, 0
   br i1 %.not1.i.i.i, label %30, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE8in_edgesEm.exit
@@ -22501,7 +22499,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 .lr.ph.i.i.i90:                                   ; preds = %.lr.ph.i.i.i90.preheader, %81
   %.sroa.314.0.i91 = phi i64 [ %82, %81 ], [ 1, %.lr.ph.i.i.i90.preheader ]
-  %79 = getelementptr inbounds nuw i64, ptr %26, i64 %.sroa.314.0.i91
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %.sroa.314.0.i91
   %80 = load i64, ptr %79, align 8, !tbaa !20, !noalias !359
   %.not1.i.i.i92 = icmp eq i64 %80, 0
   br i1 %.not1.i.i.i92, label %81, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE8in_edgesEm.exit103
@@ -22707,7 +22705,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 .lr.ph.i.i.i126:                                  ; preds = %129, %134
   %131 = phi i64 [ %135, %134 ], [ %130, %129 ]
-  %132 = getelementptr inbounds i64, ptr %26, i64 %131
+  %132 = getelementptr inbounds [8 x i8], ptr %26, i64 %131
   %133 = load i64, ptr %132, align 8, !tbaa !20, !noalias !362
   %.not1.i.i.i127 = icmp eq i64 %133, 0
   br i1 %.not1.i.i.i127, label %134, label %.loopexit
@@ -23054,7 +23052,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 .lr.ph.i.i.i171:                                  ; preds = %238, %241
   %.sroa.314.0.i172 = phi i64 [ %242, %241 ], [ 0, %238 ]
-  %239 = getelementptr inbounds nuw i64, ptr %26, i64 %.sroa.314.0.i172
+  %239 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %.sroa.314.0.i172
   %240 = load i64, ptr %239, align 8, !tbaa !20, !noalias !370
   %.not1.i.i.i173 = icmp eq i64 %240, 0
   br i1 %.not1.i.i.i173, label %241, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE8in_edgesEm.exit184
@@ -23271,7 +23269,7 @@ define hidden void @_ZN48AdjacencyMatrix_InEdgesBackwardOnlyDirected_Test8TestBo
 
 .lr.ph.i.i.i:                                     ; preds = %1, %29
   %.sroa.314.0.i = phi i64 [ %30, %29 ], [ 0, %1 ]
-  %27 = getelementptr inbounds nuw i64, ptr %26, i64 %.sroa.314.0.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %.sroa.314.0.i
   %28 = load i64, ptr %27, align 8, !tbaa !20, !noalias !373
   %.not1.i.i.i = icmp eq i64 %28, 0
   br i1 %.not1.i.i.i, label %29, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE8in_edgesEm.exit
@@ -23460,7 +23458,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 .lr.ph.i.i.i78:                                   ; preds = %.lr.ph.i.i.i78.preheader, %80
   %.sroa.314.0.i79 = phi i64 [ %81, %80 ], [ 0, %.lr.ph.i.i.i78.preheader ]
-  %78 = getelementptr inbounds nuw i64, ptr %26, i64 %.sroa.314.0.i79
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %.sroa.314.0.i79
   %79 = load i64, ptr %78, align 8, !tbaa !20, !noalias !379
   %.not1.i.i.i80 = icmp eq i64 %79, 0
   br i1 %.not1.i.i.i80, label %80, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE8in_edgesEm.exit91
@@ -23677,7 +23675,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 .lr.ph.i.i.i114:                                  ; preds = %128, %136
   %133 = phi i64 [ %137, %136 ], [ %129, %128 ]
-  %134 = getelementptr inbounds i64, ptr %26, i64 %133
+  %134 = getelementptr inbounds [8 x i8], ptr %26, i64 %133
   %135 = load i64, ptr %134, align 8, !tbaa !20, !noalias !382
   %.not1.i.i.i115 = icmp eq i64 %135, 0
   br i1 %.not1.i.i.i115, label %136, label %.loopexit
@@ -24021,7 +24019,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 .lr.ph.i.i.i159:                                  ; preds = %237, %240
   %.sroa.314.0.i160 = phi i64 [ %241, %240 ], [ 1, %237 ]
-  %238 = getelementptr inbounds nuw i64, ptr %26, i64 %.sroa.314.0.i160
+  %238 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %.sroa.314.0.i160
   %239 = load i64, ptr %238, align 8, !tbaa !20, !noalias !390
   %.not1.i.i.i161 = icmp eq i64 %239, 0
   br i1 %.not1.i.i.i161, label %240, label %_ZNK4entt16adjacency_matrixINS_12directed_tagESaImEE8in_edgesEm.exit172
@@ -24253,7 +24251,7 @@ define hidden void @_ZN38AdjacencyMatrix_InEdgesUndirected_Test8TestBodyEv(ptr n
 
 .lr.ph.i.i.i:                                     ; preds = %1, %44
   %.sroa.314.0.i = phi i64 [ %45, %44 ], [ 1, %1 ]
-  %42 = getelementptr inbounds nuw i64, ptr %40, i64 %.sroa.314.0.i
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.sroa.314.0.i
   %43 = load i64, ptr %42, align 8, !tbaa !20, !noalias !393
   %.not1.i.i.i = icmp eq i64 %43, 0
   br i1 %.not1.i.i.i, label %44, label %_ZNK4entt16adjacency_matrixINS_14undirected_tagESaImEE8in_edgesEm.exit
@@ -24447,7 +24445,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 .lr.ph.i.i.i126:                                  ; preds = %.lr.ph.i.i.i126.preheader, %97
   %.sroa.314.0.i127 = phi i64 [ %98, %97 ], [ 1, %.lr.ph.i.i.i126.preheader ]
-  %95 = getelementptr inbounds nuw i64, ptr %40, i64 %.sroa.314.0.i127
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.sroa.314.0.i127
   %96 = load i64, ptr %95, align 8, !tbaa !20, !noalias !402
   %.not1.i.i.i128 = icmp eq i64 %96, 0
   br i1 %.not1.i.i.i128, label %97, label %_ZNK4entt16adjacency_matrixINS_14undirected_tagESaImEE8in_edgesEm.exit139
@@ -24653,7 +24651,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 .lr.ph.i.i.i162:                                  ; preds = %145, %150
   %147 = phi i64 [ %151, %150 ], [ %146, %145 ]
-  %148 = getelementptr inbounds i64, ptr %40, i64 %147
+  %148 = getelementptr inbounds [8 x i8], ptr %40, i64 %147
   %149 = load i64, ptr %148, align 8, !tbaa !20, !noalias !405
   %.not1.i.i.i163 = icmp eq i64 %149, 0
   br i1 %.not1.i.i.i163, label %150, label %.loopexit463
@@ -24848,7 +24846,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 210:                                              ; preds = %214, %.lr.ph.i.i.i186
   %211 = phi i64 [ %207, %.lr.ph.i.i.i186 ], [ %215, %214 ]
-  %212 = getelementptr inbounds i64, ptr %209, i64 %211
+  %212 = getelementptr inbounds [8 x i8], ptr %209, i64 %211
   %213 = load i64, ptr %212, align 8, !tbaa !20, !noalias !408
   %.not1.i.i.i187 = icmp eq i64 %213, 0
   br i1 %.not1.i.i.i187, label %214, label %.loopexit462
@@ -25195,7 +25193,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 .lr.ph.i.i.i237:                                  ; preds = %318, %321
   %.sroa.314.0.i238 = phi i64 [ %322, %321 ], [ 0, %318 ]
-  %319 = getelementptr inbounds nuw i64, ptr %40, i64 %.sroa.314.0.i238
+  %319 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.sroa.314.0.i238
   %320 = load i64, ptr %319, align 8, !tbaa !20, !noalias !416
   %.not1.i.i.i239 = icmp eq i64 %320, 0
   br i1 %.not1.i.i.i239, label %321, label %_ZNK4entt16adjacency_matrixINS_14undirected_tagESaImEE8in_edgesEm.exit250
@@ -25393,7 +25391,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 374:                                              ; preds = %378, %.lr.ph.i.i.i274
   %375 = phi i64 [ %371, %.lr.ph.i.i.i274 ], [ %379, %378 ]
-  %376 = getelementptr inbounds i64, ptr %373, i64 %375
+  %376 = getelementptr inbounds [8 x i8], ptr %373, i64 %375
   %377 = load i64, ptr %376, align 8, !tbaa !20, !noalias !419
   %.not1.i.i.i275 = icmp eq i64 %377, 0
   br i1 %.not1.i.i.i275, label %378, label %.loopexit
@@ -25782,7 +25780,7 @@ define hidden void @_ZN50AdjacencyMatrix_InEdgesBackwardOnlyUndirected_Test8Test
 
 .lr.ph.i.i.i:                                     ; preds = %1, %39
   %.sroa.314.0.i = phi i64 [ %40, %39 ], [ 0, %1 ]
-  %37 = getelementptr inbounds nuw i64, ptr %35, i64 %.sroa.314.0.i
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.sroa.314.0.i
   %38 = load i64, ptr %37, align 8, !tbaa !20, !noalias !427
   %.not1.i.i.i = icmp eq i64 %38, 0
   br i1 %.not1.i.i.i, label %39, label %_ZNK4entt16adjacency_matrixINS_14undirected_tagESaImEE8in_edgesEm.exit
@@ -25972,7 +25970,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 .lr.ph.i.i.i102:                                  ; preds = %.lr.ph.i.i.i102.preheader, %90
   %.sroa.314.0.i103 = phi i64 [ %91, %90 ], [ 0, %.lr.ph.i.i.i102.preheader ]
-  %88 = getelementptr inbounds nuw i64, ptr %35, i64 %.sroa.314.0.i103
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.sroa.314.0.i103
   %89 = load i64, ptr %88, align 8, !tbaa !20, !noalias !433
   %.not1.i.i.i104 = icmp eq i64 %89, 0
   br i1 %.not1.i.i.i104, label %90, label %_ZNK4entt16adjacency_matrixINS_14undirected_tagESaImEE8in_edgesEm.exit115
@@ -26189,7 +26187,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 .lr.ph.i.i.i138:                                  ; preds = %138, %146
   %143 = phi i64 [ %147, %146 ], [ %139, %138 ]
-  %144 = getelementptr inbounds i64, ptr %35, i64 %143
+  %144 = getelementptr inbounds [8 x i8], ptr %35, i64 %143
   %145 = load i64, ptr %144, align 8, !tbaa !20, !noalias !436
   %.not1.i.i.i139 = icmp eq i64 %145, 0
   br i1 %.not1.i.i.i139, label %146, label %.loopexit388
@@ -26533,7 +26531,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 .lr.ph.i.i.i183:                                  ; preds = %247, %250
   %.sroa.314.0.i184 = phi i64 [ %251, %250 ], [ 1, %247 ]
-  %248 = getelementptr inbounds nuw i64, ptr %35, i64 %.sroa.314.0.i184
+  %248 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.sroa.314.0.i184
   %249 = load i64, ptr %248, align 8, !tbaa !20, !noalias !444
   %.not1.i.i.i185 = icmp eq i64 %249, 0
   br i1 %.not1.i.i.i185, label %250, label %_ZNK4entt16adjacency_matrixINS_14undirected_tagESaImEE8in_edgesEm.exit196
@@ -26731,7 +26729,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 303:                                              ; preds = %307, %.lr.ph.i.i.i220
   %304 = phi i64 [ %300, %.lr.ph.i.i.i220 ], [ %308, %307 ]
-  %305 = getelementptr inbounds i64, ptr %302, i64 %304
+  %305 = getelementptr inbounds [8 x i8], ptr %302, i64 %304
   %306 = load i64, ptr %305, align 8, !tbaa !20, !noalias !447
   %.not1.i.i.i221 = icmp eq i64 %306, 0
   br i1 %.not1.i.i.i221, label %307, label %.loopexit
@@ -28439,7 +28437,7 @@ _ZN4test18throwing_allocatorImED2Ev.exit:         ; preds = %20, %28, %_ZN9__gnu
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN4test18throwing_allocatorImED2Ev.exit, %56
   %.sroa.311.0.i = phi i64 [ %57, %56 ], [ 0, %_ZN4test18throwing_allocatorImED2Ev.exit ]
-  %54 = getelementptr inbounds i64, ptr %45, i64 %.sroa.311.0.i
+  %54 = getelementptr inbounds [8 x i8], ptr %45, i64 %.sroa.311.0.i
   %55 = load i64, ptr %54, align 8, !tbaa !20, !noalias !521
   %.not1.i.i.i = icmp eq i64 %55, 0
   br i1 %.not1.i.i.i, label %56, label %_ZNK4entt16adjacency_matrixINS_12directed_tagEN4test18throwing_allocatorImEEE5edgesEv.exit
@@ -28578,8 +28576,8 @@ _ZN4entt16adjacency_matrixINS_12directed_tagEN4test18throwing_allocatorImEEED2Ev
   %107 = urem i64 %.sroa.625.034, %53
   %108 = load i64, ptr %21, align 8, !tbaa !483, !noalias !525
   %109 = mul i64 %108, %106
-  %110 = getelementptr i64, ptr %59, i64 %109
-  %111 = getelementptr i64, ptr %110, i64 %107
+  %110 = getelementptr [8 x i8], ptr %59, i64 %109
+  %111 = getelementptr [8 x i8], ptr %110, i64 %107
   store i64 1, ptr %111, align 8, !tbaa !20, !noalias !525
   %112 = add i64 %.sroa.625.034, 1
   %.not2.i.i = icmp eq i64 %112, %51
@@ -28587,7 +28585,7 @@ _ZN4entt16adjacency_matrixINS_12directed_tagEN4test18throwing_allocatorImEEED2Ev
 
 .lr.ph.i.i:                                       ; preds = %.loopexit, %115
   %.sroa.625.1 = phi i64 [ %116, %115 ], [ %112, %.loopexit ]
-  %113 = getelementptr inbounds i64, ptr %45, i64 %.sroa.625.1
+  %113 = getelementptr inbounds [8 x i8], ptr %45, i64 %.sroa.625.1
   %114 = load i64, ptr %113, align 8, !tbaa !20
   %.not1.i.i = icmp eq i64 %114, 0
   br i1 %.not1.i.i, label %115, label %_ZN4entt8internal13edge_iteratorIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImN4test18throwing_allocatorImEEEEEEppEv.exit
@@ -32345,7 +32343,7 @@ _ZN4entt17next_power_of_twoImEENSt9enable_ifIXsr3stdE13is_unsigned_vIT_EES2_E4ty
   br i1 %38, label %39, label %_ZNSt6vectorImSaImEE6resizeEm.exit
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw i64, ptr %28, i64 %25
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %25
   %.not.i.i = icmp eq ptr %27, %40
   br i1 %.not.i.i, label %_ZNSt6vectorImSaImEE6resizeEm.exit, label %41
 
@@ -32387,12 +32385,12 @@ _ZNSt6vectorImSaImEE6resizeEm.exit:               ; preds = %35, %37, %39, %41
 
 58:                                               ; preds = %.lr.ph26, %58
   %.024 = phi i64 [ 0, %.lr.ph26 ], [ %66, %58 ]
-  %59 = getelementptr inbounds nuw %"struct.entt::internal::dense_map_node", ptr %50, i64 %.024
+  %59 = getelementptr inbounds nuw [24 x i8], ptr %50, i64 %.024
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load i32, ptr %60, align 4, !tbaa !137
   %62 = zext i32 %61 to i64
   %63 = and i64 %57, %62
-  %64 = getelementptr inbounds nuw i64, ptr %43, i64 %63
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %63
   %65 = load i64, ptr %64, align 8, !tbaa !20
   store i64 %.024, ptr %64, align 8, !tbaa !20
   store i64 %65, ptr %59, align 8, !tbaa !577
@@ -32493,9 +32491,9 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit36: ; preds = %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !476
-  %39 = getelementptr inbounds nuw i64, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !576
-  %40 = getelementptr inbounds nuw i64, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !477
   br label %41
 
@@ -32645,7 +32643,7 @@ _ZNSt12_Vector_baseImN4test18throwing_allocatorImEEEC2EmRKS2_.exit.thread: ; pre
   store ptr %56, ptr %53, align 8, !tbaa !494
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %56, ptr %59, align 8, !tbaa !510
-  %60 = getelementptr inbounds nuw i64, ptr %56, i64 %1
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %1
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %60, ptr %61, align 8, !tbaa !513
   %62 = shl nuw nsw i64 %1, 3
@@ -32696,7 +32694,7 @@ _ZN4entt7type_idImEERKNS_9type_infoEv.exit:       ; preds = %2, %6, %8
   %22 = and i64 %21, %13
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %24 = load ptr, ptr %23, align 8, !tbaa !581
-  %25 = getelementptr inbounds nuw i64, ptr %16, i64 %22
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %22
   br label %26
 
 26:                                               ; preds = %27, %_ZN4entt7type_idImEERKNS_9type_infoEv.exit
@@ -32706,7 +32704,7 @@ _ZN4entt7type_idImEERKNS_9type_infoEv.exit:       ; preds = %2, %6, %8
   br i1 %.not.i.i.i, label %_ZNK4entt9dense_mapIjmSt4hashIjESt8equal_toIvESaISt4pairIKjmEEE8containsERS6_.exit.thread, label %27
 
 27:                                               ; preds = %26
-  %28 = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %24, i64 %.sroa.5.0.i.i.i
+  %28 = getelementptr inbounds [24 x i8], ptr %24, i64 %.sroa.5.0.i.i.i
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load i32, ptr %29, align 4, !tbaa !137
   %31 = icmp eq i32 %30, %10
@@ -32774,7 +32772,7 @@ define linkonce_odr hidden noundef i64 @_ZN4entt9dense_mapIjmSt4hashIjESt8equal_
   %11 = lshr exact i64 %10, 3
   %12 = add nuw nsw i64 %11, 4294967295
   %13 = and i64 %12, %4
-  %14 = getelementptr inbounds nuw i64, ptr %7, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8
   br label %17
@@ -32786,7 +32784,7 @@ define linkonce_odr hidden noundef i64 @_ZN4entt9dense_mapIjmSt4hashIjESt8equal_
   br i1 %.not, label %.loopexit, label %19
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds nuw %"struct.entt::internal::dense_map_node", ptr %16, i64 %18
+  %20 = getelementptr inbounds nuw [24 x i8], ptr %16, i64 %18
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load i32, ptr %21, align 4, !tbaa !137
   %23 = icmp eq i32 %22, %3
@@ -32812,7 +32810,7 @@ define linkonce_odr hidden noundef i64 @_ZN4entt9dense_mapIjmSt4hashIjESt8equal_
   %37 = load i32, ptr %36, align 4, !tbaa !137
   %38 = zext i32 %37 to i64
   %39 = and i64 %12, %38
-  %40 = getelementptr inbounds nuw i64, ptr %7, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %39
   %41 = load i64, ptr %35, align 8, !tbaa !577
   store i64 %41, ptr %20, align 8, !tbaa !577
   store i32 %37, ptr %34, align 8, !tbaa !584
@@ -32826,7 +32824,7 @@ define linkonce_odr hidden noundef i64 @_ZN4entt9dense_mapIjmSt4hashIjESt8equal_
 
 .lr.ph.i:                                         ; preds = %33, %.lr.ph.i
   %46 = phi i64 [ %48, %.lr.ph.i ], [ %45, %33 ]
-  %47 = getelementptr inbounds nuw %"struct.entt::internal::dense_map_node", ptr %16, i64 %46
+  %47 = getelementptr inbounds nuw [24 x i8], ptr %16, i64 %46
   %48 = load i64, ptr %47, align 8, !tbaa !20
   %.not10.i = icmp eq i64 %48, %32
   br i1 %.not10.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !586
@@ -32904,7 +32902,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4entt9dense_mapIjmSt4hashIjESt8equal_
   %13 = and i64 %12, %4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load ptr, ptr %14, align 8, !tbaa !581
-  %16 = getelementptr inbounds nuw i64, ptr %7, i64 %13
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %13
   br label %17
 
 17:                                               ; preds = %18, %2
@@ -32914,7 +32912,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4entt9dense_mapIjmSt4hashIjESt8equal_
   br i1 %.not.i, label %_ZN4entt9dense_mapIjmSt4hashIjESt8equal_toIvESaISt4pairIKjmEEE16constrained_findIjEEDaRKT_m.exit.thread, label %18
 
 18:                                               ; preds = %17
-  %19 = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %15, i64 %.sroa.5.0.i
+  %19 = getelementptr inbounds [24 x i8], ptr %15, i64 %.sroa.5.0.i
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i32, ptr %20, align 4, !tbaa !137
   %22 = icmp eq i32 %21, %3
@@ -33011,7 +33009,7 @@ _ZNSt6vectorIN4entt8internal14dense_map_nodeIjmEESaIS3_EE17_M_realloc_insertIJRm
   %.pre23 = phi ptr [ %.pre23.pre, %55 ], [ %7, %_ZNSt6vectorIN4entt8internal14dense_map_nodeIjmEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit35.i.i ]
   store ptr %47, ptr %14, align 8, !tbaa !474
   store ptr %54, ptr %27, align 8, !tbaa !574
-  %56 = getelementptr inbounds nuw %"struct.entt::internal::dense_map_node", ptr %47, i64 %45
+  %56 = getelementptr inbounds nuw [24 x i8], ptr %47, i64 %45
   store ptr %56, ptr %28, align 8, !tbaa !475
   br label %_ZNSt6vectorIN4entt8internal14dense_map_nodeIjmEESaIS3_EE12emplace_backIJRmRKSt21piecewise_construct_tSt5tupleIJRKjEESB_IJEEEEERS3_DpOT_.exit
 
@@ -33025,7 +33023,7 @@ _ZNSt6vectorIN4entt8internal14dense_map_nodeIjmEESaIS3_EE12emplace_backIJRmRKSt2
   %62 = sub i64 %60, %61
   %63 = sdiv exact i64 %62, 24
   %64 = add nsw i64 %63, -1
-  %65 = getelementptr inbounds nuw i64, ptr %57, i64 %13
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %13
   store i64 %64, ptr %65, align 8, !tbaa !20
   %66 = ashr exact i64 %.pre-phi31, 3
   %67 = uitofp i64 %66 to float
@@ -33069,7 +33067,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4entt9dense_mapIjmSt4hashIjESt8equal_
   %13 = and i64 %12, %4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %15 = load ptr, ptr %14, align 8, !tbaa !581
-  %16 = getelementptr inbounds nuw i64, ptr %7, i64 %13
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %13
   br label %17
 
 17:                                               ; preds = %18, %2
@@ -33079,7 +33077,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4entt9dense_mapIjmSt4hashIjESt8equal_
   br i1 %.not.i, label %_ZN4entt9dense_mapIjmSt4hashIjESt8equal_toIvESaISt4pairIKjmEEE16constrained_findIjEEDaRKT_m.exit.thread, label %18
 
 18:                                               ; preds = %17
-  %19 = getelementptr inbounds %"struct.entt::internal::dense_map_node", ptr %15, i64 %.sroa.5.0.i
+  %19 = getelementptr inbounds [24 x i8], ptr %15, i64 %.sroa.5.0.i
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i32, ptr %20, align 4, !tbaa !137
   %22 = icmp eq i32 %21, %3
@@ -33176,7 +33174,7 @@ _ZNSt6vectorIN4entt8internal14dense_map_nodeIjmEESaIS3_EE17_M_realloc_insertIJRm
   %.pre23 = phi ptr [ %.pre23.pre, %55 ], [ %7, %_ZNSt6vectorIN4entt8internal14dense_map_nodeIjmEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit35.i.i ]
   store ptr %47, ptr %14, align 8, !tbaa !474
   store ptr %54, ptr %27, align 8, !tbaa !574
-  %56 = getelementptr inbounds nuw %"struct.entt::internal::dense_map_node", ptr %47, i64 %45
+  %56 = getelementptr inbounds nuw [24 x i8], ptr %47, i64 %45
   store ptr %56, ptr %28, align 8, !tbaa !475
   br label %_ZNSt6vectorIN4entt8internal14dense_map_nodeIjmEESaIS3_EE12emplace_backIJRmRKSt21piecewise_construct_tSt5tupleIJOjEESB_IJEEEEERS3_DpOT_.exit
 
@@ -33190,7 +33188,7 @@ _ZNSt6vectorIN4entt8internal14dense_map_nodeIjmEESaIS3_EE12emplace_backIJRmRKSt2
   %62 = sub i64 %60, %61
   %63 = sdiv exact i64 %62, 24
   %64 = add nsw i64 %63, -1
-  %65 = getelementptr inbounds nuw i64, ptr %57, i64 %13
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %13
   store i64 %64, ptr %65, align 8, !tbaa !20
   %66 = ashr exact i64 %.pre-phi31, 3
   %67 = uitofp i64 %66 to float

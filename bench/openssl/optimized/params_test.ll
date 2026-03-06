@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.provider_dispatch_st = type { ptr, ptr }
 %struct.param_owner_st = type { ptr, ptr }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.int_from_text_test_st = type { ptr, ptr, i64, i32, i64 }
 
 @.str = private unnamed_addr constant [10 x i8] c"test_case\00", align 1
 @.str.1 = private unnamed_addr constant [24 x i8] c"test_allocate_from_text\00", align 1
@@ -175,7 +174,7 @@ declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @test_case(i32 noundef %0) #0 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds %struct.anon, ptr @test_cases, i64 %2
+  %3 = getelementptr inbounds [24 x i8], ptr @test_cases, i64 %2
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !4
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.3, i32 noundef 540, ptr noundef nonnull @.str.4, ptr noundef %5) #7
@@ -208,7 +207,7 @@ define internal i32 @test_allocate_from_text(i32 noundef %0) #0 {
   %2 = alloca %struct.ossl_param_st, align 8
   %3 = alloca i64, align 8
   %4 = sext i32 %0 to i64
-  %5 = getelementptr inbounds %struct.int_from_text_test_st, ptr @int_from_text_test_cases, i64 %4
+  %5 = getelementptr inbounds [40 x i8], ptr @int_from_text_test_cases, i64 %4
   %.sroa.0.0.copyload = load ptr, ptr %5, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8
@@ -303,7 +302,7 @@ define internal range(i32 0, 2) i32 @test_more_allocate_from_text() #0 {
 3:                                                ; preds = %19, %0
   %indvars.iv.i = phi i64 [ 0, %0 ], [ %indvars.iv.next.i, %19 ]
   %.01216.i = phi i32 [ 0, %0 ], [ %.1.i, %19 ]
-  %4 = getelementptr inbounds nuw ptr, ptr @check_octetstr_from_hexstr.values, i64 %indvars.iv.i
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @check_octetstr_from_hexstr.values, i64 %indvars.iv.i
   %5 = load ptr, ptr %4, align 8, !tbaa !24
   %6 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #8
   %7 = and i64 %6, 1

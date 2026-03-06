@@ -535,7 +535,7 @@ _ZN2cv3VecIfLi2EEC2ERKS1_.exit.us.i.i.critedge:   ; preds = %199, %.preheader.us
   %189 = load i64, ptr %188, align 8, !tbaa !11
   %190 = mul i64 %189, %indvars.iv25.i.i
   %191 = getelementptr inbounds nuw i8, ptr %187, i64 %190
-  %192 = getelementptr inbounds nuw %"class.cv::Vec", ptr %191, i64 %indvars.iv.i.i
+  %192 = getelementptr inbounds nuw [8 x i8], ptr %191, i64 %indvars.iv.i.i
   %193 = load float, ptr %192, align 4, !tbaa !37
   store float %193, ptr %9, align 4, !tbaa !37
   %194 = getelementptr inbounds nuw i8, ptr %192, i64 4
@@ -745,11 +745,11 @@ _ZN2cv3VecIfLi2EEC2ERKS1_.exit.us.i.i21.critedge: ; preds = %292, %.preheader.us
   %indvars.iv.i.i18 = phi i64 [ 0, %.preheader.us.i.i17 ], [ %indvars.iv.next.i.i22, %292 ]
   %.112.us.i.i = phi float [ %.016.us.i.i, %.preheader.us.i.i17 ], [ %.2.us.i.i, %292 ]
   %.12611.us.i.i = phi i32 [ %.02515.us.i.i, %.preheader.us.i.i17 ], [ %.227.us.i.i, %292 ]
-  %269 = getelementptr inbounds nuw %"class.cv::Vec", ptr %266, i64 %indvars.iv.i.i18
+  %269 = getelementptr inbounds nuw [8 x i8], ptr %266, i64 %indvars.iv.i.i18
   %270 = load float, ptr %269, align 4, !tbaa !37
   %271 = getelementptr inbounds nuw i8, ptr %269, i64 4
   %272 = load float, ptr %271, align 4, !tbaa !37
-  %273 = getelementptr inbounds nuw %"class.cv::Vec", ptr %268, i64 %indvars.iv.i.i18
+  %273 = getelementptr inbounds nuw [8 x i8], ptr %268, i64 %indvars.iv.i.i18
   %274 = load float, ptr %273, align 4, !tbaa !37
   %275 = getelementptr inbounds nuw i8, ptr %273, i64 4
   %276 = load float, ptr %275, align 4, !tbaa !37
@@ -1043,7 +1043,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %32
   %51 = load i64, ptr %50, align 8, !tbaa !11
   %52 = mul i64 %51, %indvars.iv67
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 %52
-  %54 = getelementptr inbounds nuw %"class.cv::Vec", ptr %53, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %indvars.iv
   %55 = load i64, ptr %9, align 8
   store i64 %55, ptr %54, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

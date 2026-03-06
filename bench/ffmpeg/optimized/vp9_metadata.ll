@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.AVBitStreamFilter = type { ptr, ptr, ptr }
 %union.anon = type { i64 }
-%struct.CodedBitstreamUnit = type { i32, ptr, i64, i64, ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [13 x i8] c"vp9_metadata\00", align 1
 @vp9_metadata_codec_ids = internal constant [2 x i32] [i32 167, i32 0], align 4
@@ -77,7 +76,7 @@ define internal noundef i32 @vp9_metadata_update_fragment(ptr noundef %0, ptr re
 13:                                               ; preds = %.lr.ph, %78
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %78 ]
   %14 = load ptr, ptr %9, align 8, !tbaa !20
-  %15 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [56 x i8], ptr %14, i64 %indvars.iv
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %17 = load ptr, ptr %16, align 8, !tbaa !21
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 1

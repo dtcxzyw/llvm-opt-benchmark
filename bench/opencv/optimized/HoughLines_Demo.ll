@@ -21,14 +21,10 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::Scalar_" = type { %"class.cv::Vec.3" }
 %"class.cv::Vec.3" = type { %"class.cv::Matx.4" }
 %"class.cv::Matx.4" = type { [4 x double] }
-%"class.cv::Vec" = type { %"class.cv::Matx" }
-%"class.cv::Matx" = type { [2 x float] }
 %"class.std::vector.5" = type { %"struct.std::_Vector_base.6" }
 %"struct.std::_Vector_base.6" = type { %"struct.std::_Vector_base<cv::Vec<int, 4>, std::allocator<cv::Vec<int, 4>>>::_Vector_impl" }
 %"struct.std::_Vector_base<cv::Vec<int, 4>, std::allocator<cv::Vec<int, 4>>>::_Vector_impl" = type { %"struct.std::_Vector_base<cv::Vec<int, 4>, std::allocator<cv::Vec<int, 4>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<cv::Vec<int, 4>, std::allocator<cv::Vec<int, 4>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.cv::Vec.10" = type { %"class.cv::Matx.11" }
-%"class.cv::Matx.11" = type { [4 x i32] }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -1398,7 +1394,7 @@ define hidden void @_Z14Standard_HoughiPv(i32 %0, ptr readnone captures(none) %1
 51:                                               ; preds = %.lr.ph, %77
   %52 = phi ptr [ %30, %.lr.ph ], [ %80, %77 ]
   %.03457 = phi i64 [ 0, %.lr.ph ], [ %78, %77 ]
-  %53 = getelementptr inbounds nuw %"class.cv::Vec", ptr %52, i64 %.03457
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %.03457
   %54 = load float, ptr %53, align 4, !tbaa !29
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 4
   %56 = load float, ptr %55, align 4, !tbaa !29
@@ -1674,7 +1670,7 @@ define hidden void @_Z19Probabilistic_HoughiPv(i32 %0, ptr readnone captures(non
 51:                                               ; preds = %.lr.ph, %54
   %52 = phi ptr [ %30, %.lr.ph ], [ %57, %54 ]
   %.035 = phi i64 [ 0, %.lr.ph ], [ %55, %54 ]
-  %53 = getelementptr inbounds nuw %"class.cv::Vec.10", ptr %52, i64 %.035
+  %53 = getelementptr inbounds nuw [16 x i8], ptr %52, i64 %.035
   %.sroa.0.0.copyload = load i64, ptr %53, align 4, !tbaa !23
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %53, i64 8
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !23
@@ -1985,7 +1981,7 @@ define hidden void @_Z14Weighted_HoughiPv(i32 %0, ptr readnone captures(none) %1
 75:                                               ; preds = %.lr.ph, %101
   %76 = phi ptr [ %50, %.lr.ph ], [ %104, %101 ]
   %.03969 = phi i64 [ 0, %.lr.ph ], [ %102, %101 ]
-  %77 = getelementptr inbounds nuw %"class.cv::Vec", ptr %76, i64 %.03969
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %.03969
   %78 = load float, ptr %77, align 4, !tbaa !29
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 4
   %80 = load float, ptr %79, align 4, !tbaa !29

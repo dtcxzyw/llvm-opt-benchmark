@@ -59,7 +59,7 @@ define internal range(i32 -2147483648, 1) i32 @ftr_init(ptr noundef captures(non
 .lr.ph:                                           ; preds = %.preheader, %18
   %indvars.iv = phi i64 [ %indvars.iv.next, %18 ], [ 0, %.preheader ]
   %21 = tail call ptr @avcodec_alloc_context3(ptr noundef nonnull %16) #7
-  %22 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   store ptr %21, ptr %22, align 8, !tbaa !36
   %.not35 = icmp eq ptr %21, null
   br i1 %.not35, label %.thread, label %23
@@ -141,7 +141,7 @@ define internal range(i32 -2147483648, 268435456) i32 @ftr_decode_frame(ptr noun
   %indvars.iv153 = phi i64 [ 0, %.lr.ph144 ], [ %indvars.iv.next154, %31 ]
   %.089142 = phi i32 [ 0, %.lr.ph144 ], [ %.pre-phi, %31 ]
   %.sroa.5.0140 = phi i32 [ 0, %.lr.ph144 ], [ %120, %31 ]
-  %36 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv153
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv153
   %37 = load ptr, ptr %36, align 8, !tbaa !36
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr %.017.i.i, ptr %5, align 8, !tbaa !48
@@ -321,12 +321,12 @@ define internal range(i32 -2147483648, 268435456) i32 @ftr_decode_frame(ptr noun
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %132 = phi ptr [ %118, %.lr.ph.preheader ], [ %148, %.lr.ph ]
   %133 = load ptr, ptr %30, align 8, !tbaa !53
-  %134 = getelementptr ptr, ptr %133, i64 %indvars.iv
-  %135 = getelementptr ptr, ptr %134, i64 %131
+  %134 = getelementptr [8 x i8], ptr %133, i64 %indvars.iv
+  %135 = getelementptr [8 x i8], ptr %134, i64 %131
   %136 = load ptr, ptr %135, align 8, !tbaa !48
   %137 = getelementptr inbounds nuw i8, ptr %132, i64 96
   %138 = load ptr, ptr %137, align 8, !tbaa !53
-  %139 = getelementptr inbounds nuw ptr, ptr %138, i64 %indvars.iv
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %138, i64 %indvars.iv
   %140 = load ptr, ptr %139, align 8, !tbaa !48
   %141 = load i32, ptr %128, align 4, !tbaa !38
   %142 = call i32 @av_get_bytes_per_sample(i32 noundef %141) #7
@@ -395,7 +395,7 @@ define internal noundef i32 @ftr_close(ptr noundef readonly captures(none) %0) #
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   tail call void @avcodec_free_context(ptr noundef %9) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = load i32, ptr %4, align 8, !tbaa !33
@@ -418,7 +418,7 @@ define internal void @ftr_flush(ptr noundef readonly captures(none) %0) #1 {
 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !36
   tail call void @avcodec_flush_buffers(ptr noundef %8) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

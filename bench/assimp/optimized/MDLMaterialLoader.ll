@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%struct.aiTexel = type { i8, i8, i8, i8 }
 %"class.Assimp::Formatter::basic_formatter" = type { %"class.std::__cxx11::basic_ostringstream" }
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
@@ -16,8 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%"struct.Assimp::MDL::RGB565" = type { i16 }
-%"struct.Assimp::MDL::ARGB4" = type { i16 }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
 %"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
@@ -215,7 +212,7 @@ define hidden { <2 x float>, <2 x float> } @_ZN6Assimp11MDLImporter23ReplaceText
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load ptr, ptr %9, align 8
   %11 = zext i32 %8 to i64
-  %12 = getelementptr inbounds nuw %struct.aiTexel, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %11
   br label %13
 
 13:                                               ; preds = %_ZNK7aiTexelneERKS_.exit, %7
@@ -377,7 +374,7 @@ _ZN6Assimp11MDLImporter11FreePaletteEPKh.exit:    ; preds = %._crit_edge, %31
   %47 = zext i8 %46 to i64
   %48 = mul nuw nsw i64 %47, 3
   %49 = getelementptr inbounds nuw i8, ptr %.pre, i64 %48
-  %50 = getelementptr inbounds nuw %struct.aiTexel, ptr %29, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 3
   store i8 -1, ptr %51, align 1
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 1
@@ -403,7 +400,7 @@ _ZN6Assimp11MDLImporter11FreePaletteEPKh.exit:    ; preds = %._crit_edge, %31
   %.lcssa = phi i64 [ %60, %._crit_edge49.loopexit ], [ 0, %_ZN6Assimp11MDLImporter11FreePaletteEPKh.exit ]
   %61 = getelementptr inbounds nuw i8, ptr %.lcssa45, i64 72
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds nuw ptr, ptr %62, i64 %.lcssa
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %.lcssa
   store ptr %13, ptr %63, align 8
   %64 = load ptr, ptr %32, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 64
@@ -416,11 +413,11 @@ _ZN6Assimp11MDLImporter11FreePaletteEPKh.exit:    ; preds = %._crit_edge, %31
 .lr.ph48:                                         ; preds = %_ZN6Assimp11MDLImporter11FreePaletteEPKh.exit, %.lr.ph48
   %indvars.iv56 = phi i64 [ %indvars.iv.next57, %.lr.ph48 ], [ 0, %_ZN6Assimp11MDLImporter11FreePaletteEPKh.exit ]
   %69 = phi ptr [ %75, %.lr.ph48 ], [ %42, %_ZN6Assimp11MDLImporter11FreePaletteEPKh.exit ]
-  %70 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv56
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv56
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 72
   %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %indvars.iv56
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %indvars.iv56
   store ptr %71, ptr %74, align 8
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %75 = load ptr, ptr %32, align 8
@@ -582,7 +579,7 @@ _ZN9aiTextureD2Ev.exit:                           ; preds = %9
   %.lcssa = phi i64 [ %43, %._crit_edge.loopexit ], [ 0, %33 ]
   %44 = getelementptr inbounds nuw i8, ptr %.lcssa29, i64 72
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %.lcssa
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %.lcssa
   store ptr %14, ptr %46, align 8
   %47 = load ptr, ptr %22, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 64
@@ -595,11 +592,11 @@ _ZN9aiTextureD2Ev.exit:                           ; preds = %9
 .lr.ph:                                           ; preds = %33, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %33 ]
   %52 = phi ptr [ %58, %.lr.ph ], [ %40, %33 ]
-  %53 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 72
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv
   store ptr %54, ptr %57, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %58 = load ptr, ptr %22, align 8
@@ -689,30 +686,30 @@ define hidden void @_ZN6Assimp11MDLImporter21ParseTextureColorDataEPKhjPjP9aiTex
 
 .lr.ph:                                           ; preds = %.preheader194, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader194 ]
-  %34 = getelementptr inbounds nuw %"struct.Assimp::MDL::RGB565", ptr %1, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   %.sroa.061.0.copyload = load i16, ptr %34, align 1
   %35 = load ptr, ptr %7, align 8
-  %36 = getelementptr inbounds nuw %struct.aiTexel, ptr %35, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %indvars.iv
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 3
   store i8 -1, ptr %37, align 1
   %38 = lshr i16 %.sroa.061.0.copyload, 8
   %39 = trunc nuw i16 %38 to i8
   %40 = and i8 %39, -8
   %41 = load ptr, ptr %7, align 8
-  %42 = getelementptr inbounds nuw %struct.aiTexel, ptr %41, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %indvars.iv
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 2
   store i8 %40, ptr %43, align 1
   %44 = lshr i16 %.sroa.061.0.copyload, 3
   %45 = trunc i16 %44 to i8
   %46 = and i8 %45, -4
   %47 = load ptr, ptr %7, align 8
-  %48 = getelementptr inbounds nuw %struct.aiTexel, ptr %47, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %indvars.iv
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 1
   store i8 %46, ptr %49, align 1
   %.sroa.061.0.copyload.tr = trunc i16 %.sroa.061.0.copyload to i8
   %50 = shl i8 %.sroa.061.0.copyload.tr, 3
   %51 = load ptr, ptr %7, align 8
-  %52 = getelementptr inbounds nuw %struct.aiTexel, ptr %51, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %indvars.iv
   store i8 %50, ptr %52, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %53 = load i32, ptr %4, align 8
@@ -773,31 +770,31 @@ define hidden void @_ZN6Assimp11MDLImporter21ParseTextureColorDataEPKhjPjP9aiTex
 
 .lr.ph198:                                        ; preds = %.preheader192, %.lr.ph198
   %indvars.iv219 = phi i64 [ %indvars.iv.next220, %.lr.ph198 ], [ 0, %.preheader192 ]
-  %83 = getelementptr inbounds nuw %"struct.Assimp::MDL::ARGB4", ptr %1, i64 %indvars.iv219
+  %83 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv219
   %.sroa.0.0.copyload = load i16, ptr %83, align 2
   %.sroa.0.0.copyload.tr = trunc i16 %.sroa.0.0.copyload to i8
   %84 = shl i8 %.sroa.0.0.copyload.tr, 4
   %85 = load ptr, ptr %7, align 8
-  %86 = getelementptr inbounds nuw %struct.aiTexel, ptr %85, i64 %indvars.iv219
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %85, i64 %indvars.iv219
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 3
   store i8 %84, ptr %87, align 1
   %88 = and i8 %.sroa.0.0.copyload.tr, -16
   %89 = load ptr, ptr %7, align 8
-  %90 = getelementptr inbounds nuw %struct.aiTexel, ptr %89, i64 %indvars.iv219
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %indvars.iv219
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 2
   store i8 %88, ptr %91, align 1
   %92 = lshr i16 %.sroa.0.0.copyload, 4
   %93 = trunc i16 %92 to i8
   %94 = and i8 %93, -16
   %95 = load ptr, ptr %7, align 8
-  %96 = getelementptr inbounds nuw %struct.aiTexel, ptr %95, i64 %indvars.iv219
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %95, i64 %indvars.iv219
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 1
   store i8 %94, ptr %97, align 1
   %98 = lshr i16 %.sroa.0.0.copyload, 8
   %99 = trunc nuw i16 %98 to i8
   %100 = and i8 %99, -16
   %101 = load ptr, ptr %7, align 8
-  %102 = getelementptr inbounds nuw %struct.aiTexel, ptr %101, i64 %indvars.iv219
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %101, i64 %indvars.iv219
   store i8 %100, ptr %102, align 1
   %indvars.iv.next220 = add nuw nsw i64 %indvars.iv219, 1
   %103 = load i32, ptr %4, align 8
@@ -862,23 +859,23 @@ define hidden void @_ZN6Assimp11MDLImporter21ParseTextureColorDataEPKhjPjP9aiTex
   %134 = and i64 %133, 4294967295
   %135 = getelementptr inbounds nuw i8, ptr %1, i64 %134
   %136 = load ptr, ptr %7, align 8
-  %137 = getelementptr inbounds nuw %struct.aiTexel, ptr %136, i64 %indvars.iv222
+  %137 = getelementptr inbounds nuw [4 x i8], ptr %136, i64 %indvars.iv222
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 3
   store i8 -1, ptr %138, align 1
   %139 = getelementptr inbounds nuw i8, ptr %135, i64 1
   %140 = load i8, ptr %135, align 1
   %141 = load ptr, ptr %7, align 8
-  %142 = getelementptr inbounds nuw %struct.aiTexel, ptr %141, i64 %indvars.iv222
+  %142 = getelementptr inbounds nuw [4 x i8], ptr %141, i64 %indvars.iv222
   store i8 %140, ptr %142, align 1
   %143 = getelementptr inbounds nuw i8, ptr %135, i64 2
   %144 = load i8, ptr %139, align 1
   %145 = load ptr, ptr %7, align 8
-  %146 = getelementptr inbounds nuw %struct.aiTexel, ptr %145, i64 %indvars.iv222
+  %146 = getelementptr inbounds nuw [4 x i8], ptr %145, i64 %indvars.iv222
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 1
   store i8 %144, ptr %147, align 1
   %148 = load i8, ptr %143, align 1
   %149 = load ptr, ptr %7, align 8
-  %150 = getelementptr inbounds nuw %struct.aiTexel, ptr %149, i64 %indvars.iv222
+  %150 = getelementptr inbounds nuw [4 x i8], ptr %149, i64 %indvars.iv222
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 2
   store i8 %148, ptr %151, align 1
   %indvars.iv.next223 = add nuw nsw i64 %indvars.iv222, 1
@@ -947,23 +944,23 @@ define hidden void @_ZN6Assimp11MDLImporter21ParseTextureColorDataEPKhjPjP9aiTex
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 1
   %186 = load i8, ptr %184, align 1
   %187 = load ptr, ptr %7, align 8
-  %188 = getelementptr inbounds nuw %struct.aiTexel, ptr %187, i64 %indvars.iv228
+  %188 = getelementptr inbounds nuw [4 x i8], ptr %187, i64 %indvars.iv228
   store i8 %186, ptr %188, align 1
   %189 = getelementptr inbounds nuw i8, ptr %184, i64 2
   %190 = load i8, ptr %185, align 1
   %191 = load ptr, ptr %7, align 8
-  %192 = getelementptr inbounds nuw %struct.aiTexel, ptr %191, i64 %indvars.iv228
+  %192 = getelementptr inbounds nuw [4 x i8], ptr %191, i64 %indvars.iv228
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 1
   store i8 %190, ptr %193, align 1
   %194 = getelementptr inbounds nuw i8, ptr %184, i64 3
   %195 = load i8, ptr %189, align 1
   %196 = load ptr, ptr %7, align 8
-  %197 = getelementptr inbounds nuw %struct.aiTexel, ptr %196, i64 %indvars.iv228
+  %197 = getelementptr inbounds nuw [4 x i8], ptr %196, i64 %indvars.iv228
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 2
   store i8 %195, ptr %198, align 1
   %199 = load i8, ptr %194, align 1
   %200 = load ptr, ptr %7, align 8
-  %201 = getelementptr inbounds nuw %struct.aiTexel, ptr %200, i64 %indvars.iv228
+  %201 = getelementptr inbounds nuw [4 x i8], ptr %200, i64 %indvars.iv228
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 3
   store i8 %199, ptr %202, align 1
   %indvars.iv.next229 = add nuw nsw i64 %indvars.iv228, 1
@@ -1025,24 +1022,24 @@ define hidden void @_ZN6Assimp11MDLImporter21ParseTextureColorDataEPKhjPjP9aiTex
   %231 = mul nuw nsw i64 %230, 3
   %232 = getelementptr inbounds nuw i8, ptr %.pre232, i64 %231
   %233 = load ptr, ptr %7, align 8
-  %234 = getelementptr inbounds nuw %struct.aiTexel, ptr %233, i64 %indvars.iv225
+  %234 = getelementptr inbounds nuw [4 x i8], ptr %233, i64 %indvars.iv225
   %235 = getelementptr inbounds nuw i8, ptr %234, i64 3
   store i8 -1, ptr %235, align 1
   %236 = getelementptr inbounds nuw i8, ptr %232, i64 1
   %237 = load i8, ptr %232, align 1
   %238 = load ptr, ptr %7, align 8
-  %239 = getelementptr inbounds nuw %struct.aiTexel, ptr %238, i64 %indvars.iv225
+  %239 = getelementptr inbounds nuw [4 x i8], ptr %238, i64 %indvars.iv225
   %240 = getelementptr inbounds nuw i8, ptr %239, i64 2
   store i8 %237, ptr %240, align 1
   %241 = getelementptr inbounds nuw i8, ptr %232, i64 2
   %242 = load i8, ptr %236, align 1
   %243 = load ptr, ptr %7, align 8
-  %244 = getelementptr inbounds nuw %struct.aiTexel, ptr %243, i64 %indvars.iv225
+  %244 = getelementptr inbounds nuw [4 x i8], ptr %243, i64 %indvars.iv225
   %245 = getelementptr inbounds nuw i8, ptr %244, i64 1
   store i8 %242, ptr %245, align 1
   %246 = load i8, ptr %241, align 1
   %247 = load ptr, ptr %7, align 8
-  %248 = getelementptr inbounds nuw %struct.aiTexel, ptr %247, i64 %indvars.iv225
+  %248 = getelementptr inbounds nuw [4 x i8], ptr %247, i64 %indvars.iv225
   store i8 %246, ptr %248, align 1
   %indvars.iv.next226 = add nuw nsw i64 %indvars.iv225, 1
   %249 = load i32, ptr %4, align 8
@@ -1193,7 +1190,7 @@ define hidden void @_ZN6Assimp11MDLImporter23CreateTexture_3DGS_MDL5EPKhjPj(ptr 
   %.lcssa = phi i64 [ %53, %._crit_edge.loopexit ], [ 0, %43 ]
   %54 = getelementptr inbounds nuw i8, ptr %.lcssa48, i64 72
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds nuw ptr, ptr %55, i64 %.lcssa
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %.lcssa
   store ptr %7, ptr %56, align 8
   %57 = load ptr, ptr %32, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 64
@@ -1206,11 +1203,11 @@ define hidden void @_ZN6Assimp11MDLImporter23CreateTexture_3DGS_MDL5EPKhjPj(ptr 
 .lr.ph:                                           ; preds = %43, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %43 ]
   %62 = phi ptr [ %68, %.lr.ph ], [ %50, %43 ]
-  %63 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %62, i64 72
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %indvars.iv
   store ptr %64, ptr %67, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %68 = load ptr, ptr %32, align 8
@@ -1449,7 +1446,7 @@ _ZNSt10unique_ptrI9aiTextureSt14default_deleteIS0_EE5resetEPS0_.exit142: ; preds
   %90 = load ptr, ptr %76, align 8
   %.idx = shl nuw nsw i64 %indvars.iv, 5
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 %.idx
-  %92 = getelementptr inbounds nuw %struct.aiTexel, ptr %91, i64 %indvars.iv169
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %indvars.iv169
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 1
   store i8 %89, ptr %93, align 1
   store i8 %89, ptr %92, align 1
@@ -1503,7 +1500,7 @@ _ZNSt10unique_ptrI9aiTextureSt14default_deleteIS0_EE5resetEPS0_.exit142: ; preds
   %111 = getelementptr inbounds nuw i8, ptr %104, i64 24
   %112 = load ptr, ptr %111, align 8
   %113 = zext i32 %110 to i64
-  %114 = getelementptr inbounds nuw %struct.aiTexel, ptr %112, i64 %113
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %112, i64 %113
   br label %115
 
 115:                                              ; preds = %_ZNK7aiTexelneERKS_.exit.i, %109
@@ -1935,7 +1932,7 @@ _ZNSt10unique_ptrI9aiTextureSt14default_deleteIS0_EE5resetEPS0_.exit152: ; preds
   store ptr null, ptr %8, align 8
   %315 = getelementptr inbounds nuw i8, ptr %.lcssa160, i64 72
   %316 = load ptr, ptr %315, align 8
-  %317 = getelementptr inbounds nuw ptr, ptr %316, i64 %.lcssa
+  %317 = getelementptr inbounds nuw [8 x i8], ptr %316, i64 %.lcssa
   store ptr %274, ptr %317, align 8
   %318 = load ptr, ptr %276, align 8
   %319 = getelementptr inbounds nuw i8, ptr %318, i64 64
@@ -1953,11 +1950,11 @@ _ZNSt10unique_ptrI9aiTextureSt14default_deleteIS0_EE5resetEPS0_.exit152: ; preds
 .lr.ph:                                           ; preds = %310, %.lr.ph
   %indvars.iv173 = phi i64 [ %indvars.iv.next174, %.lr.ph ], [ 0, %310 ]
   %325 = phi ptr [ %331, %.lr.ph ], [ %311, %310 ]
-  %326 = getelementptr inbounds nuw ptr, ptr %305, i64 %indvars.iv173
+  %326 = getelementptr inbounds nuw [8 x i8], ptr %305, i64 %indvars.iv173
   %327 = load ptr, ptr %326, align 8
   %328 = getelementptr inbounds nuw i8, ptr %325, i64 72
   %329 = load ptr, ptr %328, align 8
-  %330 = getelementptr inbounds nuw ptr, ptr %329, i64 %indvars.iv173
+  %330 = getelementptr inbounds nuw [8 x i8], ptr %329, i64 %indvars.iv173
   store ptr %327, ptr %330, align 8
   %indvars.iv.next174 = add nuw nsw i64 %indvars.iv173, 1
   %331 = load ptr, ptr %276, align 8
@@ -2245,7 +2242,7 @@ _ZNSt6vectorIP10aiMaterialSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; pre
 _ZNSt6vectorIP10aiMaterialSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %34, %_ZNSt6vectorIP10aiMaterialSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %29, ptr %3, align 8
   store ptr %33, ptr %9, align 8
-  %35 = getelementptr inbounds nuw ptr, ptr %29, i64 %27
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %27
   store ptr %35, ptr %11, align 8
   br label %_ZNSt6vectorIP10aiMaterialSaIS1_EE9push_backERKS1_.exit
 

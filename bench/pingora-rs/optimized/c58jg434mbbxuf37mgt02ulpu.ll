@@ -46,7 +46,7 @@ define internal fastcc noundef align 8 dereferenceable(8) ptr @"_ZN12thread_loca
   %6 = load i64, ptr %5, align 8, !noundef !3
   %7 = icmp ult i64 %6, 63
   tail call void @llvm.assume(i1 %7)
-  %8 = getelementptr inbounds nuw { ptr }, ptr %0, i64 %6
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %6
   %9 = load atomic ptr, ptr %8 acquire, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %13, label %39
@@ -76,7 +76,7 @@ define internal fastcc noundef align 8 dereferenceable(8) ptr @"_ZN12thread_loca
   br i1 %22, label %"_ZN4core3ptr180drop_in_place$LT$$u5b$thread_local..Entry$LT$alloc..sync..Arc$LT$once_cell..sync..OnceCell$LT$alloc..boxed..Box$LT$$u5b$tokio..runtime..handle..Handle$u5d$$GT$$GT$$GT$$GT$$u5d$$GT$17hdd7f97ec745785b9E.exit.i", label %23
 
 23:                                               ; preds = %.preheader
-  %24 = getelementptr inbounds nuw { ptr, { i8 }, [7 x i8] }, ptr %18, i64 %.sroa.0.0.i.i
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %.sroa.0.0.i.i
   %25 = add i64 %.sroa.0.0.i.i, 1
   invoke void @"_ZN4core3ptr170drop_in_place$LT$thread_local..Entry$LT$alloc..sync..Arc$LT$once_cell..sync..OnceCell$LT$alloc..boxed..Box$LT$$u5b$tokio..runtime..handle..Handle$u5d$$GT$$GT$$GT$$GT$$GT$17hf1bf64f16eadd3e8E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %24)
           to label %.preheader unwind label %28
@@ -92,7 +92,7 @@ define internal fastcc noundef align 8 dereferenceable(8) ptr @"_ZN12thread_loca
   br label %26
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds nuw { ptr, { i8 }, [7 x i8] }, ptr %18, i64 %.sroa.0.1.i.i
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %.sroa.0.1.i.i
   %32 = add i64 %.sroa.0.1.i.i, 1
   invoke void @"_ZN4core3ptr170drop_in_place$LT$thread_local..Entry$LT$alloc..sync..Arc$LT$once_cell..sync..OnceCell$LT$alloc..boxed..Box$LT$$u5b$tokio..runtime..handle..Handle$u5d$$GT$$GT$$GT$$GT$$GT$17hf1bf64f16eadd3e8E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %31) #15
           to label %26 unwind label %33
@@ -121,7 +121,7 @@ define internal fastcc noundef align 8 dereferenceable(8) ptr @"_ZN12thread_loca
   %.sroa.04.0 = phi ptr [ %9, %3 ], [ %18, %17 ], [ %21, %37 ], [ %21, %"_ZN4core3ptr180drop_in_place$LT$$u5b$thread_local..Entry$LT$alloc..sync..Arc$LT$once_cell..sync..OnceCell$LT$alloc..boxed..Box$LT$$u5b$tokio..runtime..handle..Handle$u5d$$GT$$GT$$GT$$GT$$u5d$$GT$17hdd7f97ec745785b9E.exit.i" ]
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %41 = load i64, ptr %40, align 8, !noundef !3
-  %42 = getelementptr inbounds nuw { ptr, { i8 }, [7 x i8] }, ptr %.sroa.04.0, i64 %41
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.04.0, i64 %41
   %43 = load ptr, ptr %4, align 8, !nonnull !3, !noundef !3
   store ptr %43, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 8
@@ -160,7 +160,7 @@ define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN12thread_local
   %4 = load i64, ptr %3, align 8, !noundef !3
   %5 = icmp ult i64 %4, 63
   tail call void @llvm.assume(i1 %5)
-  %6 = getelementptr inbounds nuw { ptr }, ptr %0, i64 %4
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %4
   %7 = load atomic ptr, ptr %6 acquire, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %16, label %9
@@ -168,7 +168,7 @@ define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN12thread_local
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i64, ptr %10, align 8, !noundef !3
-  %12 = getelementptr inbounds nuw { ptr, { i8 }, [7 x i8] }, ptr %7, i64 %11
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load atomic i8, ptr %13 monotonic, align 1
   %15 = icmp eq i8 %14, 0
@@ -239,13 +239,13 @@ define void @_ZN3std3sys9backtrace28__rust_begin_short_backtrace17ha9f494d350e8a
   %.sroa.49.0.copyload.i.i = load i64, ptr %.sroa.49.0..sroa_idx.i.i, align 8, !noalias !11
   %10 = icmp ult i64 %.sroa.3.0.copyload.i.i, 63
   tail call void @llvm.assume(i1 %10)
-  %11 = getelementptr inbounds nuw { ptr }, ptr %5, i64 %.sroa.3.0.copyload.i.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.sroa.3.0.copyload.i.i
   %12 = load atomic ptr, ptr %11 acquire, align 8, !noalias !14
   %13 = icmp eq ptr %12, null
   br i1 %13, label %select.unfold.i.i, label %14
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds nuw { ptr, { i8 }, [7 x i8] }, ptr %12, i64 %.sroa.49.0.copyload.i.i
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %.sroa.49.0.copyload.i.i
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load atomic i8, ptr %16 monotonic, align 1, !noalias !14
   %18 = icmp eq i8 %17, 0
@@ -469,7 +469,7 @@ define hidden noundef ptr @"_ZN5tokio7runtime9scheduler12multi_thread5queue14Loc
   %39 = and i64 %.sroa.03.010, 255
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %41 = load ptr, ptr %40, align 8, !nonnull !3, !align !52, !noundef !3
-  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %39
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %39
   %43 = load ptr, ptr %42, align 8, !nonnull !3, !noundef !3
   br label %44
 

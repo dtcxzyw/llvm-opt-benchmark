@@ -1655,10 +1655,10 @@ define internal fastcc noundef range(i32 -2, 1) i32 @proc_pident_readdir(ptr nou
 
 39:                                               ; preds = %.thread13, %35
   %40 = phi i64 [ 2, %.thread13 ], [ %13, %35 ]
-  %41 = getelementptr %struct.pid_entry, ptr %2, i64 %40
+  %41 = getelementptr [40 x i8], ptr %2, i64 %40
   %42 = getelementptr i8, ptr %41, i64 -80
   %43 = zext nneg i32 %3 to i64
-  %44 = getelementptr %struct.pid_entry, ptr %2, i64 %43
+  %44 = getelementptr [40 x i8], ptr %2, i64 %43
   %45 = icmp ult ptr %42, %44
   br i1 %45, label %.preheader, label %.loopexit
 
@@ -2033,10 +2033,10 @@ define internal noundef i32 @proc_pid_limits(ptr noundef %0, ptr readnone captur
 
 16:                                               ; preds = %39, %9
   %17 = phi i64 [ 0, %9 ], [ %40, %39 ]
-  %18 = getelementptr %struct.rlimit, ptr %6, i64 %17
+  %18 = getelementptr [16 x i8], ptr %6, i64 %17
   %19 = load i64, ptr %18, align 16
   %20 = icmp eq i64 %19, -1
-  %21 = getelementptr %struct.limit_names, ptr @lnames, i64 %17
+  %21 = getelementptr [16 x i8], ptr @lnames, i64 %17
   %22 = load ptr, ptr %21, align 16
   br i1 %20, label %23, label %24
 
@@ -2389,7 +2389,7 @@ define internal i32 @proc_pid_stack(ptr noundef %0, ptr readnone captures(none) 
 
 25:                                               ; preds = %25, %23
   %26 = phi i64 [ 0, %23 ], [ %30, %25 ]
-  %27 = getelementptr i64, ptr %10, i64 %26
+  %27 = getelementptr [8 x i8], ptr %10, i64 %26
   %28 = load i64, ptr %27, align 8
   %29 = inttoptr i64 %28 to ptr
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.88, ptr noundef %29) #18
@@ -2718,7 +2718,7 @@ define internal i64 @auxv_read(ptr noundef readonly captures(none) %0, ptr nound
   %11 = phi i32 [ %12, %10 ], [ 0, %8 ]
   %12 = add i32 %11, 2
   %13 = zext i32 %11 to i64
-  %14 = getelementptr i64, ptr %9, i64 %13
+  %14 = getelementptr [8 x i8], ptr %9, i64 %13
   %15 = load i64, ptr %14, align 8
   %16 = icmp eq i64 %15, 0
   br i1 %16, label %17, label %10, !llvm.loop !30

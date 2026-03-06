@@ -92,8 +92,8 @@ define internal void @msmpeg4_common_init_static() #0 {
 
 2:                                                ; preds = %0, %2
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %2 ]
-  %3 = getelementptr inbounds nuw %struct.RLTable, ptr @ff_rl_table, i64 %indvars.iv
-  %4 = getelementptr inbounds nuw [2 x [195 x i8]], ptr @msmpeg4_common_init_static.rl_table_store, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [336 x i8], ptr @ff_rl_table, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [390 x i8], ptr @msmpeg4_common_init_static.rl_table_store, i64 %indvars.iv
   tail call void @ff_rl_init(ptr noundef nonnull %3, ptr noundef nonnull %4) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
@@ -104,7 +104,7 @@ define internal void @msmpeg4_common_init_static() #0 {
 define range(i32 0, 256) i32 @ff_msmpeg4_coded_block_pred(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 3364
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds i32, ptr %4, i64 %5
+  %6 = getelementptr inbounds [4 x i8], ptr %4, i64 %5
   %7 = load i32, ptr %6, align 4, !tbaa !41
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 552
   %9 = load i32, ptr %8, align 8, !tbaa !42
@@ -145,26 +145,26 @@ define i32 @ff_msmpeg4_pred_dc(ptr noundef readonly captures(none) %0, i32 nound
   %.0123 = load i32, ptr %.0123.in, align 4, !tbaa !41
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 3388
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds i32, ptr %6, i64 %7
+  %8 = getelementptr inbounds [4 x i8], ptr %6, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !41
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 1304
   %11 = load ptr, ptr %10, align 8, !tbaa !46
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 3364
-  %13 = getelementptr inbounds i32, ptr %12, i64 %7
+  %13 = getelementptr inbounds [4 x i8], ptr %12, i64 %7
   %14 = load i32, ptr %13, align 4, !tbaa !41
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds i16, ptr %11, i64 %15
+  %16 = getelementptr inbounds [2 x i8], ptr %11, i64 %15
   %17 = getelementptr inbounds i8, ptr %16, i64 -2
   %18 = load i16, ptr %17, align 2, !tbaa !47
   %19 = sext i16 %18 to i32
   %20 = xor i32 %9, -1
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds i16, ptr %16, i64 %21
+  %22 = getelementptr inbounds [2 x i8], ptr %16, i64 %21
   %23 = load i16, ptr %22, align 2, !tbaa !47
   %24 = sext i16 %23 to i32
   %25 = sub nsw i32 0, %9
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds i16, ptr %16, i64 %26
+  %27 = getelementptr inbounds [2 x i8], ptr %16, i64 %26
   %28 = load i16, ptr %27, align 2, !tbaa !47
   %29 = sext i16 %28 to i32
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 4140
@@ -203,7 +203,7 @@ define i32 @ff_msmpeg4_pred_dc(ptr noundef readonly captures(none) %0, i32 nound
   %48 = add nsw i32 %47, %19
   %49 = sext i32 %48 to i64
   %50 = sext i32 %.0123 to i64
-  %51 = getelementptr inbounds i32, ptr @ff_inverse, i64 %50
+  %51 = getelementptr inbounds [4 x i8], ptr @ff_inverse, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !41
   %53 = zext i32 %52 to i64
   %54 = mul nsw i64 %53, %49
@@ -290,7 +290,7 @@ define i32 @ff_msmpeg4_pred_dc(ptr noundef readonly captures(none) %0, i32 nound
   %110 = load i64, ptr %109, align 8, !tbaa !68
   %111 = trunc i64 %110 to i32
   %112 = zext nneg i32 %1 to i64
-  %113 = getelementptr ptr, ptr %0, i64 %112
+  %113 = getelementptr [8 x i8], ptr %0, i64 %112
   %114 = getelementptr i8, ptr %113, i64 1136
   %115 = load ptr, ptr %114, align 8, !tbaa !45
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 3352
@@ -364,7 +364,7 @@ get_dc.exit:                                      ; preds = %148, %135
   %150 = add nsw i32 %.013.lcssa.i, %149
   %151 = sext i32 %150 to i64
   %152 = sext i32 %141 to i64
-  %153 = getelementptr inbounds i32, ptr @ff_inverse, i64 %152
+  %153 = getelementptr inbounds [4 x i8], ptr @ff_inverse, i64 %152
   %154 = load i32, ptr %153, align 4, !tbaa !41
   %155 = zext i32 %154 to i64
   %156 = mul nsw i64 %155, %151
@@ -428,7 +428,7 @@ get_dc.exit150:                                   ; preds = %179, %165
   %181 = add nsw i32 %.013.lcssa.i149, %180
   %182 = sext i32 %181 to i64
   %183 = sext i32 %172 to i64
-  %184 = getelementptr inbounds i32, ptr @ff_inverse, i64 %183
+  %184 = getelementptr inbounds [4 x i8], ptr @ff_inverse, i64 %183
   %185 = load i32, ptr %184, align 4, !tbaa !41
   %186 = zext i32 %185 to i64
   %187 = mul nsw i64 %186, %182
@@ -554,7 +554,7 @@ define internal fastcc void @init_h263_dc_for_msmpeg4() unnamed_addr #5 {
   %.051 = phi i32 [ %28, %26 ], [ %23, %21 ], [ %20, %._crit_edge ]
   %.050 = phi i32 [ %29, %26 ], [ %24, %21 ], [ %18, %._crit_edge ]
   %31 = add nsw i64 %indvars.iv, 256
-  %32 = getelementptr inbounds [2 x i32], ptr @ff_v2_dc_lum_table, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr @ff_v2_dc_lum_table, i64 %31
   store i32 %.051, ptr %32, align 8, !tbaa !41
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   store i32 %.050, ptr %33, align 4, !tbaa !41
@@ -585,7 +585,7 @@ define internal fastcc void @init_h263_dc_for_msmpeg4() unnamed_addr #5 {
 51:                                               ; preds = %42, %47, %30
   %.152 = phi i32 [ %49, %47 ], [ %44, %42 ], [ %41, %30 ]
   %.1 = phi i32 [ %50, %47 ], [ %45, %42 ], [ %39, %30 ]
-  %52 = getelementptr inbounds [2 x i32], ptr @ff_v2_dc_chroma_table, i64 %31
+  %52 = getelementptr inbounds [8 x i8], ptr @ff_v2_dc_chroma_table, i64 %31
   store i32 %.152, ptr %52, align 8, !tbaa !41
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 4
   store i32 %.1, ptr %53, align 4, !tbaa !41

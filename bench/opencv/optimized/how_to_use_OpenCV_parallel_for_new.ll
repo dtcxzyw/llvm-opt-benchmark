@@ -1031,7 +1031,7 @@ _ZNK2cv20MatCommaInitializer_IdEcvNS_4Mat_IdEEEv.exit: ; preds = %_ZN2cv20MatCom
   %356 = load ptr, ptr %336, align 8, !tbaa !73
   %357 = load ptr, ptr %337, align 8, !tbaa !74
   %358 = load i64, ptr %357, align 8, !tbaa !39
-  %invariant.gep100.i = getelementptr double, ptr %356, i64 %339
+  %invariant.gep100.i = getelementptr [8 x i8], ptr %356, i64 %339
   %invariant.gep.i = getelementptr i8, ptr %353, i64 %indvars.iv80.i
   %invariant.gep103.i = getelementptr i8, ptr %invariant.gep.i, i64 %339
   br label %.lr.ph.us.i
@@ -1050,7 +1050,7 @@ _ZNK2cv20MatCommaInitializer_IdEcvNS_4Mat_IdEEEv.exit: ; preds = %_ZN2cv20MatCom
 363:                                              ; preds = %363, %.lr.ph.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %363 ], [ %338, %.lr.ph.us.i ]
   %.14252.us.i = phi double [ %368, %363 ], [ %.04155.us.i, %.lr.ph.us.i ]
-  %gep.i = getelementptr double, ptr %gep101.i, i64 %indvars.iv.i
+  %gep.i = getelementptr [8 x i8], ptr %gep101.i, i64 %indvars.iv.i
   %364 = load double, ptr %gep.i, align 8, !tbaa !55
   %365 = getelementptr i8, ptr %gep104.i, i64 %indvars.iv.i
   %366 = load i8, ptr %365, align 1, !tbaa !35
@@ -2350,7 +2350,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZN12_GLOBAL__N_1
   %35 = sext i32 %29 to i64
   %36 = add nuw i32 %17, 1
   %37 = sext i32 %20 to i64
-  %invariant.gep52.i.i.i = getelementptr double, ptr %30, i64 %34
+  %invariant.gep52.i.i.i = getelementptr [8 x i8], ptr %30, i64 %34
   %invariant.gep.i.i.i = getelementptr i8, ptr %22, i64 %35
   br label %.lr.ph.i.i.i
 
@@ -2398,7 +2398,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZN12_GLOBAL__N_1
 61:                                               ; preds = %61, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %33, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %61 ]
   %.128.i.i.i = phi double [ %.02331.i.i.i, %.lr.ph.i.i.i ], [ %65, %61 ]
-  %gep.i.i.i = getelementptr double, ptr %gep53.i.i.i, i64 %indvars.iv.i.i.i
+  %gep.i.i.i = getelementptr [8 x i8], ptr %gep53.i.i.i, i64 %indvars.iv.i.i.i
   %62 = load double, ptr %gep.i.i.i, align 8, !tbaa !55
   %gep51.i.i.i = getelementptr i8, ptr %gep54.i.i.i, i64 %indvars.iv.i.i.i
   %63 = load i8, ptr %gep51.i.i.i, align 1, !tbaa !35
@@ -2535,7 +2535,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZN12_GLOBAL__N_1
   %49 = sext i32 %32 to i64
   %50 = zext nneg i32 %45 to i64
   %51 = add nuw i32 %31, 1
-  %invariant.gep68.i.i.i = getelementptr double, ptr %46, i64 %34
+  %invariant.gep68.i.i.i = getelementptr [8 x i8], ptr %46, i64 %34
   %invariant.gep.i.i.i = getelementptr i8, ptr %37, i64 %50
   br label %.lr.ph.i.i.i
 
@@ -2575,7 +2575,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZN12_GLOBAL__N_1
 66:                                               ; preds = %66, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %49, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %66 ]
   %.130.i.i.i = phi double [ %.02433.i.i.i, %.lr.ph.i.i.i ], [ %70, %66 ]
-  %gep.i.i.i = getelementptr double, ptr %gep69.i.i.i, i64 %indvars.iv.i.i.i
+  %gep.i.i.i = getelementptr [8 x i8], ptr %gep69.i.i.i, i64 %indvars.iv.i.i.i
   %67 = load double, ptr %gep.i.i.i, align 8, !tbaa !55
   %gep67.i.i.i = getelementptr i8, ptr %gep70.i.i.i, i64 %indvars.iv.i.i.i
   %68 = load i8, ptr %gep67.i.i.i, align 1, !tbaa !35
@@ -2668,7 +2668,7 @@ define linkonce_odr hidden void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr nound
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %11 = load ptr, ptr %10, align 8, !tbaa !74
   %12 = zext nneg i32 %7 to i64
-  %13 = getelementptr i64, ptr %11, i64 %12
+  %13 = getelementptr [8 x i8], ptr %11, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -8
   %15 = load i64, ptr %14, align 8, !tbaa !39
   br label %16

@@ -13875,7 +13875,7 @@ common.ret:                                       ; preds = %567, %456, %129
 
 162:                                              ; preds = %139, %162
   %163 = phi i64 [ 0, %139 ], [ %165, %162 ]
-  %164 = getelementptr inbounds nuw { { ptr, i64 }, { ptr, i64 } }, ptr %48, i64 %163
+  %164 = getelementptr inbounds nuw [32 x i8], ptr %48, i64 %163
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %164, ptr noundef nonnull align 8 dereferenceable(32) @anon.8dadf04bdfcf62b3a5e9bd4bf9bf96bb.232, i64 32, i1 false)
   %165 = add nuw nsw i64 %163, 1
   %exitcond.not = icmp eq i64 %165, 256
@@ -14032,7 +14032,7 @@ common.ret:                                       ; preds = %567, %456, %129
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h491575f50e405af4E.exit.i": ; preds = %228, %.noexc133
   %229 = load ptr, ptr %202, align 8, !alias.scope !1057, !noalias !1060, !nonnull !4, !noundef !4
-  %230 = getelementptr inbounds nuw { { i64, i64 }, { i64, i64 } }, ptr %229, i64 %225
+  %230 = getelementptr inbounds nuw [32 x i8], ptr %229, i64 %225
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %230, ptr noundef nonnull readonly align 8 dereferenceable(32) %18, i64 32, i1 false), !noalias !1054
   %231 = add i64 %225, 1
   store i64 %231, ptr %203, align 8, !alias.scope !1057, !noalias !1060
@@ -20573,10 +20573,10 @@ define internal noundef zeroext i1 @"_ZN64_$LT$h2..codec..error..UserError$u20$a
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !1410, !noundef !4
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN64_$LT$h2..codec..error..UserError$u20$as$u20$core..fmt..Debug$GT$3fmt17h2456a85cc402a48eE", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN64_$LT$h2..codec..error..UserError$u20$as$u20$core..fmt..Debug$GT$3fmt17h2456a85cc402a48eE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN64_$LT$h2..codec..error..UserError$u20$as$u20$core..fmt..Debug$GT$3fmt17h2456a85cc402a48eE.158", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN64_$LT$h2..codec..error..UserError$u20$as$u20$core..fmt..Debug$GT$3fmt17h2456a85cc402a48eE.158", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -27503,10 +27503,10 @@ common.ret:                                       ; preds = %3516, %3228, %2396,
 
 switch.lookup:                                    ; preds = %1691
   %1696 = zext nneg i8 %1693 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN123_$LT$pingora_load_balancing..health_check..HttpHealthCheck$u20$as$u20$pingora_load_balancing..health_check..HealthCheck$GT$5check28_$u7b$$u7b$closure$u7d$$u7d$17h2cbac236b8db5486E", i64 %1696
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN123_$LT$pingora_load_balancing..health_check..HttpHealthCheck$u20$as$u20$pingora_load_balancing..health_check..HealthCheck$GT$5check28_$u7b$$u7b$closure$u7d$$u7d$17h2cbac236b8db5486E", i64 %1696
   %switch.load = load i64, ptr %switch.gep, align 8
   %1697 = zext nneg i8 %1693 to i64
-  %switch.gep405 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN123_$LT$pingora_load_balancing..health_check..HttpHealthCheck$u20$as$u20$pingora_load_balancing..health_check..HealthCheck$GT$5check28_$u7b$$u7b$closure$u7d$$u7d$17h2cbac236b8db5486E.159", i64 %1697
+  %switch.gep405 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN123_$LT$pingora_load_balancing..health_check..HttpHealthCheck$u20$as$u20$pingora_load_balancing..health_check..HealthCheck$GT$5check28_$u7b$$u7b$closure$u7d$$u7d$17h2cbac236b8db5486E.159", i64 %1697
   %switch.load406 = load ptr, ptr %switch.gep405, align 8
   invoke void @"_ZN74_$LT$bytes..bytes_mut..BytesMut$u20$as$u20$bytes..buf..buf_mut..BufMut$GT$9put_slice17h15a1be303cbe19e6E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %147, ptr noalias noundef nonnull readonly align 1 %switch.load406, i64 noundef %switch.load)
           to label %1698 unwind label %.loopexit.split-lp.loopexit.split-lp.i.i.i, !noalias !1841
@@ -27714,9 +27714,9 @@ switch.lookup:                                    ; preds = %1691
 switch.lookup407:                                 ; preds = %.noexc14.i.i.i
   %1759 = load i8, ptr %1756, align 8, !range !1851, !noalias !1852, !noundef !4
   %1760 = zext nneg i8 %1759 to i64
-  %switch.gep408 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN123_$LT$pingora_load_balancing..health_check..HttpHealthCheck$u20$as$u20$pingora_load_balancing..health_check..HealthCheck$GT$5check28_$u7b$$u7b$closure$u7d$$u7d$17h2cbac236b8db5486E.160", i64 %1760
+  %switch.gep408 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN123_$LT$pingora_load_balancing..health_check..HttpHealthCheck$u20$as$u20$pingora_load_balancing..health_check..HealthCheck$GT$5check28_$u7b$$u7b$closure$u7d$$u7d$17h2cbac236b8db5486E.160", i64 %1760
   %1761 = zext nneg i8 %1759 to i64
-  %switch.gep410 = getelementptr inbounds nuw i64, ptr @"switch.table._ZN123_$LT$pingora_load_balancing..health_check..HttpHealthCheck$u20$as$u20$pingora_load_balancing..health_check..HealthCheck$GT$5check28_$u7b$$u7b$closure$u7d$$u7d$17h2cbac236b8db5486E.161", i64 %1761
+  %switch.gep410 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN123_$LT$pingora_load_balancing..health_check..HttpHealthCheck$u20$as$u20$pingora_load_balancing..health_check..HealthCheck$GT$5check28_$u7b$$u7b$closure$u7d$$u7d$17h2cbac236b8db5486E.161", i64 %1761
   br label %_ZN4http6header4name14StandardHeader6as_str17hf5c1eaba1d6e352fE.exit.i.i.i.i
 
 _ZN4http6header4name14StandardHeader6as_str17hf5c1eaba1d6e352fE.exit.i.i.i.i: ; preds = %switch.lookup407, %1757

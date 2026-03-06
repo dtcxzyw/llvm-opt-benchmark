@@ -57,7 +57,7 @@ define internal void @uninit(ptr noundef readonly captures(none) %0) #0 {
 
 6:                                                ; preds = %1, %6
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %6 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   tail call void @av_frame_free(ptr noundef nonnull %7) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 60
@@ -471,7 +471,7 @@ define internal i32 @activate(ptr noundef %0) #1 {
   %310 = load i32, ptr %291, align 4, !tbaa !28
   %311 = sitofp i32 %310 to float
   %312 = fdiv nsz float 1.000000e+00, %311
-  %313 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv.next144.i
+  %313 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv.next144.i
   %314 = load ptr, ptr %313, align 8, !tbaa !32
   %.not103.i = icmp eq ptr %314, null
   br i1 %.not103.i, label %.loopexit.i, label %315
@@ -505,7 +505,7 @@ define internal i32 @activate(ptr noundef %0) #1 {
   %indvars.iv140.i = phi i64 [ %indvars.iv.next141.i, %.lr.ph132.splitthread-pre-split.i ], [ 0, %.lr.ph132.split.preheader.i ]
   %328 = phi float [ %358, %.lr.ph132.splitthread-pre-split.i ], [ 0.000000e+00, %.lr.ph132.split.preheader.i ]
   %329 = load ptr, ptr %320, align 8, !tbaa !64
-  %330 = getelementptr inbounds nuw ptr, ptr %329, i64 %indvars.iv140.i
+  %330 = getelementptr inbounds nuw [8 x i8], ptr %329, i64 %indvars.iv140.i
   %331 = load ptr, ptr %330, align 8, !tbaa !60
   %332 = icmp sgt i32 %327, 0
   br i1 %332, label %.lr.ph128.i, label %._crit_edge129.i
@@ -548,7 +548,7 @@ define internal i32 @activate(ptr noundef %0) #1 {
   %indvars.iv.i = phi i64 [ %356, %.lr.ph128.i ], [ %indvars.iv.next.i, %408 ]
   %.092125.i = phi i32 [ %334, %.lr.ph128.i ], [ %409, %408 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %361 = getelementptr inbounds nuw float, ptr %331, i64 %indvars.iv.next.i
+  %361 = getelementptr inbounds nuw [4 x i8], ptr %331, i64 %indvars.iv.next.i
   %362 = load float, ptr %361, align 4, !tbaa !55
   %363 = sub nsw i32 0, %.092125.i
   %364 = sitofp i32 %363 to float

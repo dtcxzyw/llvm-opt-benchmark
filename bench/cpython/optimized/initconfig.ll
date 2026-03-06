@@ -916,7 +916,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.PyStatus = type { i32, ptr, ptr, i32 }
 %struct._PyArgv = type { i64, i32, ptr, ptr }
 %struct._PyPreCmdline = type { %struct.PyWideStringList, %struct.PyWideStringList, i32, i32, i32, i32 }
-%struct._inittab = type { ptr, ptr }
 
 @Py_UTF8Mode = dso_local local_unnamed_addr global i32 0, align 4
 @Py_DebugFlag = dso_local local_unnamed_addr global i32 0, align 4
@@ -1413,7 +1412,7 @@ define hidden void @_PyWideStringList_Clear(ptr noundef captures(none) %0) local
 7:                                                ; preds = %.lr.ph, %7
   %.07 = phi i64 [ 0, %.lr.ph ], [ %11, %7 ]
   %8 = load ptr, ptr %4, align 8, !tbaa !24
-  %9 = getelementptr ptr, ptr %8, i64 %.07
+  %9 = getelementptr [8 x i8], ptr %8, i64 %.07
   %10 = load ptr, ptr %9, align 8, !tbaa !25
   tail call void @PyMem_RawFree(ptr noundef %10) #30
   %11 = add nuw nsw i64 %.07, 1
@@ -1442,7 +1441,7 @@ define hidden range(i32 -1, 1) i32 @_PyWideStringList_Copy(ptr noundef captures(
 9:                                                ; preds = %9, %.lr.ph.i
   %.07.i = phi i64 [ 0, %.lr.ph.i ], [ %13, %9 ]
   %10 = load ptr, ptr %8, align 8, !tbaa !24
-  %11 = getelementptr ptr, ptr %10, i64 %.07.i
+  %11 = getelementptr [8 x i8], ptr %10, i64 %.07.i
   %12 = load ptr, ptr %11, align 8, !tbaa !25
   tail call void @PyMem_RawFree(ptr noundef %12) #30
   %13 = add nuw nsw i64 %.07.i, 1
@@ -1475,7 +1474,7 @@ _PyWideStringList_Clear.exit:                     ; preds = %9, %5
 24:                                               ; preds = %.lr.ph, %33
   %.01841 = phi i64 [ 0, %.lr.ph ], [ %35, %33 ]
   %25 = load ptr, ptr %23, align 8, !tbaa !24
-  %26 = getelementptr ptr, ptr %25, i64 %.01841
+  %26 = getelementptr [8 x i8], ptr %25, i64 %.01841
   %27 = load ptr, ptr %26, align 8, !tbaa !25
   %28 = tail call ptr @_PyMem_RawWcsdup(ptr noundef %27) #30
   %.not = icmp eq ptr %28, null
@@ -1487,7 +1486,7 @@ _PyWideStringList_Clear.exit:                     ; preds = %9, %5
 
 .lr.ph.i23:                                       ; preds = %29, %.lr.ph.i23
   %.07.i24 = phi i64 [ %32, %.lr.ph.i23 ], [ 0, %29 ]
-  %30 = getelementptr ptr, ptr %20, i64 %.07.i24
+  %30 = getelementptr [8 x i8], ptr %20, i64 %.07.i24
   %31 = load ptr, ptr %30, align 8, !tbaa !25
   tail call void @PyMem_RawFree(ptr noundef %31) #30
   %32 = add nuw nsw i64 %.07.i24, 1
@@ -1495,7 +1494,7 @@ _PyWideStringList_Clear.exit:                     ; preds = %9, %5
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.i23, !llvm.loop !27
 
 33:                                               ; preds = %24
-  %34 = getelementptr ptr, ptr %20, i64 %.01841
+  %34 = getelementptr [8 x i8], ptr %20, i64 %.01841
   store ptr %28, ptr %34, align 8, !tbaa !25
   %35 = add nuw nsw i64 %.01841, 1
   %36 = load i64, ptr %1, align 8, !tbaa !20
@@ -1519,7 +1518,7 @@ _PyWideStringList_Clear.exit:                     ; preds = %9, %5
 40:                                               ; preds = %40, %.lr.ph.i26
   %.07.i27 = phi i64 [ 0, %.lr.ph.i26 ], [ %44, %40 ]
   %41 = load ptr, ptr %39, align 8, !tbaa !24
-  %42 = getelementptr ptr, ptr %41, i64 %.07.i27
+  %42 = getelementptr [8 x i8], ptr %41, i64 %.07.i27
   %43 = load ptr, ptr %42, align 8, !tbaa !25
   tail call void @PyMem_RawFree(ptr noundef %43) #30
   %44 = add nuw nsw i64 %.07.i27, 1
@@ -1634,7 +1633,7 @@ define dso_local void @PyWideStringList_Insert(ptr dead_on_unwind noalias writab
   br i1 %44, label %45, label %50
 
 45:                                               ; preds = %43
-  %46 = getelementptr ptr, ptr %35, i64 %spec.select
+  %46 = getelementptr [8 x i8], ptr %35, i64 %spec.select
   %47 = getelementptr i8, ptr %46, i64 8
   %48 = sub i64 %5, %spec.select
   %49 = shl i64 %48, 3
@@ -1642,7 +1641,7 @@ define dso_local void @PyWideStringList_Insert(ptr dead_on_unwind noalias writab
   br label %50
 
 50:                                               ; preds = %45, %43
-  %51 = getelementptr ptr, ptr %35, i64 %spec.select
+  %51 = getelementptr [8 x i8], ptr %35, i64 %spec.select
   store ptr %22, ptr %51, align 8, !tbaa !25
   store ptr %35, ptr %33, align 8, !tbaa !24
   %52 = load i64, ptr %1, align 8, !tbaa !20
@@ -1686,7 +1685,7 @@ define hidden void @_PyWideStringList_Extend(ptr dead_on_unwind noalias writable
 11:                                               ; preds = %.lr.ph, %7
   %.068 = phi i64 [ 0, %.lr.ph ], [ %8, %7 ]
   %12 = load ptr, ptr %6, align 8, !tbaa !24
-  %13 = getelementptr ptr, ptr %12, i64 %.068
+  %13 = getelementptr [8 x i8], ptr %12, i64 %.068
   %14 = load ptr, ptr %13, align 8, !tbaa !25
   %15 = load i64, ptr %1, align 8, !tbaa !20, !noalias !33
   tail call void @PyWideStringList_Insert(ptr dead_on_unwind writable sret(%struct.PyStatus) align 8 %0, ptr noundef nonnull %1, i64 noundef %15, ptr noundef %14)
@@ -1722,7 +1721,7 @@ define hidden ptr @_PyWideStringList_AsList(ptr noundef readonly captures(none) 
 8:                                                ; preds = %.lr.ph, %19
   %.01623 = phi i64 [ 0, %.lr.ph ], [ %21, %19 ]
   %9 = load ptr, ptr %6, align 8, !tbaa !24
-  %10 = getelementptr ptr, ptr %9, i64 %.01623
+  %10 = getelementptr [8 x i8], ptr %9, i64 %.01623
   %11 = load ptr, ptr %10, align 8, !tbaa !25
   %12 = tail call ptr @PyUnicode_FromWideChar(ptr noundef %11, i64 noundef -1) #30
   %.not = icmp eq ptr %12, null
@@ -1745,7 +1744,7 @@ define hidden ptr @_PyWideStringList_AsList(ptr noundef readonly captures(none) 
 
 19:                                               ; preds = %8
   %.val = load ptr, ptr %7, align 8, !tbaa !37
-  %20 = getelementptr ptr, ptr %.val, i64 %.01623
+  %20 = getelementptr [8 x i8], ptr %.val, i64 %.01623
   store ptr %12, ptr %20, align 8, !tbaa !18
   %21 = add nuw nsw i64 %.01623, 1
   %22 = load i64, ptr %0, align 8, !tbaa !20
@@ -1773,7 +1772,7 @@ define hidden void @_Py_ClearArgcArgv() local_unnamed_addr #5 {
 .lr.ph.i:                                         ; preds = %0, %.lr.ph.i
   %.07.i = phi i64 [ %8, %.lr.ph.i ], [ 0, %0 ]
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 2256), align 8, !tbaa !24
-  %6 = getelementptr ptr, ptr %5, i64 %.07.i
+  %6 = getelementptr [8 x i8], ptr %5, i64 %.07.i
   %7 = load ptr, ptr %6, align 8, !tbaa !25
   call void @PyMem_RawFree(ptr noundef %7) #30
   %8 = add nuw nsw i64 %.07.i, 1
@@ -1834,7 +1833,7 @@ define dso_local void @PyConfig_Clear(ptr noundef %0) local_unnamed_addr #5 {
 14:                                               ; preds = %14, %.lr.ph.i
   %.07.i = phi i64 [ 0, %.lr.ph.i ], [ %18, %14 ]
   %15 = load ptr, ptr %13, align 8, !tbaa !24
-  %16 = getelementptr ptr, ptr %15, i64 %.07.i
+  %16 = getelementptr [8 x i8], ptr %15, i64 %.07.i
   %17 = load ptr, ptr %16, align 8, !tbaa !25
   tail call void @PyMem_RawFree(ptr noundef %17) #30
   %18 = add nuw nsw i64 %.07.i, 1
@@ -1859,7 +1858,7 @@ _PyWideStringList_Clear.exit:                     ; preds = %14, %1
 27:                                               ; preds = %27, %.lr.ph.i48
   %.07.i49 = phi i64 [ 0, %.lr.ph.i48 ], [ %31, %27 ]
   %28 = load ptr, ptr %26, align 8, !tbaa !24
-  %29 = getelementptr ptr, ptr %28, i64 %.07.i49
+  %29 = getelementptr [8 x i8], ptr %28, i64 %.07.i49
   %30 = load ptr, ptr %29, align 8, !tbaa !25
   tail call void @PyMem_RawFree(ptr noundef %30) #30
   %31 = add nuw nsw i64 %.07.i49, 1
@@ -1884,7 +1883,7 @@ _PyWideStringList_Clear.exit50:                   ; preds = %27, %_PyWideStringL
 40:                                               ; preds = %40, %.lr.ph.i51
   %.07.i52 = phi i64 [ 0, %.lr.ph.i51 ], [ %44, %40 ]
   %41 = load ptr, ptr %39, align 8, !tbaa !24
-  %42 = getelementptr ptr, ptr %41, i64 %.07.i52
+  %42 = getelementptr [8 x i8], ptr %41, i64 %.07.i52
   %43 = load ptr, ptr %42, align 8, !tbaa !25
   tail call void @PyMem_RawFree(ptr noundef %43) #30
   %44 = add nuw nsw i64 %.07.i52, 1
@@ -1909,7 +1908,7 @@ _PyWideStringList_Clear.exit53:                   ; preds = %40, %_PyWideStringL
 53:                                               ; preds = %53, %.lr.ph.i54
   %.07.i55 = phi i64 [ 0, %.lr.ph.i54 ], [ %57, %53 ]
   %54 = load ptr, ptr %52, align 8, !tbaa !24
-  %55 = getelementptr ptr, ptr %54, i64 %.07.i55
+  %55 = getelementptr [8 x i8], ptr %54, i64 %.07.i55
   %56 = load ptr, ptr %55, align 8, !tbaa !25
   tail call void @PyMem_RawFree(ptr noundef %56) #30
   %57 = add nuw nsw i64 %.07.i55, 1
@@ -2004,7 +2003,7 @@ _PyWideStringList_Clear.exit56:                   ; preds = %53, %_PyWideStringL
 101:                                              ; preds = %101, %.lr.ph.i57
   %.07.i58 = phi i64 [ 0, %.lr.ph.i57 ], [ %105, %101 ]
   %102 = load ptr, ptr %100, align 8, !tbaa !24
-  %103 = getelementptr ptr, ptr %102, i64 %.07.i58
+  %103 = getelementptr [8 x i8], ptr %102, i64 %.07.i58
   %104 = load ptr, ptr %103, align 8, !tbaa !25
   tail call void @PyMem_RawFree(ptr noundef %104) #30
   %105 = add nuw nsw i64 %.07.i58, 1
@@ -2661,7 +2660,7 @@ Py_DECREF.exit.i:                                 ; preds = %38, %35, %32
 94:                                               ; preds = %105, %.lr.ph.i
   %.01623.i = phi i64 [ 0, %.lr.ph.i ], [ %107, %105 ]
   %95 = load ptr, ptr %92, align 8, !tbaa !24
-  %96 = getelementptr ptr, ptr %95, i64 %.01623.i
+  %96 = getelementptr [8 x i8], ptr %95, i64 %.01623.i
   %97 = load ptr, ptr %96, align 8, !tbaa !25
   %98 = tail call ptr @PyUnicode_FromWideChar(ptr noundef %97, i64 noundef -1) #30
   %.not.i28 = icmp eq ptr %98, null
@@ -2683,7 +2682,7 @@ Py_DECREF.exit.i:                                 ; preds = %38, %35, %32
   br label %config_get_sys.exit
 
 105:                                              ; preds = %94
-  %106 = getelementptr ptr, ptr %93, i64 %.01623.i
+  %106 = getelementptr [8 x i8], ptr %93, i64 %.01623.i
   store ptr %98, ptr %106, align 8, !tbaa !18
   %107 = add nuw nsw i64 %.01623.i, 1
   %108 = load i64, ptr %57, align 8, !tbaa !20
@@ -3080,7 +3079,7 @@ Py_DECREF.exit31.i:                               ; preds = %155, %152, %_Py_New
   br label %.thread.i
 
 169:                                              ; preds = %161
-  %170 = getelementptr ptr, ptr %164, i64 %139
+  %170 = getelementptr [8 x i8], ptr %164, i64 %139
   store ptr %159, ptr %170, align 8, !tbaa !25, !noalias !275
   %171 = add nuw nsw i64 %139, 1
   call void @PyMem_Free(ptr noundef nonnull %150) #30
@@ -3110,7 +3109,7 @@ Py_DECREF.exit31.i:                               ; preds = %155, %152, %_Py_New
 
 .lr.ph.i.i:                                       ; preds = %180, %.lr.ph.i.i
   %.07.i.i = phi i64 [ %184, %.lr.ph.i.i ], [ 0, %180 ]
-  %182 = getelementptr ptr, ptr %174, i64 %.07.i.i
+  %182 = getelementptr [8 x i8], ptr %174, i64 %.07.i.i
   %183 = load ptr, ptr %182, align 8, !tbaa !25
   call void @PyMem_RawFree(ptr noundef %183) #30
   %184 = add nuw nsw i64 %.07.i.i, 1
@@ -3142,7 +3141,7 @@ _PyWideStringList_Clear.exit.i:                   ; preds = %.lr.ph.i.i, %180
 
 .lr.ph.i38.i:                                     ; preds = %.thread.i, %.lr.ph.i38.i
   %.07.i39.i = phi i64 [ %194, %.lr.ph.i38.i ], [ 0, %.thread.i ]
-  %192 = getelementptr ptr, ptr %189, i64 %.07.i39.i
+  %192 = getelementptr [8 x i8], ptr %189, i64 %.07.i39.i
   %193 = load ptr, ptr %192, align 8, !tbaa !25
   call void @PyMem_RawFree(ptr noundef %193) #30
   %194 = add nuw nsw i64 %.07.i39.i, 1
@@ -3272,7 +3271,7 @@ Py_DECREF.exit45.i:                               ; preds = %218, %215, %213
   %228 = phi ptr [ %245, %247 ], [ null, %.lr.ph.split.us.preheader.i ]
   %.03519.us.i = phi i64 [ %249, %247 ], [ 0, %.lr.ph.split.us.preheader.i ]
   %229 = load ptr, ptr %227, align 8, !tbaa !37
-  %.in.us.i = getelementptr ptr, ptr %229, i64 %.03519.us.i
+  %.in.us.i = getelementptr [8 x i8], ptr %229, i64 %.03519.us.i
   %230 = load ptr, ptr %.in.us.i, align 8, !tbaa !18
   %231 = icmp eq ptr %230, @_Py_NoneStruct
   br i1 %231, label %.split.us.i, label %232
@@ -3304,7 +3303,7 @@ Py_DECREF.exit45.i:                               ; preds = %218, %215, %213
   br i1 %246, label %.split38.us.i, label %247
 
 247:                                              ; preds = %242
-  %248 = getelementptr ptr, ptr %245, i64 %.03519.us.i
+  %248 = getelementptr [8 x i8], ptr %245, i64 %.03519.us.i
   store ptr %240, ptr %248, align 8, !tbaa !25, !noalias !279
   %249 = add nuw nsw i64 %.03519.us.i, 1
   call void @PyMem_Free(ptr noundef nonnull %237) #30
@@ -3314,7 +3313,7 @@ Py_DECREF.exit45.i:                               ; preds = %218, %215, %213
 .lr.ph.split.i:                                   ; preds = %275, %.lr.ph.split.preheader.i
   %250 = phi ptr [ %270, %275 ], [ null, %.lr.ph.split.preheader.i ]
   %.03519.i = phi i64 [ %277, %275 ], [ 0, %.lr.ph.split.preheader.i ]
-  %.in.i = getelementptr ptr, ptr %226, i64 %.03519.i
+  %.in.i = getelementptr [8 x i8], ptr %226, i64 %.03519.i
   %251 = load ptr, ptr %.in.i, align 8, !tbaa !18
   %252 = icmp eq ptr %251, @_Py_NoneStruct
   br i1 %252, label %.split.us.i, label %255
@@ -3388,7 +3387,7 @@ Py_DECREF.exit45.i:                               ; preds = %218, %215, %213
   br label %294
 
 275:                                              ; preds = %267
-  %276 = getelementptr ptr, ptr %270, i64 %.03519.i
+  %276 = getelementptr [8 x i8], ptr %270, i64 %.03519.i
   store ptr %265, ptr %276, align 8, !tbaa !25, !noalias !279
   %277 = add nuw nsw i64 %.03519.i, 1
   call void @PyMem_Free(ptr noundef nonnull %262) #30
@@ -3419,7 +3418,7 @@ Py_DECREF.exit45.i:                               ; preds = %218, %215, %213
 
 .lr.ph.i.i75:                                     ; preds = %285, %.lr.ph.i.i75
   %.07.i.i76 = phi i64 [ %289, %.lr.ph.i.i75 ], [ 0, %285 ]
-  %287 = getelementptr ptr, ptr %279, i64 %.07.i.i76
+  %287 = getelementptr [8 x i8], ptr %279, i64 %.07.i.i76
   %288 = load ptr, ptr %287, align 8, !tbaa !25
   call void @PyMem_RawFree(ptr noundef %288) #30
   %289 = add nuw nsw i64 %.07.i.i76, 1
@@ -3452,7 +3451,7 @@ _PyWideStringList_Clear.exit.i74:                 ; preds = %.lr.ph.i.i75, %285
 
 .lr.ph.i54.i:                                     ; preds = %294, %.lr.ph.i54.i
   %.07.i55.i = phi i64 [ %300, %.lr.ph.i54.i ], [ 0, %294 ]
-  %298 = getelementptr ptr, ptr %295, i64 %.07.i55.i
+  %298 = getelementptr [8 x i8], ptr %295, i64 %.07.i55.i
   %299 = load ptr, ptr %298, align 8, !tbaa !25
   call void @PyMem_RawFree(ptr noundef %299) #30
   %300 = add nuw nsw i64 %.07.i55.i, 1
@@ -4670,7 +4669,7 @@ core_read_precmdline.exit.thread111:              ; preds = %152, %151, %153
 208:                                              ; preds = %202
   %209 = load ptr, ptr @_PyOS_optarg, align 8, !tbaa !25, !noalias !329
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %207, ptr align 4 %209, i64 %205, i1 false), !noalias !329
-  %210 = getelementptr i32, ptr %207, i64 %204
+  %210 = getelementptr [4 x i8], ptr %207, i64 %204
   store i32 10, ptr %210, align 4, !tbaa !4, !noalias !329
   %211 = getelementptr i8, ptr %210, i64 4
   store i32 0, ptr %211, align 4, !tbaa !4, !noalias !329
@@ -4872,7 +4871,7 @@ PyConfig_SetString.exit.i.i:                      ; preds = %234, %233
   br label %.thread111.i.i
 
 PyWideStringList_Insert.exit.i.i:                 ; preds = %292
-  %298 = getelementptr ptr, ptr %295, i64 %.sroa.081.2.i
+  %298 = getelementptr [8 x i8], ptr %295, i64 %.sroa.081.2.i
   store ptr %290, ptr %298, align 8, !tbaa !25, !noalias !336
   %299 = add nuw nsw i64 %.sroa.081.2.i, 1
   br label %308
@@ -4949,7 +4948,7 @@ PyWideStringList_Insert.exit.i.i:                 ; preds = %292
 
 328:                                              ; preds = %324
   %329 = load ptr, ptr %178, align 8, !tbaa !24, !noalias !329
-  %330 = getelementptr ptr, ptr %329, i64 %325
+  %330 = getelementptr [8 x i8], ptr %329, i64 %325
   %331 = load ptr, ptr %330, align 8, !tbaa !25, !noalias !329
   %332 = call i32 @wcscmp(ptr noundef %331, ptr noundef nonnull @.str.143) #31, !noalias !329
   %.not80.i.i = icmp eq i32 %332, 0
@@ -5055,7 +5054,7 @@ PyWideStringList_Insert.exit.i:                   ; preds = %363
   %368 = sub i64 %359, %.092.i
   store i64 %368, ptr %11, align 8, !tbaa !20, !noalias !342
   %369 = load ptr, ptr %178, align 8, !tbaa !24, !noalias !342
-  %370 = getelementptr ptr, ptr %369, i64 %.092.i
+  %370 = getelementptr [8 x i8], ptr %369, i64 %.092.i
   %371 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %370, ptr %371, align 8, !tbaa !24, !noalias !342
   %372 = call i32 @_PyWideStringList_Copy(ptr noundef nonnull %10, ptr noundef nonnull %11), !noalias !342
@@ -5089,7 +5088,7 @@ PyWideStringList_Insert.exit.i:                   ; preds = %363
 
 .lr.ph.i.i.i:                                     ; preds = %380, %.lr.ph.i.i.i
   %.07.i.i.i = phi i64 [ %387, %.lr.ph.i.i.i ], [ 0, %380 ]
-  %385 = getelementptr ptr, ptr %384, i64 %.07.i.i.i
+  %385 = getelementptr [8 x i8], ptr %384, i64 %.07.i.i.i
   %386 = load ptr, ptr %385, align 8, !tbaa !25, !noalias !342
   call void @PyMem_RawFree(ptr noundef %386) #30, !noalias !342
   %387 = add nuw nsw i64 %.07.i.i.i, 1
@@ -5112,7 +5111,7 @@ PyWideStringList_Insert.exit.i:                   ; preds = %363
 .lr.ph.i23.i.i:                                   ; preds = %392, %.lr.ph.i23.i.i
   %.07.i24.i.i = phi i64 [ %398, %.lr.ph.i23.i.i ], [ 0, %392 ]
   %395 = load ptr, ptr %178, align 8, !tbaa !24, !noalias !342
-  %396 = getelementptr ptr, ptr %395, i64 %.07.i24.i.i
+  %396 = getelementptr [8 x i8], ptr %395, i64 %.07.i24.i.i
   %397 = load ptr, ptr %396, align 8, !tbaa !25, !noalias !342
   call void @PyMem_RawFree(ptr noundef %397) #30, !noalias !342
   %398 = add nuw nsw i64 %.07.i24.i.i, 1
@@ -5272,7 +5271,7 @@ config_init_env_warnoptions.exit.i.thread158:     ; preds = %426, %429
   br label %config_init_env_warnoptions.exit.i.thread169
 
 444:                                              ; preds = %438
-  %445 = getelementptr ptr, ptr %441, i64 %.sroa.070.2.i
+  %445 = getelementptr [8 x i8], ptr %441, i64 %.sroa.070.2.i
   store ptr %436, ptr %445, align 8, !tbaa !25, !noalias !361
   %446 = add nuw nsw i64 %.sroa.070.2.i, 1
   %447 = call ptr @wcstok(ptr noundef null, ptr noundef nonnull @.str.151, ptr noundef nonnull %8) #30, !noalias !360
@@ -5337,7 +5336,7 @@ config_init_env_warnoptions.exit.i.thread:        ; preds = %419, %421, %config_
 
 459:                                              ; preds = %457, %.lr.ph.i.i.i.i
   %.0710.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %458, %457 ]
-  %460 = getelementptr ptr, ptr %456, i64 %.0710.i.i.i.i
+  %460 = getelementptr [8 x i8], ptr %456, i64 %.0710.i.i.i.i
   %461 = load ptr, ptr %460, align 8, !tbaa !25, !noalias !368
   %462 = call i32 @wcscmp(ptr noundef %461, ptr noundef nonnull readonly @.str.139) #31, !noalias !368
   %463 = icmp eq i32 %462, 0
@@ -5380,7 +5379,7 @@ warnoptions_append.exit.i.i:                      ; preds = %459, %470, %448
   %476 = phi ptr [ %.promoted82.i.i, %.lr.ph.i.i42.i ], [ %510, %warnoptions_append.exit.thread.i.i.i ]
   %477 = phi i64 [ %.promoted.i.i, %.lr.ph.i.i42.i ], [ %511, %warnoptions_append.exit.thread.i.i.i ]
   %.093.i.i.i = phi i64 [ 0, %.lr.ph.i.i42.i ], [ %512, %warnoptions_append.exit.thread.i.i.i ]
-  %478 = getelementptr ptr, ptr %.sroa.1074.1.i, i64 %.093.i.i.i
+  %478 = getelementptr [8 x i8], ptr %.sroa.1074.1.i, i64 %.093.i.i.i
   %479 = load ptr, ptr %478, align 8, !tbaa !25, !noalias !375
   %480 = load i64, ptr %472, align 8, !tbaa !20, !noalias !378
   %481 = icmp sgt i64 %480, 0
@@ -5397,7 +5396,7 @@ warnoptions_append.exit.i.i:                      ; preds = %459, %470, %448
 
 485:                                              ; preds = %483, %.lr.ph.i.i.i.i.i
   %.0710.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i ], [ %484, %483 ]
-  %486 = getelementptr ptr, ptr %482, i64 %.0710.i.i.i.i.i
+  %486 = getelementptr [8 x i8], ptr %482, i64 %.0710.i.i.i.i.i
   %487 = load ptr, ptr %486, align 8, !tbaa !25, !noalias !378
   %488 = call i32 @wcscmp(ptr noundef %487, ptr noundef readonly %479) #31, !noalias !378
   %489 = icmp eq i32 %488, 0
@@ -5414,7 +5413,7 @@ warnoptions_append.exit.i.i:                      ; preds = %459, %470, %448
 
 .lr.ph.i7.i.i.i.i:                                ; preds = %.loopexit13.i.i.i.i, %491
   %.0710.i8.i.i.i.i = phi i64 [ %492, %491 ], [ 0, %.loopexit13.i.i.i.i ]
-  %493 = getelementptr ptr, ptr %476, i64 %.0710.i8.i.i.i.i
+  %493 = getelementptr [8 x i8], ptr %476, i64 %.0710.i8.i.i.i.i
   %494 = load ptr, ptr %493, align 8, !tbaa !25, !noalias !378
   %495 = call i32 @wcscmp(ptr noundef %494, ptr noundef readonly %479) #31, !noalias !378
   %496 = icmp eq i32 %495, 0
@@ -5446,7 +5445,7 @@ warnoptions_append.exit.i.thread.i.i:             ; preds = %warnoptions_append.
   br label %warnoptions_extend.exit.i.i
 
 PyWideStringList_Insert.exit98.i.i:               ; preds = %502
-  %508 = getelementptr ptr, ptr %505, i64 %477
+  %508 = getelementptr [8 x i8], ptr %505, i64 %477
   store ptr %500, ptr %508, align 8, !tbaa !25, !noalias !381
   %509 = add nuw i64 %477, 1
   br label %warnoptions_append.exit.thread.i.i.i
@@ -5479,7 +5478,7 @@ warnoptions_append.exit.thread.i.i.i:             ; preds = %485, %.lr.ph.i7.i.i
   %518 = phi ptr [ %.promoted90.i.i, %.lr.ph.i50.i.i ], [ %552, %warnoptions_append.exit.thread.i56.i.i ]
   %519 = phi i64 [ %.promoted86.i.i, %.lr.ph.i50.i.i ], [ %553, %warnoptions_append.exit.thread.i56.i.i ]
   %.093.i51.i.i = phi i64 [ 0, %.lr.ph.i50.i.i ], [ %554, %warnoptions_append.exit.thread.i56.i.i ]
-  %520 = getelementptr ptr, ptr %.sroa.1085.1.i, i64 %.093.i51.i.i
+  %520 = getelementptr [8 x i8], ptr %.sroa.1085.1.i, i64 %.093.i51.i.i
   %521 = load ptr, ptr %520, align 8, !tbaa !25, !noalias !385
   %522 = load i64, ptr %514, align 8, !tbaa !20, !noalias !388
   %523 = icmp sgt i64 %522, 0
@@ -5496,7 +5495,7 @@ warnoptions_append.exit.thread.i.i.i:             ; preds = %485, %.lr.ph.i7.i.i
 
 527:                                              ; preds = %525, %.lr.ph.i.i.i62.i.i
   %.0710.i.i.i63.i.i = phi i64 [ 0, %.lr.ph.i.i.i62.i.i ], [ %526, %525 ]
-  %528 = getelementptr ptr, ptr %524, i64 %.0710.i.i.i63.i.i
+  %528 = getelementptr [8 x i8], ptr %524, i64 %.0710.i.i.i63.i.i
   %529 = load ptr, ptr %528, align 8, !tbaa !25, !noalias !388
   %530 = call i32 @wcscmp(ptr noundef %529, ptr noundef readonly %521) #31, !noalias !388
   %531 = icmp eq i32 %530, 0
@@ -5513,7 +5512,7 @@ warnoptions_append.exit.thread.i.i.i:             ; preds = %485, %.lr.ph.i7.i.i
 
 .lr.ph.i7.i.i58.i.i:                              ; preds = %.loopexit13.i.i52.i.i, %533
   %.0710.i8.i.i59.i.i = phi i64 [ %534, %533 ], [ 0, %.loopexit13.i.i52.i.i ]
-  %535 = getelementptr ptr, ptr %518, i64 %.0710.i8.i.i59.i.i
+  %535 = getelementptr [8 x i8], ptr %518, i64 %.0710.i8.i.i59.i.i
   %536 = load ptr, ptr %535, align 8, !tbaa !25, !noalias !388
   %537 = call i32 @wcscmp(ptr noundef %536, ptr noundef readonly %521) #31, !noalias !388
   %538 = icmp eq i32 %537, 0
@@ -5545,7 +5544,7 @@ warnoptions_append.exit.i53.thread.i.i:           ; preds = %warnoptions_append.
   br label %warnoptions_extend.exit.i.i
 
 PyWideStringList_Insert.exit100.i.i:              ; preds = %544
-  %550 = getelementptr ptr, ptr %547, i64 %519
+  %550 = getelementptr [8 x i8], ptr %547, i64 %519
   store ptr %542, ptr %550, align 8, !tbaa !25, !noalias !391
   %551 = add nuw i64 %519, 1
   br label %warnoptions_append.exit.thread.i56.i.i
@@ -5590,7 +5589,7 @@ warnoptions_append.exit.thread.i56.i.i:           ; preds = %527, %.lr.ph.i7.i.i
 
 569:                                              ; preds = %567, %.lr.ph.i.i72.i.i
   %.0710.i.i73.i.i = phi i64 [ 0, %.lr.ph.i.i72.i.i ], [ %568, %567 ]
-  %570 = getelementptr ptr, ptr %566, i64 %.0710.i.i73.i.i
+  %570 = getelementptr [8 x i8], ptr %566, i64 %.0710.i.i73.i.i
   %571 = load ptr, ptr %570, align 8, !tbaa !25, !noalias !394
   %572 = call i32 @wcscmp(ptr noundef %571, ptr noundef nonnull readonly %.str.152..str.153.i.i) #31, !noalias !394
   %573 = icmp eq i32 %572, 0
@@ -5607,7 +5606,7 @@ warnoptions_append.exit.thread.i56.i.i:           ; preds = %527, %.lr.ph.i7.i.i
 
 .lr.ph.i7.i68.i.i:                                ; preds = %.loopexit13.i66.i.i, %575
   %.0710.i8.i69.i.i = phi i64 [ %576, %575 ], [ 0, %.loopexit13.i66.i.i ]
-  %577 = getelementptr ptr, ptr %556, i64 %.0710.i8.i69.i.i
+  %577 = getelementptr [8 x i8], ptr %556, i64 %.0710.i8.i69.i.i
   %578 = load ptr, ptr %577, align 8, !tbaa !25, !noalias !394
   %579 = call i32 @wcscmp(ptr noundef %578, ptr noundef nonnull readonly %.str.152..str.153.i.i) #31, !noalias !394
   %580 = icmp eq i32 %579, 0
@@ -5639,7 +5638,7 @@ warnoptions_append.exit.thread.i56.i.i:           ; preds = %527, %.lr.ph.i7.i.i
 
 592:                                              ; preds = %586
   %593 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %594 = getelementptr ptr, ptr %589, i64 %557
+  %594 = getelementptr [8 x i8], ptr %589, i64 %557
   store ptr %584, ptr %594, align 8, !tbaa !25, !noalias !397
   store ptr %589, ptr %593, align 8, !tbaa !24, !noalias !397
   %595 = add nuw i64 %557, 1
@@ -5665,7 +5664,7 @@ warnoptions_append.exit76.i.i:                    ; preds = %569, %.lr.ph.i7.i68
   %601 = phi ptr [ %.promoted98.i.i, %.lr.ph.i80.i.i ], [ %635, %warnoptions_append.exit.thread.i86.i.i ]
   %602 = phi i64 [ %.promoted94.i.i, %.lr.ph.i80.i.i ], [ %636, %warnoptions_append.exit.thread.i86.i.i ]
   %.093.i81.i.i = phi i64 [ 0, %.lr.ph.i80.i.i ], [ %637, %warnoptions_append.exit.thread.i86.i.i ]
-  %603 = getelementptr ptr, ptr %.val45.i.i, i64 %.093.i81.i.i
+  %603 = getelementptr [8 x i8], ptr %.val45.i.i, i64 %.093.i81.i.i
   %604 = load ptr, ptr %603, align 8, !tbaa !25, !noalias !400
   %605 = load i64, ptr %597, align 8, !tbaa !20, !noalias !403
   %606 = icmp sgt i64 %605, 0
@@ -5682,7 +5681,7 @@ warnoptions_append.exit76.i.i:                    ; preds = %569, %.lr.ph.i7.i68
 
 610:                                              ; preds = %608, %.lr.ph.i.i.i92.i.i
   %.0710.i.i.i93.i.i = phi i64 [ 0, %.lr.ph.i.i.i92.i.i ], [ %609, %608 ]
-  %611 = getelementptr ptr, ptr %607, i64 %.0710.i.i.i93.i.i
+  %611 = getelementptr [8 x i8], ptr %607, i64 %.0710.i.i.i93.i.i
   %612 = load ptr, ptr %611, align 8, !tbaa !25, !noalias !403
   %613 = call i32 @wcscmp(ptr noundef %612, ptr noundef readonly %604) #31, !noalias !403
   %614 = icmp eq i32 %613, 0
@@ -5699,7 +5698,7 @@ warnoptions_append.exit76.i.i:                    ; preds = %569, %.lr.ph.i7.i68
 
 .lr.ph.i7.i.i88.i.i:                              ; preds = %.loopexit13.i.i82.i.i, %616
   %.0710.i8.i.i89.i.i = phi i64 [ %617, %616 ], [ 0, %.loopexit13.i.i82.i.i ]
-  %618 = getelementptr ptr, ptr %601, i64 %.0710.i8.i.i89.i.i
+  %618 = getelementptr [8 x i8], ptr %601, i64 %.0710.i8.i.i89.i.i
   %619 = load ptr, ptr %618, align 8, !tbaa !25, !noalias !403
   %620 = call i32 @wcscmp(ptr noundef %619, ptr noundef readonly %604) #31, !noalias !403
   %621 = icmp eq i32 %620, 0
@@ -5731,7 +5730,7 @@ warnoptions_append.exit.i83.thread.i.i:           ; preds = %warnoptions_append.
   br label %warnoptions_extend.exit.i.i
 
 PyWideStringList_Insert.exit104.i.i:              ; preds = %627
-  %633 = getelementptr ptr, ptr %630, i64 %602
+  %633 = getelementptr [8 x i8], ptr %630, i64 %602
   store ptr %625, ptr %633, align 8, !tbaa !25, !noalias !406
   %634 = add nuw i64 %602, 1
   br label %warnoptions_append.exit.thread.i86.i.i
@@ -5812,7 +5811,7 @@ warnoptions_extend.exit.i.i:                      ; preds = %warnoptions_extend.
 
 644:                                              ; preds = %644, %.lr.ph.i96.i.i
   %.07.i.i39.i = phi i64 [ 0, %.lr.ph.i96.i.i ], [ %647, %644 ]
-  %645 = getelementptr ptr, ptr %642, i64 %.07.i.i39.i
+  %645 = getelementptr [8 x i8], ptr %642, i64 %.07.i.i39.i
   %646 = load ptr, ptr %645, align 8, !tbaa !25, !noalias !365
   call void @PyMem_RawFree(ptr noundef %646) #30, !noalias !365
   %647 = add nuw nsw i64 %.07.i.i39.i, 1
@@ -5853,7 +5852,7 @@ config_init_warnoptions.exit.i:                   ; preds = %644, %.loopexit.i.t
 
 .lr.ph.i44.i:                                     ; preds = %.thread97.i, %.lr.ph.i44.i
   %.07.i.i = phi i64 [ %653, %.lr.ph.i44.i ], [ 0, %.thread97.i ]
-  %651 = getelementptr ptr, ptr %.sroa.1085.0.i, i64 %.07.i.i
+  %651 = getelementptr [8 x i8], ptr %.sroa.1085.0.i, i64 %.07.i.i
   %652 = load ptr, ptr %651, align 8, !tbaa !25, !noalias !326
   call void @PyMem_RawFree(ptr noundef %652) #30, !noalias !326
   %653 = add nuw nsw i64 %.07.i.i, 1
@@ -5867,7 +5866,7 @@ _PyWideStringList_Clear.exit.i:                   ; preds = %.lr.ph.i44.i, %.thr
 
 .lr.ph.i46.i:                                     ; preds = %_PyWideStringList_Clear.exit.i, %.lr.ph.i46.i
   %.07.i47.i = phi i64 [ %657, %.lr.ph.i46.i ], [ 0, %_PyWideStringList_Clear.exit.i ]
-  %655 = getelementptr ptr, ptr %.sroa.1074.0.i, i64 %.07.i47.i
+  %655 = getelementptr [8 x i8], ptr %.sroa.1074.0.i, i64 %.07.i47.i
   %656 = load ptr, ptr %655, align 8, !tbaa !25, !noalias !326
   call void @PyMem_RawFree(ptr noundef %656) #30, !noalias !326
   %657 = add nuw nsw i64 %.07.i47.i, 1
@@ -5894,7 +5893,7 @@ _PyWideStringList_Clear.exit48.i:                 ; preds = %.lr.ph.i46.i, %_PyW
 661:                                              ; preds = %661, %.lr.ph.i50.i
   %.07.i51.i = phi i64 [ 0, %.lr.ph.i50.i ], [ %665, %661 ]
   %662 = load ptr, ptr %660, align 8, !tbaa !24, !noalias !326
-  %663 = getelementptr ptr, ptr %662, i64 %.07.i51.i
+  %663 = getelementptr [8 x i8], ptr %662, i64 %.07.i51.i
   %664 = load ptr, ptr %663, align 8, !tbaa !25, !noalias !326
   call void @PyMem_RawFree(ptr noundef %664) #30, !noalias !326
   %665 = add nuw nsw i64 %.07.i51.i, 1
@@ -8680,7 +8679,7 @@ define hidden void @_Py_DumpPathConfig(ptr noundef %0) local_unnamed_addr #5 {
 65:                                               ; preds = %.lr.ph, %65
   %.055 = phi i64 [ 0, %.lr.ph ], [ %69, %65 ]
   %66 = load ptr, ptr %64, align 8, !tbaa !37
-  %67 = getelementptr ptr, ptr %66, i64 %.055
+  %67 = getelementptr [8 x i8], ptr %66, i64 %.055
   %68 = load ptr, ptr %67, align 8, !tbaa !18
   tail call void (ptr, ...) @PySys_FormatStderr(ptr noundef nonnull @.str.40, ptr noundef %68) #30
   %69 = add nuw nsw i64 %.055, 1
@@ -9361,11 +9360,11 @@ initconfig_find_spec.exit22.i:                    ; preds = %.lr.ph.i18.i, %init
 33:                                               ; preds = %.lr.ph, %45
   %.039 = phi i64 [ 0, %.lr.ph ], [ %46, %45 ]
   %34 = load ptr, ptr %30, align 8, !tbaa !24
-  %35 = getelementptr ptr, ptr %34, i64 %.039
+  %35 = getelementptr [8 x i8], ptr %34, i64 %.039
   %36 = load ptr, ptr %35, align 8, !tbaa !25
   %37 = tail call fastcc ptr @wstr_to_utf8(ptr noundef %0, ptr noundef %36)
   %38 = load ptr, ptr %3, align 8, !tbaa !512
-  %39 = getelementptr ptr, ptr %38, i64 %.039
+  %39 = getelementptr [8 x i8], ptr %38, i64 %.039
   store ptr %37, ptr %39, align 8, !tbaa !250
   %40 = icmp eq ptr %37, null
   br i1 %40, label %41, label %45
@@ -9376,7 +9375,7 @@ initconfig_find_spec.exit22.i:                    ; preds = %.lr.ph.i18.i, %init
 
 .lr.ph.i:                                         ; preds = %41, %.lr.ph.i
   %.05.i = phi i64 [ %44, %.lr.ph.i ], [ 0, %41 ]
-  %42 = getelementptr ptr, ptr %38, i64 %.05.i
+  %42 = getelementptr [8 x i8], ptr %38, i64 %.05.i
   %43 = load ptr, ptr %42, align 8, !tbaa !250
   tail call void @free(ptr noundef %43) #30
   %44 = add nuw nsw i64 %.05.i, 1
@@ -9412,7 +9411,7 @@ define dso_local void @PyInitConfig_FreeStrList(i64 noundef %0, ptr noundef capt
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.05 = phi i64 [ %5, %.lr.ph ], [ 0, %2 ]
-  %3 = getelementptr ptr, ptr %1, i64 %.05
+  %3 = getelementptr [8 x i8], ptr %1, i64 %.05
   %4 = load ptr, ptr %3, align 8, !tbaa !250
   tail call void @free(ptr noundef %4) #30
   %5 = add nuw i64 %.05, 1
@@ -9821,7 +9820,7 @@ initconfig_find_spec.exit22.i:                    ; preds = %.lr.ph.i18.i, %init
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %38
   %.01739.i = phi i64 [ %40, %38 ], [ 0, %.preheader.i ]
-  %31 = getelementptr ptr, ptr %3, i64 %.01739.i
+  %31 = getelementptr [8 x i8], ptr %3, i64 %.01739.i
   %32 = load ptr, ptr %31, align 8, !tbaa !250
   %33 = tail call fastcc ptr @utf8_to_wstr(ptr noundef %0, ptr noundef %32)
   %.not.i = icmp eq ptr %33, null
@@ -9833,7 +9832,7 @@ initconfig_find_spec.exit22.i:                    ; preds = %.lr.ph.i18.i, %init
 
 .lr.ph.i.i13:                                     ; preds = %34, %.lr.ph.i.i13
   %.07.i.i = phi i64 [ %37, %.lr.ph.i.i13 ], [ 0, %34 ]
-  %35 = getelementptr ptr, ptr %27, i64 %.07.i.i
+  %35 = getelementptr [8 x i8], ptr %27, i64 %.07.i.i
   %36 = load ptr, ptr %35, align 8, !tbaa !25
   tail call void @PyMem_RawFree(ptr noundef %36) #30
   %37 = add nuw nsw i64 %.07.i.i, 1
@@ -9841,7 +9840,7 @@ initconfig_find_spec.exit22.i:                    ; preds = %.lr.ph.i18.i, %init
   br i1 %exitcond42.not.i, label %.loopexit.i, label %.lr.ph.i.i13, !llvm.loop !27
 
 38:                                               ; preds = %.lr.ph.i
-  %39 = getelementptr ptr, ptr %27, i64 %.01739.i
+  %39 = getelementptr [8 x i8], ptr %27, i64 %.01739.i
   store ptr %33, ptr %39, align 8, !tbaa !25
   %40 = add nuw nsw i64 %.01739.i, 1
   %exitcond.not.i = icmp eq i64 %40, %2
@@ -9864,7 +9863,7 @@ initconfig_find_spec.exit22.i:                    ; preds = %.lr.ph.i18.i, %init
 44:                                               ; preds = %44, %.lr.ph.i22.i
   %.07.i23.i = phi i64 [ 0, %.lr.ph.i22.i ], [ %48, %44 ]
   %45 = load ptr, ptr %43, align 8, !tbaa !24
-  %46 = getelementptr ptr, ptr %45, i64 %.07.i23.i
+  %46 = getelementptr [8 x i8], ptr %45, i64 %.07.i23.i
   %47 = load ptr, ptr %46, align 8, !tbaa !25
   tail call void @PyMem_RawFree(ptr noundef %47) #30
   %48 = add nuw nsw i64 %.07.i23.i, 1
@@ -9922,7 +9921,7 @@ define dso_local range(i32 -1, 1) i32 @PyInitConfig_AddModule(ptr noundef captur
 14:                                               ; preds = %3
   store ptr %10, ptr %8, align 8, !tbaa !518
   %15 = load i64, ptr %4, align 8, !tbaa !517
-  %16 = getelementptr %struct._inittab, ptr %10, i64 %15
+  %16 = getelementptr [16 x i8], ptr %10, i64 %15
   store ptr %1, ptr %16, align 8, !tbaa !519
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %2, ptr %17, align 8, !tbaa !521
@@ -10023,7 +10022,7 @@ define hidden ptr @_PyConfig_CreateXOptionsDict(ptr noundef readonly captures(no
 
 .lr.ph:                                           ; preds = %4, %.critedge
   %.01528 = phi i64 [ %59, %.critedge ], [ 0, %4 ]
-  %9 = getelementptr ptr, ptr %8, i64 %.01528
+  %9 = getelementptr [8 x i8], ptr %8, i64 %.01528
   %10 = load ptr, ptr %9, align 8, !tbaa !25
   %11 = tail call ptr @wcschr(ptr noundef %10, i32 noundef 61) #31
   %.not.i19 = icmp eq ptr %11, null
@@ -10606,7 +10605,7 @@ config_find_spec.exit:                            ; preds = %10, %20
 
 77:                                               ; preds = %.lr.ph, %.critedge
   %.052116 = phi i64 [ 0, %.lr.ph ], [ %86, %.critedge ]
-  %78 = getelementptr ptr, ptr %73, i64 %.052116
+  %78 = getelementptr [8 x i8], ptr %73, i64 %.052116
   %79 = load ptr, ptr %78, align 8, !tbaa !18
   %80 = getelementptr i8, ptr %79, i64 8
   %.val85 = load ptr, ptr %80, align 8, !tbaa !269

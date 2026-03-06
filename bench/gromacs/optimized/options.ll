@@ -9,12 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
 %"struct.std::_Head_base.1" = type { ptr }
-%"class.std::unique_ptr.21" = type { %"struct.std::__uniq_ptr_data.22" }
-%"struct.std::__uniq_ptr_data.22" = type { %"class.std::__uniq_ptr_impl.23" }
-%"class.std::__uniq_ptr_impl.23" = type { %"class.std::tuple.24" }
-%"class.std::tuple.24" = type { %"struct.std::_Tuple_impl.25" }
-%"struct.std::_Tuple_impl.25" = type { %"struct.std::_Head_base.28" }
-%"struct.std::_Head_base.28" = type { ptr }
 %"struct.std::pair.44" = type { %"class.std::__cxx11::basic_string", %"class.std::unique_ptr.29" }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
@@ -546,7 +540,7 @@ _ZNSt6vectorISt10unique_ptrIN3gmx8internal17OptionSectionImplESt14default_delete
 .noexc7:                                          ; preds = %65, %_ZNSt6vectorISt10unique_ptrIN3gmx8internal17OptionSectionImplESt14default_deleteIS3_EESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i
   store ptr %58, ptr %7, align 8, !tbaa !84
   store ptr %64, ptr %9, align 8, !tbaa !82
-  %66 = getelementptr inbounds nuw %"class.std::unique_ptr.21", ptr %58, i64 %56
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %56
   store ptr %66, ptr %40, align 8, !tbaa !83
   br label %_ZNSt10unique_ptrIN3gmx8internal17OptionSectionImplESt14default_deleteIS2_EED2Ev.exit
 
@@ -765,7 +759,7 @@ _ZNSt12_Vector_baseIPN3gmx21AbstractOptionStorageESaIS2_EE13_M_deallocateEPS2_m.
   store ptr %36, ptr %17, align 8, !tbaa !94
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 %23
   store ptr %40, ptr %18, align 8, !tbaa !93
-  %41 = getelementptr inbounds nuw ptr, ptr %36, i64 %25
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %25
   store ptr %41, ptr %29, align 8, !tbaa !95
   br label %_ZNSt6vectorIPN3gmx21AbstractOptionStorageESaIS2_EE7reserveEm.exit
 
@@ -1042,7 +1036,7 @@ _ZNSt6vectorIPN3gmx21AbstractOptionStorageESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
 _ZNSt6vectorIPN3gmx21AbstractOptionStorageESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %134, %_ZNSt6vectorIPN3gmx21AbstractOptionStorageESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
   store ptr %129, ptr %17, align 8, !tbaa !94
   store ptr %133, ptr %18, align 8, !tbaa !93
-  %135 = getelementptr inbounds nuw ptr, ptr %129, i64 %127
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %129, i64 %127
   store ptr %135, ptr %29, align 8, !tbaa !95
   br label %_ZNSt6vectorIPN3gmx21AbstractOptionStorageESaIS2_EE9push_backEOS2_.exit
 
@@ -1710,7 +1704,7 @@ _ZNSt6vectorINSt15__exception_ptr13exception_ptrESaIS1_EE11_S_relocateEPS1_S4_S4
 _ZNSt6vectorINSt15__exception_ptr13exception_ptrESaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorINSt15__exception_ptr13exception_ptrESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i, %30
   store ptr %23, ptr %3, align 8, !tbaa !111
   store ptr %29, ptr %4, align 8, !tbaa !113
-  %31 = getelementptr inbounds nuw %"class.std::__exception_ptr::exception_ptr", ptr %23, i64 %21
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %21
   store ptr %31, ptr %6, align 8, !tbaa !117
   %.pr = load ptr, ptr %2, align 8, !tbaa !114
   %.not.i = icmp eq ptr %.pr, null
@@ -2337,7 +2331,7 @@ _ZNSt6vectorIPN3gmx14IOptionManagerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.
 _ZNSt6vectorIPN3gmx14IOptionManagerESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %41, %_ZNSt6vectorIPN3gmx14IOptionManagerESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
   store ptr %36, ptr %4, align 8, !tbaa !12
   store ptr %40, ptr %17, align 8, !tbaa !144
-  %42 = getelementptr inbounds nuw ptr, ptr %36, i64 %34
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %34
   store ptr %42, ptr %19, align 8, !tbaa !16
   br label %_ZN3gmx22OptionManagerContainer3addEPNS_14IOptionManagerE.exit
 

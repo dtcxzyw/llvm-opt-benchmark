@@ -5,42 +5,10 @@ target triple = "x86_64-unknown-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %struct.MapNode = type { i16, i8, i8 }
-%struct.ContentFeatures = type <{ [6 x %struct.TileSpec], [6 x %struct.TileSpec], i8, i8, i8, i8, i8, i8, i8, i8, %"class.std::__cxx11::basic_string", %"class.std::unordered_map.49", i8, i8, i8, [5 x i8], %"class.std::__cxx11::basic_string", [24 x ptr], %"class.irr::video::SColor", float, [6 x %struct.TileDef], [6 x %struct.TileDef], [6 x %struct.TileDef], i8, [3 x i8], %"class.irr::video::SColor", %"class.std::__cxx11::basic_string", ptr, i8, i8, [6 x i8], %"class.std::vector.65", %"class.std::vector.70", %"class.irr::video::SColor", i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, [3 x i8], i32, %"class.std::__cxx11::basic_string", i8, i8, i8, [5 x i8], %"class.std::__cxx11::basic_string", i16, [6 x i8], %"class.std::__cxx11::basic_string", i16, i8, i8, i8, i8, i8, i8, %struct.NodeBox, %struct.NodeBox, %struct.NodeBox, %struct.SoundSpec, %struct.SoundSpec, %struct.SoundSpec, i8, i8, [6 x i8] }>
-%struct.TileSpec = type { i8, i8, i8, [5 x i8], [2 x %struct.TileLayer] }
-%struct.TileLayer = type <{ ptr, ptr, ptr, i32, i32, i16, i16, i8, i8, i8, i8, ptr, %"class.irr::video::SColor", i8, [3 x i8] }>
-%"class.std::unordered_map.49" = type { %"class.std::_Hashtable.50" }
-%"class.std::_Hashtable.50" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"struct.std::__detail::_Hash_node_base" = type { ptr }
-%"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
-%struct.TileDef = type <{ %"class.std::__cxx11::basic_string", i8, i8, i8, i8, %"class.irr::video::SColor", i8, i8, [2 x i8], %struct.TileAnimationParams, [4 x i8] }>
-%struct.TileAnimationParams = type { i8, %union.anon.63 }
-%union.anon.63 = type { %struct.anon }
-%struct.anon = type { i32, i32, float }
-%"class.std::vector.65" = type { %"struct.std::_Vector_base.66" }
-%"struct.std::_Vector_base.66" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.70" = type { %"struct.std::_Vector_base.71" }
-%"struct.std::_Vector_base.71" = type { %"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.irr::video::SColor" = type { i32 }
+%class.TimeTaker = type { %"class.std::__cxx11::basic_string", i64, i8, i32, ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%struct.NodeBox = type { i8, %"class.std::vector.75", %"class.irr::core::aabbox3d", %"class.irr::core::aabbox3d", %"class.irr::core::aabbox3d", %"class.std::shared_ptr" }
-%"class.std::vector.75" = type { %"struct.std::_Vector_base.76" }
-%"struct.std::_Vector_base.76" = type { %"struct.std::_Vector_base<irr::core::aabbox3d<float>, std::allocator<irr::core::aabbox3d<float>>>::_Vector_impl" }
-%"struct.std::_Vector_base<irr::core::aabbox3d<float>, std::allocator<irr::core::aabbox3d<float>>>::_Vector_impl" = type { %"struct.std::_Vector_base<irr::core::aabbox3d<float>, std::allocator<irr::core::aabbox3d<float>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<irr::core::aabbox3d<float>, std::allocator<irr::core::aabbox3d<float>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.irr::core::aabbox3d" = type { %"class.irr::core::vector3d.39", %"class.irr::core::vector3d.39" }
-%"class.irr::core::vector3d.39" = type { float, float, float }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%struct.SoundSpec = type <{ %"class.std::__cxx11::basic_string", float, float, float, float, i8, i8, [6 x i8] }>
-%struct.ContentLightingFlags = type { i8 }
-%class.TimeTaker = type { %"class.std::__cxx11::basic_string", i64, i8, i32, ptr }
 
 $__clang_call_terminate = comdat any
 
@@ -459,7 +427,7 @@ for.body84:                                       ; preds = %_ZStlsISt11char_tra
 
 if.else92:                                        ; preds = %for.body84
   %30 = load ptr, ptr %m_data, align 8, !tbaa !10
-  %arrayidx99 = getelementptr inbounds %struct.MapNode, ptr %30, i64 %idxprom
+  %arrayidx99 = getelementptr inbounds [4 x i8], ptr %30, i64 %idxprom
   %31 = load i32, ptr %arrayidx99, align 4, !tbaa.struct !48
   %n.sroa.0.0.extract.trunc = trunc i32 %31 to i16
   %n.sroa.5.0.extract.shift = lshr i32 %31, 16
@@ -494,7 +462,7 @@ if.then112:                                       ; preds = %if.else92
   br i1 %cmp.i, label %land.lhs.true.i, label %cond.false.i
 
 land.lhs.true.i:                                  ; preds = %if.then112
-  %add.ptr.i.i = getelementptr inbounds nuw %struct.ContentFeatures, ptr %34, i64 %conv.i248
+  %add.ptr.i.i = getelementptr inbounds nuw [3712 x i8], ptr %34, i64 %conv.i248
   %_M_string_length.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 1456
   %35 = load i64, ptr %_M_string_length.i.i.i, align 8, !tbaa !52
   %cmp.i.i = icmp eq i64 %35, 0
@@ -535,7 +503,7 @@ if.then132:                                       ; preds = %if.else92
   br i1 %cmp.i256, label %land.lhs.true.i260, label %_ZNK14NodeDefManager3getEt.exit264.thread323
 
 land.lhs.true.i260:                               ; preds = %if.then132
-  %add.ptr.i.i261 = getelementptr inbounds nuw %struct.ContentFeatures, ptr %39, i64 %conv.i250
+  %add.ptr.i.i261 = getelementptr inbounds nuw [3712 x i8], ptr %39, i64 %conv.i250
   %_M_string_length.i.i.i262 = getelementptr inbounds nuw i8, ptr %add.ptr.i.i261, i64 1456
   %40 = load i64, ptr %_M_string_length.i.i.i262, align 8, !tbaa !52
   %cmp.i.i263 = icmp eq i64 %40, 0
@@ -571,7 +539,7 @@ _ZNK14NodeDefManager3getEt.exit279:               ; preds = %cond.false.i272, %_
   br i1 %tobool139.not, label %if.end161, label %if.else141
 
 if.else141:                                       ; preds = %_ZNK14NodeDefManager3getEt.exit279
-  %arrayidx.i.i = getelementptr inbounds nuw %struct.ContentLightingFlags, ptr %m_content_lighting_flag_cache.i.i, i64 %conv.i250
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %m_content_lighting_flag_cache.i.i, i64 %conv.i250
   %retval.sroa.0.0.copyload.i.i = load i8, ptr %arrayidx.i.i, align 1, !tbaa !32
   %45 = and i8 %retval.sroa.0.0.copyload.i.i, 16
   %bf.cast.not.i.i = icmp eq i8 %45, 0
@@ -881,9 +849,9 @@ for.body52:                                       ; preds = %for.body52, %for.bo
   %add.i181 = mul i32 %mul622.i180, %conv.i
   %add21.i185 = add nsw i32 %sub20.i184, %add.i181
   %idxprom = zext i32 %add21.i185 to i64
-  %arrayidx = getelementptr inbounds nuw %struct.MapNode, ptr %call24, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [4 x i8], ptr %call24, i64 %idxprom
   %idxprom70 = zext i32 %add.i to i64
-  %arrayidx71 = getelementptr inbounds nuw %struct.MapNode, ptr %43, i64 %idxprom70
+  %arrayidx71 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %idxprom70
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %arrayidx, ptr align 4 %arrayidx71, i64 %mul, i1 false)
   %arrayidx74 = getelementptr inbounds nuw i8, ptr %call28, i64 %idxprom
   %arrayidx76 = getelementptr inbounds nuw i8, ptr %44, i64 %idxprom70
@@ -1100,8 +1068,8 @@ for.body37:                                       ; preds = %for.body37, %for.bo
   %indvars.iv = phi i64 [ %18, %for.body37.preheader ], [ %indvars.iv.next, %for.body37 ]
   %y.0136 = phi i16 [ 0, %for.body37.preheader ], [ %inc, %for.body37 ]
   %24 = load ptr, ptr %m_data, align 8, !tbaa !10
-  %arrayidx = getelementptr inbounds %struct.MapNode, ptr %24, i64 %indvars.iv
-  %arrayidx39 = getelementptr inbounds %struct.MapNode, ptr %src, i64 %indvars.iv143
+  %arrayidx = getelementptr inbounds [4 x i8], ptr %24, i64 %indvars.iv
+  %arrayidx39 = getelementptr inbounds [4 x i8], ptr %src, i64 %indvars.iv143
   %25 = load i16, ptr %size, align 2, !tbaa !16
   %conv41 = sext i16 %25 to i64
   %mul42 = shl nsw i64 %conv41, 2
@@ -1268,13 +1236,13 @@ for.body37:                                       ; preds = %if.end, %for.body37
   %indvars.iv103 = phi i64 [ %39, %for.body37.preheader ], [ %indvars.iv.next104, %if.end ]
   %x.094 = phi i16 [ 0, %for.body37.preheader ], [ %inc47, %if.end ]
   %54 = load ptr, ptr %m_data, align 8, !tbaa !10
-  %arrayidx = getelementptr inbounds %struct.MapNode, ptr %54, i64 %indvars.iv103
+  %arrayidx = getelementptr inbounds [4 x i8], ptr %54, i64 %indvars.iv103
   %55 = load i16, ptr %arrayidx, align 4, !tbaa !107
   %cmp40.not = icmp eq i16 %55, 127
   br i1 %cmp40.not, label %if.end, label %if.then
 
 if.then:                                          ; preds = %for.body37
-  %arrayidx45 = getelementptr inbounds %struct.MapNode, ptr %dst, i64 %indvars.iv109
+  %arrayidx45 = getelementptr inbounds [4 x i8], ptr %dst, i64 %indvars.iv109
   %56 = load i32, ptr %arrayidx, align 4, !tbaa.struct !48
   store i32 %56, ptr %arrayidx45, align 4, !tbaa.struct !48
   %.pre = load i16, ptr %size, align 2, !tbaa !16

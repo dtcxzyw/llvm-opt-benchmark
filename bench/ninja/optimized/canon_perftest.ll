@@ -119,7 +119,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i: ; preds = %41, %.noex
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %42, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
-  %43 = getelementptr inbounds nuw i32, ptr %38, i64 %36
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %36
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
 _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i, %25
@@ -184,7 +184,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit35:                  ; preds = %.lr.ph, %4
   %.02079 = phi float [ %60, %.lr.ph ], [ 0.000000e+00, %4 ]
   %.02178 = phi i32 [ %.1, %.lr.ph ], [ %5, %4 ]
   %.02277 = phi i32 [ %.123, %.lr.ph ], [ %5, %4 ]
-  %57 = getelementptr inbounds nuw i32, ptr %.sroa.0.1, i64 %.080
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.1, i64 %.080
   %58 = load i32, ptr %57, align 4, !tbaa !8
   %59 = sitofp i32 %58 to float
   %60 = fadd float %.02079, %59

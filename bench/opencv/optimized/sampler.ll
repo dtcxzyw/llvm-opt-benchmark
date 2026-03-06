@@ -27,9 +27,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.cv::Ptr.64" = type { %"class.std::shared_ptr.65" }
 %"class.std::shared_ptr.65" = type { %"class.std::__shared_ptr.66" }
 %"class.std::__shared_ptr.66" = type { ptr, %"class.std::__shared_count" }
-%"struct.cv::Ptr.36" = type { %"class.std::shared_ptr.37" }
-%"class.std::shared_ptr.37" = type { %"class.std::__shared_ptr.38" }
-%"class.std::__shared_ptr.38" = type { ptr, %"class.std::__shared_count" }
 
 $_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv = comdat any
 
@@ -634,7 +631,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %18
 .noexc19:                                         ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
   %21 = shl nuw nsw i64 %19, 2
   %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #16
-  %23 = getelementptr inbounds nuw i32, ptr %22, i64 %19
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %19
   store i32 0, ptr %22, align 4, !tbaa !69
   %24 = getelementptr i8, ptr %22, i64 4
   %25 = add nsw i64 %19, -1
@@ -683,7 +680,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZNSt6vectorIiSaIiE
 
 38:                                               ; preds = %.lr.ph, %38
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %38 ]
-  %39 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %indvars.iv
   %40 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %40, ptr %39, align 4, !tbaa !69
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -804,12 +801,12 @@ define linkonce_odr hidden void @_ZN2cv4usac18UniformSamplerImpl14generateSample
 _ZN2cv3RNG7uniformEii.exit:                       ; preds = %13, %16
   %25 = phi i64 [ %20, %16 ], [ %14, %13 ]
   %26 = phi i64 [ %24, %16 ], [ 0, %13 ]
-  %27 = getelementptr inbounds nuw i32, ptr %10, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !69
-  %29 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv11
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv11
   store i32 %28, ptr %29, align 4, !tbaa !69
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %30 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.next
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv.next
   %31 = load i32, ptr %30, align 4, !tbaa !69
   store i32 %31, ptr %27, align 4, !tbaa !69
   store i32 %28, ptr %30, align 4, !tbaa !69
@@ -1333,7 +1330,7 @@ define linkonce_odr hidden void @_ZN2cv4usac23ProsacSimpleSamplerImpl14generateS
   %65 = load i32, ptr %47, align 8, !tbaa !81
   %66 = load ptr, ptr %1, align 8, !tbaa !29
   %67 = sext i32 %65 to i64
-  %68 = getelementptr i32, ptr %66, i64 %67
+  %68 = getelementptr [4 x i8], ptr %66, i64 %67
   %69 = getelementptr i8, ptr %68, i64 -4
   store i32 %64, ptr %69, align 4, !tbaa !69
   br label %70
@@ -1483,7 +1480,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %23
           to label %.noexc46 unwind label %49
 
 .noexc46:                                         ; preds = %30
-  %33 = getelementptr inbounds nuw i32, ptr %32, i64 %27
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %27
   store i32 0, ptr %32, align 4, !tbaa !69
   %34 = getelementptr i8, ptr %32, i64 4
   %35 = add nsw i64 %27, -1
@@ -1564,7 +1561,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %41, %_ZNSt6vectorIi
 
 63:                                               ; preds = %.lr.ph56, %63
   %indvars.iv = phi i64 [ 0, %.lr.ph56 ], [ %indvars.iv.next, %63 ]
-  %64 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %indvars.iv
   store i32 1, ptr %64, align 4, !tbaa !69
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %65 = load i32, ptr %24, align 4, !tbaa !99
@@ -1602,7 +1599,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %41, %_ZNSt6vectorIi
   %80 = tail call double @llvm.ceil.f64(double %79)
   %81 = fptosi double %80 to i32
   %82 = add nsw i32 %.03059, %81
-  %83 = getelementptr inbounds nuw i32, ptr %61, i64 %indvars.iv67
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %indvars.iv67
   store i32 %82, ptr %83, align 4, !tbaa !69
   %84 = load i32, ptr %25, align 8, !tbaa !102
   %85 = sext i32 %84 to i64
@@ -1836,7 +1833,7 @@ define linkonce_odr hidden void @_ZN2cv4usac17ProsacSamplerImpl14generateSampleE
   %22 = load i32, ptr %21, align 8, !tbaa !108
   %23 = load ptr, ptr %20, align 8, !tbaa !29
   %24 = sext i32 %22 to i64
-  %25 = getelementptr i32, ptr %23, i64 %24
+  %25 = getelementptr [4 x i8], ptr %23, i64 %24
   %26 = getelementptr i8, ptr %25, i64 -4
   %27 = load i32, ptr %26, align 4, !tbaa !69
   %.not = icmp sge i32 %19, %27
@@ -1855,7 +1852,7 @@ define linkonce_odr hidden void @_ZN2cv4usac17ProsacSamplerImpl14generateSampleE
   %34 = phi i32 [ %32, %31 ], [ %22, %18 ]
   %35 = add nsw i32 %34, -1
   %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds nuw i32, ptr %23, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !69
   %.not10 = icmp sgt i32 %38, %4
   br i1 %.not10, label %60, label %39
@@ -1886,7 +1883,7 @@ define linkonce_odr hidden void @_ZN2cv4usac17ProsacSamplerImpl14generateSampleE
   %55 = load i32, ptr %42, align 4, !tbaa !99
   %56 = load ptr, ptr %1, align 8, !tbaa !29
   %57 = sext i32 %55 to i64
-  %58 = getelementptr i32, ptr %56, i64 %57
+  %58 = getelementptr [4 x i8], ptr %56, i64 %57
   %59 = getelementptr i8, ptr %58, i64 -4
   store i32 %54, ptr %59, align 4, !tbaa !69
   br label %68
@@ -2115,7 +2112,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %48
           to label %.noexc63 unwind label %81
 
 .noexc63:                                         ; preds = %64
-  %67 = getelementptr inbounds nuw i32, ptr %66, i64 %61
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %61
   store i32 0, ptr %66, align 4, !tbaa !69
   %68 = getelementptr i8, ptr %66, i64 4
   %69 = add nsw i64 %61, -1
@@ -2216,7 +2213,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i64: ; preds = %108
 108:                                              ; preds = %95, %96
   %.sink = phi i32 [ %107, %96 ], [ %.038130, %95 ]
   %.243 = phi double [ %103, %96 ], [ %.142129, %95 ]
-  %109 = getelementptr inbounds nuw i32, ptr %72, i64 %indvars.iv
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %indvars.iv
   store i32 %.sink, ptr %109, align 4, !tbaa !69
   %110 = icmp slt i64 %indvars.iv.next, %61
   br i1 %110, label %95, label %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i64, !llvm.loop !128
@@ -2226,7 +2223,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i87.thread: ; preds = %.preh
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit100
 
 111:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
-  %112 = getelementptr inbounds nuw i32, ptr %92, i64 %61
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %61
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 264
   store ptr %92, ptr %30, align 8, !tbaa !29
@@ -2238,7 +2235,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i87.thread: ; preds = %.preh
 
 117:                                              ; preds = %111
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %116, i8 0, i64 %115, i1 false), !tbaa !69
-  %118 = getelementptr inbounds nuw i32, ptr %116, i64 %61
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %116, i64 %61
   %119 = getelementptr inbounds nuw i8, ptr %116, i64 %115
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 240
@@ -2251,7 +2248,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i87.thread: ; preds = %.preh
 
 .noexc95:                                         ; preds = %117
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %123, i8 0, i64 %122, i1 false), !tbaa !69
-  %124 = getelementptr inbounds nuw i32, ptr %123, i64 %61
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %123, i64 %61
   %125 = getelementptr inbounds nuw i8, ptr %123, i64 %122
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit100
 
@@ -2636,19 +2633,19 @@ define linkonce_odr hidden void @_ZN2cv4usac21ProgressiveNapsacImpl14generateSam
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %16 = sext i32 %14 to i64
   %17 = load ptr, ptr %15, align 8, !tbaa !29
-  %18 = getelementptr inbounds nuw i32, ptr %17, i64 %16
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %16
   %19 = load i32, ptr %18, align 4, !tbaa !69
   %20 = add nsw i32 %19, 1
   store i32 %20, ptr %18, align 4, !tbaa !69
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %22 = load ptr, ptr %21, align 8, !tbaa !29
-  %23 = getelementptr inbounds nuw i32, ptr %22, i64 %16
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %16
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %25 = load ptr, ptr %24, align 8, !tbaa !29
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %27 = load i32, ptr %23, align 4, !tbaa !69
   %28 = sext i32 %27 to i64
-  %29 = getelementptr i32, ptr %25, i64 %28
+  %29 = getelementptr [4 x i8], ptr %25, i64 %28
   %30 = getelementptr i8, ptr %29, i64 -4
   %31 = load i32, ptr %30, align 4, !tbaa !69
   %32 = icmp sge i32 %19, %31
@@ -2663,7 +2660,7 @@ define linkonce_odr hidden void @_ZN2cv4usac21ProgressiveNapsacImpl14generateSam
   %35 = trunc nsw i64 %indvars.iv.next to i32
   store i32 %35, ptr %23, align 4, !tbaa !69
   %36 = load i32, ptr %18, align 4, !tbaa !69
-  %37 = getelementptr i32, ptr %25, i64 %indvars.iv.next
+  %37 = getelementptr [4 x i8], ptr %25, i64 %indvars.iv.next
   %38 = getelementptr i8, ptr %37, i64 -4
   %39 = load i32, ptr %38, align 4, !tbaa !69
   %40 = icmp sgt i32 %36, %39
@@ -2676,7 +2673,7 @@ define linkonce_odr hidden void @_ZN2cv4usac21ProgressiveNapsacImpl14generateSam
 .critedge:                                        ; preds = %.lr.ph, %10
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %45 = load ptr, ptr %44, align 8, !tbaa !29
-  %46 = getelementptr inbounds nuw i32, ptr %45, i64 %16
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %16
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %48 = load i32, ptr %46, align 4, !tbaa !69
   %49 = load i32, ptr %47, align 4, !tbaa !124
@@ -2706,7 +2703,7 @@ define linkonce_odr hidden void @_ZN2cv4usac21ProgressiveNapsacImpl14generateSam
   unreachable
 
 _ZNKSt6vectorIN2cv3PtrINS0_4usac17NeighborhoodGraphEEESaIS4_EE2atEm.exit: ; preds = %51
-  %63 = getelementptr inbounds nuw %"struct.cv::Ptr.36", ptr %57, i64 %54
+  %63 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %54
   %64 = load ptr, ptr %63, align 8, !tbaa !131
   %65 = load ptr, ptr %64, align 8, !tbaa !12
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 64
@@ -2751,7 +2748,7 @@ _ZNKSt6vectorIN2cv3PtrINS0_4usac17NeighborhoodGraphEEESaIS4_EE2atEm.exit: ; pred
   unreachable
 
 _ZNKSt6vectorIN2cv3PtrINS0_4usac17NeighborhoodGraphEEESaIS4_EE2atEm.exit46: ; preds = %83
-  %95 = getelementptr inbounds nuw %"struct.cv::Ptr.36", ptr %89, i64 %86
+  %95 = getelementptr inbounds nuw [16 x i8], ptr %89, i64 %86
   %96 = load ptr, ptr %95, align 8, !tbaa !131
   %97 = load ptr, ptr %96, align 8, !tbaa !12
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 64
@@ -2761,18 +2758,18 @@ _ZNKSt6vectorIN2cv3PtrINS0_4usac17NeighborhoodGraphEEESaIS4_EE2atEm.exit46: ; pr
   %102 = load i32, ptr %101, align 8, !tbaa !117
   %103 = load ptr, ptr %1, align 8, !tbaa !29
   %104 = sext i32 %102 to i64
-  %105 = getelementptr i32, ptr %103, i64 %104
+  %105 = getelementptr [4 x i8], ptr %103, i64 %104
   %106 = getelementptr i8, ptr %105, i64 -4
   store i32 %14, ptr %106, align 4, !tbaa !69
   %107 = load i32, ptr %23, align 4, !tbaa !69
   %108 = load ptr, ptr %100, align 8, !tbaa !29
   %109 = sext i32 %107 to i64
-  %110 = getelementptr i32, ptr %108, i64 %109
+  %110 = getelementptr [4 x i8], ptr %108, i64 %109
   %111 = getelementptr i8, ptr %110, i64 -4
   %112 = load i32, ptr %111, align 4, !tbaa !69
   %113 = load i32, ptr %101, align 8, !tbaa !117
   %114 = sext i32 %113 to i64
-  %115 = getelementptr i32, ptr %103, i64 %114
+  %115 = getelementptr [4 x i8], ptr %103, i64 %114
   %116 = getelementptr i8, ptr %115, i64 -8
   store i32 %112, ptr %116, align 4, !tbaa !69
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -2802,10 +2799,10 @@ _ZNKSt6vectorIN2cv3PtrINS0_4usac17NeighborhoodGraphEEESaIS4_EE2atEm.exit46.._cri
 
 ._crit_edge:                                      ; preds = %136, %_ZNKSt6vectorIN2cv3PtrINS0_4usac17NeighborhoodGraphEEESaIS4_EE2atEm.exit46.._crit_edge_crit_edge
   %.pre-phi = phi i64 [ %.pre79, %_ZNKSt6vectorIN2cv3PtrINS0_4usac17NeighborhoodGraphEEESaIS4_EE2atEm.exit46.._crit_edge_crit_edge ], [ %148, %136 ]
-  %130 = getelementptr inbounds nuw i32, ptr %.pre, i64 %.pre-phi
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %.pre-phi
   %131 = load i32, ptr %130, align 4, !tbaa !69
   %132 = sext i32 %131 to i64
-  %133 = getelementptr inbounds nuw i32, ptr %.pre78, i64 %132
+  %133 = getelementptr inbounds nuw [4 x i8], ptr %.pre78, i64 %132
   %134 = load i32, ptr %133, align 4, !tbaa !69
   %135 = add nsw i32 %134, 1
   store i32 %135, ptr %133, align 4, !tbaa !69
@@ -2813,14 +2810,14 @@ _ZNKSt6vectorIN2cv3PtrINS0_4usac17NeighborhoodGraphEEESaIS4_EE2atEm.exit46.._cri
 
 136:                                              ; preds = %.lr.ph63, %136
   %indvars.iv75 = phi i64 [ 0, %.lr.ph63 ], [ %indvars.iv.next76, %136 ]
-  %137 = getelementptr inbounds nuw i32, ptr %.pre, i64 %indvars.iv75
+  %137 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %indvars.iv75
   %138 = load i32, ptr %137, align 4, !tbaa !69
   %139 = sext i32 %138 to i64
-  %140 = getelementptr inbounds nuw i32, ptr %129, i64 %139
+  %140 = getelementptr inbounds nuw [4 x i8], ptr %129, i64 %139
   %141 = load i32, ptr %140, align 4, !tbaa !69
   store i32 %141, ptr %137, align 4, !tbaa !69
   %142 = sext i32 %141 to i64
-  %143 = getelementptr inbounds nuw i32, ptr %.pre78, i64 %142
+  %143 = getelementptr inbounds nuw [4 x i8], ptr %.pre78, i64 %142
   %144 = load i32, ptr %143, align 4, !tbaa !69
   %145 = add nsw i32 %144, 1
   store i32 %145, ptr %143, align 4, !tbaa !69
@@ -2852,14 +2849,14 @@ _ZNKSt6vectorIN2cv3PtrINS0_4usac17NeighborhoodGraphEEESaIS4_EE2atEm.exit46.._cri
   %163 = load i32, ptr %162, align 8
   %164 = sext i32 %158 to i64
   %165 = sext i32 %163 to i64
-  %166 = getelementptr i32, ptr %161, i64 %164
+  %166 = getelementptr [4 x i8], ptr %161, i64 %164
   %167 = getelementptr i8, ptr %166, i64 -4
   %168 = load i32, ptr %167, align 4, !tbaa !69
   %169 = icmp sgt i32 %151, %168
   br i1 %169, label %.lr.ph61, label %.loopexit.i
 
 170:                                              ; preds = %.lr.ph61
-  %171 = getelementptr i32, ptr %161, i64 %indvars.iv.next.i
+  %171 = getelementptr [4 x i8], ptr %161, i64 %indvars.iv.next.i
   %172 = getelementptr i8, ptr %171, i64 -4
   %173 = load i32, ptr %172, align 4, !tbaa !69
   %174 = icmp sgt i32 %151, %173
@@ -2894,7 +2891,7 @@ _ZN2cv4usac17ProsacSamplerImpl15setSampleNumberEi.exit: ; preds = %.critedge44, 
   %183 = load i32, ptr %182, align 8, !tbaa !117
   %184 = load ptr, ptr %1, align 8, !tbaa !29
   %185 = sext i32 %183 to i64
-  %186 = getelementptr i32, ptr %184, i64 %185
+  %186 = getelementptr [4 x i8], ptr %184, i64 %185
   %187 = getelementptr i8, ptr %186, i64 -4
   store i32 %14, ptr %187, align 4, !tbaa !69
   br label %188
@@ -3076,7 +3073,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %37
           to label %.noexc26 unwind label %55
 
 .noexc26:                                         ; preds = %43
-  %46 = getelementptr inbounds nuw i32, ptr %45, i64 %40
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %40
   store i32 0, ptr %45, align 4, !tbaa !69
   %47 = getelementptr i8, ptr %45, i64 4
   %48 = add nsw i64 %40, -1
@@ -3143,7 +3140,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc26
   store i32 %75, ptr %53, align 8, !tbaa !145
   %76 = sext i32 %74 to i64
   %77 = load ptr, ptr %24, align 8, !tbaa !29
-  %78 = getelementptr inbounds nuw i32, ptr %77, i64 %76
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %76
   store i32 %.032, ptr %78, align 4, !tbaa !69
   br label %81
 
@@ -3454,7 +3451,7 @@ define linkonce_odr hidden void @_ZN2cv4usac17NapsacSamplerImpl14generateSampleE
   %23 = tail call noundef i32 %22(ptr noundef nonnull align 8 dereferenceable(8) %17, i32 noundef %19)
   %24 = sext i32 %23 to i64
   %25 = load ptr, ptr %15, align 8, !tbaa !29
-  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %24
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %24
   %27 = load i32, ptr %26, align 4, !tbaa !69
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !131
@@ -3492,16 +3489,16 @@ define linkonce_odr hidden void @_ZN2cv4usac17NapsacSamplerImpl14generateSampleE
 
 ._crit_edge:                                      ; preds = %52, %.._crit_edge_crit_edge
   %.pre-phi = phi i64 [ %.pre17, %.._crit_edge_crit_edge ], [ %60, %52 ]
-  %51 = getelementptr inbounds nuw i32, ptr %.pre, i64 %.pre-phi
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %.pre-phi
   store i32 %27, ptr %51, align 4, !tbaa !69
   br label %62
 
 52:                                               ; preds = %.lr.ph, %52
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %52 ]
-  %53 = getelementptr inbounds nuw i32, ptr %.pre, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %indvars.iv
   %54 = load i32, ptr %53, align 4, !tbaa !69
   %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds nuw i32, ptr %50, i64 %55
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %55
   %57 = load i32, ptr %56, align 4, !tbaa !69
   store i32 %57, ptr %53, align 4, !tbaa !69
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

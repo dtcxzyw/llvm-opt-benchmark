@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.AVFilterPad = type { ptr, i32, i32, %union.anon, ptr, ptr, ptr }
 %union.anon = type { ptr }
 %union.anon.2 = type { i64 }
-%struct.DeesserChannel = type { double, double, double, double, double, double, double, double, double, i32 }
 
 @.str = private unnamed_addr constant [8 x i8] c"deesser\00", align 1
 @.str.1 = private unnamed_addr constant [30 x i8] c"Apply de-essing to the audio.\00", align 1
@@ -113,10 +112,10 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 
 .lr.ph.us:                                        ; preds = %._crit_edge.us, %.lr.ph156.split.us
   %indvars.iv160 = phi i64 [ %indvars.iv.next161, %._crit_edge.us ], [ 0, %.lr.ph156.split.us ]
-  %48 = getelementptr inbounds nuw %struct.DeesserChannel, ptr %24, i64 %indvars.iv160
-  %49 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv160
+  %48 = getelementptr inbounds nuw [80 x i8], ptr %24, i64 %indvars.iv160
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv160
   %50 = load ptr, ptr %49, align 8, !tbaa !49
-  %51 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv160
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv160
   %52 = load ptr, ptr %51, align 8, !tbaa !49
   %53 = load double, ptr %37, align 8, !tbaa !50
   %54 = tail call nsz double @llvm.pow.f64(double %53, double 5.000000e+00)
@@ -146,7 +145,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 74:                                               ; preds = %.lr.ph.us, %144
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %144 ]
   %75 = phi i32 [ %.promoted.us, %.lr.ph.us ], [ %134, %144 ]
-  %76 = getelementptr inbounds nuw double, ptr %50, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv
   %77 = load double, ptr %76, align 8, !tbaa !55
   %78 = load double, ptr %64, align 8, !tbaa !56
   store double %78, ptr %65, align 8, !tbaa !57
@@ -264,7 +263,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 
 .sink.split:                                      ; preds = %137, %138, %141
   %.sink175 = phi double [ %142, %141 ], [ %140, %138 ], [ %.1.us, %137 ]
-  %143 = getelementptr inbounds nuw double, ptr %52, i64 %indvars.iv
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %indvars.iv
   store double %.sink175, ptr %143, align 8, !tbaa !55
   br label %144
 
@@ -322,7 +321,7 @@ define internal range(i32 -12, 1) i32 @config_input(ptr noundef readonly capture
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %13 = getelementptr inbounds nuw %struct.DeesserChannel, ptr %9, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [80 x i8], ptr %9, i64 %indvars.iv
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
   store double 1.000000e+00, ptr %14, align 8, !tbaa !64
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 40

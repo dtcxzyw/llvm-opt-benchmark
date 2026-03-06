@@ -32,7 +32,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.scsi_host_template = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i16, i16, i32, i32, i64, i64, i16, i32, i8, i32, ptr, ptr, i64, i32 }
 %struct.dmi_system_id = type { ptr, ptr, [4 x %struct.dmi_strmatch], ptr }
 %struct.dmi_strmatch = type { i8, [79 x i8] }
-%struct.resource = type { i64, i64, ptr, i64, i64, ptr, ptr, ptr }
 %struct.ata_taskfile = type { i64, i8, i8, i8, i8, i8, i8, i8, %union.anon.4, i8, i8, i8, i8, i8, %union.anon.5, i32 }
 %union.anon.4 = type { i8 }
 %union.anon.5 = type { i8 }
@@ -190,7 +189,7 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr noundef readonly captures
   %20 = trunc i64 %19 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %21 = and i64 %19, 4294967295
-  %22 = getelementptr %struct.ata_port_info, ptr @ahci_port_info, i64 %21
+  %22 = getelementptr [48 x i8], ptr @ahci_port_info, i64 %21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %15, ptr noundef align 16 dereferenceable(48) %22, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   store ptr %15, ptr %16, align 16
@@ -453,7 +452,7 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr noundef readonly captures
 155:                                              ; preds = %154, %149
   %156 = call ptr @pcim_iomap_table(ptr noundef %0) #13
   %157 = zext nneg i32 %75 to i64
-  %158 = getelementptr ptr, ptr %156, i64 %157
+  %158 = getelementptr [8 x i8], ptr %156, i64 %157
   %159 = load ptr, ptr %158, align 8
   %160 = getelementptr inbounds nuw i8, ptr %98, i64 8
   store ptr %159, ptr %160, align 8
@@ -463,7 +462,7 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr noundef readonly captures
 
 163:                                              ; preds = %155
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 920
-  %165 = getelementptr %struct.resource, ptr %164, i64 %157
+  %165 = getelementptr [64 x i8], ptr %164, i64 %157
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 8
   %167 = load i64, ptr %166, align 8
   %168 = icmp eq i64 %167, 0
@@ -962,7 +961,7 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr noundef readonly captures
 445:                                              ; preds = %480, %442
   %446 = phi i32 [ 0, %442 ], [ %481, %480 ]
   %447 = sext i32 %446 to i64
-  %448 = getelementptr ptr, ptr %443, i64 %447
+  %448 = getelementptr [8 x i8], ptr %443, i64 %447
   %449 = load ptr, ptr %448, align 8
   call void @ata_port_pbar_desc(ptr noundef %449, i32 noundef %75, i64 noundef -1, ptr noundef nonnull @.str.11) #13
   %450 = getelementptr inbounds nuw i8, ptr %449, i64 44
@@ -1077,7 +1076,7 @@ define internal i32 @ahci_init_one(ptr noundef %0, ptr noundef readonly captures
 520:                                              ; preds = %.loopexit36, %518
   %521 = phi i32 [ 0, %518 ], [ %538, %.loopexit36 ]
   %522 = sext i32 %521 to i64
-  %523 = getelementptr ptr, ptr %519, i64 %522
+  %523 = getelementptr [8 x i8], ptr %519, i64 %522
   %524 = load ptr, ptr %523, align 8
   %525 = call ptr @ata_link_next(ptr noundef null, ptr noundef %524, i32 noundef 0) #13
   %526 = icmp eq ptr %525, null

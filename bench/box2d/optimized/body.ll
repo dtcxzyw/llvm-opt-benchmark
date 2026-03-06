@@ -3,35 +3,8 @@ source_filename = "bench/box2d/original/body.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.b2SolverSet = type { %struct.b2BodySimArray, %struct.b2BodyStateArray, %struct.b2JointSimArray, %struct.b2ContactSimArray, %struct.b2IslandSimArray, i32 }
-%struct.b2BodySimArray = type { ptr, i32, i32 }
-%struct.b2BodyStateArray = type { ptr, i32, i32 }
-%struct.b2JointSimArray = type { ptr, i32, i32 }
-%struct.b2ContactSimArray = type { ptr, i32, i32 }
-%struct.b2IslandSimArray = type { ptr, i32, i32 }
-%struct.b2BodySim = type { %struct.b2Transform, %struct.b2Vec2, %struct.b2Rot, %struct.b2Vec2, %struct.b2Vec2, %struct.b2Vec2, float, float, float, float, float, float, float, float, i32, i8, i8, i8, i8, i8 }
-%struct.b2Transform = type { %struct.b2Vec2, %struct.b2Rot }
-%struct.b2Rot = type { float, float }
-%struct.b2Vec2 = type { float, float }
-%struct.b2Body = type { [32 x i8], ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, float, float, float, float, i32, i32, i32, i16, i8, i8, i8, i8 }
-%struct.b2BodyState = type { %struct.b2Vec2, float, i32, %struct.b2Vec2, %struct.b2Rot }
-%struct.b2Joint = type { ptr, i32, i32, i32, [2 x %struct.b2JointEdge], i32, i32, i32, i32, float, i32, i16, i8, i8 }
-%struct.b2JointEdge = type { i32, i32, i32 }
-%struct.b2Contact = type { i32, i32, i32, [2 x %struct.b2ContactEdge], i32, i32, i32, i32, i32, i32, i32, i8 }
-%struct.b2ContactEdge = type { i32, i32, i32 }
-%struct.b2Shape = type { i32, i32, i32, i32, i32, i32, float, float, float, float, float, i32, %struct.b2AABB, %struct.b2AABB, %struct.b2Vec2, i32, %struct.b2Filter, ptr, i32, %union.anon.0, i16, i8, i8, i8, i8 }
-%struct.b2AABB = type { %struct.b2Vec2, %struct.b2Vec2 }
-%struct.b2Filter = type { i64, i64, i32 }
-%union.anon.0 = type { %struct.b2Polygon }
-%struct.b2Polygon = type { [8 x %struct.b2Vec2], [8 x %struct.b2Vec2], %struct.b2Vec2, float, i32 }
-%struct.b2ChainShape = type { i32, i32, i32, i32, i32, ptr, ptr, i16 }
-%struct.b2Island = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.b2ContactData = type { %struct.b2ShapeId, %struct.b2ShapeId, %struct.b2Manifold }
-%struct.b2ShapeId = type { i32, i16, i16 }
-%struct.b2Manifold = type { %struct.b2Vec2, float, [2 x %struct.b2ManifoldPoint], i32 }
-%struct.b2ManifoldPoint = type { %struct.b2Vec2, %struct.b2Vec2, %struct.b2Vec2, float, float, float, float, float, i16, i8 }
 %struct.b2MassData = type { float, %struct.b2Vec2, float }
-%struct.b2JointId = type { i32, i16, i16 }
+%struct.b2Vec2 = type { float, float }
 
 @b2_lengthUnitsPerMeter = external local_unnamed_addr global float, align 4
 
@@ -215,12 +188,12 @@ define hidden { <2 x float>, <2 x float> } @b2GetBodyTransformQuick(ptr noundef 
   %5 = load i32, ptr %4, align 8, !tbaa !19
   %.val = load ptr, ptr %3, align 8, !tbaa !24
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds %struct.b2SolverSet, ptr %.val, i64 %6
+  %7 = getelementptr inbounds [88 x i8], ptr %.val, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %9 = load i32, ptr %8, align 4, !tbaa !27
   %.val5 = load ptr, ptr %7, align 8, !tbaa !14
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds %struct.b2BodySim, ptr %.val5, i64 %10
+  %11 = getelementptr inbounds [100 x i8], ptr %.val5, i64 %10
   %.sroa.0.0.copyload = load <2 x float>, ptr %11, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.sroa.2.0.copyload = load <2 x float>, ptr %.sroa.2.0..sroa_idx, align 4
@@ -237,18 +210,18 @@ define hidden { <2 x float>, <2 x float> } @b2GetBodyTransform(ptr noundef reado
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   %.val = load ptr, ptr %3, align 8, !tbaa !10
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds %struct.b2Body, ptr %.val, i64 %4
+  %5 = getelementptr inbounds [128 x i8], ptr %.val, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %8 = load i32, ptr %7, align 8, !tbaa !19
   %.val.i = load ptr, ptr %6, align 8, !tbaa !24
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds %struct.b2SolverSet, ptr %.val.i, i64 %9
+  %10 = getelementptr inbounds [88 x i8], ptr %.val.i, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 44
   %12 = load i32, ptr %11, align 4, !tbaa !27
   %.val5.i = load ptr, ptr %10, align 8, !tbaa !14
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds %struct.b2BodySim, ptr %.val5.i, i64 %13
+  %14 = getelementptr inbounds [100 x i8], ptr %.val5.i, i64 %13
   %.sroa.0.0.copyload.i = load <2 x float>, ptr %14, align 4
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.sroa.2.0.copyload.i = load <2 x float>, ptr %.sroa.2.0..sroa_idx.i, align 4
@@ -262,7 +235,7 @@ define hidden i64 @b2MakeBodyId(ptr noundef readonly captures(none) %0, i32 noun
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   %.val = load ptr, ptr %3, align 8, !tbaa !10
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds %struct.b2Body, ptr %.val, i64 %4
+  %5 = getelementptr inbounds [128 x i8], ptr %.val, i64 %4
   %6 = add nsw i32 %1, 1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1780
   %8 = load i16, ptr %7, align 4, !tbaa !28
@@ -285,12 +258,12 @@ define hidden ptr @b2GetBodySim(ptr noundef readonly captures(none) %0, ptr noun
   %5 = load i32, ptr %4, align 8, !tbaa !19
   %.val = load ptr, ptr %3, align 8, !tbaa !24
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds %struct.b2SolverSet, ptr %.val, i64 %6
+  %7 = getelementptr inbounds [88 x i8], ptr %.val, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %9 = load i32, ptr %8, align 4, !tbaa !27
   %.val5 = load ptr, ptr %7, align 8, !tbaa !14
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds %struct.b2BodySim, ptr %.val5, i64 %10
+  %11 = getelementptr inbounds [100 x i8], ptr %.val5, i64 %10
   ret ptr %11
 }
 
@@ -309,7 +282,7 @@ define hidden ptr @b2GetBodyState(ptr noundef readonly captures(none) %0, ptr no
   %10 = load i32, ptr %9, align 4, !tbaa !27
   %.val5 = load ptr, ptr %8, align 8, !tbaa !18
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds %struct.b2BodyState, ptr %.val5, i64 %11
+  %12 = getelementptr inbounds [32 x i8], ptr %.val5, i64 %11
   br label %13
 
 13:                                               ; preds = %2, %6
@@ -389,7 +362,7 @@ b2SolverSetArray_Push.exit:                       ; preds = %33, %37
   %42 = phi i32 [ %.pre.i, %37 ], [ %28, %33 ]
   %43 = load ptr, ptr %29, align 8, !tbaa !24
   %44 = sext i32 %42 to i64
-  %45 = getelementptr inbounds %struct.b2SolverSet, ptr %43, i64 %44
+  %45 = getelementptr inbounds [88 x i8], ptr %43, i64 %44
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %45, i8 0, i64 88, i1 false)
   %46 = load i32, ptr %30, align 8, !tbaa !85
   %47 = add nsw i32 %46, 1
@@ -399,7 +372,7 @@ b2SolverSetArray_Push.exit:                       ; preds = %33, %37
 48:                                               ; preds = %26, %b2SolverSetArray_Push.exit
   %49 = load ptr, ptr %29, align 8, !tbaa !86
   %50 = sext i32 %28 to i64
-  %51 = getelementptr inbounds %struct.b2SolverSet, ptr %49, i64 %50
+  %51 = getelementptr inbounds [88 x i8], ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 80
   store i32 %28, ptr %52, align 8, !tbaa !87
   br label %53
@@ -411,7 +384,7 @@ b2SolverSetArray_Push.exit:                       ; preds = %33, %37
   %56 = getelementptr inbounds nuw i8, ptr %3, i64 1072
   %.val115 = load ptr, ptr %56, align 8, !tbaa !24
   %57 = sext i32 %.0114 to i64
-  %58 = getelementptr inbounds %struct.b2SolverSet, ptr %.val115, i64 %57
+  %58 = getelementptr inbounds [88 x i8], ptr %.val115, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %60 = load i32, ptr %59, align 8, !tbaa !95
   %61 = getelementptr inbounds nuw i8, ptr %58, i64 12
@@ -447,7 +420,7 @@ b2BodySimArray_Add.exit:                          ; preds = %.b2BodySimArray_Res
   %75 = add nsw i32 %74, 1
   store i32 %75, ptr %59, align 8, !tbaa !95
   %76 = sext i32 %74 to i64
-  %77 = getelementptr inbounds %struct.b2BodySim, ptr %73, i64 %76
+  %77 = getelementptr inbounds [100 x i8], ptr %73, i64 %76
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(100) %77, i8 0, i64 100, i1 false)
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %79 = load i64, ptr %78, align 4
@@ -539,7 +512,7 @@ b2BodyStateArray_Add.exit:                        ; preds = %.b2BodyStateArray_R
   %130 = add nsw i32 %129, 1
   store i32 %130, ptr %114, align 8, !tbaa !115
   %131 = sext i32 %129 to i64
-  %132 = getelementptr inbounds %struct.b2BodyState, ptr %128, i64 %131
+  %132 = getelementptr inbounds [32 x i8], ptr %128, i64 %131
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %132, i8 0, i64 32, i1 false)
   %133 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %134 = load i64, ptr %133, align 4
@@ -591,7 +564,7 @@ b2BodyArray_Push.exit:                            ; preds = %.b2BodyArray_Reserv
   %157 = phi i32 [ %55, %.b2BodyArray_Reserve.exit_crit_edge.i ], [ %.pre10.i124, %153 ], [ %55, %148 ]
   %158 = phi ptr [ %.pre.i121, %.b2BodyArray_Reserve.exit_crit_edge.i ], [ %156, %153 ], [ %.pre9.i123, %148 ]
   %159 = sext i32 %157 to i64
-  %160 = getelementptr inbounds %struct.b2Body, ptr %158, i64 %159
+  %160 = getelementptr inbounds [128 x i8], ptr %158, i64 %159
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %160, i8 0, i64 128, i1 false)
   %161 = load i32, ptr %141, align 8, !tbaa !120
   %162 = add nsw i32 %161, 1
@@ -601,7 +574,7 @@ b2BodyArray_Push.exit:                            ; preds = %.b2BodyArray_Reserv
 163:                                              ; preds = %139, %b2BodyArray_Push.exit
   %.val = load ptr, ptr %140, align 8, !tbaa !10
   %164 = sext i32 %55 to i64
-  %165 = getelementptr inbounds %struct.b2Body, ptr %.val, i64 %164
+  %165 = getelementptr inbounds [128 x i8], ptr %.val, i64 %164
   %166 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %167 = load ptr, ptr %166, align 8, !tbaa !121
   %.not = icmp eq ptr %167, null
@@ -790,9 +763,9 @@ define void @b2DestroyBody(i64 %0) local_unnamed_addr #0 {
   %16 = and i32 %.092, 1
   %.val73 = load ptr, ptr %13, align 8, !tbaa !156
   %17 = sext i32 %15 to i64
-  %18 = getelementptr inbounds %struct.b2Joint, ptr %.val73, i64 %17
+  %18 = getelementptr inbounds [72 x i8], ptr %.val73, i64 %17
   %19 = zext nneg i32 %16 to i64
-  %20 = getelementptr inbounds nuw %struct.b2JointEdge, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [12 x i8], ptr %18, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 28
   %22 = load i32, ptr %21, align 4, !tbaa !157
   tail call void @b2DestroyJointInternal(ptr noundef nonnull %4, ptr noundef %18, i1 noundef zeroext true) #10
@@ -815,9 +788,9 @@ define void @b2DestroyBody(i64 %0) local_unnamed_addr #0 {
   %27 = and i32 %.02.i, 1
   %.val.i77 = load ptr, ptr %24, align 8, !tbaa !160
   %28 = sext i32 %26 to i64
-  %29 = getelementptr inbounds %struct.b2Contact, ptr %.val.i77, i64 %28
+  %29 = getelementptr inbounds [68 x i8], ptr %.val.i77, i64 %28
   %30 = zext nneg i32 %27 to i64
-  %31 = getelementptr inbounds nuw %struct.b2ContactEdge, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [12 x i8], ptr %29, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 20
   %33 = load i32, ptr %32, align 4, !tbaa !161
   tail call void @b2DestroyContact(ptr noundef nonnull %4, ptr noundef %29, i1 noundef zeroext true) #10
@@ -841,7 +814,7 @@ b2DestroyBodyContacts.exit:                       ; preds = %25, %._crit_edge
   %.06495 = phi i32 [ %.06493, %.lr.ph96 ], [ %.064, %44 ]
   %.val75 = load ptr, ptr %35, align 8, !tbaa !165
   %39 = sext i32 %.06495 to i64
-  %40 = getelementptr inbounds %struct.b2Shape, ptr %.val75, i64 %39
+  %40 = getelementptr inbounds [288 x i8], ptr %.val75, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load i32, ptr %41, align 8, !tbaa !166
   %.not71 = icmp eq i32 %42, -1
@@ -875,7 +848,7 @@ b2DestroyBodyContacts.exit:                       ; preds = %25, %._crit_edge
   %.065100 = phi i32 [ %.06598, %.lr.ph102 ], [ %.065, %49 ]
   %.val76 = load ptr, ptr %47, align 8, !tbaa !172
   %50 = sext i32 %.065100 to i64
-  %51 = getelementptr inbounds %struct.b2ChainShape, ptr %.val76, i64 %50
+  %51 = getelementptr inbounds [48 x i8], ptr %.val76, i64 %50
   tail call void @b2FreeChainData(ptr noundef %51) #10
   tail call void @b2FreeId(ptr noundef nonnull %48, i32 noundef %.065100) #10
   store i32 -1, ptr %51, align 8, !tbaa !173
@@ -894,7 +867,7 @@ b2DestroyBodyContacts.exit:                       ; preds = %25, %._crit_edge
   %57 = getelementptr inbounds nuw i8, ptr %4, i64 1192
   %.val37.i = load ptr, ptr %57, align 8, !tbaa !177
   %58 = sext i32 %54 to i64
-  %59 = getelementptr inbounds %struct.b2Island, ptr %.val37.i, i64 %58
+  %59 = getelementptr inbounds [56 x i8], ptr %.val37.i, i64 %58
   %60 = getelementptr inbounds nuw i8, ptr %10, i64 80
   %61 = load i32, ptr %60, align 8, !tbaa !136
   %.not.i78 = icmp eq i32 %61, -1
@@ -908,7 +881,7 @@ b2DestroyBodyContacts.exit:                       ; preds = %25, %._crit_edge
 62:                                               ; preds = %56
   %.val36.i = load ptr, ptr %7, align 8, !tbaa !10
   %63 = sext i32 %61 to i64
-  %64 = getelementptr inbounds %struct.b2Body, ptr %.val36.i, i64 %63
+  %64 = getelementptr inbounds [128 x i8], ptr %.val36.i, i64 %63
   %65 = getelementptr inbounds nuw i8, ptr %10, i64 84
   %66 = load i32, ptr %65, align 4, !tbaa !137
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 84
@@ -924,7 +897,7 @@ b2DestroyBodyContacts.exit:                       ; preds = %25, %._crit_edge
 71:                                               ; preds = %68
   %.val.i79 = load ptr, ptr %7, align 8, !tbaa !10
   %72 = sext i32 %69 to i64
-  %73 = getelementptr inbounds %struct.b2Body, ptr %.val.i79, i64 %72
+  %73 = getelementptr inbounds [128 x i8], ptr %.val.i79, i64 %72
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 80
   store i32 %61, ptr %74, align 8, !tbaa !136
   br label %75
@@ -978,7 +951,7 @@ b2RemoveBodyFromIsland.exit:                      ; preds = %._crit_edge103, %94
   %97 = load i32, ptr %96, align 8, !tbaa !19
   %.val72 = load ptr, ptr %95, align 8, !tbaa !24
   %98 = sext i32 %97 to i64
-  %99 = getelementptr inbounds %struct.b2SolverSet, ptr %.val72, i64 %98
+  %99 = getelementptr inbounds [88 x i8], ptr %.val72, i64 %98
   %100 = getelementptr inbounds nuw i8, ptr %10, i64 44
   %101 = load i32, ptr %100, align 4, !tbaa !27
   %102 = getelementptr inbounds nuw i8, ptr %99, i64 8
@@ -994,9 +967,9 @@ b2BodySimArray_RemoveSwap.exit.thread:            ; preds = %b2RemoveBodyFromIsl
 b2BodySimArray_RemoveSwap.exit:                   ; preds = %b2RemoveBodyFromIsland.exit
   %105 = load ptr, ptr %99, align 8, !tbaa !14
   %106 = sext i32 %101 to i64
-  %107 = getelementptr inbounds %struct.b2BodySim, ptr %105, i64 %106
+  %107 = getelementptr inbounds [100 x i8], ptr %105, i64 %106
   %108 = sext i32 %104 to i64
-  %109 = getelementptr inbounds %struct.b2BodySim, ptr %105, i64 %108
+  %109 = getelementptr inbounds [100 x i8], ptr %105, i64 %108
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(100) %107, ptr noundef nonnull align 4 dereferenceable(100) %109, i64 100, i1 false), !tbaa.struct !178
   %.pre.i81 = load i32, ptr %102, align 8, !tbaa !95
   %.pre10.i = add nsw i32 %.pre.i81, -1
@@ -1008,12 +981,12 @@ b2BodySimArray_RemoveSwap.exit:                   ; preds = %b2RemoveBodyFromIsl
   %111 = load ptr, ptr %99, align 8, !tbaa !180
   %112 = load i32, ptr %100, align 4, !tbaa !27
   %113 = sext i32 %112 to i64
-  %114 = getelementptr inbounds %struct.b2BodySim, ptr %111, i64 %113
+  %114 = getelementptr inbounds [100 x i8], ptr %111, i64 %113
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 88
   %116 = load i32, ptr %115, align 4, !tbaa !107
   %.val = load ptr, ptr %7, align 8, !tbaa !10
   %117 = sext i32 %116 to i64
-  %118 = getelementptr inbounds %struct.b2Body, ptr %.val, i64 %117
+  %118 = getelementptr inbounds [128 x i8], ptr %.val, i64 %117
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 44
   store i32 %112, ptr %119, align 4, !tbaa !27
   br label %120
@@ -1036,9 +1009,9 @@ b2BodySimArray_RemoveSwap.exit:                   ; preds = %b2RemoveBodyFromIsl
   %129 = getelementptr inbounds nuw i8, ptr %99, i64 16
   %130 = load ptr, ptr %129, align 8, !tbaa !18
   %131 = sext i32 %124 to i64
-  %132 = getelementptr inbounds %struct.b2BodyState, ptr %130, i64 %131
+  %132 = getelementptr inbounds [32 x i8], ptr %130, i64 %131
   %133 = sext i32 %127 to i64
-  %134 = getelementptr inbounds %struct.b2BodyState, ptr %130, i64 %133
+  %134 = getelementptr inbounds [32 x i8], ptr %130, i64 %133
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %132, ptr noundef nonnull align 4 dereferenceable(32) %134, i64 32, i1 false), !tbaa.struct !181
   %.pre.i83 = load i32, ptr %125, align 8, !tbaa !115
   %.pre10.i84 = add nsw i32 %.pre.i83, -1
@@ -1151,7 +1124,7 @@ define i32 @b2Body_GetContactData(i64 %0, ptr noundef writeonly captures(none) %
   %21 = and i32 %.03946, 1
   %.val = load ptr, ptr %17, align 8, !tbaa !160
   %22 = sext i32 %20 to i64
-  %23 = getelementptr inbounds %struct.b2Contact, ptr %.val, i64 %22
+  %23 = getelementptr inbounds [68 x i8], ptr %.val, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 60
   %25 = load i32, ptr %24, align 4, !tbaa !182
   %26 = and i32 %25, 1
@@ -1163,13 +1136,13 @@ define i32 @b2Body_GetContactData(i64 %0, ptr noundef writeonly captures(none) %
   %29 = load i32, ptr %28, align 4, !tbaa !184
   %.val43 = load ptr, ptr %18, align 8, !tbaa !165
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds %struct.b2Shape, ptr %.val43, i64 %30
+  %31 = getelementptr inbounds [288 x i8], ptr %.val43, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %23, i64 40
   %33 = load i32, ptr %32, align 4, !tbaa !185
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds %struct.b2Shape, ptr %.val43, i64 %34
+  %35 = getelementptr inbounds [288 x i8], ptr %.val43, i64 %34
   %36 = sext i32 %.04045 to i64
-  %37 = getelementptr inbounds %struct.b2ContactData, ptr %1, i64 %36
+  %37 = getelementptr inbounds [128 x i8], ptr %1, i64 %36
   %38 = load i32, ptr %31, align 8, !tbaa !170
   %39 = add nsw i32 %38, 1
   %40 = getelementptr inbounds nuw i8, ptr %31, i64 276
@@ -1199,7 +1172,7 @@ define i32 @b2Body_GetContactData(i64 %0, ptr noundef writeonly captures(none) %
 51:                                               ; preds = %27, %19
   %.1 = phi i32 [ %50, %27 ], [ %.04045, %19 ]
   %52 = zext nneg i32 %21 to i64
-  %53 = getelementptr inbounds nuw %struct.b2ContactEdge, ptr %23, i64 %52
+  %53 = getelementptr inbounds nuw [12 x i8], ptr %23, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 20
   %.039 = load i32, ptr %54, align 4, !tbaa !164
   %55 = icmp ne i32 %.039, -1
@@ -1239,18 +1212,18 @@ define { <2 x float>, <2 x float> } @b2Body_ComputeAABB(i64 %0) local_unnamed_ad
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 108
   %16 = load i32, ptr %15, align 4, !tbaa !139
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds %struct.b2Body, ptr %.val.i, i64 %17
+  %18 = getelementptr inbounds [128 x i8], ptr %.val.i, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 1072
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 40
   %21 = load i32, ptr %20, align 8, !tbaa !19
   %.val.i.i = load ptr, ptr %19, align 8, !tbaa !24
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds %struct.b2SolverSet, ptr %.val.i.i, i64 %22
+  %23 = getelementptr inbounds [88 x i8], ptr %.val.i.i, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %18, i64 44
   %25 = load i32, ptr %24, align 4, !tbaa !27
   %.val5.i.i = load ptr, ptr %23, align 8, !tbaa !14
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds %struct.b2BodySim, ptr %.val5.i.i, i64 %26
+  %27 = getelementptr inbounds [100 x i8], ptr %.val5.i.i, i64 %26
   %.sroa.0.0.copyload.i.i = load <2 x float>, ptr %27, align 4
   br label %.loopexit
 
@@ -1258,7 +1231,7 @@ define { <2 x float>, <2 x float> } @b2Body_ComputeAABB(i64 %0) local_unnamed_ad
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 1256
   %.val22 = load ptr, ptr %29, align 8, !tbaa !165
   %30 = sext i32 %12 to i64
-  %31 = getelementptr inbounds %struct.b2Shape, ptr %.val22, i64 %30
+  %31 = getelementptr inbounds [288 x i8], ptr %.val22, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 48
   %.sroa.015.0.copyload = load <2 x float>, ptr %32, align 8
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 56
@@ -1273,7 +1246,7 @@ define { <2 x float>, <2 x float> } @b2Body_ComputeAABB(i64 %0) local_unnamed_ad
   %.sroa.7.226 = phi <2 x float> [ %.sroa.35.12.vec.insert.i, %.lr.ph ], [ %.sroa.7.0.copyload, %28 ]
   %.sroa.015.225 = phi <2 x float> [ %.sroa.03.4.vec.insert.i, %.lr.ph ], [ %.sroa.015.0.copyload, %28 ]
   %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds %struct.b2Shape, ptr %.val22, i64 %36
+  %37 = getelementptr inbounds [288 x i8], ptr %.val22, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 48
   %39 = load <2 x float>, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 56
@@ -1319,12 +1292,12 @@ define hidden void @b2UpdateBodyMassData(ptr noundef readonly captures(none) %0,
   %6 = load i32, ptr %5, align 8, !tbaa !19
   %.val.i = load ptr, ptr %4, align 8, !tbaa !24
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds %struct.b2SolverSet, ptr %.val.i, i64 %7
+  %8 = getelementptr inbounds [88 x i8], ptr %.val.i, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %10 = load i32, ptr %9, align 4, !tbaa !27
   %.val5.i = load ptr, ptr %8, align 8, !tbaa !14
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds %struct.b2BodySim, ptr %.val5.i, i64 %11
+  %12 = getelementptr inbounds [100 x i8], ptr %.val5.i, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 88
   store float 0.000000e+00, ptr %13, align 8, !tbaa !140
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 92
@@ -1368,7 +1341,7 @@ define hidden void @b2UpdateBodyMassData(ptr noundef readonly captures(none) %0,
   %.0118 = phi i32 [ %.0116, %.lr.ph ], [ %.0, %32 ]
   %.val88 = load ptr, ptr %31, align 8, !tbaa !165
   %33 = sext i32 %.0118 to i64
-  %34 = getelementptr inbounds %struct.b2Shape, ptr %.val88, i64 %33
+  %34 = getelementptr inbounds [288 x i8], ptr %.val88, i64 %33
   %35 = tail call <2 x float> @b2ComputeShapeExtent(ptr noundef %34, <2 x float> zeroinitializer) #10
   %36 = load float, ptr %20, align 4, !tbaa !97
   %.sroa.026.0.vec.extract = extractelement <2 x float> %35, i64 0
@@ -1402,7 +1375,7 @@ define hidden void @b2UpdateBodyMassData(ptr noundef readonly captures(none) %0,
   %.080120 = phi i32 [ %45, %.lr.ph122 ], [ %51, %67 ]
   %.val87 = load ptr, ptr %46, align 8, !tbaa !165
   %48 = sext i32 %.080120 to i64
-  %49 = getelementptr inbounds %struct.b2Shape, ptr %.val87, i64 %48
+  %49 = getelementptr inbounds [288 x i8], ptr %.val87, i64 %48
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 12
   %51 = load i32, ptr %50, align 4, !tbaa !190
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 24
@@ -1525,7 +1498,7 @@ b2GetBodyState.exit:                              ; preds = %89
 105:                                              ; preds = %b2GetBodyState.exit
   %106 = load i32, ptr %9, align 4, !tbaa !27
   %107 = sext i32 %106 to i64
-  %108 = getelementptr inbounds %struct.b2BodyState, ptr %.val5.i96, i64 %107
+  %108 = getelementptr inbounds [32 x i8], ptr %.val5.i96, i64 %107
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 8
   %110 = load float, ptr %109, align 4, !tbaa !117
   %.sroa.0.0.vec.extract.i98 = extractelement <2 x float> %.sroa.010.0.copyload, i64 0
@@ -1557,7 +1530,7 @@ b2GetBodyState.exit.thread:                       ; preds = %89, %105, %b2GetBod
   %.1125 = phi i32 [ %.1123, %.lr.ph126 ], [ %.1, %119 ]
   %.val = load ptr, ptr %118, align 8, !tbaa !165
   %120 = sext i32 %.1125 to i64
-  %121 = getelementptr inbounds %struct.b2Shape, ptr %.val, i64 %120
+  %121 = getelementptr inbounds [288 x i8], ptr %.val, i64 %120
   %122 = tail call <2 x float> @b2ComputeShapeExtent(ptr noundef %121, <2 x float> %.sroa.021.2) #10
   %123 = load float, ptr %20, align 4, !tbaa !97
   %.sroa.0.0.vec.extract = extractelement <2 x float> %122, i64 0
@@ -1599,12 +1572,12 @@ define <2 x float> @b2Body_GetPosition(i64 %0) local_unnamed_addr #7 {
   %11 = load i32, ptr %10, align 8, !tbaa !19
   %.val.i5 = load ptr, ptr %9, align 8, !tbaa !24
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds %struct.b2SolverSet, ptr %.val.i5, i64 %12
+  %13 = getelementptr inbounds [88 x i8], ptr %.val.i5, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 44
   %15 = load i32, ptr %14, align 4, !tbaa !27
   %.val5.i = load ptr, ptr %13, align 8, !tbaa !14
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds %struct.b2BodySim, ptr %.val5.i, i64 %16
+  %17 = getelementptr inbounds [100 x i8], ptr %.val5.i, i64 %16
   %.sroa.0.0.copyload.i = load <2 x float>, ptr %17, align 4
   ret <2 x float> %.sroa.0.0.copyload.i
 }
@@ -1628,12 +1601,12 @@ define <2 x float> @b2Body_GetRotation(i64 %0) local_unnamed_addr #7 {
   %11 = load i32, ptr %10, align 8, !tbaa !19
   %.val.i6 = load ptr, ptr %9, align 8, !tbaa !24
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds %struct.b2SolverSet, ptr %.val.i6, i64 %12
+  %13 = getelementptr inbounds [88 x i8], ptr %.val.i6, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 44
   %15 = load i32, ptr %14, align 4, !tbaa !27
   %.val5.i = load ptr, ptr %13, align 8, !tbaa !14
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds %struct.b2BodySim, ptr %.val5.i, i64 %16
+  %17 = getelementptr inbounds [100 x i8], ptr %.val5.i, i64 %16
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 8
   %.sroa.2.0.copyload.i = load <2 x float>, ptr %.sroa.2.0..sroa_idx.i, align 4
   ret <2 x float> %.sroa.2.0.copyload.i
@@ -1656,12 +1629,12 @@ define { <2 x float>, <2 x float> } @b2Body_GetTransform(i64 %0) local_unnamed_a
   %11 = load i32, ptr %10, align 8, !tbaa !19
   %.val.i5 = load ptr, ptr %9, align 8, !tbaa !24
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds %struct.b2SolverSet, ptr %.val.i5, i64 %12
+  %13 = getelementptr inbounds [88 x i8], ptr %.val.i5, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 44
   %15 = load i32, ptr %14, align 4, !tbaa !27
   %.val5.i = load ptr, ptr %13, align 8, !tbaa !14
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds %struct.b2BodySim, ptr %.val5.i, i64 %16
+  %17 = getelementptr inbounds [100 x i8], ptr %.val5.i, i64 %16
   %.sroa.0.0.copyload.i = load <2 x float>, ptr %17, align 4
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 8
   %.sroa.2.0.copyload.i = load <2 x float>, ptr %.sroa.2.0..sroa_idx.i, align 4
@@ -1687,12 +1660,12 @@ define <2 x float> @b2Body_GetLocalPoint(i64 %0, <2 x float> %1) local_unnamed_a
   %12 = load i32, ptr %11, align 8, !tbaa !19
   %.val.i6 = load ptr, ptr %10, align 8, !tbaa !24
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds %struct.b2SolverSet, ptr %.val.i6, i64 %13
+  %14 = getelementptr inbounds [88 x i8], ptr %.val.i6, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 44
   %16 = load i32, ptr %15, align 4, !tbaa !27
   %.val5.i = load ptr, ptr %14, align 8, !tbaa !14
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds %struct.b2BodySim, ptr %.val5.i, i64 %17
+  %18 = getelementptr inbounds [100 x i8], ptr %.val5.i, i64 %17
   %.sroa.0.0.copyload.i = load <2 x float>, ptr %18, align 4
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 8
   %.sroa.2.0.copyload.i = load <2 x float>, ptr %.sroa.2.0..sroa_idx.i, align 4
@@ -1731,12 +1704,12 @@ define <2 x float> @b2Body_GetWorldPoint(i64 %0, <2 x float> %1) local_unnamed_a
   %12 = load i32, ptr %11, align 8, !tbaa !19
   %.val.i6 = load ptr, ptr %10, align 8, !tbaa !24
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds %struct.b2SolverSet, ptr %.val.i6, i64 %13
+  %14 = getelementptr inbounds [88 x i8], ptr %.val.i6, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 44
   %16 = load i32, ptr %15, align 4, !tbaa !27
   %.val5.i = load ptr, ptr %14, align 8, !tbaa !14
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds %struct.b2BodySim, ptr %.val5.i, i64 %17
+  %18 = getelementptr inbounds [100 x i8], ptr %.val5.i, i64 %17
   %.sroa.0.0.copyload.i = load <2 x float>, ptr %18, align 4
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 8
   %.sroa.2.0.copyload.i = load <2 x float>, ptr %.sroa.2.0..sroa_idx.i, align 4
@@ -1777,12 +1750,12 @@ define <2 x float> @b2Body_GetLocalVector(i64 %0, <2 x float> %1) local_unnamed_
   %12 = load i32, ptr %11, align 8, !tbaa !19
   %.val.i7 = load ptr, ptr %10, align 8, !tbaa !24
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds %struct.b2SolverSet, ptr %.val.i7, i64 %13
+  %14 = getelementptr inbounds [88 x i8], ptr %.val.i7, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 44
   %16 = load i32, ptr %15, align 4, !tbaa !27
   %.val5.i = load ptr, ptr %14, align 8, !tbaa !14
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds %struct.b2BodySim, ptr %.val5.i, i64 %17
+  %18 = getelementptr inbounds [100 x i8], ptr %.val5.i, i64 %17
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 8
   %.sroa.2.0.copyload.i = load <2 x float>, ptr %.sroa.2.0..sroa_idx.i, align 4
   %.sroa.05.0.vec.extract.i = extractelement <2 x float> %.sroa.2.0.copyload.i, i64 0
@@ -1818,12 +1791,12 @@ define <2 x float> @b2Body_GetWorldVector(i64 %0, <2 x float> %1) local_unnamed_
   %12 = load i32, ptr %11, align 8, !tbaa !19
   %.val.i7 = load ptr, ptr %10, align 8, !tbaa !24
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds %struct.b2SolverSet, ptr %.val.i7, i64 %13
+  %14 = getelementptr inbounds [88 x i8], ptr %.val.i7, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 44
   %16 = load i32, ptr %15, align 4, !tbaa !27
   %.val5.i = load ptr, ptr %14, align 8, !tbaa !14
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds %struct.b2BodySim, ptr %.val5.i, i64 %17
+  %18 = getelementptr inbounds [100 x i8], ptr %.val5.i, i64 %17
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 8
   %.sroa.2.0.copyload.i = load <2 x float>, ptr %.sroa.2.0..sroa_idx.i, align 4
   %.sroa.05.0.vec.extract.i = extractelement <2 x float> %.sroa.2.0.copyload.i, i64 0
@@ -1859,12 +1832,12 @@ define void @b2Body_SetTransform(i64 %0, <2 x float> %1, <2 x float> %2) local_u
   %13 = load i32, ptr %12, align 8, !tbaa !19
   %.val.i57 = load ptr, ptr %11, align 8, !tbaa !24
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds %struct.b2SolverSet, ptr %.val.i57, i64 %14
+  %15 = getelementptr inbounds [88 x i8], ptr %.val.i57, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %10, i64 44
   %17 = load i32, ptr %16, align 4, !tbaa !27
   %.val5.i = load ptr, ptr %15, align 8, !tbaa !14
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds %struct.b2BodySim, ptr %.val5.i, i64 %18
+  %19 = getelementptr inbounds [100 x i8], ptr %.val5.i, i64 %18
   store <2 x float> %1, ptr %19, align 4
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store <2 x float> %2, ptr %20, align 4
@@ -1911,7 +1884,7 @@ define void @b2Body_SetTransform(i64 %0, <2 x float> %1, <2 x float> %2) local_u
   %.064 = phi i32 [ %.062, %.lr.ph ], [ %.0, %71 ]
   %.val = load ptr, ptr %40, align 8, !tbaa !165
   %42 = sext i32 %.064 to i64
-  %43 = getelementptr inbounds %struct.b2Shape, ptr %.val, i64 %42
+  %43 = getelementptr inbounds [288 x i8], ptr %.val, i64 %42
   %44 = tail call { <2 x float>, <2 x float> } @b2ComputeShapeAABB(ptr noundef %43, <2 x float> %1, <2 x float> %2) #10
   %45 = extractvalue { <2 x float>, <2 x float> } %44, 0
   %46 = extractvalue { <2 x float>, <2 x float> } %44, 1
@@ -2011,7 +1984,7 @@ b2GetBodyState.exit:                              ; preds = %1
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 44
   %16 = load i32, ptr %15, align 4, !tbaa !27
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds %struct.b2BodyState, ptr %.val5.i, i64 %17
+  %18 = getelementptr inbounds [32 x i8], ptr %.val5.i, i64 %17
   %.sroa.05.0.copyload = load <2 x float>, ptr %18, align 4
   br label %b2GetBodyState.exit.thread
 
@@ -2049,7 +2022,7 @@ b2GetBodyState.exit:                              ; preds = %1
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 44
   %16 = load i32, ptr %15, align 4, !tbaa !27
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds %struct.b2BodyState, ptr %.val5.i, i64 %17
+  %18 = getelementptr inbounds [32 x i8], ptr %.val5.i, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load float, ptr %19, align 4, !tbaa !117
   br label %b2GetBodyState.exit.thread
@@ -2113,7 +2086,7 @@ b2GetBodyState.exit:                              ; preds = %b2WakeBody.exit
   %28 = getelementptr inbounds nuw i8, ptr %9, i64 44
   %29 = load i32, ptr %28, align 4, !tbaa !27
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds %struct.b2BodyState, ptr %.val5.i, i64 %30
+  %31 = getelementptr inbounds [32 x i8], ptr %.val5.i, i64 %30
   store <2 x float> %1, ptr %31, align 4
   br label %b2GetBodyState.exit.thread
 
@@ -2176,7 +2149,7 @@ b2GetBodyState.exit:                              ; preds = %b2WakeBody.exit
   %31 = getelementptr inbounds nuw i8, ptr %9, i64 44
   %32 = load i32, ptr %31, align 4, !tbaa !27
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds %struct.b2BodyState, ptr %.val5.i, i64 %33
+  %34 = getelementptr inbounds [32 x i8], ptr %.val5.i, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store float %1, ptr %35, align 4, !tbaa !117
   br label %b2GetBodyState.exit.thread
@@ -2214,10 +2187,10 @@ b2GetBodyState.exit:                              ; preds = %2
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 44
   %18 = load i32, ptr %17, align 4, !tbaa !27
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds %struct.b2BodyState, ptr %.val5.i, i64 %19
+  %20 = getelementptr inbounds [32 x i8], ptr %.val5.i, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %.val.i18, i64 176
   %.val17 = load ptr, ptr %21, align 8, !tbaa !14
-  %22 = getelementptr inbounds %struct.b2BodySim, ptr %.val17, i64 %19
+  %22 = getelementptr inbounds [100 x i8], ptr %.val17, i64 %19
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %25 = load <2 x float>, ptr %24, align 4
@@ -2282,10 +2255,10 @@ b2GetBodyState.exit:                              ; preds = %2
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 44
   %18 = load i32, ptr %17, align 4, !tbaa !27
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds %struct.b2BodyState, ptr %.val5.i, i64 %19
+  %20 = getelementptr inbounds [32 x i8], ptr %.val5.i, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %.val.i16, i64 176
   %.val15 = load ptr, ptr %21, align 8, !tbaa !14
-  %22 = getelementptr inbounds %struct.b2BodySim, ptr %.val15, i64 %19
+  %22 = getelementptr inbounds [100 x i8], ptr %.val15, i64 %19
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load <2 x float>, ptr %23, align 4
   %foldExtExtBinop = fsub <2 x float> %1, %24
@@ -2348,7 +2321,7 @@ b2WakeBody.exit:                                  ; preds = %12
   %24 = load i32, ptr %23, align 4, !tbaa !27
   %.val5.i = load ptr, ptr %22, align 8, !tbaa !14
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds %struct.b2BodySim, ptr %.val5.i, i64 %25
+  %26 = getelementptr inbounds [100 x i8], ptr %.val5.i, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 48
   %28 = load <2 x float>, ptr %27, align 4
   %.sroa.02.4.vec.insert.i = fadd <2 x float> %1, %28
@@ -2411,7 +2384,7 @@ b2WakeBody.exit:                                  ; preds = %11
   %23 = load i32, ptr %22, align 4, !tbaa !27
   %.val5.i = load ptr, ptr %21, align 8, !tbaa !14
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds %struct.b2BodySim, ptr %.val5.i, i64 %24
+  %25 = getelementptr inbounds [100 x i8], ptr %.val5.i, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 48
   %27 = load <2 x float>, ptr %26, align 4
   %.sroa.02.4.vec.insert.i = fadd <2 x float> %1, %27
@@ -2460,7 +2433,7 @@ b2WakeBody.exit:                                  ; preds = %11
   %23 = load i32, ptr %22, align 4, !tbaa !27
   %.val5.i = load ptr, ptr %21, align 8, !tbaa !14
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds %struct.b2BodySim, ptr %.val5.i, i64 %24
+  %25 = getelementptr inbounds [100 x i8], ptr %.val5.i, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 56
   %27 = load float, ptr %26, align 4, !tbaa !200
   %28 = fadd float %1, %27
@@ -2510,9 +2483,9 @@ b2WakeBody.exit:                                  ; preds = %12
   %25 = getelementptr inbounds nuw i8, ptr %.val, i64 192
   %.val23 = load ptr, ptr %25, align 8, !tbaa !18
   %26 = sext i32 %22 to i64
-  %27 = getelementptr inbounds %struct.b2BodyState, ptr %.val23, i64 %26
+  %27 = getelementptr inbounds [32 x i8], ptr %.val23, i64 %26
   %.val22 = load ptr, ptr %24, align 8, !tbaa !14
-  %28 = getelementptr inbounds %struct.b2BodySim, ptr %.val22, i64 %26
+  %28 = getelementptr inbounds [100 x i8], ptr %.val22, i64 %26
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 60
   %30 = load float, ptr %29, align 4, !tbaa !192
   %31 = load <2 x float>, ptr %27, align 4
@@ -2589,9 +2562,9 @@ b2WakeBody.exit:                                  ; preds = %11
   %24 = getelementptr inbounds nuw i8, ptr %.val, i64 192
   %.val17 = load ptr, ptr %24, align 8, !tbaa !18
   %25 = sext i32 %21 to i64
-  %26 = getelementptr inbounds %struct.b2BodyState, ptr %.val17, i64 %25
+  %26 = getelementptr inbounds [32 x i8], ptr %.val17, i64 %25
   %.val16 = load ptr, ptr %23, align 8, !tbaa !14
-  %27 = getelementptr inbounds %struct.b2BodySim, ptr %.val16, i64 %25
+  %27 = getelementptr inbounds [100 x i8], ptr %.val16, i64 %25
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 60
   %29 = load float, ptr %28, align 4, !tbaa !192
   %30 = load <2 x float>, ptr %26, align 4
@@ -2651,9 +2624,9 @@ b2WakeBody.exit:                                  ; preds = %10
   %23 = getelementptr inbounds nuw i8, ptr %.val15, i64 192
   %.val17 = load ptr, ptr %23, align 8, !tbaa !18
   %24 = sext i32 %20 to i64
-  %25 = getelementptr inbounds %struct.b2BodyState, ptr %.val17, i64 %24
+  %25 = getelementptr inbounds [32 x i8], ptr %.val17, i64 %24
   %.val16 = load ptr, ptr %22, align 8, !tbaa !14
-  %26 = getelementptr inbounds %struct.b2BodySim, ptr %.val16, i64 %24
+  %26 = getelementptr inbounds [100 x i8], ptr %.val16, i64 %24
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 64
   %28 = load float, ptr %27, align 4, !tbaa !193
   %29 = fmul float %1, %28
@@ -2728,9 +2701,9 @@ define void @b2Body_SetType(i64 %0, i32 noundef %1) local_unnamed_addr #7 {
   %23 = and i32 %.02.i, 1
   %.val.i202 = load ptr, ptr %20, align 8, !tbaa !160
   %24 = sext i32 %22 to i64
-  %25 = getelementptr inbounds %struct.b2Contact, ptr %.val.i202, i64 %24
+  %25 = getelementptr inbounds [68 x i8], ptr %.val.i202, i64 %24
   %26 = zext nneg i32 %23 to i64
-  %27 = getelementptr inbounds nuw %struct.b2ContactEdge, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [12 x i8], ptr %25, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 20
   %29 = load i32, ptr %28, align 4, !tbaa !161
   tail call void @b2DestroyContact(ptr noundef nonnull %5, ptr noundef %25, i1 noundef zeroext false) #10
@@ -2763,7 +2736,7 @@ b2WakeBody.exit:                                  ; preds = %b2DestroyBodyContac
   %37 = and i32 %.0226, 1
   %.val197 = load ptr, ptr %34, align 8, !tbaa !156
   %38 = sext i32 %36 to i64
-  %39 = getelementptr inbounds %struct.b2Joint, ptr %.val197, i64 %38
+  %39 = getelementptr inbounds [72 x i8], ptr %.val197, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 48
   %41 = load i32, ptr %40, align 8, !tbaa !201
   %.not185 = icmp eq i32 %41, -1
@@ -2778,11 +2751,11 @@ b2WakeBody.exit:                                  ; preds = %b2DestroyBodyContac
   %45 = load i32, ptr %44, align 4, !tbaa !203
   %.val188 = load ptr, ptr %6, align 8, !tbaa !10
   %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds %struct.b2Body, ptr %.val188, i64 %46
+  %47 = getelementptr inbounds [128 x i8], ptr %.val188, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %39, i64 32
   %49 = load i32, ptr %48, align 4, !tbaa !203
   %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds %struct.b2Body, ptr %.val188, i64 %50
+  %51 = getelementptr inbounds [128 x i8], ptr %.val188, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %47, i64 40
   %53 = load i32, ptr %52, align 8, !tbaa !19
   %54 = icmp sgt i32 %53, 2
@@ -2804,7 +2777,7 @@ b2WakeBody.exit203:                               ; preds = %43, %55
 
 b2WakeBody.exit204:                               ; preds = %b2WakeBody.exit203, %59
   %60 = zext nneg i32 %37 to i64
-  %61 = getelementptr inbounds nuw %struct.b2JointEdge, ptr %44, i64 %60
+  %61 = getelementptr inbounds nuw [12 x i8], ptr %44, i64 %60
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %.0 = load i32, ptr %62, align 4, !tbaa !164
   %.not = icmp eq i32 %.0, -1
@@ -2847,7 +2820,7 @@ b2WakeBody.exit204:                               ; preds = %b2WakeBody.exit203,
   %79 = and i32 %.0170241, 1
   %.val196 = load ptr, ptr %76, align 8, !tbaa !156
   %80 = sext i32 %78 to i64
-  %81 = getelementptr inbounds %struct.b2Joint, ptr %.val196, i64 %80
+  %81 = getelementptr inbounds [72 x i8], ptr %.val196, i64 %80
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %83 = load i32, ptr %82, align 8, !tbaa !205
   switch i32 %83, label %85 [
@@ -2865,7 +2838,7 @@ b2WakeBody.exit204:                               ; preds = %b2WakeBody.exit203,
 
 85:                                               ; preds = %.sink.split, %77
   %86 = zext nneg i32 %79 to i64
-  %87 = getelementptr inbounds nuw %struct.b2JointEdge, ptr %81, i64 %86
+  %87 = getelementptr inbounds nuw [12 x i8], ptr %81, i64 %86
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 28
   %.0170 = load i32, ptr %88, align 4, !tbaa !164
   %.not182 = icmp eq i32 %.0170, -1
@@ -2875,12 +2848,12 @@ b2WakeBody.exit204:                               ; preds = %b2WakeBody.exit203,
   %89 = load i32, ptr %14, align 8, !tbaa !19
   %.val.i205 = load ptr, ptr %65, align 8, !tbaa !24
   %90 = sext i32 %89 to i64
-  %91 = getelementptr inbounds %struct.b2SolverSet, ptr %.val.i205, i64 %90
+  %91 = getelementptr inbounds [88 x i8], ptr %.val.i205, i64 %90
   %92 = getelementptr inbounds nuw i8, ptr %9, i64 44
   %93 = load i32, ptr %92, align 4, !tbaa !27
   %.val5.i = load ptr, ptr %91, align 8, !tbaa !14
   %94 = sext i32 %93 to i64
-  %95 = getelementptr inbounds %struct.b2BodySim, ptr %.val5.i, i64 %94
+  %95 = getelementptr inbounds [100 x i8], ptr %.val5.i, i64 %94
   %.sroa.0.0.copyload.i = load <2 x float>, ptr %95, align 4
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %95, i64 8
   %.sroa.2.0.copyload.i = load <2 x float>, ptr %.sroa.2.0..sroa_idx.i, align 4
@@ -2898,7 +2871,7 @@ b2WakeBody.exit204:                               ; preds = %b2WakeBody.exit203,
   %.0171246 = phi i32 [ %97, %.lr.ph248 ], [ %104, %100 ]
   %.val201 = load ptr, ptr %98, align 8, !tbaa !165
   %101 = sext i32 %.0171246 to i64
-  %102 = getelementptr inbounds %struct.b2Shape, ptr %.val201, i64 %101
+  %102 = getelementptr inbounds [288 x i8], ptr %.val201, i64 %101
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 12
   %104 = load i32, ptr %103, align 4, !tbaa !190
   tail call void @b2DestroyShapeProxy(ptr noundef %102, ptr noundef nonnull %99) #10
@@ -2924,7 +2897,7 @@ b2WakeBody.exit204:                               ; preds = %b2WakeBody.exit203,
   %114 = getelementptr inbounds nuw i8, ptr %5, i64 1192
   %.val37.i = load ptr, ptr %114, align 8, !tbaa !177
   %115 = sext i32 %111 to i64
-  %116 = getelementptr inbounds %struct.b2Island, ptr %.val37.i, i64 %115
+  %116 = getelementptr inbounds [56 x i8], ptr %.val37.i, i64 %115
   %117 = getelementptr inbounds nuw i8, ptr %9, i64 80
   %118 = load i32, ptr %117, align 8, !tbaa !136
   %.not.i206 = icmp eq i32 %118, -1
@@ -2938,7 +2911,7 @@ b2WakeBody.exit204:                               ; preds = %b2WakeBody.exit203,
 119:                                              ; preds = %113
   %.val36.i = load ptr, ptr %6, align 8, !tbaa !10
   %120 = sext i32 %118 to i64
-  %121 = getelementptr inbounds %struct.b2Body, ptr %.val36.i, i64 %120
+  %121 = getelementptr inbounds [128 x i8], ptr %.val36.i, i64 %120
   %122 = getelementptr inbounds nuw i8, ptr %9, i64 84
   %123 = load i32, ptr %122, align 4, !tbaa !137
   %124 = getelementptr inbounds nuw i8, ptr %121, i64 84
@@ -2954,7 +2927,7 @@ b2WakeBody.exit204:                               ; preds = %b2WakeBody.exit203,
 128:                                              ; preds = %125
   %.val.i207 = load ptr, ptr %6, align 8, !tbaa !10
   %129 = sext i32 %126 to i64
-  %130 = getelementptr inbounds %struct.b2Body, ptr %.val.i207, i64 %129
+  %130 = getelementptr inbounds [128 x i8], ptr %.val.i207, i64 %129
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 80
   store i32 %118, ptr %131, align 8, !tbaa !136
   br label %132
@@ -3007,7 +2980,7 @@ b2RemoveBodyFromIsland.exit:                      ; preds = %108, %151
   %153 = load i32, ptr %152, align 4, !tbaa !27
   %.val193 = load ptr, ptr %.val190, align 8, !tbaa !14
   %154 = sext i32 %153 to i64
-  %155 = getelementptr inbounds %struct.b2BodySim, ptr %.val193, i64 %154
+  %155 = getelementptr inbounds [100 x i8], ptr %.val193, i64 %154
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 92
   store i8 0, ptr %156, align 4, !tbaa !113
   %157 = load i32, ptr %33, align 4, !tbaa !133
@@ -3024,10 +2997,10 @@ b2RemoveBodyFromIsland.exit:                      ; preds = %108, %151
   %161 = and i32 %.0172232, 1
   %.val195 = load ptr, ptr %158, align 8, !tbaa !156
   %162 = sext i32 %160 to i64
-  %163 = getelementptr inbounds %struct.b2Joint, ptr %.val195, i64 %162
+  %163 = getelementptr inbounds [72 x i8], ptr %.val195, i64 %162
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 20
   %165 = zext nneg i32 %161 to i64
-  %166 = getelementptr inbounds nuw %struct.b2JointEdge, ptr %164, i64 %165
+  %166 = getelementptr inbounds nuw [12 x i8], ptr %164, i64 %165
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 8
   %168 = load i32, ptr %167, align 4, !tbaa !157
   %169 = getelementptr inbounds nuw i8, ptr %163, i64 8
@@ -3039,10 +3012,10 @@ b2RemoveBodyFromIsland.exit:                      ; preds = %108, %151
   %.val186 = load ptr, ptr %6, align 8, !tbaa !10
   %173 = xor i32 %161, 1
   %174 = zext nneg i32 %173 to i64
-  %175 = getelementptr inbounds nuw %struct.b2JointEdge, ptr %164, i64 %174
+  %175 = getelementptr inbounds nuw [12 x i8], ptr %164, i64 %174
   %176 = load i32, ptr %175, align 4, !tbaa !203
   %177 = sext i32 %176 to i64
-  %178 = getelementptr inbounds %struct.b2Body, ptr %.val186, i64 %177
+  %178 = getelementptr inbounds [128 x i8], ptr %.val186, i64 %177
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 40
   %180 = load i32, ptr %179, align 8, !tbaa !19
   %181 = icmp eq i32 %180, 0
@@ -3067,9 +3040,9 @@ b2RemoveBodyFromIsland.exit:                      ; preds = %108, %151
   %184 = load i32, ptr %14, align 8, !tbaa !19
   %.val.i208 = load ptr, ptr %107, align 8, !tbaa !24
   %185 = sext i32 %184 to i64
-  %186 = getelementptr inbounds %struct.b2SolverSet, ptr %.val.i208, i64 %185
+  %186 = getelementptr inbounds [88 x i8], ptr %.val.i208, i64 %185
   %.val5.i209 = load ptr, ptr %186, align 8, !tbaa !14
-  %187 = getelementptr inbounds %struct.b2BodySim, ptr %.val5.i209, i64 %.pre-phi
+  %187 = getelementptr inbounds [100 x i8], ptr %.val5.i209, i64 %.pre-phi
   %.sroa.0.0.copyload.i210 = load <2 x float>, ptr %187, align 4
   %.sroa.2.0..sroa_idx.i211 = getelementptr inbounds nuw i8, ptr %187, i64 8
   %.sroa.2.0.copyload.i212 = load <2 x float>, ptr %.sroa.2.0..sroa_idx.i211, align 4
@@ -3087,7 +3060,7 @@ b2RemoveBodyFromIsland.exit:                      ; preds = %108, %151
   %.0173236 = phi i32 [ %189, %.lr.ph238 ], [ %196, %192 ]
   %.val200 = load ptr, ptr %190, align 8, !tbaa !165
   %193 = sext i32 %.0173236 to i64
-  %194 = getelementptr inbounds %struct.b2Shape, ptr %.val200, i64 %193
+  %194 = getelementptr inbounds [288 x i8], ptr %.val200, i64 %193
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 12
   %196 = load i32, ptr %195, align 4, !tbaa !190
   tail call void @b2DestroyShapeProxy(ptr noundef %194, ptr noundef nonnull %191) #10
@@ -3099,12 +3072,12 @@ b2RemoveBodyFromIsland.exit:                      ; preds = %108, %151
   %198 = load i32, ptr %14, align 8, !tbaa !19
   %.val.i215 = load ptr, ptr %107, align 8, !tbaa !24
   %199 = sext i32 %198 to i64
-  %200 = getelementptr inbounds %struct.b2SolverSet, ptr %.val.i215, i64 %199
+  %200 = getelementptr inbounds [88 x i8], ptr %.val.i215, i64 %199
   %201 = getelementptr inbounds nuw i8, ptr %9, i64 44
   %202 = load i32, ptr %201, align 4, !tbaa !27
   %.val5.i216 = load ptr, ptr %200, align 8, !tbaa !14
   %203 = sext i32 %202 to i64
-  %204 = getelementptr inbounds %struct.b2BodySim, ptr %.val5.i216, i64 %203
+  %204 = getelementptr inbounds [100 x i8], ptr %.val5.i216, i64 %203
   %.sroa.0.0.copyload.i217 = load <2 x float>, ptr %204, align 4
   %.sroa.2.0..sroa_idx.i218 = getelementptr inbounds nuw i8, ptr %204, i64 8
   %.sroa.2.0.copyload.i219 = load <2 x float>, ptr %.sroa.2.0..sroa_idx.i218, align 4
@@ -3122,7 +3095,7 @@ b2RemoveBodyFromIsland.exit:                      ; preds = %108, %151
   %.0175228 = phi i32 [ %206, %.lr.ph230 ], [ %213, %209 ]
   %.val199 = load ptr, ptr %207, align 8, !tbaa !165
   %210 = sext i32 %.0175228 to i64
-  %211 = getelementptr inbounds %struct.b2Shape, ptr %.val199, i64 %210
+  %211 = getelementptr inbounds [288 x i8], ptr %.val199, i64 %210
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 12
   %213 = load i32, ptr %212, align 4, !tbaa !190
   tail call void @b2DestroyShapeProxy(ptr noundef %211, ptr noundef nonnull %208) #10
@@ -3145,19 +3118,19 @@ b2RemoveBodyFromIsland.exit:                      ; preds = %108, %151
   %218 = and i32 %.0174250, 1
   %.val194 = load ptr, ptr %215, align 8, !tbaa !156
   %219 = sext i32 %217 to i64
-  %220 = getelementptr inbounds %struct.b2Joint, ptr %.val194, i64 %219
+  %220 = getelementptr inbounds [72 x i8], ptr %.val194, i64 %219
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 20
   %222 = zext nneg i32 %218 to i64
-  %223 = getelementptr inbounds nuw %struct.b2JointEdge, ptr %221, i64 %222
+  %223 = getelementptr inbounds nuw [12 x i8], ptr %221, i64 %222
   %224 = getelementptr inbounds nuw i8, ptr %223, i64 8
   %225 = load i32, ptr %224, align 4, !tbaa !157
   %226 = xor i32 %218, 1
   %227 = zext nneg i32 %226 to i64
-  %228 = getelementptr inbounds nuw %struct.b2JointEdge, ptr %221, i64 %227
+  %228 = getelementptr inbounds nuw [12 x i8], ptr %221, i64 %227
   %229 = load i32, ptr %228, align 4, !tbaa !203
   %.val = load ptr, ptr %6, align 8, !tbaa !10
   %230 = sext i32 %229 to i64
-  %231 = getelementptr inbounds %struct.b2Body, ptr %.val, i64 %230
+  %231 = getelementptr inbounds [128 x i8], ptr %.val, i64 %230
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 40
   %233 = load i32, ptr %232, align 8, !tbaa !19
   %234 = icmp eq i32 %233, 1
@@ -3342,12 +3315,12 @@ define <2 x float> @b2Body_GetLocalCenterOfMass(i64 %0) local_unnamed_addr #7 {
   %11 = load i32, ptr %10, align 8, !tbaa !19
   %.val.i5 = load ptr, ptr %9, align 8, !tbaa !24
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds %struct.b2SolverSet, ptr %.val.i5, i64 %12
+  %13 = getelementptr inbounds [88 x i8], ptr %.val.i5, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 44
   %15 = load i32, ptr %14, align 4, !tbaa !27
   %.val5.i = load ptr, ptr %13, align 8, !tbaa !14
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds %struct.b2BodySim, ptr %.val5.i, i64 %16
+  %17 = getelementptr inbounds [100 x i8], ptr %.val5.i, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %.sroa.04.0.copyload = load <2 x float>, ptr %18, align 4
   ret <2 x float> %.sroa.04.0.copyload
@@ -3370,12 +3343,12 @@ define <2 x float> @b2Body_GetWorldCenterOfMass(i64 %0) local_unnamed_addr #7 {
   %11 = load i32, ptr %10, align 8, !tbaa !19
   %.val.i5 = load ptr, ptr %9, align 8, !tbaa !24
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds %struct.b2SolverSet, ptr %.val.i5, i64 %12
+  %13 = getelementptr inbounds [88 x i8], ptr %.val.i5, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 44
   %15 = load i32, ptr %14, align 4, !tbaa !27
   %.val5.i = load ptr, ptr %13, align 8, !tbaa !14
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds %struct.b2BodySim, ptr %.val5.i, i64 %16
+  %17 = getelementptr inbounds [100 x i8], ptr %.val5.i, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %.sroa.04.0.copyload = load <2 x float>, ptr %18, align 4
   ret <2 x float> %.sroa.04.0.copyload
@@ -3408,12 +3381,12 @@ define void @b2Body_SetMassData(i64 %0, <2 x float> %1, <2 x float> %2) local_un
   %18 = load i32, ptr %17, align 8, !tbaa !19
   %.val.i21 = load ptr, ptr %16, align 8, !tbaa !24
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds %struct.b2SolverSet, ptr %.val.i21, i64 %19
+  %20 = getelementptr inbounds [88 x i8], ptr %.val.i21, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 44
   %22 = load i32, ptr %21, align 4, !tbaa !27
   %.val5.i = load ptr, ptr %20, align 8, !tbaa !14
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds %struct.b2BodySim, ptr %.val5.i, i64 %23
+  %24 = getelementptr inbounds [100 x i8], ptr %.val5.i, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %15, i64 88
   store float %11, ptr %25, align 8, !tbaa !140
   %26 = getelementptr inbounds nuw i8, ptr %15, i64 92
@@ -3482,12 +3455,12 @@ define { <2 x float>, <2 x float> } @b2Body_GetMassData(i64 %0) local_unnamed_ad
   %11 = load i32, ptr %10, align 8, !tbaa !19
   %.val.i9 = load ptr, ptr %9, align 8, !tbaa !24
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds %struct.b2SolverSet, ptr %.val.i9, i64 %12
+  %13 = getelementptr inbounds [88 x i8], ptr %.val.i9, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 44
   %15 = load i32, ptr %14, align 4, !tbaa !27
   %.val5.i = load ptr, ptr %13, align 8, !tbaa !14
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds %struct.b2BodySim, ptr %.val5.i, i64 %16
+  %17 = getelementptr inbounds [100 x i8], ptr %.val5.i, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 88
   %19 = load float, ptr %18, align 8, !tbaa !140
   %.sroa.06.0.vec.insert = insertelement <2 x float> poison, float %19, i64 0
@@ -3549,12 +3522,12 @@ define void @b2Body_SetLinearDamping(i64 %0, float noundef %1) local_unnamed_add
   %14 = load i32, ptr %13, align 8, !tbaa !19
   %.val.i6 = load ptr, ptr %12, align 8, !tbaa !24
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds %struct.b2SolverSet, ptr %.val.i6, i64 %15
+  %16 = getelementptr inbounds [88 x i8], ptr %.val.i6, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 44
   %18 = load i32, ptr %17, align 4, !tbaa !27
   %.val5.i = load ptr, ptr %16, align 8, !tbaa !14
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds %struct.b2BodySim, ptr %.val5.i, i64 %19
+  %20 = getelementptr inbounds [100 x i8], ptr %.val5.i, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 76
   store float %1, ptr %21, align 4, !tbaa !102
   br label %22
@@ -3580,12 +3553,12 @@ define float @b2Body_GetLinearDamping(i64 %0) local_unnamed_addr #0 {
   %11 = load i32, ptr %10, align 8, !tbaa !19
   %.val.i4 = load ptr, ptr %9, align 8, !tbaa !24
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds %struct.b2SolverSet, ptr %.val.i4, i64 %12
+  %13 = getelementptr inbounds [88 x i8], ptr %.val.i4, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 44
   %15 = load i32, ptr %14, align 4, !tbaa !27
   %.val5.i = load ptr, ptr %13, align 8, !tbaa !14
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds %struct.b2BodySim, ptr %.val5.i, i64 %16
+  %17 = getelementptr inbounds [100 x i8], ptr %.val5.i, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 76
   %19 = load float, ptr %18, align 4, !tbaa !102
   ret float %19
@@ -3612,12 +3585,12 @@ define void @b2Body_SetAngularDamping(i64 %0, float noundef %1) local_unnamed_ad
   %14 = load i32, ptr %13, align 8, !tbaa !19
   %.val.i6 = load ptr, ptr %12, align 8, !tbaa !24
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds %struct.b2SolverSet, ptr %.val.i6, i64 %15
+  %16 = getelementptr inbounds [88 x i8], ptr %.val.i6, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 44
   %18 = load i32, ptr %17, align 4, !tbaa !27
   %.val5.i = load ptr, ptr %16, align 8, !tbaa !14
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds %struct.b2BodySim, ptr %.val5.i, i64 %19
+  %20 = getelementptr inbounds [100 x i8], ptr %.val5.i, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 80
   store float %1, ptr %21, align 4, !tbaa !104
   br label %22
@@ -3643,12 +3616,12 @@ define float @b2Body_GetAngularDamping(i64 %0) local_unnamed_addr #0 {
   %11 = load i32, ptr %10, align 8, !tbaa !19
   %.val.i4 = load ptr, ptr %9, align 8, !tbaa !24
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds %struct.b2SolverSet, ptr %.val.i4, i64 %12
+  %13 = getelementptr inbounds [88 x i8], ptr %.val.i4, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 44
   %15 = load i32, ptr %14, align 4, !tbaa !27
   %.val5.i = load ptr, ptr %13, align 8, !tbaa !14
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds %struct.b2BodySim, ptr %.val5.i, i64 %16
+  %17 = getelementptr inbounds [100 x i8], ptr %.val5.i, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 80
   %19 = load float, ptr %18, align 4, !tbaa !104
   ret float %19
@@ -3675,12 +3648,12 @@ define void @b2Body_SetGravityScale(i64 %0, float noundef %1) local_unnamed_addr
   %14 = load i32, ptr %13, align 8, !tbaa !19
   %.val.i6 = load ptr, ptr %12, align 8, !tbaa !24
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds %struct.b2SolverSet, ptr %.val.i6, i64 %15
+  %16 = getelementptr inbounds [88 x i8], ptr %.val.i6, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 44
   %18 = load i32, ptr %17, align 4, !tbaa !27
   %.val5.i = load ptr, ptr %16, align 8, !tbaa !14
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds %struct.b2BodySim, ptr %.val5.i, i64 %19
+  %20 = getelementptr inbounds [100 x i8], ptr %.val5.i, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 84
   store float %1, ptr %21, align 4, !tbaa !106
   br label %22
@@ -3706,12 +3679,12 @@ define float @b2Body_GetGravityScale(i64 %0) local_unnamed_addr #0 {
   %11 = load i32, ptr %10, align 8, !tbaa !19
   %.val.i4 = load ptr, ptr %9, align 8, !tbaa !24
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds %struct.b2SolverSet, ptr %.val.i4, i64 %12
+  %13 = getelementptr inbounds [88 x i8], ptr %.val.i4, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 44
   %15 = load i32, ptr %14, align 4, !tbaa !27
   %.val5.i = load ptr, ptr %13, align 8, !tbaa !14
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds %struct.b2BodySim, ptr %.val5.i, i64 %16
+  %17 = getelementptr inbounds [100 x i8], ptr %.val5.i, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 84
   %19 = load float, ptr %18, align 4, !tbaa !106
   ret float %19
@@ -3773,7 +3746,7 @@ b2WakeBody.exit:                                  ; preds = %14
   %20 = load i32, ptr %19, align 4, !tbaa !135
   %.val = load ptr, ptr %18, align 8, !tbaa !177
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds %struct.b2Island, ptr %.val, i64 %21
+  %22 = getelementptr inbounds [56 x i8], ptr %.val, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 52
   %24 = load i32, ptr %23, align 4, !tbaa !213
   %25 = icmp sgt i32 %24, 0
@@ -3939,9 +3912,9 @@ define void @b2Body_Disable(i64 %0) local_unnamed_addr #0 {
   %19 = and i32 %.02.i, 1
   %.val.i50 = load ptr, ptr %16, align 8, !tbaa !160
   %20 = sext i32 %18 to i64
-  %21 = getelementptr inbounds %struct.b2Contact, ptr %.val.i50, i64 %20
+  %21 = getelementptr inbounds [68 x i8], ptr %.val.i50, i64 %20
   %22 = zext nneg i32 %19 to i64
-  %23 = getelementptr inbounds nuw %struct.b2ContactEdge, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [12 x i8], ptr %21, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 20
   %25 = load i32, ptr %24, align 4, !tbaa !161
   tail call void @b2DestroyContact(ptr noundef nonnull %4, ptr noundef %21, i1 noundef zeroext true) #10
@@ -3959,7 +3932,7 @@ b2DestroyBodyContacts.exit:                       ; preds = %17, %14
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 1192
   %.val37.i = load ptr, ptr %30, align 8, !tbaa !177
   %31 = sext i32 %27 to i64
-  %32 = getelementptr inbounds %struct.b2Island, ptr %.val37.i, i64 %31
+  %32 = getelementptr inbounds [56 x i8], ptr %.val37.i, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %10, i64 80
   %34 = load i32, ptr %33, align 8, !tbaa !136
   %.not.i51 = icmp eq i32 %34, -1
@@ -3973,7 +3946,7 @@ b2DestroyBodyContacts.exit:                       ; preds = %17, %14
 35:                                               ; preds = %29
   %.val36.i = load ptr, ptr %7, align 8, !tbaa !10
   %36 = sext i32 %34 to i64
-  %37 = getelementptr inbounds %struct.b2Body, ptr %.val36.i, i64 %36
+  %37 = getelementptr inbounds [128 x i8], ptr %.val36.i, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %10, i64 84
   %39 = load i32, ptr %38, align 4, !tbaa !137
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 84
@@ -3989,7 +3962,7 @@ b2DestroyBodyContacts.exit:                       ; preds = %17, %14
 44:                                               ; preds = %41
   %.val.i52 = load ptr, ptr %7, align 8, !tbaa !10
   %45 = sext i32 %42 to i64
-  %46 = getelementptr inbounds %struct.b2Body, ptr %.val.i52, i64 %45
+  %46 = getelementptr inbounds [128 x i8], ptr %.val.i52, i64 %45
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 80
   store i32 %34, ptr %47, align 8, !tbaa !136
   br label %48
@@ -4052,7 +4025,7 @@ b2RemoveBodyFromIsland.exit:                      ; preds = %b2DestroyBodyContac
   %.054 = phi i32 [ %69, %.lr.ph ], [ %76, %72 ]
   %.val49 = load ptr, ptr %70, align 8, !tbaa !165
   %73 = sext i32 %.054 to i64
-  %74 = getelementptr inbounds %struct.b2Shape, ptr %.val49, i64 %73
+  %74 = getelementptr inbounds [288 x i8], ptr %.val49, i64 %73
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 12
   %76 = load i32, ptr %75, align 4, !tbaa !190
   tail call void @b2DestroyShapeProxy(ptr noundef %74, ptr noundef nonnull %71) #10
@@ -4064,7 +4037,7 @@ b2RemoveBodyFromIsland.exit:                      ; preds = %b2DestroyBodyContac
   %78 = load i32, ptr %11, align 8, !tbaa !19
   %.val46 = load ptr, ptr %77, align 8, !tbaa !24
   %79 = sext i32 %78 to i64
-  %80 = getelementptr inbounds %struct.b2SolverSet, ptr %.val46, i64 %79
+  %80 = getelementptr inbounds [88 x i8], ptr %.val46, i64 %79
   %81 = getelementptr inbounds nuw i8, ptr %.val46, i64 88
   tail call void @b2TransferBody(ptr noundef nonnull %4, ptr noundef nonnull %81, ptr noundef %80, ptr noundef nonnull %10) #10
   %82 = getelementptr inbounds nuw i8, ptr %10, i64 68
@@ -4082,9 +4055,9 @@ b2RemoveBodyFromIsland.exit:                      ; preds = %b2DestroyBodyContac
   %87 = and i32 %.04156, 1
   %.val47 = load ptr, ptr %84, align 8, !tbaa !156
   %88 = sext i32 %86 to i64
-  %89 = getelementptr inbounds %struct.b2Joint, ptr %.val47, i64 %88
+  %89 = getelementptr inbounds [72 x i8], ptr %.val47, i64 %88
   %90 = zext nneg i32 %87 to i64
-  %91 = getelementptr inbounds nuw %struct.b2JointEdge, ptr %89, i64 %90
+  %91 = getelementptr inbounds nuw [12 x i8], ptr %89, i64 %90
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 28
   %93 = load i32, ptr %92, align 4, !tbaa !157
   %94 = getelementptr inbounds nuw i8, ptr %89, i64 8
@@ -4107,7 +4080,7 @@ b2RemoveBodyFromIsland.exit:                      ; preds = %b2DestroyBodyContac
   %102 = phi i32 [ %.pre, %100 ], [ %95, %97 ]
   %.val = load ptr, ptr %77, align 8, !tbaa !24
   %103 = sext i32 %102 to i64
-  %104 = getelementptr inbounds %struct.b2SolverSet, ptr %.val, i64 %103
+  %104 = getelementptr inbounds [88 x i8], ptr %.val, i64 %103
   tail call void @b2TransferJoint(ptr noundef nonnull %4, ptr noundef nonnull %81, ptr noundef %104, ptr noundef nonnull %89) #10
   br label %105
 
@@ -4155,17 +4128,17 @@ define void @b2Body_Enable(i64 %0) local_unnamed_addr #7 {
   %17 = load i32, ptr %16, align 8, !tbaa !145
   %18 = icmp eq i32 %17, 0
   %19 = select i1 %18, i64 0, i64 2
-  %20 = getelementptr inbounds nuw %struct.b2SolverSet, ptr %.val72, i64 %19
+  %20 = getelementptr inbounds nuw [88 x i8], ptr %.val72, i64 %19
   tail call void @b2TransferBody(ptr noundef nonnull %4, ptr noundef %20, ptr noundef nonnull %15, ptr noundef nonnull %10) #10
   %21 = load i32, ptr %11, align 8, !tbaa !19
   %.val.i75 = load ptr, ptr %14, align 8, !tbaa !24
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds %struct.b2SolverSet, ptr %.val.i75, i64 %22
+  %23 = getelementptr inbounds [88 x i8], ptr %.val.i75, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %10, i64 44
   %25 = load i32, ptr %24, align 4, !tbaa !27
   %.val5.i = load ptr, ptr %23, align 8, !tbaa !14
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds %struct.b2BodySim, ptr %.val5.i, i64 %26
+  %27 = getelementptr inbounds [100 x i8], ptr %.val5.i, i64 %26
   %.sroa.0.0.copyload.i = load <2 x float>, ptr %27, align 4
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %27, i64 8
   %.sroa.2.0.copyload.i = load <2 x float>, ptr %.sroa.2.0..sroa_idx.i, align 4
@@ -4184,7 +4157,7 @@ define void @b2Body_Enable(i64 %0) local_unnamed_addr #7 {
   %.05877 = phi i32 [ %30, %.lr.ph ], [ %37, %33 ]
   %.val74 = load ptr, ptr %31, align 8, !tbaa !165
   %34 = sext i32 %.05877 to i64
-  %35 = getelementptr inbounds %struct.b2Shape, ptr %.val74, i64 %34
+  %35 = getelementptr inbounds [288 x i8], ptr %.val74, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 12
   %37 = load i32, ptr %36, align 4, !tbaa !190
   tail call void @b2CreateShapeProxy(ptr noundef %35, ptr noundef nonnull %32, i32 noundef %28, <2 x float> %.sroa.0.0.copyload.i, <2 x float> %.sroa.2.0.copyload.i, i1 noundef zeroext true) #10
@@ -4226,16 +4199,16 @@ define void @b2Body_Enable(i64 %0) local_unnamed_addr #7 {
   %54 = and i32 %.05979, 1
   %.val73 = load ptr, ptr %51, align 8, !tbaa !156
   %55 = sext i32 %53 to i64
-  %56 = getelementptr inbounds %struct.b2Joint, ptr %.val73, i64 %55
+  %56 = getelementptr inbounds [72 x i8], ptr %.val73, i64 %55
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 20
   %58 = zext nneg i32 %54 to i64
-  %59 = getelementptr inbounds nuw %struct.b2JointEdge, ptr %57, i64 %58
+  %59 = getelementptr inbounds nuw [12 x i8], ptr %57, i64 %58
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load i32, ptr %60, align 4, !tbaa !157
   %62 = load i32, ptr %57, align 4, !tbaa !203
   %.val69 = load ptr, ptr %7, align 8, !tbaa !10
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds %struct.b2Body, ptr %.val69, i64 %63
+  %64 = getelementptr inbounds [128 x i8], ptr %.val69, i64 %63
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 40
   %66 = load i32, ptr %65, align 8, !tbaa !19
   %67 = icmp eq i32 %66, 1
@@ -4245,7 +4218,7 @@ define void @b2Body_Enable(i64 %0) local_unnamed_addr #7 {
   %69 = getelementptr inbounds nuw i8, ptr %56, i64 32
   %70 = load i32, ptr %69, align 4, !tbaa !203
   %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds %struct.b2Body, ptr %.val69, i64 %71
+  %72 = getelementptr inbounds [128 x i8], ptr %.val69, i64 %71
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 40
   %74 = load i32, ptr %73, align 8, !tbaa !19
   %75 = icmp eq i32 %74, 1
@@ -4256,7 +4229,7 @@ define void @b2Body_Enable(i64 %0) local_unnamed_addr #7 {
   %spec.select = select i1 %77, i32 %74, i32 %66
   %.val70 = load ptr, ptr %14, align 8, !tbaa !24
   %78 = sext i32 %spec.select to i64
-  %79 = getelementptr inbounds %struct.b2SolverSet, ptr %.val70, i64 %78
+  %79 = getelementptr inbounds [88 x i8], ptr %.val70, i64 %78
   tail call void @b2TransferJoint(ptr noundef nonnull %4, ptr noundef %79, ptr noundef nonnull %15, ptr noundef nonnull %56) #10
   %.not68 = icmp eq i32 %spec.select, 0
   br i1 %.not68, label %81, label %80
@@ -4319,7 +4292,7 @@ b2GetBodyState.exit:                              ; preds = %15
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 44
   %23 = load i32, ptr %22, align 4, !tbaa !27
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds %struct.b2BodyState, ptr %.val5.i, i64 %24
+  %25 = getelementptr inbounds [32 x i8], ptr %.val5.i, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store float 0.000000e+00, ptr %26, align 4, !tbaa !117
   br label %b2GetBodyState.exit.thread
@@ -4372,12 +4345,12 @@ define void @b2Body_SetBullet(i64 %0, i1 noundef zeroext %1) local_unnamed_addr 
   %15 = load i32, ptr %14, align 8, !tbaa !19
   %.val.i5 = load ptr, ptr %13, align 8, !tbaa !24
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds %struct.b2SolverSet, ptr %.val.i5, i64 %16
+  %17 = getelementptr inbounds [88 x i8], ptr %.val.i5, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 44
   %19 = load i32, ptr %18, align 4, !tbaa !27
   %.val5.i = load ptr, ptr %17, align 8, !tbaa !14
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds %struct.b2BodySim, ptr %.val5.i, i64 %20
+  %21 = getelementptr inbounds [100 x i8], ptr %.val5.i, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 93
   store i8 %8, ptr %22, align 1, !tbaa !109
   br label %23
@@ -4403,12 +4376,12 @@ define zeroext i1 @b2Body_IsBullet(i64 %0) local_unnamed_addr #0 {
   %11 = load i32, ptr %10, align 8, !tbaa !19
   %.val.i4 = load ptr, ptr %9, align 8, !tbaa !24
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds %struct.b2SolverSet, ptr %.val.i4, i64 %12
+  %13 = getelementptr inbounds [88 x i8], ptr %.val.i4, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 44
   %15 = load i32, ptr %14, align 4, !tbaa !27
   %.val5.i = load ptr, ptr %13, align 8, !tbaa !14
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds %struct.b2BodySim, ptr %.val5.i, i64 %16
+  %17 = getelementptr inbounds [100 x i8], ptr %.val5.i, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 93
   %19 = load i8, ptr %18, align 1, !tbaa !109, !range !75, !noundef !76
   %20 = trunc nuw i8 %19 to i1
@@ -4441,7 +4414,7 @@ define void @b2Body_EnableContactEvents(i64 %0, i1 noundef zeroext %1) local_unn
 13:                                               ; preds = %.lr.ph, %13
   %.09 = phi i32 [ %.07, %.lr.ph ], [ %.0, %13 ]
   %14 = sext i32 %.09 to i64
-  %15 = getelementptr inbounds %struct.b2Shape, ptr %.val, i64 %14
+  %15 = getelementptr inbounds [288 x i8], ptr %.val, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 278
   store i8 %3, ptr %16, align 2, !tbaa !218
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 12
@@ -4479,7 +4452,7 @@ define void @b2Body_EnableHitEvents(i64 %0, i1 noundef zeroext %1) local_unnamed
 13:                                               ; preds = %.lr.ph, %13
   %.09 = phi i32 [ %.07, %.lr.ph ], [ %.0, %13 ]
   %14 = sext i32 %.09 to i64
-  %15 = getelementptr inbounds %struct.b2Shape, ptr %.val, i64 %14
+  %15 = getelementptr inbounds [288 x i8], ptr %.val, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 279
   store i8 %3, ptr %16, align 1, !tbaa !220
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 12
@@ -4554,12 +4527,12 @@ define range(i32 0, -2147483648) i32 @b2Body_GetShapes(i64 %0, ptr noundef write
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
   %.019 = phi i32 [ %.017, %.lr.ph ], [ %.0, %17 ]
   %18 = sext i32 %.019 to i64
-  %19 = getelementptr inbounds %struct.b2Shape, ptr %.val, i64 %18
+  %19 = getelementptr inbounds [288 x i8], ptr %.val, i64 %18
   %20 = load i32, ptr %19, align 8, !tbaa !170
   %21 = add nsw i32 %20, 1
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 276
   %23 = load i16, ptr %22, align 4, !tbaa !186
-  %24 = getelementptr inbounds nuw %struct.b2ShapeId, ptr %1, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store i32 %21, ptr %24, align 4, !tbaa !164
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %24, i64 4
   store i16 %.sroa.2.0.extract.trunc, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !187
@@ -4631,11 +4604,11 @@ define range(i32 0, -2147483648) i32 @b2Body_GetJoints(i64 %0, ptr noundef write
   %18 = ashr i32 %.022, 1
   %19 = and i32 %.022, 1
   %20 = sext i32 %18 to i64
-  %21 = getelementptr inbounds %struct.b2Joint, ptr %.val, i64 %20
+  %21 = getelementptr inbounds [72 x i8], ptr %.val, i64 %20
   %22 = add nsw i32 %18, 1
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 68
   %24 = load i16, ptr %23, align 4, !tbaa !224
-  %25 = getelementptr inbounds nuw %struct.b2JointId, ptr %1, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store i32 %22, ptr %25, align 4, !tbaa !164
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %25, i64 4
   store i16 %.sroa.2.0.extract.trunc, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !187
@@ -4643,7 +4616,7 @@ define range(i32 0, -2147483648) i32 @b2Body_GetJoints(i64 %0, ptr noundef write
   store i16 %24, ptr %.sroa.5.0..sroa_idx, align 2, !tbaa !187
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %26 = zext nneg i32 %19 to i64
-  %27 = getelementptr inbounds nuw %struct.b2JointEdge, ptr %21, i64 %26
+  %27 = getelementptr inbounds nuw [12 x i8], ptr %21, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 28
   %.0 = load i32, ptr %28, align 4, !tbaa !164
   %29 = icmp ne i32 %.0, -1
@@ -4698,7 +4671,7 @@ define hidden noundef zeroext i1 @b2ShouldBodiesCollide(ptr noundef readonly cap
   %17 = ashr i32 %.12332, 1
   %18 = and i32 %.12332, 1
   %19 = sext i32 %17 to i64
-  %20 = getelementptr inbounds %struct.b2Joint, ptr %.val, i64 %19
+  %20 = getelementptr inbounds [72 x i8], ptr %.val, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 71
   %22 = load i8, ptr %21, align 1, !tbaa !226, !range !75, !noundef !76
   %23 = icmp eq i8 %22, 0
@@ -4708,14 +4681,14 @@ define hidden noundef zeroext i1 @b2ShouldBodiesCollide(ptr noundef readonly cap
   %25 = xor i32 %18, 1
   %26 = getelementptr inbounds nuw i8, ptr %20, i64 20
   %27 = zext nneg i32 %25 to i64
-  %28 = getelementptr inbounds nuw %struct.b2JointEdge, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [12 x i8], ptr %26, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !203
   %30 = icmp eq i32 %29, %.025
   br i1 %30, label %.critedge, label %31
 
 31:                                               ; preds = %24, %16
   %32 = zext nneg i32 %18 to i64
-  %33 = getelementptr inbounds nuw %struct.b2JointEdge, ptr %20, i64 %32
+  %33 = getelementptr inbounds nuw [12 x i8], ptr %20, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 28
   %.123 = load i32, ptr %34, align 4, !tbaa !164
   %.not28 = icmp eq i32 %.123, -1

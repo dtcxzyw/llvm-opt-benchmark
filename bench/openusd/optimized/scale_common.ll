@@ -160,12 +160,12 @@ define hidden void @ScaleRowUp2_Linear_16_C(ptr noundef readonly captures(none) 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   %7 = load i16, ptr %6, align 2
   %8 = zext i16 %7 to i32
   %9 = mul nuw nsw i32 %8, 3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %10 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv.next
+  %10 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv.next
   %11 = load i16, ptr %10, align 2
   %12 = zext i16 %11 to i32
   %13 = add nuw nsw i32 %12, 2
@@ -195,8 +195,8 @@ define hidden void @ScaleRowUp2_Linear_16_C(ptr noundef readonly captures(none) 
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @ScaleRowUp2_Bilinear_16_C(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
-  %6 = getelementptr inbounds i16, ptr %0, i64 %1
-  %7 = getelementptr inbounds i16, ptr %2, i64 %3
+  %6 = getelementptr inbounds [2 x i8], ptr %0, i64 %1
+  %7 = getelementptr inbounds [2 x i8], ptr %2, i64 %3
   %8 = ashr i32 %4, 1
   %9 = icmp sgt i32 %8, 0
   br i1 %9, label %.lr.ph.preheader, label %._crit_edge
@@ -207,18 +207,18 @@ define hidden void @ScaleRowUp2_Bilinear_16_C(ptr noundef readonly captures(none
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %10 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   %11 = load i16, ptr %10, align 2
   %12 = zext i16 %11 to i32
   %13 = mul nuw nsw i32 %12, 9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %14 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv.next
+  %14 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv.next
   %15 = load i16, ptr %14, align 2
   %16 = zext i16 %15 to i32
-  %17 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %indvars.iv
   %18 = load i16, ptr %17, align 2
   %19 = zext i16 %18 to i32
-  %20 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv.next
+  %20 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %indvars.iv.next
   %21 = load i16, ptr %20, align 2
   %22 = zext i16 %21 to i32
   %reass.add = add nuw nsw i32 %19, %16
@@ -229,7 +229,7 @@ define hidden void @ScaleRowUp2_Bilinear_16_C(ptr noundef readonly captures(none
   %26 = lshr i32 %25, 4
   %27 = trunc nuw i32 %26 to i16
   %28 = shl nuw nsw i64 %indvars.iv, 1
-  %29 = getelementptr inbounds nuw i16, ptr %2, i64 %28
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %28
   store i16 %27, ptr %29, align 2
   %30 = load i16, ptr %10, align 2
   %31 = zext i16 %30 to i32
@@ -248,7 +248,7 @@ define hidden void @ScaleRowUp2_Bilinear_16_C(ptr noundef readonly captures(none
   %42 = lshr i32 %41, 4
   %43 = trunc nuw i32 %42 to i16
   %44 = or disjoint i64 %28, 1
-  %45 = getelementptr inbounds nuw i16, ptr %2, i64 %44
+  %45 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %44
   store i16 %43, ptr %45, align 2
   %46 = load i16, ptr %10, align 2
   %47 = zext i16 %46 to i32
@@ -266,7 +266,7 @@ define hidden void @ScaleRowUp2_Bilinear_16_C(ptr noundef readonly captures(none
   %57 = add nuw nsw i32 %56, %reass.mul52
   %58 = lshr i32 %57, 4
   %59 = trunc nuw i32 %58 to i16
-  %60 = getelementptr inbounds nuw i16, ptr %7, i64 %28
+  %60 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %28
   store i16 %59, ptr %60, align 2
   %61 = load i16, ptr %10, align 2
   %62 = zext i16 %61 to i32
@@ -284,7 +284,7 @@ define hidden void @ScaleRowUp2_Bilinear_16_C(ptr noundef readonly captures(none
   %72 = add nuw nsw i32 %71, %reass.mul54
   %73 = lshr i32 %72, 4
   %74 = trunc nuw i32 %73 to i16
-  %75 = getelementptr inbounds nuw i16, ptr %7, i64 %44
+  %75 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %44
   store i16 %74, ptr %75, align 2
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
@@ -352,13 +352,13 @@ define hidden void @ScaleCols_16_C(ptr noundef writeonly captures(none) %0, ptr 
   %.01819 = phi i32 [ %18, %.lr.ph ], [ %3, %5 ]
   %8 = ashr i32 %.01819, 16
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds i16, ptr %1, i64 %9
+  %10 = getelementptr inbounds [2 x i8], ptr %1, i64 %9
   %11 = load i16, ptr %10, align 2
   store i16 %11, ptr %.01720, align 2
   %12 = add nsw i32 %.01819, %4
   %13 = ashr i32 %12, 16
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds i16, ptr %1, i64 %14
+  %15 = getelementptr inbounds [2 x i8], ptr %1, i64 %14
   %16 = load i16, ptr %15, align 2
   %17 = getelementptr inbounds nuw i8, ptr %.01720, i64 2
   store i16 %16, ptr %17, align 2
@@ -378,7 +378,7 @@ define hidden void @ScaleCols_16_C(ptr noundef writeonly captures(none) %0, ptr 
 23:                                               ; preds = %._crit_edge
   %24 = ashr i32 %.018.lcssa, 16
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds i16, ptr %1, i64 %25
+  %26 = getelementptr inbounds [2 x i8], ptr %1, i64 %25
   %27 = load i16, ptr %26, align 2
   store i16 %27, ptr %.017.lcssa, align 2
   br label %28
@@ -642,7 +642,7 @@ define hidden void @ScaleFilterCols_16_C(ptr noundef writeonly captures(none) %0
   %.03940 = phi i32 [ %42, %.lr.ph ], [ 0, %5 ]
   %8 = ashr i32 %.03841, 16
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds i16, ptr %1, i64 %9
+  %10 = getelementptr inbounds [2 x i8], ptr %1, i64 %9
   %11 = load i16, ptr %10, align 2
   %12 = getelementptr i8, ptr %10, i64 2
   %13 = load i16, ptr %12, align 2
@@ -659,7 +659,7 @@ define hidden void @ScaleFilterCols_16_C(ptr noundef writeonly captures(none) %0
   %23 = add nsw i32 %.03841, %4
   %24 = ashr i32 %23, 16
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds i16, ptr %1, i64 %25
+  %26 = getelementptr inbounds [2 x i8], ptr %1, i64 %25
   %27 = load i16, ptr %26, align 2
   %28 = getelementptr i8, ptr %26, i64 2
   %29 = load i16, ptr %28, align 2
@@ -690,7 +690,7 @@ define hidden void @ScaleFilterCols_16_C(ptr noundef writeonly captures(none) %0
 45:                                               ; preds = %._crit_edge
   %46 = ashr i32 %.038.lcssa, 16
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds i16, ptr %1, i64 %47
+  %48 = getelementptr inbounds [2 x i8], ptr %1, i64 %47
   %49 = load i16, ptr %48, align 2
   %50 = getelementptr i8, ptr %48, i64 2
   %51 = load i16, ptr %50, align 2
@@ -726,7 +726,7 @@ define hidden void @ScaleFilterCols64_16_C(ptr noundef writeonly captures(none) 
   %.03942 = phi i64 [ %6, %.lr.ph ], [ %41, %10 ]
   %.04041 = phi i32 [ 0, %.lr.ph ], [ %43, %10 ]
   %11 = ashr i64 %.03942, 16
-  %12 = getelementptr inbounds i16, ptr %1, i64 %11
+  %12 = getelementptr inbounds [2 x i8], ptr %1, i64 %11
   %13 = load i16, ptr %12, align 2
   %14 = getelementptr i8, ptr %12, i64 2
   %15 = load i16, ptr %14, align 2
@@ -742,7 +742,7 @@ define hidden void @ScaleFilterCols64_16_C(ptr noundef writeonly captures(none) 
   store i16 %24, ptr %.043, align 2
   %25 = add nsw i64 %.03942, %9
   %26 = ashr i64 %25, 16
-  %27 = getelementptr inbounds i16, ptr %1, i64 %26
+  %27 = getelementptr inbounds [2 x i8], ptr %1, i64 %26
   %28 = load i16, ptr %27, align 2
   %29 = getelementptr i8, ptr %27, i64 2
   %30 = load i16, ptr %29, align 2
@@ -772,7 +772,7 @@ define hidden void @ScaleFilterCols64_16_C(ptr noundef writeonly captures(none) 
 
 46:                                               ; preds = %._crit_edge
   %47 = ashr i64 %.039.lcssa, 16
-  %48 = getelementptr inbounds i16, ptr %1, i64 %47
+  %48 = getelementptr inbounds [2 x i8], ptr %1, i64 %47
   %49 = load i16, ptr %48, align 2
   %50 = getelementptr i8, ptr %48, i64 2
   %51 = load i16, ptr %50, align 2
@@ -956,7 +956,7 @@ define hidden void @ScalePlaneVertical_16(i32 noundef %0, i32 noundef %1, i32 no
   %18 = ashr i32 %7, 16
   %19 = mul nsw i32 %10, %18
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds i16, ptr %5, i64 %20
+  %21 = getelementptr inbounds [2 x i8], ptr %5, i64 %20
   %22 = icmp sgt i32 %2, 0
   br i1 %22, label %.lr.ph, label %._crit_edge
 
@@ -974,9 +974,9 @@ define hidden void @ScalePlaneVertical_16(i32 noundef %0, i32 noundef %1, i32 no
   %25 = ashr i32 %spec.select.us, 16
   %26 = mul nsw i32 %25, %3
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds i16, ptr %21, i64 %27
+  %28 = getelementptr inbounds [2 x i8], ptr %21, i64 %27
   tail call void @InterpolateRow_16_C(ptr noundef %.032.us, ptr noundef %28, i64 noundef %23, i32 noundef %13, i32 noundef 0) #7
-  %29 = getelementptr inbounds i16, ptr %.032.us, i64 %24
+  %29 = getelementptr inbounds [2 x i8], ptr %.032.us, i64 %24
   %30 = add nsw i32 %spec.select.us, %9
   %31 = add nuw nsw i32 %.02731.us, 1
   %exitcond34.not = icmp eq i32 %31, %2
@@ -992,9 +992,9 @@ define hidden void @ScalePlaneVertical_16(i32 noundef %0, i32 noundef %1, i32 no
   %34 = and i32 %33, 255
   %35 = mul nsw i32 %32, %3
   %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds i16, ptr %21, i64 %36
+  %37 = getelementptr inbounds [2 x i8], ptr %21, i64 %36
   tail call void @InterpolateRow_16_C(ptr noundef %.032, ptr noundef %37, i64 noundef %23, i32 noundef %13, i32 noundef %34) #7
-  %38 = getelementptr inbounds i16, ptr %.032, i64 %24
+  %38 = getelementptr inbounds [2 x i8], ptr %.032, i64 %24
   %39 = add nsw i32 %spec.select, %9
   %40 = add nuw nsw i32 %.02731, 1
   %exitcond.not = icmp eq i32 %40, %2

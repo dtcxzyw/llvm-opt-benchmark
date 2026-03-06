@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.x509err2alert_st = type { i32, i32 }
 %struct.PACKET = type { ptr, i64 }
-%struct.cert_pkey_st = type { ptr, ptr, ptr, ptr, i64 }
 
 @hrrrandom = constant [32 x i8] c"\CF!\ADt\E5\9Aa\11\BE\1D\8C\02\1Ee\B8\91\C2\A2\11\16z\BB\8C^\07\9E\09\E2\C8\A83\9C", align 16
 @.str = private unnamed_addr constant [35 x i8] c"../openssl/ssl/statem/statem_lib.c\00", align 1
@@ -4117,7 +4116,7 @@ ssl_has_cert_type.exit.i.i:                       ; preds = %92
   %97 = getelementptr inbounds nuw i8, ptr %.pre39.i, i64 32
   %98 = load ptr, ptr %97, align 8, !tbaa !221
   %99 = and i64 %.01833.i, 2147483647
-  %100 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %98, i64 %99
+  %100 = getelementptr inbounds nuw [40 x i8], ptr %98, i64 %99
   br label %ssl_has_cert.exit.i
 
 ssl_has_cert_type.exit.thread.i.i:                ; preds = %ssl_has_cert_type.exit.i.i, %.ssl_has_cert_type.exit.thread.i_crit_edge.i
@@ -4125,7 +4124,7 @@ ssl_has_cert_type.exit.thread.i.i:                ; preds = %ssl_has_cert_type.e
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 32
   %103 = load ptr, ptr %102, align 8, !tbaa !221
   %104 = and i64 %.01833.i, 2147483647
-  %105 = getelementptr inbounds nuw %struct.cert_pkey_st, ptr %103, i64 %104
+  %105 = getelementptr inbounds nuw [40 x i8], ptr %103, i64 %104
   %106 = load ptr, ptr %105, align 8, !tbaa !180
   %.not12.i.i = icmp eq ptr %106, null
   br i1 %.not12.i.i, label %ssl_has_cert.exit.thread.i, label %ssl_has_cert.exit.i
@@ -5254,7 +5253,7 @@ define range(i32 0, 2) i32 @check_in_list(ptr noundef %0, i16 noundef zeroext %1
 
 .preheader.split.us:                              ; preds = %.preheader, %12
   %.01825.us = phi i64 [ %13, %12 ], [ 0, %.preheader ]
-  %9 = getelementptr inbounds nuw i16, ptr %2, i64 %.01825.us
+  %9 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %.01825.us
   %10 = load i16, ptr %9, align 2, !tbaa !243
   %11 = icmp eq i16 %1, %10
   br i1 %11, label %.split.us, label %12
@@ -5266,7 +5265,7 @@ define range(i32 0, 2) i32 @check_in_list(ptr noundef %0, i16 noundef zeroext %1
 
 .preheader.split:                                 ; preds = %.preheader, %20
   %.01825 = phi i64 [ %21, %20 ], [ 0, %.preheader ]
-  %14 = getelementptr inbounds nuw i16, ptr %2, i64 %.01825
+  %14 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %.01825
   %15 = load i16, ptr %14, align 2, !tbaa !243
   %16 = icmp eq i16 %1, %15
   br i1 %16, label %17, label %20

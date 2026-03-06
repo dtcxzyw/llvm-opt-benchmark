@@ -173,9 +173,9 @@ define internal void @compute_range_stats(ptr noundef %0, ptr noundef readonly c
 
 74:                                               ; preds = %.thread258, %72
   %75 = sext i32 %.0193229 to i64
-  %76 = getelementptr inbounds %struct.RangeBound, ptr %24, i64 %75
+  %76 = getelementptr inbounds [16 x i8], ptr %24, i64 %75
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %76, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
-  %77 = getelementptr inbounds %struct.RangeBound, ptr %25, i64 %75
+  %77 = getelementptr inbounds [16 x i8], ptr %25, i64 %75
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %77, ptr noundef nonnull align 8 dereferenceable(16) %8, i64 16, i1 false)
   %78 = load i8, ptr %29, align 8, !range !4, !noundef !5
   %79 = trunc nuw i8 %78 to i1
@@ -196,7 +196,7 @@ define internal void @compute_range_stats(ptr noundef %0, ptr noundef readonly c
 
 88:                                               ; preds = %74, %82
   %.0190 = phi double [ %.mux, %74 ], [ %87, %82 ]
-  %89 = getelementptr inbounds double, ptr %27, i64 %75
+  %89 = getelementptr inbounds [8 x i8], ptr %27, i64 %75
   store double %.0190, ptr %89, align 8
   %90 = add i32 %.0193229, 1
   br label %92
@@ -281,11 +281,11 @@ define internal void @compute_range_stats(ptr noundef %0, ptr noundef readonly c
   %.0181237 = phi i32 [ 0, %.lr.ph240.preheader ], [ %.1182, %.lr.ph240 ]
   %.0183236 = phi i32 [ 0, %.lr.ph240.preheader ], [ %.1184, %.lr.ph240 ]
   %128 = sext i32 %.0183236 to i64
-  %129 = getelementptr inbounds %struct.RangeBound, ptr %24, i64 %128
-  %130 = getelementptr inbounds %struct.RangeBound, ptr %25, i64 %128
+  %129 = getelementptr inbounds [16 x i8], ptr %24, i64 %128
+  %130 = getelementptr inbounds [16 x i8], ptr %25, i64 %128
   %131 = call ptr @range_serialize(ptr noundef %.0, ptr noundef %129, ptr noundef %130, i1 noundef zeroext false, ptr noundef null) #5
   %132 = ptrtoint ptr %131 to i64
-  %133 = getelementptr inbounds nuw i64, ptr %122, i64 %indvars.iv
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %indvars.iv
   store i64 %132, ptr %133, align 8
   %134 = add i32 %.0183236, %125
   %135 = add i32 %.0181237, %126
@@ -333,9 +333,9 @@ define internal void @compute_range_stats(ptr noundef %0, ptr noundef readonly c
   %.2243 = phi i32 [ 0, %.lr.ph246.preheader ], [ %.3, %.lr.ph246 ]
   %.2185242 = phi i32 [ 0, %.lr.ph246.preheader ], [ %.3186, %.lr.ph246 ]
   %153 = sext i32 %.2185242 to i64
-  %154 = getelementptr inbounds double, ptr %27, i64 %153
+  %154 = getelementptr inbounds [8 x i8], ptr %27, i64 %153
   %155 = load i64, ptr %154, align 8
-  %156 = getelementptr inbounds nuw i64, ptr %152, i64 %indvars.iv249
+  %156 = getelementptr inbounds nuw [8 x i8], ptr %152, i64 %indvars.iv249
   store i64 %155, ptr %156, align 8
   %157 = add i32 %.2185242, %125
   %158 = add i32 %.2243, %126
@@ -357,22 +357,22 @@ define internal void @compute_range_stats(ptr noundef %0, ptr noundef readonly c
   %.2205 = phi i32 [ 0, %.thread ], [ %spec.select, %._crit_edge241 ], [ %spec.select, %.lr.ph246 ]
   %.0187 = phi ptr [ %161, %.thread ], [ %152, %._crit_edge241 ], [ %152, %.lr.ph246 ]
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %163 = getelementptr inbounds nuw i32, ptr %162, i64 %.0202221
+  %163 = getelementptr inbounds nuw [4 x i8], ptr %162, i64 %.0202221
   store i32 672, ptr %163, align 4
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %165 = getelementptr inbounds nuw i32, ptr %164, i64 %.0202221
+  %165 = getelementptr inbounds nuw [4 x i8], ptr %164, i64 %.0202221
   store i32 0, ptr %165, align 4
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %167 = getelementptr inbounds nuw ptr, ptr %166, i64 %.0202221
+  %167 = getelementptr inbounds nuw [8 x i8], ptr %166, i64 %.0202221
   store ptr %.0187, ptr %167, align 8
   %168 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %169 = getelementptr inbounds nuw i32, ptr %168, i64 %.0202221
+  %169 = getelementptr inbounds nuw [4 x i8], ptr %168, i64 %.0202221
   store i32 %.2205, ptr %169, align 4
   %170 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %171 = getelementptr inbounds nuw i32, ptr %170, i64 %.0202221
+  %171 = getelementptr inbounds nuw [4 x i8], ptr %170, i64 %.0202221
   store i32 701, ptr %171, align 4
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 276
-  %173 = getelementptr inbounds nuw i16, ptr %172, i64 %.0202221
+  %173 = getelementptr inbounds nuw [2 x i8], ptr %172, i64 %.0202221
   store i16 8, ptr %173, align 2
   %174 = getelementptr inbounds nuw i8, ptr %0, i64 286
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 %.0202221
@@ -385,13 +385,13 @@ define internal void @compute_range_stats(ptr noundef %0, ptr noundef readonly c
   %180 = fptrunc double %179 to float
   store float %180, ptr %178, align 4
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %182 = getelementptr inbounds nuw ptr, ptr %181, i64 %.0202221
+  %182 = getelementptr inbounds nuw [8 x i8], ptr %181, i64 %.0202221
   store ptr %178, ptr %182, align 8
   %183 = getelementptr inbounds nuw i8, ptr %0, i64 132
-  %184 = getelementptr inbounds nuw i32, ptr %183, i64 %.0202221
+  %184 = getelementptr inbounds nuw [4 x i8], ptr %183, i64 %.0202221
   store i32 1, ptr %184, align 4
   %185 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %186 = getelementptr inbounds nuw i16, ptr %185, i64 %.0202221
+  %186 = getelementptr inbounds nuw [2 x i8], ptr %185, i64 %.0202221
   store i16 6, ptr %186, align 2
   store ptr %114, ptr @CurrentMemoryContext, align 8
   br label %.thread265

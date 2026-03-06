@@ -12,8 +12,8 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator" = type { i8 }
-%"struct.cv::PaletteEntry" = type { i8, i8, i8, i8 }
 %"class.cv::AutoBuffer" = type { ptr, i64, [1032 x i8] }
+%"struct.cv::PaletteEntry" = type { i8, i8, i8, i8 }
 %"class.cv::_InputArray" = type { i32, ptr, %"class.cv::Size_" }
 %"class.cv::Size_" = type { i32, i32 }
 %"class.cv::_OutputArray" = type { %"class.cv::_InputArray" }
@@ -166,7 +166,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit: ; preds = %3
 
 15:                                               ; preds = %15, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit
   %.03.i = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit ], [ %17, %15 ]
-  %16 = getelementptr inbounds nuw float, ptr %14, i64 %.03.i
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %.03.i
   store float 1.000000e+00, ptr %16, align 4, !tbaa !61
   %17 = add nuw nsw i64 %.03.i, 1
   %exitcond.not.i = icmp eq i64 %17, 4
@@ -210,7 +210,7 @@ define hidden void @_ZN2cv10BmpDecoder8initMaskEv(ptr noundef nonnull writeonly 
 
 6:                                                ; preds = %1, %6
   %.03 = phi i64 [ 0, %1 ], [ %8, %6 ]
-  %7 = getelementptr inbounds nuw float, ptr %4, i64 %.03
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.03
   store float 1.000000e+00, ptr %7, align 4, !tbaa !61
   %8 = add nuw nsw i64 %.03, 1
   %exitcond.not = icmp eq i64 %8, 4
@@ -437,7 +437,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %35, %
 
 44:                                               ; preds = %44, %40
   %.03.i = phi i64 [ 0, %40 ], [ %46, %44 ]
-  %45 = getelementptr inbounds nuw float, ptr %43, i64 %.03.i
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %.03.i
   store float 1.000000e+00, ptr %45, align 4, !tbaa !61
   %46 = add nuw nsw i64 %.03.i, 1
   %exitcond.not.i = icmp eq i64 %46, 4
@@ -552,7 +552,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit105: ; preds = %68
           to label %88 unwind label %94
 
 88:                                               ; preds = %.preheader129
-  %89 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv139
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %indvars.iv139
   store i32 %87, ptr %89, align 4, !tbaa !84
   %.not87 = icmp eq i32 %87, 0
   br i1 %.not87, label %100, label %.preheader
@@ -579,11 +579,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit105: ; preds = %68
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.066.lcssa = phi i32 [ %87, %.preheader ], [ %91, %.lr.ph ]
   %.065.lcssa = phi i32 [ 0, %.preheader ], [ %92, %.lr.ph ]
-  %96 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv139
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %indvars.iv139
   store i32 %.065.lcssa, ptr %96, align 4, !tbaa !84
   %97 = uitofp i32 %.066.lcssa to float
   %98 = fdiv float 2.550000e+02, %97
-  %99 = getelementptr inbounds nuw float, ptr %43, i64 %indvars.iv139
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv139
   store float %98, ptr %99, align 4, !tbaa !61
   br label %100
 
@@ -833,7 +833,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit108: ; preds = %12
   %193 = mul nuw nsw i64 %indvars.iv, 3
   %194 = getelementptr inbounds nuw i8, ptr %8, i64 %193
   %195 = load i8, ptr %194, align 1, !tbaa !87
-  %196 = getelementptr inbounds nuw %"struct.cv::PaletteEntry", ptr %191, i64 %indvars.iv
+  %196 = getelementptr inbounds nuw [4 x i8], ptr %191, i64 %indvars.iv
   store i8 %195, ptr %196, align 4, !tbaa !88
   %197 = getelementptr inbounds nuw i8, ptr %194, i64 1
   %198 = load i8, ptr %197, align 1, !tbaa !87
@@ -1352,12 +1352,12 @@ _ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit317:  ; preds = %.noexc316, %_ZN2cv1
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %169 = ashr i32 %164, 12
   %170 = sext i32 %169 to i64
-  %171 = getelementptr inbounds %"struct.cv::PaletteEntry", ptr %161, i64 %170
+  %171 = getelementptr inbounds [4 x i8], ptr %161, i64 %170
   %172 = load i32, ptr %171, align 4
   store i32 %172, ptr %10, align 4
   %173 = and i32 %167, 15
   %174 = zext nneg i32 %173 to i64
-  %175 = getelementptr inbounds nuw %"struct.cv::PaletteEntry", ptr %161, i64 %174
+  %175 = getelementptr inbounds nuw [4 x i8], ptr %161, i64 %174
   %176 = load i32, ptr %175, align 4
   store i32 %176, ptr %162, align 4
   %177 = getelementptr inbounds i8, ptr %3, i64 %170
@@ -1380,7 +1380,7 @@ _ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit317:  ; preds = %.noexc316, %_ZN2cv1
   %.0268.us = phi i32 [ %194, %.preheader.split.us ], [ 0, %.preheader ]
   %.5.us = phi ptr [ %195, %.preheader.split.us ], [ %.3, %.preheader ]
   %185 = zext nneg i32 %.0268.us to i64
-  %186 = getelementptr inbounds nuw %"struct.cv::PaletteEntry", ptr %10, i64 %185
+  %186 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %185
   %187 = load i8, ptr %186, align 4, !tbaa !88
   store i8 %187, ptr %.5.us, align 1, !tbaa !87
   %188 = getelementptr inbounds nuw i8, ptr %186, i64 1
@@ -1647,7 +1647,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit320: ; preds = %22
   br i1 %28, label %308, label %313
 
 308:                                              ; preds = %305
-  %309 = getelementptr inbounds %"struct.cv::PaletteEntry", ptr %290, i64 %307
+  %309 = getelementptr inbounds [4 x i8], ptr %290, i64 %307
   %.sroa.019.0.copyload = load i32, ptr %309, align 4
   %310 = invoke noundef ptr @_ZN2cv12FillUniColorEPhRS0_iiRiiiNS_12PaletteEntryE(ptr noundef %.11, ptr noundef nonnull align 8 dereferenceable(8) %14, i32 noundef %.0228, i32 noundef %39, ptr noundef nonnull align 4 dereferenceable(4) %4, i32 noundef %306, i32 noundef %298, i32 %.sroa.019.0.copyload)
           to label %317 unwind label %311
@@ -3266,7 +3266,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit.i.i.i: ; preds 
 
 17:                                               ; preds = %17, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit.i.i.i
   %.03.i.i.i.i = phi i64 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit.i.i.i ], [ %19, %17 ]
-  %18 = getelementptr inbounds nuw float, ptr %16, i64 %.03.i.i.i.i
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.03.i.i.i.i
   store float 1.000000e+00, ptr %18, align 4, !tbaa !61
   %19 = add nuw nsw i64 %.03.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %19, 4

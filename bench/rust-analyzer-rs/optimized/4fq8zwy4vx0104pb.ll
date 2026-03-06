@@ -1482,7 +1482,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
 
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %49 = getelementptr inbounds nuw i8, ptr %.val, i64 128
-  %50 = getelementptr inbounds nuw { { i32 } }, ptr %49, i64 %46
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %46
   %51 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %50), !range !232, !noalias !228
   store i32 %51, ptr %11, align 4, !noalias !228
   %52 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !228
@@ -1720,7 +1720,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i:
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %117 = load i64, ptr %116, align 8, !noundef !39
   %118 = getelementptr inbounds nuw i8, ptr %115, i64 16
-  %119 = getelementptr inbounds { i32, i16, i16 }, ptr %118, i64 %117
+  %119 = getelementptr inbounds [8 x i8], ptr %118, i64 %117
   %120 = getelementptr inbounds nuw i8, ptr %2, i64 56
   br label %121
 
@@ -1921,7 +1921,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
 
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %49 = getelementptr inbounds nuw i8, ptr %.val, i64 128
-  %50 = getelementptr inbounds nuw { { i32 } }, ptr %49, i64 %46
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %46
   %51 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %50), !range !232, !noalias !252
   store i32 %51, ptr %11, align 4, !noalias !252
   %52 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !252
@@ -2159,7 +2159,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i:
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %117 = load i64, ptr %116, align 8, !noundef !39
   %118 = getelementptr inbounds nuw i8, ptr %115, i64 16
-  %119 = getelementptr inbounds { i32, i16, i16 }, ptr %118, i64 %117
+  %119 = getelementptr inbounds [8 x i8], ptr %118, i64 %117
   %120 = getelementptr inbounds nuw i8, ptr %2, i64 56
   br label %121
 
@@ -2360,7 +2360,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit: ;
 
 _ZN5salsa7runtime7Runtime21last_changed_revision17hde334b159c299ed6E.exit.i: ; preds = %.critedge
   %49 = getelementptr inbounds nuw i8, ptr %.val, i64 128
-  %50 = getelementptr inbounds nuw { { i32 } }, ptr %49, i64 %46
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %46
   %51 = call noundef range(i32 1, 0) i32 @_ZN5salsa8revision14AtomicRevision4load17h37bfb12256a446d3E(ptr noundef nonnull align 4 %50), !range !232, !noalias !273
   store i32 %51, ptr %11, align 4, !noalias !273
   %52 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17hfaf74736e3729d76E monotonic, align 8, !noalias !273
@@ -2598,7 +2598,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.i:
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 8
   %117 = load i64, ptr %116, align 8, !noundef !39
   %118 = getelementptr inbounds nuw i8, ptr %115, i64 16
-  %119 = getelementptr inbounds { i32, i16, i16 }, ptr %118, i64 %117
+  %119 = getelementptr inbounds [8 x i8], ptr %118, i64 %117
   %120 = getelementptr inbounds nuw i8, ptr %2, i64 56
   br label %121
 
@@ -13303,7 +13303,7 @@ define internal fastcc void @_ZN5salsa7runtime11local_state10LocalState10push_qu
   %28 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %19, %17 ]
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %30 = load ptr, ptr %29, align 8, !alias.scope !1349, !noalias !1352, !nonnull !39, !noundef !39
-  %31 = getelementptr inbounds { { i64, [6 x i64] }, { i32, i16, i16 }, ptr, i32, i8, [3 x i8] }, ptr %30, i64 %28
+  %31 = getelementptr inbounds [80 x i8], ptr %30, i64 %28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %31, ptr noundef nonnull align 8 dereferenceable(80) %4, i64 80, i1 false)
   %32 = load i64, ptr %18, align 8, !alias.scope !1349, !noalias !1352, !noundef !39
   %33 = add i64 %32, 1

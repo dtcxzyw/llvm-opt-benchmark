@@ -3,8 +3,6 @@ source_filename = "bench/cmake/original/nghttp2_map.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.nghttp2_map_bucket = type { i32, i32, ptr }
-
 @stderr = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [13 x i8] c"@%u <EMPTY>\0A\00", align 1
 @.str.1 = private unnamed_addr constant [44 x i8] c"@%u hash=%08x key=%d base=%zu distance=%zu\0A\00", align 1
@@ -63,7 +61,7 @@ define dso_local void @nghttp2_map_each_free(ptr noundef readonly captures(none)
   %6 = phi i32 [ %15, %14 ], [ %5, %3 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %14 ], [ 0, %3 ]
   %7 = load ptr, ptr %0, align 8, !tbaa !14
-  %8 = getelementptr inbounds nuw %struct.nghttp2_map_bucket, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %indvars.iv
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !16
   %11 = icmp eq ptr %10, null
@@ -96,7 +94,7 @@ define dso_local i32 @nghttp2_map_each(ptr noundef readonly captures(none) %0, p
   %6 = phi i32 [ %15, %14 ], [ %5, %3 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %14 ], [ 0, %3 ]
   %7 = load ptr, ptr %0, align 8, !tbaa !14
-  %8 = getelementptr inbounds nuw %struct.nghttp2_map_bucket, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %indvars.iv
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !16
   %11 = icmp eq ptr %10, null
@@ -137,7 +135,7 @@ define dso_local void @nghttp2_map_print_distance(ptr noundef readonly captures(
 5:                                                ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
   %6 = load ptr, ptr %0, align 8, !tbaa !14
-  %7 = getelementptr inbounds nuw %struct.nghttp2_map_bucket, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !16
   %10 = icmp eq ptr %9, null
@@ -220,7 +218,7 @@ define dso_local range(i32 -901, 1) i32 @nghttp2_map_insert(ptr noundef captures
 
 27:                                               ; preds = %insert.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %insert.exit.i ]
-  %28 = getelementptr inbounds nuw %struct.nghttp2_map_bucket, ptr %.pre.i, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %.pre.i, i64 %indvars.iv.i
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8, !tbaa !16
   %31 = icmp eq ptr %30, null
@@ -232,7 +230,7 @@ define dso_local range(i32 -901, 1) i32 @nghttp2_map_insert(ptr noundef captures
   %35 = load i32, ptr %34, align 4, !tbaa !24
   %36 = lshr i32 %33, %24
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw %struct.nghttp2_map_bucket, ptr %21, i64 %37
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8, !tbaa !16
   %41 = icmp eq ptr %40, null
@@ -287,7 +285,7 @@ define dso_local range(i32 -901, 1) i32 @nghttp2_map_insert(ptr noundef captures
   %57 = add nuw nsw i64 %.1.i.i, 1
   %58 = add nuw nsw i64 %.01741.i.i, 1
   %59 = and i64 %58, %26
-  %60 = getelementptr inbounds nuw %struct.nghttp2_map_bucket, ptr %21, i64 %59
+  %60 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %59
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = load ptr, ptr %61, align 8, !tbaa !16
   %63 = icmp eq ptr %62, null
@@ -314,7 +312,7 @@ map_resize.exit.thread:                           ; preds = %insert.exit.i, %.pr
   %70 = sub i32 32, %67
   %71 = lshr i32 %69, %70
   %72 = zext i32 %71 to i64
-  %73 = getelementptr inbounds nuw %struct.nghttp2_map_bucket, ptr %68, i64 %72
+  %73 = getelementptr inbounds nuw [16 x i8], ptr %68, i64 %72
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %75 = load ptr, ptr %74, align 8, !tbaa !16
   %76 = icmp eq ptr %75, null
@@ -362,7 +360,7 @@ map_resize.exit.thread:                           ; preds = %insert.exit.i, %.pr
   %94 = add nuw nsw i64 %.1.i, 1
   %95 = add nuw nsw i64 %.01741.i, 1
   %96 = and i64 %95, %78
-  %97 = getelementptr inbounds nuw %struct.nghttp2_map_bucket, ptr %68, i64 %96
+  %97 = getelementptr inbounds nuw [16 x i8], ptr %68, i64 %96
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
   %99 = load ptr, ptr %98, align 8, !tbaa !16
   %100 = icmp eq ptr %99, null
@@ -397,7 +395,7 @@ define dso_local ptr @nghttp2_map_find(ptr noundef readonly captures(none) %0, i
   %7 = lshr i32 %3, %6
   %8 = zext i32 %7 to i64
   %9 = load ptr, ptr %0, align 8, !tbaa !14
-  %10 = getelementptr inbounds nuw %struct.nghttp2_map_bucket, ptr %9, i64 %8
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !16
   %13 = icmp eq ptr %12, null
@@ -424,7 +422,7 @@ define dso_local ptr @nghttp2_map_find(ptr noundef readonly captures(none) %0, i
   %.0181928 = phi i64 [ %8, %.lr.ph ], [ %32, %18 ]
   %.02027 = phi i64 [ 0, %.lr.ph ], [ %19, %18 ]
   %25 = phi ptr [ %12, %.lr.ph ], [ %35, %18 ]
-  %26 = getelementptr inbounds nuw %struct.nghttp2_map_bucket, ptr %9, i64 %.0181928
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %.0181928
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 4
   %28 = load i32, ptr %27, align 4, !tbaa !24
   %29 = icmp eq i32 %28, %1
@@ -433,7 +431,7 @@ define dso_local ptr @nghttp2_map_find(ptr noundef readonly captures(none) %0, i
 30:                                               ; preds = %24
   %31 = add nuw nsw i64 %.0181928, 1
   %32 = and i64 %31, %17
-  %33 = getelementptr inbounds nuw %struct.nghttp2_map_bucket, ptr %9, i64 %32
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load ptr, ptr %34, align 8, !tbaa !16
   %36 = icmp eq ptr %35, null
@@ -453,7 +451,7 @@ define dso_local range(i32 -501, 1) i32 @nghttp2_map_remove(ptr noundef captures
   %7 = lshr i32 %3, %6
   %8 = zext i32 %7 to i64
   %9 = load ptr, ptr %0, align 8, !tbaa !14
-  %10 = getelementptr inbounds nuw %struct.nghttp2_map_bucket, ptr %9, i64 %8
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !16
   %13 = icmp eq ptr %12, null
@@ -487,7 +485,7 @@ define dso_local range(i32 -501, 1) i32 @nghttp2_map_remove(ptr noundef captures
 29:                                               ; preds = %25
   %30 = add nuw nsw i64 %.03647, 1
   %31 = and i64 %30, %17
-  %32 = getelementptr inbounds nuw %struct.nghttp2_map_bucket, ptr %9, i64 %31
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
   %34 = load ptr, ptr %33, align 8, !tbaa !16
@@ -514,7 +512,7 @@ define dso_local range(i32 -501, 1) i32 @nghttp2_map_remove(ptr noundef captures
   br i1 %48, label %._crit_edge, label %49
 
 49:                                               ; preds = %.lr.ph52
-  %50 = getelementptr inbounds nuw %struct.nghttp2_map_bucket, ptr %39, i64 %.03551
+  %50 = getelementptr inbounds nuw [16 x i8], ptr %39, i64 %.03551
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 16, i1 false), !tbaa.struct !27
   store i32 0, ptr %38, align 8, !tbaa !23
   %51 = getelementptr inbounds nuw i8, ptr %38, i64 4
@@ -526,7 +524,7 @@ define dso_local range(i32 -501, 1) i32 @nghttp2_map_remove(ptr noundef captures
   %55 = zext i32 %54 to i64
   %56 = and i64 %52, %55
   %57 = load ptr, ptr %0, align 8, !tbaa !14
-  %58 = getelementptr inbounds nuw %struct.nghttp2_map_bucket, ptr %57, i64 %56
+  %58 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %56
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %60 = load ptr, ptr %59, align 8, !tbaa !16
   %61 = icmp eq ptr %60, null
@@ -543,7 +541,7 @@ define dso_local range(i32 -501, 1) i32 @nghttp2_map_remove(ptr noundef captures
   %66 = add nuw nsw i64 %.048, 1
   %67 = add nuw nsw i64 %.03647, 1
   %68 = and i64 %67, %17
-  %69 = getelementptr inbounds nuw %struct.nghttp2_map_bucket, ptr %9, i64 %68
+  %69 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load ptr, ptr %70, align 8, !tbaa !16
   %72 = icmp eq ptr %71, null

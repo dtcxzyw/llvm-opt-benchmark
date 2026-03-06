@@ -103,7 +103,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 "_ZN78_$LT$tinyvec..tinyvec..TinyVec$LT$A$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h04580737168f3341E.exit.i": ; preds = %34, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcbf8e8cf125de131E.exit.i"
   %.pn44.i = phi ptr [ %33, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcbf8e8cf125de131E.exit.i" ], [ %36, %34 ]
   %.pn42.i = phi i64 [ %30, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hcbf8e8cf125de131E.exit.i" ], [ %38, %34 ]
-  %39 = getelementptr inbounds i32, ptr %.pn44.i, i64 %.pn42.i
+  %39 = getelementptr inbounds [4 x i8], ptr %.pn44.i, i64 %.pn42.i
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %41 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %42 = getelementptr inbounds nuw i8, ptr %8, i64 8

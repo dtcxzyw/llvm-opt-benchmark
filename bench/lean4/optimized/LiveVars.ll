@@ -622,7 +622,7 @@ define ptr @l_Array_anyMUnsafe_any___at_Lean_IR_IsLive_visitFnBody___spec__1(ptr
 7:                                                ; preds = %.lr.ph, %114
   %.04690 = phi i64 [ %2, %.lr.ph ], [ %115, %114 ]
   %.04989 = phi ptr [ %4, %.lr.ph ], [ %50, %114 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %.04690
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.04690
   %9 = load ptr, ptr %8, align 8, !tbaa !10
   %10 = ptrtoint ptr %9 to i64
   %11 = trunc i64 %10 to i1
@@ -12958,7 +12958,7 @@ lean_alloc_ctor.exit3388:                         ; preds = %3529
 define internal fastcc void @lean_ctor_release(ptr noundef captures(none) %0, i32 noundef range(i32 0, 4) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = zext nneg i32 %1 to i64
-  %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !10
   %7 = ptrtoint ptr %6 to i64
   %8 = trunc i64 %7 to i1
@@ -13233,7 +13233,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at___private_Lean_Compiler_IR_LiveVars_0
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %lean_array_uget.exit.us
   %.01729.us = phi i64 [ %20, %lean_array_uget.exit.us ], [ %2, %.lr.ph ]
   %.01928.us = phi ptr [ %19, %lean_array_uget.exit.us ], [ %4, %.lr.ph ]
-  %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %.01729.us
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.01729.us
   %10 = load ptr, ptr %9, align 8, !tbaa !10
   %11 = ptrtoint ptr %10 to i64
   %12 = trunc i64 %11 to i1
@@ -13266,7 +13266,7 @@ lean_array_uget.exit.us:                          ; preds = %17, %16, %15, %.lr.
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_dec.exit
   %.01729 = phi i64 [ %43, %lean_dec.exit ], [ %2, %.lr.ph ]
   %.01928 = phi ptr [ %42, %lean_dec.exit ], [ %4, %.lr.ph ]
-  %21 = getelementptr inbounds nuw ptr, ptr %6, i64 %.01729
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.01729
   %22 = load ptr, ptr %21, align 8, !tbaa !10
   %23 = ptrtoint ptr %22 to i64
   %24 = trunc i64 %23 to i1
@@ -14909,7 +14909,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at___private_Lean_Compiler_IR_LiveVars_0
 6:                                                ; preds = %.lr.ph, %lean_dec.exit
   %.01833 = phi i64 [ %1, %.lr.ph ], [ %34, %lean_dec.exit ]
   %.02032 = phi ptr [ %3, %.lr.ph ], [ %36, %lean_dec.exit ]
-  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.01833
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.01833
   %8 = load ptr, ptr %7, align 8, !tbaa !10
   %9 = ptrtoint ptr %8 to i64
   %10 = trunc i64 %9 to i1

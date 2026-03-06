@@ -1882,7 +1882,7 @@ _ZN5alloc6string6String4push17h444d5a6351d622eeE.exit96: ; preds = %162, %154
 
 176:                                              ; preds = %170, %166
   %177 = load ptr, ptr %10, align 8, !alias.scope !389, !noalias !392, !nonnull !7, !noundef !7
-  %178 = getelementptr inbounds nuw { i64, { i64, [8 x i64] } }, ptr %177, i64 %167
+  %178 = getelementptr inbounds nuw [80 x i8], ptr %177, i64 %167
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %178, ptr noundef nonnull align 8 dereferenceable(80) %7, i64 80, i1 false)
   %179 = add i64 %167, 1
   store i64 %179, ptr %11, align 8, !alias.scope !389, !noalias !392
@@ -1933,7 +1933,7 @@ _ZN5alloc6string6String4push17h444d5a6351d622eeE.exit96: ; preds = %162, %154
 
 195:                                              ; preds = %190, %186
   %196 = load ptr, ptr %10, align 8, !alias.scope !396, !noalias !399, !nonnull !7, !noundef !7
-  %197 = getelementptr inbounds nuw { i64, { i64, [8 x i64] } }, ptr %196, i64 %187
+  %197 = getelementptr inbounds nuw [80 x i8], ptr %196, i64 %187
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %197, ptr noundef nonnull align 8 dereferenceable(80) %5, i64 80, i1 false)
   %198 = add i64 %187, 1
   store i64 %198, ptr %11, align 8, !alias.scope !396, !noalias !399
@@ -2084,7 +2084,7 @@ _ZN5alloc6string6String4push17h444d5a6351d622eeE.exit96: ; preds = %162, %154
 
 258:                                              ; preds = %252, %247
   %259 = load ptr, ptr %10, align 8, !alias.scope !434, !noalias !437, !nonnull !7, !noundef !7
-  %260 = getelementptr inbounds nuw { i64, { i64, [8 x i64] } }, ptr %259, i64 %249
+  %260 = getelementptr inbounds nuw [80 x i8], ptr %259, i64 %249
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %260, ptr noundef nonnull align 8 dereferenceable(80) %4, i64 80, i1 false)
   %261 = add i64 %249, 1
   store i64 %261, ptr %11, align 8, !alias.scope !434, !noalias !437

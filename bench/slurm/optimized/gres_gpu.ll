@@ -1132,7 +1132,7 @@ define dso_local ptr @gres_p_prep_build_env(ptr noundef readonly captures(none) 
   br i1 %.not, label %22, label %15
 
 15:                                               ; preds = %.lr.ph.split
-  %16 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
   %.not16 = icmp eq ptr %17, null
   br i1 %.not16, label %22, label %18
@@ -1140,7 +1140,7 @@ define dso_local ptr @gres_p_prep_build_env(ptr noundef readonly captures(none) 
 18:                                               ; preds = %15
   %19 = tail call ptr @slurm_bit_copy(ptr noundef nonnull %17) #12
   %20 = load ptr, ptr %8, align 8
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv
   store ptr %19, ptr %21, align 8
   %.pre = load i32, ptr %5, align 4
   br label %22

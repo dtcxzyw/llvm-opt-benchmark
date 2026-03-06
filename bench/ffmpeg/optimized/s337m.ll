@@ -103,7 +103,7 @@ define internal range(i32 0, 52) i32 @s337m_probe(ptr noundef readonly captures(
   %50 = mul nuw nsw i32 %46, %49
   %51 = select i1 %18, i64 1, i64 2
   %52 = select i1 %16, i64 0, i64 %51
-  %53 = getelementptr inbounds nuw i32, ptr %2, i64 %52
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %52
   %54 = load i32, ptr %53, align 4, !tbaa !13
   %55 = add nsw i32 %54, 1
   store i32 %55, ptr %53, align 4, !tbaa !13
@@ -126,11 +126,11 @@ s337m_get_offset_and_codec.exit.thread:           ; preds = %40, %38, %8, %45
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %.preheader.preheader ]
   %.04163 = phi i32 [ %spec.select, %.preheader ], [ 0, %.preheader.preheader ]
   %.04262 = phi i32 [ %63, %.preheader ], [ 0, %.preheader.preheader ]
-  %61 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %62 = load i32, ptr %61, align 4, !tbaa !13
   %63 = add nsw i32 %62, %.04262
   %64 = zext nneg i32 %.04163 to i64
-  %65 = getelementptr inbounds nuw i32, ptr %2, i64 %64
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %64
   %66 = load i32, ptr %65, align 4, !tbaa !13
   %67 = icmp slt i32 %66, %62
   %68 = trunc nuw nsw i64 %indvars.iv to i32
@@ -141,7 +141,7 @@ s337m_get_offset_and_codec.exit.thread:           ; preds = %40, %38, %8, %45
 
 69:                                               ; preds = %.preheader
   %70 = zext nneg i32 %spec.select to i64
-  %71 = getelementptr inbounds nuw i32, ptr %2, i64 %70
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %70
   %72 = load i32, ptr %71, align 4, !tbaa !13
   %73 = icmp sgt i32 %72, 3
   br i1 %73, label %74, label %78

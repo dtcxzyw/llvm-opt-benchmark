@@ -215,7 +215,7 @@ fetch_fp_info.exit:                               ; preds = %45
   %indvars.iv.i = phi i64 [ 0, %100 ], [ %indvars.iv.next.i, %104 ]
   %105 = call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 2) #10
   %106 = trunc i32 %105 to i16
-  %107 = getelementptr inbounds nuw i16, ptr %103, i64 %indvars.iv.i
+  %107 = getelementptr inbounds nuw [2 x i8], ptr %103, i64 %indvars.iv.i
   store i16 %106, ptr %107, align 2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -272,7 +272,7 @@ fetch_fp_info.exit:                               ; preds = %45
   %indvars.iv98.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next99.i, %186 ]
   %133 = call i32 @pq_getmsgint(ptr noundef %0, i32 noundef 4) #10
   %134 = icmp eq i32 %133, -1
-  %135 = getelementptr inbounds nuw %struct.NullableDatum, ptr %12, i64 %indvars.iv98.i
+  %135 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %indvars.iv98.i
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 40
   br i1 %134, label %137, label %138
 
@@ -302,7 +302,7 @@ fetch_fp_info.exit:                               ; preds = %45
   br i1 %122, label %149, label %147
 
 147:                                              ; preds = %146
-  %148 = getelementptr inbounds nuw i16, ptr %.066.i, i64 %indvars.iv98.i
+  %148 = getelementptr inbounds nuw [2 x i8], ptr %.066.i, i64 %indvars.iv98.i
   br label %150
 
 149:                                              ; preds = %146
@@ -319,7 +319,7 @@ fetch_fp_info.exit:                               ; preds = %45
 .thread.i:                                        ; preds = %150, %149
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %151 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv98.i
+  %151 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %indvars.iv98.i
   %152 = load i32, ptr %151, align 4
   call void @getTypeInputInfo(i32 noundef %152, ptr noundef nonnull %8, ptr noundef nonnull %9) #10
   br i1 %134, label %156, label %153
@@ -334,7 +334,7 @@ fetch_fp_info.exit:                               ; preds = %45
   %157 = load i32, ptr %8, align 4
   %158 = load i32, ptr %9, align 4
   %159 = call i64 @OidInputFunctionCall(i32 noundef %157, ptr noundef %.063.i, i32 noundef %158, i32 noundef -1) #10
-  %160 = getelementptr inbounds nuw %struct.NullableDatum, ptr %129, i64 %indvars.iv98.i
+  %160 = getelementptr inbounds nuw [16 x i8], ptr %129, i64 %indvars.iv98.i
   store i64 %159, ptr %160, align 8
   %.not75.i = icmp eq ptr %.063.i, null
   %161 = load ptr, ptr %7, align 8
@@ -354,14 +354,14 @@ fetch_fp_info.exit:                               ; preds = %45
 164:                                              ; preds = %150
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %165 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv98.i
+  %165 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %indvars.iv98.i
   %166 = load i32, ptr %165, align 4
   call void @getTypeBinaryInputInfo(i32 noundef %166, ptr noundef nonnull %10, ptr noundef nonnull %11) #10
   %..i = select i1 %134, ptr null, ptr %7
   %167 = load i32, ptr %10, align 4
   %168 = load i32, ptr %11, align 4
   %169 = call i64 @OidReceiveFunctionCall(i32 noundef %167, ptr noundef %..i, i32 noundef %168, i32 noundef -1) #10
-  %170 = getelementptr inbounds nuw %struct.NullableDatum, ptr %129, i64 %indvars.iv98.i
+  %170 = getelementptr inbounds nuw [16 x i8], ptr %129, i64 %indvars.iv98.i
   store i64 %169, ptr %170, align 8
   br i1 %134, label %180, label %171
 
@@ -423,7 +423,7 @@ parse_fcall_arguments.exit:                       ; preds = %186, %127
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %193
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %193 ]
-  %194 = getelementptr inbounds nuw %struct.NullableDatum, ptr %12, i64 %indvars.iv
+  %194 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %indvars.iv
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 40
   %196 = load i8, ptr %195, align 8, !range !4, !noundef !5
   %197 = trunc nuw i8 %196 to i1

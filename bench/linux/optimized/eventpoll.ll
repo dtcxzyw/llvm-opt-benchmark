@@ -3023,8 +3023,8 @@ define internal fastcc range(i32 -1, 1) i32 @reverse_path_check_proc(ptr noundef
   %11 = add nuw nsw i32 %1, 1
   %12 = icmp eq i32 %1, 0
   %13 = zext nneg i32 %1 to i64
-  %14 = getelementptr i32, ptr @path_count, i64 %13
-  %15 = getelementptr i32, ptr @path_limits, i64 %13
+  %14 = getelementptr [4 x i8], ptr @path_count, i64 %13
+  %15 = getelementptr [4 x i8], ptr @path_limits, i64 %13
   br i1 %12, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %10, %.thread.us

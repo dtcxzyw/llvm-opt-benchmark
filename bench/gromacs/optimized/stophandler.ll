@@ -3,10 +3,6 @@ source_filename = "bench/gromacs/original/stophandler.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"class.std::function" = type { %"class.std::_Function_base", ptr }
-%"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
-%"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
-%"union.std::_Nocopy_types" = type { { i64, i64 } }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
 %"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
@@ -17,6 +13,10 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
+%"class.std::function" = type { %"class.std::_Function_base", ptr }
+%"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
+%"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
+%"union.std::_Nocopy_types" = type { { i64, i64 } }
 %"class.std::shared_ptr.2" = type { %"class.std::__shared_ptr.3" }
 %"class.std::__shared_ptr.3" = type { ptr, %"class.std::__shared_count" }
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
@@ -484,7 +484,7 @@ _ZNSt6vectorISt8functionIFN3gmx10StopSignalEvEESaIS4_EE11_S_relocateEPS4_S7_S7_R
 _ZNSt12_Vector_baseISt8functionIFN3gmx10StopSignalEvEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorISt8functionIFN3gmx10StopSignalEvEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit25, %47
   store ptr %20, ptr %0, align 8, !tbaa !9
   store ptr %.0.lcssa.i.i.i24, ptr %4, align 8, !tbaa !12
-  %51 = getelementptr inbounds nuw %"class.std::function", ptr %20, i64 %16
+  %51 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %16
   store ptr %51, ptr %46, align 8, !tbaa !13
   ret void
 }

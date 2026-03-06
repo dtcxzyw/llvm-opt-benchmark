@@ -110,7 +110,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.grpc_core::Race" = type { %class.anon.240, [8 x i8], %"class.grpc_core::Race.241" }
 %class.anon.240 = type { ptr }
 %"class.grpc_core::Race.241" = type { %"class.grpc_core::ArenaPromise" }
-%"struct.grpc_core::LbCostBinMetadata::ValueType" = type { double, %"class.std::__cxx11::basic_string" }
 %"class.grpc_core::Poll" = type { i8, [7 x i8], %union.anon.198 }
 %union.anon.198 = type { %"class.std::optional.199" }
 %"class.std::optional.199" = type { %"struct.std::_Optional_base.200" }
@@ -1843,7 +1842,7 @@ _ZN9grpc_core18ChannelCompression22HandleOutgoingMetadataER19grpc_metadata_batch
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 56
   %24 = load i16, ptr @_ZN9grpc_core12arena_detail18ArenaContextTraitsINS_19CallTracerInterfaceEE3id_E, align 2, !tbaa !70
   %25 = zext i16 %24 to i64
-  %26 = getelementptr inbounds nuw ptr, ptr %23, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !79
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %27, ptr %28, align 8, !tbaa !80
@@ -2100,7 +2099,7 @@ define void @_ZN9grpc_core23ServerCompressionFilter4Call23OnClientToServerMessag
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %13 = load i16, ptr @_ZN9grpc_core12arena_detail18ArenaContextTraitsINS_19CallTracerInterfaceEE3id_E, align 2, !tbaa !70
   %14 = zext i16 %13 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %12, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !79
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   invoke void @_ZNK9grpc_core18ChannelCompression17DecompressMessageEbSt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEENS0_14DecompressArgsEPNS_19CallTracerInterfaceE(ptr dead_on_unwind writable sret(%"class.absl::lts_20240722::StatusOr.54") align 8 %0, ptr noundef nonnull align 8 dereferenceable(23) %17, i1 noundef zeroext false, ptr noundef nonnull %5, i64 %.sroa.01.0.copyload, i8 %.sroa.22.0.copyload, ptr noundef %16)
@@ -2204,7 +2203,7 @@ define void @_ZN9grpc_core23ServerCompressionFilter4Call23OnServerToClientMessag
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 56
   %15 = load i16, ptr @_ZN9grpc_core12arena_detail18ArenaContextTraitsINS_19CallTracerInterfaceEE3id_E, align 2, !tbaa !70
   %16 = zext i16 %15 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr %14, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !79
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 8
   invoke void @_ZNK9grpc_core18ChannelCompression15CompressMessageESt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEE26grpc_compression_algorithmPNS_19CallTracerInterfaceE(ptr dead_on_unwind writable sret(%"class.std::unique_ptr.45") align 8 %0, ptr noundef nonnull align 8 dereferenceable(23) %19, ptr noundef nonnull %5, i32 noundef %11, ptr noundef %18)
@@ -2348,7 +2347,7 @@ _ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %2
 _ZNSt6vectorIPFvPvESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %25, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !87
   store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !84
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !88
   br label %_ZNSt6vectorIPFvPvESaIS2_EE9push_backERKS2_.exit
 
@@ -4222,7 +4221,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072223inlined_vector_internal7Storag
 .lr.ph.i:                                         ; preds = %1, %_ZNSt16allocator_traitsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEE7destroyIS2_EEvRS3_PT_.exit.i
   %.06.i = phi i64 [ %8, %_ZNSt16allocator_traitsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %7, %1 ]
   %8 = add nsw i64 %.06.i, -1
-  %9 = getelementptr inbounds nuw %"struct.grpc_core::LbCostBinMetadata::ValueType", ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [40 x i8], ptr %6, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !59
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -4274,7 +4273,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072223inlined_vector_internal7Storag
 .lr.ph.i:                                         ; preds = %1, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i
   %.06.i = phi i64 [ %8, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i ], [ %7, %1 ]
   %8 = add nsw i64 %.06.i, -1
-  %9 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !59
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %12 = icmp eq ptr %10, %11
@@ -5210,7 +5209,7 @@ _ZN9grpc_core23ClientCompressionFilter4Call23OnClientInitialMetadataER19grpc_met
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 56
   %30 = load i16, ptr @_ZN9grpc_core12arena_detail18ArenaContextTraitsINS_19CallTracerInterfaceEE3id_E, align 2, !tbaa !70
   %31 = zext i16 %30 to i64
-  %32 = getelementptr inbounds nuw ptr, ptr %29, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !79
   %34 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %33, ptr %34, align 8, !tbaa !80
@@ -6028,7 +6027,7 @@ define linkonce_odr void @_ZZN9grpc_core21promise_filter_detail37InterceptClient
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 56
   %19 = load i16, ptr @_ZN9grpc_core12arena_detail18ArenaContextTraitsINS_19CallTracerInterfaceEE3id_E, align 2, !tbaa !70, !noalias !349
   %20 = zext i16 %19 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %18, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !79, !noalias !349
   %23 = getelementptr inbounds nuw i8, ptr %14, i64 8
   invoke void @_ZNK9grpc_core18ChannelCompression17DecompressMessageEbSt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEENS0_14DecompressArgsEPNS_19CallTracerInterfaceE(ptr dead_on_unwind nonnull writable sret(%"class.absl::lts_20240722::StatusOr.54") align 8 %5, ptr noundef nonnull readonly align 8 dereferenceable(23) %23, i1 noundef zeroext false, ptr noundef nonnull %4, i64 %.sroa.01.0.copyload.i, i8 %.sroa.22.0.copyload.i, ptr noundef %22)
@@ -6484,7 +6483,7 @@ define linkonce_odr void @_ZN9grpc_core14promise_detail7CurriedIZNS_21promise_fi
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 56
   %22 = load i16, ptr @_ZN9grpc_core12arena_detail18ArenaContextTraitsINS_19CallTracerInterfaceEE3id_E, align 2, !tbaa !70, !noalias !376
   %23 = zext i16 %22 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr %21, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !79, !noalias !376
   %26 = getelementptr inbounds nuw i8, ptr %15, i64 8
   invoke void @_ZNK9grpc_core18ChannelCompression15CompressMessageESt10unique_ptrINS_7MessageENS_5Arena13PooledDeleterEE26grpc_compression_algorithmPNS_19CallTracerInterfaceE(ptr dead_on_unwind nonnull writable sret(%"class.std::unique_ptr.45") align 8 %4, ptr noundef nonnull readonly align 8 dereferenceable(23) %26, ptr noundef nonnull %3, i32 noundef %18, ptr noundef %25)

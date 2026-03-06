@@ -34,18 +34,10 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.lock_class_key = type {}
 %struct.bus_type = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8 }
 %struct.usb_device_descriptor = type { i8, i8, i16, i8, i8, i8, i8, i16, i16, i16, i8, i8, i8, i8 }
-%struct.usb_host_config = type { %struct.usb_config_descriptor, ptr, [16 x ptr], [32 x ptr], [32 x ptr], ptr, i32 }
-%struct.usb_config_descriptor = type <{ i8, i8, i16, i8, i8, i8, i8, i8 }>
 %struct.usbdevfs_connectinfo = type { i32, i8 }
 %struct.usbdevfs_conninfo_ex = type { i32, i32, i32, i32, i8, [7 x i8] }
 %struct.usbdevfs_ctrltransfer = type { i8, i8, i16, i16, i16, i32, ptr }
 %struct.usbdevfs_bulktransfer = type { i32, i32, i32, ptr }
-%struct.usb_host_interface = type { %struct.usb_interface_descriptor, i32, ptr, ptr, ptr }
-%struct.usb_interface_descriptor = type { i8, i8, i8, i8, i8, i8, i8, i8, i8 }
-%struct.usb_host_endpoint = type <{ %struct.usb_endpoint_descriptor, %struct.usb_ss_ep_comp_descriptor, %struct.usb_ssp_isoc_ep_comp_descriptor, i8, %struct.list_head, ptr, ptr, ptr, i32, i32, i32, [4 x i8] }>
-%struct.usb_endpoint_descriptor = type <{ i8, i8, i8, i8, i16, i8, i8, i8 }>
-%struct.usb_ss_ep_comp_descriptor = type { i8, i8, i8, i8, i16 }
-%struct.usb_ssp_isoc_ep_comp_descriptor = type { i8, i8, i16, i32 }
 %struct.usbdevfs_getdriver = type { i32, [256 x i8] }
 %struct.usbdevfs_setinterface = type { i32, i32 }
 %struct.usbdevfs_urb = type { i8, i8, i32, i32, ptr, i32, i32, i32, %union.anon.17, i32, i32, ptr, [0 x %struct.usbdevfs_iso_packet_desc] }
@@ -58,8 +50,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.usbdevfs_disconnectsignal = type { i32, ptr }
 %struct.usbdevfs_disconnect_claim = type { i32, i32, [256 x i8] }
 %struct.wait_queue_entry = type { i32, ptr, ptr, %struct.list_head }
-%struct.usb_iso_packet_descriptor = type { i32, i32, i32, i32 }
-%struct.scatterlist = type { i64, i32, i32, i64, i32, i32 }
 %struct.completion = type { i32, %struct.swait_queue_head }
 %struct.swait_queue_head = type { %struct.raw_spinlock, %struct.list_head }
 
@@ -376,7 +366,7 @@ define internal i64 @usbdev_read(ptr noundef readonly captures(none) %0, ptr nou
 
 53:                                               ; preds = %44
   %54 = load ptr, ptr %42, align 8
-  %55 = getelementptr ptr, ptr %54, i64 %45
+  %55 = getelementptr [8 x i8], ptr %54, i64 %45
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 2
   %58 = load i16, ptr %57, align 1
@@ -388,7 +378,7 @@ define internal i64 @usbdev_read(ptr noundef readonly captures(none) %0, ptr nou
 
 63:                                               ; preds = %53
   %64 = load ptr, ptr %43, align 8
-  %.split = getelementptr %struct.usb_host_config, ptr %64, i64 %45
+  %.split = getelementptr [680 x i8], ptr %64, i64 %45
   %65 = getelementptr i8, ptr %.split, i64 2
   %66 = load i16, ptr %65, align 2
   %67 = sub i64 %48, %59
@@ -1992,7 +1982,7 @@ define internal fastcc i32 @proc_resetep(ptr noundef %0, ptr noundef %1) unnamed
 
 27:                                               ; preds = %.loopexit14, %24
   %28 = phi i64 [ 0, %24 ], [ %58, %.loopexit14 ]
-  %29 = getelementptr ptr, ptr %25, i64 %28
+  %29 = getelementptr [8 x i8], ptr %25, i64 %28
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load i32, ptr %31, align 8
@@ -2006,7 +1996,7 @@ define internal fastcc i32 @proc_resetep(ptr noundef %0, ptr noundef %1) unnamed
 
 37:                                               ; preds = %.loopexit, %34
   %38 = phi i64 [ 0, %34 ], [ %56, %.loopexit ]
-  %39 = getelementptr %struct.usb_host_interface, ptr %35, i64 %38
+  %39 = getelementptr [40 x i8], ptr %35, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %41 = load i8, ptr %40, align 4
   %42 = icmp eq i8 %41, 0
@@ -2025,7 +2015,7 @@ define internal fastcc i32 @proc_resetep(ptr noundef %0, ptr noundef %1) unnamed
 
 50:                                               ; preds = %47, %43
   %51 = phi i64 [ 0, %43 ], [ %48, %47 ]
-  %.split = getelementptr %struct.usb_host_endpoint, ptr %45, i64 %51
+  %.split = getelementptr [80 x i8], ptr %45, i64 %51
   %52 = getelementptr i8, ptr %.split, i64 2
   %53 = load i8, ptr %52, align 1
   %54 = zext i8 %53 to i32
@@ -2084,7 +2074,7 @@ define internal fastcc i32 @proc_resetep(ptr noundef %0, ptr noundef %1) unnamed
   %88 = getelementptr inbounds nuw i8, ptr %85, i64 %87
   %89 = and i32 %6, 15
   %90 = zext nneg i32 %89 to i64
-  %91 = getelementptr ptr, ptr %88, i64 %90
+  %91 = getelementptr [8 x i8], ptr %88, i64 %90
   %92 = load ptr, ptr %91, align 8
   %93 = icmp eq ptr %92, null
   br i1 %93, label %105, label %94
@@ -2143,7 +2133,7 @@ define internal fastcc i32 @proc_resetdevice(ptr noundef %0) unnamed_addr #1 ali
 18:                                               ; preds = %45, %15
   %19 = phi i8 [ %13, %15 ], [ %46, %45 ]
   %20 = phi i64 [ 0, %15 ], [ %47, %45 ]
-  %21 = getelementptr ptr, ptr %16, i64 %20
+  %21 = getelementptr [8 x i8], ptr %16, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 184
   %24 = load ptr, ptr %23, align 8
@@ -2239,7 +2229,7 @@ define internal fastcc i32 @proc_clearhalt(ptr noundef %0, ptr noundef %1) unnam
 
 27:                                               ; preds = %.loopexit14, %24
   %28 = phi i64 [ 0, %24 ], [ %58, %.loopexit14 ]
-  %29 = getelementptr ptr, ptr %25, i64 %28
+  %29 = getelementptr [8 x i8], ptr %25, i64 %28
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load i32, ptr %31, align 8
@@ -2253,7 +2243,7 @@ define internal fastcc i32 @proc_clearhalt(ptr noundef %0, ptr noundef %1) unnam
 
 37:                                               ; preds = %.loopexit, %34
   %38 = phi i64 [ 0, %34 ], [ %56, %.loopexit ]
-  %39 = getelementptr %struct.usb_host_interface, ptr %35, i64 %38
+  %39 = getelementptr [40 x i8], ptr %35, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %41 = load i8, ptr %40, align 4
   %42 = icmp eq i8 %41, 0
@@ -2272,7 +2262,7 @@ define internal fastcc i32 @proc_clearhalt(ptr noundef %0, ptr noundef %1) unnam
 
 50:                                               ; preds = %47, %43
   %51 = phi i64 [ 0, %43 ], [ %48, %47 ]
-  %.split = getelementptr %struct.usb_host_endpoint, ptr %45, i64 %51
+  %.split = getelementptr [80 x i8], ptr %45, i64 %51
   %52 = getelementptr i8, ptr %.split, i64 2
   %53 = load i8, ptr %52, align 1
   %54 = zext i8 %53 to i32
@@ -2332,7 +2322,7 @@ define internal fastcc i32 @proc_clearhalt(ptr noundef %0, ptr noundef %1) unnam
   %89 = getelementptr inbounds nuw i8, ptr %85, i64 %88
   %90 = and i32 %6, 15
   %91 = zext nneg i32 %90 to i64
-  %92 = getelementptr ptr, ptr %89, i64 %91
+  %92 = getelementptr [8 x i8], ptr %89, i64 %91
   %93 = load ptr, ptr %92, align 8
   %94 = icmp eq ptr %93, null
   br i1 %94, label %106, label %95
@@ -2548,7 +2538,7 @@ define internal fastcc i32 @proc_setconfig(ptr noundef readonly captures(none) %
 
 27:                                               ; preds = %24, %21
   %28 = phi i64 [ 0, %21 ], [ %25, %24 ]
-  %29 = getelementptr ptr, ptr %22, i64 %28
+  %29 = getelementptr [8 x i8], ptr %22, i64 %28
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 184
   %32 = load ptr, ptr %31, align 8
@@ -3832,10 +3822,10 @@ define internal fastcc range(i32 -14, 1) i32 @processcompl(ptr noundef nonnull r
 
 85:                                               ; preds = %80, %77
   %86 = phi i64 [ 0, %77 ], [ %81, %80 ]
-  %87 = getelementptr %struct.usb_iso_packet_descriptor, ptr %78, i64 %86
+  %87 = getelementptr [16 x i8], ptr %78, i64 %86
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %89 = load i32, ptr %88, align 8
-  %90 = getelementptr %struct.usbdevfs_iso_packet_desc, ptr %79, i64 %86
+  %90 = getelementptr [12 x i8], ptr %79, i64 %86
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 4
   %92 = tail call i64 @llvm.read_register.i64(metadata !0)
   %93 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %91, i32 %89, i64 4, i64 %92) #17, !srcloc !63
@@ -3912,7 +3902,7 @@ define internal fastcc void @free_async(ptr noundef nonnull %0) unnamed_addr #1 
   %19 = phi i64 [ %39, %37 ], [ 0, %12 ]
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 112
   %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr %struct.scatterlist, ptr %21, i64 %19
+  %22 = getelementptr [32 x i8], ptr %21, i64 %19
   %23 = load i64, ptr %22, align 8
   %24 = icmp ult i64 %23, 4
   br i1 %24, label %37, label %25
@@ -4042,7 +4032,7 @@ define internal fastcc range(i32 -14, 1) i32 @copy_urb_data_to_user(ptr noundef 
   %29 = tail call i32 @llvm.umin.i32(i32 %27, i32 16384)
   %30 = zext nneg i32 %29 to i64
   %31 = load ptr, ptr %14, align 8
-  %32 = getelementptr %struct.scatterlist, ptr %31, i64 %26
+  %32 = getelementptr [32 x i8], ptr %31, i64 %26
   %33 = load i64, ptr %32, align 8
   %34 = and i64 %33, 288230376151711740
   %35 = load i64, ptr @vmemmap_base, align 8
@@ -4276,10 +4266,10 @@ define internal fastcc range(i32 -14, 1) i32 @processcompl_compat(ptr noundef no
 
 85:                                               ; preds = %80, %77
   %86 = phi i64 [ 0, %77 ], [ %81, %80 ]
-  %87 = getelementptr %struct.usb_iso_packet_descriptor, ptr %78, i64 %86
+  %87 = getelementptr [16 x i8], ptr %78, i64 %86
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %89 = load i32, ptr %88, align 8
-  %90 = getelementptr %struct.usbdevfs_iso_packet_desc, ptr %79, i64 %86
+  %90 = getelementptr [12 x i8], ptr %79, i64 %86
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 4
   %92 = tail call i64 @llvm.read_register.i64(metadata !0)
   %93 = tail call { ptr, i64 } asm sideeffect "call __put_user_${4:P}", "={cx},={rsp},0,{rax},i,{rsp},~{ebx},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %91, i32 %89, i64 4, i64 %92) #17, !srcloc !72
@@ -4663,7 +4653,7 @@ define internal fastcc i32 @check_ctrlrecip(ptr noundef %0, i32 noundef range(i3
 
 48:                                               ; preds = %.loopexit31, %44
   %49 = phi i64 [ 0, %44 ], [ %78, %.loopexit31 ]
-  %50 = getelementptr ptr, ptr %45, i64 %49
+  %50 = getelementptr [8 x i8], ptr %45, i64 %49
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %53 = load i32, ptr %52, align 8
@@ -4677,7 +4667,7 @@ define internal fastcc i32 @check_ctrlrecip(ptr noundef %0, i32 noundef range(i3
 
 58:                                               ; preds = %.loopexit30, %55
   %59 = phi i64 [ 0, %55 ], [ %76, %.loopexit30 ]
-  %60 = getelementptr %struct.usb_host_interface, ptr %56, i64 %59
+  %60 = getelementptr [40 x i8], ptr %56, i64 %59
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 4
   %62 = load i8, ptr %61, align 4
   %63 = icmp eq i8 %62, 0
@@ -4696,7 +4686,7 @@ define internal fastcc i32 @check_ctrlrecip(ptr noundef %0, i32 noundef range(i3
 
 71:                                               ; preds = %68, %64
   %72 = phi i64 [ 0, %64 ], [ %69, %68 ]
-  %.split = getelementptr %struct.usb_host_endpoint, ptr %66, i64 %72
+  %.split = getelementptr [80 x i8], ptr %66, i64 %72
   %73 = getelementptr i8, ptr %.split, i64 2
   %74 = load i8, ptr %73, align 1
   %75 = icmp eq i8 %74, %47
@@ -4731,7 +4721,7 @@ define internal fastcc i32 @check_ctrlrecip(ptr noundef %0, i32 noundef range(i3
 
 90:                                               ; preds = %.loopexit29, %87
   %91 = phi i64 [ 0, %87 ], [ %121, %.loopexit29 ]
-  %92 = getelementptr ptr, ptr %88, i64 %91
+  %92 = getelementptr [8 x i8], ptr %88, i64 %91
   %93 = load ptr, ptr %92, align 8
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 16
   %95 = load i32, ptr %94, align 8
@@ -4745,7 +4735,7 @@ define internal fastcc i32 @check_ctrlrecip(ptr noundef %0, i32 noundef range(i3
 
 100:                                              ; preds = %.loopexit, %97
   %101 = phi i64 [ 0, %97 ], [ %119, %.loopexit ]
-  %102 = getelementptr %struct.usb_host_interface, ptr %98, i64 %101
+  %102 = getelementptr [40 x i8], ptr %98, i64 %101
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 4
   %104 = load i8, ptr %103, align 4
   %105 = icmp eq i8 %104, 0
@@ -4764,7 +4754,7 @@ define internal fastcc i32 @check_ctrlrecip(ptr noundef %0, i32 noundef range(i3
 
 113:                                              ; preds = %110, %106
   %114 = phi i64 [ 0, %106 ], [ %111, %110 ]
-  %.split20 = getelementptr %struct.usb_host_endpoint, ptr %108, i64 %114
+  %.split20 = getelementptr [80 x i8], ptr %108, i64 %114
   %115 = getelementptr i8, ptr %.split20, i64 2
   %116 = load i8, ptr %115, align 1
   %117 = zext i8 %116 to i32
@@ -4907,12 +4897,12 @@ define internal fastcc void @snoop_urb(ptr noundef %0, ptr noundef %1, i32 nound
   %13 = and i32 %12, 15
   %14 = lshr i32 %2, 30
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr ptr, ptr @snoop_urb.types, i64 %15
+  %16 = getelementptr [8 x i8], ptr @snoop_urb.types, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = lshr i32 %2, 7
   %19 = and i32 %18, 1
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr ptr, ptr @snoop_urb.dirs, i64 %20
+  %21 = getelementptr [8 x i8], ptr @snoop_urb.dirs, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %1, null
   %24 = icmp eq i32 %5, 0
@@ -5155,7 +5145,7 @@ define internal fastcc i32 @do_proc_bulk(ptr noundef %0, ptr noundef readonly ca
 
 20:                                               ; preds = %.loopexit24, %17
   %21 = phi i64 [ 0, %17 ], [ %51, %.loopexit24 ]
-  %22 = getelementptr ptr, ptr %18, i64 %21
+  %22 = getelementptr [8 x i8], ptr %18, i64 %21
   %23 = load ptr, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load i32, ptr %24, align 8
@@ -5169,7 +5159,7 @@ define internal fastcc i32 @do_proc_bulk(ptr noundef %0, ptr noundef readonly ca
 
 30:                                               ; preds = %.loopexit, %27
   %31 = phi i64 [ 0, %27 ], [ %49, %.loopexit ]
-  %32 = getelementptr %struct.usb_host_interface, ptr %28, i64 %31
+  %32 = getelementptr [40 x i8], ptr %28, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %34 = load i8, ptr %33, align 4
   %35 = icmp eq i8 %34, 0
@@ -5188,7 +5178,7 @@ define internal fastcc i32 @do_proc_bulk(ptr noundef %0, ptr noundef readonly ca
 
 43:                                               ; preds = %40, %36
   %44 = phi i64 [ 0, %36 ], [ %41, %40 ]
-  %.split15 = getelementptr %struct.usb_host_endpoint, ptr %38, i64 %44
+  %.split15 = getelementptr [80 x i8], ptr %38, i64 %44
   %45 = getelementptr i8, ptr %.split15, i64 2
   %46 = load i8, ptr %45, align 1
   %47 = zext i8 %46 to i32
@@ -5263,7 +5253,7 @@ define internal fastcc i32 @do_proc_bulk(ptr noundef %0, ptr noundef readonly ca
   %95 = lshr i32 %89, 15
   %96 = and i32 %95, 15
   %97 = zext nneg i32 %96 to i64
-  %98 = getelementptr ptr, ptr %94, i64 %97
+  %98 = getelementptr [8 x i8], ptr %94, i64 %97
   %99 = load ptr, ptr %98, align 8
   %100 = icmp eq ptr %99, null
   br i1 %100, label %.thread, label %101
@@ -5542,7 +5532,7 @@ define internal fastcc i32 @proc_do_submiturb(ptr noundef %0, ptr noundef captur
 
 45:                                               ; preds = %.loopexit44, %42
   %46 = phi i64 [ 0, %42 ], [ %75, %.loopexit44 ]
-  %47 = getelementptr ptr, ptr %43, i64 %46
+  %47 = getelementptr [8 x i8], ptr %43, i64 %46
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %50 = load i32, ptr %49, align 8
@@ -5556,7 +5546,7 @@ define internal fastcc i32 @proc_do_submiturb(ptr noundef %0, ptr noundef captur
 
 55:                                               ; preds = %.loopexit43, %52
   %56 = phi i64 [ 0, %52 ], [ %73, %.loopexit43 ]
-  %57 = getelementptr %struct.usb_host_interface, ptr %53, i64 %56
+  %57 = getelementptr [40 x i8], ptr %53, i64 %56
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 4
   %59 = load i8, ptr %58, align 4
   %60 = icmp eq i8 %59, 0
@@ -5575,7 +5565,7 @@ define internal fastcc i32 @proc_do_submiturb(ptr noundef %0, ptr noundef captur
 
 68:                                               ; preds = %65, %61
   %69 = phi i64 [ 0, %61 ], [ %66, %65 ]
-  %.split = getelementptr %struct.usb_host_endpoint, ptr %63, i64 %69
+  %.split = getelementptr [80 x i8], ptr %63, i64 %69
   %70 = getelementptr i8, ptr %.split, i64 2
   %71 = load i8, ptr %70, align 1
   %72 = icmp eq i8 %71, %27
@@ -5637,7 +5627,7 @@ define internal fastcc i32 @proc_do_submiturb(ptr noundef %0, ptr noundef captur
   %109 = icmp sgt i8 %106, -1
   %.v.v = select i1 %109, i64 1072, i64 944
   %.v = getelementptr inbounds nuw i8, ptr %104, i64 %.v.v
-  %110 = getelementptr ptr, ptr %.v, i64 %108
+  %110 = getelementptr [8 x i8], ptr %.v, i64 %108
   %111 = load ptr, ptr %110, align 8
   %112 = icmp eq ptr %111, null
   br i1 %112, label %.thread, label %113
@@ -5831,7 +5821,7 @@ default.unreachable92:                            ; preds = %178
 235:                                              ; preds = %241, %230
   %236 = phi i64 [ 0, %230 ], [ %243, %241 ]
   %237 = phi i32 [ 0, %230 ], [ %242, %241 ]
-  %238 = getelementptr %struct.usbdevfs_iso_packet_desc, ptr %228, i64 %236
+  %238 = getelementptr [12 x i8], ptr %228, i64 %236
   %239 = load i32, ptr %238, align 4
   %240 = icmp ugt i32 %239, 98304
   br i1 %240, label %.loopexit40, label %241
@@ -5973,7 +5963,7 @@ default.unreachable92:                            ; preds = %178
   %332 = load ptr, ptr %303, align 8
   %333 = getelementptr inbounds nuw i8, ptr %332, i64 112
   %334 = load ptr, ptr %333, align 8
-  %335 = getelementptr %struct.scatterlist, ptr %334, i64 %325
+  %335 = getelementptr [32 x i8], ptr %334, i64 %325
   tail call fastcc void @sg_set_buf(ptr noundef %335, ptr noundef nonnull %329, i32 noundef %327)
   %336 = load ptr, ptr %324, align 8
   %337 = tail call i64 @_copy_from_user(ptr noundef nonnull %329, ptr noundef %336, i64 noundef %328) #17
@@ -6006,7 +5996,7 @@ default.unreachable92:                            ; preds = %178
   %356 = load ptr, ptr %303, align 8
   %357 = getelementptr inbounds nuw i8, ptr %356, i64 112
   %358 = load ptr, ptr %357, align 8
-  %359 = getelementptr %struct.scatterlist, ptr %358, i64 %349
+  %359 = getelementptr [32 x i8], ptr %358, i64 %349
   tail call fastcc void @sg_set_buf(ptr noundef %359, ptr noundef nonnull %353, i32 noundef %351)
   %360 = sub i32 %350, %351
   %361 = add nuw nsw i64 %349, 1
@@ -6236,9 +6226,9 @@ default.unreachable92:                            ; preds = %178
   %514 = phi i32 [ 0, %510 ], [ %523, %512 ]
   %515 = load ptr, ptr %414, align 8
   %516 = getelementptr inbounds nuw i8, ptr %515, i64 184
-  %517 = getelementptr %struct.usb_iso_packet_descriptor, ptr %516, i64 %513
+  %517 = getelementptr [16 x i8], ptr %516, i64 %513
   store i32 %514, ptr %517, align 8
-  %518 = getelementptr %struct.usbdevfs_iso_packet_desc, ptr %257, i64 %513
+  %518 = getelementptr [12 x i8], ptr %257, i64 %513
   %519 = load i32, ptr %518, align 4
   %520 = load ptr, ptr %414, align 8
   %.idx = shl i64 %513, 4
@@ -6666,12 +6656,12 @@ define internal void @async_completed(ptr noundef readonly captures(none) %0) #1
   %65 = and i32 %64, 15
   %66 = lshr i32 %63, 30
   %67 = zext nneg i32 %66 to i64
-  %68 = getelementptr ptr, ptr @snoop_urb.types, i64 %67
+  %68 = getelementptr [8 x i8], ptr @snoop_urb.types, i64 %67
   %69 = load ptr, ptr %68, align 8
   %70 = lshr i32 %63, 7
   %71 = and i32 %70, 1
   %72 = zext nneg i32 %71 to i64
-  %73 = getelementptr ptr, ptr @snoop_urb.dirs, i64 %72
+  %73 = getelementptr [8 x i8], ptr @snoop_urb.dirs, i64 %72
   %74 = load ptr, ptr %73, align 8
   %75 = icmp eq ptr %55, null
   %76 = getelementptr inbounds nuw i8, ptr %61, i64 168
@@ -6878,7 +6868,7 @@ define internal fastcc void @snoop_urb_data(ptr noundef readonly captures(none) 
   %23 = phi i32 [ %4, %15 ], [ %40, %21 ]
   %24 = tail call i32 @llvm.umin.i32(i32 %23, i32 16384)
   %25 = load ptr, ptr %16, align 8
-  %26 = getelementptr %struct.scatterlist, ptr %25, i64 %22
+  %26 = getelementptr [32 x i8], ptr %25, i64 %22
   %27 = load i64, ptr %26, align 8
   %28 = and i64 %27, 288230376151711740
   %29 = load i64, ptr @vmemmap_base, align 8
@@ -7192,9 +7182,9 @@ define internal fastcc range(i32 -2147483648, 1) i32 @parse_usbdevfs_streams(ptr
   %59 = icmp slt i8 %50, 0
   %.v.v = select i1 %59, i64 944, i64 1072
   %.v = getelementptr inbounds nuw i8, ptr %56, i64 %.v.v
-  %60 = getelementptr ptr, ptr %.v, i64 %58
+  %60 = getelementptr [8 x i8], ptr %.v, i64 %58
   %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr ptr, ptr %36, i64 %44
+  %62 = getelementptr [8 x i8], ptr %36, i64 %44
   store ptr %61, ptr %62, align 8
   %63 = icmp ne ptr %61, null
   %64 = and i8 %50, 112
@@ -7221,7 +7211,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @parse_usbdevfs_streams(ptr
 
 77:                                               ; preds = %.loopexit18, %74
   %78 = phi i64 [ 0, %74 ], [ %107, %.loopexit18 ]
-  %79 = getelementptr ptr, ptr %75, i64 %78
+  %79 = getelementptr [8 x i8], ptr %75, i64 %78
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %82 = load i32, ptr %81, align 8
@@ -7235,7 +7225,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @parse_usbdevfs_streams(ptr
 
 87:                                               ; preds = %.loopexit, %84
   %88 = phi i64 [ 0, %84 ], [ %105, %.loopexit ]
-  %89 = getelementptr %struct.usb_host_interface, ptr %85, i64 %88
+  %89 = getelementptr [40 x i8], ptr %85, i64 %88
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 4
   %91 = load i8, ptr %90, align 4
   %92 = icmp eq i8 %91, 0
@@ -7254,7 +7244,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @parse_usbdevfs_streams(ptr
 
 100:                                              ; preds = %97, %93
   %101 = phi i64 [ 0, %93 ], [ %98, %97 ]
-  %.split = getelementptr %struct.usb_host_endpoint, ptr %95, i64 %101
+  %.split = getelementptr [80 x i8], ptr %95, i64 %101
   %102 = getelementptr i8, ptr %.split, i64 2
   %103 = load i8, ptr %102, align 1
   %104 = icmp eq i8 %103, %50

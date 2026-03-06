@@ -9166,7 +9166,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   store ptr %19, ptr %0, align 8, !tbaa !86
   %41 = getelementptr inbounds nuw i8, ptr %19, i64 %17
   store ptr %41, ptr %14, align 8, !tbaa !81
-  %42 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %19, i64 %1
+  %42 = getelementptr inbounds nuw [32 x i8], ptr %19, i64 %1
   store ptr %42, ptr %6, align 8, !tbaa !84
   br label %43
 
@@ -9307,7 +9307,7 @@ define internal fastcc void @_ZN4JsonL11cloneUniqueISt5arrayINSt7__cxx1112basic_
   %5 = phi i64 [ %24, %19 ], [ 0, %3 ]
   %.idx.i = shl nuw nsw i64 %5, 5
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i
-  %7 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.0.val, i64 %5
+  %7 = getelementptr inbounds nuw [32 x i8], ptr %.0.val, i64 %5
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %8, ptr %6, align 8, !tbaa !23
   %9 = load ptr, ptr %7, align 8, !tbaa !29
@@ -9455,7 +9455,7 @@ define dso_local noundef zeroext i1 @_ZNK4Json5Value8Comments3hasENS_16CommentPl
 
 4:                                                ; preds = %2
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i64 %5
+  %6 = getelementptr inbounds nuw [32 x i8], ptr %3, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i64, ptr %7, align 8, !tbaa !25
   %9 = icmp ne i64 %8, 0
@@ -9483,7 +9483,7 @@ define dso_local void @_ZNK4Json5Value8Comments3getB5cxx11ENS_16CommentPlacement
 
 9:                                                ; preds = %3
   %10 = zext i32 %2 to i64
-  %11 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %5, i64 %10
+  %11 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %12, ptr %0, align 8, !tbaa !23
   %13 = load ptr, ptr %11, align 8, !tbaa !29
@@ -9565,7 +9565,7 @@ _ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm3EEC2Ev.exit: 
 _ZNSt10unique_ptrISt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm3EESt14default_deleteIS7_EED2Ev.exit: ; preds = %_ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm3EEC2Ev.exit, %5
   %13 = phi ptr [ %8, %_ZNSt5arrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELm3EEC2Ev.exit ], [ %6, %5 ]
   %14 = zext i32 %1 to i64
-  %15 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !29
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %18 = icmp eq ptr %16, %17
@@ -9863,7 +9863,7 @@ define dso_local noundef zeroext i1 @_ZNK4Json5Value10hasCommentENS_16CommentPla
 
 5:                                                ; preds = %2
   %6 = zext i32 %1 to i64
-  %7 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %4, i64 %6
+  %7 = getelementptr inbounds nuw [32 x i8], ptr %4, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !25
   %10 = icmp ne i64 %9, 0
@@ -9893,7 +9893,7 @@ define dso_local void @_ZNK4Json5Value10getCommentB5cxx11ENS_16CommentPlacementE
 
 10:                                               ; preds = %3
   %11 = zext i32 %2 to i64
-  %12 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %6, i64 %11
+  %12 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %13, ptr %0, align 8, !tbaa !23, !alias.scope !96
   %14 = load ptr, ptr %12, align 8, !tbaa !29
@@ -12839,7 +12839,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !86
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !81
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !84
   ret void
 }
@@ -13038,7 +13038,7 @@ _ZNSt6vectorIN4Json12PathArgumentESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26: ;
 _ZNSt12_Vector_baseIN4Json12PathArgumentESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN4Json12PathArgumentESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit26, %78
   store ptr %22, ptr %0, align 8, !tbaa !117
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !111
-  %82 = getelementptr inbounds nuw %"class.Json::PathArgument", ptr %22, i64 %16
+  %82 = getelementptr inbounds nuw [40 x i8], ptr %22, i64 %16
   store ptr %82, ptr %77, align 8, !tbaa !113
   ret void
 }
@@ -13244,7 +13244,7 @@ _ZNSt6vectorIN4Json12PathArgumentESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit36: ;
 _ZNSt12_Vector_baseIN4Json12PathArgumentESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN4Json12PathArgumentESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit36, %82
   store ptr %23, ptr %0, align 8, !tbaa !117
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !111
-  %86 = getelementptr inbounds nuw %"class.Json::PathArgument", ptr %23, i64 %17
+  %86 = getelementptr inbounds nuw [40 x i8], ptr %23, i64 %17
   store ptr %86, ptr %81, align 8, !tbaa !113
   ret void
 

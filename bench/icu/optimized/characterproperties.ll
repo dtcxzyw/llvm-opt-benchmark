@@ -47,7 +47,7 @@ define noundef ptr @_ZN6icu_7719CharacterProperties24getInclusionsForPropertyE9U
 
 8:                                                ; preds = %6
   %9 = zext nneg i32 %0 to i64
-  %10 = getelementptr %"struct.(anonymous namespace)::Inclusion", ptr @_ZN12_GLOBAL__N_111gInclusionsE, i64 %9
+  %10 = getelementptr [16 x i8], ptr @_ZN12_GLOBAL__N_111gInclusionsE, i64 %9
   %11 = getelementptr i8, ptr %10, i64 -65216
   %12 = getelementptr i8, ptr %10, i64 -65208
   %13 = load atomic i32, ptr %12 acquire, align 8
@@ -249,7 +249,7 @@ define internal fastcc noundef ptr @_ZN12_GLOBAL__N_122getInclusionsForSourceE15
 
 9:                                                ; preds = %7
   %10 = zext nneg i32 %0 to i64
-  %11 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Inclusion", ptr @_ZN12_GLOBAL__N_111gInclusionsE, i64 %10
+  %11 = getelementptr inbounds nuw [16 x i8], ptr @_ZN12_GLOBAL__N_111gInclusionsE, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load atomic i32, ptr %12 acquire, align 8
   %.not11.i = icmp eq i32 %13, 2
@@ -574,7 +574,7 @@ define noundef ptr @_ZN6icu_7719CharacterProperties20getBinaryPropertySetE9UProp
 9:                                                ; preds = %7
   tail call void @umtx_lock_77(ptr noundef nonnull @_ZN12_GLOBAL__N_17cpMutexE)
   %10 = zext nneg i32 %0 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr @_ZN12_GLOBAL__N_14setsE, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @_ZN12_GLOBAL__N_14setsE, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !38
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %90
@@ -876,7 +876,7 @@ define ptr @u_getIntPropertyMap_77(i32 noundef %0, ptr noundef %1) local_unnamed
 9:                                                ; preds = %6
   tail call void @umtx_lock_77(ptr noundef nonnull @_ZN12_GLOBAL__N_17cpMutexE)
   %10 = zext nneg i32 %0 to i64
-  %11 = getelementptr ptr, ptr @_ZN12_GLOBAL__N_14mapsE, i64 %10
+  %11 = getelementptr [8 x i8], ptr @_ZN12_GLOBAL__N_14mapsE, i64 %10
   %12 = getelementptr i8, ptr %11, i64 -32768
   %13 = load ptr, ptr %12, align 8, !tbaa !41
   %14 = icmp eq ptr %13, null
@@ -1138,7 +1138,7 @@ define internal noundef signext i8 @_ZN12_GLOBAL__N_127characterproperties_clean
 
 .preheader18:                                     ; preds = %5, %11
   %indvars.iv = phi i64 [ %indvars.iv.next, %11 ], [ 0, %5 ]
-  %7 = getelementptr inbounds nuw ptr, ptr @_ZN12_GLOBAL__N_14setsE, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @_ZN12_GLOBAL__N_14setsE, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !38
   %9 = icmp eq ptr %8, null
   br i1 %9, label %11, label %10
@@ -1159,7 +1159,7 @@ define internal noundef signext i8 @_ZN12_GLOBAL__N_127characterproperties_clean
 
 .preheader:                                       ; preds = %11, %.preheader
   %indvars.iv24 = phi i64 [ %indvars.iv.next25, %.preheader ], [ 0, %11 ]
-  %13 = getelementptr inbounds nuw ptr, ptr @_ZN12_GLOBAL__N_14mapsE, i64 %indvars.iv24
+  %13 = getelementptr inbounds nuw [8 x i8], ptr @_ZN12_GLOBAL__N_14mapsE, i64 %indvars.iv24
   %14 = load ptr, ptr %13, align 8, !tbaa !41
   tail call void @ucptrie_close_77(ptr noundef %14)
   store ptr null, ptr %13, align 8, !tbaa !41

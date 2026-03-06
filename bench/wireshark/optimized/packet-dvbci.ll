@@ -13,7 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.reassembly_table_functions = type { ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.exp_pdu_data_item = type { ptr, ptr, ptr }
 %struct._fragment_items = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct._apdu_info_t = type { i32, i32, i32, i8, i16, i8, ptr }
 %struct.nstime_t = type { i64, i32 }
 %struct._asn1_ctx_t = type { i32, i32, i8, ptr, ptr, ptr, ptr, ptr, %struct.anon.0, %struct.anon.3, %struct.anon.4, ptr }
 %struct.anon.0 = type { i32, i8, i8, i8, ptr, ptr, i32, i32, ptr, ptr, ptr, %union.anon }
@@ -1561,7 +1560,7 @@ define hidden void @proto_register_dvbci() local_unnamed_addr #1 {
 2:                                                ; preds = %0, %2
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %2 ]
   %3 = load ptr, ptr @spdu_table, align 8
-  %4 = getelementptr %struct._spdu_info_t, ptr @spdu_info, i64 %indvars.iv
+  %4 = getelementptr [3 x i8], ptr @spdu_info, i64 %indvars.iv
   %5 = load i8, ptr %4, align 1
   %6 = zext i8 %5 to i64
   %7 = inttoptr i64 %6 to ptr
@@ -1578,7 +1577,7 @@ define hidden void @proto_register_dvbci() local_unnamed_addr #1 {
 11:                                               ; preds = %9, %11
   %indvars.iv16 = phi i64 [ 0, %9 ], [ %indvars.iv.next17, %11 ]
   %12 = load ptr, ptr @apdu_table, align 8
-  %13 = getelementptr %struct._apdu_info_t, ptr @apdu_info, i64 %indvars.iv16
+  %13 = getelementptr [32 x i8], ptr @apdu_info, i64 %indvars.iv16
   %14 = load i32, ptr %13, align 16
   %15 = zext i32 %14 to i64
   %16 = inttoptr i64 %15 to ptr

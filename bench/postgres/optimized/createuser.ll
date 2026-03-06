@@ -333,7 +333,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 61:                                               ; preds = %58
   %62 = add i32 %59, 1
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds ptr, ptr %1, i64 %63
+  %64 = getelementptr inbounds [8 x i8], ptr %1, i64 %63
   %65 = load ptr, ptr %64, align 8
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 0, ptr noundef nonnull @.str.34, ptr noundef %65) #10
   call void (i32, i32, ptr, ...) @pg_log_generic(i32 noundef 4, i32 noundef 2, ptr noundef nonnull @.str.33, ptr noundef %12) #10
@@ -342,7 +342,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 66:                                               ; preds = %58
   %67 = sext i32 %59 to i64
-  %68 = getelementptr inbounds ptr, ptr %1, i64 %67
+  %68 = getelementptr inbounds [8 x i8], ptr %1, i64 %67
   %69 = load ptr, ptr %68, align 8
   %70 = icmp eq ptr %69, null
   br i1 %70, label %.thread, label %78

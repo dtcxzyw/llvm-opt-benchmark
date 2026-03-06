@@ -4,18 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.t_interaction_function = type { ptr, ptr, i32, i32, i32, i32 }
-%union.t_iparams = type { %struct.anon.59 }
-%struct.anon.59 = type { [3 x float], [3 x float], [3 x float], [3 x float] }
-%struct.gmx_moltype_t = type { ptr, %struct.t_atoms, %"struct.std::array", %"class.gmx::ListOfLists" }
-%struct.t_atoms = type { i32, ptr, ptr, ptr, ptr, i32, ptr, ptr, i8, i8, i8, i8, i8 }
-%"struct.std::array" = type { [95 x %struct.InteractionList] }
-%struct.InteractionList = type { %"class.std::vector" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.gmx::ListOfLists" = type { %"class.std::vector", %"class.std::vector" }
-%struct.t_atom = type { float, float, float, float, i16, i16, i32, i32, i32, [4 x i8] }
 %"class.std::filesystem::__cxx11::path" = type { %"class.std::__cxx11::basic_string", %"struct.std::filesystem::__cxx11::path::_List" }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
@@ -77,10 +65,10 @@ define noundef zeroext i1 @_Z28gmx_mtop_bondeds_free_energyPK10gmx_mtop_t(ptr no
   %21 = phi ptr [ %4, %.lr.ph ], [ %35, %33 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
   %.02534 = phi i1 [ false, %.lr.ph ], [ %.1, %33 ]
-  %22 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4, !tbaa !16
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds %struct.t_interaction_function, ptr @interaction_function, i64 %24
+  %25 = getelementptr inbounds [32 x i8], ptr @interaction_function, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 28
   %27 = load i32, ptr %26, align 4, !tbaa !18
   %28 = and i32 %27, 1
@@ -89,7 +77,7 @@ define noundef zeroext i1 @_Z28gmx_mtop_bondeds_free_energyPK10gmx_mtop_t(ptr no
 
 29:                                               ; preds = %19
   %30 = load ptr, ptr %12, align 8, !tbaa !21
-  %31 = getelementptr inbounds nuw %union.t_iparams, ptr %30, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [48 x i8], ptr %30, i64 %indvars.iv
   %32 = tail call fastcc noundef zeroext i1 @_ZL7ip_pertiPK9t_iparams(i32 noundef %23, ptr noundef nonnull %31)
   %spec.select = select i1 %32, i1 true, i1 %.02534
   %.pre = load ptr, ptr %3, align 8, !tbaa !4
@@ -118,7 +106,7 @@ define noundef zeroext i1 @_Z28gmx_mtop_bondeds_free_energyPK10gmx_mtop_t(ptr no
   %.sroa.029.043 = phi ptr [ %14, %.lr.ph46 ], [ %58, %._crit_edge40 ]
   %42 = load i32, ptr %.sroa.029.043, align 8, !tbaa !26
   %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %18, i64 %43
+  %44 = getelementptr inbounds nuw [2408 x i8], ptr %18, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8, !tbaa !33
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 872
@@ -146,11 +134,11 @@ define noundef zeroext i1 @_Z28gmx_mtop_bondeds_free_energyPK10gmx_mtop_t(ptr no
 .lr.ph39:                                         ; preds = %.lr.ph39.preheader, %80
   %indvars.iv49 = phi i64 [ 0, %.lr.ph39.preheader ], [ %indvars.iv.next50, %80 ]
   %.335 = phi i1 [ %.244, %.lr.ph39.preheader ], [ %.4, %80 ]
-  %59 = getelementptr inbounds nuw i32, ptr %48, i64 %indvars.iv49
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %indvars.iv49
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %61 = load i32, ptr %60, align 4, !tbaa !16
   %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds %struct.t_atom, ptr %46, i64 %62
+  %63 = getelementptr inbounds [36 x i8], ptr %46, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 12
   %65 = load float, ptr %64, align 4, !tbaa !49
   %66 = getelementptr inbounds nuw i8, ptr %63, i64 4
@@ -162,7 +150,7 @@ define noundef zeroext i1 @_Z28gmx_mtop_bondeds_free_energyPK10gmx_mtop_t(ptr no
   %70 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %71 = load i32, ptr %70, align 4, !tbaa !16
   %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds %struct.t_atom, ptr %46, i64 %72
+  %73 = getelementptr inbounds [36 x i8], ptr %46, i64 %72
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 12
   %75 = load float, ptr %74, align 4, !tbaa !49
   %76 = getelementptr inbounds nuw i8, ptr %73, i64 4
@@ -185,7 +173,7 @@ define internal fastcc noundef zeroext i1 @_ZL7ip_pertiPK9t_iparams(i32 noundef 
   %3 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %4 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %5 = sext i32 %0 to i64
-  %6 = getelementptr inbounds %struct.t_interaction_function, ptr @interaction_function, i64 %5
+  %6 = getelementptr inbounds [32 x i8], ptr @interaction_function, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load i32, ptr %7, align 8, !tbaa !56
   %9 = icmp eq i32 %8, 0
@@ -375,9 +363,9 @@ define internal fastcc noundef zeroext i1 @_ZL7ip_pertiPK9t_iparams(i32 noundef 
 119:                                              ; preds = %117, %119
   %indvars.iv117 = phi i64 [ 0, %117 ], [ %indvars.iv.next118, %119 ]
   %.1110 = phi i8 [ 0, %117 ], [ %.2, %119 ]
-  %120 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv117
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv117
   %121 = load float, ptr %120, align 4, !tbaa !57
-  %122 = getelementptr inbounds nuw float, ptr %118, i64 %indvars.iv117
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %indvars.iv117
   %123 = load float, ptr %122, align 4, !tbaa !57
   %124 = fcmp une float %121, %123
   %.2 = select i1 %124, i8 1, i8 %.1110
@@ -397,17 +385,17 @@ define internal fastcc noundef zeroext i1 @_ZL7ip_pertiPK9t_iparams(i32 noundef 
 132:                                              ; preds = %.preheader, %145
   %indvars.iv115 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next116, %145 ]
   %.3108 = phi i8 [ 0, %.preheader ], [ %.4, %145 ]
-  %133 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv115
+  %133 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv115
   %134 = load float, ptr %133, align 4, !tbaa !57
-  %135 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv115
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv115
   %136 = load float, ptr %135, align 4, !tbaa !57
   %137 = fcmp une float %134, %136
   br i1 %137, label %144, label %138
 
 138:                                              ; preds = %132
-  %139 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv115
+  %139 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv115
   %140 = load float, ptr %139, align 4, !tbaa !57
-  %141 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv115
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv115
   %142 = load float, ptr %141, align 4, !tbaa !57
   %143 = fcmp une float %140, %142
   br i1 %143, label %144, label %145
@@ -495,9 +483,9 @@ define internal fastcc noundef zeroext i1 @_ZL7ip_pertiPK9t_iparams(i32 noundef 
 
 200:                                              ; preds = %.preheader105, %200
   %indvars.iv = phi i64 [ 0, %.preheader105 ], [ %indvars.iv.next, %200 ]
-  %201 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  %201 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %202 = load float, ptr %201, align 4, !tbaa !57
-  %203 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv
+  %203 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %204 = load float, ptr %203, align 4, !tbaa !57
   %205 = fcmp une float %202, %204
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -543,7 +531,7 @@ define internal fastcc noundef zeroext i1 @_ZL7ip_pertiPK9t_iparams(i32 noundef 
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNSt10filesystem7__cxx114pathC2IA126_cS1_EERKT_NS1_6formatE(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 1 dereferenceable(126) @.str, i8 noundef zeroext 2)
   %215 = zext nneg i32 %0 to i64
-  %216 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %215
+  %216 = getelementptr inbounds nuw [32 x i8], ptr @interaction_function, i64 %215
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 8
   %218 = load ptr, ptr %217, align 8, !tbaa !61
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %4, i32 noundef 152, ptr noundef nonnull @.str.2, ptr noundef %218) #11
@@ -726,7 +714,7 @@ define void @_Z17gmx_sort_ilist_feP22InteractionDefinitionsN3gmx8ArrayRefIKiEE(p
   %.0126 = phi i1 [ false, %3 ], [ %.3, %102 ]
   %.067125 = phi i32 [ 0, %3 ], [ %.4, %102 ]
   %.084122 = phi ptr [ null, %3 ], [ %.488, %102 ]
-  %10 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv156
+  %10 = getelementptr inbounds nuw [32 x i8], ptr @interaction_function, i64 %indvars.iv156
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 28
   %12 = load i32, ptr %11, align 4, !tbaa !18
   %13 = and i32 %12, 1
@@ -734,7 +722,7 @@ define void @_Z17gmx_sort_ilist_feP22InteractionDefinitionsN3gmx8ArrayRefIKiEE(p
   br i1 %.not, label %102, label %14
 
 14:                                               ; preds = %9
-  %15 = getelementptr inbounds nuw %struct.InteractionList, ptr %4, i64 %indvars.iv156
+  %15 = getelementptr inbounds nuw [24 x i8], ptr %4, i64 %indvars.iv156
   %16 = load ptr, ptr %15, align 8, !tbaa !10
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !4
@@ -747,7 +735,7 @@ define void @_Z17gmx_sort_ilist_feP22InteractionDefinitionsN3gmx8ArrayRefIKiEE(p
   br i1 %24, label %.lr.ph110, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %14
-  %25 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv156
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv156
   store i32 0, ptr %25, align 4, !tbaa !16
   br label %._crit_edge121
 
@@ -770,10 +758,10 @@ define void @_Z17gmx_sort_ilist_feP22InteractionDefinitionsN3gmx8ArrayRefIKiEE(p
   %32 = load ptr, ptr %0, align 8, !tbaa !86
   %33 = load ptr, ptr %32, align 8, !tbaa !21
   %34 = sext i32 %.056108 to i64
-  %35 = getelementptr inbounds i32, ptr %16, i64 %34
+  %35 = getelementptr inbounds [4 x i8], ptr %16, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !16
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds %union.t_iparams, ptr %33, i64 %37
+  %38 = getelementptr inbounds [48 x i8], ptr %33, i64 %37
   %39 = tail call fastcc noundef zeroext i1 @_ZL7ip_pertiPK9t_iparams(i32 noundef %30, ptr noundef %38)
   br i1 %39, label %55, label %40
 
@@ -784,7 +772,7 @@ define void @_Z17gmx_sort_ilist_feP22InteractionDefinitionsN3gmx8ArrayRefIKiEE(p
   %42 = getelementptr i8, ptr %35, i64 4
   %43 = load i32, ptr %42, align 4, !tbaa !16
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds i32, ptr %1, i64 %44
+  %45 = getelementptr inbounds [4 x i8], ptr %1, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !16
   %47 = and i32 %46, 512
   %.not89 = icmp eq i32 %47, 0
@@ -794,7 +782,7 @@ define void @_Z17gmx_sort_ilist_feP22InteractionDefinitionsN3gmx8ArrayRefIKiEE(p
   %49 = getelementptr i8, ptr %35, i64 8
   %50 = load i32, ptr %49, align 4, !tbaa !16
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds i32, ptr %1, i64 %51
+  %52 = getelementptr inbounds [4 x i8], ptr %1, i64 %51
   %53 = load i32, ptr %52, align 4, !tbaa !16
   %54 = and i32 %53, 512
   %.not90 = icmp eq i32 %54, 0
@@ -827,10 +815,10 @@ define void @_Z17gmx_sort_ilist_feP22InteractionDefinitionsN3gmx8ArrayRefIKiEE(p
   %indvars.iv140 = phi i64 [ %34, %.lr.ph101.preheader ], [ %indvars.iv.next141, %.lr.ph101 ]
   %.055100 = phi i32 [ 0, %.lr.ph101.preheader ], [ %69, %.lr.ph101 ]
   %indvars.iv.next141 = add nsw i64 %indvars.iv140, 1
-  %66 = getelementptr inbounds i32, ptr %16, i64 %indvars.iv140
+  %66 = getelementptr inbounds [4 x i8], ptr %16, i64 %indvars.iv140
   %67 = load i32, ptr %66, align 4, !tbaa !16
   %indvars.iv.next143 = add nsw i64 %indvars.iv142, 1
-  %68 = getelementptr inbounds i32, ptr %.286, i64 %indvars.iv142
+  %68 = getelementptr inbounds [4 x i8], ptr %.286, i64 %indvars.iv142
   store i32 %67, ptr %68, align 4, !tbaa !16
   %69 = add nuw i32 %.055100, 1
   %exitcond147.not = icmp eq i32 %.055100, %27
@@ -848,10 +836,10 @@ define void @_Z17gmx_sort_ilist_feP22InteractionDefinitionsN3gmx8ArrayRefIKiEE(p
   %indvars.iv = phi i64 [ %34, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.05495 = phi i32 [ 0, %.lr.ph.preheader ], [ %75, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %72 = getelementptr inbounds i32, ptr %16, i64 %indvars.iv
+  %72 = getelementptr inbounds [4 x i8], ptr %16, i64 %indvars.iv
   %73 = load i32, ptr %72, align 4, !tbaa !16
   %indvars.iv.next135 = add nsw i64 %indvars.iv134, 1
-  %74 = getelementptr inbounds i32, ptr %16, i64 %indvars.iv134
+  %74 = getelementptr inbounds [4 x i8], ptr %16, i64 %indvars.iv134
   store i32 %73, ptr %74, align 4, !tbaa !16
   %75 = add nuw i32 %.05495, 1
   %exitcond.not = icmp eq i32 %.05495, %27
@@ -885,7 +873,7 @@ define void @_Z17gmx_sort_ilist_feP22InteractionDefinitionsN3gmx8ArrayRefIKiEE(p
   br i1 %87, label %31, label %._crit_edge, !llvm.loop !89
 
 ._crit_edge:                                      ; preds = %.loopexit
-  %88 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv156
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv156
   store i32 %.164, ptr %88, align 4, !tbaa !16
   %89 = icmp sgt i32 %.262, 0
   br i1 %89, label %.lr.ph120.preheader, label %._crit_edge121
@@ -908,10 +896,10 @@ define void @_Z17gmx_sort_ilist_feP22InteractionDefinitionsN3gmx8ArrayRefIKiEE(p
 .lr.ph120:                                        ; preds = %.lr.ph120.preheader, %.lr.ph120
   %indvars.iv150 = phi i64 [ %90, %.lr.ph120.preheader ], [ %indvars.iv.next151, %.lr.ph120 ]
   %indvars.iv148 = phi i64 [ 0, %.lr.ph120.preheader ], [ %indvars.iv.next149, %.lr.ph120 ]
-  %93 = getelementptr inbounds nuw i32, ptr %.387, i64 %indvars.iv148
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %.387, i64 %indvars.iv148
   %94 = load i32, ptr %93, align 4, !tbaa !16
   %indvars.iv.next151 = add nsw i64 %indvars.iv150, 1
-  %95 = getelementptr inbounds i32, ptr %16, i64 %indvars.iv150
+  %95 = getelementptr inbounds [4 x i8], ptr %16, i64 %indvars.iv150
   store i32 %94, ptr %95, align 4, !tbaa !16
   %indvars.iv.next149 = add nuw nsw i64 %indvars.iv148, 1
   %exitcond155.not = icmp eq i64 %indvars.iv.next149, %wide.trip.count

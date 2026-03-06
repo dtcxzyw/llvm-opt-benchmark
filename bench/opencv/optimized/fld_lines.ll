@@ -43,12 +43,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.13" = type { %"struct.std::_Vector_base<std::vector<cv::Point_<int>>, std::allocator<std::vector<cv::Point_<int>>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::vector<cv::Point_<int>>, std::allocator<std::vector<cv::Point_<int>>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::vector<cv::Point_<int>>, std::allocator<std::vector<cv::Point_<int>>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::vector<cv::Point_<int>>, std::allocator<std::vector<cv::Point_<int>>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.17" = type { %"struct.std::_Vector_base.18" }
-%"struct.std::_Vector_base.18" = type { %"struct.std::_Vector_base<cv::Point_<int>, std::allocator<cv::Point_<int>>>::_Vector_impl" }
-%"struct.std::_Vector_base<cv::Point_<int>, std::allocator<cv::Point_<int>>>::_Vector_impl" = type { %"struct.std::_Vector_base<cv::Point_<int>, std::allocator<cv::Point_<int>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<cv::Point_<int>, std::allocator<cv::Point_<int>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.cv::Vec.22" = type { %"class.cv::Matx.23" }
-%"class.cv::Matx.23" = type { [6 x double] }
 
 $_ZN2cv7MatExprD2Ev = comdat any
 
@@ -1061,7 +1055,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %333
   %369 = phi ptr [ %348, %.lr.ph ], [ %391, %388 ]
   %.086298 = phi i64 [ 0, %.lr.ph ], [ %389, %388 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
-  %370 = getelementptr inbounds nuw %"class.std::vector.17", ptr %369, i64 %.086298
+  %370 = getelementptr inbounds nuw [24 x i8], ptr %369, i64 %.086298
   %371 = load ptr, ptr %370, align 8, !tbaa !95
   store ptr %371, ptr %31, align 8, !tbaa !98
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
@@ -1245,7 +1239,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit229: ; preds = %43
 441:                                              ; preds = %.lr.ph300, %463
   %442 = phi ptr [ %417, %.lr.ph300 ], [ %466, %463 ]
   %.085299 = phi i64 [ 0, %.lr.ph300 ], [ %464, %463 ]
-  %443 = getelementptr inbounds nuw %"class.cv::Vec.22", ptr %442, i64 %.085299
+  %443 = getelementptr inbounds nuw [48 x i8], ptr %442, i64 %.085299
   %444 = load double, ptr %443, align 8, !tbaa !61
   %445 = fptosi double %444 to i32
   %446 = getelementptr inbounds nuw i8, ptr %443, i64 8

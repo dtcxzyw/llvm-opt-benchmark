@@ -13,7 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.RootResolutionSet = type { %class.RootCallback, ptr }
 %class.RootCallback = type { ptr }
 %class.ObjectSampleDescription = type { [8 x i8], %class.ObjectDescriptionBuilder, ptr }
-%class.JfrHashtableBucket = type { ptr }
 
 $_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE = comdat any
 
@@ -183,7 +182,7 @@ _ZL26add_old_object_sample_infoPK10StoredEdgem.exit: ; preds = %29, %35
   %45 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %46 = load ptr, ptr %45, align 8
   %47 = sext i32 %43 to i64
-  %48 = getelementptr inbounds ptr, ptr %46, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %46, i64 %47
   store ptr %13, ptr %48, align 8
   %49 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %49, null
@@ -295,7 +294,7 @@ _ZL17get_array_info_idRK4Edgem.exit.i:            ; preds = %93, %87
   %104 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %105 = load ptr, ptr %104, align 8
   %106 = sext i32 %102 to i64
-  %107 = getelementptr inbounds ptr, ptr %105, i64 %106
+  %107 = getelementptr inbounds [8 x i8], ptr %105, i64 %106
   store ptr %73, ptr %107, align 8
   %108 = load i64, ptr %74, align 8
   %109 = getelementptr inbounds nuw i8, ptr %58, i64 8
@@ -498,7 +497,7 @@ _ZL10is_gc_rootPK10StoredEdge.exit:               ; preds = %_ZL26add_old_object
   %202 = getelementptr inbounds nuw i8, ptr %.sink37, i64 8
   %203 = load ptr, ptr %202, align 8
   %204 = sext i32 %.sink38 to i64
-  %205 = getelementptr inbounds ptr, ptr %203, i64 %204
+  %205 = getelementptr inbounds [8 x i8], ptr %203, i64 %204
   store ptr %.sink, ptr %205, align 8
   br label %206
 
@@ -640,7 +639,7 @@ _ZN17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK19ObjectSampleAuxInfoI19OldObje
   %57 = phi ptr [ %101, %_ZN17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK19ObjectSampleAuxInfoI19OldObjectSampleDataEXadL_ZL21__write_sample_info__P19JfrCheckpointWriterPKvEEELj210EEclERKS5_.exit.i.i ], [ %54, %.preheader.i.i ]
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load ptr, ptr %58, align 8
-  %60 = getelementptr inbounds nuw ptr, ptr %59, i64 %indvars.iv.i.i
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %indvars.iv.i.i
   %.val.i.i = load ptr, ptr %60, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %61 = load ptr, ptr %.val.i.i, align 8
@@ -830,7 +829,7 @@ _ZN17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK19ObjectSampleAuxInfoI13Referen
   %151 = phi ptr [ %165, %.lr.ph.i.i9 ], [ %148, %.preheader.i.i8 ]
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 8
   %153 = load ptr, ptr %152, align 8
-  %154 = getelementptr inbounds nuw ptr, ptr %153, i64 %indvars.iv.i.i10
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %153, i64 %indvars.iv.i.i10
   %.val.i.i11 = load ptr, ptr %154, align 8
   %155 = getelementptr inbounds nuw i8, ptr %.val.i.i11, i64 32
   %156 = load i64, ptr %155, align 8
@@ -962,7 +961,7 @@ _ZN17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK19ObjectSampleAuxInfoI21ObjectS
   %215 = phi ptr [ %224, %.lr.ph.i.i28 ], [ %212, %.preheader.i.i27 ]
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 8
   %217 = load ptr, ptr %216, align 8
-  %218 = getelementptr inbounds nuw ptr, ptr %217, i64 %indvars.iv.i.i29
+  %218 = getelementptr inbounds nuw [8 x i8], ptr %217, i64 %indvars.iv.i.i29
   %.val.i.i30 = load ptr, ptr %218, align 8
   %219 = getelementptr inbounds nuw i8, ptr %.val.i.i30, i64 8
   %220 = load i64, ptr %219, align 8
@@ -1090,7 +1089,7 @@ _ZN17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK17JfrHashtableEntryIPK21ObjectS
   %.sroa.13.0.i = phi i32 [ %.sroa.13.2.i, %._crit_edge.i.i.i ], [ 0, %.lr.ph17.i.i.preheader.i ]
   %.015.i.i.i = phi i64 [ %428, %._crit_edge.i.i.i ], [ 0, %.lr.ph17.i.i.preheader.i ]
   %277 = load ptr, ptr %.val.i, align 8
-  %278 = getelementptr inbounds %class.JfrHashtableBucket, ptr %277, i64 %.015.i.i.i
+  %278 = getelementptr inbounds [8 x i8], ptr %277, i64 %.015.i.i.i
   %279 = load volatile ptr, ptr %278, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   %.not13.i.i.i = icmp eq ptr %279, null
@@ -1542,7 +1541,7 @@ _ZN17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK19ObjectSampleAuxInfoI31ObjectS
   %478 = phi ptr [ %501, %_ZN17JfrTypeWriterHostI21JfrTypeWriterImplHostIPK19ObjectSampleAuxInfoI31ObjectSampleRootDescriptionDataEXadL_ZL31__write_root_description_info__P19JfrCheckpointWriterPKvEEELj207EEclERKS5_.exit.i.i ], [ %475, %.preheader.i.i59 ]
   %479 = getelementptr inbounds nuw i8, ptr %478, i64 8
   %480 = load ptr, ptr %479, align 8
-  %481 = getelementptr inbounds nuw ptr, ptr %480, i64 %indvars.iv.i.i61
+  %481 = getelementptr inbounds nuw [8 x i8], ptr %480, i64 %indvars.iv.i.i61
   %.val.i.i62 = load ptr, ptr %481, align 8
   %482 = getelementptr inbounds nuw i8, ptr %.val.i.i62, i64 24
   %483 = load i64, ptr %482, align 8
@@ -1622,7 +1621,7 @@ _ZL22write_root_descriptorsR19JfrCheckpointWriter.exit: ; preds = %_ZL17write_fi
 514:                                              ; preds = %._crit_edge.i.i.i74, %.lr.ph14.i.i.i
   %.012.i.i.i = phi i64 [ 0, %.lr.ph14.i.i.i ], [ %521, %._crit_edge.i.i.i74 ]
   %515 = load ptr, ptr %508, align 8
-  %516 = getelementptr inbounds %class.JfrHashtableBucket, ptr %515, i64 %.012.i.i.i
+  %516 = getelementptr inbounds [8 x i8], ptr %515, i64 %.012.i.i.i
   %517 = load ptr, ptr %516, align 8
   %.not10.i.i.i = icmp eq ptr %517, null
   br i1 %.not10.i.i.i, label %._crit_edge.i.i.i74, label %.lr.ph.i.i.i72
@@ -1818,9 +1817,9 @@ _ZN13GrowableArrayIPK19ObjectSampleAuxInfoI19OldObjectSampleDataEE8allocateEv.ex
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1837,7 +1836,7 @@ _ZN13GrowableArrayIPK19ObjectSampleAuxInfoI19OldObjectSampleDataEE8allocateEv.ex
 
 .lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
   %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv20
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv20
   store ptr null, ptr %35, align 8
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %36 = load i32, ptr %3, align 4
@@ -1928,9 +1927,9 @@ _ZN13GrowableArrayIPK19ObjectSampleAuxInfoI21ObjectSampleArrayDataEE8allocateEv.
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1947,7 +1946,7 @@ _ZN13GrowableArrayIPK19ObjectSampleAuxInfoI21ObjectSampleArrayDataEE8allocateEv.
 
 .lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
   %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv20
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv20
   store ptr null, ptr %35, align 8
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %36 = load i32, ptr %3, align 4
@@ -2001,7 +2000,7 @@ define linkonce_odr hidden noundef i64 @_ZN10FieldTable5storeEPK21ObjectSampleFi
   %27 = load i64, ptr %26, align 8
   %28 = urem i64 %25, %27
   %29 = load ptr, ptr %4, align 8
-  %30 = getelementptr inbounds nuw %class.JfrHashtableBucket, ptr %29, i64 %28
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %28
   %31 = load volatile ptr, ptr %30, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   %.not11.i.i = icmp eq ptr %31, null
@@ -2060,12 +2059,12 @@ _ZN13HashTableHostIPK21ObjectSampleFieldInfom17JfrHashtableEntry10FieldTableLm10
   %60 = getelementptr inbounds nuw i8, ptr %50, i64 24
   store i64 %59, ptr %60, align 8
   %61 = load ptr, ptr %4, align 8
-  %62 = getelementptr inbounds nuw %class.JfrHashtableBucket, ptr %61, i64 %57
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %57
   %63 = load volatile ptr, ptr %62, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   store ptr %63, ptr %50, align 8
   %64 = load ptr, ptr %4, align 8
-  %65 = getelementptr inbounds nuw %class.JfrHashtableBucket, ptr %64, i64 %57
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %57
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   store volatile ptr %50, ptr %65, align 8
   %66 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -2144,9 +2143,9 @@ _ZN13GrowableArrayIPK19ObjectSampleAuxInfoI13ReferenceDataEE8allocateEv.exit: ; 
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2163,7 +2162,7 @@ _ZN13GrowableArrayIPK19ObjectSampleAuxInfoI13ReferenceDataEE8allocateEv.exit: ; 
 
 .lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
   %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv20
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv20
   store ptr null, ptr %35, align 8
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %36 = load i32, ptr %3, align 4
@@ -2239,9 +2238,9 @@ _ZN13GrowableArrayIPK19ObjectSampleAuxInfoI31ObjectSampleRootDescriptionDataEE8a
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2258,7 +2257,7 @@ _ZN13GrowableArrayIPK19ObjectSampleAuxInfoI31ObjectSampleRootDescriptionDataEE8a
 
 .lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
   %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv20
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv20
   store ptr null, ptr %35, align 8
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %36 = load i32, ptr %3, align 4
@@ -2994,7 +2993,7 @@ _ZN13GrowableArrayIPK19ObjectSampleAuxInfoI31ObjectSampleRootDescriptionDataEEC2
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN26GrowableArrayWithAllocatorIPK19ObjectSampleAuxInfoI31ObjectSampleRootDescriptionDataE13GrowableArrayIS4_EE13insert_sortedIXadL_ZL19_root_desc_compare_RKS4_SA_EEEES4_SA_.exit ]
   %17 = load ptr, ptr %3, align 8
   %18 = load ptr, ptr %15, align 8
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
   %20 = load i32, ptr %17, align 4
   %.not21.i.i = icmp slt i32 %20, 1
   br i1 %.not21.i.i, label %.loopexit.i, label %.lr.ph.i.i
@@ -3017,7 +3016,7 @@ _ZN13GrowableArrayIPK19ObjectSampleAuxInfoI31ObjectSampleRootDescriptionDataEEC2
   %28 = add i32 %.01622.i.i, %.01523.i.i
   %29 = lshr i32 %28, 1
   %30 = zext nneg i32 %29 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %23, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %30
   %32 = load ptr, ptr %31, align 8
   %.val19.val.i.i = load ptr, ptr %32, align 8
   %33 = getelementptr i8, ptr %.val19.val.i.i, i64 8
@@ -3085,9 +3084,9 @@ _ZN13GrowableArrayIPK19ObjectSampleAuxInfoI31ObjectSampleRootDescriptionDataEEC2
   %indvars.iv.i.i = phi i64 [ %58, %.lr.ph.i4.i ], [ %indvars.iv.next.i.i, %60 ]
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
   %61 = load ptr, ptr %57, align 8
-  %62 = getelementptr inbounds ptr, ptr %61, i64 %indvars.iv.next.i.i
+  %62 = getelementptr inbounds [8 x i8], ptr %61, i64 %indvars.iv.next.i.i
   %63 = load ptr, ptr %62, align 8
-  %64 = getelementptr inbounds ptr, ptr %61, i64 %indvars.iv.i.i
+  %64 = getelementptr inbounds [8 x i8], ptr %61, i64 %indvars.iv.i.i
   store ptr %63, ptr %64, align 8
   %.not.not.i.i = icmp sgt i64 %indvars.iv.next.i.i, %59
   br i1 %.not.not.i.i, label %60, label %._crit_edge.loopexit.i.i, !llvm.loop !28
@@ -3104,7 +3103,7 @@ _ZN26GrowableArrayWithAllocatorIPK19ObjectSampleAuxInfoI31ObjectSampleRootDescri
   %67 = load ptr, ptr %19, align 8
   %68 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds ptr, ptr %69, i64 %.pre-phi.i.i
+  %70 = getelementptr inbounds [8 x i8], ptr %69, i64 %.pre-phi.i.i
   store ptr %67, ptr %70, align 8
   br label %_ZN26GrowableArrayWithAllocatorIPK19ObjectSampleAuxInfoI31ObjectSampleRootDescriptionDataE13GrowableArrayIS4_EE13insert_sortedIXadL_ZL19_root_desc_compare_RKS4_SA_EEEES4_SA_.exit
 
@@ -3145,7 +3144,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN17RootResolutionSet7processERK
 _ZNK17RootResolutionSet20in_set_address_rangeERK16RootCallbackInfo.exit: ; preds = %6
   %18 = load i32, ptr %10, align 8
   %19 = sext i32 %18 to i64
-  %20 = getelementptr ptr, ptr %12, i64 %19
+  %20 = getelementptr [8 x i8], ptr %12, i64 %19
   %21 = getelementptr i8, ptr %20, i64 -8
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr %22, align 8
@@ -3164,7 +3163,7 @@ _ZNK17RootResolutionSet20in_set_address_rangeERK16RootCallbackInfo.exit: ; preds
   %27 = add i32 %.01722.i.i, %.01623.i.i
   %28 = lshr i32 %27, 1
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %12, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %29
   %31 = load ptr, ptr %30, align 8
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
@@ -3232,9 +3231,9 @@ _ZNK17RootResolutionSet5exactERK16RootCallbackInfo.exit: ; preds = %39
   %indvars.iv10.i.i = phi i64 [ %29, %.lr.ph.i.i14 ], [ %indvars.iv.next11.i.i, %66 ]
   %indvars.iv.i.i = phi i64 [ %65, %.lr.ph.i.i14 ], [ %indvars.iv.next.i.i, %66 ]
   %67 = load ptr, ptr %64, align 8
-  %68 = getelementptr inbounds nuw ptr, ptr %67, i64 %indvars.iv.i.i
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %indvars.iv.i.i
   %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds nuw ptr, ptr %67, i64 %indvars.iv10.i.i
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %indvars.iv10.i.i
   store ptr %69, ptr %70, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %71 = load i32, ptr %61, align 8
@@ -3261,7 +3260,7 @@ _ZNK17RootResolutionSet5exactERK16RootCallbackInfo.exit: ; preds = %39
 
 84:                                               ; preds = %91, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %91 ]
-  %85 = getelementptr inbounds nuw ptr, ptr %80, i64 %indvars.iv.i
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %indvars.iv.i
   %86 = load ptr, ptr %85, align 8
   %87 = load ptr, ptr %86, align 8
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
@@ -3282,7 +3281,7 @@ _ZNK17RootResolutionSet16compare_to_rangeERK16RootCallbackInfo.exit: ; preds = %
   %92 = trunc nuw nsw i64 %indvars.iv.i to i32
   %sext = shl i64 %indvars.iv.i, 32
   %93 = ashr exact i64 %sext, 32
-  %94 = getelementptr inbounds ptr, ptr %80, i64 %93
+  %94 = getelementptr inbounds [8 x i8], ptr %80, i64 %93
   %95 = load ptr, ptr %94, align 8
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %97 = load i32, ptr %96, align 8
@@ -3323,9 +3322,9 @@ _ZNK17RootResolutionSet16compare_to_rangeERK16RootCallbackInfo.exit: ; preds = %
   %indvars.iv10.i.i20 = phi i64 [ %93, %.lr.ph.i.i19 ], [ %indvars.iv.next11.i.i23, %118 ]
   %indvars.iv.i.i21 = phi i64 [ %117, %.lr.ph.i.i19 ], [ %indvars.iv.next.i.i22, %118 ]
   %119 = load ptr, ptr %116, align 8
-  %120 = getelementptr inbounds ptr, ptr %119, i64 %indvars.iv.i.i21
+  %120 = getelementptr inbounds [8 x i8], ptr %119, i64 %indvars.iv.i.i21
   %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds ptr, ptr %119, i64 %indvars.iv10.i.i20
+  %122 = getelementptr inbounds [8 x i8], ptr %119, i64 %indvars.iv10.i.i20
   store ptr %121, ptr %122, align 8
   %indvars.iv.next.i.i22 = add nuw nsw i64 %indvars.iv.i.i21, 1
   %123 = load i32, ptr %113, align 8
@@ -3365,7 +3364,7 @@ define linkonce_odr hidden i64 @_ZNK17RootResolutionSet2atEi(ptr noundef nonnull
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8

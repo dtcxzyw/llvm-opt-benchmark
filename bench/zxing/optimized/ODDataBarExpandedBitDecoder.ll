@@ -698,10 +698,10 @@ _ZN5ZXing4OneD7DataBarL14DecodeAI01320xB5cxx11ERNS_12BitArrayViewE.exit: ; preds
 
 switch.lookup:                                    ; preds = %239
   %243 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5ZXing4OneD7DataBar18DecodeExpandedBitsB5cxx11ERKNS_8BitArrayE, i64 %243
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5ZXing4OneD7DataBar18DecodeExpandedBitsB5cxx11ERKNS_8BitArrayE, i64 %243
   %switch.load = load ptr, ptr %switch.gep, align 8
   %244 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep77 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5ZXing4OneD7DataBar18DecodeExpandedBitsB5cxx11ERKNS_8BitArrayE.3, i64 %244
+  %switch.gep77 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5ZXing4OneD7DataBar18DecodeExpandedBitsB5cxx11ERKNS_8BitArrayE.3, i64 %244
   %switch.load78 = load ptr, ptr %switch.gep77, align 8
   invoke fastcc void @_ZN5ZXing4OneD7DataBarL16DecodeAI013x0x1xB5cxx11ERNS_12BitArrayViewEPKcS5_(ptr dead_on_unwind noalias writable align 8 %0, ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull %switch.load, ptr noundef nonnull %switch.load78) #20
           to label %_ZN5ZXing4OneD7DataBarL11DecodeAnyAIB5cxx11ERNS_12BitArrayViewE.exit.thread unwind label %116

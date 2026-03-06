@@ -546,17 +546,17 @@ lv_display_get_vertical_resolution.exit:          ; preds = %lv_display_get_hori
 16:                                               ; preds = %.lr.ph, %16
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
   %17 = load ptr, ptr %15, align 8, !tbaa !74
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !75
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
   call void @lv_area_set_width(ptr noundef nonnull %20, i32 noundef %.05.i) #13
   %21 = load ptr, ptr %15, align 8, !tbaa !74
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8, !tbaa !75
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 40
   call void @lv_area_set_height(ptr noundef nonnull %24, i32 noundef %.05.i33) #13
   %25 = load ptr, ptr %15, align 8, !tbaa !74
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8, !tbaa !75
   %28 = call i32 @lv_obj_send_event(ptr noundef %27, i32 noundef 49, ptr noundef nonnull %3) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

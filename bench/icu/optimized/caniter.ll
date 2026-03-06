@@ -263,7 +263,7 @@ define void @_ZN6icu_7717CanonicalIterator9setSourceERKNS_13UnicodeStringER10UEr
   %87 = sub nsw i32 %.056117, %.054118
   %88 = add nsw i32 %.0119, 1
   %89 = sext i32 %.0119 to i64
-  %90 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %.ptr74.ptr.ptr, i64 %89
+  %90 = getelementptr inbounds [64 x i8], ptr %.ptr74.ptr.ptr, i64 %89
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %92 = load i16, ptr %91, align 8, !tbaa !6
   %93 = icmp slt i16 %92, 0
@@ -297,7 +297,7 @@ define void @_ZN6icu_7717CanonicalIterator9setSourceERKNS_13UnicodeStringER10UEr
   %111 = sub nsw i32 %.056.lcssa, %.054.lcssa
   %112 = add nsw i32 %.0.lcssa, 1
   %113 = sext i32 %.0.lcssa to i64
-  %114 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %.ptr74.ptr.ptr, i64 %113
+  %114 = getelementptr inbounds [64 x i8], ptr %.ptr74.ptr.ptr, i64 %113
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %116 = load i16, ptr %115, align 8, !tbaa !6
   %117 = icmp slt i16 %116, 0
@@ -349,12 +349,12 @@ define void @_ZN6icu_7717CanonicalIterator9setSourceERKNS_13UnicodeStringER10UEr
 
 .lr.ph125:                                        ; preds = %.preheader113, %.lr.ph125
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph125 ], [ 0, %.preheader113 ]
-  %145 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %.ptr74.ptr.ptr, i64 %indvars.iv
+  %145 = getelementptr inbounds nuw [64 x i8], ptr %.ptr74.ptr.ptr, i64 %indvars.iv
   %146 = load ptr, ptr %131, align 8, !tbaa !26
-  %147 = getelementptr inbounds nuw i32, ptr %146, i64 %indvars.iv
+  %147 = getelementptr inbounds nuw [4 x i8], ptr %146, i64 %indvars.iv
   %148 = tail call noundef ptr @_ZN6icu_7717CanonicalIterator14getEquivalentsERKNS_13UnicodeStringERiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(64) %145, ptr noundef nonnull align 4 dereferenceable(4) %147, ptr noundef nonnull align 4 dereferenceable(4) %2)
   %149 = load ptr, ptr %127, align 8, !tbaa !8
-  %150 = getelementptr inbounds nuw ptr, ptr %149, i64 %indvars.iv
+  %150 = getelementptr inbounds nuw [8 x i8], ptr %149, i64 %indvars.iv
   store ptr %148, ptr %150, align 8, !tbaa !30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %151 = load i32, ptr %128, align 8, !tbaa !20
@@ -459,7 +459,7 @@ define void @_ZN6icu_7717CanonicalIterator11cleanPiecesEv(ptr noundef nonnull al
   %7 = phi i32 [ %20, %19 ], [ %5, %.preheader11 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %19 ], [ 0, %.preheader11 ]
   %8 = load ptr, ptr %2, align 8, !tbaa !8
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !30
   %.not10 = icmp eq ptr %10, null
   br i1 %.not10, label %19, label %11
@@ -588,7 +588,7 @@ define void @_ZN6icu_7717CanonicalIterator5resetEv(ptr noundef nonnull align 8 c
 
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   store i32 0, ptr %9, align 4, !tbaa !29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = load i32, ptr %3, align 8, !tbaa !28
@@ -630,13 +630,13 @@ define void @_ZN6icu_7717CanonicalIterator4nextEv(ptr dead_on_unwind noalias wri
 17:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
   %18 = load ptr, ptr %15, align 8, !tbaa !8
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !30
   %21 = load ptr, ptr %16, align 8, !tbaa !27
-  %22 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv
   %23 = load i32, ptr %22, align 4, !tbaa !29
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %20, i64 %24
+  %25 = getelementptr inbounds [64 x i8], ptr %20, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load i16, ptr %26, align 8, !tbaa !6
   %28 = icmp slt i16 %27, 0
@@ -673,11 +673,11 @@ define void @_ZN6icu_7717CanonicalIterator4nextEv(ptr dead_on_unwind noalias wri
 46:                                               ; preds = %.lr.ph14, %53
   %indvars.iv17 = phi i64 [ %45, %.lr.ph14 ], [ %indvars.iv.next18, %53 ]
   %indvars.iv.next18 = add nsw i64 %indvars.iv17, -1
-  %47 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv.next18
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %indvars.iv.next18
   %48 = load i32, ptr %47, align 4, !tbaa !29
   %49 = add nsw i32 %48, 1
   store i32 %49, ptr %47, align 4, !tbaa !29
-  %50 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv.next18
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %indvars.iv.next18
   %51 = load i32, ptr %50, align 4, !tbaa !29
   %52 = icmp slt i32 %49, %51
   br i1 %52, label %.loopexit, label %53
@@ -1142,7 +1142,7 @@ _ZNK6icu_779Hashtable11nextElementERi.exit111:    ; preds = %169, %180
   %176 = add nsw i32 %175, 1
   store i32 %176, ptr %2, align 4, !tbaa !29
   %177 = sext i32 %175 to i64
-  %178 = getelementptr inbounds %"class.icu_77::UnicodeString", ptr %.ptr68, i64 %177
+  %178 = getelementptr inbounds [64 x i8], ptr %.ptr68, i64 %177
   %179 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %178, ptr noundef nonnull align 8 dereferenceable(64) %174)
           to label %180 unwind label %.loopexit121
 
@@ -1712,7 +1712,7 @@ _ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit: ; preds = %2
 39:                                               ; preds = %.lr.ph152, %169
   %.093151 = phi i32 [ 0, %.lr.ph152 ], [ %172, %169 ]
   %40 = zext nneg i32 %.093151 to i64
-  %41 = getelementptr inbounds nuw i16, ptr %2, i64 %40
+  %41 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %40
   %42 = load i16, ptr %41, align 2, !tbaa !53
   %43 = zext i16 %42 to i32
   %44 = and i32 %43, 63488
@@ -1731,7 +1731,7 @@ _ZN6icu_779Hashtable3putERKNS_13UnicodeStringEPvR10UErrorCode.exit: ; preds = %2
 
 51:                                               ; preds = %49
   %52 = zext nneg i32 %50 to i64
-  %53 = getelementptr inbounds nuw i16, ptr %2, i64 %52
+  %53 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %52
   %54 = load i16, ptr %53, align 2, !tbaa !53
   %55 = zext i16 %54 to i32
   %56 = and i32 %55, 64512
@@ -2242,7 +2242,7 @@ define noundef ptr @_ZN6icu_7717CanonicalIterator7extractEPNS_9HashtableEiPKDsii
   %.293136 = phi i32 [ %.495, %125 ], [ %.192, %70 ]
   %71 = add nsw i32 %.083138, 1
   %72 = sext i32 %.083138 to i64
-  %73 = getelementptr inbounds i16, ptr %3, i64 %72
+  %73 = getelementptr inbounds [2 x i8], ptr %3, i64 %72
   %74 = load i16, ptr %73, align 2, !tbaa !53
   %75 = zext i16 %74 to i32
   %76 = and i32 %75, 64512
@@ -2253,7 +2253,7 @@ define noundef ptr @_ZN6icu_7717CanonicalIterator7extractEPNS_9HashtableEiPKDsii
 
 78:                                               ; preds = %.lr.ph
   %79 = sext i32 %71 to i64
-  %80 = getelementptr inbounds i16, ptr %3, i64 %79
+  %80 = getelementptr inbounds [2 x i8], ptr %3, i64 %79
   %81 = load i16, ptr %80, align 2, !tbaa !53
   %82 = zext i16 %81 to i32
   %83 = and i32 %82, 64512
@@ -2279,7 +2279,7 @@ define noundef ptr @_ZN6icu_7717CanonicalIterator7extractEPNS_9HashtableEiPKDsii
 
 94:                                               ; preds = %92
   %95 = sext i32 %.285 to i64
-  %96 = getelementptr inbounds i16, ptr %3, i64 %95
+  %96 = getelementptr inbounds [2 x i8], ptr %3, i64 %95
   %97 = sub nsw i32 %4, %.285
   %98 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8doAppendEPKDsii(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef %96, i32 noundef 0, i32 noundef %97)
           to label %126 unwind label %101
@@ -2298,7 +2298,7 @@ define noundef ptr @_ZN6icu_7717CanonicalIterator7extractEPNS_9HashtableEiPKDsii
 103:                                              ; preds = %92
   %104 = add nsw i32 %.293136, 1
   %105 = sext i32 %.293136 to i64
-  %106 = getelementptr inbounds i16, ptr %.0.i, i64 %105
+  %106 = getelementptr inbounds [2 x i8], ptr %.0.i, i64 %105
   %107 = load i16, ptr %106, align 2, !tbaa !53
   %108 = zext i16 %107 to i32
   %109 = and i32 %108, 64512
@@ -2309,7 +2309,7 @@ define noundef ptr @_ZN6icu_7717CanonicalIterator7extractEPNS_9HashtableEiPKDsii
 
 111:                                              ; preds = %103
   %112 = sext i32 %104 to i64
-  %113 = getelementptr inbounds i16, ptr %.0.i, i64 %112
+  %113 = getelementptr inbounds [2 x i8], ptr %.0.i, i64 %112
   %114 = load i16, ptr %113, align 2, !tbaa !53
   %115 = zext i16 %114 to i32
   %116 = and i32 %115, 64512
@@ -2394,7 +2394,7 @@ define noundef ptr @_ZN6icu_7717CanonicalIterator7extractEPNS_9HashtableEiPKDsii
 
 155:                                              ; preds = %152
   %156 = sext i32 %5 to i64
-  %157 = getelementptr inbounds i16, ptr %3, i64 %156
+  %157 = getelementptr inbounds [2 x i8], ptr %3, i64 %156
   store ptr %157, ptr %12, align 8, !tbaa !63
   %158 = sub nsw i32 %4, %5
   %159 = invoke noundef signext i8 @_ZNK6icu_7713UnicodeString7compareENS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %11, ptr noundef nonnull %12, i32 noundef %158)
@@ -2446,7 +2446,7 @@ define noundef ptr @_ZN6icu_7717CanonicalIterator7extractEPNS_9HashtableEiPKDsii
   %181 = load i32, ptr %21, align 4
   %182 = select i1 %178, i32 %181, i32 %180
   %183 = sext i32 %23 to i64
-  %184 = getelementptr inbounds i16, ptr %.0.i128, i64 %183
+  %184 = getelementptr inbounds [2 x i8], ptr %.0.i128, i64 %183
   %185 = sub nsw i32 %182, %23
   %186 = invoke noundef ptr @_ZN6icu_7717CanonicalIterator15getEquivalents2EPNS_9HashtableEPKDsiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef %1, ptr noundef %184, i32 noundef %185, ptr noundef nonnull align 4 dereferenceable(4) %6)
           to label %.thread133 unwind label %162

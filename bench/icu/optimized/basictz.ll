@@ -1621,7 +1621,7 @@ _ZN6icu_7711LocalMemoryIPKNS_12TimeZoneRuleEED2Ev.exit290.thread: ; preds = %39
 
 .lr.ph:                                           ; preds = %.preheader391, %58
   %indvars.iv = phi i64 [ %indvars.iv.next, %58 ], [ 0, %.preheader391 ]
-  %62 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv
   %63 = load ptr, ptr %62, align 8, !tbaa !23
   %64 = load ptr, ptr %63, align 8, !tbaa !3
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 24
@@ -2185,7 +2185,7 @@ _ZN6icu_7712LocalPointerINS_21TimeArrayTimeZoneRuleEED2Ev.exit273: ; preds = %_Z
 
 .lr.ph420:                                        ; preds = %280, %293
   %indvars.iv438 = phi i64 [ %indvars.iv.next439, %293 ], [ 0, %280 ]
-  %289 = getelementptr inbounds nuw double, ptr %279, i64 %indvars.iv438
+  %289 = getelementptr inbounds nuw [8 x i8], ptr %279, i64 %indvars.iv438
   %290 = trunc i64 %indvars.iv438 to i32
   %291 = add i32 %.0167.lcssa, %290
   %292 = invoke noundef signext i8 @_ZNK6icu_7721TimeArrayTimeZoneRule14getStartTimeAtEiRd(ptr noundef nonnull align 8 dereferenceable(352) %193, i32 noundef %291, ptr noundef nonnull align 8 dereferenceable(8) %289)

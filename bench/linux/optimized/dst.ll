@@ -771,7 +771,7 @@ define dso_local ptr @metadata_dst_alloc_percpu(i8 noundef zeroext %0, i32 nound
 
 22:                                               ; preds = %18
   %23 = and i64 %19, 63
-  %24 = getelementptr i64, ptr @__per_cpu_offset, i64 %23
+  %24 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %23
   %25 = load i64, ptr %24, align 8
   %26 = add i64 %25, %9
   %27 = inttoptr i64 %26 to ptr
@@ -845,7 +845,7 @@ define dso_local void @metadata_dst_free_percpu(ptr noundef %0) #0 align 16 {
 
 13:                                               ; preds = %9
   %14 = and i64 %10, 63
-  %15 = getelementptr i64, ptr @__per_cpu_offset, i64 %14
+  %15 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %14
   %16 = load i64, ptr %15, align 8
   %17 = add i64 %16, %2
   %18 = inttoptr i64 %17 to ptr

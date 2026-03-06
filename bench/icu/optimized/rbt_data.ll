@@ -269,7 +269,7 @@ _ZNK6icu_779Hashtable11nextElementERi.exit:       ; preds = %_ZN6icu_779Hashtabl
 .lr.ph:                                           ; preds = %.preheader48, %78
   %indvars.iv = phi i64 [ %indvars.iv.next, %78 ], [ 0, %.preheader48 ]
   %66 = load ptr, ptr %55, align 8, !tbaa !15
-  %67 = getelementptr inbounds nuw ptr, ptr %66, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %indvars.iv
   %68 = load ptr, ptr %67, align 8, !tbaa !30
   %69 = load ptr, ptr %68, align 8, !tbaa !32
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 24
@@ -279,7 +279,7 @@ _ZNK6icu_779Hashtable11nextElementERi.exit:       ; preds = %_ZN6icu_779Hashtabl
 
 73:                                               ; preds = %.lr.ph
   %74 = load ptr, ptr %54, align 8, !tbaa !15
-  %75 = getelementptr inbounds nuw ptr, ptr %74, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %indvars.iv
   store ptr %72, ptr %75, align 8, !tbaa !30
   %76 = icmp eq ptr %72, null
   br i1 %76, label %.loopexit.thread, label %78
@@ -330,7 +330,7 @@ _ZNK6icu_779Hashtable11nextElementERi.exit:       ; preds = %_ZN6icu_779Hashtabl
   %indvars.iv73 = phi i64 [ %86, %.lr.ph63.preheader ], [ %indvars.iv.next74, %96 ]
   %indvars.iv.next74 = add nsw i64 %indvars.iv73, -1
   %88 = load ptr, ptr %54, align 8, !tbaa !15
-  %89 = getelementptr inbounds nuw ptr, ptr %88, i64 %indvars.iv.next74
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %indvars.iv.next74
   %90 = load ptr, ptr %89, align 8, !tbaa !30
   %91 = icmp eq ptr %90, null
   br i1 %91, label %96, label %92
@@ -416,7 +416,7 @@ define void @_ZN6icu_7723TransliterationRuleDataD2Ev(ptr noundef nonnull align 8
   %10 = phi i32 [ %20, %19 ], [ %8, %.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %19 ], [ 0, %.preheader ]
   %11 = load ptr, ptr %5, align 8, !tbaa !15
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !30
   %14 = icmp eq ptr %13, null
   br i1 %14, label %19, label %15
@@ -501,7 +501,7 @@ define noundef ptr @_ZNK6icu_7723TransliterationRuleData6lookupEi(ptr noundef no
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1152
   %13 = load ptr, ptr %12, align 8, !tbaa !15
   %14 = zext nneg i32 %6 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !30
   br label %17
 
@@ -527,7 +527,7 @@ _ZNK6icu_7723TransliterationRuleData6lookupEi.exit: ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1152
   %12 = load ptr, ptr %11, align 8, !tbaa !15
   %13 = zext nneg i32 %6 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !30
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %_ZNK6icu_7723TransliterationRuleData6lookupEi.exit.thread, label %16
@@ -561,7 +561,7 @@ _ZNK6icu_7723TransliterationRuleData6lookupEi.exit: ; preds = %2
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1152
   %12 = load ptr, ptr %11, align 8, !tbaa !15
   %13 = zext nneg i32 %6 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !30
   %.not = icmp eq ptr %15, null
   br i1 %.not, label %_ZNK6icu_7723TransliterationRuleData6lookupEi.exit.thread, label %16

@@ -769,7 +769,7 @@ define hidden void @_ZN17ShenandoahGCPhaseC2EN22ShenandoahPhaseTimings5PhaseE(pt
   %14 = tail call noundef ptr @_ZNK14ShenandoahHeap8gc_timerEv(ptr noundef nonnull align 8 dereferenceable(2657) %13) #13
   store ptr %14, ptr %12, align 8
   %15 = zext i32 %1 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr @_ZN22ShenandoahPhaseTimings12_phase_namesE, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr @_ZN22ShenandoahPhaseTimings12_phase_namesE, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = tail call { i64, i64 } @_ZN29CompositeElapsedCounterSource3nowEv() #13
   %19 = extractvalue { i64, i64 } %18, 0
@@ -844,7 +844,7 @@ define hidden void @_ZN33ShenandoahConcurrentWorkerSessionD2Ev(ptr noundef nonnu
   %2 = tail call noundef i32 @_ZN4GCId7currentEv() #13
   %3 = load i32, ptr @_ZN24ShenandoahTimingsTracker14_current_phaseE, align 4
   %4 = zext i32 %3 to i64
-  %5 = getelementptr inbounds nuw ptr, ptr @_ZN22ShenandoahPhaseTimings12_phase_namesE, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @_ZN22ShenandoahPhaseTimings12_phase_namesE, i64 %4
   %6 = load ptr, ptr %5, align 8
   %7 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 1697), align 1
   %.not.i.i = icmp eq i8 %7, 0
@@ -914,7 +914,7 @@ define hidden void @_ZN31ShenandoahParallelWorkerSessionD2Ev(ptr noundef nonnull
   %4 = load i32, ptr %3, align 4
   %5 = load i32, ptr @_ZN24ShenandoahTimingsTracker14_current_phaseE, align 4
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr @_ZN22ShenandoahPhaseTimings12_phase_namesE, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @_ZN22ShenandoahPhaseTimings12_phase_namesE, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN15JfrEventSetting19_jvm_event_settingsE, i64 1769), align 1
   %.not.i.i = icmp eq i8 %9, 0

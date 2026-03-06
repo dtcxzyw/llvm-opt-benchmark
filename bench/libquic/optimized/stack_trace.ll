@@ -210,7 +210,7 @@ define noundef i64 @_ZN4base5debug23TraceStackFramePointersEPPKvmm(ptr noundef w
   %18 = load i64, ptr %17, align 8, !tbaa !8
   %19 = inttoptr i64 %18 to ptr
   %20 = add nuw i64 %.01739, 1
-  %21 = getelementptr inbounds nuw ptr, ptr %0, i64 %.01739
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.01739
   store ptr %19, ptr %21, align 8, !tbaa !33
   br label %22
 

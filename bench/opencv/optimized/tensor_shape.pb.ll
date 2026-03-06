@@ -1229,7 +1229,7 @@ define hidden void @_ZN17opencv_tensorflow16TensorShapeProto5ClearEv(ptr noundef
 9:                                                ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN17opencv_tensorflow20TensorShapeProto_DimEE5ClearEPS4_.exit.i.i, %5
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %_ZN6google8protobuf8internal18GenericTypeHandlerIN17opencv_tensorflow20TensorShapeProto_DimEE5ClearEPS4_.exit.i.i ], [ 0, %5 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i.i
   %11 = load ptr, ptr %10, align 8, !tbaa !53
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   tail call void @_ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEv(ptr noundef nonnull align 8 dereferenceable(8) %12)
@@ -1376,7 +1376,7 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit: ; preds = %_ZN6google8protobuf
   %61 = add nsw i32 %56, 1
   store i32 %61, ptr %10, align 8, !tbaa !58
   %62 = sext i32 %56 to i64
-  %63 = getelementptr inbounds ptr, ptr %60, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %60, i64 %62
   %64 = load ptr, ptr %63, align 8, !tbaa !53
   br label %_ZN17opencv_tensorflow16TensorShapeProto17_internal_add_dimEv.exit
 
@@ -1534,7 +1534,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %10,
   %14 = load ptr, ptr %6, align 8, !tbaa !57
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = sext i32 %.01420 to i64
-  %17 = getelementptr inbounds ptr, ptr %15, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !53
   store i8 18, ptr %.0.i15, align 1, !tbaa !42
   %19 = getelementptr inbounds nuw i8, ptr %.0.i15, i64 1
@@ -1835,7 +1835,7 @@ define hidden void @_ZN17opencv_tensorflow16TensorShapeProto8CopyFromERKS0_(ptr 
 12:                                               ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN17opencv_tensorflow20TensorShapeProto_DimEE5ClearEPS4_.exit.i.i.i, %8
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %_ZN6google8protobuf8internal18GenericTypeHandlerIN17opencv_tensorflow20TensorShapeProto_DimEE5ClearEPS4_.exit.i.i.i ], [ 0, %8 ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.i.i.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.i.i.i
   %14 = load ptr, ptr %13, align 8, !tbaa !53
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   tail call void @_ZN6google8protobuf8internal14ArenaStringPtr12ClearToEmptyEv(ptr noundef nonnull align 8 dereferenceable(8) %15)
@@ -2348,7 +2348,7 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldB
 10:                                               ; preds = %7, %10
   %indvars.iv = phi i64 [ %9, %7 ], [ %indvars.iv.next, %10 ]
   %11 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN17opencv_tensorflow20TensorShapeProto_DimEJEEEPT_PS1_DpOT0_(ptr noundef %8)
-  %12 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv
+  %12 = getelementptr inbounds [8 x i8], ptr %1, i64 %indvars.iv
   store ptr %11, ptr %12, align 8, !tbaa !53
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
@@ -2368,9 +2368,9 @@ define linkonce_odr hidden void @_ZN6google8protobuf8internal20RepeatedPtrFieldB
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv27 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next28, %.lr.ph ]
-  %14 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv27
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv27
   %15 = load ptr, ptr %14, align 8, !tbaa !53
-  %16 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv27
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv27
   %17 = load ptr, ptr %16, align 8, !tbaa !53
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN17opencv_tensorflow20TensorShapeProto_DimEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(40) %15, ptr noundef %17)
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1

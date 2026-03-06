@@ -379,7 +379,7 @@ define dso_local ptr @cronspec_to_bitstring(ptr noundef %0) local_unnamed_addr #
   %.015.i = phi ptr [ %0, %182 ], [ %194, %.critedge.i ]
   %187 = load i8, ptr %.015.i, align 1
   %188 = sext i8 %187 to i64
-  %189 = getelementptr inbounds i16, ptr %186, i64 %188
+  %189 = getelementptr inbounds [2 x i8], ptr %186, i64 %188
   %190 = load i16, ptr %189, align 2
   %.fr20.i = freeze i16 %190
   %191 = and i16 %.fr20.i, 2048
@@ -610,7 +610,7 @@ _parse_range.exit.thread:                         ; preds = %195
   %281 = tail call ptr @__ctype_b_loc() #10
   %282 = load ptr, ptr %281, align 8
   %283 = sext i8 %267 to i64
-  %284 = getelementptr inbounds i16, ptr %282, i64 %283
+  %284 = getelementptr inbounds [2 x i8], ptr %282, i64 %283
   %285 = load i16, ptr %284, align 2
   %286 = and i16 %285, 1024
   %.not151 = icmp eq i16 %286, 0
@@ -755,7 +755,7 @@ _parse_range.exit.thread:                         ; preds = %195
   %343 = tail call ptr @__ctype_b_loc() #10
   %344 = load ptr, ptr %343, align 8
   %345 = sext i8 %329 to i64
-  %346 = getelementptr inbounds i16, ptr %344, i64 %345
+  %346 = getelementptr inbounds [2 x i8], ptr %344, i64 %345
   %347 = load i16, ptr %346, align 2
   %348 = and i16 %347, 1024
   %.not169 = icmp eq i16 %348, 0
@@ -909,7 +909,7 @@ define internal fastcc range(i32 -1, 1) i32 @_parse_range(ptr noundef %0, ptr no
   %.015 = phi ptr [ %3, %2 ], [ %13, %.critedge ]
   %6 = load i8, ptr %.015, align 1
   %7 = sext i8 %6 to i64
-  %8 = getelementptr inbounds i16, ptr %5, i64 %7
+  %8 = getelementptr inbounds [2 x i8], ptr %5, i64 %7
   %9 = load i16, ptr %8, align 2
   %.fr20 = freeze i16 %9
   %10 = and i16 %.fr20, 2048
@@ -1061,7 +1061,7 @@ define dso_local ptr @convert_file_to_line_array(ptr noundef %0, ptr noundef wri
   %16 = call ptr @slurm_xrecalloc(ptr noundef nonnull %3, i64 noundef %15, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.34, i32 noundef 418, ptr noundef nonnull @__func__.convert_file_to_line_array) #8
   %17 = load ptr, ptr %3, align 8
   %18 = zext nneg i32 %10 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %18
   store ptr %9, ptr %19, align 8
   br label %.outer, !llvm.loop !17
 
@@ -1239,7 +1239,7 @@ define dso_local range(i32 -1, 1) i32 @parse_scron_line(ptr noundef %0, i32 noun
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = call ptr @slurm_xrecalloc(ptr noundef nonnull %4, i64 noundef %indvars.iv.next, i64 noundef 8, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.34, i32 noundef 510, ptr noundef nonnull @__func__.parse_scron_line) #8
   %19 = load ptr, ptr %4, align 8
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   store ptr %16, ptr %20, align 8
   br label %6, !llvm.loop !21
 
@@ -1290,7 +1290,7 @@ _set_options.exit:                                ; preds = %31, %34
 .lr.ph34.preheader:                               ; preds = %_set_options.exit
   %37 = load ptr, ptr %4, align 8
   %38 = sext i32 %.0.i20 to i64
-  %39 = getelementptr inbounds ptr, ptr %37, i64 %38
+  %39 = getelementptr inbounds [8 x i8], ptr %37, i64 %38
   %40 = load ptr, ptr %39, align 8
   %41 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.37, ptr noundef %40) #8
   %umax = call i32 @llvm.umax.i32(i32 %.040, i32 2)
@@ -1300,7 +1300,7 @@ _set_options.exit:                                ; preds = %31, %34
 .lr.ph34:                                         ; preds = %.lr.ph34.preheader, %.lr.ph34
   %indvars.iv45 = phi i64 [ 1, %.lr.ph34.preheader ], [ %indvars.iv.next46, %.lr.ph34 ]
   %42 = load ptr, ptr %4, align 8
-  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv45
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv45
   call void @slurm_xfree(ptr noundef nonnull %43) #8
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %exitcond49.not = icmp eq i64 %indvars.iv.next46, %wide.trip.count48
@@ -1313,7 +1313,7 @@ _set_options.exit:                                ; preds = %31, %34
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv42 = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next43, %.lr.ph ]
   %44 = load ptr, ptr %4, align 8
-  %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv42
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv42
   call void @slurm_xfree(ptr noundef nonnull %45) #8
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next43, %wide.trip.count

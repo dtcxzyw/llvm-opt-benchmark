@@ -68,7 +68,7 @@ define i32 @cli_check_mydoom_log(ptr noundef %0) local_unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 -1, ptr %2, align 4, !tbaa !26
   %18 = add nsw i64 %indvars.iv, -1
-  %19 = getelementptr inbounds nuw i32, ptr %15, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %18
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %19, ptr noundef nonnull dereferenceable(4) %2, i64 4)
   %.not85.not = icmp eq i32 %bcmp, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -336,7 +336,7 @@ define void @cli_detect_swizz_str(ptr noundef readonly captures(none) %0, i32 no
   %22 = tail call ptr @__ctype_b_loc() #8
   %23 = load ptr, ptr %22, align 8, !tbaa !32
   %24 = zext i8 %14 to i64
-  %25 = getelementptr inbounds nuw i16, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [2 x i8], ptr %23, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !34
   %27 = zext i16 %26 to i32
   %28 = and i32 %27, 8
@@ -358,7 +358,7 @@ define void @cli_detect_swizz_str(ptr noundef readonly captures(none) %0, i32 no
   %32 = tail call ptr @__ctype_tolower_loc() #8
   %33 = load ptr, ptr %32, align 8, !tbaa !36
   %34 = zext i8 %.071 to i64
-  %35 = getelementptr inbounds nuw i32, ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !26
   %37 = trunc i32 %36 to i8
   %38 = add nuw nsw i64 %.06497, 1
@@ -431,7 +431,7 @@ define void @cli_detect_swizz_str(ptr noundef readonly captures(none) %0, i32 no
   %72 = load i8, ptr %71, align 1, !tbaa !31
   %73 = add i8 %72, 1
   store i8 %73, ptr %71, align 1, !tbaa !31
-  %74 = getelementptr inbounds nuw i16, ptr %2, i64 %68
+  %74 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %68
   %75 = load i16, ptr %74, align 2, !tbaa !34
   %76 = add i16 %75, 1
   store i16 %76, ptr %74, align 2, !tbaa !34
@@ -461,7 +461,7 @@ define void @cli_detect_swizz_str(ptr noundef readonly captures(none) %0, i32 no
   %84 = zext nneg i8 %spec.store.select to i64
   %85 = add nuw nsw i64 %84, 4294967295
   %86 = and i64 %85, 4294967295
-  %87 = getelementptr inbounds nuw i16, ptr %7, i64 %86
+  %87 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %86
   %88 = load i16, ptr %87, align 2, !tbaa !34
   %89 = add i16 %88, 1
   store i16 %89, ptr %87, align 2, !tbaa !34
@@ -493,7 +493,7 @@ define void @cli_detect_swizz_str(ptr noundef readonly captures(none) %0, i32 no
 
 104:                                              ; preds = %94, %104
   %.3107 = phi i64 [ 0, %94 ], [ %111, %104 ]
-  %105 = getelementptr inbounds nuw i16, ptr %7, i64 %.3107
+  %105 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %.3107
   %106 = load i16, ptr %105, align 2, !tbaa !34
   %107 = zext i16 %106 to i32
   %108 = shl nuw nsw i32 %107, 10
@@ -599,7 +599,7 @@ define range(i32 0, 2) i32 @cli_detect_swizz(ptr noundef readonly captures(none)
 13:                                               ; preds = %1, %26
   %.03041 = phi i64 [ 0, %1 ], [ %27, %26 ]
   %.03140 = phi i32 [ 0, %1 ], [ %.132, %26 ]
-  %14 = getelementptr inbounds nuw i16, ptr %0, i64 %.03041
+  %14 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %.03041
   %15 = load i16, ptr %14, align 2, !tbaa !34
   %16 = trunc i16 %15 to i8
   %.mask = and i16 %15, 255
@@ -612,7 +612,7 @@ define range(i32 0, 2) i32 @cli_detect_swizz(ptr noundef readonly captures(none)
   %19 = zext i8 %spec.store.select to i64
   %20 = add nuw nsw i64 %19, 4294967295
   %21 = and i64 %20, 4294967295
-  %22 = getelementptr inbounds nuw i32, ptr %2, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !26
   %24 = add i32 %23, 1
   store i32 %24, ptr %22, align 4, !tbaa !26
@@ -637,7 +637,7 @@ define range(i32 0, 2) i32 @cli_detect_swizz(ptr noundef readonly captures(none)
 
 .split.us:                                        ; preds = %29, %.split.us
   %.142.us = phi i64 [ %36, %.split.us ], [ 0, %29 ]
-  %32 = getelementptr inbounds nuw i32, ptr %2, i64 %.142.us
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.142.us
   %33 = load i32, ptr %32, align 4, !tbaa !26
   %34 = shl i32 %33, 15
   %35 = udiv i32 %34, %.132
@@ -650,7 +650,7 @@ define range(i32 0, 2) i32 @cli_detect_swizz(ptr noundef readonly captures(none)
   %37 = phi i8 [ %47, %46 ], [ %30, %29 ]
   %38 = phi i8 [ %48, %46 ], [ 1, %29 ]
   %.142 = phi i64 [ %49, %46 ], [ 0, %29 ]
-  %39 = getelementptr inbounds nuw i32, ptr %2, i64 %.142
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.142
   %40 = load i32, ptr %39, align 4, !tbaa !26
   %41 = shl i32 %40, 15
   %42 = udiv i32 %41, %.132

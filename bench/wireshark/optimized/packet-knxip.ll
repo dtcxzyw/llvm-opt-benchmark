@@ -611,7 +611,7 @@ define hidden void @proto_register_knxip() local_unnamed_addr #0 {
   %13 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %12, ptr noundef nonnull @.str.129, i32 noundef %11)
   %14 = tail call ptr @wmem_epan_scope()
   %15 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %14, ptr noundef nonnull @.str.130, i32 noundef %11)
-  %16 = getelementptr ptr, ptr @pref_key_texts, i64 %indvars.iv
+  %16 = getelementptr [8 x i8], ptr @pref_key_texts, i64 %indvars.iv
   %17 = getelementptr i8, ptr %16, i64 -8
   tail call void @prefs_register_string_preference(ptr noundef %9, ptr noundef %13, ptr noundef %15, ptr noundef nonnull @.str.131, ptr noundef %17)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -686,7 +686,7 @@ define hidden void @proto_reg_handoff_knxip() #0 {
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %28
   %8 = phi i8 [ 0, %.lr.ph.preheader ], [ %29, %28 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %28 ]
-  %9 = getelementptr ptr, ptr @pref_key_texts, i64 %indvars.iv
+  %9 = getelementptr [8 x i8], ptr @pref_key_texts, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %.not8 = icmp eq ptr %10, null
   br i1 %.not8, label %28, label %11
@@ -2180,7 +2180,7 @@ define internal fastcc void @dissect_srps(ptr noundef %0, ptr noundef %1, ptr no
 
 switch.lookup:                                    ; preds = %49
   %51 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissect_srps, i64 %51
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_srps, i64 %51
   %switch.load = load i32, ptr %switch.gep, align 4
   %.not107.i = icmp eq i32 %switch.load, %15
   br i1 %.not107.i, label %.critedge.i, label %52

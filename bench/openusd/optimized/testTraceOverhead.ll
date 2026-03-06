@@ -228,7 +228,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i: ; preds = %29, %_ZN
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i
   store ptr %26, ptr %1, align 8
   store ptr %30, ptr %4, align 8
-  %32 = getelementptr inbounds nuw i64, ptr %26, i64 %24
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %24
   store ptr %32, ptr %5, align 8
   br label %_ZNSt6vectorImSaImEE9push_backEOm.exit
 
@@ -292,7 +292,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i13: ; preds = %56, %_
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i15: ; preds = %58, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i13
   store ptr %53, ptr %1, align 8
   store ptr %57, ptr %4, align 8
-  %59 = getelementptr inbounds nuw i64, ptr %53, i64 %51
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %51
   store ptr %59, ptr %5, align 8
   br label %_ZNSt6vectorImSaImEE9push_backEOm.exit16
 

@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %union.AAGSTYPE = type { ptr }
 %struct.Agdisc_s = type { ptr, ptr }
-%union.yyalloc = type { %union.AAGSTYPE }
 %struct.agxbuf = type { %union.anon.0 }
 %union.anon.0 = type { %struct.anon }
 %struct.anon = type { ptr, i64, i64, [7 x i8], i8 }
@@ -98,7 +97,7 @@ define range(i32 0, 3) i32 @aagparse() local_unnamed_addr #0 {
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %20, ptr align 1 %.0179, i64 %14, i1 false)
   %22 = add nsw i64 %spec.store.select, 7
   %23 = sdiv i64 %22, 8
-  %24 = getelementptr inbounds %union.yyalloc, ptr %20, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %20, i64 %23
   %25 = shl i64 %14, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %24, ptr align 8 %.0201, i64 %25, i1 false)
   %.not222 = icmp eq ptr %.0179, %2
@@ -110,7 +109,7 @@ define range(i32 0, 3) i32 @aagparse() local_unnamed_addr #0 {
 
 27:                                               ; preds = %21, %26
   %28 = getelementptr inbounds i8, ptr %20, i64 %13
-  %29 = getelementptr inbounds %union.AAGSTYPE, ptr %24, i64 %14
+  %29 = getelementptr inbounds [8 x i8], ptr %24, i64 %14
   %30 = getelementptr inbounds i8, ptr %29, i64 -8
   %31 = add nsw i64 %spec.store.select, -1
   %.not223 = icmp sgt i64 %31, %13
@@ -220,7 +219,7 @@ define range(i32 0, 3) i32 @aagparse() local_unnamed_addr #0 {
   %84 = load i8, ptr %83, align 1, !tbaa !7
   %85 = sext i8 %84 to i64
   %86 = sub nsw i64 1, %85
-  %87 = getelementptr inbounds %union.AAGSTYPE, ptr %.2195, i64 %86
+  %87 = getelementptr inbounds [8 x i8], ptr %.2195, i64 %86
   %.sroa.0.0.copyload = load ptr, ptr %87, align 8, !tbaa !7
   switch i32 %.0192, label %appendattr.exit [
     i32 2, label %88
@@ -904,7 +903,7 @@ concat.exit:                                      ; preds = %gv_alloc.exit.i, %3
 appendattr.exit:                                  ; preds = %332, %329, %81, %endedge.exit, %273, %102, %freestack.exit237, %concat.exit, %365, %363, %361, %359, %351, %opensubg.exit, %309, %306, %303, %300, %299, %294, %288, %284, %282, %279, %276, %275, %274, %156, %153, %150, %147, %146, %144, %startgraph.exit, %freestack.exit
   %.sroa.0.0 = phi ptr [ %.sroa.0.0.copyload, %81 ], [ %.sroa.0.0.copyload, %freestack.exit ], [ %.sroa.0.0.copyload, %freestack.exit237 ], [ %.sroa.0.0.copyload, %102 ], [ %.sroa.0.0.copyload, %startgraph.exit ], [ %145, %144 ], [ null, %146 ], [ %149, %147 ], [ %152, %150 ], [ %155, %153 ], [ %158, %156 ], [ %.sroa.0.0.copyload, %endedge.exit ], [ %.sroa.0.0.copyload, %273 ], [ %.sroa.0.0.copyload, %274 ], [ %.sroa.0.0.copyload, %275 ], [ %278, %276 ], [ %281, %279 ], [ %.sroa.0.0.copyload, %282 ], [ %.sroa.0.0.copyload, %284 ], [ %.sroa.0.0.copyload, %288 ], [ %.sroa.0.0.copyload, %294 ], [ %.sroa.0.0.copyload, %299 ], [ %302, %300 ], [ %305, %303 ], [ %308, %306 ], [ %311, %309 ], [ %385, %concat.exit ], [ %362, %361 ], [ %.sroa.0.0.copyload, %opensubg.exit ], [ %.sroa.0.0.copyload, %351 ], [ %360, %359 ], [ %366, %365 ], [ %364, %363 ], [ %.sroa.0.0.copyload, %329 ], [ %.sroa.0.0.copyload, %332 ]
   %391 = sub nsw i64 0, %85
-  %392 = getelementptr inbounds %union.AAGSTYPE, ptr %.2195, i64 %391
+  %392 = getelementptr inbounds [8 x i8], ptr %.2195, i64 %391
   %393 = getelementptr inbounds i8, ptr %.2184, i64 %391
   %394 = getelementptr inbounds nuw i8, ptr %392, i64 8
   store ptr %.sroa.0.0, ptr %394, align 8, !tbaa !7

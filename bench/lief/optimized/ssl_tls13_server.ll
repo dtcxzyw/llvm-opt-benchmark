@@ -2055,7 +2055,7 @@ define internal fastcc void @ssl_tls13_select_ciphersuite(ptr noundef %0, ptr no
 
 16:                                               ; preds = %16, %.lr.ph.split.us.split.us
   %.08.i.i.us.us = phi i64 [ 0, %.lr.ph.split.us.split.us ], [ %20, %16 ]
-  %17 = getelementptr inbounds nuw i32, ptr %.val.val.i.us.us, i64 %.08.i.i.us.us
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %.val.val.i.us.us, i64 %.08.i.i.us.us
   %18 = load i32, ptr %17, align 4, !tbaa !106
   %.not.i.i.us.us = icmp eq i32 %18, 0
   %19 = icmp eq i32 %18, %14
@@ -2092,7 +2092,7 @@ ssl_tls13_validate_peer_ciphersuite.exit.thread.us.us: ; preds = %21, %mbedtls_s
 
 31:                                               ; preds = %31, %.lr.ph.split.us.split
   %.08.i.i.us = phi i64 [ 0, %.lr.ph.split.us.split ], [ %35, %31 ]
-  %32 = getelementptr inbounds nuw i32, ptr %.val.val.i.us, i64 %.08.i.i.us
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %.val.val.i.us, i64 %.08.i.i.us
   %33 = load i32, ptr %32, align 4, !tbaa !106
   %.not.i.i.us = icmp eq i32 %33, 0
   %34 = icmp eq i32 %33, %29
@@ -2137,7 +2137,7 @@ ssl_tls13_validate_peer_ciphersuite.exit.thread.us: ; preds = %41, %36, %mbedtls
 
 51:                                               ; preds = %51, %.lr.ph.split
   %.08.i.i = phi i64 [ 0, %.lr.ph.split ], [ %55, %51 ]
-  %52 = getelementptr inbounds nuw i32, ptr %.val.val.i, i64 %.08.i.i
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %.val.val.i, i64 %.08.i.i
   %53 = load i32, ptr %52, align 4, !tbaa !106
   %.not.i.i = icmp eq i32 %53, 0
   %54 = icmp eq i32 %53, %49
@@ -3208,7 +3208,7 @@ define internal fastcc i32 @ssl_tls13_offered_psks_check_binder_match(ptr nounde
 
 switch.lookup:                                    ; preds = %12
   %14 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.ssl_tls13_offered_psks_check_binder_match.33, i64 %14
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ssl_tls13_offered_psks_check_binder_match.33, i64 %14
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %15
 
@@ -3252,7 +3252,7 @@ switch.lookup:                                    ; preds = %12
 
 switch.lookup74:                                  ; preds = %29
   %31 = zext nneg i32 %switch.tableidx73 to i64
-  %switch.gep75 = getelementptr inbounds nuw i64, ptr @switch.table.ssl_tls13_offered_psks_check_binder_match.33, i64 %31
+  %switch.gep75 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ssl_tls13_offered_psks_check_binder_match.33, i64 %31
   %switch.load76 = load i64, ptr %switch.gep75, align 8
   br label %32
 

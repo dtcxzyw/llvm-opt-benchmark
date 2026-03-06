@@ -312,7 +312,7 @@ define range(i32 0, 2) i32 @WebPConfigLosslessPreset(ptr noundef writeonly captu
 5:                                                ; preds = %2
   store i32 1, ptr %0, align 4, !tbaa !28
   %6 = zext nneg i32 %1 to i64
-  %7 = getelementptr inbounds nuw %struct.anon, ptr @kLosslessPresets, i64 %6
+  %7 = getelementptr inbounds nuw [2 x i8], ptr @kLosslessPresets, i64 %6
   %8 = load i8, ptr %7, align 2, !tbaa !36
   %9 = zext i8 %8 to i32
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8

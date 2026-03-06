@@ -268,20 +268,20 @@ _ZNK8rawspeed10Array2DRefIiE15getAsArray1DRefEv.exit: ; preds = %._crit_edge, %4
   %61 = icmp samesign ult i64 %indvars.iv204, %37
   tail call void @llvm.assume(i1 %61)
   %62 = mul nuw nsw i64 %indvars.iv204, %38
-  %63 = getelementptr inbounds nuw float, ptr %3, i64 %62
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %62
   %64 = shl nuw i64 %indvars.iv204, 1
   %65 = and i64 %64, 2
-  %invariant.gep = getelementptr inbounds nuw float, ptr %1, i64 %65
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %65
   br label %66
 
 66:                                               ; preds = %.lr.ph.us, %66
   %indvars.iv = phi i64 [ %35, %.lr.ph.us ], [ %indvars.iv.next, %66 ]
   %67 = icmp samesign ult i64 %indvars.iv, %36
   tail call void @llvm.assume(i1 %67)
-  %68 = getelementptr inbounds nuw float, ptr %63, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %indvars.iv
   %69 = load float, ptr %68, align 4, !tbaa !82
   %70 = and i64 %indvars.iv, 1
-  %gep = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %70
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep, i64 %70
   %71 = load float, ptr %gep, align 4, !tbaa !82
   %72 = fadd float %69, %71
   store float %72, ptr %gep, align 4, !tbaa !82
@@ -323,10 +323,10 @@ _ZNK8rawspeed10Array2DRefIiE15getAsArray1DRefEv.exit: ; preds = %._crit_edge, %4
   %81 = icmp samesign ult i64 %indvars.iv212, %37
   tail call void @llvm.assume(i1 %81)
   %82 = mul nuw nsw i64 %indvars.iv212, %38
-  %83 = getelementptr inbounds nuw float, ptr %3, i64 %82
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %82
   %84 = shl nuw i64 %indvars.iv212, 1
   %85 = and i64 %84, 2
-  %invariant.gep229 = getelementptr inbounds nuw float, ptr %1, i64 %85
+  %invariant.gep229 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %85
   br label %86
 
 86:                                               ; preds = %.preheader169.us, %86
@@ -336,10 +336,10 @@ _ZNK8rawspeed10Array2DRefIiE15getAsArray1DRefEv.exit: ; preds = %._crit_edge, %4
   tail call void @llvm.assume(i1 %88)
   %89 = icmp samesign ult i64 %indvars.iv207, %36
   tail call void @llvm.assume(i1 %89)
-  %90 = getelementptr inbounds nuw float, ptr %83, i64 %indvars.iv207
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %83, i64 %indvars.iv207
   %91 = load float, ptr %90, align 4, !tbaa !82
   %92 = and i64 %indvars.iv207, 1
-  %gep230 = getelementptr inbounds nuw float, ptr %invariant.gep229, i64 %92
+  %gep230 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep229, i64 %92
   %93 = load float, ptr %gep230, align 4, !tbaa !82
   %94 = fadd float %91, %93
   store float %94, ptr %gep230, align 4, !tbaa !82
@@ -387,14 +387,14 @@ _ZNK8rawspeed10Array2DRefIiE15getAsArray1DRefEv.exit: ; preds = %._crit_edge, %4
 
 108:                                              ; preds = %101, %108
   %indvars.iv215 = phi i64 [ 0, %101 ], [ %indvars.iv.next216, %108 ]
-  %109 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv215
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv215
   %110 = load float, ptr %109, align 4, !tbaa !82
   %111 = fmul float %110, 6.553500e+04
   %112 = fdiv float %111, %103
   %113 = fptosi float %112 to i32
   %114 = icmp samesign ult i64 %indvars.iv215, 4
   tail call void @llvm.assume(i1 %114)
-  %115 = getelementptr inbounds nuw i32, ptr %.ptr226.ptr.ptr, i64 %indvars.iv215
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %.ptr226.ptr.ptr, i64 %indvars.iv215
   store i32 %113, ptr %115, align 4, !tbaa !106
   %indvars.iv.next216 = add nuw nsw i64 %indvars.iv215, 1
   %exitcond218.not = icmp eq i64 %indvars.iv.next216, 4
@@ -536,7 +536,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat15scaleBlackWhiteEv(ptr nound
   %58 = icmp samesign ult i64 %57, %54
   tail call void @llvm.assume(i1 %58)
   %59 = mul nuw nsw i64 %57, %55
-  %60 = getelementptr inbounds nuw float, ptr %3, i64 %59
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %59
   br label %61
 
 61:                                               ; preds = %.preheader.us, %61
@@ -547,7 +547,7 @@ define hidden void @_ZN8rawspeed17RawImageDataFloat15scaleBlackWhiteEv(ptr nound
   %63 = add nuw nsw i64 %indvars.iv, %50
   %64 = icmp samesign ule i64 %63, %51
   tail call void @llvm.assume(i1 %64)
-  %65 = getelementptr inbounds nuw float, ptr %60, i64 %63
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %63
   %66 = load float, ptr %65, align 4, !tbaa !82
   %67 = fcmp olt float %.124.us, %66
   %.sroa.speculated12.us = select i1 %67, float %.124.us, float %66
@@ -689,7 +689,7 @@ _ZNK8rawspeed10Array2DRefIiE15getAsArray1DRefEv.exit:
   %66 = icmp samesign ult i64 %65, %61
   tail call void @llvm.assume(i1 %66)
   %67 = mul nuw nsw i64 %65, %62
-  %68 = getelementptr inbounds nuw float, ptr %6, i64 %67
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %67
   %69 = shl nuw i64 %indvars.iv65, 1
   %70 = and i64 %69, 2
   br label %71
@@ -699,14 +699,14 @@ _ZNK8rawspeed10Array2DRefIiE15getAsArray1DRefEv.exit:
   %72 = add nuw nsw i64 %indvars.iv61, %56
   %73 = icmp samesign ule i64 %72, %57
   tail call void @llvm.assume(i1 %73)
-  %74 = getelementptr inbounds nuw float, ptr %68, i64 %72
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %72
   %75 = load float, ptr %74, align 4, !tbaa !82
   %76 = and i64 %indvars.iv61, 1
   %77 = or disjoint i64 %76, %70
-  %78 = getelementptr inbounds nuw float, ptr %4, i64 %77
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %77
   %79 = load float, ptr %78, align 4, !tbaa !82
   %80 = fsub float %75, %79
-  %81 = getelementptr inbounds nuw float, ptr %3, i64 %77
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %77
   %82 = load float, ptr %81, align 4, !tbaa !82
   %83 = fmul float %80, %82
   store float %83, ptr %74, align 4, !tbaa !82
@@ -727,15 +727,15 @@ _ZNK8rawspeed10Array2DRefIiE15getAsArray1DRefEv.exit:
   %88 = icmp samesign ult i32 %.1, %48
   tail call void @llvm.assume(i1 %88)
   %89 = zext nneg i32 %.1 to i64
-  %90 = getelementptr inbounds nuw i32, ptr %.sroa.0.0.copyload.i.i, i64 %89
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.0.copyload.i.i, i64 %89
   %91 = load i32, ptr %90, align 4, !tbaa !106
   %92 = sub nsw i32 %54, %91
   %93 = sitofp i32 %92 to float
   %94 = fdiv float 6.553500e+04, %93
-  %95 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   store float %94, ptr %95, align 4, !tbaa !82
   %96 = sitofp i32 %91 to float
-  %97 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   store float %96, ptr %97, align 4, !tbaa !82
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -815,7 +815,7 @@ _ZNSt5arrayIfLm4EE4fillERKf.exit:                 ; preds = %.lr.ph.i.i.i.i.i
   %40 = getelementptr inbounds nuw i8, ptr %25, i64 %39
   %41 = mul nuw nsw i32 %18, %2
   %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr inbounds nuw float, ptr %8, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %42
   br label %54
 
 .critedge.preheader:                              ; preds = %75, %_ZNSt5arrayIfLm4EE4fillERKf.exit
@@ -836,7 +836,7 @@ _ZNSt5arrayIfLm4EE4fillERKf.exit:                 ; preds = %.lr.ph.i.i.i.i.i
   %50 = getelementptr inbounds nuw i8, ptr %25, i64 %49
   %51 = mul nuw nsw i32 %18, %2
   %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds nuw float, ptr %8, i64 %52
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %52
   br label %79
 
 54:                                               ; preds = %.lr.ph, %75
@@ -863,7 +863,7 @@ _ZNSt5arrayIfLm4EE4fillERKf.exit:                 ; preds = %.lr.ph.i.i.i.i.i
   %69 = icmp samesign ult i32 %67, %13
   tail call void @llvm.assume(i1 %69)
   %70 = zext nneg i32 %67 to i64
-  %71 = getelementptr inbounds nuw float, ptr %43, i64 %70
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %70
   %72 = load float, ptr %71, align 4, !tbaa !82
   %73 = sub nsw i32 %1, %.099352
   %74 = sitofp i32 %73 to float
@@ -910,7 +910,7 @@ _ZNSt5arrayIfLm4EE4fillERKf.exit:                 ; preds = %.lr.ph.i.i.i.i.i
   %97 = icmp samesign ult i32 %95, %13
   tail call void @llvm.assume(i1 %97)
   %98 = zext nneg i32 %95 to i64
-  %99 = getelementptr inbounds nuw float, ptr %53, i64 %98
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %98
   %100 = load float, ptr %99, align 4, !tbaa !82
   %101 = sub nsw i32 %.1100358, %1
   %102 = sitofp i32 %101 to float
@@ -944,7 +944,7 @@ _ZNSt5arrayIfLm4EE4fillERKf.exit:                 ; preds = %.lr.ph.i.i.i.i.i
   %113 = icmp sgt i32 %112, -1
   %114 = icmp samesign ult i32 %112, %13
   %115 = zext nneg i32 %112 to i64
-  %invariant.gep375 = getelementptr inbounds nuw float, ptr %8, i64 %115
+  %invariant.gep375 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %115
   br label %116
 
 116:                                              ; preds = %.lr.ph369, %133
@@ -972,7 +972,7 @@ _ZNSt5arrayIfLm4EE4fillERKf.exit:                 ; preds = %.lr.ph.i.i.i.i.i
   tail call void @llvm.assume(i1 %114)
   %128 = mul nuw nsw i32 %.0103368, %18
   %129 = zext nneg i32 %128 to i64
-  %gep376 = getelementptr inbounds nuw float, ptr %invariant.gep375, i64 %129
+  %gep376 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep375, i64 %129
   %130 = load float, ptr %gep376, align 4, !tbaa !82
   %131 = sub nsw i32 %2, %.0103368
   %132 = sitofp i32 %131 to float
@@ -1006,7 +1006,7 @@ _ZNSt5arrayIfLm4EE4fillERKf.exit:                 ; preds = %.lr.ph.i.i.i.i.i
   %144 = icmp sgt i32 %143, -1
   %145 = icmp samesign ult i32 %143, %13
   %146 = zext nneg i32 %143 to i64
-  %invariant.gep390 = getelementptr inbounds nuw float, ptr %8, i64 %146
+  %invariant.gep390 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %146
   %147 = zext i32 %.1104379 to i64
   %148 = zext nneg i32 %33 to i64
   %149 = zext nneg i32 %18 to i64
@@ -1037,7 +1037,7 @@ _ZNSt5arrayIfLm4EE4fillERKf.exit:                 ; preds = %.lr.ph.i.i.i.i.i
   tail call void @llvm.assume(i1 %144)
   tail call void @llvm.assume(i1 %145)
   %163 = mul nuw nsw i64 %indvars.iv, %149
-  %gep391 = getelementptr inbounds nuw float, ptr %invariant.gep390, i64 %163
+  %gep391 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep390, i64 %163
   %164 = load float, ptr %gep391, align 4, !tbaa !82
   %165 = trunc nuw i64 %indvars.iv to i32
   %166 = sub nsw i32 %165, %2
@@ -1106,9 +1106,9 @@ _ZNSt5arrayIfLm4EE4fillERKf.exit:                 ; preds = %.lr.ph.i.i.i.i.i
   tail call void @llvm.assume(i1 %199)
   %200 = mul nuw nsw i32 %18, %2
   %201 = zext nneg i32 %200 to i64
-  %202 = getelementptr inbounds nuw float, ptr %8, i64 %201
+  %202 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %201
   %203 = zext nneg i32 %195 to i64
-  %204 = getelementptr inbounds nuw float, ptr %202, i64 %203
+  %204 = getelementptr inbounds nuw [4 x i8], ptr %202, i64 %203
   store float %194, ptr %204, align 4, !tbaa !82
   %205 = icmp sgt i32 %10, 1
   %206 = icmp eq i32 %3, 0
@@ -1121,13 +1121,13 @@ _ZNSt5arrayIfLm4EE4fillERKf.exit:                 ; preds = %.lr.ph.i.i.i.i.i
 209:                                              ; preds = %192, %217
   %indvars.iv400 = phi i64 [ 0, %192 ], [ %indvars.iv.next401, %217 ]
   %.098392 = phi float [ 0.000000e+00, %192 ], [ %.1, %217 ]
-  %210 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv400
+  %210 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv400
   %211 = load float, ptr %210, align 4, !tbaa !82
   %212 = fcmp ult float %211, 0.000000e+00
   br i1 %212, label %217, label %213
 
 213:                                              ; preds = %209
-  %214 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv400
+  %214 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv400
   %215 = load float, ptr %214, align 4, !tbaa !82
   %216 = tail call float @llvm.fmuladd.f32(float %211, float %215, float %.098392)
   br label %217

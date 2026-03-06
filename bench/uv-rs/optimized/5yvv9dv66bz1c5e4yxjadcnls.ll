@@ -689,7 +689,7 @@ _ZN5serde2de9SeqAccess12next_element17hb70bb61c679b3069E.exit: ; preds = %85
   br i1 %131, label %"_ZN4core3ptr105drop_in_place$LT$$u5b$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$u5d$$GT$17ha4780374b1e800b8E.exit.i", label %132
 
 132:                                              ; preds = %130
-  %133 = getelementptr inbounds { { i64, [35 x i64] }, { i64, [4 x i64] }, ptr, { { { { ptr, i64 } }, {} }, {} }, i64 }, ptr %65, i64 %.sroa.0.0.i.i
+  %133 = getelementptr inbounds [360 x i8], ptr %65, i64 %.sroa.0.0.i.i
   %134 = add i64 %.sroa.0.0.i.i, 1
   invoke void @"_ZN4core3ptr95drop_in_place$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$17hdb4cb147ffa4ca74E"(ptr noalias noundef nonnull align 8 dereferenceable(360) %133)
           to label %130 unwind label %137
@@ -705,7 +705,7 @@ _ZN5serde2de9SeqAccess12next_element17hb70bb61c679b3069E.exit: ; preds = %85
   br label %135
 
 139:                                              ; preds = %135
-  %140 = getelementptr inbounds { { i64, [35 x i64] }, { i64, [4 x i64] }, ptr, { { { { ptr, i64 } }, {} }, {} }, i64 }, ptr %65, i64 %.sroa.0.1.i.i
+  %140 = getelementptr inbounds [360 x i8], ptr %65, i64 %.sroa.0.1.i.i
   %141 = add i64 %.sroa.0.1.i.i, 1
   invoke void @"_ZN4core3ptr95drop_in_place$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$17hdb4cb147ffa4ca74E"(ptr noalias noundef nonnull align 8 dereferenceable(360) %140) #18
           to label %135 unwind label %142
@@ -1504,7 +1504,7 @@ define internal fastcc void @"_ZN4core3ptr130drop_in_place$LT$alloc..boxed..Box$
   br i1 %2, label %"_ZN4core3ptr105drop_in_place$LT$$u5b$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$u5d$$GT$17ha4780374b1e800b8E.exit", label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds { { i64, [35 x i64] }, { i64, [4 x i64] }, ptr, { { { { ptr, i64 } }, {} }, {} }, i64 }, ptr %.0.val, i64 %.sroa.0.0.i
+  %4 = getelementptr inbounds [360 x i8], ptr %.0.val, i64 %.sroa.0.0.i
   %5 = add i64 %.sroa.0.0.i, 1
   invoke void @"_ZN4core3ptr95drop_in_place$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$17hdb4cb147ffa4ca74E"(ptr noalias noundef nonnull align 8 dereferenceable(360) %4)
           to label %1 unwind label %8
@@ -1520,7 +1520,7 @@ define internal fastcc void @"_ZN4core3ptr130drop_in_place$LT$alloc..boxed..Box$
   br label %6
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds { { i64, [35 x i64] }, { i64, [4 x i64] }, ptr, { { { { ptr, i64 } }, {} }, {} }, i64 }, ptr %.0.val, i64 %.sroa.0.1.i
+  %11 = getelementptr inbounds [360 x i8], ptr %.0.val, i64 %.sroa.0.1.i
   %12 = add i64 %.sroa.0.1.i, 1
   invoke void @"_ZN4core3ptr95drop_in_place$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$17hdb4cb147ffa4ca74E"(ptr noalias noundef nonnull align 8 dereferenceable(360) %11) #18
           to label %6 unwind label %13
@@ -1739,7 +1739,7 @@ define internal fastcc void @"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$L
   br i1 %1, label %"_ZN4core3ptr66drop_in_place$LT$$u5b$uv_normalize..extra_name..ExtraName$u5d$$GT$17ha48f3d6593303400E.exit", label %2
 
 2:                                                ; preds = %"_ZN4core3ptr56drop_in_place$LT$uv_normalize..extra_name..ExtraName$GT$17h876daa5458ff1cf6E.exit.i"
-  %3 = getelementptr inbounds ptr, ptr %.0.val, i64 %.sroa.0.0.i
+  %3 = getelementptr inbounds [8 x i8], ptr %.0.val, i64 %.sroa.0.0.i
   %4 = add i64 %.sroa.0.0.i, 1
   invoke void @"_ZN65_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8e919af4bb65cafcE.llvm.8210316318964160252"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3)
           to label %"_ZN4core3ptr56drop_in_place$LT$uv_normalize..extra_name..ExtraName$GT$17h876daa5458ff1cf6E.exit.i" unwind label %6
@@ -1755,7 +1755,7 @@ define internal fastcc void @"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$L
   br label %"_ZN4core3ptr56drop_in_place$LT$uv_normalize..extra_name..ExtraName$GT$17h876daa5458ff1cf6E.exit7.i"
 
 8:                                                ; preds = %"_ZN4core3ptr56drop_in_place$LT$uv_normalize..extra_name..ExtraName$GT$17h876daa5458ff1cf6E.exit7.i"
-  %9 = getelementptr inbounds ptr, ptr %.0.val, i64 %.sroa.0.1.i
+  %9 = getelementptr inbounds [8 x i8], ptr %.0.val, i64 %.sroa.0.1.i
   %10 = add i64 %.sroa.0.1.i, 1
   invoke void @"_ZN65_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8e919af4bb65cafcE.llvm.8210316318964160252"(ptr noalias noundef nonnull align 8 dereferenceable(8) %9)
           to label %"_ZN4core3ptr56drop_in_place$LT$uv_normalize..extra_name..ExtraName$GT$17h876daa5458ff1cf6E.exit7.i" unwind label %11
@@ -5114,7 +5114,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr48drop
   br i1 %429, label %"_ZN4core3ptr105drop_in_place$LT$$u5b$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$u5d$$GT$17ha4780374b1e800b8E.exit.i.i", label %430
 
 430:                                              ; preds = %428
-  %431 = getelementptr inbounds { { i64, [35 x i64] }, { i64, [4 x i64] }, ptr, { { { { ptr, i64 } }, {} }, {} }, i64 }, ptr %336, i64 %.sroa.0.0.i.i.i
+  %431 = getelementptr inbounds [360 x i8], ptr %336, i64 %.sroa.0.0.i.i.i
   %432 = add i64 %.sroa.0.0.i.i.i, 1
   invoke void @"_ZN4core3ptr95drop_in_place$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$17hdb4cb147ffa4ca74E"(ptr noalias noundef nonnull align 8 dereferenceable(360) %431)
           to label %428 unwind label %435, !noalias !1329
@@ -5130,7 +5130,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr48drop
   br label %433
 
 437:                                              ; preds = %433
-  %438 = getelementptr inbounds { { i64, [35 x i64] }, { i64, [4 x i64] }, ptr, { { { { ptr, i64 } }, {} }, {} }, i64 }, ptr %336, i64 %.sroa.0.1.i.i.i
+  %438 = getelementptr inbounds [360 x i8], ptr %336, i64 %.sroa.0.1.i.i.i
   %439 = add i64 %.sroa.0.1.i.i.i, 1
   invoke void @"_ZN4core3ptr95drop_in_place$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$17hdb4cb147ffa4ca74E"(ptr noalias noundef nonnull align 8 dereferenceable(360) %438) #18
           to label %433 unwind label %440, !noalias !1329
@@ -7098,7 +7098,7 @@ default.unreachable:                              ; preds = %746
   br i1 %979, label %"_ZN4core3ptr66drop_in_place$LT$$u5b$uv_normalize..extra_name..ExtraName$u5d$$GT$17ha48f3d6593303400E.exit.i.i", label %980
 
 980:                                              ; preds = %"_ZN4core3ptr56drop_in_place$LT$uv_normalize..extra_name..ExtraName$GT$17h876daa5458ff1cf6E.exit.i.i.i"
-  %981 = getelementptr inbounds ptr, ptr %.sroa.0513.0.i12051816, i64 %.sroa.0.0.i.i.i415
+  %981 = getelementptr inbounds [8 x i8], ptr %.sroa.0513.0.i12051816, i64 %.sroa.0.0.i.i.i415
   %982 = add i64 %.sroa.0.0.i.i.i415, 1
   invoke void @"_ZN65_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8e919af4bb65cafcE.llvm.8210316318964160252"(ptr noalias noundef nonnull align 8 dereferenceable(8) %981)
           to label %"_ZN4core3ptr56drop_in_place$LT$uv_normalize..extra_name..ExtraName$GT$17h876daa5458ff1cf6E.exit.i.i.i" unwind label %984, !noalias !1601
@@ -7114,7 +7114,7 @@ default.unreachable:                              ; preds = %746
   br label %"_ZN4core3ptr56drop_in_place$LT$uv_normalize..extra_name..ExtraName$GT$17h876daa5458ff1cf6E.exit7.i.i.i"
 
 986:                                              ; preds = %"_ZN4core3ptr56drop_in_place$LT$uv_normalize..extra_name..ExtraName$GT$17h876daa5458ff1cf6E.exit7.i.i.i"
-  %987 = getelementptr inbounds ptr, ptr %.sroa.0513.0.i12051816, i64 %.sroa.0.1.i.i.i416
+  %987 = getelementptr inbounds [8 x i8], ptr %.sroa.0513.0.i12051816, i64 %.sroa.0.1.i.i.i416
   %988 = add i64 %.sroa.0.1.i.i.i416, 1
   invoke void @"_ZN65_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8e919af4bb65cafcE.llvm.8210316318964160252"(ptr noalias noundef nonnull align 8 dereferenceable(8) %987)
           to label %"_ZN4core3ptr56drop_in_place$LT$uv_normalize..extra_name..ExtraName$GT$17h876daa5458ff1cf6E.exit7.i.i.i" unwind label %989, !noalias !1601
@@ -7197,7 +7197,7 @@ default.unreachable:                              ; preds = %746
   br i1 %1009, label %"_ZN4core3ptr105drop_in_place$LT$$u5b$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$u5d$$GT$17ha4780374b1e800b8E.exit.i.i419", label %1010
 
 1010:                                             ; preds = %.preheader.i
-  %1011 = getelementptr inbounds { { i64, [35 x i64] }, { i64, [4 x i64] }, ptr, { { { { ptr, i64 } }, {} }, {} }, i64 }, ptr %.sroa.0506.01227.i902, i64 %.sroa.0.0.i.i491.i
+  %1011 = getelementptr inbounds [360 x i8], ptr %.sroa.0506.01227.i902, i64 %.sroa.0.0.i.i491.i
   %1012 = add i64 %.sroa.0.0.i.i491.i, 1
   invoke void @"_ZN4core3ptr95drop_in_place$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$17hdb4cb147ffa4ca74E"(ptr noalias noundef nonnull align 8 dereferenceable(360) %1011)
           to label %.preheader.i unwind label %1015, !noalias !1601
@@ -7213,7 +7213,7 @@ default.unreachable:                              ; preds = %746
   br label %1013
 
 1017:                                             ; preds = %1013
-  %1018 = getelementptr inbounds { { i64, [35 x i64] }, { i64, [4 x i64] }, ptr, { { { { ptr, i64 } }, {} }, {} }, i64 }, ptr %.sroa.0506.01227.i902, i64 %.sroa.0.1.i.i492.i
+  %1018 = getelementptr inbounds [360 x i8], ptr %.sroa.0506.01227.i902, i64 %.sroa.0.1.i.i492.i
   %1019 = add i64 %.sroa.0.1.i.i492.i, 1
   invoke void @"_ZN4core3ptr95drop_in_place$LT$uv_pep508..Requirement$LT$uv_pypi_types..parsed_url..VerbatimParsedUrl$GT$$GT$17hdb4cb147ffa4ca74E"(ptr noalias noundef nonnull align 8 dereferenceable(360) %1018) #18
           to label %1013 unwind label %1020, !noalias !1601

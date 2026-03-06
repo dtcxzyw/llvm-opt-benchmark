@@ -76,35 +76,19 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::basic_streambuf" = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, %"class.std::locale" }
 %struct.zfp_config = type { i32, %union.anon.9 }
 %union.anon.9 = type { double, [8 x i8] }
-%"class.zfp::internal::Cache<zfp::internal::BlockCache2<float, zfp::internal::BlockStore2<float, zfp::codec::zfp2<float>, zfp::index::implicit> >::CacheLine>::Tag" = type { i32 }
-%"class.zfp::internal::BlockCache2<float, zfp::internal::BlockStore2<float, zfp::codec::zfp2<float>, zfp::index::implicit> >::CacheLine" = type { [16 x float] }
-%"class.zfp::internal::Cache<zfp::internal::BlockCache3<float, zfp::internal::BlockStore3<float, zfp::codec::zfp3<float>, zfp::index::implicit> >::CacheLine>::Tag" = type { i32 }
-%"class.zfp::internal::BlockCache3<float, zfp::internal::BlockStore3<float, zfp::codec::zfp3<float>, zfp::index::implicit> >::CacheLine" = type { [64 x float] }
 %"class.zfp::internal::dim4::reference" = type { %"class.zfp::internal::dim4::const_reference" }
 %"class.zfp::internal::dim4::const_reference" = type { %"class.zfp::internal::dim4::const_handle" }
 %"class.zfp::internal::dim4::const_handle" = type { ptr, i64, i64, i64, i64 }
 %"class.std::allocator" = type { i8 }
-%"class.zfp::internal::Cache<zfp::internal::BlockCache1<float, zfp::internal::BlockStore1<float, zfp::codec::zfp1<float>, zfp::index::implicit> >::CacheLine>::Tag" = type { i32 }
-%"class.zfp::internal::BlockCache1<float, zfp::internal::BlockStore1<float, zfp::codec::zfp1<float>, zfp::index::implicit> >::CacheLine" = type { [4 x float] }
 %"class.zfp::internal::dim3::reference" = type { %"class.zfp::internal::dim3::const_reference" }
 %"class.zfp::internal::dim3::const_reference" = type { %"class.zfp::internal::dim3::const_handle" }
 %"class.zfp::internal::dim3::const_handle" = type { ptr, i64, i64, i64 }
-%"class.zfp::internal::Cache<zfp::internal::BlockCache4<float, zfp::internal::BlockStore4<float, zfp::codec::zfp4<float>, zfp::index::implicit> >::CacheLine>::Tag" = type { i32 }
-%"class.zfp::internal::BlockCache4<float, zfp::internal::BlockStore4<float, zfp::codec::zfp4<float>, zfp::index::implicit> >::CacheLine" = type { [256 x float] }
-%"class.zfp::internal::Cache<zfp::internal::BlockCache2<double, zfp::internal::BlockStore2<double, zfp::codec::zfp2<double>, zfp::index::implicit> >::CacheLine>::Tag" = type { i32 }
-%"class.zfp::internal::BlockCache2<double, zfp::internal::BlockStore2<double, zfp::codec::zfp2<double>, zfp::index::implicit> >::CacheLine" = type { [16 x double] }
-%"class.zfp::internal::Cache<zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine>::Tag" = type { i32 }
-%"class.zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine" = type { [64 x double] }
 %"class.zfp::internal::dim4::reference.48" = type { %"class.zfp::internal::dim4::const_reference.49" }
 %"class.zfp::internal::dim4::const_reference.49" = type { %"class.zfp::internal::dim4::const_handle.50" }
 %"class.zfp::internal::dim4::const_handle.50" = type { ptr, i64, i64, i64, i64 }
-%"class.zfp::internal::Cache<zfp::internal::BlockCache1<double, zfp::internal::BlockStore1<double, zfp::codec::zfp1<double>, zfp::index::implicit> >::CacheLine>::Tag" = type { i32 }
-%"class.zfp::internal::BlockCache1<double, zfp::internal::BlockStore1<double, zfp::codec::zfp1<double>, zfp::index::implicit> >::CacheLine" = type { [4 x double] }
 %"class.zfp::internal::dim3::reference.45" = type { %"class.zfp::internal::dim3::const_reference.46" }
 %"class.zfp::internal::dim3::const_reference.46" = type { %"class.zfp::internal::dim3::const_handle.47" }
 %"class.zfp::internal::dim3::const_handle.47" = type { ptr, i64, i64, i64 }
-%"class.zfp::internal::Cache<zfp::internal::BlockCache4<double, zfp::internal::BlockStore4<double, zfp::codec::zfp4<double>, zfp::index::implicit> >::CacheLine>::Tag" = type { i32 }
-%"class.zfp::internal::BlockCache4<double, zfp::internal::BlockStore4<double, zfp::codec::zfp4<double>, zfp::index::implicit> >::CacheLine" = type { [256 x double] }
 
 $__clang_call_terminate = comdat any
 
@@ -1193,7 +1177,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit335: ; preds = %1
   %.0126834 = phi i32 [ 0, %.lr.ph ], [ %.1127, %473 ]
   %.0129833 = phi i32 [ 0, %.lr.ph ], [ %.1130, %473 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %165 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %165 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %166 = load ptr, ptr %165, align 8, !tbaa !4
   store ptr %142, ptr %14, align 8, !tbaa !38
   %167 = icmp eq ptr %166, null
@@ -2893,12 +2877,12 @@ _Z4hashPKvm.exit:                                 ; preds = %_ZSt4endlIcSt11char
   %101 = xor i32 %100, %.016.lcssa.i
   %102 = mul i32 %101, 32769
   %103 = zext i32 %1 to i64
-  %104 = getelementptr inbounds nuw [2 x [4 x i32]], ptr @__const._Z4testIdEjj9ArraySize.checksum, i64 %103
+  %104 = getelementptr inbounds nuw [32 x i8], ptr @__const._Z4testIdEjj9ArraySize.checksum, i64 %103
   %105 = zext i1 %63 to i64
-  %106 = getelementptr inbounds nuw [4 x i32], ptr %104, i64 %105
+  %106 = getelementptr inbounds nuw [16 x i8], ptr %104, i64 %105
   %107 = add nsw i32 %0, -1
   %108 = zext nneg i32 %107 to i64
-  %109 = getelementptr inbounds nuw i32, ptr %106, i64 %108
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %106, i64 %108
   %110 = load i32, ptr %109, align 4, !tbaa !37
   %.not = icmp eq i32 %102, %110
   br i1 %.not, label %146, label %111
@@ -2962,9 +2946,9 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit200: ; preds = %1
   %147 = tail call ptr @zfp_stream_open(ptr noundef null)
   %148 = lshr exact i32 2, %64
   %149 = select i1 %63, i32 64, i32 32
-  %150 = getelementptr inbounds nuw [2 x [4 x [4 x double]]], ptr @__const._Z4testIdEjj9ArraySize.emax, i64 %103
-  %151 = getelementptr inbounds nuw [4 x [4 x double]], ptr %150, i64 %105
-  %152 = getelementptr inbounds nuw [4 x double], ptr %151, i64 %108
+  %150 = getelementptr inbounds nuw [256 x i8], ptr @__const._Z4testIdEjj9ArraySize.emax, i64 %103
+  %151 = getelementptr inbounds nuw [128 x i8], ptr %150, i64 %105
+  %152 = getelementptr inbounds nuw [32 x i8], ptr %151, i64 %108
   %153 = icmp eq i32 %1, 1
   br label %156
 
@@ -2979,7 +2963,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit200: ; preds = %1
   %.0173250 = phi i32 [ 0, %146 ], [ %163, %156 ]
   %157 = uitofp nneg i32 %.0172251 to double
   %158 = zext i32 %.0171252 to i64
-  %159 = getelementptr inbounds nuw double, ptr %152, i64 %158
+  %159 = getelementptr inbounds nuw [8 x i8], ptr %152, i64 %158
   %160 = load double, ptr %159, align 8, !tbaa !46
   %161 = fptrunc double %160 to float
   %162 = tail call noundef i32 @_Z9test_rateIfEjP10zfp_streamPK9zfp_fielddT_b(ptr noundef %147, ptr noundef %18, double noundef %157, float noundef %161, i1 noundef zeroext %153)
@@ -3031,24 +3015,24 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit205: ; preds = %1
 
 187:                                              ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit205, %154
   %188 = shl nuw nsw i32 4, %64
-  %189 = getelementptr inbounds nuw [2 x [4 x [3 x i64]]], ptr @__const._Z4testIdEjj9ArraySize.bytes, i64 %103
-  %190 = getelementptr inbounds nuw [4 x [3 x i64]], ptr %189, i64 %105
-  %191 = getelementptr inbounds nuw [3 x i64], ptr %190, i64 %108
+  %189 = getelementptr inbounds nuw [192 x i8], ptr @__const._Z4testIdEjj9ArraySize.bytes, i64 %103
+  %190 = getelementptr inbounds nuw [96 x i8], ptr %189, i64 %105
+  %191 = getelementptr inbounds nuw [24 x i8], ptr %190, i64 %108
   br label %197
 
 .preheader:                                       ; preds = %197
   %192 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %193 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %194 = getelementptr inbounds nuw [2 x [4 x [3 x i64]]], ptr @__const._Z4testIdEjj9ArraySize.bytes.71, i64 %103
-  %195 = getelementptr inbounds nuw [4 x [3 x i64]], ptr %194, i64 %105
-  %196 = getelementptr inbounds nuw [3 x i64], ptr %195, i64 %108
+  %194 = getelementptr inbounds nuw [192 x i8], ptr @__const._Z4testIdEjj9ArraySize.bytes.71, i64 %103
+  %195 = getelementptr inbounds nuw [96 x i8], ptr %194, i64 %105
+  %196 = getelementptr inbounds nuw [24 x i8], ptr %195, i64 %108
   br label %211
 
 197:                                              ; preds = %187, %197
   %indvars.iv = phi i64 [ 0, %187 ], [ %indvars.iv.next, %197 ]
   %.0170254 = phi i32 [ %188, %187 ], [ %202, %197 ]
   %.1253 = phi i32 [ %163, %187 ], [ %201, %197 ]
-  %198 = getelementptr inbounds nuw i64, ptr %191, i64 %indvars.iv
+  %198 = getelementptr inbounds nuw [8 x i8], ptr %191, i64 %indvars.iv
   %199 = load i64, ptr %198, align 8, !tbaa !40
   %200 = tail call noundef i32 @_Z14test_precisionIfEjP10zfp_streamPK9zfp_fieldjm(ptr noundef %147, ptr noundef %18, i32 noundef %.0170254, i64 noundef %199)
   %201 = add i32 %200, %.1253
@@ -3058,9 +3042,9 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit205: ; preds = %1
   br i1 %exitcond.not, label %.preheader, label %197
 
 203:                                              ; preds = %211
-  %204 = getelementptr inbounds nuw [2 x [4 x i64]], ptr @__const._Z4testIdEjj9ArraySize.bytes.72, i64 %103
-  %205 = getelementptr inbounds nuw [4 x i64], ptr %204, i64 %105
-  %206 = getelementptr inbounds nuw i64, ptr %205, i64 %108
+  %204 = getelementptr inbounds nuw [64 x i8], ptr @__const._Z4testIdEjj9ArraySize.bytes.72, i64 %103
+  %205 = getelementptr inbounds nuw [32 x i8], ptr %204, i64 %105
+  %206 = getelementptr inbounds nuw [8 x i8], ptr %205, i64 %108
   %207 = load i64, ptr %206, align 8, !tbaa !40
   %208 = tail call noundef i32 @_Z15test_reversibleIfEjP10zfp_streamPK9zfp_fieldm(ptr noundef %147, ptr noundef %18, i64 noundef %207)
   %209 = add i32 %208, %217
@@ -3079,9 +3063,9 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit205: ; preds = %1
   store float 0x3F50624DE0000000, ptr %3, align 4, !tbaa !48
   store float 0x3E90000000000000, ptr %192, align 4, !tbaa !48
   store float 0.000000e+00, ptr %193, align 4, !tbaa !48
-  %212 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv262
+  %212 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv262
   %213 = load float, ptr %212, align 4, !tbaa !48
-  %214 = getelementptr inbounds nuw i64, ptr %196, i64 %indvars.iv262
+  %214 = getelementptr inbounds nuw [8 x i8], ptr %196, i64 %indvars.iv262
   %215 = load i64, ptr %214, align 8, !tbaa !40
   %216 = tail call noundef i32 @_Z13test_accuracyIfEjP10zfp_streamPK9zfp_fieldT_m(ptr noundef %147, ptr noundef %18, float noundef %213, i64 noundef %215)
   %217 = add i32 %216, %.2256
@@ -3093,15 +3077,15 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit205: ; preds = %1
 218:                                              ; preds = %203
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN3zfp6array1IfNS_5codec4zfp1IfEENS_5index8implicitEEC2EmdPKfm(ptr noundef nonnull align 8 dereferenceable(152) %4, i64 noundef %210, double noundef 1.600000e+01, ptr noundef nonnull %17, i64 noundef 0)
-  %219 = getelementptr inbounds nuw [2 x [4 x double]], ptr @__const._Z4testIdEjj9ArraySize.emax.73, i64 %103
-  %220 = getelementptr inbounds nuw [4 x double], ptr %219, i64 %105
-  %221 = getelementptr inbounds nuw double, ptr %220, i64 %108
+  %219 = getelementptr inbounds nuw [64 x i8], ptr @__const._Z4testIdEjj9ArraySize.emax.73, i64 %103
+  %220 = getelementptr inbounds nuw [32 x i8], ptr %219, i64 %105
+  %221 = getelementptr inbounds nuw [8 x i8], ptr %220, i64 %108
   %222 = load double, ptr %221, align 8, !tbaa !46
   %223 = fptrunc double %222 to float
   %224 = fpext float %223 to double
-  %225 = getelementptr inbounds nuw [2 x [4 x double]], ptr @__const._Z4testIdEjj9ArraySize.dfmax, i64 %103
-  %226 = getelementptr inbounds nuw [4 x double], ptr %225, i64 %105
-  %227 = getelementptr inbounds nuw double, ptr %226, i64 %108
+  %225 = getelementptr inbounds nuw [64 x i8], ptr @__const._Z4testIdEjj9ArraySize.dfmax, i64 %103
+  %226 = getelementptr inbounds nuw [32 x i8], ptr %225, i64 %105
+  %227 = getelementptr inbounds nuw [8 x i8], ptr %226, i64 %108
   %228 = load double, ptr %227, align 8, !tbaa !46
   %229 = fptrunc double %228 to float
   %230 = fpext float %229 to double
@@ -3149,15 +3133,15 @@ _ZN3zfp6array1IfNS_5codec4zfp1IfEENS_5index8implicitEED2Ev.exit: ; preds = %_ZN3
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %244 = zext i32 %.0175219 to i64
   call void @_ZN3zfp6array2IfNS_5codec4zfp2IfEENS_5index8implicitEEC2EmmdPKfm(ptr noundef nonnull align 8 dereferenceable(168) %5, i64 noundef %210, i64 noundef %244, double noundef 1.600000e+01, ptr noundef nonnull %17, i64 noundef 0)
-  %245 = getelementptr inbounds nuw [2 x [4 x double]], ptr @__const._Z4testIdEjj9ArraySize.emax.73, i64 %103
-  %246 = getelementptr inbounds nuw [4 x double], ptr %245, i64 %105
-  %247 = getelementptr inbounds nuw double, ptr %246, i64 %108
+  %245 = getelementptr inbounds nuw [64 x i8], ptr @__const._Z4testIdEjj9ArraySize.emax.73, i64 %103
+  %246 = getelementptr inbounds nuw [32 x i8], ptr %245, i64 %105
+  %247 = getelementptr inbounds nuw [8 x i8], ptr %246, i64 %108
   %248 = load double, ptr %247, align 8, !tbaa !46
   %249 = fptrunc double %248 to float
   %250 = fpext float %249 to double
-  %251 = getelementptr inbounds nuw [2 x [4 x double]], ptr @__const._Z4testIdEjj9ArraySize.dfmax, i64 %103
-  %252 = getelementptr inbounds nuw [4 x double], ptr %251, i64 %105
-  %253 = getelementptr inbounds nuw double, ptr %252, i64 %108
+  %251 = getelementptr inbounds nuw [64 x i8], ptr @__const._Z4testIdEjj9ArraySize.dfmax, i64 %103
+  %252 = getelementptr inbounds nuw [32 x i8], ptr %251, i64 %105
+  %253 = getelementptr inbounds nuw [8 x i8], ptr %252, i64 %108
   %254 = load double, ptr %253, align 8, !tbaa !46
   %255 = fptrunc double %254 to float
   %256 = fpext float %255 to double
@@ -3206,15 +3190,15 @@ _ZN3zfp6array2IfNS_5codec4zfp2IfEENS_5index8implicitEED2Ev.exit: ; preds = %_ZN3
   %270 = zext i32 %.0175219 to i64
   %271 = zext i32 %.0176217 to i64
   call void @_ZN3zfp6array3IfNS_5codec4zfp3IfEENS_5index8implicitEEC2EmmmdPKfm(ptr noundef nonnull align 8 dereferenceable(184) %6, i64 noundef %210, i64 noundef %270, i64 noundef %271, double noundef 1.600000e+01, ptr noundef nonnull %17, i64 noundef 0)
-  %272 = getelementptr inbounds nuw [2 x [4 x double]], ptr @__const._Z4testIdEjj9ArraySize.emax.73, i64 %103
-  %273 = getelementptr inbounds nuw [4 x double], ptr %272, i64 %105
-  %274 = getelementptr inbounds nuw double, ptr %273, i64 %108
+  %272 = getelementptr inbounds nuw [64 x i8], ptr @__const._Z4testIdEjj9ArraySize.emax.73, i64 %103
+  %273 = getelementptr inbounds nuw [32 x i8], ptr %272, i64 %105
+  %274 = getelementptr inbounds nuw [8 x i8], ptr %273, i64 %108
   %275 = load double, ptr %274, align 8, !tbaa !46
   %276 = fptrunc double %275 to float
   %277 = fpext float %276 to double
-  %278 = getelementptr inbounds nuw [2 x [4 x double]], ptr @__const._Z4testIdEjj9ArraySize.dfmax, i64 %103
-  %279 = getelementptr inbounds nuw [4 x double], ptr %278, i64 %105
-  %280 = getelementptr inbounds nuw double, ptr %279, i64 %108
+  %278 = getelementptr inbounds nuw [64 x i8], ptr @__const._Z4testIdEjj9ArraySize.dfmax, i64 %103
+  %279 = getelementptr inbounds nuw [32 x i8], ptr %278, i64 %105
+  %280 = getelementptr inbounds nuw [8 x i8], ptr %279, i64 %108
   %281 = load double, ptr %280, align 8, !tbaa !46
   %282 = fptrunc double %281 to float
   %283 = fpext float %282 to double
@@ -3263,15 +3247,15 @@ _ZN3zfp6array3IfNS_5codec4zfp3IfEENS_5index8implicitEED2Ev.exit: ; preds = %_ZN3
   %297 = zext i32 %.0175219 to i64
   %298 = zext i32 %.0176217 to i64
   call void @_ZN3zfp6array4IfNS_5codec4zfp4IfEENS_5index8implicitEEC2EmmmmdPKfm(ptr noundef nonnull align 8 dereferenceable(200) %7, i64 noundef %210, i64 noundef %297, i64 noundef %298, i64 noundef %.0177215, double noundef 1.600000e+01, ptr noundef nonnull %17, i64 noundef 0)
-  %299 = getelementptr inbounds nuw [2 x [4 x double]], ptr @__const._Z4testIdEjj9ArraySize.emax.73, i64 %103
-  %300 = getelementptr inbounds nuw [4 x double], ptr %299, i64 %105
-  %301 = getelementptr inbounds nuw double, ptr %300, i64 %108
+  %299 = getelementptr inbounds nuw [64 x i8], ptr @__const._Z4testIdEjj9ArraySize.emax.73, i64 %103
+  %300 = getelementptr inbounds nuw [32 x i8], ptr %299, i64 %105
+  %301 = getelementptr inbounds nuw [8 x i8], ptr %300, i64 %108
   %302 = load double, ptr %301, align 8, !tbaa !46
   %303 = fptrunc double %302 to float
   %304 = fpext float %303 to double
-  %305 = getelementptr inbounds nuw [2 x [4 x double]], ptr @__const._Z4testIdEjj9ArraySize.dfmax, i64 %103
-  %306 = getelementptr inbounds nuw [4 x double], ptr %305, i64 %105
-  %307 = getelementptr inbounds nuw double, ptr %306, i64 %108
+  %305 = getelementptr inbounds nuw [64 x i8], ptr @__const._Z4testIdEjj9ArraySize.dfmax, i64 %103
+  %306 = getelementptr inbounds nuw [32 x i8], ptr %305, i64 %105
+  %307 = getelementptr inbounds nuw [8 x i8], ptr %306, i64 %108
   %308 = load double, ptr %307, align 8, !tbaa !46
   %309 = fptrunc double %308 to float
   %310 = fpext float %309 to double
@@ -3557,12 +3541,12 @@ _Z4hashPKvm.exit:                                 ; preds = %_ZSt4endlIcSt11char
   %101 = xor i32 %100, %.016.lcssa.i
   %102 = mul i32 %101, 32769
   %103 = zext i32 %1 to i64
-  %104 = getelementptr inbounds nuw [2 x [4 x i32]], ptr @__const._Z4testIdEjj9ArraySize.checksum, i64 %103
+  %104 = getelementptr inbounds nuw [32 x i8], ptr @__const._Z4testIdEjj9ArraySize.checksum, i64 %103
   %105 = zext i1 %63 to i64
-  %106 = getelementptr inbounds nuw [4 x i32], ptr %104, i64 %105
+  %106 = getelementptr inbounds nuw [16 x i8], ptr %104, i64 %105
   %107 = add nsw i32 %0, -1
   %108 = zext nneg i32 %107 to i64
-  %109 = getelementptr inbounds nuw i32, ptr %106, i64 %108
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %106, i64 %108
   %110 = load i32, ptr %109, align 4, !tbaa !37
   %.not = icmp eq i32 %102, %110
   br i1 %.not, label %146, label %111
@@ -3626,9 +3610,9 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit200: ; preds = %1
   %147 = tail call ptr @zfp_stream_open(ptr noundef null)
   %148 = lshr exact i32 2, %64
   %149 = select i1 %63, i32 64, i32 32
-  %150 = getelementptr inbounds nuw [2 x [4 x [4 x double]]], ptr @__const._Z4testIdEjj9ArraySize.emax, i64 %103
-  %151 = getelementptr inbounds nuw [4 x [4 x double]], ptr %150, i64 %105
-  %152 = getelementptr inbounds nuw [4 x double], ptr %151, i64 %108
+  %150 = getelementptr inbounds nuw [256 x i8], ptr @__const._Z4testIdEjj9ArraySize.emax, i64 %103
+  %151 = getelementptr inbounds nuw [128 x i8], ptr %150, i64 %105
+  %152 = getelementptr inbounds nuw [32 x i8], ptr %151, i64 %108
   %153 = icmp eq i32 %1, 1
   br label %156
 
@@ -3643,7 +3627,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit200: ; preds = %1
   %.0173250 = phi i32 [ 0, %146 ], [ %162, %156 ]
   %157 = uitofp nneg i32 %.0172251 to double
   %158 = zext i32 %.0171252 to i64
-  %159 = getelementptr inbounds nuw double, ptr %152, i64 %158
+  %159 = getelementptr inbounds nuw [8 x i8], ptr %152, i64 %158
   %160 = load double, ptr %159, align 8, !tbaa !46
   %161 = tail call noundef i32 @_Z9test_rateIdEjP10zfp_streamPK9zfp_fielddT_b(ptr noundef %147, ptr noundef %18, double noundef %157, double noundef %160, i1 noundef zeroext %153)
   %162 = add i32 %161, %.0173250
@@ -3694,24 +3678,24 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit205: ; preds = %1
 
 186:                                              ; preds = %_ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit205, %154
   %187 = shl nuw nsw i32 4, %64
-  %188 = getelementptr inbounds nuw [2 x [4 x [3 x i64]]], ptr @__const._Z4testIdEjj9ArraySize.bytes, i64 %103
-  %189 = getelementptr inbounds nuw [4 x [3 x i64]], ptr %188, i64 %105
-  %190 = getelementptr inbounds nuw [3 x i64], ptr %189, i64 %108
+  %188 = getelementptr inbounds nuw [192 x i8], ptr @__const._Z4testIdEjj9ArraySize.bytes, i64 %103
+  %189 = getelementptr inbounds nuw [96 x i8], ptr %188, i64 %105
+  %190 = getelementptr inbounds nuw [24 x i8], ptr %189, i64 %108
   br label %196
 
 .preheader:                                       ; preds = %196
   %191 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %192 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %193 = getelementptr inbounds nuw [2 x [4 x [3 x i64]]], ptr @__const._Z4testIdEjj9ArraySize.bytes.71, i64 %103
-  %194 = getelementptr inbounds nuw [4 x [3 x i64]], ptr %193, i64 %105
-  %195 = getelementptr inbounds nuw [3 x i64], ptr %194, i64 %108
+  %193 = getelementptr inbounds nuw [192 x i8], ptr @__const._Z4testIdEjj9ArraySize.bytes.71, i64 %103
+  %194 = getelementptr inbounds nuw [96 x i8], ptr %193, i64 %105
+  %195 = getelementptr inbounds nuw [24 x i8], ptr %194, i64 %108
   br label %210
 
 196:                                              ; preds = %186, %196
   %indvars.iv = phi i64 [ 0, %186 ], [ %indvars.iv.next, %196 ]
   %.0170254 = phi i32 [ %187, %186 ], [ %201, %196 ]
   %.1253 = phi i32 [ %162, %186 ], [ %200, %196 ]
-  %197 = getelementptr inbounds nuw i64, ptr %190, i64 %indvars.iv
+  %197 = getelementptr inbounds nuw [8 x i8], ptr %190, i64 %indvars.iv
   %198 = load i64, ptr %197, align 8, !tbaa !40
   %199 = tail call noundef i32 @_Z14test_precisionIdEjP10zfp_streamPK9zfp_fieldjm(ptr noundef %147, ptr noundef %18, i32 noundef %.0170254, i64 noundef %198)
   %200 = add i32 %199, %.1253
@@ -3721,9 +3705,9 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit205: ; preds = %1
   br i1 %exitcond.not, label %.preheader, label %196
 
 202:                                              ; preds = %210
-  %203 = getelementptr inbounds nuw [2 x [4 x i64]], ptr @__const._Z4testIdEjj9ArraySize.bytes.72, i64 %103
-  %204 = getelementptr inbounds nuw [4 x i64], ptr %203, i64 %105
-  %205 = getelementptr inbounds nuw i64, ptr %204, i64 %108
+  %203 = getelementptr inbounds nuw [64 x i8], ptr @__const._Z4testIdEjj9ArraySize.bytes.72, i64 %103
+  %204 = getelementptr inbounds nuw [32 x i8], ptr %203, i64 %105
+  %205 = getelementptr inbounds nuw [8 x i8], ptr %204, i64 %108
   %206 = load i64, ptr %205, align 8, !tbaa !40
   %207 = tail call noundef i32 @_Z15test_reversibleIdEjP10zfp_streamPK9zfp_fieldm(ptr noundef %147, ptr noundef %18, i64 noundef %206)
   %208 = add i32 %207, %216
@@ -3742,9 +3726,9 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit205: ; preds = %1
   store double 1.000000e-03, ptr %3, align 16, !tbaa !46
   store double 0x3CC0000000000000, ptr %191, align 8, !tbaa !46
   store double 0.000000e+00, ptr %192, align 16, !tbaa !46
-  %211 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv262
+  %211 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv262
   %212 = load double, ptr %211, align 8, !tbaa !46
-  %213 = getelementptr inbounds nuw i64, ptr %195, i64 %indvars.iv262
+  %213 = getelementptr inbounds nuw [8 x i8], ptr %195, i64 %indvars.iv262
   %214 = load i64, ptr %213, align 8, !tbaa !40
   %215 = tail call noundef i32 @_Z13test_accuracyIdEjP10zfp_streamPK9zfp_fieldT_m(ptr noundef %147, ptr noundef %18, double noundef %212, i64 noundef %214)
   %216 = add i32 %215, %.2256
@@ -3756,13 +3740,13 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit205: ; preds = %1
 217:                                              ; preds = %202
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN3zfp6array1IdNS_5codec4zfp1IdEENS_5index8implicitEEC2EmdPKdm(ptr noundef nonnull align 8 dereferenceable(152) %4, i64 noundef %209, double noundef 1.600000e+01, ptr noundef nonnull %17, i64 noundef 0)
-  %218 = getelementptr inbounds nuw [2 x [4 x double]], ptr @__const._Z4testIdEjj9ArraySize.emax.73, i64 %103
-  %219 = getelementptr inbounds nuw [4 x double], ptr %218, i64 %105
-  %220 = getelementptr inbounds nuw double, ptr %219, i64 %108
+  %218 = getelementptr inbounds nuw [64 x i8], ptr @__const._Z4testIdEjj9ArraySize.emax.73, i64 %103
+  %219 = getelementptr inbounds nuw [32 x i8], ptr %218, i64 %105
+  %220 = getelementptr inbounds nuw [8 x i8], ptr %219, i64 %108
   %221 = load double, ptr %220, align 8, !tbaa !46
-  %222 = getelementptr inbounds nuw [2 x [4 x double]], ptr @__const._Z4testIdEjj9ArraySize.dfmax, i64 %103
-  %223 = getelementptr inbounds nuw [4 x double], ptr %222, i64 %105
-  %224 = getelementptr inbounds nuw double, ptr %223, i64 %108
+  %222 = getelementptr inbounds nuw [64 x i8], ptr @__const._Z4testIdEjj9ArraySize.dfmax, i64 %103
+  %223 = getelementptr inbounds nuw [32 x i8], ptr %222, i64 %105
+  %224 = getelementptr inbounds nuw [8 x i8], ptr %223, i64 %108
   %225 = load double, ptr %224, align 8, !tbaa !46
   %226 = invoke noundef i32 @_Z10test_arrayIN3zfp6array1IdNS0_5codec4zfp1IdEENS0_5index8implicitEEEdEjRT_PKT0_jdd(ptr noundef nonnull align 8 dereferenceable(152) %4, ptr noundef nonnull %17, i32 noundef %14, double noundef %221, double noundef %225)
           to label %227 unwind label %235
@@ -3808,13 +3792,13 @@ _ZN3zfp6array1IdNS_5codec4zfp1IdEENS_5index8implicitEED2Ev.exit: ; preds = %_ZN3
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %239 = zext i32 %.0175219 to i64
   call void @_ZN3zfp6array2IdNS_5codec4zfp2IdEENS_5index8implicitEEC2EmmdPKdm(ptr noundef nonnull align 8 dereferenceable(168) %5, i64 noundef %209, i64 noundef %239, double noundef 1.600000e+01, ptr noundef nonnull %17, i64 noundef 0)
-  %240 = getelementptr inbounds nuw [2 x [4 x double]], ptr @__const._Z4testIdEjj9ArraySize.emax.73, i64 %103
-  %241 = getelementptr inbounds nuw [4 x double], ptr %240, i64 %105
-  %242 = getelementptr inbounds nuw double, ptr %241, i64 %108
+  %240 = getelementptr inbounds nuw [64 x i8], ptr @__const._Z4testIdEjj9ArraySize.emax.73, i64 %103
+  %241 = getelementptr inbounds nuw [32 x i8], ptr %240, i64 %105
+  %242 = getelementptr inbounds nuw [8 x i8], ptr %241, i64 %108
   %243 = load double, ptr %242, align 8, !tbaa !46
-  %244 = getelementptr inbounds nuw [2 x [4 x double]], ptr @__const._Z4testIdEjj9ArraySize.dfmax, i64 %103
-  %245 = getelementptr inbounds nuw [4 x double], ptr %244, i64 %105
-  %246 = getelementptr inbounds nuw double, ptr %245, i64 %108
+  %244 = getelementptr inbounds nuw [64 x i8], ptr @__const._Z4testIdEjj9ArraySize.dfmax, i64 %103
+  %245 = getelementptr inbounds nuw [32 x i8], ptr %244, i64 %105
+  %246 = getelementptr inbounds nuw [8 x i8], ptr %245, i64 %108
   %247 = load double, ptr %246, align 8, !tbaa !46
   %248 = invoke noundef i32 @_Z10test_arrayIN3zfp6array2IdNS0_5codec4zfp2IdEENS0_5index8implicitEEEdEjRT_PKT0_jdd(ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef nonnull %17, i32 noundef %14, double noundef %243, double noundef %247)
           to label %249 unwind label %257
@@ -3861,13 +3845,13 @@ _ZN3zfp6array2IdNS_5codec4zfp2IdEENS_5index8implicitEED2Ev.exit: ; preds = %_ZN3
   %261 = zext i32 %.0175219 to i64
   %262 = zext i32 %.0176217 to i64
   call void @_ZN3zfp6array3IdNS_5codec4zfp3IdEENS_5index8implicitEEC2EmmmdPKdm(ptr noundef nonnull align 8 dereferenceable(184) %6, i64 noundef %209, i64 noundef %261, i64 noundef %262, double noundef 1.600000e+01, ptr noundef nonnull %17, i64 noundef 0)
-  %263 = getelementptr inbounds nuw [2 x [4 x double]], ptr @__const._Z4testIdEjj9ArraySize.emax.73, i64 %103
-  %264 = getelementptr inbounds nuw [4 x double], ptr %263, i64 %105
-  %265 = getelementptr inbounds nuw double, ptr %264, i64 %108
+  %263 = getelementptr inbounds nuw [64 x i8], ptr @__const._Z4testIdEjj9ArraySize.emax.73, i64 %103
+  %264 = getelementptr inbounds nuw [32 x i8], ptr %263, i64 %105
+  %265 = getelementptr inbounds nuw [8 x i8], ptr %264, i64 %108
   %266 = load double, ptr %265, align 8, !tbaa !46
-  %267 = getelementptr inbounds nuw [2 x [4 x double]], ptr @__const._Z4testIdEjj9ArraySize.dfmax, i64 %103
-  %268 = getelementptr inbounds nuw [4 x double], ptr %267, i64 %105
-  %269 = getelementptr inbounds nuw double, ptr %268, i64 %108
+  %267 = getelementptr inbounds nuw [64 x i8], ptr @__const._Z4testIdEjj9ArraySize.dfmax, i64 %103
+  %268 = getelementptr inbounds nuw [32 x i8], ptr %267, i64 %105
+  %269 = getelementptr inbounds nuw [8 x i8], ptr %268, i64 %108
   %270 = load double, ptr %269, align 8, !tbaa !46
   %271 = invoke noundef i32 @_Z10test_arrayIN3zfp6array3IdNS0_5codec4zfp3IdEENS0_5index8implicitEEEdEjRT_PKT0_jdd(ptr noundef nonnull align 8 dereferenceable(184) %6, ptr noundef nonnull %17, i32 noundef %14, double noundef %266, double noundef %270)
           to label %272 unwind label %280
@@ -3914,13 +3898,13 @@ _ZN3zfp6array3IdNS_5codec4zfp3IdEENS_5index8implicitEED2Ev.exit: ; preds = %_ZN3
   %284 = zext i32 %.0175219 to i64
   %285 = zext i32 %.0176217 to i64
   call void @_ZN3zfp6array4IdNS_5codec4zfp4IdEENS_5index8implicitEEC2EmmmmdPKdm(ptr noundef nonnull align 8 dereferenceable(200) %7, i64 noundef %209, i64 noundef %284, i64 noundef %285, i64 noundef %.0177215, double noundef 1.600000e+01, ptr noundef nonnull %17, i64 noundef 0)
-  %286 = getelementptr inbounds nuw [2 x [4 x double]], ptr @__const._Z4testIdEjj9ArraySize.emax.73, i64 %103
-  %287 = getelementptr inbounds nuw [4 x double], ptr %286, i64 %105
-  %288 = getelementptr inbounds nuw double, ptr %287, i64 %108
+  %286 = getelementptr inbounds nuw [64 x i8], ptr @__const._Z4testIdEjj9ArraySize.emax.73, i64 %103
+  %287 = getelementptr inbounds nuw [32 x i8], ptr %286, i64 %105
+  %288 = getelementptr inbounds nuw [8 x i8], ptr %287, i64 %108
   %289 = load double, ptr %288, align 8, !tbaa !46
-  %290 = getelementptr inbounds nuw [2 x [4 x double]], ptr @__const._Z4testIdEjj9ArraySize.dfmax, i64 %103
-  %291 = getelementptr inbounds nuw [4 x double], ptr %290, i64 %105
-  %292 = getelementptr inbounds nuw double, ptr %291, i64 %108
+  %290 = getelementptr inbounds nuw [64 x i8], ptr @__const._Z4testIdEjj9ArraySize.dfmax, i64 %103
+  %291 = getelementptr inbounds nuw [32 x i8], ptr %290, i64 %105
+  %292 = getelementptr inbounds nuw [8 x i8], ptr %291, i64 %108
   %293 = load double, ptr %292, align 8, !tbaa !46
   %294 = invoke noundef i32 @_Z10test_arrayIN3zfp6array4IdNS0_5codec4zfp4IdEENS0_5index8implicitEEEdEjRT_PKT0_jdd(ptr noundef nonnull align 8 dereferenceable(200) %7, ptr noundef nonnull %17, i32 noundef %14, double noundef %289, double noundef %293)
           to label %295 unwind label %303
@@ -4537,9 +4521,9 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit152: ; preds = %_ZNS
   %223 = phi i64 [ %232, %.lr.ph ], [ 0, %.preheader ]
   %.0220 = phi i32 [ %231, %.lr.ph ], [ 0, %.preheader ]
   %.0217219 = phi float [ %.sroa.speculated, %.lr.ph ], [ 0.000000e+00, %.preheader ]
-  %224 = getelementptr inbounds nuw float, ptr %220, i64 %223
+  %224 = getelementptr inbounds nuw [4 x i8], ptr %220, i64 %223
   %225 = load float, ptr %224, align 4, !tbaa !48
-  %226 = getelementptr inbounds nuw float, ptr %179, i64 %223
+  %226 = getelementptr inbounds nuw [4 x i8], ptr %179, i64 %223
   %227 = load float, ptr %226, align 4, !tbaa !48
   %228 = fsub float %225, %227
   %229 = call noundef float @llvm.fabs.f32(float %228)
@@ -5763,9 +5747,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit127: ; preds = %17
   %184 = phi i64 [ %193, %.lr.ph ], [ 0, %.preheader ]
   %.062201 = phi i32 [ %192, %.lr.ph ], [ 0, %.preheader ]
   %.0200 = phi float [ %.sroa.speculated, %.lr.ph ], [ 0.000000e+00, %.preheader ]
-  %185 = getelementptr inbounds nuw float, ptr %181, i64 %184
+  %185 = getelementptr inbounds nuw [4 x i8], ptr %181, i64 %184
   %186 = load float, ptr %185, align 4, !tbaa !48
-  %187 = getelementptr inbounds nuw float, ptr %162, i64 %184
+  %187 = getelementptr inbounds nuw [4 x i8], ptr %162, i64 %184
   %188 = load float, ptr %187, align 4, !tbaa !48
   %189 = fsub float %186, %188
   %190 = call noundef float @llvm.fabs.f32(float %189)
@@ -6766,14 +6750,14 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.preheader: ; preds 
 14:                                               ; preds = %.lr.ph, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ]
   %.0144146 = phi float [ 0.000000e+00, %.lr.ph ], [ %.sroa.speculated, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ]
-  %15 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %16 = load float, ptr %15, align 4, !tbaa !48
   %17 = invoke noundef ptr @_ZNK3zfp8internal11BlockCache1IfNS0_11BlockStore1IfNS_5codec4zfp1IfEENS_5index8implicitEEEE4lineEmb(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %indvars.iv, i1 noundef zeroext false)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit unwind label %24
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %14
   %18 = and i64 %indvars.iv, 3
-  %19 = getelementptr inbounds nuw float, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %18
   %20 = load float, ptr %19, align 4, !tbaa !48
   %21 = fsub float %16, %20
   %22 = call noundef float @llvm.fabs.f32(float %21)
@@ -7499,7 +7483,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.preheader: ; preds 
 18:                                               ; preds = %.lr.ph, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ]
   %.0164166 = phi float [ 0.000000e+00, %.lr.ph ], [ %.sroa.speculated, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ]
-  %19 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %20 = load float, ptr %19, align 4, !tbaa !48
   %21 = load i64, ptr %11, align 8, !tbaa !173, !noalias !201
   %22 = urem i64 %indvars.iv, %21
@@ -7517,12 +7501,12 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.preheader: ; preds 
   %34 = and i32 %32, %33
   %35 = load ptr, ptr %14, align 8, !tbaa !55
   %36 = zext i32 %34 to i64
-  %37 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache2<float, zfp::internal::BlockStore2<float, zfp::codec::zfp2<float>, zfp::index::implicit> >::CacheLine>::Tag", ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !206
   %39 = lshr i32 %38, 1
   %40 = icmp eq i32 %39, %32
   %41 = load ptr, ptr %15, align 8, !tbaa !59
-  %42 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache2<float, zfp::internal::BlockStore2<float, zfp::codec::zfp2<float>, zfp::index::implicit> >::CacheLine", ptr %41, i64 %36
+  %42 = getelementptr inbounds nuw [64 x i8], ptr %41, i64 %36
   br i1 %40, label %_ZN3zfp8internal5CacheINS0_11BlockCache2IfNS0_11BlockStore2IfNS_5codec4zfp2IfEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i, label %43
 
 43:                                               ; preds = %18
@@ -7557,8 +7541,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %_ZN3zfp
   %54 = and i64 %22, 3
   %55 = shl nuw nsw i64 %23, 2
   %56 = and i64 %55, 12
-  %57 = getelementptr inbounds nuw float, ptr %42, i64 %56
-  %58 = getelementptr inbounds nuw float, ptr %57, i64 %54
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %56
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %54
   %59 = load float, ptr %58, align 4, !tbaa !48
   %60 = fsub float %20, %59
   %61 = call noundef float @llvm.fabs.f32(float %60)
@@ -7829,13 +7813,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit86: ; preds = %_ZNSt
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %174 = load ptr, ptr %173, align 8, !tbaa !55
   %175 = zext nneg i32 %172 to i64
-  %176 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache2<float, zfp::internal::BlockStore2<float, zfp::codec::zfp2<float>, zfp::index::implicit> >::CacheLine>::Tag", ptr %174, i64 %175
+  %176 = getelementptr inbounds nuw [4 x i8], ptr %174, i64 %175
   %177 = load i32, ptr %176, align 4, !tbaa !206
   %178 = lshr i32 %177, 1
   %179 = icmp eq i32 %178, 1
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %181 = load ptr, ptr %180, align 8, !tbaa !59
-  %182 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache2<float, zfp::internal::BlockStore2<float, zfp::codec::zfp2<float>, zfp::index::implicit> >::CacheLine", ptr %181, i64 %175
+  %182 = getelementptr inbounds nuw [64 x i8], ptr %181, i64 %175
   br i1 %179, label %_ZN3zfp8internal5CacheINS0_11BlockCache2IfNS0_11BlockStore2IfNS_5codec4zfp2IfEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i88.thread, label %_ZN3zfp8internal5CacheINS0_11BlockCache2IfNS0_11BlockStore2IfNS_5codec4zfp2IfEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i88
 
 _ZN3zfp8internal5CacheINS0_11BlockCache2IfNS0_11BlockStore2IfNS_5codec4zfp2IfEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i88: ; preds = %167
@@ -8335,7 +8319,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.preheader: ; preds 
 19:                                               ; preds = %.lr.ph, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ]
   %.0166168 = phi float [ 0.000000e+00, %.lr.ph ], [ %.sroa.speculated, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ]
-  %20 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %21 = load float, ptr %20, align 4, !tbaa !48
   %22 = load i64, ptr %11, align 8, !tbaa !173, !noalias !237
   %23 = urem i64 %indvars.iv, %22
@@ -8361,12 +8345,12 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.preheader: ; preds 
   %43 = and i32 %41, %42
   %44 = load ptr, ptr %15, align 8, !tbaa !60
   %45 = zext i32 %43 to i64
-  %46 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<float, zfp::internal::BlockStore3<float, zfp::codec::zfp3<float>, zfp::index::implicit> >::CacheLine>::Tag", ptr %44, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !242
   %48 = lshr i32 %47, 1
   %49 = icmp eq i32 %48, %41
   %50 = load ptr, ptr %16, align 8, !tbaa !64
-  %51 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<float, zfp::internal::BlockStore3<float, zfp::codec::zfp3<float>, zfp::index::implicit> >::CacheLine", ptr %50, i64 %45
+  %51 = getelementptr inbounds nuw [256 x i8], ptr %50, i64 %45
   br i1 %49, label %_ZN3zfp8internal5CacheINS0_11BlockCache3IfNS0_11BlockStore3IfNS_5codec4zfp3IfEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i, label %52
 
 52:                                               ; preds = %19
@@ -8405,7 +8389,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %_ZN3zfp
   %67 = or disjoint i64 %66, %64
   %.idx.i.i.i.i.i = shl nuw nsw i64 %67, 4
   %68 = getelementptr inbounds nuw i8, ptr %51, i64 %.idx.i.i.i.i.i
-  %69 = getelementptr inbounds nuw float, ptr %68, i64 %63
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %63
   %70 = load float, ptr %69, align 4, !tbaa !48
   %71 = fsub float %21, %70
   %72 = call noundef float @llvm.fabs.f32(float %71)
@@ -8676,13 +8660,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit86: ; preds = %_ZNSt
   %184 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %185 = load ptr, ptr %184, align 8, !tbaa !60
   %186 = zext nneg i32 %183 to i64
-  %187 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<float, zfp::internal::BlockStore3<float, zfp::codec::zfp3<float>, zfp::index::implicit> >::CacheLine>::Tag", ptr %185, i64 %186
+  %187 = getelementptr inbounds nuw [4 x i8], ptr %185, i64 %186
   %188 = load i32, ptr %187, align 4, !tbaa !242
   %189 = lshr i32 %188, 1
   %190 = icmp eq i32 %189, 1
   %191 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %192 = load ptr, ptr %191, align 8, !tbaa !64
-  %193 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<float, zfp::internal::BlockStore3<float, zfp::codec::zfp3<float>, zfp::index::implicit> >::CacheLine", ptr %192, i64 %186
+  %193 = getelementptr inbounds nuw [256 x i8], ptr %192, i64 %186
   br i1 %190, label %_ZN3zfp8internal5CacheINS0_11BlockCache3IfNS0_11BlockStore3IfNS_5codec4zfp3IfEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i88.thread, label %_ZN3zfp8internal5CacheINS0_11BlockCache3IfNS0_11BlockStore3IfNS_5codec4zfp3IfEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i88
 
 _ZN3zfp8internal5CacheINS0_11BlockCache3IfNS0_11BlockStore3IfNS_5codec4zfp3IfEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i88: ; preds = %178
@@ -9108,7 +9092,7 @@ define linkonce_odr dso_local void @_ZN3zfp6array4IfNS_5codec4zfp4IfEENS_5index8
   %48 = load i64, ptr %23, align 8, !tbaa !200
   %49 = sub i64 %48, %30
   %50 = mul nsw i64 %37, %49
-  %51 = getelementptr inbounds float, ptr %46, i64 %50
+  %51 = getelementptr inbounds [4 x i8], ptr %46, i64 %50
   %exitcond104.not.i = icmp eq i64 %47, %32
   br i1 %exitcond104.not.i, label %._crit_edge.split.us.split.us.us.us.us.i, label %.preheader45.us.us.us.us.us.i
 
@@ -9117,7 +9101,7 @@ define linkonce_odr dso_local void @_ZN3zfp6array4IfNS_5codec4zfp4IfEENS_5index8
   %53 = load i64, ptr %24, align 8, !tbaa !236
   %54 = sub i64 %53, %32
   %55 = mul nsw i64 %38, %54
-  %56 = getelementptr inbounds float, ptr %51, i64 %55
+  %56 = getelementptr inbounds [4 x i8], ptr %51, i64 %55
   %exitcond105.not.i = icmp eq i64 %52, %34
   br i1 %exitcond105.not.i, label %_ZN3zfp6array4IfNS_5codec4zfp4IfEENS_5index8implicitEE3setEPKf.exit, label %.preheader46.us.us.us.i
 
@@ -9187,7 +9171,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.preheader: ; preds 
 22:                                               ; preds = %.lr.ph, %_ZNK3zfp8internal4dim415const_referenceINS_6array4IfNS_5codec4zfp4IfEENS_5index8implicitEEEEcvfEv.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK3zfp8internal4dim415const_referenceINS_6array4IfNS_5codec4zfp4IfEENS_5index8implicitEEEEcvfEv.exit ]
   %.0141143 = phi float [ 0.000000e+00, %.lr.ph ], [ %.sroa.speculated, %_ZNK3zfp8internal4dim415const_referenceINS_6array4IfNS_5codec4zfp4IfEENS_5index8implicitEEEEcvfEv.exit ]
-  %23 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %24 = load float, ptr %23, align 4, !tbaa !48
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.experimental.noalias.scope.decl(metadata !270)
@@ -9793,7 +9777,7 @@ _ZSt4fillIPiiEvT_S1_RKT0_.exit.preheader:         ; preds = %2
 
 _ZSt4fillIPiiEvT_S1_RKT0_.exit:                   ; preds = %_ZSt4fillIPiiEvT_S1_RKT0_.exit.preheader, %_ZSt4fillIPiiEvT_S1_RKT0_.exit
   %indvars.iv = phi i64 [ 1, %_ZSt4fillIPiiEvT_S1_RKT0_.exit.preheader ], [ %indvars.iv.next, %_ZSt4fillIPiiEvT_S1_RKT0_.exit ]
-  %12 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
   %13 = shl i32 %indvars.iv.tr, 17
   %14 = and i32 %13, 131072
@@ -9824,7 +9808,7 @@ _ZSt4fillIPiiEvT_S1_RKT0_.exit:                   ; preds = %_ZSt4fillIPiiEvT_S1
   br i1 %.not.i, label %.preheader.split.us.i, label %.preheader.split.i
 
 .preheader.split.us.i:                            ; preds = %.preheader.i
-  %21 = getelementptr inbounds nuw i32, ptr %.03034, i64 %19
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %.03034, i64 %19
   %22 = load i32, ptr %21, align 4, !tbaa !37
   %23 = sext i32 %22 to i64
   br label %24
@@ -9832,7 +9816,7 @@ _ZSt4fillIPiiEvT_S1_RKT0_.exit:                   ; preds = %_ZSt4fillIPiiEvT_S1
 24:                                               ; preds = %24, %.preheader.split.us.i
   %.01821.us.i = phi i64 [ 0, %.preheader.split.us.i ], [ %29, %24 ]
   %.01920.us.i = phi i64 [ 0, %.preheader.split.us.i ], [ %28, %24 ]
-  %25 = getelementptr inbounds nuw i64, ptr @__const._Z8refine4dPiPKim.weight, i64 %.01821.us.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr @__const._Z8refine4dPiPKim.weight, i64 %.01821.us.i
   %26 = load i64, ptr %25, align 8, !tbaa !40
   %27 = mul nsw i64 %26, %23
   %28 = add nsw i64 %27, %.01920.us.i
@@ -9844,7 +9828,7 @@ _ZSt4fillIPiiEvT_S1_RKT0_.exit:                   ; preds = %_ZSt4fillIPiiEvT_S1
   %.us-phi.i = phi i64 [ %28, %24 ], [ %42, %.preheader.split.i ]
   %30 = sdiv i64 %.us-phi.i, 16
   %31 = trunc i64 %30 to i32
-  %32 = getelementptr inbounds nuw i32, ptr %.02935, i64 %.022.i
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %.02935, i64 %.022.i
   store i32 %31, ptr %32, align 4, !tbaa !37
   %33 = add nuw i64 %.022.i, 1
   %exitcond27.not.i = icmp eq i64 %33, %16
@@ -9855,9 +9839,9 @@ _ZSt4fillIPiiEvT_S1_RKT0_.exit:                   ; preds = %_ZSt4fillIPiiEvT_S1
   %.01920.i = phi i64 [ %42, %.preheader.split.i ], [ 0, %.preheader.i ]
   %34 = add i64 %20, %.01821.i
   %35 = and i64 %34, %17
-  %36 = getelementptr inbounds nuw i64, ptr @__const._Z8refine4dPiPKim.weight, i64 %.01821.i
+  %36 = getelementptr inbounds nuw [8 x i8], ptr @__const._Z8refine4dPiPKim.weight, i64 %.01821.i
   %37 = load i64, ptr %36, align 8, !tbaa !40
-  %38 = getelementptr inbounds nuw i32, ptr %.03034, i64 %35
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %.03034, i64 %35
   %39 = load i32, ptr %38, align 4, !tbaa !37
   %40 = sext i32 %39 to i64
   %41 = mul nsw i64 %37, %40
@@ -9878,11 +9862,11 @@ _Z8refine1dPiPKim.exit:                           ; preds = %.split.us.i, %.lr.p
 
 .lr.ph.i:                                         ; preds = %.loopexit, %.lr.ph.i
   %.06.i = phi i64 [ %50, %.lr.ph.i ], [ 0, %.loopexit ]
-  %45 = getelementptr inbounds nuw i32, ptr %.030.lcssa, i64 %.06.i
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %.030.lcssa, i64 %.06.i
   %46 = load i32, ptr %45, align 4, !tbaa !37
   %47 = sitofp i32 %46 to float
   %48 = tail call noundef float @ldexpf(float noundef %47, i32 noundef -12) #26, !tbaa !37
-  %49 = getelementptr inbounds nuw float, ptr %0, i64 %.06.i
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.06.i
   store float %48, ptr %49, align 4, !tbaa !48
   %50 = add nuw i64 %.06.i, 1
   %exitcond.not.i21 = icmp eq i64 %50, %1
@@ -9935,7 +9919,7 @@ _ZSt4fillIPiiEvT_S1_RKT0_.exit:                   ; preds = %13
   %16 = shl nuw nsw i32 %15, 17
   %17 = and i32 %16, 131072
   %18 = sub nsw i32 65536, %17
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   store i32 %18, ptr %gep, align 4, !tbaa !37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -9959,11 +9943,11 @@ _ZSt4fillIPiiEvT_S1_RKT0_.exit:                   ; preds = %13
 
 .lr.ph.i:                                         ; preds = %.loopexit, %.lr.ph.i
   %.06.i = phi i64 [ %26, %.lr.ph.i ], [ 0, %.loopexit ]
-  %21 = getelementptr inbounds nuw i32, ptr %.036.lcssa, i64 %.06.i
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %.036.lcssa, i64 %.06.i
   %22 = load i32, ptr %21, align 4, !tbaa !37
   %23 = sitofp i32 %22 to float
   %24 = tail call noundef float @ldexpf(float noundef %23, i32 noundef -12) #26, !tbaa !37
-  %25 = getelementptr inbounds nuw float, ptr %0, i64 %.06.i
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.06.i
   store float %24, ptr %25, align 4, !tbaa !48
   %26 = add nuw i64 %.06.i, 1
   %exitcond.not.i = icmp eq i64 %26, %5
@@ -10028,7 +10012,7 @@ _ZSt4fillIPiiEvT_S1_RKT0_.exit:                   ; preds = %15
   %19 = shl nuw nsw i32 %18, 17
   %20 = and i32 %19, 131072
   %21 = sub nsw i32 65536, %20
-  %gep65 = getelementptr inbounds nuw i32, ptr %gep, i64 %indvars.iv
+  %gep65 = getelementptr inbounds nuw [4 x i8], ptr %gep, i64 %indvars.iv
   store i32 %21, ptr %gep65, align 4, !tbaa !37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -10052,11 +10036,11 @@ _ZSt4fillIPiiEvT_S1_RKT0_.exit:                   ; preds = %15
 
 .lr.ph.i:                                         ; preds = %.loopexit, %.lr.ph.i
   %.06.i = phi i64 [ %29, %.lr.ph.i ], [ 0, %.loopexit ]
-  %24 = getelementptr inbounds nuw i32, ptr %.044.lcssa, i64 %.06.i
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %.044.lcssa, i64 %.06.i
   %25 = load i32, ptr %24, align 4, !tbaa !37
   %26 = sitofp i32 %25 to float
   %27 = tail call noundef float @ldexpf(float noundef %26, i32 noundef -12) #26, !tbaa !37
-  %28 = getelementptr inbounds nuw float, ptr %0, i64 %.06.i
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.06.i
   store float %27, ptr %28, align 4, !tbaa !48
   %29 = add nuw i64 %.06.i, 1
   %exitcond.not.i = icmp eq i64 %29, %6
@@ -10132,7 +10116,7 @@ _ZSt4fillIPiiEvT_S1_RKT0_.exit:                   ; preds = %20
   %25 = shl nuw nsw i32 %24, 17
   %26 = and i32 %25, 131072
   %27 = sub nsw i32 65536, %26
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   store i32 %27, ptr %gep, align 4, !tbaa !37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -10156,11 +10140,11 @@ _ZSt4fillIPiiEvT_S1_RKT0_.exit:                   ; preds = %20
 
 .lr.ph.i:                                         ; preds = %.loopexit, %.lr.ph.i
   %.06.i = phi i64 [ %35, %.lr.ph.i ], [ 0, %.loopexit ]
-  %30 = getelementptr inbounds nuw i32, ptr %.052.lcssa, i64 %.06.i
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %.052.lcssa, i64 %.06.i
   %31 = load i32, ptr %30, align 4, !tbaa !37
   %32 = sitofp i32 %31 to float
   %33 = tail call noundef float @ldexpf(float noundef %32, i32 noundef -12) #26, !tbaa !37
-  %34 = getelementptr inbounds nuw float, ptr %0, i64 %.06.i
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.06.i
   store float %33, ptr %34, align 4, !tbaa !48
   %35 = add nuw i64 %.06.i, 1
   %exitcond.not.i = icmp eq i64 %35, %6
@@ -10194,9 +10178,9 @@ define linkonce_odr dso_local void @_Z8refine2dPiPKim(ptr noundef %0, ptr nounde
   %7 = lshr i64 %.070, 1
   %8 = add i64 %5, %7
   %9 = mul i64 %.070, %4
-  %invariant.gep56 = getelementptr i32, ptr %0, i64 %9
+  %invariant.gep56 = getelementptr [4 x i8], ptr %0, i64 %9
   %10 = mul i64 %7, %2
-  %invariant.gep.us52 = getelementptr i32, ptr %1, i64 %10
+  %invariant.gep.us52 = getelementptr [4 x i8], ptr %1, i64 %10
   br i1 %.not, label %.preheader.us, label %.preheader
 
 .preheader.us:                                    ; preds = %.preheader40, %.split48.us.us
@@ -10211,14 +10195,14 @@ define linkonce_odr dso_local void @_Z8refine2dPiPKim(ptr noundef %0, ptr nounde
   %.us-phi49.us = phi i64 [ %24, %.split44.us.us.us ], [ %39, %.split44.us.us62 ]
   %14 = sdiv i64 %.us-phi49.us, 256
   %15 = trunc i64 %14 to i32
-  %gep57.us = getelementptr i32, ptr %invariant.gep56, i64 %.03758.us
+  %gep57.us = getelementptr [4 x i8], ptr %invariant.gep56, i64 %.03758.us
   store i32 %15, ptr %gep57.us, align 4, !tbaa !37
   %16 = add nuw i64 %.03758.us, 1
   %exitcond86.not = icmp eq i64 %16, %4
   br i1 %exitcond86.not, label %.split67.us, label %.preheader.us
 
 .preheader.split.us.us:                           ; preds = %.preheader.us
-  %gep69 = getelementptr i32, ptr %invariant.gep.us52, i64 %12
+  %gep69 = getelementptr [4 x i8], ptr %invariant.gep.us52, i64 %12
   %17 = load i32, ptr %gep69, align 4, !tbaa !37
   %18 = sext i32 %17 to i64
   br label %.split.us.us.us
@@ -10226,7 +10210,7 @@ define linkonce_odr dso_local void @_Z8refine2dPiPKim(ptr noundef %0, ptr nounde
 .split.us.us.us:                                  ; preds = %.split44.us.us.us, %.preheader.split.us.us
   %.03546.us.us = phi i64 [ 0, %.preheader.split.us.us ], [ %26, %.split44.us.us.us ]
   %.03645.us.us = phi i64 [ 0, %.preheader.split.us.us ], [ %24, %.split44.us.us.us ]
-  %19 = getelementptr inbounds nuw i64, ptr @__const._Z8refine4dPiPKim.weight, i64 %.03546.us.us
+  %19 = getelementptr inbounds nuw [8 x i8], ptr @__const._Z8refine4dPiPKim.weight, i64 %.03546.us.us
   %20 = load i64, ptr %19, align 8, !tbaa !40
   %factor.op.mul.us.us = mul i64 %20, %18
   br label %21
@@ -10234,7 +10218,7 @@ define linkonce_odr dso_local void @_Z8refine2dPiPKim(ptr noundef %0, ptr nounde
 21:                                               ; preds = %21, %.split.us.us.us
   %.03442.us.us.us = phi i64 [ 0, %.split.us.us.us ], [ %25, %21 ]
   %.141.us.us.us = phi i64 [ %.03645.us.us, %.split.us.us.us ], [ %24, %21 ]
-  %22 = getelementptr inbounds nuw i64, ptr @__const._Z8refine4dPiPKim.weight, i64 %.03442.us.us.us
+  %22 = getelementptr inbounds nuw [8 x i8], ptr @__const._Z8refine4dPiPKim.weight, i64 %.03442.us.us.us
   %23 = load i64, ptr %22, align 8, !tbaa !40
   %.reass.us.us = mul i64 %factor.op.mul.us.us, %23
   %24 = add nsw i64 %.reass.us.us, %.141.us.us.us
@@ -10250,7 +10234,7 @@ define linkonce_odr dso_local void @_Z8refine2dPiPKim(ptr noundef %0, ptr nounde
 .split.us.us61:                                   ; preds = %.preheader.us, %.split44.us.us62
   %.03546.us50.us = phi i64 [ %29, %.split44.us.us62 ], [ 0, %.preheader.us ]
   %.03645.us51.us = phi i64 [ %39, %.split44.us.us62 ], [ 0, %.preheader.us ]
-  %27 = getelementptr inbounds nuw i64, ptr @__const._Z8refine4dPiPKim.weight, i64 %.03546.us50.us
+  %27 = getelementptr inbounds nuw [8 x i8], ptr @__const._Z8refine4dPiPKim.weight, i64 %.03546.us50.us
   %28 = load i64, ptr %27, align 8, !tbaa !40
   br label %30
 
@@ -10264,10 +10248,10 @@ define linkonce_odr dso_local void @_Z8refine2dPiPKim(ptr noundef %0, ptr nounde
   %.141.us.us65 = phi i64 [ %.03645.us51.us, %.split.us.us61 ], [ %39, %30 ]
   %31 = add i64 %13, %.03442.us.us64
   %32 = urem i64 %31, %2
-  %33 = getelementptr inbounds nuw i64, ptr @__const._Z8refine4dPiPKim.weight, i64 %.03442.us.us64
+  %33 = getelementptr inbounds nuw [8 x i8], ptr @__const._Z8refine4dPiPKim.weight, i64 %.03442.us.us64
   %34 = load i64, ptr %33, align 8, !tbaa !40
   %35 = mul nsw i64 %28, %34
-  %gep.us.us = getelementptr i32, ptr %invariant.gep.us52, i64 %32
+  %gep.us.us = getelementptr [4 x i8], ptr %invariant.gep.us52, i64 %32
   %36 = load i32, ptr %gep.us.us, align 4, !tbaa !37
   %37 = sext i32 %36 to i64
   %38 = mul nsw i64 %35, %37
@@ -10288,7 +10272,7 @@ define linkonce_odr dso_local void @_Z8refine2dPiPKim(ptr noundef %0, ptr nounde
   br i1 %.not39, label %.preheader.split.us, label %.split
 
 .preheader.split.us:                              ; preds = %.preheader
-  %invariant.gep54 = getelementptr i32, ptr %1, i64 %42
+  %invariant.gep54 = getelementptr [4 x i8], ptr %1, i64 %42
   br label %.split.us.us
 
 .split.us.us:                                     ; preds = %.split44.us.us, %.preheader.split.us
@@ -10296,10 +10280,10 @@ define linkonce_odr dso_local void @_Z8refine2dPiPKim(ptr noundef %0, ptr nounde
   %.03645.us = phi i64 [ 0, %.preheader.split.us ], [ %54, %.split44.us.us ]
   %44 = add i64 %8, %.03546.us
   %45 = urem i64 %44, %2
-  %46 = getelementptr inbounds nuw i64, ptr @__const._Z8refine4dPiPKim.weight, i64 %.03546.us
+  %46 = getelementptr inbounds nuw [8 x i8], ptr @__const._Z8refine4dPiPKim.weight, i64 %.03546.us
   %47 = load i64, ptr %46, align 8, !tbaa !40
   %48 = mul i64 %45, %2
-  %gep55 = getelementptr i32, ptr %invariant.gep54, i64 %48
+  %gep55 = getelementptr [4 x i8], ptr %invariant.gep54, i64 %48
   %49 = load i32, ptr %gep55, align 4, !tbaa !37
   %50 = sext i32 %49 to i64
   %factor.op.mul.us = mul i64 %47, %50
@@ -10308,7 +10292,7 @@ define linkonce_odr dso_local void @_Z8refine2dPiPKim(ptr noundef %0, ptr nounde
 51:                                               ; preds = %51, %.split.us.us
   %.03442.us.us = phi i64 [ 0, %.split.us.us ], [ %55, %51 ]
   %.141.us.us = phi i64 [ %.03645.us, %.split.us.us ], [ %54, %51 ]
-  %52 = getelementptr inbounds nuw i64, ptr @__const._Z8refine4dPiPKim.weight, i64 %.03442.us.us
+  %52 = getelementptr inbounds nuw [8 x i8], ptr @__const._Z8refine4dPiPKim.weight, i64 %.03442.us.us
   %53 = load i64, ptr %52, align 8, !tbaa !40
   %.reass.us = mul i64 %factor.op.mul.us, %53
   %54 = add nsw i64 %.reass.us, %.141.us.us
@@ -10330,7 +10314,7 @@ define linkonce_odr dso_local void @_Z8refine2dPiPKim(ptr noundef %0, ptr nounde
   %.us-phi49 = phi i64 [ %54, %.split44.us.us ], [ %76, %.split44 ]
   %58 = sdiv i64 %.us-phi49, 256
   %59 = trunc i64 %58 to i32
-  %gep57 = getelementptr i32, ptr %invariant.gep56, i64 %.03758
+  %gep57 = getelementptr [4 x i8], ptr %invariant.gep56, i64 %.03758
   store i32 %59, ptr %gep57, align 4, !tbaa !37
   %60 = add nuw i64 %.03758, 1
   %exitcond81.not = icmp eq i64 %60, %4
@@ -10341,10 +10325,10 @@ define linkonce_odr dso_local void @_Z8refine2dPiPKim(ptr noundef %0, ptr nounde
   %.03645 = phi i64 [ %76, %.split44 ], [ 0, %.preheader ]
   %61 = add i64 %8, %.03546
   %62 = urem i64 %61, %2
-  %63 = getelementptr inbounds nuw i64, ptr @__const._Z8refine4dPiPKim.weight, i64 %.03546
+  %63 = getelementptr inbounds nuw [8 x i8], ptr @__const._Z8refine4dPiPKim.weight, i64 %.03546
   %64 = load i64, ptr %63, align 8, !tbaa !40
   %65 = mul i64 %62, %2
-  %invariant.gep = getelementptr i32, ptr %1, i64 %65
+  %invariant.gep = getelementptr [4 x i8], ptr %1, i64 %65
   br label %67
 
 .split44:                                         ; preds = %67
@@ -10357,10 +10341,10 @@ define linkonce_odr dso_local void @_Z8refine2dPiPKim(ptr noundef %0, ptr nounde
   %.141 = phi i64 [ %.03645, %.split ], [ %76, %67 ]
   %68 = add i64 %43, %.03442
   %69 = urem i64 %68, %2
-  %70 = getelementptr inbounds nuw i64, ptr @__const._Z8refine4dPiPKim.weight, i64 %.03442
+  %70 = getelementptr inbounds nuw [8 x i8], ptr @__const._Z8refine4dPiPKim.weight, i64 %.03442
   %71 = load i64, ptr %70, align 8, !tbaa !40
   %72 = mul nsw i64 %64, %71
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %69
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %69
   %73 = load i32, ptr %gep, align 4, !tbaa !37
   %74 = sext i32 %73 to i64
   %75 = mul nsw i64 %72, %74
@@ -10400,7 +10384,7 @@ define linkonce_odr dso_local void @_Z8refine3dPiPKim(ptr noundef %0, ptr nounde
   %12 = add i64 %5, %11
   %13 = add i64 %.05295, %9
   %14 = mul i64 %13, %4
-  %invariant.gep92 = getelementptr i32, ptr %0, i64 %14
+  %invariant.gep92 = getelementptr [4 x i8], ptr %0, i64 %14
   br label %.preheader
 
 15:                                               ; preds = %62
@@ -10414,7 +10398,7 @@ define linkonce_odr dso_local void @_Z8refine3dPiPKim(ptr noundef %0, ptr nounde
   %.not58 = icmp eq i64 %17, 0
   %18 = lshr i64 %.05594, 1
   %19 = add i64 %5, %18
-  %invariant.gep72 = getelementptr i32, ptr %1, i64 %18
+  %invariant.gep72 = getelementptr [4 x i8], ptr %1, i64 %18
   br i1 %.not58, label %.preheader.split.us, label %.preheader.split
 
 .preheader.split.us:                              ; preds = %.preheader
@@ -10432,12 +10416,12 @@ define linkonce_odr dso_local void @_Z8refine3dPiPKim(ptr noundef %0, ptr nounde
 
 .split68.us.us.us:                                ; preds = %.preheader.split.us.split.us, %20
   %23 = phi i64 [ %22, %20 ], [ %7, %.preheader.split.us.split.us ]
-  %24 = getelementptr inbounds nuw i64, ptr @__const._Z8refine4dPiPKim.weight, i64 %.05376.us.us
+  %24 = getelementptr inbounds nuw [8 x i8], ptr @__const._Z8refine4dPiPKim.weight, i64 %.05376.us.us
   %25 = load i64, ptr %24, align 8, !tbaa !40
   %26 = mul i64 %23, %2
   %27 = add i64 %11, %26
   %28 = mul i64 %27, %2
-  %gep73.us.us.us = getelementptr i32, ptr %invariant.gep72, i64 %28
+  %gep73.us.us.us = getelementptr [4 x i8], ptr %invariant.gep72, i64 %28
   %29 = load i32, ptr %gep73.us.us.us, align 4, !tbaa !37
   %30 = sext i32 %29 to i64
   %factor.op.mul74.us.us = mul i64 %25, %30
@@ -10446,7 +10430,7 @@ define linkonce_odr dso_local void @_Z8refine3dPiPKim(ptr noundef %0, ptr nounde
 .split.us.us.us.us.us:                            ; preds = %.split64.us.us.us.us.us, %.split68.us.us.us
   %.05167.us.us.us.us = phi i64 [ 0, %.split68.us.us.us ], [ %38, %.split64.us.us.us.us.us ]
   %.166.us.us.us.us = phi i64 [ %.05475.us.us, %.split68.us.us.us ], [ %36, %.split64.us.us.us.us.us ]
-  %31 = getelementptr inbounds nuw i64, ptr @__const._Z8refine4dPiPKim.weight, i64 %.05167.us.us.us.us
+  %31 = getelementptr inbounds nuw [8 x i8], ptr @__const._Z8refine4dPiPKim.weight, i64 %.05167.us.us.us.us
   %32 = load i64, ptr %31, align 8, !tbaa !40
   %factor.op.mul.us.us.reass.us.us = mul i64 %32, %factor.op.mul74.us.us
   br label %33
@@ -10454,7 +10438,7 @@ define linkonce_odr dso_local void @_Z8refine3dPiPKim(ptr noundef %0, ptr nounde
 33:                                               ; preds = %33, %.split.us.us.us.us.us
   %.05062.us.us.us.us.us = phi i64 [ 0, %.split.us.us.us.us.us ], [ %37, %33 ]
   %.261.us.us.us.us.us = phi i64 [ %.166.us.us.us.us, %.split.us.us.us.us.us ], [ %36, %33 ]
-  %34 = getelementptr inbounds nuw i64, ptr @__const._Z8refine4dPiPKim.weight, i64 %.05062.us.us.us.us.us
+  %34 = getelementptr inbounds nuw [8 x i8], ptr @__const._Z8refine4dPiPKim.weight, i64 %.05062.us.us.us.us.us
   %35 = load i64, ptr %34, align 8, !tbaa !40
   %.reass.us.reass.us.us.us.us = mul i64 %factor.op.mul.us.us.reass.us.us, %35
   %36 = add nsw i64 %.reass.us.reass.us.us.us.us, %.261.us.us.us.us.us
@@ -10484,7 +10468,7 @@ define linkonce_odr dso_local void @_Z8refine3dPiPKim(ptr noundef %0, ptr nounde
 
 .split68.us.us:                                   ; preds = %.preheader.split.us.split, %40
   %43 = phi i64 [ %42, %40 ], [ %7, %.preheader.split.us.split ]
-  %44 = getelementptr inbounds nuw i64, ptr @__const._Z8refine4dPiPKim.weight, i64 %.05376.us
+  %44 = getelementptr inbounds nuw [8 x i8], ptr @__const._Z8refine4dPiPKim.weight, i64 %.05376.us
   %45 = load i64, ptr %44, align 8, !tbaa !40
   %46 = mul i64 %43, %2
   br label %.split.us.us.us77
@@ -10494,12 +10478,12 @@ define linkonce_odr dso_local void @_Z8refine3dPiPKim(ptr noundef %0, ptr nounde
   %.166.us.us79 = phi i64 [ %.05475.us, %.split68.us.us ], [ %58, %.split64.us.us.us84 ]
   %47 = add i64 %12, %.05167.us.us78
   %48 = urem i64 %47, %2
-  %49 = getelementptr inbounds nuw i64, ptr @__const._Z8refine4dPiPKim.weight, i64 %.05167.us.us78
+  %49 = getelementptr inbounds nuw [8 x i8], ptr @__const._Z8refine4dPiPKim.weight, i64 %.05167.us.us78
   %50 = load i64, ptr %49, align 8, !tbaa !40
   %factor.op.mul.us.us = mul i64 %50, %45
   %51 = add i64 %48, %46
   %52 = mul i64 %51, %2
-  %gep73.us80 = getelementptr i32, ptr %invariant.gep72, i64 %52
+  %gep73.us80 = getelementptr [4 x i8], ptr %invariant.gep72, i64 %52
   %53 = load i32, ptr %gep73.us80, align 4, !tbaa !37
   %54 = sext i32 %53 to i64
   %factor.op.mul65.us.us = mul i64 %factor.op.mul.us.us, %54
@@ -10508,7 +10492,7 @@ define linkonce_odr dso_local void @_Z8refine3dPiPKim(ptr noundef %0, ptr nounde
 55:                                               ; preds = %55, %.split.us.us.us77
   %.05062.us.us.us81 = phi i64 [ 0, %.split.us.us.us77 ], [ %59, %55 ]
   %.261.us.us.us82 = phi i64 [ %.166.us.us79, %.split.us.us.us77 ], [ %58, %55 ]
-  %56 = getelementptr inbounds nuw i64, ptr @__const._Z8refine4dPiPKim.weight, i64 %.05062.us.us.us81
+  %56 = getelementptr inbounds nuw [8 x i8], ptr @__const._Z8refine4dPiPKim.weight, i64 %.05062.us.us.us81
   %57 = load i64, ptr %56, align 8, !tbaa !40
   %.reass.us.reass.us.us83 = mul i64 %factor.op.mul65.us.us, %57
   %58 = add nsw i64 %.reass.us.reass.us.us83, %.261.us.us.us82
@@ -10535,7 +10519,7 @@ define linkonce_odr dso_local void @_Z8refine3dPiPKim(ptr noundef %0, ptr nounde
   %.us-phi91 = phi i64 [ %58, %.split70.us.split.us86 ], [ %36, %.split70.us.split.us.us.us ], [ %93, %.split70 ]
   %64 = sdiv i64 %.us-phi91, 4096
   %65 = trunc i64 %64 to i32
-  %gep93 = getelementptr i32, ptr %invariant.gep92, i64 %.05594
+  %gep93 = getelementptr [4 x i8], ptr %invariant.gep92, i64 %.05594
   store i32 %65, ptr %gep93, align 4, !tbaa !37
   %66 = add nuw i64 %.05594, 1
   %exitcond110.not = icmp eq i64 %66, %4
@@ -10553,7 +10537,7 @@ define linkonce_odr dso_local void @_Z8refine3dPiPKim(ptr noundef %0, ptr nounde
 
 .split68:                                         ; preds = %.preheader.split, %67
   %70 = phi i64 [ %69, %67 ], [ %7, %.preheader.split ]
-  %71 = getelementptr inbounds nuw i64, ptr @__const._Z8refine4dPiPKim.weight, i64 %.05376
+  %71 = getelementptr inbounds nuw [8 x i8], ptr @__const._Z8refine4dPiPKim.weight, i64 %.05376
   %72 = load i64, ptr %71, align 8, !tbaa !40
   %73 = mul i64 %70, %2
   br label %75
@@ -10575,12 +10559,12 @@ define linkonce_odr dso_local void @_Z8refine3dPiPKim(ptr noundef %0, ptr nounde
 
 .split:                                           ; preds = %75, %76
   %79 = phi i64 [ %78, %76 ], [ %11, %75 ]
-  %80 = getelementptr inbounds nuw i64, ptr @__const._Z8refine4dPiPKim.weight, i64 %.05167
+  %80 = getelementptr inbounds nuw [8 x i8], ptr @__const._Z8refine4dPiPKim.weight, i64 %.05167
   %81 = load i64, ptr %80, align 8, !tbaa !40
   %factor.op.mul = mul i64 %81, %72
   %82 = add i64 %79, %73
   %83 = mul i64 %82, %2
-  %invariant.gep = getelementptr i32, ptr %1, i64 %83
+  %invariant.gep = getelementptr [4 x i8], ptr %1, i64 %83
   br label %85
 
 .split64:                                         ; preds = %85
@@ -10593,10 +10577,10 @@ define linkonce_odr dso_local void @_Z8refine3dPiPKim(ptr noundef %0, ptr nounde
   %.261 = phi i64 [ %.166, %.split ], [ %93, %85 ]
   %86 = add i64 %19, %.05062
   %87 = urem i64 %86, %2
-  %88 = getelementptr inbounds nuw i64, ptr @__const._Z8refine4dPiPKim.weight, i64 %.05062
+  %88 = getelementptr inbounds nuw [8 x i8], ptr @__const._Z8refine4dPiPKim.weight, i64 %.05062
   %89 = load i64, ptr %88, align 8, !tbaa !40
   %.reass = mul i64 %factor.op.mul, %89
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %87
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %87
   %90 = load i32, ptr %gep, align 4, !tbaa !37
   %91 = sext i32 %90 to i64
   %92 = mul nsw i64 %.reass, %91
@@ -10651,7 +10635,7 @@ define linkonce_odr dso_local void @_Z8refine4dPiPKim(ptr noundef %0, ptr nounde
   %19 = add i64 %5, %18
   %20 = add i64 %.070131, %14
   %21 = mul i64 %20, %4
-  %invariant.gep128 = getelementptr i32, ptr %0, i64 %21
+  %invariant.gep128 = getelementptr [4 x i8], ptr %0, i64 %21
   br label %.preheader
 
 22:                                               ; preds = %111
@@ -10665,7 +10649,7 @@ define linkonce_odr dso_local void @_Z8refine4dPiPKim(ptr noundef %0, ptr nounde
   %.not77 = icmp eq i64 %24, 0
   %25 = lshr i64 %.073130, 1
   %26 = add i64 %5, %25
-  %invariant.gep94 = getelementptr i32, ptr %1, i64 %25
+  %invariant.gep94 = getelementptr [4 x i8], ptr %1, i64 %25
   br i1 %.not77, label %.preheader.split.us, label %.preheader.split
 
 .preheader.split.us:                              ; preds = %.preheader
@@ -10686,14 +10670,14 @@ define linkonce_odr dso_local void @_Z8refine4dPiPKim(ptr noundef %0, ptr nounde
 
 .split98.us.us.us.us:                             ; preds = %.preheader.split.us.split.us.split.us, %27
   %30 = phi i64 [ %29, %27 ], [ %7, %.preheader.split.us.split.us.split.us ]
-  %31 = getelementptr inbounds nuw i64, ptr @__const._Z8refine4dPiPKim.weight, i64 %.071115.us.us.us
+  %31 = getelementptr inbounds nuw [8 x i8], ptr @__const._Z8refine4dPiPKim.weight, i64 %.071115.us.us.us
   %32 = load i64, ptr %31, align 8, !tbaa !40
   %33 = mul i64 %30, %2
   %34 = add i64 %11, %33
   %35 = mul i64 %34, %2
   %36 = add i64 %18, %35
   %37 = mul i64 %36, %2
-  %gep95.us.us.us.us.us.us.us = getelementptr i32, ptr %invariant.gep94, i64 %37
+  %gep95.us.us.us.us.us.us.us = getelementptr [4 x i8], ptr %invariant.gep94, i64 %37
   %38 = load i32, ptr %gep95.us.us.us.us.us.us.us, align 4, !tbaa !37
   %39 = sext i32 %38 to i64
   %factor.op.mul.us = mul i64 %32, %39
@@ -10702,7 +10686,7 @@ define linkonce_odr dso_local void @_Z8refine4dPiPKim(ptr noundef %0, ptr nounde
 .split90.us.us.us.us.us.us.us:                    ; preds = %.split92.us.split.us.us.us.us.us.us.us, %.split98.us.us.us.us
   %.06997.us.us.us.us.us.us = phi i64 [ 0, %.split98.us.us.us.us ], [ %50, %.split92.us.split.us.us.us.us.us.us.us ]
   %.196.us.us.us.us.us.us = phi i64 [ %.072114.us.us.us, %.split98.us.us.us.us ], [ %47, %.split92.us.split.us.us.us.us.us.us.us ]
-  %40 = getelementptr inbounds nuw i64, ptr @__const._Z8refine4dPiPKim.weight, i64 %.06997.us.us.us.us.us.us
+  %40 = getelementptr inbounds nuw [8 x i8], ptr @__const._Z8refine4dPiPKim.weight, i64 %.06997.us.us.us.us.us.us
   %41 = load i64, ptr %40, align 8, !tbaa !40
   %factor.op.mul87.us.us.us.us.us.reass.us = mul i64 %41, %factor.op.mul.us
   br label %.split.us.us.us.us.us.us.us.us.us
@@ -10710,7 +10694,7 @@ define linkonce_odr dso_local void @_Z8refine4dPiPKim(ptr noundef %0, ptr nounde
 .split.us.us.us.us.us.us.us.us.us:                ; preds = %.split85.us.us.us.us.us.us.us.us.us, %.split90.us.us.us.us.us.us.us
   %.06789.us.us.us.us.us.us.us.us = phi i64 [ 0, %.split90.us.us.us.us.us.us.us ], [ %49, %.split85.us.us.us.us.us.us.us.us.us ]
   %.288.us.us.us.us.us.us.us.us = phi i64 [ %.196.us.us.us.us.us.us, %.split90.us.us.us.us.us.us.us ], [ %47, %.split85.us.us.us.us.us.us.us.us.us ]
-  %42 = getelementptr inbounds nuw i64, ptr @__const._Z8refine4dPiPKim.weight, i64 %.06789.us.us.us.us.us.us.us.us
+  %42 = getelementptr inbounds nuw [8 x i8], ptr @__const._Z8refine4dPiPKim.weight, i64 %.06789.us.us.us.us.us.us.us.us
   %43 = load i64, ptr %42, align 8, !tbaa !40
   %factor.op.mul.reass.us.us.reass.us.us.us.us.us.us = mul i64 %43, %factor.op.mul87.us.us.us.us.us.reass.us
   br label %44
@@ -10718,7 +10702,7 @@ define linkonce_odr dso_local void @_Z8refine4dPiPKim(ptr noundef %0, ptr nounde
 44:                                               ; preds = %44, %.split.us.us.us.us.us.us.us.us.us
   %.06683.us.us.us.us.us.us.us.us.us = phi i64 [ 0, %.split.us.us.us.us.us.us.us.us.us ], [ %48, %44 ]
   %.382.us.us.us.us.us.us.us.us.us = phi i64 [ %.288.us.us.us.us.us.us.us.us, %.split.us.us.us.us.us.us.us.us.us ], [ %47, %44 ]
-  %45 = getelementptr inbounds nuw i64, ptr @__const._Z8refine4dPiPKim.weight, i64 %.06683.us.us.us.us.us.us.us.us.us
+  %45 = getelementptr inbounds nuw [8 x i8], ptr @__const._Z8refine4dPiPKim.weight, i64 %.06683.us.us.us.us.us.us.us.us.us
   %46 = load i64, ptr %45, align 8, !tbaa !40
   %.reass.reass.us.reass.us.us.us.us.us.us.us.us = mul i64 %factor.op.mul.reass.us.us.reass.us.us.us.us.us.us, %46
   %47 = add nsw i64 %.reass.reass.us.reass.us.us.us.us.us.us.us.us, %.382.us.us.us.us.us.us.us.us.us
@@ -10753,7 +10737,7 @@ define linkonce_odr dso_local void @_Z8refine4dPiPKim(ptr noundef %0, ptr nounde
 
 .split98.us.us.us:                                ; preds = %.preheader.split.us.split.us.split, %52
   %55 = phi i64 [ %54, %52 ], [ %7, %.preheader.split.us.split.us.split ]
-  %56 = getelementptr inbounds nuw i64, ptr @__const._Z8refine4dPiPKim.weight, i64 %.071115.us.us
+  %56 = getelementptr inbounds nuw [8 x i8], ptr @__const._Z8refine4dPiPKim.weight, i64 %.071115.us.us
   %57 = load i64, ptr %56, align 8, !tbaa !40
   %58 = mul i64 %55, %2
   br label %.split90.us.us.us.us.us
@@ -10763,14 +10747,14 @@ define linkonce_odr dso_local void @_Z8refine4dPiPKim(ptr noundef %0, ptr nounde
   %.196.us.us.us.us = phi i64 [ %.072114.us.us, %.split98.us.us.us ], [ %74, %.split92.us.split.us.us.us.us.us ]
   %59 = add i64 %12, %.06997.us.us.us.us
   %60 = urem i64 %59, %2
-  %61 = getelementptr inbounds nuw i64, ptr @__const._Z8refine4dPiPKim.weight, i64 %.06997.us.us.us.us
+  %61 = getelementptr inbounds nuw [8 x i8], ptr @__const._Z8refine4dPiPKim.weight, i64 %.06997.us.us.us.us
   %62 = load i64, ptr %61, align 8, !tbaa !40
   %factor.op.mul87.us.us.us.us = mul i64 %62, %57
   %63 = add i64 %60, %58
   %64 = mul i64 %63, %2
   %65 = add i64 %18, %64
   %66 = mul i64 %65, %2
-  %gep95.us.us.us.us.us = getelementptr i32, ptr %invariant.gep94, i64 %66
+  %gep95.us.us.us.us.us = getelementptr [4 x i8], ptr %invariant.gep94, i64 %66
   %67 = load i32, ptr %gep95.us.us.us.us.us, align 4, !tbaa !37
   %68 = sext i32 %67 to i64
   %factor.op.mul.us.us.us.us = mul i64 %factor.op.mul87.us.us.us.us, %68
@@ -10779,7 +10763,7 @@ define linkonce_odr dso_local void @_Z8refine4dPiPKim(ptr noundef %0, ptr nounde
 .split.us.us.us.us.us.us.us:                      ; preds = %.split85.us.us.us.us.us.us.us, %.split90.us.us.us.us.us
   %.06789.us.us.us.us.us.us = phi i64 [ 0, %.split90.us.us.us.us.us ], [ %76, %.split85.us.us.us.us.us.us.us ]
   %.288.us.us.us.us.us.us = phi i64 [ %.196.us.us.us.us, %.split90.us.us.us.us.us ], [ %74, %.split85.us.us.us.us.us.us.us ]
-  %69 = getelementptr inbounds nuw i64, ptr @__const._Z8refine4dPiPKim.weight, i64 %.06789.us.us.us.us.us.us
+  %69 = getelementptr inbounds nuw [8 x i8], ptr @__const._Z8refine4dPiPKim.weight, i64 %.06789.us.us.us.us.us.us
   %70 = load i64, ptr %69, align 8, !tbaa !40
   %factor.op.mul.reass.us.us.reass.us.us.us.us = mul i64 %70, %factor.op.mul.us.us.us.us
   br label %71
@@ -10787,7 +10771,7 @@ define linkonce_odr dso_local void @_Z8refine4dPiPKim(ptr noundef %0, ptr nounde
 71:                                               ; preds = %71, %.split.us.us.us.us.us.us.us
   %.06683.us.us.us.us.us.us.us = phi i64 [ 0, %.split.us.us.us.us.us.us.us ], [ %75, %71 ]
   %.382.us.us.us.us.us.us.us = phi i64 [ %.288.us.us.us.us.us.us, %.split.us.us.us.us.us.us.us ], [ %74, %71 ]
-  %72 = getelementptr inbounds nuw i64, ptr @__const._Z8refine4dPiPKim.weight, i64 %.06683.us.us.us.us.us.us.us
+  %72 = getelementptr inbounds nuw [8 x i8], ptr @__const._Z8refine4dPiPKim.weight, i64 %.06683.us.us.us.us.us.us.us
   %73 = load i64, ptr %72, align 8, !tbaa !40
   %.reass.reass.us.reass.us.us.us.us.us.us = mul i64 %factor.op.mul.reass.us.us.reass.us.us.us.us, %73
   %74 = add nsw i64 %.reass.reass.us.reass.us.us.us.us.us.us, %.382.us.us.us.us.us.us.us
@@ -10822,7 +10806,7 @@ define linkonce_odr dso_local void @_Z8refine4dPiPKim(ptr noundef %0, ptr nounde
 
 .split98.us.us:                                   ; preds = %.preheader.split.us.split, %79
   %82 = phi i64 [ %81, %79 ], [ %7, %.preheader.split.us.split ]
-  %83 = getelementptr inbounds nuw i64, ptr @__const._Z8refine4dPiPKim.weight, i64 %.071115.us
+  %83 = getelementptr inbounds nuw [8 x i8], ptr @__const._Z8refine4dPiPKim.weight, i64 %.071115.us
   %84 = load i64, ptr %83, align 8, !tbaa !40
   %85 = mul i64 %82, %2
   br label %86
@@ -10839,7 +10823,7 @@ define linkonce_odr dso_local void @_Z8refine4dPiPKim(ptr noundef %0, ptr nounde
 
 .split90.us.us.us118:                             ; preds = %86, %87
   %90 = phi i64 [ %89, %87 ], [ %11, %86 ]
-  %91 = getelementptr inbounds nuw i64, ptr @__const._Z8refine4dPiPKim.weight, i64 %.06997.us.us116
+  %91 = getelementptr inbounds nuw [8 x i8], ptr @__const._Z8refine4dPiPKim.weight, i64 %.06997.us.us116
   %92 = load i64, ptr %91, align 8, !tbaa !40
   %factor.op.mul87.us.us119 = mul i64 %92, %84
   %93 = add i64 %90, %85
@@ -10851,12 +10835,12 @@ define linkonce_odr dso_local void @_Z8refine4dPiPKim(ptr noundef %0, ptr nounde
   %.288.us.us101.us = phi i64 [ %.196.us.us117, %.split90.us.us.us118 ], [ %106, %.split85.us.us.us106.us ]
   %95 = add i64 %19, %.06789.us.us100.us
   %96 = urem i64 %95, %2
-  %97 = getelementptr inbounds nuw i64, ptr @__const._Z8refine4dPiPKim.weight, i64 %.06789.us.us100.us
+  %97 = getelementptr inbounds nuw [8 x i8], ptr @__const._Z8refine4dPiPKim.weight, i64 %.06789.us.us100.us
   %98 = load i64, ptr %97, align 8, !tbaa !40
   %factor.op.mul.reass.us.us.us = mul i64 %98, %factor.op.mul87.us.us119
   %99 = add i64 %96, %94
   %100 = mul i64 %99, %2
-  %gep95.us102.us = getelementptr i32, ptr %invariant.gep94, i64 %100
+  %gep95.us102.us = getelementptr [4 x i8], ptr %invariant.gep94, i64 %100
   %101 = load i32, ptr %gep95.us102.us, align 4, !tbaa !37
   %102 = sext i32 %101 to i64
   %factor.op.mul86.us.us.us = mul i64 %factor.op.mul.reass.us.us.us, %102
@@ -10865,7 +10849,7 @@ define linkonce_odr dso_local void @_Z8refine4dPiPKim(ptr noundef %0, ptr nounde
 103:                                              ; preds = %103, %.split.us.us.us99.us
   %.06683.us.us.us103.us = phi i64 [ 0, %.split.us.us.us99.us ], [ %107, %103 ]
   %.382.us.us.us104.us = phi i64 [ %.288.us.us101.us, %.split.us.us.us99.us ], [ %106, %103 ]
-  %104 = getelementptr inbounds nuw i64, ptr @__const._Z8refine4dPiPKim.weight, i64 %.06683.us.us.us103.us
+  %104 = getelementptr inbounds nuw [8 x i8], ptr @__const._Z8refine4dPiPKim.weight, i64 %.06683.us.us.us103.us
   %105 = load i64, ptr %104, align 8, !tbaa !40
   %.reass.reass.us.reass.us.us105.us = mul i64 %factor.op.mul86.us.us.us, %105
   %106 = add nsw i64 %.reass.reass.us.reass.us.us105.us, %.382.us.us.us104.us
@@ -10897,7 +10881,7 @@ define linkonce_odr dso_local void @_Z8refine4dPiPKim(ptr noundef %0, ptr nounde
   %.us-phi125 = phi i64 [ %47, %.split112.us.split.us.us.us.split.us.us ], [ %106, %.split112.us.split.us120 ], [ %74, %.split112.us.split.us.us.us.split ], [ %152, %.split112 ]
   %113 = sdiv i64 %.us-phi125, 65536
   %114 = trunc i64 %113 to i32
-  %gep129 = getelementptr i32, ptr %invariant.gep128, i64 %.073130
+  %gep129 = getelementptr [4 x i8], ptr %invariant.gep128, i64 %.073130
   store i32 %114, ptr %gep129, align 4, !tbaa !37
   %115 = add nuw i64 %.073130, 1
   %exitcond156.not = icmp eq i64 %115, %4
@@ -10915,7 +10899,7 @@ define linkonce_odr dso_local void @_Z8refine4dPiPKim(ptr noundef %0, ptr nounde
 
 .split98:                                         ; preds = %.preheader.split, %116
   %119 = phi i64 [ %118, %116 ], [ %7, %.preheader.split ]
-  %120 = getelementptr inbounds nuw i64, ptr @__const._Z8refine4dPiPKim.weight, i64 %.071115
+  %120 = getelementptr inbounds nuw [8 x i8], ptr @__const._Z8refine4dPiPKim.weight, i64 %.071115
   %121 = load i64, ptr %120, align 8, !tbaa !40
   %122 = mul i64 %119, %2
   br label %124
@@ -10937,7 +10921,7 @@ define linkonce_odr dso_local void @_Z8refine4dPiPKim(ptr noundef %0, ptr nounde
 
 .split90:                                         ; preds = %124, %125
   %128 = phi i64 [ %127, %125 ], [ %11, %124 ]
-  %129 = getelementptr inbounds nuw i64, ptr @__const._Z8refine4dPiPKim.weight, i64 %.06997
+  %129 = getelementptr inbounds nuw [8 x i8], ptr @__const._Z8refine4dPiPKim.weight, i64 %.06997
   %130 = load i64, ptr %129, align 8, !tbaa !40
   %factor.op.mul87 = mul i64 %130, %121
   %131 = add i64 %128, %122
@@ -10961,12 +10945,12 @@ define linkonce_odr dso_local void @_Z8refine4dPiPKim(ptr noundef %0, ptr nounde
 
 .split:                                           ; preds = %134, %135
   %138 = phi i64 [ %137, %135 ], [ %18, %134 ]
-  %139 = getelementptr inbounds nuw i64, ptr @__const._Z8refine4dPiPKim.weight, i64 %.06789
+  %139 = getelementptr inbounds nuw [8 x i8], ptr @__const._Z8refine4dPiPKim.weight, i64 %.06789
   %140 = load i64, ptr %139, align 8, !tbaa !40
   %factor.op.mul.reass = mul i64 %140, %factor.op.mul87
   %141 = add i64 %138, %132
   %142 = mul i64 %141, %2
-  %invariant.gep = getelementptr i32, ptr %1, i64 %142
+  %invariant.gep = getelementptr [4 x i8], ptr %1, i64 %142
   br label %144
 
 .split85:                                         ; preds = %144
@@ -10979,10 +10963,10 @@ define linkonce_odr dso_local void @_Z8refine4dPiPKim(ptr noundef %0, ptr nounde
   %.382 = phi i64 [ %.288, %.split ], [ %152, %144 ]
   %145 = add i64 %26, %.06683
   %146 = urem i64 %145, %2
-  %147 = getelementptr inbounds nuw i64, ptr @__const._Z8refine4dPiPKim.weight, i64 %.06683
+  %147 = getelementptr inbounds nuw [8 x i8], ptr @__const._Z8refine4dPiPKim.weight, i64 %.06683
   %148 = load i64, ptr %147, align 8, !tbaa !40
   %.reass.reass = mul i64 %factor.op.mul.reass, %148
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %146
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %146
   %149 = load i32, ptr %gep, align 4, !tbaa !37
   %150 = sext i32 %149 to i64
   %151 = mul nsw i64 %.reass.reass, %150
@@ -11833,7 +11817,7 @@ _ZN3zfp8internal18reallocate_alignedINS0_11BlockCache1IfNS0_11BlockStore1IfNS_5c
 30:                                               ; preds = %30, %_ZN3zfp8internal18reallocate_alignedINS0_11BlockCache1IfNS0_11BlockStore1IfNS_5codec4zfp1IfEENS_5index8implicitEEEE9CacheLineEEEvRPT_mmm.exit
   %.03.i = phi i32 [ 0, %_ZN3zfp8internal18reallocate_alignedINS0_11BlockCache1IfNS0_11BlockStore1IfNS_5codec4zfp1IfEENS_5index8implicitEEEE9CacheLineEEEvRPT_mmm.exit ], [ %33, %30 ]
   %31 = zext i32 %.03.i to i64
-  %32 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache1<float, zfp::internal::BlockStore1<float, zfp::codec::zfp1<float>, zfp::index::implicit> >::CacheLine>::Tag", ptr %29, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %31
   store i32 0, ptr %32, align 4, !tbaa !315
   %33 = add i32 %.03.i, 1
   %.not.i = icmp ugt i32 %33, %28
@@ -11852,7 +11836,7 @@ define linkonce_odr dso_local void @_ZN3zfp8internal11BlockCache1IfNS0_11BlockSt
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !50
   %11 = zext i32 %8 to i64
-  %12 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache1<float, zfp::internal::BlockStore1<float, zfp::codec::zfp1<float>, zfp::index::implicit> >::CacheLine>::Tag", ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !315
   %14 = lshr i32 %13, 1
   %15 = icmp eq i32 %14, %6
@@ -11863,7 +11847,7 @@ _ZN3zfp8internal5CacheINS0_11BlockCache1IfNS0_11BlockStore1IfNS_5codec4zfp1IfEEN
   store i32 %16, ptr %12, align 4, !tbaa !315
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8, !tbaa !54
-  %19 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache1<float, zfp::internal::BlockStore1<float, zfp::codec::zfp1<float>, zfp::index::implicit> >::CacheLine", ptr %18, i64 %11
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %11
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %_ZN3zfp8internal5CacheINS0_11BlockCache1IfNS0_11BlockStore1IfNS_5codec4zfp1IfEENS_5index8implicitEEEE9CacheLineEE6lookupEjb.exit.thread, label %20
 
@@ -11888,7 +11872,7 @@ _ZN3zfp8internal5CacheINS0_11BlockCache1IfNS0_11BlockStore1IfNS_5codec4zfp1IfEEN
   %31 = load float, ptr %.089.i.i, align 4, !tbaa !48
   store float %31, ptr %.0710.i.i, align 4, !tbaa !48
   %32 = add nuw nsw i32 %.011.i.i, 1
-  %33 = getelementptr inbounds float, ptr %.089.i.i, i64 %3
+  %33 = getelementptr inbounds [4 x i8], ptr %.089.i.i, i64 %3
   %34 = getelementptr inbounds nuw i8, ptr %.0710.i.i, i64 4
   %exitcond.not.i.i = icmp eq i32 %32, 4
   br i1 %exitcond.not.i.i, label %_ZN3zfp8internal11BlockCache1IfNS0_11BlockStore1IfNS_5codec4zfp1IfEENS_5index8implicitEEEE9CacheLine3putEPKflj.exit, label %.preheader.i
@@ -11905,7 +11889,7 @@ _ZN3zfp8internal5CacheINS0_11BlockCache1IfNS0_11BlockStore1IfNS_5codec4zfp1IfEEN
   %39 = load float, ptr %.01417.i, align 4, !tbaa !48
   store float %39, ptr %.01318.i, align 4, !tbaa !48
   %40 = add nuw nsw i32 %.019.i, 1
-  %41 = getelementptr inbounds float, ptr %.01417.i, i64 %3
+  %41 = getelementptr inbounds [4 x i8], ptr %.01417.i, i64 %3
   %42 = getelementptr inbounds nuw i8, ptr %.01318.i, i64 4
   %exitcond.not.i = icmp eq i32 %40, %37
   br i1 %exitcond.not.i, label %_ZN3zfp8internal11BlockCache1IfNS0_11BlockStore1IfNS_5codec4zfp1IfEENS_5index8implicitEEEE9CacheLine3putEPKflj.exit, label %38
@@ -11984,13 +11968,13 @@ define linkonce_odr dso_local void @_ZNK3zfp8internal11BlockCache1IfNS0_11BlockS
 
 10:                                               ; preds = %9
   %11 = zext i32 %.0.i.i.i to i64
-  %12 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache1<float, zfp::internal::BlockStore1<float, zfp::codec::zfp1<float>, zfp::index::implicit> >::CacheLine>::Tag", ptr %5, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !315, !noalias !320
   %.not10.i.i.i = icmp eq i32 %13, 0
   br i1 %.not10.i.i.i, label %9, label %.critedge.i.i.i
 
 .critedge.i.i.i:                                  ; preds = %10
-  %14 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache1<float, zfp::internal::BlockStore1<float, zfp::codec::zfp1<float>, zfp::index::implicit> >::CacheLine", ptr %3, i64 %11
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %11
   br label %_ZN3zfp8internal5CacheINS0_11BlockCache1IfNS0_11BlockStore1IfNS_5codec4zfp1IfEENS_5index8implicitEEEE9CacheLineEE5firstEv.exit
 
 _ZN3zfp8internal5CacheINS0_11BlockCache1IfNS0_11BlockStore1IfNS_5codec4zfp1IfEENS_5index8implicitEEEE9CacheLineEE5firstEv.exit: ; preds = %.critedge.i.i.i, %1
@@ -12062,7 +12046,7 @@ _ZN3zfp8internal11BlockStore1IfNS_5codec4zfp1IfEENS_5index8implicitEE6encodeEmPK
   %53 = sub i64 %51, %52
   %54 = lshr exact i64 %53, 4
   %55 = and i64 %54, 4294967295
-  %56 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache1<float, zfp::internal::BlockStore1<float, zfp::codec::zfp1<float>, zfp::index::implicit> >::CacheLine>::Tag", ptr %49, i64 %55
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %55
   store i32 0, ptr %56, align 4, !tbaa !315
   %57 = trunc i64 %54 to i32
   %58 = load i32, ptr %0, align 8, !tbaa !170, !noalias !323
@@ -12076,13 +12060,13 @@ _ZN3zfp8internal11BlockStore1IfNS_5codec4zfp1IfEENS_5index8implicitEE6encodeEmPK
 
 60:                                               ; preds = %59
   %61 = zext i32 %.0.i.i to i64
-  %62 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache1<float, zfp::internal::BlockStore1<float, zfp::codec::zfp1<float>, zfp::index::implicit> >::CacheLine>::Tag", ptr %49, i64 %61
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %61
   %63 = load i32, ptr %62, align 4, !tbaa !315, !noalias !323
   %.not10.i.i = icmp eq i32 %63, 0
   br i1 %.not10.i.i, label %59, label %_ZN3zfp8internal5CacheINS0_11BlockCache1IfNS0_11BlockStore1IfNS_5codec4zfp1IfEENS_5index8implicitEEEE9CacheLineEE14const_iteratorppEi.exit
 
 _ZN3zfp8internal5CacheINS0_11BlockCache1IfNS0_11BlockStore1IfNS_5codec4zfp1IfEENS_5index8implicitEEEE9CacheLineEE14const_iteratorppEi.exit: ; preds = %60
-  %64 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache1<float, zfp::internal::BlockStore1<float, zfp::codec::zfp1<float>, zfp::index::implicit> >::CacheLine", ptr %50, i64 %61
+  %64 = getelementptr inbounds nuw [16 x i8], ptr %50, i64 %61
   %.not.i = icmp eq ptr %50, null
   br i1 %.not.i, label %._crit_edge, label %16
 }
@@ -12100,13 +12084,13 @@ define linkonce_odr dso_local noundef ptr @_ZNK3zfp8internal11BlockCache1IfNS0_1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !50
   %12 = zext i32 %9 to i64
-  %13 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache1<float, zfp::internal::BlockStore1<float, zfp::codec::zfp1<float>, zfp::index::implicit> >::CacheLine>::Tag", ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !315
   %15 = lshr i32 %14, 1
   %16 = icmp eq i32 %15, %7
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8, !tbaa !54
-  %19 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache1<float, zfp::internal::BlockStore1<float, zfp::codec::zfp1<float>, zfp::index::implicit> >::CacheLine", ptr %18, i64 %12
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %12
   br i1 %16, label %20, label %23
 
 20:                                               ; preds = %3
@@ -12249,11 +12233,11 @@ define linkonce_odr dso_local void @_Z13update_array1IfEvRN3zfp6array1IT_NS0_5co
   %10 = zext i32 %9 to i64
   %11 = tail call noundef ptr @_ZNK3zfp8internal11BlockCache1IfNS0_11BlockStore1IfNS_5codec4zfp1IfEENS_5index8implicitEEEE4lineEmb(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef %10, i1 noundef zeroext false)
   %12 = and i64 %10, 3
-  %13 = getelementptr inbounds nuw float, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %12
   %14 = load float, ptr %13, align 4, !tbaa !48
   %15 = tail call noundef ptr @_ZNK3zfp8internal11BlockCache1IfNS0_11BlockStore1IfNS_5codec4zfp1IfEENS_5index8implicitEEEE4lineEmb(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef %8, i1 noundef zeroext true), !noalias !326
   %16 = and i64 %8, 3
-  %17 = getelementptr inbounds nuw float, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %16
   %18 = load float, ptr %17, align 4, !tbaa !48, !noalias !326
   %19 = fsub float %18, %14
   store float %19, ptr %17, align 4, !tbaa !48, !noalias !326
@@ -12272,13 +12256,13 @@ define linkonce_odr dso_local void @_Z13update_array1IfEvRN3zfp6array1IT_NS0_5co
   %26 = load float, ptr %25, align 4, !tbaa !48
   %27 = tail call noundef ptr @_ZNK3zfp8internal11BlockCache1IfNS0_11BlockStore1IfNS_5codec4zfp1IfEENS_5index8implicitEEEE4lineEmb(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef %24, i1 noundef zeroext false)
   %28 = and i64 %24, 3
-  %29 = getelementptr inbounds nuw float, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %28
   %30 = load float, ptr %29, align 4, !tbaa !48
   %31 = fcmp olt float %26, %30
   %.sroa.speculated = select i1 %31, i64 %24, i64 0
   %32 = tail call noundef ptr @_ZNK3zfp8internal11BlockCache1IfNS0_11BlockStore1IfNS_5codec4zfp1IfEENS_5index8implicitEEEE4lineEmb(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef %.sroa.speculated, i1 noundef zeroext false), !noalias !329
   %33 = and i64 %.sroa.speculated, 3
-  %34 = getelementptr inbounds nuw float, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %33
   %35 = load float, ptr %34, align 4, !tbaa !48, !noalias !329
   %36 = tail call noundef ptr @_ZNK3zfp8internal11BlockCache1IfNS0_11BlockStore1IfNS_5codec4zfp1IfEENS_5index8implicitEEEE4lineEmb(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef 0, i1 noundef zeroext true), !noalias !329
   store float %35, ptr %36, align 4, !tbaa !48, !noalias !329
@@ -12334,7 +12318,7 @@ define linkonce_odr dso_local void @_ZN3zfp6array2IfNS_5codec4zfp2IfEENS_5index8
   %21 = and i32 %20, %19
   %22 = load ptr, ptr %12, align 8, !tbaa !55
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache2<float, zfp::internal::BlockStore2<float, zfp::codec::zfp2<float>, zfp::index::implicit> >::CacheLine>::Tag", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !206
   %26 = lshr i32 %25, 1
   %27 = icmp eq i32 %26, %19
@@ -12348,7 +12332,7 @@ _ZN3zfp8internal5CacheINS0_11BlockCache2IfNS0_11BlockStore2IfNS_5codec4zfp2IfEEN
   %28 = or i32 %25, 1
   store i32 %28, ptr %24, align 4, !tbaa !206
   %29 = load ptr, ptr %13, align 8, !tbaa !59
-  %30 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache2<float, zfp::internal::BlockStore2<float, zfp::codec::zfp2<float>, zfp::index::implicit> >::CacheLine", ptr %29, i64 %23
+  %30 = getelementptr inbounds nuw [64 x i8], ptr %29, i64 %23
   %.not.i.us = icmp eq ptr %29, null
   %.pre48 = load ptr, ptr %14, align 8, !tbaa !204
   br i1 %.not.i.us, label %_ZN3zfp8internal5CacheINS0_11BlockCache2IfNS0_11BlockStore2IfNS_5codec4zfp2IfEENS_5index8implicitEEEE9CacheLineEE6lookupEjb.exit.thread.i.us, label %31
@@ -12407,8 +12391,8 @@ _ZN3zfp8internal5CacheINS0_11BlockCache2IfNS0_11BlockStore2IfNS_5codec4zfp2IfEEN
 
 66:                                               ; preds = %61
   %67 = add nuw nsw i32 %.02538.i.i.us, 1
-  %68 = getelementptr inbounds float, ptr %64, i64 %60
-  %69 = getelementptr inbounds nuw float, ptr %65, i64 %44
+  %68 = getelementptr inbounds [4 x i8], ptr %64, i64 %60
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %44
   %exitcond43.not.i.i.us = icmp eq i32 %67, %58
   br i1 %exitcond43.not.i.i.us, label %_ZN3zfp8internal11BlockCache2IfNS0_11BlockStore2IfNS_5codec4zfp2IfEENS_5index8implicitEEEE9put_blockEmPKfll.exit.us, label %.preheader.i.i.us
 
@@ -12432,7 +12416,7 @@ _ZN3zfp8internal5CacheINS0_11BlockCache2IfNS0_11BlockStore2IfNS_5codec4zfp2IfEEN
 
 75:                                               ; preds = %70
   %76 = add nuw nsw i32 %.01221.i.i.i.us, 1
-  %77 = getelementptr float, ptr %73, i64 %10
+  %77 = getelementptr [4 x i8], ptr %73, i64 %10
   %78 = getelementptr i8, ptr %77, i64 -16
   %exitcond23.not.i.i.i.us = icmp eq i32 %76, 4
   br i1 %exitcond23.not.i.i.i.us, label %_ZN3zfp8internal11BlockCache2IfNS0_11BlockStore2IfNS_5codec4zfp2IfEENS_5index8implicitEEEE9put_blockEmPKfll.exit.us, label %.preheader.i.i.i.us
@@ -12682,13 +12666,13 @@ define linkonce_odr dso_local noundef ptr @_ZNK3zfp6array2IfNS_5codec4zfp2IfEENS
 
 11:                                               ; preds = %10
   %12 = zext i32 %.0.i.i.i.i to i64
-  %13 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache2<float, zfp::internal::BlockStore2<float, zfp::codec::zfp2<float>, zfp::index::implicit> >::CacheLine>::Tag", ptr %6, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !206, !noalias !334
   %.not10.i.i.i.i = icmp eq i32 %14, 0
   br i1 %.not10.i.i.i.i, label %10, label %.critedge.i.i.i.i
 
 .critedge.i.i.i.i:                                ; preds = %11
-  %15 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache2<float, zfp::internal::BlockStore2<float, zfp::codec::zfp2<float>, zfp::index::implicit> >::CacheLine", ptr %4, i64 %12
+  %15 = getelementptr inbounds nuw [64 x i8], ptr %4, i64 %12
   br label %_ZN3zfp8internal5CacheINS0_11BlockCache2IfNS0_11BlockStore2IfNS_5codec4zfp2IfEENS_5index8implicitEEEE9CacheLineEE5firstEv.exit.i
 
 _ZN3zfp8internal5CacheINS0_11BlockCache2IfNS0_11BlockStore2IfNS_5codec4zfp2IfEENS_5index8implicitEEEE9CacheLineEE5firstEv.exit.i: ; preds = %.critedge.i.i.i.i, %1
@@ -12727,7 +12711,7 @@ _ZN3zfp8internal5CacheINS0_11BlockCache2IfNS0_11BlockStore2IfNS_5codec4zfp2IfEEN
   %34 = sub i64 %32, %33
   %35 = lshr exact i64 %34, 6
   %36 = and i64 %35, 4294967295
-  %37 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache2<float, zfp::internal::BlockStore2<float, zfp::codec::zfp2<float>, zfp::index::implicit> >::CacheLine>::Tag", ptr %30, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %36
   store i32 0, ptr %37, align 4, !tbaa !206
   %38 = trunc i64 %35 to i32
   %39 = load i32, ptr %2, align 8, !tbaa !197, !noalias !337
@@ -12741,13 +12725,13 @@ _ZN3zfp8internal5CacheINS0_11BlockCache2IfNS0_11BlockStore2IfNS_5codec4zfp2IfEEN
 
 41:                                               ; preds = %40
   %42 = zext i32 %.0.i.i.i to i64
-  %43 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache2<float, zfp::internal::BlockStore2<float, zfp::codec::zfp2<float>, zfp::index::implicit> >::CacheLine>::Tag", ptr %30, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !206, !noalias !337
   %.not10.i.i.i = icmp eq i32 %44, 0
   br i1 %.not10.i.i.i, label %40, label %_ZN3zfp8internal5CacheINS0_11BlockCache2IfNS0_11BlockStore2IfNS_5codec4zfp2IfEENS_5index8implicitEEEE9CacheLineEE14const_iteratorppEi.exit.i
 
 _ZN3zfp8internal5CacheINS0_11BlockCache2IfNS0_11BlockStore2IfNS_5codec4zfp2IfEENS_5index8implicitEEEE9CacheLineEE14const_iteratorppEi.exit.i: ; preds = %41
-  %45 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache2<float, zfp::internal::BlockStore2<float, zfp::codec::zfp2<float>, zfp::index::implicit> >::CacheLine", ptr %31, i64 %42
+  %45 = getelementptr inbounds nuw [64 x i8], ptr %31, i64 %42
   %.not.i.i = icmp eq ptr %31, null
   br i1 %.not.i.i, label %_ZNK3zfp8internal11BlockCache2IfNS0_11BlockStore2IfNS_5codec4zfp2IfEENS_5index8implicitEEEE5flushEv.exit, label %17
 
@@ -13354,7 +13338,7 @@ _ZN3zfp8internal18reallocate_alignedINS0_11BlockCache2IfNS0_11BlockStore2IfNS_5c
 30:                                               ; preds = %30, %_ZN3zfp8internal18reallocate_alignedINS0_11BlockCache2IfNS0_11BlockStore2IfNS_5codec4zfp2IfEENS_5index8implicitEEEE9CacheLineEEEvRPT_mmm.exit
   %.03.i = phi i32 [ 0, %_ZN3zfp8internal18reallocate_alignedINS0_11BlockCache2IfNS0_11BlockStore2IfNS_5codec4zfp2IfEENS_5index8implicitEEEE9CacheLineEEEvRPT_mmm.exit ], [ %33, %30 ]
   %31 = zext i32 %.03.i to i64
-  %32 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache2<float, zfp::internal::BlockStore2<float, zfp::codec::zfp2<float>, zfp::index::implicit> >::CacheLine>::Tag", ptr %29, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %31
   store i32 0, ptr %32, align 4, !tbaa !206
   %33 = add i32 %.03.i, 1
   %.not.i = icmp ugt i32 %33, %28
@@ -13373,7 +13357,7 @@ define linkonce_odr dso_local void @_ZN3zfp8internal11BlockCache2IfNS0_11BlockSt
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !55
   %12 = zext i32 %9 to i64
-  %13 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache2<float, zfp::internal::BlockStore2<float, zfp::codec::zfp2<float>, zfp::index::implicit> >::CacheLine>::Tag", ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !206
   %15 = lshr i32 %14, 1
   %16 = icmp eq i32 %15, %7
@@ -13384,7 +13368,7 @@ _ZN3zfp8internal5CacheINS0_11BlockCache2IfNS0_11BlockStore2IfNS_5codec4zfp2IfEEN
   store i32 %17, ptr %13, align 4, !tbaa !206
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !59
-  %20 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache2<float, zfp::internal::BlockStore2<float, zfp::codec::zfp2<float>, zfp::index::implicit> >::CacheLine", ptr %19, i64 %12
+  %20 = getelementptr inbounds nuw [64 x i8], ptr %19, i64 %12
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %_ZN3zfp8internal5CacheINS0_11BlockCache2IfNS0_11BlockStore2IfNS_5codec4zfp2IfEENS_5index8implicitEEEE9CacheLineEE6lookupEjb.exit.thread, label %21
 
@@ -13430,7 +13414,7 @@ _ZN3zfp8internal5CacheINS0_11BlockCache2IfNS0_11BlockStore2IfNS_5codec4zfp2IfEEN
 
 51:                                               ; preds = %54
   %52 = add nuw nsw i32 %.01221.i.i, 1
-  %53 = getelementptr inbounds float, ptr %57, i64 %50
+  %53 = getelementptr inbounds [4 x i8], ptr %57, i64 %50
   %exitcond23.not.i.i = icmp eq i32 %52, 4
   br i1 %exitcond23.not.i.i, label %_ZN3zfp8internal11BlockCache2IfNS0_11BlockStore2IfNS_5codec4zfp2IfEENS_5index8implicitEEEE9CacheLine3putEPKfllj.exit, label %.preheader.i.i
 
@@ -13441,7 +13425,7 @@ _ZN3zfp8internal5CacheINS0_11BlockCache2IfNS0_11BlockStore2IfNS_5codec4zfp2IfEEN
   %55 = load float, ptr %.11516.i.i, align 4, !tbaa !48
   store float %55, ptr %.117.i.i, align 4, !tbaa !48
   %56 = add nuw nsw i32 %.018.i.i, 1
-  %57 = getelementptr inbounds float, ptr %.11516.i.i, i64 %3
+  %57 = getelementptr inbounds [4 x i8], ptr %.11516.i.i, i64 %3
   %58 = getelementptr inbounds nuw i8, ptr %.117.i.i, i64 4
   %exitcond.not.i.i = icmp eq i32 %56, 4
   br i1 %exitcond.not.i.i, label %51, label %54
@@ -13462,8 +13446,8 @@ _ZN3zfp8internal5CacheINS0_11BlockCache2IfNS0_11BlockStore2IfNS_5codec4zfp2IfEEN
 
 65:                                               ; preds = %69
   %66 = add nuw nsw i32 %.02538.i, 1
-  %67 = getelementptr inbounds float, ptr %72, i64 %64
-  %68 = getelementptr inbounds nuw float, ptr %73, i64 %36
+  %67 = getelementptr inbounds [4 x i8], ptr %72, i64 %64
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %36
   %exitcond43.not.i = icmp eq i32 %66, %61
   br i1 %exitcond43.not.i, label %_ZN3zfp8internal11BlockCache2IfNS0_11BlockStore2IfNS_5codec4zfp2IfEENS_5index8implicitEEEE9CacheLine3putEPKfllj.exit, label %.preheader.i
 
@@ -13474,7 +13458,7 @@ _ZN3zfp8internal5CacheINS0_11BlockCache2IfNS0_11BlockStore2IfNS_5codec4zfp2IfEEN
   %70 = load float, ptr %.12833.i, align 4, !tbaa !48
   store float %70, ptr %.134.i, align 4, !tbaa !48
   %71 = add nuw nsw i32 %.035.i, 1
-  %72 = getelementptr inbounds float, ptr %.12833.i, i64 %3
+  %72 = getelementptr inbounds [4 x i8], ptr %.12833.i, i64 %3
   %73 = getelementptr inbounds nuw i8, ptr %.134.i, i64 4
   %exitcond.not.i = icmp eq i32 %71, %60
   br i1 %exitcond.not.i, label %65, label %69
@@ -13737,12 +13721,12 @@ define linkonce_odr dso_local void @_Z13update_array2IfEvRN3zfp6array2IT_NS0_5co
   %44 = and i32 %42, %43
   %45 = load ptr, ptr %7, align 8, !tbaa !55
   %46 = zext i32 %44 to i64
-  %47 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache2<float, zfp::internal::BlockStore2<float, zfp::codec::zfp2<float>, zfp::index::implicit> >::CacheLine>::Tag", ptr %45, i64 %46
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %46
   %48 = load i32, ptr %47, align 4, !tbaa !206
   %49 = lshr i32 %48, 1
   %50 = icmp eq i32 %49, %42
   %51 = load ptr, ptr %8, align 8, !tbaa !59
-  %52 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache2<float, zfp::internal::BlockStore2<float, zfp::codec::zfp2<float>, zfp::index::implicit> >::CacheLine", ptr %51, i64 %46
+  %52 = getelementptr inbounds nuw [64 x i8], ptr %51, i64 %46
   br i1 %50, label %_ZN3zfp8internal5CacheINS0_11BlockCache2IfNS0_11BlockStore2IfNS_5codec4zfp2IfEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i, label %53
 
 53:                                               ; preds = %31
@@ -13859,8 +13843,8 @@ _ZNK3zfp8internal11BlockStore2IfNS_5codec4zfp2IfEENS_5index8implicitEE6decodeEmP
 
 _ZNK3zfp8internal4dim215const_referenceINS_6array2IfNS_5codec4zfp2IfEENS_5index8implicitEEEEcvfEv.exit: ; preds = %_ZN3zfp8internal5CacheINS0_11BlockCache2IfNS0_11BlockStore2IfNS_5codec4zfp2IfEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i, %_ZNK3zfp8internal11BlockStore2IfNS_5codec4zfp2IfEENS_5index8implicitEE6decodeEmPf.exit
   %131 = and i64 %34, 3
-  %132 = getelementptr inbounds nuw float, ptr %52, i64 %14
-  %133 = getelementptr inbounds nuw float, ptr %132, i64 %131
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %14
+  %133 = getelementptr inbounds nuw [4 x i8], ptr %132, i64 %131
   %134 = load float, ptr %133, align 4, !tbaa !48
   %135 = load ptr, ptr %6, align 8, !tbaa !204, !noalias !342
   %136 = lshr i64 %32, 2
@@ -13874,12 +13858,12 @@ _ZNK3zfp8internal4dim215const_referenceINS_6array2IfNS_5codec4zfp2IfEENS_5index8
   %144 = and i32 %142, %143
   %145 = load ptr, ptr %7, align 8, !tbaa !55, !noalias !342
   %146 = zext i32 %144 to i64
-  %147 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache2<float, zfp::internal::BlockStore2<float, zfp::codec::zfp2<float>, zfp::index::implicit> >::CacheLine>::Tag", ptr %145, i64 %146
+  %147 = getelementptr inbounds nuw [4 x i8], ptr %145, i64 %146
   %148 = load i32, ptr %147, align 4, !tbaa !206, !noalias !342
   %149 = lshr i32 %148, 1
   %150 = icmp eq i32 %149, %142
   %151 = load ptr, ptr %8, align 8, !tbaa !59, !noalias !342
-  %152 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache2<float, zfp::internal::BlockStore2<float, zfp::codec::zfp2<float>, zfp::index::implicit> >::CacheLine", ptr %151, i64 %146
+  %152 = getelementptr inbounds nuw [64 x i8], ptr %151, i64 %146
   %153 = shl i32 %142, 1
   %.sink.i.i.v.i.i.i = select i1 %150, i32 %148, i32 %153
   %.sink.i.i.i.i.i = or i32 %.sink.i.i.v.i.i.i, 1
@@ -13993,8 +13977,8 @@ _ZNK3zfp8internal11BlockStore2IfNS_5codec4zfp2IfEENS_5index8implicitEE6decodeEmP
 
 _ZN3zfp8internal4dim29referenceINS_6array2IfNS_5codec4zfp2IfEENS_5index8implicitEEEEmIEf.exit: ; preds = %_ZNK3zfp8internal4dim215const_referenceINS_6array2IfNS_5codec4zfp2IfEENS_5index8implicitEEEEcvfEv.exit, %_ZNK3zfp8internal11BlockStore2IfNS_5codec4zfp2IfEENS_5index8implicitEE6decodeEmPf.exit62
   %231 = and i64 %32, 3
-  %232 = getelementptr inbounds nuw float, ptr %152, i64 %14
-  %233 = getelementptr inbounds nuw float, ptr %232, i64 %231
+  %232 = getelementptr inbounds nuw [4 x i8], ptr %152, i64 %14
+  %233 = getelementptr inbounds nuw [4 x i8], ptr %232, i64 %231
   %234 = load float, ptr %233, align 4, !tbaa !48, !noalias !342
   %235 = fsub float %234, %134
   store float %235, ptr %233, align 4, !tbaa !48, !noalias !342
@@ -14062,12 +14046,12 @@ _ZN3zfp8internal4dim29referenceINS_6array2IfNS_5codec4zfp2IfEENS_5index8implicit
   %269 = and i32 %267, %268
   %270 = load ptr, ptr %19, align 8, !tbaa !55
   %271 = zext i32 %269 to i64
-  %272 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache2<float, zfp::internal::BlockStore2<float, zfp::codec::zfp2<float>, zfp::index::implicit> >::CacheLine>::Tag", ptr %270, i64 %271
+  %272 = getelementptr inbounds nuw [4 x i8], ptr %270, i64 %271
   %273 = load i32, ptr %272, align 4, !tbaa !206
   %274 = lshr i32 %273, 1
   %275 = icmp eq i32 %274, %267
   %276 = load ptr, ptr %20, align 8, !tbaa !59
-  %277 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache2<float, zfp::internal::BlockStore2<float, zfp::codec::zfp2<float>, zfp::index::implicit> >::CacheLine", ptr %276, i64 %271
+  %277 = getelementptr inbounds nuw [64 x i8], ptr %276, i64 %271
   br i1 %275, label %_ZN3zfp8internal5CacheINS0_11BlockCache2IfNS0_11BlockStore2IfNS_5codec4zfp2IfEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i45, label %278
 
 278:                                              ; preds = %258
@@ -14184,8 +14168,8 @@ _ZNK3zfp8internal11BlockStore2IfNS_5codec4zfp2IfEENS_5index8implicitEE6decodeEmP
 
 _ZNK3zfp8internal4dim215const_referenceINS_6array2IfNS_5codec4zfp2IfEENS_5index8implicitEEEEcvfEv.exit48: ; preds = %_ZN3zfp8internal5CacheINS0_11BlockCache2IfNS0_11BlockStore2IfNS_5codec4zfp2IfEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i45, %_ZNK3zfp8internal11BlockStore2IfNS_5codec4zfp2IfEENS_5index8implicitEE6decodeEmPf.exit66
   %356 = and i64 %259, 3
-  %357 = getelementptr inbounds nuw float, ptr %277, i64 %244
-  %358 = getelementptr inbounds nuw float, ptr %357, i64 %356
+  %357 = getelementptr inbounds nuw [4 x i8], ptr %277, i64 %244
+  %358 = getelementptr inbounds nuw [4 x i8], ptr %357, i64 %356
   %359 = load float, ptr %358, align 4, !tbaa !48
   %360 = load ptr, ptr %18, align 8, !tbaa !204, !noalias !347
   %361 = getelementptr inbounds nuw i8, ptr %360, i64 72
@@ -14198,12 +14182,12 @@ _ZNK3zfp8internal4dim215const_referenceINS_6array2IfNS_5codec4zfp2IfEENS_5index8
   %368 = and i32 %366, %367
   %369 = load ptr, ptr %19, align 8, !tbaa !55, !noalias !347
   %370 = zext i32 %368 to i64
-  %371 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache2<float, zfp::internal::BlockStore2<float, zfp::codec::zfp2<float>, zfp::index::implicit> >::CacheLine>::Tag", ptr %369, i64 %370
+  %371 = getelementptr inbounds nuw [4 x i8], ptr %369, i64 %370
   %372 = load i32, ptr %371, align 4, !tbaa !206, !noalias !347
   %373 = lshr i32 %372, 1
   %374 = icmp eq i32 %373, %366
   %375 = load ptr, ptr %20, align 8, !tbaa !59, !noalias !347
-  %376 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache2<float, zfp::internal::BlockStore2<float, zfp::codec::zfp2<float>, zfp::index::implicit> >::CacheLine", ptr %375, i64 %370
+  %376 = getelementptr inbounds nuw [64 x i8], ptr %375, i64 %370
   %377 = shl i32 %366, 1
   %.sink.i.i.v.i.i.i49 = select i1 %374, i32 %372, i32 %377
   %.sink.i.i.i.i.i50 = or i32 %.sink.i.i.v.i.i.i49, 1
@@ -14316,8 +14300,8 @@ _ZNK3zfp8internal11BlockStore2IfNS_5codec4zfp2IfEENS_5index8implicitEE6decodeEmP
   br label %_ZN3zfp8internal4dim29referenceINS_6array2IfNS_5codec4zfp2IfEENS_5index8implicitEEEEmIEf.exit56
 
 _ZN3zfp8internal4dim29referenceINS_6array2IfNS_5codec4zfp2IfEENS_5index8implicitEEEEmIEf.exit56: ; preds = %_ZNK3zfp8internal4dim215const_referenceINS_6array2IfNS_5codec4zfp2IfEENS_5index8implicitEEEEcvfEv.exit48, %_ZNK3zfp8internal11BlockStore2IfNS_5codec4zfp2IfEENS_5index8implicitEE6decodeEmPf.exit70
-  %455 = getelementptr inbounds nuw float, ptr %376, i64 %247
-  %456 = getelementptr inbounds nuw float, ptr %455, i64 %356
+  %455 = getelementptr inbounds nuw [4 x i8], ptr %376, i64 %247
+  %456 = getelementptr inbounds nuw [4 x i8], ptr %455, i64 %356
   %457 = load float, ptr %456, align 4, !tbaa !48, !noalias !347
   %458 = fsub float %457, %359
   store float %458, ptr %456, align 4, !tbaa !48, !noalias !347
@@ -14367,12 +14351,12 @@ _ZN3zfp8internal4dim29referenceINS_6array2IfNS_5codec4zfp2IfEENS_5index8implicit
   %481 = and i32 %480, 1
   %482 = load ptr, ptr %252, align 8, !tbaa !55
   %483 = zext nneg i32 %481 to i64
-  %484 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache2<float, zfp::internal::BlockStore2<float, zfp::codec::zfp2<float>, zfp::index::implicit> >::CacheLine>::Tag", ptr %482, i64 %483
+  %484 = getelementptr inbounds nuw [4 x i8], ptr %482, i64 %483
   %485 = load i32, ptr %484, align 4, !tbaa !206
   %486 = lshr i32 %485, 1
   %487 = icmp eq i32 %486, 1
   %488 = load ptr, ptr %253, align 8, !tbaa !59
-  %489 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache2<float, zfp::internal::BlockStore2<float, zfp::codec::zfp2<float>, zfp::index::implicit> >::CacheLine", ptr %488, i64 %483
+  %489 = getelementptr inbounds nuw [64 x i8], ptr %488, i64 %483
   br i1 %487, label %_ZNK3zfp8internal4dim215const_referenceINS_6array2IfNS_5codec4zfp2IfEENS_5index8implicitEEEEcvfEv.exit.i, label %_ZN3zfp8internal5CacheINS0_11BlockCache2IfNS0_11BlockStore2IfNS_5codec4zfp2IfEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i.i
 
 _ZN3zfp8internal5CacheINS0_11BlockCache2IfNS0_11BlockStore2IfNS_5codec4zfp2IfEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i.i: ; preds = %475
@@ -14490,11 +14474,11 @@ _ZNK3zfp8internal4dim215const_referenceINS_6array2IfNS_5codec4zfp2IfEENS_5index8
   %566 = load i32, ptr %250, align 8, !tbaa !197
   %567 = and i32 %565, %566
   %568 = zext i32 %567 to i64
-  %569 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache2<float, zfp::internal::BlockStore2<float, zfp::codec::zfp2<float>, zfp::index::implicit> >::CacheLine>::Tag", ptr %557, i64 %568
+  %569 = getelementptr inbounds nuw [4 x i8], ptr %557, i64 %568
   %570 = load i32, ptr %569, align 4, !tbaa !206
   %571 = lshr i32 %570, 1
   %572 = icmp eq i32 %571, %565
-  %573 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache2<float, zfp::internal::BlockStore2<float, zfp::codec::zfp2<float>, zfp::index::implicit> >::CacheLine", ptr %556, i64 %568
+  %573 = getelementptr inbounds nuw [64 x i8], ptr %556, i64 %568
   br i1 %572, label %_ZN3zfp8internal5CacheINS0_11BlockCache2IfNS0_11BlockStore2IfNS_5codec4zfp2IfEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i5.i, label %574
 
 574:                                              ; preds = %_ZNK3zfp8internal4dim215const_referenceINS_6array2IfNS_5codec4zfp2IfEENS_5index8implicitEEEEcvfEv.exit.i
@@ -14617,8 +14601,8 @@ _ZSt3maxIN3zfp8internal4dim29referenceINS0_6array2IfNS0_5codec4zfp2IfEENS0_5inde
   %653 = phi ptr [ %557, %_ZN3zfp8internal5CacheINS0_11BlockCache2IfNS0_11BlockStore2IfNS_5codec4zfp2IfEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i5.i ], [ %.pre173, %_ZNK3zfp8internal11BlockStore2IfNS_5codec4zfp2IfEENS_5index8implicitEE6decodeEmPf.exit74 ]
   %654 = phi ptr [ %559, %_ZN3zfp8internal5CacheINS0_11BlockCache2IfNS0_11BlockStore2IfNS_5codec4zfp2IfEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i5.i ], [ %.pre172, %_ZNK3zfp8internal11BlockStore2IfNS_5codec4zfp2IfEENS_5index8implicitEE6decodeEmPf.exit74 ]
   %655 = and i64 %476, 3
-  %656 = getelementptr inbounds nuw float, ptr %573, i64 %468
-  %657 = getelementptr inbounds nuw float, ptr %656, i64 %655
+  %656 = getelementptr inbounds nuw [4 x i8], ptr %573, i64 %468
+  %657 = getelementptr inbounds nuw [4 x i8], ptr %656, i64 %655
   %658 = load float, ptr %657, align 4, !tbaa !48
   %659 = fcmp olt float %560, %658
   %.sroa.speculated101 = select i1 %659, i64 %476, i64 0
@@ -14634,11 +14618,11 @@ _ZSt3maxIN3zfp8internal4dim29referenceINS0_6array2IfNS0_5codec4zfp2IfEENS0_5inde
   %668 = load i32, ptr %250, align 8, !tbaa !197, !noalias !350
   %669 = and i32 %667, %668
   %670 = zext i32 %669 to i64
-  %671 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache2<float, zfp::internal::BlockStore2<float, zfp::codec::zfp2<float>, zfp::index::implicit> >::CacheLine>::Tag", ptr %653, i64 %670
+  %671 = getelementptr inbounds nuw [4 x i8], ptr %653, i64 %670
   %672 = load i32, ptr %671, align 4, !tbaa !206, !noalias !350
   %673 = lshr i32 %672, 1
   %674 = icmp eq i32 %673, %667
-  %675 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache2<float, zfp::internal::BlockStore2<float, zfp::codec::zfp2<float>, zfp::index::implicit> >::CacheLine", ptr %652, i64 %670
+  %675 = getelementptr inbounds nuw [64 x i8], ptr %652, i64 %670
   br i1 %674, label %_ZN3zfp8internal5CacheINS0_11BlockCache2IfNS0_11BlockStore2IfNS_5codec4zfp2IfEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i57, label %676
 
 676:                                              ; preds = %_ZSt3maxIN3zfp8internal4dim29referenceINS0_6array2IfNS0_5codec4zfp2IfEENS0_5index8implicitEEEEEERKT_SE_SE_.exit
@@ -14766,16 +14750,16 @@ _ZNK3zfp8internal4dim212const_handleINS_6array2IfNS_5codec4zfp2IfEENS_5index8imp
   %758 = and i64 %.sroa.speculated101, 3
   %759 = shl nuw nsw i64 %.sroa.speculated, 2
   %760 = and i64 %759, 12
-  %761 = getelementptr inbounds nuw float, ptr %675, i64 %760
-  %762 = getelementptr inbounds nuw float, ptr %761, i64 %758
+  %761 = getelementptr inbounds nuw [4 x i8], ptr %675, i64 %760
+  %762 = getelementptr inbounds nuw [4 x i8], ptr %761, i64 %758
   %763 = load float, ptr %762, align 4, !tbaa !48, !noalias !350
   %764 = load i32, ptr %250, align 8, !tbaa !197, !noalias !350
   %765 = and i32 %764, 1
   %766 = zext nneg i32 %765 to i64
-  %767 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache2<float, zfp::internal::BlockStore2<float, zfp::codec::zfp2<float>, zfp::index::implicit> >::CacheLine>::Tag", ptr %755, i64 %766
+  %767 = getelementptr inbounds nuw [4 x i8], ptr %755, i64 %766
   %768 = load i32, ptr %767, align 4, !tbaa !206, !noalias !350
   %769 = lshr i32 %768, 1
-  %770 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache2<float, zfp::internal::BlockStore2<float, zfp::codec::zfp2<float>, zfp::index::implicit> >::CacheLine", ptr %754, i64 %766
+  %770 = getelementptr inbounds nuw [64 x i8], ptr %754, i64 %766
   store i32 3, ptr %767, align 4, !tbaa !37, !noalias !350
   %771 = add nsw i32 %769, -1
   %772 = zext i32 %771 to i64
@@ -14940,7 +14924,7 @@ define linkonce_odr dso_local void @_ZN3zfp6array3IfNS_5codec4zfp3IfEENS_5index8
   %29 = and i32 %28, %27
   %30 = load ptr, ptr %17, align 8, !tbaa !60
   %31 = zext i32 %29 to i64
-  %32 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<float, zfp::internal::BlockStore3<float, zfp::codec::zfp3<float>, zfp::index::implicit> >::CacheLine>::Tag", ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !242
   %34 = lshr i32 %33, 1
   %35 = icmp eq i32 %34, %27
@@ -14954,7 +14938,7 @@ _ZN3zfp8internal5CacheINS0_11BlockCache3IfNS0_11BlockStore3IfNS_5codec4zfp3IfEEN
   %36 = or i32 %33, 1
   store i32 %36, ptr %32, align 4, !tbaa !242
   %37 = load ptr, ptr %18, align 8, !tbaa !64
-  %38 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<float, zfp::internal::BlockStore3<float, zfp::codec::zfp3<float>, zfp::index::implicit> >::CacheLine", ptr %37, i64 %31
+  %38 = getelementptr inbounds nuw [256 x i8], ptr %37, i64 %31
   %.not.i.us.us.us = icmp eq ptr %37, null
   %.pre85 = load ptr, ptr %19, align 8, !tbaa !240
   br i1 %.not.i.us.us.us, label %_ZN3zfp8internal5CacheINS0_11BlockCache3IfNS0_11BlockStore3IfNS_5codec4zfp3IfEENS_5index8implicitEEEE9CacheLineEE6lookupEjb.exit.thread.i.us.us.us, label %39
@@ -15040,15 +15024,15 @@ _ZN3zfp8internal5CacheINS0_11BlockCache3IfNS0_11BlockStore3IfNS_5codec4zfp3IfEEN
 
 95:                                               ; preds = %90
   %96 = add nuw nsw i32 %.03755.i.i.us.us.us, 1
-  %97 = getelementptr inbounds float, ptr %93, i64 %83
-  %98 = getelementptr inbounds nuw float, ptr %94, i64 %57
+  %97 = getelementptr inbounds [4 x i8], ptr %93, i64 %83
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %57
   %exitcond66.not.i.i.us.us.us = icmp eq i32 %96, %80
   br i1 %exitcond66.not.i.i.us.us.us, label %99, label %.preheader.i.i.us.us.us
 
 99:                                               ; preds = %95
   %100 = add nuw nsw i32 %.03858.i.i.us.us.us, 1
-  %101 = getelementptr inbounds float, ptr %97, i64 %86
-  %102 = getelementptr inbounds nuw float, ptr %98, i64 %89
+  %101 = getelementptr inbounds [4 x i8], ptr %97, i64 %86
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %98, i64 %89
   %exitcond67.not.i.i.us.us.us = icmp eq i32 %100, %81
   br i1 %exitcond67.not.i.i.us.us.us, label %_ZNK3zfp8internal11BlockCache3IfNS0_11BlockStore3IfNS_5codec4zfp3IfEENS_5index8implicitEEEE9put_blockEmPKflll.exit.us.us.us, label %.preheader46.i.i.us.us.us
 
@@ -15078,14 +15062,14 @@ _ZN3zfp8internal5CacheINS0_11BlockCache3IfNS0_11BlockStore3IfNS_5codec4zfp3IfEEN
 
 108:                                              ; preds = %103
   %109 = add nuw nsw i32 %.01729.i.i.i.us.us.us, 1
-  %110 = getelementptr float, ptr %106, i64 %12
+  %110 = getelementptr [4 x i8], ptr %106, i64 %12
   %111 = getelementptr i8, ptr %110, i64 -16
   %exitcond35.not.i.i.i.us.us.us = icmp eq i32 %109, 4
   br i1 %exitcond35.not.i.i.i.us.us.us, label %112, label %.preheader.i.i.i.us.us.us
 
 112:                                              ; preds = %108
   %113 = add nuw nsw i32 %.01832.i.i.i.us.us.us, 1
-  %114 = getelementptr inbounds float, ptr %111, i64 %21
+  %114 = getelementptr inbounds [4 x i8], ptr %111, i64 %21
   %exitcond36.not.i.i.i.us.us.us = icmp eq i32 %113, 4
   br i1 %exitcond36.not.i.i.i.us.us.us, label %_ZNK3zfp8internal11BlockCache3IfNS0_11BlockStore3IfNS_5codec4zfp3IfEENS_5index8implicitEEEE9put_blockEmPKflll.exit.us.us.us, label %.preheader23.i.i.i.us.us.us
 
@@ -15171,7 +15155,7 @@ _ZNK3zfp8internal11BlockCache3IfNS0_11BlockStore3IfNS_5codec4zfp3IfEENS_5index8i
   %173 = load i64, ptr %13, align 8, !tbaa !200
   %174 = sub i64 %173, %7
   %175 = mul nsw i64 %22, %174
-  %176 = getelementptr inbounds float, ptr %171, i64 %175
+  %176 = getelementptr inbounds [4 x i8], ptr %171, i64 %175
   %exitcond83.not = icmp eq i64 %172, %9
   br i1 %exitcond83.not, label %.loopexit, label %.preheader35.us.us
 
@@ -15358,13 +15342,13 @@ define linkonce_odr dso_local noundef ptr @_ZNK3zfp6array3IfNS_5codec4zfp3IfEENS
 
 11:                                               ; preds = %10
   %12 = zext i32 %.0.i.i.i.i to i64
-  %13 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<float, zfp::internal::BlockStore3<float, zfp::codec::zfp3<float>, zfp::index::implicit> >::CacheLine>::Tag", ptr %6, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !242, !noalias !355
   %.not10.i.i.i.i = icmp eq i32 %14, 0
   br i1 %.not10.i.i.i.i, label %10, label %.critedge.i.i.i.i
 
 .critedge.i.i.i.i:                                ; preds = %11
-  %15 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<float, zfp::internal::BlockStore3<float, zfp::codec::zfp3<float>, zfp::index::implicit> >::CacheLine", ptr %4, i64 %12
+  %15 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 %12
   br label %_ZN3zfp8internal5CacheINS0_11BlockCache3IfNS0_11BlockStore3IfNS_5codec4zfp3IfEENS_5index8implicitEEEE9CacheLineEE5firstEv.exit.i
 
 _ZN3zfp8internal5CacheINS0_11BlockCache3IfNS0_11BlockStore3IfNS_5codec4zfp3IfEENS_5index8implicitEEEE9CacheLineEE5firstEv.exit.i: ; preds = %.critedge.i.i.i.i, %1
@@ -15403,7 +15387,7 @@ _ZN3zfp8internal5CacheINS0_11BlockCache3IfNS0_11BlockStore3IfNS_5codec4zfp3IfEEN
   %34 = sub i64 %32, %33
   %35 = lshr exact i64 %34, 8
   %36 = and i64 %35, 4294967295
-  %37 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<float, zfp::internal::BlockStore3<float, zfp::codec::zfp3<float>, zfp::index::implicit> >::CacheLine>::Tag", ptr %30, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %36
   store i32 0, ptr %37, align 4, !tbaa !242
   %38 = trunc i64 %35 to i32
   %39 = load i32, ptr %2, align 8, !tbaa !233, !noalias !358
@@ -15417,13 +15401,13 @@ _ZN3zfp8internal5CacheINS0_11BlockCache3IfNS0_11BlockStore3IfNS_5codec4zfp3IfEEN
 
 41:                                               ; preds = %40
   %42 = zext i32 %.0.i.i.i to i64
-  %43 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<float, zfp::internal::BlockStore3<float, zfp::codec::zfp3<float>, zfp::index::implicit> >::CacheLine>::Tag", ptr %30, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !242, !noalias !358
   %.not10.i.i.i = icmp eq i32 %44, 0
   br i1 %.not10.i.i.i, label %40, label %_ZN3zfp8internal5CacheINS0_11BlockCache3IfNS0_11BlockStore3IfNS_5codec4zfp3IfEENS_5index8implicitEEEE9CacheLineEE14const_iteratorppEi.exit.i
 
 _ZN3zfp8internal5CacheINS0_11BlockCache3IfNS0_11BlockStore3IfNS_5codec4zfp3IfEENS_5index8implicitEEEE9CacheLineEE14const_iteratorppEi.exit.i: ; preds = %41
-  %45 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<float, zfp::internal::BlockStore3<float, zfp::codec::zfp3<float>, zfp::index::implicit> >::CacheLine", ptr %31, i64 %42
+  %45 = getelementptr inbounds nuw [256 x i8], ptr %31, i64 %42
   %.not.i.i = icmp eq ptr %31, null
   br i1 %.not.i.i, label %_ZNK3zfp8internal11BlockCache3IfNS0_11BlockStore3IfNS_5codec4zfp3IfEENS_5index8implicitEEEE5flushEv.exit, label %17
 
@@ -16035,7 +16019,7 @@ _ZN3zfp8internal18reallocate_alignedINS0_11BlockCache3IfNS0_11BlockStore3IfNS_5c
 30:                                               ; preds = %30, %_ZN3zfp8internal18reallocate_alignedINS0_11BlockCache3IfNS0_11BlockStore3IfNS_5codec4zfp3IfEENS_5index8implicitEEEE9CacheLineEEEvRPT_mmm.exit
   %.03.i = phi i32 [ 0, %_ZN3zfp8internal18reallocate_alignedINS0_11BlockCache3IfNS0_11BlockStore3IfNS_5codec4zfp3IfEENS_5index8implicitEEEE9CacheLineEEEvRPT_mmm.exit ], [ %33, %30 ]
   %31 = zext i32 %.03.i to i64
-  %32 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<float, zfp::internal::BlockStore3<float, zfp::codec::zfp3<float>, zfp::index::implicit> >::CacheLine>::Tag", ptr %29, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %31
   store i32 0, ptr %32, align 4, !tbaa !242
   %33 = add i32 %.03.i, 1
   %.not.i = icmp ugt i32 %33, %28
@@ -16054,7 +16038,7 @@ define linkonce_odr dso_local void @_ZNK3zfp8internal11BlockCache3IfNS0_11BlockS
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !60
   %13 = zext i32 %10 to i64
-  %14 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<float, zfp::internal::BlockStore3<float, zfp::codec::zfp3<float>, zfp::index::implicit> >::CacheLine>::Tag", ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !242
   %16 = lshr i32 %15, 1
   %17 = icmp eq i32 %16, %8
@@ -16065,7 +16049,7 @@ _ZN3zfp8internal5CacheINS0_11BlockCache3IfNS0_11BlockStore3IfNS_5codec4zfp3IfEEN
   store i32 %18, ptr %14, align 4, !tbaa !242
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !64
-  %21 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<float, zfp::internal::BlockStore3<float, zfp::codec::zfp3<float>, zfp::index::implicit> >::CacheLine", ptr %20, i64 %13
+  %21 = getelementptr inbounds nuw [256 x i8], ptr %20, i64 %13
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %_ZN3zfp8internal5CacheINS0_11BlockCache3IfNS0_11BlockStore3IfNS_5codec4zfp3IfEENS_5index8implicitEEEE9CacheLineEE6lookupEjb.exit.thread, label %22
 
@@ -16133,13 +16117,13 @@ _ZN3zfp8internal5CacheINS0_11BlockCache3IfNS0_11BlockStore3IfNS_5codec4zfp3IfEEN
 
 68:                                               ; preds = %71
   %69 = add nuw nsw i32 %.01832.i.i, 1
-  %70 = getelementptr inbounds float, ptr %73, i64 %67
+  %70 = getelementptr inbounds [4 x i8], ptr %73, i64 %67
   %exitcond36.not.i.i = icmp eq i32 %69, 4
   br i1 %exitcond36.not.i.i, label %_ZN3zfp8internal11BlockCache3IfNS0_11BlockStore3IfNS_5codec4zfp3IfEENS_5index8implicitEEEE9CacheLine3putEPKflllj.exit, label %.preheader23.i.i
 
 71:                                               ; preds = %74
   %72 = add nuw nsw i32 %.01729.i.i, 1
-  %73 = getelementptr inbounds float, ptr %77, i64 %65
+  %73 = getelementptr inbounds [4 x i8], ptr %77, i64 %65
   %exitcond35.not.i.i = icmp eq i32 %72, 4
   br i1 %exitcond35.not.i.i, label %68, label %.preheader.i.i
 
@@ -16150,7 +16134,7 @@ _ZN3zfp8internal5CacheINS0_11BlockCache3IfNS0_11BlockStore3IfNS_5codec4zfp3IfEEN
   %75 = load float, ptr %.22224.i.i, align 4, !tbaa !48
   store float %75, ptr %.225.i.i, align 4, !tbaa !48
   %76 = add nuw nsw i32 %.026.i.i, 1
-  %77 = getelementptr inbounds float, ptr %.22224.i.i, i64 %3
+  %77 = getelementptr inbounds [4 x i8], ptr %.22224.i.i, i64 %3
   %78 = getelementptr inbounds nuw i8, ptr %.225.i.i, i64 4
   %exitcond.not.i.i = icmp eq i32 %76, 4
   br i1 %exitcond.not.i.i, label %71, label %74
@@ -16184,15 +16168,15 @@ _ZN3zfp8internal5CacheINS0_11BlockCache3IfNS0_11BlockStore3IfNS_5codec4zfp3IfEEN
 
 92:                                               ; preds = %96
   %93 = add nuw nsw i32 %.03858.i, 1
-  %94 = getelementptr inbounds float, ptr %98, i64 %88
-  %95 = getelementptr inbounds nuw float, ptr %99, i64 %91
+  %94 = getelementptr inbounds [4 x i8], ptr %98, i64 %88
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %99, i64 %91
   %exitcond67.not.i = icmp eq i32 %93, %82
   br i1 %exitcond67.not.i, label %_ZN3zfp8internal11BlockCache3IfNS0_11BlockStore3IfNS_5codec4zfp3IfEENS_5index8implicitEEEE9CacheLine3putEPKflllj.exit, label %.preheader46.i
 
 96:                                               ; preds = %100
   %97 = add nuw nsw i32 %.03755.i, 1
-  %98 = getelementptr inbounds float, ptr %103, i64 %85
-  %99 = getelementptr inbounds nuw float, ptr %104, i64 %42
+  %98 = getelementptr inbounds [4 x i8], ptr %103, i64 %85
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %104, i64 %42
   %exitcond66.not.i = icmp eq i32 %97, %81
   br i1 %exitcond66.not.i, label %92, label %.preheader.i
 
@@ -16203,7 +16187,7 @@ _ZN3zfp8internal5CacheINS0_11BlockCache3IfNS0_11BlockStore3IfNS_5codec4zfp3IfEEN
   %101 = load float, ptr %.24250.i, align 4, !tbaa !48
   store float %101, ptr %.251.i, align 4, !tbaa !48
   %102 = add nuw nsw i32 %.052.i, 1
-  %103 = getelementptr inbounds float, ptr %.24250.i, i64 %3
+  %103 = getelementptr inbounds [4 x i8], ptr %.24250.i, i64 %3
   %104 = getelementptr inbounds nuw i8, ptr %.251.i, i64 4
   %exitcond.not.i = icmp eq i32 %102, %80
   br i1 %exitcond.not.i, label %96, label %100
@@ -16542,12 +16526,12 @@ define linkonce_odr dso_local void @_Z13update_array3IfEvRN3zfp6array3IT_NS0_5co
   %64 = and i32 %62, %63
   %65 = load ptr, ptr %10, align 8, !tbaa !60
   %66 = zext i32 %64 to i64
-  %67 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<float, zfp::internal::BlockStore3<float, zfp::codec::zfp3<float>, zfp::index::implicit> >::CacheLine>::Tag", ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %66
   %68 = load i32, ptr %67, align 4, !tbaa !242
   %69 = lshr i32 %68, 1
   %70 = icmp eq i32 %69, %62
   %71 = load ptr, ptr %11, align 8, !tbaa !64
-  %72 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<float, zfp::internal::BlockStore3<float, zfp::codec::zfp3<float>, zfp::index::implicit> >::CacheLine", ptr %71, i64 %66
+  %72 = getelementptr inbounds nuw [256 x i8], ptr %71, i64 %66
   br i1 %70, label %_ZN3zfp8internal5CacheINS0_11BlockCache3IfNS0_11BlockStore3IfNS_5codec4zfp3IfEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i, label %73
 
 73:                                               ; preds = %47
@@ -16692,7 +16676,7 @@ _ZNK3zfp8internal11BlockStore3IfNS_5codec4zfp3IfEENS_5index8implicitEE6decodeEmP
 _ZNK3zfp8internal4dim315const_referenceINS_6array3IfNS_5codec4zfp3IfEENS_5index8implicitEEEEcvfEv.exit: ; preds = %_ZN3zfp8internal5CacheINS0_11BlockCache3IfNS0_11BlockStore3IfNS_5codec4zfp3IfEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i, %_ZNK3zfp8internal11BlockStore3IfNS_5codec4zfp3IfEENS_5index8implicitEE6decodeEmPf.exit
   %176 = and i64 %50, 3
   %177 = getelementptr inbounds nuw i8, ptr %72, i64 %.idx.i.i.i.i.i
-  %178 = getelementptr inbounds nuw float, ptr %177, i64 %176
+  %178 = getelementptr inbounds nuw [4 x i8], ptr %177, i64 %176
   %179 = load float, ptr %178, align 4, !tbaa !48
   %180 = load ptr, ptr %9, align 8, !tbaa !240, !noalias !364
   %181 = lshr i64 %48, 2
@@ -16710,12 +16694,12 @@ _ZNK3zfp8internal4dim315const_referenceINS_6array3IfNS_5codec4zfp3IfEENS_5index8
   %193 = and i32 %191, %192
   %194 = load ptr, ptr %10, align 8, !tbaa !60, !noalias !364
   %195 = zext i32 %193 to i64
-  %196 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<float, zfp::internal::BlockStore3<float, zfp::codec::zfp3<float>, zfp::index::implicit> >::CacheLine>::Tag", ptr %194, i64 %195
+  %196 = getelementptr inbounds nuw [4 x i8], ptr %194, i64 %195
   %197 = load i32, ptr %196, align 4, !tbaa !242, !noalias !364
   %198 = lshr i32 %197, 1
   %199 = icmp eq i32 %198, %191
   %200 = load ptr, ptr %11, align 8, !tbaa !64, !noalias !364
-  %201 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<float, zfp::internal::BlockStore3<float, zfp::codec::zfp3<float>, zfp::index::implicit> >::CacheLine", ptr %200, i64 %195
+  %201 = getelementptr inbounds nuw [256 x i8], ptr %200, i64 %195
   %202 = shl i32 %191, 1
   %.sink.i.i.v.i.i.i = select i1 %199, i32 %197, i32 %202
   %.sink.i.i.i.i.i = or i32 %.sink.i.i.v.i.i.i, 1
@@ -16857,7 +16841,7 @@ _ZNK3zfp8internal11BlockStore3IfNS_5codec4zfp3IfEENS_5index8implicitEE6decodeEmP
 _ZN3zfp8internal4dim39referenceINS_6array3IfNS_5codec4zfp3IfEENS_5index8implicitEEEEmIEf.exit: ; preds = %_ZNK3zfp8internal4dim315const_referenceINS_6array3IfNS_5codec4zfp3IfEENS_5index8implicitEEEEcvfEv.exit, %_ZNK3zfp8internal11BlockStore3IfNS_5codec4zfp3IfEENS_5index8implicitEE6decodeEmPf.exit123
   %305 = and i64 %48, 3
   %306 = getelementptr inbounds nuw i8, ptr %201, i64 %.idx.i.i.i.i.i
-  %307 = getelementptr inbounds nuw float, ptr %306, i64 %305
+  %307 = getelementptr inbounds nuw [4 x i8], ptr %306, i64 %305
   %308 = load float, ptr %307, align 4, !tbaa !48, !noalias !364
   %309 = fsub float %308, %179
   store float %309, ptr %307, align 4, !tbaa !48, !noalias !364
@@ -16989,12 +16973,12 @@ _ZN3zfp8internal4dim39referenceINS_6array3IfNS_5codec4zfp3IfEENS_5index8implicit
   %375 = and i32 %373, %374
   %376 = load ptr, ptr %28, align 8, !tbaa !60
   %377 = zext i32 %375 to i64
-  %378 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<float, zfp::internal::BlockStore3<float, zfp::codec::zfp3<float>, zfp::index::implicit> >::CacheLine>::Tag", ptr %376, i64 %377
+  %378 = getelementptr inbounds nuw [4 x i8], ptr %376, i64 %377
   %379 = load i32, ptr %378, align 4, !tbaa !242
   %380 = lshr i32 %379, 1
   %381 = icmp eq i32 %380, %373
   %382 = load ptr, ptr %29, align 8, !tbaa !64
-  %383 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<float, zfp::internal::BlockStore3<float, zfp::codec::zfp3<float>, zfp::index::implicit> >::CacheLine", ptr %382, i64 %377
+  %383 = getelementptr inbounds nuw [256 x i8], ptr %382, i64 %377
   br i1 %381, label %_ZN3zfp8internal5CacheINS0_11BlockCache3IfNS0_11BlockStore3IfNS_5codec4zfp3IfEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i88, label %384
 
 384:                                              ; preds = %360
@@ -17139,7 +17123,7 @@ _ZNK3zfp8internal11BlockStore3IfNS_5codec4zfp3IfEENS_5index8implicitEE6decodeEmP
 _ZNK3zfp8internal4dim315const_referenceINS_6array3IfNS_5codec4zfp3IfEENS_5index8implicitEEEEcvfEv.exit92: ; preds = %_ZN3zfp8internal5CacheINS0_11BlockCache3IfNS0_11BlockStore3IfNS_5codec4zfp3IfEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i88, %_ZNK3zfp8internal11BlockStore3IfNS_5codec4zfp3IfEENS_5index8implicitEE6decodeEmPf.exit127
   %487 = and i64 %361, 3
   %488 = getelementptr inbounds nuw i8, ptr %383, i64 %.idx.i.i.i.i.i90
-  %489 = getelementptr inbounds nuw float, ptr %488, i64 %487
+  %489 = getelementptr inbounds nuw [4 x i8], ptr %488, i64 %487
   %490 = load float, ptr %489, align 4, !tbaa !48
   %491 = load ptr, ptr %27, align 8, !tbaa !240, !noalias !368
   %492 = getelementptr inbounds nuw i8, ptr %491, i64 80
@@ -17156,12 +17140,12 @@ _ZNK3zfp8internal4dim315const_referenceINS_6array3IfNS_5codec4zfp3IfEENS_5index8
   %503 = and i32 %501, %502
   %504 = load ptr, ptr %28, align 8, !tbaa !60, !noalias !368
   %505 = zext i32 %503 to i64
-  %506 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<float, zfp::internal::BlockStore3<float, zfp::codec::zfp3<float>, zfp::index::implicit> >::CacheLine>::Tag", ptr %504, i64 %505
+  %506 = getelementptr inbounds nuw [4 x i8], ptr %504, i64 %505
   %507 = load i32, ptr %506, align 4, !tbaa !242, !noalias !368
   %508 = lshr i32 %507, 1
   %509 = icmp eq i32 %508, %501
   %510 = load ptr, ptr %29, align 8, !tbaa !64, !noalias !368
-  %511 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<float, zfp::internal::BlockStore3<float, zfp::codec::zfp3<float>, zfp::index::implicit> >::CacheLine", ptr %510, i64 %505
+  %511 = getelementptr inbounds nuw [256 x i8], ptr %510, i64 %505
   %512 = shl i32 %501, 1
   %.sink.i.i.v.i.i.i93 = select i1 %509, i32 %507, i32 %512
   %.sink.i.i.i.i.i94 = or i32 %.sink.i.i.v.i.i.i93, 1
@@ -17302,7 +17286,7 @@ _ZNK3zfp8internal11BlockStore3IfNS_5codec4zfp3IfEENS_5index8implicitEE6decodeEmP
 
 _ZN3zfp8internal4dim39referenceINS_6array3IfNS_5codec4zfp3IfEENS_5index8implicitEEEEmIEf.exit102: ; preds = %_ZNK3zfp8internal4dim315const_referenceINS_6array3IfNS_5codec4zfp3IfEENS_5index8implicitEEEEcvfEv.exit92, %_ZNK3zfp8internal11BlockStore3IfNS_5codec4zfp3IfEENS_5index8implicitEE6decodeEmPf.exit131
   %615 = getelementptr inbounds nuw i8, ptr %511, i64 %.idx.i.i.i.i100
-  %616 = getelementptr inbounds nuw float, ptr %615, i64 %487
+  %616 = getelementptr inbounds nuw [4 x i8], ptr %615, i64 %487
   %617 = load float, ptr %616, align 4, !tbaa !48, !noalias !368
   %618 = fsub float %617, %490
   store float %618, ptr %616, align 4, !tbaa !48, !noalias !368
@@ -17424,12 +17408,12 @@ _ZN3zfp8internal4dim39referenceINS_6array3IfNS_5codec4zfp3IfEENS_5index8implicit
   %684 = and i32 %682, %683
   %685 = load ptr, ptr %331, align 8, !tbaa !60
   %686 = zext i32 %684 to i64
-  %687 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<float, zfp::internal::BlockStore3<float, zfp::codec::zfp3<float>, zfp::index::implicit> >::CacheLine>::Tag", ptr %685, i64 %686
+  %687 = getelementptr inbounds nuw [4 x i8], ptr %685, i64 %686
   %688 = load i32, ptr %687, align 4, !tbaa !242
   %689 = lshr i32 %688, 1
   %690 = icmp eq i32 %689, %682
   %691 = load ptr, ptr %332, align 8, !tbaa !64
-  %692 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<float, zfp::internal::BlockStore3<float, zfp::codec::zfp3<float>, zfp::index::implicit> >::CacheLine", ptr %691, i64 %686
+  %692 = getelementptr inbounds nuw [256 x i8], ptr %691, i64 %686
   br i1 %690, label %_ZN3zfp8internal5CacheINS0_11BlockCache3IfNS0_11BlockStore3IfNS_5codec4zfp3IfEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i103, label %693
 
 693:                                              ; preds = %669
@@ -17574,7 +17558,7 @@ _ZNK3zfp8internal11BlockStore3IfNS_5codec4zfp3IfEENS_5index8implicitEE6decodeEmP
 _ZNK3zfp8internal4dim315const_referenceINS_6array3IfNS_5codec4zfp3IfEENS_5index8implicitEEEEcvfEv.exit107: ; preds = %_ZN3zfp8internal5CacheINS0_11BlockCache3IfNS0_11BlockStore3IfNS_5codec4zfp3IfEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i103, %_ZNK3zfp8internal11BlockStore3IfNS_5codec4zfp3IfEENS_5index8implicitEE6decodeEmPf.exit135
   %796 = and i64 %670, 3
   %797 = getelementptr inbounds nuw i8, ptr %692, i64 %.idx.i.i.i.i.i105
-  %798 = getelementptr inbounds nuw float, ptr %797, i64 %796
+  %798 = getelementptr inbounds nuw [4 x i8], ptr %797, i64 %796
   %799 = load float, ptr %798, align 4, !tbaa !48
   %800 = load ptr, ptr %330, align 8, !tbaa !240, !noalias !373
   %801 = getelementptr inbounds nuw i8, ptr %800, i64 80
@@ -17591,12 +17575,12 @@ _ZNK3zfp8internal4dim315const_referenceINS_6array3IfNS_5codec4zfp3IfEENS_5index8
   %812 = and i32 %810, %811
   %813 = load ptr, ptr %331, align 8, !tbaa !60, !noalias !373
   %814 = zext i32 %812 to i64
-  %815 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<float, zfp::internal::BlockStore3<float, zfp::codec::zfp3<float>, zfp::index::implicit> >::CacheLine>::Tag", ptr %813, i64 %814
+  %815 = getelementptr inbounds nuw [4 x i8], ptr %813, i64 %814
   %816 = load i32, ptr %815, align 4, !tbaa !242, !noalias !373
   %817 = lshr i32 %816, 1
   %818 = icmp eq i32 %817, %810
   %819 = load ptr, ptr %332, align 8, !tbaa !64, !noalias !373
-  %820 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<float, zfp::internal::BlockStore3<float, zfp::codec::zfp3<float>, zfp::index::implicit> >::CacheLine", ptr %819, i64 %814
+  %820 = getelementptr inbounds nuw [256 x i8], ptr %819, i64 %814
   %821 = shl i32 %810, 1
   %.sink.i.i.v.i.i.i108 = select i1 %818, i32 %816, i32 %821
   %.sink.i.i.i.i.i109 = or i32 %.sink.i.i.v.i.i.i108, 1
@@ -17737,7 +17721,7 @@ _ZNK3zfp8internal11BlockStore3IfNS_5codec4zfp3IfEENS_5index8implicitEE6decodeEmP
 
 _ZN3zfp8internal4dim39referenceINS_6array3IfNS_5codec4zfp3IfEENS_5index8implicitEEEEmIEf.exit117: ; preds = %_ZNK3zfp8internal4dim315const_referenceINS_6array3IfNS_5codec4zfp3IfEENS_5index8implicitEEEEcvfEv.exit107, %_ZNK3zfp8internal11BlockStore3IfNS_5codec4zfp3IfEENS_5index8implicitEE6decodeEmPf.exit139
   %924 = getelementptr inbounds nuw i8, ptr %820, i64 %.idx.i.i.i.i115
-  %925 = getelementptr inbounds nuw float, ptr %924, i64 %796
+  %925 = getelementptr inbounds nuw [4 x i8], ptr %924, i64 %796
   %926 = load float, ptr %925, align 4, !tbaa !48, !noalias !373
   %927 = fsub float %926, %799
   store float %927, ptr %925, align 4, !tbaa !48, !noalias !373
@@ -17838,13 +17822,13 @@ _ZN3zfp8internal4dim39referenceINS_6array3IfNS_5codec4zfp3IfEENS_5index8implicit
   %979 = getelementptr inbounds nuw i8, ptr %954, i64 160
   %980 = load ptr, ptr %979, align 8, !tbaa !60, !noalias !388
   %981 = zext i32 %978 to i64
-  %982 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<float, zfp::internal::BlockStore3<float, zfp::codec::zfp3<float>, zfp::index::implicit> >::CacheLine>::Tag", ptr %980, i64 %981
+  %982 = getelementptr inbounds nuw [4 x i8], ptr %980, i64 %981
   %983 = load i32, ptr %982, align 4, !tbaa !242, !noalias !388
   %984 = lshr i32 %983, 1
   %985 = icmp eq i32 %984, %976
   %986 = getelementptr inbounds nuw i8, ptr %954, i64 168
   %987 = load ptr, ptr %986, align 8, !tbaa !64, !noalias !388
-  %988 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<float, zfp::internal::BlockStore3<float, zfp::codec::zfp3<float>, zfp::index::implicit> >::CacheLine", ptr %987, i64 %981
+  %988 = getelementptr inbounds nuw [256 x i8], ptr %987, i64 %981
   br i1 %985, label %_ZN3zfp8internal5CacheINS0_11BlockCache3IfNS0_11BlockStore3IfNS_5codec4zfp3IfEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i118, label %989
 
 989:                                              ; preds = %.lr.ph232
@@ -17994,7 +17978,7 @@ _ZN3zfp8internal4dim39referenceINS_6array3IfNS_5codec4zfp3IfEENS_5index8implicit
   %1096 = or disjoint i64 %1095, %1093
   %.idx.i.i.i.i.i120 = shl nuw nsw i64 %1096, 4
   %1097 = getelementptr inbounds nuw i8, ptr %988, i64 %.idx.i.i.i.i.i120
-  %1098 = getelementptr inbounds nuw float, ptr %1097, i64 %1092
+  %1098 = getelementptr inbounds nuw [4 x i8], ptr %1097, i64 %1092
   %1099 = load float, ptr %1098, align 4, !tbaa !48, !noalias !388
   %1100 = load ptr, ptr %646, align 8, !tbaa !240, !noalias !388
   %1101 = getelementptr inbounds nuw i8, ptr %1100, i64 80
@@ -18005,11 +17989,11 @@ _ZN3zfp8internal4dim39referenceINS_6array3IfNS_5codec4zfp3IfEENS_5index8implicit
   %1106 = and i32 %1105, 1
   %1107 = load ptr, ptr %647, align 8, !tbaa !60, !noalias !388
   %1108 = zext nneg i32 %1106 to i64
-  %1109 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<float, zfp::internal::BlockStore3<float, zfp::codec::zfp3<float>, zfp::index::implicit> >::CacheLine>::Tag", ptr %1107, i64 %1108
+  %1109 = getelementptr inbounds nuw [4 x i8], ptr %1107, i64 %1108
   %1110 = load i32, ptr %1109, align 4, !tbaa !242, !noalias !388
   %1111 = lshr i32 %1110, 1
   %1112 = load ptr, ptr %648, align 8, !tbaa !64, !noalias !388
-  %1113 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<float, zfp::internal::BlockStore3<float, zfp::codec::zfp3<float>, zfp::index::implicit> >::CacheLine", ptr %1112, i64 %1108
+  %1113 = getelementptr inbounds nuw [256 x i8], ptr %1112, i64 %1108
   store i32 3, ptr %1109, align 4, !tbaa !37, !noalias !388
   %1114 = add nsw i32 %1111, -1
   %1115 = zext i32 %1114 to i64
@@ -18169,13 +18153,13 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(32) ptr @_
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 160
   %29 = load ptr, ptr %28, align 8, !tbaa !60
   %30 = zext i32 %27 to i64
-  %31 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<float, zfp::internal::BlockStore3<float, zfp::codec::zfp3<float>, zfp::index::implicit> >::CacheLine>::Tag", ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !242
   %33 = lshr i32 %32, 1
   %34 = icmp eq i32 %33, %25
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 168
   %36 = load ptr, ptr %35, align 8, !tbaa !64
-  %37 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<float, zfp::internal::BlockStore3<float, zfp::codec::zfp3<float>, zfp::index::implicit> >::CacheLine", ptr %36, i64 %30
+  %37 = getelementptr inbounds nuw [256 x i8], ptr %36, i64 %30
   br i1 %34, label %_ZN3zfp8internal5CacheINS0_11BlockCache3IfNS0_11BlockStore3IfNS_5codec4zfp3IfEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i, label %38
 
 38:                                               ; preds = %2
@@ -18211,7 +18195,7 @@ _ZNK3zfp8internal4dim315const_referenceINS_6array3IfNS_5codec4zfp3IfEENS_5index8
   %53 = or disjoint i64 %52, %50
   %.idx.i.i.i.i.i = shl nuw nsw i64 %53, 4
   %54 = getelementptr inbounds nuw i8, ptr %37, i64 %.idx.i.i.i.i.i
-  %55 = getelementptr inbounds nuw float, ptr %54, i64 %49
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %49
   %56 = load float, ptr %55, align 4, !tbaa !48
   %57 = load ptr, ptr %1, align 8, !tbaa !376
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -18241,13 +18225,13 @@ _ZNK3zfp8internal4dim315const_referenceINS_6array3IfNS_5codec4zfp3IfEENS_5index8
   %82 = getelementptr inbounds nuw i8, ptr %57, i64 160
   %83 = load ptr, ptr %82, align 8, !tbaa !60
   %84 = zext i32 %81 to i64
-  %85 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<float, zfp::internal::BlockStore3<float, zfp::codec::zfp3<float>, zfp::index::implicit> >::CacheLine>::Tag", ptr %83, i64 %84
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %83, i64 %84
   %86 = load i32, ptr %85, align 4, !tbaa !242
   %87 = lshr i32 %86, 1
   %88 = icmp eq i32 %87, %79
   %89 = getelementptr inbounds nuw i8, ptr %57, i64 168
   %90 = load ptr, ptr %89, align 8, !tbaa !64
-  %91 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<float, zfp::internal::BlockStore3<float, zfp::codec::zfp3<float>, zfp::index::implicit> >::CacheLine", ptr %90, i64 %84
+  %91 = getelementptr inbounds nuw [256 x i8], ptr %90, i64 %84
   br i1 %88, label %_ZN3zfp8internal5CacheINS0_11BlockCache3IfNS0_11BlockStore3IfNS_5codec4zfp3IfEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i5, label %92
 
 92:                                               ; preds = %_ZNK3zfp8internal4dim315const_referenceINS_6array3IfNS_5codec4zfp3IfEENS_5index8implicitEEEEcvfEv.exit
@@ -18283,7 +18267,7 @@ _ZNK3zfp8internal4dim315const_referenceINS_6array3IfNS_5codec4zfp3IfEENS_5index8
   %107 = or disjoint i64 %106, %104
   %.idx.i.i.i.i.i7 = shl nuw nsw i64 %107, 4
   %108 = getelementptr inbounds nuw i8, ptr %91, i64 %.idx.i.i.i.i.i7
-  %109 = getelementptr inbounds nuw float, ptr %108, i64 %103
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %108, i64 %103
   %110 = load float, ptr %109, align 4, !tbaa !48
   %111 = fcmp olt float %56, %110
   %. = select i1 %111, ptr %1, ptr %0
@@ -18528,13 +18512,13 @@ define linkonce_odr dso_local noundef ptr @_ZNK3zfp6array4IfNS_5codec4zfp4IfEENS
 
 11:                                               ; preds = %10
   %12 = zext i32 %.0.i.i.i.i to i64
-  %13 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache4<float, zfp::internal::BlockStore4<float, zfp::codec::zfp4<float>, zfp::index::implicit> >::CacheLine>::Tag", ptr %6, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !401, !noalias !398
   %.not10.i.i.i.i = icmp eq i32 %14, 0
   br i1 %.not10.i.i.i.i, label %10, label %.critedge.i.i.i.i
 
 .critedge.i.i.i.i:                                ; preds = %11
-  %15 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache4<float, zfp::internal::BlockStore4<float, zfp::codec::zfp4<float>, zfp::index::implicit> >::CacheLine", ptr %4, i64 %12
+  %15 = getelementptr inbounds nuw [1024 x i8], ptr %4, i64 %12
   br label %_ZN3zfp8internal5CacheINS0_11BlockCache4IfNS0_11BlockStore4IfNS_5codec4zfp4IfEENS_5index8implicitEEEE9CacheLineEE5firstEv.exit.i
 
 _ZN3zfp8internal5CacheINS0_11BlockCache4IfNS0_11BlockStore4IfNS_5codec4zfp4IfEENS_5index8implicitEEEE9CacheLineEE5firstEv.exit.i: ; preds = %.critedge.i.i.i.i, %1
@@ -18573,7 +18557,7 @@ _ZN3zfp8internal5CacheINS0_11BlockCache4IfNS0_11BlockStore4IfNS_5codec4zfp4IfEEN
   %34 = sub i64 %32, %33
   %35 = lshr exact i64 %34, 10
   %36 = and i64 %35, 4294967295
-  %37 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache4<float, zfp::internal::BlockStore4<float, zfp::codec::zfp4<float>, zfp::index::implicit> >::CacheLine>::Tag", ptr %30, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %36
   store i32 0, ptr %37, align 4, !tbaa !401
   %38 = trunc i64 %35 to i32
   %39 = load i32, ptr %2, align 8, !tbaa !258, !noalias !405
@@ -18587,13 +18571,13 @@ _ZN3zfp8internal5CacheINS0_11BlockCache4IfNS0_11BlockStore4IfNS_5codec4zfp4IfEEN
 
 41:                                               ; preds = %40
   %42 = zext i32 %.0.i.i.i to i64
-  %43 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache4<float, zfp::internal::BlockStore4<float, zfp::codec::zfp4<float>, zfp::index::implicit> >::CacheLine>::Tag", ptr %30, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !401, !noalias !405
   %.not10.i.i.i = icmp eq i32 %44, 0
   br i1 %.not10.i.i.i, label %40, label %_ZN3zfp8internal5CacheINS0_11BlockCache4IfNS0_11BlockStore4IfNS_5codec4zfp4IfEENS_5index8implicitEEEE9CacheLineEE14const_iteratorppEi.exit.i
 
 _ZN3zfp8internal5CacheINS0_11BlockCache4IfNS0_11BlockStore4IfNS_5codec4zfp4IfEENS_5index8implicitEEEE9CacheLineEE14const_iteratorppEi.exit.i: ; preds = %41
-  %45 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache4<float, zfp::internal::BlockStore4<float, zfp::codec::zfp4<float>, zfp::index::implicit> >::CacheLine", ptr %31, i64 %42
+  %45 = getelementptr inbounds nuw [1024 x i8], ptr %31, i64 %42
   %.not.i.i = icmp eq ptr %31, null
   br i1 %.not.i.i, label %_ZNK3zfp8internal11BlockCache4IfNS0_11BlockStore4IfNS_5codec4zfp4IfEENS_5index8implicitEEEE5flushEv.exit, label %17
 
@@ -19210,7 +19194,7 @@ _ZN3zfp8internal18reallocate_alignedINS0_11BlockCache4IfNS0_11BlockStore4IfNS_5c
 30:                                               ; preds = %30, %_ZN3zfp8internal18reallocate_alignedINS0_11BlockCache4IfNS0_11BlockStore4IfNS_5codec4zfp4IfEENS_5index8implicitEEEE9CacheLineEEEvRPT_mmm.exit
   %.03.i = phi i32 [ 0, %_ZN3zfp8internal18reallocate_alignedINS0_11BlockCache4IfNS0_11BlockStore4IfNS_5codec4zfp4IfEENS_5index8implicitEEEE9CacheLineEEEvRPT_mmm.exit ], [ %33, %30 ]
   %31 = zext i32 %.03.i to i64
-  %32 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache4<float, zfp::internal::BlockStore4<float, zfp::codec::zfp4<float>, zfp::index::implicit> >::CacheLine>::Tag", ptr %29, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %31
   store i32 0, ptr %32, align 4, !tbaa !401
   %33 = add i32 %.03.i, 1
   %.not.i = icmp ugt i32 %33, %28
@@ -19229,7 +19213,7 @@ define linkonce_odr dso_local void @_ZNK3zfp8internal11BlockCache4IfNS0_11BlockS
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !65
   %14 = zext i32 %11 to i64
-  %15 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache4<float, zfp::internal::BlockStore4<float, zfp::codec::zfp4<float>, zfp::index::implicit> >::CacheLine>::Tag", ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !401
   %17 = lshr i32 %16, 1
   %18 = icmp eq i32 %17, %9
@@ -19240,7 +19224,7 @@ _ZN3zfp8internal5CacheINS0_11BlockCache4IfNS0_11BlockStore4IfNS_5codec4zfp4IfEEN
   store i32 %19, ptr %15, align 4, !tbaa !401
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8, !tbaa !69
-  %22 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache4<float, zfp::internal::BlockStore4<float, zfp::codec::zfp4<float>, zfp::index::implicit> >::CacheLine", ptr %21, i64 %14
+  %22 = getelementptr inbounds nuw [1024 x i8], ptr %21, i64 %14
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %_ZN3zfp8internal5CacheINS0_11BlockCache4IfNS0_11BlockStore4IfNS_5codec4zfp4IfEENS_5index8implicitEEEE9CacheLineEE6lookupEjb.exit.thread, label %23
 
@@ -19326,7 +19310,7 @@ _ZN3zfp8internal5CacheINS0_11BlockCache4IfNS0_11BlockStore4IfNS_5codec4zfp4IfEEN
 
 87:                                               ; preds = %90
   %88 = add nuw nsw i32 %.02443.i.i, 1
-  %89 = getelementptr inbounds float, ptr %92, i64 %86
+  %89 = getelementptr inbounds [4 x i8], ptr %92, i64 %86
   %exitcond49.not.i.i = icmp eq i32 %88, 4
   br i1 %exitcond49.not.i.i, label %_ZN3zfp8internal11BlockCache4IfNS0_11BlockStore4IfNS_5codec4zfp4IfEENS_5index8implicitEEEE9CacheLine3putEPKfllllj.exit, label %.preheader31.i.i
 
@@ -19338,13 +19322,13 @@ _ZN3zfp8internal5CacheINS0_11BlockCache4IfNS0_11BlockStore4IfNS_5codec4zfp4IfEEN
 
 90:                                               ; preds = %93
   %91 = add nuw nsw i32 %.02340.i.i, 1
-  %92 = getelementptr inbounds float, ptr %95, i64 %84
+  %92 = getelementptr inbounds [4 x i8], ptr %95, i64 %84
   %exitcond48.not.i.i = icmp eq i32 %91, 4
   br i1 %exitcond48.not.i.i, label %87, label %.preheader30.i.i
 
 93:                                               ; preds = %96
   %94 = add nuw nsw i32 %.02237.i.i, 1
-  %95 = getelementptr inbounds float, ptr %99, i64 %82
+  %95 = getelementptr inbounds [4 x i8], ptr %99, i64 %82
   %exitcond47.not.i.i = icmp eq i32 %94, 4
   br i1 %exitcond47.not.i.i, label %90, label %.preheader.i.i
 
@@ -19355,7 +19339,7 @@ _ZN3zfp8internal5CacheINS0_11BlockCache4IfNS0_11BlockStore4IfNS_5codec4zfp4IfEEN
   %97 = load float, ptr %.32932.i.i, align 4, !tbaa !48
   store float %97, ptr %.333.i.i, align 4, !tbaa !48
   %98 = add nuw nsw i32 %.034.i.i, 1
-  %99 = getelementptr inbounds float, ptr %.32932.i.i, i64 %3
+  %99 = getelementptr inbounds [4 x i8], ptr %.32932.i.i, i64 %3
   %100 = getelementptr inbounds nuw i8, ptr %.333.i.i, i64 4
   %exitcond.not.i.i = icmp eq i32 %98, 4
   br i1 %exitcond.not.i.i, label %93, label %96
@@ -19396,8 +19380,8 @@ _ZN3zfp8internal5CacheINS0_11BlockCache4IfNS0_11BlockStore4IfNS_5codec4zfp4IfEEN
 
 121:                                              ; preds = %125
   %122 = add nuw nsw i32 %.05178.i, 1
-  %123 = getelementptr inbounds float, ptr %127, i64 %117
-  %124 = getelementptr inbounds nuw float, ptr %128, i64 %120
+  %123 = getelementptr inbounds [4 x i8], ptr %127, i64 %117
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %128, i64 %120
   %exitcond91.not.i = icmp eq i32 %122, %105
   br i1 %exitcond91.not.i, label %_ZN3zfp8internal11BlockCache4IfNS0_11BlockStore4IfNS_5codec4zfp4IfEENS_5index8implicitEEEE9CacheLine3putEPKfllllj.exit, label %.preheader62.i
 
@@ -19409,15 +19393,15 @@ _ZN3zfp8internal5CacheINS0_11BlockCache4IfNS0_11BlockStore4IfNS_5codec4zfp4IfEEN
 
 125:                                              ; preds = %129
   %126 = add nuw nsw i32 %.05075.i, 1
-  %127 = getelementptr inbounds float, ptr %131, i64 %111
-  %128 = getelementptr inbounds nuw float, ptr %132, i64 %114
+  %127 = getelementptr inbounds [4 x i8], ptr %131, i64 %111
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %132, i64 %114
   %exitcond90.not.i = icmp eq i32 %126, %104
   br i1 %exitcond90.not.i, label %121, label %.preheader61.i
 
 129:                                              ; preds = %133
   %130 = add nuw nsw i32 %.04972.i, 1
-  %131 = getelementptr inbounds float, ptr %136, i64 %108
-  %132 = getelementptr inbounds nuw float, ptr %137, i64 %48
+  %131 = getelementptr inbounds [4 x i8], ptr %136, i64 %108
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %137, i64 %48
   %exitcond89.not.i = icmp eq i32 %130, %103
   br i1 %exitcond89.not.i, label %125, label %.preheader.i
 
@@ -19428,7 +19412,7 @@ _ZN3zfp8internal5CacheINS0_11BlockCache4IfNS0_11BlockStore4IfNS_5codec4zfp4IfEEN
   %134 = load float, ptr %.35667.i, align 4, !tbaa !48
   store float %134, ptr %.368.i, align 4, !tbaa !48
   %135 = add nuw nsw i32 %.069.i, 1
-  %136 = getelementptr inbounds float, ptr %.35667.i, i64 %3
+  %136 = getelementptr inbounds [4 x i8], ptr %.35667.i, i64 %3
   %137 = getelementptr inbounds nuw i8, ptr %.368.i, i64 4
   %exitcond.not.i = icmp eq i32 %135, %102
   br i1 %exitcond.not.i, label %129, label %133
@@ -19656,13 +19640,13 @@ define linkonce_odr dso_local noundef float @_ZNK3zfp8internal4dim412const_handl
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 176
   %35 = load ptr, ptr %34, align 8, !tbaa !65
   %36 = zext i32 %33 to i64
-  %37 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache4<float, zfp::internal::BlockStore4<float, zfp::codec::zfp4<float>, zfp::index::implicit> >::CacheLine>::Tag", ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !401
   %39 = lshr i32 %38, 1
   %40 = icmp eq i32 %39, %31
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 184
   %42 = load ptr, ptr %41, align 8, !tbaa !69
-  %43 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache4<float, zfp::internal::BlockStore4<float, zfp::codec::zfp4<float>, zfp::index::implicit> >::CacheLine", ptr %42, i64 %36
+  %43 = getelementptr inbounds nuw [1024 x i8], ptr %42, i64 %36
   br i1 %40, label %_ZN3zfp8internal5CacheINS0_11BlockCache4IfNS0_11BlockStore4IfNS_5codec4zfp4IfEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i, label %44
 
 44:                                               ; preds = %1
@@ -19700,8 +19684,8 @@ _ZNK3zfp6array4IfNS_5codec4zfp4IfEENS_5index8implicitEE3getEmmmm.exit: ; preds =
   %61 = and i64 %60, 12
   %.idx.i.i.i = shl nuw nsw i64 %59, 6
   %62 = getelementptr inbounds nuw i8, ptr %43, i64 %.idx.i.i.i
-  %63 = getelementptr inbounds nuw float, ptr %62, i64 %61
-  %64 = getelementptr inbounds nuw float, ptr %63, i64 %55
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %61
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %55
   %65 = load float, ptr %64, align 4, !tbaa !48
   ret float %65
 }
@@ -19967,12 +19951,12 @@ define linkonce_odr dso_local void @_Z13update_array4IfEvRN3zfp6array4IT_NS0_5co
   %93 = and i32 %91, %92
   %94 = load ptr, ptr %9, align 8, !tbaa !65
   %95 = zext i32 %93 to i64
-  %96 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache4<float, zfp::internal::BlockStore4<float, zfp::codec::zfp4<float>, zfp::index::implicit> >::CacheLine>::Tag", ptr %94, i64 %95
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %95
   %97 = load i32, ptr %96, align 4, !tbaa !401
   %98 = lshr i32 %97, 1
   %99 = icmp eq i32 %98, %91
   %100 = load ptr, ptr %10, align 8, !tbaa !69
-  %101 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache4<float, zfp::internal::BlockStore4<float, zfp::codec::zfp4<float>, zfp::index::implicit> >::CacheLine", ptr %100, i64 %95
+  %101 = getelementptr inbounds nuw [1024 x i8], ptr %100, i64 %95
   br i1 %99, label %_ZN3zfp8internal5CacheINS0_11BlockCache4IfNS0_11BlockStore4IfNS_5codec4zfp4IfEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i, label %102
 
 102:                                              ; preds = %72
@@ -20144,8 +20128,8 @@ _ZNK3zfp8internal11BlockStore4IfNS_5codec4zfp4IfEENS_5index8implicitEE6decodeEmP
 _ZNK3zfp8internal4dim412const_handleINS_6array4IfNS_5codec4zfp4IfEENS_5index8implicitEEEE3getEv.exit: ; preds = %_ZN3zfp8internal5CacheINS0_11BlockCache4IfNS0_11BlockStore4IfNS_5codec4zfp4IfEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i, %_ZNK3zfp8internal11BlockStore4IfNS_5codec4zfp4IfEENS_5index8implicitEE6decodeEmPf.exit
   %230 = and i64 %75, 3
   %231 = getelementptr inbounds nuw i8, ptr %101, i64 %.idx.i.i.i.i
-  %232 = getelementptr inbounds nuw float, ptr %231, i64 %59
-  %233 = getelementptr inbounds nuw float, ptr %232, i64 %230
+  %232 = getelementptr inbounds nuw [4 x i8], ptr %231, i64 %59
+  %233 = getelementptr inbounds nuw [4 x i8], ptr %232, i64 %230
   %234 = load float, ptr %233, align 4, !tbaa !48
   %235 = load ptr, ptr %8, align 8, !tbaa !403, !noalias !412
   %236 = lshr i64 %73, 2
@@ -20167,12 +20151,12 @@ _ZNK3zfp8internal4dim412const_handleINS_6array4IfNS_5codec4zfp4IfEENS_5index8imp
   %252 = and i32 %250, %251
   %253 = load ptr, ptr %9, align 8, !tbaa !65, !noalias !412
   %254 = zext i32 %252 to i64
-  %255 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache4<float, zfp::internal::BlockStore4<float, zfp::codec::zfp4<float>, zfp::index::implicit> >::CacheLine>::Tag", ptr %253, i64 %254
+  %255 = getelementptr inbounds nuw [4 x i8], ptr %253, i64 %254
   %256 = load i32, ptr %255, align 4, !tbaa !401, !noalias !412
   %257 = lshr i32 %256, 1
   %258 = icmp eq i32 %257, %250
   %259 = load ptr, ptr %10, align 8, !tbaa !69, !noalias !412
-  %260 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache4<float, zfp::internal::BlockStore4<float, zfp::codec::zfp4<float>, zfp::index::implicit> >::CacheLine", ptr %259, i64 %254
+  %260 = getelementptr inbounds nuw [1024 x i8], ptr %259, i64 %254
   %261 = shl i32 %250, 1
   %.sink.i.i.v.i.i = select i1 %258, i32 %256, i32 %261
   %.sink.i.i.i.i = or i32 %.sink.i.i.v.i.i, 1
@@ -20341,8 +20325,8 @@ _ZNK3zfp8internal11BlockStore4IfNS_5codec4zfp4IfEENS_5index8implicitEE6decodeEmP
 _ZN3zfp6array4IfNS_5codec4zfp4IfEENS_5index8implicitEE3subEmmmmf.exit: ; preds = %_ZNK3zfp8internal4dim412const_handleINS_6array4IfNS_5codec4zfp4IfEENS_5index8implicitEEEE3getEv.exit, %_ZNK3zfp8internal11BlockStore4IfNS_5codec4zfp4IfEENS_5index8implicitEE6decodeEmPf.exit197
   %389 = and i64 %73, 3
   %390 = getelementptr inbounds nuw i8, ptr %260, i64 %.idx.i.i.i.i
-  %391 = getelementptr inbounds nuw float, ptr %390, i64 %59
-  %392 = getelementptr inbounds nuw float, ptr %391, i64 %389
+  %391 = getelementptr inbounds nuw [4 x i8], ptr %390, i64 %59
+  %392 = getelementptr inbounds nuw [4 x i8], ptr %391, i64 %389
   %393 = load float, ptr %392, align 4, !tbaa !48, !noalias !412
   %394 = fsub float %393, %234
   store float %394, ptr %392, align 4, !tbaa !48, !noalias !412
@@ -20495,12 +20479,12 @@ _ZN3zfp6array4IfNS_5codec4zfp4IfEENS_5index8implicitEE3subEmmmmf.exit: ; preds =
   %473 = and i32 %471, %472
   %474 = load ptr, ptr %33, align 8, !tbaa !65
   %475 = zext i32 %473 to i64
-  %476 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache4<float, zfp::internal::BlockStore4<float, zfp::codec::zfp4<float>, zfp::index::implicit> >::CacheLine>::Tag", ptr %474, i64 %475
+  %476 = getelementptr inbounds nuw [4 x i8], ptr %474, i64 %475
   %477 = load i32, ptr %476, align 4, !tbaa !401
   %478 = lshr i32 %477, 1
   %479 = icmp eq i32 %478, %471
   %480 = load ptr, ptr %34, align 8, !tbaa !69
-  %481 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache4<float, zfp::internal::BlockStore4<float, zfp::codec::zfp4<float>, zfp::index::implicit> >::CacheLine", ptr %480, i64 %475
+  %481 = getelementptr inbounds nuw [1024 x i8], ptr %480, i64 %475
   br i1 %479, label %_ZN3zfp8internal5CacheINS0_11BlockCache4IfNS0_11BlockStore4IfNS_5codec4zfp4IfEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i145, label %482
 
 482:                                              ; preds = %454
@@ -20672,8 +20656,8 @@ _ZNK3zfp8internal11BlockStore4IfNS_5codec4zfp4IfEENS_5index8implicitEE6decodeEmP
 _ZNK3zfp8internal4dim412const_handleINS_6array4IfNS_5codec4zfp4IfEENS_5index8implicitEEEE3getEv.exit149: ; preds = %_ZN3zfp8internal5CacheINS0_11BlockCache4IfNS0_11BlockStore4IfNS_5codec4zfp4IfEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i145, %_ZNK3zfp8internal11BlockStore4IfNS_5codec4zfp4IfEENS_5index8implicitEE6decodeEmPf.exit201
   %610 = and i64 %455, 3
   %611 = getelementptr inbounds nuw i8, ptr %481, i64 %.idx.i.i.i.i147
-  %612 = getelementptr inbounds nuw float, ptr %611, i64 %438
-  %613 = getelementptr inbounds nuw float, ptr %612, i64 %610
+  %612 = getelementptr inbounds nuw [4 x i8], ptr %611, i64 %438
+  %613 = getelementptr inbounds nuw [4 x i8], ptr %612, i64 %610
   %614 = load float, ptr %613, align 4, !tbaa !48
   %615 = load ptr, ptr %32, align 8, !tbaa !403, !noalias !417
   %616 = getelementptr inbounds nuw i8, ptr %615, i64 88
@@ -20694,12 +20678,12 @@ _ZNK3zfp8internal4dim412const_handleINS_6array4IfNS_5codec4zfp4IfEENS_5index8imp
   %631 = and i32 %629, %630
   %632 = load ptr, ptr %33, align 8, !tbaa !65, !noalias !417
   %633 = zext i32 %631 to i64
-  %634 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache4<float, zfp::internal::BlockStore4<float, zfp::codec::zfp4<float>, zfp::index::implicit> >::CacheLine>::Tag", ptr %632, i64 %633
+  %634 = getelementptr inbounds nuw [4 x i8], ptr %632, i64 %633
   %635 = load i32, ptr %634, align 4, !tbaa !401, !noalias !417
   %636 = lshr i32 %635, 1
   %637 = icmp eq i32 %636, %629
   %638 = load ptr, ptr %34, align 8, !tbaa !69, !noalias !417
-  %639 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache4<float, zfp::internal::BlockStore4<float, zfp::codec::zfp4<float>, zfp::index::implicit> >::CacheLine", ptr %638, i64 %633
+  %639 = getelementptr inbounds nuw [1024 x i8], ptr %638, i64 %633
   %640 = shl i32 %629, 1
   %.sink.i.i.v.i.i150 = select i1 %637, i32 %635, i32 %640
   %.sink.i.i.i.i151 = or i32 %.sink.i.i.v.i.i150, 1
@@ -20867,8 +20851,8 @@ _ZNK3zfp8internal11BlockStore4IfNS_5codec4zfp4IfEENS_5index8implicitEE6decodeEmP
 
 _ZN3zfp6array4IfNS_5codec4zfp4IfEENS_5index8implicitEE3subEmmmmf.exit155: ; preds = %_ZNK3zfp8internal4dim412const_handleINS_6array4IfNS_5codec4zfp4IfEENS_5index8implicitEEEE3getEv.exit149, %_ZNK3zfp8internal11BlockStore4IfNS_5codec4zfp4IfEENS_5index8implicitEE6decodeEmPf.exit205
   %768 = getelementptr inbounds nuw i8, ptr %639, i64 %.idx.i.i.i.i147
-  %769 = getelementptr inbounds nuw float, ptr %768, i64 %441
-  %770 = getelementptr inbounds nuw float, ptr %769, i64 %610
+  %769 = getelementptr inbounds nuw [4 x i8], ptr %768, i64 %441
+  %770 = getelementptr inbounds nuw [4 x i8], ptr %769, i64 %610
   %771 = load float, ptr %770, align 4, !tbaa !48, !noalias !417
   %772 = fsub float %771, %614
   store float %772, ptr %770, align 4, !tbaa !48, !noalias !417
@@ -21047,12 +21031,12 @@ _ZN3zfp6array4IfNS_5codec4zfp4IfEENS_5index8implicitEE3subEmmmmf.exit155: ; pred
   %865 = and i32 %863, %864
   %866 = load ptr, ptr %411, align 8, !tbaa !65
   %867 = zext i32 %865 to i64
-  %868 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache4<float, zfp::internal::BlockStore4<float, zfp::codec::zfp4<float>, zfp::index::implicit> >::CacheLine>::Tag", ptr %866, i64 %867
+  %868 = getelementptr inbounds nuw [4 x i8], ptr %866, i64 %867
   %869 = load i32, ptr %868, align 4, !tbaa !401
   %870 = lshr i32 %869, 1
   %871 = icmp eq i32 %870, %863
   %872 = load ptr, ptr %412, align 8, !tbaa !69
-  %873 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache4<float, zfp::internal::BlockStore4<float, zfp::codec::zfp4<float>, zfp::index::implicit> >::CacheLine", ptr %872, i64 %867
+  %873 = getelementptr inbounds nuw [1024 x i8], ptr %872, i64 %867
   br i1 %871, label %_ZN3zfp8internal5CacheINS0_11BlockCache4IfNS0_11BlockStore4IfNS_5codec4zfp4IfEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i156, label %874
 
 874:                                              ; preds = %846
@@ -21224,8 +21208,8 @@ _ZNK3zfp8internal11BlockStore4IfNS_5codec4zfp4IfEENS_5index8implicitEE6decodeEmP
 _ZNK3zfp8internal4dim412const_handleINS_6array4IfNS_5codec4zfp4IfEENS_5index8implicitEEEE3getEv.exit160: ; preds = %_ZN3zfp8internal5CacheINS0_11BlockCache4IfNS0_11BlockStore4IfNS_5codec4zfp4IfEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i156, %_ZNK3zfp8internal11BlockStore4IfNS_5codec4zfp4IfEENS_5index8implicitEE6decodeEmPf.exit209
   %1002 = and i64 %847, 3
   %1003 = getelementptr inbounds nuw i8, ptr %873, i64 %.idx.i.i.i.i158
-  %1004 = getelementptr inbounds nuw float, ptr %1003, i64 %832
-  %1005 = getelementptr inbounds nuw float, ptr %1004, i64 %1002
+  %1004 = getelementptr inbounds nuw [4 x i8], ptr %1003, i64 %832
+  %1005 = getelementptr inbounds nuw [4 x i8], ptr %1004, i64 %1002
   %1006 = load float, ptr %1005, align 4, !tbaa !48
   %1007 = load ptr, ptr %410, align 8, !tbaa !403, !noalias !422
   %1008 = getelementptr inbounds nuw i8, ptr %1007, i64 88
@@ -21246,12 +21230,12 @@ _ZNK3zfp8internal4dim412const_handleINS_6array4IfNS_5codec4zfp4IfEENS_5index8imp
   %1023 = and i32 %1021, %1022
   %1024 = load ptr, ptr %411, align 8, !tbaa !65, !noalias !422
   %1025 = zext i32 %1023 to i64
-  %1026 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache4<float, zfp::internal::BlockStore4<float, zfp::codec::zfp4<float>, zfp::index::implicit> >::CacheLine>::Tag", ptr %1024, i64 %1025
+  %1026 = getelementptr inbounds nuw [4 x i8], ptr %1024, i64 %1025
   %1027 = load i32, ptr %1026, align 4, !tbaa !401, !noalias !422
   %1028 = lshr i32 %1027, 1
   %1029 = icmp eq i32 %1028, %1021
   %1030 = load ptr, ptr %412, align 8, !tbaa !69, !noalias !422
-  %1031 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache4<float, zfp::internal::BlockStore4<float, zfp::codec::zfp4<float>, zfp::index::implicit> >::CacheLine", ptr %1030, i64 %1025
+  %1031 = getelementptr inbounds nuw [1024 x i8], ptr %1030, i64 %1025
   %1032 = shl i32 %1021, 1
   %.sink.i.i.v.i.i161 = select i1 %1029, i32 %1027, i32 %1032
   %.sink.i.i.i.i162 = or i32 %.sink.i.i.v.i.i161, 1
@@ -21419,8 +21403,8 @@ _ZNK3zfp8internal11BlockStore4IfNS_5codec4zfp4IfEENS_5index8implicitEE6decodeEmP
 
 _ZN3zfp6array4IfNS_5codec4zfp4IfEENS_5index8implicitEE3subEmmmmf.exit166: ; preds = %_ZNK3zfp8internal4dim412const_handleINS_6array4IfNS_5codec4zfp4IfEENS_5index8implicitEEEE3getEv.exit160, %_ZNK3zfp8internal11BlockStore4IfNS_5codec4zfp4IfEENS_5index8implicitEE6decodeEmPf.exit213
   %1160 = getelementptr inbounds nuw i8, ptr %1031, i64 %.idx.i.i.i164
-  %1161 = getelementptr inbounds nuw float, ptr %1160, i64 %832
-  %1162 = getelementptr inbounds nuw float, ptr %1161, i64 %1002
+  %1161 = getelementptr inbounds nuw [4 x i8], ptr %1160, i64 %832
+  %1162 = getelementptr inbounds nuw [4 x i8], ptr %1161, i64 %1002
   %1163 = load float, ptr %1162, align 4, !tbaa !48, !noalias !422
   %1164 = fsub float %1163, %1006
   store float %1164, ptr %1162, align 4, !tbaa !48, !noalias !422
@@ -21584,12 +21568,12 @@ _ZN3zfp6array4IfNS_5codec4zfp4IfEENS_5index8implicitEE3subEmmmmf.exit166: ; pred
   %1252 = and i32 %1250, %1251
   %1253 = load ptr, ptr %796, align 8, !tbaa !65
   %1254 = zext i32 %1252 to i64
-  %1255 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache4<float, zfp::internal::BlockStore4<float, zfp::codec::zfp4<float>, zfp::index::implicit> >::CacheLine>::Tag", ptr %1253, i64 %1254
+  %1255 = getelementptr inbounds nuw [4 x i8], ptr %1253, i64 %1254
   %1256 = load i32, ptr %1255, align 4, !tbaa !401
   %1257 = lshr i32 %1256, 1
   %1258 = icmp eq i32 %1257, %1250
   %1259 = load ptr, ptr %797, align 8, !tbaa !69
-  %1260 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache4<float, zfp::internal::BlockStore4<float, zfp::codec::zfp4<float>, zfp::index::implicit> >::CacheLine", ptr %1259, i64 %1254
+  %1260 = getelementptr inbounds nuw [1024 x i8], ptr %1259, i64 %1254
   br i1 %1258, label %_ZN3zfp8internal5CacheINS0_11BlockCache4IfNS0_11BlockStore4IfNS_5codec4zfp4IfEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i167, label %1261
 
 1261:                                             ; preds = %1233
@@ -21761,8 +21745,8 @@ _ZNK3zfp8internal11BlockStore4IfNS_5codec4zfp4IfEENS_5index8implicitEE6decodeEmP
 _ZNK3zfp8internal4dim412const_handleINS_6array4IfNS_5codec4zfp4IfEENS_5index8implicitEEEE3getEv.exit171: ; preds = %_ZN3zfp8internal5CacheINS0_11BlockCache4IfNS0_11BlockStore4IfNS_5codec4zfp4IfEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i167, %_ZNK3zfp8internal11BlockStore4IfNS_5codec4zfp4IfEENS_5index8implicitEE6decodeEmPf.exit217
   %1389 = and i64 %1234, 3
   %1390 = getelementptr inbounds nuw i8, ptr %1260, i64 %.idx.i.i.i.i169
-  %1391 = getelementptr inbounds nuw float, ptr %1390, i64 %1218
-  %1392 = getelementptr inbounds nuw float, ptr %1391, i64 %1389
+  %1391 = getelementptr inbounds nuw [4 x i8], ptr %1390, i64 %1218
+  %1392 = getelementptr inbounds nuw [4 x i8], ptr %1391, i64 %1389
   %1393 = load float, ptr %1392, align 4, !tbaa !48
   %1394 = load ptr, ptr %795, align 8, !tbaa !403, !noalias !428
   %1395 = getelementptr inbounds nuw i8, ptr %1394, i64 88
@@ -21783,12 +21767,12 @@ _ZNK3zfp8internal4dim412const_handleINS_6array4IfNS_5codec4zfp4IfEENS_5index8imp
   %1410 = and i32 %1408, %1409
   %1411 = load ptr, ptr %796, align 8, !tbaa !65, !noalias !428
   %1412 = zext i32 %1410 to i64
-  %1413 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache4<float, zfp::internal::BlockStore4<float, zfp::codec::zfp4<float>, zfp::index::implicit> >::CacheLine>::Tag", ptr %1411, i64 %1412
+  %1413 = getelementptr inbounds nuw [4 x i8], ptr %1411, i64 %1412
   %1414 = load i32, ptr %1413, align 4, !tbaa !401, !noalias !428
   %1415 = lshr i32 %1414, 1
   %1416 = icmp eq i32 %1415, %1408
   %1417 = load ptr, ptr %797, align 8, !tbaa !69, !noalias !428
-  %1418 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache4<float, zfp::internal::BlockStore4<float, zfp::codec::zfp4<float>, zfp::index::implicit> >::CacheLine", ptr %1417, i64 %1412
+  %1418 = getelementptr inbounds nuw [1024 x i8], ptr %1417, i64 %1412
   %1419 = shl i32 %1408, 1
   %.sink.i.i.v.i.i172 = select i1 %1416, i32 %1414, i32 %1419
   %.sink.i.i.i.i173 = or i32 %.sink.i.i.v.i.i172, 1
@@ -21956,8 +21940,8 @@ _ZNK3zfp8internal11BlockStore4IfNS_5codec4zfp4IfEENS_5index8implicitEE6decodeEmP
 
 _ZN3zfp6array4IfNS_5codec4zfp4IfEENS_5index8implicitEE3subEmmmmf.exit177: ; preds = %_ZNK3zfp8internal4dim412const_handleINS_6array4IfNS_5codec4zfp4IfEENS_5index8implicitEEEE3getEv.exit171, %_ZNK3zfp8internal11BlockStore4IfNS_5codec4zfp4IfEENS_5index8implicitEE6decodeEmPf.exit221
   %1547 = getelementptr inbounds nuw i8, ptr %1418, i64 %.idx.i.i.i175
-  %1548 = getelementptr inbounds nuw float, ptr %1547, i64 %1218
-  %1549 = getelementptr inbounds nuw float, ptr %1548, i64 %1389
+  %1548 = getelementptr inbounds nuw [4 x i8], ptr %1547, i64 %1218
+  %1549 = getelementptr inbounds nuw [4 x i8], ptr %1548, i64 %1389
   %1550 = load float, ptr %1549, align 4, !tbaa !48, !noalias !428
   %1551 = fsub float %1550, %1393
   store float %1551, ptr %1549, align 4, !tbaa !48, !noalias !428
@@ -22072,12 +22056,12 @@ _ZN3zfp6array4IfNS_5codec4zfp4IfEENS_5index8implicitEE3subEmmmmf.exit177: ; pred
   %1606 = and i32 %1605, 1
   %1607 = load ptr, ptr %1190, align 8, !tbaa !65
   %1608 = zext nneg i32 %1606 to i64
-  %1609 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache4<float, zfp::internal::BlockStore4<float, zfp::codec::zfp4<float>, zfp::index::implicit> >::CacheLine>::Tag", ptr %1607, i64 %1608
+  %1609 = getelementptr inbounds nuw [4 x i8], ptr %1607, i64 %1608
   %1610 = load i32, ptr %1609, align 4, !tbaa !401
   %1611 = lshr i32 %1610, 1
   %1612 = icmp eq i32 %1611, 1
   %1613 = load ptr, ptr %1191, align 8, !tbaa !69
-  %1614 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache4<float, zfp::internal::BlockStore4<float, zfp::codec::zfp4<float>, zfp::index::implicit> >::CacheLine", ptr %1613, i64 %1608
+  %1614 = getelementptr inbounds nuw [1024 x i8], ptr %1613, i64 %1608
   br i1 %1612, label %_ZNK3zfp8internal4dim412const_handleINS_6array4IfNS_5codec4zfp4IfEENS_5index8implicitEEEE3getEv.exit187, label %_ZN3zfp8internal5CacheINS0_11BlockCache4IfNS0_11BlockStore4IfNS_5codec4zfp4IfEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i183
 
 _ZN3zfp8internal5CacheINS0_11BlockCache4IfNS0_11BlockStore4IfNS_5codec4zfp4IfEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i183: ; preds = %1596
@@ -22245,11 +22229,11 @@ _ZNK3zfp8internal4dim412const_handleINS_6array4IfNS_5codec4zfp4IfEENS_5index8imp
   %1737 = load i32, ptr %1188, align 8, !tbaa !258
   %1738 = and i32 %1736, %1737
   %1739 = zext i32 %1738 to i64
-  %1740 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache4<float, zfp::internal::BlockStore4<float, zfp::codec::zfp4<float>, zfp::index::implicit> >::CacheLine>::Tag", ptr %1722, i64 %1739
+  %1740 = getelementptr inbounds nuw [4 x i8], ptr %1722, i64 %1739
   %1741 = load i32, ptr %1740, align 4, !tbaa !401
   %1742 = lshr i32 %1741, 1
   %1743 = icmp eq i32 %1742, %1736
-  %1744 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache4<float, zfp::internal::BlockStore4<float, zfp::codec::zfp4<float>, zfp::index::implicit> >::CacheLine", ptr %1721, i64 %1739
+  %1744 = getelementptr inbounds nuw [1024 x i8], ptr %1721, i64 %1739
   br i1 %1743, label %_ZN3zfp8internal5CacheINS0_11BlockCache4IfNS0_11BlockStore4IfNS_5codec4zfp4IfEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i178, label %1745
 
 1745:                                             ; preds = %_ZNK3zfp8internal4dim412const_handleINS_6array4IfNS_5codec4zfp4IfEENS_5index8implicitEEEE3getEv.exit187
@@ -22427,8 +22411,8 @@ _ZNK3zfp8internal4dim412const_handleINS_6array4IfNS_5codec4zfp4IfEENS_5index8imp
   %1875 = phi ptr [ %1726, %_ZN3zfp8internal5CacheINS0_11BlockCache4IfNS0_11BlockStore4IfNS_5codec4zfp4IfEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i178 ], [ %.pre539, %_ZNK3zfp8internal11BlockStore4IfNS_5codec4zfp4IfEENS_5index8implicitEE6decodeEmPf.exit225 ]
   %1876 = and i64 %1597, 3
   %1877 = getelementptr inbounds nuw i8, ptr %1744, i64 %.idx.i.i.i.i180
-  %1878 = getelementptr inbounds nuw float, ptr %1877, i64 %1582
-  %1879 = getelementptr inbounds nuw float, ptr %1878, i64 %1876
+  %1878 = getelementptr inbounds nuw [4 x i8], ptr %1877, i64 %1582
+  %1879 = getelementptr inbounds nuw [4 x i8], ptr %1878, i64 %1876
   %1880 = load float, ptr %1879, align 4, !tbaa !48
   %1881 = fcmp olt float %1727, %1880
   %.sroa.speculated270 = select i1 %1881, i64 %1597, i64 0
@@ -22456,11 +22440,11 @@ _ZNK3zfp8internal4dim412const_handleINS_6array4IfNS_5codec4zfp4IfEENS_5index8imp
   %1900 = load i32, ptr %1188, align 8, !tbaa !258, !noalias !431
   %1901 = and i32 %1899, %1900
   %1902 = zext i32 %1901 to i64
-  %1903 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache4<float, zfp::internal::BlockStore4<float, zfp::codec::zfp4<float>, zfp::index::implicit> >::CacheLine>::Tag", ptr %1874, i64 %1902
+  %1903 = getelementptr inbounds nuw [4 x i8], ptr %1874, i64 %1902
   %1904 = load i32, ptr %1903, align 4, !tbaa !401, !noalias !431
   %1905 = lshr i32 %1904, 1
   %1906 = icmp eq i32 %1905, %1899
-  %1907 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache4<float, zfp::internal::BlockStore4<float, zfp::codec::zfp4<float>, zfp::index::implicit> >::CacheLine", ptr %1873, i64 %1902
+  %1907 = getelementptr inbounds nuw [1024 x i8], ptr %1873, i64 %1902
   br i1 %1906, label %_ZN3zfp8internal5CacheINS0_11BlockCache4IfNS0_11BlockStore4IfNS_5codec4zfp4IfEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i191, label %1908
 
 1908:                                             ; preds = %_ZNK3zfp8internal4dim412const_handleINS_6array4IfNS_5codec4zfp4IfEENS_5index8implicitEEEE3getEv.exit182
@@ -22654,16 +22638,16 @@ _ZNK3zfp8internal4dim412const_handleINS_6array4IfNS_5codec4zfp4IfEENS_5index8imp
   %2048 = and i64 %2047, 12
   %.idx.i.i.i.i193 = shl nuw nsw i64 %2046, 6
   %2049 = getelementptr inbounds nuw i8, ptr %1907, i64 %.idx.i.i.i.i193
-  %2050 = getelementptr inbounds nuw float, ptr %2049, i64 %2048
-  %2051 = getelementptr inbounds nuw float, ptr %2050, i64 %2042
+  %2050 = getelementptr inbounds nuw [4 x i8], ptr %2049, i64 %2048
+  %2051 = getelementptr inbounds nuw [4 x i8], ptr %2050, i64 %2042
   %2052 = load float, ptr %2051, align 4, !tbaa !48, !noalias !431
   %2053 = load i32, ptr %1188, align 8, !tbaa !258, !noalias !431
   %2054 = and i32 %2053, 1
   %2055 = zext nneg i32 %2054 to i64
-  %2056 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache4<float, zfp::internal::BlockStore4<float, zfp::codec::zfp4<float>, zfp::index::implicit> >::CacheLine>::Tag", ptr %2037, i64 %2055
+  %2056 = getelementptr inbounds nuw [4 x i8], ptr %2037, i64 %2055
   %2057 = load i32, ptr %2056, align 4, !tbaa !401, !noalias !431
   %2058 = lshr i32 %2057, 1
-  %2059 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache4<float, zfp::internal::BlockStore4<float, zfp::codec::zfp4<float>, zfp::index::implicit> >::CacheLine", ptr %2036, i64 %2055
+  %2059 = getelementptr inbounds nuw [1024 x i8], ptr %2036, i64 %2055
   store i32 3, ptr %2056, align 4, !tbaa !37, !noalias !431
   %2060 = add nsw i32 %2058, -1
   %2061 = zext i32 %2060 to i64
@@ -23271,9 +23255,9 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit152: ; preds = %_ZNS
   %223 = phi i64 [ %232, %.lr.ph ], [ 0, %.preheader ]
   %.0221 = phi i32 [ %231, %.lr.ph ], [ 0, %.preheader ]
   %.0218220 = phi double [ %.sroa.speculated, %.lr.ph ], [ 0.000000e+00, %.preheader ]
-  %224 = getelementptr inbounds nuw double, ptr %220, i64 %223
+  %224 = getelementptr inbounds nuw [8 x i8], ptr %220, i64 %223
   %225 = load double, ptr %224, align 8, !tbaa !46
-  %226 = getelementptr inbounds nuw double, ptr %179, i64 %223
+  %226 = getelementptr inbounds nuw [8 x i8], ptr %179, i64 %223
   %227 = load double, ptr %226, align 8, !tbaa !46
   %228 = fsub double %225, %227
   %229 = call noundef double @llvm.fabs.f64(double %228)
@@ -24490,9 +24474,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit128: ; preds = %16
   %181 = phi i64 [ %190, %.lr.ph ], [ 0, %.preheader ]
   %.062202 = phi i32 [ %189, %.lr.ph ], [ 0, %.preheader ]
   %.0201 = phi double [ %.sroa.speculated, %.lr.ph ], [ 0.000000e+00, %.preheader ]
-  %182 = getelementptr inbounds nuw double, ptr %178, i64 %181
+  %182 = getelementptr inbounds nuw [8 x i8], ptr %178, i64 %181
   %183 = load double, ptr %182, align 8, !tbaa !46
-  %184 = getelementptr inbounds nuw double, ptr %159, i64 %181
+  %184 = getelementptr inbounds nuw [8 x i8], ptr %159, i64 %181
   %185 = load double, ptr %184, align 8, !tbaa !46
   %186 = fsub double %183, %185
   %187 = call noundef double @llvm.fabs.f64(double %186)
@@ -25490,14 +25474,14 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.preheader: ; preds 
 14:                                               ; preds = %.lr.ph, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ]
   %.0145147 = phi double [ 0.000000e+00, %.lr.ph ], [ %.sroa.speculated, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ]
-  %15 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %16 = load double, ptr %15, align 8, !tbaa !46
   %17 = invoke noundef ptr @_ZNK3zfp8internal11BlockCache1IdNS0_11BlockStore1IdNS_5codec4zfp1IdEENS_5index8implicitEEEE4lineEmb(ptr noundef nonnull align 8 dereferenceable(32) %11, i64 noundef %indvars.iv, i1 noundef zeroext false)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit unwind label %24
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %14
   %18 = and i64 %indvars.iv, 3
-  %19 = getelementptr inbounds nuw double, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %18
   %20 = load double, ptr %19, align 8, !tbaa !46
   %21 = fsub double %16, %20
   %22 = call noundef double @llvm.fabs.f64(double %21)
@@ -26218,7 +26202,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.preheader: ; preds 
 18:                                               ; preds = %.lr.ph, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ]
   %.0165167 = phi double [ 0.000000e+00, %.lr.ph ], [ %.sroa.speculated, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ]
-  %19 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %20 = load double, ptr %19, align 8, !tbaa !46
   %21 = load i64, ptr %11, align 8, !tbaa !173, !noalias !526
   %22 = urem i64 %indvars.iv, %21
@@ -26236,12 +26220,12 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.preheader: ; preds 
   %34 = and i32 %32, %33
   %35 = load ptr, ptr %14, align 8, !tbaa !75
   %36 = zext i32 %34 to i64
-  %37 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache2<double, zfp::internal::BlockStore2<double, zfp::codec::zfp2<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !531
   %39 = lshr i32 %38, 1
   %40 = icmp eq i32 %39, %32
   %41 = load ptr, ptr %15, align 8, !tbaa !79
-  %42 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache2<double, zfp::internal::BlockStore2<double, zfp::codec::zfp2<double>, zfp::index::implicit> >::CacheLine", ptr %41, i64 %36
+  %42 = getelementptr inbounds nuw [128 x i8], ptr %41, i64 %36
   br i1 %40, label %_ZN3zfp8internal5CacheINS0_11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i, label %43
 
 43:                                               ; preds = %18
@@ -26276,8 +26260,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %_ZN3zfp
   %54 = and i64 %22, 3
   %55 = shl nuw nsw i64 %23, 2
   %56 = and i64 %55, 12
-  %57 = getelementptr inbounds nuw double, ptr %42, i64 %56
-  %58 = getelementptr inbounds nuw double, ptr %57, i64 %54
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %56
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %54
   %59 = load double, ptr %58, align 8, !tbaa !46
   %60 = fsub double %20, %59
   %61 = call noundef double @llvm.fabs.f64(double %60)
@@ -26544,13 +26528,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit87: ; preds = %_ZNSt
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %173 = load ptr, ptr %172, align 8, !tbaa !75
   %174 = zext nneg i32 %171 to i64
-  %175 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache2<double, zfp::internal::BlockStore2<double, zfp::codec::zfp2<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %173, i64 %174
+  %175 = getelementptr inbounds nuw [4 x i8], ptr %173, i64 %174
   %176 = load i32, ptr %175, align 4, !tbaa !531
   %177 = lshr i32 %176, 1
   %178 = icmp eq i32 %177, 1
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %180 = load ptr, ptr %179, align 8, !tbaa !79
-  %181 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache2<double, zfp::internal::BlockStore2<double, zfp::codec::zfp2<double>, zfp::index::implicit> >::CacheLine", ptr %180, i64 %174
+  %181 = getelementptr inbounds nuw [128 x i8], ptr %180, i64 %174
   br i1 %178, label %_ZN3zfp8internal5CacheINS0_11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i89.thread, label %_ZN3zfp8internal5CacheINS0_11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i89
 
 _ZN3zfp8internal5CacheINS0_11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i89: ; preds = %166
@@ -27049,7 +27033,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.preheader: ; preds 
 19:                                               ; preds = %.lr.ph, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ]
   %.0167169 = phi double [ 0.000000e+00, %.lr.ph ], [ %.sroa.speculated, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ]
-  %20 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %21 = load double, ptr %20, align 8, !tbaa !46
   %22 = load i64, ptr %11, align 8, !tbaa !173, !noalias !561
   %23 = urem i64 %indvars.iv, %22
@@ -27075,12 +27059,12 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.preheader: ; preds 
   %43 = and i32 %41, %42
   %44 = load ptr, ptr %15, align 8, !tbaa !80
   %45 = zext i32 %43 to i64
-  %46 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %44, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !566
   %48 = lshr i32 %47, 1
   %49 = icmp eq i32 %48, %41
   %50 = load ptr, ptr %16, align 8, !tbaa !84
-  %51 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine", ptr %50, i64 %45
+  %51 = getelementptr inbounds nuw [512 x i8], ptr %50, i64 %45
   br i1 %49, label %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i, label %52
 
 52:                                               ; preds = %19
@@ -27119,7 +27103,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %_ZN3zfp
   %67 = or disjoint i64 %66, %64
   %.idx.i.i.i.i.i = shl nuw nsw i64 %67, 5
   %68 = getelementptr inbounds nuw i8, ptr %51, i64 %.idx.i.i.i.i.i
-  %69 = getelementptr inbounds nuw double, ptr %68, i64 %63
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %63
   %70 = load double, ptr %69, align 8, !tbaa !46
   %71 = fsub double %21, %70
   %72 = call noundef double @llvm.fabs.f64(double %71)
@@ -27386,13 +27370,13 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit87: ; preds = %_ZNSt
   %183 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %184 = load ptr, ptr %183, align 8, !tbaa !80
   %185 = zext nneg i32 %182 to i64
-  %186 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %184, i64 %185
+  %186 = getelementptr inbounds nuw [4 x i8], ptr %184, i64 %185
   %187 = load i32, ptr %186, align 4, !tbaa !566
   %188 = lshr i32 %187, 1
   %189 = icmp eq i32 %188, 1
   %190 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %191 = load ptr, ptr %190, align 8, !tbaa !84
-  %192 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine", ptr %191, i64 %185
+  %192 = getelementptr inbounds nuw [512 x i8], ptr %191, i64 %185
   br i1 %189, label %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i89.thread, label %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i89
 
 _ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i89: ; preds = %177
@@ -27817,7 +27801,7 @@ define linkonce_odr dso_local void @_ZN3zfp6array4IdNS_5codec4zfp4IdEENS_5index8
   %48 = load i64, ptr %23, align 8, !tbaa !200
   %49 = sub i64 %48, %30
   %50 = mul nsw i64 %37, %49
-  %51 = getelementptr inbounds double, ptr %46, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %46, i64 %50
   %exitcond104.not.i = icmp eq i64 %47, %32
   br i1 %exitcond104.not.i, label %._crit_edge.split.us.split.us.us.us.us.i, label %.preheader45.us.us.us.us.us.i
 
@@ -27826,7 +27810,7 @@ define linkonce_odr dso_local void @_ZN3zfp6array4IdNS_5codec4zfp4IdEENS_5index8
   %53 = load i64, ptr %24, align 8, !tbaa !236
   %54 = sub i64 %53, %32
   %55 = mul nsw i64 %38, %54
-  %56 = getelementptr inbounds double, ptr %51, i64 %55
+  %56 = getelementptr inbounds [8 x i8], ptr %51, i64 %55
   %exitcond105.not.i = icmp eq i64 %52, %34
   br i1 %exitcond105.not.i, label %_ZN3zfp6array4IdNS_5codec4zfp4IdEENS_5index8implicitEE3setEPKd.exit, label %.preheader46.us.us.us.i
 
@@ -27896,7 +27880,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.preheader: ; preds 
 22:                                               ; preds = %.lr.ph, %_ZNK3zfp8internal4dim415const_referenceINS_6array4IdNS_5codec4zfp4IdEENS_5index8implicitEEEEcvdEv.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK3zfp8internal4dim415const_referenceINS_6array4IdNS_5codec4zfp4IdEENS_5index8implicitEEEEcvdEv.exit ]
   %.0142144 = phi double [ 0.000000e+00, %.lr.ph ], [ %.sroa.speculated, %_ZNK3zfp8internal4dim415const_referenceINS_6array4IdNS_5codec4zfp4IdEENS_5index8implicitEEEEcvdEv.exit ]
-  %23 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %24 = load double, ptr %23, align 8, !tbaa !46
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.experimental.noalias.scope.decl(metadata !593)
@@ -28490,7 +28474,7 @@ _ZSt4fillIPiiEvT_S1_RKT0_.exit.preheader:         ; preds = %2
 
 _ZSt4fillIPiiEvT_S1_RKT0_.exit:                   ; preds = %_ZSt4fillIPiiEvT_S1_RKT0_.exit.preheader, %_ZSt4fillIPiiEvT_S1_RKT0_.exit
   %indvars.iv = phi i64 [ 1, %_ZSt4fillIPiiEvT_S1_RKT0_.exit.preheader ], [ %indvars.iv.next, %_ZSt4fillIPiiEvT_S1_RKT0_.exit ]
-  %12 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
   %13 = shl i32 %indvars.iv.tr, 17
   %14 = and i32 %13, 131072
@@ -28521,7 +28505,7 @@ _ZSt4fillIPiiEvT_S1_RKT0_.exit:                   ; preds = %_ZSt4fillIPiiEvT_S1
   br i1 %.not.i, label %.preheader.split.us.i, label %.preheader.split.i
 
 .preheader.split.us.i:                            ; preds = %.preheader.i
-  %21 = getelementptr inbounds nuw i32, ptr %.03034, i64 %19
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %.03034, i64 %19
   %22 = load i32, ptr %21, align 4, !tbaa !37
   %23 = sext i32 %22 to i64
   br label %24
@@ -28529,7 +28513,7 @@ _ZSt4fillIPiiEvT_S1_RKT0_.exit:                   ; preds = %_ZSt4fillIPiiEvT_S1
 24:                                               ; preds = %24, %.preheader.split.us.i
   %.01821.us.i = phi i64 [ 0, %.preheader.split.us.i ], [ %29, %24 ]
   %.01920.us.i = phi i64 [ 0, %.preheader.split.us.i ], [ %28, %24 ]
-  %25 = getelementptr inbounds nuw i64, ptr @__const._Z8refine4dPiPKim.weight, i64 %.01821.us.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr @__const._Z8refine4dPiPKim.weight, i64 %.01821.us.i
   %26 = load i64, ptr %25, align 8, !tbaa !40
   %27 = mul nsw i64 %26, %23
   %28 = add nsw i64 %27, %.01920.us.i
@@ -28541,7 +28525,7 @@ _ZSt4fillIPiiEvT_S1_RKT0_.exit:                   ; preds = %_ZSt4fillIPiiEvT_S1
   %.us-phi.i = phi i64 [ %28, %24 ], [ %42, %.preheader.split.i ]
   %30 = sdiv i64 %.us-phi.i, 16
   %31 = trunc i64 %30 to i32
-  %32 = getelementptr inbounds nuw i32, ptr %.02935, i64 %.022.i
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %.02935, i64 %.022.i
   store i32 %31, ptr %32, align 4, !tbaa !37
   %33 = add nuw i64 %.022.i, 1
   %exitcond27.not.i = icmp eq i64 %33, %16
@@ -28552,9 +28536,9 @@ _ZSt4fillIPiiEvT_S1_RKT0_.exit:                   ; preds = %_ZSt4fillIPiiEvT_S1
   %.01920.i = phi i64 [ %42, %.preheader.split.i ], [ 0, %.preheader.i ]
   %34 = add i64 %20, %.01821.i
   %35 = and i64 %34, %17
-  %36 = getelementptr inbounds nuw i64, ptr @__const._Z8refine4dPiPKim.weight, i64 %.01821.i
+  %36 = getelementptr inbounds nuw [8 x i8], ptr @__const._Z8refine4dPiPKim.weight, i64 %.01821.i
   %37 = load i64, ptr %36, align 8, !tbaa !40
-  %38 = getelementptr inbounds nuw i32, ptr %.03034, i64 %35
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %.03034, i64 %35
   %39 = load i32, ptr %38, align 4, !tbaa !37
   %40 = sext i32 %39 to i64
   %41 = mul nsw i64 %37, %40
@@ -28575,11 +28559,11 @@ _Z8refine1dPiPKim.exit:                           ; preds = %.split.us.i, %.lr.p
 
 .lr.ph.i:                                         ; preds = %.loopexit, %.lr.ph.i
   %.06.i = phi i64 [ %50, %.lr.ph.i ], [ 0, %.loopexit ]
-  %45 = getelementptr inbounds nuw i32, ptr %.030.lcssa, i64 %.06.i
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %.030.lcssa, i64 %.06.i
   %46 = load i32, ptr %45, align 4, !tbaa !37
   %47 = sitofp i32 %46 to double
   %48 = tail call double @ldexp(double noundef %47, i32 noundef -12) #26, !tbaa !37
-  %49 = getelementptr inbounds nuw double, ptr %0, i64 %.06.i
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.06.i
   store double %48, ptr %49, align 8, !tbaa !46
   %50 = add nuw i64 %.06.i, 1
   %exitcond.not.i21 = icmp eq i64 %50, %1
@@ -28632,7 +28616,7 @@ _ZSt4fillIPiiEvT_S1_RKT0_.exit:                   ; preds = %13
   %16 = shl nuw nsw i32 %15, 17
   %17 = and i32 %16, 131072
   %18 = sub nsw i32 65536, %17
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   store i32 %18, ptr %gep, align 4, !tbaa !37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -28656,11 +28640,11 @@ _ZSt4fillIPiiEvT_S1_RKT0_.exit:                   ; preds = %13
 
 .lr.ph.i:                                         ; preds = %.loopexit, %.lr.ph.i
   %.06.i = phi i64 [ %26, %.lr.ph.i ], [ 0, %.loopexit ]
-  %21 = getelementptr inbounds nuw i32, ptr %.036.lcssa, i64 %.06.i
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %.036.lcssa, i64 %.06.i
   %22 = load i32, ptr %21, align 4, !tbaa !37
   %23 = sitofp i32 %22 to double
   %24 = tail call double @ldexp(double noundef %23, i32 noundef -12) #26, !tbaa !37
-  %25 = getelementptr inbounds nuw double, ptr %0, i64 %.06.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.06.i
   store double %24, ptr %25, align 8, !tbaa !46
   %26 = add nuw i64 %.06.i, 1
   %exitcond.not.i = icmp eq i64 %26, %5
@@ -28725,7 +28709,7 @@ _ZSt4fillIPiiEvT_S1_RKT0_.exit:                   ; preds = %15
   %19 = shl nuw nsw i32 %18, 17
   %20 = and i32 %19, 131072
   %21 = sub nsw i32 65536, %20
-  %gep65 = getelementptr inbounds nuw i32, ptr %gep, i64 %indvars.iv
+  %gep65 = getelementptr inbounds nuw [4 x i8], ptr %gep, i64 %indvars.iv
   store i32 %21, ptr %gep65, align 4, !tbaa !37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -28749,11 +28733,11 @@ _ZSt4fillIPiiEvT_S1_RKT0_.exit:                   ; preds = %15
 
 .lr.ph.i:                                         ; preds = %.loopexit, %.lr.ph.i
   %.06.i = phi i64 [ %29, %.lr.ph.i ], [ 0, %.loopexit ]
-  %24 = getelementptr inbounds nuw i32, ptr %.044.lcssa, i64 %.06.i
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %.044.lcssa, i64 %.06.i
   %25 = load i32, ptr %24, align 4, !tbaa !37
   %26 = sitofp i32 %25 to double
   %27 = tail call double @ldexp(double noundef %26, i32 noundef -12) #26, !tbaa !37
-  %28 = getelementptr inbounds nuw double, ptr %0, i64 %.06.i
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.06.i
   store double %27, ptr %28, align 8, !tbaa !46
   %29 = add nuw i64 %.06.i, 1
   %exitcond.not.i = icmp eq i64 %29, %6
@@ -28829,7 +28813,7 @@ _ZSt4fillIPiiEvT_S1_RKT0_.exit:                   ; preds = %20
   %25 = shl nuw nsw i32 %24, 17
   %26 = and i32 %25, 131072
   %27 = sub nsw i32 65536, %26
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   store i32 %27, ptr %gep, align 4, !tbaa !37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -28853,11 +28837,11 @@ _ZSt4fillIPiiEvT_S1_RKT0_.exit:                   ; preds = %20
 
 .lr.ph.i:                                         ; preds = %.loopexit, %.lr.ph.i
   %.06.i = phi i64 [ %35, %.lr.ph.i ], [ 0, %.loopexit ]
-  %30 = getelementptr inbounds nuw i32, ptr %.052.lcssa, i64 %.06.i
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %.052.lcssa, i64 %.06.i
   %31 = load i32, ptr %30, align 4, !tbaa !37
   %32 = sitofp i32 %31 to double
   %33 = tail call double @ldexp(double noundef %32, i32 noundef -12) #26, !tbaa !37
-  %34 = getelementptr inbounds nuw double, ptr %0, i64 %.06.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.06.i
   store double %33, ptr %34, align 8, !tbaa !46
   %35 = add nuw i64 %.06.i, 1
   %exitcond.not.i = icmp eq i64 %35, %6
@@ -29604,7 +29588,7 @@ _ZN3zfp8internal18reallocate_alignedINS0_11BlockCache1IdNS0_11BlockStore1IdNS_5c
 30:                                               ; preds = %30, %_ZN3zfp8internal18reallocate_alignedINS0_11BlockCache1IdNS0_11BlockStore1IdNS_5codec4zfp1IdEENS_5index8implicitEEEE9CacheLineEEEvRPT_mmm.exit
   %.03.i = phi i32 [ 0, %_ZN3zfp8internal18reallocate_alignedINS0_11BlockCache1IdNS0_11BlockStore1IdNS_5codec4zfp1IdEENS_5index8implicitEEEE9CacheLineEEEvRPT_mmm.exit ], [ %33, %30 ]
   %31 = zext i32 %.03.i to i64
-  %32 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache1<double, zfp::internal::BlockStore1<double, zfp::codec::zfp1<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %29, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %31
   store i32 0, ptr %32, align 4, !tbaa !624
   %33 = add i32 %.03.i, 1
   %.not.i = icmp ugt i32 %33, %28
@@ -29623,7 +29607,7 @@ define linkonce_odr dso_local void @_ZN3zfp8internal11BlockCache1IdNS0_11BlockSt
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !70
   %11 = zext i32 %8 to i64
-  %12 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache1<double, zfp::internal::BlockStore1<double, zfp::codec::zfp1<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !624
   %14 = lshr i32 %13, 1
   %15 = icmp eq i32 %14, %6
@@ -29634,7 +29618,7 @@ _ZN3zfp8internal5CacheINS0_11BlockCache1IdNS0_11BlockStore1IdNS_5codec4zfp1IdEEN
   store i32 %16, ptr %12, align 4, !tbaa !624
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8, !tbaa !74
-  %19 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache1<double, zfp::internal::BlockStore1<double, zfp::codec::zfp1<double>, zfp::index::implicit> >::CacheLine", ptr %18, i64 %11
+  %19 = getelementptr inbounds nuw [32 x i8], ptr %18, i64 %11
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %_ZN3zfp8internal5CacheINS0_11BlockCache1IdNS0_11BlockStore1IdNS_5codec4zfp1IdEENS_5index8implicitEEEE9CacheLineEE6lookupEjb.exit.thread, label %20
 
@@ -29659,7 +29643,7 @@ _ZN3zfp8internal5CacheINS0_11BlockCache1IdNS0_11BlockStore1IdNS_5codec4zfp1IdEEN
   %31 = load double, ptr %.089.i.i, align 8, !tbaa !46
   store double %31, ptr %.0710.i.i, align 8, !tbaa !46
   %32 = add nuw nsw i32 %.011.i.i, 1
-  %33 = getelementptr inbounds double, ptr %.089.i.i, i64 %3
+  %33 = getelementptr inbounds [8 x i8], ptr %.089.i.i, i64 %3
   %34 = getelementptr inbounds nuw i8, ptr %.0710.i.i, i64 8
   %exitcond.not.i.i = icmp eq i32 %32, 4
   br i1 %exitcond.not.i.i, label %_ZN3zfp8internal11BlockCache1IdNS0_11BlockStore1IdNS_5codec4zfp1IdEENS_5index8implicitEEEE9CacheLine3putEPKdlj.exit, label %.preheader.i
@@ -29676,7 +29660,7 @@ _ZN3zfp8internal5CacheINS0_11BlockCache1IdNS0_11BlockStore1IdNS_5codec4zfp1IdEEN
   %39 = load double, ptr %.01417.i, align 8, !tbaa !46
   store double %39, ptr %.01318.i, align 8, !tbaa !46
   %40 = add nuw nsw i32 %.019.i, 1
-  %41 = getelementptr inbounds double, ptr %.01417.i, i64 %3
+  %41 = getelementptr inbounds [8 x i8], ptr %.01417.i, i64 %3
   %42 = getelementptr inbounds nuw i8, ptr %.01318.i, i64 8
   %exitcond.not.i = icmp eq i32 %40, %37
   br i1 %exitcond.not.i, label %_ZN3zfp8internal11BlockCache1IdNS0_11BlockStore1IdNS_5codec4zfp1IdEENS_5index8implicitEEEE9CacheLine3putEPKdlj.exit, label %38
@@ -29749,13 +29733,13 @@ define linkonce_odr dso_local void @_ZNK3zfp8internal11BlockCache1IdNS0_11BlockS
 
 10:                                               ; preds = %9
   %11 = zext i32 %.0.i.i.i to i64
-  %12 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache1<double, zfp::internal::BlockStore1<double, zfp::codec::zfp1<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %5, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !624, !noalias !628
   %.not10.i.i.i = icmp eq i32 %13, 0
   br i1 %.not10.i.i.i, label %9, label %.critedge.i.i.i
 
 .critedge.i.i.i:                                  ; preds = %10
-  %14 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache1<double, zfp::internal::BlockStore1<double, zfp::codec::zfp1<double>, zfp::index::implicit> >::CacheLine", ptr %3, i64 %11
+  %14 = getelementptr inbounds nuw [32 x i8], ptr %3, i64 %11
   br label %_ZN3zfp8internal5CacheINS0_11BlockCache1IdNS0_11BlockStore1IdNS_5codec4zfp1IdEENS_5index8implicitEEEE9CacheLineEE5firstEv.exit
 
 _ZN3zfp8internal5CacheINS0_11BlockCache1IdNS0_11BlockStore1IdNS_5codec4zfp1IdEENS_5index8implicitEEEE9CacheLineEE5firstEv.exit: ; preds = %.critedge.i.i.i, %1
@@ -29827,7 +29811,7 @@ _ZN3zfp8internal11BlockStore1IdNS_5codec4zfp1IdEENS_5index8implicitEE6encodeEmPK
   %53 = sub i64 %51, %52
   %54 = lshr exact i64 %53, 5
   %55 = and i64 %54, 4294967295
-  %56 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache1<double, zfp::internal::BlockStore1<double, zfp::codec::zfp1<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %49, i64 %55
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %55
   store i32 0, ptr %56, align 4, !tbaa !624
   %57 = trunc i64 %54 to i32
   %58 = load i32, ptr %0, align 8, !tbaa !497, !noalias !631
@@ -29841,13 +29825,13 @@ _ZN3zfp8internal11BlockStore1IdNS_5codec4zfp1IdEENS_5index8implicitEE6encodeEmPK
 
 60:                                               ; preds = %59
   %61 = zext i32 %.0.i.i to i64
-  %62 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache1<double, zfp::internal::BlockStore1<double, zfp::codec::zfp1<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %49, i64 %61
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %61
   %63 = load i32, ptr %62, align 4, !tbaa !624, !noalias !631
   %.not10.i.i = icmp eq i32 %63, 0
   br i1 %.not10.i.i, label %59, label %_ZN3zfp8internal5CacheINS0_11BlockCache1IdNS0_11BlockStore1IdNS_5codec4zfp1IdEENS_5index8implicitEEEE9CacheLineEE14const_iteratorppEi.exit
 
 _ZN3zfp8internal5CacheINS0_11BlockCache1IdNS0_11BlockStore1IdNS_5codec4zfp1IdEENS_5index8implicitEEEE9CacheLineEE14const_iteratorppEi.exit: ; preds = %60
-  %64 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache1<double, zfp::internal::BlockStore1<double, zfp::codec::zfp1<double>, zfp::index::implicit> >::CacheLine", ptr %50, i64 %61
+  %64 = getelementptr inbounds nuw [32 x i8], ptr %50, i64 %61
   %.not.i = icmp eq ptr %50, null
   br i1 %.not.i, label %._crit_edge, label %16
 }
@@ -29865,13 +29849,13 @@ define linkonce_odr dso_local noundef ptr @_ZNK3zfp8internal11BlockCache1IdNS0_1
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !70
   %12 = zext i32 %9 to i64
-  %13 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache1<double, zfp::internal::BlockStore1<double, zfp::codec::zfp1<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !624
   %15 = lshr i32 %14, 1
   %16 = icmp eq i32 %15, %7
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load ptr, ptr %17, align 8, !tbaa !74
-  %19 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache1<double, zfp::internal::BlockStore1<double, zfp::codec::zfp1<double>, zfp::index::implicit> >::CacheLine", ptr %18, i64 %12
+  %19 = getelementptr inbounds nuw [32 x i8], ptr %18, i64 %12
   br i1 %16, label %20, label %23
 
 20:                                               ; preds = %3
@@ -30010,11 +29994,11 @@ define linkonce_odr dso_local void @_Z13update_array1IdEvRN3zfp6array1IT_NS0_5co
   %10 = zext i32 %9 to i64
   %11 = tail call noundef ptr @_ZNK3zfp8internal11BlockCache1IdNS0_11BlockStore1IdNS_5codec4zfp1IdEENS_5index8implicitEEEE4lineEmb(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef %10, i1 noundef zeroext false)
   %12 = and i64 %10, 3
-  %13 = getelementptr inbounds nuw double, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %12
   %14 = load double, ptr %13, align 8, !tbaa !46
   %15 = tail call noundef ptr @_ZNK3zfp8internal11BlockCache1IdNS0_11BlockStore1IdNS_5codec4zfp1IdEENS_5index8implicitEEEE4lineEmb(ptr noundef nonnull align 8 dereferenceable(32) %4, i64 noundef %8, i1 noundef zeroext true), !noalias !634
   %16 = and i64 %8, 3
-  %17 = getelementptr inbounds nuw double, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %16
   %18 = load double, ptr %17, align 8, !tbaa !46, !noalias !634
   %19 = fsub double %18, %14
   store double %19, ptr %17, align 8, !tbaa !46, !noalias !634
@@ -30033,13 +30017,13 @@ define linkonce_odr dso_local void @_Z13update_array1IdEvRN3zfp6array1IT_NS0_5co
   %26 = load double, ptr %25, align 8, !tbaa !46
   %27 = tail call noundef ptr @_ZNK3zfp8internal11BlockCache1IdNS0_11BlockStore1IdNS_5codec4zfp1IdEENS_5index8implicitEEEE4lineEmb(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef %24, i1 noundef zeroext false)
   %28 = and i64 %24, 3
-  %29 = getelementptr inbounds nuw double, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   %30 = load double, ptr %29, align 8, !tbaa !46
   %31 = fcmp olt double %26, %30
   %.sroa.speculated = select i1 %31, i64 %24, i64 0
   %32 = tail call noundef ptr @_ZNK3zfp8internal11BlockCache1IdNS0_11BlockStore1IdNS_5codec4zfp1IdEENS_5index8implicitEEEE4lineEmb(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef %.sroa.speculated, i1 noundef zeroext false), !noalias !637
   %33 = and i64 %.sroa.speculated, 3
-  %34 = getelementptr inbounds nuw double, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %33
   %35 = load double, ptr %34, align 8, !tbaa !46, !noalias !637
   %36 = tail call noundef ptr @_ZNK3zfp8internal11BlockCache1IdNS0_11BlockStore1IdNS_5codec4zfp1IdEENS_5index8implicitEEEE4lineEmb(ptr noundef nonnull align 8 dereferenceable(32) %6, i64 noundef 0, i1 noundef zeroext true), !noalias !637
   store double %35, ptr %36, align 8, !tbaa !46, !noalias !637
@@ -30092,7 +30076,7 @@ define linkonce_odr dso_local void @_ZN3zfp6array2IdNS_5codec4zfp2IdEENS_5index8
   %21 = and i32 %20, %19
   %22 = load ptr, ptr %12, align 8, !tbaa !75
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache2<double, zfp::internal::BlockStore2<double, zfp::codec::zfp2<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !531
   %26 = lshr i32 %25, 1
   %27 = icmp eq i32 %26, %19
@@ -30106,7 +30090,7 @@ _ZN3zfp8internal5CacheINS0_11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEEN
   %28 = or i32 %25, 1
   store i32 %28, ptr %24, align 4, !tbaa !531
   %29 = load ptr, ptr %13, align 8, !tbaa !79
-  %30 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache2<double, zfp::internal::BlockStore2<double, zfp::codec::zfp2<double>, zfp::index::implicit> >::CacheLine", ptr %29, i64 %23
+  %30 = getelementptr inbounds nuw [128 x i8], ptr %29, i64 %23
   %.not.i.us = icmp eq ptr %29, null
   %.pre48 = load ptr, ptr %14, align 8, !tbaa !529
   br i1 %.not.i.us, label %_ZN3zfp8internal5CacheINS0_11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEENS_5index8implicitEEEE9CacheLineEE6lookupEjb.exit.thread.i.us, label %31
@@ -30165,8 +30149,8 @@ _ZN3zfp8internal5CacheINS0_11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEEN
 
 66:                                               ; preds = %61
   %67 = add nuw nsw i32 %.02538.i.i.us, 1
-  %68 = getelementptr inbounds double, ptr %64, i64 %60
-  %69 = getelementptr inbounds nuw double, ptr %65, i64 %44
+  %68 = getelementptr inbounds [8 x i8], ptr %64, i64 %60
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %44
   %exitcond43.not.i.i.us = icmp eq i32 %67, %58
   br i1 %exitcond43.not.i.i.us, label %_ZN3zfp8internal11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEENS_5index8implicitEEEE9put_blockEmPKdll.exit.us, label %.preheader.i.i.us
 
@@ -30190,7 +30174,7 @@ _ZN3zfp8internal5CacheINS0_11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEEN
 
 75:                                               ; preds = %70
   %76 = add nuw nsw i32 %.01221.i.i.i.us, 1
-  %77 = getelementptr double, ptr %73, i64 %10
+  %77 = getelementptr [8 x i8], ptr %73, i64 %10
   %78 = getelementptr i8, ptr %77, i64 -32
   %exitcond23.not.i.i.i.us = icmp eq i32 %76, 4
   br i1 %exitcond23.not.i.i.i.us, label %_ZN3zfp8internal11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEENS_5index8implicitEEEE9put_blockEmPKdll.exit.us, label %.preheader.i.i.i.us
@@ -30440,13 +30424,13 @@ define linkonce_odr dso_local noundef ptr @_ZNK3zfp6array2IdNS_5codec4zfp2IdEENS
 
 11:                                               ; preds = %10
   %12 = zext i32 %.0.i.i.i.i to i64
-  %13 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache2<double, zfp::internal::BlockStore2<double, zfp::codec::zfp2<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %6, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !531, !noalias !642
   %.not10.i.i.i.i = icmp eq i32 %14, 0
   br i1 %.not10.i.i.i.i, label %10, label %.critedge.i.i.i.i
 
 .critedge.i.i.i.i:                                ; preds = %11
-  %15 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache2<double, zfp::internal::BlockStore2<double, zfp::codec::zfp2<double>, zfp::index::implicit> >::CacheLine", ptr %4, i64 %12
+  %15 = getelementptr inbounds nuw [128 x i8], ptr %4, i64 %12
   br label %_ZN3zfp8internal5CacheINS0_11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEENS_5index8implicitEEEE9CacheLineEE5firstEv.exit.i
 
 _ZN3zfp8internal5CacheINS0_11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEENS_5index8implicitEEEE9CacheLineEE5firstEv.exit.i: ; preds = %.critedge.i.i.i.i, %1
@@ -30485,7 +30469,7 @@ _ZN3zfp8internal5CacheINS0_11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEEN
   %34 = sub i64 %32, %33
   %35 = lshr exact i64 %34, 7
   %36 = and i64 %35, 4294967295
-  %37 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache2<double, zfp::internal::BlockStore2<double, zfp::codec::zfp2<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %30, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %36
   store i32 0, ptr %37, align 4, !tbaa !531
   %38 = trunc i64 %35 to i32
   %39 = load i32, ptr %2, align 8, !tbaa !523, !noalias !645
@@ -30499,13 +30483,13 @@ _ZN3zfp8internal5CacheINS0_11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEEN
 
 41:                                               ; preds = %40
   %42 = zext i32 %.0.i.i.i to i64
-  %43 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache2<double, zfp::internal::BlockStore2<double, zfp::codec::zfp2<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %30, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !531, !noalias !645
   %.not10.i.i.i = icmp eq i32 %44, 0
   br i1 %.not10.i.i.i, label %40, label %_ZN3zfp8internal5CacheINS0_11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEENS_5index8implicitEEEE9CacheLineEE14const_iteratorppEi.exit.i
 
 _ZN3zfp8internal5CacheINS0_11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEENS_5index8implicitEEEE9CacheLineEE14const_iteratorppEi.exit.i: ; preds = %41
-  %45 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache2<double, zfp::internal::BlockStore2<double, zfp::codec::zfp2<double>, zfp::index::implicit> >::CacheLine", ptr %31, i64 %42
+  %45 = getelementptr inbounds nuw [128 x i8], ptr %31, i64 %42
   %.not.i.i = icmp eq ptr %31, null
   br i1 %.not.i.i, label %_ZNK3zfp8internal11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEENS_5index8implicitEEEE5flushEv.exit, label %17
 
@@ -31110,7 +31094,7 @@ _ZN3zfp8internal18reallocate_alignedINS0_11BlockCache2IdNS0_11BlockStore2IdNS_5c
 30:                                               ; preds = %30, %_ZN3zfp8internal18reallocate_alignedINS0_11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEENS_5index8implicitEEEE9CacheLineEEEvRPT_mmm.exit
   %.03.i = phi i32 [ 0, %_ZN3zfp8internal18reallocate_alignedINS0_11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEENS_5index8implicitEEEE9CacheLineEEEvRPT_mmm.exit ], [ %33, %30 ]
   %31 = zext i32 %.03.i to i64
-  %32 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache2<double, zfp::internal::BlockStore2<double, zfp::codec::zfp2<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %29, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %31
   store i32 0, ptr %32, align 4, !tbaa !531
   %33 = add i32 %.03.i, 1
   %.not.i = icmp ugt i32 %33, %28
@@ -31129,7 +31113,7 @@ define linkonce_odr dso_local void @_ZN3zfp8internal11BlockCache2IdNS0_11BlockSt
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !75
   %12 = zext i32 %9 to i64
-  %13 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache2<double, zfp::internal::BlockStore2<double, zfp::codec::zfp2<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !531
   %15 = lshr i32 %14, 1
   %16 = icmp eq i32 %15, %7
@@ -31140,7 +31124,7 @@ _ZN3zfp8internal5CacheINS0_11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEEN
   store i32 %17, ptr %13, align 4, !tbaa !531
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !79
-  %20 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache2<double, zfp::internal::BlockStore2<double, zfp::codec::zfp2<double>, zfp::index::implicit> >::CacheLine", ptr %19, i64 %12
+  %20 = getelementptr inbounds nuw [128 x i8], ptr %19, i64 %12
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %_ZN3zfp8internal5CacheINS0_11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEENS_5index8implicitEEEE9CacheLineEE6lookupEjb.exit.thread, label %21
 
@@ -31186,7 +31170,7 @@ _ZN3zfp8internal5CacheINS0_11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEEN
 
 51:                                               ; preds = %54
   %52 = add nuw nsw i32 %.01221.i.i, 1
-  %53 = getelementptr inbounds double, ptr %57, i64 %50
+  %53 = getelementptr inbounds [8 x i8], ptr %57, i64 %50
   %exitcond23.not.i.i = icmp eq i32 %52, 4
   br i1 %exitcond23.not.i.i, label %_ZN3zfp8internal11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEENS_5index8implicitEEEE9CacheLine3putEPKdllj.exit, label %.preheader.i.i
 
@@ -31197,7 +31181,7 @@ _ZN3zfp8internal5CacheINS0_11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEEN
   %55 = load double, ptr %.11516.i.i, align 8, !tbaa !46
   store double %55, ptr %.117.i.i, align 8, !tbaa !46
   %56 = add nuw nsw i32 %.018.i.i, 1
-  %57 = getelementptr inbounds double, ptr %.11516.i.i, i64 %3
+  %57 = getelementptr inbounds [8 x i8], ptr %.11516.i.i, i64 %3
   %58 = getelementptr inbounds nuw i8, ptr %.117.i.i, i64 8
   %exitcond.not.i.i = icmp eq i32 %56, 4
   br i1 %exitcond.not.i.i, label %51, label %54
@@ -31218,8 +31202,8 @@ _ZN3zfp8internal5CacheINS0_11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEEN
 
 65:                                               ; preds = %69
   %66 = add nuw nsw i32 %.02538.i, 1
-  %67 = getelementptr inbounds double, ptr %72, i64 %64
-  %68 = getelementptr inbounds nuw double, ptr %73, i64 %36
+  %67 = getelementptr inbounds [8 x i8], ptr %72, i64 %64
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %36
   %exitcond43.not.i = icmp eq i32 %66, %61
   br i1 %exitcond43.not.i, label %_ZN3zfp8internal11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEENS_5index8implicitEEEE9CacheLine3putEPKdllj.exit, label %.preheader.i
 
@@ -31230,7 +31214,7 @@ _ZN3zfp8internal5CacheINS0_11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEEN
   %70 = load double, ptr %.12833.i, align 8, !tbaa !46
   store double %70, ptr %.134.i, align 8, !tbaa !46
   %71 = add nuw nsw i32 %.035.i, 1
-  %72 = getelementptr inbounds double, ptr %.12833.i, i64 %3
+  %72 = getelementptr inbounds [8 x i8], ptr %.12833.i, i64 %3
   %73 = getelementptr inbounds nuw i8, ptr %.134.i, i64 8
   %exitcond.not.i = icmp eq i32 %71, %60
   br i1 %exitcond.not.i, label %65, label %69
@@ -31493,12 +31477,12 @@ define linkonce_odr dso_local void @_Z13update_array2IdEvRN3zfp6array2IT_NS0_5co
   %44 = and i32 %42, %43
   %45 = load ptr, ptr %7, align 8, !tbaa !75
   %46 = zext i32 %44 to i64
-  %47 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache2<double, zfp::internal::BlockStore2<double, zfp::codec::zfp2<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %45, i64 %46
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %46
   %48 = load i32, ptr %47, align 4, !tbaa !531
   %49 = lshr i32 %48, 1
   %50 = icmp eq i32 %49, %42
   %51 = load ptr, ptr %8, align 8, !tbaa !79
-  %52 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache2<double, zfp::internal::BlockStore2<double, zfp::codec::zfp2<double>, zfp::index::implicit> >::CacheLine", ptr %51, i64 %46
+  %52 = getelementptr inbounds nuw [128 x i8], ptr %51, i64 %46
   br i1 %50, label %_ZN3zfp8internal5CacheINS0_11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i, label %53
 
 53:                                               ; preds = %31
@@ -31615,8 +31599,8 @@ _ZNK3zfp8internal11BlockStore2IdNS_5codec4zfp2IdEENS_5index8implicitEE6decodeEmP
 
 _ZNK3zfp8internal4dim215const_referenceINS_6array2IdNS_5codec4zfp2IdEENS_5index8implicitEEEEcvdEv.exit: ; preds = %_ZN3zfp8internal5CacheINS0_11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i, %_ZNK3zfp8internal11BlockStore2IdNS_5codec4zfp2IdEENS_5index8implicitEE6decodeEmPd.exit
   %131 = and i64 %34, 3
-  %132 = getelementptr inbounds nuw double, ptr %52, i64 %14
-  %133 = getelementptr inbounds nuw double, ptr %132, i64 %131
+  %132 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %14
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %132, i64 %131
   %134 = load double, ptr %133, align 8, !tbaa !46
   %135 = load ptr, ptr %6, align 8, !tbaa !529, !noalias !650
   %136 = lshr i64 %32, 2
@@ -31630,12 +31614,12 @@ _ZNK3zfp8internal4dim215const_referenceINS_6array2IdNS_5codec4zfp2IdEENS_5index8
   %144 = and i32 %142, %143
   %145 = load ptr, ptr %7, align 8, !tbaa !75, !noalias !650
   %146 = zext i32 %144 to i64
-  %147 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache2<double, zfp::internal::BlockStore2<double, zfp::codec::zfp2<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %145, i64 %146
+  %147 = getelementptr inbounds nuw [4 x i8], ptr %145, i64 %146
   %148 = load i32, ptr %147, align 4, !tbaa !531, !noalias !650
   %149 = lshr i32 %148, 1
   %150 = icmp eq i32 %149, %142
   %151 = load ptr, ptr %8, align 8, !tbaa !79, !noalias !650
-  %152 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache2<double, zfp::internal::BlockStore2<double, zfp::codec::zfp2<double>, zfp::index::implicit> >::CacheLine", ptr %151, i64 %146
+  %152 = getelementptr inbounds nuw [128 x i8], ptr %151, i64 %146
   %153 = shl i32 %142, 1
   %.sink.i.i.v.i.i.i = select i1 %150, i32 %148, i32 %153
   %.sink.i.i.i.i.i = or i32 %.sink.i.i.v.i.i.i, 1
@@ -31749,8 +31733,8 @@ _ZNK3zfp8internal11BlockStore2IdNS_5codec4zfp2IdEENS_5index8implicitEE6decodeEmP
 
 _ZN3zfp8internal4dim29referenceINS_6array2IdNS_5codec4zfp2IdEENS_5index8implicitEEEEmIEd.exit: ; preds = %_ZNK3zfp8internal4dim215const_referenceINS_6array2IdNS_5codec4zfp2IdEENS_5index8implicitEEEEcvdEv.exit, %_ZNK3zfp8internal11BlockStore2IdNS_5codec4zfp2IdEENS_5index8implicitEE6decodeEmPd.exit62
   %231 = and i64 %32, 3
-  %232 = getelementptr inbounds nuw double, ptr %152, i64 %14
-  %233 = getelementptr inbounds nuw double, ptr %232, i64 %231
+  %232 = getelementptr inbounds nuw [8 x i8], ptr %152, i64 %14
+  %233 = getelementptr inbounds nuw [8 x i8], ptr %232, i64 %231
   %234 = load double, ptr %233, align 8, !tbaa !46, !noalias !650
   %235 = fsub double %234, %134
   store double %235, ptr %233, align 8, !tbaa !46, !noalias !650
@@ -31818,12 +31802,12 @@ _ZN3zfp8internal4dim29referenceINS_6array2IdNS_5codec4zfp2IdEENS_5index8implicit
   %269 = and i32 %267, %268
   %270 = load ptr, ptr %19, align 8, !tbaa !75
   %271 = zext i32 %269 to i64
-  %272 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache2<double, zfp::internal::BlockStore2<double, zfp::codec::zfp2<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %270, i64 %271
+  %272 = getelementptr inbounds nuw [4 x i8], ptr %270, i64 %271
   %273 = load i32, ptr %272, align 4, !tbaa !531
   %274 = lshr i32 %273, 1
   %275 = icmp eq i32 %274, %267
   %276 = load ptr, ptr %20, align 8, !tbaa !79
-  %277 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache2<double, zfp::internal::BlockStore2<double, zfp::codec::zfp2<double>, zfp::index::implicit> >::CacheLine", ptr %276, i64 %271
+  %277 = getelementptr inbounds nuw [128 x i8], ptr %276, i64 %271
   br i1 %275, label %_ZN3zfp8internal5CacheINS0_11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i45, label %278
 
 278:                                              ; preds = %258
@@ -31940,8 +31924,8 @@ _ZNK3zfp8internal11BlockStore2IdNS_5codec4zfp2IdEENS_5index8implicitEE6decodeEmP
 
 _ZNK3zfp8internal4dim215const_referenceINS_6array2IdNS_5codec4zfp2IdEENS_5index8implicitEEEEcvdEv.exit48: ; preds = %_ZN3zfp8internal5CacheINS0_11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i45, %_ZNK3zfp8internal11BlockStore2IdNS_5codec4zfp2IdEENS_5index8implicitEE6decodeEmPd.exit66
   %356 = and i64 %259, 3
-  %357 = getelementptr inbounds nuw double, ptr %277, i64 %244
-  %358 = getelementptr inbounds nuw double, ptr %357, i64 %356
+  %357 = getelementptr inbounds nuw [8 x i8], ptr %277, i64 %244
+  %358 = getelementptr inbounds nuw [8 x i8], ptr %357, i64 %356
   %359 = load double, ptr %358, align 8, !tbaa !46
   %360 = load ptr, ptr %18, align 8, !tbaa !529, !noalias !654
   %361 = getelementptr inbounds nuw i8, ptr %360, i64 72
@@ -31954,12 +31938,12 @@ _ZNK3zfp8internal4dim215const_referenceINS_6array2IdNS_5codec4zfp2IdEENS_5index8
   %368 = and i32 %366, %367
   %369 = load ptr, ptr %19, align 8, !tbaa !75, !noalias !654
   %370 = zext i32 %368 to i64
-  %371 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache2<double, zfp::internal::BlockStore2<double, zfp::codec::zfp2<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %369, i64 %370
+  %371 = getelementptr inbounds nuw [4 x i8], ptr %369, i64 %370
   %372 = load i32, ptr %371, align 4, !tbaa !531, !noalias !654
   %373 = lshr i32 %372, 1
   %374 = icmp eq i32 %373, %366
   %375 = load ptr, ptr %20, align 8, !tbaa !79, !noalias !654
-  %376 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache2<double, zfp::internal::BlockStore2<double, zfp::codec::zfp2<double>, zfp::index::implicit> >::CacheLine", ptr %375, i64 %370
+  %376 = getelementptr inbounds nuw [128 x i8], ptr %375, i64 %370
   %377 = shl i32 %366, 1
   %.sink.i.i.v.i.i.i49 = select i1 %374, i32 %372, i32 %377
   %.sink.i.i.i.i.i50 = or i32 %.sink.i.i.v.i.i.i49, 1
@@ -32072,8 +32056,8 @@ _ZNK3zfp8internal11BlockStore2IdNS_5codec4zfp2IdEENS_5index8implicitEE6decodeEmP
   br label %_ZN3zfp8internal4dim29referenceINS_6array2IdNS_5codec4zfp2IdEENS_5index8implicitEEEEmIEd.exit56
 
 _ZN3zfp8internal4dim29referenceINS_6array2IdNS_5codec4zfp2IdEENS_5index8implicitEEEEmIEd.exit56: ; preds = %_ZNK3zfp8internal4dim215const_referenceINS_6array2IdNS_5codec4zfp2IdEENS_5index8implicitEEEEcvdEv.exit48, %_ZNK3zfp8internal11BlockStore2IdNS_5codec4zfp2IdEENS_5index8implicitEE6decodeEmPd.exit70
-  %455 = getelementptr inbounds nuw double, ptr %376, i64 %247
-  %456 = getelementptr inbounds nuw double, ptr %455, i64 %356
+  %455 = getelementptr inbounds nuw [8 x i8], ptr %376, i64 %247
+  %456 = getelementptr inbounds nuw [8 x i8], ptr %455, i64 %356
   %457 = load double, ptr %456, align 8, !tbaa !46, !noalias !654
   %458 = fsub double %457, %359
   store double %458, ptr %456, align 8, !tbaa !46, !noalias !654
@@ -32123,12 +32107,12 @@ _ZN3zfp8internal4dim29referenceINS_6array2IdNS_5codec4zfp2IdEENS_5index8implicit
   %481 = and i32 %480, 1
   %482 = load ptr, ptr %252, align 8, !tbaa !75
   %483 = zext nneg i32 %481 to i64
-  %484 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache2<double, zfp::internal::BlockStore2<double, zfp::codec::zfp2<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %482, i64 %483
+  %484 = getelementptr inbounds nuw [4 x i8], ptr %482, i64 %483
   %485 = load i32, ptr %484, align 4, !tbaa !531
   %486 = lshr i32 %485, 1
   %487 = icmp eq i32 %486, 1
   %488 = load ptr, ptr %253, align 8, !tbaa !79
-  %489 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache2<double, zfp::internal::BlockStore2<double, zfp::codec::zfp2<double>, zfp::index::implicit> >::CacheLine", ptr %488, i64 %483
+  %489 = getelementptr inbounds nuw [128 x i8], ptr %488, i64 %483
   br i1 %487, label %_ZNK3zfp8internal4dim215const_referenceINS_6array2IdNS_5codec4zfp2IdEENS_5index8implicitEEEEcvdEv.exit.i, label %_ZN3zfp8internal5CacheINS0_11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i.i
 
 _ZN3zfp8internal5CacheINS0_11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i.i: ; preds = %475
@@ -32246,11 +32230,11 @@ _ZNK3zfp8internal4dim215const_referenceINS_6array2IdNS_5codec4zfp2IdEENS_5index8
   %566 = load i32, ptr %250, align 8, !tbaa !523
   %567 = and i32 %565, %566
   %568 = zext i32 %567 to i64
-  %569 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache2<double, zfp::internal::BlockStore2<double, zfp::codec::zfp2<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %557, i64 %568
+  %569 = getelementptr inbounds nuw [4 x i8], ptr %557, i64 %568
   %570 = load i32, ptr %569, align 4, !tbaa !531
   %571 = lshr i32 %570, 1
   %572 = icmp eq i32 %571, %565
-  %573 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache2<double, zfp::internal::BlockStore2<double, zfp::codec::zfp2<double>, zfp::index::implicit> >::CacheLine", ptr %556, i64 %568
+  %573 = getelementptr inbounds nuw [128 x i8], ptr %556, i64 %568
   br i1 %572, label %_ZN3zfp8internal5CacheINS0_11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i5.i, label %574
 
 574:                                              ; preds = %_ZNK3zfp8internal4dim215const_referenceINS_6array2IdNS_5codec4zfp2IdEENS_5index8implicitEEEEcvdEv.exit.i
@@ -32373,8 +32357,8 @@ _ZSt3maxIN3zfp8internal4dim29referenceINS0_6array2IdNS0_5codec4zfp2IdEENS0_5inde
   %653 = phi ptr [ %557, %_ZN3zfp8internal5CacheINS0_11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i5.i ], [ %.pre173, %_ZNK3zfp8internal11BlockStore2IdNS_5codec4zfp2IdEENS_5index8implicitEE6decodeEmPd.exit74 ]
   %654 = phi ptr [ %559, %_ZN3zfp8internal5CacheINS0_11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i5.i ], [ %.pre172, %_ZNK3zfp8internal11BlockStore2IdNS_5codec4zfp2IdEENS_5index8implicitEE6decodeEmPd.exit74 ]
   %655 = and i64 %476, 3
-  %656 = getelementptr inbounds nuw double, ptr %573, i64 %468
-  %657 = getelementptr inbounds nuw double, ptr %656, i64 %655
+  %656 = getelementptr inbounds nuw [8 x i8], ptr %573, i64 %468
+  %657 = getelementptr inbounds nuw [8 x i8], ptr %656, i64 %655
   %658 = load double, ptr %657, align 8, !tbaa !46
   %659 = fcmp olt double %560, %658
   %.sroa.speculated101 = select i1 %659, i64 %476, i64 0
@@ -32390,11 +32374,11 @@ _ZSt3maxIN3zfp8internal4dim29referenceINS0_6array2IdNS0_5codec4zfp2IdEENS0_5inde
   %668 = load i32, ptr %250, align 8, !tbaa !523, !noalias !657
   %669 = and i32 %667, %668
   %670 = zext i32 %669 to i64
-  %671 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache2<double, zfp::internal::BlockStore2<double, zfp::codec::zfp2<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %653, i64 %670
+  %671 = getelementptr inbounds nuw [4 x i8], ptr %653, i64 %670
   %672 = load i32, ptr %671, align 4, !tbaa !531, !noalias !657
   %673 = lshr i32 %672, 1
   %674 = icmp eq i32 %673, %667
-  %675 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache2<double, zfp::internal::BlockStore2<double, zfp::codec::zfp2<double>, zfp::index::implicit> >::CacheLine", ptr %652, i64 %670
+  %675 = getelementptr inbounds nuw [128 x i8], ptr %652, i64 %670
   br i1 %674, label %_ZN3zfp8internal5CacheINS0_11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i57, label %676
 
 676:                                              ; preds = %_ZSt3maxIN3zfp8internal4dim29referenceINS0_6array2IdNS0_5codec4zfp2IdEENS0_5index8implicitEEEEEERKT_SE_SE_.exit
@@ -32522,16 +32506,16 @@ _ZNK3zfp8internal4dim212const_handleINS_6array2IdNS_5codec4zfp2IdEENS_5index8imp
   %758 = and i64 %.sroa.speculated101, 3
   %759 = shl nuw nsw i64 %.sroa.speculated, 2
   %760 = and i64 %759, 12
-  %761 = getelementptr inbounds nuw double, ptr %675, i64 %760
-  %762 = getelementptr inbounds nuw double, ptr %761, i64 %758
+  %761 = getelementptr inbounds nuw [8 x i8], ptr %675, i64 %760
+  %762 = getelementptr inbounds nuw [8 x i8], ptr %761, i64 %758
   %763 = load double, ptr %762, align 8, !tbaa !46, !noalias !657
   %764 = load i32, ptr %250, align 8, !tbaa !523, !noalias !657
   %765 = and i32 %764, 1
   %766 = zext nneg i32 %765 to i64
-  %767 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache2<double, zfp::internal::BlockStore2<double, zfp::codec::zfp2<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %755, i64 %766
+  %767 = getelementptr inbounds nuw [4 x i8], ptr %755, i64 %766
   %768 = load i32, ptr %767, align 4, !tbaa !531, !noalias !657
   %769 = lshr i32 %768, 1
-  %770 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache2<double, zfp::internal::BlockStore2<double, zfp::codec::zfp2<double>, zfp::index::implicit> >::CacheLine", ptr %754, i64 %766
+  %770 = getelementptr inbounds nuw [128 x i8], ptr %754, i64 %766
   store i32 3, ptr %767, align 4, !tbaa !37, !noalias !657
   %771 = add nsw i32 %769, -1
   %772 = zext i32 %771 to i64
@@ -32696,7 +32680,7 @@ define linkonce_odr dso_local void @_ZN3zfp6array3IdNS_5codec4zfp3IdEENS_5index8
   %29 = and i32 %28, %27
   %30 = load ptr, ptr %17, align 8, !tbaa !80
   %31 = zext i32 %29 to i64
-  %32 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !566
   %34 = lshr i32 %33, 1
   %35 = icmp eq i32 %34, %27
@@ -32710,7 +32694,7 @@ _ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEEN
   %36 = or i32 %33, 1
   store i32 %36, ptr %32, align 4, !tbaa !566
   %37 = load ptr, ptr %18, align 8, !tbaa !84
-  %38 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine", ptr %37, i64 %31
+  %38 = getelementptr inbounds nuw [512 x i8], ptr %37, i64 %31
   %.not.i.us.us.us = icmp eq ptr %37, null
   %.pre85 = load ptr, ptr %19, align 8, !tbaa !564
   br i1 %.not.i.us.us.us, label %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE6lookupEjb.exit.thread.i.us.us.us, label %39
@@ -32796,15 +32780,15 @@ _ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEEN
 
 95:                                               ; preds = %90
   %96 = add nuw nsw i32 %.03755.i.i.us.us.us, 1
-  %97 = getelementptr inbounds double, ptr %93, i64 %83
-  %98 = getelementptr inbounds nuw double, ptr %94, i64 %57
+  %97 = getelementptr inbounds [8 x i8], ptr %93, i64 %83
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %57
   %exitcond66.not.i.i.us.us.us = icmp eq i32 %96, %80
   br i1 %exitcond66.not.i.i.us.us.us, label %99, label %.preheader.i.i.us.us.us
 
 99:                                               ; preds = %95
   %100 = add nuw nsw i32 %.03858.i.i.us.us.us, 1
-  %101 = getelementptr inbounds double, ptr %97, i64 %86
-  %102 = getelementptr inbounds nuw double, ptr %98, i64 %89
+  %101 = getelementptr inbounds [8 x i8], ptr %97, i64 %86
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %89
   %exitcond67.not.i.i.us.us.us = icmp eq i32 %100, %81
   br i1 %exitcond67.not.i.i.us.us.us, label %_ZNK3zfp8internal11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9put_blockEmPKdlll.exit.us.us.us, label %.preheader46.i.i.us.us.us
 
@@ -32834,14 +32818,14 @@ _ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEEN
 
 108:                                              ; preds = %103
   %109 = add nuw nsw i32 %.01729.i.i.i.us.us.us, 1
-  %110 = getelementptr double, ptr %106, i64 %12
+  %110 = getelementptr [8 x i8], ptr %106, i64 %12
   %111 = getelementptr i8, ptr %110, i64 -32
   %exitcond35.not.i.i.i.us.us.us = icmp eq i32 %109, 4
   br i1 %exitcond35.not.i.i.i.us.us.us, label %112, label %.preheader.i.i.i.us.us.us
 
 112:                                              ; preds = %108
   %113 = add nuw nsw i32 %.01832.i.i.i.us.us.us, 1
-  %114 = getelementptr inbounds double, ptr %111, i64 %21
+  %114 = getelementptr inbounds [8 x i8], ptr %111, i64 %21
   %exitcond36.not.i.i.i.us.us.us = icmp eq i32 %113, 4
   br i1 %exitcond36.not.i.i.i.us.us.us, label %_ZNK3zfp8internal11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9put_blockEmPKdlll.exit.us.us.us, label %.preheader23.i.i.i.us.us.us
 
@@ -32927,7 +32911,7 @@ _ZNK3zfp8internal11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8i
   %173 = load i64, ptr %13, align 8, !tbaa !200
   %174 = sub i64 %173, %7
   %175 = mul nsw i64 %22, %174
-  %176 = getelementptr inbounds double, ptr %171, i64 %175
+  %176 = getelementptr inbounds [8 x i8], ptr %171, i64 %175
   %exitcond83.not = icmp eq i64 %172, %9
   br i1 %exitcond83.not, label %.loopexit, label %.preheader35.us.us
 
@@ -33114,13 +33098,13 @@ define linkonce_odr dso_local noundef ptr @_ZNK3zfp6array3IdNS_5codec4zfp3IdEENS
 
 11:                                               ; preds = %10
   %12 = zext i32 %.0.i.i.i.i to i64
-  %13 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %6, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !566, !noalias !662
   %.not10.i.i.i.i = icmp eq i32 %14, 0
   br i1 %.not10.i.i.i.i, label %10, label %.critedge.i.i.i.i
 
 .critedge.i.i.i.i:                                ; preds = %11
-  %15 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine", ptr %4, i64 %12
+  %15 = getelementptr inbounds nuw [512 x i8], ptr %4, i64 %12
   br label %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE5firstEv.exit.i
 
 _ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE5firstEv.exit.i: ; preds = %.critedge.i.i.i.i, %1
@@ -33159,7 +33143,7 @@ _ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEEN
   %34 = sub i64 %32, %33
   %35 = lshr exact i64 %34, 9
   %36 = and i64 %35, 4294967295
-  %37 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %30, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %36
   store i32 0, ptr %37, align 4, !tbaa !566
   %38 = trunc i64 %35 to i32
   %39 = load i32, ptr %2, align 8, !tbaa !558, !noalias !665
@@ -33173,13 +33157,13 @@ _ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEEN
 
 41:                                               ; preds = %40
   %42 = zext i32 %.0.i.i.i to i64
-  %43 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %30, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !566, !noalias !665
   %.not10.i.i.i = icmp eq i32 %44, 0
   br i1 %.not10.i.i.i, label %40, label %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE14const_iteratorppEi.exit.i
 
 _ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE14const_iteratorppEi.exit.i: ; preds = %41
-  %45 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine", ptr %31, i64 %42
+  %45 = getelementptr inbounds nuw [512 x i8], ptr %31, i64 %42
   %.not.i.i = icmp eq ptr %31, null
   br i1 %.not.i.i, label %_ZNK3zfp8internal11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE5flushEv.exit, label %17
 
@@ -33789,7 +33773,7 @@ _ZN3zfp8internal18reallocate_alignedINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5c
 30:                                               ; preds = %30, %_ZN3zfp8internal18reallocate_alignedINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEEEvRPT_mmm.exit
   %.03.i = phi i32 [ 0, %_ZN3zfp8internal18reallocate_alignedINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEEEvRPT_mmm.exit ], [ %33, %30 ]
   %31 = zext i32 %.03.i to i64
-  %32 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %29, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %31
   store i32 0, ptr %32, align 4, !tbaa !566
   %33 = add i32 %.03.i, 1
   %.not.i = icmp ugt i32 %33, %28
@@ -33808,7 +33792,7 @@ define linkonce_odr dso_local void @_ZNK3zfp8internal11BlockCache3IdNS0_11BlockS
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !80
   %13 = zext i32 %10 to i64
-  %14 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !566
   %16 = lshr i32 %15, 1
   %17 = icmp eq i32 %16, %8
@@ -33819,7 +33803,7 @@ _ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEEN
   store i32 %18, ptr %14, align 4, !tbaa !566
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !84
-  %21 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine", ptr %20, i64 %13
+  %21 = getelementptr inbounds nuw [512 x i8], ptr %20, i64 %13
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE6lookupEjb.exit.thread, label %22
 
@@ -33887,13 +33871,13 @@ _ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEEN
 
 68:                                               ; preds = %71
   %69 = add nuw nsw i32 %.01832.i.i, 1
-  %70 = getelementptr inbounds double, ptr %73, i64 %67
+  %70 = getelementptr inbounds [8 x i8], ptr %73, i64 %67
   %exitcond36.not.i.i = icmp eq i32 %69, 4
   br i1 %exitcond36.not.i.i, label %_ZN3zfp8internal11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLine3putEPKdlllj.exit, label %.preheader23.i.i
 
 71:                                               ; preds = %74
   %72 = add nuw nsw i32 %.01729.i.i, 1
-  %73 = getelementptr inbounds double, ptr %77, i64 %65
+  %73 = getelementptr inbounds [8 x i8], ptr %77, i64 %65
   %exitcond35.not.i.i = icmp eq i32 %72, 4
   br i1 %exitcond35.not.i.i, label %68, label %.preheader.i.i
 
@@ -33904,7 +33888,7 @@ _ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEEN
   %75 = load double, ptr %.22224.i.i, align 8, !tbaa !46
   store double %75, ptr %.225.i.i, align 8, !tbaa !46
   %76 = add nuw nsw i32 %.026.i.i, 1
-  %77 = getelementptr inbounds double, ptr %.22224.i.i, i64 %3
+  %77 = getelementptr inbounds [8 x i8], ptr %.22224.i.i, i64 %3
   %78 = getelementptr inbounds nuw i8, ptr %.225.i.i, i64 8
   %exitcond.not.i.i = icmp eq i32 %76, 4
   br i1 %exitcond.not.i.i, label %71, label %74
@@ -33938,15 +33922,15 @@ _ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEEN
 
 92:                                               ; preds = %96
   %93 = add nuw nsw i32 %.03858.i, 1
-  %94 = getelementptr inbounds double, ptr %98, i64 %88
-  %95 = getelementptr inbounds nuw double, ptr %99, i64 %91
+  %94 = getelementptr inbounds [8 x i8], ptr %98, i64 %88
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %91
   %exitcond67.not.i = icmp eq i32 %93, %82
   br i1 %exitcond67.not.i, label %_ZN3zfp8internal11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLine3putEPKdlllj.exit, label %.preheader46.i
 
 96:                                               ; preds = %100
   %97 = add nuw nsw i32 %.03755.i, 1
-  %98 = getelementptr inbounds double, ptr %103, i64 %85
-  %99 = getelementptr inbounds nuw double, ptr %104, i64 %42
+  %98 = getelementptr inbounds [8 x i8], ptr %103, i64 %85
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 %42
   %exitcond66.not.i = icmp eq i32 %97, %81
   br i1 %exitcond66.not.i, label %92, label %.preheader.i
 
@@ -33957,7 +33941,7 @@ _ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEEN
   %101 = load double, ptr %.24250.i, align 8, !tbaa !46
   store double %101, ptr %.251.i, align 8, !tbaa !46
   %102 = add nuw nsw i32 %.052.i, 1
-  %103 = getelementptr inbounds double, ptr %.24250.i, i64 %3
+  %103 = getelementptr inbounds [8 x i8], ptr %.24250.i, i64 %3
   %104 = getelementptr inbounds nuw i8, ptr %.251.i, i64 8
   %exitcond.not.i = icmp eq i32 %102, %80
   br i1 %exitcond.not.i, label %96, label %100
@@ -34296,12 +34280,12 @@ define linkonce_odr dso_local void @_Z13update_array3IdEvRN3zfp6array3IT_NS0_5co
   %64 = and i32 %62, %63
   %65 = load ptr, ptr %10, align 8, !tbaa !80
   %66 = zext i32 %64 to i64
-  %67 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %66
   %68 = load i32, ptr %67, align 4, !tbaa !566
   %69 = lshr i32 %68, 1
   %70 = icmp eq i32 %69, %62
   %71 = load ptr, ptr %11, align 8, !tbaa !84
-  %72 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine", ptr %71, i64 %66
+  %72 = getelementptr inbounds nuw [512 x i8], ptr %71, i64 %66
   br i1 %70, label %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i, label %73
 
 73:                                               ; preds = %47
@@ -34446,7 +34430,7 @@ _ZNK3zfp8internal11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEE6decodeEmP
 _ZNK3zfp8internal4dim315const_referenceINS_6array3IdNS_5codec4zfp3IdEENS_5index8implicitEEEEcvdEv.exit: ; preds = %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i, %_ZNK3zfp8internal11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEE6decodeEmPd.exit
   %176 = and i64 %50, 3
   %177 = getelementptr inbounds nuw i8, ptr %72, i64 %.idx.i.i.i.i.i
-  %178 = getelementptr inbounds nuw double, ptr %177, i64 %176
+  %178 = getelementptr inbounds nuw [8 x i8], ptr %177, i64 %176
   %179 = load double, ptr %178, align 8, !tbaa !46
   %180 = load ptr, ptr %9, align 8, !tbaa !564, !noalias !671
   %181 = lshr i64 %48, 2
@@ -34464,12 +34448,12 @@ _ZNK3zfp8internal4dim315const_referenceINS_6array3IdNS_5codec4zfp3IdEENS_5index8
   %193 = and i32 %191, %192
   %194 = load ptr, ptr %10, align 8, !tbaa !80, !noalias !671
   %195 = zext i32 %193 to i64
-  %196 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %194, i64 %195
+  %196 = getelementptr inbounds nuw [4 x i8], ptr %194, i64 %195
   %197 = load i32, ptr %196, align 4, !tbaa !566, !noalias !671
   %198 = lshr i32 %197, 1
   %199 = icmp eq i32 %198, %191
   %200 = load ptr, ptr %11, align 8, !tbaa !84, !noalias !671
-  %201 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine", ptr %200, i64 %195
+  %201 = getelementptr inbounds nuw [512 x i8], ptr %200, i64 %195
   %202 = shl i32 %191, 1
   %.sink.i.i.v.i.i.i = select i1 %199, i32 %197, i32 %202
   %.sink.i.i.i.i.i = or i32 %.sink.i.i.v.i.i.i, 1
@@ -34611,7 +34595,7 @@ _ZNK3zfp8internal11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEE6decodeEmP
 _ZN3zfp8internal4dim39referenceINS_6array3IdNS_5codec4zfp3IdEENS_5index8implicitEEEEmIEd.exit: ; preds = %_ZNK3zfp8internal4dim315const_referenceINS_6array3IdNS_5codec4zfp3IdEENS_5index8implicitEEEEcvdEv.exit, %_ZNK3zfp8internal11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEE6decodeEmPd.exit123
   %305 = and i64 %48, 3
   %306 = getelementptr inbounds nuw i8, ptr %201, i64 %.idx.i.i.i.i.i
-  %307 = getelementptr inbounds nuw double, ptr %306, i64 %305
+  %307 = getelementptr inbounds nuw [8 x i8], ptr %306, i64 %305
   %308 = load double, ptr %307, align 8, !tbaa !46, !noalias !671
   %309 = fsub double %308, %179
   store double %309, ptr %307, align 8, !tbaa !46, !noalias !671
@@ -34743,12 +34727,12 @@ _ZN3zfp8internal4dim39referenceINS_6array3IdNS_5codec4zfp3IdEENS_5index8implicit
   %375 = and i32 %373, %374
   %376 = load ptr, ptr %28, align 8, !tbaa !80
   %377 = zext i32 %375 to i64
-  %378 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %376, i64 %377
+  %378 = getelementptr inbounds nuw [4 x i8], ptr %376, i64 %377
   %379 = load i32, ptr %378, align 4, !tbaa !566
   %380 = lshr i32 %379, 1
   %381 = icmp eq i32 %380, %373
   %382 = load ptr, ptr %29, align 8, !tbaa !84
-  %383 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine", ptr %382, i64 %377
+  %383 = getelementptr inbounds nuw [512 x i8], ptr %382, i64 %377
   br i1 %381, label %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i88, label %384
 
 384:                                              ; preds = %360
@@ -34893,7 +34877,7 @@ _ZNK3zfp8internal11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEE6decodeEmP
 _ZNK3zfp8internal4dim315const_referenceINS_6array3IdNS_5codec4zfp3IdEENS_5index8implicitEEEEcvdEv.exit92: ; preds = %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i88, %_ZNK3zfp8internal11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEE6decodeEmPd.exit127
   %487 = and i64 %361, 3
   %488 = getelementptr inbounds nuw i8, ptr %383, i64 %.idx.i.i.i.i.i90
-  %489 = getelementptr inbounds nuw double, ptr %488, i64 %487
+  %489 = getelementptr inbounds nuw [8 x i8], ptr %488, i64 %487
   %490 = load double, ptr %489, align 8, !tbaa !46
   %491 = load ptr, ptr %27, align 8, !tbaa !564, !noalias !675
   %492 = getelementptr inbounds nuw i8, ptr %491, i64 80
@@ -34910,12 +34894,12 @@ _ZNK3zfp8internal4dim315const_referenceINS_6array3IdNS_5codec4zfp3IdEENS_5index8
   %503 = and i32 %501, %502
   %504 = load ptr, ptr %28, align 8, !tbaa !80, !noalias !675
   %505 = zext i32 %503 to i64
-  %506 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %504, i64 %505
+  %506 = getelementptr inbounds nuw [4 x i8], ptr %504, i64 %505
   %507 = load i32, ptr %506, align 4, !tbaa !566, !noalias !675
   %508 = lshr i32 %507, 1
   %509 = icmp eq i32 %508, %501
   %510 = load ptr, ptr %29, align 8, !tbaa !84, !noalias !675
-  %511 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine", ptr %510, i64 %505
+  %511 = getelementptr inbounds nuw [512 x i8], ptr %510, i64 %505
   %512 = shl i32 %501, 1
   %.sink.i.i.v.i.i.i93 = select i1 %509, i32 %507, i32 %512
   %.sink.i.i.i.i.i94 = or i32 %.sink.i.i.v.i.i.i93, 1
@@ -35056,7 +35040,7 @@ _ZNK3zfp8internal11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEE6decodeEmP
 
 _ZN3zfp8internal4dim39referenceINS_6array3IdNS_5codec4zfp3IdEENS_5index8implicitEEEEmIEd.exit102: ; preds = %_ZNK3zfp8internal4dim315const_referenceINS_6array3IdNS_5codec4zfp3IdEENS_5index8implicitEEEEcvdEv.exit92, %_ZNK3zfp8internal11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEE6decodeEmPd.exit131
   %615 = getelementptr inbounds nuw i8, ptr %511, i64 %.idx.i.i.i.i100
-  %616 = getelementptr inbounds nuw double, ptr %615, i64 %487
+  %616 = getelementptr inbounds nuw [8 x i8], ptr %615, i64 %487
   %617 = load double, ptr %616, align 8, !tbaa !46, !noalias !675
   %618 = fsub double %617, %490
   store double %618, ptr %616, align 8, !tbaa !46, !noalias !675
@@ -35178,12 +35162,12 @@ _ZN3zfp8internal4dim39referenceINS_6array3IdNS_5codec4zfp3IdEENS_5index8implicit
   %684 = and i32 %682, %683
   %685 = load ptr, ptr %331, align 8, !tbaa !80
   %686 = zext i32 %684 to i64
-  %687 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %685, i64 %686
+  %687 = getelementptr inbounds nuw [4 x i8], ptr %685, i64 %686
   %688 = load i32, ptr %687, align 4, !tbaa !566
   %689 = lshr i32 %688, 1
   %690 = icmp eq i32 %689, %682
   %691 = load ptr, ptr %332, align 8, !tbaa !84
-  %692 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine", ptr %691, i64 %686
+  %692 = getelementptr inbounds nuw [512 x i8], ptr %691, i64 %686
   br i1 %690, label %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i103, label %693
 
 693:                                              ; preds = %669
@@ -35328,7 +35312,7 @@ _ZNK3zfp8internal11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEE6decodeEmP
 _ZNK3zfp8internal4dim315const_referenceINS_6array3IdNS_5codec4zfp3IdEENS_5index8implicitEEEEcvdEv.exit107: ; preds = %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i103, %_ZNK3zfp8internal11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEE6decodeEmPd.exit135
   %796 = and i64 %670, 3
   %797 = getelementptr inbounds nuw i8, ptr %692, i64 %.idx.i.i.i.i.i105
-  %798 = getelementptr inbounds nuw double, ptr %797, i64 %796
+  %798 = getelementptr inbounds nuw [8 x i8], ptr %797, i64 %796
   %799 = load double, ptr %798, align 8, !tbaa !46
   %800 = load ptr, ptr %330, align 8, !tbaa !564, !noalias !680
   %801 = getelementptr inbounds nuw i8, ptr %800, i64 80
@@ -35345,12 +35329,12 @@ _ZNK3zfp8internal4dim315const_referenceINS_6array3IdNS_5codec4zfp3IdEENS_5index8
   %812 = and i32 %810, %811
   %813 = load ptr, ptr %331, align 8, !tbaa !80, !noalias !680
   %814 = zext i32 %812 to i64
-  %815 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %813, i64 %814
+  %815 = getelementptr inbounds nuw [4 x i8], ptr %813, i64 %814
   %816 = load i32, ptr %815, align 4, !tbaa !566, !noalias !680
   %817 = lshr i32 %816, 1
   %818 = icmp eq i32 %817, %810
   %819 = load ptr, ptr %332, align 8, !tbaa !84, !noalias !680
-  %820 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine", ptr %819, i64 %814
+  %820 = getelementptr inbounds nuw [512 x i8], ptr %819, i64 %814
   %821 = shl i32 %810, 1
   %.sink.i.i.v.i.i.i108 = select i1 %818, i32 %816, i32 %821
   %.sink.i.i.i.i.i109 = or i32 %.sink.i.i.v.i.i.i108, 1
@@ -35491,7 +35475,7 @@ _ZNK3zfp8internal11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEE6decodeEmP
 
 _ZN3zfp8internal4dim39referenceINS_6array3IdNS_5codec4zfp3IdEENS_5index8implicitEEEEmIEd.exit117: ; preds = %_ZNK3zfp8internal4dim315const_referenceINS_6array3IdNS_5codec4zfp3IdEENS_5index8implicitEEEEcvdEv.exit107, %_ZNK3zfp8internal11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEE6decodeEmPd.exit139
   %924 = getelementptr inbounds nuw i8, ptr %820, i64 %.idx.i.i.i.i115
-  %925 = getelementptr inbounds nuw double, ptr %924, i64 %796
+  %925 = getelementptr inbounds nuw [8 x i8], ptr %924, i64 %796
   %926 = load double, ptr %925, align 8, !tbaa !46, !noalias !680
   %927 = fsub double %926, %799
   store double %927, ptr %925, align 8, !tbaa !46, !noalias !680
@@ -35592,13 +35576,13 @@ _ZN3zfp8internal4dim39referenceINS_6array3IdNS_5codec4zfp3IdEENS_5index8implicit
   %979 = getelementptr inbounds nuw i8, ptr %954, i64 160
   %980 = load ptr, ptr %979, align 8, !tbaa !80, !noalias !695
   %981 = zext i32 %978 to i64
-  %982 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %980, i64 %981
+  %982 = getelementptr inbounds nuw [4 x i8], ptr %980, i64 %981
   %983 = load i32, ptr %982, align 4, !tbaa !566, !noalias !695
   %984 = lshr i32 %983, 1
   %985 = icmp eq i32 %984, %976
   %986 = getelementptr inbounds nuw i8, ptr %954, i64 168
   %987 = load ptr, ptr %986, align 8, !tbaa !84, !noalias !695
-  %988 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine", ptr %987, i64 %981
+  %988 = getelementptr inbounds nuw [512 x i8], ptr %987, i64 %981
   br i1 %985, label %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i118, label %989
 
 989:                                              ; preds = %.lr.ph232
@@ -35748,7 +35732,7 @@ _ZN3zfp8internal4dim39referenceINS_6array3IdNS_5codec4zfp3IdEENS_5index8implicit
   %1096 = or disjoint i64 %1095, %1093
   %.idx.i.i.i.i.i120 = shl nuw nsw i64 %1096, 5
   %1097 = getelementptr inbounds nuw i8, ptr %988, i64 %.idx.i.i.i.i.i120
-  %1098 = getelementptr inbounds nuw double, ptr %1097, i64 %1092
+  %1098 = getelementptr inbounds nuw [8 x i8], ptr %1097, i64 %1092
   %1099 = load double, ptr %1098, align 8, !tbaa !46, !noalias !695
   %1100 = load ptr, ptr %646, align 8, !tbaa !564, !noalias !695
   %1101 = getelementptr inbounds nuw i8, ptr %1100, i64 80
@@ -35759,11 +35743,11 @@ _ZN3zfp8internal4dim39referenceINS_6array3IdNS_5codec4zfp3IdEENS_5index8implicit
   %1106 = and i32 %1105, 1
   %1107 = load ptr, ptr %647, align 8, !tbaa !80, !noalias !695
   %1108 = zext nneg i32 %1106 to i64
-  %1109 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %1107, i64 %1108
+  %1109 = getelementptr inbounds nuw [4 x i8], ptr %1107, i64 %1108
   %1110 = load i32, ptr %1109, align 4, !tbaa !566, !noalias !695
   %1111 = lshr i32 %1110, 1
   %1112 = load ptr, ptr %648, align 8, !tbaa !84, !noalias !695
-  %1113 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine", ptr %1112, i64 %1108
+  %1113 = getelementptr inbounds nuw [512 x i8], ptr %1112, i64 %1108
   store i32 3, ptr %1109, align 4, !tbaa !37, !noalias !695
   %1114 = add nsw i32 %1111, -1
   %1115 = zext i32 %1114 to i64
@@ -35923,13 +35907,13 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(32) ptr @_
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 160
   %29 = load ptr, ptr %28, align 8, !tbaa !80
   %30 = zext i32 %27 to i64
-  %31 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !566
   %33 = lshr i32 %32, 1
   %34 = icmp eq i32 %33, %25
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 168
   %36 = load ptr, ptr %35, align 8, !tbaa !84
-  %37 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine", ptr %36, i64 %30
+  %37 = getelementptr inbounds nuw [512 x i8], ptr %36, i64 %30
   br i1 %34, label %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i, label %38
 
 38:                                               ; preds = %2
@@ -35965,7 +35949,7 @@ _ZNK3zfp8internal4dim315const_referenceINS_6array3IdNS_5codec4zfp3IdEENS_5index8
   %53 = or disjoint i64 %52, %50
   %.idx.i.i.i.i.i = shl nuw nsw i64 %53, 5
   %54 = getelementptr inbounds nuw i8, ptr %37, i64 %.idx.i.i.i.i.i
-  %55 = getelementptr inbounds nuw double, ptr %54, i64 %49
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %49
   %56 = load double, ptr %55, align 8, !tbaa !46
   %57 = load ptr, ptr %1, align 8, !tbaa !683
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -35995,13 +35979,13 @@ _ZNK3zfp8internal4dim315const_referenceINS_6array3IdNS_5codec4zfp3IdEENS_5index8
   %82 = getelementptr inbounds nuw i8, ptr %57, i64 160
   %83 = load ptr, ptr %82, align 8, !tbaa !80
   %84 = zext i32 %81 to i64
-  %85 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %83, i64 %84
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %83, i64 %84
   %86 = load i32, ptr %85, align 4, !tbaa !566
   %87 = lshr i32 %86, 1
   %88 = icmp eq i32 %87, %79
   %89 = getelementptr inbounds nuw i8, ptr %57, i64 168
   %90 = load ptr, ptr %89, align 8, !tbaa !84
-  %91 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine", ptr %90, i64 %84
+  %91 = getelementptr inbounds nuw [512 x i8], ptr %90, i64 %84
   br i1 %88, label %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i5, label %92
 
 92:                                               ; preds = %_ZNK3zfp8internal4dim315const_referenceINS_6array3IdNS_5codec4zfp3IdEENS_5index8implicitEEEEcvdEv.exit
@@ -36037,7 +36021,7 @@ _ZNK3zfp8internal4dim315const_referenceINS_6array3IdNS_5codec4zfp3IdEENS_5index8
   %107 = or disjoint i64 %106, %104
   %.idx.i.i.i.i.i7 = shl nuw nsw i64 %107, 5
   %108 = getelementptr inbounds nuw i8, ptr %91, i64 %.idx.i.i.i.i.i7
-  %109 = getelementptr inbounds nuw double, ptr %108, i64 %103
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %103
   %110 = load double, ptr %109, align 8, !tbaa !46
   %111 = fcmp olt double %56, %110
   %. = select i1 %111, ptr %1, ptr %0
@@ -36282,13 +36266,13 @@ define linkonce_odr dso_local noundef ptr @_ZNK3zfp6array4IdNS_5codec4zfp4IdEENS
 
 11:                                               ; preds = %10
   %12 = zext i32 %.0.i.i.i.i to i64
-  %13 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache4<double, zfp::internal::BlockStore4<double, zfp::codec::zfp4<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %6, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !708, !noalias !705
   %.not10.i.i.i.i = icmp eq i32 %14, 0
   br i1 %.not10.i.i.i.i, label %10, label %.critedge.i.i.i.i
 
 .critedge.i.i.i.i:                                ; preds = %11
-  %15 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache4<double, zfp::internal::BlockStore4<double, zfp::codec::zfp4<double>, zfp::index::implicit> >::CacheLine", ptr %4, i64 %12
+  %15 = getelementptr inbounds nuw [2048 x i8], ptr %4, i64 %12
   br label %_ZN3zfp8internal5CacheINS0_11BlockCache4IdNS0_11BlockStore4IdNS_5codec4zfp4IdEENS_5index8implicitEEEE9CacheLineEE5firstEv.exit.i
 
 _ZN3zfp8internal5CacheINS0_11BlockCache4IdNS0_11BlockStore4IdNS_5codec4zfp4IdEENS_5index8implicitEEEE9CacheLineEE5firstEv.exit.i: ; preds = %.critedge.i.i.i.i, %1
@@ -36327,7 +36311,7 @@ _ZN3zfp8internal5CacheINS0_11BlockCache4IdNS0_11BlockStore4IdNS_5codec4zfp4IdEEN
   %34 = sub i64 %32, %33
   %35 = lshr exact i64 %34, 11
   %36 = and i64 %35, 4294967295
-  %37 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache4<double, zfp::internal::BlockStore4<double, zfp::codec::zfp4<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %30, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %36
   store i32 0, ptr %37, align 4, !tbaa !708
   %38 = trunc i64 %35 to i32
   %39 = load i32, ptr %2, align 8, !tbaa !582, !noalias !712
@@ -36341,13 +36325,13 @@ _ZN3zfp8internal5CacheINS0_11BlockCache4IdNS0_11BlockStore4IdNS_5codec4zfp4IdEEN
 
 41:                                               ; preds = %40
   %42 = zext i32 %.0.i.i.i to i64
-  %43 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache4<double, zfp::internal::BlockStore4<double, zfp::codec::zfp4<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %30, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !708, !noalias !712
   %.not10.i.i.i = icmp eq i32 %44, 0
   br i1 %.not10.i.i.i, label %40, label %_ZN3zfp8internal5CacheINS0_11BlockCache4IdNS0_11BlockStore4IdNS_5codec4zfp4IdEENS_5index8implicitEEEE9CacheLineEE14const_iteratorppEi.exit.i
 
 _ZN3zfp8internal5CacheINS0_11BlockCache4IdNS0_11BlockStore4IdNS_5codec4zfp4IdEENS_5index8implicitEEEE9CacheLineEE14const_iteratorppEi.exit.i: ; preds = %41
-  %45 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache4<double, zfp::internal::BlockStore4<double, zfp::codec::zfp4<double>, zfp::index::implicit> >::CacheLine", ptr %31, i64 %42
+  %45 = getelementptr inbounds nuw [2048 x i8], ptr %31, i64 %42
   %.not.i.i = icmp eq ptr %31, null
   br i1 %.not.i.i, label %_ZNK3zfp8internal11BlockCache4IdNS0_11BlockStore4IdNS_5codec4zfp4IdEENS_5index8implicitEEEE5flushEv.exit, label %17
 
@@ -36962,7 +36946,7 @@ _ZN3zfp8internal18reallocate_alignedINS0_11BlockCache4IdNS0_11BlockStore4IdNS_5c
 30:                                               ; preds = %30, %_ZN3zfp8internal18reallocate_alignedINS0_11BlockCache4IdNS0_11BlockStore4IdNS_5codec4zfp4IdEENS_5index8implicitEEEE9CacheLineEEEvRPT_mmm.exit
   %.03.i = phi i32 [ 0, %_ZN3zfp8internal18reallocate_alignedINS0_11BlockCache4IdNS0_11BlockStore4IdNS_5codec4zfp4IdEENS_5index8implicitEEEE9CacheLineEEEvRPT_mmm.exit ], [ %33, %30 ]
   %31 = zext i32 %.03.i to i64
-  %32 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache4<double, zfp::internal::BlockStore4<double, zfp::codec::zfp4<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %29, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %31
   store i32 0, ptr %32, align 4, !tbaa !708
   %33 = add i32 %.03.i, 1
   %.not.i = icmp ugt i32 %33, %28
@@ -36981,7 +36965,7 @@ define linkonce_odr dso_local void @_ZNK3zfp8internal11BlockCache4IdNS0_11BlockS
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !85
   %14 = zext i32 %11 to i64
-  %15 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache4<double, zfp::internal::BlockStore4<double, zfp::codec::zfp4<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !708
   %17 = lshr i32 %16, 1
   %18 = icmp eq i32 %17, %9
@@ -36992,7 +36976,7 @@ _ZN3zfp8internal5CacheINS0_11BlockCache4IdNS0_11BlockStore4IdNS_5codec4zfp4IdEEN
   store i32 %19, ptr %15, align 4, !tbaa !708
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load ptr, ptr %20, align 8, !tbaa !89
-  %22 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache4<double, zfp::internal::BlockStore4<double, zfp::codec::zfp4<double>, zfp::index::implicit> >::CacheLine", ptr %21, i64 %14
+  %22 = getelementptr inbounds nuw [2048 x i8], ptr %21, i64 %14
   %.not = icmp eq ptr %21, null
   br i1 %.not, label %_ZN3zfp8internal5CacheINS0_11BlockCache4IdNS0_11BlockStore4IdNS_5codec4zfp4IdEENS_5index8implicitEEEE9CacheLineEE6lookupEjb.exit.thread, label %23
 
@@ -37078,7 +37062,7 @@ _ZN3zfp8internal5CacheINS0_11BlockCache4IdNS0_11BlockStore4IdNS_5codec4zfp4IdEEN
 
 87:                                               ; preds = %90
   %88 = add nuw nsw i32 %.02443.i.i, 1
-  %89 = getelementptr inbounds double, ptr %92, i64 %86
+  %89 = getelementptr inbounds [8 x i8], ptr %92, i64 %86
   %exitcond49.not.i.i = icmp eq i32 %88, 4
   br i1 %exitcond49.not.i.i, label %_ZN3zfp8internal11BlockCache4IdNS0_11BlockStore4IdNS_5codec4zfp4IdEENS_5index8implicitEEEE9CacheLine3putEPKdllllj.exit, label %.preheader31.i.i
 
@@ -37090,13 +37074,13 @@ _ZN3zfp8internal5CacheINS0_11BlockCache4IdNS0_11BlockStore4IdNS_5codec4zfp4IdEEN
 
 90:                                               ; preds = %93
   %91 = add nuw nsw i32 %.02340.i.i, 1
-  %92 = getelementptr inbounds double, ptr %95, i64 %84
+  %92 = getelementptr inbounds [8 x i8], ptr %95, i64 %84
   %exitcond48.not.i.i = icmp eq i32 %91, 4
   br i1 %exitcond48.not.i.i, label %87, label %.preheader30.i.i
 
 93:                                               ; preds = %96
   %94 = add nuw nsw i32 %.02237.i.i, 1
-  %95 = getelementptr inbounds double, ptr %99, i64 %82
+  %95 = getelementptr inbounds [8 x i8], ptr %99, i64 %82
   %exitcond47.not.i.i = icmp eq i32 %94, 4
   br i1 %exitcond47.not.i.i, label %90, label %.preheader.i.i
 
@@ -37107,7 +37091,7 @@ _ZN3zfp8internal5CacheINS0_11BlockCache4IdNS0_11BlockStore4IdNS_5codec4zfp4IdEEN
   %97 = load double, ptr %.32932.i.i, align 8, !tbaa !46
   store double %97, ptr %.333.i.i, align 8, !tbaa !46
   %98 = add nuw nsw i32 %.034.i.i, 1
-  %99 = getelementptr inbounds double, ptr %.32932.i.i, i64 %3
+  %99 = getelementptr inbounds [8 x i8], ptr %.32932.i.i, i64 %3
   %100 = getelementptr inbounds nuw i8, ptr %.333.i.i, i64 8
   %exitcond.not.i.i = icmp eq i32 %98, 4
   br i1 %exitcond.not.i.i, label %93, label %96
@@ -37148,8 +37132,8 @@ _ZN3zfp8internal5CacheINS0_11BlockCache4IdNS0_11BlockStore4IdNS_5codec4zfp4IdEEN
 
 121:                                              ; preds = %125
   %122 = add nuw nsw i32 %.05178.i, 1
-  %123 = getelementptr inbounds double, ptr %127, i64 %117
-  %124 = getelementptr inbounds nuw double, ptr %128, i64 %120
+  %123 = getelementptr inbounds [8 x i8], ptr %127, i64 %117
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %120
   %exitcond91.not.i = icmp eq i32 %122, %105
   br i1 %exitcond91.not.i, label %_ZN3zfp8internal11BlockCache4IdNS0_11BlockStore4IdNS_5codec4zfp4IdEENS_5index8implicitEEEE9CacheLine3putEPKdllllj.exit, label %.preheader62.i
 
@@ -37161,15 +37145,15 @@ _ZN3zfp8internal5CacheINS0_11BlockCache4IdNS0_11BlockStore4IdNS_5codec4zfp4IdEEN
 
 125:                                              ; preds = %129
   %126 = add nuw nsw i32 %.05075.i, 1
-  %127 = getelementptr inbounds double, ptr %131, i64 %111
-  %128 = getelementptr inbounds nuw double, ptr %132, i64 %114
+  %127 = getelementptr inbounds [8 x i8], ptr %131, i64 %111
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %132, i64 %114
   %exitcond90.not.i = icmp eq i32 %126, %104
   br i1 %exitcond90.not.i, label %121, label %.preheader61.i
 
 129:                                              ; preds = %133
   %130 = add nuw nsw i32 %.04972.i, 1
-  %131 = getelementptr inbounds double, ptr %136, i64 %108
-  %132 = getelementptr inbounds nuw double, ptr %137, i64 %48
+  %131 = getelementptr inbounds [8 x i8], ptr %136, i64 %108
+  %132 = getelementptr inbounds nuw [8 x i8], ptr %137, i64 %48
   %exitcond89.not.i = icmp eq i32 %130, %103
   br i1 %exitcond89.not.i, label %125, label %.preheader.i
 
@@ -37180,7 +37164,7 @@ _ZN3zfp8internal5CacheINS0_11BlockCache4IdNS0_11BlockStore4IdNS_5codec4zfp4IdEEN
   %134 = load double, ptr %.35667.i, align 8, !tbaa !46
   store double %134, ptr %.368.i, align 8, !tbaa !46
   %135 = add nuw nsw i32 %.069.i, 1
-  %136 = getelementptr inbounds double, ptr %.35667.i, i64 %3
+  %136 = getelementptr inbounds [8 x i8], ptr %.35667.i, i64 %3
   %137 = getelementptr inbounds nuw i8, ptr %.368.i, i64 8
   %exitcond.not.i = icmp eq i32 %135, %102
   br i1 %exitcond.not.i, label %129, label %133
@@ -37408,13 +37392,13 @@ define linkonce_odr dso_local noundef double @_ZNK3zfp8internal4dim412const_hand
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 176
   %35 = load ptr, ptr %34, align 8, !tbaa !85
   %36 = zext i32 %33 to i64
-  %37 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache4<double, zfp::internal::BlockStore4<double, zfp::codec::zfp4<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !708
   %39 = lshr i32 %38, 1
   %40 = icmp eq i32 %39, %31
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 184
   %42 = load ptr, ptr %41, align 8, !tbaa !89
-  %43 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache4<double, zfp::internal::BlockStore4<double, zfp::codec::zfp4<double>, zfp::index::implicit> >::CacheLine", ptr %42, i64 %36
+  %43 = getelementptr inbounds nuw [2048 x i8], ptr %42, i64 %36
   br i1 %40, label %_ZN3zfp8internal5CacheINS0_11BlockCache4IdNS0_11BlockStore4IdNS_5codec4zfp4IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i, label %44
 
 44:                                               ; preds = %1
@@ -37452,8 +37436,8 @@ _ZNK3zfp6array4IdNS_5codec4zfp4IdEENS_5index8implicitEE3getEmmmm.exit: ; preds =
   %61 = and i64 %60, 12
   %.idx.i.i.i = shl nuw nsw i64 %59, 7
   %62 = getelementptr inbounds nuw i8, ptr %43, i64 %.idx.i.i.i
-  %63 = getelementptr inbounds nuw double, ptr %62, i64 %61
-  %64 = getelementptr inbounds nuw double, ptr %63, i64 %55
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %61
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %55
   %65 = load double, ptr %64, align 8, !tbaa !46
   ret double %65
 }
@@ -37719,12 +37703,12 @@ define linkonce_odr dso_local void @_Z13update_array4IdEvRN3zfp6array4IT_NS0_5co
   %93 = and i32 %91, %92
   %94 = load ptr, ptr %9, align 8, !tbaa !85
   %95 = zext i32 %93 to i64
-  %96 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache4<double, zfp::internal::BlockStore4<double, zfp::codec::zfp4<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %94, i64 %95
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %95
   %97 = load i32, ptr %96, align 4, !tbaa !708
   %98 = lshr i32 %97, 1
   %99 = icmp eq i32 %98, %91
   %100 = load ptr, ptr %10, align 8, !tbaa !89
-  %101 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache4<double, zfp::internal::BlockStore4<double, zfp::codec::zfp4<double>, zfp::index::implicit> >::CacheLine", ptr %100, i64 %95
+  %101 = getelementptr inbounds nuw [2048 x i8], ptr %100, i64 %95
   br i1 %99, label %_ZN3zfp8internal5CacheINS0_11BlockCache4IdNS0_11BlockStore4IdNS_5codec4zfp4IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i, label %102
 
 102:                                              ; preds = %72
@@ -37896,8 +37880,8 @@ _ZNK3zfp8internal11BlockStore4IdNS_5codec4zfp4IdEENS_5index8implicitEE6decodeEmP
 _ZNK3zfp8internal4dim412const_handleINS_6array4IdNS_5codec4zfp4IdEENS_5index8implicitEEEE3getEv.exit: ; preds = %_ZN3zfp8internal5CacheINS0_11BlockCache4IdNS0_11BlockStore4IdNS_5codec4zfp4IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i, %_ZNK3zfp8internal11BlockStore4IdNS_5codec4zfp4IdEENS_5index8implicitEE6decodeEmPd.exit
   %230 = and i64 %75, 3
   %231 = getelementptr inbounds nuw i8, ptr %101, i64 %.idx.i.i.i.i
-  %232 = getelementptr inbounds nuw double, ptr %231, i64 %59
-  %233 = getelementptr inbounds nuw double, ptr %232, i64 %230
+  %232 = getelementptr inbounds nuw [8 x i8], ptr %231, i64 %59
+  %233 = getelementptr inbounds nuw [8 x i8], ptr %232, i64 %230
   %234 = load double, ptr %233, align 8, !tbaa !46
   %235 = load ptr, ptr %8, align 8, !tbaa !710, !noalias !719
   %236 = lshr i64 %73, 2
@@ -37919,12 +37903,12 @@ _ZNK3zfp8internal4dim412const_handleINS_6array4IdNS_5codec4zfp4IdEENS_5index8imp
   %252 = and i32 %250, %251
   %253 = load ptr, ptr %9, align 8, !tbaa !85, !noalias !719
   %254 = zext i32 %252 to i64
-  %255 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache4<double, zfp::internal::BlockStore4<double, zfp::codec::zfp4<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %253, i64 %254
+  %255 = getelementptr inbounds nuw [4 x i8], ptr %253, i64 %254
   %256 = load i32, ptr %255, align 4, !tbaa !708, !noalias !719
   %257 = lshr i32 %256, 1
   %258 = icmp eq i32 %257, %250
   %259 = load ptr, ptr %10, align 8, !tbaa !89, !noalias !719
-  %260 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache4<double, zfp::internal::BlockStore4<double, zfp::codec::zfp4<double>, zfp::index::implicit> >::CacheLine", ptr %259, i64 %254
+  %260 = getelementptr inbounds nuw [2048 x i8], ptr %259, i64 %254
   %261 = shl i32 %250, 1
   %.sink.i.i.v.i.i = select i1 %258, i32 %256, i32 %261
   %.sink.i.i.i.i = or i32 %.sink.i.i.v.i.i, 1
@@ -38093,8 +38077,8 @@ _ZNK3zfp8internal11BlockStore4IdNS_5codec4zfp4IdEENS_5index8implicitEE6decodeEmP
 _ZN3zfp6array4IdNS_5codec4zfp4IdEENS_5index8implicitEE3subEmmmmd.exit: ; preds = %_ZNK3zfp8internal4dim412const_handleINS_6array4IdNS_5codec4zfp4IdEENS_5index8implicitEEEE3getEv.exit, %_ZNK3zfp8internal11BlockStore4IdNS_5codec4zfp4IdEENS_5index8implicitEE6decodeEmPd.exit197
   %389 = and i64 %73, 3
   %390 = getelementptr inbounds nuw i8, ptr %260, i64 %.idx.i.i.i.i
-  %391 = getelementptr inbounds nuw double, ptr %390, i64 %59
-  %392 = getelementptr inbounds nuw double, ptr %391, i64 %389
+  %391 = getelementptr inbounds nuw [8 x i8], ptr %390, i64 %59
+  %392 = getelementptr inbounds nuw [8 x i8], ptr %391, i64 %389
   %393 = load double, ptr %392, align 8, !tbaa !46, !noalias !719
   %394 = fsub double %393, %234
   store double %394, ptr %392, align 8, !tbaa !46, !noalias !719
@@ -38247,12 +38231,12 @@ _ZN3zfp6array4IdNS_5codec4zfp4IdEENS_5index8implicitEE3subEmmmmd.exit: ; preds =
   %473 = and i32 %471, %472
   %474 = load ptr, ptr %33, align 8, !tbaa !85
   %475 = zext i32 %473 to i64
-  %476 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache4<double, zfp::internal::BlockStore4<double, zfp::codec::zfp4<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %474, i64 %475
+  %476 = getelementptr inbounds nuw [4 x i8], ptr %474, i64 %475
   %477 = load i32, ptr %476, align 4, !tbaa !708
   %478 = lshr i32 %477, 1
   %479 = icmp eq i32 %478, %471
   %480 = load ptr, ptr %34, align 8, !tbaa !89
-  %481 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache4<double, zfp::internal::BlockStore4<double, zfp::codec::zfp4<double>, zfp::index::implicit> >::CacheLine", ptr %480, i64 %475
+  %481 = getelementptr inbounds nuw [2048 x i8], ptr %480, i64 %475
   br i1 %479, label %_ZN3zfp8internal5CacheINS0_11BlockCache4IdNS0_11BlockStore4IdNS_5codec4zfp4IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i145, label %482
 
 482:                                              ; preds = %454
@@ -38424,8 +38408,8 @@ _ZNK3zfp8internal11BlockStore4IdNS_5codec4zfp4IdEENS_5index8implicitEE6decodeEmP
 _ZNK3zfp8internal4dim412const_handleINS_6array4IdNS_5codec4zfp4IdEENS_5index8implicitEEEE3getEv.exit149: ; preds = %_ZN3zfp8internal5CacheINS0_11BlockCache4IdNS0_11BlockStore4IdNS_5codec4zfp4IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i145, %_ZNK3zfp8internal11BlockStore4IdNS_5codec4zfp4IdEENS_5index8implicitEE6decodeEmPd.exit201
   %610 = and i64 %455, 3
   %611 = getelementptr inbounds nuw i8, ptr %481, i64 %.idx.i.i.i.i147
-  %612 = getelementptr inbounds nuw double, ptr %611, i64 %438
-  %613 = getelementptr inbounds nuw double, ptr %612, i64 %610
+  %612 = getelementptr inbounds nuw [8 x i8], ptr %611, i64 %438
+  %613 = getelementptr inbounds nuw [8 x i8], ptr %612, i64 %610
   %614 = load double, ptr %613, align 8, !tbaa !46
   %615 = load ptr, ptr %32, align 8, !tbaa !710, !noalias !724
   %616 = getelementptr inbounds nuw i8, ptr %615, i64 88
@@ -38446,12 +38430,12 @@ _ZNK3zfp8internal4dim412const_handleINS_6array4IdNS_5codec4zfp4IdEENS_5index8imp
   %631 = and i32 %629, %630
   %632 = load ptr, ptr %33, align 8, !tbaa !85, !noalias !724
   %633 = zext i32 %631 to i64
-  %634 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache4<double, zfp::internal::BlockStore4<double, zfp::codec::zfp4<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %632, i64 %633
+  %634 = getelementptr inbounds nuw [4 x i8], ptr %632, i64 %633
   %635 = load i32, ptr %634, align 4, !tbaa !708, !noalias !724
   %636 = lshr i32 %635, 1
   %637 = icmp eq i32 %636, %629
   %638 = load ptr, ptr %34, align 8, !tbaa !89, !noalias !724
-  %639 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache4<double, zfp::internal::BlockStore4<double, zfp::codec::zfp4<double>, zfp::index::implicit> >::CacheLine", ptr %638, i64 %633
+  %639 = getelementptr inbounds nuw [2048 x i8], ptr %638, i64 %633
   %640 = shl i32 %629, 1
   %.sink.i.i.v.i.i150 = select i1 %637, i32 %635, i32 %640
   %.sink.i.i.i.i151 = or i32 %.sink.i.i.v.i.i150, 1
@@ -38619,8 +38603,8 @@ _ZNK3zfp8internal11BlockStore4IdNS_5codec4zfp4IdEENS_5index8implicitEE6decodeEmP
 
 _ZN3zfp6array4IdNS_5codec4zfp4IdEENS_5index8implicitEE3subEmmmmd.exit155: ; preds = %_ZNK3zfp8internal4dim412const_handleINS_6array4IdNS_5codec4zfp4IdEENS_5index8implicitEEEE3getEv.exit149, %_ZNK3zfp8internal11BlockStore4IdNS_5codec4zfp4IdEENS_5index8implicitEE6decodeEmPd.exit205
   %768 = getelementptr inbounds nuw i8, ptr %639, i64 %.idx.i.i.i.i147
-  %769 = getelementptr inbounds nuw double, ptr %768, i64 %441
-  %770 = getelementptr inbounds nuw double, ptr %769, i64 %610
+  %769 = getelementptr inbounds nuw [8 x i8], ptr %768, i64 %441
+  %770 = getelementptr inbounds nuw [8 x i8], ptr %769, i64 %610
   %771 = load double, ptr %770, align 8, !tbaa !46, !noalias !724
   %772 = fsub double %771, %614
   store double %772, ptr %770, align 8, !tbaa !46, !noalias !724
@@ -38799,12 +38783,12 @@ _ZN3zfp6array4IdNS_5codec4zfp4IdEENS_5index8implicitEE3subEmmmmd.exit155: ; pred
   %865 = and i32 %863, %864
   %866 = load ptr, ptr %411, align 8, !tbaa !85
   %867 = zext i32 %865 to i64
-  %868 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache4<double, zfp::internal::BlockStore4<double, zfp::codec::zfp4<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %866, i64 %867
+  %868 = getelementptr inbounds nuw [4 x i8], ptr %866, i64 %867
   %869 = load i32, ptr %868, align 4, !tbaa !708
   %870 = lshr i32 %869, 1
   %871 = icmp eq i32 %870, %863
   %872 = load ptr, ptr %412, align 8, !tbaa !89
-  %873 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache4<double, zfp::internal::BlockStore4<double, zfp::codec::zfp4<double>, zfp::index::implicit> >::CacheLine", ptr %872, i64 %867
+  %873 = getelementptr inbounds nuw [2048 x i8], ptr %872, i64 %867
   br i1 %871, label %_ZN3zfp8internal5CacheINS0_11BlockCache4IdNS0_11BlockStore4IdNS_5codec4zfp4IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i156, label %874
 
 874:                                              ; preds = %846
@@ -38976,8 +38960,8 @@ _ZNK3zfp8internal11BlockStore4IdNS_5codec4zfp4IdEENS_5index8implicitEE6decodeEmP
 _ZNK3zfp8internal4dim412const_handleINS_6array4IdNS_5codec4zfp4IdEENS_5index8implicitEEEE3getEv.exit160: ; preds = %_ZN3zfp8internal5CacheINS0_11BlockCache4IdNS0_11BlockStore4IdNS_5codec4zfp4IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i156, %_ZNK3zfp8internal11BlockStore4IdNS_5codec4zfp4IdEENS_5index8implicitEE6decodeEmPd.exit209
   %1002 = and i64 %847, 3
   %1003 = getelementptr inbounds nuw i8, ptr %873, i64 %.idx.i.i.i.i158
-  %1004 = getelementptr inbounds nuw double, ptr %1003, i64 %832
-  %1005 = getelementptr inbounds nuw double, ptr %1004, i64 %1002
+  %1004 = getelementptr inbounds nuw [8 x i8], ptr %1003, i64 %832
+  %1005 = getelementptr inbounds nuw [8 x i8], ptr %1004, i64 %1002
   %1006 = load double, ptr %1005, align 8, !tbaa !46
   %1007 = load ptr, ptr %410, align 8, !tbaa !710, !noalias !729
   %1008 = getelementptr inbounds nuw i8, ptr %1007, i64 88
@@ -38998,12 +38982,12 @@ _ZNK3zfp8internal4dim412const_handleINS_6array4IdNS_5codec4zfp4IdEENS_5index8imp
   %1023 = and i32 %1021, %1022
   %1024 = load ptr, ptr %411, align 8, !tbaa !85, !noalias !729
   %1025 = zext i32 %1023 to i64
-  %1026 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache4<double, zfp::internal::BlockStore4<double, zfp::codec::zfp4<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %1024, i64 %1025
+  %1026 = getelementptr inbounds nuw [4 x i8], ptr %1024, i64 %1025
   %1027 = load i32, ptr %1026, align 4, !tbaa !708, !noalias !729
   %1028 = lshr i32 %1027, 1
   %1029 = icmp eq i32 %1028, %1021
   %1030 = load ptr, ptr %412, align 8, !tbaa !89, !noalias !729
-  %1031 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache4<double, zfp::internal::BlockStore4<double, zfp::codec::zfp4<double>, zfp::index::implicit> >::CacheLine", ptr %1030, i64 %1025
+  %1031 = getelementptr inbounds nuw [2048 x i8], ptr %1030, i64 %1025
   %1032 = shl i32 %1021, 1
   %.sink.i.i.v.i.i161 = select i1 %1029, i32 %1027, i32 %1032
   %.sink.i.i.i.i162 = or i32 %.sink.i.i.v.i.i161, 1
@@ -39171,8 +39155,8 @@ _ZNK3zfp8internal11BlockStore4IdNS_5codec4zfp4IdEENS_5index8implicitEE6decodeEmP
 
 _ZN3zfp6array4IdNS_5codec4zfp4IdEENS_5index8implicitEE3subEmmmmd.exit166: ; preds = %_ZNK3zfp8internal4dim412const_handleINS_6array4IdNS_5codec4zfp4IdEENS_5index8implicitEEEE3getEv.exit160, %_ZNK3zfp8internal11BlockStore4IdNS_5codec4zfp4IdEENS_5index8implicitEE6decodeEmPd.exit213
   %1160 = getelementptr inbounds nuw i8, ptr %1031, i64 %.idx.i.i.i164
-  %1161 = getelementptr inbounds nuw double, ptr %1160, i64 %832
-  %1162 = getelementptr inbounds nuw double, ptr %1161, i64 %1002
+  %1161 = getelementptr inbounds nuw [8 x i8], ptr %1160, i64 %832
+  %1162 = getelementptr inbounds nuw [8 x i8], ptr %1161, i64 %1002
   %1163 = load double, ptr %1162, align 8, !tbaa !46, !noalias !729
   %1164 = fsub double %1163, %1006
   store double %1164, ptr %1162, align 8, !tbaa !46, !noalias !729
@@ -39336,12 +39320,12 @@ _ZN3zfp6array4IdNS_5codec4zfp4IdEENS_5index8implicitEE3subEmmmmd.exit166: ; pred
   %1252 = and i32 %1250, %1251
   %1253 = load ptr, ptr %796, align 8, !tbaa !85
   %1254 = zext i32 %1252 to i64
-  %1255 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache4<double, zfp::internal::BlockStore4<double, zfp::codec::zfp4<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %1253, i64 %1254
+  %1255 = getelementptr inbounds nuw [4 x i8], ptr %1253, i64 %1254
   %1256 = load i32, ptr %1255, align 4, !tbaa !708
   %1257 = lshr i32 %1256, 1
   %1258 = icmp eq i32 %1257, %1250
   %1259 = load ptr, ptr %797, align 8, !tbaa !89
-  %1260 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache4<double, zfp::internal::BlockStore4<double, zfp::codec::zfp4<double>, zfp::index::implicit> >::CacheLine", ptr %1259, i64 %1254
+  %1260 = getelementptr inbounds nuw [2048 x i8], ptr %1259, i64 %1254
   br i1 %1258, label %_ZN3zfp8internal5CacheINS0_11BlockCache4IdNS0_11BlockStore4IdNS_5codec4zfp4IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i167, label %1261
 
 1261:                                             ; preds = %1233
@@ -39513,8 +39497,8 @@ _ZNK3zfp8internal11BlockStore4IdNS_5codec4zfp4IdEENS_5index8implicitEE6decodeEmP
 _ZNK3zfp8internal4dim412const_handleINS_6array4IdNS_5codec4zfp4IdEENS_5index8implicitEEEE3getEv.exit171: ; preds = %_ZN3zfp8internal5CacheINS0_11BlockCache4IdNS0_11BlockStore4IdNS_5codec4zfp4IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i167, %_ZNK3zfp8internal11BlockStore4IdNS_5codec4zfp4IdEENS_5index8implicitEE6decodeEmPd.exit217
   %1389 = and i64 %1234, 3
   %1390 = getelementptr inbounds nuw i8, ptr %1260, i64 %.idx.i.i.i.i169
-  %1391 = getelementptr inbounds nuw double, ptr %1390, i64 %1218
-  %1392 = getelementptr inbounds nuw double, ptr %1391, i64 %1389
+  %1391 = getelementptr inbounds nuw [8 x i8], ptr %1390, i64 %1218
+  %1392 = getelementptr inbounds nuw [8 x i8], ptr %1391, i64 %1389
   %1393 = load double, ptr %1392, align 8, !tbaa !46
   %1394 = load ptr, ptr %795, align 8, !tbaa !710, !noalias !735
   %1395 = getelementptr inbounds nuw i8, ptr %1394, i64 88
@@ -39535,12 +39519,12 @@ _ZNK3zfp8internal4dim412const_handleINS_6array4IdNS_5codec4zfp4IdEENS_5index8imp
   %1410 = and i32 %1408, %1409
   %1411 = load ptr, ptr %796, align 8, !tbaa !85, !noalias !735
   %1412 = zext i32 %1410 to i64
-  %1413 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache4<double, zfp::internal::BlockStore4<double, zfp::codec::zfp4<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %1411, i64 %1412
+  %1413 = getelementptr inbounds nuw [4 x i8], ptr %1411, i64 %1412
   %1414 = load i32, ptr %1413, align 4, !tbaa !708, !noalias !735
   %1415 = lshr i32 %1414, 1
   %1416 = icmp eq i32 %1415, %1408
   %1417 = load ptr, ptr %797, align 8, !tbaa !89, !noalias !735
-  %1418 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache4<double, zfp::internal::BlockStore4<double, zfp::codec::zfp4<double>, zfp::index::implicit> >::CacheLine", ptr %1417, i64 %1412
+  %1418 = getelementptr inbounds nuw [2048 x i8], ptr %1417, i64 %1412
   %1419 = shl i32 %1408, 1
   %.sink.i.i.v.i.i172 = select i1 %1416, i32 %1414, i32 %1419
   %.sink.i.i.i.i173 = or i32 %.sink.i.i.v.i.i172, 1
@@ -39708,8 +39692,8 @@ _ZNK3zfp8internal11BlockStore4IdNS_5codec4zfp4IdEENS_5index8implicitEE6decodeEmP
 
 _ZN3zfp6array4IdNS_5codec4zfp4IdEENS_5index8implicitEE3subEmmmmd.exit177: ; preds = %_ZNK3zfp8internal4dim412const_handleINS_6array4IdNS_5codec4zfp4IdEENS_5index8implicitEEEE3getEv.exit171, %_ZNK3zfp8internal11BlockStore4IdNS_5codec4zfp4IdEENS_5index8implicitEE6decodeEmPd.exit221
   %1547 = getelementptr inbounds nuw i8, ptr %1418, i64 %.idx.i.i.i175
-  %1548 = getelementptr inbounds nuw double, ptr %1547, i64 %1218
-  %1549 = getelementptr inbounds nuw double, ptr %1548, i64 %1389
+  %1548 = getelementptr inbounds nuw [8 x i8], ptr %1547, i64 %1218
+  %1549 = getelementptr inbounds nuw [8 x i8], ptr %1548, i64 %1389
   %1550 = load double, ptr %1549, align 8, !tbaa !46, !noalias !735
   %1551 = fsub double %1550, %1393
   store double %1551, ptr %1549, align 8, !tbaa !46, !noalias !735
@@ -39824,12 +39808,12 @@ _ZN3zfp6array4IdNS_5codec4zfp4IdEENS_5index8implicitEE3subEmmmmd.exit177: ; pred
   %1606 = and i32 %1605, 1
   %1607 = load ptr, ptr %1190, align 8, !tbaa !85
   %1608 = zext nneg i32 %1606 to i64
-  %1609 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache4<double, zfp::internal::BlockStore4<double, zfp::codec::zfp4<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %1607, i64 %1608
+  %1609 = getelementptr inbounds nuw [4 x i8], ptr %1607, i64 %1608
   %1610 = load i32, ptr %1609, align 4, !tbaa !708
   %1611 = lshr i32 %1610, 1
   %1612 = icmp eq i32 %1611, 1
   %1613 = load ptr, ptr %1191, align 8, !tbaa !89
-  %1614 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache4<double, zfp::internal::BlockStore4<double, zfp::codec::zfp4<double>, zfp::index::implicit> >::CacheLine", ptr %1613, i64 %1608
+  %1614 = getelementptr inbounds nuw [2048 x i8], ptr %1613, i64 %1608
   br i1 %1612, label %_ZNK3zfp8internal4dim412const_handleINS_6array4IdNS_5codec4zfp4IdEENS_5index8implicitEEEE3getEv.exit187, label %_ZN3zfp8internal5CacheINS0_11BlockCache4IdNS0_11BlockStore4IdNS_5codec4zfp4IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i183
 
 _ZN3zfp8internal5CacheINS0_11BlockCache4IdNS0_11BlockStore4IdNS_5codec4zfp4IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i183: ; preds = %1596
@@ -39997,11 +39981,11 @@ _ZNK3zfp8internal4dim412const_handleINS_6array4IdNS_5codec4zfp4IdEENS_5index8imp
   %1737 = load i32, ptr %1188, align 8, !tbaa !582
   %1738 = and i32 %1736, %1737
   %1739 = zext i32 %1738 to i64
-  %1740 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache4<double, zfp::internal::BlockStore4<double, zfp::codec::zfp4<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %1722, i64 %1739
+  %1740 = getelementptr inbounds nuw [4 x i8], ptr %1722, i64 %1739
   %1741 = load i32, ptr %1740, align 4, !tbaa !708
   %1742 = lshr i32 %1741, 1
   %1743 = icmp eq i32 %1742, %1736
-  %1744 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache4<double, zfp::internal::BlockStore4<double, zfp::codec::zfp4<double>, zfp::index::implicit> >::CacheLine", ptr %1721, i64 %1739
+  %1744 = getelementptr inbounds nuw [2048 x i8], ptr %1721, i64 %1739
   br i1 %1743, label %_ZN3zfp8internal5CacheINS0_11BlockCache4IdNS0_11BlockStore4IdNS_5codec4zfp4IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i178, label %1745
 
 1745:                                             ; preds = %_ZNK3zfp8internal4dim412const_handleINS_6array4IdNS_5codec4zfp4IdEENS_5index8implicitEEEE3getEv.exit187
@@ -40179,8 +40163,8 @@ _ZNK3zfp8internal4dim412const_handleINS_6array4IdNS_5codec4zfp4IdEENS_5index8imp
   %1875 = phi ptr [ %1726, %_ZN3zfp8internal5CacheINS0_11BlockCache4IdNS0_11BlockStore4IdNS_5codec4zfp4IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i178 ], [ %.pre539, %_ZNK3zfp8internal11BlockStore4IdNS_5codec4zfp4IdEENS_5index8implicitEE6decodeEmPd.exit225 ]
   %1876 = and i64 %1597, 3
   %1877 = getelementptr inbounds nuw i8, ptr %1744, i64 %.idx.i.i.i.i180
-  %1878 = getelementptr inbounds nuw double, ptr %1877, i64 %1582
-  %1879 = getelementptr inbounds nuw double, ptr %1878, i64 %1876
+  %1878 = getelementptr inbounds nuw [8 x i8], ptr %1877, i64 %1582
+  %1879 = getelementptr inbounds nuw [8 x i8], ptr %1878, i64 %1876
   %1880 = load double, ptr %1879, align 8, !tbaa !46
   %1881 = fcmp olt double %1727, %1880
   %.sroa.speculated270 = select i1 %1881, i64 %1597, i64 0
@@ -40208,11 +40192,11 @@ _ZNK3zfp8internal4dim412const_handleINS_6array4IdNS_5codec4zfp4IdEENS_5index8imp
   %1900 = load i32, ptr %1188, align 8, !tbaa !582, !noalias !738
   %1901 = and i32 %1899, %1900
   %1902 = zext i32 %1901 to i64
-  %1903 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache4<double, zfp::internal::BlockStore4<double, zfp::codec::zfp4<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %1874, i64 %1902
+  %1903 = getelementptr inbounds nuw [4 x i8], ptr %1874, i64 %1902
   %1904 = load i32, ptr %1903, align 4, !tbaa !708, !noalias !738
   %1905 = lshr i32 %1904, 1
   %1906 = icmp eq i32 %1905, %1899
-  %1907 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache4<double, zfp::internal::BlockStore4<double, zfp::codec::zfp4<double>, zfp::index::implicit> >::CacheLine", ptr %1873, i64 %1902
+  %1907 = getelementptr inbounds nuw [2048 x i8], ptr %1873, i64 %1902
   br i1 %1906, label %_ZN3zfp8internal5CacheINS0_11BlockCache4IdNS0_11BlockStore4IdNS_5codec4zfp4IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i191, label %1908
 
 1908:                                             ; preds = %_ZNK3zfp8internal4dim412const_handleINS_6array4IdNS_5codec4zfp4IdEENS_5index8implicitEEEE3getEv.exit182
@@ -40406,16 +40390,16 @@ _ZNK3zfp8internal4dim412const_handleINS_6array4IdNS_5codec4zfp4IdEENS_5index8imp
   %2048 = and i64 %2047, 12
   %.idx.i.i.i.i193 = shl nuw nsw i64 %2046, 7
   %2049 = getelementptr inbounds nuw i8, ptr %1907, i64 %.idx.i.i.i.i193
-  %2050 = getelementptr inbounds nuw double, ptr %2049, i64 %2048
-  %2051 = getelementptr inbounds nuw double, ptr %2050, i64 %2042
+  %2050 = getelementptr inbounds nuw [8 x i8], ptr %2049, i64 %2048
+  %2051 = getelementptr inbounds nuw [8 x i8], ptr %2050, i64 %2042
   %2052 = load double, ptr %2051, align 8, !tbaa !46, !noalias !738
   %2053 = load i32, ptr %1188, align 8, !tbaa !582, !noalias !738
   %2054 = and i32 %2053, 1
   %2055 = zext nneg i32 %2054 to i64
-  %2056 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache4<double, zfp::internal::BlockStore4<double, zfp::codec::zfp4<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %2037, i64 %2055
+  %2056 = getelementptr inbounds nuw [4 x i8], ptr %2037, i64 %2055
   %2057 = load i32, ptr %2056, align 4, !tbaa !708, !noalias !738
   %2058 = lshr i32 %2057, 1
-  %2059 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache4<double, zfp::internal::BlockStore4<double, zfp::codec::zfp4<double>, zfp::index::implicit> >::CacheLine", ptr %2036, i64 %2055
+  %2059 = getelementptr inbounds nuw [2048 x i8], ptr %2036, i64 %2055
   store i32 3, ptr %2056, align 4, !tbaa !37, !noalias !738
   %2060 = add nsw i32 %2058, -1
   %2061 = zext i32 %2060 to i64

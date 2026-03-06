@@ -35,7 +35,7 @@ define void @_ZN5boost6fibers4numa10pin_threadEjm(i32 noundef %0, i64 noundef %1
   %7 = and i64 %6, 63
   %8 = shl nuw i64 1, %7
   %9 = lshr i64 %6, 6
-  %10 = getelementptr inbounds nuw i64, ptr %3, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %9
   %11 = load i64, ptr %10, align 8, !tbaa !3
   %12 = or i64 %11, %8
   store i64 %12, ptr %10, align 8, !tbaa !3

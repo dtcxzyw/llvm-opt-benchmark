@@ -150,7 +150,7 @@ define noundef nonnull ptr @curl_easy_strerror(i32 noundef %0) local_unnamed_add
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.curl_easy_strerror, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.curl_easy_strerror, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -167,7 +167,7 @@ define noundef nonnull ptr @curl_multi_strerror(i32 noundef %0) local_unnamed_ad
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.curl_multi_strerror, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.curl_multi_strerror, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -183,7 +183,7 @@ define noundef nonnull ptr @curl_share_strerror(i32 noundef %0) local_unnamed_ad
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.curl_share_strerror, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.curl_share_strerror, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -199,7 +199,7 @@ define noundef nonnull ptr @curl_url_strerror(i32 noundef %0) local_unnamed_addr
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.curl_url_strerror, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.curl_url_strerror, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 

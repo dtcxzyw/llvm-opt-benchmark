@@ -49,14 +49,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.sg_scsi_id = type { i32, i32, i32, i32, i32, i16, i16, [2 x i32] }
 %struct.rq_map_data = type { ptr, i64, i16, i16, i8, i8 }
 %struct.scsi_sense_hdr = type { i8, i8, i8, i8, i8, i8, i8, i8 }
-%struct.sg_req_info = type { i8, i8, i8, i8, i32, ptr, i32, i32 }
-%struct.compat_sg_req_info = type { i8, i8, i8, i8, i32, i32, i32, i32 }
-%struct.page = type { i64, %union.anon.34, %union.anon.42, %struct.atomic_t, [8 x i8] }
-%union.anon.34 = type { %struct.anon.35 }
-%struct.anon.35 = type { %union.anon.36, ptr, %union.anon.38, i64 }
-%union.anon.36 = type { %struct.list_head }
-%union.anon.38 = type { i64 }
-%union.anon.42 = type { %struct.atomic_t }
 
 @__param_str_scatter_elem_sz = internal constant [19 x i8] c"sg.scatter_elem_sz\00", align 16
 @param_ops_int = external dso_local constant %struct.kernel_param_ops, align 8
@@ -3040,7 +3032,7 @@ define internal fastcc noundef range(i32 -14, 1) i32 @sg_read_oxfer(ptr noundef 
   %23 = phi i32 [ %51, %53 ], [ %2, %15 ]
   %24 = phi ptr [ %54, %53 ], [ %1, %15 ]
   %25 = load ptr, ptr %16, align 8
-  %26 = getelementptr ptr, ptr %25, i64 %22
+  %26 = getelementptr [8 x i8], ptr %25, i64 %22
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %.loopexit, label %29
@@ -3170,7 +3162,7 @@ define internal fastcc i32 @sg_finish_rem_req(ptr noundef captures(none) %0) unn
 43:                                               ; preds = %49, %41
   %44 = phi i64 [ 0, %41 ], [ %51, %49 ]
   %45 = load ptr, ptr %27, align 8
-  %46 = getelementptr ptr, ptr %45, i64 %44
+  %46 = getelementptr [8 x i8], ptr %45, i64 %44
   %47 = load ptr, ptr %46, align 8
   %48 = icmp eq ptr %47, null
   br i1 %48, label %.loopexit, label %49
@@ -3309,7 +3301,7 @@ define internal fastcc void @sg_remove_scat(ptr noundef captures(none) %0) unnam
 18:                                               ; preds = %24, %16
   %19 = phi i64 [ 0, %16 ], [ %26, %24 ]
   %20 = load ptr, ptr %2, align 8
-  %21 = getelementptr ptr, ptr %20, i64 %19
+  %21 = getelementptr [8 x i8], ptr %20, i64 %19
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %.loopexit, label %24
@@ -4510,10 +4502,10 @@ define internal fastcc range(i32 -2147483648, 1) i32 @sg_build_indirect(ptr noun
   %40 = phi i32 [ %63, %60 ], [ %6, %.preheader ]
   %41 = tail call ptr @alloc_pages(i32 noundef 272672, i32 noundef %34) #17
   %42 = load ptr, ptr %10, align 8
-  %43 = getelementptr ptr, ptr %42, i64 %39
+  %43 = getelementptr [8 x i8], ptr %42, i64 %39
   store ptr %41, ptr %43, align 8
   %44 = load ptr, ptr %10, align 8
-  %45 = getelementptr ptr, ptr %44, i64 %39
+  %45 = getelementptr [8 x i8], ptr %44, i64 %39
   %46 = load ptr, ptr %45, align 8
   %47 = icmp eq ptr %46, null
   br i1 %47, label %48, label %53
@@ -4568,7 +4560,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @sg_build_indirect(ptr noun
 75:                                               ; preds = %75, %51
   %76 = phi i64 [ 0, %51 ], [ %80, %75 ]
   %77 = load ptr, ptr %10, align 8
-  %78 = getelementptr ptr, ptr %77, i64 %76
+  %78 = getelementptr [8 x i8], ptr %77, i64 %76
   %79 = load ptr, ptr %78, align 8
   tail call void @__free_pages(ptr noundef %79, i32 noundef %34) #17
   %80 = add nuw nsw i64 %76, 1
@@ -4764,7 +4756,7 @@ define internal void @sg_remove_sfp_usercontext(ptr noundef %0) #2 align 16 {
 40:                                               ; preds = %46, %38
   %41 = phi i64 [ 0, %38 ], [ %48, %46 ]
   %42 = load ptr, ptr %24, align 8
-  %43 = getelementptr ptr, ptr %42, i64 %41
+  %43 = getelementptr [8 x i8], ptr %42, i64 %41
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, null
   br i1 %45, label %.loopexit, label %46
@@ -4899,7 +4891,7 @@ define internal fastcc void @sg_build_reserve(ptr noundef nonnull captures(none)
 .preheader:                                       ; preds = %24, %32
   %27 = phi i64 [ %34, %32 ], [ 0, %24 ]
   %28 = load ptr, ptr %4, align 8
-  %29 = getelementptr ptr, ptr %28, i64 %27
+  %29 = getelementptr [8 x i8], ptr %28, i64 %27
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %.loopexit, label %32
@@ -4945,7 +4937,7 @@ define internal fastcc void @sg_fill_request_table(ptr noundef nonnull readonly 
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 243
   %9 = load i8, ptr %8, align 1
   %10 = add i8 %9, 1
-  %11 = getelementptr %struct.sg_req_info, ptr %1, i64 %6
+  %11 = getelementptr [24 x i8], ptr %1, i64 %6
   store i8 %10, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 121
   %13 = load i8, ptr %12, align 1
@@ -5018,8 +5010,8 @@ define internal fastcc noundef range(i32 -14, 1) i32 @put_compat_request_table(p
 
 6:                                                ; preds = %3, %2
   %7 = phi i64 [ 0, %2 ], [ %4, %3 ]
-  %8 = getelementptr %struct.compat_sg_req_info, ptr %0, i64 %7
-  %9 = getelementptr %struct.sg_req_info, ptr %1, i64 %7
+  %8 = getelementptr [20 x i8], ptr %0, i64 %7
+  %9 = getelementptr [24 x i8], ptr %1, i64 %7
   %10 = tail call i64 @_copy_to_user(ptr noundef %8, ptr noundef %9, i64 noundef 8) #17
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %12, label %47
@@ -5145,10 +5137,10 @@ define internal noundef range(i32 0, 3) i32 @sg_vma_fault(ptr noundef captures(n
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 112
   %41 = load ptr, ptr %40, align 8
   %42 = zext nneg i32 %31 to i64
-  %43 = getelementptr ptr, ptr %41, i64 %42
+  %43 = getelementptr [8 x i8], ptr %41, i64 %42
   %44 = load ptr, ptr %43, align 8
   %45 = lshr i64 %33, 12
-  %46 = getelementptr %struct.page, ptr %44, i64 %45
+  %46 = getelementptr [64 x i8], ptr %44, i64 %45
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load volatile i64, ptr %47, align 8
   %49 = and i64 %48, 1
@@ -5487,7 +5479,7 @@ define internal fastcc noundef ptr @sg_add_sfp(ptr noundef %0) unnamed_addr #2 a
 .preheader.i:                                     ; preds = %64, %72
   %67 = phi i64 [ %74, %72 ], [ 0, %64 ]
   %68 = load ptr, ptr %45, align 8
-  %69 = getelementptr ptr, ptr %68, i64 %67
+  %69 = getelementptr [8 x i8], ptr %68, i64 %67
   %70 = load ptr, ptr %69, align 8
   %71 = icmp eq ptr %70, null
   br i1 %71, label %.loopexit.i, label %72

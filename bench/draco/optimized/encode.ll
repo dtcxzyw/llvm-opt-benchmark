@@ -27,12 +27,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::map.12" = type { %"class.std::_Rb_tree.13" }
 %"class.std::_Rb_tree.13" = type { %"struct.std::_Rb_tree<int, std::pair<const int, draco::Options>, std::_Select1st<std::pair<const int, draco::Options>>, std::less<int>>::_Rb_tree_impl" }
 %"struct.std::_Rb_tree<int, std::pair<const int, draco::Options>, std::_Select1st<std::pair<const int, draco::Options>>, std::less<int>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
-%"class.std::unique_ptr.64" = type { %"struct.std::__uniq_ptr_data.65" }
-%"struct.std::__uniq_ptr_data.65" = type { %"class.std::__uniq_ptr_impl.66" }
-%"class.std::__uniq_ptr_impl.66" = type { %"class.std::tuple.67" }
-%"class.std::tuple.67" = type { %"struct.std::_Tuple_impl.68" }
-%"struct.std::_Tuple_impl.68" = type { %"struct.std::_Head_base.71" }
-%"struct.std::_Head_base.71" = type { ptr }
 %"class.std::allocator.6" = type { i8 }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>>>, std::less<std::__cxx11::basic_string<char>>>::_Reuse_or_alloc_node" = type { ptr, ptr, ptr }
 %"struct.std::pair.83" = type { i32, %"class.draco::Options" }
@@ -432,7 +426,7 @@ _ZN5draco18EncoderOptionsBaseIiE17SetFeatureOptionsERKNS_7OptionsE.exit: ; preds
   %42 = phi ptr [ %62, %_ZN5draco12DracoOptionsIiE19SetAttributeOptionsERKiRKNS_7OptionsE.exit ], [ %27, %.lr.ph ]
   %storemerge15 = phi i32 [ %64, %_ZN5draco12DracoOptionsIiE19SetAttributeOptionsERKiRKNS_7OptionsE.exit ], [ 0, %.lr.ph ]
   %43 = sext i32 %storemerge15 to i64
-  %44 = getelementptr inbounds nuw %"class.std::unique_ptr.64", ptr %41, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %43
   %45 = load ptr, ptr %44, align 8, !tbaa !27
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 56
   %47 = load i32, ptr %46, align 8, !tbaa !29
@@ -5030,7 +5024,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i: ; preds
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i, %13
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %19 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %20 = load float, ptr %19, align 4, !tbaa !137
   %21 = fpext float %20 to double
   invoke void (ptr, ptr, i64, ptr, ...) @_ZN9__gnu_cxx12__to_xstringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEET_PFiPT0_mPKS8_P13__va_list_tagEmSB_z(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull @vsnprintf, i64 noundef 58, ptr noundef nonnull @.str.11, double noundef %21)

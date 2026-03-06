@@ -14,9 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.dt_backthumb_t = type { double, double, i32, i32, i32, i32 }
 %struct.dt_gimp_t = type { i32, ptr, ptr, i32, i32 }
 %struct.dt_introspection_t = type { i32, i32, ptr, i64, ptr, i64, i64, ptr }
-%union.dt_introspection_field_t = type { %struct.dt_introspection_type_double_t }
-%struct.dt_introspection_type_double_t = type { %struct.dt_introspection_type_header_t, double, double, double }
-%struct.dt_introspection_type_header_t = type { i32, ptr, ptr, ptr, ptr, i64, i64, ptr }
 
 @.str = private unnamed_addr constant [14 x i8] c"rgb primaries\00", align 1
 @.str.1 = private unnamed_addr constant [56 x i8] c"adjustment of the RGB color primaries for color grading\00", align 1
@@ -174,14 +171,14 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %indvars.iv23.i.i = phi i64 [ 0, %39 ], [ %indvars.iv.next24.i.i, %48 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %7, i8 0, i64 16, i1 false)
-  %45 = getelementptr inbounds nuw [4 x float], ptr %12, i64 %indvars.iv23.i.i
-  %46 = getelementptr inbounds nuw [4 x float], ptr %13, i64 %indvars.iv23.i.i
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %indvars.iv23.i.i
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %indvars.iv23.i.i
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %49, %44
   %.01619.i.i = phi i64 [ 0, %44 ], [ %51, %49 ]
-  %invariant.gep.i.i = getelementptr inbounds nuw float, ptr %43, i64 %.01619.i.i
-  %47 = getelementptr inbounds nuw float, ptr %7, i64 %.01619.i.i
+  %invariant.gep.i.i = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %.01619.i.i
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.01619.i.i
   %.promoted.i.i = load float, ptr %47, align 4, !tbaa !30
   br label %52
 
@@ -193,7 +190,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 
 49:                                               ; preds = %52
   store float %58, ptr %47, align 4, !tbaa !30
-  %50 = getelementptr inbounds nuw float, ptr %46, i64 %.01619.i.i
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %.01619.i.i
   store float %58, ptr %50, align 4, !tbaa !30
   %51 = add nuw nsw i64 %.01619.i.i, 1
   %exitcond22.not.i.i = icmp eq i64 %51, 4
@@ -202,9 +199,9 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 52:                                               ; preds = %52, %.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %52 ]
   %53 = phi float [ %.promoted.i.i, %.preheader.i.i ], [ %58, %52 ]
-  %54 = getelementptr inbounds nuw float, ptr %45, i64 %indvars.iv.i.i
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %indvars.iv.i.i
   %55 = load float, ptr %54, align 4, !tbaa !30
-  %gep.i.i = getelementptr inbounds nuw [4 x float], ptr %invariant.gep.i.i, i64 %indvars.iv.i.i
+  %gep.i.i = getelementptr inbounds nuw [16 x i8], ptr %invariant.gep.i.i, i64 %indvars.iv.i.i
   %56 = load float, ptr %gep.i.i, align 4, !tbaa !30
   %57 = fmul reassoc nsz arcp contract afn float %56, %55
   %58 = fadd reassoc nsz arcp contract afn float %57, %53
@@ -214,11 +211,11 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 
 59:                                               ; preds = %59, %19
   %.017.i = phi i64 [ 0, %19 ], [ %65, %59 ]
-  %60 = getelementptr inbounds nuw float, ptr %9, i64 %.017.i
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %.017.i
   %61 = load float, ptr %60, align 4, !tbaa !30
-  %62 = getelementptr inbounds nuw float, ptr %10, i64 %.017.i
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.017.i
   %63 = load float, ptr %62, align 4, !tbaa !30
-  %64 = getelementptr inbounds nuw [2 x float], ptr %8, i64 %.017.i
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.017.i
   call void @dt_rotate_and_scale_primary(ptr noundef %22, float noundef %61, float noundef %63, i64 noundef %.017.i, ptr noundef nonnull %64) #16
   %65 = add nuw nsw i64 %.017.i, 1
   %exitcond.not.i = icmp eq i64 %65, 3
@@ -251,29 +248,29 @@ _calculate_adjustment_matrix.exit:                ; preds = %48
 
 75:                                               ; preds = %.lr.ph, %dt_apply_transposed_color_matrix.exit
   %.022 = phi i64 [ 0, %.lr.ph ], [ %100, %dt_apply_transposed_color_matrix.exit ]
-  %76 = getelementptr inbounds nuw float, ptr %2, i64 %.022
-  %77 = getelementptr inbounds nuw float, ptr %3, i64 %.022
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.022
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.022
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 4
   %79 = getelementptr inbounds nuw i8, ptr %76, i64 8
   br label %80
 
 80:                                               ; preds = %80, %75
   %.012.i = phi i64 [ 0, %75 ], [ %96, %80 ]
-  %81 = getelementptr inbounds nuw float, ptr %13, i64 %.012.i
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %.012.i
   %82 = load float, ptr %81, align 4, !tbaa !30
   %83 = load float, ptr %76, align 4, !tbaa !30
   %84 = fmul reassoc nsz arcp contract afn float %83, %82
-  %85 = getelementptr inbounds nuw float, ptr %73, i64 %.012.i
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %.012.i
   %86 = load float, ptr %85, align 4, !tbaa !30
   %87 = load float, ptr %78, align 4, !tbaa !30
   %88 = fmul reassoc nsz arcp contract afn float %87, %86
   %89 = fadd reassoc nsz arcp contract afn float %88, %84
-  %90 = getelementptr inbounds nuw float, ptr %74, i64 %.012.i
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %.012.i
   %91 = load float, ptr %90, align 4, !tbaa !30
   %92 = load float, ptr %79, align 4, !tbaa !30
   %93 = fmul reassoc nsz arcp contract afn float %92, %91
   %94 = fadd reassoc nsz arcp contract afn float %89, %93
-  %95 = getelementptr inbounds nuw float, ptr %77, i64 %.012.i
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %.012.i
   store float %94, ptr %95, align 4, !tbaa !30
   %96 = add nuw nsw i64 %.012.i, 1
   %exitcond.not.i21 = icmp eq i64 %96, 4
@@ -481,11 +478,11 @@ define internal fastcc void @_paint_hue_slider(ptr noundef nonnull %0, ptr nound
 
 31:                                               ; preds = %68, %25
   %indvars.iv.i.i = phi i64 [ 0, %25 ], [ %indvars.iv.next.i.i, %68 ]
-  %32 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv.i.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv.i.i
   %33 = load ptr, ptr %32, align 8, !tbaa !93
   %34 = load float, ptr %33, align 4, !tbaa !30
   %35 = fcmp reassoc nsz arcp contract afn ult float %34, 0.000000e+00
-  %36 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv.i.i
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv.i.i
   %37 = load float, ptr %36, align 4, !tbaa !30
   br i1 %35, label %68, label %38
 
@@ -505,7 +502,7 @@ define internal fastcc void @_paint_hue_slider(ptr noundef nonnull %0, ptr nound
   %48 = sitofp i32 %47 to float
   %49 = fsub reassoc nnan nsz arcp contract afn float %44, %48
   %50 = sext i32 %47 to i64
-  %51 = getelementptr inbounds float, ptr %33, i64 %50
+  %51 = getelementptr inbounds [4 x i8], ptr %33, i64 %50
   %52 = load float, ptr %51, align 4, !tbaa !30
   %53 = getelementptr i8, ptr %51, i64 4
   %54 = load float, ptr %53, align 4, !tbaa !30
@@ -515,7 +512,7 @@ define internal fastcc void @_paint_hue_slider(ptr noundef nonnull %0, ptr nound
   br label %68
 
 58:                                               ; preds = %38
-  %59 = getelementptr inbounds nuw [3 x float], ptr %13, i64 %indvars.iv.i.i
+  %59 = getelementptr inbounds nuw [12 x i8], ptr %13, i64 %indvars.iv.i.i
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %61 = load float, ptr %60, align 4, !tbaa !30
   %62 = load float, ptr %59, align 4, !tbaa !30
@@ -528,7 +525,7 @@ define internal fastcc void @_paint_hue_slider(ptr noundef nonnull %0, ptr nound
 
 68:                                               ; preds = %58, %40, %31
   %69 = phi reassoc nsz arcp contract afn float [ %67, %58 ], [ %57, %40 ], [ %37, %31 ]
-  %70 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv.i.i
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv.i.i
   store float %69, ptr %70, align 4, !tbaa !30
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
@@ -608,11 +605,11 @@ define internal fastcc void @_paint_purity_slider(ptr noundef nonnull %0, ptr no
 
 40:                                               ; preds = %77, %34
   %indvars.iv.i.i = phi i64 [ 0, %34 ], [ %indvars.iv.next.i.i, %77 ]
-  %41 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv.i.i
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.i.i
   %42 = load ptr, ptr %41, align 8, !tbaa !93
   %43 = load float, ptr %42, align 4, !tbaa !30
   %44 = fcmp reassoc nsz arcp contract afn ult float %43, 0.000000e+00
-  %45 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv.i.i
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv.i.i
   %46 = load float, ptr %45, align 4, !tbaa !30
   br i1 %44, label %77, label %47
 
@@ -632,7 +629,7 @@ define internal fastcc void @_paint_purity_slider(ptr noundef nonnull %0, ptr no
   %57 = sitofp i32 %56 to float
   %58 = fsub reassoc nnan nsz arcp contract afn float %53, %57
   %59 = sext i32 %56 to i64
-  %60 = getelementptr inbounds float, ptr %42, i64 %59
+  %60 = getelementptr inbounds [4 x i8], ptr %42, i64 %59
   %61 = load float, ptr %60, align 4, !tbaa !30
   %62 = getelementptr i8, ptr %60, i64 4
   %63 = load float, ptr %62, align 4, !tbaa !30
@@ -642,7 +639,7 @@ define internal fastcc void @_paint_purity_slider(ptr noundef nonnull %0, ptr no
   br label %77
 
 67:                                               ; preds = %47
-  %68 = getelementptr inbounds nuw [3 x float], ptr %20, i64 %indvars.iv.i.i
+  %68 = getelementptr inbounds nuw [12 x i8], ptr %20, i64 %indvars.iv.i.i
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %70 = load float, ptr %69, align 4, !tbaa !30
   %71 = load float, ptr %68, align 4, !tbaa !30
@@ -655,7 +652,7 @@ define internal fastcc void @_paint_purity_slider(ptr noundef nonnull %0, ptr no
 
 77:                                               ; preds = %67, %49, %40
   %78 = phi reassoc nsz arcp contract afn float [ %76, %67 ], [ %66, %49 ], [ %46, %40 ]
-  %79 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv.i.i
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv.i.i
   store float %78, ptr %79, align 4, !tbaa !30
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
@@ -677,11 +674,11 @@ _apply_trc_if_nonlinear.exit:                     ; preds = %77, %80
 
 85:                                               ; preds = %25, %85
   %.032 = phi i64 [ 0, %25 ], [ %91, %85 ]
-  %86 = getelementptr inbounds nuw float, ptr %8, i64 %.032
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.032
   %87 = load float, ptr %86, align 4, !tbaa !30
   %88 = fmul reassoc nsz arcp contract afn float %87, %29
   %89 = fadd reassoc nsz arcp contract afn float %30, %88
-  %90 = getelementptr inbounds nuw float, ptr %10, i64 %.032
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.032
   store float %89, ptr %90, align 4, !tbaa !30
   %91 = add nuw nsw i64 %.032, 1
   %exitcond.not = icmp eq i64 %91, 4
@@ -925,7 +922,7 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
 
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw %union.dt_introspection_field_t, ptr @introspection_linear, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [88 x i8], ptr @introspection_linear, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store ptr %0, ptr %8, align 8, !tbaa !145
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1111,18 +1108,18 @@ dt_xyY_to_XYZ.exit:                               ; preds = %7, %14
 
 26:                                               ; preds = %26, %dt_xyY_to_XYZ.exit
   %.012.i = phi i64 [ 0, %dt_xyY_to_XYZ.exit ], [ %39, %26 ]
-  %27 = getelementptr inbounds nuw float, ptr %23, i64 %.012.i
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %.012.i
   %28 = load float, ptr %27, align 4, !tbaa !30
   %29 = fmul reassoc nsz arcp contract afn float %.sink44, %28
-  %30 = getelementptr inbounds nuw float, ptr %24, i64 %.012.i
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %.012.i
   %31 = load float, ptr %30, align 4, !tbaa !30
   %32 = fmul reassoc nsz arcp contract afn float %.sink, %31
   %33 = fadd reassoc nsz arcp contract afn float %32, %29
-  %34 = getelementptr inbounds nuw float, ptr %25, i64 %.012.i
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %.012.i
   %35 = load float, ptr %34, align 4, !tbaa !30
   %36 = fmul reassoc nsz arcp contract afn float %35, %20
   %37 = fadd reassoc nsz arcp contract afn float %33, %36
-  %38 = getelementptr inbounds nuw float, ptr %10, i64 %.012.i
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.012.i
   store float %37, ptr %38, align 4, !tbaa !30
   %39 = add nuw nsw i64 %.012.i, 1
   %exitcond.not.i = icmp eq i64 %39, 4
@@ -1155,18 +1152,18 @@ dt_apply_transposed_color_matrix.exit:            ; preds = %26
 
 58:                                               ; preds = %58, %51
   %.012.i32 = phi i64 [ 0, %51 ], [ %71, %58 ]
-  %59 = getelementptr inbounds nuw float, ptr %52, i64 %.012.i32
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %.012.i32
   %60 = load float, ptr %59, align 4, !tbaa !30
   %61 = fmul reassoc nsz arcp contract afn float %55, %60
-  %62 = getelementptr inbounds nuw float, ptr %53, i64 %.012.i32
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %.012.i32
   %63 = load float, ptr %62, align 4, !tbaa !30
   %64 = fmul reassoc nsz arcp contract afn float %56, %63
   %65 = fadd reassoc nsz arcp contract afn float %64, %61
-  %66 = getelementptr inbounds nuw float, ptr %54, i64 %.012.i32
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %.012.i32
   %67 = load float, ptr %66, align 4, !tbaa !30
   %68 = fmul reassoc nsz arcp contract afn float %57, %67
   %69 = fadd reassoc nsz arcp contract afn float %65, %68
-  %70 = getelementptr inbounds nuw float, ptr %9, i64 %.012.i32
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %.012.i32
   store float %69, ptr %70, align 4, !tbaa !30
   %71 = add nuw nsw i64 %.012.i32, 1
   %exitcond.not.i33 = icmp eq i64 %71, 4
@@ -1183,18 +1180,18 @@ dt_apply_transposed_color_matrix.exit34:          ; preds = %58
 
 78:                                               ; preds = %78, %dt_apply_transposed_color_matrix.exit34
   %.012.i35 = phi i64 [ 0, %dt_apply_transposed_color_matrix.exit34 ], [ %91, %78 ]
-  %79 = getelementptr inbounds nuw float, ptr %72, i64 %.012.i35
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %.012.i35
   %80 = load float, ptr %79, align 4, !tbaa !30
   %81 = fmul reassoc nsz arcp contract afn float %75, %80
-  %82 = getelementptr inbounds nuw float, ptr %73, i64 %.012.i35
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %.012.i35
   %83 = load float, ptr %82, align 4, !tbaa !30
   %84 = fmul reassoc nsz arcp contract afn float %76, %83
   %85 = fadd reassoc nsz arcp contract afn float %84, %81
-  %86 = getelementptr inbounds nuw float, ptr %74, i64 %.012.i35
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %.012.i35
   %87 = load float, ptr %86, align 4, !tbaa !30
   %88 = fmul reassoc nsz arcp contract afn float %77, %87
   %89 = fadd reassoc nsz arcp contract afn float %85, %88
-  %90 = getelementptr inbounds nuw float, ptr %10, i64 %.012.i35
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.012.i35
   store float %89, ptr %90, align 4, !tbaa !30
   %91 = add nuw nsw i64 %.012.i35, 1
   %exitcond.not.i36 = icmp eq i64 %91, 4
@@ -1221,7 +1218,7 @@ dt_apply_transposed_color_matrix.exit37:          ; preds = %78
 
 106:                                              ; preds = %dt_apply_transposed_color_matrix.exit, %106
   %.02341 = phi i64 [ 0, %dt_apply_transposed_color_matrix.exit ], [ %110, %106 ]
-  %107 = getelementptr inbounds nuw float, ptr %10, i64 %.02341
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.02341
   %108 = load float, ptr %107, align 4, !tbaa !30
   %109 = fadd reassoc nsz arcp contract afn float %50, %108
   store float %109, ptr %107, align 4, !tbaa !30
@@ -1237,11 +1234,11 @@ dt_apply_transposed_color_matrix.exit37:          ; preds = %78
 
 112:                                              ; preds = %dt_apply_transposed_color_matrix.exit37, %112
   %.042 = phi i64 [ 0, %dt_apply_transposed_color_matrix.exit37 ], [ %118, %112 ]
-  %113 = getelementptr inbounds nuw float, ptr %10, i64 %.042
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.042
   %114 = load float, ptr %113, align 4, !tbaa !30
   %115 = fadd reassoc nsz arcp contract afn float %114, %99
   %116 = fmul reassoc nsz arcp contract afn float %115, %105
-  %117 = getelementptr inbounds nuw float, ptr %6, i64 %.042
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.042
   store float %116, ptr %117, align 4, !tbaa !30
   %118 = add nuw nsw i64 %.042, 1
   %exitcond43.not = icmp eq i64 %118, 4

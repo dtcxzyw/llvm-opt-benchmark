@@ -1250,7 +1250,7 @@ _ZN5alloc3fmt6format17hf6ddbaba453730d3E.exit:    ; preds = %411
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h353694718dcd0cadE.exit": ; preds = %413, %._crit_edge.i
   %422 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %414, %413 ]
   %423 = load ptr, ptr %235, align 8, !alias.scope !92, !noalias !95, !nonnull !4, !noundef !4
-  %424 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %423, i64 %422
+  %424 = getelementptr inbounds [24 x i8], ptr %423, i64 %422
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %424, ptr noundef nonnull align 8 dereferenceable(24) %39, i64 24, i1 false)
   %425 = load i64, ptr %234, align 8, !alias.scope !92, !noalias !95, !noundef !4
   %426 = add i64 %425, 1
@@ -1454,7 +1454,7 @@ _ZN12regex_syntax3hir3Hir7literal17h01fb2dff5d6815b1E.exit: ; preds = %463, %.no
 474:                                              ; preds = %._crit_edge.i233, %_ZN12regex_syntax3hir3Hir7literal17h01fb2dff5d6815b1E.exit
   %475 = phi i64 [ %.pre.i234, %._crit_edge.i233 ], [ %466, %_ZN12regex_syntax3hir3Hir7literal17h01fb2dff5d6815b1E.exit ]
   %476 = load ptr, ptr %253, align 8, !alias.scope !137, !noalias !140, !nonnull !4, !noundef !4
-  %477 = getelementptr inbounds { { i64, [4 x i64] }, ptr }, ptr %476, i64 %475
+  %477 = getelementptr inbounds [48 x i8], ptr %476, i64 %475
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %477, ptr noundef nonnull align 8 dereferenceable(48) %48, i64 48, i1 false)
   %478 = add i64 %475, 1
   store i64 %478, ptr %252, align 8, !alias.scope !137, !noalias !140

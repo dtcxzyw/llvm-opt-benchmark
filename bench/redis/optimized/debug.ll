@@ -31,16 +31,13 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.5 = type { ptr }
 %struct.__sigset_t = type { [16 x i64] }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%struct.redisDb = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i64, i64, ptr }
 %struct.rdbSaveInfo = type { i32, i32, [41 x i8], i64 }
 %struct.timespec = type { i64, i64 }
-%struct.clientMemUsageBucket = type { ptr, i64 }
 %struct.cmdToken = type { [128 x ptr], i32 }
 %struct.stacktrace_data = type { [16 x i8], i32, i32, [100 x ptr] }
 %struct.Dl_info = type { ptr, ptr, ptr, ptr }
 %struct.itimerval = type { %struct.timeval, %struct.timeval }
 %struct.timeval = type { i64, i64 }
-%struct.redisCommandArg = type { ptr, i32, i32, ptr, ptr, ptr, i32, ptr, i32, ptr, ptr }
 
 @.str = private unnamed_addr constant [13 x i8] c"eptr != NULL\00", align 1
 @.str.1 = private unnamed_addr constant [8 x i8] c"debug.c\00", align 1
@@ -2004,7 +2001,7 @@ define dso_local void @computeDatasetDigest(ptr noundef initializes((0, 20)) %0)
 .lr.ph30:                                         ; preds = %1, %92
   %indvars.iv = phi i64 [ %indvars.iv.next, %92 ], [ 0, %1 ]
   %14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 64), align 8, !tbaa !90
-  %15 = getelementptr inbounds nuw %struct.redisDb, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [88 x i8], ptr %14, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !91
   %17 = call i64 @kvstoreSize(ptr noundef %16) #26
   %18 = icmp eq i64 %17, 0
@@ -2633,7 +2630,7 @@ define dso_local void @debugCommand(ptr noundef %0) local_unnamed_addr #0 {
 91:                                               ; preds = %.outer, %.thread
   %indvars.iv783 = phi i64 [ %indvars.iv.next784817, %.thread ], [ %indvars.iv783.ph, %.outer ]
   %.0487746 = phi i32 [ 0, %.thread ], [ %.0487746.ph, %.outer ]
-  %92 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %indvars.iv783
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %indvars.iv783
   %93 = load ptr, ptr %92, align 8, !tbaa !94
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %95 = load ptr, ptr %94, align 8, !tbaa !10
@@ -3298,7 +3295,7 @@ define dso_local void @debugCommand(ptr noundef %0) local_unnamed_addr #0 {
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %12, i8 0, i64 20, i1 false)
   %416 = load ptr, ptr %414, align 8, !tbaa !114
   %417 = load ptr, ptr %25, align 8, !tbaa !106
-  %418 = getelementptr inbounds nuw ptr, ptr %417, i64 %indvars.iv780
+  %418 = getelementptr inbounds nuw [8 x i8], ptr %417, i64 %indvars.iv780
   %419 = load ptr, ptr %418, align 8, !tbaa !94
   %420 = getelementptr inbounds nuw i8, ptr %419, i64 8
   %421 = load ptr, ptr %420, align 8, !tbaa !10
@@ -3314,7 +3311,7 @@ define dso_local void @debugCommand(ptr noundef %0) local_unnamed_addr #0 {
 426:                                              ; preds = %424
   %427 = load ptr, ptr %414, align 8, !tbaa !114
   %428 = load ptr, ptr %25, align 8, !tbaa !106
-  %429 = getelementptr inbounds nuw ptr, ptr %428, i64 %indvars.iv780
+  %429 = getelementptr inbounds nuw [8 x i8], ptr %428, i64 %indvars.iv780
   %430 = load ptr, ptr %429, align 8, !tbaa !94
   call void @xorObjectDigest(ptr noundef %427, ptr noundef %430, ptr noundef nonnull %12, ptr noundef nonnull %425)
   br label %.thread663
@@ -3769,14 +3766,14 @@ define dso_local void @debugCommand(ptr noundef %0) local_unnamed_addr #0 {
   %631 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %608, ptr noundef nonnull @.str.220) #26
   %632 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 64), align 8, !tbaa !90
   %633 = load i64, ptr %15, align 8, !tbaa !17
-  %634 = getelementptr inbounds %struct.redisDb, ptr %632, i64 %633
+  %634 = getelementptr inbounds [88 x i8], ptr %632, i64 %633
   %635 = load ptr, ptr %634, align 8, !tbaa !91
   call void @kvstoreGetStats(ptr noundef %635, ptr noundef nonnull %16, i64 noundef 4096, i32 noundef %.0502) #26
   %636 = call ptr @sdscat(ptr noundef %631, ptr noundef nonnull %16) #26
   %637 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %636, ptr noundef nonnull @.str.221) #26
   %638 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 64), align 8, !tbaa !90
   %639 = load i64, ptr %15, align 8, !tbaa !17
-  %640 = getelementptr inbounds %struct.redisDb, ptr %638, i64 %639
+  %640 = getelementptr inbounds [88 x i8], ptr %638, i64 %639
   %641 = getelementptr inbounds nuw i8, ptr %640, i64 8
   %642 = load ptr, ptr %641, align 8, !tbaa !144
   call void @kvstoreGetStats(ptr noundef %642, ptr noundef nonnull %16, i64 noundef 4096, i32 noundef %.0502) #26
@@ -3989,7 +3986,7 @@ define dso_local void @debugCommand(ptr noundef %0) local_unnamed_addr #0 {
 730:                                              ; preds = %727, %725
   %.2499 = phi ptr [ %726, %725 ], [ %729, %727 ]
   %731 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 1496), align 8, !tbaa !148
-  %732 = getelementptr inbounds nuw %struct.clientMemUsageBucket, ptr %731, i64 %indvars.iv760
+  %732 = getelementptr inbounds nuw [16 x i8], ptr %731, i64 %indvars.iv760
   %733 = getelementptr inbounds nuw i8, ptr %732, i64 8
   %734 = load i64, ptr %733, align 8, !tbaa !149
   %735 = load ptr, ptr %732, align 8, !tbaa !151
@@ -4876,7 +4873,7 @@ bugReportStart.exit:                              ; preds = %1, %6
 
 58:                                               ; preds = %56, %54
   %59 = load ptr, ptr %46, align 8, !tbaa !106
-  %60 = getelementptr inbounds nuw ptr, ptr %59, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %indvars.iv
   %61 = load ptr, ptr %60, align 8, !tbaa !94
   %62 = load i32, ptr %61, align 8
   %63 = and i32 %62, 15
@@ -4906,7 +4903,7 @@ bugReportStart.exit:                              ; preds = %1, %6
 
 71:                                               ; preds = %70, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %70 ]
-  %72 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i
   %73 = load ptr, ptr %72, align 8, !tbaa !21
   %74 = call i32 @strcasecmp(ptr noundef %73, ptr noundef %69) #27
   %75 = icmp eq i32 %74, 0
@@ -4924,7 +4921,7 @@ bugReportStart.exit:                              ; preds = %1, %6
 
 cmdTokenCheck.exit:                               ; preds = %71, %56, %50
   %80 = load ptr, ptr %46, align 8, !tbaa !106
-  %81 = getelementptr inbounds nuw ptr, ptr %80, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %indvars.iv
   %82 = load ptr, ptr %81, align 8, !tbaa !94
   %83 = load i32, ptr %82, align 8
   %84 = and i32 %83, 15
@@ -4956,7 +4953,7 @@ cmdTokenCheck.exit._crit_edge:                    ; preds = %cmdTokenCheck.exit,
 
 96:                                               ; preds = %93
   %97 = load ptr, ptr %46, align 8, !tbaa !106
-  %98 = getelementptr inbounds nuw ptr, ptr %97, i64 %indvars.iv
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %indvars.iv
   %99 = load ptr, ptr %98, align 8, !tbaa !94
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 4
   %101 = load i32, ptr %100, align 4, !tbaa !121
@@ -5108,7 +5105,7 @@ define dso_local void @logStackContent(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %11, label %17, label %12
 
 12:                                               ; preds = %.preheader.split
-  %13 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !145
   %15 = ptrtoint ptr %14 to i64
   %16 = add i64 %indvars.iv, %3
@@ -5208,7 +5205,7 @@ define dso_local void @logRegisters(ptr noundef readonly captures(none) %0) loca
   br i1 %55, label %61, label %56
 
 56:                                               ; preds = %.preheader.split.i
-  %57 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv.i
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv.i
   %58 = load ptr, ptr %57, align 8, !tbaa !145
   %59 = ptrtoint ptr %58 to i64
   %60 = add i64 %indvars.iv.i, %46
@@ -5275,7 +5272,7 @@ define internal fastcc void @writeCurrentThreadsStackTrace(i32 noundef range(i32
   %4 = call i32 @backtrace(ptr noundef nonnull %3, i32 noundef 100) #26
   %5 = call i64 @write(i32 noundef %0, ptr noundef nonnull @.str.326, i64 noundef 12) #26
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds ptr, ptr %3, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr %3, i64 %6
   %8 = sub nsw i32 %4, %1
   call void @backtrace_symbols_fd(ptr noundef nonnull %7, i32 noundef %8, i32 noundef %0) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -5446,7 +5443,7 @@ is_thread_ready_to_signal.exit.thread.i:          ; preds = %62, %.thread34.i.i,
   %spec.select.i = select i1 %65, i32 %66, i32 %.23955.i
   %67 = trunc i64 %64 to i32
   %68 = add i64 %.256.i, 1
-  %69 = getelementptr inbounds nuw i32, ptr %9, i64 %.256.i
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %.256.i
   store i32 %67, ptr %69, align 4, !tbaa !16
   %70 = icmp eq i64 %68, 50
   br i1 %70, label %._crit_edge.thread.i, label %.thread77.i
@@ -5481,12 +5478,12 @@ is_thread_ready_to_signal.exit.thread.i:          ; preds = %62, %.thread34.i.i,
   br i1 %.not48.i, label %get_ready_to_signal_threads_tids.exit, label %73
 
 73:                                               ; preds = %.loopexit.i
-  %74 = getelementptr i32, ptr %9, i64 %.136.i
+  %74 = getelementptr [4 x i8], ptr %9, i64 %.136.i
   %75 = getelementptr i8, ptr %74, i64 -4
   %76 = load i32, ptr %75, align 4, !tbaa !16
   store i32 %18, ptr %75, align 4, !tbaa !16
   %77 = sext i32 %.138.i to i64
-  %78 = getelementptr inbounds i32, ptr %9, i64 %77
+  %78 = getelementptr inbounds [4 x i8], ptr %9, i64 %77
   store i32 %76, ptr %78, align 4, !tbaa !16
   br label %get_ready_to_signal_threads_tids.exit
 
@@ -5559,7 +5556,7 @@ get_ready_to_signal_threads_tids.exit:            ; preds = %.loopexit.i, %73
 109:                                              ; preds = %107, %105
   %.0 = phi i32 [ %95, %105 ], [ 3, %107 ]
   %110 = sext i32 %.0 to i64
-  %111 = getelementptr inbounds ptr, ptr %96, i64 %110
+  %111 = getelementptr inbounds [8 x i8], ptr %96, i64 %110
   %112 = load i32, ptr %97, align 8, !tbaa !195
   %113 = sub nsw i32 %112, %.0
   call void @backtrace_symbols_fd(ptr noundef nonnull %111, i32 noundef %113, i32 noundef %0) #26
@@ -5781,7 +5778,7 @@ define dso_local void @logCurrentClient(ptr noundef %0, ptr noundef %1) local_un
 
 51:                                               ; preds = %49, %47
   %52 = load ptr, ptr %39, align 8, !tbaa !106
-  %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %indvars.iv
   %54 = load ptr, ptr %53, align 8, !tbaa !94
   %55 = load i32, ptr %54, align 8
   %56 = and i32 %55, 15
@@ -5811,7 +5808,7 @@ define dso_local void @logCurrentClient(ptr noundef %0, ptr noundef %1) local_un
 
 64:                                               ; preds = %63, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %63 ]
-  %65 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i
   %66 = load ptr, ptr %65, align 8, !tbaa !21
   %67 = tail call i32 @strcasecmp(ptr noundef %66, ptr noundef %62) #27
   %68 = icmp eq i32 %67, 0
@@ -5829,7 +5826,7 @@ define dso_local void @logCurrentClient(ptr noundef %0, ptr noundef %1) local_un
 
 cmdTokenCheck.exit:                               ; preds = %64, %49, %43
   %73 = load ptr, ptr %39, align 8, !tbaa !106
-  %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %indvars.iv
   %75 = load ptr, ptr %74, align 8, !tbaa !94
   %76 = tail call ptr @getDecodedObject(ptr noundef %75) #26
   %77 = tail call ptr @sdsempty() #26
@@ -6113,9 +6110,9 @@ openDirectLogFiledes.exit.thread:                 ; preds = %0, %openDirectLogFi
   %37 = call i64 @strtoul(ptr noundef nonnull captures(none) %22, ptr noundef null, i32 noundef 16) #26
   %38 = sub i64 %37, %36
   %39 = sext i32 %.04360 to i64
-  %40 = getelementptr inbounds i64, ptr %3, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr %3, i64 %39
   store i64 %36, ptr %40, align 8, !tbaa !17
-  %41 = getelementptr inbounds i64, ptr %4, i64 %39
+  %41 = getelementptr inbounds [8 x i8], ptr %4, i64 %39
   store i64 %38, ptr %41, align 8, !tbaa !17
   %42 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 1024, ptr noundef nonnull @.str.305, i64 noundef %36, i64 noundef %38) #26
   %43 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %2) #27
@@ -6133,10 +6130,10 @@ openDirectLogFiledes.exit.thread:                 ; preds = %0, %openDirectLogFi
   %indvars.iv = phi i64 [ 0, %.lr.ph63.preheader ], [ %indvars.iv.next, %.lr.ph63 ]
   %.062 = phi i32 [ 0, %.lr.ph63.preheader ], [ %55, %.lr.ph63 ]
   %48 = call i64 @write(i32 noundef %10, ptr noundef nonnull @.str.306, i64 noundef 1) #26
-  %49 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %50 = load i64, ptr %49, align 8, !tbaa !17
   %51 = inttoptr i64 %50 to ptr
-  %52 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %53 = load i64, ptr %52, align 8, !tbaa !17
   %54 = call i32 @memtest_preserving_test(ptr noundef %51, i64 noundef %53, i32 noundef 1) #26
   %55 = add nsw i32 %54, %.062
@@ -6293,7 +6290,7 @@ define dso_local void @dumpX86Calls(ptr noundef %0, i64 noundef %1) local_unname
 
 23:                                               ; preds = %13
   %24 = and i64 %17, 255
-  %25 = getelementptr inbounds nuw i64, ptr %4, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %24
   %26 = load i64, ptr %25, align 8, !tbaa !17
   %.not24 = icmp eq i64 %26, %17
   br i1 %.not24, label %29, label %27
@@ -6462,7 +6459,7 @@ serverLogHexDump.exit:                            ; preds = %59, %37
 
 77:                                               ; preds = %67
   %78 = and i64 %71, 255
-  %79 = getelementptr inbounds nuw i64, ptr %3, i64 %78
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %78
   %80 = load i64, ptr %79, align 8, !tbaa !17
   %.not24.i = icmp eq i64 %80, %71
   br i1 %.not24.i, label %83, label %81
@@ -6985,7 +6982,7 @@ define internal fastcc void @cmdTokenCollect(ptr noundef nonnull captures(none) 
   br i1 %8, label %9, label %.critedge
 
 9:                                                ; preds = %.lr.ph
-  %10 = getelementptr inbounds nuw %struct.redisCommandArg, ptr %1, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [80 x i8], ptr %1, i64 %indvars.iv
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !217
   %.not = icmp eq ptr %12, null
@@ -6995,7 +6992,7 @@ define internal fastcc void @cmdTokenCollect(ptr noundef nonnull captures(none) 
   %14 = add nsw i32 %7, 1
   store i32 %14, ptr %5, align 8, !tbaa !180
   %15 = sext i32 %7 to i64
-  %16 = getelementptr inbounds ptr, ptr %0, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %0, i64 %15
   store ptr %12, ptr %16, align 8, !tbaa !21
   br label %17
 

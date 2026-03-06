@@ -3,8 +3,6 @@ source_filename = "bench/msdfgen/original/Contour.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"class.msdfgen::EdgeHolder" = type { ptr }
-
 $_ZNSt6vectorIN7msdfgen10EdgeHolderESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_ = comdat any
 
 $__clang_call_terminate = comdat any
@@ -475,14 +473,14 @@ for.body:                                         ; preds = %for.body.preheader,
   %indvars.iv = phi i64 [ %2, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %3 = load ptr, ptr %this, align 8
-  %add.ptr.i = getelementptr inbounds nuw %"class.msdfgen::EdgeHolder", ptr %3, i64 %indvars.iv.next
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.next
   %4 = load ptr, ptr %_M_finish.i, align 8
   %sub.ptr.lhs.cast.i5 = ptrtoint ptr %4 to i64
   %sub.ptr.rhs.cast.i6 = ptrtoint ptr %3 to i64
   %sub.ptr.sub.i7 = sub i64 %sub.ptr.lhs.cast.i5, %sub.ptr.rhs.cast.i6
   %sub.ptr.div.i8 = ashr exact i64 %sub.ptr.sub.i7, 3
   %sub9 = sub nsw i64 %sub.ptr.div.i8, %indvars.iv
-  %add.ptr.i9 = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %3, i64 %sub9
+  %add.ptr.i9 = getelementptr inbounds [8 x i8], ptr %3, i64 %sub9
   tail call void @_ZN7msdfgen10EdgeHolder4swapERS0_S1_(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i9)
   %cmp = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %cmp, label %for.body, label %for.end.loopexit, !llvm.loop !10
@@ -687,7 +685,7 @@ _ZNSt12_Vector_baseIN7msdfgen10EdgeHolderESaIS1_EE13_M_deallocateEPS1_m.exit: ; 
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i.i.i39, ptr %_M_finish.i.i, align 8
-  %add.ptr29 = getelementptr inbounds nuw %"class.msdfgen::EdgeHolder", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr29 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr29, ptr %_M_end_of_storage, align 8
   ret void
 
@@ -940,7 +938,7 @@ _ZNSt12_Vector_baseIN7msdfgen10EdgeHolderESaIS1_EE13_M_deallocateEPS1_m.exit: ; 
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i.i.i39, ptr %_M_finish.i.i, align 8
-  %add.ptr29 = getelementptr inbounds nuw %"class.msdfgen::EdgeHolder", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr29 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr29, ptr %_M_end_of_storage, align 8
   ret void
 
@@ -1139,9 +1137,9 @@ if.then.i40:                                      ; preds = %_ZSt8_DestroyIPN7ms
 
 _ZNSt12_Vector_baseIN7msdfgen10EdgeHolderESaIS1_EE13_M_deallocateEPS1_m.exit41: ; preds = %_ZSt8_DestroyIPN7msdfgen10EdgeHolderES1_EvT_S3_RSaIT0_E.exit38, %if.then.i40
   store ptr %call5.i.i.i, ptr %this, align 8
-  %add.ptr45 = getelementptr inbounds nuw %"class.msdfgen::EdgeHolder", ptr %add.ptr, i64 %__n
+  %add.ptr45 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr, i64 %__n
   store ptr %add.ptr45, ptr %_M_finish.i, align 8
-  %add.ptr48 = getelementptr inbounds nuw %"class.msdfgen::EdgeHolder", ptr %call5.i.i.i, i64 %4
+  %add.ptr48 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i, i64 %4
   store ptr %add.ptr48, ptr %_M_end_of_storage, align 8
   br label %if.end52
 

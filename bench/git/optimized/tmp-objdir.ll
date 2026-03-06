@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
 %struct.string_list = type { ptr, i64, i64, i8, ptr }
-%struct.string_list_item = type { ptr, ptr }
 
 @the_tmp_objdir = internal unnamed_addr global ptr null, align 8
 @tmp_objdir_create.installed_handlers = internal unnamed_addr global i32 0, align 4
@@ -457,7 +456,7 @@ define internal fastcc i32 @migrate_paths(ptr noundef nonnull %0, ptr noundef no
   %.02340 = phi i64 [ 0, %.lr.ph ], [ %83, %strbuf_setlen.exit32 ]
   %.02439 = phi i32 [ 0, %.lr.ph ], [ %68, %strbuf_setlen.exit32 ]
   %29 = load ptr, ptr %5, align 8, !tbaa !66
-  %30 = getelementptr inbounds nuw %struct.string_list_item, ptr %29, i64 %.02340
+  %30 = getelementptr inbounds nuw [16 x i8], ptr %29, i64 %.02340
   %31 = load ptr, ptr %30, align 8, !tbaa !67
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %0, ptr noundef nonnull @.str.11, ptr noundef %31) #15
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %1, ptr noundef nonnull @.str.11, ptr noundef %31) #15

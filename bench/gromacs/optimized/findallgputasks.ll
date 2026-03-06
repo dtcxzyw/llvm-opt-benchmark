@@ -228,7 +228,7 @@ _ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i34: 
 _ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i36: ; preds = %73, %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i34
   store ptr %68, ptr %0, align 8, !tbaa !7
   store ptr %72, ptr %55, align 8, !tbaa !10
-  %74 = getelementptr inbounds nuw i32, ptr %68, i64 %66
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %66
   store ptr %74, ptr %56, align 8, !tbaa !11
   br label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backEOS1_.exit39
 
@@ -530,7 +530,7 @@ _ZNSt12_Vector_baseIN3gmx7GpuTaskESaIS1_EE11_M_allocateEm.exit.i.i: ; preds = %5
           to label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE7reserveEm.exit.i unwind label %.thread132, !noalias !47
 
 _ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE7reserveEm.exit.i: ; preds = %_ZNSt12_Vector_baseIN3gmx7GpuTaskESaIS1_EE11_M_allocateEm.exit.i.i
-  %53 = getelementptr inbounds nuw i32, ptr %52, i64 %47
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %47
   br i1 %.not15.i.i, label %.preheader.i, label %54
 
 .preheader.i:                                     ; preds = %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE7reserveEm.exit.i, %50
@@ -639,7 +639,7 @@ _ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; 
   br label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %92, %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
-  %93 = getelementptr inbounds nuw i32, ptr %87, i64 %85
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %85
   br label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backERKS1_.exit.i
 
 _ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backERKS1_.exit.i: ; preds = %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, %73
@@ -736,7 +736,7 @@ _ZNSt6vectorIS_IN3gmx7GpuTaskESaIS1_EESaIS3_EE12emplace_backIJEEERS3_DpOT_.exit:
   %indvars.iv = phi i64 [ %114, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backERKS1_.exit ]
   %121 = load ptr, ptr %103, align 8, !tbaa !55
   %122 = getelementptr inbounds i8, ptr %121, i64 -24
-  %123 = getelementptr inbounds nuw i32, ptr %.sroa.057.5, i64 %indvars.iv
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.057.5, i64 %indvars.iv
   %124 = getelementptr inbounds i8, ptr %121, i64 -16
   %125 = load ptr, ptr %124, align 8, !tbaa !10
   %126 = getelementptr inbounds i8, ptr %121, i64 -8
@@ -804,7 +804,7 @@ _ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__
   %.pre = phi i32 [ %.pre.pre, %150 ], [ %.pre110, %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i ]
   store ptr %144, ptr %122, align 8, !tbaa !7
   store ptr %149, ptr %124, align 8, !tbaa !10
-  %151 = getelementptr inbounds nuw i32, ptr %144, i64 %142
+  %151 = getelementptr inbounds nuw [4 x i8], ptr %144, i64 %142
   store ptr %151, ptr %126, align 8, !tbaa !11
   br label %_ZNSt6vectorIN3gmx7GpuTaskESaIS1_EE9push_backERKS1_.exit
 
@@ -1041,7 +1041,7 @@ _ZNSt6vectorIS_IN3gmx7GpuTaskESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit2
 _ZNSt12_Vector_baseISt6vectorIN3gmx7GpuTaskESaIS2_EESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorIS_IN3gmx7GpuTaskESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit21, %41
   store ptr %19, ptr %0, align 8, !tbaa !57
   store ptr %.0.lcssa.i.i.i20, ptr %3, align 8, !tbaa !50
-  %45 = getelementptr inbounds nuw %"class.std::vector", ptr %19, i64 %15
+  %45 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %15
   store ptr %45, ptr %40, align 8, !tbaa !53
   ret void
 }

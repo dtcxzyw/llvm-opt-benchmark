@@ -15,7 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { ptr }
 %struct.AlphaFunc = type { %struct.AlphaOperands, %struct.AlphaOperands }
 %struct.AlphaOperands = type { i8, i8, i16 }
-%struct.ImageRef = type { ptr, ptr, i32, i32, i32, i32, i32, i32 }
 
 @PrimitiveTypes = external global %struct._PrimitiveTypes, align 8
 @SurfaceTypes = external global %struct._SurfaceTypes, align 8
@@ -223,7 +222,7 @@ define hidden void @IntRgbToIntArgbScaleConvert(ptr noundef %0, ptr noundef %1, 
   %.026 = phi i32 [ %4, %23 ], [ %38, %29 ]
   %30 = ashr i32 %.026, %8
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds i32, ptr %28, i64 %31
+  %32 = getelementptr inbounds [4 x i8], ptr %28, i64 %31
   %33 = load i32, ptr %32, align 4
   %34 = or i32 %33, -16777216
   store i32 %34, ptr %.1, align 4
@@ -1021,7 +1020,7 @@ define hidden void @IntRgbAlphaMaskFill(ptr noundef %0, ptr noundef %1, i32 noun
   %.0133 = phi i32 [ %25, %19 ], [ %17, %10 ]
   %34 = load i32, ptr %9, align 4
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds %struct.AlphaFunc, ptr @AlphaRules, i64 %35
+  %36 = getelementptr inbounds [8 x i8], ptr @AlphaRules, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 1
   %38 = load i8, ptr %37, align 1
   %39 = zext i8 %38 to i32
@@ -1543,7 +1542,7 @@ define hidden void @IntArgbToIntRgbAlphaMaskBlit(ptr noundef %0, ptr noundef %1,
   %20 = load i32, ptr %19, align 8
   %21 = load i32, ptr %10, align 4
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds %struct.AlphaFunc, ptr @AlphaRules, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr @AlphaRules, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 1
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
@@ -2243,7 +2242,7 @@ define hidden void @IntArgbPreToIntRgbAlphaMaskBlit(ptr noundef %0, ptr noundef 
   %20 = load i32, ptr %19, align 8
   %21 = load i32, ptr %10, align 4
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds %struct.AlphaFunc, ptr @AlphaRules, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr @AlphaRules, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 1
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
@@ -2551,7 +2550,7 @@ define hidden void @IntRgbToIntRgbAlphaMaskBlit(ptr noundef %0, ptr noundef %1, 
   %20 = load i32, ptr %19, align 8
   %21 = load i32, ptr %10, align 4
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds %struct.AlphaFunc, ptr @AlphaRules, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr @AlphaRules, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 1
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
@@ -2861,7 +2860,7 @@ define hidden void @IntRgbDrawGlyphListAA(ptr noundef readonly captures(none) %0
 
 25:                                               ; preds = %.lr.ph, %.loopexit
   %indvars.iv121 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next122, %.loopexit ]
-  %26 = getelementptr inbounds nuw %struct.ImageRef, ptr %1, i64 %indvars.iv121
+  %26 = getelementptr inbounds nuw [40 x i8], ptr %1, i64 %indvars.iv121
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
   %.not = icmp eq ptr %28, null
@@ -2934,7 +2933,7 @@ define hidden void @IntRgbDrawGlyphListAA(ptr noundef readonly captures(none) %0
 
 63:                                               ; preds = %60
   %64 = xor i8 %62, -1
-  %65 = getelementptr inbounds nuw i32, ptr %.092, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %.092, i64 %indvars.iv
   %66 = load i32, ptr %65, align 4
   %67 = and i32 %66, 255
   %68 = lshr i32 %66, 8
@@ -2977,7 +2976,7 @@ define hidden void @IntRgbDrawGlyphListAA(ptr noundef readonly captures(none) %0
   br label %106
 
 104:                                              ; preds = %60
-  %105 = getelementptr inbounds nuw i32, ptr %.092, i64 %indvars.iv
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %.092, i64 %indvars.iv
   store i32 %3, ptr %105, align 4
   br label %106
 
@@ -3038,7 +3037,7 @@ define hidden void @IntRgbDrawGlyphListLCD(ptr noundef readonly captures(none) %
 
 37:                                               ; preds = %.lr.ph, %.loopexit177
   %indvars.iv191 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next192, %.loopexit177 ]
-  %38 = getelementptr inbounds nuw %struct.ImageRef, ptr %1, i64 %indvars.iv191
+  %38 = getelementptr inbounds nuw [40 x i8], ptr %1, i64 %indvars.iv191
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load i32, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 24
@@ -3124,7 +3123,7 @@ define hidden void @IntRgbDrawGlyphListLCD(ptr noundef readonly captures(none) %
   br i1 %.not173.us, label %84, label %82
 
 82:                                               ; preds = %79
-  %83 = getelementptr inbounds nuw i32, ptr %.0142.us, i64 %indvars.iv185
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %.0142.us, i64 %indvars.iv185
   store i32 %3, ptr %83, align 4
   br label %84
 
@@ -3176,7 +3175,7 @@ define hidden void @IntRgbDrawGlyphListLCD(ptr noundef readonly captures(none) %
   %102 = xor i32 %.0144, 255
   %103 = xor i32 %94, 255
   %104 = xor i32 %.0143, 255
-  %105 = getelementptr inbounds nuw i32, ptr %.0142, i64 %indvars.iv
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %.0142, i64 %indvars.iv
   %106 = load i32, ptr %105, align 4
   %107 = and i32 %106, 255
   %108 = lshr i32 %106, 8
@@ -3242,7 +3241,7 @@ define hidden void @IntRgbDrawGlyphListLCD(ptr noundef readonly captures(none) %
   br label %166
 
 164:                                              ; preds = %98
-  %165 = getelementptr inbounds nuw i32, ptr %.0142, i64 %indvars.iv
+  %165 = getelementptr inbounds nuw [4 x i8], ptr %.0142, i64 %indvars.iv
   store i32 %3, ptr %165, align 4
   br label %166
 
@@ -3313,7 +3312,7 @@ define hidden void @IntRgbNrstNbrTransformHelper(ptr noundef readonly captures(n
   %29 = add nsw i64 %28, %24
   %30 = inttoptr i64 %29 to ptr
   %31 = ashr i64 %.02023, 32
-  %32 = getelementptr inbounds i32, ptr %30, i64 %31
+  %32 = getelementptr inbounds [4 x i8], ptr %30, i64 %31
   %33 = load i32, ptr %32, align 4
   %34 = or i32 %33, -16777216
   store i32 %34, ptr %.024, align 4
@@ -3384,13 +3383,13 @@ define hidden void @IntRgbBilinearTransformHelper(ptr noundef readonly captures(
   %48 = add nsw i64 %47, %43
   %49 = inttoptr i64 %48 to ptr
   %50 = sext i32 %41 to i64
-  %51 = getelementptr inbounds i32, ptr %49, i64 %50
+  %51 = getelementptr inbounds [4 x i8], ptr %49, i64 %50
   %52 = load i32, ptr %51, align 4
   %53 = or i32 %52, -16777216
   store i32 %53, ptr %.065, align 4
   %54 = add nsw i32 %36, %41
   %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds i32, ptr %49, i64 %55
+  %56 = getelementptr inbounds [4 x i8], ptr %49, i64 %55
   %57 = load i32, ptr %56, align 4
   %58 = or i32 %57, -16777216
   %59 = getelementptr inbounds nuw i8, ptr %.065, i64 4
@@ -3398,12 +3397,12 @@ define hidden void @IntRgbBilinearTransformHelper(ptr noundef readonly captures(
   %60 = sext i32 %40 to i64
   %61 = add nsw i64 %48, %60
   %62 = inttoptr i64 %61 to ptr
-  %63 = getelementptr inbounds i32, ptr %62, i64 %50
+  %63 = getelementptr inbounds [4 x i8], ptr %62, i64 %50
   %64 = load i32, ptr %63, align 4
   %65 = or i32 %64, -16777216
   %66 = getelementptr inbounds nuw i8, ptr %.065, i64 8
   store i32 %65, ptr %66, align 4
-  %67 = getelementptr inbounds i32, ptr %62, i64 %55
+  %67 = getelementptr inbounds [4 x i8], ptr %62, i64 %55
   %68 = load i32, ptr %67, align 4
   %69 = or i32 %68, -16777216
   %70 = getelementptr inbounds nuw i8, ptr %.065, i64 12
@@ -3490,26 +3489,26 @@ define hidden void @IntRgbBicubicTransformHelper(ptr noundef readonly captures(n
   %64 = inttoptr i64 %63 to ptr
   %65 = add nsw i32 %54, %34
   %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds i32, ptr %64, i64 %66
+  %67 = getelementptr inbounds [4 x i8], ptr %64, i64 %66
   %68 = load i32, ptr %67, align 4
   %69 = or i32 %68, -16777216
   store i32 %69, ptr %.0123, align 4
   %70 = sext i32 %54 to i64
-  %71 = getelementptr inbounds i32, ptr %64, i64 %70
+  %71 = getelementptr inbounds [4 x i8], ptr %64, i64 %70
   %72 = load i32, ptr %71, align 4
   %73 = or i32 %72, -16777216
   %74 = getelementptr inbounds nuw i8, ptr %.0123, i64 4
   store i32 %73, ptr %74, align 4
   %75 = add i32 %43, %54
   %76 = sext i32 %75 to i64
-  %77 = getelementptr inbounds i32, ptr %64, i64 %76
+  %77 = getelementptr inbounds [4 x i8], ptr %64, i64 %76
   %78 = load i32, ptr %77, align 4
   %79 = or i32 %78, -16777216
   %80 = getelementptr inbounds nuw i8, ptr %.0123, i64 8
   store i32 %79, ptr %80, align 4
   %81 = add i32 %75, %40
   %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds i32, ptr %64, i64 %82
+  %83 = getelementptr inbounds [4 x i8], ptr %64, i64 %82
   %84 = load i32, ptr %83, align 4
   %85 = or i32 %84, -16777216
   %86 = getelementptr inbounds nuw i8, ptr %.0123, i64 12
@@ -3518,22 +3517,22 @@ define hidden void @IntRgbBicubicTransformHelper(ptr noundef readonly captures(n
   %88 = sext i32 %87 to i64
   %89 = add nsw i64 %63, %88
   %90 = inttoptr i64 %89 to ptr
-  %91 = getelementptr inbounds i32, ptr %90, i64 %66
+  %91 = getelementptr inbounds [4 x i8], ptr %90, i64 %66
   %92 = load i32, ptr %91, align 4
   %93 = or i32 %92, -16777216
   %94 = getelementptr inbounds nuw i8, ptr %.0123, i64 16
   store i32 %93, ptr %94, align 4
-  %95 = getelementptr inbounds i32, ptr %90, i64 %70
+  %95 = getelementptr inbounds [4 x i8], ptr %90, i64 %70
   %96 = load i32, ptr %95, align 4
   %97 = or i32 %96, -16777216
   %98 = getelementptr inbounds nuw i8, ptr %.0123, i64 20
   store i32 %97, ptr %98, align 4
-  %99 = getelementptr inbounds i32, ptr %90, i64 %76
+  %99 = getelementptr inbounds [4 x i8], ptr %90, i64 %76
   %100 = load i32, ptr %99, align 4
   %101 = or i32 %100, -16777216
   %102 = getelementptr inbounds nuw i8, ptr %.0123, i64 24
   store i32 %101, ptr %102, align 4
-  %103 = getelementptr inbounds i32, ptr %90, i64 %82
+  %103 = getelementptr inbounds [4 x i8], ptr %90, i64 %82
   %104 = load i32, ptr %103, align 4
   %105 = or i32 %104, -16777216
   %106 = getelementptr inbounds nuw i8, ptr %.0123, i64 28
@@ -3541,22 +3540,22 @@ define hidden void @IntRgbBicubicTransformHelper(ptr noundef readonly captures(n
   %107 = sext i32 %53 to i64
   %108 = add nsw i64 %89, %107
   %109 = inttoptr i64 %108 to ptr
-  %110 = getelementptr inbounds i32, ptr %109, i64 %66
+  %110 = getelementptr inbounds [4 x i8], ptr %109, i64 %66
   %111 = load i32, ptr %110, align 4
   %112 = or i32 %111, -16777216
   %113 = getelementptr inbounds nuw i8, ptr %.0123, i64 32
   store i32 %112, ptr %113, align 4
-  %114 = getelementptr inbounds i32, ptr %109, i64 %70
+  %114 = getelementptr inbounds [4 x i8], ptr %109, i64 %70
   %115 = load i32, ptr %114, align 4
   %116 = or i32 %115, -16777216
   %117 = getelementptr inbounds nuw i8, ptr %.0123, i64 36
   store i32 %116, ptr %117, align 4
-  %118 = getelementptr inbounds i32, ptr %109, i64 %76
+  %118 = getelementptr inbounds [4 x i8], ptr %109, i64 %76
   %119 = load i32, ptr %118, align 4
   %120 = or i32 %119, -16777216
   %121 = getelementptr inbounds nuw i8, ptr %.0123, i64 40
   store i32 %120, ptr %121, align 4
-  %122 = getelementptr inbounds i32, ptr %109, i64 %82
+  %122 = getelementptr inbounds [4 x i8], ptr %109, i64 %82
   %123 = load i32, ptr %122, align 4
   %124 = or i32 %123, -16777216
   %125 = getelementptr inbounds nuw i8, ptr %.0123, i64 44
@@ -3564,22 +3563,22 @@ define hidden void @IntRgbBicubicTransformHelper(ptr noundef readonly captures(n
   %126 = sext i32 %51 to i64
   %127 = add nsw i64 %108, %126
   %128 = inttoptr i64 %127 to ptr
-  %129 = getelementptr inbounds i32, ptr %128, i64 %66
+  %129 = getelementptr inbounds [4 x i8], ptr %128, i64 %66
   %130 = load i32, ptr %129, align 4
   %131 = or i32 %130, -16777216
   %132 = getelementptr inbounds nuw i8, ptr %.0123, i64 48
   store i32 %131, ptr %132, align 4
-  %133 = getelementptr inbounds i32, ptr %128, i64 %70
+  %133 = getelementptr inbounds [4 x i8], ptr %128, i64 %70
   %134 = load i32, ptr %133, align 4
   %135 = or i32 %134, -16777216
   %136 = getelementptr inbounds nuw i8, ptr %.0123, i64 52
   store i32 %135, ptr %136, align 4
-  %137 = getelementptr inbounds i32, ptr %128, i64 %76
+  %137 = getelementptr inbounds [4 x i8], ptr %128, i64 %76
   %138 = load i32, ptr %137, align 4
   %139 = or i32 %138, -16777216
   %140 = getelementptr inbounds nuw i8, ptr %.0123, i64 56
   store i32 %139, ptr %140, align 4
-  %141 = getelementptr inbounds i32, ptr %128, i64 %82
+  %141 = getelementptr inbounds [4 x i8], ptr %128, i64 %82
   %142 = load i32, ptr %141, align 4
   %143 = or i32 %142, -16777216
   %144 = getelementptr inbounds nuw i8, ptr %.0123, i64 60

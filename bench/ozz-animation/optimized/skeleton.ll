@@ -311,7 +311,7 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIcEEEEvRKT_.exit: ; preds = %.lr.ph.i.i
 
 .lr.ph.i.i26:                                     ; preds = %.preheader.i.i24, %.lr.ph.i.i26
   %.0.i5.i.i27 = phi i64 [ %60, %.lr.ph.i.i26 ], [ 0, %.preheader.i.i24 ]
-  %51 = getelementptr inbounds nuw i16, ptr %.sroa.01.0.copyload, i64 %.0.i5.i.i27
+  %51 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.01.0.copyload, i64 %.0.i5.i.i27
   %52 = load i16, ptr %51, align 2, !tbaa !44
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %53 = load i8, ptr %10, align 8, !tbaa !30, !range !34, !noundef !35
@@ -349,7 +349,7 @@ _ZN3ozz2io8OArchivelsINS0_8internal5ArrayIsEEEEvRKT_.exit: ; preds = %.lr.ph.i.i
 69:                                               ; preds = %.lr.ph, %69
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %69 ]
   %.043 = phi i64 [ 0, %.lr.ph ], [ %74, %69 ]
-  %70 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv
   %71 = load ptr, ptr %70, align 8, !tbaa !39
   %72 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %71) #16
   %73 = add i64 %.043, 1
@@ -568,7 +568,7 @@ _ZN3ozz2io8IArchiversIKNS0_8internal5ArrayIsEEEEvRT_.exit: ; preds = %.lr.ph.i.i
 104:                                              ; preds = %.lr.ph, %104
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %104 ]
   %.046 = phi ptr [ %80, %.lr.ph ], [ %108, %104 ]
-  %105 = getelementptr inbounds nuw ptr, ptr %89, i64 %indvars.iv
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %indvars.iv
   store ptr %.046, ptr %105, align 8, !tbaa !39
   %106 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.046) #16
   %107 = getelementptr i8, ptr %.046, i64 %106

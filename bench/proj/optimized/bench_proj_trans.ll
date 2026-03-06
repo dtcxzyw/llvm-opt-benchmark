@@ -73,7 +73,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef readonly captures(no
   %.0122244 = phi double [ %.1123, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit ], [ 0.000000e+00, %2 ]
   %.0124243 = phi i32 [ %132, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit ], [ 1, %2 ]
   %19 = sext i32 %.0124243 to i64
-  %20 = getelementptr inbounds ptr, ptr %1, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %1, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !14
   %22 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %21, ptr noundef nonnull dereferenceable(13) @.str) #13
   %23 = icmp eq i32 %22, 0
@@ -112,7 +112,7 @@ sub_1:                                            ; preds = %sub_0
 
 34:                                               ; preds = %30
   %35 = sext i32 %31 to i64
-  %36 = getelementptr inbounds ptr, ptr %1, i64 %35
+  %36 = getelementptr inbounds [8 x i8], ptr %1, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !14
   %38 = load i64, ptr %12, align 8, !tbaa !10
   %39 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #14
@@ -157,7 +157,7 @@ sub_1191:                                         ; preds = %.tail.thread, %.thr
 
 54:                                               ; preds = %52
   %55 = sext i32 %53 to i64
-  %56 = getelementptr inbounds ptr, ptr %1, i64 %55
+  %56 = getelementptr inbounds [8 x i8], ptr %1, i64 %55
   %57 = load ptr, ptr %56, align 8, !tbaa !14
   %58 = load i64, ptr %14, align 8, !tbaa !10
   %59 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %57) #14
@@ -202,7 +202,7 @@ sub_1196:                                         ; preds = %.tail189.thread, %.
 
 74:                                               ; preds = %72
   %75 = sext i32 %73 to i64
-  %76 = getelementptr inbounds ptr, ptr %1, i64 %75
+  %76 = getelementptr inbounds [8 x i8], ptr %1, i64 %75
   %77 = load ptr, ptr %76, align 8, !tbaa !14
   %78 = load i64, ptr %16, align 8, !tbaa !10
   %79 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %77) #14
@@ -247,7 +247,7 @@ sub_1201:                                         ; preds = %.tail194.thread.thr
 
 94:                                               ; preds = %92
   %95 = sext i32 %93 to i64
-  %96 = getelementptr inbounds ptr, ptr %1, i64 %95
+  %96 = getelementptr inbounds [8 x i8], ptr %1, i64 %95
   %97 = load ptr, ptr %96, align 8, !tbaa !14
   %98 = call i64 @strtol(ptr noundef nonnull captures(none) %97, ptr noundef null, i32 noundef 10) #14
   %99 = trunc i64 %98 to i32
@@ -269,7 +269,7 @@ sub_1201:                                         ; preds = %.tail194.thread.thr
 
 104:                                              ; preds = %102
   %105 = sext i32 %103 to i64
-  %106 = getelementptr inbounds ptr, ptr %1, i64 %105
+  %106 = getelementptr inbounds [8 x i8], ptr %1, i64 %105
   %107 = load ptr, ptr %106, align 8, !tbaa !14
   %108 = call double @strtod(ptr noundef nonnull captures(none) %107, ptr noundef null) #14
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit
@@ -290,7 +290,7 @@ sub_1201:                                         ; preds = %.tail194.thread.thr
 
 114:                                              ; preds = %112
   %115 = sext i32 %113 to i64
-  %116 = getelementptr inbounds ptr, ptr %1, i64 %115
+  %116 = getelementptr inbounds [8 x i8], ptr %1, i64 %115
   %117 = load ptr, ptr %116, align 8, !tbaa !14
   %118 = call double @strtod(ptr noundef nonnull captures(none) %117, ptr noundef null) #14
   %119 = freeze double %118
@@ -318,7 +318,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit.unreachable180:
   %128 = call double @strtod(ptr noundef nonnull captures(none) %21, ptr noundef null) #14
   %129 = add nsw i32 %.0118246, 1
   %130 = sext i32 %.0118246 to i64
-  %131 = getelementptr inbounds double, ptr %6, i64 %130
+  %131 = getelementptr inbounds [8 x i8], ptr %6, i64 %130
   store double %128, ptr %131, align 8, !tbaa !15
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit
 

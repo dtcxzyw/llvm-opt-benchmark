@@ -430,7 +430,7 @@ _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h7df8419d9464d12fE.exit
 
 103:                                              ; preds = %99
   %104 = load ptr, ptr %91, align 8, !noalias !37, !nonnull !4, !noundef !4
-  %105 = getelementptr inbounds nuw { { { { i32 } }, { { i8 } }, [3 x i8], { { { { i64, ptr, {} }, {} }, i64 } } }, [4 x i64] }, ptr %104, i64 %90
+  %105 = getelementptr inbounds nuw [64 x i8], ptr %104, i64 %90
   invoke void @"_ZN3std4sync6poison5mutex14Mutex$LT$T$GT$8try_lock17h8287d059db598defE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull align 8 %105)
           to label %107 unwind label %.loopexit.i.i.i, !noalias !37
 
@@ -477,7 +477,7 @@ _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h7df8419d9464d12fE.exit
 123:                                              ; preds = %118, %110
   %124 = getelementptr inbounds nuw i8, ptr %111, i64 16
   %125 = load ptr, ptr %124, align 8, !alias.scope !42, !noalias !45, !nonnull !4, !noundef !4
-  %126 = getelementptr inbounds nuw ptr, ptr %125, i64 %115
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %125, i64 %115
   store ptr %.sroa.416.0.copyload.i.i, ptr %126, align 8, !noalias !45
   %127 = add i64 %115, 1
   store i64 %127, ptr %114, align 8, !alias.scope !42, !noalias !48
@@ -4117,7 +4117,7 @@ default.unreachable21:                            ; preds = %1
 
 .lr.ph:                                           ; preds = %3, %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$polars_plan..plans..lit..DynListLiteralValue$GT$$GT$17hd2ffd2daaae1f871E.exit.i"
   %.sroa.0.0.i9 = phi i64 [ %10, %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$polars_plan..plans..lit..DynListLiteralValue$GT$$GT$17hd2ffd2daaae1f871E.exit.i" ], [ 0, %3 ]
-  %9 = getelementptr inbounds nuw { i64, [2 x i64] }, ptr %5, i64 %.sroa.0.0.i9
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %.sroa.0.0.i9
   %10 = add nuw i64 %.sroa.0.0.i9, 1
   %11 = load i64, ptr %9, align 8, !range !635, !alias.scope !697, !noalias !694, !noundef !4
   %12 = icmp eq i64 %11, 4
@@ -4139,7 +4139,7 @@ default.unreachable21:                            ; preds = %1
 
 .lr.ph11:                                         ; preds = %15, %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$polars_plan..plans..lit..DynListLiteralValue$GT$$GT$17hd2ffd2daaae1f871E.exit8.i"
   %.sroa.0.1.i10 = phi i64 [ %19, %"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$polars_plan..plans..lit..DynListLiteralValue$GT$$GT$17hd2ffd2daaae1f871E.exit8.i" ], [ %10, %15 ]
-  %18 = getelementptr inbounds nuw { i64, [2 x i64] }, ptr %5, i64 %.sroa.0.1.i10
+  %18 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %.sroa.0.1.i10
   %19 = add i64 %.sroa.0.1.i10, 1
   %20 = load i64, ptr %18, align 8, !range !635, !alias.scope !702, !noalias !694, !noundef !4
   %21 = icmp eq i64 %20, 4
@@ -4182,7 +4182,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr93drop
 
 .lr.ph.i.i:                                       ; preds = %28, %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$polars_utils..pl_str..PlSmallStr$GT$$GT$17h69e48f291e60403aE.exit.i.i"
   %.sroa.0.09.i.i = phi i64 [ %33, %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$polars_utils..pl_str..PlSmallStr$GT$$GT$17h69e48f291e60403aE.exit.i.i" ], [ 0, %28 ]
-  %32 = getelementptr inbounds nuw { [23 x i8], i8 }, ptr %.val, i64 %.sroa.0.09.i.i
+  %32 = getelementptr inbounds nuw [24 x i8], ptr %.val, i64 %.sroa.0.09.i.i
   %33 = add nuw i64 %.sroa.0.09.i.i, 1
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 23
   %35 = load i8, ptr %34, align 1, !range !667, !alias.scope !705, !noundef !4
@@ -4205,7 +4205,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr93drop
 
 .lr.ph12.i.i:                                     ; preds = %39, %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$polars_utils..pl_str..PlSmallStr$GT$$GT$17h69e48f291e60403aE.exit8.i.i"
   %.sroa.0.110.i.i = phi i64 [ %43, %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$polars_utils..pl_str..PlSmallStr$GT$$GT$17h69e48f291e60403aE.exit8.i.i" ], [ %33, %39 ]
-  %42 = getelementptr inbounds nuw { [23 x i8], i8 }, ptr %.val, i64 %.sroa.0.110.i.i
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %.val, i64 %.sroa.0.110.i.i
   %43 = add i64 %.sroa.0.110.i.i, 1
   %44 = getelementptr inbounds nuw i8, ptr %42, i64 23
   %45 = load i8, ptr %44, align 1, !range !667, !alias.scope !710, !noundef !4
@@ -16030,7 +16030,7 @@ define internal fastcc void @"_ZN10polars_sql9functions18SQLFunctionVisitor14vis
   %148 = load ptr, ptr %147, align 8, !nonnull !4, !noundef !4
   %149 = getelementptr inbounds nuw i8, ptr %146, i64 16
   %150 = load i64, ptr %149, align 8, !noundef !4
-  %151 = getelementptr inbounds nuw { { i8, [47 x i8] }, { { { ptr, i64, i32, i16, i8, i8 } } }, i64 }, ptr %148, i64 %150
+  %151 = getelementptr inbounds nuw [80 x i8], ptr %148, i64 %150
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !1340
   store ptr %148, ptr %3, align 8, !alias.scope !1347, !noalias !1351
   %.sroa.427.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -31063,7 +31063,7 @@ _ZN10polars_sql9functions18SQLFunctionVisitor23apply_cumulative_window17h3c5702a
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !2994
   %40 = getelementptr inbounds nuw i8, ptr %22, i64 72
   %41 = load ptr, ptr %40, align 8, !alias.scope !2991, !noalias !2993, !nonnull !4, !noundef !4
-  %42 = getelementptr inbounds nuw { { i64, [40 x i64] }, { i64, [122 x i64] }, i8, i8, [6 x i8] }, ptr %41, i64 %30
+  %42 = getelementptr inbounds nuw [1320 x i8], ptr %41, i64 %30
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %44 = load ptr, ptr %43, align 8, !alias.scope !2989, !noalias !2995, !nonnull !4, !align !7, !noundef !4
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -31109,7 +31109,7 @@ _ZN10polars_sql9functions18SQLFunctionVisitor23apply_cumulative_window17h3c5702a
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !2994
   %51 = icmp ult i64 %.sroa.6.0.copyload.i, 44343134792571038
   tail call void @llvm.assume(i1 %51)
-  %52 = getelementptr inbounds nuw { { i64, [23 x i64] }, i8, [15 x i8] }, ptr %.sroa.537.0.copyload.i, i64 %.sroa.6.0.copyload.i
+  %52 = getelementptr inbounds nuw [208 x i8], ptr %.sroa.537.0.copyload.i, i64 %.sroa.6.0.copyload.i
   %53 = icmp sgt i64 %.sroa.036.0.copyload.i, -1
   tail call void @llvm.assume(i1 %53)
   store ptr %.sroa.537.0.copyload.i, ptr %14, align 8, !alias.scope !3010, !noalias !3013
@@ -31430,7 +31430,7 @@ _ZN10polars_sql9functions18SQLFunctionVisitor23apply_cumulative_window17h72e044d
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !3054
   %40 = getelementptr inbounds nuw i8, ptr %22, i64 72
   %41 = load ptr, ptr %40, align 8, !alias.scope !3051, !noalias !3053, !nonnull !4, !noundef !4
-  %42 = getelementptr inbounds nuw { { i64, [40 x i64] }, { i64, [122 x i64] }, i8, i8, [6 x i8] }, ptr %41, i64 %30
+  %42 = getelementptr inbounds nuw [1320 x i8], ptr %41, i64 %30
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %44 = load ptr, ptr %43, align 8, !alias.scope !3049, !noalias !3055, !nonnull !4, !align !7, !noundef !4
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -31476,7 +31476,7 @@ _ZN10polars_sql9functions18SQLFunctionVisitor23apply_cumulative_window17h72e044d
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !3054
   %51 = icmp ult i64 %.sroa.6.0.copyload.i, 44343134792571038
   tail call void @llvm.assume(i1 %51)
-  %52 = getelementptr inbounds nuw { { i64, [23 x i64] }, i8, [15 x i8] }, ptr %.sroa.537.0.copyload.i, i64 %.sroa.6.0.copyload.i
+  %52 = getelementptr inbounds nuw [208 x i8], ptr %.sroa.537.0.copyload.i, i64 %.sroa.6.0.copyload.i
   %53 = icmp sgt i64 %.sroa.036.0.copyload.i, -1
   tail call void @llvm.assume(i1 %53)
   store ptr %.sroa.537.0.copyload.i, ptr %14, align 8, !alias.scope !3070, !noalias !3073
@@ -31797,7 +31797,7 @@ _ZN10polars_sql9functions18SQLFunctionVisitor23apply_cumulative_window17h1d3cea0
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !3114
   %40 = getelementptr inbounds nuw i8, ptr %22, i64 72
   %41 = load ptr, ptr %40, align 8, !alias.scope !3111, !noalias !3113, !nonnull !4, !noundef !4
-  %42 = getelementptr inbounds nuw { { i64, [40 x i64] }, { i64, [122 x i64] }, i8, i8, [6 x i8] }, ptr %41, i64 %30
+  %42 = getelementptr inbounds nuw [1320 x i8], ptr %41, i64 %30
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %44 = load ptr, ptr %43, align 8, !alias.scope !3109, !noalias !3115, !nonnull !4, !align !7, !noundef !4
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -31843,7 +31843,7 @@ _ZN10polars_sql9functions18SQLFunctionVisitor23apply_cumulative_window17h1d3cea0
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !3114
   %51 = icmp ult i64 %.sroa.6.0.copyload.i, 44343134792571038
   tail call void @llvm.assume(i1 %51)
-  %52 = getelementptr inbounds nuw { { i64, [23 x i64] }, i8, [15 x i8] }, ptr %.sroa.537.0.copyload.i, i64 %.sroa.6.0.copyload.i
+  %52 = getelementptr inbounds nuw [208 x i8], ptr %.sroa.537.0.copyload.i, i64 %.sroa.6.0.copyload.i
   %53 = icmp sgt i64 %.sroa.036.0.copyload.i, -1
   tail call void @llvm.assume(i1 %53)
   store ptr %.sroa.537.0.copyload.i, ptr %14, align 8, !alias.scope !3130, !noalias !3133
@@ -39359,7 +39359,7 @@ define hidden void @_ZN10polars_sql9functions18SQLFunctionVisitor14visit_variadi
 
 64:                                               ; preds = %59, %55
   %65 = load ptr, ptr %19, align 8, !alias.scope !3497, !noalias !3500, !nonnull !4, !noundef !4
-  %66 = getelementptr inbounds nuw { i64, [23 x i64] }, ptr %65, i64 %56
+  %66 = getelementptr inbounds nuw [192 x i8], ptr %65, i64 %56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(192) %66, ptr noundef nonnull align 16 dereferenceable(192) %5, i64 192, i1 false), !noalias !3479
   %67 = add i64 %56, 1
   store i64 %67, ptr %20, align 8, !alias.scope !3497, !noalias !3500
@@ -39573,7 +39573,7 @@ define hidden void @_ZN10polars_sql9functions18SQLFunctionVisitor14visit_variadi
 
 53:                                               ; preds = %48, %44
   %54 = load ptr, ptr %18, align 8, !alias.scope !3514, !noalias !3517, !nonnull !4, !noundef !4
-  %55 = getelementptr inbounds nuw { i64, [23 x i64] }, ptr %54, i64 %45
+  %55 = getelementptr inbounds nuw [192 x i8], ptr %54, i64 %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(192) %55, ptr noundef nonnull align 16 dereferenceable(192) %3, i64 192, i1 false), !noalias !3509
   %56 = add i64 %45, 1
   store i64 %56, ptr %19, align 8, !alias.scope !3514, !noalias !3517
@@ -39820,7 +39820,7 @@ define hidden void @_ZN10polars_sql9functions18SQLFunctionVisitor14visit_variadi
 
 64:                                               ; preds = %59, %55
   %65 = load ptr, ptr %19, align 8, !alias.scope !3544, !noalias !3547, !nonnull !4, !noundef !4
-  %66 = getelementptr inbounds nuw { i64, [23 x i64] }, ptr %65, i64 %56
+  %66 = getelementptr inbounds nuw [192 x i8], ptr %65, i64 %56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(192) %66, ptr noundef nonnull align 16 dereferenceable(192) %5, i64 192, i1 false), !noalias !3526
   %67 = add i64 %56, 1
   store i64 %67, ptr %20, align 8, !alias.scope !3544, !noalias !3547
@@ -40034,7 +40034,7 @@ define hidden void @_ZN10polars_sql9functions18SQLFunctionVisitor14visit_variadi
 
 53:                                               ; preds = %48, %44
   %54 = load ptr, ptr %18, align 8, !alias.scope !3561, !noalias !3564, !nonnull !4, !noundef !4
-  %55 = getelementptr inbounds nuw { i64, [23 x i64] }, ptr %54, i64 %45
+  %55 = getelementptr inbounds nuw [192 x i8], ptr %54, i64 %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(192) %55, ptr noundef nonnull align 16 dereferenceable(192) %3, i64 192, i1 false), !noalias !3556
   %56 = add i64 %45, 1
   store i64 %56, ptr %19, align 8, !alias.scope !3561, !noalias !3564
@@ -40332,7 +40332,7 @@ define hidden void @_ZN10polars_sql9functions18SQLFunctionVisitor18try_visit_var
 
 77:                                               ; preds = %72, %68
   %78 = load ptr, ptr %21, align 8, !alias.scope !3583, !noalias !3586, !nonnull !4, !noundef !4
-  %79 = getelementptr inbounds nuw { i64, [23 x i64] }, ptr %78, i64 %69
+  %79 = getelementptr inbounds nuw [192 x i8], ptr %78, i64 %69
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(192) %79, ptr noundef nonnull align 16 dereferenceable(192) %6, i64 192, i1 false)
   %80 = add i64 %69, 1
   store i64 %80, ptr %22, align 8, !alias.scope !3583, !noalias !3586

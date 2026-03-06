@@ -92,7 +92,7 @@ malloc_mutex_lock.exit:                           ; preds = %7, %11
 
 14:                                               ; preds = %seq_try_load_hooks.exit.thread.i, %malloc_mutex_lock.exit
   %indvars.iv.i = phi i64 [ 0, %malloc_mutex_lock.exit ], [ %indvars.iv.next.i, %seq_try_load_hooks.exit.thread.i ]
-  %15 = getelementptr inbounds nuw %struct.seq_hooks_t, ptr @hooks, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw [48 x i8], ptr @hooks, i64 %indvars.iv.i
   %16 = load atomic i64, ptr %15 acquire, align 16
   %17 = and i64 %16, 1
   %.not.i.i6 = icmp eq i64 %17, 0
@@ -113,9 +113,9 @@ malloc_mutex_lock.exit:                           ; preds = %7, %11
 
 22:                                               ; preds = %22, %.preheader.i.i
   %.01113.i.i = phi i64 [ 0, %.preheader.i.i ], [ %26, %22 ]
-  %23 = getelementptr inbounds nuw %struct.atomic_zu_t, ptr %18, i64 %.01113.i.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.01113.i.i
   %24 = load atomic i64, ptr %23 monotonic, align 8
-  %25 = getelementptr inbounds nuw i64, ptr %4, i64 %.01113.i.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.01113.i.i
   store i64 %24, ptr %25, align 8
   %26 = add nuw nsw i64 %.01113.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %26, 5
@@ -137,8 +137,8 @@ malloc_mutex_lock.exit:                           ; preds = %7, %11
 
 30:                                               ; preds = %30, %27
   %.010.i.i = phi i64 [ 0, %27 ], [ %34, %30 ]
-  %31 = getelementptr inbounds nuw %struct.atomic_zu_t, ptr %18, i64 %.010.i.i
-  %32 = getelementptr inbounds nuw i64, ptr %3, i64 %.010.i.i
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.010.i.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.010.i.i
   %33 = load i64, ptr %32, align 8, !tbaa !18
   store atomic i64 %33, ptr %31 monotonic, align 8
   %34 = add nuw nsw i64 %.010.i.i, 1
@@ -228,9 +228,9 @@ malloc_mutex_lock.exit:                           ; preds = %7, %11
 
 19:                                               ; preds = %19, %.preheader.i.i
   %.01113.i.i = phi i64 [ 0, %.preheader.i.i ], [ %23, %19 ]
-  %20 = getelementptr inbounds nuw %struct.atomic_zu_t, ptr %16, i64 %.01113.i.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.01113.i.i
   %21 = load atomic i64, ptr %20 monotonic, align 8
-  %22 = getelementptr inbounds nuw i64, ptr %4, i64 %.01113.i.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.01113.i.i
   store i64 %21, ptr %22, align 8, !tbaa !18
   %23 = add nuw nsw i64 %.01113.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %23, 5
@@ -259,8 +259,8 @@ seq_try_load_hooks.exit.i:                        ; preds = %24, %17, %malloc_mu
 
 28:                                               ; preds = %28, %seq_try_load_hooks.exit.i
   %.010.i.i = phi i64 [ 0, %seq_try_load_hooks.exit.i ], [ %32, %28 ]
-  %29 = getelementptr inbounds nuw %struct.atomic_zu_t, ptr %27, i64 %.010.i.i
-  %30 = getelementptr inbounds nuw i64, ptr %3, i64 %.010.i.i
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.010.i.i
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.010.i.i
   %31 = load i64, ptr %30, align 8, !tbaa !18
   store atomic i64 %31, ptr %29 monotonic, align 8
   %32 = add nuw nsw i64 %.010.i.i, 1
@@ -310,7 +310,7 @@ atomic_load_u.exit:
 
 13:                                               ; preds = %11, %27
   %indvars.iv = phi i64 [ 0, %11 ], [ %indvars.iv.next, %27 ]
-  %14 = getelementptr inbounds nuw %struct.seq_hooks_t, ptr @hooks, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [48 x i8], ptr @hooks, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %15 = load atomic i64, ptr %14 acquire, align 16
   %16 = and i64 %15, 1
@@ -329,9 +329,9 @@ atomic_load_u.exit:
 
 20:                                               ; preds = %20, %.preheader.i
   %.01113.i = phi i64 [ 0, %.preheader.i ], [ %24, %20 ]
-  %21 = getelementptr inbounds nuw %struct.atomic_zu_t, ptr %17, i64 %.01113.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.01113.i
   %22 = load atomic i64, ptr %21 monotonic, align 8
-  %23 = getelementptr inbounds nuw i64, ptr %4, i64 %.01113.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.01113.i
   store i64 %22, ptr %23, align 8, !tbaa !18
   %24 = add nuw nsw i64 %.01113.i, 1
   %exitcond.not.i = icmp eq i64 %24, 5
@@ -421,7 +421,7 @@ atomic_load_u.exit:
 
 12:                                               ; preds = %10, %26
   %indvars.iv = phi i64 [ 0, %10 ], [ %indvars.iv.next, %26 ]
-  %13 = getelementptr inbounds nuw %struct.seq_hooks_t, ptr @hooks, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [48 x i8], ptr @hooks, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %14 = load atomic i64, ptr %13 acquire, align 16
   %15 = and i64 %14, 1
@@ -440,9 +440,9 @@ atomic_load_u.exit:
 
 19:                                               ; preds = %19, %.preheader.i
   %.01113.i = phi i64 [ 0, %.preheader.i ], [ %23, %19 ]
-  %20 = getelementptr inbounds nuw %struct.atomic_zu_t, ptr %16, i64 %.01113.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.01113.i
   %21 = load atomic i64, ptr %20 monotonic, align 8
-  %22 = getelementptr inbounds nuw i64, ptr %3, i64 %.01113.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.01113.i
   store i64 %21, ptr %22, align 8, !tbaa !18
   %23 = add nuw nsw i64 %.01113.i, 1
   %exitcond.not.i = icmp eq i64 %23, 5
@@ -502,7 +502,7 @@ atomic_load_u.exit:
 
 15:                                               ; preds = %13, %29
   %indvars.iv = phi i64 [ 0, %13 ], [ %indvars.iv.next, %29 ]
-  %16 = getelementptr inbounds nuw %struct.seq_hooks_t, ptr @hooks, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [48 x i8], ptr @hooks, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %17 = load atomic i64, ptr %16 acquire, align 16
   %18 = and i64 %17, 1
@@ -521,9 +521,9 @@ atomic_load_u.exit:
 
 22:                                               ; preds = %22, %.preheader.i
   %.01113.i = phi i64 [ 0, %.preheader.i ], [ %26, %22 ]
-  %23 = getelementptr inbounds nuw %struct.atomic_zu_t, ptr %19, i64 %.01113.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.01113.i
   %24 = load atomic i64, ptr %23 monotonic, align 8
-  %25 = getelementptr inbounds nuw i64, ptr %6, i64 %.01113.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.01113.i
   store i64 %24, ptr %25, align 8, !tbaa !18
   %26 = add nuw nsw i64 %.01113.i, 1
   %exitcond.not.i = icmp eq i64 %26, 5

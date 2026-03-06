@@ -1680,7 +1680,7 @@ define void @_ZNK7rocksdb6WalSet9CheckWalsEPNS_3EnvERKSt13unordered_mapImNSt7__c
   %48 = load i64, ptr %22, align 8, !tbaa !153
   %49 = urem i64 %38, %48
   %50 = load ptr, ptr %3, align 8, !tbaa !154
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %49
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %49
   %52 = load ptr, ptr %51, align 8, !tbaa !155
   %.not.i.i.i.i = icmp eq ptr %52, null
   br i1 %.not.i.i.i.i, label %.loopexit115, label %53
@@ -1964,7 +1964,7 @@ _ZNKSt13unordered_mapImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4ha
   %.pre = load i64, ptr %22, align 8, !tbaa !153
   %.pre181 = load ptr, ptr %3, align 8, !tbaa !154
   %.pre184 = urem i64 %38, %.pre
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre181, i64 %.pre184
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre181, i64 %.pre184
   %.pre185 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !155
   %.not.i.i.i.i.i41 = icmp eq ptr %.pre185, null
   br i1 %.not.i.i.i.i.i41, label %.loopexit.i.i, label %152

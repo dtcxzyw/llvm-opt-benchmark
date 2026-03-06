@@ -229,7 +229,7 @@ define dso_local ptr @__ip_dev_find(ptr noundef %0, i32 noundef %1, i1 noundef z
   %9 = mul i32 %8, 1640531527
   %10 = lshr i32 %9, 24
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr %struct.hlist_head, ptr @inet_addr_lst, i64 %11
+  %12 = getelementptr [8 x i8], ptr @inet_addr_lst, i64 %11
   %13 = load volatile ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.loopexit, label %.preheader
@@ -312,7 +312,7 @@ define dso_local ptr @inet_lookup_ifaddr_rcu(ptr noundef readonly captures(addre
   %6 = mul i32 %5, 1640531527
   %7 = lshr i32 %6, 24
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr %struct.hlist_head, ptr @inet_addr_lst, i64 %8
+  %9 = getelementptr [8 x i8], ptr @inet_addr_lst, i64 %8
   %10 = load volatile ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %.loopexit, label %.preheader
@@ -2898,7 +2898,7 @@ define internal i32 @inet_dump_ifaddr(ptr noundef %0, ptr noundef captures(none)
   %73 = phi i32 [ -1, %70 ], [ %90, %89 ]
   %74 = phi ptr [ %20, %70 ], [ %91, %89 ]
   %75 = phi i64 [ 0, %70 ], [ %92, %89 ]
-  %76 = getelementptr ptr, ptr %3, i64 %75
+  %76 = getelementptr [8 x i8], ptr %3, i64 %75
   %77 = load ptr, ptr %76, align 8
   %78 = icmp eq ptr %77, null
   br i1 %78, label %89, label %79
@@ -3065,7 +3065,7 @@ define internal i32 @inet_dump_ifaddr(ptr noundef %0, ptr noundef captures(none)
   %164 = phi i32 [ %26, %153 ], [ 0, %.loopexit ]
   %165 = phi i32 [ %29, %153 ], [ %274, %.loopexit ]
   %166 = load ptr, ptr %154, align 16
-  %167 = getelementptr %struct.hlist_head, ptr %166, i64 %163
+  %167 = getelementptr [8 x i8], ptr %166, i64 %163
   call void @__rcu_read_lock() #17
   %168 = load volatile i32, ptr %155, align 16
   %169 = load i32, ptr %156, align 4
@@ -3380,7 +3380,7 @@ define internal i32 @inet_netconf_get_devconf(ptr noundef %0, ptr noundef %1, pt
 
 .preheader:                                       ; preds = %26, %31
   %34 = phi i64 [ %32, %31 ], [ 0, %26 ]
-  %35 = getelementptr ptr, ptr %4, i64 %34
+  %35 = getelementptr [8 x i8], ptr %4, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, null
   %38 = icmp eq i64 %34, 1
@@ -3550,7 +3550,7 @@ define internal i32 @inet_netconf_dump_devconf(ptr noundef %0, ptr noundef captu
   %44 = phi i64 [ %42, %33 ], [ %97, %.loopexit ]
   %45 = phi i32 [ %31, %33 ], [ 0, %.loopexit ]
   %46 = load ptr, ptr %34, align 16
-  %47 = getelementptr %struct.hlist_head, ptr %46, i64 %44
+  %47 = getelementptr [8 x i8], ptr %46, i64 %44
   tail call void @__rcu_read_lock() #17
   %48 = load volatile i32, ptr %35, align 16
   %49 = load i32, ptr %36, align 4
@@ -4714,7 +4714,7 @@ define internal fastcc range(i32 32770, 2) i32 @__inet_insert_ifa(ptr noundef %0
 
 118:                                              ; preds = %117, %97
   %119 = zext nneg i32 %112 to i64
-  %120 = getelementptr %struct.hlist_head, ptr @inet_addr_lst, i64 %119
+  %120 = getelementptr [8 x i8], ptr @inet_addr_lst, i64 %119
   %121 = load ptr, ptr %120, align 8
   store ptr %121, ptr %0, align 8
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -4962,7 +4962,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @__devinet_sysctl_register(
 
 12:                                               ; preds = %12, %8
   %13 = phi i64 [ 0, %8 ], [ %20, %12 ]
-  %14 = getelementptr %struct.ctl_table, ptr %11, i64 %13
+  %14 = getelementptr [64 x i8], ptr %11, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr i8, ptr %16, i64 %10
@@ -5228,10 +5228,10 @@ define internal i32 @devinet_conf_proc(ptr noundef %0, i32 noundef %1, ptr nound
 43:                                               ; preds = %38
   %44 = load ptr, ptr %27, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %46 = getelementptr i32, ptr %45, i64 %26
+  %46 = getelementptr [4 x i8], ptr %45, i64 %26
   %47 = load i32, ptr %46, align 4
   %48 = getelementptr inbounds nuw i8, ptr %36, i64 200
-  %49 = getelementptr i32, ptr %48, i64 %26
+  %49 = getelementptr [4 x i8], ptr %48, i64 %26
   store i32 %47, ptr %49, align 4
   br label %50
 
@@ -6098,7 +6098,7 @@ define internal void @check_lifetime(ptr readnone captures(none) %0) #0 align 16
   %7 = phi i64 [ 0, %1 ], [ %108, %106 ]
   %8 = phi i64 [ %4, %1 ], [ %107, %106 ]
   tail call void @__rcu_read_lock() #17
-  %9 = getelementptr %struct.hlist_head, ptr @inet_addr_lst, i64 %7
+  %9 = getelementptr [8 x i8], ptr @inet_addr_lst, i64 %7
   %10 = load volatile ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %.thread, label %.preheader8
@@ -6297,9 +6297,9 @@ define internal noundef range(i32 -90, 1) i32 @inet_fill_link_af(ptr noundef %0,
 
 13:                                               ; preds = %13, %10
   %14 = phi i64 [ 0, %10 ], [ %18, %13 ]
-  %15 = getelementptr i32, ptr %11, i64 %14
+  %15 = getelementptr [4 x i8], ptr %11, i64 %14
   %16 = load i32, ptr %15, align 4
-  %17 = getelementptr i32, ptr %12, i64 %14
+  %17 = getelementptr [4 x i8], ptr %12, i64 %14
   store i32 %16, ptr %17, align 4
   %18 = add nuw nsw i64 %14, 1
   %19 = icmp eq i64 %18, 33
@@ -6453,7 +6453,7 @@ define internal noundef range(i32 -97, 1) i32 @inet_set_link_af(ptr noundef read
   %38 = load i32, ptr %37, align 4
   %39 = add nsw i64 %36, -1
   call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btsq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %22, i64 %39) #17, !srcloc !118
-  %40 = getelementptr i32, ptr %23, i64 %39
+  %40 = getelementptr [4 x i8], ptr %23, i64 %39
   store i32 %38, ptr %40, align 4
   %41 = load i16, ptr %27, align 4
   %42 = zext i16 %41 to i32

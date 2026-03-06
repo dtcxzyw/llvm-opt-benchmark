@@ -1860,7 +1860,7 @@ define internal fastcc void @_ZN20wasmtime_wit_bindgen8Wasmtime8generate17hc0453
   %372 = load ptr, ptr %371, align 8, !nonnull !4, !noundef !4
   %373 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %374 = load i64, ptr %373, align 8, !noundef !4
-  %375 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, ptr %372, i64 %374
+  %375 = getelementptr inbounds [48 x i8], ptr %372, i64 %374
   store ptr %372, ptr %369, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %369, i64 8
   store ptr %375, ptr %.sroa.2.0..sroa_idx, align 8
@@ -3158,7 +3158,7 @@ _ZN20wasmtime_wit_bindgen8Wasmtime15has_world_trait17hd8091312cfa7e05cE.exit.thr
   %881 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %882 = load ptr, ptr %881, align 8, !noalias !32, !nonnull !4, !noundef !4
   %883 = load i64, ptr %823, align 8, !noalias !32, !noundef !4
-  %884 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, ptr %882, i64 %883
+  %884 = getelementptr inbounds [48 x i8], ptr %882, i64 %883
   store ptr %882, ptr %231, align 8, !noalias !32
   %885 = getelementptr inbounds nuw i8, ptr %231, i64 8
   store ptr %884, ptr %885, align 8, !noalias !32
@@ -3416,7 +3416,7 @@ _ZN20wasmtime_wit_bindgen8Wasmtime15has_world_trait17hd8091312cfa7e05cE.exit.i32
   store i64 0, ptr %950, align 8, !noalias !32
   %951 = getelementptr inbounds nuw i8, ptr %1, i64 232
   %952 = load ptr, ptr %951, align 8, !noalias !32, !nonnull !4, !noundef !4
-  %953 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { [3 x i64], i64, [2 x i64] } }, ptr %952, i64 %948
+  %953 = getelementptr inbounds [72 x i8], ptr %952, i64 %948
   store ptr %952, ptr %228, align 8, !noalias !32
   %954 = getelementptr inbounds nuw i8, ptr %228, i64 8
   store ptr %953, ptr %954, align 8, !noalias !32
@@ -3515,7 +3515,7 @@ _ZN20wasmtime_wit_bindgen8Wasmtime15has_world_trait17hd8091312cfa7e05cE.exit.i32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %223, ptr noundef nonnull align 8 dereferenceable(24) %222, i64 24, i1 false), !noalias !32
   %984 = load ptr, ptr %949, align 8, !noalias !32, !nonnull !4, !noundef !4
   %985 = load i64, ptr %950, align 8, !noalias !32, !noundef !4
-  %986 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %984, i64 %985
+  %986 = getelementptr inbounds [24 x i8], ptr %984, i64 %985
   br i1 %.0.i126.i.i.i, label %988, label %987
 
 987:                                              ; preds = %983
@@ -3615,7 +3615,7 @@ _ZN20wasmtime_wit_bindgen8Wasmtime15has_world_trait17hd8091312cfa7e05cE.exit.i32
 1009:                                             ; preds = %1008
   %1010 = load ptr, ptr %949, align 8, !noalias !32, !nonnull !4, !noundef !4
   %1011 = load i64, ptr %950, align 8, !noalias !32, !noundef !4
-  %1012 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %1010, i64 %1011
+  %1012 = getelementptr inbounds [24 x i8], ptr %1010, i64 %1011
   store ptr %1010, ptr %212, align 8, !noalias !32
   %1013 = getelementptr inbounds nuw i8, ptr %212, i64 8
   store ptr %1012, ptr %1013, align 8, !noalias !32
@@ -3756,7 +3756,7 @@ _ZN20wasmtime_wit_bindgen8Wasmtime15has_world_trait17hd8091312cfa7e05cE.exit.i32
   %1063 = getelementptr inbounds nuw i8, ptr %1, i64 256
   %1064 = load ptr, ptr %1063, align 8, !noalias !32, !nonnull !4, !noundef !4
   %1065 = load i64, ptr %823, align 8, !noalias !32, !noundef !4
-  %1066 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, ptr %1064, i64 %1065
+  %1066 = getelementptr inbounds [48 x i8], ptr %1064, i64 %1065
   store ptr %1064, ptr %198, align 8, !noalias !32
   %1067 = getelementptr inbounds nuw i8, ptr %198, i64 8
   store ptr %1066, ptr %1067, align 8, !noalias !32
@@ -4272,7 +4272,7 @@ _ZN20wasmtime_wit_bindgen8Wasmtime15has_world_trait17hd8091312cfa7e05cE.exit.i32
   %1186 = load ptr, ptr %1185, align 8, !noalias !32, !nonnull !4, !noundef !4
   %1187 = getelementptr inbounds nuw i8, ptr %1, i64 312
   %1188 = load i64, ptr %1187, align 8, !noalias !32, !noundef !4
-  %1189 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %1186, i64 %1188
+  %1189 = getelementptr inbounds [24 x i8], ptr %1186, i64 %1188
   store ptr %1186, ptr %246, align 8, !noalias !32
   %1190 = getelementptr inbounds nuw i8, ptr %246, i64 8
   store ptr %1189, ptr %1190, align 8, !noalias !32
@@ -8349,7 +8349,7 @@ define internal fastcc void @_ZN20wasmtime_wit_bindgen8Wasmtime12emit_modules17h
 41:                                               ; preds = %32
   %42 = extractvalue { ptr, i64 } %37, 0
   %43 = extractvalue { ptr, i64 } %37, 1
-  %44 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %42, i64 %43
+  %44 = getelementptr inbounds [24 x i8], ptr %42, i64 %43
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %42) ]
   store ptr %42, ptr %8, align 8
   store ptr %44, ptr %22, align 8
@@ -9557,7 +9557,7 @@ default.unreachable82:                            ; preds = %439, %"_ZN4core6res
 "_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E.exit89.i": ; preds = %205
   %206 = load ptr, ptr %155, align 8, !nonnull !4, !noundef !4
   %207 = load i64, ptr %156, align 8, !noundef !4
-  %208 = getelementptr inbounds { { i64, [2 x i64] }, { { { i64, ptr, {} }, i64 } }, { { i64, [2 x i64] } } }, ptr %206, i64 %207
+  %208 = getelementptr inbounds [72 x i8], ptr %206, i64 %207
   store ptr %206, ptr %125, align 8
   store ptr %208, ptr %157, align 8
   br label %"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E.exit148.i"
@@ -10595,7 +10595,7 @@ _ZN20wasmtime_wit_bindgen18InterfaceGenerator11type_handle17h91ff0b535e64a727E.e
   %514 = load ptr, ptr %513, align 8, !nonnull !4, !noundef !4
   %515 = getelementptr inbounds nuw i8, ptr %141, i64 48
   %516 = load i64, ptr %515, align 8, !noundef !4
-  %517 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i64, [2 x i64] } } }, ptr %514, i64 %516
+  %517 = getelementptr inbounds [48 x i8], ptr %514, i64 %516
   store ptr %514, ptr %76, align 8
   %518 = getelementptr inbounds nuw i8, ptr %76, i64 8
   store ptr %517, ptr %518, align 8
@@ -10814,7 +10814,7 @@ _ZN20wasmtime_wit_bindgen18InterfaceGenerator10type_flags17h46569ada309828baE.ex
 "_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E.exit21.i": ; preds = %585
   %586 = load ptr, ptr %557, align 8, !nonnull !4, !noundef !4
   %587 = load i64, ptr %558, align 8, !noundef !4
-  %588 = getelementptr inbounds { i64, [2 x i64] }, ptr %586, i64 %587
+  %588 = getelementptr inbounds [24 x i8], ptr %586, i64 %587
   store ptr %586, ptr %62, align 8
   store ptr %588, ptr %559, align 8
   br label %"_ZN102_$LT$wasmtime_wit_bindgen..InterfaceGenerator$u20$as$u20$wasmtime_wit_bindgen..rust..RustGenerator$GT$8push_str17h93b729a5f7565df6E.exit23.i"
@@ -10876,7 +10876,7 @@ _ZN20wasmtime_wit_bindgen18InterfaceGenerator10type_tuple17hdf5b4838bdea3301E.ex
   %.val = load ptr, ptr %602, align 8, !nonnull !4, !noundef !4
   %603 = getelementptr i8, ptr %141, i64 48
   %.val1 = load i64, ptr %603, align 8, !noundef !4
-  %604 = getelementptr inbounds { { i64, [2 x i64] }, { { { i64, ptr, {} }, i64 } }, { { i64, [2 x i64] } } }, ptr %.val, i64 %.val1
+  %604 = getelementptr inbounds [72 x i8], ptr %.val, i64 %.val1
   tail call void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator15print_rust_enum17hace5264147f8c9cbE(ptr nonnull align 8 %0, i64 %3, i32 %4, ptr nonnull %.val, ptr nonnull %604, ptr nonnull align 8 %601, ptr nonnull align 1 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.334, i64 7)
   br label %953
 
@@ -10985,7 +10985,7 @@ _ZN20wasmtime_wit_bindgen18InterfaceGenerator10type_tuple17hdf5b4838bdea3301E.ex
   %623 = load ptr, ptr %622, align 8, !nonnull !4, !noundef !4
   %624 = getelementptr inbounds nuw i8, ptr %141, i64 48
   %625 = load i64, ptr %624, align 8, !noundef !4
-  %626 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i64, [2 x i64] } } }, ptr %623, i64 %625
+  %626 = getelementptr inbounds [48 x i8], ptr %623, i64 %625
   store ptr %623, ptr %56, align 8
   %627 = getelementptr inbounds nuw i8, ptr %56, i64 8
   store ptr %626, ptr %627, align 8
@@ -12168,7 +12168,7 @@ define internal fastcc void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator15prin
   tail call void @_ZN20wasmtime_wit_bindgen6source6Source8push_str17h5ca59e1164b82f8cE(ptr nonnull align 8 %0, ptr nonnull align 1 @anon.76daaaf5a2b6053e52b5bc759f8da9fb.368, i64 1)
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load ptr, ptr %12, align 8, !nonnull !4, !noundef !4
-  %14 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] } }, ptr %13, i64 %8
+  %14 = getelementptr inbounds [48 x i8], ptr %13, i64 %8
   store ptr %13, ptr %3, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %14, ptr %.sroa.2.0..sroa_idx, align 8
@@ -12562,7 +12562,7 @@ _ZN20wasmtime_wit_bindgen11AsyncConfig15is_import_async17h2274307461ee38d1E.exit
   %93 = load ptr, ptr %92, align 8, !nonnull !4, !noundef !4
   %94 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %95 = load i64, ptr %94, align 8, !noundef !4
-  %96 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] } }, ptr %93, i64 %95
+  %96 = getelementptr inbounds [48 x i8], ptr %93, i64 %95
   store ptr %93, ptr %63, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %63, i64 8
   store ptr %96, ptr %.sroa.2.0..sroa_idx.i, align 8
@@ -13701,7 +13701,7 @@ _ZN20wasmtime_wit_bindgen11AsyncConfig15is_import_async17h2274307461ee38d1E.exit
   %43 = load ptr, ptr %42, align 8, !nonnull !4, !noundef !4
   %44 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %45 = load i64, ptr %44, align 8, !noundef !4
-  %46 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] } }, ptr %43, i64 %45
+  %46 = getelementptr inbounds [48 x i8], ptr %43, i64 %45
   store ptr %43, ptr %7, align 8
   %47 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %46, ptr %47, align 8
@@ -13931,7 +13931,7 @@ define internal fastcc void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator22extr
   %27 = load ptr, ptr %26, align 8, !nonnull !4, !noundef !4
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %29 = load i64, ptr %28, align 8, !noundef !4
-  %30 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] } }, ptr %27, i64 %29
+  %30 = getelementptr inbounds [48 x i8], ptr %27, i64 %29
   store ptr %27, ptr %10, align 8
   %31 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %30, ptr %31, align 8
@@ -14207,7 +14207,7 @@ define internal fastcc void @_ZN20wasmtime_wit_bindgen18InterfaceGenerator24defi
   %70 = load ptr, ptr %69, align 8, !nonnull !4, !noundef !4
   %71 = getelementptr inbounds nuw i8, ptr %3, i64 96
   %72 = load i64, ptr %71, align 8, !noundef !4
-  %73 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] } }, ptr %70, i64 %72
+  %73 = getelementptr inbounds [48 x i8], ptr %70, i64 %72
   store ptr %70, ptr %42, align 8
   %.sroa.25.0..sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 8
   store ptr %73, ptr %.sroa.25.0..sroa_idx, align 8
@@ -14831,7 +14831,7 @@ _ZN20wasmtime_wit_bindgen18InterfaceGenerator12path_to_root17hbc1e7ed6792e01bcE.
           to label %.loopexit29 unwind label %.loopexit.split-lp
 
 49:                                               ; preds = %40
-  %50 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %44, i64 %46
+  %50 = getelementptr inbounds [24 x i8], ptr %44, i64 %46
   store ptr %44, ptr %6, align 8
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %50, ptr %.sroa.22.0..sroa_idx, align 8

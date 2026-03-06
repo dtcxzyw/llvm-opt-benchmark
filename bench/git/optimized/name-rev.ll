@@ -11,10 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.name_ref_data = type { i32, i32, %struct.string_list, %struct.string_list }
 %struct.string_list = type { ptr, i64, i64, i8, ptr }
 %struct.option = type { i32, i32, ptr, ptr, ptr, ptr, i32, ptr, i64, ptr, i64, ptr }
-%struct.tip_table_entry = type { %struct.object_id, ptr, ptr, i64, i8 }
-%struct.rev_name = type { ptr, i64, i32, i32, i32 }
-%struct.object_array_entry = type { ptr, ptr, ptr, i32 }
-%struct.string_list_item = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [10 x i8] c"name-only\00", align 1
 @.str.1 = private unnamed_addr constant [45 x i8] c"print only ref-based names (no object names)\00", align 1
@@ -518,7 +514,7 @@ sane_qsort.exit.i:                                ; preds = %200, %adjust_cutoff
   %205 = phi i32 [ %431, %430 ], [ %203, %sane_qsort.exit.i ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %430 ], [ 0, %sane_qsort.exit.i ]
   %206 = load ptr, ptr @tip_table.0, align 8, !tbaa !42
-  %207 = getelementptr inbounds nuw %struct.tip_table_entry, ptr %206, i64 %indvars.iv.i
+  %207 = getelementptr inbounds nuw [72 x i8], ptr %206, i64 %indvars.iv.i
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 48
   %209 = load ptr, ptr %208, align 8, !tbaa !43
   %.not.i56 = icmp eq ptr %209, null
@@ -580,7 +576,7 @@ commit_is_before_cutoff.exit.thread.i.i:          ; preds = %commit_is_before_cu
 .lr.ph.i.i.i.i:                                   ; preds = %236, %.lr.ph.i.i.i.i
   %.0303.i.i.i.i = phi i32 [ %245, %.lr.ph.i.i.i.i ], [ %242, %236 ]
   %243 = zext i32 %.0303.i.i.i.i to i64
-  %244 = getelementptr inbounds nuw ptr, ptr %241, i64 %243
+  %244 = getelementptr inbounds nuw [8 x i8], ptr %241, i64 %243
   store ptr null, ptr %244, align 8, !tbaa !49
   %245 = add i32 %.0303.i.i.i.i, 1
   %.not34.i.i.i.i = icmp ugt i32 %245, %233
@@ -589,7 +585,7 @@ commit_is_before_cutoff.exit.thread.i.i:          ; preds = %commit_is_before_cu
 246:                                              ; preds = %commit_is_before_cutoff.exit.thread.i.i
   %.pre.i.i.i12.i = load ptr, ptr @rev_names.3, align 8, !tbaa !24
   %247 = zext nneg i32 %233 to i64
-  %248 = getelementptr inbounds nuw ptr, ptr %.pre.i.i.i12.i, i64 %247
+  %248 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i.i12.i, i64 %247
   %249 = load ptr, ptr %248, align 8, !tbaa !49
   %.not35.i.i.i.i = icmp eq ptr %249, null
   br i1 %.not35.i.i.i.i, label %commit_rev_name_at.exit.i.i, label %commit_rev_name_at.exit.thread.i.i
@@ -597,7 +593,7 @@ commit_is_before_cutoff.exit.thread.i.i:          ; preds = %commit_is_before_cu
 .thread.i.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i, %236
   store i32 %237, ptr @rev_names.2, align 8, !tbaa !21
   %250 = zext nneg i32 %233 to i64
-  %251 = getelementptr inbounds nuw ptr, ptr %241, i64 %250
+  %251 = getelementptr inbounds nuw [8 x i8], ptr %241, i64 %250
   %252 = load ptr, ptr %251, align 8, !tbaa !49
   %.not357.i.i.i.i = icmp eq ptr %252, null
   br i1 %.not357.i.i.i.i, label %commit_rev_name_at.exit.i.i, label %commit_rev_name_at.exit.thread.i.i
@@ -606,17 +602,17 @@ commit_rev_name_at.exit.thread.i.i:               ; preds = %.thread.i.i.i.i, %2
   %.ph.i.i = phi ptr [ %252, %.thread.i.i.i.i ], [ %249, %246 ]
   %253 = urem i32 %.val.i.i, 16383
   %254 = zext nneg i32 %253 to i64
-  %255 = getelementptr inbounds nuw %struct.rev_name, ptr %.ph.i.i, i64 %254
+  %255 = getelementptr inbounds nuw [32 x i8], ptr %.ph.i.i, i64 %254
   br label %is_valid_rev_name.exit.i.i
 
 commit_rev_name_at.exit.i.i:                      ; preds = %.thread.i.i.i.i, %246
   %256 = phi i64 [ %247, %246 ], [ %250, %.thread.i.i.i.i ]
   %257 = call ptr @xcalloc(i64 noundef 16383, i64 noundef 32) #16
   %258 = load ptr, ptr @rev_names.3, align 8, !tbaa !24
-  %259 = getelementptr inbounds nuw ptr, ptr %258, i64 %256
+  %259 = getelementptr inbounds nuw [8 x i8], ptr %258, i64 %256
   store ptr %257, ptr %259, align 8, !tbaa !49
   %260 = zext nneg i32 %234 to i64
-  %261 = getelementptr inbounds nuw %struct.rev_name, ptr %257, i64 %260
+  %261 = getelementptr inbounds nuw [32 x i8], ptr %257, i64 %260
   %.not.i.i11.i = icmp eq ptr %257, null
   br i1 %.not.i.i11.i, label %create_or_update_name.exit.i, label %is_valid_rev_name.exit.i.i
 
@@ -729,14 +725,14 @@ create_or_update_name.exit.i:                     ; preds = %commit_rev_name_at.
 305:                                              ; preds = %299
   %.pre.i.i.i.i.i = load ptr, ptr @rev_names.3, align 8, !tbaa !24
   %306 = zext nneg i32 %302 to i64
-  %307 = getelementptr inbounds nuw ptr, ptr %.pre.i.i.i.i.i, i64 %306
+  %307 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i.i.i.i, i64 %306
   %308 = load ptr, ptr %307, align 8, !tbaa !49
   %.not35.i.i.i.i.i = icmp eq ptr %308, null
   br i1 %.not35.i.i.i.i.i, label %is_valid_rev_name.exit.thread.i.i.i, label %is_valid_rev_name.exit.i.i.i
 
 is_valid_rev_name.exit.i.i.i:                     ; preds = %305
   %309 = zext nneg i32 %303 to i64
-  %310 = getelementptr inbounds nuw %struct.rev_name, ptr %308, i64 %309
+  %310 = getelementptr inbounds nuw [32 x i8], ptr %308, i64 %309
   %311 = load ptr, ptr %310, align 8, !tbaa !52
   %.fr.i.i.i = freeze ptr %311
   %.not7.i.i.i = icmp eq ptr %.fr.i.i.i, null
@@ -827,7 +823,7 @@ commit_is_before_cutoff.exit85.thread.i.i:        ; preds = %commit_is_before_cu
 .lr.ph.i.i.i.i.i:                                 ; preds = %342, %.lr.ph.i.i.i.i.i
   %.0303.i.i.i.i.i = phi i32 [ %351, %.lr.ph.i.i.i.i.i ], [ %348, %342 ]
   %349 = zext i32 %.0303.i.i.i.i.i to i64
-  %350 = getelementptr inbounds nuw ptr, ptr %347, i64 %349
+  %350 = getelementptr inbounds nuw [8 x i8], ptr %347, i64 %349
   store ptr null, ptr %350, align 8, !tbaa !49
   %351 = add i32 %.0303.i.i.i.i.i, 1
   %.not34.i.i.i.i.i = icmp ugt i32 %351, %339
@@ -836,7 +832,7 @@ commit_is_before_cutoff.exit85.thread.i.i:        ; preds = %commit_is_before_cu
 352:                                              ; preds = %335
   %.pre.i.i.i90.i.i = load ptr, ptr @rev_names.3, align 8, !tbaa !24
   %353 = zext nneg i32 %339 to i64
-  %354 = getelementptr inbounds nuw ptr, ptr %.pre.i.i.i90.i.i, i64 %353
+  %354 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i.i90.i.i, i64 %353
   %355 = load ptr, ptr %354, align 8, !tbaa !49
   %.not35.i.i.i91.i.i = icmp eq ptr %355, null
   br i1 %.not35.i.i.i91.i.i, label %commit_rev_name_at.exit.i.i.i, label %commit_rev_name_at.exit.thread.i.i.i
@@ -844,7 +840,7 @@ commit_is_before_cutoff.exit85.thread.i.i:        ; preds = %commit_is_before_cu
 .thread.i.i.i.i.i:                                ; preds = %.lr.ph.i.i.i.i.i, %342
   store i32 %343, ptr @rev_names.2, align 8, !tbaa !21
   %356 = zext nneg i32 %339 to i64
-  %357 = getelementptr inbounds nuw ptr, ptr %347, i64 %356
+  %357 = getelementptr inbounds nuw [8 x i8], ptr %347, i64 %356
   %358 = load ptr, ptr %357, align 8, !tbaa !49
   %.not357.i.i.i.i.i = icmp eq ptr %358, null
   br i1 %.not357.i.i.i.i.i, label %commit_rev_name_at.exit.i.i.i, label %commit_rev_name_at.exit.thread.i.i.i
@@ -853,17 +849,17 @@ commit_rev_name_at.exit.thread.i.i.i:             ; preds = %.thread.i.i.i.i.i, 
   %.ph.i.i.i = phi ptr [ %358, %.thread.i.i.i.i.i ], [ %355, %352 ]
   %359 = urem i32 %.val80.i.i, 16383
   %360 = zext nneg i32 %359 to i64
-  %361 = getelementptr inbounds nuw %struct.rev_name, ptr %.ph.i.i.i, i64 %360
+  %361 = getelementptr inbounds nuw [32 x i8], ptr %.ph.i.i.i, i64 %360
   br label %is_valid_rev_name.exit.i87.i.i
 
 commit_rev_name_at.exit.i.i.i:                    ; preds = %.thread.i.i.i.i.i, %352
   %362 = phi i64 [ %353, %352 ], [ %356, %.thread.i.i.i.i.i ]
   %363 = call ptr @xcalloc(i64 noundef 16383, i64 noundef 32) #16
   %364 = load ptr, ptr @rev_names.3, align 8, !tbaa !24
-  %365 = getelementptr inbounds nuw ptr, ptr %364, i64 %362
+  %365 = getelementptr inbounds nuw [8 x i8], ptr %364, i64 %362
   store ptr %363, ptr %365, align 8, !tbaa !49
   %366 = zext nneg i32 %340 to i64
-  %367 = getelementptr inbounds nuw %struct.rev_name, ptr %363, i64 %366
+  %367 = getelementptr inbounds nuw [32 x i8], ptr %363, i64 %366
   %.not.i.i.i.i = icmp eq ptr %363, null
   br i1 %.not.i.i.i.i, label %create_or_update_name.exit.i.i, label %is_valid_rev_name.exit.i87.i.i
 
@@ -989,7 +985,7 @@ st_mult.exit.i.i:                                 ; preds = %416
 423:                                              ; preds = %st_mult.exit.i.i, %get_parent_name.exit.i.i
   %.5.i.i = phi i64 [ %..i.i, %st_mult.exit.i.i ], [ %.163111.i.i, %get_parent_name.exit.i.i ]
   %.4.i.i = phi ptr [ %422, %st_mult.exit.i.i ], [ %.1115.i.i, %get_parent_name.exit.i.i ]
-  %424 = getelementptr inbounds nuw ptr, ptr %.4.i.i, i64 %.056114.i.i
+  %424 = getelementptr inbounds nuw [8 x i8], ptr %.4.i.i, i64 %.056114.i.i
   store ptr %317, ptr %424, align 8, !tbaa !62
   br label %create_or_update_name.exit.thread.i.i
 
@@ -1006,7 +1002,7 @@ create_or_update_name.exit.thread.i.i:            ; preds = %423, %create_or_upd
 .lr.ph121.i.i:                                    ; preds = %.preheader.i.i, %.lr.ph121.i.i
   %.359120.i.i = phi i64 [ %427, %.lr.ph121.i.i ], [ %.157.i.i, %.preheader.i.i ]
   %427 = add i64 %.359120.i.i, -1
-  %428 = getelementptr inbounds nuw ptr, ptr %.2.i.i, i64 %427
+  %428 = getelementptr inbounds nuw [8 x i8], ptr %.2.i.i, i64 %427
   %429 = load ptr, ptr %428, align 8, !tbaa !62
   call void @prio_queue_put(ptr noundef nonnull %7, ptr noundef %429) #16
   %.not76.i.i = icmp eq i64 %427, 0
@@ -1256,7 +1252,7 @@ name_rev_line.exit:                               ; preds = %strbuf_addch.exit, 
 528:                                              ; preds = %.lr.ph84, %528
   %indvars.iv = phi i64 [ 0, %.lr.ph84 ], [ %indvars.iv.next, %528 ]
   %529 = load ptr, ptr %514, align 8, !tbaa !102
-  %530 = getelementptr inbounds nuw %struct.object_array_entry, ptr %529, i64 %indvars.iv
+  %530 = getelementptr inbounds nuw [32 x i8], ptr %529, i64 %indvars.iv
   %531 = load ptr, ptr %530, align 8, !tbaa !103
   %532 = getelementptr inbounds nuw i8, ptr %530, i64 8
   %533 = load ptr, ptr %532, align 8, !tbaa !106
@@ -1384,7 +1380,7 @@ subpath_matches.exit.thread:                      ; preds = %select.unfold.i, %s
   %30 = getelementptr inbounds nuw i8, ptr %.055112114, i64 16
   %31 = load ptr, ptr %16, align 8, !tbaa !110
   %32 = load i64, ptr %17, align 8, !tbaa !109
-  %33 = getelementptr inbounds nuw %struct.string_list_item, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %32
   %34 = icmp ult ptr %30, %33
   br i1 %34, label %.lr.ph.i.preheader, label %.critedge
 
@@ -1445,7 +1441,7 @@ subpath_matches.exit92.thread:                    ; preds = %select.unfold.i89, 
   %50 = getelementptr inbounds nuw i8, ptr %.054117128, i64 16
   %51 = load ptr, ptr %35, align 8, !tbaa !114
   %52 = load i64, ptr %36, align 8, !tbaa !113
-  %53 = getelementptr inbounds nuw %struct.string_list_item, ptr %51, i64 %52
+  %53 = getelementptr inbounds nuw [16 x i8], ptr %51, i64 %52
   %54 = icmp ult ptr %50, %53
   br i1 %54, label %.lr.ph.i86.preheader, label %.critedge3
 
@@ -1585,7 +1581,7 @@ st_mult.exit.i:                                   ; preds = %90
   %101 = phi i32 [ %88, %skip_prefix.exit16._crit_edge.i ], [ %.pre27.i, %st_mult.exit.i ]
   %102 = phi ptr [ %.pre.i, %skip_prefix.exit16._crit_edge.i ], [ %99, %st_mult.exit.i ]
   %103 = sext i32 %101 to i64
-  %104 = getelementptr inbounds %struct.tip_table_entry, ptr %102, i64 %103
+  %104 = getelementptr inbounds [72 x i8], ptr %102, i64 %103
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %104, ptr noundef nonnull readonly align 4 dereferenceable(32) %2, i64 32, i1 false)
   %105 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %106 = load i32, ptr %105, align 4, !tbaa !120
@@ -1606,7 +1602,7 @@ add_to_tip_table.exit:                            ; preds = %100, %108
   %110 = phi i32 [ %101, %100 ], [ %.pre29.i, %108 ]
   %111 = phi ptr [ %102, %100 ], [ %.pre28.i, %108 ]
   %112 = phi ptr [ %.0.i, %100 ], [ %109, %108 ]
-  %113 = getelementptr inbounds %struct.tip_table_entry, ptr %111, i64 %.pre-phi.i
+  %113 = getelementptr inbounds [72 x i8], ptr %111, i64 %.pre-phi.i
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 40
   store ptr %112, ptr %114, align 8, !tbaa !46
   %115 = getelementptr inbounds nuw i8, ptr %113, i64 48
@@ -1831,7 +1827,7 @@ sane_qsort.exit.i:                                ; preds = %13, %11
 22:                                               ; preds = %15
   %23 = load ptr, ptr @tip_table.0, align 8, !tbaa !42
   %24 = zext nneg i32 %20 to i64
-  %25 = getelementptr inbounds nuw %struct.tip_table_entry, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [72 x i8], ptr %23, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 40
   %27 = load ptr, ptr %26, align 8, !tbaa !46
   br label %get_exact_ref_match.exit
@@ -1848,7 +1844,7 @@ sane_qsort.exit.i:                                ; preds = %13, %11
 33:                                               ; preds = %28
   %.pre.i.i.i = load ptr, ptr @rev_names.3, align 8, !tbaa !24
   %34 = zext nneg i32 %30 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %.pre.i.i.i, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i.i, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !49
   %.not35.i.i.i = icmp eq ptr %36, null
   br i1 %.not35.i.i.i, label %get_exact_ref_match.exit, label %is_valid_rev_name.exit.i
@@ -1857,7 +1853,7 @@ is_valid_rev_name.exit.i:                         ; preds = %33
   %.b27 = load i1, ptr @rev_names.1, align 4
   %37 = zext nneg i32 %31 to i64
   %38 = select i1 %.b27, i64 %37, i64 0
-  %39 = getelementptr inbounds nuw %struct.rev_name, ptr %36, i64 %38
+  %39 = getelementptr inbounds nuw [32 x i8], ptr %36, i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !52
   %.fr.i = freeze ptr %40
   %.not7.i = icmp eq ptr %.fr.i, null
@@ -1946,7 +1942,7 @@ declare i32 @oid_pos(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_u
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal ptr @nth_tip_table_ent(i64 noundef %0, ptr noundef readnone captures(ret: address, provenance) %1) #11 {
-  %3 = getelementptr inbounds nuw %struct.tip_table_entry, ptr %1, i64 %0
+  %3 = getelementptr inbounds nuw [72 x i8], ptr %1, i64 %0
   ret ptr %3
 }
 

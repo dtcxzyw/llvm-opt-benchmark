@@ -26,19 +26,11 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.4" = type { %"struct.std::_Vector_base<std::pair<unsigned int, llvm::codeview::CVRecord<llvm::codeview::SymbolKind>>, std::allocator<std::pair<unsigned int, llvm::codeview::CVRecord<llvm::codeview::SymbolKind>>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::pair<unsigned int, llvm::codeview::CVRecord<llvm::codeview::SymbolKind>>, std::allocator<std::pair<unsigned int, llvm::codeview::CVRecord<llvm::codeview::SymbolKind>>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<unsigned int, llvm::codeview::CVRecord<llvm::codeview::SymbolKind>>, std::allocator<std::pair<unsigned int, llvm::codeview::CVRecord<llvm::codeview::SymbolKind>>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::pair<unsigned int, llvm::codeview::CVRecord<llvm::codeview::SymbolKind>>, std::allocator<std::pair<unsigned int, llvm::codeview::CVRecord<llvm::codeview::SymbolKind>>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::pair" = type { i32, %"class.llvm::codeview::CVRecord" }
-%"class.llvm::codeview::CVRecord" = type { %"class.llvm::ArrayRef" }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.llvm::raw_string_ostream" = type { %"class.llvm::raw_ostream", ptr }
 %"class.llvm::raw_ostream" = type { ptr, i32, ptr, ptr, ptr, i8, i32 }
-%"class.std::unique_ptr.9" = type { %"struct.std::__uniq_ptr_data.10" }
-%"struct.std::__uniq_ptr_data.10" = type { %"class.std::__uniq_ptr_impl.11" }
-%"class.std::__uniq_ptr_impl.11" = type { %"class.std::tuple.12" }
-%"class.std::tuple.12" = type { %"struct.std::_Tuple_impl.13" }
-%"struct.std::_Tuple_impl.13" = type { %"struct.std::_Head_base.16" }
-%"struct.std::_Head_base.16" = type { ptr }
 
 $_ZN4llvm3pdb12GSIHashTableD2Ev = comdat any
 
@@ -819,7 +811,7 @@ _ZNK4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralI
   %spec.select.i = select i1 %.not.i21, i32 %.03024.i, i32 -1
   %197 = zext i1 %.not.i21 to i32
   %spec.select42.i = add i32 %.03024.i, %197
-  %198 = getelementptr inbounds nuw i32, ptr %98, i64 %indvars.iv.i
+  %198 = getelementptr inbounds nuw [4 x i8], ptr %98, i64 %indvars.iv.i
   store i32 %spec.select.i, ptr %198, align 4, !tbaa !21, !noalias !89
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4097
@@ -1167,7 +1159,7 @@ define dso_local void @_ZNK4llvm3pdb13GlobalsStream17findRecordsByNameENS_9Strin
   %22 = and i32 %21, 4095
   %23 = zext nneg i32 %22 to i64
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 152
-  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %23
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %23
   %26 = load i32, ptr %25, align 4, !tbaa !21
   %27 = icmp eq i32 %26, -1
   br i1 %27, label %173, label %28
@@ -1499,7 +1491,7 @@ _ZNSt6vectorISt4pairIjN4llvm8codeview8CVRecordINS2_10SymbolKindEEEESaIS6_EE11_S_
 
 _ZNSt6vectorISt4pairIjN4llvm8codeview8CVRecordINS2_10SymbolKindEEEESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i: ; preds = %169, %_ZNSt6vectorISt4pairIjN4llvm8codeview8CVRecordINS2_10SymbolKindEEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i.i.i
   store ptr %168, ptr %112, align 8, !tbaa !138
-  %170 = getelementptr inbounds nuw %"struct.std::pair", ptr %164, i64 %162
+  %170 = getelementptr inbounds nuw [24 x i8], ptr %164, i64 %162
   store ptr %170, ptr %113, align 8, !tbaa !135
   br label %_ZNSt6vectorISt4pairIjN4llvm8codeview8CVRecordINS2_10SymbolKindEEEESaIS6_EE9push_backEOS6_.exit
 
@@ -2307,7 +2299,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i, %68
   store ptr %61, ptr %40, align 8, !tbaa !176
   store ptr %67, ptr %41, align 8, !tbaa !172
-  %69 = getelementptr inbounds nuw %"class.std::unique_ptr.9", ptr %61, i64 %59
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %59
   store ptr %69, ptr %43, align 8, !tbaa !174
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit
 
@@ -2457,7 +2449,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit52: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i49, %130
   store ptr %124, ptr %79, align 8, !tbaa !176
   store ptr %.0.lcssa.i.i.i21.i50, ptr %83, align 8, !tbaa !172
-  %131 = getelementptr inbounds nuw %"class.std::unique_ptr.9", ptr %124, i64 %122
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %122
   store ptr %131, ptr %85, align 8, !tbaa !174
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit21
 
@@ -2577,7 +2569,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, %31
   store ptr %20, ptr %0, align 8, !tbaa !176
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !172
-  %35 = getelementptr inbounds nuw %"class.std::unique_ptr.9", ptr %20, i64 %16
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %35, ptr %30, align 8, !tbaa !174
   ret void
 }

@@ -1575,7 +1575,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %42 = icmp slt i64 %37, 11
   call void @llvm.assume(i1 %42)
   %43 = getelementptr i8, ptr %35, i64 904
-  %44 = getelementptr ptr, ptr %43, i64 %37
+  %44 = getelementptr [8 x i8], ptr %43, i64 %37
   %45 = load ptr, ptr %44, align 8, !noalias !386, !nonnull !7, !noundef !7
   %46 = add i64 %36, -1
   invoke void @"_ZN5alloc11collections5btree8navigate142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$15first_leaf_edge17he28f055af0be3268E.llvm.1683228073582790202"(ptr noalias noundef nonnull sret({ { ptr, i64, {} }, i64, {} }) align 8 captures(none) dereferenceable(24) %6, ptr noundef nonnull %45, i64 noundef %46)
@@ -1620,9 +1620,9 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   %51 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %52 = icmp ult i64 %.sroa.4.sroa.4.0.copyload.i.i.i.i.i, 11
   call void @llvm.assume(i1 %52)
-  %53 = getelementptr inbounds nuw { [3 x i64] }, ptr %51, i64 %.sroa.4.sroa.4.0.copyload.i.i.i.i.i
+  %53 = getelementptr inbounds nuw [24 x i8], ptr %51, i64 %.sroa.4.sroa.4.0.copyload.i.i.i.i.i
   %54 = getelementptr inbounds nuw i8, ptr %30, i64 272
-  %55 = getelementptr inbounds nuw { [7 x i64] }, ptr %54, i64 %.sroa.4.sroa.4.0.copyload.i.i.i.i.i
+  %55 = getelementptr inbounds nuw [56 x i8], ptr %54, i64 %.sroa.4.sroa.4.0.copyload.i.i.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !376
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !373
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !372

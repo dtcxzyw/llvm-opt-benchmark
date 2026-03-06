@@ -124,14 +124,14 @@ default.unreachable:                              ; preds = %17
 29:                                               ; preds = %26, %22, %18, %17, %24, %23, %20, %19
   %.0 = phi i32 [ 2, %22 ], [ %spec.select, %26 ], [ %25, %24 ], [ %.07295, %17 ], [ 0, %19 ], [ %21, %20 ], [ 1, %18 ], [ 3, %23 ]
   %30 = zext nneg i32 %16 to i64
-  %31 = getelementptr inbounds nuw i16, ptr @bitMapRank, i64 %30
+  %31 = getelementptr inbounds nuw [2 x i8], ptr @bitMapRank, i64 %30
   %32 = load i16, ptr %31, align 2
   %33 = zext i16 %32 to i32
   %34 = shl nuw nsw i32 %33, 2
   %35 = sext i32 %.0 to i64
-  %36 = getelementptr inbounds [4 x i32], ptr %1, i64 %35
+  %36 = getelementptr inbounds [16 x i8], ptr %1, i64 %35
   %37 = sext i32 %.07196 to i64
-  %38 = getelementptr inbounds i32, ptr %36, i64 %37
+  %38 = getelementptr inbounds [4 x i8], ptr %36, i64 %37
   %39 = load i32, ptr %38, align 4
   %40 = or i32 %34, %39
   store i32 %40, ptr %38, align 4
@@ -273,7 +273,7 @@ define noundef range(i32 -98, 2) i32 @_Z18ConvertPlayFromPBNRK12playTracePBNR12p
 14:                                               ; preds = %10, %.fold.split46, %.fold.split45, %.fold.split
   %.040 = phi i32 [ 1, %.fold.split ], [ 0, %10 ], [ 2, %.fold.split45 ], [ 3, %.fold.split46 ]
   %15 = lshr exact i64 %indvars.iv, 1
-  %16 = getelementptr inbounds nuw i32, ptr %7, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %15
   store i32 %.040, ptr %16, align 4
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 1
   %18 = load i8, ptr %17, align 1
@@ -282,7 +282,7 @@ define noundef range(i32 -98, 2) i32 @_Z18ConvertPlayFromPBNRK12playTracePBNR12p
   br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %14
-  %22 = getelementptr inbounds nuw i32, ptr %8, i64 %15
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %15
   store i32 %19, ptr %22, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
   %23 = icmp samesign ult i64 %indvars.iv.next, %9

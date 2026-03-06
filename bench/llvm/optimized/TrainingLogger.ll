@@ -526,7 +526,7 @@ define dso_local void @_ZN4llvm6Logger13logRewardImplEPKc(ptr noundef nonnull al
   %24 = zext i32 %23 to i64
   %25 = sext i32 %19 to i64
   %.sroa.0.0.v.i.i.i.i = select i1 %20, i64 %24, i64 %25
-  %.sroa.0.0.i.i.i.i = getelementptr inbounds ptr, ptr %21, i64 %.sroa.0.0.v.i.i.i.i
+  %.sroa.0.0.i.i.i.i = getelementptr inbounds [8 x i8], ptr %21, i64 %.sroa.0.0.v.i.i.i.i
   %26 = load ptr, ptr %.sroa.0.0.i.i.i.i, align 8, !tbaa !69
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load i64, ptr %27, align 8, !tbaa !71
@@ -1056,7 +1056,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapImNS_15MallocAllocator
   %6 = tail call noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, i32 noundef %3) #11
   %7 = load ptr, ptr %0, align 8, !tbaa !90
   %8 = zext i32 %6 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !69
   %magicptr = ptrtoint ptr %10 to i64
   switch i64 %magicptr, label %.preheader.i.i [
@@ -1111,7 +1111,7 @@ _ZN4llvm14StringMapEntryImE6createINS_15MallocAllocatorEJmEEEPS1_NS_9StringRefER
   %28 = tail call noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %6) #11
   %29 = load ptr, ptr %0, align 8, !tbaa !90
   %30 = zext i32 %28 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %30
   br label %.preheader.i.i24
 
 .preheader.i.i24:                                 ; preds = %.critedge.i.i.i26, %_ZN4llvm14StringMapEntryImE6createINS_15MallocAllocatorEJmEEEPS1_NS_9StringRefERT_DpOT0_.exit

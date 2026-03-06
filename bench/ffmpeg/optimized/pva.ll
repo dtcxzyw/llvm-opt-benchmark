@@ -456,7 +456,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @read_part_of_packet(ptr no
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %107 = load ptr, ptr %106, align 8, !tbaa !60
   %108 = zext nneg i32 %105 to i64
-  %109 = getelementptr ptr, ptr %107, i64 %108
+  %109 = getelementptr [8 x i8], ptr %107, i64 %108
   %110 = getelementptr i8, ptr %109, i64 -8
   %111 = load ptr, ptr %110, align 8, !tbaa !61
   %112 = call i32 @av_add_index_entry(ptr noundef %111, i64 noundef %13, i64 noundef %.188121, i32 noundef 0, i32 noundef 0, i32 noundef 1) #5

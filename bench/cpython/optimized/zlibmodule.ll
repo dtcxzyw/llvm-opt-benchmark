@@ -1915,7 +1915,7 @@ define internal fastcc i64 @_BlocksOutputBuffer_Grow(ptr noundef nonnull capture
   br i1 %9, label %10, label %._crit_edge
 
 10:                                               ; preds = %8
-  %11 = getelementptr i64, ptr @BUFFER_BLOCK_SIZE, i64 %.val
+  %11 = getelementptr [8 x i8], ptr @BUFFER_BLOCK_SIZE, i64 %.val
   %12 = load i64, ptr %11, align 8, !tbaa !61
   br label %._crit_edge
 
@@ -2086,7 +2086,7 @@ Py_INCREF.exit.thread:                            ; preds = %16, %Py_INCREF.exit
   %41 = load ptr, ptr %0, align 8, !tbaa !29
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %43 = load ptr, ptr %42, align 8, !tbaa !32
-  %44 = getelementptr ptr, ptr %43, i64 %.04257
+  %44 = getelementptr [8 x i8], ptr %43, i64 %.04257
   %45 = load ptr, ptr %44, align 8, !tbaa !15
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %47 = getelementptr i8, ptr %45, i64 16
@@ -2104,7 +2104,7 @@ Py_INCREF.exit.thread:                            ; preds = %16, %Py_INCREF.exit
   %50 = load ptr, ptr %0, align 8, !tbaa !29
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %52 = load ptr, ptr %51, align 8, !tbaa !32
-  %53 = getelementptr ptr, ptr %52, i64 %.042.lcssa
+  %53 = getelementptr [8 x i8], ptr %52, i64 %.042.lcssa
   %54 = load ptr, ptr %53, align 8, !tbaa !15
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 32
   %56 = getelementptr i8, ptr %54, i64 16

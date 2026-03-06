@@ -773,7 +773,7 @@ define dso_local void @free_scratch(ptr noundef readonly captures(none) %0) loca
 
 7:                                                ; preds = %.thread, %5
   %8 = phi i64 [ 0, %5 ], [ %17, %.thread ]
-  %9 = getelementptr ptr, ptr %2, i64 %8
+  %9 = getelementptr [8 x i8], ptr %2, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i32) %10, i32 -1, ptr elementtype(i32) %10) #10, !srcloc !20
   %12 = icmp eq i32 %11, 1

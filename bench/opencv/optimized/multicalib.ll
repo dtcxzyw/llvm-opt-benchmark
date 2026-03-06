@@ -14,10 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::Mat" = type { i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, %"struct.cv::MatSize", %"struct.cv::MatStep" }
 %"struct.cv::MatSize" = type { ptr }
 %"struct.cv::MatStep" = type { ptr, [2 x i64] }
-%"class.std::vector.17" = type { %"struct.std::_Vector_base.18" }
-%"struct.std::_Vector_base.18" = type { %"struct.std::_Vector_base<cv::Mat, std::allocator<cv::Mat>>::_Vector_impl" }
-%"struct.std::_Vector_base<cv::Mat, std::allocator<cv::Mat>>::_Vector_impl" = type { %"struct.std::_Vector_base<cv::Mat, std::allocator<cv::Mat>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<cv::Mat, std::allocator<cv::Mat>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.cv::MatExpr" = type { ptr, i32, %"class.cv::Mat", %"class.cv::Mat", %"class.cv::Mat", double, double, %"class.cv::Scalar_" }
 %"class.cv::Scalar_" = type { %"class.cv::Vec" }
 %"class.cv::Vec" = type { %"class.cv::Matx" }
@@ -28,6 +24,10 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.cv::randpattern::RandomPatternCornerFinder" = type <{ %"class.std::vector.17", %"class.std::vector.17", float, float, %"class.cv::Size_", i32, i32, i32, [4 x i8], %"struct.cv::Ptr", %"struct.cv::Ptr", %"struct.cv::Ptr.0", %"class.cv::Mat", %"class.std::vector.31", %"class.cv::Mat", i32, [4 x i8] }>
+%"class.std::vector.17" = type { %"struct.std::_Vector_base.18" }
+%"struct.std::_Vector_base.18" = type { %"struct.std::_Vector_base<cv::Mat, std::allocator<cv::Mat>>::_Vector_impl" }
+%"struct.std::_Vector_base<cv::Mat, std::allocator<cv::Mat>>::_Vector_impl" = type { %"struct.std::_Vector_base<cv::Mat, std::allocator<cv::Mat>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<cv::Mat, std::allocator<cv::Mat>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.cv::Size_" = type { i32, i32 }
 %"struct.cv::Ptr" = type { %"class.std::shared_ptr" }
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
@@ -55,8 +55,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.52" = type { %"struct.std::_Vector_base<cv::Vec<float, 3>, std::allocator<cv::Vec<float, 3>>>::_Vector_impl" }
 %"struct.std::_Vector_base<cv::Vec<float, 3>, std::allocator<cv::Vec<float, 3>>>::_Vector_impl" = type { %"struct.std::_Vector_base<cv::Vec<float, 3>, std::allocator<cv::Vec<float, 3>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<cv::Vec<float, 3>, std::allocator<cv::Vec<float, 3>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.cv::Vec.56" = type { %"class.cv::Matx.57" }
-%"class.cv::Matx.57" = type { [3 x float] }
 %"class.cv::FileStorage" = type { ptr, i32, %"class.std::__cxx11::basic_string", %"struct.cv::Ptr.27" }
 %"struct.cv::Ptr.27" = type { %"class.std::shared_ptr.28" }
 %"class.std::shared_ptr.28" = type { %"class.std::__shared_ptr.29" }
@@ -80,8 +78,8 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<cv::multicalib::MultiCameraCalibration::edge, std::allocator<cv::multicalib::MultiCameraCalibration::edge>>::_Vector_impl" }
 %"struct.std::_Vector_base<cv::multicalib::MultiCameraCalibration::edge, std::allocator<cv::multicalib::MultiCameraCalibration::edge>>::_Vector_impl" = type { %"struct.std::_Vector_base<cv::multicalib::MultiCameraCalibration::edge, std::allocator<cv::multicalib::MultiCameraCalibration::edge>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<cv::multicalib::MultiCameraCalibration::edge, std::allocator<cv::multicalib::MultiCameraCalibration::edge>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.cv::Vec.65" = type { %"class.cv::Matx.66" }
-%"class.cv::Matx.66" = type { [2 x float] }
+%"class.cv::Vec.56" = type { %"class.cv::Matx.57" }
+%"class.cv::Matx.57" = type { [3 x float] }
 %"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_iostream.base" = type { %"class.std::basic_istream.base", %"class.std::basic_ostream.base" }
 %"class.std::basic_istream.base" = type { ptr, i64 }
@@ -276,7 +274,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit: ; preds = %1
   br i1 %51, label %52, label %_ZNSt6vectorIS_IN2cv3MatESaIS1_EESaIS3_EE6resizeEm.exit
 
 52:                                               ; preds = %50
-  %53 = getelementptr inbounds nuw %"class.std::vector.17", ptr %42, i64 %39
+  %53 = getelementptr inbounds nuw [24 x i8], ptr %42, i64 %39
   %.not.i.i = icmp eq ptr %41, %53
   br i1 %.not.i.i, label %_ZNSt6vectorIS_IN2cv3MatESaIS1_EESaIS3_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -340,7 +338,7 @@ _ZNSt6vectorIS_IN2cv3MatESaIS1_EESaIS3_EE6resizeEm.exit: ; preds = %_ZSt8_Destro
   br i1 %74, label %75, label %_ZNSt6vectorIS_IN2cv3MatESaIS1_EESaIS3_EE6resizeEm.exit33
 
 75:                                               ; preds = %73
-  %76 = getelementptr inbounds nuw %"class.std::vector.17", ptr %65, i64 %62
+  %76 = getelementptr inbounds nuw [24 x i8], ptr %65, i64 %62
   %.not.i.i18 = icmp eq ptr %64, %76
   br i1 %.not.i.i18, label %_ZNSt6vectorIS_IN2cv3MatESaIS1_EESaIS3_EE6resizeEm.exit33, label %.lr.ph.i.i.i.i.i19
 
@@ -404,7 +402,7 @@ _ZNSt6vectorIS_IN2cv3MatESaIS1_EESaIS3_EE6resizeEm.exit33: ; preds = %_ZSt8_Dest
   br i1 %97, label %98, label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit
 
 98:                                               ; preds = %96
-  %99 = getelementptr inbounds nuw %"class.cv::Mat", ptr %88, i64 %85
+  %99 = getelementptr inbounds nuw [96 x i8], ptr %88, i64 %85
   %.not.i.i34 = icmp eq ptr %87, %99
   br i1 %.not.i.i34, label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i35
 
@@ -442,7 +440,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit:     ; preds = %_ZSt8_DestroyIPN2cv
   br i1 %114, label %115, label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit45
 
 115:                                              ; preds = %113
-  %116 = getelementptr inbounds nuw %"class.cv::Mat", ptr %105, i64 %102
+  %116 = getelementptr inbounds nuw [96 x i8], ptr %105, i64 %102
   %.not.i.i39 = icmp eq ptr %104, %116
   br i1 %.not.i.i39, label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit45, label %.lr.ph.i.i.i.i.i40
 
@@ -480,7 +478,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit45:   ; preds = %_ZSt8_DestroyIPN2cv
   br i1 %131, label %132, label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit52
 
 132:                                              ; preds = %130
-  %133 = getelementptr inbounds nuw %"class.cv::Mat", ptr %122, i64 %119
+  %133 = getelementptr inbounds nuw [96 x i8], ptr %122, i64 %119
   %.not.i.i46 = icmp eq ptr %121, %133
   br i1 %.not.i.i46, label %_ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit52, label %.lr.ph.i.i.i.i.i47
 
@@ -518,7 +516,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE6resizeEm.exit52:   ; preds = %_ZSt8_DestroyIPN2cv
   br i1 %148, label %149, label %_ZNSt6vectorIS_IN2cv3MatESaIS1_EESaIS3_EE6resizeEm.exit68
 
 149:                                              ; preds = %147
-  %150 = getelementptr inbounds nuw %"class.std::vector.17", ptr %139, i64 %136
+  %150 = getelementptr inbounds nuw [24 x i8], ptr %139, i64 %136
   %.not.i.i53 = icmp eq ptr %138, %150
   br i1 %.not.i.i53, label %_ZNSt6vectorIS_IN2cv3MatESaIS1_EESaIS3_EE6resizeEm.exit68, label %.lr.ph.i.i.i.i.i54
 
@@ -582,7 +580,7 @@ _ZNSt6vectorIS_IN2cv3MatESaIS1_EESaIS3_EE6resizeEm.exit68: ; preds = %_ZSt8_Dest
   br i1 %171, label %172, label %_ZNSt6vectorIS_IN2cv3MatESaIS1_EESaIS3_EE6resizeEm.exit84
 
 172:                                              ; preds = %170
-  %173 = getelementptr inbounds nuw %"class.std::vector.17", ptr %162, i64 %159
+  %173 = getelementptr inbounds nuw [24 x i8], ptr %162, i64 %159
   %.not.i.i69 = icmp eq ptr %161, %173
   br i1 %.not.i.i69, label %_ZNSt6vectorIS_IN2cv3MatESaIS1_EESaIS3_EE6resizeEm.exit84, label %.lr.ph.i.i.i.i.i70
 
@@ -1877,7 +1875,7 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EEC2EmRKS2_.exit270: ; preds = %.noexc269, %_ZNSt6v
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  %331 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %68, i64 %indvars.iv
+  %331 = getelementptr inbounds nuw [32 x i8], ptr %68, i64 %indvars.iv
   %332 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5rfindEcm(ptr noundef nonnull align 8 dereferenceable(32) %331, i8 noundef signext 46, i64 noundef -1) #24
   call void @llvm.experimental.noalias.scope.decl(metadata !103)
   %333 = getelementptr inbounds nuw i8, ptr %331, i64 8
@@ -2252,7 +2250,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit295: ; preds = %_Z
   %438 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %437, ptr noundef nonnull @.str, ptr noundef nonnull %19, ptr noundef nonnull %20) #24
   %439 = load i32, ptr %19, align 4, !tbaa !55
   %440 = sext i32 %439 to i64
-  %441 = getelementptr inbounds nuw %"class.std::vector.22", ptr %.sroa.0606.0681735, i64 %440
+  %441 = getelementptr inbounds nuw [24 x i8], ptr %.sroa.0606.0681735, i64 %440
   %442 = getelementptr inbounds nuw i8, ptr %441, i64 8
   %443 = load ptr, ptr %442, align 8, !tbaa !102
   %444 = getelementptr inbounds nuw i8, ptr %441, i64 16
@@ -2316,7 +2314,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit: ; preds = %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE9constructIS5_JRKS5_EEEvRS6_PT_DpOT0_.exit.i, %463
   %464 = load i32, ptr %19, align 4, !tbaa !55
   %465 = sext i32 %464 to i64
-  %466 = getelementptr inbounds nuw %"class.std::vector.46", ptr %.sroa.0598.0780, i64 %465
+  %466 = getelementptr inbounds nuw [24 x i8], ptr %.sroa.0598.0780, i64 %465
   %467 = getelementptr inbounds nuw i8, ptr %466, i64 8
   %468 = load ptr, ptr %467, align 8, !tbaa !114
   %469 = getelementptr inbounds nuw i8, ptr %466, i64 16
@@ -2382,7 +2380,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i: ; preds = %491, %.noe
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %493, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
   store ptr %487, ptr %466, align 8, !tbaa !117
   store ptr %492, ptr %467, align 8, !tbaa !114
-  %494 = getelementptr inbounds nuw i32, ptr %487, i64 %485
+  %494 = getelementptr inbounds nuw [4 x i8], ptr %487, i64 %485
   store ptr %494, ptr %469, align 8, !tbaa !116
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
@@ -2715,7 +2713,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %25) #24
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %26) #24
-  %587 = getelementptr inbounds nuw %"class.std::vector.22", ptr %.sroa.0606.0681735, i64 %indvars.iv930
+  %587 = getelementptr inbounds nuw [24 x i8], ptr %.sroa.0606.0681735, i64 %indvars.iv930
   %588 = getelementptr inbounds nuw i8, ptr %587, i64 8
   %589 = load ptr, ptr %588, align 8, !tbaa !102
   %590 = load ptr, ptr %587, align 8, !tbaa !99
@@ -2728,8 +2726,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br i1 %596, label %.lr.ph904, label %._crit_edge
 
 .lr.ph904:                                        ; preds = %586
-  %597 = getelementptr inbounds nuw %"class.std::vector.46", ptr %.sroa.0592.0, i64 %indvars.iv930
-  %598 = getelementptr inbounds nuw %"class.std::vector.46", ptr %.sroa.0598.0780, i64 %indvars.iv930
+  %597 = getelementptr inbounds nuw [24 x i8], ptr %.sroa.0592.0, i64 %indvars.iv930
+  %598 = getelementptr inbounds nuw [24 x i8], ptr %.sroa.0598.0780, i64 %indvars.iv930
   %599 = getelementptr inbounds nuw i8, ptr %597, i64 8
   %600 = getelementptr inbounds nuw i8, ptr %597, i64 16
   br label %602
@@ -2747,7 +2745,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %indvars.iv921 = phi i64 [ 0, %.lr.ph904 ], [ %indvars.iv.next922, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit ]
   %603 = phi ptr [ %590, %.lr.ph904 ], [ %776, %_ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
-  %604 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %603, i64 %indvars.iv921
+  %604 = getelementptr inbounds nuw [32 x i8], ptr %603, i64 %indvars.iv921
   invoke void @_ZN2cv6imreadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %27, ptr noundef nonnull align 8 dereferenceable(32) %604, i32 noundef 0)
           to label %605 unwind label %639
 
@@ -2773,7 +2771,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %611
   %613 = load ptr, ptr %587, align 8, !tbaa !99
-  %614 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %613, i64 %indvars.iv921
+  %614 = getelementptr inbounds nuw [32 x i8], ptr %613, i64 %indvars.iv921
   %615 = load ptr, ptr %614, align 8, !tbaa !87
   %616 = getelementptr inbounds nuw i8, ptr %614, i64 8
   %617 = load i64, ptr %616, align 8, !tbaa !9
@@ -2877,7 +2875,7 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.invoke: ; preds = %_ZNKSt9b
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit366: ; preds = %648
   %650 = load ptr, ptr %587, align 8, !tbaa !99
-  %651 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %650, i64 %indvars.iv921
+  %651 = getelementptr inbounds nuw [32 x i8], ptr %650, i64 %indvars.iv921
   %652 = load ptr, ptr %651, align 8, !tbaa !87
   %653 = getelementptr inbounds nuw i8, ptr %651, i64 8
   %654 = load i64, ptr %653, align 8, !tbaa !9
@@ -2938,7 +2936,7 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc519.invoke, %
 
 678:                                              ; preds = %674
   %679 = load ptr, ptr %236, align 8, !tbaa !59
-  %680 = getelementptr inbounds nuw %"class.std::vector.17", ptr %679, i64 %indvars.iv930
+  %680 = getelementptr inbounds nuw [24 x i8], ptr %679, i64 %indvars.iv930
   %681 = load ptr, ptr %28, align 8, !tbaa !60
   %682 = getelementptr inbounds nuw i8, ptr %680, i64 8
   %683 = load ptr, ptr %682, align 8, !tbaa !61
@@ -2963,7 +2961,7 @@ _ZNSolsEPFRSoS_E.exit:                            ; preds = %.noexc519.invoke, %
 
 _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backERKS1_.exit: ; preds = %.noexc374, %689
   %690 = load ptr, ptr %237, align 8, !tbaa !59
-  %691 = getelementptr inbounds nuw %"class.std::vector.17", ptr %690, i64 %indvars.iv930
+  %691 = getelementptr inbounds nuw [24 x i8], ptr %690, i64 %indvars.iv930
   %692 = load ptr, ptr %28, align 8, !tbaa !60
   %693 = getelementptr inbounds nuw i8, ptr %692, i64 96
   %694 = getelementptr inbounds nuw i8, ptr %691, i64 8
@@ -2989,7 +2987,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backERKS1_.exit: ; preds = %.noexc374, %689
 
 _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backERKS1_.exit379: ; preds = %.noexc377, %701
   %702 = load ptr, ptr %598, align 8, !tbaa !117
-  %703 = getelementptr inbounds nuw i32, ptr %702, i64 %indvars.iv921
+  %703 = getelementptr inbounds nuw [4 x i8], ptr %702, i64 %indvars.iv921
   %704 = load ptr, ptr %599, align 8, !tbaa !114
   %705 = load ptr, ptr %600, align 8, !tbaa !116
   %.not.i380 = icmp eq ptr %704, %705
@@ -3053,7 +3051,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i384: ; preds = %726, %.
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i386: ; preds = %728, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i384
   store ptr %722, ptr %597, align 8, !tbaa !117
   store ptr %727, ptr %599, align 8, !tbaa !114
-  %729 = getelementptr inbounds nuw i32, ptr %722, i64 %720
+  %729 = getelementptr inbounds nuw [4 x i8], ptr %722, i64 %720
   store ptr %729, ptr %600, align 8, !tbaa !116
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit389
 
@@ -3103,7 +3101,7 @@ _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIP
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit391: ; preds = %742
   %744 = load ptr, ptr %587, align 8, !tbaa !99
-  %745 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %744, i64 %indvars.iv921
+  %745 = getelementptr inbounds nuw [32 x i8], ptr %744, i64 %indvars.iv921
   %746 = load ptr, ptr %745, align 8, !tbaa !87
   %747 = getelementptr inbounds nuw i8, ptr %745, i64 8
   %748 = load i64, ptr %747, align 8, !tbaa !9
@@ -3209,14 +3207,14 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
 783:                                              ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
   %784 = load ptr, ptr %237, align 8, !tbaa !59
-  %785 = getelementptr inbounds nuw %"class.std::vector.17", ptr %784, i64 %indvars.iv930
+  %785 = getelementptr inbounds nuw [24 x i8], ptr %784, i64 %indvars.iv930
   store i32 0, ptr %266, align 8, !tbaa !145
   store i32 0, ptr %267, align 4, !tbaa !147
   store i32 17104896, ptr %31, align 8, !tbaa !148
   store ptr %785, ptr %268, align 8, !tbaa !150
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
   %786 = load ptr, ptr %236, align 8, !tbaa !59
-  %787 = getelementptr inbounds nuw %"class.std::vector.17", ptr %786, i64 %indvars.iv930
+  %787 = getelementptr inbounds nuw [24 x i8], ptr %786, i64 %indvars.iv930
   store i32 0, ptr %269, align 8, !tbaa !145
   store i32 0, ptr %270, align 4, !tbaa !147
   store i32 17104896, ptr %32, align 8, !tbaa !148
@@ -3231,25 +3229,25 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
   %792 = load ptr, ptr %246, align 8, !tbaa !60
-  %793 = getelementptr inbounds nuw %"class.cv::Mat", ptr %792, i64 %indvars.iv930
+  %793 = getelementptr inbounds nuw [96 x i8], ptr %792, i64 %indvars.iv930
   store i64 0, ptr %273, align 8
   store i32 50397184, ptr %33, align 8, !tbaa !148
   store ptr %793, ptr %272, align 8, !tbaa !150
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
   %794 = load ptr, ptr %252, align 8, !tbaa !60
-  %795 = getelementptr inbounds nuw %"class.cv::Mat", ptr %794, i64 %indvars.iv930
+  %795 = getelementptr inbounds nuw [96 x i8], ptr %794, i64 %indvars.iv930
   store i64 0, ptr %275, align 8
   store i32 50397184, ptr %34, align 8, !tbaa !148
   store ptr %795, ptr %274, align 8, !tbaa !150
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
   %796 = load ptr, ptr %255, align 8, !tbaa !59
-  %797 = getelementptr inbounds nuw %"class.std::vector.17", ptr %796, i64 %indvars.iv930
+  %797 = getelementptr inbounds nuw [24 x i8], ptr %796, i64 %indvars.iv930
   store i64 0, ptr %277, align 8
   store i32 33882112, ptr %35, align 8, !tbaa !148
   store ptr %797, ptr %276, align 8, !tbaa !150
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
   %798 = load ptr, ptr %258, align 8, !tbaa !59
-  %799 = getelementptr inbounds nuw %"class.std::vector.17", ptr %798, i64 %indvars.iv930
+  %799 = getelementptr inbounds nuw [24 x i8], ptr %798, i64 %indvars.iv930
   store i64 0, ptr %279, align 8
   store i32 33882112, ptr %36, align 8, !tbaa !148
   store ptr %799, ptr %278, align 8, !tbaa !150
@@ -3269,7 +3267,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
   %803 = load ptr, ptr %255, align 8, !tbaa !59
-  %804 = getelementptr inbounds nuw %"class.std::vector.17", ptr %803, i64 %indvars.iv930
+  %804 = getelementptr inbounds nuw [24 x i8], ptr %803, i64 %indvars.iv930
   %805 = getelementptr inbounds nuw i8, ptr %804, i64 8
   %806 = load ptr, ptr %805, align 8, !tbaa !61
   %807 = load ptr, ptr %804, align 8, !tbaa !60
@@ -3347,7 +3345,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
 
 837:                                              ; preds = %833, %830
   %838 = load ptr, ptr %284, align 8, !tbaa !157
-  %839 = getelementptr inbounds nuw i32, ptr %838, i64 %indvars.iv924
+  %839 = getelementptr inbounds nuw [4 x i8], ptr %838, i64 %indvars.iv924
   br label %_ZN2cv3Mat2atIiEERT_i.exit
 
 840:                                              ; preds = %833
@@ -3377,7 +3375,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
   %859 = mul i64 %857, %858
   %860 = getelementptr inbounds nuw i8, ptr %855, i64 %859
   %861 = sext i32 %.recomposed to i64
-  %862 = getelementptr inbounds i32, ptr %860, i64 %861
+  %862 = getelementptr inbounds [4 x i8], ptr %860, i64 %861
   br label %_ZN2cv3Mat2atIiEERT_i.exit
 
 _ZN2cv3Mat2atIiEERT_i.exit:                       ; preds = %850, %844, %837
@@ -3390,14 +3388,14 @@ _ZN2cv3Mat2atIiEERT_i.exit:                       ; preds = %850, %844, %837
 864:                                              ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(ptr nonnull %39)
   %865 = load ptr, ptr %237, align 8, !tbaa !59
-  %866 = getelementptr inbounds nuw %"class.std::vector.17", ptr %865, i64 %indvars.iv930
+  %866 = getelementptr inbounds nuw [24 x i8], ptr %865, i64 %indvars.iv930
   store i32 0, ptr %239, align 8, !tbaa !145
   store i32 0, ptr %240, align 4, !tbaa !147
   store i32 17104896, ptr %39, align 8, !tbaa !148
   store ptr %866, ptr %241, align 8, !tbaa !150
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
   %867 = load ptr, ptr %236, align 8, !tbaa !59
-  %868 = getelementptr inbounds nuw %"class.std::vector.17", ptr %867, i64 %indvars.iv930
+  %868 = getelementptr inbounds nuw [24 x i8], ptr %867, i64 %indvars.iv930
   store i32 0, ptr %242, align 8, !tbaa !145
   store i32 0, ptr %243, align 4, !tbaa !147
   store i32 17104896, ptr %40, align 8, !tbaa !148
@@ -3412,31 +3410,31 @@ _ZN2cv3Mat2atIiEERT_i.exit:                       ; preds = %850, %844, %837
   %.sroa.0.0.insert.insert.i408 = or disjoint i64 %.sroa.2.0.insert.shift.i406, %.sroa.0.0.insert.ext.i407
   call void @llvm.lifetime.start.p0(ptr nonnull %41)
   %873 = load ptr, ptr %246, align 8, !tbaa !60
-  %874 = getelementptr inbounds nuw %"class.cv::Mat", ptr %873, i64 %indvars.iv930
+  %874 = getelementptr inbounds nuw [96 x i8], ptr %873, i64 %indvars.iv930
   store i64 0, ptr %248, align 8
   store i32 50397184, ptr %41, align 8, !tbaa !148
   store ptr %874, ptr %247, align 8, !tbaa !150
   call void @llvm.lifetime.start.p0(ptr nonnull %42)
   %875 = load ptr, ptr %249, align 8, !tbaa !60
-  %876 = getelementptr inbounds nuw %"class.cv::Mat", ptr %875, i64 %indvars.iv930
+  %876 = getelementptr inbounds nuw [96 x i8], ptr %875, i64 %indvars.iv930
   store i64 0, ptr %251, align 8
   store i32 50397184, ptr %42, align 8, !tbaa !148
   store ptr %876, ptr %250, align 8, !tbaa !150
   call void @llvm.lifetime.start.p0(ptr nonnull %43)
   %877 = load ptr, ptr %252, align 8, !tbaa !60
-  %878 = getelementptr inbounds nuw %"class.cv::Mat", ptr %877, i64 %indvars.iv930
+  %878 = getelementptr inbounds nuw [96 x i8], ptr %877, i64 %indvars.iv930
   store i64 0, ptr %254, align 8
   store i32 50397184, ptr %43, align 8, !tbaa !148
   store ptr %878, ptr %253, align 8, !tbaa !150
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
   %879 = load ptr, ptr %255, align 8, !tbaa !59
-  %880 = getelementptr inbounds nuw %"class.std::vector.17", ptr %879, i64 %indvars.iv930
+  %880 = getelementptr inbounds nuw [24 x i8], ptr %879, i64 %indvars.iv930
   store i64 0, ptr %257, align 8
   store i32 33882112, ptr %44, align 8, !tbaa !148
   store ptr %880, ptr %256, align 8, !tbaa !150
   call void @llvm.lifetime.start.p0(ptr nonnull %45)
   %881 = load ptr, ptr %258, align 8, !tbaa !59
-  %882 = getelementptr inbounds nuw %"class.std::vector.17", ptr %881, i64 %indvars.iv930
+  %882 = getelementptr inbounds nuw [24 x i8], ptr %881, i64 %indvars.iv930
   store i64 0, ptr %260, align 8
   store i32 33882112, ptr %45, align 8, !tbaa !148
   store ptr %882, ptr %259, align 8, !tbaa !150
@@ -3478,7 +3476,7 @@ _ZN2cv3Mat2atIiEERT_i.exit:                       ; preds = %850, %844, %837
 .loopexit836:                                     ; preds = %818, %885, %._crit_edge
   %.0142 = phi double [ 0.000000e+00, %._crit_edge ], [ %884, %885 ], [ %801, %818 ]
   %888 = load ptr, ptr %246, align 8, !tbaa !60
-  %889 = getelementptr inbounds nuw %"class.cv::Mat", ptr %888, i64 %indvars.iv930
+  %889 = getelementptr inbounds nuw [96 x i8], ptr %888, i64 %indvars.iv930
   call void @llvm.lifetime.start.p0(ptr nonnull %48)
   store i64 0, ptr %287, align 8
   store i32 33619968, ptr %48, align 8, !tbaa !148
@@ -3489,7 +3487,7 @@ _ZN2cv3Mat2atIiEERT_i.exit:                       ; preds = %850, %844, %837
 890:                                              ; preds = %.loopexit836
   call void @llvm.lifetime.end.p0(ptr nonnull %48)
   %891 = load ptr, ptr %252, align 8, !tbaa !60
-  %892 = getelementptr inbounds nuw %"class.cv::Mat", ptr %891, i64 %indvars.iv930
+  %892 = getelementptr inbounds nuw [96 x i8], ptr %891, i64 %indvars.iv930
   call void @llvm.lifetime.start.p0(ptr nonnull %49)
   store i64 0, ptr %289, align 8
   store i32 33619968, ptr %49, align 8, !tbaa !148
@@ -3500,7 +3498,7 @@ _ZN2cv3Mat2atIiEERT_i.exit:                       ; preds = %850, %844, %837
 893:                                              ; preds = %890
   call void @llvm.lifetime.end.p0(ptr nonnull %49)
   %894 = load ptr, ptr %249, align 8, !tbaa !60
-  %895 = getelementptr inbounds nuw %"class.cv::Mat", ptr %894, i64 %indvars.iv930
+  %895 = getelementptr inbounds nuw [96 x i8], ptr %894, i64 %indvars.iv930
   call void @llvm.lifetime.start.p0(ptr nonnull %50)
   store i64 0, ptr %291, align 8
   store i32 33619968, ptr %50, align 8, !tbaa !148
@@ -3511,7 +3509,7 @@ _ZN2cv3Mat2atIiEERT_i.exit:                       ; preds = %850, %844, %837
 896:                                              ; preds = %893
   call void @llvm.lifetime.end.p0(ptr nonnull %50)
   %897 = load ptr, ptr %255, align 8, !tbaa !59
-  %898 = getelementptr inbounds nuw %"class.std::vector.17", ptr %897, i64 %indvars.iv930
+  %898 = getelementptr inbounds nuw [24 x i8], ptr %897, i64 %indvars.iv930
   %899 = getelementptr inbounds nuw i8, ptr %898, i64 8
   %900 = load ptr, ptr %899, align 8, !tbaa !61
   %901 = load ptr, ptr %898, align 8, !tbaa !60
@@ -3524,7 +3522,7 @@ _ZN2cv3Mat2atIiEERT_i.exit:                       ; preds = %850, %844, %837
   br i1 %907, label %.lr.ph907, label %._crit_edge908
 
 .lr.ph907:                                        ; preds = %896
-  %908 = getelementptr inbounds nuw %"class.std::vector.46", ptr %.sroa.0592.0, i64 %indvars.iv930
+  %908 = getelementptr inbounds nuw [24 x i8], ptr %.sroa.0592.0, i64 %indvars.iv930
   %909 = trunc nuw nsw i64 %indvars.iv930 to i32
   br label %917
 
@@ -3565,7 +3563,7 @@ _ZN2cv3Mat2atIiEERT_i.exit:                       ; preds = %850, %844, %837
 
 924:                                              ; preds = %920, %917
   %925 = load ptr, ptr %284, align 8, !tbaa !157
-  %926 = getelementptr inbounds nuw i32, ptr %925, i64 %indvars.iv927
+  %926 = getelementptr inbounds nuw [4 x i8], ptr %925, i64 %indvars.iv927
   br label %_ZN2cv3Mat2atIiEERT_i.exit413
 
 927:                                              ; preds = %920
@@ -3595,7 +3593,7 @@ _ZN2cv3Mat2atIiEERT_i.exit:                       ; preds = %850, %844, %837
   %946 = mul i64 %944, %945
   %947 = getelementptr inbounds nuw i8, ptr %942, i64 %946
   %948 = sext i32 %.recomposed1073 to i64
-  %949 = getelementptr inbounds i32, ptr %947, i64 %948
+  %949 = getelementptr inbounds [4 x i8], ptr %947, i64 %948
   br label %_ZN2cv3Mat2atIiEERT_i.exit413
 
 _ZN2cv3Mat2atIiEERT_i.exit413:                    ; preds = %937, %931, %924
@@ -3603,16 +3601,16 @@ _ZN2cv3Mat2atIiEERT_i.exit413:                    ; preds = %937, %931, %924
   %950 = load i32, ptr %.0.i412, align 4, !tbaa !55
   %951 = sext i32 %950 to i64
   %952 = load ptr, ptr %908, align 8, !tbaa !117
-  %953 = getelementptr inbounds nuw i32, ptr %952, i64 %951
+  %953 = getelementptr inbounds nuw [4 x i8], ptr %952, i64 %951
   %954 = load i32, ptr %953, align 4, !tbaa !55
   %955 = invoke noundef i32 @_ZN2cv10multicalib22MultiCameraCalibration14getPhotoVertexEi(ptr noundef nonnull align 8 dereferenceable(360) %0, i32 noundef %954)
           to label %956 unwind label %965
 
 956:                                              ; preds = %_ZN2cv3Mat2atIiEERT_i.exit413
   %957 = load ptr, ptr %255, align 8, !tbaa !59
-  %958 = getelementptr inbounds nuw %"class.std::vector.17", ptr %957, i64 %indvars.iv930
+  %958 = getelementptr inbounds nuw [24 x i8], ptr %957, i64 %indvars.iv930
   %959 = load ptr, ptr %958, align 8, !tbaa !60
-  %960 = getelementptr inbounds nuw %"class.cv::Mat", ptr %959, i64 %indvars.iv927
+  %960 = getelementptr inbounds nuw [96 x i8], ptr %959, i64 %indvars.iv927
   %961 = load i32, ptr %960, align 8, !tbaa !155
   %962 = and i32 %961, 4095
   %.not = icmp eq i32 %962, 5
@@ -3643,9 +3641,9 @@ _ZN2cv3Mat2atIiEERT_i.exit413:                    ; preds = %937, %931, %924
 
 969:                                              ; preds = %964, %956
   %970 = load ptr, ptr %258, align 8, !tbaa !59
-  %971 = getelementptr inbounds nuw %"class.std::vector.17", ptr %970, i64 %indvars.iv930
+  %971 = getelementptr inbounds nuw [24 x i8], ptr %970, i64 %indvars.iv930
   %972 = load ptr, ptr %971, align 8, !tbaa !60
-  %973 = getelementptr inbounds nuw %"class.cv::Mat", ptr %972, i64 %indvars.iv927
+  %973 = getelementptr inbounds nuw [96 x i8], ptr %972, i64 %indvars.iv927
   %974 = load i32, ptr %973, align 8, !tbaa !155
   %975 = and i32 %974, 4095
   %.not174 = icmp eq i32 %975, 5
@@ -3702,9 +3700,9 @@ _ZN2cv3Mat2atIiEERT_i.exit413:                    ; preds = %937, %931, %924
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %56) #24
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
   %988 = load ptr, ptr %255, align 8, !tbaa !59
-  %989 = getelementptr inbounds nuw %"class.std::vector.17", ptr %988, i64 %indvars.iv930
+  %989 = getelementptr inbounds nuw [24 x i8], ptr %988, i64 %indvars.iv930
   %990 = load ptr, ptr %989, align 8, !tbaa !60
-  %991 = getelementptr inbounds nuw %"class.cv::Mat", ptr %990, i64 %indvars.iv927
+  %991 = getelementptr inbounds nuw [96 x i8], ptr %990, i64 %indvars.iv927
   store i32 0, ptr %299, align 8, !tbaa !145
   store i32 0, ptr %300, align 4, !tbaa !147
   store i32 16842752, ptr %57, align 8, !tbaa !148
@@ -3725,9 +3723,9 @@ _ZN2cv3Mat2atIiEERT_i.exit413:                    ; preds = %937, %931, %924
   call void @llvm.lifetime.end.p0(ptr nonnull %57)
   call void @llvm.lifetime.start.p0(ptr nonnull %59)
   %995 = load ptr, ptr %258, align 8, !tbaa !59
-  %996 = getelementptr inbounds nuw %"class.std::vector.17", ptr %995, i64 %indvars.iv930
+  %996 = getelementptr inbounds nuw [24 x i8], ptr %995, i64 %indvars.iv930
   %997 = load ptr, ptr %996, align 8, !tbaa !60
-  %998 = getelementptr inbounds nuw %"class.cv::Mat", ptr %997, i64 %indvars.iv927
+  %998 = getelementptr inbounds nuw [96 x i8], ptr %997, i64 %indvars.iv927
   invoke void @_ZNK2cv3Mat7reshapeEii(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %59, ptr noundef nonnull align 8 dereferenceable(96) %998, i32 noundef 1, i32 noundef 3)
           to label %999 unwind label %1090
 
@@ -3826,7 +3824,7 @@ _ZN2cv3Mat2atIiEERT_i.exit413:                    ; preds = %937, %931, %924
 
 1014:                                             ; preds = %1010, %1007
   %1015 = load ptr, ptr %284, align 8, !tbaa !157
-  %1016 = getelementptr inbounds nuw i32, ptr %1015, i64 %indvars.iv927
+  %1016 = getelementptr inbounds nuw [4 x i8], ptr %1015, i64 %indvars.iv927
   br label %_ZN2cv3Mat2atIiEERT_i.exit421
 
 1017:                                             ; preds = %1010
@@ -3856,7 +3854,7 @@ _ZN2cv3Mat2atIiEERT_i.exit413:                    ; preds = %937, %931, %924
   %1036 = mul i64 %1034, %1035
   %1037 = getelementptr inbounds nuw i8, ptr %1032, i64 %1036
   %1038 = sext i32 %.recomposed1074 to i64
-  %1039 = getelementptr inbounds i32, ptr %1037, i64 %1038
+  %1039 = getelementptr inbounds [4 x i8], ptr %1037, i64 %1038
   br label %_ZN2cv3Mat2atIiEERT_i.exit421
 
 _ZN2cv3Mat2atIiEERT_i.exit421:                    ; preds = %1027, %1021, %1014
@@ -3955,7 +3953,7 @@ _ZNSt6vectorIN2cv10multicalib22MultiCameraCalibration4edgeESaIS3_EE11_S_relocate
 .noexc425:                                        ; preds = %1072, %_ZNSt6vectorIN2cv10multicalib22MultiCameraCalibration4edgeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i
   store ptr %1064, ptr %312, align 8, !tbaa !96
   store ptr %1071, ptr %316, align 8, !tbaa !97
-  %1073 = getelementptr inbounds nuw %"struct.cv::multicalib::MultiCameraCalibration::edge", ptr %1064, i64 %1062
+  %1073 = getelementptr inbounds nuw [112 x i8], ptr %1064, i64 %1062
   store ptr %1073, ptr %317, align 8, !tbaa !183
   br label %_ZNSt6vectorIN2cv10multicalib22MultiCameraCalibration4edgeESaIS3_EE9push_backEOS3_.exit
 
@@ -3971,7 +3969,7 @@ _ZNSt6vectorIN2cv10multicalib22MultiCameraCalibration4edgeESaIS3_EE9push_backEOS
   call void @llvm.lifetime.end.p0(ptr nonnull %53)
   %indvars.iv.next928 = add nuw nsw i64 %indvars.iv927, 1
   %1074 = load ptr, ptr %255, align 8, !tbaa !59
-  %1075 = getelementptr inbounds nuw %"class.std::vector.17", ptr %1074, i64 %indvars.iv930
+  %1075 = getelementptr inbounds nuw [24 x i8], ptr %1074, i64 %indvars.iv930
   %1076 = getelementptr inbounds nuw i8, ptr %1075, i64 8
   %1077 = load ptr, ptr %1076, align 8, !tbaa !61
   %1078 = load ptr, ptr %1075, align 8, !tbaa !60
@@ -4229,7 +4227,7 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i562: ; preds = %.noexc565, %
 
 _ZNSolsEPFRSoS_E.exit436:                         ; preds = %.noexc567
   %1161 = load ptr, ptr %246, align 8, !tbaa !60
-  %1162 = getelementptr inbounds nuw %"class.cv::Mat", ptr %1161, i64 %indvars.iv930
+  %1162 = getelementptr inbounds nuw [96 x i8], ptr %1161, i64 %indvars.iv930
   %1163 = invoke fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cvlsERSoRKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull align 8 dereferenceable(96) %1162)
           to label %1164 unwind label %.loopexit847
 
@@ -4288,7 +4286,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit440: ; preds = %_ZNS
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit442: ; preds = %1185
   %1187 = load ptr, ptr %249, align 8, !tbaa !60
-  %1188 = getelementptr inbounds nuw %"class.cv::Mat", ptr %1187, i64 %indvars.iv930
+  %1188 = getelementptr inbounds nuw [96 x i8], ptr %1187, i64 %indvars.iv930
   %1189 = invoke fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cvlsERSoRKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(8) %1184, ptr noundef nonnull align 8 dereferenceable(96) %1188)
           to label %1190 unwind label %.loopexit847
 
@@ -4760,7 +4758,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %1
 49:                                               ; preds = %.lr.ph, %49
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %49 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %50 = getelementptr inbounds nuw %"struct.cv::multicalib::MultiCameraCalibration::edge", ptr %43, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [112 x i8], ptr %43, i64 %indvars.iv
   %51 = load i32, ptr %50, align 8, !tbaa !179
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 4
   %53 = load i32, ptr %52, align 4, !tbaa !181
@@ -4768,7 +4766,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %1
   %55 = mul i64 %48, %54
   %56 = getelementptr inbounds nuw i8, ptr %45, i64 %55
   %57 = sext i32 %53 to i64
-  %58 = getelementptr inbounds i32, ptr %56, i64 %57
+  %58 = getelementptr inbounds [4 x i8], ptr %56, i64 %57
   %59 = trunc nuw nsw i64 %indvars.iv.next to i32
   store i32 %59, ptr %58, align 4, !tbaa !55
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -4885,7 +4883,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %61
   %114 = phi i32 [ %144, %_ZNSolsEPFRSoS_E.exit ], [ %73, %.preheader108 ]
   %indvars.iv138 = phi i64 [ %indvars.iv.next139, %_ZNSolsEPFRSoS_E.exit ], [ 0, %.preheader108 ]
   %115 = load ptr, ptr %6, align 8, !tbaa !117
-  %116 = getelementptr inbounds nuw i32, ptr %115, i64 %indvars.iv138
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %115, i64 %indvars.iv138
   %117 = load i32, ptr %116, align 4, !tbaa !55
   %118 = icmp eq i32 %117, -2
   br i1 %118, label %119, label %_ZNSolsEPFRSoS_E.exit
@@ -4998,22 +4996,22 @@ _ZNSt6vectorIiSaIiEED2Ev.exit70:                  ; preds = %_ZNSt6vectorIiSaIiE
 
 149:                                              ; preds = %.lr.ph134, %_ZNSolsEPFRSoS_E.exit75
   %indvars.iv141 = phi i64 [ 1, %.lr.ph134 ], [ %indvars.iv.next142, %_ZNSolsEPFRSoS_E.exit75 ]
-  %150 = getelementptr inbounds nuw i32, ptr %77, i64 %indvars.iv141
+  %150 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %indvars.iv141
   %151 = load i32, ptr %150, align 4, !tbaa !55
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %152 = sext i32 %151 to i64
   %153 = load ptr, ptr %6, align 8, !tbaa !117
-  %154 = getelementptr inbounds nuw i32, ptr %153, i64 %152
+  %154 = getelementptr inbounds nuw [4 x i8], ptr %153, i64 %152
   %155 = load i32, ptr %154, align 4, !tbaa !55
   %156 = sext i32 %155 to i64
   %157 = load ptr, ptr %16, align 8, !tbaa !94
-  %158 = getelementptr inbounds nuw %"struct.cv::multicalib::MultiCameraCalibration::vertex", ptr %157, i64 %156
+  %158 = getelementptr inbounds nuw [104 x i8], ptr %157, i64 %156
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %8, ptr noundef nonnull align 8 dereferenceable(96) %158)
           to label %159 unwind label %237
 
 159:                                              ; preds = %149
   %160 = load ptr, ptr %6, align 8, !tbaa !117
-  %161 = getelementptr inbounds nuw i32, ptr %160, i64 %152
+  %161 = getelementptr inbounds nuw [4 x i8], ptr %160, i64 %152
   %162 = load i32, ptr %161, align 4, !tbaa !55
   %163 = load ptr, ptr %84, align 8, !tbaa !157
   %164 = load ptr, ptr %85, align 8, !tbaa !158
@@ -5021,12 +5019,12 @@ _ZNSt6vectorIiSaIiEED2Ev.exit70:                  ; preds = %_ZNSt6vectorIiSaIiE
   %166 = mul i64 %165, %152
   %167 = getelementptr inbounds nuw i8, ptr %163, i64 %166
   %168 = sext i32 %162 to i64
-  %169 = getelementptr inbounds i32, ptr %167, i64 %168
+  %169 = getelementptr inbounds [4 x i8], ptr %167, i64 %168
   %170 = load i32, ptr %169, align 4, !tbaa !55
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %171 = load ptr, ptr %25, align 8, !tbaa !96
   %172 = sext i32 %170 to i64
-  %173 = getelementptr %"struct.cv::multicalib::MultiCameraCalibration::edge", ptr %171, i64 %172
+  %173 = getelementptr [112 x i8], ptr %171, i64 %172
   %174 = getelementptr i8, ptr %173, i64 -96
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %9, ptr noundef nonnull align 8 dereferenceable(96) %174)
           to label %175 unwind label %239
@@ -5048,7 +5046,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit70:                  ; preds = %_ZNSt6vectorIiSaIiE
 
 180:                                              ; preds = %179
   %181 = load ptr, ptr %16, align 8, !tbaa !94
-  %182 = getelementptr inbounds nuw %"struct.cv::multicalib::MultiCameraCalibration::vertex", ptr %181, i64 %152
+  %182 = getelementptr inbounds nuw [104 x i8], ptr %181, i64 %152
   %183 = load ptr, ptr %10, align 8, !tbaa !88
   %184 = load ptr, ptr %183, align 8, !tbaa !70
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 24
@@ -5066,7 +5064,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit70:                  ; preds = %_ZNSt6vectorIiSaIiE
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   %188 = load ptr, ptr %16, align 8, !tbaa !94
-  %189 = getelementptr inbounds nuw %"struct.cv::multicalib::MultiCameraCalibration::vertex", ptr %188, i64 %152
+  %189 = getelementptr inbounds nuw [104 x i8], ptr %188, i64 %152
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   store i64 0, ptr %101, align 8
   store i32 33619968, ptr %12, align 8, !tbaa !148
@@ -5142,7 +5140,7 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i89: ; preds = %.noexc92, %20
 
 _ZNSolsEPFRSoS_E.exit74:                          ; preds = %.noexc94
   %215 = load ptr, ptr %16, align 8, !tbaa !94
-  %216 = getelementptr inbounds nuw %"struct.cv::multicalib::MultiCameraCalibration::vertex", ptr %215, i64 %152
+  %216 = getelementptr inbounds nuw [104 x i8], ptr %215, i64 %152
   %217 = invoke fastcc noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cvlsERSoRKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, ptr noundef nonnull align 8 dereferenceable(96) %216)
           to label %218 unwind label %.loopexit
 
@@ -5252,7 +5250,7 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i100: ; preds = %.noexc103, %
 
 253:                                              ; preds = %252
   %254 = load ptr, ptr %16, align 8, !tbaa !94
-  %255 = getelementptr inbounds nuw %"struct.cv::multicalib::MultiCameraCalibration::vertex", ptr %254, i64 %152
+  %255 = getelementptr inbounds nuw [104 x i8], ptr %254, i64 %152
   %256 = load ptr, ptr %13, align 8, !tbaa !88
   %257 = load ptr, ptr %256, align 8, !tbaa !70
   %258 = getelementptr inbounds nuw i8, ptr %257, i64 24
@@ -5270,7 +5268,7 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i100: ; preds = %.noexc103, %
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %261 = load ptr, ptr %16, align 8, !tbaa !94
-  %262 = getelementptr inbounds nuw %"struct.cv::multicalib::MultiCameraCalibration::vertex", ptr %261, i64 %152
+  %262 = getelementptr inbounds nuw [104 x i8], ptr %261, i64 %152
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   store i64 0, ptr %93, align 8
   store i32 33619968, ptr %15, align 8, !tbaa !148
@@ -5519,7 +5517,7 @@ define noundef double @_ZN2cv10multicalib22MultiCameraCalibration18optimizeExtri
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   %118 = load ptr, ptr %65, align 8, !tbaa !94
-  %119 = getelementptr inbounds nuw %"struct.cv::multicalib::MultiCameraCalibration::vertex", ptr %118, i64 %indvars.iv
+  %119 = getelementptr inbounds nuw [104 x i8], ptr %118, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %22), !noalias !198
   store i32 0, ptr %22, align 4, !tbaa !167, !noalias !198
   store i32 3, ptr %77, align 4, !tbaa !169, !noalias !198
@@ -5567,7 +5565,7 @@ define noundef double @_ZN2cv10multicalib22MultiCameraCalibration18optimizeExtri
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
   %125 = load ptr, ptr %65, align 8, !tbaa !94
-  %126 = getelementptr inbounds nuw %"struct.cv::multicalib::MultiCameraCalibration::vertex", ptr %125, i64 %indvars.iv
+  %126 = getelementptr inbounds nuw [104 x i8], ptr %125, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %18), !noalias !204
   store i32 0, ptr %18, align 4, !tbaa !167, !noalias !204
   store i32 3, ptr %84, align 4, !tbaa !169, !noalias !204
@@ -6156,7 +6154,7 @@ _ZNSt6vectorIN2cv3VecIfLi3EEESaIS2_EED2Ev.exit144: ; preds = %_ZNSt6vectorIN2cv3
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
   %294 = add nsw i64 %indvars.iv199, -1
   %295 = load ptr, ptr %50, align 8, !tbaa !221
-  %296 = getelementptr inbounds nuw %"class.cv::Vec.56", ptr %295, i64 %294
+  %296 = getelementptr inbounds nuw [12 x i8], ptr %295, i64 %294
   store i32 -1056833531, ptr %55, align 8, !tbaa !148
   store ptr %296, ptr %256, align 8, !tbaa !150
   store i64 12884901889, ptr %255, align 8
@@ -6214,7 +6212,7 @@ _ZNSt6vectorIN2cv3VecIfLi3EEESaIS2_EED2Ev.exit144: ; preds = %_ZNSt6vectorIN2cv3
   call void @llvm.lifetime.start.p0(ptr nonnull %60)
   call void @llvm.lifetime.start.p0(ptr nonnull %61)
   %303 = load ptr, ptr %51, align 8, !tbaa !221
-  %304 = getelementptr inbounds nuw %"class.cv::Vec.56", ptr %303, i64 %294
+  %304 = getelementptr inbounds nuw [12 x i8], ptr %303, i64 %294
   store i32 1124024325, ptr %61, align 8, !tbaa !155
   store i32 2, ptr %263, align 4, !tbaa !233
   store i32 3, ptr %264, align 8, !tbaa !234
@@ -6293,7 +6291,7 @@ _ZNSt6vectorIN2cv3VecIfLi3EEESaIS2_EED2Ev.exit144: ; preds = %_ZNSt6vectorIN2cv3
   call void @llvm.lifetime.end.p0(ptr nonnull %61)
   call void @llvm.lifetime.end.p0(ptr nonnull %60)
   %312 = load ptr, ptr %65, align 8, !tbaa !94
-  %313 = getelementptr inbounds nuw %"struct.cv::multicalib::MultiCameraCalibration::vertex", ptr %312, i64 %indvars.iv199
+  %313 = getelementptr inbounds nuw [104 x i8], ptr %312, i64 %indvars.iv199
   %314 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %313, ptr noundef nonnull align 8 dereferenceable(96) %53)
           to label %315 unwind label %.loopexit
 
@@ -6911,7 +6909,7 @@ define noundef range(i32 -2147483648, 2147483647) i32 @_ZN2cv10multicalib22Multi
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %20 ]
-  %16 = getelementptr inbounds nuw %"struct.cv::multicalib::MultiCameraCalibration::vertex", ptr %9, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [104 x i8], ptr %9, i64 %indvars.iv
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 96
   %18 = load i32, ptr %17, align 8, !tbaa !77
   %19 = icmp eq i32 %18, %1
@@ -7549,7 +7547,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %32, %36
   br i1 %49, label %50, label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
 
 50:                                               ; preds = %48
-  %51 = getelementptr inbounds nuw i32, ptr %40, i64 %37
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %37
   %.not.i.i42 = icmp eq ptr %39, %51
   br i1 %.not.i.i42, label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit, label %52
 
@@ -7562,7 +7560,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %46, %48, %50, %52
   %54 = phi i32 [ %.pre, %46 ], [ %2, %48 ], [ %2, %50 ], [ %2, %52 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds nuw i32, ptr %53, i64 %55
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %55
   store i32 -1, ptr %56, align 4, !tbaa !55
   %.not.i.i43 = icmp eq i32 %18, 0
   br i1 %.not.i.i43, label %_ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit, label %57
@@ -7573,7 +7571,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %46, %48, %50, %52
   %60 = and i64 %59, 2305843009213693944
   %61 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %60) #27
   %62 = lshr i64 %58, 6
-  %63 = getelementptr inbounds nuw i64, ptr %61, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %62
   %.idx.i = shl nuw nsw i64 %62, 3
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %61, i8 0, i64 %.idx.i, i1 false)
   br label %_ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit
@@ -7591,7 +7589,7 @@ _ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit:            ; preds = %57, %_ZNSt6vectorIi
   %66 = sext i32 %65 to i64
   %67 = sdiv i32 %65, 64
   %.sext = sext i32 %67 to i64
-  %68 = getelementptr inbounds i64, ptr %.sroa.0103.0, i64 %.sext
+  %68 = getelementptr inbounds [8 x i8], ptr %.sroa.0103.0, i64 %.sext
   %69 = and i64 %66, -9223372036854775745
   %70 = icmp ugt i64 %69, -9223372036854775808
   %storemerge.idx.i.i.i.i.i44 = select i1 %70, i64 -8, i64 0
@@ -7684,7 +7682,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i: ; preds = %106, %.noe
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %108, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
   store ptr %102, ptr %3, align 8, !tbaa !117
   store ptr %107, ptr %33, align 8, !tbaa !114
-  %109 = getelementptr inbounds nuw i32, ptr %102, i64 %100
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %102, i64 %100
   store ptr %109, ptr %84, align 8, !tbaa !116
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
@@ -7823,7 +7821,7 @@ _ZNSt5queueIiSt5dequeIiSaIiEEE3popEv.exit:        ; preds = %130, %132
 
 168:                                              ; preds = %164, %161
   %169 = load ptr, ptr %120, align 8, !tbaa !157
-  %170 = getelementptr inbounds nuw i32, ptr %169, i64 %indvars.iv
+  %170 = getelementptr inbounds nuw [4 x i8], ptr %169, i64 %indvars.iv
   br label %194
 
 171:                                              ; preds = %164
@@ -7853,7 +7851,7 @@ _ZNSt5queueIiSt5dequeIiSaIiEEE3popEv.exit:        ; preds = %130, %132
   %190 = mul i64 %188, %189
   %191 = getelementptr inbounds nuw i8, ptr %186, i64 %190
   %192 = sext i32 %.recomposed to i64
-  %193 = getelementptr inbounds i32, ptr %191, i64 %192
+  %193 = getelementptr inbounds [4 x i8], ptr %191, i64 %192
   br label %194
 
 194:                                              ; preds = %168, %175, %181
@@ -7862,7 +7860,7 @@ _ZNSt5queueIiSt5dequeIiSaIiEEE3popEv.exit:        ; preds = %130, %132
   %196 = sext i32 %195 to i64
   %197 = sdiv i32 %195, 64
   %.sext114 = sext i32 %197 to i64
-  %198 = getelementptr inbounds i64, ptr %.sroa.0103.0, i64 %.sext114
+  %198 = getelementptr inbounds [8 x i8], ptr %.sroa.0103.0, i64 %.sext114
   %199 = and i64 %196, -9223372036854775745
   %200 = icmp ugt i64 %199, -9223372036854775808
   %storemerge.idx.i.i.i.i.i52 = select i1 %200, i64 -8, i64 0
@@ -7935,7 +7933,7 @@ _ZNSt5queueIiSt5dequeIiSaIiEEE3popEv.exit:        ; preds = %130, %132
 249:                                              ; preds = %244
   %250 = sub i64 %237, %246
   %251 = lshr i64 %250, 1
-  %252 = getelementptr inbounds nuw ptr, ptr %238, i64 %251
+  %252 = getelementptr inbounds nuw [8 x i8], ptr %238, i64 %251
   %253 = icmp ult ptr %252, %214
   %254 = getelementptr inbounds nuw i8, ptr %213, i64 8
   %.not.i.i.i.i.i.i = icmp eq ptr %254, %214
@@ -7954,12 +7952,12 @@ _ZNSt5queueIiSt5dequeIiSaIiEEE3popEv.exit:        ; preds = %130, %132
   br i1 %.not.i.i.i.i.i.i, label %.noexc86, label %260
 
 260:                                              ; preds = %259
-  %261 = getelementptr inbounds nuw ptr, ptr %252, i64 %245
+  %261 = getelementptr inbounds nuw [8 x i8], ptr %252, i64 %245
   %262 = ptrtoint ptr %254 to i64
   %263 = sub i64 %262, %216
   %264 = ashr exact i64 %263, 3
   %265 = sub nsw i64 0, %264
-  %266 = getelementptr inbounds ptr, ptr %261, i64 %265
+  %266 = getelementptr inbounds [8 x i8], ptr %261, i64 %265
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %266, ptr align 8 %214, i64 %263, i1 false)
   br label %.noexc86
 
@@ -7996,7 +7994,7 @@ _ZNSt11_Deque_baseIiSaIiEE15_M_allocate_mapEm.exit.i: ; preds = %267
 .noexc91:                                         ; preds = %_ZNSt11_Deque_baseIiSaIiEE15_M_allocate_mapEm.exit.i
   %275 = sub nsw i64 %269, %246
   %276 = lshr i64 %275, 1
-  %277 = getelementptr inbounds nuw ptr, ptr %274, i64 %276
+  %277 = getelementptr inbounds nuw [8 x i8], ptr %274, i64 %276
   %278 = getelementptr inbounds nuw i8, ptr %213, i64 8
   %.not.i.i.i.i.i25.i = icmp eq ptr %278, %214
   br i1 %.not.i.i.i.i.i25.i, label %_ZSt4copyIPPiS1_ET0_T_S3_S2_.exit26.i, label %279
@@ -8020,7 +8018,7 @@ _ZSt4copyIPPiS1_ET0_T_S3_S2_.exit26.i:            ; preds = %279, %.noexc91
   store ptr %282, ptr %115, align 8, !tbaa !270
   %283 = getelementptr inbounds nuw i8, ptr %282, i64 512
   store ptr %283, ptr %114, align 8, !tbaa !271
-  %284 = getelementptr inbounds nuw ptr, ptr %.0.i88, i64 %245
+  %284 = getelementptr inbounds nuw [8 x i8], ptr %.0.i88, i64 %245
   %285 = getelementptr inbounds i8, ptr %284, i64 -8
   store ptr %285, ptr %122, align 8, !tbaa !268
   %286 = load ptr, ptr %285, align 8, !tbaa !269
@@ -8110,13 +8108,13 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i67: ; preds = %313, %.n
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i69: ; preds = %315, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i67
   store ptr %310, ptr %3, align 8, !tbaa !117
   store ptr %314, ptr %33, align 8, !tbaa !114
-  %316 = getelementptr inbounds nuw i32, ptr %310, i64 %308
+  %316 = getelementptr inbounds nuw [4 x i8], ptr %310, i64 %308
   store ptr %316, ptr %84, align 8, !tbaa !116
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit72
 
 _ZNSt6vectorIiSaIiEE9push_backERKi.exit72:        ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i69, %295
   %317 = load ptr, ptr %4, align 8, !tbaa !117
-  %318 = getelementptr inbounds nuw i32, ptr %317, i64 %196
+  %318 = getelementptr inbounds nuw [4 x i8], ptr %317, i64 %196
   store i32 %127, ptr %318, align 4, !tbaa !55
   br label %319
 
@@ -8182,7 +8180,7 @@ _ZNSt5queueIiSt5dequeIiSaIiEEED2Ev.exit:          ; preds = %._crit_edge, %_ZNSt
   %336 = sub i64 %334, %335
   %337 = ashr exact i64 %336, 3
   %338 = sub nsw i64 0, %337
-  %339 = getelementptr inbounds i64, ptr %.sroa.29110.0, i64 %338
+  %339 = getelementptr inbounds [8 x i8], ptr %.sroa.29110.0, i64 %338
   call void @_ZdlPv(ptr noundef %339) #25
   br label %_ZNSt13_Bvector_baseISaIbEED2Ev.exit
 
@@ -8206,7 +8204,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %_ZNSt5queueIiSt5deq
   %345 = sub i64 %343, %344
   %346 = ashr exact i64 %345, 3
   %347 = sub nsw i64 0, %346
-  %348 = getelementptr inbounds i64, ptr %.sroa.29110.0, i64 %347
+  %348 = getelementptr inbounds [8 x i8], ptr %.sroa.29110.0, i64 %347
   call void @_ZdlPv(ptr noundef %348) #25
   br label %.body
 
@@ -8342,27 +8340,27 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit:            ; preds = %.noexc163, %_ZNSt6v
 90:                                               ; preds = %.lr.ph, %103
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %103 ]
   %91 = load ptr, ptr %75, align 8, !tbaa !96
-  %92 = getelementptr inbounds nuw %"struct.cv::multicalib::MultiCameraCalibration::edge", ptr %91, i64 %indvars.iv
+  %92 = getelementptr inbounds nuw [112 x i8], ptr %91, i64 %indvars.iv
   %93 = load i32, ptr %92, align 8, !tbaa !179
   %94 = sext i32 %93 to i64
   %95 = load ptr, ptr %89, align 8, !tbaa !59
-  %96 = getelementptr inbounds nuw %"class.std::vector.17", ptr %95, i64 %94
+  %96 = getelementptr inbounds nuw [24 x i8], ptr %95, i64 %94
   %97 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %98 = load i32, ptr %97, align 8, !tbaa !182
   %99 = sext i32 %98 to i64
   %100 = load ptr, ptr %96, align 8, !tbaa !60
-  %101 = getelementptr inbounds nuw %"class.cv::Mat", ptr %100, i64 %99
+  %101 = getelementptr inbounds nuw [96 x i8], ptr %100, i64 %99
   %102 = invoke noundef i64 @_ZNK2cv3Mat5totalEv(ptr noundef nonnull align 8 dereferenceable(96) %101)
           to label %103 unwind label %110
 
 103:                                              ; preds = %90
   %104 = trunc i64 %102 to i32
-  %105 = getelementptr inbounds nuw i32, ptr %.sroa.0199.0, i64 %indvars.iv
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0199.0, i64 %indvars.iv
   %106 = load i32, ptr %105, align 4, !tbaa !55
   %107 = shl nsw i32 %104, 1
   %108 = add nsw i32 %106, %107
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %109 = getelementptr inbounds nuw i32, ptr %.sroa.0199.0, i64 %indvars.iv.next
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0199.0, i64 %indvars.iv.next
   store i32 %108, ptr %109, align 4, !tbaa !55
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %90, !llvm.loop !282
@@ -8556,7 +8554,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit166:              ; preds = %131
 191:                                              ; preds = %.lr.ph213, %335
   %indvars.iv216 = phi i64 [ 0, %.lr.ph213 ], [ %indvars.iv.next217, %335 ]
   %192 = load ptr, ptr %75, align 8, !tbaa !96
-  %193 = getelementptr inbounds nuw %"struct.cv::multicalib::MultiCameraCalibration::edge", ptr %192, i64 %indvars.iv216
+  %193 = getelementptr inbounds nuw [112 x i8], ptr %192, i64 %indvars.iv216
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 4
   %195 = load i32, ptr %194, align 4, !tbaa !181
   %196 = getelementptr inbounds nuw i8, ptr %193, i64 8
@@ -8565,19 +8563,19 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit166:              ; preds = %131
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
   %199 = sext i32 %198 to i64
   %200 = load ptr, ptr %140, align 8, !tbaa !59
-  %201 = getelementptr inbounds nuw %"class.std::vector.17", ptr %200, i64 %199
+  %201 = getelementptr inbounds nuw [24 x i8], ptr %200, i64 %199
   %202 = sext i32 %197 to i64
   %203 = load ptr, ptr %201, align 8, !tbaa !60
-  %204 = getelementptr inbounds nuw %"class.cv::Mat", ptr %203, i64 %202
+  %204 = getelementptr inbounds nuw [96 x i8], ptr %203, i64 %202
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %37, ptr noundef nonnull align 8 dereferenceable(96) %204)
           to label %205 unwind label %242
 
 205:                                              ; preds = %191
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
   %206 = load ptr, ptr %141, align 8, !tbaa !59
-  %207 = getelementptr inbounds nuw %"class.std::vector.17", ptr %206, i64 %199
+  %207 = getelementptr inbounds nuw [24 x i8], ptr %206, i64 %199
   %208 = load ptr, ptr %207, align 8, !tbaa !60
-  %209 = getelementptr inbounds nuw %"class.cv::Mat", ptr %208, i64 %202
+  %209 = getelementptr inbounds nuw [96 x i8], ptr %208, i64 %202
   invoke void @_ZN2cv3MatC1ERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %38, ptr noundef nonnull align 8 dereferenceable(96) %209)
           to label %210 unwind label %244
 
@@ -8589,7 +8587,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit166:              ; preds = %131
   call void @llvm.lifetime.start.p0(ptr nonnull %41)
   call void @llvm.lifetime.start.p0(ptr nonnull %42)
   %211 = load ptr, ptr %75, align 8, !tbaa !96
-  %212 = getelementptr inbounds nuw %"struct.cv::multicalib::MultiCameraCalibration::edge", ptr %211, i64 %indvars.iv216
+  %212 = getelementptr inbounds nuw [112 x i8], ptr %211, i64 %indvars.iv216
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %29), !noalias !289
   store i32 0, ptr %29, align 4, !tbaa !167, !noalias !289
@@ -8618,7 +8616,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit166:              ; preds = %131
   call void @llvm.lifetime.start.p0(ptr nonnull %43)
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
   %216 = load ptr, ptr %75, align 8, !tbaa !96
-  %217 = getelementptr inbounds nuw %"struct.cv::multicalib::MultiCameraCalibration::edge", ptr %216, i64 %indvars.iv216
+  %217 = getelementptr inbounds nuw [112 x i8], ptr %216, i64 %indvars.iv216
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 16
   call void @llvm.lifetime.start.p0(ptr nonnull %25), !noalias !295
   store i32 0, ptr %25, align 4, !tbaa !167, !noalias !295
@@ -8924,11 +8922,11 @@ _ZN2cv3MataSERKNS_7MatExprE.exit182:              ; preds = %281
   call void @llvm.lifetime.start.p0(ptr nonnull %57)
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %57) #24
   %297 = load ptr, ptr %161, align 8, !tbaa !60
-  %298 = getelementptr inbounds nuw %"class.cv::Mat", ptr %297, i64 %199
+  %298 = getelementptr inbounds nuw [96 x i8], ptr %297, i64 %199
   %299 = load ptr, ptr %162, align 8, !tbaa !60
-  %300 = getelementptr inbounds nuw %"class.cv::Mat", ptr %299, i64 %199
+  %300 = getelementptr inbounds nuw [96 x i8], ptr %299, i64 %199
   %301 = load ptr, ptr %163, align 8, !tbaa !60
-  %302 = getelementptr inbounds nuw %"class.cv::Mat", ptr %301, i64 %199
+  %302 = getelementptr inbounds nuw [96 x i8], ptr %301, i64 %199
   invoke void @_ZN2cv10multicalib22MultiCameraCalibration26computePhotoCameraJacobianERKNS_3MatES4_S4_S4_RS2_S5_S4_S4_S4_S4_S4_S5_S5_S5_(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(96) %47, ptr noundef nonnull align 8 dereferenceable(96) %48, ptr noundef nonnull align 8 dereferenceable(96) %49, ptr noundef nonnull align 8 dereferenceable(96) %50, ptr noundef nonnull align 8 dereferenceable(96) %39, ptr noundef nonnull align 8 dereferenceable(96) %40, ptr noundef nonnull align 8 dereferenceable(96) %37, ptr noundef nonnull align 8 dereferenceable(96) %38, ptr noundef nonnull align 8 dereferenceable(96) %298, ptr noundef nonnull align 8 dereferenceable(96) %300, ptr noundef nonnull align 8 dereferenceable(96) %302, ptr noundef nonnull align 8 dereferenceable(96) %55, ptr noundef nonnull align 8 dereferenceable(96) %56, ptr noundef nonnull align 8 dereferenceable(96) %57)
           to label %303 unwind label %314
 
@@ -8939,7 +8937,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit182:              ; preds = %281
   call void @llvm.lifetime.start.p0(ptr nonnull %58)
   call void @llvm.lifetime.start.p0(ptr nonnull %59)
   call void @llvm.lifetime.start.p0(ptr nonnull %60)
-  %305 = getelementptr inbounds nuw i32, ptr %.sroa.0199.0, i64 %indvars.iv216
+  %305 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0199.0, i64 %indvars.iv216
   %306 = load i32, ptr %305, align 4, !tbaa !55
   %307 = getelementptr inbounds nuw i8, ptr %305, i64 4
   %308 = load i32, ptr %307, align 4, !tbaa !55
@@ -9018,10 +9016,10 @@ _ZN2cv3MataSERKNS_7MatExprE.exit182:              ; preds = %281
   call void @llvm.lifetime.start.p0(ptr nonnull %61)
   call void @llvm.lifetime.start.p0(ptr nonnull %62)
   call void @llvm.lifetime.start.p0(ptr nonnull %63)
-  %325 = getelementptr inbounds nuw i32, ptr %.sroa.0199.0, i64 %indvars.iv216
+  %325 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0199.0, i64 %indvars.iv216
   %326 = load i32, ptr %325, align 4, !tbaa !55
   %indvars.iv.next217 = add nuw nsw i64 %indvars.iv216, 1
-  %327 = getelementptr inbounds nuw i32, ptr %.sroa.0199.0, i64 %indvars.iv.next217
+  %327 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0199.0, i64 %indvars.iv.next217
   %328 = load i32, ptr %327, align 4, !tbaa !55
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !319
   store i32 %326, ptr %9, align 4, !tbaa !167, !noalias !319
@@ -9784,7 +9782,7 @@ _ZNSt6vectorIN2cv10multicalib22MultiCameraCalibration4edgeESaIS3_EED2Ev.exit: ; 
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %40) #24
   %262 = load ptr, ptr %33, align 8, !tbaa !96
-  %263 = getelementptr inbounds nuw %"struct.cv::multicalib::MultiCameraCalibration::edge", ptr %262, i64 %indvars.iv312
+  %263 = getelementptr inbounds nuw [112 x i8], ptr %262, i64 %indvars.iv312
   %264 = load i32, ptr %263, align 8, !tbaa !179
   %265 = getelementptr inbounds nuw i8, ptr %263, i64 4
   %266 = load i32, ptr %265, align 4, !tbaa !181
@@ -9795,7 +9793,7 @@ _ZNSt6vectorIN2cv10multicalib22MultiCameraCalibration4edgeESaIS3_EED2Ev.exit: ; 
   %269 = add nsw i32 %266, -1
   %270 = sext i32 %269 to i64
   %271 = load ptr, ptr %35, align 8, !tbaa !221
-  %272 = getelementptr inbounds nuw %"class.cv::Vec.56", ptr %271, i64 %270
+  %272 = getelementptr inbounds nuw [12 x i8], ptr %271, i64 %270
   store i32 1124024325, ptr %42, align 8, !tbaa !155
   store i32 2, ptr %133, align 4, !tbaa !233
   store i32 3, ptr %134, align 8, !tbaa !234
@@ -9859,7 +9857,7 @@ _ZNSt6vectorIN2cv10multicalib22MultiCameraCalibration4edgeESaIS3_EED2Ev.exit: ; 
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
   %285 = load ptr, ptr %34, align 8, !tbaa !221
-  %286 = getelementptr inbounds nuw %"class.cv::Vec.56", ptr %285, i64 %270
+  %286 = getelementptr inbounds nuw [12 x i8], ptr %285, i64 %270
   store i32 -1056833531, ptr %44, align 8, !tbaa !148
   store ptr %286, ptr %146, align 8, !tbaa !150
   store i64 12884901889, ptr %145, align 8
@@ -10069,7 +10067,7 @@ _ZNSt6vectorIN2cv10multicalib22MultiCameraCalibration4edgeESaIS3_EED2Ev.exit: ; 
   %329 = add nsw i32 %264, -1
   %330 = sext i32 %329 to i64
   %331 = load ptr, ptr %35, align 8, !tbaa !221
-  %332 = getelementptr inbounds nuw %"class.cv::Vec.56", ptr %331, i64 %330
+  %332 = getelementptr inbounds nuw [12 x i8], ptr %331, i64 %330
   store i32 1124024325, ptr %53, align 8, !tbaa !155
   store i32 2, ptr %149, align 4, !tbaa !233
   store i32 3, ptr %150, align 8, !tbaa !234
@@ -10116,7 +10114,7 @@ _ZNSt6vectorIN2cv10multicalib22MultiCameraCalibration4edgeESaIS3_EED2Ev.exit: ; 
   call void @llvm.lifetime.end.p0(ptr nonnull %52)
   call void @llvm.lifetime.start.p0(ptr nonnull %54)
   %339 = load ptr, ptr %34, align 8, !tbaa !221
-  %340 = getelementptr inbounds nuw %"class.cv::Vec.56", ptr %339, i64 %330
+  %340 = getelementptr inbounds nuw [12 x i8], ptr %339, i64 %330
   store i32 -1056833531, ptr %54, align 8, !tbaa !148
   store ptr %340, ptr %159, align 8, !tbaa !150
   store i64 12884901889, ptr %158, align 8
@@ -10409,7 +10407,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit198:              ; preds = %355
 399:                                              ; preds = %297, %364
   call void @llvm.lifetime.start.p0(ptr nonnull %67)
   %400 = load ptr, ptr %33, align 8, !tbaa !96
-  %401 = getelementptr inbounds nuw %"struct.cv::multicalib::MultiCameraCalibration::edge", ptr %400, i64 %indvars.iv312
+  %401 = getelementptr inbounds nuw [112 x i8], ptr %400, i64 %indvars.iv312
   %402 = getelementptr inbounds nuw i8, ptr %401, i64 16
   store i64 0, ptr %188, align 8
   store i32 33619968, ptr %67, align 8, !tbaa !148
@@ -10515,18 +10513,18 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit198:              ; preds = %355
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %79) #24
   %412 = sext i32 %264 to i64
   %413 = load ptr, ptr %200, align 8, !tbaa !59
-  %414 = getelementptr inbounds nuw %"class.std::vector.17", ptr %413, i64 %412
+  %414 = getelementptr inbounds nuw [24 x i8], ptr %413, i64 %412
   %415 = sext i32 %268 to i64
   %416 = load ptr, ptr %414, align 8, !tbaa !60
-  %417 = getelementptr inbounds nuw %"class.cv::Mat", ptr %416, i64 %415
+  %417 = getelementptr inbounds nuw [96 x i8], ptr %416, i64 %415
   %418 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %77, ptr noundef nonnull align 8 dereferenceable(96) %417)
           to label %419 unwind label %453
 
 419:                                              ; preds = %411
   %420 = load ptr, ptr %201, align 8, !tbaa !59
-  %421 = getelementptr inbounds nuw %"class.std::vector.17", ptr %420, i64 %412
+  %421 = getelementptr inbounds nuw [24 x i8], ptr %420, i64 %412
   %422 = load ptr, ptr %421, align 8, !tbaa !60
-  %423 = getelementptr inbounds nuw %"class.cv::Mat", ptr %422, i64 %415
+  %423 = getelementptr inbounds nuw [96 x i8], ptr %422, i64 %415
   %424 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %78, ptr noundef nonnull align 8 dereferenceable(96) %423)
           to label %425 unwind label %453
 
@@ -10555,14 +10553,14 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit198:              ; preds = %355
   store ptr %69, ptr %230, align 8, !tbaa !150
   call void @llvm.lifetime.start.p0(ptr nonnull %83)
   %428 = load ptr, ptr %214, align 8, !tbaa !60
-  %429 = getelementptr inbounds nuw %"class.cv::Mat", ptr %428, i64 %412
+  %429 = getelementptr inbounds nuw [96 x i8], ptr %428, i64 %412
   store i32 0, ptr %231, align 8, !tbaa !145
   store i32 0, ptr %232, align 4, !tbaa !147
   store i32 16842752, ptr %83, align 8, !tbaa !148
   store ptr %429, ptr %233, align 8, !tbaa !150
   call void @llvm.lifetime.start.p0(ptr nonnull %84)
   %430 = load ptr, ptr %218, align 8, !tbaa !60
-  %431 = getelementptr inbounds nuw %"class.cv::Mat", ptr %430, i64 %412
+  %431 = getelementptr inbounds nuw [96 x i8], ptr %430, i64 %412
   store i32 0, ptr %234, align 8, !tbaa !145
   store i32 0, ptr %235, align 4, !tbaa !147
   store i32 16842752, ptr %84, align 8, !tbaa !148
@@ -10668,7 +10666,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit198:              ; preds = %355
 
 457:                                              ; preds = %425
   %458 = load ptr, ptr %202, align 8, !tbaa !60
-  %459 = getelementptr inbounds nuw %"class.cv::Mat", ptr %458, i64 %412
+  %459 = getelementptr inbounds nuw [96 x i8], ptr %458, i64 %412
   %.0.i.in = getelementptr inbounds nuw i8, ptr %459, i64 16
   %.0.i = load ptr, ptr %.0.i.in, align 8, !tbaa !157
   %460 = load float, ptr %.0.i, align 4, !tbaa !372
@@ -10693,14 +10691,14 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit198:              ; preds = %355
   store ptr %69, ptr %213, align 8, !tbaa !150
   call void @llvm.lifetime.start.p0(ptr nonnull %90)
   %461 = load ptr, ptr %214, align 8, !tbaa !60
-  %462 = getelementptr inbounds nuw %"class.cv::Mat", ptr %461, i64 %412
+  %462 = getelementptr inbounds nuw [96 x i8], ptr %461, i64 %412
   store i32 0, ptr %215, align 8, !tbaa !145
   store i32 0, ptr %216, align 4, !tbaa !147
   store i32 16842752, ptr %90, align 8, !tbaa !148
   store ptr %462, ptr %217, align 8, !tbaa !150
   call void @llvm.lifetime.start.p0(ptr nonnull %91)
   %463 = load ptr, ptr %218, align 8, !tbaa !60
-  %464 = getelementptr inbounds nuw %"class.cv::Mat", ptr %463, i64 %412
+  %464 = getelementptr inbounds nuw [96 x i8], ptr %463, i64 %412
   store i32 0, ptr %219, align 8, !tbaa !145
   store i32 0, ptr %220, align 4, !tbaa !147
   store i32 16842752, ptr %91, align 8, !tbaa !148
@@ -10800,7 +10798,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit213:              ; preds = %472
   br label %504
 
 493:                                              ; preds = %481
-  %494 = getelementptr inbounds nuw %"class.cv::Vec.65", ptr %478, i64 %indvars.iv
+  %494 = getelementptr inbounds nuw [8 x i8], ptr %478, i64 %indvars.iv
   %495 = load float, ptr %494, align 4, !tbaa !372
   %496 = getelementptr inbounds nuw i8, ptr %494, i64 4
   %497 = load float, ptr %496, align 4, !tbaa !372
@@ -11081,9 +11079,9 @@ _ZNSt6vectorIN2cv3VecIfLi3EEESaIS2_EE6resizeEm.exit: ; preds = %60, %65
 
 .preheader.i.i:                                   ; preds = %74, %.preheader.i.i
   %indvars.iv.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i, %.preheader.i.i ], [ 0, %74 ]
-  %77 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv.i.i.i.i.i.i
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv.i.i.i.i.i.i
   %78 = load float, ptr %77, align 4, !tbaa !372
-  %79 = getelementptr inbounds nuw float, ptr %75, i64 %indvars.iv.i.i.i.i.i.i
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %indvars.iv.i.i.i.i.i.i
   store float %78, ptr %79, align 4, !tbaa !372
   %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i, 3
@@ -11124,9 +11122,9 @@ _ZNSt6vectorIN2cv3VecIfLi3EEESaIS2_EE9push_backEOS2_.exit: ; preds = %_ZNSt16all
 
 .preheader.i.i36:                                 ; preds = %83, %.preheader.i.i36
   %indvars.iv.i.i.i.i.i.i37 = phi i64 [ %indvars.iv.next.i.i.i.i.i.i38, %.preheader.i.i36 ], [ 0, %83 ]
-  %86 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv.i.i.i.i.i.i37
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv.i.i.i.i.i.i37
   %87 = load float, ptr %86, align 4, !tbaa !372
-  %88 = getelementptr inbounds nuw float, ptr %84, i64 %indvars.iv.i.i.i.i.i.i37
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %indvars.iv.i.i.i.i.i.i37
   store float %87, ptr %88, align 4, !tbaa !372
   %indvars.iv.next.i.i.i.i.i.i38 = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i37, 1
   %exitcond.not.i.i.i.i.i.i39 = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i38, 3
@@ -13851,7 +13849,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %21, %
 
 48:                                               ; preds = %44, %41
   %49 = load ptr, ptr %32, align 8, !tbaa !157
-  %50 = getelementptr inbounds nuw float, ptr %49, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv
   br label %_ZN2cv3Mat2atIfEERT_i.exit
 
 51:                                               ; preds = %44
@@ -13881,7 +13879,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %21, %
   %70 = mul i64 %68, %69
   %71 = getelementptr inbounds nuw i8, ptr %66, i64 %70
   %72 = sext i32 %.recomposed to i64
-  %73 = getelementptr inbounds float, ptr %71, i64 %72
+  %73 = getelementptr inbounds [4 x i8], ptr %71, i64 %72
   br label %_ZN2cv3Mat2atIfEERT_i.exit
 
 _ZN2cv3Mat2atIfEERT_i.exit:                       ; preds = %48, %55, %61
@@ -13948,7 +13946,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i: ; preds = %96, %.noex
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %98, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
-  %99 = getelementptr inbounds nuw i32, ptr %92, i64 %90
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %90
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
 _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i, %77, %_ZN2cv3Mat2atIfEERT_i.exit
@@ -14003,7 +14001,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge, %._cri
 
 117:                                              ; preds = %.lr.ph, %_ZN2cv3Mat2atIiEERT_i.exit
   %indvars.iv67 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next68, %_ZN2cv3Mat2atIiEERT_i.exit ]
-  %118 = getelementptr inbounds nuw i32, ptr %.sroa.0.0, i64 %indvars.iv67
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.0, i64 %indvars.iv67
   %119 = load i32, ptr %118, align 4, !tbaa !55
   %120 = load i32, ptr %2, align 8, !tbaa !155
   %121 = and i32 %120, 16384
@@ -14016,7 +14014,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge, %._cri
   br i1 %124, label %125, label %127
 
 125:                                              ; preds = %122, %117
-  %126 = getelementptr inbounds nuw i32, ptr %112, i64 %indvars.iv67
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %112, i64 %indvars.iv67
   br label %_ZN2cv3Mat2atIiEERT_i.exit
 
 127:                                              ; preds = %122
@@ -14041,7 +14039,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge, %._cri
   %141 = mul i64 %139, %140
   %142 = getelementptr inbounds nuw i8, ptr %112, i64 %141
   %143 = sext i32 %.recomposed93 to i64
-  %144 = getelementptr inbounds i32, ptr %142, i64 %143
+  %144 = getelementptr inbounds [4 x i8], ptr %142, i64 %143
   br label %_ZN2cv3Mat2atIiEERT_i.exit
 
 _ZN2cv3Mat2atIiEERT_i.exit:                       ; preds = %134, %130, %125
@@ -14302,9 +14300,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %30, %
 
 .preheader:                                       ; preds = %35, %.preheader
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.preheader ], [ 0, %35 ]
-  %37 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv.i.i
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv.i.i
   %38 = load float, ptr %37, align 4, !tbaa !372
-  %39 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv.i.i
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv.i.i
   store float %38, ptr %39, align 4, !tbaa !372
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
@@ -14463,7 +14461,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %41, %
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %77 = load ptr, ptr %1, align 8, !tbaa !221
-  %78 = getelementptr inbounds nuw %"class.cv::Vec.56", ptr %77, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [12 x i8], ptr %77, i64 %indvars.iv
   store i32 1124024325, ptr %16, align 8, !tbaa !155
   store i32 2, ptr %52, align 4, !tbaa !233
   store i32 3, ptr %53, align 8, !tbaa !234
@@ -14535,7 +14533,7 @@ _ZN2cv3MatC2IfLi3EEERKNS_3VecIT_XT0_EEEb.exit:    ; preds = %76
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %88 = load ptr, ptr %2, align 8, !tbaa !221
-  %89 = getelementptr inbounds nuw %"class.cv::Vec.56", ptr %88, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw [12 x i8], ptr %88, i64 %indvars.iv
   store i32 1124024325, ptr %20, align 8, !tbaa !155
   store i32 2, ptr %64, align 4, !tbaa !233
   store i32 3, ptr %65, align 8, !tbaa !234
@@ -15265,7 +15263,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit136: ; preds = %24
 
 253:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit136
   %254 = load ptr, ptr %95, align 8, !tbaa !60
-  %255 = getelementptr inbounds nuw %"class.cv::Mat", ptr %254, i64 %indvars.iv
+  %255 = getelementptr inbounds nuw [96 x i8], ptr %254, i64 %indvars.iv
   %256 = load ptr, ptr %252, align 8, !tbaa !70
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 24
   %258 = load ptr, ptr %257, align 8
@@ -15332,7 +15330,7 @@ _ZN2cvlsINS_3MatEEERNS_11FileStorageES3_RKT_.exit: ; preds = %275, %.noexc145, %
 
 277:                                              ; preds = %_ZN2cvlsINS_3MatEEERNS_11FileStorageES3_RKT_.exit
   %278 = load ptr, ptr %96, align 8, !tbaa !60
-  %279 = getelementptr inbounds nuw %"class.cv::Mat", ptr %278, i64 %indvars.iv
+  %279 = getelementptr inbounds nuw [96 x i8], ptr %278, i64 %indvars.iv
   %280 = load ptr, ptr %276, align 8, !tbaa !70
   %281 = getelementptr inbounds nuw i8, ptr %280, i64 24
   %282 = load ptr, ptr %281, align 8
@@ -15404,7 +15402,7 @@ _ZN2cvlsINS_3MatEEERNS_11FileStorageES3_RKT_.exit155: ; preds = %299, %.noexc154
 
 _ZN2cv3Mat2atIfEERT_i.exit:                       ; preds = %302
   %304 = load ptr, ptr %97, align 8, !tbaa !60
-  %305 = getelementptr inbounds nuw %"class.cv::Mat", ptr %304, i64 %indvars.iv
+  %305 = getelementptr inbounds nuw [96 x i8], ptr %304, i64 %indvars.iv
   %.0.i.in = getelementptr inbounds nuw i8, ptr %305, i64 16
   %.0.i = load ptr, ptr %.0.i.in, align 8, !tbaa !157
   %306 = load ptr, ptr %303, align 8, !tbaa !70
@@ -15576,7 +15574,7 @@ _ZN2cvlsIfEERNS_11FileStorageES2_RKT_.exit:       ; preds = %326, %.noexc165, %.
 
 350:                                              ; preds = %_ZN2cvlsIfEERNS_11FileStorageES2_RKT_.exit
   %351 = load ptr, ptr %98, align 8, !tbaa !94
-  %352 = getelementptr inbounds nuw %"struct.cv::multicalib::MultiCameraCalibration::vertex", ptr %351, i64 %indvars.iv
+  %352 = getelementptr inbounds nuw [104 x i8], ptr %351, i64 %indvars.iv
   %353 = load ptr, ptr %349, align 8, !tbaa !70
   %354 = getelementptr inbounds nuw i8, ptr %353, i64 24
   %355 = load ptr, ptr %354, align 8
@@ -15872,7 +15870,7 @@ _ZN2cvlsIdEERNS_11FileStorageES2_RKT_.exit:       ; preds = %419, %.noexc220, %.
 
 454:                                              ; preds = %453
   %455 = load ptr, ptr %421, align 8, !tbaa !94
-  %456 = getelementptr inbounds nuw %"struct.cv::multicalib::MultiCameraCalibration::vertex", ptr %455, i64 %indvars.iv425
+  %456 = getelementptr inbounds nuw [104 x i8], ptr %455, i64 %indvars.iv425
   %457 = getelementptr inbounds nuw i8, ptr %456, i64 96
   %458 = load i32, ptr %457, align 8, !tbaa !77
   %459 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %431, i32 noundef %458)
@@ -15964,7 +15962,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit238: ; preds = %48
 
 491:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit238
   %492 = load ptr, ptr %421, align 8, !tbaa !94
-  %493 = getelementptr inbounds nuw %"struct.cv::multicalib::MultiCameraCalibration::vertex", ptr %492, i64 %indvars.iv425
+  %493 = getelementptr inbounds nuw [104 x i8], ptr %492, i64 %indvars.iv425
   %494 = load ptr, ptr %490, align 8, !tbaa !70
   %495 = getelementptr inbounds nuw i8, ptr %494, i64 24
   %496 = load ptr, ptr %495, align 8
@@ -16426,9 +16424,9 @@ _ZNSt6vectorIS_IN2cv3MatESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; pr
 
 _ZNSt12_Vector_baseISt6vectorIN2cv3MatESaIS2_EESaIS4_EE13_M_deallocateEPS4_m.exit36: ; preds = %_ZNSt6vectorIS_IN2cv3MatESaIS1_EESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %38
   store ptr %26, ptr %0, align 8, !tbaa !59
-  %39 = getelementptr inbounds nuw %"class.std::vector.17", ptr %27, i64 %1
+  %39 = getelementptr inbounds nuw [24 x i8], ptr %27, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !58
-  %40 = getelementptr inbounds nuw %"class.std::vector.17", ptr %26, i64 %24
+  %40 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %24
   store ptr %40, ptr %11, align 8, !tbaa !519
   br label %41
 
@@ -16544,9 +16542,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr.
 
 _ZNSt12_Vector_baseIN2cv3MatESaIS1_EE13_M_deallocateEPS1_m.exit38: ; preds = %_ZNSt6vectorIN2cv3MatESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %33
   store ptr %27, ptr %0, align 8, !tbaa !60
-  %34 = getelementptr inbounds nuw %"class.cv::Mat", ptr %28, i64 %1
+  %34 = getelementptr inbounds nuw [96 x i8], ptr %28, i64 %1
   store ptr %34, ptr %4, align 8, !tbaa !61
-  %35 = getelementptr inbounds nuw %"class.cv::Mat", ptr %27, i64 %25
+  %35 = getelementptr inbounds nuw [96 x i8], ptr %27, i64 %25
   store ptr %35, ptr %11, align 8, !tbaa !143
   br label %36
 
@@ -16645,7 +16643,7 @@ _ZNSt12_Vector_baseIN2cv10multicalib22MultiCameraCalibration6vertexESaIS3_EE13_M
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !94
   store ptr %.0.lcssa.i.i.i.i21, ptr %4, align 8, !tbaa !75
-  %38 = getelementptr inbounds nuw %"struct.cv::multicalib::MultiCameraCalibration::vertex", ptr %20, i64 %16
+  %38 = getelementptr inbounds nuw [104 x i8], ptr %20, i64 %16
   store ptr %38, ptr %37, align 8, !tbaa !76
   ret void
 }
@@ -16823,7 +16821,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8, !tbaa !99
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !102
-  %70 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %70 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %70, ptr %69, align 8, !tbaa !113
   ret void
 }
@@ -17014,7 +17012,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8, !tbaa !99
   store ptr %.0.lcssa.i.i.i.i35, ptr %5, align 8, !tbaa !102
-  %74 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %74 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %74, ptr %73, align 8, !tbaa !113
   ret void
 
@@ -17134,7 +17132,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNS
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !60
   store ptr %.0.lcssa.i.i.i.i31, ptr %4, align 8, !tbaa !61
-  %29 = getelementptr inbounds nuw %"class.cv::Mat", ptr %20, i64 %16
+  %29 = getelementptr inbounds nuw [96 x i8], ptr %20, i64 %16
   store ptr %29, ptr %28, align 8, !tbaa !143
   ret void
 
@@ -17209,7 +17207,7 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__no
 
 _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit: ; preds = %23, %20
   %24 = phi ptr [ %.pre, %23 ], [ %9, %20 ]
-  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %2
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %2
   store ptr %25, ptr %8, align 8, !tbaa !114
   %.not.i.i.i.i.i = icmp eq ptr %21, %1
   br i1 %.not.i.i.i.i.i, label %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit, label %26
@@ -17218,7 +17216,7 @@ _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit: ; preds = %23, %20
   %27 = sub i64 %22, %16
   %28 = ashr exact i64 %27, 2
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds i32, ptr %9, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %9, i64 %29
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %30, ptr align 4 %1, i64 %27, i1 false)
   br label %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit
 
@@ -17329,7 +17327,7 @@ _ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit80: ; preds = %.l
   br label %_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit
 
 _ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit: ; preds = %67, %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit80
-  %68 = getelementptr inbounds nuw i32, ptr %63, i64 %2
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %2
   %69 = sub i64 %11, %56
   %.not.i.i.i.i.i.i.i.i.i82 = icmp eq ptr %9, %1
   br i1 %.not.i.i.i.i.i.i.i.i.i82, label %71, label %70
@@ -17350,7 +17348,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit: ; pred
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit: ; preds = %71, %73
   store ptr %62, ptr %0, align 8, !tbaa !117
   store ptr %72, ptr %8, align 8, !tbaa !114
-  %74 = getelementptr inbounds nuw i32, ptr %62, i64 %55
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %55
   store ptr %74, ptr %6, align 8, !tbaa !116
   br label %_ZSt4fillIPiiEvT_S1_RKT0_.exit
 
@@ -17372,7 +17370,7 @@ _ZNSt11_Deque_baseIiSaIiEE15_M_allocate_mapEm.exit:
   store ptr %7, ptr %0, align 8, !tbaa !278
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %9
   %.idx = shl nuw nsw i64 %3, 3
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
@@ -17464,7 +17462,7 @@ _ZNSt11_Deque_baseIiSaIiEE15_M_create_nodesEPPiS3_.exit: ; preds = %_ZNSt11_Dequ
   store ptr %46, ptr %47, align 8, !tbaa !271
   store ptr %37, ptr %35, align 8, !tbaa !272
   %48 = and i64 %1, 127
-  %49 = getelementptr inbounds nuw i32, ptr %44, i64 %48
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %48
   store ptr %49, ptr %41, align 8, !tbaa !258
   ret void
 
@@ -17573,9 +17571,9 @@ define linkonce_odr void @_ZNSt5dequeIiSaIiEE17_M_reallocate_mapEmb(ptr noundef 
   %19 = load ptr, ptr %0, align 8, !tbaa !278
   %20 = sub i64 %15, %13
   %21 = lshr i64 %20, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = select i1 %2, i64 %1, i64 0
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = icmp ult ptr %24, %7
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %26, %7
@@ -17594,12 +17592,12 @@ define linkonce_odr void @_ZNSt5dequeIiSaIiEE17_M_reallocate_mapEmb(ptr noundef 
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPPiS1_ET0_T_S3_S2_.exit, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw ptr, ptr %24, i64 %12
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %12
   %34 = ptrtoint ptr %26 to i64
   %35 = sub i64 %34, %9
   %36 = ashr exact i64 %35, 3
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds ptr, ptr %33, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %33, i64 %37
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %38, ptr align 8 %7, i64 %35, i1 false)
   br label %_ZSt4copyIPPiS1_ET0_T_S3_S2_.exit
 
@@ -17627,9 +17625,9 @@ _ZNSt11_Deque_baseIiSaIiEE15_M_allocate_mapEm.exit: ; preds = %39
   %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #27
   %47 = sub i64 %41, %13
   %48 = lshr i64 %47, 1
-  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %48
   %50 = select i1 %2, i64 %1, i64 0
-  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i25 = icmp eq ptr %52, %7
   br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPPiS1_ET0_T_S3_S2_.exit26, label %53
@@ -17656,7 +17654,7 @@ _ZSt4copyIPPiS1_ET0_T_S3_S2_.exit:                ; preds = %32, %31, %28, %27, 
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 512
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %59, ptr %60, align 8, !tbaa !271
-  %61 = getelementptr inbounds nuw ptr, ptr %.0, i64 %12
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %12
   %62 = getelementptr inbounds i8, ptr %61, i64 -8
   store ptr %62, ptr %4, align 8, !tbaa !268
   %63 = load ptr, ptr %62, align 8, !tbaa !269
@@ -17708,9 +17706,9 @@ _ZNKSt6vectorIN2cv3VecIfLi3EEESaIS2_EE12_M_check_lenEmPKc.exit: ; preds = %3
 
 22:                                               ; preds = %22, %.preheader.i.i.i.i.i
   %indvars.iv.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i, %22 ], [ 0, %.preheader.i.i.i.i.i ]
-  %23 = getelementptr inbounds nuw float, ptr %.01214.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %.01214.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i
   %24 = load float, ptr %23, align 4, !tbaa !372
-  %25 = getelementptr inbounds nuw float, ptr %.015.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %.015.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i
   store float %24, ptr %25, align 4, !tbaa !372
   %indvars.iv.next.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i.i, 3
@@ -17735,9 +17733,9 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN2cv3VecIfLi3EEES3_SaIS2_EET0_T_S6_S5_
 
 29:                                               ; preds = %29, %.preheader.i.i.i.i.i29
   %indvars.iv.i.i.i.i.i.i.i.i32 = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i33, %29 ], [ 0, %.preheader.i.i.i.i.i29 ]
-  %30 = getelementptr inbounds nuw float, ptr %.01214.i.i.i.i.i31, i64 %indvars.iv.i.i.i.i.i.i.i.i32
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %.01214.i.i.i.i.i31, i64 %indvars.iv.i.i.i.i.i.i.i.i32
   %31 = load float, ptr %30, align 4, !tbaa !372
-  %32 = getelementptr inbounds nuw float, ptr %.015.i.i.i.i.i30, i64 %indvars.iv.i.i.i.i.i.i.i.i32
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %.015.i.i.i.i.i30, i64 %indvars.iv.i.i.i.i.i.i.i.i32
   store float %31, ptr %32, align 4, !tbaa !372
   %indvars.iv.next.i.i.i.i.i.i.i.i33 = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i32, 1
   %exitcond.not.i.i.i.i.i.i.i.i34 = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i.i33, 3
@@ -17762,7 +17760,7 @@ _ZNSt12_Vector_baseIN2cv3VecIfLi3EEESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds 
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !221
   store ptr %.0.lcssa.i.i.i.i.i37, ptr %4, align 8, !tbaa !378
-  %37 = getelementptr inbounds nuw %"class.cv::Vec.56", ptr %20, i64 %16
+  %37 = getelementptr inbounds nuw [12 x i8], ptr %20, i64 %16
   store ptr %37, ptr %36, align 8, !tbaa !382
   ret void
 }

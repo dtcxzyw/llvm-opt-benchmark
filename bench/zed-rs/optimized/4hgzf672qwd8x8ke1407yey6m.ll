@@ -1535,7 +1535,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h13438e89cb681cc4E.ll
 8:                                                ; preds = %7, %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
-  %11 = getelementptr inbounds float, ptr %10, i64 %4
+  %11 = getelementptr inbounds [4 x i8], ptr %10, i64 %4
   store float %1, ptr %11, align 4
   %12 = add i64 %4, 1
   store i64 %12, ptr %3, align 8
@@ -2122,7 +2122,7 @@ _ZN5prost8encoding15check_wire_type17h5ede80c08301ef8dE.llvm.1839149405226499712
 32:                                               ; preds = %24, %19
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %34 = load ptr, ptr %33, align 8, !alias.scope !599, !noalias !602, !nonnull !4, !noundef !4
-  %35 = getelementptr inbounds { { i64, ptr, {} }, i64 }, ptr %34, i64 %21
+  %35 = getelementptr inbounds [24 x i8], ptr %34, i64 %21
   store i64 %.sroa.0.0.copyload, ptr %35, align 8
   %.sroa.5.0..sroa_idx16 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %.sroa.5.0.copyload, ptr %.sroa.5.0..sroa_idx16, align 8
@@ -2644,7 +2644,7 @@ _ZN5prost8encoding15check_wire_type17h5ede80c08301ef8dE.llvm.1839149405226499712
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h13438e89cb681cc4E.llvm.18391494052264997128.exit": ; preds = %21, %27
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %29 = load ptr, ptr %28, align 8, !alias.scope !836, !nonnull !4, !noundef !4
-  %30 = getelementptr inbounds float, ptr %29, i64 %24
+  %30 = getelementptr inbounds [4 x i8], ptr %29, i64 %24
   store i32 %22, ptr %30, align 4
   %31 = add i64 %24, 1
   store i64 %31, ptr %23, align 8, !alias.scope !836
@@ -10524,10 +10524,10 @@ define hidden noundef zeroext i1 @"_ZN62_$LT$prost..encoding..WireType$u20$as$u2
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !2296, !noundef !4
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN62_$LT$prost..encoding..WireType$u20$as$u20$core..fmt..Debug$GT$3fmt17hfe05588e38c59ee0E.llvm.18391494052264997128", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN62_$LT$prost..encoding..WireType$u20$as$u20$core..fmt..Debug$GT$3fmt17hfe05588e38c59ee0E.llvm.18391494052264997128", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN62_$LT$prost..encoding..WireType$u20$as$u20$core..fmt..Debug$GT$3fmt17hfe05588e38c59ee0E.llvm.18391494052264997128.16", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN62_$LT$prost..encoding..WireType$u20$as$u20$core..fmt..Debug$GT$3fmt17hfe05588e38c59ee0E.llvm.18391494052264997128.16", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -18091,7 +18091,7 @@ define hidden { ptr, i64 } @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$
   store i64 %7, ptr %2, align 8, !alias.scope !3447
   %8 = icmp ult i64 %5, 4
   tail call void @llvm.assume(i1 %8)
-  %9 = getelementptr inbounds nuw { [2 x i64] }, ptr %0, i64 %5
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %5
   %10 = load ptr, ptr %9, align 8, !nonnull !4, !align !463, !noundef !4
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load i64, ptr %11, align 8, !noundef !4
@@ -18119,7 +18119,7 @@ define hidden { ptr, i64 } @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$
   store i64 %7, ptr %2, align 8, !alias.scope !3450
   %8 = icmp ult i64 %5, 3
   tail call void @llvm.assume(i1 %8)
-  %9 = getelementptr inbounds nuw { [2 x i64] }, ptr %0, i64 %5
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %5
   %10 = load ptr, ptr %9, align 8, !nonnull !4, !align !463, !noundef !4
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load i64, ptr %11, align 8, !noundef !4

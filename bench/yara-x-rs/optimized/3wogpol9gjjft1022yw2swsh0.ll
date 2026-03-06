@@ -107,7 +107,7 @@ define hidden noundef align 8 dereferenceable_or_null(24) ptr @"_ZN123_$LT$proto
   %27 = add i64 %.sroa.01.0.i.i.i, %26
   %28 = and i64 %27, %19
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, { { { { i64, ptr, {} }, {} }, i64 } } }, ptr %20, i64 %29
+  %30 = getelementptr inbounds [48 x i8], ptr %20, i64 %29
   %31 = getelementptr inbounds i8, ptr %30, i64 -48
   %32 = invoke noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$LT$K$GT$$GT$10equivalent17hefb6f9f17030a3e3E"(ptr noalias noundef nonnull readonly align 1 %7, i64 noundef %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %31)
           to label %.noexc4 unwind label %.loopexit
@@ -608,7 +608,7 @@ define hidden noundef zeroext i1 @"_ZN48_$LT$$u5b$T$u5d$$u20$as$u20$core..fmt..D
   %4 = alloca [16 x i8], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN4core3fmt9Formatter10debug_list17h7a39ccee36dbce39E(ptr noalias noundef nonnull sret([16 x i8]) align 8 captures(none) dereferenceable(16) %4, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
-  %5 = getelementptr inbounds nuw { { i64, [2 x i64] }, { i32, [1 x i32] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { ptr, { { i64 } } } }, ptr %0, i64 %1
+  %5 = getelementptr inbounds nuw [96 x i8], ptr %0, i64 %1
   %6 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17hd2aaab09195aeabfE(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %0, ptr noundef nonnull %5)
   %7 = call noundef zeroext i1 @_ZN4core3fmt8builders9DebugList6finish17h32d327fe4f5896c1E(ptr noalias noundef nonnull align 8 dereferenceable(16) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -950,8 +950,8 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
 .lr.ph:                                           ; preds = %.preheader.split.preheader, %.preheader.split.backedge
   %.sroa.01.010 = phi i64 [ %5, %.preheader.split.backedge ], [ 0, %.preheader.split.preheader ]
   %5 = add i64 %.sroa.01.010, 1
-  %6 = getelementptr inbounds nuw { { i64, [2 x i64] }, { i32, [1 x i32] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { ptr, { { i64 } } } }, ptr %0, i64 %.sroa.01.010
-  %7 = getelementptr inbounds nuw { { i64, [2 x i64] }, { i32, [1 x i32] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } }, { ptr, { { i64 } } } }, ptr %2, i64 %.sroa.01.010
+  %6 = getelementptr inbounds nuw [96 x i8], ptr %0, i64 %.sroa.01.010
+  %7 = getelementptr inbounds nuw [96 x i8], ptr %2, i64 %.sroa.01.010
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %9 = load i32, ptr %8, align 8, !range !62, !noundef !4
   %10 = trunc nuw i32 %9 to i1

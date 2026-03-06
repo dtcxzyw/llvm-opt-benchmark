@@ -301,9 +301,9 @@ define hidden void @_ZN19OpenColorIO_v2_5dev19CreateAllocationOpsERNS_10OpRcPtrV
 
 31:                                               ; preds = %.preheader, %31
   %indvars.iv49 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next50, %31 ]
-  %32 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv49
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv49
   store double %27, ptr %32, align 8, !tbaa !50
-  %33 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv49
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv49
   store double %30, ptr %33, align 8, !tbaa !50
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next50, 3
@@ -347,9 +347,9 @@ define hidden void @_ZN19OpenColorIO_v2_5dev19CreateAllocationOpsERNS_10OpRcPtrV
 
 49:                                               ; preds = %.preheader39, %49
   %indvars.iv = phi i64 [ 0, %.preheader39 ], [ %indvars.iv.next, %49 ]
-  %50 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   store double %45, ptr %50, align 8, !tbaa !50
-  %51 = getelementptr inbounds nuw double, ptr %9, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   store double %48, ptr %51, align 8, !tbaa !50
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -375,7 +375,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev19CreateAllocationOpsERNS_10OpRcPtrV
 
 56:                                               ; preds = %.preheader37, %56
   %indvars.iv45 = phi i64 [ 0, %.preheader37 ], [ %indvars.iv.next46, %56 ]
-  %57 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv45
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv45
   store double %55, ptr %57, align 8, !tbaa !50
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %exitcond48.not = icmp eq i64 %indvars.iv.next46, 3

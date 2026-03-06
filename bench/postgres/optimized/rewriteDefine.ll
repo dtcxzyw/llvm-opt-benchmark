@@ -5,8 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.nameData = type { [64 x i8] }
 %struct.ObjectAddress = type { i32, i32, i32 }
-%union.ListCell = type { ptr }
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
 
 @.str = private unnamed_addr constant [32 x i8] c"relation \22%s\22 cannot have rules\00", align 1
 @.str.1 = private unnamed_addr constant [16 x i8] c"rewriteDefine.c\00", align 1
@@ -168,7 +166,7 @@ define dso_local { i64, i32 } @DefineQueryRewrite(ptr noundef %0, i32 noundef %1
 .lr.ph123:                                        ; preds = %.lr.ph, %65
   %indvars.iv = phi i64 [ %indvars.iv.next, %65 ], [ 0, %.lr.ph ]
   %55 = load ptr, ptr %52, align 8
-  %56 = getelementptr inbounds nuw %union.ListCell, ptr %55, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 40
   %59 = load i32, ptr %58, align 8
@@ -226,7 +224,7 @@ define dso_local { i64, i32 } @DefineQueryRewrite(ptr noundef %0, i32 noundef %1
   %indvars.iv158 = phi i64 [ %indvars.iv.next159, %86 ], [ 0, %.lr.ph144 ]
   %.086125.us.us143.us = phi i1 [ %.187.us.us.us, %86 ], [ false, %.lr.ph144 ]
   %78 = load ptr, ptr %73, align 8
-  %79 = getelementptr inbounds nuw %union.ListCell, ptr %78, i64 %indvars.iv158
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %indvars.iv158
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 152
   %82 = load ptr, ptr %81, align 8
@@ -257,7 +255,7 @@ define dso_local { i64, i32 } @DefineQueryRewrite(ptr noundef %0, i32 noundef %1
 
 92:                                               ; preds = %.lr.ph144.split, %97
   %indvars.iv155 = phi i64 [ 0, %.lr.ph144.split ], [ %indvars.iv.next156, %97 ]
-  %93 = getelementptr inbounds nuw %union.ListCell, ptr %90, i64 %indvars.iv155
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %indvars.iv155
   %94 = load ptr, ptr %93, align 8
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 152
   %96 = load ptr, ptr %95, align 8
@@ -284,7 +282,7 @@ define dso_local { i64, i32 } @DefineQueryRewrite(ptr noundef %0, i32 noundef %1
 
 101:                                              ; preds = %.lr.ph141, %100
   %indvars.iv152 = phi i64 [ 0, %.lr.ph141 ], [ %indvars.iv.next153, %100 ]
-  %102 = getelementptr inbounds nuw %union.ListCell, ptr %99, i64 %indvars.iv152
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %indvars.iv152
   %103 = load ptr, ptr %102, align 8
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 152
   %105 = load ptr, ptr %104, align 8
@@ -430,7 +428,7 @@ define dso_local { i64, i32 } @DefineQueryRewrite(ptr noundef %0, i32 noundef %1
 
 179:                                              ; preds = %.lr.ph147, %178
   %indvars.iv160 = phi i64 [ 0, %.lr.ph147 ], [ %indvars.iv.next161, %178 ]
-  %180 = getelementptr inbounds nuw ptr, ptr %177, i64 %indvars.iv160
+  %180 = getelementptr inbounds nuw [8 x i8], ptr %177, i64 %indvars.iv160
   %181 = load ptr, ptr %180, align 8
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 4
   %183 = load i32, ptr %182, align 4
@@ -705,7 +703,7 @@ define internal fastcc void @checkRuleResultList(ptr noundef readonly captures(a
   %indvars.iv205 = phi i64 [ %indvars.iv.next206, %48 ], [ 0, %.lr.ph.split.us.split ]
   %.05795.us167 = phi i32 [ %.1.us, %48 ], [ 0, %.lr.ph.split.us.split ]
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds nuw %union.ListCell, ptr %9, i64 %indvars.iv205
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv205
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 42
   %13 = load i8, ptr %12, align 2, !range !4, !noundef !5
@@ -724,7 +722,7 @@ define internal fastcc void @checkRuleResultList(ptr noundef readonly captures(a
   %22 = getelementptr i8, ptr %1, i64 %21
   %23 = getelementptr i8, ptr %22, i64 24
   %24 = sext i32 %.05795.us167 to i64
-  %25 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %23, i64 %24
+  %25 = getelementptr inbounds [100 x i8], ptr %23, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 91
   %28 = load i8, ptr %27, align 1, !range !4, !noundef !5
@@ -776,7 +774,7 @@ define internal fastcc void @checkRuleResultList(ptr noundef readonly captures(a
   %indvars.iv = phi i64 [ %indvars.iv.next, %119 ], [ 0, %.lr.ph.split.split ]
   %.05795149 = phi i32 [ %.1, %119 ], [ 0, %.lr.ph.split.split ]
   %52 = load ptr, ptr %6, align 8
-  %53 = getelementptr inbounds nuw %union.ListCell, ptr %52, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %indvars.iv
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 42
   %56 = load i8, ptr %55, align 2, !range !4, !noundef !5
@@ -809,7 +807,7 @@ define internal fastcc void @checkRuleResultList(ptr noundef readonly captures(a
   %69 = getelementptr i8, ptr %1, i64 %68
   %70 = getelementptr i8, ptr %69, i64 24
   %71 = sext i32 %.05795149 to i64
-  %72 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %70, i64 %71
+  %72 = getelementptr inbounds [100 x i8], ptr %70, i64 %71
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 91
   %74 = load i8, ptr %73, align 1, !range !4, !noundef !5
   %75 = trunc nuw i8 %74 to i1
@@ -1285,7 +1283,7 @@ define internal fastcc void @setRuleCheckAsUser_Query(ptr noundef %0, i32 nounde
 .lr.ph45:                                         ; preds = %.lr.ph, %.lr.ph45
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph45 ], [ 0, %.lr.ph ]
   %10 = load ptr, ptr %7, align 8
-  %11 = getelementptr inbounds nuw %union.ListCell, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   store i32 %1, ptr %13, align 8
@@ -1312,7 +1310,7 @@ define internal fastcc void @setRuleCheckAsUser_Query(ptr noundef %0, i32 nounde
   %23 = phi i32 [ %40, %39 ], [ %21, %.lr.ph47 ]
   %indvars.iv57 = phi i64 [ %indvars.iv.next58, %39 ], [ 0, %.lr.ph47 ]
   %24 = load ptr, ptr %20, align 8
-  %25 = getelementptr inbounds nuw %union.ListCell, ptr %24, i64 %indvars.iv57
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv57
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %28 = load i32, ptr %27, align 8
@@ -1349,7 +1347,7 @@ define internal fastcc void @setRuleCheckAsUser_Query(ptr noundef %0, i32 nounde
 .lr.ph55:                                         ; preds = %.lr.ph52, %.lr.ph55
   %indvars.iv60 = phi i64 [ %indvars.iv.next61, %.lr.ph55 ], [ 0, %.lr.ph52 ]
   %43 = load ptr, ptr %33, align 8
-  %44 = getelementptr inbounds nuw %union.ListCell, ptr %43, i64 %indvars.iv60
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv60
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 32
   %47 = load ptr, ptr %46, align 8

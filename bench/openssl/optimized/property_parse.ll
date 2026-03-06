@@ -3,9 +3,6 @@ source_filename = "bench/openssl/original/property_parse.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.ossl_property_definition_st = type { i32, i32, i32, i8, %union.anon }
-%union.anon = type { i64 }
-
 @.str = private unnamed_addr constant [44 x i8] c"../openssl/crypto/property/property_parse.c\00", align 1
 @__func__.ossl_parse_property = private unnamed_addr constant [20 x i8] c"ossl_parse_property\00", align 1
 @.str.1 = private unnamed_addr constant [23 x i8] c"Unknown name HERE-->%s\00", align 1
@@ -847,7 +844,7 @@ define internal fastcc ptr @stack_to_property_list(ptr noundef %0, ptr noundef n
   %17 = phi i8 [ %13, %.lr.ph ], [ %24, %28 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
   %.02834 = phi i32 [ 0, %.lr.ph ], [ %.pre, %28 ]
-  %18 = getelementptr inbounds nuw %struct.ossl_property_definition_st, ptr %15, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [24 x i8], ptr %15, i64 %indvars.iv
   %19 = trunc nuw nsw i64 %indvars.iv to i32
   %20 = tail call ptr @OPENSSL_sk_value(ptr noundef nonnull %1, i32 noundef %19) #10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %18, ptr noundef nonnull align 8 dereferenceable(24) %20, i64 24, i1 false), !tbaa.struct !23
@@ -1101,7 +1098,7 @@ define i32 @ossl_property_match_count(ptr noundef readonly captures(none) %0, pt
   %indvars.iv121 = phi i64 [ 0, %.lr.ph.lr.ph.preheader ], [ %indvars.iv.next122, %.outer.backedge ]
   %.059.ph102 = phi i32 [ 0, %.lr.ph.lr.ph.preheader ], [ %.059.ph.be, %.outer.backedge ]
   %.061.ph101 = phi i32 [ 0, %.lr.ph.lr.ph.preheader ], [ %.061.ph.be, %.outer.backedge ]
-  %8 = getelementptr inbounds nuw %struct.ossl_property_definition_st, ptr %4, i64 %indvars.iv121
+  %8 = getelementptr inbounds nuw [24 x i8], ptr %4, i64 %indvars.iv121
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer76
@@ -1112,7 +1109,7 @@ define i32 @ossl_property_match_count(ptr noundef readonly captures(none) %0, pt
 
 10:                                               ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ %9, %.lr.ph ], [ %indvars.iv.next, %15 ]
-  %11 = getelementptr inbounds %struct.ossl_property_definition_st, ptr %3, i64 %indvars.iv
+  %11 = getelementptr inbounds [24 x i8], ptr %3, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load i32, ptr %12, align 8, !tbaa !11
   %14 = icmp eq i32 %13, 2
@@ -1293,7 +1290,7 @@ define noalias ptr @ossl_property_merge(ptr noundef readonly captures(none) %0, 
 .critedge:                                        ; preds = %24
   %25 = add nsw i32 %.043, 1
   %26 = sext i32 %.043 to i64
-  %27 = getelementptr inbounds %struct.ossl_property_definition_st, ptr %4, i64 %26
+  %27 = getelementptr inbounds [24 x i8], ptr %4, i64 %26
   br label %46
 
 28:                                               ; preds = %21
@@ -1302,15 +1299,15 @@ define noalias ptr @ossl_property_merge(ptr noundef readonly captures(none) %0, 
 29:                                               ; preds = %28
   %30 = add nsw i32 %.044, 1
   %31 = sext i32 %.044 to i64
-  %32 = getelementptr inbounds %struct.ossl_property_definition_st, ptr %3, i64 %31
+  %32 = getelementptr inbounds [24 x i8], ptr %3, i64 %31
   br label %46
 
 33:                                               ; preds = %28
   %34 = sext i32 %.044 to i64
-  %35 = getelementptr inbounds %struct.ossl_property_definition_st, ptr %3, i64 %34
+  %35 = getelementptr inbounds [24 x i8], ptr %3, i64 %34
   %36 = load i32, ptr %35, align 8, !tbaa !14
   %37 = sext i32 %.043 to i64
-  %38 = getelementptr inbounds %struct.ossl_property_definition_st, ptr %4, i64 %37
+  %38 = getelementptr inbounds [24 x i8], ptr %4, i64 %37
   %39 = load i32, ptr %38, align 8, !tbaa !14
   %.not51 = icmp sgt i32 %36, %39
   br i1 %.not51, label %44, label %40
@@ -1330,7 +1327,7 @@ define noalias ptr @ossl_property_merge(ptr noundef readonly captures(none) %0, 
   %.046 = phi ptr [ %27, %.critedge ], [ %32, %29 ], [ %35, %40 ], [ %38, %44 ]
   %.145 = phi i32 [ %.044, %.critedge ], [ %30, %29 ], [ %43, %40 ], [ %.044, %44 ]
   %.1 = phi i32 [ %25, %.critedge ], [ %.043, %29 ], [ %spec.select, %40 ], [ %45, %44 ]
-  %47 = getelementptr inbounds nuw %struct.ossl_property_definition_st, ptr %19, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %47, ptr noundef nonnull align 8 dereferenceable(24) %.046, i64 24, i1 false)
   %48 = getelementptr inbounds nuw i8, ptr %.046, i64 12
   %49 = load i8, ptr %48, align 4
@@ -1363,7 +1360,7 @@ define range(i32 0, 2) i32 @ossl_property_parse_init(ptr noundef %0) local_unnam
 
 4:                                                ; preds = %1, %2
   %.08 = phi i64 [ 0, %1 ], [ %3, %2 ]
-  %5 = getelementptr inbounds nuw ptr, ptr @ossl_property_parse_init.predefined_names, i64 %.08
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @ossl_property_parse_init.predefined_names, i64 %.08
   %6 = load ptr, ptr %5, align 8, !tbaa !8
   %7 = tail call i32 @ossl_property_name(ptr noundef %0, ptr noundef %6, i32 noundef 1) #10
   %8 = icmp eq i32 %7, 0
@@ -1418,7 +1415,7 @@ define i64 @ossl_property_list_to_string(ptr noundef %0, ptr noundef readonly ca
 
 .lr.ph.preheader:                                 ; preds = %11
   %14 = zext nneg i32 %12 to i64
-  %15 = getelementptr %struct.ossl_property_definition_st, ptr %1, i64 %14
+  %15 = getelementptr [24 x i8], ptr %1, i64 %14
   %16 = getelementptr i8, ptr %15, i64 -16
   br label %.lr.ph
 

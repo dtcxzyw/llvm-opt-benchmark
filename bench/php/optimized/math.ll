@@ -51,7 +51,7 @@ define dso_local double @_php_math_round(double noundef %0, i32 noundef %1, i32 
 
 12:                                               ; preds = %5
   %13 = zext nneg i32 %7 to i64
-  %14 = getelementptr inbounds nuw double, ptr @php_intpow10.powers, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr @php_intpow10.powers, i64 %13
   %15 = load double, ptr %14, align 8, !tbaa !8
   br label %php_intpow10.exit
 
@@ -2288,7 +2288,7 @@ define dso_local void @_php_math_basetozval(ptr noundef %0, i32 noundef %1, ptr 
   %.087109 = phi ptr [ %4, %.lr.ph ], [ %17, %16 ]
   %11 = load i8, ptr %.087109, align 1, !tbaa !11
   %12 = sext i8 %11 to i64
-  %13 = getelementptr inbounds i16, ptr %9, i64 %12
+  %13 = getelementptr inbounds [2 x i8], ptr %9, i64 %12
   %14 = load i16, ptr %13, align 2, !tbaa !47
   %15 = and i16 %14, 8192
   %.not = icmp eq i16 %15, 0
@@ -2314,7 +2314,7 @@ define dso_local void @_php_math_basetozval(ptr noundef %0, i32 noundef %1, ptr 
   %24 = getelementptr inbounds i8, ptr %.086, i64 -1
   %25 = load i8, ptr %24, align 1, !tbaa !11
   %26 = sext i8 %25 to i64
-  %27 = getelementptr inbounds i16, ptr %23, i64 %26
+  %27 = getelementptr inbounds [2 x i8], ptr %23, i64 %26
   %28 = load i16, ptr %27, align 2, !tbaa !47
   %29 = and i16 %28, 8192
   %.not99 = icmp eq i16 %29, 0
@@ -3365,7 +3365,7 @@ define dso_local ptr @_php_math_number_format_ex(double noundef %0, i32 noundef 
   %.ptr116 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %16 = load i8, ptr %.ptr116, align 8, !tbaa !11
   %17 = sext i8 %16 to i64
-  %18 = getelementptr inbounds i16, ptr %15, i64 %17
+  %18 = getelementptr inbounds [2 x i8], ptr %15, i64 %17
   %19 = load i16, ptr %18, align 2, !tbaa !47
   %20 = and i16 %19, 2048
   %.not = icmp eq i16 %20, 0
@@ -3608,7 +3608,7 @@ define dso_local noalias noundef ptr @_php_math_number_format_long(i64 noundef %
 
 10:                                               ; preds = %8
   %11 = sub nsw i64 0, %1
-  %12 = getelementptr inbounds nuw i64, ptr @_php_math_number_format_long.powers, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @_php_math_number_format_long.powers, i64 %11
   %13 = load i64, ptr %12, align 8, !tbaa !18
   %14 = lshr i64 %13, 1
   %15 = urem i64 %.075, %13

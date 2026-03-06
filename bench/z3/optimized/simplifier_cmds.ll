@@ -3407,7 +3407,7 @@ _ZNSt6vectorISt8functionIFP25dependent_expr_simplifierR11ast_managerRK10params_r
 _ZNSt12_Vector_baseISt8functionIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEESaISB_EE13_M_deallocateEPSB_m.exit: ; preds = %_ZNSt6vectorISt8functionIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20dependent_expr_stateEESaISB_EE11_S_relocateEPSB_SE_SE_RSC_.exit25, %47
   store ptr %20, ptr %0, align 8, !tbaa !41
   store ptr %.0.lcssa.i.i.i24, ptr %4, align 8, !tbaa !38
-  %51 = getelementptr inbounds nuw %"class.std::function", ptr %20, i64 %16
+  %51 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %16
   store ptr %51, ptr %46, align 8, !tbaa !43
   ret void
 }
@@ -3607,7 +3607,7 @@ _ZNKSt8functionIFP25dependent_expr_simplifierR11ast_managerRK10params_refR20depe
   %35 = phi ptr [ %.pre.i.i.i.i.i.i, %.noexc12.i.i.i ], [ %24, %26 ]
   %36 = getelementptr inbounds i8, ptr %35, i64 -4
   %37 = zext i32 %34 to i64
-  %38 = getelementptr inbounds nuw ptr, ptr %35, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %37
   store ptr %23, ptr %38, align 8, !tbaa !187
   %39 = add i32 %34, 1
   store i32 %39, ptr %36, align 4, !tbaa !95

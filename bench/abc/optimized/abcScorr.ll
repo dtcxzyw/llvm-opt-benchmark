@@ -3,8 +3,6 @@ source_filename = "bench/abc/original/abcScorr.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.Gia_Obj_t_ = type <{ i64, i32 }>
-%struct.Gia_Rpr_t_ = type { i32 }
 %struct.Tst_Dat_t_ = type { ptr, ptr, ptr, ptr, ptr, i32, i32, i32 }
 %struct.Cec_ParCor_t_ = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr }
 %struct.Ssw_Pars_t_ = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr }
@@ -82,7 +80,7 @@ Vec_IntFill.exit:                                 ; preds = %9, %.lr.ph.i
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %58
   %.val87.us141 = phi i32 [ %.val87.us, %58 ], [ %.val87120, %.lr.ph ]
   %indvars.iv130 = phi i64 [ %indvars.iv.next131, %58 ], [ 0, %.lr.ph ]
-  %23 = getelementptr inbounds nuw ptr, ptr %.val89.val, i64 %indvars.iv130
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %.val89.val, i64 %indvars.iv130
   %24 = load ptr, ptr %23, align 8, !tbaa !40
   %25 = icmp eq ptr %24, null
   br i1 %25, label %58, label %26
@@ -104,7 +102,7 @@ Vec_IntFill.exit:                                 ; preds = %9, %.lr.ph.i
   %32 = getelementptr i8, ptr %.val91.val.us, i64 8
   %.val91.val.val.us = load ptr, ptr %32, align 8, !tbaa !39
   %33 = sext i32 %.val92.val.us to i64
-  %34 = getelementptr inbounds ptr, ptr %.val91.val.val.us, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %.val91.val.val.us, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !40
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 64
   %37 = load ptr, ptr %36, align 8, !tbaa !45
@@ -142,7 +140,7 @@ Vec_IntFill.exit:                                 ; preds = %9, %.lr.ph.i
   %55 = getelementptr i8, ptr %24, i64 16
   %.val101.us = load i32, ptr %55, align 8, !tbaa !47
   %56 = sext i32 %.val98.us to i64
-  %57 = getelementptr inbounds i32, ptr %.val111160, i64 %56
+  %57 = getelementptr inbounds [4 x i8], ptr %.val111160, i64 %56
   store i32 %.val101.us, ptr %57, align 4, !tbaa !21
   %.val87.us.pre = load i32, ptr %20, align 4, !tbaa !37
   br label %58
@@ -170,7 +168,7 @@ Vec_IntFill.exit:                                 ; preds = %9, %.lr.ph.i
 .lr.ph.split:                                     ; preds = %.lr.ph, %102
   %.val87139 = phi i32 [ %.val87, %102 ], [ %.val87120, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %102 ], [ 0, %.lr.ph ]
-  %65 = getelementptr inbounds nuw ptr, ptr %.val89.val, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %.val89.val, i64 %indvars.iv
   %66 = load ptr, ptr %65, align 8, !tbaa !40
   %67 = icmp eq ptr %66, null
   br i1 %67, label %102, label %68
@@ -192,7 +190,7 @@ Vec_IntFill.exit:                                 ; preds = %9, %.lr.ph.i
   %74 = getelementptr i8, ptr %.val91.val, i64 8
   %.val91.val.val = load ptr, ptr %74, align 8, !tbaa !39
   %75 = sext i32 %.val92.val to i64
-  %76 = getelementptr inbounds ptr, ptr %.val91.val.val, i64 %75
+  %76 = getelementptr inbounds [8 x i8], ptr %.val91.val.val, i64 %75
   %77 = load ptr, ptr %76, align 8, !tbaa !40
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 64
   %79 = load ptr, ptr %78, align 8, !tbaa !45
@@ -231,7 +229,7 @@ Vec_IntFill.exit:                                 ; preds = %9, %.lr.ph.i
   %99 = getelementptr i8, ptr %66, i64 16
   %.val102 = load i32, ptr %99, align 8, !tbaa !47
   %100 = sext i32 %98 to i64
-  %101 = getelementptr inbounds i32, ptr %.val111160, i64 %100
+  %101 = getelementptr inbounds [4 x i8], ptr %.val111160, i64 %100
   store i32 %.val102, ptr %101, align 4, !tbaa !21
   %.val87.pre = load i32, ptr %20, align 4, !tbaa !37
   br label %102
@@ -258,7 +256,7 @@ Vec_IntFill.exit:                                 ; preds = %9, %.lr.ph.i
 
 109:                                              ; preds = %.lr.ph124, %.critedge
   %indvars.iv133 = phi i64 [ 0, %.lr.ph124 ], [ %indvars.iv.next134, %.critedge ]
-  %110 = getelementptr inbounds nuw ptr, ptr %.val114.val, i64 %indvars.iv133
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %.val114.val, i64 %indvars.iv133
   %111 = load ptr, ptr %110, align 8, !tbaa !40
   %.val93 = load ptr, ptr %111, align 8, !tbaa !41
   %112 = getelementptr i8, ptr %111, i64 32
@@ -269,7 +267,7 @@ Vec_IntFill.exit:                                 ; preds = %9, %.lr.ph.i
   %114 = getelementptr i8, ptr %.val93.val, i64 8
   %.val93.val.val = load ptr, ptr %114, align 8, !tbaa !39
   %115 = sext i32 %.val94.val to i64
-  %116 = getelementptr inbounds ptr, ptr %.val93.val.val, i64 %115
+  %116 = getelementptr inbounds [8 x i8], ptr %.val93.val.val, i64 %115
   %117 = load ptr, ptr %116, align 8, !tbaa !40
   %118 = getelementptr inbounds nuw i8, ptr %111, i64 64
   %119 = load ptr, ptr %118, align 8, !tbaa !45
@@ -320,7 +318,7 @@ Vec_IntFill.exit:                                 ; preds = %9, %.lr.ph.i
   %142 = getelementptr i8, ptr %117, i64 16
   %.val104 = load i32, ptr %142, align 8, !tbaa !47
   %143 = sext i32 %.sink to i64
-  %144 = getelementptr inbounds i32, ptr %.val111160, i64 %143
+  %144 = getelementptr inbounds [4 x i8], ptr %.val111160, i64 %143
   store i32 %.val104, ptr %144, align 4, !tbaa !21
   br label %.critedge
 
@@ -333,7 +331,7 @@ Vec_IntFill.exit:                                 ; preds = %9, %.lr.ph.i
 
 147:                                              ; preds = %.lr.ph127, %.critedge2
   %indvars.iv136 = phi i64 [ 0, %.lr.ph127 ], [ %indvars.iv.next137, %.critedge2 ]
-  %148 = getelementptr inbounds nuw ptr, ptr %.val116.val, i64 %indvars.iv136
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %.val116.val, i64 %indvars.iv136
   %149 = load ptr, ptr %148, align 8, !tbaa !40
   %.val117 = load ptr, ptr %149, align 8, !tbaa !41
   %150 = getelementptr i8, ptr %149, i64 48
@@ -344,7 +342,7 @@ Vec_IntFill.exit:                                 ; preds = %9, %.lr.ph.i
   %152 = getelementptr i8, ptr %.val117.val, i64 8
   %.val117.val.val = load ptr, ptr %152, align 8, !tbaa !39
   %153 = sext i32 %.val118.val to i64
-  %154 = getelementptr inbounds ptr, ptr %.val117.val.val, i64 %153
+  %154 = getelementptr inbounds [8 x i8], ptr %.val117.val.val, i64 %153
   %155 = load ptr, ptr %154, align 8, !tbaa !40
   %156 = getelementptr inbounds nuw i8, ptr %149, i64 64
   %157 = load ptr, ptr %156, align 8, !tbaa !45
@@ -395,7 +393,7 @@ Vec_IntFill.exit:                                 ; preds = %9, %.lr.ph.i
   %180 = getelementptr i8, ptr %155, i64 16
   %.val106 = load i32, ptr %180, align 8, !tbaa !47
   %181 = sext i32 %.sink166 to i64
-  %182 = getelementptr inbounds i32, ptr %.val111160, i64 %181
+  %182 = getelementptr inbounds [4 x i8], ptr %.val111160, i64 %181
   store i32 %.val106, ptr %182, align 4, !tbaa !21
   br label %.critedge2
 
@@ -415,7 +413,7 @@ define ptr @Abc_NtkTestScorrGetName(ptr noundef readonly captures(none) %0, ptr 
   %4 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %4, align 8, !tbaa !22
   %5 = sext i32 %2 to i64
-  %6 = getelementptr inbounds i32, ptr %.val, i64 %5
+  %6 = getelementptr inbounds [4 x i8], ptr %.val, i64 %5
   %7 = load i32, ptr %6, align 4, !tbaa !21
   %8 = icmp eq i32 %7, -1
   br i1 %8, label %13, label %9
@@ -438,7 +436,7 @@ define range(i32 0, 2) i32 @Abc_NtkTestScorrWriteEquivPair(ptr noundef readonly 
   %7 = getelementptr i8, ptr %1, i64 8
   %.val.i = load ptr, ptr %7, align 8, !tbaa !22
   %8 = sext i32 %2 to i64
-  %9 = getelementptr inbounds i32, ptr %.val.i, i64 %8
+  %9 = getelementptr inbounds [4 x i8], ptr %.val.i, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !21
   %11 = icmp eq i32 %10, -1
   br i1 %11, label %Abc_NtkTestScorrGetName.exit, label %12
@@ -454,7 +452,7 @@ Abc_NtkTestScorrGetName.exit:                     ; preds = %6, %12
   %.val.i15 = phi ptr [ %.val.i15.pre, %12 ], [ %.val.i, %6 ]
   %.0.i = phi ptr [ %15, %12 ], [ null, %6 ]
   %16 = sext i32 %3 to i64
-  %17 = getelementptr inbounds i32, ptr %.val.i15, i64 %16
+  %17 = getelementptr inbounds [4 x i8], ptr %.val.i15, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !21
   %19 = icmp eq i32 %18, -1
   br i1 %19, label %Abc_NtkTestScorrGetName.exit17.thread, label %Abc_NtkTestScorrGetName.exit17
@@ -487,7 +485,7 @@ define range(i32 0, 2) i32 @Abc_NtkTestScorrWriteEquivConst(ptr noundef readonly
   %6 = getelementptr i8, ptr %1, i64 8
   %.val.i = load ptr, ptr %6, align 8, !tbaa !22
   %7 = sext i32 %2 to i64
-  %8 = getelementptr inbounds i32, ptr %.val.i, i64 %7
+  %8 = getelementptr inbounds [4 x i8], ptr %.val.i, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !21
   %10 = icmp eq i32 %9, -1
   br i1 %10, label %Abc_NtkTestScorrGetName.exit.thread, label %Abc_NtkTestScorrGetName.exit
@@ -578,13 +576,13 @@ define i32 @Abc_NtkTestScorrWriteEquivGia(ptr noundef captures(none) %0) #1 {
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Gia_ObjIsRo.exit.thread ]
   %.0110 = phi i32 [ 0, %.lr.ph ], [ %.1, %Gia_ObjIsRo.exit.thread ]
   %.val = load ptr, ptr %18, align 8, !tbaa !74
-  %30 = getelementptr inbounds nuw %struct.Gia_Obj_t_, ptr %.val, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [12 x i8], ptr %.val, i64 %indvars.iv
   %.not54 = icmp eq ptr %.val, null
   br i1 %.not54, label %.critedge, label %31
 
 31:                                               ; preds = %29
   %.val65 = load ptr, ptr %22, align 8, !tbaa !75
-  %32 = getelementptr inbounds nuw %struct.Gia_Rpr_t_, ptr %.val65, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %.val65, i64 %indvars.iv
   %33 = load i32, ptr %32, align 4
   %34 = and i32 %33, 268435455
   %.not102 = icmp eq i32 %34, 268435455
@@ -592,7 +590,7 @@ define i32 @Abc_NtkTestScorrWriteEquivGia(ptr noundef captures(none) %0) #1 {
 
 35:                                               ; preds = %31
   %36 = zext nneg i32 %34 to i64
-  %37 = getelementptr inbounds nuw %struct.Gia_Obj_t_, ptr %.val, i64 %36
+  %37 = getelementptr inbounds nuw [12 x i8], ptr %.val, i64 %36
   %38 = load i32, ptr %23, align 8, !tbaa !76
   %.not56 = icmp eq i32 %38, 0
   br i1 %.not56, label %52, label %39
@@ -692,7 +690,7 @@ Gia_ObjIsRo.exit92.thread:                        ; preds = %Gia_ObjIsRo.exit87.
 70:                                               ; preds = %68
   %.val75 = load i64, ptr %30, align 4
   %.val.i.i = load ptr, ptr %27, align 8, !tbaa !22
-  %71 = getelementptr inbounds nuw i32, ptr %.val.i.i, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %.val.i.i, i64 %indvars.iv
   %72 = load i32, ptr %71, align 4, !tbaa !21
   %73 = icmp eq i32 %72, -1
   br i1 %73, label %Abc_NtkTestScorrWriteEquivConst.exit, label %Abc_NtkTestScorrGetName.exit.i
@@ -719,7 +717,7 @@ Abc_NtkTestScorrWriteEquivConst.exit:             ; preds = %70, %Abc_NtkTestSco
   %.val77 = load i64, ptr %30, align 4
   %82 = xor i64 %.val77, %.val76
   %.val.i.i94 = load ptr, ptr %27, align 8, !tbaa !22
-  %83 = getelementptr inbounds nuw i32, ptr %.val.i.i94, i64 %36
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %.val.i.i94, i64 %36
   %84 = load i32, ptr %83, align 4, !tbaa !21
   %85 = icmp eq i32 %84, -1
   br i1 %85, label %Abc_NtkTestScorrGetName.exit.i95, label %86
@@ -733,7 +731,7 @@ Abc_NtkTestScorrWriteEquivConst.exit:             ; preds = %70, %Abc_NtkTestSco
 Abc_NtkTestScorrGetName.exit.i95:                 ; preds = %86, %81
   %.val.i15.i = phi ptr [ %.val.i15.pre.i, %86 ], [ %.val.i.i94, %81 ]
   %.0.i.i = phi ptr [ %88, %86 ], [ null, %81 ]
-  %89 = getelementptr inbounds nuw i32, ptr %.val.i15.i, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %.val.i15.i, i64 %indvars.iv
   %90 = load i32, ptr %89, align 4, !tbaa !21
   %91 = icmp eq i32 %90, -1
   br i1 %91, label %Abc_NtkTestScorrWriteEquivPair.exit, label %Abc_NtkTestScorrGetName.exit17.i
@@ -832,7 +830,7 @@ define i32 @Abc_NtkTestScorrWriteEquivAig(ptr noundef captures(none) %0) #1 {
   %.0101 = phi i32 [ 0, %.lr.ph ], [ %.1, %Aig_ObjRepr.exit.thread ]
   %31 = getelementptr i8, ptr %30, i64 8
   %.val59 = load ptr, ptr %31, align 8, !tbaa !39
-  %32 = getelementptr inbounds nuw ptr, ptr %.val59, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %.val59, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8, !tbaa !40
   %34 = icmp eq ptr %33, null
   br i1 %34, label %Aig_ObjRepr.exit.thread, label %35
@@ -846,7 +844,7 @@ Aig_ObjRepr.exit:                                 ; preds = %35
   %36 = getelementptr i8, ptr %33, i64 36
   %37 = load i32, ptr %36, align 4, !tbaa !46
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds ptr, ptr %.val63, i64 %38
+  %39 = getelementptr inbounds [8 x i8], ptr %.val63, i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !83
   %41 = icmp eq ptr %40, null
   br i1 %41, label %Aig_ObjRepr.exit.thread, label %42
@@ -931,7 +929,7 @@ Saig_ObjIsLo.exit85.thread:                       ; preds = %Saig_ObjIsLo.exit80
   %62 = getelementptr i8, ptr %33, i64 24
   %.val67 = load i64, ptr %62, align 8
   %.val.i.i = load ptr, ptr %27, align 8, !tbaa !22
-  %63 = getelementptr inbounds i32, ptr %.val.i.i, i64 %38
+  %63 = getelementptr inbounds [4 x i8], ptr %.val.i.i, i64 %38
   %64 = load i32, ptr %63, align 4, !tbaa !21
   %65 = icmp eq i32 %64, -1
   br i1 %65, label %Abc_NtkTestScorrWriteEquivConst.exit, label %Abc_NtkTestScorrGetName.exit.i
@@ -964,7 +962,7 @@ Abc_NtkTestScorrWriteEquivConst.exit:             ; preds = %61, %Abc_NtkTestSco
   %78 = xor i64 %.val69, %.val68
   %.val.i.i87 = load ptr, ptr %27, align 8, !tbaa !22
   %79 = sext i32 %.val61 to i64
-  %80 = getelementptr inbounds i32, ptr %.val.i.i87, i64 %79
+  %80 = getelementptr inbounds [4 x i8], ptr %.val.i.i87, i64 %79
   %81 = load i32, ptr %80, align 4, !tbaa !21
   %82 = icmp eq i32 %81, -1
   br i1 %82, label %Abc_NtkTestScorrGetName.exit.i88, label %83
@@ -978,7 +976,7 @@ Abc_NtkTestScorrWriteEquivConst.exit:             ; preds = %61, %Abc_NtkTestSco
 Abc_NtkTestScorrGetName.exit.i88:                 ; preds = %83, %74
   %.val.i15.i = phi ptr [ %.val.i15.pre.i, %83 ], [ %.val.i.i87, %74 ]
   %.0.i.i = phi ptr [ %85, %83 ], [ null, %74 ]
-  %86 = getelementptr inbounds i32, ptr %.val.i15.i, i64 %38
+  %86 = getelementptr inbounds [4 x i8], ptr %.val.i15.i, i64 %38
   %87 = load i32, ptr %86, align 4, !tbaa !21
   %88 = icmp eq i32 %87, -1
   br i1 %88, label %Abc_NtkTestScorrWriteEquivPair.exit, label %Abc_NtkTestScorrGetName.exit17.i

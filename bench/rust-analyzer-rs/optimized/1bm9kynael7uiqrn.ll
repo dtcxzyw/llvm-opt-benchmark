@@ -1288,10 +1288,10 @@ define internal noundef zeroext i1 @"_ZN79_$LT$parser..syntax_kind..generated..S
 switch.lookup:
   %2 = load i16, ptr %0, align 2, !range !279, !noundef !9
   %3 = zext nneg i16 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN79_$LT$parser..syntax_kind..generated..SyntaxKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h1e2ce1c12b6b74d7E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN79_$LT$parser..syntax_kind..generated..SyntaxKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h1e2ce1c12b6b74d7E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i16 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN79_$LT$parser..syntax_kind..generated..SyntaxKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h1e2ce1c12b6b74d7E.18", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN79_$LT$parser..syntax_kind..generated..SyntaxKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h1e2ce1c12b6b74d7E.18", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -4123,7 +4123,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.7950680404849827918.exit: ; preds 
   %142 = load ptr, ptr %141, align 8, !nonnull !9, !noundef !9
   %143 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %144 = load i64, ptr %143, align 8, !noundef !9
-  %145 = getelementptr inbounds { i64, [1 x i64] }, ptr %142, i64 %144
+  %145 = getelementptr inbounds [16 x i8], ptr %142, i64 %144
   store ptr %142, ptr %26, align 8
   %146 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %145, ptr %146, align 8
@@ -5580,7 +5580,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.7950680404849827918.exit.i.i: ; pr
   %364 = load ptr, ptr %363, align 8, !nonnull !9, !noundef !9
   %365 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %366 = load i64, ptr %365, align 8, !noundef !9
-  %367 = getelementptr inbounds { i64, [1 x i64] }, ptr %364, i64 %366
+  %367 = getelementptr inbounds [16 x i8], ptr %364, i64 %366
   store ptr %364, ptr %44, align 8
   %368 = getelementptr inbounds nuw i8, ptr %44, i64 8
   store ptr %367, ptr %368, align 8
@@ -20264,7 +20264,7 @@ define noundef nonnull ptr @_ZN6syntax3ast4make10token_tree17hd1e2b738756262feE(
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !nonnull !9, !noundef !9
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  %19 = getelementptr inbounds { i64, [1 x i64] }, ptr %.sroa.4.0.copyload, i64 %.sroa.5.0.copyload
+  %19 = getelementptr inbounds [16 x i8], ptr %.sroa.4.0.copyload, i64 %.sroa.5.0.copyload
   store ptr %.sroa.4.0.copyload, ptr %9, align 8, !alias.scope !5853, !noalias !5856
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store i64 %.sroa.0.0.copyload, ptr %20, align 8, !alias.scope !5853, !noalias !5856

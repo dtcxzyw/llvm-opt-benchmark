@@ -30,16 +30,16 @@ define void @ff_flacdsp_init(ptr noundef writeonly captures(none) initializes((3
 
 switch.lookup:                                    ; preds = %3
   %10 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.ff_flacdsp_init, i64 %10
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_flacdsp_init, i64 %10
   %switch.load = load ptr, ptr %switch.gep, align 8
   %11 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep21 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_flacdsp_init.1, i64 %11
+  %switch.gep21 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_flacdsp_init.1, i64 %11
   %switch.load22 = load ptr, ptr %switch.gep21, align 8
   %12 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep23 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_flacdsp_init.2, i64 %12
+  %switch.gep23 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_flacdsp_init.2, i64 %12
   %switch.load24 = load ptr, ptr %switch.gep23, align 8
   %13 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep25 = getelementptr inbounds nuw ptr, ptr @switch.table.ff_flacdsp_init.3, i64 %13
+  %switch.gep25 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ff_flacdsp_init.3, i64 %13
   %switch.load26 = load ptr, ptr %switch.gep25, align 8
   store ptr %switch.load, ptr %0, align 8, !tbaa !13
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -88,11 +88,11 @@ define internal void @flac_lpc_16_c(ptr noundef captures(none) %0, ptr noundef r
   %.05158.us = phi i32 [ %10, %.lr.ph.us ], [ %15, %11 ]
   %12 = mul i32 %.05261.us, %.05158.us
   %13 = add i32 %12, %.05059.us
-  %14 = getelementptr inbounds nuw i32, ptr %.05566.us, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %.05566.us, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !14
   %16 = mul i32 %15, %.05261.us
   %17 = add i32 %16, %.04960.us
-  %18 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.052.us = load i32, ptr %18, align 4, !tbaa !14
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -102,7 +102,7 @@ define internal void @flac_lpc_16_c(ptr noundef captures(none) %0, ptr noundef r
   %19 = mul i32 %.052.us, %15
   %20 = add i32 %19, %13
   %21 = ashr i32 %20, %3
-  %22 = getelementptr inbounds nuw i32, ptr %.05566.us, i64 %9
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.05566.us, i64 %9
   %23 = load i32, ptr %22, align 4, !tbaa !14
   %24 = add i32 %23, %21
   store i32 %24, ptr %22, align 4, !tbaa !14
@@ -156,9 +156,9 @@ define internal void @flac_lpc_16_c(ptr noundef captures(none) %0, ptr noundef r
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv88 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next89, %.lr.ph ]
   %.075 = phi i32 [ 0, %.lr.ph.preheader ], [ %54, %.lr.ph ]
-  %49 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv88
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv88
   %50 = load i32, ptr %49, align 4, !tbaa !14
-  %51 = getelementptr inbounds nuw i32, ptr %.055.lcssa, i64 %indvars.iv88
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %.055.lcssa, i64 %indvars.iv88
   %52 = load i32, ptr %51, align 4, !tbaa !14
   %53 = mul i32 %52, %50
   %54 = add i32 %53, %.075
@@ -173,7 +173,7 @@ define internal void @flac_lpc_16_c(ptr noundef captures(none) %0, ptr noundef r
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
   %.1.lcssa = phi i64 [ 0, %.preheader ], [ %55, %._crit_edge.loopexit ]
   %.0.lcssa = phi i32 [ 0, %.preheader ], [ %54, %._crit_edge.loopexit ]
-  %56 = getelementptr inbounds nuw i32, ptr %.055.lcssa, i64 %.1.lcssa
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %.055.lcssa, i64 %.1.lcssa
   %57 = load i32, ptr %56, align 4, !tbaa !14
   %58 = ashr i32 %.0.lcssa, %3
   %59 = add i32 %57, %58
@@ -207,10 +207,10 @@ define internal void @flac_lpc_32_c(ptr noundef captures(none) %0, ptr noundef r
 10:                                               ; preds = %.preheader.us, %10
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %10 ]
   %.020.us = phi i64 [ 0, %.preheader.us ], [ %18, %10 ]
-  %11 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4, !tbaa !14
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds nuw i32, ptr %.01822.us, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %.01822.us, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !14
   %16 = sext i32 %15 to i64
   %17 = mul nsw i64 %16, %13
@@ -221,7 +221,7 @@ define internal void @flac_lpc_32_c(ptr noundef captures(none) %0, ptr noundef r
 
 ._crit_edge.us:                                   ; preds = %10
   %19 = ashr i64 %18, %8
-  %20 = getelementptr inbounds nuw i32, ptr %.01822.us, i64 %9
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %.01822.us, i64 %9
   %21 = load i32, ptr %20, align 4, !tbaa !14
   %22 = trunc i64 %19 to i32
   %23 = add i32 %21, %22
@@ -264,10 +264,10 @@ define internal void @flac_lpc_33_c(ptr noundef captures(none) %0, ptr noundef r
 13:                                               ; preds = %.preheader.us, %13
   %indvars.iv30 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next31, %13 ]
   %.022.us = phi i64 [ 0, %.preheader.us ], [ %20, %13 ]
-  %14 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv30
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv30
   %15 = load i32, ptr %14, align 4, !tbaa !14
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds nuw i64, ptr %.02024.us, i64 %indvars.iv30
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %.02024.us, i64 %indvars.iv30
   %18 = load i64, ptr %17, align 8, !tbaa !22
   %19 = mul i64 %18, %16
   %20 = add i64 %19, %.022.us
@@ -276,12 +276,12 @@ define internal void @flac_lpc_33_c(ptr noundef captures(none) %0, ptr noundef r
   br i1 %exitcond34.not, label %._crit_edge.us, label %13, !llvm.loop !24
 
 ._crit_edge.us:                                   ; preds = %13
-  %21 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv35
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv35
   %22 = load i32, ptr %21, align 4, !tbaa !14
   %23 = sext i32 %22 to i64
   %24 = ashr i64 %20, %9
   %25 = add nsw i64 %24, %23
-  %26 = getelementptr inbounds nuw i64, ptr %.02024.us, i64 %12
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.02024.us, i64 %12
   store i64 %25, ptr %26, align 8, !tbaa !22
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
   %27 = getelementptr inbounds nuw i8, ptr %.02024.us, i64 8
@@ -291,7 +291,7 @@ define internal void @flac_lpc_33_c(ptr noundef captures(none) %0, ptr noundef r
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv = phi i64 [ %10, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
   %.02024 = phi ptr [ %0, %.preheader.preheader ], [ %31, %.preheader ]
-  %28 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv
+  %28 = getelementptr inbounds [4 x i8], ptr %1, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4, !tbaa !14
   %30 = sext i32 %29 to i64
   store i64 %30, ptr %.02024, align 8, !tbaa !22
@@ -318,7 +318,7 @@ define internal void @flac_wasted_32_c(ptr noundef captures(none) %0, i32 nounde
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %5 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %6 = load i32, ptr %5, align 4, !tbaa !14
   %7 = shl i32 %6, %1
   store i32 %7, ptr %5, align 4, !tbaa !14
@@ -342,11 +342,11 @@ define internal void @flac_wasted_33_c(ptr noundef writeonly captures(none) %0, 
 
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !14
   %10 = sext i32 %9 to i64
   %11 = shl i64 %10, %6
-  %12 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   store i64 %11, ptr %12, align 8, !tbaa !22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -374,9 +374,9 @@ define internal void @flac_decorrelate_indep_c_32(ptr noundef readonly captures(
 9:                                                ; preds = %.preheader.us, %9
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %9 ]
   %.113.us = phi ptr [ %.01215.us, %.preheader.us ], [ %15, %9 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !30
-  %12 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv20
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv20
   %13 = load i32, ptr %12, align 4, !tbaa !14
   %14 = shl i32 %13, %4
   %15 = getelementptr inbounds nuw i8, ptr %.113.us, i64 4
@@ -410,9 +410,9 @@ define internal void @flac_decorrelate_ls_c_32(ptr noundef readonly captures(non
 11:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
   %.016 = phi ptr [ %7, %.lr.ph ], [ %20, %11 ]
-  %12 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4, !tbaa !14
-  %14 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !14
   %16 = shl i32 %13, %4
   %17 = getelementptr inbounds nuw i8, ptr %.016, i64 4
@@ -445,9 +445,9 @@ define internal void @flac_decorrelate_rs_c_32(ptr noundef readonly captures(non
 11:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
   %.016 = phi ptr [ %7, %.lr.ph ], [ %20, %11 ]
-  %12 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4, !tbaa !14
-  %14 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !14
   %16 = add i32 %15, %13
   %17 = shl i32 %16, %4
@@ -480,9 +480,9 @@ define internal void @flac_decorrelate_ms_c_32(ptr noundef readonly captures(non
 11:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
   %.018 = phi ptr [ %7, %.lr.ph ], [ %22, %11 ]
-  %12 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4, !tbaa !14
-  %14 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !14
   %16 = ashr i32 %15, 1
   %17 = sub i32 %13, %16
@@ -519,14 +519,14 @@ define internal void @flac_decorrelate_indep_c_32p(ptr noundef readonly captures
 
 8:                                                ; preds = %.preheader.us, %8
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !30
-  %11 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv19
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv19
   %12 = load i32, ptr %11, align 4, !tbaa !14
   %13 = shl i32 %12, %4
-  %14 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !30
-  %16 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv19
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv19
   store i32 %13, ptr %16, align 4, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -558,16 +558,16 @@ define internal void @flac_decorrelate_ls_c_32p(ptr noundef readonly captures(no
 
 13:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
-  %14 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !14
-  %16 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4, !tbaa !14
   %18 = shl i32 %15, %4
-  %19 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   store i32 %18, ptr %19, align 4, !tbaa !14
   %20 = sub i32 %15, %17
   %21 = shl i32 %20, %4
-  %22 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv
   store i32 %21, ptr %22, align 4, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -594,16 +594,16 @@ define internal void @flac_decorrelate_rs_c_32p(ptr noundef readonly captures(no
 
 13:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
-  %14 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !14
-  %16 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4, !tbaa !14
   %18 = add i32 %17, %15
   %19 = shl i32 %18, %4
-  %20 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   store i32 %19, ptr %20, align 4, !tbaa !14
   %21 = shl i32 %17, %4
-  %22 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv
   store i32 %21, ptr %22, align 4, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -630,18 +630,18 @@ define internal void @flac_decorrelate_ms_c_32p(ptr noundef readonly captures(no
 
 13:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
-  %14 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !14
-  %16 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4, !tbaa !14
   %18 = ashr i32 %17, 1
   %19 = sub i32 %15, %18
   %20 = add i32 %19, %17
   %21 = shl i32 %20, %4
-  %22 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   store i32 %21, ptr %22, align 4, !tbaa !14
   %23 = shl i32 %19, %4
-  %24 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv
   store i32 %23, ptr %24, align 4, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -672,9 +672,9 @@ define internal void @flac_decorrelate_indep_c_16(ptr noundef readonly captures(
 9:                                                ; preds = %.preheader.us, %9
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %9 ]
   %.113.us = phi ptr [ %.01215.us, %.preheader.us ], [ %16, %9 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !30
-  %12 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv20
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv20
   %13 = load i32, ptr %12, align 4, !tbaa !14
   %14 = shl i32 %13, %4
   %15 = trunc i32 %14 to i16
@@ -709,9 +709,9 @@ define internal void @flac_decorrelate_ls_c_16(ptr noundef readonly captures(non
 11:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
   %.016 = phi ptr [ %7, %.lr.ph ], [ %22, %11 ]
-  %12 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4, !tbaa !14
-  %14 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !14
   %16 = shl i32 %13, %4
   %17 = trunc i32 %16 to i16
@@ -746,9 +746,9 @@ define internal void @flac_decorrelate_rs_c_16(ptr noundef readonly captures(non
 11:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
   %.016 = phi ptr [ %7, %.lr.ph ], [ %22, %11 ]
-  %12 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4, !tbaa !14
-  %14 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !14
   %16 = add i32 %15, %13
   %17 = shl i32 %16, %4
@@ -783,9 +783,9 @@ define internal void @flac_decorrelate_ms_c_16(ptr noundef readonly captures(non
 11:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
   %.018 = phi ptr [ %7, %.lr.ph ], [ %24, %11 ]
-  %12 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4, !tbaa !14
-  %14 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !14
   %16 = ashr i32 %15, 1
   %17 = sub i32 %13, %16
@@ -824,15 +824,15 @@ define internal void @flac_decorrelate_indep_c_16p(ptr noundef readonly captures
 
 8:                                                ; preds = %.preheader.us, %8
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !30
-  %11 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv19
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv19
   %12 = load i32, ptr %11, align 4, !tbaa !14
   %13 = shl i32 %12, %4
   %14 = trunc i32 %13 to i16
-  %15 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !49
-  %17 = getelementptr inbounds nuw i16, ptr %16, i64 %indvars.iv19
+  %17 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %indvars.iv19
   store i16 %14, ptr %17, align 2, !tbaa !42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -864,18 +864,18 @@ define internal void @flac_decorrelate_ls_c_16p(ptr noundef readonly captures(no
 
 13:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
-  %14 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !14
-  %16 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4, !tbaa !14
   %18 = shl i32 %15, %4
   %19 = trunc i32 %18 to i16
-  %20 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %indvars.iv
   store i16 %19, ptr %20, align 2, !tbaa !42
   %21 = sub i32 %15, %17
   %22 = shl i32 %21, %4
   %23 = trunc i32 %22 to i16
-  %24 = getelementptr inbounds nuw i16, ptr %12, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %indvars.iv
   store i16 %23, ptr %24, align 2, !tbaa !42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -902,18 +902,18 @@ define internal void @flac_decorrelate_rs_c_16p(ptr noundef readonly captures(no
 
 13:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
-  %14 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !14
-  %16 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4, !tbaa !14
   %18 = add i32 %17, %15
   %19 = shl i32 %18, %4
   %20 = trunc i32 %19 to i16
-  %21 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %indvars.iv
   store i16 %20, ptr %21, align 2, !tbaa !42
   %22 = shl i32 %17, %4
   %23 = trunc i32 %22 to i16
-  %24 = getelementptr inbounds nuw i16, ptr %12, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %indvars.iv
   store i16 %23, ptr %24, align 2, !tbaa !42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -940,20 +940,20 @@ define internal void @flac_decorrelate_ms_c_16p(ptr noundef readonly captures(no
 
 13:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
-  %14 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !14
-  %16 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4, !tbaa !14
   %18 = ashr i32 %17, 1
   %19 = sub i32 %15, %18
   %20 = add i32 %19, %17
   %21 = shl i32 %20, %4
   %22 = trunc i32 %21 to i16
-  %23 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %indvars.iv
   store i16 %22, ptr %23, align 2, !tbaa !42
   %24 = shl i32 %19, %4
   %25 = trunc i32 %24 to i16
-  %26 = getelementptr inbounds nuw i16, ptr %12, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %indvars.iv
   store i16 %25, ptr %26, align 2, !tbaa !42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

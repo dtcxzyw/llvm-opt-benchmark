@@ -755,7 +755,7 @@ define hidden void @SDL_X11_UnloadSymbols() local_unnamed_addr #0 {
 
 7:                                                ; preds = %6, %11
   %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %11 ]
-  %8 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 16
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %11, label %10
@@ -786,7 +786,7 @@ define hidden noundef zeroext i1 @SDL_X11_LoadSymbols() local_unnamed_addr #0 {
 
 .preheader:                                       ; preds = %0, %9
   %indvars.iv = phi i64 [ %indvars.iv.next, %9 ], [ 0, %0 ]
-  %4 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not240 = icmp eq ptr %6, null
@@ -820,7 +820,7 @@ define hidden noundef zeroext i1 @SDL_X11_LoadSymbols() local_unnamed_addr #0 {
 
 11:                                               ; preds = %16, %10
   %indvars.iv.i = phi i64 [ 0, %10 ], [ %indvars.iv.next.i, %16 ]
-  %12 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i
   %13 = load ptr, ptr %12, align 16
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %16, label %14
@@ -846,7 +846,7 @@ X11_GetSym.exit:                                  ; preds = %14, %17
 
 18:                                               ; preds = %23, %X11_GetSym.exit
   %indvars.iv.i241 = phi i64 [ 0, %X11_GetSym.exit ], [ %indvars.iv.next.i245, %23 ]
-  %19 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i241
+  %19 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i241
   %20 = load ptr, ptr %19, align 16
   %.not.i242 = icmp eq ptr %20, null
   br i1 %.not.i242, label %23, label %21
@@ -872,7 +872,7 @@ X11_GetSym.exit247:                               ; preds = %21, %24
 
 25:                                               ; preds = %30, %X11_GetSym.exit247
   %indvars.iv.i248 = phi i64 [ 0, %X11_GetSym.exit247 ], [ %indvars.iv.next.i252, %30 ]
-  %26 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i248
+  %26 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i248
   %27 = load ptr, ptr %26, align 16
   %.not.i249 = icmp eq ptr %27, null
   br i1 %.not.i249, label %30, label %28
@@ -898,7 +898,7 @@ X11_GetSym.exit254:                               ; preds = %28, %31
 
 32:                                               ; preds = %37, %X11_GetSym.exit254
   %indvars.iv.i255 = phi i64 [ 0, %X11_GetSym.exit254 ], [ %indvars.iv.next.i259, %37 ]
-  %33 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i255
+  %33 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i255
   %34 = load ptr, ptr %33, align 16
   %.not.i256 = icmp eq ptr %34, null
   br i1 %.not.i256, label %37, label %35
@@ -924,7 +924,7 @@ X11_GetSym.exit261:                               ; preds = %35, %38
 
 39:                                               ; preds = %44, %X11_GetSym.exit261
   %indvars.iv.i262 = phi i64 [ 0, %X11_GetSym.exit261 ], [ %indvars.iv.next.i266, %44 ]
-  %40 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i262
+  %40 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i262
   %41 = load ptr, ptr %40, align 16
   %.not.i263 = icmp eq ptr %41, null
   br i1 %.not.i263, label %44, label %42
@@ -950,7 +950,7 @@ X11_GetSym.exit268:                               ; preds = %42, %45
 
 46:                                               ; preds = %51, %X11_GetSym.exit268
   %indvars.iv.i269 = phi i64 [ 0, %X11_GetSym.exit268 ], [ %indvars.iv.next.i273, %51 ]
-  %47 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i269
+  %47 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i269
   %48 = load ptr, ptr %47, align 16
   %.not.i270 = icmp eq ptr %48, null
   br i1 %.not.i270, label %51, label %49
@@ -976,7 +976,7 @@ X11_GetSym.exit275:                               ; preds = %49, %52
 
 53:                                               ; preds = %58, %X11_GetSym.exit275
   %indvars.iv.i276 = phi i64 [ 0, %X11_GetSym.exit275 ], [ %indvars.iv.next.i280, %58 ]
-  %54 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i276
+  %54 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i276
   %55 = load ptr, ptr %54, align 16
   %.not.i277 = icmp eq ptr %55, null
   br i1 %.not.i277, label %58, label %56
@@ -1002,7 +1002,7 @@ X11_GetSym.exit282:                               ; preds = %56, %59
 
 60:                                               ; preds = %65, %X11_GetSym.exit282
   %indvars.iv.i283 = phi i64 [ 0, %X11_GetSym.exit282 ], [ %indvars.iv.next.i287, %65 ]
-  %61 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i283
+  %61 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i283
   %62 = load ptr, ptr %61, align 16
   %.not.i284 = icmp eq ptr %62, null
   br i1 %.not.i284, label %65, label %63
@@ -1028,7 +1028,7 @@ X11_GetSym.exit289:                               ; preds = %63, %66
 
 67:                                               ; preds = %72, %X11_GetSym.exit289
   %indvars.iv.i290 = phi i64 [ 0, %X11_GetSym.exit289 ], [ %indvars.iv.next.i294, %72 ]
-  %68 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i290
+  %68 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i290
   %69 = load ptr, ptr %68, align 16
   %.not.i291 = icmp eq ptr %69, null
   br i1 %.not.i291, label %72, label %70
@@ -1054,7 +1054,7 @@ X11_GetSym.exit296:                               ; preds = %70, %73
 
 74:                                               ; preds = %79, %X11_GetSym.exit296
   %indvars.iv.i297 = phi i64 [ 0, %X11_GetSym.exit296 ], [ %indvars.iv.next.i301, %79 ]
-  %75 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i297
+  %75 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i297
   %76 = load ptr, ptr %75, align 16
   %.not.i298 = icmp eq ptr %76, null
   br i1 %.not.i298, label %79, label %77
@@ -1080,7 +1080,7 @@ X11_GetSym.exit303:                               ; preds = %77, %80
 
 81:                                               ; preds = %86, %X11_GetSym.exit303
   %indvars.iv.i304 = phi i64 [ 0, %X11_GetSym.exit303 ], [ %indvars.iv.next.i308, %86 ]
-  %82 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i304
+  %82 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i304
   %83 = load ptr, ptr %82, align 16
   %.not.i305 = icmp eq ptr %83, null
   br i1 %.not.i305, label %86, label %84
@@ -1106,7 +1106,7 @@ X11_GetSym.exit310:                               ; preds = %84, %87
 
 88:                                               ; preds = %93, %X11_GetSym.exit310
   %indvars.iv.i311 = phi i64 [ 0, %X11_GetSym.exit310 ], [ %indvars.iv.next.i315, %93 ]
-  %89 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i311
+  %89 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i311
   %90 = load ptr, ptr %89, align 16
   %.not.i312 = icmp eq ptr %90, null
   br i1 %.not.i312, label %93, label %91
@@ -1132,7 +1132,7 @@ X11_GetSym.exit317:                               ; preds = %91, %94
 
 95:                                               ; preds = %100, %X11_GetSym.exit317
   %indvars.iv.i318 = phi i64 [ 0, %X11_GetSym.exit317 ], [ %indvars.iv.next.i322, %100 ]
-  %96 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i318
+  %96 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i318
   %97 = load ptr, ptr %96, align 16
   %.not.i319 = icmp eq ptr %97, null
   br i1 %.not.i319, label %100, label %98
@@ -1158,7 +1158,7 @@ X11_GetSym.exit324:                               ; preds = %98, %101
 
 102:                                              ; preds = %107, %X11_GetSym.exit324
   %indvars.iv.i325 = phi i64 [ 0, %X11_GetSym.exit324 ], [ %indvars.iv.next.i329, %107 ]
-  %103 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i325
+  %103 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i325
   %104 = load ptr, ptr %103, align 16
   %.not.i326 = icmp eq ptr %104, null
   br i1 %.not.i326, label %107, label %105
@@ -1184,7 +1184,7 @@ X11_GetSym.exit331:                               ; preds = %105, %108
 
 109:                                              ; preds = %114, %X11_GetSym.exit331
   %indvars.iv.i332 = phi i64 [ 0, %X11_GetSym.exit331 ], [ %indvars.iv.next.i336, %114 ]
-  %110 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i332
+  %110 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i332
   %111 = load ptr, ptr %110, align 16
   %.not.i333 = icmp eq ptr %111, null
   br i1 %.not.i333, label %114, label %112
@@ -1210,7 +1210,7 @@ X11_GetSym.exit338:                               ; preds = %112, %115
 
 116:                                              ; preds = %121, %X11_GetSym.exit338
   %indvars.iv.i339 = phi i64 [ 0, %X11_GetSym.exit338 ], [ %indvars.iv.next.i343, %121 ]
-  %117 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i339
+  %117 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i339
   %118 = load ptr, ptr %117, align 16
   %.not.i340 = icmp eq ptr %118, null
   br i1 %.not.i340, label %121, label %119
@@ -1236,7 +1236,7 @@ X11_GetSym.exit345:                               ; preds = %119, %122
 
 123:                                              ; preds = %128, %X11_GetSym.exit345
   %indvars.iv.i346 = phi i64 [ 0, %X11_GetSym.exit345 ], [ %indvars.iv.next.i350, %128 ]
-  %124 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i346
+  %124 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i346
   %125 = load ptr, ptr %124, align 16
   %.not.i347 = icmp eq ptr %125, null
   br i1 %.not.i347, label %128, label %126
@@ -1262,7 +1262,7 @@ X11_GetSym.exit352:                               ; preds = %126, %129
 
 130:                                              ; preds = %135, %X11_GetSym.exit352
   %indvars.iv.i353 = phi i64 [ 0, %X11_GetSym.exit352 ], [ %indvars.iv.next.i357, %135 ]
-  %131 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i353
+  %131 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i353
   %132 = load ptr, ptr %131, align 16
   %.not.i354 = icmp eq ptr %132, null
   br i1 %.not.i354, label %135, label %133
@@ -1288,7 +1288,7 @@ X11_GetSym.exit359:                               ; preds = %133, %136
 
 137:                                              ; preds = %142, %X11_GetSym.exit359
   %indvars.iv.i360 = phi i64 [ 0, %X11_GetSym.exit359 ], [ %indvars.iv.next.i364, %142 ]
-  %138 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i360
+  %138 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i360
   %139 = load ptr, ptr %138, align 16
   %.not.i361 = icmp eq ptr %139, null
   br i1 %.not.i361, label %142, label %140
@@ -1314,7 +1314,7 @@ X11_GetSym.exit366:                               ; preds = %140, %143
 
 144:                                              ; preds = %149, %X11_GetSym.exit366
   %indvars.iv.i367 = phi i64 [ 0, %X11_GetSym.exit366 ], [ %indvars.iv.next.i371, %149 ]
-  %145 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i367
+  %145 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i367
   %146 = load ptr, ptr %145, align 16
   %.not.i368 = icmp eq ptr %146, null
   br i1 %.not.i368, label %149, label %147
@@ -1340,7 +1340,7 @@ X11_GetSym.exit373:                               ; preds = %147, %150
 
 151:                                              ; preds = %156, %X11_GetSym.exit373
   %indvars.iv.i374 = phi i64 [ 0, %X11_GetSym.exit373 ], [ %indvars.iv.next.i378, %156 ]
-  %152 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i374
+  %152 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i374
   %153 = load ptr, ptr %152, align 16
   %.not.i375 = icmp eq ptr %153, null
   br i1 %.not.i375, label %156, label %154
@@ -1366,7 +1366,7 @@ X11_GetSym.exit380:                               ; preds = %154, %157
 
 158:                                              ; preds = %163, %X11_GetSym.exit380
   %indvars.iv.i381 = phi i64 [ 0, %X11_GetSym.exit380 ], [ %indvars.iv.next.i385, %163 ]
-  %159 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i381
+  %159 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i381
   %160 = load ptr, ptr %159, align 16
   %.not.i382 = icmp eq ptr %160, null
   br i1 %.not.i382, label %163, label %161
@@ -1392,7 +1392,7 @@ X11_GetSym.exit387:                               ; preds = %161, %164
 
 165:                                              ; preds = %170, %X11_GetSym.exit387
   %indvars.iv.i388 = phi i64 [ 0, %X11_GetSym.exit387 ], [ %indvars.iv.next.i392, %170 ]
-  %166 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i388
+  %166 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i388
   %167 = load ptr, ptr %166, align 16
   %.not.i389 = icmp eq ptr %167, null
   br i1 %.not.i389, label %170, label %168
@@ -1418,7 +1418,7 @@ X11_GetSym.exit394:                               ; preds = %168, %171
 
 172:                                              ; preds = %177, %X11_GetSym.exit394
   %indvars.iv.i395 = phi i64 [ 0, %X11_GetSym.exit394 ], [ %indvars.iv.next.i399, %177 ]
-  %173 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i395
+  %173 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i395
   %174 = load ptr, ptr %173, align 16
   %.not.i396 = icmp eq ptr %174, null
   br i1 %.not.i396, label %177, label %175
@@ -1444,7 +1444,7 @@ X11_GetSym.exit401:                               ; preds = %175, %178
 
 179:                                              ; preds = %184, %X11_GetSym.exit401
   %indvars.iv.i402 = phi i64 [ 0, %X11_GetSym.exit401 ], [ %indvars.iv.next.i406, %184 ]
-  %180 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i402
+  %180 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i402
   %181 = load ptr, ptr %180, align 16
   %.not.i403 = icmp eq ptr %181, null
   br i1 %.not.i403, label %184, label %182
@@ -1470,7 +1470,7 @@ X11_GetSym.exit408:                               ; preds = %182, %185
 
 186:                                              ; preds = %191, %X11_GetSym.exit408
   %indvars.iv.i409 = phi i64 [ 0, %X11_GetSym.exit408 ], [ %indvars.iv.next.i413, %191 ]
-  %187 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i409
+  %187 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i409
   %188 = load ptr, ptr %187, align 16
   %.not.i410 = icmp eq ptr %188, null
   br i1 %.not.i410, label %191, label %189
@@ -1496,7 +1496,7 @@ X11_GetSym.exit415:                               ; preds = %189, %192
 
 193:                                              ; preds = %198, %X11_GetSym.exit415
   %indvars.iv.i416 = phi i64 [ 0, %X11_GetSym.exit415 ], [ %indvars.iv.next.i420, %198 ]
-  %194 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i416
+  %194 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i416
   %195 = load ptr, ptr %194, align 16
   %.not.i417 = icmp eq ptr %195, null
   br i1 %.not.i417, label %198, label %196
@@ -1522,7 +1522,7 @@ X11_GetSym.exit422:                               ; preds = %196, %199
 
 200:                                              ; preds = %205, %X11_GetSym.exit422
   %indvars.iv.i423 = phi i64 [ 0, %X11_GetSym.exit422 ], [ %indvars.iv.next.i427, %205 ]
-  %201 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i423
+  %201 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i423
   %202 = load ptr, ptr %201, align 16
   %.not.i424 = icmp eq ptr %202, null
   br i1 %.not.i424, label %205, label %203
@@ -1548,7 +1548,7 @@ X11_GetSym.exit429:                               ; preds = %203, %206
 
 207:                                              ; preds = %212, %X11_GetSym.exit429
   %indvars.iv.i430 = phi i64 [ 0, %X11_GetSym.exit429 ], [ %indvars.iv.next.i434, %212 ]
-  %208 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i430
+  %208 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i430
   %209 = load ptr, ptr %208, align 16
   %.not.i431 = icmp eq ptr %209, null
   br i1 %.not.i431, label %212, label %210
@@ -1574,7 +1574,7 @@ X11_GetSym.exit436:                               ; preds = %210, %213
 
 214:                                              ; preds = %219, %X11_GetSym.exit436
   %indvars.iv.i437 = phi i64 [ 0, %X11_GetSym.exit436 ], [ %indvars.iv.next.i441, %219 ]
-  %215 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i437
+  %215 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i437
   %216 = load ptr, ptr %215, align 16
   %.not.i438 = icmp eq ptr %216, null
   br i1 %.not.i438, label %219, label %217
@@ -1600,7 +1600,7 @@ X11_GetSym.exit443:                               ; preds = %217, %220
 
 221:                                              ; preds = %226, %X11_GetSym.exit443
   %indvars.iv.i444 = phi i64 [ 0, %X11_GetSym.exit443 ], [ %indvars.iv.next.i448, %226 ]
-  %222 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i444
+  %222 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i444
   %223 = load ptr, ptr %222, align 16
   %.not.i445 = icmp eq ptr %223, null
   br i1 %.not.i445, label %226, label %224
@@ -1626,7 +1626,7 @@ X11_GetSym.exit450:                               ; preds = %224, %227
 
 228:                                              ; preds = %233, %X11_GetSym.exit450
   %indvars.iv.i451 = phi i64 [ 0, %X11_GetSym.exit450 ], [ %indvars.iv.next.i455, %233 ]
-  %229 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i451
+  %229 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i451
   %230 = load ptr, ptr %229, align 16
   %.not.i452 = icmp eq ptr %230, null
   br i1 %.not.i452, label %233, label %231
@@ -1652,7 +1652,7 @@ X11_GetSym.exit457:                               ; preds = %231, %234
 
 235:                                              ; preds = %240, %X11_GetSym.exit457
   %indvars.iv.i458 = phi i64 [ 0, %X11_GetSym.exit457 ], [ %indvars.iv.next.i462, %240 ]
-  %236 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i458
+  %236 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i458
   %237 = load ptr, ptr %236, align 16
   %.not.i459 = icmp eq ptr %237, null
   br i1 %.not.i459, label %240, label %238
@@ -1678,7 +1678,7 @@ X11_GetSym.exit464:                               ; preds = %238, %241
 
 242:                                              ; preds = %247, %X11_GetSym.exit464
   %indvars.iv.i465 = phi i64 [ 0, %X11_GetSym.exit464 ], [ %indvars.iv.next.i469, %247 ]
-  %243 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i465
+  %243 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i465
   %244 = load ptr, ptr %243, align 16
   %.not.i466 = icmp eq ptr %244, null
   br i1 %.not.i466, label %247, label %245
@@ -1704,7 +1704,7 @@ X11_GetSym.exit471:                               ; preds = %245, %248
 
 249:                                              ; preds = %254, %X11_GetSym.exit471
   %indvars.iv.i472 = phi i64 [ 0, %X11_GetSym.exit471 ], [ %indvars.iv.next.i476, %254 ]
-  %250 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i472
+  %250 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i472
   %251 = load ptr, ptr %250, align 16
   %.not.i473 = icmp eq ptr %251, null
   br i1 %.not.i473, label %254, label %252
@@ -1730,7 +1730,7 @@ X11_GetSym.exit478:                               ; preds = %252, %255
 
 256:                                              ; preds = %261, %X11_GetSym.exit478
   %indvars.iv.i479 = phi i64 [ 0, %X11_GetSym.exit478 ], [ %indvars.iv.next.i483, %261 ]
-  %257 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i479
+  %257 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i479
   %258 = load ptr, ptr %257, align 16
   %.not.i480 = icmp eq ptr %258, null
   br i1 %.not.i480, label %261, label %259
@@ -1756,7 +1756,7 @@ X11_GetSym.exit485:                               ; preds = %259, %262
 
 263:                                              ; preds = %268, %X11_GetSym.exit485
   %indvars.iv.i486 = phi i64 [ 0, %X11_GetSym.exit485 ], [ %indvars.iv.next.i490, %268 ]
-  %264 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i486
+  %264 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i486
   %265 = load ptr, ptr %264, align 16
   %.not.i487 = icmp eq ptr %265, null
   br i1 %.not.i487, label %268, label %266
@@ -1782,7 +1782,7 @@ X11_GetSym.exit492:                               ; preds = %266, %269
 
 270:                                              ; preds = %275, %X11_GetSym.exit492
   %indvars.iv.i493 = phi i64 [ 0, %X11_GetSym.exit492 ], [ %indvars.iv.next.i497, %275 ]
-  %271 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i493
+  %271 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i493
   %272 = load ptr, ptr %271, align 16
   %.not.i494 = icmp eq ptr %272, null
   br i1 %.not.i494, label %275, label %273
@@ -1808,7 +1808,7 @@ X11_GetSym.exit499:                               ; preds = %273, %276
 
 277:                                              ; preds = %282, %X11_GetSym.exit499
   %indvars.iv.i500 = phi i64 [ 0, %X11_GetSym.exit499 ], [ %indvars.iv.next.i504, %282 ]
-  %278 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i500
+  %278 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i500
   %279 = load ptr, ptr %278, align 16
   %.not.i501 = icmp eq ptr %279, null
   br i1 %.not.i501, label %282, label %280
@@ -1834,7 +1834,7 @@ X11_GetSym.exit506:                               ; preds = %280, %283
 
 284:                                              ; preds = %289, %X11_GetSym.exit506
   %indvars.iv.i507 = phi i64 [ 0, %X11_GetSym.exit506 ], [ %indvars.iv.next.i511, %289 ]
-  %285 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i507
+  %285 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i507
   %286 = load ptr, ptr %285, align 16
   %.not.i508 = icmp eq ptr %286, null
   br i1 %.not.i508, label %289, label %287
@@ -1860,7 +1860,7 @@ X11_GetSym.exit513:                               ; preds = %287, %290
 
 291:                                              ; preds = %296, %X11_GetSym.exit513
   %indvars.iv.i514 = phi i64 [ 0, %X11_GetSym.exit513 ], [ %indvars.iv.next.i518, %296 ]
-  %292 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i514
+  %292 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i514
   %293 = load ptr, ptr %292, align 16
   %.not.i515 = icmp eq ptr %293, null
   br i1 %.not.i515, label %296, label %294
@@ -1886,7 +1886,7 @@ X11_GetSym.exit520:                               ; preds = %294, %297
 
 298:                                              ; preds = %303, %X11_GetSym.exit520
   %indvars.iv.i521 = phi i64 [ 0, %X11_GetSym.exit520 ], [ %indvars.iv.next.i525, %303 ]
-  %299 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i521
+  %299 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i521
   %300 = load ptr, ptr %299, align 16
   %.not.i522 = icmp eq ptr %300, null
   br i1 %.not.i522, label %303, label %301
@@ -1912,7 +1912,7 @@ X11_GetSym.exit527:                               ; preds = %301, %304
 
 305:                                              ; preds = %310, %X11_GetSym.exit527
   %indvars.iv.i528 = phi i64 [ 0, %X11_GetSym.exit527 ], [ %indvars.iv.next.i532, %310 ]
-  %306 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i528
+  %306 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i528
   %307 = load ptr, ptr %306, align 16
   %.not.i529 = icmp eq ptr %307, null
   br i1 %.not.i529, label %310, label %308
@@ -1938,7 +1938,7 @@ X11_GetSym.exit534:                               ; preds = %308, %311
 
 312:                                              ; preds = %317, %X11_GetSym.exit534
   %indvars.iv.i535 = phi i64 [ 0, %X11_GetSym.exit534 ], [ %indvars.iv.next.i539, %317 ]
-  %313 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i535
+  %313 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i535
   %314 = load ptr, ptr %313, align 16
   %.not.i536 = icmp eq ptr %314, null
   br i1 %.not.i536, label %317, label %315
@@ -1964,7 +1964,7 @@ X11_GetSym.exit541:                               ; preds = %315, %318
 
 319:                                              ; preds = %324, %X11_GetSym.exit541
   %indvars.iv.i542 = phi i64 [ 0, %X11_GetSym.exit541 ], [ %indvars.iv.next.i546, %324 ]
-  %320 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i542
+  %320 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i542
   %321 = load ptr, ptr %320, align 16
   %.not.i543 = icmp eq ptr %321, null
   br i1 %.not.i543, label %324, label %322
@@ -1990,7 +1990,7 @@ X11_GetSym.exit548:                               ; preds = %322, %325
 
 326:                                              ; preds = %331, %X11_GetSym.exit548
   %indvars.iv.i549 = phi i64 [ 0, %X11_GetSym.exit548 ], [ %indvars.iv.next.i553, %331 ]
-  %327 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i549
+  %327 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i549
   %328 = load ptr, ptr %327, align 16
   %.not.i550 = icmp eq ptr %328, null
   br i1 %.not.i550, label %331, label %329
@@ -2016,7 +2016,7 @@ X11_GetSym.exit555:                               ; preds = %329, %332
 
 333:                                              ; preds = %338, %X11_GetSym.exit555
   %indvars.iv.i556 = phi i64 [ 0, %X11_GetSym.exit555 ], [ %indvars.iv.next.i560, %338 ]
-  %334 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i556
+  %334 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i556
   %335 = load ptr, ptr %334, align 16
   %.not.i557 = icmp eq ptr %335, null
   br i1 %.not.i557, label %338, label %336
@@ -2042,7 +2042,7 @@ X11_GetSym.exit562:                               ; preds = %336, %339
 
 340:                                              ; preds = %345, %X11_GetSym.exit562
   %indvars.iv.i563 = phi i64 [ 0, %X11_GetSym.exit562 ], [ %indvars.iv.next.i567, %345 ]
-  %341 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i563
+  %341 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i563
   %342 = load ptr, ptr %341, align 16
   %.not.i564 = icmp eq ptr %342, null
   br i1 %.not.i564, label %345, label %343
@@ -2068,7 +2068,7 @@ X11_GetSym.exit569:                               ; preds = %343, %346
 
 347:                                              ; preds = %352, %X11_GetSym.exit569
   %indvars.iv.i570 = phi i64 [ 0, %X11_GetSym.exit569 ], [ %indvars.iv.next.i574, %352 ]
-  %348 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i570
+  %348 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i570
   %349 = load ptr, ptr %348, align 16
   %.not.i571 = icmp eq ptr %349, null
   br i1 %.not.i571, label %352, label %350
@@ -2094,7 +2094,7 @@ X11_GetSym.exit576:                               ; preds = %350, %353
 
 354:                                              ; preds = %359, %X11_GetSym.exit576
   %indvars.iv.i577 = phi i64 [ 0, %X11_GetSym.exit576 ], [ %indvars.iv.next.i581, %359 ]
-  %355 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i577
+  %355 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i577
   %356 = load ptr, ptr %355, align 16
   %.not.i578 = icmp eq ptr %356, null
   br i1 %.not.i578, label %359, label %357
@@ -2120,7 +2120,7 @@ X11_GetSym.exit583:                               ; preds = %357, %360
 
 361:                                              ; preds = %366, %X11_GetSym.exit583
   %indvars.iv.i584 = phi i64 [ 0, %X11_GetSym.exit583 ], [ %indvars.iv.next.i588, %366 ]
-  %362 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i584
+  %362 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i584
   %363 = load ptr, ptr %362, align 16
   %.not.i585 = icmp eq ptr %363, null
   br i1 %.not.i585, label %366, label %364
@@ -2146,7 +2146,7 @@ X11_GetSym.exit590:                               ; preds = %364, %367
 
 368:                                              ; preds = %373, %X11_GetSym.exit590
   %indvars.iv.i591 = phi i64 [ 0, %X11_GetSym.exit590 ], [ %indvars.iv.next.i595, %373 ]
-  %369 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i591
+  %369 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i591
   %370 = load ptr, ptr %369, align 16
   %.not.i592 = icmp eq ptr %370, null
   br i1 %.not.i592, label %373, label %371
@@ -2172,7 +2172,7 @@ X11_GetSym.exit597:                               ; preds = %371, %374
 
 375:                                              ; preds = %380, %X11_GetSym.exit597
   %indvars.iv.i598 = phi i64 [ 0, %X11_GetSym.exit597 ], [ %indvars.iv.next.i602, %380 ]
-  %376 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i598
+  %376 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i598
   %377 = load ptr, ptr %376, align 16
   %.not.i599 = icmp eq ptr %377, null
   br i1 %.not.i599, label %380, label %378
@@ -2198,7 +2198,7 @@ X11_GetSym.exit604:                               ; preds = %378, %381
 
 382:                                              ; preds = %387, %X11_GetSym.exit604
   %indvars.iv.i605 = phi i64 [ 0, %X11_GetSym.exit604 ], [ %indvars.iv.next.i609, %387 ]
-  %383 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i605
+  %383 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i605
   %384 = load ptr, ptr %383, align 16
   %.not.i606 = icmp eq ptr %384, null
   br i1 %.not.i606, label %387, label %385
@@ -2224,7 +2224,7 @@ X11_GetSym.exit611:                               ; preds = %385, %388
 
 389:                                              ; preds = %394, %X11_GetSym.exit611
   %indvars.iv.i612 = phi i64 [ 0, %X11_GetSym.exit611 ], [ %indvars.iv.next.i616, %394 ]
-  %390 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i612
+  %390 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i612
   %391 = load ptr, ptr %390, align 16
   %.not.i613 = icmp eq ptr %391, null
   br i1 %.not.i613, label %394, label %392
@@ -2250,7 +2250,7 @@ X11_GetSym.exit618:                               ; preds = %392, %395
 
 396:                                              ; preds = %401, %X11_GetSym.exit618
   %indvars.iv.i619 = phi i64 [ 0, %X11_GetSym.exit618 ], [ %indvars.iv.next.i623, %401 ]
-  %397 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i619
+  %397 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i619
   %398 = load ptr, ptr %397, align 16
   %.not.i620 = icmp eq ptr %398, null
   br i1 %.not.i620, label %401, label %399
@@ -2276,7 +2276,7 @@ X11_GetSym.exit625:                               ; preds = %399, %402
 
 403:                                              ; preds = %408, %X11_GetSym.exit625
   %indvars.iv.i626 = phi i64 [ 0, %X11_GetSym.exit625 ], [ %indvars.iv.next.i630, %408 ]
-  %404 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i626
+  %404 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i626
   %405 = load ptr, ptr %404, align 16
   %.not.i627 = icmp eq ptr %405, null
   br i1 %.not.i627, label %408, label %406
@@ -2302,7 +2302,7 @@ X11_GetSym.exit632:                               ; preds = %406, %409
 
 410:                                              ; preds = %415, %X11_GetSym.exit632
   %indvars.iv.i633 = phi i64 [ 0, %X11_GetSym.exit632 ], [ %indvars.iv.next.i637, %415 ]
-  %411 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i633
+  %411 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i633
   %412 = load ptr, ptr %411, align 16
   %.not.i634 = icmp eq ptr %412, null
   br i1 %.not.i634, label %415, label %413
@@ -2328,7 +2328,7 @@ X11_GetSym.exit639:                               ; preds = %413, %416
 
 417:                                              ; preds = %422, %X11_GetSym.exit639
   %indvars.iv.i640 = phi i64 [ 0, %X11_GetSym.exit639 ], [ %indvars.iv.next.i644, %422 ]
-  %418 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i640
+  %418 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i640
   %419 = load ptr, ptr %418, align 16
   %.not.i641 = icmp eq ptr %419, null
   br i1 %.not.i641, label %422, label %420
@@ -2354,7 +2354,7 @@ X11_GetSym.exit646:                               ; preds = %420, %423
 
 424:                                              ; preds = %429, %X11_GetSym.exit646
   %indvars.iv.i647 = phi i64 [ 0, %X11_GetSym.exit646 ], [ %indvars.iv.next.i651, %429 ]
-  %425 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i647
+  %425 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i647
   %426 = load ptr, ptr %425, align 16
   %.not.i648 = icmp eq ptr %426, null
   br i1 %.not.i648, label %429, label %427
@@ -2380,7 +2380,7 @@ X11_GetSym.exit653:                               ; preds = %427, %430
 
 431:                                              ; preds = %436, %X11_GetSym.exit653
   %indvars.iv.i654 = phi i64 [ 0, %X11_GetSym.exit653 ], [ %indvars.iv.next.i658, %436 ]
-  %432 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i654
+  %432 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i654
   %433 = load ptr, ptr %432, align 16
   %.not.i655 = icmp eq ptr %433, null
   br i1 %.not.i655, label %436, label %434
@@ -2406,7 +2406,7 @@ X11_GetSym.exit660:                               ; preds = %434, %437
 
 438:                                              ; preds = %443, %X11_GetSym.exit660
   %indvars.iv.i661 = phi i64 [ 0, %X11_GetSym.exit660 ], [ %indvars.iv.next.i665, %443 ]
-  %439 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i661
+  %439 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i661
   %440 = load ptr, ptr %439, align 16
   %.not.i662 = icmp eq ptr %440, null
   br i1 %.not.i662, label %443, label %441
@@ -2432,7 +2432,7 @@ X11_GetSym.exit667:                               ; preds = %441, %444
 
 445:                                              ; preds = %450, %X11_GetSym.exit667
   %indvars.iv.i668 = phi i64 [ 0, %X11_GetSym.exit667 ], [ %indvars.iv.next.i672, %450 ]
-  %446 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i668
+  %446 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i668
   %447 = load ptr, ptr %446, align 16
   %.not.i669 = icmp eq ptr %447, null
   br i1 %.not.i669, label %450, label %448
@@ -2458,7 +2458,7 @@ X11_GetSym.exit674:                               ; preds = %448, %451
 
 452:                                              ; preds = %457, %X11_GetSym.exit674
   %indvars.iv.i675 = phi i64 [ 0, %X11_GetSym.exit674 ], [ %indvars.iv.next.i679, %457 ]
-  %453 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i675
+  %453 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i675
   %454 = load ptr, ptr %453, align 16
   %.not.i676 = icmp eq ptr %454, null
   br i1 %.not.i676, label %457, label %455
@@ -2484,7 +2484,7 @@ X11_GetSym.exit681:                               ; preds = %455, %458
 
 459:                                              ; preds = %464, %X11_GetSym.exit681
   %indvars.iv.i682 = phi i64 [ 0, %X11_GetSym.exit681 ], [ %indvars.iv.next.i686, %464 ]
-  %460 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i682
+  %460 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i682
   %461 = load ptr, ptr %460, align 16
   %.not.i683 = icmp eq ptr %461, null
   br i1 %.not.i683, label %464, label %462
@@ -2510,7 +2510,7 @@ X11_GetSym.exit688:                               ; preds = %462, %465
 
 466:                                              ; preds = %471, %X11_GetSym.exit688
   %indvars.iv.i689 = phi i64 [ 0, %X11_GetSym.exit688 ], [ %indvars.iv.next.i693, %471 ]
-  %467 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i689
+  %467 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i689
   %468 = load ptr, ptr %467, align 16
   %.not.i690 = icmp eq ptr %468, null
   br i1 %.not.i690, label %471, label %469
@@ -2536,7 +2536,7 @@ X11_GetSym.exit695:                               ; preds = %469, %472
 
 473:                                              ; preds = %478, %X11_GetSym.exit695
   %indvars.iv.i696 = phi i64 [ 0, %X11_GetSym.exit695 ], [ %indvars.iv.next.i700, %478 ]
-  %474 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i696
+  %474 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i696
   %475 = load ptr, ptr %474, align 16
   %.not.i697 = icmp eq ptr %475, null
   br i1 %.not.i697, label %478, label %476
@@ -2562,7 +2562,7 @@ X11_GetSym.exit702:                               ; preds = %476, %479
 
 480:                                              ; preds = %485, %X11_GetSym.exit702
   %indvars.iv.i703 = phi i64 [ 0, %X11_GetSym.exit702 ], [ %indvars.iv.next.i707, %485 ]
-  %481 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i703
+  %481 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i703
   %482 = load ptr, ptr %481, align 16
   %.not.i704 = icmp eq ptr %482, null
   br i1 %.not.i704, label %485, label %483
@@ -2588,7 +2588,7 @@ X11_GetSym.exit709:                               ; preds = %483, %486
 
 487:                                              ; preds = %492, %X11_GetSym.exit709
   %indvars.iv.i710 = phi i64 [ 0, %X11_GetSym.exit709 ], [ %indvars.iv.next.i714, %492 ]
-  %488 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i710
+  %488 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i710
   %489 = load ptr, ptr %488, align 16
   %.not.i711 = icmp eq ptr %489, null
   br i1 %.not.i711, label %492, label %490
@@ -2614,7 +2614,7 @@ X11_GetSym.exit716:                               ; preds = %490, %493
 
 494:                                              ; preds = %499, %X11_GetSym.exit716
   %indvars.iv.i717 = phi i64 [ 0, %X11_GetSym.exit716 ], [ %indvars.iv.next.i721, %499 ]
-  %495 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i717
+  %495 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i717
   %496 = load ptr, ptr %495, align 16
   %.not.i718 = icmp eq ptr %496, null
   br i1 %.not.i718, label %499, label %497
@@ -2640,7 +2640,7 @@ X11_GetSym.exit723:                               ; preds = %497, %500
 
 501:                                              ; preds = %506, %X11_GetSym.exit723
   %indvars.iv.i724 = phi i64 [ 0, %X11_GetSym.exit723 ], [ %indvars.iv.next.i728, %506 ]
-  %502 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i724
+  %502 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i724
   %503 = load ptr, ptr %502, align 16
   %.not.i725 = icmp eq ptr %503, null
   br i1 %.not.i725, label %506, label %504
@@ -2666,7 +2666,7 @@ X11_GetSym.exit730:                               ; preds = %504, %507
 
 508:                                              ; preds = %513, %X11_GetSym.exit730
   %indvars.iv.i731 = phi i64 [ 0, %X11_GetSym.exit730 ], [ %indvars.iv.next.i735, %513 ]
-  %509 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i731
+  %509 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i731
   %510 = load ptr, ptr %509, align 16
   %.not.i732 = icmp eq ptr %510, null
   br i1 %.not.i732, label %513, label %511
@@ -2692,7 +2692,7 @@ X11_GetSym.exit737:                               ; preds = %511, %514
 
 515:                                              ; preds = %520, %X11_GetSym.exit737
   %indvars.iv.i738 = phi i64 [ 0, %X11_GetSym.exit737 ], [ %indvars.iv.next.i742, %520 ]
-  %516 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i738
+  %516 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i738
   %517 = load ptr, ptr %516, align 16
   %.not.i739 = icmp eq ptr %517, null
   br i1 %.not.i739, label %520, label %518
@@ -2718,7 +2718,7 @@ X11_GetSym.exit744:                               ; preds = %518, %521
 
 522:                                              ; preds = %527, %X11_GetSym.exit744
   %indvars.iv.i745 = phi i64 [ 0, %X11_GetSym.exit744 ], [ %indvars.iv.next.i749, %527 ]
-  %523 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i745
+  %523 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i745
   %524 = load ptr, ptr %523, align 16
   %.not.i746 = icmp eq ptr %524, null
   br i1 %.not.i746, label %527, label %525
@@ -2744,7 +2744,7 @@ X11_GetSym.exit751:                               ; preds = %525, %528
 
 529:                                              ; preds = %534, %X11_GetSym.exit751
   %indvars.iv.i752 = phi i64 [ 0, %X11_GetSym.exit751 ], [ %indvars.iv.next.i756, %534 ]
-  %530 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i752
+  %530 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i752
   %531 = load ptr, ptr %530, align 16
   %.not.i753 = icmp eq ptr %531, null
   br i1 %.not.i753, label %534, label %532
@@ -2770,7 +2770,7 @@ X11_GetSym.exit758:                               ; preds = %532, %535
 
 536:                                              ; preds = %541, %X11_GetSym.exit758
   %indvars.iv.i759 = phi i64 [ 0, %X11_GetSym.exit758 ], [ %indvars.iv.next.i763, %541 ]
-  %537 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i759
+  %537 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i759
   %538 = load ptr, ptr %537, align 16
   %.not.i760 = icmp eq ptr %538, null
   br i1 %.not.i760, label %541, label %539
@@ -2796,7 +2796,7 @@ X11_GetSym.exit765:                               ; preds = %539, %542
 
 543:                                              ; preds = %548, %X11_GetSym.exit765
   %indvars.iv.i766 = phi i64 [ 0, %X11_GetSym.exit765 ], [ %indvars.iv.next.i770, %548 ]
-  %544 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i766
+  %544 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i766
   %545 = load ptr, ptr %544, align 16
   %.not.i767 = icmp eq ptr %545, null
   br i1 %.not.i767, label %548, label %546
@@ -2822,7 +2822,7 @@ X11_GetSym.exit772:                               ; preds = %546, %549
 
 550:                                              ; preds = %555, %X11_GetSym.exit772
   %indvars.iv.i773 = phi i64 [ 0, %X11_GetSym.exit772 ], [ %indvars.iv.next.i777, %555 ]
-  %551 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i773
+  %551 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i773
   %552 = load ptr, ptr %551, align 16
   %.not.i774 = icmp eq ptr %552, null
   br i1 %.not.i774, label %555, label %553
@@ -2848,7 +2848,7 @@ X11_GetSym.exit779:                               ; preds = %553, %556
 
 557:                                              ; preds = %562, %X11_GetSym.exit779
   %indvars.iv.i780 = phi i64 [ 0, %X11_GetSym.exit779 ], [ %indvars.iv.next.i784, %562 ]
-  %558 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i780
+  %558 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i780
   %559 = load ptr, ptr %558, align 16
   %.not.i781 = icmp eq ptr %559, null
   br i1 %.not.i781, label %562, label %560
@@ -2874,7 +2874,7 @@ X11_GetSym.exit786:                               ; preds = %560, %563
 
 564:                                              ; preds = %569, %X11_GetSym.exit786
   %indvars.iv.i787 = phi i64 [ 0, %X11_GetSym.exit786 ], [ %indvars.iv.next.i791, %569 ]
-  %565 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i787
+  %565 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i787
   %566 = load ptr, ptr %565, align 16
   %.not.i788 = icmp eq ptr %566, null
   br i1 %.not.i788, label %569, label %567
@@ -2900,7 +2900,7 @@ X11_GetSym.exit793:                               ; preds = %567, %570
 
 571:                                              ; preds = %576, %X11_GetSym.exit793
   %indvars.iv.i794 = phi i64 [ 0, %X11_GetSym.exit793 ], [ %indvars.iv.next.i798, %576 ]
-  %572 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i794
+  %572 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i794
   %573 = load ptr, ptr %572, align 16
   %.not.i795 = icmp eq ptr %573, null
   br i1 %.not.i795, label %576, label %574
@@ -2926,7 +2926,7 @@ X11_GetSym.exit800:                               ; preds = %574, %577
 
 578:                                              ; preds = %583, %X11_GetSym.exit800
   %indvars.iv.i801 = phi i64 [ 0, %X11_GetSym.exit800 ], [ %indvars.iv.next.i805, %583 ]
-  %579 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i801
+  %579 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i801
   %580 = load ptr, ptr %579, align 16
   %.not.i802 = icmp eq ptr %580, null
   br i1 %.not.i802, label %583, label %581
@@ -2952,7 +2952,7 @@ X11_GetSym.exit807:                               ; preds = %581, %584
 
 585:                                              ; preds = %590, %X11_GetSym.exit807
   %indvars.iv.i808 = phi i64 [ 0, %X11_GetSym.exit807 ], [ %indvars.iv.next.i812, %590 ]
-  %586 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i808
+  %586 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i808
   %587 = load ptr, ptr %586, align 16
   %.not.i809 = icmp eq ptr %587, null
   br i1 %.not.i809, label %590, label %588
@@ -2978,7 +2978,7 @@ X11_GetSym.exit814:                               ; preds = %588, %591
 
 592:                                              ; preds = %597, %X11_GetSym.exit814
   %indvars.iv.i815 = phi i64 [ 0, %X11_GetSym.exit814 ], [ %indvars.iv.next.i819, %597 ]
-  %593 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i815
+  %593 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i815
   %594 = load ptr, ptr %593, align 16
   %.not.i816 = icmp eq ptr %594, null
   br i1 %.not.i816, label %597, label %595
@@ -3004,7 +3004,7 @@ X11_GetSym.exit821:                               ; preds = %595, %598
 
 599:                                              ; preds = %604, %X11_GetSym.exit821
   %indvars.iv.i822 = phi i64 [ 0, %X11_GetSym.exit821 ], [ %indvars.iv.next.i826, %604 ]
-  %600 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i822
+  %600 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i822
   %601 = load ptr, ptr %600, align 16
   %.not.i823 = icmp eq ptr %601, null
   br i1 %.not.i823, label %604, label %602
@@ -3030,7 +3030,7 @@ X11_GetSym.exit828:                               ; preds = %602, %605
 
 606:                                              ; preds = %611, %X11_GetSym.exit828
   %indvars.iv.i829 = phi i64 [ 0, %X11_GetSym.exit828 ], [ %indvars.iv.next.i833, %611 ]
-  %607 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i829
+  %607 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i829
   %608 = load ptr, ptr %607, align 16
   %.not.i830 = icmp eq ptr %608, null
   br i1 %.not.i830, label %611, label %609
@@ -3056,7 +3056,7 @@ X11_GetSym.exit835:                               ; preds = %609, %612
 
 613:                                              ; preds = %618, %X11_GetSym.exit835
   %indvars.iv.i836 = phi i64 [ 0, %X11_GetSym.exit835 ], [ %indvars.iv.next.i840, %618 ]
-  %614 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i836
+  %614 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i836
   %615 = load ptr, ptr %614, align 16
   %.not.i837 = icmp eq ptr %615, null
   br i1 %.not.i837, label %618, label %616
@@ -3082,7 +3082,7 @@ X11_GetSym.exit842:                               ; preds = %616, %619
 
 620:                                              ; preds = %625, %X11_GetSym.exit842
   %indvars.iv.i843 = phi i64 [ 0, %X11_GetSym.exit842 ], [ %indvars.iv.next.i847, %625 ]
-  %621 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i843
+  %621 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i843
   %622 = load ptr, ptr %621, align 16
   %.not.i844 = icmp eq ptr %622, null
   br i1 %.not.i844, label %625, label %623
@@ -3108,7 +3108,7 @@ X11_GetSym.exit849:                               ; preds = %623, %626
 
 627:                                              ; preds = %632, %X11_GetSym.exit849
   %indvars.iv.i850 = phi i64 [ 0, %X11_GetSym.exit849 ], [ %indvars.iv.next.i854, %632 ]
-  %628 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i850
+  %628 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i850
   %629 = load ptr, ptr %628, align 16
   %.not.i851 = icmp eq ptr %629, null
   br i1 %.not.i851, label %632, label %630
@@ -3134,7 +3134,7 @@ X11_GetSym.exit856:                               ; preds = %630, %633
 
 634:                                              ; preds = %639, %X11_GetSym.exit856
   %indvars.iv.i857 = phi i64 [ 0, %X11_GetSym.exit856 ], [ %indvars.iv.next.i861, %639 ]
-  %635 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i857
+  %635 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i857
   %636 = load ptr, ptr %635, align 16
   %.not.i858 = icmp eq ptr %636, null
   br i1 %.not.i858, label %639, label %637
@@ -3160,7 +3160,7 @@ X11_GetSym.exit863:                               ; preds = %637, %640
 
 641:                                              ; preds = %646, %X11_GetSym.exit863
   %indvars.iv.i864 = phi i64 [ 0, %X11_GetSym.exit863 ], [ %indvars.iv.next.i868, %646 ]
-  %642 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i864
+  %642 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i864
   %643 = load ptr, ptr %642, align 16
   %.not.i865 = icmp eq ptr %643, null
   br i1 %.not.i865, label %646, label %644
@@ -3186,7 +3186,7 @@ X11_GetSym.exit870:                               ; preds = %644, %647
 
 648:                                              ; preds = %653, %X11_GetSym.exit870
   %indvars.iv.i871 = phi i64 [ 0, %X11_GetSym.exit870 ], [ %indvars.iv.next.i875, %653 ]
-  %649 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i871
+  %649 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i871
   %650 = load ptr, ptr %649, align 16
   %.not.i872 = icmp eq ptr %650, null
   br i1 %.not.i872, label %653, label %651
@@ -3212,7 +3212,7 @@ X11_GetSym.exit877:                               ; preds = %651, %654
 
 655:                                              ; preds = %660, %X11_GetSym.exit877
   %indvars.iv.i878 = phi i64 [ 0, %X11_GetSym.exit877 ], [ %indvars.iv.next.i882, %660 ]
-  %656 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i878
+  %656 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i878
   %657 = load ptr, ptr %656, align 16
   %.not.i879 = icmp eq ptr %657, null
   br i1 %.not.i879, label %660, label %658
@@ -3238,7 +3238,7 @@ X11_GetSym.exit884:                               ; preds = %658, %661
 
 662:                                              ; preds = %667, %X11_GetSym.exit884
   %indvars.iv.i885 = phi i64 [ 0, %X11_GetSym.exit884 ], [ %indvars.iv.next.i889, %667 ]
-  %663 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i885
+  %663 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i885
   %664 = load ptr, ptr %663, align 16
   %.not.i886 = icmp eq ptr %664, null
   br i1 %.not.i886, label %667, label %665
@@ -3264,7 +3264,7 @@ X11_GetSym.exit891:                               ; preds = %665, %668
 
 669:                                              ; preds = %674, %X11_GetSym.exit891
   %indvars.iv.i892 = phi i64 [ 0, %X11_GetSym.exit891 ], [ %indvars.iv.next.i896, %674 ]
-  %670 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i892
+  %670 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i892
   %671 = load ptr, ptr %670, align 16
   %.not.i893 = icmp eq ptr %671, null
   br i1 %.not.i893, label %674, label %672
@@ -3290,7 +3290,7 @@ X11_GetSym.exit898:                               ; preds = %672, %675
 
 676:                                              ; preds = %681, %X11_GetSym.exit898
   %indvars.iv.i899 = phi i64 [ 0, %X11_GetSym.exit898 ], [ %indvars.iv.next.i903, %681 ]
-  %677 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i899
+  %677 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i899
   %678 = load ptr, ptr %677, align 16
   %.not.i900 = icmp eq ptr %678, null
   br i1 %.not.i900, label %681, label %679
@@ -3316,7 +3316,7 @@ X11_GetSym.exit905:                               ; preds = %679, %682
 
 683:                                              ; preds = %688, %X11_GetSym.exit905
   %indvars.iv.i906 = phi i64 [ 0, %X11_GetSym.exit905 ], [ %indvars.iv.next.i910, %688 ]
-  %684 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i906
+  %684 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i906
   %685 = load ptr, ptr %684, align 16
   %.not.i907 = icmp eq ptr %685, null
   br i1 %.not.i907, label %688, label %686
@@ -3342,7 +3342,7 @@ X11_GetSym.exit912:                               ; preds = %686, %689
 
 690:                                              ; preds = %695, %X11_GetSym.exit912
   %indvars.iv.i913 = phi i64 [ 0, %X11_GetSym.exit912 ], [ %indvars.iv.next.i917, %695 ]
-  %691 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i913
+  %691 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i913
   %692 = load ptr, ptr %691, align 16
   %.not.i914 = icmp eq ptr %692, null
   br i1 %.not.i914, label %695, label %693
@@ -3368,7 +3368,7 @@ X11_GetSym.exit919:                               ; preds = %693, %696
 
 697:                                              ; preds = %702, %X11_GetSym.exit919
   %indvars.iv.i920 = phi i64 [ 0, %X11_GetSym.exit919 ], [ %indvars.iv.next.i924, %702 ]
-  %698 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i920
+  %698 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i920
   %699 = load ptr, ptr %698, align 16
   %.not.i921 = icmp eq ptr %699, null
   br i1 %.not.i921, label %702, label %700
@@ -3394,7 +3394,7 @@ X11_GetSym.exit926:                               ; preds = %700, %703
 
 704:                                              ; preds = %709, %X11_GetSym.exit926
   %indvars.iv.i927 = phi i64 [ 0, %X11_GetSym.exit926 ], [ %indvars.iv.next.i931, %709 ]
-  %705 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i927
+  %705 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i927
   %706 = load ptr, ptr %705, align 16
   %.not.i928 = icmp eq ptr %706, null
   br i1 %.not.i928, label %709, label %707
@@ -3420,7 +3420,7 @@ X11_GetSym.exit933:                               ; preds = %707, %710
 
 711:                                              ; preds = %716, %X11_GetSym.exit933
   %indvars.iv.i934 = phi i64 [ 0, %X11_GetSym.exit933 ], [ %indvars.iv.next.i938, %716 ]
-  %712 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i934
+  %712 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i934
   %713 = load ptr, ptr %712, align 16
   %.not.i935 = icmp eq ptr %713, null
   br i1 %.not.i935, label %716, label %714
@@ -3446,7 +3446,7 @@ X11_GetSym.exit940:                               ; preds = %714, %717
 
 718:                                              ; preds = %723, %X11_GetSym.exit940
   %indvars.iv.i941 = phi i64 [ 0, %X11_GetSym.exit940 ], [ %indvars.iv.next.i945, %723 ]
-  %719 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i941
+  %719 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i941
   %720 = load ptr, ptr %719, align 16
   %.not.i942 = icmp eq ptr %720, null
   br i1 %.not.i942, label %723, label %721
@@ -3472,7 +3472,7 @@ X11_GetSym.exit947:                               ; preds = %721, %724
 
 725:                                              ; preds = %730, %X11_GetSym.exit947
   %indvars.iv.i948 = phi i64 [ 0, %X11_GetSym.exit947 ], [ %indvars.iv.next.i952, %730 ]
-  %726 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i948
+  %726 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i948
   %727 = load ptr, ptr %726, align 16
   %.not.i949 = icmp eq ptr %727, null
   br i1 %.not.i949, label %730, label %728
@@ -3498,7 +3498,7 @@ X11_GetSym.exit954:                               ; preds = %728, %731
 
 732:                                              ; preds = %737, %X11_GetSym.exit954
   %indvars.iv.i955 = phi i64 [ 0, %X11_GetSym.exit954 ], [ %indvars.iv.next.i959, %737 ]
-  %733 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i955
+  %733 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i955
   %734 = load ptr, ptr %733, align 16
   %.not.i956 = icmp eq ptr %734, null
   br i1 %.not.i956, label %737, label %735
@@ -3524,7 +3524,7 @@ X11_GetSym.exit961:                               ; preds = %735, %738
 
 739:                                              ; preds = %744, %X11_GetSym.exit961
   %indvars.iv.i962 = phi i64 [ 0, %X11_GetSym.exit961 ], [ %indvars.iv.next.i966, %744 ]
-  %740 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i962
+  %740 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i962
   %741 = load ptr, ptr %740, align 16
   %.not.i963 = icmp eq ptr %741, null
   br i1 %.not.i963, label %744, label %742
@@ -3550,7 +3550,7 @@ X11_GetSym.exit968:                               ; preds = %742, %745
 
 746:                                              ; preds = %751, %X11_GetSym.exit968
   %indvars.iv.i969 = phi i64 [ 0, %X11_GetSym.exit968 ], [ %indvars.iv.next.i973, %751 ]
-  %747 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i969
+  %747 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i969
   %748 = load ptr, ptr %747, align 16
   %.not.i970 = icmp eq ptr %748, null
   br i1 %.not.i970, label %751, label %749
@@ -3576,7 +3576,7 @@ X11_GetSym.exit975:                               ; preds = %749, %752
 
 753:                                              ; preds = %758, %X11_GetSym.exit975
   %indvars.iv.i976 = phi i64 [ 0, %X11_GetSym.exit975 ], [ %indvars.iv.next.i980, %758 ]
-  %754 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i976
+  %754 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i976
   %755 = load ptr, ptr %754, align 16
   %.not.i977 = icmp eq ptr %755, null
   br i1 %.not.i977, label %758, label %756
@@ -3602,7 +3602,7 @@ X11_GetSym.exit982:                               ; preds = %756, %759
 
 760:                                              ; preds = %765, %X11_GetSym.exit982
   %indvars.iv.i983 = phi i64 [ 0, %X11_GetSym.exit982 ], [ %indvars.iv.next.i987, %765 ]
-  %761 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i983
+  %761 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i983
   %762 = load ptr, ptr %761, align 16
   %.not.i984 = icmp eq ptr %762, null
   br i1 %.not.i984, label %765, label %763
@@ -3628,7 +3628,7 @@ X11_GetSym.exit989:                               ; preds = %763, %766
 
 767:                                              ; preds = %772, %X11_GetSym.exit989
   %indvars.iv.i990 = phi i64 [ 0, %X11_GetSym.exit989 ], [ %indvars.iv.next.i994, %772 ]
-  %768 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i990
+  %768 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i990
   %769 = load ptr, ptr %768, align 16
   %.not.i991 = icmp eq ptr %769, null
   br i1 %.not.i991, label %772, label %770
@@ -3654,7 +3654,7 @@ X11_GetSym.exit996:                               ; preds = %770, %773
 
 774:                                              ; preds = %779, %X11_GetSym.exit996
   %indvars.iv.i997 = phi i64 [ 0, %X11_GetSym.exit996 ], [ %indvars.iv.next.i1001, %779 ]
-  %775 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i997
+  %775 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i997
   %776 = load ptr, ptr %775, align 16
   %.not.i998 = icmp eq ptr %776, null
   br i1 %.not.i998, label %779, label %777
@@ -3680,7 +3680,7 @@ X11_GetSym.exit1003:                              ; preds = %777, %780
 
 781:                                              ; preds = %786, %X11_GetSym.exit1003
   %indvars.iv.i1004 = phi i64 [ 0, %X11_GetSym.exit1003 ], [ %indvars.iv.next.i1008, %786 ]
-  %782 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1004
+  %782 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1004
   %783 = load ptr, ptr %782, align 16
   %.not.i1005 = icmp eq ptr %783, null
   br i1 %.not.i1005, label %786, label %784
@@ -3706,7 +3706,7 @@ X11_GetSym.exit1010:                              ; preds = %784, %787
 
 788:                                              ; preds = %793, %X11_GetSym.exit1010
   %indvars.iv.i1011 = phi i64 [ 0, %X11_GetSym.exit1010 ], [ %indvars.iv.next.i1015, %793 ]
-  %789 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1011
+  %789 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1011
   %790 = load ptr, ptr %789, align 16
   %.not.i1012 = icmp eq ptr %790, null
   br i1 %.not.i1012, label %793, label %791
@@ -3732,7 +3732,7 @@ X11_GetSym.exit1017:                              ; preds = %791, %794
 
 795:                                              ; preds = %800, %X11_GetSym.exit1017
   %indvars.iv.i1018 = phi i64 [ 0, %X11_GetSym.exit1017 ], [ %indvars.iv.next.i1022, %800 ]
-  %796 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1018
+  %796 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1018
   %797 = load ptr, ptr %796, align 16
   %.not.i1019 = icmp eq ptr %797, null
   br i1 %.not.i1019, label %800, label %798
@@ -3758,7 +3758,7 @@ X11_GetSym.exit1024:                              ; preds = %798, %801
 
 802:                                              ; preds = %807, %X11_GetSym.exit1024
   %indvars.iv.i1025 = phi i64 [ 0, %X11_GetSym.exit1024 ], [ %indvars.iv.next.i1029, %807 ]
-  %803 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1025
+  %803 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1025
   %804 = load ptr, ptr %803, align 16
   %.not.i1026 = icmp eq ptr %804, null
   br i1 %.not.i1026, label %807, label %805
@@ -3784,7 +3784,7 @@ X11_GetSym.exit1031:                              ; preds = %805, %808
 
 809:                                              ; preds = %814, %X11_GetSym.exit1031
   %indvars.iv.i1032 = phi i64 [ 0, %X11_GetSym.exit1031 ], [ %indvars.iv.next.i1036, %814 ]
-  %810 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1032
+  %810 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1032
   %811 = load ptr, ptr %810, align 16
   %.not.i1033 = icmp eq ptr %811, null
   br i1 %.not.i1033, label %814, label %812
@@ -3810,7 +3810,7 @@ X11_GetSym.exit1038:                              ; preds = %812, %815
 
 816:                                              ; preds = %821, %X11_GetSym.exit1038
   %indvars.iv.i1039 = phi i64 [ 0, %X11_GetSym.exit1038 ], [ %indvars.iv.next.i1043, %821 ]
-  %817 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1039
+  %817 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1039
   %818 = load ptr, ptr %817, align 16
   %.not.i1040 = icmp eq ptr %818, null
   br i1 %.not.i1040, label %821, label %819
@@ -3836,7 +3836,7 @@ X11_GetSym.exit1045:                              ; preds = %819, %822
 
 823:                                              ; preds = %828, %X11_GetSym.exit1045
   %indvars.iv.i1046 = phi i64 [ 0, %X11_GetSym.exit1045 ], [ %indvars.iv.next.i1050, %828 ]
-  %824 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1046
+  %824 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1046
   %825 = load ptr, ptr %824, align 16
   %.not.i1047 = icmp eq ptr %825, null
   br i1 %.not.i1047, label %828, label %826
@@ -3862,7 +3862,7 @@ X11_GetSym.exit1052:                              ; preds = %826, %829
 
 830:                                              ; preds = %835, %X11_GetSym.exit1052
   %indvars.iv.i1053 = phi i64 [ 0, %X11_GetSym.exit1052 ], [ %indvars.iv.next.i1057, %835 ]
-  %831 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1053
+  %831 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1053
   %832 = load ptr, ptr %831, align 16
   %.not.i1054 = icmp eq ptr %832, null
   br i1 %.not.i1054, label %835, label %833
@@ -3888,7 +3888,7 @@ X11_GetSym.exit1059:                              ; preds = %833, %836
 
 837:                                              ; preds = %842, %X11_GetSym.exit1059
   %indvars.iv.i1060 = phi i64 [ 0, %X11_GetSym.exit1059 ], [ %indvars.iv.next.i1064, %842 ]
-  %838 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1060
+  %838 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1060
   %839 = load ptr, ptr %838, align 16
   %.not.i1061 = icmp eq ptr %839, null
   br i1 %.not.i1061, label %842, label %840
@@ -3914,7 +3914,7 @@ X11_GetSym.exit1066:                              ; preds = %840, %843
 
 844:                                              ; preds = %849, %X11_GetSym.exit1066
   %indvars.iv.i1067 = phi i64 [ 0, %X11_GetSym.exit1066 ], [ %indvars.iv.next.i1071, %849 ]
-  %845 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1067
+  %845 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1067
   %846 = load ptr, ptr %845, align 16
   %.not.i1068 = icmp eq ptr %846, null
   br i1 %.not.i1068, label %849, label %847
@@ -3940,7 +3940,7 @@ X11_GetSym.exit1073:                              ; preds = %847, %850
 
 851:                                              ; preds = %856, %X11_GetSym.exit1073
   %indvars.iv.i1074 = phi i64 [ 0, %X11_GetSym.exit1073 ], [ %indvars.iv.next.i1078, %856 ]
-  %852 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1074
+  %852 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1074
   %853 = load ptr, ptr %852, align 16
   %.not.i1075 = icmp eq ptr %853, null
   br i1 %.not.i1075, label %856, label %854
@@ -3966,7 +3966,7 @@ X11_GetSym.exit1080:                              ; preds = %854, %857
 
 858:                                              ; preds = %863, %X11_GetSym.exit1080
   %indvars.iv.i1081 = phi i64 [ 0, %X11_GetSym.exit1080 ], [ %indvars.iv.next.i1085, %863 ]
-  %859 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1081
+  %859 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1081
   %860 = load ptr, ptr %859, align 16
   %.not.i1082 = icmp eq ptr %860, null
   br i1 %.not.i1082, label %863, label %861
@@ -3992,7 +3992,7 @@ X11_GetSym.exit1087:                              ; preds = %861, %864
 
 865:                                              ; preds = %870, %X11_GetSym.exit1087
   %indvars.iv.i1088 = phi i64 [ 0, %X11_GetSym.exit1087 ], [ %indvars.iv.next.i1092, %870 ]
-  %866 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1088
+  %866 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1088
   %867 = load ptr, ptr %866, align 16
   %.not.i1089 = icmp eq ptr %867, null
   br i1 %.not.i1089, label %870, label %868
@@ -4018,7 +4018,7 @@ X11_GetSym.exit1094:                              ; preds = %868, %871
 
 872:                                              ; preds = %877, %X11_GetSym.exit1094
   %indvars.iv.i1095 = phi i64 [ 0, %X11_GetSym.exit1094 ], [ %indvars.iv.next.i1099, %877 ]
-  %873 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1095
+  %873 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1095
   %874 = load ptr, ptr %873, align 16
   %.not.i1096 = icmp eq ptr %874, null
   br i1 %.not.i1096, label %877, label %875
@@ -4044,7 +4044,7 @@ X11_GetSym.exit1101:                              ; preds = %875, %878
 
 879:                                              ; preds = %884, %X11_GetSym.exit1101
   %indvars.iv.i1102 = phi i64 [ 0, %X11_GetSym.exit1101 ], [ %indvars.iv.next.i1106, %884 ]
-  %880 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1102
+  %880 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1102
   %881 = load ptr, ptr %880, align 16
   %.not.i1103 = icmp eq ptr %881, null
   br i1 %.not.i1103, label %884, label %882
@@ -4070,7 +4070,7 @@ X11_GetSym.exit1108:                              ; preds = %882, %885
 
 886:                                              ; preds = %891, %X11_GetSym.exit1108
   %indvars.iv.i1109 = phi i64 [ 0, %X11_GetSym.exit1108 ], [ %indvars.iv.next.i1113, %891 ]
-  %887 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1109
+  %887 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1109
   %888 = load ptr, ptr %887, align 16
   %.not.i1110 = icmp eq ptr %888, null
   br i1 %.not.i1110, label %891, label %889
@@ -4096,7 +4096,7 @@ X11_GetSym.exit1115:                              ; preds = %889, %892
 
 893:                                              ; preds = %898, %X11_GetSym.exit1115
   %indvars.iv.i1116 = phi i64 [ 0, %X11_GetSym.exit1115 ], [ %indvars.iv.next.i1120, %898 ]
-  %894 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1116
+  %894 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1116
   %895 = load ptr, ptr %894, align 16
   %.not.i1117 = icmp eq ptr %895, null
   br i1 %.not.i1117, label %898, label %896
@@ -4122,7 +4122,7 @@ X11_GetSym.exit1122:                              ; preds = %896, %899
 
 900:                                              ; preds = %905, %X11_GetSym.exit1122
   %indvars.iv.i1123 = phi i64 [ 0, %X11_GetSym.exit1122 ], [ %indvars.iv.next.i1127, %905 ]
-  %901 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1123
+  %901 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1123
   %902 = load ptr, ptr %901, align 16
   %.not.i1124 = icmp eq ptr %902, null
   br i1 %.not.i1124, label %905, label %903
@@ -4148,7 +4148,7 @@ X11_GetSym.exit1129:                              ; preds = %903, %906
 
 907:                                              ; preds = %912, %X11_GetSym.exit1129
   %indvars.iv.i1130 = phi i64 [ 0, %X11_GetSym.exit1129 ], [ %indvars.iv.next.i1134, %912 ]
-  %908 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1130
+  %908 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1130
   %909 = load ptr, ptr %908, align 16
   %.not.i1131 = icmp eq ptr %909, null
   br i1 %.not.i1131, label %912, label %910
@@ -4174,7 +4174,7 @@ X11_GetSym.exit1136:                              ; preds = %910, %913
 
 914:                                              ; preds = %919, %X11_GetSym.exit1136
   %indvars.iv.i1137 = phi i64 [ 0, %X11_GetSym.exit1136 ], [ %indvars.iv.next.i1141, %919 ]
-  %915 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1137
+  %915 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1137
   %916 = load ptr, ptr %915, align 16
   %.not.i1138 = icmp eq ptr %916, null
   br i1 %.not.i1138, label %919, label %917
@@ -4200,7 +4200,7 @@ X11_GetSym.exit1143:                              ; preds = %917, %920
 
 921:                                              ; preds = %926, %X11_GetSym.exit1143
   %indvars.iv.i1144 = phi i64 [ 0, %X11_GetSym.exit1143 ], [ %indvars.iv.next.i1148, %926 ]
-  %922 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1144
+  %922 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1144
   %923 = load ptr, ptr %922, align 16
   %.not.i1145 = icmp eq ptr %923, null
   br i1 %.not.i1145, label %926, label %924
@@ -4226,7 +4226,7 @@ X11_GetSym.exit1150:                              ; preds = %924, %927
 
 928:                                              ; preds = %933, %X11_GetSym.exit1150
   %indvars.iv.i1151 = phi i64 [ 0, %X11_GetSym.exit1150 ], [ %indvars.iv.next.i1155, %933 ]
-  %929 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1151
+  %929 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1151
   %930 = load ptr, ptr %929, align 16
   %.not.i1152 = icmp eq ptr %930, null
   br i1 %.not.i1152, label %933, label %931
@@ -4252,7 +4252,7 @@ X11_GetSym.exit1157:                              ; preds = %931, %934
 
 935:                                              ; preds = %940, %X11_GetSym.exit1157
   %indvars.iv.i1158 = phi i64 [ 0, %X11_GetSym.exit1157 ], [ %indvars.iv.next.i1162, %940 ]
-  %936 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1158
+  %936 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1158
   %937 = load ptr, ptr %936, align 16
   %.not.i1159 = icmp eq ptr %937, null
   br i1 %.not.i1159, label %940, label %938
@@ -4278,7 +4278,7 @@ X11_GetSym.exit1164:                              ; preds = %938, %941
 
 942:                                              ; preds = %947, %X11_GetSym.exit1164
   %indvars.iv.i1165 = phi i64 [ 0, %X11_GetSym.exit1164 ], [ %indvars.iv.next.i1169, %947 ]
-  %943 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1165
+  %943 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1165
   %944 = load ptr, ptr %943, align 16
   %.not.i1166 = icmp eq ptr %944, null
   br i1 %.not.i1166, label %947, label %945
@@ -4304,7 +4304,7 @@ X11_GetSym.exit1171:                              ; preds = %945, %948
 
 949:                                              ; preds = %954, %X11_GetSym.exit1171
   %indvars.iv.i1172 = phi i64 [ 0, %X11_GetSym.exit1171 ], [ %indvars.iv.next.i1176, %954 ]
-  %950 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1172
+  %950 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1172
   %951 = load ptr, ptr %950, align 16
   %.not.i1173 = icmp eq ptr %951, null
   br i1 %.not.i1173, label %954, label %952
@@ -4330,7 +4330,7 @@ X11_GetSym.exit1178:                              ; preds = %952, %955
 
 956:                                              ; preds = %961, %X11_GetSym.exit1178
   %indvars.iv.i1179 = phi i64 [ 0, %X11_GetSym.exit1178 ], [ %indvars.iv.next.i1183, %961 ]
-  %957 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1179
+  %957 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1179
   %958 = load ptr, ptr %957, align 16
   %.not.i1180 = icmp eq ptr %958, null
   br i1 %.not.i1180, label %961, label %959
@@ -4356,7 +4356,7 @@ X11_GetSym.exit1185:                              ; preds = %959, %962
 
 963:                                              ; preds = %968, %X11_GetSym.exit1185
   %indvars.iv.i1186 = phi i64 [ 0, %X11_GetSym.exit1185 ], [ %indvars.iv.next.i1190, %968 ]
-  %964 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1186
+  %964 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1186
   %965 = load ptr, ptr %964, align 16
   %.not.i1187 = icmp eq ptr %965, null
   br i1 %.not.i1187, label %968, label %966
@@ -4382,7 +4382,7 @@ X11_GetSym.exit1192:                              ; preds = %966, %969
 
 970:                                              ; preds = %975, %X11_GetSym.exit1192
   %indvars.iv.i1193 = phi i64 [ 0, %X11_GetSym.exit1192 ], [ %indvars.iv.next.i1197, %975 ]
-  %971 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1193
+  %971 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1193
   %972 = load ptr, ptr %971, align 16
   %.not.i1194 = icmp eq ptr %972, null
   br i1 %.not.i1194, label %975, label %973
@@ -4408,7 +4408,7 @@ X11_GetSym.exit1199:                              ; preds = %973, %976
 
 977:                                              ; preds = %982, %X11_GetSym.exit1199
   %indvars.iv.i1200 = phi i64 [ 0, %X11_GetSym.exit1199 ], [ %indvars.iv.next.i1204, %982 ]
-  %978 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1200
+  %978 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1200
   %979 = load ptr, ptr %978, align 16
   %.not.i1201 = icmp eq ptr %979, null
   br i1 %.not.i1201, label %982, label %980
@@ -4434,7 +4434,7 @@ X11_GetSym.exit1206:                              ; preds = %980, %983
 
 984:                                              ; preds = %989, %X11_GetSym.exit1206
   %indvars.iv.i1207 = phi i64 [ 0, %X11_GetSym.exit1206 ], [ %indvars.iv.next.i1211, %989 ]
-  %985 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1207
+  %985 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1207
   %986 = load ptr, ptr %985, align 16
   %.not.i1208 = icmp eq ptr %986, null
   br i1 %.not.i1208, label %989, label %987
@@ -4460,7 +4460,7 @@ X11_GetSym.exit1213:                              ; preds = %987, %990
 
 991:                                              ; preds = %996, %X11_GetSym.exit1213
   %indvars.iv.i1214 = phi i64 [ 0, %X11_GetSym.exit1213 ], [ %indvars.iv.next.i1218, %996 ]
-  %992 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1214
+  %992 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1214
   %993 = load ptr, ptr %992, align 16
   %.not.i1215 = icmp eq ptr %993, null
   br i1 %.not.i1215, label %996, label %994
@@ -4486,7 +4486,7 @@ X11_GetSym.exit1220:                              ; preds = %994, %997
 
 998:                                              ; preds = %1003, %X11_GetSym.exit1220
   %indvars.iv.i1221 = phi i64 [ 0, %X11_GetSym.exit1220 ], [ %indvars.iv.next.i1225, %1003 ]
-  %999 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1221
+  %999 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1221
   %1000 = load ptr, ptr %999, align 16
   %.not.i1222 = icmp eq ptr %1000, null
   br i1 %.not.i1222, label %1003, label %1001
@@ -4512,7 +4512,7 @@ X11_GetSym.exit1227:                              ; preds = %1001, %1004
 
 1005:                                             ; preds = %1010, %X11_GetSym.exit1227
   %indvars.iv.i1228 = phi i64 [ 0, %X11_GetSym.exit1227 ], [ %indvars.iv.next.i1232, %1010 ]
-  %1006 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1228
+  %1006 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1228
   %1007 = load ptr, ptr %1006, align 16
   %.not.i1229 = icmp eq ptr %1007, null
   br i1 %.not.i1229, label %1010, label %1008
@@ -4538,7 +4538,7 @@ X11_GetSym.exit1234:                              ; preds = %1008, %1011
 
 1012:                                             ; preds = %1017, %X11_GetSym.exit1234
   %indvars.iv.i1235 = phi i64 [ 0, %X11_GetSym.exit1234 ], [ %indvars.iv.next.i1239, %1017 ]
-  %1013 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1235
+  %1013 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1235
   %1014 = load ptr, ptr %1013, align 16
   %.not.i1236 = icmp eq ptr %1014, null
   br i1 %.not.i1236, label %1017, label %1015
@@ -4564,7 +4564,7 @@ X11_GetSym.exit1241:                              ; preds = %1015, %1018
 
 1019:                                             ; preds = %1024, %X11_GetSym.exit1241
   %indvars.iv.i1242 = phi i64 [ 0, %X11_GetSym.exit1241 ], [ %indvars.iv.next.i1246, %1024 ]
-  %1020 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1242
+  %1020 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1242
   %1021 = load ptr, ptr %1020, align 16
   %.not.i1243 = icmp eq ptr %1021, null
   br i1 %.not.i1243, label %1024, label %1022
@@ -4590,7 +4590,7 @@ X11_GetSym.exit1248:                              ; preds = %1022, %1025
 
 1026:                                             ; preds = %1031, %X11_GetSym.exit1248
   %indvars.iv.i1249 = phi i64 [ 0, %X11_GetSym.exit1248 ], [ %indvars.iv.next.i1253, %1031 ]
-  %1027 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1249
+  %1027 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1249
   %1028 = load ptr, ptr %1027, align 16
   %.not.i1250 = icmp eq ptr %1028, null
   br i1 %.not.i1250, label %1031, label %1029
@@ -4616,7 +4616,7 @@ X11_GetSym.exit1255:                              ; preds = %1029, %1032
 
 1033:                                             ; preds = %1038, %X11_GetSym.exit1255
   %indvars.iv.i1256 = phi i64 [ 0, %X11_GetSym.exit1255 ], [ %indvars.iv.next.i1260, %1038 ]
-  %1034 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1256
+  %1034 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1256
   %1035 = load ptr, ptr %1034, align 16
   %.not.i1257 = icmp eq ptr %1035, null
   br i1 %.not.i1257, label %1038, label %1036
@@ -4642,7 +4642,7 @@ X11_GetSym.exit1262:                              ; preds = %1036, %1039
 
 1040:                                             ; preds = %1045, %X11_GetSym.exit1262
   %indvars.iv.i1263 = phi i64 [ 0, %X11_GetSym.exit1262 ], [ %indvars.iv.next.i1267, %1045 ]
-  %1041 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1263
+  %1041 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1263
   %1042 = load ptr, ptr %1041, align 16
   %.not.i1264 = icmp eq ptr %1042, null
   br i1 %.not.i1264, label %1045, label %1043
@@ -4668,7 +4668,7 @@ X11_GetSym.exit1269:                              ; preds = %1043, %1046
 
 1047:                                             ; preds = %1052, %X11_GetSym.exit1269
   %indvars.iv.i1270 = phi i64 [ 0, %X11_GetSym.exit1269 ], [ %indvars.iv.next.i1274, %1052 ]
-  %1048 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1270
+  %1048 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1270
   %1049 = load ptr, ptr %1048, align 16
   %.not.i1271 = icmp eq ptr %1049, null
   br i1 %.not.i1271, label %1052, label %1050
@@ -4694,7 +4694,7 @@ X11_GetSym.exit1276:                              ; preds = %1050, %1053
 
 1054:                                             ; preds = %1059, %X11_GetSym.exit1276
   %indvars.iv.i1277 = phi i64 [ 0, %X11_GetSym.exit1276 ], [ %indvars.iv.next.i1281, %1059 ]
-  %1055 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1277
+  %1055 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1277
   %1056 = load ptr, ptr %1055, align 16
   %.not.i1278 = icmp eq ptr %1056, null
   br i1 %.not.i1278, label %1059, label %1057
@@ -4720,7 +4720,7 @@ X11_GetSym.exit1283:                              ; preds = %1057, %1060
 
 1061:                                             ; preds = %1066, %X11_GetSym.exit1283
   %indvars.iv.i1284 = phi i64 [ 0, %X11_GetSym.exit1283 ], [ %indvars.iv.next.i1288, %1066 ]
-  %1062 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1284
+  %1062 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1284
   %1063 = load ptr, ptr %1062, align 16
   %.not.i1285 = icmp eq ptr %1063, null
   br i1 %.not.i1285, label %1066, label %1064
@@ -4746,7 +4746,7 @@ X11_GetSym.exit1290:                              ; preds = %1064, %1067
 
 1068:                                             ; preds = %1073, %X11_GetSym.exit1290
   %indvars.iv.i1291 = phi i64 [ 0, %X11_GetSym.exit1290 ], [ %indvars.iv.next.i1295, %1073 ]
-  %1069 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1291
+  %1069 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1291
   %1070 = load ptr, ptr %1069, align 16
   %.not.i1292 = icmp eq ptr %1070, null
   br i1 %.not.i1292, label %1073, label %1071
@@ -4772,7 +4772,7 @@ X11_GetSym.exit1297:                              ; preds = %1071, %1074
 
 1075:                                             ; preds = %1080, %X11_GetSym.exit1297
   %indvars.iv.i1298 = phi i64 [ 0, %X11_GetSym.exit1297 ], [ %indvars.iv.next.i1302, %1080 ]
-  %1076 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1298
+  %1076 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1298
   %1077 = load ptr, ptr %1076, align 16
   %.not.i1299 = icmp eq ptr %1077, null
   br i1 %.not.i1299, label %1080, label %1078
@@ -4798,7 +4798,7 @@ X11_GetSym.exit1304:                              ; preds = %1078, %1081
 
 1082:                                             ; preds = %1087, %X11_GetSym.exit1304
   %indvars.iv.i1305 = phi i64 [ 0, %X11_GetSym.exit1304 ], [ %indvars.iv.next.i1309, %1087 ]
-  %1083 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1305
+  %1083 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1305
   %1084 = load ptr, ptr %1083, align 16
   %.not.i1306 = icmp eq ptr %1084, null
   br i1 %.not.i1306, label %1087, label %1085
@@ -4824,7 +4824,7 @@ X11_GetSym.exit1311:                              ; preds = %1085, %1088
 
 1089:                                             ; preds = %1094, %X11_GetSym.exit1311
   %indvars.iv.i1312 = phi i64 [ 0, %X11_GetSym.exit1311 ], [ %indvars.iv.next.i1316, %1094 ]
-  %1090 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1312
+  %1090 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1312
   %1091 = load ptr, ptr %1090, align 16
   %.not.i1313 = icmp eq ptr %1091, null
   br i1 %.not.i1313, label %1094, label %1092
@@ -4850,7 +4850,7 @@ X11_GetSym.exit1318:                              ; preds = %1092, %1095
 
 1096:                                             ; preds = %1101, %X11_GetSym.exit1318
   %indvars.iv.i1319 = phi i64 [ 0, %X11_GetSym.exit1318 ], [ %indvars.iv.next.i1323, %1101 ]
-  %1097 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1319
+  %1097 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1319
   %1098 = load ptr, ptr %1097, align 16
   %.not.i1320 = icmp eq ptr %1098, null
   br i1 %.not.i1320, label %1101, label %1099
@@ -4876,7 +4876,7 @@ X11_GetSym.exit1325:                              ; preds = %1099, %1102
 
 1103:                                             ; preds = %1108, %X11_GetSym.exit1325
   %indvars.iv.i1326 = phi i64 [ 0, %X11_GetSym.exit1325 ], [ %indvars.iv.next.i1330, %1108 ]
-  %1104 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1326
+  %1104 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1326
   %1105 = load ptr, ptr %1104, align 16
   %.not.i1327 = icmp eq ptr %1105, null
   br i1 %.not.i1327, label %1108, label %1106
@@ -4902,7 +4902,7 @@ X11_GetSym.exit1332:                              ; preds = %1106, %1109
 
 1110:                                             ; preds = %1115, %X11_GetSym.exit1332
   %indvars.iv.i1333 = phi i64 [ 0, %X11_GetSym.exit1332 ], [ %indvars.iv.next.i1337, %1115 ]
-  %1111 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1333
+  %1111 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1333
   %1112 = load ptr, ptr %1111, align 16
   %.not.i1334 = icmp eq ptr %1112, null
   br i1 %.not.i1334, label %1115, label %1113
@@ -4928,7 +4928,7 @@ X11_GetSym.exit1339:                              ; preds = %1113, %1116
 
 1117:                                             ; preds = %1122, %X11_GetSym.exit1339
   %indvars.iv.i1340 = phi i64 [ 0, %X11_GetSym.exit1339 ], [ %indvars.iv.next.i1344, %1122 ]
-  %1118 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1340
+  %1118 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1340
   %1119 = load ptr, ptr %1118, align 16
   %.not.i1341 = icmp eq ptr %1119, null
   br i1 %.not.i1341, label %1122, label %1120
@@ -4954,7 +4954,7 @@ X11_GetSym.exit1346:                              ; preds = %1120, %1123
 
 1124:                                             ; preds = %1129, %X11_GetSym.exit1346
   %indvars.iv.i1347 = phi i64 [ 0, %X11_GetSym.exit1346 ], [ %indvars.iv.next.i1351, %1129 ]
-  %1125 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1347
+  %1125 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1347
   %1126 = load ptr, ptr %1125, align 16
   %.not.i1348 = icmp eq ptr %1126, null
   br i1 %.not.i1348, label %1129, label %1127
@@ -4980,7 +4980,7 @@ X11_GetSym.exit1353:                              ; preds = %1127, %1130
 
 1131:                                             ; preds = %1136, %X11_GetSym.exit1353
   %indvars.iv.i1354 = phi i64 [ 0, %X11_GetSym.exit1353 ], [ %indvars.iv.next.i1358, %1136 ]
-  %1132 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1354
+  %1132 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1354
   %1133 = load ptr, ptr %1132, align 16
   %.not.i1355 = icmp eq ptr %1133, null
   br i1 %.not.i1355, label %1136, label %1134
@@ -5006,7 +5006,7 @@ X11_GetSym.exit1360:                              ; preds = %1134, %1137
 
 1138:                                             ; preds = %1143, %X11_GetSym.exit1360
   %indvars.iv.i1361 = phi i64 [ 0, %X11_GetSym.exit1360 ], [ %indvars.iv.next.i1365, %1143 ]
-  %1139 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1361
+  %1139 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1361
   %1140 = load ptr, ptr %1139, align 16
   %.not.i1362 = icmp eq ptr %1140, null
   br i1 %.not.i1362, label %1143, label %1141
@@ -5032,7 +5032,7 @@ X11_GetSym.exit1367:                              ; preds = %1141, %1144
 
 1145:                                             ; preds = %1150, %X11_GetSym.exit1367
   %indvars.iv.i1368 = phi i64 [ 0, %X11_GetSym.exit1367 ], [ %indvars.iv.next.i1372, %1150 ]
-  %1146 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1368
+  %1146 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1368
   %1147 = load ptr, ptr %1146, align 16
   %.not.i1369 = icmp eq ptr %1147, null
   br i1 %.not.i1369, label %1150, label %1148
@@ -5058,7 +5058,7 @@ X11_GetSym.exit1374:                              ; preds = %1148, %1151
 
 1152:                                             ; preds = %1157, %X11_GetSym.exit1374
   %indvars.iv.i1375 = phi i64 [ 0, %X11_GetSym.exit1374 ], [ %indvars.iv.next.i1379, %1157 ]
-  %1153 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1375
+  %1153 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1375
   %1154 = load ptr, ptr %1153, align 16
   %.not.i1376 = icmp eq ptr %1154, null
   br i1 %.not.i1376, label %1157, label %1155
@@ -5084,7 +5084,7 @@ X11_GetSym.exit1381:                              ; preds = %1155, %1158
 
 1159:                                             ; preds = %1164, %X11_GetSym.exit1381
   %indvars.iv.i1382 = phi i64 [ 0, %X11_GetSym.exit1381 ], [ %indvars.iv.next.i1386, %1164 ]
-  %1160 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1382
+  %1160 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1382
   %1161 = load ptr, ptr %1160, align 16
   %.not.i1383 = icmp eq ptr %1161, null
   br i1 %.not.i1383, label %1164, label %1162
@@ -5110,7 +5110,7 @@ X11_GetSym.exit1388:                              ; preds = %1162, %1165
 
 1166:                                             ; preds = %1171, %X11_GetSym.exit1388
   %indvars.iv.i1389 = phi i64 [ 0, %X11_GetSym.exit1388 ], [ %indvars.iv.next.i1393, %1171 ]
-  %1167 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1389
+  %1167 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1389
   %1168 = load ptr, ptr %1167, align 16
   %.not.i1390 = icmp eq ptr %1168, null
   br i1 %.not.i1390, label %1171, label %1169
@@ -5136,7 +5136,7 @@ X11_GetSym.exit1395:                              ; preds = %1169, %1172
 
 1173:                                             ; preds = %1178, %X11_GetSym.exit1395
   %indvars.iv.i1396 = phi i64 [ 0, %X11_GetSym.exit1395 ], [ %indvars.iv.next.i1400, %1178 ]
-  %1174 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1396
+  %1174 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1396
   %1175 = load ptr, ptr %1174, align 16
   %.not.i1397 = icmp eq ptr %1175, null
   br i1 %.not.i1397, label %1178, label %1176
@@ -5162,7 +5162,7 @@ X11_GetSym.exit1402:                              ; preds = %1176, %1179
 
 1180:                                             ; preds = %1185, %X11_GetSym.exit1402
   %indvars.iv.i1403 = phi i64 [ 0, %X11_GetSym.exit1402 ], [ %indvars.iv.next.i1407, %1185 ]
-  %1181 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1403
+  %1181 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1403
   %1182 = load ptr, ptr %1181, align 16
   %.not.i1404 = icmp eq ptr %1182, null
   br i1 %.not.i1404, label %1185, label %1183
@@ -5188,7 +5188,7 @@ X11_GetSym.exit1409:                              ; preds = %1183, %1186
 
 1187:                                             ; preds = %1192, %X11_GetSym.exit1409
   %indvars.iv.i1410 = phi i64 [ 0, %X11_GetSym.exit1409 ], [ %indvars.iv.next.i1414, %1192 ]
-  %1188 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1410
+  %1188 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1410
   %1189 = load ptr, ptr %1188, align 16
   %.not.i1411 = icmp eq ptr %1189, null
   br i1 %.not.i1411, label %1192, label %1190
@@ -5214,7 +5214,7 @@ X11_GetSym.exit1416:                              ; preds = %1190, %1193
 
 1194:                                             ; preds = %1199, %X11_GetSym.exit1416
   %indvars.iv.i1417 = phi i64 [ 0, %X11_GetSym.exit1416 ], [ %indvars.iv.next.i1421, %1199 ]
-  %1195 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1417
+  %1195 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1417
   %1196 = load ptr, ptr %1195, align 16
   %.not.i1418 = icmp eq ptr %1196, null
   br i1 %.not.i1418, label %1199, label %1197
@@ -5240,7 +5240,7 @@ X11_GetSym.exit1423:                              ; preds = %1197, %1200
 
 1201:                                             ; preds = %1206, %X11_GetSym.exit1423
   %indvars.iv.i1424 = phi i64 [ 0, %X11_GetSym.exit1423 ], [ %indvars.iv.next.i1428, %1206 ]
-  %1202 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1424
+  %1202 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1424
   %1203 = load ptr, ptr %1202, align 16
   %.not.i1425 = icmp eq ptr %1203, null
   br i1 %.not.i1425, label %1206, label %1204
@@ -5266,7 +5266,7 @@ X11_GetSym.exit1430:                              ; preds = %1204, %1207
 
 1208:                                             ; preds = %1213, %X11_GetSym.exit1430
   %indvars.iv.i1431 = phi i64 [ 0, %X11_GetSym.exit1430 ], [ %indvars.iv.next.i1435, %1213 ]
-  %1209 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1431
+  %1209 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1431
   %1210 = load ptr, ptr %1209, align 16
   %.not.i1432 = icmp eq ptr %1210, null
   br i1 %.not.i1432, label %1213, label %1211
@@ -5292,7 +5292,7 @@ X11_GetSym.exit1437:                              ; preds = %1211, %1214
 
 1215:                                             ; preds = %1220, %X11_GetSym.exit1437
   %indvars.iv.i1438 = phi i64 [ 0, %X11_GetSym.exit1437 ], [ %indvars.iv.next.i1442, %1220 ]
-  %1216 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1438
+  %1216 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1438
   %1217 = load ptr, ptr %1216, align 16
   %.not.i1439 = icmp eq ptr %1217, null
   br i1 %.not.i1439, label %1220, label %1218
@@ -5318,7 +5318,7 @@ X11_GetSym.exit1444:                              ; preds = %1218, %1221
 
 1222:                                             ; preds = %1227, %X11_GetSym.exit1444
   %indvars.iv.i1445 = phi i64 [ 0, %X11_GetSym.exit1444 ], [ %indvars.iv.next.i1449, %1227 ]
-  %1223 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1445
+  %1223 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1445
   %1224 = load ptr, ptr %1223, align 16
   %.not.i1446 = icmp eq ptr %1224, null
   br i1 %.not.i1446, label %1227, label %1225
@@ -5344,7 +5344,7 @@ X11_GetSym.exit1451:                              ; preds = %1225, %1228
 
 1229:                                             ; preds = %1234, %X11_GetSym.exit1451
   %indvars.iv.i1452 = phi i64 [ 0, %X11_GetSym.exit1451 ], [ %indvars.iv.next.i1456, %1234 ]
-  %1230 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1452
+  %1230 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1452
   %1231 = load ptr, ptr %1230, align 16
   %.not.i1453 = icmp eq ptr %1231, null
   br i1 %.not.i1453, label %1234, label %1232
@@ -5370,7 +5370,7 @@ X11_GetSym.exit1458:                              ; preds = %1232, %1235
 
 1236:                                             ; preds = %1241, %X11_GetSym.exit1458
   %indvars.iv.i1459 = phi i64 [ 0, %X11_GetSym.exit1458 ], [ %indvars.iv.next.i1463, %1241 ]
-  %1237 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1459
+  %1237 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1459
   %1238 = load ptr, ptr %1237, align 16
   %.not.i1460 = icmp eq ptr %1238, null
   br i1 %.not.i1460, label %1241, label %1239
@@ -5396,7 +5396,7 @@ X11_GetSym.exit1465:                              ; preds = %1239, %1242
 
 1243:                                             ; preds = %1248, %X11_GetSym.exit1465
   %indvars.iv.i1466 = phi i64 [ 0, %X11_GetSym.exit1465 ], [ %indvars.iv.next.i1470, %1248 ]
-  %1244 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1466
+  %1244 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1466
   %1245 = load ptr, ptr %1244, align 16
   %.not.i1467 = icmp eq ptr %1245, null
   br i1 %.not.i1467, label %1248, label %1246
@@ -5422,7 +5422,7 @@ X11_GetSym.exit1472:                              ; preds = %1246, %1249
 
 1250:                                             ; preds = %1255, %X11_GetSym.exit1472
   %indvars.iv.i1473 = phi i64 [ 0, %X11_GetSym.exit1472 ], [ %indvars.iv.next.i1477, %1255 ]
-  %1251 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1473
+  %1251 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1473
   %1252 = load ptr, ptr %1251, align 16
   %.not.i1474 = icmp eq ptr %1252, null
   br i1 %.not.i1474, label %1255, label %1253
@@ -5448,7 +5448,7 @@ X11_GetSym.exit1479:                              ; preds = %1253, %1256
 
 1257:                                             ; preds = %1262, %X11_GetSym.exit1479
   %indvars.iv.i1480 = phi i64 [ 0, %X11_GetSym.exit1479 ], [ %indvars.iv.next.i1484, %1262 ]
-  %1258 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1480
+  %1258 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1480
   %1259 = load ptr, ptr %1258, align 16
   %.not.i1481 = icmp eq ptr %1259, null
   br i1 %.not.i1481, label %1262, label %1260
@@ -5474,7 +5474,7 @@ X11_GetSym.exit1486:                              ; preds = %1260, %1263
 
 1264:                                             ; preds = %1269, %X11_GetSym.exit1486
   %indvars.iv.i1487 = phi i64 [ 0, %X11_GetSym.exit1486 ], [ %indvars.iv.next.i1491, %1269 ]
-  %1265 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1487
+  %1265 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1487
   %1266 = load ptr, ptr %1265, align 16
   %.not.i1488 = icmp eq ptr %1266, null
   br i1 %.not.i1488, label %1269, label %1267
@@ -5500,7 +5500,7 @@ X11_GetSym.exit1493:                              ; preds = %1267, %1270
 
 1271:                                             ; preds = %1276, %X11_GetSym.exit1493
   %indvars.iv.i1494 = phi i64 [ 0, %X11_GetSym.exit1493 ], [ %indvars.iv.next.i1498, %1276 ]
-  %1272 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1494
+  %1272 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1494
   %1273 = load ptr, ptr %1272, align 16
   %.not.i1495 = icmp eq ptr %1273, null
   br i1 %.not.i1495, label %1276, label %1274
@@ -5526,7 +5526,7 @@ X11_GetSym.exit1500:                              ; preds = %1274, %1277
 
 1278:                                             ; preds = %1283, %X11_GetSym.exit1500
   %indvars.iv.i1501 = phi i64 [ 0, %X11_GetSym.exit1500 ], [ %indvars.iv.next.i1505, %1283 ]
-  %1279 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1501
+  %1279 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1501
   %1280 = load ptr, ptr %1279, align 16
   %.not.i1502 = icmp eq ptr %1280, null
   br i1 %.not.i1502, label %1283, label %1281
@@ -5552,7 +5552,7 @@ X11_GetSym.exit1507:                              ; preds = %1281, %1284
 
 1285:                                             ; preds = %1290, %X11_GetSym.exit1507
   %indvars.iv.i1508 = phi i64 [ 0, %X11_GetSym.exit1507 ], [ %indvars.iv.next.i1512, %1290 ]
-  %1286 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1508
+  %1286 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1508
   %1287 = load ptr, ptr %1286, align 16
   %.not.i1509 = icmp eq ptr %1287, null
   br i1 %.not.i1509, label %1290, label %1288
@@ -5578,7 +5578,7 @@ X11_GetSym.exit1514:                              ; preds = %1288, %1291
 
 1292:                                             ; preds = %1297, %X11_GetSym.exit1514
   %indvars.iv.i1515 = phi i64 [ 0, %X11_GetSym.exit1514 ], [ %indvars.iv.next.i1519, %1297 ]
-  %1293 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1515
+  %1293 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1515
   %1294 = load ptr, ptr %1293, align 16
   %.not.i1516 = icmp eq ptr %1294, null
   br i1 %.not.i1516, label %1297, label %1295
@@ -5604,7 +5604,7 @@ X11_GetSym.exit1521:                              ; preds = %1295, %1298
 
 1299:                                             ; preds = %1304, %X11_GetSym.exit1521
   %indvars.iv.i1522 = phi i64 [ 0, %X11_GetSym.exit1521 ], [ %indvars.iv.next.i1526, %1304 ]
-  %1300 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1522
+  %1300 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1522
   %1301 = load ptr, ptr %1300, align 16
   %.not.i1523 = icmp eq ptr %1301, null
   br i1 %.not.i1523, label %1304, label %1302
@@ -5630,7 +5630,7 @@ X11_GetSym.exit1528:                              ; preds = %1302, %1305
 
 1306:                                             ; preds = %1311, %X11_GetSym.exit1528
   %indvars.iv.i1529 = phi i64 [ 0, %X11_GetSym.exit1528 ], [ %indvars.iv.next.i1533, %1311 ]
-  %1307 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1529
+  %1307 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1529
   %1308 = load ptr, ptr %1307, align 16
   %.not.i1530 = icmp eq ptr %1308, null
   br i1 %.not.i1530, label %1311, label %1309
@@ -5656,7 +5656,7 @@ X11_GetSym.exit1535:                              ; preds = %1309, %1312
 
 1313:                                             ; preds = %1318, %X11_GetSym.exit1535
   %indvars.iv.i1536 = phi i64 [ 0, %X11_GetSym.exit1535 ], [ %indvars.iv.next.i1540, %1318 ]
-  %1314 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1536
+  %1314 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1536
   %1315 = load ptr, ptr %1314, align 16
   %.not.i1537 = icmp eq ptr %1315, null
   br i1 %.not.i1537, label %1318, label %1316
@@ -5682,7 +5682,7 @@ X11_GetSym.exit1542:                              ; preds = %1316, %1319
 
 1320:                                             ; preds = %1325, %X11_GetSym.exit1542
   %indvars.iv.i1543 = phi i64 [ 0, %X11_GetSym.exit1542 ], [ %indvars.iv.next.i1547, %1325 ]
-  %1321 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1543
+  %1321 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1543
   %1322 = load ptr, ptr %1321, align 16
   %.not.i1544 = icmp eq ptr %1322, null
   br i1 %.not.i1544, label %1325, label %1323
@@ -5708,7 +5708,7 @@ X11_GetSym.exit1549:                              ; preds = %1323, %1326
 
 1327:                                             ; preds = %1332, %X11_GetSym.exit1549
   %indvars.iv.i1550 = phi i64 [ 0, %X11_GetSym.exit1549 ], [ %indvars.iv.next.i1554, %1332 ]
-  %1328 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1550
+  %1328 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1550
   %1329 = load ptr, ptr %1328, align 16
   %.not.i1551 = icmp eq ptr %1329, null
   br i1 %.not.i1551, label %1332, label %1330
@@ -5734,7 +5734,7 @@ X11_GetSym.exit1556:                              ; preds = %1330, %1333
 
 1334:                                             ; preds = %1339, %X11_GetSym.exit1556
   %indvars.iv.i1557 = phi i64 [ 0, %X11_GetSym.exit1556 ], [ %indvars.iv.next.i1561, %1339 ]
-  %1335 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1557
+  %1335 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1557
   %1336 = load ptr, ptr %1335, align 16
   %.not.i1558 = icmp eq ptr %1336, null
   br i1 %.not.i1558, label %1339, label %1337
@@ -5760,7 +5760,7 @@ X11_GetSym.exit1563:                              ; preds = %1337, %1340
 
 1341:                                             ; preds = %1346, %X11_GetSym.exit1563
   %indvars.iv.i1564 = phi i64 [ 0, %X11_GetSym.exit1563 ], [ %indvars.iv.next.i1568, %1346 ]
-  %1342 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1564
+  %1342 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1564
   %1343 = load ptr, ptr %1342, align 16
   %.not.i1565 = icmp eq ptr %1343, null
   br i1 %.not.i1565, label %1346, label %1344
@@ -5786,7 +5786,7 @@ X11_GetSym.exit1570:                              ; preds = %1344, %1347
 
 1348:                                             ; preds = %1353, %X11_GetSym.exit1570
   %indvars.iv.i1571 = phi i64 [ 0, %X11_GetSym.exit1570 ], [ %indvars.iv.next.i1575, %1353 ]
-  %1349 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1571
+  %1349 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1571
   %1350 = load ptr, ptr %1349, align 16
   %.not.i1572 = icmp eq ptr %1350, null
   br i1 %.not.i1572, label %1353, label %1351
@@ -5812,7 +5812,7 @@ X11_GetSym.exit1577:                              ; preds = %1351, %1354
 
 1355:                                             ; preds = %1360, %X11_GetSym.exit1577
   %indvars.iv.i1578 = phi i64 [ 0, %X11_GetSym.exit1577 ], [ %indvars.iv.next.i1582, %1360 ]
-  %1356 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1578
+  %1356 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1578
   %1357 = load ptr, ptr %1356, align 16
   %.not.i1579 = icmp eq ptr %1357, null
   br i1 %.not.i1579, label %1360, label %1358
@@ -5838,7 +5838,7 @@ X11_GetSym.exit1584:                              ; preds = %1358, %1361
 
 1362:                                             ; preds = %1367, %X11_GetSym.exit1584
   %indvars.iv.i1585 = phi i64 [ 0, %X11_GetSym.exit1584 ], [ %indvars.iv.next.i1589, %1367 ]
-  %1363 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1585
+  %1363 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1585
   %1364 = load ptr, ptr %1363, align 16
   %.not.i1586 = icmp eq ptr %1364, null
   br i1 %.not.i1586, label %1367, label %1365
@@ -5864,7 +5864,7 @@ X11_GetSym.exit1591:                              ; preds = %1365, %1368
 
 1369:                                             ; preds = %1374, %X11_GetSym.exit1591
   %indvars.iv.i1592 = phi i64 [ 0, %X11_GetSym.exit1591 ], [ %indvars.iv.next.i1596, %1374 ]
-  %1370 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1592
+  %1370 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1592
   %1371 = load ptr, ptr %1370, align 16
   %.not.i1593 = icmp eq ptr %1371, null
   br i1 %.not.i1593, label %1374, label %1372
@@ -5890,7 +5890,7 @@ X11_GetSym.exit1598:                              ; preds = %1372, %1375
 
 1376:                                             ; preds = %1381, %X11_GetSym.exit1598
   %indvars.iv.i1599 = phi i64 [ 0, %X11_GetSym.exit1598 ], [ %indvars.iv.next.i1603, %1381 ]
-  %1377 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1599
+  %1377 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1599
   %1378 = load ptr, ptr %1377, align 16
   %.not.i1600 = icmp eq ptr %1378, null
   br i1 %.not.i1600, label %1381, label %1379
@@ -5916,7 +5916,7 @@ X11_GetSym.exit1605:                              ; preds = %1379, %1382
 
 1383:                                             ; preds = %1388, %X11_GetSym.exit1605
   %indvars.iv.i1606 = phi i64 [ 0, %X11_GetSym.exit1605 ], [ %indvars.iv.next.i1610, %1388 ]
-  %1384 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1606
+  %1384 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1606
   %1385 = load ptr, ptr %1384, align 16
   %.not.i1607 = icmp eq ptr %1385, null
   br i1 %.not.i1607, label %1388, label %1386
@@ -5942,7 +5942,7 @@ X11_GetSym.exit1612:                              ; preds = %1386, %1389
 
 1390:                                             ; preds = %1395, %X11_GetSym.exit1612
   %indvars.iv.i1613 = phi i64 [ 0, %X11_GetSym.exit1612 ], [ %indvars.iv.next.i1617, %1395 ]
-  %1391 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1613
+  %1391 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1613
   %1392 = load ptr, ptr %1391, align 16
   %.not.i1614 = icmp eq ptr %1392, null
   br i1 %.not.i1614, label %1395, label %1393
@@ -5968,7 +5968,7 @@ X11_GetSym.exit1619:                              ; preds = %1393, %1396
 
 1397:                                             ; preds = %1402, %X11_GetSym.exit1619
   %indvars.iv.i1620 = phi i64 [ 0, %X11_GetSym.exit1619 ], [ %indvars.iv.next.i1624, %1402 ]
-  %1398 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1620
+  %1398 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1620
   %1399 = load ptr, ptr %1398, align 16
   %.not.i1621 = icmp eq ptr %1399, null
   br i1 %.not.i1621, label %1402, label %1400
@@ -5994,7 +5994,7 @@ X11_GetSym.exit1626:                              ; preds = %1400, %1403
 
 1404:                                             ; preds = %1409, %X11_GetSym.exit1626
   %indvars.iv.i1627 = phi i64 [ 0, %X11_GetSym.exit1626 ], [ %indvars.iv.next.i1631, %1409 ]
-  %1405 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1627
+  %1405 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1627
   %1406 = load ptr, ptr %1405, align 16
   %.not.i1628 = icmp eq ptr %1406, null
   br i1 %.not.i1628, label %1409, label %1407
@@ -6020,7 +6020,7 @@ X11_GetSym.exit1633:                              ; preds = %1407, %1410
 
 1411:                                             ; preds = %1416, %X11_GetSym.exit1633
   %indvars.iv.i1634 = phi i64 [ 0, %X11_GetSym.exit1633 ], [ %indvars.iv.next.i1638, %1416 ]
-  %1412 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1634
+  %1412 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1634
   %1413 = load ptr, ptr %1412, align 16
   %.not.i1635 = icmp eq ptr %1413, null
   br i1 %.not.i1635, label %1416, label %1414
@@ -6046,7 +6046,7 @@ X11_GetSym.exit1640:                              ; preds = %1414, %1417
 
 1418:                                             ; preds = %1423, %X11_GetSym.exit1640
   %indvars.iv.i1641 = phi i64 [ 0, %X11_GetSym.exit1640 ], [ %indvars.iv.next.i1645, %1423 ]
-  %1419 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1641
+  %1419 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1641
   %1420 = load ptr, ptr %1419, align 16
   %.not.i1642 = icmp eq ptr %1420, null
   br i1 %.not.i1642, label %1423, label %1421
@@ -6072,7 +6072,7 @@ X11_GetSym.exit1647:                              ; preds = %1421, %1424
 
 1425:                                             ; preds = %1430, %X11_GetSym.exit1647
   %indvars.iv.i1648 = phi i64 [ 0, %X11_GetSym.exit1647 ], [ %indvars.iv.next.i1652, %1430 ]
-  %1426 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1648
+  %1426 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1648
   %1427 = load ptr, ptr %1426, align 16
   %.not.i1649 = icmp eq ptr %1427, null
   br i1 %.not.i1649, label %1430, label %1428
@@ -6098,7 +6098,7 @@ X11_GetSym.exit1654:                              ; preds = %1428, %1431
 
 1432:                                             ; preds = %1437, %X11_GetSym.exit1654
   %indvars.iv.i1655 = phi i64 [ 0, %X11_GetSym.exit1654 ], [ %indvars.iv.next.i1659, %1437 ]
-  %1433 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1655
+  %1433 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1655
   %1434 = load ptr, ptr %1433, align 16
   %.not.i1656 = icmp eq ptr %1434, null
   br i1 %.not.i1656, label %1437, label %1435
@@ -6124,7 +6124,7 @@ X11_GetSym.exit1661:                              ; preds = %1435, %1438
 
 1439:                                             ; preds = %1444, %X11_GetSym.exit1661
   %indvars.iv.i1662 = phi i64 [ 0, %X11_GetSym.exit1661 ], [ %indvars.iv.next.i1666, %1444 ]
-  %1440 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1662
+  %1440 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1662
   %1441 = load ptr, ptr %1440, align 16
   %.not.i1663 = icmp eq ptr %1441, null
   br i1 %.not.i1663, label %1444, label %1442
@@ -6150,7 +6150,7 @@ X11_GetSym.exit1668:                              ; preds = %1442, %1445
 
 1446:                                             ; preds = %1451, %X11_GetSym.exit1668
   %indvars.iv.i1669 = phi i64 [ 0, %X11_GetSym.exit1668 ], [ %indvars.iv.next.i1673, %1451 ]
-  %1447 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1669
+  %1447 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1669
   %1448 = load ptr, ptr %1447, align 16
   %.not.i1670 = icmp eq ptr %1448, null
   br i1 %.not.i1670, label %1451, label %1449
@@ -6176,7 +6176,7 @@ X11_GetSym.exit1675:                              ; preds = %1449, %1452
 
 1453:                                             ; preds = %1458, %X11_GetSym.exit1675
   %indvars.iv.i1676 = phi i64 [ 0, %X11_GetSym.exit1675 ], [ %indvars.iv.next.i1680, %1458 ]
-  %1454 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1676
+  %1454 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1676
   %1455 = load ptr, ptr %1454, align 16
   %.not.i1677 = icmp eq ptr %1455, null
   br i1 %.not.i1677, label %1458, label %1456
@@ -6202,7 +6202,7 @@ X11_GetSym.exit1682:                              ; preds = %1456, %1459
 
 1460:                                             ; preds = %1465, %X11_GetSym.exit1682
   %indvars.iv.i1683 = phi i64 [ 0, %X11_GetSym.exit1682 ], [ %indvars.iv.next.i1687, %1465 ]
-  %1461 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1683
+  %1461 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1683
   %1462 = load ptr, ptr %1461, align 16
   %.not.i1684 = icmp eq ptr %1462, null
   br i1 %.not.i1684, label %1465, label %1463
@@ -6228,7 +6228,7 @@ X11_GetSym.exit1689:                              ; preds = %1463, %1466
 
 1467:                                             ; preds = %1472, %X11_GetSym.exit1689
   %indvars.iv.i1690 = phi i64 [ 0, %X11_GetSym.exit1689 ], [ %indvars.iv.next.i1694, %1472 ]
-  %1468 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1690
+  %1468 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1690
   %1469 = load ptr, ptr %1468, align 16
   %.not.i1691 = icmp eq ptr %1469, null
   br i1 %.not.i1691, label %1472, label %1470
@@ -6254,7 +6254,7 @@ X11_GetSym.exit1696:                              ; preds = %1470, %1473
 
 1474:                                             ; preds = %1479, %X11_GetSym.exit1696
   %indvars.iv.i1697 = phi i64 [ 0, %X11_GetSym.exit1696 ], [ %indvars.iv.next.i1701, %1479 ]
-  %1475 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1697
+  %1475 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1697
   %1476 = load ptr, ptr %1475, align 16
   %.not.i1698 = icmp eq ptr %1476, null
   br i1 %.not.i1698, label %1479, label %1477
@@ -6280,7 +6280,7 @@ X11_GetSym.exit1703:                              ; preds = %1477, %1480
 
 1481:                                             ; preds = %1486, %X11_GetSym.exit1703
   %indvars.iv.i1704 = phi i64 [ 0, %X11_GetSym.exit1703 ], [ %indvars.iv.next.i1708, %1486 ]
-  %1482 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1704
+  %1482 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1704
   %1483 = load ptr, ptr %1482, align 16
   %.not.i1705 = icmp eq ptr %1483, null
   br i1 %.not.i1705, label %1486, label %1484
@@ -6306,7 +6306,7 @@ X11_GetSym.exit1710:                              ; preds = %1484, %1487
 
 1488:                                             ; preds = %1493, %X11_GetSym.exit1710
   %indvars.iv.i1711 = phi i64 [ 0, %X11_GetSym.exit1710 ], [ %indvars.iv.next.i1715, %1493 ]
-  %1489 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1711
+  %1489 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1711
   %1490 = load ptr, ptr %1489, align 16
   %.not.i1712 = icmp eq ptr %1490, null
   br i1 %.not.i1712, label %1493, label %1491
@@ -6332,7 +6332,7 @@ X11_GetSym.exit1717:                              ; preds = %1491, %1494
 
 1495:                                             ; preds = %1500, %X11_GetSym.exit1717
   %indvars.iv.i1718 = phi i64 [ 0, %X11_GetSym.exit1717 ], [ %indvars.iv.next.i1722, %1500 ]
-  %1496 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1718
+  %1496 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1718
   %1497 = load ptr, ptr %1496, align 16
   %.not.i1719 = icmp eq ptr %1497, null
   br i1 %.not.i1719, label %1500, label %1498
@@ -6358,7 +6358,7 @@ X11_GetSym.exit1724:                              ; preds = %1498, %1501
 
 1502:                                             ; preds = %1507, %X11_GetSym.exit1724
   %indvars.iv.i1725 = phi i64 [ 0, %X11_GetSym.exit1724 ], [ %indvars.iv.next.i1729, %1507 ]
-  %1503 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1725
+  %1503 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1725
   %1504 = load ptr, ptr %1503, align 16
   %.not.i1726 = icmp eq ptr %1504, null
   br i1 %.not.i1726, label %1507, label %1505
@@ -6384,7 +6384,7 @@ X11_GetSym.exit1731:                              ; preds = %1505, %1508
 
 1509:                                             ; preds = %1514, %X11_GetSym.exit1731
   %indvars.iv.i1732 = phi i64 [ 0, %X11_GetSym.exit1731 ], [ %indvars.iv.next.i1736, %1514 ]
-  %1510 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1732
+  %1510 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1732
   %1511 = load ptr, ptr %1510, align 16
   %.not.i1733 = icmp eq ptr %1511, null
   br i1 %.not.i1733, label %1514, label %1512
@@ -6410,7 +6410,7 @@ X11_GetSym.exit1738:                              ; preds = %1512, %1515
 
 1516:                                             ; preds = %1521, %X11_GetSym.exit1738
   %indvars.iv.i1739 = phi i64 [ 0, %X11_GetSym.exit1738 ], [ %indvars.iv.next.i1743, %1521 ]
-  %1517 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1739
+  %1517 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1739
   %1518 = load ptr, ptr %1517, align 16
   %.not.i1740 = icmp eq ptr %1518, null
   br i1 %.not.i1740, label %1521, label %1519
@@ -6436,7 +6436,7 @@ X11_GetSym.exit1745:                              ; preds = %1519, %1522
 
 1523:                                             ; preds = %1528, %X11_GetSym.exit1745
   %indvars.iv.i1746 = phi i64 [ 0, %X11_GetSym.exit1745 ], [ %indvars.iv.next.i1750, %1528 ]
-  %1524 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1746
+  %1524 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1746
   %1525 = load ptr, ptr %1524, align 16
   %.not.i1747 = icmp eq ptr %1525, null
   br i1 %.not.i1747, label %1528, label %1526
@@ -6462,7 +6462,7 @@ X11_GetSym.exit1752:                              ; preds = %1526, %1529
 
 1530:                                             ; preds = %1535, %X11_GetSym.exit1752
   %indvars.iv.i1753 = phi i64 [ 0, %X11_GetSym.exit1752 ], [ %indvars.iv.next.i1757, %1535 ]
-  %1531 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1753
+  %1531 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1753
   %1532 = load ptr, ptr %1531, align 16
   %.not.i1754 = icmp eq ptr %1532, null
   br i1 %.not.i1754, label %1535, label %1533
@@ -6488,7 +6488,7 @@ X11_GetSym.exit1759:                              ; preds = %1533, %1536
 
 1537:                                             ; preds = %1542, %X11_GetSym.exit1759
   %indvars.iv.i1760 = phi i64 [ 0, %X11_GetSym.exit1759 ], [ %indvars.iv.next.i1764, %1542 ]
-  %1538 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1760
+  %1538 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1760
   %1539 = load ptr, ptr %1538, align 16
   %.not.i1761 = icmp eq ptr %1539, null
   br i1 %.not.i1761, label %1542, label %1540
@@ -6514,7 +6514,7 @@ X11_GetSym.exit1766:                              ; preds = %1540, %1543
 
 1544:                                             ; preds = %1549, %X11_GetSym.exit1766
   %indvars.iv.i1767 = phi i64 [ 0, %X11_GetSym.exit1766 ], [ %indvars.iv.next.i1771, %1549 ]
-  %1545 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1767
+  %1545 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1767
   %1546 = load ptr, ptr %1545, align 16
   %.not.i1768 = icmp eq ptr %1546, null
   br i1 %.not.i1768, label %1549, label %1547
@@ -6540,7 +6540,7 @@ X11_GetSym.exit1773:                              ; preds = %1547, %1550
 
 1551:                                             ; preds = %1556, %X11_GetSym.exit1773
   %indvars.iv.i1774 = phi i64 [ 0, %X11_GetSym.exit1773 ], [ %indvars.iv.next.i1778, %1556 ]
-  %1552 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1774
+  %1552 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1774
   %1553 = load ptr, ptr %1552, align 16
   %.not.i1775 = icmp eq ptr %1553, null
   br i1 %.not.i1775, label %1556, label %1554
@@ -6566,7 +6566,7 @@ X11_GetSym.exit1780:                              ; preds = %1554, %1557
 
 1558:                                             ; preds = %1563, %X11_GetSym.exit1780
   %indvars.iv.i1781 = phi i64 [ 0, %X11_GetSym.exit1780 ], [ %indvars.iv.next.i1785, %1563 ]
-  %1559 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1781
+  %1559 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1781
   %1560 = load ptr, ptr %1559, align 16
   %.not.i1782 = icmp eq ptr %1560, null
   br i1 %.not.i1782, label %1563, label %1561
@@ -6592,7 +6592,7 @@ X11_GetSym.exit1787:                              ; preds = %1561, %1564
 
 1565:                                             ; preds = %1570, %X11_GetSym.exit1787
   %indvars.iv.i1788 = phi i64 [ 0, %X11_GetSym.exit1787 ], [ %indvars.iv.next.i1792, %1570 ]
-  %1566 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1788
+  %1566 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1788
   %1567 = load ptr, ptr %1566, align 16
   %.not.i1789 = icmp eq ptr %1567, null
   br i1 %.not.i1789, label %1570, label %1568
@@ -6618,7 +6618,7 @@ X11_GetSym.exit1794:                              ; preds = %1568, %1571
 
 1572:                                             ; preds = %1577, %X11_GetSym.exit1794
   %indvars.iv.i1795 = phi i64 [ 0, %X11_GetSym.exit1794 ], [ %indvars.iv.next.i1799, %1577 ]
-  %1573 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1795
+  %1573 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1795
   %1574 = load ptr, ptr %1573, align 16
   %.not.i1796 = icmp eq ptr %1574, null
   br i1 %.not.i1796, label %1577, label %1575
@@ -6644,7 +6644,7 @@ X11_GetSym.exit1801:                              ; preds = %1575, %1578
 
 1579:                                             ; preds = %1584, %X11_GetSym.exit1801
   %indvars.iv.i1802 = phi i64 [ 0, %X11_GetSym.exit1801 ], [ %indvars.iv.next.i1806, %1584 ]
-  %1580 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1802
+  %1580 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1802
   %1581 = load ptr, ptr %1580, align 16
   %.not.i1803 = icmp eq ptr %1581, null
   br i1 %.not.i1803, label %1584, label %1582
@@ -6670,7 +6670,7 @@ X11_GetSym.exit1808:                              ; preds = %1582, %1585
 
 1586:                                             ; preds = %1591, %X11_GetSym.exit1808
   %indvars.iv.i1809 = phi i64 [ 0, %X11_GetSym.exit1808 ], [ %indvars.iv.next.i1813, %1591 ]
-  %1587 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1809
+  %1587 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1809
   %1588 = load ptr, ptr %1587, align 16
   %.not.i1810 = icmp eq ptr %1588, null
   br i1 %.not.i1810, label %1591, label %1589
@@ -6696,7 +6696,7 @@ X11_GetSym.exit1815:                              ; preds = %1589, %1592
 
 1593:                                             ; preds = %1598, %X11_GetSym.exit1815
   %indvars.iv.i1816 = phi i64 [ 0, %X11_GetSym.exit1815 ], [ %indvars.iv.next.i1820, %1598 ]
-  %1594 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1816
+  %1594 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1816
   %1595 = load ptr, ptr %1594, align 16
   %.not.i1817 = icmp eq ptr %1595, null
   br i1 %.not.i1817, label %1598, label %1596
@@ -6722,7 +6722,7 @@ X11_GetSym.exit1822:                              ; preds = %1596, %1599
 
 1600:                                             ; preds = %1605, %X11_GetSym.exit1822
   %indvars.iv.i1823 = phi i64 [ 0, %X11_GetSym.exit1822 ], [ %indvars.iv.next.i1827, %1605 ]
-  %1601 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1823
+  %1601 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1823
   %1602 = load ptr, ptr %1601, align 16
   %.not.i1824 = icmp eq ptr %1602, null
   br i1 %.not.i1824, label %1605, label %1603
@@ -6748,7 +6748,7 @@ X11_GetSym.exit1829:                              ; preds = %1603, %1606
 
 1607:                                             ; preds = %1612, %X11_GetSym.exit1829
   %indvars.iv.i1830 = phi i64 [ 0, %X11_GetSym.exit1829 ], [ %indvars.iv.next.i1834, %1612 ]
-  %1608 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1830
+  %1608 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1830
   %1609 = load ptr, ptr %1608, align 16
   %.not.i1831 = icmp eq ptr %1609, null
   br i1 %.not.i1831, label %1612, label %1610
@@ -6774,7 +6774,7 @@ X11_GetSym.exit1836:                              ; preds = %1610, %1613
 
 1614:                                             ; preds = %1619, %X11_GetSym.exit1836
   %indvars.iv.i1837 = phi i64 [ 0, %X11_GetSym.exit1836 ], [ %indvars.iv.next.i1841, %1619 ]
-  %1615 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1837
+  %1615 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1837
   %1616 = load ptr, ptr %1615, align 16
   %.not.i1838 = icmp eq ptr %1616, null
   br i1 %.not.i1838, label %1619, label %1617
@@ -6800,7 +6800,7 @@ X11_GetSym.exit1843:                              ; preds = %1617, %1620
 
 1621:                                             ; preds = %1626, %X11_GetSym.exit1843
   %indvars.iv.i1844 = phi i64 [ 0, %X11_GetSym.exit1843 ], [ %indvars.iv.next.i1848, %1626 ]
-  %1622 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1844
+  %1622 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1844
   %1623 = load ptr, ptr %1622, align 16
   %.not.i1845 = icmp eq ptr %1623, null
   br i1 %.not.i1845, label %1626, label %1624
@@ -6826,7 +6826,7 @@ X11_GetSym.exit1850:                              ; preds = %1624, %1627
 
 1628:                                             ; preds = %1633, %X11_GetSym.exit1850
   %indvars.iv.i1851 = phi i64 [ 0, %X11_GetSym.exit1850 ], [ %indvars.iv.next.i1855, %1633 ]
-  %1629 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1851
+  %1629 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1851
   %1630 = load ptr, ptr %1629, align 16
   %.not.i1852 = icmp eq ptr %1630, null
   br i1 %.not.i1852, label %1633, label %1631
@@ -6852,7 +6852,7 @@ X11_GetSym.exit1857:                              ; preds = %1631, %1634
 
 1635:                                             ; preds = %1640, %X11_GetSym.exit1857
   %indvars.iv.i1858 = phi i64 [ 0, %X11_GetSym.exit1857 ], [ %indvars.iv.next.i1862, %1640 ]
-  %1636 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1858
+  %1636 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1858
   %1637 = load ptr, ptr %1636, align 16
   %.not.i1859 = icmp eq ptr %1637, null
   br i1 %.not.i1859, label %1640, label %1638
@@ -6878,7 +6878,7 @@ X11_GetSym.exit1864:                              ; preds = %1638, %1641
 
 1642:                                             ; preds = %1647, %X11_GetSym.exit1864
   %indvars.iv.i1865 = phi i64 [ 0, %X11_GetSym.exit1864 ], [ %indvars.iv.next.i1869, %1647 ]
-  %1643 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1865
+  %1643 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1865
   %1644 = load ptr, ptr %1643, align 16
   %.not.i1866 = icmp eq ptr %1644, null
   br i1 %.not.i1866, label %1647, label %1645
@@ -6904,7 +6904,7 @@ X11_GetSym.exit1871:                              ; preds = %1645, %1648
 
 1649:                                             ; preds = %1654, %X11_GetSym.exit1871
   %indvars.iv.i1872 = phi i64 [ 0, %X11_GetSym.exit1871 ], [ %indvars.iv.next.i1876, %1654 ]
-  %1650 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1872
+  %1650 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1872
   %1651 = load ptr, ptr %1650, align 16
   %.not.i1873 = icmp eq ptr %1651, null
   br i1 %.not.i1873, label %1654, label %1652
@@ -6930,7 +6930,7 @@ X11_GetSym.exit1878:                              ; preds = %1652, %1655
 
 1656:                                             ; preds = %1661, %X11_GetSym.exit1878
   %indvars.iv.i1879 = phi i64 [ 0, %X11_GetSym.exit1878 ], [ %indvars.iv.next.i1883, %1661 ]
-  %1657 = getelementptr inbounds nuw %struct.x11dynlib, ptr @x11libs, i64 %indvars.iv.i1879
+  %1657 = getelementptr inbounds nuw [16 x i8], ptr @x11libs, i64 %indvars.iv.i1879
   %1658 = load ptr, ptr %1657, align 16
   %.not.i1880 = icmp eq ptr %1658, null
   br i1 %.not.i1880, label %1661, label %1659

@@ -116,7 +116,7 @@ define hidden void @"_ZN14regex_automata4util4pool5inner17Pool$LT$T$C$F$GT$3new1
 30:                                               ; preds = %._crit_edge.i, %19
   %31 = phi ptr [ %.pre, %._crit_edge.i ], [ %20, %19 ]
   %32 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %21, %19 ]
-  %33 = getelementptr inbounds { { { { i32 } }, { { i8 } }, [3 x i8], { { { i64, ptr, {} }, i64 } } }, [4 x i64] }, ptr %31, i64 %32
+  %33 = getelementptr inbounds [64 x i8], ptr %31, i64 %32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %33, ptr noundef nonnull align 64 dereferenceable(64) %4, i64 64, i1 false)
   %34 = add i64 %32, 1
   store i64 %34, ptr %14, align 8, !alias.scope !4, !noalias !7
@@ -224,7 +224,7 @@ define hidden void @"_ZN14regex_automata4util4pool5inner17Pool$LT$T$C$F$GT$3new1
 29:                                               ; preds = %._crit_edge.i, %18
   %30 = phi ptr [ %.pre, %._crit_edge.i ], [ %19, %18 ]
   %31 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %20, %18 ]
-  %32 = getelementptr inbounds { { { { i32 } }, { { i8 } }, [3 x i8], { { { i64, ptr, {} }, i64 } } }, [4 x i64] }, ptr %30, i64 %31
+  %32 = getelementptr inbounds [64 x i8], ptr %30, i64 %31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 64 dereferenceable(64) %32, ptr noundef nonnull align 64 dereferenceable(64) %4, i64 64, i1 false)
   %33 = add i64 %31, 1
   store i64 %33, ptr %14, align 8, !alias.scope !10, !noalias !13
@@ -346,7 +346,7 @@ common.resume:                                    ; preds = %33, %27, %72
   %40 = urem i64 %2, %16
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %42 = load ptr, ptr %41, align 8, !nonnull !9, !noundef !9
-  %43 = getelementptr inbounds { { { { i32 } }, { { i8 } }, [3 x i8], { { { i64, ptr, {} }, i64 } } }, [4 x i64] }, ptr %42, i64 %40
+  %43 = getelementptr inbounds [64 x i8], ptr %42, i64 %40
   call void @"_ZN3std4sync5mutex14Mutex$LT$T$GT$8try_lock17hc25bd9a7772e05eaE"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %7, ptr noundef nonnull align 8 %43)
   %44 = load i64, ptr %7, align 8, !range !25, !noundef !9
   %trunc = trunc nuw i64 %44 to i1
@@ -446,7 +446,7 @@ _ZN3std4sync6poison4Flag4done17h81e7640de42edbeeE.exit.i.i: ; preds = %60, %_ZN3
   tail call void @llvm.assume(i1 %82)
   %83 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %84 = load ptr, ptr %83, align 8, !alias.scope !27, !nonnull !9, !noundef !9
-  %85 = getelementptr inbounds ptr, ptr %84, i64 %80
+  %85 = getelementptr inbounds [8 x i8], ptr %84, i64 %80
   %86 = load ptr, ptr %85, align 8, !noalias !27, !nonnull !9, !align !17, !noundef !9
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %87, align 8
@@ -605,7 +605,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   %40 = urem i64 %2, %16
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %42 = load ptr, ptr %41, align 8, !nonnull !9, !noundef !9
-  %43 = getelementptr inbounds { { { { i32 } }, { { i8 } }, [3 x i8], { { { i64, ptr, {} }, i64 } } }, [4 x i64] }, ptr %42, i64 %40
+  %43 = getelementptr inbounds [64 x i8], ptr %42, i64 %40
   call void @"_ZN3std4sync5mutex14Mutex$LT$T$GT$8try_lock17h8e47001335b76bcfE"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %7, ptr noundef nonnull align 8 %43)
   %44 = load i64, ptr %7, align 8, !range !25, !noundef !9
   %trunc = trunc nuw i64 %44 to i1
@@ -701,7 +701,7 @@ _ZN3std4sync6poison4Flag4done17h81e7640de42edbeeE.exit.i.i: ; preds = %60, %_ZN3
   tail call void @llvm.assume(i1 %83)
   %84 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %85 = load ptr, ptr %84, align 8, !alias.scope !59, !nonnull !9, !noundef !9
-  %86 = getelementptr inbounds ptr, ptr %85, i64 %81
+  %86 = getelementptr inbounds [8 x i8], ptr %85, i64 %81
   %87 = load ptr, ptr %86, align 8, !noalias !59, !nonnull !9, !align !17, !noundef !9
   %88 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %88, align 8
@@ -1218,8 +1218,8 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   ret i1 %.0
 
 5:                                                ; preds = %.preheader.split
-  %6 = getelementptr inbounds { i32, i32 }, ptr %0, i64 %.sroa.01.0
-  %7 = getelementptr inbounds { i32, i32 }, ptr %2, i64 %.sroa.01.0
+  %6 = getelementptr inbounds [8 x i8], ptr %0, i64 %.sroa.01.0
+  %7 = getelementptr inbounds [8 x i8], ptr %2, i64 %.sroa.01.0
   tail call void @llvm.experimental.noalias.scope.decl(metadata !128)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !131)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !133)

@@ -497,12 +497,12 @@ define linkonce_odr dso_local void @_ZN5Eigen8internal21dense_assignment_loopINS
 
 26:                                               ; preds = %26, %.preheader.us.i
   %.09.us.i = phi i64 [ 0, %.preheader.us.i ], [ %35, %26 ]
-  %27 = getelementptr double, ptr %23, i64 %.09.us.i
+  %27 = getelementptr [8 x i8], ptr %23, i64 %.09.us.i
   %28 = load double, ptr %16, align 8, !tbaa !28
-  %29 = getelementptr double, ptr %24, i64 %.09.us.i
+  %29 = getelementptr [8 x i8], ptr %24, i64 %.09.us.i
   %30 = load double, ptr %29, align 8, !tbaa !4
   %31 = fmul double %28, %30
-  %32 = getelementptr double, ptr %25, i64 %.09.us.i
+  %32 = getelementptr [8 x i8], ptr %25, i64 %.09.us.i
   %33 = load double, ptr %32, align 8, !tbaa !4
   %34 = fsub double %31, %33
   store double %34, ptr %27, align 8, !tbaa !4
@@ -595,20 +595,20 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit: ; preds = %1
   %81 = load ptr, ptr %0, align 8, !tbaa !68
   %82 = load ptr, ptr %81, align 8, !tbaa !34
   %83 = getelementptr i8, ptr %82, i64 %.idx.i.i.i37
-  %84 = getelementptr double, ptr %83, i64 %.03250
+  %84 = getelementptr [8 x i8], ptr %83, i64 %.03250
   %85 = load ptr, ptr %45, align 8, !tbaa !69
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %87 = load <1 x double>, ptr %86, align 8
   %88 = shufflevector <1 x double> %87, <1 x double> poison, <2 x i32> zeroinitializer
   %89 = getelementptr inbounds nuw i8, ptr %85, i64 32
   %90 = load ptr, ptr %89, align 8, !tbaa !30
-  %91 = getelementptr inbounds double, ptr %90, i64 %.03250
+  %91 = getelementptr inbounds [8 x i8], ptr %90, i64 %.03250
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 %.idx.i.i.i.i.i38
   %93 = load <2 x double>, ptr %92, align 1, !tbaa !70
   %94 = fmul <2 x double> %88, %93
   %95 = getelementptr inbounds nuw i8, ptr %85, i64 48
   %96 = load ptr, ptr %95, align 8, !tbaa !30
-  %97 = getelementptr inbounds double, ptr %96, i64 %.03250
+  %97 = getelementptr inbounds [8 x i8], ptr %96, i64 %.03250
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 %.idx.i.i.i.i.i38
   %99 = load <2 x double>, ptr %98, align 1, !tbaa !70
   %100 = fsub <2 x double> %94, %99
@@ -626,12 +626,12 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit: ; preds = %1
 
 105:                                              ; preds = %.lr.ph53, %105
   %.052 = phi i64 [ %49, %.lr.ph53 ], [ %114, %105 ]
-  %106 = getelementptr double, ptr %71, i64 %.052
+  %106 = getelementptr [8 x i8], ptr %71, i64 %.052
   %107 = load double, ptr %73, align 8, !tbaa !28
-  %108 = getelementptr double, ptr %76, i64 %.052
+  %108 = getelementptr [8 x i8], ptr %76, i64 %.052
   %109 = load double, ptr %108, align 8, !tbaa !4
   %110 = fmul double %107, %109
-  %111 = getelementptr double, ptr %79, i64 %.052
+  %111 = getelementptr [8 x i8], ptr %79, i64 %.052
   %112 = load double, ptr %111, align 8, !tbaa !4
   %113 = fsub double %110, %112
   store double %113, ptr %106, align 8, !tbaa !4

@@ -193,7 +193,7 @@ define hidden void @_ZN4cvc56parser5Lexer7warningERKNSt7__cxx1112basic_stringIcS
   %21 = getelementptr inbounds nuw i8, ptr %15, i64 200
   %22 = load ptr, ptr %21, align 8, !tbaa !58
   %23 = sext i32 %16 to i64
-  %24 = getelementptr inbounds %"struct.std::ios_base::_Words", ptr %22, i64 %23
+  %24 = getelementptr inbounds [16 x i8], ptr %22, i64 %23
   br label %_ZNSt8ios_base5iwordEi.exit.i
 
 25:                                               ; preds = %11
@@ -259,7 +259,7 @@ _ZN4cvc58internal11Cvc5ostreamlsINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %58 = getelementptr inbounds nuw i8, ptr %52, i64 200
   %59 = load ptr, ptr %58, align 8, !tbaa !58
   %60 = sext i32 %53 to i64
-  %61 = getelementptr inbounds %"struct.std::ios_base::_Words", ptr %59, i64 %60
+  %61 = getelementptr inbounds [16 x i8], ptr %59, i64 %60
   br label %_ZNSt8ios_base5iwordEi.exit.i6
 
 62:                                               ; preds = %48
@@ -323,7 +323,7 @@ _ZN4cvc58internal11Cvc5ostreamlsIjEERS1_RKT_.exit: ; preds = %_ZN4cvc58internal1
   %94 = getelementptr inbounds nuw i8, ptr %88, i64 200
   %95 = load ptr, ptr %94, align 8, !tbaa !58
   %96 = sext i32 %89 to i64
-  %97 = getelementptr inbounds %"struct.std::ios_base::_Words", ptr %95, i64 %96
+  %97 = getelementptr inbounds [16 x i8], ptr %95, i64 %96
   br label %_ZNSt8ios_base5iwordEi.exit.i14
 
 98:                                               ; preds = %84
@@ -385,7 +385,7 @@ _ZN4cvc58internal11Cvc5ostreamlsIjEERS1_RKT_.exit19: ; preds = %_ZN4cvc58interna
   %129 = getelementptr inbounds nuw i8, ptr %123, i64 200
   %130 = load ptr, ptr %129, align 8, !tbaa !58
   %131 = sext i32 %124 to i64
-  %132 = getelementptr inbounds %"struct.std::ios_base::_Words", ptr %130, i64 %131
+  %132 = getelementptr inbounds [16 x i8], ptr %130, i64 %131
   br label %_ZNSt8ios_base5iwordEi.exit.i23
 
 133:                                              ; preds = %119
@@ -505,7 +505,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 200
   %20 = load ptr, ptr %19, align 8, !tbaa !58
   %21 = sext i32 %14 to i64
-  %22 = getelementptr inbounds %"struct.std::ios_base::_Words", ptr %20, i64 %21
+  %22 = getelementptr inbounds [16 x i8], ptr %20, i64 %21
   br label %_ZNSt8ios_base5iwordEi.exit
 
 23:                                               ; preds = %9
@@ -590,7 +590,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 200
   %19 = load ptr, ptr %18, align 8, !tbaa !58
   %20 = sext i32 %13 to i64
-  %21 = getelementptr inbounds %"struct.std::ios_base::_Words", ptr %19, i64 %20
+  %21 = getelementptr inbounds [16 x i8], ptr %19, i64 %20
   br label %_ZNSt8ios_base5iwordEi.exit
 
 22:                                               ; preds = %8
@@ -871,7 +871,7 @@ _ZNSt6vectorIN4cvc56parser5TokenESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
 _ZNSt6vectorIN4cvc56parser5TokenESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %31, %_ZNSt6vectorIN4cvc56parser5TokenESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
   store ptr %26, ptr %6, align 8, !tbaa !87
   store ptr %30, ptr %7, align 8, !tbaa !88
-  %32 = getelementptr inbounds nuw i32, ptr %26, i64 %24
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %24
   store ptr %32, ptr %9, align 8, !tbaa !92
   br label %_ZN4cvc56parser5Lexer13reinsertTokenENS0_5TokenE.exit
 
@@ -939,7 +939,7 @@ _ZNSt6vectorIN4cvc56parser5TokenESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
 _ZNSt6vectorIN4cvc56parser5TokenESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %28, %_ZNSt6vectorIN4cvc56parser5TokenESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %23, ptr %3, align 8, !tbaa !87
   store ptr %27, ptr %4, align 8, !tbaa !88
-  %29 = getelementptr inbounds nuw i32, ptr %23, i64 %21
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %21
   store ptr %29, ptr %6, align 8, !tbaa !92
   br label %_ZNSt6vectorIN4cvc56parser5TokenESaIS2_EE9push_backERKS2_.exit
 

@@ -132,7 +132,7 @@ define hidden void @Curl_freeset(ptr noundef %0) local_unnamed_addr #0 {
 4:                                                ; preds = %1, %4
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %4 ]
   %5 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
-  %6 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8, !tbaa !7
   tail call void %5(ptr noundef %7) #11
   store ptr null, ptr %6, align 8, !tbaa !7
@@ -143,7 +143,7 @@ define hidden void @Curl_freeset(ptr noundef %0) local_unnamed_addr #0 {
 8:                                                ; preds = %.preheader, %8
   %indvars.iv29 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next30, %8 ]
   %9 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
-  %10 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv29
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv29
   %11 = load ptr, ptr %10, align 8, !tbaa !11
   tail call void %9(ptr noundef %11) #11
   store ptr null, ptr %10, align 8, !tbaa !11
@@ -481,7 +481,7 @@ define hidden noundef i32 @Curl_close(ptr noundef captures(address_is_null) %0) 
 153:                                              ; preds = %153, %103
   %indvars.iv.i = phi i64 [ 0, %103 ], [ %indvars.iv.next.i, %153 ]
   %154 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
-  %155 = getelementptr inbounds nuw ptr, ptr %151, i64 %indvars.iv.i
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %151, i64 %indvars.iv.i
   %156 = load ptr, ptr %155, align 8, !tbaa !7
   tail call void %154(ptr noundef %156) #11
   store ptr null, ptr %155, align 8, !tbaa !7
@@ -492,7 +492,7 @@ define hidden noundef i32 @Curl_close(ptr noundef captures(address_is_null) %0) 
 157:                                              ; preds = %157, %.preheader.i
   %indvars.iv29.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next30.i, %157 ]
   %158 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
-  %159 = getelementptr inbounds nuw ptr, ptr %152, i64 %indvars.iv29.i
+  %159 = getelementptr inbounds nuw [8 x i8], ptr %152, i64 %indvars.iv29.i
   %160 = load ptr, ptr %159, align 8, !tbaa !11
   tail call void %158(ptr noundef %160) #11
   store ptr null, ptr %159, align 8, !tbaa !11
@@ -804,7 +804,7 @@ define hidden i32 @Curl_open(ptr noundef writeonly captures(none) %0) local_unna
 28:                                               ; preds = %28, %.critedge
   %indvars.iv.i = phi i64 [ 0, %.critedge ], [ %indvars.iv.next.i, %28 ]
   %29 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
-  %30 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv.i
   %31 = load ptr, ptr %30, align 8, !tbaa !7
   tail call void %29(ptr noundef %31) #11
   store ptr null, ptr %30, align 8, !tbaa !7
@@ -815,7 +815,7 @@ define hidden i32 @Curl_open(ptr noundef writeonly captures(none) %0) local_unna
 32:                                               ; preds = %32, %.preheader.i
   %indvars.iv29.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next30.i, %32 ]
   %33 = load ptr, ptr @Curl_cfree, align 8, !tbaa !3
-  %34 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv29.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv29.i
   %35 = load ptr, ptr %34, align 8, !tbaa !11
   tail call void %33(ptr noundef %35) #11
   store ptr null, ptr %34, align 8, !tbaa !11
@@ -1416,7 +1416,7 @@ define hidden ptr @Curl_get_scheme_handler(ptr noundef %0) local_unnamed_addr #0
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %11 = urem i32 %8, 67
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw ptr, ptr @Curl_getn_scheme_handler.protocols, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr @Curl_getn_scheme_handler.protocols, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !217
   %.not26.i = icmp eq ptr %14, null
   br i1 %.not26.i, label %.thread.i, label %15
@@ -1465,7 +1465,7 @@ define hidden ptr @Curl_getn_scheme_handler(ptr noundef %0, i64 noundef %1) loca
 ._crit_edge:                                      ; preds = %.lr.ph
   %11 = urem i32 %8, 67
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw ptr, ptr @Curl_getn_scheme_handler.protocols, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr @Curl_getn_scheme_handler.protocols, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !217
   %.not26 = icmp eq ptr %14, null
   br i1 %.not26, label %.thread, label %15
@@ -1506,7 +1506,7 @@ define hidden range(i32 1, 68) i32 @Curl_uc_to_curlcode(i32 noundef %0) local_un
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.Curl_connect.5, i64 %3
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.Curl_connect.5, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 
@@ -2056,7 +2056,7 @@ define hidden i32 @Curl_connect(ptr noundef %0, ptr noundef captures(none) initi
 
 switch.lookup:                                    ; preds = %196
   %211 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.Curl_connect.5, i64 %211
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.Curl_connect.5, i64 %211
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %Curl_uc_to_curlcode.exit.thread.i.i
 
@@ -2271,7 +2271,7 @@ Curl_uc_to_curlcode.exit.i.i:                     ; preds = %208, %204
 
 switch.lookup97:                                  ; preds = %281
   %299 = zext nneg i32 %switch.tableidx96 to i64
-  %switch.gep98 = getelementptr inbounds nuw i32, ptr @switch.table.Curl_connect.5, i64 %299
+  %switch.gep98 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.Curl_connect.5, i64 %299
   %switch.load99 = load i32, ptr %switch.gep98, align 4
   br label %Curl_uc_to_curlcode.exit258.thread.i.i
 
@@ -5390,7 +5390,7 @@ define internal fastcc range(i32 0, 2) i32 @findprotocol(ptr noundef %0, ptr nou
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i
   %13 = urem i32 %10, 67
   %14 = zext nneg i32 %13 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr @Curl_getn_scheme_handler.protocols, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr @Curl_getn_scheme_handler.protocols, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !217
   %.not26.i.i = icmp eq ptr %16, null
   br i1 %.not26.i.i, label %Curl_get_scheme_handler.exit.thread, label %17

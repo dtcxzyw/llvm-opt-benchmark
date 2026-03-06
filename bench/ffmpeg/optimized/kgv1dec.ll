@@ -150,7 +150,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   %84 = and i32 %71, 1023
   %85 = add nuw nsw i32 %84, 3
   %86 = zext nneg i32 %83 to i64
-  %87 = getelementptr inbounds nuw i32, ptr %5, i64 %86
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %86
   %88 = load i32, ptr %87, align 4, !tbaa !37
   %89 = icmp slt i32 %88, 0
   br i1 %89, label %90, label %101

@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%union.imath_half_uif = type { i32 }
 %"class.Imath_3_2::Vec2" = type { float, float }
 %"class.Imf_3_4::TypedAttribute" = type <{ %"class.Imf_3_4::Attribute", i32, [4 x i8] }>
 %"class.Imf_3_4::Attribute" = type { ptr }
@@ -29,7 +28,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.Imf_3_4::TypedAttribute.18" = type <{ %"class.Imf_3_4::Attribute", %"class.Imath_3_2::Matrix33", [4 x i8] }>
 %"class.Imath_3_2::Matrix44" = type { [4 x [4 x float]] }
 %"class.Imf_3_4::TypedAttribute.20" = type { %"class.Imf_3_4::Attribute", %"class.Imath_3_2::Matrix44" }
-%"class.Imath_3_2::half" = type { i16 }
 
 $_ZN12halfFunctionIN9Imath_3_24halfEEC2IN7Imf_3_49roundNBitEEET_S1_S1_S1_S1_S1_S1_ = comdat any
 
@@ -162,7 +160,7 @@ define void @ImfFloatToHalfArray(i32 noundef %0, ptr noundef readonly captures(n
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN9Imath_3_24halfC2Ef.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN9Imath_3_24halfC2Ef.exit ]
-  %5 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %6 = load float, ptr %5, align 4, !tbaa !8
   %7 = bitcast float %6 to i32
   %8 = tail call float @llvm.fabs.f32(float %6)
@@ -242,7 +240,7 @@ define void @ImfFloatToHalfArray(i32 noundef %0, ptr noundef readonly captures(n
 
 _ZN9Imath_3_24halfC2Ef.exit:                      ; preds = %16, %19, %29, %31, %40, %54, %57
   %.0.i.i = phi i16 [ %12, %40 ], [ %26, %19 ], [ %30, %29 ], [ %39, %31 ], [ %17, %16 ], [ %58, %57 ], [ %52, %54 ]
-  %59 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv
   store i16 %.0.i.i, ptr %59, align 2, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -253,7 +251,7 @@ _ZN9Imath_3_24halfC2Ef.exit:                      ; preds = %16, %19, %29, %31, 
 define float @ImfHalfToFloat(i16 noundef zeroext %0) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr @imath_half_to_float_table, align 8, !tbaa !12
   %3 = zext i16 %0 to i64
-  %4 = getelementptr inbounds nuw %union.imath_half_uif, ptr %2, i64 %3
+  %4 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %3
   %5 = load float, ptr %4, align 4, !tbaa !15
   ret float %5
 }
@@ -273,12 +271,12 @@ define void @ImfHalfToFloatArray(i32 noundef %0, ptr noundef readonly captures(n
 
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
-  %7 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   %8 = load i16, ptr %7, align 2, !tbaa !16
   %9 = zext i16 %8 to i64
-  %10 = getelementptr inbounds nuw %union.imath_half_uif, ptr %5, i64 %9
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %9
   %11 = load float, ptr %10, align 4, !tbaa !15
-  %12 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   store float %11, ptr %12, align 4, !tbaa !8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -4241,7 +4239,7 @@ define noundef ptr @ImfNewRound12logLut(i32 noundef %0) local_unnamed_addr #7 pe
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %4, i64 %indvars.iv.i.i
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv.i.i
   store i16 32767, ptr %13, align 2, !tbaa !4
   br label %37
 
@@ -4252,14 +4250,14 @@ define noundef ptr @ImfNewRound12logLut(i32 noundef %0) local_unnamed_addr #7 pe
 
 17:                                               ; preds = %14
   %18 = icmp slt i16 %6, 0
-  %19 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %4, i64 %indvars.iv.i.i
+  %19 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv.i.i
   %20 = select i1 %18, i16 -1024, i16 31744
   store i16 %20, ptr %19, align 2, !tbaa !4
   br label %37
 
 21:                                               ; preds = %14
   %22 = load ptr, ptr @imath_half_to_float_table, align 8, !tbaa !12
-  %23 = getelementptr inbounds nuw %union.imath_half_uif, ptr %22, i64 %indvars.iv.i.i
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv.i.i
   %24 = load float, ptr %23, align 4, !tbaa !15
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 258044
   %26 = load float, ptr %25, align 4, !tbaa !15
@@ -4273,7 +4271,7 @@ define noundef ptr @ImfNewRound12logLut(i32 noundef %0) local_unnamed_addr #7 pe
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %28, %21
-  %33 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %4, i64 %indvars.iv.i.i
+  %33 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv.i.i
   store i16 0, ptr %33, align 2, !tbaa !4
   br label %37
 
@@ -4282,7 +4280,7 @@ define noundef ptr @ImfNewRound12logLut(i32 noundef %0) local_unnamed_addr #7 pe
           to label %.noexc9 unwind label %.loopexit
 
 .noexc9:                                          ; preds = %34
-  %36 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %4, i64 %indvars.iv.i.i
+  %36 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %indvars.iv.i.i
   store i16 %35, ptr %36, align 2, !tbaa !4
   br label %37
 
@@ -4483,9 +4481,9 @@ define linkonce_odr hidden void @_ZN12halfFunctionIN9Imath_3_24halfEEC2IN7Imf_3_
   store ptr %9, ptr %0, align 8, !tbaa !62
   %10 = load ptr, ptr @imath_half_to_float_table, align 8
   %11 = zext i16 %2 to i64
-  %12 = getelementptr inbounds nuw %union.imath_half_uif, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %11
   %13 = zext i16 %3 to i64
-  %14 = getelementptr inbounds nuw %union.imath_half_uif, ptr %10, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %13
   %15 = icmp ugt i32 %.fr24, 9
   %16 = sub nuw nsw i32 9, %.fr24
   %17 = sub nuw nsw i32 10, %.fr24
@@ -4508,7 +4506,7 @@ define linkonce_odr hidden void @_ZN12halfFunctionIN9Imath_3_24halfEEC2IN7Imf_3_
   br i1 %27, label %39, label %28
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds nuw %union.imath_half_uif, ptr %10, i64 %indvars.iv27
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv27
   %30 = load float, ptr %29, align 4, !tbaa !15
   %31 = load float, ptr %12, align 4, !tbaa !15
   %32 = fcmp olt float %30, %31
@@ -4520,24 +4518,24 @@ define linkonce_odr hidden void @_ZN12halfFunctionIN9Imath_3_24halfEEC2IN7Imf_3_
   br i1 %35, label %37, label %_ZN7Imf_3_49roundNBitclEN9Imath_3_24halfE.exit.us
 
 _ZN7Imf_3_49roundNBitclEN9Imath_3_24halfE.exit.us: ; preds = %33
-  %36 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %9, i64 %indvars.iv27
+  %36 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %indvars.iv27
   store i16 %19, ptr %36, align 2, !tbaa !4
   br label %45
 
 37:                                               ; preds = %33, %28
-  %38 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %9, i64 %indvars.iv27
+  %38 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %indvars.iv27
   store i16 %4, ptr %38, align 2, !tbaa !4
   br label %45
 
 39:                                               ; preds = %25
   %40 = icmp slt i16 %19, 0
-  %41 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %9, i64 %indvars.iv27
+  %41 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %indvars.iv27
   %42 = select i1 %40, i16 %6, i16 %5
   store i16 %42, ptr %41, align 2, !tbaa !4
   br label %45
 
 43:                                               ; preds = %.split.us
-  %44 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %9, i64 %indvars.iv27
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %indvars.iv27
   store i16 %7, ptr %44, align 2, !tbaa !4
   br label %45
 
@@ -4561,7 +4559,7 @@ _ZN7Imf_3_49roundNBitclEN9Imath_3_24halfE.exit.us: ; preds = %33
   br i1 %52, label %53, label %55
 
 53:                                               ; preds = %.split
-  %54 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %9, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %indvars.iv
   store i16 %7, ptr %54, align 2, !tbaa !4
   br label %83
 
@@ -4572,13 +4570,13 @@ _ZN7Imf_3_49roundNBitclEN9Imath_3_24halfE.exit.us: ; preds = %33
 
 58:                                               ; preds = %55
   %59 = icmp slt i16 %47, 0
-  %60 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %9, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %indvars.iv
   %61 = select i1 %59, i16 %6, i16 %5
   store i16 %61, ptr %60, align 2, !tbaa !4
   br label %83
 
 62:                                               ; preds = %55
-  %63 = getelementptr inbounds nuw %union.imath_half_uif, ptr %10, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   %64 = load float, ptr %63, align 4, !tbaa !15
   %65 = load float, ptr %12, align 4, !tbaa !15
   %66 = fcmp olt float %64, %65
@@ -4590,7 +4588,7 @@ _ZN7Imf_3_49roundNBitclEN9Imath_3_24halfE.exit.us: ; preds = %33
   br i1 %69, label %70, label %_ZN7Imf_3_49roundNBitclEN9Imath_3_24halfE.exit
 
 70:                                               ; preds = %67, %62
-  %71 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %9, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %indvars.iv
   store i16 %4, ptr %71, align 2, !tbaa !4
   br label %83
 
@@ -4607,7 +4605,7 @@ _ZN7Imf_3_49roundNBitclEN9Imath_3_24halfE.exit:   ; preds = %67
   %.0.i.i.v = select i1 %79, i32 %80, i32 %77
   %.0.i.i = trunc i32 %.0.i.i.v to i16
   %81 = or i16 %72, %.0.i.i
-  %82 = getelementptr inbounds nuw %"class.Imath_3_2::half", ptr %9, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %indvars.iv
   store i16 %81, ptr %82, align 2, !tbaa !4
   br label %83
 

@@ -21,7 +21,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.5" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
 %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.cv::Point3_" = type { float, float, float }
 
 $__clang_call_terminate = comdat any
 
@@ -506,7 +505,7 @@ _ZNSt6vectorIN2cv7Point3_IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i: ; 
 _ZNSt6vectorIN2cv7Point3_IfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %185, %_ZNSt6vectorIN2cv7Point3_IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
   store ptr %180, ptr %1, align 8, !tbaa !58
   store ptr %184, ptr %35, align 8, !tbaa !52
-  %186 = getelementptr inbounds nuw %"class.cv::Point3_", ptr %180, i64 %178
+  %186 = getelementptr inbounds nuw [12 x i8], ptr %180, i64 %178
   store ptr %186, ptr %36, align 8, !tbaa !55
   br label %_ZNSt6vectorIN2cv7Point3_IfEESaIS2_EE9push_backERKS2_.exit
 
@@ -1230,7 +1229,7 @@ _ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !79
   store ptr %.0.lcssa.i.i.i.i32, ptr %4, align 8, !tbaa !71
-  %62 = getelementptr inbounds nuw %"class.std::vector.4", ptr %20, i64 %16
+  %62 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %62, ptr %61, align 8, !tbaa !74
   ret void
 

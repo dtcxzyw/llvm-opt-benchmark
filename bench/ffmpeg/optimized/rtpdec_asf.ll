@@ -237,7 +237,7 @@ define internal noundef i32 @asfrtp_parse_sdp_line(ptr noundef readonly captures
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = load ptr, ptr %15, align 8, !tbaa !46
   %17 = zext nneg i32 %1 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !47
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 12
   store i32 %14, ptr %20, align 4, !tbaa !49
@@ -256,13 +256,13 @@ define internal noundef i32 @asfrtp_parse_sdp_line(ptr noundef readonly captures
   %25 = phi ptr [ %56, %55 ], [ %22, %.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %55 ], [ 0, %.preheader ]
   %26 = load ptr, ptr %15, align 8, !tbaa !46
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %17
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %17
   %28 = load ptr, ptr %27, align 8, !tbaa !47
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 12
   %30 = load i32, ptr %29, align 4, !tbaa !49
   %31 = getelementptr inbounds nuw i8, ptr %25, i64 48
   %32 = load ptr, ptr %31, align 8, !tbaa !46
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8, !tbaa !47
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 12
   %36 = load i32, ptr %35, align 4, !tbaa !49
@@ -278,12 +278,12 @@ define internal noundef i32 @asfrtp_parse_sdp_line(ptr noundef readonly captures
   %44 = load ptr, ptr %21, align 8, !tbaa !33
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 48
   %46 = load ptr, ptr %45, align 8, !tbaa !46
-  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv
   %48 = load ptr, ptr %47, align 8, !tbaa !47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 808
   %50 = load i32, ptr %49, align 8, !tbaa !58
   %51 = load ptr, ptr %15, align 8, !tbaa !46
-  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %17
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %17
   %53 = load ptr, ptr %52, align 8, !tbaa !47
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 808
   store i32 %50, ptr %54, align 8, !tbaa !58
@@ -526,7 +526,7 @@ thread-pre-split:                                 ; preds = %48, %51
   %113 = load ptr, ptr %112, align 8, !tbaa !46
   %114 = load i32, ptr %108, align 4, !tbaa !77
   %115 = sext i32 %114 to i64
-  %116 = getelementptr inbounds ptr, ptr %113, i64 %115
+  %116 = getelementptr inbounds [8 x i8], ptr %113, i64 %115
   %117 = load ptr, ptr %116, align 8, !tbaa !47
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 12
   %119 = load i32, ptr %118, align 4, !tbaa !49
@@ -535,7 +535,7 @@ thread-pre-split:                                 ; preds = %48, %51
 
 120:                                              ; preds = %.lr.ph149, %127
   %indvars.iv = phi i64 [ 0, %.lr.ph149 ], [ %indvars.iv.next, %127 ]
-  %121 = getelementptr inbounds nuw ptr, ptr %110, i64 %indvars.iv
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %110, i64 %indvars.iv
   %122 = load ptr, ptr %121, align 8, !tbaa !47
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 12
   %124 = load i32, ptr %123, align 4, !tbaa !49

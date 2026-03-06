@@ -20,7 +20,7 @@ define ptr @Cudd_bddCompose(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %11 = load ptr, ptr %10, align 8, !tbaa !24
   %12 = zext nneg i32 %3 to i64
-  %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !25
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %16
@@ -43,7 +43,7 @@ define ptr @cuddBddComposeRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %6 = load ptr, ptr %5, align 8, !tbaa !29
   %7 = load i32, ptr %3, align 8, !tbaa !30
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw i32, ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !31
   %11 = ptrtoint ptr %1 to i64
   %12 = and i64 %11, -2
@@ -54,7 +54,7 @@ define ptr @cuddBddComposeRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 
 16:                                               ; preds = %4
   %17 = zext i32 %14 to i64
-  %18 = getelementptr inbounds nuw i32, ptr %6, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !31
   br label %20
 
@@ -103,7 +103,7 @@ define ptr @cuddBddComposeRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 45:                                               ; preds = %39
   %46 = load ptr, ptr %5, align 8, !tbaa !29
   %47 = zext i32 %43 to i64
-  %48 = getelementptr inbounds nuw i32, ptr %46, i64 %47
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !31
   br label %50
 
@@ -178,7 +178,7 @@ define ptr @cuddBddComposeRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %93 = load ptr, ptr %92, align 8, !tbaa !24
   %94 = zext i32 %.085 to i64
-  %95 = getelementptr inbounds nuw ptr, ptr %93, i64 %94
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %94
   %96 = load ptr, ptr %95, align 8, !tbaa !25
   %97 = tail call ptr @cuddBddIteRecur(ptr noundef nonnull %0, ptr noundef %96, ptr noundef nonnull %73, ptr noundef nonnull %82) #7
   %98 = icmp eq ptr %97, null
@@ -233,7 +233,7 @@ define ptr @Cudd_addCompose(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %11 = load ptr, ptr %10, align 8, !tbaa !24
   %12 = zext nneg i32 %3 to i64
-  %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !25
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 448
   br label %16
@@ -256,7 +256,7 @@ define ptr @cuddAddComposeRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %6 = load ptr, ptr %5, align 8, !tbaa !29
   %7 = load i32, ptr %3, align 8, !tbaa !30
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw i32, ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !31
   %11 = load i32, ptr %1, align 8, !tbaa !30
   %12 = icmp eq i32 %11, 2147483647
@@ -264,7 +264,7 @@ define ptr @cuddAddComposeRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 
 13:                                               ; preds = %4
   %14 = zext i32 %11 to i64
-  %15 = getelementptr inbounds nuw i32, ptr %6, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !31
   br label %17
 
@@ -299,7 +299,7 @@ define ptr @cuddAddComposeRecur(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 34:                                               ; preds = %31
   %35 = load ptr, ptr %5, align 8, !tbaa !29
   %36 = zext i32 %32 to i64
-  %37 = getelementptr inbounds nuw i32, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !31
   br label %39
 
@@ -499,7 +499,7 @@ define internal fastcc ptr @cuddAddPermuteRecur(ptr noundef %0, ptr noundef nonn
   store i32 %35, ptr %33, align 4, !tbaa !33
   %36 = load i32, ptr %2, align 8, !tbaa !30
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw i32, ptr %3, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !31
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %41 = load ptr, ptr %40, align 8, !tbaa !36
@@ -599,7 +599,7 @@ define ptr @Cudd_addSwapVariables(ptr noundef %0, ptr noundef %1, ptr noundef re
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %16 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   %17 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %17, ptr %16, align 4, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -608,17 +608,17 @@ define ptr @Cudd_addSwapVariables(ptr noundef %0, ptr noundef %1, ptr noundef re
 
 .lr.ph33:                                         ; preds = %.lr.ph33.preheader, %.lr.ph33
   %indvars.iv35 = phi i64 [ 0, %.lr.ph33.preheader ], [ %indvars.iv.next36, %.lr.ph33 ]
-  %18 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv35
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv35
   %19 = load ptr, ptr %18, align 8, !tbaa !25
   %20 = load i32, ptr %19, align 8, !tbaa !30
-  %21 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv35
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv35
   %22 = load ptr, ptr %21, align 8, !tbaa !25
   %23 = load i32, ptr %22, align 8, !tbaa !30
   %24 = sext i32 %20 to i64
-  %25 = getelementptr inbounds i32, ptr %10, i64 %24
+  %25 = getelementptr inbounds [4 x i8], ptr %10, i64 %24
   store i32 %23, ptr %25, align 4, !tbaa !31
   %26 = sext i32 %23 to i64
-  %27 = getelementptr inbounds i32, ptr %10, i64 %26
+  %27 = getelementptr inbounds [4 x i8], ptr %10, i64 %26
   store i32 %20, ptr %27, align 4, !tbaa !31
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
   %exitcond39.not = icmp eq i64 %indvars.iv.next36, %wide.trip.count38
@@ -754,12 +754,12 @@ define internal fastcc ptr @cuddBddPermuteRecur(ptr noundef %0, ptr noundef nonn
   store i32 %44, ptr %42, align 4, !tbaa !33
   %45 = load i32, ptr %7, align 8, !tbaa !30
   %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds nuw i32, ptr %3, i64 %46
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %46
   %48 = load i32, ptr %47, align 4, !tbaa !31
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %50 = load ptr, ptr %49, align 8, !tbaa !24
   %51 = sext i32 %48 to i64
-  %52 = getelementptr inbounds ptr, ptr %50, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %50, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !25
   %54 = tail call ptr @cuddBddIteRecur(ptr noundef %0, ptr noundef %53, ptr noundef nonnull %24, ptr noundef nonnull %35) #7
   %55 = icmp eq ptr %54, null
@@ -927,12 +927,12 @@ Abc_Clock.exit:                                   ; preds = %23, %26
   %60 = load ptr, ptr %59, align 8, !tbaa !42
   %61 = load i32, ptr %6, align 8, !tbaa !30
   %62 = zext i32 %61 to i64
-  %63 = getelementptr inbounds nuw i32, ptr %60, i64 %62
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %62
   %64 = load i32, ptr %63, align 4, !tbaa !31
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %66 = load ptr, ptr %65, align 8, !tbaa !24
   %67 = sext i32 %64 to i64
-  %68 = getelementptr inbounds ptr, ptr %66, i64 %67
+  %68 = getelementptr inbounds [8 x i8], ptr %66, i64 %67
   %69 = load ptr, ptr %68, align 8, !tbaa !25
   %70 = call ptr @cuddBddIteRecur(ptr noundef nonnull %0, ptr noundef %69, ptr noundef nonnull %38, ptr noundef nonnull %49) #7
   %71 = icmp eq ptr %70, null
@@ -1030,7 +1030,7 @@ define range(i32 0, 2) i32 @Cudd_SetVarMap(ptr noundef %0, ptr noundef readonly 
 
 28:                                               ; preds = %.lr.ph, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
-  %29 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv
   %30 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %30, ptr %29, align 4, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1041,18 +1041,18 @@ define range(i32 0, 2) i32 @Cudd_SetVarMap(ptr noundef %0, ptr noundef readonly 
 
 34:                                               ; preds = %.lr.ph30, %34
   %indvars.iv32 = phi i64 [ 0, %.lr.ph30 ], [ %indvars.iv.next33, %34 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv32
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv32
   %36 = load ptr, ptr %35, align 8, !tbaa !25
   %37 = load i32, ptr %36, align 8, !tbaa !30
-  %38 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv32
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv32
   %39 = load ptr, ptr %38, align 8, !tbaa !25
   %40 = load i32, ptr %39, align 8, !tbaa !30
   %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds nuw i32, ptr %27, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %41
   store i32 %37, ptr %42, align 4, !tbaa !31
   %43 = load i32, ptr %39, align 8, !tbaa !30
   %44 = zext i32 %37 to i64
-  %45 = getelementptr inbounds nuw i32, ptr %27, i64 %44
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %44
   store i32 %43, ptr %45, align 4, !tbaa !31
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next33, %wide.trip.count
@@ -1098,7 +1098,7 @@ define ptr @Cudd_bddSwapVariables(ptr noundef %0, ptr noundef %1, ptr noundef re
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %16 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   %17 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %17, ptr %16, align 4, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1107,17 +1107,17 @@ define ptr @Cudd_bddSwapVariables(ptr noundef %0, ptr noundef %1, ptr noundef re
 
 .lr.ph33:                                         ; preds = %.lr.ph33.preheader, %.lr.ph33
   %indvars.iv35 = phi i64 [ 0, %.lr.ph33.preheader ], [ %indvars.iv.next36, %.lr.ph33 ]
-  %18 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv35
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv35
   %19 = load ptr, ptr %18, align 8, !tbaa !25
   %20 = load i32, ptr %19, align 8, !tbaa !30
-  %21 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv35
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv35
   %22 = load ptr, ptr %21, align 8, !tbaa !25
   %23 = load i32, ptr %22, align 8, !tbaa !30
   %24 = sext i32 %20 to i64
-  %25 = getelementptr inbounds i32, ptr %10, i64 %24
+  %25 = getelementptr inbounds [4 x i8], ptr %10, i64 %24
   store i32 %23, ptr %25, align 4, !tbaa !31
   %26 = sext i32 %23 to i64
-  %27 = getelementptr inbounds i32, ptr %10, i64 %26
+  %27 = getelementptr inbounds [4 x i8], ptr %10, i64 %26
   store i32 %20, ptr %27, align 4, !tbaa !31
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 1
   %exitcond39.not = icmp eq i64 %indvars.iv.next36, %wide.trip.count38
@@ -1167,7 +1167,7 @@ define ptr @Cudd_bddAdjPermuteX(ptr noundef %0, ptr noundef %1, ptr noundef read
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %17 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   %18 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %18, ptr %17, align 4, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1176,17 +1176,17 @@ define ptr @Cudd_bddAdjPermuteX(ptr noundef %0, ptr noundef %1, ptr noundef read
 
 .lr.ph33:                                         ; preds = %.lr.ph33.preheader, %.lr.ph33
   %indvars.iv35 = phi i64 [ 0, %.lr.ph33.preheader ], [ %indvars.iv.next36, %.lr.ph33 ]
-  %19 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv35
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv35
   %20 = load ptr, ptr %19, align 8, !tbaa !25
   %21 = load i32, ptr %20, align 8, !tbaa !30
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !25
   %24 = load i32, ptr %23, align 8, !tbaa !30
   %25 = sext i32 %21 to i64
-  %26 = getelementptr inbounds i32, ptr %9, i64 %25
+  %26 = getelementptr inbounds [4 x i8], ptr %9, i64 %25
   store i32 %24, ptr %26, align 4, !tbaa !31
   %27 = sext i32 %24 to i64
-  %28 = getelementptr inbounds i32, ptr %9, i64 %27
+  %28 = getelementptr inbounds [4 x i8], ptr %9, i64 %27
   store i32 %21, ptr %28, align 4, !tbaa !31
   %indvars.iv.next36 = add nuw nsw i64 %indvars.iv35, 3
   %29 = icmp samesign ult i64 %indvars.iv.next36, %16
@@ -1235,10 +1235,10 @@ define ptr @Cudd_addVectorCompose(ptr noundef initializes((448, 452)) %0, ptr no
 19:                                               ; preds = %16
   %20 = load ptr, ptr %8, align 8, !tbaa !56
   %21 = and i64 %indvars.iv.next, 4294967295
-  %22 = getelementptr inbounds nuw i32, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !31
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds ptr, ptr %2, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %2, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !25
   %27 = load i32, ptr %26, align 8, !tbaa !30
   %28 = icmp eq i32 %27, %23
@@ -1323,7 +1323,7 @@ define internal fastcc ptr @cuddAddVectorComposeRecur(ptr noundef %0, ptr nounde
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %10 = load ptr, ptr %9, align 8, !tbaa !29
   %11 = zext i32 %6 to i64
-  %12 = getelementptr inbounds nuw i32, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !31
   %14 = icmp sgt i32 %13, %4
   br i1 %14, label %.critedge, label %15
@@ -1368,7 +1368,7 @@ define internal fastcc ptr @cuddAddVectorComposeRecur(ptr noundef %0, ptr nounde
   store i32 %40, ptr %38, align 4, !tbaa !33
   %41 = load i32, ptr %2, align 8, !tbaa !30
   %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds nuw ptr, ptr %3, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !25
   %45 = tail call ptr @cuddAddIteRecur(ptr noundef nonnull %0, ptr noundef %44, ptr noundef nonnull %20, ptr noundef nonnull %31) #7
   %46 = icmp eq ptr %45, null
@@ -1449,12 +1449,12 @@ define ptr @Cudd_addGeneralVectorCompose(ptr noundef initializes((448, 452)) %0,
 20:                                               ; preds = %17
   %21 = load ptr, ptr %9, align 8, !tbaa !56
   %22 = and i64 %indvars.iv.next, 4294967295
-  %23 = getelementptr inbounds nuw i32, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !31
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds ptr, ptr %2, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %2, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !25
-  %28 = getelementptr inbounds ptr, ptr %3, i64 %25
+  %28 = getelementptr inbounds [8 x i8], ptr %3, i64 %25
   %29 = load ptr, ptr %28, align 8, !tbaa !25
   %30 = load i32, ptr %27, align 8, !tbaa !30
   %31 = icmp eq i32 %30, %24
@@ -1568,7 +1568,7 @@ define internal fastcc ptr @cuddAddGeneralVectorComposeRecur(ptr noundef %0, ptr
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %11 = load ptr, ptr %10, align 8, !tbaa !29
   %12 = zext i32 %7 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !31
   %15 = icmp sgt i32 %14, %5
   br i1 %15, label %.critedge, label %16
@@ -1613,7 +1613,7 @@ define internal fastcc ptr @cuddAddGeneralVectorComposeRecur(ptr noundef %0, ptr
   store i32 %41, ptr %39, align 4, !tbaa !33
   %42 = load i32, ptr %2, align 8, !tbaa !30
   %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds nuw ptr, ptr %3, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %43
   %45 = load ptr, ptr %44, align 8, !tbaa !25
   %46 = tail call ptr @cuddAddApplyRecur(ptr noundef nonnull %0, ptr noundef nonnull @Cudd_addTimes, ptr noundef %45, ptr noundef nonnull %21) #7
   %47 = icmp eq ptr %46, null
@@ -1634,7 +1634,7 @@ define internal fastcc ptr @cuddAddGeneralVectorComposeRecur(ptr noundef %0, ptr
   store i32 %55, ptr %53, align 4, !tbaa !33
   %56 = load i32, ptr %2, align 8, !tbaa !30
   %57 = zext i32 %56 to i64
-  %58 = getelementptr inbounds nuw ptr, ptr %4, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %57
   %59 = load ptr, ptr %58, align 8, !tbaa !25
   %60 = tail call ptr @cuddAddApplyRecur(ptr noundef nonnull %0, ptr noundef nonnull @Cudd_addTimes, ptr noundef %59, ptr noundef nonnull %32) #7
   %61 = icmp eq ptr %60, null
@@ -1737,7 +1737,7 @@ define ptr @Cudd_addNonSimCompose(ptr noundef %0, ptr noundef %1, ptr noundef re
   %.085116 = phi ptr [ %5, %.lr.ph ], [ %.1, %75 ]
   %.086115 = phi ptr [ %5, %.lr.ph ], [ %.187, %75 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %20 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.next
   %21 = load ptr, ptr %20, align 8, !tbaa !25
   %22 = load i32, ptr %21, align 8, !tbaa !30
   %23 = zext i32 %22 to i64
@@ -1856,7 +1856,7 @@ ddIsIthAddVar.exit.thread:                        ; preds = %19, %25, %ddIsIthAd
   br i1 %83, label %84, label %ddIsIthAddVar.exit96.thread
 
 84:                                               ; preds = %80
-  %85 = getelementptr inbounds nuw ptr, ptr %2, i64 %81
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %81
   %86 = load ptr, ptr %85, align 8, !tbaa !25
   %87 = load i32, ptr %86, align 8, !tbaa !30
   %88 = zext i32 %87 to i64
@@ -1955,7 +1955,7 @@ define internal fastcc ptr @cuddAddNonSimComposeRecur(ptr noundef %0, ptr nounde
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %20 = load ptr, ptr %19, align 8, !tbaa !29
   %21 = zext i32 %16 to i64
-  %22 = getelementptr inbounds nuw i32, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !31
   br label %24
 
@@ -1969,7 +1969,7 @@ define internal fastcc ptr @cuddAddNonSimComposeRecur(ptr noundef %0, ptr nounde
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %30 = load ptr, ptr %29, align 8, !tbaa !29
   %31 = zext i32 %26 to i64
-  %32 = getelementptr inbounds nuw i32, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !31
   br label %34
 
@@ -1984,7 +1984,7 @@ define internal fastcc ptr @cuddAddNonSimComposeRecur(ptr noundef %0, ptr nounde
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %41 = load ptr, ptr %40, align 8, !tbaa !29
   %42 = zext i32 %37 to i64
-  %43 = getelementptr inbounds nuw i32, ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !31
   br label %45
 
@@ -1994,7 +1994,7 @@ define internal fastcc ptr @cuddAddNonSimComposeRecur(ptr noundef %0, ptr nounde
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %49 = load ptr, ptr %48, align 8, !tbaa !56
   %50 = zext i32 %47 to i64
-  %51 = getelementptr inbounds nuw i32, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !31
   %53 = icmp eq i32 %25, %47
   br i1 %53, label %54, label %59
@@ -2107,14 +2107,14 @@ define internal fastcc ptr @cuddAddNonSimComposeRecur(ptr noundef %0, ptr nounde
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %126
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %126 ]
-  %109 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %110 = load ptr, ptr %109, align 8, !tbaa !25
   %111 = icmp eq ptr %110, null
-  %112 = getelementptr inbounds nuw ptr, ptr %99, i64 %indvars.iv
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %indvars.iv
   br i1 %111, label %113, label %115
 
 113:                                              ; preds = %.lr.ph
-  %114 = getelementptr inbounds nuw ptr, ptr %104, i64 %indvars.iv
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 %indvars.iv
   store ptr null, ptr %114, align 8, !tbaa !25
   store ptr null, ptr %112, align 8, !tbaa !25
   br label %126
@@ -2130,12 +2130,12 @@ define internal fastcc ptr @cuddAddNonSimComposeRecur(ptr noundef %0, ptr nounde
   store ptr %120, ptr %112, align 8, !tbaa !25
   %121 = getelementptr inbounds nuw i8, ptr %110, i64 24
   %122 = load ptr, ptr %121, align 8, !tbaa !32
-  %123 = getelementptr inbounds nuw ptr, ptr %104, i64 %indvars.iv
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 %indvars.iv
   store ptr %122, ptr %123, align 8, !tbaa !25
   br label %126
 
 124:                                              ; preds = %115
-  %125 = getelementptr inbounds nuw ptr, ptr %104, i64 %indvars.iv
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 %indvars.iv
   store ptr %110, ptr %125, align 8, !tbaa !25
   store ptr %110, ptr %112, align 8, !tbaa !25
   br label %126
@@ -2147,9 +2147,9 @@ define internal fastcc ptr @cuddAddNonSimComposeRecur(ptr noundef %0, ptr nounde
 
 ._crit_edge:                                      ; preds = %126, %.preheader
   %127 = zext i32 %52 to i64
-  %128 = getelementptr inbounds nuw ptr, ptr %104, i64 %127
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 %127
   store ptr null, ptr %128, align 8, !tbaa !25
-  %129 = getelementptr inbounds nuw ptr, ptr %99, i64 %127
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %127
   store ptr null, ptr %129, align 8, !tbaa !25
   %130 = tail call fastcc ptr @cuddAddNonSimComposeRecur(ptr noundef nonnull %0, ptr noundef %.0153, ptr noundef nonnull %99, ptr noundef %.0155, ptr noundef %.0158, i32 noundef %5)
   tail call void @free(ptr noundef nonnull %99) #7
@@ -2188,7 +2188,7 @@ define internal fastcc ptr @cuddAddNonSimComposeRecur(ptr noundef %0, ptr nounde
   %149 = add i32 %148, 1
   store i32 %149, ptr %147, align 4, !tbaa !33
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %.0155) #7
-  %150 = getelementptr inbounds nuw ptr, ptr %2, i64 %127
+  %150 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %127
   %151 = load ptr, ptr %150, align 8, !tbaa !25
   %152 = tail call ptr @cuddAddIteRecur(ptr noundef nonnull %0, ptr noundef %151, ptr noundef nonnull %130, ptr noundef nonnull %140) #7
   %153 = icmp eq ptr %152, null
@@ -2252,13 +2252,13 @@ define ptr @Cudd_bddVectorCompose(ptr noundef initializes((448, 452)) %0, ptr no
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %19 = load ptr, ptr %8, align 8, !tbaa !56
   %20 = and i64 %indvars.iv.next, 4294967295
-  %21 = getelementptr inbounds nuw i32, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !31
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds ptr, ptr %2, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %2, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !25
   %26 = load ptr, ptr %9, align 8, !tbaa !24
-  %27 = getelementptr inbounds ptr, ptr %26, i64 %23
+  %27 = getelementptr inbounds [8 x i8], ptr %26, i64 %23
   %28 = load ptr, ptr %27, align 8, !tbaa !25
   %.not = icmp eq ptr %25, %28
   br i1 %.not, label %15, label %.split.loop.exit, !llvm.loop !65
@@ -2323,7 +2323,7 @@ define internal fastcc ptr @cuddBddVectorComposeRecur(ptr noundef %0, ptr nounde
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %13 = load ptr, ptr %12, align 8, !tbaa !29
   %14 = zext i32 %9 to i64
-  %15 = getelementptr inbounds nuw i32, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !31
   %17 = icmp sgt i32 %16, %4
   br i1 %17, label %.critedge, label %18
@@ -2376,7 +2376,7 @@ define internal fastcc ptr @cuddBddVectorComposeRecur(ptr noundef %0, ptr nounde
   store i32 %49, ptr %47, align 4, !tbaa !33
   %50 = load i32, ptr %8, align 8, !tbaa !30
   %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds nuw ptr, ptr %3, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !25
   %54 = tail call ptr @cuddBddIteRecur(ptr noundef nonnull %0, ptr noundef %53, ptr noundef nonnull %29, ptr noundef nonnull %40) #7
   %55 = icmp eq ptr %54, null

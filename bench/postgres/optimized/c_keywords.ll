@@ -56,7 +56,7 @@ ScanCKeywords_hash_func.exit:                     ; preds = %4, %._crit_edge.loo
 
 24:                                               ; preds = %ScanCKeywords_hash_func.exit
   %25 = zext nneg i32 %23 to i64
-  %26 = getelementptr inbounds nuw i16, ptr @ScanCKeywords_kw_offsets, i64 %25
+  %26 = getelementptr inbounds nuw [2 x i8], ptr @ScanCKeywords_kw_offsets, i64 %25
   %27 = load i16, ptr %26, align 2
   %28 = zext i16 %27 to i64
   %29 = getelementptr inbounds nuw i8, ptr @ScanCKeywords_kw_string, i64 %28
@@ -65,7 +65,7 @@ ScanCKeywords_hash_func.exit:                     ; preds = %4, %._crit_edge.loo
   br i1 %31, label %32, label %36
 
 32:                                               ; preds = %24
-  %33 = getelementptr inbounds nuw i16, ptr @ScanCKeywordTokens, i64 %25
+  %33 = getelementptr inbounds nuw [2 x i8], ptr @ScanCKeywordTokens, i64 %25
   %34 = load i16, ptr %33, align 2
   %35 = zext i16 %34 to i32
   br label %36

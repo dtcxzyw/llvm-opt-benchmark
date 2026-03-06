@@ -15,7 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { ptr }
 %struct.AlphaFunc = type { %struct.AlphaOperands, %struct.AlphaOperands }
 %struct.AlphaOperands = type { i8, i8, i16 }
-%struct.ImageRef = type { ptr, ptr, i32, i32, i32, i32, i32, i32 }
 
 @PrimitiveTypes = external global %struct._PrimitiveTypes, align 8
 @SurfaceTypes = external global %struct._SurfaceTypes, align 8
@@ -354,7 +353,7 @@ define hidden void @ByteIndexedToFourByteAbgrConvert(ptr noundef %0, ptr noundef
   %.027 = phi i32 [ %2, %20 ], [ %42, %21 ]
   %22 = load i8, ptr %.130, align 1
   %23 = zext i8 %22 to i64
-  %24 = getelementptr inbounds nuw i32, ptr %10, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %23
   %25 = load i32, ptr %24, align 4
   %26 = lshr i32 %25, 24
   %27 = trunc nuw i32 %26 to i8
@@ -493,7 +492,7 @@ define hidden void @IntArgbToFourByteAbgrScaleConvert(ptr noundef %0, ptr nounde
   %.1 = phi ptr [ %.036, %23 ], [ %46, %29 ]
   %30 = ashr i32 %.038, %8
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds i32, ptr %28, i64 %31
+  %32 = getelementptr inbounds [4 x i8], ptr %28, i64 %31
   %33 = load i32, ptr %32, align 4
   %34 = lshr i32 %33, 8
   %35 = lshr i32 %33, 16
@@ -559,7 +558,7 @@ define hidden void @IntRgbToFourByteAbgrScaleConvert(ptr noundef %0, ptr noundef
   %.1 = phi ptr [ %.034, %23 ], [ %44, %29 ]
   %30 = ashr i32 %.036, %8
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds i32, ptr %28, i64 %31
+  %32 = getelementptr inbounds [4 x i8], ptr %28, i64 %31
   %33 = load i32, ptr %32, align 4
   %34 = lshr i32 %33, 8
   %35 = lshr i32 %33, 16
@@ -751,7 +750,7 @@ define hidden void @ByteIndexedToFourByteAbgrScaleConvert(ptr noundef %0, ptr no
   %34 = getelementptr inbounds i8, ptr %30, i64 %33
   %35 = load i8, ptr %34, align 1
   %36 = zext i8 %35 to i64
-  %37 = getelementptr inbounds nuw i32, ptr %15, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %36
   %38 = load i32, ptr %37, align 4
   %39 = lshr i32 %38, 24
   %40 = trunc nuw i32 %39 to i8
@@ -814,7 +813,7 @@ define hidden void @ByteIndexedBmToFourByteAbgrXparOver(ptr noundef %0, ptr noun
   %.028 = phi i32 [ %2, %20 ], [ %45, %38 ]
   %22 = load i8, ptr %.131, align 1
   %23 = zext i8 %22 to i64
-  %24 = getelementptr inbounds nuw i32, ptr %10, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %23
   %25 = load i32, ptr %24, align 4
   %26 = icmp slt i32 %25, 0
   br i1 %26, label %27, label %38
@@ -895,7 +894,7 @@ define hidden void @ByteIndexedBmToFourByteAbgrScaleXparOver(ptr noundef %0, ptr
   %34 = getelementptr inbounds i8, ptr %30, i64 %33
   %35 = load i8, ptr %34, align 1
   %36 = zext i8 %35 to i64
-  %37 = getelementptr inbounds nuw i32, ptr %15, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %36
   %38 = load i32, ptr %37, align 4
   %39 = icmp slt i32 %38, 0
   br i1 %39, label %40, label %51
@@ -968,7 +967,7 @@ define hidden void @IntArgbBmToFourByteAbgrScaleXparOver(ptr noundef %0, ptr nou
   %.1 = phi ptr [ %.033, %23 ], [ %47, %44 ]
   %30 = ashr i32 %.034, %8
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds i32, ptr %28, i64 %31
+  %32 = getelementptr inbounds [4 x i8], ptr %28, i64 %31
   %33 = load i32, ptr %32, align 4
   %34 = icmp ult i32 %33, 16777216
   br i1 %34, label %44, label %35
@@ -1036,7 +1035,7 @@ define hidden void @ByteIndexedBmToFourByteAbgrXparBgCopy(ptr noundef %0, ptr no
   %.040 = phi i32 [ %2, %21 ], [ %47, %40 ]
   %23 = load i8, ptr %.143, align 1
   %24 = zext i8 %23 to i64
-  %25 = getelementptr inbounds nuw i32, ptr %11, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %24
   %26 = load i32, ptr %25, align 4
   %27 = icmp slt i32 %26, 0
   br i1 %27, label %28, label %39
@@ -1735,7 +1734,7 @@ define hidden void @FourByteAbgrAlphaMaskFill(ptr noundef %0, ptr noundef %1, i3
   %.0137 = phi i32 [ %25, %19 ], [ %17, %10 ]
   %34 = load i32, ptr %9, align 4
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds %struct.AlphaFunc, ptr @AlphaRules, i64 %35
+  %36 = getelementptr inbounds [8 x i8], ptr @AlphaRules, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 1
   %38 = load i8, ptr %37, align 1
   %39 = zext i8 %38 to i32
@@ -2331,7 +2330,7 @@ define hidden void @IntArgbToFourByteAbgrAlphaMaskBlit(ptr noundef %0, ptr nound
   %20 = load i32, ptr %19, align 8
   %21 = load i32, ptr %10, align 4
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds %struct.AlphaFunc, ptr @AlphaRules, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr @AlphaRules, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 1
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
@@ -3121,7 +3120,7 @@ define hidden void @IntArgbPreToFourByteAbgrAlphaMaskBlit(ptr noundef %0, ptr no
   %20 = load i32, ptr %19, align 8
   %21 = load i32, ptr %10, align 4
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds %struct.AlphaFunc, ptr @AlphaRules, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr @AlphaRules, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 1
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
@@ -3443,7 +3442,7 @@ define hidden void @IntRgbToFourByteAbgrAlphaMaskBlit(ptr noundef %0, ptr nounde
   %20 = load i32, ptr %19, align 8
   %21 = load i32, ptr %10, align 4
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds %struct.AlphaFunc, ptr @AlphaRules, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr @AlphaRules, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 1
   %25 = load i8, ptr %24, align 1
   %26 = zext i8 %25 to i32
@@ -3770,7 +3769,7 @@ define hidden void @FourByteAbgrDrawGlyphListAA(ptr noundef readonly captures(no
 
 27:                                               ; preds = %.lr.ph, %.loopexit
   %indvars.iv190 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next191, %.loopexit ]
-  %28 = getelementptr inbounds nuw %struct.ImageRef, ptr %1, i64 %indvars.iv190
+  %28 = getelementptr inbounds nuw [40 x i8], ptr %1, i64 %indvars.iv190
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %29, align 8
   %.not = icmp eq ptr %30, null
@@ -4022,7 +4021,7 @@ define hidden void @FourByteAbgrDrawGlyphListLCD(ptr noundef readonly captures(n
 
 40:                                               ; preds = %.lr.ph, %.loopexit231
   %indvars.iv245 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next246, %.loopexit231 ]
-  %41 = getelementptr inbounds nuw %struct.ImageRef, ptr %1, i64 %indvars.iv245
+  %41 = getelementptr inbounds nuw [40 x i8], ptr %1, i64 %indvars.iv245
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load i32, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 24

@@ -829,7 +829,7 @@ define internal fastcc range(i32 -30, 2) i32 @owner_excluded(ptr noundef %0, ptr
   %14 = add i32 %.01418.i, %.019.i
   %15 = lshr i32 %14, 1
   %16 = zext nneg i32 %15 to i64
-  %17 = getelementptr inbounds nuw i64, ptr %12, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %16
   %18 = load i64, ptr %17, align 8, !tbaa !80
   %19 = icmp eq i64 %18, %8
   br i1 %19, label %match_owner_id.exit, label %20
@@ -866,7 +866,7 @@ match_owner_id.exit:                              ; preds = %13, %2
   %33 = add i32 %.01418.i32, %.019.i31
   %34 = lshr i32 %33, 1
   %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds nuw i64, ptr %31, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %35
   %37 = load i64, ptr %36, align 8, !tbaa !80
   %38 = icmp eq i64 %37, %27
   br i1 %38, label %match_owner_id.exit36, label %39
@@ -1180,7 +1180,7 @@ define dso_local range(i32 -30, 1) i32 @archive_match_exclude_pattern_w(ptr noun
   br i1 %.not.i, label %23, label %17
 
 17:                                               ; preds = %15
-  %18 = getelementptr i32, ptr %1, i64 %16
+  %18 = getelementptr [4 x i8], ptr %1, i64 %16
   %19 = getelementptr i8, ptr %18, i64 -4
   %20 = load i32, ptr %19, align 4, !tbaa !51
   %21 = icmp eq i32 %20, 47
@@ -1673,7 +1673,7 @@ define dso_local range(i32 -30, 1) i32 @archive_match_include_pattern_w(ptr noun
   br i1 %.not.i, label %23, label %17
 
 17:                                               ; preds = %15
-  %18 = getelementptr i32, ptr %1, i64 %16
+  %18 = getelementptr [4 x i8], ptr %1, i64 %16
   %19 = getelementptr i8, ptr %18, i64 -4
   %20 = load i32, ptr %19, align 4, !tbaa !51
   %21 = icmp eq i32 %20, 47
@@ -2963,7 +2963,7 @@ define internal fastcc range(i32 -30, 1) i32 @add_owner_id(ptr noundef %0, ptr n
 21:                                               ; preds = %.lr.ph, %25
   %22 = phi i64 [ 0, %.lr.ph ], [ %27, %25 ]
   %.03850 = phi i32 [ 0, %.lr.ph ], [ %26, %25 ]
-  %23 = getelementptr inbounds nuw i64, ptr %20, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %22
   %24 = load i64, ptr %23, align 8, !tbaa !80
   %.not47 = icmp slt i64 %24, %2
   br i1 %.not47, label %25, label %._crit_edge.loopexit
@@ -2992,23 +2992,23 @@ define internal fastcc range(i32 -30, 1) i32 @add_owner_id(ptr noundef %0, ptr n
 34:                                               ; preds = %._crit_edge
   %35 = add nuw nsw i64 %18, 1
   store i64 %35, ptr %4, align 8, !tbaa !78
-  %36 = getelementptr inbounds nuw i64, ptr %33, i64 %18
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %18
   store i64 %2, ptr %36, align 8, !tbaa !80
   br label %48
 
 37:                                               ; preds = %._crit_edge
-  %38 = getelementptr inbounds nuw i64, ptr %33, i64 %.lcssa49
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.lcssa49
   %39 = load i64, ptr %38, align 8, !tbaa !80
   %.not48 = icmp eq i64 %39, %2
   br i1 %.not48, label %48, label %40
 
 40:                                               ; preds = %37
-  %41 = getelementptr inbounds nuw i64, ptr %33, i64 %.038.lcssa
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.038.lcssa
   %42 = sub i64 %18, %.lcssa49
   %43 = shl i64 %42, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %41, ptr nonnull align 8 %38, i64 %43, i1 false)
   %44 = load ptr, ptr %32, align 8, !tbaa !79
-  %45 = getelementptr inbounds nuw i64, ptr %44, i64 %.lcssa49
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %.lcssa49
   store i64 %2, ptr %45, align 8, !tbaa !80
   %46 = load i64, ptr %4, align 8, !tbaa !78
   %47 = add i64 %46, 1

@@ -3478,7 +3478,7 @@ define internal i32 @dissect_tetra(ptr noundef %0, ptr noundef %1, ptr noundef %
   %97 = load i32, ptr @hf_tetra_channel3, align 4
   store i32 %97, ptr %93, align 4
   %98 = and i32 %.150.i, 15
-  %99 = getelementptr i32, ptr %6, i64 %indvars.iv.i
+  %99 = getelementptr [4 x i8], ptr %6, i64 %indvars.iv.i
   %100 = load i32, ptr %99, align 4
   %101 = tail call ptr @proto_tree_add_uint(ptr noundef %85, i32 noundef %100, ptr noundef %0, i32 noundef range(i32 5, 7) %75, i32 noundef 4, i32 noundef %98)
   %102 = lshr i32 %.150.i, 4
@@ -3488,7 +3488,7 @@ define internal i32 @dissect_tetra(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 switch.lookup:                                    ; preds = %94
   %104 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissect_tetra, i64 %104
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_tetra, i64 %104
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %get_tx_pdu_length.exit.i
 
@@ -3540,7 +3540,7 @@ get_tx_pdu_length.exit.i:                         ; preds = %switch.lookup, %94
   %127 = shl i32 %indvars.iv.next.tr.i, 2
   %128 = lshr i32 %112, %127
   %129 = and i32 %128, 15
-  %130 = getelementptr i32, ptr %5, i64 %indvars.iv.i60
+  %130 = getelementptr [4 x i8], ptr %5, i64 %indvars.iv.i60
   %131 = load i32, ptr %130, align 4
   %132 = tail call ptr @proto_tree_add_uint(ptr noundef %119, i32 noundef %131, ptr noundef %0, i32 noundef %111, i32 noundef 4, i32 noundef %129)
   %133 = load i32, ptr @hf_tetra_crc, align 4
@@ -3556,7 +3556,7 @@ get_tx_pdu_length.exit.i:                         ; preds = %switch.lookup, %94
 
 switch.lookup71:                                  ; preds = %123
   %140 = zext nneg i32 %switch.tableidx70 to i64
-  %switch.gep72 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_tetra.15, i64 %140
+  %switch.gep72 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_tetra.15, i64 %140
   %switch.load73 = load i32, ptr %switch.gep72, align 4
   br label %get_rx_pdu_length.exit.i
 

@@ -99,7 +99,7 @@ define internal noundef i32 @gray_raster_render(ptr noundef readnone captures(ad
 27:                                               ; preds = %24
   %28 = add nuw nsw i64 %19, 4294967295
   %29 = and i64 %28, 4294967295
-  %30 = getelementptr inbounds nuw i16, ptr %23, i64 %29
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %23, i64 %29
   %31 = load i16, ptr %30, align 2, !tbaa !28
   %32 = zext i16 %31 to i32
   %33 = add nuw nsw i32 %32, 1
@@ -631,7 +631,7 @@ define internal fastcc noundef i32 @gray_convert_glyph(ptr noundef nonnull initi
 
 60:                                               ; preds = %.lr.ph, %60
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %60 ]
-  %61 = getelementptr inbounds nuw ptr, ptr %59, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %indvars.iv
   store ptr %.pre123, ptr %61, align 8, !tbaa !107
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -647,7 +647,7 @@ define internal fastcc noundef i32 @gray_convert_glyph(ptr noundef nonnull initi
   %64 = shl nsw i64 %63, 3
   %65 = add nsw i64 %64, 16
   %66 = udiv i64 %65, 24
-  %67 = getelementptr inbounds nuw %struct.TCell_, ptr %3, i64 %66
+  %67 = getelementptr inbounds nuw [24 x i8], ptr %3, i64 %66
   store ptr %67, ptr %35, align 8, !tbaa !110
   store ptr %62, ptr %36, align 8, !tbaa !111
   %68 = call fastcc i32 @gray_convert_glyph_inner(ptr noundef %0, i32 noundef %.176)
@@ -678,7 +678,7 @@ define internal fastcc noundef i32 @gray_convert_glyph(ptr noundef nonnull initi
   %79 = load i32, ptr %27, align 8, !tbaa !102
   %80 = sub nsw i32 %.085113.i, %79
   %81 = sext i32 %80 to i64
-  %82 = getelementptr inbounds ptr, ptr %78, i64 %81
+  %82 = getelementptr inbounds [8 x i8], ptr %78, i64 %81
   %.078105.i = load ptr, ptr %82, align 8, !tbaa !107
   %83 = load ptr, ptr %11, align 8, !tbaa !95
   %.not91106.i = icmp eq ptr %.078105.i, %83
@@ -710,7 +710,7 @@ define internal fastcc noundef i32 @gray_convert_glyph(ptr noundef nonnull initi
   %92 = trunc i32 %spec.select.i to i8
   %93 = select i1 %91, i8 -1, i8 %92
   %94 = sext i32 %.180107.i to i64
-  %95 = getelementptr inbounds %struct.FT_Span_, ptr %2, i64 %94
+  %95 = getelementptr inbounds [6 x i8], ptr %2, i64 %94
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 4
   store i8 %93, ptr %96, align 2, !tbaa !113
   %97 = trunc i32 %.077108.i to i16
@@ -759,7 +759,7 @@ define internal fastcc noundef i32 @gray_convert_glyph(ptr noundef nonnull initi
   %122 = trunc i32 %spec.select101.i to i8
   %123 = select i1 %121, i8 -1, i8 %122
   %124 = sext i32 %.281.i to i64
-  %125 = getelementptr inbounds %struct.FT_Span_, ptr %2, i64 %124
+  %125 = getelementptr inbounds [6 x i8], ptr %2, i64 %124
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 4
   store i8 %123, ptr %126, align 2, !tbaa !113
   %127 = trunc i32 %.pre118.i to i16
@@ -802,7 +802,7 @@ define internal fastcc noundef i32 @gray_convert_glyph(ptr noundef nonnull initi
   %145 = trunc i32 %spec.select103.i to i8
   %146 = select i1 %144, i8 -1, i8 %145
   %147 = sext i32 %.382.i to i64
-  %148 = getelementptr inbounds %struct.FT_Span_, ptr %2, i64 %147
+  %148 = getelementptr inbounds [6 x i8], ptr %2, i64 %147
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 4
   store i8 %146, ptr %149, align 2, !tbaa !113
   %150 = trunc i32 %136 to i16
@@ -848,7 +848,7 @@ gray_sweep_direct.exit:                           ; preds = %.thread.i, %74
   %168 = load i32, ptr %27, align 8, !tbaa !102
   %169 = sub nsw i32 %.0105129.i, %168
   %170 = sext i32 %169 to i64
-  %171 = getelementptr inbounds ptr, ptr %167, i64 %170
+  %171 = getelementptr inbounds [8 x i8], ptr %167, i64 %170
   %172 = load ptr, ptr %40, align 8, !tbaa !39
   %173 = load i32, ptr %41, align 8, !tbaa !44
   %174 = mul nsw i32 %173, %.0105129.i
@@ -1249,7 +1249,7 @@ define internal noundef i32 @gray_move_to(ptr noundef readonly captures(none) %0
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %25 = load ptr, ptr %24, align 8, !tbaa !101
   %26 = zext nneg i32 %12 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %29 = load i32, ptr %28, align 8, !tbaa !105
   %.not42.i = icmp sgt i32 %29, %7
@@ -1737,7 +1737,7 @@ define internal fastcc void @gray_render_line(ptr noundef %0, i64 noundef %1, i6
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %48 = load ptr, ptr %47, align 8, !tbaa !101
   %49 = zext nneg i32 %35 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %52 = load i32, ptr %51, align 8, !tbaa !105
   %.not42.i = icmp sgt i32 %52, %23
@@ -1860,7 +1860,7 @@ gray_set_cell.exit:                               ; preds = %.lr.ph.i, %43, %74
 111:                                              ; preds = %107
   %112 = load ptr, ptr %87, align 8, !tbaa !101
   %113 = zext nneg i32 %103 to i64
-  %114 = getelementptr inbounds nuw ptr, ptr %112, i64 %113
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %113
   %115 = load i32, ptr %88, align 8, !tbaa !105
   %.not42.i199 = icmp sgt i32 %115, %21
   %116 = add nsw i32 %115, -1
@@ -1954,7 +1954,7 @@ gray_set_cell.exit205:                            ; preds = %.lr.ph.i200, %109, 
 157:                                              ; preds = %153
   %158 = load ptr, ptr %87, align 8, !tbaa !101
   %159 = zext nneg i32 %149 to i64
-  %160 = getelementptr inbounds nuw ptr, ptr %158, i64 %159
+  %160 = getelementptr inbounds nuw [8 x i8], ptr %158, i64 %159
   %161 = load i32, ptr %88, align 8, !tbaa !105
   %.not42.i209 = icmp sgt i32 %161, %21
   %162 = add nsw i32 %161, -1
@@ -2177,7 +2177,7 @@ gray_set_cell.exit215:                            ; preds = %.lr.ph.i210, %155, 
 292:                                              ; preds = %288
   %293 = load ptr, ptr %205, align 8, !tbaa !101
   %294 = zext nneg i32 %284 to i64
-  %295 = getelementptr inbounds nuw ptr, ptr %293, i64 %294
+  %295 = getelementptr inbounds nuw [8 x i8], ptr %293, i64 %294
   %296 = load i32, ptr %206, align 8, !tbaa !105
   %.not42.i219 = icmp slt i32 %.1178, %296
   %297 = add nsw i32 %296, -1
@@ -2290,7 +2290,7 @@ define internal fastcc i32 @ft_smooth_raster_overlap(ptr noundef readonly captur
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %10 = load i16, ptr %9, align 2, !tbaa !19
   %11 = zext i16 %10 to i64
-  %12 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %7, i64 %11
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %11
   br label %13
 
 13:                                               ; preds = %3, %8

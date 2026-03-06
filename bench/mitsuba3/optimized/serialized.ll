@@ -1888,7 +1888,7 @@ define weak_odr void @_ZN7mitsuba14SerializedMeshIfN5drjit6MatrixINS_8SpectrumIf
 
 .lr.ph.i.i:                                       ; preds = %.noexc, %.lr.ph.i.i
   %.010.i.i = phi i64 [ %25, %.lr.ph.i.i ], [ 0, %.noexc ]
-  %23 = getelementptr inbounds double, ptr %15, i64 %.010.i.i
+  %23 = getelementptr inbounds [8 x i8], ptr %15, i64 %.010.i.i
   %.0.copyload3.i.i.i = load i64, ptr %23, align 8
   %24 = tail call i64 @llvm.bswap.i64(i64 %.0.copyload3.i.i.i)
   store i64 %24, ptr %23, align 8
@@ -1905,10 +1905,10 @@ _ZN7mitsuba6Stream10read_arrayIdEEvPT_m.exit:     ; preds = %.lr.ph.i.i, %.noexc
 
 .lr.ph:                                           ; preds = %_ZN7mitsuba6Stream10read_arrayIdEEvPT_m.exit, %.lr.ph
   %.040 = phi i64 [ %33, %.lr.ph ], [ 0, %_ZN7mitsuba6Stream10read_arrayIdEEvPT_m.exit ]
-  %29 = getelementptr inbounds double, ptr %15, i64 %.040
+  %29 = getelementptr inbounds [8 x i8], ptr %15, i64 %.040
   %30 = load double, ptr %29, align 8
   %31 = fptrunc double %30 to float
-  %32 = getelementptr inbounds float, ptr %3, i64 %.040
+  %32 = getelementptr inbounds [4 x i8], ptr %3, i64 %.040
   store float %31, ptr %32, align 4
   %33 = add nuw i64 %.040, 1
   %34 = load i32, ptr %6, align 16
@@ -1943,7 +1943,7 @@ _ZNSt3__110unique_ptrIA_dNS_14default_deleteIS1_EEED2B8ne190000Ev.exit: ; preds 
 
 .lr.ph.i.i24:                                     ; preds = %.noexc28, %.lr.ph.i.i24
   %.010.i.i25 = phi i64 [ %53, %.lr.ph.i.i24 ], [ 0, %.noexc28 ]
-  %51 = getelementptr inbounds float, ptr %43, i64 %.010.i.i25
+  %51 = getelementptr inbounds [4 x i8], ptr %43, i64 %.010.i.i25
   %.0.copyload3.i.i.i26 = load i32, ptr %51, align 4
   %52 = tail call i32 @llvm.bswap.i32(i32 %.0.copyload3.i.i.i26)
   store i32 %52, ptr %51, align 4
@@ -2006,7 +2006,7 @@ define weak_odr void @_ZN7mitsuba14SerializedMeshIfN5drjit6MatrixINS_8SpectrumIf
 
 .lr.ph.i.i:                                       ; preds = %.noexc, %.lr.ph.i.i
   %.010.i.i = phi i64 [ %24, %.lr.ph.i.i ], [ 0, %.noexc ]
-  %22 = getelementptr inbounds double, ptr %14, i64 %.010.i.i
+  %22 = getelementptr inbounds [8 x i8], ptr %14, i64 %.010.i.i
   %.0.copyload3.i.i.i = load i64, ptr %22, align 8
   %23 = tail call i64 @llvm.bswap.i64(i64 %.0.copyload3.i.i.i)
   store i64 %23, ptr %22, align 8
@@ -2040,7 +2040,7 @@ _ZNSt3__110unique_ptrIA_dNS_14default_deleteIS1_EEED2B8ne190000Ev.exit13: ; pred
 
 .lr.ph.i.i15:                                     ; preds = %.noexc19, %.lr.ph.i.i15
   %.010.i.i16 = phi i64 [ %40, %.lr.ph.i.i15 ], [ 0, %.noexc19 ]
-  %38 = getelementptr inbounds float, ptr %30, i64 %.010.i.i16
+  %38 = getelementptr inbounds [4 x i8], ptr %30, i64 %.010.i.i16
   %.0.copyload3.i.i.i17 = load i32, ptr %38, align 4
   %39 = tail call i32 @llvm.bswap.i32(i32 %.0.copyload3.i.i.i17)
   store i32 %39, ptr %38, align 4
@@ -2664,7 +2664,7 @@ _ZN10tinyformat6detail24printFormatStringLiteralERNSt3__113basic_ostreamIcNS1_11
 
 67:                                               ; preds = %_ZN10tinyformat6detail24printFormatStringLiteralERNSt3__113basic_ostreamIcNS1_11char_traitsIcEEEEPKc.exit
   %68 = sext i32 %66 to i64
-  %69 = getelementptr inbounds %"class.tinyformat::detail::FormatArg", ptr %2, i64 %68
+  %69 = getelementptr inbounds [24 x i8], ptr %2, i64 %68
   %70 = load i8, ptr %8, align 1
   %71 = trunc i8 %70 to i1
   br i1 %71, label %77, label %72
@@ -3222,7 +3222,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit: ; preds = %.lr.ph.i
   %153 = add nsw i32 %150, 1
   store i32 %153, ptr %5, align 4
   %154 = sext i32 %150 to i64
-  %155 = getelementptr inbounds %"class.tinyformat::detail::FormatArg", ptr %4, i64 %154
+  %155 = getelementptr inbounds [24 x i8], ptr %4, i64 %154
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 16
   %157 = load ptr, ptr %156, align 8
   %158 = load ptr, ptr %155, align 8
@@ -3315,7 +3315,7 @@ _ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit86: ; preds = %1
   %206 = add nsw i32 %203, 1
   store i32 %206, ptr %5, align 4
   %207 = sext i32 %203 to i64
-  %208 = getelementptr inbounds %"class.tinyformat::detail::FormatArg", ptr %4, i64 %207
+  %208 = getelementptr inbounds [24 x i8], ptr %4, i64 %207
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 16
   %210 = load ptr, ptr %209, align 8
   %211 = load ptr, ptr %208, align 8

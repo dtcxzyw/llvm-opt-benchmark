@@ -2103,7 +2103,7 @@ invoke.cont38:                                    ; preds = %invoke.cont11
   %arrayidx22 = getelementptr inbounds nuw i8, ptr %call.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx22, i8 0, i64 16, i1 false)
   %8 = load i64, ptr %columns_.i.i, align 8, !tbaa !95
-  %add.ptr.i.i = getelementptr inbounds nuw double, ptr %6, i64 %8
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %8
   %9 = load double, ptr %add.ptr.i.i, align 8, !tbaa !86
   %add.ptr.i.i15 = getelementptr inbounds nuw i8, ptr %call.i, i64 24
   store double %9, ptr %add.ptr.i.i15, align 8, !tbaa !86

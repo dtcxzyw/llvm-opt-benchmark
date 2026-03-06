@@ -153,7 +153,7 @@ key2048_key.exit:                                 ; preds = %6, %12
 
 15:                                               ; preds = %key2048_key.exit
   %16 = sext i32 %0 to i64
-  %17 = getelementptr inbounds ptr, ptr @test_rsa_mp.param_set, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr @test_rsa_mp.param_set, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !4
   %19 = tail call i32 %18(ptr noundef %4) #3
   %20 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.2, i32 noundef 271, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.12, i32 noundef %19, i32 noundef 256) #3

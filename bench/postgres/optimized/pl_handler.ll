@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.Pg_magic_struct = type { i32, i32, i32, i32, i32, i32, [32 x i8] }
 %struct.Pg_finfo_record = type { i32 }
-%union.ListCell = type { ptr }
 %struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
 %struct.__sigset_t = type { [16 x i64] }
 %union.anon = type { %struct.FunctionCallInfoBaseData }
@@ -156,7 +155,7 @@ define internal noundef zeroext i1 @plpgsql_extra_checks_check_hook(ptr noundef 
   %indvars.iv = phi i64 [ %indvars.iv.next, %53 ], [ 0, %.lr.ph ]
   %.1335562 = phi i32 [ %54, %53 ], [ 0, %.lr.ph ]
   %27 = load ptr, ptr %24, align 8
-  %28 = getelementptr inbounds nuw %union.ListCell, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   %30 = call i32 @pg_strcasecmp(ptr noundef %29, ptr noundef nonnull @.str.27) #10
   %31 = icmp eq i32 %30, 0
@@ -634,7 +633,7 @@ define noundef i64 @plpgsql_validator(ptr noundef readonly captures(none) %0) lo
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %61
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %61 ]
   %44 = load ptr, ptr %2, align 8
-  %45 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %indvars.iv
   %46 = load i32, ptr %45, align 4
   %47 = call signext i8 @get_typtype(i32 noundef %46) #10
   %48 = icmp eq i8 %47, 112
@@ -642,7 +641,7 @@ define noundef i64 @plpgsql_validator(ptr noundef readonly captures(none) %0) lo
 
 49:                                               ; preds = %.lr.ph
   %50 = load ptr, ptr %2, align 8
-  %51 = getelementptr inbounds nuw i32, ptr %50, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %indvars.iv
   %52 = load i32, ptr %51, align 4
   switch i32 %52, label %53 [
     i32 2249, label %61
@@ -663,7 +662,7 @@ define noundef i64 @plpgsql_validator(ptr noundef readonly captures(none) %0) lo
   %54 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef nonnull @.str) #14
   %55 = call i32 @errcode(i32 noundef 1088) #10
   %56 = load ptr, ptr %2, align 8
-  %57 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv
   %58 = load i32, ptr %57, align 4
   %59 = call ptr @format_type_be(i32 noundef %58) #10
   %60 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20, ptr noundef %59) #10

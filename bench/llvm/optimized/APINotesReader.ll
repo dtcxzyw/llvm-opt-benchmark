@@ -13,7 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorBase" = type { ptr, i32, i32 }
 %"struct.llvm::SmallVectorStorage" = type { [16 x i8] }
 %"class.llvm::OnDiskChainedHashTable<clang::api_notes::(anonymous namespace)::ObjCSelectorTableInfo>::iterator" = type { %"struct.clang::api_notes::StoredObjCSelector", ptr, i32, ptr }
-%"class.llvm::PointerEmbeddedInt" = type { i64 }
 %"class.llvm::Error" = type { ptr }
 %class.anon = type { i8 }
 %"class.llvm::Expected" = type { %union.anon.118, i8, [7 x i8] }
@@ -86,8 +85,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Optional_payload_base.base.191" = type <{ %"union.std::_Optional_payload_base<unsigned int>::_Storage", i8 }>
 %"union.std::_Optional_payload_base<unsigned int>::_Storage" = type { i32 }
 %"class.llvm::OnDiskChainedHashTable<clang::api_notes::(anonymous namespace)::ContextInfoTableInfo>::iterator" = type { i32, ptr, i32, ptr }
-%"struct.std::pair.426" = type { %"class.llvm::VersionTuple", %"class.clang::api_notes::ContextInfo" }
-%"class.llvm::VersionTuple" = type { i64, i64 }
 %"class.clang::api_notes::ContextInfo" = type <{ %"class.clang::api_notes::CommonTypeInfo", i8, [7 x i8] }>
 %"class.clang::api_notes::CommonTypeInfo" = type { %"class.clang::api_notes::CommonEntityInfo", %"class.std::optional.416", %"class.std::optional.416" }
 %"class.clang::api_notes::CommonEntityInfo" = type { %"class.std::__cxx11::basic_string", i8, %"class.std::__cxx11::basic_string" }
@@ -97,6 +94,8 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Optional_payload.base.423" = type { %"struct.std::_Optional_payload_base.base.422" }
 %"struct.std::_Optional_payload_base.base.422" = type <{ %"union.std::_Optional_payload_base<std::__cxx11::basic_string<char>>::_Storage", i8 }>
 %"union.std::_Optional_payload_base<std::__cxx11::basic_string<char>>::_Storage" = type { %"class.std::__cxx11::basic_string" }
+%"struct.std::pair.426" = type { %"class.llvm::VersionTuple", %"class.clang::api_notes::ContextInfo" }
+%"class.llvm::VersionTuple" = type { i64, i64 }
 %"class.clang::api_notes::APINotesReader::VersionedInfo.197" = type { %"class.llvm::SmallVector.198", %"class.std::optional.186" }
 %"class.llvm::SmallVector.198" = type { %"class.llvm::SmallVectorImpl.199", %"struct.llvm::SmallVectorStorage.202" }
 %"class.llvm::SmallVectorImpl.199" = type { %"class.llvm::SmallVectorTemplateBase.200" }
@@ -192,13 +191,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Optional_payload_base.base.510" = type <{ %"union.std::_Optional_payload_base<clang::api_notes::SwiftNewTypeKind>::_Storage", i8 }>
 %"union.std::_Optional_payload_base<clang::api_notes::SwiftNewTypeKind>::_Storage" = type { i32 }
 %"struct.std::pair.513" = type { %"class.llvm::VersionTuple", %"class.clang::api_notes::TypedefInfo" }
-%"struct.llvm::BitstreamCursor::Block" = type { i32, %"class.std::vector" }
-%"class.std::unique_ptr.299" = type { %"struct.std::__uniq_ptr_data.300" }
-%"struct.std::__uniq_ptr_data.300" = type { %"class.std::__uniq_ptr_impl.301" }
-%"class.std::__uniq_ptr_impl.301" = type { %"class.std::tuple.302" }
-%"class.std::tuple.302" = type { %"struct.std::_Tuple_impl.303" }
-%"struct.std::_Tuple_impl.303" = type { %"struct.std::_Head_base.306" }
-%"struct.std::_Head_base.306" = type { ptr }
 
 $_ZN4llvm15BitstreamCursor7advanceEj = comdat any
 
@@ -665,7 +657,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_119IdentifierTabl
   %72 = phi i32 [ %31, %66 ], [ %.pre.i, %68 ]
   %73 = load ptr, ptr %17, align 8, !tbaa !26
   %74 = zext i32 %72 to i64
-  %75 = getelementptr inbounds nuw %"class.llvm::PointerEmbeddedInt", ptr %73, i64 %74
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %74
   store i64 %.sroa.015.0.i, ptr %75, align 1
   %76 = load i32, ptr %19, align 8, !tbaa !28
   %77 = add i32 %76, 1
@@ -1067,7 +1059,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_18PointerEmbeddedIntIjLi31EEELb1EE9push_bac
   %244 = phi i32 [ %236, %235 ], [ %.pre.i.i.i.i, %241 ]
   %245 = load ptr, ptr %199, align 8, !tbaa !26, !alias.scope !73, !noalias !70
   %246 = zext i32 %244 to i64
-  %247 = getelementptr inbounds nuw %"class.llvm::PointerEmbeddedInt", ptr %245, i64 %246
+  %247 = getelementptr inbounds nuw [8 x i8], ptr %245, i64 %246
   store i64 %239, ptr %247, align 1
   %248 = load i32, ptr %201, align 8, !tbaa !28, !alias.scope !73, !noalias !70
   %249 = add i32 %248, 1
@@ -8093,7 +8085,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTab
   %66 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %67 = load i32, ptr %66, align 8, !tbaa !28
   %68 = zext i32 %67 to i64
-  %69 = getelementptr inbounds nuw %"struct.std::pair.426", ptr %65, i64 %68
+  %69 = getelementptr inbounds nuw [176 x i8], ptr %65, i64 %68
   call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11ContextInfoEELb0EE13destroy_rangeEPS6_S8_(ptr noundef %65, ptr noundef %69)
   %70 = load ptr, ptr %6, align 8, !tbaa !26
   %71 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -8165,7 +8157,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11C
 _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11ContextInfoEELb0EE19moveElementsForGrowEPS6_.exit.i.i.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11ContextInfoEELb0EE18uninitialized_moveIPS6_S9_EEvT_SA_T0_.exit.loopexit.i.i.i.i, %15
   %25 = phi i64 [ %24, %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11ContextInfoEELb0EE18uninitialized_moveIPS6_S9_EEvT_SA_T0_.exit.loopexit.i.i.i.i ], [ 0, %15 ]
   %26 = phi ptr [ %.pre.i.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11ContextInfoEELb0EE18uninitialized_moveIPS6_S9_EEvT_SA_T0_.exit.loopexit.i.i.i.i ], [ %18, %15 ]
-  %27 = getelementptr inbounds nuw %"struct.std::pair.426", ptr %26, i64 %25
+  %27 = getelementptr inbounds nuw [176 x i8], ptr %26, i64 %25
   call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11ContextInfoEELb0EE13destroy_rangeEPS6_S8_(ptr noundef %26, ptr noundef %27)
   %28 = load i64, ptr %3, align 8, !tbaa !48, !noalias !661
   %29 = load ptr, ptr %0, align 8, !tbaa !26, !alias.scope !661
@@ -8375,7 +8367,7 @@ _ZN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfo15readUnversionedEjRPKh.e
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11ContextInfoEELb0EE9push_backEOS6_.exit.i, label %141, !prof !55
 
 141:                                              ; preds = %_ZN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfo15readUnversionedEjRPKh.exit.i
-  %142 = getelementptr inbounds nuw %"struct.std::pair.426", ptr %.pre3.i.i, i64 %138
+  %142 = getelementptr inbounds nuw [176 x i8], ptr %.pre3.i.i, i64 %138
   %143 = icmp uge ptr %6, %.pre3.i.i
   %144 = icmp ult ptr %6, %142
   %spec.select.i.i.i.i.i.i = and i1 %143, %144
@@ -8399,7 +8391,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11C
   %.016.i.i.i.i = phi ptr [ %6, %_ZN5clang9api_notes12_GLOBAL__N_120ContextInfoTableInfo15readUnversionedEjRPKh.exit.i ], [ %149, %145 ], [ %6, %.critedge.i.i.i.i ]
   %151 = load i32, ptr %12, align 8, !tbaa !28, !alias.scope !661
   %152 = zext i32 %151 to i64
-  %153 = getelementptr inbounds nuw %"struct.std::pair.426", ptr %150, i64 %152
+  %153 = getelementptr inbounds nuw [176 x i8], ptr %150, i64 %152
   call void @_ZNSt4pairIN4llvm12VersionTupleEN5clang9api_notes11ContextInfoEEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(176) %153, ptr noundef nonnull align 8 dereferenceable(176) %.016.i.i.i.i) #19
   %154 = load i32, ptr %12, align 8, !tbaa !28, !alias.scope !661
   %155 = add i32 %154, 1
@@ -8579,7 +8571,7 @@ _ZNK4llvm12VersionTuple5emptyEv.exit.thread.preheader: ; preds = %.lr.ph
 
 _ZNK4llvm12VersionTuple5emptyEv.exit.thread:      ; preds = %_ZNK4llvm12VersionTuple5emptyEv.exit.thread.preheader, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread
   %indvars.iv = phi i64 [ 0, %_ZNK4llvm12VersionTuple5emptyEv.exit.thread.preheader ], [ %indvars.iv.next, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
-  %29 = getelementptr inbounds nuw %"struct.std::pair.426", ptr %18, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [176 x i8], ptr %18, i64 %indvars.iv
   %30 = load i64, ptr %29, align 4
   %31 = trunc i64 %30 to i32
   %32 = lshr i64 %30, 32
@@ -8987,7 +8979,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_120ContextInfoTab
   %66 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %67 = load i32, ptr %66, align 8, !tbaa !28
   %68 = zext i32 %67 to i64
-  %69 = getelementptr inbounds nuw %"struct.std::pair.426", ptr %65, i64 %68
+  %69 = getelementptr inbounds nuw [176 x i8], ptr %65, i64 %68
   call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11ContextInfoEELb0EE13destroy_rangeEPS6_S8_(ptr noundef %65, ptr noundef %69)
   %70 = load ptr, ptr %6, align 8, !tbaa !26
   %71 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -9614,7 +9606,7 @@ _ZNK4llvm12VersionTuple5emptyEv.exit.thread.preheader: ; preds = %.lr.ph
 
 _ZNK4llvm12VersionTuple5emptyEv.exit.thread:      ; preds = %_ZNK4llvm12VersionTuple5emptyEv.exit.thread.preheader, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread
   %indvars.iv = phi i64 [ 0, %_ZNK4llvm12VersionTuple5emptyEv.exit.thread.preheader ], [ %indvars.iv.next, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
-  %29 = getelementptr inbounds nuw %"struct.std::pair.447", ptr %18, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [136 x i8], ptr %18, i64 %indvars.iv
   %30 = load i64, ptr %29, align 4
   %31 = trunc i64 %30 to i32
   %32 = lshr i64 %30, 32
@@ -10130,7 +10122,7 @@ _ZNSt4pairIN4llvm12VersionTupleEN5clang9api_notes14ObjCMethodInfoEEC2IRS1_RS4_Tn
   br i1 %.not.i.i.not.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes14ObjCMethodInfoEELb0EE9push_backEOS6_.exit.i.i, label %231, !prof !55
 
 231:                                              ; preds = %_ZNSt4pairIN4llvm12VersionTupleEN5clang9api_notes14ObjCMethodInfoEEC2IRS1_RS4_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_.exit.i.i
-  %232 = getelementptr inbounds nuw %"struct.std::pair.466", ptr %.pre3.i.i.i, i64 %228
+  %232 = getelementptr inbounds nuw [328 x i8], ptr %.pre3.i.i.i, i64 %228
   %233 = icmp uge ptr %9, %.pre3.i.i.i
   %234 = icmp ult ptr %9, %232
   %spec.select.i.i.i.i.i.i.i = and i1 %233, %234
@@ -10154,7 +10146,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes14O
   %.016.i.i.i.i.i = phi ptr [ %9, %_ZNSt4pairIN4llvm12VersionTupleEN5clang9api_notes14ObjCMethodInfoEEC2IRS1_RS4_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_.exit.i.i ], [ %239, %235 ], [ %9, %.critedge.i.i.i.i.i ]
   %241 = load i32, ptr %86, align 8, !tbaa !28, !alias.scope !738
   %242 = zext i32 %241 to i64
-  %243 = getelementptr inbounds nuw %"struct.std::pair.466", ptr %240, i64 %242
+  %243 = getelementptr inbounds nuw [328 x i8], ptr %240, i64 %242
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(328) %243, ptr noundef nonnull align 8 dereferenceable(328) %.016.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !753
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 16
   %245 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i, i64 16
@@ -10261,7 +10253,7 @@ _ZNK4llvm12VersionTuple5emptyEv.exit.thread.preheader: ; preds = %.lr.ph
 
 _ZNK4llvm12VersionTuple5emptyEv.exit.thread:      ; preds = %_ZNK4llvm12VersionTuple5emptyEv.exit.thread.preheader, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread
   %indvars.iv = phi i64 [ 0, %_ZNK4llvm12VersionTuple5emptyEv.exit.thread.preheader ], [ %indvars.iv.next, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
-  %29 = getelementptr inbounds nuw %"struct.std::pair.466", ptr %18, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [328 x i8], ptr %18, i64 %indvars.iv
   %30 = load i64, ptr %29, align 4
   %31 = trunc i64 %30 to i32
   %32 = lshr i64 %30, 32
@@ -10900,7 +10892,7 @@ _ZNK4llvm12VersionTuple5emptyEv.exit.thread.preheader: ; preds = %.lr.ph
 
 _ZNK4llvm12VersionTuple5emptyEv.exit.thread:      ; preds = %_ZNK4llvm12VersionTuple5emptyEv.exit.thread.preheader, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread
   %indvars.iv = phi i64 [ 0, %_ZNK4llvm12VersionTuple5emptyEv.exit.thread.preheader ], [ %indvars.iv.next, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
-  %29 = getelementptr inbounds nuw %"struct.std::pair.479", ptr %18, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [128 x i8], ptr %18, i64 %indvars.iv
   %30 = load i64, ptr %29, align 4
   %31 = trunc i64 %30 to i32
   %32 = lshr i64 %30, 32
@@ -11461,7 +11453,7 @@ _ZNSt4pairIN4llvm12VersionTupleEN5clang9api_notes13CXXMethodInfoEEC2IRS1_RS4_TnN
   br i1 %.not.i.i.not.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes13CXXMethodInfoEELb0EE9push_backEOS6_.exit.i.i, label %240, !prof !55
 
 240:                                              ; preds = %_ZNSt4pairIN4llvm12VersionTupleEN5clang9api_notes13CXXMethodInfoEEC2IRS1_RS4_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_.exit.i.i
-  %241 = getelementptr inbounds nuw %"struct.std::pair.482", ptr %.pre3.i.i.i, i64 %237
+  %241 = getelementptr inbounds nuw [320 x i8], ptr %.pre3.i.i.i, i64 %237
   %242 = icmp uge ptr %9, %.pre3.i.i.i
   %243 = icmp ult ptr %9, %241
   %spec.select.i.i.i.i.i.i.i = and i1 %242, %243
@@ -11485,7 +11477,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes13C
   %.016.i.i.i.i.i = phi ptr [ %9, %_ZNSt4pairIN4llvm12VersionTupleEN5clang9api_notes13CXXMethodInfoEEC2IRS1_RS4_TnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISA_SB_EEEbE4typeELb1EEEOSA_OSB_.exit.i.i ], [ %248, %244 ], [ %9, %.critedge.i.i.i.i.i ]
   %250 = load i32, ptr %105, align 8, !tbaa !28, !alias.scope !800
   %251 = zext i32 %250 to i64
-  %252 = getelementptr inbounds nuw %"struct.std::pair.482", ptr %249, i64 %251
+  %252 = getelementptr inbounds nuw [320 x i8], ptr %249, i64 %251
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(320) %252, ptr noundef nonnull align 8 dereferenceable(320) %.016.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !753
   %253 = getelementptr inbounds nuw i8, ptr %252, i64 16
   %254 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i, i64 16
@@ -11592,7 +11584,7 @@ _ZNK4llvm12VersionTuple5emptyEv.exit.thread.preheader: ; preds = %.lr.ph
 
 _ZNK4llvm12VersionTuple5emptyEv.exit.thread:      ; preds = %_ZNK4llvm12VersionTuple5emptyEv.exit.thread.preheader, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread
   %indvars.iv = phi i64 [ 0, %_ZNK4llvm12VersionTuple5emptyEv.exit.thread.preheader ], [ %indvars.iv.next, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
-  %29 = getelementptr inbounds nuw %"struct.std::pair.482", ptr %18, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [320 x i8], ptr %18, i64 %indvars.iv
   %30 = load i64, ptr %29, align 4
   %31 = trunc i64 %30 to i32
   %32 = lshr i64 %30, 32
@@ -12233,7 +12225,7 @@ _ZNK4llvm12VersionTuple5emptyEv.exit.thread.preheader: ; preds = %.lr.ph
 
 _ZNK4llvm12VersionTuple5emptyEv.exit.thread:      ; preds = %_ZNK4llvm12VersionTuple5emptyEv.exit.thread.preheader, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread
   %indvars.iv = phi i64 [ 0, %_ZNK4llvm12VersionTuple5emptyEv.exit.thread.preheader ], [ %indvars.iv.next, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
-  %29 = getelementptr inbounds nuw %"struct.std::pair.485", ptr %18, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [128 x i8], ptr %18, i64 %indvars.iv
   %30 = load i64, ptr %29, align 4
   %31 = trunc i64 %30 to i32
   %32 = lshr i64 %30, 32
@@ -12566,7 +12558,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes18G
 _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEELb0EE19moveElementsForGrowEPS6_.exit.i.i.i.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEELb0EE18uninitialized_moveIPS6_S9_EEvT_SA_T0_.exit.loopexit.i.i.i.i.i, %111
   %121 = phi i64 [ %120, %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEELb0EE18uninitialized_moveIPS6_S9_EEvT_SA_T0_.exit.loopexit.i.i.i.i.i ], [ 0, %111 ]
   %122 = phi ptr [ %.pre.i.i.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEELb0EE18uninitialized_moveIPS6_S9_EEvT_SA_T0_.exit.loopexit.i.i.i.i.i ], [ %114, %111 ]
-  %123 = getelementptr inbounds nuw %"struct.std::pair.488", ptr %122, i64 %121
+  %123 = getelementptr inbounds nuw [192 x i8], ptr %122, i64 %121
   call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEELb0EE13destroy_rangeEPS6_S8_(ptr noundef %122, ptr noundef %123)
   %124 = load i64, ptr %7, align 8, !tbaa !48, !noalias !851
   %125 = load ptr, ptr %11, align 8, !tbaa !26, !alias.scope !851
@@ -12727,7 +12719,7 @@ _ZN5clang9api_notes12_GLOBAL__N_116ReadVersionTupleERPKh.exit.i.i: ; preds = %18
   br i1 %.not.i.i.not.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEELb0EE9push_backEOS6_.exit.i.i, label %210, !prof !55
 
 210:                                              ; preds = %_ZN5clang9api_notes12_GLOBAL__N_116ReadVersionTupleERPKh.exit.i.i
-  %211 = getelementptr inbounds nuw %"struct.std::pair.488", ptr %.pre3.i.i.i, i64 %207
+  %211 = getelementptr inbounds nuw [192 x i8], ptr %.pre3.i.i.i, i64 %207
   %212 = icmp uge ptr %10, %.pre3.i.i.i
   %213 = icmp ult ptr %10, %211
   %spec.select.i.i.i.i.i.i.i = and i1 %212, %213
@@ -12751,7 +12743,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes18G
   %.016.i.i.i.i.i = phi ptr [ %10, %_ZN5clang9api_notes12_GLOBAL__N_116ReadVersionTupleERPKh.exit.i.i ], [ %218, %214 ], [ %10, %.critedge.i.i.i.i.i ]
   %220 = load i32, ptr %108, align 8, !tbaa !28, !alias.scope !851
   %221 = zext i32 %220 to i64
-  %222 = getelementptr inbounds nuw %"struct.std::pair.488", ptr %219, i64 %221
+  %222 = getelementptr inbounds nuw [192 x i8], ptr %219, i64 %221
   call void @_ZNSt4pairIN4llvm12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(192) %222, ptr noundef nonnull align 8 dereferenceable(192) %.016.i.i.i.i.i) #19
   %223 = load i32, ptr %108, align 8, !tbaa !28, !alias.scope !851
   %224 = add i32 %223, 1
@@ -12990,7 +12982,7 @@ _ZNK4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_123GlobalFunctio
   %310 = load ptr, ptr %11, align 8, !tbaa !26
   %311 = load i32, ptr %108, align 8, !tbaa !28
   %312 = zext i32 %311 to i64
-  %313 = getelementptr inbounds nuw %"struct.std::pair.488", ptr %310, i64 %312
+  %313 = getelementptr inbounds nuw [192 x i8], ptr %310, i64 %312
   call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEELb0EE13destroy_rangeEPS6_S8_(ptr noundef %310, ptr noundef %313)
   %314 = load ptr, ptr %11, align 8, !tbaa !26
   %315 = icmp eq ptr %314, %107
@@ -13056,7 +13048,7 @@ _ZNK4llvm12VersionTuple5emptyEv.exit.thread.preheader: ; preds = %.lr.ph
 
 _ZNK4llvm12VersionTuple5emptyEv.exit.thread:      ; preds = %_ZNK4llvm12VersionTuple5emptyEv.exit.thread.preheader, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread
   %indvars.iv = phi i64 [ 0, %_ZNK4llvm12VersionTuple5emptyEv.exit.thread.preheader ], [ %indvars.iv.next, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
-  %29 = getelementptr inbounds nuw %"struct.std::pair.488", ptr %18, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [192 x i8], ptr %18, i64 %indvars.iv
   %30 = load i64, ptr %29, align 4
   %31 = trunc i64 %30 to i32
   %32 = lshr i64 %30, 32
@@ -13643,7 +13635,7 @@ _ZNK4llvm12VersionTuple5emptyEv.exit.thread.preheader: ; preds = %.lr.ph
 
 _ZNK4llvm12VersionTuple5emptyEv.exit.thread:      ; preds = %_ZNK4llvm12VersionTuple5emptyEv.exit.thread.preheader, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread
   %indvars.iv = phi i64 [ 0, %_ZNK4llvm12VersionTuple5emptyEv.exit.thread.preheader ], [ %indvars.iv.next, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
-  %29 = getelementptr inbounds nuw %"struct.std::pair.491", ptr %18, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [88 x i8], ptr %18, i64 %indvars.iv
   %30 = load i64, ptr %29, align 4
   %31 = trunc i64 %30 to i32
   %32 = lshr i64 %30, 32
@@ -15035,7 +15027,7 @@ _ZN5clang9api_notes12_GLOBAL__N_112TagTableInfo15readUnversionedENS0_18SingleDec
   br i1 %.not.i.i.not.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes7TagInfoEELb0EE9push_backEOS6_.exit.i.i, label %460, !prof !55
 
 460:                                              ; preds = %_ZN5clang9api_notes12_GLOBAL__N_112TagTableInfo15readUnversionedENS0_18SingleDeclTableKeyERPKh.exit.i.i
-  %461 = getelementptr inbounds nuw %"struct.std::pair.502", ptr %.pre3.i.i.i, i64 %457
+  %461 = getelementptr inbounds nuw [344 x i8], ptr %.pre3.i.i.i, i64 %457
   %462 = icmp uge ptr %17, %.pre3.i.i.i
   %463 = icmp ult ptr %17, %461
   %spec.select.i.i.i.i.i.i.i = and i1 %462, %463
@@ -15059,7 +15051,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes7Ta
   %.016.i.i.i.i.i = phi ptr [ %17, %_ZN5clang9api_notes12_GLOBAL__N_112TagTableInfo15readUnversionedENS0_18SingleDeclTableKeyERPKh.exit.i.i ], [ %468, %464 ], [ %17, %.critedge.i.i.i.i.i ]
   %470 = load i32, ptr %118, align 8, !tbaa !28, !alias.scope !917
   %471 = zext i32 %470 to i64
-  %472 = getelementptr inbounds nuw %"struct.std::pair.502", ptr %469, i64 %471
+  %472 = getelementptr inbounds nuw [344 x i8], ptr %469, i64 %471
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(344) %472, ptr noundef nonnull align 8 dereferenceable(344) %.016.i.i.i.i.i, i64 16, i1 false), !tbaa.struct !753
   %473 = getelementptr inbounds nuw i8, ptr %472, i64 16
   %474 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i, i64 16
@@ -15166,7 +15158,7 @@ _ZNK4llvm12VersionTuple5emptyEv.exit.thread.preheader: ; preds = %.lr.ph
 
 _ZNK4llvm12VersionTuple5emptyEv.exit.thread:      ; preds = %_ZNK4llvm12VersionTuple5emptyEv.exit.thread.preheader, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread
   %indvars.iv = phi i64 [ 0, %_ZNK4llvm12VersionTuple5emptyEv.exit.thread.preheader ], [ %indvars.iv.next, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
-  %29 = getelementptr inbounds nuw %"struct.std::pair.502", ptr %18, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [344 x i8], ptr %18, i64 %indvars.iv
   %30 = load i64, ptr %29, align 4
   %31 = trunc i64 %30 to i32
   %32 = lshr i64 %30, 32
@@ -15505,7 +15497,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11T
 _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11TypedefInfoEELb0EE19moveElementsForGrowEPS6_.exit.i.i.i.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11TypedefInfoEELb0EE18uninitialized_moveIPS6_S9_EEvT_SA_T0_.exit.loopexit.i.i.i.i.i, %114
   %124 = phi i64 [ %123, %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11TypedefInfoEELb0EE18uninitialized_moveIPS6_S9_EEvT_SA_T0_.exit.loopexit.i.i.i.i.i ], [ 0, %114 ]
   %125 = phi ptr [ %.pre.i.i.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11TypedefInfoEELb0EE18uninitialized_moveIPS6_S9_EEvT_SA_T0_.exit.loopexit.i.i.i.i.i ], [ %117, %114 ]
-  %126 = getelementptr inbounds nuw %"struct.std::pair.513", ptr %125, i64 %124
+  %126 = getelementptr inbounds nuw [176 x i8], ptr %125, i64 %124
   call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11TypedefInfoEELb0EE13destroy_rangeEPS6_S8_(ptr noundef %125, ptr noundef %126)
   %127 = load i64, ptr %7, align 8, !tbaa !48, !noalias !945
   %128 = load ptr, ptr %11, align 8, !tbaa !26, !alias.scope !945
@@ -15670,7 +15662,7 @@ _ZN5clang9api_notes12_GLOBAL__N_116TypedefTableInfo15readUnversionedENS0_18Singl
   br i1 %.not.i.i.not.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11TypedefInfoEELb0EE9push_backEOS6_.exit.i.i, label %216, !prof !55
 
 216:                                              ; preds = %_ZN5clang9api_notes12_GLOBAL__N_116TypedefTableInfo15readUnversionedENS0_18SingleDeclTableKeyERPKh.exit.i.i
-  %217 = getelementptr inbounds nuw %"struct.std::pair.513", ptr %.pre3.i.i.i, i64 %213
+  %217 = getelementptr inbounds nuw [176 x i8], ptr %.pre3.i.i.i, i64 %213
   %218 = icmp uge ptr %10, %.pre3.i.i.i
   %219 = icmp ult ptr %10, %217
   %spec.select.i.i.i.i.i.i.i = and i1 %218, %219
@@ -15694,7 +15686,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11T
   %.016.i.i.i.i.i = phi ptr [ %10, %_ZN5clang9api_notes12_GLOBAL__N_116TypedefTableInfo15readUnversionedENS0_18SingleDeclTableKeyERPKh.exit.i.i ], [ %224, %220 ], [ %10, %.critedge.i.i.i.i.i ]
   %226 = load i32, ptr %111, align 8, !tbaa !28, !alias.scope !945
   %227 = zext i32 %226 to i64
-  %228 = getelementptr inbounds nuw %"struct.std::pair.513", ptr %225, i64 %227
+  %228 = getelementptr inbounds nuw [176 x i8], ptr %225, i64 %227
   call void @_ZNSt4pairIN4llvm12VersionTupleEN5clang9api_notes11TypedefInfoEEC2EOS5_(ptr noundef nonnull align 8 dereferenceable(176) %228, ptr noundef nonnull align 8 dereferenceable(176) %.016.i.i.i.i.i) #19
   %229 = load i32, ptr %111, align 8, !tbaa !28, !alias.scope !945
   %230 = add i32 %229, 1
@@ -15823,7 +15815,7 @@ _ZNK4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_116TypedefTableI
   %276 = load ptr, ptr %11, align 8, !tbaa !26
   %277 = load i32, ptr %111, align 8, !tbaa !28
   %278 = zext i32 %277 to i64
-  %279 = getelementptr inbounds nuw %"struct.std::pair.513", ptr %276, i64 %278
+  %279 = getelementptr inbounds nuw [176 x i8], ptr %276, i64 %278
   call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11TypedefInfoEELb0EE13destroy_rangeEPS6_S8_(ptr noundef %276, ptr noundef %279)
   %280 = load ptr, ptr %11, align 8, !tbaa !26
   %281 = icmp eq ptr %280, %110
@@ -15889,7 +15881,7 @@ _ZNK4llvm12VersionTuple5emptyEv.exit.thread.preheader: ; preds = %.lr.ph
 
 _ZNK4llvm12VersionTuple5emptyEv.exit.thread:      ; preds = %_ZNK4llvm12VersionTuple5emptyEv.exit.thread.preheader, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread
   %indvars.iv = phi i64 [ 0, %_ZNK4llvm12VersionTuple5emptyEv.exit.thread.preheader ], [ %indvars.iv.next, %_ZN4llvmgeERKNS_12VersionTupleES2_.exit.thread ]
-  %29 = getelementptr inbounds nuw %"struct.std::pair.513", ptr %18, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [176 x i8], ptr %18, i64 %indvars.iv
   %30 = load i64, ptr %29, align 4
   %31 = trunc i64 %30 to i32
   %32 = lshr i64 %30, 32
@@ -16177,7 +16169,7 @@ define linkonce_odr hidden void @_ZN4llvm15BitstreamCursor13popBlockScopeEv(ptr 
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load i32, ptr %4, align 8, !tbaa !28
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw %"struct.llvm::BitstreamCursor::Block", ptr %3, i64 %6
+  %7 = getelementptr inbounds nuw [32 x i8], ptr %3, i64 %6
   %8 = getelementptr inbounds i8, ptr %7, i64 -32
   %9 = load i32, ptr %8, align 8, !tbaa !967
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -16274,7 +16266,7 @@ _ZNSt6vectorISt10shared_ptrIN4llvm13BitCodeAbbrevEESaIS3_EEaSEOS5_.exit: ; preds
   store i32 %52, ptr %4, align 8, !tbaa !28
   %53 = load ptr, ptr %2, align 8, !tbaa !26
   %54 = zext i32 %52 to i64
-  %55 = getelementptr inbounds nuw %"struct.llvm::BitstreamCursor::Block", ptr %53, i64 %54
+  %55 = getelementptr inbounds nuw [32 x i8], ptr %53, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load ptr, ptr %56, align 8, !tbaa !579
   %58 = getelementptr inbounds nuw i8, ptr %55, i64 16
@@ -16907,7 +16899,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i, %68
   store ptr %61, ptr %40, align 8, !tbaa !1010
   store ptr %67, ptr %41, align 8, !tbaa !1007
-  %69 = getelementptr inbounds nuw %"class.std::unique_ptr.299", ptr %61, i64 %59
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %59
   store ptr %69, ptr %43, align 8, !tbaa !1009
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit
 
@@ -17057,7 +17049,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit52: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i49, %130
   store ptr %124, ptr %79, align 8, !tbaa !1010
   store ptr %.0.lcssa.i.i.i21.i50, ptr %83, align 8, !tbaa !1007
-  %131 = getelementptr inbounds nuw %"class.std::unique_ptr.299", ptr %124, i64 %122
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %122
   store ptr %131, ptr %85, align 8, !tbaa !1009
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit21
 
@@ -17180,7 +17172,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, %31
   store ptr %20, ptr %0, align 8, !tbaa !1010
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !1007
-  %35 = getelementptr inbounds nuw %"class.std::unique_ptr.299", ptr %20, i64 %16
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %35, ptr %30, align 8, !tbaa !1009
   ret void
 }
@@ -17695,7 +17687,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11C
 _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11ContextInfoEELb0EE19moveElementsForGrowEPS6_.exit: ; preds = %2, %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11ContextInfoEELb0EE18uninitialized_moveIPS6_S9_EEvT_SA_T0_.exit.loopexit.i
   %14 = phi i64 [ %13, %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11ContextInfoEELb0EE18uninitialized_moveIPS6_S9_EEvT_SA_T0_.exit.loopexit.i ], [ 0, %2 ]
   %15 = phi ptr [ %.pre.i, %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11ContextInfoEELb0EE18uninitialized_moveIPS6_S9_EEvT_SA_T0_.exit.loopexit.i ], [ %6, %2 ]
-  %16 = getelementptr inbounds nuw %"struct.std::pair.426", ptr %15, i64 %14
+  %16 = getelementptr inbounds nuw [176 x i8], ptr %15, i64 %14
   call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11ContextInfoEELb0EE13destroy_rangeEPS6_S8_(ptr noundef %15, ptr noundef %16)
   %17 = load i64, ptr %3, align 8, !tbaa !48
   %18 = load ptr, ptr %0, align 8, !tbaa !26
@@ -18829,7 +18821,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15S
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i32, ptr %11, align 8, !tbaa !28
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds nuw %"struct.std::pair.426", ptr %10, i64 %13
+  %14 = getelementptr inbounds nuw [176 x i8], ptr %10, i64 %13
   tail call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11ContextInfoEELb0EE13destroy_rangeEPS6_S8_(ptr noundef %10, ptr noundef %14)
   %15 = load ptr, ptr %0, align 8, !tbaa !26
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -18904,13 +18896,13 @@ _ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes11ContextInfoEES7_ET0_T
   %.pre-phi = phi i64 [ %.pre46, %_ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes11ContextInfoEES7_ET0_T_S9_S8_.exit.loopexit ], [ %31, %32 ]
   %48 = phi ptr [ %.pre, %_ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes11ContextInfoEES7_ET0_T_S9_S8_.exit.loopexit ], [ %33, %32 ]
   %.0 = phi ptr [ %45, %_ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes11ContextInfoEES7_ET0_T_S9_S8_.exit.loopexit ], [ %33, %32 ]
-  %49 = getelementptr inbounds nuw %"struct.std::pair.426", ptr %48, i64 %.pre-phi
+  %49 = getelementptr inbounds nuw [176 x i8], ptr %48, i64 %.pre-phi
   tail call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11ContextInfoEELb0EE13destroy_rangeEPS6_S8_(ptr noundef %.0, ptr noundef %49)
   store i32 %27, ptr %29, align 8, !tbaa !28
   %50 = load ptr, ptr %1, align 8, !tbaa !26
   %51 = load i32, ptr %26, align 8, !tbaa !28
   %52 = zext i32 %51 to i64
-  %53 = getelementptr inbounds nuw %"struct.std::pair.426", ptr %50, i64 %52
+  %53 = getelementptr inbounds nuw [176 x i8], ptr %50, i64 %52
   tail call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11ContextInfoEELb0EE13destroy_rangeEPS6_S8_(ptr noundef %50, ptr noundef %53)
   store i32 0, ptr %26, align 8, !tbaa !28
   br label %106
@@ -18923,7 +18915,7 @@ _ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes11ContextInfoEES7_ET0_T
 
 58:                                               ; preds = %54
   %59 = load ptr, ptr %0, align 8, !tbaa !26
-  %60 = getelementptr inbounds nuw %"struct.std::pair.426", ptr %59, i64 %31
+  %60 = getelementptr inbounds nuw [176 x i8], ptr %59, i64 %31
   tail call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11ContextInfoEELb0EE13destroy_rangeEPS6_S8_(ptr noundef %59, ptr noundef %60)
   store i32 0, ptr %29, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -18955,7 +18947,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11C
 _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11ContextInfoEELb0EE19moveElementsForGrowEPS6_.exit.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11ContextInfoEELb0EE18uninitialized_moveIPS6_S9_EEvT_SA_T0_.exit.loopexit.i.i, %58
   %70 = phi i64 [ %69, %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11ContextInfoEELb0EE18uninitialized_moveIPS6_S9_EEvT_SA_T0_.exit.loopexit.i.i ], [ 0, %58 ]
   %71 = phi ptr [ %.pre.i.i, %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11ContextInfoEELb0EE18uninitialized_moveIPS6_S9_EEvT_SA_T0_.exit.loopexit.i.i ], [ %63, %58 ]
-  %72 = getelementptr inbounds nuw %"struct.std::pair.426", ptr %71, i64 %70
+  %72 = getelementptr inbounds nuw [176 x i8], ptr %71, i64 %70
   call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11ContextInfoEELb0EE13destroy_rangeEPS6_S8_(ptr noundef %71, ptr noundef %72)
   %73 = load i64, ptr %3, align 8, !tbaa !48
   %74 = load ptr, ptr %0, align 8, !tbaa !26
@@ -19012,13 +19004,13 @@ _ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes11ContextInfoEES7_ET0_T
   %94 = load ptr, ptr %1, align 8, !tbaa !26
   %95 = load i32, ptr %26, align 8, !tbaa !28
   %96 = zext i32 %95 to i64
-  %97 = getelementptr inbounds nuw %"struct.std::pair.426", ptr %94, i64 %96
+  %97 = getelementptr inbounds nuw [176 x i8], ptr %94, i64 %96
   %.not7.i.i.i.i.i = icmp samesign eq i64 %.026, %96
   br i1 %.not7.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11ContextInfoEELb0EE18uninitialized_moveIPS6_S9_EEvT_SA_T0_.exit, label %.lr.ph.i.i.i.i.i41.preheader
 
 .lr.ph.i.i.i.i.i41.preheader:                     ; preds = %_ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes11ContextInfoEES7_ET0_T_S9_S8_.exit40
-  %98 = getelementptr inbounds nuw %"struct.std::pair.426", ptr %93, i64 %.026
-  %99 = getelementptr inbounds nuw %"struct.std::pair.426", ptr %94, i64 %.026
+  %98 = getelementptr inbounds nuw [176 x i8], ptr %93, i64 %.026
+  %99 = getelementptr inbounds nuw [176 x i8], ptr %94, i64 %.026
   br label %.lr.ph.i.i.i.i.i41
 
 .lr.ph.i.i.i.i.i41:                               ; preds = %.lr.ph.i.i.i.i.i41.preheader, %.lr.ph.i.i.i.i.i41
@@ -19039,7 +19031,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11C
   store i32 %27, ptr %29, align 8, !tbaa !28
   %103 = load i32, ptr %26, align 8, !tbaa !28
   %104 = zext i32 %103 to i64
-  %105 = getelementptr inbounds nuw %"struct.std::pair.426", ptr %102, i64 %104
+  %105 = getelementptr inbounds nuw [176 x i8], ptr %102, i64 %104
   call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11ContextInfoEELb0EE13destroy_rangeEPS6_S8_(ptr noundef %102, ptr noundef %105)
   store i32 0, ptr %26, align 8, !tbaa !28
   br label %106
@@ -19392,7 +19384,7 @@ define linkonce_odr hidden void @_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12
   br i1 %.not.i.i.not, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes16ObjCPropertyInfoEELb0EE28reserveForParamAndGetAddressERS6_m.exit, label %9, !prof !55
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds nuw %"struct.std::pair.447", ptr %.pre3, i64 %5
+  %10 = getelementptr inbounds nuw [136 x i8], ptr %.pre3, i64 %5
   %11 = icmp uge ptr %1, %.pre3
   %12 = icmp ult ptr %1, %10
   %spec.select.i.i.i.i = and i1 %11, %12
@@ -19417,7 +19409,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes16O
   %.016.i.i = phi ptr [ %1, %2 ], [ %18, %13 ], [ %1, %.critedge.i.i ]
   %20 = load i32, ptr %3, align 8, !tbaa !28
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw %"struct.std::pair.447", ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [136 x i8], ptr %19, i64 %21
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %22, ptr noundef nonnull align 8 dereferenceable(136) %.016.i.i, i64 16, i1 false), !tbaa.struct !753
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 16
@@ -20023,7 +20015,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15S
   br i1 %.not33, label %22, label %19
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds nuw %"struct.std::pair.447", ptr %6, i64 %13
+  %20 = getelementptr inbounds nuw [136 x i8], ptr %6, i64 %13
   %21 = tail call noundef ptr @_ZNSt11__copy_moveILb1ELb0ESt26random_access_iterator_tagE8__copy_mIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes16ObjCPropertyInfoEESA_EET0_T_SC_SB_(ptr noundef %6, ptr noundef nonnull %20, ptr noundef %18)
   %.pre = load ptr, ptr %0, align 8, !tbaa !26
   %.pre69 = load i32, ptr %14, align 8, !tbaa !28
@@ -20034,7 +20026,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15S
   %.pre-phi = phi i64 [ %.pre73, %19 ], [ %16, %17 ]
   %23 = phi ptr [ %.pre, %19 ], [ %18, %17 ]
   %.0 = phi ptr [ %21, %19 ], [ %18, %17 ]
-  %24 = getelementptr inbounds nuw %"struct.std::pair.447", ptr %23, i64 %.pre-phi
+  %24 = getelementptr inbounds nuw [136 x i8], ptr %23, i64 %.pre-phi
   %.not4.i = icmp eq ptr %.0, %24
   br i1 %.not4.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes16ObjCPropertyInfoEELb0EE13destroy_rangeEPS6_S8_.exit, label %.lr.ph.i
 
@@ -20234,7 +20226,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes16O
   br i1 %.not32, label %104, label %101
 
 101:                                              ; preds = %100
-  %102 = getelementptr inbounds nuw %"struct.std::pair.447", ptr %6, i64 %16
+  %102 = getelementptr inbounds nuw [136 x i8], ptr %6, i64 %16
   %103 = tail call noundef ptr @_ZNSt11__copy_moveILb1ELb0ESt26random_access_iterator_tagE8__copy_mIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes16ObjCPropertyInfoEESA_EET0_T_SC_SB_(ptr noundef %6, ptr noundef nonnull %102, ptr noundef %.pre71)
   %.pre70 = load ptr, ptr %0, align 8, !tbaa !26
   br label %104
@@ -20245,13 +20237,13 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes16O
   %106 = load ptr, ptr %1, align 8, !tbaa !26
   %107 = load i32, ptr %11, align 8, !tbaa !28
   %108 = zext i32 %107 to i64
-  %109 = getelementptr inbounds nuw %"struct.std::pair.447", ptr %106, i64 %108
+  %109 = getelementptr inbounds nuw [136 x i8], ptr %106, i64 %108
   %.not7.i.i.i.i.i = icmp samesign eq i64 %.026, %108
   br i1 %.not7.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes16ObjCPropertyInfoEELb0EE18uninitialized_moveIPS6_S9_EEvT_SA_T0_.exit, label %.lr.ph.i.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.i.preheader:                       ; preds = %104
-  %110 = getelementptr inbounds nuw %"struct.std::pair.447", ptr %105, i64 %.026
-  %111 = getelementptr inbounds nuw %"struct.std::pair.447", ptr %106, i64 %.026
+  %110 = getelementptr inbounds nuw [136 x i8], ptr %105, i64 %.026
+  %111 = getelementptr inbounds nuw [136 x i8], ptr %106, i64 %.026
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.preheader, %_ZSt10_ConstructISt4pairIN4llvm12VersionTupleEN5clang9api_notes16ObjCPropertyInfoEEJS6_EEvPT_DpOT0_.exit.i.i.i.i.i
@@ -22201,7 +22193,7 @@ _ZNSt6vectorIN5clang9api_notes9ParamInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.ex
 _ZNSt12_Vector_baseIN5clang9api_notes9ParamInfoESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN5clang9api_notes9ParamInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit34, %135
   store ptr %20, ptr %0, align 8, !tbaa !856
   store ptr %.0.lcssa.i.i.i33, ptr %4, align 8, !tbaa !857
-  %139 = getelementptr inbounds nuw %"class.clang::api_notes::ParamInfo", ptr %20, i64 %16
+  %139 = getelementptr inbounds nuw [120 x i8], ptr %20, i64 %16
   store ptr %139, ptr %134, align 8, !tbaa !859
   ret void
 }
@@ -22628,7 +22620,7 @@ _ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes14ObjCMethodInfoEES7_ET
   %.pre-phi = phi i64 [ %.pre70, %_ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes14ObjCMethodInfoEES7_ET0_T_S9_S8_.exit.loopexit ], [ %33, %34 ]
   %48 = phi ptr [ %.pre, %_ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes14ObjCMethodInfoEES7_ET0_T_S9_S8_.exit.loopexit ], [ %35, %34 ]
   %.0 = phi ptr [ %45, %_ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes14ObjCMethodInfoEES7_ET0_T_S9_S8_.exit.loopexit ], [ %35, %34 ]
-  %49 = getelementptr inbounds nuw %"struct.std::pair.466", ptr %48, i64 %.pre-phi
+  %49 = getelementptr inbounds nuw [328 x i8], ptr %48, i64 %.pre-phi
   %.not4.i = icmp eq ptr %.0, %49
   br i1 %.not4.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes14ObjCMethodInfoEELb0EE13destroy_rangeEPS6_S8_.exit, label %.lr.ph.i
 
@@ -22791,13 +22783,13 @@ _ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes14ObjCMethodInfoEES7_ET
   %100 = load ptr, ptr %1, align 8, !tbaa !26
   %101 = load i32, ptr %28, align 8, !tbaa !28
   %102 = zext i32 %101 to i64
-  %103 = getelementptr inbounds nuw %"struct.std::pair.466", ptr %100, i64 %102
+  %103 = getelementptr inbounds nuw [328 x i8], ptr %100, i64 %102
   %.not7.i.i.i.i.i = icmp samesign eq i64 %.026, %102
   br i1 %.not7.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes14ObjCMethodInfoEELb0EE18uninitialized_moveIPS6_S9_EEvT_SA_T0_.exit, label %.lr.ph.i.i.i.i.i57.preheader
 
 .lr.ph.i.i.i.i.i57.preheader:                     ; preds = %_ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes14ObjCMethodInfoEES7_ET0_T_S9_S8_.exit56
-  %104 = getelementptr inbounds nuw %"struct.std::pair.466", ptr %99, i64 %.026
-  %105 = getelementptr inbounds nuw %"struct.std::pair.466", ptr %100, i64 %.026
+  %104 = getelementptr inbounds nuw [328 x i8], ptr %99, i64 %.026
+  %105 = getelementptr inbounds nuw [328 x i8], ptr %100, i64 %.026
   br label %.lr.ph.i.i.i.i.i57
 
 .lr.ph.i.i.i.i.i57:                               ; preds = %.lr.ph.i.i.i.i.i57.preheader, %.lr.ph.i.i.i.i.i57
@@ -23385,7 +23377,7 @@ define linkonce_odr hidden void @_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12
   br i1 %.not.i.i.not, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes9FieldInfoEELb0EE28reserveForParamAndGetAddressERS6_m.exit, label %9, !prof !55
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds nuw %"struct.std::pair.479", ptr %.pre3, i64 %5
+  %10 = getelementptr inbounds nuw [128 x i8], ptr %.pre3, i64 %5
   %11 = icmp uge ptr %1, %.pre3
   %12 = icmp ult ptr %1, %10
   %spec.select.i.i.i.i = and i1 %11, %12
@@ -23410,7 +23402,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes9Fi
   %.016.i.i = phi ptr [ %1, %2 ], [ %18, %13 ], [ %1, %.critedge.i.i ]
   %20 = load i32, ptr %3, align 8, !tbaa !28
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw %"struct.std::pair.479", ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [128 x i8], ptr %19, i64 %21
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %22, ptr noundef nonnull align 8 dereferenceable(128) %.016.i.i, i64 16, i1 false), !tbaa.struct !753
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 16
@@ -23764,7 +23756,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15S
   br i1 %.not33, label %22, label %19
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds nuw %"struct.std::pair.479", ptr %6, i64 %13
+  %20 = getelementptr inbounds nuw [128 x i8], ptr %6, i64 %13
   %21 = tail call noundef ptr @_ZNSt11__copy_moveILb1ELb0ESt26random_access_iterator_tagE8__copy_mIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes9FieldInfoEESA_EET0_T_SC_SB_(ptr noundef %6, ptr noundef nonnull %20, ptr noundef %18)
   %.pre = load ptr, ptr %0, align 8, !tbaa !26
   %.pre69 = load i32, ptr %14, align 8, !tbaa !28
@@ -23775,7 +23767,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15S
   %.pre-phi = phi i64 [ %.pre73, %19 ], [ %16, %17 ]
   %23 = phi ptr [ %.pre, %19 ], [ %18, %17 ]
   %.0 = phi ptr [ %21, %19 ], [ %18, %17 ]
-  %24 = getelementptr inbounds nuw %"struct.std::pair.479", ptr %23, i64 %.pre-phi
+  %24 = getelementptr inbounds nuw [128 x i8], ptr %23, i64 %.pre-phi
   %.not4.i = icmp eq ptr %.0, %24
   br i1 %.not4.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes9FieldInfoEELb0EE13destroy_rangeEPS6_S8_.exit, label %.lr.ph.i
 
@@ -23975,7 +23967,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes9Fi
   br i1 %.not32, label %104, label %101
 
 101:                                              ; preds = %100
-  %102 = getelementptr inbounds nuw %"struct.std::pair.479", ptr %6, i64 %16
+  %102 = getelementptr inbounds nuw [128 x i8], ptr %6, i64 %16
   %103 = tail call noundef ptr @_ZNSt11__copy_moveILb1ELb0ESt26random_access_iterator_tagE8__copy_mIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes9FieldInfoEESA_EET0_T_SC_SB_(ptr noundef %6, ptr noundef nonnull %102, ptr noundef %.pre71)
   %.pre70 = load ptr, ptr %0, align 8, !tbaa !26
   br label %104
@@ -23986,13 +23978,13 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes9Fi
   %106 = load ptr, ptr %1, align 8, !tbaa !26
   %107 = load i32, ptr %11, align 8, !tbaa !28
   %108 = zext i32 %107 to i64
-  %109 = getelementptr inbounds nuw %"struct.std::pair.479", ptr %106, i64 %108
+  %109 = getelementptr inbounds nuw [128 x i8], ptr %106, i64 %108
   %.not7.i.i.i.i.i = icmp samesign eq i64 %.026, %108
   br i1 %.not7.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes9FieldInfoEELb0EE18uninitialized_moveIPS6_S9_EEvT_SA_T0_.exit, label %.lr.ph.i.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.i.preheader:                       ; preds = %104
-  %110 = getelementptr inbounds nuw %"struct.std::pair.479", ptr %105, i64 %.026
-  %111 = getelementptr inbounds nuw %"struct.std::pair.479", ptr %106, i64 %.026
+  %110 = getelementptr inbounds nuw [128 x i8], ptr %105, i64 %.026
+  %111 = getelementptr inbounds nuw [128 x i8], ptr %106, i64 %.026
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.preheader, %_ZSt10_ConstructISt4pairIN4llvm12VersionTupleEN5clang9api_notes9FieldInfoEEJS6_EEvPT_DpOT0_.exit.i.i.i.i.i
@@ -25013,7 +25005,7 @@ _ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes13CXXMethodInfoEES7_ET0
   %.pre-phi = phi i64 [ %.pre70, %_ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes13CXXMethodInfoEES7_ET0_T_S9_S8_.exit.loopexit ], [ %33, %34 ]
   %45 = phi ptr [ %.pre, %_ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes13CXXMethodInfoEES7_ET0_T_S9_S8_.exit.loopexit ], [ %35, %34 ]
   %.0 = phi ptr [ %42, %_ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes13CXXMethodInfoEES7_ET0_T_S9_S8_.exit.loopexit ], [ %35, %34 ]
-  %46 = getelementptr inbounds nuw %"struct.std::pair.482", ptr %45, i64 %.pre-phi
+  %46 = getelementptr inbounds nuw [320 x i8], ptr %45, i64 %.pre-phi
   %.not4.i = icmp eq ptr %.0, %46
   br i1 %.not4.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes13CXXMethodInfoEELb0EE13destroy_rangeEPS6_S8_.exit, label %.lr.ph.i
 
@@ -25172,13 +25164,13 @@ _ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes13CXXMethodInfoEES7_ET0
   %94 = load ptr, ptr %1, align 8, !tbaa !26
   %95 = load i32, ptr %28, align 8, !tbaa !28
   %96 = zext i32 %95 to i64
-  %97 = getelementptr inbounds nuw %"struct.std::pair.482", ptr %94, i64 %96
+  %97 = getelementptr inbounds nuw [320 x i8], ptr %94, i64 %96
   %.not7.i.i.i.i.i = icmp samesign eq i64 %.026, %96
   br i1 %.not7.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes13CXXMethodInfoEELb0EE18uninitialized_moveIPS6_S9_EEvT_SA_T0_.exit, label %.lr.ph.i.i.i.i.i57.preheader
 
 .lr.ph.i.i.i.i.i57.preheader:                     ; preds = %_ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes13CXXMethodInfoEES7_ET0_T_S9_S8_.exit56
-  %98 = getelementptr inbounds nuw %"struct.std::pair.482", ptr %93, i64 %.026
-  %99 = getelementptr inbounds nuw %"struct.std::pair.482", ptr %94, i64 %.026
+  %98 = getelementptr inbounds nuw [320 x i8], ptr %93, i64 %.026
+  %99 = getelementptr inbounds nuw [320 x i8], ptr %94, i64 %.026
   br label %.lr.ph.i.i.i.i.i57
 
 .lr.ph.i.i.i.i.i57:                               ; preds = %.lr.ph.i.i.i.i.i57.preheader, %.lr.ph.i.i.i.i.i57
@@ -25239,7 +25231,7 @@ define linkonce_odr hidden void @_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12
   br i1 %.not.i.i.not, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes18GlobalVariableInfoEELb0EE28reserveForParamAndGetAddressERS6_m.exit, label %9, !prof !55
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds nuw %"struct.std::pair.485", ptr %.pre3, i64 %5
+  %10 = getelementptr inbounds nuw [128 x i8], ptr %.pre3, i64 %5
   %11 = icmp uge ptr %1, %.pre3
   %12 = icmp ult ptr %1, %10
   %spec.select.i.i.i.i = and i1 %11, %12
@@ -25264,7 +25256,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes18G
   %.016.i.i = phi ptr [ %1, %2 ], [ %18, %13 ], [ %1, %.critedge.i.i ]
   %20 = load i32, ptr %3, align 8, !tbaa !28
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw %"struct.std::pair.485", ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [128 x i8], ptr %19, i64 %21
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %22, ptr noundef nonnull align 8 dereferenceable(128) %.016.i.i, i64 16, i1 false), !tbaa.struct !753
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 16
@@ -25618,7 +25610,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15S
   br i1 %.not33, label %22, label %19
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds nuw %"struct.std::pair.485", ptr %6, i64 %13
+  %20 = getelementptr inbounds nuw [128 x i8], ptr %6, i64 %13
   %21 = tail call noundef ptr @_ZNSt11__copy_moveILb1ELb0ESt26random_access_iterator_tagE8__copy_mIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes18GlobalVariableInfoEESA_EET0_T_SC_SB_(ptr noundef %6, ptr noundef nonnull %20, ptr noundef %18)
   %.pre = load ptr, ptr %0, align 8, !tbaa !26
   %.pre69 = load i32, ptr %14, align 8, !tbaa !28
@@ -25629,7 +25621,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15S
   %.pre-phi = phi i64 [ %.pre73, %19 ], [ %16, %17 ]
   %23 = phi ptr [ %.pre, %19 ], [ %18, %17 ]
   %.0 = phi ptr [ %21, %19 ], [ %18, %17 ]
-  %24 = getelementptr inbounds nuw %"struct.std::pair.485", ptr %23, i64 %.pre-phi
+  %24 = getelementptr inbounds nuw [128 x i8], ptr %23, i64 %.pre-phi
   %.not4.i = icmp eq ptr %.0, %24
   br i1 %.not4.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes18GlobalVariableInfoEELb0EE13destroy_rangeEPS6_S8_.exit, label %.lr.ph.i
 
@@ -25829,7 +25821,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes18G
   br i1 %.not32, label %104, label %101
 
 101:                                              ; preds = %100
-  %102 = getelementptr inbounds nuw %"struct.std::pair.485", ptr %6, i64 %16
+  %102 = getelementptr inbounds nuw [128 x i8], ptr %6, i64 %16
   %103 = tail call noundef ptr @_ZNSt11__copy_moveILb1ELb0ESt26random_access_iterator_tagE8__copy_mIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes18GlobalVariableInfoEESA_EET0_T_SC_SB_(ptr noundef %6, ptr noundef nonnull %102, ptr noundef %.pre71)
   %.pre70 = load ptr, ptr %0, align 8, !tbaa !26
   br label %104
@@ -25840,13 +25832,13 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes18G
   %106 = load ptr, ptr %1, align 8, !tbaa !26
   %107 = load i32, ptr %11, align 8, !tbaa !28
   %108 = zext i32 %107 to i64
-  %109 = getelementptr inbounds nuw %"struct.std::pair.485", ptr %106, i64 %108
+  %109 = getelementptr inbounds nuw [128 x i8], ptr %106, i64 %108
   %.not7.i.i.i.i.i = icmp samesign eq i64 %.026, %108
   br i1 %.not7.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes18GlobalVariableInfoEELb0EE18uninitialized_moveIPS6_S9_EEvT_SA_T0_.exit, label %.lr.ph.i.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.i.preheader:                       ; preds = %104
-  %110 = getelementptr inbounds nuw %"struct.std::pair.485", ptr %105, i64 %.026
-  %111 = getelementptr inbounds nuw %"struct.std::pair.485", ptr %106, i64 %.026
+  %110 = getelementptr inbounds nuw [128 x i8], ptr %105, i64 %.026
+  %111 = getelementptr inbounds nuw [128 x i8], ptr %106, i64 %.026
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.preheader, %_ZSt10_ConstructISt4pairIN4llvm12VersionTupleEN5clang9api_notes18GlobalVariableInfoEEJS6_EEvPT_DpOT0_.exit.i.i.i.i.i
@@ -26272,7 +26264,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes18G
 _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEELb0EE19moveElementsForGrowEPS6_.exit: ; preds = %2, %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEELb0EE18uninitialized_moveIPS6_S9_EEvT_SA_T0_.exit.loopexit.i
   %14 = phi i64 [ %13, %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEELb0EE18uninitialized_moveIPS6_S9_EEvT_SA_T0_.exit.loopexit.i ], [ 0, %2 ]
   %15 = phi ptr [ %.pre.i, %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEELb0EE18uninitialized_moveIPS6_S9_EEvT_SA_T0_.exit.loopexit.i ], [ %6, %2 ]
-  %16 = getelementptr inbounds nuw %"struct.std::pair.488", ptr %15, i64 %14
+  %16 = getelementptr inbounds nuw [192 x i8], ptr %15, i64 %14
   call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEELb0EE13destroy_rangeEPS6_S8_(ptr noundef %15, ptr noundef %16)
   %17 = load i64, ptr %3, align 8, !tbaa !48
   %18 = load ptr, ptr %0, align 8, !tbaa !26
@@ -26532,7 +26524,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15S
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i32, ptr %11, align 8, !tbaa !28
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds nuw %"struct.std::pair.488", ptr %10, i64 %13
+  %14 = getelementptr inbounds nuw [192 x i8], ptr %10, i64 %13
   tail call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEELb0EE13destroy_rangeEPS6_S8_(ptr noundef %10, ptr noundef %14)
   %15 = load ptr, ptr %0, align 8, !tbaa !26
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -26597,13 +26589,13 @@ _ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEES
   %.pre-phi = phi i64 [ %.pre46, %_ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEES7_ET0_T_S9_S8_.exit.loopexit ], [ %31, %32 ]
   %41 = phi ptr [ %.pre, %_ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEES7_ET0_T_S9_S8_.exit.loopexit ], [ %33, %32 ]
   %.0 = phi ptr [ %38, %_ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEES7_ET0_T_S9_S8_.exit.loopexit ], [ %33, %32 ]
-  %42 = getelementptr inbounds nuw %"struct.std::pair.488", ptr %41, i64 %.pre-phi
+  %42 = getelementptr inbounds nuw [192 x i8], ptr %41, i64 %.pre-phi
   tail call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEELb0EE13destroy_rangeEPS6_S8_(ptr noundef %.0, ptr noundef %42)
   store i32 %27, ptr %29, align 8, !tbaa !28
   %43 = load ptr, ptr %1, align 8, !tbaa !26
   %44 = load i32, ptr %26, align 8, !tbaa !28
   %45 = zext i32 %44 to i64
-  %46 = getelementptr inbounds nuw %"struct.std::pair.488", ptr %43, i64 %45
+  %46 = getelementptr inbounds nuw [192 x i8], ptr %43, i64 %45
   tail call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEELb0EE13destroy_rangeEPS6_S8_(ptr noundef %43, ptr noundef %46)
   store i32 0, ptr %26, align 8, !tbaa !28
   br label %92
@@ -26616,7 +26608,7 @@ _ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEES
 
 51:                                               ; preds = %47
   %52 = load ptr, ptr %0, align 8, !tbaa !26
-  %53 = getelementptr inbounds nuw %"struct.std::pair.488", ptr %52, i64 %31
+  %53 = getelementptr inbounds nuw [192 x i8], ptr %52, i64 %31
   tail call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEELb0EE13destroy_rangeEPS6_S8_(ptr noundef %52, ptr noundef %53)
   store i32 0, ptr %29, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -26648,7 +26640,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes18G
 _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEELb0EE19moveElementsForGrowEPS6_.exit.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEELb0EE18uninitialized_moveIPS6_S9_EEvT_SA_T0_.exit.loopexit.i.i, %51
   %63 = phi i64 [ %62, %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEELb0EE18uninitialized_moveIPS6_S9_EEvT_SA_T0_.exit.loopexit.i.i ], [ 0, %51 ]
   %64 = phi ptr [ %.pre.i.i, %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEELb0EE18uninitialized_moveIPS6_S9_EEvT_SA_T0_.exit.loopexit.i.i ], [ %56, %51 ]
-  %65 = getelementptr inbounds nuw %"struct.std::pair.488", ptr %64, i64 %63
+  %65 = getelementptr inbounds nuw [192 x i8], ptr %64, i64 %63
   call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEELb0EE13destroy_rangeEPS6_S8_(ptr noundef %64, ptr noundef %65)
   %66 = load i64, ptr %3, align 8, !tbaa !48
   %67 = load ptr, ptr %0, align 8, !tbaa !26
@@ -26695,13 +26687,13 @@ _ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEES
   %80 = load ptr, ptr %1, align 8, !tbaa !26
   %81 = load i32, ptr %26, align 8, !tbaa !28
   %82 = zext i32 %81 to i64
-  %83 = getelementptr inbounds nuw %"struct.std::pair.488", ptr %80, i64 %82
+  %83 = getelementptr inbounds nuw [192 x i8], ptr %80, i64 %82
   %.not7.i.i.i.i.i = icmp samesign eq i64 %.026, %82
   br i1 %.not7.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEELb0EE18uninitialized_moveIPS6_S9_EEvT_SA_T0_.exit, label %.lr.ph.i.i.i.i.i41.preheader
 
 .lr.ph.i.i.i.i.i41.preheader:                     ; preds = %_ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEES7_ET0_T_S9_S8_.exit40
-  %84 = getelementptr inbounds nuw %"struct.std::pair.488", ptr %79, i64 %.026
-  %85 = getelementptr inbounds nuw %"struct.std::pair.488", ptr %80, i64 %.026
+  %84 = getelementptr inbounds nuw [192 x i8], ptr %79, i64 %.026
+  %85 = getelementptr inbounds nuw [192 x i8], ptr %80, i64 %.026
   br label %.lr.ph.i.i.i.i.i41
 
 .lr.ph.i.i.i.i.i41:                               ; preds = %.lr.ph.i.i.i.i.i41.preheader, %.lr.ph.i.i.i.i.i41
@@ -26722,7 +26714,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes18G
   store i32 %27, ptr %29, align 8, !tbaa !28
   %89 = load i32, ptr %26, align 8, !tbaa !28
   %90 = zext i32 %89 to i64
-  %91 = getelementptr inbounds nuw %"struct.std::pair.488", ptr %88, i64 %90
+  %91 = getelementptr inbounds nuw [192 x i8], ptr %88, i64 %90
   call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes18GlobalFunctionInfoEELb0EE13destroy_rangeEPS6_S8_(ptr noundef %88, ptr noundef %91)
   store i32 0, ptr %26, align 8, !tbaa !28
   br label %92
@@ -26744,7 +26736,7 @@ define linkonce_odr hidden void @_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12
   br i1 %.not.i.i.not, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes16EnumConstantInfoEELb0EE28reserveForParamAndGetAddressERS6_m.exit, label %9, !prof !55
 
 9:                                                ; preds = %2
-  %10 = getelementptr inbounds nuw %"struct.std::pair.491", ptr %.pre3, i64 %5
+  %10 = getelementptr inbounds nuw [88 x i8], ptr %.pre3, i64 %5
   %11 = icmp uge ptr %1, %.pre3
   %12 = icmp ult ptr %1, %10
   %spec.select.i.i.i.i = and i1 %11, %12
@@ -26769,7 +26761,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes16E
   %.016.i.i = phi ptr [ %1, %2 ], [ %18, %13 ], [ %1, %.critedge.i.i ]
   %20 = load i32, ptr %3, align 8, !tbaa !28
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw %"struct.std::pair.491", ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [88 x i8], ptr %19, i64 %21
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %22, ptr noundef nonnull align 8 dereferenceable(88) %.016.i.i, i64 16, i1 false), !tbaa.struct !753
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 16
@@ -27228,7 +27220,7 @@ _ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes16EnumConstantInfoEES7_
   %.pre-phi = phi i64 [ %.pre87, %_ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes16EnumConstantInfoEES7_ET0_T_S9_S8_.exit.loopexit ], [ %44, %45 ]
   %54 = phi ptr [ %.pre, %_ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes16EnumConstantInfoEES7_ET0_T_S9_S8_.exit.loopexit ], [ %46, %45 ]
   %.0 = phi ptr [ %51, %_ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes16EnumConstantInfoEES7_ET0_T_S9_S8_.exit.loopexit ], [ %46, %45 ]
-  %55 = getelementptr inbounds nuw %"struct.std::pair.491", ptr %54, i64 %.pre-phi
+  %55 = getelementptr inbounds nuw [88 x i8], ptr %54, i64 %.pre-phi
   %.not4.i = icmp eq ptr %.0, %55
   br i1 %.not4.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes16EnumConstantInfoEELb0EE13destroy_rangeEPS6_S8_.exit, label %.lr.ph.i
 
@@ -27412,13 +27404,13 @@ _ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes16EnumConstantInfoEES7_
   %122 = load ptr, ptr %1, align 8, !tbaa !26
   %123 = load i32, ptr %39, align 8, !tbaa !28
   %124 = zext i32 %123 to i64
-  %125 = getelementptr inbounds nuw %"struct.std::pair.491", ptr %122, i64 %124
+  %125 = getelementptr inbounds nuw [88 x i8], ptr %122, i64 %124
   %.not7.i.i.i.i.i = icmp samesign eq i64 %.026, %124
   br i1 %.not7.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes16EnumConstantInfoEELb0EE18uninitialized_moveIPS6_S9_EEvT_SA_T0_.exit, label %.lr.ph.i.i.i.i.i68.preheader
 
 .lr.ph.i.i.i.i.i68.preheader:                     ; preds = %_ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes16EnumConstantInfoEES7_ET0_T_S9_S8_.exit67
-  %126 = getelementptr inbounds nuw %"struct.std::pair.491", ptr %121, i64 %.026
-  %127 = getelementptr inbounds nuw %"struct.std::pair.491", ptr %122, i64 %.026
+  %126 = getelementptr inbounds nuw [88 x i8], ptr %121, i64 %.026
+  %127 = getelementptr inbounds nuw [88 x i8], ptr %122, i64 %.026
   br label %.lr.ph.i.i.i.i.i68
 
 .lr.ph.i.i.i.i.i68:                               ; preds = %.lr.ph.i.i.i.i.i68.preheader, %_ZSt10_ConstructISt4pairIN4llvm12VersionTupleEN5clang9api_notes16EnumConstantInfoEEJS6_EEvPT_DpOT0_.exit.i.i.i.i.i
@@ -28513,7 +28505,7 @@ _ZN4llvm15SmallVectorImplISt4pairINS_12VersionTupleEN5clang9api_notes7TagInfoEEE
   br i1 %.not33, label %39, label %36
 
 36:                                               ; preds = %34
-  %37 = getelementptr inbounds nuw %"struct.std::pair.502", ptr %6, i64 %30
+  %37 = getelementptr inbounds nuw [344 x i8], ptr %6, i64 %30
   %38 = tail call noundef ptr @_ZNSt11__copy_moveILb1ELb0ESt26random_access_iterator_tagE8__copy_mIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes7TagInfoEESA_EET0_T_SC_SB_(ptr noundef %6, ptr noundef nonnull %37, ptr noundef %35)
   %.pre = load ptr, ptr %0, align 8, !tbaa !26
   %.pre58 = load i32, ptr %31, align 8, !tbaa !28
@@ -28524,7 +28516,7 @@ _ZN4llvm15SmallVectorImplISt4pairINS_12VersionTupleEN5clang9api_notes7TagInfoEEE
   %.pre-phi = phi i64 [ %.pre62, %36 ], [ %33, %34 ]
   %40 = phi ptr [ %.pre, %36 ], [ %35, %34 ]
   %.0 = phi ptr [ %38, %36 ], [ %35, %34 ]
-  %41 = getelementptr inbounds nuw %"struct.std::pair.502", ptr %40, i64 %.pre-phi
+  %41 = getelementptr inbounds nuw [344 x i8], ptr %40, i64 %.pre-phi
   %.not4.i = icmp eq ptr %.0, %41
   br i1 %.not4.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes7TagInfoEELb0EE13destroy_rangeEPS6_S8_.exit, label %.lr.ph.i
 
@@ -28657,7 +28649,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes7Ta
   br i1 %.not32, label %82, label %79
 
 79:                                               ; preds = %78
-  %80 = getelementptr inbounds nuw %"struct.std::pair.502", ptr %6, i64 %33
+  %80 = getelementptr inbounds nuw [344 x i8], ptr %6, i64 %33
   %81 = tail call noundef ptr @_ZNSt11__copy_moveILb1ELb0ESt26random_access_iterator_tagE8__copy_mIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes7TagInfoEESA_EET0_T_SC_SB_(ptr noundef %6, ptr noundef nonnull %80, ptr noundef %.pre60)
   %.pre59 = load ptr, ptr %0, align 8, !tbaa !26
   br label %82
@@ -28668,13 +28660,13 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes7Ta
   %84 = load ptr, ptr %1, align 8, !tbaa !26
   %85 = load i32, ptr %28, align 8, !tbaa !28
   %86 = zext i32 %85 to i64
-  %87 = getelementptr inbounds nuw %"struct.std::pair.502", ptr %84, i64 %86
+  %87 = getelementptr inbounds nuw [344 x i8], ptr %84, i64 %86
   %.not7.i.i.i.i.i = icmp samesign eq i64 %.026, %86
   br i1 %.not7.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes7TagInfoEELb0EE18uninitialized_moveIPS6_S9_EEvT_SA_T0_.exit, label %.lr.ph.i.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.i.preheader:                       ; preds = %82
-  %88 = getelementptr inbounds nuw %"struct.std::pair.502", ptr %83, i64 %.026
-  %89 = getelementptr inbounds nuw %"struct.std::pair.502", ptr %84, i64 %.026
+  %88 = getelementptr inbounds nuw [344 x i8], ptr %83, i64 %.026
+  %89 = getelementptr inbounds nuw [344 x i8], ptr %84, i64 %.026
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i.preheader, %.lr.ph.i.i.i.i.i
@@ -28812,7 +28804,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11T
 _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11TypedefInfoEELb0EE19moveElementsForGrowEPS6_.exit: ; preds = %2, %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11TypedefInfoEELb0EE18uninitialized_moveIPS6_S9_EEvT_SA_T0_.exit.loopexit.i
   %14 = phi i64 [ %13, %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11TypedefInfoEELb0EE18uninitialized_moveIPS6_S9_EEvT_SA_T0_.exit.loopexit.i ], [ 0, %2 ]
   %15 = phi ptr [ %.pre.i, %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11TypedefInfoEELb0EE18uninitialized_moveIPS6_S9_EEvT_SA_T0_.exit.loopexit.i ], [ %6, %2 ]
-  %16 = getelementptr inbounds nuw %"struct.std::pair.513", ptr %15, i64 %14
+  %16 = getelementptr inbounds nuw [176 x i8], ptr %15, i64 %14
   call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11TypedefInfoEELb0EE13destroy_rangeEPS6_S8_(ptr noundef %15, ptr noundef %16)
   %17 = load i64, ptr %3, align 8, !tbaa !48
   %18 = load ptr, ptr %0, align 8, !tbaa !26
@@ -29096,7 +29088,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(16) ptr @_ZN4llvm15S
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load i32, ptr %11, align 8, !tbaa !28
   %13 = zext i32 %12 to i64
-  %14 = getelementptr inbounds nuw %"struct.std::pair.513", ptr %10, i64 %13
+  %14 = getelementptr inbounds nuw [176 x i8], ptr %10, i64 %13
   tail call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11TypedefInfoEELb0EE13destroy_rangeEPS6_S8_(ptr noundef %10, ptr noundef %14)
   %15 = load ptr, ptr %0, align 8, !tbaa !26
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -29171,13 +29163,13 @@ _ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes11TypedefInfoEES7_ET0_T
   %.pre-phi = phi i64 [ %.pre46, %_ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes11TypedefInfoEES7_ET0_T_S9_S8_.exit.loopexit ], [ %31, %32 ]
   %48 = phi ptr [ %.pre, %_ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes11TypedefInfoEES7_ET0_T_S9_S8_.exit.loopexit ], [ %33, %32 ]
   %.0 = phi ptr [ %45, %_ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes11TypedefInfoEES7_ET0_T_S9_S8_.exit.loopexit ], [ %33, %32 ]
-  %49 = getelementptr inbounds nuw %"struct.std::pair.513", ptr %48, i64 %.pre-phi
+  %49 = getelementptr inbounds nuw [176 x i8], ptr %48, i64 %.pre-phi
   tail call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11TypedefInfoEELb0EE13destroy_rangeEPS6_S8_(ptr noundef %.0, ptr noundef %49)
   store i32 %27, ptr %29, align 8, !tbaa !28
   %50 = load ptr, ptr %1, align 8, !tbaa !26
   %51 = load i32, ptr %26, align 8, !tbaa !28
   %52 = zext i32 %51 to i64
-  %53 = getelementptr inbounds nuw %"struct.std::pair.513", ptr %50, i64 %52
+  %53 = getelementptr inbounds nuw [176 x i8], ptr %50, i64 %52
   tail call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11TypedefInfoEELb0EE13destroy_rangeEPS6_S8_(ptr noundef %50, ptr noundef %53)
   store i32 0, ptr %26, align 8, !tbaa !28
   br label %106
@@ -29190,7 +29182,7 @@ _ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes11TypedefInfoEES7_ET0_T
 
 58:                                               ; preds = %54
   %59 = load ptr, ptr %0, align 8, !tbaa !26
-  %60 = getelementptr inbounds nuw %"struct.std::pair.513", ptr %59, i64 %31
+  %60 = getelementptr inbounds nuw [176 x i8], ptr %59, i64 %31
   tail call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11TypedefInfoEELb0EE13destroy_rangeEPS6_S8_(ptr noundef %59, ptr noundef %60)
   store i32 0, ptr %29, align 8, !tbaa !28
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -29222,7 +29214,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11T
 _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11TypedefInfoEELb0EE19moveElementsForGrowEPS6_.exit.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11TypedefInfoEELb0EE18uninitialized_moveIPS6_S9_EEvT_SA_T0_.exit.loopexit.i.i, %58
   %70 = phi i64 [ %69, %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11TypedefInfoEELb0EE18uninitialized_moveIPS6_S9_EEvT_SA_T0_.exit.loopexit.i.i ], [ 0, %58 ]
   %71 = phi ptr [ %.pre.i.i, %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11TypedefInfoEELb0EE18uninitialized_moveIPS6_S9_EEvT_SA_T0_.exit.loopexit.i.i ], [ %63, %58 ]
-  %72 = getelementptr inbounds nuw %"struct.std::pair.513", ptr %71, i64 %70
+  %72 = getelementptr inbounds nuw [176 x i8], ptr %71, i64 %70
   call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11TypedefInfoEELb0EE13destroy_rangeEPS6_S8_(ptr noundef %71, ptr noundef %72)
   %73 = load i64, ptr %3, align 8, !tbaa !48
   %74 = load ptr, ptr %0, align 8, !tbaa !26
@@ -29279,13 +29271,13 @@ _ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes11TypedefInfoEES7_ET0_T
   %94 = load ptr, ptr %1, align 8, !tbaa !26
   %95 = load i32, ptr %26, align 8, !tbaa !28
   %96 = zext i32 %95 to i64
-  %97 = getelementptr inbounds nuw %"struct.std::pair.513", ptr %94, i64 %96
+  %97 = getelementptr inbounds nuw [176 x i8], ptr %94, i64 %96
   %.not7.i.i.i.i.i = icmp samesign eq i64 %.026, %96
   br i1 %.not7.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11TypedefInfoEELb0EE18uninitialized_moveIPS6_S9_EEvT_SA_T0_.exit, label %.lr.ph.i.i.i.i.i41.preheader
 
 .lr.ph.i.i.i.i.i41.preheader:                     ; preds = %_ZSt4moveIPSt4pairIN4llvm12VersionTupleEN5clang9api_notes11TypedefInfoEES7_ET0_T_S9_S8_.exit40
-  %98 = getelementptr inbounds nuw %"struct.std::pair.513", ptr %93, i64 %.026
-  %99 = getelementptr inbounds nuw %"struct.std::pair.513", ptr %94, i64 %.026
+  %98 = getelementptr inbounds nuw [176 x i8], ptr %93, i64 %.026
+  %99 = getelementptr inbounds nuw [176 x i8], ptr %94, i64 %.026
   br label %.lr.ph.i.i.i.i.i41
 
 .lr.ph.i.i.i.i.i41:                               ; preds = %.lr.ph.i.i.i.i.i41.preheader, %.lr.ph.i.i.i.i.i41
@@ -29306,7 +29298,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11T
   store i32 %27, ptr %29, align 8, !tbaa !28
   %103 = load i32, ptr %26, align 8, !tbaa !28
   %104 = zext i32 %103 to i64
-  %105 = getelementptr inbounds nuw %"struct.std::pair.513", ptr %102, i64 %104
+  %105 = getelementptr inbounds nuw [176 x i8], ptr %102, i64 %104
   call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairINS_12VersionTupleEN5clang9api_notes11TypedefInfoEELb0EE13destroy_rangeEPS6_S8_(ptr noundef %102, ptr noundef %105)
   store i32 0, ptr %26, align 8, !tbaa !28
   br label %106

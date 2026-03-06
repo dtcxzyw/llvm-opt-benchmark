@@ -319,7 +319,7 @@ _ZL10u_posrelatim.exit36:                         ; preds = %_ZL10u_posrelatim.e
   br i1 %or.cond.i, label %.loopexit, label %62
 
 62:                                               ; preds = %54
-  %63 = getelementptr inbounds nuw i32, ptr @_ZZL11utf8_decodePKcPiE6limits, i64 %indvars.iv.i
+  %63 = getelementptr inbounds nuw [4 x i8], ptr @_ZZL11utf8_decodePKcPiE6limits, i64 %indvars.iv.i
   %64 = load i32, ptr %63, align 4, !tbaa !16
   %.not44.i = icmp ule i32 %59, %64
   %65 = and i32 %59, 2095104
@@ -613,7 +613,7 @@ _ZL10u_posrelatim.exit35:                         ; preds = %_ZL10u_posrelatim.e
   br i1 %or.cond.i, label %.thread, label %58
 
 58:                                               ; preds = %50
-  %59 = getelementptr inbounds nuw i32, ptr @_ZZL11utf8_decodePKcPiE6limits, i64 %indvars.iv.i
+  %59 = getelementptr inbounds nuw [4 x i8], ptr @_ZZL11utf8_decodePKcPiE6limits, i64 %indvars.iv.i
   %60 = load i32, ptr %59, align 4, !tbaa !16
   %.not44.i = icmp ule i32 %55, %60
   %61 = and i32 %55, 2095104
@@ -768,7 +768,7 @@ define internal noundef range(i32 0, 3) i32 @_ZL8iter_auxP9lua_State(ptr noundef
   br i1 %or.cond.i, label %_ZL11utf8_decodePKcPi.exit.thread, label %38
 
 38:                                               ; preds = %30
-  %39 = getelementptr inbounds nuw i32, ptr @_ZZL11utf8_decodePKcPiE6limits, i64 %indvars.iv.i
+  %39 = getelementptr inbounds nuw [4 x i8], ptr @_ZZL11utf8_decodePKcPiE6limits, i64 %indvars.iv.i
   %40 = load i32, ptr %39, align 4, !tbaa !16
   %.not44.i = icmp ule i32 %35, %40
   %41 = and i32 %35, 2095104

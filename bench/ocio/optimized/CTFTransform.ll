@@ -3516,13 +3516,13 @@ _ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev19FixedFunctionOpDataEKNS0_6Op
 
 switch.lookup:                                    ; preds = %_ZSt20dynamic_pointer_castIKN19OpenColorIO_v2_5dev19FixedFunctionOpDataEKNS0_6OpDataEESt10shared_ptrIT_ERKS5_IT0_E.exit.i.i
   %206 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK19OpenColorIO_v2_5dev15TransformWriter5writeEv, i64 %206
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK19OpenColorIO_v2_5dev15TransformWriter5writeEv, i64 %206
   %switch.load = load ptr, ptr %switch.gep, align 8
   %207 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep404 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK19OpenColorIO_v2_5dev15TransformWriter5writeEv.11, i64 %207
+  %switch.gep404 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK19OpenColorIO_v2_5dev15TransformWriter5writeEv.11, i64 %207
   %switch.load405 = load ptr, ptr %switch.gep404, align 8
   %208 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep406 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK19OpenColorIO_v2_5dev15TransformWriter5writeEv.12, i64 %208
+  %switch.gep406 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK19OpenColorIO_v2_5dev15TransformWriter5writeEv.12, i64 %208
   %switch.load407 = load ptr, ptr %switch.gep406, align 8
   %storemerge13.i = load i32, ptr %switch.load, align 4, !tbaa !18, !noalias !111
   %storemerge12.i = load i32, ptr %switch.load405, align 4, !tbaa !21, !noalias !111
@@ -7075,13 +7075,13 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %112, %110
   %.0771 = phi i32 [ %92, %.lr.ph ], [ %.2, %2033 ]
   %.177770 = phi i64 [ 0, %.lr.ph ], [ %224, %2033 ]
   %222 = load ptr, ptr %71, align 8, !tbaa !32
-  %223 = getelementptr inbounds nuw %"class.std::shared_ptr.28", ptr %222, i64 %.177770
+  %223 = getelementptr inbounds nuw [16 x i8], ptr %222, i64 %.177770
   %224 = add nuw i64 %.177770, 1
   %225 = icmp ult i64 %224, %78
   br i1 %225, label %226, label %_ZNSt12__shared_ptrIKN19OpenColorIO_v2_5dev6OpDataELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit207
 
 226:                                              ; preds = %221
-  %227 = getelementptr inbounds nuw %"class.std::shared_ptr.28", ptr %222, i64 %224
+  %227 = getelementptr inbounds nuw [16 x i8], ptr %222, i64 %224
   %228 = load ptr, ptr %227, align 8, !tbaa !65
   store ptr %228, ptr %8, align 8, !tbaa !65
   %229 = getelementptr inbounds nuw i8, ptr %227, i64 8
@@ -14461,7 +14461,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38: ; preds = %38,
 
 switch.lookup:                                    ; preds = %2
   %44 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124GetValidatedFileBitDepthENS_8BitDepthENS_6OpData4TypeE, i64 %44
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN19OpenColorIO_v2_5dev12_GLOBAL__N_124GetValidatedFileBitDepthENS_8BitDepthENS_6OpData4TypeE, i64 %44
   %switch.load = load i32, ptr %switch.gep, align 4
   ret i32 %switch.load
 
@@ -17482,7 +17482,7 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ED2Ev.exit41: 
 
 switch.lookup:                                    ; preds = %134
   %143 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_18OpWriter13getAttributesERSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISA_EE.13, i64 %143
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_18OpWriter13getAttributesERSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISA_EE.13, i64 %143
   %switch.load = load ptr, ptr %switch.gep, align 8
   store ptr %switch.load, ptr %6, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -17631,7 +17631,7 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ED2Ev.exit55: 
 
 switch.lookup146:                                 ; preds = %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_ED2Ev.exit55
   %198 = zext nneg i32 %switch.tableidx144 to i64
-  %switch.gep150 = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_18OpWriter13getAttributesERSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISA_EE.13, i64 %198
+  %switch.gep150 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK19OpenColorIO_v2_5dev12_GLOBAL__N_18OpWriter13getAttributesERSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_ESaISA_EE.13, i64 %198
   %switch.load151 = load ptr, ptr %switch.gep150, align 8
   store ptr %switch.load151, ptr %8, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -24320,7 +24320,7 @@ _ZN19OpenColorIO_v2_5dev12_GLOBAL__N_110WriteValueIdEENSt9enable_ifIXsr3std17is_
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit unwind label %.loopexit
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %.lr.ph
-  %111 = getelementptr inbounds nuw double, ptr %86, i64 %109
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %109
   %112 = load double, ptr %111, align 8, !tbaa !150
   %113 = fcmp uno double %112, 0.000000e+00
   br i1 %113, label %.invoke, label %117
@@ -28263,7 +28263,7 @@ _ZNK19OpenColorIO_v2_5dev21GradingRGBCurveOpData8getValueEv.exit: ; preds = %1, 
 
 139:                                              ; preds = %138, %131
   %140 = load ptr, ptr @_ZZNK19OpenColorIO_v2_5dev12_GLOBAL__N_121GradingRGBCurveWriter12writeContentEvE9curveTags, align 8, !tbaa !515
-  %141 = getelementptr inbounds nuw ptr, ptr %140, i64 %indvars.iv
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %140, i64 %indvars.iv
   %142 = load ptr, ptr %141, align 8, !tbaa !24
   %143 = load ptr, ptr %60, align 8, !tbaa !194
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -35098,7 +35098,7 @@ _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i: ; preds = %.noexc89
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i30.i, %.noexc89
-  %135 = getelementptr inbounds nuw i32, ptr %131, i64 %125
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %131, i64 %125
   %136 = getelementptr inbounds nuw i8, ptr %12, i64 200
   %137 = load ptr, ptr %136, align 8, !tbaa !623
   br label %165
@@ -35185,7 +35185,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58: ; preds = %151
 
 165:                                              ; preds = %.lr.ph, %_ZN9Imath_3_14halfC2Ef.exit
   %.033103 = phi i64 [ 0, %.lr.ph ], [ %223, %_ZN9Imath_3_14halfC2Ef.exit ]
-  %166 = getelementptr inbounds nuw float, ptr %137, i64 %.033103
+  %166 = getelementptr inbounds nuw [4 x i8], ptr %137, i64 %.033103
   %167 = load float, ptr %166, align 4, !tbaa !624
   %168 = fmul float %167, %116
   %169 = bitcast float %168 to i32
@@ -35267,7 +35267,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit58: ; preds = %151
 _ZN9Imath_3_14halfC2Ef.exit:                      ; preds = %178, %181, %191, %193, %202, %216, %219
   %.0.i.i = phi i16 [ %174, %202 ], [ %188, %181 ], [ %192, %191 ], [ %201, %193 ], [ %179, %178 ], [ %220, %219 ], [ %214, %216 ]
   %221 = zext i16 %.0.i.i to i32
-  %222 = getelementptr inbounds nuw i32, ptr %131, i64 %.033103
+  %222 = getelementptr inbounds nuw [4 x i8], ptr %131, i64 %.033103
   store i32 %221, ptr %222, align 4, !tbaa !44
   %223 = add nuw i64 %.033103, 1
   %exitcond.not = icmp eq i64 %223, %125
@@ -35487,7 +35487,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i36
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit38.i: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i36.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %327 = getelementptr inbounds nuw i32, ptr %.sroa.039.056.i, i64 %252
+  %327 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.039.056.i, i64 %252
   %.not.i = icmp eq ptr %327, %.sroa.17.1164
   br i1 %.not.i, label %._crit_edge.i, label %._crit_edge.i.i.i60, !llvm.loop !633
 
@@ -36471,7 +36471,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i41
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i41
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  %154 = getelementptr inbounds nuw float, ptr %.sroa.044.062, i64 %67
+  %154 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.044.062, i64 %67
   %.not = icmp eq ptr %154, %2
   br i1 %.not, label %._crit_edge, label %._crit_edge.i.i, !llvm.loop !642
 
@@ -39683,7 +39683,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !26
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !29
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !31
   ret void
 }
@@ -39810,7 +39810,7 @@ _ZNSt6vectorISt10shared_ptrIKN19OpenColorIO_v2_5dev6OpDataEESaIS4_EE11_S_relocat
 _ZNSt12_Vector_baseISt10shared_ptrIKN19OpenColorIO_v2_5dev6OpDataEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIKN19OpenColorIO_v2_5dev6OpDataEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22, %48
   store ptr %20, ptr %0, align 8, !tbaa !32
   store ptr %.0.lcssa.i.i.i.i21, ptr %4, align 8, !tbaa !35
-  %52 = getelementptr inbounds nuw %"class.std::shared_ptr.28", ptr %20, i64 %16
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %52, ptr %47, align 8, !tbaa !47
   ret void
 }
@@ -39995,7 +39995,7 @@ _ZSt8_DestroyIPN19OpenColorIO_v2_5dev18FormatMetadataImplES1_EvT_S3_RSaIT0_E.exi
 _ZNSt12_Vector_baseIN19OpenColorIO_v2_5dev18FormatMetadataImplESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN19OpenColorIO_v2_5dev18FormatMetadataImplES1_EvT_S3_RSaIT0_E.exit, %58
   store ptr %20, ptr %0, align 8, !tbaa !197
   store ptr %.0.lcssa.i.i.i.i.i39, ptr %4, align 8, !tbaa !77
-  %62 = getelementptr inbounds nuw %"class.OpenColorIO_v2_5dev::FormatMetadataImpl", ptr %20, i64 %16
+  %62 = getelementptr inbounds nuw [120 x i8], ptr %20, i64 %16
   store ptr %62, ptr %57, align 8, !tbaa !79
   ret void
 
@@ -40334,7 +40334,7 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaI
 _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE13_M_deallocateEPS7_m.exit: ; preds = %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit30, %114
   store ptr %22, ptr %0, align 8, !tbaa !195
   store ptr %.0.lcssa.i.i.i.i29, ptr %4, align 8, !tbaa !103
-  %118 = getelementptr inbounds nuw %"struct.std::pair", ptr %22, i64 %16
+  %118 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 %16
   store ptr %118, ptr %113, align 8, !tbaa !106
   ret void
 }

@@ -299,7 +299,7 @@ define void @_Z11please_citeP8_IO_FILEPKc(ptr noundef captures(address_is_null) 
 
 .preheader:                                       ; preds = %2, %7
   %indvars.iv = phi i64 [ %indvars.iv.next, %7 ], [ 0, %2 ]
-  %4 = getelementptr inbounds nuw %struct.t_citerec, ptr @_ZZ11please_citeP8_IO_FILEPKcE6citedb, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [48 x i8], ptr @_ZZ11please_citeP8_IO_FILEPKcE6citedb, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 16, !tbaa !4
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %1) #9
   %.not = icmp eq i32 %6, 0
@@ -313,7 +313,7 @@ define void @_Z11please_citeP8_IO_FILEPKc(ptr noundef captures(address_is_null) 
 8:                                                ; preds = %.preheader
   %9 = tail call i64 @fwrite(ptr nonnull @.str.269, i64 56, i64 1, ptr nonnull %0)
   %10 = and i64 %indvars.iv, 4294967295
-  %11 = getelementptr inbounds nuw %struct.t_citerec, ptr @_ZZ11please_citeP8_IO_FILEPKcE6citedb, i64 %10
+  %11 = getelementptr inbounds nuw [48 x i8], ptr @_ZZ11please_citeP8_IO_FILEPKcE6citedb, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !13
   %14 = tail call noundef ptr @_Z10wrap_linesPKciib(ptr noundef %13, i32 noundef 79, i32 noundef 0, i1 noundef zeroext false)

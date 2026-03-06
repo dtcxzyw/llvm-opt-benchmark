@@ -902,11 +902,11 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac31HomographyMinimalSolver4pt
 29:                                               ; preds = %.noexc, %29
   %indvars.iv200 = phi i64 [ 0, %.noexc ], [ %indvars.iv.next201, %29 ]
   %indvars.iv = phi i64 [ 0, %.noexc ], [ %indvars.iv.next, %29 ]
-  %30 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv200
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv200
   %31 = load i32, ptr %30, align 4, !tbaa !110
   %32 = shl nsw i32 %31, 2
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds float, ptr %19, i64 %33
+  %34 = getelementptr inbounds [4 x i8], ptr %19, i64 %33
   %35 = load float, ptr %34, align 4, !tbaa !125
   %36 = getelementptr i8, ptr %34, i64 4
   %37 = load float, ptr %36, align 4, !tbaa !125
@@ -916,7 +916,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac31HomographyMinimalSolver4pt
   %41 = load float, ptr %40, align 4, !tbaa !125
   %42 = fneg float %35
   %43 = fpext float %42 to double
-  %44 = getelementptr inbounds nuw double, ptr %20, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv
   store double %43, ptr %44, align 8, !tbaa !118
   %45 = fneg float %37
   %46 = fpext float %45 to double
@@ -1090,7 +1090,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
   %102 = getelementptr inbounds nuw i8, ptr %96, i64 %.idx218
   %103 = load double, ptr %102, align 8, !tbaa !118
   %104 = fdiv double %112, %103
-  %105 = getelementptr inbounds nuw double, ptr %94, i64 %indvars.iv205
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %indvars.iv205
   store double %104, ptr %105, align 8, !tbaa !118
   %106 = fcmp uno double %104, 0.000000e+00
   br i1 %106, label %.critedge, label %97
@@ -1099,9 +1099,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
   %indvars.iv207 = phi i64 [ %indvars.iv205, %.lr.ph ], [ %indvars.iv.next208, %107 ]
   %.0102193 = phi double [ 0.000000e+00, %.lr.ph ], [ %112, %107 ]
   %indvars.iv.next208 = add nuw nsw i64 %indvars.iv207, 1
-  %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv.next208
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %indvars.iv.next208
   %108 = load double, ptr %gep, align 8, !tbaa !118
-  %109 = getelementptr inbounds nuw double, ptr %94, i64 %indvars.iv.next208
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %indvars.iv.next208
   %110 = load double, ptr %109, align 8, !tbaa !118
   %111 = fneg double %108
   %112 = call double @llvm.fmuladd.f64(double %111, double %110, double %.0102193)
@@ -1121,9 +1121,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EED2Ev.exit:          ; preds = %_ZSt8_DestroyIPN2cv
 
 115:                                              ; preds = %115, %113
   %indvars.iv.i = phi i64 [ 0, %113 ], [ %indvars.iv.next.i, %115 ]
-  %116 = getelementptr inbounds nuw double, ptr %114, i64 %indvars.iv.i
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %indvars.iv.i
   %117 = load double, ptr %116, align 8, !tbaa !118
-  %118 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv.i
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.i
   store double %117, ptr %118, align 8, !tbaa !118
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 72
@@ -1845,7 +1845,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac30HomographyNonMinimalSolver
   br i1 %81, label %97, label %94
 
 94:                                               ; preds = %92
-  %95 = getelementptr inbounds nuw i32, ptr %82, i64 %indvars.iv515
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %82, i64 %indvars.iv515
   %96 = load i32, ptr %95, align 4, !tbaa !110
   br label %97
 
@@ -1853,7 +1853,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac30HomographyNonMinimalSolver
   %.in375 = phi i32 [ %96, %94 ], [ %93, %92 ]
   %98 = shl nsw i32 %.in375, 2
   %99 = sext i32 %98 to i64
-  %100 = getelementptr inbounds float, ptr %54, i64 %99
+  %100 = getelementptr inbounds [4 x i8], ptr %54, i64 %99
   %101 = load float, ptr %100, align 4, !tbaa !125
   %102 = fpext float %101 to double
   %103 = getelementptr i8, ptr %100, i64 4
@@ -1883,12 +1883,12 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac30HomographyNonMinimalSolver
 
 .preheader420:                                    ; preds = %97, %124
   %indvars.iv507 = phi i64 [ 0, %97 ], [ %indvars.iv.next508, %124 ]
-  %118 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv507
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv507
   %119 = load double, ptr %118, align 8, !tbaa !118
-  %120 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv507
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv507
   %121 = load double, ptr %120, align 8, !tbaa !118
   %122 = mul nuw nsw i64 %indvars.iv507, 9
-  %invariant.gep564 = getelementptr inbounds nuw double, ptr %61, i64 %122
+  %invariant.gep564 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %122
   br label %131
 
 123:                                              ; preds = %124
@@ -1899,7 +1899,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac30HomographyNonMinimalSolver
 124:                                              ; preds = %131
   %125 = fmul double %121, %111
   %126 = call double @llvm.fmuladd.f64(double %119, double %108, double %125)
-  %127 = getelementptr inbounds nuw double, ptr %61, i64 %122
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %122
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 64
   %129 = load double, ptr %128, align 8, !tbaa !118
   %130 = fadd double %129, %126
@@ -1910,13 +1910,13 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac30HomographyNonMinimalSolver
 
 131:                                              ; preds = %.preheader420, %131
   %indvars.iv509 = phi i64 [ %indvars.iv507, %.preheader420 ], [ %indvars.iv.next510, %131 ]
-  %132 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv509
+  %132 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv509
   %133 = load double, ptr %132, align 8, !tbaa !118
-  %134 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv509
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv509
   %135 = load double, ptr %134, align 8, !tbaa !118
   %136 = fmul double %121, %135
   %137 = call double @llvm.fmuladd.f64(double %119, double %133, double %136)
-  %gep565 = getelementptr inbounds nuw double, ptr %invariant.gep564, i64 %indvars.iv509
+  %gep565 = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep564, i64 %indvars.iv509
   %138 = load double, ptr %gep565, align 8, !tbaa !118
   %139 = fadd double %138, %137
   store double %139, ptr %gep565, align 8, !tbaa !118
@@ -1926,7 +1926,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac30HomographyNonMinimalSolver
 
 140:                                              ; preds = %.lr.ph448, %.loopexit423
   %indvars.iv502 = phi i64 [ 0, %.lr.ph448 ], [ %indvars.iv.next503, %.loopexit423 ]
-  %141 = getelementptr inbounds nuw double, ptr %65, i64 %indvars.iv502
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %indvars.iv502
   %142 = load double, ptr %141, align 8, !tbaa !118
   %143 = fcmp olt double %142, 0x3E80000000000000
   br i1 %143, label %.loopexit423, label %144
@@ -1936,7 +1936,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac30HomographyNonMinimalSolver
   br i1 %71, label %149, label %146
 
 146:                                              ; preds = %144
-  %147 = getelementptr inbounds nuw i32, ptr %72, i64 %indvars.iv502
+  %147 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %indvars.iv502
   %148 = load i32, ptr %147, align 4, !tbaa !110
   br label %149
 
@@ -1944,7 +1944,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac30HomographyNonMinimalSolver
   %.in366 = phi i32 [ %148, %146 ], [ %145, %144 ]
   %150 = shl nsw i32 %.in366, 2
   %151 = sext i32 %150 to i64
-  %152 = getelementptr inbounds float, ptr %54, i64 %151
+  %152 = getelementptr inbounds [4 x i8], ptr %54, i64 %151
   %153 = load float, ptr %152, align 4, !tbaa !125
   %154 = fpext float %153 to double
   %155 = getelementptr i8, ptr %152, i64 4
@@ -1979,18 +1979,18 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac30HomographyNonMinimalSolver
 
 .preheader422:                                    ; preds = %149, %178
   %indvars.iv494 = phi i64 [ 0, %149 ], [ %indvars.iv.next495, %178 ]
-  %173 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv494
+  %173 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv494
   %174 = load double, ptr %173, align 8, !tbaa !118
-  %175 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv494
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv494
   %176 = load double, ptr %175, align 8, !tbaa !118
   %177 = mul nuw nsw i64 %indvars.iv494, 9
-  %invariant.gep562 = getelementptr inbounds nuw double, ptr %61, i64 %177
+  %invariant.gep562 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %177
   br label %185
 
 178:                                              ; preds = %185
   %179 = fmul double %168, %176
   %180 = call double @llvm.fmuladd.f64(double %174, double %167, double %179)
-  %181 = getelementptr inbounds nuw double, ptr %61, i64 %177
+  %181 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %177
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 64
   %183 = load double, ptr %182, align 8, !tbaa !118
   %184 = fadd double %183, %180
@@ -2001,13 +2001,13 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac30HomographyNonMinimalSolver
 
 185:                                              ; preds = %.preheader422, %185
   %indvars.iv496 = phi i64 [ %indvars.iv494, %.preheader422 ], [ %indvars.iv.next497, %185 ]
-  %186 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv496
+  %186 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv496
   %187 = load double, ptr %186, align 8, !tbaa !118
-  %188 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv496
+  %188 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv496
   %189 = load double, ptr %188, align 8, !tbaa !118
   %190 = fmul double %176, %189
   %191 = call double @llvm.fmuladd.f64(double %174, double %187, double %190)
-  %gep563 = getelementptr inbounds nuw double, ptr %invariant.gep562, i64 %indvars.iv496
+  %gep563 = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep562, i64 %indvars.iv496
   %192 = load double, ptr %gep563, align 8, !tbaa !118
   %193 = fadd double %192, %191
   store double %193, ptr %gep563, align 8, !tbaa !118
@@ -2025,7 +2025,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac30HomographyNonMinimalSolver
 
 .preheader419:                                    ; preds = %.preheader419.preheader, %196
   %indvars.iv525 = phi i64 [ %indvars.iv.next526, %196 ], [ 1, %.preheader419.preheader ]
-  %invariant.gep566 = getelementptr inbounds nuw double, ptr %61, i64 %indvars.iv525
+  %invariant.gep566 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv525
   %.idx550 = mul nuw nsw i64 %indvars.iv525, 72
   %invariant.gep568 = getelementptr inbounds nuw i8, ptr %61, i64 %.idx550
   br label %197
@@ -2044,7 +2044,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac30HomographyNonMinimalSolver
   %.idx549 = mul nuw nsw i64 %indvars.iv520, 72
   %gep567 = getelementptr inbounds nuw i8, ptr %invariant.gep566, i64 %.idx549
   %198 = load double, ptr %gep567, align 8, !tbaa !118
-  %gep569 = getelementptr inbounds nuw double, ptr %invariant.gep568, i64 %indvars.iv520
+  %gep569 = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep568, i64 %indvars.iv520
   store double %198, ptr %gep569, align 8, !tbaa !118
   %indvars.iv.next521 = add nuw nsw i64 %indvars.iv520, 1
   %exitcond524.not = icmp eq i64 %indvars.iv.next521, %indvars.iv525
@@ -2109,7 +2109,7 @@ _ZN2cv4Mat_IdEC2Eii.exit:                         ; preds = %202
   %216 = getelementptr inbounds nuw i8, ptr %208, i64 %.idx552
   %217 = load double, ptr %216, align 8, !tbaa !118
   %218 = fdiv double %226, %217
-  %219 = getelementptr inbounds nuw double, ptr %206, i64 %indvars.iv529
+  %219 = getelementptr inbounds nuw [8 x i8], ptr %206, i64 %indvars.iv529
   store double %218, ptr %219, align 8, !tbaa !118
   %220 = fcmp uno double %218, 0.000000e+00
   br i1 %220, label %_ZNSt6vectorIdSaIdEED2Ev.exit, label %209
@@ -2118,9 +2118,9 @@ _ZN2cv4Mat_IdEC2Eii.exit:                         ; preds = %202
   %indvars.iv531 = phi i64 [ %indvars.iv529, %.lr.ph457 ], [ %indvars.iv.next532, %221 ]
   %.0350456 = phi double [ 0.000000e+00, %.lr.ph457 ], [ %226, %221 ]
   %indvars.iv.next532 = add nuw nsw i64 %indvars.iv531, 1
-  %gep571 = getelementptr double, ptr %invariant.gep570, i64 %indvars.iv.next532
+  %gep571 = getelementptr [8 x i8], ptr %invariant.gep570, i64 %indvars.iv.next532
   %222 = load double, ptr %gep571, align 8, !tbaa !118
-  %223 = getelementptr inbounds nuw double, ptr %206, i64 %indvars.iv.next532
+  %223 = getelementptr inbounds nuw [8 x i8], ptr %206, i64 %indvars.iv.next532
   %224 = load double, ptr %223, align 8, !tbaa !118
   %225 = fneg double %222
   %226 = call double @llvm.fmuladd.f64(double %225, double %224, double %.0350456)
@@ -2213,7 +2213,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit382:                 ; preds = %229, %227, %90
   br i1 %251, label %267, label %264
 
 264:                                              ; preds = %262
-  %265 = getelementptr inbounds nuw i32, ptr %252, i64 %indvars.iv480
+  %265 = getelementptr inbounds nuw [4 x i8], ptr %252, i64 %indvars.iv480
   %266 = load i32, ptr %265, align 4, !tbaa !110
   br label %267
 
@@ -2221,7 +2221,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit382:                 ; preds = %229, %227, %90
   %.in365 = phi i32 [ %266, %264 ], [ %263, %262 ]
   %268 = shl nsw i32 %.in365, 2
   %269 = sext i32 %268 to i64
-  %270 = getelementptr inbounds float, ptr %54, i64 %269
+  %270 = getelementptr inbounds [4 x i8], ptr %54, i64 %269
   %271 = load float, ptr %270, align 4, !tbaa !125
   %272 = getelementptr i8, ptr %270, i64 4
   %273 = load float, ptr %272, align 4, !tbaa !125
@@ -2257,9 +2257,9 @@ _ZNSt6vectorIdSaIdEED2Ev.exit382:                 ; preds = %229, %227, %90
 
 .preheader427:                                    ; preds = %267, %297
   %indvars.iv472 = phi i64 [ 0, %267 ], [ %indvars.iv.next473, %297 ]
-  %292 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv472
+  %292 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv472
   %293 = load double, ptr %292, align 8, !tbaa !118
-  %294 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv472
+  %294 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv472
   %295 = load double, ptr %294, align 8, !tbaa !118
   %.idx546 = mul nuw nsw i64 %indvars.iv472, 72
   %invariant.gep556 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx546
@@ -2277,13 +2277,13 @@ _ZNSt6vectorIdSaIdEED2Ev.exit382:                 ; preds = %229, %227, %90
 
 298:                                              ; preds = %.preheader427, %298
   %indvars.iv474 = phi i64 [ %indvars.iv472, %.preheader427 ], [ %indvars.iv.next475, %298 ]
-  %299 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv474
+  %299 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv474
   %300 = load double, ptr %299, align 8, !tbaa !118
-  %301 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv474
+  %301 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv474
   %302 = load double, ptr %301, align 8, !tbaa !118
   %303 = fmul double %295, %302
   %304 = call double @llvm.fmuladd.f64(double %293, double %300, double %303)
-  %gep557 = getelementptr inbounds nuw double, ptr %invariant.gep556, i64 %indvars.iv474
+  %gep557 = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep556, i64 %indvars.iv474
   %305 = load double, ptr %gep557, align 8, !tbaa !118
   %306 = fadd double %305, %304
   store double %306, ptr %gep557, align 8, !tbaa !118
@@ -2293,7 +2293,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit382:                 ; preds = %229, %227, %90
 
 307:                                              ; preds = %.lr.ph, %.loopexit431
   %indvars.iv468 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next469, %.loopexit431 ]
-  %308 = getelementptr inbounds nuw double, ptr %233, i64 %indvars.iv468
+  %308 = getelementptr inbounds nuw [8 x i8], ptr %233, i64 %indvars.iv468
   %309 = load double, ptr %308, align 8, !tbaa !118
   %310 = fcmp olt double %309, 0x3E80000000000000
   br i1 %310, label %.loopexit431, label %311
@@ -2303,7 +2303,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit382:                 ; preds = %229, %227, %90
   br i1 %239, label %316, label %313
 
 313:                                              ; preds = %311
-  %314 = getelementptr inbounds nuw i32, ptr %240, i64 %indvars.iv468
+  %314 = getelementptr inbounds nuw [4 x i8], ptr %240, i64 %indvars.iv468
   %315 = load i32, ptr %314, align 4, !tbaa !110
   br label %316
 
@@ -2311,7 +2311,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit382:                 ; preds = %229, %227, %90
   %.in = phi i32 [ %315, %313 ], [ %312, %311 ]
   %317 = shl nsw i32 %.in, 2
   %318 = sext i32 %317 to i64
-  %319 = getelementptr inbounds float, ptr %54, i64 %318
+  %319 = getelementptr inbounds [4 x i8], ptr %54, i64 %318
   %320 = load float, ptr %319, align 4, !tbaa !125
   %321 = getelementptr i8, ptr %319, i64 4
   %322 = load float, ptr %321, align 4, !tbaa !125
@@ -2348,9 +2348,9 @@ _ZNSt6vectorIdSaIdEED2Ev.exit382:                 ; preds = %229, %227, %90
 
 .preheader430:                                    ; preds = %316, %344
   %indvars.iv = phi i64 [ 0, %316 ], [ %indvars.iv.next, %344 ]
-  %340 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv
+  %340 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv
   %341 = load double, ptr %340, align 8, !tbaa !118
-  %342 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv
+  %342 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   %343 = load double, ptr %342, align 8, !tbaa !118
   %.idx = mul nuw nsw i64 %indvars.iv, 72
   %invariant.gep = getelementptr inbounds nuw i8, ptr %18, i64 %.idx
@@ -2363,13 +2363,13 @@ _ZNSt6vectorIdSaIdEED2Ev.exit382:                 ; preds = %229, %227, %90
 
 345:                                              ; preds = %.preheader430, %345
   %indvars.iv463 = phi i64 [ %indvars.iv, %.preheader430 ], [ %indvars.iv.next464, %345 ]
-  %346 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv463
+  %346 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv463
   %347 = load double, ptr %346, align 8, !tbaa !118
-  %348 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv463
+  %348 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv463
   %349 = load double, ptr %348, align 8, !tbaa !118
   %350 = fmul double %343, %349
   %351 = call double @llvm.fmuladd.f64(double %341, double %347, double %350)
-  %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %indvars.iv463
+  %gep = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep, i64 %indvars.iv463
   %352 = load double, ptr %gep, align 8, !tbaa !118
   %353 = fadd double %352, %351
   store double %353, ptr %gep, align 8, !tbaa !118
@@ -2387,7 +2387,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit382:                 ; preds = %229, %227, %90
 
 .preheader426:                                    ; preds = %.preheader426.preheader, %354
   %indvars.iv490 = phi i64 [ %indvars.iv.next491, %354 ], [ 1, %.preheader426.preheader ]
-  %invariant.gep558 = getelementptr inbounds nuw double, ptr %18, i64 %indvars.iv490
+  %invariant.gep558 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv490
   %.idx548 = mul nuw nsw i64 %indvars.iv490, 72
   %invariant.gep560 = getelementptr inbounds nuw i8, ptr %18, i64 %.idx548
   br label %355
@@ -2402,7 +2402,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit382:                 ; preds = %229, %227, %90
   %.idx547 = mul nuw nsw i64 %indvars.iv485, 72
   %gep559 = getelementptr inbounds nuw i8, ptr %invariant.gep558, i64 %.idx547
   %356 = load double, ptr %gep559, align 8, !tbaa !118
-  %gep561 = getelementptr inbounds nuw double, ptr %invariant.gep560, i64 %indvars.iv485
+  %gep561 = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep560, i64 %indvars.iv485
   store double %356, ptr %gep561, align 8, !tbaa !118
   %indvars.iv.next486 = add nuw nsw i64 %indvars.iv485, 1
   %exitcond489.not = icmp eq i64 %indvars.iv.next486, %indvars.iv490
@@ -2927,7 +2927,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %2
 
 .noexc17:                                         ; preds = %20
   store ptr %22, ptr %3, align 8, !tbaa !121
-  %23 = getelementptr inbounds nuw i32, ptr %22, i64 %17
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %17
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %23, ptr %24, align 8, !tbaa !190
   store i32 0, ptr %22, align 4, !tbaa !110
@@ -2965,7 +2965,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc17
 
 34:                                               ; preds = %.lr.ph, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
-  %35 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv
   %36 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %36, ptr %35, align 4, !tbaa !110
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3004,10 +3004,10 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc17
 
 57:                                               ; preds = %52
   %58 = lshr i64 %53, 6
-  %59 = getelementptr inbounds nuw i64, ptr %56, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %58
   %60 = sdiv i32 %50, 64
   %.sext = sext i32 %60 to i64
-  %61 = getelementptr inbounds i64, ptr %56, i64 %.sext
+  %61 = getelementptr inbounds [8 x i8], ptr %56, i64 %.sext
   %62 = and i64 %51, -9223372036854775745
   %63 = icmp ugt i64 %62, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %63, i64 -8, i64 0
@@ -3038,7 +3038,7 @@ _ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit:            ; preds = %57, %44
   %71 = sub i64 %69, %70
   %72 = ashr exact i64 %71, 3
   %73 = sub nsw i64 0, %72
-  %74 = getelementptr inbounds i64, ptr %68, i64 %73
+  %74 = getelementptr inbounds [8 x i8], ptr %68, i64 %73
   call void @_ZdlPv(ptr noundef %74) #22
   store ptr null, ptr %8, align 8
   store i32 0, ptr %9, align 8
@@ -3166,7 +3166,7 @@ define linkonce_odr hidden void @_ZNSt13_Bvector_baseISaIbEED2Ev(ptr noundef non
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 3
   %10 = sub nsw i64 0, %9
-  %11 = getelementptr inbounds i64, ptr %5, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %5, i64 %10
   tail call void @_ZdlPv(ptr noundef %11) #22
   store ptr null, ptr %0, align 8
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3198,7 +3198,7 @@ define linkonce_odr hidden void @_ZN2cv4usac30CovarianceHomographySolverImplD2Ev
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
   %11 = sub nsw i64 0, %10
-  %12 = getelementptr inbounds i64, ptr %6, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %6, i64 %11
   tail call void @_ZdlPv(ptr noundef %12) #22
   store ptr null, ptr %2, align 8
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 264
@@ -3233,7 +3233,7 @@ define linkonce_odr hidden void @_ZN2cv4usac30CovarianceHomographySolverImplD0Ev
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
   %11 = sub nsw i64 0, %10
-  %12 = getelementptr inbounds i64, ptr %6, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %6, i64 %11
   tail call void @_ZdlPv(ptr noundef %12) #22
   store ptr null, ptr %2, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 264
@@ -3327,13 +3327,13 @@ define linkonce_odr hidden noundef i32 @_ZN2cv4usac30CovarianceHomographySolverI
   %indvars.iv160 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next161, %.loopexit ]
   %44 = lshr i64 %indvars.iv160, 6
   %.zext = and i64 %44, 67108863
-  %45 = getelementptr inbounds nuw i64, ptr %26, i64 %.zext
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %.zext
   %46 = and i64 %indvars.iv160, 63
   %47 = shl nuw i64 1, %46
   %48 = load i64, ptr %45, align 8, !tbaa !197
   %49 = and i64 %48, %47
   %50 = icmp ne i64 %49, 0
-  %51 = getelementptr inbounds nuw i64, ptr %27, i64 %.zext
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.zext
   %52 = load i64, ptr %51, align 8, !tbaa !197
   %53 = and i64 %52, %47
   %54 = icmp ne i64 %53, 0
@@ -3374,10 +3374,10 @@ define linkonce_odr hidden noundef i32 @_ZN2cv4usac30CovarianceHomographySolverI
 
 .preheader132:                                    ; preds = %56, %80
   %indvars.iv152 = phi i64 [ %indvars.iv.next153, %80 ], [ 0, %56 ]
-  %75 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv152
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv152
   %76 = load double, ptr %75, align 8, !tbaa !118
   %77 = fneg double %76
-  %78 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv152
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv152
   %79 = load double, ptr %78, align 8, !tbaa !118
   %.idx176 = mul nuw nsw i64 %indvars.iv152, 72
   %invariant.gep180 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx176
@@ -3390,14 +3390,14 @@ define linkonce_odr hidden noundef i32 @_ZN2cv4usac30CovarianceHomographySolverI
 
 81:                                               ; preds = %.preheader132, %81
   %indvars.iv154 = phi i64 [ %indvars.iv152, %.preheader132 ], [ %indvars.iv.next155, %81 ]
-  %82 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv154
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv154
   %83 = load double, ptr %82, align 8, !tbaa !118
-  %84 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv154
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv154
   %85 = load double, ptr %84, align 8, !tbaa !118
   %86 = fneg double %85
   %87 = fmul double %79, %86
   %88 = tail call double @llvm.fmuladd.f64(double %77, double %83, double %87)
-  %gep181 = getelementptr inbounds nuw double, ptr %invariant.gep180, i64 %indvars.iv154
+  %gep181 = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep180, i64 %indvars.iv154
   %89 = load double, ptr %gep181, align 8, !tbaa !118
   %90 = fadd double %89, %88
   store double %90, ptr %gep181, align 8, !tbaa !118
@@ -3407,9 +3407,9 @@ define linkonce_odr hidden noundef i32 @_ZN2cv4usac30CovarianceHomographySolverI
 
 .preheader133:                                    ; preds = %56, %95
   %indvars.iv = phi i64 [ %indvars.iv.next, %95 ], [ 0, %56 ]
-  %91 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %92 = load double, ptr %91, align 8, !tbaa !118
-  %93 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %94 = load double, ptr %93, align 8, !tbaa !118
   %.idx175 = mul nuw nsw i64 %indvars.iv, 72
   %invariant.gep = getelementptr inbounds nuw i8, ptr %39, i64 %.idx175
@@ -3422,13 +3422,13 @@ define linkonce_odr hidden noundef i32 @_ZN2cv4usac30CovarianceHomographySolverI
 
 96:                                               ; preds = %.preheader133, %96
   %indvars.iv147 = phi i64 [ %indvars.iv, %.preheader133 ], [ %indvars.iv.next148, %96 ]
-  %97 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv147
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv147
   %98 = load double, ptr %97, align 8, !tbaa !118
-  %99 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv147
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv147
   %100 = load double, ptr %99, align 8, !tbaa !118
   %101 = fmul double %94, %100
   %102 = tail call double @llvm.fmuladd.f64(double %92, double %98, double %101)
-  %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %indvars.iv147
+  %gep = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep, i64 %indvars.iv147
   %103 = load double, ptr %gep, align 8, !tbaa !118
   %104 = fadd double %103, %102
   store double %104, ptr %gep, align 8, !tbaa !118
@@ -3443,7 +3443,7 @@ define linkonce_odr hidden noundef i32 @_ZN2cv4usac30CovarianceHomographySolverI
 
 .preheader:                                       ; preds = %._crit_edge, %113
   %indvars.iv169 = phi i64 [ 1, %._crit_edge ], [ %indvars.iv.next170, %113 ]
-  %invariant.gep182 = getelementptr inbounds nuw double, ptr %42, i64 %indvars.iv169
+  %invariant.gep182 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv169
   %.idx178 = mul nuw nsw i64 %indvars.iv169, 72
   %invariant.gep184 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx178
   br label %114
@@ -3490,7 +3490,7 @@ define linkonce_odr hidden noundef i32 @_ZN2cv4usac30CovarianceHomographySolverI
   %.idx177 = mul nuw nsw i64 %indvars.iv164, 72
   %gep183 = getelementptr inbounds nuw i8, ptr %invariant.gep182, i64 %.idx177
   %115 = load double, ptr %gep183, align 8, !tbaa !118
-  %gep185 = getelementptr inbounds nuw double, ptr %invariant.gep184, i64 %indvars.iv164
+  %gep185 = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep184, i64 %indvars.iv164
   store double %115, ptr %gep185, align 8, !tbaa !118
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 1
   %exitcond168.not = icmp eq i64 %indvars.iv.next165, %indvars.iv169
@@ -3819,7 +3819,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZNS
 _ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit: ; preds = %24
   %25 = ashr exact i64 %21, 3
   %26 = sub nsw i64 0, %25
-  %27 = getelementptr inbounds i64, ptr %17, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %17, i64 %26
   tail call void @_ZdlPv(ptr noundef %27) #22
   store ptr null, ptr %0, align 8
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3848,13 +3848,13 @@ _ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit.thread: ; preds = %24, %_ZNSt1
   %30 = and i64 %29, 2305843009213693944
   %31 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %30) #20
   %32 = lshr i64 %28, 6
-  %33 = getelementptr inbounds nuw i64, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %32
   store ptr %33, ptr %16, align 8, !tbaa !179
   store ptr %31, ptr %0, align 8
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %.sroa.5.0..sroa_idx.i, align 8
   %34 = sdiv i64 %.pre-phi4761, 64
-  %35 = getelementptr inbounds i64, ptr %31, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %31, i64 %34
   %36 = and i64 %.pre-phi4761, -9223372036854775745
   %37 = icmp ugt i64 %36, -9223372036854775808
   %storemerge.idx.i.i.i.i = select i1 %37, i64 -8, i64 0
@@ -4004,10 +4004,10 @@ define linkonce_odr hidden void @_ZN2cv4usac30CovarianceHomographySolverImplC2ER
 
 29:                                               ; preds = %24
   %30 = lshr i64 %25, 6
-  %31 = getelementptr inbounds nuw i64, ptr %28, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %30
   %32 = sdiv i32 %16, 64
   %.sext = sext i32 %32 to i64
-  %33 = getelementptr inbounds i64, ptr %28, i64 %.sext
+  %33 = getelementptr inbounds [8 x i8], ptr %28, i64 %.sext
   %34 = and i64 %23, -9223372036854775745
   %35 = icmp ugt i64 %34, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %35, i64 -8, i64 0
@@ -4137,17 +4137,17 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac23AffineMinimalSolverImpl8es
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %18 = load ptr, ptr %17, align 8, !tbaa !113
   %19 = sext i32 %10 to i64
-  %20 = getelementptr inbounds float, ptr %18, i64 %19
+  %20 = getelementptr inbounds [4 x i8], ptr %18, i64 %19
   %21 = load float, ptr %20, align 4, !tbaa !125
   %22 = getelementptr i8, ptr %20, i64 4
   %23 = load float, ptr %22, align 4, !tbaa !125
   %24 = sext i32 %13 to i64
-  %25 = getelementptr inbounds float, ptr %18, i64 %24
+  %25 = getelementptr inbounds [4 x i8], ptr %18, i64 %24
   %26 = load float, ptr %25, align 4, !tbaa !125
   %27 = getelementptr i8, ptr %25, i64 4
   %28 = load float, ptr %27, align 4, !tbaa !125
   %29 = sext i32 %16 to i64
-  %30 = getelementptr inbounds float, ptr %18, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %18, i64 %29
   %31 = load float, ptr %30, align 4, !tbaa !125
   %32 = getelementptr i8, ptr %30, i64 4
   %33 = load float, ptr %32, align 4, !tbaa !125
@@ -4756,9 +4756,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %27, %
 
 .preheader:                                       ; preds = %32, %.preheader
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader ], [ 0, %32 ]
-  %34 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i
   %35 = load double, ptr %34, align 8, !tbaa !118
-  %36 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i
   store double %35, ptr %36, align 8, !tbaa !118
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 9
@@ -5032,7 +5032,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac26AffineNonMinimalSolverImpl
   br i1 %62, label %72, label %69
 
 69:                                               ; preds = %67
-  %70 = getelementptr inbounds nuw i32, ptr %63, i64 %indvars.iv251
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %indvars.iv251
   %71 = load i32, ptr %70, align 4, !tbaa !110
   br label %72
 
@@ -5040,7 +5040,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac26AffineNonMinimalSolverImpl
   %.in186 = phi i32 [ %71, %69 ], [ %68, %67 ]
   %73 = shl nsw i32 %.in186, 2
   %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds float, ptr %47, i64 %74
+  %75 = getelementptr inbounds [4 x i8], ptr %47, i64 %74
   %76 = load float, ptr %75, align 4, !tbaa !125
   %77 = getelementptr i8, ptr %75, i64 4
   %78 = load float, ptr %77, align 4, !tbaa !125
@@ -5060,9 +5060,9 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac26AffineNonMinimalSolverImpl
 
 .preheader216:                                    ; preds = %72, %92
   %indvars.iv243 = phi i64 [ 0, %72 ], [ %indvars.iv.next244, %92 ]
-  %87 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv243
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv243
   %88 = load double, ptr %87, align 8, !tbaa !118
-  %89 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv243
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv243
   %90 = load double, ptr %89, align 8, !tbaa !118
   %.idx270 = mul nuw nsw i64 %indvars.iv243, 48
   %invariant.gep274 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx270
@@ -5076,7 +5076,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac26AffineNonMinimalSolverImpl
 92:                                               ; preds = %98
   %93 = fmul double %90, %86
   %94 = call double @llvm.fmuladd.f64(double %88, double %85, double %93)
-  %95 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv243
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv243
   %96 = load double, ptr %95, align 8, !tbaa !118
   %97 = fadd double %96, %94
   store double %97, ptr %95, align 8, !tbaa !118
@@ -5086,13 +5086,13 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac26AffineNonMinimalSolverImpl
 
 98:                                               ; preds = %.preheader216, %98
   %indvars.iv245 = phi i64 [ %indvars.iv243, %.preheader216 ], [ %indvars.iv.next246, %98 ]
-  %99 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv245
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv245
   %100 = load double, ptr %99, align 8, !tbaa !118
-  %101 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv245
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv245
   %102 = load double, ptr %101, align 8, !tbaa !118
   %103 = fmul double %90, %102
   %104 = call double @llvm.fmuladd.f64(double %88, double %100, double %103)
-  %gep275 = getelementptr inbounds nuw double, ptr %invariant.gep274, i64 %indvars.iv245
+  %gep275 = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep274, i64 %indvars.iv245
   %105 = load double, ptr %gep275, align 8, !tbaa !118
   %106 = fadd double %105, %104
   store double %106, ptr %gep275, align 8, !tbaa !118
@@ -5102,7 +5102,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac26AffineNonMinimalSolverImpl
 
 107:                                              ; preds = %.lr.ph, %.loopexit219
   %indvars.iv239 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next240, %.loopexit219 ]
-  %108 = getelementptr inbounds nuw double, ptr %50, i64 %indvars.iv239
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv239
   %109 = load double, ptr %108, align 8, !tbaa !118
   %110 = fcmp olt double %109, 0x3E80000000000000
   br i1 %110, label %.loopexit219, label %111
@@ -5112,7 +5112,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac26AffineNonMinimalSolverImpl
   br i1 %56, label %116, label %113
 
 113:                                              ; preds = %111
-  %114 = getelementptr inbounds nuw i32, ptr %57, i64 %indvars.iv239
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %indvars.iv239
   %115 = load i32, ptr %114, align 4, !tbaa !110
   br label %116
 
@@ -5120,7 +5120,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac26AffineNonMinimalSolverImpl
   %.in = phi i32 [ %115, %113 ], [ %112, %111 ]
   %117 = shl nsw i32 %.in, 2
   %118 = sext i32 %117 to i64
-  %119 = getelementptr inbounds float, ptr %47, i64 %118
+  %119 = getelementptr inbounds [4 x i8], ptr %47, i64 %118
   %120 = load float, ptr %119, align 4, !tbaa !125
   %121 = fpext float %120 to double
   %122 = fmul double %109, %121
@@ -5146,9 +5146,9 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac26AffineNonMinimalSolverImpl
 
 .preheader218:                                    ; preds = %116, %139
   %indvars.iv = phi i64 [ 0, %116 ], [ %indvars.iv.next, %139 ]
-  %135 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %136 = load double, ptr %135, align 8, !tbaa !118
-  %137 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %138 = load double, ptr %137, align 8, !tbaa !118
   %.idx = mul nuw nsw i64 %indvars.iv, 48
   %invariant.gep = getelementptr inbounds nuw i8, ptr %11, i64 %.idx
@@ -5157,7 +5157,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac26AffineNonMinimalSolverImpl
 139:                                              ; preds = %145
   %140 = fmul double %134, %138
   %141 = call double @llvm.fmuladd.f64(double %136, double %130, double %140)
-  %142 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %143 = load double, ptr %142, align 8, !tbaa !118
   %144 = fadd double %143, %141
   store double %144, ptr %142, align 8, !tbaa !118
@@ -5167,13 +5167,13 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac26AffineNonMinimalSolverImpl
 
 145:                                              ; preds = %.preheader218, %145
   %indvars.iv234 = phi i64 [ %indvars.iv, %.preheader218 ], [ %indvars.iv.next235, %145 ]
-  %146 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv234
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv234
   %147 = load double, ptr %146, align 8, !tbaa !118
-  %148 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv234
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv234
   %149 = load double, ptr %148, align 8, !tbaa !118
   %150 = fmul double %138, %149
   %151 = call double @llvm.fmuladd.f64(double %136, double %147, double %150)
-  %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %indvars.iv234
+  %gep = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep, i64 %indvars.iv234
   %152 = load double, ptr %gep, align 8, !tbaa !118
   %153 = fadd double %152, %151
   store double %153, ptr %gep, align 8, !tbaa !118
@@ -5191,7 +5191,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac26AffineNonMinimalSolverImpl
 
 .preheader:                                       ; preds = %.preheader.preheader, %154
   %indvars.iv261 = phi i64 [ %indvars.iv.next262, %154 ], [ 1, %.preheader.preheader ]
-  %invariant.gep276 = getelementptr inbounds nuw double, ptr %11, i64 %indvars.iv261
+  %invariant.gep276 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv261
   %.idx272 = mul nuw nsw i64 %indvars.iv261, 48
   %invariant.gep278 = getelementptr inbounds nuw i8, ptr %11, i64 %.idx272
   br label %155
@@ -5206,7 +5206,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac26AffineNonMinimalSolverImpl
   %.idx271 = mul nuw nsw i64 %indvars.iv256, 48
   %gep277 = getelementptr inbounds nuw i8, ptr %invariant.gep276, i64 %.idx271
   %156 = load double, ptr %gep277, align 8, !tbaa !118
-  %gep279 = getelementptr inbounds nuw double, ptr %invariant.gep278, i64 %indvars.iv256
+  %gep279 = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep278, i64 %indvars.iv256
   store double %156, ptr %gep279, align 8, !tbaa !118
   %indvars.iv.next257 = add nuw nsw i64 %indvars.iv256, 1
   %exitcond260.not = icmp eq i64 %indvars.iv.next257, %indvars.iv261
@@ -5655,10 +5655,10 @@ define linkonce_odr hidden void @_ZN2cv4usac26CovarianceAffineSolverImplC2ERKNS_
 
 29:                                               ; preds = %24
   %30 = lshr i64 %25, 6
-  %31 = getelementptr inbounds nuw i64, ptr %28, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %30
   %32 = sdiv i32 %16, 64
   %.sext = sext i32 %32 to i64
-  %33 = getelementptr inbounds i64, ptr %28, i64 %.sext
+  %33 = getelementptr inbounds [8 x i8], ptr %28, i64 %.sext
   %34 = and i64 %23, -9223372036854775745
   %35 = icmp ugt i64 %34, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %35, i64 -8, i64 0
@@ -5714,7 +5714,7 @@ define linkonce_odr hidden void @_ZN2cv4usac26CovarianceAffineSolverImplD2Ev(ptr
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
   %11 = sub nsw i64 0, %10
-  %12 = getelementptr inbounds i64, ptr %6, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %6, i64 %11
   tail call void @_ZdlPv(ptr noundef %12) #22
   store ptr null, ptr %2, align 8
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 264
@@ -5749,7 +5749,7 @@ define linkonce_odr hidden void @_ZN2cv4usac26CovarianceAffineSolverImplD0Ev(ptr
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
   %11 = sub nsw i64 0, %10
-  %12 = getelementptr inbounds i64, ptr %6, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %6, i64 %11
   tail call void @_ZdlPv(ptr noundef %12) #22
   store ptr null, ptr %2, align 8
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 264
@@ -5831,13 +5831,13 @@ define linkonce_odr hidden noundef i32 @_ZN2cv4usac26CovarianceAffineSolverImpl8
   %indvars.iv152 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next153, %.loopexit ]
   %37 = lshr i64 %indvars.iv152, 6
   %.zext = and i64 %37, 67108863
-  %38 = getelementptr inbounds nuw i64, ptr %24, i64 %.zext
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %.zext
   %39 = and i64 %indvars.iv152, 63
   %40 = shl nuw i64 1, %39
   %41 = load i64, ptr %38, align 8, !tbaa !197
   %42 = and i64 %41, %40
   %43 = icmp ne i64 %42, 0
-  %44 = getelementptr inbounds nuw i64, ptr %25, i64 %.zext
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.zext
   %45 = load i64, ptr %44, align 8, !tbaa !197
   %46 = and i64 %45, %40
   %47 = icmp ne i64 %46, 0
@@ -5870,10 +5870,10 @@ define linkonce_odr hidden noundef i32 @_ZN2cv4usac26CovarianceAffineSolverImpl8
 
 .preheader124:                                    ; preds = %.preheader126, %68
   %indvars.iv144 = phi i64 [ 0, %.preheader126 ], [ %indvars.iv.next145, %68 ]
-  %63 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv144
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv144
   %64 = load double, ptr %63, align 8, !tbaa !118
   %65 = fneg double %64
-  %66 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv144
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv144
   %67 = load double, ptr %66, align 8, !tbaa !118
   %.idx168 = mul nuw nsw i64 %indvars.iv144, 48
   %invariant.gep172 = getelementptr inbounds nuw i8, ptr %31, i64 %.idx168
@@ -5882,7 +5882,7 @@ define linkonce_odr hidden noundef i32 @_ZN2cv4usac26CovarianceAffineSolverImpl8
 68:                                               ; preds = %74
   %69 = fmul double %67, %62
   %70 = tail call double @llvm.fmuladd.f64(double %65, double %58, double %69)
-  %71 = getelementptr inbounds nuw double, ptr %32, i64 %indvars.iv144
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv144
   %72 = load double, ptr %71, align 8, !tbaa !118
   %73 = fadd double %72, %70
   store double %73, ptr %71, align 8, !tbaa !118
@@ -5892,14 +5892,14 @@ define linkonce_odr hidden noundef i32 @_ZN2cv4usac26CovarianceAffineSolverImpl8
 
 74:                                               ; preds = %.preheader124, %74
   %indvars.iv146 = phi i64 [ %indvars.iv144, %.preheader124 ], [ %indvars.iv.next147, %74 ]
-  %75 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv146
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv146
   %76 = load double, ptr %75, align 8, !tbaa !118
-  %77 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv146
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv146
   %78 = load double, ptr %77, align 8, !tbaa !118
   %79 = fneg double %78
   %80 = fmul double %67, %79
   %81 = tail call double @llvm.fmuladd.f64(double %65, double %76, double %80)
-  %gep173 = getelementptr inbounds nuw double, ptr %invariant.gep172, i64 %indvars.iv146
+  %gep173 = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep172, i64 %indvars.iv146
   %82 = load double, ptr %gep173, align 8, !tbaa !118
   %83 = fadd double %82, %81
   store double %83, ptr %gep173, align 8, !tbaa !118
@@ -5909,9 +5909,9 @@ define linkonce_odr hidden noundef i32 @_ZN2cv4usac26CovarianceAffineSolverImpl8
 
 .preheader125:                                    ; preds = %49, %88
   %indvars.iv = phi i64 [ %indvars.iv.next, %88 ], [ 0, %49 ]
-  %84 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %85 = load double, ptr %84, align 8, !tbaa !118
-  %86 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %87 = load double, ptr %86, align 8, !tbaa !118
   %.idx167 = mul nuw nsw i64 %indvars.iv, 48
   %invariant.gep = getelementptr inbounds nuw i8, ptr %31, i64 %.idx167
@@ -5920,7 +5920,7 @@ define linkonce_odr hidden noundef i32 @_ZN2cv4usac26CovarianceAffineSolverImpl8
 88:                                               ; preds = %94
   %89 = fmul double %87, %61
   %90 = tail call double @llvm.fmuladd.f64(double %85, double %58, double %89)
-  %91 = getelementptr inbounds nuw double, ptr %32, i64 %indvars.iv
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv
   %92 = load double, ptr %91, align 8, !tbaa !118
   %93 = fadd double %92, %90
   store double %93, ptr %91, align 8, !tbaa !118
@@ -5930,13 +5930,13 @@ define linkonce_odr hidden noundef i32 @_ZN2cv4usac26CovarianceAffineSolverImpl8
 
 94:                                               ; preds = %.preheader125, %94
   %indvars.iv139 = phi i64 [ %indvars.iv, %.preheader125 ], [ %indvars.iv.next140, %94 ]
-  %95 = getelementptr inbounds nuw double, ptr %7, i64 %indvars.iv139
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv139
   %96 = load double, ptr %95, align 8, !tbaa !118
-  %97 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv139
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv139
   %98 = load double, ptr %97, align 8, !tbaa !118
   %99 = fmul double %87, %98
   %100 = tail call double @llvm.fmuladd.f64(double %85, double %96, double %99)
-  %gep = getelementptr inbounds nuw double, ptr %invariant.gep, i64 %indvars.iv139
+  %gep = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep, i64 %indvars.iv139
   %101 = load double, ptr %gep, align 8, !tbaa !118
   %102 = fadd double %101, %100
   store double %102, ptr %gep, align 8, !tbaa !118
@@ -5951,7 +5951,7 @@ define linkonce_odr hidden noundef i32 @_ZN2cv4usac26CovarianceAffineSolverImpl8
 
 .preheader:                                       ; preds = %._crit_edge, %111
   %indvars.iv161 = phi i64 [ 1, %._crit_edge ], [ %indvars.iv.next162, %111 ]
-  %invariant.gep174 = getelementptr inbounds nuw double, ptr %35, i64 %indvars.iv161
+  %invariant.gep174 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv161
   %.idx170 = mul nuw nsw i64 %indvars.iv161, 48
   %invariant.gep176 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx170
   br label %112
@@ -6000,7 +6000,7 @@ _ZN2cv4MatxIdLi6ELi6EEC2EPKd.exit:                ; preds = %111
   %.idx169 = mul nuw nsw i64 %indvars.iv156, 48
   %gep175 = getelementptr inbounds nuw i8, ptr %invariant.gep174, i64 %.idx169
   %113 = load double, ptr %gep175, align 8, !tbaa !118
-  %gep177 = getelementptr inbounds nuw double, ptr %invariant.gep176, i64 %indvars.iv156
+  %gep177 = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep176, i64 %indvars.iv156
   store double %113, ptr %gep177, align 8, !tbaa !118
   %indvars.iv.next157 = add nuw nsw i64 %indvars.iv156, 1
   %exitcond160.not = icmp eq i64 %indvars.iv.next157, %indvars.iv161
@@ -6312,7 +6312,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %2
 
 .noexc22:                                         ; preds = %20
   store ptr %22, ptr %3, align 8, !tbaa !121
-  %23 = getelementptr inbounds nuw i32, ptr %22, i64 %17
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %17
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %23, ptr %24, align 8, !tbaa !190
   store i32 0, ptr %22, align 4, !tbaa !110
@@ -6350,7 +6350,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc22
 
 34:                                               ; preds = %.lr.ph, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
-  %35 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv
   %36 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %36, ptr %35, align 4, !tbaa !110
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -6389,10 +6389,10 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc22
 
 57:                                               ; preds = %52
   %58 = lshr i64 %53, 6
-  %59 = getelementptr inbounds nuw i64, ptr %56, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %58
   %60 = sdiv i32 %50, 64
   %.sext = sext i32 %60 to i64
-  %61 = getelementptr inbounds i64, ptr %56, i64 %.sext
+  %61 = getelementptr inbounds [8 x i8], ptr %56, i64 %.sext
   %62 = and i64 %51, -9223372036854775745
   %63 = icmp ugt i64 %62, -9223372036854775808
   %storemerge.idx.i.i.i.i.i = select i1 %63, i64 -8, i64 0
@@ -6423,7 +6423,7 @@ _ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit:            ; preds = %57, %44
   %71 = sub i64 %69, %70
   %72 = ashr exact i64 %71, 3
   %73 = sub nsw i64 0, %72
-  %74 = getelementptr inbounds i64, ptr %68, i64 %73
+  %74 = getelementptr inbounds [8 x i8], ptr %68, i64 %73
   call void @_ZdlPv(ptr noundef %74) #22
   store ptr null, ptr %8, align 8
   store i32 0, ptr %9, align 8

@@ -13,7 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
 %struct.flock = type { i16, i16, i64, i64, i32 }
-%struct.facstruct = type { ptr, i32 }
 
 @logg_mutex = global %union.pthread_mutex_t zeroinitializer, align 8
 @mdprintf_mutex = global %union.pthread_mutex_t zeroinitializer, align 8
@@ -266,7 +265,7 @@ define i32 @mdprintf(i32 noundef %0, ptr noundef readonly captures(none) %1, ...
   %96 = shl nuw i64 1, %95
   %97 = sdiv i32 %0, 64
   %98 = sext i32 %97 to i64
-  %99 = getelementptr inbounds i64, ptr %6, i64 %98
+  %99 = getelementptr inbounds [8 x i8], ptr %6, i64 %98
   %100 = add nsw i32 %0, 1
   br label %101
 
@@ -1261,7 +1260,7 @@ define i32 @logg_facility(ptr noundef readonly captures(none) %0) local_unnamed_
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %4 = getelementptr inbounds nuw %struct.facstruct, ptr @facilitymap, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [16 x i8], ptr @facilitymap, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 16, !tbaa !25
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %0) #16
   %.not7 = icmp eq i32 %6, 0

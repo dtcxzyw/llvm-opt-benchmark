@@ -549,8 +549,8 @@ define internal void @Float32_To_Int32(ptr noundef writeonly captures(none) %0, 
   %12 = fmul float %11, 0x41E0000000000000
   %13 = fptosi float %12 to i32
   store i32 %13, ptr %.0913, align 4, !tbaa !70
-  %14 = getelementptr inbounds float, ptr %.01012, i64 %7
-  %15 = getelementptr inbounds i32, ptr %.0913, i64 %8
+  %14 = getelementptr inbounds [4 x i8], ptr %.01012, i64 %7
+  %15 = getelementptr inbounds [4 x i8], ptr %.0913, i64 %8
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %._crit_edge, label %9, !llvm.loop !72
 
@@ -580,8 +580,8 @@ define internal void @Float32_To_Int32_Dither(ptr noundef writeonly captures(non
   %15 = tail call double @llvm.fmuladd.f64(double %14, double 0x41DFFFFFFF800000, double %12)
   %16 = fptosi double %15 to i32
   store i32 %16, ptr %.01214, align 4, !tbaa !70
-  %17 = getelementptr inbounds float, ptr %.01115, i64 %7
-  %18 = getelementptr inbounds i32, ptr %.01214, i64 %8
+  %17 = getelementptr inbounds [4 x i8], ptr %.01115, i64 %7
+  %18 = getelementptr inbounds [4 x i8], ptr %.01214, i64 %8
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %._crit_edge, label %9, !llvm.loop !73
 
@@ -619,8 +619,8 @@ define internal void @Float32_To_Int32_Clip(ptr noundef writeonly captures(none)
 19:                                               ; preds = %9, %14
   %20 = phi i32 [ %18, %14 ], [ -2147483648, %9 ]
   store i32 %20, ptr %.017, align 4, !tbaa !70
-  %21 = getelementptr inbounds float, ptr %.01216, i64 %7
-  %22 = getelementptr inbounds i32, ptr %.017, i64 %8
+  %21 = getelementptr inbounds [4 x i8], ptr %.01216, i64 %7
+  %22 = getelementptr inbounds [4 x i8], ptr %.017, i64 %8
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %._crit_edge, label %9, !llvm.loop !74
 
@@ -660,8 +660,8 @@ define internal void @Float32_To_Int32_DitherClip(ptr noundef writeonly captures
 21:                                               ; preds = %9, %17
   %22 = phi i32 [ %20, %17 ], [ -2147483648, %9 ]
   store i32 %22, ptr %.01419, align 4, !tbaa !70
-  %23 = getelementptr inbounds float, ptr %.01518, i64 %7
-  %24 = getelementptr inbounds i32, ptr %.01419, i64 %8
+  %23 = getelementptr inbounds [4 x i8], ptr %.01518, i64 %7
+  %24 = getelementptr inbounds [4 x i8], ptr %.01419, i64 %8
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %._crit_edge, label %9, !llvm.loop !75
 
@@ -700,7 +700,7 @@ define internal void @Float32_To_Int24(ptr noundef writeonly captures(none) %0, 
   %22 = trunc nuw i32 %21 to i8
   %23 = getelementptr inbounds nuw i8, ptr %.01517, i64 2
   store i8 %22, ptr %23, align 1, !tbaa !76
-  %24 = getelementptr inbounds float, ptr %.01418, i64 %7
+  %24 = getelementptr inbounds [4 x i8], ptr %.01418, i64 %7
   %25 = getelementptr inbounds i8, ptr %.01517, i64 %9
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %._crit_edge, label %10, !llvm.loop !77
@@ -742,7 +742,7 @@ define internal void @Float32_To_Int24_Dither(ptr noundef writeonly captures(non
   %24 = trunc nuw i32 %23 to i8
   %25 = getelementptr inbounds nuw i8, ptr %.01719, i64 2
   store i8 %24, ptr %25, align 1, !tbaa !76
-  %26 = getelementptr inbounds float, ptr %.01620, i64 %7
+  %26 = getelementptr inbounds [4 x i8], ptr %.01620, i64 %7
   %27 = getelementptr inbounds i8, ptr %.01719, i64 %9
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %._crit_edge, label %10, !llvm.loop !78
@@ -792,7 +792,7 @@ define internal void @Float32_To_Int24_Clip(ptr noundef writeonly captures(none)
   %28 = trunc nuw i32 %27 to i8
   %29 = getelementptr inbounds nuw i8, ptr %.01722, i64 2
   store i8 %28, ptr %29, align 1, !tbaa !76
-  %30 = getelementptr inbounds float, ptr %.01821, i64 %7
+  %30 = getelementptr inbounds [4 x i8], ptr %.01821, i64 %7
   %31 = getelementptr inbounds i8, ptr %.01722, i64 %9
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %._crit_edge, label %10, !llvm.loop !79
@@ -844,7 +844,7 @@ define internal void @Float32_To_Int24_DitherClip(ptr noundef writeonly captures
   %30 = trunc nuw i32 %29 to i8
   %31 = getelementptr inbounds nuw i8, ptr %.02023, i64 2
   store i8 %30, ptr %31, align 1, !tbaa !76
-  %32 = getelementptr inbounds float, ptr %.01924, i64 %7
+  %32 = getelementptr inbounds [4 x i8], ptr %.01924, i64 %7
   %33 = getelementptr inbounds i8, ptr %.02023, i64 %9
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %._crit_edge, label %10, !llvm.loop !80
@@ -872,8 +872,8 @@ define internal void @Float32_To_Int16(ptr noundef writeonly captures(none) %0, 
   %12 = fmul float %11, 3.276700e+04
   %13 = fptosi float %12 to i16
   store i16 %13, ptr %.0913, align 2, !tbaa !81
-  %14 = getelementptr inbounds float, ptr %.01012, i64 %7
-  %15 = getelementptr inbounds i16, ptr %.0913, i64 %8
+  %14 = getelementptr inbounds [4 x i8], ptr %.01012, i64 %7
+  %15 = getelementptr inbounds [2 x i8], ptr %.0913, i64 %8
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %._crit_edge, label %9, !llvm.loop !83
 
@@ -901,8 +901,8 @@ define internal void @Float32_To_Int16_Dither(ptr noundef writeonly captures(non
   %13 = tail call float @llvm.fmuladd.f32(float %12, float 3.276600e+04, float %11)
   %14 = fptosi float %13 to i16
   store i16 %14, ptr %.01214, align 2, !tbaa !81
-  %15 = getelementptr inbounds float, ptr %.01115, i64 %7
-  %16 = getelementptr inbounds i16, ptr %.01214, i64 %8
+  %15 = getelementptr inbounds [4 x i8], ptr %.01115, i64 %7
+  %16 = getelementptr inbounds [2 x i8], ptr %.01214, i64 %8
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %._crit_edge, label %9, !llvm.loop !84
 
@@ -929,8 +929,8 @@ define internal void @Float32_To_Int16_Clip(ptr noundef writeonly captures(none)
   %12 = fmul float %11, 3.276700e+04
   %13 = tail call i16 @llvm.fptosi.sat.i16.f32(float %12)
   store i16 %13, ptr %.01216, align 2, !tbaa !81
-  %14 = getelementptr inbounds float, ptr %.01315, i64 %7
-  %15 = getelementptr inbounds i16, ptr %.01216, i64 %8
+  %14 = getelementptr inbounds [4 x i8], ptr %.01315, i64 %7
+  %15 = getelementptr inbounds [2 x i8], ptr %.01216, i64 %8
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %._crit_edge, label %9, !llvm.loop !85
 
@@ -958,8 +958,8 @@ define internal void @Float32_To_Int16_DitherClip(ptr noundef writeonly captures
   %13 = tail call float @llvm.fmuladd.f32(float %12, float 3.276600e+04, float %11)
   %14 = tail call i16 @llvm.fptosi.sat.i16.f32(float %13)
   store i16 %14, ptr %.01618, align 2, !tbaa !81
-  %15 = getelementptr inbounds float, ptr %.01519, i64 %7
-  %16 = getelementptr inbounds i16, ptr %.01618, i64 %8
+  %15 = getelementptr inbounds [4 x i8], ptr %.01519, i64 %7
+  %16 = getelementptr inbounds [2 x i8], ptr %.01618, i64 %8
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %._crit_edge, label %9, !llvm.loop !86
 
@@ -986,7 +986,7 @@ define internal void @Float32_To_Int8(ptr noundef writeonly captures(none) %0, i
   %12 = fmul float %11, 1.270000e+02
   %13 = fptosi float %12 to i8
   store i8 %13, ptr %.0913, align 1, !tbaa !76
-  %14 = getelementptr inbounds float, ptr %.01012, i64 %7
+  %14 = getelementptr inbounds [4 x i8], ptr %.01012, i64 %7
   %15 = getelementptr inbounds i8, ptr %.0913, i64 %8
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %._crit_edge, label %9, !llvm.loop !87
@@ -1016,7 +1016,7 @@ define internal void @Float32_To_Int8_Dither(ptr noundef writeonly captures(none
   %14 = fptosi float %13 to i32
   %15 = trunc i32 %14 to i8
   store i8 %15, ptr %.01315, align 1, !tbaa !76
-  %16 = getelementptr inbounds float, ptr %.01216, i64 %7
+  %16 = getelementptr inbounds [4 x i8], ptr %.01216, i64 %7
   %17 = getelementptr inbounds i8, ptr %.01315, i64 %8
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %._crit_edge, label %9, !llvm.loop !88
@@ -1044,7 +1044,7 @@ define internal void @Float32_To_Int8_Clip(ptr noundef writeonly captures(none) 
   %12 = fmul float %11, 1.270000e+02
   %13 = tail call i8 @llvm.fptosi.sat.i8.f32(float %12)
   store i8 %13, ptr %.01216, align 1, !tbaa !76
-  %14 = getelementptr inbounds float, ptr %.01315, i64 %7
+  %14 = getelementptr inbounds [4 x i8], ptr %.01315, i64 %7
   %15 = getelementptr inbounds i8, ptr %.01216, i64 %8
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %._crit_edge, label %9, !llvm.loop !89
@@ -1073,7 +1073,7 @@ define internal void @Float32_To_Int8_DitherClip(ptr noundef writeonly captures(
   %13 = tail call float @llvm.fmuladd.f32(float %12, float 1.260000e+02, float %11)
   %14 = tail call i8 @llvm.fptosi.sat.i8.f32(float %13)
   store i8 %14, ptr %.01618, align 1, !tbaa !76
-  %15 = getelementptr inbounds float, ptr %.01519, i64 %7
+  %15 = getelementptr inbounds [4 x i8], ptr %.01519, i64 %7
   %16 = getelementptr inbounds i8, ptr %.01618, i64 %8
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %._crit_edge, label %9, !llvm.loop !90
@@ -1102,7 +1102,7 @@ define internal void @Float32_To_UInt8(ptr noundef writeonly captures(none) %0, 
   %13 = fptoui float %12 to i8
   %14 = xor i8 %13, -128
   store i8 %14, ptr %.0913, align 1, !tbaa !76
-  %15 = getelementptr inbounds float, ptr %.01012, i64 %7
+  %15 = getelementptr inbounds [4 x i8], ptr %.01012, i64 %7
   %16 = getelementptr inbounds i8, ptr %.0913, i64 %8
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %._crit_edge, label %9, !llvm.loop !91
@@ -1133,7 +1133,7 @@ define internal void @Float32_To_UInt8_Dither(ptr noundef writeonly captures(non
   %15 = trunc i32 %14 to i8
   %16 = xor i8 %15, -128
   store i8 %16, ptr %.01315, align 1, !tbaa !76
-  %17 = getelementptr inbounds float, ptr %.01216, i64 %7
+  %17 = getelementptr inbounds [4 x i8], ptr %.01216, i64 %7
   %18 = getelementptr inbounds i8, ptr %.01315, i64 %8
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %._crit_edge, label %9, !llvm.loop !92
@@ -1162,7 +1162,7 @@ define internal void @Float32_To_UInt8_Clip(ptr noundef writeonly captures(none)
   %13 = tail call i8 @llvm.fptosi.sat.i8.f32(float %12)
   %14 = xor i8 %13, -128
   store i8 %14, ptr %.01216, align 1, !tbaa !76
-  %15 = getelementptr inbounds float, ptr %.01315, i64 %7
+  %15 = getelementptr inbounds [4 x i8], ptr %.01315, i64 %7
   %16 = getelementptr inbounds i8, ptr %.01216, i64 %8
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %._crit_edge, label %9, !llvm.loop !93
@@ -1192,7 +1192,7 @@ define internal void @Float32_To_UInt8_DitherClip(ptr noundef writeonly captures
   %14 = tail call i8 @llvm.fptosi.sat.i8.f32(float %13)
   %15 = xor i8 %14, -128
   store i8 %15, ptr %.01618, align 1, !tbaa !76
-  %16 = getelementptr inbounds float, ptr %.01519, i64 %7
+  %16 = getelementptr inbounds [4 x i8], ptr %.01519, i64 %7
   %17 = getelementptr inbounds i8, ptr %.01618, i64 %8
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %._crit_edge, label %9, !llvm.loop !94
@@ -1221,8 +1221,8 @@ define internal void @Int32_To_Float32(ptr noundef writeonly captures(none) %0, 
   %13 = fmul nnan double %12, 0x3E00000000000000
   %14 = fptrunc double %13 to float
   store float %14, ptr %.013, align 4, !tbaa !68
-  %15 = getelementptr inbounds i32, ptr %.0812, i64 %7
-  %16 = getelementptr inbounds float, ptr %.013, i64 %8
+  %15 = getelementptr inbounds [4 x i8], ptr %.0812, i64 %7
+  %16 = getelementptr inbounds [4 x i8], ptr %.013, i64 %8
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %._crit_edge, label %9, !llvm.loop !95
 
@@ -1260,7 +1260,7 @@ define internal void @Int32_To_Int24(ptr noundef writeonly captures(none) %0, i3
   %21 = trunc nuw i32 %20 to i8
   %22 = getelementptr inbounds nuw i8, ptr %.017, i64 2
   store i8 %21, ptr %22, align 1, !tbaa !76
-  %23 = getelementptr inbounds i32, ptr %.01216, i64 %7
+  %23 = getelementptr inbounds [4 x i8], ptr %.01216, i64 %7
   %24 = getelementptr inbounds i8, ptr %.017, i64 %9
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %._crit_edge, label %10, !llvm.loop !96
@@ -1293,8 +1293,8 @@ define internal void @Int32_To_Int16(ptr noundef writeonly captures(none) %0, i3
   %12 = lshr i32 %11, 16
   %13 = trunc nuw i32 %12 to i16
   store i16 %13, ptr %.013, align 2, !tbaa !81
-  %14 = getelementptr inbounds i32, ptr %.0812, i64 %7
-  %15 = getelementptr inbounds i16, ptr %.013, i64 %8
+  %14 = getelementptr inbounds [4 x i8], ptr %.0812, i64 %7
+  %15 = getelementptr inbounds [2 x i8], ptr %.013, i64 %8
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %._crit_edge, label %9, !llvm.loop !97
 
@@ -1324,8 +1324,8 @@ define internal void @Int32_To_Int16_Dither(ptr noundef writeonly captures(none)
   %15 = lshr i32 %14, 15
   %16 = trunc i32 %15 to i16
   store i16 %16, ptr %.01014, align 2, !tbaa !81
-  %17 = getelementptr inbounds i32, ptr %.01113, i64 %7
-  %18 = getelementptr inbounds i16, ptr %.01014, i64 %8
+  %17 = getelementptr inbounds [4 x i8], ptr %.01113, i64 %7
+  %18 = getelementptr inbounds [2 x i8], ptr %.01014, i64 %8
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %._crit_edge, label %9, !llvm.loop !98
 
@@ -1352,7 +1352,7 @@ define internal void @Int32_To_Int8(ptr noundef writeonly captures(none) %0, i32
   %12 = lshr i32 %11, 24
   %13 = trunc nuw i32 %12 to i8
   store i8 %13, ptr %.013, align 1, !tbaa !76
-  %14 = getelementptr inbounds i32, ptr %.0812, i64 %7
+  %14 = getelementptr inbounds [4 x i8], ptr %.0812, i64 %7
   %15 = getelementptr inbounds i8, ptr %.013, i64 %8
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %._crit_edge, label %9, !llvm.loop !99
@@ -1383,7 +1383,7 @@ define internal void @Int32_To_Int8_Dither(ptr noundef writeonly captures(none) 
   %15 = lshr i32 %14, 23
   %16 = trunc i32 %15 to i8
   store i8 %16, ptr %.01014, align 1, !tbaa !76
-  %17 = getelementptr inbounds i32, ptr %.01113, i64 %7
+  %17 = getelementptr inbounds [4 x i8], ptr %.01113, i64 %7
   %18 = getelementptr inbounds i8, ptr %.01014, i64 %8
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %._crit_edge, label %9, !llvm.loop !100
@@ -1412,7 +1412,7 @@ define internal void @Int32_To_UInt8(ptr noundef writeonly captures(none) %0, i3
   %13 = trunc nuw i32 %12 to i8
   %14 = xor i8 %13, -128
   store i8 %14, ptr %.013, align 1, !tbaa !76
-  %15 = getelementptr inbounds i32, ptr %.0812, i64 %7
+  %15 = getelementptr inbounds [4 x i8], ptr %.0812, i64 %7
   %16 = getelementptr inbounds i8, ptr %.013, i64 %8
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %._crit_edge, label %9, !llvm.loop !101
@@ -1455,7 +1455,7 @@ define internal void @Int24_To_Float32(ptr noundef writeonly captures(none) %0, 
   %22 = fptrunc double %21 to float
   store float %22, ptr %.01317, align 4, !tbaa !68
   %23 = getelementptr inbounds i8, ptr %.01416, i64 %8
-  %24 = getelementptr inbounds float, ptr %.01317, i64 %9
+  %24 = getelementptr inbounds [4 x i8], ptr %.01317, i64 %9
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %._crit_edge, label %10, !llvm.loop !102
 
@@ -1489,7 +1489,7 @@ define internal void @Int24_To_Int32(ptr noundef writeonly captures(none) %0, i3
   %19 = or disjoint i32 %18, %14
   store i32 %19, ptr %.01317, align 4, !tbaa !70
   %20 = getelementptr inbounds i8, ptr %.01416, i64 %8
-  %21 = getelementptr inbounds i32, ptr %.01317, i64 %9
+  %21 = getelementptr inbounds [4 x i8], ptr %.01317, i64 %9
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %._crit_edge, label %10, !llvm.loop !103
 
@@ -1517,7 +1517,7 @@ define internal void @Int24_To_Int16(ptr noundef writeonly captures(none) %0, i3
   %13 = load i16, ptr %12, align 1
   store i16 %13, ptr %.01115, align 2, !tbaa !81
   %14 = getelementptr inbounds i8, ptr %.01214, i64 %8
-  %15 = getelementptr inbounds i16, ptr %.01115, i64 %9
+  %15 = getelementptr inbounds [2 x i8], ptr %.01115, i64 %9
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %._crit_edge, label %10, !llvm.loop !104
 
@@ -1555,7 +1555,7 @@ define internal void @Int24_To_Int16_Dither(ptr noundef writeonly captures(none)
   %23 = trunc i32 %22 to i16
   store i16 %23, ptr %.01618, align 2, !tbaa !81
   %24 = getelementptr inbounds i8, ptr %.01519, i64 %8
-  %25 = getelementptr inbounds i16, ptr %.01618, i64 %9
+  %25 = getelementptr inbounds [2 x i8], ptr %.01618, i64 %9
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %._crit_edge, label %10, !llvm.loop !105
 
@@ -1682,8 +1682,8 @@ define internal void @Int16_To_Float32(ptr noundef writeonly captures(none) %0, 
   %12 = sitofp i16 %11 to float
   %13 = fmul nnan float %12, 0x3F00000000000000
   store float %13, ptr %.0913, align 4, !tbaa !68
-  %14 = getelementptr inbounds i16, ptr %.01012, i64 %7
-  %15 = getelementptr inbounds float, ptr %.0913, i64 %8
+  %14 = getelementptr inbounds [2 x i8], ptr %.01012, i64 %7
+  %15 = getelementptr inbounds [4 x i8], ptr %.0913, i64 %8
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %._crit_edge, label %9, !llvm.loop !109
 
@@ -1710,8 +1710,8 @@ define internal void @Int16_To_Int32(ptr noundef writeonly captures(none) %0, i3
   %12 = sext i16 %11 to i32
   %13 = shl nsw i32 %12, 16
   store i32 %13, ptr %.013, align 4, !tbaa !70
-  %14 = getelementptr inbounds i16, ptr %.0812, i64 %7
-  %15 = getelementptr inbounds i32, ptr %.013, i64 %8
+  %14 = getelementptr inbounds [2 x i8], ptr %.0812, i64 %7
+  %15 = getelementptr inbounds [4 x i8], ptr %.013, i64 %8
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %._crit_edge, label %9, !llvm.loop !110
 
@@ -1739,7 +1739,7 @@ define internal void @Int16_To_Int24(ptr noundef writeonly captures(none) %0, i3
   store i8 0, ptr %.01216, align 1, !tbaa !76
   %13 = getelementptr inbounds nuw i8, ptr %.01216, i64 1
   store i16 %12, ptr %13, align 1
-  %14 = getelementptr inbounds i16, ptr %.01315, i64 %7
+  %14 = getelementptr inbounds [2 x i8], ptr %.01315, i64 %7
   %15 = getelementptr inbounds i8, ptr %.01216, i64 %9
   %.not = icmp eq i32 %11, 0
   br i1 %.not, label %._crit_edge, label %10, !llvm.loop !111
@@ -1767,7 +1767,7 @@ define internal void @Int16_To_Int8(ptr noundef writeonly captures(none) %0, i32
   %12 = lshr i16 %11, 8
   %13 = trunc nuw i16 %12 to i8
   store i8 %13, ptr %.013, align 1, !tbaa !76
-  %14 = getelementptr inbounds i16, ptr %.0812, i64 %7
+  %14 = getelementptr inbounds [2 x i8], ptr %.0812, i64 %7
   %15 = getelementptr inbounds i8, ptr %.013, i64 %8
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %._crit_edge, label %9, !llvm.loop !112
@@ -1801,7 +1801,7 @@ define internal void @Int16_To_UInt8(ptr noundef writeonly captures(none) %0, i3
   %13 = trunc nuw i16 %12 to i8
   %14 = xor i8 %13, -128
   store i8 %14, ptr %.013, align 1, !tbaa !76
-  %15 = getelementptr inbounds i16, ptr %.0812, i64 %7
+  %15 = getelementptr inbounds [2 x i8], ptr %.0812, i64 %7
   %16 = getelementptr inbounds i8, ptr %.013, i64 %8
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %._crit_edge, label %9, !llvm.loop !113
@@ -1835,7 +1835,7 @@ define internal void @Int8_To_Float32(ptr noundef writeonly captures(none) %0, i
   %13 = fmul nnan float %12, 7.812500e-03
   store float %13, ptr %.0913, align 4, !tbaa !68
   %14 = getelementptr inbounds i8, ptr %.01012, i64 %7
-  %15 = getelementptr inbounds float, ptr %.0913, i64 %8
+  %15 = getelementptr inbounds [4 x i8], ptr %.0913, i64 %8
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %._crit_edge, label %9, !llvm.loop !114
 
@@ -1863,7 +1863,7 @@ define internal void @Int8_To_Int32(ptr noundef writeonly captures(none) %0, i32
   %13 = shl nsw i32 %12, 24
   store i32 %13, ptr %.013, align 4, !tbaa !70
   %14 = getelementptr inbounds i8, ptr %.0812, i64 %7
-  %15 = getelementptr inbounds i32, ptr %.013, i64 %8
+  %15 = getelementptr inbounds [4 x i8], ptr %.013, i64 %8
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %._crit_edge, label %9, !llvm.loop !115
 
@@ -1922,7 +1922,7 @@ define internal void @Int8_To_Int16(ptr noundef writeonly captures(none) %0, i32
   %13 = shl nuw i16 %12, 8
   store i16 %13, ptr %.013, align 2, !tbaa !81
   %14 = getelementptr inbounds i8, ptr %.0812, i64 %7
-  %15 = getelementptr inbounds i16, ptr %.013, i64 %8
+  %15 = getelementptr inbounds [2 x i8], ptr %.013, i64 %8
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %._crit_edge, label %9, !llvm.loop !117
 
@@ -1979,7 +1979,7 @@ define internal void @UInt8_To_Float32(ptr noundef writeonly captures(none) %0, 
   %15 = fmul nnan float %14, 7.812500e-03
   store float %15, ptr %.0913, align 4, !tbaa !68
   %16 = getelementptr inbounds i8, ptr %.01012, i64 %7
-  %17 = getelementptr inbounds float, ptr %.0913, i64 %8
+  %17 = getelementptr inbounds [4 x i8], ptr %.0913, i64 %8
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %._crit_edge, label %9, !llvm.loop !119
 
@@ -2008,7 +2008,7 @@ define internal void @UInt8_To_Int32(ptr noundef writeonly captures(none) %0, i3
   %14 = xor i32 %13, -2147483648
   store i32 %14, ptr %.013, align 4, !tbaa !70
   %15 = getelementptr inbounds i8, ptr %.0812, i64 %7
-  %16 = getelementptr inbounds i32, ptr %.013, i64 %8
+  %16 = getelementptr inbounds [4 x i8], ptr %.013, i64 %8
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %._crit_edge, label %9, !llvm.loop !120
 
@@ -2069,7 +2069,7 @@ define internal void @UInt8_To_Int16(ptr noundef writeonly captures(none) %0, i3
   %14 = xor i16 %13, -32768
   store i16 %14, ptr %.013, align 2, !tbaa !81
   %15 = getelementptr inbounds i8, ptr %.0812, i64 %7
-  %16 = getelementptr inbounds i16, ptr %.013, i64 %8
+  %16 = getelementptr inbounds [2 x i8], ptr %.013, i64 %8
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %._crit_edge, label %9, !llvm.loop !122
 
@@ -2147,8 +2147,8 @@ define internal void @Copy_16_To_16(ptr noundef writeonly captures(none) %0, i32
   %10 = add i32 %.0911, -1
   %11 = load i16, ptr %.0812, align 2, !tbaa !81
   store i16 %11, ptr %.013, align 2, !tbaa !81
-  %12 = getelementptr inbounds i16, ptr %.0812, i64 %7
-  %13 = getelementptr inbounds i16, ptr %.013, i64 %8
+  %12 = getelementptr inbounds [2 x i8], ptr %.0812, i64 %7
+  %13 = getelementptr inbounds [2 x i8], ptr %.013, i64 %8
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %._crit_edge, label %9, !llvm.loop !125
 
@@ -2209,8 +2209,8 @@ define internal void @Copy_32_To_32(ptr noundef writeonly captures(none) %0, i32
   %10 = add i32 %.0911, -1
   %11 = load i32, ptr %.013, align 4, !tbaa !70
   store i32 %11, ptr %.0812, align 4, !tbaa !70
-  %12 = getelementptr inbounds i32, ptr %.013, i64 %7
-  %13 = getelementptr inbounds i32, ptr %.0812, i64 %8
+  %12 = getelementptr inbounds [4 x i8], ptr %.013, i64 %7
+  %13 = getelementptr inbounds [4 x i8], ptr %.0812, i64 %8
   %.not = icmp eq i32 %10, 0
   br i1 %.not, label %._crit_edge, label %9, !llvm.loop !127
 
@@ -2323,7 +2323,7 @@ define internal void @Zero16(ptr noundef writeonly captures(none) %0, i32 nounde
   %.046 = phi i32 [ %2, %.lr.ph ], [ %6, %5 ]
   %6 = add i32 %.046, -1
   store i16 0, ptr %.07, align 2, !tbaa !81
-  %7 = getelementptr inbounds i16, ptr %.07, i64 %4
+  %7 = getelementptr inbounds [2 x i8], ptr %.07, i64 %4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %._crit_edge, label %5, !llvm.loop !136
 
@@ -2372,7 +2372,7 @@ define internal void @Zero32(ptr noundef writeonly captures(none) %0, i32 nounde
   %.046 = phi i32 [ %2, %.lr.ph ], [ %6, %5 ]
   %6 = add i32 %.046, -1
   store i32 0, ptr %.07, align 4, !tbaa !70
-  %7 = getelementptr inbounds i32, ptr %.07, i64 %4
+  %7 = getelementptr inbounds [4 x i8], ptr %.07, i64 %4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %._crit_edge, label %5, !llvm.loop !138
 

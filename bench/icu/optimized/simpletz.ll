@@ -3688,7 +3688,7 @@ define linkonce_odr void @_ZN6icu_7713UnicodeStringC2IA6_DsvEERKT_(ptr noundef n
 
 4:                                                ; preds = %4, %2
   %.0.i.i.i = phi i64 [ 0, %2 ], [ %8, %4 ]
-  %5 = getelementptr inbounds nuw i16, ptr %1, i64 %.0.i.i.i
+  %5 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %.0.i.i.i
   %6 = load i16, ptr %5, align 2, !tbaa !54
   %7 = icmp eq i16 %6, 0
   %8 = add i64 %.0.i.i.i, 1
@@ -3777,7 +3777,7 @@ _ZNK6icu_7714SimpleTimeZone20checkTransitionRulesER10UErrorCode.exit: ; preds = 
   %27 = load ptr, ptr %26, align 8, !tbaa !43
   %28 = add nuw nsw i32 %.1, 1
   %29 = zext nneg i32 %.1 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %2, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %29
   store ptr %27, ptr %30, align 8, !tbaa !58
   br label %31
 

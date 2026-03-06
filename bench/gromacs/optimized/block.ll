@@ -3,15 +3,6 @@ source_filename = "bench/gromacs/original/block.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.IndexGroup = type { %"class.std::__cxx11::basic_string", %"class.std::vector" }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-
 @.str = private unnamed_addr constant [13 x i8] c"block->index\00", align 1
 @.str.1 = private unnamed_addr constant [124 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/gromacs/gromacs/src/gromacs/topology/block.cpp\00", align 1
 @.str.2 = private unnamed_addr constant [9 x i8] c"block->a\00", align 1
@@ -124,7 +115,7 @@ define void @_Z17stupid_fill_blockP7t_blockib(ptr noundef captures(none) initial
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %17 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv
   %18 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %18, ptr %17, align 4, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -176,7 +167,7 @@ _ZL14pr_block_titleP8_IO_FILEiPKcPK7t_block.exit: ; preds = %7, %9
   %.03235.us = phi i32 [ %21, %30 ], [ 0, %.lr.ph ]
   %19 = load ptr, ptr %14, align 8, !tbaa !20
   %indvars.iv.next40 = add nuw nsw i64 %indvars.iv39, 1
-  %20 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv.next40
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv.next40
   %21 = load i32, ptr %20, align 4, !tbaa !13
   %22 = tail call noundef i32 @_Z9pr_indentP8_IO_FILEi(ptr noundef %0, i32 noundef %.0.i)
   %.not34.us = icmp sgt i32 %21, %.03235.us
@@ -208,7 +199,7 @@ _ZL14pr_block_titleP8_IO_FILEiPKcPK7t_block.exit: ; preds = %7, %9
   %.03235 = phi i32 [ %38, %45 ], [ 0, %.lr.ph ]
   %36 = load ptr, ptr %14, align 8, !tbaa !20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %37 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv.next
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %indvars.iv.next
   %38 = load i32, ptr %37, align 4, !tbaa !13
   %39 = tail call noundef i32 @_Z9pr_indentP8_IO_FILEi(ptr noundef %0, i32 noundef %.0.i)
   %.not34 = icmp sgt i32 %38, %.03235
@@ -264,7 +255,7 @@ define void @_Z9pr_blockaP8_IO_FILEiPKcN3gmx8ArrayRefIK10IndexGroupEEb(ptr nound
 
 17:                                               ; preds = %.lr.ph46, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.lr.ph46 ], [ %indvars.iv.next, %._crit_edge ]
-  %18 = getelementptr inbounds nuw %struct.IndexGroup, ptr %3, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [56 x i8], ptr %3, i64 %indvars.iv
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 32
   %20 = tail call noundef i32 @_Z9pr_indentP8_IO_FILEi(ptr noundef %0, i32 noundef %12)
   %21 = load ptr, ptr %19, align 8, !tbaa !12
@@ -370,7 +361,7 @@ _ZL20pr_listoflists_titleP8_IO_FILEiPKcPKN3gmx11ListOfListsIiEE.exit: ; preds = 
   %36 = tail call noundef i32 @_Z9pr_indentP8_IO_FILEi(ptr noundef %0, i32 noundef %.0.i)
   %37 = load ptr, ptr %33, align 8, !tbaa !28
   %38 = load ptr, ptr %3, align 8, !tbaa !28
-  %39 = getelementptr i32, ptr %38, i64 %.050
+  %39 = getelementptr [4 x i8], ptr %38, i64 %.050
   %40 = load i32, ptr %39, align 4, !tbaa !13
   %41 = sext i32 %40 to i64
   %.idx45 = shl nsw i64 %41, 2

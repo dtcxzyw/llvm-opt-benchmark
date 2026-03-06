@@ -2892,7 +2892,7 @@ if.end15.i.i.i:                                   ; preds = %init.end
   %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZZN15RenderingEngine18getVideoDriverInfoEN3irr5video13E_DRIVER_TYPEEE15driver_info_map, i64 8), align 8
   %rem.i.i.i.i.i.i = urem i64 %conv.i.i.i.i.i, %5
   %6 = load ptr, ptr @_ZZN15RenderingEngine18getVideoDriverInfoEN3irr5video13E_DRIVER_TYPEEE15driver_info_map, align 8, !tbaa !128
-  %arrayidx.i.i.i.i.i = getelementptr inbounds ptr, ptr %6, i64 %rem.i.i.i.i.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %6, i64 %rem.i.i.i.i.i.i
   %7 = load ptr, ptr %arrayidx.i.i.i.i.i, align 8, !tbaa !22
   %tobool.not.i.i.i.i.i = icmp eq ptr %7, null
   br i1 %tobool.not.i.i.i.i.i, label %if.then.i.i, label %if.end.i.i.i.i.i
@@ -4560,7 +4560,7 @@ if.then.i39.i.i.1:                                ; preds = %_ZNSt6vectorIN3irr5
 
 _ZNSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.1: ; preds = %if.then.i39.i.i.1, %_ZNSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit38.i.i.1
   store ptr %incdec.ptr.i.i.1, ptr %_M_finish.i, align 8, !tbaa !155
-  %add.ptr19.i.i.1 = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i6.1, i64 %cond.i.i.i.1
+  %add.ptr19.i.i.1 = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i.i6.1, i64 %cond.i.i.i.1
   store ptr %add.ptr19.i.i.1, ptr %_M_end_of_storage.i, align 8, !tbaa !157
   br label %if.end.1
 
@@ -4625,7 +4625,7 @@ if.then.i39.i.i.2:                                ; preds = %_ZNSt6vectorIN3irr5
 
 _ZNSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.2: ; preds = %if.then.i39.i.i.2, %_ZNSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit38.i.i.2
   store ptr %incdec.ptr.i.i.2, ptr %_M_finish.i, align 8, !tbaa !155
-  %add.ptr19.i.i.2 = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i6.2, i64 %cond.i.i.i.2
+  %add.ptr19.i.i.2 = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i.i6.2, i64 %cond.i.i.i.2
   store ptr %add.ptr19.i.i.2, ptr %_M_end_of_storage.i, align 8, !tbaa !157
   br label %if.end.2
 
@@ -4690,7 +4690,7 @@ if.then.i39.i.i.3:                                ; preds = %_ZNSt6vectorIN3irr5
 
 _ZNSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.3: ; preds = %if.then.i39.i.i.3, %_ZNSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit38.i.i.3
   store ptr %incdec.ptr.i.i.3, ptr %_M_finish.i, align 8, !tbaa !155
-  %add.ptr19.i.i.3 = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i6.3, i64 %cond.i.i.i.3
+  %add.ptr19.i.i.3 = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i.i6.3, i64 %cond.i.i.i.3
   store ptr %add.ptr19.i.i.3, ptr %_M_end_of_storage.i, align 8, !tbaa !157
   br label %if.end.3
 
@@ -4755,7 +4755,7 @@ if.then.i39.i.i.4:                                ; preds = %_ZNSt6vectorIN3irr5
 
 _ZNSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.4: ; preds = %if.then.i39.i.i.4, %_ZNSt6vectorIN3irr5video13E_DRIVER_TYPEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit38.i.i.4
   store ptr %incdec.ptr.i.i.4, ptr %_M_finish.i, align 8, !tbaa !155
-  %add.ptr19.i.i.4 = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i6.4, i64 %cond.i.i.i.4
+  %add.ptr19.i.i.4 = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i.i6.4, i64 %cond.i.i.i.4
   store ptr %add.ptr19.i.i.4, ptr %_M_end_of_storage.i, align 8, !tbaa !157
   br label %if.end.4
 
@@ -5953,7 +5953,7 @@ if.end13.thread:                                  ; preds = %entry
   %2 = load i64, ptr %_M_bucket_count.i66, align 8
   %rem.i.i.i67 = urem i64 %conv.i.i65, %2
   %3 = load ptr, ptr %this, align 8, !tbaa !128
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %3, i64 %rem.i.i.i67
+  %arrayidx.i.i = getelementptr inbounds [8 x i8], ptr %3, i64 %rem.i.i.i67
   %4 = load ptr, ptr %arrayidx.i.i, align 8, !tbaa !22
   %tobool.not.i.i = icmp eq ptr %4, null
   br i1 %tobool.not.i.i, label %if.end27, label %if.end.i.i
@@ -6133,7 +6133,7 @@ _ZNSt10_HashtableIiSt4pairIKi15VideoDriverInfoESaIS3_ENSt8__detail10_Select1stES
 if.end:                                           ; preds = %_ZNSt10_HashtableIiSt4pairIKi15VideoDriverInfoESaIS3_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit, %entry
   %__bkt.addr.0 = phi i64 [ %rem.i.i.i, %_ZNSt10_HashtableIiSt4pairIKi15VideoDriverInfoESaIS3_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit ], [ %__bkt, %entry ]
   %13 = load ptr, ptr %this, align 8, !tbaa !128
-  %arrayidx.i = getelementptr inbounds ptr, ptr %13, i64 %__bkt.addr.0
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %13, i64 %__bkt.addr.0
   %14 = load ptr, ptr %arrayidx.i, align 8, !tbaa !22
   %tobool.not.i = icmp eq ptr %14, null
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
@@ -6160,14 +6160,14 @@ if.then14.i:                                      ; preds = %if.else.i
   %20 = load i32, ptr %add.ptr.i, align 4, !tbaa !64
   %conv.i.i.i.i.i = sext i32 %20 to i64
   %rem.i.i.i.i = urem i64 %conv.i.i.i.i.i, %19
-  %arrayidx17.i = getelementptr inbounds ptr, ptr %13, i64 %rem.i.i.i.i
+  %arrayidx17.i = getelementptr inbounds [8 x i8], ptr %13, i64 %rem.i.i.i.i
   store ptr %__node, ptr %arrayidx17.i, align 8, !tbaa !22
   %.pre.i = load ptr, ptr %this, align 8, !tbaa !128
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then14.i, %if.else.i
   %21 = phi ptr [ %.pre.i, %if.then14.i ], [ %13, %if.else.i ]
-  %arrayidx20.i = getelementptr inbounds ptr, ptr %21, i64 %__bkt.addr.0
+  %arrayidx20.i = getelementptr inbounds [8 x i8], ptr %21, i64 %__bkt.addr.0
   store ptr %_M_before_begin.i, ptr %arrayidx20.i, align 8, !tbaa !22
   br label %_ZNSt10_HashtableIiSt4pairIKi15VideoDriverInfoESaIS3_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE22_M_insert_bucket_beginEmPNS5_10_Hash_nodeIS3_Lb0EEE.exit
 
@@ -6271,7 +6271,7 @@ while.body:                                       ; preds = %_ZNSt10_HashtableIi
   %2 = load i32, ptr %add.ptr, align 8, !tbaa !64
   %conv.i.i.i = sext i32 %2 to i64
   %rem.i.i = urem i64 %conv.i.i.i, %__bkt_count
-  %arrayidx = getelementptr inbounds ptr, ptr %retval.0.i, i64 %rem.i.i
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %retval.0.i, i64 %rem.i.i
   %3 = load ptr, ptr %arrayidx, align 8, !tbaa !22
   %tobool5.not = icmp eq ptr %3, null
   br i1 %tobool5.not, label %if.then, label %if.else
@@ -6286,7 +6286,7 @@ if.then:                                          ; preds = %while.body
   br i1 %tobool14.not, label %if.end22, label %if.then15
 
 if.then15:                                        ; preds = %if.then
-  %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.043
+  %arrayidx16 = getelementptr inbounds [8 x i8], ptr %retval.0.i, i64 %__bbegin_bkt.043
   br label %if.end22.sink.split
 
 if.else:                                          ; preds = %while.body

@@ -383,10 +383,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   %.val = load i8, ptr %2, align 1, !range !5, !noundef !3
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h2a86fe9c92faca69E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h2a86fe9c92faca69E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h2a86fe9c92faca69E.44", i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h2a86fe9c92faca69E.44", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -398,10 +398,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !4, !noundef !3
   %.val = load i8, ptr %2, align 1, !range !6, !noundef !3
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hce59f37a7c9ebe32E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hce59f37a7c9ebe32E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hce59f37a7c9ebe32E.45", i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hce59f37a7c9ebe32E.45", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -3322,7 +3322,7 @@ define void @_ZN6quiche7testing4Pipe11client_recv17h329a4d6db452e4fbE(ptr dead_o
   %9 = load ptr, ptr %8, align 8, !nonnull !3, !noundef !3
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 28672
   %11 = load i64, ptr %10, align 16, !noundef !3
-  %12 = getelementptr inbounds nuw { i64, [327 x i64] }, ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw [2624 x i8], ptr %9, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 28680
   %14 = load i64, ptr %13, align 8, !noundef !3
   store ptr %9, ptr %6, align 8
@@ -3383,7 +3383,7 @@ define void @_ZN6quiche7testing4Pipe11server_recv17h00e0e84678491c5fE(ptr dead_o
   %9 = load ptr, ptr %8, align 8, !nonnull !3, !noundef !3
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 13456
   %11 = load i64, ptr %10, align 16, !noundef !3
-  %12 = getelementptr inbounds nuw { i64, [327 x i64] }, ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw [2624 x i8], ptr %9, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 13464
   %14 = load i64, ptr %13, align 8, !noundef !3
   store ptr %9, ptr %6, align 8
@@ -3469,7 +3469,7 @@ define void @_ZN6quiche7testing4Pipe18send_pkt_to_server17h6192b0a41f3d2543E(ptr
   %23 = load ptr, ptr %22, align 8, !alias.scope !262, !noalias !266, !nonnull !3, !noundef !3
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 28672
   %25 = load i64, ptr %24, align 16, !alias.scope !262, !noalias !266, !noundef !3
-  %26 = getelementptr inbounds nuw { i64, [327 x i64] }, ptr %23, i64 %25
+  %26 = getelementptr inbounds nuw [2624 x i8], ptr %23, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 28680
   %28 = load i64, ptr %27, align 8, !alias.scope !262, !noalias !266, !noundef !3
   store ptr %23, ptr %10, align 8, !noalias !264
@@ -4050,7 +4050,7 @@ define void @_ZN6quiche7testing27emit_flight_with_max_buffer17h190da6cb919e6619E
 
 50:                                               ; preds = %45, %41
   %51 = load ptr, ptr %14, align 8, !alias.scope !308, !noalias !311, !nonnull !3, !noundef !3
-  %52 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { { i16, [15 x i16] }, { i16, [15 x i16] }, { { { i64, i32, [1 x i32] } } } } }, ptr %51, i64 %42
+  %52 = getelementptr inbounds nuw [104 x i8], ptr %51, i64 %42
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %52, ptr noundef nonnull align 8 dereferenceable(104) %9, i64 104, i1 false)
   %53 = add i64 %42, 1
   store i64 %53, ptr %15, align 8, !alias.scope !308, !noalias !311
@@ -4174,7 +4174,7 @@ define void @_ZN6quiche7testing10encode_pkt17hdb508194cc8ec1b9E(ptr dead_on_unwi
   %29 = load ptr, ptr %28, align 8, !nonnull !3, !noundef !3
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 13456
   %31 = load i64, ptr %30, align 16, !noundef !3
-  %32 = getelementptr inbounds nuw { i64, [327 x i64] }, ptr %29, i64 %31
+  %32 = getelementptr inbounds nuw [2624 x i8], ptr %29, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 13464
   %34 = load i64, ptr %33, align 8, !noundef !3
   store ptr %29, ptr %9, align 8
@@ -4399,7 +4399,7 @@ define void @_ZN6quiche7testing10encode_pkt17hdb508194cc8ec1b9E(ptr dead_on_unwi
 .preheader154:                                    ; preds = %105, %.noexc
   %.sroa.07.0.i = phi i64 [ %110, %.noexc ], [ 0, %105 ]
   %.sroa.09.0.i = phi i64 [ %111, %.noexc ], [ 0, %105 ]
-  %108 = getelementptr inbounds nuw { i64, [15 x i64] }, ptr %3, i64 %.sroa.09.0.i
+  %108 = getelementptr inbounds nuw [128 x i8], ptr %3, i64 %.sroa.09.0.i
   %109 = invoke noundef i64 @_ZN6quiche5frame5Frame8wire_len17h41353290038c5b4bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(128) %108)
           to label %.noexc unwind label %.loopexit.split-lp.loopexit
 
@@ -4600,7 +4600,7 @@ define void @_ZN6quiche7testing10decode_pkt17hcb780e6b95099f2dE(ptr dead_on_unwi
   %20 = load ptr, ptr %19, align 8, !alias.scope !320, !noalias !317, !nonnull !3, !noundef !3
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 13456
   %22 = load i64, ptr %21, align 16, !alias.scope !320, !noalias !317, !noundef !3
-  %23 = getelementptr inbounds nuw { i64, [327 x i64] }, ptr %20, i64 %22
+  %23 = getelementptr inbounds nuw [2624 x i8], ptr %20, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 13464
   %25 = load i64, ptr %24, align 8, !alias.scope !320, !noalias !317, !noundef !3
   store ptr %20, ptr %5, align 8, !noalias !322
@@ -4929,7 +4929,7 @@ define void @_ZN6quiche7testing10decode_pkt17hcb780e6b95099f2dE(ptr dead_on_unwi
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h8d5ce86e100ce8a1E.exit": ; preds = %135, %139
   %144 = load ptr, ptr %116, align 8, !alias.scope !340, !noalias !343, !nonnull !3, !noundef !3
-  %145 = getelementptr inbounds nuw { i64, [15 x i64] }, ptr %144, i64 %136
+  %145 = getelementptr inbounds nuw [128 x i8], ptr %144, i64 %136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %145, ptr noundef nonnull align 8 dereferenceable(128) %9, i64 128, i1 false)
   %146 = add i64 %136, 1
   br label %118
@@ -5797,7 +5797,7 @@ define hidden void @_ZN6quiche2h35qpack7encoder7Encoder6encode17h2dbdcea4b31e0bf
   br i1 %34, label %.loopexit101, label %35
 
 35:                                               ; preds = %31
-  %36 = getelementptr inbounds nuw { ptr, i64 }, ptr @anon.2555188e7c0d002edaa778fbad9a1afd.274, i64 %33
+  %36 = getelementptr inbounds nuw [16 x i8], ptr @anon.2555188e7c0d002edaa778fbad9a1afd.274, i64 %33
   %37 = load ptr, ptr %36, align 8, !noalias !393, !nonnull !3, !align !396, !noundef !3
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %39 = load i64, ptr %38, align 8, !noalias !393, !noundef !3
@@ -5856,7 +5856,7 @@ define hidden void @_ZN6quiche2h35qpack7encoder7Encoder6encode17h2dbdcea4b31e0bf
   %63 = load ptr, ptr %62, align 8, !nonnull !3, !align !396, !noundef !3
   %64 = getelementptr inbounds nuw i8, ptr %.sroa.013.031.i, i64 24
   %65 = load i64, ptr %64, align 8, !noundef !3
-  %66 = getelementptr inbounds nuw { { ptr, i64 }, i64 }, ptr %63, i64 %65
+  %66 = getelementptr inbounds nuw [24 x i8], ptr %63, i64 %65
   br label %67
 
 67:                                               ; preds = %77, %._crit_edge.i
@@ -7176,7 +7176,7 @@ define void @_ZN6quiche4path7PathMap11insert_path17h0396e24e10270a1eE(ptr dead_o
   %21 = load ptr, ptr %20, align 8, !alias.scope !466, !nonnull !3, !noundef !3
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load i64, ptr %22, align 8, !alias.scope !466, !noundef !3
-  %24 = getelementptr inbounds nuw { i64, [327 x i64] }, ptr %21, i64 %23
+  %24 = getelementptr inbounds nuw [2624 x i8], ptr %21, i64 %23
   store ptr %21, ptr %8, align 8, !noalias !466
   %.sroa.411.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %24, ptr %.sroa.411.0..sroa_idx.i, align 8, !noalias !466
@@ -7358,7 +7358,7 @@ define void @_ZN6quiche4path7PathMap25notify_failed_validations17h620162c783ec1c
   %7 = load ptr, ptr %6, align 8, !nonnull !3, !noundef !3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8, !noundef !3
-  %10 = getelementptr inbounds nuw { i64, [327 x i64] }, ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw [2624 x i8], ptr %7, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load i64, ptr %11, align 8, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -7424,7 +7424,7 @@ define { i64, i64 } @_ZN6quiche4path7PathMap19find_candidate_path17h14219782c860
   %4 = load ptr, ptr %3, align 8, !nonnull !3, !noundef !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !3
-  %7 = getelementptr inbounds nuw { i64, [327 x i64] }, ptr %4, i64 %6
+  %7 = getelementptr inbounds nuw [2624 x i8], ptr %4, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load i64, ptr %8, align 8, !noundef !3
   store ptr %4, ptr %2, align 8
@@ -7501,7 +7501,7 @@ define { i64, i64 } @_ZN6quiche4path7PathMap20on_response_received17hb245ada6ba4
   %14 = load ptr, ptr %13, align 8, !nonnull !3, !noundef !3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i64, ptr %15, align 8, !noundef !3
-  %17 = getelementptr inbounds nuw { i64, [327 x i64] }, ptr %14, i64 %16
+  %17 = getelementptr inbounds nuw [2624 x i8], ptr %14, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load i64, ptr %18, align 8, !noundef !3
   store ptr %14, ptr %7, align 8
@@ -7679,7 +7679,7 @@ define { i64, i64 } @_ZN6quiche4path7PathMap15set_active_path17h0cc5ad8b09cc7943
   %9 = load ptr, ptr %8, align 8, !alias.scope !505, !noalias !510, !nonnull !3, !noundef !3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i64, ptr %10, align 8, !alias.scope !505, !noalias !510, !noundef !3
-  %12 = getelementptr inbounds nuw { i64, [327 x i64] }, ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw [2624 x i8], ptr %9, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %14 = load i64, ptr %13, align 8, !alias.scope !505, !noalias !510, !noundef !3
   store ptr %9, ptr %3, align 8, !noalias !508
@@ -7727,7 +7727,7 @@ _ZN6quiche4path7PathMap14get_active_mut17h144d402b6b74ec6aE.exit: ; preds = %15
   br label %28
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds nuw { i64, [327 x i64] }, ptr %9, i64 %1
+  %33 = getelementptr inbounds nuw [2624 x i8], ptr %9, i64 %1
   %34 = load i64, ptr %33, align 8, !range !8, !noundef !3
   %.not6 = icmp eq i64 %34, 2
   br i1 %.not6, label %52, label %35
@@ -8199,7 +8199,7 @@ define hidden void @_ZN6quiche8recovery11gcongestion4bbr213network_model17BBRv2N
   br i1 %.not, label %32, label %16
 
 16:                                               ; preds = %7
-  %17 = getelementptr { i64, { { { i64, i32, [1 x i32] } } } }, ptr %1, i64 %2
+  %17 = getelementptr [24 x i8], ptr %1, i64 %2
   %18 = getelementptr i8, ptr %17, i64 -24
   %19 = load i64, ptr %18, align 8, !noundef !3
   %20 = load i64, ptr %0, align 8, !range !75, !alias.scope !551, !noundef !3

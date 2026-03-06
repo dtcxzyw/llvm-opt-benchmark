@@ -1643,7 +1643,7 @@ if.end:                                           ; preds = %for.body
   %9 = call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %8, i1 false)
   %add = sub nuw nsw i32 32, %9
   %idxprom = zext nneg i32 %add to i64
-  %arrayidx = getelementptr inbounds nuw i32, ptr %data, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [4 x i8], ptr %data, i64 %idxprom
   %10 = load i32, ptr %arrayidx, align 4
   %inc = add nsw i32 %10, 1
   store i32 %inc, ptr %arrayidx, align 4
@@ -1664,7 +1664,7 @@ for.end:                                          ; preds = %for.inc, %invoke.co
 
 if.then16:                                        ; preds = %for.end
   %idx.ext = zext nneg i32 %size.0.lcssa to i64
-  %add.ptr = getelementptr inbounds nuw i32, ptr %data, i64 %idx.ext
+  %add.ptr = getelementptr inbounds nuw [4 x i8], ptr %data, i64 %idx.ext
   invoke void @_ZNSt6vectorIiSaIiEE13_M_assign_auxIPiEEvT_S4_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %histogram, ptr noundef nonnull %data, ptr noundef nonnull %add.ptr)
           to label %if.then16.if.end19_crit_edge unwind label %lpad
 
@@ -2023,11 +2023,11 @@ for.cond:                                         ; preds = %for.cond.preheader,
 
 for.body:                                         ; preds = %for.cond
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx43 = getelementptr inbounds nuw %"class.absl::debian2::string_view", ptr %5, i64 %indvars.iv.next
+  %arrayidx43 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %indvars.iv.next
   %s.sroa.0.0.copyload = load ptr, ptr %arrayidx43, align 8
   %s.sroa.2.0.arrayidx43.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx43, i64 8
   %s.sroa.2.0.copyload = load i64, ptr %s.sroa.2.0.arrayidx43.sroa_idx, align 8
-  %arrayidx45 = getelementptr inbounds nuw ptr, ptr %args, i64 %indvars.iv
+  %arrayidx45 = getelementptr inbounds nuw [8 x i8], ptr %args, i64 %indvars.iv
   %8 = load ptr, ptr %arrayidx45, align 8
   %parser_.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   %9 = load ptr, ptr %parser_.i, align 8
@@ -3096,7 +3096,7 @@ for.body.preheader:                               ; preds = %if.end468
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ %69, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
-  %arrayidx471 = getelementptr inbounds %"class.absl::debian2::string_view", ptr %submatch, i64 %indvars.iv
+  %arrayidx471 = getelementptr inbounds [16 x i8], ptr %submatch, i64 %indvars.iv
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %arrayidx471, i8 0, i64 16, i1 false)
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3214,7 +3214,7 @@ lpad:                                             ; preds = %invoke.cont20, %inv
 
 if.end25:                                         ; preds = %if.then8
   %idxprom = zext nneg i32 %sub to i64
-  %arrayidx = getelementptr inbounds nuw %"class.absl::debian2::string_view", ptr %vec, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [16 x i8], ptr %vec, i64 %idxprom
   %snip.sroa.2.0.arrayidx.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %snip.sroa.2.0.copyload = load i64, ptr %snip.sroa.2.0.arrayidx.sroa_idx, align 8
   %cmp.i = icmp eq i64 %snip.sroa.2.0.copyload, 0

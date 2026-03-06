@@ -350,9 +350,9 @@ define internal void @_iop_color_picker_pickerdata_ready_callback(ptr readnone c
   %24 = phi i1 [ true, %.preheader.i ], [ false, %31 ]
   %indvars.iv42.i = phi i64 [ 0, %.preheader.i ], [ 1, %31 ]
   %.138.i = phi i32 [ %16, %.preheader.i ], [ %.2.i, %31 ]
-  %25 = getelementptr inbounds nuw float, ptr %22, i64 %indvars.iv42.i
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv42.i
   %26 = load float, ptr %25, align 4, !tbaa !132
-  %27 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv42.i
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv42.i
   %28 = load float, ptr %27, align 4, !tbaa !132
   %29 = fcmp reassoc nsz arcp contract afn une float %26, %28
   br i1 %29, label %30, label %31
@@ -368,9 +368,9 @@ define internal void @_iop_color_picker_pickerdata_ready_callback(ptr readnone c
 32:                                               ; preds = %39, %.preheader34.i
   %indvars.iv.i = phi i64 [ 0, %.preheader34.i ], [ %indvars.iv.next.i, %39 ]
   %.336.i = phi i32 [ %16, %.preheader34.i ], [ %.4.i, %39 ]
-  %33 = getelementptr inbounds nuw float, ptr %20, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv.i
   %34 = load float, ptr %33, align 4, !tbaa !132
-  %35 = getelementptr inbounds nuw float, ptr %21, i64 %indvars.iv.i
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv.i
   %36 = load float, ptr %35, align 4, !tbaa !132
   %37 = fcmp reassoc nsz arcp contract afn une float %34, %36
   br i1 %37, label %38, label %39
@@ -504,9 +504,9 @@ define internal void @_color_picker_proxy_preview_pipe_callback(ptr readnone cap
 18:                                               ; preds = %26, %.preheader.i
   %19 = phi i1 [ true, %.preheader.i ], [ false, %26 ]
   %indvars.iv42.i = phi i64 [ 0, %.preheader.i ], [ 1, %26 ]
-  %20 = getelementptr inbounds nuw float, ptr %17, i64 %indvars.iv42.i
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv42.i
   %21 = load float, ptr %20, align 4, !tbaa !132
-  %22 = getelementptr inbounds nuw float, ptr %10, i64 %indvars.iv42.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv42.i
   %23 = load float, ptr %22, align 4, !tbaa !132
   %24 = fcmp reassoc nsz arcp contract afn une float %21, %23
   br i1 %24, label %25, label %26
@@ -520,9 +520,9 @@ define internal void @_color_picker_proxy_preview_pipe_callback(ptr readnone cap
 
 27:                                               ; preds = %34, %.preheader34.i
   %indvars.iv.i = phi i64 [ 0, %.preheader34.i ], [ %indvars.iv.next.i, %34 ]
-  %28 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv.i
   %29 = load float, ptr %28, align 4, !tbaa !132
-  %30 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv.i
   %31 = load float, ptr %30, align 4, !tbaa !132
   %32 = fcmp reassoc nsz arcp contract afn une float %29, %31
   br i1 %32, label %33, label %34

@@ -8,7 +8,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_mem_section:
 %struct.cpuinfo_x86 = type { i8, i8, i8, i8, i32, [5 x i32], i8, i8, i8, i32, i32, %union.anon, [16 x i8], [64 x i8], %struct.cpuinfo_topology, i32, i32, i32, i32, i32, i32, i64, i64, i16, i16, i16, i16, i8, i32, i8, i8 }
 %union.anon = type { i64, [88 x i8] }
 %struct.cpuinfo_topology = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.mem_section = type { i64, ptr }
 
 @mem_section = dso_local global ptr null, align 8
 @__UNIQUE_ID___addressable_mem_section419 = internal global ptr @mem_section, section ".discard.addressable", align 8
@@ -72,14 +71,14 @@ define dso_local void @subsection_map_init(i64 noundef %0, i64 noundef %1) local
   br i1 %24, label %32, label %25
 
 25:                                               ; preds = %22
-  %26 = getelementptr ptr, ptr %23, i64 %17
+  %26 = getelementptr [8 x i8], ptr %23, i64 %17
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %27, null
   br i1 %28, label %32, label %29
 
 29:                                               ; preds = %25
   %30 = and i64 %13, 255
-  %31 = getelementptr %struct.mem_section, ptr %27, i64 %30
+  %31 = getelementptr [16 x i8], ptr %27, i64 %30
   br label %32
 
 32:                                               ; preds = %29, %25, %22, %19
@@ -198,14 +197,14 @@ define dso_local void @sparse_init() local_unnamed_addr #0 section ".init.text" 
   br i1 %10, label %.critedge.backedge, label %11
 
 11:                                               ; preds = %8
-  %12 = getelementptr ptr, ptr %9, i64 %3
+  %12 = getelementptr [8 x i8], ptr %9, i64 %3
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.critedge.backedge, label %15
 
 15:                                               ; preds = %11
   %16 = and i64 %2, 255
-  %17 = getelementptr %struct.mem_section, ptr %13, i64 %16
+  %17 = getelementptr [16 x i8], ptr %13, i64 %16
   %18 = icmp eq ptr %17, null
   br i1 %18, label %.critedge.backedge, label %19
 
@@ -244,14 +243,14 @@ split:                                            ; preds = %19, %.critedge.back
   br i1 %34, label %42, label %35
 
 35:                                               ; preds = %32
-  %36 = getelementptr ptr, ptr %33, i64 %27
+  %36 = getelementptr [8 x i8], ptr %33, i64 %27
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, null
   br i1 %38, label %42, label %39
 
 39:                                               ; preds = %35
   %40 = and i64 %26, 255
-  %41 = getelementptr %struct.mem_section, ptr %37, i64 %40
+  %41 = getelementptr [16 x i8], ptr %37, i64 %40
   br label %42
 
 42:                                               ; preds = %39, %35, %32, %29
@@ -285,14 +284,14 @@ split:                                            ; preds = %19, %.critedge.back
   br i1 %58, label %.critedge26.backedge, label %59
 
 59:                                               ; preds = %56
-  %60 = getelementptr ptr, ptr %57, i64 %51
+  %60 = getelementptr [8 x i8], ptr %57, i64 %51
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, null
   br i1 %62, label %.critedge26.backedge, label %63
 
 63:                                               ; preds = %59
   %64 = and i64 %50, 255
-  %65 = getelementptr %struct.mem_section, ptr %61, i64 %64
+  %65 = getelementptr [16 x i8], ptr %61, i64 %64
   %66 = icmp eq ptr %65, null
   br i1 %66, label %.critedge26.backedge, label %67
 
@@ -335,14 +334,14 @@ split:                                            ; preds = %19, %.critedge.back
   br i1 %87, label %95, label %88
 
 88:                                               ; preds = %85
-  %89 = getelementptr ptr, ptr %86, i64 %80
+  %89 = getelementptr [8 x i8], ptr %86, i64 %80
   %90 = load ptr, ptr %89, align 8
   %91 = icmp eq ptr %90, null
   br i1 %91, label %95, label %92
 
 92:                                               ; preds = %88
   %93 = and i64 %79, 255
-  %94 = getelementptr %struct.mem_section, ptr %90, i64 %93
+  %94 = getelementptr [16 x i8], ptr %90, i64 %93
   br label %95
 
 95:                                               ; preds = %92, %88, %85, %82
@@ -393,14 +392,14 @@ split:                                            ; preds = %19, %.critedge.back
   br i1 %118, label %.critedge28.backedge, label %119
 
 119:                                              ; preds = %116
-  %120 = getelementptr ptr, ptr %117, i64 %111
+  %120 = getelementptr [8 x i8], ptr %117, i64 %111
   %121 = load ptr, ptr %120, align 8
   %122 = icmp eq ptr %121, null
   br i1 %122, label %.critedge28.backedge, label %123
 
 123:                                              ; preds = %119
   %124 = and i64 %110, 255
-  %125 = getelementptr %struct.mem_section, ptr %121, i64 %124
+  %125 = getelementptr [16 x i8], ptr %121, i64 %124
   %126 = icmp eq ptr %125, null
   br i1 %126, label %.critedge28.backedge, label %127
 
@@ -472,7 +471,7 @@ declare dso_local void @set_pageblock_order() local_unnamed_addr #3
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
 define internal fastcc void @sparse_init_nid(i32 noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 section ".init.text" align 16 {
   %5 = sext i32 %0 to i64
-  %6 = getelementptr ptr, ptr @node_data, i64 %5
+  %6 = getelementptr [8 x i8], ptr @node_data, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = mul i64 %3, 56
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 13120
@@ -512,14 +511,14 @@ define internal fastcc void @sparse_init_nid(i32 noundef %0, i64 noundef %1, i64
   br i1 %27, label %.critedge.backedge, label %28
 
 28:                                               ; preds = %25
-  %29 = getelementptr ptr, ptr %26, i64 %20
+  %29 = getelementptr [8 x i8], ptr %26, i64 %20
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %.critedge.backedge, label %32
 
 32:                                               ; preds = %28
   %33 = and i64 %19, 255
-  %34 = getelementptr %struct.mem_section, ptr %30, i64 %33
+  %34 = getelementptr [16 x i8], ptr %30, i64 %33
   %35 = icmp eq ptr %34, null
   br i1 %35, label %.critedge.backedge, label %36
 
@@ -575,14 +574,14 @@ define internal fastcc void @sparse_init_nid(i32 noundef %0, i64 noundef %1, i64
   br i1 %61, label %69, label %62
 
 62:                                               ; preds = %59
-  %63 = getelementptr ptr, ptr %60, i64 %54
+  %63 = getelementptr [8 x i8], ptr %60, i64 %54
   %64 = load ptr, ptr %63, align 8
   %65 = icmp eq ptr %64, null
   br i1 %65, label %69, label %66
 
 66:                                               ; preds = %62
   %67 = and i64 %46, 255
-  %68 = getelementptr %struct.mem_section, ptr %64, i64 %67
+  %68 = getelementptr [16 x i8], ptr %64, i64 %67
   br label %69
 
 69:                                               ; preds = %66, %62, %59, %56
@@ -637,14 +636,14 @@ define internal fastcc void @sparse_init_nid(i32 noundef %0, i64 noundef %1, i64
   br i1 %93, label %.critedge35.backedge, label %94
 
 94:                                               ; preds = %91
-  %95 = getelementptr ptr, ptr %92, i64 %86
+  %95 = getelementptr [8 x i8], ptr %92, i64 %86
   %96 = load ptr, ptr %95, align 8
   %97 = icmp eq ptr %96, null
   br i1 %97, label %.critedge35.backedge, label %98
 
 98:                                               ; preds = %94
   %99 = and i64 %85, 255
-  %100 = getelementptr %struct.mem_section, ptr %96, i64 %99
+  %100 = getelementptr [16 x i8], ptr %96, i64 %99
   %101 = icmp eq ptr %100, null
   br i1 %101, label %.critedge35.backedge, label %102
 
@@ -694,14 +693,14 @@ define internal fastcc void @sparse_init_nid(i32 noundef %0, i64 noundef %1, i64
   br i1 %123, label %.critedge37.backedge, label %124
 
 124:                                              ; preds = %121
-  %125 = getelementptr ptr, ptr %122, i64 %116
+  %125 = getelementptr [8 x i8], ptr %122, i64 %116
   %126 = load ptr, ptr %125, align 8
   %127 = icmp eq ptr %126, null
   br i1 %127, label %.critedge37.backedge, label %128
 
 128:                                              ; preds = %124
   %129 = and i64 %115, 255
-  %130 = getelementptr %struct.mem_section, ptr %126, i64 %129
+  %130 = getelementptr [16 x i8], ptr %126, i64 %129
   %131 = icmp eq ptr %130, null
   br i1 %131, label %.critedge37.backedge, label %132
 
@@ -745,14 +744,14 @@ define internal fastcc void @sparse_init_nid(i32 noundef %0, i64 noundef %1, i64
   br i1 %151, label %159, label %152
 
 152:                                              ; preds = %149
-  %153 = getelementptr ptr, ptr %150, i64 %144
+  %153 = getelementptr [8 x i8], ptr %150, i64 %144
   %154 = load ptr, ptr %153, align 8
   %155 = icmp eq ptr %154, null
   br i1 %155, label %159, label %156
 
 156:                                              ; preds = %152
   %157 = and i64 %141, 255
-  %158 = getelementptr %struct.mem_section, ptr %154, i64 %157
+  %158 = getelementptr [16 x i8], ptr %154, i64 %157
   br label %159
 
 159:                                              ; preds = %156, %152, %149, %146
@@ -786,14 +785,14 @@ define internal fastcc void @sparse_init_nid(i32 noundef %0, i64 noundef %1, i64
   br i1 %171, label %.critedge39.backedge, label %172
 
 172:                                              ; preds = %169
-  %173 = getelementptr ptr, ptr %170, i64 %164
+  %173 = getelementptr [8 x i8], ptr %170, i64 %164
   %174 = load ptr, ptr %173, align 8
   %175 = icmp eq ptr %174, null
   br i1 %175, label %.critedge39.backedge, label %176
 
 176:                                              ; preds = %172
   %177 = and i64 %163, 255
-  %178 = getelementptr %struct.mem_section, ptr %174, i64 %177
+  %178 = getelementptr [16 x i8], ptr %174, i64 %177
   %179 = icmp eq ptr %178, null
   br i1 %179, label %.critedge39.backedge, label %180
 
@@ -874,7 +873,7 @@ define internal fastcc void @memory_present(i32 noundef %0, i64 noundef %1, i64 
   %27 = lshr i64 %26, 15
   %28 = lshr i64 %26, 23
   %29 = load ptr, ptr @mem_section, align 8
-  %30 = getelementptr ptr, ptr %29, i64 %28
+  %30 = getelementptr [8 x i8], ptr %29, i64 %28
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %45
@@ -901,7 +900,7 @@ sparse_index_alloc.exit:                          ; preds = %33
 sparse_index_alloc.exit.thread:                   ; preds = %35, %sparse_index_alloc.exit
   %42 = phi ptr [ %40, %sparse_index_alloc.exit ], [ %36, %35 ]
   %43 = load ptr, ptr @mem_section, align 8
-  %44 = getelementptr ptr, ptr %43, i64 %28
+  %44 = getelementptr [8 x i8], ptr %43, i64 %28
   store ptr %42, ptr %44, align 8
   br label %45
 
@@ -923,14 +922,14 @@ sparse_index_alloc.exit.thread:                   ; preds = %35, %sparse_index_a
   br i1 %52, label %60, label %53
 
 53:                                               ; preds = %50
-  %54 = getelementptr ptr, ptr %51, i64 %28
+  %54 = getelementptr [8 x i8], ptr %51, i64 %28
   %55 = load ptr, ptr %54, align 8
   %56 = icmp eq ptr %55, null
   br i1 %56, label %60, label %57
 
 57:                                               ; preds = %53
   %58 = and i64 %27, 255
-  %59 = getelementptr %struct.mem_section, ptr %55, i64 %58
+  %59 = getelementptr [16 x i8], ptr %55, i64 %58
   br label %60
 
 60:                                               ; preds = %57, %53, %50, %47

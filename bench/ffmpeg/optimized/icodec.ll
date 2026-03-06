@@ -3,8 +3,6 @@ source_filename = "bench/ffmpeg/original/icodec.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.IcoImage = type { i32, i32, i32 }
-
 @.str = private unnamed_addr constant [4 x i8] c"ico\00", align 1
 @.str.1 = private unnamed_addr constant [22 x i8] c"Microsoft Windows ICO\00", align 1
 @ff_ico_demuxer = local_unnamed_addr constant { { ptr, ptr, i32, [4 x i8], ptr, ptr, ptr, ptr }, i32, i32, i32, [4 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr } { { ptr, ptr, i32, [4 x i8], ptr, ptr, ptr, ptr } { ptr @.str, ptr @.str.1, i32 128, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null, ptr null }, i32 0, i32 16, i32 1, [4 x i8] zeroinitializer, ptr @probe, ptr @read_header, ptr @read_packet, ptr @ico_read_close, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null }, align 8
@@ -199,7 +197,7 @@ define internal range(i32 -1094995529, 1) i32 @read_header(ptr noundef %0) #1 {
   store i32 %27, ptr %29, align 4, !tbaa !45
   %30 = tail call i32 @avio_r8(ptr noundef %5) #4
   %31 = load ptr, ptr %12, align 8, !tbaa !33
-  %32 = getelementptr inbounds nuw %struct.IcoImage, ptr %31, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [12 x i8], ptr %31, i64 %indvars.iv
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = icmp eq i32 %30, 255
   %spec.store.select = select i1 %34, i32 0, i32 %30
@@ -207,7 +205,7 @@ define internal range(i32 -1094995529, 1) i32 @read_header(ptr noundef %0) #1 {
   %35 = tail call i64 @avio_skip(ptr noundef %5, i64 noundef 5) #4
   %36 = tail call i32 @avio_rl32(ptr noundef %5) #4
   %37 = load ptr, ptr %12, align 8, !tbaa !33
-  %38 = getelementptr inbounds nuw %struct.IcoImage, ptr %37, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [12 x i8], ptr %37, i64 %indvars.iv
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
   store i32 %36, ptr %39, align 4, !tbaa !46
   %40 = icmp slt i32 %36, 1
@@ -220,7 +218,7 @@ define internal range(i32 -1094995529, 1) i32 @read_header(ptr noundef %0) #1 {
 42:                                               ; preds = %21
   %43 = tail call i32 @avio_rl32(ptr noundef %5) #4
   %44 = load ptr, ptr %12, align 8, !tbaa !33
-  %45 = getelementptr inbounds nuw %struct.IcoImage, ptr %44, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [12 x i8], ptr %44, i64 %indvars.iv
   store i32 %43, ptr %45, align 4, !tbaa !48
   %46 = sext i32 %43 to i64
   %47 = tail call i64 @avio_seek(ptr noundef %5, i64 noundef %46, i32 noundef 0) #4
@@ -244,7 +242,7 @@ define internal range(i32 -1094995529, 1) i32 @read_header(ptr noundef %0) #1 {
 
 55:                                               ; preds = %49
   %56 = load ptr, ptr %12, align 8, !tbaa !33
-  %57 = getelementptr inbounds nuw %struct.IcoImage, ptr %56, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [12 x i8], ptr %56, i64 %indvars.iv
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 4
   %59 = load i32, ptr %58, align 4, !tbaa !46
   %60 = icmp slt i32 %59, 40
@@ -316,7 +314,7 @@ define internal i32 @read_packet(ptr noundef readonly captures(none) %0, ptr nou
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !33
   %16 = sext i32 %7 to i64
-  %17 = getelementptr inbounds %struct.IcoImage, ptr %15, i64 %16
+  %17 = getelementptr inbounds [12 x i8], ptr %15, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !48
   %19 = sext i32 %18 to i64
   %20 = tail call i64 @avio_seek(ptr noundef %6, i64 noundef %19, i32 noundef 0) #4
@@ -328,7 +326,7 @@ define internal i32 @read_packet(ptr noundef readonly captures(none) %0, ptr nou
   %24 = load ptr, ptr %11, align 8, !tbaa !52
   %25 = load i32, ptr %4, align 8, !tbaa !51
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds ptr, ptr %24, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %24, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !53
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8, !tbaa !34

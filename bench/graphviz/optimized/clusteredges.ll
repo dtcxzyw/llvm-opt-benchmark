@@ -246,7 +246,7 @@ objectList.exit:                                  ; preds = %.lr.ph.i, %100
   %.015.i = phi ptr [ %116, %.lr.ph.i67 ], [ %120, %118 ]
   %.011.in14.i = phi i64 [ %.pre109, %.lr.ph.i67 ], [ %.011.i, %118 ]
   %.011.i = add i64 %.011.in14.i, -1
-  %119 = getelementptr inbounds nuw ptr, ptr %.pre108, i64 %.011.i
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %.pre108, i64 %.011.i
   %120 = load ptr, ptr %119, align 8, !tbaa !69
   store ptr %.015.i, ptr %119, align 8, !tbaa !69
   %.not12.i = icmp eq i64 %.011.i, 0
@@ -344,7 +344,7 @@ objlist_sync.exit:                                ; preds = %objectList.exit, %.
   %.015.i74 = phi ptr [ %151, %.lr.ph.i73 ], [ %155, %153 ]
   %.011.in14.i75 = phi i64 [ %.pre111, %.lr.ph.i73 ], [ %.011.i76, %153 ]
   %.011.i76 = add i64 %.011.in14.i75, -1
-  %154 = getelementptr inbounds nuw ptr, ptr %.pre110, i64 %.011.i76
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %.pre110, i64 %.011.i76
   %155 = load ptr, ptr %154, align 8, !tbaa !69
   store ptr %.015.i74, ptr %154, align 8, !tbaa !69
   %.not12.i77 = icmp eq i64 %.011.i76, 0
@@ -510,7 +510,7 @@ define internal fastcc void @addGraphObjs(ptr noundef nonnull captures(none) %0,
 
 40:                                               ; preds = %35
   %41 = load i64, ptr %8, align 8, !tbaa !68
-  %42 = getelementptr inbounds nuw ptr, ptr %38, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %41
   %43 = sub i64 %spec.select.i.i, %41
   %44 = shl i64 %43, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %42, i8 0, i64 %44, i1 false)
@@ -523,8 +523,8 @@ define internal fastcc void @addGraphObjs(ptr noundef nonnull captures(none) %0,
 49:                                               ; preds = %40
   %50 = sub i64 %41, %45
   %51 = sub i64 %spec.select.i.i, %50
-  %52 = getelementptr inbounds nuw ptr, ptr %38, i64 %51
-  %53 = getelementptr inbounds nuw ptr, ptr %38, i64 %45
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %51
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %45
   %54 = shl i64 %50, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %52, ptr nonnull align 8 %53, i64 %54, i1 false)
   store i64 %51, ptr %.phi.trans.insert.i.i, align 8, !tbaa !64
@@ -551,7 +551,7 @@ objlist_append.exit:                              ; preds = %._crit_edge.i.i, %5
   %64 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %56, %55 ]
   %65 = add i64 %64, %63
   %66 = urem i64 %65, %62
-  %67 = getelementptr inbounds nuw ptr, ptr %61, i64 %66
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %66
   store ptr %28, ptr %67, align 8, !tbaa !69
   %68 = add i64 %63, 1
   store i64 %68, ptr %7, align 8, !tbaa !73
@@ -568,7 +568,7 @@ objlist_append.exit:                              ; preds = %._crit_edge.i.i, %5
   %indvars.iv = phi i64 [ 1, %.lr.ph46 ], [ %indvars.iv.next, %163 ]
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 240
   %74 = load ptr, ptr %73, align 8, !tbaa !87
-  %75 = getelementptr inbounds nuw ptr, ptr %74, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %indvars.iv
   %76 = load ptr, ptr %75, align 8, !tbaa !52
   %.not28 = icmp eq ptr %76, %2
   %.not29 = icmp eq ptr %76, %3
@@ -687,7 +687,7 @@ makeClustObs.exit:                                ; preds = %94, %101
 
 134:                                              ; preds = %129
   %135 = load i64, ptr %16, align 8, !tbaa !68
-  %136 = getelementptr inbounds nuw ptr, ptr %132, i64 %135
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %132, i64 %135
   %137 = sub i64 %spec.select.i.i38, %135
   %138 = shl i64 %137, 3
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %136, i8 0, i64 %138, i1 false)
@@ -700,8 +700,8 @@ makeClustObs.exit:                                ; preds = %94, %101
 143:                                              ; preds = %134
   %144 = sub i64 %135, %139
   %145 = sub i64 %spec.select.i.i38, %144
-  %146 = getelementptr inbounds nuw ptr, ptr %132, i64 %145
-  %147 = getelementptr inbounds nuw ptr, ptr %132, i64 %139
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %132, i64 %145
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %132, i64 %139
   %148 = shl i64 %144, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %146, ptr nonnull align 8 %147, i64 %148, i1 false)
   store i64 %145, ptr %.phi.trans.insert.i.i35, align 8, !tbaa !64
@@ -730,7 +730,7 @@ objlist_append.exit41:                            ; preds = %._crit_edge.i.i34, 
   %158 = phi i64 [ %.pre.i.i36, %._crit_edge.i.i34 ], [ %150, %149 ]
   %159 = add i64 %158, %157
   %160 = urem i64 %159, %156
-  %161 = getelementptr inbounds nuw ptr, ptr %155, i64 %160
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %155, i64 %160
   store ptr %78, ptr %161, align 8, !tbaa !69
   %162 = add i64 %157, 1
   store i64 %162, ptr %15, align 8, !tbaa !73

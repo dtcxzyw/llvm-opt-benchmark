@@ -33,11 +33,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
 %"struct.std::__detail::_Hash_node_base" = type { ptr }
 %"struct.std::__detail::_Prime_rehash_policy" = type { float, i64 }
-%"struct.Stockfish::Search::RootMove" = type { i32, i32, i32, i32, i8, i8, i32, i32, i32, %"class.std::vector" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<Stockfish::Move, std::allocator<Stockfish::Move>>::_Vector_impl" }
-%"struct.std::_Vector_base<Stockfish::Move, std::allocator<Stockfish::Move>>::_Vector_impl" = type { %"struct.std::_Vector_base<Stockfish::Move, std::allocator<Stockfish::Move>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<Stockfish::Move, std::allocator<Stockfish::Move>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 $_ZNSt6vectorIN9Stockfish6Search8RootMoveESaIS2_EEaSERKS4_ = comdat any
 
@@ -741,7 +736,7 @@ _ZNSt6vectorIPN9Stockfish6ThreadESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
 _ZNSt6vectorIPN9Stockfish6ThreadESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %84, %_ZNSt6vectorIPN9Stockfish6ThreadESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
   store ptr %79, ptr %13, align 8
   store ptr %83, ptr %14, align 8
-  %85 = getelementptr inbounds nuw ptr, ptr %79, i64 %77
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %77
   store ptr %85, ptr %61, align 8
   br label %_ZNSt6vectorIPN9Stockfish6ThreadESaIS2_EE9push_backEOS2_.exit
 
@@ -833,7 +828,7 @@ _ZNSt6vectorIPN9Stockfish6ThreadESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
 _ZNSt6vectorIPN9Stockfish6ThreadESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i14: ; preds = %124, %_ZNSt6vectorIPN9Stockfish6ThreadESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i12
   store ptr %119, ptr %13, align 8
   store ptr %123, ptr %14, align 8
-  %125 = getelementptr inbounds nuw ptr, ptr %119, i64 %117
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %119, i64 %117
   store ptr %125, ptr %61, align 8
   br label %_ZNSt6vectorIPN9Stockfish6ThreadESaIS2_EE9push_backEOS2_.exit15
 
@@ -2499,7 +2494,7 @@ _ZNSt12_Vector_baseIN9Stockfish6Search8RootMoveESaIS2_EE13_M_deallocateEPS2_m.ex
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8
-  %59 = getelementptr inbounds nuw %"struct.Stockfish::Search::RootMove", ptr %20, i64 %16
+  %59 = getelementptr inbounds nuw [56 x i8], ptr %20, i64 %16
   store ptr %59, ptr %58, align 8
   ret void
 }
@@ -2614,7 +2609,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   %8 = load i64, ptr %7, align 8
   %9 = urem i64 %6, %8
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds ptr, ptr %10, i64 %9
+  %11 = getelementptr inbounds [8 x i8], ptr %10, i64 %9
   %12 = load ptr, ptr %11, align 8
   %.not.i.i = icmp eq ptr %12, null
   br i1 %.not.i.i, label %.loopexit, label %13
@@ -2680,7 +2675,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   %47 = getelementptr inbounds nuw i8, ptr %33, i64 24
   store i64 %6, ptr %47, align 8
   %48 = load ptr, ptr %0, align 8
-  %49 = getelementptr inbounds ptr, ptr %48, i64 %.0.i17
+  %49 = getelementptr inbounds [8 x i8], ptr %48, i64 %.0.i17
   %50 = load ptr, ptr %49, align 8
   %.not.i.i18 = icmp eq ptr %50, null
   br i1 %.not.i.i18, label %53, label %51
@@ -2704,14 +2699,14 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   %58 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %59 = load i64, ptr %58, align 8
   %60 = urem i64 %59, %57
-  %61 = getelementptr inbounds ptr, ptr %48, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %48, i64 %60
   store ptr %33, ptr %61, align 8
   %.pre = load ptr, ptr %0, align 8
   br label %62
 
 62:                                               ; preds = %56, %53
   %63 = phi ptr [ %.pre, %56 ], [ %48, %53 ]
-  %64 = getelementptr inbounds ptr, ptr %63, i64 %.0.i17
+  %64 = getelementptr inbounds [8 x i8], ptr %63, i64 %.0.i17
   store ptr %54, ptr %64, align 8
   br label %_ZNSt10_HashtableIN9Stockfish4MoveESt4pairIKS1_lESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ENS1_8MoveHashENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit
 
@@ -2776,7 +2771,7 @@ _ZNSt10_HashtableIN9Stockfish4MoveESt4pairIKS1_lESaIS4_ENSt8__detail10_Select1st
   %17 = getelementptr inbounds nuw i8, ptr %.031, i64 24
   %18 = load i64, ptr %17, align 8
   %19 = urem i64 %18, %1
-  %20 = getelementptr inbounds ptr, ptr %.0.i, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %.0.i, i64 %19
   %21 = load ptr, ptr %20, align 8
   %.not27 = icmp eq ptr %21, null
   br i1 %.not27, label %22, label %27
@@ -2791,7 +2786,7 @@ _ZNSt10_HashtableIN9Stockfish4MoveESt4pairIKS1_lESaIS4_ENSt8__detail10_Select1st
   br i1 %.not28, label %30, label %25
 
 25:                                               ; preds = %22
-  %26 = getelementptr inbounds ptr, ptr %.0.i, i64 %.02530
+  %26 = getelementptr inbounds [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %26, align 8
   br label %30
 

@@ -3,8 +3,6 @@ source_filename = "bench/openexr/original/ImfPreviewImage.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.Imf_3_4::PreviewRgba" = type { i8, i8, i8, i8 }
-
 @.str = private unnamed_addr constant [33 x i8] c"Integer multiplication overflow.\00", align 1
 @_ZTIN7Iex_3_411OverflowExcE = external constant ptr
 
@@ -49,7 +47,7 @@ _ZN7Imf_3_46uiMultIjEET_S1_S1_.exit:              ; preds = %4, %6
   br i1 %15, label %.loopexit19, label %16
 
 16:                                               ; preds = %_ZN7Imf_3_46uiMultIjEET_S1_S1_.exit
-  %17 = getelementptr inbounds nuw %"struct.Imf_3_4::PreviewRgba", ptr %14, i64 %12
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %12
   br label %18
 
 18:                                               ; preds = %18, %16
@@ -78,9 +76,9 @@ _ZN7Imf_3_46uiMultIjEET_S1_S1_.exit:              ; preds = %4, %6
 
 .lr.ph:                                           ; preds = %.loopexit19.thread, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.loopexit19.thread ]
-  %27 = getelementptr inbounds nuw %"struct.Imf_3_4::PreviewRgba", ptr %3, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %28 = load ptr, ptr %26, align 8, !tbaa !16
-  %29 = getelementptr inbounds nuw %"struct.Imf_3_4::PreviewRgba", ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv
   %30 = load i32, ptr %27, align 1
   store i32 %30, ptr %29, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -94,7 +92,7 @@ _ZN7Imf_3_46uiMultIjEET_S1_S1_.exit:              ; preds = %4, %6
 .lr.ph22:                                         ; preds = %.loopexit19.thread, %.lr.ph22
   %indvars.iv27 = phi i64 [ %indvars.iv.next28, %.lr.ph22 ], [ 0, %.loopexit19.thread ]
   %36 = load ptr, ptr %26, align 8, !tbaa !16
-  %37 = getelementptr inbounds nuw %"struct.Imf_3_4::PreviewRgba", ptr %36, i64 %indvars.iv27
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %indvars.iv27
   store i32 -16777216, ptr %37, align 1
   %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
   %38 = load i32, ptr %0, align 8, !tbaa !3
@@ -134,7 +132,7 @@ define void @_ZN7Imf_3_412PreviewImageC2ERKS0_(ptr noundef nonnull align 8 captu
   br label %._crit_edge
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds nuw %"struct.Imf_3_4::PreviewRgba", ptr %11, i64 %9
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %9
   br label %15
 
 15:                                               ; preds = %15, %13
@@ -161,9 +159,9 @@ define void @_ZN7Imf_3_412PreviewImageC2ERKS0_(ptr noundef nonnull align 8 captu
 23:                                               ; preds = %.lr.ph, %23
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
   %24 = load ptr, ptr %22, align 8, !tbaa !16
-  %25 = getelementptr inbounds nuw %"struct.Imf_3_4::PreviewRgba", ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv
   %26 = load ptr, ptr %7, align 8, !tbaa !16
-  %27 = getelementptr inbounds nuw %"struct.Imf_3_4::PreviewRgba", ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv
   %28 = load i32, ptr %25, align 1
   store i32 %28, ptr %27, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -227,7 +225,7 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN7Imf_3_412PreviewImag
   br label %.loopexit
 
 18:                                               ; preds = %8
-  %19 = getelementptr inbounds nuw %"struct.Imf_3_4::PreviewRgba", ptr %16, i64 %14
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %14
   br label %20
 
 20:                                               ; preds = %20, %18
@@ -251,9 +249,9 @@ define noundef nonnull align 8 dereferenceable(16) ptr @_ZN7Imf_3_412PreviewImag
 28:                                               ; preds = %.lr.ph, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
   %29 = load ptr, ptr %27, align 8, !tbaa !16
-  %30 = getelementptr inbounds nuw %"struct.Imf_3_4::PreviewRgba", ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv
   %31 = load ptr, ptr %4, align 8, !tbaa !16
-  %32 = getelementptr inbounds nuw %"struct.Imf_3_4::PreviewRgba", ptr %31, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv
   %33 = load i32, ptr %30, align 1
   store i32 %33, ptr %32, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

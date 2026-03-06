@@ -15,16 +15,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
 %"class.std::allocator.8" = type { i8 }
-%"class.QuantLib::Handle" = type { %"class.boost::shared_ptr.22" }
-%"class.boost::shared_ptr.22" = type { ptr, %"class.boost::detail::shared_count" }
-%"class.boost::detail::shared_count" = type { ptr }
-%"class.QuantLib::Array" = type { %"class.std::unique_ptr", i64 }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.13" }
-%"struct.std::_Head_base.13" = type { ptr }
 %"class.QuantLib::AdaptedPathPayoff::ValuationData" = type { ptr, ptr, ptr, ptr, ptr, i64 }
 
 $__clang_call_terminate = comdat any
@@ -417,8 +407,8 @@ entry:
   %columns_.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %3 = load i64, ptr %columns_.i.i, align 8, !tbaa !22
   %mul.i.i = mul i64 %3, %asset
-  %add.ptr.i.i = getelementptr inbounds nuw double, ptr %2, i64 %mul.i.i
-  %arrayidx = getelementptr inbounds nuw double, ptr %add.ptr.i.i, i64 %time
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %mul.i.i
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i, i64 %time
   %4 = load double, ptr %arrayidx, align 8, !tbaa !31
   ret double %4
 }
@@ -433,7 +423,7 @@ entry:
   %forwardTermStructures_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %1 = load ptr, ptr %forwardTermStructures_, align 8, !tbaa !33
   %2 = load ptr, ptr %1, align 8, !tbaa !34
-  %add.ptr.i = getelementptr inbounds nuw %"class.QuantLib::Handle", ptr %2, i64 %time
+  %add.ptr.i = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %time
   ret ptr %add.ptr.i
 }
 
@@ -586,7 +576,7 @@ do.end:                                           ; preds = %entry
   %payments_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %18 = load ptr, ptr %payments_, align 8, !tbaa !36
   %19 = load ptr, ptr %18, align 8, !tbaa !18
-  %arrayidx.i = getelementptr inbounds nuw double, ptr %19, i64 %time
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %time
   store double %value, ptr %arrayidx.i, align 8, !tbaa !31
   ret void
 
@@ -749,7 +739,7 @@ do.end:                                           ; preds = %entry
 
 if.then26:                                        ; preds = %do.end
   %20 = load ptr, ptr %18, align 8, !tbaa !18
-  %arrayidx.i = getelementptr inbounds nuw double, ptr %20, i64 %time
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %time
   store double %exercise, ptr %arrayidx.i, align 8, !tbaa !31
   br label %if.end29
 
@@ -763,7 +753,7 @@ if.end29:                                         ; preds = %if.then26, %do.end
   br i1 %cmp.i.i, label %if.end34, label %if.then31
 
 if.then31:                                        ; preds = %if.end29
-  %add.ptr.i = getelementptr inbounds nuw %"class.QuantLib::Array", ptr %22, i64 %time
+  %add.ptr.i = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %time
   %24 = load ptr, ptr %add.ptr.i, align 8, !tbaa !18
   store ptr null, ptr %add.ptr.i, align 8, !tbaa !18
   %n_3.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8

@@ -3989,7 +3989,7 @@ define hidden i64 @rb_flo_round_by_rational(i32 noundef %0, ptr noundef readonly
 
 6:                                                ; preds = %3
   %7 = zext nneg i32 %0 to i64
-  %8 = getelementptr i64, ptr %1, i64 %7
+  %8 = getelementptr [8 x i8], ptr %1, i64 %7
   %9 = getelementptr i8, ptr %8, i64 -8
   %10 = load i64, ptr %9, align 8, !tbaa !18
   %11 = tail call i32 @rb_keyword_given_p() #19
@@ -4030,7 +4030,7 @@ rb_scan_args_n_opt.exit:
 
 4:                                                ; preds = %rb_scan_args_n_opt.exit
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr i64, ptr %1, i64 %5
+  %6 = getelementptr [8 x i8], ptr %1, i64 %5
   %7 = getelementptr i8, ptr %6, i64 -8
   %8 = load i64, ptr %7, align 8, !tbaa !18
   %9 = tail call i32 @rb_keyword_given_p() #19
@@ -7002,7 +7002,7 @@ define internal fastcc i64 @parse_rat(ptr noundef %0, ptr noundef %1, i32 nounde
   %.05.i = phi ptr [ %0, %.lr.ph.i ], [ %23, %22 ]
   %17 = load i8, ptr %.05.i, align 1, !tbaa !12
   %18 = zext i8 %17 to i64
-  %19 = getelementptr i16, ptr %14, i64 %18
+  %19 = getelementptr [2 x i8], ptr %14, i64 %18
   %20 = load i16, ptr %19, align 2, !tbaa !36
   %21 = and i16 %20, 8192
   %.not.i = icmp eq i16 %21, 0
@@ -7116,7 +7116,7 @@ read_sign.exit:                                   ; preds = %skip_ws.exit, %25, 
   %.05.i41 = phi ptr [ %58, %.lr.ph.i39 ], [ %72, %71 ]
   %66 = load i8, ptr %.05.i41, align 1, !tbaa !12
   %67 = zext i8 %66 to i64
-  %68 = getelementptr i16, ptr %63, i64 %67
+  %68 = getelementptr [2 x i8], ptr %63, i64 %67
   %69 = load i16, ptr %68, align 2, !tbaa !36
   %70 = and i16 %69, 8192
   %.not.i42 = icmp eq i16 %70, 0
@@ -7160,7 +7160,7 @@ skip_ws.exit44:                                   ; preds = %65, %71, %57
   %.05.i48 = phi ptr [ %41, %.lr.ph.i46 ], [ %90, %89 ]
   %84 = load i8, ptr %.05.i48, align 1, !tbaa !12
   %85 = zext i8 %84 to i64
-  %86 = getelementptr i16, ptr %81, i64 %85
+  %86 = getelementptr [2 x i8], ptr %81, i64 %85
   %87 = load i16, ptr %86, align 2, !tbaa !36
   %88 = and i16 %87, 8192
   %.not.i49 = icmp eq i16 %88, 0
@@ -7579,7 +7579,7 @@ rb_scan_args_n_opt.exit:
 
 4:                                                ; preds = %rb_scan_args_n_opt.exit
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr i64, ptr %1, i64 %5
+  %6 = getelementptr [8 x i8], ptr %1, i64 %5
   %7 = getelementptr i8, ptr %6, i64 -8
   %8 = load i64, ptr %7, align 8, !tbaa !18
   %9 = tail call i32 @rb_keyword_given_p() #19

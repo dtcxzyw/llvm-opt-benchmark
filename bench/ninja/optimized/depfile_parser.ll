@@ -535,7 +535,7 @@ _ZNSt6vectorI11StringPieceSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i: ; pre
 _ZNSt6vectorI11StringPieceSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i: ; preds = %225, %_ZNSt6vectorI11StringPieceSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i
   store ptr %220, ptr %10, align 8, !tbaa !27
   store ptr %224, ptr %11, align 8, !tbaa !26
-  %226 = getelementptr inbounds nuw %struct.StringPiece, ptr %220, i64 %218
+  %226 = getelementptr inbounds nuw [16 x i8], ptr %220, i64 %218
   store ptr %226, ptr %12, align 8, !tbaa !21
   br label %_ZNSt6vectorI11StringPieceSaIS0_EE9push_backERKS0_.exit.thread
 
@@ -609,7 +609,7 @@ _ZNSt6vectorI11StringPieceSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i251: ; 
 _ZNSt6vectorI11StringPieceSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i254: ; preds = %256, %_ZNSt6vectorI11StringPieceSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i251
   store ptr %251, ptr %0, align 8, !tbaa !27
   store ptr %255, ptr %13, align 8, !tbaa !26
-  %257 = getelementptr inbounds nuw %struct.StringPiece, ptr %251, i64 %249
+  %257 = getelementptr inbounds nuw [16 x i8], ptr %251, i64 %249
   store ptr %257, ptr %14, align 8, !tbaa !21
   br label %_ZNSt6vectorI11StringPieceSaIS0_EE9push_backERKS0_.exit.thread
 

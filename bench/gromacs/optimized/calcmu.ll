@@ -8,7 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.gmx::ArrayRefIter.1" = type { ptr }
 %"class.gmx::ArrayRef" = type { %"struct.gmx::ArrayRefIter", %"struct.gmx::ArrayRefIter" }
 %"struct.gmx::ArrayRefIter" = type { ptr }
-%"class.gmx::BasicVector" = type { [3 x float] }
 
 @0 = private unnamed_addr constant [23 x i8] c";unknown;unknown;0;0;;\00", align 1
 @1 = private unnamed_addr constant %struct.ident_t { i32 0, i32 514, i32 0, i32 22, ptr @0 }, align 8
@@ -57,7 +56,7 @@ define void @_Z7calc_muiiN3gmx8ArrayRefIKNS_11BasicVectorIfEEEENS0_IKfEES6_bPdS7
 
 28:                                               ; preds = %10, %28
   %indvars.iv = phi i64 [ 0, %10 ], [ %indvars.iv.next, %28 ]
-  %29 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %30 = load double, ptr %29, align 8, !tbaa !8
   %31 = fmul double %30, 0x4048041A1EC6696C
   store double %31, ptr %29, align 8, !tbaa !8
@@ -159,9 +158,9 @@ define internal void @_Z7calc_muiiN3gmx8ArrayRefIKNS_11BasicVectorIfEEEENS0_IKfE
   %37 = phi double [ 0.000000e+00, %.lr.ph ], [ %56, %34 ]
   %38 = add i32 %.032, %18
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds float, ptr %31, i64 %39
+  %40 = getelementptr inbounds [4 x i8], ptr %31, i64 %39
   %41 = load float, ptr %40, align 4, !tbaa !12
-  %42 = getelementptr inbounds %"class.gmx::BasicVector", ptr %33, i64 %39
+  %42 = getelementptr inbounds [12 x i8], ptr %33, i64 %39
   %43 = load float, ptr %42, align 4, !tbaa !12
   %44 = fmul float %41, %43
   %45 = fpext float %44 to double
@@ -343,9 +342,9 @@ define internal void @_Z7calc_muiiN3gmx8ArrayRefIKNS_11BasicVectorIfEEEENS0_IKfE
   %37 = phi double [ 0.000000e+00, %.lr.ph ], [ %56, %34 ]
   %38 = add i32 %.032, %18
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds float, ptr %31, i64 %39
+  %40 = getelementptr inbounds [4 x i8], ptr %31, i64 %39
   %41 = load float, ptr %40, align 4, !tbaa !12
-  %42 = getelementptr inbounds %"class.gmx::BasicVector", ptr %33, i64 %39
+  %42 = getelementptr inbounds [12 x i8], ptr %33, i64 %39
   %43 = load float, ptr %42, align 4, !tbaa !12
   %44 = fmul float %41, %43
   %45 = fpext float %44 to double

@@ -1483,7 +1483,7 @@ _ZN4core4iter6traits8iterator8Iterator3zip17hf05ab30e7247b6e9E.exit.i: ; preds =
   %45 = add nuw nsw i64 %.sroa.12.041.i, 1
   %46 = shl nuw nsw i64 %.sroa.12.041.i, 2
   %47 = getelementptr inbounds nuw i8, ptr %12, i64 %46
-  %48 = getelementptr inbounds nuw i32, ptr %0, i64 %.sroa.12.041.i
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.sroa.12.041.i
   %49 = load i32, ptr %48, align 4, !alias.scope !156, !noalias !164, !noundef !4
   %50 = call i32 @llvm.bswap.i32(i32 %49)
   store i32 %50, ptr %47, align 1, !alias.scope !200, !noalias !204
@@ -9078,7 +9078,7 @@ define hidden noundef nonnull align 1 dereferenceable(32) ptr @"_ZN51_$LT$T$u20$
 
 ; Function Attrs: nofree norecurse nounwind nonlazybind memory(argmem: read) uwtable
 define hidden noundef zeroext i1 @"_ZN53_$LT$T$u20$as$u20$core..slice..cmp..SliceContains$GT$14slice_contains17hbc3279ad02aebf37E"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 captures(address) %1, i64 noundef %2) unnamed_addr #8 personality ptr @rust_eh_personality {
-  %4 = getelementptr inbounds { [32 x i8] }, ptr %1, i64 %2
+  %4 = getelementptr inbounds [32 x i8], ptr %1, i64 %2
   br label %5
 
 5:                                                ; preds = %7, %3
@@ -9897,7 +9897,7 @@ define hidden noundef ptr @"_ZN5tokio7runtime9scheduler12multi_thread5queue14Loc
   %26 = zext nneg i32 %25 to i64
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %28 = load ptr, ptr %27, align 8, !nonnull !4, !align !16, !noundef !4
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %26
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %26
   %30 = load ptr, ptr %29, align 8
   br label %37
 
@@ -11143,7 +11143,7 @@ default.unreachable321:                           ; preds = %406, %354, %69, %50
   %138 = load ptr, ptr %137, align 8, !noalias !1771, !nonnull !4, !align !16, !noundef !4
   %139 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %140 = load i64, ptr %139, align 8, !noalias !1771, !noundef !4
-  %141 = getelementptr inbounds { { { ptr, i64 }, i64 }, { i8, [64 x i8] }, { i8, [64 x i8] }, [6 x i8] }, ptr %138, i64 %140
+  %141 = getelementptr inbounds [160 x i8], ptr %138, i64 %140
   %142 = getelementptr inbounds nuw i8, ptr %1, i64 240
   store ptr %138, ptr %142, align 8, !noalias !1771
   %143 = getelementptr inbounds nuw i8, ptr %1, i64 248
@@ -11439,7 +11439,7 @@ default.unreachable321:                           ; preds = %406, %354, %69, %50
 261:                                              ; preds = %.noexc106.i.i, %250
   %262 = phi i64 [ %.pre.i.i.i, %.noexc106.i.i ], [ %254, %250 ]
   %263 = load ptr, ptr %215, align 8, !alias.scope !1810, !noalias !1813, !nonnull !4, !noundef !4
-  %264 = getelementptr inbounds { { [32 x i8] }, { i64, i64, { i8, [65 x i8] }, { i8, [32 x i8] }, i8, [4 x i8] }, { i8, [65 x i8] }, [6 x i8] }, ptr %263, i64 %262
+  %264 = getelementptr inbounds [224 x i8], ptr %263, i64 %262
   store <32 x i8> %.val93294.i.i, ptr %264, align 8, !noalias !1775
   %.sroa.5209.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %264, i64 32
   store i64 %252, ptr %.sroa.5209.0..sroa_idx.i.i, align 8, !noalias !1775
@@ -12397,7 +12397,7 @@ common.ret:                                       ; preds = %"_ZN14ockam_identit
 627:                                              ; preds = %618
   %628 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %629 = load ptr, ptr %628, align 8, !noalias !1838, !nonnull !4, !align !16, !noundef !4
-  %630 = getelementptr inbounds { { [32 x i8] }, { i64, i64, { i8, [65 x i8] }, { i8, [32 x i8] }, i8, [4 x i8] }, { i8, [65 x i8] }, [6 x i8] }, ptr %629, i64 %619
+  %630 = getelementptr inbounds [224 x i8], ptr %629, i64 %619
   br label %623
 
 631:                                              ; preds = %618
@@ -12438,7 +12438,7 @@ common.ret:                                       ; preds = %"_ZN14ockam_identit
 
 .thread.i117:                                     ; preds = %635
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val59.i) ]
-  %646 = getelementptr inbounds { { { ptr, i64 }, i64 }, { i8, [64 x i8] }, { i8, [64 x i8] }, [6 x i8] }, ptr %637, i64 %384
+  %646 = getelementptr inbounds [160 x i8], ptr %637, i64 %384
   %.sroa.783.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 448
   store ptr %.val.i, ptr %.sroa.783.0..sroa_idx.i, align 8, !noalias !1838
   %.sroa.884.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 456
@@ -14384,7 +14384,7 @@ _ZN5alloc3fmt6format17h31a4ee338d1d039bE.exit.i.i: ; preds = %260
   %390 = load ptr, ptr %382, align 8, !alias.scope !2226, !noalias !2229, !nonnull !4, !noundef !4
   %391 = load i64, ptr %.sroa.5299.0..sroa_idx, align 8, !alias.scope !2226, !noalias !2229, !noundef !4
   %.not.i = icmp eq i64 %391, 0
-  %392 = getelementptr { { [32 x i8] }, { i64, i64, { i8, [65 x i8] }, { i8, [32 x i8] }, i8, [4 x i8] }, { i8, [65 x i8] }, [6 x i8] }, ptr %390, i64 %391
+  %392 = getelementptr [224 x i8], ptr %390, i64 %391
   %393 = getelementptr i8, ptr %392, i64 -224
   %.not1314.i = icmp eq ptr %393, null
   %.not13.i = or i1 %.not.i, %.not1314.i
@@ -18227,7 +18227,7 @@ default.unreachable564:                           ; preds = %447, %416, %393, %2
   %275 = load ptr, ptr %170, align 8, !alias.scope !2719, !nonnull !4, !noundef !4
   %276 = getelementptr inbounds nuw i8, ptr %0, i64 1824
   %277 = load i64, ptr %276, align 8, !alias.scope !2719, !noundef !4
-  %278 = getelementptr inbounds { { { { ptr, i64 }, i64 }, { i8, [64 x i8] }, [7 x i8] }, { { { ptr, i64 }, i64 }, { i8, [64 x i8] }, [7 x i8] } }, ptr %275, i64 %277
+  %278 = getelementptr inbounds [192 x i8], ptr %275, i64 %277
   %279 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %275, ptr %279, align 8
   %280 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -19440,7 +19440,7 @@ default.unreachable564:                           ; preds = %447, %416, %393, %2
   %690 = load ptr, ptr %689, align 8, !noalias !2786, !nonnull !4, !align !15, !noundef !4
   %691 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %692 = load i64, ptr %691, align 8, !noalias !2786, !noundef !4
-  %693 = getelementptr inbounds { [32 x i8] }, ptr %690, i64 %692
+  %693 = getelementptr inbounds [32 x i8], ptr %690, i64 %692
   br label %694
 
 694:                                              ; preds = %696, %688
@@ -23318,10 +23318,10 @@ define noundef zeroext i1 @"_ZN94_$LT$ockam_identity..secure_channel..handshake.
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !452, !noundef !4
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN94_$LT$ockam_identity..secure_channel..handshake..error..XXError$u20$as$u20$core..fmt..Debug$GT$3fmt17h8c33b14cfaaef4e1E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN94_$LT$ockam_identity..secure_channel..handshake..error..XXError$u20$as$u20$core..fmt..Debug$GT$3fmt17h8c33b14cfaaef4e1E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN94_$LT$ockam_identity..secure_channel..handshake..error..XXError$u20$as$u20$core..fmt..Debug$GT$3fmt17h8c33b14cfaaef4e1E.96", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN94_$LT$ockam_identity..secure_channel..handshake..error..XXError$u20$as$u20$core..fmt..Debug$GT$3fmt17h8c33b14cfaaef4e1E.96", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hf5c6803265aa79e0E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5

@@ -192,7 +192,7 @@ sub_0:                                            ; preds = %sub_0.preheader, %4
   %.045125 = phi i32 [ 0, %sub_0.preheader ], [ %.146, %49 ]
   %.047124 = phi i32 [ 0, %sub_0.preheader ], [ %.148, %49 ]
   %.049123 = phi i32 [ 0, %sub_0.preheader ], [ %.150, %49 ]
-  %12 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !4
   %14 = load i8, ptr %13, align 1
   %.not133 = icmp eq i8 %14, 45
@@ -352,7 +352,7 @@ sub_1101:                                         ; preds = %.tail.thread, %.thr
   store i32 %.047114, ptr %53, align 8, !tbaa !15
   store i32 %.045111, ptr %54, align 4, !tbaa !16
   store i32 %.043108, ptr %55, align 4, !tbaa !17
-  %86 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv152
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv152
   %87 = load ptr, ptr %86, align 8, !tbaa !4
   %88 = icmp eq ptr %87, null
   br i1 %88, label %91, label %89
@@ -528,7 +528,7 @@ ParseChunk.exit.thread65.i:                       ; preds = %166
 
 .preheader.i.i:                                   ; preds = %156, %166
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %166 ], [ 0, %156 ]
-  %163 = getelementptr inbounds nuw i32, ptr @kWebPChunkTags, i64 %indvars.iv.i.i
+  %163 = getelementptr inbounds nuw [4 x i8], ptr @kWebPChunkTags, i64 %indvars.iv.i.i
   %164 = load i32, ptr %163, align 4, !tbaa !22
   %165 = icmp eq i32 %164, %.val.i.i.i.i
   br i1 %165, label %167, label %166
@@ -592,7 +592,7 @@ ParseChunk.exit.i:                                ; preds = %167
 
 189:                                              ; preds = %187
   %190 = zext i32 %.sroa.27.158.i to i64
-  %191 = getelementptr inbounds nuw i32, ptr @kWebPChunkTags, i64 %190
+  %191 = getelementptr inbounds nuw [4 x i8], ptr @kWebPChunkTags, i64 %190
   %192 = load i32, ptr %191, align 4, !tbaa !22
   %sext.i.i = shl i32 %192, 24
   %193 = ashr exact i32 %sext.i.i, 24
@@ -646,7 +646,7 @@ ParseChunk.exit.i:                                ; preds = %167
   %215 = load i32, ptr %78, align 4, !tbaa !28
   %216 = load i32, ptr %79, align 4, !tbaa !29
   %217 = sext i32 %216 to i64
-  %218 = getelementptr inbounds ptr, ptr @kFormats, i64 %217
+  %218 = getelementptr inbounds [8 x i8], ptr @kFormats, i64 %217
   %219 = load ptr, ptr %218, align 8, !tbaa !4
   %220 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.37, i32 noundef %212, i32 noundef %213, i32 noundef %214, i32 noundef %215, ptr noundef %219, i32 noundef %216)
   br label %221
@@ -840,7 +840,7 @@ ParseChunk.exit.i:                                ; preds = %167
 
 311:                                              ; preds = %308, %292, %284
   %312 = zext nneg i32 %.sroa.27.158.i to i64
-  %313 = getelementptr inbounds nuw i32, ptr %57, i64 %312
+  %313 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %312
   %314 = load i32, ptr %313, align 4, !tbaa !22
   %315 = add nsw i32 %314, 1
   store i32 %315, ptr %313, align 4, !tbaa !22
@@ -1168,7 +1168,7 @@ ProcessImageChunk.exit.i.i:                       ; preds = %331, %329, %289, %2
   %475 = and i32 %474, 3
   %476 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.112, i32 noundef %471)
   %477 = zext nneg i32 %473 to i64
-  %478 = getelementptr inbounds nuw ptr, ptr @kAlphaFilterMethods, i64 %477
+  %478 = getelementptr inbounds nuw [8 x i8], ptr @kAlphaFilterMethods, i64 %477
   %479 = load ptr, ptr %478, align 8, !tbaa !4
   %480 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.113, ptr noundef %479, i32 noundef %473)
   %481 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.114, i32 noundef %475)
@@ -1482,7 +1482,7 @@ ParseAlphaHeader.exit.i.i.i:                      ; preds = %506, %504
 
 644:                                              ; preds = %201, %201
   %645 = zext nneg i32 %.sroa.27.158.i to i64
-  %646 = getelementptr inbounds nuw i32, ptr %57, i64 %645
+  %646 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %645
   %647 = load i32, ptr %646, align 4, !tbaa !22
   %648 = add nsw i32 %647, 1
   store i32 %648, ptr %646, align 4, !tbaa !22
@@ -1549,7 +1549,7 @@ ProcessChunk.exit.i:                              ; preds = %660, %657, %Process
 
 669:                                              ; preds = %679, %665
   %indvars.iv.i35.i = phi i64 [ 0, %665 ], [ %indvars.iv.next.i36.i, %679 ]
-  %670 = getelementptr inbounds nuw i32, ptr %57, i64 %indvars.iv.i35.i
+  %670 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %indvars.iv.i35.i
   %671 = load i32, ptr %670, align 4, !tbaa !22
   %672 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.139, i32 noundef %671)
   %673 = icmp eq i64 %indvars.iv.i35.i, 5
@@ -2660,7 +2660,7 @@ GetBits.exit129:                                  ; preds = %78
   br i1 %.not84, label %.critedge97, label %.critedge97.sink.split
 
 92:                                               ; preds = %GetBits.exit129
-  %93 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   store i32 0, ptr %93, align 4, !tbaa !22
   br label %94
 
@@ -2753,7 +2753,7 @@ GetBits.exit137:                                  ; preds = %.preheader
   br i1 %.not79, label %.critedge97, label %.critedge97.sink.split
 
 137:                                              ; preds = %GetBits.exit137
-  %138 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv271
+  %138 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv271
   store i32 0, ptr %138, align 4, !tbaa !22
   br label %139
 
@@ -2876,7 +2876,7 @@ GetBits.exit155:                                  ; preds = %189
   br i1 %.not90, label %.critedge99, label %.critedge99.sink.split
 
 203:                                              ; preds = %GetBits.exit155
-  %204 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv275
+  %204 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv275
   store i32 0, ptr %204, align 4, !tbaa !22
   br label %205
 
@@ -3304,7 +3304,7 @@ define internal fastcc range(i32 0, 2) i32 @ParseLosslessTransform(ptr noundef n
 
 LLGetBits.exit30:                                 ; preds = %30
   %46 = zext nneg i32 %39 to i64
-  %47 = getelementptr inbounds nuw ptr, ptr @kLosslessTransforms, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr @kLosslessTransforms, i64 %46
   %48 = load ptr, ptr %47, align 8, !tbaa !4
   %49 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.90, ptr noundef %48, i32 noundef %39)
   switch i32 %39, label %.critedge [

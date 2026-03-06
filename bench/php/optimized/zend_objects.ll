@@ -26,7 +26,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._zend_call_stack = type { ptr, i64 }
 %struct._zend_strtod_state = type { [8 x ptr], ptr, ptr }
 %struct._zend_object_handlers = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct._Bucket = type { %struct._zval_struct, i64, ptr }
 
 @executor_globals = external global %struct._zend_executor_globals, align 8
 @.str = private unnamed_addr constant [43 x i8] c"Call to private %s::__destruct() from %s%s\00", align 1
@@ -67,7 +66,7 @@ define dso_local void @zend_object_std_init(ptr noundef initializes((0, 8), (12,
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %17 = load i32, ptr %16, align 8, !tbaa !36
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds %struct._zval_struct, ptr %14, i64 %18
+  %19 = getelementptr inbounds [16 x i8], ptr %14, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i32 0, ptr %20, align 8, !tbaa !9
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 12
@@ -151,7 +150,7 @@ define hidden void @zend_object_dtor_property(ptr noundef %0, ptr noundef %1) lo
   %26 = sext i32 %25 to i64
   %27 = icmp slt i64 %22, %26
   tail call void @llvm.assume(i1 %27)
-  %28 = getelementptr inbounds nuw ptr, ptr %17, i64 %22
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %22
   %29 = load ptr, ptr %28, align 8, !tbaa !40
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 48
   %31 = load i32, ptr %30, align 8, !tbaa !42
@@ -278,7 +277,7 @@ zend_object_dtor_dynamic_properties.exit:         ; preds = %11, %14, %18, %24
 
 30:                                               ; preds = %zend_object_dtor_dynamic_properties.exit
   %31 = sext i32 %29 to i64
-  %32 = getelementptr inbounds %struct._zval_struct, ptr %25, i64 %31
+  %32 = getelementptr inbounds [16 x i8], ptr %25, i64 %31
   br label %33
 
 33:                                               ; preds = %33, %30
@@ -603,7 +602,7 @@ define dso_local noundef ptr @zend_objects_new(ptr noundef %0) local_unnamed_add
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %26 = load i32, ptr %25, align 8, !tbaa !36
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds %struct._zval_struct, ptr %23, i64 %27
+  %28 = getelementptr inbounds [16 x i8], ptr %23, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i32 0, ptr %29, align 8, !tbaa !9
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 12
@@ -634,7 +633,7 @@ define dso_local void @zend_objects_clone_members(ptr noundef %0, ptr noundef %1
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %14 = sext i32 %10 to i64
-  %15 = getelementptr inbounds %struct._zval_struct, ptr %12, i64 %14
+  %15 = getelementptr inbounds [16 x i8], ptr %12, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = ptrtoint ptr %13 to i64
   br label %18
@@ -731,7 +730,7 @@ i_zval_ptr_dtor.exit:                             ; preds = %41, %37, %31, %18, 
   %64 = sext i32 %63 to i64
   %65 = icmp slt i64 %60, %64
   tail call void @llvm.assume(i1 %65)
-  %66 = getelementptr inbounds nuw ptr, ptr %57, i64 %60
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %60
   %67 = load ptr, ptr %66, align 8, !tbaa !40
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 48
   %69 = load i32, ptr %68, align 8, !tbaa !42
@@ -900,7 +899,7 @@ i_zval_ptr_dtor.exit:                             ; preds = %41, %37, %31, %18, 
   %154 = getelementptr inbounds nuw i8, ptr %149, i64 16
   %155 = load ptr, ptr %154, align 8, !tbaa !9
   %156 = zext i32 %152 to i64
-  %157 = getelementptr inbounds nuw %struct._Bucket, ptr %155, i64 %156
+  %157 = getelementptr inbounds nuw [32 x i8], ptr %155, i64 %156
   %158 = load ptr, ptr %3, align 8, !tbaa !9
   %159 = load i32, ptr %122, align 8, !tbaa !9
   store ptr %158, ptr %157, align 8, !tbaa !9
@@ -951,12 +950,12 @@ _zend_hash_append_ex.exit:                        ; preds = %175, %zend_string_a
   %184 = or i32 %183, %181
   %185 = load ptr, ptr %154, align 8, !tbaa !9
   %186 = sext i32 %184 to i64
-  %187 = getelementptr inbounds i32, ptr %185, i64 %186
+  %187 = getelementptr inbounds [4 x i8], ptr %185, i64 %186
   %188 = load i32, ptr %187, align 4, !tbaa !93
   %189 = getelementptr inbounds nuw i8, ptr %157, i64 12
   store i32 %188, ptr %189, align 4, !tbaa !9
   %190 = load ptr, ptr %154, align 8, !tbaa !9
-  %191 = getelementptr inbounds i32, ptr %190, i64 %186
+  %191 = getelementptr inbounds [4 x i8], ptr %190, i64 %186
   store i32 %152, ptr %191, align 4, !tbaa !93
   %192 = getelementptr inbounds nuw i8, ptr %149, i64 28
   %193 = load i32, ptr %192, align 4, !tbaa !85
@@ -1004,7 +1003,7 @@ _zend_hash_append_ex.exit:                        ; preds = %175, %zend_string_a
 
 .lr.ph112:                                        ; preds = %.preheader, %.lr.ph112
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph112 ], [ 0, %.preheader ]
-  %213 = getelementptr inbounds nuw %struct._zval_struct, ptr %0, i64 %indvars.iv
+  %213 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %indvars.iv
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 52
   %215 = load i32, ptr %214, align 4, !tbaa !9
   %216 = and i32 %215, -3
@@ -1109,7 +1108,7 @@ define dso_local ptr @zend_objects_clone_obj(ptr noundef %0) local_unnamed_addr 
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %34 = load i32, ptr %33, align 8, !tbaa !36
   %35 = sext i32 %34 to i64
-  %36 = getelementptr inbounds %struct._zval_struct, ptr %31, i64 %35
+  %36 = getelementptr inbounds [16 x i8], ptr %31, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store i32 0, ptr %37, align 8, !tbaa !9
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 12
@@ -1126,7 +1125,7 @@ zend_objects_new.exit:                            ; preds = %7, %30
 42:                                               ; preds = %zend_objects_new.exit
   %43 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %44 = sext i32 %41 to i64
-  %45 = getelementptr inbounds %struct._zval_struct, ptr %43, i64 %44
+  %45 = getelementptr inbounds [16 x i8], ptr %43, i64 %44
   br label %46
 
 46:                                               ; preds = %46, %42

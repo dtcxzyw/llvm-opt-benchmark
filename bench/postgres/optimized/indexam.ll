@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.LockRelId = type { i32, i32 }
-%struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
-%struct.IndexOrderByDistance = type { double, i8 }
 %struct.local_relopts = type { ptr, ptr, i64 }
 
 @.str = private unnamed_addr constant [53 x i8] c"cannot access index \22%s\22 while it is being reindexed\00", align 1
@@ -1061,7 +1059,7 @@ define dso_local ptr @index_getprocinfo(ptr noundef %0, i16 noundef signext %1, 
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %18 = load ptr, ptr %17, align 8
   %19 = sext i32 %16 to i64
-  %20 = getelementptr inbounds %struct.FmgrInfo, ptr %18, i64 %19
+  %20 = getelementptr inbounds [48 x i8], ptr %18, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load i32, ptr %21, align 8
   %23 = icmp eq i32 %22, 0
@@ -1070,7 +1068,7 @@ define dso_local ptr @index_getprocinfo(ptr noundef %0, i16 noundef signext %1, 
 24:                                               ; preds = %3
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds i32, ptr %26, i64 %19
+  %27 = getelementptr inbounds [4 x i8], ptr %26, i64 %19
   %28 = load i32, ptr %27, align 4
   %.not = icmp eq i32 %28, 0
   br i1 %.not, label %29, label %35
@@ -1097,7 +1095,7 @@ define dso_local ptr @index_getprocinfo(ptr noundef %0, i16 noundef signext %1, 
   %41 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %40, ptr @CurrentMemoryContext, align 8
   %42 = sext i32 %12 to i64
-  %43 = getelementptr inbounds ptr, ptr %39, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %39, i64 %42
   %44 = load ptr, ptr %43, align 8
   tail call void @set_fn_opclass_options(ptr noundef nonnull %20, ptr noundef %44) #6
   store ptr %41, ptr @CurrentMemoryContext, align 8
@@ -1131,7 +1129,7 @@ define dso_local void @index_store_float8_orderby_distances(ptr noundef captures
 
 .lr.ph.split.us.split.us:                         ; preds = %.lr.ph, %20
   %indvars.iv45 = phi i64 [ %indvars.iv.next46, %20 ], [ 0, %.lr.ph ]
-  %12 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv45
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv45
   %13 = load i32, ptr %12, align 4
   %14 = and i32 %13, -2
   %switch = icmp eq i32 %14, 700
@@ -1144,7 +1142,7 @@ define dso_local void @index_store_float8_orderby_distances(ptr noundef captures
 
 .sink.split:                                      ; preds = %.lr.ph.split.us.split.us
   %18 = load ptr, ptr %10, align 8
-  %19 = getelementptr inbounds nuw i64, ptr %18, i64 %indvars.iv45
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv45
   store i64 0, ptr %19, align 8
   br label %20
 
@@ -1160,7 +1158,7 @@ define dso_local void @index_store_float8_orderby_distances(ptr noundef captures
 
 .lr.ph.split.split:                               ; preds = %.lr.ph, %52
   %indvars.iv = phi i64 [ %indvars.iv.next, %52 ], [ 0, %.lr.ph ]
-  %26 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %27 = load i32, ptr %26, align 4
   switch i32 %27, label %45 [
     i32 701, label %28
@@ -1168,7 +1166,7 @@ define dso_local void @index_store_float8_orderby_distances(ptr noundef captures
   ]
 
 28:                                               ; preds = %.lr.ph.split.split
-  %29 = getelementptr inbounds nuw %struct.IndexOrderByDistance, ptr %2, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %indvars.iv
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load i8, ptr %30, align 8, !range !5, !noundef !6
   %32 = trunc nuw i8 %31 to i1
@@ -1179,7 +1177,7 @@ define dso_local void @index_store_float8_orderby_distances(ptr noundef captures
   br label %.sink.split55
 
 35:                                               ; preds = %.lr.ph.split.split
-  %36 = getelementptr inbounds nuw %struct.IndexOrderByDistance, ptr %2, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %indvars.iv
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load i8, ptr %37, align 8, !range !5, !noundef !6
   %39 = trunc nuw i8 %38 to i1
@@ -1207,7 +1205,7 @@ define dso_local void @index_store_float8_orderby_distances(ptr noundef captures
   %.sink56 = phi i64 [ 0, %28 ], [ %34, %33 ], [ %44, %40 ], [ 0, %35 ]
   %.sink.ph = phi i8 [ 1, %28 ], [ 0, %33 ], [ 0, %40 ], [ 1, %35 ]
   %50 = load ptr, ptr %10, align 8
-  %51 = getelementptr inbounds nuw i64, ptr %50, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv
   store i64 %.sink56, ptr %51, align 8
   br label %52
 
@@ -1267,7 +1265,7 @@ define dso_local ptr @index_opclass_options(ptr noundef %0, i16 noundef signext 
   %30 = inttoptr i64 %29 to ptr
   %31 = sext i16 %1 to i64
   %32 = getelementptr i8, ptr %30, i64 20
-  %33 = getelementptr i32, ptr %32, i64 %31
+  %33 = getelementptr [4 x i8], ptr %32, i64 %31
   %34 = load i32, ptr %33, align 4
   %35 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #7
   %36 = tail call i32 @errcode(i32 noundef 50856066) #6

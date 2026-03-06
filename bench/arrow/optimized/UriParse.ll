@@ -2077,7 +2077,7 @@ define i32 @uriParseUriW(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 5:                                                ; preds = %2
   %6 = tail call i64 @wcslen(ptr noundef nonnull %1) #8
-  %7 = getelementptr inbounds nuw i32, ptr %1, i64 %6
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %6
   %8 = tail call fastcc i32 @uriParseUriExMmW(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %7, ptr noundef null)
   br label %9
 
@@ -2106,7 +2106,7 @@ define i32 @uriParseSingleUriW(ptr noundef %0, ptr noundef %1, ptr noundef write
   br i1 %7, label %uriParseSingleUriExW.exit, label %8
 
 8:                                                ; preds = %5
-  %9 = getelementptr inbounds nuw i32, ptr %1, i64 %6
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %6
   store ptr %0, ptr %4, align 8, !tbaa !51
   %10 = call fastcc i32 @uriParseUriExMmW(ptr noundef nonnull %4, ptr noundef nonnull %1, ptr noundef nonnull %9, ptr noundef nonnull @defaultMemoryManager)
   %.not24.i.i = icmp eq i32 %10, 0
@@ -2142,7 +2142,7 @@ define i32 @uriParseSingleUriExW(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 8:                                                ; preds = %4
   %9 = tail call i64 @wcslen(ptr noundef nonnull %1) #8
-  %10 = getelementptr inbounds nuw i32, ptr %1, i64 %9
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %9
   br label %11
 
 11:                                               ; preds = %8, %4
@@ -2515,7 +2515,7 @@ define range(i32 0, 2) i32 @uri_TESTING_ONLY_ParseIpSixW(ptr noundef %0) local_u
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = tail call i64 @wcslen(ptr noundef %0) #8
-  %5 = getelementptr inbounds nuw i32, ptr %0, i64 %4
+  %5 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %4
   call void @uriResetUriW(ptr noundef nonnull %2) #7
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
@@ -2635,7 +2635,7 @@ define internal fastcc ptr @uriParseIPv6address2W(ptr noundef nonnull %0, ptr no
 45:                                               ; preds = %40
   %46 = zext nneg i32 %.1278 to i64
   %47 = sub nsw i64 0, %46
-  %48 = getelementptr inbounds i32, ptr %.1296, i64 %47
+  %48 = getelementptr inbounds [4 x i8], ptr %.1296, i64 %47
   %49 = load ptr, ptr %0, align 8, !tbaa !51
   %50 = call i32 @uriFreeUriMembersMmW(ptr noundef %49, ptr noundef %3)
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2655,7 +2655,7 @@ define internal fastcc ptr @uriParseIPv6address2W(ptr noundef nonnull %0, ptr no
 58:                                               ; preds = %53
   %59 = zext nneg i32 %.1278 to i64
   %60 = sub nsw i64 0, %59
-  %61 = getelementptr inbounds i32, ptr %.1296, i64 %60
+  %61 = getelementptr inbounds [4 x i8], ptr %.1296, i64 %60
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 4
   %63 = load ptr, ptr %0, align 8, !tbaa !51
   %64 = call i32 @uriFreeUriMembersMmW(ptr noundef %63, ptr noundef %3)
@@ -2749,7 +2749,7 @@ define internal fastcc ptr @uriParseIPv6address2W(ptr noundef nonnull %0, ptr no
 115:                                              ; preds = %110
   %116 = zext nneg i32 %.1278 to i64
   %117 = sub nsw i64 0, %116
-  %118 = getelementptr inbounds i32, ptr %.1296, i64 %117
+  %118 = getelementptr inbounds [4 x i8], ptr %.1296, i64 %117
   %119 = load ptr, ptr %0, align 8, !tbaa !51
   %120 = call i32 @uriFreeUriMembersMmW(ptr noundef %119, ptr noundef %3)
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2769,7 +2769,7 @@ define internal fastcc ptr @uriParseIPv6address2W(ptr noundef nonnull %0, ptr no
 128:                                              ; preds = %123
   %129 = zext nneg i32 %.1278 to i64
   %130 = sub nsw i64 0, %129
-  %131 = getelementptr inbounds i32, ptr %.1296, i64 %130
+  %131 = getelementptr inbounds [4 x i8], ptr %.1296, i64 %130
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 4
   %133 = load ptr, ptr %0, align 8, !tbaa !51
   %134 = call i32 @uriFreeUriMembersMmW(ptr noundef %133, ptr noundef %3)
@@ -3097,7 +3097,7 @@ define internal fastcc ptr @uriParseIPv6address2W(ptr noundef nonnull %0, ptr no
 293:                                              ; preds = %288
   %294 = zext nneg i32 %.3280 to i64
   %295 = sub nsw i64 0, %294
-  %296 = getelementptr inbounds i32, ptr %.2297, i64 %295
+  %296 = getelementptr inbounds [4 x i8], ptr %.2297, i64 %295
   %297 = load ptr, ptr %0, align 8, !tbaa !51
   %298 = call i32 @uriFreeUriMembersMmW(ptr noundef %297, ptr noundef %3)
   %299 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3117,7 +3117,7 @@ define internal fastcc ptr @uriParseIPv6address2W(ptr noundef nonnull %0, ptr no
 306:                                              ; preds = %301
   %307 = zext nneg i32 %.3280 to i64
   %308 = sub nsw i64 0, %307
-  %309 = getelementptr inbounds i32, ptr %.2297, i64 %308
+  %309 = getelementptr inbounds [4 x i8], ptr %.2297, i64 %308
   %310 = getelementptr inbounds nuw i8, ptr %309, i64 4
   %311 = load ptr, ptr %0, align 8, !tbaa !51
   %312 = call i32 @uriFreeUriMembersMmW(ptr noundef %311, ptr noundef %3)
@@ -3290,7 +3290,7 @@ define range(i32 0, 2) i32 @uri_TESTING_ONLY_ParseIpFourW(ptr noundef %0) local_
   %2 = alloca [4 x i8], align 1
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = tail call i64 @wcslen(ptr noundef %0) #8
-  %4 = getelementptr inbounds nuw i32, ptr %0, i64 %3
+  %4 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %3
   %5 = call i32 @uriParseIpFourAddressW(ptr noundef nonnull %2, ptr noundef %0, ptr noundef %4) #7
   %6 = icmp eq i32 %5, 0
   %7 = zext i1 %6 to i32

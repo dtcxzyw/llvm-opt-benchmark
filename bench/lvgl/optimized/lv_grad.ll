@@ -3,9 +3,6 @@ source_filename = "bench/lvgl/original/lv_grad.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.lv_grad_stop_t = type { %struct.lv_color_t, i8, i8 }
-%struct.lv_color_t = type { i8, i8, i8 }
-
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define void @lv_grad_init_stops(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = icmp slt i32 %4, 3
@@ -61,8 +58,8 @@ define void @lv_grad_init_stops(ptr noundef writeonly captures(address_is_null) 
 .split.us.split:                                  ; preds = %.split.us, %.split.us.split
   %18 = phi i1 [ false, %.split.us.split ], [ true, %.split.us ]
   %indvars.iv46 = phi i64 [ 1, %.split.us.split ], [ 0, %.split.us ]
-  %19 = getelementptr inbounds nuw %struct.lv_grad_stop_t, ptr %0, i64 %indvars.iv46
-  %20 = getelementptr inbounds nuw %struct.lv_color_t, ptr %1, i64 %indvars.iv46
+  %19 = getelementptr inbounds nuw [5 x i8], ptr %0, i64 %indvars.iv46
+  %20 = getelementptr inbounds nuw [3 x i8], ptr %1, i64 %indvars.iv46
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %19, ptr noundef nonnull align 1 dereferenceable(3) %20, i64 3, i1 false), !tbaa.struct !8
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv46
   %22 = load i8, ptr %21, align 1, !tbaa !9
@@ -105,8 +102,8 @@ define void @lv_grad_init_stops(ptr noundef writeonly captures(address_is_null) 
 .split.split:                                     ; preds = %.split, %.split.split
   %36 = phi i1 [ false, %.split.split ], [ true, %.split ]
   %indvars.iv = phi i64 [ 1, %.split.split ], [ 0, %.split ]
-  %37 = getelementptr inbounds nuw %struct.lv_grad_stop_t, ptr %0, i64 %indvars.iv
-  %38 = getelementptr inbounds nuw %struct.lv_color_t, ptr %1, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [5 x i8], ptr %0, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [3 x i8], ptr %1, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %37, ptr noundef nonnull align 1 dereferenceable(3) %38, i64 3, i1 false), !tbaa.struct !8
   %39 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv
   %40 = load i8, ptr %39, align 1, !tbaa !9

@@ -523,9 +523,9 @@ define internal range(i32 -1, 1) i32 @H5D__bt2_idx_insert(ptr noundef readonly c
 
 62:                                               ; preds = %.lr.ph, %62
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %62 ]
-  %63 = getelementptr inbounds nuw i64, ptr %61, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv
   %64 = load i64, ptr %63, align 8, !tbaa !43
-  %65 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   store i64 %64, ptr %65, align 8, !tbaa !43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -625,9 +625,9 @@ define internal range(i32 -1, 1) i32 @H5D__bt2_idx_get_addr(ptr noundef readonly
 
 48:                                               ; preds = %.lr.ph, %48
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %48 ]
-  %49 = getelementptr inbounds nuw i64, ptr %47, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv
   %50 = load i64, ptr %49, align 8, !tbaa !43
-  %51 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   store i64 %50, ptr %51, align 8, !tbaa !43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -882,9 +882,9 @@ define internal range(i32 -1, 1) i32 @H5D__bt2_idx_remove(ptr noundef readonly c
 
 42:                                               ; preds = %.lr.ph, %42
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
-  %43 = getelementptr inbounds nuw i64, ptr %41, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   %44 = load i64, ptr %43, align 8, !tbaa !43
-  %45 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   store i64 %44, ptr %45, align 8, !tbaa !43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1516,7 +1516,7 @@ define internal noundef i32 @H5D__bt2_unfilt_encode(ptr noundef %0, ptr noundef 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %26
   %18 = phi ptr [ %.pre, %.lr.ph.preheader ], [ %28, %26 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %26 ]
-  %19 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %20 = load i64, ptr %19, align 8, !tbaa !43
   br label %21
 
@@ -1581,7 +1581,7 @@ define internal noundef i32 @H5D__bt2_unfilt_decode(ptr noundef %0, ptr noundef 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %31 ]
   %.promoted182122 = phi ptr [ %.promoted20, %.lr.ph.preheader ], [ %32, %31 ]
-  %20 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store i64 0, ptr %20, align 8, !tbaa !43
   %21 = getelementptr inbounds nuw i8, ptr %.promoted182122, i64 8
   br label %22
@@ -1640,10 +1640,10 @@ define internal noundef i32 @H5D__bt2_unfilt_debug(ptr noundef captures(none) %0
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
   %.not = icmp eq i64 %indvars.iv, 0
   %21 = select i1 %.not, ptr @.str.10, ptr @.str.15
-  %22 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %23 = load i64, ptr %22, align 8, !tbaa !43
   %24 = load ptr, ptr %19, align 8, !tbaa !80
-  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv
   %26 = load i32, ptr %25, align 4, !tbaa !83
   %27 = zext i32 %26 to i64
   %28 = mul i64 %23, %27
@@ -1749,7 +1749,7 @@ define internal noundef i32 @H5D__bt2_filt_encode(ptr noundef %0, ptr noundef re
 .lr.ph44:                                         ; preds = %._crit_edge, %59
   %51 = phi ptr [ %61, %59 ], [ %48, %._crit_edge ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %59 ], [ 0, %._crit_edge ]
-  %52 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %53 = load i64, ptr %52, align 8, !tbaa !43
   br label %54
 
@@ -1862,7 +1862,7 @@ define internal noundef i32 @H5D__bt2_filt_decode(ptr noundef %0, ptr noundef %1
 .lr.ph39:                                         ; preds = %.lr.ph39.preheader, %62
   %indvars.iv = phi i64 [ 0, %.lr.ph39.preheader ], [ %indvars.iv.next, %62 ]
   %.promoted323536 = phi ptr [ %50, %.lr.ph39.preheader ], [ %63, %62 ]
-  %51 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store i64 0, ptr %51, align 8, !tbaa !43
   %52 = getelementptr inbounds nuw i8, ptr %.promoted323536, i64 8
   br label %53
@@ -1927,10 +1927,10 @@ define internal noundef i32 @H5D__bt2_filt_debug(ptr noundef captures(none) %0, 
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
   %.not = icmp eq i64 %indvars.iv, 0
   %27 = select i1 %.not, ptr @.str.10, ptr @.str.15
-  %28 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %29 = load i64, ptr %28, align 8, !tbaa !43
   %30 = load ptr, ptr %25, align 8, !tbaa !80
-  %31 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4, !tbaa !83
   %33 = zext i32 %32 to i64
   %34 = mul i64 %29, %33

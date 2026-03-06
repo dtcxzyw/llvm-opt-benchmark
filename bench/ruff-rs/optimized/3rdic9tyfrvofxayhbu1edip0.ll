@@ -806,7 +806,7 @@ define internal void @"_ZN4core3ptr88drop_in_place$LT$alloc..boxed..Box$LT$$u5b$
   br i1 %6, label %"_ZN4core3ptr63drop_in_place$LT$$u5b$ruff_python_ast..generated..Expr$u5d$$GT$17h39e718039da9f371E.exit", label %7
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %2, i64 %.sroa.0.0.i
+  %8 = getelementptr inbounds nuw [64 x i8], ptr %2, i64 %.sroa.0.0.i
   %9 = add i64 %.sroa.0.0.i, 1
   invoke fastcc void @"_ZN4core3ptr53drop_in_place$LT$ruff_python_ast..generated..Expr$GT$17he1d926483c2e3787E"(ptr noalias noundef align 8 dereferenceable(64) %8)
           to label %5 unwind label %12
@@ -822,7 +822,7 @@ define internal void @"_ZN4core3ptr88drop_in_place$LT$alloc..boxed..Box$LT$$u5b$
   br label %10
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds nuw { i32, [15 x i32] }, ptr %2, i64 %.sroa.0.1.i
+  %15 = getelementptr inbounds nuw [64 x i8], ptr %2, i64 %.sroa.0.1.i
   %16 = add i64 %.sroa.0.1.i, 1
   invoke fastcc void @"_ZN4core3ptr53drop_in_place$LT$ruff_python_ast..generated..Expr$GT$17he1d926483c2e3787E"(ptr noalias noundef align 8 dereferenceable(64) %15) #13
           to label %10 unwind label %17
@@ -1394,7 +1394,7 @@ define { ptr, ptr } @"_ZN91_$LT$$RF$ty_ide..NavigationTargets$u20$as$u20$core..i
   %7 = load i64, ptr %6, align 8, !alias.scope !121, !noalias !126
   %.sink11.i.i = select i1 %3, ptr %5, ptr %4
   %.sink10.i.i = select i1 %3, i64 %7, i64 %2
-  %8 = getelementptr inbounds nuw { i32, { i32, i32 }, { i32, i32 } }, ptr %.sink11.i.i, i64 %.sink10.i.i
+  %8 = getelementptr inbounds nuw [20 x i8], ptr %.sink11.i.i, i64 %.sink10.i.i
   %9 = insertvalue { ptr, ptr } poison, ptr %.sink11.i.i, 0
   %10 = insertvalue { ptr, ptr } %9, ptr %8, 1
   ret { ptr, ptr } %10

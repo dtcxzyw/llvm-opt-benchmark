@@ -5066,7 +5066,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit38.us: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i35.us
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %34 = getelementptr inbounds nuw %"class.cvc5::internal::BitVector", ptr %4, i64 %indvars.iv158198
+  %34 = getelementptr inbounds nuw [24 x i8], ptr %4, i64 %indvars.iv158198
   %35 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK4cvc58internal9BitVector8getValueEv(ptr noundef nonnull align 8 dereferenceable(24) %34)
           to label %36 unwind label %.split123.us
 
@@ -5400,7 +5400,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit65: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i62
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %143 = getelementptr inbounds nuw %"class.cvc5::internal::BitVector", ptr %4, i64 %indvars.iv197
+  %143 = getelementptr inbounds nuw [24 x i8], ptr %4, i64 %indvars.iv197
   invoke void @_ZNK4cvc58internal9BitVector8toStringB5cxx11Ej(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %143, i32 noundef 2)
           to label %144 unwind label %156
 

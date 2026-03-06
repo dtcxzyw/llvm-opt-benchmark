@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden noundef i32 @_ZNK10duckdb_re29Bitmap25614FindNextSetBitEi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, i32 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = sdiv i32 %1, 64
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds i64, ptr %0, i64 %4
+  %5 = getelementptr inbounds [8 x i8], ptr %0, i64 %4
   %6 = load i64, ptr %5, align 8, !tbaa !3
   %7 = srem i32 %1, 64
   %8 = zext nneg i32 %7 to i64

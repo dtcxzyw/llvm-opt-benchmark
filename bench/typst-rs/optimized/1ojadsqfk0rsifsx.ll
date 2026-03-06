@@ -2231,7 +2231,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hf95cca0234f68c8fE.exit: ; preds 
   %23 = tail call noundef double @"_ZN65_$LT$typst..layout..abs..Abs$u20$as$u20$core..ops..arith..Add$GT$3add17h115c2fd45cb045f2E"(double noundef %11, double noundef %22)
   %24 = load ptr, ptr %12, align 8, !nonnull !37, !noundef !37
   %25 = load i64, ptr %13, align 8, !noundef !37
-  %26 = getelementptr inbounds { { { i64, [1 x i64] }, ptr, { double, double }, i8, [7 x i8] }, { [32 x i8], i8, [7 x i8] }, i64 }, ptr %24, i64 %25
+  %26 = getelementptr inbounds [96 x i8], ptr %24, i64 %25
   %27 = call noundef double @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hda2195354cf2694fE.llvm.17261859237677664959"(ptr noundef nonnull %24, ptr noundef nonnull %26, double noundef 0.000000e+00, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %10), !noalias !391
   %28 = call noundef double @_ZN5typst4util6scalar6Scalar3new17hda8574767bc8e8e7E(double noundef %27), !noalias !398
   %29 = call noundef double @"_ZN65_$LT$typst..layout..abs..Abs$u20$as$u20$core..ops..arith..Add$GT$3add17h115c2fd45cb045f2E"(double noundef %2, double noundef %28)
@@ -2246,7 +2246,7 @@ _ZN4core4iter6traits8iterator8Iterator6reduce17hf95cca0234f68c8fE.exit: ; preds 
   store double %31, ptr %8, align 8
   %.val = load ptr, ptr %12, align 8, !nonnull !37, !noundef !37
   %.val28 = load i64, ptr %13, align 8, !noundef !37
-  %32 = getelementptr inbounds { { { i64, [1 x i64] }, ptr, { double, double }, i8, [7 x i8] }, { [32 x i8], i8, [7 x i8] }, i64 }, ptr %.val, i64 %.val28
+  %32 = getelementptr inbounds [96 x i8], ptr %.val, i64 %.val28
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %34 = getelementptr inbounds nuw i8, ptr %6, i64 56
   br label %35
@@ -5591,8 +5591,8 @@ define internal fastcc void @_ZN9typst_svg11SVGRenderer12push_pattern17hdb339049
 
 44:                                               ; preds = %44, %6
   %.05.i1 = phi i64 [ 0, %6 ], [ %49, %44 ]
-  %45 = getelementptr inbounds nuw i64, ptr %1, i64 %.05.i1
-  %46 = getelementptr inbounds nuw i64, ptr %19, i64 %.05.i1
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.05.i1
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.05.i1
   %47 = load i64, ptr %45, align 8, !noalias !1132
   %48 = load i64, ptr %46, align 8, !noalias !1132
   store i64 %48, ptr %45, align 8, !noalias !1132
@@ -5607,8 +5607,8 @@ _ZN4core3ptr19swap_nonoverlapping17h66911087016dbc8aE.exit3: ; preds = %44
 
 .preheader:                                       ; preds = %_ZN4core3ptr19swap_nonoverlapping17h66911087016dbc8aE.exit3, %.preheader
   %.05.i = phi i64 [ %54, %.preheader ], [ 0, %_ZN4core3ptr19swap_nonoverlapping17h66911087016dbc8aE.exit3 ]
-  %50 = getelementptr inbounds nuw i64, ptr %1, i64 %.05.i
-  %51 = getelementptr inbounds nuw i64, ptr %19, i64 %.05.i
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.05.i
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.05.i
   %52 = load i64, ptr %50, align 8, !noalias !1132
   %53 = load i64, ptr %51, align 8, !noalias !1132
   store i64 %53, ptr %50, align 8, !noalias !1132
@@ -6000,7 +6000,7 @@ switch.lookup:                                    ; preds = %"_ZN4core3ptr44drop
   %85 = or disjoint i8 %84, 4
   %switch.offset = zext nneg i8 %85 to i64
   %86 = zext nneg i8 %84 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN9typst_svg11SVGRenderer12write_stroke17h1bb68426b2e67fdeE, i64 %86
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN9typst_svg11SVGRenderer12write_stroke17h1bb68426b2e67fdeE, i64 %86
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store ptr %switch.load, ptr %21, align 8, !noalias !1222
@@ -6027,7 +6027,7 @@ switch.lookup:                                    ; preds = %"_ZN4core3ptr44drop
   %93 = getelementptr inbounds nuw i8, ptr %1, i64 73
   %94 = load i8, ptr %93, align 1, !range !1221, !noundef !37
   %95 = zext nneg i8 %94 to i64
-  %switch.gep27 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN9typst_svg11SVGRenderer12write_stroke17h1bb68426b2e67fdeE.35, i64 %95
+  %switch.gep27 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN9typst_svg11SVGRenderer12write_stroke17h1bb68426b2e67fdeE.35, i64 %95
   %switch.load28 = load ptr, ptr %switch.gep27, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   store ptr %switch.load28, ptr %18, align 8, !noalias !1233
@@ -6124,7 +6124,7 @@ switch.lookup:                                    ; preds = %"_ZN4core3ptr44drop
   %123 = load ptr, ptr %122, align 8, !nonnull !37, !noundef !37
   %124 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %125 = load i64, ptr %124, align 8, !noundef !37
-  %126 = getelementptr inbounds double, ptr %123, i64 %125
+  %126 = getelementptr inbounds [8 x i8], ptr %123, i64 %125
   call void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17hff8962048f14071aE.llvm.4165080364762598926"(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %29, ptr noundef nonnull %123, ptr noundef nonnull %126)
   %127 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %128 = load ptr, ptr %127, align 8, !nonnull !37, !noundef !37
@@ -9740,7 +9740,7 @@ _ZN9typst_svg11SVGRenderer18write_subgradients17hc59c630073a95913E.exit: ; preds
   %1217 = getelementptr inbounds nuw i8, ptr %1, i64 464
   %1218 = load ptr, ptr %1217, align 8, !alias.scope !2338, !noalias !2341, !nonnull !37, !noundef !37
   %1219 = load i64, ptr %1206, align 8, !alias.scope !2338, !noalias !2341, !noundef !37
-  %1220 = getelementptr inbounds { i128, ptr, [1 x i64] }, ptr %1218, i64 %1219
+  %1220 = getelementptr inbounds [32 x i8], ptr %1218, i64 %1219
   store ptr %1218, ptr %47, align 8, !noalias !2324
   %.sroa.426.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %47, i64 8
   store ptr %1220, ptr %.sroa.426.0..sroa_idx.i, align 8, !noalias !2324

@@ -29,7 +29,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::Scalar_" = type { %"class.cv::Vec" }
 %"class.cv::Vec" = type { %"class.cv::Matx" }
 %"class.cv::Matx" = type { [4 x double] }
-%"class.cv::Rect_" = type { i32, i32, i32, i32 }
 
 $_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv = comdat any
 
@@ -760,7 +759,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %29, %33
   %59 = phi ptr [ %37, %.lr.ph ], [ %99, %96 ]
   %.02357 = phi i64 [ 0, %.lr.ph ], [ %97, %96 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %60 = getelementptr inbounds nuw %"class.cv::Size_", ptr %59, i64 %.02357
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %.02357
   %61 = load i64, ptr %60, align 4
   store i64 %61, ptr %6, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -1065,9 +1064,9 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i: ; preds 
 
 _ZNSt12_Vector_baseIN2cv5Rect_IiEESaIS2_EE13_M_deallocateEPS2_m.exit36.i: ; preds = %33, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i
   store ptr %28, ptr %0, align 8, !tbaa !92
-  %34 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %29, i64 %12
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %29, i64 %12
   store ptr %34, ptr %3, align 8, !tbaa !89
-  %35 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %28, i64 %26
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %26
   store ptr %35, ptr %13, align 8, !tbaa !93
   br label %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE17_M_default_appendEm.exit
 
@@ -1076,7 +1075,7 @@ _ZNSt12_Vector_baseIN2cv5Rect_IiEESaIS2_EE13_M_deallocateEPS2_m.exit36.i: ; pred
   br i1 %37, label %38, label %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE17_M_default_appendEm.exit
 
 38:                                               ; preds = %36
-  %39 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %5, i64 %1
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %1
   %.not.i4 = icmp eq ptr %4, %39
   br i1 %.not.i4, label %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE17_M_default_appendEm.exit, label %40
 
@@ -1124,7 +1123,7 @@ define linkonce_odr hidden void @_ZN2cv4text19TextDetectorCNNImpl10getOutputsEPK
 18:                                               ; preds = %.lr.ph, %_ZNSt6vectorIfSaIfEE9push_backERKf.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNSt6vectorIfSaIfEE9push_backERKf.exit ]
   %19 = mul nsw i64 %indvars.iv, %17
-  %20 = getelementptr float, ptr %1, i64 %19
+  %20 = getelementptr [4 x i8], ptr %1, i64 %19
   %21 = getelementptr i8, ptr %20, i64 8
   %22 = load float, ptr %21, align 4, !tbaa !100
   %23 = fcmp ugt float %22, 0x3E80000000000000
@@ -1238,7 +1237,7 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i: ; 
 _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %72, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i
   store ptr %67, ptr %4, align 8, !tbaa !92
   store ptr %71, ptr %13, align 8, !tbaa !89
-  %73 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %67, i64 %65
+  %73 = getelementptr inbounds nuw [16 x i8], ptr %67, i64 %65
   store ptr %73, ptr %14, align 8, !tbaa !93
   br label %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE9push_backEOS2_.exit
 
@@ -1298,7 +1297,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i: ; preds = %94, %_ZNKS
 _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJRKfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i: ; preds = %96, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i
   store ptr %91, ptr %5, align 8, !tbaa !71
   store ptr %95, ptr %15, align 8, !tbaa !68
-  %97 = getelementptr inbounds nuw float, ptr %91, i64 %89
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %89
   store ptr %97, ptr %16, align 8, !tbaa !106
   br label %_ZNSt6vectorIfSaIfEE9push_backERKf.exit
 

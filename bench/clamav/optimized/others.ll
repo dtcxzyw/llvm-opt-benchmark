@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.timeval = type { i64, i64 }
-%struct.recursion_level_tag = type { i32, i64, ptr, i32, i32, i32, %struct.image_fuzzy_hash, i8 }
-%struct.image_fuzzy_hash = type { [8 x i8] }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
 
@@ -168,7 +166,7 @@ define noundef nonnull ptr @cl_strerror(i32 noundef %0) local_unnamed_addr #1 {
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.cl_strerror, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.cl_strerror, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -226,7 +224,7 @@ define i32 @cl_init(i32 noundef %0) local_unnamed_addr #2 {
 
 .lr.ph.i.i:                                       ; preds = %15, %28
   %.0355.i.i = phi i64 [ %29, %28 ], [ 0, %15 ]
-  %18 = getelementptr inbounds nuw ptr, ptr %3, i64 %.0355.i.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.0355.i.i
   %19 = load ptr, ptr %18, align 8, !tbaa !8
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.111, ptr noundef nonnull @.str.97, ptr noundef %19) #24
   br label %20
@@ -234,7 +232,7 @@ define i32 @cl_init(i32 noundef %0) local_unnamed_addr #2 {
 20:                                               ; preds = %26, %.lr.ph.i.i
   %.0364.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %27, %26 ]
   %21 = load ptr, ptr %18, align 8, !tbaa !8
-  %22 = getelementptr inbounds nuw ptr, ptr @load_module.suffixes, i64 %.0364.i.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr @load_module.suffixes, i64 %.0364.i.i
   %23 = load ptr, ptr %22, align 8, !tbaa !8
   %24 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 512, ptr noundef nonnull @.str.112, ptr noundef %21, ptr noundef nonnull @.str.96, ptr noundef %23) #24
   %25 = call ptr @dlopen(ptr noundef nonnull %2, i32 noundef 2) #24
@@ -264,7 +262,7 @@ define i32 @cl_init(i32 noundef %0) local_unnamed_addr #2 {
 
 32:                                               ; preds = %38, %31
   %.16.i.i = phi i64 [ 0, %31 ], [ %39, %38 ]
-  %33 = getelementptr inbounds nuw ptr, ptr @load_module.suffixes, i64 %.16.i.i
+  %33 = getelementptr inbounds nuw [8 x i8], ptr @load_module.suffixes, i64 %.16.i.i
   %34 = load ptr, ptr %33, align 8, !tbaa !8
   %35 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 512, ptr noundef nonnull @.str.112, ptr noundef nonnull @.str.116, ptr noundef nonnull @.str.96, ptr noundef %34) #24
   %36 = call ptr @dlopen(ptr noundef nonnull %2, i32 noundef 2) #24
@@ -2888,11 +2886,11 @@ define range(i32 0, 26) i32 @cli_recursion_stack_push(ptr noundef %0, ptr nounde
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %46 = load ptr, ptr %45, align 8, !tbaa !184
   %47 = zext i32 %12 to i64
-  %48 = getelementptr inbounds nuw %struct.recursion_level_tag, ptr %46, i64 %47
+  %48 = getelementptr inbounds nuw [48 x i8], ptr %46, i64 %47
   %49 = add i32 %12, 1
   store i32 %49, ptr %11, align 4, !tbaa !188
   %50 = zext i32 %49 to i64
-  %51 = getelementptr inbounds nuw %struct.recursion_level_tag, ptr %46, i64 %50
+  %51 = getelementptr inbounds nuw [48 x i8], ptr %46, i64 %50
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %51, i8 0, i64 48, i1 false)
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   store ptr %1, ptr %52, align 8, !tbaa !190
@@ -2963,7 +2961,7 @@ define ptr @cli_recursion_stack_pop(ptr noundef captures(none) %0) local_unnamed
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %8 = load ptr, ptr %7, align 8, !tbaa !184
   %9 = zext i32 %3 to i64
-  %10 = getelementptr inbounds nuw %struct.recursion_level_tag, ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [48 x i8], ptr %8, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !190
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %10, i8 0, i64 48, i1 false)
@@ -2972,7 +2970,7 @@ define ptr @cli_recursion_stack_pop(ptr noundef captures(none) %0) local_unnamed
   store i32 %14, ptr %2, align 4, !tbaa !188
   %15 = load ptr, ptr %7, align 8, !tbaa !184
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw %struct.recursion_level_tag, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [48 x i8], ptr %15, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !190
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -2991,7 +2989,7 @@ define void @cli_recursion_stack_change_type(ptr noundef readonly captures(none)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %6 = load i32, ptr %5, align 4, !tbaa !188
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw %struct.recursion_level_tag, ptr %4, i64 %7
+  %8 = getelementptr inbounds nuw [48 x i8], ptr %4, i64 %7
   store i32 %1, ptr %8, align 8, !tbaa !193
   ret void
 }
@@ -3020,7 +3018,7 @@ define i32 @cli_recursion_stack_get_type(ptr noundef readonly captures(none) %0,
   %.020.i = phi i32 [ %4, %.lr.ph.i ], [ %18, %12 ]
   %.219.i = phi i32 [ %.015.i, %.lr.ph.i ], [ %spec.select.i, %12 ]
   %13 = zext nneg i32 %.020.i to i64
-  %14 = getelementptr inbounds nuw %struct.recursion_level_tag, ptr %11, i64 %13
+  %14 = getelementptr inbounds nuw [48 x i8], ptr %11, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %16 = load i32, ptr %15, align 8, !tbaa !197
   %17 = and i32 %16, 1
@@ -3044,7 +3042,7 @@ recursion_stack_get.exit:                         ; preds = %12, %2, %.preheader
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %27 = load ptr, ptr %26, align 8, !tbaa !184
   %28 = zext nneg i32 %.1.i to i64
-  %29 = getelementptr inbounds nuw %struct.recursion_level_tag, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [48 x i8], ptr %27, i64 %28
   %30 = load i32, ptr %29, align 8, !tbaa !193
   br label %31
 
@@ -3077,7 +3075,7 @@ define i64 @cli_recursion_stack_get_size(ptr noundef readonly captures(none) %0,
   %.020.i = phi i32 [ %4, %.lr.ph.i ], [ %18, %12 ]
   %.219.i = phi i32 [ %.015.i, %.lr.ph.i ], [ %spec.select.i, %12 ]
   %13 = zext nneg i32 %.020.i to i64
-  %14 = getelementptr inbounds nuw %struct.recursion_level_tag, ptr %11, i64 %13
+  %14 = getelementptr inbounds nuw [48 x i8], ptr %11, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %16 = load i32, ptr %15, align 8, !tbaa !197
   %17 = and i32 %16, 1
@@ -3106,7 +3104,7 @@ recursion_stack_get.exit:                         ; preds = %12, %2, %.preheader
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %30 = load ptr, ptr %29, align 8, !tbaa !184
   %31 = zext nneg i32 %.1.i to i64
-  %32 = getelementptr inbounds nuw %struct.recursion_level_tag, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [48 x i8], ptr %30, i64 %31
   br label %.sink.split
 
 .sink.split:                                      ; preds = %23, %28

@@ -151,7 +151,7 @@ define dso_local range(i64 0, 2) i64 @boolin(ptr noundef readonly captures(none)
   %.016 = phi ptr [ %5, %1 ], [ %14, %8 ]
   %9 = load i8, ptr %.016, align 1
   %10 = zext i8 %9 to i64
-  %11 = getelementptr inbounds nuw i16, ptr %7, i64 %10
+  %11 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %10
   %12 = load i16, ptr %11, align 2
   %13 = and i16 %12, 8192
   %.not = icmp eq i16 %13, 0
@@ -169,7 +169,7 @@ define dso_local range(i64 0, 2) i64 @boolin(ptr noundef readonly captures(none)
   %18 = getelementptr i8, ptr %17, i64 -1
   %19 = load i8, ptr %18, align 1
   %20 = zext i8 %19 to i64
-  %21 = getelementptr inbounds nuw i16, ptr %7, i64 %20
+  %21 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %20
   %22 = load i16, ptr %21, align 2
   %23 = and i16 %22, 8192
   %.not18 = icmp eq i16 %23, 0

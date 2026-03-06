@@ -35,8 +35,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_nla_append: 
 %union.anon.15 = type { %struct.anon.16, [16 x i8] }
 %struct.anon.16 = type { ptr, i32, i32, i64, i64, ptr, i16, i8 }
 %struct.netlink_range_validation = type { i64, i64 }
-%struct.nla_policy = type { i8, i8, i16, %union.anon }
-%union.anon = type { ptr }
 
 @.str = private unnamed_addr constant [13 x i8] c"lib/nlattr.c\00", align 1
 @__UNIQUE_ID___addressable___nla_validate451 = internal global ptr @__nla_validate, section ".discard.addressable", align 8
@@ -434,7 +432,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__nla_validate_parse(ptr n
   %95 = zext nneg i16 %90 to i64
   %96 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %.pre219, i64 %95) #14, !srcloc !15
   %97 = and i64 %96, %95
-  %98 = getelementptr ptr, ptr %6, i64 %97
+  %98 = getelementptr [8 x i8], ptr %6, i64 %97
   store ptr %82, ptr %98, align 8
   %.pre210 = load i16, ptr %82, align 2
   %.pre214 = zext i16 %.pre210 to i32
@@ -474,7 +472,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__nla_validate_parse(ptr n
   %119 = zext nneg i16 %114 to i64
   %120 = tail call i64 asm sideeffect "cmp $1,$2; sbb $0,$0;", "=r,imr,r,~{cc},~{dirflag},~{fpsr},~{flags}"(i64 %.pre219, i64 %119) #14, !srcloc !15
   %121 = and i64 %120, %119
-  %122 = getelementptr ptr, ptr %6, i64 %121
+  %122 = getelementptr [8 x i8], ptr %6, i64 %121
   store ptr %106, ptr %122, align 8
   %123 = load i16, ptr %106, align 2
   %124 = zext i16 %123 to i32
@@ -545,7 +543,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__nla_validate_parse(ptr n
   %166 = trunc i64 %165 to i32
   %167 = and i32 %166, %156
   %168 = zext nneg i32 %167 to i64
-  %169 = getelementptr %struct.nla_policy, ptr %3, i64 %168
+  %169 = getelementptr [16 x i8], ptr %3, i64 %168
   %170 = load i8, ptr %169, align 8
   %171 = icmp ugt i8 %170, 21
   br i1 %171, label %172, label %173, !prof !5
@@ -1412,7 +1410,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @__nla_validate_parse(ptr n
   br i1 %22, label %604, label %602
 
 602:                                              ; preds = %.thread49
-  %603 = getelementptr ptr, ptr %6, i64 %149
+  %603 = getelementptr [8 x i8], ptr %6, i64 %149
   store ptr %131, ptr %603, align 8
   br label %604
 

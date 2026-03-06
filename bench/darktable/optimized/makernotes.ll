@@ -142,10 +142,10 @@ define void @_ZN6LibRaw19parseSigmaMakernoteEiij(ptr noundef nonnull align 8 der
   %46 = call reassoc nsz arcp contract afn noundef double @_ZN6LibRaw7getrealEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %45)
   %47 = fmul reassoc nsz arcp contract afn double %46, 1.000000e+04
   %48 = fptosi double %47 to i32
-  %49 = getelementptr inbounds nuw i32, ptr @__const._ZN6LibRaw19parseSigmaMakernoteEiij.wb_table1, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZN6LibRaw19parseSigmaMakernoteEiij.wb_table1, i64 %indvars.iv
   %50 = load i32, ptr %49, align 4, !tbaa !6
   %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds nuw [4 x i32], ptr %12, i64 %51
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %51
   store i32 %48, ptr %52, align 4, !tbaa !6
   %53 = load i32, ptr %6, align 4, !tbaa !6
   %54 = call reassoc nsz arcp contract afn noundef double @_ZN6LibRaw7getrealEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %53)
@@ -809,7 +809,7 @@ switch.early.test:                                ; preds = %.lr.ph
 
 .preheader:                                       ; preds = %294, %300
   %indvars.iv211 = phi i64 [ %indvars.iv.next212, %300 ], [ 0, %294 ]
-  %299 = getelementptr inbounds nuw [3 x double], ptr %207, i64 %indvars.iv211
+  %299 = getelementptr inbounds nuw [24 x i8], ptr %207, i64 %indvars.iv211
   br label %301
 
 300:                                              ; preds = %301
@@ -821,7 +821,7 @@ switch.early.test:                                ; preds = %.lr.ph
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %301 ]
   %302 = load i32, ptr %7, align 4, !tbaa !6
   %303 = call reassoc nsz arcp contract afn noundef double @_ZN6LibRaw7getrealEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %302)
-  %304 = getelementptr inbounds nuw double, ptr %299, i64 %indvars.iv
+  %304 = getelementptr inbounds nuw [8 x i8], ptr %299, i64 %indvars.iv
   store double %303, ptr %304, align 8, !tbaa !98
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -1296,10 +1296,10 @@ define void @_ZN6LibRaw15parse_makernoteEii(ptr noundef nonnull align 8 derefere
 
 .preheader:                                       ; preds = %105, %.preheader
   %indvars.iv296 = phi i64 [ %indvars.iv.next297, %.preheader ], [ 0, %105 ]
-  %114 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv296
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv296
   %115 = load i32, ptr %114, align 4, !tbaa !6
   %116 = uitofp i32 %115 to float
-  %117 = getelementptr inbounds nuw float, ptr %95, i64 %indvars.iv296
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %95, i64 %indvars.iv296
   store float %116, ptr %117, align 4, !tbaa !102
   %indvars.iv.next297 = add nuw nsw i64 %indvars.iv296, 1
   %exitcond299.not = icmp eq i64 %indvars.iv.next297, 4
@@ -1991,7 +1991,7 @@ define void @_ZN6LibRaw15parse_makernoteEii(ptr noundef nonnull align 8 derefere
 
 .preheader266:                                    ; preds = %458, %465
   %indvars.iv288 = phi i64 [ %indvars.iv.next289, %465 ], [ 0, %458 ]
-  %464 = getelementptr inbounds nuw [3 x double], ptr %304, i64 %indvars.iv288
+  %464 = getelementptr inbounds nuw [24 x i8], ptr %304, i64 %indvars.iv288
   br label %466
 
 465:                                              ; preds = %466
@@ -2003,7 +2003,7 @@ define void @_ZN6LibRaw15parse_makernoteEii(ptr noundef nonnull align 8 derefere
   %indvars.iv = phi i64 [ 0, %.preheader266 ], [ %indvars.iv.next, %466 ]
   %467 = load i32, ptr %7, align 4, !tbaa !6
   %468 = call reassoc nsz arcp contract afn noundef double @_ZN6LibRaw7getrealEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %467)
-  %469 = getelementptr inbounds nuw double, ptr %464, i64 %indvars.iv
+  %469 = getelementptr inbounds nuw [8 x i8], ptr %464, i64 %indvars.iv
   store double %468, ptr %469, align 8, !tbaa !98
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -2249,7 +2249,7 @@ define void @_ZN6LibRaw15parse_makernoteEii(ptr noundef nonnull align 8 derefere
   %indvars.iv292 = phi i64 [ 0, %575 ], [ %indvars.iv.next293, %581 ]
   %582 = call noundef i32 @_ZN6LibRaw4get4Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %583 = uitofp i32 %582 to float
-  %584 = getelementptr inbounds nuw float, ptr %312, i64 %indvars.iv292
+  %584 = getelementptr inbounds nuw [4 x i8], ptr %312, i64 %indvars.iv292
   store float %583, ptr %584, align 4, !tbaa !102
   %indvars.iv.next293 = add nuw nsw i64 %indvars.iv292, 1
   %exitcond295.not = icmp eq i64 %indvars.iv.next293, 3

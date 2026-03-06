@@ -326,7 +326,7 @@ define void @_ZN3net22QuicClientPromisedInfo16OnPromiseHeadersERKNS_15SpdyHeader
   %11 = load i64, ptr %10, align 8, !tbaa !236
   %12 = urem i64 297362133810219, %11
   %13 = load ptr, ptr %1, align 8, !tbaa !237
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %12
   %15 = load ptr, ptr %14, align 8, !tbaa !238
   %.not.i.i6.i.i.i.i = icmp eq ptr %15, null
   br i1 %.not.i.i6.i.i.i.i, label %_ZNKSt13unordered_mapIN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEESt14_List_iteratorISt4pairIS8_S8_EENS0_15StringPieceHashESt8equal_toIS8_ESaISA_IKS8_SC_EEE4findERSG_.exit.thread.i.i, label %22

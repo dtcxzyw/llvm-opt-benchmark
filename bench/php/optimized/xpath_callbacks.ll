@@ -1295,7 +1295,7 @@ php_dom_xpath_callback_cleanup_args.exit.thread:  ; preds = %6
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %22 = getelementptr inbounds nuw %struct._zval_struct, ptr %10, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %indvars.iv.i
   tail call void @zval_ptr_dtor(ptr noundef nonnull %22) #9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1441,7 +1441,7 @@ zend_string_alloc.exit86:                         ; preds = %35
   %60 = phi ptr [ %78, %75 ], [ %57, %54 ]
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = load ptr, ptr %61, align 8, !tbaa !74
-  %63 = getelementptr inbounds nuw ptr, ptr %62, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %indvars.iv
   %64 = load ptr, ptr %63, align 8, !tbaa !75
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
@@ -1805,7 +1805,7 @@ zend_hash_str_find_ptr.exit:
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %21 = getelementptr inbounds nuw %struct._zval_struct, ptr %6, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv.i
   tail call void @zval_ptr_dtor(ptr noundef nonnull %21) #9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i

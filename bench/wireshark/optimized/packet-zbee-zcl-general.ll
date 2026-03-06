@@ -5554,8 +5554,8 @@ define hidden void @proto_register_zbee_zcl_part() local_unnamed_addr #0 {
 2:                                                ; preds = %0, %2
   %indvars.iv16 = phi i64 [ 0, %0 ], [ %indvars.iv.next17, %2 ]
   %indvars.iv = phi i64 [ 3, %0 ], [ %indvars.iv.next, %2 ]
-  %3 = getelementptr i32, ptr @ett_zbee_zcl_part_nack_id_list, i64 %indvars.iv16
-  %4 = getelementptr ptr, ptr %1, i64 %indvars.iv
+  %3 = getelementptr [4 x i8], ptr @ett_zbee_zcl_part_nack_id_list, i64 %indvars.iv16
+  %4 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv
   store ptr %3, ptr %4, align 8
   %indvars.iv.next17 = add nuw nsw i64 %indvars.iv16, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -5565,8 +5565,8 @@ define hidden void @proto_register_zbee_zcl_part() local_unnamed_addr #0 {
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv23 = phi i64 [ %indvars.iv.next24, %.preheader ], [ 0, %2 ]
   %indvars.iv21 = phi i64 [ %indvars.iv.next22, %.preheader ], [ 19, %2 ]
-  %5 = getelementptr i32, ptr @ett_zbee_zcl_part_attrs_id_list, i64 %indvars.iv23
-  %6 = getelementptr ptr, ptr %1, i64 %indvars.iv21
+  %5 = getelementptr [4 x i8], ptr @ett_zbee_zcl_part_attrs_id_list, i64 %indvars.iv23
+  %6 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv21
   store ptr %5, ptr %6, align 8
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
@@ -6271,8 +6271,8 @@ define hidden void @proto_register_zbee_zcl_pwr_prof() local_unnamed_addr #0 {
 1:                                                ; preds = %0, %1
   %indvars.iv16 = phi i64 [ 0, %0 ], [ %indvars.iv.next17, %1 ]
   %indvars.iv = phi i64 [ 4, %0 ], [ %indvars.iv.next, %1 ]
-  %2 = getelementptr i32, ptr @ett_zbee_zcl_pwr_prof_pwrprofiles, i64 %indvars.iv16
-  %3 = getelementptr ptr, ptr @proto_register_zbee_zcl_pwr_prof.ett, i64 %indvars.iv
+  %2 = getelementptr [4 x i8], ptr @ett_zbee_zcl_pwr_prof_pwrprofiles, i64 %indvars.iv16
+  %3 = getelementptr [8 x i8], ptr @proto_register_zbee_zcl_pwr_prof.ett, i64 %indvars.iv
   store ptr %2, ptr %3, align 8
   %indvars.iv.next17 = add nuw nsw i64 %indvars.iv16, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -6282,8 +6282,8 @@ define hidden void @proto_register_zbee_zcl_pwr_prof() local_unnamed_addr #0 {
 .preheader:                                       ; preds = %1, %.preheader
   %indvars.iv23 = phi i64 [ %indvars.iv.next24, %.preheader ], [ 0, %1 ]
   %indvars.iv21 = phi i64 [ %indvars.iv.next22, %.preheader ], [ 9, %1 ]
-  %4 = getelementptr i32, ptr @ett_zbee_zcl_pwr_prof_enphases, i64 %indvars.iv23
-  %5 = getelementptr ptr, ptr @proto_register_zbee_zcl_pwr_prof.ett, i64 %indvars.iv21
+  %4 = getelementptr [4 x i8], ptr @ett_zbee_zcl_pwr_prof_enphases, i64 %indvars.iv23
+  %5 = getelementptr [8 x i8], ptr @proto_register_zbee_zcl_pwr_prof.ett, i64 %indvars.iv21
   store ptr %4, ptr %5, align 8
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %indvars.iv.next22 = add nuw nsw i64 %indvars.iv21, 1
@@ -6481,7 +6481,7 @@ define internal i32 @dissect_zbee_zcl_pwr_prof(ptr noundef %0, ptr noundef reado
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %64 = phi i32 [ 4, %.lr.ph.preheader.i ], [ %86, %.lr.ph.i ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %65 = getelementptr i32, ptr @ett_zbee_zcl_pwr_prof_enphases, i64 %indvars.iv.i
+  %65 = getelementptr [4 x i8], ptr @ett_zbee_zcl_pwr_prof_enphases, i64 %indvars.iv.i
   %66 = load i32, ptr %65, align 4
   %67 = trunc nuw nsw i64 %indvars.iv.i to i32
   %68 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %52, ptr noundef %0, i32 noundef %64, i32 noundef 1, i32 noundef %66, ptr noundef null, ptr noundef nonnull @.str.1592, i32 noundef %67)
@@ -6531,7 +6531,7 @@ define internal i32 @dissect_zbee_zcl_pwr_prof(ptr noundef %0, ptr noundef reado
 .lr.ph.i53:                                       ; preds = %.lr.ph.i53, %.lr.ph.preheader.i51
   %97 = phi i32 [ 2, %.lr.ph.preheader.i51 ], [ %113, %.lr.ph.i53 ]
   %indvars.iv.i54 = phi i64 [ 0, %.lr.ph.preheader.i51 ], [ %indvars.iv.next.i55, %.lr.ph.i53 ]
-  %98 = getelementptr i32, ptr @ett_zbee_zcl_pwr_prof_pwrprofiles, i64 %indvars.iv.i54
+  %98 = getelementptr [4 x i8], ptr @ett_zbee_zcl_pwr_prof_pwrprofiles, i64 %indvars.iv.i54
   %99 = load i32, ptr %98, align 4
   %100 = trunc nuw nsw i64 %indvars.iv.i54 to i32
   %101 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %52, ptr noundef %0, i32 noundef %97, i32 noundef 1, i32 noundef %99, ptr noundef null, ptr noundef nonnull @.str.1593, i32 noundef %100)
@@ -6675,8 +6675,8 @@ define hidden void @proto_register_zbee_zcl_appl_ctrl() local_unnamed_addr #0 {
 2:                                                ; preds = %0, %2
   %indvars.iv8 = phi i64 [ 0, %0 ], [ %indvars.iv.next9, %2 ]
   %indvars.iv = phi i64 [ 3, %0 ], [ %indvars.iv.next, %2 ]
-  %3 = getelementptr i32, ptr @ett_zbee_zcl_appl_ctrl_func, i64 %indvars.iv8
-  %4 = getelementptr ptr, ptr %1, i64 %indvars.iv
+  %3 = getelementptr [4 x i8], ptr @ett_zbee_zcl_appl_ctrl_func, i64 %indvars.iv8
+  %4 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv
   store ptr %3, ptr %4, align 8
   %indvars.iv.next9 = add nuw nsw i64 %indvars.iv8, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -6748,7 +6748,7 @@ define internal i32 @dissect_zbee_zcl_appl_ctrl(ptr noundef %0, ptr noundef read
 .lr.ph.i:                                         ; preds = %31, %dissect_zcl_appl_ctrl_attr_func.exit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %dissect_zcl_appl_ctrl_attr_func.exit.i ], [ 0, %31 ]
   %34 = phi i32 [ %63, %dissect_zcl_appl_ctrl_attr_func.exit.i ], [ 1, %31 ]
-  %35 = getelementptr i32, ptr @ett_zbee_zcl_appl_ctrl_func, i64 %indvars.iv.i
+  %35 = getelementptr [4 x i8], ptr @ett_zbee_zcl_appl_ctrl_func, i64 %indvars.iv.i
   %36 = load i32, ptr %35, align 4
   %37 = trunc nuw nsw i64 %indvars.iv.i to i32
   %38 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %27, ptr noundef %0, i32 noundef %34, i32 noundef 0, i32 noundef %36, ptr noundef null, ptr noundef nonnull @.str.1647, i32 noundef %37)
@@ -8775,7 +8775,7 @@ define internal fastcc void @dissect_zcl_pwr_prof_enphsschednotif(ptr noundef %0
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %16 = phi i32 [ %14, %.lr.ph.preheader ], [ %29, %.lr.ph ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %17 = getelementptr i32, ptr @ett_zbee_zcl_pwr_prof_enphases, i64 %indvars.iv
+  %17 = getelementptr [4 x i8], ptr @ett_zbee_zcl_pwr_prof_enphases, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4
   %19 = trunc nuw nsw i64 %indvars.iv to i32
   %20 = tail call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %0, i32 noundef %16, i32 noundef 1, i32 noundef %18, ptr noundef null, ptr noundef nonnull @.str.1592, i32 noundef %19)

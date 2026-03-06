@@ -3,8 +3,6 @@ source_filename = "bench/abc/original/acecUtil.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.Gia_Obj_t_ = type <{ i64, i32 }>
-
 @.str.1 = private unnamed_addr constant [8 x i8] c"%d=%d  \00", align 1
 @.str.2 = private unnamed_addr constant [13 x i8] c"Total = %d.\0A\00", align 1
 @str = private unnamed_addr constant [34 x i8] c"AIG does not have XORs extracted.\00", align 1
@@ -14,7 +12,7 @@ define void @Gia_PolynCollectXors_rec(ptr noundef %0, i32 noundef %1, ptr nounde
   %4 = getelementptr i8, ptr %0, i64 32
   %.val = load ptr, ptr %4, align 8, !tbaa !3
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val, i64 %5
+  %6 = getelementptr inbounds [12 x i8], ptr %.val, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %8 = load ptr, ptr %7, align 8, !tbaa !28
   %9 = shl nsw i64 %5, 2
@@ -79,7 +77,7 @@ Gia_ObjIsXor.exit:                                ; preds = %14
 
 40:                                               ; preds = %39, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %39 ]
-  %41 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %indvars.iv.i
   %42 = load i32, ptr %41, align 4, !tbaa !29
   %43 = icmp eq i32 %42, %1
   br i1 %43, label %Vec_IntPushUnique.exit, label %39
@@ -147,7 +145,7 @@ Vec_IntPush.exit.i:                               ; preds = %66, %Vec_IntGrow.ex
   %70 = add nsw i32 %69, 1
   store i32 %70, ptr %34, align 4, !tbaa !32
   %71 = sext i32 %69 to i64
-  %72 = getelementptr inbounds i32, ptr %68, i64 %71
+  %72 = getelementptr inbounds [4 x i8], ptr %68, i64 %71
   store i32 %1, ptr %72, align 4, !tbaa !29
   br label %Vec_IntPushUnique.exit
 
@@ -173,11 +171,11 @@ define noundef ptr @Gia_PolynCollectLastXor(ptr noundef %0, i32 noundef %1) loca
   %10 = getelementptr i8, ptr %.val, i64 8
   %.val19.val = load ptr, ptr %10, align 8, !tbaa !33
   %11 = sext i32 %.val.val to i64
-  %12 = getelementptr i32, ptr %.val19.val, i64 %11
+  %12 = getelementptr [4 x i8], ptr %.val19.val, i64 %11
   %13 = getelementptr i8, ptr %12, i64 -4
   %14 = load i32, ptr %13, align 4, !tbaa !29
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val18, i64 %15
+  %16 = getelementptr inbounds [12 x i8], ptr %.val18, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %18 = load ptr, ptr %17, align 8, !tbaa !31
   %.not = icmp eq ptr %18, null
@@ -213,19 +211,19 @@ define noundef ptr @Gia_PolynCollectLastXor(ptr noundef %0, i32 noundef %1) loca
 32:                                               ; preds = %32, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %32 ]
   %33 = phi i32 [ %29, %.lr.ph.i ], [ %46, %32 ]
-  %34 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv.i
   %35 = load i32, ptr %34, align 4, !tbaa !29
   %36 = trunc nuw nsw i64 %indvars.iv.i to i32
   %37 = xor i32 %36, -1
   %38 = add i32 %33, %37
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds i32, ptr %31, i64 %39
+  %40 = getelementptr inbounds [4 x i8], ptr %31, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !29
   store i32 %41, ptr %34, align 4, !tbaa !29
   %42 = load i32, ptr %4, align 4, !tbaa !32
   %43 = add i32 %42, %37
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds i32, ptr %31, i64 %44
+  %45 = getelementptr inbounds [4 x i8], ptr %31, i64 %44
   store i32 %35, ptr %45, align 4, !tbaa !29
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %46 = load i32, ptr %4, align 4, !tbaa !32
@@ -292,10 +290,10 @@ define void @Gia_PolynAnalyzeXors(ptr noundef %0, i32 noundef %1) local_unnamed_
   %.val20 = load ptr, ptr %14, align 8, !tbaa !3
   %18 = getelementptr i8, ptr %17, i64 8
   %.val21.val = load ptr, ptr %18, align 8, !tbaa !33
-  %19 = getelementptr inbounds nuw i32, ptr %.val21.val, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %.val21.val, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4, !tbaa !29
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val20, i64 %21
+  %22 = getelementptr inbounds [12 x i8], ptr %.val20, i64 %21
   %.val3.i = load i64, ptr %22, align 4
   %23 = trunc i64 %.val3.i to i32
   %24 = and i32 %23, 536870911
@@ -358,10 +356,10 @@ define ptr @Gia_ManDupTopMostRange(ptr noundef %0) local_unnamed_addr #1 {
   %.val12 = load ptr, ptr %7, align 8, !tbaa !37
   %10 = getelementptr i8, ptr %.val12, i64 8
   %.val12.val = load ptr, ptr %10, align 8, !tbaa !33
-  %11 = getelementptr inbounds nuw i32, ptr %.val12.val, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %.val12.val, i64 %indvars.iv
   %12 = load i32, ptr %11, align 4, !tbaa !29
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val11, i64 %13
+  %14 = getelementptr inbounds [12 x i8], ptr %.val11, i64 %13
   %15 = load i64, ptr %14, align 4
   %16 = trunc i64 %15 to i32
   %17 = and i32 %16, 536870911
@@ -414,7 +412,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   %37 = add nsw i32 %19, 1
   store i32 %37, ptr %3, align 4, !tbaa !32
   %38 = sext i32 %19 to i64
-  %39 = getelementptr inbounds i32, ptr %.val13, i64 %38
+  %39 = getelementptr inbounds [4 x i8], ptr %.val13, i64 %38
   store i32 %18, ptr %39, align 4, !tbaa !29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 52

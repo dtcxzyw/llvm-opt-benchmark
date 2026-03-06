@@ -338,7 +338,7 @@ define dso_local void @freeLuaRedisArgv(ptr noundef %0, i32 noundef %1, i32 noun
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %65
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %65 ]
-  %5 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8, !tbaa !10
   %7 = icmp samesign ult i64 %indvars.iv, 32
   br i1 %7, label %8, label %64
@@ -400,7 +400,7 @@ sdslen.exit:                                      ; preds = %22, %26, %30, %34
   br i1 %37, label %sdslen.exit.thread, label %64
 
 sdslen.exit.thread:                               ; preds = %16, %sdslen.exit
-  %38 = getelementptr inbounds nuw ptr, ptr @lua_args_cached_objects, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [8 x i8], ptr @lua_args_cached_objects, i64 %indvars.iv
   %39 = load ptr, ptr %38, align 8, !tbaa !10
   %.not23 = icmp eq ptr %39, null
   br i1 %.not23, label %41, label %40
@@ -453,7 +453,7 @@ sdslen.exit.thread:                               ; preds = %16, %sdslen.exit
 
 sdsalloc.exit:                                    ; preds = %41, %45, %48, %52, %56, %60
   %.0.i24 = phi i64 [ %62, %60 ], [ %47, %45 ], [ %51, %48 ], [ %55, %52 ], [ %59, %56 ], [ 0, %41 ]
-  %63 = getelementptr inbounds nuw i64, ptr @lua_args_cached_objects_len, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [8 x i8], ptr @lua_args_cached_objects_len, i64 %indvars.iv
   store i64 %.0.i24, ptr %63, align 8, !tbaa !20
   br label %65
 
@@ -1516,7 +1516,7 @@ luaSaveOnRegistry.exit:
 
 .lr.ph.i:                                         ; preds = %sdslen.exit.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %sdslen.exit.i ]
-  %21 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i
   %22 = load ptr, ptr %21, align 8, !tbaa !10
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !16
@@ -1594,7 +1594,7 @@ luaCreateArray.exit:                              ; preds = %sdslen.exit.i, %18
 
 .lr.ph.i60:                                       ; preds = %sdslen.exit.i62, %.lr.ph.preheader.i58
   %indvars.iv.i61 = phi i64 [ 0, %.lr.ph.preheader.i58 ], [ %indvars.iv.next.i64, %sdslen.exit.i62 ]
-  %55 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i61
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i61
   %56 = load ptr, ptr %55, align 8, !tbaa !10
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load ptr, ptr %57, align 8, !tbaa !16
@@ -1870,7 +1870,7 @@ define internal fastcc void @luaReplyToRedisReply(ptr noundef %0, ptr noundef %1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %21 = load i32, ptr %20, align 4, !tbaa !82
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 %22
   br label %24
 
 24:                                               ; preds = %18, %19
@@ -2339,7 +2339,7 @@ define internal fastcc i32 @luaRedisGenericCommand(ptr noundef %0, i32 noundef r
   %indvars.iv117 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %28 ]
   %36 = tail call ptr @sdscatlen(ptr noundef %.06693118, ptr noundef nonnull @.str.4, i64 noundef 1) #11
   %37 = load ptr, ptr %13, align 8, !tbaa !85
-  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv117
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv117
   %39 = load ptr, ptr %38, align 8, !tbaa !10
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !16
@@ -2593,14 +2593,14 @@ sdssetlen.exit.thread:                            ; preds = %39
   br label %74
 
 45:                                               ; preds = %43
-  %46 = getelementptr inbounds nuw ptr, ptr @lua_args_cached_objects, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [8 x i8], ptr @lua_args_cached_objects, i64 %indvars.iv
   %47 = load ptr, ptr %46, align 8, !tbaa !10
   %.not45 = icmp eq ptr %47, null
   %.pre55 = load i64, ptr %4, align 8, !tbaa !20
   br i1 %.not45, label %74, label %48
 
 48:                                               ; preds = %45
-  %49 = getelementptr inbounds nuw i64, ptr @lua_args_cached_objects_len, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [8 x i8], ptr @lua_args_cached_objects_len, i64 %indvars.iv
   %50 = load i64, ptr %49, align 8, !tbaa !20
   %.not46 = icmp ult i64 %50, %.pre55
   br i1 %.not46, label %74, label %51
@@ -2609,7 +2609,7 @@ sdssetlen.exit.thread:                            ; preds = %39
   %52 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %53 = load ptr, ptr %52, align 8, !tbaa !16
   %54 = load ptr, ptr @lua_argv, align 8, !tbaa !24
-  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %indvars.iv
   store ptr %47, ptr %55, align 8, !tbaa !10
   store ptr null, ptr %46, align 8, !tbaa !10
   %56 = add i64 %.pre55, 1
@@ -2659,7 +2659,7 @@ sdssetlen.exit.thread:                            ; preds = %39
   %75 = phi i64 [ %.pre, %._crit_edge ], [ %.pre55, %48 ], [ %.pre55, %45 ]
   %76 = call ptr @createStringObject(ptr noundef nonnull %.040, i64 noundef %75) #11
   %77 = load ptr, ptr @lua_argv, align 8, !tbaa !24
-  %78 = getelementptr inbounds nuw ptr, ptr %77, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %indvars.iv
   store ptr %76, ptr %78, align 8, !tbaa !10
   br label %sdssetlen.exit
 

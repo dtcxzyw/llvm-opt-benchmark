@@ -451,7 +451,7 @@ define i32 @arkStep_NlsResidual_MassIdent_TrivialPredAutonomous(ptr noundef %0, 
   %30 = getelementptr inbounds nuw i8, ptr %.pre, i64 96
   %31 = load i32, ptr %30, align 8, !tbaa !50
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds ptr, ptr %29, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %29, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !51
   call void @N_VScale(double noundef 1.000000e+00, ptr noundef nonnull %26, ptr noundef %34) #6
   %.pre17 = load ptr, ptr %5, align 8, !tbaa !14
@@ -470,7 +470,7 @@ define i32 @arkStep_NlsResidual_MassIdent_TrivialPredAutonomous(ptr noundef %0, 
   %45 = getelementptr inbounds nuw i8, ptr %.pre, i64 96
   %46 = load i32, ptr %45, align 8, !tbaa !50
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds ptr, ptr %44, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %44, i64 %47
   %49 = load ptr, ptr %48, align 8, !tbaa !51
   %50 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %51 = load ptr, ptr %50, align 8, !tbaa !53
@@ -507,7 +507,7 @@ define i32 @arkStep_NlsResidual_MassIdent_TrivialPredAutonomous(ptr noundef %0, 
   %71 = getelementptr inbounds nuw i8, ptr %60, i64 96
   %72 = load i32, ptr %71, align 8, !tbaa !50
   %73 = sext i32 %72 to i64
-  %74 = getelementptr inbounds ptr, ptr %70, i64 %73
+  %74 = getelementptr inbounds [8 x i8], ptr %70, i64 %73
   %75 = load ptr, ptr %74, align 8, !tbaa !51
   %76 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %75, ptr %76, align 16, !tbaa !51
@@ -561,7 +561,7 @@ define i32 @arkStep_NlsResidual_MassIdent(ptr noundef %0, ptr noundef %1, ptr no
   %26 = getelementptr inbounds nuw i8, ptr %16, i64 96
   %27 = load i32, ptr %26, align 8, !tbaa !50
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds ptr, ptr %25, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %25, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !51
   %31 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !53
@@ -597,7 +597,7 @@ define i32 @arkStep_NlsResidual_MassIdent(ptr noundef %0, ptr noundef %1, ptr no
   %51 = getelementptr inbounds nuw i8, ptr %34, i64 96
   %52 = load i32, ptr %51, align 8, !tbaa !50
   %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds ptr, ptr %50, i64 %53
+  %54 = getelementptr inbounds [8 x i8], ptr %50, i64 %53
   %55 = load ptr, ptr %54, align 8, !tbaa !51
   %56 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %55, ptr %56, align 16, !tbaa !51
@@ -664,7 +664,7 @@ define i32 @arkStep_NlsResidual_MassFixed_TrivialPredAutonomous(ptr noundef %0, 
   %30 = getelementptr inbounds nuw i8, ptr %.pre, i64 96
   %31 = load i32, ptr %30, align 8, !tbaa !50
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds ptr, ptr %29, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %29, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !51
   call void @N_VScale(double noundef 1.000000e+00, ptr noundef nonnull %26, ptr noundef %34) #6
   %.pre21 = load ptr, ptr %5, align 8, !tbaa !14
@@ -683,7 +683,7 @@ define i32 @arkStep_NlsResidual_MassFixed_TrivialPredAutonomous(ptr noundef %0, 
   %45 = getelementptr inbounds nuw i8, ptr %.pre, i64 96
   %46 = load i32, ptr %45, align 8, !tbaa !50
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds ptr, ptr %44, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %44, i64 %47
   %49 = load ptr, ptr %48, align 8, !tbaa !51
   %50 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %51 = load ptr, ptr %50, align 8, !tbaa !53
@@ -729,7 +729,7 @@ define i32 @arkStep_NlsResidual_MassFixed_TrivialPredAutonomous(ptr noundef %0, 
   %77 = getelementptr inbounds nuw i8, ptr %67, i64 96
   %78 = load i32, ptr %77, align 8, !tbaa !50
   %79 = sext i32 %78 to i64
-  %80 = getelementptr inbounds ptr, ptr %76, i64 %79
+  %80 = getelementptr inbounds [8 x i8], ptr %76, i64 %79
   %81 = load ptr, ptr %80, align 8, !tbaa !51
   %82 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %81, ptr %82, align 16, !tbaa !51
@@ -783,7 +783,7 @@ define i32 @arkStep_NlsResidual_MassFixed(ptr noundef %0, ptr noundef %1, ptr no
   %26 = getelementptr inbounds nuw i8, ptr %16, i64 96
   %27 = load i32, ptr %26, align 8, !tbaa !50
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds ptr, ptr %25, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %25, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !51
   %31 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !53
@@ -828,7 +828,7 @@ define i32 @arkStep_NlsResidual_MassFixed(ptr noundef %0, ptr noundef %1, ptr no
   %57 = getelementptr inbounds nuw i8, ptr %47, i64 96
   %58 = load i32, ptr %57, align 8, !tbaa !50
   %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds ptr, ptr %56, i64 %59
+  %60 = getelementptr inbounds [8 x i8], ptr %56, i64 %59
   %61 = load ptr, ptr %60, align 8, !tbaa !51
   %62 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %61, ptr %62, align 16, !tbaa !51
@@ -872,7 +872,7 @@ define i32 @arkStep_NlsResidual_MassTDep(ptr noundef %0, ptr noundef %1, ptr nou
   %19 = getelementptr inbounds nuw i8, ptr %14, i64 96
   %20 = load i32, ptr %19, align 8, !tbaa !50
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds ptr, ptr %18, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %18, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !51
   call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %0, double noundef -1.000000e+00, ptr noundef %16, ptr noundef %23) #6
   %24 = load ptr, ptr %5, align 8, !tbaa !14
@@ -884,7 +884,7 @@ define i32 @arkStep_NlsResidual_MassTDep(ptr noundef %0, ptr noundef %1, ptr nou
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 96
   %31 = load i32, ptr %30, align 8, !tbaa !50
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds ptr, ptr %29, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %29, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !51
   %35 = call i32 %26(ptr noundef %27, ptr noundef %34, ptr noundef %1) #6
   %.not13 = icmp eq i32 %35, 0
@@ -904,7 +904,7 @@ define i32 @arkStep_NlsResidual_MassTDep(ptr noundef %0, ptr noundef %1, ptr nou
   %47 = getelementptr inbounds nuw i8, ptr %37, i64 96
   %48 = load i32, ptr %47, align 8, !tbaa !50
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds ptr, ptr %46, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %46, i64 %49
   %51 = load ptr, ptr %50, align 8, !tbaa !51
   %52 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %53 = load ptr, ptr %52, align 8, !tbaa !53
@@ -930,7 +930,7 @@ define i32 @arkStep_NlsResidual_MassTDep(ptr noundef %0, ptr noundef %1, ptr nou
   %67 = getelementptr inbounds nuw i8, ptr %55, i64 96
   %68 = load i32, ptr %67, align 8, !tbaa !50
   %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds ptr, ptr %66, i64 %69
+  %70 = getelementptr inbounds [8 x i8], ptr %66, i64 %69
   %71 = load ptr, ptr %70, align 8, !tbaa !51
   call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %1, double noundef %64, ptr noundef %71, ptr noundef %1) #6
   br label %72
@@ -987,7 +987,7 @@ define i32 @arkStep_NlsFPFunction_MassIdent_TrivialPredAutonomous(ptr noundef %0
   %28 = getelementptr inbounds nuw i8, ptr %.pre, i64 96
   %29 = load i32, ptr %28, align 8, !tbaa !50
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds ptr, ptr %27, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %27, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !51
   call void @N_VScale(double noundef 1.000000e+00, ptr noundef nonnull %24, ptr noundef %32) #6
   %.pre14 = load ptr, ptr %5, align 8, !tbaa !14
@@ -1006,7 +1006,7 @@ define i32 @arkStep_NlsFPFunction_MassIdent_TrivialPredAutonomous(ptr noundef %0
   %43 = getelementptr inbounds nuw i8, ptr %.pre, i64 96
   %44 = load i32, ptr %43, align 8, !tbaa !50
   %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds ptr, ptr %42, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr %42, i64 %45
   %47 = load ptr, ptr %46, align 8, !tbaa !51
   %48 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %49 = load ptr, ptr %48, align 8, !tbaa !53
@@ -1032,7 +1032,7 @@ define i32 @arkStep_NlsFPFunction_MassIdent_TrivialPredAutonomous(ptr noundef %0
   %63 = getelementptr inbounds nuw i8, ptr %58, i64 96
   %64 = load i32, ptr %63, align 8, !tbaa !50
   %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds ptr, ptr %62, i64 %65
+  %66 = getelementptr inbounds [8 x i8], ptr %62, i64 %65
   %67 = load ptr, ptr %66, align 8, !tbaa !51
   %68 = getelementptr inbounds nuw i8, ptr %58, i64 64
   %69 = load ptr, ptr %68, align 8, !tbaa !56
@@ -1078,7 +1078,7 @@ define i32 @arkStep_NlsFPFunction_MassIdent(ptr noundef %0, ptr noundef %1, ptr 
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 96
   %25 = load i32, ptr %24, align 8, !tbaa !50
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds ptr, ptr %23, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %23, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !51
   %29 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %30 = load ptr, ptr %29, align 8, !tbaa !53
@@ -1103,7 +1103,7 @@ define i32 @arkStep_NlsFPFunction_MassIdent(ptr noundef %0, ptr noundef %1, ptr 
   %43 = getelementptr inbounds nuw i8, ptr %32, i64 96
   %44 = load i32, ptr %43, align 8, !tbaa !50
   %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds ptr, ptr %42, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr %42, i64 %45
   %47 = load ptr, ptr %46, align 8, !tbaa !51
   %48 = getelementptr inbounds nuw i8, ptr %32, i64 64
   %49 = load ptr, ptr %48, align 8, !tbaa !56
@@ -1162,7 +1162,7 @@ define i32 @arkStep_NlsFPFunction_MassFixed_TrivialPredAutonomous(ptr noundef %0
   %28 = getelementptr inbounds nuw i8, ptr %.pre, i64 96
   %29 = load i32, ptr %28, align 8, !tbaa !50
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds ptr, ptr %27, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %27, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !51
   call void @N_VScale(double noundef 1.000000e+00, ptr noundef nonnull %24, ptr noundef %32) #6
   %.pre19 = load ptr, ptr %5, align 8, !tbaa !14
@@ -1181,7 +1181,7 @@ define i32 @arkStep_NlsFPFunction_MassFixed_TrivialPredAutonomous(ptr noundef %0
   %43 = getelementptr inbounds nuw i8, ptr %.pre, i64 96
   %44 = load i32, ptr %43, align 8, !tbaa !50
   %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds ptr, ptr %42, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr %42, i64 %45
   %47 = load ptr, ptr %46, align 8, !tbaa !51
   %48 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %49 = load ptr, ptr %48, align 8, !tbaa !53
@@ -1207,7 +1207,7 @@ define i32 @arkStep_NlsFPFunction_MassFixed_TrivialPredAutonomous(ptr noundef %0
   %63 = getelementptr inbounds nuw i8, ptr %58, i64 96
   %64 = load i32, ptr %63, align 8, !tbaa !50
   %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds ptr, ptr %62, i64 %65
+  %66 = getelementptr inbounds [8 x i8], ptr %62, i64 %65
   %67 = load ptr, ptr %66, align 8, !tbaa !51
   %68 = getelementptr inbounds nuw i8, ptr %58, i64 64
   %69 = load ptr, ptr %68, align 8, !tbaa !56
@@ -1266,7 +1266,7 @@ define i32 @arkStep_NlsFPFunction_MassFixed(ptr noundef %0, ptr noundef %1, ptr 
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 96
   %25 = load i32, ptr %24, align 8, !tbaa !50
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds ptr, ptr %23, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %23, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !51
   %29 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %30 = load ptr, ptr %29, align 8, !tbaa !53
@@ -1291,7 +1291,7 @@ define i32 @arkStep_NlsFPFunction_MassFixed(ptr noundef %0, ptr noundef %1, ptr 
   %43 = getelementptr inbounds nuw i8, ptr %32, i64 96
   %44 = load i32, ptr %43, align 8, !tbaa !50
   %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds ptr, ptr %42, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr %42, i64 %45
   %47 = load ptr, ptr %46, align 8, !tbaa !51
   %48 = getelementptr inbounds nuw i8, ptr %32, i64 64
   %49 = load ptr, ptr %48, align 8, !tbaa !56
@@ -1349,7 +1349,7 @@ define i32 @arkStep_NlsFPFunction_MassTDep(ptr noundef %0, ptr noundef %1, ptr n
   %24 = getelementptr inbounds nuw i8, ptr %14, i64 96
   %25 = load i32, ptr %24, align 8, !tbaa !50
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds ptr, ptr %23, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %23, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !51
   %29 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %30 = load ptr, ptr %29, align 8, !tbaa !53
@@ -1374,7 +1374,7 @@ define i32 @arkStep_NlsFPFunction_MassTDep(ptr noundef %0, ptr noundef %1, ptr n
   %43 = getelementptr inbounds nuw i8, ptr %32, i64 96
   %44 = load i32, ptr %43, align 8, !tbaa !50
   %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds ptr, ptr %42, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr %42, i64 %45
   %47 = load ptr, ptr %46, align 8, !tbaa !51
   call void @N_VScale(double noundef %40, ptr noundef %47, ptr noundef %1) #6
   %48 = load ptr, ptr %5, align 8, !tbaa !14
@@ -1429,7 +1429,7 @@ define i32 @arkStep_GetNonlinearSystemData(ptr noundef %0, ptr noundef writeonly
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 96
   %22 = load i32, ptr %21, align 8, !tbaa !50
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds ptr, ptr %20, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %20, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !51
   store ptr %25, ptr %4, align 8, !tbaa !51
   %26 = getelementptr inbounds nuw i8, ptr %14, i64 152
@@ -1560,7 +1560,7 @@ define i32 @arkStep_NlsLSetup(i32 noundef %0, ptr noundef writeonly captures(non
   %23 = getelementptr inbounds nuw i8, ptr %.pre, i64 96
   %24 = load i32, ptr %23, align 8, !tbaa !50
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds ptr, ptr %22, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %22, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !51
   %28 = getelementptr inbounds nuw i8, ptr %.pre, i64 264
   %29 = getelementptr inbounds nuw i8, ptr %16, i64 616
@@ -1640,7 +1640,7 @@ define i32 @arkStep_NlsLSolve(ptr noundef %0, ptr noundef %1) #0 {
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 96
   %24 = load i32, ptr %23, align 8, !tbaa !50
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds ptr, ptr %22, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %22, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !51
   %28 = getelementptr inbounds nuw i8, ptr %13, i64 224
   %29 = load double, ptr %28, align 8, !tbaa !76

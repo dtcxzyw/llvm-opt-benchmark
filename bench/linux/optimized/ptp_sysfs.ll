@@ -6,14 +6,12 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.attribute_group = type { ptr, ptr, ptr, ptr, ptr }
 %struct.device_attribute = type { %struct.attribute, ptr, ptr }
 %struct.attribute = type { ptr, i16 }
-%struct.ptp_pin_desc = type { [64 x i8], i32, i32, i32, [5 x i32] }
 %struct.ptp_clock_request = type { i32, %union.anon.2 }
 %union.anon.2 = type { %struct.ptp_perout_request }
 %struct.ptp_perout_request = type { %union.anon.3, %struct.ptp_clock_time, i32, i32, %union.anon.4 }
 %union.anon.3 = type { %struct.ptp_clock_time }
 %struct.ptp_clock_time = type { i64, i32, i32 }
 %union.anon.4 = type { %struct.ptp_clock_time }
-%struct.ptp_extts_event = type { %struct.ptp_clock_time, i32, i32, [2 x i32] }
 
 @ptp_group = internal constant %struct.attribute_group { ptr null, ptr @ptp_is_attribute_visible, ptr null, ptr @ptp_attrs, ptr null }, align 8
 @ptp_groups = dso_local local_unnamed_addr global [2 x ptr] [ptr @ptp_group, ptr null], align 16
@@ -119,9 +117,9 @@ define dso_local noundef range(i32 -12, 1) i32 @ptp_populate_pin_groups(ptr noun
 28:                                               ; preds = %28, %26
   %29 = phi i64 [ 0, %26 ], [ %39, %28 ]
   %30 = load ptr, ptr %14, align 8
-  %31 = getelementptr %struct.device_attribute, ptr %30, i64 %29
+  %31 = getelementptr [32 x i8], ptr %30, i64 %29
   %32 = load ptr, ptr %27, align 8
-  %33 = getelementptr %struct.ptp_pin_desc, ptr %32, i64 %29
+  %33 = getelementptr [96 x i8], ptr %32, i64 %29
   store ptr %33, ptr %31, align 8
   %34 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i16 420, ptr %34, align 8
@@ -130,7 +128,7 @@ define dso_local noundef range(i32 -12, 1) i32 @ptp_populate_pin_groups(ptr noun
   %36 = getelementptr inbounds nuw i8, ptr %31, i64 24
   store ptr @ptp_pin_store, ptr %36, align 8
   %37 = load ptr, ptr %24, align 8
-  %38 = getelementptr ptr, ptr %37, i64 %29
+  %38 = getelementptr [8 x i8], ptr %37, i64 %29
   store ptr %31, ptr %38, align 8
   %39 = add nuw nsw i64 %29, 1
   %40 = icmp eq i64 %39, %11
@@ -176,7 +174,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @ptp_pin_show(ptr noundef
 
 16:                                               ; preds = %21, %12
   %17 = phi i64 [ 0, %12 ], [ %22, %21 ]
-  %18 = getelementptr %struct.ptp_pin_desc, ptr %14, i64 %17
+  %18 = getelementptr [96 x i8], ptr %14, i64 %17
   %19 = tail call i32 @strcmp(ptr noundef %18, ptr noundef %6) #13
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %24, label %21
@@ -202,7 +200,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @ptp_pin_show(ptr noundef
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 64
   %33 = load ptr, ptr %32, align 8
   %34 = and i64 %17, 2147483647
-  %35 = getelementptr %struct.ptp_pin_desc, ptr %33, i64 %34
+  %35 = getelementptr [96 x i8], ptr %33, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 68
   %37 = load i32, ptr %36, align 4
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 72
@@ -248,7 +246,7 @@ define internal i64 @ptp_pin_store(ptr noundef readonly captures(none) %0, ptr n
 
 22:                                               ; preds = %27, %18
   %23 = phi i64 [ 0, %18 ], [ %28, %27 ]
-  %24 = getelementptr %struct.ptp_pin_desc, ptr %20, i64 %23
+  %24 = getelementptr [96 x i8], ptr %20, i64 %23
   %25 = call i32 @strcmp(ptr noundef %24, ptr noundef %12) #13
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %30, label %27
@@ -468,7 +466,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @extts_fifo_show(ptr noun
 28:                                               ; preds = %15
   %29 = getelementptr i8, ptr %16, i64 -4112
   %30 = sext i32 %22 to i64
-  %31 = getelementptr %struct.ptp_extts_event, ptr %29, i64 %30
+  %31 = getelementptr [32 x i8], ptr %29, i64 %30
   %32 = load i64, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %34 = load i32, ptr %33, align 8
@@ -677,9 +675,9 @@ define internal noundef i64 @n_vclocks_store(ptr noundef %0, ptr readnone captur
   %36 = load ptr, ptr %26, align 8
   %37 = load i32, ptr %22, align 4
   %38 = zext i32 %37 to i64
-  %39 = getelementptr i32, ptr %36, i64 %38
+  %39 = getelementptr [4 x i8], ptr %36, i64 %38
   %40 = zext i32 %28 to i64
-  %41 = getelementptr i32, ptr %39, i64 %40
+  %41 = getelementptr [4 x i8], ptr %39, i64 %40
   store i32 %35, ptr %41, align 4
   %42 = load ptr, ptr %32, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 980
@@ -718,10 +716,10 @@ define internal noundef i64 @n_vclocks_store(ptr noundef %0, ptr readnone captur
   %63 = phi i32 [ 1, %59 ], [ %71, %61 ]
   %64 = load ptr, ptr %60, align 8
   %65 = zext i32 %62 to i64
-  %66 = getelementptr i32, ptr %64, i64 %65
+  %66 = getelementptr [4 x i8], ptr %64, i64 %65
   %67 = zext i32 %63 to i64
   %68 = sub nsw i64 0, %67
-  %69 = getelementptr i32, ptr %66, i64 %68
+  %69 = getelementptr [4 x i8], ptr %66, i64 %68
   store i32 -1, ptr %69, align 4
   %70 = load i32, ptr %6, align 4
   %71 = add i32 %70, 1

@@ -59,10 +59,10 @@ define weak_odr dso_local void @_ZN3igl32average_from_edges_onto_verticesIN5Eige
   %.057.in74.i.i.i.i = phi i64 [ %.05775.i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %20 ]
   %.sroa.064.173.i.i.i.i = phi <4 x i32> [ %31, %.lr.ph.i.i.i.i ], [ %23, %20 ]
   %28 = phi <4 x i32> [ %35, %.lr.ph.i.i.i.i ], [ %22, %20 ]
-  %29 = getelementptr inbounds nuw i32, ptr %7, i64 %.05775.i.i.i.i
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.05775.i.i.i.i
   %30 = load <4 x i32>, ptr %29, align 16, !tbaa !13
   %31 = tail call <4 x i32> @llvm.smax.v4i32(<4 x i32> %.sroa.064.173.i.i.i.i, <4 x i32> %30)
-  %32 = getelementptr inbounds nuw i32, ptr %7, i64 %.057.in74.i.i.i.i
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.057.in74.i.i.i.i
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 48
   %34 = load <4 x i32>, ptr %33, align 16, !tbaa !13
   %35 = tail call <4 x i32> @llvm.smax.v4i32(<4 x i32> %28, <4 x i32> %34)
@@ -71,7 +71,7 @@ define weak_odr dso_local void @_ZN3igl32average_from_edges_onto_verticesIN5Eige
   br i1 %36, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !14
 
 37:                                               ; preds = %._crit_edge.i.i.i.i
-  %38 = getelementptr inbounds nuw i32, ptr %7, i64 %14
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %14
   %39 = load <4 x i32>, ptr %38, align 16, !tbaa !13
   %40 = tail call <4 x i32> @llvm.smax.v4i32(<4 x i32> %25, <4 x i32> %39)
   %41 = bitcast <4 x i32> %40 to <2 x i64>
@@ -93,8 +93,8 @@ define weak_odr dso_local void @_ZN3igl32average_from_edges_onto_verticesIN5Eige
 
 44:                                               ; preds = %44, %.preheader.i.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i.i.i.i ], [ %50, %44 ]
-  %45 = getelementptr inbounds nuw i32, ptr %6, i64 %.011.i.i.i.i.i.i.i
-  %46 = getelementptr inbounds nuw i32, ptr %45, i64 %.01012.i.i.i.i.i.i.i
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.011.i.i.i.i.i.i.i
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %.01012.i.i.i.i.i.i.i
   %47 = load i32, ptr %45, align 4, !tbaa !17
   %48 = load i32, ptr %46, align 4, !tbaa !17
   %49 = tail call noundef i32 @llvm.smax.i32(i32 %47, i32 %48)
@@ -112,7 +112,7 @@ define weak_odr dso_local void @_ZN3igl32average_from_edges_onto_verticesIN5Eige
 .lr.ph80.i.i.i.i:                                 ; preds = %51, %.lr.ph80.i.i.i.i
   %.05578.i.i.i.i = phi i64 [ %57, %.lr.ph80.i.i.i.i ], [ %16, %51 ]
   %.177.i.i.i.i = phi i32 [ %56, %.lr.ph80.i.i.i.i ], [ %52, %51 ]
-  %54 = getelementptr inbounds i32, ptr %7, i64 %.05578.i.i.i.i
+  %54 = getelementptr inbounds [4 x i8], ptr %7, i64 %.05578.i.i.i.i
   %55 = load i32, ptr %54, align 4, !tbaa !17
   %56 = tail call noundef i32 @llvm.smax.i32(i32 %.177.i.i.i.i, i32 %55)
   %57 = add nsw i64 %.05578.i.i.i.i, 1
@@ -127,7 +127,7 @@ define weak_odr dso_local void @_ZN3igl32average_from_edges_onto_verticesIN5Eige
 .lr.ph85.i.i.i.i:                                 ; preds = %58, %.lr.ph85.i.i.i.i
   %.083.i.i.i.i = phi i64 [ %64, %.lr.ph85.i.i.i.i ], [ 1, %58 ]
   %.382.i.i.i.i = phi i32 [ %63, %.lr.ph85.i.i.i.i ], [ %59, %58 ]
-  %61 = getelementptr inbounds nuw i32, ptr %7, i64 %.083.i.i.i.i
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.083.i.i.i.i
   %62 = load i32, ptr %61, align 4, !tbaa !17
   %63 = tail call noundef i32 @llvm.smax.i32(i32 %.382.i.i.i.i, i32 %62)
   %64 = add nuw nsw i64 %.083.i.i.i.i, 1
@@ -187,7 +187,7 @@ _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE7setZeroEv.exit: ; pr
 
 .preheader70:                                     ; preds = %.preheader70.lr.ph, %87
   %.04376 = phi i64 [ 0, %.preheader70.lr.ph ], [ %88, %87 ]
-  %83 = getelementptr i32, ptr %79, i64 %.04376
+  %83 = getelementptr [4 x i8], ptr %79, i64 %.04376
   %84 = load ptr, ptr %4, align 8
   br label %89
 
@@ -214,7 +214,7 @@ common.resume:                                    ; preds = %_ZN5Eigen8internal2
 89:                                               ; preds = %.preheader70, %134
   %indvars.iv = phi i64 [ 0, %.preheader70 ], [ %indvars.iv.next.pre-phi, %134 ]
   %90 = mul nsw i64 %81, %indvars.iv
-  %91 = getelementptr i32, ptr %83, i64 %90
+  %91 = getelementptr [4 x i8], ptr %83, i64 %90
   %92 = load i32, ptr %91, align 4, !tbaa !17
   %93 = icmp slt i32 %92, 0
   br i1 %93, label %._crit_edge90, label %94
@@ -227,8 +227,8 @@ common.resume:                                    ; preds = %_ZN5Eigen8internal2
   %95 = load ptr, ptr %1, align 8, !tbaa !4
   %96 = load i64, ptr %82, align 8, !tbaa !11
   %97 = mul nsw i64 %96, %indvars.iv
-  %98 = getelementptr i32, ptr %95, i64 %.04376
-  %99 = getelementptr i32, ptr %98, i64 %97
+  %98 = getelementptr [4 x i8], ptr %95, i64 %.04376
+  %99 = getelementptr [4 x i8], ptr %98, i64 %97
   %100 = load i32, ptr %99, align 4, !tbaa !17
   %101 = add nuw nsw i64 %indvars.iv, 1
   %.cmp.not = icmp eq i64 %indvars.iv, 2
@@ -236,36 +236,36 @@ common.resume:                                    ; preds = %_ZN5Eigen8internal2
   %103 = select i1 %.cmp.not, i64 0, i64 %102
   %104 = load ptr, ptr %0, align 8, !tbaa !4
   %105 = mul nuw nsw i64 %77, %103
-  %106 = getelementptr i32, ptr %104, i64 %.04376
-  %107 = getelementptr i32, ptr %106, i64 %105
+  %106 = getelementptr [4 x i8], ptr %104, i64 %.04376
+  %107 = getelementptr [4 x i8], ptr %106, i64 %105
   %108 = load i32, ptr %107, align 4, !tbaa !17
   %.cmp69 = icmp eq i64 %indvars.iv, 0
   %109 = add i64 %indvars.iv, 4294967295
   %110 = and i64 %109, 4294967295
   %111 = select i1 %.cmp69, i64 2, i64 %110
   %112 = mul nuw nsw i64 %77, %111
-  %113 = getelementptr i32, ptr %106, i64 %112
+  %113 = getelementptr [4 x i8], ptr %106, i64 %112
   %114 = load i32, ptr %113, align 4, !tbaa !17
   %115 = sext i32 %108 to i64
-  %116 = getelementptr inbounds double, ptr %.sroa.0.06165, i64 %115
+  %116 = getelementptr inbounds [8 x i8], ptr %.sroa.0.06165, i64 %115
   %117 = load double, ptr %116, align 8, !tbaa !29
   %118 = fadd double %117, 1.000000e+00
   store double %118, ptr %116, align 8, !tbaa !29
   %119 = sext i32 %114 to i64
-  %120 = getelementptr inbounds double, ptr %.sroa.0.06165, i64 %119
+  %120 = getelementptr inbounds [8 x i8], ptr %.sroa.0.06165, i64 %119
   %121 = load double, ptr %120, align 8, !tbaa !29
   %122 = fadd double %121, 1.000000e+00
   store double %122, ptr %120, align 8, !tbaa !29
   %123 = sext i32 %100 to i64
   %124 = load ptr, ptr %3, align 8, !tbaa !32
-  %125 = getelementptr inbounds double, ptr %124, i64 %123
+  %125 = getelementptr inbounds [8 x i8], ptr %124, i64 %123
   %126 = load double, ptr %125, align 8, !tbaa !29
-  %127 = getelementptr inbounds double, ptr %84, i64 %115
+  %127 = getelementptr inbounds [8 x i8], ptr %84, i64 %115
   %128 = load double, ptr %127, align 8, !tbaa !29
   %129 = fadd double %126, %128
   store double %129, ptr %127, align 8, !tbaa !29
   %130 = load double, ptr %125, align 8, !tbaa !29
-  %131 = getelementptr inbounds double, ptr %84, i64 %119
+  %131 = getelementptr inbounds [8 x i8], ptr %84, i64 %119
   %132 = load double, ptr %131, align 8, !tbaa !29
   %133 = fadd double %130, %132
   store double %133, ptr %131, align 8, !tbaa !29
@@ -282,13 +282,13 @@ common.resume:                                    ; preds = %_ZN5Eigen8internal2
 
 135:                                              ; preds = %.lr.ph, %143
   %indvars.iv86 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next87, %143 ]
-  %136 = getelementptr inbounds nuw double, ptr %.sroa.0.06165, i64 %indvars.iv86
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.06165, i64 %indvars.iv86
   %137 = load double, ptr %136, align 8, !tbaa !29
   %138 = fcmp ogt double %137, 0.000000e+00
   br i1 %138, label %139, label %143
 
 139:                                              ; preds = %135
-  %140 = getelementptr inbounds nuw double, ptr %85, i64 %indvars.iv86
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %indvars.iv86
   %141 = load double, ptr %140, align 8, !tbaa !29
   %142 = fdiv double %141, %137
   store double %142, ptr %140, align 8, !tbaa !29
@@ -344,10 +344,10 @@ define weak_odr dso_local void @_ZN3igl32average_from_edges_onto_verticesIN5Eige
   %.057.in74.i.i.i.i = phi i64 [ %.05775.i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %20 ]
   %.sroa.064.173.i.i.i.i = phi <4 x i32> [ %31, %.lr.ph.i.i.i.i ], [ %23, %20 ]
   %28 = phi <4 x i32> [ %35, %.lr.ph.i.i.i.i ], [ %22, %20 ]
-  %29 = getelementptr inbounds nuw i32, ptr %7, i64 %.05775.i.i.i.i
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.05775.i.i.i.i
   %30 = load <4 x i32>, ptr %29, align 16, !tbaa !13
   %31 = tail call <4 x i32> @llvm.smax.v4i32(<4 x i32> %.sroa.064.173.i.i.i.i, <4 x i32> %30)
-  %32 = getelementptr inbounds nuw i32, ptr %7, i64 %.057.in74.i.i.i.i
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.057.in74.i.i.i.i
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 48
   %34 = load <4 x i32>, ptr %33, align 16, !tbaa !13
   %35 = tail call <4 x i32> @llvm.smax.v4i32(<4 x i32> %28, <4 x i32> %34)
@@ -356,7 +356,7 @@ define weak_odr dso_local void @_ZN3igl32average_from_edges_onto_verticesIN5Eige
   br i1 %36, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !14
 
 37:                                               ; preds = %._crit_edge.i.i.i.i
-  %38 = getelementptr inbounds nuw i32, ptr %7, i64 %14
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %14
   %39 = load <4 x i32>, ptr %38, align 16, !tbaa !13
   %40 = tail call <4 x i32> @llvm.smax.v4i32(<4 x i32> %25, <4 x i32> %39)
   %41 = bitcast <4 x i32> %40 to <2 x i64>
@@ -378,8 +378,8 @@ define weak_odr dso_local void @_ZN3igl32average_from_edges_onto_verticesIN5Eige
 
 44:                                               ; preds = %44, %.preheader.i.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i.i.i.i ], [ %50, %44 ]
-  %45 = getelementptr inbounds nuw i32, ptr %6, i64 %.011.i.i.i.i.i.i.i
-  %46 = getelementptr inbounds nuw i32, ptr %45, i64 %.01012.i.i.i.i.i.i.i
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.011.i.i.i.i.i.i.i
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %.01012.i.i.i.i.i.i.i
   %47 = load i32, ptr %45, align 4, !tbaa !17
   %48 = load i32, ptr %46, align 4, !tbaa !17
   %49 = tail call noundef i32 @llvm.smax.i32(i32 %47, i32 %48)
@@ -397,7 +397,7 @@ define weak_odr dso_local void @_ZN3igl32average_from_edges_onto_verticesIN5Eige
 .lr.ph80.i.i.i.i:                                 ; preds = %51, %.lr.ph80.i.i.i.i
   %.05578.i.i.i.i = phi i64 [ %57, %.lr.ph80.i.i.i.i ], [ %16, %51 ]
   %.177.i.i.i.i = phi i32 [ %56, %.lr.ph80.i.i.i.i ], [ %52, %51 ]
-  %54 = getelementptr inbounds i32, ptr %7, i64 %.05578.i.i.i.i
+  %54 = getelementptr inbounds [4 x i8], ptr %7, i64 %.05578.i.i.i.i
   %55 = load i32, ptr %54, align 4, !tbaa !17
   %56 = tail call noundef i32 @llvm.smax.i32(i32 %.177.i.i.i.i, i32 %55)
   %57 = add nsw i64 %.05578.i.i.i.i, 1
@@ -412,7 +412,7 @@ define weak_odr dso_local void @_ZN3igl32average_from_edges_onto_verticesIN5Eige
 .lr.ph85.i.i.i.i:                                 ; preds = %58, %.lr.ph85.i.i.i.i
   %.083.i.i.i.i = phi i64 [ %64, %.lr.ph85.i.i.i.i ], [ 1, %58 ]
   %.382.i.i.i.i = phi i32 [ %63, %.lr.ph85.i.i.i.i ], [ %59, %58 ]
-  %61 = getelementptr inbounds nuw i32, ptr %7, i64 %.083.i.i.i.i
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.083.i.i.i.i
   %62 = load i32, ptr %61, align 4, !tbaa !17
   %63 = tail call noundef i32 @llvm.smax.i32(i32 %.382.i.i.i.i, i32 %62)
   %64 = add nuw nsw i64 %.083.i.i.i.i, 1
@@ -472,7 +472,7 @@ _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE7setZeroEv.exit: ; pr
 
 .preheader70:                                     ; preds = %.preheader70.lr.ph, %87
   %.04376 = phi i64 [ 0, %.preheader70.lr.ph ], [ %88, %87 ]
-  %83 = getelementptr i32, ptr %79, i64 %.04376
+  %83 = getelementptr [4 x i8], ptr %79, i64 %.04376
   %84 = load ptr, ptr %4, align 8
   br label %89
 
@@ -499,7 +499,7 @@ common.resume:                                    ; preds = %_ZN5Eigen8internal2
 89:                                               ; preds = %.preheader70, %134
   %indvars.iv = phi i64 [ 0, %.preheader70 ], [ %indvars.iv.next.pre-phi, %134 ]
   %90 = mul nsw i64 %81, %indvars.iv
-  %91 = getelementptr i32, ptr %83, i64 %90
+  %91 = getelementptr [4 x i8], ptr %83, i64 %90
   %92 = load i32, ptr %91, align 4, !tbaa !17
   %93 = icmp slt i32 %92, 0
   br i1 %93, label %._crit_edge90, label %94
@@ -512,8 +512,8 @@ common.resume:                                    ; preds = %_ZN5Eigen8internal2
   %95 = load ptr, ptr %1, align 8, !tbaa !4
   %96 = load i64, ptr %82, align 8, !tbaa !11
   %97 = mul nsw i64 %96, %indvars.iv
-  %98 = getelementptr i32, ptr %95, i64 %.04376
-  %99 = getelementptr i32, ptr %98, i64 %97
+  %98 = getelementptr [4 x i8], ptr %95, i64 %.04376
+  %99 = getelementptr [4 x i8], ptr %98, i64 %97
   %100 = load i32, ptr %99, align 4, !tbaa !17
   %101 = add nuw nsw i64 %indvars.iv, 1
   %.cmp.not = icmp eq i64 %indvars.iv, 2
@@ -521,36 +521,36 @@ common.resume:                                    ; preds = %_ZN5Eigen8internal2
   %103 = select i1 %.cmp.not, i64 0, i64 %102
   %104 = load ptr, ptr %0, align 8, !tbaa !4
   %105 = mul nuw nsw i64 %77, %103
-  %106 = getelementptr i32, ptr %104, i64 %.04376
-  %107 = getelementptr i32, ptr %106, i64 %105
+  %106 = getelementptr [4 x i8], ptr %104, i64 %.04376
+  %107 = getelementptr [4 x i8], ptr %106, i64 %105
   %108 = load i32, ptr %107, align 4, !tbaa !17
   %.cmp69 = icmp eq i64 %indvars.iv, 0
   %109 = add i64 %indvars.iv, 4294967295
   %110 = and i64 %109, 4294967295
   %111 = select i1 %.cmp69, i64 2, i64 %110
   %112 = mul nuw nsw i64 %77, %111
-  %113 = getelementptr i32, ptr %106, i64 %112
+  %113 = getelementptr [4 x i8], ptr %106, i64 %112
   %114 = load i32, ptr %113, align 4, !tbaa !17
   %115 = sext i32 %108 to i64
-  %116 = getelementptr inbounds double, ptr %.sroa.0.06165, i64 %115
+  %116 = getelementptr inbounds [8 x i8], ptr %.sroa.0.06165, i64 %115
   %117 = load double, ptr %116, align 8, !tbaa !29
   %118 = fadd double %117, 1.000000e+00
   store double %118, ptr %116, align 8, !tbaa !29
   %119 = sext i32 %114 to i64
-  %120 = getelementptr inbounds double, ptr %.sroa.0.06165, i64 %119
+  %120 = getelementptr inbounds [8 x i8], ptr %.sroa.0.06165, i64 %119
   %121 = load double, ptr %120, align 8, !tbaa !29
   %122 = fadd double %121, 1.000000e+00
   store double %122, ptr %120, align 8, !tbaa !29
   %123 = sext i32 %100 to i64
   %124 = load ptr, ptr %3, align 8, !tbaa !28
-  %125 = getelementptr inbounds double, ptr %124, i64 %123
+  %125 = getelementptr inbounds [8 x i8], ptr %124, i64 %123
   %126 = load double, ptr %125, align 8, !tbaa !29
-  %127 = getelementptr inbounds double, ptr %84, i64 %115
+  %127 = getelementptr inbounds [8 x i8], ptr %84, i64 %115
   %128 = load double, ptr %127, align 8, !tbaa !29
   %129 = fadd double %126, %128
   store double %129, ptr %127, align 8, !tbaa !29
   %130 = load double, ptr %125, align 8, !tbaa !29
-  %131 = getelementptr inbounds double, ptr %84, i64 %119
+  %131 = getelementptr inbounds [8 x i8], ptr %84, i64 %119
   %132 = load double, ptr %131, align 8, !tbaa !29
   %133 = fadd double %130, %132
   store double %133, ptr %131, align 8, !tbaa !29
@@ -567,13 +567,13 @@ common.resume:                                    ; preds = %_ZN5Eigen8internal2
 
 135:                                              ; preds = %.lr.ph, %143
   %indvars.iv86 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next87, %143 ]
-  %136 = getelementptr inbounds nuw double, ptr %.sroa.0.06165, i64 %indvars.iv86
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.06165, i64 %indvars.iv86
   %137 = load double, ptr %136, align 8, !tbaa !29
   %138 = fcmp ogt double %137, 0.000000e+00
   br i1 %138, label %139, label %143
 
 139:                                              ; preds = %135
-  %140 = getelementptr inbounds nuw double, ptr %85, i64 %indvars.iv86
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %indvars.iv86
   %141 = load double, ptr %140, align 8, !tbaa !29
   %142 = fdiv double %141, %137
   store double %142, ptr %140, align 8, !tbaa !29
@@ -627,10 +627,10 @@ define weak_odr dso_local void @_ZN3igl32average_from_edges_onto_verticesIN5Eige
   %.057.in74.i.i.i.i = phi i64 [ %.05775.i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %20 ]
   %.sroa.064.173.i.i.i.i = phi <4 x i32> [ %31, %.lr.ph.i.i.i.i ], [ %23, %20 ]
   %28 = phi <4 x i32> [ %35, %.lr.ph.i.i.i.i ], [ %22, %20 ]
-  %29 = getelementptr inbounds nuw i32, ptr %7, i64 %.05775.i.i.i.i
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.05775.i.i.i.i
   %30 = load <4 x i32>, ptr %29, align 16, !tbaa !13
   %31 = tail call <4 x i32> @llvm.smax.v4i32(<4 x i32> %.sroa.064.173.i.i.i.i, <4 x i32> %30)
-  %32 = getelementptr inbounds nuw i32, ptr %7, i64 %.057.in74.i.i.i.i
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.057.in74.i.i.i.i
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 48
   %34 = load <4 x i32>, ptr %33, align 16, !tbaa !13
   %35 = tail call <4 x i32> @llvm.smax.v4i32(<4 x i32> %28, <4 x i32> %34)
@@ -639,7 +639,7 @@ define weak_odr dso_local void @_ZN3igl32average_from_edges_onto_verticesIN5Eige
   br i1 %36, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !14
 
 37:                                               ; preds = %._crit_edge.i.i.i.i
-  %38 = getelementptr inbounds nuw i32, ptr %7, i64 %14
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %14
   %39 = load <4 x i32>, ptr %38, align 16, !tbaa !13
   %40 = tail call <4 x i32> @llvm.smax.v4i32(<4 x i32> %25, <4 x i32> %39)
   %41 = bitcast <4 x i32> %40 to <2 x i64>
@@ -661,8 +661,8 @@ define weak_odr dso_local void @_ZN3igl32average_from_edges_onto_verticesIN5Eige
 
 44:                                               ; preds = %44, %.preheader.i.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i = phi i64 [ 0, %.preheader.i.i.i.i.i.i.i ], [ %50, %44 ]
-  %45 = getelementptr inbounds nuw i32, ptr %6, i64 %.011.i.i.i.i.i.i.i
-  %46 = getelementptr inbounds nuw i32, ptr %45, i64 %.01012.i.i.i.i.i.i.i
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.011.i.i.i.i.i.i.i
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %.01012.i.i.i.i.i.i.i
   %47 = load i32, ptr %45, align 4, !tbaa !17
   %48 = load i32, ptr %46, align 4, !tbaa !17
   %49 = tail call noundef i32 @llvm.smax.i32(i32 %47, i32 %48)
@@ -680,7 +680,7 @@ define weak_odr dso_local void @_ZN3igl32average_from_edges_onto_verticesIN5Eige
 .lr.ph80.i.i.i.i:                                 ; preds = %51, %.lr.ph80.i.i.i.i
   %.05578.i.i.i.i = phi i64 [ %57, %.lr.ph80.i.i.i.i ], [ %16, %51 ]
   %.177.i.i.i.i = phi i32 [ %56, %.lr.ph80.i.i.i.i ], [ %52, %51 ]
-  %54 = getelementptr inbounds i32, ptr %7, i64 %.05578.i.i.i.i
+  %54 = getelementptr inbounds [4 x i8], ptr %7, i64 %.05578.i.i.i.i
   %55 = load i32, ptr %54, align 4, !tbaa !17
   %56 = tail call noundef i32 @llvm.smax.i32(i32 %.177.i.i.i.i, i32 %55)
   %57 = add nsw i64 %.05578.i.i.i.i, 1
@@ -695,7 +695,7 @@ define weak_odr dso_local void @_ZN3igl32average_from_edges_onto_verticesIN5Eige
 .lr.ph85.i.i.i.i:                                 ; preds = %58, %.lr.ph85.i.i.i.i
   %.083.i.i.i.i = phi i64 [ %64, %.lr.ph85.i.i.i.i ], [ 1, %58 ]
   %.382.i.i.i.i = phi i32 [ %63, %.lr.ph85.i.i.i.i ], [ %59, %58 ]
-  %61 = getelementptr inbounds nuw i32, ptr %7, i64 %.083.i.i.i.i
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.083.i.i.i.i
   %62 = load i32, ptr %61, align 4, !tbaa !17
   %63 = tail call noundef i32 @llvm.smax.i32(i32 %.382.i.i.i.i, i32 %62)
   %64 = add nuw nsw i64 %.083.i.i.i.i, 1
@@ -752,7 +752,7 @@ _ZN5Eigen9DenseBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE7setZeroEv.exit53: ; pr
 
 .preheader68:                                     ; preds = %.preheader68.lr.ph, %85
   %.04374 = phi i64 [ 0, %.preheader68.lr.ph ], [ %86, %85 ]
-  %81 = getelementptr i32, ptr %77, i64 %.04374
+  %81 = getelementptr [4 x i8], ptr %77, i64 %.04374
   %82 = load ptr, ptr %4, align 8
   br label %87
 
@@ -779,7 +779,7 @@ common.resume:                                    ; preds = %_ZN5Eigen9DenseBase
 87:                                               ; preds = %.preheader68, %132
   %indvars.iv = phi i64 [ 0, %.preheader68 ], [ %indvars.iv.next.pre-phi, %132 ]
   %88 = mul nsw i64 %79, %indvars.iv
-  %89 = getelementptr i32, ptr %81, i64 %88
+  %89 = getelementptr [4 x i8], ptr %81, i64 %88
   %90 = load i32, ptr %89, align 4, !tbaa !17
   %91 = icmp slt i32 %90, 0
   br i1 %91, label %._crit_edge88, label %92
@@ -792,8 +792,8 @@ common.resume:                                    ; preds = %_ZN5Eigen9DenseBase
   %93 = load ptr, ptr %1, align 8, !tbaa !4
   %94 = load i64, ptr %80, align 8, !tbaa !11
   %95 = mul nsw i64 %94, %indvars.iv
-  %96 = getelementptr i32, ptr %93, i64 %.04374
-  %97 = getelementptr i32, ptr %96, i64 %95
+  %96 = getelementptr [4 x i8], ptr %93, i64 %.04374
+  %97 = getelementptr [4 x i8], ptr %96, i64 %95
   %98 = load i32, ptr %97, align 4, !tbaa !17
   %99 = add nuw nsw i64 %indvars.iv, 1
   %.cmp.not = icmp eq i64 %indvars.iv, 2
@@ -801,36 +801,36 @@ common.resume:                                    ; preds = %_ZN5Eigen9DenseBase
   %101 = select i1 %.cmp.not, i64 0, i64 %100
   %102 = load ptr, ptr %0, align 8, !tbaa !4
   %103 = mul nuw nsw i64 %75, %101
-  %104 = getelementptr i32, ptr %102, i64 %.04374
-  %105 = getelementptr i32, ptr %104, i64 %103
+  %104 = getelementptr [4 x i8], ptr %102, i64 %.04374
+  %105 = getelementptr [4 x i8], ptr %104, i64 %103
   %106 = load i32, ptr %105, align 4, !tbaa !17
   %.cmp67 = icmp eq i64 %indvars.iv, 0
   %107 = add i64 %indvars.iv, 4294967295
   %108 = and i64 %107, 4294967295
   %109 = select i1 %.cmp67, i64 2, i64 %108
   %110 = mul nuw nsw i64 %75, %109
-  %111 = getelementptr i32, ptr %104, i64 %110
+  %111 = getelementptr [4 x i8], ptr %104, i64 %110
   %112 = load i32, ptr %111, align 4, !tbaa !17
   %113 = sext i32 %106 to i64
-  %114 = getelementptr inbounds double, ptr %.sroa.0.063, i64 %113
+  %114 = getelementptr inbounds [8 x i8], ptr %.sroa.0.063, i64 %113
   %115 = load double, ptr %114, align 8, !tbaa !29
   %116 = fadd double %115, 1.000000e+00
   store double %116, ptr %114, align 8, !tbaa !29
   %117 = sext i32 %112 to i64
-  %118 = getelementptr inbounds double, ptr %.sroa.0.063, i64 %117
+  %118 = getelementptr inbounds [8 x i8], ptr %.sroa.0.063, i64 %117
   %119 = load double, ptr %118, align 8, !tbaa !29
   %120 = fadd double %119, 1.000000e+00
   store double %120, ptr %118, align 8, !tbaa !29
   %121 = sext i32 %98 to i64
   %122 = load ptr, ptr %3, align 8, !tbaa !32
-  %123 = getelementptr inbounds double, ptr %122, i64 %121
+  %123 = getelementptr inbounds [8 x i8], ptr %122, i64 %121
   %124 = load double, ptr %123, align 8, !tbaa !29
-  %125 = getelementptr inbounds double, ptr %82, i64 %113
+  %125 = getelementptr inbounds [8 x i8], ptr %82, i64 %113
   %126 = load double, ptr %125, align 8, !tbaa !29
   %127 = fadd double %124, %126
   store double %127, ptr %125, align 8, !tbaa !29
   %128 = load double, ptr %123, align 8, !tbaa !29
-  %129 = getelementptr inbounds double, ptr %82, i64 %117
+  %129 = getelementptr inbounds [8 x i8], ptr %82, i64 %117
   %130 = load double, ptr %129, align 8, !tbaa !29
   %131 = fadd double %128, %130
   store double %131, ptr %129, align 8, !tbaa !29
@@ -847,13 +847,13 @@ common.resume:                                    ; preds = %_ZN5Eigen9DenseBase
 
 133:                                              ; preds = %.lr.ph, %141
   %indvars.iv84 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next85, %141 ]
-  %134 = getelementptr inbounds nuw double, ptr %.sroa.0.063, i64 %indvars.iv84
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.063, i64 %indvars.iv84
   %135 = load double, ptr %134, align 8, !tbaa !29
   %136 = fcmp ogt double %135, 0.000000e+00
   br i1 %136, label %137, label %141
 
 137:                                              ; preds = %133
-  %138 = getelementptr inbounds nuw double, ptr %83, i64 %indvars.iv84
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %indvars.iv84
   %139 = load double, ptr %138, align 8, !tbaa !29
   %140 = fdiv double %139, %135
   store double %140, ptr %138, align 8, !tbaa !29

@@ -479,7 +479,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i.i: ; preds = %172, %
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i: ; preds = %174, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i.i
   store ptr %169, ptr %14, align 8, !tbaa !51
   store ptr %173, ptr %79, align 8, !tbaa !47
-  %175 = getelementptr inbounds nuw i32, ptr %169, i64 %167
+  %175 = getelementptr inbounds nuw [4 x i8], ptr %169, i64 %167
   store ptr %175, ptr %80, align 8, !tbaa !49
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit.i
 
@@ -1738,7 +1738,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNS
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !56
   store ptr %.0.lcssa.i.i.i.i21, ptr %4, align 8, !tbaa !43
-  %29 = getelementptr inbounds nuw %"class.cv::Mat", ptr %20, i64 %16
+  %29 = getelementptr inbounds nuw [96 x i8], ptr %20, i64 %16
   store ptr %29, ptr %28, align 8, !tbaa !46
   ret void
 }

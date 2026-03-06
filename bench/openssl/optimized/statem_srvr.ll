@@ -2567,7 +2567,7 @@ define range(i32 0, 2) i32 @tls_construct_server_key_exchange(ptr noundef %0, pt
 
 .thread241.split.us.split.us:                     ; preds = %.thread241.split.us, %165
   %indvars.iv269 = phi i64 [ %indvars.iv.next270, %165 ], [ 0, %.thread241.split.us ]
-  %153 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv269
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv269
   %154 = load ptr, ptr %153, align 8, !tbaa !175
   %.not196.us.us = icmp eq ptr %154, null
   br i1 %.not196.us.us, label %.critedge, label %155
@@ -2604,7 +2604,7 @@ define range(i32 0, 2) i32 @tls_construct_server_key_exchange(ptr noundef %0, pt
 
 .thread241.split.us.split:                        ; preds = %.thread241.split.us, %181
   %indvars.iv265 = phi i64 [ %indvars.iv.next266, %181 ], [ 0, %.thread241.split.us ]
-  %169 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv265
+  %169 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv265
   %170 = load ptr, ptr %169, align 8, !tbaa !175
   %.not196.us = icmp eq ptr %170, null
   br i1 %.not196.us, label %.critedge, label %171
@@ -2643,7 +2643,7 @@ define range(i32 0, 2) i32 @tls_construct_server_key_exchange(ptr noundef %0, pt
 
 .thread241.split:                                 ; preds = %.thread241, %213
   %indvars.iv = phi i64 [ %indvars.iv.next, %213 ], [ 0, %.thread241 ]
-  %185 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %185 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %186 = load ptr, ptr %185, align 8, !tbaa !175
   %.not196 = icmp eq ptr %186, null
   br i1 %.not196, label %.critedge, label %187

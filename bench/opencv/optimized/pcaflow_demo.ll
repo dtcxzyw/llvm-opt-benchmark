@@ -48,7 +48,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.cv::UMat" = type { i32, i32, i32, i32, ptr, i32, ptr, i64, %"struct.cv::MatSize", %"struct.cv::MatStep" }
-%"class.cv::Point_.18" = type { float, float }
 %"class.cv::Vec.14" = type { %"class.cv::Matx.15" }
 %"class.cv::Matx.15" = type { [3 x float] }
 %"class.cv::Vec.16" = type { %"class.cv::Matx.17" }
@@ -992,7 +991,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i184: ; preds = %308, %3
   %331 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv.i.i
   %332 = load i8, ptr %331, align 1, !tbaa !14
   %333 = uitofp i8 %332 to double
-  %334 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv.i.i
+  %334 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.i.i
   store double %333, ptr %334, align 8, !tbaa !98
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
@@ -1813,7 +1812,7 @@ _ZN2cv9TickMeter5startEv.exit:                    ; preds = %7
   %114 = getelementptr inbounds nuw i8, ptr %24, i64 %indvars.iv.i
   %115 = load i8, ptr %114, align 1, !tbaa !14
   %116 = uitofp i8 %115 to double
-  %117 = getelementptr inbounds nuw double, ptr %23, i64 %indvars.iv.i
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv.i
   store double %116, ptr %117, align 8, !tbaa !98
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -1877,7 +1876,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %120, 
   %indvars.iv.i61 = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i62, %_ZL13isFlowCorrectRKN2cv6Point_IfEE.exit.thread.us.i ]
   %.15.us.i = phi i64 [ %.0219.us.i, %.preheader.us.i ], [ %.2.us.i, %_ZL13isFlowCorrectRKN2cv6Point_IfEE.exit.thread.us.i ]
   %.1234.us.i = phi double [ %.0228.us.i, %.preheader.us.i ], [ %.224.us.i, %_ZL13isFlowCorrectRKN2cv6Point_IfEE.exit.thread.us.i ]
-  %140 = getelementptr inbounds nuw %"class.cv::Point_.18", ptr %138, i64 %indvars.iv.i61
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %138, i64 %indvars.iv.i61
   %.val26.us.i = load float, ptr %140, align 4, !tbaa !109
   %141 = getelementptr i8, ptr %140, i64 4
   %.val27.us.i = load float, ptr %141, align 4
@@ -1896,7 +1895,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %120, 
   %149 = load i64, ptr %.val55, align 8, !tbaa !10
   %150 = mul i64 %149, %indvars.iv17.i
   %151 = getelementptr inbounds nuw i8, ptr %.val, i64 %150
-  %152 = getelementptr inbounds nuw %"class.cv::Point_.18", ptr %151, i64 %indvars.iv.i61
+  %152 = getelementptr inbounds nuw [8 x i8], ptr %151, i64 %indvars.iv.i61
   %.val28.us.i = load float, ptr %152, align 4, !tbaa !109
   %153 = getelementptr i8, ptr %152, i64 4
   %.val29.us.i = load float, ptr %153, align 4
@@ -2006,7 +2005,7 @@ _ZL13isFlowCorrectRKN2cv6Point_IfEE.exit.thread.us.i: ; preds = %160, %155, %148
   %191 = getelementptr inbounds nuw i8, ptr %29, i64 %indvars.iv.i68
   %192 = load i8, ptr %191, align 1, !tbaa !14
   %193 = uitofp i8 %192 to double
-  %194 = getelementptr inbounds nuw double, ptr %28, i64 %indvars.iv.i68
+  %194 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv.i68
   store double %193, ptr %194, align 8, !tbaa !98
   %indvars.iv.next.i69 = add nuw nsw i64 %indvars.iv.i68, 1
   %exitcond.not.i70 = icmp eq i64 %indvars.iv.next.i69, 3
@@ -2101,7 +2100,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit74: ; preds = %197
   %224 = getelementptr inbounds nuw i8, ptr %33, i64 %indvars.iv.i80
   %225 = load i8, ptr %224, align 1, !tbaa !14
   %226 = uitofp i8 %225 to double
-  %227 = getelementptr inbounds nuw double, ptr %32, i64 %indvars.iv.i80
+  %227 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv.i80
   store double %226, ptr %227, align 8, !tbaa !98
   %indvars.iv.next.i81 = add nuw nsw i64 %indvars.iv.i80, 1
   %exitcond.not.i82 = icmp eq i64 %indvars.iv.next.i81, 3
@@ -2446,7 +2445,7 @@ _ZNK2cv11_InputArray6getMatEi.exit30:             ; preds = %22, %19
   %34 = load i64, ptr %33, align 8, !tbaa !10
   %35 = mul i64 %34, %indvars.iv36
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 %35
-  %37 = getelementptr inbounds nuw %"class.cv::Point_.18", ptr %36, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv
   %.val.us = load float, ptr %37, align 4, !tbaa !109
   %38 = getelementptr i8, ptr %37, i64 4
   %.val27.us = load float, ptr %38, align 4
@@ -2488,10 +2487,10 @@ _ZNK2cv11_InputArray6getMatEi.exit30:             ; preds = %22, %19
 
 58:                                               ; preds = %58, %57
   %indvars.iv.i.us = phi i64 [ 0, %57 ], [ %indvars.iv.next.i.us, %58 ]
-  %59 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv.i.us
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.i.us
   %60 = load double, ptr %59, align 8, !tbaa !98, !noalias !130
   %61 = fptrunc double %60 to float
-  %62 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i.us
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.i.us
   store float %61, ptr %62, align 4, !tbaa !133, !alias.scope !130
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, 3
@@ -2503,7 +2502,7 @@ _ZNK2cv3VecIdLi3EEcvNS0_IT_Li3EEEIfEEv.exit.us:   ; preds = %58
   %65 = load i64, ptr %64, align 8, !tbaa !10
   %66 = mul i64 %65, %indvars.iv36
   %67 = getelementptr inbounds nuw i8, ptr %63, i64 %66
-  %68 = getelementptr inbounds nuw %"class.cv::Vec.14", ptr %67, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [12 x i8], ptr %67, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %68, ptr noundef nonnull align 4 dereferenceable(12) %5, i64 12, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

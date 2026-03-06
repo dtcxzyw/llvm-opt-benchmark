@@ -379,7 +379,7 @@ define dso_local i32 @io_prep_rw_fixed(ptr noundef captures(none) initializes((8
   %72 = getelementptr inbounds nuw i8, ptr %4, i64 168
   %73 = load ptr, ptr %72, align 8
   %74 = zext i16 %71 to i64
-  %75 = getelementptr ptr, ptr %73, i64 %74
+  %75 = getelementptr [8 x i8], ptr %73, i64 %74
   %76 = load ptr, ptr %75, align 8
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store ptr %76, ptr %77, align 8
@@ -1013,7 +1013,7 @@ define internal fastcc i32 @__io_read(ptr noundef %0, i32 noundef %1) unnamed_ad
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %113 = load i8, ptr %112, align 8
   %114 = zext i8 %113 to i64
-  %115 = getelementptr %struct.io_issue_def, ptr @io_issue_defs, i64 %114
+  %115 = getelementptr [24 x i8], ptr @io_issue_defs, i64 %114
   %116 = load i16, ptr %115, align 8
   %117 = and i16 %116, 16384
   %118 = icmp eq i16 %117, 0
@@ -2027,7 +2027,7 @@ define internal fastcc i32 @io_import_iovec(i32 noundef range(i32 0, 2) %0, ptr 
   %31 = zext i32 %30 to i64
   store i64 %31, ptr %7, align 8
   %32 = zext i8 %9 to i64
-  %33 = getelementptr %struct.io_issue_def, ptr @io_issue_defs, i64 %32
+  %33 = getelementptr [24 x i8], ptr @io_issue_defs, i64 %32
   %34 = load i16, ptr %33, align 8
   %35 = and i16 %34, 16384
   %36 = icmp ne i16 %35, 0
@@ -2403,14 +2403,14 @@ define internal fastcc noundef range(i32 -12, 1) i32 @io_setup_async_rw(ptr noun
   br i1 %3, label %._crit_edge, label %5
 
 5:                                                ; preds = %4
-  %.split = getelementptr %struct.io_cold_def, ptr @io_cold_defs, i64 %.pre3
+  %.split = getelementptr [40 x i8], ptr @io_cold_defs, i64 %.pre3
   %6 = getelementptr i8, ptr %.split, i64 16
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %67, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %4, %5
-  %9 = getelementptr %struct.io_cold_def, ptr @io_cold_defs, i64 %.pre3
+  %9 = getelementptr [40 x i8], ptr @io_cold_defs, i64 %.pre3
   %10 = load i16, ptr %9, align 8
   %11 = icmp eq i16 %10, 0
   br i1 %11, label %67, label %12
@@ -2467,7 +2467,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @io_setup_async_rw(ptr noun
   %40 = sub i64 %38, %39
   %41 = lshr exact i64 %40, 4
   %42 = and i64 %41, 4294967295
-  %43 = getelementptr %struct.iovec, ptr %29, i64 %42
+  %43 = getelementptr [16 x i8], ptr %29, i64 %42
   store ptr %43, ptr %30, align 8
   br label %44
 
@@ -2477,8 +2477,8 @@ define internal fastcc noundef range(i32 -12, 1) i32 @io_setup_async_rw(ptr noun
   br i1 %46, label %56, label %47
 
 47:                                               ; preds = %44
-  %48 = getelementptr %struct.iovec, ptr %29, i64 %45
-  %49 = getelementptr %struct.iovec, ptr %20, i64 %45
+  %48 = getelementptr [16 x i8], ptr %29, i64 %45
+  %49 = getelementptr [16 x i8], ptr %20, i64 %45
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %51 = load i64, ptr %50, align 8
   %52 = shl i64 %51, 4

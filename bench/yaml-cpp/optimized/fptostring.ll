@@ -1296,7 +1296,7 @@ define linkonce_odr { i64, i8 } @_ZN4YAML3jkj9dragonbox6detail4implINS1_21ieee75
   %14 = lshr i64 %13, 9
   %15 = trunc i64 %14 to i32
   %16 = add i32 %5, %15
-  %17 = getelementptr i64, ptr @_ZN4YAML3jkj9dragonbox12cache_holderINS1_16ieee754_binary32EvE5cacheE, i64 %12
+  %17 = getelementptr [8 x i8], ptr @_ZN4YAML3jkj9dragonbox12cache_holderINS1_16ieee754_binary32EvE5cacheE, i64 %12
   %18 = getelementptr i8, ptr %17, i64 248
   %19 = load i64, ptr %18, align 8, !tbaa !35
   %20 = lshr i64 %19, 25
@@ -1374,7 +1374,7 @@ define linkonce_odr { i64, i8 } @_ZN4YAML3jkj9dragonbox6detail4implINS1_21ieee75
   %75 = shl i64 %74, 32
   %sext = sub i64 4294967296, %75
   %76 = ashr exact i64 %sext, 32
-  %77 = getelementptr i64, ptr @_ZN4YAML3jkj9dragonbox12cache_holderINS1_16ieee754_binary32EvE5cacheE, i64 %76
+  %77 = getelementptr [8 x i8], ptr @_ZN4YAML3jkj9dragonbox12cache_holderINS1_16ieee754_binary32EvE5cacheE, i64 %76
   %78 = getelementptr i8, ptr %77, i64 248
   %79 = load i64, ptr %78, align 8, !tbaa !35
   %80 = mul nsw i64 %76, 1701
@@ -1562,7 +1562,7 @@ define linkonce_odr { i64, i64 } @_ZN4YAML3jkj9dragonbox6detail4implINS1_21ieee7
   %14 = lshr i64 %13, 19
   %15 = trunc i64 %14 to i32
   %16 = add i32 %5, %15
-  %17 = getelementptr %"struct.YAML::jkj::dragonbox::detail::wuint::uint128", ptr @_ZN4YAML3jkj9dragonbox12cache_holderINS1_16ieee754_binary64EvE5cacheE, i64 %12
+  %17 = getelementptr [16 x i8], ptr @_ZN4YAML3jkj9dragonbox12cache_holderINS1_16ieee754_binary64EvE5cacheE, i64 %12
   %18 = getelementptr i8, ptr %17, i64 4672
   %.sroa.0.0.copyload.i.i = load i64, ptr %18, align 8, !tbaa !35
   %19 = lshr i64 %.sroa.0.0.copyload.i.i, 54
@@ -1644,7 +1644,7 @@ define linkonce_odr { i64, i64 } @_ZN4YAML3jkj9dragonbox6detail4implINS1_21ieee7
   %80 = shl i64 %79, 32
   %sext = sub i64 8589934592, %80
   %81 = ashr exact i64 %sext, 32
-  %82 = getelementptr %"struct.YAML::jkj::dragonbox::detail::wuint::uint128", ptr @_ZN4YAML3jkj9dragonbox12cache_holderINS1_16ieee754_binary64EvE5cacheE, i64 %81
+  %82 = getelementptr [16 x i8], ptr @_ZN4YAML3jkj9dragonbox12cache_holderINS1_16ieee754_binary64EvE5cacheE, i64 %81
   %83 = getelementptr i8, ptr %82, i64 4672
   %.sroa.0.0.copyload.i.i117 = load i64, ptr %83, align 8, !tbaa !35
   %.sroa.2.0..sroa_idx.i.i118 = getelementptr i8, ptr %82, i64 4680

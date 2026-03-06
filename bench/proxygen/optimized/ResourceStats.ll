@@ -22,9 +22,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.folly::Function.37" = type { %"union.folly::detail::function::Data", ptr, ptr }
 %"union.folly::detail::function::Data" = type { ptr, [40 x i8] }
 %"class.folly::Function" = type { %"union.folly::detail::function::Data", ptr, ptr }
-%"struct.folly::threadlocal_detail::ElementWrapper" = type { ptr, %union.anon.40, i8, %"struct.folly::threadlocal_detail::ThreadEntryNode" }
-%union.anon.40 = type { ptr }
-%"struct.folly::threadlocal_detail::ThreadEntryNode" = type { i32, ptr, ptr, ptr }
 %"class.std::system_error" = type { %"class.std::runtime_error", %"class.std::error_code" }
 %"class.std::runtime_error" = type { %"class.std::exception", %"struct.std::__cow_string" }
 %"struct.std::__cow_string" = type { %union.anon.39 }
@@ -960,7 +957,7 @@ _ZN5folly18threadlocal_detail10StaticMetaIvvE8instanceEv.exit: ; preds = %entry,
 for.body:                                         ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIvvE8instanceEv.exit, %for.body
   %i.032 = phi i64 [ %inc, %for.body ], [ 0, %_ZN5folly18threadlocal_detail10StaticMetaIvvE8instanceEv.exit ]
   %2 = load ptr, ptr %head_, align 8
-  %arrayidx = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %2, i64 %i.032
+  %arrayidx = getelementptr inbounds [56 x i8], ptr %2, i64 %i.032
   %node = getelementptr inbounds nuw i8, ptr %arrayidx, i64 24
   %conv = trunc i64 %i.032 to i32
   %bf.value.i = and i32 %conv, 2147483647
@@ -998,7 +995,7 @@ _ZN5folly18threadlocal_detail10StaticMetaIvvE8instanceEv.exit21: ; preds = %for.
 for.body8:                                        ; preds = %_ZN5folly18threadlocal_detail10StaticMetaIvvE8instanceEv.exit21, %for.inc20
   %i5.034 = phi i64 [ %inc21, %for.inc20 ], [ 0, %_ZN5folly18threadlocal_detail10StaticMetaIvvE8instanceEv.exit21 ]
   %6 = load ptr, ptr %call3, align 8
-  %arrayidx10 = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %6, i64 %i5.034
+  %arrayidx10 = getelementptr inbounds [56 x i8], ptr %6, i64 %i5.034
   %node11 = getelementptr inbounds nuw i8, ptr %arrayidx10, i64 24
   %bf.load.i = load i32, ptr %node11, align 8
   %bf.cast.i = icmp slt i32 %bf.load.i, 0
@@ -1013,7 +1010,7 @@ if.then:                                          ; preds = %for.body8
   %prev.i24 = getelementptr inbounds nuw i8, ptr %arrayidx10, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %prev.i24, i8 0, i64 16, i1 false)
   %7 = load ptr, ptr %call3, align 8
-  %arrayidx18 = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %7, i64 %i5.034
+  %arrayidx18 = getelementptr inbounds [56 x i8], ptr %7, i64 %i5.034
   %node19 = getelementptr inbounds nuw i8, ptr %arrayidx18, i64 24
   tail call void @_ZN5folly18threadlocal_detail15ThreadEntryNode10initIfZeroEb(ptr noundef nonnull align 8 dereferenceable(32) %node19, i1 noundef zeroext false)
   br label %for.inc20
@@ -1767,7 +1764,7 @@ _ZNK5folly14ThreadLocalPtrINS_6detail17ThreadCachedLists6TLHeadENS1_15ThreadCach
   %head_.i.i = getelementptr inbounds nuw i8, ptr %3, i64 80
   %4 = load ptr, ptr %head_.i.i, align 8
   %idxprom.i.i = zext i32 %retval.0.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds nuw %"struct.folly::threadlocal_detail::ElementWrapper", ptr %4, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [56 x i8], ptr %4, i64 %idxprom.i.i
   %node.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 24
   %next.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 48
   %5 = load ptr, ptr %next.i.i.i.i, align 8
@@ -1775,7 +1772,7 @@ _ZNK5folly14ThreadLocalPtrINS_6detail17ThreadCachedLists6TLHeadENS1_15ThreadCach
   %bf.load.i.i.i.i = load i32, ptr %node.i.i, align 8
   %bf.clear.i.i.i.i = and i32 %bf.load.i.i.i.i, 2147483647
   %idxprom.i.i.i.i = zext nneg i32 %bf.clear.i.i.i.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw %"struct.folly::threadlocal_detail::ElementWrapper", ptr %6, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [56 x i8], ptr %6, i64 %idxprom.i.i.i.i
   %node.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i.i, i64 24
   %cmp.not7.i.i.i.i = icmp eq ptr %arrayidx.i.i.i.i, %arrayidx.i.i
   br i1 %cmp.not7.i.i.i.i, label %invoke.cont2, label %land.rhs.i.i.i.i
@@ -1785,7 +1782,7 @@ land.rhs.i.i.i.i:                                 ; preds = %_ZNK5folly14ThreadL
   %parent.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.sroa.3.0.i, i64 8
   %7 = load ptr, ptr %parent.i.i.i.i.i.i, align 8
   %8 = load ptr, ptr %7, align 8
-  %arrayidx.i2.i.i.i.i = getelementptr inbounds nuw %"struct.folly::threadlocal_detail::ElementWrapper", ptr %8, i64 %idxprom.i.i
+  %arrayidx.i2.i.i.i.i = getelementptr inbounds nuw [56 x i8], ptr %8, i64 %idxprom.i.i
   %9 = load ptr, ptr %arrayidx.i2.i.i.i.i, align 8
   %tobool.i.not.i.i.i.i = icmp eq ptr %9, null
   br i1 %tobool.i.not.i.i.i.i, label %for.inc.i.i.i.i, label %invoke.cont2
@@ -1797,7 +1794,7 @@ for.inc.i.i.i.i:                                  ; preds = %land.rhs.i.i.i.i
   %bf.load.i.i.i.i.i = load i32, ptr %ref.tmp.sroa.3.0.i, align 8
   %bf.clear.i.i.i.i.i = and i32 %bf.load.i.i.i.i.i, 2147483647
   %idxprom.i.i.i.i.i = zext nneg i32 %bf.clear.i.i.i.i.i to i64
-  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw %"struct.folly::threadlocal_detail::ElementWrapper", ptr %11, i64 %idxprom.i.i.i.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw [56 x i8], ptr %11, i64 %idxprom.i.i.i.i.i
   %node.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i.i.i, i64 24
   %cmp.not.i.i.i.i = icmp eq ptr %arrayidx.i.i.i.i.i, %arrayidx.i.i
   br i1 %cmp.not.i.i.i.i, label %invoke.cont2, label %land.rhs.i.i.i.i, !llvm.loop !20
@@ -1818,7 +1815,7 @@ invoke.cont6:                                     ; preds = %invoke.cont6.lr.ph,
   %13 = load ptr, ptr %parent.i.i.i, align 8
   %14 = load ptr, ptr %13, align 8
   %idxprom.i.i15 = zext i32 %12 to i64
-  %arrayidx.i.i16 = getelementptr inbounds nuw %"struct.folly::threadlocal_detail::ElementWrapper", ptr %14, i64 %idxprom.i.i15
+  %arrayidx.i.i16 = getelementptr inbounds nuw [56 x i8], ptr %14, i64 %idxprom.i.i15
   %15 = load ptr, ptr %arrayidx.i.i16, align 8
   %16 = load atomic i64, ptr %15 seq_cst, align 8
   %tobool.not.i = icmp eq i64 %16, 0
@@ -1856,14 +1853,14 @@ for.inc:                                          ; preds = %while.end108.i.i, %
   %bf.load.i.i.i = load i32, ptr %__begin2.sroa.4.037, align 8
   %bf.clear.i.i.i = and i32 %bf.load.i.i.i, 2147483647
   %idxprom.i.i.i = zext nneg i32 %bf.clear.i.i.i to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"struct.folly::threadlocal_detail::ElementWrapper", ptr %21, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [56 x i8], ptr %21, i64 %idxprom.i.i.i
   %node.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i, i64 24
   %22 = load ptr, ptr %acc, align 8
   %head_3.i.i.i = getelementptr inbounds nuw i8, ptr %22, i64 80
   %23 = load ptr, ptr %head_3.i.i.i, align 8
   %24 = load i32, ptr %id_.i.i, align 8
   %idxprom4.i.i.i = zext i32 %24 to i64
-  %arrayidx5.i.i.i = getelementptr inbounds nuw %"struct.folly::threadlocal_detail::ElementWrapper", ptr %23, i64 %idxprom4.i.i.i
+  %arrayidx5.i.i.i = getelementptr inbounds nuw [56 x i8], ptr %23, i64 %idxprom4.i.i.i
   %cmp.not7.i.i.i = icmp eq ptr %arrayidx.i.i.i, %arrayidx5.i.i.i
   br i1 %cmp.not7.i.i.i, label %_ZN5folly14ThreadLocalPtrINS_6detail17ThreadCachedLists6TLHeadENS1_15ThreadCachedTagEvE8Accessor8IteratorppEv.exit, label %land.rhs.i.i.i
 
@@ -1872,7 +1869,7 @@ land.rhs.i.i.i:                                   ; preds = %for.inc, %for.inc.i
   %parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.4.1, i64 8
   %25 = load ptr, ptr %parent.i.i.i.i.i, align 8
   %26 = load ptr, ptr %25, align 8
-  %arrayidx.i2.i.i.i = getelementptr inbounds nuw %"struct.folly::threadlocal_detail::ElementWrapper", ptr %26, i64 %idxprom4.i.i.i
+  %arrayidx.i2.i.i.i = getelementptr inbounds nuw [56 x i8], ptr %26, i64 %idxprom4.i.i.i
   %27 = load ptr, ptr %arrayidx.i2.i.i.i, align 8
   %tobool.i.not.i.i.i20 = icmp eq ptr %27, null
   br i1 %tobool.i.not.i.i.i20, label %for.inc.i.i.i, label %_ZN5folly14ThreadLocalPtrINS_6detail17ThreadCachedLists6TLHeadENS1_15ThreadCachedTagEvE8Accessor8IteratorppEv.exit
@@ -1884,7 +1881,7 @@ for.inc.i.i.i:                                    ; preds = %land.rhs.i.i.i
   %bf.load.i.i.i.i22 = load i32, ptr %__begin2.sroa.4.1, align 8
   %bf.clear.i.i.i.i23 = and i32 %bf.load.i.i.i.i22, 2147483647
   %idxprom.i.i.i.i24 = zext nneg i32 %bf.clear.i.i.i.i23 to i64
-  %arrayidx.i.i.i.i25 = getelementptr inbounds nuw %"struct.folly::threadlocal_detail::ElementWrapper", ptr %29, i64 %idxprom.i.i.i.i24
+  %arrayidx.i.i.i.i25 = getelementptr inbounds nuw [56 x i8], ptr %29, i64 %idxprom.i.i.i.i24
   %node.i.i.i.i26 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i.i25, i64 24
   %cmp.not.i.i.i = icmp eq ptr %arrayidx.i.i.i.i25, %arrayidx5.i.i.i
   br i1 %cmp.not.i.i.i, label %_ZN5folly14ThreadLocalPtrINS_6detail17ThreadCachedLists6TLHeadENS1_15ThreadCachedTagEvE8Accessor8IteratorppEv.exit, label %land.rhs.i.i.i, !llvm.loop !20
@@ -2044,7 +2041,7 @@ _ZNK5folly14ThreadLocalPtrINS_6detail19ThreadCachedReaders10EpochCountENS1_15Thr
   %head_.i.i = getelementptr inbounds nuw i8, ptr %6, i64 80
   %7 = load ptr, ptr %head_.i.i, align 8
   %idxprom.i.i = zext i32 %retval.0.i.i to i64
-  %arrayidx.i.i = getelementptr inbounds nuw %"struct.folly::threadlocal_detail::ElementWrapper", ptr %7, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [56 x i8], ptr %7, i64 %idxprom.i.i
   %node.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 24
   %next.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 48
   %8 = load ptr, ptr %next.i.i.i.i, align 8
@@ -2052,7 +2049,7 @@ _ZNK5folly14ThreadLocalPtrINS_6detail19ThreadCachedReaders10EpochCountENS1_15Thr
   %bf.load.i.i.i.i = load i32, ptr %node.i.i, align 8
   %bf.clear.i.i.i.i = and i32 %bf.load.i.i.i.i, 2147483647
   %idxprom.i.i.i.i = zext nneg i32 %bf.clear.i.i.i.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw %"struct.folly::threadlocal_detail::ElementWrapper", ptr %9, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [56 x i8], ptr %9, i64 %idxprom.i.i.i.i
   %node.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i.i, i64 24
   %cmp.not7.i.i.i.i = icmp eq ptr %arrayidx.i.i.i.i, %arrayidx.i.i
   br i1 %cmp.not7.i.i.i.i, label %invoke.cont5, label %land.rhs.i.i.i.i
@@ -2062,7 +2059,7 @@ land.rhs.i.i.i.i:                                 ; preds = %_ZNK5folly14ThreadL
   %parent.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp.sroa.3.0.i, i64 8
   %10 = load ptr, ptr %parent.i.i.i.i.i.i, align 8
   %11 = load ptr, ptr %10, align 8
-  %arrayidx.i2.i.i.i.i = getelementptr inbounds nuw %"struct.folly::threadlocal_detail::ElementWrapper", ptr %11, i64 %idxprom.i.i
+  %arrayidx.i2.i.i.i.i = getelementptr inbounds nuw [56 x i8], ptr %11, i64 %idxprom.i.i
   %12 = load ptr, ptr %arrayidx.i2.i.i.i.i, align 8
   %tobool.i.not.i.i.i.i = icmp eq ptr %12, null
   br i1 %tobool.i.not.i.i.i.i, label %for.inc.i.i.i.i, label %invoke.cont5
@@ -2074,7 +2071,7 @@ for.inc.i.i.i.i:                                  ; preds = %land.rhs.i.i.i.i
   %bf.load.i.i.i.i.i = load i32, ptr %ref.tmp.sroa.3.0.i, align 8
   %bf.clear.i.i.i.i.i = and i32 %bf.load.i.i.i.i.i, 2147483647
   %idxprom.i.i.i.i.i = zext nneg i32 %bf.clear.i.i.i.i.i to i64
-  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw %"struct.folly::threadlocal_detail::ElementWrapper", ptr %14, i64 %idxprom.i.i.i.i.i
+  %arrayidx.i.i.i.i.i = getelementptr inbounds nuw [56 x i8], ptr %14, i64 %idxprom.i.i.i.i.i
   %node.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i.i.i, i64 24
   %cmp.not.i.i.i.i = icmp eq ptr %arrayidx.i.i.i.i.i, %arrayidx.i.i
   br i1 %cmp.not.i.i.i.i, label %invoke.cont5, label %land.rhs.i.i.i.i, !llvm.loop !24
@@ -2383,7 +2380,7 @@ _ZN5folly18threadlocal_detail10StaticMetaINS_6detail15ThreadCachedTagEvE8instanc
 for.body:                                         ; preds = %_ZN5folly18threadlocal_detail10StaticMetaINS_6detail15ThreadCachedTagEvE8instanceEv.exit, %for.body
   %i.032 = phi i64 [ %inc, %for.body ], [ 0, %_ZN5folly18threadlocal_detail10StaticMetaINS_6detail15ThreadCachedTagEvE8instanceEv.exit ]
   %2 = load ptr, ptr %head_, align 8
-  %arrayidx = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %2, i64 %i.032
+  %arrayidx = getelementptr inbounds [56 x i8], ptr %2, i64 %i.032
   %node = getelementptr inbounds nuw i8, ptr %arrayidx, i64 24
   %conv = trunc i64 %i.032 to i32
   %bf.value.i = and i32 %conv, 2147483647
@@ -2421,7 +2418,7 @@ _ZN5folly18threadlocal_detail10StaticMetaINS_6detail15ThreadCachedTagEvE8instanc
 for.body8:                                        ; preds = %_ZN5folly18threadlocal_detail10StaticMetaINS_6detail15ThreadCachedTagEvE8instanceEv.exit21, %for.inc20
   %i5.034 = phi i64 [ %inc21, %for.inc20 ], [ 0, %_ZN5folly18threadlocal_detail10StaticMetaINS_6detail15ThreadCachedTagEvE8instanceEv.exit21 ]
   %6 = load ptr, ptr %call3, align 8
-  %arrayidx10 = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %6, i64 %i5.034
+  %arrayidx10 = getelementptr inbounds [56 x i8], ptr %6, i64 %i5.034
   %node11 = getelementptr inbounds nuw i8, ptr %arrayidx10, i64 24
   %bf.load.i = load i32, ptr %node11, align 8
   %bf.cast.i = icmp slt i32 %bf.load.i, 0
@@ -2436,7 +2433,7 @@ if.then:                                          ; preds = %for.body8
   %prev.i24 = getelementptr inbounds nuw i8, ptr %arrayidx10, i64 40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %prev.i24, i8 0, i64 16, i1 false)
   %7 = load ptr, ptr %call3, align 8
-  %arrayidx18 = getelementptr inbounds %"struct.folly::threadlocal_detail::ElementWrapper", ptr %7, i64 %i5.034
+  %arrayidx18 = getelementptr inbounds [56 x i8], ptr %7, i64 %i5.034
   %node19 = getelementptr inbounds nuw i8, ptr %arrayidx18, i64 24
   tail call void @_ZN5folly18threadlocal_detail15ThreadEntryNode10initIfZeroEb(ptr noundef nonnull align 8 dereferenceable(32) %node19, i1 noundef zeroext false)
   br label %for.inc20
@@ -2525,7 +2522,7 @@ land.rhs.lr.ph.split.us:                          ; preds = %land.rhs.lr.ph
   %parent.i.i.i.i.us11 = getelementptr inbounds nuw i8, ptr %__first.coerce1, i64 8
   %3 = load ptr, ptr %parent.i.i.i.i.us11, align 8
   %4 = load ptr, ptr %3, align 8
-  %arrayidx.i.i.i.us12 = getelementptr inbounds nuw %"struct.folly::threadlocal_detail::ElementWrapper", ptr %4, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i.us12 = getelementptr inbounds nuw [56 x i8], ptr %4, i64 %idxprom.i.i.i
   %5 = load ptr, ptr %arrayidx.i.i.i.us12, align 8
   %epoch_readers_.i.i.us13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %6 = load atomic i64, ptr %epoch_readers_.i.i.us13 monotonic, align 8
@@ -2542,7 +2539,7 @@ while.body.us.lr.ph:                              ; preds = %land.rhs.lr.ph.spli
   %9 = load ptr, ptr %__first.coerce0, align 8
   %head_3.i.i.i.us = getelementptr inbounds nuw i8, ptr %9, i64 80
   %10 = load ptr, ptr %head_3.i.i.i.us, align 8
-  %arrayidx5.i.i.i.us = getelementptr inbounds nuw %"struct.folly::threadlocal_detail::ElementWrapper", ptr %10, i64 %idxprom.i.i.i
+  %arrayidx5.i.i.i.us = getelementptr inbounds nuw [56 x i8], ptr %10, i64 %idxprom.i.i.i
   br label %while.body.us
 
 while.body.us:                                    ; preds = %while.body.us.lr.ph, %_ZN5folly14ThreadLocalPtrINS_6detail19ThreadCachedReaders10EpochCountENS1_15ThreadCachedTagEvE8Accessor8IteratorppEv.exit.us
@@ -2553,7 +2550,7 @@ while.body.us:                                    ; preds = %while.body.us.lr.ph
   %bf.load.i.i.i.us = load i32, ptr %__first.sroa.5.09.us19, align 8
   %bf.clear.i.i.i.us = and i32 %bf.load.i.i.i.us, 2147483647
   %idxprom.i.i.i2.us = zext nneg i32 %bf.clear.i.i.i.us to i64
-  %arrayidx.i.i.i3.us = getelementptr inbounds nuw %"struct.folly::threadlocal_detail::ElementWrapper", ptr %12, i64 %idxprom.i.i.i2.us
+  %arrayidx.i.i.i3.us = getelementptr inbounds nuw [56 x i8], ptr %12, i64 %idxprom.i.i.i2.us
   %node.i.i.i.us = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i3.us, i64 24
   %cmp.not7.i.i.i.us = icmp eq ptr %arrayidx.i.i.i3.us, %arrayidx5.i.i.i.us
   br i1 %cmp.not7.i.i.i.us, label %_ZN5folly14ThreadLocalPtrINS_6detail19ThreadCachedReaders10EpochCountENS1_15ThreadCachedTagEvE8Accessor8IteratorppEv.exit.us, label %land.rhs.i.i.i.us
@@ -2563,7 +2560,7 @@ land.rhs.i.i.i.us:                                ; preds = %while.body.us, %for
   %parent.i.i.i.i.i.us = getelementptr inbounds nuw i8, ptr %__first.sroa.5.1.us, i64 8
   %13 = load ptr, ptr %parent.i.i.i.i.i.us, align 8
   %14 = load ptr, ptr %13, align 8
-  %arrayidx.i2.i.i.i.us = getelementptr inbounds nuw %"struct.folly::threadlocal_detail::ElementWrapper", ptr %14, i64 %idxprom.i.i.i
+  %arrayidx.i2.i.i.i.us = getelementptr inbounds nuw [56 x i8], ptr %14, i64 %idxprom.i.i.i
   %15 = load ptr, ptr %arrayidx.i2.i.i.i.us, align 8
   %tobool.i.not.i.i.i.us = icmp eq ptr %15, null
   br i1 %tobool.i.not.i.i.i.us, label %for.inc.i.i.i.us, label %_ZN5folly14ThreadLocalPtrINS_6detail19ThreadCachedReaders10EpochCountENS1_15ThreadCachedTagEvE8Accessor8IteratorppEv.exit.us
@@ -2575,7 +2572,7 @@ for.inc.i.i.i.us:                                 ; preds = %land.rhs.i.i.i.us
   %bf.load.i.i.i.i.us = load i32, ptr %__first.sroa.5.1.us, align 8
   %bf.clear.i.i.i.i.us = and i32 %bf.load.i.i.i.i.us, 2147483647
   %idxprom.i.i.i.i.us = zext nneg i32 %bf.clear.i.i.i.i.us to i64
-  %arrayidx.i.i.i.i.us = getelementptr inbounds nuw %"struct.folly::threadlocal_detail::ElementWrapper", ptr %17, i64 %idxprom.i.i.i.i.us
+  %arrayidx.i.i.i.i.us = getelementptr inbounds nuw [56 x i8], ptr %17, i64 %idxprom.i.i.i.i.us
   %node.i.i.i.i.us = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i.i.us, i64 24
   %cmp.not.i.i.i.us = icmp eq ptr %arrayidx.i.i.i.i.us, %arrayidx5.i.i.i.us
   br i1 %cmp.not.i.i.i.us, label %_ZN5folly14ThreadLocalPtrINS_6detail19ThreadCachedReaders10EpochCountENS1_15ThreadCachedTagEvE8Accessor8IteratorppEv.exit.us, label %land.rhs.i.i.i.us, !llvm.loop !24
@@ -2585,7 +2582,7 @@ _ZN5folly14ThreadLocalPtrINS_6detail19ThreadCachedReaders10EpochCountENS1_15Thre
   %parent.i.i.i.i.us = getelementptr inbounds nuw i8, ptr %__first.sroa.5.2.us, i64 8
   %18 = load ptr, ptr %parent.i.i.i.i.us, align 8
   %19 = load ptr, ptr %18, align 8
-  %arrayidx.i.i.i.us = getelementptr inbounds nuw %"struct.folly::threadlocal_detail::ElementWrapper", ptr %19, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i.us = getelementptr inbounds nuw [56 x i8], ptr %19, i64 %idxprom.i.i.i
   %20 = load ptr, ptr %arrayidx.i.i.i.us, align 8
   %epoch_readers_.i.i.us = getelementptr inbounds nuw i8, ptr %20, i64 8
   %21 = load atomic i64, ptr %epoch_readers_.i.i.us monotonic, align 8
@@ -2603,7 +2600,7 @@ land.rhs:                                         ; preds = %land.rhs.lr.ph, %_Z
   %parent.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.5.09, i64 8
   %24 = load ptr, ptr %parent.i.i.i.i, align 8
   %25 = load ptr, ptr %24, align 8
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"struct.folly::threadlocal_detail::ElementWrapper", ptr %25, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [56 x i8], ptr %25, i64 %idxprom.i.i.i
   %26 = load ptr, ptr %arrayidx.i.i.i, align 8
   %epoch_readers_.i.i = getelementptr inbounds nuw i8, ptr %26, i64 8
   %27 = load atomic i64, ptr %epoch_readers_.i.i monotonic, align 8
@@ -2623,12 +2620,12 @@ while.body:                                       ; preds = %land.rhs
   %bf.load.i.i.i = load i32, ptr %__first.sroa.5.09, align 8
   %bf.clear.i.i.i = and i32 %bf.load.i.i.i, 2147483647
   %idxprom.i.i.i2 = zext nneg i32 %bf.clear.i.i.i to i64
-  %arrayidx.i.i.i3 = getelementptr inbounds nuw %"struct.folly::threadlocal_detail::ElementWrapper", ptr %31, i64 %idxprom.i.i.i2
+  %arrayidx.i.i.i3 = getelementptr inbounds nuw [56 x i8], ptr %31, i64 %idxprom.i.i.i2
   %node.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i3, i64 24
   %32 = load ptr, ptr %__first.coerce0, align 8
   %head_3.i.i.i = getelementptr inbounds nuw i8, ptr %32, i64 80
   %33 = load ptr, ptr %head_3.i.i.i, align 8
-  %arrayidx5.i.i.i = getelementptr inbounds nuw %"struct.folly::threadlocal_detail::ElementWrapper", ptr %33, i64 %idxprom.i.i.i
+  %arrayidx5.i.i.i = getelementptr inbounds nuw [56 x i8], ptr %33, i64 %idxprom.i.i.i
   %cmp.not7.i.i.i = icmp eq ptr %arrayidx.i.i.i3, %arrayidx5.i.i.i
   br i1 %cmp.not7.i.i.i, label %_ZN5folly14ThreadLocalPtrINS_6detail19ThreadCachedReaders10EpochCountENS1_15ThreadCachedTagEvE8Accessor8IteratorppEv.exit, label %land.rhs.i.i.i
 
@@ -2637,7 +2634,7 @@ land.rhs.i.i.i:                                   ; preds = %while.body, %for.in
   %parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.sroa.5.1, i64 8
   %34 = load ptr, ptr %parent.i.i.i.i.i, align 8
   %35 = load ptr, ptr %34, align 8
-  %arrayidx.i2.i.i.i = getelementptr inbounds nuw %"struct.folly::threadlocal_detail::ElementWrapper", ptr %35, i64 %idxprom.i.i.i
+  %arrayidx.i2.i.i.i = getelementptr inbounds nuw [56 x i8], ptr %35, i64 %idxprom.i.i.i
   %36 = load ptr, ptr %arrayidx.i2.i.i.i, align 8
   %tobool.i.not.i.i.i = icmp eq ptr %36, null
   br i1 %tobool.i.not.i.i.i, label %for.inc.i.i.i, label %_ZN5folly14ThreadLocalPtrINS_6detail19ThreadCachedReaders10EpochCountENS1_15ThreadCachedTagEvE8Accessor8IteratorppEv.exit
@@ -2649,7 +2646,7 @@ for.inc.i.i.i:                                    ; preds = %land.rhs.i.i.i
   %bf.load.i.i.i.i = load i32, ptr %__first.sroa.5.1, align 8
   %bf.clear.i.i.i.i = and i32 %bf.load.i.i.i.i, 2147483647
   %idxprom.i.i.i.i = zext nneg i32 %bf.clear.i.i.i.i to i64
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw %"struct.folly::threadlocal_detail::ElementWrapper", ptr %38, i64 %idxprom.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [56 x i8], ptr %38, i64 %idxprom.i.i.i.i
   %node.i.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i.i.i, i64 24
   %cmp.not.i.i.i = icmp eq ptr %arrayidx.i.i.i.i, %arrayidx5.i.i.i
   br i1 %cmp.not.i.i.i, label %_ZN5folly14ThreadLocalPtrINS_6detail19ThreadCachedReaders10EpochCountENS1_15ThreadCachedTagEvE8Accessor8IteratorppEv.exit, label %land.rhs.i.i.i, !llvm.loop !24
@@ -2746,7 +2743,7 @@ call.i.noexc:                                     ; preds = %_ZN5folly18threadlo
   %idxprom.i.pre-phi.i = phi i64 [ %conv.i.i, %entry._ZN5folly18threadlocal_detail10StaticMetaINS_6detail15ThreadCachedTagEvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i ], [ %.pre7.pre-phi.i, %_ZN5folly18threadlocal_detail10StaticMetaINS_6detail15ThreadCachedTagEvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i ]
   %11 = phi ptr [ %.pre.i, %entry._ZN5folly18threadlocal_detail10StaticMetaINS_6detail15ThreadCachedTagEvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i ], [ %9, %_ZN5folly18threadlocal_detail10StaticMetaINS_6detail15ThreadCachedTagEvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i ]
   %12 = load ptr, ptr %11, align 8
-  %arrayidx.i.i = getelementptr inbounds nuw %"struct.folly::threadlocal_detail::ElementWrapper", ptr %12, i64 %idxprom.i.pre-phi.i
+  %arrayidx.i.i = getelementptr inbounds nuw [56 x i8], ptr %12, i64 %idxprom.i.pre-phi.i
   %13 = load ptr, ptr %arrayidx.i.i, align 8
   %cmp.i = icmp eq ptr %13, null
   br i1 %cmp.i, label %if.then.i, label %if.end.i
@@ -2819,7 +2816,7 @@ _ZNK5folly14ThreadLocalPtrINS_6detail19ThreadCachedReaders10EpochCountENS1_15Thr
   %idxprom.i.pre-phi.i29 = phi i64 [ %conv.i.i13, %entry._ZN5folly18threadlocal_detail10StaticMetaINS_6detail15ThreadCachedTagEvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i32 ], [ %.pre7.pre-phi.i27, %_ZN5folly18threadlocal_detail10StaticMetaINS_6detail15ThreadCachedTagEvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i26 ]
   %22 = phi ptr [ %.pre.i33, %entry._ZN5folly18threadlocal_detail10StaticMetaINS_6detail15ThreadCachedTagEvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i32 ], [ %20, %_ZN5folly18threadlocal_detail10StaticMetaINS_6detail15ThreadCachedTagEvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i26 ]
   %23 = load ptr, ptr %22, align 8
-  %arrayidx.i.i30 = getelementptr inbounds nuw %"struct.folly::threadlocal_detail::ElementWrapper", ptr %23, i64 %idxprom.i.pre-phi.i29
+  %arrayidx.i.i30 = getelementptr inbounds nuw [56 x i8], ptr %23, i64 %idxprom.i.pre-phi.i29
   %24 = load ptr, ptr %arrayidx.i.i30, align 8
   br label %if.end.i
 
@@ -2900,7 +2897,7 @@ _ZNK5folly14ThreadLocalPtrIN8proxygen12ResourceDataEvvE3getEv.exit: ; preds = %e
   %idxprom.i.pre-phi.i = phi i64 [ %conv.i.i, %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i ], [ %.pre7.pre-phi.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i ]
   %10 = phi ptr [ %.pre.i, %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i ], [ %8, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i ]
   %11 = load ptr, ptr %10, align 8
-  %arrayidx.i.i = getelementptr inbounds nuw %"struct.folly::threadlocal_detail::ElementWrapper", ptr %11, i64 %idxprom.i.pre-phi.i
+  %arrayidx.i.i = getelementptr inbounds nuw [56 x i8], ptr %11, i64 %idxprom.i.pre-phi.i
   %12 = load ptr, ptr %arrayidx.i.i, align 8
   %tobool.i.not = icmp eq ptr %12, null
   br i1 %tobool.i.not, label %cond.false.i, label %_ZNK5folly11ThreadLocalIN8proxygen12ResourceDataEvvE3getEv.exit
@@ -2983,7 +2980,7 @@ _ZNK5folly14ThreadLocalPtrIN8proxygen12ResourceDataEvvE3getEv.exit: ; preds = %e
   %idxprom.i.pre-phi.i = phi i64 [ %conv.i.i, %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i ], [ %.pre7.pre-phi.i, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i ]
   %10 = phi ptr [ %.pre.i, %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i ], [ %8, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i ]
   %11 = load ptr, ptr %10, align 8
-  %arrayidx.i.i = getelementptr inbounds nuw %"struct.folly::threadlocal_detail::ElementWrapper", ptr %11, i64 %idxprom.i.pre-phi.i
+  %arrayidx.i.i = getelementptr inbounds nuw [56 x i8], ptr %11, i64 %idxprom.i.pre-phi.i
   %12 = load ptr, ptr %arrayidx.i.i, align 8
   %tobool.i.not = icmp eq ptr %12, null
   br i1 %tobool.i.not, label %cond.false.i, label %_ZNK5folly11ThreadLocalIN8proxygen12ResourceDataEvvE3getEv.exit
@@ -3075,7 +3072,7 @@ call.i.noexc:                                     ; preds = %_ZN5folly18threadlo
   %idxprom.i.pre-phi.i = phi i64 [ %conv.i.i, %entry._ZN5folly18threadlocal_detail10StaticMetaINS_6detail15ThreadCachedTagEvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i ], [ %.pre7.pre-phi.i, %_ZN5folly18threadlocal_detail10StaticMetaINS_6detail15ThreadCachedTagEvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i ]
   %11 = phi ptr [ %.pre.i, %entry._ZN5folly18threadlocal_detail10StaticMetaINS_6detail15ThreadCachedTagEvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge.i ], [ %9, %_ZN5folly18threadlocal_detail10StaticMetaINS_6detail15ThreadCachedTagEvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit.i ]
   %12 = load ptr, ptr %11, align 8
-  %arrayidx.i.i = getelementptr inbounds nuw %"struct.folly::threadlocal_detail::ElementWrapper", ptr %12, i64 %idxprom.i.pre-phi.i
+  %arrayidx.i.i = getelementptr inbounds nuw [56 x i8], ptr %12, i64 %idxprom.i.pre-phi.i
   %13 = load ptr, ptr %arrayidx.i.i, align 8
   %epoch_readers_.i = getelementptr inbounds nuw i8, ptr %13, i64 8
   %14 = load atomic i64, ptr %epoch_readers_.i monotonic, align 8
@@ -3187,7 +3184,7 @@ _ZN5folly18threadlocal_detail10StaticMetaINS_6detail15ThreadCachedTagEvE3getEPNS
   %idxprom.i18.pre-phi = phi i64 [ %conv.i16, %_ZN5folly14ThreadLocalPtrINS_6detail19ThreadCachedReaders10EpochCountENS1_15ThreadCachedTagEvE42getAccessAllThreadsLockReadHolderIfEnabledEv.exit._ZN5folly18threadlocal_detail10StaticMetaINS_6detail15ThreadCachedTagEvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22_crit_edge ], [ %.pre52.pre-phi, %_ZN5folly18threadlocal_detail10StaticMetaINS_6detail15ThreadCachedTagEvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit ]
   %12 = phi ptr [ %.pre, %_ZN5folly14ThreadLocalPtrINS_6detail19ThreadCachedReaders10EpochCountENS1_15ThreadCachedTagEvE42getAccessAllThreadsLockReadHolderIfEnabledEv.exit._ZN5folly18threadlocal_detail10StaticMetaINS_6detail15ThreadCachedTagEvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22_crit_edge ], [ %10, %_ZN5folly18threadlocal_detail10StaticMetaINS_6detail15ThreadCachedTagEvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit ]
   %13 = load ptr, ptr %12, align 8
-  %arrayidx.i19 = getelementptr inbounds nuw %"struct.folly::threadlocal_detail::ElementWrapper", ptr %13, i64 %idxprom.i18.pre-phi
+  %arrayidx.i19 = getelementptr inbounds nuw [56 x i8], ptr %13, i64 %idxprom.i18.pre-phi
   %14 = load ptr, ptr %arrayidx.i19, align 8
   %cmp.i.not51 = icmp eq ptr %14, null
   br i1 %cmp.i.not51, label %invoke.cont2, label %while.end.i
@@ -3289,7 +3286,7 @@ _ZN5folly18threadlocal_detail10StaticMetaINS_6detail15ThreadCachedTagEvE3getEPNS
   %idxprom.i.pre-phi = phi i64 [ %conv.i, %invoke.cont2._ZN5folly18threadlocal_detail10StaticMetaINS_6detail15ThreadCachedTagEvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge ], [ %.pre54.pre-phi, %_ZN5folly18threadlocal_detail10StaticMetaINS_6detail15ThreadCachedTagEvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit38 ]
   %28 = phi ptr [ %.pre53, %invoke.cont2._ZN5folly18threadlocal_detail10StaticMetaINS_6detail15ThreadCachedTagEvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge ], [ %26, %_ZN5folly18threadlocal_detail10StaticMetaINS_6detail15ThreadCachedTagEvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit38 ]
   %29 = load ptr, ptr %28, align 8
-  %arrayidx.i = getelementptr inbounds nuw %"struct.folly::threadlocal_detail::ElementWrapper", ptr %29, i64 %idxprom.i.pre-phi
+  %arrayidx.i = getelementptr inbounds nuw [56 x i8], ptr %29, i64 %idxprom.i.pre-phi
   %ownsDeleter.i39 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
   %30 = load i8, ptr %ownsDeleter.i39, align 8
   %tobool.i40 = trunc i8 %30 to i1
@@ -3490,7 +3487,7 @@ _ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE
   %idxprom.i18.pre-phi = phi i64 [ %conv.i16, %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22_crit_edge ], [ %.pre66.pre-phi, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit ]
   %10 = phi ptr [ %.pre, %entry._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit22_crit_edge ], [ %8, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit ]
   %11 = load ptr, ptr %10, align 8
-  %arrayidx.i19 = getelementptr inbounds nuw %"struct.folly::threadlocal_detail::ElementWrapper", ptr %11, i64 %idxprom.i18.pre-phi
+  %arrayidx.i19 = getelementptr inbounds nuw [56 x i8], ptr %11, i64 %idxprom.i18.pre-phi
   %12 = load ptr, ptr %arrayidx.i19, align 8
   %cmp.i.not64 = icmp eq ptr %12, null
   br i1 %cmp.i.not64, label %invoke.cont2, label %while.end.i
@@ -3592,7 +3589,7 @@ _ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE
   %idxprom.i.pre-phi = phi i64 [ %conv.i, %invoke.cont2._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge ], [ %.pre68.pre-phi, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit33 ]
   %26 = phi ptr [ %.pre67, %invoke.cont2._ZN5folly18threadlocal_detail10StaticMetaIvvE3getEPNS0_14StaticMetaBase7EntryIDE.exit_crit_edge ], [ %24, %_ZN5folly18threadlocal_detail10StaticMetaIvvE22getSlowReserveAndCacheEPNS0_14StaticMetaBase7EntryIDERjRPNS0_11ThreadEntryERm.exit33 ]
   %27 = load ptr, ptr %26, align 8
-  %arrayidx.i = getelementptr inbounds nuw %"struct.folly::threadlocal_detail::ElementWrapper", ptr %27, i64 %idxprom.i.pre-phi
+  %arrayidx.i = getelementptr inbounds nuw [56 x i8], ptr %27, i64 %idxprom.i.pre-phi
   %ownsDeleter.i34 = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
   %28 = load i8, ptr %ownsDeleter.i34, align 8
   %tobool.i35 = trunc i8 %28 to i1

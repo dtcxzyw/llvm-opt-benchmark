@@ -31,21 +31,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_skcipher_all
 %struct.pcpu_hot = type { %union.anon.18 }
 %union.anon.18 = type { %struct.anon.19, [16 x i8] }
 %struct.anon.19 = type { ptr, i32, i32, i64, i64, ptr, i16, i8 }
-%struct.page = type { i64, %union.anon.8, %union.anon.16, %struct.atomic_t, [8 x i8] }
-%union.anon.8 = type { %struct.anon.9 }
-%struct.anon.9 = type { %union.anon.10, ptr, %union.anon.12, i64 }
-%union.anon.10 = type { %struct.list_head }
-%struct.list_head = type { ptr, ptr }
-%union.anon.12 = type { i64 }
-%union.anon.16 = type { %struct.atomic_t }
-%struct.atomic_t = type { i32 }
-%struct.skcipher_alg = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, %union.anon.1 }
-%union.anon.1 = type { %struct.anon.2 }
-%struct.anon.2 = type { i32, i32, i32, i32, i32, %struct.crypto_alg }
-%struct.crypto_alg = type { %struct.list_head, %struct.list_head, i32, i32, i32, i32, i32, %struct.refcount_struct, [128 x i8], [128 x i8], ptr, %union.anon.3, ptr, ptr, ptr, ptr }
-%struct.refcount_struct = type { %struct.atomic_t }
-%union.anon.3 = type { %struct.cipher_alg }
-%struct.cipher_alg = type { i32, i32, ptr, ptr, ptr }
 
 @__UNIQUE_ID___addressable_skcipher_walk_done441 = internal global ptr @skcipher_walk_done, section ".discard.addressable", align 8
 @__UNIQUE_ID___addressable_skcipher_walk_complete442 = internal global ptr @skcipher_walk_complete, section ".discard.addressable", align 8
@@ -450,7 +435,7 @@ define internal fastcc i32 @skcipher_walk_next(ptr noundef %0) unnamed_addr #0 a
   %80 = inttoptr i64 %79 to ptr
   %81 = lshr i32 %21, 12
   %82 = zext nneg i32 %81 to i64
-  %83 = getelementptr %struct.page, ptr %80, i64 %82
+  %83 = getelementptr [64 x i8], ptr %80, i64 %82
   store ptr %83, ptr %0, align 8
   %84 = zext nneg i32 %23 to i64
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -460,7 +445,7 @@ define internal fastcc i32 @skcipher_walk_next(ptr noundef %0) unnamed_addr #0 a
   %88 = inttoptr i64 %87 to ptr
   %89 = lshr i32 %35, 12
   %90 = zext nneg i32 %89 to i64
-  %91 = getelementptr %struct.page, ptr %88, i64 %90
+  %91 = getelementptr [64 x i8], ptr %88, i64 %90
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %91, ptr %92, align 8
   %93 = zext nneg i32 %37 to i64
@@ -529,7 +514,7 @@ define internal fastcc i32 @skcipher_walk_next(ptr noundef %0) unnamed_addr #0 a
   %139 = select i1 %135, i64 %136, i64 %138
   %140 = add i64 %134, %139
   %141 = lshr i64 %140, 12
-  %142 = getelementptr %struct.page, ptr %130, i64 %141
+  %142 = getelementptr [64 x i8], ptr %130, i64 %141
   store ptr %142, ptr %0, align 8
   %143 = load i64, ptr @vmemmap_base, align 8
   %144 = inttoptr i64 %143 to ptr
@@ -545,7 +530,7 @@ define internal fastcc i32 @skcipher_walk_next(ptr noundef %0) unnamed_addr #0 a
   %154 = select i1 %150, i64 %151, i64 %153
   %155 = add i64 %149, %154
   %156 = lshr i64 %155, 12
-  %157 = getelementptr %struct.page, ptr %144, i64 %156
+  %157 = getelementptr [64 x i8], ptr %144, i64 %156
   store ptr %157, ptr %145, align 8
   %158 = and i64 %133, 4095
   store i64 %158, ptr %131, align 8
@@ -1518,7 +1503,7 @@ define dso_local i32 @crypto_register_skciphers(ptr noundef %0, i32 noundef %1) 
 6:                                                ; preds = %62, %4
   %indvars.iv = phi i32 [ %indvars.iv.next, %62 ], [ -1, %4 ]
   %7 = phi i64 [ %63, %62 ], [ 0, %4 ]
-  %8 = getelementptr %struct.skcipher_alg, ptr %0, i64 %7
+  %8 = getelementptr [472 x i8], ptr %0, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 72
   %10 = load i32, ptr %9, align 8
   %11 = icmp ugt i32 %10, 512
@@ -1619,7 +1604,7 @@ define dso_local i32 @crypto_register_skciphers(ptr noundef %0, i32 noundef %1) 
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv16 = phi i64 [ %61, %.preheader.preheader ], [ %indvars.iv.next17, %.preheader ]
-  %.split = getelementptr %struct.skcipher_alg, ptr %0, i64 %indvars.iv16
+  %.split = getelementptr [472 x i8], ptr %0, i64 %indvars.iv16
   %65 = getelementptr i8, ptr %.split, i64 88
   tail call void @crypto_unregister_alg(ptr noundef %65) #9
   %indvars.iv.next17 = add nsw i64 %indvars.iv16, -1
@@ -1643,7 +1628,7 @@ define dso_local void @crypto_unregister_skciphers(ptr noundef %0, i32 noundef %
 
 7:                                                ; preds = %7, %5
   %8 = phi i64 [ %6, %5 ], [ %10, %7 ]
-  %.split = getelementptr %struct.skcipher_alg, ptr %0, i64 %8
+  %.split = getelementptr [472 x i8], ptr %0, i64 %8
   %9 = getelementptr i8, ptr %.split, i64 88
   tail call void @crypto_unregister_alg(ptr noundef %9) #9
   %10 = add nsw i64 %8, -1

@@ -29,7 +29,7 @@ define range(i32 -65534, 8486909) i32 @ff_log2_q15(i32 noundef %0) local_unnamed
   %13 = zext nneg i32 %12 to i64
   %14 = lshr i32 %10, 11
   %15 = and i32 %14, 32767
-  %16 = getelementptr inbounds nuw i16, ptr @tab_log2, i64 %13
+  %16 = getelementptr inbounds nuw [2 x i8], ptr @tab_log2, i64 %13
   %17 = load i16, ptr %16, align 2, !tbaa !7
   %18 = zext i16 %17 to i32
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 2
@@ -56,10 +56,10 @@ define i64 @ff_dot_product(ptr noundef readonly captures(none) %0, ptr noundef r
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.010 = phi i64 [ 0, %.lr.ph.preheader ], [ %12, %.lr.ph ]
-  %5 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   %6 = load i16, ptr %5, align 2, !tbaa !7
   %7 = sext i16 %6 to i64
-  %8 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   %9 = load i16, ptr %8, align 2, !tbaa !7
   %10 = sext i16 %9 to i64
   %11 = mul nsw i64 %10, %7

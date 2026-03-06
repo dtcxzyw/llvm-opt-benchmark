@@ -692,7 +692,7 @@ define hidden void @_ZN21tree_sitter_highlight22HighlightConfiguration9configure
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = extractvalue { ptr, i64 } %10, 0
   %13 = extractvalue { ptr, i64 } %10, 1
-  %14 = getelementptr inbounds { ptr, i64 }, ptr %12, i64 %13
+  %14 = getelementptr inbounds [16 x i8], ptr %12, i64 %13
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %12) ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -1881,7 +1881,7 @@ define hidden void @_ZN5which6finder6Finder4find17h2877b2a63937bdc7E(ptr noalias
   %.sroa.094.0.copyload = load i64, ptr %18, align 8
   %.sroa.495.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 8
   %.sroa.495.0.copyload = load ptr, ptr %.sroa.495.0..sroa_idx, align 8, !nonnull !11, !noundef !11
-  %66 = getelementptr inbounds { { { { { i64, ptr }, i64 } } } }, ptr %.sroa.495.0.copyload, i64 %54
+  %66 = getelementptr inbounds [24 x i8], ptr %.sroa.495.0.copyload, i64 %54
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %35
 

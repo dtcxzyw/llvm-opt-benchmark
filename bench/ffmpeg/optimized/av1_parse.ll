@@ -3,7 +3,6 @@ source_filename = "bench/ffmpeg/original/av1_parse.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.AV1OBU = type { i32, ptr, i32, i32, ptr, i32, i32, i32 }
 %struct.AVRational = type { i32, i32 }
 
 @.str = private unnamed_addr constant [65 x i8] c"obu_type: %d, temporal_id: %d, spatial_id: %d, payload size: %d\0A\00", align 1
@@ -194,7 +193,7 @@ bytestream2_init.exit:                            ; preds = %4
   store ptr %24, ptr %0, align 8, !tbaa !24
   %26 = load i32, ptr %11, align 4, !tbaa !23
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds %struct.AV1OBU, ptr %24, i64 %27
+  %28 = getelementptr inbounds [48 x i8], ptr %24, i64 %27
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %28, i8 0, i64 48, i1 false)
   store i32 %19, ptr %11, align 4, !tbaa !23
   %.pre = load i32, ptr %9, align 8, !tbaa !20
@@ -204,7 +203,7 @@ bytestream2_init.exit:                            ; preds = %4
   %30 = phi i32 [ %.pre, %25 ], [ %17, %13 ]
   %31 = load ptr, ptr %0, align 8, !tbaa !24
   %32 = sext i32 %30 to i64
-  %33 = getelementptr inbounds %struct.AV1OBU, ptr %31, i64 %32
+  %33 = getelementptr inbounds [48 x i8], ptr %31, i64 %32
   %34 = tail call i32 @ff_av1_extract_obu(ptr noundef %33, ptr noundef %.sroa.0.071, i32 noundef %14, ptr noundef %3)
   %35 = icmp slt i32 %34, 0
   br i1 %35, label %.thread65, label %36

@@ -38,7 +38,7 @@ define hidden noundef ptr @_Z9luaM_new_P9lua_Statemh(ptr noundef %0, i64 noundef
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 96
   %14 = zext nneg i8 %10 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !20
   %.not.i = icmp eq ptr %16, null
   br i1 %.not.i, label %17, label %19
@@ -132,7 +132,7 @@ define hidden noundef ptr @_Z9luaM_new_P9lua_Statemh(ptr noundef %0, i64 noundef
   store i64 %60, ptr %58, align 8, !tbaa !45
   %61 = getelementptr inbounds nuw i8, ptr %5, i64 760
   %62 = zext i8 %2 to i64
-  %63 = getelementptr inbounds nuw i64, ptr %61, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %62
   %64 = load i64, ptr %63, align 8, !tbaa !46
   %65 = add i64 %64, %1
   store i64 %65, ptr %63, align 8, !tbaa !46
@@ -169,7 +169,7 @@ define hidden noundef ptr @_Z12luaM_newgco_P9lua_Statemh(ptr noundef %0, i64 nou
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 416
   %14 = zext nneg i8 %10 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !20
   %.not.i = icmp eq ptr %16, null
   br i1 %.not.i, label %17, label %20
@@ -288,7 +288,7 @@ _ZL7newpageP9lua_StatePP8lua_Pageiii.exit:        ; preds = %56, %64
   store i64 %71, ptr %69, align 8, !tbaa !45
   %72 = getelementptr inbounds nuw i8, ptr %5, i64 760
   %73 = zext i8 %2 to i64
-  %74 = getelementptr inbounds nuw i64, ptr %72, i64 %73
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %73
   %75 = load i64, ptr %74, align 8, !tbaa !46
   %76 = add i64 %75, %1
   store i64 %76, ptr %74, align 8, !tbaa !46
@@ -337,7 +337,7 @@ define hidden void @_Z10luaM_free_P9lua_StatePvmh(ptr noundef readonly captures(
 23:                                               ; preds = %19
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 96
   %25 = zext nneg i32 %12 to i64
-  %26 = getelementptr inbounds nuw ptr, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !20
   %28 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %27, ptr %28, align 8, !tbaa !28
@@ -385,7 +385,7 @@ define hidden void @_Z10luaM_free_P9lua_StatePvmh(ptr noundef readonly captures(
   br label %_ZL13freeclasspageP9lua_StatePP8lua_PageS3_S2_h.exit.i
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds nuw ptr, ptr %37, i64 %38
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %38
   %47 = load ptr, ptr %46, align 8, !tbaa !20
   %48 = icmp eq ptr %47, %16
   br i1 %48, label %49, label %_ZL13freeclasspageP9lua_StatePP8lua_PageS3_S2_h.exit.i
@@ -421,7 +421,7 @@ _ZL9freeblockP9lua_StateiPv.exit:                 ; preds = %_ZL13freeclasspageP
   store i64 %65, ptr %63, align 8, !tbaa !45
   %66 = getelementptr inbounds nuw i8, ptr %6, i64 760
   %67 = zext i8 %3 to i64
-  %68 = getelementptr inbounds nuw i64, ptr %66, i64 %67
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %67
   %69 = load i64, ptr %68, align 8, !tbaa !46
   %70 = sub i64 %69, %2
   store i64 %70, ptr %68, align 8, !tbaa !46
@@ -460,7 +460,7 @@ define hidden void @_Z13luaM_freegco_P9lua_StateP8GCObjectmhP8lua_Page(ptr nound
 23:                                               ; preds = %19
   %24 = getelementptr inbounds nuw i8, ptr %16, i64 416
   %25 = zext nneg i32 %13 to i64
-  %26 = getelementptr inbounds nuw ptr, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !20
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %27, ptr %28, align 8, !tbaa !28
@@ -510,7 +510,7 @@ define hidden void @_Z13luaM_freegco_P9lua_StateP8GCObjectmhP8lua_Page(ptr nound
   br label %52
 
 47:                                               ; preds = %44
-  %48 = getelementptr inbounds nuw ptr, ptr %38, i64 %40
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %40
   %49 = load ptr, ptr %48, align 8, !tbaa !20
   %50 = icmp eq ptr %49, %4
   br i1 %50, label %51, label %52
@@ -602,7 +602,7 @@ _ZL12freegcoblockP9lua_StateiPvP8lua_Page.exit:   ; preds = %_ZL12freegcoblockP9
   store i64 %84, ptr %82, align 8, !tbaa !45
   %85 = getelementptr inbounds nuw i8, ptr %7, i64 760
   %86 = zext i8 %3 to i64
-  %87 = getelementptr inbounds nuw i64, ptr %85, i64 %86
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %86
   %88 = load i64, ptr %87, align 8, !tbaa !46
   %89 = sub i64 %88, %2
   store i64 %89, ptr %87, align 8, !tbaa !46
@@ -648,7 +648,7 @@ define hidden noundef ptr @_Z13luaM_realloc_P9lua_StatePvmmh(ptr noundef %0, ptr
 27:                                               ; preds = %26
   %28 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %29 = zext nneg i32 %15 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !20
   %.not.i = icmp eq ptr %31, null
   br i1 %.not.i, label %32, label %35
@@ -769,7 +769,7 @@ define hidden noundef ptr @_Z13luaM_realloc_P9lua_StatePvmmh(ptr noundef %0, ptr
 91:                                               ; preds = %87
   %92 = getelementptr inbounds nuw i8, ptr %82, i64 96
   %93 = zext nneg i32 %23 to i64
-  %94 = getelementptr inbounds nuw ptr, ptr %92, i64 %93
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %93
   %95 = load ptr, ptr %94, align 8, !tbaa !20
   %96 = getelementptr inbounds nuw i8, ptr %84, i64 8
   store ptr %95, ptr %96, align 8, !tbaa !28
@@ -817,7 +817,7 @@ define hidden noundef ptr @_Z13luaM_realloc_P9lua_StatePvmmh(ptr noundef %0, ptr
   br label %_ZL13freeclasspageP9lua_StatePP8lua_PageS3_S2_h.exit.i
 
 113:                                              ; preds = %110
-  %114 = getelementptr inbounds nuw ptr, ptr %105, i64 %106
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %106
   %115 = load ptr, ptr %114, align 8, !tbaa !20
   %116 = icmp eq ptr %115, %84
   br i1 %116, label %117, label %_ZL13freeclasspageP9lua_StatePP8lua_PageS3_S2_h.exit.i
@@ -870,7 +870,7 @@ _ZL9freeblockP9lua_StateiPv.exit:                 ; preds = %_ZL13freeclasspageP
   store i64 %144, ptr %141, align 8, !tbaa !45
   %145 = getelementptr inbounds nuw i8, ptr %7, i64 760
   %146 = zext i8 %4 to i64
-  %147 = getelementptr inbounds nuw i64, ptr %145, i64 %146
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %145, i64 %146
   %148 = load i64, ptr %147, align 8, !tbaa !46
   %149 = add i64 %143, %148
   store i64 %149, ptr %147, align 8, !tbaa !46
@@ -1078,7 +1078,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: mustprogress noinline uwtable
 define internal fastcc noundef nonnull ptr @_ZL12newclasspageP9lua_StatePP8lua_PageS3_hb(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef captures(address_is_null) %2, i8 noundef zeroext range(i8 0, -128) %3, i1 noundef zeroext %4) unnamed_addr #8 {
   %6 = zext nneg i8 %3 to i64
-  %7 = getelementptr inbounds nuw i32, ptr @_ZL16kSizeClassConfig, i64 %6
+  %7 = getelementptr inbounds nuw [4 x i8], ptr @_ZL16kSizeClassConfig, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !54
   %9 = icmp sgt i32 %8, 512
   %10 = select i1 %9, i32 32744, i32 16360
@@ -1137,7 +1137,7 @@ define internal fastcc noundef nonnull ptr @_ZL12newclasspageP9lua_StatePP8lua_P
   br label %_ZL7newpageP9lua_StatePP8lua_Pageiii.exit
 
 _ZL7newpageP9lua_StatePP8lua_Pageiii.exit:        ; preds = %20, %39
-  %40 = getelementptr inbounds nuw ptr, ptr %1, i64 %6
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %6
   store ptr %18, ptr %40, align 8, !tbaa !20
   ret ptr %18
 }
@@ -1155,7 +1155,7 @@ define internal void @_GLOBAL__sub_I_lmem.cpp() #9 section ".text.startup" {
   %3 = add nsw i32 %2, 1
   store i32 %3, ptr getelementptr inbounds nuw (i8, ptr @_ZL16kSizeClassConfig, i64 1188), align 4, !tbaa !59
   %4 = sext i32 %2 to i64
-  %5 = getelementptr inbounds i32, ptr @_ZL16kSizeClassConfig, i64 %4
+  %5 = getelementptr inbounds [4 x i8], ptr @_ZL16kSizeClassConfig, i64 %4
   store i32 %.02530.i.i, ptr %5, align 4, !tbaa !54
   %6 = add nuw nsw i32 %.02530.i.i, 8
   %7 = icmp samesign ult i32 %.02530.i.i, 56
@@ -1167,7 +1167,7 @@ define internal void @_GLOBAL__sub_I_lmem.cpp() #9 section ".text.startup" {
   %9 = add nsw i32 %8, 1
   store i32 %9, ptr getelementptr inbounds nuw (i8, ptr @_ZL16kSizeClassConfig, i64 1188), align 4, !tbaa !59
   %10 = sext i32 %8 to i64
-  %11 = getelementptr inbounds i32, ptr @_ZL16kSizeClassConfig, i64 %10
+  %11 = getelementptr inbounds [4 x i8], ptr @_ZL16kSizeClassConfig, i64 %10
   store i32 %.02431.i.i, ptr %11, align 4, !tbaa !54
   %12 = add nuw nsw i32 %.02431.i.i, 16
   %13 = icmp samesign ult i32 %.02431.i.i, 240
@@ -1179,7 +1179,7 @@ define internal void @_GLOBAL__sub_I_lmem.cpp() #9 section ".text.startup" {
   %15 = add nsw i32 %14, 1
   store i32 %15, ptr getelementptr inbounds nuw (i8, ptr @_ZL16kSizeClassConfig, i64 1188), align 4, !tbaa !59
   %16 = sext i32 %14 to i64
-  %17 = getelementptr inbounds i32, ptr @_ZL16kSizeClassConfig, i64 %16
+  %17 = getelementptr inbounds [4 x i8], ptr @_ZL16kSizeClassConfig, i64 %16
   store i32 %.02332.i.i, ptr %17, align 4, !tbaa !54
   %18 = add nuw nsw i32 %.02332.i.i, 32
   %19 = icmp samesign ult i32 %.02332.i.i, 480
@@ -1196,7 +1196,7 @@ define internal void @_GLOBAL__sub_I_lmem.cpp() #9 section ".text.startup" {
   %23 = add nsw i32 %22, 1
   store i32 %23, ptr getelementptr inbounds nuw (i8, ptr @_ZL16kSizeClassConfig, i64 1188), align 4, !tbaa !59
   %24 = sext i32 %22 to i64
-  %25 = getelementptr inbounds i32, ptr @_ZL16kSizeClassConfig, i64 %24
+  %25 = getelementptr inbounds [4 x i8], ptr @_ZL16kSizeClassConfig, i64 %24
   store i32 %.02233.i.i, ptr %25, align 4, !tbaa !54
   %26 = add nuw nsw i32 %.02233.i.i, 64
   %27 = icmp samesign ult i32 %.02233.i.i, 961
@@ -1205,7 +1205,7 @@ define internal void @_GLOBAL__sub_I_lmem.cpp() #9 section ".text.startup" {
 .lr.ph.i.i:                                       ; preds = %.preheader26.i.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %.preheader26.i.i ]
   %28 = trunc i64 %indvars.iv.i.i to i8
-  %29 = getelementptr inbounds nuw i32, ptr @_ZL16kSizeClassConfig, i64 %indvars.iv.i.i
+  %29 = getelementptr inbounds nuw [4 x i8], ptr @_ZL16kSizeClassConfig, i64 %indvars.iv.i.i
   %30 = load i32, ptr %29, align 4, !tbaa !54
   %31 = sext i32 %30 to i64
   %32 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL16kSizeClassConfig, i64 160), i64 %31

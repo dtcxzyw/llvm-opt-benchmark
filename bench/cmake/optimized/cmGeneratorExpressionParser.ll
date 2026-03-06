@@ -3,12 +3,6 @@ source_filename = "bench/cmake/original/cmGeneratorExpressionParser.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"class.std::unique_ptr.12" = type { %"struct.std::__uniq_ptr_data.13" }
-%"struct.std::__uniq_ptr_data.13" = type { %"class.std::__uniq_ptr_impl.14" }
-%"class.std::__uniq_ptr_impl.14" = type { %"class.std::tuple.15" }
-%"class.std::tuple.15" = type { %"struct.std::_Tuple_impl.16" }
-%"struct.std::_Tuple_impl.16" = type { %"struct.std::_Head_base.19" }
-%"struct.std::_Head_base.19" = type { ptr }
 %"class.std::vector.0" = type { %"struct.std::_Vector_base.1" }
 %"struct.std::_Vector_base.1" = type { %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::unique_ptr<cmGeneratorExpressionEvaluator>, std::allocator<std::unique_ptr<cmGeneratorExpressionEvaluator>>>::_Vector_impl_data" }
@@ -17,7 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.8" = type { %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>, std::allocator<std::vector<std::unique_ptr<cmGeneratorExpressionEvaluator>>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.__gnu_cxx::__normal_iterator" = type { ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -242,7 +235,7 @@ _ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS
   %.pre28 = phi ptr [ %.pre28.pre, %67 ], [ %32, %_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i ]
   store ptr %60, ptr %1, align 8, !tbaa !46
   store ptr %66, ptr %40, align 8, !tbaa !43
-  %68 = getelementptr inbounds nuw %"class.std::unique_ptr.12", ptr %60, i64 %58
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %58
   store ptr %68, ptr %42, align 8, !tbaa !45
   br label %_ZNSt10unique_ptrI11TextContentSt14default_deleteIS0_EED2Ev.exit
 
@@ -511,7 +504,7 @@ _ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS
 .noexc52:                                         ; preds = %99, %_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i
   store ptr %92, ptr %1, align 8, !tbaa !46
   store ptr %98, ptr %72, align 8, !tbaa !43
-  %100 = getelementptr inbounds nuw %"class.std::unique_ptr.12", ptr %92, i64 %90
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %90
   store ptr %100, ptr %74, align 8, !tbaa !45
   br label %_ZNSt10unique_ptrI26GeneratorExpressionContentSt14default_deleteIS0_EED2Ev.exit
 
@@ -655,7 +648,7 @@ _ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_IS2_
   br label %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_IS2_SaIS2_EEEESaIS7_EE17_M_realloc_insertIJRKS7_EEEvNS1_IPS7_S9_EEDpOT_.exit.i
 
 _ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_IS2_SaIS2_EEEESaIS7_EE17_M_realloc_insertIJRKS7_EEEvNS1_IPS7_S9_EEDpOT_.exit.i: ; preds = %143, %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_IS2_SaIS2_EEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i.i
-  %144 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %138, i64 %136
+  %144 = getelementptr inbounds nuw [8 x i8], ptr %138, i64 %136
   %.pre448 = load ptr, ptr %111, align 8, !tbaa !67
   br label %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_IS2_SaIS2_EEEESaIS7_EE9push_backERKS7_.exit
 
@@ -746,7 +739,7 @@ _ZNSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt1
   store ptr %161, ptr %4, align 8, !tbaa !64
   %174 = getelementptr inbounds nuw i8, ptr %162, i64 24
   store ptr %174, ptr %111, align 8, !tbaa !67
-  %175 = getelementptr inbounds nuw %"class.std::vector.0", ptr %161, i64 %159
+  %175 = getelementptr inbounds nuw [24 x i8], ptr %161, i64 %159
   store ptr %175, ptr %117, align 8, !tbaa !68
   br label %_ZNSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE6resizeEm.exit86
 
@@ -955,7 +948,7 @@ _ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_IS2_
   br label %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_IS2_SaIS2_EEEESaIS7_EE17_M_realloc_insertIJRKS7_EEEvNS1_IPS7_S9_EEDpOT_.exit.i99
 
 _ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_IS2_SaIS2_EEEESaIS7_EE17_M_realloc_insertIJRKS7_EEEvNS1_IPS7_S9_EEDpOT_.exit.i99: ; preds = %244, %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_IS2_SaIS2_EEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i.i96
-  %245 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator", ptr %239, i64 %237
+  %245 = getelementptr inbounds nuw [8 x i8], ptr %239, i64 %237
   br label %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_IS2_SaIS2_EEEESaIS7_EE9push_backERKS7_.exit102
 
 _ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_IS2_SaIS2_EEEESaIS7_EE9push_backERKS7_.exit102: ; preds = %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPK26cmGeneratorExpressionTokenS_IS2_SaIS2_EEEESaIS7_EE17_M_realloc_insertIJRKS7_EEEvNS1_IPS7_S9_EEDpOT_.exit.i99, %226
@@ -1045,7 +1038,7 @@ _ZNSt12_Vector_baseISt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt1
   store ptr %262, ptr %4, align 8, !tbaa !64
   %275 = getelementptr inbounds nuw i8, ptr %263, i64 24
   store ptr %275, ptr %111, align 8, !tbaa !67
-  %276 = getelementptr inbounds nuw %"class.std::vector.0", ptr %262, i64 %260
+  %276 = getelementptr inbounds nuw [24 x i8], ptr %262, i64 %260
   store ptr %276, ptr %211, align 8, !tbaa !68
   br label %_ZNSt6vectorIS_ISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EESaIS6_EE6resizeEm.exit121
 
@@ -1472,7 +1465,7 @@ _ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS
 .noexc142:                                        ; preds = %434, %_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i232
   store ptr %427, ptr %1, align 8, !tbaa !46
   store ptr %433, ptr %407, align 8, !tbaa !43
-  %435 = getelementptr inbounds nuw %"class.std::unique_ptr.12", ptr %427, i64 %425
+  %435 = getelementptr inbounds nuw [8 x i8], ptr %427, i64 %425
   store ptr %435, ptr %409, align 8, !tbaa !45
   br label %_ZNSt10unique_ptrI26GeneratorExpressionContentSt14default_deleteIS0_EED2Ev.exit149
 
@@ -1767,7 +1760,7 @@ _ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS
 .noexc:                                           ; preds = %56, %_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i
   store ptr %49, ptr %0, align 8, !tbaa !46
   store ptr %55, ptr %4, align 8, !tbaa !43
-  %57 = getelementptr inbounds nuw %"class.std::unique_ptr.12", ptr %49, i64 %47
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %47
   store ptr %57, ptr %31, align 8, !tbaa !45
   br label %_ZNSt10unique_ptrI11TextContentSt14default_deleteIS0_EED2Ev.exit
 
@@ -2141,7 +2134,7 @@ _ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS
 .noexc:                                           ; preds = %31, %_ZNSt6vectorISt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i
   store ptr %25, ptr %2, align 8, !tbaa !46
   store ptr %30, ptr %4, align 8, !tbaa !43
-  %32 = getelementptr inbounds nuw %"class.std::unique_ptr.12", ptr %25, i64 %23
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %32, ptr %5, align 8, !tbaa !45
   br label %_ZNSt10unique_ptrI30cmGeneratorExpressionEvaluatorSt14default_deleteIS0_EED2Ev.exit
 

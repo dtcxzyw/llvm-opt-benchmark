@@ -28,8 +28,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
 %"struct.std::piecewise_construct_t" = type { i8 }
-%"class.xgboost::Json" = type { %"class.xgboost::IntrusivePtr" }
-%"class.xgboost::IntrusivePtr" = type { ptr }
 %"class.std::allocator.1" = type { i8 }
 %"struct.xgboost::gbm::DeprecatedGBLinearModelParam" = type { i32, i32, [32 x i32] }
 %"class.dmlc::LogMessageFatal" = type { i8 }
@@ -829,7 +827,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %38, %40, %42, %44
   br i1 %73, label %74, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit20
 
 74:                                               ; preds = %72
-  %75 = getelementptr inbounds nuw float, ptr %64, i64 %61
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %61
   %.not.i.i19 = icmp eq ptr %63, %75
   br i1 %.not.i.i19, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit20, label %76
 
@@ -844,13 +842,13 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit20:             ; preds = %70, %72, %74, %76
 .lr.ph:                                           ; preds = %_ZNSt6vectorIfSaIfEE6resizeEm.exit20, %.lr.ph
   %.040 = phi i64 [ %85, %.lr.ph ], [ 0, %_ZNSt6vectorIfSaIfEE6resizeEm.exit20 ]
   %77 = load ptr, ptr %54, align 8, !tbaa !54
-  %78 = getelementptr inbounds nuw %"class.xgboost::Json", ptr %77, i64 %.040
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %.040
   %79 = load ptr, ptr %78, align 8, !tbaa !19
   %80 = tail call noundef ptr @_ZN7xgboost4CastIKNS_10JsonNumberEKNS_5ValueEEEPT_PT0_(ptr noundef nonnull %79)
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 24
   %82 = load float, ptr %81, align 4, !tbaa !10
   %83 = load ptr, ptr %62, align 8, !tbaa !9
-  %84 = getelementptr inbounds nuw float, ptr %83, i64 %.040
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %83, i64 %.040
   store float %82, ptr %84, align 4, !tbaa !10
   %85 = add nuw i64 %.040, 1
   %exitcond.not = icmp eq i64 %85, %61
@@ -1183,7 +1181,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
   %24 = phi ptr [ %34, %33 ], [ %5, %1 ]
   %25 = phi ptr [ %35, %33 ], [ %4, %1 ]
   %.04 = phi i64 [ %36, %33 ], [ 0, %1 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %24, i64 %.04
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %.04
   %27 = load ptr, ptr %26, align 8, !tbaa !72
   %28 = icmp eq ptr %27, null
   br i1 %28, label %33, label %29
@@ -1342,9 +1340,9 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36: ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !9
-  %39 = getelementptr inbounds nuw float, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !3
-  %40 = getelementptr inbounds nuw float, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !32
   br label %41
 
@@ -2248,7 +2246,7 @@ _ZNSt6vectorIPvSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; preds = %3
           to label %.noexc27 unwind label %22
 
 .noexc27:                                         ; preds = %8
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %2
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %2
   store ptr null, ptr %10, align 8, !tbaa !106
   %12 = add nsw i64 %2, -1
   %13 = icmp eq i64 %12, 0
@@ -2304,7 +2302,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %20, %17
 32:                                               ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %indvars.iv = phi i64 [ %31, %.lr.ph ], [ %indvars.iv.next, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %33 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv
+  %33 = getelementptr inbounds [8 x i8], ptr %26, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8, !tbaa !107
   invoke void @_ZN4dmlc8DemangleB5cxx11EPKc(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef %34)
           to label %35 unwind label %48
@@ -5854,7 +5852,7 @@ _ZNSt6vectorIPN4dmlc9parameter16FieldAccessEntryESaIS3_EE11_S_relocateEPS3_S6_S6
 _ZNSt6vectorIPN4dmlc9parameter16FieldAccessEntryESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %77, %_ZNSt6vectorIPN4dmlc9parameter16FieldAccessEntryESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
   store ptr %72, ptr %5, align 8, !tbaa !70
   store ptr %76, ptr %6, align 8, !tbaa !66
-  %78 = getelementptr inbounds nuw ptr, ptr %72, i64 %70
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %70
   store ptr %78, ptr %55, align 8, !tbaa !71
   br label %_ZNSt6vectorIPN4dmlc9parameter16FieldAccessEntryESaIS3_EE9push_backERKS3_.exit
 

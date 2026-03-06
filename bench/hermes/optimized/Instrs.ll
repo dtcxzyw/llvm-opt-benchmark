@@ -457,7 +457,7 @@ for.inc.us:                                       ; preds = %_ZN4llvh9StringRefC
   %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1
   %cmp.us = icmp samesign ult i64 %indvars.iv18, 25
   tail call void @llvm.assume(i1 %cmp.us)
-  %arrayidx.us = getelementptr inbounds nuw ptr, ptr @_ZN6hermes17UnaryOperatorInst12opStringReprE, i64 %indvars.iv.next19
+  %arrayidx.us = getelementptr inbounds nuw [8 x i8], ptr @_ZN6hermes17UnaryOperatorInst12opStringReprE, i64 %indvars.iv.next19
   %2 = load ptr, ptr %arrayidx.us, align 8
   %tobool.i.not.us = icmp eq ptr %2, null
   br i1 %tobool.i.not.us, label %if.then.loopexit, label %_ZN4llvh9StringRefC2EPKc.exit.us, !llvm.loop !4
@@ -466,7 +466,7 @@ for.cond:                                         ; preds = %entry, %for.inc
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %entry ]
   %cmp = icmp samesign ult i64 %indvars.iv, 26
   tail call void @llvm.assume(i1 %cmp)
-  %arrayidx = getelementptr inbounds nuw ptr, ptr @_ZN6hermes17UnaryOperatorInst12opStringReprE, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr @_ZN6hermes17UnaryOperatorInst12opStringReprE, i64 %indvars.iv
   %3 = load ptr, ptr %arrayidx, align 8
   %tobool.i.not = icmp eq ptr %3, null
   br i1 %tobool.i.not, label %for.inc, label %_ZN4llvh9StringRefC2EPKc.exit
@@ -556,7 +556,7 @@ for.inc.us.i:                                     ; preds = %_ZN4llvh9StringRefC
   %indvars.iv.next19.i = add nuw nsw i64 %indvars.iv18.i, 1
   %cmp.us.i = icmp samesign ult i64 %indvars.iv18.i, 25
   tail call void @llvm.assume(i1 %cmp.us.i)
-  %arrayidx.us.i = getelementptr inbounds nuw ptr, ptr @_ZN6hermes18BinaryOperatorInst12opStringReprE, i64 %indvars.iv.next19.i
+  %arrayidx.us.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN6hermes18BinaryOperatorInst12opStringReprE, i64 %indvars.iv.next19.i
   %2 = load ptr, ptr %arrayidx.us.i, align 8
   %tobool.i.not.us.i = icmp eq ptr %2, null
   br i1 %tobool.i.not.us.i, label %if.then.loopexit.i, label %_ZN4llvh9StringRefC2EPKc.exit.us.i, !llvm.loop !6
@@ -565,7 +565,7 @@ for.cond.i:                                       ; preds = %entry, %for.inc.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %entry ]
   %cmp.i = icmp samesign ult i64 %indvars.iv.i, 26
   tail call void @llvm.assume(i1 %cmp.i)
-  %arrayidx.i = getelementptr inbounds nuw ptr, ptr @_ZN6hermes18BinaryOperatorInst12opStringReprE, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN6hermes18BinaryOperatorInst12opStringReprE, i64 %indvars.iv.i
   %3 = load ptr, ptr %arrayidx.i, align 8
   %tobool.i.not.i = icmp eq ptr %3, null
   br i1 %tobool.i.not.i, label %for.inc.i, label %_ZN4llvh9StringRefC2EPKc.exit.i
@@ -621,7 +621,7 @@ for.inc.us.i:                                     ; preds = %_ZN4llvh9StringRefC
   %indvars.iv.next19.i = add nuw nsw i64 %indvars.iv18.i, 1
   %cmp.us.i = icmp samesign ult i64 %indvars.iv18.i, 25
   tail call void @llvm.assume(i1 %cmp.us.i)
-  %arrayidx.us.i = getelementptr inbounds nuw ptr, ptr @_ZN6hermes18BinaryOperatorInst22assignmentOpStringReprE, i64 %indvars.iv.next19.i
+  %arrayidx.us.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN6hermes18BinaryOperatorInst22assignmentOpStringReprE, i64 %indvars.iv.next19.i
   %2 = load ptr, ptr %arrayidx.us.i, align 8
   %tobool.i.not.us.i = icmp eq ptr %2, null
   br i1 %tobool.i.not.us.i, label %if.then.loopexit.i, label %_ZN4llvh9StringRefC2EPKc.exit.us.i, !llvm.loop !6
@@ -630,7 +630,7 @@ for.cond.i:                                       ; preds = %entry, %for.inc.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %for.inc.i ], [ 0, %entry ]
   %cmp.i = icmp samesign ult i64 %indvars.iv.i, 26
   tail call void @llvm.assume(i1 %cmp.i)
-  %arrayidx.i = getelementptr inbounds nuw ptr, ptr @_ZN6hermes18BinaryOperatorInst22assignmentOpStringReprE, i64 %indvars.iv.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr @_ZN6hermes18BinaryOperatorInst22assignmentOpStringReprE, i64 %indvars.iv.i
   %3 = load ptr, ptr %arrayidx.i, align 8
   %tobool.i.not.i = icmp eq ptr %3, null
   br i1 %tobool.i.not.i, label %for.inc.i, label %_ZN4llvh9StringRefC2EPKc.exit.i
@@ -672,10 +672,10 @@ entry:
 
 switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6hermes18BinaryOperatorInst21tryGetReverseOperatorENS0_6OpKindE, i64 %1
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN6hermes18BinaryOperatorInst21tryGetReverseOperatorENS0_6OpKindE, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   %2 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep6 = getelementptr inbounds nuw i64, ptr @switch.table._ZN6hermes18BinaryOperatorInst21tryGetReverseOperatorENS0_6OpKindE.90, i64 %2
+  %switch.gep6 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN6hermes18BinaryOperatorInst21tryGetReverseOperatorENS0_6OpKindE.90, i64 %2
   %switch.load7 = load i64, ptr %switch.gep6, align 8
   %3 = zext i32 %switch.load to i64
   %4 = or disjoint i64 %switch.load7, %3
@@ -869,11 +869,11 @@ for.body.preheader:                               ; preds = %entry
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %3 = load ptr, ptr %values, align 8
-  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %4 = load ptr, ptr %arrayidx.i, align 8
   tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(132) %this, ptr noundef %4) #15
   %5 = load ptr, ptr %blocks, align 8
-  %arrayidx.i14 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %arrayidx.i14 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %6 = load ptr, ptr %arrayidx.i14, align 8
   %7 = icmp eq ptr %6, null
   %add.ptr7 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -977,11 +977,11 @@ for.body.preheader:                               ; preds = %entry
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %2 = load ptr, ptr %values, align 8
-  %arrayidx.i10 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %arrayidx.i10 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %3 = load ptr, ptr %arrayidx.i10, align 8
   tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(132) %this, ptr noundef %3) #15
   %4 = load ptr, ptr %blocks, align 8
-  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %5 = load ptr, ptr %arrayidx.i, align 8
   %6 = icmp eq ptr %5, null
   %add.ptr = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -1225,11 +1225,11 @@ entry:
 for.body:                                         ; preds = %entry, %for.body
   %i.07 = phi i64 [ %inc, %for.body ], [ 0, %entry ]
   %3 = load ptr, ptr %values, align 8
-  %arrayidx.i12 = getelementptr inbounds nuw ptr, ptr %3, i64 %i.07
+  %arrayidx.i12 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %i.07
   %4 = load ptr, ptr %arrayidx.i12, align 8
   tail call void @_ZN6hermes11Instruction11pushOperandEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(132) %this, ptr noundef %4) #15
   %5 = load ptr, ptr %blocks, align 8
-  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %5, i64 %i.07
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %i.07
   %6 = load ptr, ptr %arrayidx.i, align 8
   %7 = icmp eq ptr %6, null
   %add.ptr5 = getelementptr inbounds nuw i8, ptr %6, i64 16

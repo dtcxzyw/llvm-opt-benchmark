@@ -284,9 +284,9 @@ define linkonce_odr void @_ZN4absl12lts_2024072215random_internal13randen_engine
   %.022.i.i = phi i64 [ 60, %2 ], [ %26, %9 ]
   %10 = add nsw i64 %.022.i.i, -4
   %11 = lshr exact i64 %10, 1
-  %12 = getelementptr i32, ptr %3, i64 %.022.i.i
+  %12 = getelementptr [4 x i8], ptr %3, i64 %.022.i.i
   %13 = getelementptr i8, ptr %12, i64 -20
-  %14 = getelementptr i32, ptr %3, i64 %11
+  %14 = getelementptr [4 x i8], ptr %3, i64 %11
   %15 = getelementptr i8, ptr %14, i64 -4
   %16 = load i32, ptr %13, align 4, !tbaa !27
   %17 = load i32, ptr %15, align 4, !tbaa !27
@@ -305,7 +305,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072215random_internal13randen_engine
   store i32 %25, ptr %22, align 4, !tbaa !27
   store i32 %24, ptr %23, align 4, !tbaa !27
   %26 = add nsw i64 %.022.i.i, -8
-  %27 = getelementptr inbounds nuw i32, ptr %3, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %26
   %28 = getelementptr i8, ptr %14, i64 -16
   %29 = load i32, ptr %27, align 16, !tbaa !27
   %30 = load i32, ptr %28, align 8, !tbaa !27
@@ -384,7 +384,7 @@ _ZN4absl12lts_2024072215random_internal15FastUniformBitsImEclINS1_17NonsecureURB
   %21 = load i64, ptr %10, align 8, !tbaa !26
   %22 = add i64 %21, 1
   store i64 %22, ptr %10, align 8, !tbaa !26
-  %23 = getelementptr inbounds nuw i64, ptr %9, i64 %21
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %21
   %24 = load i64, ptr %23, align 8, !tbaa !4
   %25 = icmp eq i64 %24, 0
   br i1 %25, label %_ZN4absl12lts_2024072215random_internal20GenerateRealFromBitsIdNS1_19GeneratePositiveTagELb1EEET_mi.exit.i.i.us, label %26
@@ -429,7 +429,7 @@ _ZN4absl12lts_2024072215random_internal15FastUniformBitsImEclINS1_17NonsecureURB
   %43 = load i64, ptr %10, align 8, !tbaa !26
   %44 = add i64 %43, 1
   store i64 %44, ptr %10, align 8, !tbaa !26
-  %45 = getelementptr inbounds nuw i64, ptr %9, i64 %43
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %43
   %46 = load i64, ptr %45, align 8, !tbaa !4
   %47 = icmp eq i64 %46, 0
   br i1 %47, label %_ZN4absl12lts_2024072215random_internal20GenerateRealFromBitsIdNS1_19GeneratePositiveTagELb1EEET_mi.exit.i.i, label %48

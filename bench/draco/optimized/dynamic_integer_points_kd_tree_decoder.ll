@@ -8,8 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" }
 %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.draco::RAnsBitDecoder" = type <{ %"struct.draco::AnsDecoder", i8, [7 x i8] }>
-%"struct.draco::AnsDecoder" = type { ptr, i32, i32 }
 
 $_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi0EEC5Ej = comdat any
 
@@ -131,7 +129,7 @@ define weak_odr void @_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi0EEC2Ej(ptr
 
 .noexc:                                           ; preds = %17
   store ptr %19, ptr %15, align 8, !tbaa !24
-  %20 = getelementptr inbounds nuw i32, ptr %19, i64 %16
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store ptr %20, ptr %21, align 8, !tbaa !25
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %19, i8 0, i64 %18, i1 false), !tbaa !26
@@ -145,7 +143,7 @@ define weak_odr void @_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi0EEC2Ej(ptr
 
 .noexc32:                                         ; preds = %.noexc
   store ptr %25, ptr %24, align 8, !tbaa !24
-  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %16
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %16
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store ptr %26, ptr %27, align 8, !tbaa !25
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %25, i8 0, i64 %18, i1 false), !tbaa !26
@@ -168,7 +166,7 @@ _ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i39: ; preds = %14
   %33 = or disjoint i32 %32, 1
   %34 = zext i32 %33 to i64
   store ptr %30, ptr %3, align 8, !tbaa !24
-  %35 = getelementptr inbounds nuw i32, ptr %30, i64 %16
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %16
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %35, ptr %36, align 8, !tbaa !25
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %30, i8 0, i64 %18, i1 false), !tbaa !26
@@ -191,7 +189,7 @@ _ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i39: ; preds = %14
   store ptr %43, ptr %40, align 8, !tbaa !28
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 232
   store ptr %43, ptr %44, align 8, !tbaa !29
-  %45 = getelementptr inbounds nuw %"class.std::vector", ptr %43, i64 %38
+  %45 = getelementptr inbounds nuw [24 x i8], ptr %43, i64 %38
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store ptr %45, ptr %46, align 8, !tbaa !30
   %47 = invoke noundef ptr @_ZSt18__do_uninit_fill_nIPSt6vectorIjSaIjEEmS2_ET_S4_T0_RKT1_(ptr noundef nonnull %43, i64 noundef %38, ptr noundef nonnull align 8 dereferenceable(24) %3)
@@ -243,7 +241,7 @@ _ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i50: ; preds = %_ZNSt6vectorIjS
 
 .noexc51:                                         ; preds = %64
   store ptr %66, ptr %4, align 8, !tbaa !24
-  %67 = getelementptr inbounds nuw i32, ptr %66, i64 %16
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %16
   %68 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %67, ptr %68, align 8, !tbaa !25
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %66, i8 0, i64 %65, i1 false), !tbaa !26
@@ -263,7 +261,7 @@ _ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i50: ; preds = %_ZNSt6vectorIjS
   store ptr %72, ptr %71, align 8, !tbaa !28
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store ptr %72, ptr %73, align 8, !tbaa !29
-  %74 = getelementptr inbounds nuw %"class.std::vector", ptr %72, i64 %38
+  %74 = getelementptr inbounds nuw [24 x i8], ptr %72, i64 %38
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 264
   store ptr %74, ptr %75, align 8, !tbaa !30
   %76 = invoke noundef ptr @_ZSt18__do_uninit_fill_nIPSt6vectorIjSaIjEEmS2_ET_S4_T0_RKT1_(ptr noundef nonnull %72, i64 noundef %38, ptr noundef nonnull align 8 dereferenceable(24) %4)
@@ -636,7 +634,7 @@ define weak_odr void @_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi2EEC2Ej(ptr
 
 .noexc:                                           ; preds = %17
   store ptr %19, ptr %15, align 8, !tbaa !24
-  %20 = getelementptr inbounds nuw i32, ptr %19, i64 %16
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %16
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 176
   store ptr %20, ptr %21, align 8, !tbaa !25
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %19, i8 0, i64 %18, i1 false), !tbaa !26
@@ -650,7 +648,7 @@ define weak_odr void @_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi2EEC2Ej(ptr
 
 .noexc32:                                         ; preds = %.noexc
   store ptr %25, ptr %24, align 8, !tbaa !24
-  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %16
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %16
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store ptr %26, ptr %27, align 8, !tbaa !25
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %25, i8 0, i64 %18, i1 false), !tbaa !26
@@ -673,7 +671,7 @@ _ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i39: ; preds = %14
   %33 = or disjoint i32 %32, 1
   %34 = zext i32 %33 to i64
   store ptr %30, ptr %3, align 8, !tbaa !24
-  %35 = getelementptr inbounds nuw i32, ptr %30, i64 %16
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %16
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %35, ptr %36, align 8, !tbaa !25
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %30, i8 0, i64 %18, i1 false), !tbaa !26
@@ -696,7 +694,7 @@ _ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i39: ; preds = %14
   store ptr %43, ptr %40, align 8, !tbaa !28
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 216
   store ptr %43, ptr %44, align 8, !tbaa !29
-  %45 = getelementptr inbounds nuw %"class.std::vector", ptr %43, i64 %38
+  %45 = getelementptr inbounds nuw [24 x i8], ptr %43, i64 %38
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store ptr %45, ptr %46, align 8, !tbaa !30
   %47 = invoke noundef ptr @_ZSt18__do_uninit_fill_nIPSt6vectorIjSaIjEEmS2_ET_S4_T0_RKT1_(ptr noundef nonnull %43, i64 noundef %38, ptr noundef nonnull align 8 dereferenceable(24) %3)
@@ -748,7 +746,7 @@ _ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i50: ; preds = %_ZNSt6vectorIjS
 
 .noexc51:                                         ; preds = %64
   store ptr %66, ptr %4, align 8, !tbaa !24
-  %67 = getelementptr inbounds nuw i32, ptr %66, i64 %16
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %16
   %68 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %67, ptr %68, align 8, !tbaa !25
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %66, i8 0, i64 %65, i1 false), !tbaa !26
@@ -768,7 +766,7 @@ _ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i50: ; preds = %_ZNSt6vectorIjS
   store ptr %72, ptr %71, align 8, !tbaa !28
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 240
   store ptr %72, ptr %73, align 8, !tbaa !29
-  %74 = getelementptr inbounds nuw %"class.std::vector", ptr %72, i64 %38
+  %74 = getelementptr inbounds nuw [24 x i8], ptr %72, i64 %38
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 248
   store ptr %74, ptr %75, align 8, !tbaa !30
   %76 = invoke noundef ptr @_ZSt18__do_uninit_fill_nIPSt6vectorIjSaIjEEmS2_ET_S4_T0_RKT1_(ptr noundef nonnull %72, i64 noundef %38, ptr noundef nonnull align 8 dereferenceable(24) %4)
@@ -1087,7 +1085,7 @@ _ZN5draco18FoldedBit32DecoderINS_14RAnsBitDecoderEEC2Ev.exit: ; preds = %_ZNSt5a
 
 .noexc:                                           ; preds = %27
   store ptr %29, ptr %25, align 8, !tbaa !24
-  %30 = getelementptr inbounds nuw i32, ptr %29, i64 %26
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %26
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 944
   store ptr %30, ptr %31, align 8, !tbaa !25
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %29, i8 0, i64 %28, i1 false), !tbaa !26
@@ -1101,7 +1099,7 @@ _ZN5draco18FoldedBit32DecoderINS_14RAnsBitDecoderEEC2Ev.exit: ; preds = %_ZNSt5a
 
 .noexc32:                                         ; preds = %.noexc
   store ptr %35, ptr %34, align 8, !tbaa !24
-  %36 = getelementptr inbounds nuw i32, ptr %35, i64 %26
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %26
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 968
   store ptr %36, ptr %37, align 8, !tbaa !25
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %35, i8 0, i64 %28, i1 false), !tbaa !26
@@ -1124,7 +1122,7 @@ _ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i39: ; preds = %24
   %43 = or disjoint i32 %42, 1
   %44 = zext i32 %43 to i64
   store ptr %40, ptr %3, align 8, !tbaa !24
-  %45 = getelementptr inbounds nuw i32, ptr %40, i64 %26
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %26
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %45, ptr %46, align 8, !tbaa !25
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %40, i8 0, i64 %28, i1 false), !tbaa !26
@@ -1147,7 +1145,7 @@ _ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i39: ; preds = %24
   store ptr %53, ptr %50, align 8, !tbaa !28
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 984
   store ptr %53, ptr %54, align 8, !tbaa !29
-  %55 = getelementptr inbounds nuw %"class.std::vector", ptr %53, i64 %48
+  %55 = getelementptr inbounds nuw [24 x i8], ptr %53, i64 %48
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 992
   store ptr %55, ptr %56, align 8, !tbaa !30
   %57 = invoke noundef ptr @_ZSt18__do_uninit_fill_nIPSt6vectorIjSaIjEEmS2_ET_S4_T0_RKT1_(ptr noundef nonnull %53, i64 noundef %48, ptr noundef nonnull align 8 dereferenceable(24) %3)
@@ -1199,7 +1197,7 @@ _ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i50: ; preds = %_ZNSt6vectorIjS
 
 .noexc51:                                         ; preds = %74
   store ptr %76, ptr %4, align 8, !tbaa !24
-  %77 = getelementptr inbounds nuw i32, ptr %76, i64 %26
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %26
   %78 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %77, ptr %78, align 8, !tbaa !25
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %76, i8 0, i64 %75, i1 false), !tbaa !26
@@ -1219,7 +1217,7 @@ _ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i50: ; preds = %_ZNSt6vectorIjS
   store ptr %82, ptr %81, align 8, !tbaa !28
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 1008
   store ptr %82, ptr %83, align 8, !tbaa !29
-  %84 = getelementptr inbounds nuw %"class.std::vector", ptr %82, i64 %48
+  %84 = getelementptr inbounds nuw [24 x i8], ptr %82, i64 %48
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 1016
   store ptr %84, ptr %85, align 8, !tbaa !30
   %86 = invoke noundef ptr @_ZSt18__do_uninit_fill_nIPSt6vectorIjSaIjEEmS2_ET_S4_T0_RKT1_(ptr noundef nonnull %82, i64 noundef %48, ptr noundef nonnull align 8 dereferenceable(24) %4)
@@ -1453,7 +1451,7 @@ define weak_odr void @_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi4EE12Decode
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.010.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %10, %.lr.ph.i ]
-  %6 = getelementptr inbounds nuw %"class.draco::RAnsBitDecoder", ptr %4, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw [24 x i8], ptr %4, i64 %indvars.iv.i
   %7 = tail call noundef zeroext i1 @_ZN5draco14RAnsBitDecoder13DecodeNextBitEv(ptr noundef nonnull align 8 dereferenceable(17) %6)
   %8 = shl i32 %.010.i, 1
   %9 = zext i1 %7 to i32
@@ -1569,7 +1567,7 @@ _ZN5draco18FoldedBit32DecoderINS_14RAnsBitDecoderEEC2Ev.exit: ; preds = %_ZNSt5a
 
 .noexc:                                           ; preds = %27
   store ptr %29, ptr %25, align 8, !tbaa !24
-  %30 = getelementptr inbounds nuw i32, ptr %29, i64 %26
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %26
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 944
   store ptr %30, ptr %31, align 8, !tbaa !25
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %29, i8 0, i64 %28, i1 false), !tbaa !26
@@ -1583,7 +1581,7 @@ _ZN5draco18FoldedBit32DecoderINS_14RAnsBitDecoderEEC2Ev.exit: ; preds = %_ZNSt5a
 
 .noexc32:                                         ; preds = %.noexc
   store ptr %35, ptr %34, align 8, !tbaa !24
-  %36 = getelementptr inbounds nuw i32, ptr %35, i64 %26
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %26
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 968
   store ptr %36, ptr %37, align 8, !tbaa !25
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %35, i8 0, i64 %28, i1 false), !tbaa !26
@@ -1606,7 +1604,7 @@ _ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i39: ; preds = %24
   %43 = or disjoint i32 %42, 1
   %44 = zext i32 %43 to i64
   store ptr %40, ptr %3, align 8, !tbaa !24
-  %45 = getelementptr inbounds nuw i32, ptr %40, i64 %26
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %26
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %45, ptr %46, align 8, !tbaa !25
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %40, i8 0, i64 %28, i1 false), !tbaa !26
@@ -1629,7 +1627,7 @@ _ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i39: ; preds = %24
   store ptr %53, ptr %50, align 8, !tbaa !28
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 984
   store ptr %53, ptr %54, align 8, !tbaa !29
-  %55 = getelementptr inbounds nuw %"class.std::vector", ptr %53, i64 %48
+  %55 = getelementptr inbounds nuw [24 x i8], ptr %53, i64 %48
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 992
   store ptr %55, ptr %56, align 8, !tbaa !30
   %57 = invoke noundef ptr @_ZSt18__do_uninit_fill_nIPSt6vectorIjSaIjEEmS2_ET_S4_T0_RKT1_(ptr noundef nonnull %53, i64 noundef %48, ptr noundef nonnull align 8 dereferenceable(24) %3)
@@ -1681,7 +1679,7 @@ _ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i50: ; preds = %_ZNSt6vectorIjS
 
 .noexc51:                                         ; preds = %74
   store ptr %76, ptr %4, align 8, !tbaa !24
-  %77 = getelementptr inbounds nuw i32, ptr %76, i64 %26
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %26
   %78 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %77, ptr %78, align 8, !tbaa !25
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %76, i8 0, i64 %75, i1 false), !tbaa !26
@@ -1701,7 +1699,7 @@ _ZNSt12_Vector_baseIjSaIjEEC2EmRKS0_.exit.thread.i50: ; preds = %_ZNSt6vectorIjS
   store ptr %82, ptr %81, align 8, !tbaa !28
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 1008
   store ptr %82, ptr %83, align 8, !tbaa !29
-  %84 = getelementptr inbounds nuw %"class.std::vector", ptr %82, i64 %48
+  %84 = getelementptr inbounds nuw [24 x i8], ptr %82, i64 %48
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 1016
   store ptr %84, ptr %85, align 8, !tbaa !30
   %86 = invoke noundef ptr @_ZSt18__do_uninit_fill_nIPSt6vectorIjSaIjEEmS2_ET_S4_T0_RKT1_(ptr noundef nonnull %82, i64 noundef %48, ptr noundef nonnull align 8 dereferenceable(24) %4)
@@ -1914,9 +1912,9 @@ define weak_odr noundef i32 @_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi6EE7
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %10 ]
   %.089 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %10 ]
   %11 = zext i32 %.089 to i64
-  %12 = getelementptr inbounds nuw i32, ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !26
-  %14 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !26
   %16 = icmp ugt i32 %13, %15
   %17 = trunc nuw i64 %indvars.iv to i32
@@ -1995,7 +1993,7 @@ define weak_odr void @_ZN5draco33DynamicIntegerPointsKdTreeDecoderILi6EE12Decode
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.010.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %10, %.lr.ph.i ]
-  %6 = getelementptr inbounds nuw %"class.draco::RAnsBitDecoder", ptr %4, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw [24 x i8], ptr %4, i64 %indvars.iv.i
   %7 = tail call noundef zeroext i1 @_ZN5draco14RAnsBitDecoder13DecodeNextBitEv(ptr noundef nonnull align 8 dereferenceable(17) %6)
   %8 = shl i32 %.010.i, 1
   %9 = zext i1 %7 to i32

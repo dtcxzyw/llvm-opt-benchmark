@@ -6,10 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.btVector3 = type { [4 x float] }
 %struct.AabbCalculationCallback = type { %class.btInternalTriangleIndexCallback, %class.btVector3, %class.btVector3 }
 %class.btInternalTriangleIndexCallback = type { ptr }
-%struct.btShortIntIndexTripletData = type { [3 x i16], [2 x i8] }
-%struct.btCharIndexTripletData = type { [3 x i8], i8 }
-%struct.btVector3FloatData = type { [4 x float] }
-%struct.btVector3DoubleData = type { [4 x double] }
 
 $_ZNK23btStridingMeshInterface14hasPremadeAabbEv = comdat any
 
@@ -850,7 +846,7 @@ define dso_local noundef nonnull ptr @_ZNK23btStridingMeshInterface9serializeEPv
   %100 = sext i32 %99 to i64
   %101 = getelementptr inbounds i8, ptr %96, i64 %100
   %102 = load i16, ptr %101, align 2, !tbaa !19
-  %103 = getelementptr inbounds nuw %struct.btShortIntIndexTripletData, ptr %89, i64 %indvars.iv175
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %indvars.iv175
   store i16 %102, ptr %103, align 2, !tbaa !19
   %104 = getelementptr inbounds nuw i8, ptr %101, i64 2
   %105 = load i16, ptr %104, align 2, !tbaa !19
@@ -907,7 +903,7 @@ define dso_local noundef nonnull ptr @_ZNK23btStridingMeshInterface9serializeEPv
   %137 = sext i32 %136 to i64
   %138 = getelementptr inbounds i8, ptr %133, i64 %137
   %139 = load i8, ptr %138, align 1, !tbaa !22
-  %140 = getelementptr inbounds nuw %struct.btCharIndexTripletData, ptr %126, i64 %indvars.iv
+  %140 = getelementptr inbounds nuw [4 x i8], ptr %126, i64 %indvars.iv
   store i8 %139, ptr %140, align 1, !tbaa !22
   %141 = getelementptr inbounds nuw i8, ptr %138, i64 1
   %142 = load i8, ptr %141, align 1, !tbaa !22
@@ -981,7 +977,7 @@ define dso_local noundef nonnull ptr @_ZNK23btStridingMeshInterface9serializeEPv
   %180 = mul nsw i64 %indvars.iv184, %174
   %181 = getelementptr inbounds i8, ptr %172, i64 %180
   %182 = load float, ptr %181, align 4, !tbaa !15
-  %183 = getelementptr inbounds nuw %struct.btVector3FloatData, ptr %165, i64 %indvars.iv184
+  %183 = getelementptr inbounds nuw [16 x i8], ptr %165, i64 %indvars.iv184
   store float %182, ptr %183, align 4, !tbaa !15
   %184 = getelementptr inbounds nuw i8, ptr %181, i64 4
   %185 = load float, ptr %184, align 4, !tbaa !15
@@ -1036,7 +1032,7 @@ define dso_local noundef nonnull ptr @_ZNK23btStridingMeshInterface9serializeEPv
   %213 = mul nsw i64 %indvars.iv181, %207
   %214 = getelementptr inbounds i8, ptr %205, i64 %213
   %215 = load double, ptr %214, align 8, !tbaa !24
-  %216 = getelementptr inbounds nuw %struct.btVector3DoubleData, ptr %198, i64 %indvars.iv181
+  %216 = getelementptr inbounds nuw [32 x i8], ptr %198, i64 %indvars.iv181
   store double %215, ptr %216, align 8, !tbaa !24
   %217 = getelementptr inbounds nuw i8, ptr %214, i64 8
   %218 = load double, ptr %217, align 8, !tbaa !24
@@ -1085,9 +1081,9 @@ define dso_local noundef nonnull ptr @_ZNK23btStridingMeshInterface9serializeEPv
 
 237:                                              ; preds = %237, %233
   %indvars.iv.i = phi i64 [ 0, %233 ], [ %indvars.iv.next.i, %237 ]
-  %238 = getelementptr inbounds nuw float, ptr %235, i64 %indvars.iv.i
+  %238 = getelementptr inbounds nuw [4 x i8], ptr %235, i64 %indvars.iv.i
   %239 = load float, ptr %238, align 4, !tbaa !15
-  %240 = getelementptr inbounds nuw float, ptr %236, i64 %indvars.iv.i
+  %240 = getelementptr inbounds nuw [4 x i8], ptr %236, i64 %indvars.iv.i
   store float %239, ptr %240, align 4, !tbaa !15
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4

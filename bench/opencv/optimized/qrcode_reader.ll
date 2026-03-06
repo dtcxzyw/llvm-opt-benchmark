@@ -27,8 +27,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.18" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
 %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.zxing::Ref.53" = type { ptr }
-%"class.zxing::Ref.52" = type { ptr }
 
 $_ZNK5zxing12ErrorHandler7ErrCodeEv = comdat any
 
@@ -1199,7 +1197,7 @@ _ZN5zxing6qrcode12QRCodeReader14setReaderStateENS0_8Detector13DetectorStateE.exi
   %indvars.iv = phi i64 [ 0, %.preheader1063.preheader ], [ %indvars.iv.next, %2077 ]
   %.5851838 = phi i1 [ false, %.preheader1063.preheader ], [ %.7, %2077 ]
   %244 = load ptr, ptr %234, align 8, !tbaa !74, !noalias !75
-  %245 = getelementptr inbounds nuw %"class.zxing::Ref.53", ptr %244, i64 %indvars.iv
+  %245 = getelementptr inbounds nuw [8 x i8], ptr %244, i64 %indvars.iv
   %246 = load ptr, ptr %245, align 8, !tbaa !78, !noalias !75
   %247 = getelementptr inbounds nuw i8, ptr %246, i64 16
   %248 = load ptr, ptr %247, align 8, !tbaa !81, !noalias !75
@@ -1250,7 +1248,7 @@ _ZN5zxing6qrcode8Detector20getFinderPatternInfoEi.exit: ; preds = %249, %.prehea
 
 269:                                              ; preds = %265
   %270 = load ptr, ptr %234, align 8, !tbaa !74
-  %271 = getelementptr inbounds nuw %"class.zxing::Ref.53", ptr %270, i64 %indvars.iv
+  %271 = getelementptr inbounds nuw [8 x i8], ptr %270, i64 %indvars.iv
   %272 = load ptr, ptr %271, align 8, !tbaa !78
   %273 = getelementptr inbounds nuw i8, ptr %272, i64 56
   %274 = load i32, ptr %273, align 8, !tbaa !85
@@ -1429,7 +1427,7 @@ _ZNSt6vectorIN5zxing3RefINS0_11ResultPointEEESaIS3_EE5clearEv.exit.i: ; preds = 
   %346 = phi ptr [ %340, %.preheader.i ], [ %402, %_ZNSt6vectorIN5zxing3RefINS0_11ResultPointEEESaIS3_EE9push_backERKS3_.exit.i ]
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %_ZNSt6vectorIN5zxing3RefINS0_11ResultPointEEESaIS3_EE9push_backERKS3_.exit.i ]
   %347 = load ptr, ptr %343, align 8, !tbaa !103
-  %348 = getelementptr inbounds nuw %"class.zxing::Ref.52", ptr %347, i64 %indvars.iv.i
+  %348 = getelementptr inbounds nuw [8 x i8], ptr %347, i64 %indvars.iv.i
   %.not.i.i289 = icmp eq ptr %346, %345
   br i1 %.not.i.i289, label %356, label %349
 
@@ -1566,7 +1564,7 @@ _ZSt8_DestroyIPN5zxing3RefINS0_11ResultPointEEES3_EvT_S5_RSaIT0_E.exit.i: ; pred
 .noexc:                                           ; preds = %399, %_ZSt8_DestroyIPN5zxing3RefINS0_11ResultPointEEES3_EvT_S5_RSaIT0_E.exit.i
   store ptr %369, ptr %91, align 8, !tbaa !103
   store ptr %398, ptr %92, align 8, !tbaa !104
-  %400 = getelementptr inbounds nuw %"class.zxing::Ref.52", ptr %369, i64 %367
+  %400 = getelementptr inbounds nuw [8 x i8], ptr %369, i64 %367
   store ptr %400, ptr %94, align 8, !tbaa !110
   br label %_ZNSt6vectorIN5zxing3RefINS0_11ResultPointEEESaIS3_EE9push_backERKS3_.exit.i
 
@@ -1655,7 +1653,7 @@ _ZN5zxing6qrcode12QRCodeReader14setReaderStateENS0_7Decoder12DecoderStateE.exit:
 436:                                              ; preds = %432
   %437 = lshr i32 %.0961815, 6
   %.zext1020 = zext nneg i32 %437 to i64
-  %438 = getelementptr inbounds nuw i64, ptr %295, i64 %.zext1020
+  %438 = getelementptr inbounds nuw [8 x i8], ptr %295, i64 %.zext1020
   %439 = and i32 %.0961815, 63
   %440 = zext nneg i32 %439 to i64
   %441 = shl nuw i64 1, %440
@@ -1898,7 +1896,7 @@ _ZNSt6vectorIN5zxing3RefINS0_11ResultPointEEESaIS3_EE5clearEv.exit.i311: ; preds
   %544 = phi ptr [ %538, %.preheader.i313 ], [ %600, %_ZNSt6vectorIN5zxing3RefINS0_11ResultPointEEESaIS3_EE9push_backERKS3_.exit.i318 ]
   %indvars.iv.i314 = phi i64 [ 0, %.preheader.i313 ], [ %indvars.iv.next.i319, %_ZNSt6vectorIN5zxing3RefINS0_11ResultPointEEESaIS3_EE9push_backERKS3_.exit.i318 ]
   %545 = load ptr, ptr %541, align 8, !tbaa !103
-  %546 = getelementptr inbounds nuw %"class.zxing::Ref.52", ptr %545, i64 %indvars.iv.i314
+  %546 = getelementptr inbounds nuw [8 x i8], ptr %545, i64 %indvars.iv.i314
   %.not.i.i315 = icmp eq ptr %544, %543
   br i1 %.not.i.i315, label %554, label %547
 
@@ -2035,7 +2033,7 @@ _ZSt8_DestroyIPN5zxing3RefINS0_11ResultPointEEES3_EvT_S5_RSaIT0_E.exit.i703: ; p
 .noexc321:                                        ; preds = %597, %_ZSt8_DestroyIPN5zxing3RefINS0_11ResultPointEEES3_EvT_S5_RSaIT0_E.exit.i703
   store ptr %567, ptr %91, align 8, !tbaa !103
   store ptr %596, ptr %92, align 8, !tbaa !104
-  %598 = getelementptr inbounds nuw %"class.zxing::Ref.52", ptr %567, i64 %565
+  %598 = getelementptr inbounds nuw [8 x i8], ptr %567, i64 %565
   store ptr %598, ptr %94, align 8, !tbaa !110
   br label %_ZNSt6vectorIN5zxing3RefINS0_11ResultPointEEESaIS3_EE9push_backERKS3_.exit.i318
 
@@ -2124,7 +2122,7 @@ _ZN5zxing6qrcode12QRCodeReader14setReaderStateENS0_7Decoder12DecoderStateE.exit3
 634:                                              ; preds = %630
   %635 = lshr i32 %.0961815, 6
   %.zext1018 = zext nneg i32 %635 to i64
-  %636 = getelementptr inbounds nuw i64, ptr %295, i64 %.zext1018
+  %636 = getelementptr inbounds nuw [8 x i8], ptr %295, i64 %.zext1018
   %637 = and i32 %.0961815, 63
   %638 = zext nneg i32 %637 to i64
   %639 = shl nuw i64 1, %638
@@ -2391,7 +2389,7 @@ _ZNSt6vectorIN5zxing3RefINS0_11ResultPointEEESaIS3_EE5clearEv.exit.i350: ; preds
   %747 = phi ptr [ %741, %.preheader.i352 ], [ %803, %_ZNSt6vectorIN5zxing3RefINS0_11ResultPointEEESaIS3_EE9push_backERKS3_.exit.i357 ]
   %indvars.iv.i353 = phi i64 [ 0, %.preheader.i352 ], [ %indvars.iv.next.i358, %_ZNSt6vectorIN5zxing3RefINS0_11ResultPointEEESaIS3_EE9push_backERKS3_.exit.i357 ]
   %748 = load ptr, ptr %744, align 8, !tbaa !103
-  %749 = getelementptr inbounds nuw %"class.zxing::Ref.52", ptr %748, i64 %indvars.iv.i353
+  %749 = getelementptr inbounds nuw [8 x i8], ptr %748, i64 %indvars.iv.i353
   %.not.i.i354 = icmp eq ptr %747, %746
   br i1 %.not.i.i354, label %757, label %750
 
@@ -2528,7 +2526,7 @@ _ZSt8_DestroyIPN5zxing3RefINS0_11ResultPointEEES3_EvT_S5_RSaIT0_E.exit.i734: ; p
 .noexc360:                                        ; preds = %800, %_ZSt8_DestroyIPN5zxing3RefINS0_11ResultPointEEES3_EvT_S5_RSaIT0_E.exit.i734
   store ptr %770, ptr %91, align 8, !tbaa !103
   store ptr %799, ptr %92, align 8, !tbaa !104
-  %801 = getelementptr inbounds nuw %"class.zxing::Ref.52", ptr %770, i64 %768
+  %801 = getelementptr inbounds nuw [8 x i8], ptr %770, i64 %768
   store ptr %801, ptr %94, align 8, !tbaa !110
   br label %_ZNSt6vectorIN5zxing3RefINS0_11ResultPointEEESaIS3_EE9push_backERKS3_.exit.i357
 
@@ -2895,7 +2893,7 @@ _ZNSt6vectorIN5zxing3RefINS0_11ResultPointEEESaIS3_EE5clearEv.exit.i396: ; preds
   %941 = phi ptr [ %935, %.preheader.i398 ], [ %997, %_ZNSt6vectorIN5zxing3RefINS0_11ResultPointEEESaIS3_EE9push_backERKS3_.exit.i402 ]
   %indvars.iv.i399 = phi i64 [ 0, %.preheader.i398 ], [ %indvars.iv.next.i403, %_ZNSt6vectorIN5zxing3RefINS0_11ResultPointEEESaIS3_EE9push_backERKS3_.exit.i402 ]
   %942 = load ptr, ptr %938, align 8, !tbaa !103
-  %943 = getelementptr inbounds nuw %"class.zxing::Ref.52", ptr %942, i64 %indvars.iv.i399
+  %943 = getelementptr inbounds nuw [8 x i8], ptr %942, i64 %indvars.iv.i399
   %.not.i.i400 = icmp eq ptr %941, %940
   br i1 %.not.i.i400, label %951, label %944
 
@@ -3032,7 +3030,7 @@ _ZSt8_DestroyIPN5zxing3RefINS0_11ResultPointEEES3_EvT_S5_RSaIT0_E.exit.i765: ; p
 .noexc405:                                        ; preds = %994, %_ZSt8_DestroyIPN5zxing3RefINS0_11ResultPointEEES3_EvT_S5_RSaIT0_E.exit.i765
   store ptr %964, ptr %91, align 8, !tbaa !103
   store ptr %993, ptr %92, align 8, !tbaa !104
-  %995 = getelementptr inbounds nuw %"class.zxing::Ref.52", ptr %964, i64 %962
+  %995 = getelementptr inbounds nuw [8 x i8], ptr %964, i64 %962
   store ptr %995, ptr %94, align 8, !tbaa !110
   br label %_ZNSt6vectorIN5zxing3RefINS0_11ResultPointEEESaIS3_EE9push_backERKS3_.exit.i402
 
@@ -3533,7 +3531,7 @@ _ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit441: ; preds = %1164, %1
   store ptr null, ptr %109, align 8, !tbaa !98
   %1182 = lshr i32 %.0881832, 6
   %.zext = zext nneg i32 %1182 to i64
-  %1183 = getelementptr inbounds nuw i64, ptr %295, i64 %.zext
+  %1183 = getelementptr inbounds nuw [8 x i8], ptr %295, i64 %.zext
   %1184 = and i32 %.0881832, 63
   %1185 = zext nneg i32 %1184 to i64
   %1186 = shl nuw i64 1, %1185
@@ -3583,7 +3581,7 @@ _ZN5zxing8ArrayRefINS_3RefINS_11ResultPointEEEED2Ev.exit639.thread: ; preds = %1
           to label %1204 unwind label %1338
 
 1204:                                             ; preds = %.lr.ph1824
-  %1205 = getelementptr inbounds nuw i32, ptr %1200, i64 %.0871820
+  %1205 = getelementptr inbounds nuw [4 x i8], ptr %1200, i64 %.0871820
   %1206 = load i32, ptr %1205, align 4, !tbaa !155
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
   invoke void @_ZN5zxing6qrcode8Detector21getResultViaAlignmentEiiiRNS_12ErrorHandlerE(ptr dead_on_unwind nonnull writable sret(%"class.zxing::Ref.37") align 8 %34, ptr noundef nonnull align 8 dereferenceable(60) %122, i32 noundef %263, i32 noundef %.0881832, i32 noundef %1206, ptr noundef nonnull align 8 dereferenceable(48) %5)
@@ -3689,7 +3687,7 @@ _ZNSt6vectorIN5zxing3RefINS0_11ResultPointEEESaIS3_EE5clearEv.exit.i457: ; preds
   %1250 = phi ptr [ %1244, %.preheader.i459 ], [ %1306, %_ZNSt6vectorIN5zxing3RefINS0_11ResultPointEEESaIS3_EE9push_backERKS3_.exit.i464 ]
   %indvars.iv.i460 = phi i64 [ 0, %.preheader.i459 ], [ %indvars.iv.next.i465, %_ZNSt6vectorIN5zxing3RefINS0_11ResultPointEEESaIS3_EE9push_backERKS3_.exit.i464 ]
   %1251 = load ptr, ptr %1247, align 8, !tbaa !103
-  %1252 = getelementptr inbounds nuw %"class.zxing::Ref.52", ptr %1251, i64 %indvars.iv.i460
+  %1252 = getelementptr inbounds nuw [8 x i8], ptr %1251, i64 %indvars.iv.i460
   %.not.i.i461 = icmp eq ptr %1250, %1249
   br i1 %.not.i.i461, label %1260, label %1253
 
@@ -3826,7 +3824,7 @@ _ZSt8_DestroyIPN5zxing3RefINS0_11ResultPointEEES3_EvT_S5_RSaIT0_E.exit.i796: ; p
 .noexc467:                                        ; preds = %1303, %_ZSt8_DestroyIPN5zxing3RefINS0_11ResultPointEEES3_EvT_S5_RSaIT0_E.exit.i796
   store ptr %1273, ptr %91, align 8, !tbaa !103
   store ptr %1302, ptr %92, align 8, !tbaa !104
-  %1304 = getelementptr inbounds nuw %"class.zxing::Ref.52", ptr %1273, i64 %1271
+  %1304 = getelementptr inbounds nuw [8 x i8], ptr %1273, i64 %1271
   store ptr %1304, ptr %94, align 8, !tbaa !110
   br label %_ZNSt6vectorIN5zxing3RefINS0_11ResultPointEEESaIS3_EE9push_backERKS3_.exit.i464
 
@@ -4152,7 +4150,7 @@ _ZNSt6vectorIN5zxing3RefINS0_11ResultPointEEESaIS3_EE5clearEv.exit.i492: ; preds
   %1437 = phi ptr [ %1431, %.preheader.i494 ], [ %1493, %_ZNSt6vectorIN5zxing3RefINS0_11ResultPointEEESaIS3_EE9push_backERKS3_.exit.i499 ]
   %indvars.iv.i495 = phi i64 [ 0, %.preheader.i494 ], [ %indvars.iv.next.i500, %_ZNSt6vectorIN5zxing3RefINS0_11ResultPointEEESaIS3_EE9push_backERKS3_.exit.i499 ]
   %1438 = load ptr, ptr %1434, align 8, !tbaa !103
-  %1439 = getelementptr inbounds nuw %"class.zxing::Ref.52", ptr %1438, i64 %indvars.iv.i495
+  %1439 = getelementptr inbounds nuw [8 x i8], ptr %1438, i64 %indvars.iv.i495
   %.not.i.i496 = icmp eq ptr %1437, %1436
   br i1 %.not.i.i496, label %1447, label %1440
 
@@ -4289,7 +4287,7 @@ _ZSt8_DestroyIPN5zxing3RefINS0_11ResultPointEEES3_EvT_S5_RSaIT0_E.exit.i827: ; p
 .noexc502:                                        ; preds = %1490, %_ZSt8_DestroyIPN5zxing3RefINS0_11ResultPointEEES3_EvT_S5_RSaIT0_E.exit.i827
   store ptr %1460, ptr %91, align 8, !tbaa !103
   store ptr %1489, ptr %92, align 8, !tbaa !104
-  %1491 = getelementptr inbounds nuw %"class.zxing::Ref.52", ptr %1460, i64 %1458
+  %1491 = getelementptr inbounds nuw [8 x i8], ptr %1460, i64 %1458
   store ptr %1491, ptr %94, align 8, !tbaa !110
   br label %_ZNSt6vectorIN5zxing3RefINS0_11ResultPointEEESaIS3_EE9push_backERKS3_.exit.i499
 
@@ -4636,7 +4634,7 @@ _ZNSt6vectorIN5zxing3RefINS0_11ResultPointEEESaIS3_EE5clearEv.exit.i535: ; preds
   %1629 = phi ptr [ %1623, %.preheader.i537 ], [ %1685, %_ZNSt6vectorIN5zxing3RefINS0_11ResultPointEEESaIS3_EE9push_backERKS3_.exit.i542 ]
   %indvars.iv.i538 = phi i64 [ 0, %.preheader.i537 ], [ %indvars.iv.next.i543, %_ZNSt6vectorIN5zxing3RefINS0_11ResultPointEEESaIS3_EE9push_backERKS3_.exit.i542 ]
   %1630 = load ptr, ptr %1626, align 8, !tbaa !103
-  %1631 = getelementptr inbounds nuw %"class.zxing::Ref.52", ptr %1630, i64 %indvars.iv.i538
+  %1631 = getelementptr inbounds nuw [8 x i8], ptr %1630, i64 %indvars.iv.i538
   %.not.i.i539 = icmp eq ptr %1629, %1628
   br i1 %.not.i.i539, label %1639, label %1632
 
@@ -4773,7 +4771,7 @@ _ZSt8_DestroyIPN5zxing3RefINS0_11ResultPointEEES3_EvT_S5_RSaIT0_E.exit.i858: ; p
 .noexc545:                                        ; preds = %1682, %_ZSt8_DestroyIPN5zxing3RefINS0_11ResultPointEEES3_EvT_S5_RSaIT0_E.exit.i858
   store ptr %1652, ptr %91, align 8, !tbaa !103
   store ptr %1681, ptr %92, align 8, !tbaa !104
-  %1683 = getelementptr inbounds nuw %"class.zxing::Ref.52", ptr %1652, i64 %1650
+  %1683 = getelementptr inbounds nuw [8 x i8], ptr %1652, i64 %1650
   store ptr %1683, ptr %94, align 8, !tbaa !110
   br label %_ZNSt6vectorIN5zxing3RefINS0_11ResultPointEEESaIS3_EE9push_backERKS3_.exit.i542
 
@@ -5142,7 +5140,7 @@ _ZNSt6vectorIN5zxing3RefINS0_11ResultPointEEESaIS3_EE5clearEv.exit.i585: ; preds
   %1824 = phi ptr [ %1818, %.preheader.i587 ], [ %1880, %_ZNSt6vectorIN5zxing3RefINS0_11ResultPointEEESaIS3_EE9push_backERKS3_.exit.i592 ]
   %indvars.iv.i588 = phi i64 [ 0, %.preheader.i587 ], [ %indvars.iv.next.i593, %_ZNSt6vectorIN5zxing3RefINS0_11ResultPointEEESaIS3_EE9push_backERKS3_.exit.i592 ]
   %1825 = load ptr, ptr %1821, align 8, !tbaa !103
-  %1826 = getelementptr inbounds nuw %"class.zxing::Ref.52", ptr %1825, i64 %indvars.iv.i588
+  %1826 = getelementptr inbounds nuw [8 x i8], ptr %1825, i64 %indvars.iv.i588
   %.not.i.i589 = icmp eq ptr %1824, %1823
   br i1 %.not.i.i589, label %1834, label %1827
 
@@ -5279,7 +5277,7 @@ _ZSt8_DestroyIPN5zxing3RefINS0_11ResultPointEEES3_EvT_S5_RSaIT0_E.exit.i889: ; p
 .noexc595:                                        ; preds = %1877, %_ZSt8_DestroyIPN5zxing3RefINS0_11ResultPointEEES3_EvT_S5_RSaIT0_E.exit.i889
   store ptr %1847, ptr %91, align 8, !tbaa !103
   store ptr %1876, ptr %92, align 8, !tbaa !104
-  %1878 = getelementptr inbounds nuw %"class.zxing::Ref.52", ptr %1847, i64 %1845
+  %1878 = getelementptr inbounds nuw [8 x i8], ptr %1847, i64 %1845
   store ptr %1878, ptr %94, align 8, !tbaa !110
   br label %_ZNSt6vectorIN5zxing3RefINS0_11ResultPointEEESaIS3_EE9push_backERKS3_.exit.i592
 
@@ -6237,7 +6235,7 @@ _ZNSt6vectorIN5zxing3RefINS0_11ResultPointEEESaIS3_EE5clearEv.exit: ; preds = %7
   %31 = load ptr, ptr %27, align 8, !tbaa !98
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load ptr, ptr %32, align 8, !tbaa !103
-  %34 = getelementptr inbounds nuw %"class.zxing::Ref.52", ptr %33, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv
   %35 = load ptr, ptr %10, align 8, !tbaa !104
   %36 = load ptr, ptr %29, align 8, !tbaa !110
   %.not.i = icmp eq ptr %35, %36
@@ -6606,7 +6604,7 @@ _ZNSt6vectorIN5zxing3RefINS0_11ResultPointEEESaIS3_EE5clearEv.exit: ; preds = %2
   %26 = load ptr, ptr %22, align 8, !tbaa !98
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8, !tbaa !103
-  %29 = getelementptr inbounds nuw %"class.zxing::Ref.52", ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv
   %30 = load ptr, ptr %5, align 8, !tbaa !104
   %31 = load ptr, ptr %24, align 8, !tbaa !110
   %.not.i = icmp eq ptr %30, %31
@@ -6869,9 +6867,9 @@ define hidden noundef i32 @_ZN5zxing6qrcode12QRCodeReader6smoothEPjNS_3RefINS_9B
   %33 = tail call noundef ptr @_ZN5zxing9BitMatrix13getRowBoolPtrEi(ptr noundef nonnull align 8 dereferenceable(346) %5, i32 noundef %28)
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %16, ptr align 1 %33, i64 %13, i1 false)
   %34 = sext i32 %31 to i64
-  %invariant.gep = getelementptr i32, ptr %0, i64 %32
-  %35 = getelementptr i32, ptr %0, i64 %32
-  %invariant.gep93 = getelementptr i32, ptr %0, i64 %34
+  %invariant.gep = getelementptr [4 x i8], ptr %0, i64 %32
+  %35 = getelementptr [4 x i8], ptr %0, i64 %32
+  %invariant.gep93 = getelementptr [4 x i8], ptr %0, i64 %34
   br label %36
 
 36:                                               ; preds = %.lr.ph.us, %.thread.us
@@ -6880,16 +6878,16 @@ define hidden noundef i32 @_ZN5zxing6qrcode12QRCodeReader6smoothEPjNS_3RefINS_9B
   %37 = trunc nsw i64 %indvars.iv to i32
   %38 = add i32 %37, %19
   %39 = add nsw i64 %indvars.iv, %25
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %39
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %39
   %40 = load i32, ptr %gep, align 4, !tbaa !155
   %41 = sext i32 %38 to i64
-  %42 = getelementptr i32, ptr %35, i64 %41
+  %42 = getelementptr [4 x i8], ptr %35, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !155
-  %gep94 = getelementptr i32, ptr %invariant.gep93, i64 %39
+  %gep94 = getelementptr [4 x i8], ptr %invariant.gep93, i64 %39
   %44 = load i32, ptr %gep94, align 4, !tbaa !155
   %45 = add nsw i32 %38, %31
   %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds i32, ptr %0, i64 %46
+  %47 = getelementptr inbounds [4 x i8], ptr %0, i64 %46
   %48 = load i32, ptr %47, align 4, !tbaa !155
   %49 = add i32 %40, %44
   %50 = add i32 %43, %48
@@ -7004,12 +7002,12 @@ define hidden void @_ZN5zxing6qrcode12QRCodeReader15initIntegralOldEPjNS_3RefINS
   %20 = trunc nuw nsw i64 %indvars.iv83 to i32
   %21 = tail call noundef ptr @_ZN5zxing9BitMatrix13getRowBoolPtrEi(ptr noundef nonnull align 8 dereferenceable(346) %3, i32 noundef %20)
   %22 = sub nsw i64 %19, %10
-  %23 = getelementptr inbounds i32, ptr %0, i64 %22
+  %23 = getelementptr inbounds [4 x i8], ptr %0, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !155
   %25 = load i8, ptr %21, align 1, !tbaa !57, !range !147, !noundef !148
   %26 = zext nneg i8 %25 to i32
   %27 = add i32 %24, %26
-  %28 = getelementptr inbounds nuw i32, ptr %0, i64 %19
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %19
   store i32 %27, ptr %28, align 4, !tbaa !155
   br label %29
 
@@ -7021,12 +7019,12 @@ define hidden void @_ZN5zxing6qrcode12QRCodeReader15initIntegralOldEPjNS_3RefINS
   %30 = getelementptr inbounds nuw i8, ptr %21, i64 %indvars.iv72
   %31 = load i8, ptr %30, align 1, !tbaa !57, !range !147, !noundef !148
   %32 = zext nneg i8 %31 to i32
-  %33 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv72
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv72
   %34 = load i32, ptr %33, align 4, !tbaa !155
   %35 = add nsw i32 %34, %32
   store i32 %35, ptr %33, align 4, !tbaa !155
   %36 = add i32 %35, %.158.us
-  %37 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.next77
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv.next77
   store i32 %36, ptr %37, align 4, !tbaa !155
   %indvars.iv.next73 = add nuw nsw i64 %indvars.iv72, 1
   %exitcond82.not = icmp eq i64 %indvars.iv.next73, %wide.trip.count81
@@ -7041,13 +7039,13 @@ define hidden void @_ZN5zxing6qrcode12QRCodeReader15initIntegralOldEPjNS_3RefINS
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %store_forwarded = phi i32 [ %load_initial, %.lr.ph.preheader ], [ %42, %.lr.ph ]
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %38 = getelementptr i32, ptr %0, i64 %indvars.iv
+  %38 = getelementptr [4 x i8], ptr %0, i64 %indvars.iv
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 %indvars.iv
   %40 = load i8, ptr %39, align 1, !tbaa !57, !range !147, !noundef !148
   %41 = zext nneg i8 %40 to i32
   %42 = add i32 %store_forwarded, %41
   store i32 %42, ptr %38, align 4, !tbaa !155
-  %43 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv
   %44 = load i32, ptr %43, align 4, !tbaa !155
   %45 = add nsw i32 %44, %41
   store i32 %45, ptr %43, align 4, !tbaa !155
@@ -7061,12 +7059,12 @@ define hidden void @_ZN5zxing6qrcode12QRCodeReader15initIntegralOldEPjNS_3RefINS
   %47 = trunc nuw nsw i64 %indvars.iv67 to i32
   %48 = tail call noundef ptr @_ZN5zxing9BitMatrix13getRowBoolPtrEi(ptr noundef nonnull align 8 dereferenceable(346) %3, i32 noundef %47)
   %49 = sub nsw i64 %46, %10
-  %50 = getelementptr inbounds i32, ptr %0, i64 %49
+  %50 = getelementptr inbounds [4 x i8], ptr %0, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !155
   %52 = load i8, ptr %48, align 1, !tbaa !57, !range !147, !noundef !148
   %53 = zext nneg i8 %52 to i32
   %54 = add i32 %51, %53
-  %55 = getelementptr inbounds i32, ptr %0, i64 %46
+  %55 = getelementptr inbounds [4 x i8], ptr %0, i64 %46
   store i32 %54, ptr %55, align 4, !tbaa !155
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %exitcond71.not = icmp eq i64 %indvars.iv.next68, %wide.trip.count70
@@ -7111,8 +7109,8 @@ define hidden void @_ZN5zxing6qrcode12QRCodeReader12initIntegralEPjNS_3RefINS_9B
   %.03041.us = phi i32 [ 1, %.lr.ph39.us.preheader ], [ %20, %._crit_edge.us ]
   %12 = tail call noundef ptr @_ZN5zxing9BitMatrix13getRowBoolPtrEi(ptr noundef nonnull align 8 dereferenceable(346) %3, i32 noundef %.03041.us)
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, %11
-  %invariant.gep = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv52
-  %invariant.gep59 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.next53
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv52
+  %invariant.gep59 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv.next53
   br label %13
 
 13:                                               ; preds = %.lr.ph39.us, %13
@@ -7122,10 +7120,10 @@ define hidden void @_ZN5zxing6qrcode12QRCodeReader12initIntegralEPjNS_3RefINS_9B
   %15 = load i8, ptr %14, align 1, !tbaa !57, !range !147, !noundef !148
   %16 = zext nneg i8 %15 to i32
   %17 = add nuw nsw i32 %.137.us, %16
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv47
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep, i64 %indvars.iv47
   %18 = load i32, ptr %gep, align 4, !tbaa !155
   %19 = add i32 %17, %18
-  %gep60 = getelementptr inbounds nuw i32, ptr %invariant.gep59, i64 %indvars.iv47
+  %gep60 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep59, i64 %indvars.iv47
   store i32 %19, ptr %gep60, align 4, !tbaa !155
   %indvars.iv.next48 = add nuw nsw i64 %indvars.iv47, 1
   %exitcond51.not = icmp eq i64 %indvars.iv.next48, %11
@@ -7143,7 +7141,7 @@ define hidden void @_ZN5zxing6qrcode12QRCodeReader12initIntegralEPjNS_3RefINS_9B
   %22 = load i8, ptr %21, align 1, !tbaa !57, !range !147, !noundef !148
   %23 = zext nneg i8 %22 to i32
   %24 = add nuw nsw i32 %.03335, %23
-  %25 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   store i32 %24, ptr %25, align 4, !tbaa !155
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -7699,7 +7697,7 @@ _ZNSt12_Vector_baseIN5zxing3RefINS0_6ResultEEESaIS3_EE13_M_deallocateEPS3_m.exit
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !47
   store ptr %.0.lcssa.i.i.i.i.i34, ptr %4, align 8, !tbaa !49
-  %58 = getelementptr inbounds nuw %"class.zxing::Ref.44", ptr %20, i64 %16
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %58, ptr %57, align 8, !tbaa !50
   ret void
 }
@@ -7848,7 +7846,7 @@ _ZNSt12_Vector_baseIN5zxing3RefINS0_11ResultPointEEESaIS3_EE13_M_deallocateEPS3_
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !103
   store ptr %.0.lcssa.i.i.i.i.i34, ptr %4, align 8, !tbaa !104
-  %58 = getelementptr inbounds nuw %"class.zxing::Ref.52", ptr %20, i64 %16
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %58, ptr %57, align 8, !tbaa !110
   ret void
 }

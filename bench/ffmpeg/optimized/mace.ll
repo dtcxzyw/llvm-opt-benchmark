@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %union.anon = type { ptr }
-%struct.ChannelData = type { i16, i16, i16, i16, i16 }
-%struct.anon = type { ptr, ptr, i32 }
 
 @.str = private unnamed_addr constant [6 x i8] c"mace3\00", align 1
 @.str.1 = private unnamed_addr constant [49 x i8] c"MACE (Macintosh Audio Compression/Expansion) 3:1\00", align 1
@@ -103,9 +101,9 @@ define internal i32 @mace_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
 
 .preheader.lr.ph.us.us:                           ; preds = %.lr.ph.split.us, %._crit_edge.split.us.us.us
   %indvars.iv122 = phi i64 [ %indvars.iv.next123, %._crit_edge.split.us.us.us ], [ 0, %.lr.ph.split.us ]
-  %43 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv122
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv122
   %44 = load ptr, ptr %43, align 8, !tbaa !39
-  %45 = getelementptr inbounds nuw %struct.ChannelData, ptr %13, i64 %indvars.iv122
+  %45 = getelementptr inbounds nuw [10 x i8], ptr %13, i64 %indvars.iv122
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = trunc nuw nsw i64 %indvars.iv122 to i32
   br label %.preheader.us.us.us
@@ -141,7 +139,7 @@ define internal i32 @mace_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %58 = getelementptr inbounds nuw i8, ptr %38, i64 %indvars.iv114
   %59 = load i8, ptr %58, align 1, !tbaa !40
   %60 = zext i8 %59 to i32
-  %61 = getelementptr inbounds nuw %struct.anon, ptr @tabs, i64 %indvars.iv114
+  %61 = getelementptr inbounds nuw [24 x i8], ptr @tabs, i64 %indvars.iv114
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %63 = load i32, ptr %62, align 8, !tbaa !41
   %64 = icmp sgt i32 %63, %60
@@ -159,7 +157,7 @@ define internal i32 @mace_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %73 = xor i32 %60, -1
   %74 = add i32 %72, %73
   %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds i16, ptr %66, i64 %75
+  %76 = getelementptr inbounds [2 x i8], ptr %66, i64 %75
   %77 = load i16, ptr %76, align 2, !tbaa !47
   %78 = xor i16 %77, -1
   br label %chomp3.exit.us.us.us.us.us
@@ -169,7 +167,7 @@ define internal i32 @mace_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %81 = mul nsw i32 %63, %80
   %82 = add nuw nsw i32 %81, %60
   %83 = zext nneg i32 %82 to i64
-  %84 = getelementptr inbounds nuw i16, ptr %66, i64 %83
+  %84 = getelementptr inbounds nuw [2 x i8], ptr %66, i64 %83
   %85 = load i16, ptr %84, align 2, !tbaa !47
   br label %chomp3.exit.us.us.us.us.us
 
@@ -177,7 +175,7 @@ chomp3.exit.us.us.us.us.us:                       ; preds = %79, %70
   %.0.i.i.us.us.us.us.us = phi i16 [ %85, %79 ], [ %78, %70 ]
   %86 = load ptr, ptr %61, align 8, !tbaa !48
   %87 = zext i8 %59 to i64
-  %88 = getelementptr inbounds nuw i16, ptr %86, i64 %87
+  %88 = getelementptr inbounds nuw [2 x i8], ptr %86, i64 %87
   %89 = load i16, ptr %88, align 2, !tbaa !47
   %90 = ashr i16 %67, 5
   %91 = sub i16 %67, %90
@@ -200,7 +198,7 @@ chomp3.exit.us.us.us.us.us:                       ; preds = %79, %70
   %103 = lshr i16 %.0.i11.i.us.us.us.us.us, 8
   %104 = or disjoint i16 %103, %102
   store i16 %104, ptr %.283.us.us.us.us.us, align 2, !tbaa !47
-  %105 = getelementptr inbounds nuw i16, ptr %.283.us.us.us.us.us, i64 %42
+  %105 = getelementptr inbounds nuw [2 x i8], ptr %.283.us.us.us.us.us, i64 %42
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %exitcond117.not = icmp eq i64 %indvars.iv.next115, 3
   br i1 %exitcond117.not, label %.split85.us.us.us.us.us, label %57, !llvm.loop !50
@@ -225,9 +223,9 @@ chomp3.exit.us.us.us.us.us:                       ; preds = %79, %70
 
 .preheader.lr.ph.us:                              ; preds = %.lr.ph.split.us, %._crit_edge.split.us100
   %indvars.iv110 = phi i64 [ %indvars.iv.next111, %._crit_edge.split.us100 ], [ 0, %.lr.ph.split.us ]
-  %109 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv110
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv110
   %110 = load ptr, ptr %109, align 8, !tbaa !39
-  %111 = getelementptr inbounds nuw %struct.ChannelData, ptr %13, i64 %indvars.iv110
+  %111 = getelementptr inbounds nuw [10 x i8], ptr %13, i64 %indvars.iv110
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 6
   %113 = getelementptr inbounds nuw i8, ptr %111, i64 2
   %114 = getelementptr inbounds nuw i8, ptr %111, i64 8
@@ -272,7 +270,7 @@ chomp3.exit.us.us.us.us.us:                       ; preds = %79, %70
   %126 = getelementptr inbounds nuw i8, ptr %5, i64 %indvars.iv
   %127 = load i8, ptr %126, align 1, !tbaa !40
   %128 = zext i8 %127 to i32
-  %129 = getelementptr inbounds nuw %struct.anon, ptr @tabs, i64 %indvars.iv
+  %129 = getelementptr inbounds nuw [24 x i8], ptr @tabs, i64 %indvars.iv
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 16
   %131 = load i32, ptr %130, align 8, !tbaa !41
   %132 = icmp sgt i32 %131, %128
@@ -290,7 +288,7 @@ chomp3.exit.us.us.us.us.us:                       ; preds = %79, %70
   %141 = xor i32 %128, -1
   %142 = add i32 %140, %141
   %143 = sext i32 %142 to i64
-  %144 = getelementptr inbounds i16, ptr %134, i64 %143
+  %144 = getelementptr inbounds [2 x i8], ptr %134, i64 %143
   %145 = load i16, ptr %144, align 2, !tbaa !47
   %146 = xor i16 %145, -1
   br label %read_table.exit.i.us
@@ -300,7 +298,7 @@ chomp3.exit.us.us.us.us.us:                       ; preds = %79, %70
   %149 = mul nsw i32 %131, %148
   %150 = add nuw nsw i32 %149, %128
   %151 = zext nneg i32 %150 to i64
-  %152 = getelementptr inbounds nuw i16, ptr %134, i64 %151
+  %152 = getelementptr inbounds nuw [2 x i8], ptr %134, i64 %151
   %153 = load i16, ptr %152, align 2, !tbaa !47
   br label %read_table.exit.i.us
 
@@ -308,7 +306,7 @@ read_table.exit.i.us:                             ; preds = %147, %138
   %.0.i.i78.us = phi i16 [ %153, %147 ], [ %146, %138 ]
   %154 = load ptr, ptr %129, align 8, !tbaa !48
   %155 = zext i8 %127 to i64
-  %156 = getelementptr inbounds nuw i16, ptr %154, i64 %155
+  %156 = getelementptr inbounds nuw [2 x i8], ptr %154, i64 %155
   %157 = load i16, ptr %156, align 2, !tbaa !47
   %158 = ashr i16 %135, 5
   %159 = sub i16 %135, %158
@@ -382,7 +380,7 @@ chomp6.exit.us:                                   ; preds = %168, %165
   %209 = load i16, ptr %112, align 2, !tbaa !55
   store i16 %209, ptr %115, align 2, !tbaa !57
   store i16 %181, ptr %112, align 2, !tbaa !55
-  %210 = getelementptr inbounds nuw i16, ptr %.283.us, i64 %42
+  %210 = getelementptr inbounds nuw [2 x i8], ptr %.283.us, i64 %42
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
   br i1 %exitcond.not, label %.split85.us, label %125, !llvm.loop !50

@@ -255,7 +255,7 @@ define internal void @_ZL17proxy_thread_mainPv(ptr noundef readonly captures(non
 
 11:                                               ; preds = %1, %16
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %16 ]
-  %12 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !12
   %.not33 = icmp eq ptr %13, null
   br i1 %.not33, label %16, label %14
@@ -284,7 +284,7 @@ define internal void @_ZL17proxy_thread_mainPv(ptr noundef readonly captures(non
 
 27:                                               ; preds = %6, %32
   %indvars.iv37 = phi i64 [ 0, %6 ], [ %indvars.iv.next38, %32 ]
-  %28 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv37
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv37
   %29 = load ptr, ptr %28, align 8, !tbaa !12
   %.not = icmp eq ptr %29, null
   br i1 %.not, label %32, label %30
@@ -322,7 +322,7 @@ define internal void @_ZL22subscriber_thread_mainPv(ptr noundef readonly capture
 _Z40test_assert_success_message_errno_helperiPKcS0_.exit: ; preds = %1
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %15 = sext i32 %4 to i64
-  %16 = getelementptr inbounds ptr, ptr %14, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !12
   %18 = tail call i32 @zmq_connect(ptr noundef %6, ptr noundef %17)
   %19 = icmp eq i32 %18, -1
@@ -417,7 +417,7 @@ _Z40test_assert_success_message_errno_helperiPKcS0_.exit: ; preds = %1
 _Z40test_assert_success_message_errno_helperiPKcS0_.exit20: ; preds = %_Z40test_assert_success_message_errno_helperiPKcS0_.exit
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = sext i32 %7 to i64
-  %26 = getelementptr inbounds ptr, ptr %24, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %24, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !12
   %28 = call i32 @zmq_connect(ptr noundef %9, ptr noundef %27)
   %29 = icmp eq i32 %28, -1

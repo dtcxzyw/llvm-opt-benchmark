@@ -22740,7 +22740,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   call void @llvm.experimental.noalias.scope.decl(metadata !637)
   %123 = load i32, ptr %48, align 8, !tbaa !354, !noalias !637
   %124 = zext i32 %123 to i64
-  %125 = getelementptr inbounds nuw ptr, ptr @_ZZN11flatbuffers3php12PhpGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE9ctypename, i64 %124
+  %125 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN11flatbuffers3php12PhpGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE9ctypename, i64 %124
   %126 = load ptr, ptr %125, align 8, !tbaa !640, !noalias !637
   %127 = getelementptr inbounds nuw i8, ptr %17, i64 16
   store ptr %127, ptr %17, align 8, !tbaa !4, !alias.scope !637
@@ -28220,7 +28220,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   call void @llvm.experimental.noalias.scope.decl(metadata !758)
   %91 = load i32, ptr %90, align 8, !tbaa !354, !noalias !758
   %92 = zext i32 %91 to i64
-  %93 = getelementptr inbounds nuw ptr, ptr @_ZZN11flatbuffers3php12PhpGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE9ctypename, i64 %92
+  %93 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN11flatbuffers3php12PhpGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE9ctypename, i64 %92
   %94 = load ptr, ptr %93, align 8, !tbaa !640, !noalias !758
   %95 = getelementptr inbounds nuw i8, ptr %15, i64 16
   store ptr %95, ptr %15, align 8, !tbaa !4, !alias.scope !758
@@ -32158,7 +32158,7 @@ define linkonce_odr dso_local void @_ZN11flatbuffers3php12PhpGenerator10GenTypeG
 7:                                                ; preds = %2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !848)
   %8 = zext nneg i32 %4 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr @_ZZN11flatbuffers3php12PhpGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE9ctypename, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN11flatbuffers3php12PhpGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE9ctypename, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !640, !noalias !848
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %11, ptr %0, align 8, !tbaa !4, !alias.scope !848
@@ -34958,7 +34958,7 @@ define linkonce_odr dso_local void @_ZN11flatbuffers3php12PhpGenerator9GenMethod
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !932)
   %10 = zext nneg i32 %6 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr @_ZZN11flatbuffers3php12PhpGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE9ctypename, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN11flatbuffers3php12PhpGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE9ctypename, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !640, !noalias !932
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %13, ptr %4, align 8, !tbaa !4, !alias.scope !932
@@ -39174,7 +39174,7 @@ _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.e
   call void @llvm.experimental.noalias.scope.decl(metadata !1034)
   %135 = load i32, ptr %134, align 8, !tbaa !354, !noalias !1034
   %136 = zext i32 %135 to i64
-  %137 = getelementptr inbounds nuw ptr, ptr @_ZZN11flatbuffers3php12PhpGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE9ctypename, i64 %136
+  %137 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN11flatbuffers3php12PhpGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE9ctypename, i64 %136
   %138 = load ptr, ptr %137, align 8, !tbaa !640, !noalias !1034
   %139 = getelementptr inbounds nuw i8, ptr %18, i64 16
   store ptr %139, ptr %18, align 8, !tbaa !4, !alias.scope !1034
@@ -42312,7 +42312,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit244: ; preds = %
   %503 = load i32, ptr %60, align 4, !tbaa !355, !noalias !1112
   call void @llvm.experimental.noalias.scope.decl(metadata !1115)
   %504 = zext i32 %503 to i64
-  %505 = getelementptr inbounds nuw ptr, ptr @_ZZN11flatbuffers3php12PhpGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE9ctypename, i64 %504
+  %505 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN11flatbuffers3php12PhpGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEE9ctypename, i64 %504
   %506 = load ptr, ptr %505, align 8, !tbaa !640, !noalias !1115
   %507 = getelementptr inbounds nuw i8, ptr %38, i64 16
   store ptr %507, ptr %38, align 8, !tbaa !4, !alias.scope !1115

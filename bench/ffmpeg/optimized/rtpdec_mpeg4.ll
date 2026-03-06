@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.Range = type { i32, i32 }
-%struct.AUHeaders = type { i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.AttrNameMap = type { ptr, i16, i32, %struct.Range }
 
 @.str = private unnamed_addr constant [8 x i8] c"MP4V-ES\00", align 1
 @ff_mp4v_es_dynamic_handler = local_unnamed_addr constant { ptr, i32, i32, i32, i32, i32, [4 x i8], ptr, ptr, ptr, ptr, ptr } { ptr @.str, i32 0, i32 12, i32 1, i32 0, i32 8272, [4 x i8] zeroinitializer, ptr null, ptr @parse_sdp_line, ptr null, ptr null, ptr null }, align 8
@@ -47,7 +45,7 @@ define internal i32 @parse_sdp_line(ptr noundef %0, i32 noundef %1, ptr noundef 
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load ptr, ptr %10, align 8, !tbaa !4
   %12 = zext nneg i32 %1 to i64
-  %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !24
   %15 = load ptr, ptr %5, align 8, !tbaa !26
   %16 = call i32 @ff_parse_fmtp(ptr noundef %0, ptr noundef %14, ptr noundef %2, ptr noundef %15, ptr noundef nonnull @parse_fmtp) #7
@@ -94,7 +92,7 @@ define internal range(i32 -2147483648, 2) i32 @aac_parse_packet(ptr noundef %0, 
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %24 = load ptr, ptr %23, align 8, !tbaa !33
   %25 = sext i32 %12 to i64
-  %26 = getelementptr inbounds %struct.AUHeaders, ptr %24, i64 %25
+  %26 = getelementptr inbounds [32 x i8], ptr %24, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !34
   %28 = icmp slt i32 %22, %27
   br i1 %28, label %29, label %30
@@ -122,14 +120,14 @@ define internal range(i32 -2147483648, 2) i32 @aac_parse_packet(ptr noundef %0, 
   %41 = load ptr, ptr %23, align 8, !tbaa !33
   %42 = load i32, ptr %11, align 4, !tbaa !27
   %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds %struct.AUHeaders, ptr %41, i64 %43
+  %44 = getelementptr inbounds [32 x i8], ptr %41, i64 %43
   %45 = load i32, ptr %44, align 4, !tbaa !34
   %46 = sext i32 %45 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %36, ptr nonnull align 1 %40, i64 %46, i1 false)
   %47 = load ptr, ptr %23, align 8, !tbaa !33
   %48 = load i32, ptr %11, align 4, !tbaa !27
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds %struct.AUHeaders, ptr %47, i64 %49
+  %50 = getelementptr inbounds [32 x i8], ptr %47, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !34
   %52 = load i32, ptr %20, align 8, !tbaa !32
   %53 = add nsw i32 %52, %51
@@ -252,7 +250,7 @@ define internal range(i32 -2147483648, 2) i32 @aac_parse_packet(ptr noundef %0, 
 
 get_bits_long.exit.us.us.i:                       ; preds = %.lr.ph.split.us.i, %get_bits_long.exit.us.us.i
   %indvars.iv115.i = phi i64 [ %indvars.iv.next116.i, %get_bits_long.exit.us.us.i ], [ 0, %.lr.ph.split.us.i ]
-  %122 = getelementptr inbounds nuw %struct.AUHeaders, ptr %104, i64 %indvars.iv115.i
+  %122 = getelementptr inbounds nuw [32 x i8], ptr %104, i64 %indvars.iv115.i
   store i32 0, ptr %122, align 4, !tbaa !34
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 4
   store i32 0, ptr %123, align 4, !tbaa !50
@@ -266,7 +264,7 @@ get_bits_long.exit.us.us.i:                       ; preds = %.lr.ph.split.us.i, 
 get_bits_long.exit.us.us71.i:                     ; preds = %.lr.ph.split.us.split.i, %get_bits_long.exit.us.us71.i
   %indvars.iv110.i = phi i64 [ %indvars.iv.next111.i, %get_bits_long.exit.us.us71.i ], [ 0, %.lr.ph.split.us.split.i ]
   %.sroa.6.053.us.us73.i = phi i32 [ %134, %get_bits_long.exit.us.us71.i ], [ 0, %.lr.ph.split.us.split.i ]
-  %124 = getelementptr inbounds nuw %struct.AUHeaders, ptr %104, i64 %indvars.iv110.i
+  %124 = getelementptr inbounds nuw [32 x i8], ptr %104, i64 %indvars.iv110.i
   store i32 0, ptr %124, align 4, !tbaa !34
   %125 = lshr i32 %.sroa.6.053.us.us73.i, 3
   %126 = zext nneg i32 %125 to i64
@@ -287,7 +285,7 @@ get_bits_long.exit.us.us71.i:                     ; preds = %.lr.ph.split.us.spl
 get_bits_long.exit.us.i:                          ; preds = %.lr.ph.split.us.split.i, %get_bits_long.exit.us.i
   %indvars.iv105.i = phi i64 [ %indvars.iv.next106.i, %get_bits_long.exit.us.i ], [ 0, %.lr.ph.split.us.split.i ]
   %.sroa.6.053.us.i = phi i32 [ %157, %get_bits_long.exit.us.i ], [ 0, %.lr.ph.split.us.split.i ]
-  %136 = getelementptr inbounds nuw %struct.AUHeaders, ptr %104, i64 %indvars.iv105.i
+  %136 = getelementptr inbounds nuw [32 x i8], ptr %104, i64 %indvars.iv105.i
   store i32 0, ptr %136, align 4, !tbaa !34
   %137 = lshr i32 %.sroa.6.053.us.i, 3
   %138 = zext nneg i32 %137 to i64
@@ -336,7 +334,7 @@ get_bits_long.exit.us57.us.i:                     ; preds = %.lr.ph.split.split.
   %167 = lshr i32 %166, %116
   %168 = add i32 %.sroa.6.053.us56.us.i, %112
   %169 = tail call i32 @llvm.umin.i32(i32 %77, i32 %168)
-  %170 = getelementptr inbounds nuw %struct.AUHeaders, ptr %104, i64 %indvars.iv100.i
+  %170 = getelementptr inbounds nuw [32 x i8], ptr %104, i64 %indvars.iv100.i
   store i32 %167, ptr %170, align 4, !tbaa !34
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 4
   store i32 0, ptr %171, align 4, !tbaa !50
@@ -369,7 +367,7 @@ get_bits_long.exit.us57.i:                        ; preds = %.lr.ph.split.split.
   %191 = add nuw i32 %181, %114
   %192 = tail call i32 @llvm.umin.i32(i32 %77, i32 %191)
   %193 = or i32 %190, %182
-  %194 = getelementptr inbounds nuw %struct.AUHeaders, ptr %104, i64 %indvars.iv95.i
+  %194 = getelementptr inbounds nuw [32 x i8], ptr %104, i64 %indvars.iv95.i
   store i32 %193, ptr %194, align 4, !tbaa !34
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 4
   store i32 0, ptr %195, align 4, !tbaa !50
@@ -396,7 +394,7 @@ get_bits_long.exit.us65.us.i:                     ; preds = %.lr.ph.split.split.
   %203 = lshr i32 %202, %116
   %204 = add i32 %.sroa.6.053.us64.us.i, %112
   %205 = tail call i32 @llvm.umin.i32(i32 %77, i32 %204)
-  %206 = getelementptr inbounds nuw %struct.AUHeaders, ptr %104, i64 %indvars.iv90.i
+  %206 = getelementptr inbounds nuw [32 x i8], ptr %104, i64 %indvars.iv90.i
   store i32 %203, ptr %206, align 4, !tbaa !34
   %207 = lshr i32 %205, 3
   %208 = zext nneg i32 %207 to i64
@@ -427,7 +425,7 @@ get_bits_long.exit.us65.i:                        ; preds = %.lr.ph.split.split.
   %225 = lshr i32 %224, %116
   %226 = add i32 %.sroa.6.053.us64.i, %112
   %227 = tail call i32 @llvm.umin.i32(i32 %77, i32 %226)
-  %228 = getelementptr inbounds nuw %struct.AUHeaders, ptr %104, i64 %indvars.iv85.i
+  %228 = getelementptr inbounds nuw [32 x i8], ptr %104, i64 %indvars.iv85.i
   store i32 %225, ptr %228, align 4, !tbaa !34
   %229 = lshr i32 %227, 3
   %230 = zext nneg i32 %229 to i64
@@ -482,7 +480,7 @@ get_bits_long.exit.i:                             ; preds = %.lr.ph.split.split.
   %271 = add i32 %261, %114
   %272 = tail call i32 @llvm.umin.i32(i32 %77, i32 %271)
   %273 = or i32 %270, %262
-  %274 = getelementptr inbounds nuw %struct.AUHeaders, ptr %104, i64 %indvars.iv.i
+  %274 = getelementptr inbounds nuw [32 x i8], ptr %104, i64 %indvars.iv.i
   store i32 %273, ptr %274, align 4, !tbaa !34
   %275 = lshr i32 %272, 3
   %276 = zext nneg i32 %275 to i64
@@ -726,7 +724,7 @@ parse_fmtp_config.exit:                           ; preds = %10
 
 .preheader:                                       ; preds = %17, %51
   %indvars.iv = phi i64 [ %indvars.iv.next, %51 ], [ 0, %17 ]
-  %21 = getelementptr inbounds nuw %struct.AttrNameMap, ptr @attr_names, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [24 x i8], ptr @attr_names, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !60
   %23 = tail call i32 @av_strcasecmp(ptr noundef nonnull %3, ptr noundef %22) #7
   %.not52 = icmp eq i32 %23, 0

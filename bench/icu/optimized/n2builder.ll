@@ -22,7 +22,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.icu_77::Hashtable" = type { ptr, %struct.UHashtable }
 %struct.UHashtable = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, float, float, i8, i8 }
 %"class.icu_77::Norm16Writer" = type { %"class.icu_77::Norms::Enumerator", ptr, ptr }
-%"struct.icu_77::Norm" = type { ptr, ptr, i32, i32, i32, ptr, i8, i8, i8, i8, i8, i8, i32, i32, ptr }
 %"class.icu_77::CharString" = type { %"class.icu_77::MaybeStackArray", i32, [4 x i8] }
 %"class.icu_77::MaybeStackArray" = type <{ ptr, i32, i8, [40 x i8], [3 x i8] }>
 %"class.icu_77::StringPiece" = type <{ ptr, i32, [4 x i8] }>
@@ -1251,7 +1250,7 @@ define dso_local noundef signext range(i8 0, 2) i8 @_ZNK6icu_7722Normalizer2Data
 
 14:                                               ; preds = %10
   %15 = zext nneg i32 %11 to i64
-  %16 = getelementptr inbounds nuw i32, ptr %1, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !13
   %18 = and i32 %17, 254
   %.not114 = icmp eq i32 %18, 0
@@ -1259,7 +1258,7 @@ define dso_local noundef signext range(i8 0, 2) i8 @_ZNK6icu_7722Normalizer2Data
 
 19:                                               ; preds = %14, %10
   %20 = zext nneg i32 %8 to i64
-  %21 = getelementptr i32, ptr %1, i64 %20
+  %21 = getelementptr [4 x i8], ptr %1, i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !13
   %23 = ashr i32 %22, 8
   %24 = icmp eq i32 %8, 0
@@ -1315,7 +1314,7 @@ _ZNK6icu_775Norms12combinesBackEi.exit:           ; preds = %25
   %indvars.iv = phi i64 [ %49, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN6icu_776Hangul6isJamoEi.exit.thread ]
   %.082123 = phi i32 [ %23, %.lr.ph.preheader ], [ %55, %_ZN6icu_776Hangul6isJamoEi.exit.thread ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %50 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.next
+  %50 = getelementptr inbounds [4 x i8], ptr %1, i64 %indvars.iv.next
   %51 = load i32, ptr %50, align 4, !tbaa !13
   %52 = and i32 %51, 255
   %53 = icmp eq i32 %52, 0
@@ -1380,7 +1379,7 @@ _ZN6icu_776Hangul6isJamoEi.exit.thread:           ; preds = %57, %54
   %.074133 = phi i8 [ 0, %.lr.ph134.preheader ], [ %.377, %116 ]
   %.078132 = phi ptr [ %64, %.lr.ph134.preheader ], [ %.381, %116 ]
   %.184131 = phi i32 [ %.083.lcssa, %.lr.ph134.preheader ], [ %120, %116 ]
-  %77 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv141
+  %77 = getelementptr inbounds [4 x i8], ptr %1, i64 %indvars.iv141
   %78 = load i32, ptr %77, align 4, !tbaa !13
   %79 = trunc i32 %78 to i8
   %.not97 = icmp slt i32 %.184131, %8
@@ -1506,7 +1505,7 @@ define dso_local noundef signext range(i8 0, 2) i8 @_ZNK6icu_7722Normalizer2Data
   %indvars.iv = phi i64 [ %indvars.iv.next, %40 ], [ 0, %.preheader ]
   %.02945 = phi ptr [ %.130, %40 ], [ null, %.preheader ]
   %.03543 = phi i8 [ %11, %40 ], [ 0, %.preheader ]
-  %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !13
   %10 = ashr i32 %9, 8
   %11 = trunc i32 %9 to i8
@@ -1548,7 +1547,7 @@ define dso_local noundef signext range(i8 0, 2) i8 @_ZNK6icu_7722Normalizer2Data
   br i1 %31, label %32, label %40
 
 32:                                               ; preds = %27
-  %33 = getelementptr inbounds nuw i32, ptr %1, i64 %28
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %28
   %34 = load i32, ptr %33, align 4, !tbaa !13
   %35 = ashr i32 %34, 8
   %36 = add nsw i32 %35, -4470
@@ -1639,7 +1638,7 @@ define dso_local void @_ZN6icu_7722Normalizer2DataBuilder11postProcessERNS_4Norm
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 41
   store i8 %34, ptr %35, align 1, !tbaa !68
   %36 = sext i32 %29 to i64
-  %37 = getelementptr i32, ptr %3, i64 %36
+  %37 = getelementptr [4 x i8], ptr %3, i64 %36
   %38 = getelementptr i8, ptr %37, i64 -4
   %39 = load i32, ptr %38, align 4, !tbaa !13
   %40 = trunc i32 %39 to i8
@@ -2182,7 +2181,7 @@ define dso_local void @_ZN6icu_7722Normalizer2DataBuilder13setHangulDataEP14UMut
 4:                                                ; preds = %2, %.loopexit32
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %.loopexit32 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %5 = getelementptr inbounds nuw %"struct.icu_77::HangulIterator::Range", ptr @_ZN6icu_7714HangulIterator6rangesE, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6icu_7714HangulIterator6rangesE, i64 %indvars.iv
   %6 = load i32, ptr %5, align 8, !tbaa !80
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %8 = load i32, ptr %7, align 4, !tbaa !82
@@ -2386,7 +2385,7 @@ _ZNK6icu_775Norms6lengthEv.exit._crit_edge:       ; preds = %_ZNK6icu_775Norms6l
 33:                                               ; preds = %.lr.ph, %_ZNK6icu_775Norms6lengthEv.exit
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %_ZNK6icu_775Norms6lengthEv.exit ]
   %34 = load ptr, ptr %22, align 8, !tbaa !92
-  %35 = getelementptr inbounds nuw %"struct.icu_77::Norm", ptr %34, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [64 x i8], ptr %34, i64 %indvars.iv
   invoke void @_ZN6icu_7722Normalizer2DataBuilder11postProcessERNS_4NormE(ptr noundef nonnull align 8 dereferenceable(868) %1, ptr noundef nonnull align 8 dereferenceable(64) %35)
           to label %_ZNK6icu_775Norms6lengthEv.exit unwind label %36
 
@@ -2960,7 +2959,7 @@ _ZN6icu_7713UnicodeString6appendEDs.exit:         ; preds = %246
 
 391:                                              ; preds = %375, %391
   %indvars.iv141 = phi i64 [ 3, %375 ], [ %indvars.iv.next142, %391 ]
-  %392 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv141
+  %392 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %indvars.iv141
   store i32 %388, ptr %392, align 4, !tbaa !13
   %indvars.iv.next142 = add nuw nsw i64 %indvars.iv141, 1
   %exitcond144.not = icmp eq i64 %indvars.iv.next142, 8

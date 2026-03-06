@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.zxing::Ref.2" = type { ptr }
 %"class.zxing::ArrayRef.3" = type { %"class.zxing::Counted.base", ptr }
 %"class.zxing::Counted.base" = type <{ ptr, i32 }>
-%"struct.zxing::BINARIZER_BLOCK" = type { i32, i32, i32, i32 }
 %"class.zxing::Ref.4" = type { ptr }
 %"class.zxing::Ref.0" = type { ptr }
 %"class.zxing::Ref.8" = type { ptr }
@@ -521,7 +520,7 @@ define hidden noundef i32 @_ZN5zxing15HybridBinarizer10initBlocksEv(ptr noundef 
   %33 = load ptr, ptr %14, align 8, !tbaa !20
   %34 = getelementptr i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8, !tbaa !39
-  %36 = getelementptr %"struct.zxing::BINARIZER_BLOCK", ptr %35, i64 %32
+  %36 = getelementptr [16 x i8], ptr %35, i64 %32
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
   store i32 %spec.select97.us, ptr %37, align 4, !tbaa !42
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
@@ -539,8 +538,8 @@ define hidden noundef i32 @_ZN5zxing15HybridBinarizer10initBlocksEv(ptr noundef 
 43:                                               ; preds = %40
   %44 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %45 = load i32, ptr %44, align 8, !tbaa !9
-  %46 = getelementptr %"struct.zxing::BINARIZER_BLOCK", ptr %35, i64 %indvars.iv133
-  %47 = getelementptr %"struct.zxing::BINARIZER_BLOCK", ptr %46, i64 %23
+  %46 = getelementptr [16 x i8], ptr %35, i64 %indvars.iv133
+  %47 = getelementptr [16 x i8], ptr %46, i64 %23
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 12
   %49 = load i32, ptr %48, align 4, !tbaa !46
   %50 = getelementptr i8, ptr %36, i64 -4
@@ -576,7 +575,7 @@ _ZN5zxing8ArrayRefINS_15BINARIZER_BLOCKEED2Ev.exit.i.us: ; preds = %60, %43
 _ZN5zxing15HybridBinarizer17getBlockThresholdEiiiiiiii.exit.us: ; preds = %_ZN5zxing8ArrayRefINS_15BINARIZER_BLOCKEED2Ev.exit.i.us, %40, %.loopexit99.us.thread
   %65 = phi ptr [ %.pre142, %_ZN5zxing8ArrayRefINS_15BINARIZER_BLOCKEED2Ev.exit.i.us ], [ %35, %40 ], [ %35, %.loopexit99.us.thread ]
   %.0.i.us = phi i32 [ %spec.select.i.us, %_ZN5zxing8ArrayRefINS_15BINARIZER_BLOCKEED2Ev.exit.i.us ], [ %41, %40 ], [ %39, %.loopexit99.us.thread ]
-  %66 = getelementptr inbounds nuw %"struct.zxing::BINARIZER_BLOCK", ptr %65, i64 %32
+  %66 = getelementptr inbounds nuw [16 x i8], ptr %65, i64 %32
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 12
   store i32 %.0.i.us, ptr %67, align 4, !tbaa !46
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
@@ -706,7 +705,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i: ; preds = %1
 
 .noexc30:                                         ; preds = %.noexc3.i
   store ptr %17, ptr %13, align 8, !tbaa !57
-  %18 = getelementptr inbounds nuw i32, ptr %17, i64 %14
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %14
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr %18, ptr %19, align 8, !tbaa !59
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %17, i8 0, i64 %16, i1 false), !tbaa !60
@@ -762,7 +761,7 @@ _ZN5zxing8ArrayRefIiEaSEPNS_5ArrayIiEE.exit:      ; preds = %21, %26, %31
 
 .lr.ph:                                           ; preds = %_ZN5zxing8ArrayRefIiEaSEPNS_5ArrayIiEE.exit, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %_ZN5zxing8ArrayRefIiEaSEPNS_5ArrayIiEE.exit ]
-  %42 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %indvars.iv
   store i32 0, ptr %42, align 4, !tbaa !60
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %43 = load i32, ptr %5, align 4, !tbaa !55
@@ -788,7 +787,7 @@ _ZN5zxing8ArrayRefIiEaSEPNS_5ArrayIiEE.exit:      ; preds = %21, %26, %31
   %53 = load i32, ptr %5, align 4, !tbaa !55
   %54 = mul nsw i32 %53, %.02733
   %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds i32, ptr %36, i64 %55
+  %56 = getelementptr inbounds [4 x i8], ptr %36, i64 %55
   store i32 0, ptr %56, align 4, !tbaa !60
   %57 = add nuw nsw i32 %.02733, 1
   %58 = load i32, ptr %9, align 8, !tbaa !56
@@ -823,14 +822,14 @@ _ZN5zxing8ArrayRefIiEaSEPNS_5ArrayIiEE.exit:      ; preds = %21, %26, %31
   %70 = load ptr, ptr %50, align 8, !tbaa !39
   %71 = zext nneg i32 %69 to i64
   %72 = sext i32 %67 to i64
-  %invariant.gep = getelementptr inbounds nuw %"struct.zxing::BINARIZER_BLOCK", ptr %70, i64 %71
-  %invariant.gep53 = getelementptr i32, ptr %36, i64 %72
+  %invariant.gep = getelementptr inbounds nuw [16 x i8], ptr %70, i64 %71
+  %invariant.gep53 = getelementptr [4 x i8], ptr %36, i64 %72
   br label %73
 
 73:                                               ; preds = %.lr.ph37, %73
   %indvars.iv42 = phi i64 [ 0, %.lr.ph37 ], [ %indvars.iv.next43, %73 ]
   %.02935 = phi i32 [ 0, %.lr.ph37 ], [ %76, %73 ]
-  %gep = getelementptr inbounds nuw %"struct.zxing::BINARIZER_BLOCK", ptr %invariant.gep, i64 %indvars.iv42
+  %gep = getelementptr inbounds nuw [16 x i8], ptr %invariant.gep, i64 %indvars.iv42
   %74 = getelementptr inbounds nuw i8, ptr %gep, i64 12
   %75 = load i32, ptr %74, align 4, !tbaa !46
   %76 = add nsw i32 %75, %.02935
@@ -839,11 +838,11 @@ _ZN5zxing8ArrayRefIiEaSEPNS_5ArrayIiEE.exit:      ; preds = %21, %26, %31
   %79 = add i32 %67, %78
   %80 = sub i32 %79, %77
   %81 = sext i32 %80 to i64
-  %82 = getelementptr i32, ptr %36, i64 %81
+  %82 = getelementptr [4 x i8], ptr %36, i64 %81
   %83 = getelementptr i8, ptr %82, i64 4
   %84 = load i32, ptr %83, align 4, !tbaa !60
   %85 = add nsw i32 %84, %76
-  %gep54 = getelementptr i32, ptr %invariant.gep53, i64 %indvars.iv42
+  %gep54 = getelementptr [4 x i8], ptr %invariant.gep53, i64 %indvars.iv42
   %86 = getelementptr i8, ptr %gep54, i64 4
   store i32 %85, ptr %86, align 4, !tbaa !60
   %indvars.iv.next43 = add nuw nsw i64 %indvars.iv42, 1
@@ -1452,7 +1451,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i: ; preds = %2
 
 .noexc5.i:                                        ; preds = %.noexc3.i.i
   store ptr %16, ptr %12, align 8, !tbaa !57
-  %17 = getelementptr inbounds nuw i32, ptr %16, i64 %13
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %13
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 32
   store ptr %17, ptr %18, align 8, !tbaa !59
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %16, i8 0, i64 %15, i1 false), !tbaa !60
@@ -1494,10 +1493,10 @@ _ZN5zxing8ArrayRefIiEC2Ei.exit:                   ; preds = %_ZNSt6vectorIiSaIiE
 32:                                               ; preds = %.lr.ph.us, %32
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %32 ]
   %33 = add nuw nsw i64 %indvars.iv, %31
-  %34 = getelementptr inbounds nuw %"struct.zxing::BINARIZER_BLOCK", ptr %29, i64 %33
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %29, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 12
   %36 = load i32, ptr %35, align 4, !tbaa !46
-  %37 = getelementptr inbounds nuw i32, ptr %22, i64 %33
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %33
   store i32 %36, ptr %37, align 4, !tbaa !60
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %30
@@ -1562,13 +1561,13 @@ define hidden void @_ZN5zxing15HybridBinarizer26calculateThresholdForBlockERNS_3
   %38 = mul nsw i32 %35, %28
   %39 = add nsw i32 %38, %34
   %40 = sext i32 %37 to i64
-  %41 = getelementptr i32, ptr %18, i64 %40
+  %41 = getelementptr [4 x i8], ptr %18, i64 %40
   %42 = getelementptr i8, ptr %41, i64 -8
   %43 = load i32, ptr %42, align 4, !tbaa !60
   %44 = getelementptr i8, ptr %41, i64 12
   %45 = load i32, ptr %44, align 4, !tbaa !60
   %46 = sext i32 %39 to i64
-  %47 = getelementptr i32, ptr %18, i64 %46
+  %47 = getelementptr [4 x i8], ptr %18, i64 %46
   %48 = getelementptr i8, ptr %47, i64 -8
   %49 = load i32, ptr %48, align 4, !tbaa !60
   %50 = getelementptr i8, ptr %47, i64 12
@@ -1761,7 +1760,7 @@ define hidden void @_ZN5zxing15HybridBinarizer23thresholdIrregularBlockERNS_3Ref
   %31 = load ptr, ptr %30, align 8, !tbaa !17
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load ptr, ptr %32, align 8, !tbaa !57
-  %34 = getelementptr inbounds nuw i32, ptr %33, i64 %15
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %15
   %35 = load i32, ptr %34, align 4, !tbaa !60
   %36 = add nsw i32 %29, %35
   %37 = getelementptr inbounds nuw i8, ptr %28, i64 312
@@ -1841,13 +1840,13 @@ define hidden noundef i32 @_ZN5zxing15HybridBinarizer17getBlockThresholdEiiiiiii
   %28 = mul nsw i32 %27, %3
   %29 = add nsw i32 %28, %1
   %30 = sext i32 %29 to i64
-  %31 = getelementptr %"struct.zxing::BINARIZER_BLOCK", ptr %.val.val, i64 %30
+  %31 = getelementptr [16 x i8], ptr %.val.val, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 12
   %33 = load i32, ptr %32, align 4, !tbaa !46
   %34 = mul nsw i32 %3, %2
   %35 = add nsw i32 %34, %1
   %36 = sext i32 %35 to i64
-  %37 = getelementptr %"struct.zxing::BINARIZER_BLOCK", ptr %.val.val, i64 %36
+  %37 = getelementptr [16 x i8], ptr %.val.val, i64 %36
   %38 = getelementptr i8, ptr %37, i64 -4
   %39 = load i32, ptr %38, align 4, !tbaa !46
   %40 = shl nsw i32 %39, 1

@@ -191,7 +191,7 @@ _is_fd_skipped.exit.us.i:                         ; preds = %.lr.ph.i, %_is_fd_s
 
 37:                                               ; preds = %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %38 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.next.i.i
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.next.i.i
   %39 = load i32, ptr %38, align 4
   %40 = icmp sgt i32 %39, -1
   br i1 %40, label %.lr.ph.i.i, label %.loopexit.i, !llvm.loop !12
@@ -238,7 +238,7 @@ _slow_closeall.exit:                              ; preds = %_is_fd_skipped.exit
 
 55:                                               ; preds = %.lr.ph.i17
   %indvars.iv.next.i19 = add nuw nsw i64 %indvars.iv.i18, 1
-  %56 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv.next.i19
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.next.i19
   %57 = load i32, ptr %56, align 4
   %58 = icmp sgt i32 %57, -1
   br i1 %58, label %.lr.ph.i17, label %.loopexit, !llvm.loop !12

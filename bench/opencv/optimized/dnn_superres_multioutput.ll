@@ -482,7 +482,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i: ; preds = %168, %.n
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i: ; preds = %170, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i
   store ptr %165, ptr %14, align 8, !tbaa !47
   store ptr %169, ptr %133, align 8, !tbaa !43
-  %171 = getelementptr inbounds nuw i32, ptr %165, i64 %163
+  %171 = getelementptr inbounds nuw [4 x i8], ptr %165, i64 %163
   store ptr %171, ptr %134, align 8, !tbaa !45
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit.backedge
 
@@ -1166,7 +1166,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit127: ; preds = %40
   store i8 0, ptr %383, align 1, !tbaa !33
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   %405 = load ptr, ptr %23, align 8, !tbaa !81
-  %406 = getelementptr inbounds nuw %"class.cv::Mat", ptr %405, i64 %401
+  %406 = getelementptr inbounds nuw [96 x i8], ptr %405, i64 %401
   store i32 0, ptr %379, align 8, !tbaa !72
   store i32 0, ptr %380, align 4, !tbaa !74
   store i32 16842752, ptr %28, align 8, !tbaa !75
@@ -1943,7 +1943,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8, !tbaa !84
   store ptr %.0.lcssa.i.i.i.i35, ptr %5, align 8, !tbaa !52
-  %74 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %74 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %74, ptr %73, align 8, !tbaa !55
   ret void
 

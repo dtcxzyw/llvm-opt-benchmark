@@ -1618,7 +1618,7 @@ define hidden noundef range(i64 -128102389400760775, 128102389400760776) i64 @_Z
 define hidden noundef nonnull align 8 dereferenceable(68) ptr @_ZNK4cvc58internal13SygusDatatype14getConstructorEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(472) %0, i32 noundef %1) local_unnamed_addr #7 align 2 {
   %3 = zext i32 %1 to i64
   %4 = load ptr, ptr %0, align 8, !tbaa !15
-  %5 = getelementptr inbounds nuw %"class.cvc5::internal::SygusDatatypeConstructor", ptr %4, i64 %3
+  %5 = getelementptr inbounds nuw [72 x i8], ptr %4, i64 %3
   ret ptr %5
 }
 
@@ -1778,7 +1778,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %_ZN4cvc58internal12
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit21
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit21 ]
   %82 = load ptr, ptr %0, align 8, !tbaa !15
-  %83 = getelementptr inbounds nuw %"class.cvc5::internal::SygusDatatypeConstructor", ptr %82, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw [72 x i8], ptr %82, i64 %indvars.iv
   %84 = load ptr, ptr %83, align 8, !tbaa !25
   store ptr %84, ptr %8, align 8, !tbaa !25
   %85 = load i64, ptr %84, align 8
@@ -1809,7 +1809,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %_ZN4cvc58internal12
 
 _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit19: ; preds = %90, %96, %98
   %100 = load ptr, ptr %0, align 8, !tbaa !15
-  %101 = getelementptr inbounds nuw %"class.cvc5::internal::SygusDatatypeConstructor", ptr %100, i64 %indvars.iv
+  %101 = getelementptr inbounds nuw [72 x i8], ptr %100, i64 %indvars.iv
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
   %103 = getelementptr inbounds nuw i8, ptr %101, i64 40
   %104 = getelementptr inbounds nuw i8, ptr %101, i64 64
@@ -2354,7 +2354,7 @@ _ZSt8_DestroyIPN4cvc58internal24SygusDatatypeConstructorES2_EvT_S4_RSaIT0_E.exit
 _ZNSt12_Vector_baseIN4cvc58internal24SygusDatatypeConstructorESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt8_DestroyIPN4cvc58internal24SygusDatatypeConstructorES2_EvT_S4_RSaIT0_E.exit, %93
   store ptr %20, ptr %0, align 8, !tbaa !15
   store ptr %.0.lcssa.i.i.i.i.i39, ptr %4, align 8, !tbaa !18
-  %97 = getelementptr inbounds nuw %"class.cvc5::internal::SygusDatatypeConstructor", ptr %20, i64 %16
+  %97 = getelementptr inbounds nuw [72 x i8], ptr %20, i64 %16
   store ptr %97, ptr %92, align 8, !tbaa !21
   ret void
 
@@ -2950,7 +2950,7 @@ _ZSt8_DestroyIPN4cvc58internal8TypeNodeES2_EvT_S4_RSaIT0_E.exit: ; preds = %_ZSt
 _ZNSt12_Vector_baseIN4cvc58internal8TypeNodeESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt8_DestroyIPN4cvc58internal8TypeNodeES2_EvT_S4_RSaIT0_E.exit, %58
   store ptr %22, ptr %0, align 8, !tbaa !38
   store ptr %42, ptr %4, align 8, !tbaa !39
-  %62 = getelementptr inbounds nuw %"class.cvc5::internal::TypeNode", ptr %22, i64 %16
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %16
   store ptr %62, ptr %57, align 8, !tbaa !43
   ret void
 

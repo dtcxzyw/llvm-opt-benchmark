@@ -200,7 +200,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 
 .noexc:                                           ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17hf0fe6d0de2072656E.exit.i.i", %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha3bb299ebebfcc3aE.exit.thread.i.i"
   %99 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !21, !nonnull !4, !noundef !4
-  %100 = getelementptr inbounds i32, ptr %99, i64 %56
+  %100 = getelementptr inbounds [4 x i8], ptr %99, i64 %56
   store i32 %92, ptr %100, align 4
   %101 = add i64 %56, 1
   store i64 %101, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !21
@@ -440,7 +440,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h92595993ac9b1306E.exit.i.i": ; preds = %115, %105
   %109 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !46, !nonnull !4, !noundef !4
-  %110 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %109, i64 %106
+  %110 = getelementptr inbounds [24 x i8], ptr %109, i64 %106
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %110, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   %111 = add i64 %106, 1
   store i64 %111, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !46
@@ -678,7 +678,7 @@ common.resume:                                    ; preds = %79, %.body, %20, %2
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17h92595993ac9b1306E.exit.i.i": ; preds = %"_ZN106_$LT$core..iter..adapters..GenericShunt$LT$I$C$R$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h0380be78b2009920E.exit.i.i", %50
   %54 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !94, !noalias !95, !nonnull !4, !noundef !4
-  %55 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %54, i64 %51
+  %55 = getelementptr inbounds [24 x i8], ptr %54, i64 %51
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %55, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   %56 = add i64 %51, 1
   store i64 %56, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !94, !noalias !95

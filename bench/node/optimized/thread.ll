@@ -241,7 +241,7 @@ for.body.i:                                       ; preds = %for.cond.preheader.
 
 cond.true.i:                                      ; preds = %for.body.i
   %div1311.i = lshr i64 %indvars.iv.i, 6
-  %arrayidx.i = getelementptr inbounds nuw i64, ptr %cpuset.i, i64 %div1311.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %cpuset.i, i64 %div1311.i
   %1 = load i64, ptr %arrayidx.i, align 8
   %rem.i = and i64 %indvars.iv.i, 63
   %2 = lshr i64 %1, %rem.i
@@ -294,7 +294,7 @@ cond.true:                                        ; preds = %for.body
   %rem = and i64 %indvars.iv, 63
   %shl = shl nuw i64 1, %rem
   %div2015 = lshr i64 %indvars.iv, 6
-  %arrayidx21 = getelementptr inbounds nuw i64, ptr %cpuset, i64 %div2015
+  %arrayidx21 = getelementptr inbounds nuw [8 x i8], ptr %cpuset, i64 %div2015
   %6 = load i64, ptr %arrayidx21, align 8
   %or = or i64 %6, %shl
   store i64 %or, ptr %arrayidx21, align 8
@@ -353,7 +353,7 @@ for.body:                                         ; preds = %for.cond.preheader,
 
 cond.true:                                        ; preds = %for.body
   %div1311 = lshr i64 %indvars.iv, 6
-  %arrayidx = getelementptr inbounds nuw i64, ptr %cpuset, i64 %div1311
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %cpuset, i64 %div1311
   %1 = load i64, ptr %arrayidx, align 8
   %rem = and i64 %indvars.iv, 63
   %2 = lshr i64 %1, %rem

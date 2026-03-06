@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
 %struct.__pthread_internal_list = type { ptr, ptr }
 %struct.slurm_conf_t = type { i64, ptr, i16, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, i16, ptr, ptr, i16, i32, ptr, i32, ptr, i32, i32, ptr, ptr, i64, i64, ptr, i16, i16, ptr, i32, i32, ptr, i32, ptr, i32, i16, i16, i16, ptr, i16, i16, ptr, ptr, i32, i16, i16, ptr, i32, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i16, i16, ptr, i32, i32, i32, i16, i16, ptr, ptr, i16, ptr, ptr, i32, i32, i32, i32, i32, i64, i32, i32, i16, ptr, ptr, i32, ptr, ptr, ptr, i16, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, ptr, ptr, i32, i32, i16, i16, i32, ptr, i16, ptr, i32, i32, i32, i32, i32, i32, ptr, i16, ptr, ptr, i32, i16, ptr, i32, i16, i16, ptr, ptr, ptr, i16, ptr, ptr, ptr, ptr, i16, i16, ptr, i16, ptr, i16, ptr, i16, ptr, i16, ptr, ptr, ptr, ptr, i16, ptr, ptr, ptr, i32, ptr, i32, ptr, ptr, i16, ptr, ptr, i32, i16, ptr, ptr, i16, i16, ptr, i16, ptr, ptr, ptr, i32, ptr, i16, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, i32, i16, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr, i16, ptr, ptr, ptr, i16, ptr, i16, ptr, i16, i16, ptr }
-%struct.node_features_ops = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.timeval = type { i64, i64 }
 
 @.str = private unnamed_addr constant [14 x i8] c"node_features\00", align 1
@@ -134,15 +133,15 @@ define dso_local range(i32 -1, 1) i32 @node_features_g_init() local_unnamed_addr
   %35 = load ptr, ptr @ops, align 8
   %36 = load i32, ptr @g_context_cnt, align 4
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds %struct.node_features_ops, ptr %35, i64 %37
+  %38 = getelementptr inbounds [136 x i8], ptr %35, i64 %37
   %39 = call ptr @plugin_context_create(ptr noundef nonnull @.str, ptr noundef %34, ptr noundef %38, ptr noundef nonnull @syms, i64 noundef 136) #9
   %40 = load ptr, ptr @g_context, align 8
   %41 = load i32, ptr @g_context_cnt, align 4
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds ptr, ptr %40, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %40, i64 %42
   store ptr %39, ptr %43, align 8
   %44 = load ptr, ptr @g_context, align 8
-  %45 = getelementptr inbounds ptr, ptr %44, i64 %42
+  %45 = getelementptr inbounds [8 x i8], ptr %44, i64 %42
   %46 = load ptr, ptr %45, align 8
   %.not13 = icmp eq ptr %46, null
   br i1 %.not13, label %.thread, label %47
@@ -247,7 +246,7 @@ define dso_local i32 @node_features_g_fini() local_unnamed_addr #0 {
   %8 = phi ptr [ %.pre22, %.lr.ph.preheader ], [ %15, %13 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %13 ]
   %.01119 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %13 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %.not16 = icmp eq ptr %10, null
   br i1 %.not16, label %13, label %11
@@ -353,7 +352,7 @@ define dso_local void @node_features_g_step_config(i1 noundef zeroext %0, ptr no
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %13 = load ptr, ptr @ops, align 8
-  %14 = getelementptr inbounds nuw %struct.node_features_ops, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [136 x i8], ptr %13, i64 %indvars.iv
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 112
   %16 = load ptr, ptr %15, align 8
   tail call void %16(i1 noundef zeroext %0, ptr noundef %1) #9
@@ -422,7 +421,7 @@ define dso_local zeroext i1 @node_features_g_changeable_feature(ptr noundef %0) 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %12 = load ptr, ptr @ops, align 8
-  %13 = getelementptr inbounds nuw %struct.node_features_ops, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [136 x i8], ptr %12, i64 %indvars.iv
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = tail call zeroext i1 %15(ptr noundef %0) #9
@@ -485,7 +484,7 @@ define dso_local i32 @node_features_g_get_node(ptr noundef %0) local_unnamed_add
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %12 = load ptr, ptr @ops, align 8
-  %13 = getelementptr inbounds nuw %struct.node_features_ops, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [136 x i8], ptr %12, i64 %indvars.iv
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 %15(ptr noundef %0) #9
@@ -549,7 +548,7 @@ define dso_local i32 @node_features_g_job_valid(ptr noundef %0, ptr noundef %1) 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %13 = load ptr, ptr @ops, align 8
-  %14 = getelementptr inbounds nuw %struct.node_features_ops, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [136 x i8], ptr %13, i64 %indvars.iv
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 %16(ptr noundef %0, ptr noundef %1) #9
@@ -618,7 +617,7 @@ define dso_local ptr @node_features_g_job_xlate(ptr noundef %0, ptr noundef %1, 
 .lr.ph:                                           ; preds = %.preheader, %25
   %indvars.iv = phi i64 [ %indvars.iv.next, %25 ], [ 0, %.preheader ]
   %16 = load ptr, ptr @ops, align 8
-  %17 = getelementptr inbounds nuw %struct.node_features_ops, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [136 x i8], ptr %16, i64 %indvars.iv
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 32
   %19 = load ptr, ptr %18, align 8
   %20 = call ptr %19(ptr noundef %0, ptr noundef %1, ptr noundef %2) #9
@@ -710,7 +709,7 @@ define dso_local ptr @node_features_g_get_node_bitmap() local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %.preheader, %11
   %indvars.iv = phi i64 [ %indvars.iv.next, %11 ], [ 0, %.preheader ]
   %15 = load ptr, ptr @ops, align 8
-  %16 = getelementptr inbounds nuw %struct.node_features_ops, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [136 x i8], ptr %15, i64 %indvars.iv
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %18 = load ptr, ptr %17, align 8
   %19 = tail call ptr %18() #9
@@ -770,7 +769,7 @@ define dso_local i32 @node_features_g_overlap(ptr noundef %0) local_unnamed_addr
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %.014 = phi i32 [ %17, %.lr.ph ], [ 0, %.preheader ]
   %12 = load ptr, ptr @ops, align 8
-  %13 = getelementptr inbounds nuw %struct.node_features_ops, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [136 x i8], ptr %12, i64 %indvars.iv
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 %15(ptr noundef %0) #9
@@ -840,7 +839,7 @@ define dso_local noundef zeroext i1 @node_features_g_node_power() local_unnamed_
 .lr.ph:                                           ; preds = %.preheader, %11
   %indvars.iv = phi i64 [ %indvars.iv.next, %11 ], [ 0, %.preheader ]
   %15 = load ptr, ptr @ops, align 8
-  %16 = getelementptr inbounds nuw %struct.node_features_ops, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [136 x i8], ptr %15, i64 %indvars.iv
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %18 = load ptr, ptr %17, align 8
   %19 = tail call zeroext i1 %18() #9
@@ -898,7 +897,7 @@ define dso_local i32 @node_features_g_node_set(ptr noundef %0, ptr noundef %1) l
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %13 = load ptr, ptr @ops, align 8
-  %14 = getelementptr inbounds nuw %struct.node_features_ops, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [136 x i8], ptr %13, i64 %indvars.iv
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 64
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 %16(ptr noundef %0, ptr noundef %1) #9
@@ -962,7 +961,7 @@ define dso_local void @node_features_g_node_state(ptr noundef %0, ptr noundef %1
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %13 = load ptr, ptr @ops, align 8
-  %14 = getelementptr inbounds nuw %struct.node_features_ops, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [136 x i8], ptr %13, i64 %indvars.iv
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 72
   %16 = load ptr, ptr %15, align 8
   tail call void %16(ptr noundef %0, ptr noundef %1) #9
@@ -1023,7 +1022,7 @@ define dso_local i32 @node_features_g_node_update(ptr noundef %0, ptr noundef %1
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %13 = load ptr, ptr @ops, align 8
-  %14 = getelementptr inbounds nuw %struct.node_features_ops, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [136 x i8], ptr %13, i64 %indvars.iv
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 80
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 %16(ptr noundef %0, ptr noundef %1) #9
@@ -1094,7 +1093,7 @@ define dso_local noundef zeroext i1 @node_features_g_node_update_valid(ptr nound
 .lr.ph:                                           ; preds = %.preheader, %13
   %indvars.iv = phi i64 [ %indvars.iv.next, %13 ], [ 0, %.preheader ]
   %16 = load ptr, ptr @ops, align 8
-  %17 = getelementptr inbounds nuw %struct.node_features_ops, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [136 x i8], ptr %16, i64 %indvars.iv
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 88
   %19 = load ptr, ptr %18, align 8
   %20 = tail call zeroext i1 %19(ptr noundef %0, ptr noundef %1) #9
@@ -1171,7 +1170,7 @@ define dso_local ptr @node_features_g_node_xlate(ptr noundef %0, ptr noundef %1,
   %.124.us = phi ptr [ %25, %.lr.ph.split.us ], [ %.0, %.lr.ph ]
   store ptr %.124.us, ptr %9, align 8
   %21 = load ptr, ptr @ops, align 8
-  %22 = getelementptr inbounds nuw %struct.node_features_ops, ptr %21, i64 %indvars.iv29
+  %22 = getelementptr inbounds nuw [136 x i8], ptr %21, i64 %indvars.iv29
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 96
   %24 = load ptr, ptr %23, align 8
   %25 = call ptr %24(ptr noundef %0, ptr noundef %.124.us, ptr noundef %2, i32 noundef %3) #9
@@ -1196,7 +1195,7 @@ define dso_local ptr @node_features_g_node_xlate(ptr noundef %0, ptr noundef %1,
   %storemerge = phi ptr [ %30, %29 ], [ %.124, %.lr.ph.split ]
   store ptr %storemerge, ptr %9, align 8
   %32 = load ptr, ptr @ops, align 8
-  %33 = getelementptr inbounds nuw %struct.node_features_ops, ptr %32, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [136 x i8], ptr %32, i64 %indvars.iv
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 96
   %35 = load ptr, ptr %34, align 8
   %36 = call ptr %35(ptr noundef %0, ptr noundef %storemerge, ptr noundef %2, i32 noundef %3) #9
@@ -1278,7 +1277,7 @@ define dso_local ptr @node_features_g_node_xlate2(ptr noundef %0) local_unnamed_
   %18 = call ptr @xstrdup(ptr noundef %..118) #9
   store ptr %18, ptr %6, align 8
   %19 = load ptr, ptr @ops, align 8
-  %20 = getelementptr inbounds nuw %struct.node_features_ops, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [136 x i8], ptr %19, i64 %indvars.iv
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 104
   %22 = load ptr, ptr %21, align 8
   %23 = call ptr %22(ptr noundef %18) #9
@@ -1342,7 +1341,7 @@ define dso_local zeroext i1 @node_features_g_user_update(i32 noundef %0) local_u
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %12 = load ptr, ptr @ops, align 8
-  %13 = getelementptr inbounds nuw %struct.node_features_ops, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [136 x i8], ptr %12, i64 %indvars.iv
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 120
   %15 = load ptr, ptr %14, align 8
   %16 = tail call zeroext i1 %15(i32 noundef %0) #9
@@ -1406,7 +1405,7 @@ define dso_local i32 @node_features_g_boot_time() local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %21 ], [ 0, %.preheader ]
   %.016 = phi i32 [ %22, %21 ], [ 0, %.preheader ]
   %11 = load ptr, ptr @ops, align 8
-  %12 = getelementptr inbounds nuw %struct.node_features_ops, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [136 x i8], ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %14 = tail call i32 %13() #9
   %15 = icmp ugt i32 %.016, %14
@@ -1414,7 +1413,7 @@ define dso_local i32 @node_features_g_boot_time() local_unnamed_addr #0 {
 
 16:                                               ; preds = %.lr.ph
   %17 = load ptr, ptr @ops, align 8
-  %18 = getelementptr inbounds nuw %struct.node_features_ops, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [136 x i8], ptr %17, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i32 %19() #9
   br label %21
@@ -1493,7 +1492,7 @@ define dso_local ptr @node_features_g_get_config() local_unnamed_addr #0 {
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   store ptr %17, ptr %18, align 8
   %19 = load ptr, ptr @ops, align 8
-  %20 = getelementptr inbounds nuw %struct.node_features_ops, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [136 x i8], ptr %19, i64 %indvars.iv
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 128
   %22 = load ptr, ptr %21, align 8
   tail call void %22(ptr noundef %16) #9

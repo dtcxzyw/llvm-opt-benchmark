@@ -28,15 +28,7 @@ module asm ".previous\09\09\09\09\09"
 %union.anon.3 = type { i64 }
 %struct.usb_device_id = type { i16, i16, i16, i16, i16, i8, i8, i8, i8, i8, i8, i8, i64 }
 %struct.lock_class_key = type {}
-%struct.hid_output_fifo = type { ptr, ptr }
-%struct.hid_control_fifo = type { i8, ptr, ptr }
 %struct.wait_queue_entry = type { i32, ptr, ptr, %struct.list_head }
-%struct.usb_host_endpoint = type <{ %struct.usb_endpoint_descriptor, %struct.usb_ss_ep_comp_descriptor, %struct.usb_ssp_isoc_ep_comp_descriptor, i8, %struct.list_head, ptr, ptr, ptr, i32, i32, i32, [4 x i8] }>
-%struct.usb_endpoint_descriptor = type <{ i8, i8, i8, i8, i16, i8, i8, i8 }>
-%struct.usb_ss_ep_comp_descriptor = type { i8, i8, i8, i8, i16 }
-%struct.usb_ssp_isoc_ep_comp_descriptor = type { i8, i8, i16, i32 }
-%struct.hid_usage = type { i32, i32, i32, i8, i8, i16, i8, i8, i8, i8, i16 }
-%struct.hid_class_descriptor = type <{ i8, i16 }>
 
 @__param_str_mousepoll = internal constant [17 x i8] c"usbhid.mousepoll\00", align 16
 @param_ops_uint = external dso_local constant %struct.kernel_param_ops, align 8
@@ -261,7 +253,7 @@ define internal fastcc void @usbhid_submit_report(ptr noundef %0, ptr noundef %1
   tail call void @hid_output_report(ptr noundef %1, ptr noundef nonnull %41) #17
   %51 = load i8, ptr %31, align 8
   %52 = zext i8 %51 to i64
-  %53 = getelementptr %struct.hid_output_fifo, ptr %42, i64 %52
+  %53 = getelementptr [16 x i8], ptr %42, i64 %52
   store ptr %1, ptr %53, align 8
   store i8 %34, ptr %31, align 8
   %54 = load volatile i64, ptr %16, align 8
@@ -355,7 +347,7 @@ define internal fastcc void @usbhid_submit_report(ptr noundef %0, ptr noundef %1
   %103 = getelementptr i8, ptr %101, i64 %.idx4
   %104 = getelementptr i8, ptr %103, i64 8
   store ptr %1, ptr %104, align 8
-  %105 = getelementptr %struct.hid_control_fifo, ptr %101, i64 %102
+  %105 = getelementptr [24 x i8], ptr %101, i64 %102
   store i8 %2, ptr %105, align 8
   store i8 %82, ptr %80, align 8
   %106 = load volatile i64, ptr %16, align 8
@@ -595,7 +587,7 @@ define internal fastcc void @usbhid_restart_out_queue(ptr noundef %0) unnamed_ad
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 10345
   %36 = load i8, ptr %35, align 1
   %37 = zext i8 %36 to i64
-  %38 = getelementptr %struct.hid_output_fifo, ptr %34, i64 %37
+  %38 = getelementptr [16 x i8], ptr %34, i64 %37
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %41 = load ptr, ptr %40, align 8
@@ -792,7 +784,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @hid_submit_ctrl(ptr nounde
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 6209
   %6 = load i8, ptr %5, align 1
   %7 = zext i8 %6 to i64
-  %8 = getelementptr %struct.hid_control_fifo, ptr %4, i64 %7
+  %8 = getelementptr [24 x i8], ptr %4, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -856,7 +848,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @hid_submit_ctrl(ptr nounde
   %57 = lshr i32 %52, 15
   %58 = and i32 %57, 15
   %59 = zext nneg i32 %58 to i64
-  %60 = getelementptr ptr, ptr %56, i64 %59
+  %60 = getelementptr [8 x i8], ptr %56, i64 %59
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, null
   br i1 %62, label %69, label %63
@@ -1177,7 +1169,7 @@ define internal i32 @usbhid_start(ptr noundef %0) #0 align 16 {
 142:                                              ; preds = %263, %130
   %143 = phi i64 [ 0, %130 ], [ %264, %263 ]
   %144 = load ptr, ptr %131, align 8
-  %145 = getelementptr %struct.usb_host_endpoint, ptr %144, i64 %143
+  %145 = getelementptr [80 x i8], ptr %144, i64 %143
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 3
   %147 = load i8, ptr %146, align 1
   %148 = and i8 %147, 3
@@ -1468,7 +1460,7 @@ define internal i32 @usbhid_start(ptr noundef %0) #0 align 16 {
 330:                                              ; preds = %.loopexit, %328
   %331 = phi i32 [ 0, %328 ], [ %350, %.loopexit ]
   %332 = sext i32 %331 to i64
-  %333 = getelementptr ptr, ptr %329, i64 %332
+  %333 = getelementptr [8 x i8], ptr %329, i64 %332
   %334 = load ptr, ptr %333, align 8
   %335 = getelementptr inbounds nuw i8, ptr %334, i64 24
   %336 = load i32, ptr %335, align 8
@@ -1483,7 +1475,7 @@ define internal i32 @usbhid_start(ptr noundef %0) #0 align 16 {
 341:                                              ; preds = %347, %338
   %342 = phi i32 [ 0, %338 ], [ %348, %347 ]
   %343 = sext i32 %342 to i64
-  %344 = getelementptr %struct.hid_usage, ptr %340, i64 %343
+  %344 = getelementptr [24 x i8], ptr %340, i64 %343
   %345 = load i32, ptr %344, align 4
   %346 = icmp eq i32 %345, 524289
   br i1 %346, label %352, label %347
@@ -1616,7 +1608,7 @@ define internal void @usbhid_stop(ptr noundef captures(none) %0) #0 align 16 {
   %31 = phi i8 [ %26, %28 ], [ %45, %44 ]
   %32 = phi i8 [ %25, %28 ], [ %47, %44 ]
   %33 = zext i8 %32 to i64
-  %34 = getelementptr %struct.hid_control_fifo, ptr %29, i64 %33
+  %34 = getelementptr [24 x i8], ptr %29, i64 %33
   %35 = load i8, ptr %34, align 8
   %36 = icmp eq i8 %35, 0
   br i1 %36, label %37, label %44
@@ -1951,7 +1943,7 @@ define internal i32 @usbhid_parse(ptr noundef %0) #0 align 16 {
 72:                                               ; preds = %82, %69
   %73 = phi i64 [ 0, %69 ], [ %84, %82 ]
   %74 = phi i32 [ 0, %69 ], [ %83, %82 ]
-  %75 = getelementptr %struct.hid_class_descriptor, ptr %70, i64 %73
+  %75 = getelementptr [3 x i8], ptr %70, i64 %73
   %76 = load i8, ptr %75, align 1
   %77 = icmp eq i8 %76, 34
   br i1 %77, label %78, label %82
@@ -2446,7 +2438,7 @@ define internal void @hid_irq_out(ptr noundef readonly captures(none) %0) #0 ali
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 10345
   %32 = load i8, ptr %31, align 1
   %33 = zext i8 %32 to i64
-  %34 = getelementptr %struct.hid_output_fifo, ptr %30, i64 %33
+  %34 = getelementptr [16 x i8], ptr %30, i64 %33
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %37 = load ptr, ptr %36, align 8
@@ -2549,7 +2541,7 @@ define internal void @hid_ctrl(ptr noundef readonly captures(none) %0) #0 align 
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 6209
   %11 = load i8, ptr %10, align 1
   %12 = zext i8 %11 to i64
-  %13 = getelementptr %struct.hid_control_fifo, ptr %9, i64 %12
+  %13 = getelementptr [24 x i8], ptr %9, i64 %12
   %14 = load i8, ptr %13, align 8
   %15 = icmp eq i8 %14, -128
   br i1 %15, label %16, label %36
@@ -2872,7 +2864,7 @@ define internal i32 @usbhid_probe(ptr noundef %0, ptr readnone captures(none) %1
 15:                                               ; preds = %27, %11
   %16 = phi i64 [ 0, %11 ], [ %30, %27 ]
   %17 = phi i32 [ 0, %11 ], [ %29, %27 ]
-  %18 = getelementptr %struct.usb_host_endpoint, ptr %13, i64 %16
+  %18 = getelementptr [80 x i8], ptr %13, i64 %16
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 3
   %20 = load i8, ptr %19, align 1
   %21 = and i8 %20, 3

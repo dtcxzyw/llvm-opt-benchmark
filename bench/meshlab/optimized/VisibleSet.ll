@@ -11,43 +11,6 @@ module asm ".align 8"
 module asm ".previous"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.VisibleSet::FaceVisInfo" = type { float, ptr, %"class.std::vector.148" }
-%"class.std::vector.148" = type { %"struct.std::_Vector_base.149" }
-%"struct.std::_Vector_base.149" = type { %"struct.std::_Vector_base<RasterModel *, std::allocator<RasterModel *>>::_Vector_impl" }
-%"struct.std::_Vector_base<RasterModel *, std::allocator<RasterModel *>>::_Vector_impl" = type { %"struct.std::_Vector_base<RasterModel *, std::allocator<RasterModel *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<RasterModel *, std::allocator<RasterModel *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%class.CFaceO = type { %"class.vcg::Face" }
-%"class.vcg::Face" = type { %"class.vcg::FaceArityMax" }
-%"class.vcg::FaceArityMax" = type { %"class.vcg::DefaultDeriver" }
-%"class.vcg::DefaultDeriver" = type { %"class.vcg::Arity11" }
-%"class.vcg::Arity11" = type { %"class.vcg::face::WedgeTexCoordfOcf" }
-%"class.vcg::face::WedgeTexCoordfOcf" = type { %"class.vcg::face::WedgeTexCoordOcf" }
-%"class.vcg::face::WedgeTexCoordOcf" = type { %"class.vcg::Arity10" }
-%"class.vcg::Arity10" = type { %"class.vcg::face::CurvatureDirmOcf" }
-%"class.vcg::face::CurvatureDirmOcf" = type { %"class.vcg::face::CurvatureDirOcf" }
-%"class.vcg::face::CurvatureDirOcf" = type { %"class.vcg::Arity9" }
-%"class.vcg::Arity9" = type { %"class.vcg::face::VFAdjOcf" }
-%"class.vcg::face::VFAdjOcf" = type { %"class.vcg::Arity8" }
-%"class.vcg::Arity8" = type { %"class.vcg::face::FFAdjOcf" }
-%"class.vcg::face::FFAdjOcf" = type { %"class.vcg::Arity7" }
-%"class.vcg::Arity7" = type { %"class.vcg::face::Color4bOcf" }
-%"class.vcg::face::Color4bOcf" = type { %"class.vcg::face::ColorOcf" }
-%"class.vcg::face::ColorOcf" = type { %"class.vcg::Arity6" }
-%"class.vcg::Arity6" = type { %"class.vcg::face::MarkOcf" }
-%"class.vcg::face::MarkOcf" = type { %"class.vcg::Arity5" }
-%"class.vcg::Arity5" = type { %"class.vcg::face::QualitymOcf" }
-%"class.vcg::face::QualitymOcf" = type { %"class.vcg::face::QualityOcf" }
-%"class.vcg::face::QualityOcf" = type { %"class.vcg::Arity4" }
-%"class.vcg::Arity4" = type { %"class.vcg::face::Normal3m" }
-%"class.vcg::face::Normal3m" = type { %"class.vcg::face::NormalAbs" }
-%"class.vcg::face::NormalAbs" = type { %"class.vcg::Arity3.base", %"class.vcg::Point3" }
-%"class.vcg::Arity3.base" = type { %"class.vcg::face::BitFlags.base" }
-%"class.vcg::face::BitFlags.base" = type <{ %"class.vcg::Arity2", i32 }>
-%"class.vcg::Arity2" = type { %"class.vcg::face::VertexRef" }
-%"class.vcg::face::VertexRef" = type { %"class.vcg::Arity1", [3 x ptr] }
-%"class.vcg::Arity1" = type { %"class.vcg::face::InfoOcf" }
-%"class.vcg::face::InfoOcf" = type { ptr }
-%"class.vcg::Point3" = type { [3 x float] }
 
 $_ZNSt6vectorIN10VisibleSet11FaceVisInfoESaIS1_EED2Ev = comdat any
 
@@ -92,7 +55,7 @@ _ZNSt12_Vector_baseIN10VisibleSet11FaceVisInfoESaIS1_EEC2EmRKS2_.exit.i: ; preds
   %13 = mul nuw nsw i64 %11, 40
   %14 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %13) #17
   store ptr %14, ptr %8, align 8
-  %15 = getelementptr inbounds nuw %"class.VisibleSet::FaceVisInfo", ptr %14, i64 %11
+  %15 = getelementptr inbounds nuw [40 x i8], ptr %14, i64 %11
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %15, ptr %16, align 8
   br label %.lr.ph.i.i.i.i.i
@@ -305,7 +268,7 @@ _ZN6GlShotIN3vcg4ShotIfNS0_8Matrix44IfEEEEE16GetNearFarPlanesERKS4_NS0_4Box3IfEE
   %89 = load ptr, ptr %74, align 8
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 304
   %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds nuw %class.CFaceO, ptr %91, i64 %indvars.iv
+  %92 = getelementptr inbounds nuw [48 x i8], ptr %91, i64 %indvars.iv
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %94 = load ptr, ptr %93, align 8
   %95 = getelementptr inbounds nuw i8, ptr %89, i64 8
@@ -347,7 +310,7 @@ _ZNK15VisibilityCheck13isFaceVisibleEj.exit:      ; preds = %106
 
 _ZNK15VisibilityCheck13isFaceVisibleEj.exit.thread: ; preds = %.lr.ph81, %106, %_ZNK15VisibilityCheck13isFaceVisibleEj.exit
   %125 = load ptr, ptr %76, align 8
-  %126 = getelementptr inbounds nuw %class.CFaceO, ptr %125, i64 %indvars.iv
+  %126 = getelementptr inbounds nuw [48 x i8], ptr %125, i64 %indvars.iv
   %127 = invoke noundef float @_ZN10VisibleSet9getWeightEPK11RasterModelR6CFaceO(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef %79, ptr noundef nonnull align 8 dereferenceable(48) %126)
           to label %128 unwind label %.loopexit69
 
@@ -357,7 +320,7 @@ _ZNK15VisibilityCheck13isFaceVisibleEj.exit.thread: ; preds = %.lr.ph81, %106, %
 
 130:                                              ; preds = %128
   %131 = load ptr, ptr %8, align 8
-  %132 = getelementptr inbounds nuw %"class.VisibleSet::FaceVisInfo", ptr %131, i64 %indvars.iv
+  %132 = getelementptr inbounds nuw [40 x i8], ptr %131, i64 %indvars.iv
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 16
   %134 = getelementptr inbounds nuw i8, ptr %132, i64 24
   %135 = load ptr, ptr %134, align 8
@@ -423,7 +386,7 @@ _ZNSt6vectorIP11RasterModelSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; 
 _ZNSt6vectorIP11RasterModelSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %159, %_ZNSt6vectorIP11RasterModelSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
   store ptr %154, ptr %133, align 8
   store ptr %158, ptr %134, align 8
-  %160 = getelementptr inbounds nuw ptr, ptr %154, i64 %152
+  %160 = getelementptr inbounds nuw [8 x i8], ptr %154, i64 %152
   store ptr %160, ptr %136, align 8
   br label %_ZNSt6vectorIP11RasterModelSaIS1_EE9push_backERKS1_.exit.i
 
@@ -757,7 +720,7 @@ _ZNK3vcg4ShotIfNS_8Matrix44IfEEE7ProjectERKNS_6Point3IfEE.exit: ; preds = %_ZNK3
 
 171:                                              ; preds = %.preheader, %249
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %249 ]
-  %172 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %172 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %173 = load ptr, ptr %172, align 8
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 8
   %.sroa.0.0.copyload.i.i85 = load float, ptr %161, align 4
@@ -890,7 +853,7 @@ _ZNK3vcg4ShotIfNS_8Matrix44IfEEE7ProjectERKNS_6Point3IfEE.exit137: ; preds = %_Z
 
 249:                                              ; preds = %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE7ProjectERKNS_6Point3IfEE.exit137, %226, %232, %238
   %.sink = phi float [ %248, %238 ], [ 0.000000e+00, %232 ], [ 0.000000e+00, %226 ], [ 0.000000e+00, %_ZNK3vcg4ShotIfNS_8Matrix44IfEEE7ProjectERKNS_6Point3IfEE.exit137 ]
-  %250 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
+  %250 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   store float %.sink, ptr %250, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3

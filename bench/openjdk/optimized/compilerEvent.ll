@@ -191,7 +191,7 @@ _ZN14PhaseTypeGuardC2Eb.exit:                     ; preds = %4, %6
 
 24:                                               ; preds = %29, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %29 ]
-  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv.i
   %26 = load ptr, ptr %25, align 8
   %27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %26, ptr noundef nonnull readonly dereferenceable(1) %0) #13
   %28 = icmp eq i32 %27, 0
@@ -245,7 +245,7 @@ _ZN26GrowableArrayWithAllocatorIPKc13GrowableArrayIS1_EE6appendERKS1_.exit: ; pr
   %51 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %52 = load ptr, ptr %51, align 8
   %53 = sext i32 %49 to i64
-  %54 = getelementptr inbounds ptr, ptr %52, i64 %53
+  %54 = getelementptr inbounds [8 x i8], ptr %52, i64 %53
   store ptr %37, ptr %54, align 8
   br label %55
 
@@ -694,7 +694,7 @@ define hidden void @_ZN13CompilerEvent11InlineEvent4postER21EventCompilerInlinin
   %16 = load i16, ptr %15, align 4
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 72
   %18 = zext i16 %16 to i64
-  %19 = getelementptr inbounds nuw i64, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %18
   %20 = load ptr, ptr %19, align 8
   %21 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %20) #12
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -706,7 +706,7 @@ define hidden void @_ZN13CompilerEvent11InlineEvent4postER21EventCompilerInlinin
   %27 = load i16, ptr %26, align 2
   %28 = getelementptr inbounds nuw i8, ptr %25, i64 72
   %29 = zext i16 %27 to i64
-  %30 = getelementptr inbounds nuw i64, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %29
   %31 = load ptr, ptr %30, align 8
   %32 = tail call noundef ptr @_ZNK6Symbol11as_C_stringEv(ptr noundef nonnull align 4 dereferenceable(8) %31) #12
   %33 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -874,7 +874,7 @@ define linkonce_odr hidden void @_ZN25CompilerPhaseTypeConstant9serializeER19Jfr
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = sext i32 %.08 to i64
-  %10 = getelementptr inbounds ptr, ptr %8, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8
   tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE10write_utf8EPKc(ptr noundef nonnull align 8 dereferenceable(41) %1, ptr noundef %11)
   %12 = add nuw i32 %.08, 1
@@ -3246,9 +3246,9 @@ _ZN13GrowableArrayIPKcE8allocateEv.exit:          ; preds = %7, %11, %15
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3265,7 +3265,7 @@ _ZN13GrowableArrayIPKcE8allocateEv.exit:          ; preds = %7, %11, %15
 
 .lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
   %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv20
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv20
   store ptr null, ptr %35, align 8
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %36 = load i32, ptr %3, align 4

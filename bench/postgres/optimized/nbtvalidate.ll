@@ -3,8 +3,6 @@ source_filename = "bench/postgres/original/nbtvalidate.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.ListCell = type { ptr }
-
 @.str = private unnamed_addr constant [42 x i8] c"cache lookup failed for operator class %u\00", align 1
 @.str.1 = private unnamed_addr constant [14 x i8] c"nbtvalidate.c\00", align 1
 @__func__.btvalidate = private unnamed_addr constant [11 x i8] c"btvalidate\00", align 1
@@ -71,7 +69,7 @@ define dso_local zeroext i1 @btvalidate(i32 noundef %0) local_unnamed_addr #0 {
 30:                                               ; preds = %.lr.ph, %79
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %79 ]
   %.0118 = phi i1 [ true, %.lr.ph ], [ %.1, %79 ]
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr i8, ptr %32, i64 80
   %.val113 = load ptr, ptr %33, align 8
@@ -159,7 +157,7 @@ define dso_local zeroext i1 @btvalidate(i32 noundef %0) local_unnamed_addr #0 {
 83:                                               ; preds = %.lr.ph121, %133
   %indvars.iv139 = phi i64 [ 0, %.lr.ph121 ], [ %indvars.iv.next140, %133 ]
   %.3120 = phi i1 [ %.0.lcssa, %.lr.ph121 ], [ %.6, %133 ]
-  %84 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv139
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv139
   %85 = load ptr, ptr %84, align 8
   %86 = getelementptr i8, ptr %85, i64 80
   %.val114 = load ptr, ptr %86, align 8
@@ -265,7 +263,7 @@ define dso_local zeroext i1 @btvalidate(i32 noundef %0) local_unnamed_addr #0 {
   %.7127159 = phi i1 [ %.8, %190 ], [ %.3.lcssa, %.lr.ph129 ]
   %indvars.iv141158 = phi i64 [ %indvars.iv.next142, %190 ], [ 0, %.lr.ph129 ]
   %142 = load ptr, ptr %139, align 8
-  %143 = getelementptr inbounds nuw %union.ListCell, ptr %142, i64 %indvars.iv141158
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %142, i64 %indvars.iv141158
   %144 = load ptr, ptr %143, align 8
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 8
   %146 = load i64, ptr %145, align 8
@@ -474,7 +472,7 @@ define dso_local void @btadjustmembers(i32 noundef %0, i32 noundef %1, ptr nound
   %.1354852 = phi i32 [ %.236, %43 ], [ %.034, %.lr.ph ]
   %.04951 = phi i32 [ %.1, %43 ], [ %1, %.lr.ph ]
   %13 = load ptr, ptr %10, align 8
-  %14 = getelementptr inbounds nuw %union.ListCell, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   %16 = load i8, ptr %15, align 4, !range !7, !noundef !8
   %17 = trunc nuw i8 %16 to i1

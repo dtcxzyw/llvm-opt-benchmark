@@ -8,7 +8,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %struct.FlagDesc = type { ptr, i32 }
-%struct.MapNode = type { i16, i8, i8 }
 
 $_ZNK13MapgenFractal7getTypeEv = comdat any
 
@@ -4353,7 +4352,7 @@ for.body33:                                       ; preds = %for.inc, %for.body3
   %m_data = getelementptr inbounds nuw i8, ptr %48, i64 32
   %49 = load ptr, ptr %m_data, align 8, !tbaa !153
   %idxprom = zext i32 %vi.0122 to i64
-  %arrayidx = getelementptr inbounds nuw %struct.MapNode, ptr %49, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %idxprom
   %50 = load i16, ptr %arrayidx, align 4, !tbaa !155
   %cmp37.not = icmp eq i16 %50, 127
   br i1 %cmp37.not, label %if.end39, label %for.inc
@@ -4367,7 +4366,7 @@ if.then42:                                        ; preds = %if.end39
   %result = getelementptr inbounds nuw i8, ptr %51, i64 80
   %52 = load ptr, ptr %result, align 8, !tbaa !157
   %idxprom44 = zext i32 %index2d.2120 to i64
-  %arrayidx45 = getelementptr inbounds nuw float, ptr %52, i64 %idxprom44
+  %arrayidx45 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %idxprom44
   %53 = load float, ptr %arrayidx45, align 4, !tbaa !48
   %conv46 = fptosi float %53 to i16
   br label %if.end47

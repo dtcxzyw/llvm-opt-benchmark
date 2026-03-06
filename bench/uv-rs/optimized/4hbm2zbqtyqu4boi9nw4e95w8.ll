@@ -878,7 +878,7 @@ define noundef zeroext i1 @_ZN13uv_globfilter15glob_dir_filter13GlobDirFilter15m
 "_ZN102_$LT$regex_automata..dfa..dense..DFA$LT$T$GT$$u20$as$u20$regex_automata..dfa..automaton..Automaton$GT$11start_state17h425a5d37f42153feE.exit": ; preds = %78
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 520
   %87 = load ptr, ptr %86, align 8, !alias.scope !131, !noalias !128, !nonnull !4, !noundef !4
-  %88 = getelementptr inbounds i32, ptr %87, i64 %81
+  %88 = getelementptr inbounds [4 x i8], ptr %87, i64 %81
   %89 = load i32, ptr %88, align 4, !noalias !128, !noundef !4
   %90 = getelementptr inbounds i8, ptr %1, i64 %2
   %91 = icmp eq i64 %2, 0
@@ -943,7 +943,7 @@ define noundef zeroext i1 @_ZN13uv_globfilter15glob_dir_filter13GlobDirFilter15m
   unreachable
 
 "_ZN102_$LT$regex_automata..dfa..dense..DFA$LT$T$GT$$u20$as$u20$regex_automata..dfa..automaton..Automaton$GT$10next_state17h8bf5faa513dcd15dE.exit14": ; preds = %"_ZN102_$LT$regex_automata..dfa..dense..DFA$LT$T$GT$$u20$as$u20$regex_automata..dfa..automaton..Automaton$GT$14next_eoi_state17hd5cb3209bed52b6aE.exit"
-  %115 = getelementptr inbounds nuw i32, ptr %98, i64 %106
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %98, i64 %106
   %116 = load i32, ptr %115, align 4, !noundef !4
   %117 = icmp eq i32 %116, 0
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -975,13 +975,13 @@ define noundef zeroext i1 @_ZN13uv_globfilter15glob_dir_filter13GlobDirFilter15m
 
 "_ZN102_$LT$regex_automata..dfa..dense..DFA$LT$T$GT$$u20$as$u20$regex_automata..dfa..automaton..Automaton$GT$10next_state17h8bf5faa513dcd15dE.exit": ; preds = %124
   %134 = getelementptr inbounds nuw i8, ptr %.sroa.019.031, i64 1
-  %135 = getelementptr inbounds nuw i32, ptr %96, i64 %131
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %96, i64 %131
   %136 = load i32, ptr %135, align 4, !noundef !4
   %137 = icmp eq ptr %134, %90
   br i1 %137, label %._crit_edge, label %124
 
 138:                                              ; preds = %"_ZN102_$LT$regex_automata..dfa..dense..DFA$LT$T$GT$$u20$as$u20$regex_automata..dfa..automaton..Automaton$GT$10next_state17h8bf5faa513dcd15dE.exit14"
-  %139 = getelementptr inbounds nuw i32, ptr %98, i64 %112
+  %139 = getelementptr inbounds nuw [4 x i8], ptr %98, i64 %112
   %140 = load i32, ptr %139, align 4, !noundef !4
   %141 = icmp ne i32 %140, 0
   br label %142

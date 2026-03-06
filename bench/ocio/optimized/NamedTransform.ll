@@ -1105,7 +1105,7 @@ define hidden noundef ptr @_ZNK19OpenColorIO_v2_5dev18NamedTransformImpl8getAlia
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %2
-  %13 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %6, i64 %1
+  %13 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %1
   %14 = load ptr, ptr %13, align 8, !tbaa !49
   br label %15
 
@@ -1137,7 +1137,7 @@ define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_5dev18NamedTransformImpl8
 .lr.ph:                                           ; preds = %2, %7
   %16 = phi ptr [ %10, %7 ], [ %6, %2 ]
   %.0610 = phi i64 [ %8, %7 ], [ 0, %2 ]
-  %17 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %16, i64 %.0610
+  %17 = getelementptr inbounds nuw [32 x i8], ptr %16, i64 %.0610
   %18 = load ptr, ptr %17, align 8, !tbaa !49
   %19 = invoke noundef i32 @_ZN19OpenColorIO_v2_5dev8Platform10StrcasecmpEPKcS2_(ptr noundef %18, ptr noundef %1)
           to label %20 unwind label %22
@@ -2483,7 +2483,7 @@ define hidden noundef ptr @_ZNK19OpenColorIO_v2_5dev18NamedTransformImpl11getCat
 
 14:                                               ; preds = %4
   %15 = zext nneg i32 %1 to i64
-  %16 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %8, i64 %15
+  %16 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !49
   br label %_ZNK19OpenColorIO_v2_5dev13TokensManager8getTokenEi.exit
 
@@ -4764,7 +4764,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i
   %85 = load ptr, ptr %1, align 8, !tbaa !47
-  %86 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %85, i64 %.086
+  %86 = getelementptr inbounds nuw [32 x i8], ptr %85, i64 %.086
   call void @llvm.experimental.noalias.scope.decl(metadata !85)
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %88 = load i64, ptr %87, align 8, !tbaa !30, !noalias !85
@@ -8158,7 +8158,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !47
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !44
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !48
   ret void
 }

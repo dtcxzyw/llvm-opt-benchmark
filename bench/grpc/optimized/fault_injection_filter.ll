@@ -75,13 +75,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Optional_payload.70" = type { %"struct.std::_Optional_payload_base.base.72", [7 x i8] }
 %"struct.std::_Optional_payload_base.base.72" = type <{ %"union.std::_Optional_payload_base<std::basic_string_view<char>>::_Storage", i8 }>
 %"union.std::_Optional_payload_base<std::basic_string_view<char>>::_Storage" = type { %"class.std::basic_string_view" }
-%"class.std::unique_ptr.122" = type { %"struct.std::__uniq_ptr_data.123" }
-%"struct.std::__uniq_ptr_data.123" = type { %"class.std::__uniq_ptr_impl.124" }
-%"class.std::__uniq_ptr_impl.124" = type { %"class.std::tuple.125" }
-%"class.std::tuple.125" = type { %"struct.std::_Tuple_impl.126" }
-%"struct.std::_Tuple_impl.126" = type { %"struct.std::_Head_base.129" }
-%"struct.std::_Head_base.129" = type { ptr }
-%"struct.grpc_core::FaultInjectionMethodParsedConfig::FaultInjectionPolicy" = type <{ i32, [4 x i8], %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i32, i32, %"class.grpc_core::Duration", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i32, i32, i32, [4 x i8] }>
 %"class.absl::lts_20240722::log_internal::LogMessage::OstreamView" = type { %"class.std::basic_streambuf", ptr, %"class.absl::lts_20240722::Span.146", %"class.absl::lts_20240722::Span.146", %"class.absl::lts_20240722::Span.146" }
 %"class.std::basic_streambuf" = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, %"class.std::locale" }
 %"class.std::locale" = type { ptr }
@@ -126,7 +119,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.grpc_core::Waker::WakeableAndArg" = type { ptr, i16 }
 %"class.grpc_core::Poll.261" = type { i8, %union.anon.262 }
 %union.anon.262 = type { %"class.std::unique_ptr.103" }
-%"struct.grpc_core::LbCostBinMetadata::ValueType" = type { double, %"class.std::__cxx11::basic_string" }
 
 $_ZN4absl12lts_2024072212log_internal10LogMessagelsIPN9grpc_core20FaultInjectionFilter4CallETnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS9_ = comdat any
 
@@ -528,7 +520,7 @@ _ZNK9grpc_core10FilterArgs11instance_idEv.exit:   ; preds = %8, %15
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i = trunc i128 %25 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i128 %26, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i64
-  %27 = getelementptr inbounds nuw i32, ptr %4, i64 %.016.i.i.i.i.i
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.016.i.i.i.i.i
   %28 = load i32, ptr %27, align 4, !tbaa !38
   %29 = zext i32 %28 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i, %29
@@ -577,7 +569,7 @@ _ZNK9grpc_core10FilterArgs11instance_idEv.exit:   ; preds = %8, %15
   %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i10 = trunc i128 %40 to i64
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i11 = lshr i128 %41, 64
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i12 = trunc nuw i128 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i11 to i64
-  %42 = getelementptr inbounds nuw i32, ptr %3, i64 %.016.i.i.i.i.i5
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.016.i.i.i.i.i5
   %43 = load i32, ptr %42, align 4, !tbaa !38
   %44 = zext i32 %43 to i64
   %.sroa.03.0.insert.insert.i6.i.i.i.i.i.i13 = or disjoint i64 %.sroa.0.0.extract.trunc.i.i.i.i.i.i.i10, %44
@@ -1091,7 +1083,7 @@ define void @_ZN9grpc_core20FaultInjectionFilter21MakeInjectionDecisionERK19grpc
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 56
   %22 = load i16, ptr @_ZN9grpc_core12arena_detail18ArenaContextTraitsINS_21ServiceConfigCallDataEE3id_E, align 2, !tbaa !98
   %23 = zext i16 %22 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr %21, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !100
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8, !tbaa !101
@@ -1102,7 +1094,7 @@ _ZNK9grpc_core21ServiceConfigCallData21GetMethodParsedConfigEm.exit: ; preds = %
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %30 = load i64, ptr %29, align 16, !tbaa !36
   %31 = load ptr, ptr %27, align 8, !tbaa !108
-  %32 = getelementptr inbounds nuw %"class.std::unique_ptr.122", ptr %31, i64 %30
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %30
   %33 = load ptr, ptr %32, align 8, !tbaa !111
   %.not88 = icmp eq ptr %33, null
   br i1 %.not88, label %.thread, label %34
@@ -1119,7 +1111,7 @@ _ZNK9grpc_core21ServiceConfigCallData21GetMethodParsedConfigEm.exit: ; preds = %
   %43 = sub i64 %41, %42
   %44 = sdiv exact i64 %43, 200
   %.not.i = icmp uge i64 %36, %44
-  %45 = getelementptr inbounds nuw %"struct.grpc_core::FaultInjectionMethodParsedConfig::FaultInjectionPolicy", ptr %40, i64 %36
+  %45 = getelementptr inbounds nuw [200 x i8], ptr %40, i64 %36
   %46 = icmp eq ptr %40, null
   %or.cond = or i1 %46, %.not.i
   br i1 %or.cond, label %.thread, label %50
@@ -2285,7 +2277,7 @@ _ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %2
 _ZNSt6vectorIPFvPvESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %25, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !161
   store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !158
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !162
   br label %_ZNSt6vectorIPFvPvESaIS2_EE9push_backERKS2_.exit
 
@@ -7979,7 +7971,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072223inlined_vector_internal7Storag
 .lr.ph.i:                                         ; preds = %1, %_ZNSt16allocator_traitsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEE7destroyIS2_EEvRS3_PT_.exit.i
   %.06.i = phi i64 [ %8, %_ZNSt16allocator_traitsISaIN9grpc_core17LbCostBinMetadata9ValueTypeEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %7, %1 ]
   %8 = add nsw i64 %.06.i, -1
-  %9 = getelementptr inbounds nuw %"struct.grpc_core::LbCostBinMetadata::ValueType", ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [40 x i8], ptr %6, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !45
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 24
@@ -8031,7 +8023,7 @@ define linkonce_odr void @_ZN4absl12lts_2024072223inlined_vector_internal7Storag
 .lr.ph.i:                                         ; preds = %1, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i
   %.06.i = phi i64 [ %8, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE7destroyIS5_EEvRS6_PT_.exit.i ], [ %7, %1 ]
   %8 = add nsw i64 %.06.i, -1
-  %9 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !45
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %12 = icmp eq ptr %10, %11

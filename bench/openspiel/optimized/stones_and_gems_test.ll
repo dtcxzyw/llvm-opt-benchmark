@@ -2669,7 +2669,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %916, %._crit_edge.i
   %949 = zext nneg i32 %948 to i64
   %950 = add i64 %.sroa.4.0.i.i.i.i, %949
   %951 = and i64 %950, %912
-  %952 = getelementptr inbounds ptr, ptr %915, i64 %951
+  %952 = getelementptr inbounds [8 x i8], ptr %915, i64 %951
   %953 = load ptr, ptr %952, align 8
   %954 = load i32, ptr %953, align 4
   %955 = zext i32 %954 to i64
@@ -2725,7 +2725,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %916, %._crit_edge.i
   %975 = zext nneg i32 %974 to i64
   %976 = add i64 %.sroa.4.0.i.i.i.i.i, %975
   %977 = and i64 %976, %912
-  %978 = getelementptr inbounds ptr, ptr %915, i64 %977
+  %978 = getelementptr inbounds [8 x i8], ptr %915, i64 %977
   %979 = load ptr, ptr %978, align 8
   %980 = load i32, ptr %979, align 4
   %981 = zext i32 %980 to i64
@@ -2733,7 +2733,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %916, %._crit_edge.i
   br i1 %982, label %983, label %986
 
 983:                                              ; preds = %.lr.ph.i.i.i.i.i
-  %984 = getelementptr inbounds ptr, ptr %915, i64 %977
+  %984 = getelementptr inbounds [8 x i8], ptr %915, i64 %977
   %985 = getelementptr inbounds i8, ptr %910, i64 %977
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %985) ]
   %.fca.0.insert.i.i.i.i.i.i = insertvalue { ptr, ptr } poison, ptr %985, 0
@@ -3106,7 +3106,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit128.i:               ; preds = %1114, %._crit_edge4
   %1145 = zext nneg i32 %1144 to i64
   %1146 = add i64 %.sroa.4.0.i.i.i131.i, %1145
   %1147 = and i64 %1146, %1110
-  %1148 = getelementptr inbounds ptr, ptr %1113, i64 %1147
+  %1148 = getelementptr inbounds [8 x i8], ptr %1113, i64 %1147
   %1149 = load ptr, ptr %1148, align 8
   %1150 = load i32, ptr %1149, align 4
   %1151 = zext i32 %1150 to i64
@@ -3162,7 +3162,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit128.i:               ; preds = %1114, %._crit_edge4
   %1171 = zext nneg i32 %1170 to i64
   %1172 = add i64 %.sroa.4.0.i.i.i.i149.i, %1171
   %1173 = and i64 %1172, %1110
-  %1174 = getelementptr inbounds ptr, ptr %1113, i64 %1173
+  %1174 = getelementptr inbounds [8 x i8], ptr %1113, i64 %1173
   %1175 = load ptr, ptr %1174, align 8
   %1176 = load i32, ptr %1175, align 4
   %1177 = zext i32 %1176 to i64
@@ -3170,7 +3170,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit128.i:               ; preds = %1114, %._crit_edge4
   br i1 %1178, label %1179, label %1182
 
 1179:                                             ; preds = %.lr.ph.i.i.i.i152.i
-  %1180 = getelementptr inbounds ptr, ptr %1113, i64 %1173
+  %1180 = getelementptr inbounds [8 x i8], ptr %1113, i64 %1173
   %1181 = getelementptr inbounds i8, ptr %1108, i64 %1173
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %1181) ]
   %.fca.0.insert.i.i.i.i.i160.i = insertvalue { ptr, ptr } poison, ptr %1181, 0
@@ -4024,7 +4024,7 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit.i39: ; preds = %_ZNSt16_Sp_coun
 
 1542:                                             ; preds = %.lr.ph.i.i.i.i169.i
   %1543 = load ptr, ptr %674, align 8
-  %1544 = getelementptr inbounds ptr, ptr %1543, i64 %.07.i.i.i.i.i
+  %1544 = getelementptr inbounds [8 x i8], ptr %1543, i64 %.07.i.i.i.i.i
   %1545 = load ptr, ptr %1544, align 8
   call void @_ZdlPvm(ptr noundef %1545, i64 noundef 8) #26
   %.pre.i.i.i.i.i = load i64, ptr %1535, align 8
@@ -4064,7 +4064,7 @@ _ZN4absl7debian213node_hash_mapIiiNS0_13hash_internal4HashIiEESt8equal_toIiESaIS
 
 1561:                                             ; preds = %.lr.ph.i.i.i.i172.i
   %1562 = load ptr, ptr %587, align 8
-  %1563 = getelementptr inbounds ptr, ptr %1562, i64 %.07.i.i.i.i173.i
+  %1563 = getelementptr inbounds [8 x i8], ptr %1562, i64 %.07.i.i.i.i173.i
   %1564 = load ptr, ptr %1563, align 8
   call void @_ZdlPvm(ptr noundef %1564, i64 noundef 8) #26
   %.pre.i.i.i.i176.i = load i64, ptr %1554, align 8
@@ -6803,7 +6803,7 @@ define linkonce_odr dso_local void @_ZN4absl7debian213node_hash_mapIiiNS0_13hash
 
 11:                                               ; preds = %5
   %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds ptr, ptr %12, i64 %.07.i.i.i
+  %13 = getelementptr inbounds [8 x i8], ptr %12, i64 %.07.i.i.i
   %14 = load ptr, ptr %13, align 8
   tail call void @_ZdlPvm(ptr noundef %14, i64 noundef 8) #26
   %.pre.i.i.i = load i64, ptr %2, align 8
@@ -6886,7 +6886,7 @@ define linkonce_odr dso_local void @_ZN4absl7debian218container_internal12raw_ha
   %34 = zext nneg i32 %33 to i64
   %35 = add i64 %.sroa.4.0.i.i, %34
   %36 = and i64 %35, %17
-  %37 = getelementptr inbounds ptr, ptr %26, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %26, i64 %36
   %38 = load ptr, ptr %37, align 8, !noalias !20
   %39 = load i32, ptr %38, align 4, !noalias !20
   %40 = icmp eq i32 %39, %9
@@ -6912,7 +6912,7 @@ define linkonce_odr dso_local void @_ZN4absl7debian218container_internal12raw_ha
 49:                                               ; preds = %._crit_edge.i.i
   %50 = tail call noundef i64 @_ZN4absl7debian218container_internal12raw_hash_setINS1_17NodeHashMapPolicyIiiEENS0_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiiEEE14prepare_insertEm(ptr noundef nonnull align 8 dereferenceable(40) %0, i64 noundef %16), !noalias !20
   %51 = load ptr, ptr %5, align 8, !noalias !20
-  %52 = getelementptr inbounds ptr, ptr %51, i64 %50
+  %52 = getelementptr inbounds [8 x i8], ptr %51, i64 %50
   %53 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #28, !noalias !20
   %54 = load i32, ptr %.010, align 4, !noalias !20
   store i32 %54, ptr %53, align 4, !noalias !20
@@ -6955,7 +6955,7 @@ define linkonce_odr dso_local void @_ZN4absl7debian218container_internal12raw_ha
 
 11:                                               ; preds = %5
   %12 = load ptr, ptr %4, align 8
-  %13 = getelementptr inbounds ptr, ptr %12, i64 %.07.i
+  %13 = getelementptr inbounds [8 x i8], ptr %12, i64 %.07.i
   %14 = load ptr, ptr %13, align 8
   tail call void @_ZdlPvm(ptr noundef %14, i64 noundef 8) #26
   %.pre.i = load i64, ptr %2, align 8
@@ -7175,7 +7175,7 @@ _ZN4absl7debian218container_internal12raw_hash_setINS1_17NodeHashMapPolicyIiiEEN
   br i1 %25, label %26, label %73
 
 26:                                               ; preds = %.lr.ph
-  %27 = getelementptr inbounds ptr, ptr %5, i64 %.02132
+  %27 = getelementptr inbounds [8 x i8], ptr %5, i64 %.02132
   %28 = load ptr, ptr %27, align 8
   %29 = load i32, ptr %28, align 4
   %30 = sext i32 %29 to i64
@@ -7233,7 +7233,7 @@ _ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit: ; preds = %
   %69 = getelementptr i8, ptr %68, i64 %66
   store i8 %60, ptr %69, align 1
   %70 = load ptr, ptr %4, align 8
-  %71 = getelementptr inbounds ptr, ptr %70, i64 %58
+  %71 = getelementptr inbounds [8 x i8], ptr %70, i64 %58
   %72 = load ptr, ptr %27, align 8
   store ptr %72, ptr %71, align 8
   br label %73
@@ -7280,7 +7280,7 @@ define linkonce_odr dso_local void @_ZN4absl7debian218container_internal12raw_ha
 
 13:                                               ; preds = %7
   %14 = load ptr, ptr %6, align 8
-  %15 = getelementptr inbounds ptr, ptr %14, i64 %.02238
+  %15 = getelementptr inbounds [8 x i8], ptr %14, i64 %.02238
   %16 = load ptr, ptr %15, align 8
   %17 = load i32, ptr %16, align 4
   %18 = sext i32 %17 to i64
@@ -7364,8 +7364,8 @@ _ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit: ; preds = %
   br i1 %63, label %75, label %89
 
 75:                                               ; preds = %60
-  %76 = getelementptr inbounds ptr, ptr %74, i64 %44
-  %77 = getelementptr inbounds ptr, ptr %74, i64 %.02238
+  %76 = getelementptr inbounds [8 x i8], ptr %74, i64 %44
+  %77 = getelementptr inbounds [8 x i8], ptr %74, i64 %.02238
   %78 = load ptr, ptr %77, align 8
   store ptr %78, ptr %76, align 8
   %79 = load ptr, ptr %0, align 8
@@ -7383,13 +7383,13 @@ _ZN4absl7debian218container_internal19find_first_non_fullEPamm.exit: ; preds = %
   br label %97
 
 89:                                               ; preds = %60
-  %90 = getelementptr inbounds ptr, ptr %74, i64 %.02238
+  %90 = getelementptr inbounds [8 x i8], ptr %74, i64 %.02238
   %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds ptr, ptr %74, i64 %44
+  %92 = getelementptr inbounds [8 x i8], ptr %74, i64 %44
   %93 = load ptr, ptr %92, align 8
   store ptr %93, ptr %90, align 8
   %94 = load ptr, ptr %6, align 8
-  %95 = getelementptr inbounds ptr, ptr %94, i64 %44
+  %95 = getelementptr inbounds [8 x i8], ptr %94, i64 %44
   store ptr %91, ptr %95, align 8
   %96 = add i64 %.02238, -1
   br label %97

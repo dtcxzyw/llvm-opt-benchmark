@@ -1393,7 +1393,7 @@ xcbgrab_reposition.exit:                          ; preds = %116, %72, %69, %67
   %328 = sub nsw i32 %301, %294
   %329 = mul nsw i32 %328, %304
   %330 = sext i32 %329 to i64
-  %331 = getelementptr inbounds i32, ptr %279, i64 %330
+  %331 = getelementptr inbounds [4 x i8], ptr %279, i64 %330
   %332 = mul i32 %307, %272
   %333 = sub i32 %301, %300
   %334 = mul i32 %332, %333
@@ -1405,7 +1405,7 @@ xcbgrab_reposition.exit:                          ; preds = %116, %72, %69, %67
   %.014.us.i = phi ptr [ %383, %._crit_edge.us.i ], [ %331, %.lr.ph.us.i.preheader ]
   %.010913.us.i = phi ptr [ %388, %._crit_edge.us.i ], [ %336, %.lr.ph.us.i.preheader ]
   %.011212.us.i = phi i32 [ %389, %._crit_edge.us.i ], [ 0, %.lr.ph.us.i.preheader ]
-  %337 = getelementptr inbounds i32, ptr %.014.us.i, i64 %323
+  %337 = getelementptr inbounds [4 x i8], ptr %.014.us.i, i64 %323
   %338 = getelementptr inbounds i8, ptr %.010913.us.i, i64 %325
   br label %339
 
@@ -1482,7 +1482,7 @@ xcbgrab_reposition.exit:                          ; preds = %116, %72, %69, %67
   %380 = zext i16 %379 to i32
   %381 = add i32 %.neg.i, %380
   %382 = sext i32 %381 to i64
-  %383 = getelementptr inbounds i32, ptr %377, i64 %382
+  %383 = getelementptr inbounds [4 x i8], ptr %377, i64 %382
   %384 = load i32, ptr %306, align 4, !tbaa !61
   %385 = add i32 %.neg126.i, %384
   %386 = mul nsw i32 %385, %272

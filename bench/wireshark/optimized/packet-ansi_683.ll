@@ -706,7 +706,7 @@ define internal i32 @dissect_ansi_683(ptr noundef %0, ptr noundef %1, ptr nounde
   br i1 %.not.not.i, label %32, label %dissect_ansi_683_for_message.exit
 
 32:                                               ; preds = %24
-  %33 = getelementptr ptr, ptr @ansi_683_for_msg_fcn, i64 %28
+  %33 = getelementptr [8 x i8], ptr @ansi_683_for_msg_fcn, i64 %28
   %34 = load ptr, ptr %33, align 8
   %35 = call i32 @tvb_reported_length(ptr noundef %0)
   %36 = add i32 %35, -1
@@ -730,7 +730,7 @@ dissect_ansi_683_for_message.exit:                ; preds = %19, %24, %32
   %44 = call ptr @proto_tree_add_uint(ptr noundef %16, i32 noundef %43, ptr noundef %0, i32 noundef 0, i32 noundef 1, i32 noundef %39)
   %45 = load i32, ptr %5, align 4
   %46 = sext i32 %45 to i64
-  %47 = getelementptr ptr, ptr @ansi_683_rev_msg_fcn, i64 %46
+  %47 = getelementptr [8 x i8], ptr @ansi_683_rev_msg_fcn, i64 %46
   %48 = load ptr, ptr %47, align 8
   %49 = call i32 @tvb_reported_length(ptr noundef %0)
   %50 = add i32 %49, -1

@@ -17,14 +17,10 @@ target triple = "x86_64-unknown-linux-gnu"
 %union.anon.76 = type { i64 }
 %struct.cpumask = type { [1 x i64] }
 %struct.dbuf_slice_conf_entry = type { i8, [4 x i8], i8 }
-%struct.skl_ddb_entry = type { i16, i16 }
-%struct.skl_plane_wm = type { [8 x %struct.skl_wm_level], [8 x %struct.skl_wm_level], %struct.skl_wm_level, %struct.anon.58, i8 }
 %struct.skl_wm_level = type { i16, i16, i8, i8, i8, i8 }
-%struct.anon.58 = type { %struct.skl_wm_level, %struct.skl_wm_level }
-%struct.__drm_crtcs_state = type { ptr, ptr, ptr, ptr, ptr, ptr, i64 }
 %struct.skl_wm_params = type { i8, i8, i8, i8, i32, i8, i32, i32, i32, %struct.uint_fixed_16_16_t, %struct.uint_fixed_16_16_t, i32, i32 }
 %struct.uint_fixed_16_16_t = type { i32 }
-%struct.__drm_planes_state = type { ptr, ptr, ptr, ptr }
+%struct.skl_ddb_entry = type { i16, i16 }
 
 @.str = private unnamed_addr constant [65 x i8] c"[drm] *ERROR* mismatch in DBUF Slices (expected 0x%x, got 0x%x)\0A\00", align 1
 @.str.1 = private unnamed_addr constant [92 x i8] c"[drm] *ERROR* [PLANE:%d:%s] mismatch in WM%d (expected e=%d b=%u l=%u, got e=%d b=%u l=%u)\0A\00", align 1
@@ -133,7 +129,7 @@ define dso_local zeroext i8 @intel_enabled_dbuf_slices_mask(ptr noundef %0) loca
   store i32 282600, ptr %4, align 4
   store i32 279296, ptr %5, align 4
   store i32 279300, ptr %6, align 4
-  %20 = getelementptr i32, ptr %2, i64 %10
+  %20 = getelementptr [4 x i8], ptr %2, i64 %10
   %21 = load i32, ptr %20, align 4
   %22 = load ptr, ptr %8, align 8
   %23 = tail call i32 %22(ptr noundef nonnull %7, i32 %21, i1 noundef zeroext true) #15
@@ -514,9 +510,9 @@ define dso_local void @skl_write_plane_wm(ptr noundef readonly captures(none) %0
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 2790
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 4028
   %10 = zext i32 %5 to i64
-  %11 = getelementptr %struct.skl_ddb_entry, ptr %9, i64 %10
+  %11 = getelementptr [4 x i8], ptr %9, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 4060
-  %13 = getelementptr %struct.skl_ddb_entry, ptr %12, i64 %10
+  %13 = getelementptr [4 x i8], ptr %12, i64 %10
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 7024
   %15 = load i8, ptr %14, align 8
   %16 = icmp eq i8 %15, 0
@@ -527,7 +523,7 @@ define dso_local void @skl_write_plane_wm(ptr noundef readonly captures(none) %0
 17:                                               ; preds = %2
   %18 = add i32 %.pre1, 459328
   %19 = add i32 %18, %.pre
-  %20 = getelementptr %struct.skl_plane_wm, ptr %8, i64 %10
+  %20 = getelementptr [154 x i8], ptr %8, i64 %10
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 4022
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 136
   br label %23
@@ -546,7 +542,7 @@ define dso_local void @skl_write_plane_wm(ptr noundef readonly captures(none) %0
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %29, %23
-  %33 = getelementptr %struct.skl_wm_level, ptr %20, i64 %24
+  %33 = getelementptr [8 x i8], ptr %20, i64 %24
   br label %34
 
 34:                                               ; preds = %32, %29
@@ -561,7 +557,7 @@ define dso_local void @skl_write_plane_wm(ptr noundef readonly captures(none) %0
 .loopexit:                                        ; preds = %34, %2
   %40 = add i32 %.pre, %.pre1
   %41 = add i32 %40, 459368
-  %42 = getelementptr %struct.skl_plane_wm, ptr %8, i64 %10
+  %42 = getelementptr [154 x i8], ptr %8, i64 %10
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 4022
   %44 = load i8, ptr %43, align 2, !range !9, !noundef !10
   %45 = icmp eq i8 %44, 0
@@ -845,7 +841,7 @@ define dso_local void @skl_write_cursor_wm(ptr noundef readonly captures(none) %
 
 13:                                               ; preds = %2
   %14 = add i32 %.pre, 459072
-  %15 = getelementptr %struct.skl_plane_wm, ptr %8, i64 %9
+  %15 = getelementptr [154 x i8], ptr %8, i64 %9
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 4022
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 136
   br label %18
@@ -861,7 +857,7 @@ define dso_local void @skl_write_cursor_wm(ptr noundef readonly captures(none) %
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %21, %18
-  %25 = getelementptr %struct.skl_wm_level, ptr %15, i64 %19
+  %25 = getelementptr [8 x i8], ptr %15, i64 %19
   br label %26
 
 26:                                               ; preds = %24, %21
@@ -878,7 +874,7 @@ define dso_local void @skl_write_cursor_wm(ptr noundef readonly captures(none) %
 
 .loopexit:                                        ; preds = %26, %2
   %35 = add i32 %.pre, 459112
-  %36 = getelementptr %struct.skl_plane_wm, ptr %8, i64 %9
+  %36 = getelementptr [154 x i8], ptr %8, i64 %9
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 4022
   %38 = load i8, ptr %37, align 2, !range !9, !noundef !10
   %39 = icmp eq i8 %38, 0
@@ -912,7 +908,7 @@ define dso_local void @skl_write_cursor_wm(ptr noundef readonly captures(none) %
 
 58:                                               ; preds = %52, %45, %.loopexit
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 4028
-  %60 = getelementptr %struct.skl_ddb_entry, ptr %59, i64 %9
+  %60 = getelementptr [4 x i8], ptr %59, i64 %9
   %61 = add i32 %.pre, 459132
   tail call fastcc void @skl_ddb_entry_write(ptr noundef %3, i32 %61, ptr noundef %60)
   ret void
@@ -936,7 +932,7 @@ define dso_local zeroext i1 @skl_ddb_allocation_overlaps(ptr noundef readonly ca
   br i1 %13, label %24, label %14
 
 14:                                               ; preds = %10
-  %15 = getelementptr %struct.skl_ddb_entry, ptr %1, i64 %11
+  %15 = getelementptr [4 x i8], ptr %1, i64 %11
   %16 = load i16, ptr %0, align 2
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 2
   %18 = load i16, ptr %17, align 2
@@ -971,7 +967,7 @@ define dso_local void @intel_wm_state_verify(ptr noundef readonly captures(none)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %7, i64 %10
+  %.split = getelementptr [56 x i8], ptr %7, i64 %10
   %11 = getelementptr i8, ptr %.split, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 2790
@@ -1023,8 +1019,8 @@ define dso_local void @intel_wm_state_verify(ptr noundef readonly captures(none)
   br i1 %47, label %86, label %48
 
 48:                                               ; preds = %41
-  %49 = getelementptr %struct.skl_ddb_entry, ptr %23, i64 %42
-  %50 = getelementptr %struct.skl_ddb_entry, ptr %27, i64 %42
+  %49 = getelementptr [4 x i8], ptr %23, i64 %42
+  %50 = getelementptr [4 x i8], ptr %27, i64 %42
   %51 = icmp eq i64 %42, 7
   br i1 %51, label %72, label %52
 
@@ -1108,7 +1104,7 @@ define dso_local void @intel_wm_state_verify(ptr noundef readonly captures(none)
   store i32 282600, ptr %92, align 4
   store i32 279296, ptr %93, align 4
   store i32 279300, ptr %94, align 4
-  %108 = getelementptr i32, ptr %3, i64 %98
+  %108 = getelementptr [4 x i8], ptr %3, i64 %98
   %109 = load i32, ptr %108, align 4
   %110 = load ptr, ptr %96, align 8
   %111 = tail call i32 %110(ptr noundef nonnull %95, i32 %109, i1 noundef zeroext true) #15
@@ -1197,9 +1193,9 @@ define dso_local void @intel_wm_state_verify(ptr noundef readonly captures(none)
   %165 = phi i64 [ %224, %222 ], [ 0, %160 ]
   %166 = load i32, ptr %161, align 4
   %167 = zext i32 %166 to i64
-  %168 = getelementptr %struct.skl_plane_wm, ptr %26, i64 %167
-  %169 = getelementptr %struct.skl_wm_level, ptr %168, i64 %165
-  %170 = getelementptr %struct.skl_plane_wm, ptr %13, i64 %167
+  %168 = getelementptr [154 x i8], ptr %26, i64 %167
+  %169 = getelementptr [8 x i8], ptr %168, i64 %165
+  %170 = getelementptr [154 x i8], ptr %13, i64 %167
   %171 = icmp eq i64 %165, 0
   br i1 %171, label %172, label %177
 
@@ -1213,7 +1209,7 @@ define dso_local void @intel_wm_state_verify(ptr noundef readonly captures(none)
   br label %179
 
 177:                                              ; preds = %172, %.split18.us
-  %178 = getelementptr %struct.skl_wm_level, ptr %170, i64 %165
+  %178 = getelementptr [8 x i8], ptr %170, i64 %165
   br label %179
 
 179:                                              ; preds = %177, %175
@@ -1283,9 +1279,9 @@ define dso_local void @intel_wm_state_verify(ptr noundef readonly captures(none)
   %228 = phi i64 [ %288, %286 ], [ 0, %160 ]
   %229 = load i32, ptr %161, align 4
   %230 = zext i32 %229 to i64
-  %231 = getelementptr %struct.skl_plane_wm, ptr %26, i64 %230
-  %232 = getelementptr %struct.skl_wm_level, ptr %231, i64 %228
-  %233 = getelementptr %struct.skl_plane_wm, ptr %13, i64 %230
+  %231 = getelementptr [154 x i8], ptr %26, i64 %230
+  %232 = getelementptr [8 x i8], ptr %231, i64 %228
+  %233 = getelementptr [154 x i8], ptr %13, i64 %230
   %234 = icmp eq i64 %228, 0
   br i1 %234, label %235, label %240
 
@@ -1299,7 +1295,7 @@ define dso_local void @intel_wm_state_verify(ptr noundef readonly captures(none)
   br label %242
 
 240:                                              ; preds = %235, %.split18
-  %241 = getelementptr %struct.skl_wm_level, ptr %233, i64 %228
+  %241 = getelementptr [8 x i8], ptr %233, i64 %228
   br label %242
 
 242:                                              ; preds = %240, %238
@@ -1371,7 +1367,7 @@ define dso_local void @intel_wm_state_verify(ptr noundef readonly captures(none)
   %293 = zext i32 %292 to i64
   %.idx = mul nuw nsw i64 %293, 154
   %294 = getelementptr i8, ptr %26, i64 %.idx
-  %295 = getelementptr %struct.skl_plane_wm, ptr %13, i64 %293
+  %295 = getelementptr [154 x i8], ptr %13, i64 %293
   %296 = load i8, ptr %143, align 2, !range !9, !noundef !10
   %297 = icmp eq i8 %296, 0
   %298 = select i1 %297, i64 128, i64 144
@@ -1676,7 +1672,7 @@ define internal fastcc void @skl_pipe_wm_get_hw_state(ptr noundef readonly captu
   br i1 %28, label %160, label %29
 
 29:                                               ; preds = %22
-  %30 = getelementptr %struct.skl_plane_wm, ptr %1, i64 %23
+  %30 = getelementptr [154 x i8], ptr %1, i64 %23
   %31 = load i8, ptr %7, align 8
   %32 = icmp eq i8 %31, 0
   %33 = icmp eq i64 %23, 7
@@ -1694,7 +1690,7 @@ define internal fastcc void @skl_pipe_wm_get_hw_state(ptr noundef readonly captu
   %40 = shl nuw nsw i32 %39, 2
   %41 = add i32 %12, %40
   %42 = tail call i32 %38(ptr noundef nonnull %10, i32 %41, i1 noundef zeroext true) #15
-  %43 = getelementptr %struct.skl_wm_level, ptr %30, i64 %37
+  %43 = getelementptr [8 x i8], ptr %30, i64 %37
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 5
   %45 = lshr i32 %42, 31
   %46 = trunc nuw nsw i32 %45 to i8
@@ -1725,7 +1721,7 @@ define internal fastcc void @skl_pipe_wm_get_hw_state(ptr noundef readonly captu
   %64 = load ptr, ptr %11, align 8
   %65 = trunc i64 %63 to i32
   %66 = tail call i32 %64(ptr noundef nonnull %10, i32 %65, i1 noundef zeroext true) #15
-  %67 = getelementptr %struct.skl_wm_level, ptr %30, i64 %61
+  %67 = getelementptr [8 x i8], ptr %30, i64 %61
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 5
   %69 = lshr i32 %66, 31
   %70 = trunc nuw nsw i32 %69 to i8
@@ -2255,7 +2251,7 @@ define dso_local void @skl_wm_init(ptr noundef %0) local_unnamed_addr #0 align 1
 175:                                              ; preds = %195, %142
   %176 = phi i64 [ 0, %142 ], [ %198, %195 ]
   %177 = phi i64 [ 1, %142 ], [ %196, %195 ]
-  %178 = getelementptr i16, ptr %140, i64 %177
+  %178 = getelementptr [2 x i8], ptr %140, i64 %177
   %179 = load i16, ptr %178, align 2
   %180 = icmp eq i16 %179, 0
   br i1 %180, label %181, label %195
@@ -2299,7 +2295,7 @@ define dso_local void @skl_wm_init(ptr noundef %0) local_unnamed_addr #0 align 1
 
 206:                                              ; preds = %206, %204
   %207 = phi i64 [ 0, %204 ], [ %211, %206 ]
-  %208 = getelementptr i16, ptr %140, i64 %207
+  %208 = getelementptr [2 x i8], ptr %140, i64 %207
   %209 = load i16, ptr %208, align 2
   %210 = add i16 %209, 6
   store i16 %210, ptr %208, align 2
@@ -2416,7 +2412,7 @@ define dso_local void @skl_wm_init(ptr noundef %0) local_unnamed_addr #0 align 1
 282:                                              ; preds = %302, %258
   %283 = phi i64 [ 0, %258 ], [ %305, %302 ]
   %284 = phi i64 [ 1, %258 ], [ %303, %302 ]
-  %285 = getelementptr i16, ptr %140, i64 %284
+  %285 = getelementptr [2 x i8], ptr %140, i64 %284
   %286 = load i16, ptr %285, align 2
   %287 = icmp eq i16 %286, 0
   br i1 %287, label %288, label %302
@@ -2461,7 +2457,7 @@ define dso_local void @skl_wm_init(ptr noundef %0) local_unnamed_addr #0 align 1
 
 314:                                              ; preds = %314, %311
   %315 = phi i64 [ 0, %311 ], [ %319, %314 ]
-  %316 = getelementptr i16, ptr %140, i64 %315
+  %316 = getelementptr [2 x i8], ptr %140, i64 %315
   %317 = load i16, ptr %316, align 2
   %318 = add i16 %317, %312
   store i16 %318, ptr %316, align 2
@@ -2616,7 +2612,7 @@ define dso_local void @intel_dbuf_pre_plane_update(ptr noundef %0) local_unnamed
   store i32 282600, ptr %55, align 4
   store i32 279296, ptr %56, align 4
   store i32 279300, ptr %57, align 4
-  %68 = getelementptr i32, ptr %2, i64 %59
+  %68 = getelementptr [4 x i8], ptr %2, i64 %59
   %69 = load i32, ptr %68, align 4
   %70 = load ptr, ptr %47, align 8
   %71 = tail call i32 %70(ptr noundef nonnull %46, i32 %69, i1 noundef zeroext true) #15
@@ -2784,7 +2780,7 @@ define dso_local void @intel_mbus_dbox_update(ptr noundef %0) local_unnamed_addr
   %60 = phi ptr [ %48, %52 ], [ %93, %92 ]
   %61 = phi i64 [ 0, %52 ], [ %94, %92 ]
   %62 = load ptr, ptr %53, align 8
-  %63 = getelementptr %struct.__drm_crtcs_state, ptr %62, i64 %61
+  %63 = getelementptr [56 x i8], ptr %62, i64 %61
   %64 = load ptr, ptr %63, align 8
   %65 = icmp eq ptr %64, null
   br i1 %65, label %92, label %66
@@ -2917,7 +2913,7 @@ define dso_local range(i32 0, 65540) i32 @skl_watermark_max_latency(ptr noundef 
 
 11:                                               ; preds = %8
   %12 = add nsw i64 %9, -1
-  %13 = getelementptr i16, ptr %4, i64 %12
+  %13 = getelementptr [2 x i8], ptr %4, i64 %12
   %14 = load i16, ptr %13, align 2
   %15 = icmp eq i16 %14, 0
   br i1 %15, label %8, label %16, !llvm.loop !64
@@ -3103,7 +3099,7 @@ define internal i32 @skl_compute_wm(ptr noundef %0) #0 align 16 {
   %16 = phi i64 [ 0, %12 ], [ %370, %.loopexit222 ]
   %17 = phi ptr [ %8, %12 ], [ %371, %.loopexit222 ]
   %18 = load ptr, ptr %13, align 8
-  %19 = getelementptr %struct.__drm_crtcs_state, ptr %18, i64 %16
+  %19 = getelementptr [56 x i8], ptr %18, i64 %16
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %.loopexit222, label %22
@@ -3112,7 +3108,7 @@ define internal i32 @skl_compute_wm(ptr noundef %0) #0 align 16 {
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 144
   %24 = load i32, ptr %23, align 8
   %25 = zext i32 %24 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %18, i64 %25
+  %.split = getelementptr [56 x i8], ptr %18, i64 %25
   %26 = getelementptr i8, ptr %.split, i64 24
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %17, i64 704
@@ -3130,7 +3126,7 @@ define internal i32 @skl_compute_wm(ptr noundef %0) #0 align 16 {
 36:                                               ; preds = %.thread131, %31
   %37 = phi i64 [ 0, %31 ], [ %224, %.thread131 ]
   %38 = load ptr, ptr %14, align 8
-  %39 = getelementptr %struct.__drm_planes_state, ptr %38, i64 %37
+  %39 = getelementptr [32 x i8], ptr %38, i64 %37
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %42 = load ptr, ptr %41, align 8
@@ -3161,7 +3157,7 @@ define internal i32 @skl_compute_wm(ptr noundef %0) #0 align 16 {
   %59 = getelementptr inbounds nuw i8, ptr %52, i64 1324
   %60 = load i32, ptr %59, align 4
   %61 = zext i32 %60 to i64
-  %62 = getelementptr %struct.skl_plane_wm, ptr %35, i64 %61
+  %62 = getelementptr [154 x i8], ptr %35, i64 %61
   tail call void @llvm.memset.p0.i64(ptr noundef align 2 dereferenceable(154) %62, i8 0, i64 154, i1 false)
   %63 = getelementptr inbounds nuw i8, ptr %42, i64 400
   %64 = load ptr, ptr %63, align 8
@@ -3260,7 +3256,7 @@ define internal i32 @skl_compute_wm(ptr noundef %0) #0 align 16 {
   %117 = getelementptr inbounds nuw i8, ptr %52, i64 1324
   %118 = load i32, ptr %117, align 4
   %119 = zext i32 %118 to i64
-  %120 = getelementptr %struct.skl_plane_wm, ptr %35, i64 %119
+  %120 = getelementptr [154 x i8], ptr %35, i64 %119
   %121 = getelementptr inbounds nuw i8, ptr %42, i64 184
   %122 = load ptr, ptr %121, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef align 2 dereferenceable(154) %120, i8 0, i64 154, i1 false)
@@ -3289,7 +3285,7 @@ define internal i32 @skl_compute_wm(ptr noundef %0) #0 align 16 {
 137:                                              ; preds = %133
   %138 = load i32, ptr %117, align 4
   %139 = zext i32 %138 to i64
-  %140 = getelementptr %struct.skl_plane_wm, ptr %35, i64 %139
+  %140 = getelementptr [154 x i8], ptr %35, i64 %139
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %6, i8 0, i64 40, i1 false), !annotation !75
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 152
@@ -3334,8 +3330,8 @@ define internal i32 @skl_compute_wm(ptr noundef %0) #0 align 16 {
 .split274.us:                                     ; preds = %165, %188
   %172 = phi i64 [ %191, %188 ], [ 0, %165 ]
   %173 = phi ptr [ %174, %188 ], [ %159, %165 ]
-  %174 = getelementptr %struct.skl_wm_level, ptr %159, i64 %172
-  %175 = getelementptr i16, ptr %166, i64 %172
+  %174 = getelementptr [8 x i8], ptr %159, i64 %172
+  %175 = getelementptr [2 x i8], ptr %166, i64 %172
   %176 = load i16, ptr %175, align 2
   %177 = zext i16 %176 to i32
   %178 = icmp eq i16 %176, 0
@@ -3367,8 +3363,8 @@ define internal i32 @skl_compute_wm(ptr noundef %0) #0 align 16 {
 .split274:                                        ; preds = %165, %216
   %195 = phi i64 [ %219, %216 ], [ 0, %165 ]
   %196 = phi ptr [ %197, %216 ], [ %159, %165 ]
-  %197 = getelementptr %struct.skl_wm_level, ptr %159, i64 %195
-  %198 = getelementptr i16, ptr %166, i64 %195
+  %197 = getelementptr [8 x i8], ptr %159, i64 %195
+  %198 = getelementptr [2 x i8], ptr %166, i64 %195
   %199 = load i16, ptr %198, align 2
   %200 = zext i16 %199 to i32
   %201 = icmp eq i16 %199, 0
@@ -3482,7 +3478,7 @@ define internal i32 @skl_compute_wm(ptr noundef %0) #0 align 16 {
 270:                                              ; preds = %.thread134, %261
   %271 = phi i64 [ %269, %261 ], [ %272, %.thread134 ]
   %272 = add nsw i64 %271, -1
-  %273 = getelementptr i16, ptr %262, i64 %272
+  %273 = getelementptr [2 x i8], ptr %262, i64 %272
   %274 = load i16, ptr %273, align 2
   %275 = zext i16 %274 to i32
   %276 = icmp eq i16 %274, 0
@@ -3567,8 +3563,8 @@ define internal i32 @skl_compute_wm(ptr noundef %0) #0 align 16 {
   br i1 %329, label %335, label %330
 
 330:                                              ; preds = %323
-  %331 = getelementptr %struct.skl_plane_wm, ptr %231, i64 %324
-  %.split116 = getelementptr %struct.skl_wm_level, ptr %331, i64 %322
+  %331 = getelementptr [154 x i8], ptr %231, i64 %324
+  %.split116 = getelementptr [8 x i8], ptr %331, i64 %322
   %332 = getelementptr i8, ptr %.split116, i64 5
   store i8 0, ptr %332, align 1
   %333 = getelementptr i8, ptr %331, i64 69
@@ -3655,7 +3651,7 @@ define internal i32 @skl_compute_wm(ptr noundef %0) #0 align 16 {
 
 384:                                              ; preds = %381, %378
   %385 = phi i64 [ %382, %381 ], [ 0, %378 ]
-  %386 = getelementptr %struct.__drm_crtcs_state, ptr %379, i64 %385
+  %386 = getelementptr [56 x i8], ptr %379, i64 %385
   %387 = load ptr, ptr %386, align 8
   %388 = icmp eq ptr %387, null
   br i1 %388, label %381, label %389
@@ -3712,7 +3708,7 @@ define internal i32 @skl_compute_wm(ptr noundef %0) #0 align 16 {
 
 422:                                              ; preds = %427
   %423 = add nuw nsw i64 %428, 1
-  %424 = getelementptr %struct.dbuf_slice_conf_entry, ptr @adlp_allowed_dbufs, i64 %423
+  %424 = getelementptr [6 x i8], ptr @adlp_allowed_dbufs, i64 %423
   %425 = load i8, ptr %424, align 2
   %426 = icmp eq i64 %423, 17
   br i1 %426, label %.loopexit220, label %427, !llvm.loop !86
@@ -3724,7 +3720,7 @@ define internal i32 @skl_compute_wm(ptr noundef %0) #0 align 16 {
   br i1 %430, label %431, label %422
 
 431:                                              ; preds = %427
-  %.split119 = getelementptr %struct.dbuf_slice_conf_entry, ptr @adlp_allowed_dbufs, i64 %428
+  %.split119 = getelementptr [6 x i8], ptr @adlp_allowed_dbufs, i64 %428
   %432 = getelementptr i8, ptr %.split119, i64 5
   %433 = load i8, ptr %432, align 1, !range !9, !noundef !10
   br label %.loopexit220
@@ -3884,7 +3880,7 @@ define internal i32 @skl_compute_wm(ptr noundef %0) #0 align 16 {
 537:                                              ; preds = %.thread145, %534
   %538 = phi i64 [ 0, %534 ], [ %563, %.thread145 ]
   %539 = load ptr, ptr %13, align 8
-  %540 = getelementptr %struct.__drm_crtcs_state, ptr %539, i64 %538
+  %540 = getelementptr [56 x i8], ptr %539, i64 %538
   %541 = load ptr, ptr %540, align 8
   %542 = icmp eq ptr %541, null
   br i1 %542, label %.thread145, label %543
@@ -3914,9 +3910,9 @@ define internal i32 @skl_compute_wm(ptr noundef %0) #0 align 16 {
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %556 = sext i32 %547 to i64
-  %557 = getelementptr i32, ptr %535, i64 %556
+  %557 = getelementptr [4 x i8], ptr %535, i64 %556
   store i32 %555, ptr %557, align 4
-  %558 = getelementptr i32, ptr %536, i64 %556
+  %558 = getelementptr [4 x i8], ptr %536, i64 %556
   %559 = load i32, ptr %558, align 4
   %560 = icmp eq i32 %559, %555
   br i1 %560, label %.thread145, label %561
@@ -3964,14 +3960,14 @@ define internal i32 @skl_compute_wm(ptr noundef %0) #0 align 16 {
   %587 = load i32, ptr %586, align 8
   %588 = getelementptr inbounds nuw i8, ptr %585, i64 40
   %589 = sext i32 %587 to i64
-  %590 = getelementptr i32, ptr %588, i64 %589
+  %590 = getelementptr [4 x i8], ptr %588, i64 %589
   %591 = load i32, ptr %590, align 4
   %592 = icmp eq i32 %591, 0
   br i1 %592, label %593, label %597
 
 593:                                              ; preds = %577
   %594 = getelementptr inbounds nuw i8, ptr %585, i64 24
-  %595 = getelementptr %struct.skl_ddb_entry, ptr %594, i64 %589
+  %595 = getelementptr [4 x i8], ptr %594, i64 %589
   store i16 0, ptr %595, align 2
   %596 = getelementptr inbounds nuw i8, ptr %595, i64 2
   store i16 0, ptr %596, align 2
@@ -4110,7 +4106,7 @@ mbus_ddb_offset.exit:                             ; preds = %631, %664, %667
   br i1 %684, label %702, label %685
 
 685:                                              ; preds = %677
-  %686 = getelementptr i32, ptr %588, i64 %681
+  %686 = getelementptr [4 x i8], ptr %588, i64 %681
   %687 = load i32, ptr %686, align 4
   %688 = getelementptr i8, ptr %598, i64 %681
   %689 = load i8, ptr %688, align 1
@@ -4150,7 +4146,7 @@ mbus_ddb_offset.exit:                             ; preds = %631, %664, %667
   %713 = mul i32 %705, %710
   %714 = udiv i32 %713, %703
   %715 = getelementptr inbounds nuw i8, ptr %585, i64 24
-  %716 = getelementptr %struct.skl_ddb_entry, ptr %715, i64 %589
+  %716 = getelementptr [4 x i8], ptr %715, i64 %589
   %717 = zext i16 %634 to i32
   %718 = sub i32 %717, %668
   %719 = add i32 %712, %718
@@ -4178,7 +4174,7 @@ mbus_ddb_offset.exit:                             ; preds = %631, %664, %667
 
 736:                                              ; preds = %725
   %737 = getelementptr inbounds nuw i8, ptr %582, i64 24
-  %738 = getelementptr %struct.skl_ddb_entry, ptr %737, i64 %589
+  %738 = getelementptr [4 x i8], ptr %737, i64 %589
   %739 = load i16, ptr %738, align 2
   %740 = icmp eq i16 %739, %727
   br i1 %740, label %741, label %745
@@ -4206,7 +4202,7 @@ mbus_ddb_offset.exit:                             ; preds = %631, %664, %667
 
 754:                                              ; preds = %748
   %755 = getelementptr inbounds nuw i8, ptr %585, i64 24
-  %756 = getelementptr %struct.skl_ddb_entry, ptr %755, i64 %589
+  %756 = getelementptr [4 x i8], ptr %755, i64 %589
   %757 = load i16, ptr %756, align 4
   %758 = add i16 %757, %728
   %759 = getelementptr inbounds nuw i8, ptr %749, i64 4024
@@ -4235,7 +4231,7 @@ mbus_ddb_offset.exit:                             ; preds = %631, %664, %667
   %776 = load i8, ptr %733, align 1
   %777 = zext i8 %776 to i32
   %778 = getelementptr inbounds nuw i8, ptr %582, i64 24
-  %779 = getelementptr %struct.skl_ddb_entry, ptr %778, i64 %589
+  %779 = getelementptr [4 x i8], ptr %778, i64 %589
   %780 = load i16, ptr %779, align 4
   %781 = zext i16 %780 to i32
   %782 = getelementptr inbounds nuw i8, ptr %779, i64 2
@@ -4263,7 +4259,7 @@ mbus_ddb_offset.exit:                             ; preds = %631, %664, %667
   %798 = phi i64 [ %1383, %.thread170 ], [ 0, %572 ]
   %799 = phi ptr [ %1384, %.thread170 ], [ %573, %572 ]
   %800 = load ptr, ptr %13, align 8
-  %801 = getelementptr %struct.__drm_crtcs_state, ptr %800, i64 %798
+  %801 = getelementptr [56 x i8], ptr %800, i64 %798
   %802 = load ptr, ptr %801, align 8
   %803 = getelementptr inbounds nuw i8, ptr %801, i64 16
   %804 = load ptr, ptr %803, align 8
@@ -4277,7 +4273,7 @@ mbus_ddb_offset.exit:                             ; preds = %631, %664, %667
   %810 = getelementptr inbounds nuw i8, ptr %802, i64 144
   %811 = load i32, ptr %810, align 8
   %812 = zext i32 %811 to i64
-  %.split120 = getelementptr %struct.__drm_crtcs_state, ptr %800, i64 %812
+  %.split120 = getelementptr [56 x i8], ptr %800, i64 %812
   %813 = getelementptr i8, ptr %.split120, i64 24
   %814 = load ptr, ptr %813, align 8
   %815 = getelementptr inbounds nuw i8, ptr %799, i64 2248
@@ -4299,7 +4295,7 @@ mbus_ddb_offset.exit:                             ; preds = %631, %664, %667
 828:                                              ; preds = %808
   %829 = getelementptr inbounds nuw i8, ptr %816, i64 24
   %830 = sext i32 %818 to i64
-  %831 = getelementptr %struct.skl_ddb_entry, ptr %829, i64 %830
+  %831 = getelementptr [4 x i8], ptr %829, i64 %830
   %832 = load i16, ptr %831, align 2
   %833 = getelementptr inbounds nuw i8, ptr %831, i64 2
   %834 = load i16, ptr %833, align 2
@@ -4379,7 +4375,7 @@ mbus_ddb_offset.exit:                             ; preds = %631, %664, %667
 880:                                              ; preds = %874, %867
   %881 = phi i64 [ 0, %867 ], [ %876, %874 ]
   %882 = phi i32 [ 0, %867 ], [ %875, %874 ]
-  %883 = getelementptr i16, ptr %868, i64 %881
+  %883 = getelementptr [2 x i8], ptr %868, i64 %881
   %884 = load i16, ptr %883, align 2
   %885 = zext i16 %884 to i32
   %886 = icmp eq i16 %884, 0
@@ -4470,14 +4466,14 @@ mbus_ddb_offset.exit:                             ; preds = %631, %664, %667
   br label %.thread150
 
 942:                                              ; preds = %934
-  %943 = getelementptr i64, ptr %926, i64 %929
+  %943 = getelementptr [8 x i8], ptr %926, i64 %929
   %944 = load i64, ptr %943, align 8
   %945 = add i64 %944, %930
   %946 = icmp ult i16 %936, 11
   br i1 %946, label %947, label %951
 
 947:                                              ; preds = %942
-  %948 = getelementptr i64, ptr %927, i64 %929
+  %948 = getelementptr [8 x i8], ptr %927, i64 %929
   %949 = load i64, ptr %948, align 8
   %950 = add i64 %949, %945
   br label %951
@@ -4530,7 +4526,7 @@ mbus_ddb_offset.exit:                             ; preds = %631, %664, %667
   br i1 %983, label %1020, label %984
 
 984:                                              ; preds = %978
-  %985 = getelementptr %struct.skl_plane_wm, ptr %963, i64 %979
+  %985 = getelementptr [154 x i8], ptr %963, i64 %979
   %986 = icmp eq i64 %979, 7
   br i1 %986, label %987, label %1010
 
@@ -4540,7 +4536,7 @@ mbus_ddb_offset.exit:                             ; preds = %631, %664, %667
   br i1 %989, label %990, label %1010
 
 990:                                              ; preds = %987
-  %991 = getelementptr %struct.skl_wm_level, ptr %985, i64 %974
+  %991 = getelementptr [8 x i8], ptr %985, i64 %974
   %992 = load i16, ptr %991, align 2
   %993 = load i16, ptr %968, align 2
   %994 = load i16, ptr %967, align 2
@@ -4576,12 +4572,12 @@ mbus_ddb_offset.exit:                             ; preds = %631, %664, %667
   br label %.thread154
 
 1010:                                             ; preds = %987, %984
-  %1011 = getelementptr %struct.skl_wm_level, ptr %985, i64 %974
+  %1011 = getelementptr [8 x i8], ptr %985, i64 %974
   %1012 = load i16, ptr %1011, align 2
   %1013 = zext i16 %1012 to i32
   %1014 = add i32 %980, %1013
   %1015 = getelementptr inbounds nuw i8, ptr %985, i64 64
-  %1016 = getelementptr %struct.skl_wm_level, ptr %1015, i64 %974
+  %1016 = getelementptr [8 x i8], ptr %1015, i64 %974
   %1017 = load i16, ptr %1016, align 2
   %1018 = zext i16 %1017 to i32
   %1019 = add i32 %1014, %1018
@@ -4641,9 +4637,9 @@ mbus_ddb_offset.exit:                             ; preds = %631, %664, %667
   br i1 %1052, label %1157, label %1053
 
 1053:                                             ; preds = %1043
-  %1054 = getelementptr %struct.skl_ddb_entry, ptr %823, i64 %1044
-  %1055 = getelementptr %struct.skl_ddb_entry, ptr %824, i64 %1044
-  %1056 = getelementptr %struct.skl_plane_wm, ptr %963, i64 %1044
+  %1054 = getelementptr [4 x i8], ptr %823, i64 %1044
+  %1055 = getelementptr [4 x i8], ptr %824, i64 %1044
+  %1056 = getelementptr [154 x i8], ptr %963, i64 %1044
   %1057 = icmp eq i64 %1044, 7
   %1058 = load i16, ptr %838, align 8
   br i1 %1057, label %1059, label %1061
@@ -4664,8 +4660,8 @@ mbus_ddb_offset.exit:                             ; preds = %631, %664, %667
   br i1 %1067, label %.thread162, label %1068
 
 1068:                                             ; preds = %1063
-  %1069 = getelementptr %struct.skl_wm_level, ptr %1056, i64 %1042
-  %1070 = getelementptr i64, ptr %927, i64 %1044
+  %1069 = getelementptr [8 x i8], ptr %1056, i64 %1042
+  %1070 = getelementptr [8 x i8], ptr %927, i64 %1044
   %1071 = load i64, ptr %1070, align 8
   %1072 = icmp eq i64 %1071, 0
   br i1 %1072, label %1086, label %1073
@@ -4704,8 +4700,8 @@ mbus_ddb_offset.exit:                             ; preds = %631, %664, %667
 1096:                                             ; preds = %1093, %1086
   %1097 = phi i16 [ %1047, %1086 ], [ %1094, %1093 ]
   %1098 = getelementptr inbounds nuw i8, ptr %1056, i64 64
-  %1099 = getelementptr %struct.skl_wm_level, ptr %1098, i64 %1042
-  %1100 = getelementptr i64, ptr %926, i64 %1044
+  %1099 = getelementptr [8 x i8], ptr %1098, i64 %1042
+  %1100 = getelementptr [8 x i8], ptr %926, i64 %1044
   %1101 = load i64, ptr %1100, align 8
   %1102 = icmp eq i64 %1101, 0
   br i1 %1102, label %1116, label %1103
@@ -4739,8 +4735,8 @@ mbus_ddb_offset.exit:                             ; preds = %631, %664, %667
   br label %1151
 
 .thread162:                                       ; preds = %1059, %1063, %1061
-  %1125 = getelementptr %struct.skl_wm_level, ptr %1056, i64 %1042
-  %1126 = getelementptr i64, ptr %926, i64 %1044
+  %1125 = getelementptr [8 x i8], ptr %1056, i64 %1042
+  %1126 = getelementptr [8 x i8], ptr %926, i64 %1044
   %1127 = load i64, ptr %1126, align 8
   %1128 = icmp eq i64 %1127, 0
   br i1 %1128, label %1142, label %1129
@@ -4848,9 +4844,9 @@ mbus_ddb_offset.exit:                             ; preds = %631, %664, %667
   br i1 %1195, label %1250, label %1196
 
 1196:                                             ; preds = %1189
-  %1197 = getelementptr %struct.skl_ddb_entry, ptr %823, i64 %1190
-  %1198 = getelementptr %struct.skl_ddb_entry, ptr %824, i64 %1190
-  %1199 = getelementptr %struct.skl_plane_wm, ptr %963, i64 %1190
+  %1197 = getelementptr [4 x i8], ptr %823, i64 %1190
+  %1198 = getelementptr [4 x i8], ptr %824, i64 %1190
+  %1199 = getelementptr [154 x i8], ptr %963, i64 %1190
   %1200 = load i16, ptr %838, align 8
   %1201 = icmp ult i16 %1200, 11
   br i1 %1201, label %1202, label %1225
@@ -4863,9 +4859,9 @@ mbus_ddb_offset.exit:                             ; preds = %631, %664, %667
   br i1 %1206, label %1225, label %1207
 
 1207:                                             ; preds = %1202
-  %1208 = getelementptr %struct.skl_wm_level, ptr %1199, i64 %1186
+  %1208 = getelementptr [8 x i8], ptr %1199, i64 %1186
   %1209 = getelementptr inbounds nuw i8, ptr %1199, i64 64
-  %1210 = getelementptr %struct.skl_wm_level, ptr %1209, i64 %1186
+  %1210 = getelementptr [8 x i8], ptr %1209, i64 %1186
   %1211 = load i16, ptr %1208, align 2
   %1212 = getelementptr inbounds nuw i8, ptr %1198, i64 2
   %1213 = load i16, ptr %1212, align 2
@@ -4888,7 +4884,7 @@ mbus_ddb_offset.exit:                             ; preds = %631, %664, %667
   br label %1233
 
 1225:                                             ; preds = %1202, %1196
-  %1226 = getelementptr %struct.skl_wm_level, ptr %1199, i64 %1186
+  %1226 = getelementptr [8 x i8], ptr %1199, i64 %1186
   %1227 = load i16, ptr %1226, align 2
   %1228 = getelementptr inbounds nuw i8, ptr %1197, i64 2
   %1229 = load i16, ptr %1228, align 2
@@ -4903,14 +4899,14 @@ mbus_ddb_offset.exit:                             ; preds = %631, %664, %667
   br label %1235
 
 1235:                                             ; preds = %1233, %1225, %1217
-  %.split121 = getelementptr %struct.skl_wm_level, ptr %1199, i64 %1186
+  %.split121 = getelementptr [8 x i8], ptr %1199, i64 %1186
   %1236 = getelementptr i8, ptr %.split121, i64 5
   %1237 = load i8, ptr %1236, align 1, !range !9, !noundef !10
   %1238 = icmp eq i8 %1237, 0
   br i1 %1238, label %1239, label %1250
 
 1239:                                             ; preds = %1235
-  %1240 = getelementptr %struct.skl_wm_level, ptr %1199, i64 %1188
+  %1240 = getelementptr [8 x i8], ptr %1199, i64 %1188
   %1241 = getelementptr inbounds nuw i8, ptr %1240, i64 2
   %1242 = load i16, ptr %1241, align 2
   %1243 = getelementptr inbounds nuw i8, ptr %.split121, i64 2
@@ -4951,9 +4947,9 @@ mbus_ddb_offset.exit:                             ; preds = %631, %664, %667
   br i1 %1264, label %1313, label %1265
 
 1265:                                             ; preds = %.loopexit207
-  %1266 = getelementptr %struct.skl_ddb_entry, ptr %823, i64 %1259
-  %1267 = getelementptr %struct.skl_ddb_entry, ptr %824, i64 %1259
-  %1268 = getelementptr %struct.skl_plane_wm, ptr %963, i64 %1259
+  %1266 = getelementptr [4 x i8], ptr %823, i64 %1259
+  %1267 = getelementptr [4 x i8], ptr %824, i64 %1259
+  %1268 = getelementptr [154 x i8], ptr %963, i64 %1259
   %1269 = load i16, ptr %838, align 8
   %1270 = icmp ult i16 %1269, 11
   br i1 %1270, label %1271, label %._crit_edge
@@ -5080,8 +5076,8 @@ mbus_ddb_offset.exit:                             ; preds = %631, %664, %667
   %1343 = getelementptr i8, ptr %1336, i64 1316
   %1344 = load i32, ptr %1343, align 4
   %1345 = zext i32 %1344 to i64
-  %1346 = getelementptr %struct.skl_ddb_entry, ptr %1328, i64 %1345
-  %1347 = getelementptr %struct.skl_ddb_entry, ptr %1329, i64 %1345
+  %1346 = getelementptr [4 x i8], ptr %1328, i64 %1345
+  %1347 = getelementptr [4 x i8], ptr %1329, i64 %1345
   %1348 = load i16, ptr %1346, align 2
   %1349 = load i16, ptr %1347, align 2
   %1350 = icmp eq i16 %1348, %1349
@@ -5096,8 +5092,8 @@ mbus_ddb_offset.exit:                             ; preds = %631, %664, %667
   br i1 %1356, label %1357, label %1369
 
 1357:                                             ; preds = %1351
-  %1358 = getelementptr %struct.skl_ddb_entry, ptr %1330, i64 %1345
-  %1359 = getelementptr %struct.skl_ddb_entry, ptr %1331, i64 %1345
+  %1358 = getelementptr [4 x i8], ptr %1330, i64 %1345
+  %1359 = getelementptr [4 x i8], ptr %1331, i64 %1345
   %1360 = load i16, ptr %1358, align 2
   %1361 = load i16, ptr %1359, align 2
   %1362 = icmp eq i16 %1360, %1361
@@ -5167,7 +5163,7 @@ mbus_ddb_offset.exit:                             ; preds = %631, %664, %667
   %1399 = phi ptr [ null, %1395 ], [ %1542, %1540 ]
   %1400 = phi ptr [ null, %1395 ], [ %1541, %1540 ]
   %1401 = load ptr, ptr %1396, align 8
-  %1402 = getelementptr %struct.__drm_crtcs_state, ptr %1401, i64 %1398
+  %1402 = getelementptr [56 x i8], ptr %1401, i64 %1398
   %1403 = load ptr, ptr %1402, align 8
   %1404 = getelementptr inbounds nuw i8, ptr %1402, i64 24
   %1405 = load ptr, ptr %1404, align 8
@@ -5215,7 +5211,7 @@ mbus_ddb_offset.exit:                             ; preds = %631, %664, %667
   br i1 %1434, label %1444, label %1435
 
 1435:                                             ; preds = %1430
-  %1436 = getelementptr %struct.skl_plane_wm, ptr %1426, i64 %1431
+  %1436 = getelementptr [154 x i8], ptr %1426, i64 %1431
   %1437 = getelementptr inbounds nuw i8, ptr %1436, i64 5
   %1438 = load i8, ptr %1437, align 1, !range !9, !noundef !10
   %1439 = icmp eq i8 %1438, 0
@@ -5281,7 +5277,7 @@ mbus_ddb_offset.exit:                             ; preds = %631, %664, %667
   br i1 %1480, label %1498, label %1481
 
 1481:                                             ; preds = %1475
-  %1482 = getelementptr %struct.skl_plane_wm, ptr %1473, i64 %1476
+  %1482 = getelementptr [154 x i8], ptr %1473, i64 %1476
   %1483 = getelementptr inbounds nuw i8, ptr %1482, i64 5
   %1484 = load i8, ptr %1483, align 1, !range !9, !noundef !10
   %1485 = icmp eq i8 %1484, 0
@@ -5296,7 +5292,7 @@ mbus_ddb_offset.exit:                             ; preds = %631, %664, %667
   %1490 = phi i32 [ %1488, %1486 ], [ %1491, %1489 ]
   %1491 = add i32 %1490, -1
   %1492 = sext i32 %1491 to i64
-  %.split122 = getelementptr %struct.skl_wm_level, ptr %1482, i64 %1492
+  %.split122 = getelementptr [8 x i8], ptr %1482, i64 %1492
   %1493 = getelementptr i8, ptr %.split122, i64 5
   %1494 = load i8, ptr %1493, align 1, !range !9, !noundef !10
   %1495 = icmp eq i8 %1494, 0
@@ -5328,14 +5324,14 @@ mbus_ddb_offset.exit:                             ; preds = %631, %664, %667
   br i1 %1510, label %1520, label %1511
 
 1511:                                             ; preds = %1506
-  %1512 = getelementptr %struct.skl_plane_wm, ptr %1473, i64 %1507
+  %1512 = getelementptr [154 x i8], ptr %1473, i64 %1507
   %1513 = getelementptr inbounds nuw i8, ptr %1512, i64 5
   %1514 = load i8, ptr %1513, align 1, !range !9, !noundef !10
   %1515 = icmp eq i8 %1514, 0
   br i1 %1515, label %1520, label %1516
 
 1516:                                             ; preds = %1511
-  %.split123 = getelementptr %struct.skl_wm_level, ptr %1512, i64 %1505
+  %.split123 = getelementptr [8 x i8], ptr %1512, i64 %1505
   %1517 = getelementptr i8, ptr %.split123, i64 7
   %1518 = load i8, ptr %1517, align 1, !range !9, !noundef !10
   %1519 = icmp eq i8 %1518, 0
@@ -5489,7 +5485,7 @@ mbus_ddb_offset.exit:                             ; preds = %631, %664, %667
   %1612 = phi ptr [ %1604, %1608 ], [ %1639, %1638 ]
   %1613 = phi i64 [ 0, %1608 ], [ %1640, %1638 ]
   %1614 = load ptr, ptr %1396, align 8
-  %1615 = getelementptr %struct.__drm_crtcs_state, ptr %1614, i64 %1613
+  %1615 = getelementptr [56 x i8], ptr %1614, i64 %1613
   %1616 = load ptr, ptr %1615, align 8
   %1617 = icmp eq ptr %1616, null
   br i1 %1617, label %1638, label %1618
@@ -5559,7 +5555,7 @@ mbus_ddb_offset.exit:                             ; preds = %631, %664, %667
 1653:                                             ; preds = %.thread190, %1651
   %1654 = phi i64 [ 0, %1651 ], [ %1856, %.thread190 ]
   %1655 = load ptr, ptr %1652, align 8
-  %1656 = getelementptr %struct.__drm_crtcs_state, ptr %1655, i64 %1654
+  %1656 = getelementptr [56 x i8], ptr %1655, i64 %1654
   %1657 = load ptr, ptr %1656, align 8
   %1658 = icmp eq ptr %1657, null
   br i1 %1658, label %.thread190, label %1659
@@ -5575,7 +5571,7 @@ mbus_ddb_offset.exit:                             ; preds = %631, %664, %667
   %1665 = getelementptr inbounds nuw i8, ptr %1657, i64 144
   %1666 = load i32, ptr %1665, align 8
   %1667 = zext i32 %1666 to i64
-  %.split124 = getelementptr %struct.__drm_crtcs_state, ptr %1655, i64 %1667
+  %.split124 = getelementptr [56 x i8], ptr %1655, i64 %1667
   %1668 = getelementptr i8, ptr %.split124, i64 24
   %1669 = load ptr, ptr %1668, align 8
   %1670 = getelementptr i8, ptr %.split124, i64 16
@@ -5617,8 +5613,8 @@ mbus_ddb_offset.exit:                             ; preds = %631, %664, %667
 
 1699:                                             ; preds = %1694
   %1700 = zext i32 %1690 to i64
-  %1701 = getelementptr %struct.skl_plane_wm, ptr %1674, i64 %1700
-  %1702 = getelementptr %struct.skl_plane_wm, ptr %1675, i64 %1700
+  %1701 = getelementptr [154 x i8], ptr %1674, i64 %1700
+  %1702 = getelementptr [154 x i8], ptr %1675, i64 %1700
   %1703 = getelementptr inbounds nuw i8, ptr %1702, i64 136
   %1704 = zext i8 %1697 to i64
   br label %1708
@@ -5643,12 +5639,12 @@ mbus_ddb_offset.exit:                             ; preds = %631, %664, %667
   br i1 %1714, label %1717, label %1720
 
 1715:                                             ; preds = %1708
-  %1716 = getelementptr %struct.skl_wm_level, ptr %1701, i64 %1709
+  %1716 = getelementptr [8 x i8], ptr %1701, i64 %1709
   br label %1717
 
 1717:                                             ; preds = %1715, %.thread184
   %1718 = phi ptr [ %spec.select, %.thread184 ], [ %1716, %1715 ]
-  %1719 = getelementptr %struct.skl_wm_level, ptr %1702, i64 %1709
+  %1719 = getelementptr [8 x i8], ptr %1702, i64 %1709
   br label %1720
 
 1720:                                             ; preds = %1717, %.thread184
@@ -5770,12 +5766,12 @@ mbus_ddb_offset.exit:                             ; preds = %631, %664, %667
 
 1807:                                             ; preds = %1801, %1749, %.loopexit200
   %1808 = zext i32 %1690 to i64
-  %1809 = getelementptr %struct.skl_plane_wm, ptr %1674, i64 %1808
+  %1809 = getelementptr [154 x i8], ptr %1674, i64 %1808
   %1810 = load i8, ptr %1676, align 2, !range !9, !noundef !10
   %1811 = icmp eq i8 %1810, 0
   %1812 = select i1 %1811, i64 128, i64 144
   %1813 = getelementptr inbounds nuw i8, ptr %1809, i64 %1812
-  %1814 = getelementptr %struct.skl_plane_wm, ptr %1675, i64 %1808
+  %1814 = getelementptr [154 x i8], ptr %1675, i64 %1808
   %1815 = load i8, ptr %1677, align 2, !range !9, !noundef !10
   %1816 = icmp eq i8 %1815, 0
   %1817 = select i1 %1816, i64 128, i64 144
@@ -5865,7 +5861,7 @@ mbus_ddb_offset.exit:                             ; preds = %631, %664, %667
 1873:                                             ; preds = %.loopexit197, %1868
   %1874 = phi i64 [ 0, %1868 ], [ %2459, %.loopexit197 ]
   %1875 = load ptr, ptr %1652, align 8
-  %1876 = getelementptr %struct.__drm_crtcs_state, ptr %1875, i64 %1874
+  %1876 = getelementptr [56 x i8], ptr %1875, i64 %1874
   %1877 = load ptr, ptr %1876, align 8
   %1878 = icmp eq ptr %1877, null
   br i1 %1878, label %.loopexit197, label %1879
@@ -5912,8 +5908,8 @@ mbus_ddb_offset.exit:                             ; preds = %631, %664, %667
   %1903 = getelementptr i8, ptr %1897, i64 1316
   %1904 = load i32, ptr %1903, align 4
   %1905 = zext i32 %1904 to i64
-  %1906 = getelementptr %struct.skl_ddb_entry, ptr %1890, i64 %1905
-  %1907 = getelementptr %struct.skl_ddb_entry, ptr %1891, i64 %1905
+  %1906 = getelementptr [4 x i8], ptr %1890, i64 %1905
+  %1907 = getelementptr [4 x i8], ptr %1891, i64 %1905
   %1908 = load i16, ptr %1906, align 2
   %1909 = load i16, ptr %1907, align 2
   %1910 = icmp eq i16 %1908, %1909
@@ -5972,8 +5968,8 @@ mbus_ddb_offset.exit:                             ; preds = %631, %664, %667
   %1948 = getelementptr i8, ptr %1942, i64 1316
   %1949 = load i32, ptr %1948, align 4
   %1950 = zext i32 %1949 to i64
-  %1951 = getelementptr %struct.skl_plane_wm, ptr %1884, i64 %1950
-  %1952 = getelementptr %struct.skl_plane_wm, ptr %1885, i64 %1950
+  %1951 = getelementptr [154 x i8], ptr %1884, i64 %1950
+  %1952 = getelementptr [154 x i8], ptr %1885, i64 %1950
   %1953 = load i8, ptr %1872, align 8
   %1954 = icmp eq i8 %1953, 0
   br i1 %1954, label %.loopexit196, label %1955
@@ -5989,8 +5985,8 @@ mbus_ddb_offset.exit:                             ; preds = %631, %664, %667
 
 1960:                                             ; preds = %1957, %1955
   %1961 = phi i64 [ 0, %1955 ], [ %1958, %1957 ]
-  %1962 = getelementptr %struct.skl_wm_level, ptr %1951, i64 %1961
-  %1963 = getelementptr %struct.skl_wm_level, ptr %1952, i64 %1961
+  %1962 = getelementptr [8 x i8], ptr %1951, i64 %1961
+  %1963 = getelementptr [8 x i8], ptr %1952, i64 %1961
   %1964 = getelementptr inbounds nuw i8, ptr %1962, i64 5
   %1965 = load i8, ptr %1964, align 1, !range !9, !noundef !10
   %1966 = getelementptr inbounds nuw i8, ptr %1963, i64 5
@@ -6630,7 +6626,7 @@ define internal void @skl_wm_get_hw_state_and_sanitize(ptr noundef %0) #0 align 
 52:                                               ; preds = %51, %39
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1234) %46, ptr noundef nonnull align 2 dereferenceable(1234) %47, i64 1234, i1 false)
   %53 = sext i32 %45 to i64
-  %54 = getelementptr %struct.skl_ddb_entry, ptr %28, i64 %53
+  %54 = getelementptr [4 x i8], ptr %28, i64 %53
   store i32 0, ptr %54, align 4
   %55 = getelementptr i8, ptr %40, i64 1637
   %56 = getelementptr inbounds nuw i8, ptr %43, i64 4060
@@ -6653,8 +6649,8 @@ define internal void @skl_wm_get_hw_state_and_sanitize(ptr noundef %0) #0 align 
   br i1 %68, label %.thread44, label %69
 
 69:                                               ; preds = %66
-  %70 = getelementptr %struct.skl_ddb_entry, ptr %56, i64 %60
-  %71 = getelementptr %struct.skl_ddb_entry, ptr %57, i64 %60
+  %70 = getelementptr [4 x i8], ptr %56, i64 %60
+  %71 = getelementptr [4 x i8], ptr %57, i64 %60
   %72 = load i32, ptr %44, align 8
   %73 = icmp eq i64 %60, 7
   %74 = shl i32 %72, 12
@@ -6799,7 +6795,7 @@ thread-pre-split.thread:                          ; preds = %121, %thread-pre-sp
   %152 = phi i32 [ %150, %148 ], [ 0, %145 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %153 = getelementptr i32, ptr %32, i64 %53
+  %153 = getelementptr [4 x i8], ptr %32, i64 %53
   store i32 %152, ptr %153, align 4
   %154 = load i8, ptr %33, align 1
   %155 = load i8, ptr %34, align 2, !range !9, !noundef !10
@@ -6960,7 +6956,7 @@ mbus_ddb_offset.exit:                             ; preds = %151, %188, %191
   %258 = getelementptr i8, ptr %255, i64 1632
   %259 = load i32, ptr %258, align 8
   %260 = sext i32 %259 to i64
-  %261 = getelementptr %struct.skl_ddb_entry, ptr %2, i64 %260
+  %261 = getelementptr [4 x i8], ptr %2, i64 %260
   %262 = getelementptr inbounds nuw i8, ptr %257, i64 4024
   %263 = load i32, ptr %262, align 4
   store i32 %263, ptr %261, align 4
@@ -7008,7 +7004,7 @@ mbus_ddb_offset.exit:                             ; preds = %151, %188, %191
   br i1 %294, label %305, label %295
 
 295:                                              ; preds = %291
-  %296 = getelementptr %struct.skl_ddb_entry, ptr %2, i64 %292
+  %296 = getelementptr [4 x i8], ptr %2, i64 %292
   %297 = load i16, ptr %288, align 2
   %298 = getelementptr inbounds nuw i8, ptr %296, i64 2
   %299 = load i16, ptr %298, align 2
@@ -7129,7 +7125,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @skl_build_plane_wm_single(
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 1324
   %10 = load i32, ptr %9, align 4
   %11 = zext i32 %10 to i64
-  %12 = getelementptr %struct.skl_plane_wm, ptr %8, i64 %11
+  %12 = getelementptr [154 x i8], ptr %8, i64 %11
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(40) %5, i8 0, i64 40, i1 false), !annotation !75
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 184
@@ -7172,8 +7168,8 @@ define internal fastcc noundef range(i32 -22, 1) i32 @skl_build_plane_wm_single(
 .split.us:                                        ; preds = %36, %59
   %43 = phi i64 [ %62, %59 ], [ 0, %36 ]
   %44 = phi ptr [ %45, %59 ], [ %12, %36 ]
-  %45 = getelementptr %struct.skl_wm_level, ptr %12, i64 %43
-  %46 = getelementptr i16, ptr %37, i64 %43
+  %45 = getelementptr [8 x i8], ptr %12, i64 %43
+  %46 = getelementptr [2 x i8], ptr %37, i64 %43
   %47 = load i16, ptr %46, align 2
   %48 = zext i16 %47 to i32
   %49 = icmp eq i16 %47, 0
@@ -7205,8 +7201,8 @@ define internal fastcc noundef range(i32 -22, 1) i32 @skl_build_plane_wm_single(
 .split:                                           ; preds = %36, %87
   %66 = phi i64 [ %90, %87 ], [ 0, %36 ]
   %67 = phi ptr [ %68, %87 ], [ %12, %36 ]
-  %68 = getelementptr %struct.skl_wm_level, ptr %12, i64 %66
-  %69 = getelementptr i16, ptr %37, i64 %66
+  %68 = getelementptr [8 x i8], ptr %12, i64 %66
+  %69 = getelementptr [2 x i8], ptr %37, i64 %66
   %70 = load i16, ptr %69, align 2
   %71 = zext i16 %70 to i32
   %72 = icmp eq i16 %70, 0
@@ -8067,7 +8063,7 @@ define internal fastcc zeroext i8 @skl_compute_dbuf_slices(ptr readonly captures
   br i1 %12, label %13, label %23
 
 13:                                               ; preds = %9
-  %14 = getelementptr %struct.dbuf_slice_conf_entry, ptr @dg2_allowed_dbufs, i64 %10
+  %14 = getelementptr [6 x i8], ptr @dg2_allowed_dbufs, i64 %10
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 5
   %16 = load i8, ptr %15, align 1, !range !9, !noundef !10
   %17 = icmp eq i8 %16, %8
@@ -8082,7 +8078,7 @@ define internal fastcc zeroext i8 @skl_compute_dbuf_slices(ptr readonly captures
 
 23:                                               ; preds = %13, %9
   %24 = add nuw nsw i64 %10, 1
-  %25 = getelementptr %struct.dbuf_slice_conf_entry, ptr @dg2_allowed_dbufs, i64 %24
+  %25 = getelementptr [6 x i8], ptr @dg2_allowed_dbufs, i64 %24
   %26 = load i8, ptr %25, align 2
   %27 = icmp eq i64 %24, 15
   br i1 %27, label %.loopexit, label %9, !llvm.loop !170
@@ -8104,7 +8100,7 @@ define internal fastcc zeroext i8 @skl_compute_dbuf_slices(ptr readonly captures
   br i1 %37, label %38, label %48
 
 38:                                               ; preds = %34
-  %39 = getelementptr %struct.dbuf_slice_conf_entry, ptr @adlp_allowed_dbufs, i64 %35
+  %39 = getelementptr [6 x i8], ptr @adlp_allowed_dbufs, i64 %35
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 5
   %41 = load i8, ptr %40, align 1, !range !9, !noundef !10
   %42 = icmp eq i8 %41, %33
@@ -8119,7 +8115,7 @@ define internal fastcc zeroext i8 @skl_compute_dbuf_slices(ptr readonly captures
 
 48:                                               ; preds = %38, %34
   %49 = add nuw nsw i64 %35, 1
-  %50 = getelementptr %struct.dbuf_slice_conf_entry, ptr @adlp_allowed_dbufs, i64 %49
+  %50 = getelementptr [6 x i8], ptr @adlp_allowed_dbufs, i64 %49
   %51 = load i8, ptr %50, align 2
   %52 = icmp eq i64 %49, 17
   br i1 %52, label %.loopexit, label %34, !llvm.loop !170
@@ -8141,7 +8137,7 @@ define internal fastcc zeroext i8 @skl_compute_dbuf_slices(ptr readonly captures
   br i1 %59, label %60, label %70
 
 60:                                               ; preds = %56
-  %61 = getelementptr %struct.dbuf_slice_conf_entry, ptr @tgl_allowed_dbufs, i64 %57
+  %61 = getelementptr [6 x i8], ptr @tgl_allowed_dbufs, i64 %57
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 5
   %63 = load i8, ptr %62, align 1, !range !9, !noundef !10
   %64 = icmp eq i8 %63, %55
@@ -8156,7 +8152,7 @@ define internal fastcc zeroext i8 @skl_compute_dbuf_slices(ptr readonly captures
 
 70:                                               ; preds = %60, %56
   %71 = add nuw nsw i64 %57, 1
-  %72 = getelementptr %struct.dbuf_slice_conf_entry, ptr @tgl_allowed_dbufs, i64 %71
+  %72 = getelementptr [6 x i8], ptr @tgl_allowed_dbufs, i64 %71
   %73 = load i8, ptr %72, align 2
   %74 = icmp eq i64 %71, 15
   br i1 %74, label %.loopexit, label %56, !llvm.loop !170
@@ -8172,7 +8168,7 @@ define internal fastcc zeroext i8 @skl_compute_dbuf_slices(ptr readonly captures
   br i1 %80, label %81, label %91
 
 81:                                               ; preds = %77
-  %82 = getelementptr %struct.dbuf_slice_conf_entry, ptr @icl_allowed_dbufs, i64 %78
+  %82 = getelementptr [6 x i8], ptr @icl_allowed_dbufs, i64 %78
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 5
   %84 = load i8, ptr %83, align 1, !range !9, !noundef !10
   %85 = icmp eq i8 %84, %76
@@ -8187,7 +8183,7 @@ define internal fastcc zeroext i8 @skl_compute_dbuf_slices(ptr readonly captures
 
 91:                                               ; preds = %81, %77
   %92 = add nuw nsw i64 %78, 1
-  %93 = getelementptr %struct.dbuf_slice_conf_entry, ptr @icl_allowed_dbufs, i64 %92
+  %93 = getelementptr [6 x i8], ptr @icl_allowed_dbufs, i64 %92
   %94 = load i8, ptr %93, align 2
   %95 = icmp eq i64 %92, 7
   br i1 %95, label %.loopexit, label %77, !llvm.loop !170
@@ -8419,7 +8415,7 @@ define internal noundef i32 @intel_sagv_status_show(ptr noundef %0, ptr readnone
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 3416
   %27 = load i32, ptr %26, align 8
   %28 = zext i32 %27 to i64
-  %29 = getelementptr ptr, ptr @intel_sagv_status_show.sagv_status, i64 %28
+  %29 = getelementptr [8 x i8], ptr @intel_sagv_status_show.sagv_status, i64 %28
   %30 = load ptr, ptr %29, align 8
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %0, ptr noundef nonnull @.str.59, ptr noundef %30) #15
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 3420

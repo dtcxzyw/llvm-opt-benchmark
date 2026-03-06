@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.Elf64_Ehdr = type { [16 x i8], i16, i16, i32, i64, i64, i64, i32, i16, i16, i16, i16, i16, i16 }
 %struct.Elf64_Dyn = type { i64, %union.anon.0 }
 %union.anon.0 = type { i64 }
-%struct.Elf64_Phdr = type { i32, i32, i64, i64, i64, i64, i64, i64 }
 
 @.str = private unnamed_addr constant [30 x i8] c"can't allocate ps_prochandle\0A\00", align 1
 @core_ops = internal global %struct.ps_prochandle_ops { ptr @core_release, ptr @core_read_data, ptr @core_write_data, ptr @core_get_lwp_regs }, align 8
@@ -647,7 +646,7 @@ define internal fastcc range(i32 0, 2) i32 @sort_map_array(ptr noundef nonnull r
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %.02433 = phi ptr [ %.024, %.lr.ph ], [ %.02430, %.preheader ]
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   store ptr %.02433, ptr %10, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.024.in = getelementptr inbounds nuw i8, ptr %.02433, i64 40
@@ -693,7 +692,7 @@ define internal fastcc range(i32 0, 2) i32 @sort_map_array(ptr noundef nonnull r
   %27 = phi ptr [ %36, %.lr.ph36 ], [ %24, %23 ]
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 56
   %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv39
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv39
   %31 = load ptr, ptr %30, align 8
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load i64, ptr %32, align 8
@@ -1124,7 +1123,7 @@ define internal fastcc noundef i64 @calc_prelinked_load_address(ptr noundef nonn
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %11 ]
-  %12 = getelementptr inbounds nuw %struct.Elf64_Phdr, ptr %6, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [56 x i8], ptr %6, i64 %indvars.iv
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, 2
   br i1 %14, label %15, label %11

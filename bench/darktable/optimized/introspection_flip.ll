@@ -15,9 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.dt_gimp_t = type { i32, ptr, ptr, i32, i32 }
 %struct.dt_introspection_t = type { i32, i32, ptr, i64, ptr, i64, i64, ptr }
 %struct.dt_iop_flip_params_t = type { i32 }
-%union.dt_introspection_field_t = type { %struct.dt_introspection_type_double_t }
-%struct.dt_introspection_type_double_t = type { %struct.dt_introspection_type_header_t, double, double, double }
-%struct.dt_introspection_type_header_t = type { i32, ptr, ptr, ptr, ptr, i64, i64, ptr }
 
 @.str = private unnamed_addr constant [12 x i8] c"orientation\00", align 1
 @.str.1 = private unnamed_addr constant [21 x i8] c"rotation|flip|mirror\00", align 1
@@ -212,7 +209,7 @@ define noundef i32 @distort_transform(ptr noundef readnone captures(none) %0, pt
 
 .lr.ph.split.us.split.us.split:                   ; preds = %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us.split
   %.03034.us.us = phi i64 [ %18, %.lr.ph.split.us.split.us.split ], [ 0, %.lr.ph.split.us.split.us ]
-  %14 = getelementptr inbounds nuw float, ptr %2, i64 %.03034.us.us
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.03034.us.us
   %15 = load float, ptr %14, align 4, !tbaa !55
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %17 = load float, ptr %16, align 4, !tbaa !55
@@ -229,7 +226,7 @@ define noundef i32 @distort_transform(ptr noundef readnone captures(none) %0, pt
 
 .lr.ph.split.us.split.split.us:                   ; preds = %.lr.ph.split.us.split, %.lr.ph.split.us.split.split.us
   %.03034.us.us42 = phi i64 [ %26, %.lr.ph.split.us.split.split.us ], [ 0, %.lr.ph.split.us.split ]
-  %22 = getelementptr inbounds nuw float, ptr %2, i64 %.03034.us.us42
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.03034.us.us42
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %24 = load float, ptr %23, align 4, !tbaa !55
   %25 = fsub reassoc nsz arcp contract afn float %21, %24
@@ -240,7 +237,7 @@ define noundef i32 @distort_transform(ptr noundef readnone captures(none) %0, pt
 
 .lr.ph.split.us.split.split:                      ; preds = %.lr.ph.split.us.split, %.lr.ph.split.us.split.split
   %.03034.us = phi i64 [ %33, %.lr.ph.split.us.split.split ], [ 0, %.lr.ph.split.us.split ]
-  %28 = getelementptr inbounds nuw float, ptr %2, i64 %.03034.us
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.03034.us
   %29 = load float, ptr %28, align 4, !tbaa !55
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %31 = load float, ptr %30, align 4, !tbaa !55
@@ -262,7 +259,7 @@ define noundef i32 @distort_transform(ptr noundef readnone captures(none) %0, pt
 
 .lr.ph.split.split.us.split.us:                   ; preds = %.lr.ph.split.split.us, %.lr.ph.split.split.us.split.us
   %.03034.us35.us = phi i64 [ %43, %.lr.ph.split.split.us.split.us ], [ 0, %.lr.ph.split.split.us ]
-  %38 = getelementptr inbounds nuw float, ptr %2, i64 %.03034.us35.us
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.03034.us35.us
   %39 = load float, ptr %38, align 4, !tbaa !55
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %41 = load float, ptr %40, align 4, !tbaa !55
@@ -275,7 +272,7 @@ define noundef i32 @distort_transform(ptr noundef readnone captures(none) %0, pt
 
 .lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us, %.lr.ph.split.split.us.split
   %.03034.us35 = phi i64 [ %50, %.lr.ph.split.split.us.split ], [ 0, %.lr.ph.split.split.us ]
-  %45 = getelementptr inbounds nuw float, ptr %2, i64 %.03034.us35
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.03034.us35
   %46 = load float, ptr %45, align 4, !tbaa !55
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 4
   %48 = load float, ptr %47, align 4, !tbaa !55
@@ -293,7 +290,7 @@ define noundef i32 @distort_transform(ptr noundef readnone captures(none) %0, pt
 
 .lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %.lr.ph.split.split.split.us
   %.03034.us39 = phi i64 [ %60, %.lr.ph.split.split.split.us ], [ 0, %.lr.ph.split.split ]
-  %54 = getelementptr inbounds nuw float, ptr %2, i64 %.03034.us39
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.03034.us39
   %55 = load float, ptr %54, align 4, !tbaa !55
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %57 = load float, ptr %56, align 4, !tbaa !55
@@ -307,7 +304,7 @@ define noundef i32 @distort_transform(ptr noundef readnone captures(none) %0, pt
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %.lr.ph.split.split.split
   %.03034 = phi i64 [ %68, %.lr.ph.split.split.split ], [ 0, %.lr.ph.split.split ]
-  %62 = getelementptr inbounds nuw float, ptr %2, i64 %.03034
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.03034
   %63 = load float, ptr %62, align 4, !tbaa !55
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 4
   %65 = load float, ptr %64, align 4, !tbaa !55
@@ -355,7 +352,7 @@ define noundef i32 @distort_backtransform(ptr noundef readnone captures(none) %0
 
 .lr.ph.split.us.split.us.split:                   ; preds = %.lr.ph.split.us.split.us, %.lr.ph.split.us.split.us.split
   %.02832.us.us = phi i64 [ %16, %.lr.ph.split.us.split.us.split ], [ 0, %.lr.ph.split.us.split.us ]
-  %14 = getelementptr inbounds nuw float, ptr %2, i64 %.02832.us.us
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.02832.us.us
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %.0.us.us = load float, ptr %14, align 4, !tbaa !55
   %.026.us.us = load float, ptr %15, align 4, !tbaa !55
@@ -372,7 +369,7 @@ define noundef i32 @distort_backtransform(ptr noundef readnone captures(none) %0
 
 .lr.ph.split.us.split.split.us:                   ; preds = %.lr.ph.split.us.split, %.lr.ph.split.us.split.split.us
   %.02832.us.us44 = phi i64 [ %23, %.lr.ph.split.us.split.split.us ], [ 0, %.lr.ph.split.us.split ]
-  %20 = getelementptr inbounds nuw float, ptr %2, i64 %.02832.us.us44
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.02832.us.us44
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 4
   %.0.us.us46 = load float, ptr %21, align 4, !tbaa !55
   %22 = fsub reassoc nsz arcp contract afn float %19, %.0.us.us46
@@ -383,7 +380,7 @@ define noundef i32 @distort_backtransform(ptr noundef readnone captures(none) %0
 
 .lr.ph.split.us.split.split:                      ; preds = %.lr.ph.split.us.split, %.lr.ph.split.us.split.split
   %.02832.us = phi i64 [ %28, %.lr.ph.split.us.split.split ], [ 0, %.lr.ph.split.us.split ]
-  %25 = getelementptr inbounds nuw float, ptr %2, i64 %.02832.us
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.02832.us
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %.0.us = load float, ptr %25, align 4, !tbaa !55
   %.026.us = load float, ptr %26, align 4, !tbaa !55
@@ -405,7 +402,7 @@ define noundef i32 @distort_backtransform(ptr noundef readnone captures(none) %0
 
 .lr.ph.split.split.us.split.us:                   ; preds = %.lr.ph.split.split.us, %.lr.ph.split.split.us.split.us
   %.02832.us33.us = phi i64 [ %36, %.lr.ph.split.split.us.split.us ], [ 0, %.lr.ph.split.split.us ]
-  %33 = getelementptr inbounds nuw float, ptr %2, i64 %.02832.us33.us
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.02832.us33.us
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 4
   %.0.us36.us = load float, ptr %34, align 4, !tbaa !55
   %.026.us37.us = load float, ptr %33, align 4, !tbaa !55
@@ -418,7 +415,7 @@ define noundef i32 @distort_backtransform(ptr noundef readnone captures(none) %0
 
 .lr.ph.split.split.us.split:                      ; preds = %.lr.ph.split.split.us, %.lr.ph.split.split.us.split
   %.02832.us33 = phi i64 [ %41, %.lr.ph.split.split.us.split ], [ 0, %.lr.ph.split.split.us ]
-  %38 = getelementptr inbounds nuw float, ptr %2, i64 %.02832.us33
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.02832.us33
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %.0.us36 = load float, ptr %38, align 4, !tbaa !55
   %.026.us37 = load float, ptr %39, align 4, !tbaa !55
@@ -436,7 +433,7 @@ define noundef i32 @distort_backtransform(ptr noundef readnone captures(none) %0
 
 .lr.ph.split.split.split.us:                      ; preds = %.lr.ph.split.split, %.lr.ph.split.split.split.us
   %.02832.us39 = phi i64 [ %49, %.lr.ph.split.split.split.us ], [ 0, %.lr.ph.split.split ]
-  %45 = getelementptr inbounds nuw float, ptr %2, i64 %.02832.us39
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.02832.us39
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
   %.0.us41 = load float, ptr %46, align 4, !tbaa !55
   %.026.us42 = load float, ptr %45, align 4, !tbaa !55
@@ -450,7 +447,7 @@ define noundef i32 @distort_backtransform(ptr noundef readnone captures(none) %0
 
 .lr.ph.split.split.split:                         ; preds = %.lr.ph.split.split, %.lr.ph.split.split.split
   %.02832 = phi i64 [ %55, %.lr.ph.split.split.split ], [ 0, %.lr.ph.split.split ]
-  %51 = getelementptr inbounds nuw float, ptr %2, i64 %.02832
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.02832
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 4
   %.0 = load float, ptr %51, align 4, !tbaa !55
   %.026 = load float, ptr %52, align 4, !tbaa !55
@@ -566,11 +563,11 @@ define void @modify_roi_in(ptr noundef readnone captures(none) %0, ptr noundef r
   %38 = shl nuw nsw i32 %.080.us, 1
   %39 = and i32 %38, 2
   %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr inbounds nuw i32, ptr %5, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %40
   %42 = load i32, ptr %41, align 8, !tbaa !46
   %43 = and i32 %.080.us, 2
   %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr inbounds nuw i32, ptr %5, i64 %44
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
   %47 = load i32, ptr %46, align 4, !tbaa !46
   %48 = xor i32 %42, -1
@@ -599,11 +596,11 @@ define void @modify_roi_in(ptr noundef readnone captures(none) %0, ptr noundef r
   %56 = shl nuw nsw i32 %.080.us87, 1
   %57 = and i32 %56, 2
   %58 = zext nneg i32 %57 to i64
-  %59 = getelementptr inbounds nuw i32, ptr %5, i64 %58
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %58
   %60 = load i32, ptr %59, align 8, !tbaa !46
   %61 = and i32 %.080.us87, 2
   %62 = zext nneg i32 %61 to i64
-  %63 = getelementptr inbounds nuw i32, ptr %5, i64 %62
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 4
   %65 = load i32, ptr %64, align 4, !tbaa !46
   %66 = xor i32 %60, -1
@@ -629,11 +626,11 @@ define void @modify_roi_in(ptr noundef readnone captures(none) %0, ptr noundef r
   %72 = shl nuw nsw i32 %.080.us108, 1
   %73 = and i32 %72, 2
   %74 = zext nneg i32 %73 to i64
-  %75 = getelementptr inbounds nuw i32, ptr %5, i64 %74
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %74
   %76 = load i32, ptr %75, align 8, !tbaa !46
   %77 = and i32 %.080.us108, 2
   %78 = zext nneg i32 %77 to i64
-  %79 = getelementptr inbounds nuw i32, ptr %5, i64 %78
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %78
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 4
   %81 = load i32, ptr %80, align 4, !tbaa !46
   %82 = xor i32 %81, -1
@@ -655,11 +652,11 @@ define void @modify_roi_in(ptr noundef readnone captures(none) %0, ptr noundef r
   %88 = shl nuw nsw i32 %.080, 1
   %89 = and i32 %88, 2
   %90 = zext nneg i32 %89 to i64
-  %91 = getelementptr inbounds nuw i32, ptr %5, i64 %90
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %90
   %92 = load i32, ptr %91, align 8, !tbaa !46
   %93 = and i32 %.080, 2
   %94 = zext nneg i32 %93 to i64
-  %95 = getelementptr inbounds nuw i32, ptr %5, i64 %94
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %94
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 4
   %97 = load i32, ptr %96, align 4, !tbaa !46
   %98 = xor i32 %97, -1
@@ -1263,7 +1260,7 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
 
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw %union.dt_introspection_field_t, ptr @introspection_linear, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [88 x i8], ptr @introspection_linear, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store ptr %0, ptr %8, align 8, !tbaa !139
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

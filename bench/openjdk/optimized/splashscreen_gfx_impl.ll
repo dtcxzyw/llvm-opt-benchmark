@@ -24,7 +24,7 @@ define hidden void @initDither(ptr noundef writeonly captures(none) initializes(
   %10 = mul nsw i32 %9, %4
   %11 = sdiv i32 %10, 255
   %12 = mul nsw i32 %11, %2
-  %13 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   store i32 %12, ptr %13, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 512
@@ -33,7 +33,7 @@ define hidden void @initDither(ptr noundef writeonly captures(none) initializes(
 .preheader:                                       ; preds = %.preheader20, %22
   %indvars.iv29 = phi i64 [ 0, %.preheader20 ], [ %indvars.iv.next30, %22 ]
   %14 = getelementptr inbounds nuw [16 x i8], ptr @baseDitherMatrix, i64 %indvars.iv29
-  %15 = getelementptr inbounds nuw [16 x i32], ptr %6, i64 %indvars.iv29
+  %15 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 %indvars.iv29
   br label %16
 
 16:                                               ; preds = %.preheader, %16
@@ -42,7 +42,7 @@ define hidden void @initDither(ptr noundef writeonly captures(none) initializes(
   %18 = load i8, ptr %17, align 1
   %19 = zext i8 %18 to i32
   %20 = sdiv i32 %19, %4
-  %21 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv25
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv25
   store i32 %20, ptr %21, align 4
   %indvars.iv.next26 = add nuw nsw i64 %indvars.iv25, 1
   %exitcond28.not = icmp eq i64 %indvars.iv.next26, 16
@@ -77,9 +77,9 @@ define hidden i32 @quantizeColors(i32 noundef %0, ptr noundef captures(none) ini
   %not. = xor i1 %11, true
   %spec.select58 = zext i1 %not. to i32
   %12 = zext i1 %not. to i64
-  %13 = getelementptr inbounds nuw i32, ptr %1, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %12
   %14 = load i32, ptr %13, align 4
-  %15 = getelementptr inbounds nuw i32, ptr @quantizeColors.scale, i64 %12
+  %15 = getelementptr inbounds nuw [4 x i8], ptr @quantizeColors.scale, i64 %12
   %16 = load i32, ptr %15, align 4
   %17 = mul nsw i32 %16, %14
   %18 = mul nsw i32 %6, 6
@@ -87,29 +87,29 @@ define hidden i32 @quantizeColors(i32 noundef %0, ptr noundef captures(none) ini
   %.sroa.13.1 = select i1 %19, i32 2, i32 %spec.select58
   %.sroa.29.0 = select i1 %19, i64 %12, i64 2
   %20 = zext i1 %11 to i64
-  %21 = getelementptr inbounds nuw i32, ptr %1, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %20
   %22 = load i32, ptr %21, align 4
-  %23 = getelementptr inbounds nuw i32, ptr @quantizeColors.scale, i64 %20
+  %23 = getelementptr inbounds nuw [4 x i8], ptr @quantizeColors.scale, i64 %20
   %24 = load i32, ptr %23, align 4
   %25 = mul nsw i32 %24, %22
   %26 = zext nneg i32 %.sroa.13.1 to i64
-  %27 = getelementptr inbounds nuw i32, ptr %1, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %26
   %28 = load i32, ptr %27, align 4
-  %29 = getelementptr inbounds nuw i32, ptr @quantizeColors.scale, i64 %26
+  %29 = getelementptr inbounds nuw [4 x i8], ptr @quantizeColors.scale, i64 %26
   %30 = load i32, ptr %29, align 4
   %31 = mul nsw i32 %30, %28
   %32 = icmp sgt i32 %25, %31
   %.sroa.0.1 = select i1 %32, i32 %.sroa.13.1, i32 %spec.select
   %.sroa.13.2 = select i1 %32, i32 %spec.select, i32 %.sroa.13.1
   %33 = zext nneg i32 %.sroa.0.1 to i64
-  %34 = getelementptr inbounds nuw i32, ptr %1, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %33
   %35 = load i32, ptr %34, align 4
   %36 = add nsw i32 %35, 1
   %37 = zext nneg i32 %.sroa.13.2 to i64
-  %38 = getelementptr inbounds nuw i32, ptr %1, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %37
   %39 = load i32, ptr %38, align 4
   %40 = mul nsw i32 %36, %39
-  %41 = getelementptr inbounds nuw i32, ptr %1, i64 %.sroa.29.0
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.sroa.29.0
   %42 = load i32, ptr %41, align 4
   %43 = mul nsw i32 %40, %42
   %.not = icmp sgt i32 %43, %0
@@ -218,10 +218,10 @@ define hidden void @initColorCube(ptr noundef readonly captures(none) %0, ptr no
   %42 = shl i32 %41, 16
   %43 = add nsw i32 %36, %42
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %44 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv
+  %44 = getelementptr inbounds [4 x i8], ptr %3, i64 %indvars.iv
   %45 = load i32, ptr %44, align 4
   %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds nuw i32, ptr %1, i64 %46
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %46
   store i32 %43, ptr %47, align 4
   %48 = add nuw nsw i32 %.02655, 1
   %49 = load i32, ptr %0, align 4
@@ -271,7 +271,7 @@ define hidden void @initColorCube(ptr noundef readonly captures(none) %0, ptr no
   %67 = tail call i32 @llvm.umin.i32(i32 %66, i32 255)
   %68 = mul nsw i32 %67, %62
   %69 = sdiv i32 %68, 255
-  %70 = getelementptr inbounds nuw i32, ptr %63, i64 %indvars.iv.i
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %indvars.iv.i
   store i32 %69, ptr %70, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 512
@@ -280,7 +280,7 @@ define hidden void @initColorCube(ptr noundef readonly captures(none) %0, ptr no
 .preheader.i:                                     ; preds = %79, %.preheader20.i
   %indvars.iv29.i = phi i64 [ 0, %.preheader20.i ], [ %indvars.iv.next30.i, %79 ]
   %71 = getelementptr inbounds nuw [16 x i8], ptr @baseDitherMatrix, i64 %indvars.iv29.i
-  %72 = getelementptr inbounds nuw [16 x i32], ptr %64, i64 %indvars.iv29.i
+  %72 = getelementptr inbounds nuw [64 x i8], ptr %64, i64 %indvars.iv29.i
   br label %73
 
 73:                                               ; preds = %73, %.preheader.i
@@ -289,7 +289,7 @@ define hidden void @initColorCube(ptr noundef readonly captures(none) %0, ptr no
   %75 = load i8, ptr %74, align 1
   %76 = zext i8 %75 to i32
   %77 = sdiv i32 %76, %62
-  %78 = getelementptr inbounds nuw i32, ptr %72, i64 %indvars.iv25.i
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %indvars.iv25.i
   store i32 %77, ptr %78, align 4
   %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1
   %exitcond28.not.i = icmp eq i64 %indvars.iv.next26.i, 16
@@ -321,7 +321,7 @@ initDither.exit:                                  ; preds = %79
   %90 = mul nsw i32 %89, %84
   %91 = sdiv i32 %90, 255
   %92 = mul nsw i32 %91, %83
-  %93 = getelementptr inbounds nuw i32, ptr %85, i64 %indvars.iv.i30
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %85, i64 %indvars.iv.i30
   store i32 %92, ptr %93, align 4
   %indvars.iv.next.i31 = add nuw nsw i64 %indvars.iv.i30, 1
   %exitcond.not.i32 = icmp eq i64 %indvars.iv.next.i31, 512
@@ -330,7 +330,7 @@ initDither.exit:                                  ; preds = %79
 .preheader.i34:                                   ; preds = %102, %.preheader20.i33
   %indvars.iv29.i35 = phi i64 [ 0, %.preheader20.i33 ], [ %indvars.iv.next30.i39, %102 ]
   %94 = getelementptr inbounds nuw [16 x i8], ptr @baseDitherMatrix, i64 %indvars.iv29.i35
-  %95 = getelementptr inbounds nuw [16 x i32], ptr %86, i64 %indvars.iv29.i35
+  %95 = getelementptr inbounds nuw [64 x i8], ptr %86, i64 %indvars.iv29.i35
   br label %96
 
 96:                                               ; preds = %96, %.preheader.i34
@@ -339,7 +339,7 @@ initDither.exit:                                  ; preds = %79
   %98 = load i8, ptr %97, align 1
   %99 = zext i8 %98 to i32
   %100 = sdiv i32 %99, %84
-  %101 = getelementptr inbounds nuw i32, ptr %95, i64 %indvars.iv25.i36
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %95, i64 %indvars.iv25.i36
   store i32 %100, ptr %101, align 4
   %indvars.iv.next26.i37 = add nuw nsw i64 %indvars.iv25.i36, 1
   %exitcond28.not.i38 = icmp eq i64 %indvars.iv.next26.i37, 16
@@ -372,7 +372,7 @@ initDither.exit41:                                ; preds = %102
   %114 = mul nsw i32 %113, %108
   %115 = sdiv i32 %114, 255
   %116 = mul nsw i32 %107, %115
-  %117 = getelementptr inbounds nuw i32, ptr %109, i64 %indvars.iv.i42
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %109, i64 %indvars.iv.i42
   store i32 %116, ptr %117, align 4
   %indvars.iv.next.i43 = add nuw nsw i64 %indvars.iv.i42, 1
   %exitcond.not.i44 = icmp eq i64 %indvars.iv.next.i43, 512
@@ -381,7 +381,7 @@ initDither.exit41:                                ; preds = %102
 .preheader.i46:                                   ; preds = %126, %.preheader20.i45
   %indvars.iv29.i47 = phi i64 [ 0, %.preheader20.i45 ], [ %indvars.iv.next30.i51, %126 ]
   %118 = getelementptr inbounds nuw [16 x i8], ptr @baseDitherMatrix, i64 %indvars.iv29.i47
-  %119 = getelementptr inbounds nuw [16 x i32], ptr %110, i64 %indvars.iv29.i47
+  %119 = getelementptr inbounds nuw [64 x i8], ptr %110, i64 %indvars.iv29.i47
   br label %120
 
 120:                                              ; preds = %120, %.preheader.i46
@@ -390,7 +390,7 @@ initDither.exit41:                                ; preds = %102
   %122 = load i8, ptr %121, align 1
   %123 = zext i8 %122 to i32
   %124 = sdiv i32 %123, %108
-  %125 = getelementptr inbounds nuw i32, ptr %119, i64 %indvars.iv25.i48
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %119, i64 %indvars.iv25.i48
   store i32 %124, ptr %125, align 4
   %indvars.iv.next26.i49 = add nuw nsw i64 %indvars.iv25.i48, 1
   %exitcond28.not.i50 = icmp eq i64 %indvars.iv.next26.i49, 16
@@ -573,37 +573,37 @@ define internal fastcc void @putRGBADither(i32 noundef %0, ptr noundef writeonly
   %34 = getelementptr inbounds nuw i8, ptr %24, i64 2052
   %35 = and i32 %4, 15
   %36 = zext nneg i32 %35 to i64
-  %37 = getelementptr inbounds nuw [16 x i32], ptr %34, i64 %36
+  %37 = getelementptr inbounds nuw [64 x i8], ptr %34, i64 %36
   %38 = and i32 %3, 15
   %39 = zext nneg i32 %38 to i64
-  %40 = getelementptr inbounds nuw i32, ptr %37, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %39
   %41 = load i32, ptr %40, align 4
   %42 = add i32 %41, %28
   %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds nuw i32, ptr %33, i64 %43
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %43
   %45 = load i32, ptr %44, align 4
   %46 = getelementptr inbounds nuw i8, ptr %24, i64 3080
   %47 = getelementptr inbounds nuw i8, ptr %24, i64 5128
-  %48 = getelementptr inbounds nuw [16 x i32], ptr %47, i64 %36
-  %49 = getelementptr inbounds nuw i32, ptr %48, i64 %39
+  %48 = getelementptr inbounds nuw [64 x i8], ptr %47, i64 %36
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %39
   %50 = load i32, ptr %49, align 4
   %51 = add i32 %50, %30
   %52 = zext i32 %51 to i64
-  %53 = getelementptr inbounds nuw i32, ptr %46, i64 %52
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %52
   %54 = load i32, ptr %53, align 4
   %55 = getelementptr inbounds nuw i8, ptr %24, i64 6156
   %56 = getelementptr inbounds nuw i8, ptr %24, i64 8204
-  %57 = getelementptr inbounds nuw [16 x i32], ptr %56, i64 %36
-  %58 = getelementptr inbounds nuw i32, ptr %57, i64 %39
+  %57 = getelementptr inbounds nuw [64 x i8], ptr %56, i64 %36
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %39
   %59 = load i32, ptr %58, align 4
   %60 = add i32 %59, %32
   %61 = zext i32 %60 to i64
-  %62 = getelementptr inbounds nuw i32, ptr %55, i64 %61
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %61
   %63 = load i32, ptr %62, align 4
   %64 = add i32 %54, %45
   %65 = add i32 %64, %63
   %66 = zext i32 %65 to i64
-  %67 = getelementptr inbounds nuw i32, ptr %27, i64 %66
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %66
   %68 = load i32, ptr %67, align 4
   br label %108
 
@@ -921,7 +921,7 @@ define internal fastcc i32 @getRGBA(ptr noundef readonly captures(none) %0, ptr 
 
 72:                                               ; preds = %68
   %73 = zext i32 %.0 to i64
-  %74 = getelementptr inbounds nuw i32, ptr %67, i64 %73
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %73
   %75 = load i32, ptr %74, align 4
   br label %118
 
@@ -1286,7 +1286,7 @@ define hidden void @initFormat(ptr noundef captures(none) initializes((0, 16), (
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %getMaskShift.exit ]
   %.02026 = phi i32 [ undef, %5 ], [ %.1, %getMaskShift.exit ]
   %.02125 = phi i32 [ undef, %5 ], [ %.122, %getMaskShift.exit ]
-  %16 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4
   %.not.i = icmp eq i32 %17, 0
   br i1 %.not.i, label %getMaskShift.exit, label %.preheader19.i
@@ -1330,7 +1330,7 @@ getMaskShift.exit:                                ; preds = %.preheader.i, %15, 
   %reass.sub = sub i32 %.122, %29
   %30 = add i32 %reass.sub, -8
   %31 = add i32 %30, %.1
-  %32 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv
   store i32 %31, ptr %32, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4

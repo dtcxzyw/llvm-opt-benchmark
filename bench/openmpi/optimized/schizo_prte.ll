@@ -317,7 +317,7 @@ define internal i32 @parse_cli(ptr noundef %0, ptr noundef %1, i1 noundef zeroex
   tail call void @prte_schizo_base_expose(ptr noundef nonnull %37, ptr noundef nonnull @.str.17) #14
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %38 = load ptr, ptr %34, align 8, !tbaa !18
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv.next57
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv.next57
   %40 = load ptr, ptr %39, align 8, !tbaa !3
   %.not41 = icmp eq ptr %40, null
   br i1 %.not41, label %.loopexit, label %.lr.ph49, !llvm.loop !19
@@ -340,7 +340,7 @@ define internal i32 @parse_cli(ptr noundef %0, ptr noundef %1, i1 noundef zeroex
   tail call void @prte_schizo_base_expose(ptr noundef nonnull %47, ptr noundef nonnull @.str.19) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = load ptr, ptr %44, align 8, !tbaa !18
-  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv.next
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %indvars.iv.next
   %50 = load ptr, ptr %49, align 8, !tbaa !3
   %.not40 = icmp eq ptr %50, null
   br i1 %.not40, label %.loopexit, label %.lr.ph, !llvm.loop !21
@@ -370,7 +370,7 @@ define internal range(i32 -5, 1) i32 @parse_env(ptr readnone captures(none) %0, 
 
 7:                                                ; preds = %3
   %8 = zext nneg i32 %6 to i64
-  %9 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %8
+  %9 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %11 = load i32, ptr %10, align 4, !tbaa !29
   %12 = icmp sgt i32 %11, 0
@@ -454,7 +454,7 @@ pmix_cmd_line_get_param.exit.preheader:           ; preds = %.lr.ph.i.tail
 pmix_cmd_line_get_param.exit.us:                  ; preds = %40, %.loopexit.us
   %indvars.iv.next140 = add nuw nsw i64 %indvars.iv139, 1
   %42 = load ptr, ptr %27, align 8, !tbaa !18
-  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv.next140
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv.next140
   %44 = load ptr, ptr %43, align 8, !tbaa !3
   %.not60.us = icmp eq ptr %44, null
   br i1 %.not60.us, label %pmix_cmd_line_get_param.exit.thread, label %.lr.ph107.split.us, !llvm.loop !33
@@ -527,7 +527,7 @@ pmix_cmd_line_get_param.exit.us:                  ; preds = %40, %.loopexit.us
 69:                                               ; preds = %64, %.lr.ph89
   call void @free(ptr noundef nonnull %60) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %70 = getelementptr inbounds nuw ptr, ptr %.fr, i64 %indvars.iv.next
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %.fr, i64 %indvars.iv.next
   %71 = load ptr, ptr %70, align 8, !tbaa !3
   %.not65 = icmp eq ptr %71, null
   br i1 %.not65, label %..critedge_crit_edge83.split, label %.lr.ph89
@@ -564,7 +564,7 @@ pmix_cmd_line_get_param.exit.us:                  ; preds = %40, %.loopexit.us
 pmix_cmd_line_get_param.exit:                     ; preds = %.loopexit, %56
   %indvars.iv.next134 = add nuw nsw i64 %indvars.iv133, 1
   %82 = load ptr, ptr %27, align 8, !tbaa !18
-  %83 = getelementptr inbounds nuw ptr, ptr %82, i64 %indvars.iv.next134
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %indvars.iv.next134
   %84 = load ptr, ptr %83, align 8, !tbaa !3
   %.not60 = icmp eq ptr %84, null
   br i1 %.not60, label %pmix_cmd_line_get_param.exit.thread, label %.lr.ph107.split.split, !llvm.loop !33
@@ -583,12 +583,12 @@ pmix_cmd_line_get_param.exit.thread:              ; preds = %.lr.ph.i.tail.threa
   %indvars.iv142 = phi i64 [ %indvars.iv.next143, %.lr.ph114 ], [ 0, %.preheader ]
   %87 = phi ptr [ %94, %.lr.ph114 ], [ %86, %.preheader ]
   %88 = load ptr, ptr %5, align 8, !tbaa !23
-  %89 = getelementptr inbounds nuw ptr, ptr %88, i64 %indvars.iv142
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %indvars.iv142
   %90 = load ptr, ptr %89, align 8, !tbaa !3
   %91 = call i32 @PMIx_Setenv(ptr noundef nonnull %87, ptr noundef %90, i1 noundef zeroext true, ptr noundef nonnull %1) #14
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
   %92 = load ptr, ptr %4, align 8, !tbaa !23
-  %93 = getelementptr inbounds nuw ptr, ptr %92, i64 %indvars.iv.next143
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %indvars.iv.next143
   %94 = load ptr, ptr %93, align 8, !tbaa !3
   %.not62 = icmp eq ptr %94, null
   br i1 %.not62, label %.sink.split, label %.lr.ph114, !llvm.loop !35
@@ -616,7 +616,7 @@ define internal i32 @detect_proxy(ptr noundef %0) #0 {
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %2 to i64
-  %5 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %4
+  %5 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %7 = load i32, ptr %6, align 4, !tbaa !29
   %8 = icmp sgt i32 %7, 1

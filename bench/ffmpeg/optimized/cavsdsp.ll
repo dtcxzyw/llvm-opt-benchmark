@@ -1671,7 +1671,7 @@ define internal void @cavs_idct8_add_c(ptr noundef captures(none) %0, ptr nounde
 
 26:                                               ; preds = %3, %26
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %26 ]
-  %27 = getelementptr inbounds nuw [8 x i16], ptr %1, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 2
   %29 = load i16, ptr %28, align 2, !tbaa !30
   %30 = sext i16 %29 to i32
@@ -1779,20 +1779,20 @@ define internal void @cavs_idct8_add_c(ptr noundef captures(none) %0, ptr nounde
 
 118:                                              ; preds = %.preheader, %118
   %indvars.iv250 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next251, %118 ]
-  %119 = getelementptr inbounds nuw i16, ptr %6, i64 %indvars.iv250
+  %119 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %indvars.iv250
   %120 = load i16, ptr %119, align 2, !tbaa !30
   %121 = sext i16 %120 to i32
   %122 = mul nsw i32 %121, 3
-  %123 = getelementptr inbounds nuw i16, ptr %7, i64 %indvars.iv250
+  %123 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %indvars.iv250
   %124 = load i16, ptr %123, align 2, !tbaa !30
   %125 = sext i16 %124 to i32
   %126 = shl nsw i32 %125, 1
   %127 = sub nsw i32 %122, %126
-  %128 = getelementptr inbounds nuw i16, ptr %8, i64 %indvars.iv250
+  %128 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %indvars.iv250
   %129 = load i16, ptr %128, align 2, !tbaa !30
   %130 = sext i16 %129 to i32
   %131 = mul nsw i32 %130, 3
-  %132 = getelementptr inbounds nuw i16, ptr %9, i64 %indvars.iv250
+  %132 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %indvars.iv250
   %133 = load i16, ptr %132, align 2, !tbaa !30
   %134 = sext i16 %133 to i32
   %135 = shl nsw i32 %134, 1
@@ -1821,11 +1821,11 @@ define internal void @cavs_idct8_add_c(ptr noundef captures(none) %0, ptr nounde
   %156 = sub nsw i32 %127, %155
   %157 = shl nsw i32 %156, 1
   %158 = sub nsw i32 %157, %138
-  %159 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv250
+  %159 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %indvars.iv250
   %160 = load i16, ptr %159, align 2, !tbaa !30
   %161 = sext i16 %160 to i32
   %162 = shl nsw i32 %161, 2
-  %163 = getelementptr inbounds nuw i16, ptr %11, i64 %indvars.iv250
+  %163 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %indvars.iv250
   %164 = load i16, ptr %163, align 2, !tbaa !30
   %165 = sext i16 %164 to i32
   %.neg213 = mul nsw i32 %165, -10
@@ -1833,10 +1833,10 @@ define internal void @cavs_idct8_add_c(ptr noundef captures(none) %0, ptr nounde
   %167 = shl nsw i32 %165, 2
   %168 = mul nsw i32 %161, 10
   %169 = add nsw i32 %167, %168
-  %170 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv250
+  %170 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv250
   %171 = load i16, ptr %170, align 2, !tbaa !30
   %172 = sext i16 %171 to i32
-  %173 = getelementptr inbounds nuw i16, ptr %12, i64 %indvars.iv250
+  %173 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %indvars.iv250
   %174 = load i16, ptr %173, align 2, !tbaa !30
   %175 = sext i16 %174 to i32
   %176 = sub nsw i32 %172, %175

@@ -25,13 +25,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.cv::Ptr.16" = type { %"class.std::shared_ptr.17" }
 %"class.std::shared_ptr.17" = type { %"class.std::__shared_ptr.18" }
 %"class.std::__shared_ptr.18" = type { ptr, %"class.std::__shared_count" }
-%"class.cv::optflow::GPCTree" = type { %"class.cv::Algorithm", %"class.std::vector.3", %"struct.cv::optflow::GPCTrainingParams" }
-%"class.cv::Algorithm" = type { ptr }
-%"class.std::vector.3" = type { %"struct.std::_Vector_base.4" }
-%"struct.std::_Vector_base.4" = type { %"struct.std::_Vector_base<cv::optflow::GPCTree::Node, std::allocator<cv::optflow::GPCTree::Node>>::_Vector_impl" }
-%"struct.std::_Vector_base<cv::optflow::GPCTree::Node, std::allocator<cv::optflow::GPCTree::Node>>::_Vector_impl" = type { %"struct.std::_Vector_base<cv::optflow::GPCTree::Node, std::allocator<cv::optflow::GPCTree::Node>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<cv::optflow::GPCTree::Node, std::allocator<cv::optflow::GPCTree::Node>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.cv::optflow::GPCTrainingParams" = type <{ i32, i32, i32, i8, [3 x i8] }>
 %"class.std::allocator" = type { i8 }
 %"class.cv::FileNode" = type { ptr, i64, i64 }
 %"class.cv::FileNodeIterator" = type { ptr, i64, i64, i64, i64, i64 }
@@ -628,7 +621,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit140: ; preds = %13
 150:                                              ; preds = %260, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.i ], [ %indvars.iv.next.i, %260 ]
   %.02387.i = phi i32 [ 0, %.lr.ph.i ], [ %.124.i, %260 ]
-  %151 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i
   %152 = load ptr, ptr %151, align 8, !tbaa !18
   %153 = load i8, ptr %152, align 1, !tbaa !14
   %154 = icmp eq i8 %153, 45
@@ -1493,7 +1486,7 @@ define linkonce_odr hidden void @_ZN2cv7optflow9GPCForestILi5EE5trainERKSt6vecto
   %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %_ZNSt12__shared_ptrIN2cv7optflow18GPCTrainingSamplesELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZN2cv7optflow18GPCTrainingSamples6createERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EESC_SC_i(ptr dead_on_unwind nonnull writable sret(%"struct.cv::Ptr.16") align 8 %7, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, i32 noundef %.sroa.29.8.extract.trunc)
-  %12 = getelementptr inbounds nuw %"class.cv::optflow::GPCTree", ptr %8, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [48 x i8], ptr %8, i64 %indvars.iv
   %13 = load ptr, ptr %7, align 8, !tbaa !76
   invoke void @_ZN2cv7optflow7GPCTree5trainERNS0_18GPCTrainingSamplesENS0_17GPCTrainingParamsE(ptr noundef nonnull align 8 dereferenceable(48) %12, ptr noundef nonnull align 8 dereferenceable(28) %13, i64 %4, i64 %5)
           to label %14 unwind label %37
@@ -1784,7 +1777,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8, !tbaa !25
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !19
-  %70 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %70 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %70, ptr %69, align 8, !tbaa !22
   ret void
 }
@@ -2394,7 +2387,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8.i39: ; preds = %
 
 _ZN2cvlsERNS_11FileStorageEPKc.exit45:            ; preds = %82, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i41
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %89 = getelementptr inbounds nuw %"class.cv::optflow::GPCTree", ptr %65, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw [48 x i8], ptr %65, i64 %indvars.iv
   %90 = load ptr, ptr %89, align 8, !tbaa !26
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 24
   %92 = load ptr, ptr %91, align 8
@@ -2495,7 +2488,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %13, %
 
 21:                                               ; preds = %18, %21
   %indvars.iv = phi i64 [ 0, %18 ], [ %indvars.iv.next, %21 ]
-  %22 = getelementptr inbounds nuw %"class.cv::optflow::GPCTree", ptr %19, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [48 x i8], ptr %19, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @_ZNK2cv16FileNodeIteratordeEv(ptr dead_on_unwind nonnull writable sret(%"class.cv::FileNode") align 8 %8, ptr noundef nonnull align 8 dereferenceable(48) %6)
   %23 = load ptr, ptr %22, align 8, !tbaa !26

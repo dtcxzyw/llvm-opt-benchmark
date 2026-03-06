@@ -154,7 +154,7 @@ define dso_local ptr @handshake_req_hash_lookup(ptr noundef %0) local_unnamed_ad
 44:                                               ; preds = %8
   %45 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %46 = zext i32 %38 to i64
-  %47 = getelementptr ptr, ptr %45, i64 %46
+  %47 = getelementptr [8 x i8], ptr %45, i64 %46
   br label %48
 
 48:                                               ; preds = %44, %42
@@ -448,7 +448,7 @@ define dso_local i32 @handshake_req_submit(ptr noundef readonly captures(address
 95:                                               ; preds = %44
   %96 = getelementptr inbounds nuw i8, ptr %52, i64 64
   %97 = zext i32 %89 to i64
-  %98 = getelementptr ptr, ptr %96, i64 %97
+  %98 = getelementptr [8 x i8], ptr %96, i64 %97
   br label %99
 
 99:                                               ; preds = %95, %93
@@ -1071,7 +1071,7 @@ define internal fastcc void @handshake_req_destroy(ptr noundef nonnull %0) unnam
 56:                                               ; preds = %12
   %57 = getelementptr inbounds nuw i8, ptr %13, i64 64
   %58 = zext i32 %50 to i64
-  %59 = getelementptr ptr, ptr %57, i64 %58
+  %59 = getelementptr [8 x i8], ptr %57, i64 %58
   br label %60
 
 60:                                               ; preds = %56, %54

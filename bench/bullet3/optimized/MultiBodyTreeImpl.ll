@@ -14,7 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.btAlignedObjectArray.6 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
 %"class.btInverseDynamicsBullet3::vec3" = type { %class.btVector3 }
 %class.b3AlignedObjectArray.0 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
-%class.btAlignedObjectArray.10 = type <{ [4 x i8], i32, i32, [4 x i8], ptr, i8, [7 x i8] }>
 
 $_ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39RigidBodyEE6resizeEiRKS1_ = comdat any
 
@@ -279,7 +278,7 @@ _Z9btSetZeroIfEvPT_i.exit.i.i.i:                  ; preds = %.noexc35
 88:                                               ; preds = %_ZN20btAlignedObjectArrayIiED2Ev.exit.i.i.i.i109, %.lr.ph.i.i.i.i104
   %indvars.iv.i.i.i.i106 = phi i64 [ 0, %.lr.ph.i.i.i.i104 ], [ %indvars.iv.next.i.i.i.i110, %_ZN20btAlignedObjectArrayIiED2Ev.exit.i.i.i.i109 ]
   %89 = load ptr, ptr %82, align 8, !tbaa !59
-  %90 = getelementptr inbounds nuw %class.btAlignedObjectArray.10, ptr %89, i64 %indvars.iv.i.i.i.i106
+  %90 = getelementptr inbounds nuw [32 x i8], ptr %89, i64 %indvars.iv.i.i.i.i106
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 16
   %92 = load ptr, ptr %91, align 8, !tbaa !64
   %.not.i.i.i.i.i.i.i107 = icmp ne ptr %92, null
@@ -369,7 +368,7 @@ _ZN9btMatrixXIfED2Ev.exit111:                     ; preds = %_ZN20btAlignedObjec
 119:                                              ; preds = %_ZN20btAlignedObjectArrayIiED2Ev.exit.i.i.i.i, %.lr.ph.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %_ZN20btAlignedObjectArrayIiED2Ev.exit.i.i.i.i ]
   %120 = load ptr, ptr %73, align 8, !tbaa !59
-  %121 = getelementptr inbounds nuw %class.btAlignedObjectArray.10, ptr %120, i64 %indvars.iv.i.i.i.i
+  %121 = getelementptr inbounds nuw [32 x i8], ptr %120, i64 %indvars.iv.i.i.i.i
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 16
   %123 = load ptr, ptr %122, align 8, !tbaa !64
   %.not.i.i.i.i.i.i.i = icmp ne ptr %123, null
@@ -484,8 +483,8 @@ _ZN20b3AlignedObjectArrayIiE8allocateEi.exit.i.i: ; preds = %153
 
 160:                                              ; preds = %160, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %160 ]
-  %161 = getelementptr inbounds nuw i32, ptr %156, i64 %indvars.iv.i.i.i
-  %162 = getelementptr inbounds nuw i32, ptr %.pre120, i64 %indvars.iv.i.i.i
+  %161 = getelementptr inbounds nuw [4 x i8], ptr %156, i64 %indvars.iv.i.i.i
+  %162 = getelementptr inbounds nuw [4 x i8], ptr %.pre120, i64 %indvars.iv.i.i.i
   %163 = load i32, ptr %162, align 4, !tbaa !73
   store i32 %163, ptr %161, align 4, !tbaa !73
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -558,7 +557,7 @@ _ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i: ; preds = %167, %_ZNK20b3Al
 180:                                              ; preds = %_ZN20b3AlignedObjectArrayIiED2Ev.exit.i, %.preheader.i
   %indvars.iv25.i = phi i64 [ %179, %.preheader.i ], [ %indvars.iv.next26.i, %_ZN20b3AlignedObjectArrayIiED2Ev.exit.i ]
   %181 = load ptr, ptr %19, align 8, !tbaa !42
-  %182 = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %181, i64 %indvars.iv25.i
+  %182 = getelementptr inbounds [32 x i8], ptr %181, i64 %indvars.iv25.i
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 16
   %184 = load ptr, ptr %183, align 8, !tbaa !38
   %.not.i.i.i.i = icmp ne ptr %184, null
@@ -606,7 +605,7 @@ _ZN20b3AlignedObjectArrayIiED2Ev.exit.i:          ; preds = %188, %180
 197:                                              ; preds = %.noexc46, %.noexc45
   %indvars.iv.i42 = phi i64 [ %196, %.noexc45 ], [ %indvars.iv.next.i43, %.noexc46 ]
   %198 = load ptr, ptr %19, align 8, !tbaa !42
-  %199 = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %198, i64 %indvars.iv.i42
+  %199 = getelementptr inbounds [32 x i8], ptr %198, i64 %indvars.iv.i42
   invoke void @_ZN20b3AlignedObjectArrayIiEC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(25) %199, ptr noundef nonnull align 8 dereferenceable(25) %6)
           to label %.noexc46 unwind label %.loopexit115
 
@@ -677,8 +676,8 @@ _ZN20b3AlignedObjectArrayIiE8allocateEi.exit.i.i56: ; preds = %212
 
 219:                                              ; preds = %219, %.lr.ph.i.i.i64
   %indvars.iv.i.i.i66 = phi i64 [ 0, %.lr.ph.i.i.i64 ], [ %indvars.iv.next.i.i.i67, %219 ]
-  %220 = getelementptr inbounds nuw i32, ptr %215, i64 %indvars.iv.i.i.i66
-  %221 = getelementptr inbounds nuw i32, ptr %.pre123, i64 %indvars.iv.i.i.i66
+  %220 = getelementptr inbounds nuw [4 x i8], ptr %215, i64 %indvars.iv.i.i.i66
+  %221 = getelementptr inbounds nuw [4 x i8], ptr %.pre123, i64 %indvars.iv.i.i.i66
   %222 = load i32, ptr %221, align 4, !tbaa !73
   store i32 %222, ptr %220, align 4, !tbaa !73
   %indvars.iv.next.i.i.i67 = add nuw nsw i64 %indvars.iv.i.i.i66, 1
@@ -765,9 +764,9 @@ _ZN20b3AlignedObjectArrayIPvE8allocateEi.exit.i.i: ; preds = %237
 
 244:                                              ; preds = %244, %.lr.ph.i.i.i87
   %indvars.iv.i.i.i89 = phi i64 [ 0, %.lr.ph.i.i.i87 ], [ %indvars.iv.next.i.i.i90, %244 ]
-  %245 = getelementptr inbounds nuw ptr, ptr %240, i64 %indvars.iv.i.i.i89
+  %245 = getelementptr inbounds nuw [8 x i8], ptr %240, i64 %indvars.iv.i.i.i89
   %246 = load ptr, ptr %43, align 8, !tbaa !46
-  %247 = getelementptr inbounds nuw ptr, ptr %246, i64 %indvars.iv.i.i.i89
+  %247 = getelementptr inbounds nuw [8 x i8], ptr %246, i64 %indvars.iv.i.i.i89
   %248 = load ptr, ptr %247, align 8, !tbaa !77
   store ptr %248, ptr %245, align 8, !tbaa !77
   %indvars.iv.next.i.i.i90 = add nuw nsw i64 %indvars.iv.i.i.i89, 1
@@ -814,7 +813,7 @@ _ZN20b3AlignedObjectArrayIPvE10deallocateEv.exit.i.i: ; preds = %252, %_ZNK20b3A
 254:                                              ; preds = %254, %.lr.ph.i75
   %indvars.iv.i78 = phi i64 [ %253, %.lr.ph.i75 ], [ %indvars.iv.next.i79, %254 ]
   %255 = load ptr, ptr %43, align 8, !tbaa !46
-  %256 = getelementptr inbounds ptr, ptr %255, i64 %indvars.iv.i78
+  %256 = getelementptr inbounds [8 x i8], ptr %255, i64 %indvars.iv.i78
   store ptr null, ptr %256, align 8, !tbaa !77
   %indvars.iv.next.i79 = add nsw i64 %indvars.iv.i78, 1
   %exitcond.not.i80 = icmp eq i64 %indvars.iv.next.i79, %wide.trip.count.i76
@@ -918,7 +917,7 @@ define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIN24btInverseDynami
 9:                                                ; preds = %.preheader, %9
   %indvars.iv28 = phi i64 [ %8, %.preheader ], [ %indvars.iv.next29, %9 ]
   %10 = load ptr, ptr %7, align 8, !tbaa !34
-  %11 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %10, i64 %indvars.iv28
+  %11 = getelementptr inbounds [816 x i8], ptr %10, i64 %indvars.iv28
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 696
   tail call void @_ZN9btMatrixXIfED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %12) #18
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 608
@@ -962,7 +961,7 @@ define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIN24btInverseDynami
 .noexc:                                           ; preds = %.noexc.lr.ph, %62
   %indvars.iv = phi i64 [ %38, %.noexc.lr.ph ], [ %indvars.iv.next, %62 ]
   %39 = load ptr, ptr %16, align 8, !tbaa !34
-  %40 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %39, i64 %indvars.iv
+  %40 = getelementptr inbounds [816 x i8], ptr %39, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(816) %40, ptr noundef nonnull align 8 dereferenceable(816) %2, i64 20, i1 false)
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 20
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %41, ptr noundef nonnull align 4 dereferenceable(48) %17, i64 16, i1 false), !tbaa.struct !81
@@ -1075,7 +1074,7 @@ define linkonce_odr dso_local void @_ZN9btMatrixXIfED2Ev(ptr noundef nonnull ali
 6:                                                ; preds = %_ZN20btAlignedObjectArrayIiED2Ev.exit.i.i.i, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %_ZN20btAlignedObjectArrayIiED2Ev.exit.i.i.i ]
   %7 = load ptr, ptr %5, align 8, !tbaa !59
-  %8 = getelementptr inbounds nuw %class.btAlignedObjectArray.10, ptr %7, i64 %indvars.iv.i.i.i
+  %8 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 %indvars.iv.i.i.i
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !64
   %.not.i.i.i.i.i.i = icmp ne ptr %10, null
@@ -1211,7 +1210,7 @@ define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIS_IiEED2Ev(ptr nou
 6:                                                ; preds = %_ZN20b3AlignedObjectArrayIiED2Ev.exit.i.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %_ZN20b3AlignedObjectArrayIiED2Ev.exit.i.i ]
   %7 = load ptr, ptr %5, align 8, !tbaa !42
-  %8 = getelementptr inbounds nuw %class.b3AlignedObjectArray.0, ptr %7, i64 %indvars.iv.i.i
+  %8 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 %indvars.iv.i.i
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !38
   %.not.i.i.i.i.i = icmp ne ptr %10, null
@@ -1288,7 +1287,7 @@ define linkonce_odr dso_local void @_ZN20b3AlignedObjectArrayIN24btInverseDynami
 6:                                                ; preds = %6, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %6 ]
   %7 = load ptr, ptr %5, align 8, !tbaa !34
-  %8 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %7, i64 %indvars.iv.i.i
+  %8 = getelementptr inbounds nuw [816 x i8], ptr %7, i64 %indvars.iv.i.i
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 696
   tail call void @_ZN9btMatrixXIfED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %9) #18
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 608
@@ -1335,7 +1334,7 @@ define dso_local noundef nonnull ptr @_ZNK24btInverseDynamicsBullet313MultiBodyT
 
 switch.lookup:                                    ; preds = %2
   %5 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl15getJointTypeStrEiPPKc, i64 %5
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl15getJointTypeStrEiPPKc, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %6
 
@@ -1355,7 +1354,7 @@ define dso_local void @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyIm
 
 switch.lookup:                                    ; preds = %1
   %7 = zext nneg i32 %5 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl15getJointTypeStrEiPPKc, i64 %7
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl15getJointTypeStrEiPPKc, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl17jointTypeToStringERKNS_9JointTypeE.exit
 
@@ -1373,7 +1372,7 @@ define dso_local void @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyIm
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load ptr, ptr %4, align 8, !tbaa !42
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %5, i64 %6
+  %7 = getelementptr inbounds [32 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = load i32, ptr %8, align 4, !tbaa !39
   %10 = add i32 %2, 2
@@ -1397,10 +1396,10 @@ _ZN24btInverseDynamicsBullet36indentERKi.exit.preheader: ; preds = %.lr.ph
 .lr.ph.i.preheader.us:                            ; preds = %.lr.ph.i.preheader.us.preheader, %_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl11bodyNumDoFsERKNS_9JointTypeE.exit.us
   %indvars.iv37 = phi i64 [ 0, %.lr.ph.i.preheader.us.preheader ], [ %indvars.iv.next38, %_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl11bodyNumDoFsERKNS_9JointTypeE.exit.us ]
   %14 = load ptr, ptr %4, align 8, !tbaa !42
-  %15 = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %14, i64 %6
+  %15 = getelementptr inbounds [32 x i8], ptr %14, i64 %6
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !38
-  %18 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv37
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv37
   %19 = load i32, ptr %18, align 4, !tbaa !73
   br label %.lr.ph.i.us
 
@@ -1457,7 +1456,7 @@ _ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl11bodyNumDoFsERKNS_9
 
 _ZN24btInverseDynamicsBullet36indentERKi.exit.loopexit.us: ; preds = %.lr.ph.i.us
   %35 = load ptr, ptr %13, align 8, !tbaa !34
-  %36 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %35, i64 %6
+  %36 = getelementptr inbounds [816 x i8], ptr %35, i64 %6
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 420
   %38 = load i32, ptr %37, align 4, !tbaa !86
   switch i32 %38, label %_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl17jointTypeToStringERKNS_9JointTypeE.exit.us [
@@ -1474,13 +1473,13 @@ _ZN24btInverseDynamicsBullet36indentERKi.exit.loopexit.us: ; preds = %.lr.ph.i.u
 _ZN24btInverseDynamicsBullet36indentERKi.exit:    ; preds = %_ZN24btInverseDynamicsBullet36indentERKi.exit.preheader, %_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl11bodyNumDoFsERKNS_9JointTypeE.exit
   %indvars.iv = phi i64 [ 0, %_ZN24btInverseDynamicsBullet36indentERKi.exit.preheader ], [ %indvars.iv.next, %_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl11bodyNumDoFsERKNS_9JointTypeE.exit ]
   %39 = load ptr, ptr %4, align 8, !tbaa !42
-  %40 = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %39, i64 %6
+  %40 = getelementptr inbounds [32 x i8], ptr %39, i64 %6
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load ptr, ptr %41, align 8, !tbaa !38
-  %43 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %indvars.iv
   %44 = load i32, ptr %43, align 4, !tbaa !73
   %45 = load ptr, ptr %13, align 8, !tbaa !34
-  %46 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %45, i64 %6
+  %46 = getelementptr inbounds [816 x i8], ptr %45, i64 %6
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 420
   %48 = load i32, ptr %47, align 4, !tbaa !86
   switch i32 %48, label %_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl17jointTypeToStringERKNS_9JointTypeE.exit [
@@ -1553,7 +1552,7 @@ define dso_local void @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyIm
 6:                                                ; preds = %.lr.ph, %_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl17jointTypeToStringERKNS_9JointTypeE.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl17jointTypeToStringERKNS_9JointTypeE.exit ]
   %7 = load ptr, ptr %5, align 8, !tbaa !34
-  %8 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [816 x i8], ptr %7, i64 %indvars.iv
   %9 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.7, i32 noundef %9)
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 420
@@ -1563,7 +1562,7 @@ define dso_local void @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyIm
 
 switch.lookup:                                    ; preds = %6
   %13 = zext nneg i32 %11 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl15getJointTypeStrEiPPKc, i64 %13
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl15getJointTypeStrEiPPKc, i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl17jointTypeToStringERKNS_9JointTypeE.exit
 
@@ -1665,7 +1664,7 @@ define dso_local noundef range(i32 0, 7) i32 @_ZNK24btInverseDynamicsBullet313Mu
 
 switch.lookup:                                    ; preds = %2
   %7 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl11bodyNumDoFsERKNS_9JointTypeE, i64 %7
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl11bodyNumDoFsERKNS_9JointTypeE, i64 %7
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %8
 
@@ -1816,7 +1815,7 @@ _ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit52:  ; preds = %.lr.ph.i44, %_ZN20b
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %185 ]
   %.032176 = phi i32 [ 0, %.lr.ph ], [ %.335.ph, %185 ]
   %57 = load ptr, ptr %41, align 8, !tbaa !34
-  %58 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %57, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [816 x i8], ptr %57, i64 %indvars.iv
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 536
   store i32 -1, ptr %59, align 8, !tbaa !89
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 420
@@ -1865,8 +1864,8 @@ _ZN20b3AlignedObjectArrayIiE8allocateEi.exit.i.i: ; preds = %70
 
 77:                                               ; preds = %77, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %77 ]
-  %78 = getelementptr inbounds nuw i32, ptr %73, i64 %indvars.iv.i.i.i
-  %79 = getelementptr inbounds nuw i32, ptr %.pre213, i64 %indvars.iv.i.i.i
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %indvars.iv.i.i.i
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %.pre213, i64 %indvars.iv.i.i.i
   %80 = load i32, ptr %79, align 4, !tbaa !73
   store i32 %80, ptr %78, align 4, !tbaa !73
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -1905,7 +1904,7 @@ _ZN20b3AlignedObjectArrayIiE9push_backERKi.exit:  ; preds = %62, %66, %_ZN20b3Al
   %85 = phi i32 [ %.pre.i56, %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i55 ], [ %63, %66 ], [ %63, %62 ]
   %86 = load ptr, ptr %54, align 8, !tbaa !38
   %87 = sext i32 %85 to i64
-  %88 = getelementptr inbounds i32, ptr %86, i64 %87
+  %88 = getelementptr inbounds [4 x i8], ptr %86, i64 %87
   %89 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %89, ptr %88, align 4, !tbaa !73
   %90 = load i32, ptr %3, align 4, !tbaa !39
@@ -1949,8 +1948,8 @@ _ZN20b3AlignedObjectArrayIiE8allocateEi.exit.i.i59: ; preds = %100
 
 107:                                              ; preds = %107, %.lr.ph.i.i.i68
   %indvars.iv.i.i.i70 = phi i64 [ 0, %.lr.ph.i.i.i68 ], [ %indvars.iv.next.i.i.i71, %107 ]
-  %108 = getelementptr inbounds nuw i32, ptr %103, i64 %indvars.iv.i.i.i70
-  %109 = getelementptr inbounds nuw i32, ptr %.pre211, i64 %indvars.iv.i.i.i70
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %103, i64 %indvars.iv.i.i.i70
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %.pre211, i64 %indvars.iv.i.i.i70
   %110 = load i32, ptr %109, align 4, !tbaa !73
   store i32 %110, ptr %108, align 4, !tbaa !73
   %indvars.iv.next.i.i.i71 = add nuw nsw i64 %indvars.iv.i.i.i70, 1
@@ -1989,7 +1988,7 @@ _ZN20b3AlignedObjectArrayIiE9push_backERKi.exit74: ; preds = %92, %96, %_ZN20b3A
   %115 = phi i32 [ %.pre.i67, %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i66 ], [ %93, %96 ], [ %93, %92 ]
   %116 = load ptr, ptr %51, align 8, !tbaa !38
   %117 = sext i32 %115 to i64
-  %118 = getelementptr inbounds i32, ptr %116, i64 %117
+  %118 = getelementptr inbounds [4 x i8], ptr %116, i64 %117
   %119 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %119, ptr %118, align 4, !tbaa !73
   %120 = load i32, ptr %21, align 4, !tbaa !39
@@ -2033,8 +2032,8 @@ _ZN20b3AlignedObjectArrayIiE8allocateEi.exit.i.i77: ; preds = %130
 
 137:                                              ; preds = %137, %.lr.ph.i.i.i86
   %indvars.iv.i.i.i88 = phi i64 [ 0, %.lr.ph.i.i.i86 ], [ %indvars.iv.next.i.i.i89, %137 ]
-  %138 = getelementptr inbounds nuw i32, ptr %133, i64 %indvars.iv.i.i.i88
-  %139 = getelementptr inbounds nuw i32, ptr %.pre209, i64 %indvars.iv.i.i.i88
+  %138 = getelementptr inbounds nuw [4 x i8], ptr %133, i64 %indvars.iv.i.i.i88
+  %139 = getelementptr inbounds nuw [4 x i8], ptr %.pre209, i64 %indvars.iv.i.i.i88
   %140 = load i32, ptr %139, align 4, !tbaa !73
   store i32 %140, ptr %138, align 4, !tbaa !73
   %indvars.iv.next.i.i.i89 = add nuw nsw i64 %indvars.iv.i.i.i88, 1
@@ -2073,7 +2072,7 @@ _ZN20b3AlignedObjectArrayIiE9push_backERKi.exit92: ; preds = %122, %126, %_ZN20b
   %145 = phi i32 [ %.pre.i85, %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i84 ], [ %123, %126 ], [ %123, %122 ]
   %146 = load ptr, ptr %48, align 8, !tbaa !38
   %147 = sext i32 %145 to i64
-  %148 = getelementptr inbounds i32, ptr %146, i64 %147
+  %148 = getelementptr inbounds [4 x i8], ptr %146, i64 %147
   %149 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %149, ptr %148, align 4, !tbaa !73
   %150 = load i32, ptr %46, align 4, !tbaa !39
@@ -2117,8 +2116,8 @@ _ZN20b3AlignedObjectArrayIiE8allocateEi.exit.i.i95: ; preds = %160
 
 167:                                              ; preds = %167, %.lr.ph.i.i.i104
   %indvars.iv.i.i.i106 = phi i64 [ 0, %.lr.ph.i.i.i104 ], [ %indvars.iv.next.i.i.i107, %167 ]
-  %168 = getelementptr inbounds nuw i32, ptr %163, i64 %indvars.iv.i.i.i106
-  %169 = getelementptr inbounds nuw i32, ptr %.pre207, i64 %indvars.iv.i.i.i106
+  %168 = getelementptr inbounds nuw [4 x i8], ptr %163, i64 %indvars.iv.i.i.i106
+  %169 = getelementptr inbounds nuw [4 x i8], ptr %.pre207, i64 %indvars.iv.i.i.i106
   %170 = load i32, ptr %169, align 4, !tbaa !73
   store i32 %170, ptr %168, align 4, !tbaa !73
   %indvars.iv.next.i.i.i107 = add nuw nsw i64 %indvars.iv.i.i.i106, 1
@@ -2157,7 +2156,7 @@ _ZN20b3AlignedObjectArrayIiE9push_backERKi.exit110: ; preds = %152, %156, %_ZN20
   %175 = phi i32 [ %.pre.i103, %_ZN20b3AlignedObjectArrayIiE10deallocateEv.exit.i.i102 ], [ %153, %156 ], [ %153, %152 ]
   %176 = load ptr, ptr %44, align 8, !tbaa !38
   %177 = sext i32 %175 to i64
-  %178 = getelementptr inbounds i32, ptr %176, i64 %177
+  %178 = getelementptr inbounds [4 x i8], ptr %176, i64 %177
   %179 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %179, ptr %178, align 4, !tbaa !73
   %180 = load i32, ptr %42, align 4, !tbaa !39
@@ -2224,7 +2223,7 @@ _ZN20b3AlignedObjectArrayIiE9push_backERKi.exit110: ; preds = %152, %156, %_ZN20
 204:                                              ; preds = %_ZN20b3AlignedObjectArrayIiED2Ev.exit.i, %.preheader.i
   %indvars.iv25.i = phi i64 [ %203, %.preheader.i ], [ %indvars.iv.next26.i, %_ZN20b3AlignedObjectArrayIiED2Ev.exit.i ]
   %205 = load ptr, ptr %202, align 8, !tbaa !42
-  %206 = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %205, i64 %indvars.iv25.i
+  %206 = getelementptr inbounds [32 x i8], ptr %205, i64 %indvars.iv25.i
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 16
   %208 = load ptr, ptr %207, align 8, !tbaa !38
   %.not.i.i.i.i = icmp ne ptr %208, null
@@ -2273,7 +2272,7 @@ _ZN20b3AlignedObjectArrayIiED2Ev.exit.i:          ; preds = %212, %204
 222:                                              ; preds = %.noexc115, %.noexc
   %indvars.iv.i112 = phi i64 [ %221, %.noexc ], [ %indvars.iv.next.i113, %.noexc115 ]
   %223 = load ptr, ptr %220, align 8, !tbaa !42
-  %224 = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %223, i64 %indvars.iv.i112
+  %224 = getelementptr inbounds [32 x i8], ptr %223, i64 %indvars.iv.i112
   invoke void @_ZN20b3AlignedObjectArrayIiEC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(25) %224, ptr noundef nonnull align 8 dereferenceable(25) %2)
           to label %.noexc115 unwind label %.loopexit155
 
@@ -2335,7 +2334,7 @@ _ZN20b3AlignedObjectArrayIiED2Ev.exit:            ; preds = %.loopexit154, %228
   %indvars.iv201 = phi i64 [ 1, %.lr.ph183 ], [ %indvars.iv.next202, %_ZN20b3AlignedObjectArrayIiE9push_backERKi.exit135 ]
   %238 = phi i32 [ %233, %.lr.ph183 ], [ %285, %_ZN20b3AlignedObjectArrayIiE9push_backERKi.exit135 ]
   %239 = load ptr, ptr %234, align 8, !tbaa !38
-  %240 = getelementptr inbounds nuw i32, ptr %239, i64 %indvars.iv201
+  %240 = getelementptr inbounds nuw [4 x i8], ptr %239, i64 %indvars.iv201
   %241 = load i32, ptr %240, align 4, !tbaa !73
   %242 = icmp sgt i32 %241, -1
   br i1 %242, label %243, label %287
@@ -2348,7 +2347,7 @@ _ZN20b3AlignedObjectArrayIiED2Ev.exit:            ; preds = %.loopexit154, %228
 .critedge:                                        ; preds = %243
   %246 = load ptr, ptr %235, align 8, !tbaa !42
   %247 = zext nneg i32 %241 to i64
-  %248 = getelementptr inbounds nuw %class.b3AlignedObjectArray.0, ptr %246, i64 %247
+  %248 = getelementptr inbounds nuw [32 x i8], ptr %246, i64 %247
   %249 = getelementptr inbounds nuw i8, ptr %248, i64 4
   %250 = load i32, ptr %249, align 4, !tbaa !39
   %251 = getelementptr inbounds nuw i8, ptr %248, i64 8
@@ -2387,8 +2386,8 @@ _ZN20b3AlignedObjectArrayIiE8allocateEi.exit.i.i120: ; preds = %258
 
 267:                                              ; preds = %267, %.lr.ph.i.i.i129
   %indvars.iv.i.i.i131 = phi i64 [ 0, %.lr.ph.i.i.i129 ], [ %indvars.iv.next.i.i.i132, %267 ]
-  %268 = getelementptr inbounds nuw i32, ptr %261, i64 %indvars.iv.i.i.i131
-  %269 = getelementptr inbounds nuw i32, ptr %266, i64 %indvars.iv.i.i.i131
+  %268 = getelementptr inbounds nuw [4 x i8], ptr %261, i64 %indvars.iv.i.i.i131
+  %269 = getelementptr inbounds nuw [4 x i8], ptr %266, i64 %indvars.iv.i.i.i131
   %270 = load i32, ptr %269, align 4, !tbaa !73
   store i32 %270, ptr %268, align 4, !tbaa !73
   %indvars.iv.next.i.i.i132 = add nuw nsw i64 %indvars.iv.i.i.i131, 1
@@ -2429,7 +2428,7 @@ _ZN20b3AlignedObjectArrayIiE9push_backERKi.exit135: ; preds = %.critedge, %254, 
   %278 = getelementptr inbounds nuw i8, ptr %248, i64 16
   %279 = load ptr, ptr %278, align 8, !tbaa !38
   %280 = sext i32 %277 to i64
-  %281 = getelementptr inbounds i32, ptr %279, i64 %280
+  %281 = getelementptr inbounds [4 x i8], ptr %279, i64 %280
   %282 = trunc nuw nsw i64 %indvars.iv201 to i32
   store i32 %282, ptr %281, align 4, !tbaa !73
   %283 = load i32, ptr %249, align 4, !tbaa !39
@@ -2457,7 +2456,7 @@ _ZN20b3AlignedObjectArrayIiE9push_backERKi.exit135: ; preds = %.critedge, %254, 
 
 .thread153:                                       ; preds = %.thread153.loopexit, %287
   %storemerge42181196 = phi i32 [ %291, %.thread153.loopexit ], [ %288, %287 ]
-  %292 = getelementptr inbounds nuw i32, ptr %239, i64 %indvars.iv201
+  %292 = getelementptr inbounds nuw [4 x i8], ptr %239, i64 %indvars.iv201
   call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.16, ptr noundef nonnull @.str.17, i32 noundef 195)
   %293 = load i32, ptr %292, align 4, !tbaa !73
   %294 = load i32, ptr %232, align 4, !tbaa !39
@@ -2491,7 +2490,7 @@ define dso_local void @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyIm
 11:                                               ; preds = %.lr.ph, %_ZN24btInverseDynamicsBullet35mat3x7setZeroEv.exit62
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN24btInverseDynamicsBullet35mat3x7setZeroEv.exit62 ]
   %12 = load ptr, ptr %9, align 8, !tbaa !34
-  %13 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [816 x i8], ptr %12, i64 %indvars.iv
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 420
   %15 = load i32, ptr %14, align 4, !tbaa !96
   switch i32 %15, label %99 [
@@ -2806,7 +2805,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
 42:                                               ; preds = %.lr.ph, %42
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
   %43 = load ptr, ptr %32, align 8, !tbaa !34
-  %44 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %43, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [816 x i8], ptr %43, i64 %indvars.iv
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 20
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 228
   %47 = load float, ptr %45, align 4, !tbaa !62
@@ -2987,7 +2986,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
   call void @_ZN24btInverseDynamicsBullet37setZeroERNS_4vec3E(ptr noundef nonnull align 4 dereferenceable(16) %6)
   call void @_ZN24btInverseDynamicsBullet37setZeroERNS_4vec3E(ptr noundef nonnull align 4 dereferenceable(16) %7)
   %196 = load ptr, ptr %35, align 8, !tbaa !42
-  %197 = getelementptr inbounds %class.b3AlignedObjectArray.0, ptr %196, i64 %indvars.iv.next289
+  %197 = getelementptr inbounds [32 x i8], ptr %196, i64 %indvars.iv.next289
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 4
   %199 = load i32, ptr %198, align 4, !tbaa !39
   %200 = icmp sgt i32 %199, 0
@@ -3017,7 +3016,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
   %205 = phi float [ %.pre311, %.._crit_edge_crit_edge ], [ %278, %233 ]
   %206 = phi float [ %.pre, %.._crit_edge_crit_edge ], [ %277, %233 ]
   %207 = load ptr, ptr %36, align 8, !tbaa !34
-  %208 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %207, i64 %indvars.iv.next289
+  %208 = getelementptr inbounds [816 x i8], ptr %207, i64 %indvars.iv.next289
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 68
   %210 = load float, ptr %209, align 4, !tbaa !62
   %211 = fsub float %210, %206
@@ -3066,10 +3065,10 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
   %237 = phi float [ %.promoted269, %.lr.ph267 ], [ %278, %233 ]
   %238 = phi float [ %.promoted, %.lr.ph267 ], [ %277, %233 ]
   %239 = phi float [ %.promoted265, %.lr.ph267 ], [ %322, %233 ]
-  %240 = getelementptr inbounds nuw i32, ptr %202, i64 %indvars.iv285
+  %240 = getelementptr inbounds nuw [4 x i8], ptr %202, i64 %indvars.iv285
   %241 = load i32, ptr %240, align 4, !tbaa !73
   %242 = sext i32 %241 to i64
-  %243 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %203, i64 %242
+  %243 = getelementptr inbounds [816 x i8], ptr %203, i64 %242
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 292
   %245 = getelementptr inbounds nuw i8, ptr %243, i64 308
   %246 = getelementptr inbounds nuw i8, ptr %243, i64 324
@@ -3179,10 +3178,10 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
 
 334:                                              ; preds = %.lr.ph277, %334
   %indvars.iv291 = phi i64 [ 0, %.lr.ph277 ], [ %indvars.iv.next292, %334 ]
-  %335 = getelementptr inbounds nuw i32, ptr %190, i64 %indvars.iv291
+  %335 = getelementptr inbounds nuw [4 x i8], ptr %190, i64 %indvars.iv291
   %336 = load i32, ptr %335, align 4, !tbaa !73
   %337 = sext i32 %336 to i64
-  %338 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %192, i64 %337
+  %338 = getelementptr inbounds [816 x i8], ptr %192, i64 %337
   %339 = getelementptr inbounds nuw i8, ptr %338, i64 488
   %340 = getelementptr inbounds nuw i8, ptr %338, i64 116
   %341 = load float, ptr %339, align 4, !tbaa !62
@@ -3201,7 +3200,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
   %354 = getelementptr inbounds nuw i8, ptr %338, i64 536
   %355 = load i32, ptr %354, align 8, !tbaa !89
   %356 = sext i32 %355 to i64
-  %357 = getelementptr inbounds float, ptr %194, i64 %356
+  %357 = getelementptr inbounds [4 x i8], ptr %194, i64 %356
   store float %353, ptr %357, align 4, !tbaa !62
   %indvars.iv.next292 = add nuw nsw i64 %indvars.iv291, 1
   %exitcond295.not = icmp eq i64 %indvars.iv.next292, %wide.trip.count294
@@ -3225,10 +3224,10 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
 
 367:                                              ; preds = %.lr.ph279, %367
   %indvars.iv296 = phi i64 [ 0, %.lr.ph279 ], [ %indvars.iv.next297, %367 ]
-  %368 = getelementptr inbounds nuw i32, ptr %329, i64 %indvars.iv296
+  %368 = getelementptr inbounds nuw [4 x i8], ptr %329, i64 %indvars.iv296
   %369 = load i32, ptr %368, align 4, !tbaa !73
   %370 = sext i32 %369 to i64
-  %371 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %331, i64 %370
+  %371 = getelementptr inbounds [816 x i8], ptr %331, i64 %370
   %372 = getelementptr inbounds nuw i8, ptr %371, i64 504
   %373 = getelementptr inbounds nuw i8, ptr %371, i64 100
   %374 = load float, ptr %372, align 4, !tbaa !62
@@ -3247,7 +3246,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
   %387 = getelementptr inbounds nuw i8, ptr %371, i64 536
   %388 = load i32, ptr %387, align 8, !tbaa !89
   %389 = sext i32 %388 to i64
-  %390 = getelementptr inbounds float, ptr %333, i64 %389
+  %390 = getelementptr inbounds [4 x i8], ptr %333, i64 %389
   store float %386, ptr %390, align 4, !tbaa !62
   %indvars.iv.next297 = add nuw nsw i64 %indvars.iv296, 1
   %exitcond300.not = icmp eq i64 %indvars.iv.next297, %wide.trip.count299
@@ -3271,16 +3270,16 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
 
 400:                                              ; preds = %.lr.ph281, %400
   %indvars.iv301 = phi i64 [ 0, %.lr.ph281 ], [ %indvars.iv.next302, %400 ]
-  %401 = getelementptr inbounds nuw i32, ptr %362, i64 %indvars.iv301
+  %401 = getelementptr inbounds nuw [4 x i8], ptr %362, i64 %indvars.iv301
   %402 = load i32, ptr %401, align 4, !tbaa !73
   %403 = sext i32 %402 to i64
-  %404 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %364, i64 %403
+  %404 = getelementptr inbounds [816 x i8], ptr %364, i64 %403
   %405 = getelementptr inbounds nuw i8, ptr %404, i64 116
   %406 = load float, ptr %405, align 4, !tbaa !62
   %407 = getelementptr inbounds nuw i8, ptr %404, i64 536
   %408 = load i32, ptr %407, align 8, !tbaa !89
   %409 = sext i32 %408 to i64
-  %410 = getelementptr float, ptr %366, i64 %409
+  %410 = getelementptr [4 x i8], ptr %366, i64 %409
   store float %406, ptr %410, align 4, !tbaa !62
   %411 = getelementptr inbounds nuw i8, ptr %404, i64 120
   %412 = load float, ptr %411, align 8, !tbaa !62
@@ -3308,16 +3307,16 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
 
 426:                                              ; preds = %.lr.ph283, %426
   %indvars.iv306 = phi i64 [ 0, %.lr.ph283 ], [ %indvars.iv.next307, %426 ]
-  %427 = getelementptr inbounds nuw i32, ptr %395, i64 %indvars.iv306
+  %427 = getelementptr inbounds nuw [4 x i8], ptr %395, i64 %indvars.iv306
   %428 = load i32, ptr %427, align 4, !tbaa !73
   %429 = sext i32 %428 to i64
-  %430 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %397, i64 %429
+  %430 = getelementptr inbounds [816 x i8], ptr %397, i64 %429
   %431 = getelementptr inbounds nuw i8, ptr %430, i64 116
   %432 = load float, ptr %431, align 4, !tbaa !62
   %433 = getelementptr inbounds nuw i8, ptr %430, i64 536
   %434 = load i32, ptr %433, align 8, !tbaa !89
   %435 = sext i32 %434 to i64
-  %436 = getelementptr float, ptr %399, i64 %435
+  %436 = getelementptr [4 x i8], ptr %399, i64 %435
   store float %432, ptr %436, align 4, !tbaa !62
   %437 = getelementptr inbounds nuw i8, ptr %430, i64 120
   %438 = load float, ptr %437, align 8, !tbaa !62
@@ -3421,18 +3420,18 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
 54:                                               ; preds = %.lr.ph, %147
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %147 ]
   %55 = load ptr, ptr %30, align 8, !tbaa !38
-  %56 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %indvars.iv
   %57 = load i32, ptr %56, align 4, !tbaa !73
   %58 = load ptr, ptr %31, align 8, !tbaa !34
   %59 = sext i32 %57 to i64
-  %60 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %58, i64 %59
+  %60 = getelementptr inbounds [816 x i8], ptr %58, i64 %59
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 488
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 536
   %63 = load i32, ptr %62, align 8, !tbaa !89
   %64 = load ptr, ptr %32, align 8, !tbaa !55
   %65 = sext i32 %63 to i64
-  %66 = getelementptr inbounds float, ptr %64, i64 %65
+  %66 = getelementptr inbounds [4 x i8], ptr %64, i64 %65
   call void @_ZN24btInverseDynamicsBullet324bodyTParentFromAxisAngleERKNS_4vec3ERKfPNS_5mat33E(ptr noundef nonnull align 4 dereferenceable(16) %61, ptr noundef nonnull align 4 dereferenceable(4) %66, ptr noundef nonnull %6)
   %67 = getelementptr inbounds nuw i8, ptr %60, i64 440
   %68 = load float, ptr %67, align 8, !tbaa !62, !noalias !116
@@ -3518,7 +3517,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
   %125 = load i32, ptr %62, align 8, !tbaa !89
   %126 = load ptr, ptr %41, align 8, !tbaa !55
   %127 = sext i32 %125 to i64
-  %128 = getelementptr inbounds float, ptr %126, i64 %127
+  %128 = getelementptr inbounds [4 x i8], ptr %126, i64 %127
   %129 = load float, ptr %61, align 8, !tbaa !62
   %130 = load float, ptr %128, align 4, !tbaa !62
   %131 = fmul float %129, %130
@@ -3539,7 +3538,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
 
 139:                                              ; preds = %124
   %140 = load ptr, ptr %43, align 8, !tbaa !55
-  %141 = getelementptr inbounds float, ptr %140, i64 %127
+  %141 = getelementptr inbounds [4 x i8], ptr %140, i64 %127
   %142 = load float, ptr %141, align 4, !tbaa !62
   %143 = fmul float %129, %142
   %144 = fmul float %133, %142
@@ -3604,18 +3603,18 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
 184:                                              ; preds = %.lr.ph653, %265
   %indvars.iv661 = phi i64 [ 0, %.lr.ph653 ], [ %indvars.iv.next662, %265 ]
   %185 = load ptr, ptr %48, align 8, !tbaa !38
-  %186 = getelementptr inbounds nuw i32, ptr %185, i64 %indvars.iv661
+  %186 = getelementptr inbounds nuw [4 x i8], ptr %185, i64 %indvars.iv661
   %187 = load i32, ptr %186, align 4, !tbaa !73
   %188 = load ptr, ptr %49, align 8, !tbaa !34
   %189 = sext i32 %187 to i64
-  %190 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %188, i64 %189
+  %190 = getelementptr inbounds [816 x i8], ptr %188, i64 %189
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 424
   %192 = getelementptr inbounds nuw i8, ptr %190, i64 520
   %193 = getelementptr inbounds nuw i8, ptr %190, i64 536
   %194 = load i32, ptr %193, align 8, !tbaa !89
   %195 = load ptr, ptr %50, align 8, !tbaa !55
   %196 = sext i32 %194 to i64
-  %197 = getelementptr inbounds float, ptr %195, i64 %196
+  %197 = getelementptr inbounds [4 x i8], ptr %195, i64 %196
   %198 = load float, ptr %192, align 8, !tbaa !62
   %199 = load float, ptr %197, align 4, !tbaa !62
   %200 = fmul float %198, %199
@@ -3677,7 +3676,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
   %248 = call float @llvm.fmuladd.f32(float %232, float %236, float %247)
   %249 = call noundef float @llvm.fmuladd.f32(float %234, float %242, float %248)
   %250 = load ptr, ptr %51, align 8, !tbaa !55
-  %251 = getelementptr inbounds float, ptr %250, i64 %196
+  %251 = getelementptr inbounds [4 x i8], ptr %250, i64 %196
   %252 = load float, ptr %251, align 4, !tbaa !62
   %253 = fmul float %243, %252
   %254 = fmul float %252, %246
@@ -3693,7 +3692,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
 
 257:                                              ; preds = %216
   %258 = load ptr, ptr %53, align 8, !tbaa !55
-  %259 = getelementptr inbounds float, ptr %258, i64 %196
+  %259 = getelementptr inbounds [4 x i8], ptr %258, i64 %196
   %260 = load float, ptr %259, align 4, !tbaa !62
   %261 = fmul float %198, %260
   %262 = fmul float %202, %260
@@ -3757,24 +3756,24 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
 302:                                              ; preds = %.lr.ph655, %506
   %indvars.iv664 = phi i64 [ 0, %.lr.ph655 ], [ %indvars.iv.next665, %506 ]
   %303 = load ptr, ptr %154, align 8, !tbaa !38
-  %304 = getelementptr inbounds nuw i32, ptr %303, i64 %indvars.iv664
+  %304 = getelementptr inbounds nuw [4 x i8], ptr %303, i64 %indvars.iv664
   %305 = load i32, ptr %304, align 4, !tbaa !73
   %306 = load ptr, ptr %155, align 8, !tbaa !34
   %307 = sext i32 %305 to i64
-  %308 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %306, i64 %307
+  %308 = getelementptr inbounds [816 x i8], ptr %306, i64 %307
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %309 = getelementptr inbounds nuw i8, ptr %308, i64 536
   %310 = load i32, ptr %309, align 8, !tbaa !89
   %311 = load ptr, ptr %156, align 8, !tbaa !55
   %312 = sext i32 %310 to i64
-  %313 = getelementptr float, ptr %311, i64 %312
+  %313 = getelementptr [4 x i8], ptr %311, i64 %312
   %314 = getelementptr i8, ptr %313, i64 8
   call void @_ZN24btInverseDynamicsBullet310transformZERKf(ptr dead_on_unwind nonnull writable sret(%"class.btInverseDynamicsBullet3::mat33") align 4 %7, ptr noundef nonnull align 4 dereferenceable(4) %314)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %315 = load i32, ptr %309, align 8, !tbaa !89
   %316 = load ptr, ptr %156, align 8, !tbaa !55
   %317 = sext i32 %315 to i64
-  %318 = getelementptr float, ptr %316, i64 %317
+  %318 = getelementptr [4 x i8], ptr %316, i64 %317
   %319 = getelementptr i8, ptr %318, i64 4
   call void @_ZN24btInverseDynamicsBullet310transformYERKf(ptr dead_on_unwind nonnull writable sret(%"class.btInverseDynamicsBullet3::mat33") align 4 %8, ptr noundef nonnull align 4 dereferenceable(4) %319)
   %320 = load float, ptr %8, align 4, !tbaa !62, !noalias !124
@@ -3826,7 +3825,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
   %365 = load i32, ptr %309, align 8, !tbaa !89
   %366 = load ptr, ptr %156, align 8, !tbaa !55
   %367 = sext i32 %365 to i64
-  %368 = getelementptr inbounds float, ptr %366, i64 %367
+  %368 = getelementptr inbounds [4 x i8], ptr %366, i64 %367
   call void @_ZN24btInverseDynamicsBullet310transformXERKf(ptr dead_on_unwind nonnull writable sret(%"class.btInverseDynamicsBullet3::mat33") align 4 %9, ptr noundef nonnull align 4 dereferenceable(4) %368)
   %369 = load float, ptr %9, align 4, !tbaa !62, !noalias !127
   %370 = load float, ptr %173, align 4, !tbaa !62, !noalias !127
@@ -3895,19 +3894,19 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
   %409 = add nsw i32 %408, 3
   %410 = load ptr, ptr %156, align 8, !tbaa !55
   %411 = sext i32 %409 to i64
-  %412 = getelementptr inbounds float, ptr %410, i64 %411
+  %412 = getelementptr inbounds [4 x i8], ptr %410, i64 %411
   %413 = load float, ptr %412, align 4, !tbaa !62
   %414 = getelementptr inbounds nuw i8, ptr %308, i64 340
   store float %413, ptr %414, align 4, !tbaa !62
   %415 = add nsw i32 %408, 4
   %416 = sext i32 %415 to i64
-  %417 = getelementptr inbounds float, ptr %410, i64 %416
+  %417 = getelementptr inbounds [4 x i8], ptr %410, i64 %416
   %418 = load float, ptr %417, align 4, !tbaa !62
   %419 = getelementptr inbounds nuw i8, ptr %308, i64 344
   store float %418, ptr %419, align 8, !tbaa !62
   %420 = add nsw i32 %408, 5
   %421 = sext i32 %420 to i64
-  %422 = getelementptr inbounds float, ptr %410, i64 %421
+  %422 = getelementptr inbounds [4 x i8], ptr %410, i64 %421
   %423 = load float, ptr %422, align 4, !tbaa !62
   %424 = getelementptr inbounds nuw i8, ptr %308, i64 348
   %425 = load float, ptr %405, align 4, !tbaa !62
@@ -3938,31 +3937,31 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
 443:                                              ; preds = %302
   %444 = load ptr, ptr %181, align 8, !tbaa !55
   %445 = sext i32 %408 to i64
-  %446 = getelementptr inbounds float, ptr %444, i64 %445
+  %446 = getelementptr inbounds [4 x i8], ptr %444, i64 %445
   %447 = load float, ptr %446, align 4, !tbaa !62
   %448 = getelementptr inbounds nuw i8, ptr %308, i64 356
   store float %447, ptr %448, align 4, !tbaa !62
   %449 = add nsw i32 %408, 1
   %450 = sext i32 %449 to i64
-  %451 = getelementptr inbounds float, ptr %444, i64 %450
+  %451 = getelementptr inbounds [4 x i8], ptr %444, i64 %450
   %452 = load float, ptr %451, align 4, !tbaa !62
   %453 = getelementptr inbounds nuw i8, ptr %308, i64 360
   store float %452, ptr %453, align 4, !tbaa !62
   %454 = add nsw i32 %408, 2
   %455 = sext i32 %454 to i64
-  %456 = getelementptr inbounds float, ptr %444, i64 %455
+  %456 = getelementptr inbounds [4 x i8], ptr %444, i64 %455
   %457 = load float, ptr %456, align 4, !tbaa !62
   %458 = getelementptr inbounds nuw i8, ptr %308, i64 364
   store float %457, ptr %458, align 4, !tbaa !62
-  %459 = getelementptr inbounds float, ptr %444, i64 %411
+  %459 = getelementptr inbounds [4 x i8], ptr %444, i64 %411
   %460 = load float, ptr %459, align 4, !tbaa !62
   %461 = getelementptr inbounds nuw i8, ptr %308, i64 372
   store float %460, ptr %461, align 4, !tbaa !62
-  %462 = getelementptr inbounds float, ptr %444, i64 %416
+  %462 = getelementptr inbounds [4 x i8], ptr %444, i64 %416
   %463 = load float, ptr %462, align 4, !tbaa !62
   %464 = getelementptr inbounds nuw i8, ptr %308, i64 376
   store float %463, ptr %464, align 4, !tbaa !62
-  %465 = getelementptr inbounds float, ptr %444, i64 %421
+  %465 = getelementptr inbounds [4 x i8], ptr %444, i64 %421
   %466 = load float, ptr %465, align 4, !tbaa !62
   %467 = getelementptr inbounds nuw i8, ptr %308, i64 380
   %468 = fmul float %431, %463
@@ -3983,27 +3982,27 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
 
 477:                                              ; preds = %443
   %478 = load ptr, ptr %183, align 8, !tbaa !55
-  %479 = getelementptr inbounds float, ptr %478, i64 %445
+  %479 = getelementptr inbounds [4 x i8], ptr %478, i64 %445
   %480 = load float, ptr %479, align 4, !tbaa !62
   %481 = getelementptr inbounds nuw i8, ptr %308, i64 388
   store float %480, ptr %481, align 4, !tbaa !62
-  %482 = getelementptr inbounds float, ptr %478, i64 %450
+  %482 = getelementptr inbounds [4 x i8], ptr %478, i64 %450
   %483 = load float, ptr %482, align 4, !tbaa !62
   %484 = getelementptr inbounds nuw i8, ptr %308, i64 392
   store float %483, ptr %484, align 4, !tbaa !62
-  %485 = getelementptr inbounds float, ptr %478, i64 %455
+  %485 = getelementptr inbounds [4 x i8], ptr %478, i64 %455
   %486 = load float, ptr %485, align 4, !tbaa !62
   %487 = getelementptr inbounds nuw i8, ptr %308, i64 396
   store float %486, ptr %487, align 4, !tbaa !62
-  %488 = getelementptr inbounds float, ptr %478, i64 %411
+  %488 = getelementptr inbounds [4 x i8], ptr %478, i64 %411
   %489 = load float, ptr %488, align 4, !tbaa !62
   %490 = getelementptr inbounds nuw i8, ptr %308, i64 404
   store float %489, ptr %490, align 4, !tbaa !62
-  %491 = getelementptr inbounds float, ptr %478, i64 %416
+  %491 = getelementptr inbounds [4 x i8], ptr %478, i64 %416
   %492 = load float, ptr %491, align 4, !tbaa !62
   %493 = getelementptr inbounds nuw i8, ptr %308, i64 408
   store float %492, ptr %493, align 4, !tbaa !62
-  %494 = getelementptr inbounds float, ptr %478, i64 %421
+  %494 = getelementptr inbounds [4 x i8], ptr %478, i64 %421
   %495 = load float, ptr %494, align 4, !tbaa !62
   %496 = getelementptr inbounds nuw i8, ptr %308, i64 412
   %497 = fmul float %431, %492
@@ -4084,23 +4083,23 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
 549:                                              ; preds = %.lr.ph657, %769
   %indvars.iv667 = phi i64 [ 0, %.lr.ph657 ], [ %indvars.iv.next668, %769 ]
   %550 = load ptr, ptr %272, align 8, !tbaa !38
-  %551 = getelementptr inbounds nuw i32, ptr %550, i64 %indvars.iv667
+  %551 = getelementptr inbounds nuw [4 x i8], ptr %550, i64 %indvars.iv667
   %552 = load i32, ptr %551, align 4, !tbaa !73
   %553 = load ptr, ptr %273, align 8, !tbaa !34
   %554 = sext i32 %552 to i64
-  %555 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %553, i64 %554
+  %555 = getelementptr inbounds [816 x i8], ptr %553, i64 %554
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %556 = getelementptr inbounds nuw i8, ptr %555, i64 536
   %557 = load i32, ptr %556, align 8, !tbaa !89
   %558 = load ptr, ptr %274, align 8, !tbaa !55
   %559 = sext i32 %557 to i64
-  %560 = getelementptr inbounds float, ptr %558, i64 %559
+  %560 = getelementptr inbounds [4 x i8], ptr %558, i64 %559
   call void @_ZN24btInverseDynamicsBullet310transformXERKf(ptr dead_on_unwind nonnull writable sret(%"class.btInverseDynamicsBullet3::mat33") align 4 %10, ptr noundef nonnull align 4 dereferenceable(4) %560)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %561 = load i32, ptr %556, align 8, !tbaa !89
   %562 = load ptr, ptr %274, align 8, !tbaa !55
   %563 = sext i32 %561 to i64
-  %564 = getelementptr float, ptr %562, i64 %563
+  %564 = getelementptr [4 x i8], ptr %562, i64 %563
   %565 = getelementptr i8, ptr %564, i64 4
   call void @_ZN24btInverseDynamicsBullet310transformYERKf(ptr dead_on_unwind nonnull writable sret(%"class.btInverseDynamicsBullet3::mat33") align 4 %11, ptr noundef nonnull align 4 dereferenceable(4) %565)
   %566 = load float, ptr %11, align 4, !tbaa !62, !noalias !131
@@ -4152,7 +4151,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
   %611 = load i32, ptr %556, align 8, !tbaa !89
   %612 = load ptr, ptr %274, align 8, !tbaa !55
   %613 = sext i32 %611 to i64
-  %614 = getelementptr float, ptr %612, i64 %613
+  %614 = getelementptr [4 x i8], ptr %612, i64 %613
   %615 = getelementptr i8, ptr %614, i64 8
   call void @_ZN24btInverseDynamicsBullet310transformZERKf(ptr dead_on_unwind nonnull writable sret(%"class.btInverseDynamicsBullet3::mat33") align 4 %12, ptr noundef nonnull align 4 dereferenceable(4) %615)
   %616 = load float, ptr %12, align 4, !tbaa !62, !noalias !134
@@ -4285,19 +4284,19 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
   %712 = load i32, ptr %556, align 8, !tbaa !89
   %713 = load ptr, ptr %299, align 8, !tbaa !55
   %714 = sext i32 %712 to i64
-  %715 = getelementptr inbounds float, ptr %713, i64 %714
+  %715 = getelementptr inbounds [4 x i8], ptr %713, i64 %714
   %716 = load float, ptr %715, align 4, !tbaa !62
   %717 = getelementptr inbounds nuw i8, ptr %555, i64 356
   store float %716, ptr %717, align 4, !tbaa !62
   %718 = add nsw i32 %712, 1
   %719 = sext i32 %718 to i64
-  %720 = getelementptr inbounds float, ptr %713, i64 %719
+  %720 = getelementptr inbounds [4 x i8], ptr %713, i64 %719
   %721 = load float, ptr %720, align 4, !tbaa !62
   %722 = getelementptr inbounds nuw i8, ptr %555, i64 360
   store float %721, ptr %722, align 8, !tbaa !62
   %723 = add nsw i32 %712, 2
   %724 = sext i32 %723 to i64
-  %725 = getelementptr inbounds float, ptr %713, i64 %724
+  %725 = getelementptr inbounds [4 x i8], ptr %713, i64 %724
   %726 = load float, ptr %725, align 4, !tbaa !62
   %727 = getelementptr inbounds nuw i8, ptr %555, i64 364
   store float %726, ptr %727, align 4, !tbaa !62
@@ -4325,15 +4324,15 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
 
 743:                                              ; preds = %711
   %744 = load ptr, ptr %301, align 8, !tbaa !55
-  %745 = getelementptr inbounds float, ptr %744, i64 %714
+  %745 = getelementptr inbounds [4 x i8], ptr %744, i64 %714
   %746 = load float, ptr %745, align 4, !tbaa !62
   %747 = getelementptr inbounds nuw i8, ptr %555, i64 388
   store float %746, ptr %747, align 4, !tbaa !62
-  %748 = getelementptr inbounds float, ptr %744, i64 %719
+  %748 = getelementptr inbounds [4 x i8], ptr %744, i64 %719
   %749 = load float, ptr %748, align 4, !tbaa !62
   %750 = getelementptr inbounds nuw i8, ptr %555, i64 392
   store float %749, ptr %750, align 4, !tbaa !62
-  %751 = getelementptr inbounds float, ptr %744, i64 %724
+  %751 = getelementptr inbounds [4 x i8], ptr %744, i64 %724
   %752 = load float, ptr %751, align 4, !tbaa !62
   %753 = getelementptr inbounds nuw i8, ptr %555, i64 396
   store float %752, ptr %753, align 4, !tbaa !62
@@ -4441,12 +4440,12 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
 821:                                              ; preds = %.lr.ph659, %1130
   %indvars.iv670 = phi i64 [ 1, %.lr.ph659 ], [ %indvars.iv.next671, %1130 ]
   %822 = load ptr, ptr %510, align 8, !tbaa !34
-  %823 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %822, i64 %indvars.iv670
+  %823 = getelementptr inbounds nuw [816 x i8], ptr %822, i64 %indvars.iv670
   %824 = load ptr, ptr %820, align 8, !tbaa !38
-  %825 = getelementptr inbounds nuw i32, ptr %824, i64 %indvars.iv670
+  %825 = getelementptr inbounds nuw [4 x i8], ptr %824, i64 %indvars.iv670
   %826 = load i32, ptr %825, align 4, !tbaa !73
   %827 = sext i32 %826 to i64
-  %828 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %822, i64 %827
+  %828 = getelementptr inbounds [816 x i8], ptr %822, i64 %827
   %829 = getelementptr inbounds nuw i8, ptr %823, i64 292
   %830 = getelementptr inbounds nuw i8, ptr %828, i64 164
   %831 = getelementptr inbounds nuw i8, ptr %823, i64 340
@@ -4851,14 +4850,14 @@ define dso_local void @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyIm
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 736
   %14 = load ptr, ptr %13, align 8, !tbaa !55
   %15 = sext i32 %7 to i64
-  %16 = getelementptr inbounds float, ptr %14, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %14, i64 %15
   store float %9, ptr %16, align 4, !tbaa !62
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 492
   %18 = load float, ptr %17, align 4, !tbaa !62
   %19 = load i32, ptr %12, align 4, !tbaa !50
   %20 = add nsw i32 %19, %7
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds float, ptr %14, i64 %21
+  %22 = getelementptr inbounds [4 x i8], ptr %14, i64 %21
   store float %18, ptr %22, align 4, !tbaa !62
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 496
   %24 = load float, ptr %23, align 8, !tbaa !62
@@ -4891,7 +4890,7 @@ define dso_local void @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyIm
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 648
   %49 = load ptr, ptr %48, align 8, !tbaa !55
   %50 = sext i32 %29 to i64
-  %51 = getelementptr inbounds float, ptr %49, i64 %50
+  %51 = getelementptr inbounds [4 x i8], ptr %49, i64 %50
   store float %44, ptr %51, align 4, !tbaa !62
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 444
   %53 = load float, ptr %52, align 4, !tbaa !62
@@ -4908,7 +4907,7 @@ define dso_local void @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyIm
   %64 = load i32, ptr %47, align 4, !tbaa !50
   %65 = add nsw i32 %64, %29
   %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds float, ptr %49, i64 %66
+  %67 = getelementptr inbounds [4 x i8], ptr %49, i64 %66
   store float %63, ptr %67, align 4, !tbaa !62
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 448
   %69 = load float, ptr %68, align 8, !tbaa !62
@@ -4936,13 +4935,13 @@ define dso_local void @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyIm
   %88 = getelementptr inbounds nuw i8, ptr %1, i64 736
   %89 = load ptr, ptr %88, align 8, !tbaa !55
   %90 = sext i32 %84 to i64
-  %91 = getelementptr inbounds float, ptr %89, i64 %90
+  %91 = getelementptr inbounds [4 x i8], ptr %89, i64 %90
   store float 1.000000e+00, ptr %91, align 4, !tbaa !62
   %92 = add nsw i32 %84, 1
   %93 = load i32, ptr %87, align 4, !tbaa !50
   %94 = add nsw i32 %92, %93
   %95 = sext i32 %94 to i64
-  %96 = getelementptr inbounds float, ptr %89, i64 %95
+  %96 = getelementptr inbounds [4 x i8], ptr %89, i64 %95
   store float 1.000000e+00, ptr %96, align 4, !tbaa !62
   %97 = add nsw i32 %84, 2
   %98 = add nsw i32 %86, 3
@@ -4950,7 +4949,7 @@ define dso_local void @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyIm
   %99 = shl nsw i32 %93, 1
   %100 = add nsw i32 %97, %99
   %101 = sext i32 %100 to i64
-  %102 = getelementptr inbounds float, ptr %89, i64 %101
+  %102 = getelementptr inbounds [4 x i8], ptr %89, i64 %101
   store float 1.000000e+00, ptr %102, align 4, !tbaa !62
   %103 = add nsw i32 %84, 3
   %104 = getelementptr inbounds nuw i8, ptr %1, i64 292
@@ -4961,51 +4960,51 @@ define dso_local void @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyIm
   %109 = getelementptr inbounds nuw i8, ptr %1, i64 648
   %110 = load ptr, ptr %109, align 8, !tbaa !55
   %111 = sext i32 %103 to i64
-  %112 = getelementptr inbounds float, ptr %110, i64 %111
+  %112 = getelementptr inbounds [4 x i8], ptr %110, i64 %111
   store float %105, ptr %112, align 4, !tbaa !62
   %113 = add nsw i32 %84, 4
   %114 = getelementptr inbounds nuw i8, ptr %1, i64 308
   %115 = load float, ptr %114, align 4, !tbaa !62
   %116 = sext i32 %113 to i64
-  %117 = getelementptr inbounds float, ptr %110, i64 %116
+  %117 = getelementptr inbounds [4 x i8], ptr %110, i64 %116
   store float %115, ptr %117, align 4, !tbaa !62
   %118 = add nsw i32 %84, 5
   %119 = getelementptr inbounds nuw i8, ptr %1, i64 324
   %120 = load float, ptr %119, align 4, !tbaa !62
   %121 = sext i32 %118 to i64
-  %122 = getelementptr inbounds float, ptr %110, i64 %121
+  %122 = getelementptr inbounds [4 x i8], ptr %110, i64 %121
   store float %120, ptr %122, align 4, !tbaa !62
   %123 = getelementptr inbounds nuw i8, ptr %1, i64 296
   %124 = load float, ptr %123, align 8, !tbaa !62
   %125 = load i32, ptr %108, align 4, !tbaa !50
   %126 = add nsw i32 %125, %103
   %127 = sext i32 %126 to i64
-  %128 = getelementptr inbounds float, ptr %110, i64 %127
+  %128 = getelementptr inbounds [4 x i8], ptr %110, i64 %127
   store float %124, ptr %128, align 4, !tbaa !62
   %129 = getelementptr inbounds nuw i8, ptr %1, i64 312
   %130 = load float, ptr %129, align 8, !tbaa !62
   %131 = add nsw i32 %125, %113
   %132 = sext i32 %131 to i64
-  %133 = getelementptr inbounds float, ptr %110, i64 %132
+  %133 = getelementptr inbounds [4 x i8], ptr %110, i64 %132
   store float %130, ptr %133, align 4, !tbaa !62
   %134 = getelementptr inbounds nuw i8, ptr %1, i64 328
   %135 = load float, ptr %134, align 8, !tbaa !62
   %136 = add nsw i32 %125, %118
   %137 = sext i32 %136 to i64
-  %138 = getelementptr inbounds float, ptr %110, i64 %137
+  %138 = getelementptr inbounds [4 x i8], ptr %110, i64 %137
   store float %135, ptr %138, align 4, !tbaa !62
   %139 = getelementptr inbounds nuw i8, ptr %1, i64 300
   %140 = load float, ptr %139, align 4, !tbaa !62
   %141 = shl nsw i32 %125, 1
   %142 = add nsw i32 %141, %103
   %143 = sext i32 %142 to i64
-  %144 = getelementptr inbounds float, ptr %110, i64 %143
+  %144 = getelementptr inbounds [4 x i8], ptr %110, i64 %143
   store float %140, ptr %144, align 4, !tbaa !62
   %145 = getelementptr inbounds nuw i8, ptr %1, i64 316
   %146 = load float, ptr %145, align 4, !tbaa !62
   %147 = add nsw i32 %141, %113
   %148 = sext i32 %147 to i64
-  %149 = getelementptr inbounds float, ptr %110, i64 %148
+  %149 = getelementptr inbounds [4 x i8], ptr %110, i64 %148
   store float %146, ptr %149, align 4, !tbaa !62
   %150 = getelementptr inbounds nuw i8, ptr %1, i64 332
   %151 = load float, ptr %150, align 4, !tbaa !62
@@ -5022,13 +5021,13 @@ define dso_local void @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyIm
   %159 = getelementptr inbounds nuw i8, ptr %1, i64 736
   %160 = load ptr, ptr %159, align 8, !tbaa !55
   %161 = sext i32 %155 to i64
-  %162 = getelementptr inbounds float, ptr %160, i64 %161
+  %162 = getelementptr inbounds [4 x i8], ptr %160, i64 %161
   store float 1.000000e+00, ptr %162, align 4, !tbaa !62
   %163 = add nsw i32 %155, 1
   %164 = load i32, ptr %158, align 4, !tbaa !50
   %165 = add nsw i32 %163, %164
   %166 = sext i32 %165 to i64
-  %167 = getelementptr inbounds float, ptr %160, i64 %166
+  %167 = getelementptr inbounds [4 x i8], ptr %160, i64 %166
   store float 1.000000e+00, ptr %167, align 4, !tbaa !62
   %168 = add nsw i32 %155, 2
   %169 = add nsw i32 %157, 3
@@ -5042,7 +5041,7 @@ define dso_local void @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyIm
   %.sink75 = phi ptr [ %160, %154 ], [ %110, %83 ], [ %49, %28 ], [ %14, %6 ]
   %.sink = phi float [ 1.000000e+00, %154 ], [ %151, %83 ], [ %79, %28 ], [ %24, %6 ]
   %172 = sext i32 %.sink77 to i64
-  %173 = getelementptr inbounds float, ptr %.sink75, i64 %172
+  %173 = getelementptr inbounds [4 x i8], ptr %.sink75, i64 %172
   store float %.sink, ptr %173, align 4, !tbaa !62
   br label %174
 
@@ -5102,12 +5101,12 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
 27:                                               ; preds = %.lr.ph, %208
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %208 ]
   %28 = load ptr, ptr %19, align 8, !tbaa !34
-  %29 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [816 x i8], ptr %28, i64 %indvars.iv
   %30 = load ptr, ptr %24, align 8, !tbaa !38
-  %31 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4, !tbaa !73
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %28, i64 %33
+  %34 = getelementptr inbounds [816 x i8], ptr %28, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %29, i64 292
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 696
   %37 = getelementptr inbounds nuw i8, ptr %29, i64 696
@@ -5148,9 +5147,9 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
 53:                                               ; preds = %53, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %53 ]
   %54 = add nuw nsw i64 %indvars.iv.i, %52
-  %55 = getelementptr inbounds nuw float, ptr %47, i64 %54
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %54
   %56 = load float, ptr %55, align 4, !tbaa !62
-  %57 = getelementptr inbounds nuw float, ptr %50, i64 %54
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %54
   store float %56, ptr %57, align 4, !tbaa !62
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %51
@@ -5476,18 +5475,18 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
 69:                                               ; preds = %.lr.ph, %69
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %69 ]
   %70 = load ptr, ptr %52, align 8, !tbaa !38
-  %71 = getelementptr inbounds nuw i32, ptr %70, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %indvars.iv
   %72 = load i32, ptr %71, align 4, !tbaa !73
   %73 = load ptr, ptr %53, align 8, !tbaa !34
   %74 = sext i32 %72 to i64
-  %75 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %73, i64 %74
+  %75 = getelementptr inbounds [816 x i8], ptr %73, i64 %74
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 488
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 536
   %78 = load i32, ptr %77, align 8, !tbaa !89
   %79 = load ptr, ptr %54, align 8, !tbaa !55
   %80 = sext i32 %78 to i64
-  %81 = getelementptr inbounds float, ptr %79, i64 %80
+  %81 = getelementptr inbounds [4 x i8], ptr %79, i64 %80
   call void @_ZN24btInverseDynamicsBullet324bodyTParentFromAxisAngleERKNS_4vec3ERKfPNS_5mat33E(ptr noundef nonnull align 4 dereferenceable(16) %76, ptr noundef nonnull align 4 dereferenceable(4) %81, ptr noundef nonnull %7)
   %82 = getelementptr inbounds nuw i8, ptr %75, i64 440
   %83 = load float, ptr %82, align 8, !tbaa !62, !noalias !149
@@ -5613,18 +5612,18 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
 172:                                              ; preds = %.lr.ph646, %172
   %indvars.iv694 = phi i64 [ 0, %.lr.ph646 ], [ %indvars.iv.next695, %172 ]
   %173 = load ptr, ptr %66, align 8, !tbaa !38
-  %174 = getelementptr inbounds nuw i32, ptr %173, i64 %indvars.iv694
+  %174 = getelementptr inbounds nuw [4 x i8], ptr %173, i64 %indvars.iv694
   %175 = load i32, ptr %174, align 4, !tbaa !73
   %176 = load ptr, ptr %67, align 8, !tbaa !34
   %177 = sext i32 %175 to i64
-  %178 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %176, i64 %177
+  %178 = getelementptr inbounds [816 x i8], ptr %176, i64 %177
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 424
   %180 = getelementptr inbounds nuw i8, ptr %178, i64 520
   %181 = getelementptr inbounds nuw i8, ptr %178, i64 536
   %182 = load i32, ptr %181, align 8, !tbaa !89
   %183 = load ptr, ptr %68, align 8, !tbaa !55
   %184 = sext i32 %182 to i64
-  %185 = getelementptr inbounds float, ptr %183, i64 %184
+  %185 = getelementptr inbounds [4 x i8], ptr %183, i64 %184
   %186 = load float, ptr %180, align 8, !tbaa !62
   %187 = load float, ptr %185, align 4, !tbaa !62
   %188 = fmul float %186, %187
@@ -5694,24 +5693,24 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
 237:                                              ; preds = %.lr.ph648, %237
   %indvars.iv697 = phi i64 [ 0, %.lr.ph648 ], [ %indvars.iv.next698, %237 ]
   %238 = load ptr, ptr %145, align 8, !tbaa !38
-  %239 = getelementptr inbounds nuw i32, ptr %238, i64 %indvars.iv697
+  %239 = getelementptr inbounds nuw [4 x i8], ptr %238, i64 %indvars.iv697
   %240 = load i32, ptr %239, align 4, !tbaa !73
   %241 = load ptr, ptr %146, align 8, !tbaa !34
   %242 = sext i32 %240 to i64
-  %243 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %241, i64 %242
+  %243 = getelementptr inbounds [816 x i8], ptr %241, i64 %242
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 536
   %245 = load i32, ptr %244, align 8, !tbaa !89
   %246 = load ptr, ptr %147, align 8, !tbaa !55
   %247 = sext i32 %245 to i64
-  %248 = getelementptr float, ptr %246, i64 %247
+  %248 = getelementptr [4 x i8], ptr %246, i64 %247
   %249 = getelementptr i8, ptr %248, i64 8
   call void @_ZN24btInverseDynamicsBullet310transformZERKf(ptr dead_on_unwind nonnull writable sret(%"class.btInverseDynamicsBullet3::mat33") align 4 %8, ptr noundef nonnull align 4 dereferenceable(4) %249)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %250 = load i32, ptr %244, align 8, !tbaa !89
   %251 = load ptr, ptr %147, align 8, !tbaa !55
   %252 = sext i32 %250 to i64
-  %253 = getelementptr float, ptr %251, i64 %252
+  %253 = getelementptr [4 x i8], ptr %251, i64 %252
   %254 = getelementptr i8, ptr %253, i64 4
   call void @_ZN24btInverseDynamicsBullet310transformYERKf(ptr dead_on_unwind nonnull writable sret(%"class.btInverseDynamicsBullet3::mat33") align 4 %9, ptr noundef nonnull align 4 dereferenceable(4) %254)
   %255 = load float, ptr %9, align 4, !tbaa !62, !noalias !154
@@ -5763,7 +5762,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
   %300 = load i32, ptr %244, align 8, !tbaa !89
   %301 = load ptr, ptr %147, align 8, !tbaa !55
   %302 = sext i32 %300 to i64
-  %303 = getelementptr inbounds float, ptr %301, i64 %302
+  %303 = getelementptr inbounds [4 x i8], ptr %301, i64 %302
   call void @_ZN24btInverseDynamicsBullet310transformXERKf(ptr dead_on_unwind nonnull writable sret(%"class.btInverseDynamicsBullet3::mat33") align 4 %10, ptr noundef nonnull align 4 dereferenceable(4) %303)
   %304 = load float, ptr %10, align 4, !tbaa !62, !noalias !157
   %305 = load float, ptr %164, align 4, !tbaa !62, !noalias !157
@@ -5831,7 +5830,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
   %343 = load i32, ptr %244, align 8, !tbaa !89
   %344 = load ptr, ptr %147, align 8, !tbaa !55
   %345 = sext i32 %343 to i64
-  %346 = getelementptr float, ptr %344, i64 %345
+  %346 = getelementptr [4 x i8], ptr %344, i64 %345
   %347 = getelementptr i8, ptr %346, i64 12
   %348 = load float, ptr %347, align 4, !tbaa !62
   %349 = getelementptr inbounds nuw i8, ptr %243, i64 340
@@ -5875,23 +5874,23 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
 377:                                              ; preds = %.lr.ph650, %377
   %indvars.iv700 = phi i64 [ 0, %.lr.ph650 ], [ %indvars.iv.next701, %377 ]
   %378 = load ptr, ptr %210, align 8, !tbaa !38
-  %379 = getelementptr inbounds nuw i32, ptr %378, i64 %indvars.iv700
+  %379 = getelementptr inbounds nuw [4 x i8], ptr %378, i64 %indvars.iv700
   %380 = load i32, ptr %379, align 4, !tbaa !73
   %381 = load ptr, ptr %211, align 8, !tbaa !34
   %382 = sext i32 %380 to i64
-  %383 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %381, i64 %382
+  %383 = getelementptr inbounds [816 x i8], ptr %381, i64 %382
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %384 = getelementptr inbounds nuw i8, ptr %383, i64 536
   %385 = load i32, ptr %384, align 8, !tbaa !89
   %386 = load ptr, ptr %212, align 8, !tbaa !55
   %387 = sext i32 %385 to i64
-  %388 = getelementptr inbounds float, ptr %386, i64 %387
+  %388 = getelementptr inbounds [4 x i8], ptr %386, i64 %387
   call void @_ZN24btInverseDynamicsBullet310transformXERKf(ptr dead_on_unwind nonnull writable sret(%"class.btInverseDynamicsBullet3::mat33") align 4 %11, ptr noundef nonnull align 4 dereferenceable(4) %388)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %389 = load i32, ptr %384, align 8, !tbaa !89
   %390 = load ptr, ptr %212, align 8, !tbaa !55
   %391 = sext i32 %389 to i64
-  %392 = getelementptr float, ptr %390, i64 %391
+  %392 = getelementptr [4 x i8], ptr %390, i64 %391
   %393 = getelementptr i8, ptr %392, i64 4
   call void @_ZN24btInverseDynamicsBullet310transformYERKf(ptr dead_on_unwind nonnull writable sret(%"class.btInverseDynamicsBullet3::mat33") align 4 %12, ptr noundef nonnull align 4 dereferenceable(4) %393)
   %394 = load float, ptr %12, align 4, !tbaa !62, !noalias !161
@@ -5943,7 +5942,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
   %439 = load i32, ptr %384, align 8, !tbaa !89
   %440 = load ptr, ptr %212, align 8, !tbaa !55
   %441 = sext i32 %439 to i64
-  %442 = getelementptr float, ptr %440, i64 %441
+  %442 = getelementptr [4 x i8], ptr %440, i64 %441
   %443 = getelementptr i8, ptr %442, i64 8
   call void @_ZN24btInverseDynamicsBullet310transformZERKf(ptr dead_on_unwind nonnull writable sret(%"class.btInverseDynamicsBullet3::mat33") align 4 %13, ptr noundef nonnull align 4 dereferenceable(4) %443)
   %444 = load float, ptr %13, align 4, !tbaa !62, !noalias !164
@@ -6136,7 +6135,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
   %indvars.iv706 = phi i64 [ %564, %.lr.ph655 ], [ %indvars.iv.next707, %.loopexit632 ]
   %indvars.iv.next707 = add nsw i64 %indvars.iv706, -1
   %581 = load ptr, ptr %545, align 8, !tbaa !34
-  %582 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %581, i64 %indvars.iv.next707
+  %582 = getelementptr inbounds nuw [816 x i8], ptr %581, i64 %indvars.iv.next707
   %583 = load float, ptr %582, align 8, !tbaa !94
   %584 = getelementptr inbounds nuw i8, ptr %582, i64 540
   store float %583, ptr %584, align 4, !tbaa !172
@@ -6153,7 +6152,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
   %592 = getelementptr inbounds nuw i8, ptr %582, i64 592
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %592, ptr noundef nonnull align 4 dereferenceable(16) %591, i64 16, i1 false), !tbaa.struct !81
   %593 = load ptr, ptr %546, align 8, !tbaa !42
-  %594 = getelementptr inbounds nuw %class.b3AlignedObjectArray.0, ptr %593, i64 %indvars.iv.next707
+  %594 = getelementptr inbounds nuw [32 x i8], ptr %593, i64 %indvars.iv.next707
   %595 = getelementptr inbounds nuw i8, ptr %594, i64 4
   %596 = load i32, ptr %595, align 4, !tbaa !39
   %597 = icmp sgt i32 %596, 0
@@ -6176,14 +6175,14 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
 609:                                              ; preds = %.lr.ph652, %911
   %indvars.iv703 = phi i64 [ 0, %.lr.ph652 ], [ %indvars.iv.next704, %911 ]
   %610 = phi ptr [ %593, %.lr.ph652 ], [ %912, %911 ]
-  %611 = getelementptr inbounds nuw %class.b3AlignedObjectArray.0, ptr %610, i64 %indvars.iv.next707
+  %611 = getelementptr inbounds nuw [32 x i8], ptr %610, i64 %indvars.iv.next707
   %612 = getelementptr inbounds nuw i8, ptr %611, i64 16
   %613 = load ptr, ptr %612, align 8, !tbaa !38
-  %614 = getelementptr inbounds nuw i32, ptr %613, i64 %indvars.iv703
+  %614 = getelementptr inbounds nuw [4 x i8], ptr %613, i64 %indvars.iv703
   %615 = load i32, ptr %614, align 4, !tbaa !73
   %616 = load ptr, ptr %545, align 8, !tbaa !34
   %617 = sext i32 %615 to i64
-  %618 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %616, i64 %617
+  %618 = getelementptr inbounds [816 x i8], ptr %616, i64 %617
   %619 = getelementptr inbounds nuw i8, ptr %618, i64 292
   %620 = getelementptr inbounds nuw i8, ptr %618, i64 308
   %621 = getelementptr inbounds nuw i8, ptr %618, i64 324
@@ -6531,7 +6530,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
 911:                                              ; preds = %776, %609
   %indvars.iv.next704 = add nuw nsw i64 %indvars.iv703, 1
   %912 = load ptr, ptr %546, align 8, !tbaa !42
-  %913 = getelementptr inbounds nuw %class.b3AlignedObjectArray.0, ptr %912, i64 %indvars.iv.next707
+  %913 = getelementptr inbounds nuw [32 x i8], ptr %912, i64 %indvars.iv.next707
   %914 = getelementptr inbounds nuw i8, ptr %913, i64 4
   %915 = load i32, ptr %914, align 4, !tbaa !39
   %916 = sext i32 %915 to i64
@@ -6556,7 +6555,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
   %indvars.iv709 = phi i64 [ %579, %.lr.ph682 ], [ %indvars.iv.next710, %._crit_edge678 ]
   %indvars.iv.next710 = add nsw i64 %indvars.iv709, -1
   %923 = load ptr, ptr %567, align 8, !tbaa !34
-  %924 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %923, i64 %indvars.iv.next710
+  %924 = getelementptr inbounds nuw [816 x i8], ptr %923, i64 %indvars.iv.next710
   %925 = getelementptr inbounds nuw i8, ptr %924, i64 536
   %926 = load i32, ptr %925, align 8, !tbaa !89
   %927 = getelementptr inbounds nuw i8, ptr %924, i64 420
@@ -6697,13 +6696,13 @@ _ZN24btInverseDynamicsBullet3L18setSixDoFJacobiansEiRNS_4vec3ES1_.exit: ; preds 
 
 switch.lookup:                                    ; preds = %962
   %965 = zext nneg i32 %963 to i64
-  %switch.gep = getelementptr inbounds nuw float, ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.7, i64 %965
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.7, i64 %965
   %switch.load = load float, ptr %switch.gep, align 4
   %966 = zext nneg i32 %963 to i64
-  %switch.gep744 = getelementptr inbounds nuw float, ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.8, i64 %966
+  %switch.gep744 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.8, i64 %966
   %switch.load745 = load float, ptr %switch.gep744, align 4
   %967 = zext nneg i32 %963 to i64
-  %switch.gep746 = getelementptr inbounds nuw float, ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.9, i64 %967
+  %switch.gep746 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.9, i64 %967
   %switch.load747 = load float, ptr %switch.gep746, align 4
   store float %switch.load, ptr %18, align 4, !tbaa !62
   store float %switch.load745, ptr %570, align 4, !tbaa !62
@@ -6788,7 +6787,7 @@ _ZN24btInverseDynamicsBullet3L20setThreeDoFJacobiansEiRNS_4vec3ES1_.exit: ; pred
   %1034 = mul i32 %1033, %.0195676
   %1035 = load ptr, ptr %573, align 8, !tbaa !55
   %1036 = sext i32 %1034 to i64
-  %1037 = getelementptr inbounds float, ptr %1035, i64 %1036
+  %1037 = getelementptr inbounds [4 x i8], ptr %1035, i64 %1036
   store float %1029, ptr %1037, align 4, !tbaa !62
   %1038 = add nsw i32 %.0195.in675, -2
   %.not205656 = icmp slt i32 %1038, %926
@@ -6796,7 +6795,7 @@ _ZN24btInverseDynamicsBullet3L20setThreeDoFJacobiansEiRNS_4vec3ES1_.exit: ; pred
 
 ._crit_edge659:                                   ; preds = %1110, %_ZN24btInverseDynamicsBullet3L20setThreeDoFJacobiansEiRNS_4vec3ES1_.exit
   %1039 = load ptr, ptr %574, align 8, !tbaa !38
-  %1040 = getelementptr inbounds nuw i32, ptr %1039, i64 %indvars.iv.next710
+  %1040 = getelementptr inbounds nuw [4 x i8], ptr %1039, i64 %indvars.iv.next710
   %1041 = load i32, ptr %1040, align 4, !tbaa !73
   %1042 = icmp sgt i32 %1041, -1
   br i1 %1042, label %.lr.ph672, label %.loopexit631
@@ -6817,13 +6816,13 @@ _ZN24btInverseDynamicsBullet3L20setThreeDoFJacobiansEiRNS_4vec3ES1_.exit: ; pred
 
 switch.lookup748:                                 ; preds = %1048
   %1051 = zext nneg i32 %1049 to i64
-  %switch.gep749 = getelementptr inbounds nuw float, ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.7, i64 %1051
+  %switch.gep749 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.7, i64 %1051
   %switch.load750 = load float, ptr %switch.gep749, align 4
   %1052 = zext nneg i32 %1049 to i64
-  %switch.gep751 = getelementptr inbounds nuw float, ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.8, i64 %1052
+  %switch.gep751 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.8, i64 %1052
   %switch.load752 = load float, ptr %switch.gep751, align 4
   %1053 = zext nneg i32 %1049 to i64
-  %switch.gep753 = getelementptr inbounds nuw float, ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.9, i64 %1053
+  %switch.gep753 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.9, i64 %1053
   %switch.load754 = load float, ptr %switch.gep753, align 4
   store float %switch.load750, ptr %18, align 4, !tbaa !62
   store float %switch.load752, ptr %570, align 4, !tbaa !62
@@ -6858,7 +6857,7 @@ _ZN24btInverseDynamicsBullet3L20setThreeDoFJacobiansEiRNS_4vec3ES1_.exit282: ; p
   %1071 = mul nsw i32 %1055, %.0195676
   %1072 = add nsw i32 %1071, %.0194657
   %1073 = sext i32 %1072 to i64
-  %1074 = getelementptr inbounds float, ptr %1054, i64 %1073
+  %1074 = getelementptr inbounds [4 x i8], ptr %1054, i64 %1073
   store float %1069, ptr %1074, align 4, !tbaa !62
   br label %1075
 
@@ -6945,7 +6944,7 @@ _ZN24btInverseDynamicsBullet3L18setSixDoFJacobiansEiRNS_4vec3ES1_.exit283: ; pre
   %1106 = add nsw i32 %1105, %.0194657
   %1107 = load ptr, ptr %573, align 8, !tbaa !55
   %1108 = sext i32 %1106 to i64
-  %1109 = getelementptr inbounds float, ptr %1107, i64 %1108
+  %1109 = getelementptr inbounds [4 x i8], ptr %1107, i64 %1108
   store float %1101, ptr %1109, align 4, !tbaa !62
   br label %1110
 
@@ -6967,9 +6966,9 @@ _ZN24btInverseDynamicsBullet3L18setSixDoFJacobiansEiRNS_4vec3ES1_.exit283: ; pre
   %.sroa.0333.0665 = phi <2 x float> [ %.sroa.0.4.vec.insert.i290, %._crit_edge664 ], [ %.sroa.0.4.vec.insert.i274, %._crit_edge659 ]
   %1116 = load ptr, ptr %567, align 8, !tbaa !34
   %1117 = sext i32 %.0191669 to i64
-  %1118 = getelementptr inbounds %"struct.btInverseDynamicsBullet3::RigidBody", ptr %1116, i64 %1117
+  %1118 = getelementptr inbounds [816 x i8], ptr %1116, i64 %1117
   %1119 = zext nneg i32 %.0190670 to i64
-  %1120 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %1116, i64 %1119
+  %1120 = getelementptr inbounds nuw [816 x i8], ptr %1116, i64 %1119
   %1121 = getelementptr inbounds nuw i8, ptr %1118, i64 292
   %1122 = getelementptr inbounds nuw i8, ptr %1118, i64 308
   %1123 = getelementptr inbounds nuw i8, ptr %1118, i64 324
@@ -7086,7 +7085,7 @@ _ZN24btInverseDynamicsBullet3L12jointNumDoFsERKNS_9JointTypeE.exit300: ; preds =
 
 ._crit_edge664:                                   ; preds = %_ZN24btInverseDynamicsBullet3L12jointNumDoFsERKNS_9JointTypeE.exit300, %._crit_edge664.loopexit
   %1187 = phi ptr [ %.pre726, %._crit_edge664.loopexit ], [ %1115, %_ZN24btInverseDynamicsBullet3L12jointNumDoFsERKNS_9JointTypeE.exit300 ]
-  %1188 = getelementptr inbounds nuw i32, ptr %1187, i64 %1119
+  %1188 = getelementptr inbounds nuw [4 x i8], ptr %1187, i64 %1119
   %1189 = load i32, ptr %1188, align 4, !tbaa !73
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
@@ -7107,13 +7106,13 @@ _ZN24btInverseDynamicsBullet3L12jointNumDoFsERKNS_9JointTypeE.exit300: ; preds =
 
 switch.lookup755:                                 ; preds = %1193
   %1196 = zext nneg i32 %1194 to i64
-  %switch.gep756 = getelementptr inbounds nuw float, ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.7, i64 %1196
+  %switch.gep756 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.7, i64 %1196
   %switch.load757 = load float, ptr %switch.gep756, align 4
   %1197 = zext nneg i32 %1194 to i64
-  %switch.gep758 = getelementptr inbounds nuw float, ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.8, i64 %1197
+  %switch.gep758 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.8, i64 %1197
   %switch.load759 = load float, ptr %switch.gep758, align 4
   %1198 = zext nneg i32 %1194 to i64
-  %switch.gep760 = getelementptr inbounds nuw float, ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.9, i64 %1198
+  %switch.gep760 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl19calculateMassMatrixERKNS_4vecxEbbbP9btMatrixXIfE.9, i64 %1198
   %switch.load761 = load float, ptr %switch.gep760, align 4
   store float %switch.load757, ptr %20, align 4, !tbaa !62
   store float %switch.load759, ptr %575, align 4, !tbaa !62
@@ -7202,7 +7201,7 @@ _ZN24btInverseDynamicsBullet3L18setSixDoFJacobiansEiRNS_4vec3ES1_.exit306: ; pre
   %1226 = add nsw i32 %1225, %.0186662
   %1227 = load ptr, ptr %573, align 8, !tbaa !55
   %1228 = sext i32 %1226 to i64
-  %1229 = getelementptr inbounds float, ptr %1227, i64 %1228
+  %1229 = getelementptr inbounds [4 x i8], ptr %1227, i64 %1228
   store float %1221, ptr %1229, align 4, !tbaa !62
   %.not206.not = icmp sgt i32 %.0186662, %1177
   br i1 %.not206.not, label %.lr.ph663, label %._crit_edge664.loopexit, !llvm.loop !201
@@ -7218,8 +7217,8 @@ _ZN24btInverseDynamicsBullet3L18setSixDoFJacobiansEiRNS_4vec3ES1_.exit306: ; pre
   %1232 = mul nsw i64 %indvars.iv717, %1231
   %1233 = load ptr, ptr %920, align 8, !tbaa !55
   %.promoted687 = load i32, ptr %921, align 8, !tbaa !53
-  %1234 = getelementptr float, ptr %1233, i64 %1232
-  %invariant.gep = getelementptr float, ptr %1233, i64 %indvars.iv717
+  %1234 = getelementptr [4 x i8], ptr %1233, i64 %1232
+  %invariant.gep = getelementptr [4 x i8], ptr %1233, i64 %indvars.iv717
   br label %1238
 
 ._crit_edge686:                                   ; preds = %1238
@@ -7235,10 +7234,10 @@ _ZN24btInverseDynamicsBullet3L18setSixDoFJacobiansEiRNS_4vec3ES1_.exit306: ; pre
 
 1238:                                             ; preds = %.lr.ph685, %1238
   %indvars.iv712 = phi i64 [ 0, %.lr.ph685 ], [ %indvars.iv.next713, %1238 ]
-  %1239 = getelementptr float, ptr %1234, i64 %indvars.iv712
+  %1239 = getelementptr [4 x i8], ptr %1234, i64 %indvars.iv712
   %1240 = load float, ptr %1239, align 4, !tbaa !62
   %1241 = mul nsw i64 %indvars.iv712, %1231
-  %gep = getelementptr float, ptr %invariant.gep, i64 %1241
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %1241
   store float %1240, ptr %gep, align 4, !tbaa !62
   %indvars.iv.next713 = add nuw nsw i64 %indvars.iv712, 1
   %exitcond716.not = icmp eq i64 %indvars.iv.next713, %indvars.iv717
@@ -7267,7 +7266,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %10 = load ptr, ptr %9, align 8, !tbaa !38
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds nuw i32, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !73
   store i32 %13, ptr %2, align 4, !tbaa !73
   br label %14
@@ -7295,7 +7294,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313M
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %10 = load ptr, ptr %9, align 8, !tbaa !38
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds nuw i32, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !73
   store i32 %13, ptr %2, align 4, !tbaa !73
   br label %14
@@ -7323,7 +7322,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313M
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %10 = load ptr, ptr %9, align 8, !tbaa !46
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !77
   store ptr %13, ptr %2, align 8, !tbaa !77
   br label %14
@@ -7351,7 +7350,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %10 = load ptr, ptr %9, align 8, !tbaa !38
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds nuw i32, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %11
   store i32 %2, ptr %12, align 4, !tbaa !73
   br label %13
 
@@ -7378,7 +7377,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %10 = load ptr, ptr %9, align 8, !tbaa !46
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %11
   store ptr %2, ptr %12, align 8, !tbaa !77
   br label %13
 
@@ -7405,7 +7404,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313M
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8, !tbaa !34
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [816 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 244
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 260
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 276
@@ -7470,7 +7469,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313M
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8, !tbaa !34
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [816 x i8], ptr %10, i64 %11
   %13 = load float, ptr %12, align 8, !tbaa !94
   %14 = fcmp ogt float %13, 0.000000e+00
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 244
@@ -7576,7 +7575,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313M
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8, !tbaa !34
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [816 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 244
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 260
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 276
@@ -7643,7 +7642,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313M
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8, !tbaa !34
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [816 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 244
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 260
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 276
@@ -7708,7 +7707,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313M
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8, !tbaa !34
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [816 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 244
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 260
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 276
@@ -7773,7 +7772,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313M
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8, !tbaa !34
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [816 x i8], ptr %10, i64 %11
   %13 = load float, ptr %12, align 8, !tbaa !94
   %14 = fcmp ogt float %13, 0.000000e+00
   br i1 %14, label %15, label %26
@@ -7882,7 +7881,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313M
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8, !tbaa !34
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [816 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 244
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 260
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 276
@@ -7947,7 +7946,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313M
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8, !tbaa !34
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [816 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 244
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 260
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 276
@@ -8012,7 +8011,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313M
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8, !tbaa !34
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [816 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 420
   %14 = load i32, ptr %13, align 4, !tbaa !96
   store i32 %14, ptr %2, align 4, !tbaa !86
@@ -8041,7 +8040,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313M
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8, !tbaa !34
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [816 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 420
   %14 = load i32, ptr %13, align 4, !tbaa !86
   %15 = icmp ult i32 %14, 5
@@ -8049,7 +8048,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313M
 
 switch.lookup:                                    ; preds = %8
   %16 = zext nneg i32 %14 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl15getJointTypeStrEiPPKc, i64 %16
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl15getJointTypeStrEiPPKc, i64 %16
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZNK24btInverseDynamicsBullet313MultiBodyTree13MultiBodyImpl17jointTypeToStringERKNS_9JointTypeE.exit
 
@@ -8081,7 +8080,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313M
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8, !tbaa !34
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [816 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 424
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %13, i64 16, i1 false)
   br label %14
@@ -8109,7 +8108,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313M
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8, !tbaa !34
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [816 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 440
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %2, ptr noundef nonnull align 4 dereferenceable(48) %13, i64 16, i1 false), !tbaa.struct !81
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 456
@@ -8143,7 +8142,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313M
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8, !tbaa !34
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [816 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 420
   %14 = load i32, ptr %13, align 4, !tbaa !96
   switch i32 %14, label %19 [
@@ -8188,7 +8187,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313M
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8, !tbaa !34
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [816 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 536
   %14 = load i32, ptr %13, align 8, !tbaa !89
   store i32 %14, ptr %2, align 4, !tbaa !73
@@ -8217,7 +8216,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8, !tbaa !34
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [816 x i8], ptr %10, i64 %11
   store float %2, ptr %12, align 8, !tbaa !94
   br label %13
 
@@ -8244,7 +8243,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8, !tbaa !34
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [816 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %13, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false)
   br label %14
@@ -8272,7 +8271,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8, !tbaa !34
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [816 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 20
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %13, ptr noundef nonnull align 4 dereferenceable(48) %2, i64 16, i1 false), !tbaa.struct !81
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -8306,7 +8305,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313M
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8, !tbaa !34
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [816 x i8], ptr %10, i64 %11
   %13 = load float, ptr %12, align 8, !tbaa !94
   store float %13, ptr %2, align 4, !tbaa !62
   br label %14
@@ -8334,7 +8333,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313M
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8, !tbaa !34
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [816 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %13, i64 16, i1 false)
   br label %14
@@ -8362,7 +8361,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313M
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8, !tbaa !34
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [816 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 20
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(48) %2, ptr noundef nonnull align 4 dereferenceable(48) %13, i64 16, i1 false), !tbaa.struct !81
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 36
@@ -8394,7 +8393,7 @@ define dso_local void @_ZN24btInverseDynamicsBullet313MultiBodyTree13MultiBodyIm
 5:                                                ; preds = %.lr.ph, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %5 ]
   %6 = load ptr, ptr %4, align 8, !tbaa !34
-  %7 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [816 x i8], ptr %6, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 132
   tail call void @_ZN24btInverseDynamicsBullet37setZeroERNS_4vec3E(ptr noundef nonnull align 4 dereferenceable(16) %8)
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 148
@@ -8424,7 +8423,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8, !tbaa !34
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [816 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 132
   %14 = load float, ptr %2, align 4, !tbaa !62
   %15 = load float, ptr %13, align 4, !tbaa !62
@@ -8467,7 +8466,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZN24btInverseDynamicsBullet313Mu
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8, !tbaa !34
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [816 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 148
   %14 = load float, ptr %2, align 4, !tbaa !62
   %15 = load float, ptr %13, align 4, !tbaa !62
@@ -8510,7 +8509,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313M
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8, !tbaa !34
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [816 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 244
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 260
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 276
@@ -8575,7 +8574,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313M
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %10 = load ptr, ptr %9, align 8, !tbaa !34
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [816 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 244
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 260
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 276
@@ -8641,7 +8640,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313M
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8, !tbaa !34
   %12 = zext nneg i32 %1 to i64
-  %13 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [816 x i8], ptr %11, i64 %12
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 244
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 260
@@ -8713,7 +8712,7 @@ define dso_local noundef range(i32 -1, 1) i32 @_ZNK24btInverseDynamicsBullet313M
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load ptr, ptr %10, align 8, !tbaa !34
   %12 = zext nneg i32 %1 to i64
-  %13 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [816 x i8], ptr %11, i64 %12
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 244
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 260
@@ -8823,8 +8822,8 @@ _ZN20btAlignedObjectArrayIfE8allocateEi.exit.i.i: ; preds = %.noexc, %17
 
 26:                                               ; preds = %26, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %26 ]
-  %27 = getelementptr inbounds nuw float, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
-  %28 = getelementptr inbounds nuw float, ptr %25, i64 %indvars.iv.i.i.i
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv.i.i.i
   %29 = load float, ptr %28, align 4, !tbaa !62
   store float %29, ptr %27, align 4, !tbaa !62
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -8896,7 +8895,7 @@ define linkonce_odr dso_local void @_ZN20btAlignedObjectArrayIS_IiEED2Ev(ptr nou
 6:                                                ; preds = %_ZN20btAlignedObjectArrayIiED2Ev.exit.i.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %_ZN20btAlignedObjectArrayIiED2Ev.exit.i.i ]
   %7 = load ptr, ptr %5, align 8, !tbaa !59
-  %8 = getelementptr inbounds nuw %class.btAlignedObjectArray.10, ptr %7, i64 %indvars.iv.i.i
+  %8 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 %indvars.iv.i.i
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8, !tbaa !64
   %.not.i.i.i.i.i = icmp ne ptr %10, null
@@ -9047,9 +9046,9 @@ _ZN20b3AlignedObjectArrayIN24btInverseDynamicsBullet39RigidBodyEE8allocateEi.exi
 
 .noexc.i:                                         ; preds = %59, %.noexc.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.noexc.lr.ph.i ], [ %indvars.iv.next.i, %59 ]
-  %15 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %9, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw [816 x i8], ptr %9, i64 %indvars.iv.i
   %16 = load ptr, ptr %14, align 8, !tbaa !34
-  %17 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %16, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [816 x i8], ptr %16, i64 %indvars.iv.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(816) %15, ptr noundef nonnull align 8 dereferenceable(816) %17, i64 20, i1 false)
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 20
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 20
@@ -9147,7 +9146,7 @@ _ZNK20b3AlignedObjectArrayIN24btInverseDynamicsBullet39RigidBodyEE4copyEiiPS1_.e
 66:                                               ; preds = %66, %.lr.ph.i
   %indvars.iv.i18 = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i19, %66 ]
   %67 = load ptr, ptr %65, align 8, !tbaa !34
-  %68 = getelementptr inbounds nuw %"struct.btInverseDynamicsBullet3::RigidBody", ptr %67, i64 %indvars.iv.i18
+  %68 = getelementptr inbounds nuw [816 x i8], ptr %67, i64 %indvars.iv.i18
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 696
   tail call void @_ZN9btMatrixXIfED2Ev(ptr noundef nonnull align 8 dereferenceable(88) %69) #18
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 608
@@ -9250,9 +9249,9 @@ define linkonce_odr dso_local void @_ZN24btInverseDynamicsBullet35mat3xC2ERKS0_(
 27:                                               ; preds = %27, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %27 ]
   %28 = add nuw nsw i64 %indvars.iv.i, %26
-  %29 = getelementptr inbounds nuw float, ptr %22, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %28
   %30 = load float, ptr %29, align 4, !tbaa !62
-  %31 = getelementptr inbounds nuw float, ptr %24, i64 %28
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %28
   store float %30, ptr %31, align 4, !tbaa !62
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %25
@@ -9324,9 +9323,9 @@ _ZN20b3AlignedObjectArrayIS_IiEE8allocateEi.exit: ; preds = %6
 
 15:                                               ; preds = %15, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %15 ]
-  %16 = getelementptr inbounds nuw %class.b3AlignedObjectArray.0, ptr %9, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 %indvars.iv.i
   %17 = load ptr, ptr %14, align 8, !tbaa !42
-  %18 = getelementptr inbounds nuw %class.b3AlignedObjectArray.0, ptr %17, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [32 x i8], ptr %17, i64 %indvars.iv.i
   tail call void @_ZN20b3AlignedObjectArrayIiEC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(25) %16, ptr noundef nonnull align 8 dereferenceable(25) %18)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %19 = icmp eq i64 %indvars.iv.next.i, %zext
@@ -9352,7 +9351,7 @@ _ZNK20b3AlignedObjectArrayIS_IiEE4copyEiiPS0_.exit: ; preds = %15
 23:                                               ; preds = %_ZN20b3AlignedObjectArrayIiED2Ev.exit.i, %.lr.ph.i16
   %indvars.iv.i17 = phi i64 [ 0, %.lr.ph.i16 ], [ %indvars.iv.next.i18, %_ZN20b3AlignedObjectArrayIiED2Ev.exit.i ]
   %24 = load ptr, ptr %22, align 8, !tbaa !42
-  %25 = getelementptr inbounds nuw %class.b3AlignedObjectArray.0, ptr %24, i64 %indvars.iv.i17
+  %25 = getelementptr inbounds nuw [32 x i8], ptr %24, i64 %indvars.iv.i17
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8, !tbaa !38
   %.not.i.i.i.i = icmp ne ptr %27, null
@@ -9445,8 +9444,8 @@ _ZN20b3AlignedObjectArrayIiE8allocateEi.exit.i.i: ; preds = %2
 
 16:                                               ; preds = %16, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %16 ]
-  %17 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.i.i.i
-  %18 = getelementptr inbounds nuw i32, ptr %.pre10, i64 %indvars.iv.i.i.i
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv.i.i.i
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %.pre10, i64 %indvars.iv.i.i.i
   %19 = load i32, ptr %18, align 4, !tbaa !73
   store i32 %19, ptr %17, align 4, !tbaa !73
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -9493,9 +9492,9 @@ _ZN20b3AlignedObjectArrayIiE6resizeEiRKi.exit:    ; preds = %2
 
 26:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
-  %27 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4, !tbaa !73
-  %29 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv
   store i32 %28, ptr %29, align 4, !tbaa !73
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

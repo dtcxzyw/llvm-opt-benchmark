@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.AVBitStreamFilter = type { ptr, ptr, ptr }
 %union.anon = type { i64 }
-%struct.CodedBitstreamUnit = type { i32, ptr, i64, i64, ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [13 x i8] c"filter_units\00", align 1
 @ff_cbs_all_codec_ids = external constant [0 x i32], align 4
@@ -223,7 +222,7 @@ define internal i32 @filter_units_filter(ptr noundef %0, ptr noundef %1) #0 {
 
 .lr.ph:                                           ; preds = %.preheader
   %35 = load ptr, ptr %30, align 8, !tbaa !46
-  %36 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %35, i64 %indvars.iv.next62
+  %36 = getelementptr inbounds nuw [56 x i8], ptr %35, i64 %indvars.iv.next62
   %37 = load i32, ptr %36, align 8, !tbaa !47
   %38 = load ptr, ptr %31, align 8, !tbaa !33
   %wide.trip.count = zext nneg i32 %33 to i64
@@ -236,7 +235,7 @@ define internal i32 @filter_units_filter(ptr noundef %0, ptr noundef %1) #0 {
 
 40:                                               ; preds = %.lr.ph, %39
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %39 ]
-  %41 = getelementptr inbounds nuw i32, ptr %38, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %indvars.iv
   %42 = load i32, ptr %41, align 4, !tbaa !51
   %43 = icmp eq i32 %37, %42
   br i1 %43, label %44, label %39
@@ -347,7 +346,7 @@ define internal fastcc range(i32 -22, 1) i32 @filter_units_make_type_list(ptr no
 18:                                               ; preds = %15
   %19 = trunc i64 %12 to i32
   %20 = sext i32 %.13852.us to i64
-  %21 = getelementptr inbounds i32, ptr %11, i64 %20
+  %21 = getelementptr inbounds [4 x i8], ptr %11, i64 %20
   store i32 %19, ptr %21, align 4, !tbaa !51
   %22 = add nsw i32 %.13852.us, 1
   br label %.loopexit.us
@@ -390,7 +389,7 @@ define internal fastcc range(i32 -22, 1) i32 @filter_units_make_type_list(ptr no
   %indvars.iv = phi i64 [ %indvars.iv.next, %38 ], [ %35, %.lr.ph.us ]
   %.03650.us.us = phi i64 [ %41, %38 ], [ %12, %.lr.ph.us ]
   %39 = trunc i64 %.03650.us.us to i32
-  %40 = getelementptr inbounds i32, ptr %34, i64 %indvars.iv
+  %40 = getelementptr inbounds [4 x i8], ptr %34, i64 %indvars.iv
   store i32 %39, ptr %40, align 4, !tbaa !51
   %indvars.iv.next = add i64 %indvars.iv, 1
   %41 = add nsw i64 %.03650.us.us, 1

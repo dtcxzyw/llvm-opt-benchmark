@@ -89,7 +89,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.54.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false), !noalias !14
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !19
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !14
-  %27 = getelementptr inbounds nuw { { { { { ptr, i64 } }, {} }, {} }, { i64, i64, i64, i64 } }, ptr %.sroa.53.0.copyload, i64 %.val6.i.i
+  %27 = getelementptr inbounds nuw [48 x i8], ptr %.sroa.53.0.copyload, i64 %.val6.i.i
   store ptr %11, ptr %27, align 8, !noalias !27
   %.sroa.43.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i64 %12, ptr %.sroa.43.0..sroa_idx.i.i.i.i, align 8, !noalias !27

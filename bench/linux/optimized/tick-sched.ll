@@ -73,7 +73,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_get_cpu_iowa
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none)
 define dso_local ptr @tick_get_tick_sched(i32 noundef %0) local_unnamed_addr #0 align 16 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr i64, ptr @__per_cpu_offset, i64 %2
+  %3 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %2
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @tick_cpu_sched to i64)
   %6 = inttoptr i64 %5 to ptr
@@ -101,7 +101,7 @@ define dso_local zeroext i1 @tick_nohz_tick_stopped() local_unnamed_addr #2 alig
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none)
 define dso_local zeroext i1 @tick_nohz_tick_stopped_cpu(i32 noundef %0) local_unnamed_addr #3 align 16 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr i64, ptr @__per_cpu_offset, i64 %2
+  %3 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %2
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @tick_cpu_sched to i64)
   %6 = inttoptr i64 %5 to ptr
@@ -114,7 +114,7 @@ define dso_local zeroext i1 @tick_nohz_tick_stopped_cpu(i32 noundef %0) local_un
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i64 -9223372036854775, 9223372036854776) i64 @get_cpu_idle_time_us(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1) #4 align 16 {
   %3 = sext i32 %0 to i64
-  %4 = getelementptr i64, ptr @__per_cpu_offset, i64 %3
+  %4 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %3
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, ptrtoint (ptr @tick_cpu_sched to i64)
   %7 = inttoptr i64 %6 to ptr
@@ -218,7 +218,7 @@ declare dso_local i32 @nr_iowait_cpu(i32 noundef) local_unnamed_addr #5
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local range(i64 -9223372036854775, 9223372036854776) i64 @get_cpu_iowait_time_us(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1) #4 align 16 {
   %3 = sext i32 %0 to i64
-  %4 = getelementptr i64, ptr @__per_cpu_offset, i64 %3
+  %4 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %3
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, ptrtoint (ptr @tick_cpu_sched to i64)
   %7 = inttoptr i64 %6 to ptr
@@ -968,7 +968,7 @@ declare dso_local i64 @hrtimer_next_event_without(ptr noundef) local_unnamed_add
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none)
 define dso_local i64 @tick_nohz_get_idle_calls_cpu(i32 noundef %0) local_unnamed_addr #3 align 16 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr i64, ptr @__per_cpu_offset, i64 %2
+  %3 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %2
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @tick_cpu_sched to i64)
   %6 = inttoptr i64 %5 to ptr
@@ -1480,7 +1480,7 @@ declare dso_local i64 @hrtimer_forward(ptr noundef, i64 noundef, i64 noundef) lo
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @tick_cancel_sched_timer(i32 noundef %0) local_unnamed_addr #4 align 16 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr i64, ptr @__per_cpu_offset, i64 %2
+  %3 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %2
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @tick_cpu_sched to i64)
   %6 = inttoptr i64 %5 to ptr
@@ -1537,7 +1537,7 @@ define dso_local void @tick_clock_notify() local_unnamed_addr #4 align 16 {
 
 11:                                               ; preds = %7
   %12 = and i64 %8, 63
-  %13 = getelementptr i64, ptr @__per_cpu_offset, i64 %12
+  %13 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %12
   %14 = load i64, ptr %13, align 8
   %15 = add i64 %14, ptrtoint (ptr @tick_cpu_sched to i64)
   %16 = inttoptr i64 %15 to ptr

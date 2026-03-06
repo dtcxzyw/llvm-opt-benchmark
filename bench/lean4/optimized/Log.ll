@@ -2317,7 +2317,7 @@ define ptr @l___private_Lake_Util_Log_0__Lake_toJsonLogLevel____x40_Lake_Util_Lo
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l___private_Lake_Util_Log_0__Lake_toJsonLogEntry____x40_Lake_Util_Log___hyg_1402_, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.l___private_Lake_Util_Log_0__Lake_toJsonLogEntry____x40_Lake_Util_Log___hyg_1402_, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -2359,7 +2359,7 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %1
 
 switch.lookup:                                    ; preds = %lean_dec.exit
   %14 = and i64 %3, 3
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l___private_Lake_Util_Log_0__Lake_toJsonLogEntry____x40_Lake_Util_Log___hyg_1402_, i64 %14
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.l___private_Lake_Util_Log_0__Lake_toJsonLogEntry____x40_Lake_Util_Log___hyg_1402_, i64 %14
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %l___private_Lake_Util_Log_0__Lake_toJsonLogLevel____x40_Lake_Util_Log___hyg_876_.exit
 
@@ -3663,7 +3663,7 @@ define ptr @l_Lake_LogLevel_toString(i8 noundef zeroext %0) local_unnamed_addr #
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l_Lake_LogEntry_toString.11, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.l_Lake_LogEntry_toString.11, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -3705,7 +3705,7 @@ lean_dec.exit:                                    ; preds = %12, %11, %9, %1
 
 switch.lookup:                                    ; preds = %lean_dec.exit
   %14 = and i64 %3, 3
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l_Lake_LogEntry_toString.11, i64 %14
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.l_Lake_LogEntry_toString.11, i64 %14
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %l_Lake_LogLevel_toString.exit
 
@@ -3855,7 +3855,7 @@ define ptr @l___private_Lake_Util_Log_0__Lake_toJsonLogEntry____x40_Lake_Util_Lo
 
 switch.lookup:                                    ; preds = %1
   %6 = zext nneg i8 %4 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l___private_Lake_Util_Log_0__Lake_toJsonLogEntry____x40_Lake_Util_Log___hyg_1402_, i64 %6
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.l___private_Lake_Util_Log_0__Lake_toJsonLogEntry____x40_Lake_Util_Log___hyg_1402_, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %l___private_Lake_Util_Log_0__Lake_toJsonLogLevel____x40_Lake_Util_Log___hyg_876_.exit
 
@@ -4693,7 +4693,7 @@ define ptr @l_Lake_LogEntry_toString(ptr noundef readonly captures(none) %0, i8 
 
 switch.lookup:                                    ; preds = %7
   %9 = zext nneg i8 %6 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.l_Lake_LogEntry_toString.11, i64 %9
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.l_Lake_LogEntry_toString.11, i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %l_Lake_LogLevel_toString.exit
 
@@ -4746,7 +4746,7 @@ lean_dec.exit40:                                  ; preds = %20, %19, %17, %l_La
 
 switch.lookup62:                                  ; preds = %26
   %29 = zext nneg i8 %6 to i64
-  %switch.gep63 = getelementptr inbounds nuw ptr, ptr @switch.table.l_Lake_LogEntry_toString.11, i64 %29
+  %switch.gep63 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.l_Lake_LogEntry_toString.11, i64 %29
   %switch.load64 = load ptr, ptr %switch.gep63, align 8
   br label %l_Lake_LogLevel_toString.exit52
 
@@ -11084,7 +11084,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lake_instToJsonLog___spec__2(i64 noundef
   %.01938 = phi i64 [ %38, %54 ], [ %1, %3 ]
   %.02137 = phi ptr [ %.0.i.i28, %54 ], [ %2, %3 ]
   %4 = getelementptr inbounds nuw i8, ptr %.02137, i64 24
-  %5 = getelementptr inbounds nuw ptr, ptr %4, i64 %.01938
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.01938
   %6 = load ptr, ptr %5, align 8, !tbaa !10
   %7 = ptrtoint ptr %6 to i64
   %8 = trunc i64 %7 to i1
@@ -11120,7 +11120,7 @@ lean_array_uget.exit:                             ; preds = %.lr.ph, %11, %13, %
 lean_ensure_exclusive_array.exit.i:               ; preds = %16, %lean_array_uget.exit
   %.0.i.i = phi ptr [ %17, %16 ], [ %.02137, %lean_array_uget.exit ]
   %18 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %.01938
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.01938
   %20 = load ptr, ptr %19, align 8, !tbaa !10
   %21 = ptrtoint ptr %20 to i64
   %22 = trunc i64 %21 to i1
@@ -11180,7 +11180,7 @@ lean_dec.exit:                                    ; preds = %37, %36, %34, %lean
 lean_ensure_exclusive_array.exit.i27:             ; preds = %40, %lean_dec.exit
   %.0.i.i28 = phi ptr [ %41, %40 ], [ %.0.i.i, %lean_dec.exit ]
   %42 = getelementptr inbounds nuw i8, ptr %.0.i.i28, i64 24
-  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %.01938
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %.01938
   %44 = load ptr, ptr %43, align 8, !tbaa !10
   %45 = ptrtoint ptr %44 to i64
   %46 = trunc i64 %45 to i1
@@ -11326,7 +11326,7 @@ define ptr @l_Array_mapMUnsafe_map___at_Lake_instFromJsonLog___spec__2(i64 nound
   %.03472 = phi i64 [ %93, %109 ], [ %1, %3 ]
   %.03771 = phi ptr [ %.0.i.i60, %109 ], [ %2, %3 ]
   %7 = getelementptr inbounds nuw i8, ptr %.03771, i64 24
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.03472
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.03472
   %9 = load ptr, ptr %8, align 8, !tbaa !10
   %10 = ptrtoint ptr %9 to i64
   %11 = trunc i64 %10 to i1
@@ -11362,7 +11362,7 @@ lean_array_uget.exit:                             ; preds = %.lr.ph, %14, %16, %
 lean_ensure_exclusive_array.exit.i:               ; preds = %19, %lean_array_uget.exit
   %.0.i.i = phi ptr [ %20, %19 ], [ %.03771, %lean_array_uget.exit ]
   %21 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %.03472
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.03472
   %23 = load ptr, ptr %22, align 8, !tbaa !10
   %24 = ptrtoint ptr %23 to i64
   %25 = trunc i64 %24 to i1
@@ -11552,7 +11552,7 @@ lean_dec.exit:                                    ; preds = %92, %91, %89, %lean
 lean_ensure_exclusive_array.exit.i59:             ; preds = %95, %lean_dec.exit
   %.0.i.i60 = phi ptr [ %96, %95 ], [ %.0.i.i, %lean_dec.exit ]
   %97 = getelementptr inbounds nuw i8, ptr %.0.i.i60, i64 24
-  %98 = getelementptr inbounds nuw ptr, ptr %97, i64 %.03472
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %.03472
   %99 = load ptr, ptr %98, align 8, !tbaa !10
   %100 = ptrtoint ptr %99 to i64
   %101 = trunc i64 %100 to i1
@@ -13421,7 +13421,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lake_Log_toString___spec__1(ptr nound
 6:                                                ; preds = %.lr.ph, %37
   %.02034 = phi i64 [ %1, %.lr.ph ], [ %40, %37 ]
   %.02233 = phi ptr [ %3, %.lr.ph ], [ %39, %37 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.02034
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.02034
   %8 = load ptr, ptr %7, align 8, !tbaa !10
   %9 = ptrtoint ptr %8 to i64
   %10 = trunc i64 %9 to i1
@@ -13696,7 +13696,7 @@ lean_dec.exit41:                                  ; preds = %16, %15, %13, %7
 
 lean_inc.exit44:                                  ; preds = %26, %25, %23, %lean_dec.exit41
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %3
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %3
   %29 = load ptr, ptr %28, align 8, !tbaa !10
   %30 = ptrtoint ptr %29 to i64
   %31 = trunc i64 %30 to i1
@@ -14278,7 +14278,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lake_Log_filter___spec__1(ptr noundef
 9:                                                ; preds = %.lr.ph, %lean_dec.exit30
   %.02548 = phi i64 [ %2, %.lr.ph ], [ %42, %lean_dec.exit30 ]
   %.02747 = phi ptr [ %4, %.lr.ph ], [ %.229, %lean_dec.exit30 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %6, i64 %.02548
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.02548
   %11 = load ptr, ptr %10, align 8, !tbaa !10
   %12 = ptrtoint ptr %11 to i64
   %13 = trunc i64 %12 to i1
@@ -14627,7 +14627,7 @@ define zeroext range(i8 0, 2) i8 @l_Array_anyMUnsafe_any___at_Lake_Log_any___spe
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %12
   %.01936.us = phi i64 [ %13, %12 ], [ %2, %.lr.ph ]
-  %8 = getelementptr inbounds nuw ptr, ptr %5, i64 %.01936.us
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.01936.us
   %9 = load ptr, ptr %8, align 8, !tbaa !10
   %10 = ptrtoint ptr %9 to i64
   %11 = trunc i64 %10 to i1
@@ -14692,7 +14692,7 @@ lean_dec.exit25.us:                               ; preds = %28, %27, %26, %lean
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %32
   %.01936 = phi i64 [ %33, %32 ], [ %2, %.lr.ph ]
-  %34 = getelementptr inbounds nuw ptr, ptr %5, i64 %.01936
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.01936
   %35 = load ptr, ptr %34, align 8, !tbaa !10
   %36 = ptrtoint ptr %35 to i64
   %37 = trunc i64 %36 to i1
@@ -15002,7 +15002,7 @@ define zeroext i8 @l_Array_foldlMUnsafe_fold___at_Lake_Log_maxLv___spec__1(ptr n
 6:                                                ; preds = %.lr.ph, %30
   %.02237 = phi i64 [ %1, %.lr.ph ], [ %42, %30 ]
   %.02436 = phi i8 [ %3, %.lr.ph ], [ %.024., %30 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.02237
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.02237
   %8 = load ptr, ptr %7, align 8, !tbaa !10
   %9 = ptrtoint ptr %8 to i64
   %10 = trunc i64 %9 to i1
@@ -15096,7 +15096,7 @@ lean_nat_lt.exit:
 3:                                                ; preds = %27, %.lr.ph.i
   %.02237.i = phi i64 [ 0, %.lr.ph.i ], [ %39, %27 ]
   %.02436.i = phi i8 [ 0, %.lr.ph.i ], [ %.024..i, %27 ]
-  %4 = getelementptr inbounds nuw ptr, ptr %2, i64 %.02237.i
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.02237.i
   %5 = load ptr, ptr %4, align 8, !tbaa !10
   %6 = ptrtoint ptr %5 to i64
   %7 = trunc i64 %6 to i1
@@ -15251,7 +15251,7 @@ lean_dec.exit12:                                  ; preds = %29, %28, %26, %lean
 31:                                               ; preds = %55, %.lr.ph.i
   %.02237.i = phi i64 [ %.val21, %.lr.ph.i ], [ %67, %55 ]
   %.02436.i = phi i8 [ %21, %.lr.ph.i ], [ %.024..i, %55 ]
-  %32 = getelementptr inbounds nuw ptr, ptr %30, i64 %.02237.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.02237.i
   %33 = load ptr, ptr %32, align 8, !tbaa !10
   %34 = ptrtoint ptr %33 to i64
   %35 = trunc i64 %34 to i1
@@ -21497,7 +21497,7 @@ lean_dec.exit41:                                  ; preds = %16, %15, %13, %7
 
 lean_inc.exit44:                                  ; preds = %26, %25, %23, %lean_dec.exit41
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %3
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %3
   %29 = load ptr, ptr %28, align 8, !tbaa !10
   %30 = ptrtoint ptr %29 to i64
   %31 = trunc i64 %30 to i1
@@ -27398,7 +27398,7 @@ lean_dec.exit41:                                  ; preds = %16, %15, %13, %7
 
 lean_inc.exit44:                                  ; preds = %26, %25, %23, %lean_dec.exit41
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %3
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %3
   %29 = load ptr, ptr %28, align 8, !tbaa !10
   %30 = ptrtoint ptr %29 to i64
   %31 = trunc i64 %30 to i1
@@ -27837,7 +27837,7 @@ lean_dec.exit41:                                  ; preds = %16, %15, %13, %7
 
 lean_inc.exit44:                                  ; preds = %26, %25, %23, %lean_dec.exit41
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %3
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %3
   %29 = load ptr, ptr %28, align 8, !tbaa !10
   %30 = ptrtoint ptr %29 to i64
   %31 = trunc i64 %30 to i1
@@ -29218,7 +29218,7 @@ lean_dec.exit41:                                  ; preds = %16, %15, %13, %7
 
 lean_inc.exit44:                                  ; preds = %26, %25, %23, %lean_dec.exit41
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %3
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %3
   %29 = load ptr, ptr %28, align 8, !tbaa !10
   %30 = ptrtoint ptr %29 to i64
   %31 = trunc i64 %30 to i1
@@ -29657,7 +29657,7 @@ lean_dec.exit41:                                  ; preds = %16, %15, %13, %7
 
 lean_inc.exit44:                                  ; preds = %26, %25, %23, %lean_dec.exit41
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %3
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %3
   %29 = load ptr, ptr %28, align 8, !tbaa !10
   %30 = ptrtoint ptr %29 to i64
   %31 = trunc i64 %30 to i1
@@ -31303,7 +31303,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lake_LogIO_toBaseIO_replay___spec__1(
   br label %lean_dec.exit57
 
 lean_dec.exit57:                                  ; preds = %19, %18, %16, %10
-  %20 = getelementptr inbounds nuw ptr, ptr %7, i64 %.04298
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.04298
   %21 = load ptr, ptr %20, align 8, !tbaa !10
   %22 = ptrtoint ptr %21 to i64
   %23 = trunc i64 %22 to i1
@@ -34051,7 +34051,7 @@ define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lake_instMonadLiftLog
   br label %lean_dec.exit35
 
 lean_dec.exit35:                                  ; preds = %19, %18, %16, %10
-  %20 = getelementptr inbounds nuw ptr, ptr %7, i64 %.02858
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.02858
   %21 = load ptr, ptr %20, align 8, !tbaa !10
   %22 = ptrtoint ptr %21 to i64
   %23 = trunc i64 %22 to i1
@@ -35488,7 +35488,7 @@ declare void @lean_free_object(ptr noundef) local_unnamed_addr #3
 define internal fastcc void @lean_ctor_release(ptr noundef captures(none) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = zext nneg i32 %1 to i64
-  %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !10
   %7 = ptrtoint ptr %6 to i64
   %8 = trunc i64 %7 to i1

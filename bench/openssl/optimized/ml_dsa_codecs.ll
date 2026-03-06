@@ -68,7 +68,7 @@ switch.lookup:                                    ; preds = %9
 
 15:                                               ; preds = %switch.lookup
   %16 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.ossl_ml_dsa_i2d_prvkey, i64 %16
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ossl_ml_dsa_i2d_prvkey, i64 %16
   %switch.load = load ptr, ptr %switch.gep, align 8
   %17 = load ptr, ptr %switch.load, align 8, !tbaa !11
   %bcmp = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(22) %0, ptr noundef nonnull dereferenceable(22) %17, i64 22)
@@ -142,7 +142,7 @@ define ptr @ossl_ml_dsa_d2i_PKCS8(ptr noundef %0, i32 noundef %1, i32 noundef %2
 
 switch.lookup:                                    ; preds = %14
   %16 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.ossl_ml_dsa_i2d_prvkey, i64 %16
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ossl_ml_dsa_i2d_prvkey, i64 %16
   %switch.load = load ptr, ptr %switch.gep, align 8
   %17 = sext i32 %1 to i64
   %18 = call ptr @d2i_PKCS8_PRIV_KEY_INFO(ptr noundef null, ptr noundef nonnull %6, i64 noundef %17) #6
@@ -505,7 +505,7 @@ switch.lookup:                                    ; preds = %3
 
 13:                                               ; preds = %switch.lookup
   %14 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.ossl_ml_dsa_i2d_prvkey, i64 %14
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ossl_ml_dsa_i2d_prvkey, i64 %14
   %switch.load = load ptr, ptr %switch.gep, align 8
   %15 = tail call ptr @ossl_prov_ctx_get_param(ptr noundef %2, ptr noundef nonnull @.str.10, ptr noundef null) #6
   %16 = load ptr, ptr %4, align 8, !tbaa !13

@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.ReplyParserCallbacks = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.CallReply = type { ptr, ptr, ptr, i64, i32, i32, i64, %union.anon, ptr, ptr }
-%union.anon = type { %struct.anon }
-%struct.anon = type { ptr, ptr }
 %struct.ReplyParser = type { ptr, %struct.ReplyParserCallbacks }
 
 @.str = private unnamed_addr constant [10 x i8] c"-ERR %S\0D\0A\00", align 1
@@ -87,7 +84,7 @@ define internal fastcc void @freeCallReplyInternal(ptr noundef readonly captures
 10:                                               ; preds = %.lr.ph, %10
   %.02024 = phi i64 [ 0, %.lr.ph ], [ %13, %10 ]
   %11 = load ptr, ptr %7, align 8, !tbaa !19
-  %12 = getelementptr inbounds nuw %struct.CallReply, ptr %11, i64 %.02024
+  %12 = getelementptr inbounds nuw [80 x i8], ptr %11, i64 %.02024
   tail call fastcc void @freeCallReplyInternal(ptr noundef %12)
   %13 = add nuw i64 %.02024, 1
   %14 = load i64, ptr %5, align 8, !tbaa !18
@@ -121,10 +118,10 @@ define internal fastcc void @freeCallReplyInternal(ptr noundef readonly captures
   %.025 = phi i64 [ 0, %.lr.ph27 ], [ %31, %24 ]
   %25 = load ptr, ptr %21, align 8, !tbaa !19
   %26 = shl i64 %.025, 1
-  %27 = getelementptr inbounds nuw %struct.CallReply, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [80 x i8], ptr %25, i64 %26
   tail call fastcc void @freeCallReplyInternal(ptr noundef %27)
   %28 = load ptr, ptr %21, align 8, !tbaa !19
-  %29 = getelementptr inbounds nuw %struct.CallReply, ptr %28, i64 %26
+  %29 = getelementptr inbounds nuw [80 x i8], ptr %28, i64 %26
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 80
   tail call fastcc void @freeCallReplyInternal(ptr noundef nonnull %30)
   %31 = add nuw i64 %.025, 1
@@ -455,7 +452,7 @@ callReplyParse.exit:                              ; preds = %2, %7
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %21 = load ptr, ptr %20, align 8, !tbaa !19
-  %22 = getelementptr inbounds nuw %struct.CallReply, ptr %21, i64 %1
+  %22 = getelementptr inbounds nuw [80 x i8], ptr %21, i64 %1
   br label %callReplyGetCollectionElement.exit
 
 callReplyGetCollectionElement.exit:               ; preds = %19, %16, %callReplyParse.exit
@@ -501,7 +498,7 @@ callReplyParse.exit:                              ; preds = %2, %7
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %21 = load ptr, ptr %20, align 8, !tbaa !19
-  %22 = getelementptr inbounds nuw %struct.CallReply, ptr %21, i64 %1
+  %22 = getelementptr inbounds nuw [80 x i8], ptr %21, i64 %1
   br label %callReplyGetCollectionElement.exit
 
 callReplyGetCollectionElement.exit:               ; preds = %19, %16, %callReplyParse.exit
@@ -557,7 +554,7 @@ callReplyParse.exit.i:                            ; preds = %9, %4
 25:                                               ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %27 = load ptr, ptr %26, align 8, !tbaa !19
-  %28 = getelementptr inbounds nuw %struct.CallReply, ptr %27, i64 %23
+  %28 = getelementptr inbounds nuw [80 x i8], ptr %27, i64 %23
   br label %callReplyGetCollectionElement.exit.i
 
 callReplyGetCollectionElement.exit.i:             ; preds = %25, %22
@@ -579,7 +576,7 @@ callReplyGetCollectionElement.exit.i:             ; preds = %25, %22
 34:                                               ; preds = %30
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %36 = load ptr, ptr %35, align 8, !tbaa !19
-  %37 = getelementptr inbounds nuw %struct.CallReply, ptr %36, i64 %32
+  %37 = getelementptr inbounds nuw [80 x i8], ptr %36, i64 %32
   br label %callReplyGetCollectionElement.exit22.i
 
 callReplyGetCollectionElement.exit22.i:           ; preds = %34, %30
@@ -647,7 +644,7 @@ callReplyParse.exit.i:                            ; preds = %9, %4
 25:                                               ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %27 = load ptr, ptr %26, align 8, !tbaa !19
-  %28 = getelementptr inbounds nuw %struct.CallReply, ptr %27, i64 %23
+  %28 = getelementptr inbounds nuw [80 x i8], ptr %27, i64 %23
   br label %callReplyGetCollectionElement.exit.i
 
 callReplyGetCollectionElement.exit.i:             ; preds = %25, %22
@@ -669,7 +666,7 @@ callReplyGetCollectionElement.exit.i:             ; preds = %25, %22
 34:                                               ; preds = %30
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %36 = load ptr, ptr %35, align 8, !tbaa !19
-  %37 = getelementptr inbounds nuw %struct.CallReply, ptr %36, i64 %32
+  %37 = getelementptr inbounds nuw [80 x i8], ptr %36, i64 %32
   br label %callReplyGetCollectionElement.exit22.i
 
 callReplyGetCollectionElement.exit22.i:           ; preds = %34, %30
@@ -1064,19 +1061,19 @@ define internal void @callReplyArray(ptr noundef %0, ptr noundef captures(none) 
   %11 = phi ptr [ %8, %.preheader.lr.ph.i ], [ %22, %30 ]
   %.03235.i = phi i64 [ 0, %.preheader.lr.ph.i ], [ %31, %30 ]
   %12 = load ptr, ptr %1, align 8, !tbaa !24
-  %13 = getelementptr inbounds nuw %struct.CallReply, ptr %11, i64 %.03235.i
+  %13 = getelementptr inbounds nuw [80 x i8], ptr %11, i64 %.03235.i
   store ptr %12, ptr %13, align 8, !tbaa !24
   %14 = load ptr, ptr %9, align 8, !tbaa !19
-  %15 = getelementptr inbounds nuw %struct.CallReply, ptr %14, i64 %.03235.i
+  %15 = getelementptr inbounds nuw [80 x i8], ptr %14, i64 %.03235.i
   %16 = tail call i32 @parseReply(ptr noundef %0, ptr noundef %15) #8
   %17 = load ptr, ptr %9, align 8, !tbaa !19
-  %18 = getelementptr inbounds nuw %struct.CallReply, ptr %17, i64 %.03235.i
+  %18 = getelementptr inbounds nuw [80 x i8], ptr %17, i64 %.03235.i
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 36
   %20 = load i32, ptr %19, align 4, !tbaa !5
   %21 = or i32 %20, 2
   store i32 %21, ptr %19, align 4, !tbaa !5
   %22 = load ptr, ptr %9, align 8, !tbaa !19
-  %23 = getelementptr inbounds nuw %struct.CallReply, ptr %22, i64 %.03235.i
+  %23 = getelementptr inbounds nuw [80 x i8], ptr %22, i64 %.03235.i
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 36
   %25 = load i32, ptr %24, align 4, !tbaa !5
   %26 = and i32 %25, 4
@@ -1127,19 +1124,19 @@ define internal void @callReplySet(ptr noundef %0, ptr noundef captures(none) in
   %11 = phi ptr [ %8, %.preheader.lr.ph.i ], [ %22, %30 ]
   %.03235.i = phi i64 [ 0, %.preheader.lr.ph.i ], [ %31, %30 ]
   %12 = load ptr, ptr %1, align 8, !tbaa !24
-  %13 = getelementptr inbounds nuw %struct.CallReply, ptr %11, i64 %.03235.i
+  %13 = getelementptr inbounds nuw [80 x i8], ptr %11, i64 %.03235.i
   store ptr %12, ptr %13, align 8, !tbaa !24
   %14 = load ptr, ptr %9, align 8, !tbaa !19
-  %15 = getelementptr inbounds nuw %struct.CallReply, ptr %14, i64 %.03235.i
+  %15 = getelementptr inbounds nuw [80 x i8], ptr %14, i64 %.03235.i
   %16 = tail call i32 @parseReply(ptr noundef %0, ptr noundef %15) #8
   %17 = load ptr, ptr %9, align 8, !tbaa !19
-  %18 = getelementptr inbounds nuw %struct.CallReply, ptr %17, i64 %.03235.i
+  %18 = getelementptr inbounds nuw [80 x i8], ptr %17, i64 %.03235.i
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 36
   %20 = load i32, ptr %19, align 4, !tbaa !5
   %21 = or i32 %20, 2
   store i32 %21, ptr %19, align 4, !tbaa !5
   %22 = load ptr, ptr %9, align 8, !tbaa !19
-  %23 = getelementptr inbounds nuw %struct.CallReply, ptr %22, i64 %.03235.i
+  %23 = getelementptr inbounds nuw [80 x i8], ptr %22, i64 %.03235.i
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 36
   %25 = load i32, ptr %24, align 4, !tbaa !5
   %26 = and i32 %25, 4
@@ -1207,20 +1204,20 @@ define internal void @callReplyMap(ptr noundef %0, ptr noundef captures(none) in
   %.034.i = phi i64 [ 0, %.preheader.i ], [ 1, %38 ]
   %18 = load ptr, ptr %1, align 8, !tbaa !24
   %19 = or disjoint i64 %.034.i, %.03235.i
-  %20 = getelementptr inbounds nuw %struct.CallReply, ptr %17, i64 %19
+  %20 = getelementptr inbounds nuw [80 x i8], ptr %17, i64 %19
   store ptr %18, ptr %20, align 8, !tbaa !24
   %21 = load ptr, ptr %10, align 8, !tbaa !19
-  %22 = getelementptr inbounds nuw %struct.CallReply, ptr %21, i64 %.03235.i
-  %23 = getelementptr inbounds nuw %struct.CallReply, ptr %22, i64 %.034.i
+  %22 = getelementptr inbounds nuw [80 x i8], ptr %21, i64 %.03235.i
+  %23 = getelementptr inbounds nuw [80 x i8], ptr %22, i64 %.034.i
   %24 = tail call i32 @parseReply(ptr noundef %0, ptr noundef %23) #8
   %25 = load ptr, ptr %10, align 8, !tbaa !19
-  %26 = getelementptr inbounds nuw %struct.CallReply, ptr %25, i64 %19
+  %26 = getelementptr inbounds nuw [80 x i8], ptr %25, i64 %19
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 36
   %28 = load i32, ptr %27, align 4, !tbaa !5
   %29 = or i32 %28, 2
   store i32 %29, ptr %27, align 4, !tbaa !5
   %30 = load ptr, ptr %10, align 8, !tbaa !19
-  %31 = getelementptr inbounds nuw %struct.CallReply, ptr %30, i64 %19
+  %31 = getelementptr inbounds nuw [80 x i8], ptr %30, i64 %19
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 36
   %33 = load i32, ptr %32, align 4, !tbaa !5
   %34 = and i32 %33, 4
@@ -1364,20 +1361,20 @@ define internal void @callReplyAttribute(ptr noundef %0, ptr noundef initializes
   %.034.i = phi i64 [ 0, %.preheader.i ], [ 1, %40 ]
   %20 = load ptr, ptr %5, align 8, !tbaa !24
   %21 = or disjoint i64 %.034.i, %.03235.i
-  %22 = getelementptr inbounds nuw %struct.CallReply, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [80 x i8], ptr %19, i64 %21
   store ptr %20, ptr %22, align 8, !tbaa !24
   %23 = load ptr, ptr %12, align 8, !tbaa !19
-  %24 = getelementptr inbounds nuw %struct.CallReply, ptr %23, i64 %.03235.i
-  %25 = getelementptr inbounds nuw %struct.CallReply, ptr %24, i64 %.034.i
+  %24 = getelementptr inbounds nuw [80 x i8], ptr %23, i64 %.03235.i
+  %25 = getelementptr inbounds nuw [80 x i8], ptr %24, i64 %.034.i
   %26 = tail call i32 @parseReply(ptr noundef %0, ptr noundef %25) #8
   %27 = load ptr, ptr %12, align 8, !tbaa !19
-  %28 = getelementptr inbounds nuw %struct.CallReply, ptr %27, i64 %21
+  %28 = getelementptr inbounds nuw [80 x i8], ptr %27, i64 %21
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 36
   %30 = load i32, ptr %29, align 4, !tbaa !5
   %31 = or i32 %30, 2
   store i32 %31, ptr %29, align 4, !tbaa !5
   %32 = load ptr, ptr %12, align 8, !tbaa !19
-  %33 = getelementptr inbounds nuw %struct.CallReply, ptr %32, i64 %21
+  %33 = getelementptr inbounds nuw [80 x i8], ptr %32, i64 %21
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 36
   %35 = load i32, ptr %34, align 4, !tbaa !5
   %36 = and i32 %35, 4

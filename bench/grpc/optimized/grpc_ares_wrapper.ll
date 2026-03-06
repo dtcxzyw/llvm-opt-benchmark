@@ -45,16 +45,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.27" = type { %"struct.std::_Vector_base<grpc_core::EndpointAddresses, std::allocator<grpc_core::EndpointAddresses>>::_Vector_impl" }
 %"struct.std::_Vector_base<grpc_core::EndpointAddresses, std::allocator<grpc_core::EndpointAddresses>>::_Vector_impl" = type { %"struct.std::_Vector_base<grpc_core::EndpointAddresses, std::allocator<grpc_core::EndpointAddresses>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<grpc_core::EndpointAddresses, std::allocator<grpc_core::EndpointAddresses>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.grpc_core::EndpointAddresses" = type { %"class.std::vector.31", %"class.grpc_core::ChannelArgs" }
-%"class.std::vector.31" = type { %"struct.std::_Vector_base.32" }
-%"struct.std::_Vector_base.32" = type { %"struct.std::_Vector_base<grpc_resolved_address, std::allocator<grpc_resolved_address>>::_Vector_impl" }
-%"struct.std::_Vector_base<grpc_resolved_address, std::allocator<grpc_resolved_address>>::_Vector_impl" = type { %"struct.std::_Vector_base<grpc_resolved_address, std::allocator<grpc_resolved_address>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<grpc_resolved_address, std::allocator<grpc_resolved_address>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.grpc_core::ChannelArgs" = type { %"class.grpc_core::AVL" }
-%"class.grpc_core::AVL" = type { %"class.grpc_core::RefCountedPtr" }
-%"class.grpc_core::RefCountedPtr" = type { ptr }
-%struct.address_sorting_sortable = type { %struct.address_sorting_address, ptr, %struct.address_sorting_address, i8, i64 }
-%struct.address_sorting_address = type { [128 x i8], i64 }
 %"class.absl::lts_20240722::StatusOr" = type { %"class.absl::lts_20240722::internal_statusor::StatusOrData" }
 %"class.absl::lts_20240722::internal_statusor::StatusOrData" = type { %union.anon.97, %union.anon.98 }
 %union.anon.97 = type { %"class.absl::lts_20240722::Status" }
@@ -68,6 +58,9 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.131" = type { %"struct.std::_Tuple_impl.132" }
 %"struct.std::_Tuple_impl.132" = type { %"struct.std::_Head_base.135" }
 %"struct.std::_Head_base.135" = type { ptr }
+%"class.grpc_core::ChannelArgs" = type { %"class.grpc_core::AVL" }
+%"class.grpc_core::AVL" = type { %"class.grpc_core::RefCountedPtr" }
+%"class.grpc_core::RefCountedPtr" = type { ptr }
 
 $_ZN4absl12lts_2024072212log_internal10LogMessagelsIP17grpc_ares_requestTnNSt9enable_ifIXntsr4absl16HasAbslStringifyIT_EE5valueEiE4typeELi0EEERS2_RKS7_ = comdat any
 
@@ -764,7 +757,7 @@ define internal fastcc void @_ZL32grpc_ares_notify_on_event_lockedP19grpc_ares_e
   br i1 %.not102, label %216, label %36
 
 36:                                               ; preds = %33, %29
-  %37 = getelementptr inbounds nuw i32, ptr %7, i64 %.082191
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.082191
   %38 = load i32, ptr %37, align 4, !tbaa !65
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.315.i)
   %39 = load ptr, ptr %24, align 8, !tbaa !31
@@ -2737,8 +2730,8 @@ define void @_Z39grpc_cares_wrapper_address_sorting_sortPK17grpc_ares_requestPSt
 .lr.ph:                                           ; preds = %7, %.lr.ph
   %29 = phi ptr [ %37, %.lr.ph ], [ %18, %7 ]
   %.03538 = phi i64 [ %44, %.lr.ph ], [ 0, %7 ]
-  %30 = getelementptr inbounds nuw %"class.grpc_core::EndpointAddresses", ptr %29, i64 %.03538
-  %31 = getelementptr inbounds nuw %struct.address_sorting_sortable, ptr %16, i64 %.03538
+  %30 = getelementptr inbounds nuw [32 x i8], ptr %29, i64 %.03538
+  %31 = getelementptr inbounds nuw [296 x i8], ptr %16, i64 %.03538
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 136
   store ptr %30, ptr %32, align 8, !tbaa !102
   %33 = load ptr, ptr %30, align 8, !tbaa !105
@@ -2747,7 +2740,7 @@ define void @_Z39grpc_cares_wrapper_address_sorting_sortPK17grpc_ares_requestPSt
   %36 = zext i32 %35 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %31, ptr nonnull align 4 %33, i64 %36, i1 false)
   %37 = load ptr, ptr %1, align 8, !tbaa !101
-  %38 = getelementptr inbounds nuw %"class.grpc_core::EndpointAddresses", ptr %37, i64 %.03538
+  %38 = getelementptr inbounds nuw [32 x i8], ptr %37, i64 %.03538
   %39 = load ptr, ptr %38, align 8, !tbaa !105
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 128
   %41 = load i32, ptr %40, align 4, !tbaa !108
@@ -2774,7 +2767,7 @@ define void @_Z39grpc_cares_wrapper_address_sorting_sortPK17grpc_ares_requestPSt
 
 53:                                               ; preds = %.lr.ph40, %_ZNSt6vectorIN9grpc_core17EndpointAddressesESaIS1_EE12emplace_backIJRS1_EEES5_DpOT_.exit
   %.039 = phi i64 [ 0, %.lr.ph40 ], [ %63, %_ZNSt6vectorIN9grpc_core17EndpointAddressesESaIS1_EE12emplace_backIJRS1_EEES5_DpOT_.exit ]
-  %54 = getelementptr inbounds nuw %struct.address_sorting_sortable, ptr %16, i64 %.039
+  %54 = getelementptr inbounds nuw [296 x i8], ptr %16, i64 %.039
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 136
   %56 = load ptr, ptr %55, align 8, !tbaa !102
   %57 = load ptr, ptr %27, align 8, !tbaa !98
@@ -2957,7 +2950,7 @@ define internal fastcc void @_ZL24log_address_sorting_listPK17grpc_ares_requestR
   %18 = phi ptr [ %13, %.lr.ph ], [ %59, %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit ]
   %.01833 = phi i64 [ 0, %.lr.ph ], [ %57, %_ZN4absl12lts_2024072217internal_statusor12StatusOrDataINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %19 = getelementptr inbounds nuw %"class.grpc_core::EndpointAddresses", ptr %18, i64 %.01833
+  %19 = getelementptr inbounds nuw [32 x i8], ptr %18, i64 %.01833
   %20 = load ptr, ptr %19, align 8, !tbaa !105
   call void @_Z23grpc_sockaddr_to_stringB5cxx11PK21grpc_resolved_addressb(ptr dead_on_unwind nonnull writable sret(%"class.absl::lts_20240722::StatusOr") align 8 %7, ptr noundef nonnull %20, i1 noundef zeroext true)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -3219,7 +3212,7 @@ _ZNSt12_Vector_baseIN9grpc_core17EndpointAddressesESaIS1_EE13_M_deallocateEPS1_m
   store ptr %19, ptr %0, align 8, !tbaa !101
   %36 = getelementptr inbounds nuw i8, ptr %19, i64 %17
   store ptr %36, ptr %14, align 8, !tbaa !98
-  %37 = getelementptr inbounds nuw %"class.grpc_core::EndpointAddresses", ptr %19, i64 %1
+  %37 = getelementptr inbounds nuw [32 x i8], ptr %19, i64 %1
   store ptr %37, ptr %6, align 8, !tbaa !112
   br label %38
 
@@ -8265,7 +8258,7 @@ _ZNSt10unique_ptrISt6vectorIN9grpc_core17EndpointAddressesESaIS2_EESt14default_d
 99:                                               ; preds = %97
   store i32 28, ptr %80, align 4, !tbaa !108
   %100 = load ptr, ptr %75, align 8, !tbaa !192
-  %101 = getelementptr inbounds nuw ptr, ptr %100, i64 %.078174
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %.078174
   %102 = load ptr, ptr %101, align 8, !tbaa !70
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %84, ptr noundef nonnull align 1 dereferenceable(16) %102, i64 16, i1 false)
   store i16 10, ptr %13, align 4, !tbaa !195
@@ -8393,7 +8386,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi19EEERS2_RAT__Kc.exit: ; pr
 137:                                              ; preds = %97
   store i32 16, ptr %80, align 4, !tbaa !108
   %138 = load ptr, ptr %75, align 8, !tbaa !192
-  %139 = getelementptr inbounds nuw ptr, ptr %138, i64 %.078174
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %138, i64 %.078174
   %140 = load ptr, ptr %139, align 8, !tbaa !70
   %141 = load i32, ptr %140, align 1
   store i32 %141, ptr %81, align 4
@@ -8529,7 +8522,7 @@ _ZNSt6vectorIN9grpc_core17EndpointAddressesESaIS1_EE12emplace_backIJR21grpc_reso
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %180 = add i64 %.078174, 1
   %181 = load ptr, ptr %75, align 8, !tbaa !192
-  %182 = getelementptr inbounds nuw ptr, ptr %181, i64 %180
+  %182 = getelementptr inbounds nuw [8 x i8], ptr %181, i64 %180
   %183 = load ptr, ptr %182, align 8, !tbaa !70
   %.not = icmp eq ptr %183, null
   br i1 %.not, label %.loopexit, label %88, !llvm.loop !204
@@ -9052,7 +9045,7 @@ _ZNSt6vectorIN9grpc_core17EndpointAddressesESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_
 _ZNSt12_Vector_baseIN9grpc_core17EndpointAddressesESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN9grpc_core17EndpointAddressesESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit35, %45
   store ptr %21, ptr %0, align 8, !tbaa !101
   store ptr %.0.lcssa.i.i.i34, ptr %5, align 8, !tbaa !98
-  %49 = getelementptr inbounds nuw %"class.grpc_core::EndpointAddresses", ptr %21, i64 %17
+  %49 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 %17
   store ptr %49, ptr %44, align 8, !tbaa !112
   ret void
 
@@ -9301,7 +9294,7 @@ _ZNSt6vectorIN9grpc_core17EndpointAddressesESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_
 _ZNSt12_Vector_baseIN9grpc_core17EndpointAddressesESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN9grpc_core17EndpointAddressesESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit35, %45
   store ptr %21, ptr %0, align 8, !tbaa !101
   store ptr %.0.lcssa.i.i.i34, ptr %5, align 8, !tbaa !98
-  %49 = getelementptr inbounds nuw %"class.grpc_core::EndpointAddresses", ptr %21, i64 %17
+  %49 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 %17
   store ptr %49, ptr %44, align 8, !tbaa !112
   ret void
 
@@ -9442,7 +9435,7 @@ _ZNSt6vectorIN9grpc_core17EndpointAddressesESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_
 _ZNSt12_Vector_baseIN9grpc_core17EndpointAddressesESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN9grpc_core17EndpointAddressesESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit34, %44
   store ptr %20, ptr %0, align 8, !tbaa !101
   store ptr %.0.lcssa.i.i.i33, ptr %4, align 8, !tbaa !98
-  %48 = getelementptr inbounds nuw %"class.grpc_core::EndpointAddresses", ptr %20, i64 %16
+  %48 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %16
   store ptr %48, ptr %43, align 8, !tbaa !112
   ret void
 

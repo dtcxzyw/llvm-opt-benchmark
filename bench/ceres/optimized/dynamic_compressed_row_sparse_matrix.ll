@@ -3,10 +3,6 @@ source_filename = "bench/ceres/original/dynamic_compressed_row_sparse_matrix.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"class.std::vector.1" = type { %"struct.std::_Vector_base.2" }
-%"struct.std::_Vector_base.2" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" }
-%"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.absl::lts_20240116::log_internal::LogMessageFatal" = type { %"class.absl::lts_20240116::log_internal::LogMessage" }
 %"class.absl::lts_20240116::log_internal::LogMessage" = type { %"class.absl::lts_20240116::base_internal::ErrnoSaver", %"class.std::unique_ptr" }
 %"class.absl::lts_20240116::base_internal::ErrnoSaver" = type { i32 }
@@ -16,10 +12,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.22" }
 %"struct.std::_Head_base.22" = type { ptr }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 $_ZNSt6vectorIS_IdSaIdEESaIS1_EED2Ev = comdat any
 
@@ -125,7 +117,7 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EE6resizeEm.exit:    ; preds = %._ZNSt6vectorIS_IiS
   br i1 %20, label %21, label %_ZNSt6vectorIS_IdSaIdEESaIS1_EE6resizeEm.exit
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds nuw %"class.std::vector.1", ptr %9, i64 %7
+  %22 = getelementptr inbounds nuw [24 x i8], ptr %9, i64 %7
   %.not.i.i7 = icmp eq ptr %10, %22
   br i1 %.not.i.i7, label %_ZNSt6vectorIS_IdSaIdEESaIS1_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i8
 
@@ -335,7 +327,7 @@ define hidden void @_ZN5ceres8internal32DynamicCompressedRowSparseMatrix11Insert
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %39 = zext nneg i32 %1 to i64
   %40 = load ptr, ptr %38, align 8, !tbaa !19
-  %41 = getelementptr inbounds nuw %"class.std::vector", ptr %40, i64 %39
+  %41 = getelementptr inbounds nuw [24 x i8], ptr %40, i64 %39
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load ptr, ptr %42, align 8, !tbaa !55
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 16
@@ -393,14 +385,14 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i: ; preds = %64, %_ZNKS
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %66, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
   store ptr %61, ptr %41, align 8, !tbaa !23
   store ptr %65, ptr %42, align 8, !tbaa !55
-  %67 = getelementptr inbounds nuw i32, ptr %61, i64 %59
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %59
   store ptr %67, ptr %44, align 8, !tbaa !26
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
 _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %46, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %69 = load ptr, ptr %68, align 8, !tbaa !11
-  %70 = getelementptr inbounds nuw %"class.std::vector.1", ptr %69, i64 %39
+  %70 = getelementptr inbounds nuw [24 x i8], ptr %69, i64 %39
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %72 = load ptr, ptr %71, align 8, !tbaa !57
   %73 = getelementptr inbounds nuw i8, ptr %70, i64 16
@@ -460,7 +452,7 @@ _ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit16.i.i: ; preds = %95, %_ZNKS
 _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJRKdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i: ; preds = %97, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit16.i.i
   store ptr %91, ptr %70, align 8, !tbaa !12
   store ptr %96, ptr %71, align 8, !tbaa !57
-  %98 = getelementptr inbounds nuw double, ptr %91, i64 %89
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %89
   store ptr %98, ptr %73, align 8, !tbaa !15
   br label %_ZNSt6vectorIdSaIdEE9push_backERKd.exit
 
@@ -547,7 +539,7 @@ define hidden void @_ZN5ceres8internal32DynamicCompressedRowSparseMatrix9ClearRo
   unreachable
 
 24:                                               ; preds = %17
-  %25 = getelementptr inbounds nuw %"class.std::vector", ptr %10, i64 %16
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 %16
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load ptr, ptr %26, align 8, !tbaa !55
   %28 = load ptr, ptr %25, align 8, !tbaa !23
@@ -559,7 +551,7 @@ define hidden void @_ZN5ceres8internal32DynamicCompressedRowSparseMatrix9ClearRo
   br label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %24, %29
-  %30 = getelementptr inbounds nuw %"class.std::vector.1", ptr %12, i64 %16
+  %30 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %16
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load ptr, ptr %31, align 8, !tbaa !57
   %33 = load ptr, ptr %30, align 8, !tbaa !12
@@ -656,7 +648,7 @@ define hidden void @_ZN5ceres8internal32DynamicCompressedRowSparseMatrix8Finaliz
   %.030.lcssa = phi i32 [ 0, %._crit_edge.._crit_edge51_crit_edge ], [ %.1, %77 ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %35 = load ptr, ptr %34, align 8, !tbaa !23
-  %36 = getelementptr inbounds i32, ptr %35, i64 %.pre-phi
+  %36 = getelementptr inbounds [4 x i8], ptr %35, i64 %.pre-phi
   store i32 %.030.lcssa, ptr %36, align 4, !tbaa !56
   %37 = icmp eq i32 %.030.lcssa, %.0.lcssa
   br i1 %37, label %82, label %83, !prof !47
@@ -666,9 +658,9 @@ define hidden void @_ZN5ceres8internal32DynamicCompressedRowSparseMatrix8Finaliz
   %indvars.iv = phi i64 [ 0, %.lr.ph50 ], [ %indvars.iv.next, %77 ]
   %.03048 = phi i32 [ 0, %.lr.ph50 ], [ %.1, %77 ]
   %40 = load ptr, ptr %20, align 8, !tbaa !23
-  %41 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv
   store i32 %.03048, ptr %41, align 4, !tbaa !56
-  %42 = getelementptr inbounds nuw %"class.std::vector", ptr %39, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %39, i64 %indvars.iv
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load ptr, ptr %43, align 8, !tbaa !55
   %45 = load ptr, ptr %42, align 8, !tbaa !23
@@ -683,12 +675,12 @@ define hidden void @_ZN5ceres8internal32DynamicCompressedRowSparseMatrix8Finaliz
 52:                                               ; preds = %38
   %53 = load ptr, ptr %21, align 8, !tbaa !23
   %54 = sext i32 %.03048 to i64
-  %55 = getelementptr inbounds i32, ptr %53, i64 %54
+  %55 = getelementptr inbounds [4 x i8], ptr %53, i64 %54
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %55, ptr nonnull align 4 %45, i64 %48, i1 false)
   %56 = load ptr, ptr %22, align 8, !tbaa !12
-  %57 = getelementptr inbounds double, ptr %56, i64 %54
+  %57 = getelementptr inbounds [8 x i8], ptr %56, i64 %54
   %58 = load ptr, ptr %23, align 8, !tbaa !11
-  %59 = getelementptr inbounds nuw %"class.std::vector.1", ptr %58, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [24 x i8], ptr %58, i64 %indvars.iv
   %60 = load ptr, ptr %59, align 8, !tbaa !12
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %62 = load ptr, ptr %61, align 8, !tbaa !57
@@ -697,7 +689,7 @@ define hidden void @_ZN5ceres8internal32DynamicCompressedRowSparseMatrix8Finaliz
   %65 = sub i64 %63, %64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %57, ptr nonnull align 8 %60, i64 %65, i1 false)
   %66 = load ptr, ptr %6, align 8, !tbaa !19
-  %67 = getelementptr inbounds nuw %"class.std::vector", ptr %66, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [24 x i8], ptr %66, i64 %indvars.iv
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %69 = load ptr, ptr %68, align 8, !tbaa !55
   %70 = load ptr, ptr %67, align 8, !tbaa !23
@@ -1053,7 +1045,7 @@ define linkonce_odr hidden noundef i32 @_ZNK5ceres8internal25CompressedRowSparse
   %4 = load i32, ptr %3, align 8, !tbaa !30
   %5 = sext i32 %4 to i64
   %6 = load ptr, ptr %2, align 8, !tbaa !23
-  %7 = getelementptr inbounds nuw i32, ptr %6, i64 %5
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %5
   %8 = load i32, ptr %7, align 4, !tbaa !56
   ret i32 %8
 }
@@ -1150,9 +1142,9 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr
 
 _ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EE13_M_deallocateEPS2_m.exit37: ; preds = %_ZNSt6vectorIS_IiSaIiEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %38
   store ptr %26, ptr %0, align 8, !tbaa !19
-  %42 = getelementptr inbounds nuw %"class.std::vector", ptr %27, i64 %1
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %27, i64 %1
   store ptr %42, ptr %4, align 8, !tbaa !22
-  %43 = getelementptr inbounds nuw %"class.std::vector", ptr %26, i64 %24
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %24
   store ptr %43, ptr %11, align 8, !tbaa !28
   br label %44
 
@@ -1256,9 +1248,9 @@ _ZNSt6vectorIS_IdSaIdEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr
 
 _ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE13_M_deallocateEPS2_m.exit37: ; preds = %_ZNSt6vectorIS_IdSaIdEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %38
   store ptr %26, ptr %0, align 8, !tbaa !11
-  %42 = getelementptr inbounds nuw %"class.std::vector.1", ptr %27, i64 %1
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %27, i64 %1
   store ptr %42, ptr %4, align 8, !tbaa !6
-  %43 = getelementptr inbounds nuw %"class.std::vector.1", ptr %26, i64 %24
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %24
   store ptr %43, ptr %11, align 8, !tbaa !18
   br label %44
 

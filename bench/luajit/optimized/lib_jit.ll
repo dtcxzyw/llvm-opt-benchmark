@@ -5,9 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.CCallInfo = type { ptr, i32 }
 %union.TValue = type { i64 }
-%struct.GCRef = type { i64 }
-%union.IRIns = type { %struct.GCRef }
-%struct.SnapShot = type { i32, i16, i16, i8, i8, i8, i8 }
 
 @.str = private unnamed_addr constant [6 x i8] c"Linux\00", align 1
 @.str.1 = private unnamed_addr constant [4 x i8] c"x64\00", align 1
@@ -1001,7 +998,7 @@ define internal range(i32 0, 3) i32 @lj_cf_jit_util_funcbc(ptr noundef %0) #0 {
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 104
   %9 = zext i32 %3 to i64
-  %10 = getelementptr inbounds nuw i32, ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !14
   %12 = and i32 %11, 255
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1011,7 +1008,7 @@ define internal range(i32 0, 3) i32 @lj_cf_jit_util_funcbc(ptr noundef %0) #0 {
   %16 = load ptr, ptr %13, align 8, !tbaa !32
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = zext nneg i32 %12 to i64
-  %19 = getelementptr inbounds nuw i16, ptr @lj_bc_mode, i64 %18
+  %19 = getelementptr inbounds nuw [2 x i8], ptr @lj_bc_mode, i64 %18
   %20 = load i16, ptr %19, align 2, !tbaa !68
   %21 = uitofp i16 %20 to double
   store double %21, ptr %17, align 8, !tbaa !34
@@ -1047,7 +1044,7 @@ define internal range(i32 0, 2) i32 @lj_cf_jit_util_funck(ptr noundef %0) #0 {
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %16 = load i64, ptr %15, align 8, !tbaa !69
   %17 = inttoptr i64 %16 to ptr
-  %18 = getelementptr inbounds nuw %union.TValue, ptr %17, i64 %4
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %4
   %19 = load i64, ptr %18, align 8, !tbaa !34
   store i64 %19, ptr %14, align 8, !tbaa !34
   br label %42
@@ -1064,7 +1061,7 @@ define internal range(i32 0, 2) i32 @lj_cf_jit_util_funck(ptr noundef %0) #0 {
   %27 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %28 = load i64, ptr %27, align 8, !tbaa !69
   %29 = inttoptr i64 %28 to ptr
-  %30 = getelementptr inbounds %struct.GCRef, ptr %29, i64 %4
+  %30 = getelementptr inbounds [8 x i8], ptr %29, i64 %4
   %31 = load i64, ptr %30, align 8, !tbaa !70
   %32 = inttoptr i64 %31 to ptr
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1131,7 +1128,7 @@ jit_checktrace.exit:                              ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 1120
   %11 = load ptr, ptr %10, align 8, !tbaa !72
   %12 = zext i32 %2 to i64
-  %13 = getelementptr inbounds nuw %struct.GCRef, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %12
   %14 = load i64, ptr %13, align 8, !tbaa !70
   %.not = icmp eq i64 %14, 0
   br i1 %.not, label %jit_checktrace.exit.thread, label %15
@@ -1177,7 +1174,7 @@ jit_checktrace.exit:                              ; preds = %6
   %47 = getelementptr inbounds nuw i8, ptr %16, i64 116
   %48 = load i8, ptr %47, align 4, !tbaa !77
   %49 = zext i8 %48 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr @jit_trlinkname, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr @jit_trlinkname, i64 %49
   %51 = load ptr, ptr %50, align 8, !tbaa !78
   %52 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %51) #11
   %53 = tail call ptr @lj_str_new(ptr noundef nonnull %0, ptr noundef nonnull %51, i64 noundef %52) #8
@@ -1211,7 +1208,7 @@ define internal range(i32 0, 6) i32 @lj_cf_jit_util_traceir(ptr noundef %0) #0 {
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 1120
   %12 = load ptr, ptr %11, align 8, !tbaa !72
   %13 = zext i32 %2 to i64
-  %14 = getelementptr inbounds nuw %struct.GCRef, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %13
   %15 = load i64, ptr %14, align 8, !tbaa !70
   %16 = inttoptr i64 %15 to ptr
   br label %jit_checktrace.exit
@@ -1235,7 +1232,7 @@ jit_checktrace.exit:                              ; preds = %1, %6, %10
   %26 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
   %27 = load ptr, ptr %26, align 8, !tbaa !79
   %28 = zext i32 %18 to i64
-  %29 = getelementptr inbounds nuw %union.IRIns, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 5
   %31 = load i8, ptr %30, align 1, !tbaa !34
   %32 = zext i8 %31 to i64
@@ -1313,7 +1310,7 @@ jit_checktrace.exit:                              ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 1120
   %12 = load ptr, ptr %11, align 8, !tbaa !72
   %13 = zext i32 %2 to i64
-  %14 = getelementptr inbounds nuw %struct.GCRef, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %13
   %15 = load i64, ptr %14, align 8, !tbaa !70
   %16 = inttoptr i64 %15 to ptr
   %17 = tail call i32 @lj_lib_checkint(ptr noundef nonnull %0, i32 noundef 2) #8
@@ -1333,7 +1330,7 @@ jit_checktrace.exit:                              ; preds = %6
   %25 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %26 = load ptr, ptr %25, align 8, !tbaa !79
   %27 = zext nneg i32 %18 to i64
-  %28 = getelementptr inbounds nuw %union.IRIns, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 5
   %30 = load i8, ptr %29, align 1, !tbaa !34
   %31 = icmp eq i8 %30, 30
@@ -1345,7 +1342,7 @@ jit_checktrace.exit:                              ; preds = %6
   %35 = zext i16 %34 to i32
   %36 = load i16, ptr %28, align 8, !tbaa !34
   %37 = zext i16 %36 to i64
-  %38 = getelementptr inbounds nuw %union.IRIns, ptr %26, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %37
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %38, i64 5
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !34
   br label %39
@@ -1430,7 +1427,7 @@ jit_checktrace.exit:                              ; preds = %6
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 1120
   %12 = load ptr, ptr %11, align 8, !tbaa !72
   %13 = zext i32 %2 to i64
-  %14 = getelementptr inbounds nuw %struct.GCRef, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %13
   %15 = load i64, ptr %14, align 8, !tbaa !70
   %16 = inttoptr i64 %15 to ptr
   %17 = tail call i32 @lj_lib_checkint(ptr noundef nonnull %0, i32 noundef 2) #8
@@ -1448,12 +1445,12 @@ jit_checktrace.exit:                              ; preds = %6
   %24 = getelementptr inbounds nuw i8, ptr %16, i64 48
   %25 = load ptr, ptr %24, align 8, !tbaa !82
   %26 = zext nneg i32 %17 to i64
-  %27 = getelementptr inbounds nuw %struct.SnapShot, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [12 x i8], ptr %25, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %29 = load ptr, ptr %28, align 8, !tbaa !83
   %30 = load i32, ptr %27, align 4, !tbaa !84
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw i32, ptr %29, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 10
   %34 = load i8, ptr %33, align 2, !tbaa !86
   %35 = zext i8 %34 to i32
@@ -1528,7 +1525,7 @@ jit_checktrace.exit:                              ; preds = %6
 78:                                               ; preds = %73
   %79 = load i64, ptr %72, align 8, !tbaa !88
   %80 = inttoptr i64 %79 to ptr
-  %81 = getelementptr inbounds nuw %union.TValue, ptr %80, i64 %74
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %74
   br label %85
 
 82:                                               ; preds = %73
@@ -1538,7 +1535,7 @@ jit_checktrace.exit:                              ; preds = %6
 
 85:                                               ; preds = %82, %78
   %86 = phi ptr [ %81, %78 ], [ %84, %82 ]
-  %87 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv
   %88 = load i32, ptr %87, align 4, !tbaa !14
   %89 = sitofp i32 %88 to double
   store double %89, ptr %86, align 8, !tbaa !34
@@ -1556,7 +1553,7 @@ jit_checktrace.exit:                              ; preds = %6
   %94 = load i64, ptr %93, align 8, !tbaa !88
   %95 = inttoptr i64 %94 to ptr
   %96 = zext nneg i32 %36 to i64
-  %97 = getelementptr inbounds nuw %union.TValue, ptr %95, i64 %96
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %96
   br label %100
 
 98:                                               ; preds = %._crit_edge
@@ -1592,7 +1589,7 @@ jit_checktrace.exit:                              ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 1120
   %11 = load ptr, ptr %10, align 8, !tbaa !72
   %12 = zext i32 %2 to i64
-  %13 = getelementptr inbounds nuw %struct.GCRef, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %12
   %14 = load i64, ptr %13, align 8, !tbaa !70
   %15 = inttoptr i64 %14 to ptr
   %.not = icmp eq i64 %14, 0
@@ -1652,7 +1649,7 @@ define internal range(i32 0, 2) i32 @lj_cf_jit_util_traceexitstub(ptr noundef %0
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 2432
   %12 = lshr i32 %2, 5
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %11, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !78
   %16 = shl nuw nsw i32 %2, 2
   %17 = and i32 %16, 124
@@ -1676,7 +1673,7 @@ define internal range(i32 0, 2) i32 @lj_cf_jit_util_ircalladdr(ptr noundef %0) #
 
 4:                                                ; preds = %1
   %5 = zext nneg i32 %2 to i64
-  %6 = getelementptr inbounds nuw %struct.CCallInfo, ptr @lj_ir_callinfo, i64 %5
+  %6 = getelementptr inbounds nuw [16 x i8], ptr @lj_ir_callinfo, i64 %5
   %7 = load ptr, ptr %6, align 16, !tbaa !95
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %9 = load ptr, ptr %8, align 8, !tbaa !32
@@ -1774,7 +1771,7 @@ define internal noundef i32 @lj_cf_jit_opt_start(ptr noundef %0) #0 {
 
 switch.lookup:                                    ; preds = %31
   %33 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.lj_cf_jit_opt_start, i64 %33
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.lj_cf_jit_opt_start, i64 %33
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %jitopt_level.exit
 
@@ -1906,7 +1903,7 @@ jitopt_flag.exit:                                 ; preds = %69, %99
 
 94:                                               ; preds = %.critedge.i
   %95 = zext nneg i32 %.02737.i to i64
-  %96 = getelementptr inbounds nuw i32, ptr %15, i64 %95
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %95
   store i32 %.024.lcssa.i, ptr %96, align 4, !tbaa !14
   %97 = icmp eq i32 %.02737.i, 6
   br i1 %97, label %98, label %jitopt_param.exit

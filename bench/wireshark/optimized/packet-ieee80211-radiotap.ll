@@ -3102,7 +3102,7 @@ dissect_radiotap_flags.exit:                      ; preds = %268, %.sink.split.i
 
 611:                                              ; preds = %609
   %612 = zext nneg i8 %.0772 to i64
-  %613 = getelementptr i16, ptr @ieee80211_ht_Dbps, i64 %612
+  %613 = getelementptr [2 x i8], ptr @ieee80211_ht_Dbps, i64 %612
   %614 = load i16, ptr %613, align 2
   %.not846 = icmp eq i16 %614, 0
   br i1 %.not846, label %dissect_radiotap_rate.exit.backedge, label %615
@@ -3423,7 +3423,7 @@ dissect_radiotap_rate.exit.backedge:              ; preds = %dissect_eht_user_in
 
 800:                                              ; preds = %793
   %801 = zext nneg i8 %796 to i64
-  %802 = getelementptr i32, ptr @ieee80211_vht_bw2rate_index, i64 %801
+  %802 = getelementptr [4 x i8], ptr @ieee80211_vht_bw2rate_index, i64 %801
   %803 = load i32, ptr %802, align 4
   br label %804
 
@@ -3492,7 +3492,7 @@ dissect_radiotap_rate.exit.backedge:              ; preds = %dissect_eht_user_in
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %835, ptr noundef nonnull @.str.1280, i32 noundef %819, i32 noundef %824)
   %836 = load i32, ptr @ett_radiotap_vht_user, align 4
   %837 = call ptr @proto_item_add_subtree(ptr noundef %835, i32 noundef %836)
-  %838 = getelementptr i32, ptr @hf_radiotap_vht_mcs, i64 %indvars.iv950
+  %838 = getelementptr [4 x i8], ptr @hf_radiotap_vht_mcs, i64 %indvars.iv950
   %839 = load i32, ptr %838, align 4
   %840 = call ptr @proto_tree_add_item(ptr noundef %837, i32 noundef %839, ptr noundef %0, i32 noundef %820, i32 noundef 1, i32 noundef -2147483648)
   %841 = icmp ugt i8 %821, -97
@@ -3504,7 +3504,7 @@ dissect_radiotap_rate.exit.backedge:              ; preds = %dissect_eht_user_in
 
 843:                                              ; preds = %833
   %844 = zext nneg i32 %824 to i64
-  %845 = getelementptr %struct.mcs_vht_info, ptr @ieee80211_vhtinfo, i64 %844
+  %845 = getelementptr [48 x i8], ptr @ieee80211_vhtinfo, i64 %844
   %846 = load ptr, ptr %845, align 16
   %847 = getelementptr inbounds nuw i8, ptr %845, i64 8
   %848 = load ptr, ptr %847, align 8
@@ -3512,14 +3512,14 @@ dissect_radiotap_rate.exit.backedge:              ; preds = %dissect_eht_user_in
   br label %849
 
 849:                                              ; preds = %843, %842
-  %850 = getelementptr i32, ptr @hf_radiotap_vht_nss, i64 %indvars.iv950
+  %850 = getelementptr [4 x i8], ptr @hf_radiotap_vht_nss, i64 %indvars.iv950
   %851 = load i32, ptr %850, align 4
   %852 = call ptr @proto_tree_add_item(ptr noundef %837, i32 noundef %851, ptr noundef %0, i32 noundef %820, i32 noundef 1, i32 noundef -2147483648)
   br i1 %.not803, label %proto_item_set_generated.exit872, label %853
 
 853:                                              ; preds = %849
   %.0746 = shl nuw nsw i32 %823, %815
-  %854 = getelementptr i32, ptr @hf_radiotap_vht_nsts, i64 %indvars.iv950
+  %854 = getelementptr [4 x i8], ptr @hf_radiotap_vht_nsts, i64 %indvars.iv950
   %855 = load i32, ptr %854, align 4
   %856 = call ptr @proto_tree_add_uint(ptr noundef %837, i32 noundef %855, ptr noundef %0, i32 noundef %820, i32 noundef 1, i32 noundef %.0746)
   %.not.i870 = icmp eq ptr %856, null
@@ -3539,7 +3539,7 @@ dissect_radiotap_rate.exit.backedge:              ; preds = %dissect_eht_user_in
   br label %proto_item_set_generated.exit872
 
 proto_item_set_generated.exit872:                 ; preds = %860, %857, %853, %849
-  %864 = getelementptr i32, ptr @hf_radiotap_vht_coding, i64 %indvars.iv950
+  %864 = getelementptr [4 x i8], ptr @hf_radiotap_vht_coding, i64 %indvars.iv950
   %865 = load i32, ptr %864, align 4
   %866 = call ptr @proto_tree_add_item(ptr noundef %837, i32 noundef %865, ptr noundef %0, i32 noundef %811, i32 noundef 1, i32 noundef -2147483648)
   br label %867
@@ -3554,10 +3554,10 @@ proto_item_set_generated.exit872:                 ; preds = %860, %857, %853, %8
 
 870:                                              ; preds = %867
   %871 = zext nneg i32 %824 to i64
-  %872 = getelementptr %struct.mcs_vht_info, ptr @ieee80211_vhtinfo, i64 %871
+  %872 = getelementptr [48 x i8], ptr @ieee80211_vhtinfo, i64 %871
   %873 = getelementptr inbounds nuw i8, ptr %872, i64 16
-  %874 = getelementptr [2 x float], ptr %873, i64 %816
-  %875 = getelementptr float, ptr %874, i64 %817
+  %874 = getelementptr [8 x i8], ptr %873, i64 %816
+  %875 = getelementptr [4 x i8], ptr %874, i64 %817
   %876 = load float, ptr %875, align 4
   %877 = uitofp nneg i32 %823 to float
   %878 = fmul float %876, %877
@@ -3565,7 +3565,7 @@ proto_item_set_generated.exit872:                 ; preds = %860, %857, %853, %8
   br i1 %879, label %880, label %899
 
 880:                                              ; preds = %870
-  %881 = getelementptr i32, ptr @hf_radiotap_vht_datarate, i64 %indvars.iv950
+  %881 = getelementptr [4 x i8], ptr @hf_radiotap_vht_datarate, i64 %indvars.iv950
   %882 = load i32, ptr %881, align 4
   %883 = fpext float %878 to double
   %884 = call ptr (ptr, i32, ptr, i32, i32, float, ptr, ...) @proto_tree_add_float_format(ptr noundef %.1754, i32 noundef %882, ptr noundef %0, i32 noundef %219, i32 noundef 12, float noundef %878, ptr noundef nonnull @.str.1279, double noundef %883)
@@ -3586,7 +3586,7 @@ proto_item_set_generated.exit872:                 ; preds = %860, %857, %853, %8
   br label %proto_item_set_generated.exit875
 
 proto_item_set_generated.exit875:                 ; preds = %880, %885, %888
-  %gep = getelementptr %struct.mcs_vht_valid, ptr %invariant.gep, i64 %871
+  %gep = getelementptr [32 x i8], ptr %invariant.gep, i64 %871
   %892 = zext nneg i32 %823 to i64
   %893 = getelementptr i8, ptr %gep, i64 %892
   %894 = getelementptr i8, ptr %893, i64 -1
@@ -5114,7 +5114,7 @@ dissect_radiotap_u_sig.exit:                      ; preds = %1251, %1252, %1270,
 
 1702:                                             ; preds = %1697
   %1703 = zext nneg i8 %1700 to i64
-  %1704 = getelementptr %struct.ieee_802_11be_user_info, ptr %76, i64 %1703
+  %1704 = getelementptr [4 x i8], ptr %76, i64 %1703
   %1705 = load i32, ptr %1704, align 4
   %1706 = and i32 %1705, -524034
   %1707 = and i32 %1675, 524033
@@ -5158,7 +5158,7 @@ dissect_radiotap_u_sig.exit:                      ; preds = %1251, %1252, %1270,
 
 1727:                                             ; preds = %1722
   %1728 = zext nneg i8 %1725 to i64
-  %1729 = getelementptr %struct.ieee_802_11be_user_info, ptr %76, i64 %1728
+  %1729 = getelementptr [4 x i8], ptr %76, i64 %1728
   %1730 = load i32, ptr %1729, align 4
   %1731 = and i32 %1730, -15728643
   %1732 = and i32 %1675, 15728642
@@ -5186,7 +5186,7 @@ dissect_radiotap_u_sig.exit:                      ; preds = %1251, %1252, %1270,
 
 1744:                                             ; preds = %1739
   %1745 = zext nneg i8 %1742 to i64
-  %1746 = getelementptr %struct.ieee_802_11be_user_info, ptr %76, i64 %1745
+  %1746 = getelementptr [4 x i8], ptr %76, i64 %1745
   %1747 = load i32, ptr %1746, align 4
   %1748 = add i32 %1675, 16777216
   %1749 = and i32 %1747, -251658257

@@ -34,17 +34,11 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.jfrNativeEventSetting = type { i64, i64, i8, i8, i8, [5 x i8] }
 %class.LogTargetHandle = type { i32, ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%class.PaddedEnd = type { %class.PaddedEndImpl }
-%class.PaddedEndImpl = type { %"struct.XCPU::XCPUAffinity", [120 x i8] }
-%"struct.XCPU::XCPUAffinity" = type { ptr }
 %struct.XStatSamplerData = type { i64, i64, i64 }
 %class.MetaspaceCombinedStats = type { %class.MetaspaceStats, %class.MetaspaceStats, %class.MetaspaceStats }
 %class.MetaspaceStats = type { i64, i64, i64 }
 %class.XStatTablePrinter = type { i64, i64, [256 x i8] }
 %"class.XStatTablePrinter::XColumn" = type { ptr, i64, i64, i64 }
-%class.XStatSamplerHistory = type { %class.XStatSamplerHistoryInterval, %class.XStatSamplerHistoryInterval.0, %class.XStatSamplerHistoryInterval.0, %struct.XStatSamplerData }
-%class.XStatSamplerHistoryInterval = type { i64, [10 x %struct.XStatSamplerData], %struct.XStatSamplerData, %struct.XStatSamplerData }
-%class.XStatSamplerHistoryInterval.0 = type { i64, [60 x %struct.XStatSamplerData], %struct.XStatSamplerData, %struct.XStatSamplerData }
 
 $_ZN15LogTargetHandle5printEPKcz = comdat any
 
@@ -514,7 +508,7 @@ define linkonce_odr hidden void @_ZN15LogTargetHandle5printEPKcz(ptr noundef non
   %6 = load i32, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %8 = zext i32 %6 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %8
   %10 = load volatile ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %12, label %11
@@ -1079,7 +1073,7 @@ define hidden noundef ptr @_ZNK12XStatSampler3getEv(ptr noundef nonnull readonly
   %3 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @_ZN4XCPU4_cpuE)
   %4 = load i32, ptr %3, align 4
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw %class.PaddedEnd, ptr %2, i64 %5
+  %6 = getelementptr inbounds nuw [128 x i8], ptr %2, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4XCPU5_selfE)
   %9 = load ptr, ptr %8, align 8
@@ -1226,7 +1220,7 @@ define hidden noundef ptr @_ZNK12XStatCounter3getEv(ptr noundef nonnull readonly
   %3 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @_ZN4XCPU4_cpuE)
   %4 = load i32, ptr %3, align 4
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw %class.PaddedEnd, ptr %2, i64 %5
+  %6 = getelementptr inbounds nuw [128 x i8], ptr %2, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4XCPU5_selfE)
   %9 = load ptr, ptr %8, align 8
@@ -1287,7 +1281,7 @@ define hidden void @_ZNK12XStatCounter16sample_and_resetEv(ptr noundef nonnull a
   %19 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @_ZN4XCPU4_cpuE)
   %20 = load i32, ptr %19, align 4
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw %class.PaddedEnd, ptr %18, i64 %21
+  %22 = getelementptr inbounds nuw [128 x i8], ptr %18, i64 %21
   %23 = load ptr, ptr %22, align 8
   %24 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4XCPU5_selfE)
   %25 = load ptr, ptr %24, align 8
@@ -1347,7 +1341,7 @@ define hidden void @_Z11XStatSampleRK12XStatSamplerm(ptr noundef nonnull align 8
   %4 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @_ZN4XCPU4_cpuE)
   %5 = load i32, ptr %4, align 4
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw %class.PaddedEnd, ptr %3, i64 %6
+  %7 = getelementptr inbounds nuw [128 x i8], ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4XCPU5_selfE)
   %10 = load ptr, ptr %9, align 8
@@ -1429,7 +1423,7 @@ define hidden noundef ptr @_ZNK21XStatUnsampledCounter3getEv(ptr noundef nonnull
   %3 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @_ZN4XCPU4_cpuE)
   %4 = load i32, ptr %3, align 4
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw %class.PaddedEnd, ptr %2, i64 %5
+  %6 = getelementptr inbounds nuw [128 x i8], ptr %2, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4XCPU5_selfE)
   %9 = load ptr, ptr %8, align 8
@@ -1534,7 +1528,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN8XStatMMU5paus
   %3 = xor i64 %0, -1
   %4 = add i64 %2, %3
   %5 = urem i64 %4, 200
-  %6 = getelementptr inbounds nuw %class.XStatMMUPause, ptr @_ZN8XStatMMU7_pausesE, i64 %5
+  %6 = getelementptr inbounds nuw [16 x i8], ptr @_ZN8XStatMMU7_pausesE, i64 %5
   ret ptr %6
 }
 
@@ -1543,7 +1537,7 @@ define hidden noundef double @_ZN8XStatMMU13calculate_mmuEd(double noundef %0) l
   %2 = load i64, ptr @_ZN8XStatMMU5_nextE, align 8
   %3 = add i64 %2, -1
   %4 = urem i64 %3, 200
-  %5 = getelementptr inbounds nuw %class.XStatMMUPause, ptr @_ZN8XStatMMU7_pausesE, i64 %4
+  %5 = getelementptr inbounds nuw [16 x i8], ptr @_ZN8XStatMMU7_pausesE, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load double, ptr %6, align 8
   %8 = fsub double %7, %0
@@ -1557,7 +1551,7 @@ define hidden noundef double @_ZN8XStatMMU13calculate_mmuEd(double noundef %0) l
   %10 = xor i64 %.01315, -1
   %11 = add i64 %2, %10
   %12 = urem i64 %11, 200
-  %13 = getelementptr inbounds nuw %class.XStatMMUPause, ptr @_ZN8XStatMMU7_pausesE, i64 %12
+  %13 = getelementptr inbounds nuw [16 x i8], ptr @_ZN8XStatMMU7_pausesE, i64 %12
   %14 = load double, ptr %13, align 16
   %15 = fcmp ogt double %8, %14
   %16 = select i1 %15, double %8, double %14
@@ -1597,7 +1591,7 @@ define hidden void @_ZN8XStatMMU14register_pauseERK11TimeInstantI30CompositeCoun
   %7 = tail call noundef double @_ZN10TimeHelper17counter_to_millisEl(i64 noundef %6) #22
   %8 = load i64, ptr %1, align 8
   %9 = tail call noundef double @_ZN10TimeHelper17counter_to_millisEl(i64 noundef %8) #22
-  %10 = getelementptr inbounds nuw %class.XStatMMUPause, ptr @_ZN8XStatMMU7_pausesE, i64 %5
+  %10 = getelementptr inbounds nuw [16 x i8], ptr @_ZN8XStatMMU7_pausesE, i64 %5
   store double %7, ptr %10, align 16
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   store double %9, ptr %.sroa.2.0..sroa_idx, align 8
@@ -1609,7 +1603,7 @@ define hidden void @_ZN8XStatMMU14register_pauseERK11TimeInstantI30CompositeCoun
   %15 = load i64, ptr @_ZN8XStatMMU5_nextE, align 8
   %16 = add i64 %15, -1
   %17 = urem i64 %16, 200
-  %18 = getelementptr inbounds nuw %class.XStatMMUPause, ptr @_ZN8XStatMMU7_pausesE, i64 %17
+  %18 = getelementptr inbounds nuw [16 x i8], ptr @_ZN8XStatMMU7_pausesE, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load double, ptr %19, align 8
   %21 = fadd double %20, -2.000000e+00
@@ -1622,7 +1616,7 @@ define hidden void @_ZN8XStatMMU14register_pauseERK11TimeInstantI30CompositeCoun
   %22 = xor i64 %.01315.i, -1
   %23 = add i64 %15, %22
   %24 = urem i64 %23, 200
-  %25 = getelementptr inbounds nuw %class.XStatMMUPause, ptr @_ZN8XStatMMU7_pausesE, i64 %24
+  %25 = getelementptr inbounds nuw [16 x i8], ptr @_ZN8XStatMMU7_pausesE, i64 %24
   %26 = load double, ptr %25, align 16
   %27 = fcmp ogt double %21, %26
   %28 = select i1 %27, double %21, double %26
@@ -1660,7 +1654,7 @@ _ZN8XStatMMU13calculate_mmuEd.exit:               ; preds = %.lr.ph.i, %36, %2
   %46 = xor i64 %.01315.i5, -1
   %47 = add i64 %15, %46
   %48 = urem i64 %47, 200
-  %49 = getelementptr inbounds nuw %class.XStatMMUPause, ptr @_ZN8XStatMMU7_pausesE, i64 %48
+  %49 = getelementptr inbounds nuw [16 x i8], ptr @_ZN8XStatMMU7_pausesE, i64 %48
   %50 = load double, ptr %49, align 16
   %51 = fcmp ogt double %45, %50
   %52 = select i1 %51, double %45, double %50
@@ -1698,7 +1692,7 @@ _ZN8XStatMMU13calculate_mmuEd.exit9:              ; preds = %.lr.ph.i3, %60, %_Z
   %70 = xor i64 %.01315.i13, -1
   %71 = add i64 %15, %70
   %72 = urem i64 %71, 200
-  %73 = getelementptr inbounds nuw %class.XStatMMUPause, ptr @_ZN8XStatMMU7_pausesE, i64 %72
+  %73 = getelementptr inbounds nuw [16 x i8], ptr @_ZN8XStatMMU7_pausesE, i64 %72
   %74 = load double, ptr %73, align 16
   %75 = fcmp ogt double %69, %74
   %76 = select i1 %75, double %69, double %74
@@ -1736,7 +1730,7 @@ _ZN8XStatMMU13calculate_mmuEd.exit17:             ; preds = %.lr.ph.i11, %84, %_
   %94 = xor i64 %.01315.i21, -1
   %95 = add i64 %15, %94
   %96 = urem i64 %95, 200
-  %97 = getelementptr inbounds nuw %class.XStatMMUPause, ptr @_ZN8XStatMMU7_pausesE, i64 %96
+  %97 = getelementptr inbounds nuw [16 x i8], ptr @_ZN8XStatMMU7_pausesE, i64 %96
   %98 = load double, ptr %97, align 16
   %99 = fcmp ogt double %93, %98
   %100 = select i1 %99, double %93, double %98
@@ -1774,7 +1768,7 @@ _ZN8XStatMMU13calculate_mmuEd.exit25:             ; preds = %.lr.ph.i19, %108, %
   %118 = xor i64 %.01315.i29, -1
   %119 = add i64 %15, %118
   %120 = urem i64 %119, 200
-  %121 = getelementptr inbounds nuw %class.XStatMMUPause, ptr @_ZN8XStatMMU7_pausesE, i64 %120
+  %121 = getelementptr inbounds nuw [16 x i8], ptr @_ZN8XStatMMU7_pausesE, i64 %120
   %122 = load double, ptr %121, align 16
   %123 = fcmp ogt double %117, %122
   %124 = select i1 %123, double %117, double %122
@@ -1812,7 +1806,7 @@ _ZN8XStatMMU13calculate_mmuEd.exit33:             ; preds = %.lr.ph.i27, %132, %
   %142 = xor i64 %.01315.i37, -1
   %143 = add i64 %15, %142
   %144 = urem i64 %143, 200
-  %145 = getelementptr inbounds nuw %class.XStatMMUPause, ptr @_ZN8XStatMMU7_pausesE, i64 %144
+  %145 = getelementptr inbounds nuw [16 x i8], ptr @_ZN8XStatMMU7_pausesE, i64 %144
   %146 = load double, ptr %145, align 16
   %147 = fcmp ogt double %141, %146
   %148 = select i1 %147, double %141, double %146
@@ -1920,7 +1914,7 @@ define hidden void @_ZNK10XStatPhase9log_startE15LogTargetHandleb(ptr noundef no
   store ptr %2, ptr %6, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %8
   %10 = load volatile ptr, ptr %9, align 8
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %_ZN12ResourceMarkD2Ev.exit, label %11
@@ -1993,7 +1987,7 @@ define hidden void @_ZNK10XStatPhase7log_endE15LogTargetHandleRK12TimeIntervalI3
   store ptr %2, ptr %7, align 8
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %9 = zext i32 %1 to i64
-  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %9
   %11 = load volatile ptr, ptr %10, align 8
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %_ZN12ResourceMarkD2Ev.exit, label %12
@@ -2178,7 +2172,7 @@ define hidden void @_ZNK15XStatPhaseCycle12register_endERK11TimeInstantI30Compos
   %27 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @_ZN4XCPU4_cpuE)
   %28 = load i32, ptr %27, align 4
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw %class.PaddedEnd, ptr %26, i64 %29
+  %30 = getelementptr inbounds nuw [128 x i8], ptr %26, i64 %29
   %31 = load ptr, ptr %30, align 8
   %32 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4XCPU5_selfE)
   %33 = load ptr, ptr %32, align 8
@@ -3321,7 +3315,7 @@ define hidden void @_ZNK15XStatPhasePause12register_endERK11TimeInstantI30Compos
   %12 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @_ZN4XCPU4_cpuE)
   %13 = load i32, ptr %12, align 4
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %class.PaddedEnd, ptr %11, i64 %14
+  %15 = getelementptr inbounds nuw [128 x i8], ptr %11, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4XCPU5_selfE)
   %18 = load ptr, ptr %17, align 8
@@ -3475,7 +3469,7 @@ define hidden void @_ZNK20XStatPhaseConcurrent12register_endERK11TimeInstantI30C
   %12 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @_ZN4XCPU4_cpuE)
   %13 = load i32, ptr %12, align 4
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %class.PaddedEnd, ptr %11, i64 %14
+  %15 = getelementptr inbounds nuw [128 x i8], ptr %11, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4XCPU5_selfE)
   %18 = load ptr, ptr %17, align 8
@@ -3702,7 +3696,7 @@ _ZN7XTracer19report_thread_phaseEPKcRK11TimeInstantI30CompositeCounterRepresenta
   %18 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @_ZN4XCPU4_cpuE)
   %19 = load i32, ptr %18, align 4
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw %class.PaddedEnd, ptr %17, i64 %20
+  %21 = getelementptr inbounds nuw [128 x i8], ptr %17, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4XCPU5_selfE)
   %24 = load ptr, ptr %23, align 8
@@ -3932,7 +3926,7 @@ _ZN7XTracer19report_thread_phaseEPKcRK11TimeInstantI30CompositeCounterRepresenta
   %15 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @_ZN4XCPU4_cpuE)
   %16 = load i32, ptr %15, align 4
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw %class.PaddedEnd, ptr %14, i64 %17
+  %18 = getelementptr inbounds nuw [128 x i8], ptr %14, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4XCPU5_selfE)
   %21 = load ptr, ptr %20, align 8
@@ -3987,7 +3981,7 @@ _Z11XStatSampleRK12XStatSamplerm.exit:            ; preds = %44, %46
   %49 = load ptr, ptr @_ZN4XCPU9_affinityE, align 8
   %50 = load i32, ptr %15, align 4
   %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds nuw %class.PaddedEnd, ptr %49, i64 %51
+  %52 = getelementptr inbounds nuw [128 x i8], ptr %49, i64 %51
   %53 = load ptr, ptr %52, align 8
   %54 = load ptr, ptr %20, align 8
   %55 = icmp eq ptr %53, %54
@@ -4142,7 +4136,7 @@ define hidden void @_Z8XStatIncRK12XStatCounterm(ptr noundef nonnull align 8 der
   %4 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @_ZN4XCPU4_cpuE)
   %5 = load i32, ptr %4, align 4
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw %class.PaddedEnd, ptr %3, i64 %6
+  %7 = getelementptr inbounds nuw [128 x i8], ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4XCPU5_selfE)
   %10 = load ptr, ptr %9, align 8
@@ -4186,7 +4180,7 @@ define hidden void @_Z8XStatIncRK21XStatUnsampledCounterm(ptr noundef nonnull re
   %4 = tail call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @_ZN4XCPU4_cpuE)
   %5 = load i32, ptr %4, align 4
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw %class.PaddedEnd, ptr %3, i64 %6
+  %7 = getelementptr inbounds nuw [128 x i8], ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4XCPU5_selfE)
   %10 = load ptr, ptr %9, align 8
@@ -4336,7 +4330,7 @@ define hidden void @_ZNK5XStat18sample_and_collectEP19XStatSamplerHistory(ptr no
   %8 = getelementptr inbounds nuw i8, ptr %.0918, i64 16
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw %class.XStatSamplerHistory, ptr %1, i64 %10
+  %11 = getelementptr inbounds nuw [3312 x i8], ptr %1, i64 %10
   call void @llvm.experimental.noalias.scope.decl(metadata !43)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !alias.scope !43
   %12 = load i32, ptr @_ZN2os16_processor_countE, align 4, !noalias !43
@@ -4412,7 +4406,7 @@ _ZNK12XStatSampler17collect_and_resetEv.exit:     ; preds = %7, %._crit_edge.i
 define linkonce_odr hidden void @_ZN19XStatSamplerHistory3addERK16XStatSamplerData(ptr noundef nonnull align 8 dereferenceable(3312) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #0 comdat align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %0, align 8
-  %5 = getelementptr inbounds %struct.XStatSamplerData, ptr %3, i64 %4
+  %5 = getelementptr inbounds [24 x i8], ptr %3, i64 %4
   %.sroa.0.0.copyload.i = load i64, ptr %5, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
@@ -4471,7 +4465,7 @@ define linkonce_odr hidden void @_ZN19XStatSamplerHistory3addERK16XStatSamplerDa
 38:                                               ; preds = %45, %37
   %.017.i = phi i64 [ 0, %37 ], [ %47, %45 ]
   %39 = phi i64 [ 0, %37 ], [ %46, %45 ]
-  %40 = getelementptr inbounds nuw %struct.XStatSamplerData, ptr %3, i64 %.017.i
+  %40 = getelementptr inbounds nuw [24 x i8], ptr %3, i64 %.017.i
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load i64, ptr %41, align 8
   %43 = icmp ult i64 %39, %42
@@ -4500,7 +4494,7 @@ define linkonce_odr hidden void @_ZN19XStatSamplerHistory3addERK16XStatSamplerDa
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %54 = load i64, ptr %52, align 8
-  %55 = getelementptr inbounds %struct.XStatSamplerData, ptr %53, i64 %54
+  %55 = getelementptr inbounds [24 x i8], ptr %53, i64 %54
   %.sroa.0.0.copyload.i2 = load i64, ptr %55, align 8
   %.sroa.2.0..sroa_idx.i3 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %.sroa.2.0.copyload.i4 = load i64, ptr %.sroa.2.0..sroa_idx.i3, align 8
@@ -4552,7 +4546,7 @@ define linkonce_odr hidden void @_ZN19XStatSamplerHistory3addERK16XStatSamplerDa
 83:                                               ; preds = %90, %82
   %.017.i8 = phi i64 [ 0, %82 ], [ %92, %90 ]
   %84 = phi i64 [ 0, %82 ], [ %91, %90 ]
-  %85 = getelementptr inbounds nuw %struct.XStatSamplerData, ptr %53, i64 %.017.i8
+  %85 = getelementptr inbounds nuw [24 x i8], ptr %53, i64 %.017.i8
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %87 = load i64, ptr %86, align 8
   %88 = icmp ult i64 %84, %87
@@ -4581,7 +4575,7 @@ define linkonce_odr hidden void @_ZN19XStatSamplerHistory3addERK16XStatSamplerDa
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 1792
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 1800
   %99 = load i64, ptr %97, align 8
-  %100 = getelementptr inbounds %struct.XStatSamplerData, ptr %98, i64 %99
+  %100 = getelementptr inbounds [24 x i8], ptr %98, i64 %99
   %.sroa.0.0.copyload.i10 = load i64, ptr %100, align 8
   %.sroa.2.0..sroa_idx.i11 = getelementptr inbounds nuw i8, ptr %100, i64 8
   %.sroa.2.0.copyload.i12 = load i64, ptr %.sroa.2.0..sroa_idx.i11, align 8
@@ -4633,7 +4627,7 @@ define linkonce_odr hidden void @_ZN19XStatSamplerHistory3addERK16XStatSamplerDa
 128:                                              ; preds = %135, %127
   %.017.i16 = phi i64 [ 0, %127 ], [ %137, %135 ]
   %129 = phi i64 [ 0, %127 ], [ %136, %135 ]
-  %130 = getelementptr inbounds nuw %struct.XStatSamplerData, ptr %98, i64 %.017.i16
+  %130 = getelementptr inbounds nuw [24 x i8], ptr %98, i64 %.017.i16
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 16
   %132 = load i64, ptr %131, align 8
   %133 = icmp ult i64 %129, %132
@@ -4713,7 +4707,7 @@ define hidden noundef zeroext i1 @_ZNK5XStat12should_printE15LogTargetHandle(ptr
   store i64 %21, ptr @_ZZNK5XStat12should_printE15LogTargetHandleE8print_at, align 8
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %23 = zext i32 %1 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = load volatile ptr, ptr %24, align 8
   %26 = icmp ne ptr %25, null
   br label %27
@@ -4749,7 +4743,7 @@ define hidden void @_ZNK5XStat5printE15LogTargetHandlePK19XStatSamplerHistory(pt
   %7 = getelementptr inbounds nuw i8, ptr %.011, i64 16
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %class.XStatSamplerHistory, ptr %3, i64 %9
+  %10 = getelementptr inbounds nuw [3312 x i8], ptr %3, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %.011, i64 32
   %12 = load ptr, ptr %11, align 8
   %.sroa.0.0.copyload = load i32, ptr %5, align 8
@@ -4910,7 +4904,7 @@ _ZNK5XStat12should_printE15LogTargetHandle.exit:  ; preds = %48
   %60 = getelementptr inbounds nuw i8, ptr %.011.i, i64 16
   %61 = load i32, ptr %60, align 8
   %62 = zext i32 %61 to i64
-  %63 = getelementptr inbounds nuw %class.XStatSamplerHistory, ptr %6, i64 %62
+  %63 = getelementptr inbounds nuw [3312 x i8], ptr %6, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %.011.i, i64 32
   %65 = load ptr, ptr %64, align 8
   %.sroa.0.0.copyload.i = load i32, ptr %2, align 8

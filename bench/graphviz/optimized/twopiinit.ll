@@ -3,7 +3,6 @@ source_filename = "bench/graphviz/original/twopiinit.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.rdata = type { i64, i64, i64, i64, ptr, double, double }
 %struct.pointf_s = type { double, double }
 %struct.pack_info = type { float, i32, i32, i8, i32, ptr, ptr, i32 }
 
@@ -88,7 +87,7 @@ gv_calloc.exit32.i:                               ; preds = %20
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %gv_calloc.exit32.i ]
   %.035.i = phi ptr [ %42, %.lr.ph.i ], [ %33, %gv_calloc.exit32.i ]
   tail call void @neato_init_node(ptr noundef nonnull %.035.i) #8
-  %34 = getelementptr inbounds nuw %struct.rdata, ptr %21, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw [56 x i8], ptr %21, i64 %indvars.iv.i
   %35 = getelementptr inbounds nuw i8, ptr %.035.i, i64 16
   %36 = load ptr, ptr %35, align 8, !tbaa !3
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 152
@@ -97,7 +96,7 @@ gv_calloc.exit32.i:                               ; preds = %20
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 184
   %40 = load ptr, ptr %39, align 8, !tbaa !35
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv.i
   store ptr %.035.i, ptr %41, align 8, !tbaa !43
   %42 = tail call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.035.i) #8
   %.not.i = icmp eq ptr %42, null
@@ -279,7 +278,7 @@ findRootNode.exit:                                ; preds = %39, %.lr.ph.i, %33,
 
 findRootNode.exit114.us.us.us:                    ; preds = %.lr.ph.split.us.split.us, %findRootNode.exit114.us.us.us
   %.081121.us.us.us = phi i64 [ %64, %findRootNode.exit114.us.us.us ], [ 0, %.lr.ph.split.us.split.us ]
-  %58 = getelementptr inbounds nuw ptr, ptr %30, i64 %.081121.us.us.us
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.081121.us.us.us
   %59 = load ptr, ptr %58, align 8, !tbaa !66
   %60 = call i32 @agcontains(ptr noundef %59, ptr noundef nonnull %.083) #8
   %.not101.us.us.us.not = icmp eq i32 %60, 0
@@ -294,7 +293,7 @@ findRootNode.exit114.us.us.us:                    ; preds = %.lr.ph.split.us.spl
 
 findRootNode.exit114.us.us:                       ; preds = %.lr.ph.split.us.split.us, %findRootNode.exit114.us.us
   %.081121.us.us = phi i64 [ %72, %findRootNode.exit114.us.us ], [ 0, %.lr.ph.split.us.split.us ]
-  %67 = getelementptr inbounds nuw ptr, ptr %30, i64 %.081121.us.us
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.081121.us.us
   %68 = load ptr, ptr %67, align 8, !tbaa !66
   %69 = call i64 @graphviz_node_induce(ptr noundef %68, ptr noundef null) #8
   %70 = call ptr @circleLayout(ptr noundef %68, ptr noundef null) #8
@@ -307,7 +306,7 @@ findRootNode.exit114.us.us:                       ; preds = %.lr.ph.split.us.spl
 .lr.ph.split.us.split:                            ; preds = %.lr.ph.split.us, %findRootNode.exit114.us
   %.081121.us = phi i64 [ %82, %findRootNode.exit114.us ], [ 0, %.lr.ph.split.us ]
   %.4120.us = phi ptr [ %spec.select128, %findRootNode.exit114.us ], [ %.083, %.lr.ph.split.us ]
-  %75 = getelementptr inbounds nuw ptr, ptr %30, i64 %.081121.us
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.081121.us
   %76 = load ptr, ptr %75, align 8, !tbaa !66
   %.not130 = icmp eq ptr %.4120.us, null
   br i1 %.not130, label %findRootNode.exit114.us, label %77
@@ -349,7 +348,7 @@ findRootNode.exit114.us:                          ; preds = %.lr.ph.split.us.spl
 .lr.ph.split:                                     ; preds = %.lr.ph, %110
   %.081121 = phi i64 [ %112, %110 ], [ 0, %.lr.ph ]
   %.4120 = phi ptr [ %spec.select107, %110 ], [ %.083, %.lr.ph ]
-  %94 = getelementptr inbounds nuw ptr, ptr %30, i64 %.081121
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.081121
   %95 = load ptr, ptr %94, align 8, !tbaa !66
   %96 = icmp ne ptr %.4120, null
   br i1 %96, label %97, label %99
@@ -410,7 +409,7 @@ findRootNode.exit114:                             ; preds = %103, %.lr.ph.i110, 
 
 .lr.ph126:                                        ; preds = %115, %.lr.ph126
   %.0124 = phi i64 [ %120, %.lr.ph126 ], [ 0, %115 ]
-  %117 = getelementptr inbounds nuw ptr, ptr %30, i64 %.0124
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.0124
   %118 = load ptr, ptr %117, align 8, !tbaa !66
   %119 = call i32 @agdelete(ptr noundef %0, ptr noundef %118) #8
   %120 = add nuw i64 %.0124, 1

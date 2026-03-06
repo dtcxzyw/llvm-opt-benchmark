@@ -16,7 +16,6 @@ module asm ".previous\09\09\09\09\09"
 %union.anon.0 = type { %struct.atomic_t }
 %struct.atomic_t = type { i32 }
 %struct.list_head = type { ptr, ptr }
-%struct.resource = type { i64, i64, ptr, i64, i64, ptr, ptr, ptr }
 
 @pcibios_fw_addr_done = internal unnamed_addr global i1 false, align 1
 @pcibios_fwaddrmap_lock = internal global %struct.spinlock zeroinitializer, align 4
@@ -59,7 +58,7 @@ define dso_local i64 @pcibios_retrieve_fw_addr(ptr noundef readnone captures(add
 16:                                               ; preds = %14
   %17 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %18 = sext i32 %1 to i64
-  %19 = getelementptr i64, ptr %17, i64 %18
+  %19 = getelementptr [8 x i8], ptr %17, i64 %18
   %20 = load i64, ptr %19, align 8
   br label %.thread
 
@@ -186,7 +185,7 @@ define internal fastcc void @pcibios_allocate_bus_resources(ptr noundef readonly
 
 7:                                                ; preds = %25, %5
   %8 = phi i64 [ 7, %5 ], [ %26, %25 ]
-  %9 = getelementptr %struct.resource, ptr %6, i64 %8
+  %9 = getelementptr [64 x i8], ptr %6, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load i64, ptr %10, align 8
   %12 = icmp eq i64 %11, 0
@@ -260,7 +259,7 @@ define internal fastcc void @pcibios_allocate_resources(ptr noundef readonly cap
 
 15:                                               ; preds = %86, %10
   %16 = phi i64 [ 0, %10 ], [ %87, %86 ]
-  %17 = getelementptr %struct.resource, ptr %13, i64 %16
+  %17 = getelementptr [64 x i8], ptr %13, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
@@ -349,7 +348,7 @@ define internal fastcc void @pcibios_allocate_resources(ptr noundef readonly cap
   %70 = getelementptr inbounds nuw i8, ptr %66, i64 16
   store ptr %69, ptr %70, align 8
   %71 = getelementptr inbounds nuw i8, ptr %66, i64 24
-  %72 = getelementptr i64, ptr %71, i64 %16
+  %72 = getelementptr [8 x i8], ptr %71, i64 %16
   store i64 %51, ptr %72, align 8
   store volatile ptr %66, ptr %66, align 8
   %73 = getelementptr inbounds nuw i8, ptr %66, i64 8
@@ -364,7 +363,7 @@ define internal fastcc void @pcibios_allocate_resources(ptr noundef readonly cap
 
 76:                                               ; preds = %63
   %77 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %78 = getelementptr i64, ptr %77, i64 %16
+  %78 = getelementptr [8 x i8], ptr %77, i64 %16
   store i64 %51, ptr %78, align 8
   br label %79
 

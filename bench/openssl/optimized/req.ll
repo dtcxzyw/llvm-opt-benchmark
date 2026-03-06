@@ -748,7 +748,7 @@ define dso_local i32 @req_main(i32 noundef %0, ptr noundef %1) local_unnamed_add
   %.024.i = phi ptr [ %141, %150 ], [ %159, %153 ]
   %154 = load i8, ptr %.024.i, align 1, !tbaa !19
   %155 = zext i8 %154 to i64
-  %156 = getelementptr inbounds nuw i16, ptr %152, i64 %155
+  %156 = getelementptr inbounds nuw [2 x i8], ptr %152, i64 %155
   %157 = load i16, ptr %156, align 2, !tbaa !20
   %158 = and i16 %157, 8192
   %.not.i = icmp eq i16 %158, 0
@@ -787,7 +787,7 @@ define dso_local i32 @req_main(i32 noundef %0, ptr noundef %1) local_unnamed_add
   %178 = getelementptr inbounds i8, ptr %.023.i, i64 -1
   %179 = load i8, ptr %178, align 1, !tbaa !19
   %180 = zext i8 %179 to i64
-  %181 = getelementptr inbounds nuw i16, ptr %177, i64 %180
+  %181 = getelementptr inbounds nuw [2 x i8], ptr %177, i64 %180
   %182 = load i16, ptr %181, align 2, !tbaa !20
   %183 = and i16 %182, 8192
   %.not28.i = icmp eq i16 %183, 0

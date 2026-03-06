@@ -129,7 +129,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 
 10:                                               ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha4e77bc1a8f9f6d0E.exit.i", %5
   %.sroa.06.0.i = phi i64 [ 0, %5 ], [ %21, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha4e77bc1a8f9f6d0E.exit.i" ]
-  %11 = getelementptr inbounds { i8, [55 x i8] }, ptr %0, i64 %.sroa.06.0.i
+  %11 = getelementptr inbounds [56 x i8], ptr %0, i64 %.sroa.06.0.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3)
   %.sroa.0.0.copyload.i.i.i = load i8, ptr %11, align 8, !alias.scope !6, !noalias !9
   %12 = icmp samesign ugt i8 %.sroa.0.0.copyload.i.i.i, 5
@@ -200,7 +200,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 
 10:                                               ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h15baa3c278fd80d1E.exit.i", %5
   %.sroa.06.0.i = phi i64 [ 0, %5 ], [ %21, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h15baa3c278fd80d1E.exit.i" ]
-  %11 = getelementptr inbounds { i8, [55 x i8] }, ptr %0, i64 %.sroa.06.0.i
+  %11 = getelementptr inbounds [56 x i8], ptr %0, i64 %.sroa.06.0.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !13)
   %.sroa.0.0.copyload.i.i.i = load i8, ptr %11, align 8, !alias.scope !16, !noalias !19
   %12 = icmp samesign ugt i8 %.sroa.0.0.copyload.i.i.i, 5
@@ -792,10 +792,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !12, !align !176, !noundef !12
   %.val = load i8, ptr %2, align 1, !range !177, !noundef !12
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hb1332521f6015c65E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hb1332521f6015c65E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hb1332521f6015c65E.50", i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hb1332521f6015c65E.50", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -3917,10 +3917,10 @@ define internal noundef zeroext i1 @"_ZN72_$LT$fs_err..errors..SourceDestErrorKi
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !177, !noundef !12
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN72_$LT$fs_err..errors..SourceDestErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h2d351b376ddd5c65E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN72_$LT$fs_err..errors..SourceDestErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h2d351b376ddd5c65E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN72_$LT$fs_err..errors..SourceDestErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h2d351b376ddd5c65E.51", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN72_$LT$fs_err..errors..SourceDestErrorKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h2d351b376ddd5c65E.51", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -4269,7 +4269,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 
 10:                                               ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha4e77bc1a8f9f6d0E.exit", %5
   %.sroa.06.0 = phi i64 [ 0, %5 ], [ %21, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17ha4e77bc1a8f9f6d0E.exit" ]
-  %11 = getelementptr inbounds { i8, [55 x i8] }, ptr %0, i64 %.sroa.06.0
+  %11 = getelementptr inbounds [56 x i8], ptr %0, i64 %.sroa.06.0
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1288)
   %.sroa.0.0.copyload.i.i = load i8, ptr %11, align 8, !alias.scope !1291
   %12 = icmp samesign ugt i8 %.sroa.0.0.copyload.i.i, 5
@@ -4334,7 +4334,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 
 10:                                               ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h15baa3c278fd80d1E.exit", %5
   %.sroa.06.0 = phi i64 [ 0, %5 ], [ %21, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h15baa3c278fd80d1E.exit" ]
-  %11 = getelementptr inbounds { i8, [55 x i8] }, ptr %0, i64 %.sroa.06.0
+  %11 = getelementptr inbounds [56 x i8], ptr %0, i64 %.sroa.06.0
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1294)
   %.sroa.0.0.copyload.i.i = load i8, ptr %11, align 8, !alias.scope !1297
   %12 = icmp samesign ugt i8 %.sroa.0.0.copyload.i.i, 5

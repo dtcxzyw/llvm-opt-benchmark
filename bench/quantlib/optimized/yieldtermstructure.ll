@@ -9,8 +9,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.QuantLib::Calendar" = type { %"class.boost::shared_ptr.7" }
 %"class.boost::shared_ptr.7" = type { ptr, %"class.boost::detail::shared_count" }
 %"class.boost::shared_ptr" = type { ptr, %"class.boost::detail::shared_count" }
-%"class.QuantLib::Handle" = type { %"class.boost::shared_ptr.21" }
-%"class.boost::shared_ptr.21" = type { ptr, %"class.boost::detail::shared_count" }
 %"class.QuantLib::Date" = type { i64 }
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
@@ -852,7 +850,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %add.ptr23 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset22
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp24)
   %42 = load ptr, ptr %jumps_, align 8, !tbaa !18
-  %add.ptr.i = getelementptr inbounds nuw %"class.QuantLib::Handle", ptr %42, i64 %i.083
+  %add.ptr.i = getelementptr inbounds nuw [16 x i8], ptr %42, i64 %i.083
   call void @llvm.experimental.noalias.scope.decl(metadata !53)
   %43 = load ptr, ptr %add.ptr.i, align 8, !tbaa !56, !noalias !53
   store ptr %43, ptr %ref.tmp24, align 8, !tbaa !58, !alias.scope !53
@@ -1238,7 +1236,7 @@ if.else.i21:                                      ; preds = %_ZNSt6vectorIN8Quan
   br i1 %cmp4.i22, label %if.then5.i23, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
 if.then5.i23:                                     ; preds = %if.else.i21
-  %add.ptr.i24 = getelementptr inbounds nuw double, ptr %9, i64 %11
+  %add.ptr.i24 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %11
   %tobool.not.i.i25 = icmp eq ptr %10, %add.ptr.i24
   br i1 %tobool.not.i.i25, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit, label %invoke.cont.i.i26
 
@@ -1259,7 +1257,7 @@ for.body:                                         ; preds = %_ZNSt6vectorIdSaIdE
   %conv7 = add i32 %call5, %13
   call void @_ZN8QuantLib4DateC1EiNS_5MonthEi(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, i32 noundef 31, i32 noundef 12, i32 noundef %conv7)
   %14 = load ptr, ptr %jumpDates_, align 8, !tbaa !15
-  %add.ptr.i29 = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %14, i64 %i.083
+  %add.ptr.i29 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %i.083
   %15 = load i64, ptr %ref.tmp, align 8, !tbaa !29
   store i64 %15, ptr %add.ptr.i29, align 8, !tbaa !29
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp)
@@ -1451,10 +1449,10 @@ for.cond.cleanup56:                               ; preds = %for.body57, %_ZNSt6
 for.body57:                                       ; preds = %for.body57.lr.ph, %for.body57
   %i52.085 = phi i64 [ 0, %for.body57.lr.ph ], [ %inc64, %for.body57 ]
   %40 = load ptr, ptr %jumpDates_, align 8, !tbaa !15
-  %add.ptr.i62 = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %40, i64 %i52.085
+  %add.ptr.i62 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %i52.085
   %call60 = call noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i62)
   %41 = load ptr, ptr %jumpTimes_61, align 8, !tbaa !12
-  %add.ptr.i63 = getelementptr inbounds nuw double, ptr %41, i64 %i52.085
+  %add.ptr.i63 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %i52.085
   store double %call60, ptr %add.ptr.i63, align 8, !tbaa !32
   %inc64 = add nuw i64 %i52.085, 1
   %42 = load i64, ptr %nJumps_54, align 8, !tbaa !35
@@ -1816,7 +1814,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %add.ptr23 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset22
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp24)
   %42 = load ptr, ptr %jumps_, align 8, !tbaa !18
-  %add.ptr.i = getelementptr inbounds nuw %"class.QuantLib::Handle", ptr %42, i64 %i.083
+  %add.ptr.i = getelementptr inbounds nuw [16 x i8], ptr %42, i64 %i.083
   call void @llvm.experimental.noalias.scope.decl(metadata !74)
   %43 = load ptr, ptr %add.ptr.i, align 8, !tbaa !56, !noalias !74
   store ptr %43, ptr %ref.tmp24, align 8, !tbaa !58, !alias.scope !74
@@ -2372,7 +2370,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %i.0119 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %jumpEffect.0118 = phi double [ 1.000000e+00, %for.body.lr.ph ], [ %jumpEffect.1, %for.inc ]
   %6 = load ptr, ptr %jumpTimes_, align 8, !tbaa !12
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %6, i64 %i.0119
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %i.0119
   %7 = load double, ptr %add.ptr.i, align 8, !tbaa !32
   %cmp4 = fcmp ogt double %7, 0.000000e+00
   %cmp7 = fcmp olt double %7, %t
@@ -2381,7 +2379,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 do.body:                                          ; preds = %for.body
   %8 = load ptr, ptr %jumps_, align 8, !tbaa !18
-  %add.ptr.i25 = getelementptr inbounds nuw %"class.QuantLib::Handle", ptr %8, i64 %i.0119
+  %add.ptr.i25 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %i.0119
   %call11 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib6HandleINS_5QuoteEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i25)
   %9 = load ptr, ptr %call11, align 8, !tbaa !80
   %cmp.not.i = icmp eq ptr %9, null
@@ -2551,7 +2549,7 @@ ehcleanup47:                                      ; preds = %if.then.i.i38, %ehc
 
 do.end:                                           ; preds = %_ZNK5boost10shared_ptrIN8QuantLib5QuoteEEptEv.exit
   %30 = load ptr, ptr %jumps_, align 8, !tbaa !18
-  %add.ptr.i44 = getelementptr inbounds nuw %"class.QuantLib::Handle", ptr %30, i64 %i.0119
+  %add.ptr.i44 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %i.0119
   %call52 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib6HandleINS_5QuoteEEptEv(ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i44)
   %31 = load ptr, ptr %call52, align 8, !tbaa !80
   %cmp.not.i45 = icmp eq ptr %31, null
@@ -4367,9 +4365,9 @@ if.then.i42:                                      ; preds = %_ZNSt6vectorIN8Quan
 
 _ZNSt12_Vector_baseIN8QuantLib4DateESaIS1_EE13_M_deallocateEPS1_m.exit44: ; preds = %_ZNSt6vectorIN8QuantLib4DateESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %if.then.i42
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !15
-  %add.ptr37 = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8, !tbaa !26
-  %add.ptr40 = getelementptr inbounds nuw %"class.QuantLib::Date", ptr %call5.i.i.i, i64 %9
+  %add.ptr40 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i, i64 %9
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8, !tbaa !17
   br label %if.end44
 
@@ -4477,9 +4475,9 @@ if.then.i35:                                      ; preds = %_ZNSt6vectorIdSaIdE
 
 _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit37: ; preds = %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit, %if.then.i35
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !12
-  %add.ptr37 = getelementptr inbounds nuw double, ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8, !tbaa !34
-  %add.ptr40 = getelementptr inbounds nuw double, ptr %call5.i.i.i, i64 %3
+  %add.ptr40 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i, i64 %3
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8, !tbaa !14
   br label %if.end44
 

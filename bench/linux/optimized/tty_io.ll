@@ -1487,7 +1487,7 @@ define dso_local void @tty_init_termios(ptr noundef initializes((264, 308)) %0) 
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 144
   %15 = load ptr, ptr %14, align 8
   %16 = sext i32 %13 to i64
-  %17 = getelementptr ptr, ptr %15, i64 %16
+  %17 = getelementptr [8 x i8], ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 264
@@ -1548,7 +1548,7 @@ define dso_local noundef i32 @tty_standard_install(ptr noundef %0, ptr noundef i
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 144
   %16 = load ptr, ptr %15, align 8
   %17 = sext i32 %14 to i64
-  %18 = getelementptr ptr, ptr %16, i64 %17
+  %18 = getelementptr [8 x i8], ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 264
@@ -1600,7 +1600,7 @@ define dso_local noundef i32 @tty_standard_install(ptr noundef %0, ptr noundef i
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %49 = load i32, ptr %48, align 4
   %50 = sext i32 %49 to i64
-  %51 = getelementptr ptr, ptr %47, i64 %50
+  %51 = getelementptr [8 x i8], ptr %47, i64 %50
   store ptr %1, ptr %51, align 8
   ret i32 0
 }
@@ -1647,7 +1647,7 @@ define dso_local ptr @tty_init_dev(ptr noundef %0, i32 noundef %1) local_unnamed
   %28 = getelementptr inbounds nuw i8, ptr %17, i64 144
   %29 = load ptr, ptr %28, align 8
   %30 = sext i32 %27 to i64
-  %31 = getelementptr ptr, ptr %29, i64 %30
+  %31 = getelementptr [8 x i8], ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, null
   %34 = getelementptr inbounds nuw i8, ptr %7, i64 264
@@ -1699,7 +1699,7 @@ define dso_local ptr @tty_init_dev(ptr noundef %0, i32 noundef %1) local_unnamed
   %60 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %61 = load i32, ptr %60, align 4
   %62 = sext i32 %61 to i64
-  %63 = getelementptr ptr, ptr %59, i64 %62
+  %63 = getelementptr [8 x i8], ptr %59, i64 %62
   store ptr %7, ptr %63, align 8
   br label %67
 
@@ -1718,7 +1718,7 @@ define dso_local ptr @tty_init_dev(ptr noundef %0, i32 noundef %1) local_unnamed
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %73 = load ptr, ptr %72, align 8
   %74 = sext i32 %1 to i64
-  %75 = getelementptr ptr, ptr %73, i64 %74
+  %75 = getelementptr [8 x i8], ptr %73, i64 %74
   %76 = load ptr, ptr %75, align 8
   store ptr %76, ptr %68, align 8
   %77 = icmp eq ptr %76, null
@@ -2008,7 +2008,7 @@ define internal fastcc void @release_tty(ptr noundef %0, i32 noundef %1) unnamed
   %26 = getelementptr inbounds nuw i8, ptr %19, i64 144
   %27 = load ptr, ptr %26, align 8
   %28 = sext i32 %25 to i64
-  %29 = getelementptr ptr, ptr %27, i64 %28
+  %29 = getelementptr [8 x i8], ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %32, label %40
@@ -2023,7 +2023,7 @@ define internal fastcc void @release_tty(ptr noundef %0, i32 noundef %1) unnamed
 36:                                               ; preds = %32
   %37 = getelementptr inbounds nuw i8, ptr %.pre15, i64 144
   %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr ptr, ptr %38, i64 %28
+  %39 = getelementptr [8 x i8], ptr %38, i64 %28
   store ptr %34, ptr %39, align 8
   br label %40
 
@@ -2052,7 +2052,7 @@ define internal fastcc void @release_tty(ptr noundef %0, i32 noundef %1) unnamed
   %53 = load ptr, ptr %52, align 8
   %54 = load i32, ptr %3, align 4
   %55 = sext i32 %54 to i64
-  %56 = getelementptr ptr, ptr %53, i64 %55
+  %56 = getelementptr [8 x i8], ptr %53, i64 %55
   store ptr null, ptr %56, align 8
   br label %57
 
@@ -2180,7 +2180,7 @@ define dso_local void @tty_save_termios(ptr noundef readonly captures(none) %0) 
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 144
   %12 = load ptr, ptr %11, align 8
   %13 = sext i32 %10 to i64
-  %14 = getelementptr ptr, ptr %12, i64 %13
+  %14 = getelementptr [8 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %26
@@ -2195,7 +2195,7 @@ define dso_local void @tty_save_termios(ptr noundef readonly captures(none) %0) 
   %22 = load ptr, ptr %2, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 144
   %24 = load ptr, ptr %23, align 8
-  %25 = getelementptr ptr, ptr %24, i64 %13
+  %25 = getelementptr [8 x i8], ptr %24, i64 %13
   store ptr %19, ptr %25, align 8
   br label %26
 
@@ -2425,7 +2425,7 @@ check_tty_count.exit:                             ; preds = %42, %60
   %105 = getelementptr inbounds nuw i8, ptr %81, i64 128
   %106 = load ptr, ptr %105, align 8
   %107 = zext nneg i32 %80 to i64
-  %108 = getelementptr ptr, ptr %106, i64 %107
+  %108 = getelementptr [8 x i8], ptr %106, i64 %107
   %109 = load ptr, ptr %108, align 8
   %110 = icmp eq ptr %109, %5
   br i1 %110, label %111, label %127
@@ -2441,7 +2441,7 @@ check_tty_count.exit:                             ; preds = %42, %60
   %117 = load ptr, ptr %116, align 8
   %118 = getelementptr inbounds nuw i8, ptr %113, i64 128
   %119 = load ptr, ptr %118, align 8
-  %120 = getelementptr ptr, ptr %119, i64 %107
+  %120 = getelementptr [8 x i8], ptr %119, i64 %107
   %121 = load ptr, ptr %120, align 8
   %122 = icmp eq ptr %117, %121
   br i1 %122, label %123, label %127
@@ -2749,7 +2749,7 @@ define internal fastcc ptr @tty_kopen(i32 noundef %0, i32 noundef range(i32 0, 2
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %19 = load ptr, ptr %18, align 8
   %20 = sext i32 %8 to i64
-  %21 = getelementptr ptr, ptr %19, i64 %20
+  %21 = getelementptr [8 x i8], ptr %19, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = icmp ugt ptr %22, inttoptr (i64 -4096 to ptr)
   %24 = icmp eq ptr %22, null
@@ -4282,7 +4282,7 @@ define dso_local ptr @tty_register_device_attr(ptr noundef readonly captures(non
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %83 = load ptr, ptr %82, align 8
   %84 = zext i32 %1 to i64
-  %85 = getelementptr ptr, ptr %83, i64 %84
+  %85 = getelementptr [8 x i8], ptr %83, i64 %84
   %86 = load ptr, ptr %85, align 8
   %87 = icmp eq ptr %86, null
   br i1 %87, label %89, label %88
@@ -4296,10 +4296,10 @@ define dso_local ptr @tty_register_device_attr(ptr noundef readonly captures(non
   %90 = call ptr @cdev_alloc() #21
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr ptr, ptr %92, i64 %84
+  %93 = getelementptr [8 x i8], ptr %92, i64 %84
   store ptr %90, ptr %93, align 8
   %94 = load ptr, ptr %91, align 8
-  %95 = getelementptr ptr, ptr %94, i64 %84
+  %95 = getelementptr [8 x i8], ptr %94, i64 %84
   %96 = load ptr, ptr %95, align 8
   %97 = icmp eq ptr %96, null
   br i1 %97, label %119, label %98
@@ -4310,12 +4310,12 @@ define dso_local ptr @tty_register_device_attr(ptr noundef readonly captures(non
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %101 = load ptr, ptr %100, align 8
   %102 = load ptr, ptr %91, align 8
-  %103 = getelementptr ptr, ptr %102, i64 %84
+  %103 = getelementptr [8 x i8], ptr %102, i64 %84
   %104 = load ptr, ptr %103, align 8
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 64
   store ptr %101, ptr %105, align 8
   %106 = load ptr, ptr %91, align 8
-  %107 = getelementptr ptr, ptr %106, i64 %84
+  %107 = getelementptr [8 x i8], ptr %106, i64 %84
   %108 = load ptr, ptr %107, align 8
   %109 = call i32 @cdev_add(ptr noundef %108, i32 noundef %13, i32 noundef 1) #21
   %110 = icmp eq i32 %109, 0
@@ -4323,7 +4323,7 @@ define dso_local ptr @tty_register_device_attr(ptr noundef readonly captures(non
 
 111:                                              ; preds = %98
   %112 = load ptr, ptr %91, align 8
-  %113 = getelementptr ptr, ptr %112, i64 %84
+  %113 = getelementptr [8 x i8], ptr %112, i64 %84
   %114 = load ptr, ptr %113, align 8
   call void @kobject_put(ptr noundef %114) #21
   br label %119
@@ -4394,11 +4394,11 @@ define dso_local void @tty_unregister_device(ptr noundef readonly captures(none)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = zext i32 %1 to i64
-  %18 = getelementptr ptr, ptr %16, i64 %17
+  %18 = getelementptr [8 x i8], ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8
   tail call void @cdev_del(ptr noundef %19) #21
   %20 = load ptr, ptr %15, align 8
-  %21 = getelementptr ptr, ptr %20, i64 %17
+  %21 = getelementptr [8 x i8], ptr %20, i64 %17
   store ptr null, ptr %21, align 8
   br label %22
 
@@ -4540,7 +4540,7 @@ define dso_local void @tty_driver_kref_put(ptr noundef %0) #0 align 16 {
   %22 = phi i32 [ 0, %16 ], [ %50, %49 ]
   %23 = load ptr, ptr %17, align 8
   %24 = sext i32 %22 to i64
-  %25 = getelementptr ptr, ptr %23, i64 %24
+  %25 = getelementptr [8 x i8], ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %29, label %28
@@ -4571,11 +4571,11 @@ define dso_local void @tty_driver_kref_put(ptr noundef %0) #0 align 16 {
 42:                                               ; preds = %33
   %43 = load ptr, ptr %20, align 8
   %44 = zext i32 %22 to i64
-  %45 = getelementptr ptr, ptr %43, i64 %44
+  %45 = getelementptr [8 x i8], ptr %43, i64 %44
   %46 = load ptr, ptr %45, align 8
   tail call void @cdev_del(ptr noundef %46) #21
   %47 = load ptr, ptr %20, align 8
-  %48 = getelementptr ptr, ptr %47, i64 %44
+  %48 = getelementptr [8 x i8], ptr %47, i64 %44
   store ptr null, ptr %48, align 8
   br label %49
 
@@ -4779,11 +4779,11 @@ define dso_local i32 @tty_register_driver(ptr noundef %0) #0 align 16 {
 
 100:                                              ; preds = %90
   %101 = load ptr, ptr %82, align 8
-  %102 = getelementptr ptr, ptr %101, i64 %indvars.iv18
+  %102 = getelementptr [8 x i8], ptr %101, i64 %indvars.iv18
   %103 = load ptr, ptr %102, align 8
   call void @cdev_del(ptr noundef %103) #21
   %104 = load ptr, ptr %82, align 8
-  %105 = getelementptr ptr, ptr %104, i64 %indvars.iv18
+  %105 = getelementptr [8 x i8], ptr %104, i64 %indvars.iv18
   store ptr null, ptr %105, align 8
   br label %106
 
@@ -5771,7 +5771,7 @@ define internal i32 @tty_open(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %59 = getelementptr inbounds nuw i8, ptr %42, i64 128
   %60 = load ptr, ptr %59, align 8
   %61 = sext i32 %46 to i64
-  %62 = getelementptr ptr, ptr %60, i64 %61
+  %62 = getelementptr [8 x i8], ptr %60, i64 %61
   %63 = load ptr, ptr %62, align 8
   br label %64
 
@@ -6532,7 +6532,7 @@ define internal i64 @show_cons_active(ptr readnone captures(none) %0, ptr readno
 25:                                               ; preds = %20
   %26 = add nuw nsw i32 %11, 1
   %27 = sext i32 %11 to i64
-  %28 = getelementptr ptr, ptr %4, i64 %27
+  %28 = getelementptr [8 x i8], ptr %4, i64 %27
   store ptr %12, ptr %28, align 8
   %29 = icmp ugt i32 %11, 14
   br i1 %29, label %.thread12, label %30
@@ -6566,7 +6566,7 @@ define internal i64 @show_cons_active(ptr readnone captures(none) %0, ptr readno
   %42 = phi i64 [ 0, %.preheader.preheader ], [ %94, %87 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %43 = getelementptr ptr, ptr %4, i64 %indvars.iv.next
+  %43 = getelementptr [8 x i8], ptr %4, i64 %indvars.iv.next
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 74
   %46 = load i16, ptr %45, align 2

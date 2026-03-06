@@ -17,8 +17,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Head_base.1" = type { ptr }
 %"class.std::allocator" = type { i8 }
 %struct.t_atoms = type { i32, ptr, ptr, ptr, ptr, i32, ptr, ptr, i8, i8, i8, i8, i8 }
-%struct.t_atom = type { float, float, float, float, i16, i16, i32, i32, i32, [4 x i8] }
-%struct.t_resinfo = type { ptr, i32, i8, i32, i8, ptr }
 %struct.gmx_mtop_t = type { ptr, %struct.gmx_ffparams_t, %"class.std::vector.15", %"class.std::vector.20", i8, %"class.std::unique_ptr.25", i32, %struct.SimulationGroups, %struct.t_symtab, i8, %"class.std::vector", %"class.std::vector.44", i32, i32 }
 %struct.gmx_ffparams_t = type { i32, %"class.std::vector", %"class.std::vector.5", double, float, %struct.gmx_cmap_t }
 %"class.std::vector.5" = type { %"struct.std::_Vector_base.6" }
@@ -894,11 +892,11 @@ define void @_ZN13ChainIdFiller4fillEP7t_atomsii(ptr noundef nonnull align 4 cap
 
 27:                                               ; preds = %.lr.ph, %27
   %indvars.iv = phi i64 [ %25, %.lr.ph ], [ %indvars.iv.next, %27 ]
-  %28 = getelementptr inbounds %struct.t_atom, ptr %24, i64 %indvars.iv
+  %28 = getelementptr inbounds [36 x i8], ptr %24, i64 %indvars.iv
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %30 = load i32, ptr %29, align 4, !tbaa !54
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds %struct.t_resinfo, ptr %22, i64 %31
+  %32 = getelementptr inbounds [32 x i8], ptr %22, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   store i32 %.pre, ptr %33, align 8, !tbaa !58
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 20
@@ -929,7 +927,7 @@ define void @_ZNK13ChainIdFiller13clearIfNeededEP7t_atoms(ptr noundef nonnull re
 
 11:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
-  %12 = getelementptr inbounds nuw %struct.t_resinfo, ptr %10, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %indvars.iv
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 20
   store i8 32, ptr %13, align 4, !tbaa !61
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1029,7 +1027,7 @@ define void @_Z16readConfAndAtomsRKNSt10filesystem7__cxx114pathEP8t_symtabPPcP7t
 
 54:                                               ; preds = %54, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %54 ]
-  %55 = getelementptr inbounds nuw %struct.t_resinfo, ptr %53, i64 %indvars.iv.i.i
+  %55 = getelementptr inbounds nuw [32 x i8], ptr %53, i64 %indvars.iv.i.i
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 20
   store i8 32, ptr %56, align 4, !tbaa !61
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -1041,7 +1039,7 @@ define void @_Z16readConfAndAtomsRKNSt10filesystem7__cxx114pathEP8t_symtabPPcP7t
   %.012.i = phi i32 [ 0, %.lr.ph.i ], [ %83, %_ZN13ChainIdFiller4fillEP7t_atomsii.exit.i ]
   %.sroa.11.011.i = phi i1 [ false, %.lr.ph.i ], [ %.sroa.11.1.i, %_ZN13ChainIdFiller4fillEP7t_atomsii.exit.i ]
   %.sroa.5.010.i = phi i8 [ 65, %.lr.ph.i ], [ %.sroa.5.1.i, %_ZN13ChainIdFiller4fillEP7t_atomsii.exit.i ]
-  %58 = getelementptr i32, ptr %.val, i64 %indvars.iv.i
+  %58 = getelementptr [4 x i8], ptr %.val, i64 %indvars.iv.i
   %59 = load i32, ptr %58, align 4, !tbaa !67
   %60 = getelementptr i8, ptr %58, i64 4
   %61 = load i32, ptr %60, align 4, !tbaa !67
@@ -1096,11 +1094,11 @@ _ZNK3gmx17RangePartitioning5blockEi.exit13.i:     ; preds = %57
 
 75:                                               ; preds = %75, %.lr.ph.i14.i
   %indvars.iv.i16.i = phi i64 [ %74, %.lr.ph.i14.i ], [ %indvars.iv.next.i17.i, %75 ]
-  %76 = getelementptr inbounds %struct.t_atom, ptr %73, i64 %indvars.iv.i16.i
+  %76 = getelementptr inbounds [36 x i8], ptr %73, i64 %indvars.iv.i16.i
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 24
   %78 = load i32, ptr %77, align 4, !tbaa !54
   %79 = sext i32 %78 to i64
-  %80 = getelementptr inbounds %struct.t_resinfo, ptr %72, i64 %79
+  %80 = getelementptr inbounds [32 x i8], ptr %72, i64 %79
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
   store i32 %.012.i, ptr %81, align 8, !tbaa !58
   %82 = getelementptr inbounds nuw i8, ptr %80, i64 20
@@ -1844,7 +1842,7 @@ define noundef zeroext i1 @_Z13read_tps_confRKNSt10filesystem7__cxx114pathEP10t_
 
 29:                                               ; preds = %29, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %29 ]
-  %30 = getelementptr inbounds nuw %struct.t_resinfo, ptr %28, i64 %indvars.iv.i.i
+  %30 = getelementptr inbounds nuw [32 x i8], ptr %28, i64 %indvars.iv.i.i
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 20
   store i8 32, ptr %31, align 4, !tbaa !61
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -1856,11 +1854,11 @@ define noundef zeroext i1 @_Z13read_tps_confRKNSt10filesystem7__cxx114pathEP10t_
   %.017.i = phi i32 [ 0, %.lr.ph.i ], [ %35, %_ZN13ChainIdFiller4fillEP7t_atomsii.exit.i ]
   %.sroa.5.015.i = phi i8 [ 65, %.lr.ph.i ], [ %.sroa.5.1.i, %_ZN13ChainIdFiller4fillEP7t_atomsii.exit.i ]
   %.sroa.11.014.i = phi i1 [ false, %.lr.ph.i ], [ %.sroa.11.1.i, %_ZN13ChainIdFiller4fillEP7t_atomsii.exit.i ]
-  %33 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv.i
   %34 = load i32, ptr %33, align 4, !tbaa !67
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %35 = add nuw nsw i32 %.017.i, 1
-  %36 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv.next.i
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv.next.i
   %37 = load i32, ptr %36, align 4, !tbaa !67
   %38 = sub nsw i32 %37, %34
   %39 = icmp slt i32 %38, 15
@@ -1902,11 +1900,11 @@ define noundef zeroext i1 @_Z13read_tps_confRKNSt10filesystem7__cxx114pathEP10t_
 
 50:                                               ; preds = %50, %.lr.ph.i8.i
   %indvars.iv.i10.i = phi i64 [ %49, %.lr.ph.i8.i ], [ %indvars.iv.next.i11.i, %50 ]
-  %51 = getelementptr inbounds %struct.t_atom, ptr %48, i64 %indvars.iv.i10.i
+  %51 = getelementptr inbounds [36 x i8], ptr %48, i64 %indvars.iv.i10.i
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 24
   %53 = load i32, ptr %52, align 4, !tbaa !54
   %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds %struct.t_resinfo, ptr %47, i64 %54
+  %55 = getelementptr inbounds [32 x i8], ptr %47, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
   store i32 %.017.i, ptr %56, align 8, !tbaa !58
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 20

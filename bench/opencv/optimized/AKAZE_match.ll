@@ -64,9 +64,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.30" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
 %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.cv::KeyPoint" = type { %"class.cv::Point_", float, float, float, i32, i32 }
-%"class.cv::Point_" = type { float, float }
-%"class.cv::DMatch" = type { i32, i32, i32, float }
 
 $_ZN2cv7MatExprD2Ev = comdat any
 
@@ -809,7 +806,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit219: ; preds = %.b
   %.sroa.0473.0554 = phi ptr [ %.sroa.0473.1, %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backERKS1_.exit237 ], [ null, %158 ]
   %.sroa.11.0553 = phi ptr [ %.sroa.11.1, %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backERKS1_.exit237 ], [ null, %158 ]
   %.sroa.15.0552 = phi ptr [ %.sroa.15.1, %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backERKS1_.exit237 ], [ null, %158 ]
-  %244 = getelementptr inbounds nuw %"class.std::vector.22", ptr %243, i64 %.070558
+  %244 = getelementptr inbounds nuw [24 x i8], ptr %243, i64 %.070558
   %245 = load ptr, ptr %244, align 8, !tbaa !43
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %245, i64 4
   %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !46
@@ -825,7 +822,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit219: ; preds = %.b
   %.sroa.0.0.copyload = load i32, ptr %245, align 4, !tbaa !46
   %253 = sext i32 %.sroa.0.0.copyload to i64
   %254 = load ptr, ptr %23, align 8, !tbaa !50
-  %255 = getelementptr inbounds nuw %"class.cv::KeyPoint", ptr %254, i64 %253
+  %255 = getelementptr inbounds nuw [28 x i8], ptr %254, i64 %253
   %.not.i = icmp eq ptr %.sroa.14.0556, %.sroa.21.0555
   br i1 %.not.i, label %257, label %256
 
@@ -885,7 +882,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i: ; pr
   br label %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
 _ZNSt6vectorIN2cv8KeyPointESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %273, %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i
-  %274 = getelementptr inbounds nuw %"class.cv::KeyPoint", ptr %269, i64 %267
+  %274 = getelementptr inbounds nuw [28 x i8], ptr %269, i64 %267
   br label %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backERKS1_.exit
 
 _ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i, %256
@@ -895,7 +892,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vecto
   %.sroa.14.2 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i.pn, i64 28
   %275 = sext i32 %.sroa.5.0.copyload to i64
   %276 = load ptr, ptr %24, align 8, !tbaa !50
-  %277 = getelementptr inbounds nuw %"class.cv::KeyPoint", ptr %276, i64 %275
+  %277 = getelementptr inbounds nuw [28 x i8], ptr %276, i64 %275
   %.not.i222 = icmp eq ptr %.sroa.11.0553, %.sroa.15.0552
   br i1 %.not.i222, label %280, label %278
 
@@ -957,7 +954,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i231: ;
   br label %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i234
 
 _ZNSt6vectorIN2cv8KeyPointESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i234: ; preds = %297, %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i231
-  %298 = getelementptr inbounds nuw %"class.cv::KeyPoint", ptr %292, i64 %290
+  %298 = getelementptr inbounds nuw [28 x i8], ptr %292, i64 %290
   br label %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backERKS1_.exit237
 
 .loopexit505:                                     ; preds = %_ZNKSt6vectorIN2cv8KeyPointESaIS1_EE12_M_check_lenEmPKc.exit.i.i, %_ZNKSt6vectorIN2cv8KeyPointESaIS1_EE12_M_check_lenEmPKc.exit.i.i223
@@ -1017,7 +1014,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %308
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %167) #18
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %168) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
-  %314 = getelementptr inbounds nuw %"class.cv::KeyPoint", ptr %.sroa.0480.0.lcssa, i64 %.069561
+  %314 = getelementptr inbounds nuw [28 x i8], ptr %.sroa.0480.0.lcssa, i64 %.069561
   %315 = load float, ptr %314, align 4, !tbaa !83
   %316 = load i32, ptr %39, align 8, !tbaa !86
   %317 = and i32 %316, 16384
@@ -1077,7 +1074,7 @@ _ZN2cv3Mat2atIdEERT_i.exit:                       ; preds = %_ZNK2cv7MatExprcvNS
   %352 = mul i64 %350, %351
   %353 = getelementptr inbounds nuw i8, ptr %348, i64 %352
   %354 = sext i32 %347 to i64
-  %355 = getelementptr inbounds double, ptr %353, i64 %354
+  %355 = getelementptr inbounds [8 x i8], ptr %353, i64 %354
   br label %_ZN2cv3Mat2atIdEERT_i.exit243
 
 _ZN2cv3Mat2atIdEERT_i.exit243:                    ; preds = %341, %336, %.thread
@@ -1144,7 +1141,7 @@ _ZN2cv3MataSERKNS_7MatExprE.exit:                 ; preds = %358
   %390 = mul i64 %388, %389
   %391 = getelementptr inbounds nuw i8, ptr %386, i64 %390
   %392 = sext i32 %.recomposed to i64
-  %393 = getelementptr inbounds double, ptr %391, i64 %392
+  %393 = getelementptr inbounds [8 x i8], ptr %391, i64 %392
   br label %_ZN2cv3Mat2atIdEERT_i.exit247
 
 _ZN2cv3Mat2atIdEERT_i.exit247:                    ; preds = %382, %376, %369
@@ -1165,7 +1162,7 @@ _ZN2cv3Mat2atIdEERT_i.exit251:                    ; preds = %_ZN2cv3Mat2atIdEERT
   %.not.i249 = icmp eq i32 %396, 0
   %397 = load ptr, ptr %169, align 8, !tbaa !90
   %398 = load double, ptr %397, align 8, !tbaa !88
-  %399 = getelementptr inbounds nuw %"class.cv::KeyPoint", ptr %.sroa.0473.0.lcssa, i64 %.069561
+  %399 = getelementptr inbounds nuw [28 x i8], ptr %.sroa.0473.0.lcssa, i64 %.069561
   %400 = load float, ptr %399, align 4, !tbaa !83
   %401 = fpext float %400 to double
   %402 = fsub double %398, %401
@@ -1208,7 +1205,7 @@ _ZN2cv3Mat2atIdEERT_i.exit251:                    ; preds = %_ZN2cv3Mat2atIdEERT
   %428 = mul i64 %426, %427
   %429 = getelementptr inbounds nuw i8, ptr %397, i64 %428
   %430 = sext i32 %424 to i64
-  %431 = getelementptr inbounds double, ptr %429, i64 %430
+  %431 = getelementptr inbounds [8 x i8], ptr %429, i64 %430
   br label %_ZN2cv3Mat2atIdEERT_i.exit254
 
 _ZN2cv3Mat2atIdEERT_i.exit254:                    ; preds = %418, %414, %408
@@ -1293,7 +1290,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i264: ;
 _ZNSt6vectorIN2cv8KeyPointESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i267: ; preds = %464, %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i264
   store ptr %459, ptr %37, align 8, !tbaa !50
   store ptr %463, ptr %178, align 8, !tbaa !93
-  %465 = getelementptr inbounds nuw %"class.cv::KeyPoint", ptr %459, i64 %457
+  %465 = getelementptr inbounds nuw [28 x i8], ptr %459, i64 %457
   store ptr %465, ptr %179, align 8, !tbaa !94
   br label %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backERKS1_.exit270
 
@@ -1358,7 +1355,7 @@ _ZNSt6vectorIN2cv8KeyPointESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i280: ;
 _ZNSt6vectorIN2cv8KeyPointESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i283: ; preds = %487, %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i280
   store ptr %482, ptr %38, align 8, !tbaa !50
   store ptr %486, ptr %180, align 8, !tbaa !93
-  %488 = getelementptr inbounds nuw %"class.cv::KeyPoint", ptr %482, i64 %480
+  %488 = getelementptr inbounds nuw [28 x i8], ptr %482, i64 %480
   store ptr %488, ptr %181, align 8, !tbaa !94
   br label %_ZNSt6vectorIN2cv8KeyPointESaIS1_EE9push_backERKS1_.exit286
 
@@ -1442,7 +1439,7 @@ _ZNSt6vectorIN2cv6DMatchESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i: ; pr
 _ZNSt6vectorIN2cv6DMatchESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %511, %_ZNSt6vectorIN2cv6DMatchESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i
   store ptr %506, ptr %36, align 8, !tbaa !43
   store ptr %510, ptr %182, align 8, !tbaa !103
-  %512 = getelementptr inbounds nuw %"class.cv::DMatch", ptr %506, i64 %504
+  %512 = getelementptr inbounds nuw [16 x i8], ptr %506, i64 %504
   store ptr %512, ptr %183, align 8, !tbaa !104
   br label %_ZNSt6vectorIN2cv6DMatchESaIS1_EE9push_backEOS1_.exit
 

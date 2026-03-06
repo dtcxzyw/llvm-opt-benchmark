@@ -13,7 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._PyOnceFlag = type { i8 }
 %struct.PyStructSequence_Field = type { ptr, ptr }
 %struct.statscollector_t = type { ptr, ptr, double, ptr }
-%struct.anon.0 = type { i32, ptr }
 
 @PyCFunction_Type = external global %struct._typeobject, align 8
 @PyMethodDescr_Type = external global %struct._typeobject, align 8
@@ -906,7 +905,7 @@ Py_DECREF.exit58.i.preheader:                     ; preds = %47, %44, %42
 Py_DECREF.exit58.i:                               ; preds = %Py_DECREF.exit58.i.preheader, %69
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %69 ], [ 0, %Py_DECREF.exit58.i.preheader ]
   %.03473.i = phi i32 [ %70, %69 ], [ 0, %Py_DECREF.exit58.i.preheader ]
-  %48 = getelementptr %struct.anon.0, ptr @callback_table, i64 %indvars.iv.i
+  %48 = getelementptr [16 x i8], ptr @callback_table, i64 %indvars.iv.i
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load ptr, ptr %49, align 8, !tbaa !69
   %51 = load i32, ptr %48, align 16, !tbaa !71
@@ -1049,7 +1048,7 @@ define internal noundef ptr @_lsprof_Profiler_disable(ptr noundef captures(none)
 
 13:                                               ; preds = %Py_DECREF.exit50.i, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %Py_DECREF.exit50.i ]
-  %14 = getelementptr %struct.anon.0, ptr @callback_table, i64 %indvars.iv.i
+  %14 = getelementptr [16 x i8], ptr @callback_table, i64 %indvars.iv.i
   %15 = load i32, ptr %12, align 8, !tbaa !52
   %16 = load i32, ptr %14, align 16, !tbaa !71
   %17 = shl nuw i32 1, %16

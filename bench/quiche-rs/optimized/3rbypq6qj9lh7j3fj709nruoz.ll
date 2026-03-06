@@ -43,7 +43,7 @@ define hidden void @"_ZN10tokio_util4time5wheel5level14Level$LT$T$GT$12remove_en
   %8 = and i64 %7, 62
   %9 = lshr i64 %1, %8
   %10 = and i64 %9, 63
-  %11 = getelementptr inbounds nuw { { i64, [1 x i64] }, {} }, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %10
   tail call void @"_ZN103_$LT$tokio_util..time..delay_queue..Stack$LT$T$GT$$u20$as$u20$tokio_util..time..wheel..stack..Stack$GT$6remove17h5b8bae3635cb16ccE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %11, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %2, ptr noalias noundef nonnull align 8 dereferenceable(104) %3, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.2a2831ffa4dab201532ff2a190b9987d.2)
   %.val = load i64, ptr %11, align 8, !range !4, !noundef !3
   %.not.i = icmp eq i64 %.val, 0
@@ -67,7 +67,7 @@ define hidden { i64, i64 } @"_ZN10tokio_util4time5wheel5level14Level$LT$T$GT$14p
   br i1 %4, label %5, label %10
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds nuw { { i64, [1 x i64] }, {} }, ptr %0, i64 %1
+  %6 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %1
   %7 = tail call { i64, i64 } @"_ZN103_$LT$tokio_util..time..delay_queue..Stack$LT$T$GT$$u20$as$u20$tokio_util..time..wheel..stack..Stack$GT$3pop17h7574b9dec3ad6e08E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6, ptr noalias noundef nonnull align 8 dereferenceable(104) %2)
   %8 = extractvalue { i64, i64 } %7, 0
   %9 = icmp eq i64 %8, 1
@@ -156,7 +156,7 @@ define hidden void @"_ZN10tokio_util4time5wheel5level14Level$LT$T$GT$3new17h3ae9
 
 4:                                                ; preds = %4, %2
   %.sroa.6.06.i.i = phi i64 [ 0, %2 ], [ %6, %4 ]
-  %5 = getelementptr inbounds nuw { [2 x i64] }, ptr %3, i64 %.sroa.6.06.i.i
+  %5 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %.sroa.6.06.i.i
   store i64 0, ptr %5, align 8
   %6 = add nuw nsw i64 %.sroa.6.06.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %6, 64
@@ -179,7 +179,7 @@ define hidden void @"_ZN10tokio_util4time5wheel5level14Level$LT$T$GT$9add_entry1
   %8 = and i64 %7, 62
   %9 = lshr i64 %1, %8
   %10 = and i64 %9, 63
-  %11 = getelementptr inbounds nuw { { i64, [1 x i64] }, {} }, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %10
   tail call void @"_ZN103_$LT$tokio_util..time..delay_queue..Stack$LT$T$GT$$u20$as$u20$tokio_util..time..wheel..stack..Stack$GT$4push17h76bc3969a5b26d7fE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %11, i64 noundef %2, ptr noalias noundef nonnull align 8 dereferenceable(104) %3)
   %12 = shl nuw i64 1, %10
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1032
@@ -701,8 +701,8 @@ define hidden void @_ZN4core3ptr25swap_nonoverlapping_bytes26swap_nonoverlapping
 5:                                                ; preds = %3, %5
   %.sroa.0.03 = phi i64 [ 0, %3 ], [ %6, %5 ]
   %6 = add nuw i64 %.sroa.0.03, 1
-  %7 = getelementptr inbounds nuw { [8 x i8] }, ptr %0, i64 %.sroa.0.03
-  %8 = getelementptr inbounds nuw { [8 x i8] }, ptr %1, i64 %.sroa.0.03
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.sroa.0.03
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.sroa.0.03
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !20)
   %.sroa.0.0.copyload.i = load i64, ptr %7, align 1, !alias.scope !17, !noalias !20
@@ -2400,7 +2400,7 @@ define hidden void @"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h7871c26f33
   ret void
 
 14:                                               ; preds = %3
-  %15 = getelementptr inbounds nuw { { { [4 x i64] } } }, ptr %1, i64 %4
+  %15 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %15, i64 32, i1 false)
   br label %13
 }
@@ -2432,7 +2432,7 @@ define hidden void @"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17h8e6bbc9ed1
   ret void
 
 14:                                               ; preds = %3
-  %15 = getelementptr inbounds nuw { { { [7 x i64] } } }, ptr %1, i64 %4
+  %15 = getelementptr inbounds nuw [56 x i8], ptr %1, i64 %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %15, i64 56, i1 false)
   br label %13
 }
@@ -2464,7 +2464,7 @@ define hidden void @"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17hc5ee47a614
   ret void
 
 14:                                               ; preds = %3
-  %15 = getelementptr inbounds nuw { { { [16 x i64] } } }, ptr %1, i64 %4
+  %15 = getelementptr inbounds nuw [128 x i8], ptr %1, i64 %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef nonnull align 8 dereferenceable(128) %15, i64 128, i1 false)
   br label %13
 }
@@ -2496,7 +2496,7 @@ define hidden void @"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17hd3617864ce
   ret void
 
 14:                                               ; preds = %3
-  %15 = getelementptr inbounds nuw { { { [6 x i64] } } }, ptr %1, i64 %4
+  %15 = getelementptr inbounds nuw [48 x i8], ptr %1, i64 %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %15, i64 48, i1 false)
   br label %13
 }
@@ -2504,7 +2504,7 @@ define hidden void @"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$4read17hd3617864ce
 ; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$5write17h3b21cb2550386ce1E"(ptr noundef nonnull align 8 captures(none) %0, i64 noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(96) %2) unnamed_addr #8 personality ptr @rust_eh_personality {
   %4 = and i64 %1, 31
-  %5 = getelementptr inbounds nuw { { { [12 x i64] } } }, ptr %0, i64 %4
+  %5 = getelementptr inbounds nuw [96 x i8], ptr %0, i64 %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull align 8 dereferenceable(96) %2, i64 96, i1 false)
   %6 = shl nuw nsw i64 1, %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 3088
@@ -2515,7 +2515,7 @@ define hidden void @"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$5write17h3b21cb255
 ; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$5write17h43bd3c49ce4ff495E"(ptr noundef nonnull align 8 captures(none) %0, i64 noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %2) unnamed_addr #8 personality ptr @rust_eh_personality {
   %4 = and i64 %1, 31
-  %5 = getelementptr inbounds nuw { { { [6 x i64] } } }, ptr %0, i64 %4
+  %5 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef nonnull align 8 dereferenceable(48) %2, i64 48, i1 false)
   %6 = shl nuw nsw i64 1, %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1552
@@ -2526,7 +2526,7 @@ define hidden void @"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$5write17h43bd3c49c
 ; Function Attrs: mustprogress nofree norecurse nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN5tokio4sync4mpsc5block14Block$LT$T$GT$5write17hc55f4ff14ddabd41E"(ptr noundef nonnull align 8 captures(none) %0, i64 noundef %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(96) %2) unnamed_addr #8 personality ptr @rust_eh_personality {
   %4 = and i64 %1, 31
-  %5 = getelementptr inbounds nuw { { { [12 x i64] } } }, ptr %0, i64 %4
+  %5 = getelementptr inbounds nuw [96 x i8], ptr %0, i64 %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %5, ptr noundef nonnull align 8 dereferenceable(96) %2, i64 96, i1 false)
   %6 = shl nuw nsw i64 1, %4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 3088

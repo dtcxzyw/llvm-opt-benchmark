@@ -959,7 +959,7 @@ define hidden { i64, ptr } @_ZN12pingora_core9protocols11raw_connect23generate_c
 
 186:                                              ; preds = %184
   %187 = load ptr, ptr %89, align 8, !alias.scope !133, !noalias !138, !nonnull !3, !align !143, !noundef !3
-  %188 = getelementptr inbounds nuw { i16, i16 }, ptr %187, i64 %.sroa.020.0.i
+  %188 = getelementptr inbounds nuw [4 x i8], ptr %187, i64 %.sroa.020.0.i
   %189 = load i16, ptr %188, align 2, !noalias !141, !noundef !3
   %.not.i = icmp eq i16 %189, -1
   br i1 %.not.i, label %202, label %191
@@ -1045,7 +1045,7 @@ define hidden { i64, ptr } @_ZN12pingora_core9protocols11raw_connect23generate_c
 
 220:                                              ; preds = %209, %206
   %221 = load ptr, ptr %92, align 8, !alias.scope !154, !noalias !157, !nonnull !3, !noundef !3
-  %222 = getelementptr inbounds nuw { { i64, [2 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, { { ptr, [3 x i64] } }, i16, [3 x i16] }, ptr %221, i64 %203
+  %222 = getelementptr inbounds nuw [104 x i8], ptr %221, i64 %203
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %222, ptr noundef nonnull align 8 dereferenceable(104) %7, i64 104, i1 false), !noalias !160
   %223 = add nuw nsw i64 %203, 1
   store i64 %223, ptr %91, align 8, !alias.scope !154, !noalias !157
@@ -1059,7 +1059,7 @@ define hidden { i64, ptr } @_ZN12pingora_core9protocols11raw_connect23generate_c
 226:                                              ; preds = %220
   %227 = load ptr, ptr %89, align 8, !alias.scope !133, !noalias !138, !nonnull !3, !align !143, !noundef !3
   %228 = trunc nuw nsw i64 %203 to i16
-  %229 = getelementptr inbounds nuw { i16, i16 }, ptr %227, i64 %.sroa.020.0.i
+  %229 = getelementptr inbounds nuw [4 x i8], ptr %227, i64 %.sroa.020.0.i
   store i16 %228, ptr %229, align 2, !noalias !141
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 2
   store i16 %177, ptr %230, align 2, !noalias !141
@@ -1088,7 +1088,7 @@ define hidden { i64, ptr } @_ZN12pingora_core9protocols11raw_connect23generate_c
 
 239:                                              ; preds = %236
   %240 = load ptr, ptr %92, align 8, !alias.scope !133, !noalias !138, !nonnull !3, !noundef !3
-  %241 = getelementptr inbounds nuw { { i64, [2 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, { { ptr, [3 x i64] } }, i16, [3 x i16] }, ptr %240, i64 %192
+  %241 = getelementptr inbounds nuw [104 x i8], ptr %240, i64 %192
   %242 = getelementptr inbounds nuw i8, ptr %241, i64 64
   %243 = load ptr, ptr %242, align 8, !noalias !141, !noundef !3
   %244 = icmp ne ptr %243, null
@@ -1135,7 +1135,7 @@ split.i:                                          ; preds = %251, %"_ZN71_$LT$ht
 
 259:                                              ; preds = %split.i
   %260 = load ptr, ptr %92, align 8, !alias.scope !164, !noalias !167, !nonnull !3, !noundef !3
-  %261 = getelementptr inbounds nuw { { i64, [2 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, { { ptr, [3 x i64] } }, i16, [3 x i16] }, ptr %260, i64 %192
+  %261 = getelementptr inbounds nuw [104 x i8], ptr %260, i64 %192
   %262 = load i64, ptr %261, align 8, !range !109, !noalias !171, !noundef !3
   %263 = trunc nuw i64 %262 to i1
   br i1 %263, label %265, label %268
@@ -1187,7 +1187,7 @@ split.i:                                          ; preds = %251, %"_ZN71_$LT$ht
 
 275:                                              ; preds = %268
   %276 = load ptr, ptr %92, align 8, !alias.scope !164, !noalias !167, !nonnull !3, !noundef !3
-  %277 = getelementptr inbounds nuw { { i64, [2 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, { { ptr, [3 x i64] } }, i16, [3 x i16] }, ptr %276, i64 %192
+  %277 = getelementptr inbounds nuw [104 x i8], ptr %276, i64 %192
   %278 = getelementptr inbounds nuw i8, ptr %277, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0150, ptr noundef nonnull align 8 dereferenceable(32) %278, i64 32, i1 false), !noalias !174
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %277, i64 56
@@ -1269,7 +1269,7 @@ split.i:                                          ; preds = %251, %"_ZN71_$LT$ht
 
 299:                                              ; preds = %289, %286
   %300 = load ptr, ptr %92, align 8, !alias.scope !189, !noalias !192, !nonnull !3, !noundef !3
-  %301 = getelementptr inbounds nuw { { i64, [2 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, { { ptr, [3 x i64] } }, i16, [3 x i16] }, ptr %300, i64 %283
+  %301 = getelementptr inbounds nuw [104 x i8], ptr %300, i64 %283
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %301, ptr noundef nonnull align 8 dereferenceable(104) %6, i64 104, i1 false), !noalias !195
   %302 = add nuw nsw i64 %283, 1
   store i64 %302, ptr %91, align 8, !alias.scope !189, !noalias !192
@@ -1292,7 +1292,7 @@ split.i:                                          ; preds = %251, %"_ZN71_$LT$ht
   br i1 %307, label %308, label %306
 
 308:                                              ; preds = %306
-  %309 = getelementptr inbounds nuw { i16, i16 }, ptr %303, i64 %.sroa.0.0.i.i
+  %309 = getelementptr inbounds nuw [4 x i8], ptr %303, i64 %.sroa.0.0.i.i
   %310 = load i16, ptr %309, align 2, !noalias !198, !noundef !3
   %311 = icmp eq i16 %310, -1
   %312 = getelementptr inbounds nuw i8, ptr %309, i64 2

@@ -236,7 +236,7 @@ for.body:                                         ; preds = %for.body.backedge, 
 if.end8:                                          ; preds = %for.body
   %IgnoreList.val = load ptr, ptr %IgnoreList, align 8
   %IgnoreList.val7 = load i64, ptr %4, align 8
-  %add.ptr.i.i.i.i.i8 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %IgnoreList.val, i64 %IgnoreList.val7
+  %add.ptr.i.i.i.i.i8 = getelementptr inbounds [32 x i8], ptr %IgnoreList.val, i64 %IgnoreList.val7
   %sub.ptr.lhs.cast.i.i.i.i.i.i = ptrtoint ptr %add.ptr.i.i.i.i.i8 to i64
   %shr.i.i.i.i.i.i = ashr i64 %IgnoreList.val7, 2
   %cmp111.i.i.i.i.i.i = icmp sgt i64 %shr.i.i.i.i.i.i, 0
@@ -1206,9 +1206,9 @@ entry:
 define hidden noundef nonnull ptr @_ZN4llvh3sys7Process11OutputColorEcbb(i8 noundef signext %code, i1 noundef zeroext %bold, i1 noundef zeroext %bg) local_unnamed_addr #5 align 2 {
 entry:
   %idxprom = zext i1 %bg to i64
-  %arrayidx = getelementptr inbounds nuw [2 x [8 x [10 x i8]]], ptr @_ZL10colorcodes, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [160 x i8], ptr @_ZL10colorcodes, i64 %idxprom
   %idxprom4 = zext i1 %bold to i64
-  %arrayidx5 = getelementptr inbounds nuw [8 x [10 x i8]], ptr %arrayidx, i64 %idxprom4
+  %arrayidx5 = getelementptr inbounds nuw [80 x i8], ptr %arrayidx, i64 %idxprom4
   %0 = and i8 %code, 7
   %idxprom6 = zext nneg i8 %0 to i64
   %arrayidx7 = getelementptr inbounds nuw [10 x i8], ptr %arrayidx5, i64 %idxprom6

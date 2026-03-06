@@ -95,10 +95,10 @@ define dso_local void @_ZN4absl18debugging_internal32DumpPCAndFrameSizesAndStack
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %_ZN4absl18debugging_internal12_GLOBAL__N_127DumpPCAndFrameSizeAndSymbolEPFvPKcPvES4_S4_S4_iS3_.exit.us
   %indvars.iv36 = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next37, %_ZN4absl18debugging_internal12_GLOBAL__N_127DumpPCAndFrameSizeAndSymbolEPFvPKcPvES4_S4_S4_iS3_.exit.us ]
-  %24 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv36
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv36
   %25 = load ptr, ptr %24, align 8, !tbaa !4
   %26 = getelementptr inbounds i8, ptr %25, i64 -1
-  %27 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv36
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv36
   %28 = load i32, ptr %27, align 4, !tbaa !10
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %29 = call noundef zeroext i1 @_ZN4absl9SymbolizeEPKvPci(ptr noundef nonnull %26, ptr noundef nonnull %10, i32 noundef 1024)
@@ -129,9 +129,9 @@ _ZN4absl18debugging_internal12_GLOBAL__N_127DumpPCAndFrameSizeAndSymbolEPFvPKcPv
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %_ZN4absl18debugging_internal12_GLOBAL__N_118DumpPCAndFrameSizeEPFvPKcPvES4_S4_iS3_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %_ZN4absl18debugging_internal12_GLOBAL__N_118DumpPCAndFrameSizeEPFvPKcPvES4_S4_iS3_.exit ]
-  %36 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8, !tbaa !4
-  %38 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %39 = load i32, ptr %38, align 4, !tbaa !10
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %40 = icmp slt i32 %39, 1
@@ -203,7 +203,7 @@ define dso_local void @_ZN4absl18debugging_internal14DumpStackTraceEiibPFvPKcPvE
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN4absl18debugging_internal12_GLOBAL__N_115DumpPCAndSymbolEPFvPKcPvES4_S4_S3_.exit.us
   %indvars.iv47 = phi i64 [ %indvars.iv.next48, %_ZN4absl18debugging_internal12_GLOBAL__N_115DumpPCAndSymbolEPFvPKcPvES4_S4_S3_.exit.us ], [ 0, %.lr.ph ]
-  %21 = getelementptr inbounds nuw ptr, ptr %.0, i64 %indvars.iv47
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %indvars.iv47
   %22 = load ptr, ptr %21, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %23 = ptrtoint ptr %22 to i64
@@ -237,7 +237,7 @@ _ZN4absl18debugging_internal12_GLOBAL__N_115DumpPCAndSymbolEPFvPKcPvES4_S4_S3_.e
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %32 = getelementptr inbounds nuw ptr, ptr %.0, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %34 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %6, i64 noundef 100, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 18, ptr noundef %33) #9

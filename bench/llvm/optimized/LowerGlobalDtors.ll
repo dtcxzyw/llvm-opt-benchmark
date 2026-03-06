@@ -35,7 +35,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::Twine" = type <{ %"union.llvm::Twine::Child", %"union.llvm::Twine::Child", i8, i8, [6 x i8] }>
 %"union.llvm::Twine::Child" = type { %struct.anon }
 %struct.anon = type { ptr, i64 }
-%"class.llvm::Use" = type { ptr, ptr, ptr, ptr }
 
 $_ZN4llvm4Pass16doInitializationERNS_6ModuleE = comdat any
 
@@ -347,7 +346,7 @@ define internal fastcc noundef zeroext i1 @_ZL7runImplRN4llvm6ModuleE(ptr nounde
   %103 = and i32 %97, 134217727
   %104 = zext nneg i32 %103 to i64
   %105 = sub nsw i64 0, %104
-  %106 = getelementptr inbounds %"class.llvm::Use", ptr %54, i64 %105
+  %106 = getelementptr inbounds [32 x i8], ptr %54, i64 %105
   br label %_ZNK4llvm4User8operandsEv.exit
 
 _ZNK4llvm4User8operandsEv.exit:                   ; preds = %99, %102
@@ -377,7 +376,7 @@ _ZNK4llvm4User8operandsEv.exit:                   ; preds = %99, %102
   %118 = and i32 %117, 134217727
   %119 = zext nneg i32 %118 to i64
   %120 = sub nsw i64 0, %119
-  %121 = getelementptr inbounds %"class.llvm::Use", ptr %113, i64 %120
+  %121 = getelementptr inbounds [32 x i8], ptr %113, i64 %120
   %122 = load ptr, ptr %121, align 8, !tbaa !36
   %123 = load i8, ptr %122, align 8, !tbaa !42
   %.not367 = icmp eq i8 %123, 17
@@ -420,7 +419,7 @@ _ZNK4llvm11ConstantInt15getLimitedValueEm.exit:   ; preds = %_ZNK4llvm5APInt13ge
   %140 = and i32 %139, 134217727
   %141 = zext nneg i32 %140 to i64
   %142 = sub nsw i64 0, %141
-  %143 = getelementptr inbounds %"class.llvm::Use", ptr %113, i64 %142
+  %143 = getelementptr inbounds [32 x i8], ptr %113, i64 %142
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 64
   %145 = load ptr, ptr %144, align 8, !tbaa !36
   %146 = call noundef ptr @_ZNK4llvm5Value17stripPointerCastsEv(ptr noundef nonnull align 8 dereferenceable(24) %145) #16
@@ -1462,7 +1461,7 @@ _ZNSt6vectorIPN4llvm8ConstantESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i: ; p
 _ZNSt6vectorIPN4llvm8ConstantESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit: ; preds = %_ZNSt6vectorIPN4llvm8ConstantESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i, %29
   store ptr %23, ptr %0, align 8, !tbaa !89
   store ptr %28, ptr %3, align 8, !tbaa !91
-  %30 = getelementptr inbounds nuw ptr, ptr %23, i64 %21
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %21
   store ptr %30, ptr %5, align 8, !tbaa !90
   br label %31
 
@@ -1993,7 +1992,7 @@ _ZNSt6vectorISt4pairIPN4llvm8ConstantES_IS3_SaIS3_EEESaIS6_EE11_S_relocateEPS6_S
 _ZNSt12_Vector_baseISt4pairIPN4llvm8ConstantESt6vectorIS3_SaIS3_EEESaIS7_EE13_M_deallocateEPS7_m.exit: ; preds = %_ZNSt6vectorISt4pairIPN4llvm8ConstantES_IS3_SaIS3_EEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22, %58
   store ptr %20, ptr %0, align 8, !tbaa !227
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !92
-  %62 = getelementptr inbounds nuw %"struct.std::pair.108", ptr %20, i64 %16
+  %62 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %16
   store ptr %62, ptr %57, align 8, !tbaa !94
   ret void
 }

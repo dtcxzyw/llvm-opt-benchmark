@@ -262,7 +262,7 @@ define internal i32 @dissect_gearman(ptr noundef %0, ptr noundef %1, ptr noundef
 
 27:                                               ; preds = %42, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %42 ]
-  %28 = getelementptr ptr, ptr @GEARMAN_MGR_CMDS, i64 %indvars.iv.i
+  %28 = getelementptr [8 x i8], ptr @GEARMAN_MGR_CMDS, i64 %indvars.iv.i
   %29 = load ptr, ptr %28, align 8
   %30 = call i64 @strlen(ptr noundef %29) #4
   %31 = trunc i64 %30 to i32

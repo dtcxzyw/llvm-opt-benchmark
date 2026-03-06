@@ -362,7 +362,7 @@ define hidden void @mbedtls_debug_print_mpi(ptr noundef readonly captures(addres
   %.158 = phi i64 [ 0, %.lr.ph.preheader ], [ %.2, %54 ]
   %34 = lshr i64 %indvars.iv, 3
   %35 = load ptr, ptr %5, align 8, !tbaa !34
-  %36 = getelementptr inbounds nuw i64, ptr %35, i64 %34
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %34
   %37 = load i64, ptr %36, align 8, !tbaa !35
   %38 = shl nuw nsw i64 %indvars.iv, 3
   %39 = and i64 %38, 56
@@ -519,7 +519,7 @@ debug_print_line_by_line.exit:                    ; preds = %31
 
 .preheader.i:                                     ; preds = %debug_print_line_by_line.exit, %78
   %.01.i = phi i64 [ %79, %78 ], [ 0, %debug_print_line_by_line.exit ]
-  %49 = getelementptr inbounds nuw %struct.mbedtls_pk_debug_item, ptr %8, i64 %.01.i
+  %49 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %.01.i
   %50 = load i32, ptr %49, align 8, !tbaa !38
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %debug_print_pk.exit, label %52

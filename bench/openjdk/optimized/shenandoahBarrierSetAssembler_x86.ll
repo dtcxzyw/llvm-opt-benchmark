@@ -2457,7 +2457,7 @@ _Z17is_reference_type9BasicTypeb.exit:            ; preds = %8
 
 .critedge:                                        ; preds = %21, %22
   %24 = sext i32 %6 to i64
-  %25 = getelementptr inbounds %"class.Register::RegisterImpl", ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %24
+  %25 = getelementptr inbounds i8, ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1), i64 %24
   %26 = ptrtoint ptr %25 to i64
   %27 = trunc i64 %26 to i32
   %28 = sub i32 %27, ptrtoint (ptr getelementptr inbounds nuw (i8, ptr @all_RegisterImpls, i64 1) to i32)

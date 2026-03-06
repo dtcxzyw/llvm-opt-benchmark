@@ -45,7 +45,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.msgpack::v2::detail::context<json_like_printer>::array_ev" = type { ptr }
 %"struct.msgpack::v2::detail::context<json_like_printer>::map_sv" = type { ptr }
 %"struct.msgpack::v2::detail::context<json_like_printer>::map_ev" = type { ptr }
-%"struct.msgpack::v2::detail::context<json_like_printer>::unpack_stack::stack_elem" = type { i32, i32 }
 %"struct.msgpack::v3::adaptor::pack.22" = type { i8 }
 
 $_ZN5boost4noneE = comdat any
@@ -1502,7 +1501,7 @@ _ZN7msgpack2v26detail7contextI17json_like_printerE16after_visit_procEbRm.exit535
 72:                                               ; preds = %70
   %73 = add nuw nsw i64 %33, 4294967100
   %74 = and i64 %73, 4294967295
-  %75 = getelementptr inbounds nuw i32, ptr @__const._ZN7msgpack2v26detail7contextI17json_like_printerE7executeEPKcmRm.trail, i64 %74
+  %75 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZN7msgpack2v26detail7contextI17json_like_printerE7executeEPKcmRm.trail, i64 %74
   %76 = load i32, ptr %75, align 4, !tbaa !96
   %77 = zext i32 %76 to i64
   store i64 %77, ptr %24, align 8, !tbaa !72
@@ -3399,7 +3398,7 @@ _ZNSt6vectorIN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack10sta
 _ZNSt6vectorIN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack10stack_elemESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i.i.i: ; preds = %114, %_ZNSt6vectorIN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack10stack_elemESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i.i.i.i
   store ptr %108, ptr %87, align 8, !tbaa !74
   store ptr %113, ptr %88, align 8, !tbaa !75
-  %115 = getelementptr inbounds nuw %"struct.msgpack::v2::detail::context<json_like_printer>::unpack_stack::stack_elem", ptr %108, i64 %106
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %106
   store ptr %115, ptr %90, align 8, !tbaa !76
   br label %.critedge
 
@@ -3656,7 +3655,7 @@ _ZNSt6vectorIN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack10sta
 _ZNSt6vectorIN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack10stack_elemESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i.i.i: ; preds = %114, %_ZNSt6vectorIN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack10stack_elemESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i.i.i.i
   store ptr %108, ptr %87, align 8, !tbaa !74
   store ptr %113, ptr %88, align 8, !tbaa !75
-  %115 = getelementptr inbounds nuw %"struct.msgpack::v2::detail::context<json_like_printer>::unpack_stack::stack_elem", ptr %108, i64 %106
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %106
   store ptr %115, ptr %90, align 8, !tbaa !76
   br label %.critedge
 
@@ -4088,7 +4087,7 @@ _ZNSt6vectorIN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack10sta
 _ZNSt6vectorIN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack10stack_elemESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i.i.i: ; preds = %113, %_ZNSt6vectorIN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack10stack_elemESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i.i.i.i
   store ptr %107, ptr %86, align 8, !tbaa !74
   store ptr %112, ptr %87, align 8, !tbaa !75
-  %114 = getelementptr inbounds nuw %"struct.msgpack::v2::detail::context<json_like_printer>::unpack_stack::stack_elem", ptr %107, i64 %105
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %105
   store ptr %114, ptr %89, align 8, !tbaa !76
   br label %.critedge
 
@@ -4343,7 +4342,7 @@ _ZNSt6vectorIN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack10sta
 _ZNSt6vectorIN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack10stack_elemESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i.i.i: ; preds = %114, %_ZNSt6vectorIN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack10stack_elemESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i.i.i.i
   store ptr %108, ptr %87, align 8, !tbaa !74
   store ptr %113, ptr %88, align 8, !tbaa !75
-  %115 = getelementptr inbounds nuw %"struct.msgpack::v2::detail::context<json_like_printer>::unpack_stack::stack_elem", ptr %108, i64 %106
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %106
   store ptr %115, ptr %90, align 8, !tbaa !76
   br label %.critedge
 
@@ -4600,7 +4599,7 @@ _ZNSt6vectorIN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack10sta
 _ZNSt6vectorIN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack10stack_elemESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i.i.i: ; preds = %113, %_ZNSt6vectorIN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack10stack_elemESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i.i.i.i
   store ptr %107, ptr %86, align 8, !tbaa !74
   store ptr %112, ptr %87, align 8, !tbaa !75
-  %114 = getelementptr inbounds nuw %"struct.msgpack::v2::detail::context<json_like_printer>::unpack_stack::stack_elem", ptr %107, i64 %105
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %105
   store ptr %114, ptr %89, align 8, !tbaa !76
   br label %.critedge
 
@@ -4857,7 +4856,7 @@ _ZNSt6vectorIN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack10sta
 _ZNSt6vectorIN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack10stack_elemESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i.i.i: ; preds = %114, %_ZNSt6vectorIN7msgpack2v26detail7contextI17json_like_printerE12unpack_stack10stack_elemESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i.i.i.i
   store ptr %108, ptr %87, align 8, !tbaa !74
   store ptr %113, ptr %88, align 8, !tbaa !75
-  %115 = getelementptr inbounds nuw %"struct.msgpack::v2::detail::context<json_like_printer>::unpack_stack::stack_elem", ptr %108, i64 %106
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %106
   store ptr %115, ptr %90, align 8, !tbaa !76
   br label %.critedge
 

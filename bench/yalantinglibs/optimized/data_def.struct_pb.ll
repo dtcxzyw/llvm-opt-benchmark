@@ -3,41 +3,12 @@ source_filename = "bench/yalantinglibs/original/data_def.struct_pb.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%"struct.struct_pb::UnknownFields::Field" = type { ptr, i64 }
 %"struct.struct_pb::UnknownFields" = type { %"class.std::vector" }
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl" }
 %"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl" = type { %"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<struct_pb::UnknownFields::Field, std::allocator<struct_pb::UnknownFields::Field>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::allocator.0" = type { i8 }
-%"struct.struct_pb_sample::Vec3" = type { float, float, float }
-%"struct.struct_pb_sample::rect32" = type { i32, i32, i32, i32 }
-%"struct.struct_pb_sample::Weapon" = type <{ %"class.std::__cxx11::basic_string", i32, [4 x i8] }>
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
-%"struct.struct_pb_sample::Monster" = type { %"class.std::unique_ptr", i32, i32, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i32, %"class.std::vector.5", %"class.std::unique_ptr.10", %"class.std::vector.18" }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.4" }
-%"struct.std::_Head_base.4" = type { ptr }
-%"class.std::vector.5" = type { %"struct.std::_Vector_base.6" }
-%"struct.std::_Vector_base.6" = type { %"struct.std::_Vector_base<struct_pb_sample::Weapon, std::allocator<struct_pb_sample::Weapon>>::_Vector_impl" }
-%"struct.std::_Vector_base<struct_pb_sample::Weapon, std::allocator<struct_pb_sample::Weapon>>::_Vector_impl" = type { %"struct.std::_Vector_base<struct_pb_sample::Weapon, std::allocator<struct_pb_sample::Weapon>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<struct_pb_sample::Weapon, std::allocator<struct_pb_sample::Weapon>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::unique_ptr.10" = type { %"struct.std::__uniq_ptr_data.11" }
-%"struct.std::__uniq_ptr_data.11" = type { %"class.std::__uniq_ptr_impl.12" }
-%"class.std::__uniq_ptr_impl.12" = type { %"class.std::tuple.13" }
-%"class.std::tuple.13" = type { %"struct.std::_Tuple_impl.14" }
-%"struct.std::_Tuple_impl.14" = type { %"struct.std::_Head_base.17" }
-%"struct.std::_Head_base.17" = type { ptr }
-%"class.std::vector.18" = type { %"struct.std::_Vector_base.19" }
-%"struct.std::_Vector_base.19" = type { %"struct.std::_Vector_base<struct_pb_sample::Vec3, std::allocator<struct_pb_sample::Vec3>>::_Vector_impl" }
-%"struct.std::_Vector_base<struct_pb_sample::Vec3, std::allocator<struct_pb_sample::Vec3>>::_Vector_impl" = type { %"struct.std::_Vector_base<struct_pb_sample::Vec3, std::allocator<struct_pb_sample::Vec3>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<struct_pb_sample::Vec3, std::allocator<struct_pb_sample::Vec3>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.struct_pb_sample::person" = type { i32, %"class.std::__cxx11::basic_string", i32, double }
 
 $_ZN9struct_pb8internal19deserialize_unknownEPKcRmmjRNS_13UnknownFieldsE = comdat any
 
@@ -603,7 +574,7 @@ if.then.i18.i.i.i.i:                              ; preds = %_ZNSt6vectorIN9stru
 _ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i: ; preds = %if.then.i18.i.i.i.i, %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i.i
   store ptr %call5.i.i.i.i.i.i.i, ptr %unknown_fields, align 8
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i, align 8
-  %add.ptr19.i.i.i.i = getelementptr inbounds nuw %"struct.struct_pb::UnknownFields::Field", ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
+  %add.ptr19.i.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
   store ptr %add.ptr19.i.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8
   br label %return
 
@@ -678,7 +649,7 @@ if.then.i18.i.i.i.i204:                           ; preds = %_ZNSt6vectorIN9stru
 _ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i205: ; preds = %if.then.i18.i.i.i.i204, %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i.i201
   store ptr %call5.i.i.i.i.i.i.i197, ptr %unknown_fields, align 8
   store ptr %incdec.ptr.i.i.i.i202, ptr %_M_finish.i.i.i178, align 8
-  %add.ptr19.i.i.i.i206 = getelementptr inbounds nuw %"struct.struct_pb::UnknownFields::Field", ptr %call5.i.i.i.i.i.i.i197, i64 %cond.i.i.i.i.i194
+  %add.ptr19.i.i.i.i206 = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i.i.i.i197, i64 %cond.i.i.i.i.i194
   store ptr %add.ptr19.i.i.i.i206, ptr %_M_end_of_storage.i.i.i179, align 8
   br label %return
 
@@ -926,7 +897,7 @@ if.then.i18.i.i.i.i238:                           ; preds = %_ZNSt6vectorIN9stru
 _ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i239: ; preds = %if.then.i18.i.i.i.i238, %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i.i235
   store ptr %call5.i.i.i.i.i.i.i231, ptr %unknown_fields, align 8
   store ptr %incdec.ptr.i.i.i.i236, ptr %_M_finish.i.i.i212, align 8
-  %add.ptr19.i.i.i.i240 = getelementptr inbounds nuw %"struct.struct_pb::UnknownFields::Field", ptr %call5.i.i.i.i.i.i.i231, i64 %cond.i.i.i.i.i228
+  %add.ptr19.i.i.i.i240 = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i.i.i.i231, i64 %cond.i.i.i.i.i228
   store ptr %add.ptr19.i.i.i.i240, ptr %_M_end_of_storage.i.i.i213, align 8
   br label %return
 
@@ -1001,7 +972,7 @@ if.then.i18.i.i.i.i272:                           ; preds = %_ZNSt6vectorIN9stru
 _ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i273: ; preds = %if.then.i18.i.i.i.i272, %_ZNSt6vectorIN9struct_pb13UnknownFields5FieldESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i.i269
   store ptr %call5.i.i.i.i.i.i.i265, ptr %unknown_fields, align 8
   store ptr %incdec.ptr.i.i.i.i270, ptr %_M_finish.i.i.i246, align 8
-  %add.ptr19.i.i.i.i274 = getelementptr inbounds nuw %"struct.struct_pb::UnknownFields::Field", ptr %call5.i.i.i.i.i.i.i265, i64 %cond.i.i.i.i.i262
+  %add.ptr19.i.i.i.i274 = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i.i.i.i265, i64 %cond.i.i.i.i.i262
   store ptr %add.ptr19.i.i.i.i274, ptr %_M_end_of_storage.i.i.i247, align 8
   br label %return
 
@@ -5014,7 +4985,7 @@ _ZNSt6vectorIN16struct_pb_sample4Vec3ESaIS1_EE17_M_realloc_insertIJEEEvN9__gnu_c
   %.pre = phi i64 [ %.pre.pre, %if.then.i18.i.i ], [ %196, %_ZNSt6vectorIN16struct_pb_sample4Vec3ESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit17.i.i ]
   store ptr %call5.i.i.i.i.i, ptr %path, align 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i856, align 8
-  %add.ptr19.i.i = getelementptr inbounds nuw %"struct.struct_pb_sample::Vec3", ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw [12 x i8], ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
   store ptr %add.ptr19.i.i, ptr %_M_end_of_storage.i857, align 8
   br label %_ZNSt6vectorIN16struct_pb_sample4Vec3ESaIS1_EE12emplace_backIJEEERS1_DpOT_.exit
 
@@ -7590,7 +7561,7 @@ if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIN16str
 _ZNSt6vectorIN16struct_pb_sample6rect32ESaIS1_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIN16struct_pb_sample6rect32ESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit17.i.i
   store ptr %call5.i.i.i.i.i, ptr %t, align 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8
-  %add.ptr19.i.i = getelementptr inbounds nuw %"struct.struct_pb_sample::rect32", ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
   store ptr %add.ptr19.i.i, ptr %_M_end_of_storage.i, align 8
   br label %_ZNSt6vectorIN16struct_pb_sample6rect32ESaIS1_EE12emplace_backIJEEERS1_DpOT_.exit
 
@@ -9794,7 +9765,7 @@ _ZNSt12_Vector_baseIN16struct_pb_sample6WeaponESaIS1_EE13_M_deallocateEPS1_m.exi
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i27, ptr %_M_finish.i.i, align 8
-  %add.ptr19 = getelementptr inbounds nuw %"struct.struct_pb_sample::Weapon", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr19 = getelementptr inbounds nuw [40 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr19, ptr %_M_end_of_storage, align 8
   ret void
 }
@@ -9918,7 +9889,7 @@ _ZNSt12_Vector_baseIN16struct_pb_sample7MonsterESaIS1_EE13_M_deallocateEPS1_m.ex
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %cond.i10, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i18, ptr %_M_finish.i.i, align 8
-  %add.ptr19 = getelementptr inbounds nuw %"struct.struct_pb_sample::Monster", ptr %cond.i10, i64 %cond.i
+  %add.ptr19 = getelementptr inbounds nuw [144 x i8], ptr %cond.i10, i64 %cond.i
   store ptr %add.ptr19, ptr %_M_end_of_storage, align 8
   ret void
 }
@@ -10315,7 +10286,7 @@ _ZNSt12_Vector_baseIN16struct_pb_sample6personESaIS1_EE13_M_deallocateEPS1_m.exi
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i29, ptr %_M_finish.i.i, align 8
-  %add.ptr19 = getelementptr inbounds nuw %"struct.struct_pb_sample::person", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr19 = getelementptr inbounds nuw [56 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr19, ptr %_M_end_of_storage, align 8
   ret void
 }

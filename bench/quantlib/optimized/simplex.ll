@@ -154,7 +154,7 @@ invoke.cont6:                                     ; preds = %for.body.i.i, %_ZN8
   %sub3 = fsub double %div, %0
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp7)
   %9 = load ptr, ptr %vertices_, align 8, !tbaa !23
-  %add.ptr.i = getelementptr inbounds nuw %"class.QuantLib::Array", ptr %9, i64 %iHighest
+  %add.ptr.i = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %iHighest
   call void @llvm.experimental.noalias.scope.decl(metadata !25)
   %n_.i.i23 = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 8
   %10 = load i64, ptr %n_.i.i23, align 8, !tbaa !7, !noalias !25
@@ -271,7 +271,7 @@ do.end:                                           ; preds = %invoke.cont23
 
 if.then:                                          ; preds = %do.end
   %27 = load ptr, ptr %values_.le, align 8, !tbaa !20
-  %arrayidx.i = getelementptr inbounds nuw double, ptr %27, i64 %iHighest
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %iHighest
   %28 = load double, ptr %arrayidx.i, align 8, !tbaa !3
   br label %cleanup
 
@@ -338,7 +338,7 @@ if.end:                                           ; preds = %do.end
 
 invoke.cont33:                                    ; preds = %if.end
   %38 = load ptr, ptr %values_.le, align 8, !tbaa !20
-  %arrayidx.i59 = getelementptr inbounds nuw double, ptr %38, i64 %iHighest
+  %arrayidx.i59 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %iHighest
   %39 = load double, ptr %arrayidx.i59, align 8, !tbaa !3
   %cmp38 = fcmp olt double %call.i58, %39
   br i1 %cmp38, label %if.then39, label %cleanup
@@ -347,7 +347,7 @@ if.then39:                                        ; preds = %invoke.cont33
   store double %call.i58, ptr %arrayidx.i59, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp43)
   %40 = load ptr, ptr %vertices_, align 8, !tbaa !23
-  %add.ptr.i61 = getelementptr inbounds nuw %"class.QuantLib::Array", ptr %40, i64 %iHighest
+  %add.ptr.i61 = getelementptr inbounds nuw [16 x i8], ptr %40, i64 %iHighest
   invoke void @_ZN8QuantLibmiERKNS_5ArrayES2_(ptr dead_on_unwind nonnull writable sret(%"class.QuantLib::Array") align 8 %ref.tmp43, ptr noundef nonnull align 8 dereferenceable(16) %pTry, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i61)
           to label %invoke.cont47 unwind label %lpad46
 
@@ -367,7 +367,7 @@ _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 _ZN8QuantLib5ArrayD2Ev.exit64:                    ; preds = %invoke.cont50, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i63
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp43)
   %42 = load ptr, ptr %vertices_, align 8, !tbaa !23
-  %add.ptr.i65 = getelementptr inbounds nuw %"class.QuantLib::Array", ptr %42, i64 %iHighest
+  %add.ptr.i65 = getelementptr inbounds nuw [16 x i8], ptr %42, i64 %iHighest
   %43 = load i64, ptr %n_.i.i40, align 8, !tbaa !7
   %cmp.not.i.i67 = icmp eq i64 %43, 0
   br i1 %cmp.not.i.i67, label %_ZN8QuantLib5ArrayC2ERKS0_.exit.i, label %if.then.i.i.i.i.i.i.i
@@ -1335,7 +1335,7 @@ if.then.i.i.i:                                    ; preds = %lpad.i
   br label %ehcleanup327
 
 invoke.cont45:                                    ; preds = %_ZNSt12_Vector_baseIN8QuantLib5ArrayESaIS1_EEC2EmRKS2_.exit.i
-  %add.ptr.i.i.i = getelementptr inbounds nuw %"class.QuantLib::Array", ptr %cond.i.i.i.i, i64 %add
+  %add.ptr.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %cond.i.i.i.i, i64 %add
   %vertices_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %30 = load ptr, ptr %vertices_, align 8, !tbaa !23
   %_M_finish.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -1414,12 +1414,12 @@ call.i129.noexc:                                  ; preds = %for.body.i.i.i.preh
   store ptr %call.i129139, ptr %direction, align 8, !tbaa !20
   store i64 %28, ptr %n_.i130, align 8, !tbaa !7
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %call.i129139, i8 0, i64 %35, i1 false), !tbaa !3
-  %arrayidx.i = getelementptr inbounds nuw double, ptr %call.i129139, i64 %i.0319
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %call.i129139, i64 %i.0319
   store double 1.000000e+00, ptr %arrayidx.i, align 8, !tbaa !3
   %39 = load ptr, ptr %constraint_.i, align 8, !tbaa !29
   %add58 = add nuw i64 %i.0319, 1
   %40 = load ptr, ptr %vertices_, align 8, !tbaa !23
-  %add.ptr.i = getelementptr inbounds nuw %"class.QuantLib::Array", ptr %40, i64 %add58
+  %add.ptr.i = getelementptr inbounds nuw [16 x i8], ptr %40, i64 %add58
   %41 = load double, ptr %lambda_, align 8, !tbaa !56
   %call61 = invoke noundef double @_ZNK8QuantLib10Constraint6updateERNS_5ArrayERKS1_d(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(16) %direction, double noundef %41)
           to label %invoke.cont60 unwind label %lpad52
@@ -1494,7 +1494,7 @@ lpad67:                                           ; preds = %for.body.i.i.i.preh
 for.body75:                                       ; preds = %for.body75.preheader, %invoke.cont79
   %i71.0320 = phi i64 [ %inc85, %invoke.cont79 ], [ 0, %for.body75.preheader ]
   %51 = load ptr, ptr %vertices_, align 8, !tbaa !23
-  %add.ptr.i149 = getelementptr inbounds nuw %"class.QuantLib::Array", ptr %51, i64 %i71.0320
+  %add.ptr.i149 = getelementptr inbounds nuw [16 x i8], ptr %51, i64 %i71.0320
   %52 = load i32, ptr %functionEvaluation_.i, align 8, !tbaa !39
   %inc.i = add nsw i32 %52, 1
   store i32 %inc.i, ptr %functionEvaluation_.i, align 8, !tbaa !39
@@ -1507,7 +1507,7 @@ for.body75:                                       ; preds = %for.body75.preheade
 
 invoke.cont79:                                    ; preds = %for.body75
   %55 = load ptr, ptr %values_, align 8, !tbaa !20
-  %arrayidx.i155 = getelementptr inbounds nuw double, ptr %55, i64 %i71.0320
+  %arrayidx.i155 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %i71.0320
   store double %call.i153154, ptr %arrayidx.i155, align 8, !tbaa !3
   %inc85 = add i64 %i71.0320, 1
   %cmp73.not = icmp ugt i64 %inc85, %28
@@ -1548,7 +1548,7 @@ for.body97.preheader:                             ; preds = %invoke.cont91, %_ZN
 for.body97:                                       ; preds = %for.body97.preheader, %for.inc104
   %i94.0321 = phi i64 [ %inc105, %for.inc104 ], [ 0, %for.body97.preheader ]
   %58 = load ptr, ptr %vertices_, align 8, !tbaa !23
-  %add.ptr.i175 = getelementptr inbounds nuw %"class.QuantLib::Array", ptr %58, i64 %i94.0321
+  %add.ptr.i175 = getelementptr inbounds nuw [16 x i8], ptr %58, i64 %i94.0321
   %call103 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZN8QuantLib5ArraypLERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %sum_, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i175)
           to label %for.inc104 unwind label %lpad101
 
@@ -1583,15 +1583,15 @@ for.body119:                                      ; preds = %for.end106, %if.end
   %iHighest.1325 = phi i64 [ %iHighest.2, %if.end139 ], [ %., %for.end106 ]
   %iLowest.0324 = phi i64 [ %iLowest.1, %if.end139 ], [ 0, %for.end106 ]
   %i94.1323 = phi i64 [ %inc150, %if.end139 ], [ 1, %for.end106 ]
-  %arrayidx.i178 = getelementptr inbounds nuw double, ptr %61, i64 %i94.1323
+  %arrayidx.i178 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %i94.1323
   %64 = load double, ptr %arrayidx.i178, align 8, !tbaa !3
-  %arrayidx.i179 = getelementptr inbounds nuw double, ptr %61, i64 %iHighest.1325
+  %arrayidx.i179 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %iHighest.1325
   %65 = load double, ptr %arrayidx.i179, align 8, !tbaa !3
   %cmp126 = fcmp ogt double %64, %65
   br i1 %cmp126, label %if.end139, label %if.else128
 
 if.else128:                                       ; preds = %for.body119
-  %arrayidx.i181 = getelementptr inbounds nuw double, ptr %61, i64 %iNextHighest.1326
+  %arrayidx.i181 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %iNextHighest.1326
   %66 = load double, ptr %arrayidx.i181, align 8, !tbaa !3
   %cmp135 = fcmp ule double %64, %66
   %cmp136.not = icmp eq i64 %i94.1323, %iHighest.1325
@@ -1602,7 +1602,7 @@ if.else128:                                       ; preds = %for.body119
 if.end139:                                        ; preds = %if.else128, %for.body119
   %iHighest.2 = phi i64 [ %iHighest.1325, %if.else128 ], [ %i94.1323, %for.body119 ]
   %iNextHighest.2 = phi i64 [ %spec.select, %if.else128 ], [ %iHighest.1325, %for.body119 ]
-  %arrayidx.i183 = getelementptr inbounds nuw double, ptr %61, i64 %iLowest.0324
+  %arrayidx.i183 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %iLowest.0324
   %67 = load double, ptr %arrayidx.i183, align 8, !tbaa !3
   %cmp146 = fcmp olt double %64, %67
   %iLowest.1 = select i1 %cmp146, i64 %i94.1323, i64 %iLowest.0324
@@ -1806,7 +1806,7 @@ invoke.cont161:                                   ; preds = %if.then160
 
 invoke.cont164:                                   ; preds = %invoke.cont161
   %89 = load ptr, ptr %vertices_, align 8, !tbaa !23
-  %add.ptr.i194 = getelementptr inbounds nuw %"class.QuantLib::Array", ptr %89, i64 %iLowest.0.lcssa
+  %add.ptr.i194 = getelementptr inbounds nuw [16 x i8], ptr %89, i64 %iLowest.0.lcssa
   %n_.i.i195 = getelementptr inbounds nuw i8, ptr %add.ptr.i194, i64 8
   %90 = load i64, ptr %n_.i.i195, align 8, !tbaa !7
   %cmp.not.i.i196 = icmp eq i64 %90, 0
@@ -1840,7 +1840,7 @@ _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 invoke.cont168:                                   ; preds = %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i199, %_ZN8QuantLib5ArrayC2ERKS0_.exit.i
   %96 = phi i64 [ %.pr, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i199 ], [ %90, %_ZN8QuantLib5ArrayC2ERKS0_.exit.i ]
   %97 = load ptr, ptr %values_, align 8, !tbaa !20
-  %arrayidx.i201 = getelementptr inbounds nuw double, ptr %97, i64 %iLowest.0.lcssa
+  %arrayidx.i201 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %iLowest.0.lcssa
   %98 = load double, ptr %arrayidx.i201, align 8, !tbaa !3
   store double %98, ptr %functionValue_.i, align 8, !tbaa !52
   %cmp.not.i.i.i204 = icmp eq i64 %96, 0
@@ -1897,7 +1897,7 @@ if.end177:                                        ; preds = %invoke.cont158
 
 invoke.cont179:                                   ; preds = %if.end177
   %106 = load ptr, ptr %values_, align 8, !tbaa !20
-  %arrayidx.i207 = getelementptr inbounds nuw double, ptr %106, i64 %iLowest.0.lcssa
+  %arrayidx.i207 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %iLowest.0.lcssa
   %107 = load double, ptr %arrayidx.i207, align 8, !tbaa !3
   %cmp184 = fcmp ole double %call180, %107
   %108 = load double, ptr %factor, align 8
@@ -1930,13 +1930,13 @@ if.else190:                                       ; preds = %invoke.cont179
   br i1 %cmp192, label %if.then193, label %if.end250
 
 if.then193:                                       ; preds = %if.else190
-  %arrayidx.i208 = getelementptr inbounds nuw double, ptr %106, i64 %iNextHighest.1.lcssa
+  %arrayidx.i208 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %iNextHighest.1.lcssa
   %110 = load double, ptr %arrayidx.i208, align 8, !tbaa !3
   %cmp197 = fcmp ult double %call180, %110
   br i1 %cmp197, label %if.end250, label %if.then198
 
 if.then198:                                       ; preds = %if.then193
-  %arrayidx.i209 = getelementptr inbounds nuw double, ptr %106, i64 %iHighest.1.lcssa
+  %arrayidx.i209 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %iHighest.1.lcssa
   %111 = load double, ptr %arrayidx.i209, align 8, !tbaa !3
   store double 5.000000e-01, ptr %factor, align 8, !tbaa !3
   %call204 = invoke noundef double @_ZNK8QuantLib7Simplex11extrapolateERNS_7ProblemEmRd(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull align 8 dereferenceable(56) %P, i64 noundef %iHighest.1.lcssa, ptr noundef nonnull align 8 dereferenceable(8) %factor)
@@ -1963,8 +1963,8 @@ for.body214:                                      ; preds = %invoke.cont203, %fo
 if.then216:                                       ; preds = %for.body214
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp218)
   %114 = load ptr, ptr %vertices_, align 8, !tbaa !23
-  %add.ptr.i210 = getelementptr inbounds nuw %"class.QuantLib::Array", ptr %114, i64 %i210.0329
-  %add.ptr.i211 = getelementptr inbounds nuw %"class.QuantLib::Array", ptr %114, i64 %iLowest.0.lcssa
+  %add.ptr.i210 = getelementptr inbounds nuw [16 x i8], ptr %114, i64 %i210.0329
+  %add.ptr.i211 = getelementptr inbounds nuw [16 x i8], ptr %114, i64 %iLowest.0.lcssa
   invoke void @_ZN8QuantLibplERKNS_5ArrayES2_(ptr dead_on_unwind nonnull writable sret(%"class.QuantLib::Array") align 8 %ref.tmp218, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i210, ptr noundef nonnull align 8 dereferenceable(16) %add.ptr.i211)
           to label %invoke.cont224 unwind label %lpad223
 
@@ -1989,7 +1989,7 @@ for.body.i.i:                                     ; preds = %invoke.cont224, %fo
 
 invoke.cont226:                                   ; preds = %for.body.i.i, %invoke.cont224
   %118 = load ptr, ptr %vertices_, align 8, !tbaa !23
-  %add.ptr.i216 = getelementptr inbounds nuw %"class.QuantLib::Array", ptr %118, i64 %i210.0329
+  %add.ptr.i216 = getelementptr inbounds nuw [16 x i8], ptr %118, i64 %i210.0329
   %119 = load ptr, ptr %add.ptr.i216, align 8, !tbaa !20
   store ptr %115, ptr %add.ptr.i216, align 8, !tbaa !20
   %n_.i.i217 = getelementptr inbounds nuw i8, ptr %add.ptr.i216, i64 8
@@ -2013,7 +2013,7 @@ _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 _ZN8QuantLib5ArrayD2Ev.exit224:                   ; preds = %_ZN8QuantLib5ArrayD2Ev.exit221, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i223
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp218)
   %121 = load ptr, ptr %vertices_, align 8, !tbaa !23
-  %add.ptr.i225 = getelementptr inbounds nuw %"class.QuantLib::Array", ptr %121, i64 %i210.0329
+  %add.ptr.i225 = getelementptr inbounds nuw [16 x i8], ptr %121, i64 %i210.0329
   %122 = load i32, ptr %functionEvaluation_.i, align 8, !tbaa !39
   %inc.i227 = add nsw i32 %122, 1
   store i32 %inc.i227, ptr %functionEvaluation_.i, align 8, !tbaa !39
@@ -2026,7 +2026,7 @@ _ZN8QuantLib5ArrayD2Ev.exit224:                   ; preds = %_ZN8QuantLib5ArrayD
 
 invoke.cont236:                                   ; preds = %_ZN8QuantLib5ArrayD2Ev.exit224
   %125 = load ptr, ptr %values_, align 8, !tbaa !20
-  %arrayidx.i233 = getelementptr inbounds nuw double, ptr %125, i64 %i210.0329
+  %arrayidx.i233 = getelementptr inbounds nuw [8 x i8], ptr %125, i64 %i210.0329
   store double %call.i230231, ptr %arrayidx.i233, align 8, !tbaa !3
   br label %for.inc242
 
@@ -2054,7 +2054,7 @@ if.end250:                                        ; preds = %for.inc242, %if.the
 
 if.then253:                                       ; preds = %if.end250
   %130 = load ptr, ptr %vertices_, align 8, !tbaa !23
-  %add.ptr.i237 = getelementptr inbounds nuw %"class.QuantLib::Array", ptr %130, i64 %iLowest.0.lcssa
+  %add.ptr.i237 = getelementptr inbounds nuw [16 x i8], ptr %130, i64 %iLowest.0.lcssa
   %n_.i.i238 = getelementptr inbounds nuw i8, ptr %add.ptr.i237, i64 8
   %131 = load i64, ptr %n_.i.i238, align 8, !tbaa !7
   %cmp.not.i.i239 = icmp eq i64 %131, 0
@@ -2088,7 +2088,7 @@ _ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
 invoke.cont256:                                   ; preds = %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i246, %_ZN8QuantLib5ArrayC2ERKS0_.exit.i242
   %137 = phi i64 [ %.pr292, %_ZNKSt14default_deleteIA_dEclIdEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i.i.i246 ], [ %131, %_ZN8QuantLib5ArrayC2ERKS0_.exit.i242 ]
   %138 = load ptr, ptr %values_, align 8, !tbaa !20
-  %arrayidx.i249 = getelementptr inbounds nuw double, ptr %138, i64 %iLowest.0.lcssa
+  %arrayidx.i249 = getelementptr inbounds nuw [8 x i8], ptr %138, i64 %iLowest.0.lcssa
   %139 = load double, ptr %arrayidx.i249, align 8, !tbaa !3
   store double %139, ptr %functionValue_.i, align 8, !tbaa !52
   %cmp.not.i.i.i253 = icmp eq i64 %137, 0
@@ -2216,7 +2216,7 @@ for.cond.cleanup:                                 ; preds = %for.body, %for.cond
   %_M_width.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 16
   store i64 %conv.i.pre-phi, ptr %_M_width.i.i, align 8, !tbaa !73
   %2 = load ptr, ptr %a, align 8, !tbaa !20
-  %3 = getelementptr double, ptr %2, i64 %.lcssa
+  %3 = getelementptr [8 x i8], ptr %2, i64 %.lcssa
   %arrayidx.i = getelementptr i8, ptr %3, i64 -8
   %4 = load double, ptr %arrayidx.i, align 8, !tbaa !3
   %call.i = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %out, double noundef %4)
@@ -2231,7 +2231,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %_M_width.i.i19 = getelementptr inbounds nuw i8, ptr %add.ptr.i17, i64 16
   store i64 %conv.i18, ptr %_M_width.i.i19, align 8, !tbaa !73
   %5 = load ptr, ptr %a, align 8, !tbaa !20
-  %arrayidx.i20 = getelementptr inbounds nuw double, ptr %5, i64 %n.029
+  %arrayidx.i20 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %n.029
   %6 = load double, ptr %arrayidx.i20, align 8, !tbaa !3
   %call.i21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %out, double noundef %6)
   %call1.i23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %call.i21, ptr noundef nonnull @.str.12, i64 noundef 2)

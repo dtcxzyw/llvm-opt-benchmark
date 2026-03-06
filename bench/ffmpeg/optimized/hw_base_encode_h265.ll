@@ -378,9 +378,9 @@ define range(i32 -22, 1) i32 @ff_hw_base_encode_init_params_h265(ptr noundef rea
   %211 = load i8, ptr %210, align 1, !tbaa !31
   %212 = getelementptr inbounds nuw i8, ptr %204, i64 %indvars.iv
   store i8 %211, ptr %212, align 1, !tbaa !31
-  %213 = getelementptr inbounds nuw i32, ptr %128, i64 %indvars.iv
+  %213 = getelementptr inbounds nuw [4 x i8], ptr %128, i64 %indvars.iv
   %214 = load i32, ptr %213, align 4, !tbaa !91
-  %215 = getelementptr inbounds nuw i32, ptr %205, i64 %indvars.iv
+  %215 = getelementptr inbounds nuw [4 x i8], ptr %205, i64 %indvars.iv
   store i32 %214, ptr %215, align 4, !tbaa !91
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv, %202
@@ -436,7 +436,7 @@ define range(i32 -22, 1) i32 @ff_hw_base_encode_init_params_h265(ptr noundef rea
 
 241:                                              ; preds = %235, %249
   %indvars.iv340 = phi i64 [ 0, %235 ], [ %indvars.iv.next341, %249 ]
-  %242 = getelementptr inbounds nuw %struct.AVRational, ptr @ff_h2645_pixel_aspect, i64 %indvars.iv340
+  %242 = getelementptr inbounds nuw [8 x i8], ptr @ff_h2645_pixel_aspect, i64 %indvars.iv340
   %243 = load i32, ptr %242, align 8, !tbaa !145
   %244 = icmp eq i32 %239, %243
   br i1 %244, label %245, label %249
@@ -647,7 +647,7 @@ define range(i32 -22, 1) i32 @ff_hw_base_encode_init_params_h265(ptr noundef rea
 
 356:                                              ; preds = %338, %356
   %indvars.iv344 = phi i64 [ 0, %338 ], [ %indvars.iv.next345, %356 ]
-  %357 = getelementptr inbounds nuw i32, ptr %347, i64 %indvars.iv344
+  %357 = getelementptr inbounds nuw [4 x i8], ptr %347, i64 %indvars.iv344
   %358 = load i32, ptr %357, align 4, !tbaa !91
   %indvars.iv.next345 = add nuw nsw i64 %indvars.iv344, 1
   %359 = trunc nuw nsw i64 %indvars.iv.next345 to i32
@@ -664,7 +664,7 @@ define range(i32 -22, 1) i32 @ff_hw_base_encode_init_params_h265(ptr noundef rea
 
 368:                                              ; preds = %.lr.ph, %368
   %indvars.iv347 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next348, %368 ]
-  %369 = getelementptr inbounds nuw i32, ptr %352, i64 %indvars.iv347
+  %369 = getelementptr inbounds nuw [4 x i8], ptr %352, i64 %indvars.iv347
   %370 = load i32, ptr %369, align 4, !tbaa !91
   %indvars.iv.next348 = add nuw nsw i64 %indvars.iv347, 1
   %371 = trunc nuw nsw i64 %indvars.iv.next348 to i32
@@ -697,11 +697,11 @@ define range(i32 -22, 1) i32 @ff_hw_base_encode_init_params_h265(ptr noundef rea
 
 385:                                              ; preds = %._crit_edge, %385
   %indvars.iv350 = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next351, %385 ]
-  %386 = getelementptr inbounds nuw i32, ptr %347, i64 %indvars.iv350
+  %386 = getelementptr inbounds nuw [4 x i8], ptr %347, i64 %indvars.iv350
   %387 = load i32, ptr %386, align 4, !tbaa !91
   %388 = trunc i32 %387 to i16
   %389 = add i16 %388, -1
-  %390 = getelementptr inbounds nuw i16, ptr %382, i64 %indvars.iv350
+  %390 = getelementptr inbounds nuw [2 x i8], ptr %382, i64 %indvars.iv350
   store i16 %389, ptr %390, align 2, !tbaa !198
   %indvars.iv.next351 = add nuw nsw i64 %indvars.iv350, 1
   %exitcond354.not = icmp eq i64 %indvars.iv350, %346
@@ -709,11 +709,11 @@ define range(i32 -22, 1) i32 @ff_hw_base_encode_init_params_h265(ptr noundef rea
 
 391:                                              ; preds = %.preheader, %391
   %indvars.iv355 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next356, %391 ]
-  %392 = getelementptr inbounds nuw i32, ptr %383, i64 %indvars.iv355
+  %392 = getelementptr inbounds nuw [4 x i8], ptr %383, i64 %indvars.iv355
   %393 = load i32, ptr %392, align 4, !tbaa !91
   %394 = trunc i32 %393 to i16
   %395 = add i16 %394, -1
-  %396 = getelementptr inbounds nuw i16, ptr %384, i64 %indvars.iv355
+  %396 = getelementptr inbounds nuw [2 x i8], ptr %384, i64 %indvars.iv355
   store i16 %395, ptr %396, align 2, !tbaa !198
   %indvars.iv.next356 = add nuw nsw i64 %indvars.iv355, 1
   %exitcond359.not = icmp eq i64 %indvars.iv355, %351

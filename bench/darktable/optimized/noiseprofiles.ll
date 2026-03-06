@@ -853,7 +853,7 @@ is_member.exit:                                   ; preds = %.lr.ph.i
   %86 = tail call i32 @json_reader_read_element(ptr noundef %12, i32 noundef %85) #11
   %87 = tail call reassoc nsz arcp contract afn double @json_reader_get_double_value(ptr noundef %12) #11
   %88 = fptrunc reassoc nsz arcp contract afn double %87 to float
-  %89 = getelementptr inbounds nuw float, ptr %58, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %indvars.iv
   store float %88, ptr %89, align 4, !tbaa !59
   tail call void @json_reader_end_element(ptr noundef %12) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -874,7 +874,7 @@ is_member.exit:                                   ; preds = %.lr.ph.i
   %95 = tail call i32 @json_reader_read_element(ptr noundef %12, i32 noundef %94) #11
   %96 = tail call reassoc nsz arcp contract afn double @json_reader_get_double_value(ptr noundef %12) #11
   %97 = fptrunc reassoc nsz arcp contract afn double %96 to float
-  %98 = getelementptr inbounds nuw float, ptr %59, i64 %indvars.iv160
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %indvars.iv160
   store float %97, ptr %98, align 4, !tbaa !59
   tail call void @json_reader_end_element(ptr noundef %12) #11
   %indvars.iv.next161 = add nuw nsw i64 %indvars.iv160, 1
@@ -1035,23 +1035,23 @@ define void @dt_noiseprofile_interpolate(ptr noundef readonly captures(none) %0,
 
 29:                                               ; preds = %19, %29
   %indvars.iv = phi i64 [ 0, %19 ], [ %indvars.iv.next, %29 ]
-  %30 = getelementptr inbounds nuw float, ptr %22, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv
   %31 = load float, ptr %30, align 4, !tbaa !59
   %32 = fmul reassoc nsz arcp contract afn float %31, %21
-  %33 = getelementptr inbounds nuw float, ptr %23, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv
   %34 = load float, ptr %33, align 4, !tbaa !59
   %35 = fmul reassoc nsz arcp contract afn float %34, %20
   %36 = fadd reassoc nsz arcp contract afn float %35, %32
-  %37 = getelementptr inbounds nuw float, ptr %24, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv
   store float %36, ptr %37, align 4, !tbaa !59
-  %38 = getelementptr inbounds nuw float, ptr %25, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv
   %39 = load float, ptr %38, align 4, !tbaa !59
   %40 = fmul reassoc nsz arcp contract afn float %39, %21
-  %41 = getelementptr inbounds nuw float, ptr %26, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv
   %42 = load float, ptr %41, align 4, !tbaa !59
   %43 = fmul reassoc nsz arcp contract afn float %42, %20
   %44 = fadd reassoc nsz arcp contract afn float %43, %40
-  %45 = getelementptr inbounds nuw float, ptr %27, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv
   store float %44, ptr %45, align 4, !tbaa !59
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3

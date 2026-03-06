@@ -236,7 +236,7 @@ define hidden noundef zeroext i1 @_ZN3ue221bad_mixed_sensitivityERKNS_11ue2_lite
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.sroa.6.019.i.i
   %8 = load i8, ptr %7, align 1
   %9 = lshr i64 %.sroa.6.019.i.i, 6
-  %10 = getelementptr inbounds nuw i64, ptr %6, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %9
   %11 = load i64, ptr %10, align 8
   %12 = and i64 %.sroa.6.019.i.i, 63
   %13 = lshr i64 %11, %12
@@ -318,7 +318,7 @@ define hidden noundef i64 @_ZN3ue216compressAndScoreERSt3setINS_11ue2_literalESt
   %.014.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %45, %37 ]
   %.sroa.5.013.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %46, %37 ]
   %38 = lshr i64 %.sroa.5.013.i.i.i, 6
-  %39 = getelementptr inbounds nuw i64, ptr %36, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %38
   %40 = load i64, ptr %39, align 8
   %41 = and i64 %.sroa.5.013.i.i.i, 63
   %42 = shl nuw i64 1, %41
@@ -442,7 +442,7 @@ _ZNSt12_Vector_baseIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_12_G
           to label %.noexc27 unwind label %1997
 
 .noexc27:                                         ; preds = %_ZNSt12_Vector_baseIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_12_GLOBAL__N_18LitGraphENS4_19LitGraphVertexPropsENS4_17LitGraphEdgePropsEEEEESaIS9_EE11_M_allocateEm.exit.i.i.i
-  %102 = getelementptr inbounds nuw %"class.ue2::graph_detail::edge_descriptor.157", ptr %101, i64 %.val.i
+  %102 = getelementptr inbounds nuw [16 x i8], ptr %101, i64 %.val.i
   br label %_ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_12_GLOBAL__N_18LitGraphENS4_19LitGraphVertexPropsENS4_17LitGraphEdgePropsEEEEESaIS9_EE7reserveEm.exit.i.i
 
 _ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_12_GLOBAL__N_18LitGraphENS4_19LitGraphVertexPropsENS4_17LitGraphEdgePropsEEEEESaIS9_EE7reserveEm.exit.i.i: ; preds = %.noexc27, %99
@@ -568,7 +568,7 @@ _ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_12_GLOBAL__
   br label %_ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_12_GLOBAL__N_18LitGraphENS4_19LitGraphVertexPropsENS4_17LitGraphEdgePropsEEEEESaIS9_EE17_M_realloc_insertIJRKS9_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i.i.i
 
 _ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_12_GLOBAL__N_18LitGraphENS4_19LitGraphVertexPropsENS4_17LitGraphEdgePropsEEEEESaIS9_EE17_M_realloc_insertIJRKS9_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i.i.i: ; preds = %133, %_ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_12_GLOBAL__N_18LitGraphENS4_19LitGraphVertexPropsENS4_17LitGraphEdgePropsEEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit26.i.i.i.i
-  %134 = getelementptr inbounds nuw %"class.ue2::graph_detail::edge_descriptor.157", ptr %129, i64 %127
+  %134 = getelementptr inbounds nuw [16 x i8], ptr %129, i64 %127
   br label %_ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_12_GLOBAL__N_18LitGraphENS4_19LitGraphVertexPropsENS4_17LitGraphEdgePropsEEEEESaIS9_EE9push_backERKS9_.exit.i.i
 
 _ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_12_GLOBAL__N_18LitGraphENS4_19LitGraphVertexPropsENS4_17LitGraphEdgePropsEEEEESaIS9_EE9push_backERKS9_.exit.i.i: ; preds = %_ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_12_GLOBAL__N_18LitGraphENS4_19LitGraphVertexPropsENS4_17LitGraphEdgePropsEEEEESaIS9_EE17_M_realloc_insertIJRKS9_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i.i.i, %115
@@ -661,13 +661,13 @@ _ZNSt12_Vector_baseIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_12_G
   %.sroa.01.0.copyload.i.i = load ptr, ptr %.sroa.091.0143.i.i, align 8, !noalias !22
   %154 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.copyload.i.i, i64 64
   %155 = load i64, ptr %154, align 8, !noalias !22
-  %156 = getelementptr inbounds nuw %"class.ue2::graph_detail::edge_descriptor.157", ptr %.sroa.0312.0.i, i64 %155
+  %156 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0312.0.i, i64 %155
   store ptr %.sroa.03.0.copyload.i.i.i.i, ptr %156, align 8, !noalias !22
   %.sroa.6.0..sroa_idx9.i.i = getelementptr inbounds nuw i8, ptr %156, i64 8
   store i64 %.sroa.6.0.copyload.i.i, ptr %.sroa.6.0..sroa_idx9.i.i, align 8, !noalias !22
   %157 = getelementptr inbounds nuw i8, ptr %.sroa.03.0.copyload.i.i.i.i, i64 64
   %158 = load i64, ptr %157, align 8, !noalias !22
-  %159 = getelementptr inbounds nuw %"class.ue2::graph_detail::edge_descriptor.157", ptr %.sroa.0312.0.i, i64 %158
+  %159 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0312.0.i, i64 %158
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %159, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.091.0143.i.i, i64 16, i1 false), !noalias !22
   %160 = getelementptr inbounds nuw i8, ptr %.sroa.091.0143.i.i, i64 16
   %.not119.i.i = icmp eq ptr %160, %.sroa.11107.0.lcssa.i.i
@@ -974,12 +974,12 @@ _ZN3ue215small_color_mapINS_9ue2_graphINS_12_GLOBAL__N_18LitGraphENS2_19LitGraph
 
 250:                                              ; preds = %245
   %251 = lshr i64 %246, 6
-  %252 = getelementptr inbounds nuw i64, ptr %249, i64 %251
+  %252 = getelementptr inbounds nuw [8 x i8], ptr %249, i64 %251
   store ptr %252, ptr %244, align 8
   store ptr %249, ptr %240, align 8
   store i32 0, ptr %241, align 8
   %253 = sdiv i64 %.val69.i.i.i, 64
-  %254 = getelementptr inbounds i64, ptr %249, i64 %253
+  %254 = getelementptr inbounds [8 x i8], ptr %249, i64 %253
   %255 = and i64 %.val69.i.i.i, -9223372036854775745
   %256 = icmp ugt i64 %255, -9223372036854775808
   %storemerge.idx.i.i.i.i.i.i.i.i = select i1 %256, i64 -8, i64 0
@@ -1045,12 +1045,12 @@ _ZN3ue215small_color_mapINS_9ue2_graphINS_12_GLOBAL__N_18LitGraphENS2_19LitGraph
 
 281:                                              ; preds = %275
   %282 = lshr i64 %276, 6
-  %283 = getelementptr inbounds nuw i64, ptr %279, i64 %282
+  %283 = getelementptr inbounds nuw [8 x i8], ptr %279, i64 %282
   store ptr %283, ptr %274, align 8
   store ptr %279, ptr %270, align 8
   store i32 0, ptr %271, align 8
   %284 = sdiv i64 %.val68.i.i.i, 64
-  %285 = getelementptr inbounds i64, ptr %279, i64 %284
+  %285 = getelementptr inbounds [8 x i8], ptr %279, i64 %284
   %286 = and i64 %.val68.i.i.i, -9223372036854775745
   %287 = icmp ugt i64 %286, -9223372036854775808
   %storemerge.idx.i.i.i.i.i94.i.i.i = select i1 %287, i64 -8, i64 0
@@ -1102,7 +1102,7 @@ _ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread.i.i.i.i: ; preds = %269
   store ptr %301, ptr %292, align 8
   %302 = getelementptr inbounds nuw i8, ptr %19, i64 472
   store ptr %301, ptr %302, align 8
-  %303 = getelementptr inbounds nuw i64, ptr %301, i64 %.val68.i.i.i
+  %303 = getelementptr inbounds nuw [8 x i8], ptr %301, i64 %.val68.i.i.i
   %304 = getelementptr inbounds nuw i8, ptr %19, i64 480
   store ptr %303, ptr %304, align 8
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %301, i8 0, i64 %300, i1 false)
@@ -1216,7 +1216,7 @@ _ZNSt12_Vector_baseIlSaIlEEC2EmRKS0_.exit.thread.i.i.i.i: ; preds = %269
   %.val85.i.i.i = load i64, ptr %345, align 8
   %346 = getelementptr inbounds i8, ptr %344, i64 %.val84.i.i.i
   %347 = load i64, ptr %346, align 8
-  %348 = getelementptr inbounds i64, ptr %.val83.i.i.i, i64 %347
+  %348 = getelementptr inbounds [8 x i8], ptr %.val83.i.i.i, i64 %347
   store i64 %.val85.i.i.i, ptr %348, align 8
   %349 = load ptr, ptr %.sroa.11.0142.i.i.i, align 8
   %350 = icmp eq ptr %349, %.sroa.18.0143.i.i.i
@@ -1263,7 +1263,7 @@ _ZN5boost9iterators6detail20iterator_facade_baseIN3ue29ue2_graphINS3_12_GLOBAL__
   %365 = sub i64 %363, %364
   %366 = ashr exact i64 %365, 3
   %367 = sub nsw i64 0, %366
-  %368 = getelementptr inbounds i64, ptr %362, i64 %367
+  %368 = getelementptr inbounds [8 x i8], ptr %362, i64 %367
   call void @_ZdlPv(ptr noundef %368) #27
   store ptr null, ptr %270, align 8
   store i32 0, ptr %271, align 8
@@ -1303,7 +1303,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit40.i.i:       ; preds = %361, %.body97.i.i.i
   %377 = sub i64 %375, %376
   %378 = ashr exact i64 %377, 3
   %379 = sub nsw i64 0, %378
-  %380 = getelementptr inbounds i64, ptr %374, i64 %379
+  %380 = getelementptr inbounds [8 x i8], ptr %374, i64 %379
   call void @_ZdlPv(ptr noundef %380) #27
   store ptr null, ptr %240, align 8
   store i32 0, ptr %241, align 8
@@ -1367,7 +1367,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit.i.i:         ; preds = %373, %.body.i.i167.
   %406 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.copyload.i.i.i, i64 16
   %407 = getelementptr inbounds i8, ptr %406, i64 %.val87.i.i.i
   %408 = load i64, ptr %407, align 8
-  %409 = getelementptr inbounds i64, ptr %.val86.i.i.i, i64 %408
+  %409 = getelementptr inbounds [8 x i8], ptr %.val86.i.i.i, i64 %408
   store i64 1, ptr %409, align 8
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %237, align 8
   %.val89.i.i.i = load ptr, ptr %310, align 8
@@ -1375,7 +1375,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit.i.i:         ; preds = %373, %.body.i.i167.
   %410 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i, i64 16
   %411 = getelementptr inbounds i8, ptr %410, i64 %.val90.i.i.i
   %412 = load i64, ptr %411, align 8
-  %413 = getelementptr inbounds i64, ptr %.val89.i.i.i, i64 %412
+  %413 = getelementptr inbounds [8 x i8], ptr %.val89.i.i.i, i64 %412
   store i64 1, ptr %413, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
@@ -1451,7 +1451,7 @@ _ZN3ue215small_color_mapINS_9ue2_graphINS_12_GLOBAL__N_18LitGraphENS2_19LitGraph
   %444 = getelementptr inbounds nuw i8, ptr %.sroa.0308.0320.i.i.i.i, i64 56
   %445 = getelementptr inbounds i8, ptr %444, i64 %.val124.i.i.i.i
   %446 = load i64, ptr %445, align 8
-  %447 = getelementptr inbounds i64, ptr %.val123.i.i.i.i, i64 %446
+  %447 = getelementptr inbounds [8 x i8], ptr %.val123.i.i.i.i, i64 %446
   %448 = load i64, ptr %447, align 8
   store i64 0, ptr %447, align 8
   %449 = load i64, ptr %312, align 8
@@ -1483,12 +1483,12 @@ _ZN3ue215small_color_mapINS_9ue2_graphINS_12_GLOBAL__N_18LitGraphENS2_19LitGraph
   %459 = getelementptr inbounds nuw i8, ptr %.sroa.0308.0320.i.i.i.i, i64 56
   %460 = getelementptr inbounds i8, ptr %459, i64 %.val128.i.i.i.i
   %461 = load i64, ptr %460, align 8
-  %462 = getelementptr inbounds i64, ptr %.val127.i.i.i.i, i64 %461
+  %462 = getelementptr inbounds [8 x i8], ptr %.val127.i.i.i.i, i64 %461
   %463 = load i64, ptr %462, align 8
   %464 = getelementptr inbounds nuw i8, ptr %.sroa.03.0.i.i.i.i.i, i64 56
   %465 = getelementptr inbounds i8, ptr %464, i64 %.val128.i.i.i.i
   %466 = load i64, ptr %465, align 8
-  %467 = getelementptr inbounds i64, ptr %.val127.i.i.i.i, i64 %466
+  %467 = getelementptr inbounds [8 x i8], ptr %.val127.i.i.i.i, i64 %466
   %468 = load i64, ptr %467, align 8
   %469 = icmp ugt i64 %463, %468
   br i1 %469, label %470, label %531
@@ -1523,7 +1523,7 @@ _ZN3ue215small_color_mapINS_9ue2_graphINS_12_GLOBAL__N_18LitGraphENS2_19LitGraph
   %486 = zext i32 %.sroa.4.0.copyload.i.i.i.i.i.i.i.i to i64
   %487 = add nsw i64 %485, %486
   %488 = sdiv i64 %487, 64
-  %489 = getelementptr inbounds i64, ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i.i, i64 %488
+  %489 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i.i, i64 %488
   %490 = and i64 %487, -9223372036854775745
   %491 = icmp ugt i64 %490, -9223372036854775808
   %storemerge.idx.i.i.i.i.i.i.i.i.i.i = select i1 %491, i64 -8, i64 0
@@ -1556,7 +1556,7 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %.val6.i.i.i.i.i = load i64, ptr %.sroa.4320.0..sroa_idx.i, align 8
   %500 = getelementptr inbounds i8, ptr %471, i64 %.val6.i.i.i.i.i
   %501 = load i64, ptr %500, align 8
-  %502 = getelementptr inbounds %"class.ue2::graph_detail::edge_descriptor.157", ptr %.val5.i.i.i.i.i, i64 %501
+  %502 = getelementptr inbounds [16 x i8], ptr %.val5.i.i.i.i.i, i64 %501
   store ptr %.sroa.0308.0320.i.i.i.i, ptr %502, align 8
   %.sroa.2.0..sroa_idx.i.i.i23.i.i = getelementptr inbounds nuw i8, ptr %502, i64 8
   store i64 %438, ptr %.sroa.2.0..sroa_idx.i.i.i23.i.i, align 8
@@ -1568,7 +1568,7 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %505 = zext i32 %.sroa.4.0.copyload.i.i.i.i181.i.i.i.i to i64
   %506 = add nsw i64 %504, %505
   %507 = sdiv i64 %506, 64
-  %508 = getelementptr inbounds i64, ptr %.sroa.0.0.copyload.i.i.i.i179.i.i.i.i, i64 %507
+  %508 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i.i.i.i179.i.i.i.i, i64 %507
   %509 = and i64 %506, -9223372036854775745
   %510 = icmp ugt i64 %509, -9223372036854775808
   %storemerge.idx.i.i.i.i.i.i182.i.i.i.i = select i1 %510, i64 -8, i64 0
@@ -1582,19 +1582,19 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %.val161.i.i.i.i = load i64, ptr %.sroa.4322.0..sroa_idx.i, align 8
   %515 = getelementptr inbounds i8, ptr %471, i64 %.val161.i.i.i.i
   %516 = load i64, ptr %515, align 8
-  %517 = getelementptr inbounds i32, ptr %.val160.i.i.i.i, i64 %516
+  %517 = getelementptr inbounds [4 x i8], ptr %.val160.i.i.i.i, i64 %516
   store i32 1, ptr %517, align 4
   %.val111.i.i.i.i = load ptr, ptr %310, align 8
   %.val112.i.i.i.i = load i64, ptr %311, align 8
   %518 = getelementptr inbounds i8, ptr %471, i64 %.val112.i.i.i.i
   %519 = load i64, ptr %518, align 8
-  %520 = getelementptr inbounds i64, ptr %.val111.i.i.i.i, i64 %519
+  %520 = getelementptr inbounds [8 x i8], ptr %.val111.i.i.i.i, i64 %519
   store i64 1, ptr %520, align 8
   %.val135.i.i.i.i = load ptr, ptr %225, align 8
   %.val136.i.i.i.i = load i64, ptr %.sroa.232.0..sroa_idx.i.i.i, align 8
   %521 = getelementptr inbounds i8, ptr %459, i64 %.val136.i.i.i.i
   %522 = load i64, ptr %521, align 8
-  %523 = getelementptr inbounds i64, ptr %.val135.i.i.i.i, i64 %522
+  %523 = getelementptr inbounds [8 x i8], ptr %.val135.i.i.i.i, i64 %522
   %524 = load i64, ptr %523, align 8
   %525 = sub i64 %524, %468
   store i64 %525, ptr %523, align 8
@@ -1602,7 +1602,7 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %.val155.i.i.i.i = load i64, ptr %.sroa.232.0..sroa_idx.i.i.i, align 8
   %526 = getelementptr inbounds i8, ptr %464, i64 %.val155.i.i.i.i
   %527 = load i64, ptr %526, align 8
-  %528 = getelementptr inbounds i64, ptr %.val154.i.i.i.i, i64 %527
+  %528 = getelementptr inbounds [8 x i8], ptr %.val154.i.i.i.i, i64 %527
   store i64 0, ptr %528, align 8
   %529 = load i64, ptr %312, align 8
   %530 = add i64 %529, %468
@@ -1641,7 +1641,7 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %546 = zext i32 %.sroa.4.0.copyload.i.i.i.i188.i.i.i.i to i64
   %547 = add nsw i64 %545, %546
   %548 = sdiv i64 %547, 64
-  %549 = getelementptr inbounds i64, ptr %.sroa.0.0.copyload.i.i.i.i186.i.i.i.i, i64 %548
+  %549 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i.i.i.i186.i.i.i.i, i64 %548
   %550 = and i64 %547, -9223372036854775745
   %551 = icmp ugt i64 %550, -9223372036854775808
   %storemerge.idx.i.i.i.i.i.i189.i.i.i.i = select i1 %551, i64 -8, i64 0
@@ -1674,7 +1674,7 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %.val6.i197.i.i.i.i = load i64, ptr %.sroa.4320.0..sroa_idx.i, align 8
   %560 = getelementptr inbounds i8, ptr %533, i64 %.val6.i197.i.i.i.i
   %561 = load i64, ptr %560, align 8
-  %562 = getelementptr inbounds %"class.ue2::graph_detail::edge_descriptor.157", ptr %.val5.i196.i.i.i.i, i64 %561
+  %562 = getelementptr inbounds [16 x i8], ptr %.val5.i196.i.i.i.i, i64 %561
   store ptr %.sroa.03.0.i.i.i.i.i, ptr %562, align 8
   %.sroa.2.0..sroa_idx.i198.i.i.i.i = getelementptr inbounds nuw i8, ptr %562, i64 8
   store i64 %458, ptr %.sroa.2.0..sroa_idx.i198.i.i.i.i, align 8
@@ -1686,7 +1686,7 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %565 = zext i32 %.sroa.4.0.copyload.i.i.i.i202.i.i.i.i to i64
   %566 = add nsw i64 %564, %565
   %567 = sdiv i64 %566, 64
-  %568 = getelementptr inbounds i64, ptr %.sroa.0.0.copyload.i.i.i.i200.i.i.i.i, i64 %567
+  %568 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i.i.i.i200.i.i.i.i, i64 %567
   %569 = and i64 %566, -9223372036854775745
   %570 = icmp ugt i64 %569, -9223372036854775808
   %storemerge.idx.i.i.i.i.i.i203.i.i.i.i = select i1 %570, i64 -8, i64 0
@@ -1700,19 +1700,19 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %.val164.i.i.i.i = load i64, ptr %.sroa.4322.0..sroa_idx.i, align 8
   %575 = getelementptr inbounds i8, ptr %533, i64 %.val164.i.i.i.i
   %576 = load i64, ptr %575, align 8
-  %577 = getelementptr inbounds i32, ptr %.val163.i.i.i.i, i64 %576
+  %577 = getelementptr inbounds [4 x i8], ptr %.val163.i.i.i.i, i64 %576
   store i32 1, ptr %577, align 4
   %.val108.i.i.i.i = load ptr, ptr %310, align 8
   %.val109.i.i.i.i = load i64, ptr %311, align 8
   %578 = getelementptr inbounds i8, ptr %533, i64 %.val109.i.i.i.i
   %579 = load i64, ptr %578, align 8
-  %580 = getelementptr inbounds i64, ptr %.val108.i.i.i.i, i64 %579
+  %580 = getelementptr inbounds [8 x i8], ptr %.val108.i.i.i.i, i64 %579
   store i64 1, ptr %580, align 8
   %.val139.i.i.i.i = load ptr, ptr %225, align 8
   %.val140.i.i.i.i = load i64, ptr %.sroa.232.0..sroa_idx.i.i.i, align 8
   %581 = getelementptr inbounds i8, ptr %464, i64 %.val140.i.i.i.i
   %582 = load i64, ptr %581, align 8
-  %583 = getelementptr inbounds i64, ptr %.val139.i.i.i.i, i64 %582
+  %583 = getelementptr inbounds [8 x i8], ptr %.val139.i.i.i.i, i64 %582
   %584 = load i64, ptr %583, align 8
   %585 = sub i64 %584, %463
   store i64 %585, ptr %583, align 8
@@ -1720,7 +1720,7 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %.val158.i.i.i.i = load i64, ptr %.sroa.232.0..sroa_idx.i.i.i, align 8
   %586 = getelementptr inbounds i8, ptr %459, i64 %.val158.i.i.i.i
   %587 = load i64, ptr %586, align 8
-  %588 = getelementptr inbounds i64, ptr %.val157.i.i.i.i, i64 %587
+  %588 = getelementptr inbounds [8 x i8], ptr %.val157.i.i.i.i, i64 %587
   store i64 0, ptr %588, align 8
   %589 = load i64, ptr %312, align 8
   %590 = add i64 %589, %463
@@ -1733,7 +1733,7 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %592 = getelementptr inbounds nuw i8, ptr %.sroa.0308.0320.i.i.i.i, i64 56
   %593 = getelementptr inbounds i8, ptr %592, i64 %.val144.i.i.i.i
   %594 = load i64, ptr %593, align 8
-  %595 = getelementptr inbounds i64, ptr %.val143.i.i.i.i, i64 %594
+  %595 = getelementptr inbounds [8 x i8], ptr %.val143.i.i.i.i, i64 %594
   %596 = load i64, ptr %595, align 8
   %.not84.i.i.i.i = icmp eq i64 %596, 0
   br i1 %.not84.i.i.i.i, label %648, label %597
@@ -1761,7 +1761,7 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %.val6.i208.i.i.i.i = load i64, ptr %.sroa.4320.0..sroa_idx.i, align 8
   %611 = getelementptr inbounds i8, ptr %598, i64 %.val6.i208.i.i.i.i
   %612 = load i64, ptr %611, align 8
-  %613 = getelementptr inbounds %"class.ue2::graph_detail::edge_descriptor.157", ptr %.val5.i207.i.i.i.i, i64 %612
+  %613 = getelementptr inbounds [16 x i8], ptr %.val5.i207.i.i.i.i, i64 %612
   store ptr %.sroa.0308.0320.i.i.i.i, ptr %613, align 8
   %.sroa.2.0..sroa_idx.i209.i.i.i.i = getelementptr inbounds nuw i8, ptr %613, i64 8
   store i64 %438, ptr %.sroa.2.0..sroa_idx.i209.i.i.i.i, align 8
@@ -1773,7 +1773,7 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %616 = zext i32 %.sroa.4.0.copyload.i.i.i.i213.i.i.i.i to i64
   %617 = add nsw i64 %615, %616
   %618 = sdiv i64 %617, 64
-  %619 = getelementptr inbounds i64, ptr %.sroa.0.0.copyload.i.i.i.i211.i.i.i.i, i64 %618
+  %619 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i.i.i.i211.i.i.i.i, i64 %618
   %620 = and i64 %617, -9223372036854775745
   %621 = icmp ugt i64 %620, -9223372036854775808
   %storemerge.idx.i.i.i.i.i.i214.i.i.i.i = select i1 %621, i64 -8, i64 0
@@ -1787,13 +1787,13 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %.val167.i.i.i.i = load i64, ptr %.sroa.4322.0..sroa_idx.i, align 8
   %626 = getelementptr inbounds i8, ptr %598, i64 %.val167.i.i.i.i
   %627 = load i64, ptr %626, align 8
-  %628 = getelementptr inbounds i32, ptr %.val166.i.i.i.i, i64 %627
+  %628 = getelementptr inbounds [4 x i8], ptr %.val166.i.i.i.i, i64 %627
   store i32 1, ptr %628, align 4
   %.val105.i.i.i.i = load ptr, ptr %310, align 8
   %.val106.i.i.i.i = load i64, ptr %311, align 8
   %629 = getelementptr inbounds i8, ptr %598, i64 %.val106.i.i.i.i
   %630 = load i64, ptr %629, align 8
-  %631 = getelementptr inbounds i64, ptr %.val105.i.i.i.i, i64 %630
+  %631 = getelementptr inbounds [8 x i8], ptr %.val105.i.i.i.i, i64 %630
   store i64 1, ptr %631, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   store ptr %.val87.i.i.i.i, ptr %14, align 8
@@ -1806,7 +1806,7 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %634 = zext i32 %.sroa.4.0.copyload.i.i.i.i219.i.i.i.i to i64
   %635 = add nsw i64 %633, %634
   %636 = sdiv i64 %635, 64
-  %637 = getelementptr inbounds i64, ptr %.sroa.0.0.copyload.i.i.i.i217.i.i.i.i, i64 %636
+  %637 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i.i.i.i217.i.i.i.i, i64 %636
   %638 = and i64 %635, -9223372036854775745
   %639 = icmp ugt i64 %638, -9223372036854775808
   %storemerge.idx.i.i.i.i.i.i220.i.i.i.i = select i1 %639, i64 -8, i64 0
@@ -1860,7 +1860,7 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %652 = getelementptr inbounds nuw i8, ptr %.sroa.0308.1323.i.i.i.i, i64 56
   %653 = getelementptr inbounds i8, ptr %652, i64 %.val173.i.i.i.i
   %654 = load i64, ptr %653, align 8
-  %655 = getelementptr inbounds %"class.ue2::graph_detail::edge_descriptor.157", ptr %.val172.i.i.i.i, i64 %654
+  %655 = getelementptr inbounds [16 x i8], ptr %.val172.i.i.i.i, i64 %654
   %.sroa.0252.0.copyload.i.i.i.i = load ptr, ptr %655, align 8
   %656 = getelementptr i8, ptr %.sroa.0252.0.copyload.i.i.i.i, i64 32
   %.sroa.011.0.copyload.val.i.i.i.i = load ptr, ptr %656, align 8
@@ -1869,7 +1869,7 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %657 = getelementptr inbounds nuw i8, ptr %.sroa.0252.0.copyload.i.i.i.i, i64 56
   %658 = getelementptr inbounds i8, ptr %657, i64 %.val148.i.i.i.i
   %659 = load i64, ptr %658, align 8
-  %660 = getelementptr inbounds i64, ptr %.val147.i.i.i.i, i64 %659
+  %660 = getelementptr inbounds [8 x i8], ptr %.val147.i.i.i.i, i64 %659
   %661 = load i64, ptr %660, align 8
   %.not.i.i.i.i = icmp eq i64 %661, 0
   br i1 %.not.i.i.i.i, label %713, label %662
@@ -1899,7 +1899,7 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %.val6.i233.i.i.i.i = load i64, ptr %.sroa.4320.0..sroa_idx.i, align 8
   %676 = getelementptr inbounds i8, ptr %665, i64 %.val6.i233.i.i.i.i
   %677 = load i64, ptr %676, align 8
-  %678 = getelementptr inbounds %"class.ue2::graph_detail::edge_descriptor.157", ptr %.val5.i232.i.i.i.i, i64 %677
+  %678 = getelementptr inbounds [16 x i8], ptr %.val5.i232.i.i.i.i, i64 %677
   store ptr %.sroa.0252.0.copyload.i.i.i.i, ptr %678, align 8
   %.sroa.2.0..sroa_idx.i234.i.i.i.i = getelementptr inbounds nuw i8, ptr %678, i64 8
   store i64 %.sroa.6.0.copyload.i.i.i.i, ptr %.sroa.2.0..sroa_idx.i234.i.i.i.i, align 8
@@ -1911,7 +1911,7 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %681 = zext i32 %.sroa.4.0.copyload.i.i.i.i238.i.i.i.i to i64
   %682 = add nsw i64 %680, %681
   %683 = sdiv i64 %682, 64
-  %684 = getelementptr inbounds i64, ptr %.sroa.0.0.copyload.i.i.i.i236.i.i.i.i, i64 %683
+  %684 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i.i.i.i236.i.i.i.i, i64 %683
   %685 = and i64 %682, -9223372036854775745
   %686 = icmp ugt i64 %685, -9223372036854775808
   %storemerge.idx.i.i.i.i.i.i239.i.i.i.i = select i1 %686, i64 -8, i64 0
@@ -1925,13 +1925,13 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %.val170.i.i.i.i = load i64, ptr %.sroa.4322.0..sroa_idx.i, align 8
   %691 = getelementptr inbounds i8, ptr %665, i64 %.val170.i.i.i.i
   %692 = load i64, ptr %691, align 8
-  %693 = getelementptr inbounds i32, ptr %.val169.i.i.i.i, i64 %692
+  %693 = getelementptr inbounds [4 x i8], ptr %.val169.i.i.i.i, i64 %692
   store i32 1, ptr %693, align 4
   %.val102.i.i.i.i = load ptr, ptr %310, align 8
   %.val103.i.i.i.i = load i64, ptr %311, align 8
   %694 = getelementptr inbounds i8, ptr %665, i64 %.val103.i.i.i.i
   %695 = load i64, ptr %694, align 8
-  %696 = getelementptr inbounds i64, ptr %.val102.i.i.i.i, i64 %695
+  %696 = getelementptr inbounds [8 x i8], ptr %.val102.i.i.i.i, i64 %695
   store i64 1, ptr %696, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store ptr %.sroa.011.0.copyload.val.i.i.i.i, ptr %13, align 8
@@ -1944,7 +1944,7 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %699 = zext i32 %.sroa.4.0.copyload.i.i.i.i244.i.i.i.i to i64
   %700 = add nsw i64 %698, %699
   %701 = sdiv i64 %700, 64
-  %702 = getelementptr inbounds i64, ptr %.sroa.0.0.copyload.i.i.i.i242.i.i.i.i, i64 %701
+  %702 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i.i.i.i242.i.i.i.i, i64 %701
   %703 = and i64 %700, -9223372036854775745
   %704 = icmp ugt i64 %703, -9223372036854775808
   %storemerge.idx.i.i.i.i.i.i245.i.i.i.i = select i1 %704, i64 -8, i64 0
@@ -2028,7 +2028,7 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %738 = zext i32 %.sroa.4.0.copyload.i.i.i.i.i.i.i.i.i to i64
   %739 = add nsw i64 %737, %738
   %740 = sdiv i64 %739, 64
-  %741 = getelementptr inbounds i64, ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, i64 %740
+  %741 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i.i.i.i.i, i64 %740
   %742 = and i64 %739, -9223372036854775745
   %743 = icmp ugt i64 %742, -9223372036854775808
   %storemerge.idx.i.i.i.i.i.i.i.i.i.i.i = select i1 %743, i64 -8, i64 0
@@ -2079,7 +2079,7 @@ _ZN5boost3putINS_21iterator_property_mapISt13_Bit_iteratorN3ue29ue2_graphINS3_12
   %764 = zext i32 %.sroa.4.0.copyload.i.i.i.i.i22.i.i.i to i64
   %765 = add nsw i64 %763, %764
   %766 = sdiv i64 %765, 64
-  %767 = getelementptr inbounds i64, ptr %.sroa.0.0.copyload.i.i.i.i.i21.i.i.i, i64 %766
+  %767 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i21.i.i.i, i64 %766
   %768 = and i64 %765, -9223372036854775745
   %769 = icmp ugt i64 %768, -9223372036854775808
   %storemerge.idx.i.i.i.i.i.i.i23.i.i.i = select i1 %769, i64 -8, i64 0
@@ -2150,7 +2150,7 @@ _ZN5boost3putINS_21iterator_property_mapISt13_Bit_iteratorN3ue29ue2_graphINS3_12
   %794 = getelementptr inbounds nuw i8, ptr %.val121366.i.i.i.i, i64 56
   %795 = getelementptr inbounds i8, ptr %794, i64 %.val126.i.i.i.i
   %796 = load i64, ptr %795, align 8, !noalias !77
-  %797 = getelementptr inbounds i64, ptr %.val125.i.i.i.i, i64 %796
+  %797 = getelementptr inbounds [8 x i8], ptr %.val125.i.i.i.i, i64 %796
   %798 = load i64, ptr %797, align 8, !noalias !77
   %.not101.i.i.i.i = icmp eq i64 %798, 0
   br i1 %.not101.i.i.i.i, label %_ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3_19LitGraphVertexPropsENS3_17LitGraphEdgePropsEE8prop_mapIRyS7_EENS_21iterator_property_mapIN9__gnu_cxx17__normal_iteratorIPySt6vectorIySaIyEEEENS9_IRmS7_EEySA_EENSC_INSE_IPNS2_12graph_detail15edge_descriptorIS8_EESG_ISP_SaISP_EEEESL_SP_RSP_EENSC_IST_NS9_ISK_S6_EESP_SU_EENS2_15small_color_mapINS9_IRKmS6_EEEENSC_INSE_IPiSG_IiSaIiEEEESW_iRiEESW_E21is_closer_to_terminalENSN_17vertex_descriptorIS8_EES1B_.exit.thread.i.i.i.i, label %799
@@ -2190,7 +2190,7 @@ _ZN5boost3putINS_21iterator_property_mapISt13_Bit_iteratorN3ue29ue2_graphINS3_12
   %.val6.i.i13.i.i.i = load i64, ptr %.sroa.4320.0..sroa_idx.i, align 8, !noalias !77
   %819 = getelementptr inbounds i8, ptr %801, i64 %.val6.i.i13.i.i.i
   %820 = load i64, ptr %819, align 8, !noalias !77
-  %821 = getelementptr inbounds %"class.ue2::graph_detail::edge_descriptor.157", ptr %.val5.i.i12.i.i.i, i64 %820
+  %821 = getelementptr inbounds [16 x i8], ptr %.val5.i.i12.i.i.i, i64 %820
   store ptr %.val121366.i.i.i.i, ptr %821, align 8, !noalias !77
   %.sroa.2.0..sroa_idx.i.i14.i.i.i = getelementptr inbounds nuw i8, ptr %821, i64 8
   store i64 %793, ptr %.sroa.2.0..sroa_idx.i.i14.i.i.i, align 8, !noalias !77
@@ -2202,7 +2202,7 @@ _ZN5boost3putINS_21iterator_property_mapISt13_Bit_iteratorN3ue29ue2_graphINS3_12
   %824 = zext i32 %.sroa.4.0.copyload.i.i.i.i221.i.i.i.i to i64
   %825 = add nsw i64 %823, %824
   %826 = sdiv i64 %825, 64
-  %827 = getelementptr inbounds i64, ptr %.sroa.0.0.copyload.i.i.i.i219.i.i.i.i, i64 %826
+  %827 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i.i.i.i219.i.i.i.i, i64 %826
   %828 = and i64 %825, -9223372036854775745
   %829 = icmp ugt i64 %828, -9223372036854775808
   %storemerge.idx.i.i.i.i.i.i222.i.i.i.i = select i1 %829, i64 -8, i64 0
@@ -2216,22 +2216,22 @@ _ZN5boost3putINS_21iterator_property_mapISt13_Bit_iteratorN3ue29ue2_graphINS3_12
   %.val172.i15.i.i.i = load i64, ptr %.sroa.4322.0..sroa_idx.i, align 8, !noalias !77
   %834 = getelementptr inbounds i8, ptr %735, i64 %.val172.i15.i.i.i
   %835 = load i64, ptr %834, align 8, !noalias !77
-  %836 = getelementptr inbounds i32, ptr %.val171.i.i.i.i, i64 %835
+  %836 = getelementptr inbounds [4 x i8], ptr %.val171.i.i.i.i, i64 %835
   %837 = load i32, ptr %836, align 4, !noalias !77
   %838 = add nsw i32 %837, 1
   %839 = getelementptr inbounds i8, ptr %801, i64 %.val172.i15.i.i.i
   %840 = load i64, ptr %839, align 8, !noalias !77
-  %841 = getelementptr inbounds i32, ptr %.val171.i.i.i.i, i64 %840
+  %841 = getelementptr inbounds [4 x i8], ptr %.val171.i.i.i.i, i64 %840
   store i32 %838, ptr %841, align 4, !noalias !77
   %.val187.i.i.i.i = load ptr, ptr %310, align 8, !noalias !77
   %.val188.i.i.i.i = load i64, ptr %311, align 8, !noalias !77
   %842 = getelementptr inbounds i8, ptr %735, i64 %.val188.i.i.i.i
   %843 = load i64, ptr %842, align 8, !noalias !77
-  %844 = getelementptr inbounds i64, ptr %.val187.i.i.i.i, i64 %843
+  %844 = getelementptr inbounds [8 x i8], ptr %.val187.i.i.i.i, i64 %843
   %.val205.i.i.i.i = load i64, ptr %844, align 8, !noalias !77
   %845 = getelementptr inbounds i8, ptr %801, i64 %.val188.i.i.i.i
   %846 = load i64, ptr %845, align 8, !noalias !77
-  %847 = getelementptr inbounds i64, ptr %.val187.i.i.i.i, i64 %846
+  %847 = getelementptr inbounds [8 x i8], ptr %.val187.i.i.i.i, i64 %846
   store i64 %.val205.i.i.i.i, ptr %847, align 8, !noalias !77
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !77
   store ptr %.sroa.082.0.copyload.val.i.i.i.i, ptr %12, align 8, !noalias !77
@@ -2244,7 +2244,7 @@ _ZN5boost3putINS_21iterator_property_mapISt13_Bit_iteratorN3ue29ue2_graphINS3_12
   %850 = zext i32 %.sroa.4.0.copyload.i.i.i.i227.i.i.i.i to i64
   %851 = add nsw i64 %849, %850
   %852 = sdiv i64 %851, 64
-  %853 = getelementptr inbounds i64, ptr %.sroa.0.0.copyload.i.i.i.i225.i.i.i.i, i64 %852
+  %853 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i.i.i.i225.i.i.i.i, i64 %852
   %854 = and i64 %851, -9223372036854775745
   %855 = icmp ugt i64 %854, -9223372036854775808
   %storemerge.idx.i.i.i.i.i.i228.i.i.i.i = select i1 %855, i64 -8, i64 0
@@ -2280,11 +2280,11 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %.val13.i.i.i.i.i = load i64, ptr %311, align 8, !noalias !77
   %865 = getelementptr inbounds i8, ptr %801, i64 %.val13.i.i.i.i.i
   %866 = load i64, ptr %865, align 8, !noalias !77
-  %867 = getelementptr inbounds i64, ptr %.val12.i.i.i.i.i, i64 %866
+  %867 = getelementptr inbounds [8 x i8], ptr %.val12.i.i.i.i.i, i64 %866
   %868 = load i64, ptr %867, align 8, !noalias !77
   %869 = getelementptr inbounds i8, ptr %735, i64 %.val13.i.i.i.i.i
   %870 = load i64, ptr %869, align 8, !noalias !77
-  %871 = getelementptr inbounds i64, ptr %.val12.i.i.i.i.i, i64 %870
+  %871 = getelementptr inbounds [8 x i8], ptr %.val12.i.i.i.i.i, i64 %870
   %872 = load i64, ptr %871, align 8, !noalias !77
   %.not.i232.i.i.i.i = icmp sgt i64 %868, %872
   br i1 %.not.i232.i.i.i.i, label %_ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3_19LitGraphVertexPropsENS3_17LitGraphEdgePropsEE8prop_mapIRyS7_EENS_21iterator_property_mapIN9__gnu_cxx17__normal_iteratorIPySt6vectorIySaIyEEEENS9_IRmS7_EEySA_EENSC_INSE_IPNS2_12graph_detail15edge_descriptorIS8_EESG_ISP_SaISP_EEEESL_SP_RSP_EENSC_IST_NS9_ISK_S6_EESP_SU_EENS2_15small_color_mapINS9_IRKmS6_EEEENSC_INSE_IPiSG_IiSaIiEEEESW_iRiEESW_E21is_closer_to_terminalENSN_17vertex_descriptorIS8_EES1B_.exit.thread.i.i.i.i, label %_ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3_19LitGraphVertexPropsENS3_17LitGraphEdgePropsEE8prop_mapIRyS7_EENS_21iterator_property_mapIN9__gnu_cxx17__normal_iteratorIPySt6vectorIySaIyEEEENS9_IRmS7_EEySA_EENSC_INSE_IPNS2_12graph_detail15edge_descriptorIS8_EESG_ISP_SaISP_EEEESL_SP_RSP_EENSC_IST_NS9_ISK_S6_EESP_SU_EENS2_15small_color_mapINS9_IRKmS6_EEEENSC_INSE_IPiSG_IiSaIiEEEESW_iRiEESW_E21is_closer_to_terminalENSN_17vertex_descriptorIS8_EES1B_.exit.i.i.i.i
@@ -2294,11 +2294,11 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %.val5.i234.i.i.i.i = load i64, ptr %.sroa.4322.0..sroa_idx.i, align 8, !noalias !77
   %873 = getelementptr inbounds i8, ptr %801, i64 %.val5.i234.i.i.i.i
   %874 = load i64, ptr %873, align 8, !noalias !77
-  %875 = getelementptr inbounds i32, ptr %.val4.i233.i.i.i.i, i64 %874
+  %875 = getelementptr inbounds [4 x i8], ptr %.val4.i233.i.i.i.i, i64 %874
   %876 = load i32, ptr %875, align 4, !noalias !77
   %877 = getelementptr inbounds i8, ptr %735, i64 %.val5.i234.i.i.i.i
   %878 = load i64, ptr %877, align 8, !noalias !77
-  %879 = getelementptr inbounds i32, ptr %.val4.i233.i.i.i.i, i64 %878
+  %879 = getelementptr inbounds [4 x i8], ptr %.val4.i233.i.i.i.i, i64 %878
   %880 = load i32, ptr %879, align 4, !noalias !77
   %881 = add nsw i32 %880, 1
   %882 = icmp sgt i32 %876, %881
@@ -2309,7 +2309,7 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %.val6.i237.i.i.i.i = load i64, ptr %.sroa.4320.0..sroa_idx.i, align 8, !noalias !77
   %884 = getelementptr inbounds i8, ptr %801, i64 %.val6.i237.i.i.i.i
   %885 = load i64, ptr %884, align 8, !noalias !77
-  %886 = getelementptr inbounds %"class.ue2::graph_detail::edge_descriptor.157", ptr %.val5.i236.i.i.i.i, i64 %885
+  %886 = getelementptr inbounds [16 x i8], ptr %.val5.i236.i.i.i.i, i64 %885
   store ptr %.val121366.i.i.i.i, ptr %886, align 8, !noalias !77
   %.sroa.2.0..sroa_idx.i238.i.i.i.i = getelementptr inbounds nuw i8, ptr %886, i64 8
   store i64 %793, ptr %.sroa.2.0..sroa_idx.i238.i.i.i.i, align 8, !noalias !77
@@ -2321,7 +2321,7 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %889 = zext i32 %.sroa.4.0.copyload.i.i.i.i242.i.i.i.i to i64
   %890 = add nsw i64 %888, %889
   %891 = sdiv i64 %890, 64
-  %892 = getelementptr inbounds i64, ptr %.sroa.0.0.copyload.i.i.i.i240.i.i.i.i, i64 %891
+  %892 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i.i.i.i240.i.i.i.i, i64 %891
   %893 = and i64 %890, -9223372036854775745
   %894 = icmp ugt i64 %893, -9223372036854775808
   %storemerge.idx.i.i.i.i.i.i243.i.i.i.i = select i1 %894, i64 -8, i64 0
@@ -2335,22 +2335,22 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %.val176.i.i.i.i = load i64, ptr %.sroa.4322.0..sroa_idx.i, align 8, !noalias !77
   %899 = getelementptr inbounds i8, ptr %735, i64 %.val176.i.i.i.i
   %900 = load i64, ptr %899, align 8, !noalias !77
-  %901 = getelementptr inbounds i32, ptr %.val175.i.i.i.i, i64 %900
+  %901 = getelementptr inbounds [4 x i8], ptr %.val175.i.i.i.i, i64 %900
   %902 = load i32, ptr %901, align 4, !noalias !77
   %903 = add nsw i32 %902, 1
   %904 = getelementptr inbounds i8, ptr %801, i64 %.val176.i.i.i.i
   %905 = load i64, ptr %904, align 8, !noalias !77
-  %906 = getelementptr inbounds i32, ptr %.val175.i.i.i.i, i64 %905
+  %906 = getelementptr inbounds [4 x i8], ptr %.val175.i.i.i.i, i64 %905
   store i32 %903, ptr %906, align 4, !noalias !77
   %.val191.i.i.i.i = load ptr, ptr %310, align 8, !noalias !77
   %.val192.i.i.i.i = load i64, ptr %311, align 8, !noalias !77
   %907 = getelementptr inbounds i8, ptr %735, i64 %.val192.i.i.i.i
   %908 = load i64, ptr %907, align 8, !noalias !77
-  %909 = getelementptr inbounds i64, ptr %.val191.i.i.i.i, i64 %908
+  %909 = getelementptr inbounds [8 x i8], ptr %.val191.i.i.i.i, i64 %908
   %.val208.i.i.i.i = load i64, ptr %909, align 8, !noalias !77
   %910 = getelementptr inbounds i8, ptr %801, i64 %.val192.i.i.i.i
   %911 = load i64, ptr %910, align 8, !noalias !77
-  %912 = getelementptr inbounds i64, ptr %.val191.i.i.i.i, i64 %911
+  %912 = getelementptr inbounds [8 x i8], ptr %.val191.i.i.i.i, i64 %911
   store i64 %.val208.i.i.i.i, ptr %912, align 8, !noalias !77
   br label %_ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3_19LitGraphVertexPropsENS3_17LitGraphEdgePropsEE8prop_mapIRyS7_EENS_21iterator_property_mapIN9__gnu_cxx17__normal_iteratorIPySt6vectorIySaIyEEEENS9_IRmS7_EEySA_EENSC_INSE_IPNS2_12graph_detail15edge_descriptorIS8_EESG_ISP_SaISP_EEEESL_SP_RSP_EENSC_IST_NS9_ISK_S6_EESP_SU_EENS2_15small_color_mapINS9_IRKmS6_EEEENSC_INSE_IPiSG_IiSaIiEEEESW_iRiEESW_E21is_closer_to_terminalENSN_17vertex_descriptorIS8_EES1B_.exit.thread.i.i.i.i
 
@@ -2393,7 +2393,7 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %920 = getelementptr inbounds nuw i8, ptr %.val123362.i.i.i.i, i64 56
   %921 = getelementptr inbounds i8, ptr %920, i64 %.val149.i.i.i.i
   %922 = load i64, ptr %921, align 8, !noalias !77
-  %923 = getelementptr inbounds %"class.ue2::graph_detail::edge_descriptor.157", ptr %.val148.i5.i.i.i, i64 %922
+  %923 = getelementptr inbounds [16 x i8], ptr %.val148.i5.i.i.i, i64 %922
   %.sroa.0300.0.copyload.i.i.i.i = load ptr, ptr %923, align 8, !noalias !77
   %.sroa.9.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %923, i64 8
   %.sroa.9.0.copyload.i.i.i.i = load i64, ptr %.sroa.9.0..sroa_idx.i.i.i.i, align 8, !noalias !77
@@ -2402,7 +2402,7 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %924 = getelementptr inbounds nuw i8, ptr %.sroa.0300.0.copyload.i.i.i.i, i64 56
   %925 = getelementptr inbounds i8, ptr %924, i64 %.val130.i.i.i.i
   %926 = load i64, ptr %925, align 8, !noalias !77
-  %927 = getelementptr inbounds i64, ptr %.val129.i.i.i.i, i64 %926
+  %927 = getelementptr inbounds [8 x i8], ptr %.val129.i.i.i.i, i64 %926
   %928 = load i64, ptr %927, align 8, !noalias !77
   %.not.i6.i.i.i = icmp eq i64 %928, 0
   br i1 %.not.i6.i.i.i, label %_ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3_19LitGraphVertexPropsENS3_17LitGraphEdgePropsEE8prop_mapIRyS7_EENS_21iterator_property_mapIN9__gnu_cxx17__normal_iteratorIPySt6vectorIySaIyEEEENS9_IRmS7_EEySA_EENSC_INSE_IPNS2_12graph_detail15edge_descriptorIS8_EESG_ISP_SaISP_EEEESL_SP_RSP_EENSC_IST_NS9_ISK_S6_EESP_SU_EENS2_15small_color_mapINS9_IRKmS6_EEEENSC_INSE_IPiSG_IiSaIiEEEESW_iRiEESW_E21is_closer_to_terminalENSN_17vertex_descriptorIS8_EES1B_.exit277.thread.i.i.i.i, label %929
@@ -2440,7 +2440,7 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %.val6.i253.i.i.i.i = load i64, ptr %.sroa.4320.0..sroa_idx.i, align 8, !noalias !77
   %947 = getelementptr inbounds i8, ptr %931, i64 %.val6.i253.i.i.i.i
   %948 = load i64, ptr %947, align 8, !noalias !77
-  %949 = getelementptr inbounds %"class.ue2::graph_detail::edge_descriptor.157", ptr %.val5.i252.i.i.i.i, i64 %948
+  %949 = getelementptr inbounds [16 x i8], ptr %.val5.i252.i.i.i.i, i64 %948
   store ptr %.sroa.0300.0.copyload.i.i.i.i, ptr %949, align 8, !noalias !77
   %.sroa.2.0..sroa_idx.i254.i.i.i.i = getelementptr inbounds nuw i8, ptr %949, i64 8
   store i64 %.sroa.9.0.copyload.i.i.i.i, ptr %.sroa.2.0..sroa_idx.i254.i.i.i.i, align 8, !noalias !77
@@ -2452,7 +2452,7 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %952 = zext i32 %.sroa.4.0.copyload.i.i.i.i258.i.i.i.i to i64
   %953 = add nsw i64 %951, %952
   %954 = sdiv i64 %953, 64
-  %955 = getelementptr inbounds i64, ptr %.sroa.0.0.copyload.i.i.i.i256.i.i.i.i, i64 %954
+  %955 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i.i.i.i256.i.i.i.i, i64 %954
   %956 = and i64 %953, -9223372036854775745
   %957 = icmp ugt i64 %956, -9223372036854775808
   %storemerge.idx.i.i.i.i.i.i259.i.i.i.i = select i1 %957, i64 -8, i64 0
@@ -2473,7 +2473,7 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %964 = zext i32 %.sroa.4.0.copyload.i.i.i.i264.i.i.i.i to i64
   %965 = add nsw i64 %963, %964
   %966 = sdiv i64 %965, 64
-  %967 = getelementptr inbounds i64, ptr %.sroa.0.0.copyload.i.i.i.i262.i.i.i.i, i64 %966
+  %967 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i.i.i.i262.i.i.i.i, i64 %966
   %968 = and i64 %965, -9223372036854775745
   %969 = icmp ugt i64 %968, -9223372036854775808
   %storemerge.idx.i.i.i.i.i.i265.i.i.i.i = select i1 %969, i64 -8, i64 0
@@ -2509,11 +2509,11 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %.val13.i273.i.i.i.i = load i64, ptr %311, align 8, !noalias !77
   %979 = getelementptr inbounds i8, ptr %931, i64 %.val13.i273.i.i.i.i
   %980 = load i64, ptr %979, align 8, !noalias !77
-  %981 = getelementptr inbounds i64, ptr %.val12.i272.i.i.i.i, i64 %980
+  %981 = getelementptr inbounds [8 x i8], ptr %.val12.i272.i.i.i.i, i64 %980
   %982 = load i64, ptr %981, align 8, !noalias !77
   %983 = getelementptr inbounds i8, ptr %735, i64 %.val13.i273.i.i.i.i
   %984 = load i64, ptr %983, align 8, !noalias !77
-  %985 = getelementptr inbounds i64, ptr %.val12.i272.i.i.i.i, i64 %984
+  %985 = getelementptr inbounds [8 x i8], ptr %.val12.i272.i.i.i.i, i64 %984
   %986 = load i64, ptr %985, align 8, !noalias !77
   %.not.i274.i.i.i.i = icmp sgt i64 %982, %986
   br i1 %.not.i274.i.i.i.i, label %_ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3_19LitGraphVertexPropsENS3_17LitGraphEdgePropsEE8prop_mapIRyS7_EENS_21iterator_property_mapIN9__gnu_cxx17__normal_iteratorIPySt6vectorIySaIyEEEENS9_IRmS7_EEySA_EENSC_INSE_IPNS2_12graph_detail15edge_descriptorIS8_EESG_ISP_SaISP_EEEESL_SP_RSP_EENSC_IST_NS9_ISK_S6_EESP_SU_EENS2_15small_color_mapINS9_IRKmS6_EEEENSC_INSE_IPiSG_IiSaIiEEEESW_iRiEESW_E21is_closer_to_terminalENSN_17vertex_descriptorIS8_EES1B_.exit277.thread.i.i.i.i, label %_ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3_19LitGraphVertexPropsENS3_17LitGraphEdgePropsEE8prop_mapIRyS7_EENS_21iterator_property_mapIN9__gnu_cxx17__normal_iteratorIPySt6vectorIySaIyEEEENS9_IRmS7_EEySA_EENSC_INSE_IPNS2_12graph_detail15edge_descriptorIS8_EESG_ISP_SaISP_EEEESL_SP_RSP_EENSC_IST_NS9_ISK_S6_EESP_SU_EENS2_15small_color_mapINS9_IRKmS6_EEEENSC_INSE_IPiSG_IiSaIiEEEESW_iRiEESW_E21is_closer_to_terminalENSN_17vertex_descriptorIS8_EES1B_.exit277.i.i.i.i
@@ -2523,11 +2523,11 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %.val5.i276.i.i.i.i = load i64, ptr %.sroa.4322.0..sroa_idx.i, align 8, !noalias !77
   %987 = getelementptr inbounds i8, ptr %931, i64 %.val5.i276.i.i.i.i
   %988 = load i64, ptr %987, align 8, !noalias !77
-  %989 = getelementptr inbounds i32, ptr %.val4.i275.i.i.i.i, i64 %988
+  %989 = getelementptr inbounds [4 x i8], ptr %.val4.i275.i.i.i.i, i64 %988
   %990 = load i32, ptr %989, align 4, !noalias !77
   %991 = getelementptr inbounds i8, ptr %735, i64 %.val5.i276.i.i.i.i
   %992 = load i64, ptr %991, align 8, !noalias !77
-  %993 = getelementptr inbounds i32, ptr %.val4.i275.i.i.i.i, i64 %992
+  %993 = getelementptr inbounds [4 x i8], ptr %.val4.i275.i.i.i.i, i64 %992
   %994 = load i32, ptr %993, align 4, !noalias !77
   %995 = add nsw i32 %994, 1
   %996 = icmp sgt i32 %990, %995
@@ -2538,7 +2538,7 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %.val6.i280.i.i.i.i = load i64, ptr %.sroa.4320.0..sroa_idx.i, align 8, !noalias !77
   %998 = getelementptr inbounds i8, ptr %931, i64 %.val6.i280.i.i.i.i
   %999 = load i64, ptr %998, align 8, !noalias !77
-  %1000 = getelementptr inbounds %"class.ue2::graph_detail::edge_descriptor.157", ptr %.val5.i279.i.i.i.i, i64 %999
+  %1000 = getelementptr inbounds [16 x i8], ptr %.val5.i279.i.i.i.i, i64 %999
   store ptr %.sroa.0300.0.copyload.i.i.i.i, ptr %1000, align 8, !noalias !77
   %.sroa.2.0..sroa_idx.i281.i.i.i.i = getelementptr inbounds nuw i8, ptr %1000, i64 8
   store i64 %.sroa.9.0.copyload.i.i.i.i, ptr %.sroa.2.0..sroa_idx.i281.i.i.i.i, align 8, !noalias !77
@@ -2550,7 +2550,7 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %1003 = zext i32 %.sroa.4.0.copyload.i.i.i.i285.i.i.i.i to i64
   %1004 = add nsw i64 %1002, %1003
   %1005 = sdiv i64 %1004, 64
-  %1006 = getelementptr inbounds i64, ptr %.sroa.0.0.copyload.i.i.i.i283.i.i.i.i, i64 %1005
+  %1006 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i.i.i.i283.i.i.i.i, i64 %1005
   %1007 = and i64 %1004, -9223372036854775745
   %1008 = icmp ugt i64 %1007, -9223372036854775808
   %storemerge.idx.i.i.i.i.i.i286.i.i.i.i = select i1 %1008, i64 -8, i64 0
@@ -2567,22 +2567,22 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %.val180.i.i.i.i = load i64, ptr %.sroa.4322.0..sroa_idx.i, align 8, !noalias !77
   %1013 = getelementptr inbounds i8, ptr %735, i64 %.val180.i.i.i.i
   %1014 = load i64, ptr %1013, align 8, !noalias !77
-  %1015 = getelementptr inbounds i32, ptr %.val179.i.i.i.i, i64 %1014
+  %1015 = getelementptr inbounds [4 x i8], ptr %.val179.i.i.i.i, i64 %1014
   %1016 = load i32, ptr %1015, align 4, !noalias !77
   %1017 = add nsw i32 %1016, 1
   %1018 = getelementptr inbounds i8, ptr %931, i64 %.val180.i.i.i.i
   %1019 = load i64, ptr %1018, align 8, !noalias !77
-  %1020 = getelementptr inbounds i32, ptr %.val179.i.i.i.i, i64 %1019
+  %1020 = getelementptr inbounds [4 x i8], ptr %.val179.i.i.i.i, i64 %1019
   store i32 %1017, ptr %1020, align 4, !noalias !77
   %.val195.i.i.i.i = load ptr, ptr %310, align 8, !noalias !77
   %.val196.i.i.i.i = load i64, ptr %311, align 8, !noalias !77
   %1021 = getelementptr inbounds i8, ptr %735, i64 %.val196.i.i.i.i
   %1022 = load i64, ptr %1021, align 8, !noalias !77
-  %1023 = getelementptr inbounds i64, ptr %.val195.i.i.i.i, i64 %1022
+  %1023 = getelementptr inbounds [8 x i8], ptr %.val195.i.i.i.i, i64 %1022
   %.val211.i.i.i.i = load i64, ptr %1023, align 8, !noalias !77
   %1024 = getelementptr inbounds i8, ptr %931, i64 %.val196.i.i.i.i
   %1025 = load i64, ptr %1024, align 8, !noalias !77
-  %1026 = getelementptr inbounds i64, ptr %.val195.i.i.i.i, i64 %1025
+  %1026 = getelementptr inbounds [8 x i8], ptr %.val195.i.i.i.i, i64 %1025
   store i64 %.val211.i.i.i.i, ptr %1026, align 8, !noalias !77
   %.pre.i18.i.i = load ptr, ptr %721, align 8, !noalias !77
   %.val124.i8.pre.i.i.i = load ptr, ptr %722, align 8, !noalias !77
@@ -2630,7 +2630,7 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %1042 = zext i32 %.sroa.4.0.copyload.i.i.i.i294.i.i.i.i to i64
   %1043 = add nsw i64 %1041, %1042
   %1044 = sdiv i64 %1043, 64
-  %1045 = getelementptr inbounds i64, ptr %.sroa.0.0.copyload.i.i.i.i292.i.i.i.i, i64 %1044
+  %1045 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i.i.i.i292.i.i.i.i, i64 %1044
   %1046 = and i64 %1043, -9223372036854775745
   %1047 = icmp ugt i64 %1046, -9223372036854775808
   %storemerge.idx.i.i.i.i.i.i295.i.i.i.i = select i1 %1047, i64 -8, i64 0
@@ -2657,7 +2657,7 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %1056 = getelementptr inbounds nuw i8, ptr %.sroa.0102.0.i.i.i, i64 56
   %1057 = getelementptr inbounds i8, ptr %1056, i64 %.val24.i.i.i.i.i
   %1058 = load i64, ptr %1057, align 8
-  %1059 = getelementptr inbounds i64, ptr %.val23.i.i.i.i.i, i64 %1058
+  %1059 = getelementptr inbounds [8 x i8], ptr %.val23.i.i.i.i.i, i64 %1058
   %1060 = load i64, ptr %1059, align 8
   %.val31.i.i.i.i.i = load ptr, ptr %236, align 8
   %.sroa.053.0.in69.i.i.i.i.i = getelementptr i8, ptr %.sroa.0102.0.i.i.i, i64 32
@@ -2689,12 +2689,12 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %1062 = getelementptr inbounds nuw i8, ptr %.sroa.053.073.i.i.i.i.i, i64 16
   %1063 = getelementptr inbounds i8, ptr %1062, i64 %.val34.i.i.i.i.i
   %1064 = load i64, ptr %1063, align 8
-  %1065 = getelementptr inbounds %"class.ue2::graph_detail::edge_descriptor.157", ptr %.val33.i.i.i.i.i, i64 %1064
+  %1065 = getelementptr inbounds [16 x i8], ptr %.val33.i.i.i.i.i, i64 %1064
   %.sroa.0.0.copyload.i.i.i.i.i.i = load ptr, ptr %1065, align 8
   %1066 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i.i.i.i, i64 56
   %1067 = getelementptr inbounds i8, ptr %1066, i64 %.val24.i.i.i.i.i
   %1068 = load i64, ptr %1067, align 8
-  %1069 = getelementptr inbounds i64, ptr %.val23.i.i.i.i.i, i64 %1068
+  %1069 = getelementptr inbounds [8 x i8], ptr %.val23.i.i.i.i.i, i64 %1068
   %1070 = load i64, ptr %1069, align 8
   %.sroa.speculated59.i.i.i.i.i = call i64 @llvm.umin.i64(i64 %1070, i64 %.072.i.i.i.i.i)
   %.sroa.053.0.in.i.i.i.i.i = getelementptr i8, ptr %.sroa.0.0.copyload.i.i.i.i.i.i, i64 32
@@ -2708,12 +2708,12 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %1072 = getelementptr inbounds nuw i8, ptr %.sroa.053.178.i.i.i.i.i, i64 16
   %1073 = getelementptr inbounds i8, ptr %1072, i64 %.val36.i.i.i.i.i
   %1074 = load i64, ptr %1073, align 8
-  %1075 = getelementptr inbounds %"class.ue2::graph_detail::edge_descriptor.157", ptr %.val35.i.i.i.i.i, i64 %1074
+  %1075 = getelementptr inbounds [16 x i8], ptr %.val35.i.i.i.i.i, i64 %1074
   %.sroa.0.0.copyload.i41.i.i.i.i.i = load ptr, ptr %1075, align 8
   %1076 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i41.i.i.i.i.i, i64 56
   %1077 = getelementptr inbounds i8, ptr %1076, i64 %.val24.i.i.i.i.i
   %1078 = load i64, ptr %1077, align 8
-  %1079 = getelementptr inbounds i64, ptr %.val23.i.i.i.i.i, i64 %1078
+  %1079 = getelementptr inbounds [8 x i8], ptr %.val23.i.i.i.i.i, i64 %1078
   %1080 = load i64, ptr %1079, align 8
   %.sroa.speculated.i.i.i.i179.i = call i64 @llvm.umin.i64(i64 %1080, i64 %.177.i.i.i.i.i)
   %.sroa.053.1.in.i.i.i.i.i = getelementptr i8, ptr %.sroa.0.0.copyload.i41.i.i.i.i.i, i64 40
@@ -2729,14 +2729,14 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %.val90.i28.i.i.i = load i64, ptr %.sroa.444.0..sroa_idx.i.i, align 8
   %1082 = getelementptr inbounds i8, ptr %1056, i64 %.val90.i28.i.i.i
   %1083 = load i64, ptr %1082, align 8
-  %1084 = getelementptr inbounds %"class.ue2::graph_detail::edge_descriptor.157", ptr %.val89.i27.i.i.i, i64 %1083
+  %1084 = getelementptr inbounds [16 x i8], ptr %.val89.i27.i.i.i, i64 %1083
   %.sroa.028.0.copyload.i.i.i.i = load ptr, ptr %1084, align 8
   %.val61.i.i.i.i = load ptr, ptr %225, align 8
   %.val62.i.i.i.i = load i64, ptr %.sroa.232.0..sroa_idx.i.i.i, align 8
   %1085 = getelementptr inbounds nuw i8, ptr %.sroa.028.0.copyload.i.i.i.i, i64 56
   %1086 = getelementptr inbounds i8, ptr %1085, i64 %.val62.i.i.i.i
   %1087 = load i64, ptr %1086, align 8
-  %1088 = getelementptr inbounds i64, ptr %.val61.i.i.i.i, i64 %1087
+  %1088 = getelementptr inbounds [8 x i8], ptr %.val61.i.i.i.i, i64 %1087
   %1089 = load i64, ptr %1088, align 8
   %1090 = add i64 %1089, %.1.lcssa.i.i.i.i.i
   store i64 %1090, ptr %1088, align 8
@@ -2760,14 +2760,14 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %1091 = getelementptr inbounds nuw i8, ptr %.sroa.0154.0175.i.i.i.i, i64 16
   %1092 = getelementptr inbounds i8, ptr %1091, i64 %.val120.i.i.i.i
   %1093 = load i64, ptr %1092, align 8
-  %1094 = getelementptr inbounds %"class.ue2::graph_detail::edge_descriptor.157", ptr %.val119.i.i.i.i, i64 %1093
+  %1094 = getelementptr inbounds [16 x i8], ptr %.val119.i.i.i.i, i64 %1093
   %.sroa.0.0.copyload.i.i.i.i.i = load ptr, ptr %1094, align 8
   %.val65.i.i.i.i = load ptr, ptr %225, align 8
   %.val66.i.i.i.i = load i64, ptr %.sroa.232.0..sroa_idx.i.i.i, align 8
   %1095 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i.i.i, i64 56
   %1096 = getelementptr inbounds i8, ptr %1095, i64 %.val66.i.i.i.i
   %1097 = load i64, ptr %1096, align 8
-  %1098 = getelementptr inbounds i64, ptr %.val65.i.i.i.i, i64 %1097
+  %1098 = getelementptr inbounds [8 x i8], ptr %.val65.i.i.i.i, i64 %1097
   %1099 = load i64, ptr %1098, align 8
   %1100 = sub i64 %1099, %.1.lcssa.i.i.i.i.i
   store i64 %1100, ptr %1098, align 8
@@ -2775,14 +2775,14 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %.val98.i.i.i.i = load i64, ptr %.sroa.444.0..sroa_idx.i.i, align 8
   %1101 = getelementptr inbounds i8, ptr %1095, i64 %.val98.i.i.i.i
   %1102 = load i64, ptr %1101, align 8
-  %1103 = getelementptr inbounds %"class.ue2::graph_detail::edge_descriptor.157", ptr %.val97.i.i.i.i, i64 %1102
+  %1103 = getelementptr inbounds [16 x i8], ptr %.val97.i.i.i.i, i64 %1102
   %.sroa.020.0.copyload.i.i.i.i = load ptr, ptr %1103, align 8
   %.val69.i.i.i.i = load ptr, ptr %225, align 8
   %.val70.i.i.i.i = load i64, ptr %.sroa.232.0..sroa_idx.i.i.i, align 8
   %1104 = getelementptr inbounds nuw i8, ptr %.sroa.020.0.copyload.i.i.i.i, i64 56
   %1105 = getelementptr inbounds i8, ptr %1104, i64 %.val70.i.i.i.i
   %1106 = load i64, ptr %1105, align 8
-  %1107 = getelementptr inbounds i64, ptr %.val69.i.i.i.i, i64 %1106
+  %1107 = getelementptr inbounds [8 x i8], ptr %.val69.i.i.i.i, i64 %1106
   %1108 = load i64, ptr %1107, align 8
   %1109 = add i64 %1108, %.1.lcssa.i.i.i.i.i
   store i64 %1109, ptr %1107, align 8
@@ -2790,7 +2790,7 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %.val74.i.i.i.i = load i64, ptr %.sroa.232.0..sroa_idx.i.i.i, align 8
   %1110 = getelementptr inbounds i8, ptr %1095, i64 %.val74.i.i.i.i
   %1111 = load i64, ptr %1110, align 8
-  %1112 = getelementptr inbounds i64, ptr %.val73.i.i.i.i, i64 %1111
+  %1112 = getelementptr inbounds [8 x i8], ptr %.val73.i.i.i.i, i64 %1111
   %1113 = load i64, ptr %1112, align 8
   %1114 = icmp eq i64 %1113, 0
   br i1 %1114, label %1115, label %1133
@@ -2804,7 +2804,7 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %1118 = zext i32 %.sroa.4.0.copyload.i.i.i.i.i38.i.i.i to i64
   %1119 = add nsw i64 %1117, %1118
   %1120 = sdiv i64 %1119, 64
-  %1121 = getelementptr inbounds i64, ptr %.sroa.0.0.copyload.i.i.i.i.i37.i.i.i, i64 %1120
+  %1121 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i37.i.i.i, i64 %1120
   %1122 = and i64 %1119, -9223372036854775745
   %1123 = icmp ugt i64 %1122, -9223372036854775808
   %storemerge.idx.i.i.i.i.i.i.i39.i.i.i = select i1 %1123, i64 -8, i64 0
@@ -2846,14 +2846,14 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %1135 = getelementptr inbounds nuw i8, ptr %.sroa.0154.1182.i.i.i.i, i64 16
   %1136 = getelementptr inbounds i8, ptr %1135, i64 %.val122.i32.i.i.i
   %1137 = load i64, ptr %1136, align 8
-  %1138 = getelementptr inbounds %"class.ue2::graph_detail::edge_descriptor.157", ptr %.val121.i.i.i.i, i64 %1137
+  %1138 = getelementptr inbounds [16 x i8], ptr %.val121.i.i.i.i, i64 %1137
   %.sroa.0.0.copyload.i127.i.i.i.i = load ptr, ptr %1138, align 8
   %.val77.i.i.i.i = load ptr, ptr %225, align 8
   %.val78.i.i.i.i = load i64, ptr %.sroa.232.0..sroa_idx.i.i.i, align 8
   %1139 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i127.i.i.i.i, i64 56
   %1140 = getelementptr inbounds i8, ptr %1139, i64 %.val78.i.i.i.i
   %1141 = load i64, ptr %1140, align 8
-  %1142 = getelementptr inbounds i64, ptr %.val77.i.i.i.i, i64 %1141
+  %1142 = getelementptr inbounds [8 x i8], ptr %.val77.i.i.i.i, i64 %1141
   %1143 = load i64, ptr %1142, align 8
   %1144 = sub i64 %1143, %.1.lcssa.i.i.i.i.i
   store i64 %1144, ptr %1142, align 8
@@ -2861,14 +2861,14 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %.val106.i34.i.i.i = load i64, ptr %.sroa.444.0..sroa_idx.i.i, align 8
   %1145 = getelementptr inbounds i8, ptr %1139, i64 %.val106.i34.i.i.i
   %1146 = load i64, ptr %1145, align 8
-  %1147 = getelementptr inbounds %"class.ue2::graph_detail::edge_descriptor.157", ptr %.val105.i33.i.i.i, i64 %1146
+  %1147 = getelementptr inbounds [16 x i8], ptr %.val105.i33.i.i.i, i64 %1146
   %.sroa.04.0.copyload.i.i.i.i = load ptr, ptr %1147, align 8
   %.val81.i.i.i.i = load ptr, ptr %225, align 8
   %.val82.i.i.i.i = load i64, ptr %.sroa.232.0..sroa_idx.i.i.i, align 8
   %1148 = getelementptr inbounds nuw i8, ptr %.sroa.04.0.copyload.i.i.i.i, i64 56
   %1149 = getelementptr inbounds i8, ptr %1148, i64 %.val82.i.i.i.i
   %1150 = load i64, ptr %1149, align 8
-  %1151 = getelementptr inbounds i64, ptr %.val81.i.i.i.i, i64 %1150
+  %1151 = getelementptr inbounds [8 x i8], ptr %.val81.i.i.i.i, i64 %1150
   %1152 = load i64, ptr %1151, align 8
   %1153 = add i64 %1152, %.1.lcssa.i.i.i.i.i
   store i64 %1153, ptr %1151, align 8
@@ -2876,7 +2876,7 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %.val86.i.i.i.i = load i64, ptr %.sroa.232.0..sroa_idx.i.i.i, align 8
   %1154 = getelementptr inbounds i8, ptr %1139, i64 %.val86.i.i.i.i
   %1155 = load i64, ptr %1154, align 8
-  %1156 = getelementptr inbounds i64, ptr %.val85.i.i.i.i, i64 %1155
+  %1156 = getelementptr inbounds [8 x i8], ptr %.val85.i.i.i.i, i64 %1155
   %1157 = load i64, ptr %1156, align 8
   %1158 = icmp eq i64 %1157, 0
   br i1 %1158, label %1159, label %1177
@@ -2890,7 +2890,7 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %1162 = zext i32 %.sroa.4.0.copyload.i.i.i.i135.i.i.i.i to i64
   %1163 = add nsw i64 %1161, %1162
   %1164 = sdiv i64 %1163, 64
-  %1165 = getelementptr inbounds i64, ptr %.sroa.0.0.copyload.i.i.i.i133.i.i.i.i, i64 %1164
+  %1165 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i.i.i.i133.i.i.i.i, i64 %1164
   %1166 = and i64 %1163, -9223372036854775745
   %1167 = icmp ugt i64 %1166, -9223372036854775808
   %storemerge.idx.i.i.i.i.i.i136.i.i.i.i = select i1 %1167, i64 -8, i64 0
@@ -3014,7 +3014,7 @@ _ZN5boost5queueIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_12_GLO
   %1215 = getelementptr inbounds nuw i8, ptr %.sroa.0402.0451.i.i.i.i, i64 56
   %1216 = getelementptr inbounds i8, ptr %1215, i64 %.val151.i.i.i.i
   %1217 = load i64, ptr %1216, align 8
-  %1218 = getelementptr inbounds %"class.ue2::graph_detail::edge_descriptor.157", ptr %.val150.i.i.i.i, i64 %1217
+  %1218 = getelementptr inbounds [16 x i8], ptr %.val150.i.i.i.i, i64 %1217
   %.sroa.0371.0.copyload.i.i.i.i = load ptr, ptr %1218, align 8
   %.sroa.6373.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %1218, i64 8
   %.sroa.6373.0.copyload.i.i.i.i = load i64, ptr %.sroa.6373.0..sroa_idx.i.i.i.i, align 8
@@ -3023,7 +3023,7 @@ _ZN5boost5queueIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_12_GLO
   %1219 = getelementptr inbounds nuw i8, ptr %.sroa.0371.0.copyload.i.i.i.i, i64 56
   %1220 = getelementptr inbounds i8, ptr %1219, i64 %.val129.i61.i.i.i
   %1221 = load i64, ptr %1220, align 8
-  %1222 = getelementptr inbounds i64, ptr %.val128.i60.i.i.i, i64 %1221
+  %1222 = getelementptr inbounds [8 x i8], ptr %.val128.i60.i.i.i, i64 %1221
   %1223 = load i64, ptr %1222, align 8
   %.not93.i.i.i.i = icmp eq i64 %1223, 0
   br i1 %.not93.i.i.i.i, label %_ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3_19LitGraphVertexPropsENS3_17LitGraphEdgePropsEE8prop_mapIRyS7_EENS_21iterator_property_mapIN9__gnu_cxx17__normal_iteratorIPySt6vectorIySaIyEEEENS9_IRmS7_EEySA_EENSC_INSE_IPNS2_12graph_detail15edge_descriptorIS8_EESG_ISP_SaISP_EEEESL_SP_RSP_EENSC_IST_NS9_ISK_S6_EESP_SU_EENS2_15small_color_mapINS9_IRKmS6_EEEENSC_INSE_IPiSG_IiSaIiEEEESW_iRiEESW_E18has_source_connectENSN_17vertex_descriptorIS8_EE.exit.i.i.i.i, label %1224
@@ -3054,7 +3054,7 @@ _ZN5boost5queueIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_12_GLO
   %1238 = load i64, ptr %313, align 8
   %1239 = getelementptr inbounds i8, ptr %1226, i64 %.val40.i.i.i.i.i
   %1240 = load i64, ptr %1239, align 8
-  %1241 = getelementptr inbounds i64, ptr %.val39.i.i.i.i.i, i64 %1240
+  %1241 = getelementptr inbounds [8 x i8], ptr %.val39.i.i.i.i.i, i64 %1240
   %1242 = load i64, ptr %1241, align 8
   %1243 = icmp eq i64 %1242, %1238
   br i1 %1243, label %._crit_edge.i.i.i.i.i, label %.lr.ph.i.i86.i.i.i
@@ -3077,7 +3077,7 @@ _ZN5boost5queueIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_12_GLO
   %.val32.i.i.i.i.i = load i64, ptr %.sroa.4322.0..sroa_idx.i, align 8
   %1247 = getelementptr inbounds i8, ptr %1246, i64 %.val32.i.i.i.i.i
   %1248 = load i64, ptr %1247, align 8
-  %1249 = getelementptr inbounds i32, ptr %.val31.i.i94.i.i.i, i64 %1248
+  %1249 = getelementptr inbounds [4 x i8], ptr %.val31.i.i94.i.i.i, i64 %1248
   %1250 = load i32, ptr %1249, align 4
   %1251 = add nsw i32 %1250, %.070.lcssa.i.i.i.i.i
   br label %1284
@@ -3093,13 +3093,13 @@ _ZN5boost5queueIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_12_GLO
   %1256 = getelementptr inbounds nuw i8, ptr %.sroa.018.0.copyload.i.i.i.i.i, i64 16
   %1257 = getelementptr inbounds i8, ptr %1256, i64 %.val40.i.i.i.i.i
   %1258 = load i64, ptr %1257, align 8
-  %1259 = getelementptr inbounds i64, ptr %.val39.i.i.i.i.i, i64 %1258
+  %1259 = getelementptr inbounds [8 x i8], ptr %.val39.i.i.i.i.i, i64 %1258
   store i64 %1238, ptr %1259, align 8
   %.val3597.pre.i.i.i.i.i = load ptr, ptr %310, align 8
   %.val3698.pre.i.i.i.i.i = load i64, ptr %311, align 8
   %.phi.trans.insert.i.i.i.i.i = getelementptr inbounds i8, ptr %1226, i64 %.val3698.pre.i.i.i.i.i
   %.pre.i.i.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i.i.i, align 8
-  %.phi.trans.insert108.i.i.i.i.i = getelementptr inbounds i64, ptr %.val3597.pre.i.i.i.i.i, i64 %.pre.i.i.i.i.i
+  %.phi.trans.insert108.i.i.i.i.i = getelementptr inbounds [8 x i8], ptr %.val3597.pre.i.i.i.i.i, i64 %.pre.i.i.i.i.i
   %.pre109.i.i.i.i.i = load i64, ptr %.phi.trans.insert108.i.i.i.i.i, align 8
   %.pre110.i.i.i.i.i = load i64, ptr %313, align 8
   br label %1284
@@ -3109,7 +3109,7 @@ _ZN5boost5queueIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_12_GLO
   %1262 = load i64, ptr %1261, align 8
   %1263 = add nsw i64 %1262, %1244
   %1264 = sdiv i64 %1263, 64
-  %1265 = getelementptr inbounds i64, ptr %.sroa.0.0.copyload.i.i.i.i.i.i88.i.i.i, i64 %1264
+  %1265 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i.i88.i.i.i, i64 %1264
   %1266 = and i64 %1263, -9223372036854775745
   %1267 = icmp ugt i64 %1266, -9223372036854775808
   %storemerge.idx.i.i.i.i.i.i.i.i90.i.i.i = select i1 %1267, i64 -8, i64 0
@@ -3124,7 +3124,7 @@ _ZN5boost5queueIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_12_GLO
 1272:                                             ; preds = %1260
   %1273 = getelementptr inbounds i8, ptr %1253, i64 %.val52.i.i.i.i.i
   %1274 = load i64, ptr %1273, align 8
-  %1275 = getelementptr inbounds %"class.ue2::graph_detail::edge_descriptor.157", ptr %.val51.i.i.i.i.i, i64 %1274
+  %1275 = getelementptr inbounds [16 x i8], ptr %.val51.i.i.i.i.i, i64 %1274
   %.sroa.0.0.copyload.i.i.i93.i.i.i = load ptr, ptr %1275, align 8
   %1276 = getelementptr i8, ptr %.sroa.0.0.copyload.i.i.i93.i.i.i, i64 32
   %.val26.i.i.i.i.i = load ptr, ptr %1276, align 8
@@ -3132,7 +3132,7 @@ _ZN5boost5queueIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_12_GLO
   %1278 = getelementptr inbounds nuw i8, ptr %.val26.i.i.i.i.i, i64 16
   %1279 = getelementptr inbounds i8, ptr %1278, i64 %.val40.i.i.i.i.i
   %1280 = load i64, ptr %1279, align 8
-  %1281 = getelementptr inbounds i64, ptr %.val39.i.i.i.i.i, i64 %1280
+  %1281 = getelementptr inbounds [8 x i8], ptr %.val39.i.i.i.i.i, i64 %1280
   %1282 = load i64, ptr %1281, align 8
   %1283 = icmp eq i64 %1282, %1238
   br i1 %1283, label %._crit_edge.i.i.i.i.i, label %1252, !llvm.loop !101
@@ -3151,7 +3151,7 @@ _ZN5boost5queueIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_12_GLO
   %.val29.i.i.i.i.i = load i64, ptr %.sroa.4322.0..sroa_idx.i, align 8
   %1288 = getelementptr inbounds i8, ptr %1287, i64 %.val29.i.i.i.i.i
   %1289 = load i64, ptr %1288, align 8
-  %1290 = getelementptr inbounds i32, ptr %.val28.i.i95.i.i.i, i64 %1289
+  %1290 = getelementptr inbounds [4 x i8], ptr %.val28.i.i95.i.i.i, i64 %1289
   store i32 %.2100.i.i.i.i.i, ptr %1290, align 4
   %1291 = add nsw i32 %.2100.i.i.i.i.i, -1
   %.val43.i.i.i.i.i = load ptr, ptr %310, align 8
@@ -3159,13 +3159,13 @@ _ZN5boost5queueIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_12_GLO
   %.val45.i.i.i.i.i = load i64, ptr %313, align 8
   %1292 = getelementptr inbounds i8, ptr %1287, i64 %.val44.i.i.i.i.i
   %1293 = load i64, ptr %1292, align 8
-  %1294 = getelementptr inbounds i64, ptr %.val43.i.i.i.i.i, i64 %1293
+  %1294 = getelementptr inbounds [8 x i8], ptr %.val43.i.i.i.i.i, i64 %1293
   store i64 %.val45.i.i.i.i.i, ptr %1294, align 8
   %.val49.i.i.i.i.i = load ptr, ptr %222, align 8
   %.val50.i.i.i.i.i = load i64, ptr %.sroa.4320.0..sroa_idx.i, align 8
   %1295 = getelementptr inbounds i8, ptr %1287, i64 %.val50.i.i.i.i.i
   %1296 = load i64, ptr %1295, align 8
-  %1297 = getelementptr inbounds %"class.ue2::graph_detail::edge_descriptor.157", ptr %.val49.i.i.i.i.i, i64 %1296
+  %1297 = getelementptr inbounds [16 x i8], ptr %.val49.i.i.i.i.i, i64 %1296
   %.sroa.0.0.copyload.i53.i.i.i.i.i = load ptr, ptr %1297, align 8
   %1298 = getelementptr i8, ptr %.sroa.0.0.copyload.i53.i.i.i.i.i, i64 32
   %.val.i207.i.i.i.i = load ptr, ptr %1298, align 8
@@ -3174,7 +3174,7 @@ _ZN5boost5queueIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_12_GLO
   %1299 = getelementptr inbounds nuw i8, ptr %.val.i207.i.i.i.i, i64 16
   %1300 = getelementptr inbounds i8, ptr %1299, i64 %.val36.i.i97.i.i.i
   %1301 = load i64, ptr %1300, align 8
-  %1302 = getelementptr inbounds i64, ptr %.val35.i.i96.i.i.i, i64 %1301
+  %1302 = getelementptr inbounds [8 x i8], ptr %.val35.i.i96.i.i.i, i64 %1301
   %1303 = load i64, ptr %1302, align 8
   %.not.i.i98.i.i.i = icmp eq i64 %1303, %.val45.i.i.i.i.i
   br i1 %.not.i.i98.i.i.i, label %.loopexit.i99.i.i.i, label %.lr.ph102.i.i.i.i.i, !llvm.loop !102
@@ -3184,7 +3184,7 @@ _ZN5boost5queueIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_12_GLO
   %.val180.i101.i.i.i = load i64, ptr %.sroa.4322.0..sroa_idx.i, align 8
   %1304 = getelementptr inbounds i8, ptr %1226, i64 %.val180.i101.i.i.i
   %1305 = load i64, ptr %1304, align 8
-  %1306 = getelementptr inbounds i32, ptr %.val179.i100.i.i.i, i64 %1305
+  %1306 = getelementptr inbounds [4 x i8], ptr %.val179.i100.i.i.i, i64 %1305
   %1307 = load i32, ptr %1306, align 4
   %1308 = icmp slt i32 %1307, %.0449.i.i.i.i
   br i1 %1308, label %1309, label %_ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3_19LitGraphVertexPropsENS3_17LitGraphEdgePropsEE8prop_mapIRyS7_EENS_21iterator_property_mapIN9__gnu_cxx17__normal_iteratorIPySt6vectorIySaIyEEEENS9_IRmS7_EEySA_EENSC_INSE_IPNS2_12graph_detail15edge_descriptorIS8_EESG_ISP_SaISP_EEEESL_SP_RSP_EENSC_IST_NS9_ISK_S6_EESP_SU_EENS2_15small_color_mapINS9_IRKmS6_EEEENSC_INSE_IPiSG_IiSaIiEEEESW_iRiEESW_E18has_source_connectENSN_17vertex_descriptorIS8_EE.exit.i.i.i.i
@@ -3209,7 +3209,7 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %.val6.i.i65.i.i.i = load i64, ptr %.sroa.4320.0..sroa_idx.i, align 8
   %1311 = getelementptr inbounds i8, ptr %1202, i64 %.val6.i.i65.i.i.i
   %1312 = load i64, ptr %1311, align 8
-  %1313 = getelementptr inbounds %"class.ue2::graph_detail::edge_descriptor.157", ptr %.val5.i.i64.i.i.i, i64 %1312
+  %1313 = getelementptr inbounds [16 x i8], ptr %.val5.i.i64.i.i.i, i64 %1312
   store ptr %.sroa.0381.1.i.i.i.i, ptr %1313, align 8
   %.sroa.2.0..sroa_idx.i.i66.i.i.i = getelementptr inbounds nuw i8, ptr %1313, i64 8
   store i64 %.sroa.5382.1.i.i.i.i, ptr %.sroa.2.0..sroa_idx.i.i66.i.i.i, align 8
@@ -3221,7 +3221,7 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %1316 = zext i32 %.sroa.4.0.copyload.i.i.i.i.i69.i.i.i to i64
   %1317 = add nsw i64 %1315, %1316
   %1318 = sdiv i64 %1317, 64
-  %1319 = getelementptr inbounds i64, ptr %.sroa.0.0.copyload.i.i.i.i.i68.i.i.i, i64 %1318
+  %1319 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i68.i.i.i, i64 %1318
   %1320 = and i64 %1317, -9223372036854775745
   %1321 = icmp ugt i64 %1320, -9223372036854775808
   %storemerge.idx.i.i.i.i.i.i.i70.i.i.i = select i1 %1321, i64 -8, i64 0
@@ -3236,14 +3236,14 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %.val145.i.i.i.i = load i64, ptr %.sroa.4322.0..sroa_idx.i, align 8
   %1327 = getelementptr inbounds i8, ptr %1202, i64 %.val145.i.i.i.i
   %1328 = load i64, ptr %1327, align 8
-  %1329 = getelementptr inbounds i32, ptr %.val144.i72.i.i.i, i64 %1328
+  %1329 = getelementptr inbounds [4 x i8], ptr %.val144.i72.i.i.i, i64 %1328
   store i32 %1326, ptr %1329, align 4
   %.val195.i73.i.i.i = load ptr, ptr %310, align 8
   %.val196.i74.i.i.i = load i64, ptr %311, align 8
   %.val197.i.i.i.i = load i64, ptr %313, align 8
   %1330 = getelementptr inbounds i8, ptr %1202, i64 %.val196.i74.i.i.i
   %1331 = load i64, ptr %1330, align 8
-  %1332 = getelementptr inbounds i64, ptr %.val195.i73.i.i.i, i64 %1331
+  %1332 = getelementptr inbounds [8 x i8], ptr %.val195.i73.i.i.i, i64 %1331
   store i64 %.val197.i.i.i.i, ptr %1332, align 8
   br label %1604
 
@@ -3252,7 +3252,7 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %.val108.i75.i.i.i = load i64, ptr %311, align 8
   %1333 = getelementptr inbounds i8, ptr %1202, i64 %.val108.i75.i.i.i
   %1334 = load i64, ptr %1333, align 8
-  %1335 = getelementptr inbounds i64, ptr %.val107.i.i.i.i, i64 %1334
+  %1335 = getelementptr inbounds [8 x i8], ptr %.val107.i.i.i.i, i64 %1334
   store i64 0, ptr %1335, align 8
   %.sroa.0402.1458.i.i.i.i = load ptr, ptr %1213, align 8
   %.not418459.i.i.i.i = icmp eq ptr %.sroa.0402.1458.i.i.i.i, %1213
@@ -3265,7 +3265,7 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %1336 = getelementptr inbounds nuw i8, ptr %.sroa.0402.1460.i.i.i.i, i64 56
   %1337 = getelementptr inbounds i8, ptr %1336, i64 %.val155.i77.i.i.i
   %1338 = load i64, ptr %1337, align 8
-  %1339 = getelementptr inbounds %"class.ue2::graph_detail::edge_descriptor.157", ptr %.val154.i76.i.i.i, i64 %1338
+  %1339 = getelementptr inbounds [16 x i8], ptr %.val154.i76.i.i.i, i64 %1338
   %.sroa.0356.0.copyload.i.i.i.i = load ptr, ptr %1339, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %1340 = getelementptr i8, ptr %.sroa.0356.0.copyload.i.i.i.i, i64 32
@@ -3300,7 +3300,7 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %1356 = getelementptr inbounds nuw i8, ptr %.sroa.0356.0.copyload.i.i.i.i, i64 56
   %1357 = getelementptr inbounds i8, ptr %1356, i64 %.val133.i.i.i.i
   %1358 = load i64, ptr %1357, align 8
-  %1359 = getelementptr inbounds i64, ptr %.val132.i.i.i.i, i64 %1358
+  %1359 = getelementptr inbounds [8 x i8], ptr %.val132.i.i.i.i, i64 %1358
   %1360 = load i64, ptr %1359, align 8
   %.not92.i.i.i.i = icmp eq i64 %1360, 0
   br i1 %.not92.i.i.i.i, label %1378, label %1361
@@ -3317,7 +3317,7 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %1364 = zext i32 %.sroa.4.0.copyload.i.i.i.i216.i.i.i.i to i64
   %1365 = add nsw i64 %1363, %1364
   %1366 = sdiv i64 %1365, 64
-  %1367 = getelementptr inbounds i64, ptr %.sroa.0.0.copyload.i.i.i.i214.i.i.i.i, i64 %1366
+  %1367 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i.i.i.i214.i.i.i.i, i64 %1366
   %1368 = and i64 %1365, -9223372036854775745
   %1369 = icmp ugt i64 %1368, -9223372036854775808
   %storemerge.idx.i.i.i.i.i.i217.i.i.i.i = select i1 %1369, i64 -8, i64 0
@@ -3357,7 +3357,7 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %1381 = zext i32 %.sroa.4.0.copyload.i.i.i.i224.i.i.i.i to i64
   %1382 = add nsw i64 %1380, %1381
   %1383 = sdiv i64 %1382, 64
-  %1384 = getelementptr inbounds i64, ptr %.sroa.0.0.copyload.i.i.i.i222.i.i.i.i, i64 %1383
+  %1384 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i.i.i.i222.i.i.i.i, i64 %1383
   %1385 = and i64 %1382, -9223372036854775745
   %1386 = icmp ugt i64 %1385, -9223372036854775808
   %storemerge.idx.i.i.i.i.i.i225.i.i.i.i = select i1 %1386, i64 -8, i64 0
@@ -3374,7 +3374,7 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %.val202.i.i.i.i = load i64, ptr %.sroa.4320.0..sroa_idx.i, align 8
   %1392 = getelementptr inbounds i8, ptr %1343, i64 %.val202.i.i.i.i
   %1393 = load i64, ptr %1392, align 8
-  %1394 = getelementptr inbounds %"class.ue2::graph_detail::edge_descriptor.157", ptr %.val201.i.i.i.i, i64 %1393
+  %1394 = getelementptr inbounds [16 x i8], ptr %.val201.i.i.i.i, i64 %1393
   %.sroa.0.0.copyload.i.i83.i.i.i = load ptr, ptr %1394, align 8
   %1395 = getelementptr i8, ptr %.sroa.0.0.copyload.i.i83.i.i.i, i64 32
   %.val97.i84.i.i.i = load ptr, ptr %1395, align 8
@@ -3429,7 +3429,7 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %1415 = getelementptr inbounds nuw i8, ptr %.sroa.0405.0434.i.i.i.i, i64 56
   %1416 = getelementptr inbounds i8, ptr %1415, i64 %.val137.i.i.i.i
   %1417 = load i64, ptr %1416, align 8
-  %1418 = getelementptr inbounds i64, ptr %.val136.i47.i.i.i, i64 %1417
+  %1418 = getelementptr inbounds [8 x i8], ptr %.val136.i47.i.i.i, i64 %1417
   %1419 = load i64, ptr %1418, align 8
   %.not90.i.i.i.i = icmp eq i64 %1419, 0
   br i1 %.not90.i.i.i.i, label %_ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3_19LitGraphVertexPropsENS3_17LitGraphEdgePropsEE8prop_mapIRyS7_EENS_21iterator_property_mapIN9__gnu_cxx17__normal_iteratorIPySt6vectorIySaIyEEEENS9_IRmS7_EEySA_EENSC_INSE_IPNS2_12graph_detail15edge_descriptorIS8_EESG_ISP_SaISP_EEEESL_SP_RSP_EENSC_IST_NS9_ISK_S6_EESP_SU_EENS2_15small_color_mapINS9_IRKmS6_EEEENSC_INSE_IPiSG_IiSaIiEEEESW_iRiEESW_E16has_sink_connectENSN_17vertex_descriptorIS8_EE.exit.i.i.i.i, label %1420
@@ -3460,7 +3460,7 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %1434 = load i64, ptr %313, align 8
   %1435 = getelementptr inbounds i8, ptr %1422, i64 %.val40.i244.i.i.i.i
   %1436 = load i64, ptr %1435, align 8
-  %1437 = getelementptr inbounds i64, ptr %.val39.i243.i.i.i.i, i64 %1436
+  %1437 = getelementptr inbounds [8 x i8], ptr %.val39.i243.i.i.i.i, i64 %1436
   %1438 = load i64, ptr %1437, align 8
   %1439 = icmp eq i64 %1438, %1434
   br i1 %1439, label %._crit_edge.i260.i.i.i.i, label %.lr.ph.i245.i.i.i.i
@@ -3483,7 +3483,7 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %.val32.i263.i.i.i.i = load i64, ptr %.sroa.4322.0..sroa_idx.i, align 8
   %1443 = getelementptr inbounds i8, ptr %1442, i64 %.val32.i263.i.i.i.i
   %1444 = load i64, ptr %1443, align 8
-  %1445 = getelementptr inbounds i32, ptr %.val31.i262.i.i.i.i, i64 %1444
+  %1445 = getelementptr inbounds [4 x i8], ptr %.val31.i262.i.i.i.i, i64 %1444
   %1446 = load i32, ptr %1445, align 4
   %1447 = add nsw i32 %1446, %.070.lcssa.i261.i.i.i.i
   br label %1480
@@ -3499,13 +3499,13 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %1452 = getelementptr inbounds nuw i8, ptr %.sroa.018.0.copyload.i246.i.i.i.i, i64 16
   %1453 = getelementptr inbounds i8, ptr %1452, i64 %.val40.i244.i.i.i.i
   %1454 = load i64, ptr %1453, align 8
-  %1455 = getelementptr inbounds i64, ptr %.val39.i243.i.i.i.i, i64 %1454
+  %1455 = getelementptr inbounds [8 x i8], ptr %.val39.i243.i.i.i.i, i64 %1454
   store i64 %1434, ptr %1455, align 8
   %.val3597.pre.i281.i.i.i.i = load ptr, ptr %310, align 8
   %.val3698.pre.i282.i.i.i.i = load i64, ptr %311, align 8
   %.phi.trans.insert.i283.i.i.i.i = getelementptr inbounds i8, ptr %1422, i64 %.val3698.pre.i282.i.i.i.i
   %.pre.i284.i.i.i.i = load i64, ptr %.phi.trans.insert.i283.i.i.i.i, align 8
-  %.phi.trans.insert108.i285.i.i.i.i = getelementptr inbounds i64, ptr %.val3597.pre.i281.i.i.i.i, i64 %.pre.i284.i.i.i.i
+  %.phi.trans.insert108.i285.i.i.i.i = getelementptr inbounds [8 x i8], ptr %.val3597.pre.i281.i.i.i.i, i64 %.pre.i284.i.i.i.i
   %.pre109.i286.i.i.i.i = load i64, ptr %.phi.trans.insert108.i285.i.i.i.i, align 8
   %.pre110.i287.i.i.i.i = load i64, ptr %313, align 8
   br label %1480
@@ -3515,7 +3515,7 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %1458 = load i64, ptr %1457, align 8
   %1459 = add nsw i64 %1458, %1440
   %1460 = sdiv i64 %1459, 64
-  %1461 = getelementptr inbounds i64, ptr %.sroa.0.0.copyload.i.i.i.i.i248.i.i.i.i, i64 %1460
+  %1461 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i.i.i.i.i248.i.i.i.i, i64 %1460
   %1462 = and i64 %1459, -9223372036854775745
   %1463 = icmp ugt i64 %1462, -9223372036854775808
   %storemerge.idx.i.i.i.i.i.i.i255.i.i.i.i = select i1 %1463, i64 -8, i64 0
@@ -3530,7 +3530,7 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
 1468:                                             ; preds = %1456
   %1469 = getelementptr inbounds i8, ptr %1449, i64 %.val52.i252.i.i.i.i
   %1470 = load i64, ptr %1469, align 8
-  %1471 = getelementptr inbounds %"class.ue2::graph_detail::edge_descriptor.157", ptr %.val51.i251.i.i.i.i, i64 %1470
+  %1471 = getelementptr inbounds [16 x i8], ptr %.val51.i251.i.i.i.i, i64 %1470
   %.sroa.0.0.copyload.i.i258.i.i.i.i = load ptr, ptr %1471, align 8
   %1472 = getelementptr i8, ptr %.sroa.0.0.copyload.i.i258.i.i.i.i, i64 40
   %.val26.i259.i.i.i.i = load ptr, ptr %1472, align 8
@@ -3538,7 +3538,7 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %1474 = getelementptr inbounds nuw i8, ptr %.val26.i259.i.i.i.i, i64 16
   %1475 = getelementptr inbounds i8, ptr %1474, i64 %.val40.i244.i.i.i.i
   %1476 = load i64, ptr %1475, align 8
-  %1477 = getelementptr inbounds i64, ptr %.val39.i243.i.i.i.i, i64 %1476
+  %1477 = getelementptr inbounds [8 x i8], ptr %.val39.i243.i.i.i.i, i64 %1476
   %1478 = load i64, ptr %1477, align 8
   %1479 = icmp eq i64 %1478, %1434
   br i1 %1479, label %._crit_edge.i260.i.i.i.i, label %1448, !llvm.loop !105
@@ -3557,7 +3557,7 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %.val29.i269.i.i.i.i = load i64, ptr %.sroa.4322.0..sroa_idx.i, align 8
   %1484 = getelementptr inbounds i8, ptr %1483, i64 %.val29.i269.i.i.i.i
   %1485 = load i64, ptr %1484, align 8
-  %1486 = getelementptr inbounds i32, ptr %.val28.i268.i.i.i.i, i64 %1485
+  %1486 = getelementptr inbounds [4 x i8], ptr %.val28.i268.i.i.i.i, i64 %1485
   store i32 %.2100.i267.i.i.i.i, ptr %1486, align 4
   %1487 = add nsw i32 %.2100.i267.i.i.i.i, -1
   %.val43.i270.i.i.i.i = load ptr, ptr %310, align 8
@@ -3565,13 +3565,13 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %.val45.i272.i.i.i.i = load i64, ptr %313, align 8
   %1488 = getelementptr inbounds i8, ptr %1483, i64 %.val44.i271.i.i.i.i
   %1489 = load i64, ptr %1488, align 8
-  %1490 = getelementptr inbounds i64, ptr %.val43.i270.i.i.i.i, i64 %1489
+  %1490 = getelementptr inbounds [8 x i8], ptr %.val43.i270.i.i.i.i, i64 %1489
   store i64 %.val45.i272.i.i.i.i, ptr %1490, align 8
   %.val49.i273.i.i.i.i = load ptr, ptr %222, align 8
   %.val50.i274.i.i.i.i = load i64, ptr %.sroa.4320.0..sroa_idx.i, align 8
   %1491 = getelementptr inbounds i8, ptr %1483, i64 %.val50.i274.i.i.i.i
   %1492 = load i64, ptr %1491, align 8
-  %1493 = getelementptr inbounds %"class.ue2::graph_detail::edge_descriptor.157", ptr %.val49.i273.i.i.i.i, i64 %1492
+  %1493 = getelementptr inbounds [16 x i8], ptr %.val49.i273.i.i.i.i, i64 %1492
   %.sroa.0.0.copyload.i53.i275.i.i.i.i = load ptr, ptr %1493, align 8
   %1494 = getelementptr i8, ptr %.sroa.0.0.copyload.i53.i275.i.i.i.i, i64 40
   %.val.i276.i.i.i.i = load ptr, ptr %1494, align 8
@@ -3580,7 +3580,7 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %1495 = getelementptr inbounds nuw i8, ptr %.val.i276.i.i.i.i, i64 16
   %1496 = getelementptr inbounds i8, ptr %1495, i64 %.val36.i278.i.i.i.i
   %1497 = load i64, ptr %1496, align 8
-  %1498 = getelementptr inbounds i64, ptr %.val35.i277.i.i.i.i, i64 %1497
+  %1498 = getelementptr inbounds [8 x i8], ptr %.val35.i277.i.i.i.i, i64 %1497
   %1499 = load i64, ptr %1498, align 8
   %.not.i279.i.i.i.i = icmp eq i64 %1499, %.val45.i272.i.i.i.i
   br i1 %.not.i279.i.i.i.i, label %.loopexit420.i.i.i.i, label %.lr.ph102.i266.i.i.i.i, !llvm.loop !106
@@ -3590,7 +3590,7 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %.val188.i59.i.i.i = load i64, ptr %.sroa.4322.0..sroa_idx.i, align 8
   %1500 = getelementptr inbounds i8, ptr %1422, i64 %.val188.i59.i.i.i
   %1501 = load i64, ptr %1500, align 8
-  %1502 = getelementptr inbounds i32, ptr %.val187.i58.i.i.i, i64 %1501
+  %1502 = getelementptr inbounds [4 x i8], ptr %.val187.i58.i.i.i, i64 %1501
   %1503 = load i32, ptr %1502, align 4
   %1504 = icmp slt i32 %1503, %.086432.i.i.i.i
   br i1 %1504, label %1505, label %_ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3_19LitGraphVertexPropsENS3_17LitGraphEdgePropsEE8prop_mapIRyS7_EENS_21iterator_property_mapIN9__gnu_cxx17__normal_iteratorIPySt6vectorIySaIyEEEENS9_IRmS7_EEySA_EENSC_INSE_IPNS2_12graph_detail15edge_descriptorIS8_EESG_ISP_SaISP_EEEESL_SP_RSP_EENSC_IST_NS9_ISK_S6_EESP_SU_EENS2_15small_color_mapINS9_IRKmS6_EEEENSC_INSE_IPiSG_IiSaIiEEEESW_iRiEESW_E16has_sink_connectENSN_17vertex_descriptorIS8_EE.exit.i.i.i.i
@@ -3615,7 +3615,7 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %.val6.i290.i.i.i.i = load i64, ptr %.sroa.4320.0..sroa_idx.i, align 8
   %1507 = getelementptr inbounds i8, ptr %1202, i64 %.val6.i290.i.i.i.i
   %1508 = load i64, ptr %1507, align 8
-  %1509 = getelementptr inbounds %"class.ue2::graph_detail::edge_descriptor.157", ptr %.val5.i289.i.i.i.i, i64 %1508
+  %1509 = getelementptr inbounds [16 x i8], ptr %.val5.i289.i.i.i.i, i64 %1508
   store ptr %.sroa.0350.1.i.i.i.i, ptr %1509, align 8
   %.sroa.2.0..sroa_idx.i291.i.i.i.i = getelementptr inbounds nuw i8, ptr %1509, i64 8
   store i64 %.sroa.5351.1.i.i.i.i, ptr %.sroa.2.0..sroa_idx.i291.i.i.i.i, align 8
@@ -3627,7 +3627,7 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %1512 = zext i32 %.sroa.4.0.copyload.i.i.i.i295.i.i.i.i to i64
   %1513 = add nsw i64 %1511, %1512
   %1514 = sdiv i64 %1513, 64
-  %1515 = getelementptr inbounds i64, ptr %.sroa.0.0.copyload.i.i.i.i293.i.i.i.i, i64 %1514
+  %1515 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i.i.i.i293.i.i.i.i, i64 %1514
   %1516 = and i64 %1513, -9223372036854775745
   %1517 = icmp ugt i64 %1516, -9223372036854775808
   %storemerge.idx.i.i.i.i.i.i296.i.i.i.i = select i1 %1517, i64 -8, i64 0
@@ -3642,14 +3642,14 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %.val148.i53.i.i.i = load i64, ptr %.sroa.4322.0..sroa_idx.i, align 8
   %1523 = getelementptr inbounds i8, ptr %1202, i64 %.val148.i53.i.i.i
   %1524 = load i64, ptr %1523, align 8
-  %1525 = getelementptr inbounds i32, ptr %.val147.i52.i.i.i, i64 %1524
+  %1525 = getelementptr inbounds [4 x i8], ptr %.val147.i52.i.i.i, i64 %1524
   store i32 %1522, ptr %1525, align 4
   %.val198.i.i.i.i = load ptr, ptr %310, align 8
   %.val199.i.i.i.i = load i64, ptr %311, align 8
   %.val200.i.i.i.i = load i64, ptr %313, align 8
   %1526 = getelementptr inbounds i8, ptr %1202, i64 %.val199.i.i.i.i
   %1527 = load i64, ptr %1526, align 8
-  %1528 = getelementptr inbounds i64, ptr %.val198.i.i.i.i, i64 %1527
+  %1528 = getelementptr inbounds [8 x i8], ptr %.val198.i.i.i.i, i64 %1527
   store i64 %.val200.i.i.i.i, ptr %1528, align 8
   br label %1604
 
@@ -3658,7 +3658,7 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %.val105.i54.i.i.i = load i64, ptr %311, align 8
   %1529 = getelementptr inbounds i8, ptr %1202, i64 %.val105.i54.i.i.i
   %1530 = load i64, ptr %1529, align 8
-  %1531 = getelementptr inbounds i64, ptr %.val104.i.i.i.i, i64 %1530
+  %1531 = getelementptr inbounds [8 x i8], ptr %.val104.i.i.i.i, i64 %1530
   store i64 0, ptr %1531, align 8
   %.sroa.0405.1437.i.i.i.i = load ptr, ptr %1213, align 8
   %.not415438.i.i.i.i = icmp eq ptr %.sroa.0405.1437.i.i.i.i, %1213
@@ -3699,7 +3699,7 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %1548 = getelementptr inbounds nuw i8, ptr %.sroa.0405.1439.i.i.i.i, i64 56
   %1549 = getelementptr inbounds i8, ptr %1548, i64 %.val141.i.i.i.i
   %1550 = load i64, ptr %1549, align 8
-  %1551 = getelementptr inbounds i64, ptr %.val140.i56.i.i.i, i64 %1550
+  %1551 = getelementptr inbounds [8 x i8], ptr %.val140.i56.i.i.i, i64 %1550
   %1552 = load i64, ptr %1551, align 8
   %.not89.i.i.i.i = icmp eq i64 %1552, 0
   br i1 %.not89.i.i.i.i, label %1570, label %1553
@@ -3716,7 +3716,7 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %1556 = zext i32 %.sroa.4.0.copyload.i.i.i.i306.i.i.i.i to i64
   %1557 = add nsw i64 %1555, %1556
   %1558 = sdiv i64 %1557, 64
-  %1559 = getelementptr inbounds i64, ptr %.sroa.0.0.copyload.i.i.i.i304.i.i.i.i, i64 %1558
+  %1559 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i.i.i.i304.i.i.i.i, i64 %1558
   %1560 = and i64 %1557, -9223372036854775745
   %1561 = icmp ugt i64 %1560, -9223372036854775808
   %storemerge.idx.i.i.i.i.i.i307.i.i.i.i = select i1 %1561, i64 -8, i64 0
@@ -3756,7 +3756,7 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %1573 = zext i32 %.sroa.4.0.copyload.i.i.i.i316.i.i.i.i to i64
   %1574 = add nsw i64 %1572, %1573
   %1575 = sdiv i64 %1574, 64
-  %1576 = getelementptr inbounds i64, ptr %.sroa.0.0.copyload.i.i.i.i314.i.i.i.i, i64 %1575
+  %1576 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i.i.i.i314.i.i.i.i, i64 %1575
   %1577 = and i64 %1574, -9223372036854775745
   %1578 = icmp ugt i64 %1577, -9223372036854775808
   %storemerge.idx.i.i.i.i.i.i317.i.i.i.i = select i1 %1578, i64 -8, i64 0
@@ -3773,7 +3773,7 @@ _ZN5boost6detail11bk_max_flowIN3ue212_GLOBAL__N_18LitGraphENS2_9ue2_graphIS4_NS3
   %.val204.i.i.i.i = load i64, ptr %.sroa.4320.0..sroa_idx.i, align 8
   %1584 = getelementptr inbounds i8, ptr %1535, i64 %.val204.i.i.i.i
   %1585 = load i64, ptr %1584, align 8
-  %1586 = getelementptr inbounds %"class.ue2::graph_detail::edge_descriptor.157", ptr %.val203.i.i.i.i, i64 %1585
+  %1586 = getelementptr inbounds [16 x i8], ptr %.val203.i.i.i.i, i64 %1585
   %.sroa.0.0.copyload.i319.i.i.i.i = load ptr, ptr %1586, align 8
   %1587 = getelementptr i8, ptr %.sroa.0.0.copyload.i319.i.i.i.i, i64 40
   %.val98.i57.i.i.i = load ptr, ptr %1587, align 8
@@ -4176,7 +4176,7 @@ _ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_12_GLOBAL__
   br label %_ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_12_GLOBAL__N_18LitGraphENS4_19LitGraphVertexPropsENS4_17LitGraphEdgePropsEEEEESaIS9_EE17_M_realloc_insertIJRKS9_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_12_GLOBAL__N_18LitGraphENS4_19LitGraphVertexPropsENS4_17LitGraphEdgePropsEEEEESaIS9_EE17_M_realloc_insertIJRKS9_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i.i: ; preds = %1724, %_ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_12_GLOBAL__N_18LitGraphENS4_19LitGraphVertexPropsENS4_17LitGraphEdgePropsEEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit26.i.i.i
-  %1725 = getelementptr inbounds nuw %"class.ue2::graph_detail::edge_descriptor.157", ptr %1720, i64 %1718
+  %1725 = getelementptr inbounds nuw [16 x i8], ptr %1720, i64 %1718
   br label %1726
 
 1726:                                             ; preds = %_ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_12_GLOBAL__N_18LitGraphENS4_19LitGraphVertexPropsENS4_17LitGraphEdgePropsEEEEESaIS9_EE17_M_realloc_insertIJRKS9_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i.i, %1706
@@ -4281,7 +4281,7 @@ _ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_12_GLOBAL__
   br label %_ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_12_GLOBAL__N_18LitGraphENS4_19LitGraphVertexPropsENS4_17LitGraphEdgePropsEEEEESaIS9_EE17_M_realloc_insertIJRKS9_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i230.i
 
 _ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_12_GLOBAL__N_18LitGraphENS4_19LitGraphVertexPropsENS4_17LitGraphEdgePropsEEEEESaIS9_EE17_M_realloc_insertIJRKS9_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i230.i: ; preds = %1753, %_ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_12_GLOBAL__N_18LitGraphENS4_19LitGraphVertexPropsENS4_17LitGraphEdgePropsEEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit26.i.i227.i
-  %1754 = getelementptr inbounds nuw %"class.ue2::graph_detail::edge_descriptor.157", ptr %1749, i64 %1747
+  %1754 = getelementptr inbounds nuw [16 x i8], ptr %1749, i64 %1747
   br label %1755
 
 1755:                                             ; preds = %_ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_12_GLOBAL__N_18LitGraphENS4_19LitGraphVertexPropsENS4_17LitGraphEdgePropsEEEEESaIS9_EE17_M_realloc_insertIJRKS9_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i230.i, %1735
@@ -4520,7 +4520,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit258.i:               ; preds = %1800, %_ZNSt6vector
   %1811 = load i8, ptr %1810, align 1
   %1812 = lshr i64 %1808, 6
   %1813 = load ptr, ptr %1806, align 8
-  %1814 = getelementptr inbounds nuw i64, ptr %1813, i64 %1812
+  %1814 = getelementptr inbounds nuw [8 x i8], ptr %1813, i64 %1812
   %1815 = load i64, ptr %1814, align 8
   %1816 = and i64 %1808, 63
   %1817 = lshr i64 %1815, %1816
@@ -4539,7 +4539,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit258.i:               ; preds = %1800, %_ZNSt6vector
 .lr.ph.i29:                                       ; preds = %1819
   %.val48.i = load ptr, ptr %81, align 8
   %1821 = getelementptr inbounds nuw i8, ptr %.pre.i28, i64 %1808
-  %1822 = getelementptr inbounds nuw i64, ptr %.pre133.i, i64 %1812
+  %1822 = getelementptr inbounds nuw [8 x i8], ptr %.pre133.i, i64 %1812
   br label %1825
 
 1823:                                             ; preds = %1807
@@ -4577,7 +4577,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit258.i:               ; preds = %1800, %_ZNSt6vector
 ._crit_edge.i:                                    ; preds = %1839, %1819
   %1840 = getelementptr inbounds nuw i8, ptr %.pre.i28, i64 %1808
   %1841 = load i8, ptr %1840, align 1
-  %1842 = getelementptr inbounds nuw i64, ptr %.pre133.i, i64 %1812
+  %1842 = getelementptr inbounds nuw [8 x i8], ptr %.pre133.i, i64 %1812
   %1843 = load i64, ptr %1842, align 8
   %1844 = lshr i64 %1843, %1816
   %.sroa.2.0.insert.ext.i.i.i.i69.i = shl i64 %1844, 8
@@ -4667,7 +4667,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit258.i:               ; preds = %1800, %_ZNSt6vector
   %.014.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i30 ], [ %1882, %1874 ]
   %.sroa.5.013.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i30 ], [ %1883, %1874 ]
   %1875 = lshr i64 %.sroa.5.013.i.i.i.i, 6
-  %1876 = getelementptr inbounds nuw i64, ptr %1873, i64 %1875
+  %1876 = getelementptr inbounds nuw [8 x i8], ptr %1873, i64 %1875
   %1877 = load i64, ptr %1876, align 8
   %1878 = and i64 %.sroa.5.013.i.i.i.i, 63
   %1879 = shl nuw i64 1, %1878
@@ -5133,7 +5133,7 @@ define hidden noundef i64 @_ZN3ue28scoreSetERKSt3setINS_11ue2_literalESt4lessIS1
   %.014.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %28, %20 ]
   %.sroa.5.013.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %29, %20 ]
   %21 = lshr i64 %.sroa.5.013.i.i.i, 6
-  %22 = getelementptr inbounds nuw i64, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = load i64, ptr %22, align 8
   %24 = and i64 %.sroa.5.013.i.i.i, 63
   %25 = shl nuw i64 1, %24
@@ -5297,7 +5297,7 @@ define hidden noundef i64 @_ZN3ue227sanitizeAndCompressAndScoreERSt3setINS_11ue2
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 %.sroa.6.019.i.i.i
   %42 = load i8, ptr %41, align 1
   %43 = lshr i64 %.sroa.6.019.i.i.i, 6
-  %44 = getelementptr inbounds nuw i64, ptr %40, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %43
   %45 = load i64, ptr %44, align 8
   %46 = and i64 %.sroa.6.019.i.i.i, 63
   %47 = lshr i64 %45, %46
@@ -5394,7 +5394,7 @@ _ZNK3ue29case_iterneERKS0_.exit:                  ; preds = %68, %72, %74
   %84 = sub i64 %82, %83
   %85 = ashr exact i64 %84, 3
   %86 = sub nsw i64 0, %85
-  %87 = getelementptr inbounds i64, ptr %81, i64 %86
+  %87 = getelementptr inbounds [8 x i8], ptr %81, i64 %86
   call void @_ZdlPv(ptr noundef %87) #27
   store ptr null, ptr %14, align 8
   store i32 0, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8
@@ -5504,7 +5504,7 @@ _ZNSt6vectorIN3ue211ue2_literalESaIS1_EE12emplace_backIJRKNSt7__cxx1112basic_str
   %123 = sub i64 %121, %122
   %124 = ashr exact i64 %123, 3
   %125 = sub nsw i64 0, %124
-  %126 = getelementptr inbounds i64, ptr %120, i64 %125
+  %126 = getelementptr inbounds [8 x i8], ptr %120, i64 %125
   call void @_ZdlPv(ptr noundef %126) #27
   store ptr null, ptr %21, align 8
   store i32 0, ptr %.sroa.4.0..sroa_idx.i.i.i.i29, align 8
@@ -5872,7 +5872,7 @@ define linkonce_odr hidden void @_ZN3ue29case_iterD2Ev(ptr noundef nonnull align
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
   %11 = sub nsw i64 0, %10
-  %12 = getelementptr inbounds i64, ptr %6, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %6, i64 %11
   tail call void @_ZdlPv(ptr noundef %12) #27
   store ptr null, ptr %2, align 8
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -6199,7 +6199,7 @@ _ZN3ue2L13initWorkQueueERSt5queueISt4pairINS_12graph_detail17vertex_descriptorIN
 
 97:                                               ; preds = %95, %92
   %.0811.i.i.i.i = phi i64 [ 0, %92 ], [ %96, %95 ]
-  %98 = getelementptr inbounds nuw i64, ptr %94, i64 %.0811.i.i.i.i
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %.0811.i.i.i.i
   %99 = load i64, ptr %98, align 8
   %.not.i.i.i.i = icmp eq i64 %99, -1
   br i1 %.not.i.i.i.i, label %95, label %_ZNK3ue29CharReach3allEv.exit.thread.i.i.preheader
@@ -6215,7 +6215,7 @@ _ZNK3ue29CharReach3allEv.exit.thread.i.i.preheader: ; preds = %97, %_ZNK3ue29Cha
 
 _ZNK3ue29CharReach3allEv.exit.thread.i.i:         ; preds = %_ZNK3ue29CharReach3allEv.exit.thread.i.i.preheader, %105
   %.0712.i.i.i.i = phi i64 [ %106, %105 ], [ 0, %_ZNK3ue29CharReach3allEv.exit.thread.i.i.preheader ]
-  %103 = getelementptr inbounds nuw i64, ptr %94, i64 %.0712.i.i.i.i
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %.0712.i.i.i.i
   %104 = load i64, ptr %103, align 8
   %.not.i.i13.i.i = icmp eq i64 %104, 0
   br i1 %.not.i.i13.i.i, label %105, label %_ZNK3ue29CharReach10find_firstEv.exit.i.i
@@ -6243,7 +6243,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.i.i:        ; preds = %_ZNK3ue29CharReach3
 113:                                              ; preds = %.lr.ph.i.i
   %114 = lshr i64 %.023.i.i, 6
   %115 = and i64 %114, 3
-  %116 = getelementptr inbounds nuw i64, ptr %94, i64 %115
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %115
   %117 = load i64, ptr %116, align 8
   %118 = and i64 %.023.i.i, 31
   %119 = shl nuw i64 4294967296, %118
@@ -6270,7 +6270,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.i.i:        ; preds = %_ZNK3ue29CharReach3
   br label %134
 
 127:                                              ; preds = %124
-  %128 = getelementptr inbounds nuw i64, ptr %94, i64 %125
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %125
   %129 = load i64, ptr %128, align 8
   %130 = shl nsw i64 -2, %126
   %131 = and i64 %129, %130
@@ -6288,7 +6288,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.i.i:        ; preds = %_ZNK3ue29CharReach3
 
 136:                                              ; preds = %134
   %.0.i.i.i.i = add nuw nsw i64 %.0.in.i.i.i.i, 1
-  %137 = getelementptr inbounds nuw i64, ptr %94, i64 %.0.i.i.i.i
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %.0.i.i.i.i
   %138 = load i64, ptr %137, align 8
   %.not22.i.i.i.i = icmp eq i64 %138, 0
   br i1 %.not22.i.i.i.i, label %134, label %139, !llvm.loop !201
@@ -6445,7 +6445,7 @@ _ZNK3ue29CharReach9find_nextEm.exit.i.i:          ; preds = %139, %132
 
 .preheader.i:                                     ; preds = %209, %215
   %.0712.i.i.i = phi i64 [ %216, %215 ], [ 0, %209 ]
-  %213 = getelementptr inbounds nuw i64, ptr %94, i64 %.0712.i.i.i
+  %213 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %.0712.i.i.i
   %214 = load i64, ptr %213, align 8
   %.not.i.i.i = icmp eq i64 %214, 0
   br i1 %.not.i.i.i, label %215, label %_ZNK3ue29CharReach10find_firstEv.exit.i
@@ -6476,7 +6476,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.i:          ; preds = %.preheader.i
 225:                                              ; preds = %221
   %226 = lshr i64 %.08142.i, 6
   %227 = and i64 %226, 3
-  %228 = getelementptr inbounds nuw i64, ptr %94, i64 %227
+  %228 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %227
   %229 = load i64, ptr %228, align 8
   %230 = and i64 %.08142.i, 31
   %231 = shl nuw i64 4294967296, %230
@@ -6493,7 +6493,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.i:          ; preds = %.preheader.i
   %237 = add i64 %.08142.i, 224
   %238 = lshr i64 %237, 6
   %239 = and i64 %238, 3
-  %240 = getelementptr inbounds nuw i64, ptr %94, i64 %239
+  %240 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %239
   %241 = load i64, ptr %240, align 8
   %242 = and i64 %237, 63
   %243 = lshr i64 %241, %242
@@ -6619,7 +6619,7 @@ _ZN3ue223add_edge_if_not_presentINS_12_GLOBAL__N_18LitGraphEEESt4pairINT_15edge_
   br label %287
 
 280:                                              ; preds = %277
-  %281 = getelementptr inbounds nuw i64, ptr %94, i64 %278
+  %281 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %278
   %282 = load i64, ptr %281, align 8
   %283 = shl nsw i64 -2, %279
   %284 = and i64 %282, %283
@@ -6637,7 +6637,7 @@ _ZN3ue223add_edge_if_not_presentINS_12_GLOBAL__N_18LitGraphEEESt4pairINT_15edge_
 
 289:                                              ; preds = %287
   %.0.i.i134.i = add nuw nsw i64 %.0.in.i.i.i, 1
-  %290 = getelementptr inbounds nuw i64, ptr %94, i64 %.0.i.i134.i
+  %290 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %.0.i.i134.i
   %291 = load i64, ptr %290, align 8
   %.not22.i.i.i = icmp eq i64 %291, 0
   br i1 %.not22.i.i.i, label %287, label %292, !llvm.loop !201
@@ -7382,7 +7382,7 @@ _ZNSt12_Vector_baseIySaIyEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIySaI
   %9 = shl nuw nsw i64 %7, 3
   %10 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %9) #26
   store ptr %10, ptr %0, align 8
-  %11 = getelementptr inbounds nuw i64, ptr %10, i64 %7
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %7
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %11, ptr %12, align 8
   store i64 0, ptr %10, align 8
@@ -7448,7 +7448,7 @@ _ZN5boost9iteratorsneIN3ue29ue2_graphINS2_8NGHolderENS2_19NFAGraphVertexPropsENS
   %35 = load i64, ptr %34, align 8
   %36 = load ptr, ptr %2, align 8, !noalias !276
   %37 = load i64, ptr %29, align 8, !noalias !281
-  %38 = getelementptr inbounds nuw %"class.ue2::graph_detail::edge_descriptor", ptr %36, i64 %37
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %36, i64 %37
   %39 = icmp sgt i64 %37, 0
   br i1 %39, label %_ZSt7advanceIN5boost9container12vec_iteratorIPN3ue212graph_detail15edge_descriptorINS3_9ue2_graphINS3_8NGHolderENS3_19NFAGraphVertexPropsENS3_17NFAGraphEdgePropsEEEEELb1EEElEvRT_T0_.exit.i.i.i.i.preheader, label %_ZSt11lower_boundIN5boost9container12vec_iteratorIPN3ue212graph_detail15edge_descriptorINS3_9ue2_graphINS3_8NGHolderENS3_19NFAGraphVertexPropsENS3_17NFAGraphEdgePropsEEEEELb1EEESB_St4lessISB_EET_SG_SG_RKT0_T1_.exit.i.i
 
@@ -7460,7 +7460,7 @@ _ZSt7advanceIN5boost9container12vec_iteratorIPN3ue212graph_detail15edge_descript
   %40 = phi ptr [ %53, %52 ], [ %36, %_ZSt7advanceIN5boost9container12vec_iteratorIPN3ue212graph_detail15edge_descriptorINS3_9ue2_graphINS3_8NGHolderENS3_19NFAGraphVertexPropsENS3_17NFAGraphEdgePropsEEEEELb1EEElEvRT_T0_.exit.i.i.i.i.preheader ]
   %.012.i.i.i.i = phi i64 [ %.1.i.i.i.i, %52 ], [ %37, %_ZSt7advanceIN5boost9container12vec_iteratorIPN3ue212graph_detail15edge_descriptorINS3_9ue2_graphINS3_8NGHolderENS3_19NFAGraphVertexPropsENS3_17NFAGraphEdgePropsEEEEELb1EEElEvRT_T0_.exit.i.i.i.i.preheader ]
   %41 = lshr i64 %.012.i.i.i.i, 1
-  %42 = getelementptr inbounds nuw %"class.ue2::graph_detail::edge_descriptor", ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %40, i64 %41
   %43 = load ptr, ptr %42, align 8, !noalias !286
   %.not = icmp eq ptr %43, null
   br i1 %.not, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt4lessIN3ue212graph_detail15edge_descriptorINS3_9ue2_graphINS3_8NGHolderENS3_19NFAGraphVertexPropsENS3_17NFAGraphEdgePropsEEEEEEEclIN5boost9container12vec_iteratorIPSB_Lb1EEEKSB_EEbT_RT0_.exit.i.i.i.i, label %44
@@ -7510,7 +7510,7 @@ _ZNKSt4lessIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_8NGHolderENS
 
 62:                                               ; preds = %_ZNKSt4lessIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEEEclERKS8_SB_.exit.i.i, %59
   %63 = and i64 %35, 4294967295
-  %64 = getelementptr inbounds nuw i64, ptr %18, i64 %63
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %63
   store i64 10000000, ptr %64, align 8
   br label %79
 
@@ -7525,7 +7525,7 @@ _ZN3ue28containsINS_8flat_setINS_12graph_detail15edge_descriptorINS_9ue2_graphIN
 
 67:                                               ; preds = %65
   %68 = and i64 %35, 4294967295
-  %69 = getelementptr inbounds nuw i64, ptr %18, i64 %68
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %68
   store i64 %66, ptr %69, align 8
   %70 = load ptr, ptr %30, align 8
   invoke void @_ZNSt8_Rb_treeIN3ue211ue2_literalES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE8_M_eraseEPSt13_Rb_tree_nodeIS1_E(ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef %70)
@@ -7812,7 +7812,7 @@ _ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS
   %90 = getelementptr inbounds nuw i8, ptr %88, i64 %.sroa.6.019.i.i
   %91 = load i8, ptr %90, align 1
   %92 = lshr i64 %.sroa.6.019.i.i, 6
-  %93 = getelementptr inbounds nuw i64, ptr %89, i64 %92
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %92
   %94 = load i64, ptr %93, align 8
   %95 = and i64 %.sroa.6.019.i.i, 63
   %96 = lshr i64 %94, %95
@@ -7836,7 +7836,7 @@ _ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS
 
 .preheader:                                       ; preds = %103, %107
   %.0712.i.i = phi i64 [ %108, %107 ], [ 0, %103 ]
-  %105 = getelementptr inbounds nuw i64, ptr %65, i64 %.0712.i.i
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %.0712.i.i
   %106 = load i64, ptr %105, align 8
   %.not.i.i93 = icmp eq i64 %106, 0
   br i1 %.not.i.i93, label %107, label %_ZNK3ue29CharReach10find_firstEv.exit
@@ -7953,7 +7953,7 @@ _ZN3ue24edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairIN
 
 _ZN3ue24edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RKS3_.exit106: ; preds = %_ZN3ue24edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RKS3_.exit106.preheader, %156
   %.0712.i.i107 = phi i64 [ %157, %156 ], [ 0, %_ZN3ue24edgeINS_8NGHolderEEENSt9enable_ifIXsr12is_ue2_graphIT_EE5valueESt4pairINS3_15edge_descriptorEbEE4typeENS3_17vertex_descriptorES9_RKS3_.exit106.preheader ]
-  %154 = getelementptr inbounds nuw i64, ptr %65, i64 %.0712.i.i107
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %.0712.i.i107
   %155 = load i64, ptr %154, align 8
   %.not.i.i108 = icmp eq i64 %155, 0
   br i1 %.not.i.i108, label %156, label %158
@@ -8256,7 +8256,7 @@ define hidden noundef zeroext i1 @_ZN3ue218getTrailingLiteralERKNS_8NGHolderEPNS
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 %.sroa.6.019.i.i
   %28 = load i8, ptr %27, align 1
   %29 = lshr i64 %.sroa.6.019.i.i, 6
-  %30 = getelementptr inbounds nuw i64, ptr %26, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %29
   %31 = load i64, ptr %30, align 8
   %32 = and i64 %.sroa.6.019.i.i, 63
   %33 = lshr i64 %31, %32
@@ -8379,7 +8379,7 @@ define hidden noundef zeroext i1 @_ZN3ue219literalIsWholeGraphERKNS_8NGHolderERK
   %27 = load i8, ptr %26, align 1
   %28 = lshr i64 %24, 6
   %29 = load ptr, ptr %8, align 8
-  %30 = getelementptr inbounds nuw i64, ptr %29, i64 %28
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %28
   %31 = load i64, ptr %30, align 8
   %32 = and i64 %24, 63
   %33 = lshr i64 %31, %32
@@ -8873,7 +8873,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %1, %4
   %12 = sub i64 %10, %11
   %13 = ashr exact i64 %12, 3
   %14 = sub nsw i64 0, %13
-  %15 = getelementptr inbounds i64, ptr %9, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %9, i64 %14
   tail call void @_ZdlPv(ptr noundef %15) #27
   store ptr null, ptr %5, align 8
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 408
@@ -8944,7 +8944,7 @@ _ZNSt7__cxx1110_List_baseIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphI
   %39 = sub i64 %37, %38
   %40 = ashr exact i64 %39, 3
   %41 = sub nsw i64 0, %40
-  %42 = getelementptr inbounds i64, ptr %36, i64 %41
+  %42 = getelementptr inbounds [8 x i8], ptr %36, i64 %41
   tail call void @_ZdlPv(ptr noundef %42) #27
   store ptr null, ptr %32, align 8
   %.sroa.4.0..sroa_idx.i.i.i4 = getelementptr inbounds nuw i8, ptr %0, i64 240
@@ -9236,7 +9236,7 @@ define internal fastcc void @_ZN5boost5queueIN3ue212graph_detail17vertex_descrip
 55:                                               ; preds = %50
   %56 = sub i64 %43, %52
   %57 = lshr i64 %56, 1
-  %58 = getelementptr inbounds nuw ptr, ptr %44, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %57
   %59 = icmp ult ptr %58, %16
   %60 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %60, %16
@@ -9255,12 +9255,12 @@ define internal fastcc void @_ZN5boost5queueIN3ue212graph_detail17vertex_descrip
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt5dequeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_12_GLOBAL__N_18LitGraphENS4_19LitGraphVertexPropsENS4_17LitGraphEdgePropsEEEEESaIS9_EE17_M_reallocate_mapEmb.exit.i.i.i, label %66
 
 66:                                               ; preds = %65
-  %67 = getelementptr inbounds nuw ptr, ptr %58, i64 %51
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %51
   %68 = ptrtoint ptr %60 to i64
   %69 = sub i64 %68, %18
   %70 = ashr exact i64 %69, 3
   %71 = sub nsw i64 0, %70
-  %72 = getelementptr inbounds ptr, ptr %67, i64 %71
+  %72 = getelementptr inbounds [8 x i8], ptr %67, i64 %71
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %72, ptr align 8 %16, i64 %69, i1 false)
   br label %_ZNSt5dequeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_12_GLOBAL__N_18LitGraphENS4_19LitGraphVertexPropsENS4_17LitGraphEdgePropsEEEEESaIS9_EE17_M_reallocate_mapEmb.exit.i.i.i
 
@@ -9288,7 +9288,7 @@ _ZNSt11_Deque_baseIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_12_
   %80 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %79) #26
   %81 = sub nsw i64 %74, %20
   %82 = lshr i64 %81, 1
-  %83 = getelementptr inbounds nuw ptr, ptr %80, i64 %82
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %82
   %84 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.not.i.i.i.i.i25.i.i.i.i = icmp eq ptr %84, %16
   br i1 %.not.i.i.i.i.i25.i.i.i.i, label %_ZSt4copyIPPN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_12_GLOBAL__N_18LitGraphENS4_19LitGraphVertexPropsENS4_17LitGraphEdgePropsEEEEESB_ET0_T_SD_SC_.exit26.i.i.i.i, label %85
@@ -9313,7 +9313,7 @@ _ZNSt5dequeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_12_GLOBAL_
   store ptr %88, ptr %89, align 8
   %90 = getelementptr inbounds nuw i8, ptr %88, i64 512
   store ptr %90, ptr %31, align 8
-  %91 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i.i, i64 %51
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i.i, i64 %51
   %92 = getelementptr inbounds i8, ptr %91, i64 -8
   store ptr %92, ptr %13, align 8
   %93 = load ptr, ptr %92, align 8
@@ -9428,7 +9428,7 @@ define internal fastcc void @_ZN3ue2L10addToQueueERSt5queueISt4pairINS_12graph_d
 
 7:                                                ; preds = %10, %5
   %.0712.i.i = phi i64 [ 0, %5 ], [ %11, %10 ]
-  %8 = getelementptr inbounds nuw i64, ptr %3, i64 %.0712.i.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.0712.i.i
   %9 = load i64, ptr %8, align 8
   %.not.i.i = icmp eq i64 %9, 0
   br i1 %.not.i.i, label %10, label %_ZNK3ue29CharReach10find_firstEv.exit
@@ -9472,7 +9472,7 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %7
 30:                                               ; preds = %26
   %31 = lshr i64 %.035, 6
   %32 = and i64 %31, 3
-  %33 = getelementptr inbounds nuw i64, ptr %3, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %32
   %34 = load i64, ptr %33, align 8
   %35 = and i64 %.035, 31
   %36 = shl nuw i64 4294967296, %35
@@ -9489,7 +9489,7 @@ _ZNK3ue29CharReach10find_firstEv.exit:            ; preds = %7
   %42 = add i64 %.035, 224
   %43 = lshr i64 %42, 6
   %44 = and i64 %43, 3
-  %45 = getelementptr inbounds nuw i64, ptr %3, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %44
   %46 = load i64, ptr %45, align 8
   %47 = and i64 %42, 63
   %48 = lshr i64 %46, %47
@@ -9621,7 +9621,7 @@ _ZN3ue2L13addToLitGraphERNS_12_GLOBAL__N_18LitGraphENS_12graph_detail17vertex_de
 114:                                              ; preds = %109
   %115 = sub i64 %102, %111
   %116 = lshr i64 %115, 1
-  %117 = getelementptr inbounds nuw ptr, ptr %103, i64 %116
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %116
   %118 = icmp ult ptr %117, %78
   %119 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %119, %78
@@ -9640,12 +9640,12 @@ _ZN3ue2L13addToLitGraphERNS_12_GLOBAL__N_18LitGraphENS_12graph_detail17vertex_de
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZNSt5dequeISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_12_GLOBAL__N_18LitGraphENS5_19LitGraphVertexPropsENS5_17LitGraphEdgePropsEEEEENS3_INS4_INS1_8NGHolderENS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEEESaISG_EE17_M_reallocate_mapEmb.exit.i.i.i.i.i, label %125
 
 125:                                              ; preds = %124
-  %126 = getelementptr inbounds nuw ptr, ptr %117, i64 %110
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %110
   %127 = ptrtoint ptr %119 to i64
   %128 = sub i64 %127, %80
   %129 = ashr exact i64 %128, 3
   %130 = sub nsw i64 0, %129
-  %131 = getelementptr inbounds ptr, ptr %126, i64 %130
+  %131 = getelementptr inbounds [8 x i8], ptr %126, i64 %130
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %131, ptr align 8 %78, i64 %128, i1 false)
   br label %_ZNSt5dequeISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_12_GLOBAL__N_18LitGraphENS5_19LitGraphVertexPropsENS5_17LitGraphEdgePropsEEEEENS3_INS4_INS1_8NGHolderENS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEEESaISG_EE17_M_reallocate_mapEmb.exit.i.i.i.i.i
 
@@ -9673,7 +9673,7 @@ _ZNSt11_Deque_baseISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graph
   %139 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %138) #26
   %140 = sub nsw i64 %133, %82
   %141 = lshr i64 %140, 1
-  %142 = getelementptr inbounds nuw ptr, ptr %139, i64 %141
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %139, i64 %141
   %143 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %.not.i.i.i.i.i25.i.i.i.i.i.i = icmp eq ptr %143, %78
   br i1 %.not.i.i.i.i.i25.i.i.i.i.i.i, label %_ZSt4copyIPPSt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_12_GLOBAL__N_18LitGraphENS5_19LitGraphVertexPropsENS5_17LitGraphEdgePropsEEEEENS3_INS4_INS1_8NGHolderENS1_19NFAGraphVertexPropsENS1_17NFAGraphEdgePropsEEEEEESI_ET0_T_SK_SJ_.exit26.i.i.i.i.i.i, label %144
@@ -9697,7 +9697,7 @@ _ZNSt5dequeISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_12
   store ptr %147, ptr %25, align 8
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 512
   store ptr %148, ptr %23, align 8
-  %149 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i.i.i.i, i64 %110
+  %149 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i.i.i.i, i64 %110
   %150 = getelementptr inbounds i8, ptr %149, i64 -8
   store ptr %150, ptr %20, align 8
   %151 = load ptr, ptr %150, align 8
@@ -9746,7 +9746,7 @@ _ZNSt5queueISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_12
   br label %172
 
 165:                                              ; preds = %162
-  %166 = getelementptr inbounds nuw i64, ptr %3, i64 %163
+  %166 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %163
   %167 = load i64, ptr %166, align 8
   %168 = shl nsw i64 -2, %164
   %169 = and i64 %167, %168
@@ -9764,7 +9764,7 @@ _ZNSt5queueISt4pairIN3ue212graph_detail17vertex_descriptorINS1_9ue2_graphINS1_12
 
 174:                                              ; preds = %172
   %.0.i.i = add nuw nsw i64 %.0.in.i.i, 1
-  %175 = getelementptr inbounds nuw i64, ptr %3, i64 %.0.i.i
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.0.i.i
   %176 = load i64, ptr %175, align 8
   %.not22.i.i = icmp eq i64 %176, 0
   br i1 %.not22.i.i, label %172, label %177, !llvm.loop !201
@@ -10242,7 +10242,7 @@ _ZNSt12_Vector_baseIN3ue211ue2_literalESaIS1_EE13_M_deallocateEPS1_m.exit: ; pre
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i.i35, ptr %5, align 8
-  %63 = getelementptr inbounds nuw %"struct.ue2::ue2_literal", ptr %23, i64 %17
+  %63 = getelementptr inbounds nuw [64 x i8], ptr %23, i64 %17
   store ptr %63, ptr %62, align 8
   ret void
 
@@ -10511,7 +10511,7 @@ _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN3ue211ue2_literal
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN3ue211ue2_literalESt6vectorIS3_SaIS3_EEEEPS3_S3_ET0_T_SC_SB_RSaIT1_E.exit: ; preds = %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN3ue211ue2_literalESt6vectorIS3_SaIS3_EEEEPS3_S3_ET0_T_SC_SB_RSaIT1_E.exit.loopexit, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN3ue211ue2_literalESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit
   %88 = phi ptr [ %.pre, %_ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPKN3ue211ue2_literalESt6vectorIS3_SaIS3_EEEEPS3_S3_ET0_T_SC_SB_RSaIT1_E.exit.loopexit ], [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPKN3ue211ue2_literalESt6vectorIS3_SaIS3_EEEEmEvRT_T0_.exit ]
   %89 = sub nuw nsw i64 %9, %20
-  %90 = getelementptr inbounds nuw %"struct.ue2::ue2_literal", ptr %88, i64 %89
+  %90 = getelementptr inbounds nuw [64 x i8], ptr %88, i64 %89
   store ptr %90, ptr %12, align 8
   %.not11.i.i.i.i.i53 = icmp eq ptr %1, %13
   br i1 %.not11.i.i.i.i.i53, label %_ZSt22__uninitialized_move_aIPN3ue211ue2_literalES2_SaIS1_EET0_T_S5_S4_RT1_.exit60, label %.lr.ph.i.i.i.i.i54
@@ -10804,7 +10804,7 @@ _ZSt8_DestroyIPN3ue211ue2_literalES1_EvT_S3_RSaIT0_E.exit: ; preds = %_ZSt8_Dest
 _ZNSt12_Vector_baseIN3ue211ue2_literalESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN3ue211ue2_literalES1_EvT_S3_RSaIT0_E.exit, %195
   store ptr %148, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i.i87, ptr %12, align 8
-  %196 = getelementptr inbounds nuw %"struct.ue2::ue2_literal", ptr %148, i64 %144
+  %196 = getelementptr inbounds nuw [64 x i8], ptr %148, i64 %144
   store ptr %196, ptr %10, align 8
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKN3ue211ue2_literalESt6vectorIS3_SaIS3_EEEENS1_IPS3_S8_EEET0_T_SD_SC_.exit
 
@@ -11141,7 +11141,7 @@ _ZNSt12_Vector_baseIN3ue211ue2_literalESaIS1_EE13_M_deallocateEPS1_m.exit: ; pre
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i.i34, ptr %4, align 8
-  %60 = getelementptr inbounds nuw %"struct.ue2::ue2_literal", ptr %22, i64 %16
+  %60 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 %16
   store ptr %60, ptr %59, align 8
   ret void
 
@@ -11752,7 +11752,7 @@ _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolder
 _ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE17_M_realloc_insertIJS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i: ; preds = %37, %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit22.i.i
   store ptr %32, ptr %0, align 8
   store ptr %36, ptr %6, align 8
-  %38 = getelementptr inbounds nuw %"class.ue2::graph_detail::vertex_descriptor.23", ptr %32, i64 %30
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %32, i64 %30
   store ptr %38, ptr %7, align 8
   br label %_ZNSt6vectorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE12emplace_backIJS8_EEEvDpOT_.exit
 

@@ -32,8 +32,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_raw_v6_match
 %struct.seq_operations = type { ptr, ptr, ptr, ptr }
 %struct.icmp6hdr = type { i8, i8, i16, %union.anon.55 }
 %union.anon.55 = type { [1 x i32] }
-%struct.xfrm_offload = type { %struct.anon.86, i32, i32, i8, i8 }
-%struct.anon.86 = type { i32, i32 }
 %struct.ipv6_txoptions = type { %struct.refcount_struct, i32, i16, i16, ptr, ptr, ptr, ptr, %struct.callback_head }
 %struct.refcount_struct = type { %struct.atomic_t }
 %struct.callback_head = type { ptr, ptr }
@@ -166,7 +164,7 @@ define dso_local zeroext i1 @raw6_local_deliver(ptr noundef %0, i32 noundef %1) 
   %19 = mul i32 %18, 1640531527
   %20 = lshr i32 %19, 24
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr %struct.hlist_head, ptr getelementptr inbounds nuw (i8, ptr @raw_v6_hashinfo, i64 64), i64 %21
+  %22 = getelementptr [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @raw_v6_hashinfo, i64 64), i64 %21
   tail call void @__rcu_read_lock() #13
   %23 = load volatile ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
@@ -298,7 +296,7 @@ define dso_local zeroext i1 @raw6_local_deliver(ptr noundef %0, i32 noundef %1) 
   %115 = zext i8 %114 to i32
   %116 = lshr i32 %115, 5
   %117 = zext nneg i32 %116 to i64
-  %118 = getelementptr i32, ptr %113, i64 %117
+  %118 = getelementptr [4 x i8], ptr %113, i64 %117
   %119 = load i32, ptr %118, align 4
   %120 = and i32 %115, 31
   %121 = shl nuw i32 1, %120
@@ -353,7 +351,7 @@ define dso_local void @raw6_icmp_error(ptr noundef %0, i32 noundef %1, i8 nounde
   %15 = mul i32 %14, 1640531527
   %16 = lshr i32 %15, 24
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr %struct.hlist_head, ptr getelementptr inbounds nuw (i8, ptr @raw_v6_hashinfo, i64 64), i64 %17
+  %18 = getelementptr [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @raw_v6_hashinfo, i64 64), i64 %17
   tail call void @__rcu_read_lock() #13
   %19 = load volatile ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
@@ -570,7 +568,7 @@ define dso_local noundef range(i32 0, 2) i32 @rawv6_rcv(ptr noundef %0, ptr noun
   %28 = getelementptr inbounds nuw i8, ptr %18, i64 64
   %29 = add i32 %22, -1
   %30 = sext i32 %29 to i64
-  %31 = getelementptr %struct.xfrm_offload, ptr %28, i64 %30
+  %31 = getelementptr [20 x i8], ptr %28, i64 %30
   br label %.thread
 
 .thread:                                          ; preds = %2, %27, %24, %20, %11
@@ -611,7 +609,7 @@ define dso_local noundef range(i32 0, 2) i32 @rawv6_rcv(ptr noundef %0, ptr noun
   %54 = load i32, ptr %52, align 8
   %55 = add i32 %54, -1
   %56 = sext i32 %55 to i64
-  %57 = getelementptr ptr, ptr %53, i64 %56
+  %57 = getelementptr [8 x i8], ptr %53, i64 %56
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 656
   %60 = load i8, ptr %59, align 8

@@ -472,13 +472,13 @@ define internal void @_ZNK4ncnn4Cast7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_out
 
 .lr.ph:                                           ; preds = %.noexc, %47
   %indvars.iv = phi i64 [ %indvars.iv.next, %47 ], [ 0, %.noexc ]
-  %44 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv
   %45 = load float, ptr %44, align 4, !tbaa !57
   %46 = invoke noundef zeroext i16 @_ZN4ncnn18float32_to_float16Ef(float noundef nofpclass(nan inf) %45)
           to label %47 unwind label %53
 
 47:                                               ; preds = %.lr.ph
-  %48 = getelementptr inbounds nuw i16, ptr %39, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %39, i64 %indvars.iv
   store i16 %46, ptr %48, align 2, !tbaa !59
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %49 = load i32, ptr %5, align 4, !tbaa !42
@@ -611,13 +611,13 @@ define internal void @_ZNK4ncnn4Cast7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_out
 
 .lr.ph:                                           ; preds = %.noexc, %47
   %indvars.iv = phi i64 [ %indvars.iv.next, %47 ], [ 0, %.noexc ]
-  %44 = getelementptr inbounds nuw i16, ptr %33, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [2 x i8], ptr %33, i64 %indvars.iv
   %45 = load i16, ptr %44, align 2, !tbaa !59
   %46 = invoke noundef nofpclass(nan inf) float @_ZN4ncnn18float16_to_float32Et(i16 noundef zeroext %45)
           to label %47 unwind label %53
 
 47:                                               ; preds = %.lr.ph
-  %48 = getelementptr inbounds nuw float, ptr %39, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv
   store float %46, ptr %48, align 4, !tbaa !57
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %49 = load i32, ptr %5, align 4, !tbaa !42
@@ -711,7 +711,7 @@ define internal void @_ZNK4ncnn4Cast7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_out
   %36 = getelementptr inbounds nuw i8, ptr %33, i64 %indvars.iv
   %37 = load i8, ptr %36, align 1, !tbaa !79
   %38 = sitofp i8 %37 to float
-  %39 = getelementptr inbounds nuw float, ptr %34, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv
   store float %38, ptr %39, align 4, !tbaa !57
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -797,11 +797,11 @@ define internal void @_ZNK4ncnn4Cast7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_out
 
 35:                                               ; preds = %.noexc.us, %35
   %indvars.iv = phi i64 [ 0, %.noexc.us ], [ %indvars.iv.next, %35 ]
-  %36 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv
   %37 = load i32, ptr %36, align 4, !tbaa !57
   %38 = lshr i32 %37, 16
   %39 = trunc nuw i32 %38 to i16
-  %40 = getelementptr inbounds nuw i16, ptr %34, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %34, i64 %indvars.iv
   store i16 %39, ptr %40, align 2, !tbaa !59
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -887,11 +887,11 @@ define internal void @_ZNK4ncnn4Cast7forwardERKNS_3MatERS1_RKNS_6OptionE.omp_out
 
 35:                                               ; preds = %.noexc.us, %35
   %indvars.iv = phi i64 [ 0, %.noexc.us ], [ %indvars.iv.next, %35 ]
-  %36 = getelementptr inbounds nuw i16, ptr %33, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [2 x i8], ptr %33, i64 %indvars.iv
   %37 = load i16, ptr %36, align 2, !tbaa !59
   %38 = zext i16 %37 to i32
   %39 = shl nuw i32 %38, 16
-  %40 = getelementptr inbounds nuw float, ptr %34, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv
   store i32 %39, ptr %40, align 4, !tbaa !57
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

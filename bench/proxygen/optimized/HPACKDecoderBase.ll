@@ -10,18 +10,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.google::LogMessage" = type { ptr, ptr, %"struct.google::LogMessageTime" }
 %"struct.google::LogMessageTime" = type { %struct.tm, i64, i32, i64 }
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
-%"class.proxygen::HPACKHeader" = type { %"class.proxygen::HPACKHeaderName", %"class.folly::basic_fbstring" }
-%"class.proxygen::HPACKHeaderName" = type { ptr }
-%"class.folly::basic_fbstring" = type { %"class.folly::fbstring_core" }
-%"class.folly::fbstring_core" = type { %union.anon }
-%union.anon = type { %"struct.folly::fbstring_core<char>::MediumLarge" }
-%"struct.folly::fbstring_core<char>::MediumLarge" = type { ptr, i64, i64 }
 %"class.std::allocator.0" = type { i8 }
 %"struct.std::__cxx11::basic_string<char>::__sv_wrapper" = type { %"class.std::basic_string_view" }
 %"class.std::basic_string_view" = type { i64, ptr }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.3 }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon.3 = type { i64, [8 x i8] }
 %struct.Initializer = type { i8 }
 %struct.Initializer.10 = type { i8 }
 %struct.Initializer.9 = type { i8 }
@@ -606,7 +597,7 @@ _ZNSt12_Vector_baseIN8proxygen11HPACKHeaderESaIS1_EE13_M_deallocateEPS1_m.exit: 
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %cond.i17, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i28, ptr %_M_finish.i.i, align 8
-  %add.ptr28 = getelementptr inbounds nuw %"class.proxygen::HPACKHeader", ptr %cond.i17, i64 %cond.i
+  %add.ptr28 = getelementptr inbounds nuw [32 x i8], ptr %cond.i17, i64 %cond.i
   store ptr %add.ptr28, ptr %_M_end_of_storage, align 8
   ret void
 
@@ -840,7 +831,7 @@ lpad:                                             ; preds = %if.then
 if.else:                                          ; preds = %entry
   %call.i4 = tail call noundef ptr @_ZN8proxygen17HTTPCommonHeaders17getPointerToTableB5cxx11ENS_25HTTPCommonHeaderTableTypeE(i8 noundef zeroext 1)
   %idx.ext.i = zext i8 %call3 to i64
-  %add.ptr.i = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %call.i4, i64 %idx.ext.i
+  %add.ptr.i = getelementptr inbounds nuw [32 x i8], ptr %call.i4, i64 %idx.ext.i
   br label %if.end
 
 if.end:                                           ; preds = %if.else, %invoke.cont

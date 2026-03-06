@@ -137,7 +137,7 @@ _ZNK18StringBaseResource9getBufferEv.exit.i:      ; preds = %24, %22, %14
 44:                                               ; preds = %135, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %135 ]
   %.0100125.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i ], [ %.1101.i.i.i, %135 ]
-  %45 = getelementptr inbounds nuw i16, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
+  %45 = getelementptr inbounds nuw [2 x i8], ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
   %46 = load i16, ptr %45, align 2, !tbaa !19
   switch i16 %46, label %102 [
     i16 10, label %47
@@ -219,7 +219,7 @@ _ZNK18StringBaseResource9getBufferEv.exit.i:      ; preds = %24, %22, %14
   br i1 %78, label %79, label %97
 
 79:                                               ; preds = %76
-  %80 = getelementptr inbounds nuw i16, ptr %.0.i.i.i, i64 %77
+  %80 = getelementptr inbounds nuw [2 x i8], ptr %.0.i.i.i, i64 %77
   %81 = load i16, ptr %80, align 2, !tbaa !19
   switch i16 %81, label %90 [
     i16 44, label %82
@@ -616,7 +616,7 @@ _ZL10write_tabsP11_FileStream.exit._crit_edge.i:  ; preds = %_ZL10write_tabsP11_
 
 _ZL10write_tabsP11_FileStream.exit25.i:           ; preds = %.lr.ph.i22.i, %250
   %257 = load ptr, ptr %249, align 8, !tbaa !39
-  %258 = getelementptr inbounds nuw i32, ptr %257, i64 %251
+  %258 = getelementptr inbounds nuw [4 x i8], ptr %257, i64 %251
   %259 = load i32, ptr %258, align 4, !tbaa !29
   %260 = call i32 @itostr(ptr noundef nonnull %5, i32 noundef %259, i32 noundef 10, i32 noundef 0)
   %261 = load ptr, ptr @_ZL3out, align 8, !tbaa !27
@@ -666,7 +666,7 @@ _ZL10write_tabsP11_FileStream.exit25.i:           ; preds = %.lr.ph.i22.i, %250
 
 _ZL10write_tabsP11_FileStream.exit30.i:           ; preds = %.lr.ph.i27.i, %281
   %288 = load ptr, ptr %280, align 8, !tbaa !39
-  %289 = getelementptr inbounds nuw i32, ptr %288, i64 %282
+  %289 = getelementptr inbounds nuw [4 x i8], ptr %288, i64 %282
   %290 = load i32, ptr %289, align 4, !tbaa !29
   %291 = call i32 @itostr(ptr noundef nonnull %5, i32 noundef %290, i32 noundef 10, i32 noundef 0)
   %292 = load ptr, ptr @_ZL3out, align 8, !tbaa !27

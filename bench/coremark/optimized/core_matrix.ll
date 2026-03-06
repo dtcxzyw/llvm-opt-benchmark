@@ -46,7 +46,7 @@ matrix_mul_vect.exit.thread:                      ; preds = %5
   %13 = trunc nuw i64 %indvars.iv.i to i32
   %14 = add i32 %11, %13
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw i16, ptr %2, i64 %15
+  %16 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %15
   %17 = load i16, ptr %16, align 2, !tbaa !15
   %18 = add i16 %17, %4
   store i16 %18, ptr %16, align 2, !tbaa !15
@@ -73,11 +73,11 @@ matrix_mul_vect.exit.thread:                      ; preds = %5
   %24 = trunc nuw i64 %indvars.iv.i42 to i32
   %25 = add i32 %22, %24
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw i16, ptr %2, i64 %26
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %26
   %28 = load i16, ptr %27, align 2, !tbaa !15
   %29 = sext i16 %28 to i32
   %30 = mul nsw i32 %29, %21
-  %31 = getelementptr inbounds nuw i32, ptr %1, i64 %26
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %26
   store i32 %30, ptr %31, align 4, !tbaa !20
   %indvars.iv.next.i43 = add nuw nsw i64 %indvars.iv.i42, 1
   %exitcond.not.i44 = icmp eq i64 %indvars.iv.next.i43, %wide.trip.count.i
@@ -108,7 +108,7 @@ matrix_mul_vect.exit.thread:                      ; preds = %5
   %37 = trunc nuw i64 %indvars.iv.i49 to i32
   %38 = add i32 %35, %37
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw i32, ptr %1, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !20
   %42 = add nsw i32 %41, %.12428.i
   %43 = icmp sgt i32 %42, %34
@@ -142,10 +142,10 @@ matrix_mul_vect.exit.thread:                      ; preds = %5
   %53 = trunc nuw i64 %indvars.iv.i53 to i32
   %54 = add i32 %50, %53
   %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds nuw i16, ptr %2, i64 %55
+  %56 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %55
   %57 = load i16, ptr %56, align 2, !tbaa !15
   %58 = sext i16 %57 to i32
-  %59 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv.i53
+  %59 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %indvars.iv.i53
   %60 = load i16, ptr %59, align 2, !tbaa !15
   %61 = sext i16 %60 to i32
   %62 = mul nsw i32 %61, %58
@@ -155,7 +155,7 @@ matrix_mul_vect.exit.thread:                      ; preds = %5
   br i1 %exitcond.not.i55, label %64, label %51, !llvm.loop !25
 
 64:                                               ; preds = %51
-  %65 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv20.i
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv20.i
   store i32 %63, ptr %65, align 4, !tbaa !20
   %indvars.iv.next21.i = add nuw nsw i64 %indvars.iv20.i, 1
   %exitcond24.not.i = icmp eq i64 %indvars.iv.next21.i, %wide.trip.count.i
@@ -177,7 +177,7 @@ matrix_mul_vect.exit.thread:                      ; preds = %5
   %68 = trunc nuw i64 %indvars.iv.i64 to i32
   %69 = add i32 %66, %68
   %70 = zext i32 %69 to i64
-  %71 = getelementptr inbounds nuw i32, ptr %1, i64 %70
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %70
   %72 = load i32, ptr %71, align 4, !tbaa !20
   %73 = add nsw i32 %72, %.12428.i67
   %74 = icmp sgt i32 %73, %34
@@ -215,13 +215,13 @@ matrix_mul_vect.exit.thread:                      ; preds = %5
   %85 = trunc nuw i64 %indvars.iv.i79 to i32
   %86 = add i32 %80, %85
   %87 = zext i32 %86 to i64
-  %88 = getelementptr inbounds nuw i16, ptr %2, i64 %87
+  %88 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %87
   %89 = load i16, ptr %88, align 2, !tbaa !15
   %90 = sext i16 %89 to i32
   %91 = mul i32 %0, %85
   %92 = add i32 %91, %82
   %93 = zext i32 %92 to i64
-  %94 = getelementptr inbounds nuw i16, ptr %3, i64 %93
+  %94 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %93
   %95 = load i16, ptr %94, align 2, !tbaa !15
   %96 = sext i16 %95 to i32
   %97 = mul nsw i32 %96, %90
@@ -233,7 +233,7 @@ matrix_mul_vect.exit.thread:                      ; preds = %5
 99:                                               ; preds = %83
   %100 = add i32 %80, %82
   %101 = zext i32 %100 to i64
-  %102 = getelementptr inbounds nuw i32, ptr %1, i64 %101
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %101
   store i32 %98, ptr %102, align 4, !tbaa !20
   %indvars.iv.next32.i = add nuw nsw i64 %indvars.iv31.i, 1
   %exitcond35.not.i = icmp eq i64 %indvars.iv.next32.i, %wide.trip.count.i
@@ -260,7 +260,7 @@ matrix_mul_vect.exit.thread:                      ; preds = %5
   %107 = trunc nuw i64 %indvars.iv.i91 to i32
   %108 = add i32 %105, %107
   %109 = zext i32 %108 to i64
-  %110 = getelementptr inbounds nuw i32, ptr %1, i64 %109
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %109
   %111 = load i32, ptr %110, align 4, !tbaa !20
   %112 = add nsw i32 %111, %.12428.i94
   %113 = icmp sgt i32 %112, %34
@@ -298,13 +298,13 @@ matrix_mul_vect.exit.thread:                      ; preds = %5
   %124 = trunc nuw i64 %indvars.iv.i106 to i32
   %125 = add i32 %119, %124
   %126 = zext i32 %125 to i64
-  %127 = getelementptr inbounds nuw i16, ptr %2, i64 %126
+  %127 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %126
   %128 = load i16, ptr %127, align 2, !tbaa !15
   %129 = zext i16 %128 to i32
   %130 = mul i32 %0, %124
   %131 = add i32 %130, %121
   %132 = zext i32 %131 to i64
-  %133 = getelementptr inbounds nuw i16, ptr %3, i64 %132
+  %133 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %132
   %134 = load i16, ptr %133, align 2, !tbaa !15
   %135 = zext i16 %134 to i32
   %136 = mul nuw i32 %135, %129
@@ -321,7 +321,7 @@ matrix_mul_vect.exit.thread:                      ; preds = %5
 143:                                              ; preds = %122
   %144 = add i32 %119, %121
   %145 = zext i32 %144 to i64
-  %146 = getelementptr inbounds nuw i32, ptr %1, i64 %145
+  %146 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %145
   store i32 %142, ptr %146, align 4, !tbaa !20
   %indvars.iv.next34.i = add nuw nsw i64 %indvars.iv33.i, 1
   %exitcond37.not.i = icmp eq i64 %indvars.iv.next34.i, %wide.trip.count.i
@@ -348,7 +348,7 @@ matrix_mul_vect.exit.thread:                      ; preds = %5
   %151 = trunc nuw i64 %indvars.iv.i117 to i32
   %152 = add i32 %149, %151
   %153 = zext i32 %152 to i64
-  %154 = getelementptr inbounds nuw i32, ptr %1, i64 %153
+  %154 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %153
   %155 = load i32, ptr %154, align 4, !tbaa !20
   %156 = add nsw i32 %155, %.12428.i120
   %157 = icmp sgt i32 %156, %34
@@ -380,7 +380,7 @@ matrix_mul_vect.exit.thread:                      ; preds = %5
   %165 = trunc nuw i64 %indvars.iv.i134 to i32
   %166 = add i32 %163, %165
   %167 = zext i32 %166 to i64
-  %168 = getelementptr inbounds nuw i16, ptr %2, i64 %167
+  %168 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %167
   %169 = load i16, ptr %168, align 2, !tbaa !15
   %170 = sub i16 %169, %4
   store i16 %170, ptr %168, align 2, !tbaa !15
@@ -417,7 +417,7 @@ define dso_local void @matrix_add_const(i32 noundef %0, ptr noundef captures(non
   %6 = trunc nuw i64 %indvars.iv to i32
   %7 = add i32 %4, %6
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw i16, ptr %1, i64 %8
+  %9 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %8
   %10 = load i16, ptr %9, align 2, !tbaa !15
   %11 = add i16 %10, %2
   store i16 %11, ptr %9, align 2, !tbaa !15
@@ -454,11 +454,11 @@ define dso_local void @matrix_mul_const(i32 noundef %0, ptr noundef writeonly ca
   %8 = trunc nuw i64 %indvars.iv to i32
   %9 = add i32 %6, %8
   %10 = zext i32 %9 to i64
-  %11 = getelementptr inbounds nuw i16, ptr %2, i64 %10
+  %11 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %10
   %12 = load i16, ptr %11, align 2, !tbaa !15
   %13 = sext i16 %12 to i32
   %14 = mul nsw i32 %13, %5
-  %15 = getelementptr inbounds nuw i32, ptr %1, i64 %10
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %10
   store i32 %14, ptr %15, align 4, !tbaa !20
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -499,7 +499,7 @@ define dso_local signext i16 @matrix_sum(i32 noundef %0, ptr noundef readonly ca
   %7 = trunc nuw i64 %indvars.iv to i32
   %8 = add i32 %5, %7
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw i32, ptr %1, i64 %9
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !20
   %12 = add nsw i32 %11, %.12428
   %13 = icmp sgt i32 %12, %4
@@ -533,7 +533,7 @@ define dso_local void @matrix_mul_vect(i32 noundef %0, ptr noundef writeonly cap
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %21
   %indvars.iv20 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next21, %21 ]
-  %5 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv20
+  %5 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv20
   %6 = trunc nuw i64 %indvars.iv20 to i32
   %7 = mul i32 %0, %6
   br label %8
@@ -544,10 +544,10 @@ define dso_local void @matrix_mul_vect(i32 noundef %0, ptr noundef writeonly cap
   %10 = trunc nuw i64 %indvars.iv to i32
   %11 = add i32 %7, %10
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds nuw i16, ptr %2, i64 %12
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %12
   %14 = load i16, ptr %13, align 2, !tbaa !15
   %15 = sext i16 %14 to i32
-  %16 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %indvars.iv
   %17 = load i16, ptr %16, align 2, !tbaa !15
   %18 = sext i16 %17 to i32
   %19 = mul nsw i32 %18, %15
@@ -585,7 +585,7 @@ define dso_local void @matrix_mul_matrix(i32 noundef %0, ptr noundef writeonly c
   %7 = trunc nuw i64 %indvars.iv31 to i32
   %8 = add i32 %5, %7
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw i32, ptr %1, i64 %9
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %9
   br label %11
 
 11:                                               ; preds = %6, %11
@@ -594,13 +594,13 @@ define dso_local void @matrix_mul_matrix(i32 noundef %0, ptr noundef writeonly c
   %13 = trunc nuw i64 %indvars.iv to i32
   %14 = add i32 %5, %13
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw i16, ptr %2, i64 %15
+  %16 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %15
   %17 = load i16, ptr %16, align 2, !tbaa !15
   %18 = sext i16 %17 to i32
   %19 = mul i32 %0, %13
   %20 = add i32 %19, %7
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw i16, ptr %3, i64 %21
+  %22 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %21
   %23 = load i16, ptr %22, align 2, !tbaa !15
   %24 = sext i16 %23 to i32
   %25 = mul nsw i32 %24, %18
@@ -643,7 +643,7 @@ define dso_local void @matrix_mul_matrix_bitextract(i32 noundef %0, ptr noundef 
   %7 = trunc nuw i64 %indvars.iv33 to i32
   %8 = add i32 %5, %7
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw i32, ptr %1, i64 %9
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %9
   br label %11
 
 11:                                               ; preds = %6, %11
@@ -652,13 +652,13 @@ define dso_local void @matrix_mul_matrix_bitextract(i32 noundef %0, ptr noundef 
   %13 = trunc nuw i64 %indvars.iv to i32
   %14 = add i32 %5, %13
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw i16, ptr %2, i64 %15
+  %16 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %15
   %17 = load i16, ptr %16, align 2, !tbaa !15
   %18 = zext i16 %17 to i32
   %19 = mul i32 %0, %13
   %20 = add i32 %19, %7
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw i16, ptr %3, i64 %21
+  %22 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %21
   %23 = load i16, ptr %22, align 2, !tbaa !15
   %24 = zext i16 %23 to i32
   %25 = mul nuw i32 %24, %18
@@ -716,7 +716,7 @@ define dso_local i32 @core_init_matrix(i32 noundef %0, ptr noundef %1, i32 nound
   %17 = inttoptr i64 %16 to ptr
   %18 = mul i32 %.04653, %.04653
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw i16, ptr %17, i64 %19
+  %20 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %19
   %.not61 = icmp eq i32 %.04653, 0
   br i1 %.not61, label %._crit_edge60, label %.preheader.preheader
 
@@ -746,12 +746,12 @@ define dso_local i32 @core_init_matrix(i32 noundef %0, ptr noundef %1, i32 nound
   %30 = trunc nuw i64 %indvars.iv to i32
   %31 = add i32 %24, %30
   %32 = zext i32 %31 to i64
-  %33 = getelementptr inbounds nuw i16, ptr %21, i64 %32
+  %33 = getelementptr inbounds nuw [2 x i8], ptr %21, i64 %32
   store i16 %29, ptr %33, align 2, !tbaa !15
   %34 = add i32 %28, %.15154
   %35 = trunc i32 %34 to i16
   %36 = and i16 %35, 255
-  %37 = getelementptr inbounds nuw i16, ptr %23, i64 %32
+  %37 = getelementptr inbounds nuw [2 x i8], ptr %23, i64 %32
   store i16 %36, ptr %37, align 2, !tbaa !15
   %38 = add nsw i32 %.15154, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -772,7 +772,7 @@ define dso_local i32 @core_init_matrix(i32 noundef %0, ptr noundef %1, i32 nound
   store ptr %43, ptr %44, align 8, !tbaa !13
   %45 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %41, ptr %45, align 8, !tbaa !14
-  %46 = getelementptr inbounds nuw i16, ptr %41, i64 %42
+  %46 = getelementptr inbounds nuw [2 x i8], ptr %41, i64 %42
   %47 = ptrtoint ptr %46 to i64
   %48 = add nuw nsw i64 %47, 3
   %49 = and i64 %48, 4294967292

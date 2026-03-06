@@ -2192,7 +2192,7 @@ agxbputc.exit:                                    ; preds = %67, %72
 
 82:                                               ; preds = %.preheader, %agxbputc.exit78
   %.0103 = phi i64 [ 0, %.preheader ], [ %199, %agxbputc.exit78 ]
-  %83 = getelementptr inbounds nuw ptr, ptr %81, i64 %.0103
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %.0103
   %84 = load ptr, ptr %83, align 8, !tbaa !56
   %.not36 = icmp eq ptr %84, null
   br i1 %.not36, label %.critedge, label %132
@@ -2700,7 +2700,7 @@ agxbputc.exit:                                    ; preds = %55, %60
 
 70:                                               ; preds = %.preheader, %agxbputc.exit76
   %.0101 = phi i64 [ 0, %.preheader ], [ %187, %agxbputc.exit76 ]
-  %71 = getelementptr inbounds nuw ptr, ptr %69, i64 %.0101
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %.0101
   %72 = load ptr, ptr %71, align 8, !tbaa !56
   %.not34 = icmp eq ptr %72, null
   br i1 %.not34, label %.critedge, label %120

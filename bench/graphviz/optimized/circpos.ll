@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.nodelist_t = type { ptr, i64, i64, i64 }
-%struct.posinfo_t = type { ptr, double, double, double, double, double, i32 }
 
 @stderr = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [58 x i8] c"integer overflow when trying to allocate %zu * %zu bytes\0A\00", align 1
@@ -99,7 +98,7 @@ gv_calloc.exit.i:                                 ; preds = %15
   %.07489.us.i = phi i32 [ 0, %.lr.ph.split.us.i ], [ %.175.us.i, %58 ]
   %36 = add i64 %.06990.us.i, %30
   %37 = urem i64 %36, %32
-  %38 = getelementptr inbounds nuw ptr, ptr %28, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !35
   %40 = add nuw i64 %.06990.us.i, 1
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 16
@@ -117,7 +116,7 @@ getInfo.exit.us.i:                                ; preds = %35
   %48 = uitofp nneg i32 %indvars110.i to double
   %49 = fmul double %27, %48
   %50 = sext i32 %.07489.us.i to i64
-  %51 = getelementptr inbounds %struct.posinfo_t, ptr %16, i64 %50
+  %51 = getelementptr inbounds [56 x i8], ptr %16, i64 %50
   store ptr %39, ptr %51, align 8, !tbaa !54
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store double %49, ptr %52, align 8, !tbaa !56
@@ -159,7 +158,7 @@ getInfo.exit.us.i:                                ; preds = %35
   %.07787.i = phi double [ %.178.i, %104 ], [ 0.000000e+00, %.lr.ph.i ]
   %61 = add i64 %.06990.i, %30
   %62 = urem i64 %61, %32
-  %63 = getelementptr inbounds nuw ptr, ptr %28, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %62
   %64 = load ptr, ptr %63, align 8, !tbaa !35
   %65 = add nuw i64 %.06990.i, 1
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 16
@@ -177,7 +176,7 @@ getInfo.exit.us.i:                                ; preds = %35
   %73 = uitofp nneg i32 %indvars109.i to double
   %74 = fmul double %27, %73
   %75 = sext i32 %.07489.i to i64
-  %76 = getelementptr inbounds %struct.posinfo_t, ptr %16, i64 %75
+  %76 = getelementptr inbounds [56 x i8], ptr %16, i64 %75
   store ptr %64, ptr %76, align 8, !tbaa !54
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   store double %74, ptr %77, align 8, !tbaa !56
@@ -341,7 +340,7 @@ getInfo.exit.loopexit.i:                          ; preds = %96
   %.sroa.14.098.i = phi double [ -1.000000e+00, %.lr.ph101.i ], [ %.080.lcssa.i.i, %positionChildren.exit.i ]
   %.sroa.4.097.i = phi double [ %24, %.lr.ph101.i ], [ %346, %positionChildren.exit.i ]
   %.sroa.10.096.i = phi double [ -1.000000e+00, %.lr.ph101.i ], [ %.081.lcssa.i.i, %positionChildren.exit.i ]
-  %171 = getelementptr inbounds nuw %struct.posinfo_t, ptr %16, i64 %indvars.iv.i
+  %171 = getelementptr inbounds nuw [56 x i8], ptr %16, i64 %indvars.iv.i
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 40
   %173 = load double, ptr %172, align 8, !tbaa !64
   %174 = getelementptr inbounds nuw i8, ptr %171, i64 16

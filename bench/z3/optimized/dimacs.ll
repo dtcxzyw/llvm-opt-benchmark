@@ -10,7 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::allocator" = type { i8 }
 %"class.sat::status" = type { i32, i32, ptr }
 %"class.dimacs::stream_buffer" = type { ptr, i32, i32 }
-%"class.sat::literal" = type { i32 }
 %"class.std::function" = type { %"class.std::_Function_base", ptr }
 %"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
 %"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
@@ -406,7 +405,7 @@ _ZN6vectorIN3sat7literalELb0EjE9push_backEOS1_.exit.i.i: ; preds = %.noexc21.i, 
   %106 = phi i32 [ %.pre2.i.i.i, %.noexc21.i ], [ %59, %57 ]
   %107 = getelementptr inbounds i8, ptr %105, i64 -4
   %108 = zext i32 %106 to i64
-  %109 = getelementptr inbounds nuw %"class.sat::literal", ptr %105, i64 %108
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %105, i64 %108
   store i32 %55, ptr %109, align 4, !tbaa !15
   %110 = add i32 %106, 1
   store i32 %110, ptr %107, align 4, !tbaa !15
@@ -605,7 +604,7 @@ _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit.i:   ; preds = %2
   br label %18
 
 18:                                               ; preds = %16, %.lr.ph.i.i
-  %19 = getelementptr inbounds nuw %"class.sat::literal", ptr %11, i64 %indvars.iv.i.i
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv.i.i
   %.sroa.0.0.copyload.i.i = load i32, ptr %19, align 4, !tbaa !15
   %20 = icmp eq i32 %.sroa.0.0.copyload.i.i, -2
   br i1 %20, label %21, label %23
@@ -1472,7 +1471,7 @@ _ZN6vectorIN3sat7literalELb0EjE9push_backEOS1_.exit.i: ; preds = %.noexc20, %53
   %61 = phi ptr [ %.pre.i.i, %.noexc20 ], [ %51, %53 ]
   %62 = getelementptr inbounds i8, ptr %61, i64 -4
   %63 = zext i32 %60 to i64
-  %64 = getelementptr inbounds nuw %"class.sat::literal", ptr %61, i64 %63
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %63
   store i32 %50, ptr %64, align 4, !tbaa !15
   %65 = add i32 %60, 1
   store i32 %65, ptr %62, align 4, !tbaa !15
@@ -1625,7 +1624,7 @@ _ZN6vectorIN3sat7literalELb0EjE9push_backEOS1_.exit.i37: ; preds = %.noexc42, %1
   %111 = phi ptr [ %.pre.i.i38, %.noexc42 ], [ %101, %103 ]
   %112 = getelementptr inbounds i8, ptr %111, i64 -4
   %113 = zext i32 %110 to i64
-  %114 = getelementptr inbounds nuw %"class.sat::literal", ptr %111, i64 %113
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %111, i64 %113
   store i32 %100, ptr %114, align 4, !tbaa !15
   %115 = add i32 %110, 1
   store i32 %115, ptr %112, align 4, !tbaa !15
@@ -1740,7 +1739,7 @@ _ZN6vectorIN3sat7literalELb0EjE9push_backEOS1_.exit.i55: ; preds = %.noexc60, %1
   %152 = phi ptr [ %.pre.i.i56, %.noexc60 ], [ %142, %144 ]
   %153 = getelementptr inbounds i8, ptr %152, i64 -4
   %154 = zext i32 %151 to i64
-  %155 = getelementptr inbounds nuw %"class.sat::literal", ptr %152, i64 %154
+  %155 = getelementptr inbounds nuw [4 x i8], ptr %152, i64 %154
   store i32 %141, ptr %155, align 4, !tbaa !15
   %156 = add i32 %151, 1
   store i32 %156, ptr %153, align 4, !tbaa !15
@@ -1859,7 +1858,7 @@ _ZN6vectorIN3sat7literalELb0EjE9push_backEOS1_.exit.i73: ; preds = %.noexc78, %1
   %195 = phi ptr [ %.pre.i.i74, %.noexc78 ], [ %185, %187 ]
   %196 = getelementptr inbounds i8, ptr %195, i64 -4
   %197 = zext i32 %194 to i64
-  %198 = getelementptr inbounds nuw %"class.sat::literal", ptr %195, i64 %197
+  %198 = getelementptr inbounds nuw [4 x i8], ptr %195, i64 %197
   store i32 %184, ptr %198, align 4, !tbaa !15
   %199 = add i32 %194, 1
   store i32 %199, ptr %196, align 4, !tbaa !15
@@ -1929,7 +1928,7 @@ _ZN6vectorIN3sat7literalELb0EjE9push_backEOS1_.exit.i84: ; preds = %.noexc89, %2
   %226 = phi ptr [ %.pre.i.i85, %.noexc89 ], [ %216, %218 ]
   %227 = getelementptr inbounds i8, ptr %226, i64 -4
   %228 = zext i32 %225 to i64
-  %229 = getelementptr inbounds nuw %"class.sat::literal", ptr %226, i64 %228
+  %229 = getelementptr inbounds nuw [4 x i8], ptr %226, i64 %228
   store i32 %215, ptr %229, align 4, !tbaa !15
   %230 = add i32 %225, 1
   store i32 %230, ptr %227, align 4, !tbaa !15

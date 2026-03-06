@@ -7,10 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { ptr }
 %union.anon.0 = type { i64 }
 %struct.VAAPIEncodeProfile = type { i32, i32, i32, i32, i32, i32 }
-%struct.JPEGRawQuantisationTable = type { i8, i8, [64 x i16] }
-%struct.JPEGRawHuffmanTable = type { i8, i8, [16 x i8], [256 x i8] }
-%struct.anon.7 = type { i8, i8, i8 }
-%struct.anon.8 = type { [16 x i8], [12 x i8], [16 x i8], [162 x i8], [2 x i8] }
 
 @.str = private unnamed_addr constant [12 x i8] c"mjpeg_vaapi\00", align 1
 @.str.1 = private unnamed_addr constant [14 x i8] c"MJPEG (VAAPI)\00", align 1
@@ -373,7 +369,7 @@ bytestream2_put_byte.exit:                        ; preds = %._crit_edge
   %108 = phi i1 [ true, %105 ], [ false, %124 ]
   %indvars.iv278 = phi i64 [ 0, %105 ], [ 1, %124 ]
   %.0145246 = phi i16 [ 2, %105 ], [ %125, %124 ]
-  %109 = getelementptr inbounds nuw %struct.JPEGRawQuantisationTable, ptr %106, i64 %indvars.iv278
+  %109 = getelementptr inbounds nuw [130 x i8], ptr %106, i64 %indvars.iv278
   %110 = select i1 %108, ptr @vaapi_encode_mjpeg_quant_luminance, ptr @vaapi_encode_mjpeg_quant_chrominance
   store i8 0, ptr %109, align 2, !tbaa !96
   %111 = trunc nuw nsw i64 %indvars.iv278 to i8
@@ -392,7 +388,7 @@ bytestream2_put_byte.exit:                        ; preds = %._crit_edge
   %120 = call i32 @llvm.smax.i32(i32 %119, i32 1)
   %121 = call i32 @llvm.umin.i32(i32 %120, i32 255)
   %122 = trunc nuw nsw i32 %121 to i16
-  %123 = getelementptr inbounds nuw i16, ptr %113, i64 %indvars.iv275
+  %123 = getelementptr inbounds nuw [2 x i8], ptr %113, i64 %indvars.iv275
   store i16 %122, ptr %123, align 2, !tbaa !99
   %indvars.iv.next276 = add nuw nsw i64 %indvars.iv275, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next276, 64
@@ -415,12 +411,12 @@ bytestream2_put_byte.exit:                        ; preds = %._crit_edge
 switch.lookup:                                    ; preds = %129, %._crit_edge252
   %indvars.iv288 = phi i64 [ 0, %129 ], [ %indvars.iv.next289, %._crit_edge252 ]
   %.1146253 = phi i32 [ 2, %129 ], [ %154, %._crit_edge252 ]
-  %133 = getelementptr inbounds nuw %struct.JPEGRawHuffmanTable, ptr %131, i64 %indvars.iv288
+  %133 = getelementptr inbounds nuw [274 x i8], ptr %131, i64 %indvars.iv288
   %134 = and i64 %indvars.iv288, 4294967295
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.vaapi_encode_mjpeg_init_picture_params, i64 %134
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.vaapi_encode_mjpeg_init_picture_params, i64 %134
   %switch.load = load ptr, ptr %switch.gep, align 8
   %135 = and i64 %indvars.iv288, 4294967295
-  %switch.gep314 = getelementptr inbounds nuw ptr, ptr @switch.table.vaapi_encode_mjpeg_init_picture_params.1, i64 %135
+  %switch.gep314 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.vaapi_encode_mjpeg_init_picture_params.1, i64 %135
   %switch.load315 = load ptr, ptr %switch.gep314, align 8
   %136 = trunc nuw nsw i64 %indvars.iv288 to i8
   %137 = and i8 %136, 1
@@ -610,7 +606,7 @@ define internal noundef i32 @vaapi_encode_mjpeg_init_slice_params(ptr noundef re
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 %indvars.iv
   %17 = load i8, ptr %16, align 1, !tbaa !86
-  %18 = getelementptr inbounds nuw %struct.anon.7, ptr %.sroa.3.0..sroa_idx, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [3 x i8], ptr %.sroa.3.0..sroa_idx, i64 %indvars.iv
   store i8 %17, ptr %18, align 1, !tbaa !123
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 %indvars.iv
   %20 = load i8, ptr %19, align 1, !tbaa !86
@@ -741,9 +737,9 @@ define internal range(i32 -541478725, 1) i32 @vaapi_encode_mjpeg_write_extra_buf
   %indvars.iv125 = phi i64 [ 0, %12 ], [ %indvars.iv.next126, %16 ]
   %17 = load i8, ptr %14, align 1, !tbaa !86
   %18 = zext i8 %17 to i64
-  %19 = getelementptr inbounds nuw %struct.JPEGRawQuantisationTable, ptr %8, i64 %18
+  %19 = getelementptr inbounds nuw [130 x i8], ptr %8, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 3860
-  %21 = getelementptr inbounds nuw i16, ptr %20, i64 %indvars.iv125
+  %21 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %indvars.iv125
   %22 = load i16, ptr %21, align 2, !tbaa !99
   %23 = trunc i16 %22 to i8
   %24 = getelementptr inbounds nuw i8, ptr %15, i64 %indvars.iv125
@@ -769,9 +765,9 @@ define internal range(i32 -541478725, 1) i32 @vaapi_encode_mjpeg_write_extra_buf
   %indvars.iv129 = phi i64 [ 0, %29 ], [ %indvars.iv.next130, %33 ]
   %34 = load i8, ptr %31, align 1, !tbaa !86
   %35 = zext i8 %34 to i64
-  %36 = getelementptr inbounds nuw %struct.JPEGRawQuantisationTable, ptr %8, i64 %35
+  %36 = getelementptr inbounds nuw [130 x i8], ptr %8, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 3860
-  %38 = getelementptr inbounds nuw i16, ptr %37, i64 %indvars.iv129
+  %38 = getelementptr inbounds nuw [2 x i8], ptr %37, i64 %indvars.iv129
   %39 = load i16, ptr %38, align 2, !tbaa !99
   %40 = trunc i16 %39 to i8
   %41 = getelementptr inbounds nuw i8, ptr %32, i64 %indvars.iv129
@@ -802,7 +798,7 @@ define internal range(i32 -541478725, 1) i32 @vaapi_encode_mjpeg_write_extra_buf
   %.idx = mul nuw nsw i64 %indvars.iv122, 548
   %52 = getelementptr inbounds nuw i8, ptr %47, i64 %.idx
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 2
-  %54 = getelementptr inbounds nuw %struct.anon.8, ptr %48, i64 %indvars.iv122
+  %54 = getelementptr inbounds nuw [208 x i8], ptr %48, i64 %indvars.iv122
   br label %55
 
 55:                                               ; preds = %49, %55
@@ -828,7 +824,7 @@ define internal range(i32 -541478725, 1) i32 @vaapi_encode_mjpeg_write_extra_buf
 
 .lr.ph:                                           ; preds = %.preheader91
   %63 = getelementptr inbounds nuw i8, ptr %52, i64 18
-  %64 = getelementptr inbounds nuw %struct.anon.8, ptr %4, i64 %indvars.iv122
+  %64 = getelementptr inbounds nuw [208 x i8], ptr %4, i64 %indvars.iv122
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 18
   %wide.trip.count = zext nneg i32 %60 to i64
   br label %70
@@ -840,7 +836,7 @@ define internal range(i32 -541478725, 1) i32 @vaapi_encode_mjpeg_write_extra_buf
 
 .preheader90:                                     ; preds = %70, %.preheader91
   %67 = getelementptr inbounds nuw i8, ptr %52, i64 276
-  %68 = getelementptr inbounds nuw %struct.anon.8, ptr %4, i64 %indvars.iv122
+  %68 = getelementptr inbounds nuw [208 x i8], ptr %4, i64 %indvars.iv122
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 30
   br label %74
 

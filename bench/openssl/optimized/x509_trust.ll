@@ -73,7 +73,7 @@ X509_TRUST_get_by_id.exit:                        ; preds = %13
 20:                                               ; preds = %9
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %21 = zext nneg i32 %1 to i64
-  %22 = getelementptr %struct.x509_trust_st, ptr @trstandard, i64 %21
+  %22 = getelementptr [40 x i8], ptr @trstandard, i64 %21
   %23 = getelementptr i8, ptr %22, i64 -40
   br label %X509_TRUST_get0.exit
 
@@ -266,7 +266,7 @@ define ptr @X509_TRUST_get0(i32 noundef %0) local_unnamed_addr #1 {
 
 5:                                                ; preds = %3
   %6 = zext nneg i32 %0 to i64
-  %7 = getelementptr inbounds nuw %struct.x509_trust_st, ptr @trstandard, i64 %6
+  %7 = getelementptr inbounds nuw [40 x i8], ptr @trstandard, i64 %6
   br label %12
 
 8:                                                ; preds = %3
@@ -403,7 +403,7 @@ X509_TRUST_get_by_id.exit:                        ; preds = %13
 22:                                               ; preds = %6
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %23 = zext nneg i32 %9 to i64
-  %24 = getelementptr inbounds nuw %struct.x509_trust_st, ptr @trstandard, i64 %23
+  %24 = getelementptr inbounds nuw [40 x i8], ptr @trstandard, i64 %23
   br label %X509_TRUST_get0.exit
 
 25:                                               ; preds = %X509_TRUST_get_by_id.exit

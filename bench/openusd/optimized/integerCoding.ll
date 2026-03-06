@@ -3181,7 +3181,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_ha
   %34 = mul nuw nsw i64 %.012.i.i, 24
   %35 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %34) #14
   store ptr %35, ptr %33, align 8
-  %36 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::pxr_tsl::detail_robin_hash::bucket_entry", ptr %35, i64 %.012.i.i
+  %36 = getelementptr inbounds nuw [24 x i8], ptr %35, i64 %.012.i.i
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %36, ptr %37, align 8
   br label %.lr.ph.i.i.i.i.i
@@ -3319,7 +3319,7 @@ define linkonce_odr { ptr, i8 } @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8
   %.054 = and i64 %8, %7
-  %11 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::pxr_tsl::detail_robin_hash::bucket_entry", ptr %10, i64 %.054
+  %11 = getelementptr inbounds [24 x i8], ptr %10, i64 %.054
   %12 = load i16, ptr %11, align 8
   %.not55 = icmp slt i16 %12, 0
   br i1 %.not55, label %._crit_edge, label %.lr.ph
@@ -3337,7 +3337,7 @@ define linkonce_odr { ptr, i8 } @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17
   %18 = add i64 %.057, 1
   %19 = add i16 %.03356, 1
   %.0 = and i64 %18, %8
-  %20 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::pxr_tsl::detail_robin_hash::bucket_entry", ptr %10, i64 %.0
+  %20 = getelementptr inbounds [24 x i8], ptr %10, i64 %.0
   %21 = load i16, ptr %20, align 8
   %.not = icmp sgt i16 %19, %21
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !58
@@ -3350,14 +3350,14 @@ define linkonce_odr { ptr, i8 } @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17
   br i1 %22, label %23, label %._crit_edge..loopexit_crit_edge
 
 ._crit_edge..loopexit_crit_edge:                  ; preds = %._crit_edge
-  %.phi.trans.insert = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::pxr_tsl::detail_robin_hash::bucket_entry", ptr %.pre, i64 %.0.lcssa
+  %.phi.trans.insert = getelementptr inbounds [24 x i8], ptr %.pre, i64 %.0.lcssa
   %.pre72 = load i16, ptr %.phi.trans.insert, align 8
   br label %.loopexit
 
 23:                                               ; preds = %._crit_edge
   %24 = load i64, ptr %0, align 8
   %.259 = and i64 %24, %7
-  %25 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::pxr_tsl::detail_robin_hash::bucket_entry", ptr %.pre, i64 %.259
+  %25 = getelementptr inbounds [24 x i8], ptr %.pre, i64 %.259
   %26 = load i16, ptr %25, align 8
   %.not3660 = icmp slt i16 %26, 0
   br i1 %.not3660, label %.loopexit, label %.lr.ph64
@@ -3368,7 +3368,7 @@ define linkonce_odr { ptr, i8 } @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17
   %27 = add i64 %.262, 1
   %28 = add i16 %.23561, 1
   %.2 = and i64 %27, %24
-  %29 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::pxr_tsl::detail_robin_hash::bucket_entry", ptr %.pre, i64 %.2
+  %29 = getelementptr inbounds [24 x i8], ptr %.pre, i64 %.2
   %30 = load i16, ptr %29, align 8
   %.not36 = icmp sgt i16 %28, %30
   br i1 %.not36, label %.loopexit, label %.lr.ph64, !llvm.loop !59
@@ -3377,7 +3377,7 @@ define linkonce_odr { ptr, i8 } @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17
   %31 = phi i16 [ %.pre72, %._crit_edge..loopexit_crit_edge ], [ %26, %23 ], [ %30, %.lr.ph64 ]
   %.134 = phi i16 [ %.033.lcssa, %._crit_edge..loopexit_crit_edge ], [ 0, %23 ], [ %28, %.lr.ph64 ]
   %.1 = phi i64 [ %.0.lcssa, %._crit_edge..loopexit_crit_edge ], [ %.259, %23 ], [ %.2, %.lr.ph64 ]
-  %32 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::pxr_tsl::detail_robin_hash::bucket_entry", ptr %.pre, i64 %.1
+  %32 = getelementptr inbounds [24 x i8], ptr %.pre, i64 %.1
   %33 = icmp eq i16 %31, -1
   br i1 %33, label %34, label %40
 
@@ -3408,7 +3408,7 @@ define linkonce_odr { ptr, i8 } @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17
   %50 = and i64 %49, %48
   %storemerge17.i.i = add nuw i16 %31, 1
   %51 = load ptr, ptr %9, align 8
-  %52 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::pxr_tsl::detail_robin_hash::bucket_entry", ptr %51, i64 %50
+  %52 = getelementptr inbounds [24 x i8], ptr %51, i64 %50
   %53 = load i16, ptr %52, align 8
   %54 = icmp eq i16 %53, -1
   br i1 %54, label %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairIimENS0_9robin_mapIimSt4hashIiESt8equal_toIiESaIS4_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSE_11ValueSelectES7_S9_SA_Lb0ESD_E12insert_valueIJRKSt21piecewise_construct_tSt5tupleIJRKiEESM_IJEEEEEvmsjDpOT_.exit, label %.lr.ph.i.i
@@ -3460,7 +3460,7 @@ define linkonce_odr { ptr, i8 } @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17
   %74 = add i64 %.018.i.i, 1
   %75 = and i64 %73, %74
   %storemerge.i.i = add i16 %.1.i.i, 1
-  %76 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::pxr_tsl::detail_robin_hash::bucket_entry", ptr %72, i64 %75
+  %76 = getelementptr inbounds [24 x i8], ptr %72, i64 %75
   %77 = load i16, ptr %76, align 8
   %78 = icmp eq i16 %77, -1
   br i1 %78, label %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairIimENS0_9robin_mapIimSt4hashIiESt8equal_toIiESaIS4_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSE_11ValueSelectES7_S9_SA_Lb0ESD_E12insert_valueIJRKSt21piecewise_construct_tSt5tupleIJRKiEESM_IJEEEEEvmsjDpOT_.exit, label %56, !llvm.loop !60
@@ -3483,7 +3483,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4
   %83 = add i64 %82, 1
   store i64 %83, ptr %81, align 8
   %84 = load ptr, ptr %9, align 8
-  %85 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::pxr_tsl::detail_robin_hash::bucket_entry", ptr %84, i64 %.1
+  %85 = getelementptr inbounds [24 x i8], ptr %84, i64 %.1
   br label %.loopexit47
 
 .loopexit47:                                      ; preds = %.lr.ph, %80
@@ -3622,7 +3622,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_
   %.011.i = phi i16 [ 0, %18 ], [ %43, %41 ]
   %.0.i = phi i64 [ %23, %18 ], [ %45, %41 ]
   %27 = load ptr, ptr %14, align 8
-  %28 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::pxr_tsl::detail_robin_hash::bucket_entry", ptr %27, i64 %.0.i
+  %28 = getelementptr inbounds [24 x i8], ptr %27, i64 %.0.i
   %29 = load i16, ptr %28, align 8
   %30 = icmp sgt i16 %.011.i, %29
   br i1 %30, label %31, label %41
@@ -3912,7 +3912,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_ha
   %34 = mul nuw nsw i64 %.012.i.i, 24
   %35 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %34) #14
   store ptr %35, ptr %33, align 8
-  %36 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::pxr_tsl::detail_robin_hash::bucket_entry.38", ptr %35, i64 %.012.i.i
+  %36 = getelementptr inbounds nuw [24 x i8], ptr %35, i64 %.012.i.i
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr %36, ptr %37, align 8
   br label %.lr.ph.i.i.i.i.i
@@ -4019,7 +4019,7 @@ define linkonce_odr { ptr, i8 } @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load ptr, ptr %8, align 8
   %.054 = and i64 %6, %7
-  %10 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::pxr_tsl::detail_robin_hash::bucket_entry.38", ptr %9, i64 %.054
+  %10 = getelementptr inbounds [24 x i8], ptr %9, i64 %.054
   %11 = load i16, ptr %10, align 8
   %.not55 = icmp slt i16 %11, 0
   br i1 %.not55, label %._crit_edge, label %.lr.ph
@@ -4037,7 +4037,7 @@ define linkonce_odr { ptr, i8 } @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17
   %17 = add i64 %.057, 1
   %18 = add i16 %.03356, 1
   %.0 = and i64 %17, %7
-  %19 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::pxr_tsl::detail_robin_hash::bucket_entry.38", ptr %9, i64 %.0
+  %19 = getelementptr inbounds [24 x i8], ptr %9, i64 %.0
   %20 = load i16, ptr %19, align 8
   %.not = icmp sgt i16 %18, %20
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !63
@@ -4050,14 +4050,14 @@ define linkonce_odr { ptr, i8 } @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17
   br i1 %21, label %22, label %._crit_edge..loopexit_crit_edge
 
 ._crit_edge..loopexit_crit_edge:                  ; preds = %._crit_edge
-  %.phi.trans.insert = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::pxr_tsl::detail_robin_hash::bucket_entry.38", ptr %.pre, i64 %.0.lcssa
+  %.phi.trans.insert = getelementptr inbounds [24 x i8], ptr %.pre, i64 %.0.lcssa
   %.pre72 = load i16, ptr %.phi.trans.insert, align 8
   br label %.loopexit
 
 22:                                               ; preds = %._crit_edge
   %23 = load i64, ptr %0, align 8
   %.259 = and i64 %6, %23
-  %24 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::pxr_tsl::detail_robin_hash::bucket_entry.38", ptr %.pre, i64 %.259
+  %24 = getelementptr inbounds [24 x i8], ptr %.pre, i64 %.259
   %25 = load i16, ptr %24, align 8
   %.not3660 = icmp slt i16 %25, 0
   br i1 %.not3660, label %.loopexit, label %.lr.ph64
@@ -4068,7 +4068,7 @@ define linkonce_odr { ptr, i8 } @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17
   %26 = add i64 %.262, 1
   %27 = add i16 %.23561, 1
   %.2 = and i64 %26, %23
-  %28 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::pxr_tsl::detail_robin_hash::bucket_entry.38", ptr %.pre, i64 %.2
+  %28 = getelementptr inbounds [24 x i8], ptr %.pre, i64 %.2
   %29 = load i16, ptr %28, align 8
   %.not36 = icmp sgt i16 %27, %29
   br i1 %.not36, label %.loopexit, label %.lr.ph64, !llvm.loop !64
@@ -4077,7 +4077,7 @@ define linkonce_odr { ptr, i8 } @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17
   %30 = phi i16 [ %.pre72, %._crit_edge..loopexit_crit_edge ], [ %25, %22 ], [ %29, %.lr.ph64 ]
   %.134 = phi i16 [ %.033.lcssa, %._crit_edge..loopexit_crit_edge ], [ 0, %22 ], [ %27, %.lr.ph64 ]
   %.1 = phi i64 [ %.0.lcssa, %._crit_edge..loopexit_crit_edge ], [ %.259, %22 ], [ %.2, %.lr.ph64 ]
-  %31 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::pxr_tsl::detail_robin_hash::bucket_entry.38", ptr %.pre, i64 %.1
+  %31 = getelementptr inbounds [24 x i8], ptr %.pre, i64 %.1
   %32 = icmp eq i16 %30, -1
   br i1 %32, label %33, label %39
 
@@ -4108,7 +4108,7 @@ define linkonce_odr { ptr, i8 } @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17
   %49 = and i64 %48, %47
   %storemerge17.i.i = add nuw i16 %30, 1
   %50 = load ptr, ptr %8, align 8
-  %51 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::pxr_tsl::detail_robin_hash::bucket_entry.38", ptr %50, i64 %49
+  %51 = getelementptr inbounds [24 x i8], ptr %50, i64 %49
   %52 = load i16, ptr %51, align 8
   %53 = icmp eq i16 %52, -1
   br i1 %53, label %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairIlmENS0_9robin_mapIlmSt4hashIlESt8equal_toIlESaIS4_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSE_11ValueSelectES7_S9_SA_Lb0ESD_E12insert_valueIJRKSt21piecewise_construct_tSt5tupleIJRKlEESM_IJEEEEEvmsjDpOT_.exit, label %.lr.ph.i.i
@@ -4160,7 +4160,7 @@ define linkonce_odr { ptr, i8 } @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17
   %73 = add i64 %.018.i.i, 1
   %74 = and i64 %72, %73
   %storemerge.i.i = add i16 %.1.i.i, 1
-  %75 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::pxr_tsl::detail_robin_hash::bucket_entry.38", ptr %71, i64 %74
+  %75 = getelementptr inbounds [24 x i8], ptr %71, i64 %74
   %76 = load i16, ptr %75, align 8
   %77 = icmp eq i16 %76, -1
   br i1 %77, label %_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4pairIlmENS0_9robin_mapIlmSt4hashIlESt8equal_toIlESaIS4_ELb0ENS0_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSE_11ValueSelectES7_S9_SA_Lb0ESD_E12insert_valueIJRKSt21piecewise_construct_tSt5tupleIJRKlEESM_IJEEEEEvmsjDpOT_.exit, label %55, !llvm.loop !65
@@ -4183,7 +4183,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_robin_hash10robin_hashISt4
   %82 = add i64 %81, 1
   store i64 %82, ptr %80, align 8
   %83 = load ptr, ptr %8, align 8
-  %84 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::pxr_tsl::detail_robin_hash::bucket_entry.38", ptr %83, i64 %.1
+  %84 = getelementptr inbounds [24 x i8], ptr %83, i64 %.1
   br label %.loopexit47
 
 .loopexit47:                                      ; preds = %.lr.ph, %79
@@ -4321,7 +4321,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7pxr_tsl17detail_
   %.011.i = phi i16 [ 0, %18 ], [ %42, %40 ]
   %.0.i = phi i64 [ %22, %18 ], [ %44, %40 ]
   %26 = load ptr, ptr %14, align 8
-  %27 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::pxr_tsl::detail_robin_hash::bucket_entry.38", ptr %26, i64 %.0.i
+  %27 = getelementptr inbounds [24 x i8], ptr %26, i64 %.0.i
   %28 = load i16, ptr %27, align 8
   %29 = icmp sgt i16 %.011.i, %28
   br i1 %29, label %30, label %40

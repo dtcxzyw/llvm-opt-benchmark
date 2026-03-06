@@ -588,7 +588,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @rc6_residency_ms_
   %9 = phi i1 [ true, %5 ], [ false, %32 ]
   %10 = phi i64 [ 0, %5 ], [ 1, %32 ]
   %11 = phi i32 [ -1, %5 ], [ %33, %32 ]
-  %12 = getelementptr ptr, ptr %7, i64 %10
+  %12 = getelementptr [8 x i8], ptr %7, i64 %10
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %32, label %15
@@ -704,7 +704,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @rc6p_residency_ms
   %9 = phi i1 [ true, %5 ], [ false, %32 ]
   %10 = phi i64 [ 0, %5 ], [ 1, %32 ]
   %11 = phi i32 [ -1, %5 ], [ %33, %32 ]
-  %12 = getelementptr ptr, ptr %7, i64 %10
+  %12 = getelementptr [8 x i8], ptr %7, i64 %10
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %32, label %15
@@ -785,7 +785,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @rc6pp_residency_m
   %9 = phi i1 [ true, %5 ], [ false, %32 ]
   %10 = phi i64 [ 0, %5 ], [ 1, %32 ]
   %11 = phi i32 [ -1, %5 ], [ %33, %32 ]
-  %12 = getelementptr ptr, ptr %7, i64 %10
+  %12 = getelementptr [8 x i8], ptr %7, i64 %10
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %32, label %15
@@ -878,7 +878,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @media_rc6_residen
   %9 = phi i1 [ true, %5 ], [ false, %32 ]
   %10 = phi i64 [ 0, %5 ], [ 1, %32 ]
   %11 = phi i32 [ -1, %5 ], [ %33, %32 ]
-  %12 = getelementptr ptr, ptr %7, i64 %10
+  %12 = getelementptr [8 x i8], ptr %7, i64 %10
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %32, label %15
@@ -959,7 +959,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @act_freq_mhz_show(ptr no
   %9 = phi i1 [ true, %5 ], [ false, %19 ]
   %10 = phi i64 [ 0, %5 ], [ 1, %19 ]
   %11 = phi i32 [ 0, %5 ], [ %20, %19 ]
-  %12 = getelementptr ptr, ptr %7, i64 %10
+  %12 = getelementptr [8 x i8], ptr %7, i64 %10
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %19, label %15
@@ -1005,7 +1005,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @cur_freq_mhz_show(ptr no
   %9 = phi i1 [ true, %5 ], [ false, %19 ]
   %10 = phi i64 [ 0, %5 ], [ 1, %19 ]
   %11 = phi i32 [ 0, %5 ], [ %20, %19 ]
-  %12 = getelementptr ptr, ptr %7, i64 %10
+  %12 = getelementptr [8 x i8], ptr %7, i64 %10
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %19, label %15
@@ -1051,7 +1051,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @boost_freq_mhz_show(ptr 
   %9 = phi i1 [ true, %5 ], [ false, %19 ]
   %10 = phi i64 [ 0, %5 ], [ 1, %19 ]
   %11 = phi i32 [ 0, %5 ], [ %20, %19 ]
-  %12 = getelementptr ptr, ptr %7, i64 %10
+  %12 = getelementptr [8 x i8], ptr %7, i64 %10
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %19, label %15
@@ -1115,7 +1115,7 @@ define internal fastcc i64 @boost_freq_mhz_store_common(ptr noundef %0, ptr noun
 16:                                               ; preds = %27, %13
   %17 = phi i1 [ true, %13 ], [ false, %27 ]
   %18 = phi i64 [ 0, %13 ], [ 1, %27 ]
-  %19 = getelementptr ptr, ptr %15, i64 %18
+  %19 = getelementptr [8 x i8], ptr %15, i64 %18
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %27, label %22
@@ -1172,7 +1172,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @max_freq_mhz_show(ptr no
   %9 = phi i1 [ true, %5 ], [ false, %19 ]
   %10 = phi i64 [ 0, %5 ], [ 1, %19 ]
   %11 = phi i32 [ 0, %5 ], [ %20, %19 ]
-  %12 = getelementptr ptr, ptr %7, i64 %10
+  %12 = getelementptr [8 x i8], ptr %7, i64 %10
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %19, label %15
@@ -1236,7 +1236,7 @@ define internal fastcc i64 @max_freq_mhz_store_common(ptr noundef %0, ptr nounde
 16:                                               ; preds = %27, %13
   %17 = phi i1 [ true, %13 ], [ false, %27 ]
   %18 = phi i64 [ 0, %13 ], [ 1, %27 ]
-  %19 = getelementptr ptr, ptr %15, i64 %18
+  %19 = getelementptr [8 x i8], ptr %15, i64 %18
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %27, label %22
@@ -1290,7 +1290,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @min_freq_mhz_show(ptr no
   %9 = phi i1 [ true, %5 ], [ false, %19 ]
   %10 = phi i64 [ 0, %5 ], [ 1, %19 ]
   %11 = phi i32 [ -1, %5 ], [ %20, %19 ]
-  %12 = getelementptr ptr, ptr %7, i64 %10
+  %12 = getelementptr [8 x i8], ptr %7, i64 %10
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %19, label %15
@@ -1354,7 +1354,7 @@ define internal fastcc i64 @min_freq_mhz_store_common(ptr noundef %0, ptr nounde
 16:                                               ; preds = %27, %13
   %17 = phi i1 [ true, %13 ], [ false, %27 ]
   %18 = phi i64 [ 0, %13 ], [ 1, %27 ]
-  %19 = getelementptr ptr, ptr %15, i64 %18
+  %19 = getelementptr [8 x i8], ptr %15, i64 %18
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %27, label %22
@@ -1408,7 +1408,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @RP0_freq_mhz_show(ptr no
   %9 = phi i1 [ true, %5 ], [ false, %19 ]
   %10 = phi i64 [ 0, %5 ], [ 1, %19 ]
   %11 = phi i32 [ 0, %5 ], [ %20, %19 ]
-  %12 = getelementptr ptr, ptr %7, i64 %10
+  %12 = getelementptr [8 x i8], ptr %7, i64 %10
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %19, label %15
@@ -1454,7 +1454,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @RP1_freq_mhz_show(ptr no
   %9 = phi i1 [ true, %5 ], [ false, %19 ]
   %10 = phi i64 [ 0, %5 ], [ 1, %19 ]
   %11 = phi i32 [ 0, %5 ], [ %20, %19 ]
-  %12 = getelementptr ptr, ptr %7, i64 %10
+  %12 = getelementptr [8 x i8], ptr %7, i64 %10
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %19, label %15
@@ -1500,7 +1500,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @RPn_freq_mhz_show(ptr no
   %9 = phi i1 [ true, %5 ], [ false, %19 ]
   %10 = phi i64 [ 0, %5 ], [ 1, %19 ]
   %11 = phi i32 [ 0, %5 ], [ %20, %19 ]
-  %12 = getelementptr ptr, ptr %7, i64 %10
+  %12 = getelementptr [8 x i8], ptr %7, i64 %10
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %19, label %15
@@ -1546,7 +1546,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @vlv_rpe_freq_mhz_show(pt
   %9 = phi i1 [ true, %5 ], [ false, %22 ]
   %10 = phi i64 [ 0, %5 ], [ 1, %22 ]
   %11 = phi i32 [ 0, %5 ], [ %23, %22 ]
-  %12 = getelementptr ptr, ptr %7, i64 %10
+  %12 = getelementptr [8 x i8], ptr %7, i64 %10
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %22, label %15
@@ -1598,7 +1598,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @act_freq_mhz_dev_show(pt
   %9 = phi i1 [ true, %5 ], [ false, %19 ]
   %10 = phi i64 [ 0, %5 ], [ 1, %19 ]
   %11 = phi i32 [ 0, %5 ], [ %20, %19 ]
-  %12 = getelementptr ptr, ptr %7, i64 %10
+  %12 = getelementptr [8 x i8], ptr %7, i64 %10
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %19, label %15
@@ -1641,7 +1641,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @cur_freq_mhz_dev_show(pt
   %9 = phi i1 [ true, %5 ], [ false, %19 ]
   %10 = phi i64 [ 0, %5 ], [ 1, %19 ]
   %11 = phi i32 [ 0, %5 ], [ %20, %19 ]
-  %12 = getelementptr ptr, ptr %7, i64 %10
+  %12 = getelementptr [8 x i8], ptr %7, i64 %10
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %19, label %15
@@ -1684,7 +1684,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @boost_freq_mhz_dev_show(
   %9 = phi i1 [ true, %5 ], [ false, %19 ]
   %10 = phi i64 [ 0, %5 ], [ 1, %19 ]
   %11 = phi i32 [ 0, %5 ], [ %20, %19 ]
-  %12 = getelementptr ptr, ptr %7, i64 %10
+  %12 = getelementptr [8 x i8], ptr %7, i64 %10
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %19, label %15
@@ -1733,7 +1733,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @max_freq_mhz_dev_show(pt
   %9 = phi i1 [ true, %5 ], [ false, %19 ]
   %10 = phi i64 [ 0, %5 ], [ 1, %19 ]
   %11 = phi i32 [ 0, %5 ], [ %20, %19 ]
-  %12 = getelementptr ptr, ptr %7, i64 %10
+  %12 = getelementptr [8 x i8], ptr %7, i64 %10
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %19, label %15
@@ -1782,7 +1782,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @min_freq_mhz_dev_show(pt
   %9 = phi i1 [ true, %5 ], [ false, %19 ]
   %10 = phi i64 [ 0, %5 ], [ 1, %19 ]
   %11 = phi i32 [ -1, %5 ], [ %20, %19 ]
-  %12 = getelementptr ptr, ptr %7, i64 %10
+  %12 = getelementptr [8 x i8], ptr %7, i64 %10
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %19, label %15
@@ -1831,7 +1831,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @RP0_freq_mhz_dev_show(pt
   %9 = phi i1 [ true, %5 ], [ false, %19 ]
   %10 = phi i64 [ 0, %5 ], [ 1, %19 ]
   %11 = phi i32 [ 0, %5 ], [ %20, %19 ]
-  %12 = getelementptr ptr, ptr %7, i64 %10
+  %12 = getelementptr [8 x i8], ptr %7, i64 %10
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %19, label %15
@@ -1874,7 +1874,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @RP1_freq_mhz_dev_show(pt
   %9 = phi i1 [ true, %5 ], [ false, %19 ]
   %10 = phi i64 [ 0, %5 ], [ 1, %19 ]
   %11 = phi i32 [ 0, %5 ], [ %20, %19 ]
-  %12 = getelementptr ptr, ptr %7, i64 %10
+  %12 = getelementptr [8 x i8], ptr %7, i64 %10
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %19, label %15
@@ -1917,7 +1917,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @RPn_freq_mhz_dev_show(pt
   %9 = phi i1 [ true, %5 ], [ false, %19 ]
   %10 = phi i64 [ 0, %5 ], [ 1, %19 ]
   %11 = phi i32 [ 0, %5 ], [ %20, %19 ]
-  %12 = getelementptr ptr, ptr %7, i64 %10
+  %12 = getelementptr [8 x i8], ptr %7, i64 %10
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %19, label %15
@@ -1960,7 +1960,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @vlv_rpe_freq_mhz_dev_sho
   %9 = phi i1 [ true, %5 ], [ false, %22 ]
   %10 = phi i64 [ 0, %5 ], [ 1, %22 ]
   %11 = phi i32 [ 0, %5 ], [ %23, %22 ]
-  %12 = getelementptr ptr, ptr %7, i64 %10
+  %12 = getelementptr [8 x i8], ptr %7, i64 %10
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %22, label %15

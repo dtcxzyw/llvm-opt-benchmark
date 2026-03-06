@@ -46,7 +46,7 @@ define hidden noundef zeroext i1 @SDL_ChannelMapIsBogus(ptr noundef readonly cap
 
 .critedge:                                        ; preds = %.critedge, %.critedge.preheader
   %indvars.iv = phi i64 [ 0, %.critedge.preheader ], [ %indvars.iv.next, %.critedge ]
-  %4 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %5 = load i32, ptr %4, align 4
   %6 = icmp slt i32 %5, -1
   %.not17 = icmp sge i32 %5, %1
@@ -74,7 +74,7 @@ define hidden noundef zeroext i1 @SDL_ChannelMapIsDefault(ptr noundef readonly c
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %4 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %5 = load i32, ptr %4, align 4
   %6 = zext i32 %5 to i64
   %.not11 = icmp eq i64 %indvars.iv, %6
@@ -213,7 +213,7 @@ define hidden void @ConvertAudio(i32 noundef %0, ptr noundef %1, i32 noundef %2,
 
 .lr.ph172:                                        ; preds = %.lr.ph172.preheader, %.lr.ph172
   %indvars.iv175 = phi i64 [ 0, %.lr.ph172.preheader ], [ %indvars.iv.next176, %.lr.ph172 ]
-  %52 = getelementptr inbounds nuw float, ptr %48, i64 %indvars.iv175
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %indvars.iv175
   %53 = load float, ptr %52, align 4
   %54 = fmul float %10, %53
   store float %54, ptr %52, align 4
@@ -223,10 +223,10 @@ define hidden void @ConvertAudio(i32 noundef %0, ptr noundef %1, i32 noundef %2,
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %55 = getelementptr inbounds nuw float, ptr %.2, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %.2, i64 %indvars.iv
   %56 = load float, ptr %55, align 4
   %57 = fmul float %10, %56
-  %58 = getelementptr inbounds nuw float, ptr %48, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %indvars.iv
   store float %57, ptr %58, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -238,9 +238,9 @@ define hidden void @ConvertAudio(i32 noundef %0, ptr noundef %1, i32 noundef %2,
 
 59:                                               ; preds = %.loopexit
   %60 = sext i32 %3 to i64
-  %61 = getelementptr [8 x ptr], ptr @channel_converters, i64 %60
+  %61 = getelementptr [64 x i8], ptr @channel_converters, i64 %60
   %62 = sext i32 %7 to i64
-  %63 = getelementptr ptr, ptr %61, i64 %62
+  %63 = getelementptr [8 x i8], ptr %61, i64 %62
   %64 = getelementptr i8, ptr %63, i64 -72
   %65 = load ptr, ptr %64, align 8
   %66 = select i1 %41, ptr %spec.select159, ptr %5
@@ -282,7 +282,7 @@ define internal fastcc void @SwizzleAudio(i32 noundef range(i32 1, 0) %0, ptr no
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %8 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, -1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -326,7 +326,7 @@ define internal fastcc void @SwizzleAudio(i32 noundef range(i32 1, 0) %0, ptr no
 
 15:                                               ; preds = %.preheader391.us, %15
   %indvars.iv580 = phi i64 [ 0, %.preheader391.us ], [ %indvars.iv.next581, %15 ]
-  %16 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv580
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv580
   %17 = load i32, ptr %16, align 4
   %18 = sext i32 %17 to i64
   %19 = getelementptr inbounds i8, ptr %.1302481.us, i64 %18
@@ -366,7 +366,7 @@ define internal fastcc void @SwizzleAudio(i32 noundef range(i32 1, 0) %0, ptr no
 
 30:                                               ; preds = %.preheader389.us, %38
   %indvars.iv586 = phi i64 [ 0, %.preheader389.us ], [ %indvars.iv.next587, %38 ]
-  %31 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv586
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv586
   %32 = load i32, ptr %31, align 4
   %33 = icmp eq i32 %32, -1
   br i1 %33, label %38, label %34
@@ -441,7 +441,7 @@ define internal fastcc void @SwizzleAudio(i32 noundef range(i32 1, 0) %0, ptr no
 
 .lr.ph498:                                        ; preds = %.preheader384, %67
   %indvars.iv601 = phi i64 [ %indvars.iv.next602, %67 ], [ 0, %.preheader384 ]
-  %60 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv601
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv601
   %61 = load i32, ptr %60, align 4
   %62 = icmp eq i32 %61, -1
   br i1 %62, label %67, label %63
@@ -479,7 +479,7 @@ define internal fastcc void @SwizzleAudio(i32 noundef range(i32 1, 0) %0, ptr no
 
 .lr.ph490:                                        ; preds = %.preheader386, %.lr.ph490
   %indvars.iv592 = phi i64 [ %indvars.iv.next593, %.lr.ph490 ], [ 0, %.preheader386 ]
-  %73 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv592
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv592
   %74 = load i32, ptr %73, align 4
   %75 = sext i32 %74 to i64
   %76 = getelementptr inbounds i8, ptr %.3304495, i64 %75
@@ -527,12 +527,12 @@ define internal fastcc void @SwizzleAudio(i32 noundef range(i32 1, 0) %0, ptr no
 
 86:                                               ; preds = %.preheader403.us, %86
   %indvars.iv550 = phi i64 [ 0, %.preheader403.us ], [ %indvars.iv.next551, %86 ]
-  %87 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv550
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv550
   %88 = load i32, ptr %87, align 4
   %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds i16, ptr %.1333453.us, i64 %89
+  %90 = getelementptr inbounds [2 x i8], ptr %.1333453.us, i64 %89
   %91 = load i16, ptr %90, align 2
-  %92 = getelementptr inbounds nuw i16, ptr %.1337452.us, i64 %indvars.iv550
+  %92 = getelementptr inbounds nuw [2 x i8], ptr %.1337452.us, i64 %indvars.iv550
   store i16 %91, ptr %92, align 2
   %indvars.iv.next551 = add nuw nsw i64 %indvars.iv550, 1
   %exitcond554.not = icmp eq i64 %indvars.iv.next551, %wide.trip.count553
@@ -540,8 +540,8 @@ define internal fastcc void @SwizzleAudio(i32 noundef range(i32 1, 0) %0, ptr no
 
 ._crit_edge451.us:                                ; preds = %86
   %93 = add nuw nsw i32 %.0327454.us, 1
-  %94 = getelementptr inbounds nuw i16, ptr %.1333453.us, i64 %85
-  %95 = getelementptr inbounds nuw i16, ptr %.1337452.us, i64 %85
+  %94 = getelementptr inbounds nuw [2 x i8], ptr %.1333453.us, i64 %85
+  %95 = getelementptr inbounds nuw [2 x i8], ptr %.1337452.us, i64 %85
   %exitcond555.not = icmp eq i32 %93, %0
   br i1 %exitcond555.not, label %.loopexit390, label %.preheader403.us, !llvm.loop !18
 
@@ -567,20 +567,20 @@ define internal fastcc void @SwizzleAudio(i32 noundef range(i32 1, 0) %0, ptr no
 
 101:                                              ; preds = %.preheader401.us, %109
   %indvars.iv556 = phi i64 [ 0, %.preheader401.us ], [ %indvars.iv.next557, %109 ]
-  %102 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv556
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv556
   %103 = load i32, ptr %102, align 4
   %104 = icmp eq i32 %103, -1
   br i1 %104, label %109, label %105
 
 105:                                              ; preds = %101
   %106 = sext i32 %103 to i64
-  %107 = getelementptr inbounds i16, ptr %.0332459.us, i64 %106
+  %107 = getelementptr inbounds [2 x i8], ptr %.0332459.us, i64 %106
   %108 = load i16, ptr %107, align 2
   br label %109
 
 109:                                              ; preds = %101, %105
   %110 = phi i16 [ %108, %105 ], [ %99, %101 ]
-  %111 = getelementptr inbounds nuw i16, ptr %.0336458.us, i64 %indvars.iv556
+  %111 = getelementptr inbounds nuw [2 x i8], ptr %.0336458.us, i64 %indvars.iv556
   store i16 %110, ptr %111, align 2
   %indvars.iv.next557 = add nuw nsw i64 %indvars.iv556, 1
   %exitcond560.not = icmp eq i64 %indvars.iv.next557, %wide.trip.count559
@@ -588,8 +588,8 @@ define internal fastcc void @SwizzleAudio(i32 noundef range(i32 1, 0) %0, ptr no
 
 ._crit_edge457.us:                                ; preds = %109
   %112 = add nuw nsw i32 %.0330460.us, 1
-  %113 = getelementptr inbounds nuw i16, ptr %.0332459.us, i64 %100
-  %114 = getelementptr inbounds nuw i16, ptr %.0336458.us, i64 %100
+  %113 = getelementptr inbounds nuw [2 x i8], ptr %.0332459.us, i64 %100
+  %114 = getelementptr inbounds nuw [2 x i8], ptr %.0336458.us, i64 %100
   %exitcond561.not = icmp eq i32 %112, %0
   br i1 %exitcond561.not, label %.loopexit390, label %.preheader401.us, !llvm.loop !20
 
@@ -644,20 +644,20 @@ define internal fastcc void @SwizzleAudio(i32 noundef range(i32 1, 0) %0, ptr no
 
 .lr.ph470:                                        ; preds = %.preheader395, %140
   %indvars.iv571 = phi i64 [ %indvars.iv.next572, %140 ], [ 0, %.preheader395 ]
-  %133 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv571
+  %133 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv571
   %134 = load i32, ptr %133, align 4
   %135 = icmp eq i32 %134, -1
   br i1 %135, label %140, label %136
 
 136:                                              ; preds = %.lr.ph470
   %137 = sext i32 %134 to i64
-  %138 = getelementptr inbounds i16, ptr %.2334475, i64 %137
+  %138 = getelementptr inbounds [2 x i8], ptr %.2334475, i64 %137
   %139 = load i16, ptr %138, align 2
   br label %140
 
 140:                                              ; preds = %.lr.ph470, %136
   %141 = phi i16 [ %139, %136 ], [ %130, %.lr.ph470 ]
-  %142 = getelementptr inbounds nuw i16, ptr %123, i64 %indvars.iv571
+  %142 = getelementptr inbounds nuw [2 x i8], ptr %123, i64 %indvars.iv571
   store i16 %141, ptr %142, align 2
   %indvars.iv.next572 = add nuw nsw i64 %indvars.iv571, 1
   %exitcond575.not = icmp eq i64 %indvars.iv.next572, %131
@@ -665,8 +665,8 @@ define internal fastcc void @SwizzleAudio(i32 noundef range(i32 1, 0) %0, ptr no
 
 ._crit_edge473:                                   ; preds = %.preheader395, %.lr.ph472.preheader
   %143 = add nuw nsw i32 %.0322476, 1
-  %144 = getelementptr inbounds i16, ptr %.2334475, i64 %116
-  %145 = getelementptr i16, ptr %.2338474, i64 %116
+  %144 = getelementptr inbounds [2 x i8], ptr %.2334475, i64 %116
+  %145 = getelementptr [2 x i8], ptr %.2338474, i64 %116
   %exitcond579.not = icmp eq i32 %143, %0
   br i1 %exitcond579.not, label %.loopexit396, label %.preheader395, !llvm.loop !22
 
@@ -682,12 +682,12 @@ define internal fastcc void @SwizzleAudio(i32 noundef range(i32 1, 0) %0, ptr no
 
 .lr.ph462:                                        ; preds = %.preheader398, %.lr.ph462
   %indvars.iv562 = phi i64 [ %indvars.iv.next563, %.lr.ph462 ], [ 0, %.preheader398 ]
-  %146 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv562
+  %146 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv562
   %147 = load i32, ptr %146, align 4
   %148 = sext i32 %147 to i64
-  %149 = getelementptr inbounds i16, ptr %.3335467, i64 %148
+  %149 = getelementptr inbounds [2 x i8], ptr %.3335467, i64 %148
   %150 = load i16, ptr %149, align 2
-  %151 = getelementptr inbounds nuw i16, ptr %123, i64 %indvars.iv562
+  %151 = getelementptr inbounds nuw [2 x i8], ptr %123, i64 %indvars.iv562
   store i16 %150, ptr %151, align 2
   %indvars.iv.next563 = add nuw nsw i64 %indvars.iv562, 1
   %exitcond566.not = icmp eq i64 %indvars.iv.next563, %125
@@ -695,8 +695,8 @@ define internal fastcc void @SwizzleAudio(i32 noundef range(i32 1, 0) %0, ptr no
 
 ._crit_edge465:                                   ; preds = %.preheader398, %.lr.ph464.preheader
   %152 = add nuw nsw i32 %.0318468, 1
-  %153 = getelementptr inbounds i16, ptr %.3335467, i64 %116
-  %154 = getelementptr i16, ptr %.3339466, i64 %116
+  %153 = getelementptr inbounds [2 x i8], ptr %.3335467, i64 %116
+  %154 = getelementptr [2 x i8], ptr %.3339466, i64 %116
   %exitcond570.not = icmp eq i32 %152, %0
   br i1 %exitcond570.not, label %.loopexit396, label %.preheader398, !llvm.loop !24
 
@@ -730,12 +730,12 @@ define internal fastcc void @SwizzleAudio(i32 noundef range(i32 1, 0) %0, ptr no
 
 159:                                              ; preds = %.preheader415.us, %159
   %indvars.iv520 = phi i64 [ 0, %.preheader415.us ], [ %indvars.iv.next521, %159 ]
-  %160 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv520
+  %160 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv520
   %161 = load i32, ptr %160, align 4
   %162 = sext i32 %161 to i64
-  %163 = getelementptr inbounds i32, ptr %.1309425.us, i64 %162
+  %163 = getelementptr inbounds [4 x i8], ptr %.1309425.us, i64 %162
   %164 = load i32, ptr %163, align 4
-  %165 = getelementptr inbounds nuw i32, ptr %.1313424.us, i64 %indvars.iv520
+  %165 = getelementptr inbounds nuw [4 x i8], ptr %.1313424.us, i64 %indvars.iv520
   store i32 %164, ptr %165, align 4
   %indvars.iv.next521 = add nuw nsw i64 %indvars.iv520, 1
   %exitcond524.not = icmp eq i64 %indvars.iv.next521, %wide.trip.count523
@@ -743,8 +743,8 @@ define internal fastcc void @SwizzleAudio(i32 noundef range(i32 1, 0) %0, ptr no
 
 ._crit_edge423.us:                                ; preds = %159
   %166 = add nuw nsw i32 %.0300426.us, 1
-  %167 = getelementptr inbounds nuw i32, ptr %.1309425.us, i64 %158
-  %168 = getelementptr inbounds nuw i32, ptr %.1313424.us, i64 %158
+  %167 = getelementptr inbounds nuw [4 x i8], ptr %.1309425.us, i64 %158
+  %168 = getelementptr inbounds nuw [4 x i8], ptr %.1313424.us, i64 %158
   %exitcond525.not = icmp eq i32 %166, %0
   br i1 %exitcond525.not, label %.loopexit390, label %.preheader415.us, !llvm.loop !26
 
@@ -769,20 +769,20 @@ define internal fastcc void @SwizzleAudio(i32 noundef range(i32 1, 0) %0, ptr no
 
 173:                                              ; preds = %.preheader413.us, %181
   %indvars.iv526 = phi i64 [ 0, %.preheader413.us ], [ %indvars.iv.next527, %181 ]
-  %174 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv526
+  %174 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv526
   %175 = load i32, ptr %174, align 4
   %176 = icmp eq i32 %175, -1
   br i1 %176, label %181, label %177
 
 177:                                              ; preds = %173
   %178 = sext i32 %175 to i64
-  %179 = getelementptr inbounds i32, ptr %.0308431.us, i64 %178
+  %179 = getelementptr inbounds [4 x i8], ptr %.0308431.us, i64 %178
   %180 = load i32, ptr %179, align 4
   br label %181
 
 181:                                              ; preds = %177, %173
   %182 = phi i32 [ %180, %177 ], [ %170, %173 ]
-  %183 = getelementptr inbounds nuw i32, ptr %.0312430.us, i64 %indvars.iv526
+  %183 = getelementptr inbounds nuw [4 x i8], ptr %.0312430.us, i64 %indvars.iv526
   store i32 %182, ptr %183, align 4
   %indvars.iv.next527 = add nuw nsw i64 %indvars.iv526, 1
   %exitcond530.not = icmp eq i64 %indvars.iv.next527, %wide.trip.count529
@@ -790,8 +790,8 @@ define internal fastcc void @SwizzleAudio(i32 noundef range(i32 1, 0) %0, ptr no
 
 ._crit_edge429.us:                                ; preds = %181
   %184 = add nuw nsw i32 %.0306432.us, 1
-  %185 = getelementptr inbounds nuw i32, ptr %.0308431.us, i64 %172
-  %186 = getelementptr inbounds nuw i32, ptr %.0312430.us, i64 %172
+  %185 = getelementptr inbounds nuw [4 x i8], ptr %.0308431.us, i64 %172
+  %186 = getelementptr inbounds nuw [4 x i8], ptr %.0312430.us, i64 %172
   %exitcond531.not = icmp eq i32 %184, %0
   br i1 %exitcond531.not, label %.loopexit390, label %.preheader413.us, !llvm.loop !28
 
@@ -845,20 +845,20 @@ define internal fastcc void @SwizzleAudio(i32 noundef range(i32 1, 0) %0, ptr no
 
 .lr.ph442:                                        ; preds = %.preheader407, %211
   %indvars.iv541 = phi i64 [ %indvars.iv.next542, %211 ], [ 0, %.preheader407 ]
-  %204 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv541
+  %204 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv541
   %205 = load i32, ptr %204, align 4
   %206 = icmp eq i32 %205, -1
   br i1 %206, label %211, label %207
 
 207:                                              ; preds = %.lr.ph442
   %208 = sext i32 %205 to i64
-  %209 = getelementptr inbounds i32, ptr %.2310447, i64 %208
+  %209 = getelementptr inbounds [4 x i8], ptr %.2310447, i64 %208
   %210 = load i32, ptr %209, align 4
   br label %211
 
 211:                                              ; preds = %.lr.ph442, %207
   %212 = phi i32 [ %210, %207 ], [ %200, %.lr.ph442 ]
-  %213 = getelementptr inbounds nuw i32, ptr %195, i64 %indvars.iv541
+  %213 = getelementptr inbounds nuw [4 x i8], ptr %195, i64 %indvars.iv541
   store i32 %212, ptr %213, align 4
   %indvars.iv.next542 = add nuw nsw i64 %indvars.iv541, 1
   %exitcond545.not = icmp eq i64 %indvars.iv.next542, %202
@@ -866,8 +866,8 @@ define internal fastcc void @SwizzleAudio(i32 noundef range(i32 1, 0) %0, ptr no
 
 ._crit_edge445:                                   ; preds = %.preheader407, %.lr.ph444.preheader
   %214 = add nuw nsw i32 %.0296448, 1
-  %215 = getelementptr inbounds i32, ptr %.2310447, i64 %188
-  %216 = getelementptr i32, ptr %.2314446, i64 %188
+  %215 = getelementptr inbounds [4 x i8], ptr %.2310447, i64 %188
+  %216 = getelementptr [4 x i8], ptr %.2314446, i64 %188
   %exitcond549.not = icmp eq i32 %214, %0
   br i1 %exitcond549.not, label %.loopexit408, label %.preheader407, !llvm.loop !30
 
@@ -883,12 +883,12 @@ define internal fastcc void @SwizzleAudio(i32 noundef range(i32 1, 0) %0, ptr no
 
 .lr.ph434:                                        ; preds = %.preheader410, %.lr.ph434
   %indvars.iv532 = phi i64 [ %indvars.iv.next533, %.lr.ph434 ], [ 0, %.preheader410 ]
-  %217 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv532
+  %217 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv532
   %218 = load i32, ptr %217, align 4
   %219 = sext i32 %218 to i64
-  %220 = getelementptr inbounds i32, ptr %.3311439, i64 %219
+  %220 = getelementptr inbounds [4 x i8], ptr %.3311439, i64 %219
   %221 = load i32, ptr %220, align 4
-  %222 = getelementptr inbounds nuw i32, ptr %195, i64 %indvars.iv532
+  %222 = getelementptr inbounds nuw [4 x i8], ptr %195, i64 %indvars.iv532
   store i32 %221, ptr %222, align 4
   %indvars.iv.next533 = add nuw nsw i64 %indvars.iv532, 1
   %exitcond536.not = icmp eq i64 %indvars.iv.next533, %197
@@ -896,8 +896,8 @@ define internal fastcc void @SwizzleAudio(i32 noundef range(i32 1, 0) %0, ptr no
 
 ._crit_edge437:                                   ; preds = %.preheader410, %.lr.ph436.preheader
   %223 = add nuw nsw i32 %.0292440, 1
-  %224 = getelementptr inbounds i32, ptr %.3311439, i64 %188
-  %225 = getelementptr i32, ptr %.3315438, i64 %188
+  %224 = getelementptr inbounds [4 x i8], ptr %.3311439, i64 %188
+  %225 = getelementptr [4 x i8], ptr %.3315438, i64 %188
   %exitcond540.not = icmp eq i32 %223, %0
   br i1 %exitcond540.not, label %.loopexit408, label %.preheader410, !llvm.loop !32
 
@@ -954,9 +954,9 @@ define internal void @SDL_ConvertMonoToStereo(ptr noundef writeonly captures(non
   %4 = add nsw i32 %2, -1
   %5 = shl nsw i32 %4, 1
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds float, ptr %0, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %0, i64 %6
   %8 = sext i32 %4 to i64
-  %9 = getelementptr inbounds float, ptr %1, i64 %8
+  %9 = getelementptr inbounds [4 x i8], ptr %1, i64 %8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -1501,7 +1501,7 @@ define hidden zeroext i1 @SetAudioStreamChannelMap(ptr noundef readonly captures
 
 .critedge.i:                                      ; preds = %27, %.critedge.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.critedge.preheader.i ], [ %indvars.iv.next.i, %27 ]
-  %28 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.i
   %29 = load i32, ptr %28, align 4
   %30 = icmp slt i32 %29, -1
   %.not17.i = icmp sge i32 %29, %4
@@ -1519,7 +1519,7 @@ SDL_ChannelMapIsBogus.exit:                       ; preds = %.critedge.i
 
 .lr.ph.i:                                         ; preds = %27, %32
   %indvars.iv.i41 = phi i64 [ %indvars.iv.next.i42, %32 ], [ 0, %27 ]
-  %33 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i41
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.i41
   %34 = load i32, ptr %33, align 4
   %35 = zext i32 %34 to i64
   %.not11.i = icmp eq i64 %indvars.iv.i41, %35
@@ -1998,7 +1998,7 @@ CheckAudioStreamIsFullySetup.exit.thread._crit_edge: ; preds = %CheckAudioStream
   %59 = zext nneg i32 %2 to i64
   %60 = shl nuw nsw i64 %59, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr nonnull readonly align 8 %1, i64 %60, i1 false)
-  %61 = getelementptr inbounds nuw ptr, ptr %5, i64 %59
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %59
   %62 = sub nsw i32 %.pre, %2
   %63 = zext nneg i32 %62 to i64
   %64 = shl nuw nsw i64 %63, 3
@@ -2020,7 +2020,7 @@ CheckAudioStreamIsFullySetup.exit.thread._crit_edge: ; preds = %CheckAudioStream
 
 .lr.ph.i:                                         ; preds = %66, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %66 ]
-  %67 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i
   %68 = load ptr, ptr %67, align 8
   %69 = icmp eq ptr %68, null
   br i1 %69, label %.thread122.i, label %66
@@ -2049,7 +2049,7 @@ CheckAudioStreamIsFullySetup.exit.thread._crit_edge: ; preds = %CheckAudioStream
 72:                                               ; preds = %78, %.preheader.us.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.us.i.i ], [ %indvars.iv.next.i.i, %78 ]
   %.118.us.i.i = phi ptr [ %.01620.us.i.i, %.preheader.us.i.i ], [ %80, %78 ]
-  %73 = getelementptr inbounds nuw ptr, ptr %.0120125.i, i64 %indvars.iv.i.i
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %.0120125.i, i64 %indvars.iv.i.i
   %74 = load ptr, ptr %73, align 8
   %.not.us.i.i = icmp eq ptr %74, null
   br i1 %.not.us.i.i, label %78, label %75
@@ -2086,13 +2086,13 @@ CheckAudioStreamIsFullySetup.exit.thread._crit_edge: ; preds = %CheckAudioStream
 82:                                               ; preds = %88, %.preheader.us.i60.i
   %indvars.iv.i63.i = phi i64 [ 0, %.preheader.us.i60.i ], [ %indvars.iv.next.i66.i, %88 ]
   %.118.us.i64.i = phi ptr [ %.01620.us.i62.i, %.preheader.us.i60.i ], [ %90, %88 ]
-  %83 = getelementptr inbounds nuw ptr, ptr %.0120125.i, i64 %indvars.iv.i63.i
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %.0120125.i, i64 %indvars.iv.i63.i
   %84 = load ptr, ptr %83, align 8
   %.not.us.i65.i = icmp eq ptr %84, null
   br i1 %.not.us.i65.i, label %88, label %85
 
 85:                                               ; preds = %82
-  %86 = getelementptr inbounds nuw i16, ptr %84, i64 %indvars.iv26.i61.i
+  %86 = getelementptr inbounds nuw [2 x i8], ptr %84, i64 %indvars.iv26.i61.i
   %87 = load i16, ptr %86, align 2
   br label %88
 
@@ -2122,13 +2122,13 @@ CheckAudioStreamIsFullySetup.exit.thread._crit_edge: ; preds = %CheckAudioStream
 91:                                               ; preds = %97, %.preheader.us.i74.i
   %indvars.iv.i77.i = phi i64 [ 0, %.preheader.us.i74.i ], [ %indvars.iv.next.i80.i, %97 ]
   %.118.us.i78.i = phi ptr [ %.01620.us.i76.i, %.preheader.us.i74.i ], [ %99, %97 ]
-  %92 = getelementptr inbounds nuw ptr, ptr %.0120125.i, i64 %indvars.iv.i77.i
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %.0120125.i, i64 %indvars.iv.i77.i
   %93 = load ptr, ptr %92, align 8
   %.not.us.i79.i = icmp eq ptr %93, null
   br i1 %.not.us.i79.i, label %97, label %94
 
 94:                                               ; preds = %91
-  %95 = getelementptr inbounds nuw i32, ptr %93, i64 %indvars.iv26.i75.i
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %indvars.iv26.i75.i
   %96 = load i32, ptr %95, align 4
   br label %97
 
@@ -2174,7 +2174,7 @@ CheckAudioStreamIsFullySetup.exit.thread._crit_edge: ; preds = %CheckAudioStream
 102:                                              ; preds = %102, %.preheader.us.i87.i
   %indvars.iv.i88.i = phi i64 [ 0, %.preheader.us.i87.i ], [ %indvars.iv.next.i89.i, %102 ]
   %.113.us.i.i = phi ptr [ %.01215.us.i.i, %.preheader.us.i87.i ], [ %107, %102 ]
-  %103 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i88.i
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i88.i
   %104 = load ptr, ptr %103, align 8
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 %indvars.iv21.i.i
   %106 = load i8, ptr %105, align 1
@@ -2205,9 +2205,9 @@ CheckAudioStreamIsFullySetup.exit.thread._crit_edge: ; preds = %CheckAudioStream
 109:                                              ; preds = %109, %.preheader.us.i95.i
   %indvars.iv.i98.i = phi i64 [ 0, %.preheader.us.i95.i ], [ %indvars.iv.next.i100.i, %109 ]
   %.113.us.i99.i = phi ptr [ %.01215.us.i97.i, %.preheader.us.i95.i ], [ %114, %109 ]
-  %110 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i98.i
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i98.i
   %111 = load ptr, ptr %110, align 8
-  %112 = getelementptr inbounds nuw i16, ptr %111, i64 %indvars.iv21.i96.i
+  %112 = getelementptr inbounds nuw [2 x i8], ptr %111, i64 %indvars.iv21.i96.i
   %113 = load i16, ptr %112, align 2
   %114 = getelementptr inbounds nuw i8, ptr %.113.us.i99.i, i64 2
   store i16 %113, ptr %.113.us.i99.i, align 2
@@ -2236,9 +2236,9 @@ CheckAudioStreamIsFullySetup.exit.thread._crit_edge: ; preds = %CheckAudioStream
 116:                                              ; preds = %116, %.preheader.us.i108.i
   %indvars.iv.i111.i = phi i64 [ 0, %.preheader.us.i108.i ], [ %indvars.iv.next.i113.i, %116 ]
   %.113.us.i112.i = phi ptr [ %.01215.us.i110.i, %.preheader.us.i108.i ], [ %121, %116 ]
-  %117 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i111.i
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i111.i
   %118 = load ptr, ptr %117, align 8
-  %119 = getelementptr inbounds nuw i32, ptr %118, i64 %indvars.iv21.i109.i
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %indvars.iv21.i109.i
   %120 = load i32, ptr %119, align 4
   %121 = getelementptr inbounds nuw i8, ptr %.113.us.i112.i, i64 4
   store i32 %120, ptr %.113.us.i112.i, align 4
@@ -3132,9 +3132,9 @@ define internal void @SDL_ConvertMonoTo21(ptr noundef writeonly captures(none) %
   %4 = add nsw i32 %2, -1
   %5 = mul nsw i32 %4, 3
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds float, ptr %0, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %0, i64 %6
   %8 = sext i32 %4 to i64
-  %9 = getelementptr inbounds float, ptr %1, i64 %8
+  %9 = getelementptr inbounds [4 x i8], ptr %1, i64 %8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -3166,9 +3166,9 @@ define internal void @SDL_ConvertMonoToQuad(ptr noundef writeonly captures(none)
   %4 = add nsw i32 %2, -1
   %5 = shl nsw i32 %4, 2
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds float, ptr %0, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %0, i64 %6
   %8 = sext i32 %4 to i64
-  %9 = getelementptr inbounds float, ptr %1, i64 %8
+  %9 = getelementptr inbounds [4 x i8], ptr %1, i64 %8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -3202,9 +3202,9 @@ define internal void @SDL_ConvertMonoTo41(ptr noundef writeonly captures(none) %
   %4 = add nsw i32 %2, -1
   %5 = mul nsw i32 %4, 5
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds float, ptr %0, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %0, i64 %6
   %8 = sext i32 %4 to i64
-  %9 = getelementptr inbounds float, ptr %1, i64 %8
+  %9 = getelementptr inbounds [4 x i8], ptr %1, i64 %8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -3240,9 +3240,9 @@ define internal void @SDL_ConvertMonoTo51(ptr noundef writeonly captures(none) %
   %4 = add nsw i32 %2, -1
   %5 = mul nsw i32 %4, 6
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds float, ptr %0, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %0, i64 %6
   %8 = sext i32 %4 to i64
-  %9 = getelementptr inbounds float, ptr %1, i64 %8
+  %9 = getelementptr inbounds [4 x i8], ptr %1, i64 %8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -3274,9 +3274,9 @@ define internal void @SDL_ConvertMonoTo61(ptr noundef writeonly captures(none) %
   %4 = add nsw i32 %2, -1
   %5 = mul nsw i32 %4, 7
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds float, ptr %0, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %0, i64 %6
   %8 = sext i32 %4 to i64
-  %9 = getelementptr inbounds float, ptr %1, i64 %8
+  %9 = getelementptr inbounds [4 x i8], ptr %1, i64 %8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -3308,9 +3308,9 @@ define internal void @SDL_ConvertMonoTo71(ptr noundef writeonly captures(none) %
   %4 = add nsw i32 %2, -1
   %5 = shl nsw i32 %4, 3
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds float, ptr %0, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %0, i64 %6
   %8 = sext i32 %4 to i64
-  %9 = getelementptr inbounds float, ptr %1, i64 %8
+  %9 = getelementptr inbounds [4 x i8], ptr %1, i64 %8
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -3342,10 +3342,10 @@ define internal void @SDL_ConvertStereoTo21(ptr noundef writeonly captures(none)
   %4 = add nsw i32 %2, -1
   %5 = mul nsw i32 %4, 3
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds float, ptr %0, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %0, i64 %6
   %8 = shl nsw i32 %4, 1
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds float, ptr %1, i64 %9
+  %10 = getelementptr inbounds [4 x i8], ptr %1, i64 %9
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -3379,10 +3379,10 @@ define internal void @SDL_ConvertStereoToQuad(ptr noundef writeonly captures(non
   %4 = add nsw i32 %2, -1
   %5 = shl nsw i32 %4, 2
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds float, ptr %0, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %0, i64 %6
   %8 = shl nsw i32 %4, 1
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds float, ptr %1, i64 %9
+  %10 = getelementptr inbounds [4 x i8], ptr %1, i64 %9
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -3418,10 +3418,10 @@ define internal void @SDL_ConvertStereoTo41(ptr noundef writeonly captures(none)
   %4 = add nsw i32 %2, -1
   %5 = mul nsw i32 %4, 5
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds float, ptr %0, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %0, i64 %6
   %8 = shl nsw i32 %4, 1
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds float, ptr %1, i64 %9
+  %10 = getelementptr inbounds [4 x i8], ptr %1, i64 %9
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -3459,10 +3459,10 @@ define internal void @SDL_ConvertStereoTo51(ptr noundef writeonly captures(none)
   %4 = add nsw i32 %2, -1
   %5 = mul nsw i32 %4, 6
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds float, ptr %0, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %0, i64 %6
   %8 = shl nsw i32 %4, 1
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds float, ptr %1, i64 %9
+  %10 = getelementptr inbounds [4 x i8], ptr %1, i64 %9
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -3496,10 +3496,10 @@ define internal void @SDL_ConvertStereoTo61(ptr noundef writeonly captures(none)
   %4 = add nsw i32 %2, -1
   %5 = mul nsw i32 %4, 7
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds float, ptr %0, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %0, i64 %6
   %8 = shl nsw i32 %4, 1
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds float, ptr %1, i64 %9
+  %10 = getelementptr inbounds [4 x i8], ptr %1, i64 %9
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -3533,10 +3533,10 @@ define internal void @SDL_ConvertStereoTo71(ptr noundef writeonly captures(none)
   %4 = add nsw i32 %2, -1
   %5 = shl nsw i32 %4, 3
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds float, ptr %0, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %0, i64 %6
   %8 = shl nsw i32 %4, 1
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds float, ptr %1, i64 %9
+  %10 = getelementptr inbounds [4 x i8], ptr %1, i64 %9
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -3628,10 +3628,10 @@ define internal void @SDL_Convert21ToQuad(ptr noundef writeonly captures(none) %
   %4 = add nsw i32 %2, -1
   %5 = shl nsw i32 %4, 2
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds float, ptr %0, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %0, i64 %6
   %8 = mul nsw i32 %4, 3
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds float, ptr %1, i64 %9
+  %10 = getelementptr inbounds [4 x i8], ptr %1, i64 %9
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -3674,10 +3674,10 @@ define internal void @SDL_Convert21To41(ptr noundef writeonly captures(none) %0,
   %4 = add nsw i32 %2, -1
   %5 = mul nsw i32 %4, 5
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds float, ptr %0, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %0, i64 %6
   %8 = mul nsw i32 %4, 3
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds float, ptr %1, i64 %9
+  %10 = getelementptr inbounds [4 x i8], ptr %1, i64 %9
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -3717,10 +3717,10 @@ define internal void @SDL_Convert21To51(ptr noundef writeonly captures(none) %0,
   %4 = add nsw i32 %2, -1
   %5 = mul nsw i32 %4, 6
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds float, ptr %0, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %0, i64 %6
   %8 = mul nsw i32 %4, 3
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds float, ptr %1, i64 %9
+  %10 = getelementptr inbounds [4 x i8], ptr %1, i64 %9
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -3762,10 +3762,10 @@ define internal void @SDL_Convert21To61(ptr noundef writeonly captures(none) %0,
   %4 = add nsw i32 %2, -1
   %5 = mul nsw i32 %4, 7
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds float, ptr %0, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %0, i64 %6
   %8 = mul nsw i32 %4, 3
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds float, ptr %1, i64 %9
+  %10 = getelementptr inbounds [4 x i8], ptr %1, i64 %9
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -3809,10 +3809,10 @@ define internal void @SDL_Convert21To71(ptr noundef writeonly captures(none) %0,
   %4 = add nsw i32 %2, -1
   %5 = shl nsw i32 %4, 3
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds float, ptr %0, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %0, i64 %6
   %8 = mul nsw i32 %4, 3
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds float, ptr %1, i64 %9
+  %10 = getelementptr inbounds [4 x i8], ptr %1, i64 %9
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -3955,10 +3955,10 @@ define internal void @SDL_ConvertQuadTo41(ptr noundef writeonly captures(none) %
   %4 = add nsw i32 %2, -1
   %5 = mul nsw i32 %4, 5
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds float, ptr %0, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %0, i64 %6
   %8 = shl nsw i32 %4, 2
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds float, ptr %1, i64 %9
+  %10 = getelementptr inbounds [4 x i8], ptr %1, i64 %9
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -4000,10 +4000,10 @@ define internal void @SDL_ConvertQuadTo51(ptr noundef writeonly captures(none) %
   %4 = add nsw i32 %2, -1
   %5 = mul nsw i32 %4, 6
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds float, ptr %0, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %0, i64 %6
   %8 = shl nsw i32 %4, 2
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds float, ptr %1, i64 %9
+  %10 = getelementptr inbounds [4 x i8], ptr %1, i64 %9
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -4047,10 +4047,10 @@ define internal void @SDL_ConvertQuadTo61(ptr noundef writeonly captures(none) %
   %4 = add nsw i32 %2, -1
   %5 = mul nsw i32 %4, 7
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds float, ptr %0, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %0, i64 %6
   %8 = shl nsw i32 %4, 2
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds float, ptr %1, i64 %9
+  %10 = getelementptr inbounds [4 x i8], ptr %1, i64 %9
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -4102,10 +4102,10 @@ define internal void @SDL_ConvertQuadTo71(ptr noundef writeonly captures(none) %
   %4 = add nsw i32 %2, -1
   %5 = shl nsw i32 %4, 3
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds float, ptr %0, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %0, i64 %6
   %8 = shl nsw i32 %4, 2
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds float, ptr %1, i64 %9
+  %10 = getelementptr inbounds [4 x i8], ptr %1, i64 %9
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -4306,10 +4306,10 @@ define internal void @SDL_Convert41To51(ptr noundef writeonly captures(none) %0,
   %4 = add nsw i32 %2, -1
   %5 = mul nsw i32 %4, 6
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds float, ptr %0, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %0, i64 %6
   %8 = mul nsw i32 %4, 5
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds float, ptr %1, i64 %9
+  %10 = getelementptr inbounds [4 x i8], ptr %1, i64 %9
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -4355,10 +4355,10 @@ define internal void @SDL_Convert41To61(ptr noundef writeonly captures(none) %0,
   %4 = add nsw i32 %2, -1
   %5 = mul nsw i32 %4, 7
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds float, ptr %0, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %0, i64 %6
   %8 = mul nsw i32 %4, 5
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds float, ptr %1, i64 %9
+  %10 = getelementptr inbounds [4 x i8], ptr %1, i64 %9
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -4412,10 +4412,10 @@ define internal void @SDL_Convert41To71(ptr noundef writeonly captures(none) %0,
   %4 = add nsw i32 %2, -1
   %5 = shl nsw i32 %4, 3
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds float, ptr %0, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %0, i64 %6
   %8 = mul nsw i32 %4, 5
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds float, ptr %1, i64 %9
+  %10 = getelementptr inbounds [4 x i8], ptr %1, i64 %9
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -4676,10 +4676,10 @@ define internal void @SDL_Convert51To61(ptr noundef writeonly captures(none) %0,
   %4 = add nsw i32 %2, -1
   %5 = mul nsw i32 %4, 7
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds float, ptr %0, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %0, i64 %6
   %8 = mul nsw i32 %4, 6
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds float, ptr %1, i64 %9
+  %10 = getelementptr inbounds [4 x i8], ptr %1, i64 %9
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -4736,10 +4736,10 @@ define internal void @SDL_Convert51To71(ptr noundef writeonly captures(none) %0,
   %4 = add nsw i32 %2, -1
   %5 = shl nsw i32 %4, 3
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds float, ptr %0, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %0, i64 %6
   %8 = mul nsw i32 %4, 6
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds float, ptr %1, i64 %9
+  %10 = getelementptr inbounds [4 x i8], ptr %1, i64 %9
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -5075,10 +5075,10 @@ define internal void @SDL_Convert61To71(ptr noundef writeonly captures(none) %0,
   %4 = add nsw i32 %2, -1
   %5 = shl nsw i32 %4, 3
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds float, ptr %0, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %0, i64 %6
   %8 = mul nsw i32 %4, 7
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds float, ptr %1, i64 %9
+  %10 = getelementptr inbounds [4 x i8], ptr %1, i64 %9
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph

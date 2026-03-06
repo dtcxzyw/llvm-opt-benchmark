@@ -388,7 +388,7 @@ _ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 
 48:                                               ; preds = %42
   %49 = load ptr, ptr %0, align 8, !tbaa !39
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %45
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %45
   %51 = load ptr, ptr %50, align 8, !tbaa !40
   %.not.i.i = icmp eq ptr %51, null
   br i1 %.not.i.i, label %.critedge27, label %52
@@ -551,7 +551,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i64 %2, ptr %32, align 8, !tbaa !41
   %33 = load ptr, ptr %0, align 8, !tbaa !39
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8, !tbaa !40
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %39, label %36
@@ -577,7 +577,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 48
   %46 = load i64, ptr %45, align 8, !tbaa !41
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %33, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !40
   br label %49
 
@@ -699,7 +699,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 48
   %16 = load i64, ptr %15, align 8, !tbaa !41
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !40
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -714,7 +714,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !40
   br label %28
 
@@ -1195,7 +1195,7 @@ _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %29 = load i64, ptr %28, align 8, !tbaa !38
   %30 = urem i64 %24, %29
   %31 = load ptr, ptr %0, align 8, !tbaa !39
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %30
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %30
   %33 = load ptr, ptr %32, align 8, !tbaa !40
   %.not.i.i = icmp eq ptr %33, null
   br i1 %.not.i.i, label %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_iESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS7_m.exit, label %34
@@ -1349,7 +1349,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %7 = shl nuw nsw i64 %5, 5
   %8 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %7) #26
   store ptr %8, ptr %3, align 8, !tbaa !76
-  %9 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %8, i64 %5
+  %9 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 %5
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %9, ptr %10, align 8, !tbaa !79
   br label %.lr.ph.i.i.i.i.i
@@ -1466,7 +1466,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   %50 = getelementptr inbounds nuw i8, ptr %.sroa.018.0, i64 40
   %51 = load i32, ptr %50, align 8, !tbaa !27
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %17, i64 %52
+  %53 = getelementptr inbounds nuw [32 x i8], ptr %17, i64 %52
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %53, ptr noundef nonnull align 8 dereferenceable(32) %49)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit unwind label %54
 
@@ -1793,7 +1793,7 @@ define void @_ZN11StringTableC2EPN3gmx11ISerializerE(ptr noundef nonnull align 8
   br i1 %28, label %29, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit
 
 29:                                               ; preds = %27
-  %30 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %19, i64 %16
+  %30 = getelementptr inbounds nuw [32 x i8], ptr %19, i64 %16
   %.not.i.i = icmp eq ptr %18, %30
   br i1 %.not.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -2008,9 +2008,9 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit41: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %50
   store ptr %29, ptr %0, align 8, !tbaa !76
-  %54 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %30, i64 %1
+  %54 = getelementptr inbounds nuw [32 x i8], ptr %30, i64 %1
   store ptr %54, ptr %4, align 8, !tbaa !81
-  %55 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %29, i64 %27
+  %55 = getelementptr inbounds nuw [32 x i8], ptr %29, i64 %27
   store ptr %55, ptr %11, align 8, !tbaa !79
   br label %56
 
@@ -2141,7 +2141,7 @@ define { ptr, i32 } @_ZNK11StringTable2atEl(ptr noundef nonnull readonly align 8
   br label %27
 
 24:                                               ; preds = %2
-  %25 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %8, i64 %1
+  %25 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 %1
   %26 = trunc i64 %1 to i32
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %25, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %26, 1
@@ -2272,7 +2272,7 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #16
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define { ptr, i32 } @_ZNK11StringTableixEl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i64 noundef %1) local_unnamed_addr #17 align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !76
-  %4 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %3, i64 %1
+  %4 = getelementptr inbounds nuw [32 x i8], ptr %3, i64 %1
   %5 = trunc i64 %1 to i32
   %.fca.0.insert = insertvalue { ptr, i32 } poison, ptr %4, 0
   %.fca.1.insert = insertvalue { ptr, i32 } %.fca.0.insert, i32 %5, 1
@@ -2454,7 +2454,7 @@ _ZL11trim_stringPKcPci.exit:                      ; preds = %23, %.lr.ph31.prehe
 
 41:                                               ; preds = %40, %.lr.ph.i2
   %indvars.iv.i4 = phi i64 [ 0, %.lr.ph.i2 ], [ %indvars.iv.next.i5, %40 ]
-  %42 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv.i4
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv.i4
   %43 = load ptr, ptr %42, align 8, !tbaa !51
   %44 = icmp eq ptr %43, null
   br i1 %44, label %45, label %52
@@ -2466,7 +2466,7 @@ _ZL11trim_stringPKcPci.exit:                      ; preds = %23, %.lr.ph31.prehe
   store i32 %48, ptr %0, align 8, !tbaa !108
   %49 = call noundef ptr @_Z10gmx_strdupPKc(ptr noundef nonnull %4)
   %50 = load ptr, ptr %46, align 8, !tbaa !106
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv.i4
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv.i4
   store ptr %49, ptr %51, align 8, !tbaa !51
   br label %_ZL9enter_bufP8t_symtabPc.exit
 
@@ -2500,7 +2500,7 @@ _ZL11trim_stringPKcPci.exit:                      ; preds = %23, %.lr.ph31.prehe
   br label %_ZL9enter_bufP8t_symtabPc.exit
 
 _ZL9enter_bufP8t_symtabPc.exit.loopexit:          ; preds = %52
-  %67 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv.i4
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv.i4
   br label %_ZL9enter_bufP8t_symtabPc.exit
 
 _ZL9enter_bufP8t_symtabPc.exit:                   ; preds = %_ZL9enter_bufP8t_symtabPc.exit.loopexit, %45, %57
@@ -2711,7 +2711,7 @@ define noundef ptr @_Z17get_symtab_handleP8t_symtabi(ptr noundef readonly captur
   %8 = getelementptr inbounds nuw i8, ptr %.01118, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !106
   %10 = sext i32 %.017 to i64
-  %11 = getelementptr inbounds ptr, ptr %9, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %9, i64 %10
   ret ptr %11
 
 12:                                               ; preds = %.lr.ph
@@ -2808,7 +2808,7 @@ define noundef ptr @_Z15duplicateSymtabPK8t_symtab(ptr noundef readonly captures
 
 21:                                               ; preds = %14
   %22 = load ptr, ptr %13, align 8, !tbaa !106
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8, !tbaa !51
   %.not27 = icmp eq ptr %24, null
   br i1 %.not27, label %29, label %25
@@ -2816,7 +2816,7 @@ define noundef ptr @_Z15duplicateSymtabPK8t_symtab(ptr noundef readonly captures
 25:                                               ; preds = %21
   %26 = tail call noundef ptr @_Z10gmx_strdupPKc(ptr noundef nonnull %24)
   %27 = load ptr, ptr %7, align 8, !tbaa !106
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   store ptr %26, ptr %28, align 8, !tbaa !51
   %.pre = load i32, ptr %.02334, align 8, !tbaa !101
   br label %29
@@ -2869,7 +2869,7 @@ define void @_Z11done_symtabP8t_symtab(ptr noundef captures(none) %0) local_unna
 
 14:                                               ; preds = %10
   %15 = load ptr, ptr %9, align 8, !tbaa !106
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !51
   tail call void @_Z9save_freePKcS0_iPv(ptr noundef nonnull @.str.22, ptr noundef nonnull @.str.1, i32 noundef 378, ptr noundef %17)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3073,7 +3073,7 @@ define void @_Z9pr_symtabP8_IO_FILEiPKcP8t_symtab(ptr noundef %0, i32 noundef %1
   %21 = tail call noundef i32 @_Z9pr_indentP8_IO_FILEi(ptr noundef %0, i32 noundef %11)
   %22 = add nsw i32 %.13438, 1
   %23 = load ptr, ptr %18, align 8, !tbaa !106
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !51
   %26 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %2, i32 noundef %.13438, ptr noundef %25) #28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

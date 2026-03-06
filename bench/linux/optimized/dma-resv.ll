@@ -88,7 +88,7 @@ define dso_local void @dma_resv_fini(ptr noundef readonly captures(none) %0) #0 
 
 11:                                               ; preds = %.thread, %9
   %12 = phi i64 [ 0, %9 ], [ %27, %.thread ]
-  %13 = getelementptr ptr, ptr %10, i64 %12
+  %13 = getelementptr [8 x i8], ptr %10, i64 %12
   %14 = load volatile ptr, ptr %13, align 8
   %15 = ptrtoint ptr %14 to i64
   %16 = and i64 %15, -4
@@ -196,7 +196,7 @@ define dso_local noundef range(i32 -12, 1) i32 @dma_resv_reserve_fences(ptr noun
   %44 = phi i64 [ %77, %70 ], [ 0, %.lr.ph.split ]
   %45 = phi i32 [ %73, %70 ], [ %28, %.lr.ph.split ]
   %46 = phi i32 [ %74, %70 ], [ 0, %.lr.ph.split ]
-  %47 = getelementptr ptr, ptr %41, i64 %44
+  %47 = getelementptr [8 x i8], ptr %41, i64 %44
   %48 = load volatile ptr, ptr %47, align 8
   %49 = ptrtoint ptr %48 to i64
   %50 = and i64 %49, -4
@@ -237,7 +237,7 @@ define dso_local noundef range(i32 -12, 1) i32 @dma_resv_reserve_fences(ptr noun
   %73 = phi i32 [ %45, %68 ], [ %67, %66 ]
   %74 = phi i32 [ %69, %68 ], [ %46, %66 ]
   %75 = zext i32 %71 to i64
-  %76 = getelementptr ptr, ptr %42, i64 %75
+  %76 = getelementptr [8 x i8], ptr %42, i64 %75
   store volatile ptr %72, ptr %76, align 8
   %77 = add nuw nsw i64 %44, 1
   %78 = load i32, ptr %40, align 8
@@ -261,7 +261,7 @@ define dso_local noundef range(i32 -12, 1) i32 @dma_resv_reserve_fences(ptr noun
 
 85:                                               ; preds = %.thread12, %83
   %86 = phi i64 [ %84, %83 ], [ %98, %.thread12 ]
-  %87 = getelementptr ptr, ptr %42, i64 %86
+  %87 = getelementptr [8 x i8], ptr %42, i64 %86
   %88 = load ptr, ptr %87, align 8
   %89 = icmp eq ptr %88, null
   br i1 %89, label %.thread12, label %90
@@ -362,7 +362,7 @@ define dso_local void @dma_resv_add_fence(ptr noundef %0, ptr noundef %1, i32 no
 
 33:                                               ; preds = %92, %28
   %34 = phi i64 [ 0, %28 ], [ %93, %92 ]
-  %35 = getelementptr ptr, ptr %29, i64 %34
+  %35 = getelementptr [8 x i8], ptr %29, i64 %34
   %36 = load volatile ptr, ptr %35, align 8
   %37 = ptrtoint ptr %36 to i64
   %38 = and i64 %37, -4
@@ -420,7 +420,7 @@ define dso_local void @dma_resv_add_fence(ptr noundef %0, ptr noundef %1, i32 no
   br label %.loopexit
 
 .loopexit:                                        ; preds = %63, %50, %48, %76
-  %78 = getelementptr ptr, ptr %29, i64 %34
+  %78 = getelementptr [8 x i8], ptr %29, i64 %34
   %79 = ptrtoint ptr %1 to i64
   %80 = zext i32 %2 to i64
   %81 = or i64 %80, %79
@@ -477,7 +477,7 @@ define dso_local void @dma_resv_add_fence(ptr noundef %0, ptr noundef %1, i32 no
   %105 = or i64 %104, %103
   %106 = inttoptr i64 %105 to ptr
   %107 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  %108 = getelementptr ptr, ptr %107, i64 %96
+  %108 = getelementptr [8 x i8], ptr %107, i64 %96
   store volatile ptr %106, ptr %108, align 8
   %109 = tail call i32 asm sideeffect "xchgl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %25, i32 %102, ptr nonnull elementtype(i32) %25) #9, !srcloc !24
   br label %.thread
@@ -511,7 +511,7 @@ define dso_local void @dma_resv_replace_fences(ptr noundef %0, i64 noundef %1, p
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.thread.us
   %18 = phi i64 [ %37, %.thread.us ], [ 0, %.lr.ph ]
-  %19 = getelementptr ptr, ptr %10, i64 %18
+  %19 = getelementptr [8 x i8], ptr %10, i64 %18
   %20 = load volatile ptr, ptr %19, align 8
   %21 = ptrtoint ptr %20 to i64
   %22 = and i64 %21, -4
@@ -554,7 +554,7 @@ define dso_local void @dma_resv_replace_fences(ptr noundef %0, i64 noundef %1, p
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.thread
   %41 = phi i64 [ %69, %.thread ], [ 0, %.lr.ph ]
-  %42 = getelementptr ptr, ptr %10, i64 %41
+  %42 = getelementptr [8 x i8], ptr %10, i64 %41
   %43 = load volatile ptr, ptr %42, align 8
   %44 = ptrtoint ptr %43 to i64
   %45 = and i64 %44, -4
@@ -714,7 +714,7 @@ define internal fastcc void @dma_resv_iter_walk_unlocked(ptr noundef captures(no
   store i32 %29, ptr %7, align 4
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %31 = zext i32 %23 to i64
-  %32 = getelementptr ptr, ptr %30, i64 %31
+  %32 = getelementptr [8 x i8], ptr %30, i64 %31
   %33 = load volatile ptr, ptr %32, align 8
   %34 = ptrtoint ptr %33 to i64
   %35 = and i64 %34, -4
@@ -896,7 +896,7 @@ define dso_local ptr @dma_resv_iter_first(ptr noundef captures(none) initializes
   %17 = add nuw i32 %13, 1
   store i32 %17, ptr %2, align 4
   %18 = zext i32 %13 to i64
-  %19 = getelementptr ptr, ptr %11, i64 %18
+  %19 = getelementptr [8 x i8], ptr %11, i64 %18
   %20 = load volatile ptr, ptr %19, align 8
   %21 = ptrtoint ptr %20 to i64
   %22 = trunc i64 %21 to i32
@@ -945,7 +945,7 @@ define dso_local ptr @dma_resv_iter_next(ptr noundef captures(none) initializes(
   %15 = add nuw i32 %11, 1
   store i32 %15, ptr %3, align 4
   %16 = zext i32 %11 to i64
-  %17 = getelementptr ptr, ptr %9, i64 %16
+  %17 = getelementptr [8 x i8], ptr %9, i64 %16
   %18 = load volatile ptr, ptr %17, align 8
   %19 = ptrtoint ptr %18 to i64
   %20 = trunc i64 %19 to i32
@@ -1041,7 +1041,7 @@ define dso_local noundef range(i32 -12, 1) i32 @dma_resv_copy_fences(ptr noundef
 
 43:                                               ; preds = %.thread, %41
   %44 = phi i64 [ 0, %41 ], [ %59, %.thread ]
-  %45 = getelementptr ptr, ptr %42, i64 %44
+  %45 = getelementptr [8 x i8], ptr %42, i64 %44
   %46 = load volatile ptr, ptr %45, align 8
   %47 = ptrtoint ptr %46 to i64
   %48 = and i64 %47, -4
@@ -1148,7 +1148,7 @@ define dso_local noundef range(i32 -12, 1) i32 @dma_resv_copy_fences(ptr noundef
   %104 = inttoptr i64 %103 to ptr
   %105 = getelementptr inbounds nuw i8, ptr %86, i64 24
   %106 = zext i32 %98 to i64
-  %107 = getelementptr ptr, ptr %105, i64 %106
+  %107 = getelementptr [8 x i8], ptr %105, i64 %106
   store volatile ptr %104, ptr %107, align 8
   tail call void @__rcu_read_lock() #9
   store i8 0, ptr %10, align 4
@@ -1215,7 +1215,7 @@ define dso_local noundef range(i32 -12, 1) i32 @dma_resv_copy_fences(ptr noundef
 
 141:                                              ; preds = %.thread23, %139
   %142 = phi i64 [ 0, %139 ], [ %157, %.thread23 ]
-  %143 = getelementptr ptr, ptr %140, i64 %142
+  %143 = getelementptr [8 x i8], ptr %140, i64 %142
   %144 = load volatile ptr, ptr %143, align 8
   %145 = ptrtoint ptr %144 to i64
   %146 = and i64 %145, -4
@@ -1332,7 +1332,7 @@ define dso_local noundef range(i32 -12, 1) i32 @dma_resv_get_fences(ptr noundef 
   %40 = add i32 %38, -1
   store i32 %40, ptr %2, align 4
   %41 = zext i32 %40 to i64
-  %42 = getelementptr ptr, ptr %39, i64 %41
+  %42 = getelementptr [8 x i8], ptr %39, i64 %41
   %43 = load ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, null
   br i1 %44, label %53, label %45
@@ -1427,7 +1427,7 @@ thread-pre-split:                                 ; preds = %49, %51, %52
   %88 = add i32 %87, 1
   store i32 %88, ptr %2, align 4
   %89 = zext i32 %87 to i64
-  %90 = getelementptr ptr, ptr %86, i64 %89
+  %90 = getelementptr [8 x i8], ptr %86, i64 %89
   store ptr %32, ptr %90, align 8
   tail call void @__rcu_read_lock() #9
   store i8 0, ptr %12, align 4
@@ -1522,7 +1522,7 @@ define dso_local noundef range(i32 -12, 1) i32 @dma_resv_get_singleton(ptr nound
 
 22:                                               ; preds = %.thread, %19
   %23 = phi i64 [ %21, %19 ], [ %35, %.thread ]
-  %24 = getelementptr ptr, ptr %15, i64 %23
+  %24 = getelementptr [8 x i8], ptr %15, i64 %23
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %.thread, label %27
@@ -1844,7 +1844,7 @@ define dso_local void @dma_resv_set_deadline(ptr noundef %0, i32 noundef %1, i64
   %58 = add nuw i32 %.promoted721, 1
   store i32 %58, ptr %8, align 4
   %59 = zext i32 %.promoted721 to i64
-  %60 = getelementptr ptr, ptr %44, i64 %59
+  %60 = getelementptr [8 x i8], ptr %44, i64 %59
   %61 = load volatile ptr, ptr %60, align 8
   %62 = ptrtoint ptr %61 to i64
   %63 = and i64 %62, -4
@@ -2059,7 +2059,7 @@ define dso_local void @dma_resv_describe(ptr noundef %0, ptr noundef %1) #0 alig
 .preheader17:                                     ; preds = %.preheader17.preheader, %12
   %indvars.iv = phi i64 [ 0, %.preheader17.preheader ], [ %indvars.iv.next, %12 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %14 = getelementptr ptr, ptr %6, i64 %indvars.iv
+  %14 = getelementptr [8 x i8], ptr %6, i64 %indvars.iv
   %15 = load volatile ptr, ptr %14, align 8
   %16 = ptrtoint ptr %15 to i64
   %17 = trunc i64 %16 to i32
@@ -2079,7 +2079,7 @@ define dso_local void @dma_resv_describe(ptr noundef %0, ptr noundef %1) #0 alig
   %24 = trunc i64 %.in54 to i32
   %25 = inttoptr i64 %.in to ptr
   %26 = zext nneg i32 %23 to i64
-  %27 = getelementptr ptr, ptr @dma_resv_describe.usage, i64 %26
+  %27 = getelementptr [8 x i8], ptr @dma_resv_describe.usage, i64 %26
   %28 = load ptr, ptr %27, align 8
   tail call void (ptr, ptr, ...) @seq_printf(ptr noundef %1, ptr noundef nonnull @.str.7, ptr noundef %28) #9
   tail call void @dma_fence_describe(ptr noundef nonnull %25, ptr noundef %1) #9
@@ -2099,7 +2099,7 @@ define dso_local void @dma_resv_describe(ptr noundef %0, ptr noundef %1) #0 alig
 .preheader:                                       ; preds = %.preheader.preheader, %33
   %indvars.iv44 = phi i64 [ %31, %.preheader.preheader ], [ %indvars.iv.next45, %33 ]
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
-  %35 = getelementptr ptr, ptr %6, i64 %indvars.iv44
+  %35 = getelementptr [8 x i8], ptr %6, i64 %indvars.iv44
   %36 = load volatile ptr, ptr %35, align 8
   %37 = ptrtoint ptr %36 to i64
   %38 = trunc i64 %37 to i32

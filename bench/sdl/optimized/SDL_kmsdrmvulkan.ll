@@ -3,16 +3,12 @@ source_filename = "bench/sdl/original/SDL_kmsdrmvulkan.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.VkExtensionProperties = type { [256 x i8], i32 }
 %struct.VkDisplayPlaneCapabilitiesKHR = type { i32, %struct.VkOffset2D, %struct.VkOffset2D, %struct.VkExtent2D, %struct.VkExtent2D, %struct.VkOffset2D, %struct.VkOffset2D, %struct.VkExtent2D, %struct.VkExtent2D }
 %struct.VkOffset2D = type { i32, i32 }
 %struct.VkExtent2D = type { i32, i32 }
 %struct.VkDisplayModeCreateInfoKHR = type { i32, ptr, i32, %struct.VkDisplayModeParametersKHR }
 %struct.VkDisplayModeParametersKHR = type { %struct.VkExtent2D, i32 }
 %struct.VkDisplaySurfaceCreateInfoKHR = type { i32, ptr, i32, ptr, i32, i32, i32, float, i32, %struct.VkExtent2D }
-%struct.VkDisplayPropertiesKHR = type { ptr, ptr, %struct.VkExtent2D, %struct.VkExtent2D, i32, i32, i32 }
-%struct.VkDisplayModePropertiesKHR = type { ptr, %struct.VkDisplayModeParametersKHR }
-%struct.VkDisplayPlanePropertiesKHR = type { ptr, i32 }
 
 @.str = private unnamed_addr constant [22 x i8] c"Vulkan already loaded\00", align 1
 @.str.1 = private unnamed_addr constant [19 x i8] c"SDL_VULKAN_LIBRARY\00", align 1
@@ -107,7 +103,7 @@ define hidden zeroext i1 @KMSDRM_Vulkan_LoadLibrary(ptr noundef %0, ptr noundef 
   %indvars.iv = phi i64 [ %indvars.iv.next, %31 ], [ 0, %.preheader ]
   %.045 = phi i1 [ %.1, %31 ], [ false, %.preheader ]
   %.02844 = phi i1 [ %.129, %31 ], [ false, %.preheader ]
-  %25 = getelementptr inbounds nuw %struct.VkExtensionProperties, ptr %23, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [260 x i8], ptr %23, i64 %indvars.iv
   %26 = call i32 @SDL_strcmp_REAL(ptr noundef nonnull @.str.5, ptr noundef nonnull %25) #5
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %31, label %28
@@ -277,7 +273,7 @@ define hidden noundef zeroext i1 @KMSDRM_Vulkan_CreateSurface(ptr noundef readon
 
 49:                                               ; preds = %.lr.ph, %55
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %55 ]
-  %50 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv
   %51 = load ptr, ptr %50, align 8
   call void %21(ptr noundef %51, ptr noundef %45) #5
   %52 = load i32, ptr %45, align 8
@@ -302,7 +298,7 @@ define hidden noundef zeroext i1 @KMSDRM_Vulkan_CreateSurface(ptr noundef readon
   br label %173
 
 60:                                               ; preds = %53
-  %61 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv
   %62 = load ptr, ptr %61, align 8
   %63 = call i32 %22(ptr noundef %62, ptr noundef nonnull %7, ptr noundef null) #5
   %64 = load i32, ptr %7, align 4
@@ -319,7 +315,7 @@ define hidden noundef zeroext i1 @KMSDRM_Vulkan_CreateSurface(ptr noundef readon
   %71 = call noalias ptr @SDL_malloc_REAL(i64 noundef %70) #5
   %72 = call i32 %22(ptr noundef %62, ptr noundef nonnull %7, ptr noundef %71) #5
   %73 = sext i32 %16 to i64
-  %74 = getelementptr inbounds %struct.VkDisplayPropertiesKHR, ptr %71, i64 %73
+  %74 = getelementptr inbounds [48 x i8], ptr %71, i64 %73
   %75 = load ptr, ptr %74, align 8
   %76 = call i32 %23(ptr noundef %62, ptr noundef %75, ptr noundef nonnull %8, ptr noundef null) #5
   %77 = load i32, ptr %8, align 4
@@ -350,7 +346,7 @@ define hidden noundef zeroext i1 @KMSDRM_Vulkan_CreateSurface(ptr noundef readon
 
 90:                                               ; preds = %.lr.ph256, %104
   %indvars.iv276 = phi i64 [ 0, %.lr.ph256 ], [ %indvars.iv.next277, %104 ]
-  %91 = getelementptr inbounds nuw %struct.VkDisplayModePropertiesKHR, ptr %86, i64 %indvars.iv276
+  %91 = getelementptr inbounds nuw [24 x i8], ptr %86, i64 %indvars.iv276
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %93 = load i32, ptr %92, align 8
   %94 = icmp eq i32 %93, %.pre
@@ -449,7 +445,7 @@ thread-pre-split:                                 ; preds = %.critedge
   %138 = shl nuw nsw i64 %137, 3
   %139 = call noalias ptr @SDL_malloc_REAL(i64 noundef %138) #5
   %140 = call i32 %25(ptr noundef %62, i32 noundef %132, ptr noundef nonnull %14, ptr noundef %139) #5
-  %141 = getelementptr inbounds nuw %struct.VkDisplayPlanePropertiesKHR, ptr %129, i64 %indvars.iv284
+  %141 = getelementptr inbounds nuw [16 x i8], ptr %129, i64 %indvars.iv284
   %142 = load ptr, ptr %141, align 8
   %143 = icmp eq ptr %142, %75
   %144 = icmp eq ptr %142, null
@@ -472,7 +468,7 @@ thread-pre-split:                                 ; preds = %.critedge
 
 .lr.ph258:                                        ; preds = %.lr.ph258.preheader, %146
   %indvars.iv279 = phi i64 [ 0, %.lr.ph258.preheader ], [ %indvars.iv.next280, %146 ]
-  %147 = getelementptr inbounds nuw ptr, ptr %139, i64 %indvars.iv279
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %139, i64 %indvars.iv279
   %148 = load ptr, ptr %147, align 8
   %149 = icmp eq ptr %148, %75
   br i1 %149, label %150, label %146

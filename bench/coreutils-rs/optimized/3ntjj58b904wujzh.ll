@@ -1562,7 +1562,7 @@ _ZN9uu_numfmt6format24parse_implicit_precision17hf420c79cca3ff39eE.exit.thread: 
   %.061.sroa.phi.i.i = phi ptr [ %367, %407 ], [ %361, %383 ], [ %362, %387 ], [ %363, %391 ], [ %364, %395 ], [ %365, %399 ], [ %366, %403 ], [ %.061.sroa.gep7.i.i, %411 ]
   %.061.i.i = phi i64 [ 7, %407 ], [ 1, %383 ], [ 2, %387 ], [ 3, %391 ], [ 4, %395 ], [ 5, %399 ], [ 6, %403 ], [ 8, %411 ]
   %.not.i.i185 = icmp eq i64 %.0155337, 0
-  %420 = getelementptr inbounds nuw double, ptr %.060.i.i, i64 %.061.i.i
+  %420 = getelementptr inbounds nuw [8 x i8], ptr %.060.i.i, i64 %.061.i.i
   %421 = load double, ptr %420, align 8, !noalias !225, !noundef !4
   %422 = fdiv double %.0.i.i.i, %421
   br i1 %.not.i.i185, label %423, label %468
@@ -3548,7 +3548,7 @@ define internal noundef zeroext i1 @"_ZN64_$LT$uu_numfmt..units..RawSuffix$u20$a
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !229, !noundef !4
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN64_$LT$uu_numfmt..units..RawSuffix$u20$as$u20$core..fmt..Debug$GT$3fmt17h50dd0b1a409c4c8bE", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN64_$LT$uu_numfmt..units..RawSuffix$u20$as$u20$core..fmt..Debug$GT$3fmt17h50dd0b1a409c4c8bE", i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load, i64 noundef 1)
   ret i1 %4

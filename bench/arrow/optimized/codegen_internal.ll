@@ -2676,7 +2676,7 @@ define void @_ZN5arrow7compute8internal13CommonNumericEPKNS_10TypeHolderEm(ptr d
 
 .lr.ph:                                           ; preds = %3, %.thread
   %.0130 = phi i64 [ %19, %.thread ], [ 0, %3 ]
-  %10 = getelementptr inbounds nuw %"struct.arrow::TypeHolder", ptr %1, i64 %.0130
+  %10 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %.0130
   %11 = load ptr, ptr %10, align 8, !tbaa !77
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %13 = load i32, ptr %12, align 8, !tbaa !98
@@ -2713,7 +2713,7 @@ define void @_ZN5arrow7compute8internal13CommonNumericEPKNS_10TypeHolderEm(ptr d
 
 .critedge49:                                      ; preds = %.thread, %.critedge
   %.039131 = phi i64 [ %20, %.critedge ], [ 0, %.thread ]
-  %21 = getelementptr inbounds nuw %"struct.arrow::TypeHolder", ptr %1, i64 %.039131
+  %21 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %.039131
   %22 = load ptr, ptr %21, align 8, !tbaa !77
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 40
   %24 = load i32, ptr %23, align 8, !tbaa !98
@@ -2759,7 +2759,7 @@ define void @_ZN5arrow7compute8internal13CommonNumericEPKNS_10TypeHolderEm(ptr d
 
 .critedge51:                                      ; preds = %.critedge, %40
   %.041132 = phi i64 [ %41, %40 ], [ 0, %.critedge ]
-  %42 = getelementptr inbounds nuw %"struct.arrow::TypeHolder", ptr %1, i64 %.041132
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %.041132
   %43 = load ptr, ptr %42, align 8, !tbaa !77
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 40
   %45 = load i32, ptr %44, align 8, !tbaa !98
@@ -2806,7 +2806,7 @@ define void @_ZN5arrow7compute8internal13CommonNumericEPKNS_10TypeHolderEm(ptr d
   %.040135 = phi i64 [ %70, %_ZN5arrowL9bit_widthENS_4Type4typeE.exit ], [ 0, %40 ]
   %.0119134 = phi i32 [ %spec.select128, %_ZN5arrowL9bit_widthENS_4Type4typeE.exit ], [ 0, %40 ]
   %.0120133 = phi i32 [ %spec.select, %_ZN5arrowL9bit_widthENS_4Type4typeE.exit ], [ 0, %40 ]
-  %63 = getelementptr inbounds nuw %"struct.arrow::TypeHolder", ptr %1, i64 %.040135
+  %63 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %.040135
   %64 = load ptr, ptr %63, align 8, !tbaa !77
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 40
   %66 = load i32, ptr %65, align 8, !tbaa !98
@@ -2819,7 +2819,7 @@ define void @_ZN5arrow7compute8internal13CommonNumericEPKNS_10TypeHolderEm(ptr d
 
 switch.lookup:                                    ; preds = %.lr.ph136
   %69 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5arrow7compute8internal13CommonNumericEPKNS_10TypeHolderEm, i64 %69
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5arrow7compute8internal13CommonNumericEPKNS_10TypeHolderEm, i64 %69
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN5arrowL9bit_widthENS_4Type4typeE.exit
 
@@ -4016,7 +4016,7 @@ _ZN5arrow10is_decimalENS_4Type4typeE.exit:        ; preds = %98
 
 switch.lookup:                                    ; preds = %_ZN5arrow10is_decimalENS_4Type4typeE.exit
   %112 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5arrow7compute8internal15CastDecimalArgsEPNS_10TypeHolderEm, i64 %112
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5arrow7compute8internal15CastDecimalArgsEPNS_10TypeHolderEm, i64 %112
   %switch.load = load i32, ptr %switch.gep, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN5arrow6ResultIiED2Ev.exit95._crit_edge
@@ -4130,7 +4130,7 @@ _ZN5arrow10is_decimalENS_4Type4typeE.exit97:      ; preds = %128
 
 switch.lookup269:                                 ; preds = %_ZN5arrow10is_decimalENS_4Type4typeE.exit97
   %143 = zext nneg i32 %switch.tableidx268 to i64
-  %switch.gep270 = getelementptr inbounds nuw i32, ptr @switch.table._ZN5arrow7compute8internal15CastDecimalArgsEPNS_10TypeHolderEm, i64 %143
+  %switch.gep270 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5arrow7compute8internal15CastDecimalArgsEPNS_10TypeHolderEm, i64 %143
   %switch.load271 = load i32, ptr %switch.gep270, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %_ZN5arrow6ResultIiED2Ev.exit107
@@ -5055,7 +5055,7 @@ _ZNSt12__shared_ptrIN5arrow8DataTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; 
 
 switch.lookup:                                    ; preds = %89
   %94 = zext nneg i32 %93 to i64
-  %95 = getelementptr i32, ptr @switch.table._ZN5arrow7compute8internal15CastDecimalArgsEPNS_10TypeHolderEm, i64 %94
+  %95 = getelementptr [4 x i8], ptr @switch.table._ZN5arrow7compute8internal15CastDecimalArgsEPNS_10TypeHolderEm, i64 %94
   %switch.gep = getelementptr i8, ptr %95, i64 -8
   %switch.load = load i32, ptr %switch.gep, align 4
   %96 = add nuw nsw i32 %switch.load, %.2.ph

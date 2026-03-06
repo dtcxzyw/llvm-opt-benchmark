@@ -199,7 +199,7 @@ define range(i32 0, 2) i32 @ossl_rsa_fromdata(ptr noundef %0, ptr noundef %1, i3
 
 72:                                               ; preds = %71, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %73 = getelementptr inbounds nuw ptr, ptr @ossl_rsa_mp_factor_names, i64 %indvars.iv.next.i
+  %73 = getelementptr inbounds nuw [8 x i8], ptr @ossl_rsa_mp_factor_names, i64 %indvars.iv.next.i
   %74 = load ptr, ptr %73, align 8, !tbaa !24
   %.not.i = icmp eq ptr %74, null
   br i1 %.not.i, label %collect_numbers.exit, label %.lr.ph.i, !llvm.loop !26
@@ -466,7 +466,7 @@ define internal fastcc range(i32 0, 2) i32 @collect_numbers(ptr noundef %0, ptr 
 
 18:                                               ; preds = %17, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %19 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.next
   %20 = load ptr, ptr %19, align 8, !tbaa !24
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !26

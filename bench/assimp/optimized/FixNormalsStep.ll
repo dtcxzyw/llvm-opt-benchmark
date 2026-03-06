@@ -3,8 +3,6 @@ source_filename = "bench/assimp/original/FixNormalsStep.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%class.aiVector3t = type { float, float, float }
-%struct.aiFace = type { i32, ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -75,7 +73,7 @@ define hidden void @_ZN6Assimp25FixInfacingNormalsProcess7ExecuteEP7aiScene(ptr 
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
   %.078 = phi i1 [ false, %.lr.ph ], [ %spec.select, %7 ]
   %8 = load ptr, ptr %6, align 8
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = trunc nuw i64 %indvars.iv to i32
   %12 = tail call noundef zeroext i1 @_ZN6Assimp25FixInfacingNormalsProcess11ProcessMeshEP6aiMeshj(ptr nonnull align 8 poison, ptr noundef %10, i32 noundef %11)
@@ -145,7 +143,7 @@ define hidden noundef zeroext i1 @_ZN6Assimp25FixInfacingNormalsProcess11Process
   %.sroa.0115.0143 = phi float [ 1.000000e+10, %.preheader140 ], [ %.sroa.speculated128, %22 ]
   %.sroa.12133.0142 = phi float [ 1.000000e+10, %.preheader140 ], [ %.sroa.speculated86, %22 ]
   %.sroa.7131.0141 = phi float [ 1.000000e+10, %.preheader140 ], [ %.sroa.speculated136, %22 ]
-  %23 = getelementptr inbounds nuw %class.aiVector3t, ptr %12, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [12 x i8], ptr %12, i64 %indvars.iv
   %24 = load float, ptr %23, align 4
   %25 = fcmp olt float %24, %.sroa.0115.0143
   %.sroa.speculated128 = select i1 %25, float %24, float %.sroa.0115.0143
@@ -163,7 +161,7 @@ define hidden noundef zeroext i1 @_ZN6Assimp25FixInfacingNormalsProcess11Process
   %.sroa.speculated99 = select i1 %33, float %27, float %.sroa.7.0150
   %34 = fcmp olt float %.sroa.12.0151, %30
   %.sroa.speculated96 = select i1 %34, float %30, float %.sroa.12.0151
-  %35 = getelementptr inbounds nuw %class.aiVector3t, ptr %6, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [12 x i8], ptr %6, i64 %indvars.iv
   %36 = load float, ptr %35, align 4
   %37 = fadd float %24, %36
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 4
@@ -257,7 +255,7 @@ define hidden noundef zeroext i1 @_ZN6Assimp25FixInfacingNormalsProcess11Process
 .lr.ph:                                           ; preds = %82, %.lr.ph
   %indvars.iv163 = phi i64 [ %indvars.iv.next164, %.lr.ph ], [ 0, %82 ]
   %87 = load ptr, ptr %5, align 8
-  %88 = getelementptr inbounds nuw %class.aiVector3t, ptr %87, i64 %indvars.iv163
+  %88 = getelementptr inbounds nuw [12 x i8], ptr %87, i64 %indvars.iv163
   %89 = load float, ptr %88, align 4
   %90 = fneg float %89
   store float %90, ptr %88, align 4
@@ -279,7 +277,7 @@ define hidden noundef zeroext i1 @_ZN6Assimp25FixInfacingNormalsProcess11Process
   %101 = phi i32 [ %85, %.lr.ph158 ], [ %106, %._crit_edge ]
   %indvars.iv169 = phi i64 [ 0, %.lr.ph158 ], [ %indvars.iv.next170, %._crit_edge ]
   %102 = load ptr, ptr %86, align 8
-  %103 = getelementptr inbounds nuw %struct.aiFace, ptr %102, i64 %indvars.iv169
+  %103 = getelementptr inbounds nuw [16 x i8], ptr %102, i64 %indvars.iv169
   %104 = load i32, ptr %103, align 8
   %.not161 = icmp ult i32 %104, 2
   br i1 %.not161, label %._crit_edge, label %.lr.ph156
@@ -303,12 +301,12 @@ define hidden noundef zeroext i1 @_ZN6Assimp25FixInfacingNormalsProcess11Process
   %indvars.iv166 = phi i64 [ 0, %.lr.ph156 ], [ %indvars.iv.next167, %109 ]
   %110 = phi i32 [ %104, %.lr.ph156 ], [ %120, %109 ]
   %111 = load ptr, ptr %105, align 8
-  %112 = getelementptr inbounds nuw i32, ptr %111, i64 %indvars.iv166
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %111, i64 %indvars.iv166
   %113 = trunc nuw nsw i64 %indvars.iv166 to i32
   %114 = xor i32 %113, -1
   %115 = add i32 %110, %114
   %116 = zext i32 %115 to i64
-  %117 = getelementptr inbounds nuw i32, ptr %111, i64 %116
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %111, i64 %116
   %118 = load i32, ptr %112, align 4
   %119 = load i32, ptr %117, align 4
   store i32 %119, ptr %112, align 4

@@ -30,8 +30,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Head_base.83" = type { ptr }
 %"class.std::tuple.84" = type { i8 }
 %struct.StringPiece = type { ptr, i64 }
-%"struct.std::pair.38" = type { %struct.StringPiece, ptr }
-%"struct.emhash8::HashMap<StringPiece, Node *>::Index" = type { i32, i32 }
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<Node *, std::allocator<Node *>>::_Vector_impl" }
 %"struct.std::_Vector_base<Node *, std::allocator<Node *>>::_Vector_impl" = type { %"struct.std::_Vector_base<Node *, std::allocator<Node *>>::_Vector_impl_data" }
@@ -331,7 +329,7 @@ _ZNSt6vectorIP4EdgeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds = %2
 _ZNSt6vectorIP4EdgeSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %29, %_ZNSt6vectorIP4EdgeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %23, ptr %0, align 8, !tbaa !38
   store ptr %28, ptr %3, align 8, !tbaa !32
-  %30 = getelementptr inbounds nuw ptr, ptr %23, i64 %21
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %21
   store ptr %30, ptr %5, align 8, !tbaa !36
   br label %_ZNSt6vectorIP4EdgeSaIS1_EE9push_backERKS1_.exit
 
@@ -358,7 +356,7 @@ _ZNSt6vectorIP4EdgeSaIS1_EE9push_backERKS1_.exit: ; preds = %7, %_ZNSt6vectorIP4
   %.019.i.i = phi i64 [ %39, %.lr.ph.i.i ], [ %.0920.i56.i, %55 ]
   %.0920.in.i.i = add nsw i64 %.019.i.i, -1
   %.0920.i56.i = lshr i64 %.0920.in.i.i, 1
-  %45 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0920.i56.i
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0920.i56.i
   %46 = load ptr, ptr %45, align 8, !tbaa !24
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 120
   %48 = load i64, ptr %47, align 8, !tbaa !39
@@ -377,14 +375,14 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valI16EdgePriorityLessEclINS_17__normal_iterator
   br i1 %54, label %55, label %_ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPP4EdgeSt6vectorIS3_SaIS3_EEEE16EdgePriorityLessEvT_SA_T0_.exit
 
 55:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valI16EdgePriorityLessEclINS_17__normal_iteratorIPP4EdgeSt6vectorIS7_SaIS7_EEEES7_EEbT_RT0_.exit.i.i, %49
-  %56 = getelementptr inbounds ptr, ptr %32, i64 %.019.i.i
+  %56 = getelementptr inbounds [8 x i8], ptr %32, i64 %.019.i.i
   store ptr %46, ptr %56, align 8, !tbaa !24
   %.not.i3 = icmp eq i64 %.0920.i56.i, 0
   br i1 %.not.i3, label %_ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPP4EdgeSt6vectorIS3_SaIS3_EEEE16EdgePriorityLessEvT_SA_T0_.exit, label %44, !llvm.loop !53
 
 _ZSt9push_heapIN9__gnu_cxx17__normal_iteratorIPP4EdgeSt6vectorIS3_SaIS3_EEEE16EdgePriorityLessEvT_SA_T0_.exit: ; preds = %49, %_ZN9__gnu_cxx5__ops14_Iter_comp_valI16EdgePriorityLessEclINS_17__normal_iteratorIPP4EdgeSt6vectorIS7_SaIS7_EEEES7_EEbT_RT0_.exit.i.i, %55, %_ZNSt6vectorIP4EdgeSaIS1_EE9push_backERKS1_.exit
   %.0.lcssa.i.i = phi i64 [ %39, %_ZNSt6vectorIP4EdgeSaIS1_EE9push_backERKS1_.exit ], [ %.019.i.i, %49 ], [ 0, %55 ], [ %.019.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valI16EdgePriorityLessEclINS_17__normal_iteratorIPP4EdgeSt6vectorIS7_SaIS7_EEEES7_EEbT_RT0_.exit.i.i ]
-  %57 = getelementptr inbounds ptr, ptr %32, i64 %.0.lcssa.i.i
+  %57 = getelementptr inbounds [8 x i8], ptr %32, i64 %.0.lcssa.i.i
   store ptr %34, ptr %57, align 8, !tbaa !24
   ret void
 }
@@ -1080,7 +1078,7 @@ _ZNSt6vectorIP4EdgeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds = %3
 _ZNSt6vectorIP4EdgeSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %37, %_ZNSt6vectorIP4EdgeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %32, ptr %12, align 8, !tbaa !38
   store ptr %36, ptr %13, align 8, !tbaa !32
-  %38 = getelementptr inbounds nuw ptr, ptr %32, i64 %30
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %30
   store ptr %38, ptr %20, align 8, !tbaa !36
   br label %_ZNSt6vectorIP4EdgeSaIS1_EE9push_backERKS1_.exit
 
@@ -1119,7 +1117,7 @@ _ZNK5State10LookupNodeE11StringPiece.exit:        ; preds = %4
   %14 = sext i32 %11 to i64
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !75
-  %17 = getelementptr inbounds %"struct.std::pair.38", ptr %16, i64 %14
+  %17 = getelementptr inbounds [24 x i8], ptr %16, i64 %14
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !88
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1325,7 +1323,7 @@ define dso_local noundef ptr @_ZNK5State10LookupNodeE11StringPiece(ptr noundef n
   %10 = sext i32 %6 to i64
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !75
-  %13 = getelementptr inbounds %"struct.std::pair.38", ptr %12, i64 %10
+  %13 = getelementptr inbounds [24 x i8], ptr %12, i64 %10
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !88
   br label %16
@@ -1367,7 +1365,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   %18 = tail call noundef i32 @_ZN7emhash87HashMapI11StringPieceP4NodeSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S3_EENS_13DefaultPolicyEE16find_or_allocateIS1_EEjRKT_m(ptr noundef nonnull align 8 dereferenceable(44) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 noundef %17) #30
   %19 = load ptr, ptr %0, align 8, !tbaa !76
   %20 = zext i32 %18 to i64
-  %21 = getelementptr inbounds nuw %"struct.emhash8::HashMap<StringPiece, Node *>::Index", ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !113
   %23 = icmp slt i32 %22, 0
   br i1 %23, label %24, label %._crit_edge
@@ -1382,7 +1380,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   %26 = load ptr, ptr %25, align 8, !tbaa !75
   %27 = load i32, ptr %3, align 8, !tbaa !64
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw %"struct.std::pair.38", ptr %26, i64 %28
+  %29 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %28
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !116
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store ptr null, ptr %30, align 8, !tbaa !88
@@ -1397,7 +1395,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   %37 = and i32 %36, %34
   %38 = or i32 %37, %32
   %39 = load ptr, ptr %0, align 8, !tbaa !76
-  %40 = getelementptr inbounds nuw %"struct.emhash8::HashMap<StringPiece, Node *>::Index", ptr %39, i64 %20
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %20
   store i32 %18, ptr %40, align 4, !tbaa !118
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %40, i64 4
   store i32 %38, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !118
@@ -1410,7 +1408,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(8) ptr @_Z
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %46 = load ptr, ptr %45, align 8, !tbaa !75
   %47 = zext i32 %44 to i64
-  %48 = getelementptr inbounds nuw %"struct.std::pair.38", ptr %46, i64 %47
+  %48 = getelementptr inbounds nuw [24 x i8], ptr %46, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   ret ptr %49
 
@@ -1470,7 +1468,7 @@ define dso_local noundef ptr @_ZN5State14SpellcheckNodeERKNSt7__cxx1112basic_str
   %20 = load i32, ptr %5, align 8, !tbaa !64
   %21 = load ptr, ptr %4, align 8, !tbaa !75
   %22 = sext i32 %20 to i64
-  %23 = getelementptr inbounds %"struct.std::pair.38", ptr %21, i64 %22
+  %23 = getelementptr inbounds [24 x i8], ptr %21, i64 %22
   %.not14 = icmp eq ptr %19, %23
   br i1 %.not14, label %._crit_edge, label %10, !llvm.loop !119
 }
@@ -1540,7 +1538,7 @@ _ZNSt6vectorIP4NodeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds = %3
 _ZNSt6vectorIP4NodeSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %33, %_ZNSt6vectorIP4NodeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %28, ptr %8, align 8, !tbaa !73
   store ptr %32, ptr %9, align 8, !tbaa !120
-  %34 = getelementptr inbounds nuw ptr, ptr %28, i64 %26
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %26
   store ptr %34, ptr %11, align 8, !tbaa !74
   br label %_ZNSt6vectorIP4NodeSaIS1_EE9push_backERKS1_.exit
 
@@ -1603,7 +1601,7 @@ _ZNSt6vectorIP4EdgeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = 
 _ZNSt6vectorIP4EdgeSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %60, %_ZNSt6vectorIP4EdgeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
   store ptr %55, ptr %35, align 8, !tbaa !38
   store ptr %59, ptr %36, align 8, !tbaa !32
-  %61 = getelementptr inbounds nuw ptr, ptr %55, i64 %53
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %53
   store ptr %61, ptr %38, align 8, !tbaa !36
   br label %_ZN4Node10AddOutEdgeEP4Edge.exit
 
@@ -2138,7 +2136,7 @@ _ZNSt6vectorIP4NodeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds = %1
 _ZNSt6vectorIP4NodeSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %189, %_ZNSt6vectorIP4NodeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %184, ptr %164, align 8, !tbaa !73
   store ptr %188, ptr %165, align 8, !tbaa !120
-  %190 = getelementptr inbounds nuw ptr, ptr %184, i64 %182
+  %190 = getelementptr inbounds nuw [8 x i8], ptr %184, i64 %182
   store ptr %190, ptr %167, align 8, !tbaa !74
   br label %_ZNSt6vectorIP4NodeSaIS1_EE9push_backERKS1_.exit
 
@@ -2217,7 +2215,7 @@ _ZNSt6vectorIP4NodeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds = %3
 _ZNSt6vectorIP4NodeSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %32, %_ZNSt6vectorIP4NodeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %27, ptr %7, align 8, !tbaa !73
   store ptr %31, ptr %8, align 8, !tbaa !120
-  %33 = getelementptr inbounds nuw ptr, ptr %27, i64 %25
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %25
   store ptr %33, ptr %10, align 8, !tbaa !74
   br label %_ZNSt6vectorIP4NodeSaIS1_EE9push_backERKS1_.exit
 
@@ -2280,7 +2278,7 @@ _ZNSt6vectorIP4EdgeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = 
 _ZNSt6vectorIP4EdgeSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %59, %_ZNSt6vectorIP4EdgeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
   store ptr %54, ptr %34, align 8, !tbaa !38
   store ptr %58, ptr %35, align 8, !tbaa !32
-  %60 = getelementptr inbounds nuw ptr, ptr %54, i64 %52
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %52
   store ptr %60, ptr %37, align 8, !tbaa !36
   br label %_ZN4Node20AddValidationOutEdgeEP4Edge.exit
 
@@ -2315,7 +2313,7 @@ _ZNK5State10LookupNodeE11StringPiece.exit:        ; preds = %4
   %14 = sext i32 %11 to i64
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !75
-  %17 = getelementptr inbounds %"struct.std::pair.38", ptr %16, i64 %14
+  %17 = getelementptr inbounds [24 x i8], ptr %16, i64 %14
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !88
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -2681,7 +2679,7 @@ _ZNSt6vectorIP4NodeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds = %1
 _ZNSt6vectorIP4NodeSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %146, %_ZNSt6vectorIP4NodeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %141, ptr %121, align 8, !tbaa !73
   store ptr %145, ptr %122, align 8, !tbaa !120
-  %147 = getelementptr inbounds nuw ptr, ptr %141, i64 %139
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %141, i64 %139
   store ptr %147, ptr %124, align 8, !tbaa !74
   br label %_ZNSt6vectorIP4NodeSaIS1_EE9push_backERKS1_.exit
 
@@ -2817,7 +2815,7 @@ _ZNSt6vectorIP4NodeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds = %5
 _ZNSt6vectorIP4NodeSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %56, %_ZNSt6vectorIP4NodeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   %.pre = phi ptr [ %.pre.pre, %56 ], [ %.pre41, %_ZNSt6vectorIP4NodeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i ]
   store ptr %55, ptr %8, align 8, !tbaa !120
-  %57 = getelementptr inbounds nuw ptr, ptr %50, i64 %48
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %48
   store ptr %57, ptr %9, align 8, !tbaa !74
   br label %_ZNSt6vectorIP4NodeSaIS1_EE9push_backERKS1_.exit
 
@@ -3010,7 +3008,7 @@ define dso_local void @_ZN5State4DumpEv(ptr noundef nonnull readonly align 8 cap
   %24 = load i32, ptr %3, align 8, !tbaa !64
   %25 = load ptr, ptr %2, align 8, !tbaa !75
   %26 = sext i32 %24 to i64
-  %27 = getelementptr inbounds %"struct.std::pair.38", ptr %25, i64 %26
+  %27 = getelementptr inbounds [24 x i8], ptr %25, i64 %26
   %.not = icmp eq ptr %23, %27
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !154
 
@@ -3513,7 +3511,7 @@ _ZN7emhash87HashMapI11StringPieceP4NodeSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1
   store ptr %40, ptr %0, align 8, !tbaa !76
   %41 = shl nuw nsw i64 %11, 3
   tail call void @llvm.memset.p0.i64(ptr align 1 %40, i8 -1, i64 %41, i1 false)
-  %42 = getelementptr inbounds nuw %"struct.emhash8::HashMap<StringPiece, Node *>::Index", ptr %40, i64 %11
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %11
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %42, i8 0, i64 16, i1 false)
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 -1, ptr %43, align 8, !tbaa !117
@@ -3524,7 +3522,7 @@ _ZN7emhash87HashMapI11StringPieceP4NodeSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1
 .lr.ph:                                           ; preds = %_ZN7emhash87HashMapI11StringPieceP4NodeSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S3_EENS_13DefaultPolicyEE7rebuildEj.exit, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %_ZN7emhash87HashMapI11StringPieceP4NodeSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S3_EENS_13DefaultPolicyEE7rebuildEj.exit ]
   %45 = load ptr, ptr %31, align 8, !tbaa !75
-  %46 = getelementptr inbounds nuw %"struct.std::pair.38", ptr %45, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %indvars.iv
   %.sroa.0.0.copyload.i = load ptr, ptr %46, align 8, !tbaa !112
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %46, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !95
@@ -3538,7 +3536,7 @@ _ZN7emhash87HashMapI11StringPieceP4NodeSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1
   %54 = or i32 %52, %53
   %55 = load ptr, ptr %0, align 8, !tbaa !76
   %56 = zext i32 %48 to i64
-  %57 = getelementptr inbounds nuw %"struct.emhash8::HashMap<StringPiece, Node *>::Index", ptr %55, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %56
   store i32 %48, ptr %57, align 4, !tbaa !118
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %57, i64 4
   store i32 %54, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !118
@@ -3560,7 +3558,7 @@ define linkonce_odr dso_local noundef i32 @_ZN7emhash87HashMapI11StringPieceP4No
   %6 = and i32 %4, %5
   %7 = load ptr, ptr %0, align 8, !tbaa !76
   %8 = zext i32 %6 to i64
-  %9 = getelementptr inbounds nuw %"struct.emhash8::HashMap<StringPiece, Node *>::Index", ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !113
   %11 = icmp slt i32 %10, 0
   br i1 %11, label %82, label %12
@@ -3572,7 +3570,7 @@ define linkonce_odr dso_local noundef i32 @_ZN7emhash87HashMapI11StringPieceP4No
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !75
   %18 = zext i32 %15 to i64
-  %19 = getelementptr inbounds nuw %"struct.std::pair.38", ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %18
   %.sroa.0.0.copyload.i.i = load ptr, ptr %19, align 8, !tbaa !112
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %19, i64 8
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !95
@@ -3594,7 +3592,7 @@ define linkonce_odr dso_local noundef i32 @_ZN7emhash87HashMapI11StringPieceP4No
 
 27:                                               ; preds = %26
   %28 = zext nneg i32 %10 to i64
-  %29 = getelementptr inbounds nuw %"struct.emhash8::HashMap<StringPiece, Node *>::Index", ptr %.pre, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !113
   %31 = icmp eq i32 %30, %10
   br i1 %31, label %_ZNK7emhash87HashMapI11StringPieceP4NodeSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S3_EENS_13DefaultPolicyEE16find_last_bucketEj.exit, label %.preheader.i
@@ -3602,7 +3600,7 @@ define linkonce_odr dso_local noundef i32 @_ZN7emhash87HashMapI11StringPieceP4No
 .preheader.i:                                     ; preds = %27, %.preheader.i
   %.012.i = phi i32 [ %34, %.preheader.i ], [ %30, %27 ]
   %32 = zext i32 %.012.i to i64
-  %33 = getelementptr inbounds nuw %"struct.emhash8::HashMap<StringPiece, Node *>::Index", ptr %.pre, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %32
   %34 = load i32, ptr %33, align 4, !tbaa !113
   %.not.i = icmp eq i32 %34, %.012.i
   br i1 %.not.i, label %_ZNK7emhash87HashMapI11StringPieceP4NodeSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S3_EENS_13DefaultPolicyEE16find_last_bucketEj.exit, label %.preheader.i, !llvm.loop !166
@@ -3611,7 +3609,7 @@ _ZNK7emhash87HashMapI11StringPieceP4NodeSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS
   %.015 = phi i32 [ %6, %26 ], [ %10, %27 ], [ %.012.i, %.preheader.i ]
   %35 = add i32 %.015, 1
   %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw %"struct.emhash8::HashMap<StringPiece, Node *>::Index", ptr %.pre, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !113
   %39 = icmp slt i32 %38, 0
   br i1 %39, label %_ZN7emhash87HashMapI11StringPieceP4NodeSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S3_EENS_13DefaultPolicyEE17find_empty_bucketEjj.exit, label %40
@@ -3619,7 +3617,7 @@ _ZNK7emhash87HashMapI11StringPieceP4NodeSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS
 40:                                               ; preds = %_ZNK7emhash87HashMapI11StringPieceP4NodeSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S3_EENS_13DefaultPolicyEE16find_last_bucketEj.exit
   %41 = add i32 %.015, 2
   %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds nuw %"struct.emhash8::HashMap<StringPiece, Node *>::Index", ptr %.pre, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !113
   %45 = icmp slt i32 %44, 0
   br i1 %45, label %_ZN7emhash87HashMapI11StringPieceP4NodeSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S3_EENS_13DefaultPolicyEE17find_empty_bucketEjj.exit, label %.preheader25.i
@@ -3638,7 +3636,7 @@ _ZNK7emhash87HashMapI11StringPieceP4NodeSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS
   %50 = add i32 %.01928.i, %.015
   %51 = and i32 %50, %22
   %52 = zext i32 %51 to i64
-  %53 = getelementptr inbounds nuw %"struct.emhash8::HashMap<StringPiece, Node *>::Index", ptr %.pre, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %52
   %54 = load i32, ptr %53, align 4, !tbaa !113
   %55 = icmp slt i32 %54, 0
   br i1 %55, label %_ZN7emhash87HashMapI11StringPieceP4NodeSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S3_EENS_13DefaultPolicyEE17find_empty_bucketEjj.exit, label %56
@@ -3646,7 +3644,7 @@ _ZNK7emhash87HashMapI11StringPieceP4NodeSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS
 56:                                               ; preds = %.preheader25.i
   %57 = add i32 %51, 1
   %58 = zext i32 %57 to i64
-  %59 = getelementptr inbounds nuw %"struct.emhash8::HashMap<StringPiece, Node *>::Index", ptr %.pre, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %58
   %60 = load i32, ptr %59, align 4, !tbaa !113
   %61 = icmp slt i32 %60, 0
   br i1 %61, label %_ZN7emhash87HashMapI11StringPieceP4NodeSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S3_EENS_13DefaultPolicyEE17find_empty_bucketEjj.exit, label %62
@@ -3662,7 +3660,7 @@ _ZNK7emhash87HashMapI11StringPieceP4NodeSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS
   %67 = and i32 %66, %22
   %68 = add i32 %67, 1
   %69 = zext i32 %68 to i64
-  %70 = getelementptr inbounds nuw %"struct.emhash8::HashMap<StringPiece, Node *>::Index", ptr %.pre, i64 %69
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %69
   %71 = load i32, ptr %70, align 4, !tbaa !113
   %72 = icmp slt i32 %71, 0
   br i1 %72, label %.thread.loopexit.i, label %73
@@ -3671,7 +3669,7 @@ _ZNK7emhash87HashMapI11StringPieceP4NodeSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS
   %74 = add i32 %68, %49
   %75 = and i32 %74, %22
   %76 = zext i32 %75 to i64
-  %77 = getelementptr inbounds nuw %"struct.emhash8::HashMap<StringPiece, Node *>::Index", ptr %.pre, i64 %76
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %76
   %78 = load i32, ptr %77, align 4, !tbaa !113
   %79 = icmp sgt i32 %78, -1
   br i1 %79, label %65, label %.thread.loopexit.i, !llvm.loop !168
@@ -3684,7 +3682,7 @@ _ZNK7emhash87HashMapI11StringPieceP4NodeSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS
 _ZN7emhash87HashMapI11StringPieceP4NodeSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S3_EENS_13DefaultPolicyEE17find_empty_bucketEjj.exit: ; preds = %.preheader25.i, %56, %_ZNK7emhash87HashMapI11StringPieceP4NodeSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S3_EENS_13DefaultPolicyEE16find_last_bucketEj.exit, %40, %.thread.loopexit.i
   %.0.i22 = phi i32 [ %41, %40 ], [ %35, %_ZNK7emhash87HashMapI11StringPieceP4NodeSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S3_EENS_13DefaultPolicyEE16find_last_bucketEj.exit ], [ %.0.ph.i, %.thread.loopexit.i ], [ %57, %56 ], [ %51, %.preheader25.i ]
   %80 = zext i32 %.015 to i64
-  %81 = getelementptr inbounds nuw %"struct.emhash8::HashMap<StringPiece, Node *>::Index", ptr %.pre, i64 %80
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %80
   store i32 %.0.i22, ptr %81, align 4, !tbaa !113
   br label %82
 
@@ -3996,11 +3994,11 @@ define linkonce_odr dso_local noundef i64 @_Z18rapidhash_internalPKvmmPKm(ptr no
 define linkonce_odr dso_local noundef i32 @_ZN7emhash87HashMapI11StringPieceP4NodeSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S3_EENS_13DefaultPolicyEE14kickout_bucketEjj(ptr noundef nonnull align 8 dereferenceable(44) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr %0, align 8, !tbaa !76
   %5 = zext i32 %2 to i64
-  %6 = getelementptr inbounds nuw %"struct.emhash8::HashMap<StringPiece, Node *>::Index", ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %5
   %7 = load i32, ptr %6, align 4, !tbaa !113
   %8 = add i32 %7, 1
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %"struct.emhash8::HashMap<StringPiece, Node *>::Index", ptr %4, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !113
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %_ZN7emhash87HashMapI11StringPieceP4NodeSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S3_EENS_13DefaultPolicyEE17find_empty_bucketEjj.exit, label %13
@@ -4008,7 +4006,7 @@ define linkonce_odr dso_local noundef i32 @_ZN7emhash87HashMapI11StringPieceP4No
 13:                                               ; preds = %3
   %14 = add i32 %7, 2
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw %"struct.emhash8::HashMap<StringPiece, Node *>::Index", ptr %4, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !113
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %_ZN7emhash87HashMapI11StringPieceP4NodeSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S3_EENS_13DefaultPolicyEE17find_empty_bucketEjj.exit, label %.preheader25.i
@@ -4032,7 +4030,7 @@ define linkonce_odr dso_local noundef i32 @_ZN7emhash87HashMapI11StringPieceP4No
   %26 = add i32 %.01928.i, %7
   %27 = and i32 %26, %20
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw %"struct.emhash8::HashMap<StringPiece, Node *>::Index", ptr %4, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !113
   %31 = icmp slt i32 %30, 0
   br i1 %31, label %_ZN7emhash87HashMapI11StringPieceP4NodeSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S3_EENS_13DefaultPolicyEE17find_empty_bucketEjj.exit, label %32
@@ -4040,7 +4038,7 @@ define linkonce_odr dso_local noundef i32 @_ZN7emhash87HashMapI11StringPieceP4No
 32:                                               ; preds = %25
   %33 = add i32 %27, 1
   %34 = zext i32 %33 to i64
-  %35 = getelementptr inbounds nuw %"struct.emhash8::HashMap<StringPiece, Node *>::Index", ptr %4, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !113
   %37 = icmp slt i32 %36, 0
   br i1 %37, label %_ZN7emhash87HashMapI11StringPieceP4NodeSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S3_EENS_13DefaultPolicyEE17find_empty_bucketEjj.exit, label %38
@@ -4056,7 +4054,7 @@ define linkonce_odr dso_local noundef i32 @_ZN7emhash87HashMapI11StringPieceP4No
   %43 = and i32 %42, %20
   %44 = add i32 %43, 1
   %45 = zext i32 %44 to i64
-  %46 = getelementptr inbounds nuw %"struct.emhash8::HashMap<StringPiece, Node *>::Index", ptr %4, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !113
   %48 = icmp slt i32 %47, 0
   br i1 %48, label %.thread.loopexit.i, label %49
@@ -4065,7 +4063,7 @@ define linkonce_odr dso_local noundef i32 @_ZN7emhash87HashMapI11StringPieceP4No
   %50 = add i32 %44, %24
   %51 = and i32 %50, %20
   %52 = zext i32 %51 to i64
-  %53 = getelementptr inbounds nuw %"struct.emhash8::HashMap<StringPiece, Node *>::Index", ptr %4, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %52
   %54 = load i32, ptr %53, align 4, !tbaa !113
   %55 = icmp sgt i32 %54, -1
   br i1 %55, label %41, label %.thread.loopexit.i, !llvm.loop !168
@@ -4078,7 +4076,7 @@ define linkonce_odr dso_local noundef i32 @_ZN7emhash87HashMapI11StringPieceP4No
 _ZN7emhash87HashMapI11StringPieceP4NodeSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S3_EENS_13DefaultPolicyEE17find_empty_bucketEjj.exit: ; preds = %25, %32, %3, %13, %.thread.loopexit.i
   %.0.i = phi i32 [ %14, %13 ], [ %8, %3 ], [ %.0.ph.i, %.thread.loopexit.i ], [ %33, %32 ], [ %27, %25 ]
   %56 = zext i32 %1 to i64
-  %57 = getelementptr inbounds nuw %"struct.emhash8::HashMap<StringPiece, Node *>::Index", ptr %4, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %56
   %58 = load i32, ptr %57, align 4, !tbaa !113
   %59 = icmp eq i32 %58, %2
   br i1 %59, label %_ZNK7emhash87HashMapI11StringPieceP4NodeSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S3_EENS_13DefaultPolicyEE16find_prev_bucketEjj.exit, label %.preheader.i15
@@ -4086,7 +4084,7 @@ _ZN7emhash87HashMapI11StringPieceP4NodeSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1
 .preheader.i15:                                   ; preds = %_ZN7emhash87HashMapI11StringPieceP4NodeSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S3_EENS_13DefaultPolicyEE17find_empty_bucketEjj.exit, %.preheader.i15
   %.012.i = phi i32 [ %62, %.preheader.i15 ], [ %58, %_ZN7emhash87HashMapI11StringPieceP4NodeSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S3_EENS_13DefaultPolicyEE17find_empty_bucketEjj.exit ]
   %60 = zext i32 %.012.i to i64
-  %61 = getelementptr inbounds nuw %"struct.emhash8::HashMap<StringPiece, Node *>::Index", ptr %4, i64 %60
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %60
   %62 = load i32, ptr %61, align 4, !tbaa !113
   %.not.i = icmp eq i32 %62, %2
   br i1 %.not.i, label %_ZNK7emhash87HashMapI11StringPieceP4NodeSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S3_EENS_13DefaultPolicyEE16find_prev_bucketEjj.exit, label %.preheader.i15, !llvm.loop !173
@@ -4098,11 +4096,11 @@ _ZNK7emhash87HashMapI11StringPieceP4NodeSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS
   %65 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %66 = load i32, ptr %65, align 4, !tbaa !115
   %67 = zext i32 %.0.i to i64
-  %68 = getelementptr inbounds nuw %"struct.emhash8::HashMap<StringPiece, Node *>::Index", ptr %4, i64 %67
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %67
   store i32 %64, ptr %68, align 4, !tbaa !118
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %68, i64 4
   store i32 %66, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !118
-  %69 = getelementptr inbounds nuw %"struct.emhash8::HashMap<StringPiece, Node *>::Index", ptr %4, i64 %.pre-phi
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.pre-phi
   store i32 %.0.i, ptr %69, align 4, !tbaa !113
   store i32 -1, ptr %6, align 4, !tbaa !113
   ret i32 %2
@@ -4727,11 +4725,11 @@ define linkonce_odr dso_local noundef i32 @_ZN7emhash87HashMapI11StringPieceP4No
   %7 = and i32 %5, %6
   %8 = load ptr, ptr %0, align 8, !tbaa !76
   %9 = zext i32 %7 to i64
-  %10 = getelementptr inbounds nuw %"struct.emhash8::HashMap<StringPiece, Node *>::Index", ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !113
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !75
-  %14 = getelementptr inbounds nuw %"struct.std::pair.38", ptr %13, i64 %9
+  %14 = getelementptr inbounds nuw [24 x i8], ptr %13, i64 %9
   tail call void @llvm.prefetch.p0(ptr %14, i32 0, i32 3, i32 1)
   %15 = icmp slt i32 %11, 0
   br i1 %15, label %.thread, label %16
@@ -4745,7 +4743,7 @@ define linkonce_odr dso_local noundef i32 @_ZN7emhash87HashMapI11StringPieceP4No
   %22 = and i32 %21, %20
   %23 = icmp eq i32 %22, 0
   %24 = zext i32 %19 to i64
-  %25 = getelementptr inbounds nuw %"struct.std::pair.38", ptr %13, i64 %24
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %13, i64 %24
   br i1 %23, label %26, label %._ZNKSt8equal_toI11StringPieceEclERKS0_S3_.exit.thread_crit_edge
 
 ._ZNKSt8equal_toI11StringPieceEclERKS0_S3_.exit.thread_crit_edge: ; preds = %16
@@ -4770,7 +4768,7 @@ _ZNKSt8equal_toI11StringPieceEclERKS0_S3_.exit:   ; preds = %26
 
 _ZNKSt8equal_toI11StringPieceEclERKS0_S3_.exit.thread: ; preds = %._ZNKSt8equal_toI11StringPieceEclERKS0_S3_.exit.thread_crit_edge, %26, %_ZNKSt8equal_toI11StringPieceEclERKS0_S3_.exit
   %.sroa.2.0.copyload.i.i = phi i64 [ %.sroa.2.0.copyload.i.i.pre, %._ZNKSt8equal_toI11StringPieceEclERKS0_S3_.exit.thread_crit_edge ], [ %30, %26 ], [ %28, %_ZNKSt8equal_toI11StringPieceEclERKS0_S3_.exit ]
-  %35 = getelementptr inbounds nuw %"struct.std::pair.38", ptr %13, i64 %24
+  %35 = getelementptr inbounds nuw [24 x i8], ptr %13, i64 %24
   %.sroa.0.0.copyload.i.i = load ptr, ptr %35, align 8, !tbaa !112
   %36 = tail call noundef i64 @_Z18rapidhash_internalPKvmmPKm(ptr noundef %.sroa.0.0.copyload.i.i, i64 noundef %.sroa.2.0.copyload.i.i, i64 noundef -4766890152743124951, ptr noundef nonnull @_ZL12rapid_secret) #30
   %37 = trunc i64 %36 to i32
@@ -4781,11 +4779,11 @@ _ZNKSt8equal_toI11StringPieceEclERKS0_S3_.exit.thread: ; preds = %._ZNKSt8equal_
 
 40:                                               ; preds = %_ZNKSt8equal_toI11StringPieceEclERKS0_S3_.exit.thread
   %41 = load ptr, ptr %0, align 8, !tbaa !76
-  %42 = getelementptr inbounds nuw %"struct.emhash8::HashMap<StringPiece, Node *>::Index", ptr %41, i64 %9
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %9
   %43 = load i32, ptr %42, align 4, !tbaa !113
   %44 = add i32 %43, 1
   %45 = zext i32 %44 to i64
-  %46 = getelementptr inbounds nuw %"struct.emhash8::HashMap<StringPiece, Node *>::Index", ptr %41, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !113
   %48 = icmp slt i32 %47, 0
   br i1 %48, label %_ZN7emhash87HashMapI11StringPieceP4NodeSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S3_EENS_13DefaultPolicyEE17find_empty_bucketEjj.exit.i, label %49
@@ -4793,7 +4791,7 @@ _ZNKSt8equal_toI11StringPieceEclERKS0_S3_.exit.thread: ; preds = %._ZNKSt8equal_
 49:                                               ; preds = %40
   %50 = add i32 %43, 2
   %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds nuw %"struct.emhash8::HashMap<StringPiece, Node *>::Index", ptr %41, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %51
   %53 = load i32, ptr %52, align 4, !tbaa !113
   %54 = icmp slt i32 %53, 0
   br i1 %54, label %_ZN7emhash87HashMapI11StringPieceP4NodeSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S3_EENS_13DefaultPolicyEE17find_empty_bucketEjj.exit.i, label %.preheader25.i.i
@@ -4812,7 +4810,7 @@ _ZNKSt8equal_toI11StringPieceEclERKS0_S3_.exit.thread: ; preds = %._ZNKSt8equal_
   %59 = add i32 %.01928.i.i, %43
   %60 = and i32 %59, %38
   %61 = zext i32 %60 to i64
-  %62 = getelementptr inbounds nuw %"struct.emhash8::HashMap<StringPiece, Node *>::Index", ptr %41, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %61
   %63 = load i32, ptr %62, align 4, !tbaa !113
   %64 = icmp slt i32 %63, 0
   br i1 %64, label %_ZN7emhash87HashMapI11StringPieceP4NodeSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S3_EENS_13DefaultPolicyEE17find_empty_bucketEjj.exit.i, label %65
@@ -4820,7 +4818,7 @@ _ZNKSt8equal_toI11StringPieceEclERKS0_S3_.exit.thread: ; preds = %._ZNKSt8equal_
 65:                                               ; preds = %.preheader25.i.i
   %66 = add i32 %60, 1
   %67 = zext i32 %66 to i64
-  %68 = getelementptr inbounds nuw %"struct.emhash8::HashMap<StringPiece, Node *>::Index", ptr %41, i64 %67
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %67
   %69 = load i32, ptr %68, align 4, !tbaa !113
   %70 = icmp slt i32 %69, 0
   br i1 %70, label %_ZN7emhash87HashMapI11StringPieceP4NodeSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S3_EENS_13DefaultPolicyEE17find_empty_bucketEjj.exit.i, label %71
@@ -4836,7 +4834,7 @@ _ZNKSt8equal_toI11StringPieceEclERKS0_S3_.exit.thread: ; preds = %._ZNKSt8equal_
   %76 = and i32 %75, %38
   %77 = add i32 %76, 1
   %78 = zext i32 %77 to i64
-  %79 = getelementptr inbounds nuw %"struct.emhash8::HashMap<StringPiece, Node *>::Index", ptr %41, i64 %78
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %78
   %80 = load i32, ptr %79, align 4, !tbaa !113
   %81 = icmp slt i32 %80, 0
   br i1 %81, label %.thread.loopexit.i.i, label %82
@@ -4845,7 +4843,7 @@ _ZNKSt8equal_toI11StringPieceEclERKS0_S3_.exit.thread: ; preds = %._ZNKSt8equal_
   %83 = add i32 %77, %58
   %84 = and i32 %83, %38
   %85 = zext i32 %84 to i64
-  %86 = getelementptr inbounds nuw %"struct.emhash8::HashMap<StringPiece, Node *>::Index", ptr %41, i64 %85
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %85
   %87 = load i32, ptr %86, align 4, !tbaa !113
   %88 = icmp sgt i32 %87, -1
   br i1 %88, label %74, label %.thread.loopexit.i.i, !llvm.loop !168
@@ -4858,7 +4856,7 @@ _ZNKSt8equal_toI11StringPieceEclERKS0_S3_.exit.thread: ; preds = %._ZNKSt8equal_
 _ZN7emhash87HashMapI11StringPieceP4NodeSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S3_EENS_13DefaultPolicyEE17find_empty_bucketEjj.exit.i: ; preds = %65, %.preheader25.i.i, %.thread.loopexit.i.i, %49, %40
   %.0.i.i = phi i32 [ %50, %49 ], [ %44, %40 ], [ %.0.ph.i.i, %.thread.loopexit.i.i ], [ %60, %.preheader25.i.i ], [ %66, %65 ]
   %89 = zext i32 %39 to i64
-  %90 = getelementptr inbounds nuw %"struct.emhash8::HashMap<StringPiece, Node *>::Index", ptr %41, i64 %89
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %89
   %91 = load i32, ptr %90, align 4, !tbaa !113
   %92 = icmp eq i32 %91, %7
   br i1 %92, label %_ZN7emhash87HashMapI11StringPieceP4NodeSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S3_EENS_13DefaultPolicyEE14kickout_bucketEjj.exit, label %.preheader.i15.i
@@ -4866,7 +4864,7 @@ _ZN7emhash87HashMapI11StringPieceP4NodeSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1
 .preheader.i15.i:                                 ; preds = %_ZN7emhash87HashMapI11StringPieceP4NodeSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S3_EENS_13DefaultPolicyEE17find_empty_bucketEjj.exit.i, %.preheader.i15.i
   %.012.i.i = phi i32 [ %95, %.preheader.i15.i ], [ %91, %_ZN7emhash87HashMapI11StringPieceP4NodeSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S3_EENS_13DefaultPolicyEE17find_empty_bucketEjj.exit.i ]
   %93 = zext i32 %.012.i.i to i64
-  %94 = getelementptr inbounds nuw %"struct.emhash8::HashMap<StringPiece, Node *>::Index", ptr %41, i64 %93
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %93
   %95 = load i32, ptr %94, align 4, !tbaa !113
   %.not.i.i = icmp eq i32 %95, %7
   br i1 %.not.i.i, label %_ZN7emhash87HashMapI11StringPieceP4NodeSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S3_EENS_13DefaultPolicyEE14kickout_bucketEjj.exit, label %.preheader.i15.i, !llvm.loop !173
@@ -4878,11 +4876,11 @@ _ZN7emhash87HashMapI11StringPieceP4NodeSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1
   %98 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %99 = load i32, ptr %98, align 4, !tbaa !115
   %100 = zext i32 %.0.i.i to i64
-  %101 = getelementptr inbounds nuw %"struct.emhash8::HashMap<StringPiece, Node *>::Index", ptr %41, i64 %100
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %100
   store i32 %97, ptr %101, align 4, !tbaa !118
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %101, i64 4
   store i32 %99, ptr %.sroa.4.0..sroa_idx.i, align 4, !tbaa !118
-  %102 = getelementptr inbounds nuw %"struct.emhash8::HashMap<StringPiece, Node *>::Index", ptr %41, i64 %.pre-phi.i
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %.pre-phi.i
   store i32 %.0.i.i, ptr %102, align 4, !tbaa !113
   store i32 -1, ptr %42, align 4, !tbaa !113
   br label %.thread
@@ -4903,7 +4901,7 @@ _ZN7emhash87HashMapI11StringPieceP4NodeSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1
 111:                                              ; preds = %103
   %112 = add nuw i32 %7, 1
   %113 = zext i32 %112 to i64
-  %114 = getelementptr inbounds nuw %"struct.emhash8::HashMap<StringPiece, Node *>::Index", ptr %105, i64 %113
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %113
   %115 = load i32, ptr %114, align 4, !tbaa !113
   %116 = icmp slt i32 %115, 0
   br i1 %116, label %_ZN7emhash87HashMapI11StringPieceP4NodeSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S3_EENS_13DefaultPolicyEE17find_empty_bucketEjj.exit, label %117
@@ -4911,7 +4909,7 @@ _ZN7emhash87HashMapI11StringPieceP4NodeSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1
 117:                                              ; preds = %111
   %118 = add nuw i32 %7, 2
   %119 = zext i32 %118 to i64
-  %120 = getelementptr inbounds nuw %"struct.emhash8::HashMap<StringPiece, Node *>::Index", ptr %105, i64 %119
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %119
   %121 = load i32, ptr %120, align 4, !tbaa !113
   %122 = icmp slt i32 %121, 0
   br i1 %122, label %_ZN7emhash87HashMapI11StringPieceP4NodeSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S3_EENS_13DefaultPolicyEE17find_empty_bucketEjj.exit, label %.preheader25.i
@@ -4930,7 +4928,7 @@ _ZN7emhash87HashMapI11StringPieceP4NodeSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1
   %127 = add i32 %.01928.i, %7
   %128 = and i32 %127, %38
   %129 = zext i32 %128 to i64
-  %130 = getelementptr inbounds nuw %"struct.emhash8::HashMap<StringPiece, Node *>::Index", ptr %105, i64 %129
+  %130 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %129
   %131 = load i32, ptr %130, align 4, !tbaa !113
   %132 = icmp slt i32 %131, 0
   br i1 %132, label %_ZN7emhash87HashMapI11StringPieceP4NodeSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S3_EENS_13DefaultPolicyEE17find_empty_bucketEjj.exit, label %133
@@ -4938,7 +4936,7 @@ _ZN7emhash87HashMapI11StringPieceP4NodeSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1
 133:                                              ; preds = %.preheader25.i
   %134 = add i32 %128, 1
   %135 = zext i32 %134 to i64
-  %136 = getelementptr inbounds nuw %"struct.emhash8::HashMap<StringPiece, Node *>::Index", ptr %105, i64 %135
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %135
   %137 = load i32, ptr %136, align 4, !tbaa !113
   %138 = icmp slt i32 %137, 0
   br i1 %138, label %_ZN7emhash87HashMapI11StringPieceP4NodeSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S3_EENS_13DefaultPolicyEE17find_empty_bucketEjj.exit, label %139
@@ -4954,7 +4952,7 @@ _ZN7emhash87HashMapI11StringPieceP4NodeSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1
   %144 = and i32 %143, %38
   %145 = add i32 %144, 1
   %146 = zext i32 %145 to i64
-  %147 = getelementptr inbounds nuw %"struct.emhash8::HashMap<StringPiece, Node *>::Index", ptr %105, i64 %146
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %146
   %148 = load i32, ptr %147, align 4, !tbaa !113
   %149 = icmp slt i32 %148, 0
   br i1 %149, label %.thread.loopexit.i, label %150
@@ -4963,7 +4961,7 @@ _ZN7emhash87HashMapI11StringPieceP4NodeSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1
   %151 = add i32 %145, %126
   %152 = and i32 %151, %38
   %153 = zext i32 %152 to i64
-  %154 = getelementptr inbounds nuw %"struct.emhash8::HashMap<StringPiece, Node *>::Index", ptr %105, i64 %153
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %153
   %155 = load i32, ptr %154, align 4, !tbaa !113
   %156 = icmp sgt i32 %155, -1
   br i1 %156, label %142, label %.thread.loopexit.i, !llvm.loop !168
@@ -4975,14 +4973,14 @@ _ZN7emhash87HashMapI11StringPieceP4NodeSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1
 
 _ZN7emhash87HashMapI11StringPieceP4NodeSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S3_EENS_13DefaultPolicyEE17find_empty_bucketEjj.exit: ; preds = %.preheader25.i, %133, %111, %117, %.thread.loopexit.i
   %.0.i = phi i32 [ %118, %117 ], [ %112, %111 ], [ %.0.ph.i, %.thread.loopexit.i ], [ %134, %133 ], [ %128, %.preheader25.i ]
-  %157 = getelementptr inbounds nuw %"struct.emhash8::HashMap<StringPiece, Node *>::Index", ptr %105, i64 %9
+  %157 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %9
   store i32 %.0.i, ptr %157, align 4, !tbaa !113
   br label %.thread
 
 158:                                              ; preds = %.preheader, %_ZNKSt8equal_toI11StringPieceEclERKS0_S3_.exit51.thread
   %.038 = phi i32 [ %175, %_ZNKSt8equal_toI11StringPieceEclERKS0_S3_.exit51.thread ], [ %11, %.preheader ]
   %159 = zext i32 %.038 to i64
-  %160 = getelementptr inbounds nuw %"struct.emhash8::HashMap<StringPiece, Node *>::Index", ptr %105, i64 %159
+  %160 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %159
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 4
   %162 = load i32, ptr %161, align 4, !tbaa !115
   %163 = xor i32 %162, %6
@@ -4993,7 +4991,7 @@ _ZN7emhash87HashMapI11StringPieceP4NodeSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1
 166:                                              ; preds = %158
   %167 = and i32 %162, %38
   %168 = zext i32 %167 to i64
-  %169 = getelementptr inbounds nuw %"struct.std::pair.38", ptr %107, i64 %168
+  %169 = getelementptr inbounds nuw [24 x i8], ptr %107, i64 %168
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 8
   %171 = load i64, ptr %170, align 8, !tbaa !109
   %172 = icmp eq i64 %109, %171
@@ -5013,7 +5011,7 @@ _ZNKSt8equal_toI11StringPieceEclERKS0_S3_.exit51.thread: ; preds = %166, %_ZNKSt
 177:                                              ; preds = %_ZNKSt8equal_toI11StringPieceEclERKS0_S3_.exit51.thread
   %178 = add i32 %.038, 1
   %179 = zext i32 %178 to i64
-  %180 = getelementptr inbounds nuw %"struct.emhash8::HashMap<StringPiece, Node *>::Index", ptr %105, i64 %179
+  %180 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %179
   %181 = load i32, ptr %180, align 4, !tbaa !113
   %182 = icmp slt i32 %181, 0
   br i1 %182, label %_ZN7emhash87HashMapI11StringPieceP4NodeSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S3_EENS_13DefaultPolicyEE17find_empty_bucketEjj.exit61, label %183
@@ -5021,7 +5019,7 @@ _ZNKSt8equal_toI11StringPieceEclERKS0_S3_.exit51.thread: ; preds = %166, %_ZNKSt
 183:                                              ; preds = %177
   %184 = add i32 %.038, 2
   %185 = zext i32 %184 to i64
-  %186 = getelementptr inbounds nuw %"struct.emhash8::HashMap<StringPiece, Node *>::Index", ptr %105, i64 %185
+  %186 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %185
   %187 = load i32, ptr %186, align 4, !tbaa !113
   %188 = icmp slt i32 %187, 0
   br i1 %188, label %_ZN7emhash87HashMapI11StringPieceP4NodeSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S3_EENS_13DefaultPolicyEE17find_empty_bucketEjj.exit61, label %.preheader25.i52
@@ -5040,7 +5038,7 @@ _ZNKSt8equal_toI11StringPieceEclERKS0_S3_.exit51.thread: ; preds = %166, %_ZNKSt
   %193 = add i32 %.01928.i54, %.038
   %194 = and i32 %193, %38
   %195 = zext i32 %194 to i64
-  %196 = getelementptr inbounds nuw %"struct.emhash8::HashMap<StringPiece, Node *>::Index", ptr %105, i64 %195
+  %196 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %195
   %197 = load i32, ptr %196, align 4, !tbaa !113
   %198 = icmp slt i32 %197, 0
   br i1 %198, label %_ZN7emhash87HashMapI11StringPieceP4NodeSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S3_EENS_13DefaultPolicyEE17find_empty_bucketEjj.exit61, label %199
@@ -5048,7 +5046,7 @@ _ZNKSt8equal_toI11StringPieceEclERKS0_S3_.exit51.thread: ; preds = %166, %_ZNKSt
 199:                                              ; preds = %.preheader25.i52
   %200 = add i32 %194, 1
   %201 = zext i32 %200 to i64
-  %202 = getelementptr inbounds nuw %"struct.emhash8::HashMap<StringPiece, Node *>::Index", ptr %105, i64 %201
+  %202 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %201
   %203 = load i32, ptr %202, align 4, !tbaa !113
   %204 = icmp slt i32 %203, 0
   br i1 %204, label %_ZN7emhash87HashMapI11StringPieceP4NodeSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S3_EENS_13DefaultPolicyEE17find_empty_bucketEjj.exit61, label %205
@@ -5064,7 +5062,7 @@ _ZNKSt8equal_toI11StringPieceEclERKS0_S3_.exit51.thread: ; preds = %166, %_ZNKSt
   %210 = and i32 %209, %38
   %211 = add i32 %210, 1
   %212 = zext i32 %211 to i64
-  %213 = getelementptr inbounds nuw %"struct.emhash8::HashMap<StringPiece, Node *>::Index", ptr %105, i64 %212
+  %213 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %212
   %214 = load i32, ptr %213, align 4, !tbaa !113
   %215 = icmp slt i32 %214, 0
   br i1 %215, label %.thread.loopexit.i58, label %216
@@ -5073,7 +5071,7 @@ _ZNKSt8equal_toI11StringPieceEclERKS0_S3_.exit51.thread: ; preds = %166, %_ZNKSt
   %217 = add i32 %211, %192
   %218 = and i32 %217, %38
   %219 = zext i32 %218 to i64
-  %220 = getelementptr inbounds nuw %"struct.emhash8::HashMap<StringPiece, Node *>::Index", ptr %105, i64 %219
+  %220 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %219
   %221 = load i32, ptr %220, align 4, !tbaa !113
   %222 = icmp sgt i32 %221, -1
   br i1 %222, label %208, label %.thread.loopexit.i58, !llvm.loop !168
@@ -5086,7 +5084,7 @@ _ZNKSt8equal_toI11StringPieceEclERKS0_S3_.exit51.thread: ; preds = %166, %_ZNKSt
 _ZN7emhash87HashMapI11StringPieceP4NodeSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIS1_S3_EENS_13DefaultPolicyEE17find_empty_bucketEjj.exit61: ; preds = %.preheader25.i52, %199, %177, %183, %.thread.loopexit.i58
   %.0.i60 = phi i32 [ %184, %183 ], [ %178, %177 ], [ %.0.ph.i59, %.thread.loopexit.i58 ], [ %200, %199 ], [ %194, %.preheader25.i52 ]
   %223 = zext i32 %.0.i60 to i64
-  %224 = getelementptr inbounds nuw %"struct.std::pair.38", ptr %107, i64 %223
+  %224 = getelementptr inbounds nuw [24 x i8], ptr %107, i64 %223
   tail call void @llvm.prefetch.p0(ptr %224, i32 0, i32 3, i32 1)
   store i32 %.0.i60, ptr %160, align 4, !tbaa !113
   br label %.thread
@@ -5111,7 +5109,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK7emhash87HashMapI11StringPieceP4N
   %7 = and i32 %5, %6
   %8 = load ptr, ptr %0, align 8, !tbaa !76
   %9 = zext i32 %7 to i64
-  %10 = getelementptr inbounds nuw %"struct.emhash8::HashMap<StringPiece, Node *>::Index", ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !113
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %13, label %16
@@ -5135,7 +5133,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK7emhash87HashMapI11StringPieceP4N
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !75
   %27 = zext i32 %19 to i64
-  %28 = getelementptr inbounds nuw %"struct.std::pair.38", ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %27
   %29 = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !109
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %31 = load i64, ptr %30, align 8, !tbaa !109
@@ -5168,7 +5166,7 @@ _ZNKSt8equal_toI11StringPieceEclERKS0_S3_.exit.thread: ; preds = %24, %_ZNKSt8eq
 44:                                               ; preds = %.preheader, %.thread
   %.026 = phi i32 [ %61, %.thread ], [ %11, %.preheader ]
   %45 = zext i32 %.026 to i64
-  %46 = getelementptr inbounds nuw %"struct.emhash8::HashMap<StringPiece, Node *>::Index", ptr %8, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %45
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 4
   %48 = load i32, ptr %47, align 4, !tbaa !115
   %49 = xor i32 %48, %6
@@ -5179,7 +5177,7 @@ _ZNKSt8equal_toI11StringPieceEclERKS0_S3_.exit.thread: ; preds = %24, %_ZNKSt8eq
 52:                                               ; preds = %44
   %53 = and i32 %48, %5
   %54 = zext i32 %53 to i64
-  %55 = getelementptr inbounds nuw %"struct.std::pair.38", ptr %38, i64 %54
+  %55 = getelementptr inbounds nuw [24 x i8], ptr %38, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load i64, ptr %56, align 8, !tbaa !109
   %58 = icmp eq i64 %39, %57

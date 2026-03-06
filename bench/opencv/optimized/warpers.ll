@@ -4581,9 +4581,9 @@ _ZNK2cv11_InputArray6getMatEi.exit29:             ; preds = %34, %37
   %105 = fdiv float %92, %104
   %106 = fdiv float %98, %104
   %107 = sub nsw i64 %indvars.iv, %62
-  %108 = getelementptr inbounds float, ptr %72, i64 %107
+  %108 = getelementptr inbounds [4 x i8], ptr %72, i64 %107
   store float %105, ptr %108, align 4, !tbaa !180
-  %109 = getelementptr inbounds float, ptr %74, i64 %107
+  %109 = getelementptr inbounds [4 x i8], ptr %74, i64 %107
   store float %106, ptr %109, align 4, !tbaa !180
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
@@ -6709,9 +6709,9 @@ _ZN2cv6detail18SphericalProjector11mapBackwardEffRfS2_.exit: ; preds = %_ZN2cv6d
   %.036 = select i1 %121, float %122, float -1.000000e+00
   %.035 = select i1 %121, float %123, float -1.000000e+00
   %124 = sub nsw i64 %indvars.iv, %73
-  %125 = getelementptr inbounds float, ptr %88, i64 %124
+  %125 = getelementptr inbounds [4 x i8], ptr %88, i64 %124
   store float %.036, ptr %125, align 4, !tbaa !180
-  %126 = getelementptr inbounds float, ptr %90, i64 %124
+  %126 = getelementptr inbounds [4 x i8], ptr %90, i64 %124
   store float %.035, ptr %126, align 4, !tbaa !180
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
@@ -7074,9 +7074,9 @@ _ZN2cv6detail20CylindricalProjector11mapBackwardEffRfS2_.exit: ; preds = %_ZN2cv
   %.036 = select i1 %116, float %117, float -1.000000e+00
   %.035 = select i1 %116, float %118, float -1.000000e+00
   %119 = sub nsw i64 %indvars.iv, %73
-  %120 = getelementptr inbounds float, ptr %88, i64 %119
+  %120 = getelementptr inbounds [4 x i8], ptr %88, i64 %119
   store float %.036, ptr %120, align 4, !tbaa !180
-  %121 = getelementptr inbounds float, ptr %90, i64 %119
+  %121 = getelementptr inbounds [4 x i8], ptr %90, i64 %119
   store float %.035, ptr %121, align 4, !tbaa !180
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
@@ -7441,10 +7441,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %53, %
   %123 = fmul float %122, %118
   %124 = fmul float %121, %122
   %125 = fsub float %123, %74
-  %126 = getelementptr inbounds nuw float, ptr %90, i64 %indvars.iv
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %indvars.iv
   store float %125, ptr %126, align 4, !tbaa !180
   %127 = fsub float %124, %78
-  %128 = getelementptr inbounds nuw float, ptr %92, i64 %indvars.iv
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %indvars.iv
   store float %127, ptr %128, align 4, !tbaa !180
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -7957,10 +7957,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %53, %
   %121 = fsub float 0x400921FB60000000, %120
   %122 = fmul float %111, %121
   %123 = fsub float %113, %71
-  %124 = getelementptr inbounds nuw float, ptr %87, i64 %indvars.iv
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %indvars.iv
   store float %123, ptr %124, align 4, !tbaa !180
   %125 = fsub float %122, %75
-  %126 = getelementptr inbounds nuw float, ptr %89, i64 %indvars.iv
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %indvars.iv
   store float %125, ptr %126, align 4, !tbaa !180
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -8534,10 +8534,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %53, %
   %sqrt.i.us = call float @llvm.sqrt.f32(float %116)
   %117 = fdiv float %114, %sqrt.i.us
   %118 = fsub float %113, %71
-  %119 = getelementptr inbounds nuw float, ptr %87, i64 %indvars.iv
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %indvars.iv
   store float %118, ptr %119, align 4, !tbaa !180
   %120 = fsub float %117, %75
-  %121 = getelementptr inbounds nuw float, ptr %89, i64 %indvars.iv
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %indvars.iv
   store float %120, ptr %121, align 4, !tbaa !180
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -9137,9 +9137,9 @@ _ZN2cv6detail26SphericalPortraitProjector11mapBackwardEffRfS2_.exit: ; preds = %
   %.036 = select i1 %122, float %123, float -1.000000e+00
   %.035 = select i1 %122, float %124, float -1.000000e+00
   %125 = sub nsw i64 %indvars.iv, %73
-  %126 = getelementptr inbounds float, ptr %88, i64 %125
+  %126 = getelementptr inbounds [4 x i8], ptr %88, i64 %125
   store float %.036, ptr %126, align 4, !tbaa !180
-  %127 = getelementptr inbounds float, ptr %90, i64 %125
+  %127 = getelementptr inbounds [4 x i8], ptr %90, i64 %125
   store float %.035, ptr %127, align 4, !tbaa !180
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
@@ -9496,10 +9496,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %53, %
   %120 = fneg float %112
   %121 = fmul float %111, %120
   %122 = fsub float %121, %71
-  %123 = getelementptr inbounds nuw float, ptr %87, i64 %indvars.iv
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %indvars.iv
   store float %122, ptr %123, align 4, !tbaa !180
   %124 = fsub float %119, %75
-  %125 = getelementptr inbounds nuw float, ptr %89, i64 %indvars.iv
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %indvars.iv
   store float %124, ptr %125, align 4, !tbaa !180
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -11019,9 +11019,9 @@ _ZN2cv6detail16FisheyeProjector11mapBackwardEffRfS2_.exit: ; preds = %_ZN2cv6det
   %.036 = select i1 %124, float %125, float -1.000000e+00
   %.035 = select i1 %124, float %126, float -1.000000e+00
   %127 = sub nsw i64 %indvars.iv, %73
-  %128 = getelementptr inbounds float, ptr %88, i64 %127
+  %128 = getelementptr inbounds [4 x i8], ptr %88, i64 %127
   store float %.036, ptr %128, align 4, !tbaa !180
-  %129 = getelementptr inbounds float, ptr %90, i64 %127
+  %129 = getelementptr inbounds [4 x i8], ptr %90, i64 %127
   store float %.035, ptr %129, align 4, !tbaa !180
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
@@ -11380,10 +11380,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %53, %
   %122 = call float @sinf(float noundef %111) #21, !tbaa !23
   %123 = fmul float %119, %122
   %124 = fsub float %121, %71
-  %125 = getelementptr inbounds nuw float, ptr %87, i64 %indvars.iv
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %indvars.iv
   store float %124, ptr %125, align 4, !tbaa !180
   %126 = fsub float %123, %75
-  %127 = getelementptr inbounds nuw float, ptr %89, i64 %indvars.iv
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %indvars.iv
   store float %126, ptr %127, align 4, !tbaa !180
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -12297,9 +12297,9 @@ _ZN2cv6detail22StereographicProjector11mapBackwardEffRfS2_.exit: ; preds = %_ZN2
   %.036 = select i1 %127, float %128, float -1.000000e+00
   %.035 = select i1 %127, float %129, float -1.000000e+00
   %130 = sub nsw i64 %indvars.iv, %73
-  %131 = getelementptr inbounds float, ptr %88, i64 %130
+  %131 = getelementptr inbounds [4 x i8], ptr %88, i64 %130
   store float %.036, ptr %131, align 4, !tbaa !180
-  %132 = getelementptr inbounds float, ptr %90, i64 %130
+  %132 = getelementptr inbounds [4 x i8], ptr %90, i64 %130
   store float %.035, ptr %132, align 4, !tbaa !180
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
@@ -12662,10 +12662,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %53, %
   %126 = call noundef float @sinf(float noundef %111) #21, !tbaa !23
   %127 = fmul float %123, %126
   %128 = fsub float %125, %71
-  %129 = getelementptr inbounds nuw float, ptr %87, i64 %indvars.iv
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %indvars.iv
   store float %128, ptr %129, align 4, !tbaa !180
   %130 = fsub float %127, %75
-  %131 = getelementptr inbounds nuw float, ptr %89, i64 %indvars.iv
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %indvars.iv
   store float %130, ptr %131, align 4, !tbaa !180
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -13595,9 +13595,9 @@ _ZN2cv6detail30CompressedRectilinearProjector11mapBackwardEffRfS2_.exit: ; preds
   %.036 = select i1 %131, float %132, float -1.000000e+00
   %.035 = select i1 %131, float %133, float -1.000000e+00
   %134 = sub nsw i64 %indvars.iv, %75
-  %135 = getelementptr inbounds float, ptr %90, i64 %134
+  %135 = getelementptr inbounds [4 x i8], ptr %90, i64 %134
   store float %.036, ptr %135, align 4, !tbaa !180
-  %136 = getelementptr inbounds float, ptr %92, i64 %134
+  %136 = getelementptr inbounds [4 x i8], ptr %92, i64 %134
   store float %.035, ptr %136, align 4, !tbaa !180
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
@@ -13963,10 +13963,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %53, %
   %129 = call float @cosf(float noundef %113) #21, !tbaa !23
   %130 = fdiv float %128, %129
   %131 = fsub float %124, %73
-  %132 = getelementptr inbounds nuw float, ptr %89, i64 %indvars.iv
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %indvars.iv
   store float %131, ptr %132, align 4, !tbaa !180
   %133 = fsub float %130, %77
-  %134 = getelementptr inbounds nuw float, ptr %91, i64 %indvars.iv
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %indvars.iv
   store float %133, ptr %134, align 4, !tbaa !180
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -14905,9 +14905,9 @@ _ZN2cv6detail38CompressedRectilinearPortraitProjector11mapBackwardEffRfS2_.exit:
   %.036 = select i1 %132, float %133, float -1.000000e+00
   %.035 = select i1 %132, float %134, float -1.000000e+00
   %135 = sub nsw i64 %indvars.iv, %75
-  %136 = getelementptr inbounds float, ptr %90, i64 %135
+  %136 = getelementptr inbounds [4 x i8], ptr %90, i64 %135
   store float %.036, ptr %136, align 4, !tbaa !180
-  %137 = getelementptr inbounds float, ptr %92, i64 %135
+  %137 = getelementptr inbounds [4 x i8], ptr %92, i64 %135
   store float %.035, ptr %137, align 4, !tbaa !180
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
@@ -15274,10 +15274,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %53, %
   %130 = call float @cosf(float noundef %113) #21, !tbaa !23
   %131 = fdiv float %129, %130
   %132 = fsub float %125, %73
-  %133 = getelementptr inbounds nuw float, ptr %89, i64 %indvars.iv
+  %133 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %indvars.iv
   store float %132, ptr %133, align 4, !tbaa !180
   %134 = fsub float %131, %77
-  %135 = getelementptr inbounds nuw float, ptr %91, i64 %indvars.iv
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %indvars.iv
   store float %134, ptr %135, align 4, !tbaa !180
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -16263,9 +16263,9 @@ _ZN2cv6detail15PaniniProjector11mapBackwardEffRfS2_.exit: ; preds = %115, %106
   %.036 = select i1 %143, float %144, float -1.000000e+00
   %.035 = select i1 %143, float %145, float -1.000000e+00
   %146 = sub nsw i64 %indvars.iv, %75
-  %147 = getelementptr inbounds float, ptr %90, i64 %146
+  %147 = getelementptr inbounds [4 x i8], ptr %90, i64 %146
   store float %.036, ptr %147, align 4, !tbaa !180
-  %148 = getelementptr inbounds float, ptr %92, i64 %146
+  %148 = getelementptr inbounds [4 x i8], ptr %92, i64 %146
   store float %.035, ptr %148, align 4, !tbaa !180
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
@@ -16647,10 +16647,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %53, %
 _ZN2cv6detail15PaniniProjector10mapForwardEffRfS2_.exit.us: ; preds = %136, %131
   %storemerge.i.us = phi float [ %135, %131 ], [ %138, %136 ]
   %139 = fsub float %124, %73
-  %140 = getelementptr inbounds nuw float, ptr %89, i64 %indvars.iv
+  %140 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %indvars.iv
   store float %139, ptr %140, align 4, !tbaa !180
   %141 = fsub float %storemerge.i.us, %77
-  %142 = getelementptr inbounds nuw float, ptr %91, i64 %indvars.iv
+  %142 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %indvars.iv
   store float %141, ptr %142, align 4, !tbaa !180
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -17654,9 +17654,9 @@ _ZN2cv6detail23PaniniPortraitProjector11mapBackwardEffRfS2_.exit: ; preds = %116
   %.036 = select i1 %144, float %145, float -1.000000e+00
   %.035 = select i1 %144, float %146, float -1.000000e+00
   %147 = sub nsw i64 %indvars.iv, %75
-  %148 = getelementptr inbounds float, ptr %90, i64 %147
+  %148 = getelementptr inbounds [4 x i8], ptr %90, i64 %147
   store float %.036, ptr %148, align 4, !tbaa !180
-  %149 = getelementptr inbounds float, ptr %92, i64 %147
+  %149 = getelementptr inbounds [4 x i8], ptr %92, i64 %147
   store float %.035, ptr %149, align 4, !tbaa !180
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
@@ -18039,10 +18039,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %53, %
 _ZN2cv6detail23PaniniPortraitProjector10mapForwardEffRfS2_.exit.us: ; preds = %137, %132
   %storemerge.i.us = phi float [ %136, %132 ], [ %139, %137 ]
   %140 = fsub float %125, %73
-  %141 = getelementptr inbounds nuw float, ptr %89, i64 %indvars.iv
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %indvars.iv
   store float %140, ptr %141, align 4, !tbaa !180
   %142 = fsub float %storemerge.i.us, %77
-  %143 = getelementptr inbounds nuw float, ptr %91, i64 %indvars.iv
+  %143 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %indvars.iv
   store float %142, ptr %143, align 4, !tbaa !180
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -18956,9 +18956,9 @@ _ZN2cv6detail17MercatorProjector11mapBackwardEffRfS2_.exit: ; preds = %_ZN2cv6de
   %.036 = select i1 %122, float %123, float -1.000000e+00
   %.035 = select i1 %122, float %124, float -1.000000e+00
   %125 = sub nsw i64 %indvars.iv, %73
-  %126 = getelementptr inbounds float, ptr %88, i64 %125
+  %126 = getelementptr inbounds [4 x i8], ptr %88, i64 %125
   store float %.036, ptr %126, align 4, !tbaa !180
-  %127 = getelementptr inbounds float, ptr %90, i64 %125
+  %127 = getelementptr inbounds [4 x i8], ptr %90, i64 %125
   store float %.035, ptr %127, align 4, !tbaa !180
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
@@ -19317,10 +19317,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %53, %
   %122 = call float @logf(float noundef %121) #21, !tbaa !23
   %123 = fmul float %117, %122
   %124 = fsub float %118, %71
-  %125 = getelementptr inbounds nuw float, ptr %87, i64 %indvars.iv
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %indvars.iv
   store float %124, ptr %125, align 4, !tbaa !180
   %126 = fsub float %123, %75
-  %127 = getelementptr inbounds nuw float, ptr %89, i64 %indvars.iv
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %indvars.iv
   store float %126, ptr %127, align 4, !tbaa !180
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -20248,9 +20248,9 @@ _ZN2cv6detail27TransverseMercatorProjector11mapBackwardEffRfS2_.exit: ; preds = 
   %.036 = select i1 %127, float %128, float -1.000000e+00
   %.035 = select i1 %127, float %129, float -1.000000e+00
   %130 = sub nsw i64 %indvars.iv, %73
-  %131 = getelementptr inbounds float, ptr %88, i64 %130
+  %131 = getelementptr inbounds [4 x i8], ptr %88, i64 %130
   store float %.036, ptr %131, align 4, !tbaa !180
-  %132 = getelementptr inbounds float, ptr %90, i64 %130
+  %132 = getelementptr inbounds [4 x i8], ptr %90, i64 %130
   store float %.035, ptr %132, align 4, !tbaa !180
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
@@ -20616,10 +20616,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %53, %
   %129 = call float @atan2f(float noundef %127, float noundef %128) #21, !tbaa !23
   %130 = fmul float %120, %129
   %131 = fsub float %126, %71
-  %132 = getelementptr inbounds nuw float, ptr %87, i64 %indvars.iv
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %indvars.iv
   store float %131, ptr %132, align 4, !tbaa !180
   %133 = fsub float %130, %75
-  %134 = getelementptr inbounds nuw float, ptr %89, i64 %indvars.iv
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %indvars.iv
   store float %133, ptr %134, align 4, !tbaa !180
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

@@ -291,19 +291,19 @@ define void @_ZN6open3d6camera22PinholeCameraIntrinsicC2ENS0_32PinholeCameraIntr
 
 switch.lookup:                                    ; preds = %2
   %6 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6open3d6camera22PinholeCameraIntrinsicC2ENS0_32PinholeCameraIntrinsicParametersE, i64 %6
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN6open3d6camera22PinholeCameraIntrinsicC2ENS0_32PinholeCameraIntrinsicParametersE, i64 %6
   %switch.load = load i32, ptr %switch.gep, align 4
   %7 = zext nneg i32 %1 to i64
-  %switch.gep17 = getelementptr inbounds nuw i32, ptr @switch.table._ZN6open3d6camera22PinholeCameraIntrinsicC2ENS0_32PinholeCameraIntrinsicParametersE.1, i64 %7
+  %switch.gep17 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN6open3d6camera22PinholeCameraIntrinsicC2ENS0_32PinholeCameraIntrinsicParametersE.1, i64 %7
   %switch.load18 = load i32, ptr %switch.gep17, align 4
   %8 = zext nneg i32 %1 to i64
-  %switch.gep19 = getelementptr inbounds nuw double, ptr @switch.table._ZN6open3d6camera22PinholeCameraIntrinsicC2ENS0_32PinholeCameraIntrinsicParametersE.2, i64 %8
+  %switch.gep19 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN6open3d6camera22PinholeCameraIntrinsicC2ENS0_32PinholeCameraIntrinsicParametersE.2, i64 %8
   %switch.load20 = load double, ptr %switch.gep19, align 8
   %9 = zext nneg i32 %1 to i64
-  %switch.gep21 = getelementptr inbounds nuw double, ptr @switch.table._ZN6open3d6camera22PinholeCameraIntrinsicC2ENS0_32PinholeCameraIntrinsicParametersE.3, i64 %9
+  %switch.gep21 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN6open3d6camera22PinholeCameraIntrinsicC2ENS0_32PinholeCameraIntrinsicParametersE.3, i64 %9
   %switch.load22 = load double, ptr %switch.gep21, align 8
   %10 = zext nneg i32 %1 to i64
-  %switch.gep23 = getelementptr inbounds nuw double, ptr @switch.table._ZN6open3d6camera22PinholeCameraIntrinsicC2ENS0_32PinholeCameraIntrinsicParametersE.4, i64 %10
+  %switch.gep23 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN6open3d6camera22PinholeCameraIntrinsicC2ENS0_32PinholeCameraIntrinsicParametersE.4, i64 %10
   %switch.load24 = load double, ptr %switch.gep23, align 8
   store i32 %switch.load, ptr %3, align 8, !tbaa !4
   store i32 %switch.load18, ptr %4, align 4, !tbaa !14

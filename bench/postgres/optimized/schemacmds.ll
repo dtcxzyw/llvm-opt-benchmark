@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.ObjectAddress = type { i32, i32, i32 }
 %struct.StringInfoData = type { ptr, i32, i32, i32 }
-%union.ListCell = type { ptr }
 
 @namespace_search_path = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [32 x i8] c"cache lookup failed for role %u\00", align 1
@@ -206,7 +205,7 @@ define dso_local i32 @CreateSchemaCommand(ptr noundef %0, ptr noundef %1, i32 no
 .lr.ph74:                                         ; preds = %.lr.ph, %.lr.ph74
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph74 ], [ 0, %.lr.ph ]
   %91 = load ptr, ptr %88, align 8
-  %92 = getelementptr inbounds nuw %union.ListCell, ptr %91, i64 %indvars.iv
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %indvars.iv
   %93 = load ptr, ptr %92, align 8
   %94 = call noundef ptr @palloc0(i64 noundef 152) #4
   store i32 329, ptr %94, align 4

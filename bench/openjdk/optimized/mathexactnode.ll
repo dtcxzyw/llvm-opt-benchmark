@@ -216,7 +216,7 @@ define hidden noalias noundef nonnull ptr @_ZNK12OverflowNode3subEPK4TypeS2_(ptr
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i32 %6(ptr noundef nonnull align 8 dereferenceable(52) %0) #9
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds ptr, ptr @NodeClassNames, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr @NodeClassNames, i64 %8
   %10 = load ptr, ptr %9, align 8
   tail call void (i32, ptr, i32, ptr, ...) @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef -536870912, ptr noundef nonnull @.str, i32 noundef 180, ptr noundef nonnull @.str.4, ptr noundef %10) #10
   unreachable
@@ -240,12 +240,12 @@ define hidden noundef ptr @_ZN13OverflowINode5IdealEP8PhaseGVNb(ptr noundef nonn
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = zext i32 %13 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %20 = load i32, ptr %19, align 8
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr %15, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %21
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %18, null
   %25 = icmp eq ptr %23, null
@@ -307,12 +307,12 @@ define hidden noundef ptr @_ZN13OverflowLNode5IdealEP8PhaseGVNb(ptr noundef nonn
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = zext i32 %13 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %20 = load i32, ptr %19, align 8
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr %15, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %21
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %18, null
   %25 = icmp eq ptr %23, null
@@ -378,14 +378,14 @@ define linkonce_odr hidden noundef ptr @_ZN11IdealHelperI13OverflowINodeE5ValueE
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = zext i32 %10 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %19 = load i32, ptr %18, align 8
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %12, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr @_ZN4Type3TOPE, align 8
   %24 = icmp eq ptr %15, %23
@@ -542,14 +542,14 @@ define linkonce_odr hidden noundef ptr @_ZN11IdealHelperI13OverflowLNodeE5ValueE
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %12 = load ptr, ptr %11, align 8
   %13 = zext i32 %10 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %19 = load i32, ptr %18, align 8
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %12, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = load ptr, ptr @_ZN4Type3TOPE, align 8
   %24 = icmp eq ptr %15, %23
@@ -853,7 +853,7 @@ _ZN4NodenwEm.exit:                                ; preds = %17, %19
   %53 = add i32 %51, 1
   store i32 %53, ptr %44, align 8
   %54 = zext i32 %51 to i64
-  %55 = getelementptr inbounds nuw ptr, ptr %52, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %54
   store ptr %.0.i.i.i, ptr %55, align 8
   br label %_ZN8ConINodeC2EPK7TypeInt.exit
 

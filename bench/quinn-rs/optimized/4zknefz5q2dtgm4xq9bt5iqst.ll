@@ -1185,7 +1185,7 @@ define void @"_ZN78_$LT$quinn..recv_stream..ReadToEnd$u20$as$u20$core..future..f
 
 117:                                              ; preds = %104, %99
   %118 = load ptr, ptr %24, align 8, !alias.scope !80, !noalias !83, !nonnull !8, !noundef !8
-  %119 = getelementptr inbounds nuw { { ptr, ptr, i64, { ptr } }, i64 }, ptr %118, i64 %101
+  %119 = getelementptr inbounds nuw [40 x i8], ptr %118, i64 %101
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %119, ptr noundef nonnull align 8 dereferenceable(40) %10, i64 40, i1 false)
   %120 = add i64 %101, 1
   store i64 %120, ptr %23, align 8, !alias.scope !80, !noalias !83

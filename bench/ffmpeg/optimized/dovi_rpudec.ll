@@ -5,15 +5,13 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.AVDOVIColorMetadata = type { i8, i8, [9 x %struct.AVRational], [3 x %struct.AVRational], [9 x %struct.AVRational], i16, i16, i16, i32, i8, i8, i8, i8, i16, i16, i16 }
 %struct.AVRational = type { i32, i32 }
+%struct.GetBitContext = type { ptr, ptr, i32, i32, i32 }
 %struct.AVDOVIDmData = type { i8, %union.anon }
 %union.anon = type { %struct.AVDOVIDmLevel10 }
 %struct.AVDOVIDmLevel10 = type { i8, i16, i16, i8, %struct.AVColorPrimariesDesc }
 %struct.AVColorPrimariesDesc = type { %struct.AVCIExy, %struct.AVPrimaryCoefficients }
 %struct.AVCIExy = type { %struct.AVRational, %struct.AVRational }
 %struct.AVPrimaryCoefficients = type { %struct.AVCIExy, %struct.AVCIExy, %struct.AVCIExy }
-%struct.GetBitContext = type { ptr, ptr, i32, i32, i32 }
-%struct.AVDOVIReshapingCurve = type { i8, [9 x i16], [8 x i32], [8 x i8], [8 x [3 x i64]], [8 x i8], [8 x i64], [8 x [3 x [7 x i64]]] }
-%struct.AVDOVINLQParams = type { i16, i64, i64, i64 }
 
 @.str = private unnamed_addr constant [73 x i8] c"RPU validation failed: header_magic <= emdf_header = %d <= header_magic\0A\00", align 1
 @.str.1 = private unnamed_addr constant [59 x i8] c"RPU validation failed: 6 <= emdf_payload_size = %d <= 512\0A\00", align 1
@@ -134,7 +132,7 @@ define i32 @ff_dovi_get_metadata(ptr noundef readonly captures(none) %0, ptr nou
   %45 = sext i32 %40 to i64
   %46 = mul i64 %44, %45
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 %46
-  %48 = getelementptr inbounds nuw %struct.AVDOVIDmData, ptr %24, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [76 x i8], ptr %24, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %47, ptr nonnull align 4 %48, i64 %spec.select, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %49 = load i32, ptr %28, align 4, !tbaa !25
@@ -153,7 +151,7 @@ define i32 @ff_dovi_get_metadata(ptr noundef readonly captures(none) %0, ptr nou
   %58 = sext i32 %53 to i64
   %59 = mul i64 %57, %58
   %60 = getelementptr inbounds nuw i8, ptr %56, i64 %59
-  %61 = getelementptr inbounds nuw %struct.AVDOVIDmData, ptr %38, i64 %indvars.iv43
+  %61 = getelementptr inbounds nuw [76 x i8], ptr %38, i64 %indvars.iv43
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %60, ptr nonnull align 4 %61, i64 %spec.select, i1 false)
   %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
   %62 = load i32, ptr %33, align 4, !tbaa !27
@@ -997,12 +995,12 @@ get_variable_bits.exit:                           ; preds = %get_variable_bits.e
 475:                                              ; preds = %470
   %476 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %477 = zext nneg i8 %469 to i64
-  %478 = getelementptr inbounds nuw ptr, ptr %476, i64 %477
+  %478 = getelementptr inbounds nuw [8 x i8], ptr %476, i64 %477
   %479 = load ptr, ptr %478, align 8, !tbaa !69
   %.not608 = icmp eq ptr %479, null
   %spec.store.select = select i1 %.not608, i32 0, i32 %471
   %480 = zext nneg i32 %spec.store.select to i64
-  %481 = getelementptr inbounds nuw ptr, ptr %476, i64 %480
+  %481 = getelementptr inbounds nuw [8 x i8], ptr %476, i64 %480
   %482 = load ptr, ptr %481, align 8, !tbaa !69
   %.not609 = icmp eq ptr %482, null
   br i1 %.not609, label %483, label %485
@@ -1032,7 +1030,7 @@ get_variable_bits.exit:                           ; preds = %get_variable_bits.e
 492:                                              ; preds = %487
   %493 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %494 = zext nneg i8 %469 to i64
-  %495 = getelementptr inbounds nuw ptr, ptr %493, i64 %494
+  %495 = getelementptr inbounds nuw [8 x i8], ptr %493, i64 %494
   %496 = load ptr, ptr %495, align 8, !tbaa !69
   %.not602 = icmp eq ptr %496, null
   br i1 %.not602, label %497, label %500
@@ -1124,7 +1122,7 @@ get_variable_bits.exit:                           ; preds = %get_variable_bits.e
   br label %.critedge
 
 555:                                              ; preds = %536
-  %556 = getelementptr inbounds nuw %struct.AVDOVIReshapingCurve, ptr %535, i64 %indvars.iv796
+  %556 = getelementptr inbounds nuw [1672 x i8], ptr %535, i64 %indvars.iv796
   %557 = add nuw nsw i8 %551, 2
   store i8 %557, ptr %556, align 8, !tbaa !74
   %558 = load i8, ptr %343, align 1, !tbaa !61
@@ -1155,7 +1153,7 @@ get_variable_bits.exit:                           ; preds = %get_variable_bits.e
   %575 = sext i1 %isnotneg.i to i16
   %576 = trunc nuw i32 %574 to i16
   %.0.i = select i1 %.not.i, i16 %576, i16 %575
-  %577 = getelementptr inbounds nuw i16, ptr %561, i64 %indvars.iv791
+  %577 = getelementptr inbounds nuw [2 x i8], ptr %561, i64 %indvars.iv791
   store i16 %.0.i, ptr %577, align 2, !tbaa !76
   %indvars.iv.next792 = add nuw nsw i64 %indvars.iv791, 1
   %exitcond795.not = icmp eq i64 %indvars.iv.next792, %wide.trip.count794
@@ -1212,7 +1210,7 @@ get_variable_bits.exit:                           ; preds = %get_variable_bits.e
   %607 = sext i1 %isnotneg.i620 to i16
   %608 = trunc nuw i32 %606 to i16
   %.0.i621 = select i1 %.not.i619, i16 %608, i16 %607
-  %609 = getelementptr inbounds nuw i16, ptr %591, i64 %indvars.iv800
+  %609 = getelementptr inbounds nuw [2 x i8], ptr %591, i64 %indvars.iv800
   store i16 %.0.i621, ptr %609, align 2, !tbaa !76
   br i1 %594, label %593, label %592, !llvm.loop !80
 
@@ -1240,7 +1238,7 @@ get_variable_bits.exit:                           ; preds = %get_variable_bits.e
 
 620:                                              ; preds = %.thread688, %._crit_edge769
   %indvars.iv816 = phi i64 [ 0, %.thread688 ], [ %indvars.iv.next817, %._crit_edge769 ]
-  %621 = getelementptr inbounds nuw %struct.AVDOVIReshapingCurve, ptr %535, i64 %indvars.iv816
+  %621 = getelementptr inbounds nuw [1672 x i8], ptr %535, i64 %indvars.iv816
   %622 = load i8, ptr %621, align 8, !tbaa !74
   %623 = icmp ugt i8 %622, 1
   br i1 %623, label %.lr.ph768, label %._crit_edge769
@@ -1287,7 +1285,7 @@ get_variable_bits.exit:                           ; preds = %get_variable_bits.e
   br label %.critedge
 
 653:                                              ; preds = %630
-  %654 = getelementptr inbounds nuw i32, ptr %624, i64 %indvars.iv813
+  %654 = getelementptr inbounds nuw [4 x i8], ptr %624, i64 %indvars.iv813
   store i32 %649, ptr %654, align 4, !tbaa !83
   %trunc605 = trunc nuw i8 %648 to i1
   %655 = load i32, ptr %166, align 8, !tbaa !47
@@ -1355,13 +1353,13 @@ get_variable_bits.exit:                           ; preds = %get_variable_bits.e
   br label %.critedge
 
 .thread691:                                       ; preds = %681, %677
-  %697 = getelementptr inbounds nuw [3 x i64], ptr %626, i64 %indvars.iv813
+  %697 = getelementptr inbounds nuw [24 x i8], ptr %626, i64 %indvars.iv813
   br label %698
 
 698:                                              ; preds = %.thread691, %698
   %indvars.iv803 = phi i64 [ 0, %.thread691 ], [ %indvars.iv.next804, %698 ]
   %699 = call fastcc i64 @get_se_coef(ptr noundef %5, ptr noundef nonnull %6)
-  %700 = getelementptr inbounds nuw i64, ptr %697, i64 %indvars.iv803
+  %700 = getelementptr inbounds nuw [8 x i8], ptr %697, i64 %indvars.iv803
   store i64 %699, ptr %700, align 8, !tbaa !35
   %indvars.iv.next804 = add nuw nsw i64 %indvars.iv803, 1
   %701 = load i8, ptr %679, align 1, !tbaa !45
@@ -1389,19 +1387,19 @@ get_variable_bits.exit:                           ; preds = %get_variable_bits.e
   %711 = getelementptr inbounds nuw i8, ptr %627, i64 %indvars.iv813
   store i8 %710, ptr %711, align 1, !tbaa !45
   %712 = call fastcc i64 @get_se_coef(ptr noundef %5, ptr noundef nonnull %6)
-  %713 = getelementptr inbounds nuw i64, ptr %628, i64 %indvars.iv813
+  %713 = getelementptr inbounds nuw [8 x i8], ptr %628, i64 %indvars.iv813
   store i64 %712, ptr %713, align 8, !tbaa !35
   %714 = load i8, ptr %711, align 1, !tbaa !45
   %.not776 = icmp eq i8 %714, 0
   br i1 %.not776, label %.loopexit, label %.preheader740.lr.ph
 
 .preheader740.lr.ph:                              ; preds = %708
-  %715 = getelementptr inbounds nuw [3 x [7 x i64]], ptr %629, i64 %indvars.iv813
+  %715 = getelementptr inbounds nuw [168 x i8], ptr %629, i64 %indvars.iv813
   br label %.preheader740
 
 .preheader740:                                    ; preds = %.preheader740.lr.ph, %717
   %indvars.iv810 = phi i64 [ 0, %.preheader740.lr.ph ], [ %indvars.iv.next811, %717 ]
-  %716 = getelementptr inbounds nuw [7 x i64], ptr %715, i64 %indvars.iv810
+  %716 = getelementptr inbounds nuw [56 x i8], ptr %715, i64 %indvars.iv810
   br label %721
 
 717:                                              ; preds = %721
@@ -1414,7 +1412,7 @@ get_variable_bits.exit:                           ; preds = %get_variable_bits.e
 721:                                              ; preds = %.preheader740, %721
   %indvars.iv806 = phi i64 [ 0, %.preheader740 ], [ %indvars.iv.next807, %721 ]
   %722 = call fastcc i64 @get_se_coef(ptr noundef %5, ptr noundef nonnull %6)
-  %723 = getelementptr inbounds nuw i64, ptr %716, i64 %indvars.iv806
+  %723 = getelementptr inbounds nuw [8 x i8], ptr %716, i64 %indvars.iv806
   store i64 %722, ptr %723, align 8, !tbaa !35
   %indvars.iv.next807 = add nuw nsw i64 %indvars.iv806, 1
   %exitcond809.not = icmp eq i64 %indvars.iv.next807, 7
@@ -1446,7 +1444,7 @@ get_variable_bits.exit:                           ; preds = %get_variable_bits.e
 
 734:                                              ; preds = %.preheader739, %758
   %indvars.iv820 = phi i64 [ 0, %.preheader739 ], [ %indvars.iv.next821, %758 ]
-  %735 = getelementptr inbounds nuw %struct.AVDOVINLQParams, ptr %729, i64 %indvars.iv820
+  %735 = getelementptr inbounds nuw [32 x i8], ptr %729, i64 %indvars.iv820
   %736 = load i32, ptr %166, align 8, !tbaa !47
   %737 = load i32, ptr %162, align 8, !tbaa !43
   %738 = load ptr, ptr %5, align 8, !tbaa !40
@@ -1610,7 +1608,7 @@ get_variable_bits.exit:                           ; preds = %get_variable_bits.e
 
 834:                                              ; preds = %.preheader738, %834
   %indvars.iv824 = phi i64 [ 0, %.preheader738 ], [ %indvars.iv.next825, %834 ]
-  %835 = getelementptr inbounds nuw %struct.AVRational, ptr %830, i64 %indvars.iv824
+  %835 = getelementptr inbounds nuw [8 x i8], ptr %830, i64 %indvars.iv824
   %836 = load i32, ptr %166, align 8, !tbaa !47
   %837 = load i32, ptr %162, align 8, !tbaa !43
   %838 = load ptr, ptr %5, align 8, !tbaa !40
@@ -1642,7 +1640,7 @@ get_variable_bits.exit:                           ; preds = %get_variable_bits.e
   %.lobit = lshr i32 %851, 31
   %.0523 = lshr exact i32 %832, %.lobit
   %.0522 = lshr i32 %851, %.lobit
-  %852 = getelementptr inbounds nuw %struct.AVRational, ptr %833, i64 %indvars.iv828
+  %852 = getelementptr inbounds nuw [8 x i8], ptr %833, i64 %indvars.iv828
   %.sroa.2.0.insert.ext.i = zext nneg i32 %.0523 to i64
   %.sroa.2.0.insert.shift.i = shl nuw nsw i64 %.sroa.2.0.insert.ext.i, 32
   %.sroa.0.0.insert.ext.i652 = zext i32 %.0522 to i64
@@ -1724,7 +1722,7 @@ get_variable_bits.exit:                           ; preds = %get_variable_bits.e
 
 911:                                              ; preds = %.preheader, %911
   %indvars.iv832 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next833, %911 ]
-  %912 = getelementptr inbounds nuw %struct.AVRational, ptr %849, i64 %indvars.iv832
+  %912 = getelementptr inbounds nuw [8 x i8], ptr %849, i64 %indvars.iv832
   %913 = load i32, ptr %166, align 8, !tbaa !47
   %914 = load i32, ptr %162, align 8, !tbaa !43
   %915 = load ptr, ptr %5, align 8, !tbaa !40
@@ -2673,7 +2671,7 @@ ff_dovi_rpu_extension_is_static.exit:             ; preds = %45, %45, %45, %45, 
   %83 = zext nneg i32 %80 to i64
   %84 = add nuw nsw i32 %80, 1
   store i32 %84, ptr %41, align 4, !tbaa !25
-  %85 = getelementptr inbounds nuw %struct.AVDOVIDmData, ptr %.04684, i64 %83
+  %85 = getelementptr inbounds nuw [76 x i8], ptr %.04684, i64 %83
   br label %93
 
 86:                                               ; preds = %45
@@ -2685,7 +2683,7 @@ ff_dovi_rpu_extension_is_static.exit:             ; preds = %45, %45, %45, %45, 
   %90 = zext nneg i32 %87 to i64
   %91 = add nuw nsw i32 %87, 1
   store i32 %91, ptr %42, align 4, !tbaa !27
-  %92 = getelementptr inbounds nuw %struct.AVDOVIDmData, ptr %43, i64 %90
+  %92 = getelementptr inbounds nuw [76 x i8], ptr %43, i64 %90
   br label %93
 
 93:                                               ; preds = %77, %82, %89

@@ -24,13 +24,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ttm_pool_deb
 %struct.file_operations = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.rw_semaphore = type { %struct.atomic64_t, %struct.atomic64_t, %struct.optimistic_spin_queue, %struct.raw_spinlock, %struct.list_head }
 %struct.optimistic_spin_queue = type { %struct.atomic_t }
-%struct.anon = type { [11 x %struct.ttm_pool_type] }
-%struct.page = type { i64, %union.anon.4, %union.anon.12, %struct.atomic_t, [8 x i8] }
-%union.anon.4 = type { %struct.anon.5 }
-%struct.anon.5 = type { %union.anon.6, ptr, %union.anon.8, i64 }
-%union.anon.6 = type { %struct.list_head }
-%union.anon.8 = type { i64 }
-%union.anon.12 = type { %struct.atomic_t }
 
 @__UNIQUE_ID_page_pool_size416 = internal constant [62 x i8] c"ttm.parm=page_pool_size:Number of pages in the WC/UC/DMA pool\00", section ".modinfo", align 1
 @__param_str_page_pool_size = internal constant [19 x i8] c"ttm.page_pool_size\00", align 16
@@ -165,9 +158,9 @@ define dso_local i32 @ttm_pool_alloc(ptr noundef %0, ptr noundef readonly captur
 
 60:                                               ; preds = %57, %48
   %61 = zext i32 %54 to i64
-  %62 = getelementptr %struct.anon, ptr %46, i64 %61
+  %62 = getelementptr [616 x i8], ptr %46, i64 %61
   %63 = zext nneg i32 %50 to i64
-  %64 = getelementptr %struct.ttm_pool_type, ptr %62, i64 %63
+  %64 = getelementptr [56 x i8], ptr %62, i64 %63
   br label %82
 
 65:                                               ; preds = %57
@@ -183,11 +176,11 @@ define dso_local i32 @ttm_pool_alloc(ptr noundef %0, ptr noundef readonly captur
   br i1 %68, label %72, label %70
 
 70:                                               ; preds = %66
-  %71 = getelementptr %struct.ttm_pool_type, ptr @global_dma32_write_combined, i64 %69
+  %71 = getelementptr [56 x i8], ptr @global_dma32_write_combined, i64 %69
   br label %82
 
 72:                                               ; preds = %66
-  %73 = getelementptr %struct.ttm_pool_type, ptr @global_write_combined, i64 %69
+  %73 = getelementptr [56 x i8], ptr @global_write_combined, i64 %69
   br label %82
 
 74:                                               ; preds = %65
@@ -197,11 +190,11 @@ define dso_local i32 @ttm_pool_alloc(ptr noundef %0, ptr noundef readonly captur
   br i1 %76, label %80, label %78
 
 78:                                               ; preds = %74
-  %79 = getelementptr %struct.ttm_pool_type, ptr @global_dma32_uncached, i64 %77
+  %79 = getelementptr [56 x i8], ptr @global_dma32_uncached, i64 %77
   br label %82
 
 80:                                               ; preds = %74
-  %81 = getelementptr %struct.ttm_pool_type, ptr @global_uncached, i64 %77
+  %81 = getelementptr [56 x i8], ptr @global_uncached, i64 %77
   br label %82
 
 82:                                               ; preds = %80, %78, %72, %70, %60
@@ -450,7 +443,7 @@ define dso_local i32 @ttm_pool_alloc(ptr noundef %0, ptr noundef readonly captur
   %228 = select i1 %224, i64 %225, i64 %227
   %229 = add i64 %223, %228
   %230 = lshr i64 %229, 12
-  %231 = getelementptr %struct.page, ptr %221, i64 %230
+  %231 = getelementptr [64 x i8], ptr %221, i64 %230
   br label %233
 
 232:                                              ; preds = %211
@@ -655,13 +648,13 @@ define internal fastcc void @ttm_pool_free_range(ptr noundef %0, ptr noundef rea
 
 7:                                                ; preds = %5
   %8 = load ptr, ptr %1, align 8
-  %9 = getelementptr ptr, ptr %8, i64 %3
+  %9 = getelementptr [8 x i8], ptr %8, i64 %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %14 = zext i32 %2 to i64
-  %15 = getelementptr %struct.anon, ptr %13, i64 %14
+  %15 = getelementptr [616 x i8], ptr %13, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 13
   %17 = icmp eq i32 %2, 2
   %18 = icmp eq ptr %0, null
@@ -699,7 +692,7 @@ define internal fastcc void @ttm_pool_free_range(ptr noundef %0, ptr noundef rea
   br label %47
 
 39:                                               ; preds = %33
-  %40 = getelementptr i64, ptr %36, i64 %20
+  %40 = getelementptr [8 x i8], ptr %36, i64 %20
   %41 = load i64, ptr %40, align 8
   %42 = load ptr, ptr %0, align 8
   %43 = shl i64 4096, %35
@@ -720,7 +713,7 @@ define internal fastcc void @ttm_pool_free_range(ptr noundef %0, ptr noundef rea
   %52 = phi i64 [ %48, %47 ], [ %46, %39 ], [ %32, %.thread14 ]
   %53 = phi i32 [ %34, %47 ], [ %34, %39 ], [ %30, %.thread14 ]
   %54 = phi i64 [ %35, %47 ], [ %35, %39 ], [ %31, %.thread14 ]
-  %55 = getelementptr %struct.ttm_pool_type, ptr %15, i64 %54
+  %55 = getelementptr [56 x i8], ptr %15, i64 %54
   br label %72
 
 56:                                               ; preds = %47
@@ -739,11 +732,11 @@ define internal fastcc void @ttm_pool_free_range(ptr noundef %0, ptr noundef rea
   br i1 %60, label %63, label %61
 
 61:                                               ; preds = %58
-  %62 = getelementptr %struct.ttm_pool_type, ptr @global_dma32_write_combined, i64 %35
+  %62 = getelementptr [56 x i8], ptr @global_dma32_write_combined, i64 %35
   br label %72
 
 63:                                               ; preds = %58
-  %64 = getelementptr %struct.ttm_pool_type, ptr @global_write_combined, i64 %35
+  %64 = getelementptr [56 x i8], ptr @global_write_combined, i64 %35
   br label %72
 
 65:                                               ; preds = %56
@@ -752,11 +745,11 @@ define internal fastcc void @ttm_pool_free_range(ptr noundef %0, ptr noundef rea
   br i1 %67, label %70, label %68
 
 68:                                               ; preds = %65
-  %69 = getelementptr %struct.ttm_pool_type, ptr @global_dma32_uncached, i64 %35
+  %69 = getelementptr [56 x i8], ptr @global_dma32_uncached, i64 %35
   br label %72
 
 70:                                               ; preds = %65
-  %71 = getelementptr %struct.ttm_pool_type, ptr @global_uncached, i64 %35
+  %71 = getelementptr [56 x i8], ptr @global_uncached, i64 %35
   br label %72
 
 72:                                               ; preds = %70, %68, %63, %61, %51
@@ -776,7 +769,7 @@ define internal fastcc void @ttm_pool_free_range(ptr noundef %0, ptr noundef rea
 82:                                               ; preds = %82, %79
   %83 = phi i32 [ 0, %79 ], [ %96, %82 ]
   %84 = zext i32 %83 to i64
-  %85 = getelementptr %struct.page, ptr %78, i64 %84
+  %85 = getelementptr [64 x i8], ptr %78, i64 %84
   %86 = load i64, ptr @vmemmap_base, align 8
   %87 = ptrtoint ptr %85 to i64
   %88 = sub i64 %87, %86
@@ -856,7 +849,7 @@ define internal fastcc void @ttm_pool_free_range(ptr noundef %0, ptr noundef rea
 135:                                              ; preds = %122, %121, %99
   %136 = phi i64 [ %110, %122 ], [ %110, %121 ], [ %73, %99 ]
   %137 = add i64 %136, %20
-  %138 = getelementptr ptr, ptr %21, i64 %136
+  %138 = getelementptr [8 x i8], ptr %21, i64 %136
   %139 = icmp ult i64 %137, %4
   br i1 %139, label %19, label %.loopexit, !llvm.loop !29
 
@@ -1022,13 +1015,13 @@ define dso_local void @ttm_pool_init(ptr noundef initializes((0, 14)) %0, ptr no
 
 19:                                               ; preds = %37, %17
   %20 = phi i64 [ 0, %17 ], [ %38, %37 ]
-  %21 = getelementptr %struct.anon, ptr %18, i64 %20
+  %21 = getelementptr [616 x i8], ptr %18, i64 %20
   %22 = trunc nuw nsw i64 %20 to i32
   br label %23
 
 23:                                               ; preds = %23, %19
   %24 = phi i64 [ 0, %19 ], [ %35, %23 ]
-  %25 = getelementptr %struct.ttm_pool_type, ptr %21, i64 %24
+  %25 = getelementptr [56 x i8], ptr %21, i64 %24
   store ptr %0, ptr %25, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 12
   store i32 %22, ptr %26, align 4
@@ -1082,12 +1075,12 @@ define dso_local void @ttm_pool_fini(ptr noundef %0) #0 align 16 {
 
 11:                                               ; preds = %19, %9
   %12 = phi i64 [ 0, %9 ], [ %20, %19 ]
-  %13 = getelementptr %struct.anon, ptr %10, i64 %12
+  %13 = getelementptr [616 x i8], ptr %10, i64 %12
   br label %14
 
 14:                                               ; preds = %14, %11
   %15 = phi i64 [ 0, %11 ], [ %17, %14 ]
-  %16 = getelementptr %struct.ttm_pool_type, ptr %13, i64 %15
+  %16 = getelementptr [56 x i8], ptr %13, i64 %15
   tail call fastcc void @ttm_pool_type_fini(ptr noundef %16)
   %17 = add nuw nsw i64 %15, 1
   %18 = icmp eq i64 %17, 11
@@ -1255,12 +1248,12 @@ default.unreachable3:                             ; preds = %14
 19:                                               ; preds = %18, %17, %14
   %20 = phi ptr [ @.str.5, %18 ], [ @.str.4, %17 ], [ @.str.3, %14 ]
   tail call void @seq_puts(ptr noundef %1, ptr noundef nonnull %20) #7
-  %21 = getelementptr %struct.anon, ptr %13, i64 %15
+  %21 = getelementptr [616 x i8], ptr %13, i64 %15
   br label %22
 
 22:                                               ; preds = %33, %19
   %23 = phi i64 [ 0, %19 ], [ %34, %33 ]
-  %24 = getelementptr %struct.ttm_pool_type, ptr %21, i64 %23
+  %24 = getelementptr [56 x i8], ptr %21, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
   tail call void @_raw_spin_lock(ptr noundef nonnull %25) #7
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 40
@@ -1319,7 +1312,7 @@ define dso_local noundef range(i32 -12, 1) i32 @ttm_pool_mgr_init(i64 noundef %0
 
 6:                                                ; preds = %6, %5
   %7 = phi i64 [ 0, %5 ], [ %45, %6 ]
-  %8 = getelementptr %struct.ttm_pool_type, ptr @global_write_combined, i64 %7
+  %8 = getelementptr [56 x i8], ptr @global_write_combined, i64 %7
   store ptr null, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 1, ptr %9, align 4
@@ -1341,7 +1334,7 @@ define dso_local noundef range(i32 -12, 1) i32 @ttm_pool_mgr_init(i64 noundef %0
   store ptr %16, ptr %17, align 8
   store volatile ptr %15, ptr %16, align 8
   tail call void @_raw_spin_unlock(ptr noundef nonnull @shrinker_lock) #7
-  %18 = getelementptr %struct.ttm_pool_type, ptr @global_uncached, i64 %7
+  %18 = getelementptr [56 x i8], ptr @global_uncached, i64 %7
   store ptr null, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 12
   store i32 0, ptr %19, align 4
@@ -1362,7 +1355,7 @@ define dso_local noundef range(i32 -12, 1) i32 @ttm_pool_mgr_init(i64 noundef %0
   store ptr %25, ptr %26, align 8
   store volatile ptr %24, ptr %25, align 8
   tail call void @_raw_spin_unlock(ptr noundef nonnull @shrinker_lock) #7
-  %27 = getelementptr %struct.ttm_pool_type, ptr @global_dma32_write_combined, i64 %7
+  %27 = getelementptr [56 x i8], ptr @global_dma32_write_combined, i64 %7
   store ptr null, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 12
   store i32 1, ptr %28, align 4
@@ -1383,7 +1376,7 @@ define dso_local noundef range(i32 -12, 1) i32 @ttm_pool_mgr_init(i64 noundef %0
   store ptr %34, ptr %35, align 8
   store volatile ptr %33, ptr %34, align 8
   tail call void @_raw_spin_unlock(ptr noundef nonnull @shrinker_lock) #7
-  %36 = getelementptr %struct.ttm_pool_type, ptr @global_dma32_uncached, i64 %7
+  %36 = getelementptr [56 x i8], ptr @global_dma32_uncached, i64 %7
   store ptr null, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 12
   store i32 0, ptr %37, align 4
@@ -1474,13 +1467,13 @@ define dso_local void @ttm_pool_mgr_fini() local_unnamed_addr #0 align 16 {
 
 1:                                                ; preds = %1, %0
   %2 = phi i64 [ 0, %0 ], [ %7, %1 ]
-  %3 = getelementptr %struct.ttm_pool_type, ptr @global_write_combined, i64 %2
+  %3 = getelementptr [56 x i8], ptr @global_write_combined, i64 %2
   tail call fastcc void @ttm_pool_type_fini(ptr noundef %3)
-  %4 = getelementptr %struct.ttm_pool_type, ptr @global_uncached, i64 %2
+  %4 = getelementptr [56 x i8], ptr @global_uncached, i64 %2
   tail call fastcc void @ttm_pool_type_fini(ptr noundef %4)
-  %5 = getelementptr %struct.ttm_pool_type, ptr @global_dma32_write_combined, i64 %2
+  %5 = getelementptr [56 x i8], ptr @global_dma32_write_combined, i64 %2
   tail call fastcc void @ttm_pool_type_fini(ptr noundef %5)
-  %6 = getelementptr %struct.ttm_pool_type, ptr @global_dma32_uncached, i64 %2
+  %6 = getelementptr [56 x i8], ptr @global_dma32_uncached, i64 %2
   tail call fastcc void @ttm_pool_type_fini(ptr noundef %6)
   %7 = add nuw nsw i64 %2, 1
   %8 = icmp eq i64 %7, 11
@@ -1621,7 +1614,7 @@ define internal noundef i32 @ttm_pool_debugfs_globals_show(ptr noundef %0, ptr r
 
 8:                                                ; preds = %19, %7
   %9 = phi i64 [ 0, %7 ], [ %20, %19 ]
-  %10 = getelementptr %struct.ttm_pool_type, ptr @global_write_combined, i64 %9
+  %10 = getelementptr [56 x i8], ptr @global_write_combined, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
   tail call void @_raw_spin_lock(ptr noundef nonnull %11) #7
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 40
@@ -1649,7 +1642,7 @@ define internal noundef i32 @ttm_pool_debugfs_globals_show(ptr noundef %0, ptr r
 
 23:                                               ; preds = %34, %22
   %24 = phi i64 [ 0, %22 ], [ %35, %34 ]
-  %25 = getelementptr %struct.ttm_pool_type, ptr @global_uncached, i64 %24
+  %25 = getelementptr [56 x i8], ptr @global_uncached, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
   tail call void @_raw_spin_lock(ptr noundef nonnull %26) #7
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 40
@@ -1677,7 +1670,7 @@ define internal noundef i32 @ttm_pool_debugfs_globals_show(ptr noundef %0, ptr r
 
 38:                                               ; preds = %49, %37
   %39 = phi i64 [ 0, %37 ], [ %50, %49 ]
-  %40 = getelementptr %struct.ttm_pool_type, ptr @global_dma32_write_combined, i64 %39
+  %40 = getelementptr [56 x i8], ptr @global_dma32_write_combined, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
   tail call void @_raw_spin_lock(ptr noundef nonnull %41) #7
   %42 = getelementptr inbounds nuw i8, ptr %40, i64 40
@@ -1705,7 +1698,7 @@ define internal noundef i32 @ttm_pool_debugfs_globals_show(ptr noundef %0, ptr r
 
 53:                                               ; preds = %64, %52
   %54 = phi i64 [ 0, %52 ], [ %65, %64 ]
-  %55 = getelementptr %struct.ttm_pool_type, ptr @global_dma32_uncached, i64 %54
+  %55 = getelementptr [56 x i8], ptr @global_dma32_uncached, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 32
   tail call void @_raw_spin_lock(ptr noundef nonnull %56) #7
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 40

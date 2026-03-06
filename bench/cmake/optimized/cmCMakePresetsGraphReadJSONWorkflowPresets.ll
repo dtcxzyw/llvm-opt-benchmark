@@ -33,10 +33,9 @@ target triple = "x86_64-pc-linux-gnu"
 %class.anon.69 = type { %"class.std::function.12" }
 %"class.std::function.12" = type { %"class.std::_Function_base", ptr }
 %class.anon.70 = type { %"class.std::function.3", i64 }
-%"struct.cmJSONHelperBuilder::Object<cmCMakePresetsGraph::WorkflowPreset::WorkflowStep>::Member" = type <{ %"class.std::basic_string_view", %"class.std::function.26", i8, [7 x i8] }>
-%"class.std::basic_string_view" = type { i64, ptr }
 %class.anon.39 = type <{ %"class.std::function.0", %"class.cmJSONHelperBuilder::Object", [8 x i8] }>
 %"struct.std::pair" = type { %"class.std::basic_string_view", ptr }
+%"class.std::basic_string_view" = type { i64, ptr }
 %class.cmAlphaNum = type { ptr, %"class.std::basic_string_view", [32 x i8] }
 %"class.Json::ValueConstIterator" = type { %"class.Json::ValueIteratorBase.base", [7 x i8] }
 %"class.Json::ValueIteratorBase.base" = type <{ %"struct.std::_Rb_tree_iterator", i8 }>
@@ -46,7 +45,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.32" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.cmJSONHelperBuilder::Object<cmCMakePresetsGraph::WorkflowPreset>::Member" = type <{ %"class.std::basic_string_view", %"class.std::function.29", i8, [7 x i8] }>
 %class.anon.73 = type <{ %"class.std::function.0", %"class.cmJSONHelperBuilder::Object.5", [8 x i8] }>
 %"class.cmCMakePresetsGraph::WorkflowPreset" = type { %"class.cmCMakePresetsGraph::Preset", %"class.std::vector.42" }
 %"class.cmCMakePresetsGraph::Preset" = type { ptr, %"class.std::__cxx11::basic_string", %"class.std::vector.31", i8, ptr, %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::shared_ptr", i8, %"class.std::map" }
@@ -2498,7 +2496,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph14WorkflowPrese
 _ZNSt12_Vector_baseIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph14WorkflowPreset12WorkflowStepEE6MemberESaIS6_EE13_M_deallocateEPS6_m.exit: ; preds = %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph14WorkflowPreset12WorkflowStepEE6MemberESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit39, %64
   store ptr %24, ptr %0, align 8, !tbaa !39
   store ptr %.0.lcssa.i.i.i38, ptr %6, align 8, !tbaa !15
-  %68 = getelementptr inbounds nuw %"struct.cmJSONHelperBuilder::Object<cmCMakePresetsGraph::WorkflowPreset::WorkflowStep>::Member", ptr %24, i64 %18
+  %68 = getelementptr inbounds nuw [56 x i8], ptr %24, i64 %18
   store ptr %68, ptr %63, align 8, !tbaa !18
   ret void
 }
@@ -5119,7 +5117,7 @@ _ZNSt6vectorIN19cmCMakePresetsGraph14WorkflowPreset12WorkflowStepESaIS2_EE11_S_r
 _ZNSt12_Vector_baseIN19cmCMakePresetsGraph14WorkflowPreset12WorkflowStepESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN19cmCMakePresetsGraph14WorkflowPreset12WorkflowStepESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26, %76
   store ptr %20, ptr %0, align 8, !tbaa !111
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !114
-  %80 = getelementptr inbounds nuw %"class.cmCMakePresetsGraph::WorkflowPreset::WorkflowStep", ptr %20, i64 %16
+  %80 = getelementptr inbounds nuw [40 x i8], ptr %20, i64 %16
   store ptr %80, ptr %75, align 8, !tbaa !133
   ret void
 }
@@ -5464,7 +5462,7 @@ _ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph14WorkflowPrese
 _ZNSt12_Vector_baseIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph14WorkflowPresetEE6MemberESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorIN19cmJSONHelperBuilder6ObjectIN19cmCMakePresetsGraph14WorkflowPresetEE6MemberESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit39, %64
   store ptr %24, ptr %0, align 8, !tbaa !66
   store ptr %.0.lcssa.i.i.i38, ptr %6, align 8, !tbaa !48
-  %68 = getelementptr inbounds nuw %"struct.cmJSONHelperBuilder::Object<cmCMakePresetsGraph::WorkflowPreset>::Member", ptr %24, i64 %18
+  %68 = getelementptr inbounds nuw [56 x i8], ptr %24, i64 %18
   store ptr %68, ptr %63, align 8, !tbaa !51
   ret void
 }
@@ -8027,7 +8025,7 @@ _ZNSt6vectorIN19cmCMakePresetsGraph14WorkflowPresetESaIS1_EE11_S_relocateEPS1_S4
 _ZNSt12_Vector_baseIN19cmCMakePresetsGraph14WorkflowPresetESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN19cmCMakePresetsGraph14WorkflowPresetESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22, %59
   store ptr %20, ptr %0, align 8, !tbaa !201
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !204
-  %63 = getelementptr inbounds nuw %"class.cmCMakePresetsGraph::WorkflowPreset", ptr %20, i64 %16
+  %63 = getelementptr inbounds nuw [240 x i8], ptr %20, i64 %16
   store ptr %63, ptr %58, align 8, !tbaa !243
   ret void
 }

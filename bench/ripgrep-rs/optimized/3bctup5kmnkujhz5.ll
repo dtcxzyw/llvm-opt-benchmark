@@ -439,7 +439,7 @@ _ZN10grep_regex7literal4TSeq9singleton17h92584f9566197e07E.exit: ; preds = %.noe
   %38 = load i64, ptr %28, align 8, !alias.scope !94
   %39 = load ptr, ptr %29, align 8, !alias.scope !94, !nonnull !7
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !97
-  %40 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i8, [7 x i8] }, ptr %39, i64 %38
+  %40 = getelementptr inbounds [32 x i8], ptr %39, i64 %38
   store ptr %39, ptr %6, align 8, !noalias !97
   store ptr %40, ptr %30, align 8, !noalias !97
   %41 = invoke noundef zeroext i1 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$3all17h95d71be476aaa114E.llvm.16979978850130570624"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6)
@@ -503,7 +503,7 @@ _ZN10grep_regex7literal4TSeq10is_inexact17hb06843111824c26aE.exit.thread: ; pred
 50:                                               ; preds = %48
   %51 = load ptr, ptr %29, align 8, !alias.scope !113, !nonnull !7
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !118
-  %52 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i8, [7 x i8] }, ptr %51, i64 %46
+  %52 = getelementptr inbounds [32 x i8], ptr %51, i64 %46
   store ptr %51, ptr %5, align 8, !noalias !118
   store ptr %52, ptr %31, align 8, !noalias !118
   br label %53
@@ -1188,7 +1188,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %29
   %46 = zext nneg i8 %45 to i64
   %47 = shl nuw i64 1, %46
   %48 = xor i64 %47, -1
-  %49 = getelementptr inbounds nuw i64, ptr %1, i64 %44
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %44
   %50 = load i64, ptr %49, align 8, !noundef !7
   %51 = and i64 %50, %48
   store i64 %51, ptr %49, align 8
@@ -1312,7 +1312,7 @@ tailrecurse.backedge:                             ; preds = %tailrecurse, %29
   %101 = zext nneg i8 %100 to i64
   %102 = shl nuw i64 1, %101
   %103 = xor i64 %102, -1
-  %104 = getelementptr inbounds nuw i64, ptr %1, i64 %99
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %99
   %105 = load i64, ptr %104, align 8, !alias.scope !189, !noundef !7
   %106 = and i64 %105, %103
   store i64 %106, ptr %104, align 8, !alias.scope !189
@@ -1357,7 +1357,7 @@ _ZN12grep_matcher7ByteSet10remove_all17hd0eef1246d773bc5E.exit: ; preds = %.lr.p
   %120 = zext nneg i8 %119 to i64
   %121 = shl nuw i64 1, %120
   %122 = xor i64 %121, -1
-  %123 = getelementptr inbounds nuw i64, ptr %1, i64 %118
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %118
   %124 = load i64, ptr %123, align 8, !alias.scope !192, !noundef !7
   %125 = and i64 %124, %122
   store i64 %125, ptr %123, align 8, !alias.scope !192

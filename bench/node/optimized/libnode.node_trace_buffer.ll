@@ -4,20 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"struct.node::AssertionInfo" = type { ptr, ptr, ptr }
-%"class.std::unique_ptr.2" = type { %"struct.std::__uniq_ptr_data.3" }
-%"struct.std::__uniq_ptr_data.3" = type { %"class.std::__uniq_ptr_impl.4" }
-%"class.std::__uniq_ptr_impl.4" = type { %"class.std::tuple.5" }
-%"class.std::tuple.5" = type { %"struct.std::_Tuple_impl.6" }
-%"struct.std::_Tuple_impl.6" = type { %"struct.std::_Head_base.9" }
-%"struct.std::_Head_base.9" = type { ptr }
-%"class.v8::platform::tracing::TraceObject" = type { i32, i32, i8, ptr, ptr, ptr, i64, i64, i32, [2 x ptr], [2 x i8], [2 x %"union.v8::platform::tracing::TraceObject::ArgValue"], [2 x %"class.std::unique_ptr"], ptr, i32, i64, i64, i64, i64 }
-%"union.v8::platform::tracing::TraceObject::ArgValue" = type { i64 }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.1" }
-%"struct.std::_Head_base.1" = type { ptr }
 
 $_ZNSt6vectorISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EESaIS7_EE6resizeEm = comdat any
 
@@ -153,9 +139,9 @@ if.then.i24.i:                                    ; preds = %_ZNSt6vectorISt10un
 
 _ZNSt12_Vector_baseISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EESaIS7_EE13_M_deallocateEPS7_m.exit.i: ; preds = %if.then.i24.i, %_ZNSt6vectorISt10unique_ptrIN2v88platform7tracing16TraceBufferChunkESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit.i
   store ptr %call5.i.i.i.i, ptr %this, align 8
-  %add.ptr34.i = getelementptr inbounds nuw %"class.std::unique_ptr.2", ptr %add.ptr.i, i64 %sub
+  %add.ptr34.i = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i, i64 %sub
   store ptr %add.ptr34.i, ptr %_M_finish.i, align 8
-  %add.ptr37.i = getelementptr inbounds nuw %"class.std::unique_ptr.2", ptr %call5.i.i.i.i, i64 %4
+  %add.ptr37.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i, i64 %4
   store ptr %add.ptr37.i, ptr %_M_end_of_storage.i, align 8
   br label %if.end6
 
@@ -164,7 +150,7 @@ if.else:                                          ; preds = %entry
   br i1 %cmp4, label %if.then5, label %if.end6
 
 if.then5:                                         ; preds = %if.else
-  %add.ptr = getelementptr inbounds %"class.std::unique_ptr.2", ptr %1, i64 %__new_size
+  %add.ptr = getelementptr inbounds [8 x i8], ptr %1, i64 %__new_size
   %tobool.not.i = icmp eq ptr %0, %add.ptr
   br i1 %tobool.not.i, label %if.end6, label %for.body.i.i.i.i18
 
@@ -213,7 +199,7 @@ entry:
   br i1 %cmp, label %if.then, label %lor.lhs.false
 
 lor.lhs.false:                                    ; preds = %entry
-  %1 = getelementptr %"class.std::unique_ptr.2", ptr %.pre, i64 %0
+  %1 = getelementptr [8 x i8], ptr %.pre, i64 %0
   %add.ptr.i = getelementptr i8, ptr %1, i64 -8
   %2 = load ptr, ptr %add.ptr.i, align 8
   %3 = load i64, ptr %2, align 8
@@ -223,7 +209,7 @@ lor.lhs.false:                                    ; preds = %entry
 if.then:                                          ; preds = %entry, %lor.lhs.false
   %inc = add i64 %0, 1
   store i64 %inc, ptr %total_chunks_, align 8
-  %add.ptr.i4 = getelementptr inbounds %"class.std::unique_ptr.2", ptr %.pre, i64 %0
+  %add.ptr.i4 = getelementptr inbounds [8 x i8], ptr %.pre, i64 %0
   %4 = load ptr, ptr %add.ptr.i4, align 8
   %cmp.i5.not = icmp eq ptr %4, null
   %current_chunk_seq_13 = getelementptr inbounds nuw i8, ptr %this, i64 96
@@ -260,7 +246,7 @@ if.end16:                                         ; preds = %if.else, %_ZNKSt14d
   %chunks_18 = getelementptr inbounds nuw i8, ptr %this, i64 64
   %7 = load i64, ptr %total_chunks_, align 8
   %8 = load ptr, ptr %chunks_18, align 8
-  %9 = getelementptr %"class.std::unique_ptr.2", ptr %8, i64 %7
+  %9 = getelementptr [8 x i8], ptr %8, i64 %7
   %add.ptr.i6 = getelementptr i8, ptr %9, i64 -8
   %10 = load ptr, ptr %add.ptr.i6, align 8
   %call23 = call noundef ptr @_ZN2v88platform7tracing16TraceBufferChunk13AddTraceEventEPm(ptr noundef nonnull align 8 dereferenceable(10764) %10, ptr noundef nonnull %event_index) #13
@@ -340,7 +326,7 @@ if.end5:                                          ; preds = %if.end
   %conv2.i = trunc i64 %div.i to i32
   %chunks_ = getelementptr inbounds nuw i8, ptr %this, i64 64
   %4 = load ptr, ptr %chunks_, align 8
-  %add.ptr.i = getelementptr inbounds nuw %"class.std::unique_ptr.2", ptr %4, i64 %div45.i
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %div45.i
   %5 = load ptr, ptr %add.ptr.i, align 8
   %seq_.i = getelementptr inbounds nuw i8, ptr %5, i64 10760
   %6 = load i32, ptr %seq_.i, align 8
@@ -349,7 +335,7 @@ if.end5:                                          ; preds = %if.end
 
 if.end10:                                         ; preds = %if.end5
   %chunk_.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %arrayidx.i = getelementptr inbounds nuw %"class.v8::platform::tracing::TraceObject", ptr %chunk_.i, i64 %rem5.i
+  %arrayidx.i = getelementptr inbounds nuw [168 x i8], ptr %chunk_.i, i64 %rem5.i
   br label %cleanup
 
 cleanup:                                          ; preds = %if.end5, %if.end, %entry, %if.end10
@@ -401,7 +387,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %1 = phi i64 [ %0, %for.body.lr.ph ], [ %11, %for.inc13 ]
   %i.010 = phi i64 [ 0, %for.body.lr.ph ], [ %inc14, %for.inc13 ]
   %2 = load ptr, ptr %chunks_, align 8
-  %add.ptr.i = getelementptr inbounds %"class.std::unique_ptr.2", ptr %2, i64 %i.010
+  %add.ptr.i = getelementptr inbounds [8 x i8], ptr %2, i64 %i.010
   %3 = load ptr, ptr %add.ptr.i, align 8
   %4 = load i64, ptr %3, align 8
   %cmp77.not = icmp eq i64 %4, 0
@@ -412,7 +398,7 @@ for.body8:                                        ; preds = %for.body, %for.inc
   %6 = phi ptr [ %10, %for.inc ], [ %3, %for.body ]
   %j.08 = phi i64 [ %inc, %for.inc ], [ 0, %for.body ]
   %chunk_.i = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %arrayidx.i = getelementptr inbounds %"class.v8::platform::tracing::TraceObject", ptr %chunk_.i, i64 %j.08
+  %arrayidx.i = getelementptr inbounds [168 x i8], ptr %chunk_.i, i64 %j.08
   %name_.i = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
   %7 = load ptr, ptr %name_.i, align 8
   %tobool.not = icmp eq ptr %7, null
@@ -586,7 +572,7 @@ entry:
 _ZNK4node7tracing19InternalTraceBuffer6IsFullEv.exit: ; preds = %entry
   %chunks_.i = getelementptr inbounds nuw i8, ptr %0, i64 440
   %3 = load ptr, ptr %chunks_.i, align 8
-  %4 = getelementptr %"class.std::unique_ptr.2", ptr %3, i64 %1
+  %4 = getelementptr [8 x i8], ptr %3, i64 %1
   %add.ptr.i.i = getelementptr i8, ptr %4, i64 -8
   %5 = load ptr, ptr %add.ptr.i.i, align 8
   %6 = load i64, ptr %5, align 8
@@ -614,7 +600,7 @@ for.body.i:                                       ; preds = %for.inc13.i, %for.b
   %9 = phi i64 [ %8, %for.body.lr.ph.i ], [ %19, %for.inc13.i ]
   %i.010.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc14.i, %for.inc13.i ]
   %10 = load ptr, ptr %chunks_.i, align 8
-  %add.ptr.i.i9 = getelementptr inbounds %"class.std::unique_ptr.2", ptr %10, i64 %i.010.i
+  %add.ptr.i.i9 = getelementptr inbounds [8 x i8], ptr %10, i64 %i.010.i
   %11 = load ptr, ptr %add.ptr.i.i9, align 8
   %12 = load i64, ptr %11, align 8
   %cmp77.not.i = icmp eq i64 %12, 0
@@ -625,7 +611,7 @@ for.body8.i:                                      ; preds = %for.body.i, %for.in
   %14 = phi ptr [ %18, %for.inc.i ], [ %11, %for.body.i ]
   %j.08.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %for.body.i ]
   %chunk_.i.i = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %arrayidx.i.i = getelementptr inbounds %"class.v8::platform::tracing::TraceObject", ptr %chunk_.i.i, i64 %j.08.i
+  %arrayidx.i.i = getelementptr inbounds [168 x i8], ptr %chunk_.i.i, i64 %j.08.i
   %name_.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 16
   %15 = load ptr, ptr %name_.i.i, align 8
   %tobool.not.i = icmp eq ptr %15, null
@@ -679,7 +665,7 @@ if.end:                                           ; preds = %entry, %_ZN4node7tr
 _ZNK4node7tracing19InternalTraceBuffer6IsFullEv.exit17: ; preds = %if.end
   %chunks_.i14 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %23 = load ptr, ptr %chunks_.i14, align 8
-  %24 = getelementptr %"class.std::unique_ptr.2", ptr %23, i64 %21
+  %24 = getelementptr [8 x i8], ptr %23, i64 %21
   %add.ptr.i.i15 = getelementptr i8, ptr %24, i64 -8
   %25 = load ptr, ptr %add.ptr.i.i15, align 8
   %26 = load i64, ptr %25, align 8
@@ -707,7 +693,7 @@ for.body.i26:                                     ; preds = %for.inc13.i44, %for
   %29 = phi i64 [ %28, %for.body.lr.ph.i22 ], [ %39, %for.inc13.i44 ]
   %i.010.i27 = phi i64 [ 0, %for.body.lr.ph.i22 ], [ %inc14.i45, %for.inc13.i44 ]
   %30 = load ptr, ptr %chunks_.i14, align 8
-  %add.ptr.i.i28 = getelementptr inbounds %"class.std::unique_ptr.2", ptr %30, i64 %i.010.i27
+  %add.ptr.i.i28 = getelementptr inbounds [8 x i8], ptr %30, i64 %i.010.i27
   %31 = load ptr, ptr %add.ptr.i.i28, align 8
   %32 = load i64, ptr %31, align 8
   %cmp77.not.i29 = icmp eq i64 %32, 0
@@ -718,7 +704,7 @@ for.body8.i30:                                    ; preds = %for.body.i26, %for.
   %34 = phi ptr [ %38, %for.inc.i39 ], [ %31, %for.body.i26 ]
   %j.08.i31 = phi i64 [ %inc.i40, %for.inc.i39 ], [ 0, %for.body.i26 ]
   %chunk_.i.i32 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  %arrayidx.i.i33 = getelementptr inbounds %"class.v8::platform::tracing::TraceObject", ptr %chunk_.i.i32, i64 %j.08.i31
+  %arrayidx.i.i33 = getelementptr inbounds [168 x i8], ptr %chunk_.i.i32, i64 %j.08.i31
   %name_.i.i34 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i33, i64 16
   %35 = load ptr, ptr %name_.i.i34, align 8
   %tobool.not.i35 = icmp eq ptr %35, null
@@ -934,7 +920,7 @@ entry:
 _ZNK4node7tracing19InternalTraceBuffer6IsFullEv.exit.i: ; preds = %entry
   %chunks_.i.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i.i, i64 64
   %3 = load ptr, ptr %chunks_.i.i, align 8
-  %4 = getelementptr %"class.std::unique_ptr.2", ptr %3, i64 %1
+  %4 = getelementptr [8 x i8], ptr %3, i64 %1
   %add.ptr.i.i.i = getelementptr i8, ptr %4, i64 -8
   %5 = load ptr, ptr %add.ptr.i.i.i, align 8
   %6 = load i64, ptr %5, align 8
@@ -958,7 +944,7 @@ if.then.i:                                        ; preds = %_ZNK4node7tracing19
 _ZNK4node7tracing19InternalTraceBuffer6IsFullEv.exit10.i: ; preds = %if.then.i
   %chunks_.i7.i = getelementptr inbounds nuw i8, ptr %cond.i, i64 64
   %9 = load ptr, ptr %chunks_.i7.i, align 8
-  %10 = getelementptr %"class.std::unique_ptr.2", ptr %9, i64 %7
+  %10 = getelementptr [8 x i8], ptr %9, i64 %7
   %add.ptr.i.i8.i = getelementptr i8, ptr %10, i64 -8
   %11 = load ptr, ptr %add.ptr.i.i8.i, align 8
   %12 = load i64, ptr %11, align 8
@@ -1001,7 +987,7 @@ entry:
 _ZNK4node7tracing19InternalTraceBuffer6IsFullEv.exit: ; preds = %entry
   %chunks_.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i, i64 64
   %3 = load ptr, ptr %chunks_.i, align 8
-  %4 = getelementptr %"class.std::unique_ptr.2", ptr %3, i64 %1
+  %4 = getelementptr [8 x i8], ptr %3, i64 %1
   %add.ptr.i.i = getelementptr i8, ptr %4, i64 -8
   %5 = load ptr, ptr %add.ptr.i.i, align 8
   %6 = load i64, ptr %5, align 8
@@ -1025,7 +1011,7 @@ if.then:                                          ; preds = %_ZNK4node7tracing19
 _ZNK4node7tracing19InternalTraceBuffer6IsFullEv.exit10: ; preds = %if.then
   %chunks_.i7 = getelementptr inbounds nuw i8, ptr %cond, i64 64
   %9 = load ptr, ptr %chunks_.i7, align 8
-  %10 = getelementptr %"class.std::unique_ptr.2", ptr %9, i64 %7
+  %10 = getelementptr [8 x i8], ptr %9, i64 %7
   %add.ptr.i.i8 = getelementptr i8, ptr %10, i64 -8
   %11 = load ptr, ptr %add.ptr.i.i8, align 8
   %12 = load i64, ptr %11, align 8
@@ -1076,7 +1062,7 @@ if.end5.i:                                        ; preds = %if.end.i
   %conv2.i.i = trunc i64 %div.i.i to i32
   %chunks_.i = getelementptr inbounds nuw i8, ptr %atomic-temp.i.0.i, i64 64
   %5 = load ptr, ptr %chunks_.i, align 8
-  %add.ptr.i.i = getelementptr inbounds nuw %"class.std::unique_ptr.2", ptr %5, i64 %div45.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %div45.i.i
   %6 = load ptr, ptr %add.ptr.i.i, align 8
   %seq_.i.i = getelementptr inbounds nuw i8, ptr %6, i64 10760
   %7 = load i32, ptr %seq_.i.i, align 8
@@ -1085,7 +1071,7 @@ if.end5.i:                                        ; preds = %if.end.i
 
 if.end10.i:                                       ; preds = %if.end5.i
   %chunk_.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %arrayidx.i.i = getelementptr inbounds nuw %"class.v8::platform::tracing::TraceObject", ptr %chunk_.i.i, i64 %rem5.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [168 x i8], ptr %chunk_.i.i, i64 %rem5.i.i
   br label %_ZN4node7tracing19InternalTraceBuffer16GetEventByHandleEm.exit
 
 _ZN4node7tracing19InternalTraceBuffer16GetEventByHandleEm.exit: ; preds = %entry, %if.end.i, %if.end5.i, %if.end10.i
@@ -1115,7 +1101,7 @@ for.body.i:                                       ; preds = %for.inc13.i, %for.b
   %1 = phi i64 [ %0, %for.body.lr.ph.i ], [ %11, %for.inc13.i ]
   %i.010.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc14.i, %for.inc13.i ]
   %2 = load ptr, ptr %chunks_.i, align 8
-  %add.ptr.i.i = getelementptr inbounds %"class.std::unique_ptr.2", ptr %2, i64 %i.010.i
+  %add.ptr.i.i = getelementptr inbounds [8 x i8], ptr %2, i64 %i.010.i
   %3 = load ptr, ptr %add.ptr.i.i, align 8
   %4 = load i64, ptr %3, align 8
   %cmp77.not.i = icmp eq i64 %4, 0
@@ -1126,7 +1112,7 @@ for.body8.i:                                      ; preds = %for.body.i, %for.in
   %6 = phi ptr [ %10, %for.inc.i ], [ %3, %for.body.i ]
   %j.08.i = phi i64 [ %inc.i, %for.inc.i ], [ 0, %for.body.i ]
   %chunk_.i.i = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %arrayidx.i.i = getelementptr inbounds %"class.v8::platform::tracing::TraceObject", ptr %chunk_.i.i, i64 %j.08.i
+  %arrayidx.i.i = getelementptr inbounds [168 x i8], ptr %chunk_.i.i, i64 %j.08.i
   %name_.i.i = getelementptr inbounds nuw i8, ptr %arrayidx.i.i, i64 16
   %7 = load ptr, ptr %name_.i.i, align 8
   %tobool.not.i = icmp eq ptr %7, null
@@ -1184,7 +1170,7 @@ for.body.i7:                                      ; preds = %for.inc13.i25, %for
   %14 = phi i64 [ %13, %for.body.lr.ph.i3 ], [ %24, %for.inc13.i25 ]
   %i.010.i8 = phi i64 [ 0, %for.body.lr.ph.i3 ], [ %inc14.i26, %for.inc13.i25 ]
   %15 = load ptr, ptr %chunks_.i5, align 8
-  %add.ptr.i.i9 = getelementptr inbounds %"class.std::unique_ptr.2", ptr %15, i64 %i.010.i8
+  %add.ptr.i.i9 = getelementptr inbounds [8 x i8], ptr %15, i64 %i.010.i8
   %16 = load ptr, ptr %add.ptr.i.i9, align 8
   %17 = load i64, ptr %16, align 8
   %cmp77.not.i10 = icmp eq i64 %17, 0
@@ -1195,7 +1181,7 @@ for.body8.i11:                                    ; preds = %for.body.i7, %for.i
   %19 = phi ptr [ %23, %for.inc.i20 ], [ %16, %for.body.i7 ]
   %j.08.i12 = phi i64 [ %inc.i21, %for.inc.i20 ], [ 0, %for.body.i7 ]
   %chunk_.i.i13 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %arrayidx.i.i14 = getelementptr inbounds %"class.v8::platform::tracing::TraceObject", ptr %chunk_.i.i13, i64 %j.08.i12
+  %arrayidx.i.i14 = getelementptr inbounds [168 x i8], ptr %chunk_.i.i13, i64 %j.08.i12
   %name_.i.i15 = getelementptr inbounds nuw i8, ptr %arrayidx.i.i14, i64 16
   %20 = load ptr, ptr %name_.i.i15, align 8
   %tobool.not.i16 = icmp eq ptr %20, null

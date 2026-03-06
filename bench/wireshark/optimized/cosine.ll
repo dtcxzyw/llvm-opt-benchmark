@@ -515,7 +515,7 @@ define internal fastcc noundef zeroext i1 @parse_cosine_packet(ptr noundef %0, p
   %144 = phi i8 [ %143, %141 ], [ %140, %139 ]
   %.09.i = phi ptr [ %142, %141 ], [ %2, %139 ]
   %145 = zext i8 %144 to i64
-  %146 = getelementptr i16, ptr %117, i64 %145
+  %146 = getelementptr [2 x i8], ptr %117, i64 %145
   %147 = load i16, ptr %146, align 2
   %148 = and i16 %147, 256
   %.not7.not.i = icmp eq i16 %148, 0
@@ -543,7 +543,7 @@ parse_single_hex_dump_line.exit.thread:           ; preds = %empty_line.exit
 
 .lr.ph.i80:                                       ; preds = %.lr.ph.i80, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i80 ]
-  %154 = getelementptr i32, ptr %6, i64 %indvars.iv.i
+  %154 = getelementptr [4 x i8], ptr %6, i64 %indvars.iv.i
   %155 = load i32, ptr %154, align 4
   %156 = trunc i32 %155 to i8
   %157 = trunc nuw nsw i64 %indvars.iv.i to i32

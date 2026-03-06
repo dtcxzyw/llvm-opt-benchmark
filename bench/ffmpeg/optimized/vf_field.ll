@@ -59,14 +59,14 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   br i1 %23, label %24, label %._crit_edge22
 
 ._crit_edge22:                                    ; preds = %21
-  %.phi.trans.insert = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
+  %.phi.trans.insert = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !43
   br label %31
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8, !tbaa !44
-  %27 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4, !tbaa !43
   %29 = sext i32 %28 to i64
   %30 = getelementptr inbounds i8, ptr %26, i64 %29
@@ -75,7 +75,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 
 31:                                               ; preds = %._crit_edge22, %24
   %32 = phi i32 [ %.pre, %._crit_edge22 ], [ %28, %24 ]
-  %33 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv
   %34 = shl nsw i32 %32, 1
   store i32 %34, ptr %33, align 4, !tbaa !43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

@@ -75,26 +75,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.gmx::ExceptionInfo" = type { %"class.gmx::internal::IExceptionInfo", %"struct.gmx::ThrowLocation" }
 %"class.gmx::internal::IExceptionInfo" = type { ptr }
 %"struct.gmx::ThrowLocation" = type <{ ptr, ptr, i32, [4 x i8] }>
-%"class.gmx::AwhBiasParams" = type <{ %"class.std::vector.196", i32, [4 x i8], double, double, i32, [4 x i8], double, i8, i8, [6 x i8], double, double, i32, i8, [3 x i8] }>
-%"class.std::vector.196" = type { %"struct.std::_Vector_base.197" }
-%"struct.std::_Vector_base.197" = type { %"struct.std::_Vector_base<gmx::AwhDimParams, std::allocator<gmx::AwhDimParams>>::_Vector_impl" }
-%"struct.std::_Vector_base<gmx::AwhDimParams, std::allocator<gmx::AwhDimParams>>::_Vector_impl" = type { %"struct.std::_Vector_base<gmx::AwhDimParams, std::allocator<gmx::AwhDimParams>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<gmx::AwhDimParams, std::allocator<gmx::AwhDimParams>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%struct.t_pull_coord = type { i32, %"class.std::__cxx11::basic_string", i32, %"class.std::__cxx11::basic_string", double, i32, %"struct.std::array", %"class.gmx::BasicVector", %"class.gmx::BasicVector.219", %"class.gmx::BasicVector.219", i8, float, float, float, float, i32 }
-%"struct.std::array" = type { [6 x i32] }
-%"class.gmx::BasicVector" = type { [3 x i32] }
-%"class.gmx::BasicVector.219" = type { [3 x float] }
-%"struct.gmx::DimParams" = type { %"class.std::variant", double }
-%"class.std::variant" = type { %"struct.std::__detail::__variant::_Variant_base.base", [7 x i8] }
-%"struct.std::__detail::__variant::_Variant_base.base" = type { %"struct.std::__detail::__variant::_Move_assign_base.base" }
-%"struct.std::__detail::__variant::_Move_assign_base.base" = type { %"struct.std::__detail::__variant::_Copy_assign_base.base" }
-%"struct.std::__detail::__variant::_Copy_assign_base.base" = type { %"struct.std::__detail::__variant::_Move_ctor_base.base" }
-%"struct.std::__detail::__variant::_Move_ctor_base.base" = type { %"struct.std::__detail::__variant::_Copy_ctor_base.base" }
-%"struct.std::__detail::__variant::_Copy_ctor_base.base" = type { %"struct.std::__detail::__variant::_Variant_storage.base" }
-%"struct.std::__detail::__variant::_Variant_storage.base" = type <{ %"union.std::__detail::__variant::_Variadic_union", i8 }>
-%"union.std::__detail::__variant::_Variadic_union" = type { %"struct.std::__detail::__variant::_Uninitialized" }
-%"struct.std::__detail::__variant::_Uninitialized" = type { %"struct.gmx::DimParams::PullDimParams" }
-%"struct.gmx::DimParams::PullDimParams" = type { double, double, double }
 %"class.std::unique_ptr.241" = type { %"struct.std::__uniq_ptr_data.242" }
 %"struct.std::__uniq_ptr_data.242" = type { %"class.std::__uniq_ptr_impl.243" }
 %"class.std::__uniq_ptr_impl.243" = type { %"class.std::tuple.244" }
@@ -102,25 +82,9 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.245" = type { %"struct.std::_Head_base.248" }
 %"struct.std::_Head_base.248" = type { ptr }
 %"struct.std::type_index" = type { ptr }
-%"struct.gmx::BiasCoupledToSystem" = type { %"class.gmx::Bias", %"class.std::vector.27" }
 %struct.t_pbc = type { i32, i32, i32, i32, [3 x [3 x float]], [3 x float], [3 x float], [3 x float], float, i32, [12 x [3 x i32]], [12 x [3 x float]] }
-%struct.wallcc_t = type { i32, i64, i64 }
-%"struct.gmx::GridPoint" = type { [4 x double], [4 x i32], %"class.std::vector.27" }
 %"class.std::shared_ptr.272" = type { %"class.std::__shared_ptr.273" }
 %"class.std::__shared_ptr.273" = type { ptr, %"class.std::__shared_count" }
-%"struct.gmx::AwhBiasHistory" = type { %"class.std::vector.280", %"struct.gmx::AwhBiasStateHistory", %"struct.gmx::CorrelationGridHistory" }
-%"class.std::vector.280" = type { %"struct.std::_Vector_base.281" }
-%"struct.std::_Vector_base.281" = type { %"struct.std::_Vector_base<gmx::AwhPointStateHistory, std::allocator<gmx::AwhPointStateHistory>>::_Vector_impl" }
-%"struct.std::_Vector_base<gmx::AwhPointStateHistory, std::allocator<gmx::AwhPointStateHistory>>::_Vector_impl" = type { %"struct.std::_Vector_base<gmx::AwhPointStateHistory, std::allocator<gmx::AwhPointStateHistory>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<gmx::AwhPointStateHistory, std::allocator<gmx::AwhPointStateHistory>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.gmx::AwhBiasStateHistory" = type { i32, i32, i32, i8, i8, double, double, double, i64 }
-%"struct.gmx::CorrelationGridHistory" = type { i32, i32, i32, %"class.std::vector.285" }
-%"class.std::vector.285" = type { %"struct.std::_Vector_base.286" }
-%"struct.std::_Vector_base.286" = type { %"struct.std::_Vector_base<gmx::CorrelationBlockDataHistory, std::allocator<gmx::CorrelationBlockDataHistory>>::_Vector_impl" }
-%"struct.std::_Vector_base<gmx::CorrelationBlockDataHistory, std::allocator<gmx::CorrelationBlockDataHistory>>::_Vector_impl" = type { %"struct.std::_Vector_base<gmx::CorrelationBlockDataHistory, std::allocator<gmx::CorrelationBlockDataHistory>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<gmx::CorrelationBlockDataHistory, std::allocator<gmx::CorrelationBlockDataHistory>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%struct.t_enxblock = type { i32, i32, ptr, i32 }
-%struct.t_enxsubblock = type { i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32 }
 %"class.std::unique_ptr.302" = type { %"struct.std::__uniq_ptr_data.303" }
 %"struct.std::__uniq_ptr_data.303" = type { %"class.std::__uniq_ptr_impl.304" }
 %"class.std::__uniq_ptr_impl.304" = type { %"class.std::tuple.305" }
@@ -2008,7 +1972,7 @@ _ZNSt10unique_ptrIN3gmx11BiasSharingESt14default_deleteIS1_EED2Ev.exit: ; preds 
 .lr.ph:                                           ; preds = %.preheader, %156
   %indvars.iv = phi i64 [ %145, %156 ], [ 0, %.preheader ]
   %140 = phi ptr [ %158, %156 ], [ %129, %.preheader ]
-  %141 = getelementptr inbounds nuw %"class.gmx::AwhBiasParams", ptr %140, i64 %indvars.iv
+  %141 = getelementptr inbounds nuw [96 x i8], ptr %140, i64 %indvars.iv
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 88
   %143 = load i32, ptr %142, align 8, !tbaa !222
   %144 = icmp sgt i32 %143, 0
@@ -2018,7 +1982,7 @@ _ZNSt10unique_ptrIN3gmx11BiasSharingESt14default_deleteIS1_EED2Ev.exit: ; preds 
 146:                                              ; preds = %.lr.ph
   %147 = load ptr, ptr %34, align 8, !tbaa !221
   %148 = load ptr, ptr %147, align 8, !tbaa !10
-  %149 = getelementptr inbounds nuw i32, ptr %148, i64 %indvars.iv
+  %149 = getelementptr inbounds nuw [4 x i8], ptr %148, i64 %indvars.iv
   %150 = load i32, ptr %149, align 4, !tbaa !27
   %151 = trunc nuw nsw i64 %145 to i32
   %152 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.7, i32 noundef %151, i32 noundef %143, i32 noundef %150) #27
@@ -2131,7 +2095,7 @@ _ZNSt10unique_ptrIN3gmx11BiasSharingESt14default_deleteIS1_EED2Ev.exit: ; preds 
   %indvars.iv518 = phi i64 [ 0, %.lr.ph450 ], [ %indvars.iv.next519, %_ZNSt6vectorIiSaIiEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, i8 0, i64 24, i1 false)
-  %200 = getelementptr inbounds nuw %"class.gmx::AwhBiasParams", ptr %170, i64 %indvars.iv518
+  %200 = getelementptr inbounds nuw [96 x i8], ptr %170, i64 %indvars.iv518
   %201 = load ptr, ptr %200, align 8, !tbaa !224
   %202 = getelementptr inbounds nuw i8, ptr %200, i64 8
   %203 = load ptr, ptr %202, align 8, !tbaa !225
@@ -2229,7 +2193,7 @@ _ZNSt10unique_ptrIN3gmx11BiasSharingESt14default_deleteIS1_EED2Ev.exit: ; preds 
   %225 = load i32, ptr %224, align 4, !tbaa !229
   %226 = sext i32 %225 to i64
   %227 = load ptr, ptr %223, align 8, !tbaa !247
-  %228 = getelementptr inbounds nuw %struct.t_pull_coord, ptr %227, i64 %226
+  %228 = getelementptr inbounds nuw [176 x i8], ptr %227, i64 %226
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 40
   %230 = load i32, ptr %229, align 8, !tbaa !250
   %231 = icmp eq i32 %230, 3
@@ -2479,7 +2443,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i: ; preds = %304, %.n
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i: ; preds = %306, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i
   store ptr %301, ptr %15, align 8, !tbaa !10
   store ptr %305, ptr %178, align 8, !tbaa !4
-  %307 = getelementptr inbounds nuw i32, ptr %301, i64 %299
+  %307 = getelementptr inbounds nuw [4 x i8], ptr %301, i64 %299
   store ptr %307, ptr %179, align 8, !tbaa !12
   br label %308
 
@@ -2562,7 +2526,7 @@ _ZNSt6vectorIN3gmx9DimParamsESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i: ; 
   br label %_ZNSt6vectorIN3gmx9DimParamsESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
 _ZNSt6vectorIN3gmx9DimParamsESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %329, %_ZNSt6vectorIN3gmx9DimParamsESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i
-  %330 = getelementptr inbounds nuw %"struct.gmx::DimParams", ptr %325, i64 %323
+  %330 = getelementptr inbounds nuw [40 x i8], ptr %325, i64 %323
   br label %_ZNSt6vectorIN3gmx9DimParamsESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit
 
 .loopexit352:                                     ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i
@@ -2658,7 +2622,7 @@ _ZNSt6vectorIN3gmx9DimParamsESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i: 
   br label %_ZNSt6vectorIN3gmx9DimParamsESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN3gmx9DimParamsESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %350, %_ZNSt6vectorIN3gmx9DimParamsESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i
-  %351 = getelementptr inbounds nuw %"struct.gmx::DimParams", ptr %346, i64 %344
+  %351 = getelementptr inbounds nuw [40 x i8], ptr %346, i64 %344
   br label %_ZNSt6vectorIN3gmx9DimParamsESaIS1_EE12emplace_backIJS1_EEERS1_DpOT_.exit
 
 .loopexit347:                                     ; preds = %_ZNKSt6vectorIN3gmx9DimParamsESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i
@@ -2871,7 +2835,7 @@ _ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i: ; preds = %425
           to label %.lr.ph457.preheader unwind label %434
 
 .lr.ph457.preheader:                              ; preds = %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i
-  %428 = getelementptr inbounds nuw i64, ptr %427, i64 %422
+  %428 = getelementptr inbounds nuw [8 x i8], ptr %427, i64 %422
   br label %.lr.ph457
 
 ._crit_edge458.loopexit:                          ; preds = %_ZNSt6vectorImSaImEE9push_backEOm.exit
@@ -2973,7 +2937,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i: ; preds = %460, %.n
   br label %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i
 
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i: ; preds = %461, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i
-  %462 = getelementptr inbounds nuw i64, ptr %457, i64 %455
+  %462 = getelementptr inbounds nuw [8 x i8], ptr %457, i64 %455
   br label %_ZNSt6vectorImSaImEE9push_backEOm.exit
 
 _ZNSt6vectorImSaImEE9push_backEOm.exit:           ; preds = %_ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i, %444
@@ -4457,7 +4421,7 @@ _ZSt8_DestroyIPN3gmx19BiasCoupledToSystemES1_EvT_S3_RSaIT0_E.exit: ; preds = %_Z
 _ZNSt12_Vector_baseIN3gmx19BiasCoupledToSystemESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN3gmx19BiasCoupledToSystemES1_EvT_S3_RSaIT0_E.exit, %42
   store ptr %24, ptr %0, align 8, !tbaa !365
   store ptr %30, ptr %6, align 8, !tbaa !361
-  %46 = getelementptr inbounds nuw %"struct.gmx::BiasCoupledToSystem", ptr %24, i64 %18
+  %46 = getelementptr inbounds nuw [608 x i8], ptr %24, i64 %18
   store ptr %46, ptr %41, align 8, !tbaa !362
   ret void
 
@@ -4849,7 +4813,7 @@ define noundef float @_ZN3gmx3Awh28applyBiasForcesAndUpdateBiasE7PbcTypeNS_8Arra
   %38 = load i32, ptr %37, align 4, !tbaa !417
   %39 = mul nsw i32 %38, 60
   %40 = sext i32 %39 to i64
-  %41 = getelementptr %struct.wallcc_t, ptr %27, i64 %40
+  %41 = getelementptr [24 x i8], ptr %27, i64 %40
   %42 = getelementptr i8, ptr %41, i64 1104
   %43 = load i32, ptr %42, align 8, !tbaa !418
   %44 = add nsw i32 %43, 1
@@ -5009,7 +4973,7 @@ _Z14wallcycle_stopP13gmx_wallcycle16WallCycleCounter.exit: ; preds = %83, %94, %
   %139 = phi ptr [ %109, %.lr.ph ], [ %167, %165 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %165 ]
   %.04165 = phi i32 [ 0, %.lr.ph ], [ %.1, %165 ]
-  %140 = getelementptr inbounds nuw %"struct.gmx::DimParams", ptr %138, i64 %indvars.iv
+  %140 = getelementptr inbounds nuw [40 x i8], ptr %138, i64 %indvars.iv
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 24
   %142 = load i8, ptr %141, align 8, !tbaa !144
   br label %143
@@ -5043,7 +5007,7 @@ _ZNK3gmx9DimParams15isPullDimensionEv.exit:       ; preds = %147, %149
   %155 = sub nsw i32 %154, %.04165
   %156 = sext i32 %155 to i64
   %157 = load ptr, ptr %117, align 8, !tbaa !10
-  %158 = getelementptr inbounds nuw i32, ptr %157, i64 %156
+  %158 = getelementptr inbounds nuw [4 x i8], ptr %157, i64 %156
   %159 = load i32, ptr %158, align 4, !tbaa !27
   %160 = call noundef double @_Z20get_pull_coord_valueP6pull_tiRK5t_pbc(ptr noundef %153, i32 noundef %159, ptr noundef nonnull align 4 dereferenceable(384) %12)
   %.pre = load ptr, ptr %108, align 8, !tbaa !14
@@ -5061,7 +5025,7 @@ _ZNK3gmx9DimParams15isPullDimensionEv.exit:       ; preds = %147, %149
   %167 = phi ptr [ %.pre, %152 ], [ %139, %161 ]
   %.sink = phi double [ %160, %152 ], [ %163, %161 ]
   %.1 = phi i32 [ %.04165, %152 ], [ %164, %161 ]
-  %168 = getelementptr inbounds nuw double, ptr %13, i64 %indvars.iv
+  %168 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   store double %.sink, ptr %168, align 8, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %169 = ptrtoint ptr %167 to i64
@@ -5089,7 +5053,7 @@ _ZNK3gmx3Awh12isOutputStepEl.exit:                ; preds = %._crit_edge71
   %182 = phi ptr [ %126, %.lr.ph70 ], [ %216, %214 ]
   %indvars.iv78 = phi i64 [ 0, %.lr.ph70 ], [ %indvars.iv.next79, %214 ]
   %.267 = phi i32 [ 0, %.lr.ph70 ], [ %.3, %214 ]
-  %183 = getelementptr inbounds nuw %"struct.gmx::DimParams", ptr %181, i64 %indvars.iv78
+  %183 = getelementptr inbounds nuw [40 x i8], ptr %181, i64 %indvars.iv78
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 24
   %185 = load i8, ptr %184, align 8, !tbaa !144
   br label %186
@@ -5123,9 +5087,9 @@ _ZNK3gmx9DimParams15isPullDimensionEv.exit49:     ; preds = %190, %192
   %198 = sub nsw i32 %197, %.267
   %199 = sext i32 %198 to i64
   %200 = load ptr, ptr %136, align 8, !tbaa !10
-  %201 = getelementptr inbounds nuw i32, ptr %200, i64 %199
+  %201 = getelementptr inbounds nuw [4 x i8], ptr %200, i64 %199
   %202 = load i32, ptr %201, align 4, !tbaa !27
-  %203 = getelementptr inbounds nuw double, ptr %120, i64 %indvars.iv78
+  %203 = getelementptr inbounds nuw [8 x i8], ptr %120, i64 %indvars.iv78
   %204 = load double, ptr %203, align 8, !tbaa !23
   call void @_Z31apply_external_pull_coord_forceP6pull_tid(ptr noundef %196, i32 noundef %202, double noundef %204)
   %.pre82 = load ptr, ptr %108, align 8, !tbaa !14
@@ -5136,8 +5100,8 @@ _ZNK3gmx9DimParams15isPullDimensionEv.exit49:     ; preds = %190, %192
   %206 = load i32, ptr %134, align 4, !tbaa !424
   %207 = sext i32 %206 to i64
   %208 = load ptr, ptr %135, align 8, !tbaa !134
-  %209 = getelementptr inbounds nuw %"struct.gmx::GridPoint", ptr %208, i64 %207
-  %210 = getelementptr inbounds nuw double, ptr %209, i64 %indvars.iv78
+  %209 = getelementptr inbounds nuw [72 x i8], ptr %208, i64 %207
+  %210 = getelementptr inbounds nuw [8 x i8], ptr %209, i64 %indvars.iv78
   %211 = load double, ptr %210, align 8, !tbaa !23
   %212 = fptosi double %211 to i32
   store i32 %212, ptr %56, align 4, !tbaa !197
@@ -5298,7 +5262,7 @@ _ZNSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE5clearEv.exit: ; preds = %12, %_ZSt8_
   br i1 %54, label %55, label %_ZNSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE6resizeEm.exit
 
 55:                                               ; preds = %53
-  %56 = getelementptr inbounds nuw %"struct.gmx::AwhBiasHistory", ptr %35, i64 %44
+  %56 = getelementptr inbounds nuw [112 x i8], ptr %35, i64 %44
   %.not.i.i10 = icmp eq ptr %36, %56
   br i1 %.not.i.i10, label %_ZNSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i11
 
@@ -5358,8 +5322,8 @@ _ZNSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE6resizeEm.exit: ; preds = %51, %53, %
   %79 = phi ptr [ %88, %83 ], [ %76, %_ZNSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE6resizeEm.exit ]
   %.019 = phi i64 [ %84, %83 ], [ 0, %_ZNSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE6resizeEm.exit ]
   %80 = load ptr, ptr %1, align 8, !tbaa !365
-  %81 = getelementptr inbounds nuw %"struct.gmx::BiasCoupledToSystem", ptr %80, i64 %.019
-  %82 = getelementptr inbounds nuw %"struct.gmx::AwhBiasHistory", ptr %79, i64 %.019
+  %81 = getelementptr inbounds nuw [608 x i8], ptr %80, i64 %.019
+  %82 = getelementptr inbounds nuw [112 x i8], ptr %79, i64 %.019
   invoke void @_ZNK3gmx4Bias20initHistoryFromStateEPNS_14AwhBiasHistoryE(ptr noundef nonnull align 8 dereferenceable(580) %81, ptr noundef nonnull %82)
           to label %83 unwind label %94
 
@@ -5718,9 +5682,9 @@ _ZNSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; 
 
 _ZNSt12_Vector_baseIN3gmx14AwhBiasHistoryESaIS1_EE13_M_deallocateEPS1_m.exit37: ; preds = %_ZNSt6vectorIN3gmx14AwhBiasHistoryESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %51
   store ptr %26, ptr %0, align 8, !tbaa !429
-  %55 = getelementptr inbounds nuw %"struct.gmx::AwhBiasHistory", ptr %27, i64 %1
+  %55 = getelementptr inbounds nuw [112 x i8], ptr %27, i64 %1
   store ptr %55, ptr %4, align 8, !tbaa !432
-  %56 = getelementptr inbounds nuw %"struct.gmx::AwhBiasHistory", ptr %26, i64 %24
+  %56 = getelementptr inbounds nuw [112 x i8], ptr %26, i64 %24
   store ptr %56, ptr %11, align 8, !tbaa !445
   br label %57
 
@@ -5862,7 +5826,7 @@ define void @_ZN3gmx3Awh23restoreStateFromHistoryEPKNS_10AwhHistoryE(ptr noundef
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %55 = phi ptr [ %60, %.lr.ph.split.us ], [ %54, %.lr.ph ]
   %.030.us = phi i64 [ %58, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %56 = getelementptr inbounds nuw %"struct.gmx::BiasCoupledToSystem", ptr %55, i64 %.030.us
+  %56 = getelementptr inbounds nuw [608 x i8], ptr %55, i64 %.030.us
   %57 = load ptr, ptr %6, align 8, !tbaa !192
   tail call void @_ZN3gmx4Bias23restoreStateFromHistoryEPKNS_14AwhBiasHistoryEPK9t_commrec(ptr noundef nonnull align 8 dereferenceable(580) %56, ptr noundef null, ptr noundef %57)
   %58 = add nuw i64 %.030.us, 1
@@ -5881,9 +5845,9 @@ define void @_ZN3gmx3Awh23restoreStateFromHistoryEPKNS_10AwhHistoryE(ptr noundef
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %66 = phi ptr [ %73, %.lr.ph.split ], [ %54, %.lr.ph ]
   %.030 = phi i64 [ %71, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %67 = getelementptr inbounds nuw %"struct.gmx::BiasCoupledToSystem", ptr %66, i64 %.030
+  %67 = getelementptr inbounds nuw [608 x i8], ptr %66, i64 %.030
   %68 = load ptr, ptr %1, align 8, !tbaa !429
-  %69 = getelementptr inbounds nuw %"struct.gmx::AwhBiasHistory", ptr %68, i64 %.030
+  %69 = getelementptr inbounds nuw [112 x i8], ptr %68, i64 %.030
   %70 = load ptr, ptr %6, align 8, !tbaa !192
   tail call void @_ZN3gmx4Bias23restoreStateFromHistoryEPKNS_14AwhBiasHistoryEPK9t_commrec(ptr noundef nonnull align 8 dereferenceable(580) %67, ptr noundef %69, ptr noundef %70)
   %71 = add nuw i64 %.030, 1
@@ -5957,8 +5921,8 @@ define void @_ZNK3gmx3Awh13updateHistoryEPNS_10AwhHistoryE(ptr noundef nonnull r
   %33 = phi ptr [ %39, %.lr.ph ], [ %15, %29 ]
   %.08 = phi i64 [ %37, %.lr.ph ], [ 0, %29 ]
   %34 = load ptr, ptr %0, align 8, !tbaa !365
-  %35 = getelementptr inbounds nuw %"struct.gmx::BiasCoupledToSystem", ptr %34, i64 %.08
-  %36 = getelementptr inbounds nuw %"struct.gmx::AwhBiasHistory", ptr %33, i64 %.08
+  %35 = getelementptr inbounds nuw [608 x i8], ptr %34, i64 %.08
+  %36 = getelementptr inbounds nuw [112 x i8], ptr %33, i64 %.08
   tail call void @_ZNK3gmx4Bias13updateHistoryEPNS_14AwhBiasHistoryE(ptr noundef nonnull align 8 dereferenceable(580) %35, ptr noundef nonnull %36)
   %37 = add nuw i64 %.08, 1
   %38 = load ptr, ptr %13, align 8, !tbaa !432
@@ -6013,7 +5977,7 @@ _ZNK3gmx3Awh12isOutputStepEl.exit:                ; preds = %3
   %18 = load ptr, ptr %17, align 8, !tbaa !468
   %19 = load i32, ptr %14, align 8, !tbaa !464
   %20 = sext i32 %19 to i64
-  %21 = getelementptr %struct.t_enxblock, ptr %18, i64 %20
+  %21 = getelementptr [24 x i8], ptr %18, i64 %20
   %22 = getelementptr i8, ptr %21, i64 -24
   tail call void @_Z22add_subblocks_enxblockP10t_enxblocki(ptr noundef %22, i32 noundef %.0.lcssa)
   store i32 7, ptr %22, align 8, !tbaa !469
@@ -6053,7 +6017,7 @@ _ZNK3gmx3Awh12isOutputStepEl.exit:                ; preds = %3
   %.sroa.022.044 = phi ptr [ %.pre, %.lr.ph47 ], [ %36, %30 ]
   %31 = load ptr, ptr %28, align 8, !tbaa !472
   %32 = sext i32 %.02145 to i64
-  %33 = getelementptr inbounds %struct.t_enxsubblock, ptr %31, i64 %32
+  %33 = getelementptr inbounds [80 x i8], ptr %31, i64 %32
   %34 = tail call noundef i32 @_ZNK3gmx4Bias22writeToEnergySubblocksEP13t_enxsubblock(ptr noundef nonnull align 8 dereferenceable(580) %.sroa.022.044, ptr noundef %33)
   %35 = add nsw i32 %34, %.02145
   %36 = getelementptr inbounds nuw i8, ptr %.sroa.022.044, i64 608

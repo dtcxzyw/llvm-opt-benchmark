@@ -43,7 +43,7 @@ define noundef ptr @find_fast_edge(ptr noundef readonly captures(address) %0, pt
 
 21:                                               ; preds = %.lr.ph35.i
   %indvars.iv.next43.i = add nuw nsw i64 %indvars.iv42.i, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv.next43.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.next43.i
   %23 = load ptr, ptr %22, align 8, !tbaa !12
   %.not25.i = icmp eq ptr %23, null
   br i1 %.not25.i, label %ffe.exit, label %.lr.ph35.i, !llvm.loop !14
@@ -62,7 +62,7 @@ define noundef ptr @find_fast_edge(ptr noundef readonly captures(address) %0, pt
 
 32:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %33 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv.next.i
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv.next.i
   %34 = load ptr, ptr %33, align 8, !tbaa !12
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %ffe.exit, label %.lr.ph.i, !llvm.loop !21
@@ -119,7 +119,7 @@ define noundef ptr @find_flat_edge(ptr noundef readonly captures(address) %0, pt
 
 21:                                               ; preds = %.lr.ph35.i
   %indvars.iv.next43.i = add nuw nsw i64 %indvars.iv42.i, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv.next43.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.next43.i
   %23 = load ptr, ptr %22, align 8, !tbaa !12
   %.not25.i = icmp eq ptr %23, null
   br i1 %.not25.i, label %ffe.exit, label %.lr.ph35.i, !llvm.loop !14
@@ -138,7 +138,7 @@ define noundef ptr @find_flat_edge(ptr noundef readonly captures(address) %0, pt
 
 32:                                               ; preds = %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %33 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv.next.i
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv.next.i
   %34 = load ptr, ptr %33, align 8, !tbaa !12
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %ffe.exit, label %.lr.ph.i, !llvm.loop !21
@@ -243,7 +243,7 @@ gv_recalloc.exit:                                 ; preds = %25, %32, %34
   %57 = load i64, ptr %56, align 8, !tbaa !36
   %58 = add i64 %57, 1
   store i64 %58, ptr %56, align 8, !tbaa !36
-  %59 = getelementptr inbounds nuw ptr, ptr %55, i64 %57
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %57
   store ptr %0, ptr %59, align 8, !tbaa !12
   %60 = load i32, ptr %0, align 8
   %61 = and i32 %60, 3
@@ -257,7 +257,7 @@ gv_recalloc.exit:                                 ; preds = %25, %32, %34
   %69 = load ptr, ptr %68, align 8, !tbaa !22
   %70 = getelementptr inbounds nuw i8, ptr %67, i64 280
   %71 = load i64, ptr %70, align 8, !tbaa !36
-  %72 = getelementptr inbounds nuw ptr, ptr %69, i64 %71
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %71
   store ptr null, ptr %72, align 8, !tbaa !12
   %73 = load i32, ptr %0, align 8
   %74 = and i32 %73, 3
@@ -340,7 +340,7 @@ gv_recalloc.exit52:                               ; preds = %96, %103, %105
   %128 = load i64, ptr %127, align 8, !tbaa !40
   %129 = add i64 %128, 1
   store i64 %129, ptr %127, align 8, !tbaa !40
-  %130 = getelementptr inbounds nuw ptr, ptr %126, i64 %128
+  %130 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %128
   store ptr %0, ptr %130, align 8, !tbaa !12
   %131 = load i32, ptr %0, align 8
   %132 = and i32 %131, 3
@@ -354,7 +354,7 @@ gv_recalloc.exit52:                               ; preds = %96, %103, %105
   %140 = load ptr, ptr %139, align 8, !tbaa !39
   %141 = getelementptr inbounds nuw i8, ptr %138, i64 264
   %142 = load i64, ptr %141, align 8, !tbaa !40
-  %143 = getelementptr inbounds nuw ptr, ptr %140, i64 %142
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %140, i64 %142
   store ptr null, ptr %143, align 8, !tbaa !12
   ret ptr %0
 }
@@ -372,16 +372,16 @@ define void @zapinlist(ptr noundef captures(none) %0, ptr noundef readnone captu
 
 6:                                                ; preds = %.lr.ph, %15
   %.018 = phi i64 [ 0, %.lr.ph ], [ %16, %15 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %.018
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.018
   %8 = load ptr, ptr %7, align 8, !tbaa !12
   %9 = icmp eq ptr %8, %1
   br i1 %9, label %10, label %15
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds nuw ptr, ptr %5, i64 %.018
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.018
   %12 = add i64 %4, -1
   store i64 %12, ptr %3, align 8, !tbaa !41
-  %13 = getelementptr inbounds nuw ptr, ptr %5, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !12
   store ptr %14, ptr %11, align 8, !tbaa !12
   store ptr null, ptr %13, align 8, !tbaa !12
@@ -418,16 +418,16 @@ define void @delete_fast_edge(ptr noundef readonly captures(address) %0) local_u
 
 14:                                               ; preds = %23, %.lr.ph.i
   %.018.i = phi i64 [ 0, %.lr.ph.i ], [ %24, %23 ]
-  %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %.018.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.018.i
   %16 = load ptr, ptr %15, align 8, !tbaa !12
   %17 = icmp eq ptr %16, %0
   br i1 %17, label %18, label %23
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds nuw ptr, ptr %13, i64 %.018.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.018.i
   %20 = add i64 %11, -1
   store i64 %20, ptr %10, align 8, !tbaa !41
-  %21 = getelementptr inbounds nuw ptr, ptr %13, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !12
   store ptr %22, ptr %19, align 8, !tbaa !12
   store ptr null, ptr %21, align 8, !tbaa !12
@@ -460,16 +460,16 @@ zapinlist.exit:                                   ; preds = %23, %1, %18
 
 35:                                               ; preds = %44, %.lr.ph.i9
   %.018.i10 = phi i64 [ 0, %.lr.ph.i9 ], [ %45, %44 ]
-  %36 = getelementptr inbounds nuw ptr, ptr %34, i64 %.018.i10
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %.018.i10
   %37 = load ptr, ptr %36, align 8, !tbaa !12
   %38 = icmp eq ptr %37, %0
   br i1 %38, label %39, label %44
 
 39:                                               ; preds = %35
-  %40 = getelementptr inbounds nuw ptr, ptr %34, i64 %.018.i10
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %.018.i10
   %41 = add i64 %32, -1
   store i64 %41, ptr %31, align 8, !tbaa !41
-  %42 = getelementptr inbounds nuw ptr, ptr %34, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %41
   %43 = load ptr, ptr %42, align 8, !tbaa !12
   store ptr %43, ptr %40, align 8, !tbaa !12
   store ptr null, ptr %42, align 8, !tbaa !12
@@ -567,7 +567,7 @@ gv_recalloc.exit:                                 ; preds = %25, %32, %34
   %57 = load i64, ptr %56, align 8, !tbaa !45
   %58 = add i64 %57, 1
   store i64 %58, ptr %56, align 8, !tbaa !45
-  %59 = getelementptr inbounds nuw ptr, ptr %55, i64 %57
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %57
   store ptr %0, ptr %59, align 8, !tbaa !12
   %60 = load i32, ptr %0, align 8
   %61 = and i32 %60, 3
@@ -581,7 +581,7 @@ gv_recalloc.exit:                                 ; preds = %25, %32, %34
   %69 = load ptr, ptr %68, align 8, !tbaa !44
   %70 = getelementptr inbounds nuw i8, ptr %67, i64 328
   %71 = load i64, ptr %70, align 8, !tbaa !45
-  %72 = getelementptr inbounds nuw ptr, ptr %69, i64 %71
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %71
   store ptr null, ptr %72, align 8, !tbaa !12
   ret void
 }
@@ -610,7 +610,7 @@ define void @safe_other_edge(ptr noundef %0) local_unnamed_addr #1 {
 
 .lr.ph.i:                                         ; preds = %1, %13
   %.01520.i = phi i64 [ %14, %13 ], [ 0, %1 ]
-  %15 = getelementptr inbounds nuw ptr, ptr %.pre.i, i64 %.01520.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i, i64 %.01520.i
   %16 = load ptr, ptr %15, align 8, !tbaa !12
   %17 = icmp eq ptr %0, %16
   br i1 %17, label %safe_list_append.exit, label %13
@@ -667,9 +667,9 @@ gv_recalloc.exit.i:                               ; preds = %.thread, %33
   %42 = load i64, ptr %11, align 8, !tbaa !41
   %43 = add i64 %42, 1
   store i64 %43, ptr %11, align 8, !tbaa !41
-  %44 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i, i64 %42
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i, i64 %42
   store ptr %0, ptr %44, align 8, !tbaa !12
-  %45 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i, i64 %43
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i, i64 %43
   store ptr null, ptr %45, align 8, !tbaa !12
   br label %safe_list_append.exit
 
@@ -1056,7 +1056,7 @@ gv_recalloc.exit:                                 ; preds = %26, %33, %35
   %58 = load i64, ptr %57, align 8, !tbaa !85
   %59 = add i64 %58, 1
   store i64 %59, ptr %57, align 8, !tbaa !85
-  %60 = getelementptr inbounds nuw ptr, ptr %56, i64 %58
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %58
   store ptr %1, ptr %60, align 8, !tbaa !12
   %61 = load i32, ptr %1, align 8
   %62 = and i32 %61, 3
@@ -1070,7 +1070,7 @@ gv_recalloc.exit:                                 ; preds = %26, %33, %35
   %70 = load ptr, ptr %69, align 8, !tbaa !84
   %71 = getelementptr inbounds nuw i8, ptr %68, i64 296
   %72 = load i64, ptr %71, align 8, !tbaa !85
-  %73 = getelementptr inbounds nuw ptr, ptr %70, i64 %72
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %72
   store ptr null, ptr %73, align 8, !tbaa !12
   %74 = load i32, ptr %1, align 8
   %75 = and i32 %74, 3
@@ -1153,7 +1153,7 @@ gv_recalloc.exit53:                               ; preds = %97, %104, %106
   %129 = load i64, ptr %128, align 8, !tbaa !87
   %130 = add i64 %129, 1
   store i64 %130, ptr %128, align 8, !tbaa !87
-  %131 = getelementptr inbounds nuw ptr, ptr %127, i64 %129
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %127, i64 %129
   store ptr %1, ptr %131, align 8, !tbaa !12
   %132 = load i32, ptr %1, align 8
   %133 = and i32 %132, 3
@@ -1167,7 +1167,7 @@ gv_recalloc.exit53:                               ; preds = %97, %104, %106
   %141 = load ptr, ptr %140, align 8, !tbaa !86
   %142 = getelementptr inbounds nuw i8, ptr %139, i64 312
   %143 = load i64, ptr %142, align 8, !tbaa !87
-  %144 = getelementptr inbounds nuw ptr, ptr %141, i64 %143
+  %144 = getelementptr inbounds nuw [8 x i8], ptr %141, i64 %143
   store ptr null, ptr %144, align 8, !tbaa !12
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %146 = load ptr, ptr %145, align 8, !tbaa !3
@@ -1225,16 +1225,16 @@ define void @delete_flat_edge(ptr noundef readonly captures(address) %0) local_u
 
 26:                                               ; preds = %35, %.lr.ph.i
   %.018.i = phi i64 [ 0, %.lr.ph.i ], [ %36, %35 ]
-  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %.018.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.018.i
   %28 = load ptr, ptr %27, align 8, !tbaa !12
   %29 = icmp eq ptr %28, %0
   br i1 %29, label %30, label %35
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %.018.i
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.018.i
   %32 = add i64 %23, -1
   store i64 %32, ptr %22, align 8, !tbaa !41
-  %33 = getelementptr inbounds nuw ptr, ptr %25, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !12
   store ptr %34, ptr %31, align 8, !tbaa !12
   store ptr null, ptr %33, align 8, !tbaa !12
@@ -1267,16 +1267,16 @@ zapinlist.exit:                                   ; preds = %35, %13, %30
 
 47:                                               ; preds = %56, %.lr.ph.i13
   %.018.i14 = phi i64 [ 0, %.lr.ph.i13 ], [ %57, %56 ]
-  %48 = getelementptr inbounds nuw ptr, ptr %46, i64 %.018.i14
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %.018.i14
   %49 = load ptr, ptr %48, align 8, !tbaa !12
   %50 = icmp eq ptr %49, %0
   br i1 %50, label %51, label %56
 
 51:                                               ; preds = %47
-  %52 = getelementptr inbounds nuw ptr, ptr %46, i64 %.018.i14
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %.018.i14
   %53 = add i64 %44, -1
   store i64 %53, ptr %43, align 8, !tbaa !41
-  %54 = getelementptr inbounds nuw ptr, ptr %46, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %53
   %55 = load ptr, ptr %54, align 8, !tbaa !12
   store ptr %55, ptr %52, align 8, !tbaa !12
   store ptr null, ptr %54, align 8, !tbaa !12

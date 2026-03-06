@@ -1785,7 +1785,7 @@ lean_dec.exit88:                                  ; preds = %111, %110, %108, %l
 
 lean_dec.exit:                                    ; preds = %122, %121, %119, %113
   %123 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %124 = getelementptr inbounds nuw ptr, ptr %123, i64 %9
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %123, i64 %9
   %125 = load ptr, ptr %124, align 8, !tbaa !4
   %126 = ptrtoint ptr %125 to i64
   %127 = trunc i64 %126 to i1
@@ -5337,7 +5337,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_SearchPath_findAllWithExt___spec
 10:                                               ; preds = %.lr.ph, %lean_dec.exit34
   %.02867 = phi i64 [ %2, %.lr.ph ], [ %75, %lean_dec.exit34 ]
   %.03066 = phi ptr [ %4, %.lr.ph ], [ %.232, %lean_dec.exit34 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %6, i64 %.02867
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.02867
   %12 = load ptr, ptr %11, align 8, !tbaa !4
   %13 = ptrtoint ptr %12 to i64
   %14 = trunc i64 %13 to i1

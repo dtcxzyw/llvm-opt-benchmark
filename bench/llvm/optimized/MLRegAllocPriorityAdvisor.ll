@@ -38,7 +38,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.4" = type { %"struct.std::_Vector_base<llvm::TensorSpec, std::allocator<llvm::TensorSpec>>::_Vector_impl" }
 %"struct.std::_Vector_base<llvm::TensorSpec, std::allocator<llvm::TensorSpec>>::_Vector_impl" = type { %"struct.std::_Vector_base<llvm::TensorSpec, std::allocator<llvm::TensorSpec>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<llvm::TensorSpec, std::allocator<llvm::TensorSpec>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.llvm::RAGreedy::ExtraRegInfo::RegInfo" = type { i32, i32 }
 %"class.std::unique_ptr.166" = type { %"struct.std::__uniq_ptr_data.167" }
 %"struct.std::__uniq_ptr_data.167" = type { %"class.std::__uniq_ptr_impl.168" }
 %"class.std::__uniq_ptr_impl.168" = type { %"class.std::tuple.169" }
@@ -196,7 +195,7 @@ _ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE.exit: ; preds 
   %26 = phi i32 [ %21, %4 ], [ %.pre.i.i, %23 ]
   %27 = load ptr, ptr %10, align 8, !tbaa !25
   %28 = zext i32 %26 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   %30 = ptrtoint ptr %20 to i64
   store i64 %30, ptr %29, align 1
   %31 = load i32, ptr %12, align 8, !tbaa !26
@@ -497,7 +496,7 @@ define dso_local noundef float @_ZNK4llvm17MLPriorityAdvisor15getPriorityImplERK
   %8 = and i32 %.sroa.0.0.copyload.i.i, 2147483647
   %9 = zext nneg i32 %8 to i64
   %10 = load ptr, ptr %6, align 8, !tbaa !25
-  %11 = getelementptr inbounds nuw %"struct.llvm::RAGreedy::ExtraRegInfo::RegInfo", ptr %10, i64 %9
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %9
   %12 = load i32, ptr %11, align 4, !tbaa !91
   %13 = zext i32 %3 to i64
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -536,7 +535,7 @@ define dso_local noundef i32 @_ZNK4llvm17MLPriorityAdvisor11getPriorityERKNS_12L
   %8 = and i32 %.sroa.0.0.copyload.i.i.i, 2147483647
   %9 = zext nneg i32 %8 to i64
   %10 = load ptr, ptr %6, align 8, !tbaa !25
-  %11 = getelementptr inbounds nuw %"struct.llvm::RAGreedy::ExtraRegInfo::RegInfo", ptr %10, i64 %9
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %9
   %12 = load i32, ptr %11, align 4, !tbaa !91
   %13 = zext i32 %3 to i64
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -1018,7 +1017,7 @@ _ZNSt12_Vector_baseIPvSaIS0_EEC2EmRKS1_.exit.thread.i.i: ; preds = %_ZNSt6vector
   %26 = shl nuw nsw i64 %19, 3
   %27 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %26) #20
   store ptr %27, ptr %22, align 8, !tbaa !94
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %19
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %19
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %28, ptr %29, align 8, !tbaa !283
   store ptr null, ptr %27, align 8, !tbaa !96

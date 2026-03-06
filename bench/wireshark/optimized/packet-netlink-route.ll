@@ -1298,7 +1298,7 @@ define internal fastcc void @dissect_netlink_route_ifla_linkstats(ptr noundef %0
 11:                                               ; preds = %5, %11
   %.0382 = phi i64 [ 0, %5 ], [ %18, %11 ]
   %.0391 = phi i32 [ %3, %5 ], [ %17, %11 ]
-  %12 = getelementptr ptr, ptr @linkstat_root_hfs, i64 %.0382
+  %12 = getelementptr [8 x i8], ptr @linkstat_root_hfs, i64 %.0382
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr %13, align 4
   %15 = load i32, ptr %6, align 4
@@ -1317,7 +1317,7 @@ define internal fastcc void @dissect_netlink_route_ifla_linkstats(ptr noundef %0
 23:                                               ; preds = %7, %23
   %indvars.iv = phi i64 [ 0, %7 ], [ %indvars.iv.next, %23 ]
   %.13 = phi i32 [ %17, %7 ], [ %29, %23 ]
-  %24 = getelementptr ptr, ptr @linkstat_rxerr_hfs, i64 %indvars.iv
+  %24 = getelementptr [8 x i8], ptr @linkstat_rxerr_hfs, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
   %26 = load i32, ptr %25, align 4
   %27 = load i32, ptr %6, align 4
@@ -1333,7 +1333,7 @@ define internal fastcc void @dissect_netlink_route_ifla_linkstats(ptr noundef %0
 31:                                               ; preds = %19, %31
   %indvars.iv10 = phi i64 [ 0, %19 ], [ %indvars.iv.next11, %31 ]
   %.25 = phi i32 [ %29, %19 ], [ %37, %31 ]
-  %32 = getelementptr ptr, ptr @linkstat_txerr_hfs, i64 %indvars.iv10
+  %32 = getelementptr [8 x i8], ptr @linkstat_txerr_hfs, i64 %indvars.iv10
   %33 = load ptr, ptr %32, align 8
   %34 = load i32, ptr %33, align 4
   %35 = load i32, ptr %6, align 4

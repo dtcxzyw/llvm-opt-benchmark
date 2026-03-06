@@ -437,7 +437,7 @@ st_mult.exit:                                     ; preds = %13
   %25 = phi i32 [ %10, %refspec_item_init_or_die.exit._crit_edge ], [ %.pre19, %st_mult.exit ]
   %26 = phi ptr [ %.pre, %refspec_item_init_or_die.exit._crit_edge ], [ %23, %st_mult.exit ]
   %27 = sext i32 %25 to i64
-  %28 = getelementptr inbounds %struct.refspec_item, ptr %26, i64 %27
+  %28 = getelementptr inbounds [32 x i8], ptr %26, i64 %27
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false), !tbaa.struct !45
   %29 = load i32, ptr %9, align 4, !tbaa !42
   %30 = add nsw i32 %29, 1
@@ -483,7 +483,7 @@ define dso_local void @refspec_appendn(ptr noundef captures(none) %0, ptr nounde
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %5 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8, !tbaa !46
   tail call void @refspec_append(ptr noundef %0, ptr noundef %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -504,7 +504,7 @@ define dso_local void @refspec_clear(ptr noundef captures(none) %0) local_unname
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
   %5 = load ptr, ptr %0, align 8, !tbaa !44
-  %6 = getelementptr inbounds nuw %struct.refspec_item, ptr %5, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %indvars.iv
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !13
   tail call void @free(ptr noundef %8) #15
@@ -595,7 +595,7 @@ define dso_local void @refspec_ref_prefixes(ptr noundef readonly captures(none) 
 7:                                                ; preds = %.lr.ph, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
   %8 = load ptr, ptr %0, align 8, !tbaa !44
-  %9 = getelementptr inbounds nuw %struct.refspec_item, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 %indvars.iv
   %10 = load i8, ptr %9, align 8
   %11 = and i8 %10, 24
   %or.cond = icmp eq i8 %11, 0

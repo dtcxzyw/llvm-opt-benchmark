@@ -27,12 +27,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Vector_base.57" = type { %"struct.std::_Vector_base<QuantLib::Array, std::allocator<QuantLib::Array>>::_Vector_impl" }
 %"struct.std::_Vector_base<QuantLib::Array, std::allocator<QuantLib::Array>>::_Vector_impl" = type { %"struct.std::_Vector_base<QuantLib::Array, std::allocator<QuantLib::Array>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<QuantLib::Array, std::allocator<QuantLib::Array>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.QuantLib::Path" = type { %"class.QuantLib::TimeGrid", %"class.QuantLib::Array" }
-%"class.QuantLib::TimeGrid" = type { %"class.std::vector.31", %"class.std::vector.31", %"class.std::vector.31" }
-%"class.std::vector.31" = type { %"struct.std::_Vector_base.32" }
-%"struct.std::_Vector_base.32" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" }
-%"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 $__clang_call_terminate = comdat any
 
@@ -622,20 +616,20 @@ for.cond.cleanup.thread:                          ; preds = %_ZN8QuantLib6Matrix
 
 for.body.us:                                      ; preds = %_ZN8QuantLib6MatrixC2Emmd.exit, %for.cond74.for.cond.cleanup76_crit_edge.us
   %i.0143.us = phi i64 [ %inc88.us, %for.cond74.for.cond.cleanup76_crit_edge.us ], [ 0, %_ZN8QuantLib6MatrixC2Emmd.exit ]
-  %add.ptr.i.us = getelementptr inbounds nuw i64, ptr %39, i64 %i.0143.us
+  %add.ptr.i.us = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %i.0143.us
   %44 = load i64, ptr %add.ptr.i.us, align 8, !tbaa !8
-  %invariant.gep.us = getelementptr double, ptr %43, i64 %i.0143.us
+  %invariant.gep.us = getelementptr [8 x i8], ptr %43, i64 %i.0143.us
   br label %invoke.cont83.us
 
 invoke.cont83.us:                                 ; preds = %for.body.us, %invoke.cont83.us
   %j.0141.us = phi i64 [ 0, %for.body.us ], [ %inc.us, %invoke.cont83.us ]
-  %add.ptr.i.i79.us = getelementptr inbounds nuw %"class.QuantLib::Path", ptr %0, i64 %j.0141.us
+  %add.ptr.i.i79.us = getelementptr inbounds nuw [88 x i8], ptr %0, i64 %j.0141.us
   %values_.i.us = getelementptr inbounds nuw i8, ptr %add.ptr.i.i79.us, i64 72
   %45 = load ptr, ptr %values_.i.us, align 8, !tbaa !28
-  %arrayidx.i.i.us = getelementptr inbounds nuw double, ptr %45, i64 %44
+  %arrayidx.i.i.us = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %44
   %46 = load double, ptr %arrayidx.i.i.us, align 8, !tbaa !44
   %mul.i.i.us = mul i64 %sub.ptr.div.i, %j.0141.us
-  %gep.us = getelementptr double, ptr %invariant.gep.us, i64 %mul.i.i.us
+  %gep.us = getelementptr [8 x i8], ptr %invariant.gep.us, i64 %mul.i.i.us
   store double %46, ptr %gep.us, align 8, !tbaa !44
   %inc.us = add nuw i64 %j.0141.us, 1
   %exitcond.not = icmp eq i64 %inc.us, %sub.ptr.div.i.i

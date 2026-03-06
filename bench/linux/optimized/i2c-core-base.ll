@@ -166,7 +166,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_i2c_put_dma_
 %struct.anon.10 = type { ptr, i32, i32, i64, i64, ptr, i16, i8 }
 %struct.cpumask = type { [1 x i64] }
 %struct.trace_event_buffer = type { ptr, ptr, ptr, ptr, i32, ptr }
-%struct.resource = type { i64, i64, ptr, i64, i64, ptr, ptr, ptr }
 %struct.i2c_board_info = type { [20 x i8], i16, i16, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32 }
 %struct.i2c_cmd_arg = type { i32, ptr }
 %struct.i2c_msg = type { i16, i16, i16, ptr }
@@ -1694,7 +1693,7 @@ define dso_local i32 @i2c_dev_irq_from_resources(ptr noundef readonly captures(n
 .preheader:                                       ; preds = %2, %36
   %4 = phi i32 [ %37, %36 ], [ 0, %2 ]
   %5 = sext i32 %4 to i64
-  %6 = getelementptr %struct.resource, ptr %0, i64 %5
+  %6 = getelementptr [64 x i8], ptr %0, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %8, 7936
@@ -1792,7 +1791,7 @@ define dso_local noundef ptr @i2c_new_client_device(ptr noundef %0, ptr noundef 
 .preheader:                                       ; preds = %22, %60
   %28 = phi i32 [ %61, %60 ], [ 0, %22 ]
   %29 = sext i32 %28 to i64
-  %30 = getelementptr %struct.resource, ptr %24, i64 %29
+  %30 = getelementptr [64 x i8], ptr %24, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 24
   %32 = load i64, ptr %31, align 8
   %33 = and i64 %32, 7936
@@ -3893,7 +3892,7 @@ define dso_local i32 @__i2c_transfer(ptr noundef %0, ptr noundef %1, i32 noundef
 
 .split.us:                                        ; preds = %159, %191
   %167 = phi i64 [ %192, %191 ], [ 0, %159 ]
-  %168 = getelementptr %struct.i2c_msg, ptr %1, i64 %167
+  %168 = getelementptr [16 x i8], ptr %1, i64 %167
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 4
   %170 = load i16, ptr %169, align 4
   %171 = getelementptr inbounds nuw i8, ptr %168, i64 2
@@ -3939,7 +3938,7 @@ define dso_local i32 @__i2c_transfer(ptr noundef %0, ptr noundef %1, i32 noundef
 
 .split.split.split.us.split:                      ; preds = %.split.split.split.us, %203
   %194 = phi i64 [ %204, %203 ], [ 0, %.split.split.split.us ]
-  %195 = getelementptr %struct.i2c_msg, ptr %1, i64 %194
+  %195 = getelementptr [16 x i8], ptr %1, i64 %194
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 4
   %197 = load i16, ptr %196, align 4
   %198 = getelementptr inbounds nuw i8, ptr %195, i64 2
@@ -3960,7 +3959,7 @@ define dso_local i32 @__i2c_transfer(ptr noundef %0, ptr noundef %1, i32 noundef
 
 .split.split.split.split.us:                      ; preds = %.split.split.split, %214
   %206 = phi i64 [ %215, %214 ], [ 0, %.split.split.split ]
-  %207 = getelementptr %struct.i2c_msg, ptr %1, i64 %206
+  %207 = getelementptr [16 x i8], ptr %1, i64 %206
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 4
   %209 = load i16, ptr %208, align 4
   %210 = getelementptr inbounds nuw i8, ptr %207, i64 2
@@ -3997,7 +3996,7 @@ define dso_local i32 @__i2c_transfer(ptr noundef %0, ptr noundef %1, i32 noundef
 
 .split.split.split.split:                         ; preds = %.split.split.split, %299
   %232 = phi i64 [ %300, %299 ], [ 0, %.split.split.split ]
-  %233 = getelementptr %struct.i2c_msg, ptr %1, i64 %232
+  %233 = getelementptr [16 x i8], ptr %1, i64 %232
   %234 = getelementptr inbounds nuw i8, ptr %233, i64 4
   %235 = load i16, ptr %234, align 4
   %236 = getelementptr inbounds nuw i8, ptr %233, i64 2
@@ -4110,7 +4109,7 @@ define dso_local i32 @__i2c_transfer(ptr noundef %0, ptr noundef %1, i32 noundef
 
 304:                                              ; preds = %357, %302
   %305 = phi i64 [ 0, %302 ], [ %358, %357 ]
-  %306 = getelementptr %struct.i2c_msg, ptr %1, i64 %305
+  %306 = getelementptr [16 x i8], ptr %1, i64 %305
   %307 = getelementptr inbounds nuw i8, ptr %306, i64 2
   %308 = load i16, ptr %307, align 2
   %309 = and i16 %308, 1
@@ -4289,7 +4288,7 @@ define dso_local i32 @__i2c_transfer(ptr noundef %0, ptr noundef %1, i32 noundef
 
 407:                                              ; preds = %436, %405
   %408 = phi i64 [ 0, %405 ], [ %437, %436 ]
-  %409 = getelementptr %struct.i2c_msg, ptr %1, i64 %408
+  %409 = getelementptr [16 x i8], ptr %1, i64 %408
   %410 = getelementptr inbounds nuw i8, ptr %409, i64 2
   %411 = load i16, ptr %410, align 2
   %412 = and i16 %411, 1
@@ -4658,7 +4657,7 @@ define dso_local noundef ptr @i2c_new_scanned_device(ptr noundef %0, ptr noundef
 27:                                               ; preds = %23, %20, %19
   %28 = add i32 %15, 1
   %29 = sext i32 %28 to i64
-  %30 = getelementptr i16, ptr %2, i64 %29
+  %30 = getelementptr [2 x i8], ptr %2, i64 %29
   %31 = load i16, ptr %30, align 2
   %32 = icmp eq i16 %31, -2
   br i1 %32, label %.thread, label %12, !llvm.loop !107
@@ -5658,7 +5657,7 @@ define internal fastcc void @i2c_do_add_adapter(ptr noundef %0, ptr noundef %1) 
 35:                                               ; preds = %61, %34
   %36 = add i32 %43, 1
   %37 = sext i32 %36 to i64
-  %38 = getelementptr i16, ptr %6, i64 %37
+  %38 = getelementptr [2 x i8], ptr %6, i64 %37
   %39 = load i16, ptr %38, align 2
   %40 = icmp eq i16 %39, -2
   br i1 %40, label %.loopexit, label %41, !llvm.loop !115

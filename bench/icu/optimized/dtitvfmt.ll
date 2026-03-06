@@ -11,7 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.icu_77::UObject" = type { ptr }
 %"union.icu_77::UnicodeString::StackBufferOrFields" = type { %struct.anon.0, [32 x i8] }
 %struct.anon.0 = type { i16, i32, i32, ptr }
-%"struct.icu_77::DateIntervalFormat::PatternInfo" = type <{ %"class.icu_77::UnicodeString", %"class.icu_77::UnicodeString", i8, [7 x i8] }>
 %"class.icu_77::FieldPositionOnlyHandler" = type <{ %"class.icu_77::FieldPositionHandler.base", [4 x i8], ptr, i8, i8, [6 x i8] }>
 %"class.icu_77::FieldPositionHandler.base" = type <{ ptr, i32 }>
 %"class.icu_77::FormattedDateInterval" = type <{ %"class.icu_77::FormattedValue", ptr, i32, [4 x i8] }>
@@ -1346,8 +1345,8 @@ _ZN6icu_775MutexD2Ev.exit51:                      ; preds = %85
 
 99:                                               ; preds = %93, %99
   %indvars.iv = phi i64 [ 0, %93 ], [ %indvars.iv.next, %99 ]
-  %100 = getelementptr inbounds nuw %"struct.icu_77::DateIntervalFormat::PatternInfo", ptr %97, i64 %indvars.iv
-  %101 = getelementptr inbounds nuw %"struct.icu_77::DateIntervalFormat::PatternInfo", ptr %98, i64 %indvars.iv
+  %100 = getelementptr inbounds nuw [136 x i8], ptr %97, i64 %indvars.iv
+  %101 = getelementptr inbounds nuw [136 x i8], ptr %98, i64 %indvars.iv
   %102 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(129) %101, ptr noundef nonnull align 8 dereferenceable(129) %100)
   %103 = getelementptr inbounds nuw i8, ptr %101, i64 64
   %104 = getelementptr inbounds nuw i8, ptr %100, i64 64
@@ -1817,8 +1816,8 @@ _ZNK6icu_7713UnicodeStringneERKS0_.exit:          ; preds = %61
 
 122:                                              ; preds = %.preheader, %121
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %121 ]
-  %123 = getelementptr inbounds nuw %"struct.icu_77::DateIntervalFormat::PatternInfo", ptr %119, i64 %indvars.iv
-  %124 = getelementptr inbounds nuw %"struct.icu_77::DateIntervalFormat::PatternInfo", ptr %120, i64 %indvars.iv
+  %123 = getelementptr inbounds nuw [136 x i8], ptr %119, i64 %indvars.iv
+  %124 = getelementptr inbounds nuw [136 x i8], ptr %120, i64 %indvars.iv
   %125 = tail call noundef zeroext i1 @_ZNK6icu_7713UnicodeStringneERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %123, ptr noundef nonnull align 8 dereferenceable(64) %124)
   br i1 %125, label %_ZN6icu_775MutexD2Ev.exit94, label %126
 
@@ -2571,7 +2570,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7718DateInterva
   %63 = call noundef i32 @_ZN6icu_7716DateIntervalInfo28calendarFieldToIntervalIndexE19UCalendarDateFieldsR10UErrorCode(i32 noundef %.0114, ptr noundef nonnull align 4 dereferenceable(4) %6)
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %65 = sext i32 %63 to i64
-  %66 = getelementptr inbounds %"struct.icu_77::DateIntervalFormat::PatternInfo", ptr %64, i64 %65
+  %66 = getelementptr inbounds [136 x i8], ptr %64, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   %68 = load i16, ptr %67, align 8, !tbaa !25
   %69 = icmp ugt i16 %68, 31
@@ -3636,7 +3635,7 @@ define void @_ZN6icu_7718DateIntervalFormat17initializePatternER10UErrorCode(ptr
   %indvars.iv = phi i64 [ 0, %51 ], [ %indvars.iv.next, %53 ]
   %54 = load ptr, ptr %52, align 8, !tbaa !49
   %55 = call noundef signext i8 @_ZNK6icu_7716DateIntervalInfo15getDefaultOrderEv(ptr noundef nonnull align 8 dereferenceable(88) %54)
-  %56 = getelementptr %"struct.icu_77::DateIntervalFormat::PatternInfo", ptr %0, i64 %indvars.iv
+  %56 = getelementptr [136 x i8], ptr %0, i64 %indvars.iv
   %57 = getelementptr i8, ptr %56, i64 472
   store i8 %55, ptr %57, align 8, !tbaa !55
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4769,7 +4768,7 @@ _ZNK6icu_7713UnicodeStringixEi.exit:              ; preds = %_ZNK6icu_7713Unicod
   %.0121199 = phi i32 [ 0, %_ZNK6icu_7713UnicodeStringixEi.exit.lr.ph ], [ %.3124183, %.thread ]
   %.0125198 = phi i32 [ 0, %_ZNK6icu_7713UnicodeStringixEi.exit.lr.ph ], [ %.4129182, %.thread ]
   %.0130197 = phi i16 [ 0, %_ZNK6icu_7713UnicodeStringixEi.exit.lr.ph ], [ %.4134181, %.thread ]
-  %24 = getelementptr inbounds nuw i16, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [2 x i8], ptr %23, i64 %indvars.iv
   %25 = load i16, ptr %24, align 2, !tbaa !81
   switch i16 %25, label %_ZNK6icu_7713UnicodeStringixEi.exit.thread [
     i16 107, label %26
@@ -5217,7 +5216,7 @@ _ZNK6icu_7713UnicodeStringixEi.exit:              ; preds = %_ZNK6icu_7713Unicod
   %.not.i.i.i = icmp eq i16 %40, 0
   %41 = load ptr, ptr %38, align 8
   %42 = select i1 %.not.i.i.i, ptr %41, ptr %37
-  %43 = getelementptr inbounds nuw i16, ptr %42, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [2 x i8], ptr %42, i64 %indvars.iv
   %44 = load i16, ptr %43, align 2, !tbaa !81
   switch i16 %44, label %_ZNK6icu_7713UnicodeStringixEi.exit.thread [
     i16 69, label %45
@@ -5730,7 +5729,7 @@ define void @_ZN6icu_7718DateIntervalFormat14setPatternInfoE19UCalendarDateField
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %12 = sext i32 %7 to i64
-  %13 = getelementptr inbounds %"struct.icu_77::DateIntervalFormat::PatternInfo", ptr %11, i64 %12
+  %13 = getelementptr inbounds [136 x i8], ptr %11, i64 %12
   %.not11 = icmp eq ptr %2, null
   br i1 %.not11, label %16, label %14
 
@@ -5760,7 +5759,7 @@ define void @_ZN6icu_7718DateIntervalFormat14setPatternInfoE19UCalendarDateField
 ; Function Attrs: mustprogress uwtable
 define noundef signext range(i8 0, 2) i8 @_ZN6icu_7718DateIntervalFormat21fieldExistsInSkeletonE19UCalendarDateFieldsRKNS_13UnicodeStringE(i32 noundef %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #1 align 2 {
   %3 = zext i32 %0 to i64
-  %4 = getelementptr inbounds nuw i16, ptr @_ZN6icu_7718DateIntervalFormat30fgCalendarFieldToPatternLetterE, i64 %3
+  %4 = getelementptr inbounds nuw [2 x i8], ptr @_ZN6icu_7718DateIntervalFormat30fgCalendarFieldToPatternLetterE, i64 %3
   %5 = load i16, ptr %4, align 2, !tbaa !81
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load i16, ptr %6, align 8, !tbaa !25
@@ -5819,7 +5818,7 @@ define void @_ZN6icu_7718DateIntervalFormat18setFallbackPatternE19UCalendarDateF
 23:                                               ; preds = %.noexc
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %25 = sext i32 %20 to i64
-  %26 = getelementptr inbounds %"struct.icu_77::DateIntervalFormat::PatternInfo", ptr %24, i64 %25
+  %26 = getelementptr inbounds [136 x i8], ptr %24, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 64
   %28 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %27, ptr noundef nonnull align 8 dereferenceable(64) %6)
           to label %.noexc8 unwind label %13
@@ -5855,7 +5854,7 @@ define void @_ZN6icu_7718DateIntervalFormat29concatSingleDate2TimeIntervalERNS_1
 12:                                               ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %14 = sext i32 %9 to i64
-  %15 = getelementptr inbounds %"struct.icu_77::DateIntervalFormat::PatternInfo", ptr %13, i64 %14
+  %15 = getelementptr inbounds [136 x i8], ptr %13, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load i16, ptr %16, align 8, !tbaa !25
   %18 = icmp ugt i16 %17, 31
@@ -6064,7 +6063,7 @@ _ZN6icu_7718DateIntervalFormat18setIntervalPatternE19UCalendarDateFieldsRKNS_13U
 
 57:                                               ; preds = %27
   %58 = zext i32 %1 to i64
-  %59 = getelementptr inbounds nuw i16, ptr @_ZN6icu_7718DateIntervalFormat30fgCalendarFieldToPatternLetterE, i64 %58
+  %59 = getelementptr inbounds nuw [2 x i8], ptr @_ZN6icu_7718DateIntervalFormat30fgCalendarFieldToPatternLetterE, i64 %58
   %60 = load i16, ptr %59, align 2, !tbaa !81
   %.not63 = icmp eq ptr %5, null
   br i1 %.not63, label %thread-pre-split, label %61
@@ -6364,7 +6363,7 @@ _ZNK6icu_7713UnicodeString7extractEiiRS0_.exit:   ; preds = %33, %12, %_ZNK6icu_
 
 62:                                               ; preds = %60
   %63 = zext nneg i32 %.053101.i to i64
-  %64 = getelementptr inbounds nuw i16, ptr %59, i64 %63
+  %64 = getelementptr inbounds nuw [2 x i8], ptr %59, i64 %63
   %65 = load i16, ptr %64, align 2, !tbaa !81
   br label %_ZNK6icu_7713UnicodeString6charAtEi.exit.i
 
@@ -6401,7 +6400,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit.i:       ; preds = %62, %60
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit71.i:     ; preds = %76
   %80 = zext nneg i32 %77 to i64
-  %81 = getelementptr inbounds nuw i16, ptr %59, i64 %80
+  %81 = getelementptr inbounds nuw [2 x i8], ptr %59, i64 %80
   %82 = load i16, ptr %81, align 2, !tbaa !81
   %83 = icmp eq i16 %82, 39
   br i1 %83, label %90, label %_ZNK6icu_7713UnicodeString6charAtEi.exit71.thread.i
@@ -6500,7 +6499,7 @@ _ZNK6icu_7713UnicodeString7extractEiiRS0_.exit42: ; preds = %112, %104
 120:                                              ; preds = %.noexc
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %122 = sext i32 %117 to i64
-  %123 = getelementptr inbounds %"struct.icu_77::DateIntervalFormat::PatternInfo", ptr %121, i64 %122
+  %123 = getelementptr inbounds [136 x i8], ptr %121, i64 %122
   %124 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %123, ptr noundef nonnull align 8 dereferenceable(64) %8)
           to label %.noexc43 unwind label %115
 
@@ -6566,7 +6565,7 @@ define noundef i32 @_ZN6icu_7718DateIntervalFormat21splitPatternInto2PartERKNS_1
 
 19:                                               ; preds = %17
   %20 = zext nneg i32 %.053101 to i64
-  %21 = getelementptr inbounds nuw i16, ptr %16, i64 %20
+  %21 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %20
   %22 = load i16, ptr %21, align 2, !tbaa !81
   br label %_ZNK6icu_7713UnicodeString6charAtEi.exit
 
@@ -6603,7 +6602,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %17, %19
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit71:       ; preds = %33
   %37 = zext nneg i32 %34 to i64
-  %38 = getelementptr inbounds nuw i16, ptr %16, i64 %37
+  %38 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %37
   %39 = load i16, ptr %38, align 2, !tbaa !81
   %40 = icmp eq i16 %39, 39
   br i1 %40, label %47, label %_ZNK6icu_7713UnicodeString6charAtEi.exit71.thread
@@ -7118,7 +7117,7 @@ define void @_ZN6icu_7718DateIntervalFormat16adjustFieldWidthERKNS_13UnicodeStri
   %177 = load ptr, ptr %166, align 8
   %178 = select i1 %.not.i.i.i, ptr %177, ptr %165
   %179 = sext i32 %.0120168 to i64
-  %180 = getelementptr inbounds i16, ptr %178, i64 %179
+  %180 = getelementptr inbounds [2 x i8], ptr %178, i64 %179
   %181 = load i16, ptr %180, align 2, !tbaa !81
   br label %_ZNK6icu_7713UnicodeString6charAtEi.exit
 
@@ -7134,9 +7133,9 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %167, %175
   %spec.store.select = select i1 %185, i16 77, i16 %.0112171
   %186 = zext i16 %spec.store.select to i64
   %187 = add nsw i64 %186, -65
-  %188 = getelementptr inbounds i32, ptr %10, i64 %187
+  %188 = getelementptr inbounds [4 x i8], ptr %10, i64 %187
   %189 = load i32, ptr %188, align 4, !tbaa !12
-  %190 = getelementptr inbounds i32, ptr %9, i64 %187
+  %190 = getelementptr inbounds [4 x i8], ptr %9, i64 %187
   %191 = load i32, ptr %190, align 4, !tbaa !12
   %192 = icmp eq i32 %189, %.0114170
   %193 = icmp sgt i32 %191, %189
@@ -7189,7 +7188,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit164:      ; preds = %201
   %212 = load ptr, ptr %166, align 8
   %213 = select i1 %.not.i.i.i163, ptr %212, ptr %165
   %214 = sext i32 %202 to i64
-  %215 = getelementptr inbounds i16, ptr %213, i64 %214
+  %215 = getelementptr inbounds [2 x i8], ptr %213, i64 %214
   %216 = load i16, ptr %215, align 2, !tbaa !81
   %217 = icmp eq i16 %216, 39
   br i1 %217, label %224, label %_ZNK6icu_7713UnicodeString6charAtEi.exit164.thread
@@ -7230,9 +7229,9 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit164.thread: ; preds = %_ZNK6icu_7713Unic
   %spec.store.select14 = select i1 %229, i16 77, i16 %.1113
   %230 = zext i16 %spec.store.select14 to i64
   %231 = add nsw i64 %230, -65
-  %232 = getelementptr inbounds i32, ptr %10, i64 %231
+  %232 = getelementptr inbounds [4 x i8], ptr %10, i64 %231
   %233 = load i32, ptr %232, align 4, !tbaa !12
-  %234 = getelementptr inbounds i32, ptr %9, i64 %231
+  %234 = getelementptr inbounds [4 x i8], ptr %9, i64 %231
   %235 = load i32, ptr %234, align 4, !tbaa !12
   %236 = icmp eq i32 %233, %.2116
   %237 = icmp sgt i32 %235, %233

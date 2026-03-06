@@ -3,7 +3,6 @@ source_filename = "bench/sdl/original/SDL_offscreenvulkan.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.VkExtensionProperties = type { [256 x i8], i32 }
 %struct.VkHeadlessSurfaceCreateInfoEXT = type { i32, ptr, i32 }
 
 @.str = private unnamed_addr constant [22 x i8] c"Vulkan already loaded\00", align 1
@@ -96,7 +95,7 @@ define hidden zeroext i1 @OFFSCREEN_Vulkan_LoadLibrary(ptr noundef %0, ptr nound
   %indvars.iv = phi i64 [ %indvars.iv.next, %35 ], [ 0, %.preheader ]
   %.03552 = phi i1 [ %.136, %35 ], [ false, %.preheader ]
   %.03751 = phi i1 [ %.138, %35 ], [ false, %.preheader ]
-  %29 = getelementptr inbounds nuw %struct.VkExtensionProperties, ptr %27, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [260 x i8], ptr %27, i64 %indvars.iv
   %30 = call i32 @SDL_strcmp_REAL(ptr noundef nonnull @.str.6, ptr noundef nonnull %29) #4
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %35, label %32
@@ -206,7 +205,7 @@ define hidden noundef nonnull ptr @OFFSCREEN_Vulkan_GetInstanceExtensions(ptr no
 .lr.ph:                                           ; preds = %7, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %7 ]
   %.114 = phi i1 [ %spec.select, %.lr.ph ], [ false, %7 ]
-  %10 = getelementptr inbounds nuw %struct.VkExtensionProperties, ptr %8, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [260 x i8], ptr %8, i64 %indvars.iv
   %11 = call i32 @SDL_strcmp_REAL(ptr noundef nonnull @.str.7, ptr noundef %10) #4
   %12 = icmp eq i32 %11, 0
   %spec.select = select i1 %12, i1 true, i1 %.114

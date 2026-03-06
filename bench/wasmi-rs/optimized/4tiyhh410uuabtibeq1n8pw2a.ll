@@ -918,7 +918,7 @@ define internal noundef align 8 ptr @_ZN4core3ops8function6FnOnce9call_once17h61
   unreachable
 
 "_ZN5wasmi5store14Store$LT$T$GT$18resolve_trampoline17hfdb168d85b563b66E.exit.i.i": ; preds = %20
-  %35 = getelementptr inbounds nuw { { { { ptr, ptr } }, {}, {} } }, ptr %25, i64 %28
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 %28
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !140
   %36 = tail call { ptr, ptr } @"_ZN77_$LT$wasmi..func..TrampolineEntity$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h36305ca9dbe51ec3E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %35), !noalias !150
   %37 = extractvalue { ptr, ptr } %36, 0
@@ -1125,7 +1125,7 @@ define internal noundef align 8 ptr @_ZN4core3ops8function6FnOnce9call_once17ha3
   unreachable
 
 "_ZN5wasmi5store14Store$LT$T$GT$18resolve_trampoline17h4a57b8510d03af07E.exit.i.i": ; preds = %20
-  %35 = getelementptr inbounds nuw { { { { ptr, ptr } }, {}, {} } }, ptr %25, i64 %28
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 %28
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !197
   %36 = tail call { ptr, ptr } @"_ZN77_$LT$wasmi..func..TrampolineEntity$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h1041c75858d129a1E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %35), !noalias !207
   %37 = extractvalue { ptr, ptr } %36, 0
@@ -1295,7 +1295,7 @@ define hidden { i64, i32 } @"_ZN5wasmi5store14Store$LT$T$GT$16alloc_trampoline17
 "_ZN17wasmi_collections5arena20Arena$LT$Idx$C$T$GT$5alloc17hd67678a695e0cc4aE.exit": ; preds = %12, %16
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %26 = load ptr, ptr %25, align 8, !alias.scope !240, !noalias !241, !nonnull !3, !noundef !3
-  %27 = getelementptr inbounds nuw { { { { ptr, ptr } }, {}, {} } }, ptr %26, i64 %9
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %9
   store ptr %1, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %2, ptr %28, align 8
@@ -1586,10 +1586,10 @@ define internal noundef zeroext i1 @"_ZN63_$LT$wasmi_core..value..ValType$u20$as
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !260, !noundef !3
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN63_$LT$wasmi_core..value..ValType$u20$as$u20$core..fmt..Debug$GT$3fmt17hbc2cb9a4ad5ea7b3E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN63_$LT$wasmi_core..value..ValType$u20$as$u20$core..fmt..Debug$GT$3fmt17hbc2cb9a4ad5ea7b3E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN63_$LT$wasmi_core..value..ValType$u20$as$u20$core..fmt..Debug$GT$3fmt17hbc2cb9a4ad5ea7b3E.18", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN63_$LT$wasmi_core..value..ValType$u20$as$u20$core..fmt..Debug$GT$3fmt17hbc2cb9a4ad5ea7b3E.18", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5

@@ -210,7 +210,7 @@ define dso_local void @_ZNK25btConvexTriangleMeshShape49batchedUnitVectorGetSupp
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %17 = getelementptr inbounds nuw %class.btVector3, ptr %2, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %indvars.iv
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 12
   store float 0xC3ABC16D60000000, ptr %18, align 4, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -222,7 +222,7 @@ define dso_local void @_ZNK25btConvexTriangleMeshShape49batchedUnitVectorGetSupp
 
 19:                                               ; preds = %.lr.ph23, %25
   %indvars.iv25 = phi i64 [ 0, %.lr.ph23 ], [ %indvars.iv.next26, %25 ]
-  %20 = getelementptr inbounds nuw %class.btVector3, ptr %1, i64 %indvars.iv25
+  %20 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv25
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV26LocalSupportVertexCallback, i64 16), ptr %5, align 8, !tbaa !4
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, i8 0, i64 16, i1 false)
@@ -247,7 +247,7 @@ define dso_local void @_ZNK25btConvexTriangleMeshShape49batchedUnitVectorGetSupp
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %.sroa.0.0.copyload.i = load <2 x float>, ptr %9, align 8
   %.sroa.2.0.copyload.i = load <2 x float>, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !23
-  %26 = getelementptr inbounds nuw %class.btVector3, ptr %2, i64 %indvars.iv25
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %indvars.iv25
   store <2 x float> %.sroa.0.0.copyload.i, ptr %26, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %26, i64 8
   store <2 x float> %.sroa.2.0.copyload.i, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !23
@@ -611,13 +611,13 @@ define linkonce_odr dso_local void @_ZN11btMatrix3x311diagonalizeERS_fi(ptr noun
 
 40:                                               ; preds = %37, %26
   %.1 = phi i32 [ %.0115, %26 ], [ 1, %37 ]
-  %41 = getelementptr inbounds nuw %class.btVector3, ptr %0, i64 %.098
-  %42 = getelementptr inbounds nuw float, ptr %41, i64 %.1100
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %.098
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %.1100
   %43 = load float, ptr %42, align 4, !tbaa !27
-  %44 = getelementptr inbounds nuw %class.btVector3, ptr %0, i64 %.1100
-  %45 = getelementptr inbounds nuw float, ptr %44, i64 %.1100
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %.1100
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %.1100
   %46 = load float, ptr %45, align 4, !tbaa !27
-  %47 = getelementptr inbounds nuw float, ptr %41, i64 %.098
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %.098
   %48 = load float, ptr %47, align 4, !tbaa !27
   %49 = fsub float %46, %48
   %50 = fmul float %43, 2.000000e+00
@@ -655,7 +655,7 @@ define linkonce_odr dso_local void @_ZN11btMatrix3x311diagonalizeERS_fi(ptr noun
   %.0101 = phi float [ %59, %55 ], [ %67, %63 ]
   %.096 = phi float [ %61, %55 ], [ %69, %63 ]
   %.095 = phi float [ %62, %55 ], [ %70, %63 ]
-  %72 = getelementptr inbounds nuw float, ptr %44, i64 %.098
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %.098
   store float 0.000000e+00, ptr %72, align 4, !tbaa !27
   store float 0.000000e+00, ptr %42, align 4, !tbaa !27
   %73 = load float, ptr %47, align 4, !tbaa !27
@@ -665,30 +665,30 @@ define linkonce_odr dso_local void @_ZN11btMatrix3x311diagonalizeERS_fi(ptr noun
   %76 = load float, ptr %45, align 4, !tbaa !27
   %77 = tail call float @llvm.fmuladd.f32(float %.0101, float %43, float %76)
   store float %77, ptr %45, align 4, !tbaa !27
-  %78 = getelementptr inbounds nuw %class.btVector3, ptr %0, i64 %.1105
-  %79 = getelementptr inbounds nuw float, ptr %78, i64 %.098
+  %78 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %.1105
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %78, i64 %.098
   %80 = load float, ptr %79, align 4, !tbaa !27
-  %81 = getelementptr inbounds nuw float, ptr %78, i64 %.1100
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %78, i64 %.1100
   %82 = load float, ptr %81, align 4, !tbaa !27
   %83 = fneg float %82
   %84 = fmul float %.095, %83
   %85 = tail call float @llvm.fmuladd.f32(float %.096, float %80, float %84)
-  %86 = getelementptr inbounds nuw float, ptr %41, i64 %.1105
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %.1105
   store float %85, ptr %86, align 4, !tbaa !27
   store float %85, ptr %79, align 4, !tbaa !27
   %87 = fmul float %.095, %80
   %88 = tail call float @llvm.fmuladd.f32(float %.096, float %82, float %87)
-  %89 = getelementptr inbounds nuw float, ptr %44, i64 %.1105
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %.1105
   store float %88, ptr %89, align 4, !tbaa !27
   store float %88, ptr %81, align 4, !tbaa !27
   br label %90
 
 90:                                               ; preds = %71, %90
   %indvars.iv = phi i64 [ 0, %71 ], [ %indvars.iv.next, %90 ]
-  %91 = getelementptr inbounds nuw %class.btVector3, ptr %1, i64 %indvars.iv
-  %92 = getelementptr inbounds nuw float, ptr %91, i64 %.098
+  %91 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %.098
   %93 = load float, ptr %92, align 4, !tbaa !27
-  %94 = getelementptr inbounds nuw float, ptr %91, i64 %.1100
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %.1100
   %95 = load float, ptr %94, align 4, !tbaa !27
   %96 = fneg float %95
   %97 = fmul float %.095, %96
@@ -781,9 +781,9 @@ define linkonce_odr dso_local noundef ptr @_ZNK21btConvexInternalShape9serialize
 
 7:                                                ; preds = %7, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %7 ]
-  %8 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.i
   %9 = load float, ptr %8, align 4, !tbaa !27
-  %10 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv.i
   store float %9, ptr %10, align 4, !tbaa !27
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -796,9 +796,9 @@ _ZNK9btVector314serializeFloatER18btVector3FloatData.exit: ; preds = %7
 
 13:                                               ; preds = %13, %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit
   %indvars.iv.i8 = phi i64 [ 0, %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit ], [ %indvars.iv.next.i9, %13 ]
-  %14 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv.i8
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv.i8
   %15 = load float, ptr %14, align 4, !tbaa !27
-  %16 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv.i8
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv.i8
   store float %15, ptr %16, align 4, !tbaa !27
   %indvars.iv.next.i9 = add nuw nsw i64 %indvars.iv.i8, 1
   %exitcond.not.i10 = icmp eq i64 %indvars.iv.next.i9, 4
@@ -863,7 +863,7 @@ define linkonce_odr dso_local void @_ZN26LocalSupportVertexCallback28internalPro
 14:                                               ; preds = %4, %27
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %27 ]
   %15 = phi float [ %.promoted, %4 ], [ %28, %27 ]
-  %16 = getelementptr inbounds nuw %class.btVector3, ptr %1, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv
   %17 = load float, ptr %16, align 4, !tbaa !27
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %19 = load float, ptr %18, align 4, !tbaa !27
@@ -1079,14 +1079,14 @@ define internal void @_ZZNK25btConvexTriangleMeshShape31calculatePrincipalAxisTr
 .preheader:                                       ; preds = %4, %116
   %indvars.iv55 = phi i64 [ 0, %4 ], [ %indvars.iv.next56, %116 ]
   %indvars.iv53 = phi i64 [ 1, %4 ], [ %indvars.iv.next54, %116 ]
-  %58 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv55
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv55
   %59 = load float, ptr %58, align 4, !tbaa !27
-  %60 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv55
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv55
   %61 = load float, ptr %60, align 4, !tbaa !27
-  %62 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv55
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv55
   %63 = load float, ptr %62, align 4, !tbaa !27
-  %invariant.gep = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv55
-  %64 = getelementptr inbounds nuw %class.btVector3, ptr %5, i64 %indvars.iv55
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv55
+  %64 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %indvars.iv55
   br label %117
 
 65:                                               ; preds = %116
@@ -1163,13 +1163,13 @@ define internal void @_ZZNK25btConvexTriangleMeshShape31calculatePrincipalAxisTr
 
 117:                                              ; preds = %.preheader, %117
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %117 ]
-  %118 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %119 = load float, ptr %118, align 4, !tbaa !27
-  %120 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   %121 = load float, ptr %120, align 4, !tbaa !27
   %122 = fmul float %61, %121
   %123 = tail call float @llvm.fmuladd.f32(float %59, float %119, float %122)
-  %124 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %125 = load float, ptr %124, align 4, !tbaa !27
   %126 = tail call float @llvm.fmuladd.f32(float %63, float %125, float %123)
   %127 = fmul float %119, %61
@@ -1181,9 +1181,9 @@ define internal void @_ZZNK25btConvexTriangleMeshShape31calculatePrincipalAxisTr
   %133 = fmul float %132, 0x3FA99999A0000000
   %134 = tail call float @llvm.fmuladd.f32(float %126, float 0x3FB99999A0000000, float %133)
   %135 = fmul float %57, %134
-  %gep = getelementptr inbounds nuw %class.btVector3, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [16 x i8], ptr %invariant.gep, i64 %indvars.iv
   store float %135, ptr %gep, align 4, !tbaa !27
-  %136 = getelementptr inbounds nuw float, ptr %64, i64 %indvars.iv
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %indvars.iv
   store float %135, ptr %136, align 4, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %indvars.iv53

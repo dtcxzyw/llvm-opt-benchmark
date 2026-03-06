@@ -331,7 +331,7 @@ define void @"_ZN67_$LT$typst_timing..TimingScope$u20$as$u20$core..ops..drop..Dr
 27:                                               ; preds = %.noexc, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hfbd5b475ce680a9aE.exit"
   %28 = phi i64 [ %.pre.i, %.noexc ], [ %18, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hfbd5b475ce680a9aE.exit" ]
   %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN12typst_timing8RECORDER17h6ed4ca6ab20e5b55E, i64 16), align 8, !noalias !72, !nonnull !7, !noundef !7
-  %30 = getelementptr inbounds { { { { i64, i32, [1 x i32] } } }, { ptr, i64 }, i64, i64, i64, i8, [7 x i8] }, ptr %29, i64 %28
+  %30 = getelementptr inbounds [64 x i8], ptr %29, i64 %28
   store i64 %3, ptr %30, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %30, i64 8
   store i32 %4, ptr %.sroa.2.0..sroa_idx, align 8

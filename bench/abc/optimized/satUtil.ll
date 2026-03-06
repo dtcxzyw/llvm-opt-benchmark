@@ -38,7 +38,7 @@ define void @Sat_SolverWriteDimacs(ptr noundef readonly captures(none) %0, ptr n
 12:                                               ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
   %.083 = phi i32 [ 0, %.lr.ph ], [ %.1, %21 ]
-  %13 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4, !tbaa !23
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %21
@@ -113,7 +113,7 @@ define void @Sat_SolverWriteDimacs(ptr noundef readonly captures(none) %0, ptr n
   %51 = phi ptr [ %57, %.critedge.us ], [ %.pre108, %.preheader81.lr.ph ]
   %.16288.us = phi i32 [ %58, %.critedge.us ], [ 0, %.preheader81.lr.ph ]
   %52 = zext nneg i32 %.16288.us to i64
-  %53 = getelementptr inbounds nuw ptr, ptr %51, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %52
   %54 = load ptr, ptr %53, align 8, !tbaa !30
   %.val84.us = load i32, ptr %54, align 4, !tbaa !23
   %55 = icmp sgt i32 %.val84.us, 2
@@ -135,7 +135,7 @@ define void @Sat_SolverWriteDimacs(ptr noundef readonly captures(none) %0, ptr n
   %61 = phi ptr [ %86, %._crit_edge.i.us.us.us ], [ %54, %.lr.ph86.us ]
   %.06085.us.us.us = phi i32 [ %83, %._crit_edge.i.us.us.us ], [ 2, %.lr.ph86.us ]
   %62 = zext nneg i32 %.06085.us.us.us to i64
-  %63 = getelementptr inbounds nuw i32, ptr %61, i64 %62
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %62
   %64 = load i32, ptr %63, align 4
   %.not14.i.us.us.us = icmp ult i32 %64, 2048
   br i1 %.not14.i.us.us.us, label %._crit_edge.i.us.us.us, label %.lr.ph.i.us.us.us
@@ -146,7 +146,7 @@ define void @Sat_SolverWriteDimacs(ptr noundef readonly captures(none) %0, ptr n
 
 66:                                               ; preds = %66, %.lr.ph.i.us.us.us
   %indvars.iv.i.us.us.us = phi i64 [ 0, %.lr.ph.i.us.us.us ], [ %indvars.iv.next.i.us.us.us, %66 ]
-  %67 = getelementptr inbounds nuw i32, ptr %65, i64 %indvars.iv.i.us.us.us
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %indvars.iv.i.us.us.us
   %68 = load i32, ptr %67, align 4, !tbaa !23
   %69 = and i32 %68, 1
   %.not12.i.us.us.us = icmp eq i32 %69, 0
@@ -171,7 +171,7 @@ define void @Sat_SolverWriteDimacs(ptr noundef readonly captures(none) %0, ptr n
   %82 = and i32 %81, 8388606
   %83 = add nuw nsw i32 %82, %.06085.us.us.us
   %84 = load ptr, ptr %47, align 8, !tbaa !29
-  %85 = getelementptr inbounds nuw ptr, ptr %84, i64 %52
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %52
   %86 = load ptr, ptr %85, align 8, !tbaa !30
   %.val.us.us.us = load i32, ptr %86, align 4, !tbaa !23
   %87 = icmp slt i32 %83, %.val.us.us.us
@@ -182,7 +182,7 @@ define void @Sat_SolverWriteDimacs(ptr noundef readonly captures(none) %0, ptr n
   %89 = phi ptr [ %117, %108 ], [ %54, %.lr.ph86.us ]
   %.06085.us.us = phi i32 [ %115, %108 ], [ 2, %.lr.ph86.us ]
   %90 = zext nneg i32 %.06085.us.us to i64
-  %91 = getelementptr inbounds nuw i32, ptr %89, i64 %90
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %90
   %92 = icmp eq i32 %.06085.us.us, 2
   br i1 %92, label %108, label %93
 
@@ -197,7 +197,7 @@ define void @Sat_SolverWriteDimacs(ptr noundef readonly captures(none) %0, ptr n
 
 96:                                               ; preds = %96, %.lr.ph.i.us.us
   %indvars.iv.i.us.us = phi i64 [ 0, %.lr.ph.i.us.us ], [ %indvars.iv.next.i.us.us, %96 ]
-  %97 = getelementptr inbounds nuw i32, ptr %95, i64 %indvars.iv.i.us.us
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %95, i64 %indvars.iv.i.us.us
   %98 = load i32, ptr %97, align 4, !tbaa !23
   %99 = and i32 %98, 1
   %.not12.i.us.us = icmp eq i32 %99, 0
@@ -226,7 +226,7 @@ define void @Sat_SolverWriteDimacs(ptr noundef readonly captures(none) %0, ptr n
   %113 = add nuw nsw i32 %112, %111
   %114 = and i32 %113, 8388606
   %115 = add nuw nsw i32 %114, %.06085.us.us
-  %116 = getelementptr inbounds nuw ptr, ptr %109, i64 %52
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %109, i64 %52
   %117 = load ptr, ptr %116, align 8, !tbaa !30
   %.val.us.us = load i32, ptr %117, align 4, !tbaa !23
   %118 = icmp slt i32 %115, %.val.us.us
@@ -237,7 +237,7 @@ define void @Sat_SolverWriteDimacs(ptr noundef readonly captures(none) %0, ptr n
   %120 = phi ptr [ %166, %.critedge ], [ %.pre108, %.preheader81.lr.ph ]
   %121 = phi ptr [ %167, %.critedge ], [ %.pre108, %.preheader81.lr.ph ]
   %indvars.iv99 = phi i64 [ %indvars.iv.next100, %.critedge ], [ 0, %.preheader81.lr.ph ]
-  %122 = getelementptr inbounds nuw ptr, ptr %121, i64 %indvars.iv99
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %121, i64 %indvars.iv99
   %123 = load ptr, ptr %122, align 8, !tbaa !30
   %.val84 = load i32, ptr %123, align 4, !tbaa !23
   %124 = icmp sgt i32 %.val84, 2
@@ -266,7 +266,7 @@ define void @Sat_SolverWriteDimacs(ptr noundef readonly captures(none) %0, ptr n
   %135 = phi ptr [ %123, %.lr.ph86 ], [ %163, %154 ]
   %.06085 = phi i32 [ 2, %.lr.ph86 ], [ %161, %154 ]
   %136 = zext nneg i32 %.06085 to i64
-  %137 = getelementptr inbounds nuw i32, ptr %135, i64 %136
+  %137 = getelementptr inbounds nuw [4 x i8], ptr %135, i64 %136
   %138 = icmp eq i32 %.06085, 2
   %or.cond = and i1 %125, %138
   br i1 %or.cond, label %154, label %139
@@ -282,7 +282,7 @@ define void @Sat_SolverWriteDimacs(ptr noundef readonly captures(none) %0, ptr n
 
 142:                                              ; preds = %142, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %142 ]
-  %143 = getelementptr inbounds nuw i32, ptr %141, i64 %indvars.iv.i
+  %143 = getelementptr inbounds nuw [4 x i8], ptr %141, i64 %indvars.iv.i
   %144 = load i32, ptr %143, align 4, !tbaa !23
   %145 = and i32 %144, 1
   %.not12.i = icmp eq i32 %145, 0
@@ -312,7 +312,7 @@ define void @Sat_SolverWriteDimacs(ptr noundef readonly captures(none) %0, ptr n
   %159 = add nuw nsw i32 %158, %157
   %160 = and i32 %159, 8388606
   %161 = add nuw nsw i32 %160, %.06085
-  %162 = getelementptr inbounds nuw ptr, ptr %155, i64 %indvars.iv99
+  %162 = getelementptr inbounds nuw [8 x i8], ptr %155, i64 %indvars.iv99
   %163 = load ptr, ptr %162, align 8, !tbaa !30
   %.val = load i32, ptr %163, align 4, !tbaa !23
   %164 = icmp slt i32 %161, %.val
@@ -335,7 +335,7 @@ define void @Sat_SolverWriteDimacs(ptr noundef readonly captures(none) %0, ptr n
   %170 = phi i32 [ %126, %.lr.ph90 ], [ %186, %185 ]
   %indvars.iv102 = phi i64 [ 0, %.lr.ph90 ], [ %indvars.iv.next103, %185 ]
   %171 = load ptr, ptr %128, align 8, !tbaa !22
-  %172 = getelementptr inbounds nuw i32, ptr %171, i64 %indvars.iv102
+  %172 = getelementptr inbounds nuw [4 x i8], ptr %171, i64 %indvars.iv102
   %173 = load i32, ptr %172, align 4, !tbaa !23
   %174 = icmp eq i32 %173, 0
   br i1 %174, label %175, label %185
@@ -430,7 +430,7 @@ define void @Sat_Solver2WriteDimacs(ptr noundef readonly captures(none) %0, ptr 
 12:                                               ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
   %.079 = phi i32 [ 0, %.lr.ph ], [ %.1, %21 ]
-  %13 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4, !tbaa !23
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %21
@@ -493,7 +493,7 @@ define void @Sat_Solver2WriteDimacs(ptr noundef readonly captures(none) %0, ptr 
   %46 = phi ptr [ %52, %.critedge.us ], [ %.pre104, %.preheader77.lr.ph ]
   %.16084.us = phi i32 [ %53, %.critedge.us ], [ 0, %.preheader77.lr.ph ]
   %47 = zext nneg i32 %.16084.us to i64
-  %48 = getelementptr inbounds nuw ptr, ptr %46, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %47
   %49 = load ptr, ptr %48, align 8, !tbaa !30
   %.val80.us = load i32, ptr %49, align 4, !tbaa !23
   %50 = icmp sgt i32 %.val80.us, 2
@@ -515,7 +515,7 @@ define void @Sat_Solver2WriteDimacs(ptr noundef readonly captures(none) %0, ptr 
   %56 = phi ptr [ %79, %._crit_edge.i.us.us.us ], [ %49, %.lr.ph82.us ]
   %.05881.us.us.us = phi i32 [ %76, %._crit_edge.i.us.us.us ], [ 2, %.lr.ph82.us ]
   %57 = zext nneg i32 %.05881.us.us.us to i64
-  %58 = getelementptr inbounds nuw i32, ptr %56, i64 %57
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %57
   %59 = load i32, ptr %58, align 4
   %.not14.i.us.us.us = icmp ult i32 %59, 2048
   br i1 %.not14.i.us.us.us, label %._crit_edge.i.us.us.us, label %.lr.ph.i.us.us.us
@@ -526,7 +526,7 @@ define void @Sat_Solver2WriteDimacs(ptr noundef readonly captures(none) %0, ptr 
 
 61:                                               ; preds = %61, %.lr.ph.i.us.us.us
   %indvars.iv.i.us.us.us = phi i64 [ 0, %.lr.ph.i.us.us.us ], [ %indvars.iv.next.i.us.us.us, %61 ]
-  %62 = getelementptr inbounds nuw i32, ptr %60, i64 %indvars.iv.i.us.us.us
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %indvars.iv.i.us.us.us
   %63 = load i32, ptr %62, align 4, !tbaa !23
   %64 = and i32 %63, 1
   %.not12.i.us.us.us = icmp eq i32 %64, 0
@@ -549,7 +549,7 @@ define void @Sat_Solver2WriteDimacs(ptr noundef readonly captures(none) %0, ptr 
   %75 = and i32 %74, 4194302
   %76 = add nuw nsw i32 %75, %.05881.us.us.us
   %77 = load ptr, ptr %42, align 8, !tbaa !29
-  %78 = getelementptr inbounds nuw ptr, ptr %77, i64 %47
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %47
   %79 = load ptr, ptr %78, align 8, !tbaa !30
   %.val.us.us.us = load i32, ptr %79, align 4, !tbaa !23
   %80 = icmp slt i32 %76, %.val.us.us.us
@@ -560,7 +560,7 @@ define void @Sat_Solver2WriteDimacs(ptr noundef readonly captures(none) %0, ptr 
   %82 = phi ptr [ %108, %101 ], [ %49, %.lr.ph82.us ]
   %.05881.us.us = phi i32 [ %106, %101 ], [ 2, %.lr.ph82.us ]
   %83 = zext nneg i32 %.05881.us.us to i64
-  %84 = getelementptr inbounds nuw i32, ptr %82, i64 %83
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %82, i64 %83
   %85 = icmp eq i32 %.05881.us.us, 2
   br i1 %85, label %101, label %86
 
@@ -575,7 +575,7 @@ define void @Sat_Solver2WriteDimacs(ptr noundef readonly captures(none) %0, ptr 
 
 89:                                               ; preds = %89, %.lr.ph.i.us.us
   %indvars.iv.i.us.us = phi i64 [ 0, %.lr.ph.i.us.us ], [ %indvars.iv.next.i.us.us, %89 ]
-  %90 = getelementptr inbounds nuw i32, ptr %88, i64 %indvars.iv.i.us.us
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %indvars.iv.i.us.us
   %91 = load i32, ptr %90, align 4, !tbaa !23
   %92 = and i32 %91, 1
   %.not12.i.us.us = icmp eq i32 %92, 0
@@ -602,7 +602,7 @@ define void @Sat_Solver2WriteDimacs(ptr noundef readonly captures(none) %0, ptr 
   %104 = add nuw nsw i32 %103, 3
   %105 = and i32 %104, 4194302
   %106 = add nuw nsw i32 %105, %.05881.us.us
-  %107 = getelementptr inbounds nuw ptr, ptr %102, i64 %47
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 %47
   %108 = load ptr, ptr %107, align 8, !tbaa !30
   %.val.us.us = load i32, ptr %108, align 4, !tbaa !23
   %109 = icmp slt i32 %106, %.val.us.us
@@ -613,7 +613,7 @@ define void @Sat_Solver2WriteDimacs(ptr noundef readonly captures(none) %0, ptr 
   %111 = phi ptr [ %155, %.critedge ], [ %.pre104, %.preheader77.lr.ph ]
   %112 = phi ptr [ %156, %.critedge ], [ %.pre104, %.preheader77.lr.ph ]
   %indvars.iv95 = phi i64 [ %indvars.iv.next96, %.critedge ], [ 0, %.preheader77.lr.ph ]
-  %113 = getelementptr inbounds nuw ptr, ptr %112, i64 %indvars.iv95
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %indvars.iv95
   %114 = load ptr, ptr %113, align 8, !tbaa !30
   %.val80 = load i32, ptr %114, align 4, !tbaa !23
   %115 = icmp sgt i32 %.val80, 2
@@ -642,7 +642,7 @@ define void @Sat_Solver2WriteDimacs(ptr noundef readonly captures(none) %0, ptr 
   %126 = phi ptr [ %114, %.lr.ph82 ], [ %152, %145 ]
   %.05881 = phi i32 [ 2, %.lr.ph82 ], [ %150, %145 ]
   %127 = zext nneg i32 %.05881 to i64
-  %128 = getelementptr inbounds nuw i32, ptr %126, i64 %127
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %126, i64 %127
   %129 = icmp eq i32 %.05881, 2
   %or.cond = and i1 %116, %129
   br i1 %or.cond, label %145, label %130
@@ -658,7 +658,7 @@ define void @Sat_Solver2WriteDimacs(ptr noundef readonly captures(none) %0, ptr 
 
 133:                                              ; preds = %133, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %133 ]
-  %134 = getelementptr inbounds nuw i32, ptr %132, i64 %indvars.iv.i
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %132, i64 %indvars.iv.i
   %135 = load i32, ptr %134, align 4, !tbaa !23
   %136 = and i32 %135, 1
   %.not12.i = icmp eq i32 %136, 0
@@ -686,7 +686,7 @@ define void @Sat_Solver2WriteDimacs(ptr noundef readonly captures(none) %0, ptr 
   %148 = add nuw nsw i32 %147, 3
   %149 = and i32 %148, 4194302
   %150 = add nuw nsw i32 %149, %.05881
-  %151 = getelementptr inbounds nuw ptr, ptr %146, i64 %indvars.iv95
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %146, i64 %indvars.iv95
   %152 = load ptr, ptr %151, align 8, !tbaa !30
   %.val = load i32, ptr %152, align 4, !tbaa !23
   %153 = icmp slt i32 %150, %.val
@@ -709,7 +709,7 @@ define void @Sat_Solver2WriteDimacs(ptr noundef readonly captures(none) %0, ptr 
   %159 = phi i32 [ %117, %.lr.ph86 ], [ %175, %174 ]
   %indvars.iv98 = phi i64 [ 0, %.lr.ph86 ], [ %indvars.iv.next99, %174 ]
   %160 = load ptr, ptr %119, align 8, !tbaa !42
-  %161 = getelementptr inbounds nuw i32, ptr %160, i64 %indvars.iv98
+  %161 = getelementptr inbounds nuw [4 x i8], ptr %160, i64 %indvars.iv98
   %162 = load i32, ptr %161, align 4, !tbaa !23
   %163 = icmp eq i32 %162, 0
   br i1 %163, label %164, label %174
@@ -856,14 +856,14 @@ define noalias noundef ptr @Sat_SolverGetModel(ptr noundef readonly captures(non
 
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
-  %10 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4, !tbaa !23
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds i32, ptr %.val, i64 %12
+  %13 = getelementptr inbounds [4 x i8], ptr %.val, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !23
   %15 = icmp eq i32 %14, 1
   %16 = zext i1 %15 to i32
-  %17 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   store i32 %16, ptr %17, align 4, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -892,14 +892,14 @@ define noalias noundef ptr @Sat_Solver2GetModel(ptr noundef readonly captures(no
 
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
-  %10 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4, !tbaa !23
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds i32, ptr %.val, i64 %12
+  %13 = getelementptr inbounds [4 x i8], ptr %.val, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !23
   %15 = icmp eq i32 %14, 1
   %16 = zext i1 %15 to i32
-  %17 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   store i32 %16, ptr %17, align 4, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

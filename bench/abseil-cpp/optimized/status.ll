@@ -18,13 +18,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.absl::AlphaNum" = type { %"class.std::basic_string_view", [32 x i8] }
 %"class.std::basic_string_view" = type { i64, ptr }
 %"class.absl::Status" = type { i64 }
-%"struct.absl::status_internal::Payload" = type { %"class.std::__cxx11::basic_string", %"class.absl::Cord" }
-%"class.absl::Cord" = type { %"class.absl::Cord::InlineRep" }
-%"class.absl::Cord::InlineRep" = type { %"class.absl::cord_internal::InlineData" }
-%"class.absl::cord_internal::InlineData" = type { %"struct.absl::cord_internal::InlineData::Rep" }
-%"struct.absl::cord_internal::InlineData::Rep" = type { %union.anon.6 }
-%union.anon.6 = type { %"struct.absl::cord_internal::InlineData::Rep::AsTree" }
-%"struct.absl::cord_internal::InlineData::Rep::AsTree" = type { i64, ptr }
 
 $_ZN4absl12NoDestructorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2IJRA28_KcETnNSt9enable_ifIXntsr3std7is_sameIFvDpRNSt5decayIT_E4typeEEFvRS7_EEE5valueEiE4typeELi0EEEDpOSE_ = comdat any
 
@@ -1240,7 +1233,7 @@ define dso_local noundef range(i32 0, 15) i32 @_ZN4absl17ErrnoToStatusCodeEi(i32
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4absl17ErrnoToStatusCodeEi, i64 %3
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN4absl17ErrnoToStatusCodeEi, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 
@@ -1429,7 +1422,7 @@ define linkonce_odr dso_local void @_ZN4absl23inlined_vector_internal7StorageINS
 .lr.ph.i:                                         ; preds = %1, %_ZNSt16allocator_traitsISaIN4absl15status_internal7PayloadEEE7destroyIS2_EEvRS3_PT_.exit.i
   %.06.i = phi i64 [ %8, %_ZNSt16allocator_traitsISaIN4absl15status_internal7PayloadEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %7, %1 ]
   %8 = add nsw i64 %.06.i, -1
-  %9 = getelementptr inbounds nuw %"struct.absl::status_internal::Payload", ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [48 x i8], ptr %6, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %11 = load i8, ptr %10, align 1, !tbaa !13
   %12 = trunc i8 %11 to i1

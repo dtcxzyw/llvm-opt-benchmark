@@ -180,7 +180,7 @@ define internal range(i32 0, 2) i32 @test_siphash(i32 noundef %0) #0 {
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %2, i8 0, i64 64, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = sext i32 %0 to i64
-  %8 = getelementptr inbounds %struct.TESTDATA, ptr @tests, i64 %7
+  %8 = getelementptr inbounds [80 x i8], ptr @tests, i64 %7
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %3, ptr noundef nonnull align 16 dereferenceable(80) %8, i64 80, i1 false), !tbaa.struct !4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)

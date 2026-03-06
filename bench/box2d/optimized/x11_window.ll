@@ -65,10 +65,8 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.XWindowAttributes = type { i32, i32, i32, i32, i32, i32, ptr, i64, i32, i32, i32, i32, i64, i64, i32, i64, i32, i32, i64, i64, i64, i32, ptr }
 %struct.anon.41 = type { i64, i64, i64, i64, i64 }
 %struct.XSetWindowAttributes = type { i64, i64, i64, i64, i32, i32, i32, i64, i64, i32, i64, i64, i32, i64, i64 }
-%struct.Screen = type { ptr, ptr, i64, i32, i32, i32, i32, i32, ptr, i32, ptr, ptr, i64, i64, i64, i32, i32, i32, i32, i64 }
 %struct.GLFWvidmode = type { i32, i32, i32, i32, i32, i32 }
 %struct.XIEventMask = type { i32, i32, ptr }
-%struct.GLFWimage = type { i32, i32, ptr }
 %struct.VkXcbSurfaceCreateInfoKHR = type { i32, ptr, i32, ptr, i64 }
 %struct.VkXlibSurfaceCreateInfoKHR = type { i32, ptr, i32, ptr, i64 }
 
@@ -347,7 +345,7 @@ define internal fastcc void @handleSelectionRequest(ptr noundef nonnull readonly
 .preheader.i:                                     ; preds = %36, %73
   %.04357.i = phi i64 [ %74, %73 ], [ 0, %36 ]
   %44 = load ptr, ptr %7, align 8, !tbaa !128
-  %45 = getelementptr inbounds nuw i64, ptr %44, i64 %.04357.i
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %.04357.i
   %46 = load i64, ptr %45, align 8, !tbaa !94
   br label %60
 
@@ -599,7 +597,7 @@ define hidden range(i32 0, 2) i32 @_glfwCreateWindowX11(ptr noundef %0, ptr noun
   %40 = load ptr, ptr %39, align 8, !tbaa !184
   %41 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !185
   %42 = sext i32 %41 to i64
-  %43 = getelementptr inbounds %struct.Screen, ptr %40, i64 %42
+  %43 = getelementptr inbounds [128 x i8], ptr %40, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 64
   %45 = load ptr, ptr %44, align 8, !tbaa !186
   store ptr %45, ptr %21, align 8, !tbaa !180
@@ -767,7 +765,7 @@ _glfwIsVisualTransparentX11.exit.i:               ; preds = %82, %78, %71
 
 .thread.i:                                        ; preds = %128
   %133 = zext nneg i32 %.0107.i to i64
-  %134 = getelementptr inbounds nuw i64, ptr %16, i64 %133
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %133
   store i64 %129, ptr %134, align 8, !tbaa !94
   %135 = or disjoint i32 %.0107.i, 2
   %136 = getelementptr inbounds nuw i8, ptr %134, i64 8
@@ -1990,7 +1988,7 @@ define hidden void @_glfwSetWindowIconX11(ptr noundef readonly captures(none) %0
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.04549 = phi i32 [ 0, %.lr.ph.preheader ], [ %14, %.lr.ph ]
-  %8 = getelementptr inbounds nuw %struct.GLFWimage, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %indvars.iv
   %9 = load i32, ptr %8, align 8, !tbaa !326
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %11 = load i32, ptr %10, align 4, !tbaa !328
@@ -2016,7 +2014,7 @@ define hidden void @_glfwSetWindowIconX11(ptr noundef readonly captures(none) %0
 .lr.ph59:                                         ; preds = %.lr.ph59.preheader, %._crit_edge54
   %indvars.iv68 = phi i64 [ 0, %.lr.ph59.preheader ], [ %indvars.iv.next69, %._crit_edge54 ]
   %.04456 = phi ptr [ %7, %.lr.ph59.preheader ], [ %.1.lcssa, %._crit_edge54 ]
-  %22 = getelementptr inbounds nuw %struct.GLFWimage, ptr %2, i64 %indvars.iv68
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %indvars.iv68
   %23 = load i32, ptr %22, align 8, !tbaa !326
   %24 = sext i32 %23 to i64
   %25 = getelementptr inbounds nuw i8, ptr %.04456, i64 8
@@ -3085,7 +3083,7 @@ define hidden void @_glfwMaximizeWindowX11(ptr noundef readonly captures(none) %
   br i1 %.not33, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %49 = getelementptr inbounds nuw i64, ptr %.pre34, i64 %.02129
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %.pre34, i64 %.02129
   %.pre = load i64, ptr %49, align 8, !tbaa !94
   br label %51
 
@@ -3109,7 +3107,7 @@ define hidden void @_glfwMaximizeWindowX11(ptr noundef readonly captures(none) %
   br i1 %53, label %54, label %59
 
 54:                                               ; preds = %51
-  %55 = getelementptr i64, ptr %9, i64 %.126
+  %55 = getelementptr [8 x i8], ptr %9, i64 %.126
   %56 = getelementptr i8, ptr %55, i64 -8
   %57 = load i64, ptr %56, align 8, !tbaa !94
   store i64 %57, ptr %.027.sroa.phi, align 8, !tbaa !94
@@ -3521,7 +3519,7 @@ define hidden void @_glfwSetWindowFloatingX11(ptr noundef readonly captures(none
 
 45:                                               ; preds = %.lr.ph, %49
   %.02130 = phi i64 [ 0, %.lr.ph ], [ %50, %49 ]
-  %46 = getelementptr inbounds nuw i64, ptr %43, i64 %.02130
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %.02130
   %47 = load i64, ptr %46, align 8, !tbaa !94
   %48 = icmp eq i64 %47, %44
   br i1 %48, label %._crit_edge, label %49
@@ -3558,15 +3556,15 @@ define hidden void @_glfwSetWindowFloatingX11(ptr noundef readonly captures(none
 
 60:                                               ; preds = %.lr.ph34, %75
   %.033 = phi i64 [ 0, %.lr.ph34 ], [ %76, %75 ]
-  %61 = getelementptr inbounds nuw i64, ptr %58, i64 %.033
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %.033
   %62 = load i64, ptr %61, align 8, !tbaa !94
   %63 = icmp eq i64 %62, %59
   br i1 %63, label %64, label %75
 
 64:                                               ; preds = %60
-  %65 = getelementptr inbounds nuw i64, ptr %58, i64 %.033
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %.033
   %66 = add i64 %42, -1
-  %67 = getelementptr inbounds nuw i64, ptr %58, i64 %66
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %66
   %68 = load i64, ptr %67, align 8, !tbaa !94
   store i64 %68, ptr %65, align 8, !tbaa !94
   %69 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141368), align 8, !tbaa !125
@@ -3723,7 +3721,7 @@ define hidden range(i32 0, 2) i32 @_glfwWindowMaximizedX11(ptr noundef readonly 
 
 24:                                               ; preds = %.lr.ph, %22
   %.018 = phi i64 [ 0, %.lr.ph ], [ %23, %22 ]
-  %25 = getelementptr inbounds nuw i64, ptr %.pre, i64 %.018
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %.018
   %26 = load i64, ptr %25, align 8, !tbaa !94
   %27 = icmp eq i64 %26, %20
   %28 = icmp eq i64 %26, %21
@@ -4307,7 +4305,7 @@ thread-pre-split.i:                               ; preds = %thread-pre-split
 
 165:                                              ; preds = %164
   %166 = zext nneg i32 %.0.i to i64
-  %167 = getelementptr inbounds nuw i16, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 139682), i64 %166
+  %167 = getelementptr inbounds nuw [2 x i8], ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 139682), i64 %166
   %168 = load i16, ptr %167, align 2, !tbaa !384
   %169 = sext i16 %168 to i32
   br label %translateKey.exit.i
@@ -4339,7 +4337,7 @@ translateKey.exit.i:                              ; preds = %165, %164
 185:                                              ; preds = %translateKey.exit.i
   %186 = getelementptr inbounds nuw i8, ptr %182, i64 1320
   %187 = sext i32 %.0.i to i64
-  %188 = getelementptr inbounds i64, ptr %186, i64 %187
+  %188 = getelementptr inbounds [8 x i8], ptr %186, i64 %187
   %189 = load i64, ptr %188, align 8, !tbaa !94
   %190 = icmp eq i64 %189, 0
   br i1 %190, label %196, label %191
@@ -4365,7 +4363,7 @@ translateKey.exit.i:                              ; preds = %165, %164
   %199 = phi ptr [ %.pre348.i, %197 ], [ %182, %196 ]
   %200 = load i64, ptr %47, align 8, !tbaa !106
   %201 = getelementptr inbounds nuw i8, ptr %199, i64 1320
-  %202 = getelementptr inbounds i64, ptr %201, i64 %187
+  %202 = getelementptr inbounds [8 x i8], ptr %201, i64 %187
   store i64 %200, ptr %202, align 8, !tbaa !94
   br label %203
 
@@ -4436,7 +4434,7 @@ translateKey.exit.i:                              ; preds = %165, %164
 
 decodeUTF8.exit.i:                                ; preds = %229
   %239 = zext i32 %.0.i305.i to i64
-  %240 = getelementptr inbounds nuw i32, ptr @decodeUTF8.offsets, i64 %239
+  %240 = getelementptr inbounds nuw [4 x i8], ptr @decodeUTF8.offsets, i64 %239
   %241 = load i32, ptr %240, align 4, !tbaa !183
   %242 = sub i32 %234, %241
   call void @_glfwInputChar(ptr noundef %228, i32 noundef %242, i32 noundef %.5.i.i, i32 noundef %181) #17
@@ -4485,7 +4483,7 @@ decodeUTF8.exit.i:                                ; preds = %229
 
 259:                                              ; preds = %258
   %260 = zext nneg i32 %.0.i to i64
-  %261 = getelementptr inbounds nuw i16, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 139682), i64 %260
+  %261 = getelementptr inbounds nuw [2 x i8], ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 139682), i64 %260
   %262 = load i16, ptr %261, align 2, !tbaa !384
   %263 = sext i16 %262 to i32
   br label %translateKey.exit308.i
@@ -4952,7 +4950,7 @@ updateCursorImage.exit:                           ; preds = %341
 486:                                              ; preds = %482, %.lr.ph332.i
   %487 = phi i64 [ 0, %.lr.ph332.i ], [ %484, %482 ]
   %.0217330.i = phi i32 [ 0, %.lr.ph332.i ], [ %483, %482 ]
-  %488 = getelementptr inbounds nuw i64, ptr %.pre341375.i, i64 %487
+  %488 = getelementptr inbounds nuw [8 x i8], ptr %.pre341375.i, i64 %487
   %489 = load i64, ptr %488, align 8, !tbaa !94
   %490 = icmp eq i64 %489, %481
   br i1 %490, label %491, label %482
@@ -5146,7 +5144,7 @@ updateCursorImage.exit:                           ; preds = %341
 
 .lr.ph.i:                                         ; preds = %581, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %581 ]
-  %588 = getelementptr inbounds nuw ptr, ptr %583, i64 %indvars.iv.i
+  %588 = getelementptr inbounds nuw [8 x i8], ptr %583, i64 %indvars.iv.i
   %589 = load ptr, ptr %588, align 8, !tbaa !410
   call void @_glfw_free(ptr noundef %589) #17
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -5919,7 +5917,7 @@ define hidden noundef ptr @_glfwGetScancodeNameX11(i32 noundef %0) local_unnamed
 
 5:                                                ; preds = %3
   %6 = zext nneg i32 %0 to i64
-  %7 = getelementptr inbounds nuw i16, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 139682), i64 %6
+  %7 = getelementptr inbounds nuw [2 x i8], ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 139682), i64 %6
   %8 = load i16, ptr %7, align 2, !tbaa !384
   %9 = icmp eq i16 %8, -1
   br i1 %9, label %28, label %10
@@ -5963,7 +5961,7 @@ declare i64 @_glfwEncodeUTF8(ptr noundef, i32 noundef) local_unnamed_addr #3
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden range(i32 -32768, 32768) i32 @_glfwGetKeyScancodeX11(i32 noundef %0) local_unnamed_addr #7 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds i16, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140194), i64 %2
+  %3 = getelementptr inbounds [2 x i8], ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 140194), i64 %2
   %4 = load i16, ptr %3, align 2, !tbaa !384
   %5 = sext i16 %4 to i32
   ret i32 %5
@@ -6004,7 +6002,7 @@ define hidden range(i32 0, 2) i32 @_glfwCreateStandardCursorX11(ptr noundef capt
 
 switch.lookup:                                    ; preds = %8
   %13 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._glfwCreateStandardCursorX11, i64 %13
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._glfwCreateStandardCursorX11, i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %14
 
@@ -6046,7 +6044,7 @@ switch.lookup:                                    ; preds = %8
 
 switch.lookup28:                                  ; preds = %26
   %29 = zext nneg i32 %switch.tableidx26 to i64
-  %switch.gep29 = getelementptr inbounds nuw i32, ptr @switch.table._glfwCreateStandardCursorX11.6, i64 %29
+  %switch.gep29 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._glfwCreateStandardCursorX11.6, i64 %29
   %switch.load30 = load i32, ptr %switch.gep29, align 4
   %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 141432), align 8, !tbaa !424
   %31 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !93
@@ -6600,7 +6598,7 @@ define hidden i32 @_glfwGetPhysicalDevicePresentationSupportX11(ptr noundef %0, 
   %7 = load ptr, ptr %6, align 8, !tbaa !184
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !185
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds %struct.Screen, ptr %7, i64 %9
+  %10 = getelementptr inbounds [128 x i8], ptr %7, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 64
   %12 = load ptr, ptr %11, align 8, !tbaa !186
   %13 = tail call i64 %4(ptr noundef %12) #17

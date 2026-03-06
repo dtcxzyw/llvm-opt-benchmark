@@ -43,8 +43,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%struct.t_atom = type { float, float, float, float, i16, i16, i32, i32, i32, [4 x i8] }
-%struct.t_resinfo = type { ptr, i32, i8, i32, i8, ptr }
 %"class.gmx::InternalError" = type { %"class.gmx::GromacsException" }
 %"class.gmx::GromacsException" = type { %"class.std::exception", %"class.std::shared_ptr.55" }
 %"class.std::exception" = type { ptr }
@@ -1142,7 +1140,7 @@ _ZNSt12__shared_ptrIN3gmx19IAnalysisDataModuleELN9__gnu_cxx12_Lock_policyE2EED2E
 137:                                              ; preds = %.lr.ph, %137
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %137 ]
   %138 = phi double [ 0.000000e+00, %.lr.ph ], [ %142, %137 ]
-  %139 = getelementptr inbounds nuw %struct.t_atom, ptr %121, i64 %indvars.iv
+  %139 = getelementptr inbounds nuw [36 x i8], ptr %121, i64 %indvars.iv
   %140 = load float, ptr %139, align 4, !tbaa !148
   %141 = fpext float %140 to double
   %142 = fadd double %138, %141
@@ -1214,14 +1212,14 @@ _ZNSt12__shared_ptrIN3gmx19IAnalysisDataModuleELN9__gnu_cxx12_Lock_policyE2EED2E
   %176 = load ptr, ptr %175, align 8, !tbaa !145
   %177 = load i32, ptr %.sroa.095.0151, align 4, !tbaa !84
   %178 = sext i32 %177 to i64
-  %179 = getelementptr inbounds %struct.t_atom, ptr %176, i64 %178
+  %179 = getelementptr inbounds [36 x i8], ptr %176, i64 %178
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 24
   %181 = load i32, ptr %180, align 4, !tbaa !171
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %182 = getelementptr inbounds nuw i8, ptr %174, i64 48
   %183 = load ptr, ptr %182, align 8, !tbaa !172
   %184 = sext i32 %181 to i64
-  %185 = getelementptr inbounds %struct.t_resinfo, ptr %183, i64 %184
+  %185 = getelementptr inbounds [32 x i8], ptr %183, i64 %184
   %186 = load ptr, ptr %185, align 8, !tbaa !173
   %187 = load ptr, ptr %186, align 8, !tbaa !175
   store ptr %157, ptr %12, align 8, !tbaa !7
@@ -1281,7 +1279,7 @@ _ZNSt12__shared_ptrIN3gmx19IAnalysisDataModuleELN9__gnu_cxx12_Lock_policyE2EED2E
   %205 = load ptr, ptr %204, align 8, !tbaa !176
   %206 = load i32, ptr %.sroa.095.0151, align 4, !tbaa !84
   %207 = sext i32 %206 to i64
-  %208 = getelementptr inbounds ptr, ptr %205, i64 %207
+  %208 = getelementptr inbounds [8 x i8], ptr %205, i64 %207
   %209 = load ptr, ptr %208, align 8, !tbaa !177
   %210 = load ptr, ptr %209, align 8, !tbaa !175
   store ptr %159, ptr %13, align 8, !tbaa !7
@@ -1432,7 +1430,7 @@ _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS
   %.pre159.pre-phi = phi double [ %.pre160, %261 ], [ %238, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit16.i.i.i ]
   store ptr %256, ptr %161, align 8, !tbaa !35
   store ptr %260, ptr %162, align 8, !tbaa !178
-  %262 = getelementptr inbounds nuw double, ptr %256, i64 %254
+  %262 = getelementptr inbounds nuw [8 x i8], ptr %256, i64 %254
   store ptr %262, ptr %163, align 8, !tbaa !38
   br label %_ZNSt6vectorIdSaIdEE9push_backEOd.exit
 
@@ -1517,14 +1515,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit75: ; preds = %_ZN
   %281 = load ptr, ptr %10, align 8, !tbaa !136
   %282 = getelementptr inbounds nuw i8, ptr %281, i64 48
   %283 = load ptr, ptr %282, align 8, !tbaa !172
-  %284 = getelementptr inbounds %struct.t_resinfo, ptr %283, i64 %184
+  %284 = getelementptr inbounds [32 x i8], ptr %283, i64 %184
   %285 = load ptr, ptr %284, align 8, !tbaa !173
   %286 = load ptr, ptr %285, align 8, !tbaa !175
   %287 = getelementptr inbounds nuw i8, ptr %281, i64 16
   %288 = load ptr, ptr %287, align 8, !tbaa !176
   %289 = load i32, ptr %.sroa.095.0151, align 4, !tbaa !84
   %290 = sext i32 %289 to i64
-  %291 = getelementptr inbounds ptr, ptr %288, i64 %290
+  %291 = getelementptr inbounds [8 x i8], ptr %288, i64 %290
   %292 = load ptr, ptr %291, align 8, !tbaa !177
   %293 = load ptr, ptr %292, align 8, !tbaa !175
   %294 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %280, ptr noundef nonnull @.str.48, ptr noundef %286, ptr noundef %293) #26
@@ -1592,7 +1590,7 @@ _ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit16.i.i.i80: ; preds = %316, %
 _ZNSt6vectorIdSaIdEE17_M_realloc_insertIJdEEEvN9__gnu_cxx17__normal_iteratorIPdS1_EEDpOT_.exit.i.i82: ; preds = %318, %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit16.i.i.i80
   store ptr %313, ptr %161, align 8, !tbaa !35
   store ptr %317, ptr %162, align 8, !tbaa !178
-  %319 = getelementptr inbounds nuw double, ptr %313, i64 %311
+  %319 = getelementptr inbounds nuw [8 x i8], ptr %313, i64 %311
   store ptr %319, ptr %163, align 8, !tbaa !38
   br label %_ZNSt6vectorIdSaIdEE9push_backEOd.exit85
 
@@ -1994,7 +1992,7 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_110FreeVolume12analyz
 
 ._crit_edge.i:                                    ; preds = %113
   %.phi.trans.insert1.i = zext nneg i32 %115 to i64
-  %.phi.trans.insert2.i = getelementptr inbounds nuw i64, ptr %.phi.trans.insert.i, i64 %.phi.trans.insert1.i
+  %.phi.trans.insert2.i = getelementptr inbounds nuw [8 x i8], ptr %.phi.trans.insert.i, i64 %.phi.trans.insert1.i
   %.pre.i = load i64, ptr %.phi.trans.insert2.i, align 8, !tbaa !31
   %117 = add nuw nsw i32 %115, 1
   br label %179
@@ -2129,7 +2127,7 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_110FreeVolume12analyz
   %184 = fmul nnan float %183, 0x3BF0000000000000
   %185 = fcmp oeq float %184, 1.000000e+00
   %.013.i.i.i = select i1 %185, float 0.000000e+00, float %184
-  %186 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv
+  %186 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv
   store float %.013.i.i.i, ptr %186, align 4, !tbaa !170
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -2152,7 +2150,7 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_110FreeVolume12analyz
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 64
   %195 = load ptr, ptr %194, align 8, !tbaa !192
   %196 = sext i32 %192 to i64
-  %197 = getelementptr inbounds [3 x float], ptr %195, i64 %196
+  %197 = getelementptr inbounds [12 x i8], ptr %195, i64 %196
   invoke void @_Z6pbc_dxPK5t_pbcPKfS3_Pf(ptr noundef nonnull %3, ptr noundef nonnull %14, ptr noundef nonnull %197, ptr noundef nonnull %15)
           to label %198 unwind label %222
 
@@ -2169,11 +2167,11 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_110FreeVolume12analyz
   %207 = fpext float %sqrt.i.i to double
   %208 = getelementptr inbounds nuw i8, ptr %206, i64 96
   %209 = load ptr, ptr %208, align 8, !tbaa !193
-  %210 = getelementptr inbounds i32, ptr %209, i64 %196
+  %210 = getelementptr inbounds [4 x i8], ptr %209, i64 %196
   %211 = load i32, ptr %210, align 4, !tbaa !84
   %212 = sext i32 %211 to i64
   %213 = load ptr, ptr %80, align 8, !tbaa !35
-  %214 = getelementptr inbounds nuw double, ptr %213, i64 %212
+  %214 = getelementptr inbounds nuw [8 x i8], ptr %213, i64 %212
   %215 = load double, ptr %214, align 8, !tbaa !179
   %216 = fadd double %205, %215
   %217 = fcmp ogt double %216, %207

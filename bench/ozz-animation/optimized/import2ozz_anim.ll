@@ -60,12 +60,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char, std::char_traits<char>, ozz::StdAllocator<char>>, ozz::StdAllocator<std::__cxx11::basic_string<char, std::char_traits<char>, ozz::StdAllocator<char>>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char, std::char_traits<char>, ozz::StdAllocator<char>>, ozz::StdAllocator<std::__cxx11::basic_string<char, std::char_traits<char>, ozz::StdAllocator<char>>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char, std::char_traits<char>, ozz::StdAllocator<char>>, ozz::StdAllocator<std::__cxx11::basic_string<char, std::char_traits<char>, ozz::StdAllocator<char>>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char, std::char_traits<char>, ozz::StdAllocator<char>>, ozz::StdAllocator<std::__cxx11::basic_string<char, std::char_traits<char>, ozz::StdAllocator<char>>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.ozz::math::Transform" = type { %"struct.ozz::math::Float3", %"struct.ozz::math::Quaternion", %"struct.ozz::math::Float3" }
-%"struct.ozz::math::Quaternion" = type { float, float, float, float }
-%"struct.ozz::math::Float3" = type { float, float, float }
-%"struct.ozz::math::SoaTransform" = type { %"struct.ozz::math::SoaFloat3", %"struct.ozz::math::SoaQuaternion", %"struct.ozz::math::SoaFloat3" }
-%"struct.ozz::math::SoaQuaternion" = type { <4 x float>, <4 x float>, <4 x float>, <4 x float> }
-%"struct.ozz::math::SoaFloat3" = type { <4 x float>, <4 x float>, <4 x float> }
 
 $_ZN3ozz9animation7offline12RawAnimationaSEOS2_ = comdat any
 
@@ -1557,7 +1551,7 @@ _ZNSolsEPFRSoS_E.exit134:                         ; preds = %.noexc245
   %.0991250 = phi i64 [ %.1100, %2031 ], [ 0, %.preheader ]
   %.01011249 = phi i64 [ %.1102, %2031 ], [ 0, %.preheader ]
   %.01041248 = phi i64 [ %2032, %2031 ], [ 0, %.preheader ]
-  %557 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %556, i64 %.01041248
+  %557 = getelementptr inbounds nuw [32 x i8], ptr %556, i64 %.01041248
   %558 = load ptr, ptr %557, align 8, !tbaa !60
   %559 = invoke noundef zeroext i1 @_ZN3ozz8strmatchEPKcS1_(ptr noundef %558, ptr noundef nonnull %517)
           to label %560 unwind label %561
@@ -2487,7 +2481,7 @@ _ZNK4Json18ValueConstIteratordeEv.exit.i:         ; preds = %859
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %1012 ]
   %.0106516.i = phi i1 [ false, %.lr.ph.i ], [ %.1107.i, %1012 ]
   %884 = load ptr, ptr %843, align 8, !tbaa !109
-  %885 = getelementptr inbounds nuw ptr, ptr %884, i64 %indvars.iv.i
+  %885 = getelementptr inbounds nuw [8 x i8], ptr %884, i64 %indvars.iv.i
   %886 = load ptr, ptr %885, align 8, !tbaa !113
   %887 = invoke noundef zeroext i1 @_ZN3ozz8strmatchEPKcS1_(ptr noundef %886, ptr noundef %871)
           to label %888 unwind label %1002
@@ -3797,7 +3791,7 @@ _ZNSolsEPFRSoS_E.exit212.i:                       ; preds = %.noexc364.i
 .preheader.i:                                     ; preds = %1381, %1387
   %1383 = phi i1 [ false, %1387 ], [ true, %1381 ]
   %.0711.i.i = phi i64 [ 1, %1387 ], [ 0, %1381 ]
-  %1384 = getelementptr inbounds nuw ptr, ptr @_ZZN3ozz9animation7offline17AdditiveReference8GetNamesEvE6kNames, i64 %.0711.i.i
+  %1384 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN3ozz9animation7offline17AdditiveReference8GetNamesEvE6kNames, i64 %.0711.i.i
   %1385 = load ptr, ptr %1384, align 8, !tbaa !113
   %1386 = invoke noundef zeroext i1 @_ZN3ozz9animation7offline11CompareNameEPKcS3_(ptr noundef %1385, ptr noundef %1382)
           to label %.noexc213.i unwind label %.loopexit472.i
@@ -3857,7 +3851,7 @@ _ZNSt12_Vector_baseIN3ozz4math9TransformENS0_12StdAllocatorIS2_EEEC2EmRKS4_.exit
 
 .lr.ph.preheader.i.i.i.i.i:                       ; preds = %1396
   store ptr %1401, ptr %25, align 8, !tbaa !126, !alias.scope !123
-  %1405 = getelementptr inbounds nuw %"struct.ozz::math::Transform", ptr %1401, i64 %1391
+  %1405 = getelementptr inbounds nuw [40 x i8], ptr %1401, i64 %1391
   store ptr %1405, ptr %487, align 8, !tbaa !129, !alias.scope !123
   call void @llvm.memset.p0.i64(ptr align 4 %1401, i8 0, i64 %1397, i1 false), !noalias !123
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %1401, i64 %1397
@@ -3880,7 +3874,7 @@ _ZNSt6vectorIN3ozz4math9TransformENS0_12StdAllocatorIS2_EEEC2EmRKS4_.exit.i.i: ;
 1412:                                             ; preds = %.critedge.i.i, %.lr.ph.i215.i
   %indvars.iv39.i.i = phi i64 [ 0, %.lr.ph.i215.i ], [ %indvars.iv.next40.i.i, %.critedge.i.i ]
   %1413 = load ptr, ptr %1411, align 8, !tbaa !131, !noalias !123
-  %1414 = getelementptr inbounds nuw %"struct.ozz::math::SoaTransform", ptr %1413, i64 %indvars.iv39.i.i
+  %1414 = getelementptr inbounds nuw [160 x i8], ptr %1413, i64 %indvars.iv39.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !123
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !123
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !123
@@ -3965,8 +3959,8 @@ _ZNSt6vectorIN3ozz4math9TransformENS0_12StdAllocatorIS2_EEEC2EmRKS4_.exit.i.i: ;
   br i1 %1467, label %1412, label %.loopexit.i, !llvm.loop !134
 
 1468:                                             ; preds = %1459
-  %1469 = getelementptr inbounds nuw %"struct.ozz::math::Transform", ptr %1406, i64 %1460
-  %1470 = getelementptr inbounds nuw <4 x float>, ptr %6, i64 %indvars.iv.i.i
+  %1469 = getelementptr inbounds nuw [40 x i8], ptr %1406, i64 %1460
+  %1470 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv.i.i
   %1471 = load <4 x float>, ptr %1470, align 16, !tbaa !35, !noalias !123
   %1472 = extractelement <4 x float> %1471, i64 0
   store float %1472, ptr %1469, align 1, !tbaa !35, !noalias !123
@@ -3976,11 +3970,11 @@ _ZNSt6vectorIN3ozz4math9TransformENS0_12StdAllocatorIS2_EEEC2EmRKS4_.exit.i.i: ;
   %1475 = getelementptr inbounds nuw i8, ptr %1469, i64 8
   %1476 = extractelement <4 x float> %1471, i64 2
   store float %1476, ptr %1475, align 1, !tbaa !35, !noalias !123
-  %1477 = getelementptr inbounds nuw <4 x float>, ptr %7, i64 %indvars.iv.i.i
+  %1477 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %indvars.iv.i.i
   %1478 = load <4 x float>, ptr %1477, align 16, !tbaa !35, !noalias !123
   %1479 = getelementptr inbounds nuw i8, ptr %1469, i64 12
   store <4 x float> %1478, ptr %1479, align 1, !tbaa !35, !noalias !123
-  %1480 = getelementptr inbounds nuw <4 x float>, ptr %8, i64 %indvars.iv.i.i
+  %1480 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %indvars.iv.i.i
   %1481 = load <4 x float>, ptr %1480, align 16, !tbaa !35, !noalias !123
   %1482 = getelementptr inbounds nuw i8, ptr %1469, i64 28
   %1483 = extractelement <4 x float> %1481, i64 0

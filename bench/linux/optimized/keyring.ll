@@ -1016,7 +1016,7 @@ define internal fastcc noundef zeroext i1 @search_nested_keyrings(ptr noundef %0
 
 160:                                              ; preds = %173, %.split.us.us
   %161 = phi i64 [ %137, %.split.us.us ], [ %174, %173 ]
-  %162 = getelementptr ptr, ptr %136, i64 %161
+  %162 = getelementptr [8 x i8], ptr %136, i64 %161
   %163 = load volatile ptr, ptr %162, align 8
   %164 = ptrtoint ptr %163 to i64
   %165 = and i64 %164, 1
@@ -1058,7 +1058,7 @@ define internal fastcc noundef zeroext i1 @search_nested_keyrings(ptr noundef %0
 
 185:                                              ; preds = %221, %.split
   %186 = phi i64 [ %184, %.split ], [ %222, %221 ]
-  %187 = getelementptr ptr, ptr %183, i64 %186
+  %187 = getelementptr [8 x i8], ptr %183, i64 %186
   %188 = load volatile ptr, ptr %187, align 8
   %189 = ptrtoint ptr %188 to i64
   %190 = and i64 %189, 1
@@ -1101,7 +1101,7 @@ define internal fastcc noundef zeroext i1 @search_nested_keyrings(ptr noundef %0
   %214 = trunc i64 %186 to i32
   %215 = inttoptr i64 %199 to ptr
   %216 = sext i32 %.fr48 to i64
-  %217 = getelementptr %struct.anon.32, ptr %3, i64 %216
+  %217 = getelementptr [24 x i8], ptr %3, i64 %216
   store ptr %131, ptr %217, align 8
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 8
   store ptr %181, ptr %218, align 8
@@ -1167,7 +1167,7 @@ define internal fastcc noundef zeroext i1 @search_nested_keyrings(ptr noundef %0
 249:                                              ; preds = %.thread9
   %250 = add nsw i32 %247, -1
   %251 = zext nneg i32 %250 to i64
-  %252 = getelementptr %struct.anon.32, ptr %3, i64 %251
+  %252 = getelementptr [24 x i8], ptr %3, i64 %251
   %253 = load ptr, ptr %252, align 8
   %254 = getelementptr inbounds nuw i8, ptr %252, i64 8
   %255 = load ptr, ptr %254, align 8
@@ -1207,7 +1207,7 @@ define internal fastcc noundef zeroext i1 @search_nested_keyrings(ptr noundef %0
 277:                                              ; preds = %277, %275
   %278 = phi i64 [ %276, %275 ], [ %279, %277 ]
   %279 = add nsw i64 %278, -1
-  %280 = getelementptr %struct.anon.32, ptr %3, i64 %279
+  %280 = getelementptr [24 x i8], ptr %3, i64 %279
   %281 = load ptr, ptr %280, align 8
   %282 = getelementptr inbounds nuw i8, ptr %281, i64 96
   store i64 %.pre, ptr %282, align 8

@@ -73,7 +73,7 @@ define noundef i128 @_ZN3egg4test10percentile17h86d6f65026f76f59E(double noundef
   br i1 %12, label %13, label %16, !prof !7
 
 13:                                               ; preds = %7
-  %14 = getelementptr inbounds i128, ptr %1, i64 %.sroa.0.0.sroa.speculated.i
+  %14 = getelementptr inbounds [16 x i8], ptr %1, i64 %.sroa.0.0.sroa.speculated.i
   %15 = load i128, ptr %14, align 16, !noundef !4
   ret i128 %15
 

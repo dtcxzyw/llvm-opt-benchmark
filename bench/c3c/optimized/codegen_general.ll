@@ -541,7 +541,7 @@ define dso_local zeroext i1 @type_is_homogenous_aggregate(ptr noundef %0, ptr no
 
 .lr.ph81:                                         ; preds = %.lr.ph81.preheader, %40
   %indvars.iv = phi i64 [ 0, %.lr.ph81.preheader ], [ %indvars.iv.next, %40 ]
-  %24 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 72
   %27 = load ptr, ptr %26, align 8

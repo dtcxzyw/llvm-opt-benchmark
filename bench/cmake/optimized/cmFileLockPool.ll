@@ -8,11 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %class.cmFileLockResult = type { i32, i32 }
-%"class.cmFileLockPool::ScopePool" = type { %"class.std::vector.0" }
-%"class.std::vector.0" = type { %"struct.std::_Vector_base.1" }
-%"struct.std::_Vector_base.1" = type { %"struct.std::_Vector_base<cmFileLock, std::allocator<cmFileLock>>::_Vector_impl" }
-%"struct.std::_Vector_base<cmFileLock, std::allocator<cmFileLock>>::_Vector_impl" = type { %"struct.std::_Vector_base<cmFileLock, std::allocator<cmFileLock>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<cmFileLock, std::allocator<cmFileLock>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 $_ZNSt6vectorIN14cmFileLockPool9ScopePoolESaIS1_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_ = comdat any
 
@@ -1077,7 +1072,7 @@ _ZNSt6vectorIN14cmFileLockPool9ScopePoolESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.ex
 _ZNSt12_Vector_baseIN14cmFileLockPool9ScopePoolESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN14cmFileLockPool9ScopePoolESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit31, %41
   store ptr %19, ptr %0, align 8, !tbaa !14
   store ptr %.0.lcssa.i.i.i30, ptr %3, align 8, !tbaa !17
-  %45 = getelementptr inbounds nuw %"class.cmFileLockPool::ScopePool", ptr %19, i64 %15
+  %45 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %15
   store ptr %45, ptr %40, align 8, !tbaa !19
   ret void
 }
@@ -1163,7 +1158,7 @@ _ZNSt6vectorI10cmFileLockSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22: ; preds = 
 _ZNSt12_Vector_baseI10cmFileLockSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZNSt6vectorI10cmFileLockSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22, %28
   store ptr %20, ptr %0, align 8, !tbaa !4
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !10
-  %32 = getelementptr inbounds nuw %class.cmFileLock, ptr %20, i64 %16
+  %32 = getelementptr inbounds nuw [40 x i8], ptr %20, i64 %16
   store ptr %32, ptr %27, align 8, !tbaa !13
   ret void
 }

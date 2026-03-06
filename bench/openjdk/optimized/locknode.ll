@@ -135,7 +135,7 @@ _ZN7RegMask6InsertEi.exit:                        ; preds = %43, %46
   %48 = zext nneg i32 %47 to i64
   %49 = shl nuw i64 1, %48
   %50 = zext nneg i32 %39 to i64
-  %51 = getelementptr inbounds nuw i64, ptr %12, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %50
   %52 = load i64, ptr %51, align 8
   %53 = or i64 %52, %49
   store i64 %53, ptr %51, align 8
@@ -328,7 +328,7 @@ _ZN11BoxLockNode8box_nodeEP4Node.exit:            ; preds = %.lr.ph.i, %1
 .lr.ph.i1:                                        ; preds = %_ZN11BoxLockNode8box_nodeEP4Node.exit, %30
   %.0712.i = phi i32 [ %31, %30 ], [ %19, %_ZN11BoxLockNode8box_nodeEP4Node.exit ]
   %22 = zext i32 %.0712.i to i64
-  %23 = getelementptr inbounds nuw i64, ptr %17, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %22
   %24 = load i64, ptr %23, align 8
   %.not9.i = icmp eq i64 %24, 0
   br i1 %.not9.i, label %30, label %25
@@ -372,7 +372,7 @@ define hidden noundef zeroext i1 @_ZN11BoxLockNode21is_simple_lock_regionEPP8Loc
   %11 = phi i32 [ %32, %31 ], [ %9, %.lr.ph ]
   %indvars.iv67 = phi i64 [ %indvars.iv.next68, %31 ], [ 0, %.lr.ph ]
   %12 = load ptr, ptr %10, align 8
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv67
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv67
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 44
   %16 = load i32, ptr %15, align 4
@@ -416,7 +416,7 @@ define hidden noundef zeroext i1 @_ZN11BoxLockNode21is_simple_lock_regionEPP8Loc
   %.02640.us44 = phi ptr [ %.1.us48, %61 ], [ null, %.lr.ph.split ]
   %.02838.us46 = phi i1 [ %.129.us47, %61 ], [ false, %.lr.ph.split ]
   %35 = load ptr, ptr %10, align 8
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv65
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv65
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 44
   %39 = load i32, ptr %38, align 4
@@ -469,7 +469,7 @@ define hidden noundef zeroext i1 @_ZN11BoxLockNode21is_simple_lock_regionEPP8Loc
   %.02640 = phi ptr [ %.1, %93 ], [ null, %.lr.ph.split ]
   %.02838 = phi i1 [ %.129, %93 ], [ false, %.lr.ph.split ]
   %65 = load ptr, ptr %10, align 8
-  %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %indvars.iv
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 44
   %69 = load i32, ptr %68, align 4
@@ -586,7 +586,7 @@ define hidden void @_ZN5Parse16do_monitor_enterEv(ptr noundef nonnull align 8 de
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = zext i32 %11 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load ptr, ptr %17, align 8
@@ -597,7 +597,7 @@ define hidden void @_ZN5Parse16do_monitor_enterEv(ptr noundef nonnull align 8 de
   %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = zext i32 %22 to i64
-  %26 = getelementptr inbounds nuw ptr, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %25
   %27 = load ptr, ptr %26, align 8
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 112

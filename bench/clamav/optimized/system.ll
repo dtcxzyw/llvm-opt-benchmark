@@ -24,7 +24,7 @@ define range(i32 -1, 3) i32 @mspack_version(i32 noundef %0) local_unnamed_addr #
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.mspack_version, i64 %3
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.mspack_version, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %4
 
@@ -157,7 +157,7 @@ define internal noalias noundef ptr @msp_open(ptr readnone captures(none) %0, pt
 
 switch.lookup:                                    ; preds = %3
   %5 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.msp_open, i64 %5
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.msp_open, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   %6 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #16
   %.not = icmp eq ptr %6, null

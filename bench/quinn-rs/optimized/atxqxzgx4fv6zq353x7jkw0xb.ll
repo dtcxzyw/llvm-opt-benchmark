@@ -96,7 +96,7 @@ define hidden void @_ZN4perf5stats4json5print17h1869a01143d2e144E(ptr noalias no
   %14 = load ptr, ptr %13, align 8, !nonnull !4, !noundef !4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %16 = load i64, ptr %15, align 8, !noundef !4
-  %17 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { double, double, double } }, ptr %14, i64 %16
+  %17 = getelementptr inbounds nuw [48 x i8], ptr %14, i64 %16
   invoke void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h563258b054f806f5E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noundef nonnull %14, ptr noundef nonnull %17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.019362b1b8608f658bb0d3f49b5e2a6e.3)
           to label %_ZN4core4iter6traits8iterator8Iterator7collect17h14ae0dab6acdcd8fE.exit unwind label %49
 
@@ -248,7 +248,7 @@ define hidden void @_ZN4perf5stats4json5print17h3b500a14b51d5d78E(ptr noalias no
   %13 = load ptr, ptr %12, align 8, !nonnull !4, !noundef !4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 496
   %15 = load i64, ptr %14, align 8, !noundef !4
-  %16 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 }, { double, double, double } }, ptr %13, i64 %15
+  %16 = getelementptr inbounds nuw [48 x i8], ptr %13, i64 %15
   call void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h563258b054f806f5E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noundef nonnull %13, ptr noundef nonnull %16, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.019362b1b8608f658bb0d3f49b5e2a6e.3)
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %9, ptr %17, align 8

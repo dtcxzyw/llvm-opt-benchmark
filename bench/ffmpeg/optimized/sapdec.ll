@@ -256,7 +256,7 @@ define internal i32 @sap_read_header(ptr noundef %0) #0 {
   %115 = load ptr, ptr %84, align 8, !tbaa !40
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 48
   %117 = load ptr, ptr %116, align 8, !tbaa !55
-  %118 = getelementptr inbounds nuw ptr, ptr %117, i64 %indvars.iv
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %indvars.iv
   %119 = load ptr, ptr %118, align 8, !tbaa !56
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 16
   %121 = load ptr, ptr %120, align 8, !tbaa !54
@@ -269,7 +269,7 @@ define internal i32 @sap_read_header(ptr noundef %0) #0 {
   %126 = load ptr, ptr %84, align 8, !tbaa !40
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 48
   %128 = load ptr, ptr %127, align 8, !tbaa !55
-  %129 = getelementptr inbounds nuw ptr, ptr %128, i64 %indvars.iv
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %indvars.iv
   %130 = load ptr, ptr %129, align 8, !tbaa !56
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 32
   %132 = load i64, ptr %131, align 8
@@ -417,7 +417,7 @@ define internal i32 @sap_fetch_packet(ptr noundef %0, ptr noundef %1) #0 {
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 48
   %59 = load ptr, ptr %58, align 8, !tbaa !55
   %60 = sext i32 %51 to i64
-  %61 = getelementptr inbounds ptr, ptr %59, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %59, i64 %60
   %62 = load ptr, ptr %61, align 8, !tbaa !56
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %64 = load ptr, ptr %63, align 8, !tbaa !54
@@ -426,7 +426,7 @@ define internal i32 @sap_fetch_packet(ptr noundef %0, ptr noundef %1) #0 {
   %67 = load ptr, ptr %37, align 8, !tbaa !40
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 48
   %69 = load ptr, ptr %68, align 8, !tbaa !55
-  %70 = getelementptr inbounds ptr, ptr %69, i64 %60
+  %70 = getelementptr inbounds [8 x i8], ptr %69, i64 %60
   %71 = load ptr, ptr %70, align 8, !tbaa !56
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 32
   %73 = load i64, ptr %72, align 8

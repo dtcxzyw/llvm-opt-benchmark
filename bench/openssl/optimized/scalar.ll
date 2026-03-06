@@ -29,7 +29,7 @@ define internal fastcc void @sc_montmul(ptr noundef captures(none) %0, ptr nound
 7:                                                ; preds = %3, %43
   %indvars.iv56 = phi i64 [ 0, %3 ], [ %indvars.iv.next57, %43 ]
   %.03645 = phi i64 [ 0, %3 ], [ %51, %43 ]
-  %8 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv56
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv56
   %9 = load i64, ptr %8, align 8, !tbaa !3
   %10 = zext i64 %9 to i128
   br label %11
@@ -37,11 +37,11 @@ define internal fastcc void @sc_montmul(ptr noundef captures(none) %0, ptr nound
 11:                                               ; preds = %7, %11
   %indvars.iv = phi i64 [ 0, %7 ], [ %indvars.iv.next, %11 ]
   %.041 = phi i128 [ 0, %7 ], [ %22, %11 ]
-  %12 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %13 = load i64, ptr %12, align 8, !tbaa !3
   %14 = zext i64 %13 to i128
   %15 = mul nuw i128 %14, %10
-  %16 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %17 = load i64, ptr %16, align 8, !tbaa !3
   %18 = zext i64 %17 to i128
   %19 = add nuw nsw i128 %.041, %18
@@ -64,11 +64,11 @@ define internal fastcc void @sc_montmul(ptr noundef captures(none) %0, ptr nound
 28:                                               ; preds = %23, %41
   %indvars.iv52 = phi i64 [ 0, %23 ], [ %indvars.iv.next53, %41 ]
   %.143 = phi i128 [ 0, %23 ], [ %42, %41 ]
-  %29 = getelementptr inbounds nuw i64, ptr @sc_p, i64 %indvars.iv52
+  %29 = getelementptr inbounds nuw [8 x i8], ptr @sc_p, i64 %indvars.iv52
   %30 = load i64, ptr %29, align 8, !tbaa !3
   %31 = zext i64 %30 to i128
   %32 = mul nuw i128 %31, %27
-  %33 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv52
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv52
   %34 = load i64, ptr %33, align 8, !tbaa !3
   %35 = zext i64 %34 to i128
   %36 = add nuw nsw i128 %.143, %35
@@ -105,16 +105,16 @@ define internal fastcc void @sc_montmul(ptr noundef captures(none) %0, ptr nound
 .preheader:                                       ; preds = %43, %.preheader
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader ], [ 0, %43 ]
   %.02.i = phi i128 [ %62, %.preheader ], [ 0, %43 ]
-  %52 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv.i
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i
   %53 = load i64, ptr %52, align 8, !tbaa !3
   %54 = zext i64 %53 to i128
   %55 = add nsw i128 %.02.i, %54
-  %56 = getelementptr inbounds nuw i64, ptr @sc_p, i64 %indvars.iv.i
+  %56 = getelementptr inbounds nuw [8 x i8], ptr @sc_p, i64 %indvars.iv.i
   %57 = load i64, ptr %56, align 8, !tbaa !3
   %58 = zext i64 %57 to i128
   %59 = sub nsw i128 %55, %58
   %60 = trunc i128 %59 to i64
-  %61 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv.i
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i
   store i64 %60, ptr %61, align 8, !tbaa !3
   %62 = ashr i128 %59, 64
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -129,11 +129,11 @@ define internal fastcc void @sc_montmul(ptr noundef captures(none) %0, ptr nound
 66:                                               ; preds = %66, %63
   %indvars.iv6.i = phi i64 [ 0, %63 ], [ %indvars.iv.next7.i, %66 ]
   %.14.i = phi i128 [ 0, %63 ], [ %77, %66 ]
-  %67 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv6.i
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv6.i
   %68 = load i64, ptr %67, align 8, !tbaa !3
   %69 = zext i64 %68 to i128
   %70 = add nuw nsw i128 %.14.i, %69
-  %71 = getelementptr inbounds nuw i64, ptr @sc_p, i64 %indvars.iv6.i
+  %71 = getelementptr inbounds nuw [8 x i8], ptr @sc_p, i64 %indvars.iv6.i
   %72 = load i64, ptr %71, align 8, !tbaa !3
   %73 = and i64 %72, %65
   %74 = zext i64 %73 to i128
@@ -157,16 +157,16 @@ define void @ossl_curve448_scalar_sub(ptr noundef captures(none) %0, ptr noundef
 4:                                                ; preds = %4, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %4 ]
   %.02.i = phi i128 [ 0, %3 ], [ %15, %4 ]
-  %5 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i
   %6 = load i64, ptr %5, align 8, !tbaa !3
   %7 = zext i64 %6 to i128
   %8 = add nsw i128 %.02.i, %7
-  %9 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i
   %10 = load i64, ptr %9, align 8, !tbaa !3
   %11 = zext i64 %10 to i128
   %12 = sub nsw i128 %8, %11
   %13 = trunc i128 %12 to i64
-  %14 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i
   store i64 %13, ptr %14, align 8, !tbaa !3
   %15 = ashr i128 %12, 64
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -180,11 +180,11 @@ define void @ossl_curve448_scalar_sub(ptr noundef captures(none) %0, ptr noundef
 18:                                               ; preds = %18, %16
   %indvars.iv6.i = phi i64 [ 0, %16 ], [ %indvars.iv.next7.i, %18 ]
   %.14.i = phi i128 [ 0, %16 ], [ %29, %18 ]
-  %19 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv6.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv6.i
   %20 = load i64, ptr %19, align 8, !tbaa !3
   %21 = zext i64 %20 to i128
   %22 = add nuw nsw i128 %.14.i, %21
-  %23 = getelementptr inbounds nuw i64, ptr @sc_p, i64 %indvars.iv6.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr @sc_p, i64 %indvars.iv6.i
   %24 = load i64, ptr %23, align 8, !tbaa !3
   %25 = and i64 %24, %17
   %26 = zext i64 %25 to i128
@@ -207,16 +207,16 @@ define void @ossl_curve448_scalar_add(ptr noundef captures(none) %0, ptr noundef
 4:                                                ; preds = %3, %4
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %4 ]
   %.01314 = phi i128 [ 0, %3 ], [ %15, %4 ]
-  %5 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %6 = load i64, ptr %5, align 8, !tbaa !3
   %7 = zext i64 %6 to i128
   %8 = add nuw nsw i128 %.01314, %7
-  %9 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %10 = load i64, ptr %9, align 8, !tbaa !3
   %11 = zext i64 %10 to i128
   %12 = add nuw nsw i128 %8, %11
   %13 = trunc i128 %12 to i64
-  %14 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   store i64 %13, ptr %14, align 8, !tbaa !3
   %15 = lshr i128 %12, 64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -226,11 +226,11 @@ define void @ossl_curve448_scalar_add(ptr noundef captures(none) %0, ptr noundef
 .preheader:                                       ; preds = %4, %.preheader
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader ], [ 0, %4 ]
   %.02.i = phi i128 [ %25, %.preheader ], [ 0, %4 ]
-  %16 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i
   %17 = load i64, ptr %16, align 8, !tbaa !3
   %18 = zext i64 %17 to i128
   %19 = add nsw i128 %.02.i, %18
-  %20 = getelementptr inbounds nuw i64, ptr @sc_p, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr @sc_p, i64 %indvars.iv.i
   %21 = load i64, ptr %20, align 8, !tbaa !3
   %22 = zext i64 %21 to i128
   %23 = sub nsw i128 %19, %22
@@ -250,11 +250,11 @@ define void @ossl_curve448_scalar_add(ptr noundef captures(none) %0, ptr noundef
 30:                                               ; preds = %30, %26
   %indvars.iv6.i = phi i64 [ 0, %26 ], [ %indvars.iv.next7.i, %30 ]
   %.14.i = phi i128 [ 0, %26 ], [ %41, %30 ]
-  %31 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv6.i
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv6.i
   %32 = load i64, ptr %31, align 8, !tbaa !3
   %33 = zext i64 %32 to i128
   %34 = add nuw nsw i128 %.14.i, %33
-  %35 = getelementptr inbounds nuw i64, ptr @sc_p, i64 %indvars.iv6.i
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @sc_p, i64 %indvars.iv6.i
   %36 = load i64, ptr %35, align 8, !tbaa !3
   %37 = and i64 %36, %29
   %38 = zext i64 %37 to i128
@@ -300,7 +300,7 @@ define range(i32 -1, 1) i32 @ossl_curve448_scalar_decode(ptr noundef captures(no
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
   %.1.lcssa.i = phi i64 [ %.01321.i, %.preheader.i ], [ %11, %.lr.ph.i ]
   %.0.lcssa.i = phi i64 [ 0, %.preheader.i ], [ %9, %.lr.ph.i ]
-  %15 = getelementptr inbounds nuw i64, ptr %0, i64 %.01520.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.01520.i
   store i64 %.0.lcssa.i, ptr %15, align 8, !tbaa !3
   %16 = add nuw nsw i64 %.01520.i, 1
   %exitcond.not.i = icmp eq i64 %16, 7
@@ -309,11 +309,11 @@ define range(i32 -1, 1) i32 @ossl_curve448_scalar_decode(ptr noundef captures(no
 scalar_decode_short.exit:                         ; preds = %._crit_edge.i, %scalar_decode_short.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %scalar_decode_short.exit ], [ 0, %._crit_edge.i ]
   %.013 = phi i128 [ %25, %scalar_decode_short.exit ], [ 0, %._crit_edge.i ]
-  %17 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %18 = load i64, ptr %17, align 8, !tbaa !3
   %19 = zext i64 %18 to i128
   %20 = add nsw i128 %.013, %19
-  %21 = getelementptr inbounds nuw i64, ptr @sc_p, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr @sc_p, i64 %indvars.iv
   %22 = load i64, ptr %21, align 8, !tbaa !3
   %23 = zext i64 %22 to i128
   %24 = sub nsw i128 %20, %23
@@ -388,7 +388,7 @@ define void @ossl_curve448_scalar_decode_long(ptr noundef captures(none) %0, ptr
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %.preheader.i
   %.1.lcssa.i = phi i64 [ %.01321.i, %.preheader.i ], [ %23, %.lr.ph.i ]
   %.0.lcssa.i = phi i64 [ 0, %.preheader.i ], [ %21, %.lr.ph.i ]
-  %27 = getelementptr inbounds nuw i64, ptr %4, i64 %.01520.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.01520.i
   store i64 %.0.lcssa.i, ptr %27, align 8, !tbaa !3
   %28 = add nuw nsw i64 %.01520.i, 1
   %exitcond.not.i = icmp eq i64 %28, 7
@@ -441,7 +441,7 @@ scalar_decode_short.exit:                         ; preds = %._crit_edge.i
 ._crit_edge.i.i:                                  ; preds = %.lr.ph.i.i, %.preheader.i.i
   %.1.lcssa.i.i = phi i64 [ %.01321.i.i, %.preheader.i.i ], [ %41, %.lr.ph.i.i ]
   %.0.lcssa.i.i = phi i64 [ 0, %.preheader.i.i ], [ %39, %.lr.ph.i.i ]
-  %45 = getelementptr inbounds nuw i64, ptr %5, i64 %.01520.i.i
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.01520.i.i
   store i64 %.0.lcssa.i.i, ptr %45, align 8, !tbaa !3
   %46 = add nuw nsw i64 %.01520.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %46, 7
@@ -455,11 +455,11 @@ scalar_decode_short.exit.i.preheader:             ; preds = %._crit_edge.i.i
 47:                                               ; preds = %47, %scalar_decode_short.exit.i.preheader
   %indvars.iv.i21 = phi i64 [ 0, %scalar_decode_short.exit.i.preheader ], [ %indvars.iv.next.i22, %47 ]
   %.01314.i = phi i128 [ 0, %scalar_decode_short.exit.i.preheader ], [ %57, %47 ]
-  %48 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv.i21
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i21
   %49 = load i64, ptr %48, align 8, !tbaa !3
   %50 = zext i64 %49 to i128
   %51 = add nuw nsw i128 %.01314.i, %50
-  %52 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv.i21
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i21
   %53 = load i64, ptr %52, align 8, !tbaa !3
   %54 = zext i64 %53 to i128
   %55 = add nuw nsw i128 %51, %54
@@ -473,11 +473,11 @@ scalar_decode_short.exit.i.preheader:             ; preds = %._crit_edge.i.i
 .preheader:                                       ; preds = %47, %.preheader
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.preheader ], [ 0, %47 ]
   %.02.i.i = phi i128 [ %67, %.preheader ], [ 0, %47 ]
-  %58 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv.i.i
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i.i
   %59 = load i64, ptr %58, align 8, !tbaa !3
   %60 = zext i64 %59 to i128
   %61 = add nsw i128 %.02.i.i, %60
-  %62 = getelementptr inbounds nuw i64, ptr @sc_p, i64 %indvars.iv.i.i
+  %62 = getelementptr inbounds nuw [8 x i8], ptr @sc_p, i64 %indvars.iv.i.i
   %63 = load i64, ptr %62, align 8, !tbaa !3
   %64 = zext i64 %63 to i128
   %65 = sub nsw i128 %61, %64
@@ -497,11 +497,11 @@ scalar_decode_short.exit.i.preheader:             ; preds = %._crit_edge.i.i
 72:                                               ; preds = %72, %68
   %indvars.iv6.i.i = phi i64 [ 0, %68 ], [ %indvars.iv.next7.i.i, %72 ]
   %.14.i.i = phi i128 [ 0, %68 ], [ %83, %72 ]
-  %73 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv6.i.i
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv6.i.i
   %74 = load i64, ptr %73, align 8, !tbaa !3
   %75 = zext i64 %74 to i128
   %76 = add nuw nsw i128 %.14.i.i, %75
-  %77 = getelementptr inbounds nuw i64, ptr @sc_p, i64 %indvars.iv6.i.i
+  %77 = getelementptr inbounds nuw [8 x i8], ptr @sc_p, i64 %indvars.iv6.i.i
   %78 = load i64, ptr %77, align 8, !tbaa !3
   %79 = and i64 %78, %71
   %80 = zext i64 %79 to i128
@@ -536,7 +536,7 @@ define void @ossl_curve448_scalar_encode(ptr noundef writeonly captures(none) %0
 .preheader:                                       ; preds = %2, %12
   %indvars.iv16 = phi i64 [ 0, %2 ], [ %indvars.iv.next17, %12 ]
   %.014 = phi i32 [ 0, %2 ], [ %11, %12 ]
-  %3 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv16
+  %3 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv16
   br label %4
 
 4:                                                ; preds = %.preheader, %4
@@ -573,9 +573,9 @@ define void @ossl_curve448_scalar_halve(ptr noundef captures(none) %0, ptr nound
 
 .split.us:                                        ; preds = %2, %.split.us
   %indvars.iv32 = phi i64 [ %indvars.iv.next33, %.split.us ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv32
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv32
   %7 = load i64, ptr %6, align 8, !tbaa !3
-  %8 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv32
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv32
   store i64 %7, ptr %8, align 8, !tbaa !3
   %indvars.iv.next33 = add nuw nsw i64 %indvars.iv32, 1
   %exitcond35.not = icmp eq i64 %indvars.iv.next33, 7
@@ -593,16 +593,16 @@ define void @ossl_curve448_scalar_halve(ptr noundef captures(none) %0, ptr nound
 .split:                                           ; preds = %2, %.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.split ], [ 0, %2 ]
   %.02425 = phi i128 [ %19, %.split ], [ 0, %2 ]
-  %9 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %10 = load i64, ptr %9, align 8, !tbaa !3
   %11 = zext i64 %10 to i128
   %12 = add nuw nsw i128 %.02425, %11
-  %13 = getelementptr inbounds nuw i64, ptr @sc_p, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr @sc_p, i64 %indvars.iv
   %14 = load i64, ptr %13, align 8, !tbaa !3
   %15 = zext i64 %14 to i128
   %16 = add nuw nsw i128 %12, %15
   %17 = trunc i128 %16 to i64
-  %18 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   store i64 %17, ptr %18, align 8, !tbaa !3
   %19 = lshr i128 %16, 64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -612,9 +612,9 @@ define void @ossl_curve448_scalar_halve(ptr noundef captures(none) %0, ptr nound
 20:                                               ; preds = %.preheader, %20
   %21 = phi i64 [ %.pre, %.preheader ], [ %24, %20 ]
   %indvars.iv36 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next37, %20 ]
-  %22 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv36
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv36
   %indvars.iv.next37 = add nuw nsw i64 %indvars.iv36, 1
-  %23 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv.next37
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.next37
   %24 = load i64, ptr %23, align 8, !tbaa !3
   %25 = tail call i64 @llvm.fshl.i64(i64 %24, i64 %21, i64 63)
   store i64 %25, ptr %22, align 8, !tbaa !3

@@ -7,12 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cvc5::internal::NodeTemplate" = type { ptr }
 %"struct.std::piecewise_construct_t" = type { i8 }
 %"class.cvc5::internal::NodeTemplate.319" = type { ptr }
-%"class.std::unique_ptr.320" = type { %"struct.std::__uniq_ptr_data.321" }
-%"struct.std::__uniq_ptr_data.321" = type { %"class.std::__uniq_ptr_impl.322" }
-%"class.std::__uniq_ptr_impl.322" = type { %"class.std::tuple.323" }
-%"class.std::tuple.323" = type { %"struct.std::_Tuple_impl.324" }
-%"struct.std::_Tuple_impl.324" = type { %"struct.std::_Head_base.327" }
-%"struct.std::_Head_base.327" = type { ptr }
 %"class.std::tuple.334" = type { %"struct.std::_Tuple_impl.335" }
 %"struct.std::_Tuple_impl.335" = type { %"struct.std::_Head_base.336" }
 %"struct.std::_Head_base.336" = type { ptr }
@@ -321,7 +315,7 @@ _ZNSt6vectorISt10unique_ptrIN4cvc58internal6theory15TheoryInferenceESt14default_
 _ZNSt6vectorISt10unique_ptrIN4cvc58internal6theory15TheoryInferenceESt14default_deleteIS4_EESaIS7_EE17_M_realloc_insertIJPNS3_17SimpleTheoryLemmaEEEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i: ; preds = %83, %_ZNSt6vectorISt10unique_ptrIN4cvc58internal6theory15TheoryInferenceESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i.i
   store ptr %77, ptr %39, align 8, !tbaa !75
   store ptr %82, ptr %58, align 8, !tbaa !71
-  %84 = getelementptr inbounds nuw %"class.std::unique_ptr.320", ptr %77, i64 %75
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %75
   store ptr %84, ptr %60, align 8, !tbaa !72
   br label %_ZNSt6vectorISt10unique_ptrIN4cvc58internal6theory15TheoryInferenceESt14default_deleteIS4_EESaIS7_EE12emplace_backIJPNS3_17SimpleTheoryLemmaEEEERS7_DpOT_.exit
 
@@ -594,7 +588,7 @@ _ZNSt6vectorISt10unique_ptrIN4cvc58internal6theory15TheoryInferenceESt14default_
 _ZNSt6vectorISt10unique_ptrIN4cvc58internal6theory15TheoryInferenceESt14default_deleteIS4_EESaIS7_EE17_M_realloc_insertIJPNS3_24SimpleTheoryInternalFactEEEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i: ; preds = %68, %_ZNSt6vectorISt10unique_ptrIN4cvc58internal6theory15TheoryInferenceESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i.i
   store ptr %62, ptr %8, align 8, !tbaa !75
   store ptr %67, ptr %43, align 8, !tbaa !71
-  %69 = getelementptr inbounds nuw %"class.std::unique_ptr.320", ptr %62, i64 %60
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %60
   store ptr %69, ptr %45, align 8, !tbaa !72
   br label %_ZNSt6vectorISt10unique_ptrIN4cvc58internal6theory15TheoryInferenceESt14default_deleteIS4_EESaIS7_EE12emplace_backIJPNS3_24SimpleTheoryInternalFactEEEERS7_DpOT_.exit
 
@@ -798,7 +792,7 @@ define hidden void @_ZN4cvc58internal6theory24InferenceManagerBuffered14doPendin
   br i1 %16, label %17, label %.critedge
 
 17:                                               ; preds = %.lr.ph
-  %18 = getelementptr inbounds nuw %"class.std::unique_ptr.320", ptr %11, i64 %.03
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.03
   %19 = load ptr, ptr %18, align 8, !tbaa !73
   tail call void @_ZN4cvc58internal6theory24InferenceManagerBuffered33assertInternalFactTheoryInferenceEPNS1_15TheoryInferenceE(ptr noundef nonnull align 8 dereferenceable(337) %0, ptr noundef %19)
   %20 = add nuw i64 %.03, 1
@@ -893,7 +887,7 @@ define hidden void @_ZN4cvc58internal6theory24InferenceManagerBuffered33assertIn
   %28 = icmp eq i32 %27, 2
   %29 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %30 = zext i1 %28 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !98, !noalias !99
   %33 = load i64, ptr %32, align 8, !noalias !99
   %34 = lshr i64 %33, 40
@@ -1104,7 +1098,7 @@ define hidden void @_ZN4cvc58internal6theory24InferenceManagerBuffered15doPendin
 13:                                               ; preds = %.lr.ph, %_ZN4cvc58internal6theory24InferenceManagerBuffered20lemmaTheoryInferenceEPNS1_15TheoryInferenceE.exit
   %14 = phi ptr [ %11, %.lr.ph ], [ %42, %_ZN4cvc58internal6theory24InferenceManagerBuffered20lemmaTheoryInferenceEPNS1_15TheoryInferenceE.exit ]
   %.011 = phi i64 [ 0, %.lr.ph ], [ %40, %_ZN4cvc58internal6theory24InferenceManagerBuffered20lemmaTheoryInferenceEPNS1_15TheoryInferenceE.exit ]
-  %15 = getelementptr inbounds nuw %"class.std::unique_ptr.320", ptr %14, i64 %.011
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.011
   %16 = load ptr, ptr %15, align 8, !tbaa !73
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i32 0, ptr %2, align 4, !tbaa !112
@@ -2082,7 +2076,7 @@ _ZNSt6vectorISt10unique_ptrIN4cvc58internal6theory15TheoryInferenceESt14default_
 _ZNSt12_Vector_baseISt10unique_ptrIN4cvc58internal6theory15TheoryInferenceESt14default_deleteIS4_EESaIS7_EE13_M_deallocateEPS7_m.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4cvc58internal6theory15TheoryInferenceESt14default_deleteIS4_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22, %31
   store ptr %20, ptr %0, align 8, !tbaa !75
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !71
-  %35 = getelementptr inbounds nuw %"class.std::unique_ptr.320", ptr %20, i64 %16
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %35, ptr %30, align 8, !tbaa !72
   ret void
 }

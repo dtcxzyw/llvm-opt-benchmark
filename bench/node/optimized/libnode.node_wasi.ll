@@ -37,18 +37,11 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.uvwasi_options_s = type { i32, i32, ptr, i32, ptr, i32, ptr, ptr, i32, i32, i32, ptr }
 %"class.node::Utf8Value" = type { %"class.node::MaybeStackBuffer" }
 %"class.node::MaybeStackBuffer" = type { i64, i64, ptr, [1024 x i8] }
-%struct.uvwasi_preopen_s = type { ptr, ptr }
 %struct.uvwasi_fdstat_s = type { i8, i16, i64, i64 }
 %struct.uvwasi_filestat_s = type { i64, i64, i8, i64, i64, i64, i64, i64 }
 %struct.uvwasi_prestat_s = type { i8, %"union.uvwasi_prestat_s::uvwasi_prestat_u" }
 %"union.uvwasi_prestat_s::uvwasi_prestat_u" = type { %"struct.uvwasi_prestat_s::uvwasi_prestat_u::uvwasi_prestat_dir_t" }
 %"struct.uvwasi_prestat_s::uvwasi_prestat_u::uvwasi_prestat_dir_t" = type { i32 }
-%struct.uvwasi_subscription_s = type { i64, i8, %union.anon.309 }
-%union.anon.309 = type { %struct.anon }
-%struct.anon = type { i32, i64, i64, i16 }
-%struct.uvwasi_event_s = type { i64, i16, i8, %union.anon.311 }
-%union.anon.311 = type { %struct.anon.312 }
-%struct.anon.312 = type { i64, i16 }
 %"class.v8::CFunction" = type { ptr, ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.89 }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
@@ -2036,10 +2029,10 @@ do.end216:                                        ; preds = %if.end.i887
   %62 = load ptr, ptr %buf_.i, align 8
   %call223 = call noalias ptr @strdup(ptr noundef %62) #22
   %63 = load ptr, ptr %argv188, align 8
-  %arrayidx = getelementptr inbounds nuw ptr, ptr %63, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %indvars.iv
   store ptr %call223, ptr %arrayidx, align 8
   %64 = load ptr, ptr %argv188, align 8
-  %arrayidx228 = getelementptr inbounds nuw ptr, ptr %64, i64 %indvars.iv
+  %arrayidx228 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %indvars.iv
   %65 = load ptr, ptr %arrayidx228, align 8
   %cmp229.not = icmp eq ptr %65, null
   br i1 %cmp229.not, label %do.body235, label %do.end239
@@ -2142,10 +2135,10 @@ do.end285:                                        ; preds = %if.end.i897
   %82 = load ptr, ptr %buf_.i94, align 8
   %call293 = call noalias ptr @strdup(ptr noundef %82) #22
   %83 = load ptr, ptr %envp, align 8
-  %arrayidx296 = getelementptr inbounds nuw ptr, ptr %83, i64 %indvars.iv134
+  %arrayidx296 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %indvars.iv134
   store ptr %call293, ptr %arrayidx296, align 8
   %84 = load ptr, ptr %envp, align 8
-  %arrayidx300 = getelementptr inbounds nuw ptr, ptr %84, i64 %indvars.iv134
+  %arrayidx300 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %indvars.iv134
   %85 = load ptr, ptr %arrayidx300, align 8
   %cmp301.not = icmp eq ptr %85, null
   br i1 %cmp301.not, label %do.body307, label %do.end312
@@ -2178,7 +2171,7 @@ for.end315.loopexit:                              ; preds = %_ZN4node9Utf8ValueD
 for.end315:                                       ; preds = %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit558, %for.end315.loopexit
   %idxprom317.pre-phi = phi i64 [ %wide.trip.count137, %for.end315.loopexit ], [ 0, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit558 ]
   %88 = phi ptr [ %.pre, %for.end315.loopexit ], [ %call252, %_ZNK2v820FunctionCallbackInfoINS_5ValueEEixEi.exit558 ]
-  %arrayidx318 = getelementptr inbounds nuw ptr, ptr %88, i64 %idxprom317.pre-phi
+  %arrayidx318 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %idxprom317.pre-phi
   store ptr null, ptr %arrayidx318, align 8
   %89 = load i32, ptr %length_.i, align 8
   %cmp2.i = icmp slt i32 %89, 3
@@ -2316,10 +2309,10 @@ do.end413:                                        ; preds = %if.end.i919
   %107 = load ptr, ptr %buf_.i104, align 8
   %call425 = call noalias ptr @strdup(ptr noundef %107) #22
   %108 = load ptr, ptr %preopens348, align 8
-  %arrayidx428 = getelementptr inbounds nuw %struct.uvwasi_preopen_s, ptr %108, i64 %indvars.iv139
+  %arrayidx428 = getelementptr inbounds nuw [16 x i8], ptr %108, i64 %indvars.iv139
   store ptr %call425, ptr %arrayidx428, align 8
   %109 = load ptr, ptr %preopens348, align 8
-  %arrayidx433 = getelementptr inbounds nuw %struct.uvwasi_preopen_s, ptr %109, i64 %indvars.iv139
+  %arrayidx433 = getelementptr inbounds nuw [16 x i8], ptr %109, i64 %indvars.iv139
   %110 = load ptr, ptr %arrayidx433, align 8
   %cmp435.not = icmp eq ptr %110, null
   br i1 %cmp435.not, label %do.body441, label %do.end446
@@ -2335,7 +2328,7 @@ do.end446:                                        ; preds = %do.end413
   %real_path452 = getelementptr inbounds nuw i8, ptr %arrayidx433, i64 8
   store ptr %call448, ptr %real_path452, align 8
   %112 = load ptr, ptr %preopens348, align 8
-  %arrayidx456 = getelementptr inbounds nuw %struct.uvwasi_preopen_s, ptr %112, i64 %indvars.iv139
+  %arrayidx456 = getelementptr inbounds nuw [16 x i8], ptr %112, i64 %indvars.iv139
   %real_path457 = getelementptr inbounds nuw i8, ptr %arrayidx456, i64 8
   %113 = load ptr, ptr %real_path457, align 8
   %cmp458.not = icmp eq ptr %113, null
@@ -2394,7 +2387,7 @@ for.body489.preheader:                            ; preds = %for.cond487.prehead
 for.body489:                                      ; preds = %for.body489.preheader, %for.body489
   %indvars.iv142 = phi i64 [ 0, %for.body489.preheader ], [ %indvars.iv.next143, %for.body489 ]
   %120 = load ptr, ptr %argv188162, align 8
-  %arrayidx492 = getelementptr inbounds nuw ptr, ptr %120, i64 %indvars.iv142
+  %arrayidx492 = getelementptr inbounds nuw [8 x i8], ptr %120, i64 %indvars.iv142
   %121 = load ptr, ptr %arrayidx492, align 8
   call void @free(ptr noundef %121) #22
   %indvars.iv.next143 = add nuw nsw i64 %indvars.iv142, 1
@@ -2424,7 +2417,7 @@ for.body503:                                      ; preds = %if.end497, %for.bod
   %inc508 = add i32 %i498.0129, 1
   %126 = load ptr, ptr %envp, align 8
   %idxprom501 = zext i32 %inc508 to i64
-  %arrayidx502 = getelementptr inbounds nuw ptr, ptr %126, i64 %idxprom501
+  %arrayidx502 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %idxprom501
   %127 = load ptr, ptr %arrayidx502, align 8
   %tobool.not = icmp eq ptr %127, null
   br i1 %tobool.not, label %delete.end513, label %for.body503, !llvm.loop !16
@@ -2444,11 +2437,11 @@ for.cond518.preheader:                            ; preds = %delete.end513
 for.body521:                                      ; preds = %for.cond518.preheader, %for.body521
   %indvars.iv147 = phi i64 [ %indvars.iv.next148, %for.body521 ], [ 0, %for.cond518.preheader ]
   %130 = load ptr, ptr %preopens348, align 8
-  %arrayidx524 = getelementptr inbounds nuw %struct.uvwasi_preopen_s, ptr %130, i64 %indvars.iv147
+  %arrayidx524 = getelementptr inbounds nuw [16 x i8], ptr %130, i64 %indvars.iv147
   %131 = load ptr, ptr %arrayidx524, align 8
   call void @free(ptr noundef %131) #22
   %132 = load ptr, ptr %preopens348, align 8
-  %arrayidx528 = getelementptr inbounds nuw %struct.uvwasi_preopen_s, ptr %132, i64 %indvars.iv147
+  %arrayidx528 = getelementptr inbounds nuw [16 x i8], ptr %132, i64 %indvars.iv147
   %real_path529 = getelementptr inbounds nuw i8, ptr %arrayidx528, i64 8
   %133 = load ptr, ptr %real_path529, align 8
   call void @free(ptr noundef %133) #22
@@ -2580,7 +2573,7 @@ _ZNSt6vectorIPcSaIS0_EEC2EmRKS1_.exit:            ; preds = %do.end11, %if.then.
 for.body:                                         ; preds = %_ZNSt6vectorIPcSaIS0_EEC2EmRKS1_.exit, %for.body
   %i.018 = phi i64 [ %inc, %for.body ], [ 0, %_ZNSt6vectorIPcSaIS0_EEC2EmRKS1_.exit ]
   %11 = load i32, ptr %argv_buf_offset.addr, align 4
-  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %argv.sroa.0.0, i64 %i.018
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %argv.sroa.0.0, i64 %i.018
   %12 = load ptr, ptr %add.ptr.i, align 8
   %13 = load ptr, ptr %argv.sroa.0.0, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %12 to i64
@@ -2872,7 +2865,7 @@ _ZNSt6vectorIPcSaIS0_EEC2EmRKS1_.exit:            ; preds = %do.end11, %if.then.
 for.body:                                         ; preds = %_ZNSt6vectorIPcSaIS0_EEC2EmRKS1_.exit, %for.body
   %i.018 = phi i64 [ %inc, %for.body ], [ 0, %_ZNSt6vectorIPcSaIS0_EEC2EmRKS1_.exit ]
   %11 = load i32, ptr %environ_buf_offset.addr, align 4
-  %add.ptr.i = getelementptr inbounds nuw ptr, ptr %environment.sroa.0.0, i64 %i.018
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %environment.sroa.0.0, i64 %i.018
   %12 = load ptr, ptr %add.ptr.i, align 8
   %13 = load ptr, ptr %environment.sroa.0.0, align 8
   %sub.ptr.lhs.cast = ptrtoint ptr %12 to i64
@@ -4964,7 +4957,7 @@ for.body:                                         ; preds = %for.body.preheader,
   %10 = phi i32 [ %.pre49, %for.body.preheader ], [ %add, %for.body ]
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.body ]
   %conv23 = zext i32 %10 to i64
-  %add.ptr.i = getelementptr inbounds nuw %struct.uvwasi_subscription_s, ptr %call5.i.i.i.i.i.i, i64 %indvars.iv
+  %add.ptr.i = getelementptr inbounds nuw [48 x i8], ptr %call5.i.i.i.i.i.i, i64 %indvars.iv
   call void @uvwasi_serdes_read_subscription_t(ptr noundef %memory.coerce0, i64 noundef %conv23, ptr noundef nonnull %add.ptr.i) #22
   %11 = load i32, ptr %in_ptr.addr, align 4
   %add = add i32 %11, 48
@@ -5001,7 +4994,7 @@ for.body37:                                       ; preds = %for.body37.preheade
   %17 = phi i32 [ %.pre50, %for.body37.preheader ], [ %add42, %for.body37 ]
   %indvars.iv45 = phi i64 [ 0, %for.body37.preheader ], [ %indvars.iv.next46, %for.body37 ]
   %conv39 = zext i32 %17 to i64
-  %add.ptr.i29 = getelementptr inbounds nuw %struct.uvwasi_event_s, ptr %out.sroa.0.056, i64 %indvars.iv45
+  %add.ptr.i29 = getelementptr inbounds nuw [32 x i8], ptr %out.sroa.0.056, i64 %indvars.iv45
   call void @uvwasi_serdes_write_event_t(ptr noundef %memory.coerce0, i64 noundef %conv39, ptr noundef nonnull %add.ptr.i29) #22
   %18 = load i32, ptr %out_ptr.addr, align 4
   %add42 = add i32 %18, 32
@@ -16747,7 +16740,7 @@ if.end.i.i:                                       ; preds = %entry
   %values_.i.i = getelementptr inbounds nuw i8, ptr %info, i64 8
   %5 = load ptr, ptr %values_.i.i, align 8
   %idx.ext.i.i = zext nneg i32 %i to i64
-  %add.ptr.i.i = getelementptr inbounds nuw i64, ptr %5, i64 %idx.ext.i.i
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %idx.ext.i.i
   br label %_ZN4node4wasi12_GLOBAL__N_110CheckTypesIjEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEEiT_.exit
 
 _ZN4node4wasi12_GLOBAL__N_110CheckTypesIjEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEEiT_.exit: ; preds = %if.then.i.i, %if.end.i.i
@@ -16774,7 +16767,7 @@ if.end.i.i.i:                                     ; preds = %if.end
   %values_.i.i.i = getelementptr inbounds nuw i8, ptr %info, i64 8
   %11 = load ptr, ptr %values_.i.i.i, align 8
   %idx.ext.i.i.i = zext nneg i32 %add to i64
-  %add.ptr.i.i.i = getelementptr inbounds nuw i64, ptr %11, i64 %idx.ext.i.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %idx.ext.i.i.i
   br label %_ZN4node4wasi12_GLOBAL__N_110CheckTypesIjEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEEiT_.exit.i
 
 _ZN4node4wasi12_GLOBAL__N_110CheckTypesIjEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEEiT_.exit.i: ; preds = %if.end.i.i.i, %if.then.i.i.i
@@ -16801,7 +16794,7 @@ if.end.i.i.i.i:                                   ; preds = %if.end.i
   %values_.i.i.i.i = getelementptr inbounds nuw i8, ptr %info, i64 8
   %17 = load ptr, ptr %values_.i.i.i.i, align 8
   %idx.ext.i.i.i.i = zext nneg i32 %add.i to i64
-  %add.ptr.i.i.i.i = getelementptr inbounds nuw i64, ptr %17, i64 %idx.ext.i.i.i.i
+  %add.ptr.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %idx.ext.i.i.i.i
   br label %_ZN4node4wasi12_GLOBAL__N_110CheckTypesIjEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEEiT_.exit.i.i
 
 _ZN4node4wasi12_GLOBAL__N_110CheckTypesIjEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEEiT_.exit.i.i: ; preds = %if.end.i.i.i.i, %if.then.i.i.i.i
@@ -16828,7 +16821,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.end.i.i3
   %values_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %info, i64 8
   %23 = load ptr, ptr %values_.i.i.i.i.i, align 8
   %idx.ext.i.i.i.i.i = zext nneg i32 %add.i.i to i64
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i64, ptr %23, i64 %idx.ext.i.i.i.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %idx.ext.i.i.i.i.i
   br label %_ZN4node4wasi12_GLOBAL__N_110CheckTypesIjEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEEiT_.exit.i.i.i
 
 _ZN4node4wasi12_GLOBAL__N_110CheckTypesIjEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEEiT_.exit.i.i.i: ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i.i.i
@@ -16855,7 +16848,7 @@ if.end.i.i10.i.i.i:                               ; preds = %if.end.i.i3.i
   %values_.i.i11.i.i.i = getelementptr inbounds nuw i8, ptr %info, i64 8
   %29 = load ptr, ptr %values_.i.i11.i.i.i, align 8
   %idx.ext.i.i12.i.i.i = zext nneg i32 %add.i.i.i to i64
-  %add.ptr.i.i13.i.i.i = getelementptr inbounds nuw i64, ptr %29, i64 %idx.ext.i.i12.i.i.i
+  %add.ptr.i.i13.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %idx.ext.i.i12.i.i.i
   br label %_ZN4node4wasi12_GLOBAL__N_110CheckTypesIjEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEEiT_.exit14.i.i.i
 
 _ZN4node4wasi12_GLOBAL__N_110CheckTypesIjEEbRKN2v820FunctionCallbackInfoINS3_5ValueEEEiT_.exit14.i.i.i: ; preds = %if.end.i.i10.i.i.i, %if.then.i.i5.i.i.i

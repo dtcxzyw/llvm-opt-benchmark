@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"struct.gmx::EnumerationArray" = type { [5 x ptr] }
-%struct.t_atom = type { float, float, float, float, i16, i16, i32, i32, i32, [4 x i8] }
-%struct.t_pdbinfo = type { i32, i32, i8, [6 x i8], float, float, i8, [6 x i32] }
-%struct.t_resinfo = type { ptr, i32, i8, i32, i8, ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -97,7 +94,7 @@ $_Z7cmpEnumI13PdbRecordTypeEvP8_IO_FILEPKcT_S5_ = comdat any
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef ptr @_Z17enumValueToString12ParticleType(i32 noundef %0) local_unnamed_addr #0 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds nuw ptr, ptr @_ZZ17enumValueToString12ParticleTypeE17particleTypeNames, i64 %2
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @_ZZ17enumValueToString12ParticleTypeE17particleTypeNames, i64 %2
   %4 = load ptr, ptr %3, align 8, !tbaa !4
   ret ptr %4
 }
@@ -692,17 +689,17 @@ define void @_Z11add_t_atomsP7t_atomsii(ptr noundef captures(none) %0, i32 nound
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %58
   %indvars.iv = phi i64 [ %42, %.lr.ph.preheader ], [ %indvars.iv.next, %58 ]
   %43 = load ptr, ptr %6, align 8, !tbaa !52
-  %44 = getelementptr inbounds ptr, ptr %43, i64 %indvars.iv
+  %44 = getelementptr inbounds [8 x i8], ptr %43, i64 %indvars.iv
   store ptr null, ptr %44, align 8, !tbaa !59
   %45 = load ptr, ptr %12, align 8, !tbaa !50
-  %46 = getelementptr inbounds %struct.t_atom, ptr %45, i64 %indvars.iv
+  %46 = getelementptr inbounds [36 x i8], ptr %45, i64 %indvars.iv
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %46, i8 0, i64 36, i1 false)
   %47 = load ptr, ptr %18, align 8, !tbaa !55
   %.not61 = icmp eq ptr %47, null
   br i1 %.not61, label %50, label %48
 
 48:                                               ; preds = %.lr.ph
-  %49 = getelementptr inbounds %struct.t_pdbinfo, ptr %47, i64 %indvars.iv
+  %49 = getelementptr inbounds [52 x i8], ptr %47, i64 %indvars.iv
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %49, i8 0, i64 52, i1 false)
   br label %50
 
@@ -712,7 +709,7 @@ define void @_Z11add_t_atomsP7t_atomsii(ptr noundef captures(none) %0, i32 nound
   br i1 %.not62, label %54, label %52
 
 52:                                               ; preds = %50
-  %53 = getelementptr inbounds ptr, ptr %51, i64 %indvars.iv
+  %53 = getelementptr inbounds [8 x i8], ptr %51, i64 %indvars.iv
   store ptr null, ptr %53, align 8, !tbaa !59
   br label %54
 
@@ -722,7 +719,7 @@ define void @_Z11add_t_atomsP7t_atomsii(ptr noundef captures(none) %0, i32 nound
   br i1 %.not63, label %58, label %56
 
 56:                                               ; preds = %54
-  %57 = getelementptr inbounds ptr, ptr %55, i64 %indvars.iv
+  %57 = getelementptr inbounds [8 x i8], ptr %55, i64 %indvars.iv
   store ptr null, ptr %57, align 8, !tbaa !59
   br label %58
 
@@ -758,7 +755,7 @@ define void @_Z11add_t_atomsP7t_atomsii(ptr noundef captures(none) %0, i32 nound
 .lr.ph68:                                         ; preds = %.lr.ph68.preheader, %.lr.ph68
   %indvars.iv74 = phi i64 [ %73, %.lr.ph68.preheader ], [ %indvars.iv.next75, %.lr.ph68 ]
   %74 = load ptr, ptr %65, align 8, !tbaa !51
-  %75 = getelementptr inbounds %struct.t_resinfo, ptr %74, i64 %indvars.iv74
+  %75 = getelementptr inbounds [32 x i8], ptr %74, i64 %indvars.iv74
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %75, i8 0, i64 32, i1 false)
   %indvars.iv.next75 = add nsw i64 %indvars.iv74, 1
   %76 = load i32, ptr %66, align 8, !tbaa !63
@@ -937,18 +934,18 @@ _Z12init_t_atomsP7t_atomsib.exit:                 ; preds = %1, %19
 59:                                               ; preds = %.lr.ph, %90
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %90 ]
   %60 = load ptr, ptr %39, align 8, !tbaa !50
-  %61 = getelementptr inbounds nuw %struct.t_atom, ptr %60, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [36 x i8], ptr %60, i64 %indvars.iv
   %62 = load ptr, ptr %15, align 8, !tbaa !50
-  %63 = getelementptr inbounds nuw %struct.t_atom, ptr %62, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [36 x i8], ptr %62, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %63, ptr noundef nonnull align 4 dereferenceable(36) %61, i64 36, i1 false), !tbaa.struct !80
   %64 = load ptr, ptr %4, align 8, !tbaa !55
   %.not45 = icmp eq ptr %64, null
   br i1 %.not45, label %69, label %65
 
 65:                                               ; preds = %59
-  %66 = getelementptr inbounds nuw %struct.t_pdbinfo, ptr %64, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [52 x i8], ptr %64, i64 %indvars.iv
   %67 = load ptr, ptr %21, align 8, !tbaa !55
-  %68 = getelementptr inbounds nuw %struct.t_pdbinfo, ptr %67, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [52 x i8], ptr %67, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %68, ptr noundef nonnull align 4 dereferenceable(52) %66, i64 52, i1 false), !tbaa.struct !84
   br label %69
 
@@ -958,10 +955,10 @@ _Z12init_t_atomsP7t_atomsib.exit:                 ; preds = %1, %19
   br i1 %.not46, label %76, label %71
 
 71:                                               ; preds = %69
-  %72 = getelementptr inbounds nuw ptr, ptr %70, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %indvars.iv
   %73 = load ptr, ptr %72, align 8, !tbaa !59
   %74 = load ptr, ptr %9, align 8, !tbaa !52
-  %75 = getelementptr inbounds nuw ptr, ptr %74, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %indvars.iv
   store ptr %73, ptr %75, align 8, !tbaa !59
   br label %76
 
@@ -971,10 +968,10 @@ _Z12init_t_atomsP7t_atomsib.exit:                 ; preds = %1, %19
   br i1 %.not47, label %83, label %78
 
 78:                                               ; preds = %76
-  %79 = getelementptr inbounds nuw ptr, ptr %77, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %indvars.iv
   %80 = load ptr, ptr %79, align 8, !tbaa !59
   %81 = load ptr, ptr %12, align 8, !tbaa !53
-  %82 = getelementptr inbounds nuw ptr, ptr %81, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %indvars.iv
   store ptr %80, ptr %82, align 8, !tbaa !59
   br label %83
 
@@ -984,10 +981,10 @@ _Z12init_t_atomsP7t_atomsib.exit:                 ; preds = %1, %19
   br i1 %.not48, label %90, label %85
 
 85:                                               ; preds = %83
-  %86 = getelementptr inbounds nuw ptr, ptr %84, i64 %indvars.iv
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %indvars.iv
   %87 = load ptr, ptr %86, align 8, !tbaa !59
   %88 = load ptr, ptr %41, align 8, !tbaa !54
-  %89 = getelementptr inbounds nuw ptr, ptr %88, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %indvars.iv
   store ptr %87, ptr %89, align 8, !tbaa !59
   br label %90
 
@@ -1004,9 +1001,9 @@ _Z12init_t_atomsP7t_atomsib.exit:                 ; preds = %1, %19
 94:                                               ; preds = %.lr.ph64, %94
   %indvars.iv67 = phi i64 [ 0, %.lr.ph64 ], [ %indvars.iv.next68, %94 ]
   %95 = load ptr, ptr %58, align 8, !tbaa !51
-  %96 = getelementptr inbounds nuw %struct.t_resinfo, ptr %95, i64 %indvars.iv67
+  %96 = getelementptr inbounds nuw [32 x i8], ptr %95, i64 %indvars.iv67
   %97 = load ptr, ptr %13, align 8, !tbaa !51
-  %98 = getelementptr inbounds nuw %struct.t_resinfo, ptr %97, i64 %indvars.iv67
+  %98 = getelementptr inbounds nuw [32 x i8], ptr %97, i64 %indvars.iv67
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %98, ptr noundef nonnull align 8 dereferenceable(32) %96, i64 32, i1 false), !tbaa.struct !88
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1
   %99 = load i32, ptr %55, align 8, !tbaa !63
@@ -1022,11 +1019,11 @@ define void @_Z19t_atoms_set_resinfoP7t_atomsiP8t_symtabPKcihic(ptr noundef read
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !50
   %13 = sext i32 %1 to i64
-  %14 = getelementptr inbounds %struct.t_atom, ptr %12, i64 %13
+  %14 = getelementptr inbounds [36 x i8], ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load i32, ptr %15, align 4, !tbaa !90
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds %struct.t_resinfo, ptr %10, i64 %17
+  %18 = getelementptr inbounds [32 x i8], ptr %10, i64 %17
   %19 = tail call noundef ptr @_Z10put_symtabP8t_symtabPKc(ptr noundef %2, ptr noundef %3)
   store ptr %19, ptr %18, align 8, !tbaa !92
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 24
@@ -1069,7 +1066,7 @@ define void @_Z8pr_atomsP8_IO_FILEiPKcPK7t_atomsb(ptr noundef %0, i32 noundef %1
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %16 = tail call noundef i32 @_Z9pr_indentP8_IO_FILEi(ptr noundef %0, i32 noundef %14)
-  %17 = getelementptr inbounds nuw %struct.t_atom, ptr %10, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [36 x i8], ptr %10, i64 %indvars.iv.i
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load i16, ptr %18, align 4, !tbaa !99
   %20 = zext i16 %19 to i32
@@ -1079,7 +1076,7 @@ define void @_Z8pr_atomsP8_IO_FILEiPKcPK7t_atomsb(ptr noundef %0, i32 noundef %1
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 20
   %25 = load i32, ptr %24, align 4, !tbaa !101
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr @_ZZ17enumValueToString12ParticleTypeE17particleTypeNames, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr @_ZZ17enumValueToString12ParticleTypeE17particleTypeNames, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !4
   %29 = load float, ptr %17, align 4, !tbaa !102
   %30 = fpext float %29 to double
@@ -1127,10 +1124,10 @@ _ZL7pr_atomP8_IO_FILEiPKcPK6t_atomi.exit:         ; preds = %.lr.ph.i, %7, %13
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i26, %.lr.ph.split.us.i
   %indvars.iv4.i = phi i64 [ %indvars.iv.next5.i, %.lr.ph.split.us.i ], [ 0, %.lr.ph.i26 ]
   %58 = tail call noundef i32 @_Z9pr_indentP8_IO_FILEi(ptr noundef %0, i32 noundef %56)
-  %59 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv4.i
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv4.i
   %60 = load ptr, ptr %59, align 8, !tbaa !59
   %61 = load ptr, ptr %60, align 8, !tbaa !4
-  %62 = getelementptr inbounds nuw ptr, ptr %52, i64 %indvars.iv4.i
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %indvars.iv4.i
   %63 = load ptr, ptr %62, align 8, !tbaa !59
   %64 = load ptr, ptr %63, align 8, !tbaa !4
   %65 = trunc nuw nsw i64 %indvars.iv4.i to i32
@@ -1142,10 +1139,10 @@ _ZL7pr_atomP8_IO_FILEiPKcPK6t_atomi.exit:         ; preds = %.lr.ph.i, %7, %13
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i26, %.lr.ph.split.i
   %indvars.iv.i27 = phi i64 [ %indvars.iv.next.i28, %.lr.ph.split.i ], [ 0, %.lr.ph.i26 ]
   %67 = tail call noundef i32 @_Z9pr_indentP8_IO_FILEi(ptr noundef %0, i32 noundef %56)
-  %68 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv.i27
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv.i27
   %69 = load ptr, ptr %68, align 8, !tbaa !59
   %70 = load ptr, ptr %69, align 8, !tbaa !4
-  %71 = getelementptr inbounds nuw ptr, ptr %52, i64 %indvars.iv.i27
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %indvars.iv.i27
   %72 = load ptr, ptr %71, align 8, !tbaa !59
   %73 = load ptr, ptr %72, align 8, !tbaa !4
   %74 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.22, i32 noundef -1, ptr noundef %70, ptr noundef %73) #15
@@ -1173,7 +1170,7 @@ _ZL11pr_strings2P8_IO_FILEiPKcPPPcS5_ib.exit:     ; preds = %.lr.ph.split.i, %.l
 .lr.ph.split.us.i36:                              ; preds = %.lr.ph.i30, %.lr.ph.split.us.i36
   %indvars.iv4.i37 = phi i64 [ %indvars.iv.next5.i38, %.lr.ph.split.us.i36 ], [ 0, %.lr.ph.i30 ]
   %83 = tail call noundef i32 @_Z9pr_indentP8_IO_FILEi(ptr noundef %0, i32 noundef %81)
-  %84 = getelementptr inbounds nuw %struct.t_resinfo, ptr %76, i64 %indvars.iv4.i37
+  %84 = getelementptr inbounds nuw [32 x i8], ptr %76, i64 %indvars.iv4.i37
   %85 = load ptr, ptr %84, align 8, !tbaa !92
   %86 = load ptr, ptr %85, align 8, !tbaa !4
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 8
@@ -1192,7 +1189,7 @@ _ZL11pr_strings2P8_IO_FILEiPKcPPPcS5_ib.exit:     ; preds = %.lr.ph.split.i, %.l
 .lr.ph.split.i32:                                 ; preds = %.lr.ph.i30, %.lr.ph.split.i32
   %indvars.iv.i33 = phi i64 [ %indvars.iv.next.i34, %.lr.ph.split.i32 ], [ 0, %.lr.ph.i30 ]
   %94 = tail call noundef i32 @_Z9pr_indentP8_IO_FILEi(ptr noundef %0, i32 noundef %81)
-  %95 = getelementptr inbounds nuw %struct.t_resinfo, ptr %76, i64 %indvars.iv.i33
+  %95 = getelementptr inbounds nuw [32 x i8], ptr %76, i64 %indvars.iv.i33
   %96 = load ptr, ptr %95, align 8, !tbaa !92
   %97 = load ptr, ptr %96, align 8, !tbaa !4
   %98 = getelementptr inbounds nuw i8, ptr %95, i64 8
@@ -1318,9 +1315,9 @@ define void @_Z12compareAtomsP8_IO_FILEPK7t_atomsS3_ff(ptr noundef %0, ptr nound
 73:                                               ; preds = %.lr.ph, %177
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %177 ]
   %74 = load ptr, ptr %56, align 8, !tbaa !50
-  %75 = getelementptr inbounds nuw %struct.t_atom, ptr %74, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [36 x i8], ptr %74, i64 %indvars.iv
   %76 = load ptr, ptr %57, align 8, !tbaa !50
-  %77 = getelementptr inbounds nuw %struct.t_atom, ptr %76, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw [36 x i8], ptr %76, i64 %indvars.iv
   %78 = trunc nuw nsw i64 %indvars.iv to i32
   call fastcc void @_ZL11compareAtomP8_IO_FILEiPK6t_atomS3_ff(ptr noundef %0, i32 noundef %78, ptr noundef %75, ptr noundef %77, float noundef %3, float noundef %4)
   %79 = load ptr, ptr %58, align 8, !tbaa !52
@@ -1333,10 +1330,10 @@ define void @_Z12compareAtomsP8_IO_FILEPK7t_atomsS3_ff(ptr noundef %0, ptr nound
   br i1 %.not93, label %89, label %82
 
 82:                                               ; preds = %80
-  %83 = getelementptr inbounds nuw ptr, ptr %79, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %indvars.iv
   %84 = load ptr, ptr %83, align 8, !tbaa !59
   %85 = load ptr, ptr %84, align 8, !tbaa !4
-  %86 = getelementptr inbounds nuw ptr, ptr %81, i64 %indvars.iv
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %indvars.iv
   %87 = load ptr, ptr %86, align 8, !tbaa !59
   %88 = load ptr, ptr %87, align 8, !tbaa !4
   call void @_Z7cmp_strP8_IO_FILEPKciS2_S2_(ptr noundef %0, ptr noundef nonnull @.str.35, i32 noundef %78, ptr noundef %85, ptr noundef %88)
@@ -1354,9 +1351,9 @@ define void @_Z12compareAtomsP8_IO_FILEPK7t_atomsS3_ff(ptr noundef %0, ptr nound
 
 95:                                               ; preds = %92
   %96 = load ptr, ptr %60, align 8, !tbaa !55
-  %97 = getelementptr inbounds nuw %struct.t_pdbinfo, ptr %96, i64 %indvars.iv
+  %97 = getelementptr inbounds nuw [52 x i8], ptr %96, i64 %indvars.iv
   %98 = load ptr, ptr %61, align 8, !tbaa !55
-  %99 = getelementptr inbounds nuw %struct.t_pdbinfo, ptr %98, i64 %indvars.iv
+  %99 = getelementptr inbounds nuw [52 x i8], ptr %98, i64 %indvars.iv
   %100 = call i64 @fwrite(ptr nonnull @.str.52, i64 20, i64 1, ptr %0)
   %101 = load i32, ptr %97, align 4, !tbaa !67
   %102 = load i32, ptr %99, align 4, !tbaa !67
@@ -1401,9 +1398,9 @@ define void @_Z12compareAtomsP8_IO_FILEPK7t_atomsS3_ff(ptr noundef %0, ptr nound
   %131 = trunc nuw nsw i64 %indvars.iv.i to i32
   call void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull @.str.59, i32 noundef %131)
   %132 = load ptr, ptr %6, align 8, !tbaa !41
-  %133 = getelementptr inbounds nuw i32, ptr %128, i64 %indvars.iv.i
+  %133 = getelementptr inbounds nuw [4 x i8], ptr %128, i64 %indvars.iv.i
   %134 = load i32, ptr %133, align 4, !tbaa !33
-  %135 = getelementptr inbounds nuw i32, ptr %129, i64 %indvars.iv.i
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %129, i64 %indvars.iv.i
   %136 = load i32, ptr %135, align 4, !tbaa !33
   invoke void @_Z7cmp_intP8_IO_FILEPKciii(ptr noundef %0, ptr noundef %132, i32 noundef %78, i32 noundef %134, i32 noundef %136)
           to label %137 unwind label %142
@@ -1454,11 +1451,11 @@ _ZL14comparePdbinfoP8_IO_FILEiRK9t_pdbinfoS3_ff.exit: ; preds = %_ZNSt7__cxx1112
 
 153:                                              ; preds = %150
   %154 = load ptr, ptr %63, align 8, !tbaa !53
-  %155 = getelementptr inbounds nuw ptr, ptr %154, i64 %indvars.iv
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %154, i64 %indvars.iv
   %156 = load ptr, ptr %155, align 8, !tbaa !59
   %157 = load ptr, ptr %156, align 8, !tbaa !4
   %158 = load ptr, ptr %64, align 8, !tbaa !53
-  %159 = getelementptr inbounds nuw ptr, ptr %158, i64 %indvars.iv
+  %159 = getelementptr inbounds nuw [8 x i8], ptr %158, i64 %indvars.iv
   %160 = load ptr, ptr %159, align 8, !tbaa !59
   %161 = load ptr, ptr %160, align 8, !tbaa !4
   call void @_Z7cmp_strP8_IO_FILEPKciS2_S2_(ptr noundef %0, ptr noundef nonnull @.str.36, i32 noundef %78, ptr noundef %157, ptr noundef %161)
@@ -1476,11 +1473,11 @@ _ZL14comparePdbinfoP8_IO_FILEiRK9t_pdbinfoS3_ff.exit: ; preds = %_ZNSt7__cxx1112
 
 168:                                              ; preds = %165
   %169 = load ptr, ptr %65, align 8, !tbaa !54
-  %170 = getelementptr inbounds nuw ptr, ptr %169, i64 %indvars.iv
+  %170 = getelementptr inbounds nuw [8 x i8], ptr %169, i64 %indvars.iv
   %171 = load ptr, ptr %170, align 8, !tbaa !59
   %172 = load ptr, ptr %171, align 8, !tbaa !4
   %173 = load ptr, ptr %66, align 8, !tbaa !54
-  %174 = getelementptr inbounds nuw ptr, ptr %173, i64 %indvars.iv
+  %174 = getelementptr inbounds nuw [8 x i8], ptr %173, i64 %indvars.iv
   %175 = load ptr, ptr %174, align 8, !tbaa !59
   %176 = load ptr, ptr %175, align 8, !tbaa !4
   call void @_Z7cmp_strP8_IO_FILEPKciS2_S2_(ptr noundef %0, ptr noundef nonnull @.str.37, i32 noundef %78, ptr noundef %172, ptr noundef %176)
@@ -1498,9 +1495,9 @@ _ZL14comparePdbinfoP8_IO_FILEiRK9t_pdbinfoS3_ff.exit: ; preds = %_ZNSt7__cxx1112
 183:                                              ; preds = %.lr.ph102, %_ZL14compareResinfoP8_IO_FILEiRK9t_resinfoS3_.exit
   %indvars.iv107 = phi i64 [ 0, %.lr.ph102 ], [ %indvars.iv.next108, %_ZL14compareResinfoP8_IO_FILEiRK9t_resinfoS3_.exit ]
   %184 = load ptr, ptr %71, align 8, !tbaa !51
-  %185 = getelementptr inbounds nuw %struct.t_resinfo, ptr %184, i64 %indvars.iv107
+  %185 = getelementptr inbounds nuw [32 x i8], ptr %184, i64 %indvars.iv107
   %186 = load ptr, ptr %72, align 8, !tbaa !51
-  %187 = getelementptr inbounds nuw %struct.t_resinfo, ptr %186, i64 %indvars.iv107
+  %187 = getelementptr inbounds nuw [32 x i8], ptr %186, i64 %indvars.iv107
   %188 = call i64 @fwrite(ptr nonnull @.str.60, i64 20, i64 1, ptr %0)
   %189 = load ptr, ptr %185, align 8, !tbaa !92
   %190 = load ptr, ptr %189, align 8, !tbaa !4
@@ -1571,7 +1568,7 @@ _ZL14compareResinfoP8_IO_FILEiRK9t_resinfoS3_.exit: ; preds = %217, %219, %221
 229:                                              ; preds = %.lr.ph104, %229
   %indvars.iv110 = phi i64 [ 0, %.lr.ph104 ], [ %indvars.iv.next111, %229 ]
   %230 = load ptr, ptr %10, align 8, !tbaa !50
-  %231 = getelementptr inbounds nuw %struct.t_atom, ptr %230, i64 %indvars.iv110
+  %231 = getelementptr inbounds nuw [36 x i8], ptr %230, i64 %indvars.iv110
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 16
   %233 = load i16, ptr %232, align 4, !tbaa !99
   %234 = getelementptr inbounds nuw i8, ptr %231, i64 18
@@ -1622,12 +1619,12 @@ define internal fastcc void @_ZL11compareAtomP8_IO_FILEiPK6t_atomS3_ff(ptr nound
 16:                                               ; preds = %9
   %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %0, ptr noundef nonnull @.str.48, ptr noundef nonnull @.str.39) #15
   %18 = sext i32 %13 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr @_ZZ17enumValueToString12ParticleTypeE17particleTypeNames, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr @_ZZ17enumValueToString12ParticleTypeE17particleTypeNames, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !4
   %fputs.i = tail call i32 @fputs(ptr %20, ptr %0)
   %21 = tail call i64 @fwrite(ptr nonnull @.str.50, i64 3, i64 1, ptr %0)
   %22 = sext i32 %15 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr @_ZZ17enumValueToString12ParticleTypeE17particleTypeNames, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr @_ZZ17enumValueToString12ParticleTypeE17particleTypeNames, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !4
   %fputs10.i = tail call i32 @fputs(ptr %24, ptr %0)
   %25 = tail call i64 @fwrite(ptr nonnull @.str.51, i64 2, i64 1, ptr %0)
@@ -1759,11 +1756,11 @@ define void @_Z26atomsSetMassesBasedOnNamesP7t_atomsb(ptr noundef captures(none)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %23 = load ptr, ptr %15, align 8, !tbaa !51
   %24 = load ptr, ptr %16, align 8, !tbaa !50
-  %25 = getelementptr inbounds nuw %struct.t_atom, ptr %24, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [36 x i8], ptr %24, i64 %indvars.iv
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = load i32, ptr %26, align 4, !tbaa !90
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds %struct.t_resinfo, ptr %23, i64 %28
+  %29 = getelementptr inbounds [32 x i8], ptr %23, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !92
   %31 = load ptr, ptr %30, align 8, !tbaa !4
   store ptr %17, ptr %6, align 8, !tbaa !21
@@ -1819,7 +1816,7 @@ define void @_Z26atomsSetMassesBasedOnNamesP7t_atomsb(ptr noundef captures(none)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %47 = load ptr, ptr %19, align 8, !tbaa !52
-  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv
   %49 = load ptr, ptr %48, align 8, !tbaa !59
   %50 = load ptr, ptr %49, align 8, !tbaa !4
   store ptr %20, ptr %7, align 8, !tbaa !21
@@ -1874,7 +1871,7 @@ define void @_Z26atomsSetMassesBasedOnNamesP7t_atomsb(ptr noundef captures(none)
   store i8 0, ptr %65, align 1, !tbaa !26
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %66 = load ptr, ptr %16, align 8, !tbaa !50
-  %67 = getelementptr inbounds nuw %struct.t_atom, ptr %66, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [36 x i8], ptr %66, i64 %indvars.iv
   %68 = invoke noundef zeroext i1 @_ZN14AtomProperties15setAtomPropertyEiRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_Pf(ptr noundef nonnull align 8 dereferenceable(8) %5, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef %67)
           to label %69 unwind label %99
 
@@ -1912,16 +1909,16 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43: ; preds = %_ZN
 80:                                               ; preds = %78
   %81 = load ptr, ptr @stderr, align 8, !tbaa !115
   %82 = load ptr, ptr %19, align 8, !tbaa !52
-  %83 = getelementptr inbounds nuw ptr, ptr %82, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %indvars.iv
   %84 = load ptr, ptr %83, align 8, !tbaa !59
   %85 = load ptr, ptr %84, align 8, !tbaa !4
   %86 = load ptr, ptr %15, align 8, !tbaa !51
   %87 = load ptr, ptr %16, align 8, !tbaa !50
-  %88 = getelementptr inbounds nuw %struct.t_atom, ptr %87, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw [36 x i8], ptr %87, i64 %indvars.iv
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 24
   %90 = load i32, ptr %89, align 4, !tbaa !90
   %91 = sext i32 %90 to i64
-  %92 = getelementptr inbounds %struct.t_resinfo, ptr %86, i64 %91
+  %92 = getelementptr inbounds [32 x i8], ptr %86, i64 %91
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %94 = load i32, ptr %93, align 8, !tbaa !95
   %95 = load ptr, ptr %92, align 8, !tbaa !92

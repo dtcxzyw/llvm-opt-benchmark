@@ -3,7 +3,6 @@ source_filename = "bench/wireshark/original/wimaxasncp_dict.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct._value_string = type { i32, ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %struct.WimaxasncpDict_scanner_state_t = type { ptr, ptr, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, [10 x ptr], i32, ptr, ptr, ptr, ptr, i32 }
 
@@ -145,7 +144,7 @@ define hidden noundef i32 @WimaxasncpDict_lex(ptr noundef %0) local_unnamed_addr
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %25 = load i64, ptr %24, align 8
-  %26 = getelementptr ptr, ptr %22, i64 %25
+  %26 = getelementptr [8 x i8], ptr %22, i64 %25
   %27 = load ptr, ptr %26, align 8
   %.not361 = icmp eq ptr %27, null
   br i1 %.not361, label %28, label %35
@@ -157,11 +156,11 @@ define hidden noundef i32 @WimaxasncpDict_lex(ptr noundef %0) local_unnamed_addr
   %31 = load ptr, ptr %21, align 8
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %33 = load i64, ptr %32, align 8
-  %34 = getelementptr ptr, ptr %31, i64 %33
+  %34 = getelementptr [8 x i8], ptr %31, i64 %33
   store ptr %30, ptr %34, align 8
   %.pre = load ptr, ptr %21, align 8
   %.pre985 = load i64, ptr %32, align 8
-  %.phi.trans.insert986 = getelementptr ptr, ptr %.pre, i64 %.pre985
+  %.phi.trans.insert986 = getelementptr [8 x i8], ptr %.pre, i64 %.pre985
   %.pre987 = load ptr, ptr %.phi.trans.insert986, align 8
   br label %35
 
@@ -169,7 +168,7 @@ define hidden noundef i32 @WimaxasncpDict_lex(ptr noundef %0) local_unnamed_addr
   %36 = phi ptr [ %.pre987, %28 ], [ %27, %23 ]
   %37 = phi i64 [ %.pre985, %28 ], [ %25, %23 ]
   %38 = phi ptr [ %.pre, %28 ], [ %22, %23 ]
-  %39 = getelementptr ptr, ptr %38, i64 %37
+  %39 = getelementptr [8 x i8], ptr %38, i64 %37
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 28
   %41 = load i32, ptr %40, align 4
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -228,7 +227,7 @@ WimaxasncpDict__switch_to_buffer.exit:            ; preds = %WimaxasncpDict__swi
   %74 = getelementptr i8, ptr @yy_ec, i64 %73
   %75 = load i8, ptr %74, align 1
   %76 = sext i32 %.1327 to i64
-  %77 = getelementptr i16, ptr @yy_accept, i64 %76
+  %77 = getelementptr [2 x i8], ptr @yy_accept, i64 %76
   %78 = load i16, ptr %77, align 2
   %.not362 = icmp eq i16 %78, 0
   br i1 %.not362, label %80, label %79
@@ -239,12 +238,12 @@ WimaxasncpDict__switch_to_buffer.exit:            ; preds = %WimaxasncpDict__swi
   br label %80
 
 80:                                               ; preds = %79, %71
-  %81 = getelementptr i16, ptr @yy_base, i64 %76
+  %81 = getelementptr [2 x i8], ptr @yy_base, i64 %76
   %82 = load i16, ptr %81, align 2
   %83 = sext i16 %82 to i64
   %84 = zext i8 %75 to i64
   %85 = add nsw i64 %83, %84
-  %86 = getelementptr i16, ptr @yy_chk, i64 %85
+  %86 = getelementptr [2 x i8], ptr @yy_chk, i64 %85
   %87 = load i16, ptr %86, align 2
   %88 = sext i16 %87 to i32
   %.not363818 = icmp eq i32 %.1327, %88
@@ -254,7 +253,7 @@ WimaxasncpDict__switch_to_buffer.exit:            ; preds = %WimaxasncpDict__swi
   %89 = phi i64 [ %102, %97 ], [ %84, %80 ]
   %90 = phi i64 [ %98, %97 ], [ %76, %80 ]
   %.0348819 = phi i8 [ %.1349, %97 ], [ %75, %80 ]
-  %91 = getelementptr i16, ptr @yy_def, i64 %90
+  %91 = getelementptr [2 x i8], ptr @yy_def, i64 %90
   %92 = load i16, ptr %91, align 2
   %93 = icmp sgt i16 %92, 332
   br i1 %93, label %94, label %97
@@ -267,19 +266,19 @@ WimaxasncpDict__switch_to_buffer.exit:            ; preds = %WimaxasncpDict__swi
 97:                                               ; preds = %94, %.lr.ph
   %.1349 = phi i8 [ %96, %94 ], [ %.0348819, %.lr.ph ]
   %98 = sext i16 %92 to i64
-  %99 = getelementptr i16, ptr @yy_base, i64 %98
+  %99 = getelementptr [2 x i8], ptr @yy_base, i64 %98
   %100 = load i16, ptr %99, align 2
   %101 = sext i16 %100 to i64
   %102 = zext i8 %.1349 to i64
   %103 = add nsw i64 %101, %102
-  %104 = getelementptr i16, ptr @yy_chk, i64 %103
+  %104 = getelementptr [2 x i8], ptr @yy_chk, i64 %103
   %105 = load i16, ptr %104, align 2
   %.not363 = icmp eq i16 %92, %105
   br i1 %.not363, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %97, %80
   %.lcssa = phi i64 [ %85, %80 ], [ %103, %97 ]
-  %106 = getelementptr i16, ptr @yy_nxt, i64 %.lcssa
+  %106 = getelementptr [2 x i8], ptr @yy_nxt, i64 %.lcssa
   %107 = load i16, ptr %106, align 2
   %108 = sext i16 %107 to i32
   %109 = getelementptr i8, ptr %.1335, i64 1
@@ -297,7 +296,7 @@ WimaxasncpDict__switch_to_buffer.exit:            ; preds = %WimaxasncpDict__swi
   %.2336 = phi ptr [ %110, %.backedge.sink.split1307 ], [ %1308, %.backedge.backedge ]
   %.3329 = phi i32 [ %111, %.backedge.sink.split1307 ], [ %.3329.be, %.backedge.backedge ]
   %112 = sext i32 %.3329 to i64
-  %113 = getelementptr i16, ptr @yy_accept, i64 %112
+  %113 = getelementptr [2 x i8], ptr @yy_accept, i64 %112
   %114 = load i16, ptr %113, align 2
   %115 = sext i16 %114 to i32
   store ptr %.1342, ptr %58, align 8
@@ -1022,7 +1021,7 @@ append_to_buffer.exit398:                         ; preds = %435, %442
 
 474:                                              ; preds = %472
   %475 = load i64, ptr %61, align 8
-  %476 = getelementptr ptr, ptr %473, i64 %475
+  %476 = getelementptr [8 x i8], ptr %473, i64 %475
   %477 = load ptr, ptr %476, align 8
   br label %478
 
@@ -1032,7 +1031,7 @@ append_to_buffer.exit398:                         ; preds = %435, %442
   %481 = add nsw i32 %466, 1
   store i32 %481, ptr %465, align 8
   %482 = sext i32 %466 to i64
-  %483 = getelementptr ptr, ptr %480, i64 %482
+  %483 = getelementptr [8 x i8], ptr %480, i64 %482
   store ptr %479, ptr %483, align 8
   %484 = load ptr, ptr %0, align 8
   %485 = getelementptr inbounds nuw i8, ptr %484, i64 104
@@ -1086,7 +1085,7 @@ wimaxasncp_dict_open.exit:                        ; preds = %494, %496
   br i1 %.not.i400, label %524, label %.thread.i
 
 .thread.i:                                        ; preds = %502
-  %505 = getelementptr ptr, ptr %504, i64 %.pre997
+  %505 = getelementptr [8 x i8], ptr %504, i64 %.pre997
   %506 = load ptr, ptr %505, align 8
   %507 = icmp eq ptr %506, %503
   br i1 %507, label %WimaxasncpDict__switch_to_buffer.exit.backedge, label %508
@@ -1102,14 +1101,14 @@ wimaxasncp_dict_open.exit:                        ; preds = %494, %496
   %512 = load ptr, ptr %53, align 8
   %513 = load ptr, ptr %60, align 8
   %514 = load i64, ptr %61, align 8
-  %515 = getelementptr ptr, ptr %513, i64 %514
+  %515 = getelementptr [8 x i8], ptr %513, i64 %514
   %516 = load ptr, ptr %515, align 8
   %517 = getelementptr inbounds nuw i8, ptr %516, i64 16
   store ptr %512, ptr %517, align 8
   %518 = load i32, ptr %62, align 4
   %519 = load ptr, ptr %60, align 8
   %520 = load i64, ptr %61, align 8
-  %521 = getelementptr ptr, ptr %519, i64 %520
+  %521 = getelementptr [8 x i8], ptr %519, i64 %520
   %522 = load ptr, ptr %521, align 8
   %523 = getelementptr inbounds nuw i8, ptr %522, i64 28
   store i32 %518, ptr %523, align 4
@@ -1120,11 +1119,11 @@ wimaxasncp_dict_open.exit:                        ; preds = %494, %496
 524:                                              ; preds = %502, %509, %508
   %525 = phi i64 [ %.pre997, %508 ], [ %.pre996, %509 ], [ %.pre997, %502 ]
   %526 = phi ptr [ %504, %508 ], [ %.pre.i401, %509 ], [ null, %502 ]
-  %527 = getelementptr ptr, ptr %526, i64 %525
+  %527 = getelementptr [8 x i8], ptr %526, i64 %525
   store ptr %503, ptr %527, align 8
   %528 = load ptr, ptr %60, align 8
   %529 = load i64, ptr %61, align 8
-  %530 = getelementptr ptr, ptr %528, i64 %529
+  %530 = getelementptr [8 x i8], ptr %528, i64 %529
   %531 = load ptr, ptr %530, align 8
   %532 = getelementptr inbounds nuw i8, ptr %531, i64 28
   %533 = load i32, ptr %532, align 4
@@ -1193,7 +1192,7 @@ WimaxasncpDict__switch_to_buffer.exit.backedge:   ; preds = %121, %121, %121, %1
 
 563:                                              ; preds = %561
   %564 = load i64, ptr %61, align 8
-  %565 = getelementptr ptr, ptr %562, i64 %564
+  %565 = getelementptr [8 x i8], ptr %562, i64 %564
   %566 = load ptr, ptr %565, align 8
   %.not.i402 = icmp eq ptr %566, null
   br i1 %.not.i402, label %WimaxasncpDict__delete_buffer.exit, label %.critedge.i
@@ -1221,7 +1220,7 @@ WimaxasncpDict__delete_buffer.exit:               ; preds = %561, %563, %572
   %575 = getelementptr inbounds nuw i8, ptr %573, i64 192
   %576 = load i32, ptr %575, align 8
   %577 = sext i32 %576 to i64
-  %578 = getelementptr ptr, ptr %574, i64 %577
+  %578 = getelementptr [8 x i8], ptr %574, i64 %577
   %579 = load ptr, ptr %578, align 8
   tail call fastcc void @WimaxasncpDict_ensure_buffer_stack(ptr noundef %0)
   %580 = load ptr, ptr %60, align 8
@@ -1234,7 +1233,7 @@ WimaxasncpDict__delete_buffer.exit:               ; preds = %561, %563, %572
 
 .thread.i404:                                     ; preds = %WimaxasncpDict__delete_buffer.exit
   %583 = load i64, ptr %61, align 8
-  %584 = getelementptr ptr, ptr %580, i64 %583
+  %584 = getelementptr [8 x i8], ptr %580, i64 %583
   %585 = load ptr, ptr %584, align 8
   %586 = icmp eq ptr %585, %579
   br i1 %586, label %WimaxasncpDict__switch_to_buffer.exit407, label %587
@@ -1250,14 +1249,14 @@ WimaxasncpDict__delete_buffer.exit:               ; preds = %561, %563, %572
   %591 = load ptr, ptr %53, align 8
   %592 = load ptr, ptr %60, align 8
   %593 = load i64, ptr %61, align 8
-  %594 = getelementptr ptr, ptr %592, i64 %593
+  %594 = getelementptr [8 x i8], ptr %592, i64 %593
   %595 = load ptr, ptr %594, align 8
   %596 = getelementptr inbounds nuw i8, ptr %595, i64 16
   store ptr %591, ptr %596, align 8
   %597 = load i32, ptr %62, align 4
   %598 = load ptr, ptr %60, align 8
   %599 = load i64, ptr %61, align 8
-  %600 = getelementptr ptr, ptr %598, i64 %599
+  %600 = getelementptr [8 x i8], ptr %598, i64 %599
   %601 = load ptr, ptr %600, align 8
   %602 = getelementptr inbounds nuw i8, ptr %601, i64 28
   store i32 %597, ptr %602, align 4
@@ -1267,11 +1266,11 @@ WimaxasncpDict__delete_buffer.exit:               ; preds = %561, %563, %572
 603:                                              ; preds = %588, %587, %581
   %604 = phi ptr [ null, %581 ], [ %.pre.i406, %588 ], [ %580, %587 ]
   %605 = load i64, ptr %61, align 8
-  %606 = getelementptr ptr, ptr %604, i64 %605
+  %606 = getelementptr [8 x i8], ptr %604, i64 %605
   store ptr %579, ptr %606, align 8
   %607 = load ptr, ptr %60, align 8
   %608 = load i64, ptr %61, align 8
-  %609 = getelementptr ptr, ptr %607, i64 %608
+  %609 = getelementptr [8 x i8], ptr %607, i64 %608
   %610 = load ptr, ptr %609, align 8
   %611 = getelementptr inbounds nuw i8, ptr %610, i64 28
   %612 = load i32, ptr %611, align 4
@@ -1418,7 +1417,7 @@ WimaxasncpDict__switch_to_buffer.exit407:         ; preds = %581, %.thread.i404,
 
 692:                                              ; preds = %690, %688
   %.06.i = phi i64 [ 0, %688 ], [ %691, %690 ]
-  %693 = getelementptr %struct._value_string, ptr @wimaxasncp_decode_type_vals, i64 %.06.i
+  %693 = getelementptr [16 x i8], ptr @wimaxasncp_decode_type_vals, i64 %.06.i
   %694 = getelementptr inbounds nuw i8, ptr %693, i64 8
   %695 = load ptr, ptr %694, align 8
   %696 = tail call i32 @strcmp(ptr noundef readonly %689, ptr noundef %695) #34
@@ -1457,7 +1456,7 @@ wimaxasncp_decode_type.exit:                      ; preds = %690, %698
 yy_pop_state.exit:                                ; preds = %706
   %711 = load ptr, ptr %67, align 8
   %712 = zext nneg i32 %708 to i64
-  %713 = getelementptr i32, ptr %711, i64 %712
+  %713 = getelementptr [4 x i8], ptr %711, i64 %712
   %714 = load i32, ptr %713, align 4
   %715 = shl i32 %714, 1
   %716 = or disjoint i32 %715, 1
@@ -1485,7 +1484,7 @@ yy_pop_state.exit:                                ; preds = %706
 yy_pop_state.exit408:                             ; preds = %719
   %725 = load ptr, ptr %67, align 8
   %726 = zext nneg i32 %722 to i64
-  %727 = getelementptr i32, ptr %725, i64 %726
+  %727 = getelementptr [4 x i8], ptr %725, i64 %726
   %728 = load i32, ptr %727, align 4
   %729 = shl i32 %728, 1
   %730 = or disjoint i32 %729, 1
@@ -1588,7 +1587,7 @@ yy_push_state.exit:                               ; preds = %._crit_edge.i, %._c
   %775 = add i32 %770, 1
   store i32 %775, ptr %65, align 4
   %776 = sext i32 %770 to i64
-  %777 = getelementptr i32, ptr %771, i64 %776
+  %777 = getelementptr [4 x i8], ptr %771, i64 %776
   store i32 %774, ptr %777, align 4
   store i32 17, ptr %55, align 4
   br label %WimaxasncpDict__switch_to_buffer.exit.backedge
@@ -1650,7 +1649,7 @@ yy_push_state.exit420:                            ; preds = %._crit_edge.i417, %
   %802 = add i32 %797, 1
   store i32 %802, ptr %65, align 4
   %803 = sext i32 %797 to i64
-  %804 = getelementptr i32, ptr %798, i64 %803
+  %804 = getelementptr [4 x i8], ptr %798, i64 %803
   store i32 %801, ptr %804, align 4
   store i32 17, ptr %55, align 4
   br label %WimaxasncpDict__switch_to_buffer.exit.backedge
@@ -1711,7 +1710,7 @@ yy_push_state.exit430:                            ; preds = %._crit_edge.i427, %
   %828 = add i32 %823, 1
   store i32 %828, ptr %65, align 4
   %829 = sext i32 %823 to i64
-  %830 = getelementptr i32, ptr %824, i64 %829
+  %830 = getelementptr [4 x i8], ptr %824, i64 %829
   store i32 %827, ptr %830, align 4
   store i32 21, ptr %55, align 4
   br label %WimaxasncpDict__switch_to_buffer.exit.backedge
@@ -1773,7 +1772,7 @@ yy_push_state.exit440:                            ; preds = %._crit_edge.i437, %
   %855 = add i32 %850, 1
   store i32 %855, ptr %65, align 4
   %856 = sext i32 %850 to i64
-  %857 = getelementptr i32, ptr %851, i64 %856
+  %857 = getelementptr [4 x i8], ptr %851, i64 %856
   store i32 %854, ptr %857, align 4
   store i32 29, ptr %55, align 4
   br label %WimaxasncpDict__switch_to_buffer.exit.backedge
@@ -1835,7 +1834,7 @@ yy_push_state.exit450:                            ; preds = %._crit_edge.i447, %
   %882 = add i32 %877, 1
   store i32 %882, ptr %65, align 4
   %883 = sext i32 %877 to i64
-  %884 = getelementptr i32, ptr %878, i64 %883
+  %884 = getelementptr [4 x i8], ptr %878, i64 %883
   store i32 %881, ptr %884, align 4
   store i32 19, ptr %55, align 4
   br label %WimaxasncpDict__switch_to_buffer.exit.backedge
@@ -1953,7 +1952,7 @@ yy_push_state.exit460:                            ; preds = %._crit_edge.i457, %
   %941 = add i32 %936, 1
   store i32 %941, ptr %65, align 4
   %942 = sext i32 %936 to i64
-  %943 = getelementptr i32, ptr %937, i64 %942
+  %943 = getelementptr [4 x i8], ptr %937, i64 %942
   store i32 %940, ptr %943, align 4
   store i32 17, ptr %55, align 4
   br label %WimaxasncpDict__switch_to_buffer.exit.backedge
@@ -2015,7 +2014,7 @@ yy_push_state.exit470:                            ; preds = %._crit_edge.i467, %
   %968 = add i32 %963, 1
   store i32 %968, ptr %65, align 4
   %969 = sext i32 %963 to i64
-  %970 = getelementptr i32, ptr %964, i64 %969
+  %970 = getelementptr [4 x i8], ptr %964, i64 %969
   store i32 %967, ptr %970, align 4
   store i32 19, ptr %55, align 4
   br label %WimaxasncpDict__switch_to_buffer.exit.backedge
@@ -2085,7 +2084,7 @@ yy_push_state.exit480:                            ; preds = %._crit_edge.i477, %
   %994 = add i32 %989, 1
   store i32 %994, ptr %65, align 4
   %995 = sext i32 %989 to i64
-  %996 = getelementptr i32, ptr %990, i64 %995
+  %996 = getelementptr [4 x i8], ptr %990, i64 %995
   store i32 %993, ptr %996, align 4
   store i32 41, ptr %55, align 4
   br label %WimaxasncpDict__switch_to_buffer.exit.backedge
@@ -2096,7 +2095,7 @@ yy_push_state.exit480:                            ; preds = %._crit_edge.i477, %
   store i8 %999, ptr %.2336, align 1
   %1000 = load ptr, ptr %60, align 8
   %1001 = load i64, ptr %61, align 8
-  %1002 = getelementptr ptr, ptr %1000, i64 %1001
+  %1002 = getelementptr [8 x i8], ptr %1000, i64 %1001
   %1003 = load ptr, ptr %1002, align 8
   %1004 = getelementptr inbounds nuw i8, ptr %1003, i64 56
   %1005 = load i32, ptr %1004, align 8
@@ -2112,13 +2111,13 @@ yy_push_state.exit480:                            ; preds = %._crit_edge.i477, %
   store ptr %1010, ptr %1011, align 8
   %1012 = load ptr, ptr %60, align 8
   %1013 = load i64, ptr %61, align 8
-  %1014 = getelementptr ptr, ptr %1012, i64 %1013
+  %1014 = getelementptr [8 x i8], ptr %1012, i64 %1013
   %1015 = load ptr, ptr %1014, align 8
   %1016 = getelementptr inbounds nuw i8, ptr %1015, i64 56
   store i32 1, ptr %1016, align 8
   %.pre988 = load ptr, ptr %60, align 8
   %.pre989 = load i64, ptr %61, align 8
-  %.phi.trans.insert990 = getelementptr ptr, ptr %.pre988, i64 %.pre989
+  %.phi.trans.insert990 = getelementptr [8 x i8], ptr %.pre988, i64 %.pre989
   %.pre991 = load ptr, ptr %.phi.trans.insert990, align 8
   br label %1017
 
@@ -2165,7 +2164,7 @@ yy_push_state.exit480:                            ; preds = %._crit_edge.i477, %
 1042:                                             ; preds = %1038, %.lr.ph31.i
   %1043 = phi i8 [ %1041, %1038 ], [ 1, %.lr.ph31.i ]
   %1044 = sext i32 %.02129.i to i64
-  %1045 = getelementptr i16, ptr @yy_accept, i64 %1044
+  %1045 = getelementptr [2 x i8], ptr @yy_accept, i64 %1044
   %1046 = load i16, ptr %1045, align 2
   %.not24.i = icmp eq i16 %1046, 0
   br i1 %.not24.i, label %1048, label %1047
@@ -2176,12 +2175,12 @@ yy_push_state.exit480:                            ; preds = %._crit_edge.i477, %
   br label %1048
 
 1048:                                             ; preds = %1047, %1042
-  %1049 = getelementptr i16, ptr @yy_base, i64 %1044
+  %1049 = getelementptr [2 x i8], ptr @yy_base, i64 %1044
   %1050 = load i16, ptr %1049, align 2
   %1051 = sext i16 %1050 to i64
   %1052 = zext i8 %1043 to i64
   %1053 = add nsw i64 %1051, %1052
-  %1054 = getelementptr i16, ptr @yy_chk, i64 %1053
+  %1054 = getelementptr [2 x i8], ptr @yy_chk, i64 %1053
   %1055 = load i16, ptr %1054, align 2
   %1056 = sext i16 %1055 to i32
   %.not2526.i = icmp eq i32 %.02129.i, %1056
@@ -2191,7 +2190,7 @@ yy_push_state.exit480:                            ; preds = %._crit_edge.i477, %
   %1057 = phi i64 [ %1070, %1065 ], [ %1052, %1048 ]
   %1058 = phi i64 [ %1066, %1065 ], [ %1044, %1048 ]
   %.027.i = phi i8 [ %.1.i, %1065 ], [ %1043, %1048 ]
-  %1059 = getelementptr i16, ptr @yy_def, i64 %1058
+  %1059 = getelementptr [2 x i8], ptr @yy_def, i64 %1058
   %1060 = load i16, ptr %1059, align 2
   %1061 = icmp sgt i16 %1060, 332
   br i1 %1061, label %1062, label %1065
@@ -2204,19 +2203,19 @@ yy_push_state.exit480:                            ; preds = %._crit_edge.i477, %
 1065:                                             ; preds = %1062, %.lr.ph.i
   %.1.i = phi i8 [ %1064, %1062 ], [ %.027.i, %.lr.ph.i ]
   %1066 = sext i16 %1060 to i64
-  %1067 = getelementptr i16, ptr @yy_base, i64 %1066
+  %1067 = getelementptr [2 x i8], ptr @yy_base, i64 %1066
   %1068 = load i16, ptr %1067, align 2
   %1069 = sext i16 %1068 to i64
   %1070 = zext i8 %.1.i to i64
   %1071 = add nsw i64 %1069, %1070
-  %1072 = getelementptr i16, ptr @yy_chk, i64 %1071
+  %1072 = getelementptr [2 x i8], ptr @yy_chk, i64 %1071
   %1073 = load i16, ptr %1072, align 2
   %.not25.i482 = icmp eq i16 %1060, %1073
   br i1 %.not25.i482, label %._crit_edge.i483, label %.lr.ph.i, !llvm.loop !12
 
 ._crit_edge.i483:                                 ; preds = %1065, %1048
   %.lcssa.i = phi i64 [ %1053, %1048 ], [ %1071, %1065 ]
-  %1074 = getelementptr i16, ptr @yy_nxt, i64 %.lcssa.i
+  %1074 = getelementptr [2 x i8], ptr @yy_nxt, i64 %.lcssa.i
   %1075 = load i16, ptr %1074, align 2
   %1076 = sext i16 %1075 to i32
   %1077 = getelementptr i8, ptr %.02328.i, i64 1
@@ -2226,7 +2225,7 @@ yy_push_state.exit480:                            ; preds = %._crit_edge.i477, %
 yy_get_previous_state.exit:                       ; preds = %._crit_edge.i483, %1027
   %.021.lcssa.i = phi i32 [ %1035, %1027 ], [ %1076, %._crit_edge.i483 ]
   %1078 = sext i32 %.021.lcssa.i to i64
-  %1079 = getelementptr i16, ptr @yy_accept, i64 %1078
+  %1079 = getelementptr [2 x i8], ptr @yy_accept, i64 %1078
   %1080 = load i16, ptr %1079, align 2
   %.not.i485 = icmp eq i16 %1080, 0
   br i1 %.not.i485, label %1082, label %1081
@@ -2237,11 +2236,11 @@ yy_get_previous_state.exit:                       ; preds = %._crit_edge.i483, %
   br label %1082
 
 1082:                                             ; preds = %1081, %yy_get_previous_state.exit
-  %1083 = getelementptr i16, ptr @yy_base, i64 %1078
+  %1083 = getelementptr [2 x i8], ptr @yy_base, i64 %1078
   %1084 = load i16, ptr %1083, align 2
   %1085 = sext i16 %1084 to i64
   %1086 = add nsw i64 %1085, 1
-  %1087 = getelementptr i16, ptr @yy_chk, i64 %1086
+  %1087 = getelementptr [2 x i8], ptr @yy_chk, i64 %1086
   %1088 = load i16, ptr %1087, align 2
   %1089 = sext i16 %1088 to i32
   %.not1819.i = icmp eq i32 %.021.lcssa.i, %1089
@@ -2249,21 +2248,21 @@ yy_get_previous_state.exit:                       ; preds = %._crit_edge.i483, %
 
 .lr.ph.i486:                                      ; preds = %1082, %.lr.ph.i486
   %1090 = phi i64 [ %1093, %.lr.ph.i486 ], [ %1078, %1082 ]
-  %1091 = getelementptr i16, ptr @yy_def, i64 %1090
+  %1091 = getelementptr [2 x i8], ptr @yy_def, i64 %1090
   %1092 = load i16, ptr %1091, align 2
   %1093 = sext i16 %1092 to i64
-  %1094 = getelementptr i16, ptr @yy_base, i64 %1093
+  %1094 = getelementptr [2 x i8], ptr @yy_base, i64 %1093
   %1095 = load i16, ptr %1094, align 2
   %1096 = sext i16 %1095 to i64
   %1097 = add nsw i64 %1096, 1
-  %1098 = getelementptr i16, ptr @yy_chk, i64 %1097
+  %1098 = getelementptr [2 x i8], ptr @yy_chk, i64 %1097
   %1099 = load i16, ptr %1098, align 2
   %.not18.i487 = icmp eq i16 %1092, %1099
   br i1 %.not18.i487, label %yy_try_NUL_trans.exit, label %.lr.ph.i486, !llvm.loop !14
 
 yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i486, %1082
   %.lcssa.i489 = phi i64 [ %1086, %1082 ], [ %1097, %.lr.ph.i486 ]
-  %1100 = getelementptr i16, ptr @yy_nxt, i64 %.lcssa.i489
+  %1100 = getelementptr [2 x i8], ptr @yy_nxt, i64 %.lcssa.i489
   %1101 = load i16, ptr %1100, align 2
   switch i16 %1101, label %1102 [
     i16 332, label %.backedge.sink.split1307.backedge
@@ -2333,7 +2332,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i486, %1082
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i494
   %.pre.i496 = load ptr, ptr %60, align 8
   %.pre130.i = load i64, ptr %61, align 8
-  %.phi.trans.insert.i497 = getelementptr ptr, ptr %.pre.i496, i64 %.pre130.i
+  %.phi.trans.insert.i497 = getelementptr [8 x i8], ptr %.pre.i496, i64 %.pre130.i
   %.pre131.i = load ptr, ptr %.phi.trans.insert.i497, align 8
   br label %._crit_edge.i490
 
@@ -2347,7 +2346,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i486, %1082
   br i1 %1135, label %1136, label %1138
 
 1136:                                             ; preds = %._crit_edge.i490
-  %1137 = getelementptr ptr, ptr %1132, i64 %1131
+  %1137 = getelementptr [8 x i8], ptr %1132, i64 %1131
   store i32 0, ptr %62, align 4
   br label %1185
 
@@ -2413,7 +2412,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i486, %1082
   store ptr %1164, ptr %53, align 8
   %1165 = load ptr, ptr %60, align 8
   %1166 = load i64, ptr %61, align 8
-  %1167 = getelementptr ptr, ptr %1165, i64 %1166
+  %1167 = getelementptr [8 x i8], ptr %1165, i64 %1166
   %1168 = load ptr, ptr %1167, align 8
   %.pn.in.i = getelementptr inbounds nuw i8, ptr %1168, i64 24
   %.pn.i = load i32, ptr %.pn.in.i, align 8
@@ -2439,7 +2438,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i486, %1082
   store i32 %1181, ptr %62, align 4
   %1182 = load ptr, ptr %60, align 8
   %1183 = load i64, ptr %61, align 8
-  %1184 = getelementptr ptr, ptr %1182, i64 %1183
+  %1184 = getelementptr [8 x i8], ptr %1182, i64 %1183
   br label %1185
 
 1185:                                             ; preds = %._crit_edge126.i, %1136
@@ -2464,7 +2463,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i486, %1082
 1193:                                             ; preds = %1189
   %1194 = load ptr, ptr %60, align 8
   %1195 = load i64, ptr %61, align 8
-  %1196 = getelementptr ptr, ptr %1194, i64 %1195
+  %1196 = getelementptr [8 x i8], ptr %1194, i64 %1195
   %1197 = load ptr, ptr %1196, align 8
   %1198 = getelementptr inbounds nuw i8, ptr %1197, i64 56
   store i32 2, ptr %1198, align 8
@@ -2476,7 +2475,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i486, %1082
   %1201 = add i32 %1200, %1124
   %1202 = load ptr, ptr %60, align 8
   %1203 = load i64, ptr %61, align 8
-  %1204 = getelementptr ptr, ptr %1202, i64 %1203
+  %1204 = getelementptr [8 x i8], ptr %1202, i64 %1203
   %1205 = load ptr, ptr %1204, align 8
   %1206 = getelementptr inbounds nuw i8, ptr %1205, i64 24
   %1207 = load i32, ptr %1206, align 8
@@ -2492,13 +2491,13 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i486, %1082
   %1215 = tail call ptr @realloc(ptr noundef %1213, i64 noundef %1214) #38
   %1216 = load ptr, ptr %60, align 8
   %1217 = load i64, ptr %61, align 8
-  %1218 = getelementptr ptr, ptr %1216, i64 %1217
+  %1218 = getelementptr [8 x i8], ptr %1216, i64 %1217
   %1219 = load ptr, ptr %1218, align 8
   %1220 = getelementptr inbounds nuw i8, ptr %1219, i64 8
   store ptr %1215, ptr %1220, align 8
   %1221 = load ptr, ptr %60, align 8
   %1222 = load i64, ptr %61, align 8
-  %1223 = getelementptr ptr, ptr %1221, i64 %1222
+  %1223 = getelementptr [8 x i8], ptr %1221, i64 %1222
   %1224 = load ptr, ptr %1223, align 8
   %1225 = getelementptr inbounds nuw i8, ptr %1224, i64 8
   %1226 = load ptr, ptr %1225, align 8
@@ -2524,7 +2523,7 @@ yy_get_next_buffer.exit:                          ; preds = %1199, %1228
   %1231 = phi i64 [ %.pre135.i, %1228 ], [ %1203, %1199 ]
   %1232 = phi ptr [ %.pre134.i, %1228 ], [ %1202, %1199 ]
   store i32 %.pre-phi.i, ptr %62, align 4
-  %1233 = getelementptr ptr, ptr %1232, i64 %1231
+  %1233 = getelementptr [8 x i8], ptr %1232, i64 %1231
   %1234 = load ptr, ptr %1233, align 8
   %1235 = getelementptr inbounds nuw i8, ptr %1234, i64 8
   %1236 = load ptr, ptr %1235, align 8
@@ -2533,7 +2532,7 @@ yy_get_next_buffer.exit:                          ; preds = %1199, %1228
   store i8 0, ptr %1238, align 1
   %1239 = load ptr, ptr %60, align 8
   %1240 = load i64, ptr %61, align 8
-  %1241 = getelementptr ptr, ptr %1239, i64 %1240
+  %1241 = getelementptr [8 x i8], ptr %1239, i64 %1240
   %1242 = load ptr, ptr %1241, align 8
   %1243 = getelementptr inbounds nuw i8, ptr %1242, i64 8
   %1244 = load ptr, ptr %1243, align 8
@@ -2544,7 +2543,7 @@ yy_get_next_buffer.exit:                          ; preds = %1199, %1228
   store i8 0, ptr %1248, align 1
   %1249 = load ptr, ptr %60, align 8
   %1250 = load i64, ptr %61, align 8
-  %1251 = getelementptr ptr, ptr %1249, i64 %1250
+  %1251 = getelementptr [8 x i8], ptr %1249, i64 %1250
   %1252 = load ptr, ptr %1251, align 8
   %1253 = getelementptr inbounds nuw i8, ptr %1252, i64 8
   %1254 = load ptr, ptr %1253, align 8
@@ -2556,7 +2555,7 @@ yy_get_next_buffer.exit:                          ; preds = %1199, %1228
   ]
 
 yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread530_crit_edge: ; preds = %yy_get_next_buffer.exit
-  %1255 = getelementptr ptr, ptr %1249, i64 %1250
+  %1255 = getelementptr [8 x i8], ptr %1249, i64 %1250
   %.pre992 = load ptr, ptr %1255, align 8
   %.phi.trans.insert993 = getelementptr inbounds nuw i8, ptr %.pre992, i64 8
   %.pre994 = load ptr, ptr %.phi.trans.insert993, align 8
@@ -2593,7 +2592,7 @@ yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread530_crit_edge: ; preds = %
 1270:                                             ; preds = %1266, %.lr.ph31.i499
   %1271 = phi i8 [ %1269, %1266 ], [ 1, %.lr.ph31.i499 ]
   %1272 = sext i32 %.02129.i500 to i64
-  %1273 = getelementptr i16, ptr @yy_accept, i64 %1272
+  %1273 = getelementptr [2 x i8], ptr @yy_accept, i64 %1272
   %1274 = load i16, ptr %1273, align 2
   %.not24.i503 = icmp eq i16 %1274, 0
   br i1 %.not24.i503, label %1276, label %1275
@@ -2604,12 +2603,12 @@ yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread530_crit_edge: ; preds = %
   br label %1276
 
 1276:                                             ; preds = %1275, %1270
-  %1277 = getelementptr i16, ptr @yy_base, i64 %1272
+  %1277 = getelementptr [2 x i8], ptr @yy_base, i64 %1272
   %1278 = load i16, ptr %1277, align 2
   %1279 = sext i16 %1278 to i64
   %1280 = zext i8 %1271 to i64
   %1281 = add nsw i64 %1279, %1280
-  %1282 = getelementptr i16, ptr @yy_chk, i64 %1281
+  %1282 = getelementptr [2 x i8], ptr @yy_chk, i64 %1281
   %1283 = load i16, ptr %1282, align 2
   %1284 = sext i16 %1283 to i32
   %.not2526.i504 = icmp eq i32 %.02129.i500, %1284
@@ -2619,7 +2618,7 @@ yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread530_crit_edge: ; preds = %
   %1285 = phi i64 [ %1298, %1293 ], [ %1280, %1276 ]
   %1286 = phi i64 [ %1294, %1293 ], [ %1272, %1276 ]
   %.027.i506 = phi i8 [ %.1.i507, %1293 ], [ %1271, %1276 ]
-  %1287 = getelementptr i16, ptr @yy_def, i64 %1286
+  %1287 = getelementptr [2 x i8], ptr @yy_def, i64 %1286
   %1288 = load i16, ptr %1287, align 2
   %1289 = icmp sgt i16 %1288, 332
   br i1 %1289, label %1290, label %1293
@@ -2632,19 +2631,19 @@ yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread530_crit_edge: ; preds = %
 1293:                                             ; preds = %1290, %.lr.ph.i505
   %.1.i507 = phi i8 [ %1292, %1290 ], [ %.027.i506, %.lr.ph.i505 ]
   %1294 = sext i16 %1288 to i64
-  %1295 = getelementptr i16, ptr @yy_base, i64 %1294
+  %1295 = getelementptr [2 x i8], ptr @yy_base, i64 %1294
   %1296 = load i16, ptr %1295, align 2
   %1297 = sext i16 %1296 to i64
   %1298 = zext i8 %.1.i507 to i64
   %1299 = add nsw i64 %1297, %1298
-  %1300 = getelementptr i16, ptr @yy_chk, i64 %1299
+  %1300 = getelementptr [2 x i8], ptr @yy_chk, i64 %1299
   %1301 = load i16, ptr %1300, align 2
   %.not25.i508 = icmp eq i16 %1288, %1301
   br i1 %.not25.i508, label %._crit_edge.i509, label %.lr.ph.i505, !llvm.loop !12
 
 ._crit_edge.i509:                                 ; preds = %1293, %1276
   %.lcssa.i510 = phi i64 [ %1281, %1276 ], [ %1299, %1293 ]
-  %1302 = getelementptr i16, ptr @yy_nxt, i64 %.lcssa.i510
+  %1302 = getelementptr [2 x i8], ptr @yy_nxt, i64 %.lcssa.i510
   %1303 = load i16, ptr %1302, align 2
   %1304 = sext i16 %1303 to i32
   %1305 = getelementptr i8, ptr %.02328.i501, i64 1
@@ -2681,7 +2680,7 @@ yy_get_next_buffer.exit.thread530:                ; preds = %1118, %yy_get_next_
 1316:                                             ; preds = %1312, %.lr.ph31.i514
   %1317 = phi i8 [ %1315, %1312 ], [ 1, %.lr.ph31.i514 ]
   %1318 = sext i32 %.02129.i515 to i64
-  %1319 = getelementptr i16, ptr @yy_accept, i64 %1318
+  %1319 = getelementptr [2 x i8], ptr @yy_accept, i64 %1318
   %1320 = load i16, ptr %1319, align 2
   %.not24.i518 = icmp eq i16 %1320, 0
   br i1 %.not24.i518, label %1322, label %1321
@@ -2692,12 +2691,12 @@ yy_get_next_buffer.exit.thread530:                ; preds = %1118, %yy_get_next_
   br label %1322
 
 1322:                                             ; preds = %1321, %1316
-  %1323 = getelementptr i16, ptr @yy_base, i64 %1318
+  %1323 = getelementptr [2 x i8], ptr @yy_base, i64 %1318
   %1324 = load i16, ptr %1323, align 2
   %1325 = sext i16 %1324 to i64
   %1326 = zext i8 %1317 to i64
   %1327 = add nsw i64 %1325, %1326
-  %1328 = getelementptr i16, ptr @yy_chk, i64 %1327
+  %1328 = getelementptr [2 x i8], ptr @yy_chk, i64 %1327
   %1329 = load i16, ptr %1328, align 2
   %1330 = sext i16 %1329 to i32
   %.not2526.i519 = icmp eq i32 %.02129.i515, %1330
@@ -2707,7 +2706,7 @@ yy_get_next_buffer.exit.thread530:                ; preds = %1118, %yy_get_next_
   %1331 = phi i64 [ %1344, %1339 ], [ %1326, %1322 ]
   %1332 = phi i64 [ %1340, %1339 ], [ %1318, %1322 ]
   %.027.i521 = phi i8 [ %.1.i522, %1339 ], [ %1317, %1322 ]
-  %1333 = getelementptr i16, ptr @yy_def, i64 %1332
+  %1333 = getelementptr [2 x i8], ptr @yy_def, i64 %1332
   %1334 = load i16, ptr %1333, align 2
   %1335 = icmp sgt i16 %1334, 332
   br i1 %1335, label %1336, label %1339
@@ -2720,19 +2719,19 @@ yy_get_next_buffer.exit.thread530:                ; preds = %1118, %yy_get_next_
 1339:                                             ; preds = %1336, %.lr.ph.i520
   %.1.i522 = phi i8 [ %1338, %1336 ], [ %.027.i521, %.lr.ph.i520 ]
   %1340 = sext i16 %1334 to i64
-  %1341 = getelementptr i16, ptr @yy_base, i64 %1340
+  %1341 = getelementptr [2 x i8], ptr @yy_base, i64 %1340
   %1342 = load i16, ptr %1341, align 2
   %1343 = sext i16 %1342 to i64
   %1344 = zext i8 %.1.i522 to i64
   %1345 = add nsw i64 %1343, %1344
-  %1346 = getelementptr i16, ptr @yy_chk, i64 %1345
+  %1346 = getelementptr [2 x i8], ptr @yy_chk, i64 %1345
   %1347 = load i16, ptr %1346, align 2
   %.not25.i523 = icmp eq i16 %1334, %1347
   br i1 %.not25.i523, label %._crit_edge.i524, label %.lr.ph.i520, !llvm.loop !12
 
 ._crit_edge.i524:                                 ; preds = %1339, %1322
   %.lcssa.i525 = phi i64 [ %1327, %1322 ], [ %1345, %1339 ]
-  %1348 = getelementptr i16, ptr @yy_nxt, i64 %.lcssa.i525
+  %1348 = getelementptr [2 x i8], ptr @yy_nxt, i64 %.lcssa.i525
   %1349 = load i16, ptr %1348, align 2
   %1350 = sext i16 %1349 to i32
   %1351 = getelementptr i8, ptr %.02328.i516, i64 1
@@ -2815,7 +2814,7 @@ define internal fastcc void @WimaxasncpDict_ensure_buffer_stack(ptr noundef capt
 21:                                               ; preds = %16
   %22 = load i64, ptr %13, align 8
   %.idx = shl i64 %22, 3
-  %23 = getelementptr ptr, ptr %19, i64 %22
+  %23 = getelementptr [8 x i8], ptr %19, i64 %22
   %24 = tail call i64 @llvm.usub.sat.i64(i64 %18, i64 %.idx)
   %25 = tail call ptr @__memset_chk(ptr noundef %23, i32 noundef 0, i64 noundef 64, i64 noundef %24) #33
   store i64 %17, ptr %13, align 8
@@ -2874,7 +2873,7 @@ define hidden nonnull ptr @WimaxasncpDict__create_buffer(ptr noundef %0, i32 nou
 24:                                               ; preds = %13
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %26 = load i64, ptr %25, align 8
-  %27 = getelementptr ptr, ptr %23, i64 %26
+  %27 = getelementptr [8 x i8], ptr %23, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %4, %28
   br i1 %29, label %30, label %45
@@ -2912,7 +2911,7 @@ WimaxasncpDict__flush_buffer.exit.i:              ; preds = %13
   store i32 1, ptr %46, align 4
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %48 = load i64, ptr %47, align 8
-  %49 = getelementptr ptr, ptr %23, i64 %48
+  %49 = getelementptr [8 x i8], ptr %23, i64 %48
   %50 = load ptr, ptr %49, align 8
   %.not14.i = icmp eq ptr %4, %50
   br i1 %.not14.i, label %WimaxasncpDict__init_buffer.exit, label %.thread
@@ -2980,7 +2979,7 @@ define hidden void @WimaxasncpDict__switch_to_buffer(ptr noundef %0, ptr noundef
 .thread:                                          ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr ptr, ptr %4, i64 %8
+  %9 = getelementptr [8 x i8], ptr %4, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, %0
   br i1 %11, label %54, label %12
@@ -2998,7 +2997,7 @@ define hidden void @WimaxasncpDict__switch_to_buffer(ptr noundef %0, ptr noundef
   %18 = load ptr, ptr %16, align 8
   %19 = load ptr, ptr %3, align 8
   %20 = load i64, ptr %7, align 8
-  %21 = getelementptr ptr, ptr %19, i64 %20
+  %21 = getelementptr [8 x i8], ptr %19, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store ptr %18, ptr %23, align 8
@@ -3006,7 +3005,7 @@ define hidden void @WimaxasncpDict__switch_to_buffer(ptr noundef %0, ptr noundef
   %25 = load i32, ptr %24, align 4
   %26 = load ptr, ptr %3, align 8
   %27 = load i64, ptr %7, align 8
-  %28 = getelementptr ptr, ptr %26, i64 %27
+  %28 = getelementptr [8 x i8], ptr %26, i64 %27
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 28
   store i32 %25, ptr %30, align 4
@@ -3017,11 +3016,11 @@ define hidden void @WimaxasncpDict__switch_to_buffer(ptr noundef %0, ptr noundef
   %32 = phi ptr [ null, %5 ], [ %.pre, %13 ], [ %4, %12 ]
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %34 = load i64, ptr %33, align 8
-  %35 = getelementptr ptr, ptr %32, i64 %34
+  %35 = getelementptr [8 x i8], ptr %32, i64 %34
   store ptr %0, ptr %35, align 8
   %36 = load ptr, ptr %3, align 8
   %37 = load i64, ptr %33, align 8
-  %38 = getelementptr ptr, ptr %36, i64 %37
+  %38 = getelementptr [8 x i8], ptr %36, i64 %37
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 28
   %41 = load i32, ptr %40, align 4
@@ -3072,7 +3071,7 @@ define hidden void @WimaxasncpDict__delete_buffer(ptr noundef captures(address) 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr ptr, ptr %5, i64 %8
+  %9 = getelementptr [8 x i8], ptr %5, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %0, %10
   br i1 %11, label %12, label %.critedge
@@ -3137,7 +3136,7 @@ define hidden void @WimaxasncpDict_restart(ptr noundef %0, ptr noundef captures(
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr ptr, ptr %4, i64 %7
+  %8 = getelementptr [8 x i8], ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8
   %.not16 = icmp eq ptr %9, null
   br i1 %.not16, label %10, label %.thread25
@@ -3150,7 +3149,7 @@ define hidden void @WimaxasncpDict_restart(ptr noundef %0, ptr noundef captures(
   %14 = load ptr, ptr %3, align 8
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %16 = load i64, ptr %15, align 8
-  %17 = getelementptr ptr, ptr %14, i64 %16
+  %17 = getelementptr [8 x i8], ptr %14, i64 %16
   store ptr %13, ptr %17, align 8
   %.pre = load ptr, ptr %3, align 8
   %.not17 = icmp eq ptr %.pre, null
@@ -3165,7 +3164,7 @@ define hidden void @WimaxasncpDict_restart(ptr noundef %0, ptr noundef captures(
   %20 = phi ptr [ %.pre, %10 ], [ %4, %5 ]
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load i64, ptr %21, align 8
-  %23 = getelementptr ptr, ptr %20, i64 %22
+  %23 = getelementptr [8 x i8], ptr %20, i64 %22
   %24 = load ptr, ptr %23, align 8
   %25 = tail call ptr @__errno_location() #39
   %26 = load i32, ptr %25, align 4
@@ -3194,7 +3193,7 @@ define hidden void @WimaxasncpDict_restart(ptr noundef %0, ptr noundef captures(
 
 38:                                               ; preds = %27
   %39 = load i64, ptr %21, align 8
-  %40 = getelementptr ptr, ptr %37, i64 %39
+  %40 = getelementptr [8 x i8], ptr %37, i64 %39
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %24, %41
   br i1 %42, label %43, label %WimaxasncpDict__flush_buffer.exit.i
@@ -3234,7 +3233,7 @@ WimaxasncpDict__flush_buffer.exit.i:              ; preds = %.thread, %43, %38, 
 62:                                               ; preds = %WimaxasncpDict__flush_buffer.exit.i
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %64 = load i64, ptr %63, align 8
-  %65 = getelementptr ptr, ptr %61, i64 %64
+  %65 = getelementptr [8 x i8], ptr %61, i64 %64
   %66 = load ptr, ptr %65, align 8
   br label %67
 
@@ -3257,7 +3256,7 @@ WimaxasncpDict__init_buffer.exit:                 ; preds = %67, %69
   %73 = load ptr, ptr %3, align 8
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %75 = load i64, ptr %74, align 8
-  %76 = getelementptr ptr, ptr %73, i64 %75
+  %76 = getelementptr [8 x i8], ptr %73, i64 %75
   %77 = load ptr, ptr %76, align 8
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 28
   %79 = load i32, ptr %78, align 4
@@ -3315,7 +3314,7 @@ define hidden void @WimaxasncpDict__flush_buffer(ptr noundef captures(address) %
 15:                                               ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr ptr, ptr %14, i64 %17
+  %18 = getelementptr [8 x i8], ptr %14, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %0, %19
   br i1 %20, label %21, label %.critedge
@@ -3360,7 +3359,7 @@ define hidden void @WimaxasncpDict_push_buffer_state(ptr noundef %0, ptr noundef
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr ptr, ptr %6, i64 %9
+  %10 = getelementptr [8 x i8], ptr %6, i64 %9
   %11 = load ptr, ptr %10, align 8
   %.not25 = icmp eq ptr %11, null
   br i1 %.not25, label %.thread31, label %12
@@ -3374,7 +3373,7 @@ define hidden void @WimaxasncpDict_push_buffer_state(ptr noundef %0, ptr noundef
   %17 = load ptr, ptr %15, align 8
   %18 = load ptr, ptr %5, align 8
   %19 = load i64, ptr %8, align 8
-  %20 = getelementptr ptr, ptr %18, i64 %19
+  %20 = getelementptr [8 x i8], ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %17, ptr %22, align 8
@@ -3382,7 +3381,7 @@ define hidden void @WimaxasncpDict_push_buffer_state(ptr noundef %0, ptr noundef
   %24 = load i32, ptr %23, align 4
   %25 = load ptr, ptr %5, align 8
   %26 = load i64, ptr %8, align 8
-  %27 = getelementptr ptr, ptr %25, i64 %26
+  %27 = getelementptr [8 x i8], ptr %25, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 28
   store i32 %24, ptr %29, align 4
@@ -3393,7 +3392,7 @@ define hidden void @WimaxasncpDict_push_buffer_state(ptr noundef %0, ptr noundef
 .thread31:                                        ; preds = %7, %12
   %.pr34 = phi ptr [ %.pr.pre, %12 ], [ %6, %7 ]
   %30 = load i64, ptr %8, align 8
-  %31 = getelementptr ptr, ptr %.pr34, i64 %30
+  %31 = getelementptr [8 x i8], ptr %.pr34, i64 %30
   %32 = load ptr, ptr %31, align 8
   %.not27 = icmp eq ptr %32, null
   br i1 %.not27, label %.thread, label %33
@@ -3407,11 +3406,11 @@ define hidden void @WimaxasncpDict_push_buffer_state(ptr noundef %0, ptr noundef
   %35 = phi ptr [ %.pr34, %.thread31 ], [ null, %12 ], [ %.pr34, %33 ], [ null, %4 ]
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %37 = load i64, ptr %36, align 8
-  %38 = getelementptr ptr, ptr %35, i64 %37
+  %38 = getelementptr [8 x i8], ptr %35, i64 %37
   store ptr %0, ptr %38, align 8
   %39 = load ptr, ptr %5, align 8
   %40 = load i64, ptr %36, align 8
-  %41 = getelementptr ptr, ptr %39, i64 %40
+  %41 = getelementptr [8 x i8], ptr %39, i64 %40
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 28
   %44 = load i32, ptr %43, align 4
@@ -3449,7 +3448,7 @@ define hidden void @WimaxasncpDict_pop_buffer_state(ptr noundef captures(none) %
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr ptr, ptr %3, i64 %6
+  %7 = getelementptr [8 x i8], ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8
   %.not20 = icmp eq ptr %8, null
   br i1 %.not20, label %41, label %.critedge.i
@@ -3471,7 +3470,7 @@ WimaxasncpDict__delete_buffer.exit:               ; preds = %.critedge.i, %11
   tail call void @free(ptr noundef nonnull %8) #33
   %14 = load ptr, ptr %2, align 8
   %15 = load i64, ptr %5, align 8
-  %16 = getelementptr ptr, ptr %14, i64 %15
+  %16 = getelementptr [8 x i8], ptr %14, i64 %15
   store ptr null, ptr %16, align 8
   %17 = load i64, ptr %5, align 8
   %.not21 = icmp eq i64 %17, 0
@@ -3489,7 +3488,7 @@ WimaxasncpDict__delete_buffer.exit:               ; preds = %.critedge.i, %11
   br i1 %.not22, label %41, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr ptr, ptr %22, i64 %21
+  %24 = getelementptr [8 x i8], ptr %22, i64 %21
   %25 = load ptr, ptr %24, align 8
   %.not23 = icmp eq ptr %25, null
   br i1 %.not23, label %41, label %26
@@ -3579,7 +3578,7 @@ define hidden noundef ptr @WimaxasncpDict__scan_buffer(ptr noundef %0, i64 nound
 .thread.i:                                        ; preds = %16
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %30 = load i64, ptr %29, align 8
-  %31 = getelementptr ptr, ptr %28, i64 %30
+  %31 = getelementptr [8 x i8], ptr %28, i64 %30
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, %14
   br i1 %33, label %WimaxasncpDict__switch_to_buffer.exit, label %34
@@ -3597,7 +3596,7 @@ define hidden noundef ptr @WimaxasncpDict__scan_buffer(ptr noundef %0, i64 nound
   %40 = load ptr, ptr %38, align 8
   %41 = load ptr, ptr %27, align 8
   %42 = load i64, ptr %29, align 8
-  %43 = getelementptr ptr, ptr %41, i64 %42
+  %43 = getelementptr [8 x i8], ptr %41, i64 %42
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   store ptr %40, ptr %45, align 8
@@ -3605,7 +3604,7 @@ define hidden noundef ptr @WimaxasncpDict__scan_buffer(ptr noundef %0, i64 nound
   %47 = load i32, ptr %46, align 4
   %48 = load ptr, ptr %27, align 8
   %49 = load i64, ptr %29, align 8
-  %50 = getelementptr ptr, ptr %48, i64 %49
+  %50 = getelementptr [8 x i8], ptr %48, i64 %49
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 28
   store i32 %47, ptr %52, align 4
@@ -3616,11 +3615,11 @@ define hidden noundef ptr @WimaxasncpDict__scan_buffer(ptr noundef %0, i64 nound
   %54 = phi ptr [ %28, %34 ], [ %.pre.i, %35 ], [ null, %16 ]
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %56 = load i64, ptr %55, align 8
-  %57 = getelementptr ptr, ptr %54, i64 %56
+  %57 = getelementptr [8 x i8], ptr %54, i64 %56
   store ptr %14, ptr %57, align 8
   %58 = load ptr, ptr %27, align 8
   %59 = load i64, ptr %55, align 8
-  %60 = getelementptr ptr, ptr %58, i64 %59
+  %60 = getelementptr [8 x i8], ptr %58, i64 %59
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 28
   %63 = load i32, ptr %62, align 4
@@ -3751,7 +3750,7 @@ define hidden i32 @WimaxasncpDict_get_lineno(ptr noundef readonly captures(none)
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr ptr, ptr %3, i64 %6
+  %7 = getelementptr [8 x i8], ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8
   %.not8 = icmp eq ptr %8, null
   br i1 %.not8, label %12, label %9
@@ -3776,7 +3775,7 @@ define hidden i32 @WimaxasncpDict_get_column(ptr noundef readonly captures(none)
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr ptr, ptr %3, i64 %6
+  %7 = getelementptr [8 x i8], ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8
   %.not8 = icmp eq ptr %8, null
   br i1 %.not8, label %12, label %9
@@ -3835,7 +3834,7 @@ define hidden void @WimaxasncpDict_set_lineno(i32 noundef %0, ptr noundef readon
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr ptr, ptr %4, i64 %7
+  %8 = getelementptr [8 x i8], ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8
   %.not8 = icmp eq ptr %9, null
   br i1 %.not8, label %10, label %11
@@ -3860,7 +3859,7 @@ define hidden void @WimaxasncpDict_set_column(i32 noundef %0, ptr noundef readon
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr ptr, ptr %4, i64 %7
+  %8 = getelementptr [8 x i8], ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8
   %.not8 = icmp eq ptr %9, null
   br i1 %.not8, label %10, label %11
@@ -3974,7 +3973,7 @@ define hidden noundef i32 @WimaxasncpDict_lex_destroy(ptr noundef captures(none)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %11 = load i64, ptr %2, align 8
-  %12 = getelementptr ptr, ptr %4, i64 %11
+  %12 = getelementptr [8 x i8], ptr %4, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.critedge, label %.critedge.i
@@ -3998,7 +3997,7 @@ WimaxasncpDict__delete_buffer.exit:               ; preds = %.critedge.i, %19
   tail call void @free(ptr noundef nonnull %15) #33
   %22 = load ptr, ptr %3, align 8
   %23 = load i64, ptr %2, align 8
-  %24 = getelementptr ptr, ptr %22, i64 %23
+  %24 = getelementptr [8 x i8], ptr %22, i64 %23
   store ptr null, ptr %24, align 8
   %25 = load ptr, ptr %3, align 8
   %.not.i20 = icmp eq ptr %25, null
@@ -4006,7 +4005,7 @@ WimaxasncpDict__delete_buffer.exit:               ; preds = %.critedge.i, %19
 
 26:                                               ; preds = %WimaxasncpDict__delete_buffer.exit
   %27 = load i64, ptr %2, align 8
-  %28 = getelementptr ptr, ptr %25, i64 %27
+  %28 = getelementptr [8 x i8], ptr %25, i64 %27
   %29 = load ptr, ptr %28, align 8
   %.not20.i = icmp eq ptr %29, null
   br i1 %.not20.i, label %WimaxasncpDict_pop_buffer_state.exit, label %.critedge.i.i
@@ -4028,7 +4027,7 @@ WimaxasncpDict__delete_buffer.exit.i:             ; preds = %32, %.critedge.i.i
   tail call void @free(ptr noundef nonnull %29) #33
   %35 = load ptr, ptr %3, align 8
   %36 = load i64, ptr %2, align 8
-  %37 = getelementptr ptr, ptr %35, i64 %36
+  %37 = getelementptr [8 x i8], ptr %35, i64 %36
   store ptr null, ptr %37, align 8
   %38 = load i64, ptr %2, align 8
   %.not21.i = icmp eq i64 %38, 0
@@ -4046,7 +4045,7 @@ WimaxasncpDict__delete_buffer.exit.i:             ; preds = %32, %.critedge.i.i
   br i1 %.not22.i, label %.critedge, label %44
 
 44:                                               ; preds = %41
-  %45 = getelementptr ptr, ptr %43, i64 %42
+  %45 = getelementptr [8 x i8], ptr %43, i64 %42
   %46 = load ptr, ptr %45, align 8
   %.not23.i = icmp eq ptr %46, null
   br i1 %.not23.i, label %WimaxasncpDict_pop_buffer_state.exit, label %47
@@ -4071,7 +4070,7 @@ WimaxasncpDict__delete_buffer.exit.i:             ; preds = %32, %.critedge.i.i
 WimaxasncpDict_pop_buffer_state.exit:             ; preds = %26, %44, %47
   %56 = phi ptr [ %43, %44 ], [ %25, %26 ], [ %43, %47 ]
   %57 = load i64, ptr %2, align 8
-  %58 = getelementptr ptr, ptr %56, i64 %57
+  %58 = getelementptr [8 x i8], ptr %56, i64 %57
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %59, null
   br i1 %60, label %.critedge, label %.critedge.i, !llvm.loop !17

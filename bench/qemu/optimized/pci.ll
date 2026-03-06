@@ -15,20 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.timeval = type { i64, i64 }
 %union.anon.2 = type { i64 }
 %union.anon.3 = type { i64 }
-%struct.VFIOMSIVector = type { %struct.EventNotifier, %struct.EventNotifier, ptr, i32, i8 }
-%struct.EventNotifier = type { i32, i32, i8 }
-%struct.PCIIORegion = type { i64, i64, i8, ptr, ptr }
-%struct.VFIOBAR = type { %struct.VFIORegion, ptr, i64, i8, i8, i8, %struct.anon.14 }
-%struct.VFIORegion = type { ptr, i64, ptr, i64, i32, i32, ptr, i8 }
-%struct.anon.14 = type { ptr }
-%struct.VFIOVGARegion = type { %struct.MemoryRegion, i64, i32, %struct.anon }
-%struct.MemoryRegion = type { %struct.Object, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, ptr, ptr, ptr, ptr, i32, i128, i64, ptr, i64, i8, i8, i8, i8, ptr, i64, i32, %union.anon, %union.anon.0, %union.anon.1, ptr, i32, ptr, ptr, i8 }
-%struct.Object = type { ptr, ptr, ptr, i32, ptr }
-%union.anon = type { %struct.QTailQLink }
-%struct.QTailQLink = type { ptr, ptr }
-%union.anon.0 = type { %struct.QTailQLink }
-%union.anon.1 = type { %struct.QTailQLink }
-%struct.anon = type { ptr }
 %struct.ErrorPropagator = type { ptr, ptr }
 %struct.PCIINTxRoute = type { i32, i32 }
 %union.anon.25 = type { i64 }
@@ -859,7 +845,7 @@ vfio_msi_disable.exit:                            ; preds = %68, %71, %73, %79, 
   %92 = phi i32 [ %88, %.lr.ph.i ], [ %111, %110 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %110 ]
   %93 = load ptr, ptr %90, align 16
-  %94 = getelementptr inbounds nuw %struct.VFIOMSIVector, ptr %93, i64 %indvars.iv.i
+  %94 = getelementptr inbounds nuw [40 x i8], ptr %93, i64 %indvars.iv.i
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 36
   %96 = load i8, ptr %95, align 4, !range !6, !noundef !7
   %97 = trunc nuw i8 %96 to i1
@@ -955,9 +941,9 @@ vfio_msi_disable.exit:                            ; preds = %68, %71, %73, %79, 
 
 141:                                              ; preds = %139, %141
   %indvars.iv = phi i64 [ 0, %139 ], [ %indvars.iv.next, %141 ]
-  %142 = getelementptr inbounds nuw %struct.PCIIORegion, ptr %140, i64 %indvars.iv
+  %142 = getelementptr inbounds nuw [40 x i8], ptr %140, i64 %indvars.iv
   %143 = load i64, ptr %142, align 8
-  %144 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv
+  %144 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   store i64 %143, ptr %144, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
@@ -969,15 +955,15 @@ vfio_msi_disable.exit:                            ; preds = %68, %71, %73, %79, 
 
 146:                                              ; preds = %145, %161
   %indvars.iv91 = phi i64 [ 0, %145 ], [ %indvars.iv.next92, %161 ]
-  %147 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv91
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv91
   %148 = load i64, ptr %147, align 8
-  %149 = getelementptr inbounds nuw %struct.PCIIORegion, ptr %140, i64 %indvars.iv91
+  %149 = getelementptr inbounds nuw [40 x i8], ptr %140, i64 %indvars.iv91
   %150 = load i64, ptr %149, align 8
   %.not82 = icmp eq i64 %148, %150
   br i1 %.not82, label %161, label %151
 
 151:                                              ; preds = %146
-  %152 = getelementptr inbounds nuw %struct.VFIOBAR, ptr %10, i64 %indvars.iv91
+  %152 = getelementptr inbounds nuw [88 x i8], ptr %10, i64 %indvars.iv91
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 3120
   %154 = load i64, ptr %153, align 8
   %.not83 = icmp eq i64 %154, 0
@@ -1055,7 +1041,7 @@ vfio_prepare_kvm_msi_virq_batch.exit:             ; preds = %vfio_prepare_kvm_ms
 .lr.ph:                                           ; preds = %vfio_prepare_kvm_msi_virq_batch.exit, %vfio_add_kvm_msi_virq.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %vfio_add_kvm_msi_virq.exit ], [ 0, %vfio_prepare_kvm_msi_virq_batch.exit ]
   %17 = load ptr, ptr %8, align 16
-  %18 = getelementptr inbounds nuw %struct.VFIOMSIVector, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [40 x i8], ptr %17, i64 %indvars.iv
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   store ptr %0, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 32
@@ -1116,7 +1102,7 @@ vfio_add_kvm_msi_virq.exit:                       ; preds = %24, %28
   %46 = phi i32 [ %57, %56 ], [ %42, %._crit_edge ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %56 ], [ 0, %._crit_edge ]
   %47 = load ptr, ptr %8, align 16
-  %48 = getelementptr inbounds nuw %struct.VFIOMSIVector, ptr %47, i64 %indvars.iv.i
+  %48 = getelementptr inbounds nuw [40 x i8], ptr %47, i64 %indvars.iv.i
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 36
   %50 = load i8, ptr %49, align 4, !range !6, !noundef !7
   %51 = trunc nuw i8 %50 to i1
@@ -1135,7 +1121,7 @@ vfio_add_kvm_msi_virq.exit:                       ; preds = %24, %28
 56:                                               ; preds = %.sink.split49.i, %.lr.ph.split.i
   %57 = phi i32 [ %46, %.lr.ph.split.i ], [ %.pre, %.sink.split49.i ]
   %.0.i = phi i32 [ -1, %.lr.ph.split.i ], [ %55, %.sink.split49.i ]
-  %58 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv.i
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %indvars.iv.i
   store i32 %.0.i, ptr %58, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %59 = sext i32 %57 to i64
@@ -1353,7 +1339,7 @@ define internal fastcc void @vfio_msix_disable(ptr noundef %0) unnamed_addr #0 {
   %9 = phi i32 [ %5, %.lr.ph ], [ %18, %17 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
   %10 = load ptr, ptr %7, align 16
-  %11 = getelementptr inbounds nuw %struct.VFIOMSIVector, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [40 x i8], ptr %10, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 36
   %13 = load i8, ptr %12, align 4, !range !6, !noundef !7
   %14 = trunc nuw i8 %13 to i1
@@ -1447,7 +1433,7 @@ define internal fastcc void @vfio_sub_page_bar_update_mapping(ptr noundef %0, i3
   %3 = tail call ptr @object_dynamic_cast_assert(ptr noundef %0, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, i32 noundef 120, ptr noundef nonnull @__func__.VFIO_PCI) #26
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 3096
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds %struct.VFIOBAR, ptr %4, i64 %5
+  %6 = getelementptr inbounds [88 x i8], ptr %4, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 36
@@ -1471,7 +1457,7 @@ define internal fastcc void @vfio_sub_page_bar_update_mapping(ptr noundef %0, i3
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %21 = getelementptr inbounds %struct.PCIIORegion, ptr %20, i64 %5
+  %21 = getelementptr inbounds [40 x i8], ptr %20, i64 %5
   %22 = load i64, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %24 = load ptr, ptr %23, align 8
@@ -2093,7 +2079,7 @@ define internal void @vfio_msi_interrupt(ptr noundef %0) #0 {
   %25 = and i64 %11, 63
   %26 = shl nuw i64 1, %25
   %27 = lshr i64 %20, 6
-  %28 = getelementptr inbounds nuw i64, ptr %24, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %27
   %29 = load i64, ptr %28, align 8
   %30 = or i64 %29, %26
   store i64 %30, ptr %28, align 8
@@ -2229,7 +2215,7 @@ kvm_irqchip_commit_route_changes.exit:            ; preds = %6, %8
 14:                                               ; preds = %.lr.ph, %vfio_connect_kvm_msi_virq.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %vfio_connect_kvm_msi_virq.exit ]
   %15 = load ptr, ptr %13, align 16
-  %16 = getelementptr inbounds nuw %struct.VFIOMSIVector, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [40 x i8], ptr %15, i64 %indvars.iv
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %18 = load i32, ptr %17, align 8
   %19 = icmp slt i32 %18, 0
@@ -2331,7 +2317,7 @@ define internal fastcc i32 @vfio_enable_vectors(ptr noundef %0, i1 noundef zeroe
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %54
   %indvars.iv44 = phi i64 [ %indvars.iv.next45, %54 ], [ 0, %.lr.ph ]
   %35 = load ptr, ptr %34, align 16
-  %36 = getelementptr inbounds nuw %struct.VFIOMSIVector, ptr %35, i64 %indvars.iv44
+  %36 = getelementptr inbounds nuw [40 x i8], ptr %35, i64 %indvars.iv44
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 36
   %38 = load i8, ptr %37, align 4, !range !6, !noundef !7
   %39 = trunc nuw i8 %38 to i1
@@ -2350,13 +2336,13 @@ define internal fastcc i32 @vfio_enable_vectors(ptr noundef %0, i1 noundef zeroe
   br i1 %46, label %50, label %47
 
 47:                                               ; preds = %44
-  %48 = getelementptr inbounds nuw %struct.VFIOMSIVector, ptr %.pre, i64 %indvars.iv44
+  %48 = getelementptr inbounds nuw [40 x i8], ptr %.pre, i64 %indvars.iv44
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 12
   br label %.sink.split
 
 50:                                               ; preds = %44, %40
   %51 = phi ptr [ %.pre, %44 ], [ %35, %40 ]
-  %52 = getelementptr inbounds nuw %struct.VFIOMSIVector, ptr %51, i64 %indvars.iv44
+  %52 = getelementptr inbounds nuw [40 x i8], ptr %51, i64 %indvars.iv44
   br label %.sink.split
 
 .sink.split:                                      ; preds = %47, %50
@@ -2366,7 +2352,7 @@ define internal fastcc i32 @vfio_enable_vectors(ptr noundef %0, i1 noundef zeroe
 
 54:                                               ; preds = %.sink.split, %.lr.ph.split.us
   %.0.us = phi i32 [ -1, %.lr.ph.split.us ], [ %53, %.sink.split ]
-  %55 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv44
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv44
   store i32 %.0.us, ptr %55, align 4
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
   %56 = load i32, ptr %21, align 16
@@ -2377,7 +2363,7 @@ define internal fastcc i32 @vfio_enable_vectors(ptr noundef %0, i1 noundef zeroe
 .lr.ph.split:                                     ; preds = %.lr.ph, %68
   %indvars.iv = phi i64 [ %indvars.iv.next, %68 ], [ 0, %.lr.ph ]
   %59 = load ptr, ptr %34, align 16
-  %60 = getelementptr inbounds nuw %struct.VFIOMSIVector, ptr %59, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [40 x i8], ptr %59, i64 %indvars.iv
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 36
   %62 = load i8, ptr %61, align 4, !range !6, !noundef !7
   %63 = trunc nuw i8 %62 to i1
@@ -2394,7 +2380,7 @@ define internal fastcc i32 @vfio_enable_vectors(ptr noundef %0, i1 noundef zeroe
 
 68:                                               ; preds = %.sink.split49, %.lr.ph.split
   %.0 = phi i32 [ -1, %.lr.ph.split ], [ %67, %.sink.split49 ]
-  %69 = getelementptr inbounds nuw i32, ptr %32, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv
   store i32 %.0, ptr %69, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %70 = load i32, ptr %21, align 16
@@ -2429,7 +2415,7 @@ define internal fastcc void @vfio_msi_disable_common(ptr noundef captures(none) 
   %7 = phi i32 [ %3, %.lr.ph ], [ %26, %25 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
   %8 = load ptr, ptr %5, align 16
-  %9 = getelementptr inbounds nuw %struct.VFIOMSIVector, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [40 x i8], ptr %8, i64 %indvars.iv
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 36
   %11 = load i8, ptr %10, align 4, !range !6, !noundef !7
   %12 = trunc nuw i8 %11 to i1
@@ -2568,7 +2554,7 @@ trace_vfio_msix_vector_do_use.exit.i:             ; preds = %31, %25, %19, %17, 
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 3072
   %33 = load ptr, ptr %32, align 16
   %34 = zext i32 %1 to i64
-  %35 = getelementptr inbounds nuw %struct.VFIOMSIVector, ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw [40 x i8], ptr %33, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 36
   %37 = load i8, ptr %36, align 4, !range !6, !noundef !7
   %38 = trunc nuw i8 %37 to i1
@@ -2740,7 +2726,7 @@ vfio_add_kvm_msi_virq.exit.i:                     ; preds = %83, %77, %kvm_irqch
   %114 = and i64 %34, 63
   %115 = shl nuw i64 1, %114
   %116 = lshr i64 %34, 6
-  %117 = getelementptr inbounds nuw i64, ptr %113, i64 %116
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %113, i64 %116
   %118 = xor i64 %115, -1
   %119 = load i64, ptr %117, align 8
   %120 = and i64 %119, %118
@@ -2832,7 +2818,7 @@ define internal void @vfio_msix_vector_release(ptr noundef %0, i32 noundef %1) #
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 3072
   %7 = load ptr, ptr %6, align 16
   %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds nuw %struct.VFIOMSIVector, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [40 x i8], ptr %7, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 2824
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr @trace_events_enabled_count, align 4
@@ -2941,7 +2927,7 @@ define internal fastcc void @vfio_intx_disable(ptr noundef %0) unnamed_addr #0 {
 
 8:                                                ; preds = %8, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %8 ]
-  %9 = getelementptr inbounds nuw %struct.VFIOBAR, ptr %7, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw [88 x i8], ptr %7, i64 %indvars.iv.i
   tail call void @vfio_region_mmaps_set_enabled(ptr noundef nonnull %9, i1 noundef zeroext true) #26
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
@@ -3063,7 +3049,7 @@ trace_vfio_intx_interrupt.exit:                   ; preds = %5, %13, %15, %21, %
 
 31:                                               ; preds = %31, %trace_vfio_intx_interrupt.exit
   %indvars.iv.i = phi i64 [ 0, %trace_vfio_intx_interrupt.exit ], [ %indvars.iv.next.i, %31 ]
-  %32 = getelementptr inbounds nuw %struct.VFIOBAR, ptr %30, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw [88 x i8], ptr %30, i64 %indvars.iv.i
   tail call void @vfio_region_mmaps_set_enabled(ptr noundef nonnull %32, i1 noundef zeroext false) #26
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
@@ -3127,7 +3113,7 @@ define internal void @vfio_instance_finalize(ptr noundef %0) #0 {
 
 4:                                                ; preds = %15, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %15 ]
-  %5 = getelementptr inbounds nuw %struct.VFIOBAR, ptr %3, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw [88 x i8], ptr %3, i64 %indvars.iv.i
   %6 = trunc nuw nsw i64 %indvars.iv.i to i32
   tail call void @vfio_bar_quirk_finalize(ptr noundef %2, i32 noundef %6) #26
   tail call void @vfio_region_finalize(ptr noundef nonnull %5) #26
@@ -3172,7 +3158,7 @@ define internal void @vfio_instance_finalize(ptr noundef %0) #0 {
   %indvars.iv25.i = phi i64 [ 0, %19 ], [ %indvars.iv.next26.i, %20 ]
   %21 = load ptr, ptr %17, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %23 = getelementptr inbounds nuw %struct.VFIOVGARegion, ptr %22, i64 %indvars.iv25.i
+  %23 = getelementptr inbounds nuw [304 x i8], ptr %22, i64 %indvars.iv25.i
   tail call void @object_unparent(ptr noundef nonnull %23) #26
   %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1
   %exitcond28.not.i = icmp eq i64 %indvars.iv.next26.i, 3
@@ -3349,9 +3335,9 @@ define internal i32 @vfio_pci_load_config(ptr noundef %0, ptr noundef %1) #0 {
 
 5:                                                ; preds = %2, %5
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr inbounds nuw %struct.PCIIORegion, ptr %4, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [40 x i8], ptr %4, i64 %indvars.iv
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   store i64 %7, ptr %8, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
@@ -3374,15 +3360,15 @@ define internal i32 @vfio_pci_load_config(ptr noundef %0, ptr noundef %1) #0 {
 
 17:                                               ; preds = %12, %32
   %indvars.iv39 = phi i64 [ 0, %12 ], [ %indvars.iv.next40, %32 ]
-  %18 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv39
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv39
   %19 = load i64, ptr %18, align 8
-  %20 = getelementptr inbounds nuw %struct.PCIIORegion, ptr %4, i64 %indvars.iv39
+  %20 = getelementptr inbounds nuw [40 x i8], ptr %4, i64 %indvars.iv39
   %21 = load i64, ptr %20, align 8
   %.not34 = icmp eq i64 %19, %21
   br i1 %.not34, label %32, label %22
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds nuw %struct.VFIOBAR, ptr %0, i64 %indvars.iv39
+  %23 = getelementptr inbounds nuw [88 x i8], ptr %0, i64 %indvars.iv39
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 368
   %25 = load i64, ptr %24, align 8
   %.not35 = icmp eq i64 %25, 0
@@ -3886,7 +3872,7 @@ trace_vfio_mdev.exit:                             ; preds = %41, %48, %50, %56, 
   %101 = load ptr, ptr %45, align 8
   %102 = trunc nuw nsw i64 %indvars.iv.i to i32
   %103 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.147, ptr noundef %101, i32 noundef %102) #26
-  %104 = getelementptr inbounds nuw %struct.VFIOBAR, ptr %98, i64 %indvars.iv.i
+  %104 = getelementptr inbounds nuw [88 x i8], ptr %98, i64 %indvars.iv.i
   %105 = call i32 @vfio_region_setup(ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %104, i32 noundef %102, ptr noundef %103) #26
   call void @g_free(ptr noundef %103) #26
   %.not53.i = icmp eq i32 %105, 0
@@ -4657,13 +4643,13 @@ vfio_unregister_err_notifier.exit:                ; preds = %vfio_unregister_req
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 3096
   %42 = load i8, ptr %39, align 8
   %43 = zext i8 %42 to i64
-  %44 = getelementptr inbounds nuw %struct.VFIOBAR, ptr %41, i64 %43
+  %44 = getelementptr inbounds nuw [88 x i8], ptr %41, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 56
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %39, i64 1
   %48 = load i8, ptr %47, align 1
   %49 = zext i8 %48 to i64
-  %50 = getelementptr inbounds nuw %struct.VFIOBAR, ptr %41, i64 %49
+  %50 = getelementptr inbounds nuw [88 x i8], ptr %41, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 56
   %52 = load ptr, ptr %51, align 8
   call void @msix_uninit(ptr noundef nonnull %4, ptr noundef %46, ptr noundef %52) #26
@@ -4703,7 +4689,7 @@ vfio_pci_disable_rp_atomics.exit:                 ; preds = %vfio_teardown_msi.e
 
 74:                                               ; preds = %84, %vfio_pci_disable_rp_atomics.exit
   %indvars.iv.i = phi i64 [ 0, %vfio_pci_disable_rp_atomics.exit ], [ %indvars.iv.next.i, %84 ]
-  %75 = getelementptr inbounds nuw %struct.VFIOBAR, ptr %73, i64 %indvars.iv.i
+  %75 = getelementptr inbounds nuw [88 x i8], ptr %73, i64 %indvars.iv.i
   %76 = trunc nuw nsw i64 %indvars.iv.i to i32
   call void @vfio_bar_quirk_exit(ptr noundef nonnull %4, i32 noundef %76) #26
   call void @vfio_region_exit(ptr noundef nonnull %75) #26
@@ -5079,7 +5065,7 @@ define internal fastcc void @vfio_bars_prepare(ptr noundef captures(none) %0) un
 
 6:                                                ; preds = %1, %vfio_bar_prepare.exit
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %vfio_bar_prepare.exit ]
-  %7 = getelementptr inbounds nuw %struct.VFIOBAR, ptr %3, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [88 x i8], ptr %3, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %9 = load i64, ptr %8, align 8
@@ -5245,7 +5231,7 @@ define internal fastcc noundef zeroext i1 @vfio_msix_early_setup(ptr noundef %0,
   %67 = zext i32 %66 to i64
   %68 = load i8, ptr %48, align 1
   %69 = zext i8 %68 to i64
-  %70 = getelementptr inbounds nuw %struct.VFIOBAR, ptr %0, i64 %69
+  %70 = getelementptr inbounds nuw [88 x i8], ptr %0, i64 %69
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 3120
   %72 = load i64, ptr %71, align 8
   %.not53 = icmp ugt i64 %72, %67
@@ -5341,7 +5327,7 @@ trace_vfio_msix_early_setup.exit:                 ; preds = %88, %100, %102, %10
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 3096
   %117 = load i8, ptr %39, align 8
   %118 = zext i8 %117 to i64
-  %119 = getelementptr inbounds nuw %struct.VFIOBAR, ptr %116, i64 %118
+  %119 = getelementptr inbounds nuw [88 x i8], ptr %116, i64 %118
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 2752
   %121 = getelementptr inbounds nuw i8, ptr %119, i64 48
   %122 = load i8, ptr %121, align 8
@@ -5535,7 +5521,7 @@ vfio_pci_fixup_msix_region.exit:                  ; preds = %trace_vfio_msix_ear
 252:                                              ; preds = %224
   %253 = add i32 %222, -2
   %254 = sext i32 %253 to i64
-  %255 = getelementptr inbounds %struct.VFIOBAR, ptr %116, i64 %254
+  %255 = getelementptr inbounds [88 x i8], ptr %116, i64 %254
   %256 = getelementptr inbounds nuw i8, ptr %255, i64 73
   %257 = load i8, ptr %256, align 1, !range !6, !noundef !7
   %258 = trunc nuw i8 %257 to i1
@@ -5556,7 +5542,7 @@ vfio_pci_fixup_msix_region.exit:                  ; preds = %trace_vfio_msix_ear
 265:                                              ; preds = %260
   %266 = add i32 %222, -3
   %267 = zext nneg i32 %266 to i64
-  %268 = getelementptr inbounds nuw %struct.VFIOBAR, ptr %116, i64 %267
+  %268 = getelementptr inbounds nuw [88 x i8], ptr %116, i64 %267
   %269 = getelementptr inbounds nuw i8, ptr %268, i64 74
   %270 = load i8, ptr %269, align 2, !range !6, !noundef !7
   %271 = trunc nuw i8 %270 to i1
@@ -5589,7 +5575,7 @@ vfio_pci_fixup_msix_region.exit:                  ; preds = %trace_vfio_msix_ear
 
 282:                                              ; preds = %.thread75.i
   %283 = sext i32 %222 to i64
-  %284 = getelementptr %struct.VFIOBAR, ptr %116, i64 %283
+  %284 = getelementptr [88 x i8], ptr %116, i64 %283
   %285 = getelementptr i8, ptr %284, i64 -24
   %286 = load i64, ptr %285, align 8
   %.not74.i = icmp eq i64 %286, 0
@@ -5701,7 +5687,7 @@ define internal fastcc void @vfio_bars_register(ptr noundef %0) unnamed_addr #0 
 
 4:                                                ; preds = %1, %vfio_bar_register.exit
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %vfio_bar_register.exit ]
-  %5 = getelementptr inbounds nuw %struct.VFIOBAR, ptr %2, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [88 x i8], ptr %2, i64 %indvars.iv
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
   %7 = load i64, ptr %6, align 8
   %.not.i = icmp eq i64 %7, 0
@@ -6036,7 +6022,7 @@ define internal void @vfio_intx_mmap_enable(ptr noundef %0) #0 {
 
 16:                                               ; preds = %16, %14
   %indvars.iv.i = phi i64 [ 0, %14 ], [ %indvars.iv.next.i, %16 ]
-  %17 = getelementptr inbounds nuw %struct.VFIOBAR, ptr %15, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [88 x i8], ptr %15, i64 %indvars.iv.i
   tail call void @vfio_region_mmaps_set_enabled(ptr noundef nonnull %17, i1 noundef zeroext true) #26
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 6
@@ -6218,13 +6204,13 @@ define internal fastcc void @vfio_teardown_msi(ptr noundef %0) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 3096
   %6 = load i8, ptr %3, align 8
   %7 = zext i8 %6 to i64
-  %8 = getelementptr inbounds nuw %struct.VFIOBAR, ptr %5, i64 %7
+  %8 = getelementptr inbounds nuw [88 x i8], ptr %5, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 1
   %12 = load i8, ptr %11, align 1
   %13 = zext i8 %12 to i64
-  %14 = getelementptr inbounds nuw %struct.VFIOBAR, ptr %5, i64 %13
+  %14 = getelementptr inbounds nuw [88 x i8], ptr %5, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 56
   %16 = load ptr, ptr %15, align 8
   tail call void @msix_uninit(ptr noundef nonnull %0, ptr noundef %10, ptr noundef %16) #26
@@ -6245,7 +6231,7 @@ define internal fastcc void @vfio_bars_exit(ptr noundef %0) unnamed_addr #0 {
 
 3:                                                ; preds = %1, %13
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %13 ]
-  %4 = getelementptr inbounds nuw %struct.VFIOBAR, ptr %2, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [88 x i8], ptr %2, i64 %indvars.iv
   %5 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void @vfio_bar_quirk_exit(ptr noundef %0, i32 noundef %5) #26
   tail call void @vfio_region_exit(ptr noundef nonnull %4) #26
@@ -7355,7 +7341,7 @@ vfio_pci_enable_rp_atomics.exit.i:                ; preds = %297, %293, %291, %2
   %336 = getelementptr inbounds nuw i8, ptr %0, i64 3096
   %337 = load i8, ptr %333, align 8
   %338 = zext i8 %337 to i64
-  %339 = getelementptr inbounds nuw %struct.VFIOBAR, ptr %336, i64 %338
+  %339 = getelementptr inbounds nuw [88 x i8], ptr %336, i64 %338
   %340 = getelementptr inbounds nuw i8, ptr %339, i64 56
   %341 = load ptr, ptr %340, align 8
   %342 = getelementptr inbounds nuw i8, ptr %333, i64 4
@@ -7363,7 +7349,7 @@ vfio_pci_enable_rp_atomics.exit.i:                ; preds = %297, %293, %291, %2
   %344 = getelementptr inbounds nuw i8, ptr %333, i64 1
   %345 = load i8, ptr %344, align 1
   %346 = zext i8 %345 to i64
-  %347 = getelementptr inbounds nuw %struct.VFIOBAR, ptr %336, i64 %346
+  %347 = getelementptr inbounds nuw [88 x i8], ptr %336, i64 %346
   %348 = getelementptr inbounds nuw i8, ptr %347, i64 56
   %349 = load ptr, ptr %348, align 8
   %350 = getelementptr inbounds nuw i8, ptr %333, i64 8

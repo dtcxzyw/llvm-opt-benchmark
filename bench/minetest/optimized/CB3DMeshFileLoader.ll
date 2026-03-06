@@ -8,16 +8,12 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"struct.irr::scene::SB3dChunkHeader" = type { [4 x i8], i32 }
-%"struct.irr::scene::SB3dChunk" = type { [4 x i8], i32, i64 }
 %"struct.irr::scene::SB3dTexture" = type <{ %"class.std::__cxx11::basic_string", i32, i32, float, float, float, float, float, [4 x i8] }>
 %"struct.irr::scene::SB3dMaterial" = type { %"class.irr::video::SMaterial", float, float, float, float, float, i32, i32, [4 x ptr] }
 %"class.irr::video::SMaterial" = type <{ [4 x %"class.irr::video::SMaterialLayer"], i32, %"class.irr::video::SColor", %"class.irr::video::SColor", %"class.irr::video::SColor", %"class.irr::video::SColor", float, float, float, i8, i8, i16, float, float, float, i16, [6 x i8] }>
 %"class.irr::video::SMaterialLayer" = type { ptr, i16, i32, i32, i8, i8, ptr }
 %"class.irr::video::SColor" = type { i32 }
-%"struct.irr::video::S3DVertex2TCoords" = type { %"struct.irr::video::S3DVertex", %"class.irr::core::vector2d" }
-%"struct.irr::video::S3DVertex" = type { %"class.irr::core::vector3d", %"class.irr::core::vector3d", %"class.irr::video::SColor", %"class.irr::core::vector2d" }
 %"class.irr::core::vector3d" = type { float, float, float }
-%"class.irr::core::vector2d" = type { float, float }
 
 $_ZN3irr4core5arrayINS_5scene12SB3dMaterialEE5clearEv = comdat any
 
@@ -462,7 +458,7 @@ if.then.i41.i.i.i.i:                              ; preds = %_ZNSt6vectorIN3irr5
 _ZNSt6vectorIN3irr5scene9SB3dChunkESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i: ; preds = %if.then.i41.i.i.i.i, %_ZNSt6vectorIN3irr5scene9SB3dChunkESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i
   store ptr %call5.i.i.i.i.i.i.i, ptr %B3dStack, align 8, !tbaa !56
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i, align 8, !tbaa !68
-  %add.ptr19.i.i.i.i = getelementptr inbounds nuw %"struct.irr::scene::SB3dChunk", ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
+  %add.ptr19.i.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
   store ptr %add.ptr19.i.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !62
   br label %_ZN3irr4core5arrayINS_5scene9SB3dChunkEE9push_backEOS3_.exit
 
@@ -588,7 +584,7 @@ if.then.i41.i.i.i.i150:                           ; preds = %_ZNSt6vectorIN3irr5
 _ZNSt6vectorIN3irr5scene9SB3dChunkESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i151: ; preds = %if.then.i41.i.i.i.i150, %_ZNSt6vectorIN3irr5scene9SB3dChunkESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i146
   store ptr %call5.i.i.i.i.i.i.i135, ptr %B3dStack, align 8, !tbaa !56
   store ptr %incdec.ptr.i.i.i.i148, ptr %_M_finish.i.i.i, align 8, !tbaa !68
-  %add.ptr19.i.i.i.i152 = getelementptr inbounds nuw %"struct.irr::scene::SB3dChunk", ptr %call5.i.i.i.i.i.i.i135, i64 %cond.i.i.i.i.i131
+  %add.ptr19.i.i.i.i152 = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i.i.i.i135, i64 %cond.i.i.i.i.i131
   store ptr %add.ptr19.i.i.i.i152, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !62
   br label %_ZN3irr4core5arrayINS_5scene9SB3dChunkEE9push_backEOS3_.exit154
 
@@ -1868,9 +1864,9 @@ for.body:                                         ; preds = %for.body, %for.body
   %conv.i = trunc i64 %sub.ptr.div.i.i to i32
   %cmp27 = icmp ult i32 %45, %conv.i
   %conv.i354 = zext i32 %45 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.irr::scene::SB3dTexture", ptr %47, i64 %conv.i354
+  %add.ptr.i.i = getelementptr inbounds nuw [64 x i8], ptr %47, i64 %conv.i354
   %.sink390 = select i1 %cmp27, ptr %add.ptr.i.i, ptr null
-  %arrayidx33 = getelementptr inbounds nuw ptr, ptr %Textures31, i64 %indvars.iv
+  %arrayidx33 = getelementptr inbounds nuw [8 x i8], ptr %Textures31, i64 %indvars.iv
   store ptr %.sink390, ptr %arrayidx33, align 8, !tbaa !61
   call void @llvm.lifetime.end.p0(ptr nonnull %texture_id)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1938,7 +1934,7 @@ for.body75.1:                                     ; preds = %if.end72
   br i1 %cmp79370.1, label %for.body80.prol.1, label %for.cond73.loopexit.1
 
 for.body80.prol.1:                                ; preds = %for.body75.1
-  %arrayidx84.prol.1 = getelementptr inbounds nuw ptr, ptr %Textures55, i64 %10
+  %arrayidx84.prol.1 = getelementptr inbounds nuw [8 x i8], ptr %Textures55, i64 %10
   %58 = load ptr, ptr %arrayidx84.prol.1, align 8, !tbaa !61
   %cmp85.not.prol.1 = icmp eq ptr %58, null
   br i1 %cmp85.not.prol.1, label %for.cond73.loopexit.1, label %land.lhs.true86.prol.1
@@ -1961,7 +1957,7 @@ for.body75.2:                                     ; preds = %for.cond73.loopexit
   br i1 %cmp79370.2, label %for.body80.2.preheader, label %for.cond73.loopexit.2
 
 for.body80.2.preheader:                           ; preds = %for.body75.2
-  %60 = getelementptr ptr, ptr %Textures55, i64 %indvars.iv.next385.1
+  %60 = getelementptr [8 x i8], ptr %Textures55, i64 %indvars.iv.next385.1
   %arrayidx84.2 = getelementptr i8, ptr %60, i64 8
   %61 = load ptr, ptr %arrayidx84.2, align 8, !tbaa !61
   %cmp85.not.2 = icmp eq ptr %61, null
@@ -1978,7 +1974,7 @@ if.then91.2:                                      ; preds = %land.lhs.true86.2
   br label %for.inc104.2
 
 for.inc104.2:                                     ; preds = %if.then91.2, %for.body80.2.preheader
-  %arrayidx84.1.2 = getelementptr inbounds nuw ptr, ptr %Textures55, i64 %10
+  %arrayidx84.1.2 = getelementptr inbounds nuw [8 x i8], ptr %Textures55, i64 %10
   %63 = load ptr, ptr %arrayidx84.1.2, align 8, !tbaa !61
   %cmp85.not.1.2 = icmp eq ptr %63, null
   br i1 %cmp85.not.1.2, label %for.cond73.loopexit.2, label %if.then91.1.2
@@ -1992,13 +1988,13 @@ for.cond73.loopexit.2:                            ; preds = %land.lhs.true86.2, 
   br i1 %brmerge, label %for.end108, label %for.body80.prol.3, !llvm.loop !135
 
 for.body80.prol.3:                                ; preds = %for.cond73.loopexit.2
-  %arrayidx84.prol.3 = getelementptr ptr, ptr %Textures55, i64 %indvars.iv.next385.1
+  %arrayidx84.prol.3 = getelementptr [8 x i8], ptr %Textures55, i64 %indvars.iv.next385.1
   %64 = load ptr, ptr %arrayidx84.prol.3, align 8, !tbaa !61
   %cmp85.not.prol.3 = icmp eq ptr %64, null
   br i1 %cmp85.not.prol.3, label %for.body80.preheader.new.3, label %land.lhs.true86.prol.3
 
 land.lhs.true86.prol.3:                           ; preds = %for.body80.prol.3
-  %65 = getelementptr ptr, ptr %Textures55, i64 %10
+  %65 = getelementptr [8 x i8], ptr %Textures55, i64 %10
   %arrayidx89.prol.3 = getelementptr i8, ptr %65, i64 -24
   %66 = load ptr, ptr %arrayidx89.prol.3, align 8, !tbaa !61
   %cmp90.prol.3 = icmp eq ptr %66, null
@@ -2028,7 +2024,7 @@ if.then91.3:                                      ; preds = %for.body80.preheade
 
 for.inc104.3:                                     ; preds = %for.body80.preheader.new.3.thread, %if.then91.3, %for.body80.preheader.new.3
   %arrayidx84.346 = phi ptr [ %arrayidx84.3, %if.then91.3 ], [ %arrayidx84.342, %for.body80.preheader.new.3.thread ], [ %arrayidx84.3, %for.body80.preheader.new.3 ]
-  %arrayidx84.1.3 = getelementptr inbounds nuw ptr, ptr %Textures55, i64 %10
+  %arrayidx84.1.3 = getelementptr inbounds nuw [8 x i8], ptr %Textures55, i64 %10
   %69 = load ptr, ptr %arrayidx84.1.3, align 8, !tbaa !61
   %cmp85.not.1.3 = icmp eq ptr %69, null
   br i1 %cmp85.not.1.3, label %for.end108, label %if.then91.1.3
@@ -2772,7 +2768,7 @@ if.then.i41.i.i.i.i:                              ; preds = %_ZNSt6vectorIN3irr5
 _ZNSt6vectorIN3irr5scene9SB3dChunkESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i: ; preds = %if.then.i41.i.i.i.i, %_ZNSt6vectorIN3irr5scene9SB3dChunkESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i
   store ptr %call5.i.i.i.i.i.i.i, ptr %B3dStack, align 8, !tbaa !56
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i, align 8, !tbaa !68
-  %add.ptr19.i.i.i.i = getelementptr inbounds nuw %"struct.irr::scene::SB3dChunk", ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
+  %add.ptr19.i.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
   store ptr %add.ptr19.i.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !62
   br label %_ZN3irr4core5arrayINS_5scene9SB3dChunkEE9push_backEOS3_.exit
 
@@ -3349,7 +3345,7 @@ if.then.i41.i.i.i.i:                              ; preds = %_ZNSt6vectorIN3irr5
 _ZNSt6vectorIN3irr5scene9SB3dChunkESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i: ; preds = %if.then.i41.i.i.i.i, %_ZNSt6vectorIN3irr5scene9SB3dChunkESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i.i
   store ptr %call5.i.i.i.i.i.i.i, ptr %B3dStack, align 8, !tbaa !56
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i, align 8, !tbaa !68
-  %add.ptr19.i.i.i.i = getelementptr inbounds nuw %"struct.irr::scene::SB3dChunk", ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
+  %add.ptr19.i.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
   store ptr %add.ptr19.i.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !62
   br label %_ZN3irr4core5arrayINS_5scene9SB3dChunkEE9push_backEOS3_.exit
 
@@ -3402,7 +3398,7 @@ if.then40:                                        ; preds = %lor.lhs.false, %if.
 
 if.else45:                                        ; preds = %lor.lhs.false
   %conv.i213 = zext nneg i32 %25 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.irr::scene::SB3dMaterial", ptr %27, i64 %conv.i213
+  %add.ptr.i.i = getelementptr inbounds nuw [248 x i8], ptr %27, i64 %conv.i213
   %Material48 = getelementptr inbounds nuw i8, ptr %call33, i64 208
   %call49 = call noundef nonnull align 8 dereferenceable(178) ptr @_ZN3irr5video9SMaterialaSERKS1_(ptr noundef nonnull align 8 dereferenceable(178) %Material48, ptr noundef nonnull align 8 dereferenceable(178) %add.ptr.i.i)
   br label %if.end51
@@ -3455,7 +3451,7 @@ for.cond120.preheader:                            ; preds = %_ZN3irr4core7plane3
 for.body:                                         ; preds = %for.cond.preheader, %_ZN3irr4core7plane3dIfEC2ERKNS0_8vector3dIfEES6_S6_.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN3irr4core7plane3dIfEC2ERKNS0_8vector3dIfEES6_S6_.exit ], [ 0, %for.cond.preheader ]
   %39 = phi ptr [ %103, %_ZN3irr4core7plane3dIfEC2ERKNS0_8vector3dIfEES6_S6_.exit ], [ %37, %for.cond.preheader ]
-  %add.ptr.i.i227 = getelementptr inbounds nuw i16, ptr %39, i64 %indvars.iv
+  %add.ptr.i.i227 = getelementptr inbounds nuw [2 x i8], ptr %39, i64 %indvars.iv
   %40 = load i16, ptr %add.ptr.i.i227, align 2, !tbaa !173
   %conv70 = zext i16 %40 to i32
   %vtable71 = load ptr, ptr %call33, align 8, !tbaa !3
@@ -3464,7 +3460,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %call73 = call noundef ptr %41(ptr noundef nonnull align 8 dereferenceable(441) %call33, i32 noundef %conv70) #21
   %42 = add nuw nsw i64 %indvars.iv, 1
   %43 = load ptr, ptr %Indices, align 8, !tbaa !172
-  %add.ptr.i.i229 = getelementptr inbounds nuw i16, ptr %43, i64 %42
+  %add.ptr.i.i229 = getelementptr inbounds nuw [2 x i8], ptr %43, i64 %42
   %44 = load i16, ptr %add.ptr.i.i229, align 2, !tbaa !173
   %conv77 = zext i16 %44 to i32
   %vtable78 = load ptr, ptr %call33, align 8, !tbaa !3
@@ -3473,7 +3469,7 @@ for.body:                                         ; preds = %for.cond.preheader,
   %call80 = call noundef ptr %45(ptr noundef nonnull align 8 dereferenceable(441) %call33, i32 noundef %conv77) #21
   %46 = add nuw nsw i64 %indvars.iv, 2
   %47 = load ptr, ptr %Indices, align 8, !tbaa !172
-  %add.ptr.i.i231 = getelementptr inbounds nuw i16, ptr %47, i64 %46
+  %add.ptr.i.i231 = getelementptr inbounds nuw [2 x i8], ptr %47, i64 %46
   %48 = load i16, ptr %add.ptr.i.i231, align 2, !tbaa !173
   %conv85 = zext i16 %48 to i32
   %vtable86 = load ptr, ptr %call33, align 8, !tbaa !3
@@ -3538,7 +3534,7 @@ _ZN3irr4core7plane3dIfEC2ERKNS0_8vector3dIfEES6_S6_.exit: ; preds = %if.end.i.i.
   %p.sroa.13.0 = phi float [ %74, %for.body ], [ %conv18.i.i.i, %if.end.i.i.i ]
   %p.sroa.0.2 = phi <2 x float> [ %70, %for.body ], [ %83, %if.end.i.i.i ]
   %84 = load ptr, ptr %Indices, align 8, !tbaa !172
-  %add.ptr.i.i233 = getelementptr inbounds nuw i16, ptr %84, i64 %indvars.iv
+  %add.ptr.i.i233 = getelementptr inbounds nuw [2 x i8], ptr %84, i64 %indvars.iv
   %85 = load i16, ptr %add.ptr.i.i233, align 2, !tbaa !173
   %conv93 = zext i16 %85 to i32
   %vtable94 = load ptr, ptr %call33, align 8, !tbaa !3
@@ -3554,7 +3550,7 @@ _ZN3irr4core7plane3dIfEC2ERKNS0_8vector3dIfEES6_S6_.exit: ; preds = %if.end.i.i.
   %add6.i = fadd float %p.sroa.13.0, %89
   store float %add6.i, ptr %Z5.i, align 4, !tbaa !178
   %90 = load ptr, ptr %Indices, align 8, !tbaa !172
-  %add.ptr.i.i235 = getelementptr inbounds nuw i16, ptr %90, i64 %42
+  %add.ptr.i.i235 = getelementptr inbounds nuw [2 x i8], ptr %90, i64 %42
   %91 = load i16, ptr %add.ptr.i.i235, align 2, !tbaa !173
   %conv103 = zext i16 %91 to i32
   %vtable104 = load ptr, ptr %call33, align 8, !tbaa !3
@@ -3570,7 +3566,7 @@ _ZN3irr4core7plane3dIfEC2ERKNS0_8vector3dIfEES6_S6_.exit: ; preds = %if.end.i.i.
   %add6.i242 = fadd float %p.sroa.13.0, %95
   store float %add6.i242, ptr %Z5.i241, align 4, !tbaa !178
   %96 = load ptr, ptr %Indices, align 8, !tbaa !172
-  %add.ptr.i.i244 = getelementptr inbounds nuw i16, ptr %96, i64 %46
+  %add.ptr.i.i244 = getelementptr inbounds nuw [2 x i8], ptr %96, i64 %46
   %97 = load i16, ptr %add.ptr.i.i244, align 2, !tbaa !173
   %conv113 = zext i16 %97 to i32
   %vtable114 = load ptr, ptr %call33, align 8, !tbaa !3
@@ -3641,7 +3637,7 @@ _ZN3irr4core8vector3dIfE9normalizeEv.exit:        ; preds = %if.end.i, %for.body
   %add136 = add i32 %118, %i.1341
   %conv.i255 = zext i32 %add136 to i64
   %119 = load ptr, ptr %BaseVertices, align 8, !tbaa !83
-  %Normal138.split = getelementptr inbounds nuw %"struct.irr::video::S3DVertex2TCoords", ptr %119, i64 %conv.i255
+  %Normal138.split = getelementptr inbounds nuw [44 x i8], ptr %119, i64 %conv.i255
   %Normal138 = getelementptr inbounds nuw i8, ptr %Normal138.split, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %Normal138, ptr noundef nonnull align 4 dereferenceable(12) %Normal134, i64 12, i1 false), !tbaa.struct !180
   %inc = add nuw nsw i32 %i.1341, 1
@@ -3820,7 +3816,7 @@ cleanup.thread:                                   ; preds = %while.body
 
 if.end:                                           ; preds = %while.body
   %conv.i52 = zext i32 %add17 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw i32, ptr %12, i64 %conv.i52
+  %add.ptr.i.i = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %conv.i52
   %15 = load i32, ptr %add.ptr.i.i, align 4, !tbaa !64
   %cmp27 = icmp eq i32 %15, -1
   br i1 %cmp27, label %if.then28, label %if.else
@@ -3846,12 +3842,12 @@ if.then30:                                        ; preds = %if.else
   %20 = load i32, ptr %globalVertexID, align 4, !tbaa !64
   %conv.i53 = zext i32 %20 to i64
   %21 = load ptr, ptr %AnimatedVertices_VertexID, align 8, !tbaa !84
-  %add.ptr.i.i54 = getelementptr inbounds nuw i32, ptr %21, i64 %conv.i53
+  %add.ptr.i.i54 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %conv.i53
   %22 = load i32, ptr %add.ptr.i.i54, align 4, !tbaa !64
   %vertex_id = getelementptr inbounds nuw i8, ptr %call33, i64 4
   store i32 %22, ptr %vertex_id, align 4, !tbaa !186
   %23 = load ptr, ptr %AnimatedVertices_BufferID, align 8, !tbaa !84
-  %add.ptr.i.i56 = getelementptr inbounds nuw i32, ptr %23, i64 %conv.i53
+  %add.ptr.i.i56 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %conv.i53
   %24 = load i32, ptr %add.ptr.i.i56, align 4, !tbaa !64
   %conv38 = trunc i32 %24 to i16
   store i16 %conv38, ptr %call33, align 8, !tbaa !187
@@ -4583,7 +4579,7 @@ if.else.i.i:                                      ; preds = %if.then.i
   br i1 %cmp4.i.i, label %if.then5.i.i, label %_ZN3irr4core5arrayINS_5video17S3DVertex2TCoordsEE10reallocateEjb.exit
 
 if.then5.i.i:                                     ; preds = %if.else.i.i
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.irr::video::S3DVertex2TCoords", ptr %16, i64 %conv.i120
+  %add.ptr.i.i = getelementptr inbounds nuw [44 x i8], ptr %16, i64 %conv.i120
   %tobool.not.i.i.i = icmp eq ptr %15, %add.ptr.i.i
   br i1 %tobool.not.i.i.i, label %_ZN3irr4core5arrayINS_5video17S3DVertex2TCoordsEE10reallocateEjb.exit, label %if.then.i.i.i
 
@@ -4622,7 +4618,7 @@ _ZNSt12_Vector_baseIN3irr5video17S3DVertex2TCoordsESaIS2_EE13_M_deallocateEPS2_m
   store ptr %call5.i.i.i.i.i, ptr %BaseVertices, align 8, !tbaa !83
   %add.ptr.i17.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 %sub.ptr.sub.i.i
   store ptr %add.ptr.i17.i, ptr %_M_finish.i.i, align 8, !tbaa !157
-  %add.ptr21.i.i = getelementptr inbounds nuw %"struct.irr::video::S3DVertex2TCoords", ptr %call5.i.i.i.i.i, i64 %conv.i120
+  %add.ptr21.i.i = getelementptr inbounds nuw [44 x i8], ptr %call5.i.i.i.i.i, i64 %conv.i120
   store ptr %add.ptr21.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !196
   br label %_ZN3irr4core5arrayINS_5video17S3DVertex2TCoordsEE10reallocateEjb.exit
 
@@ -4660,7 +4656,7 @@ if.else.i.i152:                                   ; preds = %if.then.i146
   br i1 %cmp4.i.i153, label %if.then5.i.i154, label %_ZN3irr4core5arrayIiE10reallocateEjb.exit
 
 if.then5.i.i154:                                  ; preds = %if.else.i.i152
-  %add.ptr.i.i155 = getelementptr inbounds nuw i32, ptr %19, i64 %conv.i133
+  %add.ptr.i.i155 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %conv.i133
   %tobool.not.i.i.i156 = icmp eq ptr %18, %add.ptr.i.i155
   br i1 %tobool.not.i.i.i156, label %_ZN3irr4core5arrayIiE10reallocateEjb.exit, label %if.then.i.i.i157
 
@@ -4694,7 +4690,7 @@ _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit.i.i: ; preds = %if.then.i.i1
   store ptr %call5.i.i.i.i.i141, ptr %AnimatedVertices_VertexID, align 8, !tbaa !84
   %add.ptr.i17.i144 = getelementptr inbounds i8, ptr %call5.i.i.i.i.i141, i64 %sub.ptr.sub.i.i125
   store ptr %add.ptr.i17.i144, ptr %_M_finish.i.i122, align 8, !tbaa !183
-  %add.ptr21.i.i145 = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i141, i64 %conv.i133
+  %add.ptr21.i.i145 = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i.i141, i64 %conv.i133
   store ptr %add.ptr21.i.i145, ptr %_M_end_of_storage.i.i128, align 8, !tbaa !202
   br label %_ZN3irr4core5arrayIiE10reallocateEjb.exit
 
@@ -4947,7 +4943,7 @@ if.then.i41.i.i.i:                                ; preds = %_ZNSt6vectorIN3irr5
 _ZNSt6vectorIN3irr5video17S3DVertex2TCoordsESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %if.then.i41.i.i.i, %_ZNSt6vectorIN3irr5video17S3DVertex2TCoordsESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i
   store ptr %call5.i.i.i.i.i.i, ptr %BaseVertices, align 8, !tbaa !83
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8, !tbaa !157
-  %add.ptr19.i.i.i = getelementptr inbounds nuw %"struct.irr::video::S3DVertex2TCoords", ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [44 x i8], ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !196
   br label %_ZN3irr4core5arrayINS_5video17S3DVertex2TCoordsEE9push_backERKS3_.exit
 
@@ -5008,7 +5004,7 @@ if.then.i39.i.i.i.i:                              ; preds = %_ZNSt6vectorIiSaIiE
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i: ; preds = %if.then.i39.i.i.i.i, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit38.i.i.i.i
   store ptr %call5.i.i.i.i.i.i.i, ptr %AnimatedVertices_VertexID, align 8, !tbaa !84
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i122, align 8, !tbaa !183
-  %add.ptr19.i.i.i.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
+  %add.ptr19.i.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
   store ptr %add.ptr19.i.i.i.i, ptr %_M_end_of_storage.i.i128, align 8, !tbaa !202
   br label %_ZN3irr4core5arrayIiE9push_backEOi.exit
 
@@ -5069,7 +5065,7 @@ if.then.i39.i.i.i.i213:                           ; preds = %_ZNSt6vectorIiSaIiE
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i214: ; preds = %if.then.i39.i.i.i.i213, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit38.i.i.i.i209
   store ptr %call5.i.i.i.i.i.i.i204, ptr %AnimatedVertices_BufferID, align 8, !tbaa !84
   store ptr %incdec.ptr.i.i.i.i211, ptr %_M_finish.i.i.i184, align 8, !tbaa !183
-  %add.ptr19.i.i.i.i215 = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i.i.i204, i64 %cond.i.i.i.i.i200
+  %add.ptr19.i.i.i.i215 = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i.i.i.i204, i64 %cond.i.i.i.i.i200
   store ptr %add.ptr19.i.i.i.i215, ptr %_M_end_of_storage.i.i.i185, align 8, !tbaa !202
   br label %_ZN3irr4core5arrayIiE9push_backEOi.exit218
 
@@ -5096,7 +5092,7 @@ _ZN3irr4core5arrayIiE9push_backEOi.exit218:       ; preds = %_ZNSt6vectorIiSaIiE
 
 for.body:                                         ; preds = %if.end60, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ 0, %if.end60 ]
-  %arrayidx = getelementptr inbounds nuw [4 x float], ptr %tex_coords, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [16 x i8], ptr %tex_coords, i64 %indvars.iv
   %110 = load i32, ptr %tex_coord_set_size, align 4, !tbaa !64
   %111 = load ptr, ptr %B3DFile, align 8, !tbaa !53
   %conv.i220 = zext i32 %110 to i64
@@ -5472,7 +5468,7 @@ if.then5:                                         ; preds = %lor.lhs.false, %if.
 
 if.else10:                                        ; preds = %lor.lhs.false
   %conv.i213 = zext nneg i32 %2 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.irr::scene::SB3dMaterial", ptr %4, i64 %conv.i213
+  %add.ptr.i.i = getelementptr inbounds nuw [248 x i8], ptr %4, i64 %conv.i213
   %Material13 = getelementptr inbounds nuw i8, ptr %meshBuffer, i64 208
   %call14 = call noundef nonnull align 8 dereferenceable(178) ptr @_ZN3irr5video9SMaterialaSERKS1_(ptr noundef nonnull align 8 dereferenceable(178) %Material13, ptr noundef nonnull align 8 dereferenceable(178) %add.ptr.i.i)
   br label %if.end15
@@ -5520,7 +5516,7 @@ if.else.i.i:                                      ; preds = %if.then.i
   br i1 %cmp4.i.i, label %if.then5.i.i, label %_ZN3irr4core5arrayItE10reallocateEjb.exit
 
 if.then5.i.i:                                     ; preds = %if.else.i.i
-  %add.ptr.i.i226 = getelementptr inbounds nuw i16, ptr %10, i64 %conv.i224
+  %add.ptr.i.i226 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %conv.i224
   %tobool.not.i.i.i = icmp eq ptr %9, %add.ptr.i.i226
   br i1 %tobool.not.i.i.i, label %_ZN3irr4core5arrayItE10reallocateEjb.exit, label %if.then.i.i.i
 
@@ -5554,7 +5550,7 @@ _ZNSt12_Vector_baseItSaItEE13_M_deallocateEPtm.exit.i.i: ; preds = %if.then.i.i1
   store ptr %call5.i.i.i.i.i, ptr %Indices, align 8, !tbaa !172
   %add.ptr.i17.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 %sub.ptr.sub.i.i217
   store ptr %add.ptr.i17.i, ptr %_M_finish.i.i214, align 8, !tbaa !170
-  %add.ptr21.i.i = getelementptr inbounds nuw i16, ptr %call5.i.i.i.i.i, i64 %conv.i224
+  %add.ptr21.i.i = getelementptr inbounds nuw [2 x i8], ptr %call5.i.i.i.i.i, i64 %conv.i224
   store ptr %add.ptr21.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !209
   br label %_ZN3irr4core5arrayItE10reallocateEjb.exit
 
@@ -5618,7 +5614,7 @@ while.body:                                       ; preds = %_ZN3irr4core5arrayI
 for.body:                                         ; preds = %for.inc, %while.body
   %indvars.iv = phi i64 [ 0, %while.body ], [ %indvars.iv.next, %for.inc ]
   %showVertexWarning.1404 = phi i8 [ %showVertexWarning.0414, %while.body ], [ %showVertexWarning.2429, %for.inc ]
-  %arrayidx43 = getelementptr inbounds nuw i32, ptr %vertex_id, i64 %indvars.iv
+  %arrayidx43 = getelementptr inbounds nuw [4 x i8], ptr %vertex_id, i64 %indvars.iv
   %24 = load i32, ptr %arrayidx43, align 4, !tbaa !64
   %25 = load ptr, ptr %_M_finish.i.i231, align 8, !tbaa !183
   %26 = load ptr, ptr %AnimatedVertices_VertexID, align 8, !tbaa !84
@@ -5632,14 +5628,14 @@ for.body:                                         ; preds = %for.inc, %while.bod
 
 if.end51:                                         ; preds = %for.body
   %conv.i237 = zext i32 %24 to i64
-  %add.ptr.i.i238 = getelementptr inbounds nuw i32, ptr %26, i64 %conv.i237
+  %add.ptr.i.i238 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %conv.i237
   %27 = load i32, ptr %add.ptr.i.i238, align 4, !tbaa !64
   %cmp56.not = icmp eq i32 %27, -1
   br i1 %cmp56.not, label %if.then78, label %if.then57
 
 if.then57:                                        ; preds = %if.end51
   %28 = load ptr, ptr %AnimatedVertices_BufferID, align 8, !tbaa !84
-  %add.ptr.i.i240 = getelementptr inbounds nuw i32, ptr %28, i64 %conv.i237
+  %add.ptr.i.i240 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %conv.i237
   %29 = load i32, ptr %add.ptr.i.i240, align 4, !tbaa !64
   %cmp61.not = icmp eq i32 %29, %meshBufferID
   br i1 %cmp61.not, label %for.inc, label %if.end72
@@ -5648,11 +5644,11 @@ if.end72:                                         ; preds = %if.then57
   store i32 -1, ptr %add.ptr.i.i238, align 4, !tbaa !64
   %30 = load i32, ptr %arrayidx43, align 4, !tbaa !64
   %conv.i243 = zext i32 %30 to i64
-  %add.ptr.i.i244 = getelementptr inbounds nuw i32, ptr %28, i64 %conv.i243
+  %add.ptr.i.i244 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %conv.i243
   store i32 -1, ptr %add.ptr.i.i244, align 4, !tbaa !64
   %.pre = load i32, ptr %arrayidx43, align 4, !tbaa !64
   %conv.i245.phi.trans.insert = zext i32 %.pre to i64
-  %add.ptr.i.i246.phi.trans.insert = getelementptr inbounds nuw i32, ptr %26, i64 %conv.i245.phi.trans.insert
+  %add.ptr.i.i246.phi.trans.insert = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %conv.i245.phi.trans.insert
   %.pre420 = load i32, ptr %add.ptr.i.i246.phi.trans.insert, align 4, !tbaa !64
   %cmp77 = icmp eq i32 %.pre420, -1
   br i1 %cmp77, label %if.then78, label %for.inc
@@ -5662,7 +5658,7 @@ if.then78:                                        ; preds = %if.end72, %if.end51
   %showVertexWarning.2430 = phi i8 [ 1, %if.end72 ], [ %showVertexWarning.1404, %if.end51 ]
   %conv.i245.pre-phi428 = phi i64 [ %conv.i245.phi.trans.insert, %if.end72 ], [ %conv.i237, %if.end51 ]
   %32 = load ptr, ptr %BaseVertices, align 8, !tbaa !83
-  %TCoords2.split = getelementptr inbounds nuw %"struct.irr::video::S3DVertex2TCoords", ptr %32, i64 %conv.i245.pre-phi428
+  %TCoords2.split = getelementptr inbounds nuw [44 x i8], ptr %32, i64 %conv.i245.pre-phi428
   %TCoords2 = getelementptr inbounds nuw i8, ptr %TCoords2.split, i64 36
   %33 = load float, ptr %TCoords2, align 4, !tbaa !210
   %cmp.i.i249 = fcmp une float %33, 0.000000e+00
@@ -5684,7 +5680,7 @@ if.end84:                                         ; preds = %if.then83, %if.then
   %37 = load i32, ptr %VertexType, align 8, !tbaa !212
   %cmp85 = icmp eq i32 %37, 0
   %conv.i251 = zext i32 %36 to i64
-  %add.ptr.i.i252 = getelementptr inbounds nuw %"struct.irr::video::S3DVertex2TCoords", ptr %35, i64 %conv.i251
+  %add.ptr.i.i252 = getelementptr inbounds nuw [44 x i8], ptr %35, i64 %conv.i251
   br i1 %cmp85, label %if.then86, label %if.else91
 
 if.then86:                                        ; preds = %if.end84
@@ -5750,7 +5746,7 @@ if.then.i41.i.i.i:                                ; preds = %_ZNSt6vectorIN3irr5
 _ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %if.then.i41.i.i.i, %_ZNSt6vectorIN3irr5video9S3DVertexESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i
   store ptr %call5.i.i.i.i.i.i, ptr %Vertices_Standard, align 8, !tbaa !242
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i253, align 8, !tbaa !236
-  %add.ptr19.i.i.i = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [36 x i8], ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i254, align 8, !tbaa !234
   br label %if.end96
 
@@ -5817,7 +5813,7 @@ if.then.i41.i.i.i292:                             ; preds = %_ZNSt6vectorIN3irr5
 _ZNSt6vectorIN3irr5video17S3DVertex2TCoordsESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %if.then.i41.i.i.i292, %_ZNSt6vectorIN3irr5video17S3DVertex2TCoordsESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i
   store ptr %call5.i.i.i.i.i.i279, ptr %Vertices_2TCoords, align 8, !tbaa !83
   store ptr %incdec.ptr.i.i.i290, ptr %_M_finish.i.i260, align 8, !tbaa !157
-  %add.ptr19.i.i.i293 = getelementptr inbounds nuw %"struct.irr::video::S3DVertex2TCoords", ptr %call5.i.i.i.i.i.i279, i64 %cond.i.i.i.i275
+  %add.ptr19.i.i.i293 = getelementptr inbounds nuw [44 x i8], ptr %call5.i.i.i.i.i.i279, i64 %cond.i.i.i.i275
   store ptr %add.ptr19.i.i.i293, ptr %_M_end_of_storage.i.i261, align 8, !tbaa !196
   br label %if.end96
 
@@ -5832,12 +5828,12 @@ if.end96:                                         ; preds = %_ZNSt6vectorIN3irr5
   %49 = load i32, ptr %arrayidx43, align 4, !tbaa !64
   %conv.i295 = zext i32 %49 to i64
   %50 = load ptr, ptr %AnimatedVertices_VertexID, align 8, !tbaa !84
-  %add.ptr.i.i296 = getelementptr inbounds nuw i32, ptr %50, i64 %conv.i295
+  %add.ptr.i.i296 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %conv.i295
   store i32 %sub, ptr %add.ptr.i.i296, align 4, !tbaa !64
   %51 = load i32, ptr %arrayidx43, align 4, !tbaa !64
   %conv.i297 = zext i32 %51 to i64
   %52 = load ptr, ptr %AnimatedVertices_BufferID, align 8, !tbaa !84
-  %add.ptr.i.i298 = getelementptr inbounds nuw i32, ptr %52, i64 %conv.i297
+  %add.ptr.i.i298 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %conv.i297
   store i32 %meshBufferID, ptr %add.ptr.i.i298, align 4, !tbaa !64
   br i1 %tobool.not, label %for.inc, label %if.then108
 
@@ -5903,7 +5899,7 @@ for.end:                                          ; preds = %for.inc
   %63 = load i32, ptr %vertex_id, align 8, !tbaa !64
   %conv.i299 = zext i32 %63 to i64
   %64 = load ptr, ptr %AnimatedVertices_VertexID, align 8, !tbaa !84
-  %add.ptr.i.i300 = getelementptr inbounds nuw i32, ptr %64, i64 %conv.i299
+  %add.ptr.i.i300 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %conv.i299
   %65 = load i32, ptr %add.ptr.i.i300, align 4, !tbaa !64
   %conv146 = trunc i32 %65 to i16
   %66 = load ptr, ptr %_M_finish.i.i214, align 8, !tbaa !61
@@ -5963,7 +5959,7 @@ _ZNSt6vectorItSaItEE17_M_realloc_insertIJtEEEvN9__gnu_cxx17__normal_iteratorIPtS
   %.pre421 = phi ptr [ %.pre421.pre, %if.then.i39.i.i.i.i ], [ %64, %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit38.i.i.i.i ]
   store ptr %call5.i.i.i.i.i.i.i, ptr %Indices, align 8, !tbaa !172
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i214, align 8, !tbaa !170
-  %add.ptr19.i.i.i.i = getelementptr inbounds nuw i16, ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
+  %add.ptr19.i.i.i.i = getelementptr inbounds nuw [2 x i8], ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
   store ptr %add.ptr19.i.i.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !209
   br label %_ZN3irr4core5arrayItE9push_backEOt.exit
 
@@ -5974,7 +5970,7 @@ _ZN3irr4core5arrayItE9push_backEOt.exit:          ; preds = %_ZNSt6vectorItSaItE
   store i8 0, ptr %is_sorted.i304, align 8, !tbaa !249
   %73 = load i32, ptr %arrayidx38, align 4, !tbaa !64
   %conv.i305 = zext i32 %73 to i64
-  %add.ptr.i.i306 = getelementptr inbounds nuw i32, ptr %72, i64 %conv.i305
+  %add.ptr.i.i306 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %conv.i305
   %74 = load i32, ptr %add.ptr.i.i306, align 4, !tbaa !64
   %conv152 = trunc i32 %74 to i16
   %cmp.not.i.i.i309 = icmp eq ptr %71, %70
@@ -6032,7 +6028,7 @@ _ZNSt6vectorItSaItEE17_M_realloc_insertIJtEEEvN9__gnu_cxx17__normal_iteratorIPtS
   %.pre422 = phi ptr [ %.pre422.pre, %if.then.i39.i.i.i.i336 ], [ %72, %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit38.i.i.i.i332 ]
   store ptr %call5.i.i.i.i.i.i.i327, ptr %Indices, align 8, !tbaa !172
   store ptr %incdec.ptr.i.i.i.i334, ptr %_M_finish.i.i214, align 8, !tbaa !170
-  %add.ptr19.i.i.i.i338 = getelementptr inbounds nuw i16, ptr %call5.i.i.i.i.i.i.i327, i64 %cond.i.i.i.i.i323
+  %add.ptr19.i.i.i.i338 = getelementptr inbounds nuw [2 x i8], ptr %call5.i.i.i.i.i.i.i327, i64 %cond.i.i.i.i.i323
   store ptr %add.ptr19.i.i.i.i338, ptr %_M_end_of_storage.i.i, align 8, !tbaa !209
   br label %_ZN3irr4core5arrayItE9push_backEOt.exit341
 
@@ -6043,7 +6039,7 @@ _ZN3irr4core5arrayItE9push_backEOt.exit341:       ; preds = %_ZNSt6vectorItSaItE
   store i8 0, ptr %is_sorted.i304, align 8, !tbaa !249
   %80 = load i32, ptr %arrayidx40, align 8, !tbaa !64
   %conv.i342 = zext i32 %80 to i64
-  %add.ptr.i.i343 = getelementptr inbounds nuw i32, ptr %79, i64 %conv.i342
+  %add.ptr.i.i343 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %conv.i342
   %81 = load i32, ptr %add.ptr.i.i343, align 4, !tbaa !64
   %conv158 = trunc i32 %81 to i16
   %cmp.not.i.i.i346 = icmp eq ptr %78, %77
@@ -6099,7 +6095,7 @@ if.then.i39.i.i.i.i373:                           ; preds = %_ZNSt6vectorItSaItE
 _ZNSt6vectorItSaItEE17_M_realloc_insertIJtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i.i.i374: ; preds = %if.then.i39.i.i.i.i373, %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit38.i.i.i.i369
   store ptr %call5.i.i.i.i.i.i.i364, ptr %Indices, align 8, !tbaa !172
   store ptr %incdec.ptr.i.i.i.i371, ptr %_M_finish.i.i214, align 8, !tbaa !170
-  %add.ptr19.i.i.i.i375 = getelementptr inbounds nuw i16, ptr %call5.i.i.i.i.i.i.i364, i64 %cond.i.i.i.i.i360
+  %add.ptr19.i.i.i.i375 = getelementptr inbounds nuw [2 x i8], ptr %call5.i.i.i.i.i.i.i364, i64 %cond.i.i.i.i.i360
   store ptr %add.ptr19.i.i.i.i375, ptr %_M_end_of_storage.i.i, align 8, !tbaa !209
   br label %_ZN3irr4core5arrayItE9push_backEOt.exit378
 
@@ -6227,7 +6223,7 @@ for.body:                                         ; preds = %_ZN3irr4core5arrayI
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %_ZN3irr4core5arrayINS_5video17S3DVertex2TCoordsEE9push_backERKS3_.exit ]
   %5 = phi ptr [ %2, %for.body.lr.ph ], [ %14, %_ZN3irr4core5arrayINS_5video17S3DVertex2TCoordsEE9push_backERKS3_.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %Vertex.sroa.0)
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %5, i64 %indvars.iv
+  %add.ptr.i.i = getelementptr inbounds nuw [36 x i8], ptr %5, i64 %indvars.iv
   %Color = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 24
   %6 = load i32, ptr %Color, align 4, !tbaa !64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %Vertex.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %add.ptr.i.i, i64 12, i1 false), !tbaa.struct !180
@@ -6308,7 +6304,7 @@ if.then.i41.i.i.i:                                ; preds = %_ZNSt6vectorIN3irr5
 _ZNSt6vectorIN3irr5video17S3DVertex2TCoordsESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %if.then.i41.i.i.i, %_ZNSt6vectorIN3irr5video17S3DVertex2TCoordsESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit40.i.i.i
   store ptr %call5.i.i.i.i.i.i, ptr %Vertices_2TCoords, align 8, !tbaa !83
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i29, align 8, !tbaa !157
-  %add.ptr19.i.i.i = getelementptr inbounds nuw %"struct.irr::video::S3DVertex2TCoords", ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [44 x i8], ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !196
   br label %_ZN3irr4core5arrayINS_5video17S3DVertex2TCoordsEE9push_backERKS3_.exit
 
@@ -6929,9 +6925,9 @@ if.then.i74:                                      ; preds = %_ZNSt6vectorIN3irr5
 
 _ZNSt12_Vector_baseIN3irr5video17S3DVertex2TCoordsESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %if.then.i74, %_ZNSt6vectorIN3irr5video17S3DVertex2TCoordsESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !83
-  %add.ptr34 = getelementptr inbounds nuw %"struct.irr::video::S3DVertex2TCoords", ptr %add.ptr, i64 %__n
+  %add.ptr34 = getelementptr inbounds nuw [44 x i8], ptr %add.ptr, i64 %__n
   store ptr %add.ptr34, ptr %_M_finish.i, align 8, !tbaa !157
-  %add.ptr37 = getelementptr inbounds nuw %"struct.irr::video::S3DVertex2TCoords", ptr %call5.i.i.i, i64 %5
+  %add.ptr37 = getelementptr inbounds nuw [44 x i8], ptr %call5.i.i.i, i64 %5
   store ptr %add.ptr37, ptr %_M_end_of_storage, align 8, !tbaa !196
   br label %if.end41
 
@@ -6976,7 +6972,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
   %3 = shl nuw nsw i64 %__n, 2
   %4 = add nsw i64 %3, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i, i8 0, i64 %4, i1 false), !tbaa !64
-  %add.ptr.i.i.i.i.i = getelementptr i32, ptr %0, i64 %__n
+  %add.ptr.i.i.i.i.i = getelementptr [4 x i8], ptr %0, i64 %__n
   br label %_ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPimiET_S1_T0_RSaIT1_E.exit: ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i
@@ -7028,9 +7024,9 @@ if.then.i69:                                      ; preds = %_ZNSt6vectorIiSaIiE
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit: ; preds = %if.then.i69, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !84
-  %add.ptr34 = getelementptr inbounds nuw i32, ptr %add.ptr, i64 %__n
+  %add.ptr34 = getelementptr inbounds nuw [4 x i8], ptr %add.ptr, i64 %__n
   store ptr %add.ptr34, ptr %_M_finish.i, align 8, !tbaa !183
-  %add.ptr37 = getelementptr inbounds nuw i32, ptr %call5.i.i.i, i64 %5
+  %add.ptr37 = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i, i64 %5
   store ptr %add.ptr37, ptr %_M_end_of_storage, align 8, !tbaa !202
   br label %if.end41
 
@@ -7075,7 +7071,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
   %3 = shl nuw nsw i64 %__n, 1
   %4 = add nsw i64 %3, -2
   tail call void @llvm.memset.p0.i64(ptr align 2 %incdec.ptr.i.i.i, i8 0, i64 %4, i1 false), !tbaa !173
-  %add.ptr.i.i.i.i.i = getelementptr i16, ptr %0, i64 %__n
+  %add.ptr.i.i.i.i.i = getelementptr [2 x i8], ptr %0, i64 %__n
   br label %_ZSt27__uninitialized_default_n_aIPtmtET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPtmtET_S1_T0_RSaIT1_E.exit: ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i
@@ -7127,9 +7123,9 @@ if.then.i69:                                      ; preds = %_ZNSt6vectorItSaItE
 
 _ZNSt12_Vector_baseItSaItEE13_M_deallocateEPtm.exit: ; preds = %if.then.i69, %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !172
-  %add.ptr34 = getelementptr inbounds nuw i16, ptr %add.ptr, i64 %__n
+  %add.ptr34 = getelementptr inbounds nuw [2 x i8], ptr %add.ptr, i64 %__n
   store ptr %add.ptr34, ptr %_M_finish.i, align 8, !tbaa !170
-  %add.ptr37 = getelementptr inbounds nuw i16, ptr %call5.i.i.i, i64 %5
+  %add.ptr37 = getelementptr inbounds nuw [2 x i8], ptr %call5.i.i.i, i64 %5
   store ptr %add.ptr37, ptr %_M_end_of_storage, align 8, !tbaa !209
   br label %if.end41
 
@@ -7325,7 +7321,7 @@ _ZNSt12_Vector_baseIN3irr5scene11SB3dTextureESaIS2_EE13_M_deallocateEPS2_m.exit:
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %cond.i31, ptr %this, align 8, !tbaa !85
   store ptr %__cur.0.lcssa.i.i.i48, ptr %_M_finish.i.i, align 8, !tbaa !86
-  %add.ptr19 = getelementptr inbounds nuw %"struct.irr::scene::SB3dTexture", ptr %cond.i31, i64 %cond.i
+  %add.ptr19 = getelementptr inbounds nuw [64 x i8], ptr %cond.i31, i64 %cond.i
   store ptr %add.ptr19, ptr %_M_end_of_storage, align 8, !tbaa !88
   ret void
 }
@@ -7460,7 +7456,7 @@ _ZNSt12_Vector_baseIN3irr5scene12SB3dMaterialESaIS2_EE13_M_deallocateEPS2_m.exit
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !159
   store ptr %__cur.0.lcssa.i.i.i.i.i44, ptr %_M_finish.i.i, align 8, !tbaa !128
-  %add.ptr20 = getelementptr inbounds nuw %"struct.irr::scene::SB3dMaterial", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr20 = getelementptr inbounds nuw [248 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr20, ptr %_M_end_of_storage, align 8, !tbaa !127
   ret void
 }

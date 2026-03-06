@@ -212,7 +212,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8buil
   %14 = zext nneg i16 %13 to i64
   %15 = and i16 %12, %.lcssa.i.i
   %16 = sub nsw i64 0, %14
-  %17 = getelementptr inbounds { { i64, i32, i32 }, i32, [1 x i32] }, ptr %.sroa.0.1, i64 %16
+  %17 = getelementptr inbounds [24 x i8], ptr %.sroa.0.1, i64 %16
   %18 = add i64 %.sroa.106.019, -1
   %19 = getelementptr inbounds i8, ptr %17, i64 -24
   %20 = getelementptr inbounds i8, ptr %17, i64 -8
@@ -377,7 +377,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8buil
   %14 = zext nneg i16 %13 to i64
   %15 = and i16 %12, %.lcssa.i.i
   %16 = sub nsw i64 0, %14
-  %17 = getelementptr inbounds { { i64, i32, [1 x i32] }, i32, [1 x i32] }, ptr %.sroa.0.1, i64 %16
+  %17 = getelementptr inbounds [24 x i8], ptr %.sroa.0.1, i64 %16
   %18 = add i64 %.sroa.106.019, -1
   %19 = getelementptr inbounds i8, ptr %17, i64 -24
   %20 = getelementptr inbounds i8, ptr %17, i64 -8
@@ -571,7 +571,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8buil
   %.sroa.9.1 = phi i64 [ %.sroa.9.024, %.lr.ph.i.i.i.i ], [ 0, %21 ]
   %.sroa.7.1 = phi i64 [ %.sroa.7.025, %.lr.ph.i.i.i.i ], [ %23, %21 ]
   %.sroa.4.1 = phi i64 [ %.sroa.4.026, %.lr.ph.i.i.i.i ], [ %22, %21 ]
-  %10 = getelementptr inbounds nuw { { ptr } }, ptr %8, i64 %.sroa.4.1
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.sroa.4.1
   %11 = load atomic ptr, ptr %10 acquire, align 8, !noalias !38
   %12 = icmp eq ptr %11, null
   br i1 %12, label %.loopexit.i.i.i.i, label %.preheader.i.i.i.i
@@ -586,7 +586,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8buil
   br i1 %14, label %15, label %.loopexit.i.i.i.i
 
 15:                                               ; preds = %.preheader.i.i.i.i
-  %16 = getelementptr inbounds nuw { { { { [5 x i64] } } }, { i8 }, [7 x i8] }, ptr %11, i64 %.sroa.9.2
+  %16 = getelementptr inbounds nuw [48 x i8], ptr %11, i64 %.sroa.9.2
   %17 = add nuw i64 %.sroa.9.2, 1
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %19 = load atomic i8, ptr %18 acquire, align 1, !noalias !38
@@ -677,7 +677,7 @@ define void @"_ZN66_$LT$salsa..runtime..Runtime$u20$as$u20$core..default..Defaul
 
 6:                                                ; preds = %1, %6
   %7 = phi i64 [ 0, %1 ], [ %9, %6 ]
-  %8 = getelementptr inbounds nuw i64, ptr %5, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %7
   store i64 1, ptr %8, align 8
   %9 = add nuw nsw i64 %7, 1
   %exitcond.not = icmp eq i64 %9, 3

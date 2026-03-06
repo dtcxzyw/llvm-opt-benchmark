@@ -10,11 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.Camera = type { %struct.b2Vec2, float, i32, i32 }
 %struct.SampleEntry = type { ptr, ptr, ptr }
 %struct.b2WorldDef = type { %struct.b2Vec2, float, float, float, float, float, float, float, float, ptr, ptr, i8, i8, i32, ptr, ptr, ptr, ptr, i32 }
-%class.SampleTask = type { %"class.enki::ITaskSet.base", ptr, ptr }
-%"class.enki::ITaskSet.base" = type <{ %"class.enki::ICompletable", i32, i32, i32 }>
-%"class.enki::ICompletable" = type { ptr, i32, %"struct.std::atomic.0", %"struct.std::atomic.0", i32, %"struct.std::atomic.0", ptr }
-%"struct.std::atomic.0" = type { %"struct.std::__atomic_base.1" }
-%"struct.std::__atomic_base.1" = type { i32 }
 %struct.QueryContext = type { %struct.b2Vec2, %struct.b2BodyId }
 %struct.b2BodyId = type { i32, i16, i16 }
 %struct.b2BodyDef = type { i32, %struct.b2Vec2, %struct.b2Rot, %struct.b2Vec2, float, float, float, float, float, ptr, ptr, i8, i8, i8, i8, i8, i8, i32 }
@@ -415,7 +410,7 @@ define internal noundef ptr @_ZL11EnqueueTaskPFviijPvEiiS_S_(ptr noundef %0, i32
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !39
   %12 = sext i32 %7 to i64
-  %13 = getelementptr inbounds %class.SampleTask, ptr %11, i64 %12
+  %13 = getelementptr inbounds [72 x i8], ptr %11, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
   store i32 %1, ptr %14, align 8, !tbaa !35
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 44
@@ -939,7 +934,7 @@ define dso_local void @_ZN6Sample4StepER8Settings(ptr noundef nonnull align 8 de
   %134 = getelementptr inbounds i8, ptr %4, i64 %133
   %135 = sub nsw i32 256, %.07275
   %136 = sext i32 %135 to i64
-  %137 = getelementptr inbounds nuw i32, ptr %109, i64 %indvars.iv
+  %137 = getelementptr inbounds nuw [4 x i8], ptr %109, i64 %indvars.iv
   %138 = load i32, ptr %137, align 4, !tbaa !45
   %139 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %134, i64 noundef %136, ptr noundef nonnull @.str.6, i32 noundef %138) #23
   %140 = add nsw i32 %139, %.07275
@@ -1604,7 +1599,7 @@ thread-pre-split:                                 ; preds = %.critedge
   %57 = fmul float %4, %56
   %58 = fadd float %.sroa.064.4.vec.extract, %.sroa.10.1
   %59 = fmul float %58, %10
-  %60 = getelementptr inbounds nuw %struct.b2Vec2, ptr %2, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   store float %57, ptr %60, align 4, !tbaa !196
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %60, i64 4
   store float %59, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !196
@@ -1673,7 +1668,7 @@ define dso_local noundef range(i32 -2147483648, 256) i32 @_Z14RegisterSamplePKcS
 
 6:                                                ; preds = %3
   %7 = sext i32 %4 to i64
-  %8 = getelementptr inbounds %struct.SampleEntry, ptr @g_sampleEntries, i64 %7
+  %8 = getelementptr inbounds [24 x i8], ptr @g_sampleEntries, i64 %7
   store ptr %0, ptr %8, align 8, !tbaa !199
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %1, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !199

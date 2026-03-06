@@ -309,7 +309,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %8
 
 _ZNSt6vectorISt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEESaIS3_EE6resizeEm.exit: ; preds = %._ZNSt6vectorISt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEESaIS3_EE6resizeEm.exit_crit_edge, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit
   %26 = phi ptr [ %.pre, %._ZNSt6vectorISt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEESaIS3_EE6resizeEm.exit_crit_edge ], [ %16, %_ZNSt10lock_guardISt5mutexEC2ERS0_.exit ]
-  %27 = getelementptr inbounds %"class.std::weak_ptr.0", ptr %26, i64 %4
+  %27 = getelementptr inbounds [16 x i8], ptr %26, i64 %4
   %28 = load ptr, ptr %1, align 8
   store ptr %28, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -401,7 +401,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__13HdBufferArray18RemoveUnusedR
   %.016 = phi i64 [ 0, %.lr.ph ], [ %.1, %65 ]
   %.0915 = phi i64 [ %3, %.lr.ph ], [ %.110, %65 ]
   %7 = load ptr, ptr %4, align 8
-  %8 = getelementptr inbounds %"class.std::weak_ptr.0", ptr %7, i64 %.016
+  %8 = getelementptr inbounds [16 x i8], ptr %7, i64 %.016
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %.not.i.i = icmp eq ptr %10, null
@@ -415,7 +415,7 @@ _ZNKSt10__weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeELN9__
 
 _ZNKSt10__weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeELN9__gnu_cxx12_Lock_policyE2EE7expiredEv.exit.thread: ; preds = %6, %_ZNKSt10__weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeELN9__gnu_cxx12_Lock_policyE2EE7expiredEv.exit
   %14 = add i64 %.0915, -1
-  %15 = getelementptr inbounds %"class.std::weak_ptr.0", ptr %7, i64 %14
+  %15 = getelementptr inbounds [16 x i8], ptr %7, i64 %14
   %16 = load ptr, ptr %15, align 8
   store ptr %16, ptr %8, align 8
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -475,7 +475,7 @@ _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_weak_add_refEv.exit.i
 _ZNSt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEEaSERKS2_.exit: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE15_M_weak_add_refEv.exit.i.i.i, %36, %38
   store ptr %18, ptr %9, align 8
   %42 = load ptr, ptr %4, align 8
-  %43 = getelementptr inbounds %"class.std::weak_ptr.0", ptr %42, i64 %14
+  %43 = getelementptr inbounds [16 x i8], ptr %42, i64 %14
   store ptr null, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load ptr, ptr %44, align 8
@@ -568,7 +568,7 @@ define void @_ZNK32pxrInternal_v0_24__pxrReserved__13HdBufferArray8GetRangeEm(pt
 14:                                               ; preds = %3, %8
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds %"class.std::weak_ptr.0", ptr %16, i64 %2
+  %17 = getelementptr inbounds [16 x i8], ptr %16, i64 %2
   %18 = load ptr, ptr %17, align 8
   store ptr %18, ptr %0, align 8
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -824,9 +824,9 @@ _ZNSt6vectorISt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRange
 
 _ZNSt12_Vector_baseISt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEESaIS3_EE13_M_deallocateEPS3_m.exit37: ; preds = %_ZNSt6vectorISt8weak_ptrIN32pxrInternal_v0_24__pxrReserved__18HdBufferArrayRangeEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %35
   store ptr %26, ptr %0, align 8
-  %39 = getelementptr inbounds nuw %"class.std::weak_ptr.0", ptr %27, i64 %1
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %1
   store ptr %39, ptr %4, align 8
-  %40 = getelementptr inbounds nuw %"class.std::weak_ptr.0", ptr %26, i64 %24
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %24
   store ptr %40, ptr %11, align 8
   br label %41
 

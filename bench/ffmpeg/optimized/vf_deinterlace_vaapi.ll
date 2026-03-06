@@ -10,7 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._VAProcPipelineParameterBuffer = type { i32, ptr, i32, ptr, i32, i32, i32, i32, ptr, i32, ptr, i32, ptr, i32, i32, ptr, i32, ptr, i32, i32, i32, %struct._VAProcColorProperties, %struct._VAProcColorProperties, i32, ptr, [16 x i32] }
 %struct._VAProcColorProperties = type { i8, i8, i8, i8, i8, [3 x i8] }
 %struct._VAProcFilterParameterBufferDeinterlacing = type { i32, i32, i32, [4 x i32] }
-%struct._VAProcFilterCapDeinterlacing = type { i32, [4 x i32] }
 
 @.str = private unnamed_addr constant [18 x i8] c"deinterlace_vaapi\00", align 1
 @.str.1 = private unnamed_addr constant [32 x i8] c"Deinterlacing of VAAPI surfaces\00", align 1
@@ -127,7 +126,7 @@ define internal i32 @deint_vaapi_filter_frame(ptr noundef readonly captures(none
   %33 = add nsw i32 %27, 1
   store i32 %33, ptr %26, align 4, !tbaa !50
   %34 = sext i32 %27 to i64
-  %35 = getelementptr inbounds ptr, ptr %31, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %31, i64 %34
   store ptr %1, ptr %35, align 8, !tbaa !55
   %36 = icmp slt i32 %33, %29
   br i1 %36, label %208, label %46
@@ -150,7 +149,7 @@ define internal i32 @deint_vaapi_filter_frame(ptr noundef readonly captures(none
 
 ._crit_edge:                                      ; preds = %.lr.ph.preheader, %37
   %.0119.lcssa = phi i64 [ 0, %37 ], [ %44, %.lr.ph.preheader ]
-  %45 = getelementptr inbounds nuw ptr, ptr %31, i64 %.0119.lcssa
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %.0119.lcssa
   store ptr %1, ptr %45, align 8, !tbaa !55
   br label %46
 
@@ -159,7 +158,7 @@ define internal i32 @deint_vaapi_filter_frame(ptr noundef readonly captures(none
   %48 = load i32, ptr %47, align 8, !tbaa !57
   %49 = getelementptr inbounds nuw i8, ptr %14, i64 448
   %50 = sext i32 %48 to i64
-  %51 = getelementptr inbounds ptr, ptr %49, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %49, i64 %50
   %52 = load ptr, ptr %51, align 8, !tbaa !55
   %.not135 = icmp eq ptr %52, null
   br i1 %.not135, label %208, label %53
@@ -183,7 +182,7 @@ define internal i32 @deint_vaapi_filter_frame(ptr noundef readonly captures(none
   br i1 %.not170, label %._crit_edge153, label %.lr.ph152.preheader
 
 .lr.ph152.preheader:                              ; preds = %.preheader
-  %invariant.gep = getelementptr ptr, ptr %49, i64 %50
+  %invariant.gep = getelementptr [8 x i8], ptr %49, i64 %50
   %61 = zext i32 %60 to i64
   br label %.lr.ph152
 
@@ -193,13 +192,13 @@ define internal i32 @deint_vaapi_filter_frame(ptr noundef readonly captures(none
   %63 = xor i32 %62, -1
   %64 = add i32 %48, %63
   %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds ptr, ptr %49, i64 %65
+  %66 = getelementptr inbounds [8 x i8], ptr %49, i64 %65
   %67 = load ptr, ptr %66, align 8, !tbaa !55
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 24
   %69 = load ptr, ptr %68, align 8, !tbaa !58
   %70 = ptrtoint ptr %69 to i64
   %71 = trunc i64 %70 to i32
-  %72 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   store i32 %71, ptr %72, align 4, !tbaa !60
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %73 = icmp samesign ult i64 %indvars.iv.next, %58
@@ -207,14 +206,14 @@ define internal i32 @deint_vaapi_filter_frame(ptr noundef readonly captures(none
 
 .lr.ph152:                                        ; preds = %.lr.ph152.preheader, %.lr.ph152
   %indvars.iv181 = phi i64 [ 0, %.lr.ph152.preheader ], [ %indvars.iv.next182, %.lr.ph152 ]
-  %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv181
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %indvars.iv181
   %74 = getelementptr i8, ptr %gep, i64 8
   %75 = load ptr, ptr %74, align 8, !tbaa !55
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 24
   %77 = load ptr, ptr %76, align 8, !tbaa !58
   %78 = ptrtoint ptr %77 to i64
   %79 = trunc i64 %78 to i32
-  %80 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv181
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv181
   store i32 %79, ptr %80, align 4, !tbaa !60
   %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
   %81 = icmp samesign ult i64 %indvars.iv.next182, %61
@@ -229,7 +228,7 @@ define internal i32 @deint_vaapi_filter_frame(ptr noundef readonly captures(none
 
 .lr.ph156:                                        ; preds = %._crit_edge153, %.lr.ph156
   %indvars.iv184 = phi i64 [ %indvars.iv.next185, %.lr.ph156 ], [ 0, %._crit_edge153 ]
-  %83 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv184
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv184
   %84 = load i32, ptr %83, align 4, !tbaa !60
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %9, i32 noundef 48, ptr noundef nonnull @.str.6, i32 noundef %84) #6
   %indvars.iv.next185 = add nuw nsw i64 %indvars.iv184, 1
@@ -247,7 +246,7 @@ define internal i32 @deint_vaapi_filter_frame(ptr noundef readonly captures(none
 
 .lr.ph160:                                        ; preds = %._crit_edge157, %.lr.ph160
   %indvars.iv187 = phi i64 [ %indvars.iv.next188, %.lr.ph160 ], [ 0, %._crit_edge157 ]
-  %89 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv187
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv187
   %90 = load i32, ptr %89, align 4, !tbaa !60
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %9, i32 noundef 48, ptr noundef nonnull @.str.6, i32 noundef %90) #6
   %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
@@ -603,7 +602,7 @@ define internal void @deint_vaapi_pipeline_uninit(ptr noundef %0) #2 {
 
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   tail call void @av_frame_free(ptr noundef nonnull %9) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %10 = load i32, ptr %4, align 4, !tbaa !50
@@ -665,7 +664,7 @@ define internal i32 @deint_vaapi_build_filter_params(ptr noundef %0) #2 {
 21:                                               ; preds = %.lr.ph71, %27
   %indvars.iv74 = phi i64 [ 0, %.lr.ph71 ], [ %indvars.iv.next75, %27 ]
   %22 = phi i32 [ 0, %.lr.ph71 ], [ %28, %27 ]
-  %23 = getelementptr inbounds nuw %struct._VAProcFilterCapDeinterlacing, ptr %11, i64 %indvars.iv74
+  %23 = getelementptr inbounds nuw [20 x i8], ptr %11, i64 %indvars.iv74
   %24 = load i32, ptr %23, align 4, !tbaa !97
   %25 = icmp ugt i32 %24, %22
   br i1 %25, label %26, label %27
@@ -687,7 +686,7 @@ define internal i32 @deint_vaapi_build_filter_params(ptr noundef %0) #2 {
 
 switch.lookup:                                    ; preds = %._crit_edge72
   %30 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.deint_vaapi_build_filter_params.1, i64 %30
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.deint_vaapi_build_filter_params.1, i64 %30
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %deint_vaapi_mode_name.exit
 
@@ -705,7 +704,7 @@ deint_vaapi_mode_name.exit:                       ; preds = %._crit_edge72, %swi
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %32
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %32 ]
-  %33 = getelementptr inbounds nuw %struct._VAProcFilterCapDeinterlacing, ptr %11, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [20 x i8], ptr %11, i64 %indvars.iv
   %34 = load i32, ptr %33, align 4, !tbaa !97
   %35 = icmp eq i32 %34, %17
   br i1 %35, label %.thread, label %32
@@ -716,7 +715,7 @@ deint_vaapi_mode_name.exit:                       ; preds = %._crit_edge72, %swi
 
 switch.lookup89:                                  ; preds = %._crit_edge
   %37 = zext nneg i32 %17 to i64
-  %38 = getelementptr ptr, ptr @switch.table.deint_vaapi_build_filter_params.1, i64 %37
+  %38 = getelementptr [8 x i8], ptr @switch.table.deint_vaapi_build_filter_params.1, i64 %37
   %switch.gep90 = getelementptr i8, ptr %38, i64 -8
   %switch.load91 = load ptr, ptr %switch.gep90, align 8
   br label %deint_vaapi_mode_name.exit67

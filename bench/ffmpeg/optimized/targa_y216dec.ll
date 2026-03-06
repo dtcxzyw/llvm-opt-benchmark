@@ -93,7 +93,7 @@ define internal i32 @y216_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %48 = getelementptr inbounds nuw i8, ptr %.05463.us, i64 %.idx
   %49 = load i16, ptr %48, align 2, !tbaa !35
   %50 = tail call i16 @llvm.fshl.i16(i16 %49, i16 %49, i16 2)
-  %51 = getelementptr inbounds nuw i16, ptr %.05661.us, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [2 x i8], ptr %.05661.us, i64 %indvars.iv
   store i16 %50, ptr %51, align 2, !tbaa !35
   %52 = getelementptr inbounds nuw i8, ptr %48, i64 2
   %53 = load i16, ptr %52, align 2, !tbaa !35
@@ -104,7 +104,7 @@ define internal i32 @y216_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %56 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %57 = load i16, ptr %56, align 2, !tbaa !35
   %58 = tail call i16 @llvm.fshl.i16(i16 %57, i16 %57, i16 2)
-  %59 = getelementptr inbounds nuw i16, ptr %.05562.us, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [2 x i8], ptr %.05562.us, i64 %indvars.iv
   store i16 %58, ptr %59, align 2, !tbaa !35
   %60 = getelementptr inbounds nuw i8, ptr %48, i64 6
   %61 = load i16, ptr %60, align 2, !tbaa !35
@@ -116,10 +116,10 @@ define internal i32 @y216_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   br i1 %exitcond.not, label %._crit_edge.us, label %47, !llvm.loop !37
 
 ._crit_edge.us:                                   ; preds = %47
-  %64 = getelementptr inbounds i16, ptr %.05760.us, i64 %31
-  %65 = getelementptr inbounds i16, ptr %.05661.us, i64 %35
-  %66 = getelementptr inbounds i16, ptr %.05562.us, i64 %39
-  %67 = getelementptr inbounds i16, ptr %.05463.us, i64 %41
+  %64 = getelementptr inbounds [2 x i8], ptr %.05760.us, i64 %31
+  %65 = getelementptr inbounds [2 x i8], ptr %.05661.us, i64 %35
+  %66 = getelementptr inbounds [2 x i8], ptr %.05562.us, i64 %39
+  %67 = getelementptr inbounds [2 x i8], ptr %.05463.us, i64 %41
   %68 = add nuw nsw i32 %.05364.us, 1
   %exitcond68.not = icmp eq i32 %68, %23
   br i1 %exitcond68.not, label %._crit_edge65, label %.preheader.us, !llvm.loop !39

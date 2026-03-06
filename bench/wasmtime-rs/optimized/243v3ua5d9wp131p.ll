@@ -493,7 +493,7 @@ define hidden void @"_ZN4core3ptr75drop_in_place$LT$$u5b$wasmtime_jit_debug..per
 
 .lr.ph:                                           ; preds = %2, %"_ZN4core3ptr65drop_in_place$LT$wasmtime_jit_debug..perf_jitdump..DebugEntry$GT$17h6ed8ef790291b1ceE.llvm.6230506637893075987.exit"
   %.09 = phi i64 [ %5, %"_ZN4core3ptr65drop_in_place$LT$wasmtime_jit_debug..perf_jitdump..DebugEntry$GT$17h6ed8ef790291b1ceE.llvm.6230506637893075987.exit" ], [ 0, %2 ]
-  %4 = getelementptr inbounds { i64, i32, i32, { { { i64, ptr, {} }, i64 } } }, ptr %0, i64 %.09
+  %4 = getelementptr inbounds [40 x i8], ptr %0, i64 %.09
   %5 = add nuw i64 %.09, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !103)
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -550,7 +550,7 @@ define hidden void @"_ZN4core3ptr88drop_in_place$LT$alloc..vec..Vec$LT$wasmtime_
 
 .lr.ph.i.i:                                       ; preds = %1, %"_ZN4core3ptr65drop_in_place$LT$wasmtime_jit_debug..perf_jitdump..DebugEntry$GT$17h6ed8ef790291b1ceE.llvm.6230506637893075987.exit.i.i"
   %.09.i.i = phi i64 [ %8, %"_ZN4core3ptr65drop_in_place$LT$wasmtime_jit_debug..perf_jitdump..DebugEntry$GT$17h6ed8ef790291b1ceE.llvm.6230506637893075987.exit.i.i" ], [ 0, %1 ]
-  %7 = getelementptr inbounds { i64, i32, i32, { { { i64, ptr, {} }, i64 } } }, ptr %3, i64 %.09.i.i
+  %7 = getelementptr inbounds [40 x i8], ptr %3, i64 %.09.i.i
   %8 = add nuw i64 %.09.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !137)
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -804,7 +804,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
 
 .lr.ph.i:                                         ; preds = %1, %"_ZN4core3ptr65drop_in_place$LT$wasmtime_jit_debug..perf_jitdump..DebugEntry$GT$17h6ed8ef790291b1ceE.llvm.6230506637893075987.exit.i"
   %.09.i = phi i64 [ %8, %"_ZN4core3ptr65drop_in_place$LT$wasmtime_jit_debug..perf_jitdump..DebugEntry$GT$17h6ed8ef790291b1ceE.llvm.6230506637893075987.exit.i" ], [ 0, %1 ]
-  %7 = getelementptr inbounds { i64, i32, i32, { { { i64, ptr, {} }, i64 } } }, ptr %3, i64 %.09.i
+  %7 = getelementptr inbounds [40 x i8], ptr %3, i64 %.09.i
   %8 = add nuw i64 %.09.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !184)
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 16

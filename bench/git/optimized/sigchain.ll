@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @sigchain_push(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds %struct.sigchain_signal, ptr @signals, i64 %3
+  %4 = getelementptr inbounds [16 x i8], ptr @signals, i64 %3
   %5 = add i32 %0, -32
   %or.cond.i = icmp ult i32 %5, -31
   br i1 %or.cond.i, label %6, label %check_signum.exit
@@ -57,7 +57,7 @@ st_mult.exit:                                     ; preds = %11
   %24 = load ptr, ptr %4, align 16, !tbaa !11
   %25 = load i32, ptr %7, align 8, !tbaa !4
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds ptr, ptr %24, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %24, i64 %26
   store ptr %23, ptr %27, align 8, !tbaa !12
   %28 = icmp eq ptr %23, inttoptr (i64 -1 to ptr)
   br i1 %28, label %31, label %29
@@ -80,7 +80,7 @@ declare ptr @signal(i32 noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local range(i32 -1, 1) i32 @sigchain_pop(i32 noundef %0) local_unnamed_addr #0 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds %struct.sigchain_signal, ptr @signals, i64 %2
+  %3 = getelementptr inbounds [16 x i8], ptr @signals, i64 %2
   %4 = add i32 %0, -32
   %or.cond.i = icmp ult i32 %4, -31
   br i1 %or.cond.i, label %5, label %check_signum.exit
@@ -98,7 +98,7 @@ check_signum.exit:                                ; preds = %1
 9:                                                ; preds = %check_signum.exit
   %10 = load ptr, ptr %3, align 16, !tbaa !11
   %11 = zext nneg i32 %7 to i64
-  %12 = getelementptr ptr, ptr %10, i64 %11
+  %12 = getelementptr [8 x i8], ptr %10, i64 %11
   %13 = getelementptr i8, ptr %12, i64 -8
   %14 = load ptr, ptr %13, align 8, !tbaa !12
   %15 = tail call ptr @signal(i32 noundef %0, ptr noundef %14) #6
@@ -150,7 +150,7 @@ st_mult.exit.i:                                   ; preds = %4
   %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 32), align 16, !tbaa !11
   %18 = load i32, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 40), align 8, !tbaa !4
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds ptr, ptr %17, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %17, i64 %19
   store ptr %16, ptr %20, align 8, !tbaa !12
   %21 = icmp eq ptr %16, inttoptr (i64 -1 to ptr)
   br i1 %21, label %sigchain_push.exit, label %22
@@ -193,7 +193,7 @@ st_mult.exit.i7:                                  ; preds = %26
   %39 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 16), align 16, !tbaa !11
   %40 = load i32, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 24), align 8, !tbaa !4
   %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds ptr, ptr %39, i64 %41
+  %42 = getelementptr inbounds [8 x i8], ptr %39, i64 %41
   store ptr %38, ptr %42, align 8, !tbaa !12
   %43 = icmp eq ptr %38, inttoptr (i64 -1 to ptr)
   br i1 %43, label %sigchain_push.exit9, label %44
@@ -236,7 +236,7 @@ st_mult.exit.i12:                                 ; preds = %48
   %61 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 240), align 16, !tbaa !11
   %62 = load i32, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 248), align 8, !tbaa !4
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds ptr, ptr %61, i64 %63
+  %64 = getelementptr inbounds [8 x i8], ptr %61, i64 %63
   store ptr %60, ptr %64, align 8, !tbaa !12
   %65 = icmp eq ptr %60, inttoptr (i64 -1 to ptr)
   br i1 %65, label %sigchain_push.exit14, label %66
@@ -279,7 +279,7 @@ st_mult.exit.i17:                                 ; preds = %70
   %83 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 48), align 16, !tbaa !11
   %84 = load i32, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 56), align 8, !tbaa !4
   %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds ptr, ptr %83, i64 %85
+  %86 = getelementptr inbounds [8 x i8], ptr %83, i64 %85
   store ptr %82, ptr %86, align 8, !tbaa !12
   %87 = icmp eq ptr %82, inttoptr (i64 -1 to ptr)
   br i1 %87, label %sigchain_push.exit19, label %88
@@ -322,7 +322,7 @@ st_mult.exit.i22:                                 ; preds = %92
   %105 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 208), align 16, !tbaa !11
   %106 = load i32, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 216), align 8, !tbaa !4
   %107 = sext i32 %106 to i64
-  %108 = getelementptr inbounds ptr, ptr %105, i64 %107
+  %108 = getelementptr inbounds [8 x i8], ptr %105, i64 %107
   store ptr %104, ptr %108, align 8, !tbaa !12
   %109 = icmp eq ptr %104, inttoptr (i64 -1 to ptr)
   br i1 %109, label %sigchain_push.exit24, label %110
@@ -345,7 +345,7 @@ define dso_local void @sigchain_pop_common() local_unnamed_addr #0 {
 3:                                                ; preds = %0
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 208), align 16, !tbaa !11
   %5 = zext nneg i32 %1 to i64
-  %6 = getelementptr ptr, ptr %4, i64 %5
+  %6 = getelementptr [8 x i8], ptr %4, i64 %5
   %7 = getelementptr i8, ptr %6, i64 -8
   %8 = load ptr, ptr %7, align 8, !tbaa !12
   %9 = tail call ptr @signal(i32 noundef 13, ptr noundef %8) #6
@@ -366,7 +366,7 @@ sigchain_pop.exit:                                ; preds = %0, %3, %11
 16:                                               ; preds = %sigchain_pop.exit
   %17 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 48), align 16, !tbaa !11
   %18 = zext nneg i32 %14 to i64
-  %19 = getelementptr ptr, ptr %17, i64 %18
+  %19 = getelementptr [8 x i8], ptr %17, i64 %18
   %20 = getelementptr i8, ptr %19, i64 -8
   %21 = load ptr, ptr %20, align 8, !tbaa !12
   %22 = tail call ptr @signal(i32 noundef 3, ptr noundef %21) #6
@@ -387,7 +387,7 @@ sigchain_pop.exit2:                               ; preds = %sigchain_pop.exit, 
 29:                                               ; preds = %sigchain_pop.exit2
   %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 240), align 16, !tbaa !11
   %31 = zext nneg i32 %27 to i64
-  %32 = getelementptr ptr, ptr %30, i64 %31
+  %32 = getelementptr [8 x i8], ptr %30, i64 %31
   %33 = getelementptr i8, ptr %32, i64 -8
   %34 = load ptr, ptr %33, align 8, !tbaa !12
   %35 = tail call ptr @signal(i32 noundef 15, ptr noundef %34) #6
@@ -408,7 +408,7 @@ sigchain_pop.exit4:                               ; preds = %sigchain_pop.exit2,
 42:                                               ; preds = %sigchain_pop.exit4
   %43 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 16), align 16, !tbaa !11
   %44 = zext nneg i32 %40 to i64
-  %45 = getelementptr ptr, ptr %43, i64 %44
+  %45 = getelementptr [8 x i8], ptr %43, i64 %44
   %46 = getelementptr i8, ptr %45, i64 -8
   %47 = load ptr, ptr %46, align 8, !tbaa !12
   %48 = tail call ptr @signal(i32 noundef 1, ptr noundef %47) #6
@@ -429,7 +429,7 @@ sigchain_pop.exit6:                               ; preds = %sigchain_pop.exit4,
 55:                                               ; preds = %sigchain_pop.exit6
   %56 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @signals, i64 32), align 16, !tbaa !11
   %57 = zext nneg i32 %53 to i64
-  %58 = getelementptr ptr, ptr %56, i64 %57
+  %58 = getelementptr [8 x i8], ptr %56, i64 %57
   %59 = getelementptr i8, ptr %58, i64 -8
   %60 = load ptr, ptr %59, align 8, !tbaa !12
   %61 = tail call ptr @signal(i32 noundef 2, ptr noundef %60) #6

@@ -6,11 +6,9 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.ScanKeyData = type { i32, i16, i16, i32, i32, %struct.FmgrInfo, i64 }
 %struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
 %struct.InternalGrant = type { i8, i32, ptr, i8, i64, ptr, ptr, i8, i32 }
-%union.ListCell = type { ptr }
 %struct.AclItem = type { i32, i32, i64 }
 %struct.InternalDefaultACL = type { i32, i32, i8, i32, i8, i64, ptr, i8, i32 }
 %struct.ObjectAddress = type { i32, i32, i32 }
-%struct.CompactAttribute = type { i32, i16, i8, i8, i8, i8, i8, i8, i8 }
 
 @binary_upgrade_record_init_privs = dso_local local_unnamed_addr global i8 0, align 1
 @.str = private unnamed_addr constant [29 x i8] c"grantor must be current user\00", align 1
@@ -299,7 +297,7 @@ define dso_local void @ExecuteGrantStmt(ptr noundef readonly captures(none) %0) 
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %38 ], [ 0, %.lr.ph97.i ]
   %.49195.us.i = phi ptr [ %.5.us101.i, %38 ], [ null, %.lr.ph97.i ]
   %30 = load ptr, ptr %27, align 8
-  %31 = getelementptr inbounds nuw %union.ListCell, ptr %30, i64 %indvars.iv.i
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv.i
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load ptr, ptr %33, align 8
@@ -332,7 +330,7 @@ define dso_local void @ExecuteGrantStmt(ptr noundef readonly captures(none) %0) 
   %indvars.iv156.i = phi i64 [ %indvars.iv.next157.i, %.lr.ph138.i ], [ 0, %.lr.ph130.i ]
   %.063129136.i = phi ptr [ %49, %.lr.ph138.i ], [ null, %.lr.ph130.i ]
   %45 = load ptr, ptr %42, align 8
-  %46 = getelementptr inbounds nuw %union.ListCell, ptr %45, i64 %indvars.iv156.i
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv156.i
   %47 = load ptr, ptr %46, align 8
   %48 = tail call { i64, i32 } @get_object_address(i32 noundef %18, ptr noundef %47, ptr noundef null, i32 noundef 1, i1 noundef zeroext false) #10
   %.fca.0.extract31.i = extractvalue { i64, i32 } %48, 0
@@ -358,7 +356,7 @@ define dso_local void @ExecuteGrantStmt(ptr noundef readonly captures(none) %0) 
   %indvars.iv153.i = phi i64 [ %indvars.iv.next154.i, %.lr.ph126.i ], [ 0, %.lr.ph118.i ]
   %.2117124.i = phi ptr [ %61, %.lr.ph126.i ], [ null, %.lr.ph118.i ]
   %57 = load ptr, ptr %54, align 8
-  %58 = getelementptr inbounds nuw %union.ListCell, ptr %57, i64 %indvars.iv153.i
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %indvars.iv153.i
   %59 = load ptr, ptr %58, align 8
   %60 = tail call i32 @RangeVarGetRelidExtended(ptr noundef %59, i32 noundef 1, i32 noundef 0, ptr noundef null, ptr noundef null) #10
   %61 = tail call ptr @lappend_oid(ptr noundef %.2117124.i, i32 noundef %60) #10
@@ -381,7 +379,7 @@ define dso_local void @ExecuteGrantStmt(ptr noundef readonly captures(none) %0) 
   %indvars.iv150.i = phi i64 [ %indvars.iv.next151.i, %.lr.ph114.i ], [ 0, %.lr.ph106.i ]
   %.3105112.i = phi ptr [ %74, %.lr.ph114.i ], [ null, %.lr.ph106.i ]
   %69 = load ptr, ptr %66, align 8
-  %70 = getelementptr inbounds nuw %union.ListCell, ptr %69, i64 %indvars.iv150.i
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %indvars.iv150.i
   %71 = load ptr, ptr %70, align 8
   %72 = call ptr @makeTypeNameFromNameList(ptr noundef %71) #10
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -401,7 +399,7 @@ define dso_local void @ExecuteGrantStmt(ptr noundef readonly captures(none) %0) 
   %indvars.iv147.i = phi i64 [ %indvars.iv.next148.i, %88 ], [ 0, %.lr.ph97.i ]
   %.49195.i = phi ptr [ %.5.i, %88 ], [ null, %.lr.ph97.i ]
   %78 = load ptr, ptr %27, align 8
-  %79 = getelementptr inbounds nuw %union.ListCell, ptr %78, i64 %indvars.iv147.i
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %indvars.iv147.i
   %80 = load ptr, ptr %79, align 8
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %82 = load ptr, ptr %81, align 8
@@ -455,7 +453,7 @@ define dso_local void @ExecuteGrantStmt(ptr noundef readonly captures(none) %0) 
   %indvars.iv93.i = phi i64 [ %indvars.iv.next94.i, %.lr.ph.i63 ], [ 0, %.lr.ph54.split.us.split.i ]
   %.052.us77.i = phi ptr [ %115, %.lr.ph.i63 ], [ null, %.lr.ph54.split.us.split.i ]
   %100 = load ptr, ptr %96, align 8
-  %101 = getelementptr inbounds nuw %union.ListCell, ptr %100, i64 %indvars.iv93.i
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %indvars.iv93.i
   %102 = load ptr, ptr %101, align 8
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
   %104 = load ptr, ptr %103, align 8
@@ -483,7 +481,7 @@ define dso_local void @ExecuteGrantStmt(ptr noundef readonly captures(none) %0) 
   %indvars.iv90.i = phi i64 [ %indvars.iv.next91.i, %.lr.ph83.i ], [ 0, %.lr.ph54.split.us59.split.i ]
   %.052.us6081.i = phi ptr [ %126, %.lr.ph83.i ], [ null, %.lr.ph54.split.us59.split.i ]
   %119 = load ptr, ptr %96, align 8
-  %120 = getelementptr inbounds nuw %union.ListCell, ptr %119, i64 %indvars.iv90.i
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %119, i64 %indvars.iv90.i
   %121 = load ptr, ptr %120, align 8
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %123 = load ptr, ptr %122, align 8
@@ -503,7 +501,7 @@ define dso_local void @ExecuteGrantStmt(ptr noundef readonly captures(none) %0) 
   %.052.us68.i77 = phi ptr [ %.2.lcssa.us.i, %._crit_edge.us.i ], [ null, %.lr.ph54.split.us67.i ]
   %indvars.iv.i6176 = phi i64 [ %indvars.iv.next.i62, %._crit_edge.us.i ], [ 0, %.lr.ph54.split.us67.i ]
   %130 = load ptr, ptr %96, align 8
-  %131 = getelementptr inbounds nuw %union.ListCell, ptr %130, i64 %indvars.iv.i6176
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %130, i64 %indvars.iv.i6176
   %132 = load ptr, ptr %131, align 8
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
   %134 = load ptr, ptr %133, align 8
@@ -615,7 +613,7 @@ objectNamesToOids.exit:                           ; preds = %._crit_edge.us.i, %
   %186 = phi ptr [ %196, %195 ], [ null, %.lr.ph79 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %195 ], [ 0, %.lr.ph79 ]
   %187 = load ptr, ptr %183, align 8
-  %188 = getelementptr inbounds nuw %union.ListCell, ptr %187, i64 %indvars.iv
+  %188 = getelementptr inbounds nuw [8 x i8], ptr %187, i64 %indvars.iv
   %189 = load ptr, ptr %188, align 8
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 4
   %191 = load i32, ptr %190, align 4
@@ -736,7 +734,7 @@ objectNamesToOids.exit:                           ; preds = %._crit_edge.us.i, %
   %232 = phi ptr [ null, %.lr.ph84 ], [ %265, %264 ]
   %indvars.iv98 = phi i64 [ 0, %.lr.ph84 ], [ %indvars.iv.next99, %264 ]
   %233 = load ptr, ptr %230, align 8
-  %234 = getelementptr inbounds nuw %union.ListCell, ptr %233, i64 %indvars.iv98
+  %234 = getelementptr inbounds nuw [8 x i8], ptr %233, i64 %indvars.iv98
   %235 = load ptr, ptr %234, align 8
   %236 = getelementptr inbounds nuw i8, ptr %235, i64 16
   %237 = load ptr, ptr %236, align 8
@@ -931,7 +929,7 @@ define internal fastcc noundef nonnull ptr @privilege_to_string(i64 noundef rang
 
 .split:                                           ; preds = %1
   %4 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %0, i1 true)
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.privilege_to_string, i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.privilege_to_string, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 
@@ -1033,7 +1031,7 @@ define internal fastcc void @ExecGrantStmt_oids(ptr noundef nonnull %0) unnamed_
 .lr.ph69:                                         ; preds = %.lr.ph210.i, %.loopexit.i
   %indvars.iv247.i68 = phi i64 [ %indvars.iv.next248.i, %.loopexit.i ], [ 0, %.lr.ph210.i ]
   %63 = load ptr, ptr %45, align 8
-  %64 = getelementptr inbounds nuw %union.ListCell, ptr %63, i64 %indvars.iv247.i68
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %indvars.iv247.i68
   %65 = load i32, ptr %64, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
@@ -1202,7 +1200,7 @@ define internal fastcc void @ExecGrantStmt_oids(ptr noundef nonnull %0) unnamed_
   br i1 %153, label %159, label %154
 
 154:                                              ; preds = %145
-  %155 = getelementptr i64, ptr %126, i64 %139
+  %155 = getelementptr [8 x i8], ptr %126, i64 %139
   %156 = getelementptr i8, ptr %155, i64 56
   %157 = load i64, ptr %156, align 8
   %158 = or i64 %157, %130
@@ -1331,7 +1329,7 @@ recordExtensionInitPriv.exit.i:                   ; preds = %205, %176
 .lr.ph67:                                         ; preds = %.lr.ph.i, %expand_col_privileges.exit.i
   %indvars.iv.i66 = phi i64 [ %indvars.iv.next.i, %expand_col_privileges.exit.i ], [ 0, %.lr.ph.i ]
   %217 = load ptr, ptr %213, align 8
-  %218 = getelementptr inbounds nuw %union.ListCell, ptr %217, i64 %indvars.iv.i66
+  %218 = getelementptr inbounds nuw [8 x i8], ptr %217, i64 %indvars.iv.i66
   %219 = load ptr, ptr %218, align 8
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 8
   %221 = load ptr, ptr %220, align 8
@@ -1402,7 +1400,7 @@ recordExtensionInitPriv.exit.i:                   ; preds = %205, %176
 .lr.ph28.i.i:                                     ; preds = %.lr.ph.i157.i, %267
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %267 ], [ 0, %.lr.ph.i157.i ]
   %250 = load ptr, ptr %247, align 8
-  %251 = getelementptr inbounds nuw %union.ListCell, ptr %250, i64 %indvars.iv.i.i
+  %251 = getelementptr inbounds nuw [8 x i8], ptr %250, i64 %indvars.iv.i.i
   %252 = load ptr, ptr %251, align 8
   %253 = getelementptr inbounds nuw i8, ptr %252, i64 8
   %254 = load ptr, ptr %253, align 8
@@ -1434,7 +1432,7 @@ recordExtensionInitPriv.exit.i:                   ; preds = %205, %176
 
 267:                                              ; preds = %261
   %268 = zext nneg i16 %262 to i64
-  %269 = getelementptr inbounds nuw i64, ptr %126, i64 %268
+  %269 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %268
   %270 = load i64, ptr %269, align 8
   %271 = or i64 %270, %.3.i
   store i64 %271, ptr %269, align 8
@@ -1454,7 +1452,7 @@ expand_col_privileges.exit.i:                     ; preds = %267, %.lr.ph.i157.i
 278:                                              ; preds = %375, %.lr.ph208.i
   %.0207.i = phi i16 [ 0, %.lr.ph208.i ], [ %376, %375 ]
   %279 = sext i16 %.0207.i to i64
-  %280 = getelementptr inbounds i64, ptr %126, i64 %279
+  %280 = getelementptr inbounds [8 x i8], ptr %126, i64 %279
   %281 = load i64, ptr %280, align 8
   %282 = icmp eq i64 %281, 0
   br i1 %282, label %375, label %283
@@ -1555,7 +1553,7 @@ expand_col_privileges.exit.i:                     ; preds = %267, %.lr.ph.i157.i
   %indvars.iv.i165.i = phi i64 [ %indvars.iv.next.i166.i, %.lr.ph55.i.i ], [ 0, %.lr.ph.split.us.split.i.i ]
   %.03238.us53.i.i = phi ptr [ %336, %.lr.ph55.i.i ], [ %.049.i.i, %.lr.ph.split.us.split.i.i ]
   %333 = load ptr, ptr %325, align 8
-  %334 = getelementptr inbounds nuw %union.ListCell, ptr %333, i64 %indvars.iv.i165.i
+  %334 = getelementptr inbounds nuw [8 x i8], ptr %333, i64 %indvars.iv.i165.i
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %335 = load i32, ptr %334, align 8
   store i32 %335, ptr %20, align 8
@@ -1577,7 +1575,7 @@ expand_col_privileges.exit.i:                     ; preds = %267, %.lr.ph.i157.i
   %indvars.iv60.i.i = phi i64 [ %indvars.iv.next61.i.i, %347 ], [ 0, %.lr.ph.split.split.i.i ]
   %.0323848.i.i = phi ptr [ %348, %347 ], [ %.049.i.i, %.lr.ph.split.split.i.i ]
   %340 = load ptr, ptr %325, align 8
-  %341 = getelementptr inbounds nuw %union.ListCell, ptr %340, i64 %indvars.iv60.i.i
+  %341 = getelementptr inbounds nuw [8 x i8], ptr %340, i64 %indvars.iv60.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %342 = load i32, ptr %341, align 8
   store i32 %342, ptr %20, align 8
@@ -1751,7 +1749,7 @@ ExecGrant_Relation.exit:                          ; preds = %.loopexit.i, %.lr.p
 .lr.ph65:                                         ; preds = %.lr.ph.i16, %recordExtensionInitPriv.exit.i20
   %indvars.iv.i1764 = phi i64 [ %indvars.iv.next.i21, %recordExtensionInitPriv.exit.i20 ], [ 0, %.lr.ph.i16 ]
   %412 = load ptr, ptr %402, align 8
-  %413 = getelementptr inbounds nuw %union.ListCell, ptr %412, i64 %indvars.iv.i1764
+  %413 = getelementptr inbounds nuw [8 x i8], ptr %412, i64 %indvars.iv.i1764
   %414 = load i32, ptr %413, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -1923,7 +1921,7 @@ ExecGrant_Largeobject.exit:                       ; preds = %recordExtensionInit
 .lr.ph:                                           ; preds = %.lr.ph.i23, %recordExtensionInitPriv.exit.i26
   %indvars.iv.i2463 = phi i64 [ %indvars.iv.next.i27, %recordExtensionInitPriv.exit.i26 ], [ 0, %.lr.ph.i23 ]
   %501 = load ptr, ptr %491, align 8
-  %502 = getelementptr inbounds nuw %union.ListCell, ptr %501, i64 %indvars.iv.i2463
+  %502 = getelementptr inbounds nuw [8 x i8], ptr %501, i64 %indvars.iv.i2463
   %503 = load i32, ptr %502, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -2095,7 +2093,7 @@ define dso_local void @ExecAlterDefaultPrivilegesStmt(ptr noundef %0, ptr nounde
   %indvars.iv = phi i64 [ 0, %.lr.ph144 ], [ %indvars.iv.next, %29 ]
   %.075125142 = phi ptr [ null, %.lr.ph144 ], [ %.176, %29 ]
   %.073126141 = phi ptr [ null, %.lr.ph144 ], [ %.174, %29 ]
-  %14 = getelementptr inbounds nuw %union.ListCell, ptr %12, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8
@@ -2195,7 +2193,7 @@ define dso_local void @ExecAlterDefaultPrivilegesStmt(ptr noundef %0, ptr nounde
   %indvars.iv185 = phi i64 [ %indvars.iv.next186, %66 ], [ 0, %.lr.ph148 ]
   %57 = phi ptr [ %67, %66 ], [ null, %.lr.ph148 ]
   %58 = load ptr, ptr %54, align 8
-  %59 = getelementptr inbounds nuw %union.ListCell, ptr %58, i64 %indvars.iv185
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %indvars.iv185
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 4
   %62 = load i32, ptr %61, align 4
@@ -2287,7 +2285,7 @@ define dso_local void @ExecAlterDefaultPrivilegesStmt(ptr noundef %0, ptr nounde
   %indvars.iv188 = phi i64 [ 0, %.lr.ph163 ], [ %indvars.iv.next189, %120 ]
   %95 = phi i64 [ 0, %.lr.ph163 ], [ %121, %120 ]
   %96 = load ptr, ptr %93, align 8
-  %97 = getelementptr inbounds nuw %union.ListCell, ptr %96, i64 %indvars.iv188
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %indvars.iv188
   %98 = load ptr, ptr %97, align 8
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 16
   %100 = load ptr, ptr %99, align 8
@@ -2358,7 +2356,7 @@ define dso_local void @ExecAlterDefaultPrivilegesStmt(ptr noundef %0, ptr nounde
 .lr.ph167.split.us:                               ; preds = %.lr.ph167, %SetDefaultACLsInSchemas.exit109.us
   %indvars.iv194 = phi i64 [ %indvars.iv.next195, %SetDefaultACLsInSchemas.exit109.us ], [ 0, %.lr.ph167 ]
   %133 = load ptr, ptr %128, align 8
-  %134 = getelementptr inbounds nuw %union.ListCell, ptr %133, i64 %indvars.iv194
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %133, i64 %indvars.iv194
   %135 = load ptr, ptr %134, align 8
   %136 = tail call i32 @get_rolespec_oid(ptr noundef %135, i1 noundef zeroext false) #10
   store i32 %136, ptr %3, align 8
@@ -2401,7 +2399,7 @@ SetDefaultACLsInSchemas.exit109.us:               ; preds = %.lr.ph167.split.us
 150:                                              ; preds = %150, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %150 ]
   %151 = load ptr, ptr %146, align 8
-  %152 = getelementptr inbounds nuw %union.ListCell, ptr %151, i64 %indvars.iv.i
+  %152 = getelementptr inbounds nuw [8 x i8], ptr %151, i64 %indvars.iv.i
   %153 = load ptr, ptr %152, align 8
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 8
   %155 = load ptr, ptr %154, align 8
@@ -2417,7 +2415,7 @@ SetDefaultACLsInSchemas.exit109.us:               ; preds = %.lr.ph167.split.us
 .lr.ph167.split:                                  ; preds = %.lr.ph167, %SetDefaultACLsInSchemas.exit109
   %indvars.iv191 = phi i64 [ %indvars.iv.next192, %SetDefaultACLsInSchemas.exit109 ], [ 0, %.lr.ph167 ]
   %159 = load ptr, ptr %128, align 8
-  %160 = getelementptr inbounds nuw %union.ListCell, ptr %159, i64 %indvars.iv191
+  %160 = getelementptr inbounds nuw [8 x i8], ptr %159, i64 %indvars.iv191
   %161 = load ptr, ptr %160, align 8
   %162 = tail call i32 @get_rolespec_oid(ptr noundef %161, i1 noundef zeroext false) #10
   store i32 %162, ptr %3, align 8
@@ -2440,7 +2438,7 @@ SetDefaultACLsInSchemas.exit109.us:               ; preds = %.lr.ph167.split.us
 .lr.ph.i105:                                      ; preds = %.preheader.i103, %.lr.ph.i105
   %indvars.iv.i106 = phi i64 [ %indvars.iv.next.i107, %.lr.ph.i105 ], [ 0, %.preheader.i103 ]
   %169 = load ptr, ptr %131, align 8
-  %170 = getelementptr inbounds nuw %union.ListCell, ptr %169, i64 %indvars.iv.i106
+  %170 = getelementptr inbounds nuw [8 x i8], ptr %169, i64 %indvars.iv.i106
   %171 = load ptr, ptr %170, align 8
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 8
   %173 = load ptr, ptr %172, align 8
@@ -4518,7 +4516,7 @@ define internal fastcc i64 @heap_getattr(ptr noundef nonnull %0, i32 noundef ran
 
 19:                                               ; preds = %16
   %20 = zext nneg i32 %1 to i64
-  %21 = getelementptr %struct.CompactAttribute, ptr %2, i64 %20
+  %21 = getelementptr [16 x i8], ptr %2, i64 %20
   %22 = getelementptr i8, ptr %21, i64 8
   %23 = load i32, ptr %22, align 4
   %24 = icmp sgt i32 %23, -1
@@ -5386,7 +5384,7 @@ define dso_local void @RemoveRoleFromInitPriv(i32 noundef %0, i32 noundef %1, i3
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph55.i ], [ 0, %.lr.ph.i ]
   %.03238.us53.i = phi ptr [ %51, %.lr.ph55.i ], [ %27, %.lr.ph.i ]
   %48 = load ptr, ptr %43, align 8
-  %49 = getelementptr inbounds nuw %union.ListCell, ptr %48, i64 %indvars.iv.i
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %indvars.iv.i
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %50 = load i32, ptr %49, align 8
   store i32 %50, ptr %5, align 8
@@ -5490,7 +5488,7 @@ define internal fastcc ptr @merge_acl_with_grant(ptr noundef %0, i1 noundef zero
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph55 ], [ 0, %.lr.ph.split.us.split ]
   %.03238.us53 = phi ptr [ %25, %.lr.ph55 ], [ %0, %.lr.ph.split.us.split ]
   %22 = load ptr, ptr %12, align 8
-  %23 = getelementptr inbounds nuw %union.ListCell, ptr %22, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %24 = load i32, ptr %23, align 8
   store i32 %24, ptr %9, align 8
@@ -5512,7 +5510,7 @@ define internal fastcc ptr @merge_acl_with_grant(ptr noundef %0, i1 noundef zero
   %indvars.iv60 = phi i64 [ %indvars.iv.next61, %36 ], [ 0, %.lr.ph.split.split ]
   %.0323848 = phi ptr [ %37, %36 ], [ %0, %.lr.ph.split.split ]
   %29 = load ptr, ptr %12, align 8
-  %30 = getelementptr inbounds nuw %union.ListCell, ptr %29, i64 %indvars.iv60
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv60
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %31 = load i32, ptr %30, align 8
   store i32 %31, ptr %9, align 8
@@ -5589,7 +5587,7 @@ define internal fastcc void @ExecGrant_common(ptr noundef nonnull %0, i32 nounde
 .lr.ph95:                                         ; preds = %.lr.ph, %recordExtensionInitPriv.exit
   %indvars.iv94 = phi i64 [ %indvars.iv.next, %recordExtensionInitPriv.exit ], [ 0, %.lr.ph ]
   %32 = load ptr, ptr %24, align 8
-  %33 = getelementptr inbounds nuw %union.ListCell, ptr %32, i64 %indvars.iv94
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv94
   %34 = load i32, ptr %33, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -5689,7 +5687,7 @@ define internal fastcc void @ExecGrant_common(ptr noundef nonnull %0, i32 nounde
   %99 = ptrtoint ptr %93 to i64
   %100 = call signext i16 @get_object_attnum_acl(i32 noundef %1) #10
   %101 = sext i16 %100 to i64
-  %102 = getelementptr i64, ptr %39, i64 %101
+  %102 = getelementptr [8 x i8], ptr %39, i64 %101
   %103 = getelementptr i8, ptr %102, i64 -8
   store i64 %99, ptr %103, align 8
   %104 = load ptr, ptr %25, align 8

@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %class.libraw_static_table_t = type <{ ptr, i32, [4 x i8] }>
-%struct.libraw_afinfo_item_t = type { i32, i16, i32, i32, ptr }
 
 @.str = private unnamed_addr constant [4 x i8] c"065\00", align 1
 @.str.1 = private unnamed_addr constant [5 x i8] c"EF-S\00", align 1
@@ -1138,7 +1137,7 @@ define void @_ZN6LibRaw15Canon_WBpresetsEii(ptr noundef nonnull align 8 derefere
   %8 = lshr i32 %.040, 1
   %9 = xor i32 %8, %.040
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw i32, ptr %4, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %10
   store i32 %7, ptr %11, align 4, !tbaa !102
   %12 = add nuw nsw i32 %.040, 1
   %exitcond.not = icmp eq i32 %12, 4
@@ -1169,7 +1168,7 @@ define void @_ZN6LibRaw15Canon_WBpresetsEii(ptr noundef nonnull align 8 derefere
   %27 = lshr i32 %.141, 1
   %28 = xor i32 %27, %.141
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds nuw i32, ptr %23, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %29
   store i32 %26, ptr %30, align 4, !tbaa !102
   %31 = add nuw nsw i32 %.141, 1
   %exitcond46.not = icmp eq i32 %31, 4
@@ -1199,7 +1198,7 @@ define void @_ZN6LibRaw15Canon_WBpresetsEii(ptr noundef nonnull align 8 derefere
   %46 = lshr i32 %.242, 1
   %47 = xor i32 %46, %.242
   %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr inbounds nuw i32, ptr %42, i64 %48
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %48
   store i32 %45, ptr %49, align 4, !tbaa !102
   %50 = add nuw nsw i32 %.242, 1
   %exitcond47.not = icmp eq i32 %50, 4
@@ -1229,7 +1228,7 @@ define void @_ZN6LibRaw15Canon_WBpresetsEii(ptr noundef nonnull align 8 derefere
   %65 = lshr i32 %.343, 1
   %66 = xor i32 %65, %.343
   %67 = zext nneg i32 %66 to i64
-  %68 = getelementptr inbounds nuw i32, ptr %61, i64 %67
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %67
   store i32 %64, ptr %68, align 4, !tbaa !102
   %69 = add nuw nsw i32 %.343, 1
   %exitcond48.not = icmp eq i32 %69, 4
@@ -1259,7 +1258,7 @@ define void @_ZN6LibRaw15Canon_WBpresetsEii(ptr noundef nonnull align 8 derefere
   %84 = lshr i32 %.444, 1
   %85 = xor i32 %84, %.444
   %86 = zext nneg i32 %85 to i64
-  %87 = getelementptr inbounds nuw i32, ptr %80, i64 %86
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %86
   store i32 %83, ptr %87, align 4, !tbaa !102
   %88 = add nuw nsw i32 %.444, 1
   %exitcond49.not = icmp eq i32 %88, 4
@@ -1290,7 +1289,7 @@ define void @_ZN6LibRaw15Canon_WBpresetsEii(ptr noundef nonnull align 8 derefere
   %103 = lshr i32 %.545, 1
   %104 = xor i32 %103, %.545
   %105 = zext nneg i32 %104 to i64
-  %106 = getelementptr inbounds nuw i32, ptr %99, i64 %105
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %99, i64 %105
   store i32 %102, ptr %106, align 4, !tbaa !102
   %107 = add nuw nsw i32 %.545, 1
   %exitcond50.not = icmp eq i32 %107, 4
@@ -1320,7 +1319,7 @@ define void @_ZN6LibRaw17Canon_WBCTpresetsEs(ptr noundef nonnull align 8 derefer
 
 7:                                                ; preds = %.preheader, %7
   %indvars.iv65 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next66, %7 ]
-  %8 = getelementptr inbounds nuw [5 x float], ptr %5, i64 %indvars.iv65
+  %8 = getelementptr inbounds nuw [20 x i8], ptr %5, i64 %indvars.iv65
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store float 1.000000e+00, ptr %9, align 4, !tbaa !109
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -1353,7 +1352,7 @@ define void @_ZN6LibRaw17Canon_WBCTpresetsEs(ptr noundef nonnull align 8 derefer
 
 30:                                               ; preds = %.preheader44, %30
   %indvars.iv61 = phi i64 [ 0, %.preheader44 ], [ %indvars.iv.next62, %30 ]
-  %31 = getelementptr inbounds nuw [5 x float], ptr %3, i64 %indvars.iv61
+  %31 = getelementptr inbounds nuw [20 x i8], ptr %3, i64 %indvars.iv61
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   store float 1.000000e+00, ptr %32, align 4, !tbaa !109
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
@@ -1416,7 +1415,7 @@ define void @_ZN6LibRaw17Canon_WBCTpresetsEs(ptr noundef nonnull align 8 derefer
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 32
   %67 = load ptr, ptr %66, align 8
   %68 = tail call noundef i32 %67(ptr noundef nonnull align 8 dereferenceable(8) %64, i64 noundef 4, i32 noundef 1)
-  %69 = getelementptr inbounds nuw [5 x float], ptr %62, i64 %indvars.iv57
+  %69 = getelementptr inbounds nuw [20 x i8], ptr %62, i64 %indvars.iv57
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
   store float 1.000000e+00, ptr %70, align 4, !tbaa !109
   %71 = getelementptr inbounds nuw i8, ptr %69, i64 8
@@ -1453,7 +1452,7 @@ define void @_ZN6LibRaw17Canon_WBCTpresetsEs(ptr noundef nonnull align 8 derefer
   %93 = sitofp i16 %92 to float
   %94 = fmul reassoc nnan nsz arcp contract afn float %93, 1.250000e-01
   %95 = fadd reassoc nsz arcp contract afn float %94, 5.120000e+02
-  %96 = getelementptr inbounds nuw [5 x float], ptr %60, i64 %indvars.iv
+  %96 = getelementptr inbounds nuw [20 x i8], ptr %60, i64 %indvars.iv
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 16
   store float 1.000000e+00, ptr %97, align 4, !tbaa !109
   %98 = getelementptr inbounds nuw i8, ptr %96, i64 8
@@ -1798,7 +1797,7 @@ _ZN6LibRaw21_CanonConvertApertureEt.exit528:      ; preds = %116, %116, %123
   %175 = tail call noundef ptr @_ZN6LibRaw6callocEmm(ptr noundef nonnull align 8 dereferenceable(767680) %0, i64 noundef %174, i64 noundef 1)
   %176 = load i32, ptr %165, align 8, !tbaa !126
   %177 = sext i32 %176 to i64
-  %178 = getelementptr inbounds %struct.libraw_afinfo_item_t, ptr %168, i64 %177
+  %178 = getelementptr inbounds [24 x i8], ptr %168, i64 %177
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 16
   store ptr %175, ptr %179, align 8, !tbaa !132
   %180 = load ptr, ptr %169, align 8, !tbaa !87
@@ -1847,7 +1846,7 @@ _ZNK21libraw_static_table_tixEj.exit:             ; preds = %_ZNK21libraw_static
   %indvars.iv758 = phi i64 [ 0, %_ZNK21libraw_static_table_tixEj.exit.lr.ph ], [ %indvars.iv.next759, %.loopexit ]
   %.0460655 = phi i32 [ 0, %_ZNK21libraw_static_table_tixEj.exit.lr.ph ], [ %.1461, %.loopexit ]
   %204 = load ptr, ptr @_ZN6LibRaw26Canon_G9_linenums_2_StdWBiE, align 8, !tbaa !135
-  %205 = getelementptr inbounds nuw i32, ptr %204, i64 %indvars.iv758
+  %205 = getelementptr inbounds nuw [4 x i8], ptr %204, i64 %indvars.iv758
   %206 = load i32, ptr %205, align 4, !tbaa !102
   %.not512 = icmp eq i32 %206, 0
   br i1 %.not512, label %.loopexit, label %.preheader577
@@ -1862,7 +1861,7 @@ _ZNK21libraw_static_table_tixEj.exit:             ; preds = %_ZNK21libraw_static
 
 211:                                              ; preds = %.preheader577
   %212 = load ptr, ptr @_ZN6LibRaw26Canon_G9_linenums_2_StdWBiE, align 8, !tbaa !135
-  %213 = getelementptr inbounds nuw i32, ptr %212, i64 %indvars.iv758
+  %213 = getelementptr inbounds nuw [4 x i8], ptr %212, i64 %indvars.iv758
   %214 = load i32, ptr %213, align 4, !tbaa !102
   br label %_ZNK21libraw_static_table_tixEj.exit533
 
@@ -1882,12 +1881,12 @@ _ZNK21libraw_static_table_tixEj.exit:             ; preds = %_ZNK21libraw_static
 _ZNK21libraw_static_table_tixEj.exit533:          ; preds = %211, %215, %216, %218
   %.0.i532 = phi i32 [ %214, %211 ], [ %219, %218 ], [ 0, %216 ], [ 0, %215 ]
   %220 = sext i32 %.0.i532 to i64
-  %221 = getelementptr inbounds [4 x i32], ptr %198, i64 %220
+  %221 = getelementptr inbounds [16 x i8], ptr %198, i64 %220
   %222 = lshr i32 %.0646, 1
   %223 = xor i32 %.0646, %222
   %224 = xor i32 %223, 1
   %225 = zext nneg i32 %224 to i64
-  %226 = getelementptr inbounds nuw i32, ptr %221, i64 %225
+  %226 = getelementptr inbounds nuw [4 x i8], ptr %221, i64 %225
   store i32 %207, ptr %226, align 4, !tbaa !102
   %227 = add nuw nsw i32 %.0646, 1
   %exitcond741.not = icmp eq i32 %227, 4
@@ -1902,7 +1901,7 @@ _ZNK21libraw_static_table_tixEj.exit533:          ; preds = %211, %215, %216, %2
 232:                                              ; preds = %228
   %233 = load ptr, ptr @_ZN6LibRaw13Canon_wbi2stdE, align 8, !tbaa !135
   %234 = zext i32 %229 to i64
-  %235 = getelementptr inbounds nuw i32, ptr %233, i64 %234
+  %235 = getelementptr inbounds nuw [4 x i8], ptr %233, i64 %234
   %236 = load i32, ptr %235, align 4, !tbaa !102
   br label %_ZNK21libraw_static_table_tixEj.exit537
 
@@ -1946,7 +1945,7 @@ _ZNK21libraw_static_table_tixEj.exit541:          ; preds = %245, %246, %248
 
 _ZNK21libraw_static_table_tixEj.exit541.thread:   ; preds = %_ZNK21libraw_static_table_tixEj.exit537
   %251 = load ptr, ptr @_ZN6LibRaw26Canon_G9_linenums_2_StdWBiE, align 8, !tbaa !135
-  %252 = getelementptr inbounds nuw i32, ptr %251, i64 %indvars.iv758
+  %252 = getelementptr inbounds nuw [4 x i8], ptr %251, i64 %indvars.iv758
   %253 = load i32, ptr %252, align 4, !tbaa !102
   %254 = icmp eq i32 %.0.i536, %253
   br i1 %254, label %.preheader576.split.us, label %.loopexit
@@ -1958,18 +1957,18 @@ _ZNK21libraw_static_table_tixEj.exit541.thread:   ; preds = %_ZNK21libraw_static
 
 .preheader576.split.us:                           ; preds = %_ZNK21libraw_static_table_tixEj.exit541.thread
   %256 = load ptr, ptr @_ZN6LibRaw26Canon_G9_linenums_2_StdWBiE, align 8
-  %257 = getelementptr inbounds nuw i32, ptr %256, i64 %indvars.iv758
+  %257 = getelementptr inbounds nuw [4 x i8], ptr %256, i64 %indvars.iv758
   %258 = load i32, ptr %257, align 4, !tbaa !102
   %259 = sext i32 %258 to i64
-  %260 = getelementptr inbounds [4 x i32], ptr %198, i64 %259
+  %260 = getelementptr inbounds [16 x i8], ptr %198, i64 %259
   br label %_ZNK21libraw_static_table_tixEj.exit545.us
 
 _ZNK21libraw_static_table_tixEj.exit545.us:       ; preds = %_ZNK21libraw_static_table_tixEj.exit545.us, %.preheader576.split.us
   %indvars.iv754 = phi i64 [ %indvars.iv.next755, %_ZNK21libraw_static_table_tixEj.exit545.us ], [ 0, %.preheader576.split.us ]
-  %261 = getelementptr inbounds nuw i32, ptr %260, i64 %indvars.iv754
+  %261 = getelementptr inbounds nuw [4 x i8], ptr %260, i64 %indvars.iv754
   %262 = load i32, ptr %261, align 4, !tbaa !102
   %263 = sitofp i32 %262 to float
-  %264 = getelementptr inbounds nuw float, ptr %200, i64 %indvars.iv754
+  %264 = getelementptr inbounds nuw [4 x i8], ptr %200, i64 %indvars.iv754
   store float %263, ptr %264, align 4, !tbaa !109
   %indvars.iv.next755 = add nuw nsw i64 %indvars.iv754, 1
   %exitcond757.not = icmp eq i64 %indvars.iv.next755, 4
@@ -1977,10 +1976,10 @@ _ZNK21libraw_static_table_tixEj.exit545.us:       ; preds = %_ZNK21libraw_static
 
 _ZNK21libraw_static_table_tixEj.exit545.us649:    ; preds = %.preheader576, %_ZNK21libraw_static_table_tixEj.exit545.us649
   %indvars.iv750 = phi i64 [ %indvars.iv.next751, %_ZNK21libraw_static_table_tixEj.exit545.us649 ], [ 0, %.preheader576 ]
-  %265 = getelementptr inbounds nuw i32, ptr %198, i64 %indvars.iv750
+  %265 = getelementptr inbounds nuw [4 x i8], ptr %198, i64 %indvars.iv750
   %266 = load i32, ptr %265, align 4, !tbaa !102
   %267 = sitofp i32 %266 to float
-  %268 = getelementptr inbounds nuw float, ptr %200, i64 %indvars.iv750
+  %268 = getelementptr inbounds nuw [4 x i8], ptr %200, i64 %indvars.iv750
   store float %267, ptr %268, align 4, !tbaa !109
   %indvars.iv.next751 = add nuw nsw i64 %indvars.iv750, 1
   %exitcond753.not = icmp eq i64 %indvars.iv.next751, 4
@@ -1992,10 +1991,10 @@ _ZNK21libraw_static_table_tixEj.exit545.us649:    ; preds = %.preheader576, %_ZN
 
 _ZNK21libraw_static_table_tixEj.exit545.us652:    ; preds = %.preheader576.split.split, %_ZNK21libraw_static_table_tixEj.exit545.us652
   %indvars.iv746 = phi i64 [ %indvars.iv.next747, %_ZNK21libraw_static_table_tixEj.exit545.us652 ], [ 0, %.preheader576.split.split ]
-  %269 = getelementptr inbounds nuw i32, ptr %198, i64 %indvars.iv746
+  %269 = getelementptr inbounds nuw [4 x i8], ptr %198, i64 %indvars.iv746
   %270 = load i32, ptr %269, align 4, !tbaa !102
   %271 = sitofp i32 %270 to float
-  %272 = getelementptr inbounds nuw float, ptr %200, i64 %indvars.iv746
+  %272 = getelementptr inbounds nuw [4 x i8], ptr %200, i64 %indvars.iv746
   store float %271, ptr %272, align 4, !tbaa !109
   %indvars.iv.next747 = add nuw nsw i64 %indvars.iv746, 1
   %exitcond749.not = icmp eq i64 %indvars.iv.next747, 4
@@ -2004,15 +2003,15 @@ _ZNK21libraw_static_table_tixEj.exit545.us652:    ; preds = %.preheader576.split
 .preheader576.split.split.split:                  ; preds = %.preheader576.split.split
   %273 = load i32, ptr %255, align 4, !tbaa !102
   %274 = sext i32 %273 to i64
-  %275 = getelementptr inbounds [4 x i32], ptr %198, i64 %274
+  %275 = getelementptr inbounds [16 x i8], ptr %198, i64 %274
   br label %_ZNK21libraw_static_table_tixEj.exit545
 
 _ZNK21libraw_static_table_tixEj.exit545:          ; preds = %.preheader576.split.split.split, %_ZNK21libraw_static_table_tixEj.exit545
   %indvars.iv742 = phi i64 [ 0, %.preheader576.split.split.split ], [ %indvars.iv.next743, %_ZNK21libraw_static_table_tixEj.exit545 ]
-  %276 = getelementptr inbounds nuw i32, ptr %275, i64 %indvars.iv742
+  %276 = getelementptr inbounds nuw [4 x i8], ptr %275, i64 %indvars.iv742
   %277 = load i32, ptr %276, align 4, !tbaa !102
   %278 = sitofp i32 %277 to float
-  %279 = getelementptr inbounds nuw float, ptr %200, i64 %indvars.iv742
+  %279 = getelementptr inbounds nuw [4 x i8], ptr %200, i64 %indvars.iv742
   store float %278, ptr %279, align 4, !tbaa !109
   %indvars.iv.next743 = add nuw nsw i64 %indvars.iv742, 1
   %exitcond745.not = icmp eq i64 %indvars.iv.next743, 4
@@ -2033,10 +2032,10 @@ _ZNK21libraw_static_table_tixEj.exit545:          ; preds = %.preheader576.split
 
 288:                                              ; preds = %.preheader, %288
   %indvars.iv761 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next762, %288 ]
-  %289 = getelementptr inbounds nuw i32, ptr %202, i64 %indvars.iv761
+  %289 = getelementptr inbounds nuw [4 x i8], ptr %202, i64 %indvars.iv761
   %290 = load i32, ptr %289, align 4, !tbaa !102
   %291 = sitofp i32 %290 to float
-  %292 = getelementptr inbounds nuw float, ptr %203, i64 %indvars.iv761
+  %292 = getelementptr inbounds nuw [4 x i8], ptr %203, i64 %indvars.iv761
   store float %291, ptr %292, align 4, !tbaa !109
   %indvars.iv.next762 = add nuw nsw i64 %indvars.iv761, 1
   %exitcond764.not = icmp eq i64 %indvars.iv.next762, 4
@@ -2307,7 +2306,7 @@ _ZNK21libraw_static_table_tixEj.exit545:          ; preds = %.preheader576.split
   %indvars.iv737 = phi i64 [ 0, %409 ], [ %indvars.iv.next738, %421 ]
   %422 = tail call noundef zeroext i16 @_ZN6LibRaw4get2Ev(ptr noundef nonnull align 8 dereferenceable(767680) %0)
   %423 = uitofp i16 %422 to float
-  %424 = getelementptr inbounds nuw float, ptr %420, i64 %indvars.iv737
+  %424 = getelementptr inbounds nuw [4 x i8], ptr %420, i64 %indvars.iv737
   store float %423, ptr %424, align 4, !tbaa !109
   %indvars.iv.next738 = add nuw nsw i64 %indvars.iv737, 1
   %exitcond740.not = icmp eq i64 %indvars.iv.next738, 3
@@ -2342,7 +2341,7 @@ _ZNK21libraw_static_table_tixEj.exit545:          ; preds = %.preheader576.split
   %442 = lshr i32 %.4581, 1
   %443 = xor i32 %442, %.4581
   %444 = zext nneg i32 %443 to i64
-  %445 = getelementptr inbounds nuw i32, ptr %438, i64 %444
+  %445 = getelementptr inbounds nuw [4 x i8], ptr %438, i64 %444
   store i32 %441, ptr %445, align 4, !tbaa !102
   %446 = add nuw nsw i32 %.4581, 1
   %exitcond.not = icmp eq i32 %446, 4
@@ -2465,7 +2464,7 @@ _ZNK21libraw_static_table_tixEj.exit545:          ; preds = %.preheader576.split
   %497 = lshr i32 %.5636, 1
   %498 = xor i32 %497, %.5636
   %499 = zext nneg i32 %498 to i64
-  %500 = getelementptr inbounds nuw float, ptr %493, i64 %499
+  %500 = getelementptr inbounds nuw [4 x i8], ptr %493, i64 %499
   store float %496, ptr %500, align 4, !tbaa !109
   %501 = add nuw nsw i32 %.5636, 1
   %exitcond727.not = icmp eq i32 %501, 4
@@ -2488,7 +2487,7 @@ _ZNK21libraw_static_table_tixEj.exit545:          ; preds = %.preheader576.split
   %513 = lshr i32 %.6637, 1
   %514 = xor i32 %513, %.6637
   %515 = zext nneg i32 %514 to i64
-  %516 = getelementptr inbounds nuw i32, ptr %509, i64 %515
+  %516 = getelementptr inbounds nuw [4 x i8], ptr %509, i64 %515
   store i32 %512, ptr %516, align 4, !tbaa !102
   %517 = add nuw nsw i32 %.6637, 1
   %exitcond728.not = icmp eq i32 %517, 4
@@ -2511,7 +2510,7 @@ _ZNK21libraw_static_table_tixEj.exit545:          ; preds = %.preheader576.split
   %529 = lshr i32 %.7638, 1
   %530 = xor i32 %529, %.7638
   %531 = zext nneg i32 %530 to i64
-  %532 = getelementptr inbounds nuw i32, ptr %525, i64 %531
+  %532 = getelementptr inbounds nuw [4 x i8], ptr %525, i64 %531
   store i32 %528, ptr %532, align 4, !tbaa !102
   %533 = add nuw nsw i32 %.7638, 1
   %exitcond729.not = icmp eq i32 %533, 4
@@ -2534,7 +2533,7 @@ _ZNK21libraw_static_table_tixEj.exit545:          ; preds = %.preheader576.split
   %545 = lshr i32 %.8639, 1
   %546 = xor i32 %545, %.8639
   %547 = zext nneg i32 %546 to i64
-  %548 = getelementptr inbounds nuw i32, ptr %541, i64 %547
+  %548 = getelementptr inbounds nuw [4 x i8], ptr %541, i64 %547
   store i32 %544, ptr %548, align 4, !tbaa !102
   %549 = add nuw nsw i32 %.8639, 1
   %exitcond730.not = icmp eq i32 %549, 4
@@ -2577,7 +2576,7 @@ _ZNK21libraw_static_table_tixEj.exit545:          ; preds = %.preheader576.split
   %576 = lshr i32 %.9631, 1
   %577 = xor i32 %576, %.9631
   %578 = zext nneg i32 %577 to i64
-  %579 = getelementptr inbounds nuw i32, ptr %572, i64 %578
+  %579 = getelementptr inbounds nuw [4 x i8], ptr %572, i64 %578
   store i32 %575, ptr %579, align 4, !tbaa !102
   %580 = add nuw nsw i32 %.9631, 1
   %exitcond722.not = icmp eq i32 %580, 4
@@ -2600,7 +2599,7 @@ _ZNK21libraw_static_table_tixEj.exit545:          ; preds = %.preheader576.split
   %592 = lshr i32 %.10632, 1
   %593 = xor i32 %592, %.10632
   %594 = zext nneg i32 %593 to i64
-  %595 = getelementptr inbounds nuw float, ptr %588, i64 %594
+  %595 = getelementptr inbounds nuw [4 x i8], ptr %588, i64 %594
   store float %591, ptr %595, align 4, !tbaa !109
   %596 = add nuw nsw i32 %.10632, 1
   %exitcond723.not = icmp eq i32 %596, 4
@@ -2623,7 +2622,7 @@ _ZNK21libraw_static_table_tixEj.exit545:          ; preds = %.preheader576.split
   %608 = lshr i32 %.11633, 1
   %609 = xor i32 %608, %.11633
   %610 = zext nneg i32 %609 to i64
-  %611 = getelementptr inbounds nuw i32, ptr %604, i64 %610
+  %611 = getelementptr inbounds nuw [4 x i8], ptr %604, i64 %610
   store i32 %607, ptr %611, align 4, !tbaa !102
   %612 = add nuw nsw i32 %.11633, 1
   %exitcond724.not = icmp eq i32 %612, 4
@@ -2646,7 +2645,7 @@ _ZNK21libraw_static_table_tixEj.exit545:          ; preds = %.preheader576.split
   %624 = lshr i32 %.12634, 1
   %625 = xor i32 %624, %.12634
   %626 = zext nneg i32 %625 to i64
-  %627 = getelementptr inbounds nuw i32, ptr %620, i64 %626
+  %627 = getelementptr inbounds nuw [4 x i8], ptr %620, i64 %626
   store i32 %623, ptr %627, align 4, !tbaa !102
   %628 = add nuw nsw i32 %.12634, 1
   %exitcond725.not = icmp eq i32 %628, 4
@@ -2669,7 +2668,7 @@ _ZNK21libraw_static_table_tixEj.exit545:          ; preds = %.preheader576.split
   %640 = lshr i32 %.13635, 1
   %641 = xor i32 %640, %.13635
   %642 = zext nneg i32 %641 to i64
-  %643 = getelementptr inbounds nuw i32, ptr %636, i64 %642
+  %643 = getelementptr inbounds nuw [4 x i8], ptr %636, i64 %642
   store i32 %639, ptr %643, align 4, !tbaa !102
   %644 = add nuw nsw i32 %.13635, 1
   %exitcond726.not = icmp eq i32 %644, 4
@@ -2716,7 +2715,7 @@ _ZNK21libraw_static_table_tixEj.exit545:          ; preds = %.preheader576.split
   %674 = lshr i32 %.14624, 1
   %675 = xor i32 %674, %.14624
   %676 = zext nneg i32 %675 to i64
-  %677 = getelementptr inbounds nuw float, ptr %670, i64 %676
+  %677 = getelementptr inbounds nuw [4 x i8], ptr %670, i64 %676
   store float %673, ptr %677, align 4, !tbaa !109
   %678 = add nuw nsw i32 %.14624, 1
   %exitcond715.not = icmp eq i32 %678, 4
@@ -2734,7 +2733,7 @@ _ZNK21libraw_static_table_tixEj.exit545:          ; preds = %.preheader576.split
   %685 = lshr i32 %.15625, 1
   %686 = xor i32 %685, %.15625
   %687 = zext nneg i32 %686 to i64
-  %688 = getelementptr inbounds nuw i32, ptr %681, i64 %687
+  %688 = getelementptr inbounds nuw [4 x i8], ptr %681, i64 %687
   store i32 %684, ptr %688, align 4, !tbaa !102
   %689 = add nuw nsw i32 %.15625, 1
   %exitcond716.not = icmp eq i32 %689, 4
@@ -2752,7 +2751,7 @@ _ZNK21libraw_static_table_tixEj.exit545:          ; preds = %.preheader576.split
   %696 = lshr i32 %.16626, 1
   %697 = xor i32 %696, %.16626
   %698 = zext nneg i32 %697 to i64
-  %699 = getelementptr inbounds nuw i32, ptr %692, i64 %698
+  %699 = getelementptr inbounds nuw [4 x i8], ptr %692, i64 %698
   store i32 %695, ptr %699, align 4, !tbaa !102
   %700 = add nuw nsw i32 %.16626, 1
   %exitcond717.not = icmp eq i32 %700, 4
@@ -2775,7 +2774,7 @@ _ZNK21libraw_static_table_tixEj.exit545:          ; preds = %.preheader576.split
   %712 = lshr i32 %.17627, 1
   %713 = xor i32 %712, %.17627
   %714 = zext nneg i32 %713 to i64
-  %715 = getelementptr inbounds nuw i32, ptr %708, i64 %714
+  %715 = getelementptr inbounds nuw [4 x i8], ptr %708, i64 %714
   store i32 %711, ptr %715, align 4, !tbaa !102
   %716 = add nuw nsw i32 %.17627, 1
   %exitcond718.not = icmp eq i32 %716, 4
@@ -2798,7 +2797,7 @@ _ZNK21libraw_static_table_tixEj.exit545:          ; preds = %.preheader576.split
   %728 = lshr i32 %.18628, 1
   %729 = xor i32 %728, %.18628
   %730 = zext nneg i32 %729 to i64
-  %731 = getelementptr inbounds nuw i32, ptr %724, i64 %730
+  %731 = getelementptr inbounds nuw [4 x i8], ptr %724, i64 %730
   store i32 %727, ptr %731, align 4, !tbaa !102
   %732 = add nuw nsw i32 %.18628, 1
   %exitcond719.not = icmp eq i32 %732, 4
@@ -2821,7 +2820,7 @@ _ZNK21libraw_static_table_tixEj.exit545:          ; preds = %.preheader576.split
   %744 = lshr i32 %.19629, 1
   %745 = xor i32 %744, %.19629
   %746 = zext nneg i32 %745 to i64
-  %747 = getelementptr inbounds nuw i32, ptr %740, i64 %746
+  %747 = getelementptr inbounds nuw [4 x i8], ptr %740, i64 %746
   store i32 %743, ptr %747, align 4, !tbaa !102
   %748 = add nuw nsw i32 %.19629, 1
   %exitcond720.not = icmp eq i32 %748, 4
@@ -2844,7 +2843,7 @@ _ZNK21libraw_static_table_tixEj.exit545:          ; preds = %.preheader576.split
   %760 = lshr i32 %.20630, 1
   %761 = xor i32 %760, %.20630
   %762 = zext nneg i32 %761 to i64
-  %763 = getelementptr inbounds nuw i32, ptr %756, i64 %762
+  %763 = getelementptr inbounds nuw [4 x i8], ptr %756, i64 %762
   store i32 %759, ptr %763, align 4, !tbaa !102
   %764 = add nuw nsw i32 %.20630, 1
   %exitcond721.not = icmp eq i32 %764, 4
@@ -2891,7 +2890,7 @@ _ZNK21libraw_static_table_tixEj.exit545:          ; preds = %.preheader576.split
   %794 = lshr i32 %.21618, 1
   %795 = xor i32 %794, %.21618
   %796 = zext nneg i32 %795 to i64
-  %797 = getelementptr inbounds nuw float, ptr %790, i64 %796
+  %797 = getelementptr inbounds nuw [4 x i8], ptr %790, i64 %796
   store float %793, ptr %797, align 4, !tbaa !109
   %798 = add nuw nsw i32 %.21618, 1
   %exitcond707.not = icmp eq i32 %798, 4
@@ -2909,7 +2908,7 @@ _ZNK21libraw_static_table_tixEj.exit545:          ; preds = %.preheader576.split
   %805 = lshr i32 %.22619, 1
   %806 = xor i32 %805, %.22619
   %807 = zext nneg i32 %806 to i64
-  %808 = getelementptr inbounds nuw i32, ptr %801, i64 %807
+  %808 = getelementptr inbounds nuw [4 x i8], ptr %801, i64 %807
   store i32 %804, ptr %808, align 4, !tbaa !102
   %809 = add nuw nsw i32 %.22619, 1
   %exitcond708.not = icmp eq i32 %809, 4
@@ -2927,7 +2926,7 @@ _ZNK21libraw_static_table_tixEj.exit545:          ; preds = %.preheader576.split
   %816 = lshr i32 %.23620, 1
   %817 = xor i32 %816, %.23620
   %818 = zext nneg i32 %817 to i64
-  %819 = getelementptr inbounds nuw i32, ptr %812, i64 %818
+  %819 = getelementptr inbounds nuw [4 x i8], ptr %812, i64 %818
   store i32 %815, ptr %819, align 4, !tbaa !102
   %820 = add nuw nsw i32 %.23620, 1
   %exitcond709.not = icmp eq i32 %820, 4
@@ -2950,7 +2949,7 @@ _ZNK21libraw_static_table_tixEj.exit545:          ; preds = %.preheader576.split
   %831 = lshr i32 %.24622, 1
   %832 = xor i32 %831, %.24622
   %833 = zext nneg i32 %832 to i64
-  %834 = getelementptr inbounds nuw i16, ptr %828, i64 %833
+  %834 = getelementptr inbounds nuw [2 x i8], ptr %828, i64 %833
   store i16 %830, ptr %834, align 2, !tbaa !73
   %835 = uitofp i16 %830 to float
   %836 = fcmp reassoc nsz arcp contract afn olt float %.0452621, %835
@@ -2965,7 +2964,7 @@ _ZNK21libraw_static_table_tixEj.exit545:          ; preds = %.preheader576.split
 
 840:                                              ; preds = %838, %840
   %indvars.iv711 = phi i64 [ 0, %838 ], [ %indvars.iv.next712, %840 ]
-  %841 = getelementptr inbounds nuw i16, ptr %828, i64 %indvars.iv711
+  %841 = getelementptr inbounds nuw [2 x i8], ptr %828, i64 %indvars.iv711
   %842 = load i16, ptr %841, align 2, !tbaa !73
   %843 = uitofp i16 %842 to float
   %844 = fmul reassoc nsz arcp contract afn float %839, %843
@@ -3041,7 +3040,7 @@ _ZNK21libraw_static_table_tixEj.exit545:          ; preds = %.preheader576.split
   %886 = lshr i32 %.26610, 1
   %887 = xor i32 %886, %.26610
   %888 = zext nneg i32 %887 to i64
-  %889 = getelementptr inbounds nuw float, ptr %882, i64 %888
+  %889 = getelementptr inbounds nuw [4 x i8], ptr %882, i64 %888
   store float %885, ptr %889, align 4, !tbaa !109
   %890 = add nuw nsw i32 %.26610, 1
   %exitcond699.not = icmp eq i32 %890, 4
@@ -3071,7 +3070,7 @@ _ZNK21libraw_static_table_tixEj.exit545:          ; preds = %.preheader576.split
   %904 = lshr i32 %.27614, 1
   %905 = xor i32 %904, %.27614
   %906 = zext nneg i32 %905 to i64
-  %907 = getelementptr inbounds nuw i32, ptr %900, i64 %906
+  %907 = getelementptr inbounds nuw [4 x i8], ptr %900, i64 %906
   store i32 %903, ptr %907, align 4, !tbaa !102
   %908 = add nuw nsw i32 %.27614, 1
   %exitcond703.not = icmp eq i32 %908, 4
@@ -3093,7 +3092,7 @@ _ZNK21libraw_static_table_tixEj.exit545:          ; preds = %.preheader576.split
   %919 = lshr i32 %.28615, 1
   %920 = xor i32 %919, %.28615
   %921 = zext nneg i32 %920 to i64
-  %922 = getelementptr inbounds nuw i32, ptr %915, i64 %921
+  %922 = getelementptr inbounds nuw [4 x i8], ptr %915, i64 %921
   store i32 %918, ptr %922, align 4, !tbaa !102
   %923 = add nuw nsw i32 %.28615, 1
   %exitcond704.not = icmp eq i32 %923, 4
@@ -3115,7 +3114,7 @@ _ZNK21libraw_static_table_tixEj.exit545:          ; preds = %.preheader576.split
   %934 = lshr i32 %.29616, 1
   %935 = xor i32 %934, %.29616
   %936 = zext nneg i32 %935 to i64
-  %937 = getelementptr inbounds nuw i32, ptr %930, i64 %936
+  %937 = getelementptr inbounds nuw [4 x i8], ptr %930, i64 %936
   store i32 %933, ptr %937, align 4, !tbaa !102
   %938 = add nuw nsw i32 %.29616, 1
   %exitcond705.not = icmp eq i32 %938, 4
@@ -3143,7 +3142,7 @@ _ZNK21libraw_static_table_tixEj.exit545:          ; preds = %.preheader576.split
   %954 = lshr i32 %.30617, 1
   %955 = xor i32 %954, %.30617
   %956 = zext nneg i32 %955 to i64
-  %957 = getelementptr inbounds nuw i32, ptr %950, i64 %956
+  %957 = getelementptr inbounds nuw [4 x i8], ptr %950, i64 %956
   store i32 %953, ptr %957, align 4, !tbaa !102
   %958 = add nuw nsw i32 %.30617, 1
   %exitcond706.not = icmp eq i32 %958, 4
@@ -3177,7 +3176,7 @@ _ZNK21libraw_static_table_tixEj.exit545:          ; preds = %.preheader576.split
   %978 = lshr i32 %.31611, 1
   %979 = xor i32 %978, %.31611
   %980 = zext nneg i32 %979 to i64
-  %981 = getelementptr inbounds nuw i32, ptr %974, i64 %980
+  %981 = getelementptr inbounds nuw [4 x i8], ptr %974, i64 %980
   store i32 %977, ptr %981, align 4, !tbaa !102
   %982 = add nuw nsw i32 %.31611, 1
   %exitcond700.not = icmp eq i32 %982, 4
@@ -3195,7 +3194,7 @@ _ZNK21libraw_static_table_tixEj.exit545:          ; preds = %.preheader576.split
   %989 = lshr i32 %.32612, 1
   %990 = xor i32 %989, %.32612
   %991 = zext nneg i32 %990 to i64
-  %992 = getelementptr inbounds nuw i32, ptr %985, i64 %991
+  %992 = getelementptr inbounds nuw [4 x i8], ptr %985, i64 %991
   store i32 %988, ptr %992, align 4, !tbaa !102
   %993 = add nuw nsw i32 %.32612, 1
   %exitcond701.not = icmp eq i32 %993, 4
@@ -3213,7 +3212,7 @@ _ZNK21libraw_static_table_tixEj.exit545:          ; preds = %.preheader576.split
   %1000 = lshr i32 %.33613, 1
   %1001 = xor i32 %1000, %.33613
   %1002 = zext nneg i32 %1001 to i64
-  %1003 = getelementptr inbounds nuw i32, ptr %996, i64 %1002
+  %1003 = getelementptr inbounds nuw [4 x i8], ptr %996, i64 %1002
   store i32 %999, ptr %1003, align 4, !tbaa !102
   %1004 = add nuw nsw i32 %.33613, 1
   %exitcond702.not = icmp eq i32 %1004, 4
@@ -3255,7 +3254,7 @@ _ZNK21libraw_static_table_tixEj.exit545:          ; preds = %.preheader576.split
   %1029 = lshr i32 %.34604, 1
   %1030 = xor i32 %1029, %.34604
   %1031 = zext nneg i32 %1030 to i64
-  %1032 = getelementptr inbounds nuw float, ptr %1025, i64 %1031
+  %1032 = getelementptr inbounds nuw [4 x i8], ptr %1025, i64 %1031
   store float %1028, ptr %1032, align 4, !tbaa !109
   %1033 = add nuw nsw i32 %.34604, 1
   %exitcond691.not = icmp eq i32 %1033, 4
@@ -3273,7 +3272,7 @@ _ZNK21libraw_static_table_tixEj.exit545:          ; preds = %.preheader576.split
   %1040 = lshr i32 %.35605, 1
   %1041 = xor i32 %1040, %.35605
   %1042 = zext nneg i32 %1041 to i64
-  %1043 = getelementptr inbounds nuw i32, ptr %1036, i64 %1042
+  %1043 = getelementptr inbounds nuw [4 x i8], ptr %1036, i64 %1042
   store i32 %1039, ptr %1043, align 4, !tbaa !102
   %1044 = add nuw nsw i32 %.35605, 1
   %exitcond692.not = icmp eq i32 %1044, 4
@@ -3291,7 +3290,7 @@ _ZNK21libraw_static_table_tixEj.exit545:          ; preds = %.preheader576.split
   %1051 = lshr i32 %.36606, 1
   %1052 = xor i32 %1051, %.36606
   %1053 = zext nneg i32 %1052 to i64
-  %1054 = getelementptr inbounds nuw i32, ptr %1047, i64 %1053
+  %1054 = getelementptr inbounds nuw [4 x i8], ptr %1047, i64 %1053
   store i32 %1050, ptr %1054, align 4, !tbaa !102
   %1055 = add nuw nsw i32 %.36606, 1
   %exitcond693.not = icmp eq i32 %1055, 4
@@ -3314,7 +3313,7 @@ _ZNK21libraw_static_table_tixEj.exit545:          ; preds = %.preheader576.split
   %1066 = lshr i32 %.37608, 1
   %1067 = xor i32 %1066, %.37608
   %1068 = zext nneg i32 %1067 to i64
-  %1069 = getelementptr inbounds nuw i16, ptr %1063, i64 %1068
+  %1069 = getelementptr inbounds nuw [2 x i8], ptr %1063, i64 %1068
   store i16 %1065, ptr %1069, align 2, !tbaa !73
   %1070 = uitofp i16 %1065 to float
   %1071 = fcmp reassoc nsz arcp contract afn olt float %.2454607, %1070
@@ -3329,7 +3328,7 @@ _ZNK21libraw_static_table_tixEj.exit545:          ; preds = %.preheader576.split
 
 1075:                                             ; preds = %1073, %1075
   %indvars.iv695 = phi i64 [ 0, %1073 ], [ %indvars.iv.next696, %1075 ]
-  %1076 = getelementptr inbounds nuw i16, ptr %1063, i64 %indvars.iv695
+  %1076 = getelementptr inbounds nuw [2 x i8], ptr %1063, i64 %indvars.iv695
   %1077 = load i16, ptr %1076, align 2, !tbaa !73
   %1078 = uitofp i16 %1077 to float
   %1079 = fmul reassoc nsz arcp contract afn float %1074, %1078
@@ -3381,7 +3380,7 @@ _ZNK21libraw_static_table_tixEj.exit545:          ; preds = %.preheader576.split
   %1111 = lshr i32 %.39598, 1
   %1112 = xor i32 %1111, %.39598
   %1113 = zext nneg i32 %1112 to i64
-  %1114 = getelementptr inbounds nuw float, ptr %1107, i64 %1113
+  %1114 = getelementptr inbounds nuw [4 x i8], ptr %1107, i64 %1113
   store float %1110, ptr %1114, align 4, !tbaa !109
   %1115 = add nuw nsw i32 %.39598, 1
   %exitcond683.not = icmp eq i32 %1115, 4
@@ -3399,7 +3398,7 @@ _ZNK21libraw_static_table_tixEj.exit545:          ; preds = %.preheader576.split
   %1122 = lshr i32 %.40599, 1
   %1123 = xor i32 %1122, %.40599
   %1124 = zext nneg i32 %1123 to i64
-  %1125 = getelementptr inbounds nuw i32, ptr %1118, i64 %1124
+  %1125 = getelementptr inbounds nuw [4 x i8], ptr %1118, i64 %1124
   store i32 %1121, ptr %1125, align 4, !tbaa !102
   %1126 = add nuw nsw i32 %.40599, 1
   %exitcond684.not = icmp eq i32 %1126, 4
@@ -3417,7 +3416,7 @@ _ZNK21libraw_static_table_tixEj.exit545:          ; preds = %.preheader576.split
   %1133 = lshr i32 %.41600, 1
   %1134 = xor i32 %1133, %.41600
   %1135 = zext nneg i32 %1134 to i64
-  %1136 = getelementptr inbounds nuw i32, ptr %1129, i64 %1135
+  %1136 = getelementptr inbounds nuw [4 x i8], ptr %1129, i64 %1135
   store i32 %1132, ptr %1136, align 4, !tbaa !102
   %1137 = add nuw nsw i32 %.41600, 1
   %exitcond685.not = icmp eq i32 %1137, 4
@@ -3440,7 +3439,7 @@ _ZNK21libraw_static_table_tixEj.exit545:          ; preds = %.preheader576.split
   %1148 = lshr i32 %.42602, 1
   %1149 = xor i32 %1148, %.42602
   %1150 = zext nneg i32 %1149 to i64
-  %1151 = getelementptr inbounds nuw i16, ptr %1145, i64 %1150
+  %1151 = getelementptr inbounds nuw [2 x i8], ptr %1145, i64 %1150
   store i16 %1147, ptr %1151, align 2, !tbaa !73
   %1152 = uitofp i16 %1147 to float
   %1153 = fcmp reassoc nsz arcp contract afn olt float %.4456601, %1152
@@ -3455,7 +3454,7 @@ _ZNK21libraw_static_table_tixEj.exit545:          ; preds = %.preheader576.split
 
 1157:                                             ; preds = %1155, %1157
   %indvars.iv687 = phi i64 [ 0, %1155 ], [ %indvars.iv.next688, %1157 ]
-  %1158 = getelementptr inbounds nuw i16, ptr %1145, i64 %indvars.iv687
+  %1158 = getelementptr inbounds nuw [2 x i8], ptr %1145, i64 %indvars.iv687
   %1159 = load i16, ptr %1158, align 2, !tbaa !73
   %1160 = uitofp i16 %1159 to float
   %1161 = fmul reassoc nsz arcp contract afn float %1156, %1160
@@ -3519,7 +3518,7 @@ _ZNK21libraw_static_table_tixEj.exit545:          ; preds = %.preheader576.split
   %1198 = lshr i32 %.44592, 1
   %1199 = xor i32 %1198, %.44592
   %1200 = zext nneg i32 %1199 to i64
-  %1201 = getelementptr inbounds nuw float, ptr %1194, i64 %1200
+  %1201 = getelementptr inbounds nuw [4 x i8], ptr %1194, i64 %1200
   store float %1197, ptr %1201, align 4, !tbaa !109
   %1202 = add nuw nsw i32 %.44592, 1
   %exitcond675.not = icmp eq i32 %1202, 4
@@ -3537,7 +3536,7 @@ _ZNK21libraw_static_table_tixEj.exit545:          ; preds = %.preheader576.split
   %1209 = lshr i32 %.45593, 1
   %1210 = xor i32 %1209, %.45593
   %1211 = zext nneg i32 %1210 to i64
-  %1212 = getelementptr inbounds nuw i32, ptr %1205, i64 %1211
+  %1212 = getelementptr inbounds nuw [4 x i8], ptr %1205, i64 %1211
   store i32 %1208, ptr %1212, align 4, !tbaa !102
   %1213 = add nuw nsw i32 %.45593, 1
   %exitcond676.not = icmp eq i32 %1213, 4
@@ -3555,7 +3554,7 @@ _ZNK21libraw_static_table_tixEj.exit545:          ; preds = %.preheader576.split
   %1220 = lshr i32 %.46594, 1
   %1221 = xor i32 %1220, %.46594
   %1222 = zext nneg i32 %1221 to i64
-  %1223 = getelementptr inbounds nuw i32, ptr %1216, i64 %1222
+  %1223 = getelementptr inbounds nuw [4 x i8], ptr %1216, i64 %1222
   store i32 %1219, ptr %1223, align 4, !tbaa !102
   %1224 = add nuw nsw i32 %.46594, 1
   %exitcond677.not = icmp eq i32 %1224, 4
@@ -3578,7 +3577,7 @@ _ZNK21libraw_static_table_tixEj.exit545:          ; preds = %.preheader576.split
   %1235 = lshr i32 %.47596, 1
   %1236 = xor i32 %1235, %.47596
   %1237 = zext nneg i32 %1236 to i64
-  %1238 = getelementptr inbounds nuw i16, ptr %1232, i64 %1237
+  %1238 = getelementptr inbounds nuw [2 x i8], ptr %1232, i64 %1237
   store i16 %1234, ptr %1238, align 2, !tbaa !73
   %1239 = uitofp i16 %1234 to float
   %1240 = fcmp reassoc nsz arcp contract afn olt float %.6458595, %1239
@@ -3593,7 +3592,7 @@ _ZNK21libraw_static_table_tixEj.exit545:          ; preds = %.preheader576.split
 
 1244:                                             ; preds = %1242, %1244
   %indvars.iv679 = phi i64 [ 0, %1242 ], [ %indvars.iv.next680, %1244 ]
-  %1245 = getelementptr inbounds nuw i16, ptr %1232, i64 %indvars.iv679
+  %1245 = getelementptr inbounds nuw [2 x i8], ptr %1232, i64 %indvars.iv679
   %1246 = load i16, ptr %1245, align 2, !tbaa !73
   %1247 = uitofp i16 %1246 to float
   %1248 = fmul reassoc nsz arcp contract afn float %1243, %1247
@@ -3655,7 +3654,7 @@ _ZNK21libraw_static_table_tixEj.exit545:          ; preds = %.preheader576.split
   %1286 = lshr i32 %.49589, 1
   %1287 = xor i32 %1286, %.49589
   %1288 = zext nneg i32 %1287 to i64
-  %1289 = getelementptr inbounds nuw float, ptr %1282, i64 %1288
+  %1289 = getelementptr inbounds nuw [4 x i8], ptr %1282, i64 %1288
   store float %1285, ptr %1289, align 4, !tbaa !109
   %1290 = add nuw nsw i32 %.49589, 1
   %exitcond672.not = icmp eq i32 %1290, 4
@@ -3673,7 +3672,7 @@ _ZNK21libraw_static_table_tixEj.exit545:          ; preds = %.preheader576.split
   %1297 = lshr i32 %.50590, 1
   %1298 = xor i32 %1297, %.50590
   %1299 = zext nneg i32 %1298 to i64
-  %1300 = getelementptr inbounds nuw i32, ptr %1293, i64 %1299
+  %1300 = getelementptr inbounds nuw [4 x i8], ptr %1293, i64 %1299
   store i32 %1296, ptr %1300, align 4, !tbaa !102
   %1301 = add nuw nsw i32 %.50590, 1
   %exitcond673.not = icmp eq i32 %1301, 4
@@ -3691,7 +3690,7 @@ _ZNK21libraw_static_table_tixEj.exit545:          ; preds = %.preheader576.split
   %1308 = lshr i32 %.51591, 1
   %1309 = xor i32 %1308, %.51591
   %1310 = zext nneg i32 %1309 to i64
-  %1311 = getelementptr inbounds nuw i32, ptr %1304, i64 %1310
+  %1311 = getelementptr inbounds nuw [4 x i8], ptr %1304, i64 %1310
   store i32 %1307, ptr %1311, align 4, !tbaa !102
   %1312 = add nuw nsw i32 %.51591, 1
   %exitcond674.not = icmp eq i32 %1312, 4
@@ -3740,7 +3739,7 @@ _ZNK21libraw_static_table_tixEj.exit545:          ; preds = %.preheader576.split
   %1344 = lshr i32 %.52586, 1
   %1345 = xor i32 %1344, %.52586
   %1346 = zext nneg i32 %1345 to i64
-  %1347 = getelementptr inbounds nuw float, ptr %1340, i64 %1346
+  %1347 = getelementptr inbounds nuw [4 x i8], ptr %1340, i64 %1346
   store float %1343, ptr %1347, align 4, !tbaa !109
   %1348 = add nuw nsw i32 %.52586, 1
   %exitcond669.not = icmp eq i32 %1348, 4
@@ -3758,7 +3757,7 @@ _ZNK21libraw_static_table_tixEj.exit545:          ; preds = %.preheader576.split
   %1355 = lshr i32 %.53587, 1
   %1356 = xor i32 %1355, %.53587
   %1357 = zext nneg i32 %1356 to i64
-  %1358 = getelementptr inbounds nuw i32, ptr %1351, i64 %1357
+  %1358 = getelementptr inbounds nuw [4 x i8], ptr %1351, i64 %1357
   store i32 %1354, ptr %1358, align 4, !tbaa !102
   %1359 = add nuw nsw i32 %.53587, 1
   %exitcond670.not = icmp eq i32 %1359, 4
@@ -3776,7 +3775,7 @@ _ZNK21libraw_static_table_tixEj.exit545:          ; preds = %.preheader576.split
   %1366 = lshr i32 %.54588, 1
   %1367 = xor i32 %1366, %.54588
   %1368 = zext nneg i32 %1367 to i64
-  %1369 = getelementptr inbounds nuw i32, ptr %1362, i64 %1368
+  %1369 = getelementptr inbounds nuw [4 x i8], ptr %1362, i64 %1368
   store i32 %1365, ptr %1369, align 4, !tbaa !102
   %1370 = add nuw nsw i32 %.54588, 1
   %exitcond671.not = icmp eq i32 %1370, 4
@@ -3825,7 +3824,7 @@ _ZNK21libraw_static_table_tixEj.exit545:          ; preds = %.preheader576.split
   %1402 = lshr i32 %.55583, 1
   %1403 = xor i32 %1402, %.55583
   %1404 = zext nneg i32 %1403 to i64
-  %1405 = getelementptr inbounds nuw float, ptr %1398, i64 %1404
+  %1405 = getelementptr inbounds nuw [4 x i8], ptr %1398, i64 %1404
   store float %1401, ptr %1405, align 4, !tbaa !109
   %1406 = add nuw nsw i32 %.55583, 1
   %exitcond666.not = icmp eq i32 %1406, 4
@@ -3843,7 +3842,7 @@ _ZNK21libraw_static_table_tixEj.exit545:          ; preds = %.preheader576.split
   %1413 = lshr i32 %.56584, 1
   %1414 = xor i32 %1413, %.56584
   %1415 = zext nneg i32 %1414 to i64
-  %1416 = getelementptr inbounds nuw i32, ptr %1409, i64 %1415
+  %1416 = getelementptr inbounds nuw [4 x i8], ptr %1409, i64 %1415
   store i32 %1412, ptr %1416, align 4, !tbaa !102
   %1417 = add nuw nsw i32 %.56584, 1
   %exitcond667.not = icmp eq i32 %1417, 4
@@ -3861,7 +3860,7 @@ _ZNK21libraw_static_table_tixEj.exit545:          ; preds = %.preheader576.split
   %1424 = lshr i32 %.57585, 1
   %1425 = xor i32 %1424, %.57585
   %1426 = zext nneg i32 %1425 to i64
-  %1427 = getelementptr inbounds nuw i32, ptr %1420, i64 %1426
+  %1427 = getelementptr inbounds nuw [4 x i8], ptr %1420, i64 %1426
   store i32 %1423, ptr %1427, align 4, !tbaa !102
   %1428 = add nuw nsw i32 %.57585, 1
   %exitcond668.not = icmp eq i32 %1428, 4
@@ -3918,7 +3917,7 @@ _ZNK21libraw_static_table_tixEj.exit545:          ; preds = %.preheader576.split
   %1460 = lshr i32 %.58641, 1
   %1461 = xor i32 %1460, %.58641
   %1462 = zext nneg i32 %1461 to i64
-  %1463 = getelementptr inbounds nuw i32, ptr %1456, i64 %1462
+  %1463 = getelementptr inbounds nuw [4 x i8], ptr %1456, i64 %1462
   store i32 %1459, ptr %1463, align 4, !tbaa !102
   %1464 = add nuw nsw i32 %.1450640, %1459
   %1465 = add nuw nsw i32 %.58641, 1
@@ -3964,7 +3963,7 @@ _ZNK21libraw_static_table_tixEj.exit545:          ; preds = %.preheader576.split
 
 1487:                                             ; preds = %1478, %1487
   %indvars.iv732 = phi i64 [ 0, %1478 ], [ %indvars.iv.next733, %1487 ]
-  %1488 = getelementptr inbounds nuw i64, ptr %1486, i64 %indvars.iv732
+  %1488 = getelementptr inbounds nuw [8 x i8], ptr %1486, i64 %indvars.iv732
   store i64 %1485, ptr %1488, align 8, !tbaa !214
   %indvars.iv.next733 = add nuw nsw i64 %indvars.iv732, 1
   %exitcond735.not = icmp eq i64 %indvars.iv.next733, 4
@@ -3995,7 +3994,7 @@ _ZNK21libraw_static_table_tixEj.exit545:          ; preds = %.preheader576.split
   %1503 = lshr i32 %.60644, 1
   %1504 = xor i32 %1503, %.60644
   %1505 = zext nneg i32 %1504 to i64
-  %1506 = getelementptr inbounds nuw i32, ptr %1499, i64 %1505
+  %1506 = getelementptr inbounds nuw [4 x i8], ptr %1499, i64 %1505
   store i32 %1502, ptr %1506, align 4, !tbaa !102
   %1507 = add nsw i32 %.2451643, %1502
   %1508 = add nuw nsw i32 %.60644, 1
@@ -4104,7 +4103,7 @@ _ZNK21libraw_static_table_tixEj.exit545:          ; preds = %.preheader576.split
 
 1561:                                             ; preds = %1559, %1561
   %indvars.iv = phi i64 [ 0, %1559 ], [ %indvars.iv.next, %1561 ]
-  %1562 = getelementptr inbounds nuw float, ptr %1560, i64 %indvars.iv
+  %1562 = getelementptr inbounds nuw [4 x i8], ptr %1560, i64 %indvars.iv
   store float 1.024000e+03, ptr %1562, align 4, !tbaa !109
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond665.not = icmp eq i64 %indvars.iv.next, 4

@@ -72,14 +72,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"union.std::_Optional_payload_base<llvm::TargetLowering::PtrAuthInfo>::_Storage" = type { %"struct.llvm::TargetLowering::PtrAuthInfo" }
 %"struct.llvm::TargetLowering::PtrAuthInfo" = type { i64, %"class.llvm::SDValue" }
 %"struct.std::pair" = type { %"class.llvm::SDValue", %"class.llvm::SDValue" }
-%"class.llvm::TargetLoweringBase::ArgListEntry" = type { ptr, %"class.llvm::SDValue", ptr, i16, %"struct.llvm::MaybeAlign", ptr }
-%"struct.llvm::MaybeAlign" = type { %"class.std::optional.209" }
-%"class.std::optional.209" = type { %"struct.std::_Optional_base.210" }
-%"struct.std::_Optional_base.210" = type { %"struct.std::_Optional_payload.212" }
-%"struct.std::_Optional_payload.212" = type { %"struct.std::_Optional_payload_base.213" }
-%"struct.std::_Optional_payload_base.213" = type { %"union.std::_Optional_payload_base<llvm::Align>::_Storage", i8 }
-%"union.std::_Optional_payload_base<llvm::Align>::_Storage" = type { %"struct.std::_Optional_payload_base<llvm::Align>::_Empty_byte" }
-%"struct.std::_Optional_payload_base<llvm::Align>::_Empty_byte" = type { i8 }
 %"class.llvm::AttributeList" = type { ptr }
 %"class.llvm::SMEAttrs" = type { i32 }
 %"class.llvm::SmallVector.290" = type { %"class.llvm::SmallVectorImpl.246", %"struct.llvm::SmallVectorStorage.291" }
@@ -180,7 +172,7 @@ _ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE.exit: ; preds 
   %27 = phi i32 [ %22, %5 ], [ %.pre.i.i, %24 ]
   %28 = load ptr, ptr %11, align 8, !tbaa !25
   %29 = zext i32 %27 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %29
   %31 = ptrtoint ptr %21 to i64
   store i64 %31, ptr %30, align 1
   %32 = load i32, ptr %13, align 8, !tbaa !26
@@ -343,7 +335,7 @@ _ZN4llvm8dyn_castINS_14ConstantSDNodeENS_7SDValueEEEDcRT0_.exit.thread: ; preds 
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 48
   %48 = load ptr, ptr %47, align 8, !tbaa !164
   %49 = zext i32 %46 to i64
-  %50 = getelementptr inbounds nuw %"struct.llvm::EVT", ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [16 x i8], ptr %48, i64 %49
   %.sroa.0.0.copyload.i.i = load i16, ptr %50, align 8, !tbaa !165
   %.not.i = icmp eq i16 %.sroa.0.0.copyload.i.i, 8
   br i1 %.not.i, label %_ZNK4llvm3EVTneES0_.exit, label %51
@@ -621,7 +613,7 @@ _ZNKSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE12_M_check_lenEmP
 _ZNSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE9push_backERKS2_.exit120: ; preds = %_ZNKSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i108, %.lr.ph.i.i.i.i.i112.preheader
   %.0.lcssa.i.i.i.i.i117 = phi ptr [ %61, %_ZNKSt6vectorIN4llvm18TargetLoweringBase12ArgListEntryESaIS2_EE12_M_check_lenEmPKc.exit.i.i108 ], [ %scevgep, %.lr.ph.i.i.i.i.i112.preheader ]
   tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0202.0, i64 noundef %52) #19
-  %68 = getelementptr inbounds nuw %"class.llvm::TargetLoweringBase::ArgListEntry", ptr %61, i64 %59
+  %68 = getelementptr inbounds nuw [48 x i8], ptr %61, i64 %59
   %.sroa.16.5 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i117, i64 48
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store ptr null, ptr %9, align 8, !tbaa !56
@@ -717,7 +709,7 @@ _ZN4llvm14TargetLowering16CallLoweringInfo11setDebugLocERKNS_5SDLocE.exit: ; pre
   store i32 %4, ptr %69, align 8, !tbaa !168
   %112 = getelementptr inbounds nuw i8, ptr %14, i64 407952
   %113 = zext nneg i32 %8 to i64
-  %114 = getelementptr inbounds nuw i32, ptr %112, i64 %113
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %112, i64 %113
   %115 = load i32, ptr %114, align 4, !tbaa !168
   store ptr %102, ptr %70, align 8, !tbaa !295
   store ptr %.sroa.0238.0, ptr %76, align 8, !tbaa !167
@@ -1168,7 +1160,7 @@ define dso_local { ptr, i32 } @_ZNK4llvm23AArch64SelectionDAGInfo23EmitTargetCod
   %.0.be.i = phi i32 [ %75, %72 ], [ %88, %85 ], [ %.0.be.ph.i, %.backedge.sink.split.i ]
   %80 = load ptr, ptr %10, align 8, !tbaa !25
   %81 = zext i32 %.sink.i to i64
-  %82 = getelementptr inbounds nuw %"class.llvm::SDValue", ptr %80, i64 %81
+  %82 = getelementptr inbounds nuw [16 x i8], ptr %80, i64 %81
   store ptr %.fca.0.extract30.sink.i, ptr %82, align 1
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %82, i64 8
   store i32 %.fca.1.extract31.sink.i, ptr %.sroa.2.0..sroa_idx.i.i, align 1

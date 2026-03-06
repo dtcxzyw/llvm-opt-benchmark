@@ -165,14 +165,14 @@ define ptr @OPENSSL_sk_deep_copy(ptr noundef readonly captures(address_is_null) 
 27:                                               ; preds = %.lr.ph, %41
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %41 ]
   %28 = load ptr, ptr %25, align 8, !tbaa !14
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8, !tbaa !13
   %31 = icmp eq ptr %30, null
   br i1 %31, label %41, label %32
 
 32:                                               ; preds = %27
   %33 = tail call ptr %1(ptr noundef nonnull %30) #16
-  %34 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv
   store ptr %33, ptr %34, align 8, !tbaa !13
   %35 = icmp eq ptr %33, null
   br i1 %35, label %.preheader, label %41
@@ -184,7 +184,7 @@ define ptr @OPENSSL_sk_deep_copy(ptr noundef readonly captures(address_is_null) 
 .lr.ph47:                                         ; preds = %.preheader, %39
   %indvars.iv52 = phi i64 [ %indvars.iv.next53, %39 ], [ %indvars.iv, %.preheader ]
   %indvars.iv.next53 = add nsw i64 %indvars.iv52, -1
-  %36 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv.next53
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv.next53
   %37 = load ptr, ptr %36, align 8, !tbaa !13
   %.not = icmp eq ptr %37, null
   br i1 %.not, label %39, label %38
@@ -453,20 +453,20 @@ define range(i32 -2147483647, -2147483648) i32 @OPENSSL_sk_insert(ptr noundef ca
 
 18:                                               ; preds = %12
   %19 = sext i32 %13 to i64
-  %20 = getelementptr inbounds ptr, ptr %17, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %17, i64 %19
   store ptr %1, ptr %20, align 8, !tbaa !13
   br label %30
 
 21:                                               ; preds = %12
   %22 = zext nneg i32 %2 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %17, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = sub nsw i32 %13, %2
   %26 = zext nneg i32 %25 to i64
   %27 = shl nuw nsw i64 %26, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %24, ptr align 8 %23, i64 %27, i1 false)
   %28 = load ptr, ptr %16, align 8, !tbaa !14
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %22
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %22
   store ptr %1, ptr %29, align 8, !tbaa !13
   %.pre = load i32, ptr %0, align 8, !tbaa !10
   br label %30
@@ -505,7 +505,7 @@ define ptr @OPENSSL_sk_delete_ptr(ptr noundef captures(address_is_null) %0, ptr 
 
 8:                                                ; preds = %.lr.ph, %24
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !13
   %11 = icmp eq ptr %10, %1
   br i1 %11, label %12, label %24
@@ -513,7 +513,7 @@ define ptr @OPENSSL_sk_delete_ptr(ptr noundef captures(address_is_null) %0, ptr 
 12:                                               ; preds = %8
   %13 = trunc nuw nsw i64 %indvars.iv to i32
   %14 = and i64 %indvars.iv, 4294967295
-  %15 = getelementptr inbounds nuw ptr, ptr %7, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !13
   %17 = add nsw i32 %4, -1
   %.not.i = icmp eq i32 %17, %13
@@ -561,7 +561,7 @@ define ptr @OPENSSL_sk_delete(ptr noundef captures(address_is_null) %0, i32 noun
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !14
   %10 = zext nneg i32 %1 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !13
   %13 = add nsw i32 %6, -1
   %.not.i = icmp eq i32 %1, %13
@@ -619,7 +619,7 @@ define i32 @OPENSSL_sk_find(ptr noundef readonly captures(address_is_null) %0, p
 
 15:                                               ; preds = %21, %.lr.ph100.i
   %indvars.iv109.i = phi i64 [ 0, %.lr.ph100.i ], [ %indvars.iv.next110.i, %21 ]
-  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv109.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv109.i
   %17 = load ptr, ptr %16, align 8, !tbaa !13
   %18 = icmp eq ptr %17, %1
   br i1 %18, label %19, label %21
@@ -655,7 +655,7 @@ define i32 @OPENSSL_sk_find(ptr noundef readonly captures(address_is_null) %0, p
   %indvars.iv106.i = phi i64 [ %indvars.iv.next107.i, %34 ], [ 0, %.lr.ph96.i ]
   %29 = load ptr, ptr %9, align 8, !tbaa !3
   %30 = load ptr, ptr %28, align 8, !tbaa !14
-  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv106.i
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv106.i
   %32 = call i32 %29(ptr noundef nonnull %3, ptr noundef %31) #16
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %.cont79.loopexit.i, label %34
@@ -724,7 +724,7 @@ define i32 @OPENSSL_sk_find_ex(ptr noundef readonly captures(address_is_null) %0
 
 15:                                               ; preds = %21, %.lr.ph100.i
   %indvars.iv109.i = phi i64 [ 0, %.lr.ph100.i ], [ %indvars.iv.next110.i, %21 ]
-  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv109.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv109.i
   %17 = load ptr, ptr %16, align 8, !tbaa !13
   %18 = icmp eq ptr %17, %1
   br i1 %18, label %19, label %21
@@ -760,7 +760,7 @@ define i32 @OPENSSL_sk_find_ex(ptr noundef readonly captures(address_is_null) %0
   %indvars.iv106.i = phi i64 [ %indvars.iv.next107.i, %34 ], [ 0, %.lr.ph96.i ]
   %29 = load ptr, ptr %9, align 8, !tbaa !3
   %30 = load ptr, ptr %28, align 8, !tbaa !14
-  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv106.i
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv106.i
   %32 = call i32 %29(ptr noundef nonnull %3, ptr noundef %31) #16
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %.cont79.loopexit.i, label %34
@@ -830,7 +830,7 @@ define i32 @OPENSSL_sk_find_all(ptr noundef readonly captures(address_is_null) %
 
 17:                                               ; preds = %23, %.lr.ph100.i
   %indvars.iv109.i = phi i64 [ 0, %.lr.ph100.i ], [ %indvars.iv.next110.i, %23 ]
-  %18 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv109.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv109.i
   %19 = load ptr, ptr %18, align 8, !tbaa !13
   %20 = icmp eq ptr %19, %1
   br i1 %20, label %21, label %23
@@ -877,7 +877,7 @@ define i32 @OPENSSL_sk_find_all(ptr noundef readonly captures(address_is_null) %
   %indvars.iv106.i = phi i64 [ %indvars.iv.next107.i, %36 ], [ 0, %.lr.ph96.i ]
   %31 = load ptr, ptr %11, align 8, !tbaa !3
   %32 = load ptr, ptr %30, align 8, !tbaa !14
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv106.i
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv106.i
   %34 = call i32 %31(ptr noundef nonnull %4, ptr noundef %33) #16
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %.cont79.loopexit.i, label %36
@@ -894,7 +894,7 @@ define i32 @OPENSSL_sk_find_all(ptr noundef readonly captures(address_is_null) %
   %.04895.i = phi i32 [ %.2.i, %48 ], [ -1, %.lr.ph96.i ]
   %40 = load ptr, ptr %11, align 8, !tbaa !3
   %41 = load ptr, ptr %30, align 8, !tbaa !14
-  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv.i
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv.i
   %43 = call i32 %40(ptr noundef nonnull %4, ptr noundef %42) #16
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %.cont61.i, label %48
@@ -941,7 +941,7 @@ define i32 @OPENSSL_sk_find_all(ptr noundef readonly captures(address_is_null) %
   %57 = load ptr, ptr %54, align 8, !tbaa !14
   %58 = load i32, ptr %0, align 8, !tbaa !10
   %59 = sext i32 %58 to i64
-  %60 = getelementptr inbounds ptr, ptr %57, i64 %59
+  %60 = getelementptr inbounds [8 x i8], ptr %57, i64 %59
   %61 = icmp ult ptr %56, %60
   br i1 %61, label %.lr.ph.i, label %.loopexit.thread.i
 
@@ -960,7 +960,7 @@ define i32 @OPENSSL_sk_find_all(ptr noundef readonly captures(address_is_null) %
   %66 = load ptr, ptr %54, align 8, !tbaa !14
   %67 = load i32, ptr %0, align 8, !tbaa !10
   %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds ptr, ptr %66, i64 %68
+  %69 = getelementptr inbounds [8 x i8], ptr %66, i64 %68
   %70 = icmp ult ptr %65, %69
   br i1 %70, label %.lr.ph.i, label %.loopexit.i, !llvm.loop !23
 
@@ -1023,20 +1023,20 @@ define range(i32 -2147483647, -2147483648) i32 @OPENSSL_sk_push(ptr noundef capt
 
 16:                                               ; preds = %10
   %17 = sext i32 %11 to i64
-  %18 = getelementptr inbounds ptr, ptr %15, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %15, i64 %17
   store ptr %1, ptr %18, align 8, !tbaa !13
   br label %28
 
 19:                                               ; preds = %10
   %20 = zext nneg i32 %5 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %15, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = sub nsw i32 %11, %5
   %24 = zext nneg i32 %23 to i64
   %25 = shl nuw nsw i64 %24, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %22, ptr align 8 %21, i64 %25, i1 false)
   %26 = load ptr, ptr %14, align 8, !tbaa !14
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %20
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %20
   store ptr %1, ptr %27, align 8, !tbaa !13
   %.pre.i = load i32, ptr %0, align 8, !tbaa !10
   br label %28
@@ -1112,7 +1112,7 @@ internal_delete.exit:                             ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !14
   %9 = sext i32 %6 to i64
-  %10 = getelementptr inbounds ptr, ptr %8, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !13
   store i32 %6, ptr %0, align 8, !tbaa !10
   br label %12
@@ -1166,7 +1166,7 @@ define void @OPENSSL_sk_pop_free(ptr noundef %0, ptr noundef readonly captures(n
   %8 = phi i32 [ %4, %.lr.ph ], [ %14, %13 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
   %9 = load ptr, ptr %6, align 8, !tbaa !14
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !13
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %13, label %12
@@ -1226,7 +1226,7 @@ define ptr @OPENSSL_sk_value(ptr noundef readonly captures(address_is_null) %0, 
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !14
   %10 = zext nneg i32 %1 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !13
   br label %13
 
@@ -1265,12 +1265,12 @@ define ptr @OPENSSL_sk_set(ptr noundef captures(address_is_null) %0, i32 noundef
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !14
   %14 = zext nneg i32 %1 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %14
   store ptr %2, ptr %15, align 8, !tbaa !13
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 0, ptr %16, align 8, !tbaa !9
   %17 = load ptr, ptr %12, align 8, !tbaa !14
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %14
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %14
   %19 = load ptr, ptr %18, align 8, !tbaa !13
   br label %20
 

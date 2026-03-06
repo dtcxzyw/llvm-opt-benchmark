@@ -3,8 +3,6 @@ source_filename = "bench/luajit/original/lj_debug.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.TValue = type { i64 }
-%struct.GCRef = type { i64 }
 %struct.lua_Debug = type { i32, ptr, ptr, ptr, ptr, i32, i32, i32, i32, [60 x i8], i32 }
 
 @.str = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
@@ -108,7 +106,7 @@ define hidden ptr @lj_debug_frame(ptr noundef readonly captures(address) %0, i32
   %41 = add nuw nsw i32 %40, 2
   %42 = zext nneg i32 %41 to i64
   %43 = sub nsw i64 0, %42
-  %44 = getelementptr inbounds %union.TValue, ptr %.0233142, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr %.0233142, i64 %43
   br label %51
 
 45:                                               ; preds = %.lr.ph44
@@ -182,14 +180,14 @@ define hidden i32 @lj_debug_line(ptr noundef readonly captures(none) %0, i32 nou
   br i1 %32, label %34, label %39
 
 34:                                               ; preds = %31
-  %35 = getelementptr inbounds nuw i16, ptr %5, i64 %33
+  %35 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %33
   %36 = load i16, ptr %35, align 2, !tbaa !25
   %37 = zext i16 %36 to i32
   %38 = add nsw i32 %12, %37
   br label %43
 
 39:                                               ; preds = %31
-  %40 = getelementptr inbounds nuw i32, ptr %5, i64 %33
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %33
   %41 = load i32, ptr %40, align 4, !tbaa !18
   %42 = add nsw i32 %41, %12
   br label %43
@@ -261,7 +259,7 @@ define hidden ptr @lj_debug_uvnamev(ptr noundef readonly captures(none) %0, i32 
 20:                                               ; preds = %13
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %22 = zext nneg i32 %1 to i64
-  %23 = getelementptr inbounds nuw %struct.GCRef, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %22
   %24 = load i64, ptr %23, align 8, !tbaa !15
   %25 = inttoptr i64 %24 to ptr
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
@@ -306,7 +304,7 @@ define hidden ptr @lj_debug_uvnamev(ptr noundef readonly captures(none) %0, i32 
 42:                                               ; preds = %37
   %43 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %44 = zext nneg i32 %1 to i64
-  %45 = getelementptr inbounds nuw %union.TValue, ptr %43, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %44
   store ptr %45, ptr %2, align 8, !tbaa !29
   store ptr %9, ptr %3, align 8, !tbaa !30
   br label %lj_debug_uvname.exit.thread
@@ -351,7 +349,7 @@ debug_varname.exit.us.loopexit:                   ; preds = %29
   %21 = lshr i32 %19, 8
   %22 = and i32 %21, 255
   %23 = zext nneg i32 %20 to i64
-  %24 = getelementptr inbounds nuw i16, ptr @lj_bc_mode, i64 %23
+  %24 = getelementptr inbounds nuw [2 x i8], ptr @lj_bc_mode, i64 %23
   %25 = load i16, ptr %24, align 2, !tbaa !25
   %26 = and i16 %25, 7
   switch i16 %26, label %35 [
@@ -505,7 +503,7 @@ debug_varname.exit:                               ; preds = %44, %.loopexit.i, %
   %75 = lshr i32 %73, 8
   %76 = and i32 %75, 255
   %77 = zext nneg i32 %74 to i64
-  %78 = getelementptr inbounds nuw i16, ptr @lj_bc_mode, i64 %77
+  %78 = getelementptr inbounds nuw [2 x i8], ptr @lj_bc_mode, i64 %77
   %79 = load i16, ptr %78, align 2, !tbaa !25
   %80 = and i16 %79, 7
   switch i16 %80, label %133 [
@@ -548,7 +546,7 @@ debug_varname.exit:                               ; preds = %44, %.loopexit.i, %
   %92 = lshr i32 %.us-phi, 16
   %93 = xor i32 %92, -1
   %94 = sext i32 %93 to i64
-  %95 = getelementptr inbounds %struct.GCRef, ptr %91, i64 %94
+  %95 = getelementptr inbounds [8 x i8], ptr %91, i64 %94
   %96 = load i64, ptr %95, align 8, !tbaa !40
   %97 = inttoptr i64 %96 to ptr
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 24
@@ -566,7 +564,7 @@ debug_varname.exit:                               ; preds = %44, %.loopexit.i, %
   %103 = and i32 %102, 255
   %104 = xor i32 %103, -1
   %105 = sext i32 %104 to i64
-  %106 = getelementptr inbounds %struct.GCRef, ptr %101, i64 %105
+  %106 = getelementptr inbounds [8 x i8], ptr %101, i64 %105
   %107 = load i64, ptr %106, align 8, !tbaa !40
   %108 = inttoptr i64 %107 to ptr
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 24
@@ -673,7 +671,7 @@ define hidden noundef ptr @lj_debug_funcname(ptr noundef readonly captures(none)
   %23 = add nuw nsw i32 %22, 2
   %24 = zext nneg i32 %23 to i64
   %25 = sub nsw i64 0, %24
-  %26 = getelementptr inbounds %union.TValue, ptr %.033, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %.033, i64 %25
   br label %31
 
 27:                                               ; preds = %8
@@ -697,11 +695,11 @@ define hidden noundef ptr @lj_debug_funcname(ptr noundef readonly captures(none)
   %40 = load i64, ptr %39, align 8, !tbaa !15
   %41 = inttoptr i64 %40 to ptr
   %42 = zext i32 %37 to i64
-  %43 = getelementptr inbounds nuw i32, ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !18
   %45 = and i32 %44, 255
   %46 = zext nneg i32 %45 to i64
-  %47 = getelementptr inbounds nuw i16, ptr @lj_bc_mode, i64 %46
+  %47 = getelementptr inbounds nuw [2 x i8], ptr @lj_bc_mode, i64 %46
   %48 = load i16, ptr %47, align 2, !tbaa !25
   %49 = lshr i16 %48, 11
   switch i16 %49, label %57 [
@@ -725,7 +723,7 @@ define hidden noundef ptr @lj_debug_funcname(ptr noundef readonly captures(none)
   %60 = inttoptr i64 %59 to ptr
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 424
   %62 = zext nneg i16 %49 to i64
-  %63 = getelementptr inbounds nuw %struct.GCRef, ptr %61, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %62
   %64 = load i64, ptr %63, align 8, !tbaa !40
   %65 = inttoptr i64 %64 to ptr
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 24
@@ -850,7 +848,7 @@ define internal fastcc i32 @debug_framepc(ptr noundef readonly captures(none) %0
   %71 = add nuw nsw i32 %70, 2
   %72 = zext nneg i32 %71 to i64
   %73 = sub nsw i64 0, %72
-  %74 = getelementptr inbounds %union.TValue, ptr %.04774, i64 %73
+  %74 = getelementptr inbounds [8 x i8], ptr %.04774, i64 %73
   br label %92
 
 75:                                               ; preds = %62
@@ -1093,14 +1091,14 @@ define hidden void @lj_debug_addloc(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %49, label %51, label %56
 
 51:                                               ; preds = %48
-  %52 = getelementptr inbounds nuw i16, ptr %22, i64 %50
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %22, i64 %50
   %53 = load i16, ptr %52, align 2, !tbaa !25
   %54 = zext i16 %53 to i32
   %55 = add nsw i32 %28, %54
   br label %debug_frameline.exit
 
 56:                                               ; preds = %48
-  %57 = getelementptr inbounds nuw i32, ptr %22, i64 %50
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %50
   %58 = load i32, ptr %57, align 4, !tbaa !18
   %59 = add nsw i32 %58, %28
   br label %debug_frameline.exit
@@ -1186,14 +1184,14 @@ define hidden void @lj_debug_pushloc(ptr noundef %0, ptr noundef %1, i32 noundef
   br i1 %39, label %41, label %46
 
 41:                                               ; preds = %38
-  %42 = getelementptr inbounds nuw i16, ptr %12, i64 %40
+  %42 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %40
   %43 = load i16, ptr %42, align 2, !tbaa !25
   %44 = zext i16 %43 to i32
   %45 = add nsw i32 %18, %44
   br label %lj_debug_line.exit
 
 46:                                               ; preds = %38
-  %47 = getelementptr inbounds nuw i32, ptr %12, i64 %40
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %40
   %48 = load i32, ptr %47, align 4, !tbaa !18
   %49 = add nsw i32 %48, %18
   br label %lj_debug_line.exit
@@ -1422,10 +1420,10 @@ define internal fastcc ptr @debug_localname(ptr noundef readonly captures(none) 
   %8 = load i64, ptr %7, align 8, !tbaa !4
   %9 = inttoptr i64 %8 to ptr
   %10 = zext nneg i32 %5 to i64
-  %11 = getelementptr inbounds nuw %union.TValue, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %10
   %.not = icmp eq i32 %6, 0
   %12 = zext nneg i32 %6 to i64
-  %13 = getelementptr inbounds nuw %union.TValue, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %12
   %14 = select i1 %.not, ptr null, ptr %13
   %15 = getelementptr inbounds i8, ptr %11, i64 -8
   %16 = load i64, ptr %15, align 8, !tbaa !15
@@ -1474,7 +1472,7 @@ define internal fastcc ptr @debug_localname(ptr noundef readonly captures(none) 
   %.045.idx = select i1 %41, i64 %43, i64 0
   %.045 = getelementptr inbounds i8, ptr %11, i64 %.045.idx
   %44 = zext i32 %38 to i64
-  %45 = getelementptr inbounds nuw %union.TValue, ptr %.045, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %.045, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = icmp ult ptr %46, %.147
   br i1 %47, label %48, label %.thread
@@ -1583,7 +1581,7 @@ debug_varname.exit:                               ; preds = %59, %.loopexit.i, %
   store ptr null, ptr %1, align 8, !tbaa !35
   %85 = icmp ne i32 %2, 0
   %86 = zext nneg i32 %2 to i64
-  %87 = getelementptr inbounds nuw %union.TValue, ptr %11, i64 %86
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %86
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %89 = icmp ult ptr %88, %.046
   %or.cond59 = select i1 %85, i1 %89, i1 false
@@ -1592,7 +1590,7 @@ debug_varname.exit:                               ; preds = %59, %.loopexit.i, %
 90:                                               ; preds = %49
   %.old1.not = icmp ne i32 %2, 0
   %.old = zext nneg i32 %2 to i64
-  %.old56 = getelementptr inbounds nuw %union.TValue, ptr %11, i64 %.old
+  %.old56 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.old
   %.old57 = getelementptr inbounds nuw i8, ptr %.old56, i64 8
   %.old58 = icmp ult ptr %.old57, %.046
   %or.cond60 = select i1 %.old1.not, i1 %.old58, i1 false
@@ -1605,7 +1603,7 @@ debug_varname.exit:                               ; preds = %59, %.loopexit.i, %
 
 91:                                               ; preds = %.sink.split, %90, %debug_varname.exit
   %92 = zext nneg i32 %2 to i64
-  %93 = getelementptr inbounds nuw %union.TValue, ptr %11, i64 %92
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %92
   br label %.thread
 
 .thread:                                          ; preds = %27, %34, %26, %48, %91
@@ -1673,10 +1671,10 @@ define hidden range(i32 0, 2) i32 @lj_debug_getinfo(ptr noundef %0, ptr noundef 
   %21 = load i64, ptr %20, align 8, !tbaa !4
   %22 = inttoptr i64 %21 to ptr
   %23 = zext nneg i32 %18 to i64
-  %24 = getelementptr inbounds nuw %union.TValue, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %.not = icmp eq i32 %19, 0
   %25 = zext nneg i32 %19 to i64
-  %26 = getelementptr inbounds nuw %union.TValue, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %25
   %.1124 = select i1 %.not, ptr null, ptr %26
   %27 = getelementptr inbounds i8, ptr %24, i64 -8
   %28 = load i64, ptr %27, align 8, !tbaa !15
@@ -1822,14 +1820,14 @@ define hidden range(i32 0, 2) i32 @lj_debug_getinfo(ptr noundef %0, ptr noundef 
   br i1 %102, label %104, label %109
 
 104:                                              ; preds = %101
-  %105 = getelementptr inbounds nuw i16, ptr %75, i64 %103
+  %105 = getelementptr inbounds nuw [2 x i8], ptr %75, i64 %103
   %106 = load i16, ptr %105, align 2, !tbaa !25
   %107 = zext i16 %106 to i32
   %108 = add nsw i32 %82, %107
   br label %debug_frameline.exit
 
 109:                                              ; preds = %101
-  %110 = getelementptr inbounds nuw i32, ptr %75, i64 %103
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %103
   %111 = load i32, ptr %110, align 4, !tbaa !18
   %112 = add nsw i32 %111, %82
   br label %debug_frameline.exit
@@ -1976,7 +1974,7 @@ debug_frameline.exit:                             ; preds = %109, %104, %95, %88
   %183 = load i64, ptr %173, align 8, !tbaa !77
   %184 = inttoptr i64 %183 to ptr
   %185 = sext i32 %177 to i64
-  %186 = getelementptr inbounds %union.TValue, ptr %184, i64 %185
+  %186 = getelementptr inbounds [8 x i8], ptr %184, i64 %185
   br label %187
 
 187:                                              ; preds = %182, %180
@@ -1988,7 +1986,7 @@ debug_frameline.exit:                             ; preds = %109, %104, %95, %88
 
 .lr.ph.split.us149:                               ; preds = %.lr.ph, %202
   %indvars.iv = phi i64 [ %indvars.iv.next, %202 ], [ 0, %.lr.ph ]
-  %189 = getelementptr inbounds nuw i16, ptr %159, i64 %indvars.iv
+  %189 = getelementptr inbounds nuw [2 x i8], ptr %159, i64 %indvars.iv
   %190 = load i16, ptr %189, align 2, !tbaa !25
   %191 = zext i16 %190 to i32
   %192 = add nsw i32 %162, %191
@@ -2004,7 +2002,7 @@ debug_frameline.exit:                             ; preds = %109, %104, %95, %88
   %198 = load i64, ptr %173, align 8, !tbaa !77
   %199 = inttoptr i64 %198 to ptr
   %200 = sext i32 %192 to i64
-  %201 = getelementptr inbounds %union.TValue, ptr %199, i64 %200
+  %201 = getelementptr inbounds [8 x i8], ptr %199, i64 %200
   br label %202
 
 202:                                              ; preds = %197, %195
@@ -2016,7 +2014,7 @@ debug_frameline.exit:                             ; preds = %109, %104, %95, %88
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %216
   %indvars.iv162 = phi i64 [ %indvars.iv.next163, %216 ], [ 0, %.lr.ph ]
-  %204 = getelementptr inbounds nuw i32, ptr %159, i64 %indvars.iv162
+  %204 = getelementptr inbounds nuw [4 x i8], ptr %159, i64 %indvars.iv162
   %205 = load i32, ptr %204, align 4, !tbaa !18
   %206 = add nsw i32 %205, %162
   %207 = load i32, ptr %172, align 8, !tbaa !75
@@ -2027,7 +2025,7 @@ debug_frameline.exit:                             ; preds = %109, %104, %95, %88
   %210 = load i64, ptr %173, align 8, !tbaa !77
   %211 = inttoptr i64 %210 to ptr
   %212 = sext i32 %206 to i64
-  %213 = getelementptr inbounds %union.TValue, ptr %211, i64 %212
+  %213 = getelementptr inbounds [8 x i8], ptr %211, i64 %212
   br label %216
 
 214:                                              ; preds = %.lr.ph.split
@@ -2137,7 +2135,7 @@ define dso_local range(i32 0, 2) i32 @lua_getstack(ptr noundef readonly captures
   %36 = add nuw nsw i32 %35, 2
   %37 = zext nneg i32 %36 to i64
   %38 = sub nsw i64 0, %37
-  %39 = getelementptr inbounds %union.TValue, ptr %.02331.i17, i64 %38
+  %39 = getelementptr inbounds [8 x i8], ptr %.02331.i17, i64 %38
   br label %46
 
 40:                                               ; preds = %.lr.ph
@@ -2255,7 +2253,7 @@ define hidden void @lj_debug_dumpstack(ptr noundef readonly captures(address) %0
   %45 = add nuw nsw i32 %44, 2
   %46 = zext nneg i32 %45 to i64
   %47 = sub nsw i64 0, %46
-  %48 = getelementptr inbounds %union.TValue, ptr %.02331.i142, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %.02331.i142, i64 %47
   br label %55
 
 49:                                               ; preds = %.lr.ph
@@ -2284,7 +2282,7 @@ define hidden void @lj_debug_dumpstack(ptr noundef readonly captures(address) %0
   %.not81 = icmp eq i64 %60, 0
   %sext = shl i64 %59, 29
   %61 = ashr i64 %sext, 32
-  %62 = getelementptr inbounds %union.TValue, ptr %.02331.i.lcssa, i64 %61
+  %62 = getelementptr inbounds [8 x i8], ptr %.02331.i.lcssa, i64 %61
   %63 = select i1 %.not81, ptr null, ptr %62
   %64 = getelementptr inbounds nuw i8, ptr %.pre-phi161, i64 10
   %65 = getelementptr inbounds nuw i8, ptr %.pre-phi161, i64 32
@@ -2336,7 +2334,7 @@ define hidden void @lj_debug_dumpstack(ptr noundef readonly captures(address) %0
   %89 = add nuw nsw i32 %88, 2
   %90 = zext nneg i32 %89 to i64
   %91 = sub nsw i64 0, %90
-  %92 = getelementptr inbounds %union.TValue, ptr %.033.i, i64 %91
+  %92 = getelementptr inbounds [8 x i8], ptr %.033.i, i64 %91
   %93 = getelementptr inbounds i8, ptr %92, i64 -8
   %94 = load i64, ptr %93, align 8, !tbaa !15
   %95 = and i64 %94, 140737488355327
@@ -2429,7 +2427,7 @@ define hidden void @lj_debug_dumpstack(ptr noundef readonly captures(address) %0
   %148 = add nuw nsw i32 %147, 2
   %149 = zext nneg i32 %148 to i64
   %150 = sub nsw i64 0, %149
-  %151 = getelementptr inbounds %union.TValue, ptr %.04774.i, i64 %150
+  %151 = getelementptr inbounds [8 x i8], ptr %.04774.i, i64 %150
   br label %169
 
 152:                                              ; preds = %139
@@ -2509,11 +2507,11 @@ debug_framepc.exit:                               ; preds = %174, %191
 
 197:                                              ; preds = %debug_framepc.exit
   %198 = zext i32 %.0.i106 to i64
-  %199 = getelementptr inbounds nuw i32, ptr %178, i64 %198
+  %199 = getelementptr inbounds nuw [4 x i8], ptr %178, i64 %198
   %200 = load i32, ptr %199, align 4, !tbaa !18
   %201 = and i32 %200, 255
   %202 = zext nneg i32 %201 to i64
-  %203 = getelementptr inbounds nuw i16, ptr @lj_bc_mode, i64 %202
+  %203 = getelementptr inbounds nuw [2 x i8], ptr @lj_bc_mode, i64 %202
   %204 = load i16, ptr %203, align 2, !tbaa !25
   %205 = lshr i16 %204, 11
   switch i16 %205, label %lj_debug_funcname.exit.thread119 [
@@ -2526,7 +2524,7 @@ lj_debug_funcname.exit.thread119:                 ; preds = %197
   %207 = inttoptr i64 %206 to ptr
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 424
   %209 = zext nneg i16 %205 to i64
-  %210 = getelementptr inbounds nuw %struct.GCRef, ptr %208, i64 %209
+  %210 = getelementptr inbounds nuw [8 x i8], ptr %208, i64 %209
   %211 = load i64, ptr %210, align 8, !tbaa !40
   %212 = inttoptr i64 %211 to ptr
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 24
@@ -2757,14 +2755,14 @@ debug_putchunkname.exit:                          ; preds = %256, %266
   br i1 %328, label %330, label %335
 
 330:                                              ; preds = %327
-  %331 = getelementptr inbounds nuw i16, ptr %301, i64 %329
+  %331 = getelementptr inbounds nuw [2 x i8], ptr %301, i64 %329
   %332 = load i16, ptr %331, align 2, !tbaa !25
   %333 = zext i16 %332 to i32
   %334 = add nsw i32 %308, %333
   br label %debug_frameline.exit
 
 335:                                              ; preds = %327
-  %336 = getelementptr inbounds nuw i32, ptr %301, i64 %329
+  %336 = getelementptr inbounds nuw [4 x i8], ptr %301, i64 %329
   %337 = load i32, ptr %336, align 4, !tbaa !18
   %338 = add nsw i32 %337, %308
   br label %debug_frameline.exit
@@ -3104,7 +3102,7 @@ define dso_local void @luaL_traceback(ptr noundef %0, ptr noundef %1, ptr nounde
   %63 = add nuw nsw i32 %62, 2
   %64 = zext nneg i32 %63 to i64
   %65 = sub nsw i64 0, %64
-  %66 = getelementptr inbounds %union.TValue, ptr %.02331.i17.i, i64 %65
+  %66 = getelementptr inbounds [8 x i8], ptr %.02331.i17.i, i64 %65
   br label %73
 
 67:                                               ; preds = %.lr.ph.i
@@ -3178,7 +3176,7 @@ define dso_local void @luaL_traceback(ptr noundef %0, ptr noundef %1, ptr nounde
   %108 = add nuw nsw i32 %107, 2
   %109 = zext nneg i32 %108 to i64
   %110 = sub nsw i64 0, %109
-  %111 = getelementptr inbounds %union.TValue, ptr %.02331.i17.i60, i64 %110
+  %111 = getelementptr inbounds [8 x i8], ptr %.02331.i17.i60, i64 %110
   br label %118
 
 112:                                              ; preds = %.lr.ph.i58
@@ -3260,7 +3258,7 @@ lua_getstack.exit69.thread:                       ; preds = %118
   %159 = add nuw nsw i32 %158, 2
   %160 = zext nneg i32 %159 to i64
   %161 = sub nsw i64 0, %160
-  %162 = getelementptr inbounds %union.TValue, ptr %.02331.i17.i78, i64 %161
+  %162 = getelementptr inbounds [8 x i8], ptr %.02331.i17.i78, i64 %161
   br label %169
 
 163:                                              ; preds = %.lr.ph.i76

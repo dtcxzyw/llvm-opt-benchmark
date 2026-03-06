@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/ec_internal_test.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.EC_builtin_curve = type { i32, ptr }
-
 @crv_len = internal unnamed_addr global i64 0, align 8
 @.str = private unnamed_addr constant [35 x i8] c"../openssl/test/ec_internal_test.c\00", align 1
 @.str.1 = private unnamed_addr constant [51 x i8] c"curves = OPENSSL_malloc(sizeof(*curves) * crv_len)\00", align 1
@@ -300,7 +298,7 @@ declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) 
 define internal range(i32 0, 2) i32 @field_tests_default(i32 noundef %0) #0 {
   %2 = load ptr, ptr @curves, align 8, !tbaa !8
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds %struct.EC_builtin_curve, ptr %2, i64 %3
+  %4 = getelementptr inbounds [16 x i8], ptr %2, i64 %3
   %5 = load i32, ptr %4, align 8, !tbaa !10
   %6 = tail call ptr @OBJ_nid2sn(i32 noundef %5) #4
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str, i32 noundef 226, ptr noundef nonnull @.str.48, ptr noundef %6) #4
@@ -628,7 +626,7 @@ define internal range(i32 0, 2) i32 @decoded_flag_test() #0 {
 define internal range(i32 0, 2) i32 @ecpkparams_i2d2i_test(i32 noundef %0) #0 {
   %2 = load ptr, ptr @curves, align 8, !tbaa !8
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds %struct.EC_builtin_curve, ptr %2, i64 %3
+  %4 = getelementptr inbounds [16 x i8], ptr %2, i64 %3
   %5 = load i32, ptr %4, align 8, !tbaa !10
   %6 = tail call ptr @EC_GROUP_new_by_curve_name(i32 noundef %5) #4
   %7 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 455, ptr noundef nonnull @.str.77, ptr noundef %6) #4

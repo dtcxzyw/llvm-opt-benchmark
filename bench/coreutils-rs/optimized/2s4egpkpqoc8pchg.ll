@@ -477,7 +477,7 @@ define hidden void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$
 .preheader:                                       ; preds = %4, %.preheader
   %.017.i = phi i64 [ %10, %.preheader ], [ 0, %4 ]
   %.016.i = phi i64 [ %11, %.preheader ], [ 0, %4 ]
-  %8 = getelementptr inbounds { { { ptr, i64 }, {} } }, ptr %2, i64 %.016.i
+  %8 = getelementptr inbounds [16 x i8], ptr %2, i64 %.016.i
   %9 = getelementptr i8, ptr %8, i64 8
   %.val.i = load i64, ptr %9, align 8, !noundef !4
   %10 = add i64 %.val.i, %.017.i
@@ -620,7 +620,7 @@ define hidden void @"_ZN82_$LT$std..io..buffered..bufreader..BufReader$LT$R$GT$$
 .preheader:                                       ; preds = %4, %.preheader
   %.017.i = phi i64 [ %10, %.preheader ], [ 0, %4 ]
   %.016.i = phi i64 [ %11, %.preheader ], [ 0, %4 ]
-  %8 = getelementptr inbounds { { { ptr, i64 }, {} } }, ptr %2, i64 %.016.i
+  %8 = getelementptr inbounds [16 x i8], ptr %2, i64 %.016.i
   %9 = getelementptr i8, ptr %8, i64 8
   %.val.i = load i64, ptr %9, align 8, !noundef !4
   %10 = add i64 %.val.i, %.017.i

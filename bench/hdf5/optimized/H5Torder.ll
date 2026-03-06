@@ -9,7 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.H5T_vlen_alloc_info_t = type { ptr, ptr, ptr, ptr }
 %struct.H5T_conv_cb_t = type { ptr, ptr }
 %struct.H5VL_connector_prop_t = type { ptr, ptr }
-%struct.H5T_cmemb_t = type { ptr, i64, i64, ptr }
 
 @H5_libinit_g = external local_unnamed_addr global i8, align 1
 @H5_libterm_g = external local_unnamed_addr global i8, align 1
@@ -252,7 +251,7 @@ define i32 @H5T_get_order(ptr noundef %0) local_unnamed_addr #0 {
   %38 = load ptr, ptr %22, align 8, !tbaa !15
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 64
   %40 = load ptr, ptr %39, align 8, !tbaa !32
-  %41 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %40, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [32 x i8], ptr %40, i64 %indvars.iv
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
   %43 = load ptr, ptr %42, align 8, !tbaa !34
   %44 = tail call i32 @H5T_get_order(ptr noundef %43)
@@ -536,7 +535,7 @@ define internal fastcc noundef range(i32 -1, 1) i32 @H5T__set_order(ptr noundef 
   %55 = load ptr, ptr %28, align 8, !tbaa !15
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 64
   %57 = load ptr, ptr %56, align 8, !tbaa !32
-  %58 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %57, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [32 x i8], ptr %57, i64 %indvars.iv
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 24
   %60 = load ptr, ptr %59, align 8, !tbaa !34
   %61 = tail call fastcc i32 @H5T__set_order(ptr noundef %60, i32 noundef %1)

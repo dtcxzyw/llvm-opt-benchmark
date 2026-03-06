@@ -3,11 +3,6 @@ source_filename = "bench/llvm/original/MachineSSAContext.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"class.llvm::Register" = type { i32 }
-%"class.llvm::MachineOperand" = type { i32, %union.anon, ptr, %"union.llvm::MachineOperand::ContentsUnion" }
-%union.anon = type { i32 }
-%"union.llvm::MachineOperand::ContentsUnion" = type { %"class.llvm::ArrayRef" }
-%"class.llvm::ArrayRef" = type { ptr, i64 }
 %"class.llvm::Printable" = type { %"class.std::function" }
 %"class.std::function" = type { %"class.std::_Function_base", ptr }
 %"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
@@ -95,7 +90,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit: ; preds
   %28 = phi i32 [ %21, %.lr.ph ], [ %.pre.i, %25 ]
   %29 = load ptr, ptr %0, align 8, !tbaa !41
   %30 = zext i32 %28 to i64
-  %31 = getelementptr inbounds nuw %"class.llvm::Register", ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %30
   store i32 %23, ptr %31, align 1
   %32 = load i32, ptr %5, align 8, !tbaa !36
   %33 = add i32 %32, 1
@@ -156,7 +151,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_12MachineInstrELb1EE9push_backES2_.exit: ;
   %14 = phi i32 [ %9, %8 ], [ %.pre.i, %11 ]
   %15 = load ptr, ptr %0, align 8, !tbaa !41
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %16
   %18 = ptrtoint ptr %.sroa.06.010 to i64
   store i64 %18, ptr %17, align 1
   %19 = load i32, ptr %5, align 8, !tbaa !36
@@ -228,7 +223,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_12MachineInstrELb1EE9push_backES3_.exit: 
   %14 = phi i32 [ %9, %8 ], [ %.pre.i, %11 ]
   %15 = load ptr, ptr %0, align 8, !tbaa !41
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %16
   %18 = ptrtoint ptr %.sroa.06.010 to i64
   store i64 %18, ptr %17, align 1
   %19 = load i32, ptr %5, align 8, !tbaa !36
@@ -324,7 +319,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm17GenericSSAContextINS_15MachineFun
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %27 ]
   %.sroa.025.031 = phi i32 [ 0, %.lr.ph.preheader ], [ %.sroa.025.1, %27 ]
   %18 = load ptr, ptr %11, align 8, !tbaa !11
-  %19 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [32 x i8], ptr %18, i64 %indvars.iv
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i32, ptr %20, align 4, !tbaa !38
   %.not29 = icmp eq i32 %21, %14
@@ -373,7 +368,7 @@ define dso_local noundef i32 @_ZN4llvm17GenericSSAContextINS_15MachineFunctionEE
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !11
   %9 = zext i32 %6 to i64
-  %10 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load i32, ptr %11, align 8, !tbaa !38
   br label %13

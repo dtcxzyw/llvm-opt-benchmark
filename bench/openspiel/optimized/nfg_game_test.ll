@@ -43,10 +43,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::basic_ostream.base" = type { ptr }
 %"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
 %"class.std::basic_streambuf" = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, %"class.std::locale" }
-%"class.std::vector.6" = type { %"struct.std::_Vector_base.7" }
-%"struct.std::_Vector_base.7" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" }
-%"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 $_ZN10open_spiel8internal11SpielStrCatIJRA141_KcRA2_S2_iRA13_S2_RA23_S2_S6_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_ = comdat any
 
@@ -616,7 +612,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   %263 = sub i64 %261, %262
   %sext.i = shl i64 %263, 27
   %264 = ashr i64 %sext.i, 32
-  %265 = getelementptr inbounds double, ptr %252, i64 %264
+  %265 = getelementptr inbounds [8 x i8], ptr %252, i64 %264
   %266 = load double, ptr %265, align 8
   store double %266, ptr %182, align 8
   store double 0.000000e+00, ptr %183, align 8
@@ -645,7 +641,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   %274 = shl i64 %263, 28
   %sext25.i = ashr i64 %274, 32
   %275 = and i64 %sext25.i, -2
-  %276 = getelementptr inbounds double, ptr %252, i64 %275
+  %276 = getelementptr inbounds [8 x i8], ptr %252, i64 %275
   %277 = load double, ptr %276, align 8
   store double %277, ptr %186, align 8
   store double 0.000000e+00, ptr %187, align 8
@@ -699,7 +695,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 293:                                              ; preds = %284
   %sext24.i = add i64 %sext.i, 4294967296
   %294 = ashr i64 %sext24.i, 32
-  %295 = getelementptr inbounds double, ptr %252, i64 %294
+  %295 = getelementptr inbounds [8 x i8], ptr %252, i64 %294
   %296 = load double, ptr %295, align 8
   store double %296, ptr %194, align 8
   store double 0.000000e+00, ptr %195, align 8
@@ -726,7 +722,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
 
 303:                                              ; preds = %293
   %304 = or i64 %sext25.i, 1
-  %305 = getelementptr inbounds double, ptr %252, i64 %304
+  %305 = getelementptr inbounds [8 x i8], ptr %252, i64 %304
   %306 = load double, ptr %305, align 8
   store double %306, ptr %198, align 8
   store double 2.000000e+00, ptr %199, align 8
@@ -779,7 +775,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   br label %405
 
 323:                                              ; preds = %313
-  %324 = getelementptr inbounds double, ptr %315, i64 %264
+  %324 = getelementptr inbounds [8 x i8], ptr %315, i64 %264
   %325 = load double, ptr %324, align 8
   store double %325, ptr %206, align 8
   store double 2.000000e+00, ptr %207, align 8
@@ -805,7 +801,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   br label %405
 
 332:                                              ; preds = %323
-  %333 = getelementptr inbounds double, ptr %315, i64 %275
+  %333 = getelementptr inbounds [8 x i8], ptr %315, i64 %275
   %334 = load double, ptr %333, align 8
   store double %334, ptr %210, align 8
   store double 2.000000e+00, ptr %211, align 8
@@ -857,7 +853,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   br label %405
 
 350:                                              ; preds = %341
-  %351 = getelementptr inbounds double, ptr %315, i64 %294
+  %351 = getelementptr inbounds [8 x i8], ptr %315, i64 %294
   %352 = load double, ptr %351, align 8
   store double %352, ptr %218, align 8
   store double 3.000000e+00, ptr %219, align 8
@@ -883,7 +879,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i: ; 
   br label %405
 
 359:                                              ; preds = %350
-  %360 = getelementptr inbounds double, ptr %315, i64 %304
+  %360 = getelementptr inbounds [8 x i8], ptr %315, i64 %304
   %361 = load double, ptr %360, align 8
   store double %361, ptr %222, align 8
   store double 0.000000e+00, ptr %223, align 8
@@ -1208,7 +1204,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i6: ;
   %441 = sub i64 %439, %440
   %sext.i9 = shl i64 %441, 27
   %442 = ashr i64 %sext.i9, 32
-  %443 = getelementptr inbounds double, ptr %430, i64 %442
+  %443 = getelementptr inbounds [8 x i8], ptr %430, i64 %442
   %444 = load double, ptr %443, align 8
   store double %444, ptr %129, align 8
   store double 0.000000e+00, ptr %130, align 8
@@ -1237,7 +1233,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i6: ;
   %452 = shl i64 %441, 28
   %sext25.i10 = ashr i64 %452, 32
   %453 = and i64 %sext25.i10, -2
-  %454 = getelementptr inbounds double, ptr %430, i64 %453
+  %454 = getelementptr inbounds [8 x i8], ptr %430, i64 %453
   %455 = load double, ptr %454, align 8
   store double %455, ptr %133, align 8
   store double 0.000000e+00, ptr %134, align 8
@@ -1291,7 +1287,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i6: ;
 471:                                              ; preds = %462
   %sext24.i11 = add i64 %sext.i9, 4294967296
   %472 = ashr i64 %sext24.i11, 32
-  %473 = getelementptr inbounds double, ptr %430, i64 %472
+  %473 = getelementptr inbounds [8 x i8], ptr %430, i64 %472
   %474 = load double, ptr %473, align 8
   store double %474, ptr %141, align 8
   store double 0.000000e+00, ptr %142, align 8
@@ -1318,7 +1314,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i6: ;
 
 481:                                              ; preds = %471
   %482 = or i64 %sext25.i10, 1
-  %483 = getelementptr inbounds double, ptr %430, i64 %482
+  %483 = getelementptr inbounds [8 x i8], ptr %430, i64 %482
   %484 = load double, ptr %483, align 8
   store double %484, ptr %145, align 8
   store double 0xC26A6F52E6E6EAE1, ptr %146, align 8
@@ -1371,7 +1367,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i6: ;
   br label %583
 
 501:                                              ; preds = %491
-  %502 = getelementptr inbounds double, ptr %493, i64 %442
+  %502 = getelementptr inbounds [8 x i8], ptr %493, i64 %442
   %503 = load double, ptr %502, align 8
   store double %503, ptr %153, align 8
   store double 2.000000e-06, ptr %154, align 8
@@ -1397,7 +1393,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i6: ;
   br label %583
 
 510:                                              ; preds = %501
-  %511 = getelementptr inbounds double, ptr %493, i64 %453
+  %511 = getelementptr inbounds [8 x i8], ptr %493, i64 %453
   %512 = load double, ptr %511, align 8
   store double %512, ptr %157, align 8
   store double 2.000000e+00, ptr %158, align 8
@@ -1449,7 +1445,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i6: ;
   br label %583
 
 528:                                              ; preds = %519
-  %529 = getelementptr inbounds double, ptr %493, i64 %472
+  %529 = getelementptr inbounds [8 x i8], ptr %493, i64 %472
   %530 = load double, ptr %529, align 8
   store double %530, ptr %165, align 8
   store double 0x3FD4B2F828418070, ptr %166, align 8
@@ -1475,7 +1471,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i6: ;
   br label %583
 
 537:                                              ; preds = %528
-  %538 = getelementptr inbounds double, ptr %493, i64 %482
+  %538 = getelementptr inbounds [8 x i8], ptr %493, i64 %482
   %539 = load double, ptr %538, align 8
   store double %539, ptr %169, align 8
   store double 0.000000e+00, ptr %170, align 8
@@ -3743,9 +3739,9 @@ _ZNSt10shared_ptrIKN10open_spiel11matrix_game10MatrixGameEED2Ev.exit.i: ; preds 
 
 .lr.ph.i.i.i60:                                   ; preds = %.preheader.i.i.i, %1240
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %1240 ], [ 0, %.preheader.i.i.i ]
-  %1241 = getelementptr inbounds nuw double, ptr %1229, i64 %indvars.iv.i.i.i
+  %1241 = getelementptr inbounds nuw [8 x i8], ptr %1229, i64 %indvars.iv.i.i.i
   %1242 = load double, ptr %1241, align 8
-  %1243 = getelementptr inbounds nuw double, ptr %1236, i64 %indvars.iv.i.i.i
+  %1243 = getelementptr inbounds nuw [8 x i8], ptr %1236, i64 %indvars.iv.i.i.i
   %1244 = load double, ptr %1243, align 8
   %1245 = fsub double %1242, %1244
   %1246 = call double @llvm.fabs.f64(double %1245)
@@ -3782,9 +3778,9 @@ _ZNSt10shared_ptrIKN10open_spiel11matrix_game10MatrixGameEED2Ev.exit.i: ; preds 
 
 .lr.ph.i12.i.i:                                   ; preds = %.preheader.i10.i.i, %1263
   %indvars.iv.i13.i.i = phi i64 [ %indvars.iv.next.i14.i.i, %1263 ], [ 0, %.preheader.i10.i.i ]
-  %1264 = getelementptr inbounds nuw double, ptr %1252, i64 %indvars.iv.i13.i.i
+  %1264 = getelementptr inbounds nuw [8 x i8], ptr %1252, i64 %indvars.iv.i13.i.i
   %1265 = load double, ptr %1264, align 8
-  %1266 = getelementptr inbounds nuw double, ptr %1259, i64 %indvars.iv.i13.i.i
+  %1266 = getelementptr inbounds nuw [8 x i8], ptr %1259, i64 %indvars.iv.i13.i.i
   %1267 = load double, ptr %1266, align 8
   %1268 = fsub double %1265, %1267
   %1269 = call double @llvm.fabs.f64(double %1268)
@@ -6334,9 +6330,9 @@ _ZStneIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.preheader: ; preds = %20, %19
 28:                                               ; preds = %.lr.ph, %_ZStneIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZStneIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit ]
   %29 = load ptr, ptr %26, align 8
-  %30 = getelementptr inbounds nuw %"class.std::vector.6", ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %indvars.iv
   %31 = load ptr, ptr %27, align 8
-  %32 = getelementptr inbounds nuw %"class.std::vector.6", ptr %31, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [24 x i8], ptr %31, i64 %indvars.iv
   %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %34 = load ptr, ptr %33, align 8
   %35 = load ptr, ptr %30, align 8
@@ -6364,9 +6360,9 @@ _ZStneIiSaIiEEbRKSt6vectorIT_T0_ES6_.exit.preheader: ; preds = %20, %19
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %46
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %46 ], [ 0, %.preheader.i ]
-  %47 = getelementptr inbounds nuw double, ptr %35, i64 %indvars.iv.i
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv.i
   %48 = load double, ptr %47, align 8
-  %49 = getelementptr inbounds nuw double, ptr %42, i64 %indvars.iv.i
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv.i
   %50 = load double, ptr %49, align 8
   %51 = fsub double %48, %50
   %52 = tail call double @llvm.fabs.f64(double %51)

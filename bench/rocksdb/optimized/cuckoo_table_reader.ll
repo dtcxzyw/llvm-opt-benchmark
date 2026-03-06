@@ -2765,7 +2765,7 @@ _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i: ; preds = %36, %_ZNSt6vec
   store ptr %33, ptr %8, align 8, !tbaa !255
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 %31
   store ptr %37, ptr %28, align 8, !tbaa !256
-  %38 = getelementptr inbounds nuw i32, ptr %33, i64 %16
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %16
   store ptr %38, ptr %20, align 8, !tbaa !254
   br label %_ZNSt6vectorIjSaIjEE7reserveEm.exit
 
@@ -2952,7 +2952,7 @@ _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIP
   %.pre = phi ptr [ %.pre.pre, %120 ], [ %.pre16, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i ]
   store ptr %115, ptr %8, align 8, !tbaa !255
   store ptr %119, ptr %72, align 8, !tbaa !256
-  %121 = getelementptr inbounds nuw i32, ptr %115, i64 %113
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %115, i64 %113
   store ptr %121, ptr %20, align 8, !tbaa !254
   br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
 
@@ -3005,7 +3005,7 @@ define void @_ZN7rocksdb19CuckooTableIterator18PrepareKVAtCurrIdxEv(ptr noundef 
   %12 = load i32, ptr %11, align 8, !tbaa !245
   %13 = zext i32 %12 to i64
   %14 = load ptr, ptr %10, align 8, !tbaa !255
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %13
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %13
   %16 = load i32, ptr %15, align 4, !tbaa !150
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %18 = load ptr, ptr %17, align 8, !tbaa !230
@@ -3154,7 +3154,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEElEvRT_T0_.exit.
   %.013.i.i = phi i64 [ %18, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEElEvRT_T0_.exit.i.i ]
   %.sroa.011.012.i.i = phi ptr [ %12, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEElEvRT_T0_.exit.lr.ph.i.i ], [ %.sroa.011.1.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEElEvRT_T0_.exit.i.i ]
   %28 = lshr i64 %.013.i.i, 1
-  %29 = getelementptr inbounds nuw i32, ptr %.sroa.011.012.i.i, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.011.012.i.i, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !150
   %31 = icmp eq i32 %30, -1
   %32 = mul i32 %30, %9
@@ -3690,7 +3690,7 @@ _ZNK7rocksdb15MultiGetContext5Range5beginEv.exit: ; preds = %21, %5
 35:                                               ; preds = %.lr.ph, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit
   %.sroa.8.018 = phi i64 [ %storemerge.lcssa.i.i, %.lr.ph ], [ %.lcssa.i, %_ZN7rocksdb15MultiGetContext5Range8IteratorppEv.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %36 = getelementptr inbounds nuw ptr, ptr %26, i64 %.sroa.8.018
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %.sroa.8.018
   %37 = load ptr, ptr %36, align 8, !tbaa !287
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 48
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 160
@@ -5313,7 +5313,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
 
 26:                                               ; preds = %26, %23
   %.08.i.i.i = phi i64 [ %25, %23 ], [ %29, %26 ]
-  %27 = getelementptr inbounds i32, ptr %0, i64 %.08.i.i.i
+  %27 = getelementptr inbounds [4 x i8], ptr %0, i64 %.08.i.i.i
   %28 = load i32, ptr %27, align 4, !tbaa !150
   call void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEljNS0_5__ops15_Iter_comp_iterIN7rocksdb19CuckooTableIterator16BucketComparatorEEEEvT_T0_SE_T1_T2_(ptr %0, i64 noundef %.08.i.i.i, i64 noundef %21, i32 noundef %28, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %3)
   %.not.i.i.i = icmp eq i64 %.08.i.i.i, 0
@@ -5344,7 +5344,7 @@ _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__
   %.sroa.6.0.copyload = load i32, ptr %.sroa.6.0..sroa_idx, align 4
   %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 8
   %38 = lshr i64 %21, 1
-  %39 = getelementptr inbounds nuw i32, ptr %0, i64 %38
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %38
   %40 = getelementptr inbounds i8, ptr %storemerge19, i64 -4
   call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_comp_iterIN7rocksdb19CuckooTableIterator16BucketComparatorEEEEvT_SD_SD_SD_T0_(ptr %0, ptr nonnull %15, ptr %39, ptr nonnull %40, ptr noundef nonnull byval(%"struct.__gnu_cxx::__ops::_Iter_comp_iter") align 8 %3)
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.434.0.copyload, i64 32
@@ -5575,9 +5575,9 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPjS
   %.044 = phi i64 [ %1, %.lr.ph ], [ %spec.select, %26 ]
   %27 = shl i64 %.044, 1
   %28 = add i64 %27, 2
-  %29 = getelementptr inbounds i32, ptr %0, i64 %28
+  %29 = getelementptr inbounds [4 x i8], ptr %0, i64 %28
   %30 = or disjoint i64 %27, 1
-  %31 = getelementptr inbounds i32, ptr %0, i64 %30
+  %31 = getelementptr inbounds [4 x i8], ptr %0, i64 %30
   %32 = load i32, ptr %29, align 4, !tbaa !150
   %33 = load i32, ptr %31, align 4, !tbaa !150
   %34 = icmp eq i32 %32, -1
@@ -5604,9 +5604,9 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPjS
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %spec.select = select i1 %48, i64 %30, i64 %28
-  %49 = getelementptr inbounds i32, ptr %0, i64 %spec.select
+  %49 = getelementptr inbounds [4 x i8], ptr %0, i64 %spec.select
   %50 = load i32, ptr %49, align 4, !tbaa !150
-  %51 = getelementptr inbounds i32, ptr %0, i64 %.044
+  %51 = getelementptr inbounds [4 x i8], ptr %0, i64 %.044
   store i32 %50, ptr %51, align 4, !tbaa !150
   %52 = icmp slt i64 %spec.select, %11
   br i1 %52, label %26, label %._crit_edge, !llvm.loop !362
@@ -5626,9 +5626,9 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPjS
 59:                                               ; preds = %55
   %60 = shl nsw i64 %.0.lcssa, 1
   %61 = or disjoint i64 %60, 1
-  %62 = getelementptr inbounds i32, ptr %0, i64 %61
+  %62 = getelementptr inbounds [4 x i8], ptr %0, i64 %61
   %63 = load i32, ptr %62, align 4, !tbaa !150
-  %64 = getelementptr inbounds i32, ptr %0, i64 %.0.lcssa
+  %64 = getelementptr inbounds [4 x i8], ptr %0, i64 %.0.lcssa
   store i32 %63, ptr %64, align 4, !tbaa !150
   br label %65
 
@@ -5670,7 +5670,7 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPjS
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.split.us.i.preheader, %89
   %.0920.us.i = phi i64 [ %.09.us.i, %89 ], [ %.0918.i, %.lr.ph.split.us.i.preheader ]
   %.019.us.i = phi i64 [ %.0920.us.i, %89 ], [ %.1, %.lr.ph.split.us.i.preheader ]
-  %77 = getelementptr inbounds i32, ptr %0, i64 %.0920.us.i
+  %77 = getelementptr inbounds [4 x i8], ptr %0, i64 %.0920.us.i
   %78 = load i32, ptr %77, align 4, !tbaa !150
   %79 = icmp eq i32 %78, -1
   %80 = mul i32 %78, %.sroa.7.0.copyload
@@ -5694,7 +5694,7 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPjS
 
 89:                                               ; preds = %.lr.ph.split.us.i
   %90 = load i32, ptr %77, align 4, !tbaa !150
-  %91 = getelementptr inbounds i32, ptr %0, i64 %.019.us.i
+  %91 = getelementptr inbounds [4 x i8], ptr %0, i64 %.019.us.i
   store i32 %90, ptr %91, align 4, !tbaa !150
   %.09.in.us.i = add nsw i64 %.0920.us.i, -1
   %.09.us.i = sdiv i64 %.09.in.us.i, 2
@@ -5704,7 +5704,7 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPjS
 .lr.ph.split.i:                                   ; preds = %.lr.ph.split.i.preheader, %105
   %.0920.i = phi i64 [ %.09.i, %105 ], [ %.0918.i, %.lr.ph.split.i.preheader ]
   %.019.i = phi i64 [ %.0920.i, %105 ], [ %.1, %.lr.ph.split.i.preheader ]
-  %93 = getelementptr inbounds i32, ptr %0, i64 %.0920.i
+  %93 = getelementptr inbounds [4 x i8], ptr %0, i64 %.0920.i
   %94 = load i32, ptr %93, align 4, !tbaa !150
   %95 = icmp eq i32 %94, -1
   %96 = mul i32 %94, %.sroa.7.0.copyload
@@ -5728,7 +5728,7 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPjS
 
 105:                                              ; preds = %.lr.ph.split.i
   %106 = load i32, ptr %93, align 4, !tbaa !150
-  %107 = getelementptr inbounds i32, ptr %0, i64 %.019.i
+  %107 = getelementptr inbounds [4 x i8], ptr %0, i64 %.019.i
   store i32 %106, ptr %107, align 4, !tbaa !150
   %.09.in.i = add nsw i64 %.0920.i, -1
   %.09.i = sdiv i64 %.09.in.i, 2
@@ -5737,7 +5737,7 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPjS
 
 _ZSt11__push_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEljNS0_5__ops14_Iter_comp_valIN7rocksdb19CuckooTableIterator16BucketComparatorEEEEvT_T0_SE_T1_RT2_.exit: ; preds = %.lr.ph.split.i, %105, %.lr.ph.split.us.i, %89, %65
   %.0.lcssa.i = phi i64 [ %.1, %65 ], [ %.0920.us.i, %89 ], [ %.019.us.i, %.lr.ph.split.us.i ], [ %.019.i, %.lr.ph.split.i ], [ %.0920.i, %105 ]
-  %109 = getelementptr inbounds i32, ptr %0, i64 %.0.lcssa.i
+  %109 = getelementptr inbounds [4 x i8], ptr %0, i64 %.0.lcssa.i
   store i32 %3, ptr %109, align 4, !tbaa !150
   ret void
 }
@@ -6025,7 +6025,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES6_ET0_T
   %46 = sub i64 %45, %17
   %47 = ashr exact i64 %46, 2
   %48 = sub nsw i64 0, %47
-  %49 = getelementptr inbounds i32, ptr %44, i64 %48
+  %49 = getelementptr inbounds [4 x i8], ptr %44, i64 %48
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %49, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %46, i1 false)
   br label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops14_Val_comp_iterIN7rocksdb19CuckooTableIterator16BucketComparatorEEEEvT_T0_.exit
 

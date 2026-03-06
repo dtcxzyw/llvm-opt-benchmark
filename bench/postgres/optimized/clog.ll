@@ -4,18 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.SlruCtlData = type { ptr, i16, i8, i32, ptr, [64 x i8] }
-%struct.PGPROC = type { %struct.dlist_node, ptr, ptr, i32, %struct.Latch, i32, i32, i32, i32, %struct.anon, i32, i32, i32, i8, i8, i8, i8, %struct.proclist_node, %struct.proclist_node, ptr, ptr, i32, i32, %struct.pg_atomic_uint64, i32, i8, i64, i32, %struct.dlist_node, [16 x %struct.dlist_head], %struct.XidCacheStatus, %struct.XidCache, i8, %struct.pg_atomic_uint32, i32, i32, i8, %struct.pg_atomic_uint32, i32, i32, i64, i64, %struct.LWLock, ptr, ptr, i8, i32, ptr, %struct.dlist_head, %struct.dlist_node }
-%struct.Latch = type { i32, i32, i8, i32 }
-%struct.anon = type { i32, i32 }
-%struct.proclist_node = type { i32, i32 }
-%struct.pg_atomic_uint64 = type { i64 }
-%struct.XidCacheStatus = type { i8, i8 }
-%struct.XidCache = type { [64 x i32] }
-%struct.pg_atomic_uint32 = type { i32 }
-%struct.LWLock = type { i16, %struct.pg_atomic_uint32, %struct.proclist_head }
-%struct.proclist_head = type { i32, i32 }
-%struct.dlist_head = type { %struct.dlist_node }
-%struct.dlist_node = type { ptr, ptr }
 %struct.xl_clog_truncate = type { i64, i32, i32 }
 
 @XactCtlData = internal global %struct.SlruCtlData zeroinitializer, align 8
@@ -44,7 +32,7 @@ define dso_local void @TransactionIdSetTreeStatus(i32 noundef %0, i32 noundef %1
 .lr.ph:                                           ; preds = %5, %13
   %.070 = phi i32 [ %14, %13 ], [ 0, %5 ]
   %9 = zext nneg i32 %.070 to i64
-  %10 = getelementptr inbounds nuw i32, ptr %2, i64 %9
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = lshr i32 %11, 15
   %.not = icmp eq i32 %12, %6
@@ -83,7 +71,7 @@ define dso_local void @TransactionIdSetTreeStatus(i32 noundef %0, i32 noundef %1
   tail call void @LWLockRelease(ptr noundef %25) #8
   %27 = sub i32 %1, %.0.lcssa
   %28 = zext nneg i32 %.0.lcssa to i64
-  %29 = getelementptr inbounds nuw i32, ptr %2, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %28
   %30 = icmp sgt i32 %27, 0
   br i1 %30, label %.preheader.preheader.i, label %set_status_by_pages.exit
 
@@ -105,7 +93,7 @@ define dso_local void @TransactionIdSetTreeStatus(i32 noundef %0, i32 noundef %1
   %.120.i = phi i32 [ %44, %42 ], [ %.01925.i, %.preheader.i ]
   %.018.i = phi i32 [ %43, %42 ], [ 0, %.preheader.i ]
   %37 = sext i32 %.120.i to i64
-  %38 = getelementptr inbounds i32, ptr %29, i64 %37
+  %38 = getelementptr inbounds [4 x i8], ptr %29, i64 %37
   %39 = load i32, ptr %38, align 4
   %40 = lshr i32 %39, 15
   %41 = zext nneg i32 %40 to i64
@@ -123,7 +111,7 @@ define dso_local void @TransactionIdSetTreeStatus(i32 noundef %0, i32 noundef %1
   %.2.i = phi i32 [ %.120.i, %36 ], [ %smax.i, %42 ]
   %.1.i = phi i32 [ %.018.i, %36 ], [ %35, %42 ]
   %46 = sext i32 %.01925.i to i64
-  %47 = getelementptr inbounds i32, ptr %29, i64 %46
+  %47 = getelementptr inbounds [4 x i8], ptr %29, i64 %46
   %48 = load i16, ptr getelementptr inbounds nuw (i8, ptr @XactCtlData, i64 8), align 8
   %.lhs.trunc.i.i = trunc nuw nsw i64 %.026.i to i32
   %.rhs.trunc.i.i = zext i16 %48 to i32
@@ -143,7 +131,7 @@ define dso_local void @TransactionIdSetTreeStatus(i32 noundef %0, i32 noundef %1
 .split35:                                         ; preds = %16
   %58 = sub i32 %1, %.0.lcssa
   %59 = zext nneg i32 %.0.lcssa to i64
-  %60 = getelementptr inbounds nuw i32, ptr %2, i64 %59
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %59
   %61 = icmp sgt i32 %58, 0
   br i1 %61, label %.preheader.preheader.i38, label %set_status_by_pages.exit52
 
@@ -165,7 +153,7 @@ define dso_local void @TransactionIdSetTreeStatus(i32 noundef %0, i32 noundef %1
   %.120.i43 = phi i32 [ %75, %73 ], [ %.01925.i41, %.preheader.i39 ]
   %.018.i44 = phi i32 [ %74, %73 ], [ 0, %.preheader.i39 ]
   %68 = sext i32 %.120.i43 to i64
-  %69 = getelementptr inbounds i32, ptr %60, i64 %68
+  %69 = getelementptr inbounds [4 x i8], ptr %60, i64 %68
   %70 = load i32, ptr %69, align 4
   %71 = lshr i32 %70, 15
   %72 = zext nneg i32 %71 to i64
@@ -183,7 +171,7 @@ define dso_local void @TransactionIdSetTreeStatus(i32 noundef %0, i32 noundef %1
   %.2.i47 = phi i32 [ %.120.i43, %67 ], [ %smax.i42, %73 ]
   %.1.i48 = phi i32 [ %.018.i44, %67 ], [ %66, %73 ]
   %77 = sext i32 %.01925.i41 to i64
-  %78 = getelementptr inbounds i32, ptr %60, i64 %77
+  %78 = getelementptr inbounds [4 x i8], ptr %60, i64 %77
   %79 = load i16, ptr getelementptr inbounds nuw (i8, ptr @XactCtlData, i64 8), align 8
   %.lhs.trunc.i.i49 = trunc nuw nsw i64 %.026.i40 to i32
   %.rhs.trunc.i.i50 = zext i16 %79 to i32
@@ -233,7 +221,7 @@ set_status_by_pages.exit52:                       ; preds = %76, %.split35
   %.120.i59 = phi i32 [ %111, %109 ], [ %.01925.i57, %.preheader.i55 ]
   %.018.i60 = phi i32 [ %110, %109 ], [ 0, %.preheader.i55 ]
   %104 = sext i32 %.120.i59 to i64
-  %105 = getelementptr inbounds i32, ptr %60, i64 %104
+  %105 = getelementptr inbounds [4 x i8], ptr %60, i64 %104
   %106 = load i32, ptr %105, align 4
   %107 = lshr i32 %106, 15
   %108 = zext nneg i32 %107 to i64
@@ -251,7 +239,7 @@ set_status_by_pages.exit52:                       ; preds = %76, %.split35
   %.2.i63 = phi i32 [ %.120.i59, %103 ], [ %smax.i58, %109 ]
   %.1.i64 = phi i32 [ %.018.i60, %103 ], [ %102, %109 ]
   %113 = sext i32 %.01925.i57 to i64
-  %114 = getelementptr inbounds i32, ptr %60, i64 %113
+  %114 = getelementptr inbounds [4 x i8], ptr %60, i64 %113
   %115 = load i16, ptr getelementptr inbounds nuw (i8, ptr @XactCtlData, i64 8), align 8
   %.lhs.trunc.i.i65 = trunc nuw nsw i64 %.026.i56 to i32
   %.rhs.trunc.i.i66 = zext i16 %115 to i32
@@ -345,7 +333,7 @@ define internal fastcc void @TransactionIdSetPageStatus(i32 noundef %0, i32 noun
   %49 = load ptr, ptr @ProcGlobal, align 8
   %50 = load ptr, ptr %49, align 8
   %51 = zext i32 %.072.i to i64
-  %52 = getelementptr inbounds nuw %struct.PGPROC, ptr %50, i64 %51
+  %52 = getelementptr inbounds nuw [832 x i8], ptr %50, i64 %51
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 736
   %54 = load i64, ptr %53, align 8
   %55 = load i64, ptr %42, align 8
@@ -416,7 +404,7 @@ define internal fastcc void @TransactionIdSetPageStatus(i32 noundef %0, i32 noun
   %88 = load ptr, ptr @ProcGlobal, align 8
   %89 = load ptr, ptr %88, align 8
   %90 = zext i32 %storemerge78.i to i64
-  %91 = getelementptr inbounds nuw %struct.PGPROC, ptr %89, i64 %90
+  %91 = getelementptr inbounds nuw [832 x i8], ptr %89, i64 %90
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 736
   %93 = load i64, ptr %92, align 8
   %.not67.i = icmp eq i64 %93, %.05180.i
@@ -477,7 +465,7 @@ define internal fastcc void @TransactionIdSetPageStatus(i32 noundef %0, i32 noun
   %121 = load ptr, ptr @ProcGlobal, align 8
   %122 = load ptr, ptr %121, align 8
   %123 = zext i32 %.05083.i to i64
-  %124 = getelementptr inbounds nuw %struct.PGPROC, ptr %122, i64 %123
+  %124 = getelementptr inbounds nuw [832 x i8], ptr %122, i64 %123
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 720
   %126 = load volatile i32, ptr %125, align 4
   store volatile i32 -1, ptr %125, align 4
@@ -529,7 +517,7 @@ define dso_local range(i32 0, 4) i32 @TransactionIdGetStatus(i32 noundef %0, ptr
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = sext i32 %9 to i64
-  %14 = getelementptr inbounds ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = zext nneg i32 %6 to i64
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 %16
@@ -543,7 +531,7 @@ define dso_local range(i32 0, 4) i32 @TransactionIdGetStatus(i32 noundef %0, ptr
   %25 = getelementptr inbounds nuw i8, ptr %10, i64 72
   %26 = load ptr, ptr %25, align 8
   %27 = sext i32 %24 to i64
-  %28 = getelementptr inbounds i64, ptr %26, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %26, i64 %27
   %29 = load i64, ptr %28, align 8
   store i64 %29, ptr %1, align 8
   %30 = load i16, ptr getelementptr inbounds nuw (i8, ptr @XactCtlData, i64 8), align 8
@@ -731,7 +719,7 @@ define dso_local void @TrimCLOG() local_unnamed_addr #0 {
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = sext i32 %21 to i64
-  %26 = getelementptr inbounds ptr, ptr %24, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %24, i64 %25
   %27 = load ptr, ptr %26, align 8
   %28 = ptrtoint ptr %27 to i64
   %29 = zext nneg i32 %18 to i64
@@ -986,7 +974,7 @@ define internal fastcc void @TransactionIdSetPageStatusInternal(i32 noundef %0, 
   %14 = phi i8 [ %.pre62, %.lr.ph.split.us.preheader ], [ %38, %TransactionIdSetStatusBit.exit33.us ]
   %15 = phi ptr [ %.pre60, %.lr.ph.split.us.preheader ], [ %39, %TransactionIdSetStatusBit.exit33.us ]
   %indvars.iv43 = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next44, %TransactionIdSetStatusBit.exit33.us ]
-  %16 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv43
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv43
   %17 = load i32, ptr %16, align 4
   %18 = lshr i32 %17, 2
   %19 = and i32 %18, 8191
@@ -994,7 +982,7 @@ define internal fastcc void @TransactionIdSetPageStatusInternal(i32 noundef %0, 
   %21 = and i32 %20, 6
   %22 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %23 = load ptr, ptr %22, align 8
-  %24 = getelementptr inbounds ptr, ptr %23, i64 %12
+  %24 = getelementptr inbounds [8 x i8], ptr %23, i64 %12
   %25 = load ptr, ptr %24, align 8
   %26 = zext nneg i32 %19 to i64
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 %26
@@ -1032,7 +1020,7 @@ TransactionIdSetStatusBit.exit33.us:              ; preds = %34, %.lr.ph.split.u
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load ptr, ptr %45, align 8
   %47 = sext i32 %8 to i64
-  %48 = getelementptr inbounds ptr, ptr %46, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %46, i64 %47
   %49 = load ptr, ptr %48, align 8
   %50 = zext nneg i32 %41 to i64
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 %50
@@ -1067,7 +1055,7 @@ TransactionIdSetStatusBit.exit33.us:              ; preds = %34, %.lr.ph.split.u
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 72
   %74 = load ptr, ptr %73, align 8
   %75 = sext i32 %71 to i64
-  %76 = getelementptr inbounds i64, ptr %74, i64 %75
+  %76 = getelementptr inbounds [8 x i8], ptr %74, i64 %75
   %77 = load i64, ptr %76, align 8
   %78 = icmp ult i64 %77, %4
   br i1 %78, label %79, label %TransactionIdSetStatusBit.exit
@@ -1085,7 +1073,7 @@ TransactionIdSetStatusBit.exit33.us:              ; preds = %34, %.lr.ph.split.u
   %84 = and i32 %83, 6
   %85 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds ptr, ptr %86, i64 %.pre-phi
+  %87 = getelementptr inbounds [8 x i8], ptr %86, i64 %.pre-phi
   %88 = load ptr, ptr %87, align 8
   %89 = zext nneg i32 %82 to i64
   %90 = getelementptr inbounds nuw i8, ptr %88, i64 %89
@@ -1108,7 +1096,7 @@ TransactionIdSetStatusBit.exit33.us:              ; preds = %34, %.lr.ph.split.u
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 72
   %105 = load ptr, ptr %104, align 8
   %106 = sext i32 %102 to i64
-  %107 = getelementptr inbounds i64, ptr %105, i64 %106
+  %107 = getelementptr inbounds [8 x i8], ptr %105, i64 %106
   %108 = load i64, ptr %107, align 8
   %109 = icmp ult i64 %108, %4
   br i1 %109, label %110, label %TransactionIdSetStatusBit.exit
@@ -1120,7 +1108,7 @@ TransactionIdSetStatusBit.exit33.us:              ; preds = %34, %.lr.ph.split.u
 .lr.ph.split:                                     ; preds = %.lr.ph, %TransactionIdSetStatusBit.exit33
   %111 = phi ptr [ %145, %TransactionIdSetStatusBit.exit33 ], [ %.pre60, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %TransactionIdSetStatusBit.exit33 ], [ 0, %.lr.ph ]
-  %112 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %113 = load i32, ptr %112, align 4
   %114 = and i32 %113, 32767
   %115 = lshr i32 %114, 2
@@ -1128,7 +1116,7 @@ TransactionIdSetStatusBit.exit33.us:              ; preds = %34, %.lr.ph.split.u
   %117 = and i32 %116, 6
   %118 = getelementptr inbounds nuw i8, ptr %111, i64 8
   %119 = load ptr, ptr %118, align 8
-  %120 = getelementptr inbounds ptr, ptr %119, i64 %12
+  %120 = getelementptr inbounds [8 x i8], ptr %119, i64 %12
   %121 = load ptr, ptr %120, align 8
   %122 = zext nneg i32 %115 to i64
   %123 = getelementptr inbounds nuw i8, ptr %121, i64 %122
@@ -1153,7 +1141,7 @@ TransactionIdSetStatusBit.exit33.us:              ; preds = %34, %.lr.ph.split.u
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 72
   %139 = load ptr, ptr %138, align 8
   %140 = sext i32 %136 to i64
-  %141 = getelementptr inbounds i64, ptr %139, i64 %140
+  %141 = getelementptr inbounds [8 x i8], ptr %139, i64 %140
   %142 = load i64, ptr %141, align 8
   %143 = icmp ult i64 %142, %4
   br i1 %143, label %144, label %TransactionIdSetStatusBit.exit33
@@ -1194,7 +1182,7 @@ TransactionIdSetStatusBit.exit.._crit_edge_crit_edge: ; preds = %TransactionIdSe
   %150 = phi i8 [ %.pre70, %.lr.ph39.split.us.preheader ], [ %178, %TransactionIdSetStatusBit.exit36.us ]
   %151 = phi ptr [ %.pre68, %.lr.ph39.split.us.preheader ], [ %179, %TransactionIdSetStatusBit.exit36.us ]
   %indvars.iv53 = phi i64 [ 0, %.lr.ph39.split.us.preheader ], [ %indvars.iv.next54, %TransactionIdSetStatusBit.exit36.us ]
-  %152 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv53
+  %152 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv53
   %153 = load i32, ptr %152, align 4
   %154 = lshr i32 %153, 2
   %155 = and i32 %154, 8191
@@ -1202,7 +1190,7 @@ TransactionIdSetStatusBit.exit.._crit_edge_crit_edge: ; preds = %TransactionIdSe
   %157 = and i32 %156, 6
   %158 = getelementptr inbounds nuw i8, ptr %151, i64 8
   %159 = load ptr, ptr %158, align 8
-  %160 = getelementptr inbounds ptr, ptr %159, i64 %147
+  %160 = getelementptr inbounds [8 x i8], ptr %159, i64 %147
   %161 = load ptr, ptr %160, align 8
   %162 = zext nneg i32 %155 to i64
   %163 = getelementptr inbounds nuw i8, ptr %161, i64 %162
@@ -1239,7 +1227,7 @@ TransactionIdSetStatusBit.exit36.us:              ; preds = %170, %.lr.ph39.spli
 .lr.ph39.split:                                   ; preds = %.lr.ph39, %TransactionIdSetStatusBit.exit36
   %180 = phi ptr [ %218, %TransactionIdSetStatusBit.exit36 ], [ %.pre68, %.lr.ph39 ]
   %indvars.iv48 = phi i64 [ %indvars.iv.next49, %TransactionIdSetStatusBit.exit36 ], [ 0, %.lr.ph39 ]
-  %181 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv48
+  %181 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv48
   %182 = load i32, ptr %181, align 4
   %183 = and i32 %182, 32767
   %184 = lshr i32 %183, 2
@@ -1247,7 +1235,7 @@ TransactionIdSetStatusBit.exit36.us:              ; preds = %170, %.lr.ph39.spli
   %186 = and i32 %185, 6
   %187 = getelementptr inbounds nuw i8, ptr %180, i64 8
   %188 = load ptr, ptr %187, align 8
-  %189 = getelementptr inbounds ptr, ptr %188, i64 %147
+  %189 = getelementptr inbounds [8 x i8], ptr %188, i64 %147
   %190 = load ptr, ptr %189, align 8
   %191 = zext nneg i32 %184 to i64
   %192 = getelementptr inbounds nuw i8, ptr %190, i64 %191
@@ -1277,7 +1265,7 @@ TransactionIdSetStatusBit.exit36.us:              ; preds = %170, %.lr.ph39.spli
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 72
   %212 = load ptr, ptr %211, align 8
   %213 = sext i32 %209 to i64
-  %214 = getelementptr inbounds i64, ptr %212, i64 %213
+  %214 = getelementptr inbounds [8 x i8], ptr %212, i64 %213
   %215 = load i64, ptr %214, align 8
   %216 = icmp ult i64 %215, %4
   br i1 %216, label %217, label %TransactionIdSetStatusBit.exit36

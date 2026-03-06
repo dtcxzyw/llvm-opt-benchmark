@@ -152,13 +152,13 @@ define internal noundef i32 @filter_channels(ptr noundef %0, ptr noundef readonl
   %indvars.iv = phi i64 [ %23, %.lr.ph ], [ %indvars.iv.next, %24 ]
   %25 = load i32, ptr %19, align 8, !tbaa !50
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds ptr, ptr %18, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %18, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !51
   %29 = load ptr, ptr %20, align 8, !tbaa !52
-  %30 = getelementptr inbounds ptr, ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds [8 x i8], ptr %29, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8, !tbaa !53
   %32 = load ptr, ptr %21, align 8, !tbaa !52
-  %33 = getelementptr inbounds ptr, ptr %32, i64 %indvars.iv
+  %33 = getelementptr inbounds [8 x i8], ptr %32, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8, !tbaa !53
   %35 = load i32, ptr %22, align 8, !tbaa !34
   tail call void %28(ptr noundef nonnull %0, ptr noundef %31, ptr noundef %34, i32 noundef %35) #8
@@ -228,10 +228,10 @@ define internal void @dc_denorm_fltp(ptr noundef readonly captures(none) %0, ptr
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %11 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %12 = load float, ptr %11, align 4, !tbaa !58
   %13 = fadd nsz float %12, %9
-  %14 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   store float %13, ptr %14, align 4, !tbaa !58
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -259,14 +259,14 @@ define internal void @ac_denorm_fltp(ptr noundef readonly captures(none) %0, ptr
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %13 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %14 = load float, ptr %13, align 4, !tbaa !58
   %15 = add nsw i64 %11, %indvars.iv
   %16 = and i64 %15, 1
   %.not = icmp eq i64 %16, 0
   %17 = select nsz i1 %.not, float 1.000000e+00, float -1.000000e+00
   %18 = tail call nsz float @llvm.fmuladd.f32(float %9, float %17, float %14)
-  %19 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   store float %18, ptr %19, align 4, !tbaa !58
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -294,14 +294,14 @@ define internal void @sq_denorm_fltp(ptr noundef readonly captures(none) %0, ptr
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %13 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %14 = load float, ptr %13, align 4, !tbaa !58
   %15 = add nsw i64 %11, %indvars.iv
   %16 = and i64 %15, 256
   %.not = icmp eq i64 %16, 0
   %17 = select nsz i1 %.not, float 1.000000e+00, float -1.000000e+00
   %18 = tail call nsz float @llvm.fmuladd.f32(float %9, float %17, float %14)
-  %19 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   store float %18, ptr %19, align 4, !tbaa !58
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -329,14 +329,14 @@ define internal void @ps_denorm_fltp(ptr noundef readonly captures(none) %0, ptr
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %13 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %14 = load float, ptr %13, align 4, !tbaa !58
   %15 = add nsw i64 %11, %indvars.iv
   %16 = and i64 %15, 255
   %.not = icmp eq i64 %16, 0
   %17 = select nsz i1 %.not, float 1.000000e+00, float 0.000000e+00
   %18 = tail call nsz float @llvm.fmuladd.f32(float %9, float %17, float %14)
-  %19 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   store float %18, ptr %19, align 4, !tbaa !58
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -361,10 +361,10 @@ define internal void @dc_denorm_dblp(ptr noundef readonly captures(none) %0, ptr
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %10 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %11 = load double, ptr %10, align 8, !tbaa !64
   %12 = fadd nsz double %8, %11
-  %13 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store double %12, ptr %13, align 8, !tbaa !64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -391,14 +391,14 @@ define internal void @ac_denorm_dblp(ptr noundef readonly captures(none) %0, ptr
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %12 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %13 = load double, ptr %12, align 8, !tbaa !64
   %14 = add nsw i64 %10, %indvars.iv
   %15 = and i64 %14, 1
   %.not = icmp eq i64 %15, 0
   %16 = select nsz i1 %.not, double 1.000000e+00, double -1.000000e+00
   %17 = tail call nsz double @llvm.fmuladd.f64(double %8, double %16, double %13)
-  %18 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store double %17, ptr %18, align 8, !tbaa !64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -425,14 +425,14 @@ define internal void @sq_denorm_dblp(ptr noundef readonly captures(none) %0, ptr
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %12 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %13 = load double, ptr %12, align 8, !tbaa !64
   %14 = add nsw i64 %10, %indvars.iv
   %15 = and i64 %14, 256
   %.not = icmp eq i64 %15, 0
   %16 = select nsz i1 %.not, double 1.000000e+00, double -1.000000e+00
   %17 = tail call nsz double @llvm.fmuladd.f64(double %8, double %16, double %13)
-  %18 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store double %17, ptr %18, align 8, !tbaa !64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -459,14 +459,14 @@ define internal void @ps_denorm_dblp(ptr noundef readonly captures(none) %0, ptr
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %12 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %13 = load double, ptr %12, align 8, !tbaa !64
   %14 = add nsw i64 %10, %indvars.iv
   %15 = and i64 %14, 255
   %.not = icmp eq i64 %15, 0
   %16 = select nsz i1 %.not, double 1.000000e+00, double 0.000000e+00
   %17 = tail call nsz double @llvm.fmuladd.f64(double %8, double %16, double %13)
-  %18 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store double %17, ptr %18, align 8, !tbaa !64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

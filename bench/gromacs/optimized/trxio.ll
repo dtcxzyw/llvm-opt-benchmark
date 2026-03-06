@@ -885,11 +885,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %35, %
 
 63:                                               ; preds = %.lr.ph160, %63
   %indvars.iv167 = phi i64 [ 0, %.lr.ph160 ], [ %indvars.iv.next168, %63 ]
-  %64 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv167
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv167
   %65 = load i32, ptr %64, align 4, !tbaa !17
   %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds [3 x float], ptr %62, i64 %66
-  %68 = getelementptr inbounds nuw [3 x float], ptr %59, i64 %indvars.iv167
+  %67 = getelementptr inbounds [12 x i8], ptr %62, i64 %66
+  %68 = getelementptr inbounds nuw [12 x i8], ptr %59, i64 %indvars.iv167
   %69 = load float, ptr %67, align 4, !tbaa !66
   store float %69, ptr %68, align 4, !tbaa !66
   %70 = getelementptr inbounds nuw i8, ptr %67, i64 4
@@ -925,11 +925,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %35, %
 
 85:                                               ; preds = %.lr.ph162, %85
   %indvars.iv172 = phi i64 [ 0, %.lr.ph162 ], [ %indvars.iv.next173, %85 ]
-  %86 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv172
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv172
   %87 = load i32, ptr %86, align 4, !tbaa !17
   %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds [3 x float], ptr %84, i64 %88
-  %90 = getelementptr inbounds nuw [3 x float], ptr %81, i64 %indvars.iv172
+  %89 = getelementptr inbounds [12 x i8], ptr %84, i64 %88
+  %90 = getelementptr inbounds nuw [12 x i8], ptr %81, i64 %indvars.iv172
   %91 = load float, ptr %89, align 4, !tbaa !66
   store float %91, ptr %90, align 4, !tbaa !66
   %92 = getelementptr inbounds nuw i8, ptr %89, i64 4
@@ -965,11 +965,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %35, %
 
 107:                                              ; preds = %.lr.ph164, %107
   %indvars.iv177 = phi i64 [ 0, %.lr.ph164 ], [ %indvars.iv.next178, %107 ]
-  %108 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv177
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv177
   %109 = load i32, ptr %108, align 4, !tbaa !17
   %110 = sext i32 %109 to i64
-  %111 = getelementptr inbounds [3 x float], ptr %106, i64 %110
-  %112 = getelementptr inbounds nuw [3 x float], ptr %103, i64 %indvars.iv177
+  %111 = getelementptr inbounds [12 x i8], ptr %106, i64 %110
+  %112 = getelementptr inbounds nuw [12 x i8], ptr %103, i64 %indvars.iv177
   %113 = load float, ptr %111, align 4, !tbaa !66
   store float %113, ptr %112, align 4, !tbaa !66
   %114 = getelementptr inbounds nuw i8, ptr %111, i64 4
@@ -998,11 +998,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %35, %
 
 126:                                              ; preds = %.lr.ph, %126
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %126 ]
-  %127 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %128 = load i32, ptr %127, align 4, !tbaa !17
   %129 = sext i32 %128 to i64
-  %130 = getelementptr inbounds [3 x float], ptr %125, i64 %129
-  %131 = getelementptr inbounds nuw [3 x float], ptr %122, i64 %indvars.iv
+  %130 = getelementptr inbounds [12 x i8], ptr %125, i64 %129
+  %131 = getelementptr inbounds nuw [12 x i8], ptr %122, i64 %indvars.iv
   %132 = load float, ptr %130, align 4, !tbaa !66
   store float %132, ptr %131, align 4, !tbaa !66
   %133 = getelementptr inbounds nuw i8, ptr %130, i64 4

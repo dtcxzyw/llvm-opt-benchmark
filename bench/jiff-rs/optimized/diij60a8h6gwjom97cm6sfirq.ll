@@ -381,11 +381,11 @@ switch.lookup:                                    ; preds = %21
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !8
   %.sroa.01.0.extract.trunc.i.i.mask = and i48 %2, 7
   %24 = zext nneg i48 %.sroa.01.0.extract.trunc.i.i.mask to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4jiff5civil4date4Date5until17h150c9b7fd7179a09E, i64 %24
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4jiff5civil4date4Date5until17h150c9b7fd7179a09E, i64 %24
   %switch.load = load i64, ptr %switch.gep, align 8
   %.sroa.01.0.extract.trunc.i.i.mask60 = and i48 %2, 7
   %25 = zext nneg i48 %.sroa.01.0.extract.trunc.i.i.mask60 to i64
-  %switch.gep58 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4jiff5civil4date4Date5until17h150c9b7fd7179a09E.65, i64 %25
+  %switch.gep58 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4jiff5civil4date4Date5until17h150c9b7fd7179a09E.65, i64 %25
   %switch.load59 = load ptr, ptr %switch.gep58, align 8
   store ptr %switch.load59, ptr %13, align 8, !noalias !8
   %26 = getelementptr inbounds nuw i8, ptr %13, i64 8
@@ -9304,7 +9304,7 @@ define hidden noundef range(i128 -9223372036854775808, 9223372036854775808) i128
 
 switch.lookup:                                    ; preds = %1
   %11 = zext nneg i8 %0 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4jiff4span9SpanTotal15total_invariant17h32000b437063b0c0E, i64 %11
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4jiff4span9SpanTotal15total_invariant17h32000b437063b0c0E, i64 %11
   %switch.load = load i64, ptr %switch.gep, align 8
   %12 = tail call noundef i64 @_ZN4jiff4util1t8Constant5value17h092493ee115b2c3bE(i64 noundef %switch.load)
   %13 = sext i64 %12 to i128
@@ -9316,10 +9316,10 @@ define { ptr, i64 } @_ZN4jiff4span4Unit8singular17hdd311d87c672bf13E(ptr noalias
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !165, !noundef !4
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN53_$LT$jiff..span..Unit$u20$as$u20$core..fmt..Debug$GT$3fmt17h1c7b59bbf72c3a1dE", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN53_$LT$jiff..span..Unit$u20$as$u20$core..fmt..Debug$GT$3fmt17h1c7b59bbf72c3a1dE", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4jiff4span4Unit8singular17hdd311d87c672bf13E.66, i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4jiff4span4Unit8singular17hdd311d87c672bf13E.66, i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -9331,10 +9331,10 @@ define { ptr, i64 } @_ZN4jiff4span4Unit6plural17hd4905d9a5070dfccE(ptr noalias n
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !165, !noundef !4
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4jiff4span19clamp_relative_span17h32f0656fb6a0f22bE, i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4jiff4span19clamp_relative_span17h32f0656fb6a0f22bE, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4jiff4span19clamp_relative_span17h32f0656fb6a0f22bE.82, i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4jiff4span19clamp_relative_span17h32f0656fb6a0f22bE.82, i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -10800,7 +10800,7 @@ switch.lookup:                                    ; preds = %1
   %26 = load i32, ptr %25, align 4, !alias.scope !666, !noundef !4
   %27 = tail call noundef i64 @_ZN4jiff4util1t8Constant5value17h092493ee115b2c3bE(i64 noundef 604800000000000), !noalias !666
   %28 = zext nneg i8 %.16.val to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4jiff4span9SpanTotal15total_invariant17h32000b437063b0c0E, i64 %28
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4jiff4span9SpanTotal15total_invariant17h32000b437063b0c0E, i64 %28
   %switch.load = load i64, ptr %switch.gep, align 8
   %29 = sext i8 %7 to i64
   %30 = mul i64 %9, %29
@@ -10969,10 +10969,10 @@ switch.lookup:                                    ; preds = %81
   call void @llvm.lifetime.start.p0(ptr nonnull %56)
   call void @llvm.lifetime.start.p0(ptr nonnull %55)
   %87 = zext nneg i8 %storemerge to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4jiff4span9SpanRound5round17hc81a0b16db2a59a8E, i64 %87
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4jiff4span9SpanRound5round17hc81a0b16db2a59a8E, i64 %87
   %switch.load = load i64, ptr %switch.gep, align 8
   %88 = zext nneg i8 %storemerge to i64
-  %switch.gep233 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4jiff4span9SpanRound5round17hc81a0b16db2a59a8E.68, i64 %88
+  %switch.gep233 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4jiff4span9SpanRound5round17hc81a0b16db2a59a8E.68, i64 %88
   %switch.load234 = load ptr, ptr %switch.gep233, align 8
   store ptr %switch.load234, ptr %55, align 8
   %89 = getelementptr inbounds nuw i8, ptr %55, i64 8
@@ -10980,10 +10980,10 @@ switch.lookup:                                    ; preds = %81
   call void @llvm.lifetime.start.p0(ptr nonnull %54)
   %switch.tableidx = add nsw i8 %70, -1
   %90 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep237 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4jiff4span9SpanRound5round17hc81a0b16db2a59a8E.69, i64 %90
+  %switch.gep237 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4jiff4span9SpanRound5round17hc81a0b16db2a59a8E.69, i64 %90
   %switch.load238 = load i64, ptr %switch.gep237, align 8
   %91 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep239 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4jiff4span9SpanRound5round17hc81a0b16db2a59a8E.70, i64 %91
+  %switch.gep239 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4jiff4span9SpanRound5round17hc81a0b16db2a59a8E.70, i64 %91
   %switch.load240 = load ptr, ptr %switch.gep239, align 8
   store ptr %switch.load240, ptr %54, align 8
   %92 = getelementptr inbounds nuw i8, ptr %54, i64 8
@@ -12147,9 +12147,9 @@ switch.lookup:                                    ; preds = %19, %.lr.ph87
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %21 = zext nneg i16 %16 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN56_$LT$jiff..span..UnitSet$u20$as$u20$core..fmt..Debug$GT$3fmt17h2c3d0c40fe0ad310E", i64 %21
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN56_$LT$jiff..span..UnitSet$u20$as$u20$core..fmt..Debug$GT$3fmt17h2c3d0c40fe0ad310E", i64 %21
   %switch.load = load i64, ptr %switch.gep, align 8
-  %switch.gep88 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN56_$LT$jiff..span..UnitSet$u20$as$u20$core..fmt..Debug$GT$3fmt17h2c3d0c40fe0ad310E.71", i64 %spec.select.i86
+  %switch.gep88 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN56_$LT$jiff..span..UnitSet$u20$as$u20$core..fmt..Debug$GT$3fmt17h2c3d0c40fe0ad310E.71", i64 %spec.select.i86
   %switch.load89 = load ptr, ptr %switch.gep88, align 8
   store ptr %switch.load89, ptr %4, align 8
   store i64 %switch.load, ptr %13, align 8
@@ -12380,10 +12380,10 @@ switch.lookup:                                    ; preds = %17
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !742
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !742
   %22 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4jiff4span19clamp_relative_span17h32f0656fb6a0f22bE, i64 %22
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4jiff4span19clamp_relative_span17h32f0656fb6a0f22bE, i64 %22
   %switch.load = load i64, ptr %switch.gep, align 8
   %23 = zext nneg i8 %2 to i64
-  %switch.gep12 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4jiff4span19clamp_relative_span17h32f0656fb6a0f22bE.82, i64 %23
+  %switch.gep12 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4jiff4span19clamp_relative_span17h32f0656fb6a0f22bE.82, i64 %23
   %switch.load13 = load ptr, ptr %switch.gep12, align 8
   store ptr %switch.load13, ptr %9, align 8, !noalias !742
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -12461,10 +12461,10 @@ switch.lookup14:                                  ; preds = %16
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !765
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !765
   %47 = zext nneg i8 %2 to i64
-  %switch.gep15 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4jiff4span19clamp_relative_span17h32f0656fb6a0f22bE, i64 %47
+  %switch.gep15 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4jiff4span19clamp_relative_span17h32f0656fb6a0f22bE, i64 %47
   %switch.load16 = load i64, ptr %switch.gep15, align 8
   %48 = zext nneg i8 %2 to i64
-  %switch.gep17 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4jiff4span19clamp_relative_span17h32f0656fb6a0f22bE.82, i64 %48
+  %switch.gep17 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4jiff4span19clamp_relative_span17h32f0656fb6a0f22bE.82, i64 %48
   %switch.load18 = load ptr, ptr %switch.gep17, align 8
   store ptr %switch.load18, ptr %5, align 8, !noalias !765
   %49 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -12714,10 +12714,10 @@ switch.lookup:                                    ; preds = %47
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !797
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !797
   %53 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4jiff4span19clamp_relative_span17h32f0656fb6a0f22bE, i64 %53
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4jiff4span19clamp_relative_span17h32f0656fb6a0f22bE, i64 %53
   %switch.load = load i64, ptr %switch.gep, align 8
   %54 = zext nneg i8 %2 to i64
-  %switch.gep74 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4jiff4span19clamp_relative_span17h32f0656fb6a0f22bE.82, i64 %54
+  %switch.gep74 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4jiff4span19clamp_relative_span17h32f0656fb6a0f22bE.82, i64 %54
   %switch.load75 = load ptr, ptr %switch.gep74, align 8
   store ptr %switch.load75, ptr %6, align 8, !noalias !797
   %55 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -12833,10 +12833,10 @@ switch.lookup76:                                  ; preds = %42
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !814
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !814
   %91 = zext nneg i8 %2 to i64
-  %switch.gep77 = getelementptr inbounds nuw i64, ptr @switch.table._ZN4jiff4span19clamp_relative_span17h32f0656fb6a0f22bE, i64 %91
+  %switch.gep77 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4jiff4span19clamp_relative_span17h32f0656fb6a0f22bE, i64 %91
   %switch.load78 = load i64, ptr %switch.gep77, align 8
   %92 = zext nneg i8 %2 to i64
-  %switch.gep79 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4jiff4span19clamp_relative_span17h32f0656fb6a0f22bE.82, i64 %92
+  %switch.gep79 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4jiff4span19clamp_relative_span17h32f0656fb6a0f22bE.82, i64 %92
   %switch.load80 = load ptr, ptr %switch.gep79, align 8
   store ptr %switch.load80, ptr %9, align 8, !noalias !814
   %93 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -13971,10 +13971,10 @@ switch.lookup:                                    ; preds = %7
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !908
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !908
   %84 = zext nneg i8 %4 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4jiff4span19clamp_relative_span17h32f0656fb6a0f22bE, i64 %84
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4jiff4span19clamp_relative_span17h32f0656fb6a0f22bE, i64 %84
   %switch.load = load i64, ptr %switch.gep, align 8
   %85 = zext nneg i8 %4 to i64
-  %switch.gep25 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4jiff4span19clamp_relative_span17h32f0656fb6a0f22bE.82, i64 %85
+  %switch.gep25 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4jiff4span19clamp_relative_span17h32f0656fb6a0f22bE.82, i64 %85
   %switch.load26 = load ptr, ptr %switch.gep25, align 8
   store ptr %switch.load26, ptr %11, align 8, !noalias !908
   %86 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -15093,10 +15093,10 @@ _ZN4jiff4span8Relative13to_nanosecond17h0bcd28e332e21d47E.exit: ; preds = %298, 
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !1022
   %switch.tableidx = add nsw i8 %4, -6
   %344 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4jiff5zoned5Zoned5until17h9ce5a846a9338ca3E, i64 %344
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4jiff5zoned5Zoned5until17h9ce5a846a9338ca3E, i64 %344
   %switch.load = load i64, ptr %switch.gep, align 8
   %345 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep122 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4jiff5zoned5Zoned5until17h9ce5a846a9338ca3E.84, i64 %345
+  %switch.gep122 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4jiff5zoned5Zoned5until17h9ce5a846a9338ca3E.84, i64 %345
   %switch.load123 = load ptr, ptr %switch.gep122, align 8
   store ptr %switch.load123, ptr %8, align 8, !noalias !1022
   %346 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -17276,10 +17276,10 @@ switch.lookup:                                    ; preds = %"_ZN96_$LT$core..re
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1219
   %switch.tableidx = add nsw i8 %.us-phi204, -7
   %476 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4jiff4span5Nudge6bubble17hcd7ce88b7fd59762E, i64 %476
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4jiff4span5Nudge6bubble17hcd7ce88b7fd59762E, i64 %476
   %switch.load = load i64, ptr %switch.gep, align 8
   %477 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep320 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4jiff4span5Nudge6bubble17hcd7ce88b7fd59762E.80, i64 %477
+  %switch.gep320 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4jiff4span5Nudge6bubble17hcd7ce88b7fd59762E.80, i64 %477
   %switch.load321 = load ptr, ptr %switch.gep320, align 8
   store ptr %switch.load321, ptr %6, align 8, !noalias !1219
   store i64 %switch.load, ptr %245, align 8, !noalias !1219
@@ -17546,10 +17546,10 @@ switch.lookup:                                    ; preds = %14
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !1241
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1241
   %81 = zext nneg i8 %3 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4jiff4span20round_span_invariant17he5904995377334e2E, i64 %81
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4jiff4span20round_span_invariant17he5904995377334e2E, i64 %81
   %switch.load = load i64, ptr %switch.gep, align 8
   %82 = zext nneg i8 %3 to i64
-  %switch.gep4 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4jiff4span20round_span_invariant17he5904995377334e2E.81, i64 %82
+  %switch.gep4 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4jiff4span20round_span_invariant17he5904995377334e2E.81, i64 %82
   %switch.load5 = load ptr, ptr %switch.gep4, align 8
   store ptr %switch.load5, ptr %7, align 8, !noalias !1241
   %83 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -17980,10 +17980,10 @@ switch.lookup:                                    ; preds = %"_ZN96_$LT$core..re
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1266
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1266
   %206 = zext nneg i8 %3 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4jiff4span19clamp_relative_span17h32f0656fb6a0f22bE, i64 %206
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4jiff4span19clamp_relative_span17h32f0656fb6a0f22bE, i64 %206
   %switch.load = load i64, ptr %switch.gep, align 8
   %207 = zext nneg i8 %3 to i64
-  %switch.gep78 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4jiff4span19clamp_relative_span17h32f0656fb6a0f22bE.82, i64 %207
+  %switch.gep78 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4jiff4span19clamp_relative_span17h32f0656fb6a0f22bE.82, i64 %207
   %switch.load79 = load ptr, ptr %switch.gep78, align 8
   store ptr %switch.load79, ptr %6, align 8, !noalias !1266
   %208 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -18621,10 +18621,10 @@ switch.lookup:                                    ; preds = %111
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1307
   %switch.tableidx = add nsw i8 %118, -6
   %119 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4jiff9timestamp19TimestampArithmetic11checked_add17hf55c9dec07dcbbafE, i64 %119
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4jiff9timestamp19TimestampArithmetic11checked_add17hf55c9dec07dcbbafE, i64 %119
   %switch.load = load i64, ptr %switch.gep, align 8
   %120 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep37 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4jiff9timestamp19TimestampArithmetic11checked_add17hf55c9dec07dcbbafE.83, i64 %120
+  %switch.gep37 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4jiff9timestamp19TimestampArithmetic11checked_add17hf55c9dec07dcbbafE.83, i64 %120
   %switch.load38 = load ptr, ptr %switch.gep37, align 8
   store ptr %switch.load38, ptr %5, align 8, !noalias !1307
   %121 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -19706,10 +19706,10 @@ switch.lookup:                                    ; preds = %68
   call void @llvm.lifetime.start.p0(ptr nonnull %41), !noalias !1361
   %switch.tableidx = add nsw i8 %2, -6
   %137 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4jiff5zoned5Zoned5until17h9ce5a846a9338ca3E, i64 %137
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4jiff5zoned5Zoned5until17h9ce5a846a9338ca3E, i64 %137
   %switch.load = load i64, ptr %switch.gep, align 8
   %138 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep242 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4jiff5zoned5Zoned5until17h9ce5a846a9338ca3E.84, i64 %138
+  %switch.gep242 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4jiff5zoned5Zoned5until17h9ce5a846a9338ca3E.84, i64 %138
   %switch.load243 = load ptr, ptr %switch.gep242, align 8
   store ptr %switch.load243, ptr %41, align 8, !noalias !1361
   %139 = getelementptr inbounds nuw i8, ptr %41, i64 8
@@ -21444,10 +21444,10 @@ define internal noundef zeroext i1 @"_ZN53_$LT$jiff..span..Unit$u20$as$u20$core.
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !165, !noundef !4
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN53_$LT$jiff..span..Unit$u20$as$u20$core..fmt..Debug$GT$3fmt17h1c7b59bbf72c3a1dE", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN53_$LT$jiff..span..Unit$u20$as$u20$core..fmt..Debug$GT$3fmt17h1c7b59bbf72c3a1dE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN53_$LT$jiff..span..Unit$u20$as$u20$core..fmt..Debug$GT$3fmt17h1c7b59bbf72c3a1dE.85", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN53_$LT$jiff..span..Unit$u20$as$u20$core..fmt..Debug$GT$3fmt17h1c7b59bbf72c3a1dE.85", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5

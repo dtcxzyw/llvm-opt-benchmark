@@ -1483,7 +1483,7 @@ define void @_ZN7jsonnet8internal12CompilerPass9visitExprERPNS0_3ASTE(ptr nounde
 
 switch.lookup:                                    ; preds = %2
   %12 = zext nneg i32 %5 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN7jsonnet8internal12CompilerPass9visitExprERPNS0_3ASTE, i64 %12
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN7jsonnet8internal12CompilerPass9visitExprERPNS0_3ASTE, i64 %12
   %switch.load = load i64, ptr %switch.gep, align 8
   %13 = load ptr, ptr %0, align 8, !tbaa !17
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 %switch.load

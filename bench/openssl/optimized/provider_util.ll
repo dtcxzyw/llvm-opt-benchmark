@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.ag_capable_st = type { %struct.ossl_algorithm_st, ptr }
-%struct.ossl_algorithm_st = type { ptr, ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [7 x i8] c"cipher\00", align 1
 @.str.1 = private unnamed_addr constant [7 x i8] c"digest\00", align 1
@@ -712,7 +710,7 @@ define void @ossl_prov_cache_exported_algorithms(ptr noundef readonly captures(n
 .lr.ph:                                           ; preds = %.preheader, %16
   %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ 0, %.preheader ]
   %.020 = phi i32 [ %.1, %16 ], [ 0, %.preheader ]
-  %6 = getelementptr inbounds nuw %struct.ag_capable_st, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [40 x i8], ptr %0, i64 %indvars.iv
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = load ptr, ptr %7, align 8, !tbaa !43
   %9 = icmp eq ptr %8, null
@@ -726,14 +724,14 @@ define void @ossl_prov_cache_exported_algorithms(ptr noundef readonly captures(n
 12:                                               ; preds = %10, %.lr.ph
   %13 = add nsw i32 %.020, 1
   %14 = sext i32 %.020 to i64
-  %15 = getelementptr inbounds %struct.ossl_algorithm_st, ptr %1, i64 %14
+  %15 = getelementptr inbounds [32 x i8], ptr %1, i64 %14
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(32) %6, i64 32, i1 false), !tbaa.struct !44
   br label %16
 
 16:                                               ; preds = %10, %12
   %.1 = phi i32 [ %13, %12 ], [ %.020, %10 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %17 = getelementptr inbounds nuw %struct.ag_capable_st, ptr %0, i64 %indvars.iv.next
+  %17 = getelementptr inbounds nuw [40 x i8], ptr %0, i64 %indvars.iv.next
   %18 = load ptr, ptr %17, align 8, !tbaa !41
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !46
@@ -745,7 +743,7 @@ define void @ossl_prov_cache_exported_algorithms(ptr noundef readonly captures(n
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader
   %.0.lcssa = phi i64 [ 0, %.preheader ], [ %19, %._crit_edge.loopexit ]
   %.lcssa = phi ptr [ %0, %.preheader ], [ %17, %._crit_edge.loopexit ]
-  %20 = getelementptr inbounds %struct.ossl_algorithm_st, ptr %1, i64 %.0.lcssa
+  %20 = getelementptr inbounds [32 x i8], ptr %1, i64 %.0.lcssa
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %.lcssa, i64 32, i1 false), !tbaa.struct !44
   br label %21
 

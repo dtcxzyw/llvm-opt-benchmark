@@ -33,8 +33,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_unregister_s
 %struct.anon.38 = type { ptr, i32, i32, i64, i64, ptr, i16, i8 }
 %struct.mnt_idmap = type opaque
 %struct.sysctl_alias = type { ptr, ptr }
-%struct.ctl_node = type { %struct.rb_node, ptr }
-%struct.rb_node = type { i64, ptr, ptr }
 %struct.completion = type { i32, %struct.swait_queue_head }
 %struct.swait_queue_head = type { %struct.raw_spinlock, %struct.list_head }
 %struct.list_head = type { ptr, ptr }
@@ -475,7 +473,7 @@ define dso_local ptr @__register_sysctl_table(ptr noundef %0, ptr noundef %1, pt
   %178 = ptrtoint ptr %176 to i64
   %179 = sub i64 %177, %178
   %180 = ashr exact i64 %179, 5
-  %181 = getelementptr %struct.ctl_table, ptr %174, i64 %180
+  %181 = getelementptr [64 x i8], ptr %174, i64 %180
   %182 = load ptr, ptr %181, align 8
   %183 = tail call i64 @strlen(ptr noundef %182) #20
   %184 = trunc i64 %183 to i32
@@ -603,7 +601,7 @@ define dso_local ptr @__register_sysctl_table(ptr noundef %0, ptr noundef %1, pt
   %255 = ptrtoint ptr %253 to i64
   %256 = sub i64 %254, %255
   %257 = ashr exact i64 %256, 5
-  %258 = getelementptr %struct.ctl_table, ptr %251, i64 %257
+  %258 = getelementptr [64 x i8], ptr %251, i64 %257
   %259 = load ptr, ptr %258, align 8
   %260 = tail call i64 @strlen(ptr noundef %259) #20
   %261 = trunc i64 %260 to i32
@@ -834,7 +832,7 @@ define internal fastcc i32 @insert_header(ptr noundef %0, ptr noundef nonnull ca
 
 77:                                               ; preds = %57
   %78 = getelementptr i8, ptr %67, i64 80
-  %79 = getelementptr %struct.ctl_node, ptr %78, i64 %60
+  %79 = getelementptr [32 x i8], ptr %78, i64 %60
   %80 = load i32, ptr %8, align 8
   %81 = icmp eq i32 %80, 0
   br i1 %81, label %.loopexit32, label %82
@@ -846,7 +844,7 @@ define internal fastcc i32 @insert_header(ptr noundef %0, ptr noundef nonnull ca
   br i1 %85, label %.loopexit32, label %86
 
 86:                                               ; preds = %82
-  %87 = getelementptr %struct.ctl_table, ptr %79, i64 %62
+  %87 = getelementptr [64 x i8], ptr %79, i64 %62
   %88 = load ptr, ptr %33, align 8
   %89 = sext i32 %80 to i64
   %90 = add nsw i64 %89, -1
@@ -1005,7 +1003,7 @@ define internal fastcc i32 @insert_header(ptr noundef %0, ptr noundef nonnull ca
   %183 = ptrtoint ptr %181 to i64
   %184 = sub i64 %182, %183
   %185 = ashr exact i64 %184, 5
-  %186 = getelementptr %struct.ctl_table, ptr %179, i64 %185
+  %186 = getelementptr [64 x i8], ptr %179, i64 %185
   %187 = load ptr, ptr %186, align 8
   %188 = tail call i64 @strlen(ptr noundef %187) #20
   %189 = trunc i64 %188 to i32
@@ -1703,7 +1701,7 @@ define internal fastcc void @put_links(ptr noundef readonly captures(none) %0) u
   %36 = ptrtoint ptr %34 to i64
   %37 = sub i64 %35, %36
   %38 = ashr exact i64 %37, 5
-  %39 = getelementptr %struct.ctl_table, ptr %32, i64 %38
+  %39 = getelementptr [64 x i8], ptr %32, i64 %38
   %40 = load ptr, ptr %39, align 8
   %41 = tail call i64 @strlen(ptr noundef %40) #20
   %42 = trunc i64 %41 to i32
@@ -1812,7 +1810,7 @@ define internal fastcc ptr @xlate_dir(ptr noundef readonly %0, ptr noundef reado
   %26 = ptrtoint ptr %24 to i64
   %27 = sub i64 %25, %26
   %28 = ashr exact i64 %27, 5
-  %29 = getelementptr %struct.ctl_table, ptr %22, i64 %28
+  %29 = getelementptr [64 x i8], ptr %22, i64 %28
   %30 = load ptr, ptr %29, align 8
   %31 = tail call i64 @strlen(ptr noundef %30) #20
   %32 = trunc i64 %31 to i32
@@ -1904,7 +1902,7 @@ define internal fastcc noundef zeroext i1 @get_links(ptr noundef readonly captur
   %36 = ptrtoint ptr %34 to i64
   %37 = sub i64 %35, %36
   %38 = ashr exact i64 %37, 5
-  %39 = getelementptr %struct.ctl_table, ptr %32, i64 %38
+  %39 = getelementptr [64 x i8], ptr %32, i64 %38
   %40 = load ptr, ptr %39, align 8
   %41 = tail call i64 @strlen(ptr noundef %40) #20
   %42 = trunc i64 %41 to i32
@@ -1992,7 +1990,7 @@ define internal fastcc noundef zeroext i1 @get_links(ptr noundef readonly captur
   %92 = ptrtoint ptr %90 to i64
   %93 = sub i64 %91, %92
   %94 = ashr exact i64 %93, 5
-  %95 = getelementptr %struct.ctl_table, ptr %88, i64 %94
+  %95 = getelementptr [64 x i8], ptr %88, i64 %94
   %96 = load ptr, ptr %95, align 8
   %97 = tail call i64 @strlen(ptr noundef %96) #20
   %98 = trunc i64 %97 to i32
@@ -2103,7 +2101,7 @@ define internal ptr @proc_sys_lookup(ptr noundef readonly captures(none) %0, ptr
   %35 = ptrtoint ptr %33 to i64
   %36 = sub i64 %34, %35
   %37 = ashr exact i64 %36, 5
-  %38 = getelementptr %struct.ctl_table, ptr %31, i64 %37
+  %38 = getelementptr [64 x i8], ptr %31, i64 %37
   %39 = load ptr, ptr %38, align 8
   %40 = tail call i64 @strlen(ptr noundef %39) #20
   %41 = trunc i64 %40 to i32
@@ -2514,7 +2512,7 @@ define internal fastcc i32 @sysctl_follow_link(ptr noundef captures(none) %0, pt
   %36 = ptrtoint ptr %34 to i64
   %37 = sub i64 %35, %36
   %38 = ashr exact i64 %37, 5
-  %39 = getelementptr %struct.ctl_table, ptr %32, i64 %38
+  %39 = getelementptr [64 x i8], ptr %32, i64 %38
   %40 = load ptr, ptr %39, align 8
   %41 = tail call i64 @strlen(ptr noundef %40) #20
   %42 = trunc i64 %41 to i32
@@ -3330,7 +3328,7 @@ define internal i32 @proc_sys_readdir(ptr noundef readonly captures(none) %0, pt
   %70 = ptrtoint ptr %69 to i64
   %71 = sub i64 %67, %70
   %72 = ashr exact i64 %71, 5
-  %73 = getelementptr %struct.ctl_table, ptr %66, i64 %72
+  %73 = getelementptr [64 x i8], ptr %66, i64 %72
   %74 = getelementptr i8, ptr %0, i64 160
   br label %75
 
@@ -3447,7 +3445,7 @@ define internal i32 @proc_sys_readdir(ptr noundef readonly captures(none) %0, pt
   %142 = ptrtoint ptr %140 to i64
   %143 = sub i64 %141, %142
   %144 = ashr exact i64 %143, 5
-  %145 = getelementptr %struct.ctl_table, ptr %138, i64 %144
+  %145 = getelementptr [64 x i8], ptr %138, i64 %144
   %146 = icmp eq ptr %137, null
   br i1 %146, label %.loopexit, label %75, !llvm.loop !33
 

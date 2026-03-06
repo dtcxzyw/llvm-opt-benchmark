@@ -2439,13 +2439,13 @@ common.resume:                                    ; preds = %.body, %69, %44
   %82 = phi ptr [ %84, %.lr.ph.split.us ], [ %77, %.lr.ph ]
   %83 = phi i64 [ %indvars.iv135, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %84 = getelementptr inbounds nuw i8, ptr %81, i64 1
-  %85 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv135
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv135
   store ptr %84, ptr %85, align 8, !tbaa !42
   %86 = ptrtoint ptr %81 to i64
   %87 = ptrtoint ptr %82 to i64
   %88 = sub i64 %86, %87
   %89 = trunc i64 %88 to i32
-  %90 = getelementptr inbounds nuw i32, ptr %9, i64 %83
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %83
   store i32 %89, ptr %90, align 4, !tbaa !12
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 1
   %91 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %84, i32 noundef 95) #27
@@ -2464,13 +2464,13 @@ common.resume:                                    ; preds = %.body, %69, %44
 
 98:                                               ; preds = %.lr.ph.split
   %99 = getelementptr inbounds nuw i8, ptr %94, i64 1
-  %100 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   store ptr %99, ptr %100, align 8, !tbaa !42
   %101 = ptrtoint ptr %94 to i64
   %102 = ptrtoint ptr %95 to i64
   %103 = sub i64 %101, %102
   %104 = trunc i64 %103 to i32
-  %105 = getelementptr inbounds nuw i32, ptr %9, i64 %96
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %96
   store i32 %104, ptr %105, align 4, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %106 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %99, i32 noundef 95) #27
@@ -2511,7 +2511,7 @@ common.resume:                                    ; preds = %.body, %69, %44
 
 124:                                              ; preds = %120, %113
   %.sink = phi i32 [ %119, %113 ], [ %123, %120 ]
-  %125 = getelementptr inbounds i32, ptr %9, i64 %.lcssa123
+  %125 = getelementptr inbounds [4 x i8], ptr %9, i64 %.lcssa123
   store i32 %.sink, ptr %125, align 4, !tbaa !12
   %126 = load i32, ptr %9, align 16, !tbaa !12
   %127 = icmp sgt i32 %126, 11
@@ -2573,7 +2573,7 @@ common.resume:                                    ; preds = %.body, %69, %44
 157:                                              ; preds = %154, %150, %146, %142, %137, %133
   %.063 = phi i32 [ 2, %154 ], [ 1, %150 ], [ 1, %146 ], [ 1, %142 ], [ 1, %137 ], [ 1, %133 ]
   %158 = zext nneg i32 %.063 to i64
-  %159 = getelementptr inbounds nuw i32, ptr %9, i64 %158
+  %159 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %158
   %160 = load i32, ptr %159, align 4, !tbaa !12
   switch i32 %160, label %169 [
     i32 2, label %161
@@ -2582,7 +2582,7 @@ common.resume:                                    ; preds = %.body, %69, %44
   ]
 
 161:                                              ; preds = %157, %157
-  %162 = getelementptr inbounds nuw ptr, ptr %8, i64 %158
+  %162 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %158
   %163 = load ptr, ptr %162, align 8, !tbaa !42
   %164 = zext nneg i32 %160 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %24, ptr align 1 %163, i64 %164, i1 false)
@@ -2598,14 +2598,14 @@ common.resume:                                    ; preds = %.body, %69, %44
 169:                                              ; preds = %157, %167, %161
   %.164 = phi i32 [ %166, %161 ], [ %168, %167 ], [ %.063, %157 ]
   %170 = zext nneg i32 %.164 to i64
-  %171 = getelementptr inbounds nuw i32, ptr %9, i64 %170
+  %171 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %170
   %172 = load i32, ptr %171, align 4, !tbaa !12
   %173 = icmp sgt i32 %172, 0
   %.pre139 = load ptr, ptr %15, align 8, !tbaa !19
   br i1 %173, label %174, label %181
 
 174:                                              ; preds = %169
-  %175 = getelementptr inbounds nuw ptr, ptr %8, i64 %170
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %170
   %176 = load ptr, ptr %175, align 8, !tbaa !42
   %177 = ptrtoint ptr %176 to i64
   %178 = ptrtoint ptr %.pre139 to i64
@@ -3409,7 +3409,7 @@ define noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_776Locale7getRo
   %1 = tail call noundef ptr @_ZN6icu_776Locale14getLocaleCacheEv()
   %2 = icmp eq ptr %1, null
   %3 = select i1 %2, i64 0, i64 18
-  %4 = getelementptr inbounds nuw %"class.icu_77::Locale", ptr %1, i64 %3
+  %4 = getelementptr inbounds nuw [224 x i8], ptr %1, i64 %3
   ret ptr %4
 }
 
@@ -3419,7 +3419,7 @@ define noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_776Locale9getLo
   %3 = icmp eq ptr %2, null
   %4 = sext i32 %0 to i64
   %5 = select i1 %3, i64 0, i64 %4
-  %6 = getelementptr inbounds %"class.icu_77::Locale", ptr %2, i64 %5
+  %6 = getelementptr inbounds [224 x i8], ptr %2, i64 %5
   ret ptr %6
 }
 
@@ -3434,7 +3434,7 @@ define noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_776Locale9getFr
   %1 = tail call noundef ptr @_ZN6icu_776Locale14getLocaleCacheEv()
   %2 = icmp ne ptr %1, null
   %3 = zext i1 %2 to i64
-  %4 = getelementptr inbounds nuw %"class.icu_77::Locale", ptr %1, i64 %3
+  %4 = getelementptr inbounds nuw [224 x i8], ptr %1, i64 %3
   ret ptr %4
 }
 
@@ -3443,7 +3443,7 @@ define noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_776Locale9getGe
   %1 = tail call noundef ptr @_ZN6icu_776Locale14getLocaleCacheEv()
   %2 = icmp eq ptr %1, null
   %3 = select i1 %2, i64 0, i64 2
-  %4 = getelementptr inbounds nuw %"class.icu_77::Locale", ptr %1, i64 %3
+  %4 = getelementptr inbounds nuw [224 x i8], ptr %1, i64 %3
   ret ptr %4
 }
 
@@ -3452,7 +3452,7 @@ define noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_776Locale10getI
   %1 = tail call noundef ptr @_ZN6icu_776Locale14getLocaleCacheEv()
   %2 = icmp eq ptr %1, null
   %3 = select i1 %2, i64 0, i64 3
-  %4 = getelementptr inbounds nuw %"class.icu_77::Locale", ptr %1, i64 %3
+  %4 = getelementptr inbounds nuw [224 x i8], ptr %1, i64 %3
   ret ptr %4
 }
 
@@ -3461,7 +3461,7 @@ define noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_776Locale11getJ
   %1 = tail call noundef ptr @_ZN6icu_776Locale14getLocaleCacheEv()
   %2 = icmp eq ptr %1, null
   %3 = select i1 %2, i64 0, i64 4
-  %4 = getelementptr inbounds nuw %"class.icu_77::Locale", ptr %1, i64 %3
+  %4 = getelementptr inbounds nuw [224 x i8], ptr %1, i64 %3
   ret ptr %4
 }
 
@@ -3470,7 +3470,7 @@ define noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_776Locale9getKo
   %1 = tail call noundef ptr @_ZN6icu_776Locale14getLocaleCacheEv()
   %2 = icmp eq ptr %1, null
   %3 = select i1 %2, i64 0, i64 5
-  %4 = getelementptr inbounds nuw %"class.icu_77::Locale", ptr %1, i64 %3
+  %4 = getelementptr inbounds nuw [224 x i8], ptr %1, i64 %3
   ret ptr %4
 }
 
@@ -3479,7 +3479,7 @@ define noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_776Locale10getC
   %1 = tail call noundef ptr @_ZN6icu_776Locale14getLocaleCacheEv()
   %2 = icmp eq ptr %1, null
   %3 = select i1 %2, i64 0, i64 6
-  %4 = getelementptr inbounds nuw %"class.icu_77::Locale", ptr %1, i64 %3
+  %4 = getelementptr inbounds nuw [224 x i8], ptr %1, i64 %3
   ret ptr %4
 }
 
@@ -3488,7 +3488,7 @@ define noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_776Locale20getS
   %1 = tail call noundef ptr @_ZN6icu_776Locale14getLocaleCacheEv()
   %2 = icmp eq ptr %1, null
   %3 = select i1 %2, i64 0, i64 12
-  %4 = getelementptr inbounds nuw %"class.icu_77::Locale", ptr %1, i64 %3
+  %4 = getelementptr inbounds nuw [224 x i8], ptr %1, i64 %3
   ret ptr %4
 }
 
@@ -3497,7 +3497,7 @@ define noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_776Locale21getT
   %1 = tail call noundef ptr @_ZN6icu_776Locale14getLocaleCacheEv()
   %2 = icmp eq ptr %1, null
   %3 = select i1 %2, i64 0, i64 13
-  %4 = getelementptr inbounds nuw %"class.icu_77::Locale", ptr %1, i64 %3
+  %4 = getelementptr inbounds nuw [224 x i8], ptr %1, i64 %3
   ret ptr %4
 }
 
@@ -3506,7 +3506,7 @@ define noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_776Locale9getFr
   %1 = tail call noundef ptr @_ZN6icu_776Locale14getLocaleCacheEv()
   %2 = icmp eq ptr %1, null
   %3 = select i1 %2, i64 0, i64 7
-  %4 = getelementptr inbounds nuw %"class.icu_77::Locale", ptr %1, i64 %3
+  %4 = getelementptr inbounds nuw [224 x i8], ptr %1, i64 %3
   ret ptr %4
 }
 
@@ -3515,7 +3515,7 @@ define noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_776Locale10getG
   %1 = tail call noundef ptr @_ZN6icu_776Locale14getLocaleCacheEv()
   %2 = icmp eq ptr %1, null
   %3 = select i1 %2, i64 0, i64 8
-  %4 = getelementptr inbounds nuw %"class.icu_77::Locale", ptr %1, i64 %3
+  %4 = getelementptr inbounds nuw [224 x i8], ptr %1, i64 %3
   ret ptr %4
 }
 
@@ -3524,7 +3524,7 @@ define noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_776Locale8getIt
   %1 = tail call noundef ptr @_ZN6icu_776Locale14getLocaleCacheEv()
   %2 = icmp eq ptr %1, null
   %3 = select i1 %2, i64 0, i64 9
-  %4 = getelementptr inbounds nuw %"class.icu_77::Locale", ptr %1, i64 %3
+  %4 = getelementptr inbounds nuw [224 x i8], ptr %1, i64 %3
   ret ptr %4
 }
 
@@ -3533,7 +3533,7 @@ define noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_776Locale8getJa
   %1 = tail call noundef ptr @_ZN6icu_776Locale14getLocaleCacheEv()
   %2 = icmp eq ptr %1, null
   %3 = select i1 %2, i64 0, i64 10
-  %4 = getelementptr inbounds nuw %"class.icu_77::Locale", ptr %1, i64 %3
+  %4 = getelementptr inbounds nuw [224 x i8], ptr %1, i64 %3
   ret ptr %4
 }
 
@@ -3542,7 +3542,7 @@ define noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_776Locale8getKo
   %1 = tail call noundef ptr @_ZN6icu_776Locale14getLocaleCacheEv()
   %2 = icmp eq ptr %1, null
   %3 = select i1 %2, i64 0, i64 11
-  %4 = getelementptr inbounds nuw %"class.icu_77::Locale", ptr %1, i64 %3
+  %4 = getelementptr inbounds nuw [224 x i8], ptr %1, i64 %3
   ret ptr %4
 }
 
@@ -3551,7 +3551,7 @@ define noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_776Locale8getCh
   %1 = tail call noundef ptr @_ZN6icu_776Locale14getLocaleCacheEv()
   %2 = icmp eq ptr %1, null
   %3 = select i1 %2, i64 0, i64 12
-  %4 = getelementptr inbounds nuw %"class.icu_77::Locale", ptr %1, i64 %3
+  %4 = getelementptr inbounds nuw [224 x i8], ptr %1, i64 %3
   ret ptr %4
 }
 
@@ -3560,7 +3560,7 @@ define noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_776Locale6getPR
   %1 = tail call noundef ptr @_ZN6icu_776Locale14getLocaleCacheEv()
   %2 = icmp eq ptr %1, null
   %3 = select i1 %2, i64 0, i64 12
-  %4 = getelementptr inbounds nuw %"class.icu_77::Locale", ptr %1, i64 %3
+  %4 = getelementptr inbounds nuw [224 x i8], ptr %1, i64 %3
   ret ptr %4
 }
 
@@ -3569,7 +3569,7 @@ define noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_776Locale9getTa
   %1 = tail call noundef ptr @_ZN6icu_776Locale14getLocaleCacheEv()
   %2 = icmp eq ptr %1, null
   %3 = select i1 %2, i64 0, i64 13
-  %4 = getelementptr inbounds nuw %"class.icu_77::Locale", ptr %1, i64 %3
+  %4 = getelementptr inbounds nuw [224 x i8], ptr %1, i64 %3
   ret ptr %4
 }
 
@@ -3578,7 +3578,7 @@ define noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_776Locale5getUK
   %1 = tail call noundef ptr @_ZN6icu_776Locale14getLocaleCacheEv()
   %2 = icmp eq ptr %1, null
   %3 = select i1 %2, i64 0, i64 14
-  %4 = getelementptr inbounds nuw %"class.icu_77::Locale", ptr %1, i64 %3
+  %4 = getelementptr inbounds nuw [224 x i8], ptr %1, i64 %3
   ret ptr %4
 }
 
@@ -3587,7 +3587,7 @@ define noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_776Locale5getUS
   %1 = tail call noundef ptr @_ZN6icu_776Locale14getLocaleCacheEv()
   %2 = icmp eq ptr %1, null
   %3 = select i1 %2, i64 0, i64 15
-  %4 = getelementptr inbounds nuw %"class.icu_77::Locale", ptr %1, i64 %3
+  %4 = getelementptr inbounds nuw [224 x i8], ptr %1, i64 %3
   ret ptr %4
 }
 
@@ -3596,7 +3596,7 @@ define noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_776Locale9getCa
   %1 = tail call noundef ptr @_ZN6icu_776Locale14getLocaleCacheEv()
   %2 = icmp eq ptr %1, null
   %3 = select i1 %2, i64 0, i64 16
-  %4 = getelementptr inbounds nuw %"class.icu_77::Locale", ptr %1, i64 %3
+  %4 = getelementptr inbounds nuw [224 x i8], ptr %1, i64 %3
   ret ptr %4
 }
 
@@ -3605,7 +3605,7 @@ define noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_776Locale15getC
   %1 = tail call noundef ptr @_ZN6icu_776Locale14getLocaleCacheEv()
   %2 = icmp eq ptr %1, null
   %3 = select i1 %2, i64 0, i64 17
-  %4 = getelementptr inbounds nuw %"class.icu_77::Locale", ptr %1, i64 %3
+  %4 = getelementptr inbounds nuw [224 x i8], ptr %1, i64 %3
   ret ptr %4
 }
 
@@ -5256,7 +5256,7 @@ _ZN6icu_7711LocalMemoryIiE22allocateInsteadAndCopyEii.exit.i.i.i.i.i: ; preds = 
   br label %154
 
 130:                                              ; preds = %123
-  %131 = getelementptr inbounds nuw ptr, ptr %109, i64 %indvars.iv.i.i.i.i.i
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %109, i64 %indvars.iv.i.i.i.i.i
   store ptr %120, ptr %131, align 8, !tbaa !42
   %132 = load i8, ptr %85, align 8, !tbaa !86, !range !56, !noundef !57
   %133 = trunc nuw i8 %132 to i1
@@ -5296,7 +5296,7 @@ _ZN6icu_7711LocalMemoryIiE22allocateInsteadAndCopyEii.exit.i.i.i.i.i: ; preds = 
 
 _ZN6icu_7717UniqueCharStrings3addEPKDsR10UErrorCode.exit.i.i.i.i.i: ; preds = %.noexc50.i.i.i.i.i, %.noexc.i.i.i.i.i, %134
   %.0.i47.i.i.i.i.i = phi i32 [ %142, %.noexc50.i.i.i.i.i ], [ -1, %134 ], [ %136, %.noexc.i.i.i.i.i ]
-  %146 = getelementptr inbounds nuw i32, ptr %113, i64 %indvars.iv.i.i.i.i.i
+  %146 = getelementptr inbounds nuw [4 x i8], ptr %113, i64 %indvars.iv.i.i.i.i.i
   store i32 %.0.i47.i.i.i.i.i, ptr %146, align 4, !tbaa !12
   %.not.i52.i.i.i.i.i = icmp eq ptr %119, null
   br i1 %.not.i52.i.i.i.i.i, label %151, label %147
@@ -5436,7 +5436,7 @@ _ZN6icu_7711LocalMemoryIiE22allocateInsteadAndCopyEii.exit.i.i162.i.i.i: ; preds
   br label %211
 
 187:                                              ; preds = %180
-  %188 = getelementptr inbounds nuw ptr, ptr %166, i64 %indvars.iv.i.i165.i.i.i
+  %188 = getelementptr inbounds nuw [8 x i8], ptr %166, i64 %indvars.iv.i.i165.i.i.i
   store ptr %177, ptr %188, align 8, !tbaa !42
   %189 = load i8, ptr %85, align 8, !tbaa !86, !range !56, !noundef !57
   %190 = trunc nuw i8 %189 to i1
@@ -5476,7 +5476,7 @@ _ZN6icu_7711LocalMemoryIiE22allocateInsteadAndCopyEii.exit.i.i162.i.i.i: ; preds
 
 _ZN6icu_7717UniqueCharStrings3addEPKDsR10UErrorCode.exit.i.i173.i.i.i: ; preds = %.noexc50.i.i179.i.i.i, %.noexc.i.i171.i.i.i, %191
   %.0.i47.i.i174.i.i.i = phi i32 [ %199, %.noexc50.i.i179.i.i.i ], [ -1, %191 ], [ %193, %.noexc.i.i171.i.i.i ]
-  %203 = getelementptr inbounds nuw i32, ptr %170, i64 %indvars.iv.i.i165.i.i.i
+  %203 = getelementptr inbounds nuw [4 x i8], ptr %170, i64 %indvars.iv.i.i165.i.i.i
   store i32 %.0.i47.i.i174.i.i.i, ptr %203, align 4, !tbaa !12
   %.not.i52.i.i175.i.i.i = icmp eq ptr %176, null
   br i1 %.not.i52.i.i175.i.i.i, label %208, label %204
@@ -5616,7 +5616,7 @@ _ZN6icu_7711LocalMemoryIiE22allocateInsteadAndCopyEii.exit.i.i192.i.i.i: ; preds
   br label %268
 
 244:                                              ; preds = %237
-  %245 = getelementptr inbounds nuw ptr, ptr %223, i64 %indvars.iv.i.i195.i.i.i
+  %245 = getelementptr inbounds nuw [8 x i8], ptr %223, i64 %indvars.iv.i.i195.i.i.i
   store ptr %234, ptr %245, align 8, !tbaa !42
   %246 = load i8, ptr %85, align 8, !tbaa !86, !range !56, !noundef !57
   %247 = trunc nuw i8 %246 to i1
@@ -5656,7 +5656,7 @@ _ZN6icu_7711LocalMemoryIiE22allocateInsteadAndCopyEii.exit.i.i192.i.i.i: ; preds
 
 _ZN6icu_7717UniqueCharStrings3addEPKDsR10UErrorCode.exit.i.i203.i.i.i: ; preds = %.noexc50.i.i209.i.i.i, %.noexc.i.i201.i.i.i, %248
   %.0.i47.i.i204.i.i.i = phi i32 [ %256, %.noexc50.i.i209.i.i.i ], [ -1, %248 ], [ %250, %.noexc.i.i201.i.i.i ]
-  %260 = getelementptr inbounds nuw i32, ptr %227, i64 %indvars.iv.i.i195.i.i.i
+  %260 = getelementptr inbounds nuw [4 x i8], ptr %227, i64 %indvars.iv.i.i195.i.i.i
   store i32 %.0.i47.i.i204.i.i.i, ptr %260, align 4, !tbaa !12
   %.not.i52.i.i205.i.i.i = icmp eq ptr %233, null
   br i1 %.not.i52.i.i205.i.i.i, label %265, label %261
@@ -5796,7 +5796,7 @@ _ZN6icu_7711LocalMemoryIiE22allocateInsteadAndCopyEii.exit.i.i222.i.i.i: ; preds
   br label %325
 
 301:                                              ; preds = %294
-  %302 = getelementptr inbounds nuw ptr, ptr %280, i64 %indvars.iv.i.i225.i.i.i
+  %302 = getelementptr inbounds nuw [8 x i8], ptr %280, i64 %indvars.iv.i.i225.i.i.i
   store ptr %291, ptr %302, align 8, !tbaa !42
   %303 = load i8, ptr %85, align 8, !tbaa !86, !range !56, !noundef !57
   %304 = trunc nuw i8 %303 to i1
@@ -5836,7 +5836,7 @@ _ZN6icu_7711LocalMemoryIiE22allocateInsteadAndCopyEii.exit.i.i222.i.i.i: ; preds
 
 _ZN6icu_7717UniqueCharStrings3addEPKDsR10UErrorCode.exit.i.i233.i.i.i: ; preds = %.noexc50.i.i239.i.i.i, %.noexc.i.i231.i.i.i, %305
   %.0.i47.i.i234.i.i.i = phi i32 [ %313, %.noexc50.i.i239.i.i.i ], [ -1, %305 ], [ %307, %.noexc.i.i231.i.i.i ]
-  %317 = getelementptr inbounds nuw i32, ptr %284, i64 %indvars.iv.i.i225.i.i.i
+  %317 = getelementptr inbounds nuw [4 x i8], ptr %284, i64 %indvars.iv.i.i225.i.i.i
   store i32 %.0.i47.i.i234.i.i.i, ptr %317, align 4, !tbaa !12
   %.not.i52.i.i235.i.i.i = icmp eq ptr %290, null
   br i1 %.not.i52.i.i235.i.i.i, label %322, label %318
@@ -5980,7 +5980,7 @@ _ZN6icu_7711LocalMemoryIiE22allocateInsteadAndCopyEii.exit.i.i252.i.i.i: ; preds
   br label %381
 
 357:                                              ; preds = %350
-  %358 = getelementptr inbounds nuw ptr, ptr %338, i64 %indvars.iv.i.i255.i.i.i
+  %358 = getelementptr inbounds nuw [8 x i8], ptr %338, i64 %indvars.iv.i.i255.i.i.i
   store ptr %347, ptr %358, align 8, !tbaa !42
   %359 = load i8, ptr %85, align 8, !tbaa !86, !range !56, !noundef !57
   %360 = trunc nuw i8 %359 to i1
@@ -6020,7 +6020,7 @@ _ZN6icu_7711LocalMemoryIiE22allocateInsteadAndCopyEii.exit.i.i252.i.i.i: ; preds
 
 _ZN6icu_7717UniqueCharStrings3addEPKDsR10UErrorCode.exit.i.i263.i.i.i: ; preds = %.noexc50.i.i269.i.i.i, %.noexc.i.i261.i.i.i, %361
   %.0.i47.i.i264.i.i.i = phi i32 [ %369, %.noexc50.i.i269.i.i.i ], [ -1, %361 ], [ %363, %.noexc.i.i261.i.i.i ]
-  %373 = getelementptr inbounds nuw i32, ptr %341, i64 %indvars.iv.i.i255.i.i.i
+  %373 = getelementptr inbounds nuw [4 x i8], ptr %341, i64 %indvars.iv.i.i255.i.i.i
   store i32 %.0.i47.i.i264.i.i.i, ptr %373, align 4, !tbaa !12
   %.not.i52.i.i265.i.i.i = icmp eq ptr %346, null
   br i1 %.not.i52.i.i265.i.i.i, label %378, label %374
@@ -6171,9 +6171,9 @@ _ZN6icu_7713CharStringMapC2EiR10UErrorCode.exit281.preheader.i.i.i: ; preds = %_
 
 .lr.ph.i.i.i:                                     ; preds = %_ZN6icu_7713CharStringMap3putEPKcS2_R10UErrorCode.exit.i.i.i, %.lr.ph.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %_ZN6icu_7713CharStringMap3putEPKcS2_R10UErrorCode.exit.i.i.i ]
-  %404 = getelementptr inbounds nuw ptr, ptr %.sroa.057.086329.i.i.i, i64 %indvars.iv.i.i.i
+  %404 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.057.086329.i.i.i, i64 %indvars.iv.i.i.i
   %405 = load ptr, ptr %404, align 8, !tbaa !42
-  %406 = getelementptr inbounds nuw i32, ptr %.sroa.054.0108318.i.i.i, i64 %indvars.iv.i.i.i
+  %406 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.054.0108318.i.i.i, i64 %indvars.iv.i.i.i
   %407 = load i32, ptr %406, align 4, !tbaa !12
   %408 = load i8, ptr %85, align 8, !tbaa !86, !range !56, !noundef !57
   %409 = trunc nuw i8 %408 to i1
@@ -6228,9 +6228,9 @@ _ZN6icu_7713CharStringMapC2EiR10UErrorCode.exit284.preheader.i.i.i: ; preds = %_
 
 .lr.ph222.i.i.i:                                  ; preds = %_ZN6icu_7713CharStringMap3putEPKcS2_R10UErrorCode.exit288.i.i.i, %.lr.ph222.preheader.i.i.i
   %indvars.iv255.i.i.i = phi i64 [ 0, %.lr.ph222.preheader.i.i.i ], [ %indvars.iv.next256.i.i.i, %_ZN6icu_7713CharStringMap3putEPKcS2_R10UErrorCode.exit288.i.i.i ]
-  %432 = getelementptr inbounds nuw ptr, ptr %.sroa.051.0342.i.i.i, i64 %indvars.iv255.i.i.i
+  %432 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.051.0342.i.i.i, i64 %indvars.iv255.i.i.i
   %433 = load ptr, ptr %432, align 8, !tbaa !42
-  %434 = getelementptr inbounds nuw i32, ptr %.sroa.048.0353.i.i.i, i64 %indvars.iv255.i.i.i
+  %434 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.048.0353.i.i.i, i64 %indvars.iv255.i.i.i
   %435 = load i32, ptr %434, align 4, !tbaa !12
   %436 = load i8, ptr %85, align 8, !tbaa !86, !range !56, !noundef !57
   %437 = trunc nuw i8 %436 to i1
@@ -6285,9 +6285,9 @@ _ZN6icu_7713CharStringMapC2EiR10UErrorCode.exit290.preheader.i.i.i: ; preds = %_
 
 .lr.ph224.i.i.i:                                  ; preds = %_ZN6icu_7713CharStringMap3putEPKcS2_R10UErrorCode.exit294.i.i.i, %.lr.ph224.preheader.i.i.i
   %indvars.iv258.i.i.i = phi i64 [ 0, %.lr.ph224.preheader.i.i.i ], [ %indvars.iv.next259.i.i.i, %_ZN6icu_7713CharStringMap3putEPKcS2_R10UErrorCode.exit294.i.i.i ]
-  %460 = getelementptr inbounds nuw ptr, ptr %.sroa.045.0140.i.i.i, i64 %indvars.iv258.i.i.i
+  %460 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.045.0140.i.i.i, i64 %indvars.iv258.i.i.i
   %461 = load ptr, ptr %460, align 8, !tbaa !42
-  %462 = getelementptr inbounds nuw i32, ptr %.sroa.042.0146.i.i.i, i64 %indvars.iv258.i.i.i
+  %462 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.042.0146.i.i.i, i64 %indvars.iv258.i.i.i
   %463 = load i32, ptr %462, align 4, !tbaa !12
   %464 = load i8, ptr %85, align 8, !tbaa !86, !range !56, !noundef !57
   %465 = trunc nuw i8 %464 to i1
@@ -6336,9 +6336,9 @@ _ZN6icu_7713CharStringMapC2EiR10UErrorCode.exit296.preheader.i.i.i: ; preds = %_
 
 .lr.ph226.i.i.i:                                  ; preds = %_ZN6icu_7713CharStringMap3putEPKcS2_R10UErrorCode.exit300.i.i.i, %.lr.ph226.preheader.i.i.i
   %indvars.iv261.i.i.i = phi i64 [ 0, %.lr.ph226.preheader.i.i.i ], [ %indvars.iv.next262.i.i.i, %_ZN6icu_7713CharStringMap3putEPKcS2_R10UErrorCode.exit300.i.i.i ]
-  %485 = getelementptr inbounds nuw ptr, ptr %.sroa.039.0.i.i.i, i64 %indvars.iv261.i.i.i
+  %485 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.039.0.i.i.i, i64 %indvars.iv261.i.i.i
   %486 = load ptr, ptr %485, align 8, !tbaa !42
-  %487 = getelementptr inbounds nuw i32, ptr %.sroa.036.0.i.i.i, i64 %indvars.iv261.i.i.i
+  %487 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.036.0.i.i.i, i64 %indvars.iv261.i.i.i
   %488 = load i32, ptr %487, align 4, !tbaa !12
   %489 = load i8, ptr %85, align 8, !tbaa !86, !range !56, !noundef !57
   %490 = trunc nuw i8 %489 to i1
@@ -6389,9 +6389,9 @@ _ZN6icu_7713CharStringMapC2EiR10UErrorCode.exit296._crit_edge.i.i.i: ; preds = %
 
 .lr.ph228.i.i.i:                                  ; preds = %_ZN6icu_7713CharStringMapC2EiR10UErrorCode.exit296.preheader.i.i.i, %_ZN6icu_7713CharStringMap3putEPKcS2_R10UErrorCode.exit304.i.i.i
   %indvars.iv264.i.i.i = phi i64 [ %indvars.iv.next265.i.i.i, %_ZN6icu_7713CharStringMap3putEPKcS2_R10UErrorCode.exit304.i.i.i ], [ 0, %_ZN6icu_7713CharStringMapC2EiR10UErrorCode.exit296.preheader.i.i.i ]
-  %510 = getelementptr inbounds nuw ptr, ptr %338, i64 %indvars.iv264.i.i.i
+  %510 = getelementptr inbounds nuw [8 x i8], ptr %338, i64 %indvars.iv264.i.i.i
   %511 = load ptr, ptr %510, align 8, !tbaa !42
-  %512 = getelementptr inbounds nuw i32, ptr %341, i64 %indvars.iv264.i.i.i
+  %512 = getelementptr inbounds nuw [4 x i8], ptr %341, i64 %indvars.iv264.i.i.i
   %513 = load i32, ptr %512, align 4, !tbaa !12
   %514 = load i8, ptr %85, align 8, !tbaa !86, !range !56, !noundef !57
   %515 = trunc nuw i8 %514 to i1
@@ -9503,7 +9503,7 @@ define linkonce_odr void @_ZN6icu_7717UniqueCharStringsD2Ev(ptr noundef nonnull 
   %21 = phi i32 [ %9, %.lr.ph.i ], [ %31, %30 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %30 ]
   %22 = load ptr, ptr %11, align 8, !tbaa !83
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv.i
   %24 = load ptr, ptr %23, align 8, !tbaa !120
   %25 = icmp eq ptr %24, null
   br i1 %25, label %30, label %26
@@ -9599,7 +9599,7 @@ _ZN6icu_7715MaybeStackArrayIPNS_13UnicodeStringELi8EED2Ev.exit: ; preds = %._cri
   %14 = phi i32 [ %2, %.lr.ph ], [ %24, %23 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
   %15 = load ptr, ptr %4, align 8, !tbaa !83
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !120
   %18 = icmp eq ptr %17, null
   br i1 %18, label %23, label %19
@@ -9790,7 +9790,7 @@ define internal fastcc void @_ZN6icu_7712_GLOBAL__N_122loadKnownCanonicalizedER1
 
 .lr.ph:                                           ; preds = %1, %10
   %indvars.iv = phi i64 [ %indvars.iv.next, %10 ], [ 0, %1 ]
-  %7 = getelementptr inbounds nuw ptr, ptr @_ZN6icu_7712_GLOBAL__N_119KNOWN_CANONICALIZEDE, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6icu_7712_GLOBAL__N_119KNOWN_CANONICALIZEDE, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !42
   %9 = invoke i32 @uhash_puti_77(ptr noundef %3, ptr noundef %8, i32 noundef 1, ptr noundef nonnull %0)
           to label %10 unwind label %15

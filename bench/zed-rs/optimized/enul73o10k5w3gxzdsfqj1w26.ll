@@ -407,7 +407,7 @@ define hidden void @_ZN5fuzzy7matcher7Matcher16match_candidates17h25320f12130e88
   %175 = add i64 %174, %.sroa.03.033.i
   %176 = icmp ult i64 %175, %173
   call void @llvm.assume(i1 %176)
-  %177 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { ptr, i64 } }, {}, {} }, { { { ptr, i64 } }, {}, {} }, double, i64, i64, i8, [7 x i8] }, ptr %172, i64 %175
+  %177 = getelementptr inbounds [88 x i8], ptr %172, i64 %175
   call void @llvm.experimental.noalias.scope.decl(metadata !61)
   call void @llvm.experimental.noalias.scope.decl(metadata !64)
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 56
@@ -568,7 +568,7 @@ define hidden void @_ZN5fuzzy7matcher7Matcher16match_candidates17h25320f12130e88
   %228 = icmp ult i64 %226, %227
   call void @llvm.assume(i1 %228)
   %229 = load ptr, ptr %60, align 8, !nonnull !5, !noundef !5
-  %230 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { ptr, i64 } }, {}, {} }, { { { ptr, i64 } }, {}, {} }, double, i64, i64, i8, [7 x i8] }, ptr %229, i64 %226
+  %230 = getelementptr inbounds [88 x i8], ptr %229, i64 %226
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %19, ptr noundef nonnull align 8 dereferenceable(88) %230, i64 88, i1 false)
   %231 = load i64, ptr %19, align 8, !range !4, !alias.scope !88, !noundef !5
   %232 = icmp eq i64 %231, -9223372036854775808
@@ -643,7 +643,7 @@ define hidden void @_ZN5fuzzy7matcher7Matcher16match_candidates17h25320f12130e88
 
 256:                                              ; preds = %255, %251
   %257 = load ptr, ptr %60, align 8, !alias.scope !122, !noalias !125, !nonnull !5, !noundef !5
-  %258 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { ptr, i64 } }, {}, {} }, { { { ptr, i64 } }, {}, {} }, double, i64, i64, i8, [7 x i8] }, ptr %257, i64 %.ph27.i
+  %258 = getelementptr inbounds [88 x i8], ptr %257, i64 %.ph27.i
   %259 = icmp ult i64 %.ph27.i, %249
   br i1 %259, label %261, label %268
 
@@ -691,7 +691,7 @@ define hidden void @_ZN5fuzzy7matcher7Matcher16match_candidates17h25320f12130e88
   %.sroa.011.3 = phi i8 [ 0, %307 ], [ %.sroa.011.2, %.thread ]
   %.not = icmp eq i64 %271, 0
   %272 = load ptr, ptr %60, align 8, !nonnull !5
-  %273 = getelementptr { { { i64, ptr, {} }, i64 }, { { { ptr, i64 } }, {}, {} }, { { { ptr, i64 } }, {}, {} }, double, i64, i64, i8, [7 x i8] }, ptr %272, i64 %271
+  %273 = getelementptr [88 x i8], ptr %272, i64 %271
   %274 = getelementptr i8, ptr %273, i64 -88
   %275 = icmp eq ptr %274, null
   %276 = select i1 %.not, i1 true, i1 %275
@@ -748,7 +748,7 @@ define hidden void @_ZN5fuzzy7matcher7Matcher16match_candidates17h25320f12130e88
 
 295:                                              ; preds = %294, %290
   %296 = load ptr, ptr %60, align 8, !alias.scope !150, !noalias !153, !nonnull !5, !noundef !5
-  %297 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { { { ptr, i64 } }, {}, {} }, { { { ptr, i64 } }, {}, {} }, double, i64, i64, i8, [7 x i8] }, ptr %296, i64 %.sroa.03.0.lcssa.i203
+  %297 = getelementptr inbounds [88 x i8], ptr %296, i64 %.sroa.03.0.lcssa.i203
   %298 = icmp ult i64 %.sroa.03.0.lcssa.i203, %288
   br i1 %298, label %300, label %307
 
@@ -826,7 +826,7 @@ define hidden void @_ZN5fuzzy7matcher7Matcher16match_candidates17h25320f12130e88
 
 319:                                              ; preds = %.thread94, %137
   %320 = load ptr, ptr %28, align 8, !alias.scope !37, !nonnull !5, !noundef !5
-  %321 = getelementptr inbounds i32, ptr %320, i64 %134
+  %321 = getelementptr inbounds [4 x i8], ptr %320, i64 %134
   store i32 %.sroa.4.0.i.ph98, ptr %321, align 4
   %322 = add i64 %134, 1
   store i64 %322, ptr %29, align 8, !alias.scope !37
@@ -884,7 +884,7 @@ define hidden void @_ZN5fuzzy7matcher7Matcher16match_candidates17h25320f12130e88
 341:                                              ; preds = %.noexc60, %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h926542613b851a0eE.exit"
   %342 = phi i64 [ %.pre.i, %.noexc60 ], [ %330, %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h926542613b851a0eE.exit" ]
   %343 = load ptr, ptr %30, align 8, !alias.scope !165, !nonnull !5, !noundef !5
-  %344 = getelementptr inbounds i32, ptr %343, i64 %342
+  %344 = getelementptr inbounds [4 x i8], ptr %343, i64 %342
   %345 = shl i64 %329, 2
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %344, ptr nonnull readonly align 4 %328, i64 %345, i1 false)
   %346 = load i64, ptr %31, align 8, !alias.scope !165, !noundef !5

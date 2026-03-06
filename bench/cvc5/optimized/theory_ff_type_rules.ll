@@ -249,7 +249,7 @@ _ZN4cvc58internal8TypeNodeC2Ev.exit:              ; preds = %5, %12, %16
   %34 = load i64, ptr %33, align 8
   %35 = lshr i64 %34, 32
   %36 = and i64 %35, 67108863
-  %37 = getelementptr inbounds nuw ptr, ptr %32, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %36
   %.not7475 = icmp eq ptr %spec.select.i.i, %37
   br i1 %.not7475, label %.critedge, label %.lr.ph
 

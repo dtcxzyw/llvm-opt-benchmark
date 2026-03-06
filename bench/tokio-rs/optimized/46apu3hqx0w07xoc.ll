@@ -371,7 +371,7 @@ define hidden void @_ZN3std10sys_common9backtrace28__rust_begin_short_backtrace1
   %76 = add i64 %63, -1
   store i64 %76, ptr %58, align 8, !alias.scope !25
   %77 = load ptr, ptr %61, align 8, !alias.scope !25, !nonnull !17, !noundef !17
-  %78 = getelementptr inbounds { ptr, i8 }, ptr %77, i64 %72
+  %78 = getelementptr inbounds [16 x i8], ptr %77, i64 %72
   %79 = load ptr, ptr %78, align 8, !noalias !25, !nonnull !17, !noundef !17
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %81 = load i8, ptr %80, align 8, !range !31, !noalias !25, !noundef !17
@@ -634,7 +634,7 @@ _ZN5tokio7runtime4task3raw7RawTask4poll17h1e6c599c93371073E.exit.i.i.i.i: ; pred
   %156 = add i64 %151, -1
   store i64 %156, ptr %58, align 8, !alias.scope !76
   %157 = load ptr, ptr %61, align 8, !alias.scope !76, !nonnull !17, !noundef !17
-  %158 = getelementptr inbounds { ptr, i8 }, ptr %157, i64 %152
+  %158 = getelementptr inbounds [16 x i8], ptr %157, i64 %152
   %159 = load ptr, ptr %158, align 8, !noalias !76, !nonnull !17, !noundef !17
   %160 = getelementptr inbounds nuw i8, ptr %158, i64 8
   %161 = load i8, ptr %160, align 8, !range !31, !noalias !76, !noundef !17
@@ -6295,7 +6295,7 @@ define { i64, ptr } @_ZN5tokio7runtime8blocking4pool7Spawner10spawn_task17h201ef
   %.0.i.i = sub nuw i64 %63, %64
   %65 = getelementptr inbounds nuw i8, ptr %21, i64 80
   %66 = load ptr, ptr %65, align 8, !alias.scope !680, !nonnull !17, !noundef !17
-  %67 = getelementptr inbounds { ptr, i8 }, ptr %66, i64 %.0.i.i
+  %67 = getelementptr inbounds [16 x i8], ptr %66, i64 %.0.i.i
   store ptr %31, ptr %67, align 8
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   store i8 %32, ptr %68, align 8
@@ -8590,7 +8590,7 @@ define hidden void @"_ZN5tokio4util12sharded_list24ShardedList$LT$L$C$T$GT$3new1
 25:                                               ; preds = %.noexc, %.lr.ph
   %26 = phi i64 [ %.pre.i, %.noexc ], [ %20, %.lr.ph ]
   %27 = load ptr, ptr %10, align 8, !alias.scope !848, !noalias !851, !nonnull !17, !noundef !17
-  %28 = getelementptr inbounds { {}, { { { i8 } }, [7 x i8], { ptr, ptr } } }, ptr %27, i64 %26
+  %28 = getelementptr inbounds [24 x i8], ptr %27, i64 %26
   store i8 0, ptr %28, align 8
   %.sroa.418.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.418.0..sroa_idx, i8 0, i64 16, i1 false)
@@ -8677,7 +8677,7 @@ define hidden void @"_ZN5tokio4util12sharded_list24ShardedList$LT$L$C$T$GT$3new1
 25:                                               ; preds = %.noexc, %.lr.ph
   %26 = phi i64 [ %.pre.i, %.noexc ], [ %20, %.lr.ph ]
   %27 = load ptr, ptr %10, align 8, !alias.scope !853, !noalias !856, !nonnull !17, !noundef !17
-  %28 = getelementptr inbounds { {}, { { { i8 } }, [7 x i8], { ptr, ptr } } }, ptr %27, i64 %26
+  %28 = getelementptr inbounds [24 x i8], ptr %27, i64 %26
   store i8 0, ptr %28, align 8
   %.sroa.418.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.418.0..sroa_idx, i8 0, i64 16, i1 false)
@@ -8715,7 +8715,7 @@ define hidden noundef ptr @"_ZN5tokio4util12sharded_list82ShardedList$LT$L$C$$LT
   %9 = and i64 %8, %1
   %10 = icmp ult i64 %9, %6
   tail call void @llvm.assume(i1 %10)
-  %11 = getelementptr inbounds { {}, { { { i8 } }, [7 x i8], { ptr, ptr } } }, ptr %4, i64 %9
+  %11 = getelementptr inbounds [24 x i8], ptr %4, i64 %9
   %12 = cmpxchg weak ptr %11, i8 0, i8 1 acquire monotonic, align 1
   %.sroa.18.0.in.i.i = extractvalue { i8, i1 } %12, 1
   br i1 %.sroa.18.0.in.i.i, label %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.18090272232049510573.exit", label %13
@@ -8782,7 +8782,7 @@ define hidden noundef ptr @"_ZN5tokio4util12sharded_list82ShardedList$LT$L$C$$LT
   %9 = and i64 %8, %1
   %10 = icmp ult i64 %9, %6
   tail call void @llvm.assume(i1 %10)
-  %11 = getelementptr inbounds { {}, { { { i8 } }, [7 x i8], { ptr, ptr } } }, ptr %4, i64 %9
+  %11 = getelementptr inbounds [24 x i8], ptr %4, i64 %9
   %12 = cmpxchg weak ptr %11, i8 0, i8 1 acquire monotonic, align 1
   %.sroa.18.0.in.i.i = extractvalue { i8, i1 } %12, 1
   br i1 %.sroa.18.0.in.i.i, label %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.18090272232049510573.exit", label %13
@@ -8855,7 +8855,7 @@ define hidden noundef ptr @"_ZN5tokio4util12sharded_list82ShardedList$LT$L$C$$LT
   %15 = and i64 %14, %9
   %16 = icmp ult i64 %15, %12
   tail call void @llvm.assume(i1 %16)
-  %17 = getelementptr inbounds { {}, { { { i8 } }, [7 x i8], { ptr, ptr } } }, ptr %10, i64 %15
+  %17 = getelementptr inbounds [24 x i8], ptr %10, i64 %15
   %18 = cmpxchg weak ptr %17, i8 0, i8 1 acquire monotonic, align 1
   %.sroa.18.0.in.i.i = extractvalue { i8, i1 } %18, 1
   br i1 %.sroa.18.0.in.i.i, label %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.18090272232049510573.exit", label %19
@@ -8928,7 +8928,7 @@ define hidden noundef ptr @"_ZN5tokio4util12sharded_list82ShardedList$LT$L$C$$LT
   %15 = and i64 %14, %9
   %16 = icmp ult i64 %15, %12
   tail call void @llvm.assume(i1 %16)
-  %17 = getelementptr inbounds { {}, { { { i8 } }, [7 x i8], { ptr, ptr } } }, ptr %10, i64 %15
+  %17 = getelementptr inbounds [24 x i8], ptr %10, i64 %15
   %18 = cmpxchg weak ptr %17, i8 0, i8 1 acquire monotonic, align 1
   %.sroa.18.0.in.i.i = extractvalue { i8, i1 } %18, 1
   br i1 %.sroa.18.0.in.i.i, label %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17h96b51c4cf520de85E.llvm.18090272232049510573.exit", label %19

@@ -6,12 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.4" }
-%"struct.std::_Head_base.4" = type { ptr }
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
@@ -28,6 +22,12 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
+%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
+%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
+%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
+%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
+%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.4" }
+%"struct.std::_Head_base.4" = type { ptr }
 
 $_ZN6opencc9DictEntry12UPtrLessThanERKSt10unique_ptrIS0_St14default_deleteIS0_EES6_ = comdat any
 
@@ -902,7 +902,7 @@ define noundef zeroext i1 @_ZN6opencc7Lexicon8IsUniqueEPNSt7__cxx1112basic_strin
   %18 = phi ptr [ %8, %.lr.ph ], [ %103, %100 ]
   %.01126 = phi i64 [ 1, %.lr.ph ], [ %101, %100 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %19 = getelementptr %"class.std::unique_ptr", ptr %18, i64 %.01126
+  %19 = getelementptr [8 x i8], ptr %18, i64 %.01126
   %20 = getelementptr i8, ptr %19, i64 -8
   %21 = load ptr, ptr %20, align 8, !tbaa !8
   %22 = load ptr, ptr %21, align 8, !tbaa !10
@@ -911,7 +911,7 @@ define noundef zeroext i1 @_ZN6opencc7Lexicon8IsUniqueEPNSt7__cxx1112basic_strin
   call void %24(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %3, ptr noundef nonnull align 8 dereferenceable(8) %21)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %25 = load ptr, ptr %0, align 8, !tbaa !27
-  %26 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %25, i64 %.01126
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.01126
   %27 = load ptr, ptr %26, align 8, !tbaa !8
   %28 = load ptr, ptr %27, align 8, !tbaa !10
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
@@ -980,7 +980,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15: ; preds = %_ZN
 51:                                               ; preds = %50
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %52 = load ptr, ptr %0, align 8, !tbaa !27
-  %53 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %52, i64 %.01126
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %.01126
   %54 = load ptr, ptr %53, align 8, !tbaa !8
   %55 = load ptr, ptr %54, align 8, !tbaa !10
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
@@ -1933,7 +1933,7 @@ _ZNSt6vectorISt10unique_ptrIN6opencc9DictEntryESt14default_deleteIS2_EESaIS5_EE1
 _ZNSt6vectorISt10unique_ptrIN6opencc9DictEntryESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJRPS2_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i: ; preds = %283, %_ZNSt6vectorISt10unique_ptrIN6opencc9DictEntryESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i
   store ptr %277, ptr %257, align 8, !tbaa !27
   store ptr %282, ptr %258, align 8, !tbaa !25
-  %284 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %277, i64 %275
+  %284 = getelementptr inbounds nuw [8 x i8], ptr %277, i64 %275
   store ptr %284, ptr %260, align 8, !tbaa !51
   br label %_ZN6opencc7Lexicon3AddEPNS_9DictEntryE.exit
 
@@ -3193,7 +3193,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !49
   store ptr %.0.lcssa.i.i.i.i35, ptr %5, align 8, !tbaa !43
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !46
   ret void
 
@@ -4865,7 +4865,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
 
 18:                                               ; preds = %_ZNSt10unique_ptrIN6opencc9DictEntryESt14default_deleteIS1_EED2Ev.exit13.i.i, %._crit_edge
   %.010.i.i = phi i64 [ %17, %._crit_edge ], [ %26, %_ZNSt10unique_ptrIN6opencc9DictEntryESt14default_deleteIS1_EED2Ev.exit13.i.i ]
-  %19 = getelementptr inbounds %"class.std::unique_ptr", ptr %0, i64 %.010.i.i
+  %19 = getelementptr inbounds [8 x i8], ptr %0, i64 %.010.i.i
   %20 = load i64, ptr %19, align 8, !tbaa !8
   store ptr null, ptr %19, align 8, !tbaa !8
   store i64 %20, ptr %5, align 8, !tbaa !8
@@ -4973,7 +4973,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPSt10unique_ptrIN6opencc9DictEnt
   %53 = phi i64 [ %94, %14 ], [ %10, %.lr.ph ]
   %54 = add nsw i64 %.02453, -1
   %55 = lshr i64 %53, 1
-  %56 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %0, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %55
   %57 = getelementptr inbounds i8, ptr %storemerge2354, i64 -8
   %58 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %56)
   br i1 %58, label %59, label %71
@@ -5089,13 +5089,13 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt
   %.044 = phi i64 [ %spec.select, %_ZNSt10unique_ptrIN6opencc9DictEntryESt14default_deleteIS1_EEaSEOS4_.exit ], [ %1, %5 ]
   %10 = shl i64 %.044, 1
   %11 = add i64 %10, 2
-  %12 = getelementptr inbounds %"class.std::unique_ptr", ptr %0, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %0, i64 %11
   %13 = or disjoint i64 %10, 1
-  %14 = getelementptr inbounds %"class.std::unique_ptr", ptr %0, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %0, i64 %13
   %15 = tail call noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 8 dereferenceable(8) %14)
   %spec.select = select i1 %15, i64 %13, i64 %11
-  %16 = getelementptr inbounds %"class.std::unique_ptr", ptr %0, i64 %spec.select
-  %17 = getelementptr inbounds %"class.std::unique_ptr", ptr %0, i64 %.044
+  %16 = getelementptr inbounds [8 x i8], ptr %0, i64 %spec.select
+  %17 = getelementptr inbounds [8 x i8], ptr %0, i64 %.044
   %18 = load ptr, ptr %16, align 8, !tbaa !8
   store ptr null, ptr %16, align 8, !tbaa !8
   %19 = load ptr, ptr %17, align 8, !tbaa !8
@@ -5129,8 +5129,8 @@ _ZNSt10unique_ptrIN6opencc9DictEntryESt14default_deleteIS1_EEaSEOS4_.exit: ; pre
 30:                                               ; preds = %26
   %31 = shl nsw i64 %.0.lcssa, 1
   %32 = or disjoint i64 %31, 1
-  %33 = getelementptr inbounds %"class.std::unique_ptr", ptr %0, i64 %32
-  %34 = getelementptr inbounds %"class.std::unique_ptr", ptr %0, i64 %.0.lcssa
+  %33 = getelementptr inbounds [8 x i8], ptr %0, i64 %32
+  %34 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0.lcssa
   %35 = load ptr, ptr %33, align 8, !tbaa !8
   store ptr null, ptr %33, align 8, !tbaa !8
   %36 = load ptr, ptr %34, align 8, !tbaa !8
@@ -5158,7 +5158,7 @@ _ZNSt10unique_ptrIN6opencc9DictEntryESt14default_deleteIS1_EEaSEOS4_.exit27: ; p
   %.021.i = phi i64 [ %.0922.i, %_ZNSt10unique_ptrIN6opencc9DictEntryESt14default_deleteIS1_EEaSEOS4_.exit.i ], [ %.1, %_ZNSt10unique_ptrIN6opencc9DictEntryESt14default_deleteIS1_EEaSEOS4_.exit27 ]
   %.0922.in.i = add nsw i64 %.021.i, -1
   %.0922.i = sdiv i64 %.0922.in.i, 2
-  %43 = getelementptr inbounds %"class.std::unique_ptr", ptr %0, i64 %.0922.i
+  %43 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0922.i
   %44 = invoke noundef zeroext i1 %4(ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %.noexc unwind label %62
 
@@ -5166,7 +5166,7 @@ _ZNSt10unique_ptrIN6opencc9DictEntryESt14default_deleteIS1_EEaSEOS4_.exit27: ; p
   br i1 %44, label %45, label %.critedge.i.loopexit
 
 45:                                               ; preds = %.noexc
-  %46 = getelementptr inbounds %"class.std::unique_ptr", ptr %0, i64 %.021.i
+  %46 = getelementptr inbounds [8 x i8], ptr %0, i64 %.021.i
   %47 = load ptr, ptr %43, align 8, !tbaa !8
   store ptr null, ptr %43, align 8, !tbaa !8
   %48 = load ptr, ptr %46, align 8, !tbaa !8
@@ -5193,7 +5193,7 @@ _ZNSt10unique_ptrIN6opencc9DictEntryESt14default_deleteIS1_EEaSEOS4_.exit.i: ; p
 .critedge.i:                                      ; preds = %.critedge.i.loopexit, %_ZNSt10unique_ptrIN6opencc9DictEntryESt14default_deleteIS1_EEaSEOS4_.exit27
   %53 = phi ptr [ %42, %_ZNSt10unique_ptrIN6opencc9DictEntryESt14default_deleteIS1_EEaSEOS4_.exit27 ], [ %.pre, %.critedge.i.loopexit ]
   %.0.lcssa.i = phi i64 [ %.1, %_ZNSt10unique_ptrIN6opencc9DictEntryESt14default_deleteIS1_EEaSEOS4_.exit27 ], [ %.0.lcssa.i.ph, %.critedge.i.loopexit ]
-  %54 = getelementptr inbounds %"class.std::unique_ptr", ptr %0, i64 %.0.lcssa.i
+  %54 = getelementptr inbounds [8 x i8], ptr %0, i64 %.0.lcssa.i
   store ptr null, ptr %6, align 8, !tbaa !8
   %55 = load ptr, ptr %54, align 8, !tbaa !8
   store ptr %53, ptr %54, align 8, !tbaa !8

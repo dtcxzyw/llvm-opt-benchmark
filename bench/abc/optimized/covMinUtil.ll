@@ -38,7 +38,7 @@ define void @Min_CubeCreate(ptr noundef captures(none) %0, ptr noundef readonly 
   %10 = shl nuw nsw i32 %.060, 1
   %11 = lshr i32 %.060, 4
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %7, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !3
   %15 = and i32 %10, 30
   %16 = shl nuw nsw i32 1, %15
@@ -578,7 +578,7 @@ define void @Min_CubeWrite(ptr noundef captures(none) %0, ptr noundef readonly c
   %8 = shl nuw nsw i32 %.018, 1
   %9 = lshr i32 %.018, 4
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw i32, ptr %6, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !3
   %13 = and i32 %8, 30
   %14 = shl nuw nsw i32 1, %13
@@ -627,7 +627,7 @@ define void @Min_CoverWrite(ptr noundef captures(none) %0, ptr noundef readonly 
   %8 = shl nuw nsw i32 %.018.i, 1
   %9 = lshr i32 %.018.i, 4
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw i32, ptr %6, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !3
   %13 = and i32 %8, 30
   %14 = shl nuw nsw i32 1, %13
@@ -675,7 +675,7 @@ define void @Min_CoverWriteStore(ptr noundef captures(none) %0, ptr noundef read
   %7 = phi i32 [ %3, %.lr.ph19 ], [ %37, %._crit_edge ]
   %indvars.iv = phi i64 [ 0, %.lr.ph19 ], [ %indvars.iv.next, %._crit_edge ]
   %8 = load ptr, ptr %4, align 8, !tbaa !26
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %.01113 = load ptr, ptr %9, align 8, !tbaa !27
   %.not1214 = icmp eq ptr %.01113, null
   br i1 %.not1214, label %._crit_edge, label %.lr.ph.preheader
@@ -711,7 +711,7 @@ define void @Min_CoverWriteStore(ptr noundef captures(none) %0, ptr noundef read
   %21 = shl nuw nsw i32 %.018.i, 1
   %22 = lshr i32 %.018.i, 4
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw i32, ptr %19, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !3
   %26 = and i32 %21, 30
   %27 = shl nuw nsw i32 1, %26
@@ -848,7 +848,7 @@ Min_CoverCountCubes.exit:                         ; preds = %.lr.ph.i, %Min_Cove
   %39 = shl nuw nsw i32 %.018.i, 1
   %40 = lshr i32 %.018.i, 4
   %41 = zext nneg i32 %40 to i64
-  %42 = getelementptr inbounds nuw i32, ptr %37, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !3
   %44 = and i32 %39, 30
   %45 = shl nuw nsw i32 1, %44
@@ -919,7 +919,7 @@ define range(i32 0, 2) i32 @Min_CubeCheck(ptr noundef readonly captures(none) %0
   %8 = shl nuw nsw i32 %.06, 1
   %9 = lshr i32 %.06, 4
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw i32, ptr %2, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !3
   %13 = and i32 %8, 30
   %14 = shl nuw i32 3, %13
@@ -950,7 +950,7 @@ define ptr @Min_CoverCollect(ptr noundef readonly captures(none) %0, i32 noundef
 7:                                                ; preds = %.lr.ph29, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.lr.ph29 ], [ %indvars.iv.next, %._crit_edge ]
   %.01626 = phi ptr [ %3, %.lr.ph29 ], [ %.1.lcssa, %._crit_edge ]
-  %8 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !27
   %.not18 = icmp eq ptr %9, null
   br i1 %.not18, label %._crit_edge, label %.lr.ph
@@ -999,7 +999,7 @@ define void @Min_CoverExpand(ptr noundef %0, ptr noundef %1) local_unnamed_addr 
   %10 = load i32, ptr %9, align 8
   %11 = lshr i32 %10, 22
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw ptr, ptr %5, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !27
   store ptr %14, ptr %.01621, align 8, !tbaa !16
   store ptr %.01621, ptr %13, align 8, !tbaa !27
@@ -1039,7 +1039,7 @@ define i32 @Min_CoverSuppVarNum(ptr noundef readonly captures(none) %0, ptr noun
 
 12:                                               ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
-  %13 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   store i32 -1, ptr %13, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %14 = load i32, ptr %4, align 8
@@ -1074,9 +1074,9 @@ define i32 @Min_CoverSuppVarNum(ptr noundef readonly captures(none) %0, ptr noun
 
 27:                                               ; preds = %.lr.ph32, %27
   %indvars.iv41 = phi i64 [ 0, %.lr.ph32 ], [ %indvars.iv.next42, %27 ]
-  %28 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv41
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv41
   %29 = load i32, ptr %28, align 4, !tbaa !3
-  %30 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv41
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv41
   %31 = load i32, ptr %30, align 4, !tbaa !3
   %32 = and i32 %31, %29
   store i32 %32, ptr %30, align 4, !tbaa !3
@@ -1100,7 +1100,7 @@ define i32 @Min_CoverSuppVarNum(ptr noundef readonly captures(none) %0, ptr noun
   %41 = shl nuw nsw i32 %.234, 1
   %42 = lshr i32 %.234, 4
   %43 = zext nneg i32 %42 to i64
-  %44 = getelementptr inbounds nuw i32, ptr %26, i64 %43
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %43
   %45 = load i32, ptr %44, align 4, !tbaa !3
   %46 = and i32 %41, 30
   %47 = lshr i32 %45, %46

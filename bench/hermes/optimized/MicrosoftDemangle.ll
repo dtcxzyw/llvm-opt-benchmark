@@ -117,7 +117,7 @@ $_ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_17PrimitiveTypeNodeEJNS0_13Prim
 define hidden noundef zeroext i8 @_Z30translateIntrinsicFunctionCodec27FunctionIdentifierCodeGroup(i8 noundef signext %CH, i32 noundef %Group) local_unnamed_addr #0 {
 entry:
   %0 = zext nneg i32 %Group to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._Z30translateIntrinsicFunctionCodec27FunctionIdentifierCodeGroup, i64 %0
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._Z30translateIntrinsicFunctionCodec27FunctionIdentifierCodeGroup, i64 %0
   %switch.load = load ptr, ptr %switch.gep, align 8
   %1 = add i8 %CH, -48
   %or.cond = icmp ult i8 %1, 10
@@ -331,7 +331,7 @@ if.then.i:                                        ; preds = %if.then
 for.body.i:                                       ; preds = %_Z22initializeOutputStreamPcPmR12OutputStreamm.exit.i, %for.body.i
   %I.012.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %_Z22initializeOutputStreamPcPmR12OutputStreamm.exit.i ]
   store i64 0, ptr %CurrentPosition.i.i.i, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %Backrefs.i, i64 %I.012.i
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %Backrefs.i, i64 %I.012.i
   %2 = load ptr, ptr %arrayidx.i, align 8
   %vtable.i = load ptr, ptr %2, align 8
   %vfn.i = getelementptr inbounds nuw i8, ptr %vtable.i, i64 16
@@ -377,7 +377,7 @@ for.body26.lr.ph.i:                               ; preds = %if.end17.i
 for.body26.i:                                     ; preds = %for.body26.i, %for.body26.lr.ph.i
   %I21.014.i = phi i64 [ 0, %for.body26.lr.ph.i ], [ %inc39.i, %for.body26.i ]
   %conv27.i = trunc i64 %I21.014.i to i32
-  %arrayidx29.i = getelementptr inbounds ptr, ptr %Names.i, i64 %I21.014.i
+  %arrayidx29.i = getelementptr inbounds [8 x i8], ptr %Names.i, i64 %I21.014.i
   %11 = load ptr, ptr %arrayidx29.i, align 8
   %Name.i = getelementptr inbounds nuw i8, ptr %11, i64 24
   %Last.i.i = getelementptr inbounds nuw i8, ptr %11, i64 32
@@ -948,7 +948,7 @@ if.end.i.i282:                                    ; preds = %if.then.i278
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %41, i64 1
   store ptr %add.ptr.i.i.i, ptr %MangledName, align 8
   %Names.i.i = getelementptr inbounds nuw i8, ptr %this, i64 112
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %Names.i.i, i64 %sub.i.i279
+  %arrayidx.i.i = getelementptr inbounds [8 x i8], ptr %Names.i.i, i64 %sub.i.i279
   %45 = load ptr, ptr %arrayidx.i.i, align 8
   br label %_ZN12_GLOBAL__N_19Demangler27demangleUnqualifiedTypeNameER10StringViewb.exit
 
@@ -1112,7 +1112,7 @@ if.then8.i:                                       ; preds = %if.end6.i
   %55 = load ptr, ptr %Nodes.i, align 8
   %Count.i = getelementptr inbounds nuw i8, ptr %54, i64 24
   %56 = load i64, ptr %Count.i, align 8
-  %57 = getelementptr ptr, ptr %55, i64 %56
+  %57 = getelementptr [8 x i8], ptr %55, i64 %56
   %arrayidx.i = getelementptr i8, ptr %57, i64 -16
   %58 = load ptr, ptr %arrayidx.i, align 8
   %Class.i = getelementptr inbounds nuw i8, ptr %call.i21, i64 24
@@ -1167,7 +1167,7 @@ sw.epilog.i32:                                    ; preds = %if.end17
   %65 = load ptr, ptr %Nodes.i72, align 8
   %Count.i73 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %66 = load i64, ptr %Count.i73, align 8
-  %67 = getelementptr ptr, ptr %65, i64 %66
+  %67 = getelementptr [8 x i8], ptr %65, i64 %66
   %arrayidx.i74 = getelementptr i8, ptr %67, i64 -8
   %68 = load ptr, ptr %arrayidx.i74, align 8
   %Kind.i70 = getelementptr inbounds nuw i8, ptr %68, i64 8
@@ -2073,7 +2073,7 @@ if.end54:                                         ; preds = %if.then52, %while.e
   %conv55 = trunc i64 %retval.sroa.0.0.i to i32
   %call56 = call noundef i32 @_Z17guessCharByteSizePKhjj(ptr noundef nonnull %StringBytes, i32 noundef %BytesDecoded.0, i32 noundef %conv55)
   %78 = zext nneg i32 %call56 to i64
-  %79 = getelementptr i32, ptr @switch.table._ZN12_GLOBAL__N_19Demangler21demangleStringLiteralER10StringView, i64 %78
+  %79 = getelementptr [4 x i8], ptr @switch.table._ZN12_GLOBAL__N_19Demangler21demangleStringLiteralER10StringView, i64 %78
   %switch.gep = getelementptr i8, ptr %79, i64 -4
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %Char.i7.i, align 4
@@ -5618,7 +5618,7 @@ if.then8.i:                                       ; preds = %if.end6.i
   %16 = load ptr, ptr %Nodes.i, align 8
   %Count.i = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load i64, ptr %Count.i, align 8
-  %18 = getelementptr ptr, ptr %16, i64 %17
+  %18 = getelementptr [8 x i8], ptr %16, i64 %17
   %arrayidx.i = getelementptr i8, ptr %18, i64 -16
   %19 = load ptr, ptr %arrayidx.i, align 8
   %Class.i = getelementptr inbounds nuw i8, ptr %call.i, i64 24
@@ -5662,7 +5662,7 @@ sw.epilog.i:                                      ; preds = %_ZN12_GLOBAL__N_19D
   %25 = load ptr, ptr %Nodes.i37, align 8
   %Count.i38 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = load i64, ptr %Count.i38, align 8
-  %27 = getelementptr ptr, ptr %25, i64 %26
+  %27 = getelementptr [8 x i8], ptr %25, i64 %26
   %arrayidx.i39 = getelementptr i8, ptr %27, i64 -8
   %28 = load ptr, ptr %arrayidx.i39, align 8
   %Kind.i35 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -6631,7 +6631,7 @@ if.then.i138:                                     ; preds = %if.then.i32
 if.end.i141:                                      ; preds = %if.then.i32
   %add.ptr.i.i143 = getelementptr inbounds nuw i8, ptr %19, i64 1
   store ptr %add.ptr.i.i143, ptr %MangledName, align 8
-  %arrayidx.i = getelementptr inbounds ptr, ptr %Names.i, i64 %sub.i137
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %Names.i, i64 %sub.i137
   %23 = load ptr, ptr %arrayidx.i, align 8
   br label %_ZN12_GLOBAL__N_19Demangler22demangleNameScopePieceER10StringView.exit
 
@@ -7267,7 +7267,7 @@ switch.hole_check:                                ; preds = %entry
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %3 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i16, ptr @switch.table._ZN12_GLOBAL__N_19Demangler18demangleQualifiersER10StringView, i64 %3
+  %switch.gep = getelementptr inbounds nuw [2 x i8], ptr @switch.table._ZN12_GLOBAL__N_19Demangler18demangleQualifiersER10StringView, i64 %3
   %switch.load = load i16, ptr %switch.gep, align 2
   br label %return
 
@@ -7309,7 +7309,7 @@ if.end.i7:                                        ; preds = %if.then.i
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload.i, i64 1
   store ptr %add.ptr.i.i, ptr %MangledName, align 8
   %Names.i = getelementptr inbounds nuw i8, ptr %this, i64 112
-  %arrayidx.i = getelementptr inbounds ptr, ptr %Names.i, i64 %sub.i
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %Names.i, i64 %sub.i
   %2 = load ptr, ptr %arrayidx.i, align 8
   br label %_ZN12_GLOBAL__N_19Demangler27demangleUnqualifiedTypeNameER10StringViewb.exit
 
@@ -7451,7 +7451,7 @@ for.body:                                         ; preds = %_ZN4llvh11ms_demang
   %Head.addr.027 = phi ptr [ %20, %for.body ], [ %Head, %_ZN4llvh11ms_demangle14ArenaAllocator10allocArrayIPNS0_4NodeEJEEEPT_m.exit ]
   %18 = load ptr, ptr %Head.addr.027, align 8
   %19 = load ptr, ptr %Nodes.i5.i, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %19, i64 %I.028
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %19, i64 %I.028
   store ptr %18, ptr %arrayidx, align 8
   %Next = getelementptr inbounds nuw i8, ptr %Head.addr.027, i64 8
   %20 = load ptr, ptr %Next, align 8
@@ -7761,7 +7761,7 @@ if.then46.i:                                      ; preds = %_ZNK10StringView10s
   %32 = load ptr, ptr %Nodes.i, align 8
   %Count.i = getelementptr inbounds nuw i8, ptr %31, i64 24
   %33 = load i64, ptr %Count.i, align 8
-  %34 = getelementptr ptr, ptr %32, i64 %33
+  %34 = getelementptr [8 x i8], ptr %32, i64 %33
   %arrayidx.i = getelementptr i8, ptr %34, i64 -8
   %35 = load ptr, ptr %arrayidx.i, align 8
   call fastcc void @_ZN12_GLOBAL__N_19Demangler18memorizeIdentifierEPN4llvh11ms_demangle14IdentifierNodeE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef %35)
@@ -7871,7 +7871,7 @@ _ZN12_GLOBAL__N_19Demangler14demangleSignedER10StringView.exit424: ; preds = %if
   %inc51.i = add nsw i32 %44, 1
   store i32 %inc51.i, ptr %ThunkOffsetCount.i6.i, align 8
   %conv52.i = sext i32 %44 to i64
-  %arrayidx.i.i86 = getelementptr inbounds i64, ptr %ThunkOffsets.i, i64 %conv52.i
+  %arrayidx.i.i86 = getelementptr inbounds [8 x i8], ptr %ThunkOffsets.i, i64 %conv52.i
   store i64 %43, ptr %arrayidx.i.i86, align 8
   br label %sw.bb54.i
 
@@ -7970,7 +7970,7 @@ _ZN12_GLOBAL__N_19Demangler14demangleSignedER10StringView.exit85: ; preds = %if.
   %inc58.i = add nsw i32 %53, 1
   store i32 %inc58.i, ptr %ThunkOffsetCount.i6.i, align 8
   %conv59.i = sext i32 %53 to i64
-  %arrayidx.i.i37 = getelementptr inbounds i64, ptr %ThunkOffsets56.i, i64 %conv59.i
+  %arrayidx.i.i37 = getelementptr inbounds [8 x i8], ptr %ThunkOffsets56.i, i64 %conv59.i
   store i64 %52, ptr %arrayidx.i.i37, align 8
   br label %sw.bb61.i
 
@@ -8069,7 +8069,7 @@ _ZN12_GLOBAL__N_19Demangler14demangleSignedER10StringView.exit: ; preds = %if.en
   %inc65.i = add nsw i32 %62, 1
   store i32 %inc65.i, ptr %ThunkOffsetCount.i6.i, align 8
   %conv66.i = sext i32 %62 to i64
-  %arrayidx.i.i30 = getelementptr inbounds i64, ptr %ThunkOffsets63.i, i64 %conv66.i
+  %arrayidx.i.i30 = getelementptr inbounds [8 x i8], ptr %ThunkOffsets63.i, i64 %conv66.i
   store i64 %61, ptr %arrayidx.i.i30, align 8
   br label %sw.epilog.i
 
@@ -8238,7 +8238,7 @@ sw.bb97.i:                                        ; preds = %_ZN4llvh11ms_demang
   %inc101.i = add nsw i32 %83, 1
   store i32 %inc101.i, ptr %ThunkOffsetCount.i6.i506, align 8
   %conv102.i = sext i32 %83 to i64
-  %arrayidx.i.i16 = getelementptr inbounds i64, ptr %ThunkOffsets99.i, i64 %conv102.i
+  %arrayidx.i.i16 = getelementptr inbounds [8 x i8], ptr %ThunkOffsets99.i, i64 %conv102.i
   store i64 %call98.i, ptr %arrayidx.i.i16, align 8
   br label %sw.bb104.i
 
@@ -8249,14 +8249,14 @@ sw.bb104.i:                                       ; preds = %sw.bb97.i, %_ZN4llv
   %inc108.i = add nsw i32 %84, 1
   store i32 %inc108.i, ptr %ThunkOffsetCount.i6.i506, align 8
   %conv109.i = sext i32 %84 to i64
-  %arrayidx.i.i15 = getelementptr inbounds i64, ptr %ThunkOffsets106.i, i64 %conv109.i
+  %arrayidx.i.i15 = getelementptr inbounds [8 x i8], ptr %ThunkOffsets106.i, i64 %conv109.i
   store i64 %call105.i, ptr %arrayidx.i.i15, align 8
   %call111.i = call fastcc noundef i64 @_ZN12_GLOBAL__N_19Demangler14demangleSignedER10StringView(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull align 8 dereferenceable(16) %MangledName)
   %85 = load i32, ptr %ThunkOffsetCount.i6.i506, align 8
   %inc114.i = add nsw i32 %85, 1
   store i32 %inc114.i, ptr %ThunkOffsetCount.i6.i506, align 8
   %conv115.i = sext i32 %85 to i64
-  %arrayidx.i.i = getelementptr inbounds i64, ptr %ThunkOffsets106.i, i64 %conv115.i
+  %arrayidx.i.i = getelementptr inbounds [8 x i8], ptr %ThunkOffsets106.i, i64 %conv115.i
   store i64 %call111.i, ptr %arrayidx.i.i, align 8
   br label %sw.epilog120.i
 
@@ -8467,7 +8467,7 @@ if.end.i:                                         ; preds = %if.then
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 1
   store ptr %add.ptr.i.i, ptr %MangledName, align 8
   %Names.i = getelementptr inbounds nuw i8, ptr %this, i64 112
-  %arrayidx.i = getelementptr inbounds ptr, ptr %Names.i, i64 %sub.i
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %Names.i, i64 %sub.i
   %2 = load ptr, ptr %arrayidx.i, align 8
   br label %return
 
@@ -9115,7 +9115,7 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
   %i.07.us = phi i64 [ %inc.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
-  %arrayidx.us = getelementptr inbounds ptr, ptr %Names, i64 %i.07.us
+  %arrayidx.us = getelementptr inbounds [8 x i8], ptr %Names, i64 %i.07.us
   %1 = load ptr, ptr %arrayidx.us, align 8
   %Name.us = getelementptr inbounds nuw i8, ptr %1, i64 24
   %Last.i4.i.us = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -9134,7 +9134,7 @@ for.inc.us:                                       ; preds = %for.body.us
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %i.07 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.lr.ph ]
-  %arrayidx = getelementptr inbounds ptr, ptr %Names, i64 %i.07
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %Names, i64 %i.07
   %4 = load ptr, ptr %arrayidx, align 8
   %Name = getelementptr inbounds nuw i8, ptr %4, i64 24
   %Last.i4.i = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -9209,7 +9209,7 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocINS0_19NamedIdentifierNodeEJEEEPT_DpO
   %15 = load i64, ptr %NamesCount, align 8
   %inc14 = add i64 %15, 1
   store i64 %inc14, ptr %NamesCount, align 8
-  %arrayidx15 = getelementptr inbounds ptr, ptr %Names11, i64 %15
+  %arrayidx15 = getelementptr inbounds [8 x i8], ptr %Names11, i64 %15
   store ptr %call2.i.sink9.i, ptr %arrayidx15, align 8
   br label %return
 
@@ -9516,7 +9516,7 @@ if.end.i:                                         ; preds = %if.then
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload, i64 1
   store ptr %add.ptr.i.i, ptr %MangledName, align 8
   %Names.i = getelementptr inbounds nuw i8, ptr %this, i64 112
-  %arrayidx.i = getelementptr inbounds ptr, ptr %Names.i, i64 %sub.i
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %Names.i, i64 %sub.i
   %2 = load ptr, ptr %arrayidx.i, align 8
   br label %return
 
@@ -9937,7 +9937,7 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocI8NodeListJEEEPT_DpOT0_.exit49: ; pre
   %call2.i.sink.i47 = phi ptr [ %call2.i.i43, %if.end.i41 ], [ %23, %if.then.i48 ]
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %call2.i.sink.i47, i8 0, i64 16, i1 false)
   store ptr %call2.i.sink.i47, ptr %Current.099, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %Backrefs, i64 %sub
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %Backrefs, i64 %sub
   %24 = load ptr, ptr %arrayidx, align 8
   store ptr %24, ptr %call2.i.sink.i47, align 8
   br label %while.cond.backedge
@@ -10013,7 +10013,7 @@ _ZN4llvh11ms_demangle14ArenaAllocator5allocI8NodeListJEEEPT_DpOT0_.exit67: ; pre
 if.then30:                                        ; preds = %_ZN4llvh11ms_demangle14ArenaAllocator5allocI8NodeListJEEEPT_DpOT0_.exit67
   %inc35 = add nuw nsw i64 %38, 1
   store i64 %inc35, ptr %FunctionParamCount, align 8
-  %arrayidx36 = getelementptr inbounds nuw ptr, ptr %Backrefs, i64 %38
+  %arrayidx36 = getelementptr inbounds nuw [8 x i8], ptr %Backrefs, i64 %38
   store ptr %call21, ptr %arrayidx36, align 8
   br label %while.cond.backedge
 
@@ -11225,7 +11225,7 @@ if.end.i.i:                                       ; preds = %if.then.i35
   %add.ptr.i.i.i36 = getelementptr inbounds nuw i8, ptr %agg.tmp.sroa.0.0.copyload.i, i64 1
   store ptr %add.ptr.i.i.i36, ptr %MangledName, align 8
   %Names.i.i = getelementptr inbounds nuw i8, ptr %this, i64 112
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %Names.i.i, i64 %sub.i.i
+  %arrayidx.i.i = getelementptr inbounds [8 x i8], ptr %Names.i.i, i64 %sub.i.i
   %32 = load ptr, ptr %arrayidx.i.i, align 8
   br label %_ZN12_GLOBAL__N_19Demangler27demangleUnqualifiedTypeNameER10StringViewb.exit
 

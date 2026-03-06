@@ -71,11 +71,11 @@ define internal range(i32 1, 0) i32 @bmv_aud_decode_frame(ptr noundef %0, ptr no
   %25 = zext i8 %24 to i32
   %26 = and i32 %25, 15
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds nuw i32, ptr @bmv_aud_mults, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr @bmv_aud_mults, i64 %27
   %29 = load i32, ptr %28, align 4, !tbaa !4
   %30 = lshr i32 %25, 4
   %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr inbounds nuw i32, ptr @bmv_aud_mults, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr @bmv_aud_mults, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !4
   br label %34
 

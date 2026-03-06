@@ -59,10 +59,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._GLFWlibraryGLX = type { i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
 %struct._GLFWlibraryLinux = type { i32, i32, %struct.re_pattern_buffer, i32, i32 }
 %struct.re_pattern_buffer = type { ptr, i64, i64, i64, ptr, ptr, i64, i8 }
-%struct.XineramaScreenInfo = type { i32, i16, i16, i16, i16 }
-%struct.Screen = type { ptr, ptr, i64, i32, i32, i32, i32, i32, ptr, i32, ptr, ptr, i64, i64, i64, i32, i32, i32, i32, i64 }
 %struct.GLFWvidmode = type { i32, i32, i32, i32, i32, i32 }
-%struct._XRRModeInfo = type { i64, i32, i32, i64, i32, i32, i32, i32, i32, i32, i32, ptr, i32, i64 }
 
 @_glfw = external local_unnamed_addr global %struct._GLFWlibrary, align 8
 @.str = private unnamed_addr constant [8 x i8] c"Display\00", align 1
@@ -142,7 +139,7 @@ define hidden void @_glfwPollMonitorsX11() local_unnamed_addr #0 {
   %37 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142168), align 8, !tbaa !107
   %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %39 = load ptr, ptr %33, align 8, !tbaa !108
-  %40 = getelementptr inbounds nuw i64, ptr %39, i64 %indvars.iv119
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv119
   %41 = load i64, ptr %40, align 8, !tbaa !109
   %42 = call ptr %37(ptr noundef %38, ptr noundef nonnull %10, i64 noundef %41) #9
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 48
@@ -166,7 +163,7 @@ define hidden void @_glfwPollMonitorsX11() local_unnamed_addr #0 {
 
 .lr.ph:                                           ; preds = %.preheader, %60
   %indvars.iv = phi i64 [ %indvars.iv.next, %60 ], [ 0, %.preheader ]
-  %51 = getelementptr inbounds nuw ptr, ptr %.0, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %indvars.iv
   %52 = load ptr, ptr %51, align 8, !tbaa !115
   %.not99 = icmp eq ptr %52, null
   br i1 %.not99, label %60, label %53
@@ -175,7 +172,7 @@ define hidden void @_glfwPollMonitorsX11() local_unnamed_addr #0 {
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 288
   %55 = load i64, ptr %54, align 8, !tbaa !117
   %56 = load ptr, ptr %33, align 8, !tbaa !108
-  %57 = getelementptr inbounds nuw i64, ptr %56, i64 %indvars.iv119
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv119
   %58 = load i64, ptr %57, align 8, !tbaa !109
   %59 = icmp eq i64 %55, %58
   br i1 %59, label %61, label %60
@@ -186,7 +183,7 @@ define hidden void @_glfwPollMonitorsX11() local_unnamed_addr #0 {
   br i1 %exitcond.not, label %.critedge, label %.lr.ph
 
 61:                                               ; preds = %53
-  %62 = getelementptr inbounds nuw ptr, ptr %.0, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %indvars.iv
   store ptr null, ptr %62, align 8, !tbaa !115
   %63 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142128), align 8, !tbaa !114
   call void %63(ptr noundef %42) #9
@@ -242,7 +239,7 @@ define hidden void @_glfwPollMonitorsX11() local_unnamed_addr #0 {
   %90 = load ptr, ptr %89, align 8, !tbaa !132
   %91 = call ptr @_glfwAllocMonitor(ptr noundef %90, i32 noundef %.189, i32 noundef %.187) #9
   %92 = load ptr, ptr %33, align 8, !tbaa !108
-  %93 = getelementptr inbounds nuw i64, ptr %92, i64 %indvars.iv119
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %indvars.iv119
   %94 = load i64, ptr %93, align 8, !tbaa !109
   %95 = getelementptr inbounds nuw i8, ptr %91, i64 288
   store i64 %94, ptr %95, align 8, !tbaa !117
@@ -264,7 +261,7 @@ define hidden void @_glfwPollMonitorsX11() local_unnamed_addr #0 {
 
 105:                                              ; preds = %.lr.ph104, %132
   %indvars.iv114 = phi i64 [ 0, %.lr.ph104 ], [ %indvars.iv.next115, %132 ]
-  %106 = getelementptr inbounds nuw %struct.XineramaScreenInfo, ptr %.082, i64 %indvars.iv114
+  %106 = getelementptr inbounds nuw [12 x i8], ptr %.082, i64 %indvars.iv114
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 4
   %108 = load i16, ptr %107, align 4, !tbaa !135
   %109 = sext i16 %108 to i32
@@ -343,7 +340,7 @@ define hidden void @_glfwPollMonitorsX11() local_unnamed_addr #0 {
 
 .lr.ph109:                                        ; preds = %.lr.ph109.preheader, %148
   %indvars.iv122 = phi i64 [ 0, %.lr.ph109.preheader ], [ %indvars.iv.next123, %148 ]
-  %145 = getelementptr inbounds nuw ptr, ptr %.0, i64 %indvars.iv122
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %indvars.iv122
   %146 = load ptr, ptr %145, align 8, !tbaa !115
   %.not97 = icmp eq ptr %146, null
   br i1 %.not97, label %148, label %147
@@ -363,7 +360,7 @@ define hidden void @_glfwPollMonitorsX11() local_unnamed_addr #0 {
   %152 = load ptr, ptr %151, align 8, !tbaa !144
   %153 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !149
   %154 = sext i32 %153 to i64
-  %155 = getelementptr inbounds %struct.Screen, ptr %152, i64 %154
+  %155 = getelementptr inbounds [128 x i8], ptr %152, i64 %154
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 32
   %157 = load i32, ptr %156, align 8, !tbaa !150
   %158 = getelementptr inbounds nuw i8, ptr %155, i64 36
@@ -442,7 +439,7 @@ define hidden void @_glfwSetVideoModeX11(ptr noundef %0, ptr noundef %1) local_u
   %42 = phi i32 [ %30, %.lr.ph ], [ %88, %.thread ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread ]
   %43 = load ptr, ptr %32, align 8, !tbaa !155
-  %44 = getelementptr inbounds nuw i64, ptr %43, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv
   %45 = load i64, ptr %44, align 8, !tbaa !109
   %46 = load i32, ptr %33, align 8, !tbaa !156
   %47 = icmp sgt i32 %46, 0
@@ -460,7 +457,7 @@ define hidden void @_glfwSetVideoModeX11(ptr noundef %0, ptr noundef %1) local_u
 
 50:                                               ; preds = %49, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %49 ]
-  %51 = getelementptr inbounds nuw %struct._XRRModeInfo, ptr %48, i64 %indvars.iv.i
+  %51 = getelementptr inbounds nuw [80 x i8], ptr %48, i64 %indvars.iv.i
   %52 = load i64, ptr %51, align 8, !tbaa !158
   %53 = icmp eq i64 %52, %45
   br i1 %53, label %getModeInfo.exit, label %49
@@ -525,7 +522,7 @@ vidmodeFromModeInfo.exit:                         ; preds = %59, %64, %67
   %79 = load ptr, ptr %78, align 8, !tbaa !144, !noalias !161
   %80 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !149, !noalias !161
   %81 = sext i32 %80 to i64
-  %82 = getelementptr inbounds %struct.Screen, ptr %79, i64 %81
+  %82 = getelementptr inbounds [128 x i8], ptr %79, i64 %81
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 56
   %84 = load i32, ptr %83, align 8, !tbaa !170, !noalias !161
   call void @_glfwSplitBPP(i32 noundef %84, ptr noundef nonnull %38, ptr noundef nonnull %39, ptr noundef nonnull %40) #9
@@ -643,7 +640,7 @@ define hidden range(i32 0, 2) i32 @_glfwGetVideoModeX11(ptr noundef readonly cap
 
 27:                                               ; preds = %26, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %26 ]
-  %28 = getelementptr inbounds nuw %struct._XRRModeInfo, ptr %25, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw [80 x i8], ptr %25, i64 %indvars.iv.i
   %29 = load i64, ptr %28, align 8, !tbaa !158
   %30 = icmp eq i64 %29, %20
   br i1 %30, label %getModeInfo.exit, label %26
@@ -703,7 +700,7 @@ vidmodeFromModeInfo.exit:                         ; preds = %34, %39, %42
   %55 = load ptr, ptr %54, align 8, !tbaa !144, !noalias !176
   %56 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !149, !noalias !176
   %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds %struct.Screen, ptr %55, i64 %57
+  %58 = getelementptr inbounds [128 x i8], ptr %55, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 56
   %60 = load i32, ptr %59, align 8, !tbaa !170, !noalias !176
   %61 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -735,7 +732,7 @@ getModeInfo.exit.thread:                          ; preds = %26, %18
   %71 = load ptr, ptr %70, align 8, !tbaa !144
   %72 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !149
   %73 = sext i32 %72 to i64
-  %74 = getelementptr inbounds %struct.Screen, ptr %71, i64 %73
+  %74 = getelementptr inbounds [128 x i8], ptr %71, i64 %73
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 24
   %76 = load i32, ptr %75, align 8, !tbaa !180
   store i32 %76, ptr %1, align 4, !tbaa !164
@@ -940,7 +937,7 @@ define hidden void @_glfwGetMonitorWorkareaX11(ptr noundef readonly captures(non
 
 34:                                               ; preds = %33, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %33 ]
-  %35 = getelementptr inbounds nuw %struct._XRRModeInfo, ptr %32, i64 %indvars.iv.i
+  %35 = getelementptr inbounds nuw [80 x i8], ptr %32, i64 %indvars.iv.i
   %36 = load i64, ptr %35, align 8, !tbaa !158
   %37 = icmp eq i64 %36, %27
   br i1 %37, label %getModeInfo.exit, label %33
@@ -976,7 +973,7 @@ getModeInfo.exit:                                 ; preds = %33, %34, %12
   %50 = load ptr, ptr %49, align 8, !tbaa !144
   %51 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !149
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds %struct.Screen, ptr %50, i64 %52
+  %53 = getelementptr inbounds [128 x i8], ptr %50, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 24
   %55 = load i32, ptr %54, align 8, !tbaa !180
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 28
@@ -1195,7 +1192,7 @@ define hidden ptr @_glfwGetVideoModesX11(ptr noundef readonly captures(none) %0,
   %42 = phi i32 [ %27, %.lr.ph41 ], [ %100, %99 ]
   %indvars.iv44 = phi i64 [ 0, %.lr.ph41 ], [ %indvars.iv.next45, %99 ]
   %43 = load ptr, ptr %29, align 8, !tbaa !155
-  %44 = getelementptr inbounds nuw i64, ptr %43, i64 %indvars.iv44
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv44
   %45 = load i64, ptr %44, align 8, !tbaa !109
   %46 = load i32, ptr %30, align 8, !tbaa !156
   %47 = icmp sgt i32 %46, 0
@@ -1213,7 +1210,7 @@ define hidden ptr @_glfwGetVideoModesX11(ptr noundef readonly captures(none) %0,
 
 50:                                               ; preds = %49, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %49 ]
-  %51 = getelementptr inbounds nuw %struct._XRRModeInfo, ptr %48, i64 %indvars.iv.i
+  %51 = getelementptr inbounds nuw [80 x i8], ptr %48, i64 %indvars.iv.i
   %52 = load i64, ptr %51, align 8, !tbaa !158
   %53 = icmp eq i64 %52, %45
   br i1 %53, label %getModeInfo.exit, label %49
@@ -1278,7 +1275,7 @@ vidmodeFromModeInfo.exit:                         ; preds = %59, %64, %67
   %79 = load ptr, ptr %78, align 8, !tbaa !144, !noalias !188
   %80 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137848), align 8, !tbaa !149, !noalias !188
   %81 = sext i32 %80 to i64
-  %82 = getelementptr inbounds %struct.Screen, ptr %79, i64 %81
+  %82 = getelementptr inbounds [128 x i8], ptr %79, i64 %81
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 56
   %84 = load i32, ptr %83, align 8, !tbaa !170, !noalias !188
   call void @_glfwSplitBPP(i32 noundef %84, ptr noundef nonnull %35, ptr noundef nonnull %36, ptr noundef nonnull %37) #9
@@ -1288,7 +1285,7 @@ vidmodeFromModeInfo.exit:                         ; preds = %59, %64, %67
 
 .lr.ph:                                           ; preds = %vidmodeFromModeInfo.exit, %90
   %indvars.iv = phi i64 [ %indvars.iv.next, %90 ], [ 0, %vidmodeFromModeInfo.exit ]
-  %87 = getelementptr inbounds nuw %struct.GLFWvidmode, ptr %26, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %indvars.iv
   %88 = call i32 @_glfwCompareVideoModes(ptr noundef %87, ptr noundef nonnull %3) #9
   %89 = icmp eq i32 %88, 0
   %.pre.pre = load i32, ptr %1, align 4, !tbaa !93
@@ -1311,7 +1308,7 @@ vidmodeFromModeInfo.exit:                         ; preds = %59, %64, %67
   %95 = add nsw i32 %94, 1
   store i32 %95, ptr %1, align 4, !tbaa !93
   %96 = sext i32 %94 to i64
-  %97 = getelementptr inbounds %struct.GLFWvidmode, ptr %26, i64 %96
+  %97 = getelementptr inbounds [24 x i8], ptr %26, i64 %96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(24) %97, ptr noundef nonnull align 4 dereferenceable(24) %3, i64 24, i1 false), !tbaa.struct !179
   br label %98
 

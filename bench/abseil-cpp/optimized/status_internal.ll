@@ -176,7 +176,7 @@ define dso_local void @_ZNK4absl15status_internal9StatusRep10GetPayloadESt17basi
 
 .lr.ph.i.split.us:                                ; preds = %.lr.ph.i, %19
   %storemerge13.i.us = phi i64 [ %20, %19 ], [ 0, %.lr.ph.i ]
-  %15 = getelementptr inbounds nuw %"struct.absl::status_internal::Payload", ptr %13, i64 %storemerge13.i.us
+  %15 = getelementptr inbounds nuw [48 x i8], ptr %13, i64 %storemerge13.i.us
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load i64, ptr %16, align 8, !tbaa !16
   %18 = icmp eq i64 %17, 0
@@ -189,7 +189,7 @@ define dso_local void @_ZNK4absl15status_internal9StatusRep10GetPayloadESt17basi
 
 .lr.ph.i.split:                                   ; preds = %.lr.ph.i, %27
   %storemerge13.i = phi i64 [ %28, %27 ], [ 0, %.lr.ph.i ]
-  %21 = getelementptr inbounds nuw %"struct.absl::status_internal::Payload", ptr %13, i64 %storemerge13.i
+  %21 = getelementptr inbounds nuw [48 x i8], ptr %13, i64 %storemerge13.i
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i64, ptr %22, align 8, !tbaa !16
   %24 = icmp eq i64 %23, %.fr10
@@ -208,7 +208,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %.lr.ph.i.split
 
 _ZNRSt8optionalImE5valueEv.exit:                  ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %.lr.ph.i.split.us
   %.us-phi = phi i64 [ %storemerge13.i.us, %.lr.ph.i.split.us ], [ %storemerge13.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ]
-  %29 = getelementptr inbounds nuw %"struct.absl::status_internal::Payload", ptr %13, i64 %.us-phi
+  %29 = getelementptr inbounds nuw [48 x i8], ptr %13, i64 %.us-phi
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 32
   %31 = load i8, ptr %30, align 1, !tbaa !15
   %32 = trunc i8 %31 to i1
@@ -278,7 +278,7 @@ define dso_local void @_ZN4absl15status_internal9StatusRep10SetPayloadESt17basic
 
 .lr.ph.i.split.us:                                ; preds = %.lr.ph.i, %20
   %storemerge13.i.us = phi i64 [ %21, %20 ], [ 0, %.lr.ph.i ]
-  %16 = getelementptr inbounds nuw %"struct.absl::status_internal::Payload", ptr %14, i64 %storemerge13.i.us
+  %16 = getelementptr inbounds nuw [48 x i8], ptr %14, i64 %storemerge13.i.us
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i64, ptr %17, align 8, !tbaa !16
   %19 = icmp eq i64 %18, 0
@@ -291,7 +291,7 @@ define dso_local void @_ZN4absl15status_internal9StatusRep10SetPayloadESt17basic
 
 .lr.ph.i.split:                                   ; preds = %.lr.ph.i, %28
   %storemerge13.i = phi i64 [ %29, %28 ], [ 0, %.lr.ph.i ]
-  %22 = getelementptr inbounds nuw %"struct.absl::status_internal::Payload", ptr %14, i64 %storemerge13.i
+  %22 = getelementptr inbounds nuw [48 x i8], ptr %14, i64 %storemerge13.i
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i64, ptr %23, align 8, !tbaa !16
   %25 = icmp eq i64 %24, %.fr21
@@ -310,7 +310,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %.lr.ph.i.split
 
 _ZNRSt8optionalImE5valueEv.exit:                  ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %.lr.ph.i.split.us
   %.us-phi = phi i64 [ %storemerge13.i.us, %.lr.ph.i.split.us ], [ %storemerge13.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ]
-  %30 = getelementptr inbounds nuw %"struct.absl::status_internal::Payload", ptr %14, i64 %.us-phi
+  %30 = getelementptr inbounds nuw [48 x i8], ptr %14, i64 %.us-phi
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
   %32 = load i8, ptr %31, align 1, !tbaa !15
   %33 = trunc i8 %32 to i1
@@ -399,7 +399,7 @@ _ZN4absl4CordaSEOS0_.exit:                        ; preds = %_ZNRSt8optionalImE5
   %61 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %62 = load ptr, ptr %61, align 8, !noalias !30
   %.sink2.i.i.i.i = select i1 %57, ptr %62, ptr %61
-  %63 = getelementptr inbounds nuw %"struct.absl::status_internal::Payload", ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
+  %63 = getelementptr inbounds nuw [48 x i8], ptr %.sink2.i.i.i.i, i64 %.sink1.i.i.i.i
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
   store ptr %64, ptr %63, align 8, !tbaa !29
   %65 = load ptr, ptr %6, align 8, !tbaa !11
@@ -572,7 +572,7 @@ define dso_local { i8, i64 } @_ZN4absl15status_internal9StatusRep12ErasePayloadE
 
 .lr.ph.i.split.us:                                ; preds = %.lr.ph.i, %18
   %storemerge13.i.us = phi i64 [ %19, %18 ], [ 0, %.lr.ph.i ]
-  %14 = getelementptr inbounds nuw %"struct.absl::status_internal::Payload", ptr %12, i64 %storemerge13.i.us
+  %14 = getelementptr inbounds nuw [48 x i8], ptr %12, i64 %storemerge13.i.us
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i64, ptr %15, align 8, !tbaa !16
   %17 = icmp eq i64 %16, 0
@@ -585,7 +585,7 @@ define dso_local { i8, i64 } @_ZN4absl15status_internal9StatusRep12ErasePayloadE
 
 .lr.ph.i.split:                                   ; preds = %.lr.ph.i, %26
   %storemerge13.i = phi i64 [ %27, %26 ], [ 0, %.lr.ph.i ]
-  %20 = getelementptr inbounds nuw %"struct.absl::status_internal::Payload", ptr %12, i64 %storemerge13.i
+  %20 = getelementptr inbounds nuw [48 x i8], ptr %12, i64 %storemerge13.i
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load i64, ptr %21, align 8, !tbaa !16
   %23 = icmp eq i64 %22, %.fr15
@@ -608,7 +608,7 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i: ; preds = %.lr.ph.i.split
 
 _ZNRSt8optionalImE5valueEv.exit:                  ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i, %.lr.ph.i.split.us
   %.us-phi = phi i64 [ %storemerge13.i.us, %.lr.ph.i.split.us ], [ %storemerge13.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i ]
-  %29 = getelementptr inbounds nuw %"struct.absl::status_internal::Payload", ptr %12, i64 %.us-phi
+  %29 = getelementptr inbounds nuw [48 x i8], ptr %12, i64 %.us-phi
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 48
   %31 = tail call noundef ptr @_ZN4absl23inlined_vector_internal7StorageINS_15status_internal7PayloadELm1ESaIS3_EE5EraseEPKS3_S7_(ptr noundef nonnull align 8 dereferenceable(56) %5, ptr noundef %29, ptr noundef nonnull %30)
   %32 = load ptr, ptr %4, align 8, !tbaa !4
@@ -685,8 +685,8 @@ define dso_local void @_ZNK4absl15status_internal9StatusRep14ForEachPayloadENS_1
   %19 = trunc i64 %17 to i1
   %20 = load ptr, ptr %12, align 8
   %21 = select i1 %19, ptr %20, ptr %12
-  %22 = getelementptr %"struct.absl::status_internal::Payload", ptr %21, i64 %16
-  %23 = getelementptr %"struct.absl::status_internal::Payload", ptr %22, i64 %18
+  %22 = getelementptr [48 x i8], ptr %21, i64 %16
+  %23 = getelementptr [48 x i8], ptr %22, i64 %18
   %24 = load ptr, ptr %23, align 8, !tbaa !11
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %26 = load i64, ptr %25, align 8, !tbaa !16
@@ -704,7 +704,7 @@ define dso_local void @_ZNK4absl15status_internal9StatusRep14ForEachPayloadENS_1
   %33 = trunc i64 %32 to i1
   %34 = load ptr, ptr %15, align 8
   %35 = select i1 %33, ptr %34, ptr %15
-  %36 = getelementptr inbounds nuw %"struct.absl::status_internal::Payload", ptr %35, i64 %.014
+  %36 = getelementptr inbounds nuw [48 x i8], ptr %35, i64 %.014
   %37 = load ptr, ptr %36, align 8, !tbaa !11
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %39 = load i64, ptr %38, align 8, !tbaa !16
@@ -836,8 +836,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %25, %
   %51 = trunc i64 %49 to i1
   %52 = load ptr, ptr %44, align 8
   %53 = select i1 %51, ptr %52, ptr %44
-  %54 = getelementptr %"struct.absl::status_internal::Payload", ptr %53, i64 %48
-  %55 = getelementptr %"struct.absl::status_internal::Payload", ptr %54, i64 %50
+  %54 = getelementptr [48 x i8], ptr %53, i64 %48
+  %55 = getelementptr [48 x i8], ptr %54, i64 %50
   %56 = load ptr, ptr %55, align 8, !tbaa !11
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %58 = load i64, ptr %57, align 8, !tbaa !16
@@ -858,7 +858,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %25, %
   %65 = trunc i64 %64 to i1
   %66 = load ptr, ptr %47, align 8
   %67 = select i1 %65, ptr %66, ptr %47
-  %68 = getelementptr inbounds nuw %"struct.absl::status_internal::Payload", ptr %67, i64 %.014.i
+  %68 = getelementptr inbounds nuw [48 x i8], ptr %67, i64 %.014.i
   %69 = load ptr, ptr %68, align 8, !tbaa !11
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %71 = load i64, ptr %70, align 8, !tbaa !16
@@ -1555,7 +1555,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(48) ptr @_
 _ZN4absl23inlined_vector_internal13MallocAdapterISaINS_15status_internal7PayloadEELb0EE8AllocateERS4_m.exit.i: ; preds = %2
   %14 = mul nuw nsw i64 %10, 48
   %15 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #25
-  %16 = getelementptr inbounds nuw %"struct.absl::status_internal::Payload", ptr %15, i64 %.sink1.i
+  %16 = getelementptr inbounds nuw [48 x i8], ptr %15, i64 %.sink1.i
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store ptr %17, ptr %16, align 8, !tbaa !29
   %18 = load ptr, ptr %1, align 8, !tbaa !11
@@ -1598,7 +1598,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 .lr.ph.i:                                         ; preds = %27, %44
   %.sroa.021.0 = phi ptr [ %50, %44 ], [ %.sink2.i, %27 ]
   %.012.i = phi i64 [ %51, %44 ], [ 0, %27 ]
-  %33 = getelementptr inbounds nuw %"struct.absl::status_internal::Payload", ptr %15, i64 %.012.i
+  %33 = getelementptr inbounds nuw [48 x i8], ptr %15, i64 %.012.i
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   store ptr %34, ptr %33, align 8, !tbaa !29
   %35 = load ptr, ptr %.sroa.021.0, align 8, !tbaa !11
@@ -1643,7 +1643,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 .lr.ph.i15:                                       ; preds = %44, %_ZNSt16allocator_traitsISaIN4absl15status_internal7PayloadEEE7destroyIS2_EEvRS3_PT_.exit.i
   %.06.i = phi i64 [ %52, %_ZNSt16allocator_traitsISaIN4absl15status_internal7PayloadEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %.sink1.i, %44 ]
   %52 = add nsw i64 %.06.i, -1
-  %53 = getelementptr inbounds nuw %"struct.absl::status_internal::Payload", ptr %.sink2.i, i64 %52
+  %53 = getelementptr inbounds nuw [48 x i8], ptr %.sink2.i, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 32
   %55 = load i8, ptr %54, align 1, !tbaa !15
   %56 = trunc i8 %55 to i1
@@ -1714,7 +1714,7 @@ define linkonce_odr dso_local void @_ZN4absl23inlined_vector_internal14DestroyAd
 .lr.ph:                                           ; preds = %3, %_ZNSt16allocator_traitsISaIN4absl15status_internal7PayloadEEE7destroyIS2_EEvRS3_PT_.exit
   %.06 = phi i64 [ %4, %_ZNSt16allocator_traitsISaIN4absl15status_internal7PayloadEEE7destroyIS2_EEvRS3_PT_.exit ], [ %2, %3 ]
   %4 = add i64 %.06, -1
-  %5 = getelementptr inbounds nuw %"struct.absl::status_internal::Payload", ptr %1, i64 %4
+  %5 = getelementptr inbounds nuw [48 x i8], ptr %1, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %7 = load i8, ptr %6, align 1, !tbaa !15
   %8 = trunc i8 %7 to i1
@@ -1772,7 +1772,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4absl23inlined_vector_internal7Sto
   %15 = sdiv exact i64 %14, 48
   %16 = add nsw i64 %15, %12
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %17 = getelementptr inbounds nuw %"struct.absl::status_internal::Payload", ptr %.sink2.i, i64 %16
+  %17 = getelementptr inbounds nuw [48 x i8], ptr %.sink2.i, i64 %16
   %18 = ptrtoint ptr %17 to i64
   store i64 %18, ptr %4, align 8, !tbaa !71
   %19 = getelementptr inbounds nuw i8, ptr %.sink2.i, i64 %14
@@ -1782,7 +1782,7 @@ define linkonce_odr dso_local noundef ptr @_ZN4absl23inlined_vector_internal7Sto
 
 .lr.ph.i:                                         ; preds = %3, %.lr.ph.i
   %.05.i = phi i64 [ %22, %.lr.ph.i ], [ 0, %3 ]
-  %21 = getelementptr inbounds nuw %"struct.absl::status_internal::Payload", ptr %19, i64 %.05.i
+  %21 = getelementptr inbounds nuw [48 x i8], ptr %19, i64 %.05.i
   call void @_ZN4absl23inlined_vector_internal20IteratorValueAdapterISaINS_15status_internal7PayloadEESt13move_iteratorIPS3_EE10AssignNextES6_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %21)
   %22 = add nuw i64 %.05.i, 1
   %exitcond.not.i = icmp eq i64 %22, %20
@@ -1790,14 +1790,14 @@ define linkonce_odr dso_local noundef ptr @_ZN4absl23inlined_vector_internal7Sto
 
 _ZN4absl23inlined_vector_internal14AssignElementsISaINS_15status_internal7PayloadEENS0_20IteratorValueAdapterIS4_St13move_iteratorIPS3_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSC_9size_typeE.exit: ; preds = %.lr.ph.i, %3
   %23 = sub i64 %.sink1.i, %12
-  %24 = getelementptr inbounds nuw %"struct.absl::status_internal::Payload", ptr %.sink2.i, i64 %23
+  %24 = getelementptr inbounds nuw [48 x i8], ptr %.sink2.i, i64 %23
   %.not5.i = icmp eq ptr %2, %1
   br i1 %.not5.i, label %_ZN4absl23inlined_vector_internal14DestroyAdapterISaINS_15status_internal7PayloadEELb0EE15DestroyElementsERS4_PS3_m.exit, label %.lr.ph.i12
 
 .lr.ph.i12:                                       ; preds = %_ZN4absl23inlined_vector_internal14AssignElementsISaINS_15status_internal7PayloadEENS0_20IteratorValueAdapterIS4_St13move_iteratorIPS3_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSC_9size_typeE.exit, %_ZNSt16allocator_traitsISaIN4absl15status_internal7PayloadEEE7destroyIS2_EEvRS3_PT_.exit.i
   %.06.i = phi i64 [ %25, %_ZNSt16allocator_traitsISaIN4absl15status_internal7PayloadEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %12, %_ZN4absl23inlined_vector_internal14AssignElementsISaINS_15status_internal7PayloadEENS0_20IteratorValueAdapterIS4_St13move_iteratorIPS3_EEEEEvNSt16allocator_traitsIT_E7pointerERT0_NSC_9size_typeE.exit ]
   %25 = add i64 %.06.i, -1
-  %26 = getelementptr inbounds nuw %"struct.absl::status_internal::Payload", ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [48 x i8], ptr %24, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 32
   %28 = load i8, ptr %27, align 1, !tbaa !15
   %29 = trunc i8 %28 to i1
@@ -2431,7 +2431,7 @@ define linkonce_odr dso_local void @_ZN4absl23inlined_vector_internal7StorageINS
 .lr.ph.i:                                         ; preds = %1, %_ZNSt16allocator_traitsISaIN4absl15status_internal7PayloadEEE7destroyIS2_EEvRS3_PT_.exit.i
   %.06.i = phi i64 [ %8, %_ZNSt16allocator_traitsISaIN4absl15status_internal7PayloadEEE7destroyIS2_EEvRS3_PT_.exit.i ], [ %7, %1 ]
   %8 = add nsw i64 %.06.i, -1
-  %9 = getelementptr inbounds nuw %"struct.absl::status_internal::Payload", ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [48 x i8], ptr %6, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %11 = load i8, ptr %10, align 1, !tbaa !15
   %12 = trunc i8 %11 to i1
@@ -2534,7 +2534,7 @@ _ZN4absl23inlined_vector_internal13MallocAdapterISaINS_15status_internal7Payload
 .lr.ph.i:                                         ; preds = %21, %29
   %.sroa.0.0 = phi ptr [ %30, %29 ], [ %storemerge, %21 ]
   %.013.i = phi i64 [ %31, %29 ], [ 0, %21 ]
-  %22 = getelementptr inbounds nuw %"struct.absl::status_internal::Payload", ptr %.0, i64 %.013.i
+  %22 = getelementptr inbounds nuw [48 x i8], ptr %.0, i64 %.013.i
   invoke void @_ZNSt15__new_allocatorIN4absl15status_internal7PayloadEE9constructIS2_JRKS2_EEEvPT_DpOT0_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %22, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0.0)
           to label %29 unwind label %23
 

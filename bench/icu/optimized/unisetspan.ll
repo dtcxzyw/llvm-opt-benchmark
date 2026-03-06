@@ -398,7 +398,7 @@ define void @_ZN6icu_7720UnicodeSetStringSpanC2ERKNS_10UnicodeSetERKNS_7UVectorE
 
 173:                                              ; preds = %170
   %174 = zext nneg i32 %32 to i64
-  %175 = getelementptr inbounds nuw i32, ptr %171, i64 %174
+  %175 = getelementptr inbounds nuw [4 x i8], ptr %171, i64 %174
   store ptr %175, ptr %15, align 8, !tbaa !37
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 %174
   %177 = getelementptr inbounds nuw i8, ptr %176, i64 %174
@@ -414,7 +414,7 @@ define void @_ZN6icu_7720UnicodeSetStringSpanC2ERKNS_10UnicodeSetERKNS_7UVectorE
 
 182:                                              ; preds = %180
   %183 = zext nneg i32 %32 to i64
-  %184 = getelementptr inbounds nuw i32, ptr %171, i64 %183
+  %184 = getelementptr inbounds nuw [4 x i8], ptr %171, i64 %183
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 %183
   store ptr %185, ptr %16, align 8, !tbaa !38
   br label %186
@@ -564,7 +564,7 @@ define void @_ZN6icu_7720UnicodeSetStringSpanC2ERKNS_10UnicodeSetERKNS_7UVectorE
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %253 = load ptr, ptr %14, align 8, !tbaa !36
-  %254 = getelementptr inbounds nuw i32, ptr %253, i64 %indvars.iv
+  %254 = getelementptr inbounds nuw [4 x i8], ptr %253, i64 %indvars.iv
   store i32 %.0.i232, ptr %254, align 4, !tbaa !33
   %255 = add nsw i32 %.0.i232, %.0172260
   %256 = icmp eq i32 %.0.i232, 0
@@ -695,7 +695,7 @@ _ZN6icu_7720UnicodeSetStringSpan15addToSpanNotSetEi.exit: ; preds = %.noexc235, 
 
 310:                                              ; preds = %_ZN6icu_7720UnicodeSetStringSpan15addToSpanNotSetEi.exit
   %311 = zext nneg i32 %213 to i64
-  %312 = getelementptr i16, ptr %.0.i229, i64 %311
+  %312 = getelementptr [2 x i8], ptr %.0.i229, i64 %311
   %313 = getelementptr i8, ptr %312, i64 -2
   %314 = load i16, ptr %313, align 2, !tbaa !39
   %315 = zext i16 %314 to i32
@@ -784,7 +784,7 @@ _ZN6icu_7720UnicodeSetStringSpan15addToSpanNotSetEi.exit: ; preds = %.noexc235, 
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %356 = load ptr, ptr %14, align 8, !tbaa !36
-  %357 = getelementptr inbounds nuw i32, ptr %356, i64 %indvars.iv
+  %357 = getelementptr inbounds nuw [4 x i8], ptr %356, i64 %indvars.iv
   store i32 %.0.i244, ptr %357, align 4, !tbaa !33
   %358 = add nsw i32 %.0.i244, %.0172260
   br label %364
@@ -796,7 +796,7 @@ _ZN6icu_7720UnicodeSetStringSpan15addToSpanNotSetEi.exit: ; preds = %.noexc235, 
 
 361:                                              ; preds = %344
   %362 = load ptr, ptr %14, align 8, !tbaa !36
-  %363 = getelementptr inbounds nuw i32, ptr %362, i64 %indvars.iv
+  %363 = getelementptr inbounds nuw [4 x i8], ptr %362, i64 %indvars.iv
   store i32 0, ptr %363, align 4, !tbaa !33
   br label %364
 
@@ -999,7 +999,7 @@ define void @_ZN6icu_7720UnicodeSetStringSpanC2ERKS0_RKNS_7UVectorE(ptr noundef 
 46:                                               ; preds = %41, %36
   %47 = phi ptr [ %40, %41 ], [ %37, %36 ]
   %48 = sext i32 %32 to i64
-  %49 = getelementptr inbounds i32, ptr %47, i64 %48
+  %49 = getelementptr inbounds [4 x i8], ptr %47, i64 %48
   store ptr %49, ptr %9, align 8, !tbaa !37
   %50 = shl nsw i32 %32, 2
   %51 = sext i32 %50 to i64
@@ -1248,7 +1248,7 @@ _ZN6icu_7710OffsetList12setMaxLengthEi.exit:      ; preds = %23, %._crit_edge.i,
 75:                                               ; preds = %67
   %76 = add nsw i32 %73, -1
   %77 = sext i32 %76 to i64
-  %78 = getelementptr inbounds i16, ptr %.0.i, i64 %77
+  %78 = getelementptr inbounds [2 x i8], ptr %.0.i, i64 %77
   %79 = load i16, ptr %78, align 2, !tbaa !39
   %80 = and i16 %79, -1024
   %81 = icmp eq i16 %80, -9216
@@ -1258,7 +1258,7 @@ _ZN6icu_7710OffsetList12setMaxLengthEi.exit:      ; preds = %23, %._crit_edge.i,
 
 83:                                               ; preds = %75
   %84 = zext nneg i32 %73 to i64
-  %85 = getelementptr i16, ptr %.0.i, i64 %84
+  %85 = getelementptr [2 x i8], ptr %.0.i, i64 %84
   %86 = getelementptr i8, ptr %85, i64 -4
   %87 = load i16, ptr %86, align 2, !tbaa !39
   %88 = and i16 %87, -1024
@@ -1304,7 +1304,7 @@ _ZN6icu_7710OffsetList12setMaxLengthEi.exit:      ; preds = %23, %._crit_edge.i,
 
 107:                                              ; preds = %98
   %108 = sub nsw i64 %44, %indvars.iv304
-  %109 = getelementptr inbounds i16, ptr %1, i64 %108
+  %109 = getelementptr inbounds [2 x i8], ptr %1, i64 %108
   br label %110
 
 110:                                              ; preds = %113, %107
@@ -1345,7 +1345,7 @@ _ZN6icu_77L9matches16EPKDsS1_i.exit.i:            ; preds = %113
   br i1 %129, label %130, label %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit.thread226
 
 130:                                              ; preds = %128
-  %131 = getelementptr i16, ptr %109, i64 %96
+  %131 = getelementptr [2 x i8], ptr %109, i64 %96
   %132 = getelementptr i8, ptr %131, i64 -2
   %133 = load i16, ptr %132, align 2, !tbaa !39
   %134 = and i16 %133, -1024
@@ -1462,7 +1462,7 @@ _ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit.thread: ; preds = %110, %124, %139, %_
 
 183:                                              ; preds = %.lr.ph
   %184 = sub nsw i64 %43, %indvars.iv
-  %185 = getelementptr inbounds i16, ptr %1, i64 %184
+  %185 = getelementptr inbounds [2 x i8], ptr %1, i64 %184
   br label %186
 
 186:                                              ; preds = %189, %183
@@ -1503,7 +1503,7 @@ _ZN6icu_77L9matches16EPKDsS1_i.exit.i214:         ; preds = %189
   br i1 %205, label %206, label %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit215.thread233.loopexit.split.loop.exit339
 
 206:                                              ; preds = %204
-  %207 = getelementptr i16, ptr %185, i64 %176
+  %207 = getelementptr [2 x i8], ptr %185, i64 %176
   %208 = getelementptr i8, ptr %207, i64 -2
   %209 = load i16, ptr %208, align 2, !tbaa !39
   %210 = and i16 %209, -1024
@@ -1572,7 +1572,7 @@ _ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit215.thread233: ; preds = %_ZN6icu_77L12
 
 229:                                              ; preds = %.thread241
   %230 = sext i32 %.0163 to i64
-  %231 = getelementptr inbounds i16, ptr %1, i64 %230
+  %231 = getelementptr inbounds [2 x i8], ptr %1, i64 %230
   br i1 %.not252, label %232, label %241
 
 232:                                              ; preds = %229
@@ -1779,7 +1779,7 @@ define noundef i32 @_ZNK6icu_7720UnicodeSetStringSpan7spanNotEPKDsi(ptr noundef 
   %.041.us = phi i32 [ %83, %._crit_edge.us ], [ 0, %.split.us.preheader ]
   %12 = load ptr, ptr %8, align 8, !tbaa !3
   %13 = sext i32 %.041.us to i64
-  %14 = getelementptr inbounds i16, ptr %1, i64 %13
+  %14 = getelementptr inbounds [2 x i8], ptr %1, i64 %13
   %15 = tail call noundef i32 @_ZNK6icu_7710UnicodeSet4spanEPKDsi17USetSpanCondition(ptr noundef nonnull align 8 dereferenceable(200) %12, ptr noundef %14, i32 noundef %.043.us, i32 noundef 0)
   %16 = icmp eq i32 %15, %.043.us
   br i1 %16, label %.thread64, label %17
@@ -1788,7 +1788,7 @@ define noundef i32 @_ZNK6icu_7720UnicodeSetStringSpan7spanNotEPKDsi(ptr noundef 
   %18 = add i32 %15, %.041.us
   %19 = sub nsw i32 %.043.us, %15
   %20 = sext i32 %18 to i64
-  %21 = getelementptr inbounds i16, ptr %1, i64 %20
+  %21 = getelementptr inbounds [2 x i8], ptr %1, i64 %20
   %22 = load i16, ptr %21, align 2, !tbaa !39
   %23 = zext i16 %22 to i32
   %24 = and i16 %22, -1024
@@ -1890,7 +1890,7 @@ _ZN6icu_77L9matches16EPKDsS1_i.exit.i.us82:       ; preds = %68
 
 74:                                               ; preds = %_ZN6icu_77L9matches16EPKDsS1_i.exit.i.us82
   %75 = sext i32 %65 to i64
-  %76 = getelementptr i16, ptr %21, i64 %75
+  %76 = getelementptr [2 x i8], ptr %21, i64 %75
   %77 = getelementptr i8, ptr %76, i64 -2
   %78 = load i16, ptr %77, align 2, !tbaa !39
   %79 = and i16 %78, -1024
@@ -1991,7 +1991,7 @@ _ZN6icu_77L9matches16EPKDsS1_i.exit.i.us.us:      ; preds = %111
 
 125:                                              ; preds = %123
   %126 = sext i32 %108 to i64
-  %127 = getelementptr i16, ptr %21, i64 %126
+  %127 = getelementptr [2 x i8], ptr %21, i64 %126
   %128 = getelementptr i8, ptr %127, i64 -2
   %129 = load i16, ptr %128, align 2, !tbaa !39
   %130 = and i16 %129, -1024
@@ -2014,7 +2014,7 @@ _ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit.thread.us.us: ; preds = %.preheader, %
   %.041 = phi i32 [ %161, %_ZN6icu_77L7spanOneERKNS_10UnicodeSetEPKDsi.exit ], [ 0, %3 ]
   %134 = load ptr, ptr %8, align 8, !tbaa !3
   %135 = sext i32 %.041 to i64
-  %136 = getelementptr inbounds i16, ptr %1, i64 %135
+  %136 = getelementptr inbounds [2 x i8], ptr %1, i64 %135
   %137 = tail call noundef i32 @_ZNK6icu_7710UnicodeSet4spanEPKDsi17USetSpanCondition(ptr noundef nonnull align 8 dereferenceable(200) %134, ptr noundef %136, i32 noundef %.043, i32 noundef 0)
   %138 = icmp eq i32 %137, %.043
   br i1 %138, label %.thread64, label %139
@@ -2023,7 +2023,7 @@ _ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit.thread.us.us: ; preds = %.preheader, %
   %140 = add nsw i32 %137, %.041
   %141 = sub nsw i32 %.043, %137
   %142 = sext i32 %140 to i64
-  %143 = getelementptr inbounds i16, ptr %1, i64 %142
+  %143 = getelementptr inbounds [2 x i8], ptr %1, i64 %142
   %144 = load i16, ptr %143, align 2, !tbaa !39
   %145 = zext i16 %144 to i32
   %146 = and i16 %144, -1024
@@ -2304,7 +2304,7 @@ _ZN6icu_7710OffsetList12setMaxLengthEi.exit:      ; preds = %24, %._crit_edge.i,
 
 107:                                              ; preds = %97
   %108 = sub nsw i64 %47, %indvars.iv283
-  %109 = getelementptr inbounds i16, ptr %1, i64 %108
+  %109 = getelementptr inbounds [2 x i8], ptr %1, i64 %108
   br label %110
 
 110:                                              ; preds = %113, %107
@@ -2345,7 +2345,7 @@ _ZN6icu_77L9matches16EPKDsS1_i.exit.i:            ; preds = %113
   br i1 %129, label %130, label %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit.thread216
 
 130:                                              ; preds = %128
-  %131 = getelementptr i16, ptr %109, i64 %92
+  %131 = getelementptr [2 x i8], ptr %109, i64 %92
   %132 = getelementptr i8, ptr %131, i64 -2
   %133 = load i16, ptr %132, align 2, !tbaa !39
   %134 = and i16 %133, -1024
@@ -2461,7 +2461,7 @@ _ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit.thread: ; preds = %110, %124, %139, %_
 
 182:                                              ; preds = %.lr.ph
   %183 = sub nsw i64 %46, %indvars.iv
-  %184 = getelementptr inbounds i16, ptr %1, i64 %183
+  %184 = getelementptr inbounds [2 x i8], ptr %1, i64 %183
   br label %185
 
 185:                                              ; preds = %188, %182
@@ -2502,7 +2502,7 @@ _ZN6icu_77L9matches16EPKDsS1_i.exit.i204:         ; preds = %188
   br i1 %204, label %205, label %_ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit205.thread223.loopexit.split.loop.exit312
 
 205:                                              ; preds = %203
-  %206 = getelementptr i16, ptr %184, i64 %175
+  %206 = getelementptr [2 x i8], ptr %184, i64 %175
   %207 = getelementptr i8, ptr %206, i64 -2
   %208 = load i16, ptr %207, align 2, !tbaa !39
   %209 = and i16 %208, -1024
@@ -2595,7 +2595,7 @@ _ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit205.thread223: ; preds = %_ZN6icu_77L12
 
 238:                                              ; preds = %229
   %239 = sext i32 %.0122 to i64
-  %240 = getelementptr i16, ptr %1, i64 %239
+  %240 = getelementptr [2 x i8], ptr %1, i64 %239
   %241 = getelementptr i8, ptr %240, i64 -2
   %242 = load i16, ptr %241, align 2, !tbaa !39
   %243 = zext i16 %242 to i32
@@ -2607,7 +2607,7 @@ _ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit205.thread223: ; preds = %_ZN6icu_77L12
 
 246:                                              ; preds = %238
   %247 = zext nneg i32 %.0122 to i64
-  %248 = getelementptr i16, ptr %1, i64 %247
+  %248 = getelementptr [2 x i8], ptr %1, i64 %247
   %249 = getelementptr i8, ptr %248, i64 -4
   %250 = load i16, ptr %249, align 2, !tbaa !39
   %251 = zext i16 %250 to i32
@@ -2790,7 +2790,7 @@ define noundef i32 @_ZNK6icu_7720UnicodeSetStringSpan11spanNotBackEPKDsi(ptr nou
 
 15:                                               ; preds = %.split.us
   %16 = sext i32 %13 to i64
-  %17 = getelementptr i16, ptr %1, i64 %16
+  %17 = getelementptr [2 x i8], ptr %1, i64 %16
   %18 = getelementptr i8, ptr %17, i64 -2
   %19 = load i16, ptr %18, align 2, !tbaa !39
   %20 = zext i16 %19 to i32
@@ -2802,7 +2802,7 @@ define noundef i32 @_ZNK6icu_7720UnicodeSetStringSpan11spanNotBackEPKDsi(ptr nou
 
 23:                                               ; preds = %15
   %24 = zext nneg i32 %13 to i64
-  %25 = getelementptr i16, ptr %1, i64 %24
+  %25 = getelementptr [2 x i8], ptr %1, i64 %24
   %26 = getelementptr i8, ptr %25, i64 -4
   %27 = load i16, ptr %26, align 2, !tbaa !39
   %28 = zext i16 %27 to i32
@@ -2873,7 +2873,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit.us:   ; preds = %54, %52, %43
 63:                                               ; preds = %_ZNK6icu_7713UnicodeString9getBufferEv.exit.us
   %64 = sub nsw i32 %13, %62
   %65 = zext nneg i32 %64 to i64
-  %66 = getelementptr inbounds nuw i16, ptr %1, i64 %65
+  %66 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %65
   %67 = sub nsw i32 %2, %64
   br label %68
 
@@ -2916,7 +2916,7 @@ _ZN6icu_77L9matches16EPKDsS1_i.exit.i.us:         ; preds = %71
 
 88:                                               ; preds = %86
   %89 = sext i32 %62 to i64
-  %90 = getelementptr i16, ptr %66, i64 %89
+  %90 = getelementptr [2 x i8], ptr %66, i64 %89
   %91 = getelementptr i8, ptr %90, i64 -2
   %92 = load i16, ptr %91, align 2, !tbaa !39
   %93 = and i16 %92, -1024
@@ -2948,7 +2948,7 @@ _ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit.thread.us: ; preds = %68, %_ZN6icu_77L
 
 101:                                              ; preds = %.split
   %102 = sext i32 %99 to i64
-  %103 = getelementptr i16, ptr %1, i64 %102
+  %103 = getelementptr [2 x i8], ptr %1, i64 %102
   %104 = getelementptr i8, ptr %103, i64 -2
   %105 = load i16, ptr %104, align 2, !tbaa !39
   %106 = zext i16 %105 to i32
@@ -2960,7 +2960,7 @@ _ZN6icu_77L12matches16CPBEPKDsiiS1_i.exit.thread.us: ; preds = %68, %_ZN6icu_77L
 
 109:                                              ; preds = %101
   %110 = zext nneg i32 %99 to i64
-  %111 = getelementptr i16, ptr %1, i64 %110
+  %111 = getelementptr [2 x i8], ptr %1, i64 %110
   %112 = getelementptr i8, ptr %111, i64 -4
   %113 = load i16, ptr %112, align 2, !tbaa !39
   %114 = zext i16 %113 to i32
@@ -3112,7 +3112,7 @@ _ZN6icu_7710OffsetList12setMaxLengthEi.exit:      ; preds = %23, %._crit_edge.i,
   %indvars.iv295 = phi i64 [ 0, %.lr.ph276 ], [ %indvars.iv.next296, %.thread ]
   %.0156275 = phi ptr [ %49, %.lr.ph276 ], [ %.1157, %.thread ]
   %56 = load ptr, ptr %47, align 8, !tbaa !36
-  %57 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv295
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv295
   %58 = load i32, ptr %57, align 4, !tbaa !33
   %59 = icmp eq i32 %58, 0
   br i1 %59, label %.thread, label %60
@@ -3243,7 +3243,7 @@ _ZN6icu_77L8matches8EPKhS1_i.exit.thread._crit_edge: ; preds = %113, %_ZN6icu_77
   %.0146266 = phi i32 [ 0, %.lr.ph267 ], [ %.1147, %155 ]
   %.0149265 = phi i32 [ 0, %.lr.ph267 ], [ %.1150, %155 ]
   %.4160263 = phi ptr [ %49, %.lr.ph267 ], [ %.5161, %155 ]
-  %118 = getelementptr inbounds nuw i32, ptr %50, i64 %indvars.iv288
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %indvars.iv288
   %119 = load i32, ptr %118, align 4, !tbaa !33
   %120 = icmp eq i32 %119, 0
   br i1 %120, label %155, label %121
@@ -3573,7 +3573,7 @@ define noundef i32 @_ZNK6icu_7720UnicodeSetStringSpan11spanNotUTF8EPKhi(ptr noun
 32:                                               ; preds = %.lr.ph.us, %_ZN6icu_77L8matches8EPKhS1_i.exit.thread.us
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %_ZN6icu_77L8matches8EPKhS1_i.exit.thread.us ]
   %.04273.us = phi ptr [ %30, %.lr.ph.us ], [ %46, %_ZN6icu_77L8matches8EPKhS1_i.exit.thread.us ]
-  %33 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv
   %34 = load i32, ptr %33, align 4, !tbaa !33
   %.not57.us = icmp eq i32 %34, 0
   br i1 %.not57.us, label %_ZN6icu_77L8matches8EPKhS1_i.exit.thread.us, label %35
@@ -3894,7 +3894,7 @@ _ZN6icu_7710OffsetList12setMaxLengthEi.exit:      ; preds = %25, %._crit_edge.i,
   %indvars.iv320 = phi i64 [ 0, %.lr.ph305 ], [ %indvars.iv.next321, %.thread ]
   %.0179304 = phi ptr [ %50, %.lr.ph305 ], [ %.1180, %.thread ]
   %58 = load ptr, ptr %48, align 8, !tbaa !36
-  %59 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv320
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %indvars.iv320
   %60 = load i32, ptr %59, align 4, !tbaa !33
   %61 = icmp eq i32 %60, 0
   br i1 %61, label %.thread, label %62
@@ -4099,7 +4099,7 @@ _ZN6icu_77L8matches8EPKhS1_i.exit.thread._crit_edge: ; preds = %158, %_ZN6icu_77
   %.0158295 = phi i32 [ 0, %.lr.ph296 ], [ %.1159, %200 ]
   %.0161294 = phi i32 [ 0, %.lr.ph296 ], [ %.1162, %200 ]
   %.4183292 = phi ptr [ %50, %.lr.ph296 ], [ %.5184, %200 ]
-  %163 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv314
+  %163 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %indvars.iv314
   %164 = load i32, ptr %163, align 4, !tbaa !33
   %165 = icmp eq i32 %164, 0
   br i1 %165, label %200, label %166
@@ -4477,7 +4477,7 @@ _ZN6icu_77L15spanOneBackUTF8ERKNS_10UnicodeSetEPKhi.exit.thread51.us: ; preds = 
 42:                                               ; preds = %_ZN6icu_77L15spanOneBackUTF8ERKNS_10UnicodeSetEPKhi.exit.thread51.us, %_ZN6icu_77L8matches8EPKhS1_i.exit.thread.us
   %indvars.iv = phi i64 [ 0, %_ZN6icu_77L15spanOneBackUTF8ERKNS_10UnicodeSetEPKhi.exit.thread51.us ], [ %indvars.iv.next, %_ZN6icu_77L8matches8EPKhS1_i.exit.thread.us ]
   %.03265.us = phi ptr [ %38, %_ZN6icu_77L15spanOneBackUTF8ERKNS_10UnicodeSetEPKhi.exit.thread51.us ], [ %61, %_ZN6icu_77L8matches8EPKhS1_i.exit.thread.us ]
-  %43 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv
   %44 = load i32, ptr %43, align 4, !tbaa !33
   %.not43.us = icmp eq i32 %44, 0
   br i1 %.not43.us, label %_ZN6icu_77L8matches8EPKhS1_i.exit.thread.us, label %45

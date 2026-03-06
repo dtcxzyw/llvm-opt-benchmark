@@ -32,11 +32,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.gmx::NoseHooverGroup" = type { float, float, float, i32, float, %"class.std::vector", %"class.std::vector", double, %"class.std::vector", float, float }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl" }
-%"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl" = type { %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.gmx::NoseHooverChainsData" = type <{ %"class.gmx::ICheckpointHelperClient", %"class.std::__cxx11::basic_string", %"class.std::vector.20", i32, [4 x i8] }>
 %"class.gmx::ICheckpointHelperClient" = type { ptr }
 %"class.std::vector.20" = type { %"struct.std::_Vector_base.21" }
@@ -68,8 +63,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.gmx::KeyValueTreeUniformArrayBuilder" = type { %"class.gmx::KeyValueTreeArrayBuilderBase" }
 %"class.gmx::KeyValueTreeArrayBuilderBase" = type { ptr }
 %"struct.std::pair.359" = type { %"class.std::__cxx11::basic_string", %"class.gmx::KeyValueTreeValue" }
-%"class.gmx::KeyValueTreeProperty" = type { %"struct.std::_Rb_tree_const_iterator.361" }
-%"struct.std::_Rb_tree_const_iterator.361" = type { ptr }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, gmx::KeyValueTreeValue>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, gmx::KeyValueTreeValue>>, std::less<std::__cxx11::basic_string<char>>>::_Auto_node" = type { ptr, ptr }
 %"class.gmx::KeyValueTreeObject" = type { %"class.std::map.347", %"class.std::vector.352" }
 %"class.std::map.347" = type { %"class.std::_Rb_tree.348" }
@@ -91,7 +84,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.305" = type { %"struct.std::_Vector_base<std::__exception_ptr::exception_ptr, std::allocator<std::__exception_ptr::exception_ptr>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::__exception_ptr::exception_ptr, std::allocator<std::__exception_ptr::exception_ptr>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__exception_ptr::exception_ptr, std::allocator<std::__exception_ptr::exception_ptr>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::__exception_ptr::exception_ptr, std::allocator<std::__exception_ptr::exception_ptr>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%struct.t_grp_tcstat = type { float, float, [3 x [3 x float]], [3 x [3 x float]], [3 x [3 x float]], float, double, double, double }
 %"class.std::filesystem::__cxx11::path" = type { %"class.std::__cxx11::basic_string", %"struct.std::filesystem::__cxx11::path::_List" }
 %"struct.std::filesystem::__cxx11::path::_List" = type { %"class.std::unique_ptr.470" }
 %"class.std::unique_ptr.470" = type { %"struct.std::__uniq_ptr_data.471" }
@@ -110,12 +102,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Head_base.520" = type { ptr }
 %"class.std::function.521" = type { %"class.std::_Function_base", ptr }
 %class.anon.524 = type { ptr, %"struct.gmx::PropagatorTag" }
-%"class.std::unique_ptr.527" = type { %"struct.std::__uniq_ptr_data.528" }
-%"struct.std::__uniq_ptr_data.528" = type { %"class.std::__uniq_ptr_impl.529" }
-%"class.std::__uniq_ptr_impl.529" = type { %"class.std::tuple.530" }
-%"class.std::tuple.530" = type { %"struct.std::_Tuple_impl.531" }
-%"struct.std::_Tuple_impl.531" = type { %"struct.std::_Head_base.534" }
-%"struct.std::_Head_base.534" = type { ptr }
 %"class.gmx::ElementNotFoundError" = type { %"class.gmx::ModularSimulatorError" }
 %"class.gmx::ModularSimulatorError" = type { %"class.gmx::GromacsException" }
 %"class.gmx::GromacsException" = type { %"class.std::exception", %"class.std::shared_ptr" }
@@ -600,16 +586,16 @@ _ZNRSt8optionalIN3gmx14CheckpointDataILNS0_23CheckpointDataOperationE0EEEE5value
   %40 = phi double [ 0.000000e+00, %.lr.ph.i.us ], [ %58, %39 ]
   %41 = icmp eq i64 %indvars.iv.i.us, 0
   %42 = select i1 %41, float %30, float 1.000000e+00
-  %43 = getelementptr inbounds nuw float, ptr %32, i64 %indvars.iv.i.us
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv.i.us
   %44 = load float, ptr %43, align 4, !tbaa !47
   %45 = fmul float %44, %44
   %46 = fpext float %45 to double
   %47 = fmul double %46, 5.000000e-01
-  %48 = getelementptr inbounds nuw float, ptr %34, i64 %indvars.iv.i.us
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv.i.us
   %49 = load float, ptr %48, align 4, !tbaa !47
   %50 = fpext float %49 to double
   %51 = fdiv double %47, %50
-  %52 = getelementptr inbounds nuw float, ptr %36, i64 %indvars.iv.i.us
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %indvars.iv.i.us
   %53 = load float, ptr %52, align 4, !tbaa !47
   %54 = fmul float %42, %53
   %55 = fpext float %54 to double
@@ -702,16 +688,16 @@ _ZN3gmx15NoseHooverGroup17calculateIntegralEv.exit.us: ; preds = %._crit_edge.i.
   %99 = phi double [ 0.000000e+00, %.lr.ph.i ], [ %117, %98 ]
   %100 = icmp eq i64 %indvars.iv.i, 0
   %101 = select i1 %100, float %89, float 1.000000e+00
-  %102 = getelementptr inbounds nuw float, ptr %91, i64 %indvars.iv.i
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %indvars.iv.i
   %103 = load float, ptr %102, align 4, !tbaa !47
   %104 = fmul float %103, %103
   %105 = fpext float %104 to double
   %106 = fmul double %105, 5.000000e-01
-  %107 = getelementptr inbounds nuw float, ptr %93, i64 %indvars.iv.i
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %indvars.iv.i
   %108 = load float, ptr %107, align 4, !tbaa !47
   %109 = fpext float %108 to double
   %110 = fdiv double %106, %109
-  %111 = getelementptr inbounds nuw float, ptr %95, i64 %indvars.iv.i
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %95, i64 %indvars.iv.i
   %112 = load float, ptr %111, align 4, !tbaa !47
   %113 = fmul float %101, %112
   %114 = fpext float %113 to double
@@ -952,7 +938,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %7
   %15 = shl nuw nsw i64 %13, 2
   %16 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %15) #34
   store ptr %16, ptr %12, align 8, !tbaa !45
-  %17 = getelementptr inbounds nuw float, ptr %16, i64 %13
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %13
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %17, ptr %18, align 8, !tbaa !84
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %16, i8 0, i64 %15, i1 false), !tbaa !47
@@ -966,7 +952,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %7
 
 .noexc47:                                         ; preds = %.noexc38
   store ptr %22, ptr %21, align 8, !tbaa !45
-  %23 = getelementptr inbounds nuw float, ptr %22, i64 %13
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %13
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %23, ptr %24, align 8, !tbaa !84
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %22, i8 0, i64 %15, i1 false), !tbaa !47
@@ -985,7 +971,7 @@ _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i55: ; preds = %_ZNSt6vectorIfS
 .noexc57:                                         ; preds = %.noexc47
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %28, ptr %29, align 8, !tbaa !45
-  %30 = getelementptr inbounds nuw float, ptr %28, i64 %13
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %13
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store ptr %30, ptr %31, align 8, !tbaa !84
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %28, i8 0, i64 %15, i1 false), !tbaa !47
@@ -1029,7 +1015,7 @@ _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i55: ; preds = %_ZNSt6vectorIfS
   %51 = fmul double %50, 0x3F81072C483AF26D
   %52 = fdiv double 1.000000e+00, %51
   %53 = fptrunc double %52 to float
-  %54 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv
   store float %53, ptr %54, align 4, !tbaa !47
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count76
@@ -1048,7 +1034,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.thread:             ; preds = %.noexc38
   %59 = fmul double %58, 0x3F81072C483AF26D
   %60 = fdiv double 1.000000e+00, %59
   %61 = fptrunc double %60 to float
-  %62 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv72
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv72
   %63 = fdiv float %61, 9.000000e+00
   %spec.select = select i1 %56, float %63, float %61
   store float %spec.select, ptr %62, align 4, !tbaa !47
@@ -1121,7 +1107,7 @@ define void @_ZN3gmx20NoseHooverChainsDataC2EifiNS_8ArrayRefIKfEES3_S3_NS_8NhcUs
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN3gmx20NoseHooverChainsDataE, i64 16), ptr %0, align 8, !tbaa !88
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = sext i32 %8 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr @_ZN3gmxL13nhcUsageNamesE, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr @_ZN3gmxL13nhcUsageNamesE, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !90
   tail call void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %14, ptr noundef nonnull @.str.1, ptr noundef %17)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -1149,9 +1135,9 @@ define void @_ZN3gmx20NoseHooverChainsDataC2EifiNS_8ArrayRefIKfEES3_S3_NS_8NhcUs
 
 27:                                               ; preds = %.lr.ph, %_ZNSt6vectorIN3gmx15NoseHooverGroupESaIS1_EE12emplace_backIJRiRKfS7_S7_RfRNS0_8NhcUsageEEEERS1_DpOT_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNSt6vectorIN3gmx15NoseHooverGroupESaIS1_EE12emplace_backIJRiRKfS7_S7_RfRNS0_8NhcUsageEEEERS1_DpOT_.exit ]
-  %28 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
-  %29 = getelementptr inbounds nuw float, ptr %22, i64 %indvars.iv
-  %30 = getelementptr inbounds nuw float, ptr %24, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv
   %31 = load ptr, ptr %25, align 8, !tbaa !101
   %32 = load ptr, ptr %26, align 8, !tbaa !102
   %.not.i = icmp eq ptr %31, %32
@@ -1505,7 +1491,7 @@ _ZNSt6vectorIN3gmx15NoseHooverGroupESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit37:
 _ZNSt12_Vector_baseIN3gmx15NoseHooverGroupESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN3gmx15NoseHooverGroupESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit37, %105
   store ptr %25, ptr %0, align 8, !tbaa !106
   store ptr %.0.lcssa.i.i.i36, ptr %9, align 8, !tbaa !101
-  %109 = getelementptr inbounds nuw %"class.gmx::NoseHooverGroup", ptr %25, i64 %21
+  %109 = getelementptr inbounds nuw [112 x i8], ptr %25, i64 %21
   store ptr %109, ptr %104, align 8, !tbaa !102
   ret void
 
@@ -1789,7 +1775,7 @@ _ZNSt6vectorIN3gmx15NoseHooverGroupESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit37:
 _ZNSt12_Vector_baseIN3gmx15NoseHooverGroupESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN3gmx15NoseHooverGroupESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit37, %106
   store ptr %25, ptr %0, align 8, !tbaa !106
   store ptr %.0.lcssa.i.i.i36, ptr %9, align 8, !tbaa !101
-  %110 = getelementptr inbounds nuw %"class.gmx::NoseHooverGroup", ptr %25, i64 %21
+  %110 = getelementptr inbounds nuw [112 x i8], ptr %25, i64 %21
   store ptr %110, ptr %105, align 8, !tbaa !102
   ret void
 
@@ -2239,12 +2225,12 @@ define void @_ZN3gmx20NoseHooverChainsData5buildENS_8NhcUsageEPNS_19LegacySimula
   %33 = load ptr, ptr %32, align 8, !tbaa !272
   %34 = sext i32 %22 to i64
   %.not.i = icmp eq ptr %33, null
-  %35 = getelementptr inbounds nuw float, ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %34
   %spec.select.i = select i1 %.not.i, ptr null, ptr %35
   %36 = getelementptr inbounds nuw i8, ptr %20, i64 816
   %37 = load ptr, ptr %36, align 8, !tbaa !273
   %.not.i52 = icmp eq ptr %37, null
-  %38 = getelementptr inbounds nuw float, ptr %37, i64 %34
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %34
   %spec.select.i53 = select i1 %.not.i52, ptr null, ptr %38
   store ptr %37, ptr %7, align 8
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -2252,7 +2238,7 @@ define void @_ZN3gmx20NoseHooverChainsData5buildENS_8NhcUsageEPNS_19LegacySimula
   %40 = getelementptr inbounds nuw i8, ptr %20, i64 768
   %41 = load ptr, ptr %40, align 8, !tbaa !274
   %.not.i56 = icmp eq ptr %41, null
-  %42 = getelementptr inbounds nuw float, ptr %41, i64 %34
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %34
   %spec.select.i57 = select i1 %.not.i56, ptr null, ptr %42
   store ptr %41, ptr %8, align 8
   %43 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -2315,7 +2301,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit62: ; preds = %55,
 61:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %62 = sext i32 %0 to i64
-  %63 = getelementptr inbounds nuw ptr, ptr @_ZN3gmxL13nhcUsageNamesE, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i8], ptr @_ZN3gmxL13nhcUsageNamesE, i64 %62
   %64 = load ptr, ptr %63, align 8, !tbaa !90, !noalias !278
   call void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %9, ptr noundef nonnull @.str.42, ptr noundef %64)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -2464,7 +2450,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit80: ; preds = %_ZN
 _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %116, %118
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %123 = sext i32 %0 to i64
-  %124 = getelementptr inbounds nuw ptr, ptr @_ZN3gmxL13nhcUsageNamesE, i64 %123
+  %124 = getelementptr inbounds nuw [8 x i8], ptr @_ZN3gmxL13nhcUsageNamesE, i64 %123
   %125 = load ptr, ptr %124, align 8, !tbaa !90, !noalias !285
   call void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %15, ptr noundef nonnull @.str.42, ptr noundef %125)
   %126 = load ptr, ptr %2, align 8, !tbaa !275
@@ -2614,7 +2600,7 @@ _ZNSt14_Function_baseD2Ev.exit95:                 ; preds = %158, %155, %_ZNSt7_
 ; Function Attrs: mustprogress uwtable
 define void @_ZN3gmx20NoseHooverChainsData6dataIDB5cxx11ENS_8NhcUsageE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = sext i32 %1 to i64
-  %4 = getelementptr inbounds nuw ptr, ptr @_ZN3gmxL13nhcUsageNamesE, i64 %3
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @_ZN3gmxL13nhcUsageNamesE, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !90
   tail call void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull @.str.42, ptr noundef %5)
   ret void
@@ -4021,12 +4007,12 @@ define void @_ZN3gmx20NoseHooverChainsData26updateReferenceTemperatureENS_8Array
 9:                                                ; preds = %.lr.ph, %65
   %10 = phi ptr [ %.pre, %.lr.ph ], [ %14, %65 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %65 ]
-  %11 = getelementptr inbounds nuw %"class.gmx::NoseHooverGroup", ptr %10, i64 %indvars.iv
-  %12 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [112 x i8], ptr %10, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %13 = load float, ptr %12, align 4, !tbaa !47
   tail call void @_ZN3gmx15NoseHooverGroup26updateReferenceTemperatureEf(ptr noundef nonnull align 8 dereferenceable(112) %11, float noundef %13)
   %14 = load ptr, ptr %8, align 8, !tbaa !106
-  %15 = getelementptr inbounds nuw %"class.gmx::NoseHooverGroup", ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [112 x i8], ptr %14, i64 %indvars.iv
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 104
   %17 = load float, ptr %16, align 8, !tbaa !50
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 16
@@ -4073,16 +4059,16 @@ define void @_ZN3gmx20NoseHooverChainsData26updateReferenceTemperatureENS_8Array
   %45 = phi double [ 0.000000e+00, %.lr.ph.i ], [ %63, %44 ]
   %46 = icmp eq i64 %indvars.iv.i, 0
   %47 = select i1 %46, float %35, float 1.000000e+00
-  %48 = getelementptr inbounds nuw float, ptr %37, i64 %indvars.iv.i
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %indvars.iv.i
   %49 = load float, ptr %48, align 4, !tbaa !47
   %50 = fmul float %49, %49
   %51 = fpext float %50 to double
   %52 = fmul double %51, 5.000000e-01
-  %53 = getelementptr inbounds nuw float, ptr %39, i64 %indvars.iv.i
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv.i
   %54 = load float, ptr %53, align 4, !tbaa !47
   %55 = fpext float %54 to double
   %56 = fdiv double %52, %55
-  %57 = getelementptr inbounds nuw float, ptr %41, i64 %indvars.iv.i
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %indvars.iv.i
   %58 = load float, ptr %57, align 4, !tbaa !47
   %59 = fmul float %47, %58
   %60 = fpext float %59 to double
@@ -4254,16 +4240,16 @@ define void @_ZN3gmx15NoseHooverGroup14finalizeUpdateEf(ptr noundef nonnull alig
   %33 = phi double [ 0.000000e+00, %.lr.ph.i ], [ %51, %32 ]
   %34 = icmp eq i64 %indvars.iv.i, 0
   %35 = select i1 %34, float %23, float 1.000000e+00
-  %36 = getelementptr inbounds nuw float, ptr %25, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv.i
   %37 = load float, ptr %36, align 4, !tbaa !47
   %38 = fmul float %37, %37
   %39 = fpext float %38 to double
   %40 = fmul double %39, 5.000000e-01
-  %41 = getelementptr inbounds nuw float, ptr %27, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv.i
   %42 = load float, ptr %41, align 4, !tbaa !47
   %43 = fpext float %42 to double
   %44 = fdiv double %40, %43
-  %45 = getelementptr inbounds nuw float, ptr %29, i64 %indvars.iv.i
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv.i
   %46 = load float, ptr %45, align 4, !tbaa !47
   %47 = fmul float %35, %46
   %48 = fpext float %47 to double
@@ -4322,16 +4308,16 @@ define void @_ZN3gmx15NoseHooverGroup17calculateIntegralEv(ptr noundef nonnull a
   %21 = phi double [ 0.000000e+00, %.lr.ph ], [ %39, %20 ]
   %22 = icmp eq i64 %indvars.iv, 0
   %23 = select i1 %22, float %7, float 1.000000e+00
-  %24 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   %25 = load float, ptr %24, align 4, !tbaa !47
   %26 = fmul float %25, %25
   %27 = fpext float %26 to double
   %28 = fmul double %27, 5.000000e-01
-  %29 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %30 = load float, ptr %29, align 4, !tbaa !47
   %31 = fpext float %30 to double
   %32 = fdiv double %28, %31
-  %33 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv
   %34 = load float, ptr %33, align 4, !tbaa !47
   %35 = fmul float %23, %34
   %36 = fpext float %35 to double
@@ -4406,11 +4392,11 @@ define void @_ZN3gmx15NoseHooverGroup26updateReferenceTemperatureEf(ptr noundef 
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
   %31 = load float, ptr %0, align 8, !tbaa !46
   %32 = fdiv float %31, %1
-  %33 = getelementptr inbounds nuw float, ptr %27, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv
   %34 = load float, ptr %33, align 4, !tbaa !47
   %35 = fmul float %32, %34
   store float %35, ptr %33, align 4, !tbaa !47
-  %36 = getelementptr inbounds nuw float, ptr %29, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv
   %37 = load float, ptr %36, align 4, !tbaa !47
   %38 = fmul float %22, %37
   store float %38, ptr %36, align 4, !tbaa !47
@@ -4465,16 +4451,16 @@ define void @_ZN3gmx15NoseHooverGroup26updateReferenceTemperatureEf(ptr noundef 
   %67 = phi double [ 0.000000e+00, %.lr.ph.i ], [ %85, %66 ]
   %68 = icmp eq i64 %indvars.iv.i, 0
   %69 = select i1 %68, float %58, float 1.000000e+00
-  %70 = getelementptr inbounds nuw float, ptr %60, i64 %indvars.iv.i
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %indvars.iv.i
   %71 = load float, ptr %70, align 4, !tbaa !47
   %72 = fmul float %71, %71
   %73 = fpext float %72 to double
   %74 = fmul double %73, 5.000000e-01
-  %75 = getelementptr inbounds nuw float, ptr %62, i64 %indvars.iv.i
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %indvars.iv.i
   %76 = load float, ptr %75, align 4, !tbaa !47
   %77 = fpext float %76 to double
   %78 = fdiv double %74, %77
-  %79 = getelementptr inbounds nuw float, ptr %64, i64 %indvars.iv.i
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %indvars.iv.i
   %80 = load float, ptr %79, align 4, !tbaa !47
   %81 = fmul float %69, %80
   %82 = fpext float %81 to double
@@ -4728,7 +4714,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25: ; preds = %66,
   store ptr %73, ptr %7, align 8
   store i8 1, ptr %44, align 8
   %75 = load ptr, ptr %45, align 8, !tbaa !106
-  %76 = getelementptr inbounds nuw %"class.gmx::NoseHooverGroup", ptr %75, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw [112 x i8], ptr %75, i64 %indvars.iv
   invoke void @_ZN3gmx15NoseHooverGroup12doCheckpointILNS_23CheckpointDataOperationE1EEEvPNS_14CheckpointDataIXT_EEE(ptr noundef nonnull align 8 dereferenceable(112) %76, ptr noundef nonnull %7)
           to label %77 unwind label %91
 
@@ -5219,7 +5205,7 @@ _ZNSt12_Vector_baseIN3gmx20KeyValueTreePropertyESaIS1_EE13_M_deallocateEPS1_m.ex
   store ptr %52, ptr %33, align 8, !tbaa !369
   %57 = getelementptr inbounds nuw i8, ptr %52, i64 %39
   store ptr %57, ptr %34, align 8, !tbaa !366
-  %58 = getelementptr inbounds nuw %"class.gmx::KeyValueTreeProperty", ptr %52, i64 %41
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %41
   store ptr %58, ptr %45, align 8, !tbaa !370
   br label %_ZNSt6vectorIN3gmx20KeyValueTreePropertyESaIS1_EE7reserveEm.exit
 
@@ -5372,7 +5358,7 @@ _ZNSt6vectorIN3gmx20KeyValueTreePropertyESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.ex
 _ZNSt6vectorIN3gmx20KeyValueTreePropertyESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %116, %_ZNSt6vectorIN3gmx20KeyValueTreePropertyESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i
   store ptr %109, ptr %88, align 8, !tbaa !369
   store ptr %115, ptr %89, align 8, !tbaa !366
-  %117 = getelementptr inbounds nuw %"class.gmx::KeyValueTreeProperty", ptr %109, i64 %107
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %109, i64 %107
   store ptr %117, ptr %91, align 8, !tbaa !370
   br label %_ZNSt6vectorIN3gmx20KeyValueTreePropertyESaIS1_EE9push_backEOS1_.exit
 
@@ -6474,7 +6460,7 @@ _ZNSt6vectorIN3gmx20KeyValueTreePropertyESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.ex
 _ZNSt6vectorIN3gmx20KeyValueTreePropertyESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %84, %_ZNSt6vectorIN3gmx20KeyValueTreePropertyESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i
   store ptr %77, ptr %10, align 8, !tbaa !369
   store ptr %83, ptr %18, align 8, !tbaa !366
-  %85 = getelementptr inbounds nuw %"class.gmx::KeyValueTreeProperty", ptr %77, i64 %75
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %75
   store ptr %85, ptr %19, align 8, !tbaa !370
   br label %_ZNSt6vectorIN3gmx20KeyValueTreePropertyESaIS1_EE9push_backEOS1_.exit
 
@@ -6774,7 +6760,7 @@ _ZNSt6vectorIN3gmx17KeyValueTreeValueESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit2
 .noexc:                                           ; preds = %33, %_ZNSt6vectorIN3gmx17KeyValueTreeValueESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i
   store ptr %27, ptr %7, align 8, !tbaa !443
   store ptr %32, ptr %8, align 8, !tbaa !439
-  %34 = getelementptr inbounds nuw %"class.gmx::KeyValueTreeValue", ptr %27, i64 %25
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %25
   store ptr %34, ptr %10, align 8, !tbaa !442
   br label %_ZN3gmx17KeyValueTreeValueD2Ev.exit
 
@@ -7446,7 +7432,7 @@ _ZNK3gmx3Any6isTypeINS_18KeyValueTreeObjectEEEbv.exit.i.i.i.i: ; preds = %114
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
   store ptr %121, ptr %8, align 8
   %122 = load ptr, ptr %75, align 8, !tbaa !106
-  %123 = getelementptr inbounds nuw %"class.gmx::NoseHooverGroup", ptr %122, i64 %indvars.iv
+  %123 = getelementptr inbounds nuw [112 x i8], ptr %122, i64 %indvars.iv
   invoke void @_ZN3gmx15NoseHooverGroup12doCheckpointILNS_23CheckpointDataOperationE0EEEvPNS_14CheckpointDataIXT_EEE(ptr noundef nonnull align 8 dereferenceable(112) %123, ptr noundef nonnull %8)
           to label %124 unwind label %.loopexit
 
@@ -8106,16 +8092,16 @@ define noundef float @_ZN3gmx15NoseHooverGroup8applyNhcEff(ptr noundef nonnull a
   %37 = phi double [ 0.000000e+00, %.lr.ph.i.i ], [ %55, %36 ]
   %38 = icmp eq i64 %indvars.iv.i.i, 0
   %39 = select i1 %38, float %27, float 1.000000e+00
-  %40 = getelementptr inbounds nuw float, ptr %29, i64 %indvars.iv.i.i
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv.i.i
   %41 = load float, ptr %40, align 4, !tbaa !47
   %42 = fmul float %41, %41
   %43 = fpext float %42 to double
   %44 = fmul double %43, 5.000000e-01
-  %45 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv.i.i
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv.i.i
   %46 = load float, ptr %45, align 4, !tbaa !47
   %47 = fpext float %46 to double
   %48 = fdiv double %44, %47
-  %49 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv.i.i
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv.i.i
   %50 = load float, ptr %49, align 4, !tbaa !47
   %51 = fmul float %39, %50
   %52 = fpext float %51 to double
@@ -8203,16 +8189,16 @@ _ZN3gmx15NoseHooverGroup17calculateIntegralEv.exit.i: ; preds = %._crit_edge.i.i
   %95 = phi double [ 0.000000e+00, %.lr.ph.i.i67 ], [ %113, %94 ]
   %96 = icmp eq i64 %indvars.iv.i.i69, 0
   %97 = select i1 %96, float %91, float 1.000000e+00
-  %98 = getelementptr inbounds nuw float, ptr %135, i64 %indvars.iv.i.i69
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %135, i64 %indvars.iv.i.i69
   %99 = load float, ptr %98, align 4, !tbaa !47
   %100 = fmul float %99, %99
   %101 = fpext float %100 to double
   %102 = fmul double %101, 5.000000e-01
-  %103 = getelementptr inbounds nuw float, ptr %196, i64 %indvars.iv.i.i69
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %196, i64 %indvars.iv.i.i69
   %104 = load float, ptr %103, align 4, !tbaa !47
   %105 = fpext float %104 to double
   %106 = fdiv double %102, %105
-  %107 = getelementptr inbounds nuw float, ptr %71, i64 %indvars.iv.i.i69
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %indvars.iv.i.i69
   %108 = load float, ptr %107, align 4, !tbaa !47
   %109 = fmul float %97, %108
   %110 = fpext float %109 to double
@@ -8244,7 +8230,7 @@ _ZN3gmx15NoseHooverGroup14finalizeUpdateEf.exit73: ; preds = %72, %_ZN3gmx15Nose
   %indvars.iv96 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next97, %._crit_edge82 ]
   %.185 = phi float [ %.05888, %.preheader ], [ %142, %._crit_edge82 ]
   %.16084 = phi float [ %.05987, %.preheader ], [ %140, %._crit_edge82 ]
-  %121 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv96
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv96
   %122 = load double, ptr %121, align 8, !tbaa !470
   %123 = fmul double %122, %62
   %124 = fdiv double %123, 5.000000e+00
@@ -8292,10 +8278,10 @@ _ZN3gmx15NoseHooverGroup14finalizeUpdateEf.exit73: ; preds = %72, %_ZN3gmx15Nose
 
 152:                                              ; preds = %150
   %153 = add nsw i64 %indvars.iv, -2
-  %154 = getelementptr inbounds nuw float, ptr %127, i64 %153
+  %154 = getelementptr inbounds nuw [4 x i8], ptr %127, i64 %153
   %155 = load float, ptr %154, align 4, !tbaa !47
   %156 = fmul float %155, %155
-  %157 = getelementptr inbounds nuw float, ptr %128, i64 %153
+  %157 = getelementptr inbounds nuw [4 x i8], ptr %128, i64 %153
   %158 = load float, ptr %157, align 4, !tbaa !47
   %159 = fdiv float %156, %158
   br label %160
@@ -8304,7 +8290,7 @@ _ZN3gmx15NoseHooverGroup14finalizeUpdateEf.exit73: ; preds = %72, %_ZN3gmx15Nose
   %161 = phi float [ %159, %152 ], [ %129, %150 ]
   %162 = load float, ptr %67, align 8
   %163 = fpext float %162 to double
-  %164 = getelementptr inbounds nuw float, ptr %69, i64 %indvars.iv.next
+  %164 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %indvars.iv.next
   %165 = load float, ptr %164, align 4, !tbaa !47
   %166 = fpext float %165 to double
   %167 = fpext float %161 to double
@@ -8321,7 +8307,7 @@ _ZN3gmx15NoseHooverGroup14finalizeUpdateEf.exit73: ; preds = %72, %_ZN3gmx15Nose
   br i1 %176, label %177, label %184
 
 177:                                              ; preds = %160
-  %178 = getelementptr inbounds nuw float, ptr %127, i64 %indvars.iv
+  %178 = getelementptr inbounds nuw [4 x i8], ptr %127, i64 %indvars.iv
   %179 = load float, ptr %178, align 4, !tbaa !47
   %180 = fpext float %179 to double
   %181 = fmul double %131, %180
@@ -8332,7 +8318,7 @@ _ZN3gmx15NoseHooverGroup14finalizeUpdateEf.exit73: ; preds = %72, %_ZN3gmx15Nose
 184:                                              ; preds = %160, %177
   %185 = phi float [ %183, %177 ], [ 1.000000e+00, %160 ]
   %186 = fpext float %185 to double
-  %187 = getelementptr inbounds nuw float, ptr %70, i64 %indvars.iv.next
+  %187 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %indvars.iv.next
   %188 = load float, ptr %187, align 4, !tbaa !47
   %189 = fmul float %185, %188
   %190 = fpext float %189 to double
@@ -8354,9 +8340,9 @@ _ZN3gmx15NoseHooverGroup14finalizeUpdateEf.exit73: ; preds = %72, %_ZN3gmx15Nose
 198:                                              ; preds = %.lr.ph81, %238
   %199 = phi i32 [ %143, %.lr.ph81 ], [ %239, %238 ]
   %indvars.iv93 = phi i64 [ 0, %.lr.ph81 ], [ %indvars.iv.next94, %238 ]
-  %200 = getelementptr inbounds nuw float, ptr %65, i64 %indvars.iv93
+  %200 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %indvars.iv93
   %201 = load float, ptr %200, align 4, !tbaa !47
-  %202 = getelementptr inbounds nuw float, ptr %71, i64 %indvars.iv93
+  %202 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %indvars.iv93
   %203 = load float, ptr %202, align 4, !tbaa !47
   %204 = tail call float @llvm.fmuladd.f32(float %125, float %201, float %203)
   store float %204, ptr %202, align 4, !tbaa !47
@@ -8365,10 +8351,10 @@ _ZN3gmx15NoseHooverGroup14finalizeUpdateEf.exit73: ; preds = %72, %_ZN3gmx15Nose
 
 206:                                              ; preds = %198
   %207 = add nsw i64 %indvars.iv93, -1
-  %208 = getelementptr inbounds nuw float, ptr %65, i64 %207
+  %208 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %207
   %209 = load float, ptr %208, align 4, !tbaa !47
   %210 = fmul float %209, %209
-  %211 = getelementptr inbounds nuw float, ptr %145, i64 %207
+  %211 = getelementptr inbounds nuw [4 x i8], ptr %145, i64 %207
   %212 = load float, ptr %211, align 4, !tbaa !47
   %213 = fdiv float %210, %212
   br label %214
@@ -8377,7 +8363,7 @@ _ZN3gmx15NoseHooverGroup14finalizeUpdateEf.exit73: ; preds = %72, %_ZN3gmx15Nose
   %215 = phi float [ %213, %206 ], [ %146, %198 ]
   %216 = load float, ptr %67, align 8
   %217 = fpext float %216 to double
-  %218 = getelementptr inbounds nuw float, ptr %69, i64 %indvars.iv93
+  %218 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %indvars.iv93
   %219 = load float, ptr %218, align 4, !tbaa !47
   %220 = fpext float %219 to double
   %221 = fpext float %215 to double
@@ -8439,7 +8425,7 @@ define noundef float @_ZN3gmx20NoseHooverChainsData8applyNhcEidf(ptr noundef non
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = sext i32 %1 to i64
   %7 = load ptr, ptr %5, align 8, !tbaa !106
-  %8 = getelementptr inbounds nuw %"class.gmx::NoseHooverGroup", ptr %7, i64 %6
+  %8 = getelementptr inbounds nuw [112 x i8], ptr %7, i64 %6
   %9 = fptrunc double %2 to float
   %10 = tail call noundef float @_ZN3gmx15NoseHooverGroup8applyNhcEff(ptr noundef nonnull align 8 dereferenceable(112) %8, float noundef %3, float noundef %9)
   ret float %10
@@ -8477,11 +8463,11 @@ define void @_ZN3gmx23NoseHooverChainsElement12propagateNhcEv(ptr noundef nonnul
   %19 = phi ptr [ %6, %.lr.ph ], [ %54, %53 ]
   %20 = load double, ptr %10, align 8, !tbaa !476
   %21 = load ptr, ptr %11, align 8, !tbaa !477
-  %22 = getelementptr inbounds nuw %struct.t_grp_tcstat, ptr %21, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [144 x i8], ptr %21, i64 %indvars.iv
   %23 = tail call noundef float @_ZN3gmx23NoseHooverChainsElement20currentKineticEnergyERK12t_grp_tcstat(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(144) %22)
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %25 = load ptr, ptr %24, align 8, !tbaa !106
-  %26 = getelementptr inbounds nuw %"class.gmx::NoseHooverGroup", ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [112 x i8], ptr %25, i64 %indvars.iv
   %27 = fptrunc double %20 to float
   %28 = tail call noundef float @_ZN3gmx15NoseHooverGroup8applyNhcEff(ptr noundef nonnull align 8 dereferenceable(112) %26, float noundef %23, float noundef %27)
   %29 = load i32, ptr %12, align 8, !tbaa !80
@@ -8493,12 +8479,12 @@ define void @_ZN3gmx23NoseHooverChainsElement12propagateNhcEv(ptr noundef nonnul
 30:                                               ; preds = %18
   %31 = load i64, ptr %14, align 8
   %32 = inttoptr i64 %31 to ptr
-  %33 = getelementptr inbounds nuw float, ptr %32, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv
   store float %28, ptr %33, align 4, !tbaa !47
   %34 = fmul float %28, %28
   %35 = fpext float %34 to double
   %36 = load ptr, ptr %11, align 8, !tbaa !477
-  %37 = getelementptr inbounds nuw %struct.t_grp_tcstat, ptr %36, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [144 x i8], ptr %36, i64 %indvars.iv
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 128
   %39 = load double, ptr %38, align 8, !tbaa !480
   %40 = fmul double %39, %35
@@ -9293,7 +9279,7 @@ define noundef ptr @_ZN3gmx23NoseHooverChainsElement21getElementPointerImplEPNS_
   %21 = alloca %"struct.gmx::PropagatorTag", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %22 = sext i32 %7 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr @_ZN3gmxL13nhcUsageNamesE, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr @_ZN3gmxL13nhcUsageNamesE, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !90, !noalias !504
   call void (ptr, ptr, ...) @_ZN3gmx12formatStringB5cxx11EPKcz(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %15, ptr noundef nonnull @.str.42, ptr noundef %24)
   %25 = load ptr, ptr %1, align 8, !tbaa !275
@@ -10094,7 +10080,7 @@ _ZNSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaI
 .noexc:                                           ; preds = %33, %_ZNSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i
   store ptr %27, ptr %14, align 8, !tbaa !522
   store ptr %32, ptr %6, align 8, !tbaa !515
-  %34 = getelementptr inbounds nuw %"class.std::unique_ptr.527", ptr %27, i64 %25
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %25
   store ptr %34, ptr %8, align 8, !tbaa !518
   br label %_ZNSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE12emplace_backIJS0_INS1_23NoseHooverChainsElementES3_IS9_EEEEERS5_DpOT_.exit.i
 
@@ -10275,7 +10261,7 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
 _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_23NoseHooverChainsElementEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %44, %_ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %39, ptr %19, align 8, !tbaa !534
   store ptr %43, ptr %20, align 8, !tbaa !530
-  %45 = getelementptr inbounds nuw ptr, ptr %39, i64 %37
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %37
   store ptr %45, ptr %22, align 8, !tbaa !533
   br label %_ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_23NoseHooverChainsElementEEEERS2_DpOT_.exit
 

@@ -26,9 +26,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Optional_payload.base.33" = type { %"struct.std::_Optional_payload_base.base.32" }
 %"struct.std::_Optional_payload_base.base.32" = type { %"union.std::_Optional_payload_base<Luau::ConfigOptions::AliasOptions>::_Storage", i8 }
 %"union.std::_Optional_payload_base<Luau::ConfigOptions::AliasOptions>::_Storage" = type { %"struct.Luau::ConfigOptions::AliasOptions" }
-%"struct.std::pair" = type { %"class.std::__cxx11::basic_string", %"struct.Luau::Config::AliasInfo" }
-%"struct.Luau::Config::AliasInfo" = type { %"class.std::__cxx11::basic_string", %"class.std::basic_string_view", %"class.std::__cxx11::basic_string" }
-%"class.std::basic_string_view" = type { i64, ptr }
 %"class.Luau::detail::DenseHashTable.11" = type <{ ptr, i64, i64, %"class.std::__cxx11::basic_string", [8 x i8] }>
 
 $_ZN4Luau7AstRttiINS_7AstAttrEE5valueE = comdat any
@@ -6378,7 +6375,7 @@ _ZNKSt4hashINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_.exit.p
   %.pn = phi i64 [ %22, %_ZNKSt4hashINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_.exit.preheader ], [ %46, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit27.thread30 ]
   %.02035 = phi i64 [ 0, %_ZNKSt4hashINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_.exit.preheader ], [ %45, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit27.thread30 ]
   %.02136 = and i64 %.pn, %21
-  %34 = getelementptr inbounds nuw %"struct.std::pair", ptr %23, i64 %.02136
+  %34 = getelementptr inbounds nuw [112 x i8], ptr %23, i64 %.02136
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load i64, ptr %35, align 8, !tbaa !15
   %37 = icmp eq i64 %36, %24
@@ -6453,7 +6450,7 @@ _ZNKSt4hashINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_.exit.p
   %.pn = phi i64 [ %9, %_ZNKSt4hashINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_.exit.preheader ], [ %38, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit27.thread29 ]
   %.02234 = phi i64 [ 0, %_ZNKSt4hashINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_.exit.preheader ], [ %37, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit27.thread29 ]
   %.02335 = and i64 %.pn, %5
-  %23 = getelementptr inbounds nuw %"struct.std::pair", ptr %10, i64 %.02335
+  %23 = getelementptr inbounds nuw [112 x i8], ptr %10, i64 %.02335
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load i64, ptr %24, align 8, !tbaa !15
   %26 = icmp eq i64 %25, %13
@@ -6537,7 +6534,7 @@ define linkonce_odr dso_local void @_ZN4Luau6detail14DenseHashTableINSt7__cxx111
   %15 = phi i64 [ %8, %.lr.ph ], [ %67, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.thread ]
   %.013 = phi i64 [ 0, %.lr.ph ], [ %68, %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.thread ]
   %16 = load ptr, ptr %0, align 8, !tbaa !124
-  %17 = getelementptr inbounds nuw %"struct.std::pair", ptr %16, i64 %.013
+  %17 = getelementptr inbounds nuw [112 x i8], ptr %16, i64 %.013
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i64, ptr %18, align 8, !tbaa !15
   %20 = load i64, ptr %9, align 8, !tbaa !15
@@ -6561,7 +6558,7 @@ _ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_
 
 28:                                               ; preds = %_ZNKSt8equal_toINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.thread11
   %29 = load ptr, ptr %0, align 8, !tbaa !124
-  %30 = getelementptr inbounds nuw %"struct.std::pair", ptr %29, i64 %.013
+  %30 = getelementptr inbounds nuw [112 x i8], ptr %29, i64 %.013
   %31 = load ptr, ptr %27, align 8, !tbaa !12
   %32 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %33 = icmp eq ptr %31, %32
@@ -6728,7 +6725,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
 
 26:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i, %.lr.ph.i
   %.07.i = phi i64 [ 0, %.lr.ph.i ], [ %48, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit.i ]
-  %27 = getelementptr inbounds nuw %"struct.std::pair", ptr %25, i64 %.07.i
+  %27 = getelementptr inbounds nuw [112 x i8], ptr %25, i64 %.07.i
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store ptr %28, ptr %27, align 8, !tbaa !8
   %29 = load ptr, ptr %1, align 8, !tbaa !12
@@ -6830,7 +6827,7 @@ define linkonce_odr dso_local void @_ZN4Luau6detail14DenseHashTableINSt7__cxx111
 
 .lr.ph.i.i:                                       ; preds = %3, %_ZN4Luau6Config9AliasInfoD2Ev.exit.i.i
   %.06.i.i = phi i64 [ %24, %_ZN4Luau6Config9AliasInfoD2Ev.exit.i.i ], [ 0, %3 ]
-  %6 = getelementptr inbounds nuw %"struct.std::pair", ptr %2, i64 %.06.i.i
+  %6 = getelementptr inbounds nuw [112 x i8], ptr %2, i64 %.06.i.i
   %7 = load ptr, ptr %6, align 8, !tbaa !12
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %9 = icmp eq ptr %7, %8

@@ -19,7 +19,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.17" }
 %"struct.std::_Head_base.17" = type { ptr }
-%struct.PJCoordOperation = type <{ i32, [4 x i8], double, double, double, double, double, double, double, double, ptr, %"class.std::__cxx11::basic_string", double, double, %"class.std::__cxx11::basic_string", i8, i8, i8, i8, i8, i8, i8, i8, ptr, ptr, i32, [4 x i8] }>
 
 $_ZNSt6vectorI16PJCoordOperationSaIS0_EED2Ev = comdat any
 
@@ -2558,25 +2557,25 @@ define internal fastcc void @_ZL14reproject_bboxP8PJconstsddddRdS1_S1_S1_(ptr no
   %35 = trunc nuw nsw i64 %indvars.iv to i32
   %36 = uitofp nneg i32 %35 to double
   %37 = tail call double @llvm.fmuladd.f64(double %36, double %27, double %1)
-  %38 = getelementptr inbounds nuw double, ptr %23, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv
   store double %37, ptr %38, align 8, !tbaa !92
-  %39 = getelementptr inbounds nuw double, ptr %24, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv
   store double %2, ptr %39, align 8, !tbaa !92
   %40 = add nuw nsw i64 %indvars.iv, 21
-  %41 = getelementptr inbounds nuw double, ptr %23, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %40
   store double %37, ptr %41, align 8, !tbaa !92
-  %42 = getelementptr inbounds nuw double, ptr %24, i64 %40
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %40
   store double %4, ptr %42, align 8, !tbaa !92
   %43 = add nuw nsw i64 %indvars.iv, 42
-  %44 = getelementptr inbounds nuw double, ptr %23, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %43
   store double %1, ptr %44, align 8, !tbaa !92
   %45 = tail call double @llvm.fmuladd.f64(double %36, double %29, double %2)
-  %46 = getelementptr inbounds nuw double, ptr %24, i64 %43
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %43
   store double %45, ptr %46, align 8, !tbaa !92
   %47 = add nuw nsw i64 %indvars.iv, 63
-  %48 = getelementptr inbounds nuw double, ptr %23, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %47
   store double %3, ptr %48, align 8, !tbaa !92
-  %49 = getelementptr inbounds nuw double, ptr %24, i64 %47
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %47
   store double %45, ptr %49, align 8, !tbaa !92
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 21
@@ -2595,13 +2594,13 @@ _ZNSt6vectorIdSaIdEED2Ev.exit75:                  ; preds = %30
 
 .preheader:                                       ; preds = %30, %71
   %indvars.iv111 = phi i64 [ %indvars.iv.next112, %71 ], [ 0, %30 ]
-  %51 = getelementptr inbounds nuw double, ptr %23, i64 %indvars.iv111
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv111
   %52 = load double, ptr %51, align 8, !tbaa !92
   %53 = fcmp une double %52, 0x7FF0000000000000
   br i1 %53, label %54, label %71
 
 54:                                               ; preds = %.preheader
-  %55 = getelementptr inbounds nuw double, ptr %24, i64 %indvars.iv111
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv111
   %56 = load double, ptr %55, align 8, !tbaa !92
   %57 = fcmp une double %56, 0x7FF0000000000000
   br i1 %57, label %58, label %71
@@ -2751,7 +2750,7 @@ _ZSt8_DestroyIP16PJCoordOperationS0_EvT_S2_RSaIT0_E.exit: ; preds = %.lr.ph.i.i.
 _ZNSt12_Vector_baseI16PJCoordOperationSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZSt8_DestroyIP16PJCoordOperationS0_EvT_S2_RSaIT0_E.exit, %59
   store ptr %35, ptr %0, align 8, !tbaa !88
   store ptr %.0.lcssa.i.i.i.i.i48, ptr %19, align 8, !tbaa !86
-  %63 = getelementptr inbounds nuw %struct.PJCoordOperation, ptr %35, i64 %31
+  %63 = getelementptr inbounds nuw [192 x i8], ptr %35, i64 %31
   store ptr %63, ptr %58, align 8, !tbaa !87
   ret void
 
@@ -3086,7 +3085,7 @@ _ZSt8_DestroyIP16PJCoordOperationS0_EvT_S2_RSaIT0_E.exit: ; preds = %.lr.ph.i.i.
 _ZNSt12_Vector_baseI16PJCoordOperationSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZSt8_DestroyIP16PJCoordOperationS0_EvT_S2_RSaIT0_E.exit, %29
   store ptr %20, ptr %0, align 8, !tbaa !88
   store ptr %.0.lcssa.i.i.i.i.i33, ptr %4, align 8, !tbaa !86
-  %33 = getelementptr inbounds nuw %struct.PJCoordOperation, ptr %20, i64 %16
+  %33 = getelementptr inbounds nuw [192 x i8], ptr %20, i64 %16
   store ptr %33, ptr %28, align 8, !tbaa !87
   ret void
 }

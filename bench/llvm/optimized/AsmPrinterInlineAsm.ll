@@ -41,12 +41,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Optional_payload.base.494" = type { %"struct.std::_Optional_payload_base.base.493" }
 %"struct.std::_Optional_payload_base.base.493" = type <{ %"union.std::_Optional_payload_base<std::__cxx11::basic_string<char>>::_Storage", i8 }>
 %"union.std::_Optional_payload_base<std::__cxx11::basic_string<char>>::_Storage" = type { %"class.std::__cxx11::basic_string" }
-%"class.llvm::MDOperand" = type { ptr }
-%"class.llvm::MachineOperand" = type { i32, %union.anon.366, ptr, %"union.llvm::MachineOperand::ContentsUnion" }
-%union.anon.366 = type { i32 }
-%"union.llvm::MachineOperand::ContentsUnion" = type { %"class.llvm::ArrayRef.367" }
-%"class.llvm::ArrayRef.367" = type { ptr, i64 }
-%"class.llvm::Register" = type { i32 }
 %"class.llvm::raw_string_ostream" = type { %"class.llvm::raw_ostream", ptr }
 
 $_ZN4llvm11raw_ostreamlsENS_9StringRefE = comdat any
@@ -188,7 +182,7 @@ _ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit16: ; pr
   br i1 %48, label %49, label %_ZNSt6vectorIPKN4llvm6MDNodeESaIS3_EE6resizeEm.exit
 
 49:                                               ; preds = %47
-  %50 = getelementptr inbounds nuw ptr, ptr %39, i64 %36
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %36
   %.not.i.i = icmp eq ptr %38, %50
   br i1 %.not.i.i, label %_ZNSt6vectorIPKN4llvm6MDNodeESaIS3_EE6resizeEm.exit, label %51
 
@@ -200,7 +194,7 @@ _ZNSt6vectorIPKN4llvm6MDNodeESaIS3_EE6resizeEm.exit: ; preds = %45, %47, %49, %5
   %52 = phi ptr [ %.pre, %45 ], [ %39, %47 ], [ %39, %49 ], [ %39, %51 ]
   %53 = add nsw i64 %34, 4294967295
   %54 = and i64 %53, 4294967295
-  %55 = getelementptr inbounds nuw ptr, ptr %52, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %54
   store ptr %3, ptr %55, align 8, !tbaa !292
   br label %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit19
 
@@ -553,7 +547,7 @@ _ZN4llvm5TwineC2EPKc.exit63:                      ; preds = %85, %92
   %105 = lshr i64 %99, 2
   %106 = and i64 %105, 15
   %107 = sub nsw i64 0, %106
-  %108 = getelementptr inbounds %"class.llvm::MDOperand", ptr %98, i64 %107
+  %108 = getelementptr inbounds [8 x i8], ptr %98, i64 %107
   br label %_ZNK4llvm6MDNode10getOperandEj.exit
 
 _ZNK4llvm6MDNode10getOperandEj.exit:              ; preds = %101, %104
@@ -1155,7 +1149,7 @@ _ZN4llvm5TwineC2EPKc.exit213.i:                   ; preds = %334, %329
 344:                                              ; preds = %.lr.ph.i
   %345 = load ptr, ptr %54, align 8, !tbaa !422
   %346 = zext nneg i32 %.0144266.i to i64
-  %347 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %345, i64 %346
+  %347 = getelementptr inbounds nuw [32 x i8], ptr %345, i64 %346
   %348 = getelementptr inbounds nuw i8, ptr %347, i64 16
   %349 = load i64, ptr %348, align 8, !tbaa !280
   %350 = trunc i64 %349 to i32
@@ -1175,7 +1169,7 @@ _ZN4llvm5TwineC2EPKc.exit213.i:                   ; preds = %334, %329
 356:                                              ; preds = %._crit_edge.i
   %357 = load ptr, ptr %54, align 8, !tbaa !422
   %358 = zext nneg i32 %.0144.lcssa.i to i64
-  %359 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %357, i64 %358
+  %359 = getelementptr inbounds nuw [32 x i8], ptr %357, i64 %358
   %360 = load i32, ptr %359, align 8
   %361 = and i32 %360, 255
   %362 = icmp eq i32 %361, 14
@@ -1184,7 +1178,7 @@ _ZN4llvm5TwineC2EPKc.exit213.i:                   ; preds = %334, %329
 363:                                              ; preds = %356
   %364 = add nuw nsw i32 %.0144.lcssa.i, 1
   %365 = zext nneg i32 %364 to i64
-  %366 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %357, i64 %365
+  %366 = getelementptr inbounds nuw [32 x i8], ptr %357, i64 %365
   %367 = load i32, ptr %366, align 8
   %trunc.i = trunc i32 %367 to i8
   switch i8 %trunc.i, label %380 [
@@ -1364,7 +1358,7 @@ _ZL16EmitInlineAsmStrPKcPKN4llvm12MachineInstrEPNS1_17MachineModuleInfoEPKNS1_9M
   %.091 = phi i32 [ %481, %480 ], [ 2, %_ZL16EmitInlineAsmStrPKcPKN4llvm12MachineInstrEPNS1_17MachineModuleInfoEPKNS1_9MCAsmInfoEPNS1_10AsmPrinterEmRNS1_11raw_ostreamE.exit ]
   %441 = load ptr, ptr %54, align 8, !tbaa !422
   %442 = zext i32 %.091 to i64
-  %443 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %441, i64 %442
+  %443 = getelementptr inbounds nuw [32 x i8], ptr %441, i64 %442
   %444 = load i32, ptr %443, align 8
   %445 = and i32 %444, 255
   %446 = icmp eq i32 %445, 1
@@ -1381,7 +1375,7 @@ _ZL16EmitInlineAsmStrPKcPKN4llvm12MachineInstrEPNS1_17MachineModuleInfoEPKNS1_9M
 453:                                              ; preds = %447
   %454 = add nuw i32 %.091, 1
   %455 = zext i32 %454 to i64
-  %456 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %441, i64 %455
+  %456 = getelementptr inbounds nuw [32 x i8], ptr %441, i64 %455
   %457 = getelementptr inbounds nuw i8, ptr %456, i64 4
   %458 = load i32, ptr %457, align 4, !tbaa !280
   %459 = load ptr, ptr %428, align 8, !tbaa !582
@@ -1408,7 +1402,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit: ; preds
   %470 = phi i32 [ %465, %464 ], [ %.pre.i68, %467 ]
   %471 = load ptr, ptr %44, align 8, !tbaa !443
   %472 = zext i32 %470 to i64
-  %473 = getelementptr inbounds nuw %"class.llvm::Register", ptr %471, i64 %472
+  %473 = getelementptr inbounds nuw [4 x i8], ptr %471, i64 %472
   store i32 %458, ptr %473, align 1
   %474 = load i32, ptr %426, align 8, !tbaa !580
   %475 = add i32 %474, 1
@@ -1987,7 +1981,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm10AsmPrinter15PrintAsmOperandEPKNS_
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %13 = load ptr, ptr %12, align 8, !tbaa !422
   %14 = zext i32 %2 to i64
-  %15 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 %14
   switch i8 %7, label %54 [
     i8 97, label %16
     i8 99, label %._crit_edge
@@ -2169,7 +2163,7 @@ _ZSt8_DestroyIPN4llvm9SourceMgr9SrcBufferES2_EvT_S4_RSaIT0_E.exit: ; preds = %.l
 _ZNSt12_Vector_baseIN4llvm9SourceMgr9SrcBufferESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt8_DestroyIPN4llvm9SourceMgr9SrcBufferES2_EvT_S4_RSaIT0_E.exit, %29
   store ptr %20, ptr %0, align 8, !tbaa !289
   store ptr %.0.lcssa.i.i.i.i.i23, ptr %4, align 8, !tbaa !285
-  %33 = getelementptr inbounds nuw %"struct.llvm::SourceMgr::SrcBuffer", ptr %20, i64 %16
+  %33 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %33, ptr %28, align 8, !tbaa !288
   ret void
 }
@@ -2698,9 +2692,9 @@ _ZNSt6vectorIPKN4llvm6MDNodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit: ; preds 
 
 _ZNSt12_Vector_baseIPKN4llvm6MDNodeESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIPKN4llvm6MDNodeESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !291
-  %39 = getelementptr inbounds nuw ptr, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !290
-  %40 = getelementptr inbounds nuw ptr, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !616
   br label %41
 

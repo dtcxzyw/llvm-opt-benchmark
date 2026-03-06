@@ -246,7 +246,7 @@ while.cond.preheader:                             ; preds = %while.cond.preheade
   br i1 %cmp1194, label %land.rhs.lr.ph, label %while.end
 
 land.rhs.lr.ph:                                   ; preds = %while.cond.preheader
-  %add.ptr.i77 = getelementptr inbounds nuw double, ptr %12, i64 %i.099
+  %add.ptr.i77 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %i.099
   %16 = load double, ptr %add.ptr.i77, align 8, !tbaa !23
   br label %land.rhs
 
@@ -296,7 +296,7 @@ if.then.i.i.i67:                                  ; preds = %_ZNSt6vectorISt4pai
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %while.body
   %j.195 = phi i64 [ %j.098, %land.rhs.lr.ph ], [ %inc, %while.body ]
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %14, i64 %j.195
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %j.195
   %24 = load double, ptr %add.ptr.i, align 8, !tbaa !23
   %cmp14 = fcmp olt double %24, %16
   br i1 %cmp14, label %while.body, label %while.end
@@ -308,7 +308,7 @@ while.body:                                       ; preds = %land.rhs
 
 while.end:                                        ; preds = %land.rhs, %while.body, %while.cond.preheader
   %j.1.lcssa = phi i64 [ %j.098, %while.cond.preheader ], [ %sub.ptr.div.i76, %while.body ], [ %j.195, %land.rhs ]
-  %add.ptr.i78 = getelementptr inbounds nuw i64, ptr %15, i64 %i.099
+  %add.ptr.i78 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %i.099
   store i64 %j.1.lcssa, ptr %add.ptr.i78, align 8, !tbaa !17
   %inc17 = add nuw i64 %i.099, 1
   %exitcond100.not = icmp eq i64 %inc17, %sub.ptr.div.i56
@@ -507,7 +507,7 @@ entry:
   %currentIndex_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %0 = load i64, ptr %currentIndex_, align 8, !tbaa !29
   %1 = load ptr, ptr %rateIndex_, align 8, !tbaa !14
-  %2 = getelementptr i64, ptr %1, i64 %0
+  %2 = getelementptr [8 x i8], ptr %1, i64 %0
   %add.ptr.i = getelementptr i8, ptr %2, i64 -8
   %3 = load i64, ptr %add.ptr.i, align 8, !tbaa !17
   %rateTimes_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -1528,9 +1528,9 @@ if.then.i35:                                      ; preds = %_ZNSt6vectorIdSaIdE
 
 _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit37: ; preds = %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit, %if.then.i35
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !10
-  %add.ptr37 = getelementptr inbounds nuw double, ptr %add.ptr, i64 %__n
+  %add.ptr37 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr, i64 %__n
   store ptr %add.ptr37, ptr %_M_finish.i, align 8, !tbaa !6
-  %add.ptr40 = getelementptr inbounds nuw double, ptr %call5.i.i.i, i64 %3
+  %add.ptr40 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i, i64 %3
   store ptr %add.ptr40, ptr %_M_end_of_storage, align 8, !tbaa !12
   br label %if.end44
 

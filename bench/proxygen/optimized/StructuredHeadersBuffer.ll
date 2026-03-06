@@ -1110,7 +1110,7 @@ define weak_odr void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE13_M_
 entry:
   tail call void @_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE9_M_lengthEm(ptr noundef nonnull align 8 dereferenceable(32) %this, i64 noundef %__n)
   %call = tail call noundef ptr @_ZNKSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE7_M_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %this)
-  %arrayidx = getelementptr inbounds i32, ptr %call, i64 %__n
+  %arrayidx = getelementptr inbounds [4 x i8], ptr %call, i64 %__n
   store i32 0, ptr %arrayidx, align 4
   ret void
 }

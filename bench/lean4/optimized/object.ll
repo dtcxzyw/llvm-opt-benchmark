@@ -35,17 +35,6 @@ module asm ".globl _ZSt21ios_base_library_initv"
 %"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
 %"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
 %"union.std::_Nocopy_types" = type { { i64, i64 } }
-%"class.std::deque" = type { %"class.std::_Deque_base" }
-%"class.std::_Deque_base" = type { %"struct.std::_Deque_base<lean_task *, std::allocator<lean_task *>>::_Deque_impl" }
-%"struct.std::_Deque_base<lean_task *, std::allocator<lean_task *>>::_Deque_impl" = type { %"struct.std::_Deque_base<lean_task *, std::allocator<lean_task *>>::_Deque_impl_data" }
-%"struct.std::_Deque_base<lean_task *, std::allocator<lean_task *>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator", %"struct.std::_Deque_iterator" }
-%"struct.std::_Deque_iterator" = type { ptr, ptr, ptr, ptr }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.16" }
-%"struct.std::_Head_base.16" = type { ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 $_ZN4lean12task_managerC2Ej = comdat any
@@ -395,7 +384,7 @@ _ZN4leanL14panic_eprintlnEPKcb.exit7:             ; preds = %48, %59, %58, %56, 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %64 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv
   %65 = load ptr, ptr %64, align 8, !tbaa !26
   call fastcc void @_ZN4leanL14panic_eprintlnEPKcb(ptr noundef %65, i1 noundef zeroext %1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1577,7 +1566,7 @@ _ZN4lean6bufferIP11lean_objectLm16EE9push_backERKS2_.exit:
 5:                                                ; preds = %_ZN4lean6bufferIP11lean_objectLm16EE9push_backERKS2_.exit, %_ZL8lean_decP11lean_object.exit
   %6 = phi i64 [ 1, %_ZN4lean6bufferIP11lean_objectLm16EE9push_backERKS2_.exit ], [ %.pr, %_ZL8lean_decP11lean_object.exit ]
   %7 = load ptr, ptr %1, align 8, !tbaa !60
-  %8 = getelementptr ptr, ptr %7, i64 %6
+  %8 = getelementptr [8 x i8], ptr %7, i64 %6
   %9 = getelementptr i8, ptr %8, i64 -8
   %10 = load ptr, ptr %9, align 8, !tbaa !31
   %11 = add i64 %6, -1
@@ -1667,7 +1656,7 @@ _ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i69: ; preds = %35, %_ZSt18un
   %39 = phi i64 [ %23, %._crit_edge.i72 ], [ %37, %_ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i69 ]
   %40 = phi i64 [ %24, %._crit_edge.i72 ], [ %.pre2.i70, %_ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i69 ]
   %41 = phi ptr [ %.pre.i73, %._crit_edge.i72 ], [ %27, %_ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i69 ]
-  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %40
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %40
   %43 = load ptr, ptr %.044175, align 8, !tbaa !31
   store ptr %43, ptr %42, align 8, !tbaa !31
   %44 = add i64 %40, 1
@@ -1859,7 +1848,7 @@ _ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i85: ; preds = %105, %_ZSt18u
 108:                                              ; preds = %_ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i85, %._crit_edge.i88
   %109 = phi i64 [ %93, %._crit_edge.i88 ], [ %.pre2.i86, %_ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i85 ]
   %110 = phi ptr [ %.pre.i89, %._crit_edge.i88 ], [ %97, %_ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i85 ]
-  %111 = getelementptr inbounds nuw ptr, ptr %110, i64 %109
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %110, i64 %109
   store ptr %.1.i, ptr %111, align 8, !tbaa !31
   %112 = add i64 %109, 1
   store i64 %112, ptr %3, align 8, !tbaa !64
@@ -1920,7 +1909,7 @@ _ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i96: ; preds = %128, %_ZSt18u
 131:                                              ; preds = %_ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i96, %115
   %132 = phi i64 [ %.pre2.i97, %_ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i96 ], [ %11, %115 ]
   %133 = phi ptr [ %121, %_ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i96 ], [ %7, %115 ]
-  %134 = getelementptr inbounds nuw ptr, ptr %133, i64 %132
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %133, i64 %132
   store ptr %117, ptr %134, align 8, !tbaa !31
   %135 = add i64 %132, 1
   store i64 %135, ptr %3, align 8, !tbaa !64
@@ -2001,7 +1990,7 @@ _ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i107: ; preds = %155, %_ZSt18
   %159 = phi i64 [ %143, %._crit_edge.i110 ], [ %157, %_ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i107 ]
   %160 = phi i64 [ %144, %._crit_edge.i110 ], [ %.pre2.i108, %_ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i107 ]
   %161 = phi ptr [ %.pre.i111, %._crit_edge.i110 ], [ %147, %_ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i107 ]
-  %162 = getelementptr inbounds nuw ptr, ptr %161, i64 %160
+  %162 = getelementptr inbounds nuw [8 x i8], ptr %161, i64 %160
   %163 = load ptr, ptr %.043172, align 8, !tbaa !31
   store ptr %163, ptr %162, align 8, !tbaa !31
   %164 = add i64 %160, 1
@@ -2084,7 +2073,7 @@ _ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i118: ; preds = %184, %_ZSt18
   %188 = phi i64 [ %172, %._crit_edge.i121 ], [ %186, %_ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i118 ]
   %189 = phi i64 [ %173, %._crit_edge.i121 ], [ %.pre2.i119, %_ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i118 ]
   %190 = phi ptr [ %.pre.i122, %._crit_edge.i121 ], [ %176, %_ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i118 ]
-  %191 = getelementptr inbounds nuw ptr, ptr %190, i64 %189
+  %191 = getelementptr inbounds nuw [8 x i8], ptr %190, i64 %189
   %192 = load ptr, ptr %.037170, align 8, !tbaa !31
   store ptr %192, ptr %191, align 8, !tbaa !31
   %193 = add i64 %189, 1
@@ -2159,7 +2148,7 @@ _ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i129: ; preds = %213, %_ZSt18
 _ZN4lean6bufferIP11lean_objectLm16EE9push_backERKS2_.exit135: ; preds = %._crit_edge.i132, %_ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i129
   %216 = phi i64 [ %201, %._crit_edge.i132 ], [ %.pre2.i130, %_ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i129 ]
   %217 = phi ptr [ %.pre.i133, %._crit_edge.i132 ], [ %205, %_ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i129 ]
-  %218 = getelementptr inbounds nuw ptr, ptr %217, i64 %216
+  %218 = getelementptr inbounds nuw [8 x i8], ptr %217, i64 %216
   store ptr %.0.i.i.i, ptr %218, align 8, !tbaa !31
   %219 = add i64 %216, 1
   store i64 %219, ptr %3, align 8, !tbaa !64
@@ -2231,7 +2220,7 @@ _ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i141: ; preds = %238, %_ZSt18
 _ZN4lean6bufferIP11lean_objectLm16EE9push_backERKS2_.exit147: ; preds = %._crit_edge.i144, %_ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i141
   %241 = phi i64 [ %226, %._crit_edge.i144 ], [ %.pre2.i142, %_ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i141 ]
   %242 = phi ptr [ %.pre.i145, %._crit_edge.i144 ], [ %230, %_ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i141 ]
-  %243 = getelementptr inbounds nuw ptr, ptr %242, i64 %241
+  %243 = getelementptr inbounds nuw [8 x i8], ptr %242, i64 %241
   store ptr %.0.i.i.i136, ptr %243, align 8, !tbaa !31
   %244 = add i64 %241, 1
   store i64 %244, ptr %3, align 8, !tbaa !64
@@ -2296,7 +2285,7 @@ _ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i152: ; preds = %261, %_ZSt18
 _ZN4lean6bufferIP11lean_objectLm16EE9push_backERKS2_.exit158: ; preds = %250, %_ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i152
   %264 = phi i64 [ %.pre2.i153, %_ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i152 ], [ %11, %250 ]
   %265 = phi ptr [ %254, %_ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i152 ], [ %7, %250 ]
-  %266 = getelementptr inbounds nuw ptr, ptr %265, i64 %264
+  %266 = getelementptr inbounds nuw [8 x i8], ptr %265, i64 %264
   store ptr %249, ptr %266, align 8, !tbaa !31
   %267 = add i64 %264, 1
   store i64 %267, ptr %3, align 8, !tbaa !64
@@ -2441,7 +2430,7 @@ _ZN4lean6bufferIP11lean_objectLm16EE9push_backERKS2_.exit: ; preds = %5
 10:                                               ; preds = %_ZN4lean6bufferIP11lean_objectLm16EE9push_backERKS2_.exit, %_ZL8lean_decP11lean_object.exit
   %11 = phi i64 [ 1, %_ZN4lean6bufferIP11lean_objectLm16EE9push_backERKS2_.exit ], [ %.pr, %_ZL8lean_decP11lean_object.exit ]
   %12 = load ptr, ptr %2, align 8, !tbaa !60
-  %13 = getelementptr ptr, ptr %12, i64 %11
+  %13 = getelementptr [8 x i8], ptr %12, i64 %11
   %14 = getelementptr i8, ptr %13, i64 -8
   %15 = load ptr, ptr %14, align 8, !tbaa !31
   %16 = add i64 %11, -1
@@ -2532,7 +2521,7 @@ _ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i71: ; preds = %42, %_ZSt18un
   %46 = phi i64 [ %30, %._crit_edge.i74 ], [ %44, %_ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i71 ]
   %47 = phi i64 [ %31, %._crit_edge.i74 ], [ %.pre2.i72, %_ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i71 ]
   %48 = phi ptr [ %.pre.i75, %._crit_edge.i74 ], [ %34, %_ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i71 ]
-  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %47
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %47
   %50 = load ptr, ptr %.045174, align 8, !tbaa !31
   store ptr %50, ptr %49, align 8, !tbaa !31
   %51 = add i64 %47, 1
@@ -2724,7 +2713,7 @@ _ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i84: ; preds = %112, %_ZSt18u
 115:                                              ; preds = %_ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i84, %._crit_edge.i87
   %116 = phi i64 [ %100, %._crit_edge.i87 ], [ %.pre2.i85, %_ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i84 ]
   %117 = phi ptr [ %.pre.i88, %._crit_edge.i87 ], [ %104, %_ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i84 ]
-  %118 = getelementptr inbounds nuw ptr, ptr %117, i64 %116
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %116
   store ptr %.1.i, ptr %118, align 8, !tbaa !31
   %119 = add i64 %116, 1
   store i64 %119, ptr %8, align 8, !tbaa !64
@@ -2785,7 +2774,7 @@ _ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i95: ; preds = %135, %_ZSt18u
 138:                                              ; preds = %_ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i95, %122
   %139 = phi i64 [ %.pre2.i96, %_ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i95 ], [ %16, %122 ]
   %140 = phi ptr [ %128, %_ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i95 ], [ %12, %122 ]
-  %141 = getelementptr inbounds nuw ptr, ptr %140, i64 %139
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %140, i64 %139
   store ptr %124, ptr %141, align 8, !tbaa !31
   %142 = add i64 %139, 1
   store i64 %142, ptr %8, align 8, !tbaa !64
@@ -2866,7 +2855,7 @@ _ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i106: ; preds = %162, %_ZSt18
   %166 = phi i64 [ %150, %._crit_edge.i109 ], [ %164, %_ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i106 ]
   %167 = phi i64 [ %151, %._crit_edge.i109 ], [ %.pre2.i107, %_ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i106 ]
   %168 = phi ptr [ %.pre.i110, %._crit_edge.i109 ], [ %154, %_ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i106 ]
-  %169 = getelementptr inbounds nuw ptr, ptr %168, i64 %167
+  %169 = getelementptr inbounds nuw [8 x i8], ptr %168, i64 %167
   %170 = load ptr, ptr %.044171, align 8, !tbaa !31
   store ptr %170, ptr %169, align 8, !tbaa !31
   %171 = add i64 %167, 1
@@ -2949,7 +2938,7 @@ _ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i117: ; preds = %191, %_ZSt18
   %195 = phi i64 [ %179, %._crit_edge.i120 ], [ %193, %_ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i117 ]
   %196 = phi i64 [ %180, %._crit_edge.i120 ], [ %.pre2.i118, %_ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i117 ]
   %197 = phi ptr [ %.pre.i121, %._crit_edge.i120 ], [ %183, %_ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i117 ]
-  %198 = getelementptr inbounds nuw ptr, ptr %197, i64 %196
+  %198 = getelementptr inbounds nuw [8 x i8], ptr %197, i64 %196
   %199 = load ptr, ptr %.038169, align 8, !tbaa !31
   store ptr %199, ptr %198, align 8, !tbaa !31
   %200 = add i64 %196, 1
@@ -3024,7 +3013,7 @@ _ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i128: ; preds = %220, %_ZSt18
 _ZN4lean6bufferIP11lean_objectLm16EE9push_backERKS2_.exit134: ; preds = %._crit_edge.i131, %_ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i128
   %223 = phi i64 [ %208, %._crit_edge.i131 ], [ %.pre2.i129, %_ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i128 ]
   %224 = phi ptr [ %.pre.i132, %._crit_edge.i131 ], [ %212, %_ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i128 ]
-  %225 = getelementptr inbounds nuw ptr, ptr %224, i64 %223
+  %225 = getelementptr inbounds nuw [8 x i8], ptr %224, i64 %223
   store ptr %.0.i.i.i, ptr %225, align 8, !tbaa !31
   %226 = add i64 %223, 1
   store i64 %226, ptr %8, align 8, !tbaa !64
@@ -3096,7 +3085,7 @@ _ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i140: ; preds = %245, %_ZSt18
 _ZN4lean6bufferIP11lean_objectLm16EE9push_backERKS2_.exit146: ; preds = %._crit_edge.i143, %_ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i140
   %248 = phi i64 [ %233, %._crit_edge.i143 ], [ %.pre2.i141, %_ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i140 ]
   %249 = phi ptr [ %.pre.i144, %._crit_edge.i143 ], [ %237, %_ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i140 ]
-  %250 = getelementptr inbounds nuw ptr, ptr %249, i64 %248
+  %250 = getelementptr inbounds nuw [8 x i8], ptr %249, i64 %248
   store ptr %.0.i.i.i135, ptr %250, align 8, !tbaa !31
   %251 = add i64 %248, 1
   store i64 %251, ptr %8, align 8, !tbaa !64
@@ -3161,7 +3150,7 @@ _ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i151: ; preds = %268, %_ZSt18
 _ZN4lean6bufferIP11lean_objectLm16EE9push_backERKS2_.exit157: ; preds = %257, %_ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i151
   %271 = phi i64 [ %.pre2.i152, %_ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i151 ], [ %16, %257 ]
   %272 = phi ptr [ %261, %_ZN4lean6bufferIP11lean_objectLm16EE6expandEv.exit.i151 ], [ %12, %257 ]
-  %273 = getelementptr inbounds nuw ptr, ptr %272, i64 %271
+  %273 = getelementptr inbounds nuw [8 x i8], ptr %272, i64 %271
   store ptr %256, ptr %273, align 8, !tbaa !31
   %274 = add i64 %271, 1
   store i64 %274, ptr %8, align 8, !tbaa !64
@@ -12423,7 +12412,7 @@ _ZL12lean_dec_refP11lean_object.exit:             ; preds = %24, %22, %25
   store i32 1, ptr %39, align 4, !tbaa !23
   store i32 16908312, ptr %43, align 4
   %44 = load ptr, ptr %2, align 8, !tbaa !170
-  %45 = getelementptr inbounds nuw i32, ptr %44, i64 %38
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %38
   %46 = load i32, ptr %45, align 4, !tbaa !156
   %47 = zext i32 %46 to i64
   %48 = shl nuw nsw i64 %47, 1
@@ -14953,7 +14942,7 @@ _ZN4lean28lean_sarray_ensure_exclusiveEP11lean_object.exit: ; preds = %33, %32, 
   %.0.i14 = phi ptr [ %42, %61 ], [ %42, %_ZL17lean_alloc_sarrayjmm.exit.i.i12 ], [ %42, %58 ], [ %42, %60 ], [ %0, %lean_sarray_ensure_capacity.exit ], [ %14, %_ZL17lean_alloc_sarrayjmm.exit.i.i ], [ %14, %30 ], [ %14, %32 ], [ %14, %33 ]
   %62 = getelementptr inbounds nuw i8, ptr %.0.i14, i64 8
   %63 = getelementptr inbounds nuw i8, ptr %.0.i14, i64 24
-  %64 = getelementptr inbounds nuw double, ptr %63, i64 %.val
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %.val
   store double %1, ptr %64, align 8, !tbaa !157
   store i64 %4, ptr %62, align 8, !tbaa !30
   ret ptr %.0.i14
@@ -15222,7 +15211,7 @@ define ptr @lean_array_push(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
   %13 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   %15 = load i64, ptr %13, align 8, !tbaa !30
-  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %15
   store ptr %1, ptr %16, align 8, !tbaa !31
   %17 = add i64 %15, 1
   store i64 %17, ptr %13, align 8, !tbaa !30
@@ -15675,7 +15664,7 @@ define ptr @lean_dbg_stack_trace(ptr noundef %0) local_unnamed_addr #0 {
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %7 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i
   %8 = load ptr, ptr %7, align 8, !tbaa !26
   call fastcc void @_ZN4leanL14panic_eprintlnEPKcb(ptr noundef %8, i1 noundef zeroext false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -15776,7 +15765,7 @@ _ZNSt6vectorIP19lean_external_classSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i
 _ZNSt6vectorIP19lean_external_classSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %35, %_ZNSt6vectorIP19lean_external_classSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %30, ptr %9, align 8, !tbaa !203
   store ptr %34, ptr %10, align 8, !tbaa !200
-  %36 = getelementptr inbounds nuw ptr, ptr %30, i64 %28
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %36, ptr %12, align 8, !tbaa !202
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
@@ -16158,7 +16147,7 @@ _ZNSt11_Deque_baseIP9lean_taskSaIS1_EE15_M_allocate_mapEm.exit:
   store ptr %7, ptr %0, align 8, !tbaa !97
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %9
   %.idx = shl nuw nsw i64 %3, 3
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
@@ -16252,7 +16241,7 @@ _ZNSt11_Deque_baseIP9lean_taskSaIS1_EE15_M_create_nodesEPPS1_S5_.exit: ; preds =
   store ptr %48, ptr %49, align 8, !tbaa !209
   store ptr %39, ptr %37, align 8, !tbaa !210
   %50 = and i64 %1, 63
-  %51 = getelementptr inbounds nuw ptr, ptr %46, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %50
   store ptr %51, ptr %43, align 8, !tbaa !211
   ret void
 
@@ -16391,7 +16380,7 @@ _ZN4lean12task_manager22spawn_dedicated_workerEP9lean_task.exit: ; preds = %21, 
 41:                                               ; preds = %40, %36
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %43 = zext nneg i32 %10 to i64
-  %44 = getelementptr inbounds nuw %"class.std::deque", ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [80 x i8], ptr %42, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 48
   %46 = load ptr, ptr %45, align 8, !tbaa !211
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 64
@@ -16838,7 +16827,7 @@ _ZNSt6vectorISt10unique_ptrIN4lean7lthreadESt14default_deleteIS2_EESaIS5_EE11_S_
 _ZNSt6vectorISt10unique_ptrIN4lean7lthreadESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJPS2_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i: ; preds = %39, %_ZNSt6vectorISt10unique_ptrIN4lean7lthreadESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i
   store ptr %33, ptr %13, align 8, !tbaa !108
   store ptr %38, ptr %14, align 8, !tbaa !109
-  %40 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %33, i64 %31
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %31
   store ptr %40, ptr %16, align 8, !tbaa !111
   br label %_ZNSt6vectorISt10unique_ptrIN4lean7lthreadESt14default_deleteIS2_EESaIS5_EE12emplace_backIJPS2_EEEvDpOT_.exit
 
@@ -17100,9 +17089,9 @@ define linkonce_odr hidden void @_ZNSt5dequeIP9lean_taskSaIS1_EE17_M_reallocate_
   %19 = load ptr, ptr %0, align 8, !tbaa !97
   %20 = sub i64 %15, %13
   %21 = lshr i64 %20, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = select i1 %2, i64 %1, i64 0
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = icmp ult ptr %24, %7
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br i1 %25, label %27, label %36
@@ -17127,7 +17116,7 @@ define linkonce_odr hidden void @_ZNSt5dequeIP9lean_taskSaIS1_EE17_M_reallocate_
   br label %_ZSt4copyIPPP9lean_taskS3_ET0_T_S5_S4_.exit
 
 36:                                               ; preds = %18
-  %37 = getelementptr inbounds nuw ptr, ptr %24, i64 %12
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %12
   %38 = ptrtoint ptr %26 to i64
   %39 = sub i64 %38, %9
   %40 = ashr exact i64 %39, 3
@@ -17136,7 +17125,7 @@ define linkonce_odr hidden void @_ZNSt5dequeIP9lean_taskSaIS1_EE17_M_reallocate_
 
 42:                                               ; preds = %36
   %43 = sub nsw i64 0, %40
-  %44 = getelementptr inbounds ptr, ptr %37, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr %37, i64 %43
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %44, ptr align 8 %7, i64 %39, i1 false)
   br label %_ZSt4copyIPPP9lean_taskS3_ET0_T_S5_S4_.exit
 
@@ -17174,9 +17163,9 @@ _ZNSt11_Deque_baseIP9lean_taskSaIS1_EE15_M_allocate_mapEm.exit: ; preds = %50
   %57 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %56) #45
   %58 = sub i64 %52, %13
   %59 = lshr i64 %58, 1
-  %60 = getelementptr inbounds nuw ptr, ptr %57, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %59
   %61 = select i1 %2, i64 %1, i64 0
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   %63 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %64 = ptrtoint ptr %63 to i64
   %65 = sub i64 %64, %9
@@ -17213,7 +17202,7 @@ _ZSt4copyIPPP9lean_taskS3_ET0_T_S5_S4_.exit:      ; preds = %47, %45, %42, %34, 
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 512
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %76, ptr %77, align 8, !tbaa !209
-  %78 = getelementptr inbounds nuw ptr, ptr %.0, i64 %12
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %12
   %79 = getelementptr inbounds i8, ptr %78, i64 -8
   store ptr %79, ptr %4, align 8, !tbaa !207
   %80 = load ptr, ptr %79, align 8, !tbaa !105
@@ -17331,7 +17320,7 @@ _ZNSt11unique_lockISt5mutexEC2ERS0_.exit:         ; preds = %1
 37:                                               ; preds = %23
   %38 = load i32, ptr %15, align 4, !tbaa !87
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw %"class.std::deque", ptr %14, i64 %39
+  %40 = getelementptr inbounds nuw [80 x i8], ptr %14, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load ptr, ptr %41, align 8, !tbaa !229, !noalias !233
   %43 = load ptr, ptr %42, align 8, !tbaa !120
@@ -17385,7 +17374,7 @@ _ZNSt5dequeIP9lean_taskSaIS1_EE9pop_frontEv.exit.i: ; preds = %49, %47
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %indvars.i = trunc nuw i64 %indvars.iv.next.i to i32
   store i32 %indvars.i, ptr %15, align 4, !tbaa !87
-  %65 = getelementptr %"class.std::deque", ptr %3, i64 %indvars.iv.i
+  %65 = getelementptr [80 x i8], ptr %3, i64 %indvars.iv.i
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 48
   %67 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %68 = load ptr, ptr %66, align 8, !tbaa !229

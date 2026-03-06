@@ -188,7 +188,7 @@ define hidden void @jRDfloat(ptr noundef readonly captures(none) %0, ptr noundef
 137:                                              ; preds = %.preheader, %137
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %137 ]
   %.2205 = phi ptr [ %6, %.preheader ], [ %252, %137 ]
-  %138 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %139 = load ptr, ptr %138, align 8
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 %12
   %141 = load float, ptr %.2205, align 4

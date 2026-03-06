@@ -136,7 +136,7 @@ get_argument.exit:                                ; preds = %.critedge.i, %.crit
   %59 = call noalias ptr @strdup(ptr noundef nonnull readonly %.019) #12
   %60 = load i32, ptr %49, align 8, !tbaa !21
   %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds ptr, ptr %54, i64 %61
+  %62 = getelementptr inbounds [8 x i8], ptr %54, i64 %61
   store ptr %59, ptr %62, align 8, !tbaa !22
   %63 = icmp eq ptr %59, null
   br i1 %63, label %cmdline_set_path.exit, label %64
@@ -145,7 +145,7 @@ get_argument.exit:                                ; preds = %.critedge.i, %.crit
   %65 = add nsw i32 %60, 1
   store i32 %65, ptr %49, align 8, !tbaa !21
   %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds ptr, ptr %54, i64 %66
+  %67 = getelementptr inbounds [8 x i8], ptr %54, i64 %66
   store ptr null, ptr %67, align 8, !tbaa !22
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 %32
   br label %69
@@ -278,7 +278,7 @@ get_argument.exit55:                              ; preds = %.critedge.i33, %.cr
   %121 = call noalias ptr @strdup(ptr noundef readonly %109) #12
   %122 = load i32, ptr %49, align 8, !tbaa !21
   %123 = sext i32 %122 to i64
-  %124 = getelementptr inbounds ptr, ptr %118, i64 %123
+  %124 = getelementptr inbounds [8 x i8], ptr %118, i64 %123
   store ptr %121, ptr %124, align 8, !tbaa !22
   %125 = icmp eq ptr %121, null
   br i1 %125, label %cmdline_set_path.exit, label %cmdline_add_arg.exit57
@@ -287,7 +287,7 @@ cmdline_add_arg.exit57:                           ; preds = %120
   %126 = add nsw i32 %122, 1
   store i32 %126, ptr %49, align 8, !tbaa !21
   %127 = sext i32 %126 to i64
-  %128 = getelementptr inbounds ptr, ptr %118, i64 %127
+  %128 = getelementptr inbounds [8 x i8], ptr %118, i64 %127
   store ptr null, ptr %128, align 8, !tbaa !22
   br label %69
 
@@ -336,7 +336,7 @@ define dso_local noundef i32 @__archive_cmdline_free(ptr noundef captures(addres
   tail call void @free(ptr noundef nonnull %7) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %8 = load ptr, ptr %4, align 8, !tbaa !20
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.next
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.next
   %10 = load ptr, ptr %9, align 8, !tbaa !22
   %.not12 = icmp eq ptr %10, null
   br i1 %.not12, label %._crit_edge, label %.lr.ph, !llvm.loop !24

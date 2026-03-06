@@ -109,7 +109,7 @@ define i32 @gvFreeContext(ptr noundef %0) local_unnamed_addr #2 {
 
 22:                                               ; preds = %._crit_edge34, %._crit_edge39
   %.040 = phi i64 [ 0, %._crit_edge34 ], [ %28, %._crit_edge39 ]
-  %23 = getelementptr inbounds nuw ptr, ptr %17, i64 %.040
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.040
   %24 = load ptr, ptr %23, align 8, !tbaa !50
   %.not2735 = icmp eq ptr %24, null
   br i1 %.not2735, label %._crit_edge39, label %.lr.ph38

@@ -11,8 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.anon.0 = type { ptr, ptr, ptr }
 %struct.ueid_frame_t = type { i32, i16 }
 %struct.pdcp_result_hash_key = type { i32, i32 }
-%struct.key_entry_t = type { i32, ptr, [16 x i8], i8, i32 }
-%struct.uat_ue_keys_record_t = type { i32, ptr, ptr, ptr, ptr, [16 x i8], i8, [16 x i8], i8, [16 x i8], i8, [16 x i8], i8 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 @pdcp_security_key_hash = internal unnamed_addr global ptr null, align 8
@@ -490,7 +488,7 @@ define hidden void @set_pdcp_nr_rrc_ciphering_key(i16 noundef zeroext %0, ptr no
   %20 = add i32 %16, 1
   store i32 %20, ptr %.0, align 8
   %21 = zext i32 %16 to i64
-  %22 = getelementptr %struct.key_entry_t, ptr %19, i64 %21
+  %22 = getelementptr [40 x i8], ptr %19, i64 %21
   store i32 0, ptr %22, align 8
   %23 = tail call noalias ptr @g_strdup(ptr noundef %1)
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -723,7 +721,7 @@ define hidden void @set_pdcp_nr_rrc_integrity_key(i16 noundef zeroext %0, ptr no
   %20 = add i32 %16, 1
   store i32 %20, ptr %.0, align 8
   %21 = zext i32 %16 to i64
-  %22 = getelementptr %struct.key_entry_t, ptr %19, i64 %21
+  %22 = getelementptr [40 x i8], ptr %19, i64 %21
   store i32 1, ptr %22, align 8
   %23 = tail call noalias ptr @g_strdup(ptr noundef %1)
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -777,7 +775,7 @@ define hidden void @set_pdcp_nr_up_ciphering_key(i16 noundef zeroext %0, ptr nou
   %20 = add i32 %16, 1
   store i32 %20, ptr %.0, align 8
   %21 = zext i32 %16 to i64
-  %22 = getelementptr %struct.key_entry_t, ptr %19, i64 %21
+  %22 = getelementptr [40 x i8], ptr %19, i64 %21
   store i32 2, ptr %22, align 8
   %23 = tail call noalias ptr @g_strdup(ptr noundef %1)
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -831,7 +829,7 @@ define hidden void @set_pdcp_nr_up_integrity_key(i16 noundef zeroext %0, ptr nou
   %20 = add i32 %16, 1
   store i32 %20, ptr %.0, align 8
   %21 = zext i32 %16 to i64
-  %22 = getelementptr %struct.key_entry_t, ptr %19, i64 %21
+  %22 = getelementptr [40 x i8], ptr %19, i64 %21
   store i32 3, ptr %22, align 8
   %23 = tail call noalias ptr @g_strdup(ptr noundef %1)
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
@@ -3016,7 +3014,7 @@ proto_item_set_generated.exit194.i:               ; preds = %940, %937, %930
 
 971:                                              ; preds = %1011, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %970, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %1011 ]
-  %972 = getelementptr %struct.key_entry_t, ptr %950, i64 %indvars.iv.i.i
+  %972 = getelementptr [40 x i8], ptr %950, i64 %indvars.iv.i.i
   %973 = getelementptr i8, ptr %972, i64 4
   %974 = load i32, ptr %973, align 4
   %975 = icmp ugt i32 %945, %974
@@ -3109,7 +3107,7 @@ proto_item_set_generated.exit194.i:               ; preds = %940, %937, %930
 
 1014:                                             ; preds = %1013, %.lr.ph60.i.i
   %indvars.iv66.i.i = phi i64 [ 0, %.lr.ph60.i.i ], [ %indvars.iv.next67.i.i, %1013 ]
-  %1015 = getelementptr %struct.uat_ue_keys_record_t, ptr %952, i64 %indvars.iv66.i.i
+  %1015 = getelementptr [112 x i8], ptr %952, i64 %indvars.iv66.i.i
   %1016 = load i32, ptr %1015, align 8
   %1017 = icmp eq i32 %1016, %947
   br i1 %1017, label %look_up_keys_record.exit.i, label %1013

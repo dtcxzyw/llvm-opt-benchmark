@@ -274,7 +274,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit104: ; preds = %79
   %96 = sitofp i32 %95 to float
   %97 = fmul float %88, %96
   %98 = tail call noundef float @expf(float noundef %97) #20, !tbaa !11
-  %99 = getelementptr inbounds nuw float, ptr %89, i64 %indvars.iv
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %indvars.iv
   store float %98, ptr %99, align 4, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 765
@@ -796,7 +796,7 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc6ADBodyclERKNS_5RangeE(ptr noun
   %.06269.us = phi float [ %115, %90 ], [ 0.000000e+00, %52 ]
   %.06368.us = phi float [ %117, %90 ], [ 0.000000e+00, %52 ]
   %.06467.us = phi float [ %119, %90 ], [ 0.000000e+00, %52 ]
-  %91 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %92 = load i32, ptr %91, align 4, !tbaa !11
   %93 = sext i32 %92 to i64
   %94 = getelementptr inbounds i8, ptr %53, i64 %93
@@ -817,7 +817,7 @@ define linkonce_odr hidden void @_ZNK2cv8ximgproc6ADBodyclERKNS_5RangeE(ptr noun
   %109 = tail call i32 @llvm.abs.i32(i32 %105, i1 true)
   %110 = add nuw nsw i32 %108, %109
   %111 = zext nneg i32 %110 to i64
-  %112 = getelementptr inbounds nuw float, ptr %26, i64 %111
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %111
   %113 = load float, ptr %112, align 4, !tbaa !13
   %114 = sitofp i32 %97 to float
   %115 = tail call float @llvm.fmuladd.f32(float %114, float %113, float %.06269.us)

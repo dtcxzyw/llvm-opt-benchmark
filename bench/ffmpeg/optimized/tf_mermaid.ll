@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %union.anon = type { i64 }
 %struct.AVBPrint = type { ptr, i32, i32, i32, [1 x i8], [1000 x i8] }
-%struct.section_data = type { ptr, ptr, ptr, ptr, i32, i32, i32, i32 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 @.str = private unnamed_addr constant [8 x i8] c"mermaid\00", align 1
@@ -105,7 +104,7 @@ define internal void @mermaid_print_section_header(ptr noundef %0, ptr noundef r
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 4904
   %11 = zext nneg i32 %6 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !22
   %.not.i = icmp eq ptr %13, null
   br i1 %.not.i, label %.thread.i, label %tf_get_section.exit
@@ -130,7 +129,7 @@ tf_get_section.exit:                              ; preds = %9, %.thread.i
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 4904
   %21 = zext nneg i32 %17 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !22
   %.not.i.i = icmp eq ptr %23, null
   br i1 %.not.i.i, label %.thread.i.i, label %tf_get_parent_section.exit
@@ -148,7 +147,7 @@ tf_get_parent_section.exit:                       ; preds = %tf_get_section.exit
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 5000
   %26 = load i32, ptr %5, align 4, !tbaa !21
   %27 = sext i32 %26 to i64
-  %28 = getelementptr %struct.AVBPrint, ptr %25, i64 %27
+  %28 = getelementptr [1024 x i8], ptr %25, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %30 = load ptr, ptr %29, align 8, !tbaa !4
   %31 = icmp eq i32 %26, 0
@@ -277,7 +276,7 @@ tf_get_parent_section.exit:                       ; preds = %tf_get_section.exit
 
 97:                                               ; preds = %93
   %98 = getelementptr inbounds nuw i8, ptr %30, i64 40
-  %99 = getelementptr %struct.section_data, ptr %98, i64 %27
+  %99 = getelementptr [48 x i8], ptr %98, i64 %27
   %.sroa.3.0..sroa_idx = getelementptr i8, ptr %99, i64 -4
   %.sroa.3.0.copyload = load i32, ptr %.sroa.3.0..sroa_idx, align 4, !tbaa !42
   %100 = getelementptr i8, ptr %28, i64 -1024
@@ -305,7 +304,7 @@ tf_get_parent_section.exit:                       ; preds = %tf_get_section.exit
   tail call void %111(ptr noundef %.val158, ptr noundef nonnull @.str.15) #9
   %112 = load i32, ptr %5, align 4, !tbaa !21
   %113 = sext i32 %112 to i64
-  %114 = getelementptr %struct.section_data, ptr %98, i64 %113
+  %114 = getelementptr [48 x i8], ptr %98, i64 %113
   %115 = getelementptr i8, ptr %114, i64 -4
   store i32 0, ptr %115, align 4, !tbaa !44
   br label %116
@@ -313,26 +312,26 @@ tf_get_parent_section.exit:                       ; preds = %tf_get_section.exit
 116:                                              ; preds = %97, %106, %93, %92
   %.pre-phi = phi i64 [ %27, %97 ], [ %113, %106 ], [ %27, %93 ], [ %27, %92 ]
   %117 = getelementptr inbounds nuw i8, ptr %30, i64 40
-  %118 = getelementptr inbounds %struct.section_data, ptr %117, i64 %.pre-phi
+  %118 = getelementptr inbounds [48 x i8], ptr %117, i64 %.pre-phi
   tail call void @av_freep(ptr noundef nonnull %118) #9
   %119 = load i32, ptr %5, align 4, !tbaa !21
   %120 = sext i32 %119 to i64
-  %121 = getelementptr inbounds %struct.section_data, ptr %117, i64 %120
+  %121 = getelementptr inbounds [48 x i8], ptr %117, i64 %120
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
   tail call void @av_freep(ptr noundef nonnull %122) #9
   %123 = load i32, ptr %5, align 4, !tbaa !21
   %124 = sext i32 %123 to i64
-  %125 = getelementptr inbounds %struct.section_data, ptr %117, i64 %124
+  %125 = getelementptr inbounds [48 x i8], ptr %117, i64 %124
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 16
   tail call void @av_freep(ptr noundef nonnull %126) #9
   %127 = load i32, ptr %5, align 4, !tbaa !21
   %128 = sext i32 %127 to i64
-  %129 = getelementptr inbounds %struct.section_data, ptr %117, i64 %128
+  %129 = getelementptr inbounds [48 x i8], ptr %117, i64 %128
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 24
   tail call void @av_freep(ptr noundef nonnull %130) #9
   %131 = load i32, ptr %5, align 4, !tbaa !21
   %132 = sext i32 %131 to i64
-  %133 = getelementptr inbounds %struct.section_data, ptr %117, i64 %132
+  %133 = getelementptr inbounds [48 x i8], ptr %117, i64 %132
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 32
   %135 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %134, i8 0, i64 16, i1 false)
@@ -376,14 +375,14 @@ tf_get_parent_section.exit:                       ; preds = %tf_get_section.exit
 156:                                              ; preds = %153, %148
   %157 = load i32, ptr %5, align 4, !tbaa !21
   %158 = sext i32 %157 to i64
-  %159 = getelementptr inbounds %struct.section_data, ptr %117, i64 %158
+  %159 = getelementptr inbounds [48 x i8], ptr %117, i64 %158
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 44
   store i32 1, ptr %160, align 4, !tbaa !44
   %161 = load ptr, ptr %1, align 8, !tbaa !47
   %162 = tail call noalias ptr @av_strdup(ptr noundef %161) #9
   %163 = load i32, ptr %5, align 4, !tbaa !21
   %164 = sext i32 %163 to i64
-  %165 = getelementptr inbounds %struct.section_data, ptr %117, i64 %164
+  %165 = getelementptr inbounds [48 x i8], ptr %117, i64 %164
   store ptr %162, ptr %165, align 8, !tbaa !50
   %.pre165 = load i32, ptr %135, align 8, !tbaa !40
   br label %166
@@ -415,7 +414,7 @@ tf_get_parent_section.exit:                       ; preds = %tf_get_section.exit
   %180 = tail call noalias ptr @av_strdup(ptr noundef nonnull %178) #9
   %181 = load i32, ptr %5, align 4, !tbaa !21
   %182 = sext i32 %181 to i64
-  %183 = getelementptr inbounds %struct.section_data, ptr %117, i64 %182
+  %183 = getelementptr inbounds [48 x i8], ptr %117, i64 %182
   store ptr %180, ptr %183, align 8, !tbaa !50
   %184 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %185 = load ptr, ptr %184, align 8, !tbaa !16
@@ -440,7 +439,7 @@ tf_get_parent_section.exit:                       ; preds = %tf_get_section.exit
   tail call void (ptr, ptr, ...) @writer_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.19, ptr noundef %194)
   %195 = load i32, ptr %5, align 4, !tbaa !21
   %196 = sext i32 %195 to i64
-  %197 = getelementptr inbounds %struct.section_data, ptr %117, i64 %196
+  %197 = getelementptr inbounds [48 x i8], ptr %117, i64 %196
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 36
   store i32 1, ptr %198, align 4, !tbaa !52
   br label %217
@@ -458,7 +457,7 @@ tf_get_parent_section.exit:                       ; preds = %tf_get_section.exit
   tail call void (ptr, ptr, ...) @writer_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.20, ptr noundef %203)
   %205 = load i32, ptr %5, align 4, !tbaa !21
   %206 = sext i32 %205 to i64
-  %207 = getelementptr inbounds %struct.section_data, ptr %117, i64 %206
+  %207 = getelementptr inbounds [48 x i8], ptr %117, i64 %206
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 40
   store i32 1, ptr %208, align 8, !tbaa !53
   br label %217
@@ -486,7 +485,7 @@ tf_get_parent_section.exit:                       ; preds = %tf_get_section.exit
   %219 = tail call noalias ptr @av_strdup(ptr noundef %218) #9
   %220 = load i32, ptr %5, align 4, !tbaa !21
   %221 = sext i32 %220 to i64
-  %222 = getelementptr inbounds %struct.section_data, ptr %117, i64 %221
+  %222 = getelementptr inbounds [48 x i8], ptr %117, i64 %221
   store ptr %219, ptr %222, align 8, !tbaa !50
   %.pre166 = load i32, ptr %135, align 8, !tbaa !40
   br label %223
@@ -530,7 +529,7 @@ tf_get_parent_section.exit:                       ; preds = %tf_get_section.exit
   %240 = getelementptr inbounds nuw i8, ptr %30, i64 616
   %241 = load i32, ptr %5, align 4, !tbaa !21
   %242 = sext i32 %241 to i64
-  %243 = getelementptr inbounds i32, ptr %240, i64 %242
+  %243 = getelementptr inbounds [4 x i8], ptr %240, i64 %242
   store i32 0, ptr %243, align 4, !tbaa !42
   %.not151 = icmp eq ptr %1, null
   br i1 %.not151, label %253, label %244
@@ -545,7 +544,7 @@ tf_get_parent_section.exit:                       ; preds = %tf_get_section.exit
   %248 = tail call noalias ptr @av_strdup(ptr noundef nonnull %246) #9
   %249 = load i32, ptr %5, align 4, !tbaa !21
   %250 = sext i32 %249 to i64
-  %251 = getelementptr inbounds %struct.section_data, ptr %117, i64 %250
+  %251 = getelementptr inbounds [48 x i8], ptr %117, i64 %250
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 8
   store ptr %248, ptr %252, align 8, !tbaa !55
   br label %253
@@ -568,7 +567,7 @@ define internal void @mermaid_print_section_footer(ptr noundef %0) #2 {
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4904
   %10 = zext nneg i32 %5 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !22
   %.not.i = icmp eq ptr %12, null
   br i1 %.not.i, label %tf_get_section.exit.thread, label %tf_get_section.exit
@@ -580,9 +579,9 @@ tf_get_section.exit.thread:                       ; preds = %8, %1
 tf_get_section.exit:                              ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 5000
   %14 = zext nneg i32 %5 to i64
-  %15 = getelementptr inbounds nuw %struct.AVBPrint, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [1024 x i8], ptr %13, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %17 = getelementptr inbounds nuw %struct.section_data, ptr %16, i64 %14
+  %17 = getelementptr inbounds nuw [48 x i8], ptr %16, i64 %14
   %.sroa.0.0.copyload = load ptr, ptr %17, align 8, !tbaa !26
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %17, i64 8
   %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !26
@@ -837,7 +836,7 @@ tf_get_section.exit:                              ; preds = %8
   %147 = getelementptr inbounds nuw i8, ptr %3, i64 616
   %148 = load i32, ptr %4, align 4, !tbaa !21
   %149 = sext i32 %148 to i64
-  %150 = getelementptr inbounds i32, ptr %147, i64 %149
+  %150 = getelementptr inbounds [4 x i8], ptr %147, i64 %149
   %151 = load i32, ptr %150, align 4, !tbaa !42
   %.not = icmp eq i32 %151, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -852,7 +851,7 @@ tf_get_section.exit:                              ; preds = %8
   %152 = add nuw i32 %.0133, 1
   %153 = load i32, ptr %4, align 4, !tbaa !21
   %154 = sext i32 %153 to i64
-  %155 = getelementptr inbounds i32, ptr %147, i64 %154
+  %155 = getelementptr inbounds [4 x i8], ptr %147, i64 %154
   %156 = load i32, ptr %155, align 4, !tbaa !42
   %157 = icmp ult i32 %152, %156
   br i1 %157, label %.lr.ph, label %._crit_edge, !llvm.loop !57
@@ -870,7 +869,7 @@ tf_get_section.exit:                              ; preds = %8
 
 switch.lookup:                                    ; preds = %160
   %163 = zext nneg i32 %.sroa.20.0.copyload to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.mermaid_print_section_footer, i64 %163
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.mermaid_print_section_footer, i64 %163
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %164
 
@@ -1076,7 +1075,7 @@ define internal fastcc void @mermaid_print_value(ptr noundef %0, ptr noundef %1,
 13:                                               ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 4904
   %15 = zext nneg i32 %10 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !22
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %tf_get_section.exit.thread, label %tf_get_section.exit
@@ -1088,9 +1087,9 @@ tf_get_section.exit.thread:                       ; preds = %13, %5
 tf_get_section.exit:                              ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 5000
   %19 = zext nneg i32 %10 to i64
-  %20 = getelementptr inbounds nuw %struct.AVBPrint, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [1024 x i8], ptr %18, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  %22 = getelementptr inbounds nuw %struct.section_data, ptr %21, i64 %19
+  %22 = getelementptr inbounds nuw [48 x i8], ptr %21, i64 %19
   %.sroa.0.0.copyload = load ptr, ptr %22, align 8, !tbaa !26
   %.sroa.58.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16
   %.sroa.58.0.copyload = load ptr, ptr %.sroa.58.0..sroa_idx, align 8, !tbaa !26
@@ -1112,7 +1111,7 @@ tf_get_section.exit:                              ; preds = %13
   %28 = tail call noalias ptr @av_strdup(ptr noundef %2) #9
   %29 = load i32, ptr %9, align 4, !tbaa !21
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds %struct.section_data, ptr %21, i64 %30
+  %31 = getelementptr inbounds [48 x i8], ptr %21, i64 %30
   store ptr %28, ptr %31, align 8, !tbaa !50
   br label %32
 
@@ -1133,7 +1132,7 @@ tf_get_section.exit:                              ; preds = %13
   %39 = tail call noalias ptr @av_strdup(ptr noundef %2) #9
   %40 = load i32, ptr %9, align 4, !tbaa !21
   %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds %struct.section_data, ptr %21, i64 %41
+  %42 = getelementptr inbounds [48 x i8], ptr %21, i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
   store ptr %39, ptr %43, align 8, !tbaa !64
   br label %44
@@ -1155,7 +1154,7 @@ tf_get_section.exit:                              ; preds = %13
   %51 = tail call noalias ptr @av_strdup(ptr noundef %2) #9
   %52 = load i32, ptr %9, align 4, !tbaa !21
   %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds %struct.section_data, ptr %21, i64 %53
+  %54 = getelementptr inbounds [48 x i8], ptr %21, i64 %53
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   store ptr %51, ptr %55, align 8, !tbaa !66
   br label %56
@@ -1176,7 +1175,7 @@ tf_get_section.exit:                              ; preds = %13
 62:                                               ; preds = %60
   %63 = trunc i64 %3 to i32
   %64 = sext i32 %57 to i64
-  %65 = getelementptr inbounds %struct.section_data, ptr %21, i64 %64
+  %65 = getelementptr inbounds [48 x i8], ptr %21, i64 %64
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 32
   store i32 %63, ptr %66, align 8, !tbaa !68
   br label %67
@@ -1310,7 +1309,7 @@ tf_get_section.exit:                              ; preds = %13
   %113 = getelementptr inbounds nuw i8, ptr %8, i64 616
   %114 = load i32, ptr %9, align 4, !tbaa !21
   %115 = sext i32 %114 to i64
-  %116 = getelementptr inbounds i32, ptr %113, i64 %115
+  %116 = getelementptr inbounds [4 x i8], ptr %113, i64 %115
   %117 = load i32, ptr %116, align 4, !tbaa !42
   %118 = add i32 %117, 1
   store i32 %118, ptr %116, align 4, !tbaa !42

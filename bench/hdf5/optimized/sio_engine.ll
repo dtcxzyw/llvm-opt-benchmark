@@ -155,16 +155,16 @@ define dso_local void @do_sio(ptr noundef readonly byval(%struct.parameters_) al
 37:                                               ; preds = %.lr.ph, %59
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %59 ]
   %38 = phi i64 [ 1, %.lr.ph ], [ %44, %59 ]
-  %39 = getelementptr inbounds nuw i64, ptr %34, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv
   %40 = load i64, ptr %39, align 8, !tbaa !17
-  %41 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %indvars.iv
   %42 = load i32, ptr %41, align 4, !tbaa !19
-  %43 = getelementptr inbounds nuw i32, ptr @order, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [4 x i8], ptr @order, i64 %indvars.iv
   store i32 %42, ptr %43, align 4, !tbaa !19
   %44 = mul i64 %38, %40
-  %45 = getelementptr inbounds nuw i64, ptr @buf_offset, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [8 x i8], ptr @buf_offset, i64 %indvars.iv
   store i64 0, ptr %45, align 8, !tbaa !17
-  %46 = getelementptr inbounds nuw i64, ptr @offset, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [8 x i8], ptr @offset, i64 %indvars.iv
   store i64 0, ptr %46, align 8, !tbaa !17
   %47 = icmp eq i64 %40, 0
   br i1 %47, label %48, label %52
@@ -177,7 +177,7 @@ define dso_local void @do_sio(ptr noundef readonly byval(%struct.parameters_) al
   br label %632
 
 52:                                               ; preds = %37
-  %53 = getelementptr inbounds nuw i64, ptr %36, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv
   %54 = load i64, ptr %53, align 8, !tbaa !17
   %55 = urem i64 %54, %40
   %.not62 = icmp eq i64 %55, 0
@@ -500,9 +500,9 @@ sio_create_filename.exit:                         ; preds = %141, %.critedge5.i,
 
 180:                                              ; preds = %177
   %181 = add nsw i64 %indvars.iv112.i, -1
-  %182 = getelementptr inbounds nuw i64, ptr %174, i64 %181
+  %182 = getelementptr inbounds nuw [8 x i8], ptr %174, i64 %181
   %183 = load i64, ptr %182, align 8, !tbaa !17
-  %184 = getelementptr inbounds nuw i64, ptr %175, i64 %181
+  %184 = getelementptr inbounds nuw [8 x i8], ptr %175, i64 %181
   %185 = load i64, ptr %184, align 8, !tbaa !17
   %186 = icmp eq i64 %183, %185
   br i1 %186, label %177, label %.thread.loopexit.i, !llvm.loop !29
@@ -542,7 +542,7 @@ sio_create_filename.exit:                         ; preds = %141, %.critedge5.i,
 198:                                              ; preds = %198, %.lr.ph104.i
   %indvars.iv116.i = phi i64 [ %indvars.iv112.i148, %.lr.ph104.i ], [ %indvars.iv.next117.i, %198 ]
   %199 = phi i64 [ %cont_size.promoted.i, %.lr.ph104.i ], [ %202, %198 ]
-  %200 = getelementptr inbounds i64, ptr %174, i64 %indvars.iv116.i
+  %200 = getelementptr inbounds [8 x i8], ptr %174, i64 %indvars.iv116.i
   %201 = load i64, ptr %200, align 8, !tbaa !17
   %202 = mul i64 %201, %199
   %indvars.iv.next117.i = add nsw i64 %indvars.iv116.i, 1
@@ -551,9 +551,9 @@ sio_create_filename.exit:                         ; preds = %141, %.critedge5.i,
 
 203:                                              ; preds = %203, %.lr.ph98.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph98.i ], [ %indvars.iv.next.i, %203 ]
-  %204 = getelementptr inbounds nuw i64, ptr %13, i64 %indvars.iv.i
+  %204 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv.i
   store i64 1, ptr %204, align 8, !tbaa !17
-  %205 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv.i
+  %205 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv.i
   store i64 1, ptr %205, align 8, !tbaa !17
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond111.not.i = icmp eq i64 %indvars.iv.next.i, %172
@@ -962,9 +962,9 @@ do_write.exit:                                    ; preds = %340, %349
 
 409:                                              ; preds = %406
   %410 = add nsw i64 %indvars.iv98.i, -1
-  %411 = getelementptr inbounds nuw i64, ptr %403, i64 %410
+  %411 = getelementptr inbounds nuw [8 x i8], ptr %403, i64 %410
   %412 = load i64, ptr %411, align 8, !tbaa !17
-  %413 = getelementptr inbounds nuw i64, ptr %404, i64 %410
+  %413 = getelementptr inbounds nuw [8 x i8], ptr %404, i64 %410
   %414 = load i64, ptr %413, align 8, !tbaa !17
   %415 = icmp eq i64 %412, %414
   br i1 %415, label %406, label %.thread.loopexit.i87, !llvm.loop !40
@@ -1004,7 +1004,7 @@ do_write.exit:                                    ; preds = %340, %349
 427:                                              ; preds = %427, %.lr.ph92.i
   %indvars.iv102.i = phi i64 [ %indvars.iv98.i142, %.lr.ph92.i ], [ %indvars.iv.next103.i, %427 ]
   %428 = phi i64 [ %cont_size.promoted.i85, %.lr.ph92.i ], [ %431, %427 ]
-  %429 = getelementptr inbounds i64, ptr %403, i64 %indvars.iv102.i
+  %429 = getelementptr inbounds [8 x i8], ptr %403, i64 %indvars.iv102.i
   %430 = load i64, ptr %429, align 8, !tbaa !17
   %431 = mul i64 %430, %428
   %indvars.iv.next103.i = add nsw i64 %indvars.iv102.i, 1
@@ -1013,9 +1013,9 @@ do_write.exit:                                    ; preds = %340, %349
 
 432:                                              ; preds = %432, %.lr.ph86.i
   %indvars.iv.i78 = phi i64 [ 0, %.lr.ph86.i ], [ %indvars.iv.next.i79, %432 ]
-  %433 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv.i78
+  %433 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i78
   store i64 1, ptr %433, align 8, !tbaa !17
-  %434 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.i78
+  %434 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.i78
   store i64 1, ptr %434, align 8, !tbaa !17
   %indvars.iv.next.i79 = add nuw nsw i64 %indvars.iv.i78, 1
   %exitcond.not.i80 = icmp eq i64 %indvars.iv.next.i79, %401
@@ -1644,20 +1644,20 @@ define dso_local range(i64 -1, -9223372036854775808) i64 @set_vfd(ptr noundef re
 
 .preheader:                                       ; preds = %32, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %32 ]
-  %35 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   store i64 0, ptr %35, align 8, !tbaa !17
   %36 = getelementptr inbounds nuw [1024 x i8], ptr %33, i64 %indvars.iv
   %37 = getelementptr inbounds nuw i8, ptr @.str.50, i64 %indvars.iv
   %38 = load i8, ptr %37, align 1, !tbaa !10
   %39 = sext i8 %38 to i32
   %40 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %36, i64 noundef 1024, ptr noundef nonnull @.str.15, i32 noundef %39) #18
-  %41 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   store ptr %36, ptr %41, align 8, !tbaa !26
   %42 = trunc nuw nsw i64 %indvars.iv to i32
   %43 = tail call i32 @llvm.usub.sat.i32(i32 %42, i32 1)
   %44 = zext nneg i32 %43 to i64
   %45 = mul nuw nsw i64 %44, 1844674407370955161
-  %46 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   store i64 %45, ptr %46, align 8, !tbaa !17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
@@ -1751,28 +1751,28 @@ define internal fastcc range(i32 -1, 1) i32 @dset_write(i32 noundef range(i32 -2
   %5 = alloca [32 x i64], align 16
   %6 = alloca [32 x i64], align 16
   %7 = sext i32 %0 to i64
-  %8 = getelementptr inbounds i32, ptr @order, i64 %7
+  %8 = getelementptr inbounds [4 x i8], ptr @order, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !19
   %10 = add nsw i32 %9, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %12 = sext i32 %10 to i64
-  %13 = getelementptr inbounds i64, ptr %11, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %11, i64 %12
   %14 = load i64, ptr %13, align 8, !tbaa !17
   %.not58 = icmp eq i64 %14, 0
   br i1 %.not58, label %.loopexit51, label %.lr.ph57
 
 .lr.ph57:                                         ; preds = %4
-  %15 = getelementptr inbounds i64, ptr @h5offset, i64 %12
-  %16 = getelementptr inbounds i64, ptr @offset, i64 %12
+  %15 = getelementptr inbounds [8 x i8], ptr @h5offset, i64 %12
+  %16 = getelementptr inbounds [8 x i8], ptr @offset, i64 %12
   %17 = icmp sgt i32 %0, 0
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 952
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 956
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %21 = add nsw i32 %0, -1
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 296
-  %23 = getelementptr inbounds i64, ptr %22, i64 %12
+  %23 = getelementptr inbounds [8 x i8], ptr %22, i64 %12
   br i1 %17, label %.lr.ph57.split.us, label %.lr.ph57.split
 
 .lr.ph57.split.us:                                ; preds = %.lr.ph57, %.lr.ph57.split.us
@@ -1841,15 +1841,15 @@ define internal fastcc range(i32 -1, 1) i32 @dset_write(i32 noundef range(i32 -2
 .lr.ph:                                           ; preds = %.preheader50, %69
   %47 = phi i32 [ %70, %69 ], [ %42, %.preheader50 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %69 ], [ 0, %.preheader50 ]
-  %48 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %49 = load i64, ptr %48, align 8, !tbaa !17
-  %50 = getelementptr inbounds nuw i64, ptr @h5offset, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr @h5offset, i64 %indvars.iv
   %51 = load i64, ptr %50, align 8, !tbaa !17
   %.not49 = icmp ugt i64 %49, %51
   br i1 %.not49, label %69, label %52
 
 52:                                               ; preds = %.lr.ph
-  %53 = getelementptr inbounds nuw i64, ptr @h5count, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr @h5count, i64 %indvars.iv
   %54 = load i64, ptr %53, align 8, !tbaa !17
   %55 = add i64 %54, %49
   store i64 %55, ptr %48, align 8, !tbaa !17
@@ -1958,12 +1958,12 @@ define internal fastcc void @posix_buffer_write(i32 noundef %0, ptr noundef nonn
   %.not = icmp eq i32 %0, %8
   %or.cond = select i1 %7, i1 true, i1 %.not
   %9 = sext i32 %0 to i64
-  %10 = getelementptr inbounds i64, ptr @buf_offset, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr @buf_offset, i64 %9
   br i1 %or.cond, label %22, label %.preheader
 
 .preheader:                                       ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 296
-  %12 = getelementptr inbounds i64, ptr %11, i64 %9
+  %12 = getelementptr inbounds [8 x i8], ptr %11, i64 %9
   %13 = load i64, ptr %12, align 8, !tbaa !17
   %.not12 = icmp eq i64 %13, 0
   br i1 %.not12, label %.loopexit, label %.lr.ph
@@ -2008,7 +2008,7 @@ define internal fastcc void @posix_buffer_write(i32 noundef %0, ptr noundef nonn
 .lr.ph5:                                          ; preds = %26, %.lr.ph5
   %indvars.iv14 = phi i64 [ %indvars.iv.next15, %.lr.ph5 ], [ %indvars.iv, %26 ]
   %.0393 = phi i64 [ %30, %.lr.ph5 ], [ 1, %26 ]
-  %28 = getelementptr inbounds nuw i64, ptr %24, i64 %indvars.iv14
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv14
   %29 = load i64, ptr %28, align 8, !tbaa !17
   %30 = mul nsw i64 %29, %.0393
   %indvars.iv.next15 = add nuw nsw i64 %indvars.iv14, 1
@@ -2017,9 +2017,9 @@ define internal fastcc void @posix_buffer_write(i32 noundef %0, ptr noundef nonn
 
 ._crit_edge:                                      ; preds = %.lr.ph5, %26
   %.039.lcssa = phi i64 [ 1, %26 ], [ %30, %.lr.ph5 ]
-  %31 = getelementptr inbounds nuw i64, ptr @offset, i64 %indvars.iv17
+  %31 = getelementptr inbounds nuw [8 x i8], ptr @offset, i64 %indvars.iv17
   %32 = load i64, ptr %31, align 8, !tbaa !17
-  %33 = getelementptr inbounds nuw i64, ptr @buf_offset, i64 %indvars.iv17
+  %33 = getelementptr inbounds nuw [8 x i8], ptr @buf_offset, i64 %indvars.iv17
   %34 = load i64, ptr %33, align 8, !tbaa !17
   %35 = add nsw i64 %34, %32
   %36 = mul nsw i64 %35, %.039.lcssa
@@ -2085,24 +2085,24 @@ declare i64 @H5Dopen2(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr 
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @dset_read(i32 noundef range(i32 -2147483648, 2147483647) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull %3) unnamed_addr #0 {
   %5 = sext i32 %0 to i64
-  %6 = getelementptr inbounds i32, ptr @order, i64 %5
+  %6 = getelementptr inbounds [4 x i8], ptr @order, i64 %5
   %7 = load i32, ptr %6, align 4, !tbaa !19
   %8 = add nsw i32 %7, -1
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %10 = sext i32 %8 to i64
-  %11 = getelementptr inbounds i64, ptr %9, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %9, i64 %10
   %12 = load i64, ptr %11, align 8, !tbaa !17
   %.not = icmp eq i64 %12, 0
   br i1 %.not, label %.loopexit, label %.lr.ph7
 
 .lr.ph7:                                          ; preds = %4
-  %13 = getelementptr inbounds i64, ptr @h5offset, i64 %10
-  %14 = getelementptr inbounds i64, ptr @offset, i64 %10
+  %13 = getelementptr inbounds [8 x i8], ptr @h5offset, i64 %10
+  %14 = getelementptr inbounds [8 x i8], ptr @offset, i64 %10
   %15 = icmp sgt i32 %0, 0
   %16 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %17 = add nsw i32 %0, -1
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 296
-  %19 = getelementptr inbounds i64, ptr %18, i64 %10
+  %19 = getelementptr inbounds [8 x i8], ptr %18, i64 %10
   br i1 %15, label %.lr.ph7.split.us, label %.lr.ph7.split
 
 .lr.ph7.split.us:                                 ; preds = %.lr.ph7, %.lr.ph7.split.us
@@ -2207,12 +2207,12 @@ define internal fastcc range(i32 -1, 1) i32 @posix_buffer_read(i32 noundef %0, p
   %.not = icmp eq i32 %0, %8
   %or.cond = select i1 %7, i1 true, i1 %.not
   %9 = sext i32 %0 to i64
-  %10 = getelementptr inbounds i64, ptr @buf_offset, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr @buf_offset, i64 %9
   br i1 %or.cond, label %23, label %.preheader
 
 .preheader:                                       ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 296
-  %12 = getelementptr inbounds i64, ptr %11, i64 %9
+  %12 = getelementptr inbounds [8 x i8], ptr %11, i64 %9
   %13 = load i64, ptr %12, align 8, !tbaa !17
   %.not14 = icmp eq i64 %13, 0
   br i1 %.not14, label %.loopexit, label %.lr.ph
@@ -2257,7 +2257,7 @@ define internal fastcc range(i32 -1, 1) i32 @posix_buffer_read(i32 noundef %0, p
 .lr.ph6:                                          ; preds = %27, %.lr.ph6
   %indvars.iv17 = phi i64 [ %indvars.iv.next18, %.lr.ph6 ], [ %indvars.iv, %27 ]
   %.0394 = phi i64 [ %31, %.lr.ph6 ], [ 1, %27 ]
-  %29 = getelementptr inbounds nuw i64, ptr %25, i64 %indvars.iv17
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv17
   %30 = load i64, ptr %29, align 8, !tbaa !17
   %31 = mul nsw i64 %30, %.0394
   %indvars.iv.next18 = add nuw nsw i64 %indvars.iv17, 1
@@ -2266,9 +2266,9 @@ define internal fastcc range(i32 -1, 1) i32 @posix_buffer_read(i32 noundef %0, p
 
 ._crit_edge:                                      ; preds = %.lr.ph6, %27
   %.039.lcssa = phi i64 [ 1, %27 ], [ %31, %.lr.ph6 ]
-  %32 = getelementptr inbounds nuw i64, ptr @offset, i64 %indvars.iv20
+  %32 = getelementptr inbounds nuw [8 x i8], ptr @offset, i64 %indvars.iv20
   %33 = load i64, ptr %32, align 8, !tbaa !17
-  %34 = getelementptr inbounds nuw i64, ptr @buf_offset, i64 %indvars.iv20
+  %34 = getelementptr inbounds nuw [8 x i8], ptr @buf_offset, i64 %indvars.iv20
   %35 = load i64, ptr %34, align 8, !tbaa !17
   %36 = add nsw i64 %35, %33
   %37 = mul nsw i64 %36, %.039.lcssa

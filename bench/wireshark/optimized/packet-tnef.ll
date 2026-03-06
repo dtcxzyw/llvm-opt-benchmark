@@ -723,7 +723,7 @@ dissect_mapiprops.exit:                           ; preds = %185, %64
   br label %239
 
 switch.lookup:                                    ; preds = %50
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissect_tnef, i64 %switch.tableidx
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_tnef, i64 %switch.tableidx
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %239
 

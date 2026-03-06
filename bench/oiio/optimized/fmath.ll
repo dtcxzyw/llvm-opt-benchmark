@@ -8,7 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.1 = type { <2 x i64> }
 %"class.OpenImageIO::v3_1_0::simd::vfloat4" = type { %union.anon.0 }
 %union.anon.0 = type { <4 x float> }
-%"class.Imath_3_1::half" = type { i16 }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -44,10 +43,10 @@ define void @_ZN11OpenImageIO6v3_1_012convert_typeIN9Imath_3_14halfEfEEvPKT_PT0_
 
 8:                                                ; preds = %8, %.lr.ph
   %indvars.iv.i = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next.i, %8 ]
-  %9 = getelementptr inbounds nuw i16, ptr %.014, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw [2 x i8], ptr %.014, i64 %indvars.iv.i
   %10 = load i16, ptr %9, align 2, !tbaa !3
   %11 = zext i16 %10 to i32
-  %12 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv.i
   store i32 %11, ptr %12, align 4, !tbaa !7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -151,9 +150,9 @@ define void @_ZN11OpenImageIO6v3_1_012convert_typeIfN9Imath_3_14halfEEEvPKT_PT0_
 
 9:                                                ; preds = %.lr.ph, %_ZN9Imath_3_14halfaSEf.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN9Imath_3_14halfaSEf.exit ]
-  %10 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %11 = load float, ptr %10, align 4, !tbaa !7
-  %12 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %.0919, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [2 x i8], ptr %.0919, i64 %indvars.iv
   %13 = bitcast float %11 to i32
   %14 = tail call float @llvm.fabs.f32(float %11)
   %15 = bitcast float %14 to i32

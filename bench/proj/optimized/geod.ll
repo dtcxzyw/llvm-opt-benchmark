@@ -155,7 +155,7 @@ sub_1:                                            ; preds = %sub_0
   %42 = add nsw i32 %41, 1
   store i32 %42, ptr @_ZZ4mainE5eargc, align 4, !tbaa !15
   %43 = sext i32 %41 to i64
-  %44 = getelementptr inbounds ptr, ptr %1, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr %1, i64 %43
   store ptr @.str.2, ptr %44, align 8, !tbaa !4
   br label %120
 
@@ -287,7 +287,7 @@ sub_1:                                            ; preds = %sub_0
 
 98:                                               ; preds = %.lr.ph134, %92
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %99 = getelementptr inbounds nuw ptr, ptr %87, i64 %indvars.iv.next
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %indvars.iv.next
   %100 = load ptr, ptr %99, align 8, !tbaa !24
   %.not94 = icmp eq ptr %100, null
   br i1 %.not94, label %.critedge, label %.lr.ph134
@@ -320,7 +320,7 @@ sub_1:                                            ; preds = %sub_0
   %111 = add nsw i32 %107, 1
   store i32 %111, ptr @_ZL5pargc, align 4, !tbaa !15
   %112 = sext i32 %107 to i64
-  %113 = getelementptr inbounds ptr, ptr @_ZL5pargv, i64 %112
+  %113 = getelementptr inbounds [8 x i8], ptr @_ZL5pargv, i64 %112
   store ptr %110, ptr %113, align 8, !tbaa !4
   br label %120
 
@@ -333,7 +333,7 @@ sub_1:                                            ; preds = %sub_0
   %117 = add nsw i32 %116, 1
   store i32 %117, ptr @_ZZ4mainE5eargc, align 4, !tbaa !15
   %118 = sext i32 %116 to i64
-  %119 = getelementptr inbounds ptr, ptr %1, i64 %118
+  %119 = getelementptr inbounds [8 x i8], ptr %1, i64 %118
   store ptr %33, ptr %119, align 8, !tbaa !4
   br label %120
 

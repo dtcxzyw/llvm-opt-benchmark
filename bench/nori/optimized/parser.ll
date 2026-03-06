@@ -2539,7 +2539,7 @@ _ZN10tinyformat6detail24printFormatStringLiteralERSoPKc.exit: ; preds = %28, %23
 
 39:                                               ; preds = %_ZN10tinyformat6detail24printFormatStringLiteralERSoPKc.exit
   %40 = sext i32 %38 to i64
-  %41 = getelementptr inbounds %"class.tinyformat::detail::FormatArg", ptr %2, i64 %40
+  %41 = getelementptr inbounds [24 x i8], ptr %2, i64 %40
   %42 = load i8, ptr %6, align 1
   %43 = trunc i8 %42 to i1
   br i1 %43, label %49, label %44
@@ -2903,7 +2903,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit: ; preds = %.lr.ph.i
   %115 = add nsw i32 %112, 1
   store i32 %115, ptr %5, align 4
   %116 = sext i32 %112 to i64
-  %117 = getelementptr inbounds %"class.tinyformat::detail::FormatArg", ptr %4, i64 %116
+  %117 = getelementptr inbounds [24 x i8], ptr %4, i64 %116
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 16
   %119 = load ptr, ptr %118, align 8
   %120 = load ptr, ptr %117, align 8
@@ -2965,7 +2965,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit: ; preds = %.lr.ph.i
   %157 = add nsw i32 %154, 1
   store i32 %157, ptr %5, align 4
   %158 = sext i32 %154 to i64
-  %159 = getelementptr inbounds %"class.tinyformat::detail::FormatArg", ptr %4, i64 %158
+  %159 = getelementptr inbounds [24 x i8], ptr %4, i64 %158
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 16
   %161 = load ptr, ptr %160, align 8
   %162 = load ptr, ptr %159, align 8
@@ -4392,7 +4392,7 @@ switch.edge:                                      ; preds = %_ZNSt3mapINSt7__cxx
 
 344:                                              ; preds = %344, %341
   %.014.i.i.i = phi i64 [ 0, %341 ], [ %347, %344 ]
-  %345 = getelementptr float, ptr %343, i64 %.014.i.i.i
+  %345 = getelementptr [4 x i8], ptr %343, i64 %.014.i.i.i
   %.idx.i.i.i.i = shl nuw nsw i64 %.014.i.i.i, 4
   %346 = getelementptr i8, ptr %345, i64 %.idx.i.i.i.i
   store float 1.000000e+00, ptr %346, align 4
@@ -4528,7 +4528,7 @@ _ZNSt6vectorIPN4nori10NoriObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   br label %_ZNSt6vectorIPN4nori10NoriObjectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
 _ZNSt6vectorIPN4nori10NoriObjectESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %393, %_ZNSt6vectorIPN4nori10NoriObjectESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
-  %394 = getelementptr inbounds nuw ptr, ptr %388, i64 %386
+  %394 = getelementptr inbounds nuw [8 x i8], ptr %388, i64 %386
   br label %_ZNSt6vectorIPN4nori10NoriObjectESaIS2_EE9push_backERKS2_.exit
 
 .loopexit746:                                     ; preds = %358, %361, %_ZNSt6vectorIPN4nori10NoriObjectESaIS2_EE9push_backERKS2_.exit, %368, %_ZNKSt6vectorIPN4nori10NoriObjectESaIS2_EE12_M_check_lenEmPKc.exit.i.i
@@ -6402,14 +6402,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit530: ;
 
 .preheader731:                                    ; preds = %941, %976
   %indvars.iv825 = phi i64 [ %indvars.iv.next826, %976 ], [ 0, %941 ]
-  %967 = getelementptr float, ptr %153, i64 %indvars.iv825
+  %967 = getelementptr [4 x i8], ptr %153, i64 %indvars.iv825
   %.idx = shl nuw nsw i64 %indvars.iv825, 7
   br label %968
 
 968:                                              ; preds = %.preheader731, %973
   %indvars.iv = phi i64 [ 0, %.preheader731 ], [ %indvars.iv.next, %973 ]
   %969 = load ptr, ptr %147, align 8
-  %970 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %969, i64 %indvars.iv
+  %970 = getelementptr inbounds nuw [32 x i8], ptr %969, i64 %indvars.iv
   %971 = getelementptr inbounds nuw i8, ptr %970, i64 %.idx
   %972 = invoke noundef float @_ZN4nori7toFloatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %971)
           to label %973 unwind label %.loopexit732
@@ -7036,7 +7036,7 @@ _ZNK5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE10normalizedEv.exit534
   %.idx.i.i.i.i.i = phi i64 [ %1238, %._crit_edge.i ], [ 0, %1239 ]
   %1246 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %1244, %1239 ]
   %1247 = load ptr, ptr %205, align 8
-  %1248 = getelementptr inbounds float, ptr %1247, i64 %1246
+  %1248 = getelementptr inbounds [4 x i8], ptr %1247, i64 %1246
   %1249 = getelementptr inbounds i8, ptr %1248, i64 %.idx.i.i.i.i.i
   store float %.sroa.0571.0, ptr %1249, align 4
   %1250 = getelementptr i8, ptr %1249, i64 4
@@ -7070,7 +7070,7 @@ _ZNK5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE10normalizedEv.exit534
   %.idx.i.i.i.i.i538 = phi i64 [ %1255, %._crit_edge.i535 ], [ 0, %1256 ]
   %1263 = phi i64 [ %.pre.i537, %._crit_edge.i535 ], [ %1261, %1256 ]
   %1264 = load ptr, ptr %205, align 8
-  %1265 = getelementptr inbounds float, ptr %1264, i64 %1263
+  %1265 = getelementptr inbounds [4 x i8], ptr %1264, i64 %1263
   %1266 = getelementptr inbounds i8, ptr %1265, i64 %.idx.i.i.i.i.i538
   store float %1169, ptr %1266, align 4
   %1267 = getelementptr i8, ptr %1266, i64 4
@@ -7104,7 +7104,7 @@ _ZNK5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE10normalizedEv.exit534
   %.idx.i.i.i.i.i543 = phi i64 [ %1272, %._crit_edge.i540 ], [ 0, %1273 ]
   %1280 = phi i64 [ %.pre.i542, %._crit_edge.i540 ], [ %1278, %1273 ]
   %1281 = load ptr, ptr %205, align 8
-  %1282 = getelementptr inbounds float, ptr %1281, i64 %1280
+  %1282 = getelementptr inbounds [4 x i8], ptr %1281, i64 %1280
   %1283 = getelementptr inbounds i8, ptr %1282, i64 %.idx.i.i.i.i.i543
   %1284 = load float, ptr %189, align 4
   store float %1284, ptr %1283, align 4
@@ -7142,7 +7142,7 @@ _ZNK5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE10normalizedEv.exit534
   %1303 = load ptr, ptr %205, align 8
   %1304 = add nsw i64 %1301, 1
   store i64 %1304, ptr %1235, align 8
-  %1305 = getelementptr float, ptr %1303, i64 %1302
+  %1305 = getelementptr [4 x i8], ptr %1303, i64 %1302
   %.idx.i.i = shl i64 %1301, 4
   %1306 = getelementptr i8, ptr %1305, i64 %.idx.i.i
   store float 0.000000e+00, ptr %1306, align 4
@@ -7171,7 +7171,7 @@ _ZNK5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE10normalizedEv.exit534
   %1318 = load ptr, ptr %205, align 8
   %1319 = add nsw i64 %1316, 1
   store i64 %1319, ptr %1235, align 8
-  %1320 = getelementptr float, ptr %1318, i64 %1317
+  %1320 = getelementptr [4 x i8], ptr %1318, i64 %1317
   %.idx.i.i551 = shl i64 %1316, 4
   %1321 = getelementptr i8, ptr %1320, i64 %.idx.i.i551
   store float 0.000000e+00, ptr %1321, align 4
@@ -7200,7 +7200,7 @@ _ZNK5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE10normalizedEv.exit534
   %1333 = load ptr, ptr %205, align 8
   %1334 = add nsw i64 %1331, 1
   store i64 %1334, ptr %1235, align 8
-  %1335 = getelementptr float, ptr %1333, i64 %1332
+  %1335 = getelementptr [4 x i8], ptr %1333, i64 %1332
   %.idx.i.i556 = shl i64 %1331, 4
   %1336 = getelementptr i8, ptr %1335, i64 %.idx.i.i556
   store float 0.000000e+00, ptr %1336, align 4
@@ -7229,7 +7229,7 @@ _ZNK5Eigen10MatrixBaseINS_6MatrixIfLi3ELi1ELi0ELi3ELi1EEEE10normalizedEv.exit534
   %1348 = load ptr, ptr %205, align 8
   %1349 = add nsw i64 %1346, 1
   store i64 %1349, ptr %1235, align 8
-  %1350 = getelementptr float, ptr %1348, i64 %1347
+  %1350 = getelementptr [4 x i8], ptr %1348, i64 %1347
   %.idx.i.i561 = shl i64 %1346, 4
   %1351 = getelementptr i8, ptr %1350, i64 %.idx.i.i561
   store float 1.000000e+00, ptr %1351, align 4
@@ -10162,10 +10162,10 @@ define linkonce_odr hidden void @_ZN5Eigen8internal21dense_assignment_loopINS0_3
   %20 = load ptr, ptr %0, align 8
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr i8, ptr %21, i64 %.idx.i.i.i.i
-  %23 = getelementptr float, ptr %22, i64 %.09.i
+  %23 = getelementptr [4 x i8], ptr %22, i64 %.09.i
   %24 = load ptr, ptr %11, align 8
   %25 = load ptr, ptr %24, align 8
-  %26 = getelementptr float, ptr %25, i64 %.09.i
+  %26 = getelementptr [4 x i8], ptr %25, i64 %.09.i
   %27 = load float, ptr %26, align 4
   store float %27, ptr %23, align 4
   %28 = add nuw nsw i64 %.09.i, 1
@@ -10229,10 +10229,10 @@ _ZN5Eigen8internal13first_alignedILi16EflEET1_PKT0_S2_.exit: ; preds = %1
   %59 = load ptr, ptr %0, align 8
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr i8, ptr %60, i64 %.idx.i.i.i
-  %62 = getelementptr float, ptr %61, i64 %.03549
+  %62 = getelementptr [4 x i8], ptr %61, i64 %.03549
   %63 = load ptr, ptr %51, align 8
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr float, ptr %64, i64 %.03549
+  %65 = getelementptr [4 x i8], ptr %64, i64 %.03549
   %66 = load float, ptr %65, align 4
   store float %66, ptr %62, align 4
   %67 = add nuw nsw i64 %.03549, 1
@@ -10252,10 +10252,10 @@ _ZN5Eigen8internal13first_alignedILi16EflEET1_PKT0_S2_.exit: ; preds = %1
   %70 = load ptr, ptr %0, align 8
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr i8, ptr %71, i64 %.idx.i.i.i39
-  %73 = getelementptr float, ptr %72, i64 %.03450
+  %73 = getelementptr [4 x i8], ptr %72, i64 %.03450
   %74 = load ptr, ptr %51, align 8
   %75 = load ptr, ptr %74, align 8
-  %76 = getelementptr inbounds float, ptr %75, i64 %.03450
+  %76 = getelementptr inbounds [4 x i8], ptr %75, i64 %.03450
   %77 = load <4 x float>, ptr %76, align 1
   store <4 x float> %77, ptr %73, align 16
   %78 = add nsw i64 %.03450, 4
@@ -10267,10 +10267,10 @@ _ZN5Eigen8internal13first_alignedILi16EflEET1_PKT0_S2_.exit: ; preds = %1
   %81 = load ptr, ptr %0, align 8
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr i8, ptr %82, i64 %.idx.i.i.i40
-  %84 = getelementptr float, ptr %83, i64 %.052
+  %84 = getelementptr [4 x i8], ptr %83, i64 %.052
   %85 = load ptr, ptr %51, align 8
   %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr float, ptr %86, i64 %.052
+  %87 = getelementptr [4 x i8], ptr %86, i64 %.052
   %88 = load float, ptr %87, align 4
   store float %88, ptr %84, align 4
   %89 = add nsw i64 %.052, 1

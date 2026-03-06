@@ -170,7 +170,7 @@ Dot11DecryptGetKckLen.exit:                       ; preds = %Dot11DecryptGetKckL
 
 switch.lookup:                                    ; preds = %Dot11DecryptGetKckLen.exit
   %29 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.Dot11DecryptRsnaMng.10, i64 %29
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.Dot11DecryptRsnaMng.10, i64 %29
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %Dot11DecryptGetKekLen.exit
 
@@ -482,7 +482,7 @@ switch.hole_check:                                ; preds = %5
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %11 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.Dot11DecryptGetKCK, i64 %11
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.Dot11DecryptGetKCK, i64 %11
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %Dot11DecryptGetKckLen.exit
 
@@ -518,7 +518,7 @@ switch.hole_check:                                ; preds = %5
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %11 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.Dot11DecryptScanFtAssocForKeys.12, i64 %11
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.Dot11DecryptScanFtAssocForKeys.12, i64 %11
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %Dot11DecryptGetKckLen.exit
 
@@ -543,7 +543,7 @@ switch.hole_check16:                              ; preds = %Dot11DecryptGetKckL
 
 switch.lookup17:                                  ; preds = %switch.hole_check16
   %16 = zext nneg i8 %switch.tableidx14 to i64
-  %switch.gep21 = getelementptr inbounds nuw i32, ptr @switch.table.Dot11DecryptGetKEK.4, i64 %16
+  %switch.gep21 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.Dot11DecryptGetKEK.4, i64 %16
   %switch.load22 = load i32, ptr %switch.gep21, align 4
   br label %Dot11DecryptGetKekLen.exit
 
@@ -591,7 +591,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %16 = zext nneg i8 %switch.tableidx to i64
   %switch.gep = getelementptr inbounds nuw i8, ptr @switch.table.Dot11DecryptGetTK, i64 %16
   %17 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep22 = getelementptr inbounds nuw i64, ptr @switch.table.Dot11DecryptScanFtAssocForKeys.12, i64 %17
+  %switch.gep22 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.Dot11DecryptScanFtAssocForKeys.12, i64 %17
   %switch.load23 = load i64, ptr %switch.gep22, align 8
   br label %Dot11DecryptGetKckLen.exit
 
@@ -615,7 +615,7 @@ switch.hole_check26:                              ; preds = %Dot11DecryptGetKckL
 
 switch.lookup27:                                  ; preds = %switch.hole_check26
   %21 = zext nneg i8 %switch.tableidx24 to i64
-  %switch.gep31 = getelementptr inbounds nuw i64, ptr @switch.table.Dot11DecryptRsnaMng.10, i64 %21
+  %switch.gep31 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.Dot11DecryptRsnaMng.10, i64 %21
   %switch.load32 = load i64, ptr %switch.gep31, align 8
   br label %Dot11DecryptGetKekLen.exit
 
@@ -636,7 +636,7 @@ Dot11DecryptGetKekLen.exit:                       ; preds = %switch.lookup27, %2
 
 switch.lookup34:                                  ; preds = %Dot11DecryptGetKekLen.exit
   %28 = zext nneg i8 %switch.tableidx33 to i64
-  %switch.gep35 = getelementptr inbounds nuw i32, ptr @switch.table.Dot11DecryptRsnaMng.11, i64 %28
+  %switch.gep35 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.Dot11DecryptRsnaMng.11, i64 %28
   %switch.load36 = load i32, ptr %switch.gep35, align 4
   br label %Dot11DecryptGetTkLen.exit
 
@@ -657,7 +657,7 @@ define internal fastcc range(i32 -1, 257) i32 @Dot11DecryptGetTkLen(i32 noundef 
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.Dot11DecryptGetTkLen, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.Dot11DecryptGetTkLen, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %5
 
@@ -693,7 +693,7 @@ define hidden range(i32 0, 33) i32 @Dot11DecryptGetGTK(ptr noundef %0, ptr nound
 
 switch.lookup:                                    ; preds = %9
   %14 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.Dot11DecryptRsnaMng.11, i64 %14
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.Dot11DecryptRsnaMng.11, i64 %14
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %Dot11DecryptGetTkLen.exit
 
@@ -1403,7 +1403,7 @@ define hidden range(i32 -1, 5) i32 @Dot11DecryptScanEapolForKeys(ptr noundef %0,
 
 Dot11DecryptIsWpaKeyType.exit.i:                  ; preds = %102, %101
   %105 = sext i32 %.0120182.i to i64
-  %106 = getelementptr %struct._DOT11DECRYPT_KEY_ITEM, ptr %73, i64 %105
+  %106 = getelementptr [432 x i8], ptr %73, i64 %105
   %107 = add nsw i32 %.0120182.i, 1
   %.pr.i = load i8, ptr %106, align 8
   br label %108
@@ -1549,7 +1549,7 @@ Dot11DecryptIsFtAkm.exit.i:                       ; preds = %Dot11DecryptDeriveP
 
 switch.lookup:                                    ; preds = %166
   %169 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.Dot11DecryptScanEapolForKeys, i64 %169
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.Dot11DecryptScanEapolForKeys, i64 %169
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %Dot11DecryptGetHashAlgoFromAkm.exit.i.i
 
@@ -1631,7 +1631,7 @@ switch.hole_check:                                ; preds = %190
 
 switch.lookup33:                                  ; preds = %switch.hole_check
   %194 = zext nneg i8 %switch.tableidx31 to i64
-  %switch.gep34 = getelementptr inbounds nuw i64, ptr @switch.table.Dot11DecryptScanFtAssocForKeys.12, i64 %194
+  %switch.gep34 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.Dot11DecryptScanFtAssocForKeys.12, i64 %194
   %switch.load35 = load i64, ptr %switch.gep34, align 8
   br label %Dot11DecryptGetKckLen.exit.i.i
 
@@ -1994,7 +1994,7 @@ Dot11DecryptGetSaAddress.exit:                    ; preds = %40, %41, %Dot11Decr
 84:                                               ; preds = %84, %.lr.ph.i
   %.08.i = phi i64 [ 0, %.lr.ph.i ], [ %89, %84 ]
   %.067.i = phi i32 [ 0, %.lr.ph.i ], [ %spec.select.i, %84 ]
-  %85 = getelementptr %struct._DOT11DECRYPT_KEY_ITEM, ptr %83, i64 %.08.i
+  %85 = getelementptr [432 x i8], ptr %83, i64 %.08.i
   %86 = load i8, ptr %85, align 8
   %87 = icmp eq i8 %86, 6
   %88 = zext i1 %87 to i32
@@ -2080,7 +2080,7 @@ define internal fastcc range(i32 0, 2) i32 @Dot11DecryptWepMng(ptr noundef nonnu
 
 36:                                               ; preds = %33, %31, %30
   %.pn = sext i32 %.069109 to i64
-  %.068.ph = getelementptr %struct._DOT11DECRYPT_KEY_ITEM, ptr %22, i64 %.pn
+  %.068.ph = getelementptr [432 x i8], ptr %22, i64 %.pn
   %.pr = load i8, ptr %.068.ph, align 8
   %37 = icmp eq i8 %.pr, 0
   br i1 %37, label %.thread, label %.thread97
@@ -2332,7 +2332,7 @@ Dot11DecryptGetKckLen.exit:                       ; preds = %Dot11DecryptGetKckL
 
 switch.lookup:                                    ; preds = %Dot11DecryptGetKckLen.exit
   %53 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.Dot11DecryptRsnaMng.10, i64 %53
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.Dot11DecryptRsnaMng.10, i64 %53
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %Dot11DecryptGetKekLen.exit
 
@@ -2351,7 +2351,7 @@ Dot11DecryptGetKekLen.exit:                       ; preds = %switch.lookup, %52
 
 switch.lookup184:                                 ; preds = %Dot11DecryptGetKekLen.exit
   %59 = zext nneg i32 %switch.tableidx183 to i64
-  %switch.gep185 = getelementptr inbounds nuw i32, ptr @switch.table.Dot11DecryptRsnaMng.11, i64 %59
+  %switch.gep185 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.Dot11DecryptRsnaMng.11, i64 %59
   %switch.load186 = load i32, ptr %switch.gep185, align 4
   br label %Dot11DecryptGetTkLen.exit
 
@@ -2421,7 +2421,7 @@ Dot11DecryptGetKckLen.exit103:                    ; preds = %Dot11DecryptGetKckL
 
 switch.lookup189:                                 ; preds = %Dot11DecryptGetKckLen.exit103
   %75 = zext nneg i32 %switch.tableidx187 to i64
-  %switch.gep192 = getelementptr inbounds nuw i64, ptr @switch.table.Dot11DecryptRsnaMng.10, i64 %75
+  %switch.gep192 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.Dot11DecryptRsnaMng.10, i64 %75
   %switch.load193 = load i64, ptr %switch.gep192, align 8
   br label %Dot11DecryptGetKekLen.exit105
 
@@ -2440,7 +2440,7 @@ Dot11DecryptGetKekLen.exit105:                    ; preds = %switch.lookup189, %
 
 switch.lookup196:                                 ; preds = %Dot11DecryptGetKekLen.exit105
   %81 = zext nneg i32 %switch.tableidx195 to i64
-  %switch.gep197 = getelementptr inbounds nuw i32, ptr @switch.table.Dot11DecryptRsnaMng.11, i64 %81
+  %switch.gep197 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.Dot11DecryptRsnaMng.11, i64 %81
   %switch.load198 = load i32, ptr %switch.gep197, align 4
   br label %Dot11DecryptGetTkLen.exit107
 
@@ -2543,7 +2543,7 @@ define internal fastcc i32 @Dot11DecryptUsingUserTk(ptr noundef nonnull %0, ptr 
   %25 = phi i64 [ %16, %.lr.ph80 ], [ %71, %70 ]
   %.04979 = phi i64 [ 0, %.lr.ph80 ], [ %72, %70 ]
   %.05478 = phi i32 [ 3, %.lr.ph80 ], [ %.256, %70 ]
-  %26 = getelementptr %struct._DOT11DECRYPT_KEY_ITEM, ptr %17, i64 %.04979
+  %26 = getelementptr [432 x i8], ptr %17, i64 %.04979
   %27 = load i8, ptr %26, align 8
   %.not = icmp eq i8 %27, 6
   br i1 %.not, label %28, label %70
@@ -2578,7 +2578,7 @@ define internal fastcc i32 @Dot11DecryptUsingUserTk(ptr noundef nonnull %0, ptr 
 35:                                               ; preds = %Dot11DecryptGetPtkLen.exit
   %36 = add i32 %.076, 1
   %37 = sext i32 %36 to i64
-  %38 = getelementptr i32, ptr %8, i64 %37
+  %38 = getelementptr [4 x i8], ptr %8, i64 %37
   %39 = load i32, ptr %38, align 4
   %.not64 = icmp eq i32 %39, 0
   br i1 %.not64, label %Dot11DecryptAddSa.exit.loopexit, label %.lr.ph, !llvm.loop !33
@@ -2803,7 +2803,7 @@ Dot11DecryptInitContext.exit:                     ; preds = %11, %15
 19:                                               ; preds = %.lr.ph, %Dot11DecryptValidateKey.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Dot11DecryptValidateKey.exit.thread ]
   %.038 = phi i32 [ 0, %.lr.ph ], [ %.1, %Dot11DecryptValidateKey.exit.thread ]
-  %20 = getelementptr %struct._DOT11DECRYPT_KEY_ITEM, ptr %1, i64 %indvars.iv
+  %20 = getelementptr [432 x i8], ptr %1, i64 %indvars.iv
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %23
 
@@ -2905,7 +2905,7 @@ Dot11DecryptValidateKey.exit.thread34:            ; preds = %.thread
 
 Dot11DecryptValidateKey.exit.thread34.thread:     ; preds = %25, %23, %23, %23, %30, %32, %47, %Dot11DecryptValidateKey.exit.thread34
   %66 = sext i32 %.038 to i64
-  %67 = getelementptr %struct._DOT11DECRYPT_KEY_ITEM, ptr %12, i64 %66
+  %67 = getelementptr [432 x i8], ptr %12, i64 %66
   call void @llvm.memcpy.p0.p0.i64(ptr noundef align 1 dereferenceable(432) %67, ptr noundef nonnull align 1 dereferenceable(432) %20, i64 noundef 432, i1 noundef false) #15
   %68 = add i32 %.038, 1
   br label %Dot11DecryptValidateKey.exit.thread
@@ -3104,7 +3104,7 @@ define hidden range(i32 -1, 5) i32 @Dot11DecryptScanFtAssocForKeys(ptr noundef %
 
 switch.lookup:                                    ; preds = %28
   %32 = zext nneg i8 %29 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.Dot11DecryptScanFtAssocForKeys.13, i64 %32
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.Dot11DecryptScanFtAssocForKeys.13, i64 %32
   %switch.load = load i64, ptr %switch.gep, align 8
   %33 = getelementptr inbounds nuw i8, ptr %10, i64 6
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 %switch.load
@@ -3178,7 +3178,7 @@ switch.lookup:                                    ; preds = %28
   ]
 
 Dot11DecryptIsWpaKeyType.exit:                    ; preds = %70, %69
-  %73 = getelementptr %struct._DOT11DECRYPT_KEY_ITEM, ptr %48, i64 %.086133
+  %73 = getelementptr [432 x i8], ptr %48, i64 %.086133
   %74 = add nuw i64 %.086133, 1
   %.pr = load i8, ptr %73, align 8
   br label %75
@@ -3297,7 +3297,7 @@ switch.hole_check:                                ; preds = %125
 
 switch.lookup148:                                 ; preds = %switch.hole_check
   %129 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep149 = getelementptr inbounds nuw i64, ptr @switch.table.Dot11DecryptScanFtAssocForKeys.12, i64 %129
+  %switch.gep149 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.Dot11DecryptScanFtAssocForKeys.12, i64 %129
   %switch.load150 = load i64, ptr %switch.gep149, align 8
   br label %Dot11DecryptGetKckLen.exit
 
@@ -3322,7 +3322,7 @@ Dot11DecryptGetKckLen.exit:                       ; preds = %switch.lookup148, %
 
 switch.lookup151:                                 ; preds = %136
   %139 = zext nneg i8 %137 to i64
-  %switch.gep152 = getelementptr inbounds nuw i64, ptr @switch.table.Dot11DecryptScanFtAssocForKeys.13, i64 %139
+  %switch.gep152 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.Dot11DecryptScanFtAssocForKeys.13, i64 %139
   %switch.load153 = load i64, ptr %switch.gep152, align 8
   %switch.offset = add nuw nsw i8 %137, 3
   %140 = getelementptr inbounds nuw i8, ptr %1, i64 %switch.load153
@@ -3525,7 +3525,7 @@ Dot11DecryptGetKckLen.exit118:                    ; preds = %232, %232, %232, %2
 
 switch.lookup157:                                 ; preds = %Dot11DecryptGetKckLen.exit118
   %239 = zext nneg i32 %switch.tableidx154 to i64
-  %switch.gep160 = getelementptr inbounds nuw i16, ptr @switch.table.Dot11DecryptScanFtAssocForKeys.14, i64 %239
+  %switch.gep160 = getelementptr inbounds nuw [2 x i8], ptr @switch.table.Dot11DecryptScanFtAssocForKeys.14, i64 %239
   %switch.load161 = load i16, ptr %switch.gep160, align 2
   br label %Dot11DecryptGetKekLen.exit
 
@@ -3595,7 +3595,7 @@ define internal fastcc zeroext range(i8 0, 5) i8 @Dot11DecryptFtDerivePtk(ptr no
 
 switch.lookup:                                    ; preds = %12
   %21 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.Dot11DecryptFtDerivePtk, i64 %21
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.Dot11DecryptFtDerivePtk, i64 %21
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %Dot11DecryptGetHashAlgoFromAkm.exit
 

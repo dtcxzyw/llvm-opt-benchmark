@@ -3192,7 +3192,7 @@ for.body:                                         ; preds = %for.inc, %for.body.
   %dest_size.02601 = phi i16 [ %conv, %for.body.lr.ph ], [ %dest_size.1, %for.inc ]
   %list_to.sroa.0.02600 = phi ptr [ %.sink.i1195, %for.body.lr.ph ], [ %list_to.sroa.0.1, %for.inc ]
   %110 = load ptr, ptr %list_to.sroa.0.02600, align 8, !tbaa !178
-  %count.i.split = getelementptr inbounds nuw %struct.ItemStack, ptr %110, i64 %indvars.iv
+  %count.i.split = getelementptr inbounds nuw [312 x i8], ptr %110, i64 %indvars.iv
   %count.i = getelementptr inbounds nuw i8, ptr %count.i.split, i64 32
   %111 = load i16, ptr %count.i, align 8, !tbaa !179
   %cmp.i1586 = icmp eq i16 %111, 0
@@ -3264,7 +3264,7 @@ for.body200:                                      ; preds = %for.inc211, %for.bo
   %dest_size.22608 = phi i16 [ %dest_size.0.lcssa, %for.body200.lr.ph ], [ %dest_size.3, %for.inc211 ]
   %list_to.sroa.0.22607 = phi ptr [ %list_to.sroa.0.0.lcssa, %for.body200.lr.ph ], [ %list_to.sroa.0.3, %for.inc211 ]
   %124 = load ptr, ptr %list_to.sroa.0.22607, align 8, !tbaa !178
-  %count.i1599.split = getelementptr inbounds nuw %struct.ItemStack, ptr %124, i64 %indvars.iv2615
+  %count.i1599.split = getelementptr inbounds nuw [312 x i8], ptr %124, i64 %indvars.iv2615
   %count.i1599 = getelementptr inbounds nuw i8, ptr %count.i1599.split, i64 32
   %125 = load i16, ptr %count.i1599, align 8, !tbaa !179
   %cmp.i1600 = icmp eq i16 %125, 0
@@ -3641,7 +3641,7 @@ land.end323:                                      ; preds = %land.rhs315.land.en
   call void @llvm.lifetime.start.p0(ptr nonnull %src_item)
   %conv327 = sext i16 %168 to i64
   %conv.i1780 = and i64 %conv327, 4294967295
-  %add.ptr.i.i1781 = getelementptr inbounds nuw %struct.ItemStack, ptr %167, i64 %conv.i1780
+  %add.ptr.i.i1781 = getelementptr inbounds nuw [312 x i8], ptr %167, i64 %conv.i1780
   invoke void @_ZN9ItemStackC2ERKS_(ptr noundef nonnull align 8 dereferenceable(312) %src_item, ptr noundef nonnull align 8 dereferenceable(312) %add.ptr.i.i1781)
           to label %invoke.cont331 unwind label %lpad328
 
@@ -3722,7 +3722,7 @@ if.then382:                                       ; preds = %if.end380
   %conv386 = sext i16 %178 to i64
   %conv.i1784 = and i64 %conv386, 4294967295
   %179 = load ptr, ptr %.sink.i, align 8, !tbaa !178
-  %add.ptr.i.i1785 = getelementptr inbounds nuw %struct.ItemStack, ptr %179, i64 %conv.i1784
+  %add.ptr.i.i1785 = getelementptr inbounds nuw [312 x i8], ptr %179, i64 %conv.i1784
   %call390 = invoke noundef nonnull align 8 dereferenceable(312) ptr @_ZN9ItemStackaSERKS_(ptr noundef nonnull align 8 dereferenceable(312) %src_item, ptr noundef nonnull align 8 dereferenceable(312) %add.ptr.i.i1785)
           to label %invoke.cont389 unwind label %lpad356
 
@@ -3764,7 +3764,7 @@ if.then420:                                       ; preds = %land.end417
   %conv424 = sext i16 %185 to i64
   %conv.i1786 = and i64 %conv424, 4294967295
   %186 = load ptr, ptr %.sink.i1195, align 8, !tbaa !178
-  %count428.split = getelementptr inbounds nuw %struct.ItemStack, ptr %186, i64 %conv.i1786
+  %count428.split = getelementptr inbounds nuw [312 x i8], ptr %186, i64 %conv.i1786
   %count428 = getelementptr inbounds nuw i8, ptr %count428.split, i64 32
   %187 = load i16, ptr %count428, align 8, !tbaa !179
   %conv429 = zext i16 %187 to i32
@@ -3815,7 +3815,7 @@ if.then475:                                       ; preds = %land.end472
   %conv479 = sext i16 %192 to i64
   %conv.i1788 = and i64 %conv479, 4294967295
   %193 = load ptr, ptr %.sink.i1195, align 8, !tbaa !178
-  %add.ptr.i.i1789 = getelementptr inbounds nuw %struct.ItemStack, ptr %193, i64 %conv.i1788
+  %add.ptr.i.i1789 = getelementptr inbounds nuw [312 x i8], ptr %193, i64 %conv.i1788
   invoke void @_ZN9ItemStackC2ERKS_(ptr noundef nonnull align 8 dereferenceable(312) %dst_item, ptr noundef nonnull align 8 dereferenceable(312) %add.ptr.i.i1789)
           to label %invoke.cont483 unwind label %lpad480
 
@@ -3918,7 +3918,7 @@ if.end540:                                        ; preds = %if.then532, %if.end
   %conv545 = sext i16 %204 to i64
   %conv.i1793 = and i64 %conv545, 4294967295
   %205 = load ptr, ptr %.sink.i, align 8, !tbaa !178
-  %count549.split = getelementptr inbounds nuw %struct.ItemStack, ptr %205, i64 %conv.i1793
+  %count549.split = getelementptr inbounds nuw [312 x i8], ptr %205, i64 %conv.i1793
   %count549 = getelementptr inbounds nuw i8, ptr %count549.split, i64 32
   %206 = load i16, ptr %count549, align 8, !tbaa !179
   %conv550 = zext i16 %206 to i32
@@ -4196,7 +4196,7 @@ invoke.cont654:                                   ; preds = %if.end646
   %conv658 = sext i16 %242 to i64
   %conv.i1876 = and i64 %conv658, 4294967295
   %243 = load ptr, ptr %.sink.i1195, align 8, !tbaa !178
-  %add.ptr.i.i1877 = getelementptr inbounds nuw %struct.ItemStack, ptr %243, i64 %conv.i1876
+  %add.ptr.i.i1877 = getelementptr inbounds nuw [312 x i8], ptr %243, i64 %conv.i1876
   invoke void @_ZN9ItemStackC2ERKS_(ptr noundef nonnull align 8 dereferenceable(312) %to_stack_was, ptr noundef nonnull align 8 dereferenceable(312) %add.ptr.i.i1877)
           to label %invoke.cont662 unwind label %lpad659
 
@@ -4292,7 +4292,7 @@ lpad694:                                          ; preds = %if.then705
 
 for.body699:                                      ; preds = %for.cond692.preheader, %for.inc709
   %indvars.iv2618 = phi i64 [ %indvars.iv.next2619, %for.inc709 ], [ 0, %for.cond692.preheader ]
-  %count.i1888.split = getelementptr inbounds nuw %struct.ItemStack, ptr %254, i64 %indvars.iv2618
+  %count.i1888.split = getelementptr inbounds nuw [312 x i8], ptr %254, i64 %indvars.iv2618
   %count.i1888 = getelementptr inbounds nuw i8, ptr %count.i1888.split, i64 32
   %261 = load i16, ptr %count.i1888, align 8, !tbaa !179
   %cmp.i1889 = icmp eq i16 %261, 0
@@ -4951,7 +4951,7 @@ if.then933:                                       ; preds = %_ZNSt10unique_ptrI1
   %conv937 = sext i16 %342 to i64
   %conv.i2042 = and i64 %conv937, 4294967295
   %343 = load ptr, ptr %341, align 8, !tbaa !178
-  %add.ptr.i.i2043 = getelementptr inbounds nuw %struct.ItemStack, ptr %343, i64 %conv.i2042
+  %add.ptr.i.i2043 = getelementptr inbounds nuw [312 x i8], ptr %343, i64 %conv.i2042
   %call941 = invoke noundef nonnull align 8 dereferenceable(312) ptr @_ZN9ItemStackaSERKS_(ptr noundef nonnull align 8 dereferenceable(312) %src_item, ptr noundef nonnull align 8 dereferenceable(312) %add.ptr.i.i2043)
           to label %_ZNSt10unique_ptrI13InventoryListNS0_14ResizeUnlockerEE5resetEPS0_.exit2048 unwind label %lpad725
 
@@ -5009,7 +5009,7 @@ if.then967:                                       ; preds = %_ZNSt10unique_ptrI1
   %conv971 = sext i16 %350 to i64
   %conv.i2061 = and i64 %conv971, 4294967295
   %351 = load ptr, ptr %349, align 8, !tbaa !178
-  %add.ptr.i.i2062 = getelementptr inbounds nuw %struct.ItemStack, ptr %351, i64 %conv.i2061
+  %add.ptr.i.i2062 = getelementptr inbounds nuw [312 x i8], ptr %351, i64 %conv.i2061
   %call976 = invoke noundef nonnull align 8 dereferenceable(312) ptr @_ZN9ItemStackaSERKS_(ptr noundef nonnull align 8 dereferenceable(312) %swap_item, ptr noundef nonnull align 8 dereferenceable(312) %add.ptr.i.i2062)
           to label %_ZNSt10unique_ptrI13InventoryListNS0_14ResizeUnlockerEE5resetEPS0_.exit2067 unwind label %lpad972
 
@@ -6630,7 +6630,7 @@ if.end27:                                         ; preds = %if.end
   %conv = sext i16 %35 to i64
   %conv.i = and i64 %conv, 4294967295
   %36 = load ptr, ptr %call12, align 8, !tbaa !178
-  %count.i.split = getelementptr inbounds nuw %struct.ItemStack, ptr %36, i64 %conv.i
+  %count.i.split = getelementptr inbounds nuw [312 x i8], ptr %36, i64 %conv.i
   %count.i = getelementptr inbounds nuw i8, ptr %count.i.split, i64 32
   %37 = load i16, ptr %count.i, align 8, !tbaa !179
   %cmp.i = icmp eq i16 %37, 0
@@ -6953,7 +6953,7 @@ sw.epilog:                                        ; preds = %sw.bb107, %sw.bb98,
   %conv123 = sext i16 %83 to i64
   %conv.i520 = and i64 %conv123, 4294967295
   %84 = load ptr, ptr %call12, align 8, !tbaa !178
-  %add.ptr.i.i521 = getelementptr inbounds nuw %struct.ItemStack, ptr %84, i64 %conv.i520
+  %add.ptr.i.i521 = getelementptr inbounds nuw [312 x i8], ptr %84, i64 %conv.i520
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %src_item, ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i.i521)
           to label %.noexc unwind label %ehcleanup302.thread892
 
@@ -7010,7 +7010,7 @@ invoke.cont126:                                   ; preds = %_ZN17ItemStackMetad
   %conv130 = sext i16 %90 to i64
   %conv.i528 = and i64 %conv130, 4294967295
   %91 = load ptr, ptr %call12, align 8, !tbaa !178
-  %add.ptr.i.i529 = getelementptr inbounds nuw %struct.ItemStack, ptr %91, i64 %conv.i528
+  %add.ptr.i.i529 = getelementptr inbounds nuw [312 x i8], ptr %91, i64 %conv.i528
   %92 = getelementptr inbounds nuw i8, ptr %item1, i64 16
   store ptr %92, ptr %item1, align 8, !tbaa !10
   %93 = load ptr, ptr %add.ptr.i.i529, align 8, !tbaa !24
@@ -10463,7 +10463,7 @@ for.body:                                         ; preds = %for.inc, %for.body.
   %10 = phi ptr [ %7, %for.body.lr.ph ], [ %12, %for.inc ]
   %i.0132 = phi i16 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
   %conv.i103 = zext i16 %i.0132 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw %struct.ItemStack, ptr %10, i64 %conv.i103
+  %add.ptr.i.i = getelementptr inbounds nuw [312 x i8], ptr %10, i64 %conv.i103
   invoke void @_ZNSt6vectorI9ItemStackSaIS0_EE9push_backERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %items, ptr noundef nonnull align 8 dereferenceable(312) %add.ptr.i.i)
           to label %for.inc unwind label %lpad12
 
@@ -10550,7 +10550,7 @@ for.body50:                                       ; preds = %_ZN9ItemStackD2Ev.e
   %i42.0139 = phi i16 [ 0, %for.body50.lr.ph ], [ %inc57, %_ZN9ItemStackD2Ev.exit ]
   %conv53 = zext i16 %i42.0139 to i64
   %23 = load ptr, ptr %items52, align 8, !tbaa !178
-  %add.ptr.i = getelementptr inbounds nuw %struct.ItemStack, ptr %23, i64 %conv53
+  %add.ptr.i = getelementptr inbounds nuw [312 x i8], ptr %23, i64 %conv53
   invoke void @_ZN13InventoryList10changeItemEjRK9ItemStack(ptr dead_on_unwind nonnull writable sret(%struct.ItemStack) align 8 %agg.tmp.ensured, ptr noundef nonnull align 8 dereferenceable(80) %call, i32 noundef %conv44140, ptr noundef nonnull align 8 dereferenceable(312) %add.ptr.i)
           to label %invoke.cont55 unwind label %lpad45
 
@@ -11937,7 +11937,7 @@ invoke.cont15:                                    ; preds = %call5.i.i.i.i.noexc
   %_M_bucket_count.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %11 = load i64, ptr %_M_bucket_count.i.i.i, align 8, !tbaa !291
   %rem.i.i.i.i.i = urem i64 %9, %11
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %10, i64 %rem.i.i.i.i.i
+  %arrayidx.i.i = getelementptr inbounds [8 x i8], ptr %10, i64 %rem.i.i.i.i.i
   store ptr %_M_before_begin.i65, ptr %arrayidx.i.i, align 8, !tbaa !213
   %__ht_n.077 = load ptr, ptr %2, align 8, !tbaa !292
   %tobool17.not78 = icmp eq ptr %__ht_n.077, null
@@ -11990,7 +11990,7 @@ invoke.cont22:                                    ; preds = %call5.i.i.i.i.noexc
   %19 = load i64, ptr %_M_bucket_count.i.i.i, align 8, !tbaa !291
   %rem.i.i.i = urem i64 %18, %19
   %20 = load ptr, ptr %this, align 8, !tbaa !290
-  %arrayidx = getelementptr inbounds ptr, ptr %20, i64 %rem.i.i.i
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %20, i64 %rem.i.i.i
   %21 = load ptr, ptr %arrayidx, align 8, !tbaa !213
   %tobool31.not = icmp eq ptr %21, null
   br i1 %tobool31.not, label %if.then32, label %if.end35
@@ -12322,7 +12322,7 @@ invoke.cont15:                                    ; preds = %call5.i.i.i.i.noexc
   %_M_bucket_count.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %11 = load i64, ptr %_M_bucket_count.i.i.i, align 8, !tbaa !297
   %rem.i.i.i.i.i = urem i64 %9, %11
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %10, i64 %rem.i.i.i.i.i
+  %arrayidx.i.i = getelementptr inbounds [8 x i8], ptr %10, i64 %rem.i.i.i.i.i
   store ptr %_M_before_begin.i65, ptr %arrayidx.i.i, align 8, !tbaa !213
   %__ht_n.077 = load ptr, ptr %2, align 8, !tbaa !292
   %tobool17.not78 = icmp eq ptr %__ht_n.077, null
@@ -12375,7 +12375,7 @@ invoke.cont22:                                    ; preds = %call5.i.i.i.i.noexc
   %19 = load i64, ptr %_M_bucket_count.i.i.i, align 8, !tbaa !297
   %rem.i.i.i = urem i64 %18, %19
   %20 = load ptr, ptr %this, align 8, !tbaa !296
-  %arrayidx = getelementptr inbounds ptr, ptr %20, i64 %rem.i.i.i
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %20, i64 %rem.i.i.i
   %21 = load ptr, ptr %arrayidx, align 8, !tbaa !213
   %tobool31.not = icmp eq ptr %21, null
   br i1 %tobool31.not, label %if.then32, label %if.end35
@@ -12670,7 +12670,7 @@ invoke.cont15:                                    ; preds = %if.end5
   %sext = shl i64 %4, 32
   %conv.i.i.i.i.i.i = ashr exact i64 %sext, 32
   %rem.i.i.i.i.i = urem i64 %conv.i.i.i.i.i.i, %5
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %2, i64 %rem.i.i.i.i.i
+  %arrayidx.i.i = getelementptr inbounds [8 x i8], ptr %2, i64 %rem.i.i.i.i.i
   store ptr %_M_before_begin.i65, ptr %arrayidx.i.i, align 8, !tbaa !213
   %__ht_n.070 = load ptr, ptr %3, align 8, !tbaa !292
   %tobool17.not71 = icmp eq ptr %__ht_n.070, null
@@ -12693,7 +12693,7 @@ invoke.cont22:                                    ; preds = %for.body
   %conv.i.i.i.i = ashr exact i64 %sext74, 32
   %rem.i.i.i = urem i64 %conv.i.i.i.i, %5
   %7 = load ptr, ptr %this, align 8, !tbaa !316
-  %arrayidx = getelementptr inbounds ptr, ptr %7, i64 %rem.i.i.i
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %7, i64 %rem.i.i.i
   %8 = load ptr, ptr %arrayidx, align 8, !tbaa !213
   %tobool31.not = icmp eq ptr %8, null
   br i1 %tobool31.not, label %if.then32, label %if.end35
@@ -12854,7 +12854,7 @@ invoke.cont15:                                    ; preds = %if.end5
   %_M_bucket_count.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %6 = load i64, ptr %_M_bucket_count.i.i.i, align 8, !tbaa !301
   %rem.i.i.i.i.i = urem i64 %4, %6
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %5, i64 %rem.i.i.i.i.i
+  %arrayidx.i.i = getelementptr inbounds [8 x i8], ptr %5, i64 %rem.i.i.i.i.i
   store ptr %_M_before_begin.i65, ptr %arrayidx.i.i, align 8, !tbaa !213
   %__ht_n.068 = load ptr, ptr %2, align 8, !tbaa !292
   %tobool17.not69 = icmp eq ptr %__ht_n.068, null
@@ -12877,7 +12877,7 @@ invoke.cont22:                                    ; preds = %for.body
   %9 = load i64, ptr %_M_bucket_count.i.i.i, align 8, !tbaa !301
   %rem.i.i.i = urem i64 %8, %9
   %10 = load ptr, ptr %this, align 8, !tbaa !300
-  %arrayidx = getelementptr inbounds ptr, ptr %10, i64 %rem.i.i.i
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %10, i64 %rem.i.i.i
   %11 = load ptr, ptr %arrayidx, align 8, !tbaa !213
   %tobool31.not = icmp eq ptr %11, null
   br i1 %tobool31.not, label %if.then32, label %if.end35
@@ -13742,7 +13742,7 @@ invoke.cont12:                                    ; preds = %if.end5
   %_M_bucket_count.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %5 = load i64, ptr %_M_bucket_count.i.i.i, align 8, !tbaa !291
   %rem.i.i.i.i.i = urem i64 %3, %5
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %4, i64 %rem.i.i.i.i.i
+  %arrayidx.i.i = getelementptr inbounds [8 x i8], ptr %4, i64 %rem.i.i.i.i.i
   store ptr %_M_before_begin.i60, ptr %arrayidx.i.i, align 8, !tbaa !213
   %__ht_n.061 = load ptr, ptr %2, align 8, !tbaa !292
   %tobool14.not62 = icmp eq ptr %__ht_n.061, null
@@ -13764,7 +13764,7 @@ invoke.cont19:                                    ; preds = %for.body
   %7 = load i64, ptr %_M_bucket_count.i.i.i, align 8, !tbaa !291
   %rem.i.i.i = urem i64 %6, %7
   %8 = load ptr, ptr %this, align 8, !tbaa !290
-  %arrayidx = getelementptr inbounds ptr, ptr %8, i64 %rem.i.i.i
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %8, i64 %rem.i.i.i
   %9 = load ptr, ptr %arrayidx, align 8, !tbaa !213
   %tobool27.not = icmp eq ptr %9, null
   br i1 %tobool27.not, label %if.then28, label %if.end31
@@ -14242,7 +14242,7 @@ invoke.cont12:                                    ; preds = %if.end5
   %_M_bucket_count.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %5 = load i64, ptr %_M_bucket_count.i.i.i, align 8, !tbaa !297
   %rem.i.i.i.i.i = urem i64 %3, %5
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %4, i64 %rem.i.i.i.i.i
+  %arrayidx.i.i = getelementptr inbounds [8 x i8], ptr %4, i64 %rem.i.i.i.i.i
   store ptr %_M_before_begin.i60, ptr %arrayidx.i.i, align 8, !tbaa !213
   %__ht_n.061 = load ptr, ptr %2, align 8, !tbaa !292
   %tobool14.not62 = icmp eq ptr %__ht_n.061, null
@@ -14264,7 +14264,7 @@ invoke.cont19:                                    ; preds = %for.body
   %7 = load i64, ptr %_M_bucket_count.i.i.i, align 8, !tbaa !297
   %rem.i.i.i = urem i64 %6, %7
   %8 = load ptr, ptr %this, align 8, !tbaa !296
-  %arrayidx = getelementptr inbounds ptr, ptr %8, i64 %rem.i.i.i
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %8, i64 %rem.i.i.i
   %9 = load ptr, ptr %arrayidx, align 8, !tbaa !213
   %tobool27.not = icmp eq ptr %9, null
   br i1 %tobool27.not, label %if.then28, label %if.end31
@@ -14750,7 +14750,7 @@ invoke.cont12:                                    ; preds = %if.end5
   %_M_bucket_count.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %5 = load i64, ptr %_M_bucket_count.i.i.i, align 8, !tbaa !301
   %rem.i.i.i.i.i = urem i64 %3, %5
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %4, i64 %rem.i.i.i.i.i
+  %arrayidx.i.i = getelementptr inbounds [8 x i8], ptr %4, i64 %rem.i.i.i.i.i
   store ptr %_M_before_begin.i60, ptr %arrayidx.i.i, align 8, !tbaa !213
   %__ht_n.061 = load ptr, ptr %2, align 8, !tbaa !292
   %tobool14.not62 = icmp eq ptr %__ht_n.061, null
@@ -14772,7 +14772,7 @@ invoke.cont19:                                    ; preds = %for.body
   %7 = load i64, ptr %_M_bucket_count.i.i.i, align 8, !tbaa !301
   %rem.i.i.i = urem i64 %6, %7
   %8 = load ptr, ptr %this, align 8, !tbaa !300
-  %arrayidx = getelementptr inbounds ptr, ptr %8, i64 %rem.i.i.i
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %8, i64 %rem.i.i.i
   %9 = load ptr, ptr %arrayidx, align 8, !tbaa !213
   %tobool27.not = icmp eq ptr %9, null
   br i1 %tobool27.not, label %if.then28, label %if.end31
@@ -15843,7 +15843,7 @@ _ZNSt12_Vector_baseI9ItemStackSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %if.
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %cond.i52, ptr %this, align 8, !tbaa !178
   store ptr %call.i.i.i.i55, ptr %_M_finish.i.i, align 8, !tbaa !177
-  %add.ptr29 = getelementptr inbounds nuw %struct.ItemStack, ptr %cond.i52, i64 %cond.i
+  %add.ptr29 = getelementptr inbounds nuw [312 x i8], ptr %cond.i52, i64 %cond.i
   store ptr %add.ptr29, ptr %_M_end_of_storage, align 8, !tbaa !289
   ret void
 

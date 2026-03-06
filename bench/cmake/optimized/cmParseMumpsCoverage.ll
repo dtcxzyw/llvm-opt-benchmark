@@ -988,7 +988,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i: ; preds = %46, %.no
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i: ; preds = %48, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i
   store ptr %43, ptr %19, align 8, !tbaa !94
   store ptr %47, ptr %24, align 8, !tbaa !89
-  %49 = getelementptr inbounds nuw i32, ptr %43, i64 %41
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %41
   store ptr %49, ptr %26, align 8, !tbaa !92
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit.preheader
 
@@ -1135,7 +1135,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i: ; preds = %89, %.noex
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %91, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
   store ptr %86, ptr %19, align 8, !tbaa !94
   store ptr %90, ptr %24, align 8, !tbaa !89
-  %92 = getelementptr inbounds nuw i32, ptr %86, i64 %84
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %84
   store ptr %92, ptr %26, align 8, !tbaa !92
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit.backedge
 
@@ -1474,7 +1474,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
 
 36:                                               ; preds = %.preheader, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i53
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i53 ]
-  %37 = getelementptr inbounds nuw ptr, ptr @__const._ZN20cmParseMumpsCoverage13FindMumpsFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_.tryname, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZN20cmParseMumpsCoverage13FindMumpsFileERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERS5_.tryname, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %38 = load ptr, ptr %37, align 8, !tbaa !80
   call void @llvm.experimental.noalias.scope.decl(metadata !101)

@@ -3,8 +3,6 @@ source_filename = "bench/postgres/original/paramassign.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.ListCell = type { ptr }
-
 @.str = private unnamed_addr constant [37 x i8] c"MergeSupportFunc found outside MERGE\00", align 1
 @.str.1 = private unnamed_addr constant [14 x i8] c"paramassign.c\00", align 1
 @__func__.replace_outer_merge_support = private unnamed_addr constant [28 x i8] c"replace_outer_merge_support\00", align 1
@@ -53,7 +51,7 @@ define dso_local noundef ptr @replace_outer_var(ptr noundef captures(none) %0, p
   %21 = phi i32 [ %64, %.thread55.i ], [ %19, %.lr.ph66.i ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.thread55.i ], [ 0, %.lr.ph66.i ]
   %22 = load ptr, ptr %11, align 8
-  %23 = getelementptr inbounds nuw %union.ListCell, ptr %22, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv.i
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8
@@ -229,7 +227,7 @@ define dso_local noundef ptr @replace_outer_placeholdervar(ptr noundef captures(
 
 16:                                               ; preds = %27, %.lr.ph58.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph58.i ], [ %indvars.iv.next.i, %27 ]
-  %17 = getelementptr inbounds nuw %union.ListCell, ptr %15, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.i
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8
@@ -683,7 +681,7 @@ define dso_local noundef ptr @replace_nestloop_param_var(ptr noundef captures(no
 .lr.ph48:                                         ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ %indvars.iv.next, %9 ], [ 0, %.lr.ph ]
   %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds nuw %union.ListCell, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
@@ -846,7 +844,7 @@ define dso_local noundef ptr @replace_nestloop_param_placeholdervar(ptr noundef 
 .lr.ph45:                                         ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ %indvars.iv.next, %9 ], [ 0, %.lr.ph ]
   %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds nuw %union.ListCell, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
@@ -957,7 +955,7 @@ define dso_local void @process_subquery_nestloop_params(ptr noundef %0, ptr noun
 .lr.ph114:                                        ; preds = %.lr.ph87, %.loopexit
   %indvars.iv96113 = phi i64 [ %indvars.iv.next97, %.loopexit ], [ 0, %.lr.ph87 ]
   %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds nuw %union.ListCell, ptr %9, i64 %indvars.iv96113
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv96113
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
@@ -1009,7 +1007,7 @@ define dso_local void @process_subquery_nestloop_params(ptr noundef %0, ptr noun
 
 33:                                               ; preds = %.lr.ph85, %32
   %indvars.iv91 = phi i64 [ 0, %.lr.ph85 ], [ %indvars.iv.next92, %32 ]
-  %34 = getelementptr inbounds nuw %union.ListCell, ptr %30, i64 %indvars.iv91
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv91
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %37 = load i32, ptr %36, align 4
@@ -1056,7 +1054,7 @@ define dso_local void @process_subquery_nestloop_params(ptr noundef %0, ptr noun
 
 58:                                               ; preds = %.lr.ph80, %57
   %indvars.iv = phi i64 [ 0, %.lr.ph80 ], [ %indvars.iv.next, %57 ]
-  %59 = getelementptr inbounds nuw %union.ListCell, ptr %55, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 4
   %62 = load i32, ptr %61, align 4
@@ -1118,7 +1116,7 @@ define dso_local ptr @identify_current_nestloop_params(ptr noundef %0, ptr nound
   %9 = getelementptr inbounds nuw i8, ptr %.sroa.0.035, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %.sroa.8.036 to i64
-  %12 = getelementptr inbounds %union.ListCell, ptr %10, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8

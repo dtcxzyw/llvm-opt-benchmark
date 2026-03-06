@@ -483,7 +483,7 @@ thread-pre-split:                                 ; preds = %6, %12
   %.2106 = phi i32 [ %89, %88 ], [ %.0104136, %86 ]
   %.2101 = phi i32 [ %.099137, %88 ], [ %87, %86 ]
   %91 = sext i32 %.0104136.sink to i64
-  %92 = getelementptr inbounds ptr, ptr %.sink178, i64 %91
+  %92 = getelementptr inbounds [8 x i8], ptr %.sink178, i64 %91
   store ptr %85, ptr %92, align 8, !tbaa !4
   %93 = load ptr, ptr %4, align 8, !tbaa !4
   %94 = icmp eq ptr %93, null
@@ -534,11 +534,11 @@ thread-pre-split:                                 ; preds = %6, %12
 .thread132:                                       ; preds = %108
   %109 = add nsw i32 %.1100163, 1
   %110 = sext i32 %.1100163 to i64
-  %111 = getelementptr inbounds ptr, ptr %3, i64 %110
+  %111 = getelementptr inbounds [8 x i8], ptr %3, i64 %110
   store ptr @disableDHPrimeTest, ptr %111, align 8, !tbaa !4
   %112 = add nsw i32 %.1105160, 1
   %113 = sext i32 %.1105160 to i64
-  %114 = getelementptr inbounds ptr, ptr %2, i64 %113
+  %114 = getelementptr inbounds [8 x i8], ptr %2, i64 %113
   store ptr @disableDHPrimeTest, ptr %114, align 8, !tbaa !4
   br label %135
 
@@ -550,11 +550,11 @@ thread-pre-split:                                 ; preds = %6, %12
 118:                                              ; preds = %115
   %119 = add nsw i32 %.1100163, 1
   %120 = sext i32 %.1100163 to i64
-  %121 = getelementptr inbounds ptr, ptr %3, i64 %120
+  %121 = getelementptr inbounds [8 x i8], ptr %3, i64 %120
   store ptr @disableDHPrimeTest, ptr %121, align 8, !tbaa !4
   %122 = add nsw i32 %.1105160, 1
   %123 = sext i32 %.1105160 to i64
-  %124 = getelementptr inbounds ptr, ptr %2, i64 %123
+  %124 = getelementptr inbounds [8 x i8], ptr %2, i64 %123
   store ptr @disableDHPrimeTest, ptr %124, align 8, !tbaa !4
   br label %.thread127
 
@@ -567,13 +567,13 @@ thread-pre-split:                                 ; preds = %6, %12
 
 126:                                              ; preds = %.thread127
   %127 = sext i32 %.5131 to i64
-  %128 = getelementptr inbounds ptr, ptr %3, i64 %127
+  %128 = getelementptr inbounds [8 x i8], ptr %3, i64 %127
   store ptr @intTestFlag, ptr %128, align 8, !tbaa !4
   %129 = add nsw i32 %.5131, 2
   %130 = getelementptr i8, ptr %128, i64 8
   store ptr @exitWithRetFlag, ptr %130, align 8, !tbaa !4
   %131 = sext i32 %.5109130 to i64
-  %132 = getelementptr inbounds ptr, ptr %2, i64 %131
+  %132 = getelementptr inbounds [8 x i8], ptr %2, i64 %131
   store ptr @intTestFlag, ptr %132, align 8, !tbaa !4
   %133 = add nsw i32 %.5109130, 2
   %134 = getelementptr i8, ptr %132, i64 8
@@ -688,7 +688,7 @@ define internal fastcc range(i32 -124, 1) i32 @execute_test_case(i32 noundef %0,
 .lr.ph:                                           ; preds = %9, %28
   %indvars.iv = phi i64 [ %indvars.iv.next, %28 ], [ 0, %9 ]
   %.064141 = phi i64 [ %25, %28 ], [ 0, %9 ]
-  %21 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !4
   %23 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22) #21
   %24 = add nuw nsw i64 %.064141, 2
@@ -853,7 +853,7 @@ IsTls10Version.exit.thread:                       ; preds = %IsSslVersion.exit.t
   %85 = add nsw i32 %81, 1
   store i32 %85, ptr %13, align 8, !tbaa !17
   %86 = sext i32 %81 to i64
-  %87 = getelementptr inbounds ptr, ptr %1, i64 %86
+  %87 = getelementptr inbounds [8 x i8], ptr %1, i64 %86
   store ptr @noVerifyFlag, ptr %87, align 8, !tbaa !4
   br label %88
 
@@ -875,7 +875,7 @@ IsTls10Version.exit.thread:                       ; preds = %IsSslVersion.exit.t
   %94 = add nsw i32 %90, 1
   store i32 %94, ptr %13, align 8, !tbaa !17
   %95 = sext i32 %90 to i64
-  %96 = getelementptr inbounds ptr, ptr %1, i64 %95
+  %96 = getelementptr inbounds [8 x i8], ptr %1, i64 %95
   store ptr @nonblockFlag, ptr %96, align 8, !tbaa !4
   br label %97
 
@@ -895,12 +895,12 @@ thread-pre-split:                                 ; preds = %88, %92
 
 101:                                              ; preds = %97
   %102 = sext i32 %98 to i64
-  %103 = getelementptr inbounds ptr, ptr %1, i64 %102
+  %103 = getelementptr inbounds [8 x i8], ptr %1, i64 %102
   store ptr @portFlag, ptr %103, align 8, !tbaa !4
   %104 = add nsw i32 %98, 2
   store i32 %104, ptr %13, align 8, !tbaa !17
   %105 = sext i32 %98 to i64
-  %106 = getelementptr ptr, ptr %1, i64 %105
+  %106 = getelementptr [8 x i8], ptr %1, i64 %105
   %107 = getelementptr i8, ptr %106, i64 8
   store ptr @svrPort, ptr %107, align 8, !tbaa !4
   br label %108
@@ -921,12 +921,12 @@ thread-pre-split:                                 ; preds = %88, %92
 
 112:                                              ; preds = %109
   %113 = sext i32 %.pre155 to i64
-  %114 = getelementptr inbounds ptr, ptr %1, i64 %113
+  %114 = getelementptr inbounds [8 x i8], ptr %1, i64 %113
   store ptr @intTestFlag, ptr %114, align 8, !tbaa !4
   %115 = add nsw i32 %.pre155, 2
   store i32 %115, ptr %13, align 8, !tbaa !17
   %116 = sext i32 %.pre155 to i64
-  %117 = getelementptr ptr, ptr %1, i64 %116
+  %117 = getelementptr [8 x i8], ptr %1, i64 %116
   %118 = getelementptr i8, ptr %117, i64 8
   store ptr @forceDefCipherListFlag, ptr %118, align 8, !tbaa !4
   br label %119
@@ -940,7 +940,7 @@ thread-pre-split:                                 ; preds = %88, %92
 .lr.ph144:                                        ; preds = %119, %129
   %indvars.iv149 = phi i64 [ %indvars.iv.next150, %129 ], [ 0, %119 ]
   %.1143 = phi i64 [ %126, %129 ], [ 0, %119 ]
-  %122 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv149
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv149
   %123 = load ptr, ptr %122, align 8, !tbaa !4
   %124 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %123) #21
   %125 = add nuw nsw i64 %.1143, 2
@@ -1020,7 +1020,7 @@ InitTcpReady.exit:                                ; preds = %148
   %160 = add nsw i32 %2, 1
   store i32 %160, ptr %12, align 8, !tbaa !17
   %161 = sext i32 %2 to i64
-  %162 = getelementptr inbounds ptr, ptr %3, i64 %161
+  %162 = getelementptr inbounds [8 x i8], ptr %3, i64 %161
   store ptr @nonblockFlag, ptr %162, align 8, !tbaa !4
   br label %163
 
@@ -1042,7 +1042,7 @@ InitTcpReady.exit:                                ; preds = %148
   %169 = add nsw i32 %164, 1
   store i32 %169, ptr %12, align 8, !tbaa !17
   %170 = sext i32 %164 to i64
-  %171 = getelementptr inbounds ptr, ptr %3, i64 %170
+  %171 = getelementptr inbounds [8 x i8], ptr %3, i64 %170
   store ptr @disableEMSFlag, ptr %171, align 8, !tbaa !4
   br label %172
 
@@ -1064,12 +1064,12 @@ InitTcpReady.exit:                                ; preds = %148
 179:                                              ; preds = %176
   %180 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) @execute_test_case.portNumber, i64 noundef 8, ptr noundef nonnull @.str.49, i32 noundef %175) #16
   %181 = sext i32 %173 to i64
-  %182 = getelementptr inbounds ptr, ptr %3, i64 %181
+  %182 = getelementptr inbounds [8 x i8], ptr %3, i64 %181
   store ptr @portFlag, ptr %182, align 8, !tbaa !4
   %183 = add nsw i32 %173, 2
   store i32 %183, ptr %12, align 8, !tbaa !17
   %184 = sext i32 %173 to i64
-  %185 = getelementptr ptr, ptr %3, i64 %184
+  %185 = getelementptr [8 x i8], ptr %3, i64 %184
   %186 = getelementptr i8, ptr %185, i64 8
   store ptr @execute_test_case.portNumber, ptr %186, align 8, !tbaa !4
   br label %187
@@ -1090,12 +1090,12 @@ InitTcpReady.exit:                                ; preds = %148
 
 191:                                              ; preds = %189
   %192 = sext i32 %188 to i64
-  %193 = getelementptr inbounds ptr, ptr %3, i64 %192
+  %193 = getelementptr inbounds [8 x i8], ptr %3, i64 %192
   store ptr @intTestFlag, ptr %193, align 8, !tbaa !4
   %194 = add nsw i32 %188, 2
   store i32 %194, ptr %12, align 8, !tbaa !17
   %195 = sext i32 %188 to i64
-  %196 = getelementptr ptr, ptr %3, i64 %195
+  %196 = getelementptr [8 x i8], ptr %3, i64 %195
   %197 = getelementptr i8, ptr %196, i64 8
   store ptr @forceDefCipherListFlag, ptr %197, align 8, !tbaa !4
   br label %198
@@ -1114,7 +1114,7 @@ InitTcpReady.exit:                                ; preds = %148
 .lr.ph147:                                        ; preds = %.lr.ph147.preheader, %210
   %indvars.iv152 = phi i64 [ 0, %.lr.ph147.preheader ], [ %indvars.iv.next153, %210 ]
   %.2146 = phi i64 [ 0, %.lr.ph147.preheader ], [ %207, %210 ]
-  %203 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv152
+  %203 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv152
   %204 = load ptr, ptr %203, align 8, !tbaa !4
   %205 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %204) #21
   %206 = add nuw nsw i64 %.2146, 2

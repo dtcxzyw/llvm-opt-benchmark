@@ -57,7 +57,7 @@ define noundef i32 @prte_rmaps_base_select() local_unnamed_addr #0 {
 
 7:                                                ; preds = %.lr.ph52
   %8 = zext nneg i32 %6 to i64
-  %9 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %8
+  %9 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %11 = load i32, ptr %10, align 4, !tbaa !24
   %12 = icmp sgt i32 %11, 4
@@ -81,7 +81,7 @@ define noundef i32 @prte_rmaps_base_select() local_unnamed_addr #0 {
 
 21:                                               ; preds = %20
   %22 = zext nneg i32 %19 to i64
-  %23 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %22
+  %23 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %25 = load i32, ptr %24, align 4, !tbaa !24
   %26 = icmp sgt i32 %25, 4
@@ -97,7 +97,7 @@ define noundef i32 @prte_rmaps_base_select() local_unnamed_addr #0 {
 
 30:                                               ; preds = %29
   %31 = zext nneg i32 %19 to i64
-  %32 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %31
+  %32 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %34 = load i32, ptr %33, align 4, !tbaa !24
   %35 = icmp sgt i32 %34, 4
@@ -125,7 +125,7 @@ define noundef i32 @prte_rmaps_base_select() local_unnamed_addr #0 {
 
 46:                                               ; preds = %44
   %47 = zext nneg i32 %45 to i64
-  %48 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %47
+  %48 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %50 = load i32, ptr %49, align 4, !tbaa !24
   %51 = icmp sgt i32 %50, 4

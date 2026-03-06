@@ -30,9 +30,6 @@ module asm ".previous\09\09\09\09\09"
 %struct.system_time_snapshot = type { i64, i64, i64, i32, i32, i8 }
 %struct.pps_event_time = type { %struct.timespec64 }
 %struct.timespec64 = type { i64, i64 }
-%struct.ptp_extts_event = type { %struct.ptp_clock_time, i32, i32, [2 x i32] }
-%struct.ptp_clock_time = type { i64, i32, i32 }
-%struct.ptp_pin_desc = type { [64 x i8], i32, i32, i32, [5 x i32] }
 
 @ptp_devt = internal global i32 0, align 4
 @ptp_clocks_map = internal global %struct.ida { %struct.xarray { %struct.spinlock zeroinitializer, i32 67108869, ptr null } }, align 8
@@ -704,7 +701,7 @@ define dso_local void @ptp_clock_event(ptr noundef %0, ptr noundef %1) #0 align 
   %32 = getelementptr i8, ptr %16, i64 -12
   %33 = load i32, ptr %32, align 4
   %34 = sext i32 %33 to i64
-  %35 = getelementptr %struct.ptp_extts_event, ptr %25, i64 %34
+  %35 = getelementptr [32 x i8], ptr %25, i64 %34
   %36 = load i32, ptr %13, align 4
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store i32 %36, ptr %37, align 8
@@ -805,7 +802,7 @@ define dso_local i32 @ptp_find_pin(ptr noundef readonly captures(none) %0, i32 n
 
 13:                                               ; preds = %27, %9
   %14 = phi i64 [ 0, %9 ], [ %28, %27 ]
-  %15 = getelementptr %struct.ptp_pin_desc, ptr %11, i64 %14
+  %15 = getelementptr [96 x i8], ptr %11, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 68
   %17 = load i32, ptr %16, align 4
   %18 = icmp eq i32 %17, %1
@@ -852,7 +849,7 @@ define dso_local i32 @ptp_find_pin_unlocked(ptr noundef %0, i32 noundef %1, i32 
 
 14:                                               ; preds = %28, %10
   %15 = phi i64 [ 0, %10 ], [ %29, %28 ]
-  %16 = getelementptr %struct.ptp_pin_desc, ptr %12, i64 %15
+  %16 = getelementptr [96 x i8], ptr %12, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 68
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, %1

@@ -675,7 +675,7 @@ define internal fastcc noundef range(i32 -22, 1) i32 @bxt_get_dram_info(ptr noun
   %85 = zext nneg i8 %34 to i32
   %86 = zext nneg i8 %35 to i32
   %87 = zext nneg i32 %79 to i64
-  %88 = getelementptr ptr, ptr @intel_dram_type_str.str, i64 %87
+  %88 = getelementptr [8 x i8], ptr @intel_dram_type_str.str, i64 %87
   %89 = load ptr, ptr %88, align 8
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %84, i32 noundef 2, ptr noundef nonnull @.str.12, i32 noundef %11, i32 noundef %51, i32 noundef %85, i32 noundef %86, ptr noundef %89) #9
   %90 = icmp eq i8 %10, 0
@@ -759,7 +759,7 @@ default.unreachable2:                             ; preds = %1
 19:                                               ; preds = %16, %12
   %20 = phi ptr [ %18, %16 ], [ null, %12 ]
   %21 = zext nneg i32 %13 to i64
-  %22 = getelementptr ptr, ptr @intel_dram_type_str.str, i64 %21
+  %22 = getelementptr [8 x i8], ptr @intel_dram_type_str.str, i64 %21
   %23 = load ptr, ptr %22, align 8
   tail call void (ptr, ptr, i32, ptr, ...) @__drm_dev_dbg(ptr noundef null, ptr noundef %20, i32 noundef 2, ptr noundef nonnull @.str.19, ptr noundef %23) #9
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8912

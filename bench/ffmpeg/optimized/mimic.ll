@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.VLCElem = type { %union.anon.1 }
 %union.anon.1 = type { %struct.anon }
 %struct.anon = type { i16, i16 }
-%struct.ProgressFrame = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [6 x i8] c"mimic\00", align 1
 @.str.1 = private unnamed_addr constant [6 x i8] c"Mimic\00", align 1
@@ -49,7 +48,7 @@ define internal noundef i32 @mimic_decode_update_thread_context(ptr noundef read
 
 17:                                               ; preds = %4, %25
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %25 ]
-  %18 = getelementptr inbounds nuw %struct.ProgressFrame, ptr %15, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %indvars.iv
   tail call void @ff_progress_frame_unref(ptr noundef nonnull %18) #4
   %19 = load i32, ptr %9, align 8, !tbaa !27
   %20 = zext i32 %19 to i64
@@ -57,7 +56,7 @@ define internal noundef i32 @mimic_decode_update_thread_context(ptr noundef read
   br i1 %.not, label %25, label %21
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds nuw %struct.ProgressFrame, ptr %16, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8, !tbaa !38
   %.not22 = icmp eq ptr %23, null
   br i1 %.not22, label %25, label %24
@@ -172,10 +171,10 @@ define internal range(i32 21, 1) i32 @mimic_decode_frame(ptr noundef %0, ptr nou
   %47 = select i1 %.not105, i32 3, i32 4
   %48 = ashr i32 %45, %47
   %49 = sub nsw i32 0, %48
-  %50 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv
   store i32 %49, ptr %50, align 4, !tbaa !51
   %51 = lshr i32 %22, %47
-  %52 = getelementptr inbounds nuw i32, ptr %44, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %indvars.iv
   store i32 %51, ptr %52, align 4, !tbaa !51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -206,7 +205,7 @@ define internal range(i32 21, 1) i32 @mimic_decode_frame(ptr noundef %0, ptr nou
   %62 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %63 = load i32, ptr %62, align 16, !tbaa !37
   %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds %struct.ProgressFrame, ptr %61, i64 %64
+  %65 = getelementptr inbounds [16 x i8], ptr %61, i64 %64
   %66 = load ptr, ptr %65, align 8, !tbaa !38
   %.not109 = icmp eq ptr %66, null
   br i1 %.not109, label %67, label %68
@@ -220,11 +219,11 @@ define internal range(i32 21, 1) i32 @mimic_decode_frame(ptr noundef %0, ptr nou
   %70 = getelementptr inbounds nuw i8, ptr %9, i64 44
   %71 = load i32, ptr %70, align 4, !tbaa !35
   %72 = sext i32 %71 to i64
-  %73 = getelementptr inbounds %struct.ProgressFrame, ptr %69, i64 %72
+  %73 = getelementptr inbounds [16 x i8], ptr %69, i64 %72
   tail call void @ff_progress_frame_unref(ptr noundef nonnull %73) #4
   %74 = load i32, ptr %70, align 4, !tbaa !35
   %75 = sext i32 %74 to i64
-  %76 = getelementptr inbounds %struct.ProgressFrame, ptr %69, i64 %75
+  %76 = getelementptr inbounds [16 x i8], ptr %69, i64 %75
   %77 = tail call i32 @ff_progress_frame_get_buffer(ptr noundef %0, ptr noundef nonnull %76, i32 noundef 1) #4
   %78 = icmp slt i32 %77, 0
   br i1 %78, label %.thread, label %79
@@ -233,7 +232,7 @@ define internal range(i32 21, 1) i32 @mimic_decode_frame(ptr noundef %0, ptr nou
   %80 = select i1 %.not108, i32 1, i32 2
   %81 = load i32, ptr %70, align 4, !tbaa !35
   %82 = sext i32 %81 to i64
-  %83 = getelementptr inbounds %struct.ProgressFrame, ptr %69, i64 %82
+  %83 = getelementptr inbounds [16 x i8], ptr %69, i64 %82
   %84 = load ptr, ptr %83, align 8, !tbaa !38
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 120
   store i32 %80, ptr %85, align 8, !tbaa !55
@@ -300,33 +299,33 @@ define internal range(i32 21, 1) i32 @mimic_decode_frame(ptr noundef %0, ptr nou
   %124 = shl nuw nsw i32 %.0.i.i, 2
   %125 = load i32, ptr %70, align 4, !tbaa !35
   %126 = sext i32 %125 to i64
-  %127 = getelementptr inbounds %struct.ProgressFrame, ptr %69, i64 %126
+  %127 = getelementptr inbounds [16 x i8], ptr %69, i64 %126
   %128 = load ptr, ptr %127, align 8, !tbaa !38
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 64
-  %130 = getelementptr inbounds nuw i32, ptr %129, i64 %indvars.iv.i
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %129, i64 %indvars.iv.i
   %131 = load i32, ptr %130, align 4, !tbaa !51
-  %132 = getelementptr inbounds nuw ptr, ptr %128, i64 %indvars.iv.i
+  %132 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %indvars.iv.i
   %133 = load ptr, ptr %132, align 8, !tbaa !67
   br i1 %.not108, label %141, label %134
 
 134:                                              ; preds = %121
   %135 = load i32, ptr %113, align 16, !tbaa !37
   %136 = sext i32 %135 to i64
-  %137 = getelementptr inbounds %struct.ProgressFrame, ptr %69, i64 %136
+  %137 = getelementptr inbounds [16 x i8], ptr %69, i64 %136
   %138 = load ptr, ptr %137, align 8, !tbaa !38
-  %139 = getelementptr inbounds nuw ptr, ptr %138, i64 %indvars.iv.i
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %138, i64 %indvars.iv.i
   %140 = load ptr, ptr %139, align 8, !tbaa !67
   br label %141
 
 141:                                              ; preds = %134, %121
   %142 = phi ptr [ %140, %134 ], [ %133, %121 ]
-  %143 = getelementptr inbounds nuw i32, ptr %112, i64 %indvars.iv.i
+  %143 = getelementptr inbounds nuw [4 x i8], ptr %112, i64 %indvars.iv.i
   %144 = load i32, ptr %143, align 4, !tbaa !51
   %.not100116.i = icmp sgt i32 %144, 0
   br i1 %.not100116.i, label %.preheader.lr.ph.i, label %.thread.i
 
 .preheader.lr.ph.i:                               ; preds = %141
-  %145 = getelementptr inbounds nuw i32, ptr %114, i64 %indvars.iv.i
+  %145 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %indvars.iv.i
   %146 = sext i32 %131 to i64
   %147 = trunc nuw nsw i64 %indvars.iv.i to i32
   %148 = or i32 %147, %110
@@ -424,7 +423,7 @@ define internal range(i32 21, 1) i32 @mimic_decode_frame(ptr noundef %0, ptr nou
   %204 = shl i32 %202, %203
   %205 = lshr i32 %204, 21
   %206 = zext nneg i32 %205 to i64
-  %207 = getelementptr inbounds nuw %struct.VLCElem, ptr @block_vlc, i64 %206
+  %207 = getelementptr inbounds nuw [4 x i8], ptr @block_vlc, i64 %206
   %208 = load i16, ptr %207, align 4, !tbaa !48
   %209 = sext i16 %208 to i32
   %210 = getelementptr inbounds nuw i8, ptr %207, i64 2
@@ -447,7 +446,7 @@ define internal range(i32 21, 1) i32 @mimic_decode_frame(ptr noundef %0, ptr nou
   %225 = lshr i32 %223, %224
   %226 = add i32 %225, %209
   %227 = zext i32 %226 to i64
-  %228 = getelementptr inbounds nuw %struct.VLCElem, ptr @block_vlc, i64 %227
+  %228 = getelementptr inbounds nuw [4 x i8], ptr @block_vlc, i64 %227
   %229 = load i16, ptr %228, align 4, !tbaa !48
   %230 = sext i16 %229 to i32
   %231 = getelementptr inbounds nuw i8, ptr %228, i64 2
@@ -470,7 +469,7 @@ define internal range(i32 21, 1) i32 @mimic_decode_frame(ptr noundef %0, ptr nou
   %246 = lshr i32 %244, %245
   %247 = add i32 %246, %230
   %248 = zext i32 %247 to i64
-  %249 = getelementptr inbounds nuw %struct.VLCElem, ptr @block_vlc, i64 %248
+  %249 = getelementptr inbounds nuw [4 x i8], ptr @block_vlc, i64 %248
   %250 = load i16, ptr %249, align 4, !tbaa !48
   %251 = sext i16 %250 to i32
   %252 = getelementptr inbounds nuw i8, ptr %249, i64 2
@@ -535,7 +534,7 @@ get_vlc2.exit.i.i:                                ; preds = %235, %214, %.lr.ph.
   %289 = getelementptr inbounds nuw i8, ptr %119, i64 %288
   %290 = load i8, ptr %289, align 1, !tbaa !48
   %291 = zext i8 %290 to i64
-  %292 = getelementptr inbounds nuw i16, ptr %116, i64 %291
+  %292 = getelementptr inbounds nuw [2 x i8], ptr %116, i64 %291
   store i16 %287, ptr %292, align 2, !tbaa !69
   %293 = add nuw nsw i32 %259, 1
   %294 = icmp ult i32 %293, %29
@@ -566,7 +565,7 @@ get_vlc2.exit.i.i:                                ; preds = %235, %214, %.lr.ph.
 
 310:                                              ; preds = %296
   %311 = zext nneg i32 %309 to i64
-  %312 = getelementptr inbounds nuw %struct.ProgressFrame, ptr %69, i64 %311
+  %312 = getelementptr inbounds nuw [16 x i8], ptr %69, i64 %311
   %313 = load ptr, ptr %312, align 8, !tbaa !38
   %.not99.i = icmp eq ptr %313, null
   br i1 %.not99.i, label %327, label %314
@@ -576,9 +575,9 @@ get_vlc2.exit.i.i:                                ; preds = %235, %214, %.lr.ph.
   tail call void @ff_progress_frame_await(ptr noundef nonnull %312, i32 noundef %.192117.i) #4
   %316 = load i32, ptr %113, align 16, !tbaa !37
   %317 = sext i32 %316 to i64
-  %318 = getelementptr inbounds %struct.ProgressFrame, ptr %69, i64 %317
+  %318 = getelementptr inbounds [16 x i8], ptr %69, i64 %317
   %319 = load ptr, ptr %318, align 8, !tbaa !38
-  %320 = getelementptr inbounds nuw ptr, ptr %319, i64 %indvars.iv.i
+  %320 = getelementptr inbounds nuw [8 x i8], ptr %319, i64 %indvars.iv.i
   %321 = load ptr, ptr %320, align 8, !tbaa !67
   %322 = ptrtoint ptr %.187111.i to i64
   %323 = ptrtoint ptr %321 to i64
@@ -596,7 +595,7 @@ get_vlc2.exit.i.i:                                ; preds = %235, %214, %.lr.ph.
 329:                                              ; preds = %151
   %330 = load i32, ptr %113, align 16, !tbaa !37
   %331 = sext i32 %330 to i64
-  %332 = getelementptr inbounds %struct.ProgressFrame, ptr %69, i64 %331
+  %332 = getelementptr inbounds [16 x i8], ptr %69, i64 %331
   tail call void @ff_progress_frame_await(ptr noundef nonnull %332, i32 noundef %.192117.i) #4
   %333 = load ptr, ptr %115, align 16, !tbaa !73
   tail call void %333(ptr noundef %.189109.i, ptr noundef %.187111.i, i64 noundef %146, i32 noundef 8) #4
@@ -621,7 +620,7 @@ get_vlc2.exit.i.i:                                ; preds = %235, %214, %.lr.ph.
   %344 = getelementptr inbounds i8, ptr %.189.lcssa.i, i64 %342
   %345 = load i32, ptr %70, align 4, !tbaa !35
   %346 = sext i32 %345 to i64
-  %347 = getelementptr inbounds %struct.ProgressFrame, ptr %69, i64 %346
+  %347 = getelementptr inbounds [16 x i8], ptr %69, i64 %346
   %348 = add nsw i32 %.192117.i, 1
   tail call void @ff_progress_frame_report(ptr noundef nonnull %347, i32 noundef %.192117.i) #4
   %349 = add nuw nsw i32 %.083120.i, 1
@@ -640,7 +639,7 @@ get_vlc2.exit.i.i:                                ; preds = %235, %214, %.lr.ph.
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %352, i32 noundef 16, ptr noundef nonnull @.str.9) #4
   %353 = load i32, ptr %70, align 4, !tbaa !35
   %354 = sext i32 %353 to i64
-  %355 = getelementptr inbounds %struct.ProgressFrame, ptr %69, i64 %354
+  %355 = getelementptr inbounds [16 x i8], ptr %69, i64 %354
   tail call void @ff_progress_frame_report(ptr noundef nonnull %355, i32 noundef 2147483647) #4
   %356 = getelementptr inbounds nuw i8, ptr %0, i64 664
   %357 = load i32, ptr %356, align 8, !tbaa !77
@@ -651,18 +650,18 @@ get_vlc2.exit.i.i:                                ; preds = %235, %214, %.lr.ph.
 359:                                              ; preds = %351
   %360 = load i32, ptr %70, align 4, !tbaa !35
   %361 = sext i32 %360 to i64
-  %362 = getelementptr inbounds %struct.ProgressFrame, ptr %69, i64 %361
+  %362 = getelementptr inbounds [16 x i8], ptr %69, i64 %361
   tail call void @ff_progress_frame_unref(ptr noundef nonnull %362) #4
   br label %.thread
 
 363:                                              ; preds = %.thread.i
   %364 = load i32, ptr %70, align 4, !tbaa !35
   %365 = sext i32 %364 to i64
-  %366 = getelementptr inbounds %struct.ProgressFrame, ptr %69, i64 %365
+  %366 = getelementptr inbounds [16 x i8], ptr %69, i64 %365
   tail call void @ff_progress_frame_report(ptr noundef nonnull %366, i32 noundef 2147483647) #4
   %367 = load i32, ptr %70, align 4, !tbaa !35
   %368 = sext i32 %367 to i64
-  %369 = getelementptr inbounds %struct.ProgressFrame, ptr %69, i64 %368
+  %369 = getelementptr inbounds [16 x i8], ptr %69, i64 %368
   %370 = load ptr, ptr %369, align 8, !tbaa !38
   %371 = tail call i32 @av_frame_ref(ptr noundef %1, ptr noundef %370) #4
   %372 = icmp slt i32 %371, 0
@@ -702,7 +701,7 @@ get_vlc2.exit.i.i:                                ; preds = %235, %214, %.lr.ph.
 
 399:                                              ; preds = %399, %373
   %indvars.iv.i114 = phi i64 [ 0, %373 ], [ %indvars.iv.next.i115, %399 ]
-  %400 = getelementptr inbounds nuw i32, ptr %380, i64 %indvars.iv.i114
+  %400 = getelementptr inbounds nuw [4 x i8], ptr %380, i64 %indvars.iv.i114
   %401 = load i32, ptr %400, align 4, !tbaa !51
   %402 = sub nsw i32 0, %401
   store i32 %402, ptr %400, align 4, !tbaa !51
@@ -738,7 +737,7 @@ define internal noundef i32 @mimic_decode_end(ptr noundef readonly captures(none
 
 8:                                                ; preds = %1, %8
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds nuw %struct.ProgressFrame, ptr %6, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv
   tail call void @ff_progress_frame_unref(ptr noundef nonnull %9) #4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16

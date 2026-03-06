@@ -1149,7 +1149,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fa
   %indvars.iv = phi i64 [ %indvars.iv.next, %36 ], [ 0, %17 ]
   %.185.i6 = phi i32 [ %.286.i, %36 ], [ 0, %17 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %24 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !26
   %26 = icmp slt i32 %.185.i6, %0
   %.not108.i = icmp eq ptr %25, null
@@ -1160,7 +1160,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fa
 
 28:                                               ; preds = %27
   %29 = sext i32 %.185.i6 to i64
-  %30 = getelementptr inbounds i64, ptr %1, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %1, i64 %29
   %31 = load i64, ptr %30, align 8, !tbaa !6
   store i64 %31, ptr %25, align 8, !tbaa !6
   br label %32
@@ -1256,7 +1256,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fa
   %indvars.iv = phi i64 [ %indvars.iv.next, %36 ], [ 0, %17 ]
   %.185.i4 = phi i32 [ %.286.i, %36 ], [ 0, %17 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %24 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !26
   %26 = icmp slt i32 %.185.i4, %0
   %.not108.i = icmp eq ptr %25, null
@@ -1267,7 +1267,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fa
 
 28:                                               ; preds = %27
   %29 = sext i32 %.185.i4 to i64
-  %30 = getelementptr inbounds i64, ptr %1, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %1, i64 %29
   %31 = load i64, ptr %30, align 8, !tbaa !6
   store i64 %31, ptr %25, align 8, !tbaa !6
   br label %32
@@ -1351,7 +1351,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fa
 
 21:                                               ; preds = %.preheader
   %22 = sext i32 %.185.i4 to i64
-  %23 = getelementptr inbounds i64, ptr %1, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %1, i64 %22
   %24 = load i64, ptr %23, align 8, !tbaa !6
   store i64 %24, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8, !tbaa !6
   %25 = add nsw i32 %.185.i4, 1
@@ -1424,7 +1424,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fa
   %indvars.iv = phi i64 [ %indvars.iv.next, %36 ], [ 0, %17 ]
   %.185.i4 = phi i32 [ %.286.i, %36 ], [ 0, %17 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %24 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !26
   %26 = icmp slt i32 %.185.i4, %0
   %.not108.i = icmp eq ptr %25, null
@@ -1435,7 +1435,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fa
 
 28:                                               ; preds = %27
   %29 = sext i32 %.185.i4 to i64
-  %30 = getelementptr inbounds i64, ptr %1, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %1, i64 %29
   %31 = load i64, ptr %30, align 8, !tbaa !6
   store i64 %31, ptr %25, align 8, !tbaa !6
   br label %32
@@ -1518,7 +1518,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fa
   %indvars.iv = phi i64 [ %indvars.iv.next, %36 ], [ 0, %17 ]
   %.185.i4 = phi i32 [ %.286.i, %36 ], [ 0, %17 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %24 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !26
   %26 = icmp slt i32 %.185.i4, %0
   %.not108.i = icmp eq ptr %25, null
@@ -1529,7 +1529,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fa
 
 28:                                               ; preds = %27
   %29 = sext i32 %.185.i4 to i64
-  %30 = getelementptr inbounds i64, ptr %1, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %1, i64 %29
   %31 = load i64, ptr %30, align 8, !tbaa !6
   store i64 %31, ptr %25, align 8, !tbaa !6
   br label %32
@@ -1612,7 +1612,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fa
   %indvars.iv = phi i64 [ %indvars.iv.next, %36 ], [ 0, %17 ]
   %.185.i4 = phi i32 [ %.286.i, %36 ], [ 0, %17 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %24 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !26
   %26 = icmp slt i32 %.185.i4, %0
   %.not108.i = icmp eq ptr %25, null
@@ -1623,7 +1623,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fa
 
 28:                                               ; preds = %27
   %29 = sext i32 %.185.i4 to i64
-  %30 = getelementptr inbounds i64, ptr %1, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %1, i64 %29
   %31 = load i64, ptr %30, align 8, !tbaa !6
   store i64 %31, ptr %25, align 8, !tbaa !6
   br label %32
@@ -1707,7 +1707,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fa
 
 21:                                               ; preds = %.preheader
   %22 = sext i32 %.185.i4 to i64
-  %23 = getelementptr inbounds i64, ptr %1, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %1, i64 %22
   %24 = load i64, ptr %23, align 8, !tbaa !6
   store i64 %24, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8, !tbaa !6
   %25 = add nsw i32 %.185.i4, 1
@@ -2126,7 +2126,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fa
   %indvars.iv = phi i64 [ %indvars.iv.next, %36 ], [ 0, %17 ]
   %.185.i6 = phi i32 [ %.286.i, %36 ], [ 0, %17 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %24 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !26
   %26 = icmp slt i32 %.185.i6, %0
   %.not108.i = icmp eq ptr %25, null
@@ -2137,7 +2137,7 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i:          ; preds = %rbimpl_RB_TYPE_P_fa
 
 28:                                               ; preds = %27
   %29 = sext i32 %.185.i6 to i64
-  %30 = getelementptr inbounds i64, ptr %1, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %1, i64 %29
   %31 = load i64, ptr %30, align 8, !tbaa !6
   store i64 %31, ptr %25, align 8, !tbaa !6
   br label %32
@@ -3437,7 +3437,7 @@ define internal i64 @path_s_glob(i32 noundef %0, ptr noundef readonly captures(n
   %14 = phi i1 [ true, %.preheader ], [ false, %27 ]
   %.185.i24 = phi i32 [ 1, %.preheader ], [ %.286.i, %27 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %15 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !26
   %17 = icmp slt i32 %.185.i24, %0
   %.not108.i = icmp eq ptr %16, null
@@ -3448,7 +3448,7 @@ define internal i64 @path_s_glob(i32 noundef %0, ptr noundef readonly captures(n
 
 19:                                               ; preds = %18
   %20 = sext i32 %.185.i24 to i64
-  %21 = getelementptr inbounds i64, ptr %1, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %1, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !6
   store i64 %22, ptr %16, align 8, !tbaa !6
   br label %23
@@ -3527,7 +3527,7 @@ rb_array_len.exit.thread:                         ; preds = %45
 
 rb_array_const_ptr.exit:                          ; preds = %.thread, %53
   %.0.i19 = phi ptr [ %54, %53 ], [ %43, %.thread ]
-  %55 = getelementptr inbounds nuw i64, ptr %.0.i19, i64 %.0
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %.0.i19, i64 %.0
   %56 = load i64, ptr %55, align 8, !tbaa !6
   store i64 %56, ptr %6, align 8, !tbaa !6
   %57 = call i64 @rb_class_new_instance(i32 noundef 1, ptr noundef nonnull %6, i64 noundef %2) #7
@@ -3655,7 +3655,7 @@ rb_array_len.exit.thread:                         ; preds = %39
 
 rb_array_const_ptr.exit:                          ; preds = %rb_array_len.exit.thread, %47
   %.0.i23 = phi ptr [ %48, %47 ], [ %37, %rb_array_len.exit.thread ]
-  %49 = getelementptr inbounds nuw i64, ptr %.0.i23, i64 %.019
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %.0.i23, i64 %.019
   %50 = load i64, ptr %49, align 8, !tbaa !6
   %51 = call i64 (i64, i64, i32, ...) @rb_funcall(i64 noundef %2, i64 noundef 43, i32 noundef 1, i64 noundef %50) #7
   call void @rb_ary_store(i64 noundef %35, i64 noundef %.019, i64 noundef %51) #7
@@ -3731,7 +3731,7 @@ rb_array_len.exit.thread:                         ; preds = %22
 
 rb_array_const_ptr.exit:                          ; preds = %.thread, %30
   %.0.i14 = phi ptr [ %31, %30 ], [ %20, %.thread ]
-  %32 = getelementptr inbounds nuw i64, ptr %.0.i14, i64 %.0
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %.0.i14, i64 %.0
   %33 = load i64, ptr %32, align 8, !tbaa !6
   store i64 %33, ptr %2, align 8, !tbaa !6
   %34 = call i64 @rb_class_new_instance(i32 noundef 1, ptr noundef nonnull %2, i64 noundef %3) #7

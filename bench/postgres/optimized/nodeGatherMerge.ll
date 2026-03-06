@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.TupleTableSlotOps = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.SortSupportData = type { ptr, i32, i8, i8, i16, ptr, ptr, i8, ptr, ptr, ptr }
-%struct.GMReaderTupleBuffer = type { ptr, i32, i32, i8 }
 
 @CurrentMemoryContext = external local_unnamed_addr global ptr, align 8
 @InterruptPending = external global i32, align 4
@@ -84,11 +82,11 @@ define dso_local noundef ptr @ExecInitGatherMerge(ptr noundef %0, ptr noundef %1
 41:                                               ; preds = %.lr.ph, %41
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %41 ]
   %42 = load ptr, ptr %34, align 8
-  %43 = getelementptr inbounds nuw %struct.SortSupportData, ptr %42, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [64 x i8], ptr %42, i64 %indvars.iv
   %44 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %44, ptr %43, align 8
   %45 = load ptr, ptr %37, align 8
-  %46 = getelementptr inbounds nuw i32, ptr %45, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %indvars.iv
   %47 = load i32, ptr %46, align 4
   %48 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i32 %47, ptr %48, align 8
@@ -98,14 +96,14 @@ define dso_local noundef ptr @ExecInitGatherMerge(ptr noundef %0, ptr noundef %1
   %52 = getelementptr inbounds nuw i8, ptr %43, i64 13
   store i8 %51, ptr %52, align 1
   %53 = load ptr, ptr %39, align 8
-  %54 = getelementptr inbounds nuw i16, ptr %53, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [2 x i8], ptr %53, i64 %indvars.iv
   %55 = load i16, ptr %54, align 2
   %56 = getelementptr inbounds nuw i8, ptr %43, i64 14
   store i16 %55, ptr %56, align 2
   %57 = getelementptr inbounds nuw i8, ptr %43, i64 32
   store i8 0, ptr %57, align 8
   %58 = load ptr, ptr %40, align 8
-  %59 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %indvars.iv
   %60 = load i32, ptr %59, align 4
   tail call void @PrepareSortSupportFromOrderingOp(i32 noundef %60, ptr noundef nonnull %43) #4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -140,14 +138,14 @@ define dso_local noundef ptr @ExecInitGatherMerge(ptr noundef %0, ptr noundef %1
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %77 ]
   %78 = tail call ptr @palloc0(i64 noundef 80) #4
   %79 = load ptr, ptr %75, align 8
-  %80 = getelementptr inbounds nuw %struct.GMReaderTupleBuffer, ptr %79, i64 %indvars.iv.i
+  %80 = getelementptr inbounds nuw [24 x i8], ptr %79, i64 %indvars.iv.i
   store ptr %78, ptr %80, align 8
   %81 = load ptr, ptr %6, align 8
   %82 = load ptr, ptr %18, align 8
   %83 = tail call ptr @ExecInitExtraTupleSlot(ptr noundef %81, ptr noundef %82, ptr noundef nonnull @TTSOpsMinimalTuple) #4
   %84 = load ptr, ptr %71, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %85 = getelementptr inbounds nuw ptr, ptr %84, i64 %indvars.iv.next.i
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %indvars.iv.next.i
   store ptr %83, ptr %85, align 8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %gather_merge_setup.exit, label %77, !llvm.loop !8
@@ -313,20 +311,20 @@ define internal ptr @ExecGatherMerge(ptr noundef captures(none) %0) #0 {
 93:                                               ; preds = %93, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %93 ]
   %94 = load ptr, ptr %92, align 8
-  %95 = getelementptr inbounds nuw %struct.GMReaderTupleBuffer, ptr %94, i64 %indvars.iv.i.i
+  %95 = getelementptr inbounds nuw [24 x i8], ptr %94, i64 %indvars.iv.i.i
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
   store i32 0, ptr %96, align 8
   %97 = load ptr, ptr %92, align 8
-  %98 = getelementptr inbounds nuw %struct.GMReaderTupleBuffer, ptr %97, i64 %indvars.iv.i.i
+  %98 = getelementptr inbounds nuw [24 x i8], ptr %97, i64 %indvars.iv.i.i
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 12
   store i32 0, ptr %99, align 4
   %100 = load ptr, ptr %92, align 8
-  %101 = getelementptr inbounds nuw %struct.GMReaderTupleBuffer, ptr %100, i64 %indvars.iv.i.i
+  %101 = getelementptr inbounds nuw [24 x i8], ptr %100, i64 %indvars.iv.i.i
   %102 = getelementptr inbounds nuw i8, ptr %101, i64 16
   store i8 0, ptr %102, align 8
   %103 = load ptr, ptr %89, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %104 = getelementptr inbounds nuw ptr, ptr %103, i64 %indvars.iv.next.i.i
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %indvars.iv.next.i.i
   %105 = load ptr, ptr %104, align 8
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %107 = load ptr, ptr %106, align 8
@@ -384,7 +382,7 @@ define internal ptr @ExecGatherMerge(ptr noundef captures(none) %0) #0 {
   %125 = load ptr, ptr %112, align 8
   %126 = add i32 %.152.i.i, -1
   %127 = sext i32 %126 to i64
-  %128 = getelementptr inbounds %struct.GMReaderTupleBuffer, ptr %125, i64 %127
+  %128 = getelementptr inbounds [24 x i8], ptr %125, i64 %127
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 16
   %130 = load i8, ptr %129, align 8, !range !4, !noundef !5
   %131 = trunc nuw i8 %130 to i1
@@ -393,7 +391,7 @@ define internal ptr @ExecGatherMerge(ptr noundef captures(none) %0) #0 {
 132:                                              ; preds = %124, %121
   %133 = load ptr, ptr %89, align 8
   %134 = sext i32 %.152.i.i to i64
-  %135 = getelementptr inbounds ptr, ptr %133, i64 %134
+  %135 = getelementptr inbounds [8 x i8], ptr %133, i64 %134
   %136 = load ptr, ptr %135, align 8
   %137 = icmp eq ptr %136, null
   br i1 %137, label %142, label %138
@@ -421,7 +419,7 @@ define internal ptr @ExecGatherMerge(ptr noundef captures(none) %0) #0 {
   %148 = load ptr, ptr %112, align 8
   %149 = add i32 %.152.i.i, -1
   %150 = sext i32 %149 to i64
-  %151 = getelementptr inbounds %struct.GMReaderTupleBuffer, ptr %148, i64 %150
+  %151 = getelementptr inbounds [24 x i8], ptr %148, i64 %150
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 8
   %153 = load i32, ptr %152, align 8
   %154 = getelementptr inbounds nuw i8, ptr %151, i64 12
@@ -456,7 +454,7 @@ define internal ptr @ExecGatherMerge(ptr noundef captures(none) %0) #0 {
 
 165:                                              ; preds = %164, %162
   %166 = load ptr, ptr %114, align 8
-  %167 = getelementptr inbounds ptr, ptr %166, i64 %150
+  %167 = getelementptr inbounds [8 x i8], ptr %166, i64 %150
   %168 = load ptr, ptr %167, align 8
   %169 = tail call ptr @TupleQueueReaderNext(ptr noundef %168, i1 noundef zeroext true, ptr noundef nonnull %160) #4
   %.not6.i.i.i.i = icmp eq ptr %169, null
@@ -469,7 +467,7 @@ gm_readnext_tuple.exit.i.i.i:                     ; preds = %165
 
 171:                                              ; preds = %gm_readnext_tuple.exit.i.i.i
   %172 = load ptr, ptr %151, align 8
-  %173 = getelementptr inbounds ptr, ptr %172, i64 %indvars.iv.i.i.i
+  %173 = getelementptr inbounds [8 x i8], ptr %172, i64 %indvars.iv.i.i.i
   store ptr %170, ptr %173, align 8
   %174 = load i32, ptr %152, align 8
   %175 = add i32 %174, 1
@@ -487,7 +485,7 @@ load_tuple_array.exit.i.i:                        ; preds = %171, %gm_readnext_t
   %.256.i.i = phi i32 [ 1, %.lr.ph57.i.i ], [ %195, %194 ]
   %178 = add i32 %.256.i.i, -1
   %179 = sext i32 %178 to i64
-  %180 = getelementptr inbounds %struct.GMReaderTupleBuffer, ptr %115, i64 %179
+  %180 = getelementptr inbounds [24 x i8], ptr %115, i64 %179
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 16
   %182 = load i8, ptr %181, align 8, !range !4, !noundef !5
   %183 = trunc nuw i8 %182 to i1
@@ -496,7 +494,7 @@ load_tuple_array.exit.i.i:                        ; preds = %171, %gm_readnext_t
 184:                                              ; preds = %177
   %185 = load ptr, ptr %89, align 8
   %186 = sext i32 %.256.i.i to i64
-  %187 = getelementptr inbounds ptr, ptr %185, i64 %186
+  %187 = getelementptr inbounds [8 x i8], ptr %185, i64 %186
   %188 = load ptr, ptr %187, align 8
   %189 = icmp eq ptr %188, null
   br i1 %189, label %.lr.ph54.i.i.loopexit, label %190
@@ -559,7 +557,7 @@ gather_merge_init.exit.i:                         ; preds = %..preheader_crit_ed
 219:                                              ; preds = %._crit_edge.i14.i, %.lr.ph13.i.i
   %indvars.iv.i13.i = phi i64 [ 0, %.lr.ph13.i.i ], [ %indvars.iv.next.i15.i, %._crit_edge.i14.i ]
   %220 = load ptr, ptr %217, align 8
-  %221 = getelementptr inbounds nuw %struct.GMReaderTupleBuffer, ptr %220, i64 %indvars.iv.i13.i
+  %221 = getelementptr inbounds nuw [24 x i8], ptr %220, i64 %indvars.iv.i13.i
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 12
   %223 = getelementptr inbounds nuw i8, ptr %221, i64 8
   %224 = load i32, ptr %222, align 4
@@ -573,7 +571,7 @@ gather_merge_init.exit.i:                         ; preds = %..preheader_crit_ed
   %229 = add nsw i32 %227, 1
   store i32 %229, ptr %222, align 4
   %230 = sext i32 %227 to i64
-  %231 = getelementptr inbounds ptr, ptr %228, i64 %230
+  %231 = getelementptr inbounds [8 x i8], ptr %228, i64 %230
   %232 = load ptr, ptr %231, align 8
   tail call void @pfree(ptr noundef %232) #4
   %233 = load i32, ptr %222, align 4
@@ -584,7 +582,7 @@ gather_merge_init.exit.i:                         ; preds = %..preheader_crit_ed
 ._crit_edge.i14.i:                                ; preds = %.lr.ph.i16.i, %219
   %236 = load ptr, ptr %218, align 8
   %indvars.iv.next.i15.i = add nuw nsw i64 %indvars.iv.i13.i, 1
-  %237 = getelementptr inbounds nuw ptr, ptr %236, i64 %indvars.iv.next.i15.i
+  %237 = getelementptr inbounds nuw [8 x i8], ptr %236, i64 %indvars.iv.next.i15.i
   %238 = load ptr, ptr %237, align 8
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 8
   %240 = load ptr, ptr %239, align 8
@@ -794,7 +792,7 @@ ExecShutdownGatherMergeWorkers.exit:              ; preds = %9, %12
 18:                                               ; preds = %._crit_edge.i, %.lr.ph13.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph13.i ], [ %indvars.iv.next.i, %._crit_edge.i ]
   %19 = load ptr, ptr %16, align 8
-  %20 = getelementptr inbounds nuw %struct.GMReaderTupleBuffer, ptr %19, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %indvars.iv.i
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 12
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %23 = load i32, ptr %21, align 4
@@ -808,7 +806,7 @@ ExecShutdownGatherMergeWorkers.exit:              ; preds = %9, %12
   %28 = add nsw i32 %26, 1
   store i32 %28, ptr %21, align 4
   %29 = sext i32 %26 to i64
-  %30 = getelementptr inbounds ptr, ptr %27, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %27, i64 %29
   %31 = load ptr, ptr %30, align 8
   tail call void @pfree(ptr noundef %31) #4
   %32 = load i32, ptr %21, align 4
@@ -819,7 +817,7 @@ ExecShutdownGatherMergeWorkers.exit:              ; preds = %9, %12
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %18
   %35 = load ptr, ptr %17, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv.next.i
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv.next.i
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load ptr, ptr %38, align 8
@@ -953,7 +951,7 @@ ExecProcNode.exit:                                ; preds = %19, %24
   %38 = load ptr, ptr %37, align 8
   %39 = add i32 %1, -1
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds %struct.GMReaderTupleBuffer, ptr %38, i64 %40
+  %41 = getelementptr inbounds [24 x i8], ptr %38, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load i32, ptr %42, align 8
   %44 = getelementptr inbounds nuw i8, ptr %41, i64 12
@@ -966,7 +964,7 @@ ExecProcNode.exit:                                ; preds = %19, %24
   %49 = add nsw i32 %45, 1
   store i32 %49, ptr %44, align 4
   %50 = sext i32 %45 to i64
-  %51 = getelementptr inbounds ptr, ptr %48, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %48, i64 %50
   %52 = load ptr, ptr %51, align 8
   br label %load_tuple_array.exit
 
@@ -988,7 +986,7 @@ ExecProcNode.exit:                                ; preds = %19, %24
 60:                                               ; preds = %59, %57
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds ptr, ptr %62, i64 %40
+  %63 = getelementptr inbounds [8 x i8], ptr %62, i64 %40
   %64 = load ptr, ptr %63, align 8
   %65 = tail call ptr @TupleQueueReaderNext(ptr noundef %64, i1 noundef zeroext %2, ptr noundef nonnull %54) #4
   %.not6.i = icmp eq ptr %65, null
@@ -1001,7 +999,7 @@ gm_readnext_tuple.exit:                           ; preds = %60
 
 67:                                               ; preds = %gm_readnext_tuple.exit
   %68 = load ptr, ptr %37, align 8
-  %69 = getelementptr inbounds %struct.GMReaderTupleBuffer, ptr %68, i64 %40
+  %69 = getelementptr inbounds [24 x i8], ptr %68, i64 %40
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load i32, ptr %70, align 8
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 12
@@ -1036,7 +1034,7 @@ gm_readnext_tuple.exit:                           ; preds = %60
 
 83:                                               ; preds = %82, %80
   %84 = load ptr, ptr %61, align 8
-  %85 = getelementptr inbounds ptr, ptr %84, i64 %40
+  %85 = getelementptr inbounds [8 x i8], ptr %84, i64 %40
   %86 = load ptr, ptr %85, align 8
   %87 = tail call ptr @TupleQueueReaderNext(ptr noundef %86, i1 noundef zeroext true, ptr noundef nonnull %78) #4
   %.not6.i.i = icmp eq ptr %87, null
@@ -1049,7 +1047,7 @@ gm_readnext_tuple.exit.i:                         ; preds = %83
 
 89:                                               ; preds = %gm_readnext_tuple.exit.i
   %90 = load ptr, ptr %69, align 8
-  %91 = getelementptr inbounds ptr, ptr %90, i64 %indvars.iv.i
+  %91 = getelementptr inbounds [8 x i8], ptr %90, i64 %indvars.iv.i
   store ptr %88, ptr %91, align 8
   %92 = load i32, ptr %70, align 8
   %93 = add i32 %92, 1
@@ -1063,7 +1061,7 @@ load_tuple_array.exit:                            ; preds = %89, %gm_readnext_tu
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %95 = load ptr, ptr %94, align 8
   %96 = sext i32 %1 to i64
-  %97 = getelementptr inbounds ptr, ptr %95, i64 %96
+  %97 = getelementptr inbounds [8 x i8], ptr %95, i64 %96
   %98 = load ptr, ptr %97, align 8
   %99 = tail call ptr @ExecStoreMinimalTuple(ptr noundef %.033, ptr noundef %98, i1 noundef zeroext true) #4
   br label %gm_readnext_tuple.exit.thread
@@ -1127,7 +1125,7 @@ define internal i32 @heap_compare_slots(i64 noundef %0, i64 noundef %1, ptr noun
 22:                                               ; preds = %.lr.ph, %ApplySortComparator.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %ApplySortComparator.exit.thread ]
   %23 = load ptr, ptr %15, align 8
-  %24 = getelementptr inbounds nuw %struct.SortSupportData, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [64 x i8], ptr %23, i64 %indvars.iv
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 14
   %26 = load i16, ptr %25, align 2
   %27 = sext i16 %26 to i32
@@ -1146,7 +1144,7 @@ slot_getattr.exit:                                ; preds = %22, %slot_getsomeat
   %33 = getelementptr inbounds i8, ptr %30, i64 %32
   %34 = load i8, ptr %33, align 1, !range !4, !noundef !5
   %35 = load ptr, ptr %18, align 8
-  %36 = getelementptr inbounds i64, ptr %35, i64 %32
+  %36 = getelementptr inbounds [8 x i8], ptr %35, i64 %32
   %37 = load i64, ptr %36, align 8
   %38 = load i16, ptr %19, align 2
   %39 = icmp sgt i16 %26, %38
@@ -1161,7 +1159,7 @@ slot_getattr.exit29:                              ; preds = %slot_getattr.exit, 
   %41 = getelementptr inbounds i8, ptr %40, i64 %32
   %42 = load i8, ptr %41, align 1, !range !4, !noundef !5
   %43 = load ptr, ptr %21, align 8
-  %44 = getelementptr inbounds i64, ptr %43, i64 %32
+  %44 = getelementptr inbounds [8 x i8], ptr %43, i64 %32
   %45 = load i64, ptr %44, align 8
   %46 = trunc nuw i8 %34 to i1
   %47 = trunc nuw i8 %42 to i1

@@ -5174,7 +5174,7 @@ define ptr @l_Array_foldlMUnsafe_fold___at_Lean_RBTree_fromArray___spec__1___rar
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %lean_array_uget.exit.us
   %.01830.us = phi i64 [ %19, %lean_array_uget.exit.us ], [ %2, %.lr.ph ]
   %.02029.us = phi ptr [ %20, %lean_array_uget.exit.us ], [ %4, %.lr.ph ]
-  %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %.01830.us
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.01830.us
   %10 = load ptr, ptr %9, align 8, !tbaa !10
   %11 = ptrtoint ptr %10 to i64
   %12 = trunc i64 %11 to i1
@@ -5207,7 +5207,7 @@ lean_array_uget.exit.us:                          ; preds = %17, %16, %15, %.lr.
 .lr.ph.split:                                     ; preds = %.lr.ph, %lean_dec.exit
   %.01830 = phi i64 [ %31, %lean_dec.exit ], [ %2, %.lr.ph ]
   %.02029 = phi ptr [ %43, %lean_dec.exit ], [ %4, %.lr.ph ]
-  %21 = getelementptr inbounds nuw ptr, ptr %6, i64 %.01830
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.01830
   %22 = load ptr, ptr %21, align 8, !tbaa !10
   %23 = ptrtoint ptr %22 to i64
   %24 = trunc i64 %23 to i1

@@ -67,7 +67,7 @@ lv_obj_get_screen.exit.i:                         ; preds = %lv_obj_get_parent.e
 
 17:                                               ; preds = %16, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %16 ]
-  %18 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.i
   %19 = load ptr, ptr %18, align 8, !tbaa !33
   %20 = icmp eq ptr %19, %0
   br i1 %20, label %22, label %16
@@ -162,7 +162,7 @@ lv_obj_get_screen.exit:                           ; preds = %.preheader8.i, %2
 
 14:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
-  %15 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !33
   %17 = icmp eq ptr %16, %.019
   br i1 %17, label %.thread, label %13
@@ -375,7 +375,7 @@ lv_obj_get_screen.exit.i:                         ; preds = %73
 
 83:                                               ; preds = %82, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %82 ]
-  %84 = getelementptr inbounds nuw ptr, ptr %81, i64 %indvars.iv.i
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %indvars.iv.i
   %85 = load ptr, ptr %84, align 8, !tbaa !33
   %86 = icmp eq ptr %85, %0
   br i1 %86, label %lv_obj_get_display.exit, label %82
@@ -400,7 +400,7 @@ lv_obj_get_display.exit:                          ; preds = %._crit_edge.i, %83,
 
 92:                                               ; preds = %.lr.ph117, %96
   %indvars.iv = phi i64 [ 0, %.lr.ph117 ], [ %indvars.iv.next, %96 ]
-  %93 = getelementptr inbounds nuw ptr, ptr %91, i64 %indvars.iv
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %indvars.iv
   %94 = load ptr, ptr %93, align 8, !tbaa !33
   %95 = icmp eq ptr %94, %0
   br i1 %95, label %._crit_edge118.loopexit.split.loop.exit, label %96
@@ -434,9 +434,9 @@ lv_obj_get_display.exit:                          ; preds = %._crit_edge.i, %83,
 103:                                              ; preds = %.lr.ph126, %103
   %indvars.iv136 = phi i64 [ %102, %.lr.ph126 ], [ %indvars.iv.next137, %103 ]
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
-  %104 = getelementptr inbounds nuw ptr, ptr %101, i64 %indvars.iv.next137
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %indvars.iv.next137
   %105 = load ptr, ptr %104, align 8, !tbaa !33
-  %106 = getelementptr inbounds nuw ptr, ptr %101, i64 %indvars.iv136
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %indvars.iv136
   store ptr %105, ptr %106, align 8, !tbaa !33
   %exitcond140.not = icmp eq i64 %indvars.iv.next137, %wide.trip.count139
   br i1 %exitcond140.not, label %._crit_edge127, label %103, !llvm.loop !57
@@ -465,7 +465,7 @@ lv_obj_get_display.exit:                          ; preds = %._crit_edge.i, %83,
 
 115:                                              ; preds = %119, %.lr.ph.i91
   %indvars.iv.i93 = phi i64 [ 0, %.lr.ph.i91 ], [ %indvars.iv.next.i94, %119 ]
-  %116 = getelementptr inbounds nuw ptr, ptr %114, i64 %indvars.iv.i93
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %indvars.iv.i93
   %117 = load ptr, ptr %116, align 8, !tbaa !33
   %118 = icmp eq ptr %117, %0
   br i1 %118, label %lv_obj_get_index.exit, label %119
@@ -498,7 +498,7 @@ lv_obj_get_index.exit:                            ; preds = %115
   %.0111 = phi i16 [ %132, %.lr.ph112 ], [ %125, %.lr.ph112.preheader ]
   %127 = load ptr, ptr %126, align 8, !tbaa !42
   %128 = zext i16 %.0111 to i64
-  %129 = getelementptr inbounds nuw ptr, ptr %127, i64 %128
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %127, i64 %128
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 8
   %131 = load ptr, ptr %130, align 8, !tbaa !33
   store ptr %131, ptr %129, align 8, !tbaa !33
@@ -579,7 +579,7 @@ define void @lv_obj_clean(ptr noundef %0) local_unnamed_addr #0 {
 
 11:                                               ; preds = %10, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %10 ]
-  %12 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i
   %13 = load ptr, ptr %12, align 8, !tbaa !33
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 62
   %15 = load i16, ptr %14, align 2
@@ -618,7 +618,7 @@ define void @lv_obj_clean(ptr noundef %0) local_unnamed_addr #0 {
 
 23:                                               ; preds = %22, %.lr.ph.i22
   %indvars.iv.i24 = phi i64 [ 0, %.lr.ph.i22 ], [ %indvars.iv.next.i26, %22 ]
-  %24 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv.i24
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv.i24
   %25 = load ptr, ptr %24, align 8, !tbaa !33
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 62
   %27 = load i16, ptr %26, align 2
@@ -794,7 +794,7 @@ lv_obj_get_parent.exit.i:                         ; preds = %4
 
 16:                                               ; preds = %20, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %20 ]
-  %17 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.i
   %18 = load ptr, ptr %17, align 8, !tbaa !33
   %19 = icmp eq ptr %18, %0
   br i1 %19, label %.lr.ph.split.split, label %20
@@ -828,9 +828,9 @@ lv_obj_get_parent.exit.i:                         ; preds = %4
 lv_obj_get_child_count.exit:                      ; preds = %.lr.ph67, %lv_obj_get_child_count.exit
   %indvars.iv = phi i64 [ %indvars.iv.i, %.lr.ph67 ], [ %indvars.iv.next, %lv_obj_get_child_count.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %25 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv.next
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.next
   %26 = load ptr, ptr %25, align 8, !tbaa !33
-  %27 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   store ptr %26, ptr %27, align 8, !tbaa !33
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.split, label %lv_obj_get_child_count.exit
@@ -872,7 +872,7 @@ lv_obj_get_child_count.exit54:                    ; preds = %29, %33
   %47 = zext i16 %46 to i64
   %48 = add nuw nsw i64 %47, 4294967295
   %49 = and i64 %48, 4294967295
-  %50 = getelementptr inbounds nuw ptr, ptr %43, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %49
   store ptr %0, ptr %50, align 8, !tbaa !33
   store ptr %1, ptr %5, align 8, !tbaa !3
   tail call void @lv_obj_scrollbar_invalidate(ptr noundef nonnull %9) #6
@@ -919,7 +919,7 @@ lv_obj_get_parent.exit:                           ; preds = %1
 
 10:                                               ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !33
   %13 = icmp eq ptr %12, %0
   br i1 %13, label %.loopexit.loopexit, label %14
@@ -990,7 +990,7 @@ lv_obj_get_parent.exit:                           ; preds = %2
 
 16:                                               ; preds = %20, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %20 ]
-  %17 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.i
   %18 = load ptr, ptr %17, align 8, !tbaa !33
   %19 = icmp eq ptr %18, %0
   br i1 %19, label %21, label %20
@@ -1040,7 +1040,7 @@ lv_obj_get_parent.exit:                           ; preds = %2
 
 34:                                               ; preds = %.preheader49, %34
   %indvars.iv60 = phi i64 [ %32, %.preheader49 ], [ %indvars.iv.next61, %34 ]
-  %35 = getelementptr ptr, ptr %31, i64 %indvars.iv60
+  %35 = getelementptr [8 x i8], ptr %31, i64 %indvars.iv60
   %36 = getelementptr i8, ptr %35, i64 -8
   %37 = load ptr, ptr %36, align 8, !tbaa !33
   store ptr %37, ptr %35, align 8, !tbaa !33
@@ -1051,9 +1051,9 @@ lv_obj_get_parent.exit:                           ; preds = %2
 39:                                               ; preds = %.lr.ph, %39
   %indvars.iv = phi i64 [ %30, %.lr.ph ], [ %indvars.iv.next, %39 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %40 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %indvars.iv.next
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %indvars.iv.next
   %41 = load ptr, ptr %40, align 8, !tbaa !33
-  %42 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %indvars.iv
   store ptr %41, ptr %42, align 8, !tbaa !33
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %39, !llvm.loop !67
@@ -1061,7 +1061,7 @@ lv_obj_get_parent.exit:                           ; preds = %2
 .loopexit:                                        ; preds = %39, %34, %.preheader50
   %43 = phi ptr [ %31, %34 ], [ %.pre, %.preheader50 ], [ %.pre, %39 ]
   %44 = zext nneg i32 %spec.select to i64
-  %45 = getelementptr inbounds nuw ptr, ptr %43, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %44
   store ptr %0, ptr %45, align 8, !tbaa !33
   %46 = tail call i32 @lv_obj_send_event(ptr noundef nonnull %4, i32 noundef 42, ptr noundef null) #6
   tail call void @lv_obj_invalidate(ptr noundef nonnull %4) #6
@@ -1109,7 +1109,7 @@ lv_obj_get_parent.exit.i:                         ; preds = %3
 
 14:                                               ; preds = %18, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %18 ]
-  %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv.i
   %16 = load ptr, ptr %15, align 8, !tbaa !33
   %17 = icmp eq ptr %16, %0
   br i1 %17, label %.loopexit.loopexit.i, label %18
@@ -1150,7 +1150,7 @@ lv_obj_get_parent.exit.i40:                       ; preds = %.loopexit.loopexit.
 
 26:                                               ; preds = %30, %.lr.ph.i43
   %indvars.iv.i45 = phi i64 [ 0, %.lr.ph.i43 ], [ %indvars.iv.next.i46, %30 ]
-  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv.i45
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv.i45
   %28 = load ptr, ptr %27, align 8, !tbaa !33
   %29 = icmp eq ptr %28, %1
   br i1 %29, label %.loopexit.loopexit.i49, label %30
@@ -1178,13 +1178,13 @@ lv_obj_get_index.exit52:                          ; preds = %lv_obj_get_parent.e
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %35 = load ptr, ptr %34, align 8, !tbaa !37
   %36 = load ptr, ptr %35, align 8, !tbaa !42
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %.010.i
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %.010.i
   store ptr %1, ptr %37, align 8, !tbaa !33
   store ptr %5, ptr %6, align 8, !tbaa !3
   %38 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %39 = load ptr, ptr %38, align 8, !tbaa !37
   %40 = load ptr, ptr %39, align 8, !tbaa !42
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %.010.i50
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.010.i50
   store ptr %0, ptr %41, align 8, !tbaa !33
   store ptr %7, ptr %4, align 8, !tbaa !3
   %42 = tail call i32 @lv_obj_send_event(ptr noundef %5, i32 noundef 42, ptr noundef nonnull %1) #6
@@ -1263,7 +1263,7 @@ define ptr @lv_obj_get_child(ptr noundef readonly captures(address_is_null) %0, 
 15:                                               ; preds = %._crit_edge
   %16 = load ptr, ptr %5, align 8, !tbaa !42
   %17 = zext nneg i32 %.0 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !33
   br label %20
 
@@ -1304,7 +1304,7 @@ define noundef ptr @lv_obj_get_child_by_type(ptr noundef readonly captures(addre
 13:                                               ; preds = %.lr.ph43, %22
   %indvars.iv52 = phi i64 [ 0, %.lr.ph43 ], [ %indvars.iv.next53, %22 ]
   %.02741 = phi i32 [ %1, %.lr.ph43 ], [ %.128, %22 ]
-  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv52
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv52
   %15 = load ptr, ptr %14, align 8, !tbaa !33
   %16 = load ptr, ptr %15, align 8, !tbaa !68
   %17 = icmp eq ptr %16, %2
@@ -1337,7 +1337,7 @@ define noundef ptr @lv_obj_get_child_by_type(ptr noundef readonly captures(addre
   %indvars.iv = phi i64 [ %26, %.lr.ph ], [ %indvars.iv.next, %36 ]
   %.237 = phi i32 [ %24, %.lr.ph ], [ %.3, %36 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %28 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv.next
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv.next
   %29 = load ptr, ptr %28, align 8, !tbaa !33
   %30 = load ptr, ptr %29, align 8, !tbaa !68
   %31 = icmp eq ptr %30, %2
@@ -1390,7 +1390,7 @@ lv_obj_get_parent.exit.i:                         ; preds = %2
 
 12:                                               ; preds = %16, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %16 ]
-  %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.i
   %14 = load ptr, ptr %13, align 8, !tbaa !33
   %15 = icmp eq ptr %14, %0
   br i1 %15, label %lv_obj_get_index.exit, label %16
@@ -1435,7 +1435,7 @@ lv_obj_get_index.exit.thread:                     ; preds = %lv_obj_get_parent.e
 28:                                               ; preds = %._crit_edge.i
   %29 = load ptr, ptr %23, align 8, !tbaa !42
   %30 = zext nneg i32 %18 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !33
   br label %lv_obj_get_child.exit
 
@@ -1474,7 +1474,7 @@ lv_obj_get_parent.exit.i:                         ; preds = %3
 12:                                               ; preds = %21, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %21 ]
   %.01529.i = phi i32 [ 0, %.lr.ph.i ], [ %.217.ph.i, %21 ]
-  %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.i
   %14 = load ptr, ptr %13, align 8, !tbaa !33
   %15 = load ptr, ptr %14, align 8, !tbaa !68
   %16 = icmp eq ptr %15, %2
@@ -1533,7 +1533,7 @@ lv_obj_get_index_by_type.exit.thread:             ; preds = %.preheader27.i
 34:                                               ; preds = %43, %.lr.ph43.i
   %indvars.iv52.i = phi i64 [ 0, %.lr.ph43.i ], [ %indvars.iv.next53.i, %43 ]
   %.02741.i = phi i32 [ %27, %.lr.ph43.i ], [ %.128.i, %43 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv52.i
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv52.i
   %36 = load ptr, ptr %35, align 8, !tbaa !33
   %37 = load ptr, ptr %36, align 8, !tbaa !68
   %38 = icmp eq ptr %37, %2
@@ -1588,7 +1588,7 @@ lv_obj_get_parent.exit:                           ; preds = %2
 11:                                               ; preds = %.lr.ph, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
   %.01529 = phi i32 [ 0, %.lr.ph ], [ %.217.ph, %20 ]
-  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !33
   %14 = load ptr, ptr %13, align 8, !tbaa !68
   %15 = icmp eq ptr %14, %1
@@ -1641,7 +1641,7 @@ define i32 @lv_obj_get_child_count_by_type(ptr noundef readonly captures(address
 10:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
   %.015 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %10 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !33
   %13 = load ptr, ptr %12, align 8, !tbaa !68
   %14 = icmp eq ptr %13, %1
@@ -1686,7 +1686,7 @@ define internal fastcc range(i32 0, 3) i32 @walk_core(ptr noundef %0, ptr nounde
 10:                                               ; preds = %.lr.ph, %10
   %indvars.iv45 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next46, %10 ]
   %11 = load ptr, ptr %9, align 8, !tbaa !30
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv45
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv45
   %13 = load ptr, ptr %12, align 8, !tbaa !33
   %14 = tail call fastcc i32 @walk_core(ptr noundef %13, ptr noundef %1, ptr noundef %2)
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
@@ -1730,7 +1730,7 @@ lv_obj_get_child_count.exit.thread:               ; preds = %.preheader37, %24
 
 lv_obj_get_child.exit:                            ; preds = %lv_obj_get_child_count.exit.thread
   %31 = load ptr, ptr %27, align 8, !tbaa !42
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8, !tbaa !33
   %34 = tail call fastcc i32 @walk_core(ptr noundef %33, ptr noundef %1, ptr noundef %2)
   %35 = icmp eq i32 %34, 2
@@ -1769,7 +1769,7 @@ define void @lv_obj_dump_tree(ptr noundef readonly captures(address_is_null) %0)
 
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !33
   tail call fastcc void @dump_tree_core(ptr noundef %11, i32 noundef 0)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1816,7 +1816,7 @@ define internal fastcc void @dump_tree_core(ptr noundef readonly captures(addres
 
 lv_obj_get_child.exit:                            ; preds = %.preheader, %lv_obj_get_child.exit
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %lv_obj_get_child.exit ]
-  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !33
   tail call fastcc void @dump_tree_core(ptr noundef %12, i32 noundef %10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

@@ -44,11 +44,9 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.timespec = type { i64, i64 }
 %"struct.std::_Deque_iterator" = type { ptr, ptr, ptr, ptr }
 %"struct.std::_Deque_iterator.46" = type { ptr, ptr, ptr, ptr }
-%"class.con::Channel" = type { %"class.con::ReliablePacketBuffer", %"class.con::ReliablePacketBuffer", %"class.std::queue", %"class.std::deque.41", %"class.con::IncomingSplitBuffer", %"class.std::mutex", i16, i16, i16, i16, i32, i32, i32, float, i32, i32, i32, float, float, float, float, float, float, float, float, float, float, i32 }
-%"class.con::ReliablePacketBuffer" = type { %"class.std::__cxx11::list.8", i16, %"class.std::mutex" }
-%"class.std::__cxx11::list.8" = type { %"class.std::__cxx11::_List_base.9" }
-%"class.std::__cxx11::_List_base.9" = type { %"struct.std::__cxx11::_List_base<std::shared_ptr<con::BufferedPacket>, std::allocator<std::shared_ptr<con::BufferedPacket>>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<std::shared_ptr<con::BufferedPacket>, std::allocator<std::shared_ptr<con::BufferedPacket>>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
+%"class.std::__cxx11::list" = type { %"class.std::__cxx11::_List_base" }
+%"class.std::__cxx11::_List_base" = type { %"struct.std::__cxx11::_List_base<SharedBuffer<unsigned char>, std::allocator<SharedBuffer<unsigned char>>>::_List_impl" }
+%"struct.std::__cxx11::_List_base<SharedBuffer<unsigned char>, std::allocator<SharedBuffer<unsigned char>>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
 %"struct.std::__detail::_List_node_header" = type { %"struct.std::__detail::_List_node_base", i64 }
 %"struct.std::__detail::_List_node_base" = type { ptr, ptr }
 %"class.std::queue" = type { %"class.std::deque" }
@@ -56,6 +54,24 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::_Deque_base" = type { %"struct.std::_Deque_base<std::shared_ptr<con::BufferedPacket>, std::allocator<std::shared_ptr<con::BufferedPacket>>>::_Deque_impl" }
 %"struct.std::_Deque_base<std::shared_ptr<con::BufferedPacket>, std::allocator<std::shared_ptr<con::BufferedPacket>>>::_Deque_impl" = type { %"struct.std::_Deque_base<std::shared_ptr<con::BufferedPacket>, std::allocator<std::shared_ptr<con::BufferedPacket>>>::_Deque_impl_data" }
 %"struct.std::_Deque_base<std::shared_ptr<con::BufferedPacket>, std::allocator<std::shared_ptr<con::BufferedPacket>>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator", %"struct.std::_Deque_iterator" }
+%"class.std::shared_ptr.82" = type { %"class.std::__shared_ptr.83" }
+%"class.std::__shared_ptr.83" = type { ptr, %"class.std::__shared_count" }
+%"struct.std::_Deque_iterator.66" = type { ptr, ptr, ptr, ptr }
+%"class.con::PeerHelper" = type { ptr }
+%"class.std::allocator" = type { i8 }
+%"class.con::UDPPeer" = type { %"class.con::Peer", [3 x %"class.con::Channel"], i8, float }
+%"class.con::Peer" = type { ptr, i16, i32, %"class.std::mutex", i8, ptr, %class.Address, float, %"struct.con::Peer::rttstats", float, i8, i32, float, i64 }
+%"class.std::mutex" = type { %"class.std::__mutex_base" }
+%"class.std::__mutex_base" = type { %union.pthread_mutex_t }
+%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
+%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
+%struct.__pthread_internal_list = type { ptr, ptr }
+%"struct.con::Peer::rttstats" = type { float, float, float, float, float, float }
+%"class.con::Channel" = type { %"class.con::ReliablePacketBuffer", %"class.con::ReliablePacketBuffer", %"class.std::queue", %"class.std::deque.41", %"class.con::IncomingSplitBuffer", %"class.std::mutex", i16, i16, i16, i16, i32, i32, i32, float, i32, i32, i32, float, float, float, float, float, float, float, float, float, float, i32 }
+%"class.con::ReliablePacketBuffer" = type { %"class.std::__cxx11::list.8", i16, %"class.std::mutex" }
+%"class.std::__cxx11::list.8" = type { %"class.std::__cxx11::_List_base.9" }
+%"class.std::__cxx11::_List_base.9" = type { %"struct.std::__cxx11::_List_base<std::shared_ptr<con::BufferedPacket>, std::allocator<std::shared_ptr<con::BufferedPacket>>>::_List_impl" }
+%"struct.std::__cxx11::_List_base<std::shared_ptr<con::BufferedPacket>, std::allocator<std::shared_ptr<con::BufferedPacket>>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
 %"class.std::deque.41" = type { %"class.std::_Deque_base.42" }
 %"class.std::_Deque_base.42" = type { %"struct.std::_Deque_base<std::shared_ptr<con::ConnectionCommand>, std::allocator<std::shared_ptr<con::ConnectionCommand>>>::_Deque_impl" }
 %"struct.std::_Deque_base<std::shared_ptr<con::ConnectionCommand>, std::allocator<std::shared_ptr<con::ConnectionCommand>>>::_Deque_impl" = type { %"struct.std::_Deque_base<std::shared_ptr<con::ConnectionCommand>, std::allocator<std::shared_ptr<con::ConnectionCommand>>>::_Deque_impl_data" }
@@ -68,27 +84,10 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::less" = type { i8 }
 %"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
 %"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
-%"class.std::mutex" = type { %"class.std::__mutex_base" }
-%"class.std::__mutex_base" = type { %union.pthread_mutex_t }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%"class.std::__cxx11::list" = type { %"class.std::__cxx11::_List_base" }
-%"class.std::__cxx11::_List_base" = type { %"struct.std::__cxx11::_List_base<SharedBuffer<unsigned char>, std::allocator<SharedBuffer<unsigned char>>>::_List_impl" }
-%"struct.std::__cxx11::_List_base<SharedBuffer<unsigned char>, std::allocator<SharedBuffer<unsigned char>>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
-%"class.std::shared_ptr.82" = type { %"class.std::__shared_ptr.83" }
-%"class.std::__shared_ptr.83" = type { ptr, %"class.std::__shared_count" }
-%"struct.std::_Deque_iterator.66" = type { ptr, ptr, ptr, ptr }
-%"class.con::PeerHelper" = type { ptr }
-%"class.std::allocator" = type { i8 }
-%"class.con::UDPPeer" = type { %"class.con::Peer", [3 x %"class.con::Channel"], i8, float }
-%"class.con::Peer" = type { ptr, i16, i32, %"class.std::mutex", i8, ptr, %class.Address, float, %"struct.con::Peer::rttstats", float, i8, i32, float, i64 }
-%"struct.con::Peer::rttstats" = type { float, float, float, float, float, float }
 %"class.std::tuple.104" = type { %"struct.std::_Tuple_impl.105" }
 %"struct.std::_Tuple_impl.105" = type { %"struct.std::_Head_base.106" }
 %"struct.std::_Head_base.106" = type { ptr }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, float>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, float>>, std::less<std::__cxx11::basic_string<char>>>::_Auto_node" = type { ptr, ptr }
-%class.ConstSharedPtr = type { %"class.std::shared_ptr" }
 %"struct.std::_Rb_tree<unsigned short, std::pair<const unsigned short, SharedBuffer<unsigned char>>, std::_Select1st<std::pair<const unsigned short, SharedBuffer<unsigned char>>>, std::less<unsigned short>>::_Auto_node" = type { ptr, ptr }
 
 $_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_ = comdat any
@@ -4847,7 +4846,7 @@ if.then.i39.i.i:                                  ; preds = %_ZNSt6vectorItSaItE
   br label %_ZNSt6vectorItSaItEE17_M_realloc_insertIJRKtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i
 
 _ZNSt6vectorItSaItEE17_M_realloc_insertIJRKtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i: ; preds = %if.then.i39.i.i, %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit38.i.i
-  %add.ptr19.i.i = getelementptr inbounds nuw i16, ptr %call5.i.i.i.i.i68, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw [2 x i8], ptr %call5.i.i.i.i.i68, i64 %cond.i.i.i
   br label %cleanup
 
 lpad.loopexit116:                                 ; preds = %_ZNKSt6vectorItSaItEE12_M_check_lenEmPKc.exit.i.i
@@ -7916,7 +7915,7 @@ if.end:                                           ; preds = %entry
   %channelnum = getelementptr inbounds nuw i8, ptr %1, i64 30
   %2 = load i8, ptr %channelnum, align 2, !tbaa !138
   %idxprom = zext i8 %2 to i64
-  %arrayidx = getelementptr inbounds nuw %"class.con::Channel", ptr %channels, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [512 x i8], ptr %channels, i64 %idxprom
   %queued_commands = getelementptr inbounds nuw i8, ptr %arrayidx, i64 224
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 272
   %_M_start.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 240
@@ -9345,7 +9344,7 @@ if.end:                                           ; preds = %entry
   %channelnum = getelementptr inbounds nuw i8, ptr %1, i64 30
   %2 = load i8, ptr %channelnum, align 2, !tbaa !138
   %idxprom = zext i8 %2 to i64
-  %arrayidx = getelementptr inbounds nuw %"class.con::Channel", ptr %channels, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [512 x i8], ptr %channels, i64 %idxprom
   %sub2 = add i32 %max_packet_size, -10
   %data = getelementptr inbounds nuw i8, ptr %1, i64 32
   %m_size.i = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -11415,7 +11414,7 @@ define dso_local noundef zeroext i16 @_ZN3con7UDPPeer26getNextSplitSequenceNumbe
 entry:
   %channels = getelementptr inbounds nuw i8, ptr %this, i64 152
   %idxprom = zext i8 %channel to i64
-  %arrayidx = getelementptr inbounds nuw %"class.con::Channel", ptr %channels, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [512 x i8], ptr %channels, i64 %idxprom
   %m_internal_mutex.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 392
   %call1.i.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_internal_mutex.i) #32
   %tobool.not.i.i.i.i = icmp eq i32 %call1.i.i.i.i.i, 0
@@ -11437,7 +11436,7 @@ define dso_local void @_ZN3con7UDPPeer26setNextSplitSequenceNumberEht(ptr nounde
 entry:
   %channels = getelementptr inbounds nuw i8, ptr %this, i64 152
   %idxprom = zext i8 %channel to i64
-  %arrayidx = getelementptr inbounds nuw %"class.con::Channel", ptr %channels, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [512 x i8], ptr %channels, i64 %idxprom
   %m_internal_mutex.i = getelementptr inbounds nuw i8, ptr %arrayidx, i64 392
   %call1.i.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull %m_internal_mutex.i) #32
   %tobool.not.i.i.i.i = icmp eq i32 %call1.i.i.i.i.i, 0
@@ -11474,7 +11473,7 @@ entry:
 
 switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3con10Connection16ReceiveTimeoutMsEP13NetworkPacketj, i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN3con10Connection16ReceiveTimeoutMsEP13NetworkPacketj, i64 %2
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %return
 
@@ -13782,7 +13781,7 @@ invoke.cont5:                                     ; preds = %if.then.i, %invoke.
 
 switch.lookup:                                    ; preds = %invoke.cont5
   %20 = zext nneg i32 %18 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3con10Connection16ReceiveTimeoutMsEP13NetworkPacketj, i64 %20
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN3con10Connection16ReceiveTimeoutMsEP13NetworkPacketj, i64 %20
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZNK3con15ConnectionEvent8describeEv.exit
 
@@ -15262,7 +15261,7 @@ if.then.i39.i.i:                                  ; preds = %_ZNSt6vectorItSaItE
 _ZNSt6vectorItSaItEE17_M_realloc_insertIJRKtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i: ; preds = %if.then.i39.i.i, %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit38.i.i
   store ptr %call5.i.i.i.i.i157, ptr %m_peer_ids, align 8, !tbaa !394
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8, !tbaa !418
-  %add.ptr19.i.i = getelementptr inbounds nuw i16, ptr %call5.i.i.i.i.i157, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw [2 x i8], ptr %call5.i.i.i.i.i157, i64 %cond.i.i.i
   store ptr %add.ptr19.i.i, ptr %_M_end_of_storage.i, align 8, !tbaa !454
   br label %invoke.cont46
 
@@ -16372,7 +16371,7 @@ if.then.i39.i.i:                                  ; preds = %_ZNSt6vectorItSaItE
 _ZNSt6vectorItSaItEE17_M_realloc_insertIJRKtEEEvN9__gnu_cxx17__normal_iteratorIPtS1_EEDpOT_.exit.i: ; preds = %if.then.i39.i.i, %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit38.i.i
   store ptr %call5.i.i.i.i.i20, ptr %m_peer_ids, align 8, !tbaa !394
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8, !tbaa !418
-  %add.ptr19.i.i = getelementptr inbounds nuw i16, ptr %call5.i.i.i.i.i20, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw [2 x i8], ptr %call5.i.i.i.i.i20, i64 %cond.i.i.i
   store ptr %add.ptr19.i.i, ptr %_M_end_of_storage.i, align 8, !tbaa !454
   br label %_ZNSt11unique_lockISt5mutexED2Ev.exit
 
@@ -17516,8 +17515,8 @@ entry:
   store ptr %call5.i.i4.i, ptr %this, align 8, !tbaa !247
   %sub = sub nsw i64 %.sroa.speculated, %add
   %div1348 = lshr i64 %sub, 1
-  %add.ptr = getelementptr inbounds nuw ptr, ptr %call5.i.i4.i, i64 %div1348
-  %add.ptr14 = getelementptr inbounds nuw ptr, ptr %add.ptr, i64 %add
+  %add.ptr = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i4.i, i64 %div1348
+  %add.ptr14 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr, i64 %add
   br label %for.body.i
 
 for.body.i:                                       ; preds = %invoke.cont.i, %entry
@@ -17607,7 +17606,7 @@ try.cont:                                         ; preds = %invoke.cont.i
   store ptr %add.ptr.i53, ptr %_M_last.i54, align 8, !tbaa !279
   store ptr %12, ptr %_M_start, align 8, !tbaa !355
   %rem = and i64 %__num_elements, 31
-  %add.ptr36 = getelementptr inbounds nuw %"class.std::shared_ptr.35", ptr %13, i64 %rem
+  %add.ptr36 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %rem
   store ptr %add.ptr36, ptr %_M_finish, align 8, !tbaa !280
   ret void
 
@@ -18452,8 +18451,8 @@ entry:
   store ptr %call5.i.i4.i, ptr %this, align 8, !tbaa !402
   %sub = sub nsw i64 %.sroa.speculated, %add
   %div1348 = lshr i64 %sub, 1
-  %add.ptr = getelementptr inbounds nuw ptr, ptr %call5.i.i4.i, i64 %div1348
-  %add.ptr14 = getelementptr inbounds nuw ptr, ptr %add.ptr, i64 %add
+  %add.ptr = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i4.i, i64 %div1348
+  %add.ptr14 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr, i64 %add
   br label %for.body.i
 
 for.body.i:                                       ; preds = %invoke.cont.i, %entry
@@ -18543,7 +18542,7 @@ try.cont:                                         ; preds = %invoke.cont.i
   store ptr %add.ptr.i53, ptr %_M_last.i54, align 8, !tbaa !514
   store ptr %12, ptr %_M_start, align 8, !tbaa !515
   %rem = and i64 %__num_elements, 31
-  %add.ptr36 = getelementptr inbounds nuw %"class.std::shared_ptr.82", ptr %13, i64 %rem
+  %add.ptr36 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %rem
   store ptr %add.ptr36, ptr %_M_finish, align 8, !tbaa !414
   ret void
 
@@ -19303,7 +19302,7 @@ _ZNSt12_Vector_baseI14ConstSharedPtrIN3con14BufferedPacketEESaIS3_EE13_M_dealloc
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !99
   store ptr %__cur.0.lcssa.i.i.i57, ptr %_M_finish.i.i, align 8, !tbaa !98
-  %add.ptr26 = getelementptr inbounds nuw %class.ConstSharedPtr, ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr26 = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr26, ptr %_M_end_of_storage, align 8, !tbaa !96
   ret void
 }
@@ -20159,8 +20158,8 @@ entry:
   store ptr %call5.i.i4.i, ptr %this, align 8, !tbaa !257
   %sub = sub nsw i64 %.sroa.speculated, %add
   %div1348 = lshr i64 %sub, 1
-  %add.ptr = getelementptr inbounds nuw ptr, ptr %call5.i.i4.i, i64 %div1348
-  %add.ptr14 = getelementptr inbounds nuw ptr, ptr %add.ptr, i64 %add
+  %add.ptr = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i4.i, i64 %div1348
+  %add.ptr14 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr, i64 %add
   br label %for.body.i
 
 for.body.i:                                       ; preds = %invoke.cont.i, %entry
@@ -20250,7 +20249,7 @@ try.cont:                                         ; preds = %invoke.cont.i
   store ptr %add.ptr.i53, ptr %_M_last.i54, align 8, !tbaa !276
   store ptr %12, ptr %_M_start, align 8, !tbaa !546
   %rem = and i64 %__num_elements, 31
-  %add.ptr36 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %13, i64 %rem
+  %add.ptr36 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %rem
   store ptr %add.ptr36, ptr %_M_finish, align 8, !tbaa !345
   ret void
 
@@ -20388,9 +20387,9 @@ if.then:                                          ; preds = %entry
   %3 = load ptr, ptr %this, align 8, !tbaa !247
   %sub = sub i64 %2, %add4
   %div88 = lshr i64 %sub, 1
-  %add.ptr = getelementptr inbounds nuw ptr, ptr %3, i64 %div88
+  %add.ptr = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %div88
   %cond = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
-  %add.ptr9 = getelementptr inbounds ptr, ptr %add.ptr, i64 %cond
+  %add.ptr9 = getelementptr inbounds [8 x i8], ptr %add.ptr, i64 %cond
   %cmp13 = icmp ult ptr %add.ptr9, %1
   %add.ptr21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %add.ptr21, %1
@@ -20413,8 +20412,8 @@ if.then.i.i.i.i.i93:                              ; preds = %if.else
   %sub.ptr.sub.i.i.i.i.i91 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i89, %sub.ptr.rhs.cast
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i91, 3
   %.pre.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
-  %add.ptr29 = getelementptr inbounds ptr, ptr %add.ptr9, i64 %add
-  %add.ptr.i.i.i.i.i94 = getelementptr inbounds ptr, ptr %add.ptr29, i64 %.pre.i.i.i.i.i
+  %add.ptr29 = getelementptr inbounds [8 x i8], ptr %add.ptr9, i64 %add
+  %add.ptr.i.i.i.i.i94 = getelementptr inbounds [8 x i8], ptr %add.ptr29, i64 %.pre.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i94, ptr align 8 %1, i64 %sub.ptr.sub.i.i.i.i.i91, i1 false)
   br label %if.end65
 
@@ -20442,9 +20441,9 @@ _ZNSt11_Deque_baseISt10shared_ptrIN3con17ConnectionCommandEESaIS3_EE15_M_allocat
   %call5.i.i4.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #34
   %sub40 = sub i64 %add38, %add4
   %div4187 = lshr i64 %sub40, 1
-  %add.ptr42 = getelementptr inbounds nuw ptr, ptr %call5.i.i4.i, i64 %div4187
+  %add.ptr42 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i4.i, i64 %div4187
   %cond47 = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
-  %add.ptr48 = getelementptr inbounds ptr, ptr %add.ptr42, i64 %cond47
+  %add.ptr48 = getelementptr inbounds [8 x i8], ptr %add.ptr42, i64 %cond47
   %add.ptr55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %tobool.not.i.i.i.i.i98 = icmp eq ptr %add.ptr55, %1
   br i1 %tobool.not.i.i.i.i.i98, label %_ZSt4copyIPPSt10shared_ptrIN3con17ConnectionCommandEES5_ET0_T_S7_S6_.exit101, label %if.then.i.i.i.i.i99
@@ -20471,7 +20470,7 @@ if.end65:                                         ; preds = %_ZSt4copyIPPSt10sha
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %5, i64 512
   %_M_last.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr %add.ptr.i, ptr %_M_last.i, align 8, !tbaa !279
-  %add.ptr70 = getelementptr inbounds ptr, ptr %__new_nstart.0, i64 %add
+  %add.ptr70 = getelementptr inbounds [8 x i8], ptr %__new_nstart.0, i64 %add
   %add.ptr71 = getelementptr inbounds i8, ptr %add.ptr70, i64 -8
   store ptr %add.ptr71, ptr %_M_node, align 8, !tbaa !277
   %6 = load ptr, ptr %add.ptr71, align 8, !tbaa !44
@@ -20606,9 +20605,9 @@ if.then:                                          ; preds = %entry
   %3 = load ptr, ptr %this, align 8, !tbaa !257
   %sub = sub i64 %2, %add4
   %div88 = lshr i64 %sub, 1
-  %add.ptr = getelementptr inbounds nuw ptr, ptr %3, i64 %div88
+  %add.ptr = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %div88
   %cond = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
-  %add.ptr9 = getelementptr inbounds ptr, ptr %add.ptr, i64 %cond
+  %add.ptr9 = getelementptr inbounds [8 x i8], ptr %add.ptr, i64 %cond
   %cmp13 = icmp ult ptr %add.ptr9, %1
   %add.ptr21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %add.ptr21, %1
@@ -20631,8 +20630,8 @@ if.then.i.i.i.i.i93:                              ; preds = %if.else
   %sub.ptr.sub.i.i.i.i.i91 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i89, %sub.ptr.rhs.cast
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i91, 3
   %.pre.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
-  %add.ptr29 = getelementptr inbounds ptr, ptr %add.ptr9, i64 %add
-  %add.ptr.i.i.i.i.i94 = getelementptr inbounds ptr, ptr %add.ptr29, i64 %.pre.i.i.i.i.i
+  %add.ptr29 = getelementptr inbounds [8 x i8], ptr %add.ptr9, i64 %add
+  %add.ptr.i.i.i.i.i94 = getelementptr inbounds [8 x i8], ptr %add.ptr29, i64 %.pre.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i94, ptr align 8 %1, i64 %sub.ptr.sub.i.i.i.i.i91, i1 false)
   br label %if.end65
 
@@ -20660,9 +20659,9 @@ _ZNSt11_Deque_baseISt10shared_ptrIN3con14BufferedPacketEESaIS3_EE15_M_allocate_m
   %call5.i.i4.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #34
   %sub40 = sub i64 %add38, %add4
   %div4187 = lshr i64 %sub40, 1
-  %add.ptr42 = getelementptr inbounds nuw ptr, ptr %call5.i.i4.i, i64 %div4187
+  %add.ptr42 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i4.i, i64 %div4187
   %cond47 = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
-  %add.ptr48 = getelementptr inbounds ptr, ptr %add.ptr42, i64 %cond47
+  %add.ptr48 = getelementptr inbounds [8 x i8], ptr %add.ptr42, i64 %cond47
   %add.ptr55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %tobool.not.i.i.i.i.i98 = icmp eq ptr %add.ptr55, %1
   br i1 %tobool.not.i.i.i.i.i98, label %_ZSt4copyIPPSt10shared_ptrIN3con14BufferedPacketEES5_ET0_T_S7_S6_.exit101, label %if.then.i.i.i.i.i99
@@ -20689,7 +20688,7 @@ if.end65:                                         ; preds = %_ZSt4copyIPPSt10sha
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %5, i64 512
   %_M_last.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr %add.ptr.i, ptr %_M_last.i, align 8, !tbaa !276
-  %add.ptr70 = getelementptr inbounds ptr, ptr %__new_nstart.0, i64 %add
+  %add.ptr70 = getelementptr inbounds [8 x i8], ptr %__new_nstart.0, i64 %add
   %add.ptr71 = getelementptr inbounds i8, ptr %add.ptr70, i64 -8
   store ptr %add.ptr71, ptr %_M_node, align 8, !tbaa !273
   %6 = load ptr, ptr %add.ptr71, align 8, !tbaa !44
@@ -21075,9 +21074,9 @@ if.then:                                          ; preds = %entry
   %3 = load ptr, ptr %this, align 8, !tbaa !402
   %sub = sub i64 %2, %add4
   %div88 = lshr i64 %sub, 1
-  %add.ptr = getelementptr inbounds nuw ptr, ptr %3, i64 %div88
+  %add.ptr = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %div88
   %cond = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
-  %add.ptr9 = getelementptr inbounds ptr, ptr %add.ptr, i64 %cond
+  %add.ptr9 = getelementptr inbounds [8 x i8], ptr %add.ptr, i64 %cond
   %cmp13 = icmp ult ptr %add.ptr9, %1
   %add.ptr21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %add.ptr21, %1
@@ -21100,8 +21099,8 @@ if.then.i.i.i.i.i93:                              ; preds = %if.else
   %sub.ptr.sub.i.i.i.i.i91 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i89, %sub.ptr.rhs.cast
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i91, 3
   %.pre.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
-  %add.ptr29 = getelementptr inbounds ptr, ptr %add.ptr9, i64 %add
-  %add.ptr.i.i.i.i.i94 = getelementptr inbounds ptr, ptr %add.ptr29, i64 %.pre.i.i.i.i.i
+  %add.ptr29 = getelementptr inbounds [8 x i8], ptr %add.ptr9, i64 %add
+  %add.ptr.i.i.i.i.i94 = getelementptr inbounds [8 x i8], ptr %add.ptr29, i64 %.pre.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i94, ptr align 8 %1, i64 %sub.ptr.sub.i.i.i.i.i91, i1 false)
   br label %if.end65
 
@@ -21129,9 +21128,9 @@ _ZNSt11_Deque_baseISt10shared_ptrIN3con15ConnectionEventEESaIS3_EE15_M_allocate_
   %call5.i.i4.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #34
   %sub40 = sub i64 %add38, %add4
   %div4187 = lshr i64 %sub40, 1
-  %add.ptr42 = getelementptr inbounds nuw ptr, ptr %call5.i.i4.i, i64 %div4187
+  %add.ptr42 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i4.i, i64 %div4187
   %cond47 = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
-  %add.ptr48 = getelementptr inbounds ptr, ptr %add.ptr42, i64 %cond47
+  %add.ptr48 = getelementptr inbounds [8 x i8], ptr %add.ptr42, i64 %cond47
   %add.ptr55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %tobool.not.i.i.i.i.i98 = icmp eq ptr %add.ptr55, %1
   br i1 %tobool.not.i.i.i.i.i98, label %_ZSt4copyIPPSt10shared_ptrIN3con15ConnectionEventEES5_ET0_T_S7_S6_.exit101, label %if.then.i.i.i.i.i99
@@ -21158,7 +21157,7 @@ if.end65:                                         ; preds = %_ZSt4copyIPPSt10sha
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %5, i64 512
   %_M_last.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr %add.ptr.i, ptr %_M_last.i, align 8, !tbaa !514
-  %add.ptr70 = getelementptr inbounds ptr, ptr %__new_nstart.0, i64 %add
+  %add.ptr70 = getelementptr inbounds [8 x i8], ptr %__new_nstart.0, i64 %add
   %add.ptr71 = getelementptr inbounds i8, ptr %add.ptr70, i64 -8
   store ptr %add.ptr71, ptr %_M_node, align 8, !tbaa !512
   %6 = load ptr, ptr %add.ptr71, align 8, !tbaa !44

@@ -3,18 +3,6 @@ source_filename = "bench/redis/original/sec.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.sec_shard_s = type { %struct.malloc_mutex_s, i8, ptr, i64, i32 }
-%struct.malloc_mutex_s = type { %union.anon }
-%union.anon = type { %struct.anon }
-%struct.anon = type { %struct.mutex_prof_data_t, %union.pthread_mutex_t, %struct.atomic_b_t }
-%struct.mutex_prof_data_t = type { %struct.nstime_t, %struct.nstime_t, i64, i64, i32, %struct.atomic_u32_t, i64, ptr, i64 }
-%struct.nstime_t = type { i64 }
-%struct.atomic_u32_t = type { i32 }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%struct.atomic_b_t = type { i8 }
-%struct.sec_bin_s = type { i8, i64, %struct.edata_list_active_t }
 %struct.edata_list_active_t = type { %struct.anon.1 }
 %struct.anon.1 = type { ptr }
 
@@ -66,7 +54,7 @@ sz_psz2ind.exit:                                  ; preds = %5, %10
   br i1 %.not62.not, label %.critedge59, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %31
-  %34 = getelementptr inbounds nuw %struct.sec_shard_s, ptr %29, i64 %33
+  %34 = getelementptr inbounds nuw [144 x i8], ptr %29, i64 %33
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %40
@@ -98,7 +86,7 @@ sz_psz2ind.exit:                                  ; preds = %5, %10
   %indvars.iv = phi i64 [ 0, %37 ], [ %indvars.iv.next, %45 ]
   %.25760 = phi ptr [ %.05563, %37 ], [ %49, %45 ]
   %46 = load ptr, ptr %39, align 8, !tbaa !23
-  %47 = getelementptr inbounds nuw %struct.sec_bin_s, ptr %46, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [24 x i8], ptr %46, i64 %indvars.iv
   store i8 0, ptr %47, align 8, !tbaa !28
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %48, i8 0, i64 16, i1 false)
@@ -222,14 +210,14 @@ sz_psz2ind.exit:                                  ; preds = %23, %25
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %62 = load ptr, ptr %61, align 8, !tbaa !11
   %63 = zext i8 %60 to i64
-  %64 = getelementptr inbounds nuw %struct.sec_shard_s, ptr %62, i64 %63
+  %64 = getelementptr inbounds nuw [144 x i8], ptr %62, i64 %63
   br label %sec_shard_pick.exit
 
 sec_shard_pick.exit:                              ; preds = %42, %59
   %.0.i52 = phi ptr [ %44, %42 ], [ %64, %59 ]
   %65 = getelementptr inbounds nuw i8, ptr %.0.i52, i64 120
   %66 = load ptr, ptr %65, align 8, !tbaa !23
-  %67 = getelementptr inbounds nuw %struct.sec_bin_s, ptr %66, i64 %.0.i
+  %67 = getelementptr inbounds nuw [24 x i8], ptr %66, i64 %.0.i
   %68 = getelementptr inbounds nuw i8, ptr %.0.i52, i64 64
   %69 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %68) #9
   %.not.i = icmp eq i32 %69, 0
@@ -439,7 +427,7 @@ define internal void @sec_dalloc(ptr noundef %0, ptr noundef readonly captures(n
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %41 = load ptr, ptr %40, align 8, !tbaa !11
   %42 = zext i8 %39 to i64
-  %43 = getelementptr inbounds nuw %struct.sec_shard_s, ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw [144 x i8], ptr %41, i64 %42
   br label %sec_shard_pick.exit
 
 sec_shard_pick.exit:                              ; preds = %21, %38
@@ -508,7 +496,7 @@ sz_psz2ind.exit.i:                                ; preds = %64, %61
   %.0.i.i = phi i64 [ %79, %64 ], [ 199, %61 ]
   %80 = getelementptr inbounds nuw i8, ptr %.0.i, i64 120
   %81 = load ptr, ptr %80, align 8, !tbaa !23
-  %82 = getelementptr inbounds nuw %struct.sec_bin_s, ptr %81, i64 %.0.i.i
+  %82 = getelementptr inbounds nuw [24 x i8], ptr %81, i64 %.0.i.i
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 16
   %84 = getelementptr inbounds nuw i8, ptr %2, i64 40
   store ptr %2, ptr %84, align 8, !tbaa !47
@@ -602,7 +590,7 @@ define hidden void @je_sec_flush(ptr noundef %0, ptr noundef readonly captures(n
 10:                                               ; preds = %.lr.ph, %sec_flush_all_locked.exit
   %.013 = phi i64 [ 0, %.lr.ph ], [ %77, %sec_flush_all_locked.exit ]
   %11 = load ptr, ptr %7, align 8, !tbaa !11
-  %12 = getelementptr inbounds nuw %struct.sec_shard_s, ptr %11, i64 %.013
+  %12 = getelementptr inbounds nuw [144 x i8], ptr %11, i64 %.013
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %14 = call i32 @pthread_mutex_trylock(ptr noundef nonnull %13) #9
   %.not.i = icmp eq i32 %14, 0
@@ -634,7 +622,7 @@ define hidden void @je_sec_flush(ptr noundef %0, ptr noundef readonly captures(n
 
 malloc_mutex_lock.exit:                           ; preds = %17, %23
   %27 = load ptr, ptr %7, align 8, !tbaa !11
-  %28 = getelementptr inbounds nuw %struct.sec_shard_s, ptr %27, i64 %.013
+  %28 = getelementptr inbounds nuw [144 x i8], ptr %27, i64 %.013
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 128
   store i64 0, ptr %29, align 8, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -653,7 +641,7 @@ malloc_mutex_lock.exit:                           ; preds = %17, %23
   %34 = phi ptr [ null, %.lr.ph.i ], [ %66, %edata_list_active_concat.exit.i ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %edata_list_active_concat.exit.i ]
   %35 = load ptr, ptr %31, align 8, !tbaa !23
-  %36 = getelementptr inbounds nuw %struct.sec_bin_s, ptr %35, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw [24 x i8], ptr %35, i64 %indvars.iv.i
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store i64 0, ptr %37, align 8, !tbaa !59
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 16
@@ -722,7 +710,7 @@ sec_flush_all_locked.exit:                        ; preds = %edata_list_active_c
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %72 = load ptr, ptr %7, align 8, !tbaa !11
-  %73 = getelementptr inbounds nuw %struct.sec_shard_s, ptr %72, i64 %.013
+  %73 = getelementptr inbounds nuw [144 x i8], ptr %72, i64 %.013
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 104
   store atomic i8 0, ptr %74 monotonic, align 1
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 64
@@ -754,7 +742,7 @@ define hidden void @je_sec_disable(ptr noundef %0, ptr noundef readonly captures
 10:                                               ; preds = %.lr.ph, %sec_flush_all_locked.exit
   %.015 = phi i64 [ 0, %.lr.ph ], [ %78, %sec_flush_all_locked.exit ]
   %11 = load ptr, ptr %7, align 8, !tbaa !11
-  %12 = getelementptr inbounds nuw %struct.sec_shard_s, ptr %11, i64 %.015
+  %12 = getelementptr inbounds nuw [144 x i8], ptr %11, i64 %.015
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %14 = call i32 @pthread_mutex_trylock(ptr noundef nonnull %13) #9
   %.not.i = icmp eq i32 %14, 0
@@ -786,7 +774,7 @@ define hidden void @je_sec_disable(ptr noundef %0, ptr noundef readonly captures
 
 malloc_mutex_lock.exit:                           ; preds = %17, %23
   %27 = load ptr, ptr %7, align 8, !tbaa !11
-  %28 = getelementptr inbounds nuw %struct.sec_shard_s, ptr %27, i64 %.015
+  %28 = getelementptr inbounds nuw [144 x i8], ptr %27, i64 %.015
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 112
   store i8 0, ptr %29, align 8, !tbaa !18
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 128
@@ -807,7 +795,7 @@ malloc_mutex_lock.exit:                           ; preds = %17, %23
   %35 = phi ptr [ null, %.lr.ph.i ], [ %67, %edata_list_active_concat.exit.i ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %edata_list_active_concat.exit.i ]
   %36 = load ptr, ptr %32, align 8, !tbaa !23
-  %37 = getelementptr inbounds nuw %struct.sec_bin_s, ptr %36, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw [24 x i8], ptr %36, i64 %indvars.iv.i
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   store i64 0, ptr %38, align 8, !tbaa !59
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 16
@@ -876,7 +864,7 @@ sec_flush_all_locked.exit:                        ; preds = %edata_list_active_c
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %73 = load ptr, ptr %7, align 8, !tbaa !11
-  %74 = getelementptr inbounds nuw %struct.sec_shard_s, ptr %73, i64 %.015
+  %74 = getelementptr inbounds nuw [144 x i8], ptr %73, i64 %.015
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 104
   store atomic i8 0, ptr %75 monotonic, align 1
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 64
@@ -909,7 +897,7 @@ define hidden void @je_sec_stats_merge(ptr noundef %0, ptr noundef readonly capt
   %.015 = phi i64 [ 0, %.lr.ph ], [ %34, %malloc_mutex_lock.exit ]
   %.01314 = phi i64 [ 0, %.lr.ph ], [ %30, %malloc_mutex_lock.exit ]
   %10 = load ptr, ptr %6, align 8, !tbaa !11
-  %11 = getelementptr inbounds nuw %struct.sec_shard_s, ptr %10, i64 %.015
+  %11 = getelementptr inbounds nuw [144 x i8], ptr %10, i64 %.015
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 64
   %13 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %12) #9
   %.not.i = icmp eq i32 %13, 0
@@ -941,7 +929,7 @@ define hidden void @je_sec_stats_merge(ptr noundef %0, ptr noundef readonly capt
 
 malloc_mutex_lock.exit:                           ; preds = %16, %22
   %26 = load ptr, ptr %6, align 8, !tbaa !11
-  %27 = getelementptr inbounds nuw %struct.sec_shard_s, ptr %26, i64 %.015
+  %27 = getelementptr inbounds nuw [144 x i8], ptr %26, i64 %.015
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 128
   %29 = load i64, ptr %28, align 8, !tbaa !24
   %30 = add i64 %29, %.01314
@@ -979,7 +967,7 @@ define hidden void @je_sec_mutex_stats_read(ptr noundef %0, ptr noundef readonly
 14:                                               ; preds = %.lr.ph, %malloc_mutex_prof_accum.exit
   %.012 = phi i64 [ 0, %.lr.ph ], [ %64, %malloc_mutex_prof_accum.exit ]
   %15 = load ptr, ptr %6, align 8, !tbaa !11
-  %16 = getelementptr inbounds nuw %struct.sec_shard_s, ptr %15, i64 %.012
+  %16 = getelementptr inbounds nuw [144 x i8], ptr %15, i64 %.012
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 64
   %18 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %17) #9
   %.not.i = icmp eq i32 %18, 0
@@ -1011,7 +999,7 @@ define hidden void @je_sec_mutex_stats_read(ptr noundef %0, ptr noundef readonly
 
 malloc_mutex_lock.exit:                           ; preds = %21, %27
   %31 = load ptr, ptr %6, align 8, !tbaa !11
-  %32 = getelementptr inbounds nuw %struct.sec_shard_s, ptr %31, i64 %.012
+  %32 = getelementptr inbounds nuw [144 x i8], ptr %31, i64 %.012
   tail call void @je_nstime_add(ptr noundef %2, ptr noundef %32) #9
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = tail call i32 @je_nstime_compare(ptr noundef nonnull %33, ptr noundef nonnull %7) #9
@@ -1056,7 +1044,7 @@ malloc_mutex_prof_accum.exit:                     ; preds = %37, %50
   %58 = add i64 %57, %56
   store i64 %58, ptr %13, align 8, !tbaa !48
   %59 = load ptr, ptr %6, align 8, !tbaa !11
-  %60 = getelementptr inbounds nuw %struct.sec_shard_s, ptr %59, i64 %.012
+  %60 = getelementptr inbounds nuw [144 x i8], ptr %59, i64 %.012
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 104
   store atomic i8 0, ptr %61 monotonic, align 1
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 64
@@ -1084,7 +1072,7 @@ define hidden void @je_sec_prefork2(ptr noundef %0, ptr noundef readonly capture
 6:                                                ; preds = %.lr.ph, %6
   %.05 = phi i64 [ 0, %.lr.ph ], [ %9, %6 ]
   %7 = load ptr, ptr %5, align 8, !tbaa !11
-  %8 = getelementptr inbounds nuw %struct.sec_shard_s, ptr %7, i64 %.05
+  %8 = getelementptr inbounds nuw [144 x i8], ptr %7, i64 %.05
   tail call void @je_malloc_mutex_prefork(ptr noundef %0, ptr noundef %8) #9
   %9 = add nuw i64 %.05, 1
   %10 = load i64, ptr %3, align 8, !tbaa !44
@@ -1111,7 +1099,7 @@ define hidden void @je_sec_postfork_parent(ptr noundef %0, ptr noundef readonly 
 6:                                                ; preds = %.lr.ph, %6
   %.05 = phi i64 [ 0, %.lr.ph ], [ %9, %6 ]
   %7 = load ptr, ptr %5, align 8, !tbaa !11
-  %8 = getelementptr inbounds nuw %struct.sec_shard_s, ptr %7, i64 %.05
+  %8 = getelementptr inbounds nuw [144 x i8], ptr %7, i64 %.05
   tail call void @je_malloc_mutex_postfork_parent(ptr noundef %0, ptr noundef %8) #9
   %9 = add nuw i64 %.05, 1
   %10 = load i64, ptr %3, align 8, !tbaa !44
@@ -1138,7 +1126,7 @@ define hidden void @je_sec_postfork_child(ptr noundef %0, ptr noundef readonly c
 6:                                                ; preds = %.lr.ph, %6
   %.05 = phi i64 [ 0, %.lr.ph ], [ %9, %6 ]
   %7 = load ptr, ptr %5, align 8, !tbaa !11
-  %8 = getelementptr inbounds nuw %struct.sec_shard_s, ptr %7, i64 %.05
+  %8 = getelementptr inbounds nuw [144 x i8], ptr %7, i64 %.05
   tail call void @je_malloc_mutex_postfork_child(ptr noundef %0, ptr noundef %8) #9
   %9 = add nuw i64 %.05, 1
   %10 = load i64, ptr %3, align 8, !tbaa !44
@@ -1347,7 +1335,7 @@ define internal fastcc void @sec_flush_some_and_unlock(ptr noundef %0, ptr nound
   %17 = load ptr, ptr %11, align 8, !tbaa !23
   %18 = load i32, ptr %12, align 8, !tbaa !25
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw %struct.sec_bin_s, ptr %17, i64 %19
+  %20 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %19
   %21 = add i32 %18, 1
   %22 = load i32, ptr %13, align 8, !tbaa !37
   %23 = icmp eq i32 %21, %22

@@ -132,7 +132,7 @@ define ptr @av_iamf_param_definition_alloc(i32 noundef %0, i32 noundef %1, ptr n
 
 switch.lookup:                                    ; preds = %3
   %5 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.av_iamf_param_definition_alloc, i64 %5
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.av_iamf_param_definition_alloc, i64 %5
   %switch.load = load i64, ptr %switch.gep, align 8
   %6 = zext i32 %1 to i64
   %7 = mul nuw nsw i64 %switch.load, %6
@@ -291,7 +291,7 @@ define ptr @av_iamf_audio_element_add_layer(ptr noundef captures(none) %0) local
   %13 = load ptr, ptr %6, align 8, !tbaa !32
   %14 = load i32, ptr %2, align 8, !tbaa !31
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %13, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %15
   store ptr %12, ptr %16, align 8, !tbaa !33
   %.not17 = icmp eq ptr %12, null
   br i1 %.not17, label %20, label %17
@@ -343,7 +343,7 @@ define void @av_iamf_audio_element_free(ptr noundef %0) local_unnamed_addr #1 {
 12:                                               ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
   %13 = load ptr, ptr %5, align 8, !tbaa !32
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !33
   tail call void @av_opt_free(ptr noundef %15) #6
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 56
@@ -388,7 +388,7 @@ define ptr @av_iamf_submix_add_element(ptr noundef captures(none) %0) local_unna
   %13 = load ptr, ptr %6, align 8, !tbaa !49
   %14 = load i32, ptr %2, align 8, !tbaa !45
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %13, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %15
   store ptr %12, ptr %16, align 8, !tbaa !50
   %.not17 = icmp eq ptr %12, null
   br i1 %.not17, label %20, label %17
@@ -428,7 +428,7 @@ define ptr @av_iamf_submix_add_layout(ptr noundef captures(none) %0) local_unnam
   %13 = load ptr, ptr %6, align 8, !tbaa !56
   %14 = load i32, ptr %2, align 8, !tbaa !55
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %13, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %15
   store ptr %12, ptr %16, align 8, !tbaa !57
   %.not17 = icmp eq ptr %12, null
   br i1 %.not17, label %20, label %17
@@ -488,7 +488,7 @@ define ptr @av_iamf_mix_presentation_add_submix(ptr noundef captures(none) %0) l
   %13 = load ptr, ptr %6, align 8, !tbaa !65
   %14 = load i32, ptr %2, align 8, !tbaa !64
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %13, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %15
   store ptr %12, ptr %16, align 8, !tbaa !66
   %.not17 = icmp eq ptr %12, null
   br i1 %.not17, label %20, label %17
@@ -533,7 +533,7 @@ define void @av_iamf_mix_presentation_free(ptr noundef %0) local_unnamed_addr #1
 8:                                                ; preds = %.lr.ph37, %._crit_edge35
   %indvars.iv46 = phi i64 [ 0, %.lr.ph37 ], [ %indvars.iv.next47, %._crit_edge35 ]
   %9 = load ptr, ptr %5, align 8, !tbaa !65
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv46
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv46
   %11 = load ptr, ptr %10, align 8, !tbaa !66
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load i32, ptr %12, align 8, !tbaa !45
@@ -560,7 +560,7 @@ define void @av_iamf_mix_presentation_free(ptr noundef %0) local_unnamed_addr #1
 20:                                               ; preds = %.lr.ph, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
   %21 = load ptr, ptr %14, align 8, !tbaa !49
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8, !tbaa !50
   tail call void @av_opt_free(ptr noundef %23) #6
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
@@ -590,7 +590,7 @@ define void @av_iamf_mix_presentation_free(ptr noundef %0) local_unnamed_addr #1
 36:                                               ; preds = %.lr.ph34, %36
   %indvars.iv43 = phi i64 [ 0, %.lr.ph34 ], [ %indvars.iv.next44, %36 ]
   %37 = load ptr, ptr %19, align 8, !tbaa !56
-  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv43
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv43
   %39 = load ptr, ptr %38, align 8, !tbaa !57
   tail call void @av_opt_free(ptr noundef %39) #6
   tail call void @av_free(ptr noundef %39) #6
@@ -614,7 +614,7 @@ define internal noundef ptr @param_definition_child_iterate(ptr noundef captures
 
 switch.lookup:                                    ; preds = %1
   %4 = ptrtoint ptr %2 to i64
-  %switch.gep = getelementptr inbounds ptr, ptr @switch.table.param_definition_child_iterate, i64 %4
+  %switch.gep = getelementptr inbounds [8 x i8], ptr @switch.table.param_definition_child_iterate, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   %5 = add nuw nsw i64 %4, 1
   %6 = inttoptr i64 %5 to ptr
@@ -718,7 +718,7 @@ define internal noundef ptr @submix_presentation_child_iterate(ptr noundef captu
 
 switch.lookup:                                    ; preds = %1
   %4 = ptrtoint ptr %2 to i64
-  %switch.gep = getelementptr inbounds ptr, ptr @switch.table.submix_presentation_child_iterate, i64 %4
+  %switch.gep = getelementptr inbounds [8 x i8], ptr @switch.table.submix_presentation_child_iterate, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   %5 = add nuw nsw i64 %4, 1
   %6 = inttoptr i64 %5 to ptr

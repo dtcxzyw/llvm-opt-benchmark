@@ -8,8 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.SW_DrawStateCache = type { ptr, ptr, i8, %struct.SDL_Color }
 %struct.SDL_Color = type { i8, i8, i8, i8 }
 %struct.SDL_Point = type { i32, i32 }
-%struct.GeometryCopyData = type { %struct.SDL_Point, %struct.SDL_Point, %struct.SDL_Color }
-%struct.GeometryFillData = type { %struct.SDL_Point, %struct.SDL_Color }
 
 @.str = private unnamed_addr constant [26 x i8] c"Parameter '%s' is invalid\00", align 1
 @.str.1 = private unnamed_addr constant [8 x i8] c"surface\00", align 1
@@ -835,12 +833,12 @@ define internal noundef zeroext i1 @SW_QueueGeometry(ptr noundef %0, ptr noundef
   ]
 
 32:                                               ; preds = %30
-  %33 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   %34 = load i32, ptr %33, align 4
   br label %43
 
 35:                                               ; preds = %30
-  %36 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %indvars.iv
   %37 = load i16, ptr %36, align 2
   %38 = zext i16 %37 to i32
   br label %43
@@ -974,12 +972,12 @@ define internal noundef zeroext i1 @SW_QueueGeometry(ptr noundef %0, ptr noundef
   ]
 
 119:                                              ; preds = %.lr.ph148
-  %120 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv151
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv151
   %121 = load i32, ptr %120, align 4
   br label %130
 
 122:                                              ; preds = %.lr.ph148
-  %123 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv151
+  %123 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %indvars.iv151
   %124 = load i16, ptr %123, align 2
   %125 = zext i16 %124 to i32
   br label %130
@@ -1433,7 +1431,7 @@ SW_ActivateRenderer.exit:                         ; preds = %4, %31, %..thread_c
 212:                                              ; preds = %.lr.ph363, %212
   %indvars.iv390 = phi i64 [ 0, %.lr.ph363 ], [ %indvars.iv.next391, %212 ]
   %213 = load i32, ptr %203, align 4
-  %214 = getelementptr inbounds nuw %struct.SDL_Point, ptr %200, i64 %indvars.iv390
+  %214 = getelementptr inbounds nuw [8 x i8], ptr %200, i64 %indvars.iv390
   %215 = load i32, ptr %214, align 4
   %216 = add nsw i32 %215, %213
   store i32 %216, ptr %214, align 4
@@ -1502,7 +1500,7 @@ SW_ActivateRenderer.exit:                         ; preds = %4, %31, %..thread_c
 249:                                              ; preds = %.lr.ph360, %249
   %indvars.iv384 = phi i64 [ 0, %.lr.ph360 ], [ %indvars.iv.next385, %249 ]
   %250 = load i32, ptr %240, align 4
-  %251 = getelementptr inbounds nuw %struct.SDL_Point, ptr %237, i64 %indvars.iv384
+  %251 = getelementptr inbounds nuw [8 x i8], ptr %237, i64 %indvars.iv384
   %252 = load i32, ptr %251, align 4
   %253 = add nsw i32 %252, %250
   store i32 %253, ptr %251, align 4
@@ -1571,7 +1569,7 @@ SW_ActivateRenderer.exit:                         ; preds = %4, %31, %..thread_c
 286:                                              ; preds = %.lr.ph357, %286
   %indvars.iv379 = phi i64 [ 0, %.lr.ph357 ], [ %indvars.iv.next380, %286 ]
   %287 = load i32, ptr %277, align 4
-  %288 = getelementptr inbounds nuw %struct.SDL_Rect, ptr %274, i64 %indvars.iv379
+  %288 = getelementptr inbounds nuw [16 x i8], ptr %274, i64 %indvars.iv379
   %289 = load i32, ptr %288, align 4
   %290 = add nsw i32 %289, %287
   store i32 %290, ptr %288, align 4
@@ -1952,7 +1950,7 @@ PrepTextureForCopy.exit330:                       ; preds = %switch.edge.i328, %
 
 switch.lookup:                                    ; preds = %497
   %501 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.SW_RunCommandQueue, i64 %501
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.SW_RunCommandQueue, i64 %501
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.thread.i
 
@@ -2468,7 +2466,7 @@ PrepTextureForCopy.exit335:                       ; preds = %switch.edge.i333, %
 
 754:                                              ; preds = %.lr.ph, %754
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %754 ]
-  %755 = getelementptr inbounds nuw %struct.GeometryCopyData, ptr %722, i64 %indvars.iv
+  %755 = getelementptr inbounds nuw [20 x i8], ptr %722, i64 %indvars.iv
   %756 = getelementptr inbounds nuw i8, ptr %755, i64 8
   %757 = load i32, ptr %756, align 4
   %758 = add nsw i32 %757, %752
@@ -2546,7 +2544,7 @@ PrepTextureForCopy.exit335:                       ; preds = %switch.edge.i333, %
 
 793:                                              ; preds = %.lr.ph349, %793
   %indvars.iv374 = phi i64 [ 0, %.lr.ph349 ], [ %indvars.iv.next375, %793 ]
-  %794 = getelementptr inbounds nuw %struct.GeometryFillData, ptr %722, i64 %indvars.iv374
+  %794 = getelementptr inbounds nuw [12 x i8], ptr %722, i64 %indvars.iv374
   %795 = load i32, ptr %794, align 4
   %796 = add nsw i32 %795, %791
   store i32 %796, ptr %794, align 4

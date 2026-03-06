@@ -604,7 +604,7 @@ define hidden void @_Z26pyRaiseCVOverloadExceptionRKNSt7__cxx1112basic_stringIcS
 31:                                               ; preds = %.lr.ph, %31
   %.01898 = phi i64 [ 0, %.lr.ph ], [ %36, %31 ]
   %.01997 = phi i64 [ %22, %.lr.ph ], [ %35, %31 ]
-  %32 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %14, i64 %.01898
+  %32 = getelementptr inbounds nuw [32 x i8], ptr %14, i64 %.01898
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load i64, ptr %33, align 8, !tbaa !38
   %35 = add i64 %34, %.01997
@@ -655,7 +655,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i: ; pre
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i
   %49 = load ptr, ptr %11, align 8, !tbaa !59
-  %50 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %49, i64 %.099
+  %50 = getelementptr inbounds nuw [32 x i8], ptr %49, i64 %.099
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load i64, ptr %51, align 8, !tbaa !38
   %53 = load i64, ptr %26, align 8, !tbaa !38
@@ -1994,7 +1994,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8, !tbaa !59
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !56
-  %70 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %70 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %70, ptr %69, align 8, !tbaa !73
   ret void
 }

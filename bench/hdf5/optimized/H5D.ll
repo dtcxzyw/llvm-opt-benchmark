@@ -2596,7 +2596,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__read_api_common(i64 noundef %0
 
 .lr.ph:                                           ; preds = %.cont80, %71
   %.054100 = phi i64 [ %72, %71 ], [ 1, %.cont80 ]
-  %73 = getelementptr inbounds nuw i64, ptr %1, i64 %.054100
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.054100
   %74 = load i64, ptr %73, align 8, !tbaa !11
   %75 = tail call ptr @H5VL_vol_object_verify(i64 noundef %74, i32 noundef 5) #7
   %76 = icmp eq ptr %75, null
@@ -2610,7 +2610,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__read_api_common(i64 noundef %0
 
 81:                                               ; preds = %.lr.ph
   %82 = tail call ptr @H5VL_obj_get_data(ptr noundef nonnull %75) #7
-  %83 = getelementptr inbounds nuw ptr, ptr %.157, i64 %.054100
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %.157, i64 %.054100
   store ptr %82, ptr %83, align 8, !tbaa !19
   %84 = tail call ptr @H5VL_obj_get_connector(ptr noundef nonnull %75) #7
   %85 = tail call i32 @H5VL_conn_same_class(ptr noundef %84, ptr noundef %68) #7
@@ -3418,7 +3418,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__write_api_common(i64 noundef %
 
 .lr.ph:                                           ; preds = %.cont80, %71
   %.054100 = phi i64 [ %72, %71 ], [ 1, %.cont80 ]
-  %73 = getelementptr inbounds nuw i64, ptr %1, i64 %.054100
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.054100
   %74 = load i64, ptr %73, align 8, !tbaa !11
   %75 = tail call ptr @H5I_object_verify(i64 noundef %74, i32 noundef 5) #7
   %76 = icmp eq ptr %75, null
@@ -3432,7 +3432,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5D__write_api_common(i64 noundef %
 
 81:                                               ; preds = %.lr.ph
   %82 = tail call ptr @H5VL_obj_get_data(ptr noundef nonnull %75) #7
-  %83 = getelementptr inbounds nuw ptr, ptr %.157, i64 %.054100
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %.157, i64 %.054100
   store ptr %82, ptr %83, align 8, !tbaa !19
   %84 = tail call ptr @H5VL_obj_get_connector(ptr noundef nonnull %75) #7
   %85 = tail call i32 @H5VL_conn_same_class(ptr noundef %84, ptr noundef %68) #7

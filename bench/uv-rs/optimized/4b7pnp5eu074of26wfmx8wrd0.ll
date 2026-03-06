@@ -2407,7 +2407,7 @@ _ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit:
   %35 = load ptr, ptr %34, align 8, !nonnull !3, !noundef !3
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %37 = load i64, ptr %36, align 8, !noundef !3
-  %38 = getelementptr inbounds { { { { i64, ptr, {} }, {} }, i64 } }, ptr %35, i64 %37
+  %38 = getelementptr inbounds [24 x i8], ptr %35, i64 %37
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.sroa.5.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 16
   %.sroa.6.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 24
@@ -2535,7 +2535,7 @@ default.unreachable:                              ; preds = %55, %78, %84
   %64 = load ptr, ptr %63, align 8, !nonnull !3, !noundef !3
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %66 = load i64, ptr %65, align 8, !noundef !3
-  %67 = getelementptr inbounds { { { { i64, ptr, {} }, {} }, i64 } }, ptr %64, i64 %66
+  %67 = getelementptr inbounds [24 x i8], ptr %64, i64 %66
   %.sroa.4.0..sroa_idx.i.i.i.i69 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.sroa.5.0..sroa_idx.i.i.i.i70 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %.sroa.6.0..sroa_idx.i.i.i.i71 = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -2881,7 +2881,7 @@ _ZN4core3fmt9Formatter9write_fmt17hc4181fa35d421f58E.exit:
   %36 = load ptr, ptr %35, align 8, !nonnull !3, !noundef !3
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %38 = load i64, ptr %37, align 8, !noundef !3
-  %39 = getelementptr inbounds { { { { i64, ptr, {} }, {} }, i64 } }, ptr %36, i64 %38
+  %39 = getelementptr inbounds [24 x i8], ptr %36, i64 %38
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.sroa.5.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 16
   %.sroa.6.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 24
@@ -3009,7 +3009,7 @@ default.unreachable:                              ; preds = %56, %79, %85
   %65 = load ptr, ptr %64, align 8, !nonnull !3, !noundef !3
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %67 = load i64, ptr %66, align 8, !noundef !3
-  %68 = getelementptr inbounds { { { { i64, ptr, {} }, {} }, i64 } }, ptr %65, i64 %67
+  %68 = getelementptr inbounds [24 x i8], ptr %65, i64 %67
   %.sroa.4.0..sroa_idx.i.i.i.i66 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.sroa.5.0..sroa_idx.i.i.i.i67 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %.sroa.6.0..sroa_idx.i.i.i.i68 = getelementptr inbounds nuw i8, ptr %10, i64 24
@@ -3318,7 +3318,7 @@ define void @_ZN17uv_build_frontend5error5Error19from_command_output17hacfa8b613
   %32 = load ptr, ptr %31, align 8, !nonnull !3, !noundef !3
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %34 = load i64, ptr %33, align 8, !noundef !3
-  %35 = getelementptr inbounds { { { { i64, ptr, {} }, {} }, i64 } }, ptr %32, i64 %34
+  %35 = getelementptr inbounds [24 x i8], ptr %32, i64 %34
   store ptr %32, ptr %29, align 8
   %36 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr %35, ptr %36, align 8

@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::nothrow_t" = type { i8 }
 %"class.std::_Temporary_buffer" = type { i64, i64, ptr }
 %"class.llvm::ArrayRef.0" = type { ptr, i64 }
-%"struct.clang::index::SymbolRelation" = type { i32, ptr }
 %"class.clang::PresumedLoc" = type { ptr, %"class.clang::FileID", i32, i32, %"class.clang::SourceLocation" }
 %"class.clang::FileID" = type { i32 }
 %"class.clang::SourceLocation" = type { i32 }
@@ -198,7 +197,7 @@ _ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEE7reserveEm.exit.i.i.i.i
 29:                                               ; preds = %_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEE7reserveEm.exit.i.i.i.i.i.i, %_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEE7reserveEm.exit.i.thread.i.i.i.i.i
   %30 = phi ptr [ %.pre.i.i.i.i, %_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEE7reserveEm.exit.i.thread.i.i.i.i.i ], [ %24, %_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEE7reserveEm.exit.i.i.i.i.i.i ]
   %.pre8.i5.i.i.i.i.i = phi i64 [ %28, %_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEE7reserveEm.exit.i.thread.i.i.i.i.i ], [ 0, %_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEE7reserveEm.exit.i.i.i.i.i.i ]
-  %31 = getelementptr inbounds nuw %"struct.clang::index::SymbolRelation", ptr %30, i64 %.pre8.i5.i.i.i.i.i
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %.pre8.i5.i.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %31, ptr align 8 %4, i64 %.idx.i.i.i.i.i, i1 false)
   %.pre.i.i.i.i.i.i = load i32, ptr %25, align 8, !tbaa !50
   br label %_ZNSt16allocator_traitsISaIN5clang5index14DeclOccurrenceEEE9constructIS2_JRjS6_RPKNS0_4DeclERN4llvm8ArrayRefINS1_14SymbolRelationEEEEEEvRS3_PT_DpOT0_.exit.i
@@ -1060,7 +1059,7 @@ common.ret25:                                     ; preds = %7, %common.ret
 7:                                                ; preds = %2
   %8 = udiv exact i64 %5, 88
   %9 = lshr i64 %8, 1
-  %10 = getelementptr inbounds nuw %"struct.clang::index::DeclOccurrence", ptr %0, i64 %9
+  %10 = getelementptr inbounds nuw [88 x i8], ptr %0, i64 %9
   tail call fastcc void @"_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEEvT_SF_T0_"(ptr %0, ptr %10)
   tail call fastcc void @"_ZSt21__inplace_stable_sortIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEEvT_SF_T0_"(ptr %10, ptr %1)
   %11 = ptrtoint ptr %10 to i64
@@ -1078,7 +1077,7 @@ define internal fastcc void @"_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal
   %8 = sdiv exact i64 %7, 88
   %9 = add nsw i64 %8, 1
   %10 = sdiv i64 %9, 2
-  %11 = getelementptr inbounds %"struct.clang::index::DeclOccurrence", ptr %0, i64 %10
+  %11 = getelementptr inbounds [88 x i8], ptr %0, i64 %10
   %12 = icmp sgt i64 %10, %3
   br i1 %12, label %13, label %14
 
@@ -1200,7 +1199,7 @@ _ZSt4moveIPN5clang5index14SymbolRelationES3_ET0_T_S5_S4_.exit35: ; preds = %37, 
   %.idx40 = shl nuw nsw i64 %.026, 4
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx40
   %44 = load ptr, ptr %0, align 8, !tbaa !23
-  %45 = getelementptr inbounds nuw %"struct.clang::index::SymbolRelation", ptr %44, i64 %.026
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %44, i64 %.026
   %46 = sub nsw i64 %40, %.026
   %gepdiff = shl nsw i64 %46, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %45, ptr align 8 %43, i64 %gepdiff, i1 false)
@@ -1390,7 +1389,7 @@ _ZSt4moveIPN5clang5index14SymbolRelationES3_ET0_T_S5_S4_.exit35.i: ; preds = %73
   %.idx40.i = shl nuw nsw i64 %.026.i, 4
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 %.idx40.i
   %80 = load ptr, ptr %39, align 8, !tbaa !23
-  %81 = getelementptr inbounds nuw %"struct.clang::index::SymbolRelation", ptr %80, i64 %.026.i
+  %81 = getelementptr inbounds nuw [16 x i8], ptr %80, i64 %.026.i
   %82 = sub nsw i64 %76, %.026.i
   %gepdiff.i = shl nsw i64 %82, 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %81, ptr align 8 %79, i64 %gepdiff.i, i1 false)
@@ -1490,7 +1489,7 @@ _ZSt4moveIPN5clang5index14SymbolRelationES3_ET0_T_S5_S4_.exit35.i18: ; preds = %
   %.idx40.i21 = shl nuw nsw i64 %.026.i19, 4
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 %.idx40.i21
   %115 = load ptr, ptr %17, align 8, !tbaa !23
-  %116 = getelementptr inbounds nuw %"struct.clang::index::SymbolRelation", ptr %115, i64 %.026.i19
+  %116 = getelementptr inbounds nuw [16 x i8], ptr %115, i64 %.026.i19
   %117 = sub nsw i64 %111, %.026.i19
   %gepdiff.i22 = shl nsw i64 %117, 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %116, ptr align 8 %114, i64 %gepdiff.i22, i1 false)
@@ -1636,7 +1635,7 @@ _ZSt4moveIPN5clang5index14SymbolRelationES3_ET0_T_S5_S4_.exit35.i33: ; preds = %
   %.idx40.i36 = shl nuw nsw i64 %.026.i34, 4
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 %.idx40.i36
   %169 = load ptr, ptr %128, align 8, !tbaa !23
-  %170 = getelementptr inbounds nuw %"struct.clang::index::SymbolRelation", ptr %169, i64 %.026.i34
+  %170 = getelementptr inbounds nuw [16 x i8], ptr %169, i64 %.026.i34
   %171 = sub nsw i64 %165, %.026.i34
   %gepdiff.i37 = shl nsw i64 %171, 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %170, ptr align 8 %168, i64 %gepdiff.i37, i1 false)
@@ -1747,7 +1746,7 @@ _ZSt4moveIPN5clang5index14SymbolRelationES3_ET0_T_S5_S4_.exit35.i.i: ; preds = %
   %.idx40.i.i = shl nuw nsw i64 %.026.i.i, 4
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 %.idx40.i.i
   %211 = load ptr, ptr %174, align 8, !tbaa !23
-  %212 = getelementptr inbounds nuw %"struct.clang::index::SymbolRelation", ptr %211, i64 %.026.i.i
+  %212 = getelementptr inbounds nuw [16 x i8], ptr %211, i64 %.026.i.i
   %213 = sub nsw i64 %207, %.026.i.i
   %gepdiff.i.i = shl nsw i64 %213, 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %212, ptr align 8 %210, i64 %gepdiff.i.i, i1 false)
@@ -1823,7 +1822,7 @@ define internal fastcc void @"_ZSt22__merge_without_bufferIN9__gnu_cxx17__normal
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit: ; preds = %17
   %20 = sdiv i64 %.tr7381, 2
-  %21 = getelementptr inbounds %"struct.clang::index::DeclOccurrence", ptr %.tr78, i64 %20
+  %21 = getelementptr inbounds [88 x i8], ptr %.tr78, i64 %20
   %22 = getelementptr i8, ptr %21, i64 4
   %.val = load i32, ptr %22, align 4
   %23 = sub i64 %8, %19
@@ -1838,7 +1837,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6ve
   %.04.i = phi i64 [ %.1.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i ], [ %25, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.preheader.i ]
   %.sroa.02.03.i = phi ptr [ %.sroa.02.1.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i ], [ %.tr7179, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.preheader.i ]
   %26 = lshr i64 %.04.i, 1
-  %27 = getelementptr inbounds nuw %"struct.clang::index::DeclOccurrence", ptr %.sroa.02.03.i, i64 %26
+  %27 = getelementptr inbounds nuw [88 x i8], ptr %.sroa.02.03.i, i64 %26
   %28 = getelementptr i8, ptr %27, i64 4
   %.val.i.i = load i32, ptr %28, align 4, !tbaa !47
   %29 = icmp ult i32 %.val.i.i, %.val
@@ -1863,7 +1862,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6ve
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit54: ; preds = %17
   %36 = sdiv i64 %.tr7482, 2
-  %37 = getelementptr inbounds %"struct.clang::index::DeclOccurrence", ptr %.tr7179, i64 %36
+  %37 = getelementptr inbounds [88 x i8], ptr %.tr7179, i64 %36
   %38 = getelementptr i8, ptr %37, i64 4
   %.val50 = load i32, ptr %38, align 4
   %39 = ptrtoint ptr %.tr78 to i64
@@ -1879,7 +1878,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6ve
   %.04.i58 = phi i64 [ %.1.i63, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i57 ], [ %42, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.preheader.i56 ]
   %.sroa.02.03.i59 = phi ptr [ %.sroa.02.1.i62, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i57 ], [ %.tr78, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.preheader.i56 ]
   %43 = lshr i64 %.04.i58, 1
-  %44 = getelementptr inbounds nuw %"struct.clang::index::DeclOccurrence", ptr %.sroa.02.03.i59, i64 %43
+  %44 = getelementptr inbounds nuw [88 x i8], ptr %.sroa.02.03.i59, i64 %43
   %45 = getelementptr i8, ptr %44, i64 4
   %.val2.i.i = load i32, ptr %45, align 4, !tbaa !47
   %46 = icmp ult i32 %.val50, %.val2.i.i
@@ -2037,7 +2036,7 @@ _ZSt4moveIPN5clang5index14SymbolRelationES3_ET0_T_S5_S4_.exit35.i: ; preds = %46
   %.idx40.i = shl nuw nsw i64 %.026.i, 4
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 %.idx40.i
   %53 = load ptr, ptr %14, align 8, !tbaa !23
-  %54 = getelementptr inbounds nuw %"struct.clang::index::SymbolRelation", ptr %53, i64 %.026.i
+  %54 = getelementptr inbounds nuw [16 x i8], ptr %53, i64 %.026.i
   %55 = sub nsw i64 %49, %.026.i
   %gepdiff.i = shl nsw i64 %55, 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %54, ptr align 8 %52, i64 %gepdiff.i, i1 false)
@@ -2123,7 +2122,7 @@ define linkonce_odr ptr @_ZNSt3_V28__rotateIN9__gnu_cxx17__normal_iteratorIPN5cl
   br i1 %36, label %.lr.ph102.preheader, label %._crit_edge103
 
 .lr.ph102.preheader:                              ; preds = %35
-  %37 = getelementptr inbounds %"struct.clang::index::DeclOccurrence", ptr %.sroa.061.0, i64 %.0
+  %37 = getelementptr inbounds [88 x i8], ptr %.sroa.061.0, i64 %.0
   br label %.lr.ph102
 
 ._crit_edge103:                                   ; preds = %_ZSt4swapIN5clang5index14DeclOccurrenceEENSt9enable_ifIXsr6__and_ISt6__not_ISt15__is_tuple_likeIT_EESt21is_move_constructibleIS6_ESt18is_move_assignableIS6_EEE5valueEvE4typeERS6_SF_.exit, %35
@@ -2248,7 +2247,7 @@ _ZSt4moveIPN5clang5index14SymbolRelationES3_ET0_T_S5_S4_.exit35.i: ; preds = %78
   %.idx40.i = shl nuw nsw i64 %.026.i, 4
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 %.idx40.i
   %85 = load ptr, ptr %44, align 8, !tbaa !23
-  %86 = getelementptr inbounds nuw %"struct.clang::index::SymbolRelation", ptr %85, i64 %.026.i
+  %86 = getelementptr inbounds nuw [16 x i8], ptr %85, i64 %.026.i
   %87 = sub nsw i64 %81, %.026.i
   %gepdiff.i = shl nsw i64 %87, 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %86, ptr align 8 %84, i64 %gepdiff.i, i1 false)
@@ -2350,7 +2349,7 @@ _ZSt4moveIPN5clang5index14SymbolRelationES3_ET0_T_S5_S4_.exit35.i.i: ; preds = %
   %.idx40.i.i = shl nuw nsw i64 %.026.i.i, 4
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 %.idx40.i.i
   %124 = load ptr, ptr %45, align 8, !tbaa !23
-  %125 = getelementptr inbounds nuw %"struct.clang::index::SymbolRelation", ptr %124, i64 %.026.i.i
+  %125 = getelementptr inbounds nuw [16 x i8], ptr %124, i64 %.026.i.i
   %126 = sub nsw i64 %120, %.026.i.i
   %gepdiff.i.i = shl nsw i64 %126, 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %125, ptr align 8 %123, i64 %gepdiff.i.i, i1 false)
@@ -2387,9 +2386,9 @@ _ZSt4swapIN5clang5index14DeclOccurrenceEENSt9enable_ifIXsr6__and_ISt6__not_ISt15
   br label %.backedge
 
 135:                                              ; preds = %32
-  %136 = getelementptr inbounds %"struct.clang::index::DeclOccurrence", ptr %.sroa.061.0, i64 %.091
+  %136 = getelementptr inbounds [88 x i8], ptr %.sroa.061.0, i64 %.091
   %137 = sub i64 0, %33
-  %138 = getelementptr inbounds %"struct.clang::index::DeclOccurrence", ptr %136, i64 %137
+  %138 = getelementptr inbounds [88 x i8], ptr %136, i64 %137
   %139 = icmp sgt i64 %.0, 0
   br i1 %139, label %.lr.ph, label %._crit_edge
 
@@ -2523,7 +2522,7 @@ _ZSt4moveIPN5clang5index14SymbolRelationES3_ET0_T_S5_S4_.exit35.i52: ; preds = %
   %.idx40.i55 = shl nuw nsw i64 %.026.i53, 4
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 %.idx40.i55
   %189 = load ptr, ptr %148, align 8, !tbaa !23
-  %190 = getelementptr inbounds nuw %"struct.clang::index::SymbolRelation", ptr %189, i64 %.026.i53
+  %190 = getelementptr inbounds nuw [16 x i8], ptr %189, i64 %.026.i53
   %191 = sub nsw i64 %185, %.026.i53
   %gepdiff.i56 = shl nsw i64 %191, 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %190, ptr align 8 %188, i64 %gepdiff.i56, i1 false)
@@ -2625,7 +2624,7 @@ _ZSt4moveIPN5clang5index14SymbolRelationES3_ET0_T_S5_S4_.exit35.i.i36: ; preds =
   %.idx40.i.i39 = shl nuw nsw i64 %.026.i.i37, 4
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 %.idx40.i.i39
   %228 = load ptr, ptr %149, align 8, !tbaa !23
-  %229 = getelementptr inbounds nuw %"struct.clang::index::SymbolRelation", ptr %228, i64 %.026.i.i37
+  %229 = getelementptr inbounds nuw [16 x i8], ptr %228, i64 %.026.i.i37
   %230 = sub nsw i64 %224, %.026.i.i37
   %gepdiff.i.i40 = shl nsw i64 %230, 4
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %229, ptr align 8 %227, i64 %gepdiff.i.i40, i1 false)
@@ -2821,7 +2820,7 @@ _ZSt4moveIPN5clang5index14SymbolRelationES3_ET0_T_S5_S4_.exit35.i77: ; preds = %
   %.idx40.i80 = shl nuw nsw i64 %.026.i78, 4
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 %.idx40.i80
   %68 = load ptr, ptr %24, align 8, !tbaa !23
-  %69 = getelementptr inbounds nuw %"struct.clang::index::SymbolRelation", ptr %68, i64 %.026.i78
+  %69 = getelementptr inbounds nuw [16 x i8], ptr %68, i64 %.026.i78
   %70 = sub nsw i64 %64, %.026.i78
   %gepdiff.i81 = shl nsw i64 %70, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %69, ptr align 8 %67, i64 %gepdiff.i81, i1 false)
@@ -2934,7 +2933,7 @@ _ZSt4moveIPN5clang5index14SymbolRelationES3_ET0_T_S5_S4_.exit35.i62: ; preds = %
   %.idx40.i65 = shl nuw nsw i64 %.026.i63, 4
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 %.idx40.i65
   %115 = load ptr, ptr %24, align 8, !tbaa !23
-  %116 = getelementptr inbounds nuw %"struct.clang::index::SymbolRelation", ptr %115, i64 %.026.i63
+  %116 = getelementptr inbounds nuw [16 x i8], ptr %115, i64 %.026.i63
   %117 = sub nsw i64 %111, %.026.i63
   %gepdiff.i66 = shl nsw i64 %117, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %116, ptr align 8 %114, i64 %gepdiff.i66, i1 false)
@@ -3071,7 +3070,7 @@ _ZSt4moveIPN5clang5index14SymbolRelationES3_ET0_T_S5_S4_.exit35.i47: ; preds = %
   %.idx40.i50 = shl nuw nsw i64 %.026.i48, 4
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 %.idx40.i50
   %171 = load ptr, ptr %128, align 8, !tbaa !23
-  %172 = getelementptr inbounds nuw %"struct.clang::index::SymbolRelation", ptr %171, i64 %.026.i48
+  %172 = getelementptr inbounds nuw [16 x i8], ptr %171, i64 %.026.i48
   %173 = sub nsw i64 %167, %.026.i48
   %gepdiff.i51 = shl nsw i64 %173, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %172, ptr align 8 %170, i64 %gepdiff.i51, i1 false)
@@ -3203,7 +3202,7 @@ _ZSt4moveIPN5clang5index14SymbolRelationES3_ET0_T_S5_S4_.exit35.i: ; preds = %21
   %.idx40.i = shl nuw nsw i64 %.026.i, 4
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 %.idx40.i
   %226 = load ptr, ptr %183, align 8, !tbaa !23
-  %227 = getelementptr inbounds nuw %"struct.clang::index::SymbolRelation", ptr %226, i64 %.026.i
+  %227 = getelementptr inbounds nuw [16 x i8], ptr %226, i64 %.026.i
   %228 = sub nsw i64 %222, %.026.i
   %gepdiff.i = shl nsw i64 %228, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %227, ptr align 8 %225, i64 %gepdiff.i, i1 false)
@@ -3233,7 +3232,7 @@ _ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEEaSEOS4_.exit: ; preds =
   %.0.lcssa.i = phi ptr [ %2, %17 ], [ %.08.lcssa.i.i.i.i.i9.i, %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES5_NS0_5__ops15_Iter_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET0_T_SG_SG_SG_SF_T1_.exit" ]
   %.lcssa.i = phi i64 [ %7, %17 ], [ %234, %"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES5_NS0_5__ops15_Iter_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET0_T_SG_SG_SG_SF_T1_.exit" ]
   %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %.0159, i64 %.lcssa.i)
-  %235 = getelementptr inbounds %"struct.clang::index::DeclOccurrence", ptr %.sroa.023.0.lcssa.i, i64 %.sroa.speculated.i
+  %235 = getelementptr inbounds [88 x i8], ptr %.sroa.023.0.lcssa.i, i64 %.sroa.speculated.i
   tail call fastcc void @"_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES5_NS0_5__ops15_Iter_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET0_T_SG_SG_SG_SF_T1_"(ptr %.sroa.023.0.lcssa.i, ptr %235, ptr %235, ptr %1, ptr noundef %.0.lcssa.i)
   %236 = shl nsw i64 %.0159, 2
   %.not29.i = icmp slt i64 %16, %236
@@ -3361,7 +3360,7 @@ _ZSt4moveIPN5clang5index14SymbolRelationES3_ET0_T_S5_S4_.exit35.i137: ; preds = 
   %.idx40.i140 = shl nuw nsw i64 %.026.i138, 4
   %285 = getelementptr inbounds nuw i8, ptr %284, i64 %.idx40.i140
   %286 = load ptr, ptr %242, align 8, !tbaa !23
-  %287 = getelementptr inbounds nuw %"struct.clang::index::SymbolRelation", ptr %286, i64 %.026.i138
+  %287 = getelementptr inbounds nuw [16 x i8], ptr %286, i64 %.026.i138
   %288 = sub nsw i64 %282, %.026.i138
   %gepdiff.i141 = shl nsw i64 %288, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %287, ptr align 8 %285, i64 %gepdiff.i141, i1 false)
@@ -3474,7 +3473,7 @@ _ZSt4moveIPN5clang5index14SymbolRelationES3_ET0_T_S5_S4_.exit35.i122: ; preds = 
   %.idx40.i125 = shl nuw nsw i64 %.026.i123, 4
   %332 = getelementptr inbounds nuw i8, ptr %331, i64 %.idx40.i125
   %333 = load ptr, ptr %242, align 8, !tbaa !23
-  %334 = getelementptr inbounds nuw %"struct.clang::index::SymbolRelation", ptr %333, i64 %.026.i123
+  %334 = getelementptr inbounds nuw [16 x i8], ptr %333, i64 %.026.i123
   %335 = sub nsw i64 %329, %.026.i123
   %gepdiff.i126 = shl nsw i64 %335, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %334, ptr align 8 %332, i64 %gepdiff.i126, i1 false)
@@ -3611,7 +3610,7 @@ _ZSt4moveIPN5clang5index14SymbolRelationES3_ET0_T_S5_S4_.exit35.i107: ; preds = 
   %.idx40.i110 = shl nuw nsw i64 %.026.i108, 4
   %389 = getelementptr inbounds nuw i8, ptr %388, i64 %.idx40.i110
   %390 = load ptr, ptr %347, align 8, !tbaa !23
-  %391 = getelementptr inbounds nuw %"struct.clang::index::SymbolRelation", ptr %390, i64 %.026.i108
+  %391 = getelementptr inbounds nuw [16 x i8], ptr %390, i64 %.026.i108
   %392 = sub nsw i64 %386, %.026.i108
   %gepdiff.i111 = shl nsw i64 %392, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %391, ptr align 8 %389, i64 %gepdiff.i111, i1 false)
@@ -3747,7 +3746,7 @@ _ZSt4moveIPN5clang5index14SymbolRelationES3_ET0_T_S5_S4_.exit35.i92: ; preds = %
   %.idx40.i95 = shl nuw nsw i64 %.026.i93, 4
   %448 = getelementptr inbounds nuw i8, ptr %447, i64 %.idx40.i95
   %449 = load ptr, ptr %406, align 8, !tbaa !23
-  %450 = getelementptr inbounds nuw %"struct.clang::index::SymbolRelation", ptr %449, i64 %.026.i93
+  %450 = getelementptr inbounds nuw [16 x i8], ptr %449, i64 %.026.i93
   %451 = sub nsw i64 %445, %.026.i93
   %gepdiff.i96 = shl nsw i64 %451, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %450, ptr align 8 %448, i64 %gepdiff.i96, i1 false)
@@ -3783,7 +3782,7 @@ _ZSt4moveIPN5clang5index14DeclOccurrenceEN9__gnu_cxx17__normal_iteratorIS3_St6ve
   %.sroa.022.0.lcssa.i = phi ptr [ %0, %"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES5_lNS0_5__ops15_Iter_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEEvT_SF_T0_T1_T2_.exit" ], [ %458, %"_ZSt12__move_mergeIPN5clang5index14DeclOccurrenceEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEENS4_5__ops15_Iter_comp_iterIZNKS1_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET0_T_SG_SG_SG_SF_T1_.exit" ]
   %.lcssa.i25 = phi i64 [ %16, %"_ZSt17__merge_sort_loopIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEES5_lNS0_5__ops15_Iter_comp_iterIZNKS3_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEEvT_SF_T0_T1_T2_.exit" ], [ %460, %"_ZSt12__move_mergeIPN5clang5index14DeclOccurrenceEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEENS4_5__ops15_Iter_comp_iterIZNKS1_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET0_T_SG_SG_SG_SF_T1_.exit" ]
   %.sroa.speculated.i26 = tail call i64 @llvm.smin.i64(i64 %18, i64 %.lcssa.i25)
-  %461 = getelementptr inbounds %"struct.clang::index::DeclOccurrence", ptr %.0.lcssa.i24, i64 %.sroa.speculated.i26
+  %461 = getelementptr inbounds [88 x i8], ptr %.0.lcssa.i24, i64 %.sroa.speculated.i26
   tail call fastcc void @"_ZSt12__move_mergeIPN5clang5index14DeclOccurrenceEN9__gnu_cxx17__normal_iteratorIS3_St6vectorIS2_SaIS2_EEEENS4_5__ops15_Iter_comp_iterIZNKS1_15FileIndexRecord32getDeclOccurrencesSortedByOffsetEvE3$_0EEET0_T_SG_SG_SG_SF_T1_"(ptr noundef %.0.lcssa.i24, ptr noundef %461, ptr noundef %461, ptr noundef nonnull %8, ptr %.sroa.022.0.lcssa.i)
   %462 = icmp slt i64 %236, %7
   br i1 %462, label %17, label %._crit_edge, !llvm.loop !92
@@ -4031,7 +4030,7 @@ _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vecto
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit: ; preds = %109
   %110 = sdiv i64 %.tr121141, 2
-  %111 = getelementptr inbounds %"struct.clang::index::DeclOccurrence", ptr %.tr139, i64 %110
+  %111 = getelementptr inbounds [88 x i8], ptr %.tr139, i64 %110
   %112 = getelementptr i8, ptr %111, i64 4
   %.val = load i32, ptr %112, align 4
   %113 = sub i64 %8, %49
@@ -4046,7 +4045,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6ve
   %.04.i = phi i64 [ %.1.i95, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i ], [ %115, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.preheader.i ]
   %.sroa.02.03.i = phi ptr [ %.sroa.02.1.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i ], [ %.tr119140, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.preheader.i ]
   %116 = lshr i64 %.04.i, 1
-  %117 = getelementptr inbounds nuw %"struct.clang::index::DeclOccurrence", ptr %.sroa.02.03.i, i64 %116
+  %117 = getelementptr inbounds nuw [88 x i8], ptr %.sroa.02.03.i, i64 %116
   %118 = getelementptr i8, ptr %117, i64 4
   %.val.i.i94 = load i32, ptr %118, align 4, !tbaa !47
   %119 = icmp ult i32 %.val.i.i94, %.val
@@ -4071,7 +4070,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6ve
 
 _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit99: ; preds = %109
   %126 = sdiv i64 %.tr122142, 2
-  %127 = getelementptr inbounds %"struct.clang::index::DeclOccurrence", ptr %.tr119140, i64 %126
+  %127 = getelementptr inbounds [88 x i8], ptr %.tr119140, i64 %126
   %128 = getelementptr i8, ptr %127, i64 4
   %.val82 = load i32, ptr %128, align 4
   %129 = ptrtoint ptr %.tr139 to i64
@@ -4087,7 +4086,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6ve
   %.04.i103 = phi i64 [ %.1.i109, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i102 ], [ %132, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.preheader.i101 ]
   %.sroa.02.03.i104 = phi ptr [ %.sroa.02.1.i108, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.i102 ], [ %.tr139, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPN5clang5index14DeclOccurrenceESt6vectorIS4_SaIS4_EEEElEvRT_T0_.exit.preheader.i101 ]
   %133 = lshr i64 %.04.i103, 1
-  %134 = getelementptr inbounds nuw %"struct.clang::index::DeclOccurrence", ptr %.sroa.02.03.i104, i64 %133
+  %134 = getelementptr inbounds nuw [88 x i8], ptr %.sroa.02.03.i104, i64 %133
   %135 = getelementptr i8, ptr %134, i64 4
   %.val2.i.i107 = load i32, ptr %135, align 4, !tbaa !47
   %136 = icmp ult i32 %.val82, %.val2.i.i107
@@ -4602,7 +4601,7 @@ _ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEE7reserveEm.exit.i.i.i.i
 39:                                               ; preds = %_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEE7reserveEm.exit.i.i.i.i.i, %_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEE7reserveEm.exit.i.thread.i.i.i.i
   %40 = phi ptr [ %.pre.i.i.i, %_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEE7reserveEm.exit.i.thread.i.i.i.i ], [ %34, %_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEE7reserveEm.exit.i.i.i.i.i ]
   %.pre8.i5.i.i.i.i = phi i64 [ %38, %_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEE7reserveEm.exit.i.thread.i.i.i.i ], [ 0, %_ZN4llvm15SmallVectorImplIN5clang5index14SymbolRelationEE7reserveEm.exit.i.i.i.i.i ]
-  %41 = getelementptr inbounds nuw %"struct.clang::index::SymbolRelation", ptr %40, i64 %.pre8.i5.i.i.i.i
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %40, i64 %.pre8.i5.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %41, ptr align 8 %.sroa.0.0.copyload.i.i, i64 %.idx.i.i.i.i, i1 false)
   %.pre.i.i.i.i.i = load i32, ptr %35, align 8, !tbaa !50
   br label %_ZNSt16allocator_traitsISaIN5clang5index14DeclOccurrenceEEE9constructIS2_JRjS6_RPKNS0_4DeclERN4llvm8ArrayRefINS1_14SymbolRelationEEEEEEvRS3_PT_DpOT0_.exit
@@ -4764,7 +4763,7 @@ _ZSt8_DestroyIPN5clang5index14DeclOccurrenceES2_EvT_S4_RSaIT0_E.exit: ; preds = 
 _ZNSt12_Vector_baseIN5clang5index14DeclOccurrenceESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt8_DestroyIPN5clang5index14DeclOccurrenceES2_EvT_S4_RSaIT0_E.exit, %87
   store ptr %23, ptr %0, align 8, !tbaa !27
   store ptr %.0.lcssa.i.i.i.i.i32, ptr %7, align 8, !tbaa !28
-  %91 = getelementptr inbounds nuw %"struct.clang::index::DeclOccurrence", ptr %23, i64 %19
+  %91 = getelementptr inbounds nuw [88 x i8], ptr %23, i64 %19
   store ptr %91, ptr %86, align 8, !tbaa !32
   ret void
 }
@@ -4976,7 +4975,7 @@ _ZSt8_DestroyIPN5clang5index14DeclOccurrenceES2_EvT_S4_RSaIT0_E.exit: ; preds = 
 _ZNSt12_Vector_baseIN5clang5index14DeclOccurrenceESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt8_DestroyIPN5clang5index14DeclOccurrenceES2_EvT_S4_RSaIT0_E.exit, %80
   store ptr %23, ptr %0, align 8, !tbaa !27
   store ptr %.0.lcssa.i.i.i.i.i32, ptr %7, align 8, !tbaa !28
-  %84 = getelementptr inbounds nuw %"struct.clang::index::DeclOccurrence", ptr %23, i64 %19
+  %84 = getelementptr inbounds nuw [88 x i8], ptr %23, i64 %19
   store ptr %84, ptr %79, align 8, !tbaa !32
   ret void
 }

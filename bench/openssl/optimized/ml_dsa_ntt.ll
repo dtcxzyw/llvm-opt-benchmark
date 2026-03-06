@@ -11,10 +11,10 @@ define void @ossl_ml_dsa_poly_ntt_mult(ptr noundef readonly captures(none) %0, p
 
 4:                                                ; preds = %3, %4
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %6 = load i32, ptr %5, align 4, !tbaa !3
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !3
   %10 = zext i32 %9 to i64
   %11 = mul nuw i64 %10, %7
@@ -34,7 +34,7 @@ define void @ossl_ml_dsa_poly_ntt_mult(ptr noundef readonly captures(none) %0, p
   %24 = tail call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %23) #1, !srcloc !7
   %25 = and i32 %18, %24
   %26 = or i32 %25, %22
-  %27 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   store i32 %26, ptr %27, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
@@ -61,8 +61,8 @@ define void @ossl_ml_dsa_poly_ntt(ptr noundef captures(none) %0) local_unnamed_a
   %7 = zext nneg i32 %3 to i64
   %8 = zext nneg i32 %.03240 to i64
   %.not = icmp eq i32 %3, 0
-  %invariant.gep47 = getelementptr inbounds nuw i32, ptr @zetas_montgomery, i64 %8
-  %invariant.gep = getelementptr inbounds nuw i32, ptr %0, i64 %7
+  %invariant.gep47 = getelementptr inbounds nuw [4 x i8], ptr @zetas_montgomery, i64 %8
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %7
   br label %9
 
 9:                                                ; preds = %.lr.ph38, %._crit_edge
@@ -72,16 +72,16 @@ define void @ossl_ml_dsa_poly_ntt(ptr noundef captures(none) %0) local_unnamed_a
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %9
-  %gep48 = getelementptr inbounds nuw i32, ptr %invariant.gep47, i64 %indvars.iv44
+  %gep48 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep47, i64 %indvars.iv44
   %11 = load i32, ptr %gep48, align 4, !tbaa !3
   %12 = zext i32 %11 to i64
   br label %13
 
 13:                                               ; preds = %.lr.ph, %13
   %indvars.iv42 = phi i64 [ %indvars.iv, %.lr.ph ], [ %indvars.iv.next43, %13 ]
-  %14 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv42
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv42
   %15 = load i32, ptr %14, align 4, !tbaa !3
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv42
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep, i64 %indvars.iv42
   %16 = load i32, ptr %gep, align 4, !tbaa !3
   %17 = zext i32 %16 to i64
   %18 = mul nuw i64 %17, %12
@@ -167,8 +167,8 @@ define void @ossl_ml_dsa_poly_ntt_inverse(ptr noundef captures(none) %0) local_u
   %6 = sext i32 %.03949 to i64
   %7 = zext nneg i32 %reass.add to i64
   %wide.trip.count = zext nneg i32 %3 to i64
-  %8 = getelementptr i32, ptr @zetas_montgomery, i64 %7
-  %invariant.gep = getelementptr i32, ptr %0, i64 %6
+  %8 = getelementptr [4 x i8], ptr @zetas_montgomery, i64 %7
+  %invariant.gep = getelementptr [4 x i8], ptr %0, i64 %6
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %._crit_edge, %.lr.ph47
@@ -176,7 +176,7 @@ define void @ossl_ml_dsa_poly_ntt_inverse(ptr noundef captures(none) %0) local_u
   %indvars.iv = phi i64 [ 0, %.lr.ph47 ], [ %indvars.iv.next, %._crit_edge ]
   %9 = add nsw i64 %indvars.iv, %6
   %10 = xor i64 %indvars.iv55, -1
-  %11 = getelementptr i32, ptr %8, i64 %10
+  %11 = getelementptr [4 x i8], ptr %8, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !3
   %13 = sub i32 8380417, %12
   %14 = zext i32 %13 to i64
@@ -184,9 +184,9 @@ define void @ossl_ml_dsa_poly_ntt_inverse(ptr noundef captures(none) %0) local_u
 
 15:                                               ; preds = %.lr.ph, %15
   %indvars.iv52 = phi i64 [ %indvars.iv, %.lr.ph ], [ %indvars.iv.next53, %15 ]
-  %16 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv52
+  %16 = getelementptr inbounds [4 x i8], ptr %0, i64 %indvars.iv52
   %17 = load i32, ptr %16, align 4, !tbaa !3
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv52
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv52
   %18 = load i32, ptr %gep, align 4, !tbaa !3
   %19 = add i32 %18, %17
   %20 = add i32 %19, -8380417
@@ -238,7 +238,7 @@ define void @ossl_ml_dsa_poly_ntt_inverse(ptr noundef captures(none) %0) local_u
 
 .preheader:                                       ; preds = %._crit_edge48, %.preheader
   %indvars.iv60 = phi i64 [ %indvars.iv.next61, %.preheader ], [ 0, %._crit_edge48 ]
-  %50 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv60
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv60
   %51 = load i32, ptr %50, align 4, !tbaa !3
   %52 = zext i32 %51 to i64
   %53 = mul nuw nsw i64 %52, 41978

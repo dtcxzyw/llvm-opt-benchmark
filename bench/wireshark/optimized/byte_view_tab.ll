@@ -2135,7 +2135,7 @@ _ZN7QStringD2Ev.exit:                             ; preds = %_ZNK7QObject12findC
   %23 = phi i64 [ %38, %36 ], [ 0, %.lr.ph ]
   %.01958.us = phi i32 [ %37, %36 ], [ 0, %.lr.ph ]
   %24 = load ptr, ptr %22, align 8
-  %25 = getelementptr ptr, ptr %24, i64 %23
+  %25 = getelementptr [8 x i8], ptr %24, i64 %23
   %26 = load ptr, ptr %25, align 8
   invoke void @_ZNK7QObject8propertyEPKc(ptr dead_on_unwind nonnull writable sret(%class.QVariant) align 8 %6, ptr noundef align 8 dereferenceable_or_null(16) %26, ptr noundef nonnull @.str.1)
           to label %27 unwind label %.split.us
@@ -2239,7 +2239,7 @@ _ZN7QStringD2Ev.exit44:                           ; preds = %.body, %_ZN17QArray
   %53 = phi i64 [ %76, %74 ], [ 0, %.lr.ph ]
   %.01958 = phi i32 [ %75, %74 ], [ 0, %.lr.ph ]
   %54 = load ptr, ptr %22, align 8
-  %55 = getelementptr ptr, ptr %54, i64 %53
+  %55 = getelementptr [8 x i8], ptr %54, i64 %53
   %56 = load ptr, ptr %55, align 8
   invoke void @_ZNK7QObject8propertyEPKc(ptr dead_on_unwind nonnull writable sret(%class.QVariant) align 8 %6, ptr noundef align 8 dereferenceable_or_null(16) %56, ptr noundef nonnull @.str.1)
           to label %57 unwind label %.split

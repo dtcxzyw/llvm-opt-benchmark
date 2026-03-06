@@ -76,7 +76,7 @@ define void @Util_ProcessThreads(ptr noundef %0, ptr noundef readonly captures(n
 15:                                               ; preds = %.lr.ph74, %15
   %indvars.iv94 = phi i64 [ 0, %.lr.ph74 ], [ %indvars.iv.next95, %15 ]
   %.val53 = load ptr, ptr %14, align 8, !tbaa !20
-  %16 = getelementptr inbounds nuw ptr, ptr %.val53, i64 %indvars.iv94
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %.val53, i64 %indvars.iv94
   %17 = load ptr, ptr %16, align 8, !tbaa !21
   %18 = tail call i32 %0(ptr noundef %17) #11
   %indvars.iv.next95 = add nuw nsw i64 %indvars.iv94, 1
@@ -92,7 +92,7 @@ define void @Util_ProcessThreads(ptr noundef %0, ptr noundef readonly captures(n
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %22 = getelementptr inbounds nuw %struct.Util_ThData_t_, ptr %6, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %indvars.iv
   store ptr null, ptr %22, align 16, !tbaa !11
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %0, ptr %23, align 8, !tbaa !15
@@ -103,7 +103,7 @@ define void @Util_ProcessThreads(ptr noundef %0, ptr noundef readonly captures(n
   store i32 %3, ptr %26, align 4, !tbaa !24
   %27 = getelementptr inbounds nuw i8, ptr %22, i64 24
   store atomic i8 0, ptr %27 release, align 8
-  %28 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %29 = call i32 @pthread_create(ptr noundef nonnull %28, ptr noundef null, ptr noundef nonnull @Util_Thread, ptr noundef nonnull %22) #11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -157,7 +157,7 @@ Vec_PtrDup.exit:                                  ; preds = %._crit_edge, %36
 
 .preheader57.us:                                  ; preds = %.preheader57.us.backedge, %.preheader57.us.preheader
   %indvars.iv77 = phi i64 [ 0, %.preheader57.us.preheader ], [ %indvars.iv77.be, %.preheader57.us.backedge ]
-  %48 = getelementptr inbounds nuw %struct.Util_ThData_t_, ptr %6, i64 %indvars.iv77
+  %48 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %indvars.iv77
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %50 = load atomic i8, ptr %49 acquire, align 8
   %51 = trunc i8 %50 to i1
@@ -170,7 +170,7 @@ Vec_PtrDup.exit:                                  ; preds = %._crit_edge, %36
   %56 = add nsw i32 %55, -1
   store i32 %56, ptr %34, align 4, !tbaa !18
   %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds ptr, ptr %54, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %54, i64 %57
   %59 = load ptr, ptr %58, align 8, !tbaa !21
   store ptr %59, ptr %48, align 16, !tbaa !11
   store atomic i8 1, ptr %53 release, align 8
@@ -210,7 +210,7 @@ Vec_PtrDup.exit:                                  ; preds = %._crit_edge, %36
 .lr.ph66:                                         ; preds = %.lr.ph66.preheader, %.lr.ph66
   %.265 = phi i32 [ %70, %.lr.ph66 ], [ 0, %.lr.ph66.preheader ]
   %63 = sext i32 %.265 to i64
-  %64 = getelementptr inbounds %struct.Util_ThData_t_, ptr %6, i64 %63
+  %64 = getelementptr inbounds [32 x i8], ptr %6, i64 %63
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %66 = load atomic i8, ptr %65 acquire, align 8
   %67 = trunc i8 %66 to i1
@@ -227,7 +227,7 @@ Vec_PtrDup.exit:                                  ; preds = %._crit_edge, %36
 
 .lr.ph68:                                         ; preds = %.lr.ph68.preheader, %.lr.ph68
   %indvars.iv82 = phi i64 [ 0, %.lr.ph68.preheader ], [ %indvars.iv.next83, %.lr.ph68 ]
-  %72 = getelementptr inbounds nuw %struct.Util_ThData_t_, ptr %6, i64 %indvars.iv82
+  %72 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %indvars.iv82
   store ptr null, ptr %72, align 16, !tbaa !11
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 24
   store atomic i8 1, ptr %73 release, align 8
@@ -237,7 +237,7 @@ Vec_PtrDup.exit:                                  ; preds = %._crit_edge, %36
 
 .lr.ph70:                                         ; preds = %.lr.ph70.preheader, %.lr.ph70
   %indvars.iv88 = phi i64 [ 0, %.lr.ph70.preheader ], [ %indvars.iv.next89, %.lr.ph70 ]
-  %74 = getelementptr inbounds nuw i64, ptr %7, i64 %indvars.iv88
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv88
   %75 = load i64, ptr %74, align 8, !tbaa !30
   %76 = call i32 @pthread_join(i64 noundef %75, ptr noundef null) #11
   %indvars.iv.next89 = add nuw nsw i64 %indvars.iv88, 1

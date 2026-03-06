@@ -691,7 +691,7 @@ define dso_local void @apply_mailmap_to_header(ptr noundef %0, ptr noundef reado
 
 skip_prefix.exit:                                 ; preds = %24
   %65 = add i64 %.02548, 1
-  %66 = getelementptr inbounds nuw ptr, ptr %1, i64 %65
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %65
   %67 = load ptr, ptr %66, align 8, !tbaa !42
   %.not30 = icmp eq ptr %67, null
   br i1 %.not30, label %.thread, label %.preheader, !llvm.loop !45
@@ -740,7 +740,7 @@ define dso_local ptr @fmt_ident(ptr noundef %0, ptr noundef %1, i32 noundef %2, 
   %.not71 = icmp eq i32 %8, 0
   %9 = load i32, ptr @fmt_ident.index, align 4, !tbaa !4
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw %struct.strbuf, ptr @fmt_ident.ident_pool, i64 %10
+  %11 = getelementptr inbounds nuw [24 x i8], ptr @fmt_ident.ident_pool, i64 %10
   %12 = and i32 %9, 1
   %13 = xor i32 %12, 1
   store i32 %13, ptr @fmt_ident.index, align 4, !tbaa !4

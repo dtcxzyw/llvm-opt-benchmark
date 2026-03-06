@@ -4,17 +4,16 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.ASNItem = type { i8, i8, i8, i8 }
-%struct.ASNSetData = type { i32, i32, %union.anon, i8, i8 }
-%union.anon = type { %struct.anon }
-%struct.anon = type { ptr, i32 }
 %struct.ASNGetData = type { i32, i32, %union.anon.0, i8, i8 }
 %union.anon.0 = type { %struct.anon.3 }
 %struct.anon.3 = type { ptr, i32, i32, i32 }
+%struct.ASNSetData = type { i32, i32, %union.anon, i8, i8 }
+%union.anon = type { %struct.anon }
+%struct.anon = type { ptr, i32 }
 %struct.RsaKey = type { %struct.sp_int, %struct.sp_int, %struct.sp_int, %struct.sp_int, %struct.sp_int, %struct.sp_int, %struct.sp_int, %struct.sp_int, ptr, ptr, i32, i32, i32, ptr, i8 }
 %struct.sp_int = type { i16, i16, [129 x i64] }
 %struct.ecc_key = type { i32, i32, i32, i32, ptr, ptr, %struct.ecc_point, [1 x %struct.sp_int], ptr }
 %struct.ecc_point = type { [1 x %struct.sp_int], [1 x %struct.sp_int], [1 x %struct.sp_int], i8 }
-%struct.CertNameData = type { ptr, i8 }
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
 %struct.EncryptedInfo = type { i64 }
 
@@ -316,7 +315,7 @@ define noundef i32 @SizeASN_Items(ptr noundef readonly captures(none) %0, ptr no
   %indvars.iv = phi i64 [ %6, %.lr.ph131.preheader ], [ %indvars.iv.next, %151 ]
   %.085128 = phi i32 [ 0, %.lr.ph131.preheader ], [ %storemerge, %151 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %8 = getelementptr inbounds nuw %struct.ASNSetData, ptr %1, i64 %indvars.iv.next
+  %8 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.next
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 25
   %10 = load i8, ptr %9, align 1, !tbaa !9
   %.not = icmp eq i8 %10, 0
@@ -334,7 +333,7 @@ define noundef i32 @SizeASN_Items(ptr noundef readonly captures(none) %0, ptr no
   ]
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds nuw %struct.ASNItem, ptr %0, i64 %indvars.iv.next
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv.next
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 1
   %17 = load i8, ptr %16, align 1, !tbaa !13
   switch i8 %17, label %SizeASN_Num.exit [
@@ -357,7 +356,7 @@ define noundef i32 @SizeASN_Items(ptr noundef readonly captures(none) %0, ptr no
   %24 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %25 = load i16, ptr %24, align 8, !tbaa !3
   %26 = zext i16 %25 to i32
-  %27 = getelementptr inbounds nuw %struct.ASNItem, ptr %0, i64 %indvars.iv.next
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv.next
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 1
   %29 = load i8, ptr %28, align 1, !tbaa !13
   br label %30
@@ -432,7 +431,7 @@ SizeASNLength.exit:                               ; preds = %41, %BytePrecision.
   br label %SizeASN_Num.exit
 
 61:                                               ; preds = %11
-  %62 = getelementptr inbounds nuw %struct.ASNItem, ptr %0, i64 %indvars.iv.next
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv.next
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 2
   %64 = load i8, ptr %63, align 1
   %65 = and i8 %64, 2
@@ -456,13 +455,13 @@ SizeASNLength.exit:                               ; preds = %41, %BytePrecision.
 71:                                               ; preds = %.lr.ph, %74
   %indvars.iv134 = phi i64 [ %indvars.iv, %.lr.ph ], [ %indvars.iv.next135, %74 ]
   %.4123 = phi i32 [ %.085128, %.lr.ph ], [ %78, %74 ]
-  %72 = getelementptr inbounds nuw %struct.ASNItem, ptr %0, i64 %indvars.iv134
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv134
   %73 = load i8, ptr %72, align 1, !tbaa !16
   %.not91 = icmp ugt i8 %73, %70
   br i1 %.not91, label %74, label %SizeASN_CalcDataLength.exit
 
 74:                                               ; preds = %71
-  %75 = getelementptr inbounds nuw %struct.ASNSetData, ptr %1, i64 %indvars.iv134
+  %75 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv134
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 4
   %77 = load i32, ptr %76, align 4, !tbaa !17
   %78 = sub i32 %.4123, %77
@@ -482,7 +481,7 @@ SizeASNLength.exit:                               ; preds = %41, %BytePrecision.
 .lr.ph.i:                                         ; preds = %82, %113
   %85 = phi i32 [ %114, %113 ], [ 0, %82 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %113 ], [ %indvars.iv, %82 ]
-  %86 = getelementptr inbounds nuw %struct.ASNItem, ptr %0, i64 %indvars.iv.i
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv.i
   %87 = load i8, ptr %86, align 1, !tbaa !16
   %88 = load i8, ptr %62, align 1, !tbaa !16
   %.not.i107 = icmp ugt i8 %87, %88
@@ -496,7 +495,7 @@ SizeASNLength.exit:                               ; preds = %41, %BytePrecision.
   br i1 %93, label %94, label %113
 
 94:                                               ; preds = %89
-  %95 = getelementptr inbounds nuw %struct.ASNSetData, ptr %1, i64 %indvars.iv.i
+  %95 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv.i
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 4
   %97 = load i32, ptr %96, align 4, !tbaa !17
   %98 = add i32 %97, %85
@@ -649,7 +648,7 @@ define i32 @SetASN_Items(ptr noundef readonly captures(none) %0, ptr noundef cap
 
 9:                                                ; preds = %.lr.ph, %SetASN_Num.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %SetASN_Num.exit ]
-  %10 = getelementptr inbounds nuw %struct.ASNSetData, ptr %1, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %indvars.iv
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 25
   %12 = load i8, ptr %11, align 1, !tbaa !9
   %.not = icmp eq i8 %12, 0
@@ -666,7 +665,7 @@ define i32 @SetASN_Items(ptr noundef readonly captures(none) %0, ptr noundef cap
   br i1 %.not122, label %.thread, label %20
 
 20:                                               ; preds = %13
-  %21 = getelementptr inbounds nuw %struct.ASNItem, ptr %0, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 1
   %23 = load i8, ptr %22, align 1, !tbaa !13
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 2
@@ -1140,7 +1139,7 @@ define range(i32 -192, 1) i32 @GetASN_Items(ptr noundef readonly captures(none) 
 
 12:                                               ; preds = %7, %12
   %indvars.iv = phi i64 [ 0, %7 ], [ %indvars.iv.next, %12 ]
-  %13 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   store i32 %6, ptr %13, align 4, !tbaa !22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
@@ -1163,11 +1162,11 @@ define range(i32 -192, 1) i32 @GetASN_Items(ptr noundef readonly captures(none) 
   %.0154319 = phi i32 [ %.2156, %.loopexit260 ], [ 0, %.lr.ph322.preheader ]
   %.0318 = phi i32 [ %.1, %.loopexit260 ], [ %11, %.lr.ph322.preheader ]
   %20 = sext i32 %.1144321 to i64
-  %21 = getelementptr inbounds %struct.ASNGetData, ptr %1, i64 %20
+  %21 = getelementptr inbounds [40 x i8], ptr %1, i64 %20
   store i32 %.0318, ptr %21, align 8, !tbaa !28
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   store i32 0, ptr %22, align 4, !tbaa !30
-  %23 = getelementptr inbounds %struct.ASNItem, ptr %0, i64 %20
+  %23 = getelementptr inbounds [4 x i8], ptr %0, i64 %20
   %24 = load i8, ptr %23, align 1, !tbaa !16
   %25 = zext i8 %24 to i32
   %spec.select = call i32 @llvm.umin.i32(i32 %.0151320, i32 %25)
@@ -1199,7 +1198,7 @@ define range(i32 -192, 1) i32 @GetASN_Items(ptr noundef readonly captures(none) 
 34:                                               ; preds = %.lr.ph322, %27, %33, %.lr.ph322._crit_edge
   %.2156 = phi i32 [ %.pre401, %33 ], [ %.pre401, %27 ], [ 0, %.lr.ph322._crit_edge ], [ %.0154319, %.lr.ph322 ]
   %35 = zext i8 %24 to i64
-  %36 = getelementptr inbounds nuw i32, ptr %9, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !22
   fence seq_cst
   %38 = icmp eq i32 %.0318, %37
@@ -1235,20 +1234,20 @@ define range(i32 -192, 1) i32 @GetASN_Items(ptr noundef readonly captures(none) 
 .lr.ph313:                                        ; preds = %.preheader259
   %50 = load i8, ptr %23, align 1, !tbaa !16
   %51 = sext i32 %.0146310 to i64
-  %52 = getelementptr inbounds %struct.ASNItem, ptr %0, i64 %51
+  %52 = getelementptr inbounds [4 x i8], ptr %0, i64 %51
   %53 = load i8, ptr %52, align 1, !tbaa !16
   %.not184541 = icmp ult i8 %50, %53
   br i1 %.not184541, label %.lr.ph543, label %.loopexit260
 
 54:                                               ; preds = %.lr.ph543
-  %55 = getelementptr inbounds %struct.ASNItem, ptr %0, i64 %indvars.iv.next390
+  %55 = getelementptr inbounds [4 x i8], ptr %0, i64 %indvars.iv.next390
   %56 = load i8, ptr %55, align 1, !tbaa !16
   %.not184 = icmp ult i8 %50, %56
   br i1 %.not184, label %.lr.ph543, label %..loopexit260.loopexit_crit_edge544, !llvm.loop !33
 
 .lr.ph543:                                        ; preds = %.lr.ph313, %54
   %indvars.iv389542 = phi i64 [ %indvars.iv.next390, %54 ], [ %51, %.lr.ph313 ]
-  %57 = getelementptr inbounds %struct.ASNGetData, ptr %1, i64 %indvars.iv389542
+  %57 = getelementptr inbounds [40 x i8], ptr %1, i64 %indvars.iv389542
   store i32 %.0318, ptr %57, align 8, !tbaa !28
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 4
   store i32 0, ptr %58, align 4, !tbaa !30
@@ -1894,7 +1893,7 @@ GetASN_StoreData.exit:                            ; preds = %.lr.ph117.i, %.lr.p
 360:                                              ; preds = %.lr.ph, %366
   %indvars.iv385 = phi i64 [ %359, %.lr.ph ], [ %indvars.iv.next386, %366 ]
   %.1147.in306 = phi i32 [ %.1144321, %.lr.ph ], [ %367, %366 ]
-  %361 = getelementptr inbounds %struct.ASNItem, ptr %0, i64 %indvars.iv385
+  %361 = getelementptr inbounds [4 x i8], ptr %0, i64 %indvars.iv385
   %362 = load i8, ptr %361, align 1, !tbaa !16
   %.not181 = icmp ugt i8 %362, %358
   br i1 %.not181, label %366, label %363
@@ -1939,7 +1938,7 @@ GetASN_StoreData.exit:                            ; preds = %.lr.ph117.i, %.lr.p
 .lr.ph327:                                        ; preds = %._crit_edge, %372
   %.2148326 = phi i32 [ %373, %372 ], [ %25, %._crit_edge ]
   %375 = zext nneg i32 %.2148326 to i64
-  %376 = getelementptr inbounds nuw i32, ptr %9, i64 %375
+  %376 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %375
   %377 = load i32, ptr %376, align 4, !tbaa !22
   %378 = icmp ult i32 %.1, %377
   br i1 %378, label %GetLength_ex.exit.thread, label %372
@@ -4318,10 +4317,10 @@ define internal fastcc range(i32 -192, 1) i32 @_RsaPrivateKeyDecode(ptr noundef 
 
 .preheader:                                       ; preds = %14, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %14 ]
-  %19 = getelementptr inbounds nuw %struct.ASNGetData, ptr %6, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [40 x i8], ptr %6, i64 %indvars.iv
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 112
   store i8 8, ptr %20, align 8, !tbaa !32
-  %21 = getelementptr inbounds nuw i64, ptr @rsaIntOffset, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr @rsaIntOffset, i64 %indvars.iv
   %22 = load i64, ptr %21, align 8, !tbaa !52
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 88
@@ -4690,7 +4689,7 @@ define internal fastcc range(i32 -192, 1) i32 @DecodeRsaPssParams(ptr noundef %0
 
 switch.lookup:                                    ; preds = %17
   %21 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.ParseCertRelative, i64 %21
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.ParseCertRelative, i64 %21
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %2, align 4, !tbaa !22
   br label %RsaPssHashOidToType.exit
@@ -8299,7 +8298,7 @@ GetASN_Sequence.exit.thread40:                    ; preds = %54
 
 94:                                               ; preds = %89
   %95 = zext nneg i8 %91 to i64
-  %96 = getelementptr %struct.CertNameData, ptr @certNameSubject, i64 %95
+  %96 = getelementptr [16 x i8], ptr @certNameSubject, i64 %95
   %97 = getelementptr i8, ptr %96, i64 -40
   %98 = load i8, ptr %97, align 8, !tbaa !109
   %.not.i27 = icmp eq i8 %98, 0
@@ -12328,8 +12327,8 @@ IsSigAlgoECC.exit.thread:                         ; preds = %15, %11, %IsSigAlgo
 31:                                               ; preds = %22, %24, %26
   %.0 = phi i32 [ 0, %24 ], [ 0, %26 ], [ 1, %22 ]
   %32 = zext nneg i32 %.0 to i64
-  %33 = getelementptr inbounds nuw %struct.ASNItem, ptr @algoIdASN, i64 %32
-  %34 = getelementptr inbounds nuw %struct.ASNSetData, ptr %6, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr @algoIdASN, i64 %32
+  %34 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %32
   %35 = xor i32 %.0, 3
   %36 = call i32 @SizeASN_Items(ptr noundef nonnull %33, ptr noundef nonnull %34, i32 noundef %35, ptr noundef nonnull %8)
   %.not33 = icmp eq ptr %1, null
@@ -12917,7 +12916,7 @@ switch.early.test174:                             ; preds = %112
 
 switch.lookup:                                    ; preds = %174
   %178 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.ParseCertRelative, i64 %178
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.ParseCertRelative, i64 %178
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %164, align 4, !tbaa !22
   br label %RsaPssHashOidToType.exit.i.i
@@ -12967,7 +12966,7 @@ DecodeRsaPssParams.exit.i:                        ; preds = %RsaPssHashOidToMgf1
 
 switch.lookup263:                                 ; preds = %DecodeRsaPssParams.exit.thread4.i
   %190 = zext nneg i32 %switch.tableidx262 to i64
-  %switch.gep264 = getelementptr inbounds nuw i32, ptr @switch.table.ParseCertRelative.9, i64 %190
+  %switch.gep264 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.ParseCertRelative.9, i64 %190
   %switch.load265 = load i32, ptr %switch.gep264, align 4
   %191 = getelementptr inbounds nuw i8, ptr %0, i64 936
   %192 = load ptr, ptr %191, align 8, !tbaa !100
@@ -13728,7 +13727,7 @@ define void @FreeSignerTable(ptr noundef captures(none) %0, i32 noundef %1, ptr 
 
 .lr.ph16:                                         ; preds = %.lr.ph16.preheader, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.lr.ph16.preheader ], [ %indvars.iv.next, %._crit_edge ]
-  %5 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8, !tbaa !190
   %.not12 = icmp eq ptr %6, null
   br i1 %.not12, label %._crit_edge, label %.lr.ph
@@ -13828,7 +13827,7 @@ define void @FreeSignerTableType(ptr noundef captures(none) %0, i32 noundef %1, 
 
 .lr.ph25:                                         ; preds = %.lr.ph25.preheader, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.lr.ph25.preheader ], [ %indvars.iv.next, %._crit_edge ]
-  %6 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %.01619 = load ptr, ptr %6, align 8, !tbaa !190
   %.not20 = icmp eq ptr %.01619, null
   br i1 %.not20, label %._crit_edge, label %.lr.ph
@@ -14399,10 +14398,10 @@ define range(i32 -173, 1) i32 @PemToDer(ptr noundef %0, i64 noundef %1, i32 noun
 
 switch.lookup:                                    ; preds = %7
   %13 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.PemToDer, i64 %13
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.PemToDer, i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
   %14 = zext nneg i32 %2 to i64
-  %switch.gep161 = getelementptr inbounds nuw ptr, ptr @switch.table.PemToDer.10, i64 %14
+  %switch.gep161 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.PemToDer.10, i64 %14
   %switch.load162 = load ptr, ptr %switch.gep161, align 8
   %15 = tail call ptr @mystrnstr(ptr noundef %0, ptr noundef nonnull %switch.load, i32 noundef %11) #23
   %.not91126 = icmp eq ptr %15, null
@@ -15401,7 +15400,7 @@ SetCurve.exit:                                    ; preds = %42, %35, %BytePreci
 
 56:                                               ; preds = %54, %56
   %indvars.iv166 = phi i64 [ 4, %54 ], [ %indvars.iv.next, %56 ]
-  %57 = getelementptr inbounds nuw %struct.ASNSetData, ptr %6, i64 %indvars.iv166
+  %57 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %indvars.iv166
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 25
   store i8 1, ptr %58, align 1, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv166, 1
@@ -16324,11 +16323,11 @@ define internal fastcc range(i32 0, 2) i32 @MatchBaseName(i32 noundef range(i32 
   %.070101 = phi ptr [ %3, %.lr.ph105 ], [ %59, %57 ]
   %49 = load i8, ptr %.3103, align 1, !tbaa !3
   %50 = zext i8 %49 to i64
-  %51 = getelementptr inbounds nuw i32, ptr %47, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %50
   %52 = load i32, ptr %51, align 4, !tbaa !22
   %53 = load i8, ptr %.070101, align 1, !tbaa !3
   %54 = zext i8 %53 to i64
-  %55 = getelementptr inbounds nuw i32, ptr %47, i64 %54
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %54
   %56 = load i32, ptr %55, align 4, !tbaa !22
   %.not82 = icmp eq i32 %52, %56
   br i1 %.not82, label %57, label %.loopexit

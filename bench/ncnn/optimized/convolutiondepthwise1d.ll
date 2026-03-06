@@ -1757,9 +1757,9 @@ define internal void @_ZN4ncnnL22convolutiondepthwise1dERKNS_3MatERS0_S2_S2_iiii
   %.reass.us = mul i64 %factor.op.mul, %indvars.iv84
   %51 = getelementptr inbounds nuw i8, ptr %27, i64 %.reass.us
   %52 = mul nsw i64 %indvars.iv84, %49
-  %53 = getelementptr inbounds float, ptr %33, i64 %52
+  %53 = getelementptr inbounds [4 x i8], ptr %33, i64 %52
   %54 = load ptr, ptr %8, align 8
-  %55 = getelementptr inbounds nuw float, ptr %54, i64 %indvars.iv84
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %indvars.iv84
   %.reass76.us = mul i64 %factor.op.mul75, %indvars.iv84
   %56 = getelementptr inbounds nuw i8, ptr %38, i64 %.reass76.us
   %57 = load i32, ptr %11, align 4
@@ -1782,7 +1782,7 @@ define internal void @_ZN4ncnnL22convolutiondepthwise1dERKNS_3MatERS0_S2_S2_iiii
 
 .lr.ph.us.preheader:                              ; preds = %64
   %65 = mul nsw i64 %indvars.iv79, %47
-  %66 = getelementptr inbounds float, ptr %56, i64 %65
+  %66 = getelementptr inbounds [4 x i8], ptr %56, i64 %65
   br label %.lr.ph.us
 
 ._crit_edge.us:                                   ; preds = %.lr.ph.us, %64
@@ -1856,7 +1856,7 @@ define internal void @_ZN4ncnnL22convolutiondepthwise1dERKNS_3MatERS0_S2_S2_iiii
 
 _ZL13activation_ssfiRKN4ncnn3MatE.exit.us:        ; preds = %102, %97, %96, %92, %87, %81, %77, %73, %67, %._crit_edge.us
   %.162.us = phi nsz float [ %.1.lcssa.us, %._crit_edge.us ], [ %103, %102 ], [ %101, %97 ], [ %94, %96 ], [ %.061.us, %92 ], [ %91, %87 ], [ %86, %81 ], [ %80, %77 ], [ %.1.lcssa.us, %73 ], [ 0.000000e+00, %67 ]
-  %104 = getelementptr inbounds nuw float, ptr %51, i64 %indvars.iv79
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %indvars.iv79
   store float %.162.us, ptr %104, align 4, !tbaa !60
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1
   %exitcond83.not = icmp eq i64 %indvars.iv.next80, %wide.trip.count82
@@ -1867,11 +1867,11 @@ _ZL13activation_ssfiRKN4ncnn3MatE.exit.us:        ; preds = %102, %97, %96, %92,
   %.04764.us = phi ptr [ %66, %.lr.ph.us.preheader ], [ %110, %.lr.ph.us ]
   %.163.us = phi float [ %.048.us, %.lr.ph.us.preheader ], [ %109, %.lr.ph.us ]
   %105 = load float, ptr %.04764.us, align 4, !tbaa !60
-  %106 = getelementptr inbounds nuw float, ptr %53, i64 %indvars.iv
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %indvars.iv
   %107 = load float, ptr %106, align 4, !tbaa !60
   %108 = fmul fast float %107, %105
   %109 = fadd fast float %108, %.163.us
-  %110 = getelementptr inbounds float, ptr %.04764.us, i64 %58
+  %110 = getelementptr inbounds [4 x i8], ptr %.04764.us, i64 %58
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %.lr.ph.us, !llvm.loop !63
@@ -1990,12 +1990,12 @@ define internal void @_ZN4ncnnL22convolutiondepthwise1dERKNS_3MatERS0_S2_S2_iiii
   %63 = getelementptr inbounds nuw i8, ptr %35, i64 %62
   %.reass.us102 = mul i32 %factor.op.mul101, %56
   %64 = sext i32 %.reass.us102 to i64
-  %65 = getelementptr inbounds float, ptr %42, i64 %64
+  %65 = getelementptr inbounds [4 x i8], ptr %42, i64 %64
   %66 = load ptr, ptr %10, align 8
-  %67 = getelementptr inbounds nuw float, ptr %66, i64 %61
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %61
   %68 = mul nsw i32 %45, %58
   %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds float, ptr %65, i64 %69
+  %70 = getelementptr inbounds [4 x i8], ptr %65, i64 %69
   %71 = mul nsw i32 %44, %56
   %72 = load ptr, ptr %11, align 8
   %73 = load i32, ptr %50, align 4
@@ -2092,7 +2092,7 @@ define internal void @_ZN4ncnnL22convolutiondepthwise1dERKNS_3MatERS0_S2_S2_iiii
 
 _ZL13activation_ssfiRKN4ncnn3MatE.exit.us:        ; preds = %120, %115, %114, %110, %105, %99, %95, %91, %85, %._crit_edge93.us
   %.184.us = phi nsz float [ %.1.lcssa.us, %._crit_edge93.us ], [ %121, %120 ], [ %119, %115 ], [ %112, %114 ], [ %.083.us, %110 ], [ %109, %105 ], [ %104, %99 ], [ %98, %95 ], [ %.1.lcssa.us, %91 ], [ 0.000000e+00, %85 ]
-  %122 = getelementptr inbounds nuw float, ptr %63, i64 %indvars.iv117
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %indvars.iv117
   store float %.184.us, ptr %122, align 4, !tbaa !60
   %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 1
   %exitcond121.not = icmp eq i64 %indvars.iv.next118, %wide.trip.count120
@@ -2100,7 +2100,7 @@ _ZL13activation_ssfiRKN4ncnn3MatE.exit.us:        ; preds = %120, %115, %114, %1
 
 .lr.ph92.us:                                      ; preds = %84
   %123 = mul nsw i64 %indvars.iv117, %80
-  %invariant.gep.us = getelementptr float, ptr %72, i64 %123
+  %invariant.gep.us = getelementptr [4 x i8], ptr %72, i64 %123
   %124 = load i32, ptr %13, align 4
   %125 = sext i32 %124 to i64
   br i1 %52, label %.lr.ph.us.us, label %._crit_edge93.us
@@ -2119,17 +2119,17 @@ _ZL13activation_ssfiRKN4ncnn3MatE.exit.us:        ; preds = %120, %115, %114, %1
   %.06586.us.us = phi ptr [ %133, %127 ], [ %gep.us.us, %.lr.ph.us.us ]
   %.285.us.us = phi float [ %132, %127 ], [ %.188.us.us, %.lr.ph.us.us ]
   %128 = load float, ptr %.06586.us.us, align 4, !tbaa !60
-  %129 = getelementptr inbounds nuw float, ptr %.06789.us.us, i64 %indvars.iv
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %.06789.us.us, i64 %indvars.iv
   %130 = load float, ptr %129, align 4, !tbaa !60
   %131 = fmul fast float %130, %128
   %132 = fadd fast float %131, %.285.us.us
-  %133 = getelementptr inbounds float, ptr %.06586.us.us, i64 %125
+  %133 = getelementptr inbounds [4 x i8], ptr %.06586.us.us, i64 %125
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us.us, label %127, !llvm.loop !68
 
 ._crit_edge.us.us:                                ; preds = %127
-  %134 = getelementptr inbounds nuw float, ptr %.06789.us.us, i64 %53
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %.06789.us.us, i64 %53
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
   %exitcond116.not = icmp eq i64 %indvars.iv.next113, %wide.trip.count115
   br i1 %exitcond116.not, label %._crit_edge93.us, label %.lr.ph.us.us, !llvm.loop !69

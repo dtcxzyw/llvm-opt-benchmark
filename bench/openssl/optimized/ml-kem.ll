@@ -78,7 +78,7 @@ define dso_local range(i32 -1, 1) i32 @FuzzerTestOneInput(ptr noundef %0, i64 no
   store ptr %13, ptr %4, align 8, !tbaa !11
   %14 = urem i8 %11, 6
   %15 = zext nneg i8 %14 to i64
-  %16 = getelementptr inbounds nuw %struct.op_table_entry, ptr @ops, i64 %15
+  %16 = getelementptr inbounds nuw [40 x i8], ptr @ops, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8, !tbaa !13
   call void %18(ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef nonnull %5, ptr noundef nonnull %6) #6
@@ -233,7 +233,7 @@ switch.lookup:                                    ; preds = %30, %4
   store i64 %8, ptr %1, align 8, !tbaa !9
   %9 = urem i16 %.0.copyload.i.i, 3
   %10 = zext nneg i16 %9 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.keygen_mlkem_real_key, i64 %10
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.keygen_mlkem_real_key, i64 %10
   %switch.load = load ptr, ptr %switch.gep, align 8
   %11 = tail call ptr @EVP_PKEY_CTX_new_from_name(ptr noundef null, ptr noundef nonnull %switch.load, ptr noundef null) #6
   %.not17 = icmp eq ptr %11, null

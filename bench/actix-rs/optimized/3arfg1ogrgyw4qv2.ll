@@ -5167,7 +5167,7 @@ default.unreachable:                              ; preds = %_ZN5alloc5alloc15ex
   %76 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %66, %"_ZN58_$LT$http..method..Inner$u20$as$u20$core..clone..Clone$GT$5clone17hdd2e5f4f9a112acfE.exit" ]
   %77 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %78 = load ptr, ptr %77, align 8, !alias.scope !770, !noalias !773, !nonnull !11, !noundef !11
-  %79 = getelementptr inbounds { { i8, [23 x i8] } }, ptr %78, i64 %76
+  %79 = getelementptr inbounds [24 x i8], ptr %78, i64 %76
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %79, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false)
   %80 = load i64, ptr %65, align 8, !alias.scope !770, !noalias !773, !noundef !11
   %81 = add i64 %80, 1
@@ -5914,7 +5914,7 @@ define void @_ZN9actix_web4http6header15accept_language14AcceptLanguage6ranked17
 21:                                               ; preds = %13
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !926
   %.sroa.05.0.copyload = load i64, ptr %6, align 8
-  %22 = getelementptr inbounds { { i64, [8 x i64] }, i16, [3 x i16] }, ptr %17, i64 %19
+  %22 = getelementptr inbounds [80 x i8], ptr %17, i64 %19
   store ptr %17, ptr %5, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %17, ptr %.sroa.4.0..sroa_idx, align 8
@@ -7074,7 +7074,7 @@ define void @_ZN9actix_web4info14ConnectionInfo3new17h873e39e603a76ac0E(ptr noal
   %.sink6.i.i = phi ptr [ %35, %33 ], [ %30, %28 ]
   %.sink4.in.i.i = phi ptr [ %36, %33 ], [ %25, %28 ]
   %.sink4.i.i = load i64, ptr %.sink4.in.i.i, align 8, !noalias !1200, !noundef !11
-  %37 = getelementptr inbounds { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, ptr %.sink6.i.i, i64 %.sink4.i.i
+  %37 = getelementptr inbounds [40 x i8], ptr %.sink6.i.i, i64 %.sink4.i.i
   br label %_ZN10actix_http6header3map9HeaderMap7get_all17h31623561ff745ebdE.exit
 
 _ZN10actix_http6header3map9HeaderMap7get_all17h31623561ff745ebdE.exit: ; preds = %3, %"_ZN8smallvec17SmallVec$LT$A$GT$6triple17h1aeb09b6dbcf32e9E.llvm.5350303487615222083.exit.i"

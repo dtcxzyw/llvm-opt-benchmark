@@ -3,10 +3,6 @@ source_filename = "bench/postgres/original/preptlist.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.ListCell = type { ptr }
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.nameData = type { [64 x i8] }
-
 @.str = private unnamed_addr constant [43 x i8] c"result relation must be a regular relation\00", align 1
 @.str.1 = private unnamed_addr constant [12 x i8] c"preptlist.c\00", align 1
 @__func__.preprocess_targetlist = private unnamed_addr constant [22 x i8] c"preprocess_targetlist\00", align 1
@@ -35,7 +31,7 @@ define dso_local void @preprocess_targetlist(ptr noundef %0) local_unnamed_addr 
   %13 = getelementptr i8, ptr %8, i64 16
   %.val = load ptr, ptr %13, align 8
   %14 = sext i32 %12 to i64
-  %15 = getelementptr inbounds %union.ListCell, ptr %.val, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %.val, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = load i32, ptr %17, align 8
@@ -84,7 +80,7 @@ define dso_local void @preprocess_targetlist(ptr noundef %0) local_unnamed_addr 
   %.0111622.i = phi i16 [ %47, %46 ], [ 1, %.lr.ph.i ]
   %.01721.i = phi ptr [ %.1.i, %46 ], [ null, %.lr.ph.i ]
   %35 = load ptr, ptr %32, align 8
-  %36 = getelementptr inbounds nuw %union.ListCell, ptr %35, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv.i
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 42
   %39 = load i8, ptr %38, align 2, !range !4, !noundef !5
@@ -157,7 +153,7 @@ extract_update_targetlist_colnos.exit:            ; preds = %46, %30, %.lr.ph.i
   %.3223284 = phi ptr [ %.4.lcssa, %.critedge181 ], [ %.1213, %.lr.ph224 ]
   %indvars.iv259283 = phi i64 [ %indvars.iv.next260, %.critedge181 ], [ 0, %.lr.ph224 ]
   %70 = load ptr, ptr %67, align 8
-  %71 = getelementptr inbounds nuw %union.ListCell, ptr %70, i64 %indvars.iv259283
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %indvars.iv259283
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
   %74 = load i32, ptr %73, align 8
@@ -206,7 +202,7 @@ extract_update_targetlist_colnos.exit:            ; preds = %46, %30, %.lr.ph.i
   %.0111622.i194 = phi i16 [ %105, %104 ], [ 1, %.lr.ph.i190 ]
   %.01721.i195 = phi ptr [ %.1.i196, %104 ], [ null, %.lr.ph.i190 ]
   %93 = load ptr, ptr %90, align 8
-  %94 = getelementptr inbounds nuw %union.ListCell, ptr %93, i64 %indvars.iv.i193
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %indvars.iv.i193
   %95 = load ptr, ptr %94, align 8
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 42
   %97 = load i8, ptr %96, align 2, !range !4, !noundef !5
@@ -258,7 +254,7 @@ extract_update_targetlist_colnos.exit198:         ; preds = %104, %86, %.lr.ph.i
   %indvars.iv = phi i64 [ %indvars.iv.next, %145 ], [ 0, %.lr.ph ]
   %.4215219 = phi ptr [ %.5, %145 ], [ %.3223284, %.lr.ph ]
   %122 = load ptr, ptr %119, align 8
-  %123 = getelementptr inbounds nuw %union.ListCell, ptr %122, i64 %indvars.iv
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %indvars.iv
   %124 = load ptr, ptr %123, align 8
   %125 = load i32, ptr %124, align 4
   %126 = icmp eq i32 %125, 6
@@ -313,7 +309,7 @@ list_length.exit:                                 ; preds = %136, %137
   %indvars.iv262 = phi i64 [ %indvars.iv.next263, %169 ], [ 0, %.lr.ph230 ]
   %.6229236 = phi ptr [ %.7, %169 ], [ %.3.lcssa, %.lr.ph230 ]
   %149 = load ptr, ptr %79, align 8
-  %150 = getelementptr inbounds nuw %union.ListCell, ptr %149, i64 %indvars.iv262
+  %150 = getelementptr inbounds nuw [8 x i8], ptr %149, i64 %indvars.iv262
   %151 = load ptr, ptr %150, align 8
   %152 = load i32, ptr %151, align 4
   %153 = icmp eq i32 %152, 6
@@ -374,7 +370,7 @@ list_length.exit201:                              ; preds = %160, %161
   %.8241287 = phi ptr [ %.9, %248 ], [ %.2, %.lr.ph242 ]
   %indvars.iv265286 = phi i64 [ %indvars.iv.next266, %248 ], [ 0, %.lr.ph242 ]
   %180 = load ptr, ptr %176, align 8
-  %181 = getelementptr inbounds nuw %union.ListCell, ptr %180, i64 %indvars.iv265286
+  %181 = getelementptr inbounds nuw [8 x i8], ptr %180, i64 %indvars.iv265286
   %182 = load ptr, ptr %181, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 4
@@ -433,7 +429,7 @@ list_length.exit203:                              ; preds = %193, %198
   %212 = add i32 %211, -1
   %.val188 = load ptr, ptr %177, align 8
   %213 = sext i32 %212 to i64
-  %214 = getelementptr inbounds %union.ListCell, ptr %.val188, i64 %213
+  %214 = getelementptr inbounds [8 x i8], ptr %.val188, i64 %213
   %215 = load ptr, ptr %214, align 8
   %216 = call ptr @makeWholeRowVar(ptr noundef %215, i32 noundef %211, i32 noundef 0, i1 noundef zeroext false) #6
   %217 = getelementptr inbounds nuw i8, ptr %182, i64 12
@@ -522,7 +518,7 @@ list_length.exit209:                              ; preds = %252
   %indvars.iv268 = phi i64 [ %indvars.iv.next269, %283 ], [ 0, %.lr.ph248 ]
   %.14247254 = phi ptr [ %.15, %283 ], [ %.8.lcssa, %.lr.ph248 ]
   %263 = load ptr, ptr %260, align 8
-  %264 = getelementptr inbounds nuw %union.ListCell, ptr %263, i64 %indvars.iv268
+  %264 = getelementptr inbounds nuw [8 x i8], ptr %263, i64 %indvars.iv268
   %265 = load ptr, ptr %264, align 8
   %266 = load i32, ptr %265, align 4
   %267 = icmp eq i32 %266, 6
@@ -642,7 +638,7 @@ select.unfold.preheader:                          ; preds = %68, %list_head.exit
   %21 = sext i32 %20 to i64
   %22 = shl nsw i64 %21, 4
   %23 = getelementptr i8, ptr %19, i64 %22
-  %24 = getelementptr %struct.FormData_pg_attribute, ptr %23, i64 %indvars.iv
+  %24 = getelementptr [100 x i8], ptr %23, i64 %indvars.iv
   %.not54 = icmp eq ptr %.04766, null
   br i1 %.not54, label %40, label %25
 
@@ -665,7 +661,7 @@ select.unfold.preheader:                          ; preds = %68, %list_head.exit
   %.val55 = load ptr, ptr %14, align 8
   %36 = getelementptr inbounds nuw i8, ptr %.04766, i64 8
   %37 = sext i32 %.val to i64
-  %38 = getelementptr inbounds %union.ListCell, ptr %.val55, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %.val55, i64 %37
   %39 = icmp ult ptr %36, %38
   %..i = select i1 %39, ptr %36, ptr null
   br label %68
@@ -755,7 +751,7 @@ select.unfold:                                    ; preds = %82, %78
   %.val57 = load ptr, ptr %17, align 8
   %88 = getelementptr inbounds nuw i8, ptr %.372, i64 8
   %89 = sext i32 %.val56 to i64
-  %90 = getelementptr inbounds %union.ListCell, ptr %.val57, i64 %89
+  %90 = getelementptr inbounds [8 x i8], ptr %.val57, i64 %89
   %.not = icmp ult ptr %88, %90
   br i1 %.not, label %70, label %select.unfold._crit_edge
 
@@ -781,7 +777,7 @@ define dso_local ptr @extract_update_targetlist_colnos(ptr noundef readonly capt
   %.0111622 = phi i16 [ %18, %17 ], [ 1, %.lr.ph ]
   %.01721 = phi ptr [ %.1, %17 ], [ null, %.lr.ph ]
   %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds nuw %union.ListCell, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 42
   %10 = load i8, ptr %9, align 2, !range !4, !noundef !5
@@ -861,7 +857,7 @@ define dso_local ptr @get_plan_rowmark(ptr noundef readonly captures(address_is_
 
 9:                                                ; preds = %.lr.ph32, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph32 ], [ %indvars.iv.next, %8 ]
-  %10 = getelementptr inbounds nuw %union.ListCell, ptr %7, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = load i32, ptr %12, align 4

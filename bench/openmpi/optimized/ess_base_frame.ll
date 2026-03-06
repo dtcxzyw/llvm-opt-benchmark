@@ -14,7 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.pmix_list_t = type { %struct.pmix_object_t, %struct.pmix_list_item_t, i64 }
 %struct.pmix_object_t = type { %union.pthread_mutex_t, ptr, i32, %struct.pmix_tma }
 %struct.pmix_list_item_t = type { %struct.pmix_object_t, ptr, ptr, i32 }
-%struct.known_signal = type { i32, ptr, i8 }
 
 @prte_mca_ess_env_component = external constant %struct.pmix_mca_base_component_2_1_0_t, align 8
 @prte_mca_ess_hnp_component = external constant %struct.pmix_mca_base_component_2_1_0_t, align 8
@@ -252,7 +251,7 @@ define range(i32 -43, 1) i32 @prte_ess_base_setup_signals(ptr noundef %0) local_
 
 .preheader:                                       ; preds = %6, %41
   %indvars.iv = phi i64 [ %indvars.iv.next, %41 ], [ 0, %6 ]
-  %7 = getelementptr inbounds nuw %struct.known_signal, ptr @known_signals, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [24 x i8], ptr @known_signals, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load i8, ptr %8, align 8, !tbaa !33, !range !36, !noundef !37
   %10 = trunc nuw i8 %9 to i1
@@ -341,7 +340,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %17, %1
 sub_0:                                            ; preds = %44, %.loopexit
   %indvars.iv130 = phi i64 [ %indvars.iv.next131, %.loopexit ], [ 0, %44 ]
   %47 = phi ptr [ %147, %.loopexit ], [ %46, %44 ]
-  %48 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv130
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv130
   %49 = load i8, ptr %47, align 1
   %.not114 = icmp eq i8 %49, 83
   br i1 %.not114, label %sub_1, label %.tail.thread
@@ -420,7 +419,7 @@ sub_1:                                            ; preds = %sub_0
 
 .critedge.preheader:                              ; preds = %.critedge.preheader.preheader, %.critedge
   %indvars.iv127 = phi i64 [ %indvars.iv.next128, %.critedge ], [ 0, %.critedge.preheader.preheader ]
-  %77 = getelementptr inbounds nuw %struct.known_signal, ptr @known_signals, i64 %indvars.iv127
+  %77 = getelementptr inbounds nuw [24 x i8], ptr @known_signals, i64 %indvars.iv127
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %79 = load ptr, ptr %78, align 8, !tbaa !42
   %80 = tail call i32 @strcasecmp(ptr noundef %.pre, ptr noundef %79) #20
@@ -578,7 +577,7 @@ pmix_obj_new_tma.exit95:                          ; preds = %.lr.ph.i.i92, %124,
 
 .loopexit:                                        ; preds = %73, %.lr.ph, %.loopexit.sink.split
   %indvars.iv.next131 = add nuw nsw i64 %indvars.iv130, 1
-  %146 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv.next131
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv.next131
   %147 = load ptr, ptr %146, align 8, !tbaa !3
   %.not72 = icmp eq ptr %147, null
   br i1 %.not72, label %.sink.split, label %sub_0, !llvm.loop !48

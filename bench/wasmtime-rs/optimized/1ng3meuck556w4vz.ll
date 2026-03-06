@@ -59,7 +59,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
 14:                                               ; preds = %18, %9
   %.val18.i = phi i64 [ %.sroa.6.0.copyload, %9 ], [ %20, %18 ]
   %.0.i = phi i64 [ 0, %9 ], [ %21, %18 ]
-  %15 = getelementptr inbounds i32, ptr %3, i64 %.0.i
+  %15 = getelementptr inbounds [4 x i8], ptr %3, i64 %.0.i
   %.val19.i = load i32, ptr %15, align 4, !noalias !9
   %16 = invoke noundef align 8 dereferenceable(776) ptr @"_ZN88_$LT$cranelift_codegen..ir..function..Function$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h515952f88407bff7E"(ptr noalias noundef nonnull align 8 dereferenceable(872) %7)
           to label %.noexc.i unwind label %23, !noalias !9
@@ -69,7 +69,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
           to label %18 unwind label %23, !noalias !9
 
 18:                                               ; preds = %.noexc.i
-  %19 = getelementptr inbounds i32, ptr %.sroa.9.0.copyload, i64 %.val18.i
+  %19 = getelementptr inbounds [4 x i8], ptr %.sroa.9.0.copyload, i64 %.val18.i
   store i32 %17, ptr %19, align 4, !noalias !12
   %20 = add i64 %.val18.i, 1
   %21 = add nuw i64 %.0.i, 1
@@ -385,7 +385,7 @@ define hidden noundef i32 @_ZN17cranelift_codegen2ir7builder11InstBuilder4call17
   store i32 0, ptr %7, align 4
   %8 = load ptr, ptr %0, align 8, !noalias !55, !nonnull !7, !align !8, !noundef !7
   %9 = tail call noundef align 8 dereferenceable(776) ptr @"_ZN88_$LT$cranelift_codegen..ir..function..Function$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h515952f88407bff7E"(ptr noalias noundef nonnull align 8 dereferenceable(872) %8), !noalias !55
-  %10 = getelementptr inbounds i32, ptr %3, i64 %4
+  %10 = getelementptr inbounds [4 x i8], ptr %3, i64 %4
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 136
   call void @"_ZN16cranelift_entity4list19EntityList$LT$T$GT$6extend17ha61c0439f952a1c1E"(ptr noalias noundef nonnull align 4 dereferenceable(4) %7, ptr noundef nonnull %3, ptr noundef nonnull %10, ptr noalias noundef nonnull align 8 dereferenceable(48) %11)
   %12 = load i32, ptr %7, align 4, !noundef !7
@@ -1432,7 +1432,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 16:                                               ; preds = %20, %5
   %.val18 = phi i64 [ %.promoted, %5 ], [ %22, %20 ]
   %.0 = phi i64 [ 0, %5 ], [ %23, %20 ]
-  %17 = getelementptr inbounds i32, ptr %0, i64 %.0
+  %17 = getelementptr inbounds [4 x i8], ptr %0, i64 %.0
   %.val19 = load i32, ptr %17, align 4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !277)
   %18 = invoke noundef align 8 dereferenceable(776) ptr @"_ZN88_$LT$cranelift_codegen..ir..function..Function$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h515952f88407bff7E"(ptr noalias noundef nonnull align 8 dereferenceable(872) %.val.i)
@@ -1445,7 +1445,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 20:                                               ; preds = %.noexc
   tail call void @llvm.experimental.noalias.scope.decl(metadata !280)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !283)
-  %21 = getelementptr inbounds i32, ptr %12, i64 %.val18
+  %21 = getelementptr inbounds [4 x i8], ptr %12, i64 %.val18
   store i32 %19, ptr %21, align 4, !noalias !286
   %22 = add i64 %.val18, 1
   store i64 %22, ptr %13, align 8, !alias.scope !286

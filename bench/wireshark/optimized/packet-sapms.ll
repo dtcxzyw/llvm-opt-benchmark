@@ -1762,7 +1762,7 @@ define internal fastcc range(i32 0, 161) i32 @dissect_sapms_client(ptr noundef %
 
 switch.lookup:                                    ; preds = %9
   %16 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissect_sapms_client, i64 %16
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_sapms_client, i64 %16
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %17
 

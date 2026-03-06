@@ -113,7 +113,7 @@ define internal range(i32 -2147483648, 1) i32 @hwupload_query_formats(ptr nounde
 
 18:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %19 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.next
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv.next
   %20 = load i32, ptr %19, align 4, !tbaa !32
   %.not24 = icmp eq i32 %20, -1
   br i1 %.not24, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !33

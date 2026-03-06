@@ -426,7 +426,7 @@ _ZNSt6vectorIN5zxing3RefINS0_6qrcode13PatternResultEEESaIS4_EE5clearEv.exit: ; p
           to label %102 unwind label %156
 
 102:                                              ; preds = %99
-  %103 = getelementptr inbounds nuw %"class.zxing::Ref.20", ptr %100, i64 %.0944
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %.0944
   store ptr null, ptr %9, align 8, !tbaa !36
   %104 = load ptr, ptr %103, align 8, !tbaa !36
   %.not.i.i33 = icmp eq ptr %104, null
@@ -888,7 +888,7 @@ define hidden noundef i32 @_ZN5zxing6qrcode8Detector25getPossibleAlignmentCountE
   call void @_ZN5zxing12ErrorHandlerC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %3)
   %16 = sext i32 %1 to i64
   %17 = load ptr, ptr %6, align 8, !tbaa !29
-  %18 = getelementptr inbounds nuw %"class.zxing::Ref.19", ptr %17, i64 %16
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %16
   %19 = load ptr, ptr %18, align 8, !tbaa !31
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 32
@@ -964,7 +964,7 @@ _ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit: ; preds = %33, %34, %39
 
 56:                                               ; preds = %_ZN5zxing3RefINS_6qrcode17FinderPatternInfoEED2Ev.exit
   %57 = load ptr, ptr %6, align 8, !tbaa !29
-  %58 = getelementptr inbounds nuw %"class.zxing::Ref.19", ptr %57, i64 %16
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %16
   %59 = load ptr, ptr %4, align 8, !tbaa !31
   %.not.i.i17 = icmp eq ptr %59, null
   br i1 %.not.i.i17, label %64, label %60
@@ -1020,7 +1020,7 @@ _ZN5zxing3RefINS_6qrcode13PatternResultEEaSERKS3_.exit: ; preds = %64, %66, %71
 _ZN5zxing3RefINS_6qrcode13PatternResultEED2Ev.exit: ; preds = %_ZN5zxing3RefINS_6qrcode13PatternResultEEaSERKS3_.exit, %75, %80
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.pre = load ptr, ptr %6, align 8, !tbaa !29
-  %.phi.trans.insert = getelementptr inbounds nuw %"class.zxing::Ref.19", ptr %.pre, i64 %16
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %16
   %.pre24 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !31
   %.phi.trans.insert25 = getelementptr inbounds nuw i8, ptr %.pre24, i64 32
   %.pre26 = load ptr, ptr %.phi.trans.insert25, align 8, !tbaa !70
@@ -1882,7 +1882,7 @@ _ZN5zxing3RefINS_11ResultPointEED2Ev.exit266:     ; preds = %_ZN5zxing3RefINS_11
           to label %391 unwind label %403
 
 391:                                              ; preds = %_ZN5zxing3RefINS_11ResultPointEED2Ev.exit266
-  %392 = getelementptr inbounds nuw i32, ptr @__const._ZN5zxing6qrcode8Detector24processFinderPatternInfoENS_3RefINS0_17FinderPatternInfoEEERNS_12ErrorHandlerE.dimensionDiff, i64 %indvars.iv
+  %392 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZN5zxing6qrcode8Detector24processFinderPatternInfoENS_3RefINS0_17FinderPatternInfoEEERNS_12ErrorHandlerE.dimensionDiff, i64 %indvars.iv
   %393 = load i32, ptr %392, align 4, !tbaa !90
   %394 = add nsw i32 %393, %330
   %395 = invoke noundef ptr @_ZN5zxing6qrcode7Version33getProvisionalVersionForDimensionEiRNS_12ErrorHandlerE(i32 noundef %394, ptr noundef nonnull align 8 dereferenceable(48) %3)
@@ -3202,7 +3202,7 @@ _ZN5zxing3RefINS_6qrcode16AlignmentPatternEEC2ERKS3_.exit344: ; preds = %998, %.
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %1007
   %.0610.i = phi i64 [ %1008, %1007 ], [ 0, %.lr.ph.i.preheader ]
-  %1013 = getelementptr inbounds nuw %"class.zxing::Ref.26", ptr %.pr.i, i64 %.0610.i
+  %1013 = getelementptr inbounds nuw [8 x i8], ptr %.pr.i, i64 %.0610.i
   %1014 = load ptr, ptr %1013, align 8, !tbaa !79
   %1015 = load ptr, ptr %997, align 8, !tbaa !8
   %1016 = getelementptr inbounds nuw i8, ptr %1015, i64 24
@@ -4148,7 +4148,7 @@ define hidden void @_ZN5zxing6qrcode8Detector21getResultViaAlignmentEiiiRNS_12Er
 
 33:                                               ; preds = %6
   %34 = zext nneg i32 %2 to i64
-  %35 = getelementptr inbounds nuw %"class.zxing::Ref.19", ptr %24, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !31
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 32
@@ -4185,7 +4185,7 @@ define hidden void @_ZN5zxing6qrcode8Detector21getResultViaAlignmentEiiiRNS_12Er
   call void @_ZN5zxing6qrcode17FinderPatternInfo10getTopLeftEv(ptr dead_on_unwind nonnull writable sret(%"class.zxing::Ref.28") align 8 %7, ptr noundef nonnull align 8 dereferenceable(48) %56)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %57 = load ptr, ptr %21, align 8, !tbaa !29
-  %58 = getelementptr inbounds nuw %"class.zxing::Ref.19", ptr %57, i64 %34
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %34
   %59 = load ptr, ptr %58, align 8, !tbaa !31
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 16
   %61 = load ptr, ptr %60, align 8, !tbaa !36
@@ -4195,7 +4195,7 @@ define hidden void @_ZN5zxing6qrcode8Detector21getResultViaAlignmentEiiiRNS_12Er
 62:                                               ; preds = %54
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %63 = load ptr, ptr %21, align 8, !tbaa !29
-  %64 = getelementptr inbounds nuw %"class.zxing::Ref.19", ptr %63, i64 %34
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %34
   %65 = load ptr, ptr %64, align 8, !tbaa !31
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
   %67 = load ptr, ptr %66, align 8, !tbaa !36
@@ -4204,12 +4204,12 @@ define hidden void @_ZN5zxing6qrcode8Detector21getResultViaAlignmentEiiiRNS_12Er
 
 68:                                               ; preds = %62
   %69 = load ptr, ptr %21, align 8, !tbaa !29
-  %70 = getelementptr inbounds nuw %"class.zxing::Ref.19", ptr %69, i64 %34
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %34
   %71 = load ptr, ptr %70, align 8, !tbaa !31
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 24
   %73 = zext nneg i32 %3 to i64
   %74 = load ptr, ptr %72, align 8, !tbaa !71
-  %75 = getelementptr inbounds nuw %"class.zxing::Ref.26", ptr %74, i64 %73
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %73
   %76 = load ptr, ptr %75, align 8, !tbaa !79
   %.not.i.i = icmp eq ptr %76, null
   br i1 %.not.i.i, label %_ZN5zxing3RefINS_6qrcode16AlignmentPatternEEC2ERKS3_.exit, label %77
@@ -5659,7 +5659,7 @@ define hidden noundef zeroext i1 @_ZN5zxing6qrcode8Detector13hasSameResultESt6ve
 .lr.ph:                                           ; preds = %3, %12
   %20 = phi ptr [ %15, %12 ], [ %11, %3 ]
   %.0610 = phi i64 [ %13, %12 ], [ 0, %3 ]
-  %21 = getelementptr inbounds nuw %"class.zxing::Ref.26", ptr %20, i64 %.0610
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.0610
   %22 = load ptr, ptr %21, align 8, !tbaa !79
   %23 = load ptr, ptr %2, align 8, !tbaa !79
   %24 = load ptr, ptr %23, align 8, !tbaa !8
@@ -10780,7 +10780,7 @@ _ZNSt6vectorIN5zxing3RefINS0_11ResultPointEEESaIS3_EE9push_backERKS3_.exit: ; pr
   %.067111 = phi double [ 0.000000e+00, %.preheader.preheader ], [ %143, %137 ]
   %.068110 = phi double [ 0.000000e+00, %.preheader.preheader ], [ %141, %137 ]
   %122 = load ptr, ptr %6, align 8, !tbaa !110
-  %123 = getelementptr inbounds nuw %"class.zxing::Ref.30", ptr %122, i64 %indvars.iv
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %indvars.iv
   %124 = load ptr, ptr %123, align 8, !tbaa !81
   %125 = load ptr, ptr %124, align 8, !tbaa !8
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 16
@@ -10790,7 +10790,7 @@ _ZNSt6vectorIN5zxing3RefINS0_11ResultPointEEESaIS3_EE9push_backERKS3_.exit: ; pr
 
 129:                                              ; preds = %.preheader
   %130 = load ptr, ptr %6, align 8, !tbaa !110
-  %131 = getelementptr inbounds nuw %"class.zxing::Ref.30", ptr %130, i64 %indvars.iv
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %130, i64 %indvars.iv
   %132 = load ptr, ptr %131, align 8, !tbaa !81
   %133 = load ptr, ptr %132, align 8, !tbaa !8
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 24
@@ -12198,7 +12198,7 @@ _ZNSt12_Vector_baseIN5zxing3RefINS0_6qrcode13PatternResultEEESaIS4_EE13_M_deallo
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !29
   store ptr %.0.lcssa.i.i.i.i.i34, ptr %4, align 8, !tbaa !30
-  %58 = getelementptr inbounds nuw %"class.zxing::Ref.19", ptr %20, i64 %16
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %58, ptr %57, align 8, !tbaa !51
   ret void
 }
@@ -12485,7 +12485,7 @@ _ZNSt12_Vector_baseIN5zxing3RefINS0_6qrcode16AlignmentPatternEEESaIS4_EE13_M_dea
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !71
   store ptr %.0.lcssa.i.i.i.i.i34, ptr %4, align 8, !tbaa !70
-  %58 = getelementptr inbounds nuw %"class.zxing::Ref.26", ptr %20, i64 %16
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %58, ptr %57, align 8, !tbaa !98
   ret void
 }
@@ -12628,7 +12628,7 @@ _ZNSt12_Vector_baseIN5zxing3RefINS0_11ResultPointEEESaIS3_EE13_M_deallocateEPS3_
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !110
   store ptr %.0.lcssa.i.i.i.i.i34, ptr %4, align 8, !tbaa !114
-  %58 = getelementptr inbounds nuw %"class.zxing::Ref.30", ptr %20, i64 %16
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %58, ptr %57, align 8, !tbaa !113
   ret void
 }

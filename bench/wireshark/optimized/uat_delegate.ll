@@ -27,7 +27,6 @@ module asm ".previous"
 %struct.anon.1 = type { i16, i16, i16, i16, i16 }
 %class.QRegularExpression = type { %class.QExplicitlySharedDataPointer.10 }
 %class.QExplicitlySharedDataPointer.10 = type { ptr }
-%struct._value_string = type { i32, ptr }
 
 $_ZZN9QtPrivate16QMetaTypeForTypeIPvE13getDefaultCtrEvENUlPKNS_18QMetaTypeInterfaceES1_E_8__invokeES5_S1_ = comdat any
 
@@ -638,7 +637,7 @@ _ZN7QStringD2Ev.exit117:                          ; preds = %150, %_ZN17QArrayDa
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %155 = add i32 %.047153, 1
   %156 = sext i32 %155 to i64
-  %157 = getelementptr %struct._value_string, ptr %128, i64 %156
+  %157 = getelementptr [16 x i8], ptr %128, i64 %156
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 8
   %159 = load ptr, ptr %158, align 8
   %.not = icmp eq ptr %159, null

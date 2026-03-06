@@ -977,7 +977,7 @@ qrx_relocate_buffer.exit.thread192.i.i.i.i:       ; preds = %182, %174
 
 switch.lookup:                                    ; preds = %195
   %198 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.ossl_qrx_read_pkt.16, i64 %198
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ossl_qrx_read_pkt.16, i64 %198
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %qrx_validate_hdr.exit.i
 
@@ -987,7 +987,7 @@ qrx_validate_hdr.exit.i:                          ; preds = %195, %switch.lookup
   %200 = lshr i32 %.val.i11.i, 10
   %201 = and i32 %200, 15
   %202 = zext nneg i32 %201 to i64
-  %203 = getelementptr inbounds nuw i64, ptr %25, i64 %.0.i1.i.i14.i
+  %203 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.0.i1.i.i14.i
   %204 = load i64, ptr %203, align 8, !tbaa !13
   %205 = getelementptr inbounds nuw i8, ptr %.0175.i.i.i.i, i64 200
   %206 = call i32 @ossl_quic_wire_decode_pkt_hdr_pn(ptr noundef nonnull %199, i64 noundef %202, i64 noundef %204, ptr noundef nonnull %205) #11
@@ -1113,7 +1113,7 @@ qrx_get_cipher_ctx_idx.exit.thread.i.i:           ; preds = %272, %qrx_get_ciphe
   %.018.i = phi i64 [ %271, %272 ], [ -1, %255 ], [ %271, %qrx_get_cipher_ctx_idx.exit.i.i ], [ 0, %254 ], [ %259, %.thread.i.i.i ], [ %266, %261 ]
   %.0.i67.i.i = phi i64 [ %242, %272 ], [ %242, %255 ], [ %242, %qrx_get_cipher_ctx_idx.exit.i.i ], [ 0, %254 ], [ %260, %.thread.i.i.i ], [ %242, %261 ]
   %274 = getelementptr inbounds nuw i8, ptr %243, i64 48
-  %275 = getelementptr inbounds nuw ptr, ptr %274, i64 %.0.i67.i.i
+  %275 = getelementptr inbounds nuw [8 x i8], ptr %274, i64 %.0.i67.i.i
   %276 = load ptr, ptr %275, align 8, !tbaa !101
   %277 = call i32 @EVP_CIPHER_CTX_get_iv_length(ptr noundef %276) #11
   %278 = icmp sgt i32 %277, 7
@@ -1201,7 +1201,7 @@ qrx_decrypt_pkt_body.exit.thread.i:               ; preds = %310, %303, %300, %2
 
 switch.lookup73:                                  ; preds = %313
   %317 = zext nneg i8 %switch.tableidx72 to i64
-  %switch.gep74 = getelementptr inbounds nuw i32, ptr @switch.table.ossl_qrx_read_pkt.15, i64 %317
+  %switch.gep74 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.ossl_qrx_read_pkt.15, i64 %317
   %switch.load75 = load i32, ptr %switch.gep74, align 4
   br label %rxe_determine_pn_space.exit.i.i
 
@@ -1263,14 +1263,14 @@ qrx_validate_hdr_late.exit.i:                     ; preds = %.qrx_validate_hdr_l
 
 switch.lookup77:                                  ; preds = %335
   %342 = zext nneg i8 %switch.tableidx76 to i64
-  %switch.gep78 = getelementptr inbounds nuw i64, ptr @switch.table.ossl_qrx_read_pkt.16, i64 %342
+  %switch.gep78 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ossl_qrx_read_pkt.16, i64 %342
   %switch.load79 = load i64, ptr %switch.gep78, align 8
   br label %rxe_determine_pn_space.exit.i.i.i.i
 
 rxe_determine_pn_space.exit.i.i.i.i:              ; preds = %335, %switch.lookup77
   %.0.i1.i.i.i.i.i = phi i64 [ %switch.load79, %switch.lookup77 ], [ 0, %335 ]
   %343 = load i64, ptr %237, align 8, !tbaa !79
-  %344 = getelementptr inbounds nuw i64, ptr %25, i64 %.0.i1.i.i.i.i.i
+  %344 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.0.i1.i.i.i.i.i
   %345 = load i64, ptr %344, align 8, !tbaa !13
   %346 = icmp ugt i64 %343, %345
   br i1 %346, label %347, label %348

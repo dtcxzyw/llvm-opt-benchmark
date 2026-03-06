@@ -4747,7 +4747,7 @@ define internal i32 @dissect_c15ch_cp_event(ptr noundef %0, ptr noundef readonly
 19:                                               ; preds = %7
   %20 = load ptr, ptr %13, align 8
   %21 = zext nneg i32 %8 to i64
-  %22 = getelementptr ptr, ptr @subpm_name_tables, i64 %21
+  %22 = getelementptr [8 x i8], ptr @subpm_name_tables, i64 %21
   %23 = load ptr, ptr %22, align 8
   %24 = tail call ptr @val_to_str(i32 noundef %9, ptr noundef %23, ptr noundef nonnull @.str.3203)
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.3202, ptr noundef %24)
@@ -4771,7 +4771,7 @@ define internal i32 @dissect_c15ch_cp_event(ptr noundef %0, ptr noundef readonly
 
 33:                                               ; preds = %28
   %34 = zext nneg i32 %10 to i64
-  %35 = getelementptr ptr, ptr @dig_ckt_test_subpm_name_tables, i64 %34
+  %35 = getelementptr [8 x i8], ptr @dig_ckt_test_subpm_name_tables, i64 %34
   %36 = load ptr, ptr %35, align 8
   %37 = tail call ptr @val_to_str(i32 noundef %9, ptr noundef %36, ptr noundef nonnull @.str.3203)
   tail call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %31, i32 noundef 25, ptr noundef nonnull @.str.3202, ptr noundef %37)
@@ -4814,7 +4814,7 @@ define internal i32 @dissect_c15ch_cp_event(ptr noundef %0, ptr noundef readonly
   %dig_ckt_test_subpm_table.sink = phi ptr [ @subpm_table, %52 ], [ @dig_ckt_test_subpm_table, %53 ]
   %hf_c15ch_cp_event_dig_ckt_test_trkpm.sink.ph = phi ptr [ @hf_c15ch_cp_event_trkpm, %52 ], [ @hf_c15ch_cp_event_dig_ckt_test_trkpm, %53 ]
   %55 = zext nneg i32 %.sink to i64
-  %56 = getelementptr ptr, ptr %dig_ckt_test_subpm_table.sink, i64 %55
+  %56 = getelementptr [8 x i8], ptr %dig_ckt_test_subpm_table.sink, i64 %55
   %57 = load ptr, ptr %56, align 8
   br label %58
 
@@ -6086,7 +6086,7 @@ define internal i32 @dissect_c15ch_inc_gwe(ptr noundef %0, ptr noundef %1, ptr n
 15:                                               ; preds = %4
   %16 = zext i8 %6 to i32
   %17 = zext nneg i8 %5 to i64
-  %18 = getelementptr ptr, ptr @fiat_name_tables, i64 %17
+  %18 = getelementptr [8 x i8], ptr @fiat_name_tables, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = tail call ptr @val_to_str(i32 noundef %16, ptr noundef %19, ptr noundef nonnull @.str.3233)
   tail call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %13, i32 noundef 25, ptr noundef nonnull @.str.3231, ptr noundef %14, ptr noundef %20)
@@ -6110,7 +6110,7 @@ define internal i32 @dissect_c15ch_inc_gwe(ptr noundef %0, ptr noundef %1, ptr n
 27:                                               ; preds = %23
   %28 = zext i8 %6 to i32
   %29 = zext nneg i8 %5 to i64
-  %30 = getelementptr ptr, ptr @fiat_name_tables, i64 %29
+  %30 = getelementptr [8 x i8], ptr @fiat_name_tables, i64 %29
   %31 = load ptr, ptr %30, align 8
   %32 = tail call ptr @val_to_str(i32 noundef %28, ptr noundef %31, ptr noundef nonnull @.str.3233)
   tail call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %25, ptr noundef nonnull @.str.3236, ptr noundef %32)
@@ -6133,7 +6133,7 @@ define internal i32 @dissect_c15ch_inc_gwe(ptr noundef %0, ptr noundef %1, ptr n
 
 46:                                               ; preds = %33
   %47 = zext nneg i8 %5 to i64
-  %48 = getelementptr ptr, ptr @fiatid_table, i64 %47
+  %48 = getelementptr [8 x i8], ptr @fiatid_table, i64 %47
   %49 = load ptr, ptr %48, align 8
   %50 = load i32, ptr %49, align 4
   %51 = tail call ptr @proto_tree_add_item(ptr noundef %35, i32 noundef %50, ptr noundef %0, i32 noundef 9, i32 noundef 1, i32 noundef 0)
@@ -6524,10 +6524,10 @@ define internal i32 @dissect_c15ch_echo_cancel(ptr noundef %0, ptr noundef reado
 
 switch.lookup:                                    ; preds = %4
   %8 = zext nneg i8 %5 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissect_c15ch_echo_cancel.2, i64 %8
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_c15ch_echo_cancel.2, i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
   %9 = zext nneg i8 %5 to i64
-  %switch.gep64 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_c15ch_echo_cancel.3, i64 %9
+  %switch.gep64 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_c15ch_echo_cancel.3, i64 %9
   %switch.load65 = load i32, ptr %switch.gep64, align 4
   br label %10
 
@@ -6539,10 +6539,10 @@ switch.lookup:                                    ; preds = %4
 
 switch.lookup66:                                  ; preds = %10
   %12 = zext nneg i8 %6 to i64
-  %switch.gep67 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_c15ch_echo_cancel.2, i64 %12
+  %switch.gep67 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_c15ch_echo_cancel.2, i64 %12
   %switch.load68 = load i32, ptr %switch.gep67, align 4
   %13 = zext nneg i8 %6 to i64
-  %switch.gep69 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_c15ch_echo_cancel.3, i64 %13
+  %switch.gep69 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_c15ch_echo_cancel.3, i64 %13
   %switch.load70 = load i32, ptr %switch.gep69, align 4
   br label %14
 

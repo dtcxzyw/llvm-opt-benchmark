@@ -170,7 +170,7 @@ define internal range(i32 -2147483648, 1) i32 @param_set_lid_init_state(ptr noun
 5:                                                ; preds = %2
   %6 = zext nneg i32 %3 to i64
   store i64 %6, ptr @lid_init_state, align 8
-  %7 = getelementptr ptr, ptr @lid_init_state_str, i64 %6
+  %7 = getelementptr [8 x i8], ptr @lid_init_state_str, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.1, ptr noundef %8) #12
   br label %10
@@ -191,7 +191,7 @@ define internal i32 @param_get_lid_init_state(ptr noundef writeonly captures(non
   %7 = icmp eq i64 %6, %4
   %8 = sext i32 %5 to i64
   %9 = getelementptr i8, ptr %0, i64 %8
-  %10 = getelementptr ptr, ptr @lid_init_state_str, i64 %4
+  %10 = getelementptr [8 x i8], ptr @lid_init_state_str, i64 %4
   %11 = load ptr, ptr %10, align 8
   %12 = select i1 %7, ptr @.str.6, ptr @.str.7
   %13 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %9, ptr noundef nonnull dereferenceable(1) %12, ptr noundef %11) #11

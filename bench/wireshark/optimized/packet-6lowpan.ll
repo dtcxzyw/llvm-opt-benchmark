@@ -600,7 +600,7 @@ define hidden void @proto_register_6lowpan() local_unnamed_addr #0 {
   %12 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %10, ptr noundef nonnull @.str.204, i32 noundef %11)
   %13 = tail call ptr @wmem_epan_scope()
   %14 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %13, ptr noundef nonnull @.str.205, i32 noundef %11)
-  %15 = getelementptr ptr, ptr @lowpan_context_prefs, i64 %indvars.iv
+  %15 = getelementptr [8 x i8], ptr @lowpan_context_prefs, i64 %indvars.iv
   tail call void @prefs_register_string_preference(ptr noundef %8, ptr noundef %12, ptr noundef %14, ptr noundef nonnull @.str.206, ptr noundef %15)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
@@ -1974,7 +1974,7 @@ define internal void @prefs_6lowpan_apply() #0 {
 
 4:                                                ; preds = %0, %22
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %22 ]
-  %5 = getelementptr ptr, ptr @lowpan_context_prefs, i64 %indvars.iv
+  %5 = getelementptr [8 x i8], ptr @lowpan_context_prefs, i64 %indvars.iv
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %22, label %7

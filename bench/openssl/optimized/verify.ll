@@ -441,7 +441,7 @@ define dso_local range(i32 0, 3) i32 @verify_main(i32 noundef %0, ptr noundef %1
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
   %.157150 = phi i32 [ 0, %.preheader.preheader ], [ %spec.select105, %.preheader ]
-  %104 = getelementptr inbounds nuw ptr, ptr %80, i64 %indvars.iv
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %indvars.iv
   %105 = load ptr, ptr %104, align 8, !tbaa !17
   %106 = load ptr, ptr %3, align 8, !tbaa !4
   %107 = load ptr, ptr %4, align 8, !tbaa !4

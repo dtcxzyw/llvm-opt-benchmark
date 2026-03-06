@@ -730,7 +730,7 @@ _ZN11OpenImageIO6v3_1_09roi_unionERKNS0_3ROIES3_.exit: ; preds = %53, %76
 273:                                              ; preds = %._crit_edge, %273
   %store_forwarded = phi float [ %241, %._crit_edge ], [ %275, %273 ]
   %indvars.iv = phi i64 [ 1, %._crit_edge ], [ %indvars.iv.next, %273 ]
-  %274 = getelementptr float, ptr %42, i64 %indvars.iv
+  %274 = getelementptr [4 x i8], ptr %42, i64 %indvars.iv
   %275 = fmul float %store_forwarded, 5.000000e-01
   store float %275, ptr %274, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -743,8 +743,8 @@ _ZN11OpenImageIO6v3_1_09roi_unionERKNS0_3ROIES3_.exit: ; preds = %53, %76
 
 .preheader284.lr.ph:                              ; preds = %.preheader285
   %277 = icmp sgt i32 %236, 0
-  %278 = getelementptr inbounds nuw %"class.OpenImageIO::v3_1_0::ImageBuf", ptr %40, i64 %.0151.lcssa
-  %279 = getelementptr inbounds nuw %"class.OpenImageIO::v3_1_0::ImageBuf", ptr %41, i64 %.0151.lcssa
+  %278 = getelementptr inbounds nuw [16 x i8], ptr %40, i64 %.0151.lcssa
+  %279 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %.0151.lcssa
   br i1 %277, label %.preheader284.us, label %._crit_edge303
 
 .preheader284.us:                                 ; preds = %.preheader284.lr.ph, %._crit_edge301.us
@@ -896,12 +896,12 @@ _ZN11OpenImageIO6v3_1_012_GLOBAL__N_13tviEf.exit.us: ; preds = %321, %319, %315,
 .preheader.us:                                    ; preds = %363, %.preheader.us
   %indvars.iv340 = phi i64 [ %indvars.iv.next341, %.preheader.us ], [ 0, %363 ]
   %.0297.us = phi float [ %362, %.preheader.us ], [ 0.000000e+00, %363 ]
-  %353 = getelementptr inbounds nuw float, ptr %44, i64 %indvars.iv340
+  %353 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %indvars.iv340
   %354 = load float, ptr %353, align 4, !tbaa !3
-  %355 = getelementptr inbounds nuw float, ptr %43, i64 %indvars.iv340
+  %355 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv340
   %356 = load float, ptr %355, align 4, !tbaa !3
   %357 = fmul float %354, %356
-  %358 = getelementptr inbounds nuw float, ptr %45, i64 %indvars.iv340
+  %358 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %indvars.iv340
   %359 = load float, ptr %358, align 4, !tbaa !3
   %360 = fmul float %357, %359
   %361 = fdiv float %360, %.1154.us
@@ -912,9 +912,9 @@ _ZN11OpenImageIO6v3_1_012_GLOBAL__N_13tviEf.exit.us: ; preds = %321, %319, %315,
 
 363:                                              ; preds = %363, %_ZNK11OpenImageIO6v3_1_012_GLOBAL__N_115GaussianPyramid5valueEiii.exit207.us
   %indvars.iv336 = phi i64 [ %indvars.iv.next337, %363 ], [ 0, %_ZNK11OpenImageIO6v3_1_012_GLOBAL__N_115GaussianPyramid5valueEiii.exit207.us ]
-  %364 = getelementptr inbounds nuw float, ptr %44, i64 %indvars.iv336
+  %364 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %indvars.iv336
   %365 = load float, ptr %364, align 4, !tbaa !3
-  %366 = getelementptr inbounds nuw float, ptr %42, i64 %indvars.iv336
+  %366 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %indvars.iv336
   %367 = load float, ptr %366, align 4, !tbaa !3
   %368 = fmul float %293, %367
   %369 = fmul float %367, %298
@@ -932,7 +932,7 @@ _ZN11OpenImageIO6v3_1_012_GLOBAL__N_13tviEf.exit.us: ; preds = %321, %319, %315,
   %381 = call float @llvm.pow.f32(float %380, float 4.000000e+00)
   %382 = fadd float %381, 1.000000e+00
   %383 = call noundef float @llvm.pow.f32(float %382, float 2.500000e-01)
-  %384 = getelementptr inbounds nuw float, ptr %45, i64 %indvars.iv336
+  %384 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %indvars.iv336
   store float %383, ptr %384, align 4, !tbaa !3
   %indvars.iv.next337 = add nuw nsw i64 %indvars.iv336, 1
   %exitcond339.not = icmp eq i64 %indvars.iv.next337, 6
@@ -941,25 +941,25 @@ _ZN11OpenImageIO6v3_1_012_GLOBAL__N_13tviEf.exit.us: ; preds = %321, %319, %315,
 385:                                              ; preds = %_ZNK11OpenImageIO6v3_1_012_GLOBAL__N_115GaussianPyramid5valueEiii.exit204.us, %280
   %indvars.iv332 = phi i64 [ %indvars.iv.next333, %_ZNK11OpenImageIO6v3_1_012_GLOBAL__N_115GaussianPyramid5valueEiii.exit204.us ], [ 0, %280 ]
   %.0153294.us = phi float [ %410, %_ZNK11OpenImageIO6v3_1_012_GLOBAL__N_115GaussianPyramid5valueEiii.exit204.us ], [ 0.000000e+00, %280 ]
-  %386 = getelementptr inbounds nuw %"class.OpenImageIO::v3_1_0::ImageBuf", ptr %40, i64 %indvars.iv332
+  %386 = getelementptr inbounds nuw [16 x i8], ptr %40, i64 %indvars.iv332
   %387 = invoke noundef float @_ZNK11OpenImageIO6v3_1_08ImageBuf10getchannelEiiiiNS1_8WrapModeE(ptr noundef nonnull align 8 dereferenceable(16) %386, i32 noundef %.0155299.us, i32 noundef %.0156302.us, i32 noundef 0, i32 noundef 1, i32 noundef 1)
           to label %_ZNK11OpenImageIO6v3_1_012_GLOBAL__N_115GaussianPyramid5valueEiii.exit198.us unwind label %.split314.us
 
 _ZNK11OpenImageIO6v3_1_012_GLOBAL__N_115GaussianPyramid5valueEiii.exit198.us: ; preds = %385
   %indvars.iv.next333 = add nuw nsw i64 %indvars.iv332, 1
-  %388 = getelementptr inbounds nuw %"class.OpenImageIO::v3_1_0::ImageBuf", ptr %40, i64 %indvars.iv.next333
+  %388 = getelementptr inbounds nuw [16 x i8], ptr %40, i64 %indvars.iv.next333
   %389 = invoke noundef float @_ZNK11OpenImageIO6v3_1_08ImageBuf10getchannelEiiiiNS1_8WrapModeE(ptr noundef nonnull align 8 dereferenceable(16) %388, i32 noundef %.0155299.us, i32 noundef %.0156302.us, i32 noundef 0, i32 noundef 1, i32 noundef 1)
           to label %_ZNK11OpenImageIO6v3_1_012_GLOBAL__N_115GaussianPyramid5valueEiii.exit199.us unwind label %.split314.us
 
 _ZNK11OpenImageIO6v3_1_012_GLOBAL__N_115GaussianPyramid5valueEiii.exit199.us: ; preds = %_ZNK11OpenImageIO6v3_1_012_GLOBAL__N_115GaussianPyramid5valueEiii.exit198.us
   %390 = fsub float %387, %389
   %391 = call float @llvm.fabs.f32(float %390)
-  %392 = getelementptr inbounds nuw %"class.OpenImageIO::v3_1_0::ImageBuf", ptr %41, i64 %indvars.iv332
+  %392 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %indvars.iv332
   %393 = invoke noundef float @_ZNK11OpenImageIO6v3_1_08ImageBuf10getchannelEiiiiNS1_8WrapModeE(ptr noundef nonnull align 8 dereferenceable(16) %392, i32 noundef %.0155299.us, i32 noundef %.0156302.us, i32 noundef 0, i32 noundef 1, i32 noundef 1)
           to label %_ZNK11OpenImageIO6v3_1_012_GLOBAL__N_115GaussianPyramid5valueEiii.exit200.us unwind label %.split317.us
 
 _ZNK11OpenImageIO6v3_1_012_GLOBAL__N_115GaussianPyramid5valueEiii.exit200.us: ; preds = %_ZNK11OpenImageIO6v3_1_012_GLOBAL__N_115GaussianPyramid5valueEiii.exit199.us
-  %394 = getelementptr inbounds nuw %"class.OpenImageIO::v3_1_0::ImageBuf", ptr %41, i64 %indvars.iv.next333
+  %394 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %indvars.iv.next333
   %395 = invoke noundef float @_ZNK11OpenImageIO6v3_1_08ImageBuf10getchannelEiiiiNS1_8WrapModeE(ptr noundef nonnull align 8 dereferenceable(16) %394, i32 noundef %.0155299.us, i32 noundef %.0156302.us, i32 noundef 0, i32 noundef 1, i32 noundef 1)
           to label %_ZNK11OpenImageIO6v3_1_012_GLOBAL__N_115GaussianPyramid5valueEiii.exit201.us unwind label %.split317.us
 
@@ -969,12 +969,12 @@ _ZNK11OpenImageIO6v3_1_012_GLOBAL__N_115GaussianPyramid5valueEiii.exit201.us: ; 
   %398 = fcmp olt float %391, %397
   %.sroa.speculated248.us = select i1 %398, float %397, float %391
   %399 = add nuw nsw i64 %indvars.iv332, 2
-  %400 = getelementptr inbounds nuw %"class.OpenImageIO::v3_1_0::ImageBuf", ptr %40, i64 %399
+  %400 = getelementptr inbounds nuw [16 x i8], ptr %40, i64 %399
   %401 = invoke noundef float @_ZNK11OpenImageIO6v3_1_08ImageBuf10getchannelEiiiiNS1_8WrapModeE(ptr noundef nonnull align 8 dereferenceable(16) %400, i32 noundef %.0155299.us, i32 noundef %.0156302.us, i32 noundef 0, i32 noundef 1, i32 noundef 1)
           to label %_ZNK11OpenImageIO6v3_1_012_GLOBAL__N_115GaussianPyramid5valueEiii.exit203.us unwind label %.split320.us
 
 _ZNK11OpenImageIO6v3_1_012_GLOBAL__N_115GaussianPyramid5valueEiii.exit203.us: ; preds = %_ZNK11OpenImageIO6v3_1_012_GLOBAL__N_115GaussianPyramid5valueEiii.exit201.us
-  %402 = getelementptr inbounds nuw %"class.OpenImageIO::v3_1_0::ImageBuf", ptr %41, i64 %399
+  %402 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %399
   %403 = invoke noundef float @_ZNK11OpenImageIO6v3_1_08ImageBuf10getchannelEiiiiNS1_8WrapModeE(ptr noundef nonnull align 8 dereferenceable(16) %402, i32 noundef %.0155299.us, i32 noundef %.0156302.us, i32 noundef 0, i32 noundef 1, i32 noundef 1)
           to label %_ZNK11OpenImageIO6v3_1_012_GLOBAL__N_115GaussianPyramid5valueEiii.exit204.us unwind label %.split323.us
 
@@ -986,7 +986,7 @@ _ZNK11OpenImageIO6v3_1_012_GLOBAL__N_115GaussianPyramid5valueEiii.exit204.us: ; 
   %407 = fcmp olt float %.sroa.speculated244.us, 0x3EE4F8B580000000
   %.sroa.speculated.us = select i1 %407, float 0x3EE4F8B580000000, float %.sroa.speculated244.us
   %408 = fdiv float %.sroa.speculated248.us, %.sroa.speculated.us
-  %409 = getelementptr inbounds nuw float, ptr %44, i64 %indvars.iv332
+  %409 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %indvars.iv332
   store float %408, ptr %409, align 4, !tbaa !3
   %410 = fadd float %.0153294.us, %408
   %exitcond335.not = icmp eq i64 %indvars.iv.next333, 6
@@ -1039,7 +1039,7 @@ _ZNK11OpenImageIO6v3_1_012_GLOBAL__N_115GaussianPyramid5valueEiii.exit204.us: ; 
 
 420:                                              ; preds = %272, %420
   %indvars.iv328 = phi i64 [ 0, %272 ], [ %indvars.iv.next329, %420 ]
-  %421 = getelementptr inbounds nuw float, ptr %42, i64 %indvars.iv328
+  %421 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %indvars.iv328
   %422 = load float, ptr %421, align 4, !tbaa !3
   %423 = fmul float %422, 0x407B762F60000000
   %424 = fmul float %422, 0xBFD54DC180000000
@@ -1051,7 +1051,7 @@ _ZNK11OpenImageIO6v3_1_012_GLOBAL__N_115GaussianPyramid5valueEiii.exit204.us: ; 
   %430 = call float @llvm.sqrt.f32(float %429)
   %431 = fmul float %426, %430
   %432 = fdiv float 0x4080693AA0000000, %431
-  %433 = getelementptr inbounds nuw float, ptr %43, i64 %indvars.iv328
+  %433 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv328
   store float %432, ptr %433, align 4, !tbaa !3
   %indvars.iv.next329 = add nuw nsw i64 %indvars.iv328, 1
   %exitcond331.not = icmp eq i64 %indvars.iv.next329, 6
@@ -1454,7 +1454,7 @@ define internal fastcc void @_ZN11OpenImageIO6v3_1_012_GLOBAL__N_115GaussianPyra
 
 28:                                               ; preds = %.preheader, %32
   %indvars.iv = phi i64 [ 1, %.preheader ], [ %indvars.iv.next, %32 ]
-  %29 = getelementptr inbounds nuw %"class.OpenImageIO::v3_1_0::ImageBuf", ptr %0, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %indvars.iv
   %30 = getelementptr i8, ptr %29, i64 -16
   %31 = invoke noundef zeroext i1 @_ZN11OpenImageIO6v3_1_012ImageBufAlgo8convolveERNS0_8ImageBufERKS2_S5_bNS0_3ROIEi(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) %3, i1 noundef zeroext true, ptr noundef nonnull byval(%"struct.OpenImageIO::v3_1_0::ROI") align 8 %5, i32 noundef 0)
           to label %32 unwind label %33
@@ -2245,7 +2245,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
 
 61:                                               ; preds = %82, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ 0, %_ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i ], [ %indvars.iv.next.i.i.i.i, %82 ]
-  %62 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv.i.i.i.i
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.i.i.i.i
   %63 = load float, ptr %62, align 4, !tbaa !3, !noalias !141
   %64 = fcmp ogt float %63, 0x3F822354E0000000
   br i1 %64, label %65, label %79
@@ -2273,7 +2273,7 @@ _ZNK11OpenImageIO6v3_1_08ImageBuf12IteratorBase4doneEv.exit.thread.i.i.i: ; pred
 
 82:                                               ; preds = %79, %65
   %.sink.i.i.i.i = phi float [ %78, %65 ], [ %81, %79 ]
-  %83 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i.i.i.i
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i.i.i.i
   store float %.sink.i.i.i.i, ptr %83, align 4, !tbaa !3, !noalias !141
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, 3

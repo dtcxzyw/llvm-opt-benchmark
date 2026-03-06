@@ -31,7 +31,7 @@ define internal range(i32 0, 2) i32 @test_mdc2(i32 noundef %0) #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = sext i32 %0 to i64
-  %6 = getelementptr inbounds %struct.TESTDATA, ptr @tests, i64 %5
+  %6 = getelementptr inbounds [24 x i8], ptr @tests, i64 %5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false), !tbaa.struct !4
   %7 = call i32 @MDC2_Init(ptr noundef nonnull %3) #5
   %8 = load ptr, ptr %4, align 8, !tbaa !11

@@ -552,7 +552,7 @@ entry:
   %call = tail call noundef i64 @_ZNK8QuantLib13HestonProcess7factorsEv(ptr noundef nonnull align 8 dereferenceable(220) %this)
   %cumNormalDist_ = getelementptr inbounds nuw i8, ptr %this, i64 256
   %0 = load ptr, ptr %dw, align 8, !tbaa !3
-  %arrayidx.i = getelementptr inbounds nuw double, ptr %0, i64 %call
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %call
   %1 = load double, ptr %arrayidx.i, align 8, !tbaa !67
   %call3 = tail call noundef double @_ZNK8QuantLib28CumulativeNormalDistributionclEd(ptr noundef nonnull align 8 dereferenceable(57) %cumNormalDist_, double noundef %1)
   %cmp = fcmp olt double %call3, 0.000000e+00
@@ -589,7 +589,7 @@ if.end7:                                          ; preds = %entry, %if.else, %i
   %call13 = call double @sqrt(double noundef %call8) #21, !tbaa !57
   %mul14 = fmul double %7, %call13
   %8 = load ptr, ptr %dw, align 8, !tbaa !3
-  %9 = getelementptr double, ptr %8, i64 %call
+  %9 = getelementptr [8 x i8], ptr %8, i64 %call
   %arrayidx.i9 = getelementptr i8, ptr %9, i64 8
   %10 = load double, ptr %arrayidx.i9, align 8, !tbaa !67
   %11 = call double @llvm.fmuladd.f64(double %mul14, double %10, double %6)

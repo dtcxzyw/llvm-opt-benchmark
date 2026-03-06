@@ -333,7 +333,7 @@ define dso_local ptr @slurm_cred_create(ptr noundef %0, i1 noundef zeroext %1, i
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %31 ]
   %.03447 = phi i32 [ 0, %.lr.ph.preheader ], [ %30, %31 ]
-  %28 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4
   %30 = add i32 %29, %.03447
   %.not41 = icmp ult i32 %30, %27
@@ -871,7 +871,7 @@ define dso_local void @slurm_cred_get_mem(ptr noundef readonly captures(none) %0
   %27 = getelementptr inbounds nuw i8, ptr %7, i64 176
   %28 = load ptr, ptr %27, align 8
   %29 = zext nneg i32 %.03853 to i64
-  %30 = getelementptr inbounds nuw i64, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %29
   %31 = load i64, ptr %30, align 8
   store i64 %31, ptr %3, align 8
   br label %32
@@ -930,7 +930,7 @@ define dso_local void @slurm_cred_get_mem(ptr noundef readonly captures(none) %0
 60:                                               ; preds = %51
   %61 = load ptr, ptr %42, align 8
   %62 = zext nneg i32 %56 to i64
-  %63 = getelementptr inbounds nuw i64, ptr %61, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %62
   %64 = load i64, ptr %63, align 8
   store i64 %64, ptr %4, align 8
   br label %65
@@ -1034,13 +1034,13 @@ define dso_local void @format_core_allocs(ptr noundef readonly captures(none) %0
   %.07394 = phi i32 [ 0, %32 ], [ %56, %51 ]
   %.07593 = phi i32 [ %33, %32 ], [ %55, %51 ]
   %41 = zext i32 %.07394 to i64
-  %42 = getelementptr inbounds nuw i32, ptr %35, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %41
   %43 = load i32, ptr %42, align 4
   %44 = icmp ugt i32 %.07593, %43
-  %45 = getelementptr inbounds nuw i16, ptr %38, i64 %41
+  %45 = getelementptr inbounds nuw [2 x i8], ptr %38, i64 %41
   %46 = load i16, ptr %45, align 2
   %47 = zext i16 %46 to i32
-  %48 = getelementptr inbounds nuw i16, ptr %39, i64 %41
+  %48 = getelementptr inbounds nuw [2 x i8], ptr %39, i64 %41
   %49 = load i16, ptr %48, align 2
   %50 = zext i16 %49 to i32
   br i1 %44, label %51, label %57

@@ -12,8 +12,8 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.except_id_t = type { i64, i64 }
 %struct.krb5_keytab_entry_st = type { i32, ptr, i32, i32, %struct._krb5_keyblock }
 %struct._krb5_keyblock = type { i32, i32, i32, ptr }
-%struct._krb5_data = type { i32, i32, ptr }
 %struct.decrypt_krb5_data_state = type { %struct._krb5_data, %struct._krb5_data }
+%struct._krb5_data = type { i32, i32, ptr }
 %struct.decrypt_krb5_krb_cfx_dce_state = type { ptr, i32, ptr, ptr, i32, ptr, i32, ptr, ptr, i32 }
 %struct.insert_longterm_keys_into_key_map_state = type { ptr }
 %struct.decrypt_krb5_with_cb_state = type { ptr, ptr, ptr, i32, i32, ptr, ptr, ptr, i32, ptr }
@@ -2257,7 +2257,7 @@ define void @read_keytab_file(ptr noundef %0) local_unnamed_addr #0 {
   %64 = select i1 %.not84, ptr @.str.6, ptr @.str.5
   %65 = getelementptr inbounds nuw i8, ptr %58, i64 24
   %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr %struct._krb5_data, ptr %66, i64 %indvars.iv
+  %67 = getelementptr [16 x i8], ptr %66, i64 %indvars.iv
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %69 = load ptr, ptr %68, align 8
   %70 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %.088, i64 noundef %62, i32 noundef 2, i64 noundef %63, ptr noundef nonnull @.str.4, ptr noundef nonnull %64, ptr noundef %69)
@@ -2269,7 +2269,7 @@ define void @read_keytab_file(ptr noundef %0) local_unnamed_addr #0 {
   %74 = load ptr, ptr %26, align 8
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 24
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr %struct._krb5_data, ptr %76, i64 %indvars.iv
+  %77 = getelementptr [16 x i8], ptr %76, i64 %indvars.iv
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %79 = load ptr, ptr %78, align 8
   %80 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %.088, i64 noundef %62, i32 noundef 2, i64 noundef %63, ptr noundef nonnull @.str.4, ptr noundef nonnull %64, ptr noundef %79)
@@ -5732,7 +5732,7 @@ read_keytab_file_from_preferences.exit.i:         ; preds = %123, %121, %114
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
   store i32 0, ptr %36, align 4
   %142 = load ptr, ptr @krb5_ctx, align 8
-  %143 = getelementptr i32, ptr @keytype_for_cksumtype.keytypes, i64 %indvars.iv.i.i
+  %143 = getelementptr [4 x i8], ptr @keytype_for_cksumtype.keytypes, i64 %indvars.iv.i.i
   %144 = load i32, ptr %143, align 4
   %145 = call i32 @krb5int_c_mandatory_cksumtype(ptr noundef %142, i32 noundef %144, ptr noundef nonnull %36)
   %.not.i56.i = icmp eq i32 %145, 0
@@ -5789,7 +5789,7 @@ keytype_for_cksumtype.exit.i:                     ; preds = %148, %141
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
   store i32 0, ptr %35, align 4
   %173 = load ptr, ptr @krb5_ctx, align 8
-  %174 = getelementptr i32, ptr @keytype_for_cksumtype.keytypes, i64 %indvars.iv.i57.i
+  %174 = getelementptr [4 x i8], ptr @keytype_for_cksumtype.keytypes, i64 %indvars.iv.i57.i
   %175 = load i32, ptr %174, align 4
   %176 = call i32 @krb5int_c_mandatory_cksumtype(ptr noundef %173, i32 noundef %175, ptr noundef nonnull %35)
   %.not.i58.i = icmp eq i32 %176, 0
@@ -5867,7 +5867,7 @@ kerberos_get_private_data.exit.i.i:               ; preds = %192, %190
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   store i32 0, ptr %25, align 4
   %204 = load ptr, ptr @krb5_ctx, align 8
-  %205 = getelementptr i32, ptr @keytype_for_cksumtype.keytypes, i64 %indvars.iv.i.i.i
+  %205 = getelementptr [4 x i8], ptr @keytype_for_cksumtype.keytypes, i64 %indvars.iv.i.i.i
   %206 = load i32, ptr %205, align 4
   %207 = call i32 @krb5int_c_mandatory_cksumtype(ptr noundef %204, i32 noundef %206, ptr noundef nonnull %25)
   %.not.i127.i.i = icmp eq i32 %207, 0
@@ -6014,7 +6014,7 @@ keytype_for_cksumtype.exit.i.i:                   ; preds = %210, %203
 285:                                              ; preds = %.lr.ph.i.i
   %286 = add i32 %.0154.i.i, 1
   %287 = sext i32 %286 to i64
-  %288 = getelementptr ptr, ptr %283, i64 %287
+  %288 = getelementptr [8 x i8], ptr %283, i64 %287
   %289 = load ptr, ptr %288, align 8
   %.not120.i.i = icmp eq ptr %289, null
   br i1 %.not120.i.i, label %.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !23
@@ -6071,7 +6071,7 @@ keytype_for_cksumtype.exit.i.i:                   ; preds = %210, %203
   %313 = getelementptr inbounds nuw i8, ptr %311, i64 72
   %314 = load ptr, ptr %313, align 8
   %315 = sext i32 %312 to i64
-  %316 = getelementptr ptr, ptr %314, i64 %315
+  %316 = getelementptr [8 x i8], ptr %314, i64 %315
   %317 = load ptr, ptr %316, align 8
   %.not117.i.i = icmp eq ptr %317, null
   br i1 %.not117.i.i, label %.thread138.i.i, label %.lr.ph161.i.i, !llvm.loop !24
@@ -6082,7 +6082,7 @@ keytype_for_cksumtype.exit.i.i:                   ; preds = %210, %203
   %321 = load ptr, ptr %27, align 8
   %322 = getelementptr inbounds nuw i8, ptr %321, i64 72
   %323 = load ptr, ptr %322, align 8
-  %324 = getelementptr ptr, ptr %323, i64 %277
+  %324 = getelementptr [8 x i8], ptr %323, i64 %277
   store ptr %320, ptr %324, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   %325 = load ptr, ptr %27, align 8
@@ -6091,7 +6091,7 @@ keytype_for_cksumtype.exit.i.i:                   ; preds = %210, %203
   %328 = getelementptr inbounds nuw i8, ptr %327, i64 72
   %329 = load ptr, ptr %328, align 8
   %330 = sext i32 %.0102160.i.i to i64
-  %331 = getelementptr ptr, ptr %329, i64 %330
+  %331 = getelementptr [8 x i8], ptr %329, i64 %330
   store ptr %276, ptr %331, align 8
   br label %332
 
@@ -6232,7 +6232,7 @@ kerberos_get_private_data.exit.i66.i:             ; preds = %383, %381
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   store i32 0, ptr %19, align 4
   %393 = load ptr, ptr @krb5_ctx, align 8
-  %394 = getelementptr i32, ptr @keytype_for_cksumtype.keytypes, i64 %indvars.iv.i.i72.i
+  %394 = getelementptr [4 x i8], ptr @keytype_for_cksumtype.keytypes, i64 %indvars.iv.i.i72.i
   %395 = load i32, ptr %394, align 4
   %396 = call i32 @krb5int_c_mandatory_cksumtype(ptr noundef %393, i32 noundef %395, ptr noundef nonnull %19)
   %.not.i183.i.i = icmp eq i32 %396, 0

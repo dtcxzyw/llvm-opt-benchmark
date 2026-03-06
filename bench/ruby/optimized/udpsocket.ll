@@ -169,13 +169,13 @@ define internal i64 @udp_send(i32 noundef %0, ptr noundef %1, i64 noundef %2) #0
 .preheader:                                       ; preds = %12, %24
   %indvars.iv = phi i64 [ %indvars.iv.next, %24 ], [ 0, %12 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %19 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !17
   %.not109.i = icmp eq ptr %20, null
   br i1 %.not109.i, label %24, label %21
 
 21:                                               ; preds = %.preheader
-  %22 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %23 = load i64, ptr %22, align 8, !tbaa !6
   store i64 %23, ptr %20, align 8, !tbaa !6
   br label %24

@@ -32,7 +32,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
 %"class.std::allocator.6" = type { i8 }
 %"class.boost::shared_ptr.64" = type { ptr, %"class.boost::detail::shared_count" }
-%"class.boost::shared_ptr.63" = type { ptr, %"class.boost::detail::shared_count" }
 %"class.std::reverse_iterator" = type { %"class.__gnu_cxx::__normal_iterator" }
 %"class.__gnu_cxx::__normal_iterator" = type { ptr }
 %"class.QuantLib::(anonymous namespace)::BPSCalculator" = type { %"class.QuantLib::AcyclicVisitor", %"class.QuantLib::Visitor", %"class.QuantLib::Visitor.65", ptr, double, double }
@@ -2256,7 +2255,7 @@ for.cond:                                         ; preds = %_ZNK5boost10shared_
 for.body:                                         ; preds = %for.cond
   %sub = add i64 %i.0, -1
   %11 = load ptr, ptr %leg, align 8, !tbaa !70
-  %add.ptr.i = getelementptr inbounds nuw %"class.boost::shared_ptr.63", ptr %11, i64 %sub
+  %add.ptr.i = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %sub
   %12 = load ptr, ptr %add.ptr.i, align 8, !tbaa !59
   %cmp.not.i = icmp eq ptr %12, null
   br i1 %cmp.not.i, label %cond.false.i, label %_ZNK5boost10shared_ptrIN8QuantLib8CashFlowEEptEv.exit, !prof !53

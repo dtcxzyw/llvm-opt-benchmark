@@ -3,8 +3,6 @@ source_filename = "bench/openjdk/original/rect.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.XRectangle = type { i16, i16, i16, i16 }
-
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden i32 @BitmapToYXBandedRectangles(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = icmp sgt i32 %2, 0
@@ -76,9 +74,9 @@ define hidden i32 @BitmapToYXBandedRectangles(i32 noundef %0, i32 noundef %1, i3
 
 .lr.ph108.us:                                     ; preds = %.lr.ph108.us.preheader, %56
   %indvars.iv = phi i64 [ 0, %.lr.ph108.us.preheader ], [ %indvars.iv.next, %56 ]
-  %39 = getelementptr inbounds nuw %struct.XRectangle, ptr %.0122.us, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %.0122.us, i64 %indvars.iv
   %40 = load i16, ptr %39, align 2
-  %41 = getelementptr inbounds nuw %struct.XRectangle, ptr %.071119.us, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %.071119.us, i64 %indvars.iv
   %42 = load i16, ptr %41, align 2
   %43 = icmp eq i16 %40, %42
   br i1 %43, label %44, label %.critedge4.us
@@ -107,7 +105,7 @@ define hidden i32 @BitmapToYXBandedRectangles(i32 noundef %0, i32 noundef %1, i3
 
 .lr.ph115.us:                                     ; preds = %.lr.ph115.us.preheader, %.lr.ph115.us
   %indvars.iv142 = phi i64 [ 0, %.lr.ph115.us.preheader ], [ %indvars.iv.next143, %.lr.ph115.us ]
-  %52 = getelementptr inbounds nuw %struct.XRectangle, ptr %.0122.us, i64 %indvars.iv142
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %.0122.us, i64 %indvars.iv142
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 6
   %54 = load i16, ptr %53, align 2
   %55 = add i16 %54, 1

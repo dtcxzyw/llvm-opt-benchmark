@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %union.YYSTYPE = type { ptr }
-%union.yyalloc = type { %union.YYSTYPE }
 
 @yypact = internal unnamed_addr constant [109 x i8] c"\11\E7\DC\1F\1F\172345\DC9 \DC\DC\DC\DC\DC\DC\DC\DC\DC\DC\DC\FC\DC\1E\1E:+)0#\DC\DC\DC\DC\DC\DC\DC\DC\DC\DC\DC\DC\DC\DC\DC\DC\DC\DC\DC\DC\DC\DC\DC\DC\DC\E2\DC%>1\DC=\DC\1B\DC\FC\DC\FC\DC\DC\DC\DC?6(D\10\DC,F\DC\FC\DC\0D(\DCE\DC\DC\13\DC\DC\DC\DC\DC\DC\DCI\15\DC\DC\DC\DC\DCE\DC", align 16
 @yytranslate = internal unnamed_addr constant [283 x i8] c"\00\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\1E\1F\02\02 \02\1D\02\02\02\02\02\02\02\02\02\02\02\02\1C\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\02\01\02\03\04\05\06\07\08\09\0A\0B\0C\0D\0E\0F\10\11\12\13\14\15\16\17\18\19\1A\1B", align 16
@@ -102,7 +101,7 @@ define dso_local range(i32 0, 2) i32 @replication_yyparse(ptr noundef %0, ptr no
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %22, ptr align 1 %.0268, i64 %16, i1 false)
   %24 = add nsw i64 %spec.store.select, 7
   %25 = sdiv i64 %24, 8
-  %26 = getelementptr inbounds %union.yyalloc, ptr %22, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %22, i64 %25
   %27 = shl i64 %16, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %26, ptr align 8 %.0282, i64 %27, i1 false)
   %.not315 = icmp eq ptr %.0268, %4
@@ -114,7 +113,7 @@ define dso_local range(i32 0, 2) i32 @replication_yyparse(ptr noundef %0, ptr no
 
 29:                                               ; preds = %23, %28
   %30 = getelementptr inbounds i8, ptr %22, i64 %15
-  %31 = getelementptr inbounds %union.YYSTYPE, ptr %26, i64 %16
+  %31 = getelementptr inbounds [8 x i8], ptr %26, i64 %16
   %32 = getelementptr inbounds i8, ptr %31, i64 -8
   %33 = add nsw i64 %spec.store.select, -1
   %.not316 = icmp sgt i64 %33, %15
@@ -201,7 +200,7 @@ define dso_local range(i32 0, 2) i32 @replication_yyparse(ptr noundef %0, ptr no
   %75 = load i8, ptr %74, align 1
   %76 = sext i8 %75 to i64
   %77 = sub nsw i64 1, %76
-  %78 = getelementptr inbounds %union.YYSTYPE, ptr %.2288, i64 %77
+  %78 = getelementptr inbounds [8 x i8], ptr %.2288, i64 %77
   %.sroa.079.0.copyload = load ptr, ptr %78, align 8
   switch i8 %70, label %304 [
     i8 2, label %79
@@ -685,7 +684,7 @@ define dso_local range(i32 0, 2) i32 @replication_yyparse(ptr noundef %0, ptr no
 304:                                              ; preds = %72, %303, %302, %301, %300, %299, %298, %297, %296, %295, %294, %293, %292, %291, %290, %289, %288, %287, %286, %285, %284, %282, %276, %270, %264, %261, %258, %253, %250, %245, %240, %237, %234, %231, %228, %218, %215, %212, %210, %206, %187, %176, %168, %162, %157, %154, %151, %148, %145, %142, %141, %136, %134, %131, %117, %106, %104, %99, %94, %92, %88, %84, %82, %79
   %.sroa.079.0 = phi ptr [ %.sroa.079.0.copyload, %72 ], [ %.sroa.079.0.copyload, %79 ], [ %83, %82 ], [ %85, %84 ], [ %89, %88 ], [ %93, %92 ], [ %98, %94 ], [ %100, %99 ], [ %105, %104 ], [ %107, %106 ], [ %118, %117 ], [ %133, %131 ], [ %135, %134 ], [ %140, %136 ], [ null, %141 ], [ %144, %142 ], [ %147, %145 ], [ %150, %148 ], [ %153, %151 ], [ %156, %154 ], [ %158, %157 ], [ %163, %162 ], [ %169, %168 ], [ %177, %176 ], [ %188, %187 ], [ %207, %206 ], [ %211, %210 ], [ %214, %212 ], [ %217, %215 ], [ %219, %218 ], [ @.str.26, %303 ], [ %230, %228 ], [ %233, %231 ], [ %236, %234 ], [ @.str.25, %302 ], [ %239, %237 ], [ %244, %240 ], [ %249, %245 ], [ %252, %250 ], [ @.str.24, %301 ], [ %257, %253 ], [ %260, %258 ], [ %263, %261 ], [ %269, %264 ], [ %275, %270 ], [ %281, %276 ], [ %283, %282 ], [ @.str.9, %284 ], [ @.str.10, %285 ], [ @.str.11, %286 ], [ @.str.12, %287 ], [ @.str.13, %288 ], [ @.str.14, %289 ], [ @.str.15, %290 ], [ @.str.16, %291 ], [ @.str.17, %292 ], [ @.str.18, %293 ], [ @.str.19, %294 ], [ @.str.20, %295 ], [ @.str.21, %296 ], [ @.str.5, %297 ], [ @.str.22, %298 ], [ @.str.6, %299 ], [ @.str.23, %300 ]
   %305 = sub nsw i64 0, %76
-  %306 = getelementptr inbounds %union.YYSTYPE, ptr %.2288, i64 %305
+  %306 = getelementptr inbounds [8 x i8], ptr %.2288, i64 %305
   %307 = getelementptr inbounds i8, ptr %.2276, i64 %305
   %308 = getelementptr inbounds nuw i8, ptr %306, i64 8
   store ptr %.sroa.079.0, ptr %308, align 8

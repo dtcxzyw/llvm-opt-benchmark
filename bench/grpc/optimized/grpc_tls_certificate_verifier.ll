@@ -1306,7 +1306,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit: ; preds = %40
 
 80:                                               ; preds = %.preheader139, %78
   %.068146 = phi i64 [ 0, %.preheader139 ], [ %79, %78 ]
-  %81 = getelementptr inbounds nuw ptr, ptr %71, i64 %.068146
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %.068146
   %82 = load ptr, ptr %81, align 8, !tbaa !23
   %83 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %82) #27
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
@@ -1429,7 +1429,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit99: ; preds = %105
 
 .preheader.split.us:                              ; preds = %.preheader, %121
   %.067147.us = phi i64 [ %122, %121 ], [ 0, %.preheader ]
-  %118 = getelementptr inbounds nuw ptr, ptr %112, i64 %.067147.us
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %.067147.us
   %119 = load ptr, ptr %118, align 8, !tbaa !23
   %char0 = load i8, ptr %119, align 1
   %120 = icmp eq i8 %char0, 0
@@ -1442,7 +1442,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit99: ; preds = %105
 
 .preheader.split:                                 ; preds = %.preheader, %128
   %.067147 = phi i64 [ %129, %128 ], [ 0, %.preheader ]
-  %123 = getelementptr inbounds nuw ptr, ptr %112, i64 %.067147
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %.067147
   %124 = load ptr, ptr %123, align 8, !tbaa !23
   %125 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %124) #27
   %126 = icmp eq i64 %.sroa.0.0.copyload.fr, %125

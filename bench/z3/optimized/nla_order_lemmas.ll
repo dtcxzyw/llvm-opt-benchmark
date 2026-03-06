@@ -8,10 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.rational = type { %class.mpq }
 %class.mpq = type { %class.mpz, %class.mpz }
 %class.mpz = type { i32, i8, ptr }
-%"class.nla::monic" = type <{ %"class.nla::mon_eq", %class.svector, i8, [3 x i8], i32, i8, i8, [6 x i8] }>
-%"class.nla::mon_eq" = type { i32, %class.svector }
-%class.svector = type { %class.vector.16 }
-%class.vector.16 = type { ptr }
 %"struct.nla::factorization_factory_imp" = type { %"struct.nla::factorization_factory", ptr, ptr, ptr }
 %"struct.nla::factorization_factory" = type { ptr, ptr, ptr }
 %"struct.nla::const_iterator_mon" = type { %class.svector.25, ptr, i8, i32 }
@@ -21,13 +17,13 @@ target triple = "x86_64-pc-linux-gnu"
 %class.svector.83 = type { %class.vector.84 }
 %class.vector.84 = type { ptr }
 %"class.nla::new_lemma" = type { ptr, ptr }
-%"class.nla::factor" = type <{ i32, i32, i8, [3 x i8] }>
 %"class.nla::ineq" = type { i32, [4 x i8], %"class.lp::lar_term", %class.rational }
 %"class.lp::lar_term" = type { %class.u_map, i32, [4 x i8] }
 %class.u_map = type { %class.map.85 }
 %class.map.85 = type { %class.table2map.86 }
 %class.table2map.86 = type { %class.core_hashtable.87 }
 %class.core_hashtable.87 = type <{ ptr, i32, i32, i32, [4 x i8] }>
+%"class.nla::factor" = type <{ i32, i32, i8, [3 x i8] }>
 %"class.nla::emonics::pf_iterator" = type { ptr, ptr, %"class.nla::emonics::iterator", %"class.nla::emonics::iterator" }
 %"class.nla::emonics::iterator" = type <{ ptr, ptr, i8, [7 x i8] }>
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
@@ -35,8 +31,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator.89" = type { i8 }
 %struct._key_data = type { i32, %class.rational }
-%class.default_map_entry = type { %class.default_hash_entry }
-%class.default_hash_entry = type { i32, i32, %struct._key_data }
 
 $_ZNK3nla21factorization_factory5beginEv = comdat any
 
@@ -171,18 +165,18 @@ define hidden void @_ZN3nla5order11order_lemmaEv(ptr noundef nonnull align 8 der
   %17 = urem i32 %16, %11
   %18 = load ptr, ptr %12, align 8, !tbaa !43
   %19 = zext i32 %17 to i64
-  %20 = getelementptr inbounds nuw i32, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %19
   %21 = load i32, ptr %20, align 4, !tbaa !44
   %22 = load ptr, ptr %0, align 8, !tbaa !3
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 4544
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 4552
   %25 = load ptr, ptr %24, align 8, !tbaa !43
   %26 = zext i32 %21 to i64
-  %27 = getelementptr inbounds nuw i32, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !44
   %29 = load ptr, ptr %23, align 8, !tbaa !45
   %30 = zext i32 %28 to i64
-  %31 = getelementptr inbounds nuw %"class.nla::monic", ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [40 x i8], ptr %29, i64 %30
   tail call void @_ZN3nla5order20order_lemma_on_monicERKNS_5monicE(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull align 8 dereferenceable(34) %31)
   %32 = add nuw i32 %.010, 1
   %exitcond.not = icmp eq i32 %32, %11
@@ -672,11 +666,11 @@ _ZgtRK8rationalS1_.exit:                          ; preds = %41, %34, %.noexc
   %.0 = phi i1 [ true, %55 ], [ false, %_ZgtRK8rationalS1_.exit ]
   %46 = load ptr, ptr %43, align 8, !tbaa !43
   %47 = zext i1 %.0 to i64
-  %48 = getelementptr inbounds nuw i32, ptr %46, i64 %47
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %47
   %49 = load i32, ptr %48, align 4, !tbaa !44
   %50 = xor i1 %.0, true
   %51 = zext i1 %50 to i64
-  %52 = getelementptr inbounds nuw i32, ptr %46, i64 %51
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %51
   %53 = load i32, ptr %52, align 4, !tbaa !44
   invoke void @_ZN3nla5order28order_lemma_on_binomial_signERKNS_5monicEjji(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull align 8 dereferenceable(34) %1, i32 noundef %49, i32 noundef %53, i32 noundef %44)
           to label %54 unwind label %70
@@ -1046,13 +1040,13 @@ _ZgtRK8rationalS1_.exit.split.us:                 ; preds = %_ZgtRK8rationalS1_.
 
 136:                                              ; preds = %_ZgtRK8rationalS1_.exit.split.us
   %137 = load ptr, ptr %2, align 8, !tbaa !50
-  %138 = getelementptr inbounds nuw %"class.nla::factor", ptr %137, i64 %indvars.iv88
+  %138 = getelementptr inbounds nuw [12 x i8], ptr %137, i64 %indvars.iv88
   %139 = invoke noundef i32 @_ZNK3nla6common3varINS_6factorEEEjRKT_(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull align 4 dereferenceable(9) %138)
           to label %140 unwind label %.split79.us
 
 140:                                              ; preds = %136
   %141 = load ptr, ptr %2, align 8, !tbaa !50
-  %142 = getelementptr inbounds nuw %"class.nla::factor", ptr %141, i64 %indvars.iv90
+  %142 = getelementptr inbounds nuw [12 x i8], ptr %141, i64 %indvars.iv90
   %143 = invoke noundef i32 @_ZNK3nla6common3varINS_6factorEEEjRKT_(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull align 4 dereferenceable(9) %142)
           to label %144 unwind label %.split79.us
 
@@ -1148,13 +1142,13 @@ _ZgtRK8rationalS1_.exit.split:                    ; preds = %_ZgtRK8rationalS1_.
 
 170:                                              ; preds = %_ZgtRK8rationalS1_.exit.split
   %171 = load ptr, ptr %2, align 8, !tbaa !50
-  %172 = getelementptr inbounds nuw %"class.nla::factor", ptr %171, i64 %indvars.iv
+  %172 = getelementptr inbounds nuw [12 x i8], ptr %171, i64 %indvars.iv
   %173 = invoke noundef i32 @_ZNK3nla6common3varINS_6factorEEEjRKT_(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull align 4 dereferenceable(9) %172)
           to label %174 unwind label %.split79
 
 174:                                              ; preds = %170
   %175 = load ptr, ptr %2, align 8, !tbaa !50
-  %176 = getelementptr inbounds nuw %"class.nla::factor", ptr %175, i64 %indvars.iv83
+  %176 = getelementptr inbounds nuw [12 x i8], ptr %175, i64 %indvars.iv83
   %177 = invoke noundef i32 @_ZNK3nla6common3varINS_6factorEEEjRKT_(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull align 4 dereferenceable(9) %176)
           to label %178 unwind label %.split79
 
@@ -1831,7 +1825,7 @@ _ZN3nla7emonics11products_of3endEv.exit:
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !43
   %9 = zext i1 %2 to i64
-  %10 = getelementptr inbounds nuw i32, ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !44
   %12 = load ptr, ptr %0, align 8, !tbaa !3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4416
@@ -1869,7 +1863,7 @@ _ZN3nla7emonics11products_of3endEv.exit:
   %34 = load i32, ptr %33, align 8, !tbaa !248
   %35 = load ptr, ptr %32, align 8, !tbaa !45
   %36 = zext i32 %34 to i64
-  %37 = getelementptr inbounds nuw %"class.nla::monic", ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [40 x i8], ptr %35, i64 %36
   %38 = load i32, ptr %37, align 8, !tbaa !214
   %39 = load i32, ptr %1, align 8, !tbaa !214
   %40 = icmp eq i32 %38, %39
@@ -1879,7 +1873,7 @@ _ZN3nla7emonics11products_of3endEv.exit:
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %42 = load ptr, ptr %0, align 8, !tbaa !3
   %43 = load ptr, ptr %7, align 8, !tbaa !43
-  %44 = getelementptr inbounds nuw i32, ptr %43, i64 %9
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %9
   %45 = load i32, ptr %44, align 4, !tbaa !44
   %46 = shl i32 %45, 1
   %47 = getelementptr inbounds nuw i8, ptr %42, i64 32
@@ -1896,7 +1890,7 @@ _ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEEE12get_num_varsEv.exit.i.i.i: ; pr
 .preheader.i.i.i:                                 ; preds = %_ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEEE12get_num_varsEv.exit.i.i.i, %.preheader.i.i.i
   %.08.i.i.i.i = phi i32 [ %54, %.preheader.i.i.i ], [ %46, %_ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEEE12get_num_varsEv.exit.i.i.i ]
   %52 = zext i32 %.08.i.i.i.i to i64
-  %53 = getelementptr inbounds nuw i32, ptr %48, i64 %52
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %52
   %54 = load i32, ptr %53, align 4, !tbaa !44
   %.not.i.i.i.i = icmp eq i32 %54, %.08.i.i.i.i
   br i1 %.not.i.i.i.i, label %_ZNK3nla7var_eqsINS_7emonicsEE4findEj.exit.i, label %.preheader.i.i.i
@@ -2330,7 +2324,7 @@ define hidden void @_ZN3nla5order33order_lemma_on_factor_binomial_rmERKNS_5monic
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !43
   %10 = zext i1 %2 to i64
-  %11 = getelementptr inbounds nuw i32, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !44
   %13 = shl i32 %12, 1
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -2347,7 +2341,7 @@ _ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEEE12get_num_varsEv.exit.i.i: ; pred
 .preheader.i.i:                                   ; preds = %_ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEEE12get_num_varsEv.exit.i.i, %.preheader.i.i
   %.08.i.i.i = phi i32 [ %21, %.preheader.i.i ], [ %13, %_ZNK10union_findIN3nla7var_eqsINS0_7emonicsEEEE12get_num_varsEv.exit.i.i ]
   %19 = zext i32 %.08.i.i.i to i64
-  %20 = getelementptr inbounds nuw i32, ptr %15, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %19
   %21 = load i32, ptr %20, align 4, !tbaa !44
   %.not.i.i.i = icmp eq i32 %21, %.08.i.i.i
   br i1 %.not.i.i.i, label %_ZNK3nla7var_eqsINS_7emonicsEE4findEj.exit, label %.preheader.i.i
@@ -2398,10 +2392,10 @@ define hidden void @_ZN3nla5order29order_lemma_on_binomial_ac_bdERKNS_5monicEbS3
   %18 = xor i1 %2, true
   %19 = load ptr, ptr %17, align 8, !tbaa !43
   %20 = zext i1 %18 to i64
-  %21 = getelementptr inbounds nuw i32, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !44
   %23 = zext i1 %2 to i64
-  %24 = getelementptr inbounds nuw i32, ptr %19, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !44
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @_ZNK3nla6common7var_valERKNS_5monicE(ptr dead_on_unwind nonnull writable sret(%class.rational) align 8 %7, ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull align 8 dereferenceable(34) %1)
@@ -3518,7 +3512,7 @@ _ZN2lp8lar_termC2ERK8rationaljS3_j.exit:          ; preds = %145
 
 switch.lookup:                                    ; preds = %_ZN2lp8lar_termC2ERK8rationaljS3_j.exit
   %149 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN3nla5order15generate_mon_olERKNS_5monicEjRK8rationaljS3_RKNS_6factorES6_jN2lp16lconstraint_kindE, i64 %149
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN3nla5order15generate_mon_olERKNS_5monicEjRK8rationaljS3_RKNS_6factorES6_jN2lp16lconstraint_kindE, i64 %149
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN3nla6negateEN2lp16lconstraint_kindE.exit
 
@@ -4036,7 +4030,7 @@ define hidden noundef zeroext i1 @_ZN3nla5order24order_lemma_on_ac_and_bcERKNS_5
   %9 = load ptr, ptr %0, align 8, !tbaa !3
   %10 = load ptr, ptr %2, align 8, !tbaa !50
   %11 = zext i1 %3 to i64
-  %12 = getelementptr inbounds nuw %"class.nla::factor", ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [12 x i8], ptr %10, i64 %11
   %13 = call noundef zeroext i1 @_ZNK3nla4core6divideERKNS_5monicERKNS_6factorERS4_(ptr noundef nonnull align 8 dereferenceable(4736) %9, ptr noundef nonnull align 8 dereferenceable(34) %4, ptr noundef nonnull align 4 dereferenceable(9) %12, ptr noundef nonnull align 4 dereferenceable(9) %6)
   br i1 %13, label %14, label %21
 
@@ -4044,8 +4038,8 @@ define hidden noundef zeroext i1 @_ZN3nla5order24order_lemma_on_ac_and_bcERKNS_5
   %15 = xor i1 %3, true
   %16 = load ptr, ptr %2, align 8, !tbaa !50
   %17 = zext i1 %15 to i64
-  %18 = getelementptr inbounds nuw %"class.nla::factor", ptr %16, i64 %17
-  %19 = getelementptr inbounds nuw %"class.nla::factor", ptr %16, i64 %11
+  %18 = getelementptr inbounds nuw [12 x i8], ptr %16, i64 %17
+  %19 = getelementptr inbounds nuw [12 x i8], ptr %16, i64 %11
   %20 = call noundef zeroext i1 @_ZN3nla5order36order_lemma_on_ac_and_bc_and_factorsERKNS_5monicERKNS_6factorES6_S3_S6_(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull align 8 dereferenceable(34) %1, ptr noundef nonnull align 4 dereferenceable(9) %18, ptr noundef nonnull align 4 dereferenceable(9) %19, ptr noundef nonnull align 8 dereferenceable(34) %4, ptr noundef nonnull align 4 dereferenceable(9) %6)
   br label %21
 
@@ -4949,7 +4943,7 @@ define hidden void @_ZN3nla5order25order_lemma_on_ac_exploreERKNS_5monicERKNS_13
   %8 = alloca %"class.nla::emonics::pf_iterator", align 8
   %9 = load ptr, ptr %2, align 8, !tbaa !50
   %10 = zext i1 %3 to i64
-  %11 = getelementptr inbounds nuw %"class.nla::factor", ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [12 x i8], ptr %9, i64 %10
   %.sroa.039.0.copyload = load i32, ptr %11, align 4, !tbaa !44
   %.sroa.541.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 4
   %.sroa.541.0.copyload = load i32, ptr %.sroa.541.0..sroa_idx, align 4, !tbaa !270
@@ -4980,14 +4974,14 @@ define hidden void @_ZN3nla5order25order_lemma_on_ac_exploreERKNS_5monicERKNS_13
   %28 = load i32, ptr %27, align 8, !tbaa !248
   %29 = load ptr, ptr %21, align 8, !tbaa !45
   %30 = zext i32 %28 to i64
-  %31 = getelementptr inbounds nuw %"class.nla::monic", ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [40 x i8], ptr %29, i64 %30
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i32 -1, ptr %6, align 4, !tbaa !250
   store i32 0, ptr %22, align 4, !tbaa !253
   store i8 0, ptr %23, align 4, !tbaa !254
   %32 = load ptr, ptr %0, align 8, !tbaa !3
   %33 = load ptr, ptr %2, align 8, !tbaa !50
-  %34 = getelementptr inbounds nuw %"class.nla::factor", ptr %33, i64 %10
+  %34 = getelementptr inbounds nuw [12 x i8], ptr %33, i64 %10
   %35 = call noundef zeroext i1 @_ZNK3nla4core6divideERKNS_5monicERKNS_6factorERS4_(ptr noundef nonnull align 8 dereferenceable(4736) %32, ptr noundef nonnull align 8 dereferenceable(34) %31, ptr noundef nonnull align 4 dereferenceable(9) %34, ptr noundef nonnull align 4 dereferenceable(9) %6)
   br i1 %35, label %_ZN3nla5order24order_lemma_on_ac_and_bcERKNS_5monicERKNS_13factorizationEbS3_.exit, label %_ZN3nla5order24order_lemma_on_ac_and_bcERKNS_5monicERKNS_13factorizationEbS3_.exit.thread
 
@@ -4997,8 +4991,8 @@ _ZN3nla5order24order_lemma_on_ac_and_bcERKNS_5monicERKNS_13factorizationEbS3_.ex
 
 _ZN3nla5order24order_lemma_on_ac_and_bcERKNS_5monicERKNS_13factorizationEbS3_.exit: ; preds = %26
   %36 = load ptr, ptr %2, align 8, !tbaa !50
-  %37 = getelementptr inbounds nuw %"class.nla::factor", ptr %36, i64 %25
-  %38 = getelementptr inbounds nuw %"class.nla::factor", ptr %36, i64 %10
+  %37 = getelementptr inbounds nuw [12 x i8], ptr %36, i64 %25
+  %38 = getelementptr inbounds nuw [12 x i8], ptr %36, i64 %10
   %39 = call noundef zeroext i1 @_ZN3nla5order36order_lemma_on_ac_and_bc_and_factorsERKNS_5monicERKNS_6factorES6_S3_S6_(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull align 8 dereferenceable(34) %1, ptr noundef nonnull align 4 dereferenceable(9) %37, ptr noundef nonnull align 4 dereferenceable(9) %38, ptr noundef nonnull align 8 dereferenceable(34) %31, ptr noundef nonnull align 4 dereferenceable(9) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br i1 %39, label %.critedge, label %40
@@ -5043,14 +5037,14 @@ _ZN3nla7emonics11products_of3endEv.exit:          ; preds = %4
   %62 = load i32, ptr %61, align 8, !tbaa !248
   %63 = load ptr, ptr %60, align 8, !tbaa !45
   %64 = zext i32 %62 to i64
-  %65 = getelementptr inbounds nuw %"class.nla::monic", ptr %63, i64 %64
+  %65 = getelementptr inbounds nuw [40 x i8], ptr %63, i64 %64
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 -1, ptr %5, align 4, !tbaa !250
   store i32 0, ptr %53, align 4, !tbaa !253
   store i8 0, ptr %54, align 4, !tbaa !254
   %66 = load ptr, ptr %0, align 8, !tbaa !3
   %67 = load ptr, ptr %2, align 8, !tbaa !50
-  %68 = getelementptr inbounds nuw %"class.nla::factor", ptr %67, i64 %10
+  %68 = getelementptr inbounds nuw [12 x i8], ptr %67, i64 %10
   %69 = call noundef zeroext i1 @_ZNK3nla4core6divideERKNS_5monicERKNS_6factorERS4_(ptr noundef nonnull align 8 dereferenceable(4736) %66, ptr noundef nonnull align 8 dereferenceable(34) %65, ptr noundef nonnull align 4 dereferenceable(9) %68, ptr noundef nonnull align 4 dereferenceable(9) %5)
   br i1 %69, label %_ZN3nla5order24order_lemma_on_ac_and_bcERKNS_5monicERKNS_13factorizationEbS3_.exit25, label %_ZN3nla5order24order_lemma_on_ac_and_bcERKNS_5monicERKNS_13factorizationEbS3_.exit25.thread
 
@@ -5060,8 +5054,8 @@ _ZN3nla5order24order_lemma_on_ac_and_bcERKNS_5monicERKNS_13factorizationEbS3_.ex
 
 _ZN3nla5order24order_lemma_on_ac_and_bcERKNS_5monicERKNS_13factorizationEbS3_.exit25: ; preds = %57
   %70 = load ptr, ptr %2, align 8, !tbaa !50
-  %71 = getelementptr inbounds nuw %"class.nla::factor", ptr %70, i64 %56
-  %72 = getelementptr inbounds nuw %"class.nla::factor", ptr %70, i64 %10
+  %71 = getelementptr inbounds nuw [12 x i8], ptr %70, i64 %56
+  %72 = getelementptr inbounds nuw [12 x i8], ptr %70, i64 %10
   %73 = call noundef zeroext i1 @_ZN3nla5order36order_lemma_on_ac_and_bc_and_factorsERKNS_5monicERKNS_6factorES6_S3_S6_(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull align 8 dereferenceable(34) %1, ptr noundef nonnull align 4 dereferenceable(9) %71, ptr noundef nonnull align 4 dereferenceable(9) %72, ptr noundef nonnull align 8 dereferenceable(34) %65, ptr noundef nonnull align 4 dereferenceable(9) %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br i1 %73, label %.critedge.sink.split, label %74
@@ -11226,7 +11220,7 @@ define linkonce_odr hidden noundef ptr @_ZNK9table2mapI17default_map_entryIj8rat
   %.idx.i = mul nuw nsw i64 %13, 48
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx.i
   %15 = zext i32 %9 to i64
-  %16 = getelementptr inbounds nuw %class.default_map_entry, ptr %12, i64 %15
+  %16 = getelementptr inbounds nuw [48 x i8], ptr %12, i64 %15
   %.not30.i = icmp eq i32 %11, %9
   br i1 %.not30.i, label %.preheader.i, label %.lr.ph.i
 
@@ -11425,7 +11419,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI17default_map_entryIj8ratio
   %.idx = mul nuw nsw i64 %20, 48
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 %.idx
   %22 = zext i32 %15 to i64
-  %23 = getelementptr inbounds nuw %class.default_map_entry, ptr %19, i64 %22
+  %23 = getelementptr inbounds nuw [48 x i8], ptr %19, i64 %22
   %.not63 = icmp eq i32 %18, %15
   br i1 %.not63, label %.preheader, label %.lr.ph
 
@@ -11931,7 +11925,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI17default_map_entryIj8ratio
   %.idx = mul nuw nsw i64 %6, 48
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %8 = zext i32 %3 to i64
-  %9 = getelementptr inbounds nuw %class.default_map_entry, ptr %2, i64 %8
+  %9 = getelementptr inbounds nuw [48 x i8], ptr %2, i64 %8
   %.not38 = icmp eq i32 %1, 0
   br i1 %.not38, label %._crit_edge43, label %.lr.ph42
 
@@ -12304,7 +12298,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI17default_map_entryIj8ratio
   %.idx = mul nuw nsw i64 %9, 48
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx
   %11 = zext i32 %5 to i64
-  %12 = getelementptr inbounds nuw %class.default_map_entry, ptr %8, i64 %11
+  %12 = getelementptr inbounds nuw [48 x i8], ptr %8, i64 %11
   %.not39 = icmp eq i32 %7, %5
   br i1 %.not39, label %.preheader, label %.lr.ph
 
@@ -12567,7 +12561,7 @@ _ZN5u_mapI8rationalEC2Ev.exit:                    ; preds = %.lr.ph.i.i.i.i.i.i.
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i.i, %29, %_ZN5u_mapI8rationalEC2Ev.exit
   %.sroa.0.1.i.i.i = phi ptr [ %21, %_ZN5u_mapI8rationalEC2Ev.exit ], [ %.sroa.0.0.i.i.i, %.lr.ph.i.i.i.i.i ], [ %25, %29 ]
-  %31 = getelementptr inbounds nuw %class.default_map_entry, ptr %21, i64 %24
+  %31 = getelementptr inbounds nuw [48 x i8], ptr %21, i64 %24
   %.not23 = icmp eq ptr %.sroa.0.1.i.i.i, %31
   br i1 %.not23, label %._crit_edge, label %.lr.ph
 

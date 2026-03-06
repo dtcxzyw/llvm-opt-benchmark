@@ -104,7 +104,7 @@ define hidden void @_ZN10ZPageTable6insertEP5ZPage(ptr noundef nonnull readonly 
 12:                                               ; preds = %12, %.lr.ph.i
   %.09.i = phi i64 [ %8, %.lr.ph.i ], [ %15, %12 ]
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %.09.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.09.i
   store volatile ptr %1, ptr %14, align 8
   %15 = add nuw nsw i64 %.09.i, 1
   %16 = icmp samesign ult i64 %15, %10
@@ -147,7 +147,7 @@ define hidden void @_ZN10ZPageTable6removeEP5ZPage(ptr noundef nonnull readonly 
 12:                                               ; preds = %12, %.lr.ph.i
   %.09.i = phi i64 [ %8, %.lr.ph.i ], [ %15, %12 ]
   %13 = load ptr, ptr %11, align 8
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %.09.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.09.i
   store volatile ptr null, ptr %14, align 8
   %15 = add nuw nsw i64 %.09.i, 1
   %16 = icmp samesign ult i64 %15, %10
@@ -178,7 +178,7 @@ define hidden void @_ZN10ZPageTable7replaceEP5ZPageS1_(ptr noundef nonnull reado
 13:                                               ; preds = %13, %.lr.ph.i.i
   %.09.i.i = phi i64 [ %9, %.lr.ph.i.i ], [ %16, %13 ]
   %14 = load ptr, ptr %12, align 8
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %.09.i.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.09.i.i
   store volatile ptr %2, ptr %15, align 8
   %16 = add nuw nsw i64 %.09.i.i, 1
   %17 = icmp samesign ult i64 %16, %11

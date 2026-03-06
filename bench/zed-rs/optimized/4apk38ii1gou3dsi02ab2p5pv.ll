@@ -934,7 +934,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3a7eff97c639d5a6E.ll
 8:                                                ; preds = %2, %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
-  %11 = getelementptr inbounds { i64, [1 x i64] }, ptr %10, i64 %4
+  %11 = getelementptr inbounds [16 x i8], ptr %10, i64 %4
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   %12 = add i64 %4, 1
   store i64 %12, ptr %3, align 8
@@ -2993,7 +2993,7 @@ define void @_ZN16snippet_provider16file_to_snippets17h7b0e5d906dd56f03E(ptr dea
 
 206:                                              ; preds = %198, %194
   %207 = load ptr, ptr %34, align 8, !alias.scope !401, !nonnull !4, !noundef !4
-  %208 = getelementptr inbounds ptr, ptr %207, i64 %195
+  %208 = getelementptr inbounds [8 x i8], ptr %207, i64 %195
   store ptr %187, ptr %208, align 8
   %209 = add i64 %195, 1
   store i64 %209, ptr %35, align 8, !alias.scope !401
@@ -3462,7 +3462,7 @@ define hidden void @_ZN16snippet_provider15SnippetProvider15watch_directory17hb9
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3a7eff97c639d5a6E.llvm.4731052299134177300.exit": ; preds = %"_ZN3std3ffi6os_str132_$LT$impl$u20$core..convert..From$LT$$RF$std..ffi..os_str..OsStr$GT$$u20$for$u20$alloc..sync..Arc$LT$std..ffi..os_str..OsStr$GT$$GT$4from17h5794889169e15b5dE.llvm.4731052299134177300.exit", %21
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load ptr, ptr %27, align 8, !alias.scope !502, !noalias !505, !nonnull !4, !noundef !4
-  %29 = getelementptr inbounds { i64, [1 x i64] }, ptr %28, i64 %18
+  %29 = getelementptr inbounds [16 x i8], ptr %28, i64 %18
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
   %30 = add i64 %18, 1
   store i64 %30, ptr %17, align 8, !alias.scope !502, !noalias !505
@@ -3520,7 +3520,7 @@ define void @_ZN16snippet_provider15SnippetProvider12snippets_for17h9cb2e96fc663
   %.sroa.4.0.copyload.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !510, !noalias !507, !nonnull !4, !noundef !4
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %7, i64 16
   %.sroa.5.0.copyload.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !510, !noalias !507
-  %19 = getelementptr inbounds ptr, ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
+  %19 = getelementptr inbounds [8 x i8], ptr %.sroa.4.0.copyload.i, i64 %.sroa.5.0.copyload.i
   store ptr %.sroa.4.0.copyload.i, ptr %6, align 8, !alias.scope !507, !noalias !510
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %.sroa.0.0.copyload.i, ptr %20, align 8, !alias.scope !507, !noalias !510

@@ -60,7 +60,7 @@ define range(i32 -2, 1) i32 @pmix_gds_base_select(ptr noundef %0, i64 noundef %1
 
 12:                                               ; preds = %.lr.ph63
   %13 = zext nneg i32 %11 to i64
-  %14 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %13
+  %14 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %16 = load i32, ptr %15, align 4, !tbaa !31
   %17 = icmp sgt i32 %16, 4
@@ -84,7 +84,7 @@ define range(i32 -2, 1) i32 @pmix_gds_base_select(ptr noundef %0, i64 noundef %1
 
 26:                                               ; preds = %25
   %27 = zext nneg i32 %24 to i64
-  %28 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %27
+  %28 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 4
   %30 = load i32, ptr %29, align 4, !tbaa !31
   %31 = icmp sgt i32 %30, 4
@@ -100,7 +100,7 @@ define range(i32 -2, 1) i32 @pmix_gds_base_select(ptr noundef %0, i64 noundef %1
 
 35:                                               ; preds = %34
   %36 = zext nneg i32 %24 to i64
-  %37 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %36
+  %37 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 4
   %39 = load i32, ptr %38, align 4, !tbaa !31
   %40 = icmp sgt i32 %39, 4
@@ -128,7 +128,7 @@ define range(i32 -2, 1) i32 @pmix_gds_base_select(ptr noundef %0, i64 noundef %1
 
 51:                                               ; preds = %49
   %52 = zext nneg i32 %50 to i64
-  %53 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %52
+  %53 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 4
   %55 = load i32, ptr %54, align 4, !tbaa !31
   %56 = icmp sgt i32 %55, 4

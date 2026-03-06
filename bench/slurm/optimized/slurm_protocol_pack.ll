@@ -9,22 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.slurm_node_alias_addrs_t = type { i64, ptr, ptr, i32, ptr }
 %struct.sockaddr_storage = type { i16, [118 x i8], i64 }
 %struct.pack_list_t = type { ptr, i32, i32, i32, i32, ptr, i16, i32 }
-%struct.slurm_step_id_msg = type { i64, i32, i32, i32 }
-%struct.acct_gather_energy = type { i32, i64, i64, i32, i64, i64, i64 }
-%struct.slurm_selected_step_t = type { ptr, i32, i32, %struct.slurm_step_id_msg }
-%struct.job_state_response_job_t = type { i32, i32, i32, ptr, i32, i32 }
-%struct.kill_jobs_resp_job_t = type { i32, ptr, ptr, i32, ptr }
-%struct.kvs_hosts = type { i32, i16, ptr }
-%struct.trigger_info = type { i16, i32, i16, ptr, i32, i32, i16, i32, ptr }
-%struct.job_info = type { ptr, i64, ptr, ptr, i32, ptr, i32, i32, i32, ptr, i32, ptr, i16, ptr, i64, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, i16, i16, double, i16, i32, i32, i32, ptr, ptr, i64, i32, ptr, i32, i64, i64, ptr, ptr, i32, ptr, ptr, ptr, ptr, i64, ptr, i64, ptr, i32, ptr, ptr, i32, i32, ptr, i32, i32, ptr, ptr, i32, i64, ptr, i16, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, i32, ptr, i16, i16, i16, i16, i16, i32, i32, i32, i16, ptr, ptr, i64, i16, i32, i64, i64, i64, i32, ptr, ptr, i32, ptr, i8, ptr, ptr, i32, i16, i64, i16, ptr, ptr, ptr, ptr, i16, i32, i16, i16, i64, i16, ptr, i32, ptr, ptr, ptr, i16, i64, i64, ptr, i32, i32, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i32, ptr, ptr }
-%struct.partition_info = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, i32, i64, i32, ptr, ptr, i32, i32, ptr, ptr, i32, i32, i64, i32, i16, i32, i32, ptr, ptr, ptr, ptr, i16, i16, i16, i16, ptr, i16, i16, i32, i16, i32, i32, ptr }
-%struct.node_info = type { ptr, ptr, i16, i64, ptr, i16, i16, i32, i32, i64, i16, i16, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, i64, ptr, i32, ptr, ptr, i32, ptr, i32, ptr, i16, i64, i16, ptr, ptr, ptr, i64, i32, i64, ptr, ptr, i64, i16, i16, i32, i32, ptr, ptr }
-%struct.reserve_info = type { ptr, ptr, ptr, i32, i32, ptr, i64, ptr, i64, ptr, ptr, i32, ptr, i32, ptr, ptr, ptr, i32, i64, ptr, ptr }
-%struct.resv_core_spec = type { ptr, ptr }
-%struct.job_step_info_t = type { i32, i32, ptr, ptr, ptr, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, i64, ptr, i32, i64, i16, i32, %struct.slurm_step_id_msg, ptr, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32 }
-%struct.burst_buffer_pool_t = type { i64, ptr, i64, i64, i64 }
-%struct.front_end_info = type { ptr, ptr, i64, ptr, ptr, ptr, i32, ptr, i64, i32, i64, ptr }
-%struct.slurm_license_info = type { ptr, i32, i32, i32, i8, i32, i32, i32, i64 }
 
 @.str = private unnamed_addr constant [39 x i8] c"%s: protocol_version %hu not supported\00", align 1
 @__func__.unpack_header = private unnamed_addr constant [14 x i8] c"unpack_header\00", align 1
@@ -8557,7 +8541,7 @@ define internal fastcc void @_pack_node_registration_status_msg(ptr noundef read
 pack_step_id.exit.us:                             ; preds = %.lr.ph, %pack_step_id.exit.us
   %indvars.iv165 = phi i64 [ %indvars.iv.next166, %pack_step_id.exit.us ], [ 0, %.lr.ph ]
   %108 = load ptr, ptr %106, align 8
-  %109 = getelementptr inbounds nuw %struct.slurm_step_id_msg, ptr %108, i64 %indvars.iv165
+  %109 = getelementptr inbounds nuw [24 x i8], ptr %108, i64 %indvars.iv165
   %110 = load i64, ptr %109, align 8
   tail call void @pack64(i64 noundef %110, ptr noundef %1) #7
   %111 = getelementptr inbounds nuw i8, ptr %109, i64 8
@@ -8578,7 +8562,7 @@ pack_step_id.exit.us:                             ; preds = %.lr.ph, %pack_step_
 pack_step_id.exit:                                ; preds = %.lr.ph, %pack_step_id.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %pack_step_id.exit ], [ 0, %.lr.ph ]
   %120 = load ptr, ptr %106, align 8
-  %121 = getelementptr inbounds nuw %struct.slurm_step_id_msg, ptr %120, i64 %indvars.iv
+  %121 = getelementptr inbounds nuw [24 x i8], ptr %120, i64 %indvars.iv
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %123 = load i32, ptr %122, align 8
   tail call void @pack32(i32 noundef %123, ptr noundef %1) #7
@@ -8706,7 +8690,7 @@ define internal fastcc void @_pack_acct_gather_node_resp_msg(ptr noundef readonl
 .lr.ph:                                           ; preds = %12, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %12 ]
   %16 = load ptr, ptr %0, align 8
-  %17 = getelementptr inbounds nuw %struct.acct_gather_energy, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [56 x i8], ptr %16, i64 %indvars.iv
   tail call void @acct_gather_energy_pack(ptr noundef %17, ptr noundef %1, i16 noundef zeroext %2) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = load i16, ptr %13, align 8
@@ -13851,7 +13835,7 @@ pack_step_id.exit:                                ; preds = %7, %5
 26:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
   %27 = load ptr, ptr %25, align 8
-  %28 = getelementptr inbounds nuw i16, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %27, i64 %indvars.iv
   %29 = load i16, ptr %28, align 2
   tail call void @pack16(i16 noundef zeroext %29, ptr noundef %1) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -13875,7 +13859,7 @@ pack_step_id.exit:                                ; preds = %7, %5
 37:                                               ; preds = %.lr.ph29, %37
   %indvars.iv33 = phi i64 [ 0, %.lr.ph29 ], [ %indvars.iv.next34, %37 ]
   %38 = load ptr, ptr %36, align 8
-  %39 = getelementptr inbounds nuw i16, ptr %38, i64 %indvars.iv33
+  %39 = getelementptr inbounds nuw [2 x i8], ptr %38, i64 %indvars.iv33
   %40 = load i16, ptr %39, align 2
   tail call void @pack16(i16 noundef zeroext %40, ptr noundef %1) #7
   %indvars.iv.next34 = add nuw nsw i64 %indvars.iv33, 1
@@ -13928,7 +13912,7 @@ define internal fastcc void @_pack_reattach_tasks_response_msg(ptr noundef reado
 21:                                               ; preds = %.lr.ph, %29
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %29 ]
   %22 = load ptr, ptr %20, align 8
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8
   %.not29 = icmp eq ptr %24, null
   br i1 %.not29, label %29, label %25
@@ -14004,10 +13988,10 @@ pack_step_id.exit:                                ; preds = %3
 30:                                               ; preds = %.lr.ph1307, %30
   %indvars.iv1385 = phi i64 [ 0, %.lr.ph1307 ], [ %indvars.iv.next1386, %30 ]
   %31 = load ptr, ptr %28, align 8
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv1385
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv1385
   %33 = load ptr, ptr %32, align 8
   %34 = load ptr, ptr %29, align 8
-  %35 = getelementptr inbounds nuw i16, ptr %34, i64 %indvars.iv1385
+  %35 = getelementptr inbounds nuw [2 x i8], ptr %34, i64 %indvars.iv1385
   %36 = load i16, ptr %35, align 2
   %37 = zext i16 %36 to i32
   tail call void @pack32_array(ptr noundef %33, i32 noundef %37, ptr noundef %1) #7
@@ -14034,7 +14018,7 @@ pack_step_id.exit:                                ; preds = %3
 45:                                               ; preds = %.lr.ph1309, %45
   %indvars.iv1388 = phi i64 [ 0, %.lr.ph1309 ], [ %indvars.iv.next1389, %45 ]
   %46 = load ptr, ptr %44, align 8
-  %47 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv1388
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %indvars.iv1388
   %48 = load i32, ptr %47, align 4
   tail call void @pack32(i32 noundef %48, ptr noundef %1) #7
   %indvars.iv.next1389 = add nuw nsw i64 %indvars.iv1388, 1
@@ -14151,14 +14135,14 @@ pack_step_id.exit:                                ; preds = %3
 114:                                              ; preds = %.lr.ph1312, %114
   %indvars.iv1391 = phi i64 [ 0, %.lr.ph1312 ], [ %indvars.iv.next1392, %114 ]
   %115 = load ptr, ptr %112, align 8
-  %116 = getelementptr inbounds nuw i16, ptr %115, i64 %indvars.iv1391
+  %116 = getelementptr inbounds nuw [2 x i8], ptr %115, i64 %indvars.iv1391
   %117 = load i16, ptr %116, align 2
   tail call void @pack16(i16 noundef zeroext %117, ptr noundef %1) #7
   %118 = load ptr, ptr %113, align 8
-  %119 = getelementptr inbounds nuw ptr, ptr %118, i64 %indvars.iv1391
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %118, i64 %indvars.iv1391
   %120 = load ptr, ptr %119, align 8
   %121 = load ptr, ptr %112, align 8
-  %122 = getelementptr inbounds nuw i16, ptr %121, i64 %indvars.iv1391
+  %122 = getelementptr inbounds nuw [2 x i8], ptr %121, i64 %indvars.iv1391
   %123 = load i16, ptr %122, align 2
   %124 = zext i16 %123 to i32
   tail call void @pack32_array(ptr noundef %120, i32 noundef %124, ptr noundef %1) #7
@@ -14183,7 +14167,7 @@ pack_step_id.exit:                                ; preds = %3
 132:                                              ; preds = %.lr.ph1316, %132
   %indvars.iv1394 = phi i64 [ 0, %.lr.ph1316 ], [ %indvars.iv.next1395, %132 ]
   %133 = load ptr, ptr %131, align 8
-  %134 = getelementptr inbounds nuw i16, ptr %133, i64 %indvars.iv1394
+  %134 = getelementptr inbounds nuw [2 x i8], ptr %133, i64 %indvars.iv1394
   %135 = load i16, ptr %134, align 2
   tail call void @pack16(i16 noundef zeroext %135, ptr noundef %1) #7
   %indvars.iv.next1395 = add nuw nsw i64 %indvars.iv1394, 1
@@ -14331,7 +14315,7 @@ pack_step_id.exit:                                ; preds = %3
 211:                                              ; preds = %.lr.ph1320, %211
   %indvars.iv1397 = phi i64 [ 0, %.lr.ph1320 ], [ %indvars.iv.next1398, %211 ]
   %212 = load ptr, ptr %210, align 8
-  %213 = getelementptr inbounds nuw i16, ptr %212, i64 %indvars.iv1397
+  %213 = getelementptr inbounds nuw [2 x i8], ptr %212, i64 %indvars.iv1397
   %214 = load i16, ptr %213, align 2
   tail call void @pack16(i16 noundef zeroext %214, ptr noundef %1) #7
   %indvars.iv.next1398 = add nuw nsw i64 %indvars.iv1397, 1
@@ -14619,10 +14603,10 @@ pack_step_id.exit1232:                            ; preds = %338
 360:                                              ; preds = %.lr.ph1291, %360
   %indvars.iv1370 = phi i64 [ 0, %.lr.ph1291 ], [ %indvars.iv.next1371, %360 ]
   %361 = load ptr, ptr %358, align 8
-  %362 = getelementptr inbounds nuw ptr, ptr %361, i64 %indvars.iv1370
+  %362 = getelementptr inbounds nuw [8 x i8], ptr %361, i64 %indvars.iv1370
   %363 = load ptr, ptr %362, align 8
   %364 = load ptr, ptr %359, align 8
-  %365 = getelementptr inbounds nuw i16, ptr %364, i64 %indvars.iv1370
+  %365 = getelementptr inbounds nuw [2 x i8], ptr %364, i64 %indvars.iv1370
   %366 = load i16, ptr %365, align 2
   %367 = zext i16 %366 to i32
   tail call void @pack32_array(ptr noundef %363, i32 noundef %367, ptr noundef %1) #7
@@ -14649,7 +14633,7 @@ pack_step_id.exit1232:                            ; preds = %338
 375:                                              ; preds = %.lr.ph1293, %375
   %indvars.iv1373 = phi i64 [ 0, %.lr.ph1293 ], [ %indvars.iv.next1374, %375 ]
   %376 = load ptr, ptr %374, align 8
-  %377 = getelementptr inbounds nuw i32, ptr %376, i64 %indvars.iv1373
+  %377 = getelementptr inbounds nuw [4 x i8], ptr %376, i64 %indvars.iv1373
   %378 = load i32, ptr %377, align 4
   tail call void @pack32(i32 noundef %378, ptr noundef %1) #7
   %indvars.iv.next1374 = add nuw nsw i64 %indvars.iv1373, 1
@@ -14766,14 +14750,14 @@ pack_step_id.exit1232:                            ; preds = %338
 444:                                              ; preds = %.lr.ph1296, %444
   %indvars.iv1376 = phi i64 [ 0, %.lr.ph1296 ], [ %indvars.iv.next1377, %444 ]
   %445 = load ptr, ptr %442, align 8
-  %446 = getelementptr inbounds nuw i16, ptr %445, i64 %indvars.iv1376
+  %446 = getelementptr inbounds nuw [2 x i8], ptr %445, i64 %indvars.iv1376
   %447 = load i16, ptr %446, align 2
   tail call void @pack16(i16 noundef zeroext %447, ptr noundef %1) #7
   %448 = load ptr, ptr %443, align 8
-  %449 = getelementptr inbounds nuw ptr, ptr %448, i64 %indvars.iv1376
+  %449 = getelementptr inbounds nuw [8 x i8], ptr %448, i64 %indvars.iv1376
   %450 = load ptr, ptr %449, align 8
   %451 = load ptr, ptr %442, align 8
-  %452 = getelementptr inbounds nuw i16, ptr %451, i64 %indvars.iv1376
+  %452 = getelementptr inbounds nuw [2 x i8], ptr %451, i64 %indvars.iv1376
   %453 = load i16, ptr %452, align 2
   %454 = zext i16 %453 to i32
   tail call void @pack32_array(ptr noundef %450, i32 noundef %454, ptr noundef %1) #7
@@ -14798,7 +14782,7 @@ pack_step_id.exit1232:                            ; preds = %338
 462:                                              ; preds = %.lr.ph1300, %462
   %indvars.iv1379 = phi i64 [ 0, %.lr.ph1300 ], [ %indvars.iv.next1380, %462 ]
   %463 = load ptr, ptr %461, align 8
-  %464 = getelementptr inbounds nuw i16, ptr %463, i64 %indvars.iv1379
+  %464 = getelementptr inbounds nuw [2 x i8], ptr %463, i64 %indvars.iv1379
   %465 = load i16, ptr %464, align 2
   tail call void @pack16(i16 noundef zeroext %465, ptr noundef %1) #7
   %indvars.iv.next1380 = add nuw nsw i64 %indvars.iv1379, 1
@@ -14946,7 +14930,7 @@ pack_step_id.exit1232:                            ; preds = %338
 541:                                              ; preds = %.lr.ph1304, %541
   %indvars.iv1382 = phi i64 [ 0, %.lr.ph1304 ], [ %indvars.iv.next1383, %541 ]
   %542 = load ptr, ptr %540, align 8
-  %543 = getelementptr inbounds nuw i16, ptr %542, i64 %indvars.iv1382
+  %543 = getelementptr inbounds nuw [2 x i8], ptr %542, i64 %indvars.iv1382
   %544 = load i16, ptr %543, align 2
   tail call void @pack16(i16 noundef zeroext %544, ptr noundef %1) #7
   %indvars.iv.next1383 = add nuw nsw i64 %indvars.iv1382, 1
@@ -15232,10 +15216,10 @@ pack_step_id.exit1239:                            ; preds = %668
 688:                                              ; preds = %.lr.ph1275, %688
   %indvars.iv1355 = phi i64 [ 0, %.lr.ph1275 ], [ %indvars.iv.next1356, %688 ]
   %689 = load ptr, ptr %686, align 8
-  %690 = getelementptr inbounds nuw ptr, ptr %689, i64 %indvars.iv1355
+  %690 = getelementptr inbounds nuw [8 x i8], ptr %689, i64 %indvars.iv1355
   %691 = load ptr, ptr %690, align 8
   %692 = load ptr, ptr %687, align 8
-  %693 = getelementptr inbounds nuw i16, ptr %692, i64 %indvars.iv1355
+  %693 = getelementptr inbounds nuw [2 x i8], ptr %692, i64 %indvars.iv1355
   %694 = load i16, ptr %693, align 2
   %695 = zext i16 %694 to i32
   tail call void @pack32_array(ptr noundef %691, i32 noundef %695, ptr noundef %1) #7
@@ -15262,7 +15246,7 @@ pack_step_id.exit1239:                            ; preds = %668
 703:                                              ; preds = %.lr.ph1277, %703
   %indvars.iv1358 = phi i64 [ 0, %.lr.ph1277 ], [ %indvars.iv.next1359, %703 ]
   %704 = load ptr, ptr %702, align 8
-  %705 = getelementptr inbounds nuw i32, ptr %704, i64 %indvars.iv1358
+  %705 = getelementptr inbounds nuw [4 x i8], ptr %704, i64 %indvars.iv1358
   %706 = load i32, ptr %705, align 4
   tail call void @pack32(i32 noundef %706, ptr noundef %1) #7
   %indvars.iv.next1359 = add nuw nsw i64 %indvars.iv1358, 1
@@ -15379,14 +15363,14 @@ pack_step_id.exit1239:                            ; preds = %668
 772:                                              ; preds = %.lr.ph1280, %772
   %indvars.iv1361 = phi i64 [ 0, %.lr.ph1280 ], [ %indvars.iv.next1362, %772 ]
   %773 = load ptr, ptr %770, align 8
-  %774 = getelementptr inbounds nuw i16, ptr %773, i64 %indvars.iv1361
+  %774 = getelementptr inbounds nuw [2 x i8], ptr %773, i64 %indvars.iv1361
   %775 = load i16, ptr %774, align 2
   tail call void @pack16(i16 noundef zeroext %775, ptr noundef %1) #7
   %776 = load ptr, ptr %771, align 8
-  %777 = getelementptr inbounds nuw ptr, ptr %776, i64 %indvars.iv1361
+  %777 = getelementptr inbounds nuw [8 x i8], ptr %776, i64 %indvars.iv1361
   %778 = load ptr, ptr %777, align 8
   %779 = load ptr, ptr %770, align 8
-  %780 = getelementptr inbounds nuw i16, ptr %779, i64 %indvars.iv1361
+  %780 = getelementptr inbounds nuw [2 x i8], ptr %779, i64 %indvars.iv1361
   %781 = load i16, ptr %780, align 2
   %782 = zext i16 %781 to i32
   tail call void @pack32_array(ptr noundef %778, i32 noundef %782, ptr noundef %1) #7
@@ -15411,7 +15395,7 @@ pack_step_id.exit1239:                            ; preds = %668
 790:                                              ; preds = %.lr.ph1284, %790
   %indvars.iv1364 = phi i64 [ 0, %.lr.ph1284 ], [ %indvars.iv.next1365, %790 ]
   %791 = load ptr, ptr %789, align 8
-  %792 = getelementptr inbounds nuw i16, ptr %791, i64 %indvars.iv1364
+  %792 = getelementptr inbounds nuw [2 x i8], ptr %791, i64 %indvars.iv1364
   %793 = load i16, ptr %792, align 2
   tail call void @pack16(i16 noundef zeroext %793, ptr noundef %1) #7
   %indvars.iv.next1365 = add nuw nsw i64 %indvars.iv1364, 1
@@ -15559,7 +15543,7 @@ pack_step_id.exit1239:                            ; preds = %668
 869:                                              ; preds = %.lr.ph1288, %869
   %indvars.iv1367 = phi i64 [ 0, %.lr.ph1288 ], [ %indvars.iv.next1368, %869 ]
   %870 = load ptr, ptr %868, align 8
-  %871 = getelementptr inbounds nuw i16, ptr %870, i64 %indvars.iv1367
+  %871 = getelementptr inbounds nuw [2 x i8], ptr %870, i64 %indvars.iv1367
   %872 = load i16, ptr %871, align 2
   tail call void @pack16(i16 noundef zeroext %872, ptr noundef %1) #7
   %indvars.iv.next1368 = add nuw nsw i64 %indvars.iv1367, 1
@@ -15844,10 +15828,10 @@ pack_step_id.exit1246:                            ; preds = %995
 1015:                                             ; preds = %.lr.ph, %1015
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %1015 ]
   %1016 = load ptr, ptr %1013, align 8
-  %1017 = getelementptr inbounds nuw ptr, ptr %1016, i64 %indvars.iv
+  %1017 = getelementptr inbounds nuw [8 x i8], ptr %1016, i64 %indvars.iv
   %1018 = load ptr, ptr %1017, align 8
   %1019 = load ptr, ptr %1014, align 8
-  %1020 = getelementptr inbounds nuw i16, ptr %1019, i64 %indvars.iv
+  %1020 = getelementptr inbounds nuw [2 x i8], ptr %1019, i64 %indvars.iv
   %1021 = load i16, ptr %1020, align 2
   %1022 = zext i16 %1021 to i32
   tail call void @pack32_array(ptr noundef %1018, i32 noundef %1022, ptr noundef %1) #7
@@ -15874,7 +15858,7 @@ pack_step_id.exit1246:                            ; preds = %995
 1030:                                             ; preds = %.lr.ph1263, %1030
   %indvars.iv1343 = phi i64 [ 0, %.lr.ph1263 ], [ %indvars.iv.next1344, %1030 ]
   %1031 = load ptr, ptr %1029, align 8
-  %1032 = getelementptr inbounds nuw i32, ptr %1031, i64 %indvars.iv1343
+  %1032 = getelementptr inbounds nuw [4 x i8], ptr %1031, i64 %indvars.iv1343
   %1033 = load i32, ptr %1032, align 4
   tail call void @pack32(i32 noundef %1033, ptr noundef %1) #7
   %indvars.iv.next1344 = add nuw nsw i64 %indvars.iv1343, 1
@@ -15991,14 +15975,14 @@ pack_step_id.exit1246:                            ; preds = %995
 1099:                                             ; preds = %.lr.ph1265, %1099
   %indvars.iv1346 = phi i64 [ 0, %.lr.ph1265 ], [ %indvars.iv.next1347, %1099 ]
   %1100 = load ptr, ptr %1097, align 8
-  %1101 = getelementptr inbounds nuw i16, ptr %1100, i64 %indvars.iv1346
+  %1101 = getelementptr inbounds nuw [2 x i8], ptr %1100, i64 %indvars.iv1346
   %1102 = load i16, ptr %1101, align 2
   tail call void @pack16(i16 noundef zeroext %1102, ptr noundef %1) #7
   %1103 = load ptr, ptr %1098, align 8
-  %1104 = getelementptr inbounds nuw ptr, ptr %1103, i64 %indvars.iv1346
+  %1104 = getelementptr inbounds nuw [8 x i8], ptr %1103, i64 %indvars.iv1346
   %1105 = load ptr, ptr %1104, align 8
   %1106 = load ptr, ptr %1097, align 8
-  %1107 = getelementptr inbounds nuw i16, ptr %1106, i64 %indvars.iv1346
+  %1107 = getelementptr inbounds nuw [2 x i8], ptr %1106, i64 %indvars.iv1346
   %1108 = load i16, ptr %1107, align 2
   %1109 = zext i16 %1108 to i32
   tail call void @pack32_array(ptr noundef %1105, i32 noundef %1109, ptr noundef %1) #7
@@ -16023,7 +16007,7 @@ pack_step_id.exit1246:                            ; preds = %995
 1117:                                             ; preds = %.lr.ph1268, %1117
   %indvars.iv1349 = phi i64 [ 0, %.lr.ph1268 ], [ %indvars.iv.next1350, %1117 ]
   %1118 = load ptr, ptr %1116, align 8
-  %1119 = getelementptr inbounds nuw i16, ptr %1118, i64 %indvars.iv1349
+  %1119 = getelementptr inbounds nuw [2 x i8], ptr %1118, i64 %indvars.iv1349
   %1120 = load i16, ptr %1119, align 2
   tail call void @pack16(i16 noundef zeroext %1120, ptr noundef %1) #7
   %indvars.iv.next1350 = add nuw nsw i64 %indvars.iv1349, 1
@@ -16171,7 +16155,7 @@ pack_step_id.exit1246:                            ; preds = %995
 1196:                                             ; preds = %.lr.ph1272, %1196
   %indvars.iv1352 = phi i64 [ 0, %.lr.ph1272 ], [ %indvars.iv.next1353, %1196 ]
   %1197 = load ptr, ptr %1195, align 8
-  %1198 = getelementptr inbounds nuw i16, ptr %1197, i64 %indvars.iv1352
+  %1198 = getelementptr inbounds nuw [2 x i8], ptr %1197, i64 %indvars.iv1352
   %1199 = load i16, ptr %1198, align 2
   tail call void @pack16(i16 noundef zeroext %1199, ptr noundef %1) #7
   %indvars.iv.next1353 = add nuw nsw i64 %indvars.iv1352, 1
@@ -16635,17 +16619,17 @@ define internal fastcc void @_pack_job_state_request_msg(ptr readonly captures(n
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
   %8 = load ptr, ptr %6, align 8
-  %9 = getelementptr inbounds nuw %struct.slurm_selected_step_t, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [40 x i8], ptr %8, i64 %indvars.iv
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load i32, ptr %10, align 8
   tail call void @pack32(i32 noundef %11, ptr noundef %0) #7
   %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds nuw %struct.slurm_selected_step_t, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [40 x i8], ptr %12, i64 %indvars.iv
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load i32, ptr %14, align 8
   tail call void @pack32(i32 noundef %15, ptr noundef %0) #7
   %16 = load ptr, ptr %6, align 8
-  %17 = getelementptr inbounds nuw %struct.slurm_selected_step_t, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [40 x i8], ptr %16, i64 %indvars.iv
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 12
   %19 = load i32, ptr %18, align 4
   tail call void @pack32(i32 noundef %19, ptr noundef %0) #7
@@ -16679,7 +16663,7 @@ define internal fastcc void @_pack_job_state_response_msg(ptr readonly captures(
 8:                                                ; preds = %.lr.ph, %33
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %33 ]
   %9 = load ptr, ptr %7, align 8
-  %10 = getelementptr inbounds nuw %struct.job_state_response_job_t, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 %indvars.iv
   %11 = load i32, ptr %10, align 8
   call void @pack32(i32 noundef %11, ptr noundef %0) #7
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
@@ -20058,7 +20042,7 @@ define internal fastcc void @_pack_kill_jobs_resp_msg(ptr noundef readonly captu
 .lr.ph:                                           ; preds = %5, %20
   %indvars.iv = phi i64 [ %indvars.iv.next, %20 ], [ 0, %5 ]
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr inbounds nuw %struct.kill_jobs_resp_job_t, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [40 x i8], ptr %9, i64 %indvars.iv
   %.sroa.0.0.copyload = load i32, ptr %10, align 8
   %.sroa.42.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.sroa.42.0.copyload = load ptr, ptr %.sroa.42.0..sroa_idx, align 8
@@ -20728,7 +20712,7 @@ define internal fastcc void @_pack_kvs_data(ptr noundef readonly captures(none) 
 7:                                                ; preds = %.lr.ph, %_pack_kvs_host_rec.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_pack_kvs_host_rec.exit ]
   %8 = load ptr, ptr %6, align 8
-  %9 = getelementptr inbounds nuw %struct.kvs_hosts, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %indvars.iv
   %10 = load i32, ptr %9, align 8
   tail call void @pack32(i32 noundef %10, ptr noundef %1) #7
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 4
@@ -20770,7 +20754,7 @@ _pack_kvs_host_rec.exit:                          ; preds = %7, %15
 .lr.ph22.split.us:                                ; preds = %.lr.ph22, %_pack_kvs_rec.exit.us
   %indvars.iv27 = phi i64 [ %indvars.iv.next28, %_pack_kvs_rec.exit.us ], [ 0, %.lr.ph22 ]
   %27 = load ptr, ptr %25, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv27
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr %29, align 8
   %.not.i17.us = icmp eq ptr %30, null
@@ -20800,7 +20784,7 @@ _pack_kvs_host_rec.exit:                          ; preds = %7, %15
 41:                                               ; preds = %57, %.lr.ph.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.i.us ], [ %indvars.iv.next.i.us, %57 ]
   %42 = load ptr, ptr %39, align 8
-  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv.i.us
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv.i.us
   %44 = load ptr, ptr %43, align 8
   %.not32.i.us = icmp eq ptr %44, null
   br i1 %.not32.i.us, label %49, label %45
@@ -20815,7 +20799,7 @@ _pack_kvs_host_rec.exit:                          ; preds = %7, %15
   %.026.i.us = phi i32 [ %48, %45 ], [ 0, %41 ]
   tail call void @packmem(ptr noundef %44, i32 noundef %.026.i.us, ptr noundef %1) #7
   %50 = load ptr, ptr %40, align 8
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv.i.us
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv.i.us
   %52 = load ptr, ptr %51, align 8
   %.not33.i.us = icmp eq ptr %52, null
   br i1 %.not33.i.us, label %57, label %53
@@ -20892,21 +20876,21 @@ define internal fastcc void @_pack_trigger_msg(ptr noundef readonly captures(non
 9:                                                ; preds = %.lr.ph, %54
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %54 ]
   %10 = load ptr, ptr %8, align 8
-  %11 = getelementptr inbounds nuw %struct.trigger_info, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [48 x i8], ptr %10, i64 %indvars.iv
   %12 = load i16, ptr %11, align 8
   tail call void @pack16(i16 noundef zeroext %12, ptr noundef %1) #7
   %13 = load ptr, ptr %8, align 8
-  %14 = getelementptr inbounds nuw %struct.trigger_info, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [48 x i8], ptr %13, i64 %indvars.iv
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %16 = load i32, ptr %15, align 4
   tail call void @pack32(i32 noundef %16, ptr noundef %1) #7
   %17 = load ptr, ptr %8, align 8
-  %18 = getelementptr inbounds nuw %struct.trigger_info, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [48 x i8], ptr %17, i64 %indvars.iv
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load i16, ptr %19, align 8
   tail call void @pack16(i16 noundef zeroext %20, ptr noundef %1) #7
   %21 = load ptr, ptr %8, align 8
-  %22 = getelementptr inbounds nuw %struct.trigger_info, ptr %21, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [48 x i8], ptr %21, i64 %indvars.iv
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load ptr, ptr %23, align 8
   %.not = icmp eq ptr %24, null
@@ -20922,27 +20906,27 @@ define internal fastcc void @_pack_trigger_msg(ptr noundef readonly captures(non
   %.042 = phi i32 [ %28, %25 ], [ 0, %9 ]
   tail call void @packmem(ptr noundef %24, i32 noundef %.042, ptr noundef %1) #7
   %30 = load ptr, ptr %8, align 8
-  %31 = getelementptr inbounds nuw %struct.trigger_info, ptr %30, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [48 x i8], ptr %30, i64 %indvars.iv
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 28
   %33 = load i32, ptr %32, align 4
   tail call void @pack32(i32 noundef %33, ptr noundef %1) #7
   %34 = load ptr, ptr %8, align 8
-  %35 = getelementptr inbounds nuw %struct.trigger_info, ptr %34, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [48 x i8], ptr %34, i64 %indvars.iv
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load i32, ptr %36, align 8
   tail call void @pack32(i32 noundef %37, ptr noundef %1) #7
   %38 = load ptr, ptr %8, align 8
-  %39 = getelementptr inbounds nuw %struct.trigger_info, ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [48 x i8], ptr %38, i64 %indvars.iv
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 32
   %41 = load i16, ptr %40, align 8
   tail call void @pack16(i16 noundef zeroext %41, ptr noundef %1) #7
   %42 = load ptr, ptr %8, align 8
-  %43 = getelementptr inbounds nuw %struct.trigger_info, ptr %42, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [48 x i8], ptr %42, i64 %indvars.iv
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 36
   %45 = load i32, ptr %44, align 4
   tail call void @pack32(i32 noundef %45, ptr noundef %1) #7
   %46 = load ptr, ptr %8, align 8
-  %47 = getelementptr inbounds nuw %struct.trigger_info, ptr %46, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [48 x i8], ptr %46, i64 %indvars.iv
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 40
   %49 = load ptr, ptr %48, align 8
   %.not46 = icmp eq ptr %49, null
@@ -21341,11 +21325,11 @@ define internal fastcc void @_pack_job_array_resp_msg(ptr noundef readonly captu
 13:                                               ; preds = %.lr.ph, %32
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %32 ]
   %14 = load ptr, ptr %10, align 8
-  %15 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4
   tail call void @pack32(i32 noundef %16, ptr noundef %1) #7
   %17 = load ptr, ptr %11, align 8
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8
   %.not32 = icmp eq ptr %19, null
   br i1 %.not32, label %24, label %20
@@ -21360,7 +21344,7 @@ define internal fastcc void @_pack_job_array_resp_msg(ptr noundef readonly captu
   %.027 = phi i32 [ %23, %20 ], [ 0, %13 ]
   tail call void @packmem(ptr noundef %19, i32 noundef %.027, ptr noundef %1) #7
   %25 = load ptr, ptr %12, align 8
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
   %.not33 = icmp eq ptr %27, null
   br i1 %.not33, label %32, label %28
@@ -28050,7 +28034,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_info_msg(ptr noundef ca
 
 .lr.ph:                                           ; preds = %23, %44
   %indvars.iv = phi i64 [ %indvars.iv.next, %44 ], [ 0, %23 ]
-  %25 = getelementptr inbounds nuw %struct.job_info, ptr %21, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [968 x i8], ptr %21, i64 %indvars.iv
   %26 = load i16, ptr %5, align 2
   %27 = tail call fastcc i32 @_unpack_job_info_members(ptr noundef nonnull %25, ptr noundef %1, i16 noundef zeroext %26)
   %.not47 = icmp eq i32 %27, 0
@@ -28212,7 +28196,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_partition_info_msg(ptr noun
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %201
   %indvars.iv56 = phi i64 [ %indvars.iv.next57, %201 ], [ 0, %.lr.ph ]
-  %65 = getelementptr inbounds nuw %struct.partition_info, ptr %61, i64 %indvars.iv56
+  %65 = getelementptr inbounds nuw [232 x i8], ptr %61, i64 %indvars.iv56
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 152
   %67 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %66, ptr noundef nonnull %4, ptr noundef %1) #7
@@ -28545,7 +28529,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_partition_info_msg(ptr noun
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.thread355.i
   %indvars.iv = phi i64 [ %indvars.iv.next, %.thread355.i ], [ 0, %.lr.ph ]
-  %207 = getelementptr inbounds nuw %struct.partition_info, ptr %61, i64 %indvars.iv
+  %207 = getelementptr inbounds nuw [232 x i8], ptr %61, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %208 = getelementptr inbounds nuw i8, ptr %207, i64 152
@@ -29071,7 +29055,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_node_info_msg(ptr noundef w
 
 48:                                               ; preds = %46, %44
   %49 = load ptr, ptr %43, align 8
-  %50 = getelementptr inbounds nuw %struct.node_info, ptr %49, i64 %indvars.iv100
+  %50 = getelementptr inbounds nuw [368 x i8], ptr %49, i64 %indvars.iv100
   %51 = call fastcc i32 @_unpack_node_info_members(ptr noundef %50, ptr noundef %1, i16 noundef zeroext %2)
   %.not77 = icmp eq i32 %51, 0
   br i1 %.not77, label %52, label %.thread88
@@ -29144,7 +29128,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_node_info_msg(ptr noundef w
 79:                                               ; preds = %.lr.ph, %75
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %75 ]
   %80 = load ptr, ptr %74, align 8
-  %81 = getelementptr inbounds nuw %struct.node_info, ptr %80, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw [368 x i8], ptr %80, i64 %indvars.iv
   %82 = tail call fastcc i32 @_unpack_node_info_members(ptr noundef %81, ptr noundef %1, i16 noundef zeroext %2)
   %.not63 = icmp eq i32 %82, 0
   br i1 %.not63, label %75, label %.thread88
@@ -29410,7 +29394,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_node_registration_status_ms
 110:                                              ; preds = %.lr.ph, %106
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %106 ]
   %111 = load ptr, ptr %105, align 8
-  %112 = getelementptr inbounds nuw %struct.slurm_step_id_msg, ptr %111, i64 %indvars.iv
+  %112 = getelementptr inbounds nuw [24 x i8], ptr %111, i64 %indvars.iv
   %113 = call i32 @unpack_step_id_members(ptr noundef %112, ptr noundef %1, i16 noundef zeroext %2)
   %.not142 = icmp eq i32 %113, 0
   br i1 %.not142, label %106, label %.thread
@@ -29551,7 +29535,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_acct_gather_node_resp_msg(p
 .lr.ph:                                           ; preds = %19, %21
   %indvars.iv = phi i64 [ %indvars.iv.next, %21 ], [ 0, %19 ]
   %25 = load ptr, ptr %6, align 8
-  %26 = getelementptr inbounds nuw %struct.acct_gather_energy, ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [56 x i8], ptr %25, i64 %indvars.iv
   store ptr %26, ptr %4, align 8
   %27 = call i32 @acct_gather_energy_unpack(ptr noundef nonnull %4, ptr noundef %1, i16 noundef zeroext %2, i1 noundef zeroext false) #7
   %.not32 = icmp eq i32 %27, 0
@@ -34750,7 +34734,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_reserve_info_msg(ptr nounde
 
 .lr.ph:                                           ; preds = %41, %.loopexit
   %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit ], [ 0, %41 ]
-  %47 = getelementptr inbounds nuw %struct.reserve_info, ptr %44, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [160 x i8], ptr %44, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %48 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %47, ptr noundef nonnull %5, ptr noundef %1) #7
@@ -35005,7 +34989,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_reserve_info_msg(ptr nounde
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %138 ], [ 0, %136 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   %142 = load ptr, ptr %135, align 8
-  %143 = getelementptr inbounds nuw %struct.resv_core_spec, ptr %142, i64 %indvars.iv.i
+  %143 = getelementptr inbounds nuw [16 x i8], ptr %142, i64 %indvars.iv.i
   %144 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %143, ptr noundef nonnull %20, ptr noundef %1) #7
   %.not130.i = icmp eq i32 %144, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
@@ -35014,7 +34998,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_reserve_info_msg(ptr nounde
 145:                                              ; preds = %.lr.ph.i
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %146 = load ptr, ptr %135, align 8
-  %147 = getelementptr inbounds nuw %struct.resv_core_spec, ptr %146, i64 %indvars.iv.i
+  %147 = getelementptr inbounds nuw [16 x i8], ptr %146, i64 %indvars.iv.i
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 8
   %149 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %148, ptr noundef nonnull %21, ptr noundef %1) #7
   %.not131.i = icmp eq i32 %149, 0
@@ -35224,7 +35208,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
 120:                                              ; preds = %.lr.ph1842, %124
   %indvars.iv1936 = phi i64 [ 0, %.lr.ph1842 ], [ %indvars.iv.next1937, %124 ]
   %121 = load ptr, ptr %118, align 8
-  %122 = getelementptr inbounds nuw ptr, ptr %121, i64 %indvars.iv1936
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %121, i64 %indvars.iv1936
   %123 = call i32 @unpack32_array(ptr noundef %122, ptr noundef nonnull %4, ptr noundef %1) #7
   %.not1568 = icmp eq i32 %123, 0
   br i1 %.not1568, label %124, label %.thread1696
@@ -35233,7 +35217,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %125 = load i32, ptr %4, align 4
   %126 = trunc i32 %125 to i16
   %127 = load ptr, ptr %119, align 8
-  %128 = getelementptr inbounds nuw i16, ptr %127, i64 %indvars.iv1936
+  %128 = getelementptr inbounds nuw [2 x i8], ptr %127, i64 %indvars.iv1936
   store i16 %126, ptr %128, align 2
   %indvars.iv.next1937 = add nuw nsw i64 %indvars.iv1936, 1
   %129 = load i32, ptr %101, align 8
@@ -35286,7 +35270,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
 148:                                              ; preds = %.lr.ph1845, %144
   %indvars.iv1939 = phi i64 [ 0, %.lr.ph1845 ], [ %indvars.iv.next1940, %144 ]
   %149 = load ptr, ptr %143, align 8
-  %150 = getelementptr inbounds nuw i32, ptr %149, i64 %indvars.iv1939
+  %150 = getelementptr inbounds nuw [4 x i8], ptr %149, i64 %indvars.iv1939
   %151 = call i32 @unpack32(ptr noundef %150, ptr noundef %1) #7
   %.not1567 = icmp eq i32 %151, 0
   br i1 %.not1567, label %144, label %.thread1696
@@ -35504,21 +35488,21 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
 249:                                              ; preds = %.lr.ph1848, %245
   %250 = phi ptr [ %.pre1977, %.lr.ph1848 ], [ %258, %245 ]
   %indvars.iv1942 = phi i64 [ 0, %.lr.ph1848 ], [ %indvars.iv.next1943, %245 ]
-  %251 = getelementptr inbounds nuw i16, ptr %250, i64 %indvars.iv1942
+  %251 = getelementptr inbounds nuw [2 x i8], ptr %250, i64 %indvars.iv1942
   %252 = call i32 @unpack16(ptr noundef %251, ptr noundef %1) #7
   %.not1564 = icmp eq i32 %252, 0
   br i1 %.not1564, label %253, label %.thread1696
 
 253:                                              ; preds = %249
   %254 = load ptr, ptr %244, align 8
-  %255 = getelementptr inbounds nuw ptr, ptr %254, i64 %indvars.iv1942
+  %255 = getelementptr inbounds nuw [8 x i8], ptr %254, i64 %indvars.iv1942
   %256 = call i32 @unpack32_array(ptr noundef %255, ptr noundef nonnull %4, ptr noundef %1) #7
   %.not1565 = icmp eq i32 %256, 0
   br i1 %.not1565, label %257, label %.thread1696
 
 257:                                              ; preds = %253
   %258 = load ptr, ptr %243, align 8
-  %259 = getelementptr inbounds nuw i16, ptr %258, i64 %indvars.iv1942
+  %259 = getelementptr inbounds nuw [2 x i8], ptr %258, i64 %indvars.iv1942
   %260 = load i16, ptr %259, align 2
   %261 = load i32, ptr %4, align 4
   %262 = trunc i32 %261 to i16
@@ -35563,7 +35547,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
 .lr.ph1851:                                       ; preds = %.preheader1762, %274
   %indvars.iv1945 = phi i64 [ %indvars.iv.next1946, %274 ], [ 0, %.preheader1762 ]
   %278 = load ptr, ptr %272, align 8
-  %279 = getelementptr inbounds nuw i16, ptr %278, i64 %indvars.iv1945
+  %279 = getelementptr inbounds nuw [2 x i8], ptr %278, i64 %indvars.iv1945
   %280 = call i32 @unpack16(ptr noundef %279, ptr noundef %1) #7
   %.not1563 = icmp eq i32 %280, 0
   br i1 %.not1563, label %274, label %.thread1696
@@ -35703,7 +35687,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
 .lr.ph1853:                                       ; preds = %.preheader, %336
   %indvars.iv1948 = phi i64 [ %indvars.iv.next1949, %336 ], [ 0, %.preheader ]
   %340 = load ptr, ptr %334, align 8
-  %341 = getelementptr inbounds nuw i16, ptr %340, i64 %indvars.iv1948
+  %341 = getelementptr inbounds nuw [2 x i8], ptr %340, i64 %indvars.iv1948
   %342 = call i32 @unpack16(ptr noundef %341, ptr noundef %1) #7
   %.not1562 = icmp eq i32 %342, 0
   br i1 %.not1562, label %336, label %.thread1696
@@ -35973,7 +35957,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
 457:                                              ; preds = %.lr.ph1828, %461
   %indvars.iv1921 = phi i64 [ 0, %.lr.ph1828 ], [ %indvars.iv.next1922, %461 ]
   %458 = load ptr, ptr %455, align 8
-  %459 = getelementptr inbounds nuw ptr, ptr %458, i64 %indvars.iv1921
+  %459 = getelementptr inbounds nuw [8 x i8], ptr %458, i64 %indvars.iv1921
   %460 = call i32 @unpack32_array(ptr noundef %459, ptr noundef nonnull %4, ptr noundef %1) #7
   %.not1476 = icmp eq i32 %460, 0
   br i1 %.not1476, label %461, label %.thread1696
@@ -35982,7 +35966,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %462 = load i32, ptr %4, align 4
   %463 = trunc i32 %462 to i16
   %464 = load ptr, ptr %456, align 8
-  %465 = getelementptr inbounds nuw i16, ptr %464, i64 %indvars.iv1921
+  %465 = getelementptr inbounds nuw [2 x i8], ptr %464, i64 %indvars.iv1921
   store i16 %463, ptr %465, align 2
   %indvars.iv.next1922 = add nuw nsw i64 %indvars.iv1921, 1
   %466 = load i32, ptr %438, align 8
@@ -36035,7 +36019,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
 485:                                              ; preds = %.lr.ph1831, %481
   %indvars.iv1924 = phi i64 [ 0, %.lr.ph1831 ], [ %indvars.iv.next1925, %481 ]
   %486 = load ptr, ptr %480, align 8
-  %487 = getelementptr inbounds nuw i32, ptr %486, i64 %indvars.iv1924
+  %487 = getelementptr inbounds nuw [4 x i8], ptr %486, i64 %indvars.iv1924
   %488 = call i32 @unpack32(ptr noundef %487, ptr noundef %1) #7
   %.not1475 = icmp eq i32 %488, 0
   br i1 %.not1475, label %481, label %.thread1696
@@ -36253,21 +36237,21 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
 586:                                              ; preds = %.lr.ph1834, %582
   %587 = phi ptr [ %.pre1970, %.lr.ph1834 ], [ %595, %582 ]
   %indvars.iv1927 = phi i64 [ 0, %.lr.ph1834 ], [ %indvars.iv.next1928, %582 ]
-  %588 = getelementptr inbounds nuw i16, ptr %587, i64 %indvars.iv1927
+  %588 = getelementptr inbounds nuw [2 x i8], ptr %587, i64 %indvars.iv1927
   %589 = call i32 @unpack16(ptr noundef %588, ptr noundef %1) #7
   %.not1472 = icmp eq i32 %589, 0
   br i1 %.not1472, label %590, label %.thread1696
 
 590:                                              ; preds = %586
   %591 = load ptr, ptr %581, align 8
-  %592 = getelementptr inbounds nuw ptr, ptr %591, i64 %indvars.iv1927
+  %592 = getelementptr inbounds nuw [8 x i8], ptr %591, i64 %indvars.iv1927
   %593 = call i32 @unpack32_array(ptr noundef %592, ptr noundef nonnull %4, ptr noundef %1) #7
   %.not1473 = icmp eq i32 %593, 0
   br i1 %.not1473, label %594, label %.thread1696
 
 594:                                              ; preds = %590
   %595 = load ptr, ptr %580, align 8
-  %596 = getelementptr inbounds nuw i16, ptr %595, i64 %indvars.iv1927
+  %596 = getelementptr inbounds nuw [2 x i8], ptr %595, i64 %indvars.iv1927
   %597 = load i16, ptr %596, align 2
   %598 = load i32, ptr %4, align 4
   %599 = trunc i32 %598 to i16
@@ -36312,7 +36296,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
 .lr.ph1837:                                       ; preds = %.preheader1773, %611
   %indvars.iv1930 = phi i64 [ %indvars.iv.next1931, %611 ], [ 0, %.preheader1773 ]
   %615 = load ptr, ptr %609, align 8
-  %616 = getelementptr inbounds nuw i16, ptr %615, i64 %indvars.iv1930
+  %616 = getelementptr inbounds nuw [2 x i8], ptr %615, i64 %indvars.iv1930
   %617 = call i32 @unpack16(ptr noundef %616, ptr noundef %1) #7
   %.not1471 = icmp eq i32 %617, 0
   br i1 %.not1471, label %611, label %.thread1696
@@ -36452,7 +36436,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
 .lr.ph1839:                                       ; preds = %.preheader1770, %673
   %indvars.iv1933 = phi i64 [ %indvars.iv.next1934, %673 ], [ 0, %.preheader1770 ]
   %677 = load ptr, ptr %671, align 8
-  %678 = getelementptr inbounds nuw i16, ptr %677, i64 %indvars.iv1933
+  %678 = getelementptr inbounds nuw [2 x i8], ptr %677, i64 %indvars.iv1933
   %679 = call i32 @unpack16(ptr noundef %678, ptr noundef %1) #7
   %.not1470 = icmp eq i32 %679, 0
   br i1 %.not1470, label %673, label %.thread1696
@@ -36730,7 +36714,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
 796:                                              ; preds = %.lr.ph1814, %800
   %indvars.iv1906 = phi i64 [ 0, %.lr.ph1814 ], [ %indvars.iv.next1907, %800 ]
   %797 = load ptr, ptr %794, align 8
-  %798 = getelementptr inbounds nuw ptr, ptr %797, i64 %indvars.iv1906
+  %798 = getelementptr inbounds nuw [8 x i8], ptr %797, i64 %indvars.iv1906
   %799 = call i32 @unpack32_array(ptr noundef %798, ptr noundef nonnull %4, ptr noundef %1) #7
   %.not1383 = icmp eq i32 %799, 0
   br i1 %.not1383, label %800, label %.thread1696
@@ -36739,7 +36723,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %801 = load i32, ptr %4, align 4
   %802 = trunc i32 %801 to i16
   %803 = load ptr, ptr %795, align 8
-  %804 = getelementptr inbounds nuw i16, ptr %803, i64 %indvars.iv1906
+  %804 = getelementptr inbounds nuw [2 x i8], ptr %803, i64 %indvars.iv1906
   store i16 %802, ptr %804, align 2
   %indvars.iv.next1907 = add nuw nsw i64 %indvars.iv1906, 1
   %805 = load i32, ptr %777, align 8
@@ -36792,7 +36776,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
 824:                                              ; preds = %.lr.ph1817, %820
   %indvars.iv1909 = phi i64 [ 0, %.lr.ph1817 ], [ %indvars.iv.next1910, %820 ]
   %825 = load ptr, ptr %819, align 8
-  %826 = getelementptr inbounds nuw i32, ptr %825, i64 %indvars.iv1909
+  %826 = getelementptr inbounds nuw [4 x i8], ptr %825, i64 %indvars.iv1909
   %827 = call i32 @unpack32(ptr noundef %826, ptr noundef %1) #7
   %.not1382 = icmp eq i32 %827, 0
   br i1 %.not1382, label %820, label %.thread1696
@@ -37010,21 +36994,21 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
 925:                                              ; preds = %.lr.ph1820, %921
   %926 = phi ptr [ %.pre1963, %.lr.ph1820 ], [ %934, %921 ]
   %indvars.iv1912 = phi i64 [ 0, %.lr.ph1820 ], [ %indvars.iv.next1913, %921 ]
-  %927 = getelementptr inbounds nuw i16, ptr %926, i64 %indvars.iv1912
+  %927 = getelementptr inbounds nuw [2 x i8], ptr %926, i64 %indvars.iv1912
   %928 = call i32 @unpack16(ptr noundef %927, ptr noundef %1) #7
   %.not1379 = icmp eq i32 %928, 0
   br i1 %.not1379, label %929, label %.thread1696
 
 929:                                              ; preds = %925
   %930 = load ptr, ptr %920, align 8
-  %931 = getelementptr inbounds nuw ptr, ptr %930, i64 %indvars.iv1912
+  %931 = getelementptr inbounds nuw [8 x i8], ptr %930, i64 %indvars.iv1912
   %932 = call i32 @unpack32_array(ptr noundef %931, ptr noundef nonnull %4, ptr noundef %1) #7
   %.not1380 = icmp eq i32 %932, 0
   br i1 %.not1380, label %933, label %.thread1696
 
 933:                                              ; preds = %929
   %934 = load ptr, ptr %919, align 8
-  %935 = getelementptr inbounds nuw i16, ptr %934, i64 %indvars.iv1912
+  %935 = getelementptr inbounds nuw [2 x i8], ptr %934, i64 %indvars.iv1912
   %936 = load i16, ptr %935, align 2
   %937 = load i32, ptr %4, align 4
   %938 = trunc i32 %937 to i16
@@ -37069,7 +37053,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
 .lr.ph1823:                                       ; preds = %.preheader1784, %950
   %indvars.iv1915 = phi i64 [ %indvars.iv.next1916, %950 ], [ 0, %.preheader1784 ]
   %954 = load ptr, ptr %948, align 8
-  %955 = getelementptr inbounds nuw i16, ptr %954, i64 %indvars.iv1915
+  %955 = getelementptr inbounds nuw [2 x i8], ptr %954, i64 %indvars.iv1915
   %956 = call i32 @unpack16(ptr noundef %955, ptr noundef %1) #7
   %.not1378 = icmp eq i32 %956, 0
   br i1 %.not1378, label %950, label %.thread1696
@@ -37209,7 +37193,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
 .lr.ph1825:                                       ; preds = %.preheader1781, %1012
   %indvars.iv1918 = phi i64 [ %indvars.iv.next1919, %1012 ], [ 0, %.preheader1781 ]
   %1016 = load ptr, ptr %1010, align 8
-  %1017 = getelementptr inbounds nuw i16, ptr %1016, i64 %indvars.iv1918
+  %1017 = getelementptr inbounds nuw [2 x i8], ptr %1016, i64 %indvars.iv1918
   %1018 = call i32 @unpack16(ptr noundef %1017, ptr noundef %1) #7
   %.not1377 = icmp eq i32 %1018, 0
   br i1 %.not1377, label %1012, label %.thread1696
@@ -37494,7 +37478,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
 1139:                                             ; preds = %.lr.ph, %1143
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %1143 ]
   %1140 = load ptr, ptr %1137, align 8
-  %1141 = getelementptr inbounds nuw ptr, ptr %1140, i64 %indvars.iv
+  %1141 = getelementptr inbounds nuw [8 x i8], ptr %1140, i64 %indvars.iv
   %1142 = call i32 @unpack32_array(ptr noundef %1141, ptr noundef nonnull %4, ptr noundef %1) #7
   %.not1291 = icmp eq i32 %1142, 0
   br i1 %.not1291, label %1143, label %.thread1696
@@ -37503,7 +37487,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
   %1144 = load i32, ptr %4, align 4
   %1145 = trunc i32 %1144 to i16
   %1146 = load ptr, ptr %1138, align 8
-  %1147 = getelementptr inbounds nuw i16, ptr %1146, i64 %indvars.iv
+  %1147 = getelementptr inbounds nuw [2 x i8], ptr %1146, i64 %indvars.iv
   store i16 %1145, ptr %1147, align 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %1148 = load i32, ptr %1120, align 8
@@ -37556,7 +37540,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
 1167:                                             ; preds = %.lr.ph1805, %1163
   %indvars.iv1894 = phi i64 [ 0, %.lr.ph1805 ], [ %indvars.iv.next1895, %1163 ]
   %1168 = load ptr, ptr %1162, align 8
-  %1169 = getelementptr inbounds nuw i32, ptr %1168, i64 %indvars.iv1894
+  %1169 = getelementptr inbounds nuw [4 x i8], ptr %1168, i64 %indvars.iv1894
   %1170 = call i32 @unpack32(ptr noundef %1169, ptr noundef %1) #7
   %.not1290 = icmp eq i32 %1170, 0
   br i1 %.not1290, label %1163, label %.thread1696
@@ -37774,21 +37758,21 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
 1268:                                             ; preds = %.lr.ph1807, %1264
   %1269 = phi ptr [ %.pre1956, %.lr.ph1807 ], [ %1277, %1264 ]
   %indvars.iv1897 = phi i64 [ 0, %.lr.ph1807 ], [ %indvars.iv.next1898, %1264 ]
-  %1270 = getelementptr inbounds nuw i16, ptr %1269, i64 %indvars.iv1897
+  %1270 = getelementptr inbounds nuw [2 x i8], ptr %1269, i64 %indvars.iv1897
   %1271 = call i32 @unpack16(ptr noundef %1270, ptr noundef %1) #7
   %.not1287 = icmp eq i32 %1271, 0
   br i1 %.not1287, label %1272, label %.thread1696
 
 1272:                                             ; preds = %1268
   %1273 = load ptr, ptr %1263, align 8
-  %1274 = getelementptr inbounds nuw ptr, ptr %1273, i64 %indvars.iv1897
+  %1274 = getelementptr inbounds nuw [8 x i8], ptr %1273, i64 %indvars.iv1897
   %1275 = call i32 @unpack32_array(ptr noundef %1274, ptr noundef nonnull %4, ptr noundef %1) #7
   %.not1288 = icmp eq i32 %1275, 0
   br i1 %.not1288, label %1276, label %.thread1696
 
 1276:                                             ; preds = %1272
   %1277 = load ptr, ptr %1262, align 8
-  %1278 = getelementptr inbounds nuw i16, ptr %1277, i64 %indvars.iv1897
+  %1278 = getelementptr inbounds nuw [2 x i8], ptr %1277, i64 %indvars.iv1897
   %1279 = load i16, ptr %1278, align 2
   %1280 = load i32, ptr %4, align 4
   %1281 = trunc i32 %1280 to i16
@@ -37833,7 +37817,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
 .lr.ph1809:                                       ; preds = %.preheader1795, %1293
   %indvars.iv1900 = phi i64 [ %indvars.iv.next1901, %1293 ], [ 0, %.preheader1795 ]
   %1297 = load ptr, ptr %1291, align 8
-  %1298 = getelementptr inbounds nuw i16, ptr %1297, i64 %indvars.iv1900
+  %1298 = getelementptr inbounds nuw [2 x i8], ptr %1297, i64 %indvars.iv1900
   %1299 = call i32 @unpack16(ptr noundef %1298, ptr noundef %1) #7
   %.not1286 = icmp eq i32 %1299, 0
   br i1 %.not1286, label %1293, label %.thread1696
@@ -37973,7 +37957,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_launch_tasks_request_msg(pt
 .lr.ph1811:                                       ; preds = %.preheader1792, %1355
   %indvars.iv1903 = phi i64 [ %indvars.iv.next1904, %1355 ], [ 0, %.preheader1792 ]
   %1359 = load ptr, ptr %1353, align 8
-  %1360 = getelementptr inbounds nuw i16, ptr %1359, i64 %indvars.iv1903
+  %1360 = getelementptr inbounds nuw [2 x i8], ptr %1359, i64 %indvars.iv1903
   %1361 = call i32 @unpack16(ptr noundef %1360, ptr noundef %1) #7
   %.not1285 = icmp eq i32 %1361, 0
   br i1 %.not1285, label %1355, label %.thread1696
@@ -38280,7 +38264,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_reattach_tasks_request_msg(
 .lr.ph:                                           ; preds = %.preheader69, %24
   %indvars.iv = phi i64 [ %indvars.iv.next, %24 ], [ 0, %.preheader69 ]
   %28 = load ptr, ptr %22, align 8
-  %29 = getelementptr inbounds nuw i16, ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [2 x i8], ptr %28, i64 %indvars.iv
   %30 = call i32 @unpack16(ptr noundef %29, ptr noundef %1) #7
   %.not65 = icmp eq i32 %30, 0
   br i1 %.not65, label %24, label %.loopexit68
@@ -38323,7 +38307,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_reattach_tasks_request_msg(
 .lr.ph74:                                         ; preds = %.preheader, %42
   %indvars.iv79 = phi i64 [ %indvars.iv.next80, %42 ], [ 0, %.preheader ]
   %46 = load ptr, ptr %40, align 8
-  %47 = getelementptr inbounds nuw i16, ptr %46, i64 %indvars.iv79
+  %47 = getelementptr inbounds nuw [2 x i8], ptr %46, i64 %indvars.iv79
   %48 = call i32 @unpack16(ptr noundef %47, ptr noundef %1) #7
   %.not64 = icmp eq i32 %48, 0
   br i1 %.not64, label %42, label %.loopexit68
@@ -38419,7 +38403,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_reattach_tasks_response_msg
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %32 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %37 = load ptr, ptr %31, align 8
-  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   %39 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %38, ptr noundef nonnull %5, ptr noundef %1) #7
   %.not43 = icmp eq i32 %39, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -38628,7 +38612,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_state_request_msg(ptr n
 25:                                               ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
   %26 = load ptr, ptr %20, align 8
-  %27 = getelementptr inbounds nuw %struct.slurm_selected_step_t, ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [40 x i8], ptr %26, i64 %indvars.iv
   store ptr null, ptr %27, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i32 -2, ptr %.sroa.2.0..sroa_idx, align 8
@@ -38645,7 +38629,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_state_request_msg(ptr n
   %.sroa.8.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 36
   store i32 0, ptr %.sroa.8.0..sroa_idx, align 4
   %28 = load ptr, ptr %20, align 8
-  %29 = getelementptr inbounds nuw %struct.slurm_selected_step_t, ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [40 x i8], ptr %28, i64 %indvars.iv
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
   %31 = tail call i32 @unpack32(ptr noundef nonnull %30, ptr noundef %1) #7
   %.not31 = icmp eq i32 %31, 0
@@ -38653,7 +38637,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_state_request_msg(ptr n
 
 32:                                               ; preds = %25
   %33 = load ptr, ptr %20, align 8
-  %34 = getelementptr inbounds nuw %struct.slurm_selected_step_t, ptr %33, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [40 x i8], ptr %33, i64 %indvars.iv
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = tail call i32 @unpack32(ptr noundef nonnull %35, ptr noundef %1) #7
   %.not32 = icmp eq i32 %36, 0
@@ -38661,7 +38645,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_state_request_msg(ptr n
 
 37:                                               ; preds = %32
   %38 = load ptr, ptr %20, align 8
-  %39 = getelementptr inbounds nuw %struct.slurm_selected_step_t, ptr %38, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [40 x i8], ptr %38, i64 %indvars.iv
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 12
   %41 = tail call i32 @unpack32(ptr noundef nonnull %40, ptr noundef %1) #7
   %.not33 = icmp eq i32 %41, 0
@@ -38731,7 +38715,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_state_response_msg(ptr 
 28:                                               ; preds = %.lr.ph, %24
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %24 ]
   %29 = load ptr, ptr %23, align 8
-  %30 = getelementptr inbounds nuw %struct.job_state_response_job_t, ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [32 x i8], ptr %29, i64 %indvars.iv
   %31 = call i32 @unpack32(ptr noundef %30, ptr noundef %1) #7
   %.not49 = icmp eq i32 %31, 0
   br i1 %.not49, label %32, label %.thread76
@@ -39599,7 +39583,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_step_info_response_msg(
 
 .lr.ph78:                                         ; preds = %23, %29
   %indvars.iv84 = phi i64 [ %indvars.iv.next85, %29 ], [ 0, %23 ]
-  %35 = getelementptr inbounds nuw %struct.job_step_info_t, ptr %26, i64 %indvars.iv84
+  %35 = getelementptr inbounds nuw [264 x i8], ptr %26, i64 %indvars.iv84
   %36 = tail call fastcc i32 @_unpack_job_step_info_members(ptr noundef %35, ptr noundef %1, i16 noundef zeroext %2)
   %.not66 = icmp eq i32 %36, 0
   br i1 %.not66, label %29, label %.loopexit
@@ -39668,7 +39652,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_step_info_response_msg(
 
 .lr.ph:                                           ; preds = %58, %64
   %indvars.iv = phi i64 [ %indvars.iv.next, %64 ], [ 0, %58 ]
-  %70 = getelementptr inbounds nuw %struct.job_step_info_t, ptr %61, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [264 x i8], ptr %61, i64 %indvars.iv
   %71 = tail call fastcc i32 @_unpack_job_step_info_members(ptr noundef %70, ptr noundef %1, i16 noundef zeroext %2)
   %.not60 = icmp eq i32 %71, 0
   br i1 %.not60, label %64, label %.loopexit
@@ -42483,7 +42467,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_kill_jobs_resp_msg(ptr noun
 .lr.ph:                                           ; preds = %11, %16
   %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ 0, %11 ]
   %20 = load ptr, ptr %6, align 8
-  %21 = getelementptr inbounds nuw %struct.kill_jobs_resp_job_t, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [40 x i8], ptr %20, i64 %indvars.iv
   %22 = call i32 @unpack32(ptr noundef %21, ptr noundef %1) #7
   %.not33 = icmp eq i32 %22, 0
   br i1 %.not33, label %23, label %.thread44
@@ -43293,7 +43277,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_burst_buffer_info_msg(ptr n
   %indvars.iv590 = phi i64 [ 0, %.lr.ph557 ], [ %indvars.iv.next591, %99 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %104 = load ptr, ptr %98, align 8
-  %105 = getelementptr inbounds nuw %struct.burst_buffer_pool_t, ptr %104, i64 %indvars.iv590
+  %105 = getelementptr inbounds nuw [40 x i8], ptr %104, i64 %indvars.iv590
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 8
   %107 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %106, ptr noundef nonnull %12, ptr noundef %1) #7
   %.not466 = icmp eq i32 %107, 0
@@ -43302,7 +43286,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_burst_buffer_info_msg(ptr n
 
 108:                                              ; preds = %103
   %109 = load ptr, ptr %98, align 8
-  %110 = getelementptr inbounds nuw %struct.burst_buffer_pool_t, ptr %109, i64 %indvars.iv590
+  %110 = getelementptr inbounds nuw [40 x i8], ptr %109, i64 %indvars.iv590
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 16
   %112 = call i32 @unpack64(ptr noundef nonnull %111, ptr noundef %1) #7
   %.not467 = icmp eq i32 %112, 0
@@ -43310,14 +43294,14 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_burst_buffer_info_msg(ptr n
 
 113:                                              ; preds = %108
   %114 = load ptr, ptr %98, align 8
-  %115 = getelementptr inbounds nuw %struct.burst_buffer_pool_t, ptr %114, i64 %indvars.iv590
+  %115 = getelementptr inbounds nuw [40 x i8], ptr %114, i64 %indvars.iv590
   %116 = call i32 @unpack64(ptr noundef %115, ptr noundef %1) #7
   %.not468 = icmp eq i32 %116, 0
   br i1 %.not468, label %117, label %.thread520
 
 117:                                              ; preds = %113
   %118 = load ptr, ptr %98, align 8
-  %119 = getelementptr inbounds nuw %struct.burst_buffer_pool_t, ptr %118, i64 %indvars.iv590
+  %119 = getelementptr inbounds nuw [40 x i8], ptr %118, i64 %indvars.iv590
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 32
   %121 = call i32 @unpack64(ptr noundef nonnull %120, ptr noundef %1) #7
   %.not469 = icmp eq i32 %121, 0
@@ -43325,7 +43309,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_burst_buffer_info_msg(ptr n
 
 122:                                              ; preds = %117
   %123 = load ptr, ptr %98, align 8
-  %124 = getelementptr inbounds nuw %struct.burst_buffer_pool_t, ptr %123, i64 %indvars.iv590
+  %124 = getelementptr inbounds nuw [40 x i8], ptr %123, i64 %indvars.iv590
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 24
   %126 = call i32 @unpack64(ptr noundef nonnull %125, ptr noundef %1) #7
   %.not470 = icmp eq i32 %126, 0
@@ -43728,7 +43712,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_burst_buffer_info_msg(ptr n
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %288 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
   %293 = load ptr, ptr %287, align 8
-  %294 = getelementptr inbounds nuw %struct.burst_buffer_pool_t, ptr %293, i64 %indvars.iv
+  %294 = getelementptr inbounds nuw [40 x i8], ptr %293, i64 %indvars.iv
   %295 = getelementptr inbounds nuw i8, ptr %294, i64 8
   %296 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %295, ptr noundef nonnull %30, ptr noundef %1) #7
   %.not416 = icmp eq i32 %296, 0
@@ -43737,7 +43721,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_burst_buffer_info_msg(ptr n
 
 297:                                              ; preds = %292
   %298 = load ptr, ptr %287, align 8
-  %299 = getelementptr inbounds nuw %struct.burst_buffer_pool_t, ptr %298, i64 %indvars.iv
+  %299 = getelementptr inbounds nuw [40 x i8], ptr %298, i64 %indvars.iv
   %300 = getelementptr inbounds nuw i8, ptr %299, i64 16
   %301 = call i32 @unpack64(ptr noundef nonnull %300, ptr noundef %1) #7
   %.not417 = icmp eq i32 %301, 0
@@ -43745,14 +43729,14 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_burst_buffer_info_msg(ptr n
 
 302:                                              ; preds = %297
   %303 = load ptr, ptr %287, align 8
-  %304 = getelementptr inbounds nuw %struct.burst_buffer_pool_t, ptr %303, i64 %indvars.iv
+  %304 = getelementptr inbounds nuw [40 x i8], ptr %303, i64 %indvars.iv
   %305 = call i32 @unpack64(ptr noundef %304, ptr noundef %1) #7
   %.not418 = icmp eq i32 %305, 0
   br i1 %.not418, label %306, label %.thread520
 
 306:                                              ; preds = %302
   %307 = load ptr, ptr %287, align 8
-  %308 = getelementptr inbounds nuw %struct.burst_buffer_pool_t, ptr %307, i64 %indvars.iv
+  %308 = getelementptr inbounds nuw [40 x i8], ptr %307, i64 %indvars.iv
   %309 = getelementptr inbounds nuw i8, ptr %308, i64 32
   %310 = call i32 @unpack64(ptr noundef nonnull %309, ptr noundef %1) #7
   %.not419 = icmp eq i32 %310, 0
@@ -43760,7 +43744,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_burst_buffer_info_msg(ptr n
 
 311:                                              ; preds = %306
   %312 = load ptr, ptr %287, align 8
-  %313 = getelementptr inbounds nuw %struct.burst_buffer_pool_t, ptr %312, i64 %indvars.iv
+  %313 = getelementptr inbounds nuw [40 x i8], ptr %312, i64 %indvars.iv
   %314 = getelementptr inbounds nuw i8, ptr %313, i64 24
   %315 = call i32 @unpack64(ptr noundef nonnull %314, ptr noundef %1) #7
   %.not420 = icmp eq i32 %315, 0
@@ -44335,7 +44319,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_kvs_data(ptr noundef writeo
 24:                                               ; preds = %.lr.ph, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
   %25 = load ptr, ptr %19, align 8
-  %26 = getelementptr inbounds nuw %struct.kvs_hosts, ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 %indvars.iv
   %27 = call i32 @unpack32(ptr noundef %26, ptr noundef %1) #7
   %.not.i = icmp eq i32 %27, 0
   br i1 %.not.i, label %28, label %_unpack_kvs_host_rec.exit
@@ -44393,7 +44377,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_kvs_data(ptr noundef writeo
 .lr.ph71.split.us:                                ; preds = %.lr.ph71, %_unpack_kvs_rec.exit.us
   %indvars.iv81 = phi i64 [ %indvars.iv.next82, %_unpack_kvs_rec.exit.us ], [ 0, %.lr.ph71 ]
   %47 = load ptr, ptr %45, align 8
-  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv81
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv81
   %49 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 11206, ptr noundef nonnull @__func__._unpack_kvs_rec) #7
   store ptr %49, ptr %48, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -44450,7 +44434,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_kvs_data(ptr noundef writeo
   %indvars.iv.i.us = phi i64 [ %indvars.iv.next.i.us, %75 ], [ 0, %66 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %68 = load ptr, ptr %60, align 8
-  %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %indvars.iv.i.us
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %indvars.iv.i.us
   %70 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %69, ptr noundef nonnull %5, ptr noundef %1) #7
   %.not49.i.us = icmp eq i32 %70, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -44459,7 +44443,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_kvs_data(ptr noundef writeo
 71:                                               ; preds = %.lr.ph.i.us
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %72 = load ptr, ptr %65, align 8
-  %73 = getelementptr inbounds nuw ptr, ptr %72, i64 %indvars.iv.i.us
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %indvars.iv.i.us
   %74 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %73, ptr noundef nonnull %6, ptr noundef %1) #7
   %.not50.i.us = icmp eq i32 %74, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -44487,7 +44471,7 @@ _unpack_kvs_rec.exit.us:                          ; preds = %75, %.thread.i.us, 
 _unpack_kvs_rec.exit:                             ; preds = %.lr.ph71, %_unpack_kvs_rec.exit
   %indvars.iv78 = phi i64 [ %indvars.iv.next79, %_unpack_kvs_rec.exit ], [ 0, %.lr.ph71 ]
   %83 = load ptr, ptr %45, align 8
-  %84 = getelementptr inbounds nuw ptr, ptr %83, i64 %indvars.iv78
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %indvars.iv78
   %85 = call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.2, i32 noundef 11206, ptr noundef nonnull @__func__._unpack_kvs_rec) #7
   store ptr %85, ptr %84, align 8
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
@@ -44595,14 +44579,14 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_trigger_msg(ptr noundef wri
 24:                                               ; preds = %.lr.ph, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
   %25 = load ptr, ptr %19, align 8
-  %26 = getelementptr inbounds nuw %struct.trigger_info, ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [48 x i8], ptr %25, i64 %indvars.iv
   %27 = call i32 @unpack16(ptr noundef %26, ptr noundef %1) #7
   %.not53 = icmp eq i32 %27, 0
   br i1 %.not53, label %28, label %.thread
 
 28:                                               ; preds = %24
   %29 = load ptr, ptr %19, align 8
-  %30 = getelementptr inbounds nuw %struct.trigger_info, ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [48 x i8], ptr %29, i64 %indvars.iv
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %32 = call i32 @unpack32(ptr noundef nonnull %31, ptr noundef %1) #7
   %.not54 = icmp eq i32 %32, 0
@@ -44610,7 +44594,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_trigger_msg(ptr noundef wri
 
 33:                                               ; preds = %28
   %34 = load ptr, ptr %19, align 8
-  %35 = getelementptr inbounds nuw %struct.trigger_info, ptr %34, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [48 x i8], ptr %34, i64 %indvars.iv
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = call i32 @unpack16(ptr noundef nonnull %36, ptr noundef %1) #7
   %.not55 = icmp eq i32 %37, 0
@@ -44619,7 +44603,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_trigger_msg(ptr noundef wri
 38:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %39 = load ptr, ptr %19, align 8
-  %40 = getelementptr inbounds nuw %struct.trigger_info, ptr %39, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [48 x i8], ptr %39, i64 %indvars.iv
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %41, ptr noundef nonnull %4, ptr noundef %1) #7
   %.not56 = icmp eq i32 %42, 0
@@ -44628,7 +44612,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_trigger_msg(ptr noundef wri
 
 43:                                               ; preds = %38
   %44 = load ptr, ptr %19, align 8
-  %45 = getelementptr inbounds nuw %struct.trigger_info, ptr %44, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [48 x i8], ptr %44, i64 %indvars.iv
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 28
   %47 = call i32 @unpack32(ptr noundef nonnull %46, ptr noundef %1) #7
   %.not57 = icmp eq i32 %47, 0
@@ -44636,7 +44620,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_trigger_msg(ptr noundef wri
 
 48:                                               ; preds = %43
   %49 = load ptr, ptr %19, align 8
-  %50 = getelementptr inbounds nuw %struct.trigger_info, ptr %49, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [48 x i8], ptr %49, i64 %indvars.iv
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
   %52 = call i32 @unpack32(ptr noundef nonnull %51, ptr noundef %1) #7
   %.not58 = icmp eq i32 %52, 0
@@ -44644,7 +44628,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_trigger_msg(ptr noundef wri
 
 53:                                               ; preds = %48
   %54 = load ptr, ptr %19, align 8
-  %55 = getelementptr inbounds nuw %struct.trigger_info, ptr %54, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [48 x i8], ptr %54, i64 %indvars.iv
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 32
   %57 = call i32 @unpack16(ptr noundef nonnull %56, ptr noundef %1) #7
   %.not59 = icmp eq i32 %57, 0
@@ -44652,7 +44636,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_trigger_msg(ptr noundef wri
 
 58:                                               ; preds = %53
   %59 = load ptr, ptr %19, align 8
-  %60 = getelementptr inbounds nuw %struct.trigger_info, ptr %59, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [48 x i8], ptr %59, i64 %indvars.iv
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 36
   %62 = call i32 @unpack32(ptr noundef nonnull %61, ptr noundef %1) #7
   %.not60 = icmp eq i32 %62, 0
@@ -44661,7 +44645,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_trigger_msg(ptr noundef wri
 63:                                               ; preds = %58
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %64 = load ptr, ptr %19, align 8
-  %65 = getelementptr inbounds nuw %struct.trigger_info, ptr %64, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [48 x i8], ptr %64, i64 %indvars.iv
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 40
   %67 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %66, ptr noundef nonnull %5, ptr noundef %1) #7
   %.not61 = icmp eq i32 %67, 0
@@ -45151,7 +45135,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_front_end_info_msg(ptr noun
 
 .lr.ph:                                           ; preds = %26, %32
   %indvars.iv = phi i64 [ %indvars.iv.next, %32 ], [ 0, %26 ]
-  %38 = getelementptr inbounds nuw %struct.front_end_info, ptr %.1.ph, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [96 x i8], ptr %.1.ph, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %39 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %38, ptr noundef nonnull %4, ptr noundef %1) #7
   %.not.i = icmp eq i32 %39, 0
@@ -46140,7 +46124,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_license_info_msg(ptr nounde
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %61 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %23 = load ptr, ptr %21, align 8
-  %24 = getelementptr inbounds nuw %struct.slurm_license_info, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [48 x i8], ptr %23, i64 %indvars.iv
   %25 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %24, ptr noundef nonnull %4, ptr noundef %1) #7
   %.not70 = icmp eq i32 %25, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -46148,7 +46132,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_license_info_msg(ptr nounde
 
 26:                                               ; preds = %22
   %27 = load ptr, ptr %21, align 8
-  %28 = getelementptr inbounds nuw %struct.slurm_license_info, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [48 x i8], ptr %27, i64 %indvars.iv
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = call i32 @unpack32(ptr noundef nonnull %29, ptr noundef %1) #7
   %.not71 = icmp eq i32 %30, 0
@@ -46156,7 +46140,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_license_info_msg(ptr nounde
 
 31:                                               ; preds = %26
   %32 = load ptr, ptr %21, align 8
-  %33 = getelementptr inbounds nuw %struct.slurm_license_info, ptr %32, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [48 x i8], ptr %32, i64 %indvars.iv
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 12
   %35 = call i32 @unpack32(ptr noundef nonnull %34, ptr noundef %1) #7
   %.not72 = icmp eq i32 %35, 0
@@ -46164,7 +46148,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_license_info_msg(ptr nounde
 
 36:                                               ; preds = %31
   %37 = load ptr, ptr %21, align 8
-  %38 = getelementptr inbounds nuw %struct.slurm_license_info, ptr %37, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [48 x i8], ptr %37, i64 %indvars.iv
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %40 = call i32 @unpack32(ptr noundef nonnull %39, ptr noundef %1) #7
   %.not73 = icmp eq i32 %40, 0
@@ -46172,7 +46156,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_license_info_msg(ptr nounde
 
 41:                                               ; preds = %36
   %42 = load ptr, ptr %21, align 8
-  %43 = getelementptr inbounds nuw %struct.slurm_license_info, ptr %42, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [48 x i8], ptr %42, i64 %indvars.iv
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 20
   %45 = call i32 @unpack8(ptr noundef nonnull %44, ptr noundef %1) #7
   %.not74 = icmp eq i32 %45, 0
@@ -46180,7 +46164,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_license_info_msg(ptr nounde
 
 46:                                               ; preds = %41
   %47 = load ptr, ptr %21, align 8
-  %48 = getelementptr inbounds nuw %struct.slurm_license_info, ptr %47, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [48 x i8], ptr %47, i64 %indvars.iv
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 28
   %50 = call i32 @unpack32(ptr noundef nonnull %49, ptr noundef %1) #7
   %.not75 = icmp eq i32 %50, 0
@@ -46188,7 +46172,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_license_info_msg(ptr nounde
 
 51:                                               ; preds = %46
   %52 = load ptr, ptr %21, align 8
-  %53 = getelementptr inbounds nuw %struct.slurm_license_info, ptr %52, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [48 x i8], ptr %52, i64 %indvars.iv
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 32
   %55 = call i32 @unpack32(ptr noundef nonnull %54, ptr noundef %1) #7
   %.not76 = icmp eq i32 %55, 0
@@ -46196,7 +46180,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_license_info_msg(ptr nounde
 
 56:                                               ; preds = %51
   %57 = load ptr, ptr %21, align 8
-  %58 = getelementptr inbounds nuw %struct.slurm_license_info, ptr %57, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [48 x i8], ptr %57, i64 %indvars.iv
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 40
   %60 = call i32 @unpack_time(ptr noundef nonnull %59, ptr noundef %1) #7
   %.not77 = icmp eq i32 %60, 0
@@ -46204,7 +46188,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_license_info_msg(ptr nounde
 
 61:                                               ; preds = %56
   %62 = load ptr, ptr %21, align 8
-  %63 = getelementptr inbounds nuw %struct.slurm_license_info, ptr %62, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [48 x i8], ptr %62, i64 %indvars.iv
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %65 = load i32, ptr %64, align 8
   %66 = getelementptr inbounds nuw i8, ptr %63, i64 12
@@ -46347,7 +46331,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_array_resp_msg(ptr noun
 38:                                               ; preds = %.lr.ph, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
   %39 = load ptr, ptr %31, align 8
-  %40 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv
   %41 = call i32 @unpack32(ptr noundef %40, ptr noundef %1) #7
   %.not64 = icmp eq i32 %41, 0
   br i1 %.not64, label %42, label %.thread78
@@ -46355,7 +46339,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_array_resp_msg(ptr noun
 42:                                               ; preds = %38
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %43 = load ptr, ptr %32, align 8
-  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv
   %45 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %44, ptr noundef nonnull %4, ptr noundef %1) #7
   %.not65 = icmp eq i32 %45, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -46364,7 +46348,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_array_resp_msg(ptr noun
 46:                                               ; preds = %42
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %47 = load ptr, ptr %33, align 8
-  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv
   %49 = call i32 @unpackstr_xmalloc_chooser(ptr noundef %48, ptr noundef nonnull %5, ptr noundef %1) #7
   %.not66 = icmp eq i32 %49, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

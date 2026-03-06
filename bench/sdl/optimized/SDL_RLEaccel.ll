@@ -345,7 +345,7 @@ define hidden void @SDL_UnRLESurface(ptr noundef %0, i1 noundef zeroext %1) loca
 88:                                               ; preds = %81
   %89 = zext i16 %86 to i32
   %90 = sext i32 %84 to i64
-  %91 = getelementptr inbounds i32, ptr %.072.us.i, i64 %90
+  %91 = getelementptr inbounds [4 x i8], ptr %.072.us.i, i64 %90
   %92 = tail call i32 %uncopy_transl_16.uncopy_32.i(ptr noundef %91, ptr noundef nonnull %87, i32 noundef %89, ptr noundef %52, ptr noundef %48) #11, !callees !3
   %93 = sext i32 %92 to i64
   %94 = getelementptr inbounds i8, ptr %87, i64 %93
@@ -362,7 +362,7 @@ define hidden void @SDL_UnRLESurface(ptr noundef %0, i1 noundef zeroext %1) loca
   %99 = load i32, ptr %61, align 8
   %100 = ashr i32 %99, 2
   %101 = sext i32 %100 to i64
-  %102 = getelementptr inbounds i32, ptr %.072.us.i, i64 %101
+  %102 = getelementptr inbounds [4 x i8], ptr %.072.us.i, i64 %101
   br label %.split.us.us.i
 
 103:                                              ; preds = %118, %.split.us.us.i
@@ -380,7 +380,7 @@ define hidden void @SDL_UnRLESurface(ptr noundef %0, i1 noundef zeroext %1) loca
 109:                                              ; preds = %103
   %110 = zext i8 %107 to i32
   %111 = sext i32 %.1.us.us.i to i64
-  %112 = getelementptr inbounds i32, ptr %.072.us.i, i64 %111
+  %112 = getelementptr inbounds [4 x i8], ptr %.072.us.i, i64 %111
   %113 = tail call i32 %uncopy_opaque_16.uncopy_32.i(ptr noundef %112, ptr noundef nonnull %108, i32 noundef %110, ptr noundef %52, ptr noundef %48) #11, !callees !6
   %114 = sext i32 %113 to i64
   %115 = getelementptr inbounds i8, ptr %108, i64 %114
@@ -423,7 +423,7 @@ define hidden void @SDL_UnRLESurface(ptr noundef %0, i1 noundef zeroext %1) loca
 128:                                              ; preds = %122
   %129 = zext i16 %126 to i32
   %130 = sext i32 %.1.i to i64
-  %131 = getelementptr inbounds i32, ptr %.072.i, i64 %130
+  %131 = getelementptr inbounds [4 x i8], ptr %.072.i, i64 %130
   %132 = tail call i32 %uncopy_opaque_16.uncopy_32.i(ptr noundef %131, ptr noundef nonnull %127, i32 noundef %129, ptr noundef %52, ptr noundef %48) #11, !callees !6
   %133 = sext i32 %132 to i64
   %134 = getelementptr inbounds i8, ptr %127, i64 %133
@@ -455,7 +455,7 @@ define hidden void @SDL_UnRLESurface(ptr noundef %0, i1 noundef zeroext %1) loca
 145:                                              ; preds = %.split93.i
   %146 = zext i16 %143 to i32
   %147 = sext i32 %141 to i64
-  %148 = getelementptr inbounds i32, ptr %.072.i, i64 %147
+  %148 = getelementptr inbounds [4 x i8], ptr %.072.i, i64 %147
   %149 = tail call i32 %uncopy_transl_16.uncopy_32.i(ptr noundef %148, ptr noundef nonnull %144, i32 noundef %146, ptr noundef %52, ptr noundef %48) #11, !callees !3
   %150 = sext i32 %149 to i64
   %151 = getelementptr inbounds i8, ptr %144, i64 %150
@@ -472,7 +472,7 @@ define hidden void @SDL_UnRLESurface(ptr noundef %0, i1 noundef zeroext %1) loca
   %156 = load i32, ptr %61, align 8
   %157 = ashr i32 %156, 2
   %158 = sext i32 %157 to i64
-  %159 = getelementptr inbounds i32, ptr %.072.i, i64 %158
+  %159 = getelementptr inbounds [4 x i8], ptr %.072.i, i64 %158
   br label %.split.i
 
 UnRLEAlpha.exit:                                  ; preds = %66, %46
@@ -579,7 +579,7 @@ define internal fastcc noundef zeroext i1 @RLEColorkeySurface(ptr noundef captur
   %59 = load i32, ptr %58, align 4
   %60 = and i32 %59, %57
   %61 = zext nneg i8 %5 to i64
-  %62 = getelementptr ptr, ptr @getpixes, i64 %61
+  %62 = getelementptr [8 x i8], ptr @getpixes, i64 %61
   %63 = getelementptr i8, ptr %62, i64 -8
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2166,7 +2166,7 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
   %725 = zext i16 %724 to i32
   %726 = load i8, ptr %689, align 4
   %727 = zext i8 %726 to i64
-  %728 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %727
+  %728 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %727
   %729 = load ptr, ptr %728, align 8
   %730 = load i32, ptr %315, align 4
   %731 = and i32 %730, %723
@@ -2179,7 +2179,7 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
   %738 = zext i8 %737 to i32
   %739 = load i8, ptr %691, align 1
   %740 = zext i8 %739 to i64
-  %741 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %740
+  %741 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %740
   %742 = load ptr, ptr %741, align 8
   %743 = load i32, ptr %317, align 4
   %744 = and i32 %743, %723
@@ -2192,7 +2192,7 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
   %751 = zext i8 %750 to i32
   %752 = load i8, ptr %693, align 2
   %753 = zext i8 %752 to i64
-  %754 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %753
+  %754 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %753
   %755 = load ptr, ptr %754, align 8
   %756 = load i32, ptr %320, align 4
   %757 = and i32 %756, %723
@@ -2376,7 +2376,7 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
   %887 = or disjoint i32 %884, %886
   %888 = load i8, ptr %837, align 4
   %889 = zext i8 %888 to i64
-  %890 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %889
+  %890 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %889
   %891 = load ptr, ptr %890, align 8
   %892 = load i32, ptr %838, align 4
   %893 = and i32 %892, %879
@@ -2389,7 +2389,7 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
   %900 = zext i8 %899 to i32
   %901 = load i8, ptr %840, align 1
   %902 = zext i8 %901 to i64
-  %903 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %902
+  %903 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %902
   %904 = load ptr, ptr %903, align 8
   %905 = load i32, ptr %841, align 4
   %906 = and i32 %905, %879
@@ -2402,7 +2402,7 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
   %913 = zext i8 %912 to i32
   %914 = load i8, ptr %843, align 2
   %915 = zext i8 %914 to i64
-  %916 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %915
+  %916 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %915
   %917 = load ptr, ptr %916, align 8
   %918 = load i32, ptr %844, align 4
   %919 = and i32 %918, %879
@@ -2809,7 +2809,7 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
   %1168 = load i32, ptr %.09921558.i, align 4
   %1169 = load i8, ptr %1134, align 4
   %1170 = zext i8 %1169 to i64
-  %1171 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1170
+  %1171 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1170
   %1172 = load ptr, ptr %1171, align 8
   %1173 = load i32, ptr %994, align 4
   %1174 = and i32 %1173, %1167
@@ -2822,7 +2822,7 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
   %1181 = zext i8 %1180 to i32
   %1182 = load i8, ptr %1136, align 1
   %1183 = zext i8 %1182 to i64
-  %1184 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1183
+  %1184 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1183
   %1185 = load ptr, ptr %1184, align 8
   %1186 = load i32, ptr %996, align 4
   %1187 = and i32 %1186, %1167
@@ -2835,7 +2835,7 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
   %1194 = zext i8 %1193 to i32
   %1195 = load i8, ptr %1138, align 2
   %1196 = zext i8 %1195 to i64
-  %1197 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1196
+  %1197 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1196
   %1198 = load ptr, ptr %1197, align 8
   %1199 = load i32, ptr %999, align 4
   %1200 = and i32 %1199, %1167
@@ -3720,7 +3720,7 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
   %1712 = zext i16 %1711 to i32
   %1713 = load i8, ptr %1689, align 4
   %1714 = zext i8 %1713 to i64
-  %1715 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1714
+  %1715 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1714
   %1716 = load ptr, ptr %1715, align 8
   %1717 = load i32, ptr %1386, align 4
   %1718 = and i32 %1717, %1710
@@ -3733,7 +3733,7 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
   %1725 = zext i8 %1724 to i32
   %1726 = load i8, ptr %1691, align 1
   %1727 = zext i8 %1726 to i64
-  %1728 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1727
+  %1728 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1727
   %1729 = load ptr, ptr %1728, align 8
   %1730 = load i32, ptr %1388, align 4
   %1731 = and i32 %1730, %1710
@@ -3746,7 +3746,7 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
   %1738 = zext i8 %1737 to i32
   %1739 = load i8, ptr %1693, align 2
   %1740 = zext i8 %1739 to i64
-  %1741 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1740
+  %1741 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1740
   %1742 = load ptr, ptr %1741, align 8
   %1743 = load i32, ptr %1391, align 4
   %1744 = and i32 %1743, %1710
@@ -3897,7 +3897,7 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
   %1855 = or disjoint i32 %1852, %1854
   %1856 = load i8, ptr %1818, align 4
   %1857 = zext i8 %1856 to i64
-  %1858 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1857
+  %1858 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1857
   %1859 = load ptr, ptr %1858, align 8
   %1860 = load i32, ptr %1819, align 4
   %1861 = and i32 %1860, %1847
@@ -3910,7 +3910,7 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
   %1868 = zext i8 %1867 to i32
   %1869 = load i8, ptr %1821, align 1
   %1870 = zext i8 %1869 to i64
-  %1871 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1870
+  %1871 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1870
   %1872 = load ptr, ptr %1871, align 8
   %1873 = load i32, ptr %1822, align 4
   %1874 = and i32 %1873, %1847
@@ -3923,7 +3923,7 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
   %1881 = zext i8 %1880 to i32
   %1882 = load i8, ptr %1824, align 2
   %1883 = zext i8 %1882 to i64
-  %1884 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %1883
+  %1884 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %1883
   %1885 = load ptr, ptr %1884, align 8
   %1886 = load i32, ptr %1825, align 4
   %1887 = and i32 %1886, %1847
@@ -4238,7 +4238,7 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
   %2086 = load i32, ptr %.07791333, align 4
   %2087 = load i8, ptr %2065, align 4
   %2088 = zext i8 %2087 to i64
-  %2089 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %2088
+  %2089 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %2088
   %2090 = load ptr, ptr %2089, align 8
   %2091 = load i32, ptr %1963, align 4
   %2092 = and i32 %2091, %2085
@@ -4251,7 +4251,7 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
   %2099 = zext i8 %2098 to i32
   %2100 = load i8, ptr %2067, align 1
   %2101 = zext i8 %2100 to i64
-  %2102 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %2101
+  %2102 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %2101
   %2103 = load ptr, ptr %2102, align 8
   %2104 = load i32, ptr %1965, align 4
   %2105 = and i32 %2104, %2085
@@ -4264,7 +4264,7 @@ define internal noundef zeroext i1 @SDL_RLEBlit(ptr noundef readonly captures(no
   %2112 = zext i8 %2111 to i32
   %2113 = load i8, ptr %2069, align 2
   %2114 = zext i8 %2113 to i64
-  %2115 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %2114
+  %2115 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %2114
   %2116 = load ptr, ptr %2115, align 8
   %2117 = load i32, ptr %1968, align 4
   %2118 = and i32 %2117, %2085
@@ -4505,7 +4505,7 @@ define internal fastcc noundef zeroext i1 @RLEAlphaSurface(ptr noundef captures(
 
 76:                                               ; preds = %.lr.ph, %81
   %indvars.iv = phi i64 [ %75, %.lr.ph ], [ %indvars.iv.next, %81 ]
-  %77 = getelementptr inbounds i32, ptr %.0242332, i64 %indvars.iv
+  %77 = getelementptr inbounds [4 x i8], ptr %.0242332, i64 %indvars.iv
   %78 = load i32, ptr %77, align 4
   %79 = and i32 %72, %78
   %80 = lshr i32 %79, %74
@@ -4535,7 +4535,7 @@ define internal fastcc noundef zeroext i1 @RLEAlphaSurface(ptr noundef captures(
 
 88:                                               ; preds = %.lr.ph284, %93
   %indvars.iv342 = phi i64 [ %87, %.lr.ph284 ], [ %indvars.iv.next343, %93 ]
-  %89 = getelementptr inbounds i32, ptr %.0242332, i64 %indvars.iv342
+  %89 = getelementptr inbounds [4 x i8], ptr %.0242332, i64 %indvars.iv342
   %90 = load i32, ptr %89, align 4
   %91 = and i32 %84, %90
   %92 = lshr i32 %91, %86
@@ -4616,7 +4616,7 @@ define internal fastcc noundef zeroext i1 @RLEAlphaSurface(ptr noundef captures(
   %.sink389 = phi i64 [ 2, %116 ], [ 4, %112 ]
   %121 = getelementptr inbounds nuw i8, ptr %.2256.lcssa, i64 %.sink389
   %122 = sext i32 %.1248.lcssa369 to i64
-  %123 = getelementptr inbounds i32, ptr %.0242332, i64 %122
+  %123 = getelementptr inbounds [4 x i8], ptr %.0242332, i64 %122
   %124 = tail call i32 %.1253(ptr noundef nonnull %121, ptr noundef %123, i32 noundef %109, ptr noundef %62, ptr noundef nonnull %6) #11, !callees !39
   %125 = sext i32 %124 to i64
   %126 = getelementptr inbounds i8, ptr %121, i64 %125
@@ -4655,7 +4655,7 @@ define internal fastcc noundef zeroext i1 @RLEAlphaSurface(ptr noundef captures(
   %.sink390 = phi i64 [ 2, %135 ], [ 4, %132 ]
   %139 = getelementptr inbounds nuw i8, ptr %.5259296, i64 %.sink390
   %140 = sext i32 %.0237297 to i64
-  %141 = getelementptr inbounds i32, ptr %.0242332, i64 %140
+  %141 = getelementptr inbounds [4 x i8], ptr %.0242332, i64 %140
   %142 = tail call i32 %.1253(ptr noundef nonnull %139, ptr noundef %141, i32 noundef %129, ptr noundef %62, ptr noundef nonnull %6) #11, !callees !39
   %143 = sext i32 %142 to i64
   %144 = getelementptr inbounds i8, ptr %139, i64 %143
@@ -4691,7 +4691,7 @@ define internal fastcc noundef zeroext i1 @RLEAlphaSurface(ptr noundef captures(
 
 157:                                              ; preds = %.lr.ph305, %164
   %indvars.iv346 = phi i64 [ %156, %.lr.ph305 ], [ %indvars.iv.next347, %164 ]
-  %158 = getelementptr inbounds i32, ptr %.0242332, i64 %indvars.iv346
+  %158 = getelementptr inbounds [4 x i8], ptr %.0242332, i64 %indvars.iv346
   %159 = load i32, ptr %158, align 4
   %160 = and i32 %153, %159
   %161 = lshr i32 %160, %155
@@ -4722,7 +4722,7 @@ define internal fastcc noundef zeroext i1 @RLEAlphaSurface(ptr noundef captures(
 
 171:                                              ; preds = %.lr.ph310, %178
   %indvars.iv350 = phi i64 [ %170, %.lr.ph310 ], [ %indvars.iv.next351, %178 ]
-  %172 = getelementptr inbounds i32, ptr %.0242332, i64 %indvars.iv350
+  %172 = getelementptr inbounds [4 x i8], ptr %.0242332, i64 %indvars.iv350
   %173 = load i32, ptr %172, align 4
   %174 = and i32 %167, %173
   %175 = lshr i32 %174, %169
@@ -4772,7 +4772,7 @@ define internal fastcc noundef zeroext i1 @RLEAlphaSurface(ptr noundef captures(
   store i16 %191, ptr %192, align 2
   %193 = getelementptr inbounds nuw i8, ptr %.8.lcssa, i64 4
   %194 = sext i32 %.4.lcssa371 to i64
-  %195 = getelementptr inbounds i32, ptr %.0242332, i64 %194
+  %195 = getelementptr inbounds [4 x i8], ptr %.0242332, i64 %194
   %196 = tail call i32 %.1251(ptr noundef nonnull %193, ptr noundef %195, i32 noundef %189, ptr noundef %62, ptr noundef nonnull %6) #11, !callees !45
   %197 = sext i32 %196 to i64
   %198 = getelementptr inbounds i8, ptr %193, i64 %197
@@ -4795,7 +4795,7 @@ define internal fastcc noundef zeroext i1 @RLEAlphaSurface(ptr noundef captures(
   store i16 %202, ptr %203, align 2
   %204 = getelementptr inbounds nuw i8, ptr %.9323, i64 4
   %205 = sext i32 %.1238324 to i64
-  %206 = getelementptr inbounds i32, ptr %.0242332, i64 %205
+  %206 = getelementptr inbounds [4 x i8], ptr %.0242332, i64 %205
   %207 = tail call i32 %.1251(ptr noundef nonnull %204, ptr noundef %206, i32 noundef %201, ptr noundef %62, ptr noundef nonnull %6) #11, !callees !45
   %208 = sext i32 %207 to i64
   %209 = getelementptr inbounds i8, ptr %204, i64 %208
@@ -4814,7 +4814,7 @@ define internal fastcc noundef zeroext i1 @RLEAlphaSurface(ptr noundef captures(
   %213 = load i32, ptr %68, align 8
   %214 = ashr i32 %213, 2
   %215 = sext i32 %214 to i64
-  %216 = getelementptr inbounds i32, ptr %.0242332, i64 %215
+  %216 = getelementptr inbounds [4 x i8], ptr %.0242332, i64 %215
   %217 = add nuw nsw i32 %.0246331, 1
   %exitcond354.not = icmp eq i32 %217, %59
   br i1 %exitcond354.not, label %._crit_edge334, label %.preheader, !llvm.loop !48
@@ -5176,18 +5176,18 @@ define internal noundef zeroext i1 @SDL_RLEAlphaBlit(ptr noundef readonly captur
 
 174:                                              ; preds = %168
   %175 = sext i32 %spec.select401.i to i64
-  %176 = getelementptr inbounds i16, ptr %.0302.i, i64 %175
+  %176 = getelementptr inbounds [2 x i8], ptr %.0302.i, i64 %175
   %177 = sub nsw i32 %spec.select401.i, %163
   %178 = sext i32 %177 to i64
-  %179 = getelementptr inbounds i32, ptr %167, i64 %178
+  %179 = getelementptr inbounds [4 x i8], ptr %167, i64 %178
   %wide.trip.count469.i = zext nneg i32 %.1335.i to i64
   br label %180
 
 180:                                              ; preds = %180, %174
   %indvars.iv466.i = phi i64 [ 0, %174 ], [ %indvars.iv.next467.i, %180 ]
-  %181 = getelementptr inbounds nuw i32, ptr %179, i64 %indvars.iv466.i
+  %181 = getelementptr inbounds nuw [4 x i8], ptr %179, i64 %indvars.iv466.i
   %182 = load i32, ptr %181, align 4
-  %183 = getelementptr inbounds nuw i16, ptr %176, i64 %indvars.iv466.i
+  %183 = getelementptr inbounds nuw [2 x i8], ptr %176, i64 %indvars.iv466.i
   %184 = load i16, ptr %183, align 2
   %185 = zext i16 %184 to i32
   %186 = lshr i32 %182, 5
@@ -5333,18 +5333,18 @@ define internal noundef zeroext i1 @SDL_RLEAlphaBlit(ptr noundef readonly captur
 
 269:                                              ; preds = %263
   %270 = sext i32 %spec.select406.i to i64
-  %271 = getelementptr inbounds i16, ptr %.2304.i, i64 %270
+  %271 = getelementptr inbounds [2 x i8], ptr %.2304.i, i64 %270
   %272 = sub nsw i32 %spec.select406.i, %258
   %273 = sext i32 %272 to i64
-  %274 = getelementptr inbounds i32, ptr %262, i64 %273
+  %274 = getelementptr inbounds [4 x i8], ptr %262, i64 %273
   %wide.trip.count464.i = zext nneg i32 %.1355.i to i64
   br label %275
 
 275:                                              ; preds = %275, %269
   %indvars.iv461.i = phi i64 [ 0, %269 ], [ %indvars.iv.next462.i, %275 ]
-  %276 = getelementptr inbounds nuw i32, ptr %274, i64 %indvars.iv461.i
+  %276 = getelementptr inbounds nuw [4 x i8], ptr %274, i64 %indvars.iv461.i
   %277 = load i32, ptr %276, align 4
-  %278 = getelementptr inbounds nuw i16, ptr %271, i64 %indvars.iv461.i
+  %278 = getelementptr inbounds nuw [2 x i8], ptr %271, i64 %indvars.iv461.i
   %279 = load i16, ptr %278, align 2
   %280 = zext i16 %279 to i32
   %281 = lshr i32 %277, 5
@@ -5484,18 +5484,18 @@ define internal noundef zeroext i1 @SDL_RLEAlphaBlit(ptr noundef readonly captur
 
 359:                                              ; preds = %353
   %360 = sext i32 %spec.select412.i to i64
-  %361 = getelementptr inbounds i32, ptr %.4306.i, i64 %360
+  %361 = getelementptr inbounds [4 x i8], ptr %.4306.i, i64 %360
   %362 = sub nsw i32 %spec.select412.i, %348
   %363 = sext i32 %362 to i64
-  %364 = getelementptr inbounds i32, ptr %352, i64 %363
+  %364 = getelementptr inbounds [4 x i8], ptr %352, i64 %363
   %wide.trip.count.i = zext nneg i32 %.1328.i to i64
   br label %365
 
 365:                                              ; preds = %365, %359
   %indvars.iv.i = phi i64 [ 0, %359 ], [ %indvars.iv.next.i, %365 ]
-  %366 = getelementptr inbounds nuw i32, ptr %364, i64 %indvars.iv.i
+  %366 = getelementptr inbounds nuw [4 x i8], ptr %364, i64 %indvars.iv.i
   %367 = load i32, ptr %366, align 4
-  %368 = getelementptr inbounds nuw i32, ptr %361, i64 %indvars.iv.i
+  %368 = getelementptr inbounds nuw [4 x i8], ptr %361, i64 %indvars.iv.i
   %369 = load i32, ptr %368, align 4
   %370 = lshr i32 %367, 24
   %371 = and i32 %367, 16711935
@@ -5630,7 +5630,7 @@ define internal noundef zeroext i1 @SDL_RLEAlphaBlit(ptr noundef readonly captur
 
 446:                                              ; preds = %438
   %447 = sext i32 %441 to i64
-  %448 = getelementptr inbounds i16, ptr %.0250, i64 %447
+  %448 = getelementptr inbounds [2 x i8], ptr %.0250, i64 %447
   br label %449
 
 449:                                              ; preds = %446, %449
@@ -5745,7 +5745,7 @@ define internal noundef zeroext i1 @SDL_RLEAlphaBlit(ptr noundef readonly captur
 
 514:                                              ; preds = %506
   %515 = sext i32 %509 to i64
-  %516 = getelementptr inbounds i16, ptr %.2252, i64 %515
+  %516 = getelementptr inbounds [2 x i8], ptr %.2252, i64 %515
   br label %517
 
 517:                                              ; preds = %514, %517
@@ -5854,7 +5854,7 @@ define internal noundef zeroext i1 @SDL_RLEAlphaBlit(ptr noundef readonly captur
 
 577:                                              ; preds = %.preheader
   %578 = sext i32 %572 to i64
-  %579 = getelementptr inbounds i32, ptr %.4254, i64 %578
+  %579 = getelementptr inbounds [4 x i8], ptr %.4254, i64 %578
   br label %580
 
 580:                                              ; preds = %577, %580
@@ -6004,7 +6004,7 @@ define internal range(i32 -2147483648, 2147483647) i32 @copy_opaque_16(ptr nound
   %.03032 = phi ptr [ %0, %.lr.ph ], [ %91, %23 ]
   %24 = load i8, ptr %7, align 4
   %25 = zext i8 %24 to i64
-  %26 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %25
   %27 = load ptr, ptr %26, align 8
   %28 = load i32, ptr %.034, align 4
   %29 = load i32, ptr %8, align 4
@@ -6018,7 +6018,7 @@ define internal range(i32 -2147483648, 2147483647) i32 @copy_opaque_16(ptr nound
   %37 = zext i8 %36 to i32
   %38 = load i8, ptr %10, align 1
   %39 = zext i8 %38 to i64
-  %40 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %39
   %41 = load ptr, ptr %40, align 8
   %42 = load i32, ptr %11, align 4
   %43 = and i32 %42, %28
@@ -6031,7 +6031,7 @@ define internal range(i32 -2147483648, 2147483647) i32 @copy_opaque_16(ptr nound
   %50 = zext i8 %49 to i32
   %51 = load i8, ptr %13, align 2
   %52 = zext i8 %51 to i64
-  %53 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %52
   %54 = load ptr, ptr %53, align 8
   %55 = load i32, ptr %14, align 4
   %56 = and i32 %55, %28
@@ -6388,7 +6388,7 @@ define internal range(i32 -2147483648, 2147483647) i32 @uncopy_opaque_16(ptr nou
   %.03335 = phi ptr [ %1, %.lr.ph ], [ %100, %27 ]
   %28 = load i8, ptr %10, align 4
   %29 = zext i8 %28 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %29
   %31 = load ptr, ptr %30, align 8
   %32 = load i16, ptr %.03335, align 2
   %33 = zext i16 %32 to i32
@@ -6403,7 +6403,7 @@ define internal range(i32 -2147483648, 2147483647) i32 @uncopy_opaque_16(ptr nou
   %42 = zext i8 %41 to i32
   %43 = load i8, ptr %13, align 1
   %44 = zext i8 %43 to i64
-  %45 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %44
   %46 = load ptr, ptr %45, align 8
   %47 = load i32, ptr %14, align 4
   %48 = and i32 %47, %33
@@ -6416,7 +6416,7 @@ define internal range(i32 -2147483648, 2147483647) i32 @uncopy_opaque_16(ptr nou
   %55 = zext i8 %54 to i32
   %56 = load i8, ptr %16, align 2
   %57 = zext i8 %56 to i64
-  %58 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %57
   %59 = load ptr, ptr %58, align 8
   %60 = load i32, ptr %17, align 4
   %61 = and i32 %60, %33
@@ -6508,7 +6508,7 @@ define internal range(i32 -2147483648, 2147483645) i32 @uncopy_transl_16(ptr nou
   %31 = or i32 %29, %30
   %32 = load i8, ptr %7, align 4
   %33 = zext i8 %32 to i64
-  %34 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %33
   %35 = load ptr, ptr %34, align 8
   %36 = load i32, ptr %8, align 4
   %37 = and i32 %36, %31
@@ -6521,7 +6521,7 @@ define internal range(i32 -2147483648, 2147483645) i32 @uncopy_transl_16(ptr nou
   %44 = zext i8 %43 to i32
   %45 = load i8, ptr %10, align 1
   %46 = zext i8 %45 to i64
-  %47 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %46
   %48 = load ptr, ptr %47, align 8
   %49 = load i32, ptr %11, align 4
   %50 = and i32 %49, %31
@@ -6534,7 +6534,7 @@ define internal range(i32 -2147483648, 2147483645) i32 @uncopy_transl_16(ptr nou
   %57 = zext i8 %56 to i32
   %58 = load i8, ptr %13, align 2
   %59 = zext i8 %58 to i64
-  %60 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %59
   %61 = load ptr, ptr %60, align 8
   %62 = load i32, ptr %14, align 4
   %63 = and i32 %62, %31
@@ -6620,7 +6620,7 @@ define internal range(i32 -2147483648, 2147483645) i32 @uncopy_32(ptr noundef wr
   %26 = load i32, ptr %.03335, align 4
   %27 = load i8, ptr %7, align 4
   %28 = zext i8 %27 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %28
   %30 = load ptr, ptr %29, align 8
   %31 = load i32, ptr %8, align 4
   %32 = and i32 %31, %26
@@ -6633,7 +6633,7 @@ define internal range(i32 -2147483648, 2147483645) i32 @uncopy_32(ptr noundef wr
   %39 = zext i8 %38 to i32
   %40 = load i8, ptr %10, align 1
   %41 = zext i8 %40 to i64
-  %42 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %41
   %43 = load ptr, ptr %42, align 8
   %44 = load i32, ptr %11, align 4
   %45 = and i32 %44, %26
@@ -6646,7 +6646,7 @@ define internal range(i32 -2147483648, 2147483645) i32 @uncopy_32(ptr noundef wr
   %52 = zext i8 %51 to i32
   %53 = load i8, ptr %13, align 2
   %54 = zext i8 %53 to i64
-  %55 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %54
   %56 = load ptr, ptr %55, align 8
   %57 = load i32, ptr %14, align 4
   %58 = and i32 %57, %26

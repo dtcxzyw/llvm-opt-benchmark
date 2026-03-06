@@ -8,15 +8,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ieee80211_ma
 module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ieee80211_rx_ba_timer_expired: ; .asciz \22\22 ; .asciz \22\22 ; .balign 8 ; .quad ieee80211_rx_ba_timer_expired ; .previous"
 
 %struct.ieee80211_ampdu_params = type { i32, ptr, i16, i16, i16, i8, i16 }
-%struct.sk_buff_head = type { %union.anon.2, i32, %struct.spinlock }
-%union.anon.2 = type { %struct.anon.3 }
-%struct.anon.3 = type { ptr, ptr }
-%struct.spinlock = type { %union.anon }
-%union.anon = type { %struct.raw_spinlock }
-%struct.raw_spinlock = type { %struct.qspinlock }
-%struct.qspinlock = type { %union.anon.0 }
-%union.anon.0 = type { %struct.atomic_t }
-%struct.atomic_t = type { i32 }
 %struct.ieee80211_elems_parse_params = type { ptr, i64, i8, i64, i32, ptr, i32, i8 }
 
 @.str = private unnamed_addr constant [63 x i8] c"\016%s: HW problem - can not stop rx aggregation for %pM tid %d\0A\00", align 1
@@ -46,7 +37,7 @@ define dso_local void @__ieee80211_stop_rx_ba_session(ptr noundef %0, i16 nounde
   store i16 0, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 696
   %15 = zext i16 %1 to i64
-  %16 = getelementptr ptr, ptr %14, i64 %15
+  %16 = getelementptr [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 864
   %19 = tail call i8 asm sideeffect " btq  $2,$1\0A\09/* output condition code c*/\0A", "={@ccc},*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %18, i64 %15) #10, !srcloc !6
@@ -135,7 +126,7 @@ define internal void @ieee80211_free_tid_rx(ptr noundef %0) #0 align 16 {
   %8 = phi i16 [ %3, %5 ], [ %30, %.loopexit ]
   %9 = phi i64 [ 0, %5 ], [ %31, %.loopexit ]
   %10 = load ptr, ptr %6, align 8
-  %11 = getelementptr %struct.sk_buff_head, ptr %10, i64 %9
+  %11 = getelementptr [24 x i8], ptr %10, i64 %9
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, %11
   %14 = icmp eq ptr %12, null
@@ -336,7 +327,7 @@ define dso_local void @__ieee80211_start_rx_ba_session(ptr noundef %0, i8 nounde
 75:                                               ; preds = %70
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 696
   tail call void @__rcu_read_lock() #10
-  %77 = getelementptr ptr, ptr %76, i64 %66
+  %77 = getelementptr [8 x i8], ptr %76, i64 %66
   %78 = load volatile ptr, ptr %77, align 8
   %79 = icmp eq ptr %78, null
   br i1 %79, label %156, label %80
@@ -410,7 +401,7 @@ define dso_local void @__ieee80211_start_rx_ba_session(ptr noundef %0, i8 nounde
 .preheader:                                       ; preds = %113, %.preheader
   %117 = phi i64 [ %122, %.preheader ], [ 0, %113 ]
   %118 = load ptr, ptr %105, align 8
-  %119 = getelementptr %struct.sk_buff_head, ptr %118, i64 %117
+  %119 = getelementptr [24 x i8], ptr %118, i64 %117
   store ptr %119, ptr %119, align 8
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 8
   store ptr %119, ptr %120, align 8
@@ -459,7 +450,7 @@ define dso_local void @__ieee80211_start_rx_ba_session(ptr noundef %0, i8 nounde
   store ptr %0, ptr %143, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #10, !srcloc !17
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 696
-  %145 = getelementptr ptr, ptr %144, i64 %66
+  %145 = getelementptr [8 x i8], ptr %144, i64 %66
   store volatile ptr %96, ptr %145, align 8
   %146 = icmp eq i16 %2, 0
   br i1 %146, label %.thread9, label %147

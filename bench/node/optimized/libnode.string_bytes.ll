@@ -333,7 +333,7 @@ if.else56:                                        ; preds = %sw.bb42
   br i1 %cmp.i.i30, label %_ZN4node13base64_decodeItEEmPcmPKT_m.exit, label %if.end.i.i31
 
 if.end.i.i31:                                     ; preds = %if.else56
-  %14 = getelementptr i16, ptr %12, i64 %conv67
+  %14 = getelementptr [2 x i8], ptr %12, i64 %conv67
   %arrayidx.i.i32 = getelementptr i8, ptr %14, i64 -2
   %15 = load i16, ptr %arrayidx.i.i32, align 2
   %cmp1.i.i33 = icmp eq i16 %15, 61
@@ -430,13 +430,13 @@ land.rhs.i58:                                     ; preds = %if.else84, %if.end.
   br i1 %cmp1.i62, label %for.body.i64, label %_ZN4nodeL10hex_decodeItEEmPcmPKT_m.exit
 
 for.body.i64:                                     ; preds = %land.rhs.i58
-  %arrayidx.i65 = getelementptr inbounds i16, ptr %23, i64 %mul.i60
+  %arrayidx.i65 = getelementptr inbounds [2 x i8], ptr %23, i64 %mul.i60
   %25 = load i16, ptr %arrayidx.i65, align 2
   %26 = and i16 %25, 255
   %idxprom.i.i66 = zext nneg i16 %26 to i64
   %arrayidx.i.i67 = getelementptr inbounds nuw i8, ptr @_ZN4nodeL11unhex_tableE, i64 %idxprom.i.i66
   %27 = load i8, ptr %arrayidx.i.i67, align 1
-  %arrayidx6.i68 = getelementptr inbounds i16, ptr %23, i64 %add.i61
+  %arrayidx6.i68 = getelementptr inbounds [2 x i8], ptr %23, i64 %add.i61
   %28 = load i16, ptr %arrayidx6.i68, align 2
   %29 = and i16 %28, 255
   %idxprom.i11.i69 = zext nneg i16 %29 to i64
@@ -661,7 +661,7 @@ sw.bb48:                                          ; preds = %if.end31, %if.end31
 
 if.end.i:                                         ; preds = %sw.bb48
   %2 = load ptr, ptr %value, align 8
-  %3 = getelementptr i16, ptr %2, i64 %conv60
+  %3 = getelementptr [2 x i8], ptr %2, i64 %conv60
   %arrayidx.i = getelementptr i8, ptr %3, i64 -2
   %4 = load i16, ptr %arrayidx.i, align 2
   %cmp1.i = icmp eq i16 %4, 61
@@ -1159,10 +1159,10 @@ for.body.preheader:                               ; preds = %if.end, %_ZN4nodeL1
 
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %i.059 = phi i64 [ %inc, %for.body ], [ 0, %for.body.preheader ]
-  %arrayidx = getelementptr inbounds nuw i64, ptr %src.addr.0, i64 %i.059
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %src.addr.0, i64 %i.059
   %10 = load i64, ptr %arrayidx, align 8
   %and15 = and i64 %10, 9187201950435737471
-  %arrayidx16 = getelementptr inbounds nuw i64, ptr %dst.addr.0, i64 %i.059
+  %arrayidx16 = getelementptr inbounds nuw [8 x i8], ptr %dst.addr.0, i64 %i.059
   store i64 %and15, ptr %arrayidx16, align 8
   %inc = add nuw nsw i64 %i.059, 1
   %exitcond.not = icmp eq i64 %inc, %div30
@@ -2321,7 +2321,7 @@ while.body:                                       ; preds = %entry, %if.end49
   %2 = phi i64 [ %18, %if.end49 ], [ 0, %entry ]
   %3 = phi i64 [ %19, %if.end49 ], [ 0, %entry ]
   %max_i.038 = phi i64 [ %max_i.1, %if.end49 ], [ %div125, %entry ]
-  %arrayidx = getelementptr inbounds i16, ptr %src, i64 %3
+  %arrayidx = getelementptr inbounds [2 x i8], ptr %src, i64 %3
   %4 = load i16, ptr %arrayidx, align 2
   %5 = and i16 %4, 255
   %idxprom.i = zext nneg i16 %5 to i64
@@ -2429,7 +2429,7 @@ entry:
 
 for.cond:                                         ; preds = %if.end, %entry
   %0 = phi i64 [ %add, %if.end ], [ %i.promoted, %entry ]
-  %arrayidx = getelementptr inbounds i16, ptr %src, i64 %0
+  %arrayidx = getelementptr inbounds [2 x i8], ptr %src, i64 %0
   %1 = load i16, ptr %arrayidx, align 2
   %2 = and i16 %1, 255
   %idxprom.i = zext nneg i16 %2 to i64
@@ -2457,7 +2457,7 @@ if.end9:                                          ; preds = %for.end
 
 for.cond13:                                       ; preds = %if.end9, %if.end22
   %5 = phi i64 [ %add18, %if.end22 ], [ %add, %if.end9 ]
-  %arrayidx15 = getelementptr inbounds i16, ptr %src, i64 %5
+  %arrayidx15 = getelementptr inbounds [2 x i8], ptr %src, i64 %5
   %6 = load i16, ptr %arrayidx15, align 2
   %7 = and i16 %6, 255
   %idxprom.i57 = zext nneg i16 %7 to i64
@@ -2494,7 +2494,7 @@ if.end37:                                         ; preds = %for.end29
 
 for.cond41:                                       ; preds = %if.end37, %if.end50
   %13 = phi i64 [ %add46, %if.end50 ], [ %11, %if.end37 ]
-  %arrayidx43 = getelementptr inbounds i16, ptr %src, i64 %13
+  %arrayidx43 = getelementptr inbounds [2 x i8], ptr %src, i64 %13
   %14 = load i16, ptr %arrayidx43, align 2
   %15 = and i16 %14, 255
   %idxprom.i59 = zext nneg i16 %15 to i64
@@ -2531,7 +2531,7 @@ if.end70:                                         ; preds = %for.end57
 
 for.cond74:                                       ; preds = %if.end70, %if.end83
   %21 = phi i64 [ %add79, %if.end83 ], [ %19, %if.end70 ]
-  %arrayidx76 = getelementptr inbounds i16, ptr %src, i64 %21
+  %arrayidx76 = getelementptr inbounds [2 x i8], ptr %src, i64 %21
   %22 = load i16, ptr %arrayidx76, align 2
   %23 = and i16 %22, 255
   %idxprom.i61 = zext nneg i16 %23 to i64

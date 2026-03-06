@@ -498,14 +498,14 @@ define void @rgb16tobgr16(ptr noundef readonly captures(none) %0, ptr noundef wr
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   %7 = load i16, ptr %6, align 2, !tbaa !16
   %8 = lshr i16 %7, 11
   %9 = and i16 %7, 2016
   %10 = or disjoint i16 %8, %9
   %11 = shl i16 %7, 11
   %12 = or disjoint i16 %10, %11
-  %13 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   store i16 %12, ptr %13, align 2, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -527,7 +527,7 @@ define void @rgb16tobgr15(ptr noundef readonly captures(none) %0, ptr noundef wr
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   %7 = load i16, ptr %6, align 2, !tbaa !16
   %8 = lshr i16 %7, 11
   %9 = lshr i16 %7, 1
@@ -536,7 +536,7 @@ define void @rgb16tobgr15(ptr noundef readonly captures(none) %0, ptr noundef wr
   %12 = shl i16 %7, 10
   %13 = and i16 %12, 31744
   %14 = or disjoint i16 %11, %13
-  %15 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   store i16 %14, ptr %15, align 2, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -644,7 +644,7 @@ define void @rgb15tobgr16(ptr noundef readonly captures(none) %0, ptr noundef wr
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   %7 = load i16, ptr %6, align 2, !tbaa !16
   %8 = lshr i16 %7, 10
   %9 = and i16 %8, 31
@@ -653,7 +653,7 @@ define void @rgb15tobgr16(ptr noundef readonly captures(none) %0, ptr noundef wr
   %12 = or disjoint i16 %9, %11
   %13 = shl i16 %7, 11
   %14 = or disjoint i16 %12, %13
-  %15 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   store i16 %14, ptr %15, align 2, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -675,7 +675,7 @@ define void @rgb15tobgr15(ptr noundef readonly captures(none) %0, ptr noundef wr
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   %7 = load i16, ptr %6, align 2, !tbaa !16
   %8 = and i16 %7, 31775
   %9 = lshr i16 %8, 10
@@ -683,7 +683,7 @@ define void @rgb15tobgr15(ptr noundef readonly captures(none) %0, ptr noundef wr
   %11 = or disjoint i16 %10, %9
   %12 = shl i16 %8, 10
   %13 = or disjoint i16 %11, %12
-  %14 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   store i16 %13, ptr %14, align 2, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -705,7 +705,7 @@ define void @rgb12tobgr12(ptr noundef readonly captures(none) %0, ptr noundef wr
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   %7 = load i16, ptr %6, align 2, !tbaa !16
   %8 = shl i16 %7, 8
   %9 = and i16 %7, 240
@@ -713,7 +713,7 @@ define void @rgb12tobgr12(ptr noundef readonly captures(none) %0, ptr noundef wr
   %.masked12 = and i16 %8, 3840
   %.masked = or i16 %10, %9
   %11 = or disjoint i16 %.masked, %.masked12
-  %12 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   store i16 %11, ptr %12, align 2, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -736,18 +736,18 @@ define void @rgb48tobgr48_nobswap(ptr noundef readonly captures(none) %0, ptr no
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %7 = add nuw nsw i64 %indvars.iv, 2
-  %8 = getelementptr inbounds nuw i16, ptr %0, i64 %7
+  %8 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %7
   %9 = load i16, ptr %8, align 2, !tbaa !16
-  %10 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   store i16 %9, ptr %10, align 2, !tbaa !16
   %11 = add nuw nsw i64 %indvars.iv, 1
-  %12 = getelementptr inbounds nuw i16, ptr %0, i64 %11
+  %12 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %11
   %13 = load i16, ptr %12, align 2, !tbaa !16
-  %14 = getelementptr inbounds nuw i16, ptr %1, i64 %11
+  %14 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %11
   store i16 %13, ptr %14, align 2, !tbaa !16
-  %15 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   %16 = load i16, ptr %15, align 2, !tbaa !16
-  %17 = getelementptr inbounds nuw i16, ptr %1, i64 %7
+  %17 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %7
   store i16 %16, ptr %17, align 2, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
   %18 = icmp samesign ult i64 %indvars.iv.next, %6
@@ -770,21 +770,21 @@ define void @rgb48tobgr48_bswap(ptr noundef readonly captures(none) %0, ptr noun
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %7 = add nuw nsw i64 %indvars.iv, 2
-  %8 = getelementptr inbounds nuw i16, ptr %0, i64 %7
+  %8 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %7
   %9 = load i16, ptr %8, align 2, !tbaa !16
   %10 = tail call i16 @llvm.bswap.i16(i16 %9)
-  %11 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv
   store i16 %10, ptr %11, align 2, !tbaa !16
   %12 = add nuw nsw i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw i16, ptr %0, i64 %12
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %12
   %14 = load i16, ptr %13, align 2, !tbaa !16
   %15 = tail call i16 @llvm.bswap.i16(i16 %14)
-  %16 = getelementptr inbounds nuw i16, ptr %1, i64 %12
+  %16 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %12
   store i16 %15, ptr %16, align 2, !tbaa !16
-  %17 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   %18 = load i16, ptr %17, align 2, !tbaa !16
   %19 = tail call i16 @llvm.bswap.i16(i16 %18)
-  %20 = getelementptr inbounds nuw i16, ptr %1, i64 %7
+  %20 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %7
   store i16 %19, ptr %20, align 2, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 3
   %21 = icmp samesign ult i64 %indvars.iv.next, %6
@@ -1098,7 +1098,7 @@ define void @x2rgb10to48_nobswap(ptr noundef readonly captures(none) %0, ptr nou
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %7 = load i32, ptr %6, align 1, !tbaa !8
   %8 = lshr i32 %7, 14
   %9 = and i32 %8, 65472
@@ -1143,7 +1143,7 @@ define void @x2rgb10to48_bswap(ptr noundef readonly captures(none) %0, ptr nound
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %7 = load i32, ptr %6, align 1, !tbaa !8
   %8 = lshr i32 %7, 14
   %9 = and i32 %8, 65472
@@ -1191,7 +1191,7 @@ define void @x2rgb10to64_nobswap(ptr noundef readonly captures(none) %0, ptr nou
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %7 = load i32, ptr %6, align 1, !tbaa !8
   %8 = lshr i32 %7, 14
   %9 = and i32 %8, 65472
@@ -1238,7 +1238,7 @@ define void @x2rgb10to64_bswap(ptr noundef readonly captures(none) %0, ptr nound
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %7 = load i32, ptr %6, align 1, !tbaa !8
   %8 = lshr i32 %7, 14
   %9 = and i32 %8, 65472
@@ -1288,7 +1288,7 @@ define void @x2rgb10tobgr48_nobswap(ptr noundef readonly captures(none) %0, ptr 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %7 = load i32, ptr %6, align 1, !tbaa !8
   %8 = and i32 %7, 1023
   %9 = shl nuw nsw i32 %8, 6
@@ -1333,7 +1333,7 @@ define void @x2rgb10tobgr48_bswap(ptr noundef readonly captures(none) %0, ptr no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %7 = load i32, ptr %6, align 1, !tbaa !8
   %8 = and i32 %7, 1023
   %9 = shl nuw nsw i32 %8, 6
@@ -1381,7 +1381,7 @@ define void @x2rgb10tobgr64_nobswap(ptr noundef readonly captures(none) %0, ptr 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %7 = load i32, ptr %6, align 1, !tbaa !8
   %8 = and i32 %7, 1023
   %9 = shl nuw nsw i32 %8, 6
@@ -1428,7 +1428,7 @@ define void @x2rgb10tobgr64_bswap(ptr noundef readonly captures(none) %0, ptr no
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %7 = load i32, ptr %6, align 1, !tbaa !8
   %8 = and i32 %7, 1023
   %9 = shl nuw nsw i32 %8, 6

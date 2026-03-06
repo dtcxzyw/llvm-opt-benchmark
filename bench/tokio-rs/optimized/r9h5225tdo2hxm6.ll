@@ -1929,8 +1929,8 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4gro
   %15 = sub i64 %3, %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !alias.scope !236, !nonnull !10, !noundef !10
-  %18 = getelementptr inbounds { i32, [3 x i32] }, ptr %17, i64 %5
-  %19 = getelementptr inbounds { i32, [3 x i32] }, ptr %17, i64 %15
+  %18 = getelementptr inbounds [16 x i8], ptr %17, i64 %5
+  %19 = getelementptr inbounds [16 x i8], ptr %17, i64 %15
   %20 = shl i64 %10, 4
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %19, ptr nonnull align 8 %18, i64 %20, i1 false), !noalias !236
   store i64 %15, ptr %4, align 8, !alias.scope !236
@@ -1939,7 +1939,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4gro
 21:                                               ; preds = %9
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !alias.scope !236, !nonnull !10, !noundef !10
-  %24 = getelementptr inbounds { i32, [3 x i32] }, ptr %23, i64 %2
+  %24 = getelementptr inbounds [16 x i8], ptr %23, i64 %2
   %25 = shl i64 %11, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %24, ptr nonnull align 8 %23, i64 %25, i1 false), !noalias !236
   br label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$24handle_capacity_increase17h2003c008e3c116f2E.exit"
@@ -1975,8 +1975,8 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4gro
   %15 = sub i64 %3, %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !alias.scope !239, !nonnull !10, !noundef !10
-  %18 = getelementptr inbounds ptr, ptr %17, i64 %5
-  %19 = getelementptr inbounds ptr, ptr %17, i64 %15
+  %18 = getelementptr inbounds [8 x i8], ptr %17, i64 %5
+  %19 = getelementptr inbounds [8 x i8], ptr %17, i64 %15
   %20 = shl i64 %10, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %19, ptr nonnull align 8 %18, i64 %20, i1 false), !noalias !239
   store i64 %15, ptr %4, align 8, !alias.scope !239
@@ -1985,7 +1985,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4gro
 21:                                               ; preds = %9
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !alias.scope !239, !nonnull !10, !noundef !10
-  %24 = getelementptr inbounds ptr, ptr %23, i64 %2
+  %24 = getelementptr inbounds [8 x i8], ptr %23, i64 %2
   %25 = shl i64 %11, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %24, ptr nonnull align 8 %23, i64 %25, i1 false), !noalias !239
   br label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$24handle_capacity_increase17h1cb851932abdc18dE.exit"
@@ -2021,8 +2021,8 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4gro
   %15 = sub i64 %3, %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !alias.scope !242, !nonnull !10, !noundef !10
-  %18 = getelementptr inbounds { ptr, i8 }, ptr %17, i64 %5
-  %19 = getelementptr inbounds { ptr, i8 }, ptr %17, i64 %15
+  %18 = getelementptr inbounds [16 x i8], ptr %17, i64 %5
+  %19 = getelementptr inbounds [16 x i8], ptr %17, i64 %15
   %20 = shl i64 %10, 4
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %19, ptr nonnull align 8 %18, i64 %20, i1 false), !noalias !242
   store i64 %15, ptr %4, align 8, !alias.scope !242
@@ -2031,7 +2031,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4gro
 21:                                               ; preds = %9
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !alias.scope !242, !nonnull !10, !noundef !10
-  %24 = getelementptr inbounds { ptr, i8 }, ptr %23, i64 %2
+  %24 = getelementptr inbounds [16 x i8], ptr %23, i64 %2
   %25 = shl i64 %11, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %24, ptr nonnull align 8 %23, i64 %25, i1 false), !noalias !242
   br label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$24handle_capacity_increase17hae82582df04c6954E.exit"
@@ -2067,8 +2067,8 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4gro
   %15 = sub i64 %3, %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !alias.scope !245, !nonnull !10, !noundef !10
-  %18 = getelementptr inbounds ptr, ptr %17, i64 %5
-  %19 = getelementptr inbounds ptr, ptr %17, i64 %15
+  %18 = getelementptr inbounds [8 x i8], ptr %17, i64 %5
+  %19 = getelementptr inbounds [8 x i8], ptr %17, i64 %15
   %20 = shl i64 %10, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %19, ptr nonnull align 8 %18, i64 %20, i1 false), !noalias !245
   store i64 %15, ptr %4, align 8, !alias.scope !245
@@ -2077,7 +2077,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$4gro
 21:                                               ; preds = %9
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load ptr, ptr %22, align 8, !alias.scope !245, !nonnull !10, !noundef !10
-  %24 = getelementptr inbounds ptr, ptr %23, i64 %2
+  %24 = getelementptr inbounds [8 x i8], ptr %23, i64 %2
   %25 = shl i64 %11, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %24, ptr nonnull align 8 %23, i64 %25, i1 false), !noalias !245
   br label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$24handle_capacity_increase17h399c25b11c4e6ac5E.exit"
@@ -2106,7 +2106,7 @@ define hidden noundef ptr @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$
   store i64 %11, ptr %2, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !nonnull !10, !noundef !10
-  %14 = getelementptr inbounds ptr, ptr %13, i64 %7
+  %14 = getelementptr inbounds [8 x i8], ptr %13, i64 %7
   %15 = load ptr, ptr %14, align 8, !nonnull !10, !noundef !10
   br label %16
 
@@ -2135,7 +2135,7 @@ define hidden { ptr, i8 } @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$
   store i64 %11, ptr %2, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !nonnull !10, !noundef !10
-  %14 = getelementptr inbounds { ptr, i8 }, ptr %13, i64 %7
+  %14 = getelementptr inbounds [16 x i8], ptr %13, i64 %7
   %15 = load ptr, ptr %14, align 8, !nonnull !10, !noundef !10
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %17 = load i8, ptr %16, align 8, !range !86, !noundef !10
@@ -2173,7 +2173,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pop
   store i64 %13, ptr %3, align 8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load ptr, ptr %14, align 8, !nonnull !10, !noundef !10
-  %16 = getelementptr inbounds { i32, [3 x i32] }, ptr %15, i64 %9
+  %16 = getelementptr inbounds [16 x i8], ptr %15, i64 %9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %16, i64 16, i1 false)
   br label %17
 
@@ -2201,7 +2201,7 @@ define hidden noundef ptr @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$
   store i64 %11, ptr %2, align 8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !nonnull !10, !noundef !10
-  %14 = getelementptr inbounds ptr, ptr %13, i64 %7
+  %14 = getelementptr inbounds [8 x i8], ptr %13, i64 %7
   %15 = load ptr, ptr %14, align 8, !nonnull !10, !noundef !10
   br label %16
 
@@ -2250,8 +2250,8 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pus
   %23 = sub i64 %12, %18
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %25 = load ptr, ptr %24, align 8, !alias.scope !263, !nonnull !10, !noundef !10
-  %26 = getelementptr inbounds { ptr, i8 }, ptr %25, i64 %14
-  %27 = getelementptr inbounds { ptr, i8 }, ptr %25, i64 %23
+  %26 = getelementptr inbounds [16 x i8], ptr %25, i64 %14
+  %27 = getelementptr inbounds [16 x i8], ptr %25, i64 %23
   %28 = shl i64 %18, 4
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %27, ptr nonnull align 8 %26, i64 %28, i1 false), !noalias !260
   store i64 %23, ptr %13, align 8, !alias.scope !263
@@ -2260,7 +2260,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pus
 29:                                               ; preds = %17
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load ptr, ptr %30, align 8, !alias.scope !263, !nonnull !10, !noundef !10
-  %32 = getelementptr inbounds { ptr, i8 }, ptr %31, i64 %8
+  %32 = getelementptr inbounds [16 x i8], ptr %31, i64 %8
   %33 = shl i64 %19, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %32, ptr nonnull align 8 %31, i64 %33, i1 false), !noalias !260
   br label %36
@@ -2282,7 +2282,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pus
   %.0.i = sub nuw i64 %40, %42
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %44 = load ptr, ptr %43, align 8, !nonnull !10, !noundef !10
-  %45 = getelementptr inbounds { ptr, i8 }, ptr %44, i64 %.0.i
+  %45 = getelementptr inbounds [16 x i8], ptr %44, i64 %.0.i
   store ptr %1, ptr %45, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   store i8 %6, ptr %46, align 8
@@ -2336,8 +2336,8 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pus
   %19 = sub i64 %8, %14
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load ptr, ptr %20, align 8, !alias.scope !272, !nonnull !10, !noundef !10
-  %22 = getelementptr inbounds { i32, [3 x i32] }, ptr %21, i64 %10
-  %23 = getelementptr inbounds { i32, [3 x i32] }, ptr %21, i64 %19
+  %22 = getelementptr inbounds [16 x i8], ptr %21, i64 %10
+  %23 = getelementptr inbounds [16 x i8], ptr %21, i64 %19
   %24 = shl i64 %14, 4
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %23, ptr nonnull align 8 %22, i64 %24, i1 false), !noalias !269
   store i64 %19, ptr %9, align 8, !alias.scope !272
@@ -2346,7 +2346,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pus
 25:                                               ; preds = %13
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %27 = load ptr, ptr %26, align 8, !alias.scope !272, !nonnull !10, !noundef !10
-  %28 = getelementptr inbounds { i32, [3 x i32] }, ptr %27, i64 %4
+  %28 = getelementptr inbounds [16 x i8], ptr %27, i64 %4
   %29 = shl i64 %15, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %28, ptr nonnull align 8 %27, i64 %29, i1 false), !noalias !269
   br label %32
@@ -2368,7 +2368,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pus
   %.0.i = sub nuw i64 %36, %38
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = load ptr, ptr %39, align 8, !nonnull !10, !noundef !10
-  %41 = getelementptr inbounds { i32, [3 x i32] }, ptr %40, i64 %.0.i
+  %41 = getelementptr inbounds [16 x i8], ptr %40, i64 %.0.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
   %42 = load i64, ptr %3, align 8, !noundef !10
   %43 = add i64 %42, 1
@@ -2422,8 +2422,8 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pus
   %20 = sub i64 %9, %15
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8, !alias.scope !281, !nonnull !10, !noundef !10
-  %23 = getelementptr inbounds ptr, ptr %22, i64 %11
-  %24 = getelementptr inbounds ptr, ptr %22, i64 %20
+  %23 = getelementptr inbounds [8 x i8], ptr %22, i64 %11
+  %24 = getelementptr inbounds [8 x i8], ptr %22, i64 %20
   %25 = shl i64 %15, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %24, ptr nonnull align 8 %23, i64 %25, i1 false), !noalias !278
   store i64 %20, ptr %10, align 8, !alias.scope !281
@@ -2432,7 +2432,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pus
 26:                                               ; preds = %14
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load ptr, ptr %27, align 8, !alias.scope !281, !nonnull !10, !noundef !10
-  %29 = getelementptr inbounds ptr, ptr %28, i64 %5
+  %29 = getelementptr inbounds [8 x i8], ptr %28, i64 %5
   %30 = shl i64 %16, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %29, ptr nonnull align 8 %28, i64 %30, i1 false), !noalias !278
   br label %33
@@ -2454,7 +2454,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pus
   %.0.i = sub nuw i64 %37, %39
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %41 = load ptr, ptr %40, align 8, !nonnull !10, !noundef !10
-  %42 = getelementptr inbounds ptr, ptr %41, i64 %.0.i
+  %42 = getelementptr inbounds [8 x i8], ptr %41, i64 %.0.i
   store ptr %1, ptr %42, align 8
   %43 = load i64, ptr %4, align 8, !noundef !10
   %44 = add i64 %43, 1
@@ -2508,8 +2508,8 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pus
   %20 = sub i64 %9, %15
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %22 = load ptr, ptr %21, align 8, !alias.scope !290, !nonnull !10, !noundef !10
-  %23 = getelementptr inbounds ptr, ptr %22, i64 %11
-  %24 = getelementptr inbounds ptr, ptr %22, i64 %20
+  %23 = getelementptr inbounds [8 x i8], ptr %22, i64 %11
+  %24 = getelementptr inbounds [8 x i8], ptr %22, i64 %20
   %25 = shl i64 %15, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %24, ptr nonnull align 8 %23, i64 %25, i1 false), !noalias !287
   store i64 %20, ptr %10, align 8, !alias.scope !290
@@ -2518,7 +2518,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pus
 26:                                               ; preds = %14
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load ptr, ptr %27, align 8, !alias.scope !290, !nonnull !10, !noundef !10
-  %29 = getelementptr inbounds ptr, ptr %28, i64 %5
+  %29 = getelementptr inbounds [8 x i8], ptr %28, i64 %5
   %30 = shl i64 %16, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %29, ptr nonnull align 8 %28, i64 %30, i1 false), !noalias !287
   br label %33
@@ -2540,7 +2540,7 @@ define hidden void @"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pus
   %.0.i = sub nuw i64 %37, %39
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %41 = load ptr, ptr %40, align 8, !nonnull !10, !noundef !10
-  %42 = getelementptr inbounds ptr, ptr %41, i64 %.0.i
+  %42 = getelementptr inbounds [8 x i8], ptr %41, i64 %.0.i
   store ptr %1, ptr %42, align 8
   %43 = load i64, ptr %4, align 8, !noundef !10
   %44 = add i64 %43, 1
@@ -7717,7 +7717,7 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17h14
   br i1 %17, label %switch.lookup, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 switch.lookup:                                    ; preds = %.split.i.i
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5tokio7runtime2io12registration12Registration6try_io17hff5e7bf103cdb78fE, i64 %16
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5tokio7runtime2io12registration12Registration6try_io17hff5e7bf103cdb78fE, i64 %16
   %switch.load = load i64, ptr %switch.gep, align 8
   %18 = and i64 %switch.load, %13
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
@@ -7883,7 +7883,7 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17h24
   br i1 %17, label %switch.lookup, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 switch.lookup:                                    ; preds = %.split.i.i
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5tokio7runtime2io12registration12Registration6try_io17hff5e7bf103cdb78fE, i64 %16
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5tokio7runtime2io12registration12Registration6try_io17hff5e7bf103cdb78fE, i64 %16
   %switch.load = load i64, ptr %switch.gep, align 8
   %18 = and i64 %switch.load, %13
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
@@ -8049,7 +8049,7 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17h34
   br i1 %17, label %switch.lookup, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 switch.lookup:                                    ; preds = %.split.i.i
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5tokio7runtime2io12registration12Registration6try_io17hff5e7bf103cdb78fE, i64 %16
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5tokio7runtime2io12registration12Registration6try_io17hff5e7bf103cdb78fE, i64 %16
   %switch.load = load i64, ptr %switch.gep, align 8
   %18 = and i64 %switch.load, %13
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
@@ -8215,7 +8215,7 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17h48
   br i1 %17, label %switch.lookup, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 switch.lookup:                                    ; preds = %.split.i.i
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5tokio7runtime2io12registration12Registration6try_io17hff5e7bf103cdb78fE, i64 %16
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5tokio7runtime2io12registration12Registration6try_io17hff5e7bf103cdb78fE, i64 %16
   %switch.load = load i64, ptr %switch.gep, align 8
   %18 = and i64 %switch.load, %13
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
@@ -8381,7 +8381,7 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17h5e
   br i1 %17, label %switch.lookup, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 switch.lookup:                                    ; preds = %.split.i.i
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5tokio7runtime2io12registration12Registration6try_io17hff5e7bf103cdb78fE, i64 %16
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5tokio7runtime2io12registration12Registration6try_io17hff5e7bf103cdb78fE, i64 %16
   %switch.load = load i64, ptr %switch.gep, align 8
   %18 = and i64 %switch.load, %13
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
@@ -8546,7 +8546,7 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17h69
   br i1 %16, label %switch.lookup, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 switch.lookup:                                    ; preds = %.split.i.i
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5tokio7runtime2io12registration12Registration6try_io17hff5e7bf103cdb78fE, i64 %15
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5tokio7runtime2io12registration12Registration6try_io17hff5e7bf103cdb78fE, i64 %15
   %switch.load = load i64, ptr %switch.gep, align 8
   %17 = and i64 %switch.load, %12
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
@@ -8709,7 +8709,7 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17h81
   br i1 %17, label %switch.lookup, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 switch.lookup:                                    ; preds = %.split.i.i
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5tokio7runtime2io12registration12Registration6try_io17hff5e7bf103cdb78fE, i64 %16
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5tokio7runtime2io12registration12Registration6try_io17hff5e7bf103cdb78fE, i64 %16
   %switch.load = load i64, ptr %switch.gep, align 8
   %18 = and i64 %switch.load, %13
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
@@ -8874,7 +8874,7 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17h81
   br i1 %16, label %switch.lookup, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 switch.lookup:                                    ; preds = %.split.i.i
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5tokio7runtime2io12registration12Registration6try_io17hff5e7bf103cdb78fE, i64 %15
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5tokio7runtime2io12registration12Registration6try_io17hff5e7bf103cdb78fE, i64 %15
   %switch.load = load i64, ptr %switch.gep, align 8
   %17 = and i64 %switch.load, %12
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
@@ -9037,7 +9037,7 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17h87
   br i1 %17, label %switch.lookup, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 switch.lookup:                                    ; preds = %.split.i.i
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5tokio7runtime2io12registration12Registration6try_io17hff5e7bf103cdb78fE, i64 %16
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5tokio7runtime2io12registration12Registration6try_io17hff5e7bf103cdb78fE, i64 %16
   %switch.load = load i64, ptr %switch.gep, align 8
   %18 = and i64 %switch.load, %13
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
@@ -9202,7 +9202,7 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17h8a
   br i1 %16, label %switch.lookup, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 switch.lookup:                                    ; preds = %.split.i.i
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5tokio7runtime2io12registration12Registration6try_io17hff5e7bf103cdb78fE, i64 %15
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5tokio7runtime2io12registration12Registration6try_io17hff5e7bf103cdb78fE, i64 %15
   %switch.load = load i64, ptr %switch.gep, align 8
   %17 = and i64 %switch.load, %12
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
@@ -9365,7 +9365,7 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17hb3
   br i1 %17, label %switch.lookup, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 switch.lookup:                                    ; preds = %.split.i.i
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5tokio7runtime2io12registration12Registration6try_io17hff5e7bf103cdb78fE, i64 %16
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5tokio7runtime2io12registration12Registration6try_io17hff5e7bf103cdb78fE, i64 %16
   %switch.load = load i64, ptr %switch.gep, align 8
   %18 = and i64 %switch.load, %13
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
@@ -9533,7 +9533,7 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17hc1
   br i1 %16, label %switch.lookup, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 switch.lookup:                                    ; preds = %.split.i.i
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5tokio7runtime2io12registration12Registration6try_io17hff5e7bf103cdb78fE, i64 %15
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5tokio7runtime2io12registration12Registration6try_io17hff5e7bf103cdb78fE, i64 %15
   %switch.load = load i64, ptr %switch.gep, align 8
   %17 = and i64 %switch.load, %12
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
@@ -9696,7 +9696,7 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17hc4
   br i1 %17, label %switch.lookup, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 switch.lookup:                                    ; preds = %.split.i.i
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5tokio7runtime2io12registration12Registration6try_io17hff5e7bf103cdb78fE, i64 %16
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5tokio7runtime2io12registration12Registration6try_io17hff5e7bf103cdb78fE, i64 %16
   %switch.load = load i64, ptr %switch.gep, align 8
   %18 = and i64 %switch.load, %13
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
@@ -9861,7 +9861,7 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17hd3
   br i1 %16, label %switch.lookup, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 switch.lookup:                                    ; preds = %.split.i.i
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5tokio7runtime2io12registration12Registration6try_io17hff5e7bf103cdb78fE, i64 %15
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5tokio7runtime2io12registration12Registration6try_io17hff5e7bf103cdb78fE, i64 %15
   %switch.load = load i64, ptr %switch.gep, align 8
   %17 = and i64 %switch.load, %12
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
@@ -10024,7 +10024,7 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17hdb
   br i1 %17, label %switch.lookup, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 switch.lookup:                                    ; preds = %.split.i.i
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5tokio7runtime2io12registration12Registration6try_io17hff5e7bf103cdb78fE, i64 %16
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5tokio7runtime2io12registration12Registration6try_io17hff5e7bf103cdb78fE, i64 %16
   %switch.load = load i64, ptr %switch.gep, align 8
   %18 = and i64 %switch.load, %13
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
@@ -10190,7 +10190,7 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17hdb
   br i1 %17, label %switch.lookup, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 switch.lookup:                                    ; preds = %.split.i.i
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5tokio7runtime2io12registration12Registration6try_io17hff5e7bf103cdb78fE, i64 %16
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5tokio7runtime2io12registration12Registration6try_io17hff5e7bf103cdb78fE, i64 %16
   %switch.load = load i64, ptr %switch.gep, align 8
   %18 = and i64 %switch.load, %13
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
@@ -10356,7 +10356,7 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17hde
   br i1 %17, label %switch.lookup, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 switch.lookup:                                    ; preds = %.split.i.i
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5tokio7runtime2io12registration12Registration6try_io17hff5e7bf103cdb78fE, i64 %16
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5tokio7runtime2io12registration12Registration6try_io17hff5e7bf103cdb78fE, i64 %16
   %switch.load = load i64, ptr %switch.gep, align 8
   %18 = and i64 %switch.load, %13
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
@@ -10521,7 +10521,7 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17he7
   br i1 %16, label %switch.lookup, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 switch.lookup:                                    ; preds = %.split.i.i
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5tokio7runtime2io12registration12Registration6try_io17hff5e7bf103cdb78fE, i64 %15
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5tokio7runtime2io12registration12Registration6try_io17hff5e7bf103cdb78fE, i64 %15
   %switch.load = load i64, ptr %switch.gep, align 8
   %17 = and i64 %switch.load, %12
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
@@ -10683,7 +10683,7 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17hec
   br i1 %16, label %switch.lookup, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 switch.lookup:                                    ; preds = %.split.i.i
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5tokio7runtime2io12registration12Registration6try_io17hff5e7bf103cdb78fE, i64 %15
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5tokio7runtime2io12registration12Registration6try_io17hff5e7bf103cdb78fE, i64 %15
   %switch.load = load i64, ptr %switch.gep, align 8
   %17 = and i64 %switch.load, %12
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
@@ -10849,7 +10849,7 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17hf2
   br i1 %20, label %switch.lookup, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 switch.lookup:                                    ; preds = %.split.i.i
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5tokio7runtime2io12registration12Registration6try_io17hff5e7bf103cdb78fE, i64 %19
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5tokio7runtime2io12registration12Registration6try_io17hff5e7bf103cdb78fE, i64 %19
   %switch.load = load i64, ptr %switch.gep, align 8
   %21 = and i64 %switch.load, %16
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
@@ -11066,7 +11066,7 @@ define hidden void @_ZN5tokio7runtime2io12registration12Registration6try_io17hff
   br i1 %17, label %switch.lookup, label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
 
 switch.lookup:                                    ; preds = %.split.i.i
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5tokio7runtime2io12registration12Registration6try_io17hff5e7bf103cdb78fE, i64 %16
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5tokio7runtime2io12registration12Registration6try_io17hff5e7bf103cdb78fE, i64 %16
   %switch.load = load i64, ptr %switch.gep, align 8
   %18 = and i64 %switch.load, %13
   br label %_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E.exit
@@ -11353,7 +11353,7 @@ define hidden { ptr, i64 } @"_ZN5tokio6signal8registry17Registry$LT$S$GT$17regis
 15:                                               ; preds = %2
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !alias.scope !1841, !nonnull !10
-  %18 = getelementptr inbounds { { ptr, { i8 }, [7 x i8] }, { { { i32 } } }, { i8 }, [3 x i8] }, ptr %17, i64 %1
+  %18 = getelementptr inbounds [24 x i8], ptr %17, i64 %1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1850)
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !1850
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1853)
@@ -11413,7 +11413,7 @@ define hidden void @"_ZN5tokio6signal8registry17Registry$LT$S$GT$12record_event1
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !alias.scope !1862, !nonnull !10
-  %8 = getelementptr inbounds { { ptr, { i8 }, [7 x i8] }, { { { i32 } } }, { i8 }, [3 x i8] }, ptr %7, i64 %1
+  %8 = getelementptr inbounds [24 x i8], ptr %7, i64 %1
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store atomic i8 1, ptr %9 seq_cst, align 1
   br label %10
@@ -11445,7 +11445,7 @@ define hidden void @_ZN5tokio6signal8registry7Globals12record_event17h1735c98652
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !alias.scope !1868, !nonnull !10
-  %8 = getelementptr inbounds { { ptr, { i8 }, [7 x i8] }, { { { i32 } } }, { i8 }, [3 x i8] }, ptr %7, i64 %1
+  %8 = getelementptr inbounds [24 x i8], ptr %7, i64 %1
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store atomic i8 1, ptr %9 seq_cst, align 1, !noalias !1865
   br label %"_ZN5tokio6signal8registry17Registry$LT$S$GT$12record_event17h6f35a1a3570ff76aE.llvm.11424388141523703806.exit"
@@ -11464,7 +11464,7 @@ define hidden noundef zeroext i1 @_ZN5tokio6signal8registry7Globals9broadcast17h
   %4 = load ptr, ptr %3, align 8, !alias.scope !1871, !noalias !1874, !nonnull !10, !noundef !10
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !1871, !noalias !1874, !noundef !10
-  %7 = getelementptr inbounds { { ptr, { i8 }, [7 x i8] }, { { { i32 } } }, { i8 }, [3 x i8] }, ptr %4, i64 %6
+  %7 = getelementptr inbounds [24 x i8], ptr %4, i64 %6
   call void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hb4adc0ba12caef5eE.llvm.6895680396811105915"(ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noalias noundef nonnull align 1 dereferenceable(1) %2), !noalias !1871
   %8 = load i8, ptr %2, align 1, !range !86, !noundef !10
   %9 = trunc nuw i8 %8 to i1
@@ -11695,7 +11695,7 @@ define hidden void @_ZN5tokio6signal4unix6action17h1723847c55edb8b2E(ptr noalias
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !1904, !nonnull !10
-  %12 = getelementptr inbounds { { ptr, { i8 }, [7 x i8] }, { { { i32 } } }, { i8 }, [3 x i8] }, ptr %11, i64 %6
+  %12 = getelementptr inbounds [24 x i8], ptr %11, i64 %6
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store atomic i8 1, ptr %13 seq_cst, align 1, !noalias !1907
   br label %_ZN5tokio6signal8registry7Globals12record_event17h1735c986523b981dE.llvm.11424388141523703806.exit
@@ -11830,7 +11830,7 @@ _ZN5tokio6signal8registry7globals17ha8d0471c501c522bE.exit: ; preds = %26, %29
   %32 = sext i32 %31 to i64
   %.not = icmp ugt i64 %30, %32
   %33 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN5tokio6signal8registry7globals7GLOBALS17h8ef7e627bd23ba33E.llvm.11424388141523703806, i64 8), align 8, !nonnull !10
-  %34 = getelementptr inbounds { { ptr, { i8 }, [7 x i8] }, { { { i32 } } }, { i8 }, [3 x i8] }, ptr %33, i64 %32
+  %34 = getelementptr inbounds [24 x i8], ptr %33, i64 %32
   br i1 %.not, label %37, label %35
 
 35:                                               ; preds = %_ZN5tokio6signal8registry7globals17ha8d0471c501c522bE.exit

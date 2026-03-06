@@ -188,7 +188,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17heaa377a
   %27 = zext nneg i16 %26 to i64
   %28 = and i16 %25, %.lcssa.i.i
   %29 = sub nsw i64 0, %27
-  %30 = getelementptr inbounds { { ptr, [1 x i64] }, ptr }, ptr %.sroa.06.1.i, i64 %29
+  %30 = getelementptr inbounds [24 x i8], ptr %.sroa.06.1.i, i64 %29
   %31 = add i64 %.sroa.108.015.i, -1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !29)
   %32 = getelementptr inbounds i8, ptr %30, i64 -8
@@ -289,7 +289,7 @@ define hidden noundef i64 @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9fold_impl17
   %13 = and i16 %10, %.lcssa
   store i16 %13, ptr %5, align 8
   %14 = sub nsw i64 0, %12
-  %15 = getelementptr inbounds { { ptr, [1 x i64] }, ptr }, ptr %.lcssa2124, i64 %14
+  %15 = getelementptr inbounds [24 x i8], ptr %.lcssa2124, i64 %14
   %16 = getelementptr i8, ptr %15, i64 -8
   %.val = load ptr, ptr %16, align 8, !nonnull !13, !noundef !13
   %17 = getelementptr inbounds nuw i8, ptr %.val, i64 16
@@ -341,7 +341,7 @@ define hidden noundef nonnull ptr @"_ZN9hashbrown3raw21RawIterRange$LT$T$GT$9nex
   %9 = and i16 %6, %.lcssa
   store i16 %9, ptr %2, align 8
   %10 = sub nsw i64 0, %8
-  %11 = getelementptr inbounds { { ptr, [1 x i64] }, ptr }, ptr %5, i64 %10
+  %11 = getelementptr inbounds [24 x i8], ptr %5, i64 %10
   ret ptr %11
 
 12:                                               ; preds = %.lr.ph, %12
@@ -524,8 +524,8 @@ _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h0de15cd541bb7de0E.exi
 
 76:                                               ; preds = %76, %._crit_edge54
   %.sroa.0.05.i.i.i = phi i64 [ 0, %._crit_edge54 ], [ %81, %76 ]
-  %77 = getelementptr inbounds nuw i64, ptr %0, i64 %.sroa.0.05.i.i.i
-  %78 = getelementptr inbounds nuw i64, ptr %.sroa.631.0..sroa_idx.i.i, i64 %.sroa.0.05.i.i.i
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.sroa.0.05.i.i.i
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.631.0..sroa_idx.i.i, i64 %.sroa.0.05.i.i.i
   %79 = load i64, ptr %77, align 8
   %80 = load i64, ptr %78, align 8
   store i64 %80, ptr %77, align 8
@@ -574,7 +574,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h74cbe161f7b8b670E.exit.i.
   %96 = add i64 %.sroa.5.1.lcssa, %94
   %97 = add i64 %.sroa.9.051, -1
   %98 = sub nsw i64 0, %96
-  %99 = getelementptr inbounds { { ptr, [1 x i64] }, ptr }, ptr %68, i64 %98
+  %99 = getelementptr inbounds [24 x i8], ptr %68, i64 %98
   %100 = getelementptr inbounds i8, ptr %99, i64 -24
   %101 = invoke noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h439cdb546578af0bE(ptr noalias noundef nonnull readonly align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %100)
           to label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u7b$$u7b$closure$u7d$$u7d$17hde922dedc6eb239cE.exit" unwind label %66
@@ -718,7 +718,7 @@ _ZN4core3ptr19swap_nonoverlapping7runtime17h8e34adbfaf3c7d40E.exit.loopexit.i: ;
 
 _ZN4core3ptr19swap_nonoverlapping7runtime17h8e34adbfaf3c7d40E.exit.i: ; preds = %_ZN4core3ptr19swap_nonoverlapping7runtime17h8e34adbfaf3c7d40E.exit.loopexit.i, %155
   %159 = phi ptr [ %.pre.i19, %_ZN4core3ptr19swap_nonoverlapping7runtime17h8e34adbfaf3c7d40E.exit.loopexit.i ], [ %152, %155 ]
-  %160 = getelementptr inbounds { { ptr, [1 x i64] }, ptr }, ptr %159, i64 %158
+  %160 = getelementptr inbounds [24 x i8], ptr %159, i64 %158
   %161 = getelementptr inbounds i8, ptr %160, i64 -24
   %162 = invoke noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h439cdb546578af0bE(ptr noalias noundef nonnull readonly align 1 %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %161)
           to label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_rehash28_$u7b$$u7b$closure$u7d$$u7d$17hde922dedc6eb239cE.exit.i" unwind label %163

@@ -134,11 +134,11 @@ define weak_odr noundef i32 @_ZN7rocksdb6ribbon6detail34BandingConfigHelper1Mayb
   %13 = uitofp nneg i32 %12 to double
   %14 = fdiv double %4, %13
   %15 = fadd double %14, -1.000000e+00
-  %16 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm128ELb0EE17kKnownToAddByPow2E, i64 %11
+  %16 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm128ELb0EE17kKnownToAddByPow2E, i64 %11
   %17 = load double, ptr %16, align 8, !tbaa !8
   %18 = fsub double 1.000000e+00, %15
   %19 = zext i32 %7 to i64
-  %20 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm128ELb0EE17kKnownToAddByPow2E, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm128ELb0EE17kKnownToAddByPow2E, i64 %19
   %21 = load double, ptr %20, align 8, !tbaa !8
   %22 = fmul double %18, %21
   %23 = tail call double @llvm.fmuladd.f64(double %15, double %17, double %22)
@@ -178,7 +178,7 @@ define weak_odr noundef i32 @_ZN7rocksdb6ribbon6detail34BandingConfigHelper1Mayb
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm128ELb0EE17kKnownToAddByPow2E, i64 %9
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm128ELb0EE17kKnownToAddByPow2E, i64 %9
   %13 = load double, ptr %12, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm128ELb0EE18GetNumToAddForPow2Ej.exit
 
@@ -208,7 +208,7 @@ _ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureCha
   br i1 %27, label %28, label %31
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm128ELb0EE17kKnownToAddByPow2E, i64 %26
+  %29 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm128ELb0EE17kKnownToAddByPow2E, i64 %26
   %30 = load double, ptr %29, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm128ELb0EE18GetNumToAddForPow2Ej.exit28
 
@@ -227,7 +227,7 @@ _ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureCha
   br i1 %40, label %41, label %44
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm128ELb0EE17kKnownToAddByPow2E, i64 %39
+  %42 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm128ELb0EE17kKnownToAddByPow2E, i64 %39
   %43 = load double, ptr %42, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm128ELb0EE18GetNumToAddForPow2Ej.exit28
 
@@ -278,11 +278,11 @@ define weak_odr noundef i32 @_ZN7rocksdb6ribbon6detail34BandingConfigHelper1Mayb
   %13 = uitofp nneg i32 %12 to double
   %14 = fdiv double %4, %13
   %15 = fadd double %14, -1.000000e+00
-  %16 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm128ELb1EE17kKnownToAddByPow2E, i64 %11
+  %16 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm128ELb1EE17kKnownToAddByPow2E, i64 %11
   %17 = load double, ptr %16, align 8, !tbaa !8
   %18 = fsub double 1.000000e+00, %15
   %19 = zext i32 %7 to i64
-  %20 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm128ELb1EE17kKnownToAddByPow2E, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm128ELb1EE17kKnownToAddByPow2E, i64 %19
   %21 = load double, ptr %20, align 8, !tbaa !8
   %22 = fmul double %18, %21
   %23 = tail call double @llvm.fmuladd.f64(double %15, double %17, double %22)
@@ -319,7 +319,7 @@ define weak_odr noundef i32 @_ZN7rocksdb6ribbon6detail34BandingConfigHelper1Mayb
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm128ELb1EE17kKnownToAddByPow2E, i64 %9
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm128ELb1EE17kKnownToAddByPow2E, i64 %9
   %13 = load double, ptr %12, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm128ELb1EE18GetNumToAddForPow2Ej.exit
 
@@ -349,7 +349,7 @@ _ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureCha
   br i1 %27, label %28, label %31
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm128ELb1EE17kKnownToAddByPow2E, i64 %26
+  %29 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm128ELb1EE17kKnownToAddByPow2E, i64 %26
   %30 = load double, ptr %29, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm128ELb1EE18GetNumToAddForPow2Ej.exit28
 
@@ -368,7 +368,7 @@ _ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureCha
   br i1 %40, label %41, label %44
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm128ELb1EE17kKnownToAddByPow2E, i64 %39
+  %42 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm128ELb1EE17kKnownToAddByPow2E, i64 %39
   %43 = load double, ptr %42, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm128ELb1EE18GetNumToAddForPow2Ej.exit28
 
@@ -419,11 +419,11 @@ define weak_odr noundef i32 @_ZN7rocksdb6ribbon6detail34BandingConfigHelper1Mayb
   %13 = uitofp nneg i32 %12 to double
   %14 = fdiv double %4, %13
   %15 = fadd double %14, -1.000000e+00
-  %16 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm128ELb0EE17kKnownToAddByPow2E, i64 %11
+  %16 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm128ELb0EE17kKnownToAddByPow2E, i64 %11
   %17 = load double, ptr %16, align 8, !tbaa !8
   %18 = fsub double 1.000000e+00, %15
   %19 = zext i32 %7 to i64
-  %20 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm128ELb0EE17kKnownToAddByPow2E, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm128ELb0EE17kKnownToAddByPow2E, i64 %19
   %21 = load double, ptr %20, align 8, !tbaa !8
   %22 = fmul double %18, %21
   %23 = tail call double @llvm.fmuladd.f64(double %15, double %17, double %22)
@@ -464,7 +464,7 @@ define weak_odr noundef i32 @_ZN7rocksdb6ribbon6detail34BandingConfigHelper1Mayb
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm128ELb0EE17kKnownToAddByPow2E, i64 %10
+  %13 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm128ELb0EE17kKnownToAddByPow2E, i64 %10
   %14 = load double, ptr %13, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm128ELb0EE18GetNumToAddForPow2Ej.exit
 
@@ -494,7 +494,7 @@ _ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureCha
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm128ELb0EE17kKnownToAddByPow2E, i64 %27
+  %30 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm128ELb0EE17kKnownToAddByPow2E, i64 %27
   %31 = load double, ptr %30, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm128ELb0EE18GetNumToAddForPow2Ej.exit29
 
@@ -513,7 +513,7 @@ _ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureCha
   br i1 %41, label %42, label %45
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm128ELb0EE17kKnownToAddByPow2E, i64 %40
+  %43 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm128ELb0EE17kKnownToAddByPow2E, i64 %40
   %44 = load double, ptr %43, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm128ELb0EE18GetNumToAddForPow2Ej.exit29
 
@@ -564,11 +564,11 @@ define weak_odr noundef i32 @_ZN7rocksdb6ribbon6detail34BandingConfigHelper1Mayb
   %13 = uitofp nneg i32 %12 to double
   %14 = fdiv double %4, %13
   %15 = fadd double %14, -1.000000e+00
-  %16 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm128ELb1EE17kKnownToAddByPow2E, i64 %11
+  %16 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm128ELb1EE17kKnownToAddByPow2E, i64 %11
   %17 = load double, ptr %16, align 8, !tbaa !8
   %18 = fsub double 1.000000e+00, %15
   %19 = zext i32 %7 to i64
-  %20 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm128ELb1EE17kKnownToAddByPow2E, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm128ELb1EE17kKnownToAddByPow2E, i64 %19
   %21 = load double, ptr %20, align 8, !tbaa !8
   %22 = fmul double %18, %21
   %23 = tail call double @llvm.fmuladd.f64(double %15, double %17, double %22)
@@ -609,7 +609,7 @@ define weak_odr noundef i32 @_ZN7rocksdb6ribbon6detail34BandingConfigHelper1Mayb
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm128ELb1EE17kKnownToAddByPow2E, i64 %10
+  %13 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm128ELb1EE17kKnownToAddByPow2E, i64 %10
   %14 = load double, ptr %13, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm128ELb1EE18GetNumToAddForPow2Ej.exit
 
@@ -639,7 +639,7 @@ _ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureCha
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm128ELb1EE17kKnownToAddByPow2E, i64 %27
+  %30 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm128ELb1EE17kKnownToAddByPow2E, i64 %27
   %31 = load double, ptr %30, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm128ELb1EE18GetNumToAddForPow2Ej.exit29
 
@@ -658,7 +658,7 @@ _ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureCha
   br i1 %41, label %42, label %45
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm128ELb1EE17kKnownToAddByPow2E, i64 %40
+  %43 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm128ELb1EE17kKnownToAddByPow2E, i64 %40
   %44 = load double, ptr %43, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm128ELb1EE18GetNumToAddForPow2Ej.exit29
 
@@ -709,11 +709,11 @@ define weak_odr noundef i32 @_ZN7rocksdb6ribbon6detail34BandingConfigHelper1Mayb
   %13 = uitofp nneg i32 %12 to double
   %14 = fdiv double %4, %13
   %15 = fadd double %14, -1.000000e+00
-  %16 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm64ELb0EE17kKnownToAddByPow2E, i64 %11
+  %16 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm64ELb0EE17kKnownToAddByPow2E, i64 %11
   %17 = load double, ptr %16, align 8, !tbaa !8
   %18 = fsub double 1.000000e+00, %15
   %19 = zext i32 %7 to i64
-  %20 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm64ELb0EE17kKnownToAddByPow2E, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm64ELb0EE17kKnownToAddByPow2E, i64 %19
   %21 = load double, ptr %20, align 8, !tbaa !8
   %22 = fmul double %18, %21
   %23 = tail call double @llvm.fmuladd.f64(double %15, double %17, double %22)
@@ -750,7 +750,7 @@ define weak_odr noundef i32 @_ZN7rocksdb6ribbon6detail34BandingConfigHelper1Mayb
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm64ELb0EE17kKnownToAddByPow2E, i64 %9
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm64ELb0EE17kKnownToAddByPow2E, i64 %9
   %13 = load double, ptr %12, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm64ELb0EE18GetNumToAddForPow2Ej.exit
 
@@ -780,7 +780,7 @@ _ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureCha
   br i1 %27, label %28, label %31
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm64ELb0EE17kKnownToAddByPow2E, i64 %26
+  %29 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm64ELb0EE17kKnownToAddByPow2E, i64 %26
   %30 = load double, ptr %29, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm64ELb0EE18GetNumToAddForPow2Ej.exit28
 
@@ -799,7 +799,7 @@ _ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureCha
   br i1 %40, label %41, label %44
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm64ELb0EE17kKnownToAddByPow2E, i64 %39
+  %42 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm64ELb0EE17kKnownToAddByPow2E, i64 %39
   %43 = load double, ptr %42, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm64ELb0EE18GetNumToAddForPow2Ej.exit28
 
@@ -850,11 +850,11 @@ define weak_odr noundef i32 @_ZN7rocksdb6ribbon6detail34BandingConfigHelper1Mayb
   %13 = uitofp nneg i32 %12 to double
   %14 = fdiv double %4, %13
   %15 = fadd double %14, -1.000000e+00
-  %16 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm64ELb1EE17kKnownToAddByPow2E, i64 %11
+  %16 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm64ELb1EE17kKnownToAddByPow2E, i64 %11
   %17 = load double, ptr %16, align 8, !tbaa !8
   %18 = fsub double 1.000000e+00, %15
   %19 = zext i32 %7 to i64
-  %20 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm64ELb1EE17kKnownToAddByPow2E, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm64ELb1EE17kKnownToAddByPow2E, i64 %19
   %21 = load double, ptr %20, align 8, !tbaa !8
   %22 = fmul double %18, %21
   %23 = tail call double @llvm.fmuladd.f64(double %15, double %17, double %22)
@@ -891,7 +891,7 @@ define weak_odr noundef i32 @_ZN7rocksdb6ribbon6detail34BandingConfigHelper1Mayb
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm64ELb1EE17kKnownToAddByPow2E, i64 %9
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm64ELb1EE17kKnownToAddByPow2E, i64 %9
   %13 = load double, ptr %12, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm64ELb1EE18GetNumToAddForPow2Ej.exit
 
@@ -921,7 +921,7 @@ _ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureCha
   br i1 %27, label %28, label %31
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm64ELb1EE17kKnownToAddByPow2E, i64 %26
+  %29 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm64ELb1EE17kKnownToAddByPow2E, i64 %26
   %30 = load double, ptr %29, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm64ELb1EE18GetNumToAddForPow2Ej.exit28
 
@@ -940,7 +940,7 @@ _ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureCha
   br i1 %40, label %41, label %44
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm64ELb1EE17kKnownToAddByPow2E, i64 %39
+  %42 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm64ELb1EE17kKnownToAddByPow2E, i64 %39
   %43 = load double, ptr %42, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm64ELb1EE18GetNumToAddForPow2Ej.exit28
 
@@ -991,11 +991,11 @@ define weak_odr noundef i32 @_ZN7rocksdb6ribbon6detail34BandingConfigHelper1Mayb
   %13 = uitofp nneg i32 %12 to double
   %14 = fdiv double %4, %13
   %15 = fadd double %14, -1.000000e+00
-  %16 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm64ELb0EE17kKnownToAddByPow2E, i64 %11
+  %16 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm64ELb0EE17kKnownToAddByPow2E, i64 %11
   %17 = load double, ptr %16, align 8, !tbaa !8
   %18 = fsub double 1.000000e+00, %15
   %19 = zext i32 %7 to i64
-  %20 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm64ELb0EE17kKnownToAddByPow2E, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm64ELb0EE17kKnownToAddByPow2E, i64 %19
   %21 = load double, ptr %20, align 8, !tbaa !8
   %22 = fmul double %18, %21
   %23 = tail call double @llvm.fmuladd.f64(double %15, double %17, double %22)
@@ -1036,7 +1036,7 @@ define weak_odr noundef i32 @_ZN7rocksdb6ribbon6detail34BandingConfigHelper1Mayb
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm64ELb0EE17kKnownToAddByPow2E, i64 %10
+  %13 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm64ELb0EE17kKnownToAddByPow2E, i64 %10
   %14 = load double, ptr %13, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm64ELb0EE18GetNumToAddForPow2Ej.exit
 
@@ -1066,7 +1066,7 @@ _ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureCha
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm64ELb0EE17kKnownToAddByPow2E, i64 %27
+  %30 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm64ELb0EE17kKnownToAddByPow2E, i64 %27
   %31 = load double, ptr %30, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm64ELb0EE18GetNumToAddForPow2Ej.exit29
 
@@ -1085,7 +1085,7 @@ _ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureCha
   br i1 %41, label %42, label %45
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm64ELb0EE17kKnownToAddByPow2E, i64 %40
+  %43 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm64ELb0EE17kKnownToAddByPow2E, i64 %40
   %44 = load double, ptr %43, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm64ELb0EE18GetNumToAddForPow2Ej.exit29
 
@@ -1136,11 +1136,11 @@ define weak_odr noundef i32 @_ZN7rocksdb6ribbon6detail34BandingConfigHelper1Mayb
   %13 = uitofp nneg i32 %12 to double
   %14 = fdiv double %4, %13
   %15 = fadd double %14, -1.000000e+00
-  %16 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm64ELb1EE17kKnownToAddByPow2E, i64 %11
+  %16 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm64ELb1EE17kKnownToAddByPow2E, i64 %11
   %17 = load double, ptr %16, align 8, !tbaa !8
   %18 = fsub double 1.000000e+00, %15
   %19 = zext i32 %7 to i64
-  %20 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm64ELb1EE17kKnownToAddByPow2E, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm64ELb1EE17kKnownToAddByPow2E, i64 %19
   %21 = load double, ptr %20, align 8, !tbaa !8
   %22 = fmul double %18, %21
   %23 = tail call double @llvm.fmuladd.f64(double %15, double %17, double %22)
@@ -1181,7 +1181,7 @@ define weak_odr noundef i32 @_ZN7rocksdb6ribbon6detail34BandingConfigHelper1Mayb
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm64ELb1EE17kKnownToAddByPow2E, i64 %10
+  %13 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm64ELb1EE17kKnownToAddByPow2E, i64 %10
   %14 = load double, ptr %13, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm64ELb1EE18GetNumToAddForPow2Ej.exit
 
@@ -1211,7 +1211,7 @@ _ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureCha
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm64ELb1EE17kKnownToAddByPow2E, i64 %27
+  %30 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm64ELb1EE17kKnownToAddByPow2E, i64 %27
   %31 = load double, ptr %30, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm64ELb1EE18GetNumToAddForPow2Ej.exit29
 
@@ -1230,7 +1230,7 @@ _ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureCha
   br i1 %41, label %42, label %45
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm64ELb1EE17kKnownToAddByPow2E, i64 %40
+  %43 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm64ELb1EE17kKnownToAddByPow2E, i64 %40
   %44 = load double, ptr %43, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE0ELm64ELb1EE18GetNumToAddForPow2Ej.exit29
 
@@ -1281,11 +1281,11 @@ define weak_odr noundef i32 @_ZN7rocksdb6ribbon6detail34BandingConfigHelper1Mayb
   %13 = uitofp nneg i32 %12 to double
   %14 = fdiv double %4, %13
   %15 = fadd double %14, -1.000000e+00
-  %16 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm128ELb0EE17kKnownToAddByPow2E, i64 %11
+  %16 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm128ELb0EE17kKnownToAddByPow2E, i64 %11
   %17 = load double, ptr %16, align 8, !tbaa !8
   %18 = fsub double 1.000000e+00, %15
   %19 = zext i32 %7 to i64
-  %20 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm128ELb0EE17kKnownToAddByPow2E, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm128ELb0EE17kKnownToAddByPow2E, i64 %19
   %21 = load double, ptr %20, align 8, !tbaa !8
   %22 = fmul double %18, %21
   %23 = tail call double @llvm.fmuladd.f64(double %15, double %17, double %22)
@@ -1322,7 +1322,7 @@ define weak_odr noundef i32 @_ZN7rocksdb6ribbon6detail34BandingConfigHelper1Mayb
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm128ELb0EE17kKnownToAddByPow2E, i64 %9
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm128ELb0EE17kKnownToAddByPow2E, i64 %9
   %13 = load double, ptr %12, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm128ELb0EE18GetNumToAddForPow2Ej.exit
 
@@ -1352,7 +1352,7 @@ _ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureCha
   br i1 %27, label %28, label %31
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm128ELb0EE17kKnownToAddByPow2E, i64 %26
+  %29 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm128ELb0EE17kKnownToAddByPow2E, i64 %26
   %30 = load double, ptr %29, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm128ELb0EE18GetNumToAddForPow2Ej.exit28
 
@@ -1371,7 +1371,7 @@ _ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureCha
   br i1 %40, label %41, label %44
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm128ELb0EE17kKnownToAddByPow2E, i64 %39
+  %42 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm128ELb0EE17kKnownToAddByPow2E, i64 %39
   %43 = load double, ptr %42, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm128ELb0EE18GetNumToAddForPow2Ej.exit28
 
@@ -1422,11 +1422,11 @@ define weak_odr noundef i32 @_ZN7rocksdb6ribbon6detail34BandingConfigHelper1Mayb
   %13 = uitofp nneg i32 %12 to double
   %14 = fdiv double %4, %13
   %15 = fadd double %14, -1.000000e+00
-  %16 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm128ELb1EE17kKnownToAddByPow2E, i64 %11
+  %16 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm128ELb1EE17kKnownToAddByPow2E, i64 %11
   %17 = load double, ptr %16, align 8, !tbaa !8
   %18 = fsub double 1.000000e+00, %15
   %19 = zext i32 %7 to i64
-  %20 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm128ELb1EE17kKnownToAddByPow2E, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm128ELb1EE17kKnownToAddByPow2E, i64 %19
   %21 = load double, ptr %20, align 8, !tbaa !8
   %22 = fmul double %18, %21
   %23 = tail call double @llvm.fmuladd.f64(double %15, double %17, double %22)
@@ -1463,7 +1463,7 @@ define weak_odr noundef i32 @_ZN7rocksdb6ribbon6detail34BandingConfigHelper1Mayb
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm128ELb1EE17kKnownToAddByPow2E, i64 %9
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm128ELb1EE17kKnownToAddByPow2E, i64 %9
   %13 = load double, ptr %12, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm128ELb1EE18GetNumToAddForPow2Ej.exit
 
@@ -1493,7 +1493,7 @@ _ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureCha
   br i1 %27, label %28, label %31
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm128ELb1EE17kKnownToAddByPow2E, i64 %26
+  %29 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm128ELb1EE17kKnownToAddByPow2E, i64 %26
   %30 = load double, ptr %29, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm128ELb1EE18GetNumToAddForPow2Ej.exit28
 
@@ -1512,7 +1512,7 @@ _ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureCha
   br i1 %40, label %41, label %44
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm128ELb1EE17kKnownToAddByPow2E, i64 %39
+  %42 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm128ELb1EE17kKnownToAddByPow2E, i64 %39
   %43 = load double, ptr %42, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm128ELb1EE18GetNumToAddForPow2Ej.exit28
 
@@ -1563,11 +1563,11 @@ define weak_odr noundef i32 @_ZN7rocksdb6ribbon6detail34BandingConfigHelper1Mayb
   %13 = uitofp nneg i32 %12 to double
   %14 = fdiv double %4, %13
   %15 = fadd double %14, -1.000000e+00
-  %16 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm128ELb0EE17kKnownToAddByPow2E, i64 %11
+  %16 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm128ELb0EE17kKnownToAddByPow2E, i64 %11
   %17 = load double, ptr %16, align 8, !tbaa !8
   %18 = fsub double 1.000000e+00, %15
   %19 = zext i32 %7 to i64
-  %20 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm128ELb0EE17kKnownToAddByPow2E, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm128ELb0EE17kKnownToAddByPow2E, i64 %19
   %21 = load double, ptr %20, align 8, !tbaa !8
   %22 = fmul double %18, %21
   %23 = tail call double @llvm.fmuladd.f64(double %15, double %17, double %22)
@@ -1608,7 +1608,7 @@ define weak_odr noundef i32 @_ZN7rocksdb6ribbon6detail34BandingConfigHelper1Mayb
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm128ELb0EE17kKnownToAddByPow2E, i64 %10
+  %13 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm128ELb0EE17kKnownToAddByPow2E, i64 %10
   %14 = load double, ptr %13, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm128ELb0EE18GetNumToAddForPow2Ej.exit
 
@@ -1638,7 +1638,7 @@ _ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureCha
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm128ELb0EE17kKnownToAddByPow2E, i64 %27
+  %30 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm128ELb0EE17kKnownToAddByPow2E, i64 %27
   %31 = load double, ptr %30, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm128ELb0EE18GetNumToAddForPow2Ej.exit29
 
@@ -1657,7 +1657,7 @@ _ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureCha
   br i1 %41, label %42, label %45
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm128ELb0EE17kKnownToAddByPow2E, i64 %40
+  %43 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm128ELb0EE17kKnownToAddByPow2E, i64 %40
   %44 = load double, ptr %43, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm128ELb0EE18GetNumToAddForPow2Ej.exit29
 
@@ -1708,11 +1708,11 @@ define weak_odr noundef i32 @_ZN7rocksdb6ribbon6detail34BandingConfigHelper1Mayb
   %13 = uitofp nneg i32 %12 to double
   %14 = fdiv double %4, %13
   %15 = fadd double %14, -1.000000e+00
-  %16 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm128ELb1EE17kKnownToAddByPow2E, i64 %11
+  %16 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm128ELb1EE17kKnownToAddByPow2E, i64 %11
   %17 = load double, ptr %16, align 8, !tbaa !8
   %18 = fsub double 1.000000e+00, %15
   %19 = zext i32 %7 to i64
-  %20 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm128ELb1EE17kKnownToAddByPow2E, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm128ELb1EE17kKnownToAddByPow2E, i64 %19
   %21 = load double, ptr %20, align 8, !tbaa !8
   %22 = fmul double %18, %21
   %23 = tail call double @llvm.fmuladd.f64(double %15, double %17, double %22)
@@ -1753,7 +1753,7 @@ define weak_odr noundef i32 @_ZN7rocksdb6ribbon6detail34BandingConfigHelper1Mayb
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm128ELb1EE17kKnownToAddByPow2E, i64 %10
+  %13 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm128ELb1EE17kKnownToAddByPow2E, i64 %10
   %14 = load double, ptr %13, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm128ELb1EE18GetNumToAddForPow2Ej.exit
 
@@ -1783,7 +1783,7 @@ _ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureCha
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm128ELb1EE17kKnownToAddByPow2E, i64 %27
+  %30 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm128ELb1EE17kKnownToAddByPow2E, i64 %27
   %31 = load double, ptr %30, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm128ELb1EE18GetNumToAddForPow2Ej.exit29
 
@@ -1802,7 +1802,7 @@ _ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureCha
   br i1 %41, label %42, label %45
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm128ELb1EE17kKnownToAddByPow2E, i64 %40
+  %43 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm128ELb1EE17kKnownToAddByPow2E, i64 %40
   %44 = load double, ptr %43, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm128ELb1EE18GetNumToAddForPow2Ej.exit29
 
@@ -1853,11 +1853,11 @@ define weak_odr noundef i32 @_ZN7rocksdb6ribbon6detail34BandingConfigHelper1Mayb
   %13 = uitofp nneg i32 %12 to double
   %14 = fdiv double %4, %13
   %15 = fadd double %14, -1.000000e+00
-  %16 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm64ELb0EE17kKnownToAddByPow2E, i64 %11
+  %16 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm64ELb0EE17kKnownToAddByPow2E, i64 %11
   %17 = load double, ptr %16, align 8, !tbaa !8
   %18 = fsub double 1.000000e+00, %15
   %19 = zext i32 %7 to i64
-  %20 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm64ELb0EE17kKnownToAddByPow2E, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm64ELb0EE17kKnownToAddByPow2E, i64 %19
   %21 = load double, ptr %20, align 8, !tbaa !8
   %22 = fmul double %18, %21
   %23 = tail call double @llvm.fmuladd.f64(double %15, double %17, double %22)
@@ -1894,7 +1894,7 @@ define weak_odr noundef i32 @_ZN7rocksdb6ribbon6detail34BandingConfigHelper1Mayb
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm64ELb0EE17kKnownToAddByPow2E, i64 %9
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm64ELb0EE17kKnownToAddByPow2E, i64 %9
   %13 = load double, ptr %12, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm64ELb0EE18GetNumToAddForPow2Ej.exit
 
@@ -1924,7 +1924,7 @@ _ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureCha
   br i1 %27, label %28, label %31
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm64ELb0EE17kKnownToAddByPow2E, i64 %26
+  %29 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm64ELb0EE17kKnownToAddByPow2E, i64 %26
   %30 = load double, ptr %29, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm64ELb0EE18GetNumToAddForPow2Ej.exit28
 
@@ -1943,7 +1943,7 @@ _ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureCha
   br i1 %40, label %41, label %44
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm64ELb0EE17kKnownToAddByPow2E, i64 %39
+  %42 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm64ELb0EE17kKnownToAddByPow2E, i64 %39
   %43 = load double, ptr %42, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm64ELb0EE18GetNumToAddForPow2Ej.exit28
 
@@ -1994,11 +1994,11 @@ define weak_odr noundef i32 @_ZN7rocksdb6ribbon6detail34BandingConfigHelper1Mayb
   %13 = uitofp nneg i32 %12 to double
   %14 = fdiv double %4, %13
   %15 = fadd double %14, -1.000000e+00
-  %16 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm64ELb1EE17kKnownToAddByPow2E, i64 %11
+  %16 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm64ELb1EE17kKnownToAddByPow2E, i64 %11
   %17 = load double, ptr %16, align 8, !tbaa !8
   %18 = fsub double 1.000000e+00, %15
   %19 = zext i32 %7 to i64
-  %20 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm64ELb1EE17kKnownToAddByPow2E, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm64ELb1EE17kKnownToAddByPow2E, i64 %19
   %21 = load double, ptr %20, align 8, !tbaa !8
   %22 = fmul double %18, %21
   %23 = tail call double @llvm.fmuladd.f64(double %15, double %17, double %22)
@@ -2035,7 +2035,7 @@ define weak_odr noundef i32 @_ZN7rocksdb6ribbon6detail34BandingConfigHelper1Mayb
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm64ELb1EE17kKnownToAddByPow2E, i64 %9
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm64ELb1EE17kKnownToAddByPow2E, i64 %9
   %13 = load double, ptr %12, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm64ELb1EE18GetNumToAddForPow2Ej.exit
 
@@ -2065,7 +2065,7 @@ _ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureCha
   br i1 %27, label %28, label %31
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm64ELb1EE17kKnownToAddByPow2E, i64 %26
+  %29 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm64ELb1EE17kKnownToAddByPow2E, i64 %26
   %30 = load double, ptr %29, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm64ELb1EE18GetNumToAddForPow2Ej.exit28
 
@@ -2084,7 +2084,7 @@ _ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureCha
   br i1 %40, label %41, label %44
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm64ELb1EE17kKnownToAddByPow2E, i64 %39
+  %42 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm64ELb1EE17kKnownToAddByPow2E, i64 %39
   %43 = load double, ptr %42, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm64ELb1EE18GetNumToAddForPow2Ej.exit28
 
@@ -2135,11 +2135,11 @@ define weak_odr noundef i32 @_ZN7rocksdb6ribbon6detail34BandingConfigHelper1Mayb
   %13 = uitofp nneg i32 %12 to double
   %14 = fdiv double %4, %13
   %15 = fadd double %14, -1.000000e+00
-  %16 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm64ELb0EE17kKnownToAddByPow2E, i64 %11
+  %16 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm64ELb0EE17kKnownToAddByPow2E, i64 %11
   %17 = load double, ptr %16, align 8, !tbaa !8
   %18 = fsub double 1.000000e+00, %15
   %19 = zext i32 %7 to i64
-  %20 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm64ELb0EE17kKnownToAddByPow2E, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm64ELb0EE17kKnownToAddByPow2E, i64 %19
   %21 = load double, ptr %20, align 8, !tbaa !8
   %22 = fmul double %18, %21
   %23 = tail call double @llvm.fmuladd.f64(double %15, double %17, double %22)
@@ -2180,7 +2180,7 @@ define weak_odr noundef i32 @_ZN7rocksdb6ribbon6detail34BandingConfigHelper1Mayb
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm64ELb0EE17kKnownToAddByPow2E, i64 %10
+  %13 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm64ELb0EE17kKnownToAddByPow2E, i64 %10
   %14 = load double, ptr %13, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm64ELb0EE18GetNumToAddForPow2Ej.exit
 
@@ -2210,7 +2210,7 @@ _ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureCha
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm64ELb0EE17kKnownToAddByPow2E, i64 %27
+  %30 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm64ELb0EE17kKnownToAddByPow2E, i64 %27
   %31 = load double, ptr %30, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm64ELb0EE18GetNumToAddForPow2Ej.exit29
 
@@ -2229,7 +2229,7 @@ _ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureCha
   br i1 %41, label %42, label %45
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm64ELb0EE17kKnownToAddByPow2E, i64 %40
+  %43 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm64ELb0EE17kKnownToAddByPow2E, i64 %40
   %44 = load double, ptr %43, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm64ELb0EE18GetNumToAddForPow2Ej.exit29
 
@@ -2280,11 +2280,11 @@ define weak_odr noundef i32 @_ZN7rocksdb6ribbon6detail34BandingConfigHelper1Mayb
   %13 = uitofp nneg i32 %12 to double
   %14 = fdiv double %4, %13
   %15 = fadd double %14, -1.000000e+00
-  %16 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm64ELb1EE17kKnownToAddByPow2E, i64 %11
+  %16 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm64ELb1EE17kKnownToAddByPow2E, i64 %11
   %17 = load double, ptr %16, align 8, !tbaa !8
   %18 = fsub double 1.000000e+00, %15
   %19 = zext i32 %7 to i64
-  %20 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm64ELb1EE17kKnownToAddByPow2E, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm64ELb1EE17kKnownToAddByPow2E, i64 %19
   %21 = load double, ptr %20, align 8, !tbaa !8
   %22 = fmul double %18, %21
   %23 = tail call double @llvm.fmuladd.f64(double %15, double %17, double %22)
@@ -2325,7 +2325,7 @@ define weak_odr noundef i32 @_ZN7rocksdb6ribbon6detail34BandingConfigHelper1Mayb
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm64ELb1EE17kKnownToAddByPow2E, i64 %10
+  %13 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm64ELb1EE17kKnownToAddByPow2E, i64 %10
   %14 = load double, ptr %13, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm64ELb1EE18GetNumToAddForPow2Ej.exit
 
@@ -2355,7 +2355,7 @@ _ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureCha
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm64ELb1EE17kKnownToAddByPow2E, i64 %27
+  %30 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm64ELb1EE17kKnownToAddByPow2E, i64 %27
   %31 = load double, ptr %30, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm64ELb1EE18GetNumToAddForPow2Ej.exit29
 
@@ -2374,7 +2374,7 @@ _ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureCha
   br i1 %41, label %42, label %45
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm64ELb1EE17kKnownToAddByPow2E, i64 %40
+  %43 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm64ELb1EE17kKnownToAddByPow2E, i64 %40
   %44 = load double, ptr %43, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE1ELm64ELb1EE18GetNumToAddForPow2Ej.exit29
 
@@ -2425,11 +2425,11 @@ define weak_odr noundef i32 @_ZN7rocksdb6ribbon6detail34BandingConfigHelper1Mayb
   %13 = uitofp nneg i32 %12 to double
   %14 = fdiv double %4, %13
   %15 = fadd double %14, -1.000000e+00
-  %16 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm128ELb0EE17kKnownToAddByPow2E, i64 %11
+  %16 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm128ELb0EE17kKnownToAddByPow2E, i64 %11
   %17 = load double, ptr %16, align 8, !tbaa !8
   %18 = fsub double 1.000000e+00, %15
   %19 = zext i32 %7 to i64
-  %20 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm128ELb0EE17kKnownToAddByPow2E, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm128ELb0EE17kKnownToAddByPow2E, i64 %19
   %21 = load double, ptr %20, align 8, !tbaa !8
   %22 = fmul double %18, %21
   %23 = tail call double @llvm.fmuladd.f64(double %15, double %17, double %22)
@@ -2466,7 +2466,7 @@ define weak_odr noundef i32 @_ZN7rocksdb6ribbon6detail34BandingConfigHelper1Mayb
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm128ELb0EE17kKnownToAddByPow2E, i64 %9
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm128ELb0EE17kKnownToAddByPow2E, i64 %9
   %13 = load double, ptr %12, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm128ELb0EE18GetNumToAddForPow2Ej.exit
 
@@ -2496,7 +2496,7 @@ _ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureCha
   br i1 %27, label %28, label %31
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm128ELb0EE17kKnownToAddByPow2E, i64 %26
+  %29 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm128ELb0EE17kKnownToAddByPow2E, i64 %26
   %30 = load double, ptr %29, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm128ELb0EE18GetNumToAddForPow2Ej.exit28
 
@@ -2515,7 +2515,7 @@ _ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureCha
   br i1 %40, label %41, label %44
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm128ELb0EE17kKnownToAddByPow2E, i64 %39
+  %42 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm128ELb0EE17kKnownToAddByPow2E, i64 %39
   %43 = load double, ptr %42, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm128ELb0EE18GetNumToAddForPow2Ej.exit28
 
@@ -2566,11 +2566,11 @@ define weak_odr noundef i32 @_ZN7rocksdb6ribbon6detail34BandingConfigHelper1Mayb
   %13 = uitofp nneg i32 %12 to double
   %14 = fdiv double %4, %13
   %15 = fadd double %14, -1.000000e+00
-  %16 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm128ELb1EE17kKnownToAddByPow2E, i64 %11
+  %16 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm128ELb1EE17kKnownToAddByPow2E, i64 %11
   %17 = load double, ptr %16, align 8, !tbaa !8
   %18 = fsub double 1.000000e+00, %15
   %19 = zext i32 %7 to i64
-  %20 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm128ELb1EE17kKnownToAddByPow2E, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm128ELb1EE17kKnownToAddByPow2E, i64 %19
   %21 = load double, ptr %20, align 8, !tbaa !8
   %22 = fmul double %18, %21
   %23 = tail call double @llvm.fmuladd.f64(double %15, double %17, double %22)
@@ -2607,7 +2607,7 @@ define weak_odr noundef i32 @_ZN7rocksdb6ribbon6detail34BandingConfigHelper1Mayb
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm128ELb1EE17kKnownToAddByPow2E, i64 %9
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm128ELb1EE17kKnownToAddByPow2E, i64 %9
   %13 = load double, ptr %12, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm128ELb1EE18GetNumToAddForPow2Ej.exit
 
@@ -2637,7 +2637,7 @@ _ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureCha
   br i1 %27, label %28, label %31
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm128ELb1EE17kKnownToAddByPow2E, i64 %26
+  %29 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm128ELb1EE17kKnownToAddByPow2E, i64 %26
   %30 = load double, ptr %29, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm128ELb1EE18GetNumToAddForPow2Ej.exit28
 
@@ -2656,7 +2656,7 @@ _ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureCha
   br i1 %40, label %41, label %44
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm128ELb1EE17kKnownToAddByPow2E, i64 %39
+  %42 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm128ELb1EE17kKnownToAddByPow2E, i64 %39
   %43 = load double, ptr %42, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm128ELb1EE18GetNumToAddForPow2Ej.exit28
 
@@ -2707,11 +2707,11 @@ define weak_odr noundef i32 @_ZN7rocksdb6ribbon6detail34BandingConfigHelper1Mayb
   %13 = uitofp nneg i32 %12 to double
   %14 = fdiv double %4, %13
   %15 = fadd double %14, -1.000000e+00
-  %16 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm128ELb0EE17kKnownToAddByPow2E, i64 %11
+  %16 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm128ELb0EE17kKnownToAddByPow2E, i64 %11
   %17 = load double, ptr %16, align 8, !tbaa !8
   %18 = fsub double 1.000000e+00, %15
   %19 = zext i32 %7 to i64
-  %20 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm128ELb0EE17kKnownToAddByPow2E, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm128ELb0EE17kKnownToAddByPow2E, i64 %19
   %21 = load double, ptr %20, align 8, !tbaa !8
   %22 = fmul double %18, %21
   %23 = tail call double @llvm.fmuladd.f64(double %15, double %17, double %22)
@@ -2752,7 +2752,7 @@ define weak_odr noundef i32 @_ZN7rocksdb6ribbon6detail34BandingConfigHelper1Mayb
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm128ELb0EE17kKnownToAddByPow2E, i64 %10
+  %13 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm128ELb0EE17kKnownToAddByPow2E, i64 %10
   %14 = load double, ptr %13, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm128ELb0EE18GetNumToAddForPow2Ej.exit
 
@@ -2782,7 +2782,7 @@ _ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureCha
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm128ELb0EE17kKnownToAddByPow2E, i64 %27
+  %30 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm128ELb0EE17kKnownToAddByPow2E, i64 %27
   %31 = load double, ptr %30, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm128ELb0EE18GetNumToAddForPow2Ej.exit29
 
@@ -2801,7 +2801,7 @@ _ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureCha
   br i1 %41, label %42, label %45
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm128ELb0EE17kKnownToAddByPow2E, i64 %40
+  %43 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm128ELb0EE17kKnownToAddByPow2E, i64 %40
   %44 = load double, ptr %43, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm128ELb0EE18GetNumToAddForPow2Ej.exit29
 
@@ -2852,11 +2852,11 @@ define weak_odr noundef i32 @_ZN7rocksdb6ribbon6detail34BandingConfigHelper1Mayb
   %13 = uitofp nneg i32 %12 to double
   %14 = fdiv double %4, %13
   %15 = fadd double %14, -1.000000e+00
-  %16 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm128ELb1EE17kKnownToAddByPow2E, i64 %11
+  %16 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm128ELb1EE17kKnownToAddByPow2E, i64 %11
   %17 = load double, ptr %16, align 8, !tbaa !8
   %18 = fsub double 1.000000e+00, %15
   %19 = zext i32 %7 to i64
-  %20 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm128ELb1EE17kKnownToAddByPow2E, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm128ELb1EE17kKnownToAddByPow2E, i64 %19
   %21 = load double, ptr %20, align 8, !tbaa !8
   %22 = fmul double %18, %21
   %23 = tail call double @llvm.fmuladd.f64(double %15, double %17, double %22)
@@ -2897,7 +2897,7 @@ define weak_odr noundef i32 @_ZN7rocksdb6ribbon6detail34BandingConfigHelper1Mayb
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm128ELb1EE17kKnownToAddByPow2E, i64 %10
+  %13 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm128ELb1EE17kKnownToAddByPow2E, i64 %10
   %14 = load double, ptr %13, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm128ELb1EE18GetNumToAddForPow2Ej.exit
 
@@ -2927,7 +2927,7 @@ _ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureCha
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm128ELb1EE17kKnownToAddByPow2E, i64 %27
+  %30 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm128ELb1EE17kKnownToAddByPow2E, i64 %27
   %31 = load double, ptr %30, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm128ELb1EE18GetNumToAddForPow2Ej.exit29
 
@@ -2946,7 +2946,7 @@ _ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureCha
   br i1 %41, label %42, label %45
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm128ELb1EE17kKnownToAddByPow2E, i64 %40
+  %43 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm128ELb1EE17kKnownToAddByPow2E, i64 %40
   %44 = load double, ptr %43, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm128ELb1EE18GetNumToAddForPow2Ej.exit29
 
@@ -2997,11 +2997,11 @@ define weak_odr noundef i32 @_ZN7rocksdb6ribbon6detail34BandingConfigHelper1Mayb
   %13 = uitofp nneg i32 %12 to double
   %14 = fdiv double %4, %13
   %15 = fadd double %14, -1.000000e+00
-  %16 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm64ELb0EE17kKnownToAddByPow2E, i64 %11
+  %16 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm64ELb0EE17kKnownToAddByPow2E, i64 %11
   %17 = load double, ptr %16, align 8, !tbaa !8
   %18 = fsub double 1.000000e+00, %15
   %19 = zext i32 %7 to i64
-  %20 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm64ELb0EE17kKnownToAddByPow2E, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm64ELb0EE17kKnownToAddByPow2E, i64 %19
   %21 = load double, ptr %20, align 8, !tbaa !8
   %22 = fmul double %18, %21
   %23 = tail call double @llvm.fmuladd.f64(double %15, double %17, double %22)
@@ -3038,7 +3038,7 @@ define weak_odr noundef i32 @_ZN7rocksdb6ribbon6detail34BandingConfigHelper1Mayb
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm64ELb0EE17kKnownToAddByPow2E, i64 %9
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm64ELb0EE17kKnownToAddByPow2E, i64 %9
   %13 = load double, ptr %12, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm64ELb0EE18GetNumToAddForPow2Ej.exit
 
@@ -3068,7 +3068,7 @@ _ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureCha
   br i1 %27, label %28, label %31
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm64ELb0EE17kKnownToAddByPow2E, i64 %26
+  %29 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm64ELb0EE17kKnownToAddByPow2E, i64 %26
   %30 = load double, ptr %29, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm64ELb0EE18GetNumToAddForPow2Ej.exit28
 
@@ -3087,7 +3087,7 @@ _ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureCha
   br i1 %40, label %41, label %44
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm64ELb0EE17kKnownToAddByPow2E, i64 %39
+  %42 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm64ELb0EE17kKnownToAddByPow2E, i64 %39
   %43 = load double, ptr %42, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm64ELb0EE18GetNumToAddForPow2Ej.exit28
 
@@ -3138,11 +3138,11 @@ define weak_odr noundef i32 @_ZN7rocksdb6ribbon6detail34BandingConfigHelper1Mayb
   %13 = uitofp nneg i32 %12 to double
   %14 = fdiv double %4, %13
   %15 = fadd double %14, -1.000000e+00
-  %16 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm64ELb1EE17kKnownToAddByPow2E, i64 %11
+  %16 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm64ELb1EE17kKnownToAddByPow2E, i64 %11
   %17 = load double, ptr %16, align 8, !tbaa !8
   %18 = fsub double 1.000000e+00, %15
   %19 = zext i32 %7 to i64
-  %20 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm64ELb1EE17kKnownToAddByPow2E, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm64ELb1EE17kKnownToAddByPow2E, i64 %19
   %21 = load double, ptr %20, align 8, !tbaa !8
   %22 = fmul double %18, %21
   %23 = tail call double @llvm.fmuladd.f64(double %15, double %17, double %22)
@@ -3179,7 +3179,7 @@ define weak_odr noundef i32 @_ZN7rocksdb6ribbon6detail34BandingConfigHelper1Mayb
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm64ELb1EE17kKnownToAddByPow2E, i64 %9
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm64ELb1EE17kKnownToAddByPow2E, i64 %9
   %13 = load double, ptr %12, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm64ELb1EE18GetNumToAddForPow2Ej.exit
 
@@ -3209,7 +3209,7 @@ _ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureCha
   br i1 %27, label %28, label %31
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm64ELb1EE17kKnownToAddByPow2E, i64 %26
+  %29 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm64ELb1EE17kKnownToAddByPow2E, i64 %26
   %30 = load double, ptr %29, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm64ELb1EE18GetNumToAddForPow2Ej.exit28
 
@@ -3228,7 +3228,7 @@ _ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureCha
   br i1 %40, label %41, label %44
 
 41:                                               ; preds = %37
-  %42 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm64ELb1EE17kKnownToAddByPow2E, i64 %39
+  %42 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm64ELb1EE17kKnownToAddByPow2E, i64 %39
   %43 = load double, ptr %42, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm64ELb1EE18GetNumToAddForPow2Ej.exit28
 
@@ -3279,11 +3279,11 @@ define weak_odr noundef i32 @_ZN7rocksdb6ribbon6detail34BandingConfigHelper1Mayb
   %13 = uitofp nneg i32 %12 to double
   %14 = fdiv double %4, %13
   %15 = fadd double %14, -1.000000e+00
-  %16 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm64ELb0EE17kKnownToAddByPow2E, i64 %11
+  %16 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm64ELb0EE17kKnownToAddByPow2E, i64 %11
   %17 = load double, ptr %16, align 8, !tbaa !8
   %18 = fsub double 1.000000e+00, %15
   %19 = zext i32 %7 to i64
-  %20 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm64ELb0EE17kKnownToAddByPow2E, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm64ELb0EE17kKnownToAddByPow2E, i64 %19
   %21 = load double, ptr %20, align 8, !tbaa !8
   %22 = fmul double %18, %21
   %23 = tail call double @llvm.fmuladd.f64(double %15, double %17, double %22)
@@ -3324,7 +3324,7 @@ define weak_odr noundef i32 @_ZN7rocksdb6ribbon6detail34BandingConfigHelper1Mayb
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm64ELb0EE17kKnownToAddByPow2E, i64 %10
+  %13 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm64ELb0EE17kKnownToAddByPow2E, i64 %10
   %14 = load double, ptr %13, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm64ELb0EE18GetNumToAddForPow2Ej.exit
 
@@ -3354,7 +3354,7 @@ _ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureCha
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm64ELb0EE17kKnownToAddByPow2E, i64 %27
+  %30 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm64ELb0EE17kKnownToAddByPow2E, i64 %27
   %31 = load double, ptr %30, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm64ELb0EE18GetNumToAddForPow2Ej.exit29
 
@@ -3373,7 +3373,7 @@ _ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureCha
   br i1 %41, label %42, label %45
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm64ELb0EE17kKnownToAddByPow2E, i64 %40
+  %43 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm64ELb0EE17kKnownToAddByPow2E, i64 %40
   %44 = load double, ptr %43, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm64ELb0EE18GetNumToAddForPow2Ej.exit29
 
@@ -3424,11 +3424,11 @@ define weak_odr noundef i32 @_ZN7rocksdb6ribbon6detail34BandingConfigHelper1Mayb
   %13 = uitofp nneg i32 %12 to double
   %14 = fdiv double %4, %13
   %15 = fadd double %14, -1.000000e+00
-  %16 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm64ELb1EE17kKnownToAddByPow2E, i64 %11
+  %16 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm64ELb1EE17kKnownToAddByPow2E, i64 %11
   %17 = load double, ptr %16, align 8, !tbaa !8
   %18 = fsub double 1.000000e+00, %15
   %19 = zext i32 %7 to i64
-  %20 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm64ELb1EE17kKnownToAddByPow2E, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm64ELb1EE17kKnownToAddByPow2E, i64 %19
   %21 = load double, ptr %20, align 8, !tbaa !8
   %22 = fmul double %18, %21
   %23 = tail call double @llvm.fmuladd.f64(double %15, double %17, double %22)
@@ -3469,7 +3469,7 @@ define weak_odr noundef i32 @_ZN7rocksdb6ribbon6detail34BandingConfigHelper1Mayb
   br i1 %11, label %12, label %15
 
 12:                                               ; preds = %3
-  %13 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm64ELb1EE17kKnownToAddByPow2E, i64 %10
+  %13 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm64ELb1EE17kKnownToAddByPow2E, i64 %10
   %14 = load double, ptr %13, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm64ELb1EE18GetNumToAddForPow2Ej.exit
 
@@ -3499,7 +3499,7 @@ _ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureCha
   br i1 %28, label %29, label %32
 
 29:                                               ; preds = %25
-  %30 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm64ELb1EE17kKnownToAddByPow2E, i64 %27
+  %30 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm64ELb1EE17kKnownToAddByPow2E, i64 %27
   %31 = load double, ptr %30, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm64ELb1EE18GetNumToAddForPow2Ej.exit29
 
@@ -3518,7 +3518,7 @@ _ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureCha
   br i1 %41, label %42, label %45
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds nuw double, ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm64ELb1EE17kKnownToAddByPow2E, i64 %40
+  %43 = getelementptr inbounds nuw [8 x i8], ptr @_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm64ELb1EE17kKnownToAddByPow2E, i64 %40
   %44 = load double, ptr %43, align 8, !tbaa !8
   br label %_ZN7rocksdb6ribbon6detail23BandingConfigHelperDataILNS0_25ConstructionFailureChanceE2ELm64ELb1EE18GetNumToAddForPow2Ej.exit29
 

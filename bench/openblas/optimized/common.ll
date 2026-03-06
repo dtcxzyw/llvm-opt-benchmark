@@ -17,7 +17,7 @@ define void @srand_generate(ptr noundef writeonly captures(none) %0, i32 noundef
   %4 = tail call i32 @rand() #6
   %5 = sitofp i32 %4 to float
   %6 = fmul nnan float %5, 0x3E00000000000000
-  %7 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   store float %6, ptr %7, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -44,7 +44,7 @@ define void @drand_generate(ptr noundef writeonly captures(none) %0, i32 noundef
   %4 = tail call i32 @rand() #6
   %5 = sitofp i32 %4 to double
   %6 = fdiv double %5, 0x41DFFFFFFFC00000
-  %7 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   store double %6, ptr %7, align 8, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -83,9 +83,9 @@ define float @smatrix_difference(ptr noundef %0, ptr noundef readonly captures(n
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %12 = getelementptr inbounds nuw float, ptr %.027, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %.027, i64 %indvars.iv
   %13 = load float, ptr %12, align 4, !tbaa !3
-  %14 = getelementptr inbounds nuw float, ptr %.01826, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %.01826, i64 %indvars.iv
   %15 = load float, ptr %14, align 4, !tbaa !3
   %16 = fsub float %15, %13
   store float %16, ptr %14, align 4, !tbaa !3
@@ -96,8 +96,8 @@ define float @smatrix_difference(ptr noundef %0, ptr noundef readonly captures(n
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %17 = call float @snrm2_(ptr noundef nonnull %6, ptr noundef %.01826, ptr noundef nonnull %7) #6
   %18 = fadd float %.01925, %17
-  %19 = getelementptr inbounds float, ptr %.01826, i64 %9
-  %20 = getelementptr inbounds float, ptr %.027, i64 %9
+  %19 = getelementptr inbounds [4 x i8], ptr %.01826, i64 %9
+  %20 = getelementptr inbounds [4 x i8], ptr %.027, i64 %9
   %21 = add nuw nsw i32 %.02124, 1
   %exitcond30.not = icmp eq i32 %21, %3
   br i1 %exitcond30.not, label %._crit_edge28, label %.preheader, !llvm.loop !15
@@ -141,9 +141,9 @@ define double @dmatrix_difference(ptr noundef %0, ptr noundef readonly captures(
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %12 = getelementptr inbounds nuw double, ptr %.027, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %.027, i64 %indvars.iv
   %13 = load double, ptr %12, align 8, !tbaa !9
-  %14 = getelementptr inbounds nuw double, ptr %.01826, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %.01826, i64 %indvars.iv
   %15 = load double, ptr %14, align 8, !tbaa !9
   %16 = fsub double %15, %13
   store double %16, ptr %14, align 8, !tbaa !9
@@ -154,8 +154,8 @@ define double @dmatrix_difference(ptr noundef %0, ptr noundef readonly captures(
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %17 = call double @dnrm2_(ptr noundef nonnull %6, ptr noundef %.01826, ptr noundef nonnull %7) #6
   %18 = fadd double %.01925, %17
-  %19 = getelementptr inbounds double, ptr %.01826, i64 %9
-  %20 = getelementptr inbounds double, ptr %.027, i64 %9
+  %19 = getelementptr inbounds [8 x i8], ptr %.01826, i64 %9
+  %20 = getelementptr inbounds [8 x i8], ptr %.027, i64 %9
   %21 = add nuw nsw i32 %.02124, 1
   %exitcond30.not = icmp eq i32 %21, %3
   br i1 %exitcond30.not, label %._crit_edge28, label %.preheader, !llvm.loop !17
@@ -187,7 +187,7 @@ define void @cconjugate_vector(i32 noundef %0, i32 noundef %1, ptr noundef captu
   %9 = load float, ptr %8, align 4, !tbaa !3
   %10 = fneg float %9
   store float %10, ptr %8, align 4, !tbaa !3
-  %11 = getelementptr inbounds float, ptr %.067, i64 %6
+  %11 = getelementptr inbounds [4 x i8], ptr %.067, i64 %6
   %12 = add nuw nsw i32 %.08, 1
   %exitcond.not = icmp eq i32 %12, %0
   br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !18
@@ -213,7 +213,7 @@ define void @zconjugate_vector(i32 noundef %0, i32 noundef %1, ptr noundef captu
   %9 = load double, ptr %8, align 8, !tbaa !9
   %10 = fneg double %9
   store double %10, ptr %8, align 8, !tbaa !9
-  %11 = getelementptr inbounds double, ptr %.067, i64 %6
+  %11 = getelementptr inbounds [8 x i8], ptr %.067, i64 %6
   %12 = add nuw nsw i32 %.08, 1
   %exitcond.not = icmp eq i32 %12, %0
   br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !19
@@ -239,17 +239,17 @@ define void @stranspose(i32 noundef %0, i32 noundef %1, float noundef %2, ptr no
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge
   %indvars.iv23 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next24, %._crit_edge ]
   %12 = mul nsw i64 %indvars.iv23, %10
-  %invariant.gep = getelementptr float, ptr %3, i64 %indvars.iv23
-  %invariant.gep27 = getelementptr float, ptr %5, i64 %12
+  %invariant.gep = getelementptr [4 x i8], ptr %3, i64 %indvars.iv23
+  %invariant.gep27 = getelementptr [4 x i8], ptr %5, i64 %12
   br label %13
 
 13:                                               ; preds = %.preheader, %13
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %13 ]
   %14 = mul nsw i64 %indvars.iv, %8
-  %gep = getelementptr float, ptr %invariant.gep, i64 %14
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %14
   %15 = load float, ptr %gep, align 4, !tbaa !3
   %16 = fmul float %2, %15
-  %gep28 = getelementptr float, ptr %invariant.gep27, i64 %indvars.iv
+  %gep28 = getelementptr [4 x i8], ptr %invariant.gep27, i64 %indvars.iv
   store float %16, ptr %gep28, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not15 = icmp eq i64 %indvars.iv.next, %9
@@ -281,17 +281,17 @@ define void @dtranspose(i32 noundef %0, i32 noundef %1, double noundef %2, ptr n
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge
   %indvars.iv23 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next24, %._crit_edge ]
   %12 = mul nsw i64 %indvars.iv23, %10
-  %invariant.gep = getelementptr double, ptr %3, i64 %indvars.iv23
-  %invariant.gep27 = getelementptr double, ptr %5, i64 %12
+  %invariant.gep = getelementptr [8 x i8], ptr %3, i64 %indvars.iv23
+  %invariant.gep27 = getelementptr [8 x i8], ptr %5, i64 %12
   br label %13
 
 13:                                               ; preds = %.preheader, %13
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %13 ]
   %14 = mul nsw i64 %indvars.iv, %8
-  %gep = getelementptr double, ptr %invariant.gep, i64 %14
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %14
   %15 = load double, ptr %gep, align 8, !tbaa !9
   %16 = fmul double %2, %15
-  %gep28 = getelementptr double, ptr %invariant.gep27, i64 %indvars.iv
+  %gep28 = getelementptr [8 x i8], ptr %invariant.gep27, i64 %indvars.iv
   store double %16, ptr %gep28, align 8, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not15 = icmp eq i64 %indvars.iv.next, %9
@@ -333,8 +333,8 @@ define void @ctranspose(i32 noundef %0, i32 noundef %1, ptr noundef readonly cap
   %indvars.iv46 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next47, %._crit_edge ]
   %20 = lshr exact i64 %indvars.iv46, 1
   %21 = mul nsw i64 %20, %18
-  %invariant.gep = getelementptr float, ptr %3, i64 %indvars.iv46
-  %invariant.gep49 = getelementptr float, ptr %5, i64 %21
+  %invariant.gep = getelementptr [4 x i8], ptr %3, i64 %indvars.iv46
+  %invariant.gep49 = getelementptr [4 x i8], ptr %5, i64 %21
   br label %22
 
 22:                                               ; preds = %.preheader, %22
@@ -342,7 +342,7 @@ define void @ctranspose(i32 noundef %0, i32 noundef %1, ptr noundef readonly cap
   %23 = load float, ptr %2, align 4, !tbaa !3
   %24 = lshr exact i64 %indvars.iv, 1
   %25 = mul nsw i64 %24, %16
-  %gep = getelementptr float, ptr %invariant.gep, i64 %25
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %25
   %26 = load float, ptr %gep, align 4, !tbaa !3
   %27 = load float, ptr %13, align 4, !tbaa !3
   %28 = fmul float %27, %12
@@ -350,7 +350,7 @@ define void @ctranspose(i32 noundef %0, i32 noundef %1, ptr noundef readonly cap
   %30 = load float, ptr %29, align 4, !tbaa !3
   %31 = fmul float %28, %30
   %32 = tail call float @llvm.fmuladd.f32(float %23, float %26, float %31)
-  %gep50 = getelementptr float, ptr %invariant.gep49, i64 %indvars.iv
+  %gep50 = getelementptr [4 x i8], ptr %invariant.gep49, i64 %indvars.iv
   store float %32, ptr %gep50, align 4, !tbaa !3
   %33 = load float, ptr %2, align 4, !tbaa !3
   %34 = fmul float %33, %14
@@ -404,8 +404,8 @@ define void @ztranspose(i32 noundef %0, i32 noundef %1, ptr noundef readonly cap
   %indvars.iv46 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next47, %._crit_edge ]
   %20 = lshr exact i64 %indvars.iv46, 1
   %21 = mul nsw i64 %20, %18
-  %invariant.gep = getelementptr double, ptr %3, i64 %indvars.iv46
-  %invariant.gep49 = getelementptr double, ptr %5, i64 %21
+  %invariant.gep = getelementptr [8 x i8], ptr %3, i64 %indvars.iv46
+  %invariant.gep49 = getelementptr [8 x i8], ptr %5, i64 %21
   br label %22
 
 22:                                               ; preds = %.preheader, %22
@@ -413,7 +413,7 @@ define void @ztranspose(i32 noundef %0, i32 noundef %1, ptr noundef readonly cap
   %23 = load double, ptr %2, align 8, !tbaa !9
   %24 = lshr exact i64 %indvars.iv, 1
   %25 = mul nsw i64 %24, %16
-  %gep = getelementptr double, ptr %invariant.gep, i64 %25
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %25
   %26 = load double, ptr %gep, align 8, !tbaa !9
   %27 = load double, ptr %13, align 8, !tbaa !9
   %28 = fmul double %27, %12
@@ -421,7 +421,7 @@ define void @ztranspose(i32 noundef %0, i32 noundef %1, ptr noundef readonly cap
   %30 = load double, ptr %29, align 8, !tbaa !9
   %31 = fmul double %28, %30
   %32 = tail call double @llvm.fmuladd.f64(double %23, double %26, double %31)
-  %gep50 = getelementptr double, ptr %invariant.gep49, i64 %indvars.iv
+  %gep50 = getelementptr [8 x i8], ptr %invariant.gep49, i64 %indvars.iv
   store double %32, ptr %gep50, align 8, !tbaa !9
   %33 = load double, ptr %2, align 8, !tbaa !9
   %34 = fmul double %33, %14
@@ -466,16 +466,16 @@ define void @my_scopy(i32 noundef %0, i32 noundef %1, float noundef %2, ptr noun
   %indvars.iv23 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next24, %._crit_edge ]
   %12 = mul nsw i64 %indvars.iv23, %9
   %13 = mul nsw i64 %indvars.iv23, %10
-  %invariant.gep = getelementptr float, ptr %3, i64 %12
-  %invariant.gep27 = getelementptr float, ptr %5, i64 %13
+  %invariant.gep = getelementptr [4 x i8], ptr %3, i64 %12
+  %invariant.gep27 = getelementptr [4 x i8], ptr %5, i64 %13
   br label %14
 
 14:                                               ; preds = %.preheader, %14
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %14 ]
-  %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   %15 = load float, ptr %gep, align 4, !tbaa !3
   %16 = fmul float %2, %15
-  %gep28 = getelementptr float, ptr %invariant.gep27, i64 %indvars.iv
+  %gep28 = getelementptr [4 x i8], ptr %invariant.gep27, i64 %indvars.iv
   store float %16, ptr %gep28, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not15 = icmp eq i64 %indvars.iv.next, %8
@@ -508,16 +508,16 @@ define void @my_dcopy(i32 noundef %0, i32 noundef %1, double noundef %2, ptr nou
   %indvars.iv23 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next24, %._crit_edge ]
   %12 = mul nsw i64 %indvars.iv23, %9
   %13 = mul nsw i64 %indvars.iv23, %10
-  %invariant.gep = getelementptr double, ptr %3, i64 %12
-  %invariant.gep27 = getelementptr double, ptr %5, i64 %13
+  %invariant.gep = getelementptr [8 x i8], ptr %3, i64 %12
+  %invariant.gep27 = getelementptr [8 x i8], ptr %5, i64 %13
   br label %14
 
 14:                                               ; preds = %.preheader, %14
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %14 ]
-  %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %indvars.iv
   %15 = load double, ptr %gep, align 8, !tbaa !9
   %16 = fmul double %2, %15
-  %gep28 = getelementptr double, ptr %invariant.gep27, i64 %indvars.iv
+  %gep28 = getelementptr [8 x i8], ptr %invariant.gep27, i64 %indvars.iv
   store double %16, ptr %gep28, align 8, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not15 = icmp eq i64 %indvars.iv.next, %8
@@ -558,14 +558,14 @@ define void @my_ccopy(i32 noundef %0, i32 noundef %1, ptr noundef readonly captu
   %indvars.iv46 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next47, %._crit_edge ]
   %19 = mul nsw i64 %indvars.iv46, %16
   %20 = mul nsw i64 %indvars.iv46, %17
-  %invariant.gep = getelementptr float, ptr %3, i64 %19
-  %invariant.gep49 = getelementptr float, ptr %5, i64 %20
+  %invariant.gep = getelementptr [4 x i8], ptr %3, i64 %19
+  %invariant.gep49 = getelementptr [4 x i8], ptr %5, i64 %20
   br label %21
 
 21:                                               ; preds = %.preheader, %21
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %21 ]
   %22 = load float, ptr %2, align 4, !tbaa !3
-  %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   %23 = load float, ptr %gep, align 4, !tbaa !3
   %24 = load float, ptr %12, align 4, !tbaa !3
   %25 = fmul float %24, %11
@@ -573,7 +573,7 @@ define void @my_ccopy(i32 noundef %0, i32 noundef %1, ptr noundef readonly captu
   %27 = load float, ptr %26, align 4, !tbaa !3
   %28 = fmul float %25, %27
   %29 = tail call float @llvm.fmuladd.f32(float %22, float %23, float %28)
-  %gep50 = getelementptr float, ptr %invariant.gep49, i64 %indvars.iv
+  %gep50 = getelementptr [4 x i8], ptr %invariant.gep49, i64 %indvars.iv
   store float %29, ptr %gep50, align 4, !tbaa !3
   %30 = load float, ptr %2, align 4, !tbaa !3
   %31 = fmul float %30, %13
@@ -623,14 +623,14 @@ define void @my_zcopy(i32 noundef %0, i32 noundef %1, ptr noundef readonly captu
   %indvars.iv46 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next47, %._crit_edge ]
   %19 = mul nsw i64 %indvars.iv46, %16
   %20 = mul nsw i64 %indvars.iv46, %17
-  %invariant.gep = getelementptr double, ptr %3, i64 %19
-  %invariant.gep49 = getelementptr double, ptr %5, i64 %20
+  %invariant.gep = getelementptr [8 x i8], ptr %3, i64 %19
+  %invariant.gep49 = getelementptr [8 x i8], ptr %5, i64 %20
   br label %21
 
 21:                                               ; preds = %.preheader, %21
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %21 ]
   %22 = load double, ptr %2, align 8, !tbaa !9
-  %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %indvars.iv
   %23 = load double, ptr %gep, align 8, !tbaa !9
   %24 = load double, ptr %12, align 8, !tbaa !9
   %25 = fmul double %24, %11
@@ -638,7 +638,7 @@ define void @my_zcopy(i32 noundef %0, i32 noundef %1, ptr noundef readonly captu
   %27 = load double, ptr %26, align 8, !tbaa !9
   %28 = fmul double %25, %27
   %29 = tail call double @llvm.fmuladd.f64(double %22, double %23, double %28)
-  %gep50 = getelementptr double, ptr %invariant.gep49, i64 %indvars.iv
+  %gep50 = getelementptr [8 x i8], ptr %invariant.gep49, i64 %indvars.iv
   store double %29, ptr %gep50, align 8, !tbaa !9
   %30 = load double, ptr %2, align 8, !tbaa !9
   %31 = fmul double %30, %13

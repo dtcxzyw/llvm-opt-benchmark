@@ -297,7 +297,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit:         ; preds = %3
   %19 = load ptr, ptr %18, align 8
   %20 = select i1 %.not.i.i.i, ptr %19, ptr %17
   %21 = sext i32 %2 to i64
-  %22 = getelementptr inbounds i16, ptr %20, i64 %21
+  %22 = getelementptr inbounds [2 x i8], ptr %20, i64 %21
   %23 = load i16, ptr %22, align 2, !tbaa !20
   %24 = icmp eq i16 %23, 91
   br i1 %24, label %29, label %_ZNK6icu_7713UnicodeString6charAtEi.exit.thread

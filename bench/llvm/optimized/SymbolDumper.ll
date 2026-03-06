@@ -62,12 +62,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateCommon.86" = type { %"class.llvm::SmallVectorBase" }
 %"class.llvm::SmallVectorBase" = type { ptr, i32, i32 }
 %"struct.llvm::SmallVectorStorage.87" = type { [240 x i8] }
-%"class.std::unique_ptr.42" = type { %"struct.std::__uniq_ptr_data.43" }
-%"struct.std::__uniq_ptr_data.43" = type { %"class.std::__uniq_ptr_impl.44" }
-%"class.std::__uniq_ptr_impl.44" = type { %"class.std::tuple.45" }
-%"class.std::tuple.45" = type { %"struct.std::_Tuple_impl.46" }
-%"struct.std::_Tuple_impl.46" = type { %"struct.std::_Head_base.49" }
-%"struct.std::_Head_base.49" = type { ptr }
 
 $_ZN4llvm8codeview22SymbolVisitorCallbacksD2Ev = comdat any
 
@@ -12588,7 +12582,7 @@ _ZN4llvm15SmallVectorImplINS_9FlagEntryEE7reserveEm.exit.i.i: ; preds = %10
 19:                                               ; preds = %_ZN4llvm15SmallVectorImplINS_9FlagEntryEE7reserveEm.exit.i.i, %_ZN4llvm15SmallVectorImplINS_9FlagEntryEE7reserveEm.exit.i.thread.i
   %20 = phi ptr [ %.pre, %_ZN4llvm15SmallVectorImplINS_9FlagEntryEE7reserveEm.exit.i.thread.i ], [ %14, %_ZN4llvm15SmallVectorImplINS_9FlagEntryEE7reserveEm.exit.i.i ]
   %.pre8.i5.i = phi i64 [ %18, %_ZN4llvm15SmallVectorImplINS_9FlagEntryEE7reserveEm.exit.i.thread.i ], [ 0, %_ZN4llvm15SmallVectorImplINS_9FlagEntryEE7reserveEm.exit.i.i ]
-  %21 = getelementptr inbounds nuw %"struct.llvm::FlagEntry", ptr %20, i64 %.pre8.i5.i
+  %21 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %.pre8.i5.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %21, ptr align 8 %.sroa.020.0.copyload, i64 %.idx.i, i1 false)
   %.pre.i.i = load i32, ptr %15, align 8, !tbaa !90
   br label %_ZN4llvm11SmallVectorINS_9FlagEntryELj10EEC2IS1_vEENS_8ArrayRefIT_EE.exit
@@ -12665,7 +12659,7 @@ _ZN4llvm13ScopedPrinter8flagNameERKNS_9FlagEntryES3_.exit149.thread169: ; preds 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %.020.i.ptr.i, i64 24, i1 false), !tbaa.struct !461
   %41 = getelementptr inbounds nuw i8, ptr %.pn19.i.i, i64 48
   %.neg.i.i.i.i.i.i.i = sdiv exact i64 %.020.i.idx.i, -24
-  %42 = getelementptr inbounds %"struct.llvm::FlagEntry", ptr %41, i64 %.neg.i.i.i.i.i.i.i
+  %42 = getelementptr inbounds [24 x i8], ptr %41, i64 %.neg.i.i.i.i.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %42, ptr noundef nonnull align 8 dereferenceable(1) %29, i64 %.020.i.idx.i, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false), !tbaa.struct !461
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -12864,7 +12858,7 @@ _ZN4llvm13ScopedPrinter8flagNameERKNS_9FlagEntryES3_.exit74.thread181: ; preds =
   %68 = ptrtoint ptr %.020.i20.i to i64
   %69 = sub i64 %68, %34
   %.neg.i.i.i.i.i.i30.i = sdiv exact i64 %69, -24
-  %70 = getelementptr inbounds %"struct.llvm::FlagEntry", ptr %67, i64 %.neg.i.i.i.i.i.i30.i
+  %70 = getelementptr inbounds [24 x i8], ptr %67, i64 %.neg.i.i.i.i.i.i30.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %70, ptr noundef nonnull align 8 dereferenceable(1) %29, i64 %69, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false), !tbaa.struct !461
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -13011,7 +13005,7 @@ _ZN4llvm11SmallVectorINS_9FlagEntryELj10EED2Ev.exit: ; preds = %_ZN4llvm4sortIRN
 109:                                              ; preds = %104
   %110 = zext i32 %105 to i64
   %111 = load ptr, ptr %13, align 8, !tbaa !57
-  %112 = getelementptr inbounds nuw %"struct.llvm::FlagEntry", ptr %111, i64 %110
+  %112 = getelementptr inbounds nuw [24 x i8], ptr %111, i64 %110
   %.sroa.0.0.copyload.i = load ptr, ptr %.0200, align 8, !tbaa !86
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.0200, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !87
@@ -13095,7 +13089,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_9FlagEntryELb1EE9push_backERKS1_.exit, label %14, !prof !469
 
 14:                                               ; preds = %3
-  %15 = getelementptr inbounds nuw %"struct.llvm::FlagEntry", ptr %.pre3.i, i64 %10
+  %15 = getelementptr inbounds nuw [24 x i8], ptr %.pre3.i, i64 %10
   %16 = icmp uge ptr %4, %.pre3.i
   %17 = icmp ult ptr %4, %15
   %spec.select.i.i.i.i.i = and i1 %16, %17
@@ -13122,7 +13116,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9FlagEntryELb1EE9push_backERKS1_.exit: ; pr
   %.016.i.i.i = phi ptr [ %4, %3 ], [ %24, %18 ], [ %4, %.critedge.i.i.i ]
   %27 = load i32, ptr %8, align 8, !tbaa !90
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw %"struct.llvm::FlagEntry", ptr %26, i64 %28
+  %29 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i, i64 24, i1 false)
   %30 = load i32, ptr %8, align 8, !tbaa !90
   %31 = add i32 %30, 1
@@ -13130,7 +13124,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9FlagEntryELb1EE9push_backERKS1_.exit: ; pr
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %32 = load ptr, ptr %0, align 8, !tbaa !57
   %33 = zext i32 %31 to i64
-  %34 = getelementptr inbounds nuw %"struct.llvm::FlagEntry", ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [24 x i8], ptr %32, i64 %33
   %35 = getelementptr inbounds i8, ptr %34, i64 -24
   ret ptr %35
 }
@@ -13174,13 +13168,13 @@ define linkonce_odr void @_ZSt16__introsort_loopIPN4llvm9FlagEntryElN9__gnu_cxx5
   %30 = and i64 %25, 1
   %31 = icmp eq i64 %30, 0
   %32 = or disjoint i64 %26, 1
-  %33 = getelementptr inbounds nuw %"struct.llvm::FlagEntry", ptr %0, i64 %32
-  %34 = getelementptr inbounds nuw %"struct.llvm::FlagEntry", ptr %0, i64 %27
+  %33 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %32
+  %34 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %27
   br label %35
 
 35:                                               ; preds = %_ZSt13__adjust_heapIPN4llvm9FlagEntryElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_T0_SC_T1_T2_.exit.i.i, %24
   %.013.i.i16 = phi i64 [ %27, %24 ], [ %58, %_ZSt13__adjust_heapIPN4llvm9FlagEntryElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_T0_SC_T1_T2_.exit.i.i ]
-  %36 = getelementptr inbounds nuw %"struct.llvm::FlagEntry", ptr %0, i64 %.013.i.i16
+  %36 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %.013.i.i16
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %36, i64 24, i1 false)
   %37 = icmp slt i64 %.013.i.i16, %29
@@ -13190,14 +13184,14 @@ define linkonce_odr void @_ZSt16__introsort_loopIPN4llvm9FlagEntryElN9__gnu_cxx5
   %.030.i.i.i = phi i64 [ %spec.select.i.i.i, %.lr.ph.i.i.i ], [ %.013.i.i16, %35 ]
   %38 = shl i64 %.030.i.i.i, 1
   %39 = add i64 %38, 2
-  %40 = getelementptr inbounds %"struct.llvm::FlagEntry", ptr %0, i64 %39
-  %41 = getelementptr %"struct.llvm::FlagEntry", ptr %0, i64 %38
+  %40 = getelementptr inbounds [24 x i8], ptr %0, i64 %39
+  %41 = getelementptr [24 x i8], ptr %0, i64 %38
   %42 = getelementptr i8, ptr %41, i64 24
   %43 = call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(24) %40, ptr noundef nonnull align 8 dereferenceable(24) %42) #19
   %44 = or disjoint i64 %38, 1
   %spec.select.i.i.i = select i1 %43, i64 %44, i64 %39
-  %45 = getelementptr inbounds %"struct.llvm::FlagEntry", ptr %0, i64 %spec.select.i.i.i
-  %46 = getelementptr inbounds %"struct.llvm::FlagEntry", ptr %0, i64 %.030.i.i.i
+  %45 = getelementptr inbounds [24 x i8], ptr %0, i64 %spec.select.i.i.i
+  %46 = getelementptr inbounds [24 x i8], ptr %0, i64 %.030.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, ptr noundef nonnull align 8 dereferenceable(24) %45, i64 24, i1 false), !tbaa.struct !461
   %47 = icmp slt i64 %spec.select.i.i.i, %29
   br i1 %47, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i, !llvm.loop !473
@@ -13223,19 +13217,19 @@ define linkonce_odr void @_ZSt16__introsort_loopIPN4llvm9FlagEntryElN9__gnu_cxx5
   %.01316.i.i.i.i = phi i64 [ %.017.i.i.i.i, %54 ], [ %.127.i.i.i, %50 ]
   %.017.in.i.i.i.i = add nsw i64 %.01316.i.i.i.i, -1
   %.017.i.i.i.i = sdiv i64 %.017.in.i.i.i.i, 2
-  %52 = getelementptr inbounds nuw %"struct.llvm::FlagEntry", ptr %0, i64 %.017.i.i.i.i
+  %52 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %.017.i.i.i.i
   %53 = call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(24) %52, ptr noundef nonnull align 8 dereferenceable(24) %5) #19
   br i1 %53, label %54, label %_ZSt13__adjust_heapIPN4llvm9FlagEntryElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_T0_SC_T1_T2_.exit.i.i
 
 54:                                               ; preds = %.lr.ph.i.i.i.i17
-  %55 = getelementptr inbounds nuw %"struct.llvm::FlagEntry", ptr %0, i64 %.01316.i.i.i.i
+  %55 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %.01316.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %55, ptr noundef nonnull align 8 dereferenceable(24) %52, i64 24, i1 false), !tbaa.struct !461
   %56 = icmp sgt i64 %.017.i.i.i.i, %.013.i.i16
   br i1 %56, label %.lr.ph.i.i.i.i17, label %_ZSt13__adjust_heapIPN4llvm9FlagEntryElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_T0_SC_T1_T2_.exit.i.i, !llvm.loop !474
 
 _ZSt13__adjust_heapIPN4llvm9FlagEntryElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_T0_SC_T1_T2_.exit.i.i: ; preds = %54, %.lr.ph.i.i.i.i17, %50
   %.013.lcssa.i.i.i.i = phi i64 [ %.127.i.i.i, %50 ], [ %.017.i.i.i.i, %54 ], [ %.01316.i.i.i.i, %.lr.ph.i.i.i.i17 ]
-  %57 = getelementptr inbounds nuw %"struct.llvm::FlagEntry", ptr %0, i64 %.013.lcssa.i.i.i.i
+  %57 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %.013.lcssa.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %57, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false), !tbaa.struct !461
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -13261,14 +13255,14 @@ _ZSt13__adjust_heapIPN4llvm9FlagEntryElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFb
   %.030.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %.lr.ph.i.i ]
   %66 = shl i64 %.030.i.i.i.i, 1
   %67 = add i64 %66, 2
-  %68 = getelementptr inbounds %"struct.llvm::FlagEntry", ptr %0, i64 %67
-  %69 = getelementptr %"struct.llvm::FlagEntry", ptr %0, i64 %66
+  %68 = getelementptr inbounds [24 x i8], ptr %0, i64 %67
+  %69 = getelementptr [24 x i8], ptr %0, i64 %66
   %70 = getelementptr i8, ptr %69, i64 24
   %71 = call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(24) %68, ptr noundef nonnull align 8 dereferenceable(24) %70) #19
   %72 = or disjoint i64 %66, 1
   %spec.select.i.i.i.i = select i1 %71, i64 %72, i64 %67
-  %73 = getelementptr inbounds %"struct.llvm::FlagEntry", ptr %0, i64 %spec.select.i.i.i.i
-  %74 = getelementptr inbounds %"struct.llvm::FlagEntry", ptr %0, i64 %.030.i.i.i.i
+  %73 = getelementptr inbounds [24 x i8], ptr %0, i64 %spec.select.i.i.i.i
+  %74 = getelementptr inbounds [24 x i8], ptr %0, i64 %.030.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %74, ptr noundef nonnull align 8 dereferenceable(24) %73, i64 24, i1 false), !tbaa.struct !461
   %75 = icmp slt i64 %spec.select.i.i.i.i, %64
   br i1 %75, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !473
@@ -13288,8 +13282,8 @@ _ZSt13__adjust_heapIPN4llvm9FlagEntryElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFb
 .thread.i.i.i:                                    ; preds = %78
   %82 = shl nuw nsw i64 %.0.lcssa.i.i.i.i, 1
   %83 = or disjoint i64 %82, 1
-  %84 = getelementptr inbounds nuw %"struct.llvm::FlagEntry", ptr %0, i64 %83
-  %85 = getelementptr inbounds %"struct.llvm::FlagEntry", ptr %0, i64 %.0.lcssa.i.i.i.i
+  %84 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %83
+  %85 = getelementptr inbounds [24 x i8], ptr %0, i64 %.0.lcssa.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %85, ptr noundef nonnull align 8 dereferenceable(24) %84, i64 24, i1 false), !tbaa.struct !461
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %15, i64 24, i1 false)
@@ -13309,19 +13303,19 @@ _ZSt13__adjust_heapIPN4llvm9FlagEntryElS1_N9__gnu_cxx5__ops15_Iter_comp_iterIPFb
   %.01316.i.i.i.i.i = phi i64 [ %.017.i.i78.i.i.i, %89 ], [ %.01316.i.i.i.i.i.ph, %.lr.ph.i.i.i.i.i.preheader ]
   %.017.in.i.i.i.i.i = add nsw i64 %.01316.i.i.i.i.i, -1
   %.017.i.i78.i.i.i = lshr i64 %.017.in.i.i.i.i.i, 1
-  %87 = getelementptr inbounds nuw %"struct.llvm::FlagEntry", ptr %0, i64 %.017.i.i78.i.i.i
+  %87 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %.017.i.i78.i.i.i
   %88 = call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(24) %87, ptr noundef nonnull align 8 dereferenceable(24) %14) #19
   br i1 %88, label %89, label %_ZSt10__pop_heapIPN4llvm9FlagEntryEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_SB_RT0_.exit.i.i
 
 89:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %90 = getelementptr inbounds %"struct.llvm::FlagEntry", ptr %0, i64 %.01316.i.i.i.i.i
+  %90 = getelementptr inbounds [24 x i8], ptr %0, i64 %.01316.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %90, ptr noundef nonnull align 8 dereferenceable(24) %87, i64 24, i1 false), !tbaa.struct !461
   %.not9.i.i.i = icmp eq i64 %.017.i.i78.i.i.i, 0
   br i1 %.not9.i.i.i, label %_ZSt10__pop_heapIPN4llvm9FlagEntryEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_SB_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !474
 
 _ZSt10__pop_heapIPN4llvm9FlagEntryEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7_EEEEvT_SB_SB_RT0_.exit.i.i: ; preds = %89, %.lr.ph.i.i.i.i.i, %86
   %.013.lcssa.i.i.i.i.i = phi i64 [ 0, %86 ], [ %.01316.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ 0, %89 ]
-  %91 = getelementptr inbounds %"struct.llvm::FlagEntry", ptr %0, i64 %.013.lcssa.i.i.i.i.i
+  %91 = getelementptr inbounds [24 x i8], ptr %0, i64 %.013.lcssa.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %91, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false), !tbaa.struct !461
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
@@ -13331,7 +13325,7 @@ _ZSt10__pop_heapIPN4llvm9FlagEntryEN9__gnu_cxx5__ops15_Iter_comp_iterIPFbRKS1_S7
 93:                                               ; preds = %21
   %94 = add nsw i64 %.01524, -1
   %95 = udiv i64 %22, 48
-  %96 = getelementptr inbounds nuw %"struct.llvm::FlagEntry", ptr %0, i64 %95
+  %96 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %95
   %97 = getelementptr inbounds i8, ptr %.025, i64 -24
   %98 = tail call noundef zeroext i1 %3(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %96) #19
   br i1 %98, label %99, label %106
@@ -13485,7 +13479,7 @@ _ZN4llvm15SmallVectorImplINS_9FlagEntryEE7reserveEm.exit.i.i: ; preds = %10
 19:                                               ; preds = %_ZN4llvm15SmallVectorImplINS_9FlagEntryEE7reserveEm.exit.i.i, %_ZN4llvm15SmallVectorImplINS_9FlagEntryEE7reserveEm.exit.i.thread.i
   %20 = phi ptr [ %.pre, %_ZN4llvm15SmallVectorImplINS_9FlagEntryEE7reserveEm.exit.i.thread.i ], [ %14, %_ZN4llvm15SmallVectorImplINS_9FlagEntryEE7reserveEm.exit.i.i ]
   %.pre8.i5.i = phi i64 [ %18, %_ZN4llvm15SmallVectorImplINS_9FlagEntryEE7reserveEm.exit.i.thread.i ], [ 0, %_ZN4llvm15SmallVectorImplINS_9FlagEntryEE7reserveEm.exit.i.i ]
-  %21 = getelementptr inbounds nuw %"struct.llvm::FlagEntry", ptr %20, i64 %.pre8.i5.i
+  %21 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %.pre8.i5.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %21, ptr align 8 %.sroa.020.0.copyload, i64 %.idx.i, i1 false)
   %.pre.i.i = load i32, ptr %15, align 8, !tbaa !90
   br label %_ZN4llvm11SmallVectorINS_9FlagEntryELj10EEC2IS1_vEENS_8ArrayRefIT_EE.exit
@@ -13562,7 +13556,7 @@ _ZN4llvm13ScopedPrinter8flagNameERKNS_9FlagEntryES3_.exit149.thread169: ; preds 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %.020.i.ptr.i, i64 24, i1 false), !tbaa.struct !461
   %41 = getelementptr inbounds nuw i8, ptr %.pn19.i.i, i64 48
   %.neg.i.i.i.i.i.i.i = sdiv exact i64 %.020.i.idx.i, -24
-  %42 = getelementptr inbounds %"struct.llvm::FlagEntry", ptr %41, i64 %.neg.i.i.i.i.i.i.i
+  %42 = getelementptr inbounds [24 x i8], ptr %41, i64 %.neg.i.i.i.i.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %42, ptr noundef nonnull align 8 dereferenceable(1) %29, i64 %.020.i.idx.i, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false), !tbaa.struct !461
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -13761,7 +13755,7 @@ _ZN4llvm13ScopedPrinter8flagNameERKNS_9FlagEntryES3_.exit74.thread181: ; preds =
   %68 = ptrtoint ptr %.020.i20.i to i64
   %69 = sub i64 %68, %34
   %.neg.i.i.i.i.i.i30.i = sdiv exact i64 %69, -24
-  %70 = getelementptr inbounds %"struct.llvm::FlagEntry", ptr %67, i64 %.neg.i.i.i.i.i.i30.i
+  %70 = getelementptr inbounds [24 x i8], ptr %67, i64 %.neg.i.i.i.i.i.i30.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %70, ptr noundef nonnull align 8 dereferenceable(1) %29, i64 %69, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false), !tbaa.struct !461
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -13908,7 +13902,7 @@ _ZN4llvm11SmallVectorINS_9FlagEntryELj10EED2Ev.exit: ; preds = %_ZN4llvm4sortIRN
 109:                                              ; preds = %104
   %110 = zext i32 %105 to i64
   %111 = load ptr, ptr %13, align 8, !tbaa !57
-  %112 = getelementptr inbounds nuw %"struct.llvm::FlagEntry", ptr %111, i64 %110
+  %112 = getelementptr inbounds nuw [24 x i8], ptr %111, i64 %110
   %.sroa.0.0.copyload.i = load ptr, ptr %.0200, align 8, !tbaa !86
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.0200, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !87
@@ -13955,7 +13949,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_9FlagEntryELb1EE9push_backERKS1_.exit, label %14, !prof !469
 
 14:                                               ; preds = %3
-  %15 = getelementptr inbounds nuw %"struct.llvm::FlagEntry", ptr %.pre3.i, i64 %10
+  %15 = getelementptr inbounds nuw [24 x i8], ptr %.pre3.i, i64 %10
   %16 = icmp uge ptr %4, %.pre3.i
   %17 = icmp ult ptr %4, %15
   %spec.select.i.i.i.i.i = and i1 %16, %17
@@ -13982,7 +13976,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9FlagEntryELb1EE9push_backERKS1_.exit: ; pr
   %.016.i.i.i = phi ptr [ %4, %3 ], [ %24, %18 ], [ %4, %.critedge.i.i.i ]
   %27 = load i32, ptr %8, align 8, !tbaa !90
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw %"struct.llvm::FlagEntry", ptr %26, i64 %28
+  %29 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i, i64 24, i1 false)
   %30 = load i32, ptr %8, align 8, !tbaa !90
   %31 = add i32 %30, 1
@@ -13990,7 +13984,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9FlagEntryELb1EE9push_backERKS1_.exit: ; pr
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %32 = load ptr, ptr %0, align 8, !tbaa !57
   %33 = zext i32 %31 to i64
-  %34 = getelementptr inbounds nuw %"struct.llvm::FlagEntry", ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [24 x i8], ptr %32, i64 %33
   %35 = getelementptr inbounds i8, ptr %34, i64 -24
   ret ptr %35
 }
@@ -14028,7 +14022,7 @@ _ZN4llvm15SmallVectorImplINS_9FlagEntryEE7reserveEm.exit.i.i: ; preds = %10
 19:                                               ; preds = %_ZN4llvm15SmallVectorImplINS_9FlagEntryEE7reserveEm.exit.i.i, %_ZN4llvm15SmallVectorImplINS_9FlagEntryEE7reserveEm.exit.i.thread.i
   %20 = phi ptr [ %.pre, %_ZN4llvm15SmallVectorImplINS_9FlagEntryEE7reserveEm.exit.i.thread.i ], [ %14, %_ZN4llvm15SmallVectorImplINS_9FlagEntryEE7reserveEm.exit.i.i ]
   %.pre8.i5.i = phi i64 [ %18, %_ZN4llvm15SmallVectorImplINS_9FlagEntryEE7reserveEm.exit.i.thread.i ], [ 0, %_ZN4llvm15SmallVectorImplINS_9FlagEntryEE7reserveEm.exit.i.i ]
-  %21 = getelementptr inbounds nuw %"struct.llvm::FlagEntry", ptr %20, i64 %.pre8.i5.i
+  %21 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %.pre8.i5.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %21, ptr align 8 %.sroa.020.0.copyload, i64 %.idx.i, i1 false)
   %.pre.i.i = load i32, ptr %15, align 8, !tbaa !90
   br label %_ZN4llvm11SmallVectorINS_9FlagEntryELj10EEC2IS1_vEENS_8ArrayRefIT_EE.exit
@@ -14105,7 +14099,7 @@ _ZN4llvm13ScopedPrinter8flagNameERKNS_9FlagEntryES3_.exit149.thread169: ; preds 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %.020.i.ptr.i, i64 24, i1 false), !tbaa.struct !461
   %41 = getelementptr inbounds nuw i8, ptr %.pn19.i.i, i64 48
   %.neg.i.i.i.i.i.i.i = sdiv exact i64 %.020.i.idx.i, -24
-  %42 = getelementptr inbounds %"struct.llvm::FlagEntry", ptr %41, i64 %.neg.i.i.i.i.i.i.i
+  %42 = getelementptr inbounds [24 x i8], ptr %41, i64 %.neg.i.i.i.i.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %42, ptr noundef nonnull align 8 dereferenceable(1) %29, i64 %.020.i.idx.i, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false), !tbaa.struct !461
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -14304,7 +14298,7 @@ _ZN4llvm13ScopedPrinter8flagNameERKNS_9FlagEntryES3_.exit74.thread181: ; preds =
   %68 = ptrtoint ptr %.020.i20.i to i64
   %69 = sub i64 %68, %34
   %.neg.i.i.i.i.i.i30.i = sdiv exact i64 %69, -24
-  %70 = getelementptr inbounds %"struct.llvm::FlagEntry", ptr %67, i64 %.neg.i.i.i.i.i.i30.i
+  %70 = getelementptr inbounds [24 x i8], ptr %67, i64 %.neg.i.i.i.i.i.i30.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %70, ptr noundef nonnull align 8 dereferenceable(1) %29, i64 %69, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false), !tbaa.struct !461
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -14451,7 +14445,7 @@ _ZN4llvm11SmallVectorINS_9FlagEntryELj10EED2Ev.exit: ; preds = %_ZN4llvm4sortIRN
 109:                                              ; preds = %104
   %110 = zext i32 %105 to i64
   %111 = load ptr, ptr %13, align 8, !tbaa !57
-  %112 = getelementptr inbounds nuw %"struct.llvm::FlagEntry", ptr %111, i64 %110
+  %112 = getelementptr inbounds nuw [24 x i8], ptr %111, i64 %110
   %.sroa.0.0.copyload.i = load ptr, ptr %.0200, align 8, !tbaa !86
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.0200, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !87
@@ -14605,7 +14599,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_9FlagEntryELb1EE9push_backERKS1_.exit, label %14, !prof !469
 
 14:                                               ; preds = %3
-  %15 = getelementptr inbounds nuw %"struct.llvm::FlagEntry", ptr %.pre3.i, i64 %10
+  %15 = getelementptr inbounds nuw [24 x i8], ptr %.pre3.i, i64 %10
   %16 = icmp uge ptr %4, %.pre3.i
   %17 = icmp ult ptr %4, %15
   %spec.select.i.i.i.i.i = and i1 %16, %17
@@ -14632,7 +14626,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9FlagEntryELb1EE9push_backERKS1_.exit: ; pr
   %.016.i.i.i = phi ptr [ %4, %3 ], [ %24, %18 ], [ %4, %.critedge.i.i.i ]
   %27 = load i32, ptr %8, align 8, !tbaa !90
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw %"struct.llvm::FlagEntry", ptr %26, i64 %28
+  %29 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i, i64 24, i1 false)
   %30 = load i32, ptr %8, align 8, !tbaa !90
   %31 = add i32 %30, 1
@@ -14640,7 +14634,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9FlagEntryELb1EE9push_backERKS1_.exit: ; pr
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %32 = load ptr, ptr %0, align 8, !tbaa !57
   %33 = zext i32 %31 to i64
-  %34 = getelementptr inbounds nuw %"struct.llvm::FlagEntry", ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [24 x i8], ptr %32, i64 %33
   %35 = getelementptr inbounds i8, ptr %34, i64 -24
   ret ptr %35
 }
@@ -14680,7 +14674,7 @@ _ZN4llvm15SmallVectorImplINS_9FlagEntryEE7reserveEm.exit.i.i: ; preds = %10
 19:                                               ; preds = %_ZN4llvm15SmallVectorImplINS_9FlagEntryEE7reserveEm.exit.i.i, %_ZN4llvm15SmallVectorImplINS_9FlagEntryEE7reserveEm.exit.i.thread.i
   %20 = phi ptr [ %.pre, %_ZN4llvm15SmallVectorImplINS_9FlagEntryEE7reserveEm.exit.i.thread.i ], [ %14, %_ZN4llvm15SmallVectorImplINS_9FlagEntryEE7reserveEm.exit.i.i ]
   %.pre8.i5.i = phi i64 [ %18, %_ZN4llvm15SmallVectorImplINS_9FlagEntryEE7reserveEm.exit.i.thread.i ], [ 0, %_ZN4llvm15SmallVectorImplINS_9FlagEntryEE7reserveEm.exit.i.i ]
-  %21 = getelementptr inbounds nuw %"struct.llvm::FlagEntry", ptr %20, i64 %.pre8.i5.i
+  %21 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %.pre8.i5.i
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %21, ptr align 8 %.sroa.020.0.copyload, i64 %.idx.i, i1 false)
   %.pre.i.i = load i32, ptr %15, align 8, !tbaa !90
   br label %_ZN4llvm11SmallVectorINS_9FlagEntryELj10EEC2IS1_vEENS_8ArrayRefIT_EE.exit
@@ -14757,7 +14751,7 @@ _ZN4llvm13ScopedPrinter8flagNameERKNS_9FlagEntryES3_.exit149.thread169: ; preds 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(24) %.020.i.ptr.i, i64 24, i1 false), !tbaa.struct !461
   %41 = getelementptr inbounds nuw i8, ptr %.pn19.i.i, i64 48
   %.neg.i.i.i.i.i.i.i = sdiv exact i64 %.020.i.idx.i, -24
-  %42 = getelementptr inbounds %"struct.llvm::FlagEntry", ptr %41, i64 %.neg.i.i.i.i.i.i.i
+  %42 = getelementptr inbounds [24 x i8], ptr %41, i64 %.neg.i.i.i.i.i.i.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %42, ptr noundef nonnull align 8 dereferenceable(1) %29, i64 %.020.i.idx.i, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false), !tbaa.struct !461
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
@@ -14956,7 +14950,7 @@ _ZN4llvm13ScopedPrinter8flagNameERKNS_9FlagEntryES3_.exit74.thread181: ; preds =
   %68 = ptrtoint ptr %.020.i20.i to i64
   %69 = sub i64 %68, %34
   %.neg.i.i.i.i.i.i30.i = sdiv exact i64 %69, -24
-  %70 = getelementptr inbounds %"struct.llvm::FlagEntry", ptr %67, i64 %.neg.i.i.i.i.i.i30.i
+  %70 = getelementptr inbounds [24 x i8], ptr %67, i64 %.neg.i.i.i.i.i.i30.i
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %70, ptr noundef nonnull align 8 dereferenceable(1) %29, i64 %69, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false), !tbaa.struct !461
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
@@ -15103,7 +15097,7 @@ _ZN4llvm11SmallVectorINS_9FlagEntryELj10EED2Ev.exit: ; preds = %_ZN4llvm4sortIRN
 109:                                              ; preds = %104
   %110 = zext i32 %105 to i64
   %111 = load ptr, ptr %13, align 8, !tbaa !57
-  %112 = getelementptr inbounds nuw %"struct.llvm::FlagEntry", ptr %111, i64 %110
+  %112 = getelementptr inbounds nuw [24 x i8], ptr %111, i64 %110
   %.sroa.0.0.copyload.i = load ptr, ptr %.0200, align 8, !tbaa !86
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.0200, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !87
@@ -15150,7 +15144,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_9FlagEntryELb1EE9push_backERKS1_.exit, label %14, !prof !469
 
 14:                                               ; preds = %3
-  %15 = getelementptr inbounds nuw %"struct.llvm::FlagEntry", ptr %.pre3.i, i64 %10
+  %15 = getelementptr inbounds nuw [24 x i8], ptr %.pre3.i, i64 %10
   %16 = icmp uge ptr %4, %.pre3.i
   %17 = icmp ult ptr %4, %15
   %spec.select.i.i.i.i.i = and i1 %16, %17
@@ -15177,7 +15171,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9FlagEntryELb1EE9push_backERKS1_.exit: ; pr
   %.016.i.i.i = phi ptr [ %4, %3 ], [ %24, %18 ], [ %4, %.critedge.i.i.i ]
   %27 = load i32, ptr %8, align 8, !tbaa !90
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw %"struct.llvm::FlagEntry", ptr %26, i64 %28
+  %29 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %28
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i, i64 24, i1 false)
   %30 = load i32, ptr %8, align 8, !tbaa !90
   %31 = add i32 %30, 1
@@ -15185,7 +15179,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9FlagEntryELb1EE9push_backERKS1_.exit: ; pr
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %32 = load ptr, ptr %0, align 8, !tbaa !57
   %33 = zext i32 %31 to i64
-  %34 = getelementptr inbounds nuw %"struct.llvm::FlagEntry", ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [24 x i8], ptr %32, i64 %33
   %35 = getelementptr inbounds i8, ptr %34, i64 -24
   ret ptr %35
 }
@@ -16718,7 +16712,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i, %68
   store ptr %61, ptr %40, align 8, !tbaa !514
   store ptr %67, ptr %41, align 8, !tbaa !511
-  %69 = getelementptr inbounds nuw %"class.std::unique_ptr.42", ptr %61, i64 %59
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %59
   store ptr %69, ptr %43, align 8, !tbaa !513
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit
 
@@ -16868,7 +16862,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit52: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i49, %130
   store ptr %124, ptr %79, align 8, !tbaa !514
   store ptr %.0.lcssa.i.i.i21.i50, ptr %83, align 8, !tbaa !511
-  %131 = getelementptr inbounds nuw %"class.std::unique_ptr.42", ptr %124, i64 %122
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %122
   store ptr %131, ptr %85, align 8, !tbaa !513
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit21
 
@@ -16988,7 +16982,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, %31
   store ptr %20, ptr %0, align 8, !tbaa !514
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !511
-  %35 = getelementptr inbounds nuw %"class.std::unique_ptr.42", ptr %20, i64 %16
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %35, ptr %30, align 8, !tbaa !513
   ret void
 }

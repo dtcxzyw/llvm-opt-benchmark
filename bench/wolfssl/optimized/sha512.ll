@@ -167,7 +167,7 @@ AddLength.exit.i:                                 ; preds = %19, %13
 
 .lr.ph.i.i:                                       ; preds = %23, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %23 ]
-  %34 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv.i.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i.i
   %35 = load i64, ptr %34, align 8, !tbaa !10
   %36 = tail call noundef i64 @llvm.bswap.i64(i64 %35)
   store i64 %36, ptr %34, align 8, !tbaa !10
@@ -194,7 +194,7 @@ ByteReverseWords64.exit.i:                        ; preds = %.lr.ph.i.i
 
 .lr.ph.i61.i:                                     ; preds = %.lr.ph.i61.i, %.preheader.i
   %indvars.iv.i62.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i63.i, %.lr.ph.i61.i ]
-  %38 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv.i62.i
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i62.i
   %39 = load i64, ptr %38, align 8, !tbaa !10
   %40 = tail call noundef i64 @llvm.bswap.i64(i64 %39)
   store i64 %40, ptr %38, align 8, !tbaa !10
@@ -235,7 +235,7 @@ define range(i32 -173, 1) i32 @wc_Sha512FinalRaw(ptr noundef captures(address_is
 
 .lr.ph.i.i:                                       ; preds = %2, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %2 ]
-  %5 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv.i.i
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i.i
   %6 = load i64, ptr %5, align 8, !tbaa !10
   %7 = tail call noundef i64 @llvm.bswap.i64(i64 %6)
   store i64 %7, ptr %5, align 8, !tbaa !10
@@ -294,7 +294,7 @@ define range(i32 -192, 1) i32 @wc_Sha512Final(ptr noundef captures(address_is_nu
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %23
   %indvars.iv.i.i.i = phi i64 [ 0, %23 ], [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ]
-  %24 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.i.i.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.i.i.i
   %25 = load i64, ptr %24, align 8, !tbaa !10
   %26 = tail call noundef i64 @llvm.bswap.i64(i64 %25)
   store i64 %26, ptr %24, align 8, !tbaa !10
@@ -326,7 +326,7 @@ ByteReverseWords64.exit.i.i:                      ; preds = %.lr.ph.i.i.i
 
 .lr.ph.i42.i.i:                                   ; preds = %.lr.ph.i42.i.i, %27
   %indvars.iv.i43.i.i = phi i64 [ 0, %27 ], [ %indvars.iv.next.i44.i.i, %.lr.ph.i42.i.i ]
-  %39 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.i43.i.i
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.i43.i.i
   %40 = load i64, ptr %39, align 8, !tbaa !10
   %41 = tail call noundef i64 @llvm.bswap.i64(i64 %40)
   store i64 %41, ptr %39, align 8, !tbaa !10
@@ -346,7 +346,7 @@ ByteReverseWords64.exit46.i.i:                    ; preds = %.lr.ph.i42.i.i
 
 .lr.ph.i47.i.i:                                   ; preds = %.lr.ph.i47.i.i, %ByteReverseWords64.exit46.i.i
   %indvars.iv.i48.i.i = phi i64 [ 0, %ByteReverseWords64.exit46.i.i ], [ %indvars.iv.next.i49.i.i, %.lr.ph.i47.i.i ]
-  %46 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv.i48.i.i
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i48.i.i
   %47 = load i64, ptr %46, align 8, !tbaa !10
   %48 = tail call noundef i64 @llvm.bswap.i64(i64 %47)
   store i64 %48, ptr %46, align 8, !tbaa !10
@@ -525,7 +525,7 @@ AddLength.exit.i:                                 ; preds = %19, %13
 
 .lr.ph.i.i:                                       ; preds = %23, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %23 ]
-  %34 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv.i.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i.i
   %35 = load i64, ptr %34, align 8, !tbaa !10
   %36 = tail call noundef i64 @llvm.bswap.i64(i64 %35)
   store i64 %36, ptr %34, align 8, !tbaa !10
@@ -552,7 +552,7 @@ ByteReverseWords64.exit.i:                        ; preds = %.lr.ph.i.i
 
 .lr.ph.i61.i:                                     ; preds = %.lr.ph.i61.i, %.preheader.i
   %indvars.iv.i62.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i63.i, %.lr.ph.i61.i ]
-  %38 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv.i62.i
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i62.i
   %39 = load i64, ptr %38, align 8, !tbaa !10
   %40 = tail call noundef i64 @llvm.bswap.i64(i64 %39)
   store i64 %40, ptr %38, align 8, !tbaa !10
@@ -593,7 +593,7 @@ define range(i32 -173, 1) i32 @wc_Sha384FinalRaw(ptr noundef captures(address_is
 
 .lr.ph.i:                                         ; preds = %2, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %2 ]
-  %5 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i
   %6 = load i64, ptr %5, align 8, !tbaa !10
   %7 = tail call noundef i64 @llvm.bswap.i64(i64 %6)
   store i64 %7, ptr %5, align 8, !tbaa !10
@@ -655,7 +655,7 @@ define range(i32 -192, 1) i32 @wc_Sha384Final(ptr noundef captures(address_is_nu
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %23
   %indvars.iv.i.i = phi i64 [ 0, %23 ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %24 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.i.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.i.i
   %25 = load i64, ptr %24, align 8, !tbaa !10
   %26 = tail call noundef i64 @llvm.bswap.i64(i64 %25)
   store i64 %26, ptr %24, align 8, !tbaa !10
@@ -687,7 +687,7 @@ ByteReverseWords64.exit.i:                        ; preds = %.lr.ph.i.i
 
 .lr.ph.i42.i:                                     ; preds = %.lr.ph.i42.i, %27
   %indvars.iv.i43.i = phi i64 [ 0, %27 ], [ %indvars.iv.next.i44.i, %.lr.ph.i42.i ]
-  %39 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.i43.i
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.i43.i
   %40 = load i64, ptr %39, align 8, !tbaa !10
   %41 = tail call noundef i64 @llvm.bswap.i64(i64 %40)
   store i64 %41, ptr %39, align 8, !tbaa !10
@@ -707,7 +707,7 @@ ByteReverseWords64.exit46.i:                      ; preds = %.lr.ph.i42.i
 
 .lr.ph.i47.i:                                     ; preds = %.lr.ph.i47.i, %ByteReverseWords64.exit46.i
   %indvars.iv.i48.i = phi i64 [ 0, %ByteReverseWords64.exit46.i ], [ %indvars.iv.next.i49.i, %.lr.ph.i47.i ]
-  %46 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv.i48.i
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i48.i
   %47 = load i64, ptr %46, align 8, !tbaa !10
   %48 = tail call noundef i64 @llvm.bswap.i64(i64 %47)
   store i64 %48, ptr %46, align 8, !tbaa !10
@@ -956,7 +956,7 @@ define range(i32 -173, 1) i32 @wc_Sha512_224FinalRaw(ptr noundef captures(addres
 
 .lr.ph.i.i:                                       ; preds = %2, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %2 ]
-  %5 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv.i.i
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i.i
   %6 = load i64, ptr %5, align 8, !tbaa !10
   %7 = tail call noundef i64 @llvm.bswap.i64(i64 %6)
   store i64 %7, ptr %5, align 8, !tbaa !10
@@ -1015,7 +1015,7 @@ define range(i32 -192, 1) i32 @wc_Sha512_224Final(ptr noundef captures(address_i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %23
   %indvars.iv.i.i.i = phi i64 [ 0, %23 ], [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ]
-  %24 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.i.i.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.i.i.i
   %25 = load i64, ptr %24, align 8, !tbaa !10
   %26 = tail call noundef i64 @llvm.bswap.i64(i64 %25)
   store i64 %26, ptr %24, align 8, !tbaa !10
@@ -1047,7 +1047,7 @@ ByteReverseWords64.exit.i.i:                      ; preds = %.lr.ph.i.i.i
 
 .lr.ph.i42.i.i:                                   ; preds = %.lr.ph.i42.i.i, %27
   %indvars.iv.i43.i.i = phi i64 [ 0, %27 ], [ %indvars.iv.next.i44.i.i, %.lr.ph.i42.i.i ]
-  %39 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.i43.i.i
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.i43.i.i
   %40 = load i64, ptr %39, align 8, !tbaa !10
   %41 = tail call noundef i64 @llvm.bswap.i64(i64 %40)
   store i64 %41, ptr %39, align 8, !tbaa !10
@@ -1067,7 +1067,7 @@ ByteReverseWords64.exit46.i.i:                    ; preds = %.lr.ph.i42.i.i
 
 .lr.ph.i47.i.i:                                   ; preds = %.lr.ph.i47.i.i, %ByteReverseWords64.exit46.i.i
   %indvars.iv.i48.i.i = phi i64 [ 0, %ByteReverseWords64.exit46.i.i ], [ %indvars.iv.next.i49.i.i, %.lr.ph.i47.i.i ]
-  %46 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv.i48.i.i
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i48.i.i
   %47 = load i64, ptr %46, align 8, !tbaa !10
   %48 = tail call noundef i64 @llvm.bswap.i64(i64 %47)
   store i64 %48, ptr %46, align 8, !tbaa !10
@@ -1248,7 +1248,7 @@ define range(i32 -173, 1) i32 @wc_Sha512_256FinalRaw(ptr noundef captures(addres
 
 .lr.ph.i.i:                                       ; preds = %2, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %2 ]
-  %5 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv.i.i
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i.i
   %6 = load i64, ptr %5, align 8, !tbaa !10
   %7 = tail call noundef i64 @llvm.bswap.i64(i64 %6)
   store i64 %7, ptr %5, align 8, !tbaa !10
@@ -1307,7 +1307,7 @@ define range(i32 -192, 1) i32 @wc_Sha512_256Final(ptr noundef captures(address_i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %23
   %indvars.iv.i.i.i = phi i64 [ 0, %23 ], [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ]
-  %24 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.i.i.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.i.i.i
   %25 = load i64, ptr %24, align 8, !tbaa !10
   %26 = tail call noundef i64 @llvm.bswap.i64(i64 %25)
   store i64 %26, ptr %24, align 8, !tbaa !10
@@ -1339,7 +1339,7 @@ ByteReverseWords64.exit.i.i:                      ; preds = %.lr.ph.i.i.i
 
 .lr.ph.i42.i.i:                                   ; preds = %.lr.ph.i42.i.i, %27
   %indvars.iv.i43.i.i = phi i64 [ 0, %27 ], [ %indvars.iv.next.i44.i.i, %.lr.ph.i42.i.i ]
-  %39 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv.i43.i.i
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.i43.i.i
   %40 = load i64, ptr %39, align 8, !tbaa !10
   %41 = tail call noundef i64 @llvm.bswap.i64(i64 %40)
   store i64 %41, ptr %39, align 8, !tbaa !10
@@ -1359,7 +1359,7 @@ ByteReverseWords64.exit46.i.i:                    ; preds = %.lr.ph.i42.i.i
 
 .lr.ph.i47.i.i:                                   ; preds = %.lr.ph.i47.i.i, %ByteReverseWords64.exit46.i.i
   %indvars.iv.i48.i.i = phi i64 [ 0, %ByteReverseWords64.exit46.i.i ], [ %indvars.iv.next.i49.i.i, %.lr.ph.i47.i.i ]
-  %46 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv.i48.i.i
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i48.i.i
   %47 = load i64, ptr %46, align 8, !tbaa !10
   %48 = tail call noundef i64 @llvm.bswap.i64(i64 %47)
   store i64 %48, ptr %46, align 8, !tbaa !10
@@ -1610,7 +1610,7 @@ define internal fastcc void @_Transform_Sha512(ptr noundef nonnull captures(none
   %56 = xor i64 %45, %44
   %57 = and i64 %56, %43
   %58 = xor i64 %57, %44
-  %59 = getelementptr inbounds nuw i64, ptr @K512, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [8 x i8], ptr @K512, i64 %indvars.iv
   %60 = load i64, ptr %59, align 16, !tbaa !10
   %.not = icmp eq i64 %indvars.iv, 0
   br i1 %.not, label %75, label %61

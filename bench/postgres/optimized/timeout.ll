@@ -6,8 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.timeout_params = type { i32, i8, i8, ptr, i64, i64, i32 }
 %struct.itimerval = type { %struct.timeval, %struct.timeval }
 %struct.timeval = type { i64, i64 }
-%struct.EnableTimeoutParams = type { i32, i32, i32, i64 }
-%struct.DisableTimeoutParams = type { i32, i8 }
 
 @alarm_enabled = internal global i32 0, align 4
 @num_active_timeouts = internal global i32 0, align 4
@@ -37,7 +35,7 @@ define dso_local void @InitializeTimeouts() local_unnamed_addr #0 {
 
 1:                                                ; preds = %0, %1
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %1 ]
-  %2 = getelementptr inbounds nuw %struct.timeout_params, ptr @all_timeouts, i64 %indvars.iv
+  %2 = getelementptr inbounds nuw [40 x i8], ptr @all_timeouts, i64 %indvars.iv
   %3 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %3, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -115,7 +113,7 @@ define internal void @handle_sig_alarm(i32 %0) #0 {
 .lr.ph.i:                                         ; preds = %24, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 1, %24 ]
   %.0.in11.i = phi i64 [ %indvars.iv.i, %.lr.ph.i ], [ 0, %24 ]
-  %29 = getelementptr inbounds nuw ptr, ptr @active_timeouts, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [8 x i8], ptr @active_timeouts, i64 %indvars.iv.i
   %30 = load volatile ptr, ptr %29, align 8
   %sext = shl i64 %.0.in11.i, 32
   %31 = ashr exact i64 %sext, 29
@@ -179,7 +177,7 @@ define dso_local range(i32 0, 23) i32 @RegisterTimeout(i32 noundef %0, ptr nound
 
 .preheader:                                       ; preds = %2, %8
   %indvars.iv = phi i64 [ %indvars.iv.next, %8 ], [ 13, %2 ]
-  %4 = getelementptr inbounds nuw %struct.timeout_params, ptr @all_timeouts, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [40 x i8], ptr @all_timeouts, i64 %indvars.iv
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, null
@@ -204,7 +202,7 @@ define dso_local range(i32 0, 23) i32 @RegisterTimeout(i32 noundef %0, ptr nound
 .loopexit:                                        ; preds = %.loopexit.loopexit, %2
   %.0 = phi i32 [ %0, %2 ], [ %13, %.loopexit.loopexit ]
   %14 = zext nneg i32 %.0 to i64
-  %15 = getelementptr inbounds nuw %struct.timeout_params, ptr @all_timeouts, i64 %14
+  %15 = getelementptr inbounds nuw [40 x i8], ptr @all_timeouts, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   store ptr %1, ptr %16, align 8
   ret i32 %.0
@@ -351,7 +349,7 @@ define dso_local void @enable_timeout_after(i32 noundef %0, i32 noundef %1) loca
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @enable_timeout(i32 noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef %3) unnamed_addr #0 {
   %5 = zext i32 %0 to i64
-  %6 = getelementptr inbounds nuw %struct.timeout_params, ptr @all_timeouts, i64 %5
+  %6 = getelementptr inbounds nuw [40 x i8], ptr @all_timeouts, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %8 = load volatile i8, ptr %7, align 4, !range !9, !noundef !10
   %9 = trunc nuw i8 %8 to i1
@@ -364,7 +362,7 @@ define internal fastcc void @enable_timeout(i32 noundef %0, i64 noundef %1, i64 
 
 .lr.ph.i:                                         ; preds = %10, %18
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %18 ], [ 0, %10 ]
-  %13 = getelementptr inbounds nuw ptr, ptr @active_timeouts, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr @active_timeouts, i64 %indvars.iv.i
   %14 = load volatile ptr, ptr %13, align 8
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, %0
@@ -393,7 +391,7 @@ find_active_timeout.exit.thread:                  ; preds = %18, %10, %find_acti
 
 26:                                               ; preds = %find_active_timeout.exit
   %27 = and i64 %indvars.iv.i, 4294967295
-  %28 = getelementptr inbounds nuw ptr, ptr @active_timeouts, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr @active_timeouts, i64 %27
   %29 = load volatile ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   store volatile i8 0, ptr %30, align 4
@@ -409,7 +407,7 @@ find_active_timeout.exit.thread:                  ; preds = %18, %10, %find_acti
 .lr.ph.i23:                                       ; preds = %.lr.ph.i23, %.lr.ph.preheader.i
   %indvars.iv.i24 = phi i64 [ %33, %.lr.ph.preheader.i ], [ %indvars.iv.next.i25, %.lr.ph.i23 ]
   %.0.in11.i = phi i64 [ %indvars.iv.i, %.lr.ph.preheader.i ], [ %indvars.iv.i24, %.lr.ph.i23 ]
-  %34 = getelementptr inbounds nuw ptr, ptr @active_timeouts, i64 %indvars.iv.i24
+  %34 = getelementptr inbounds nuw [8 x i8], ptr @active_timeouts, i64 %indvars.iv.i24
   %35 = load volatile ptr, ptr %34, align 8
   %sext = shl i64 %.0.in11.i, 32
   %36 = ashr exact i64 %sext, 29
@@ -435,7 +433,7 @@ remove_timeout_index.exit:                        ; preds = %.lr.ph.i23, %26
 .lr.ph:                                           ; preds = %43, %57
   %.02031 = phi i32 [ %58, %57 ], [ 0, %43 ]
   %46 = zext nneg i32 %.02031 to i64
-  %47 = getelementptr inbounds nuw ptr, ptr @active_timeouts, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr @active_timeouts, i64 %46
   %48 = load volatile ptr, ptr %47, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %50 = load i64, ptr %49, align 8
@@ -493,10 +491,10 @@ remove_timeout_index.exit:                        ; preds = %.lr.ph.i23, %26
 .lr.ph.i26:                                       ; preds = %.lr.ph.i26.preheader, %.lr.ph.i26
   %indvars.iv = phi i64 [ %73, %.lr.ph.i26.preheader ], [ %indvars.iv.next, %.lr.ph.i26 ]
   %.0.in14.i = phi i32 [ %72, %.lr.ph.i26.preheader ], [ %79, %.lr.ph.i26 ]
-  %75 = getelementptr inbounds nuw ptr, ptr @active_timeouts, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [8 x i8], ptr @active_timeouts, i64 %indvars.iv
   %76 = load volatile ptr, ptr %75, align 8
   %77 = sext i32 %.0.in14.i to i64
-  %78 = getelementptr inbounds ptr, ptr @active_timeouts, i64 %77
+  %78 = getelementptr inbounds [8 x i8], ptr @active_timeouts, i64 %77
   store volatile ptr %76, ptr %78, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %.not.not.i = icmp samesign ugt i64 %indvars.iv, %74
@@ -505,7 +503,7 @@ remove_timeout_index.exit:                        ; preds = %.lr.ph.i23, %26
 
 insert_timeout.exit:                              ; preds = %.lr.ph.i26, %71
   %80 = zext nneg i32 %.020.lcssa to i64
-  %81 = getelementptr inbounds nuw ptr, ptr @active_timeouts, i64 %80
+  %81 = getelementptr inbounds nuw [8 x i8], ptr @active_timeouts, i64 %80
   store volatile ptr %6, ptr %81, align 8
   %82 = load volatile i32, ptr @num_active_timeouts, align 4
   %83 = add i32 %82, 1
@@ -544,7 +542,7 @@ define dso_local void @enable_timeouts(ptr noundef readonly captures(none) %0, i
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %29
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %29 ]
-  %5 = getelementptr inbounds nuw %struct.EnableTimeoutParams, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %indvars.iv
   %6 = load i32, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %8 = load i32, ptr %7, align 4
@@ -602,7 +600,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #1
 define dso_local void @disable_timeout(i32 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   store volatile i32 0, ptr @alarm_enabled, align 4
   %3 = zext i32 %0 to i64
-  %4 = getelementptr inbounds nuw %struct.timeout_params, ptr @all_timeouts, i64 %3
+  %4 = getelementptr inbounds nuw [40 x i8], ptr @all_timeouts, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %6 = load volatile i8, ptr %5, align 4, !range !9, !noundef !10
   %7 = trunc nuw i8 %6 to i1
@@ -615,7 +613,7 @@ define dso_local void @disable_timeout(i32 noundef %0, i1 noundef zeroext %1) lo
 
 .lr.ph.i:                                         ; preds = %8, %16
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %16 ], [ 0, %8 ]
-  %11 = getelementptr inbounds nuw ptr, ptr @active_timeouts, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @active_timeouts, i64 %indvars.iv.i
   %12 = load volatile ptr, ptr %11, align 8
   %13 = load i32, ptr %12, align 8
   %14 = icmp eq i32 %13, %0
@@ -644,7 +642,7 @@ find_active_timeout.exit.thread:                  ; preds = %16, %8, %find_activ
 
 24:                                               ; preds = %find_active_timeout.exit
   %25 = and i64 %indvars.iv.i, 4294967295
-  %26 = getelementptr inbounds nuw ptr, ptr @active_timeouts, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr @active_timeouts, i64 %25
   %27 = load volatile ptr, ptr %26, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   store volatile i8 0, ptr %28, align 4
@@ -660,7 +658,7 @@ find_active_timeout.exit.thread:                  ; preds = %16, %8, %find_activ
 .lr.ph.i4:                                        ; preds = %.lr.ph.i4, %.lr.ph.preheader.i
   %indvars.iv.i5 = phi i64 [ %31, %.lr.ph.preheader.i ], [ %indvars.iv.next.i6, %.lr.ph.i4 ]
   %.0.in11.i = phi i64 [ %indvars.iv.i, %.lr.ph.preheader.i ], [ %indvars.iv.i5, %.lr.ph.i4 ]
-  %32 = getelementptr inbounds nuw ptr, ptr @active_timeouts, i64 %indvars.iv.i5
+  %32 = getelementptr inbounds nuw [8 x i8], ptr @active_timeouts, i64 %indvars.iv.i5
   %33 = load volatile ptr, ptr %32, align 8
   %sext = shl i64 %.0.in11.i, 32
   %34 = ashr exact i64 %sext, 29
@@ -712,10 +710,10 @@ define dso_local void @disable_timeouts(ptr noundef readonly captures(none) %0, 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %50
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %50 ]
-  %4 = getelementptr inbounds nuw %struct.DisableTimeoutParams, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %5 = load i32, ptr %4, align 4
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw %struct.timeout_params, ptr @all_timeouts, i64 %6
+  %7 = getelementptr inbounds nuw [40 x i8], ptr @all_timeouts, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = load volatile i8, ptr %8, align 4, !range !9, !noundef !10
   %10 = trunc nuw i8 %9 to i1
@@ -728,7 +726,7 @@ define dso_local void @disable_timeouts(ptr noundef readonly captures(none) %0, 
 
 .lr.ph.i:                                         ; preds = %11, %19
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %19 ], [ 0, %11 ]
-  %14 = getelementptr inbounds nuw ptr, ptr @active_timeouts, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr @active_timeouts, i64 %indvars.iv.i
   %15 = load volatile ptr, ptr %14, align 8
   %16 = load i32, ptr %15, align 8
   %17 = icmp eq i32 %16, %5
@@ -757,7 +755,7 @@ find_active_timeout.exit.thread:                  ; preds = %11, %find_active_ti
 
 27:                                               ; preds = %find_active_timeout.exit
   %28 = and i64 %indvars.iv.i, 4294967295
-  %29 = getelementptr inbounds nuw ptr, ptr @active_timeouts, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr @active_timeouts, i64 %28
   %30 = load volatile ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   store volatile i8 0, ptr %31, align 4
@@ -773,7 +771,7 @@ find_active_timeout.exit.thread:                  ; preds = %11, %find_active_ti
 .lr.ph.i9:                                        ; preds = %.lr.ph.i9, %.lr.ph.preheader.i
   %indvars.iv.i10 = phi i64 [ %34, %.lr.ph.preheader.i ], [ %indvars.iv.next.i11, %.lr.ph.i9 ]
   %.0.in11.i = phi i64 [ %indvars.iv.i, %.lr.ph.preheader.i ], [ %indvars.iv.i10, %.lr.ph.i9 ]
-  %35 = getelementptr inbounds nuw ptr, ptr @active_timeouts, i64 %indvars.iv.i10
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @active_timeouts, i64 %indvars.iv.i10
   %36 = load volatile ptr, ptr %35, align 8
   %sext = shl i64 %.0.in11.i, 32
   %37 = ashr exact i64 %sext, 29
@@ -829,7 +827,7 @@ define dso_local void @disable_all_timeouts(i1 noundef zeroext %0) local_unnamed
 
 .split.us:                                        ; preds = %1, %.split.us
   %indvars.iv10 = phi i64 [ %indvars.iv.next11, %.split.us ], [ 0, %1 ]
-  %2 = getelementptr inbounds nuw %struct.timeout_params, ptr @all_timeouts, i64 %indvars.iv10
+  %2 = getelementptr inbounds nuw [40 x i8], ptr @all_timeouts, i64 %indvars.iv10
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store volatile i8 0, ptr %3, align 4
   %indvars.iv.next11 = add nuw nsw i64 %indvars.iv10, 1
@@ -838,7 +836,7 @@ define dso_local void @disable_all_timeouts(i1 noundef zeroext %0) local_unnamed
 
 .split:                                           ; preds = %1, %.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.split ], [ 0, %1 ]
-  %4 = getelementptr inbounds nuw %struct.timeout_params, ptr @all_timeouts, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [40 x i8], ptr @all_timeouts, i64 %indvars.iv
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store volatile i8 0, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 5
@@ -854,7 +852,7 @@ define dso_local void @disable_all_timeouts(i1 noundef zeroext %0) local_unnamed
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(readwrite, argmem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local zeroext i1 @get_timeout_active(i32 noundef %0) local_unnamed_addr #4 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds nuw %struct.timeout_params, ptr @all_timeouts, i64 %2
+  %3 = getelementptr inbounds nuw [40 x i8], ptr @all_timeouts, i64 %2
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %5 = load volatile i8, ptr %4, align 4, !range !9, !noundef !10
   %6 = trunc nuw i8 %5 to i1
@@ -864,7 +862,7 @@ define dso_local zeroext i1 @get_timeout_active(i32 noundef %0) local_unnamed_ad
 ; Function Attrs: nofree norecurse nounwind memory(readwrite, argmem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local zeroext i1 @get_timeout_indicator(i32 noundef %0, i1 noundef zeroext %1) local_unnamed_addr #3 {
   %3 = zext i32 %0 to i64
-  %4 = getelementptr inbounds nuw %struct.timeout_params, ptr @all_timeouts, i64 %3
+  %4 = getelementptr inbounds nuw [40 x i8], ptr @all_timeouts, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 5
   %6 = load volatile i8, ptr %5, align 1, !range !9, !noundef !10
   %7 = trunc nuw i8 %6 to i1
@@ -882,7 +880,7 @@ define dso_local zeroext i1 @get_timeout_indicator(i32 noundef %0, i1 noundef ze
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local i64 @get_timeout_start_time(i32 noundef %0) local_unnamed_addr #5 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds nuw %struct.timeout_params, ptr @all_timeouts, i64 %2
+  %3 = getelementptr inbounds nuw [40 x i8], ptr @all_timeouts, i64 %2
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load i64, ptr %4, align 8
   ret i64 %5
@@ -891,7 +889,7 @@ define dso_local i64 @get_timeout_start_time(i32 noundef %0) local_unnamed_addr 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local i64 @get_timeout_finish_time(i32 noundef %0) local_unnamed_addr #5 {
   %2 = zext i32 %0 to i64
-  %3 = getelementptr inbounds nuw %struct.timeout_params, ptr @all_timeouts, i64 %2
+  %3 = getelementptr inbounds nuw [40 x i8], ptr @all_timeouts, i64 %2
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load i64, ptr %4, align 8
   ret i64 %5

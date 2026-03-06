@@ -267,7 +267,7 @@ define dso_local void @_Z9benchmarkPKcRKSt6vectorIN4ncnn3MatESaIS3_EERKNS2_6Opti
 .lr.ph291:                                        ; preds = %.preheader179, %_ZN4ncnn3MatD2Ev.exit
   %.068290 = phi i64 [ %108, %_ZN4ncnn3MatD2Ev.exit ], [ 0, %.preheader179 ]
   %77 = load ptr, ptr %1, align 8, !tbaa !27
-  %78 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %77, i64 %.068290
+  %78 = getelementptr inbounds nuw [72 x i8], ptr %77, i64 %.068290
   %79 = load ptr, ptr %78, align 8, !tbaa !30
   %80 = getelementptr inbounds nuw i8, ptr %78, i64 8
   %81 = load ptr, ptr %80, align 8, !tbaa !34
@@ -393,7 +393,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %95, %_ZN4ncnn3Mat4f
   %.066292 = phi i64 [ %185, %_ZN4ncnn3MatD2Ev.exit86 ], [ 0, %.preheader177 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %139 = load ptr, ptr %1, align 8, !tbaa !27
-  %140 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %139, i64 %.066292
+  %140 = getelementptr inbounds nuw [72 x i8], ptr %139, i64 %.066292
   %141 = load ptr, ptr %140, align 8, !tbaa !30
   store ptr %141, ptr %9, align 8, !tbaa !30
   %142 = getelementptr inbounds nuw i8, ptr %140, i64 8
@@ -436,7 +436,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %95, %_ZN4ncnn3Mat4f
 
 _ZN4ncnn3Mat6addrefEv.exit95:                     ; preds = %162, %.lr.ph293
   %164 = phi ptr [ %.pre, %162 ], [ %138, %.lr.ph293 ]
-  %165 = getelementptr inbounds nuw ptr, ptr %164, i64 %.066292
+  %165 = getelementptr inbounds nuw [8 x i8], ptr %164, i64 %.066292
   %166 = load ptr, ptr %165, align 8, !tbaa !49
   %167 = invoke noundef i32 @_ZN4ncnn9Extractor5inputEPKcRKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef %166, ptr noundef nonnull align 8 dereferenceable(72) %9)
           to label %168 unwind label %193
@@ -547,7 +547,7 @@ _ZN4ncnn3MatD2Ev.exit87:                          ; preds = %196, %193, %202, %2
   %.065294 = phi i64 [ %233, %_ZN4ncnn3MatD2Ev.exit88 ], [ 0, %.preheader176 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i64 0, ptr %76, align 8, !tbaa !37
-  %213 = getelementptr inbounds nuw ptr, ptr %212, i64 %.065294
+  %213 = getelementptr inbounds nuw [8 x i8], ptr %212, i64 %.065294
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %10, i8 0, i64 28, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %75, i8 0, i64 28, i1 false)
   %214 = load ptr, ptr %213, align 8, !tbaa !49
@@ -709,7 +709,7 @@ _ZN4ncnn3MatD2Ev.exit89:                          ; preds = %244, %241, %250, %2
   %.049297 = phi i64 [ %323, %_ZN4ncnn3MatD2Ev.exit90 ], [ 0, %.preheader174 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %277 = load ptr, ptr %1, align 8, !tbaa !27
-  %278 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %277, i64 %.049297
+  %278 = getelementptr inbounds nuw [72 x i8], ptr %277, i64 %.049297
   %279 = load ptr, ptr %278, align 8, !tbaa !30
   store ptr %279, ptr %12, align 8, !tbaa !30
   %280 = getelementptr inbounds nuw i8, ptr %278, i64 8
@@ -752,7 +752,7 @@ _ZN4ncnn3MatD2Ev.exit89:                          ; preds = %244, %241, %250, %2
 
 _ZN4ncnn3Mat6addrefEv.exit:                       ; preds = %300, %.lr.ph298
   %302 = phi ptr [ %.pre317, %300 ], [ %276, %.lr.ph298 ]
-  %303 = getelementptr inbounds nuw ptr, ptr %302, i64 %.049297
+  %303 = getelementptr inbounds nuw [8 x i8], ptr %302, i64 %.049297
   %304 = load ptr, ptr %303, align 8, !tbaa !49
   %305 = invoke noundef i32 @_ZN4ncnn9Extractor5inputEPKcRKNS_3MatE(ptr noundef nonnull align 8 dereferenceable(16) %11, ptr noundef %304, ptr noundef nonnull align 8 dereferenceable(72) %12)
           to label %306 unwind label %331
@@ -862,7 +862,7 @@ _ZN4ncnn3MatD2Ev.exit91:                          ; preds = %334, %331, %340, %3
   %.048299 = phi i64 [ %371, %_ZN4ncnn3MatD2Ev.exit92 ], [ 0, %.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   store i64 0, ptr %130, align 8, !tbaa !37
-  %351 = getelementptr inbounds nuw ptr, ptr %350, i64 %.048299
+  %351 = getelementptr inbounds nuw [8 x i8], ptr %350, i64 %.048299
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %13, i8 0, i64 28, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %129, i8 0, i64 28, i1 false)
   %352 = load ptr, ptr %351, align 8, !tbaa !49
@@ -1557,7 +1557,7 @@ _ZSt8_DestroyIPN4ncnn3MatES1_EvT_S3_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIN4nc
 _ZNSt12_Vector_baseIN4ncnn3MatESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN4ncnn3MatES1_EvT_S3_RSaIT0_E.exit, %148
   store ptr %20, ptr %0, align 8, !tbaa !27
   store ptr %.0.lcssa.i.i.i.i.i35, ptr %4, align 8, !tbaa !24
-  %152 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %20, i64 %16
+  %152 = getelementptr inbounds nuw [72 x i8], ptr %20, i64 %16
   store ptr %152, ptr %147, align 8, !tbaa !58
   ret void
 }
@@ -1651,7 +1651,7 @@ define dso_local noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %50
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %50 ]
-  %51 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %52 = load ptr, ptr %51, align 8, !tbaa !49
   %53 = load i8, ptr %52, align 1, !tbaa !61
   %54 = icmp eq i8 %53, 45
@@ -1776,7 +1776,7 @@ define dso_local noundef range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef 
 138:                                              ; preds = %.lr.ph967, %657
   %indvars.iv971 = phi i64 [ 6, %.lr.ph967 ], [ %indvars.iv.next972, %657 ]
   %.096965 = phi ptr [ null, %.lr.ph967 ], [ %.197, %657 ]
-  %139 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv971
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv971
   %140 = load ptr, ptr %139, align 8, !tbaa !49
   %141 = call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %140, i32 noundef 61) #31
   %142 = icmp eq ptr %141, null
@@ -1908,7 +1908,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i107.i: ; preds = %188, 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i109.i: ; preds = %190, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i107.i
   store ptr %184, ptr %6, align 8, !tbaa !69, !noalias !62
   store ptr %189, ptr %90, align 8, !tbaa !71, !noalias !62
-  %191 = getelementptr inbounds nuw i32, ptr %184, i64 %182
+  %191 = getelementptr inbounds nuw [4 x i8], ptr %184, i64 %182
   store ptr %191, ptr %91, align 8, !tbaa !72, !noalias !62
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit112.i
 
@@ -2048,7 +2048,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit119.i:               ; preds = %228, %_ZNSt6vectorI
 .lr.ph298.i:                                      ; preds = %.preheader.i, %527
   %235 = phi ptr [ %530, %527 ], [ %.pre304.i, %.preheader.i ]
   %.0297.i = phi i64 [ %528, %527 ], [ 0, %.preheader.i ]
-  %236 = getelementptr inbounds nuw %"class.std::vector.10", ptr %235, i64 %.0297.i
+  %236 = getelementptr inbounds nuw [24 x i8], ptr %235, i64 %.0297.i
   %237 = getelementptr inbounds nuw i8, ptr %236, i64 8
   %238 = load ptr, ptr %237, align 8, !tbaa !71
   %239 = load ptr, ptr %236, align 8, !tbaa !69
@@ -7080,7 +7080,7 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33: ; preds = %.
 _ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIS_IiSaIiEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33, %61
   store ptr %20, ptr %0, align 8, !tbaa !68
   store ptr %.0.lcssa.i.i.i32, ptr %4, align 8, !tbaa !65
-  %65 = getelementptr inbounds nuw %"class.std::vector.10", ptr %20, i64 %16
+  %65 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %65, ptr %60, align 8, !tbaa !74
   ret void
 
@@ -7388,7 +7388,7 @@ _ZSt8_DestroyIPN4ncnn3MatES1_EvT_S3_RSaIT0_E.exit: ; preds = %_ZSt8_DestroyIN4nc
 _ZNSt12_Vector_baseIN4ncnn3MatESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN4ncnn3MatES1_EvT_S3_RSaIT0_E.exit, %148
   store ptr %20, ptr %0, align 8, !tbaa !27
   store ptr %.0.lcssa.i.i.i.i.i35, ptr %4, align 8, !tbaa !24
-  %152 = getelementptr inbounds nuw %"class.ncnn::Mat", ptr %20, i64 %16
+  %152 = getelementptr inbounds nuw [72 x i8], ptr %20, i64 %16
   store ptr %152, ptr %147, align 8, !tbaa !58
   ret void
 }

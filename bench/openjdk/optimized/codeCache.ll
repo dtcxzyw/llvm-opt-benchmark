@@ -1053,7 +1053,7 @@ define hidden noundef nonnull ptr @_ZN9CodeCache23get_code_heap_flag_nameE12Code
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN9CodeCache19report_codemem_fullE12CodeBlobTypeb, i64 %5
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN9CodeCache19report_codemem_fullE12CodeBlobTypeb, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -1141,7 +1141,7 @@ define linkonce_odr hidden noundef ptr @_ZN26GrowableArrayWithAllocatorIP8CodeHe
   %11 = add i32 %.01625.i, %.01526.i
   %12 = lshr i32 %11, 1
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %6, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 312
   %17 = load i32, ptr %16, align 8
@@ -1218,9 +1218,9 @@ _ZN9CodeCache17code_heap_compareERKP8CodeHeapS3_.exit.thread20.i: ; preds = %_ZN
   %indvars.iv.i = phi i64 [ %44, %.lr.ph.i4 ], [ %indvars.iv.next.i, %46 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
   %47 = load ptr, ptr %43, align 8
-  %48 = getelementptr inbounds ptr, ptr %47, i64 %indvars.iv.next.i
+  %48 = getelementptr inbounds [8 x i8], ptr %47, i64 %indvars.iv.next.i
   %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds ptr, ptr %47, i64 %indvars.iv.i
+  %50 = getelementptr inbounds [8 x i8], ptr %47, i64 %indvars.iv.i
   store ptr %49, ptr %50, align 8
   %.not.not.i = icmp sgt i64 %indvars.iv.next.i, %45
   br i1 %.not.not.i, label %46, label %._crit_edge.loopexit.i, !llvm.loop !20
@@ -1237,7 +1237,7 @@ _ZN26GrowableArrayWithAllocatorIP8CodeHeap13GrowableArrayIS1_EE13insert_beforeEi
   %53 = load ptr, ptr %1, align 8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %55 = load ptr, ptr %54, align 8
-  %56 = getelementptr inbounds ptr, ptr %55, i64 %.pre-phi.i
+  %56 = getelementptr inbounds [8 x i8], ptr %55, i64 %.pre-phi.i
   store ptr %53, ptr %56, align 8
   %.pre = load ptr, ptr %54, align 8
   br label %_ZNK17GrowableArrayViewIP8CodeHeapE11find_sortedIS1_TnPFiRKT_RKS1_EXadL_ZN9CodeCache17code_heap_compareES8_S8_EEEEiS6_Rb.exit
@@ -1246,7 +1246,7 @@ _ZNK17GrowableArrayViewIP8CodeHeapE11find_sortedIS1_TnPFiRKT_RKS1_EXadL_ZN9CodeC
   %57 = phi ptr [ %.pre, %_ZN26GrowableArrayWithAllocatorIP8CodeHeap13GrowableArrayIS1_EE13insert_beforeEiRKS1_.exit ], [ %6, %_ZN9CodeCache17code_heap_compareERKP8CodeHeapS3_.exit.thread20.i ]
   %.0.i8 = phi i32 [ %.0.i.ph, %_ZN26GrowableArrayWithAllocatorIP8CodeHeap13GrowableArrayIS1_EE13insert_beforeEiRKS1_.exit ], [ %12, %_ZN9CodeCache17code_heap_compareERKP8CodeHeapS3_.exit.thread20.i ]
   %58 = sext i32 %.0.i8 to i64
-  %59 = getelementptr inbounds ptr, ptr %57, i64 %58
+  %59 = getelementptr inbounds [8 x i8], ptr %57, i64 %58
   %60 = load ptr, ptr %59, align 8
   ret ptr %60
 }
@@ -1277,7 +1277,7 @@ define hidden noundef ptr @_ZN9CodeCache24get_code_heap_containingEPv(ptr nounde
 
 8:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8
@@ -1313,7 +1313,7 @@ define hidden noundef ptr @_ZN9CodeCache13get_code_heapEPKv(ptr noundef readnone
 
 8:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8
@@ -1354,7 +1354,7 @@ define hidden noundef ptr @_ZN9CodeCache13get_code_heapE12CodeBlobType(i32 nound
 
 8:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 312
   %12 = load i32, ptr %11, align 8
@@ -1448,7 +1448,7 @@ _ZN9CodeCache14heap_availableE12CodeBlobType.exit: ; preds = %_ZN14CompilerConfi
 
 38:                                               ; preds = %37, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %37 ]
-  %39 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv.i
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv.i
   %40 = load ptr, ptr %39, align 8
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 312
   %42 = load i32, ptr %41, align 8
@@ -1506,7 +1506,7 @@ define hidden noundef ptr @_ZN9CodeCache8allocateEj12CodeBlobTypebS0_(i32 nounde
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i69, 1
   %.not.i = icmp ne i64 %indvars.iv.next.i, %11
   tail call void @llvm.assume(i1 %.not.i)
-  %17 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.next.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.next.i
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 312
   %20 = load i32, ptr %19, align 8
@@ -1640,7 +1640,7 @@ define hidden void @_ZN9CodeCache4freeEP8CodeBlob(ptr noundef %0) local_unnamed_
 
 8:                                                ; preds = %7, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %7 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8
@@ -1746,7 +1746,7 @@ define hidden void @_ZN9CodeCache16free_unused_tailEP8CodeBlobm(ptr noundef %0, 
 
 24:                                               ; preds = %23, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %23 ]
-  %25 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv.i
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8
@@ -1805,7 +1805,7 @@ define hidden void @_ZN9CodeCache6commitEP8CodeBlob(ptr noundef readonly capture
 
 8:                                                ; preds = %7, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %7 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8
@@ -1877,7 +1877,7 @@ define hidden noundef zeroext i1 @_ZN9CodeCache8containsEPv(ptr noundef readnone
 
 7:                                                ; preds = %7, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
@@ -1911,7 +1911,7 @@ define hidden noundef zeroext i1 @_ZN9CodeCache8containsEP7nmethod(ptr noundef r
 
 7:                                                ; preds = %7, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %7 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8
@@ -1954,7 +1954,7 @@ define hidden noundef ptr @_ZN9CodeCache9find_blobEPv(ptr noundef %0) local_unna
 
 9:                                                ; preds = %8, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %8 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.i
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
@@ -2000,7 +2000,7 @@ define hidden noundef ptr @_ZN9CodeCache12find_nmethodEPv(ptr noundef %0) local_
 
 9:                                                ; preds = %8, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %8 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.i.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.i.i
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8
@@ -2034,7 +2034,7 @@ define hidden void @_ZN9CodeCache8blobs_doEPFvP8CodeBlobE(ptr noundef readonly c
 5:                                                ; preds = %.lr.ph17, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.lr.ph17 ], [ %indvars.iv.next, %._crit_edge ]
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef ptr @_ZNK8CodeHeap11first_blockEv(ptr noundef nonnull align 8 dereferenceable(336) %8) #21
   %10 = tail call noundef ptr @_ZNK8CodeHeap9next_usedEP9HeapBlock(ptr noundef nonnull align 8 dereferenceable(336) %8, ptr noundef %9) #21
@@ -2045,7 +2045,7 @@ define hidden void @_ZN9CodeCache8blobs_doEPFvP8CodeBlobE(ptr noundef readonly c
   %.013 = phi ptr [ %16, %.lr.ph ], [ %10, %5 ]
   tail call void %0(ptr noundef nonnull %.013) #21
   %11 = load ptr, ptr %4, align 8
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef ptr @_ZNK8CodeHeap11block_startEPv(ptr noundef nonnull align 8 dereferenceable(336) %13, ptr noundef nonnull %.013) #21
   %15 = tail call noundef ptr @_ZNK8CodeHeap10next_blockEP9HeapBlock(ptr noundef nonnull align 8 dereferenceable(336) %13, ptr noundef %14) #21
@@ -2091,7 +2091,7 @@ _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.e
   %indvars.iv = phi i64 [ %7, %.lr.ph ], [ %indvars.iv.next, %.backedge.i.i ]
   %.sroa.0.224 = phi ptr [ %.sroa.0.027, %.lr.ph ], [ null, %.backedge.i.i ]
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds [8 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %.sroa.0.224, null
   br i1 %12, label %13, label %21
@@ -2173,7 +2173,7 @@ _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.e
   %indvars.iv = phi i64 [ %7, %.lr.ph ], [ %indvars.iv.next, %.backedge.i.i ]
   %.sroa.0.224 = phi ptr [ %.sroa.0.027, %.lr.ph ], [ null, %.backedge.i.i ]
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds [8 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %.sroa.0.224, null
   br i1 %12, label %13, label %21
@@ -2257,7 +2257,7 @@ _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.e
   %indvars.iv = phi i64 [ %7, %.lr.ph ], [ %indvars.iv.next, %.backedge.i.i ]
   %.sroa.0.224 = phi ptr [ %.sroa.0.027, %.lr.ph ], [ null, %.backedge.i.i ]
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds [8 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %.sroa.0.224, null
   br i1 %12, label %13, label %21
@@ -2344,7 +2344,7 @@ define hidden void @_ZN9CodeCache20update_cold_gc_countEv() local_unnamed_addr #
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %14 ]
   %.09.i = phi i64 [ 0, %.lr.ph.i ], [ %21, %14 ]
   %15 = load ptr, ptr %13, align 8
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.i
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noundef i64 @_ZNK8CodeHeap12max_capacityEv(ptr noundef nonnull align 8 dereferenceable(336) %17) #21
   %19 = tail call noundef i64 @_ZNK8CodeHeap18allocated_capacityEv(ptr noundef nonnull align 8 dereferenceable(336) %17) #21
@@ -2369,7 +2369,7 @@ _ZN9CodeCache20unallocated_capacityEv.exit:       ; preds = %14
   %indvars.iv.i45 = phi i64 [ 0, %.lr.ph.i44 ], [ %indvars.iv.next.i47, %27 ]
   %.09.i46 = phi i64 [ 0, %.lr.ph.i44 ], [ %32, %27 ]
   %28 = load ptr, ptr %26, align 8
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv.i45
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv.i45
   %30 = load ptr, ptr %29, align 8
   %31 = tail call noundef i64 @_ZNK8CodeHeap12max_capacityEv(ptr noundef nonnull align 8 dereferenceable(336) %30) #21
   %32 = add i64 %31, %.09.i46
@@ -2493,7 +2493,7 @@ define hidden noundef i64 @_ZN9CodeCache20unallocated_capacityEv() local_unnamed
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %4 ]
   %.09 = phi i64 [ 0, %.lr.ph ], [ %11, %4 ]
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i64 @_ZNK8CodeHeap12max_capacityEv(ptr noundef nonnull align 8 dereferenceable(336) %7) #21
   %9 = tail call noundef i64 @_ZNK8CodeHeap18allocated_capacityEv(ptr noundef nonnull align 8 dereferenceable(336) %7) #21
@@ -2526,7 +2526,7 @@ define hidden noundef i64 @_ZN9CodeCache12max_capacityEv() local_unnamed_addr #1
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %4 ]
   %.09 = phi i64 [ 0, %.lr.ph ], [ %9, %4 ]
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i64 @_ZNK8CodeHeap12max_capacityEv(ptr noundef nonnull align 8 dereferenceable(336) %7) #21
   %9 = add i64 %8, %.09
@@ -2571,7 +2571,7 @@ define hidden void @_ZN9CodeCache16gc_on_allocationEv() local_unnamed_addr #1 al
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %6 ]
   %.09.i = phi i64 [ 0, %.lr.ph.i ], [ %13, %6 ]
   %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef i64 @_ZNK8CodeHeap12max_capacityEv(ptr noundef nonnull align 8 dereferenceable(336) %9) #21
   %11 = tail call noundef i64 @_ZNK8CodeHeap18allocated_capacityEv(ptr noundef nonnull align 8 dereferenceable(336) %9) #21
@@ -2596,7 +2596,7 @@ _ZN9CodeCache20unallocated_capacityEv.exit:       ; preds = %6
   %indvars.iv.i33 = phi i64 [ 0, %.lr.ph.i32 ], [ %indvars.iv.next.i35, %19 ]
   %.09.i34 = phi i64 [ 0, %.lr.ph.i32 ], [ %24, %19 ]
   %20 = load ptr, ptr %18, align 8
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv.i33
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv.i33
   %22 = load ptr, ptr %21, align 8
   %23 = tail call noundef i64 @_ZNK8CodeHeap12max_capacityEv(ptr noundef nonnull align 8 dereferenceable(336) %22) #21
   %24 = add i64 %23, %.09.i34
@@ -2780,7 +2780,7 @@ _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.e
   %indvars.iv = phi i64 [ %7, %.lr.ph ], [ %indvars.iv.next, %.backedge.i.i ]
   %.sroa.0.224 = phi ptr [ %.sroa.0.027, %.lr.ph ], [ null, %.backedge.i.i ]
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds [8 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %.sroa.0.224, null
   br i1 %12, label %13, label %21
@@ -2946,7 +2946,7 @@ _ZN13CompileBroker27set_should_compile_new_jobsEi.exit: ; preds = %10, %.sink.sp
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %22 ]
   %.09.i = phi i64 [ 0, %.lr.ph.i ], [ %27, %22 ]
   %23 = load ptr, ptr %21, align 8
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv.i
   %25 = load ptr, ptr %24, align 8
   %26 = tail call noundef i64 @_ZNK8CodeHeap12max_capacityEv(ptr noundef nonnull align 8 dereferenceable(336) %25) #21
   %27 = add i64 %26, %.09.i
@@ -3131,7 +3131,7 @@ _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.e
 .lr.ph:                                           ; preds = %.lr.ph.outer, %split
   %.sroa.0.226 = phi ptr [ %.sroa.0.4, %split ], [ %.sroa.0.226.ph, %.lr.ph.outer ]
   %12 = load ptr, ptr %9, align 8
-  %13 = getelementptr inbounds ptr, ptr %12, i64 %10
+  %13 = getelementptr inbounds [8 x i8], ptr %12, i64 %10
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %.sroa.0.226, null
   br i1 %15, label %16, label %24
@@ -3223,7 +3223,7 @@ define hidden noundef i32 @_ZN9CodeCache10blob_countE12CodeBlobType(i32 noundef 
 
 8:                                                ; preds = %7, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %7 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 312
   %12 = load i32, ptr %11, align 8
@@ -3258,7 +3258,7 @@ define hidden noundef i32 @_ZN9CodeCache10blob_countEv() local_unnamed_addr #5 a
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
   %.09 = phi i32 [ 0, %.lr.ph ], [ %11, %6 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 316
   %10 = load i32, ptr %9, align 4
@@ -3292,7 +3292,7 @@ define hidden noundef i32 @_ZN9CodeCache13nmethod_countE12CodeBlobType(i32 nound
 
 8:                                                ; preds = %7, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %7 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 312
   %12 = load i32, ptr %11, align 8
@@ -3327,7 +3327,7 @@ define hidden noundef i32 @_ZN9CodeCache13nmethod_countEv() local_unnamed_addr #
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
   %.011 = phi i32 [ 0, %.lr.ph ], [ %11, %6 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 320
   %10 = load i32, ptr %9, align 8
@@ -3361,7 +3361,7 @@ define hidden noundef i32 @_ZN9CodeCache13adapter_countE12CodeBlobType(i32 nound
 
 8:                                                ; preds = %7, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %7 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 312
   %12 = load i32, ptr %11, align 8
@@ -3396,7 +3396,7 @@ define hidden noundef i32 @_ZN9CodeCache13adapter_countEv() local_unnamed_addr #
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
   %.09 = phi i32 [ 0, %.lr.ph ], [ %11, %6 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 324
   %10 = load i32, ptr %9, align 4
@@ -3430,7 +3430,7 @@ define hidden noundef ptr @_ZN9CodeCache9low_boundE12CodeBlobType(i32 noundef %0
 
 8:                                                ; preds = %7, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %7 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 312
   %12 = load i32, ptr %11, align 8
@@ -3468,7 +3468,7 @@ define hidden noundef ptr @_ZN9CodeCache10high_boundE12CodeBlobType(i32 noundef 
 
 8:                                                ; preds = %7, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %7 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 312
   %12 = load i32, ptr %11, align 8
@@ -3502,7 +3502,7 @@ define hidden noundef i64 @_ZN9CodeCache8capacityEv() local_unnamed_addr #1 alig
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %4 ]
   %.09 = phi i64 [ 0, %.lr.ph ], [ %9, %4 ]
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i64 @_ZNK8CodeHeap8capacityEv(ptr noundef nonnull align 8 dereferenceable(336) %7) #21
   %9 = add i64 %8, %.09
@@ -3540,7 +3540,7 @@ define hidden noundef i64 @_ZN9CodeCache20unallocated_capacityE12CodeBlobType(i3
 
 8:                                                ; preds = %7, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %7 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 312
   %12 = load i32, ptr %11, align 8
@@ -3582,7 +3582,7 @@ define hidden noundef zeroext i1 @_ZN9CodeCache14is_non_nmethodEPh(ptr noundef r
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i3, 1
   %.not.i = icmp ne i64 %indvars.iv.next.i, %5
   tail call void @llvm.assume(i1 %.not.i)
-  %11 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.next.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.next.i
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 312
   %14 = load i32, ptr %13, align 8
@@ -3630,7 +3630,7 @@ define hidden noundef i64 @_ZN9CodeCache27max_distance_to_non_nmethodEv() local_
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i6, 1
   %.not.i = icmp ne i64 %indvars.iv.next.i, %9
   tail call void @llvm.assume(i1 %.not.i)
-  %15 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.next.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.next.i
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 312
   %18 = load i32, ptr %17, align 8
@@ -3675,7 +3675,7 @@ define hidden noundef double @_ZN9CodeCache18reverse_free_ratioEv() local_unname
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %4 ]
   %.09.i = phi i64 [ 0, %.lr.ph.i ], [ %11, %4 ]
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i64 @_ZNK8CodeHeap12max_capacityEv(ptr noundef nonnull align 8 dereferenceable(336) %7) #21
   %9 = tail call noundef i64 @_ZNK8CodeHeap18allocated_capacityEv(ptr noundef nonnull align 8 dereferenceable(336) %7) #21
@@ -3701,7 +3701,7 @@ _ZN9CodeCache20unallocated_capacityEv.exit:       ; preds = %4
   %indvars.iv.i5 = phi i64 [ 0, %.lr.ph.i4 ], [ %indvars.iv.next.i7, %18 ]
   %.09.i6 = phi i64 [ 0, %.lr.ph.i4 ], [ %23, %18 ]
   %19 = load ptr, ptr %17, align 8
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv.i5
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.i5
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noundef i64 @_ZNK8CodeHeap12max_capacityEv(ptr noundef nonnull align 8 dereferenceable(336) %21) #21
   %23 = add i64 %22, %.09.i6
@@ -3742,7 +3742,7 @@ define hidden noundef i64 @_ZN9CodeCache28bytes_allocated_in_freelistsEv() local
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
   %.09 = phi i64 [ 0, %.lr.ph ], [ %13, %7 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 280
   %11 = load i64, ptr %10, align 8
@@ -3772,7 +3772,7 @@ define hidden noundef i32 @_ZN9CodeCache18allocated_segmentsEv() local_unnamed_a
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %4 ]
   %.09 = phi i32 [ 0, %.lr.ph ], [ %9, %4 ]
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef i32 @_ZNK8CodeHeap18allocated_segmentsEv(ptr noundef nonnull align 8 dereferenceable(336) %7) #21
   %9 = add nsw i32 %8, %.09
@@ -3806,7 +3806,7 @@ define hidden noundef i64 @_ZN9CodeCache16freelists_lengthEv() local_unnamed_add
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
   %.09 = phi i64 [ 0, %.lr.ph ], [ %12, %6 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 288
   %10 = load i32, ptr %9, align 8
@@ -3939,7 +3939,7 @@ _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.e
 .lr.ph:                                           ; preds = %.lr.ph.outer, %split
   %.sroa.0.222 = phi ptr [ %.sroa.0.4, %split ], [ %.sroa.0.222.ph, %.lr.ph.outer ]
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds ptr, ptr %8, i64 %6
+  %9 = getelementptr inbounds [8 x i8], ptr %8, i64 %6
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %.sroa.0.222, null
   br i1 %11, label %12, label %20
@@ -4028,7 +4028,7 @@ _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.e
 .lr.ph:                                           ; preds = %.lr.ph.outer, %split
   %.sroa.0.222 = phi ptr [ %.sroa.0.4, %split ], [ %.sroa.0.222.ph, %.lr.ph.outer ]
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds ptr, ptr %8, i64 %6
+  %9 = getelementptr inbounds [8 x i8], ptr %8, i64 %6
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %.sroa.0.222, null
   br i1 %11, label %12, label %20
@@ -4153,7 +4153,7 @@ define hidden void @_ZN9CodeCache22unregister_old_nmethodEP7nmethod(ptr noundef 
 
 8:                                                ; preds = %12, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %12 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.i
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, %0
   br i1 %11, label %_ZNK17GrowableArrayViewIP7nmethodE4findERKS1_.exit, label %12
@@ -4172,7 +4172,7 @@ _ZNK17GrowableArrayViewIP7nmethodE4findERKS1_.exit: ; preds = %8
 
 16:                                               ; preds = %_ZNK17GrowableArrayViewIP7nmethodE4findERKS1_.exit
   %17 = zext nneg i32 %14 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %7, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %17
   %19 = load ptr, ptr %18, align 8
   %sext = shl i64 %indvars.iv.i, 32
   %20 = ashr exact i64 %sext, 29
@@ -4204,7 +4204,7 @@ define hidden void @_ZN9CodeCache15old_nmethods_doEP15MetadataClosure(ptr nounde
   %6 = load ptr, ptr @_ZL17old_nmethod_table, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   tail call void @_ZN7nmethod11metadata_doEP15MetadataClosure(ptr noundef nonnull align 8 dereferenceable(214) %10, ptr noundef %0) #21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4298,7 +4298,7 @@ _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.e
   %indvars.iv = phi i64 [ %18, %.lr.ph ], [ %indvars.iv.next, %.backedge.i.i ]
   %.sroa.0.228 = phi ptr [ %.sroa.0.031, %.lr.ph ], [ null, %.backedge.i.i ]
   %20 = load ptr, ptr %17, align 8
-  %21 = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds [8 x i8], ptr %20, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %.sroa.0.228, null
   br i1 %23, label %24, label %32
@@ -4405,7 +4405,7 @@ _ZL16add_to_old_tableP7nmethod.exit:              ; preds = %57, %63
   %73 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %74 = load ptr, ptr %73, align 8
   %75 = sext i32 %71 to i64
-  %76 = getelementptr inbounds ptr, ptr %74, i64 %75
+  %76 = getelementptr inbounds [8 x i8], ptr %74, i64 %75
   store ptr %.sroa.0.4, ptr %76, align 8
   br label %77
 
@@ -4447,7 +4447,7 @@ _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.e
   %indvars.iv = phi i64 [ %7, %.lr.ph ], [ %indvars.iv.next, %.backedge.i.i ]
   %.sroa.0.230 = phi ptr [ %.sroa.0.033, %.lr.ph ], [ null, %.backedge.i.i ]
   %9 = load ptr, ptr %6, align 8
-  %10 = getelementptr inbounds ptr, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds [8 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %.sroa.0.230, null
   br i1 %12, label %13, label %21
@@ -4575,7 +4575,7 @@ _ZL16add_to_old_tableP7nmethod.exit:              ; preds = %54, %60
   %70 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %71 = load ptr, ptr %70, align 8
   %72 = sext i32 %68 to i64
-  %73 = getelementptr inbounds ptr, ptr %71, i64 %72
+  %73 = getelementptr inbounds [8 x i8], ptr %71, i64 %72
   store ptr %.sroa.0.4, ptr %73, align 8
   br label %74
 
@@ -4623,7 +4623,7 @@ _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.e
 .lr.ph:                                           ; preds = %.lr.ph.outer, %42
   %.sroa.0.229 = phi ptr [ %.sroa.0.4, %42 ], [ %.sroa.0.229.ph, %.lr.ph.outer ]
   %11 = load ptr, ptr %8, align 8
-  %12 = getelementptr inbounds ptr, ptr %11, i64 %9
+  %12 = getelementptr inbounds [8 x i8], ptr %11, i64 %9
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %.sroa.0.229, null
   br i1 %14, label %15, label %23
@@ -4742,7 +4742,7 @@ _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.e
 .lr.ph:                                           ; preds = %.lr.ph.outer, %41
   %.sroa.0.228 = phi ptr [ %.sroa.0.4, %41 ], [ %.sroa.0.228.ph, %.lr.ph.outer ]
   %12 = load ptr, ptr %9, align 8
-  %13 = getelementptr inbounds ptr, ptr %12, i64 %10
+  %13 = getelementptr inbounds [8 x i8], ptr %12, i64 %10
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %.sroa.0.228, null
   br i1 %15, label %16, label %24
@@ -4855,7 +4855,7 @@ _ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i: ; preds = %7, %_ZNK7
   %.sroa.11.123 = phi i32 [ %.sroa.11.2, %.backedge.i.i ], [ %.sroa.11.0, %_ZN11MutexLockerC2EP5MutexNS0_18SafepointCheckFlagE.exit.i ]
   %9 = load ptr, ptr %5, align 8
   %10 = sext i32 %.sroa.11.123 to i64
-  %11 = getelementptr inbounds ptr, ptr %9, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %.sroa.0.224, null
   br i1 %13, label %14, label %22
@@ -5104,7 +5104,7 @@ define hidden void @_ZN9CodeCache6verifyEv() local_unnamed_addr #1 align 2 {
 4:                                                ; preds = %.lr.ph18, %._crit_edge
   %indvars.iv = phi i64 [ 0, %.lr.ph18 ], [ %indvars.iv.next, %._crit_edge ]
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef ptr @_ZNK8CodeHeap11first_blockEv(ptr noundef nonnull align 8 dereferenceable(336) %7) #21
   %9 = tail call noundef ptr @_ZNK8CodeHeap9next_usedEP9HeapBlock(ptr noundef nonnull align 8 dereferenceable(336) %7, ptr noundef %8) #21
@@ -5118,7 +5118,7 @@ define hidden void @_ZN9CodeCache6verifyEv() local_unnamed_addr #1 align 2 {
   %12 = load ptr, ptr %11, align 8
   tail call void %12(ptr noundef nonnull align 8 dereferenceable(54) %.014) #21
   %13 = load ptr, ptr %3, align 8
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   %16 = tail call noundef ptr @_ZNK8CodeHeap11block_startEPv(ptr noundef nonnull align 8 dereferenceable(336) %15, ptr noundef nonnull %.014) #21
   %17 = tail call noundef ptr @_ZNK8CodeHeap10next_blockEP9HeapBlock(ptr noundef nonnull align 8 dereferenceable(336) %15, ptr noundef %16) #21
@@ -5162,7 +5162,7 @@ define hidden void @_ZN9CodeCache19report_codemem_fullE12CodeBlobTypeb(i32 nound
 
 13:                                               ; preds = %12, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %12 ]
-  %14 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 312
   %17 = load i32, ptr %16, align 8
@@ -5270,7 +5270,7 @@ _ZN9CodeCache14heap_availableE12CodeBlobType.exit.i: ; preds = %_ZN14CompilerCon
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i4.i, 1
   %.not.i.i = icmp ne i64 %indvars.iv.next.i.i, %72
   call void @llvm.assume(i1 %.not.i.i)
-  %78 = getelementptr inbounds nuw ptr, ptr %71, i64 %indvars.iv.next.i.i
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %indvars.iv.next.i.i
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 312
   %81 = load i32, ptr %80, align 8
@@ -5299,7 +5299,7 @@ _ZN9CodeCache18get_code_heap_nameE12CodeBlobType.exit: ; preds = %41, %49, %64, 
 
 switch.lookup:                                    ; preds = %_ZN9CodeCache18get_code_heap_nameE12CodeBlobType.exit
   %90 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN9CodeCache19report_codemem_fullE12CodeBlobTypeb, i64 %90
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN9CodeCache19report_codemem_fullE12CodeBlobTypeb, i64 %90
   %switch.load = load ptr, ptr %switch.gep, align 8
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %4, ptr noundef nonnull @.str.48, ptr noundef nonnull %switch.load) #21
   %91 = call noundef ptr @_ZNK12stringStream9as_stringEb(ptr noundef nonnull align 8 dereferenceable(129) %3, i1 noundef zeroext false) #21
@@ -5471,7 +5471,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %_ZN11MutexLockerC2E
   %indvars.iv.i32 = phi i64 [ 0, %.lr.ph.i31 ], [ %indvars.iv.next.i33, %161 ]
   %.09.i = phi i64 [ 0, %.lr.ph.i31 ], [ %166, %161 ]
   %162 = load ptr, ptr %160, align 8
-  %163 = getelementptr inbounds nuw ptr, ptr %162, i64 %indvars.iv.i32
+  %163 = getelementptr inbounds nuw [8 x i8], ptr %162, i64 %indvars.iv.i32
   %164 = load ptr, ptr %163, align 8
   %165 = call noundef i64 @_ZNK8CodeHeap12max_capacityEv(ptr noundef nonnull align 8 dereferenceable(336) %164) #21
   %166 = add i64 %165, %.09.i
@@ -5524,7 +5524,7 @@ define hidden void @_ZN9CodeCache13print_summaryEP12outputStreamb(ptr noundef %0
   %.04168 = phi i64 [ 0, %.lr.ph ], [ %38, %66 ]
   %.04267 = phi i64 [ 0, %.lr.ph ], [ %35, %66 ]
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8
@@ -5600,7 +5600,7 @@ define hidden void @_ZN9CodeCache13print_summaryEP12outputStreamb(ptr noundef %0
 
 55:                                               ; preds = %54, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %54 ]
-  %56 = getelementptr inbounds nuw ptr, ptr %52, i64 %indvars.iv.i.i
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %indvars.iv.i.i
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 312
   %59 = load i32, ptr %58, align 8
@@ -5665,7 +5665,7 @@ _ZN9CodeCache22get_codemem_full_countE12CodeBlobType.exit: ; preds = %54, %39, %
 82:                                               ; preds = %82, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %82 ]
   %.09.i = phi i32 [ 0, %.lr.ph.i ], [ %87, %82 ]
-  %83 = getelementptr inbounds nuw ptr, ptr %80, i64 %indvars.iv.i
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %indvars.iv.i
   %84 = load ptr, ptr %83, align 8
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 316
   %86 = load i32, ptr %85, align 4
@@ -5690,7 +5690,7 @@ _ZN9CodeCache10blob_countEv.exit:                 ; preds = %82, %76
 93:                                               ; preds = %93, %.lr.ph.i45
   %indvars.iv.i46 = phi i64 [ 0, %.lr.ph.i45 ], [ %indvars.iv.next.i47, %93 ]
   %.011.i = phi i32 [ 0, %.lr.ph.i45 ], [ %98, %93 ]
-  %94 = getelementptr inbounds nuw ptr, ptr %91, i64 %indvars.iv.i46
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %indvars.iv.i46
   %95 = load ptr, ptr %94, align 8
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 320
   %97 = load i32, ptr %96, align 8
@@ -5712,7 +5712,7 @@ _ZN9CodeCache13nmethod_countEv.exit:              ; preds = %93, %_ZN9CodeCache1
 102:                                              ; preds = %102, %.lr.ph.i51
   %indvars.iv.i52 = phi i64 [ 0, %.lr.ph.i51 ], [ %indvars.iv.next.i54, %102 ]
   %.09.i53 = phi i32 [ 0, %.lr.ph.i51 ], [ %107, %102 ]
-  %103 = getelementptr inbounds nuw ptr, ptr %100, i64 %indvars.iv.i52
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %indvars.iv.i52
   %104 = load ptr, ptr %103, align 8
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 324
   %106 = load i32, ptr %105, align 4
@@ -5851,7 +5851,7 @@ define hidden void @_ZN9CodeCache21print_memory_overheadEv() local_unnamed_addr 
   %indvars.iv = phi i64 [ 0, %.lr.ph39 ], [ %indvars.iv.next, %._crit_edge ]
   %.037 = phi i64 [ 0, %.lr.ph39 ], [ %.1.lcssa, %._crit_edge ]
   %5 = load ptr, ptr %3, align 8
-  %6 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
   %8 = tail call noundef ptr @_ZNK8CodeHeap11first_blockEv(ptr noundef nonnull align 8 dereferenceable(336) %7) #21
   %9 = tail call noundef ptr @_ZNK8CodeHeap9next_usedEP9HeapBlock(ptr noundef nonnull align 8 dereferenceable(336) %7, ptr noundef %8) #21
@@ -5908,7 +5908,7 @@ define hidden void @_ZN9CodeCache21print_memory_overheadEv() local_unnamed_addr 
 34:                                               ; preds = %34, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %34 ]
   %.09.i = phi i64 [ 0, %.lr.ph.i ], [ %40, %34 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %32, i64 %indvars.iv.i
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv.i
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 288
   %38 = load i32, ptr %37, align 8
@@ -5937,7 +5937,7 @@ _ZN9CodeCache16freelists_lengthEv.exit:           ; preds = %34, %._crit_edge40
 48:                                               ; preds = %48, %.lr.ph.i12
   %indvars.iv.i13 = phi i64 [ 0, %.lr.ph.i12 ], [ %indvars.iv.next.i15, %48 ]
   %.09.i14 = phi i64 [ 0, %.lr.ph.i12 ], [ %54, %48 ]
-  %49 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv.i13
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv.i13
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 280
   %52 = load i64, ptr %51, align 8
@@ -5970,7 +5970,7 @@ _ZN9CodeCache28bytes_allocated_in_freelistsEv.exit: ; preds = %_ZN9CodeCache28by
   %indvars.iv.i20 = phi i64 [ 0, %.lr.ph.i19 ], [ %indvars.iv.next.i22, %61 ]
   %.09.i21 = phi i32 [ 0, %.lr.ph.i19 ], [ %66, %61 ]
   %62 = load ptr, ptr %60, align 8
-  %63 = getelementptr inbounds nuw ptr, ptr %62, i64 %indvars.iv.i20
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %indvars.iv.i20
   %64 = load ptr, ptr %63, align 8
   %65 = tail call noundef i32 @_ZNK8CodeHeap18allocated_segmentsEv(ptr noundef nonnull align 8 dereferenceable(336) %64) #21
   %66 = add nsw i32 %65, %.09.i21
@@ -6037,7 +6037,7 @@ _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.e
 .lr.ph:                                           ; preds = %.lr.ph.outer, %_ZN12ResourceMarkD2Ev.exit
   %.sroa.014.237 = phi ptr [ %.sroa.014.4, %_ZN12ResourceMarkD2Ev.exit ], [ %.sroa.014.237.ph, %.lr.ph.outer ]
   %12 = load ptr, ptr %8, align 8
-  %13 = getelementptr inbounds ptr, ptr %12, i64 %10
+  %13 = getelementptr inbounds [8 x i8], ptr %12, i64 %10
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %.sroa.014.237, null
   br i1 %15, label %16, label %24
@@ -6233,7 +6233,7 @@ define hidden void @_ZN9CodeCache9log_stateEP12outputStream(ptr noundef %0) loca
 7:                                                ; preds = %7, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %7 ]
   %.09.i = phi i32 [ 0, %.lr.ph.i ], [ %12, %7 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 316
   %11 = load i32, ptr %10, align 4
@@ -6258,7 +6258,7 @@ _ZN9CodeCache10blob_countEv.exit:                 ; preds = %7, %1
 18:                                               ; preds = %18, %.lr.ph.i1
   %indvars.iv.i2 = phi i64 [ 0, %.lr.ph.i1 ], [ %indvars.iv.next.i3, %18 ]
   %.011.i = phi i32 [ 0, %.lr.ph.i1 ], [ %23, %18 ]
-  %19 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.i2
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.i2
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 320
   %22 = load i32, ptr %21, align 8
@@ -6280,7 +6280,7 @@ _ZN9CodeCache13nmethod_countEv.exit:              ; preds = %18, %_ZN9CodeCache1
 27:                                               ; preds = %27, %.lr.ph.i7
   %indvars.iv.i8 = phi i64 [ 0, %.lr.ph.i7 ], [ %indvars.iv.next.i10, %27 ]
   %.09.i9 = phi i32 [ 0, %.lr.ph.i7 ], [ %32, %27 ]
-  %28 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv.i8
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv.i8
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 324
   %31 = load i32, ptr %30, align 4
@@ -6304,7 +6304,7 @@ _ZN9CodeCache13adapter_countEv.exit:              ; preds = %27, %_ZN9CodeCache1
   %indvars.iv.i15 = phi i64 [ 0, %.lr.ph.i14 ], [ %indvars.iv.next.i17, %36 ]
   %.09.i16 = phi i64 [ 0, %.lr.ph.i14 ], [ %43, %36 ]
   %37 = load ptr, ptr %35, align 8
-  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv.i15
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv.i15
   %39 = load ptr, ptr %38, align 8
   %40 = tail call noundef i64 @_ZNK8CodeHeap12max_capacityEv(ptr noundef nonnull align 8 dereferenceable(336) %39) #21
   %41 = tail call noundef i64 @_ZNK8CodeHeap18allocated_capacityEv(ptr noundef nonnull align 8 dereferenceable(336) %39) #21
@@ -6386,7 +6386,7 @@ _ZN16CodeBlobIteratorI8CodeBlob18AllCodeBlobsFilterLb0EEC2ENS2_14LivenessFilterE
 .lr.ph:                                           ; preds = %.lr.ph.outer, %_ZN12ResourceMarkD2Ev.exit
   %.sroa.014.224 = phi ptr [ %33, %_ZN12ResourceMarkD2Ev.exit ], [ %.sroa.014.224.ph, %.lr.ph.outer ]
   %25 = load ptr, ptr %21, align 8
-  %26 = getelementptr inbounds ptr, ptr %25, i64 %23
+  %26 = getelementptr inbounds [8 x i8], ptr %25, i64 %23
   %27 = load ptr, ptr %26, align 8
   %28 = icmp eq ptr %.sroa.014.224, null
   br i1 %28, label %29, label %.critedge.i.i
@@ -6555,7 +6555,7 @@ define hidden void @_ZN9CodeCache9aggregateEP12outputStreamm(ptr noundef %0, i64
 6:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
   %7 = load ptr, ptr %5, align 8
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   tail call void @_ZN13CodeHeapState9aggregateEP12outputStreamP8CodeHeapm(ptr noundef %0, ptr noundef %9, i64 noundef %1) #21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -6585,7 +6585,7 @@ define hidden void @_ZN9CodeCache7discardEP12outputStream(ptr noundef %0) local_
 5:                                                ; preds = %.lr.ph, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %5 ]
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   tail call void @_ZN13CodeHeapState7discardEP12outputStreamP8CodeHeap(ptr noundef %0, ptr noundef %8) #21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -6615,7 +6615,7 @@ define hidden void @_ZN9CodeCache15print_usedSpaceEP12outputStream(ptr noundef %
 5:                                                ; preds = %.lr.ph, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %5 ]
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   tail call void @_ZN13CodeHeapState15print_usedSpaceEP12outputStreamP8CodeHeap(ptr noundef %0, ptr noundef %8) #21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -6645,7 +6645,7 @@ define hidden void @_ZN9CodeCache15print_freeSpaceEP12outputStream(ptr noundef %
 5:                                                ; preds = %.lr.ph, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %5 ]
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   tail call void @_ZN13CodeHeapState15print_freeSpaceEP12outputStreamP8CodeHeap(ptr noundef %0, ptr noundef %8) #21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -6675,7 +6675,7 @@ define hidden void @_ZN9CodeCache11print_countEP12outputStream(ptr noundef %0) l
 5:                                                ; preds = %.lr.ph, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %5 ]
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   tail call void @_ZN13CodeHeapState11print_countEP12outputStreamP8CodeHeap(ptr noundef %0, ptr noundef %8) #21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -6705,7 +6705,7 @@ define hidden void @_ZN9CodeCache11print_spaceEP12outputStream(ptr noundef %0) l
 5:                                                ; preds = %.lr.ph, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %5 ]
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   tail call void @_ZN13CodeHeapState11print_spaceEP12outputStreamP8CodeHeap(ptr noundef %0, ptr noundef %8) #21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -6735,7 +6735,7 @@ define hidden void @_ZN9CodeCache9print_ageEP12outputStream(ptr noundef %0) loca
 5:                                                ; preds = %.lr.ph, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %5 ]
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   tail call void @_ZN13CodeHeapState9print_ageEP12outputStreamP8CodeHeap(ptr noundef %0, ptr noundef %8) #21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -6765,7 +6765,7 @@ define hidden void @_ZN9CodeCache11print_namesEP12outputStream(ptr noundef %0) l
 5:                                                ; preds = %.lr.ph, %5
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %5 ]
   %6 = load ptr, ptr %4, align 8
-  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   tail call void @_ZN13CodeHeapState11print_namesEP12outputStreamP8CodeHeap(ptr noundef %0, ptr noundef %8) #21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -6994,9 +6994,9 @@ _ZN13GrowableArrayIP7nmethodE8allocateEv.exit:    ; preds = %7, %11, %15
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -7013,7 +7013,7 @@ _ZN13GrowableArrayIP7nmethodE8allocateEv.exit:    ; preds = %7, %11, %15
 
 .lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
   %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv20
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv20
   store ptr null, ptr %35, align 8
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %36 = load i32, ptr %3, align 4
@@ -8657,9 +8657,9 @@ _ZN13GrowableArrayIP8CodeHeapE8allocateEv.exit:   ; preds = %7, %11, %15
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -8676,7 +8676,7 @@ _ZN13GrowableArrayIP8CodeHeapE8allocateEv.exit:   ; preds = %7, %11, %15
 
 .lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
   %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv20
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv20
   store ptr null, ptr %35, align 8
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %36 = load i32, ptr %3, align 4

@@ -465,13 +465,13 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %25, %21, %19
   tail call void @llvm.experimental.noalias.scope.decl(metadata !53)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !56)
   %34 = sext i32 %3 to i64
-  %35 = getelementptr float, ptr @_ZN5arrowL17kFloatPowersOfTenE, i64 %34
+  %35 = getelementptr [4 x i8], ptr @_ZN5arrowL17kFloatPowersOfTenE, i64 %34
   %36 = getelementptr i8, ptr %35, i64 304
   %37 = load float, ptr %36, align 4, !tbaa !51, !noalias !59
   %38 = fmul float %37, %33
   %39 = tail call noundef float @llvm.nearbyint.f32(float %38)
   %40 = sext i32 %2 to i64
-  %41 = getelementptr float, ptr @_ZN5arrowL17kFloatPowersOfTenE, i64 %40
+  %41 = getelementptr [4 x i8], ptr @_ZN5arrowL17kFloatPowersOfTenE, i64 %40
   %42 = getelementptr i8, ptr %41, i64 304
   %43 = load float, ptr %42, align 4, !tbaa !51, !noalias !59
   %44 = fneg float %43
@@ -589,13 +589,13 @@ _ZN5arrow6ResultINS_9Decimal32EED2Ev.exit9.i:     ; preds = %77, %73, %71
   tail call void @llvm.experimental.noalias.scope.decl(metadata !66)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !69)
   %79 = sext i32 %3 to i64
-  %80 = getelementptr float, ptr @_ZN5arrowL17kFloatPowersOfTenE, i64 %79
+  %80 = getelementptr [4 x i8], ptr @_ZN5arrowL17kFloatPowersOfTenE, i64 %79
   %81 = getelementptr i8, ptr %80, i64 304
   %82 = load float, ptr %81, align 4, !tbaa !51, !noalias !72
   %83 = fmul float %1, %82
   %84 = tail call noundef float @llvm.nearbyint.f32(float %83)
   %85 = sext i32 %2 to i64
-  %86 = getelementptr float, ptr @_ZN5arrowL17kFloatPowersOfTenE, i64 %85
+  %86 = getelementptr [4 x i8], ptr @_ZN5arrowL17kFloatPowersOfTenE, i64 %85
   %87 = getelementptr i8, ptr %86, i64 304
   %88 = load float, ptr %87, align 4, !tbaa !51, !noalias !72
   %89 = fneg float %88
@@ -710,13 +710,13 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %25, %21, %19
   tail call void @llvm.experimental.noalias.scope.decl(metadata !81)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !84)
   %34 = sext i32 %3 to i64
-  %35 = getelementptr double, ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %34
+  %35 = getelementptr [8 x i8], ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %34
   %36 = getelementptr i8, ptr %35, i64 608
   %37 = load double, ptr %36, align 8, !tbaa !79, !noalias !87
   %38 = fmul double %37, %33
   %39 = tail call double @llvm.nearbyint.f64(double %38)
   %40 = sext i32 %2 to i64
-  %41 = getelementptr double, ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %40
+  %41 = getelementptr [8 x i8], ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %40
   %42 = getelementptr i8, ptr %41, i64 608
   %43 = load double, ptr %42, align 8, !tbaa !79, !noalias !87
   %44 = fneg double %43
@@ -834,13 +834,13 @@ _ZN5arrow6ResultINS_9Decimal32EED2Ev.exit9.i:     ; preds = %77, %73, %71
   tail call void @llvm.experimental.noalias.scope.decl(metadata !92)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !95)
   %79 = sext i32 %3 to i64
-  %80 = getelementptr double, ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %79
+  %80 = getelementptr [8 x i8], ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %79
   %81 = getelementptr i8, ptr %80, i64 608
   %82 = load double, ptr %81, align 8, !tbaa !79, !noalias !98
   %83 = fmul double %1, %82
   %84 = tail call double @llvm.nearbyint.f64(double %83)
   %85 = sext i32 %2 to i64
-  %86 = getelementptr double, ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %85
+  %86 = getelementptr [8 x i8], ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %85
   %87 = getelementptr i8, ptr %86, i64 608
   %88 = load double, ptr %87, align 8, !tbaa !79, !noalias !98
   %89 = fneg double %88
@@ -921,7 +921,7 @@ define noundef float @_ZNK5arrow9Decimal327ToFloatEi(ptr noundef nonnull align 4
 
 19:                                               ; preds = %15
   %20 = sext i32 %16 to i64
-  %21 = getelementptr float, ptr @_ZN5arrowL17kFloatPowersOfTenE, i64 %20
+  %21 = getelementptr [4 x i8], ptr @_ZN5arrowL17kFloatPowersOfTenE, i64 %20
   %22 = getelementptr i8, ptr %21, i64 304
   %23 = load float, ptr %22, align 4, !tbaa !51
   br label %_ZN5arrow12_GLOBAL__N_123Decimal32RealConversion21ToRealPositiveNoSplitIfEET_RKNS_9Decimal32Ei.exit.i.i
@@ -952,7 +952,7 @@ _ZN5arrow12_GLOBAL__N_123Decimal32RealConversion21ToRealPositiveNoSplitIfEET_RKN
 
 33:                                               ; preds = %29
   %34 = sext i32 %31 to i64
-  %35 = getelementptr float, ptr @_ZN5arrowL17kFloatPowersOfTenE, i64 %34
+  %35 = getelementptr [4 x i8], ptr @_ZN5arrowL17kFloatPowersOfTenE, i64 %34
   %36 = getelementptr i8, ptr %35, i64 304
   %37 = load float, ptr %36, align 4, !tbaa !51
   br label %_ZN5arrow12_GLOBAL__N_123Decimal32RealConversion21ToRealPositiveNoSplitIfEET_RKNS_9Decimal32Ei.exit14.i.i
@@ -991,7 +991,7 @@ _ZN5arrow12_GLOBAL__N_123Decimal32RealConversion14ToRealPositiveIfEET_RKNS_9Deci
 
 52:                                               ; preds = %48
   %53 = sext i32 %49 to i64
-  %54 = getelementptr float, ptr @_ZN5arrowL17kFloatPowersOfTenE, i64 %53
+  %54 = getelementptr [4 x i8], ptr @_ZN5arrowL17kFloatPowersOfTenE, i64 %53
   %55 = getelementptr i8, ptr %54, i64 304
   %56 = load float, ptr %55, align 4, !tbaa !51
   br label %_ZN5arrow12_GLOBAL__N_123Decimal32RealConversion21ToRealPositiveNoSplitIfEET_RKNS_9Decimal32Ei.exit.i11.i
@@ -1022,7 +1022,7 @@ _ZN5arrow12_GLOBAL__N_123Decimal32RealConversion21ToRealPositiveNoSplitIfEET_RKN
 
 66:                                               ; preds = %62
   %67 = sext i32 %64 to i64
-  %68 = getelementptr float, ptr @_ZN5arrowL17kFloatPowersOfTenE, i64 %67
+  %68 = getelementptr [4 x i8], ptr @_ZN5arrowL17kFloatPowersOfTenE, i64 %67
   %69 = getelementptr i8, ptr %68, i64 304
   %70 = load float, ptr %69, align 4, !tbaa !51
   br label %_ZN5arrow12_GLOBAL__N_123Decimal32RealConversion21ToRealPositiveNoSplitIfEET_RKNS_9Decimal32Ei.exit14.i8.i
@@ -1073,7 +1073,7 @@ define noundef double @_ZNK5arrow9Decimal328ToDoubleEi(ptr noundef nonnull reado
 
 17:                                               ; preds = %13
   %18 = sext i32 %14 to i64
-  %19 = getelementptr double, ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %18
+  %19 = getelementptr [8 x i8], ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %18
   %20 = getelementptr i8, ptr %19, i64 608
   %21 = load double, ptr %20, align 8, !tbaa !79
   br label %_ZN5arrow12_GLOBAL__N_123Decimal32RealConversion21ToRealPositiveNoSplitIdEET_RKNS_9Decimal32Ei.exit.i.i
@@ -1104,7 +1104,7 @@ _ZN5arrow12_GLOBAL__N_123Decimal32RealConversion21ToRealPositiveNoSplitIdEET_RKN
 
 31:                                               ; preds = %27
   %32 = sext i32 %29 to i64
-  %33 = getelementptr double, ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %32
+  %33 = getelementptr [8 x i8], ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %32
   %34 = getelementptr i8, ptr %33, i64 608
   %35 = load double, ptr %34, align 8, !tbaa !79
   br label %_ZN5arrow12_GLOBAL__N_123Decimal32RealConversion21ToRealPositiveNoSplitIdEET_RKNS_9Decimal32Ei.exit14.i.i
@@ -1137,7 +1137,7 @@ _ZN5arrow12_GLOBAL__N_123Decimal32RealConversion14ToRealPositiveIdEET_RKNS_9Deci
 
 47:                                               ; preds = %43
   %48 = sext i32 %44 to i64
-  %49 = getelementptr double, ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %48
+  %49 = getelementptr [8 x i8], ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %48
   %50 = getelementptr i8, ptr %49, i64 608
   %51 = load double, ptr %50, align 8, !tbaa !79
   br label %_ZN5arrow12_GLOBAL__N_123Decimal32RealConversion14ToRealPositiveIdEET_RKNS_9Decimal32Ei.exit13.i
@@ -1722,7 +1722,7 @@ define noundef float @_ZNK5arrow9Decimal647ToFloatEi(ptr noundef nonnull align 8
 
 19:                                               ; preds = %15
   %20 = sext i32 %16 to i64
-  %21 = getelementptr float, ptr @_ZN5arrowL17kFloatPowersOfTenE, i64 %20
+  %21 = getelementptr [4 x i8], ptr @_ZN5arrowL17kFloatPowersOfTenE, i64 %20
   %22 = getelementptr i8, ptr %21, i64 304
   %23 = load float, ptr %22, align 4, !tbaa !51
   br label %_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion21ToRealPositiveNoSplitIfEET_RKNS_9Decimal64Ei.exit.i.i
@@ -1753,7 +1753,7 @@ _ZN5arrow12_GLOBAL__N_123Decimal64RealConversion21ToRealPositiveNoSplitIfEET_RKN
 
 33:                                               ; preds = %29
   %34 = sext i32 %31 to i64
-  %35 = getelementptr float, ptr @_ZN5arrowL17kFloatPowersOfTenE, i64 %34
+  %35 = getelementptr [4 x i8], ptr @_ZN5arrowL17kFloatPowersOfTenE, i64 %34
   %36 = getelementptr i8, ptr %35, i64 304
   %37 = load float, ptr %36, align 4, !tbaa !51
   br label %_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion21ToRealPositiveNoSplitIfEET_RKNS_9Decimal64Ei.exit14.i.i
@@ -1792,7 +1792,7 @@ _ZN5arrow12_GLOBAL__N_123Decimal64RealConversion14ToRealPositiveIfEET_RKNS_9Deci
 
 52:                                               ; preds = %48
   %53 = sext i32 %49 to i64
-  %54 = getelementptr float, ptr @_ZN5arrowL17kFloatPowersOfTenE, i64 %53
+  %54 = getelementptr [4 x i8], ptr @_ZN5arrowL17kFloatPowersOfTenE, i64 %53
   %55 = getelementptr i8, ptr %54, i64 304
   %56 = load float, ptr %55, align 4, !tbaa !51
   br label %_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion21ToRealPositiveNoSplitIfEET_RKNS_9Decimal64Ei.exit.i11.i
@@ -1823,7 +1823,7 @@ _ZN5arrow12_GLOBAL__N_123Decimal64RealConversion21ToRealPositiveNoSplitIfEET_RKN
 
 66:                                               ; preds = %62
   %67 = sext i32 %64 to i64
-  %68 = getelementptr float, ptr @_ZN5arrowL17kFloatPowersOfTenE, i64 %67
+  %68 = getelementptr [4 x i8], ptr @_ZN5arrowL17kFloatPowersOfTenE, i64 %67
   %69 = getelementptr i8, ptr %68, i64 304
   %70 = load float, ptr %69, align 4, !tbaa !51
   br label %_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion21ToRealPositiveNoSplitIfEET_RKNS_9Decimal64Ei.exit14.i8.i
@@ -1876,7 +1876,7 @@ define noundef double @_ZNK5arrow9Decimal648ToDoubleEi(ptr noundef nonnull align
 
 19:                                               ; preds = %15
   %20 = sext i32 %16 to i64
-  %21 = getelementptr double, ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %20
+  %21 = getelementptr [8 x i8], ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %20
   %22 = getelementptr i8, ptr %21, i64 608
   %23 = load double, ptr %22, align 8, !tbaa !79
   br label %_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion21ToRealPositiveNoSplitIdEET_RKNS_9Decimal64Ei.exit.i.i
@@ -1907,7 +1907,7 @@ _ZN5arrow12_GLOBAL__N_123Decimal64RealConversion21ToRealPositiveNoSplitIdEET_RKN
 
 33:                                               ; preds = %29
   %34 = sext i32 %31 to i64
-  %35 = getelementptr double, ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %34
+  %35 = getelementptr [8 x i8], ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %34
   %36 = getelementptr i8, ptr %35, i64 608
   %37 = load double, ptr %36, align 8, !tbaa !79
   br label %_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion21ToRealPositiveNoSplitIdEET_RKNS_9Decimal64Ei.exit14.i.i
@@ -1946,7 +1946,7 @@ _ZN5arrow12_GLOBAL__N_123Decimal64RealConversion14ToRealPositiveIdEET_RKNS_9Deci
 
 52:                                               ; preds = %48
   %53 = sext i32 %49 to i64
-  %54 = getelementptr double, ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %53
+  %54 = getelementptr [8 x i8], ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %53
   %55 = getelementptr i8, ptr %54, i64 608
   %56 = load double, ptr %55, align 8, !tbaa !79
   br label %_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion21ToRealPositiveNoSplitIdEET_RKNS_9Decimal64Ei.exit.i11.i
@@ -1977,7 +1977,7 @@ _ZN5arrow12_GLOBAL__N_123Decimal64RealConversion21ToRealPositiveNoSplitIdEET_RKN
 
 66:                                               ; preds = %62
   %67 = sext i32 %64 to i64
-  %68 = getelementptr double, ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %67
+  %68 = getelementptr [8 x i8], ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %67
   %69 = getelementptr i8, ptr %68, i64 608
   %70 = load double, ptr %69, align 8, !tbaa !79
   br label %_ZN5arrow12_GLOBAL__N_123Decimal64RealConversion21ToRealPositiveNoSplitIdEET_RKNS_9Decimal64Ei.exit14.i8.i
@@ -2581,7 +2581,7 @@ define noundef float @_ZNK5arrow10Decimal1287ToFloatEi(ptr noundef nonnull align
 
 23:                                               ; preds = %19
   %24 = sext i32 %20 to i64
-  %25 = getelementptr float, ptr @_ZN5arrowL17kFloatPowersOfTenE, i64 %24
+  %25 = getelementptr [4 x i8], ptr @_ZN5arrowL17kFloatPowersOfTenE, i64 %24
   %26 = getelementptr i8, ptr %25, i64 304
   %27 = load float, ptr %26, align 4, !tbaa !51
   br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.exit.i.i
@@ -2620,7 +2620,7 @@ _ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RK
 
 41:                                               ; preds = %34
   %42 = sext i32 %39 to i64
-  %43 = getelementptr float, ptr @_ZN5arrowL17kFloatPowersOfTenE, i64 %42
+  %43 = getelementptr [4 x i8], ptr @_ZN5arrowL17kFloatPowersOfTenE, i64 %42
   %44 = getelementptr i8, ptr %43, i64 304
   %45 = load float, ptr %44, align 4, !tbaa !51
   br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.exit18.i.i
@@ -2673,7 +2673,7 @@ _ZN5arrow12_GLOBAL__N_124Decimal128RealConversion14ToRealPositiveIfEET_RKNS_10De
 
 67:                                               ; preds = %63
   %68 = sext i32 %64 to i64
-  %69 = getelementptr float, ptr @_ZN5arrowL17kFloatPowersOfTenE, i64 %68
+  %69 = getelementptr [4 x i8], ptr @_ZN5arrowL17kFloatPowersOfTenE, i64 %68
   %70 = getelementptr i8, ptr %69, i64 304
   %71 = load float, ptr %70, align 4, !tbaa !51
   br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.exit.i19.i
@@ -2712,7 +2712,7 @@ _ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RK
 
 85:                                               ; preds = %78
   %86 = sext i32 %83 to i64
-  %87 = getelementptr float, ptr @_ZN5arrowL17kFloatPowersOfTenE, i64 %86
+  %87 = getelementptr [4 x i8], ptr @_ZN5arrowL17kFloatPowersOfTenE, i64 %86
   %88 = getelementptr i8, ptr %87, i64 304
   %89 = load float, ptr %88, align 4, !tbaa !51
   br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal128Ei.exit18.i15.i
@@ -2781,7 +2781,7 @@ define noundef double @_ZNK5arrow10Decimal1288ToDoubleEi(ptr noundef nonnull ali
 
 23:                                               ; preds = %19
   %24 = sext i32 %20 to i64
-  %25 = getelementptr double, ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %24
+  %25 = getelementptr [8 x i8], ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %24
   %26 = getelementptr i8, ptr %25, i64 608
   %27 = load double, ptr %26, align 8, !tbaa !79
   br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.exit.i.i
@@ -2820,7 +2820,7 @@ _ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RK
 
 41:                                               ; preds = %34
   %42 = sext i32 %39 to i64
-  %43 = getelementptr double, ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %42
+  %43 = getelementptr [8 x i8], ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %42
   %44 = getelementptr i8, ptr %43, i64 608
   %45 = load double, ptr %44, align 8, !tbaa !79
   br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.exit18.i.i
@@ -2873,7 +2873,7 @@ _ZN5arrow12_GLOBAL__N_124Decimal128RealConversion14ToRealPositiveIdEET_RKNS_10De
 
 67:                                               ; preds = %63
   %68 = sext i32 %64 to i64
-  %69 = getelementptr double, ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %68
+  %69 = getelementptr [8 x i8], ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %68
   %70 = getelementptr i8, ptr %69, i64 608
   %71 = load double, ptr %70, align 8, !tbaa !79
   br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.exit.i19.i
@@ -2912,7 +2912,7 @@ _ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RK
 
 85:                                               ; preds = %78
   %86 = sext i32 %83 to i64
-  %87 = getelementptr double, ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %86
+  %87 = getelementptr [8 x i8], ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %86
   %88 = getelementptr i8, ptr %87, i64 608
   %89 = load double, ptr %88, align 8, !tbaa !79
   br label %_ZN5arrow12_GLOBAL__N_124Decimal128RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal128Ei.exit18.i15.i
@@ -3127,7 +3127,7 @@ _ZSt7find_ifISt16reverse_iteratorIPKmEZN5arrowL31AppendLittleEndianArrayToString
 37:                                               ; preds = %24
   %38 = trunc nuw nsw i64 %33 to i32
   %39 = add i64 %.039, 1
-  %40 = getelementptr inbounds nuw i32, ptr %5, i64 %.039
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.039
   store i32 %38, ptr %40, align 4, !tbaa !63
   %41 = load i64, ptr %.040.ph, align 8, !tbaa !155
   %.not44 = icmp eq i64 %41, 0
@@ -3874,7 +3874,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEcm.exit.i: ; p
   %.032.us.i.i = phi i64 [ %86, %.critedge27.us.i.i ], [ 0, %76 ]
   %77 = sub nuw i64 %49, %.032.us.i.i
   %.sroa.speculated.us.i.i = call i64 @llvm.umin.i64(i64 %77, i64 18)
-  %78 = getelementptr inbounds nuw i64, ptr @_ZN5arrowL18kUInt64PowersOfTenE, i64 %.sroa.speculated.us.i.i
+  %78 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrowL18kUInt64PowersOfTenE, i64 %.sroa.speculated.us.i.i
   %79 = load i64, ptr %78, align 8, !tbaa !155, !noalias !168
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !168
   store i64 0, ptr %9, align 8, !tbaa !155, !noalias !168
@@ -3927,7 +3927,7 @@ _ZN5arrowL11ShiftAndAddESt17basic_string_viewIcSt11char_traitsIcEEPmm.exit.i: ; 
   %.032.us.i42.i = phi i64 [ %98, %.critedge27.us.i46.i ], [ 0, %_ZN5arrowL11ShiftAndAddESt17basic_string_viewIcSt11char_traitsIcEEPmm.exit.i ]
   %89 = sub nuw i64 %.sroa.0.0.copyload.i, %.032.us.i42.i
   %.sroa.speculated.us.i43.i = call i64 @llvm.umin.i64(i64 %89, i64 18)
-  %90 = getelementptr inbounds nuw i64, ptr @_ZN5arrowL18kUInt64PowersOfTenE, i64 %.sroa.speculated.us.i43.i
+  %90 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrowL18kUInt64PowersOfTenE, i64 %.sroa.speculated.us.i43.i
   %91 = load i64, ptr %90, align 8, !tbaa !155, !noalias !168
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !168
   store i64 0, ptr %7, align 8, !tbaa !155, !noalias !168
@@ -4427,7 +4427,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEcm.exit.i: ; p
   %.032.us.i.i = phi i64 [ %86, %.critedge27.us.i.i ], [ 0, %76 ]
   %77 = sub nuw i64 %49, %.032.us.i.i
   %.sroa.speculated.us.i.i = call i64 @llvm.umin.i64(i64 %77, i64 18)
-  %78 = getelementptr inbounds nuw i64, ptr @_ZN5arrowL18kUInt64PowersOfTenE, i64 %.sroa.speculated.us.i.i
+  %78 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrowL18kUInt64PowersOfTenE, i64 %.sroa.speculated.us.i.i
   %79 = load i64, ptr %78, align 8, !tbaa !155, !noalias !203
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !203
   store i64 0, ptr %9, align 8, !tbaa !155, !noalias !203
@@ -4480,7 +4480,7 @@ _ZN5arrowL11ShiftAndAddESt17basic_string_viewIcSt11char_traitsIcEEPmm.exit.i: ; 
   %.032.us.i42.i = phi i64 [ %98, %.critedge27.us.i46.i ], [ 0, %_ZN5arrowL11ShiftAndAddESt17basic_string_viewIcSt11char_traitsIcEEPmm.exit.i ]
   %89 = sub nuw i64 %.sroa.0.0.copyload.i, %.032.us.i42.i
   %.sroa.speculated.us.i43.i = call i64 @llvm.umin.i64(i64 %89, i64 18)
-  %90 = getelementptr inbounds nuw i64, ptr @_ZN5arrowL18kUInt64PowersOfTenE, i64 %.sroa.speculated.us.i43.i
+  %90 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrowL18kUInt64PowersOfTenE, i64 %.sroa.speculated.us.i43.i
   %91 = load i64, ptr %90, align 8, !tbaa !155, !noalias !203
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !203
   store i64 0, ptr %7, align 8, !tbaa !155, !noalias !203
@@ -4981,7 +4981,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEcm.exit.i: ; p
   %.032.us.i.i = phi i64 [ %98, %._crit_edge.us.i.i ], [ 0, %77 ]
   %78 = sub nuw i64 %50, %.032.us.i.i
   %.sroa.speculated.us.i.i = call i64 @llvm.umin.i64(i64 %78, i64 18)
-  %79 = getelementptr inbounds nuw i64, ptr @_ZN5arrowL18kUInt64PowersOfTenE, i64 %.sroa.speculated.us.i.i
+  %79 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrowL18kUInt64PowersOfTenE, i64 %.sroa.speculated.us.i.i
   %80 = load i64, ptr %79, align 8, !tbaa !155, !noalias !229
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !229
   store i64 0, ptr %9, align 8, !tbaa !155, !noalias !229
@@ -5008,7 +5008,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEcm.exit.i: ; p
 86:                                               ; preds = %86, %.critedge27.us.i.i
   %.02431.us.i.i = phi i64 [ 0, %.critedge27.us.i.i ], [ %97, %86 ]
   %87 = phi i64 [ %.promoted.us.i.i, %.critedge27.us.i.i ], [ %96, %86 ]
-  %88 = getelementptr inbounds nuw i64, ptr %16, i64 %.02431.us.i.i
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.02431.us.i.i
   %89 = load i64, ptr %88, align 8, !tbaa !155, !noalias !229
   %90 = zext i64 %89 to i128
   %91 = mul nuw i128 %90, %85
@@ -5051,7 +5051,7 @@ _ZN5arrowL11ShiftAndAddESt17basic_string_viewIcSt11char_traitsIcEEPmm.exit.i: ; 
   %.032.us.i41.i = phi i64 [ %121, %._crit_edge.us.i49.i ], [ 0, %_ZN5arrowL11ShiftAndAddESt17basic_string_viewIcSt11char_traitsIcEEPmm.exit.i ]
   %101 = sub nuw i64 %.sroa.01.0.copyload.i, %.032.us.i41.i
   %.sroa.speculated.us.i42.i = call i64 @llvm.umin.i64(i64 %101, i64 18)
-  %102 = getelementptr inbounds nuw i64, ptr @_ZN5arrowL18kUInt64PowersOfTenE, i64 %.sroa.speculated.us.i42.i
+  %102 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrowL18kUInt64PowersOfTenE, i64 %.sroa.speculated.us.i42.i
   %103 = load i64, ptr %102, align 8, !tbaa !155, !noalias !229
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !229
   store i64 0, ptr %7, align 8, !tbaa !155, !noalias !229
@@ -5078,7 +5078,7 @@ _ZN5arrowL11ShiftAndAddESt17basic_string_viewIcSt11char_traitsIcEEPmm.exit.i: ; 
 109:                                              ; preds = %109, %.critedge27.us.i45.i
   %.02431.us.i47.i = phi i64 [ 0, %.critedge27.us.i45.i ], [ %120, %109 ]
   %110 = phi i64 [ %.promoted.us.i46.i, %.critedge27.us.i45.i ], [ %119, %109 ]
-  %111 = getelementptr inbounds nuw i64, ptr %16, i64 %.02431.us.i47.i
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.02431.us.i47.i
   %112 = load i64, ptr %111, align 8, !tbaa !155, !noalias !229
   %113 = zext i64 %112 to i128
   %114 = mul nuw i128 %113, %108
@@ -6269,7 +6269,7 @@ _ZSt7find_ifISt16reverse_iteratorIPKmEZN5arrowL31AppendLittleEndianArrayToString
 47:                                               ; preds = %34
   %48 = trunc nuw nsw i64 %43 to i32
   %49 = add i64 %.039, 1
-  %50 = getelementptr inbounds nuw i32, ptr %5, i64 %.039
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.039
   store i32 %48, ptr %50, align 4, !tbaa !63
   %51 = load i64, ptr %.040.ph, align 8, !tbaa !155
   %.not44 = icmp eq i64 %51, 0
@@ -6733,7 +6733,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEcm.exit.i: ; p
   %.032.us.i.i = phi i64 [ %98, %._crit_edge.us.i.i ], [ 0, %77 ]
   %78 = sub nuw i64 %50, %.032.us.i.i
   %.sroa.speculated.us.i.i = call i64 @llvm.umin.i64(i64 %78, i64 18)
-  %79 = getelementptr inbounds nuw i64, ptr @_ZN5arrowL18kUInt64PowersOfTenE, i64 %.sroa.speculated.us.i.i
+  %79 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrowL18kUInt64PowersOfTenE, i64 %.sroa.speculated.us.i.i
   %80 = load i64, ptr %79, align 8, !tbaa !155, !noalias !306
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !306
   store i64 0, ptr %9, align 8, !tbaa !155, !noalias !306
@@ -6760,7 +6760,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE17find_first_not_ofEcm.exit.i: ; p
 86:                                               ; preds = %86, %.critedge27.us.i.i
   %.02431.us.i.i = phi i64 [ 0, %.critedge27.us.i.i ], [ %97, %86 ]
   %87 = phi i64 [ %.promoted.us.i.i, %.critedge27.us.i.i ], [ %96, %86 ]
-  %88 = getelementptr inbounds nuw i64, ptr %16, i64 %.02431.us.i.i
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.02431.us.i.i
   %89 = load i64, ptr %88, align 8, !noalias !306
   %90 = zext i64 %89 to i128
   %91 = mul nuw i128 %90, %85
@@ -6803,7 +6803,7 @@ _ZN5arrowL11ShiftAndAddESt17basic_string_viewIcSt11char_traitsIcEEPmm.exit.i: ; 
   %.032.us.i39.i = phi i64 [ %121, %._crit_edge.us.i47.i ], [ 0, %_ZN5arrowL11ShiftAndAddESt17basic_string_viewIcSt11char_traitsIcEEPmm.exit.i ]
   %101 = sub nuw i64 %.sroa.0.0.copyload.i, %.032.us.i39.i
   %.sroa.speculated.us.i40.i = call i64 @llvm.umin.i64(i64 %101, i64 18)
-  %102 = getelementptr inbounds nuw i64, ptr @_ZN5arrowL18kUInt64PowersOfTenE, i64 %.sroa.speculated.us.i40.i
+  %102 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrowL18kUInt64PowersOfTenE, i64 %.sroa.speculated.us.i40.i
   %103 = load i64, ptr %102, align 8, !tbaa !155, !noalias !306
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !306
   store i64 0, ptr %7, align 8, !tbaa !155, !noalias !306
@@ -6830,7 +6830,7 @@ _ZN5arrowL11ShiftAndAddESt17basic_string_viewIcSt11char_traitsIcEEPmm.exit.i: ; 
 109:                                              ; preds = %109, %.critedge27.us.i43.i
   %.02431.us.i45.i = phi i64 [ 0, %.critedge27.us.i43.i ], [ %120, %109 ]
   %110 = phi i64 [ %.promoted.us.i44.i, %.critedge27.us.i43.i ], [ %119, %109 ]
-  %111 = getelementptr inbounds nuw i64, ptr %16, i64 %.02431.us.i45.i
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.02431.us.i45.i
   %112 = load i64, ptr %111, align 8, !noalias !306
   %113 = zext i64 %112 to i128
   %114 = mul nuw i128 %113, %108
@@ -7219,7 +7219,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %10, %12, %16
 
 47:                                               ; preds = %32, %34, %27
   %.0.sink = phi i64 [ %31, %27 ], [ %46, %34 ], [ %20, %32 ]
-  %48 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   store i64 %.0.sink, ptr %48, align 8
   %49 = sub nsw i32 %25, %.sroa.speculated
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -8737,13 +8737,13 @@ define internal fastcc void @_ZN5arrow12_GLOBAL__N_121DecimalRealConversionINS_9
 19:                                               ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !382)
   %20 = sext i32 %3 to i64
-  %21 = getelementptr float, ptr @_ZN5arrowL17kFloatPowersOfTenE, i64 %20
+  %21 = getelementptr [4 x i8], ptr @_ZN5arrowL17kFloatPowersOfTenE, i64 %20
   %22 = getelementptr i8, ptr %21, i64 304
   %23 = load float, ptr %22, align 4, !tbaa !51, !noalias !382
   %24 = fmul float %1, %23
   %25 = tail call noundef float @llvm.nearbyint.f32(float %24)
   %26 = sext i32 %2 to i64
-  %27 = getelementptr float, ptr @_ZN5arrowL17kFloatPowersOfTenE, i64 %26
+  %27 = getelementptr [4 x i8], ptr @_ZN5arrowL17kFloatPowersOfTenE, i64 %26
   %28 = getelementptr i8, ptr %27, i64 304
   %29 = load float, ptr %28, align 4, !tbaa !51, !noalias !382
   %30 = fneg float %29
@@ -8793,7 +8793,7 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %39, %35, %33
 43:                                               ; preds = %4
   %44 = sub nsw i32 %2, %3
   %45 = sext i32 %44 to i64
-  %46 = getelementptr float, ptr @_ZN5arrowL17kFloatPowersOfTenE, i64 %45
+  %46 = getelementptr [4 x i8], ptr @_ZN5arrowL17kFloatPowersOfTenE, i64 %45
   %47 = getelementptr i8, ptr %46, i64 304
   %48 = load float, ptr %47, align 4, !tbaa !51
   %49 = fcmp ogt float %1, %48
@@ -8847,7 +8847,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %50, %52, %56
 
 67:                                               ; preds = %64
   %68 = zext nneg i32 %3 to i64
-  %69 = getelementptr inbounds nuw %"class.arrow::BasicDecimal64", ptr @_ZN5arrowL21kDecimal64PowersOfTenE, i64 %68
+  %69 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrowL21kDecimal64PowersOfTenE, i64 %68
   %70 = load i64, ptr %69, align 8, !tbaa !106
   %71 = mul i64 %70, %62
   %72 = add nsw i32 %59, 40
@@ -8890,7 +8890,7 @@ _ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decima
   %.sroa.speculated69 = tail call i32 @llvm.smin.i32(i32 %.sroa.speculated63, i32 %.08588)
   %87 = add nuw nsw i32 %.091, %.sroa.speculated69
   %88 = zext nneg i32 %87 to i64
-  %89 = getelementptr inbounds nuw i32, ptr @_ZN5arrowL20kCeilLog2PowersOfTenE, i64 %88
+  %89 = getelementptr inbounds nuw [4 x i8], ptr @_ZN5arrowL20kCeilLog2PowersOfTenE, i64 %88
   %90 = load i32, ptr %89, align 4, !tbaa !63
   %91 = sub nsw i32 %90, %.03590
   %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %91, i32 %.08489)
@@ -8925,7 +8925,7 @@ _ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decima
   %.sroa.0.0.i51 = phi i64 [ %86, %.lr.ph ], [ %102, %101 ], [ %spec.select.i50, %103 ]
   %107 = sub nsw i32 %.08489, %.sroa.speculated
   %108 = zext nneg i32 %.sroa.speculated69 to i64
-  %109 = getelementptr inbounds nuw %"class.arrow::BasicDecimal64", ptr @_ZN5arrowL21kDecimal64PowersOfTenE, i64 %108
+  %109 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrowL21kDecimal64PowersOfTenE, i64 %108
   %110 = load i64, ptr %109, align 8, !tbaa !106
   %111 = mul i64 %110, %.sroa.0.0.i51
   %112 = sub nsw i32 %.08588, %.sroa.speculated69
@@ -8940,7 +8940,7 @@ _ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decima
 
 116:                                              ; preds = %._crit_edge
   %117 = zext nneg i32 %112 to i64
-  %118 = getelementptr inbounds nuw %"class.arrow::BasicDecimal64", ptr @_ZN5arrowL21kDecimal64PowersOfTenE, i64 %117
+  %118 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrowL21kDecimal64PowersOfTenE, i64 %117
   %119 = load i64, ptr %118, align 8, !tbaa !106
   %120 = mul i64 %111, %119
   store i64 %120, ptr %16, align 8, !tbaa !106
@@ -8978,7 +8978,7 @@ _ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decima
 134:                                              ; preds = %57
   %135 = add nsw i32 %59, -24
   %136 = zext nneg i32 %3 to i64
-  %137 = getelementptr inbounds nuw %"class.arrow::BasicDecimal64", ptr @_ZN5arrowL21kDecimal64PowersOfTenE, i64 %136
+  %137 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrowL21kDecimal64PowersOfTenE, i64 %136
   %138 = load i64, ptr %137, align 8, !tbaa !106
   %139 = mul i64 %138, %62
   store i64 %139, ptr %16, align 8, !tbaa !106
@@ -9069,13 +9069,13 @@ define internal fastcc void @_ZN5arrow12_GLOBAL__N_121DecimalRealConversionINS_9
 20:                                               ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !395)
   %21 = sext i32 %3 to i64
-  %22 = getelementptr double, ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %21
+  %22 = getelementptr [8 x i8], ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %21
   %23 = getelementptr i8, ptr %22, i64 608
   %24 = load double, ptr %23, align 8, !tbaa !79, !noalias !395
   %25 = fmul double %1, %24
   %26 = tail call double @llvm.nearbyint.f64(double %25)
   %27 = sext i32 %2 to i64
-  %28 = getelementptr double, ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %27
+  %28 = getelementptr [8 x i8], ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %27
   %29 = getelementptr i8, ptr %28, i64 608
   %30 = load double, ptr %29, align 8, !tbaa !79, !noalias !395
   %31 = fneg double %30
@@ -9125,7 +9125,7 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %40, %36, %34
 44:                                               ; preds = %4
   %45 = sub nsw i32 %2, %3
   %46 = sext i32 %45 to i64
-  %47 = getelementptr double, ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %46
+  %47 = getelementptr [8 x i8], ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %46
   %48 = getelementptr i8, ptr %47, i64 608
   %49 = load double, ptr %48, align 8, !tbaa !79
   %50 = fcmp ogt double %1, %49
@@ -9180,7 +9180,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %51, %53, %57
 
 67:                                               ; preds = %64
   %68 = zext nneg i32 %3 to i64
-  %69 = getelementptr inbounds nuw %"class.arrow::BasicDecimal64", ptr @_ZN5arrowL21kDecimal64PowersOfTenE, i64 %68
+  %69 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrowL21kDecimal64PowersOfTenE, i64 %68
   %70 = load i64, ptr %69, align 8, !tbaa !106
   %71 = mul i64 %70, %61
   %72 = add nsw i32 %62, 11
@@ -9223,7 +9223,7 @@ _ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decima
   %.sroa.speculated69 = tail call i32 @llvm.smin.i32(i32 %.sroa.speculated63, i32 %.08487)
   %87 = add nuw nsw i32 %.090, %.sroa.speculated69
   %88 = zext nneg i32 %87 to i64
-  %89 = getelementptr inbounds nuw i32, ptr @_ZN5arrowL20kCeilLog2PowersOfTenE, i64 %88
+  %89 = getelementptr inbounds nuw [4 x i8], ptr @_ZN5arrowL20kCeilLog2PowersOfTenE, i64 %88
   %90 = load i32, ptr %89, align 4, !tbaa !63
   %91 = sub nsw i32 %90, %.03589
   %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %91, i32 %.08388)
@@ -9258,7 +9258,7 @@ _ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decima
   %.sroa.0.0.i51 = phi i64 [ %86, %.lr.ph ], [ %102, %101 ], [ %spec.select.i50, %103 ]
   %107 = sub nsw i32 %.08388, %.sroa.speculated
   %108 = zext nneg i32 %.sroa.speculated69 to i64
-  %109 = getelementptr inbounds nuw %"class.arrow::BasicDecimal64", ptr @_ZN5arrowL21kDecimal64PowersOfTenE, i64 %108
+  %109 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrowL21kDecimal64PowersOfTenE, i64 %108
   %110 = load i64, ptr %109, align 8, !tbaa !106
   %111 = mul i64 %110, %.sroa.0.0.i51
   %112 = sub nsw i32 %.08487, %.sroa.speculated69
@@ -9273,7 +9273,7 @@ _ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decima
 
 116:                                              ; preds = %._crit_edge
   %117 = zext nneg i32 %112 to i64
-  %118 = getelementptr inbounds nuw %"class.arrow::BasicDecimal64", ptr @_ZN5arrowL21kDecimal64PowersOfTenE, i64 %117
+  %118 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrowL21kDecimal64PowersOfTenE, i64 %117
   %119 = load i64, ptr %118, align 8, !tbaa !106
   %120 = mul i64 %111, %119
   store i64 %120, ptr %17, align 8, !tbaa !106
@@ -9311,7 +9311,7 @@ _ZN5arrow12_GLOBAL__N_123Decimal64RealConversion17RoundedRightShiftERKNS_9Decima
 134:                                              ; preds = %58
   %135 = add nsw i32 %62, -53
   %136 = zext nneg i32 %3 to i64
-  %137 = getelementptr inbounds nuw %"class.arrow::BasicDecimal64", ptr @_ZN5arrowL21kDecimal64PowersOfTenE, i64 %136
+  %137 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5arrowL21kDecimal64PowersOfTenE, i64 %136
   %138 = load i64, ptr %137, align 8, !tbaa !106
   %139 = mul i64 %138, %61
   store i64 %139, ptr %17, align 8, !tbaa !106
@@ -9399,13 +9399,13 @@ define internal fastcc void @_ZN5arrow12_GLOBAL__N_121DecimalRealConversionINS_1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !408)
   %20 = fpext float %1 to double
   %21 = sext i32 %3 to i64
-  %22 = getelementptr double, ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %21
+  %22 = getelementptr [8 x i8], ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %21
   %23 = getelementptr i8, ptr %22, i64 608
   %24 = load double, ptr %23, align 8, !tbaa !79, !noalias !408
   %25 = fmul double %24, %20
   %26 = tail call double @llvm.nearbyint.f64(double %25)
   %27 = sext i32 %2 to i64
-  %28 = getelementptr double, ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %27
+  %28 = getelementptr [8 x i8], ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %27
   %29 = getelementptr i8, ptr %28, i64 608
   %30 = load double, ptr %29, align 8, !tbaa !79, !noalias !408
   %31 = fneg double %30
@@ -9462,7 +9462,7 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %40, %36, %34
 49:                                               ; preds = %4
   %50 = sub nsw i32 %2, %3
   %51 = sext i32 %50 to i64
-  %52 = getelementptr float, ptr @_ZN5arrowL17kFloatPowersOfTenE, i64 %51
+  %52 = getelementptr [4 x i8], ptr @_ZN5arrowL17kFloatPowersOfTenE, i64 %51
   %53 = getelementptr i8, ptr %52, i64 304
   %54 = load float, ptr %53, align 4, !tbaa !51
   %55 = fcmp ogt float %1, %54
@@ -9519,7 +9519,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %56, %58, %62
 
 74:                                               ; preds = %71
   %75 = zext nneg i32 %3 to i64
-  %76 = getelementptr inbounds nuw %"class.arrow::BasicDecimal128", ptr @_ZN5arrowL22kDecimal128PowersOfTenE, i64 %75
+  %76 = getelementptr inbounds nuw [16 x i8], ptr @_ZN5arrowL22kDecimal128PowersOfTenE, i64 %75
   %77 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow15BasicDecimal128mLERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %76)
   %78 = load i64, ptr %69, align 8, !tbaa !155
   %79 = load i64, ptr %16, align 8, !tbaa !155
@@ -9611,7 +9611,7 @@ _ZN5arrow12_GLOBAL__N_124Decimal128RealConversion17RoundedRightShiftERKNS_10Deci
   %.sroa.speculated105 = call i32 @llvm.smin.i32(i32 %.sroa.speculated99, i32 %.0121149)
   %116 = add nuw nsw i32 %.0152, %.sroa.speculated105
   %117 = zext nneg i32 %116 to i64
-  %118 = getelementptr inbounds nuw i32, ptr @_ZN5arrowL20kCeilLog2PowersOfTenE, i64 %117
+  %118 = getelementptr inbounds nuw [4 x i8], ptr @_ZN5arrowL20kCeilLog2PowersOfTenE, i64 %117
   %119 = load i32, ptr %118, align 4, !tbaa !63
   %120 = sub nsw i32 %119, %.037151
   %.sroa.speculated = call i32 @llvm.smin.i32(i32 %120, i32 %.0120150)
@@ -9700,7 +9700,7 @@ _ZN5arrow12_GLOBAL__N_124Decimal128RealConversion17RoundedRightShiftERKNS_10Deci
   store i64 %.sroa.3.0.i59, ptr %69, align 8
   %162 = sub nsw i32 %.0120150, %.sroa.speculated
   %163 = zext nneg i32 %.sroa.speculated105 to i64
-  %164 = getelementptr inbounds nuw %"class.arrow::BasicDecimal128", ptr @_ZN5arrowL22kDecimal128PowersOfTenE, i64 %163
+  %164 = getelementptr inbounds nuw [16 x i8], ptr @_ZN5arrowL22kDecimal128PowersOfTenE, i64 %163
   %165 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow15BasicDecimal128mLERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %164)
   %166 = sub nsw i32 %.0121149, %.sroa.speculated105
   %167 = icmp sgt i32 %166, 0
@@ -9713,7 +9713,7 @@ _ZN5arrow12_GLOBAL__N_124Decimal128RealConversion17RoundedRightShiftERKNS_10Deci
 
 170:                                              ; preds = %._crit_edge
   %171 = zext nneg i32 %166 to i64
-  %172 = getelementptr inbounds nuw %"class.arrow::BasicDecimal128", ptr @_ZN5arrowL22kDecimal128PowersOfTenE, i64 %171
+  %172 = getelementptr inbounds nuw [16 x i8], ptr @_ZN5arrowL22kDecimal128PowersOfTenE, i64 %171
   %173 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow15BasicDecimal128mLERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %172)
   br label %174
 
@@ -9799,7 +9799,7 @@ _ZN5arrow12_GLOBAL__N_124Decimal128RealConversion17RoundedRightShiftERKNS_10Deci
 211:                                              ; preds = %63
   %212 = add nsw i32 %65, -24
   %213 = zext nneg i32 %3 to i64
-  %214 = getelementptr inbounds nuw %"class.arrow::BasicDecimal128", ptr @_ZN5arrowL22kDecimal128PowersOfTenE, i64 %213
+  %214 = getelementptr inbounds nuw [16 x i8], ptr @_ZN5arrowL22kDecimal128PowersOfTenE, i64 %213
   %215 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow15BasicDecimal128mLERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) %214)
   %216 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow15BasicDecimal128lSEj(ptr noundef nonnull align 8 dereferenceable(16) %16, i32 noundef %212)
   br label %217
@@ -9884,13 +9884,13 @@ define internal fastcc void @_ZN5arrow12_GLOBAL__N_121DecimalRealConversionINS_1
 20:                                               ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !422)
   %21 = sext i32 %3 to i64
-  %22 = getelementptr double, ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %21
+  %22 = getelementptr [8 x i8], ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %21
   %23 = getelementptr i8, ptr %22, i64 608
   %24 = load double, ptr %23, align 8, !tbaa !79, !noalias !422
   %25 = fmul double %1, %24
   %26 = tail call double @llvm.nearbyint.f64(double %25)
   %27 = sext i32 %2 to i64
-  %28 = getelementptr double, ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %27
+  %28 = getelementptr [8 x i8], ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %27
   %29 = getelementptr i8, ptr %28, i64 608
   %30 = load double, ptr %29, align 8, !tbaa !79, !noalias !422
   %31 = fneg double %30
@@ -9947,7 +9947,7 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %40, %36, %34
 49:                                               ; preds = %4
   %50 = sub nsw i32 %2, %3
   %51 = sext i32 %50 to i64
-  %52 = getelementptr double, ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %51
+  %52 = getelementptr [8 x i8], ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %51
   %53 = getelementptr i8, ptr %52, i64 608
   %54 = load double, ptr %53, align 8, !tbaa !79
   %55 = fcmp ogt double %1, %54
@@ -10005,7 +10005,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %56, %58, %62
 
 73:                                               ; preds = %70
   %74 = zext nneg i32 %3 to i64
-  %75 = getelementptr inbounds nuw %"class.arrow::BasicDecimal128", ptr @_ZN5arrowL22kDecimal128PowersOfTenE, i64 %74
+  %75 = getelementptr inbounds nuw [16 x i8], ptr @_ZN5arrowL22kDecimal128PowersOfTenE, i64 %74
   %76 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow15BasicDecimal128mLERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %75)
   %77 = load i64, ptr %68, align 8, !tbaa !155
   %78 = load i64, ptr %17, align 8, !tbaa !155
@@ -10097,7 +10097,7 @@ _ZN5arrow12_GLOBAL__N_124Decimal128RealConversion17RoundedRightShiftERKNS_10Deci
   %.sroa.speculated105 = call i32 @llvm.smin.i32(i32 %.sroa.speculated99, i32 %.0120148)
   %115 = add nuw nsw i32 %.0151, %.sroa.speculated105
   %116 = zext nneg i32 %115 to i64
-  %117 = getelementptr inbounds nuw i32, ptr @_ZN5arrowL20kCeilLog2PowersOfTenE, i64 %116
+  %117 = getelementptr inbounds nuw [4 x i8], ptr @_ZN5arrowL20kCeilLog2PowersOfTenE, i64 %116
   %118 = load i32, ptr %117, align 4, !tbaa !63
   %119 = sub nsw i32 %118, %.037150
   %.sroa.speculated = call i32 @llvm.smin.i32(i32 %119, i32 %.0119149)
@@ -10186,7 +10186,7 @@ _ZN5arrow12_GLOBAL__N_124Decimal128RealConversion17RoundedRightShiftERKNS_10Deci
   store i64 %.sroa.3.0.i59, ptr %68, align 8
   %161 = sub nsw i32 %.0119149, %.sroa.speculated
   %162 = zext nneg i32 %.sroa.speculated105 to i64
-  %163 = getelementptr inbounds nuw %"class.arrow::BasicDecimal128", ptr @_ZN5arrowL22kDecimal128PowersOfTenE, i64 %162
+  %163 = getelementptr inbounds nuw [16 x i8], ptr @_ZN5arrowL22kDecimal128PowersOfTenE, i64 %162
   %164 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow15BasicDecimal128mLERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %163)
   %165 = sub nsw i32 %.0120148, %.sroa.speculated105
   %166 = icmp sgt i32 %165, 0
@@ -10199,7 +10199,7 @@ _ZN5arrow12_GLOBAL__N_124Decimal128RealConversion17RoundedRightShiftERKNS_10Deci
 
 169:                                              ; preds = %._crit_edge
   %170 = zext nneg i32 %165 to i64
-  %171 = getelementptr inbounds nuw %"class.arrow::BasicDecimal128", ptr @_ZN5arrowL22kDecimal128PowersOfTenE, i64 %170
+  %171 = getelementptr inbounds nuw [16 x i8], ptr @_ZN5arrowL22kDecimal128PowersOfTenE, i64 %170
   %172 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow15BasicDecimal128mLERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %171)
   br label %173
 
@@ -10285,7 +10285,7 @@ _ZN5arrow12_GLOBAL__N_124Decimal128RealConversion17RoundedRightShiftERKNS_10Deci
 210:                                              ; preds = %63
   %211 = add nsw i32 %67, -53
   %212 = zext nneg i32 %3 to i64
-  %213 = getelementptr inbounds nuw %"class.arrow::BasicDecimal128", ptr @_ZN5arrowL22kDecimal128PowersOfTenE, i64 %212
+  %213 = getelementptr inbounds nuw [16 x i8], ptr @_ZN5arrowL22kDecimal128PowersOfTenE, i64 %212
   %214 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow15BasicDecimal128mLERKS0_(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %213)
   %215 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZN5arrow15BasicDecimal128lSEj(ptr noundef nonnull align 8 dereferenceable(16) %17, i32 noundef %211)
   br label %216
@@ -11662,13 +11662,13 @@ define internal fastcc void @_ZN5arrow12_GLOBAL__N_121DecimalRealConversionINS_1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !466)
   %23 = fpext float %1 to double
   %24 = sext i32 %3 to i64
-  %25 = getelementptr double, ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %24
+  %25 = getelementptr [8 x i8], ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %24
   %26 = getelementptr i8, ptr %25, i64 608
   %27 = load double, ptr %26, align 8, !tbaa !79, !noalias !466
   %28 = fmul double %27, %23
   %29 = tail call double @llvm.nearbyint.f64(double %28)
   %30 = sext i32 %2 to i64
-  %31 = getelementptr double, ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %30
+  %31 = getelementptr [8 x i8], ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %30
   %32 = getelementptr i8, ptr %31, i64 608
   %33 = load double, ptr %32, align 8, !tbaa !79, !noalias !466
   %34 = fcmp ult double %29, %33
@@ -11736,7 +11736,7 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %41, %37, %35
 60:                                               ; preds = %4
   %61 = sub nsw i32 %2, %3
   %62 = sext i32 %61 to i64
-  %63 = getelementptr float, ptr @_ZN5arrowL17kFloatPowersOfTenE, i64 %62
+  %63 = getelementptr [4 x i8], ptr @_ZN5arrowL17kFloatPowersOfTenE, i64 %62
   %64 = getelementptr i8, ptr %63, i64 304
   %65 = load float, ptr %64, align 4, !tbaa !51
   %66 = fcmp ogt float %1, %65
@@ -11793,7 +11793,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %67, %69, %73
 
 85:                                               ; preds = %82
   %86 = zext nneg i32 %3 to i64
-  %87 = getelementptr inbounds nuw %"class.arrow::BasicDecimal256", ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 %86
+  %87 = getelementptr inbounds nuw [32 x i8], ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 %86
   %88 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256mLERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %87)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   call fastcc void @_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion17RoundedRightShiftENS_10Decimal256Ei(ptr dead_on_unwind noalias writable align 8 %17, ptr noundef nonnull byval(%"class.arrow::Decimal256") align 8 %16, i32 noundef %83)
@@ -11816,7 +11816,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %67, %69, %73
   %92 = call i32 @llvm.umin.i32(i32 %.sroa.speculated46, i32 %.06971)
   %93 = add nuw nsw i32 %.074, %92
   %94 = zext nneg i32 %93 to i64
-  %95 = getelementptr inbounds nuw i32, ptr @_ZN5arrowL20kCeilLog2PowersOfTenE, i64 %94
+  %95 = getelementptr inbounds nuw [4 x i8], ptr @_ZN5arrowL20kCeilLog2PowersOfTenE, i64 %94
   %96 = load i32, ptr %95, align 4, !tbaa !63
   %97 = sub nsw i32 %96, %.03373
   %.sroa.speculated = call i32 @llvm.smin.i32(i32 %97, i32 %.06872)
@@ -11827,7 +11827,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %67, %69, %73
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %99 = sub nsw i32 %.06872, %.sroa.speculated
   %100 = zext nneg i32 %92 to i64
-  %101 = getelementptr inbounds nuw %"class.arrow::BasicDecimal256", ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 %100
+  %101 = getelementptr inbounds nuw [32 x i8], ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 %100
   %102 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256mLERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %101)
   %103 = sub nsw i32 %.06971, %92
   %104 = icmp sgt i32 %103, 0
@@ -11840,7 +11840,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %67, %69, %73
 
 107:                                              ; preds = %._crit_edge
   %108 = zext nneg i32 %103 to i64
-  %109 = getelementptr inbounds nuw %"class.arrow::BasicDecimal256", ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 %108
+  %109 = getelementptr inbounds nuw [32 x i8], ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 %108
   %110 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256mLERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %109)
   br label %111
 
@@ -11857,7 +11857,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %67, %69, %73
 113:                                              ; preds = %74
   %114 = add nsw i32 %76, -24
   %115 = zext nneg i32 %3 to i64
-  %116 = getelementptr inbounds nuw %"class.arrow::BasicDecimal256", ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 %115
+  %116 = getelementptr inbounds nuw [32 x i8], ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 %115
   %117 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256mLERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %16, ptr noundef nonnull align 8 dereferenceable(32) %116)
   %118 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256lSEj(ptr noundef nonnull align 8 dereferenceable(32) %16, i32 noundef %114)
   br label %119
@@ -11957,7 +11957,7 @@ define internal fastcc void @_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion17
   %.042 = phi i64 [ 0, %.lr.ph.preheader ], [ %22, %.lr.ph ]
   %18 = icmp ne i64 %.042, 0
   %19 = zext i1 %18 to i64
-  %20 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %21 = load i64, ptr %20, align 8, !tbaa !155
   %22 = or i64 %21, %19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -11965,7 +11965,7 @@ define internal fastcc void @_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion17
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !482
 
 .lr.ph45.split.preheader:                         ; preds = %._crit_edge
-  %23 = getelementptr inbounds nuw i64, ptr %4, i64 %17
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %17
   %24 = load i64, ptr %23, align 8, !tbaa !155
   %25 = sub nsw i32 64, %12
   %26 = zext nneg i32 %25 to i64
@@ -12004,11 +12004,11 @@ define internal fastcc void @_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion17
 
 .lr.ph45.split:                                   ; preds = %.lr.ph45.split.preheader, %56
   %indvars.iv49 = phi i64 [ %37, %.lr.ph45.split.preheader ], [ %indvars.iv.next50, %56 ]
-  %45 = getelementptr i64, ptr %4, i64 %indvars.iv49
+  %45 = getelementptr [8 x i8], ptr %4, i64 %indvars.iv49
   %46 = load i64, ptr %45, align 8, !tbaa !155
   %47 = lshr i64 %46, %34
   %48 = sub nsw i64 %indvars.iv49, %37
-  %49 = getelementptr inbounds nuw i64, ptr %5, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %48
   store i64 %47, ptr %49, align 8, !tbaa !155
   %50 = icmp eq i64 %indvars.iv49, 3
   br i1 %50, label %56, label %51
@@ -12094,13 +12094,13 @@ define internal fastcc void @_ZN5arrow12_GLOBAL__N_121DecimalRealConversionINS_1
 23:                                               ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !490)
   %24 = sext i32 %3 to i64
-  %25 = getelementptr double, ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %24
+  %25 = getelementptr [8 x i8], ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %24
   %26 = getelementptr i8, ptr %25, i64 608
   %27 = load double, ptr %26, align 8, !tbaa !79, !noalias !490
   %28 = fmul double %1, %27
   %29 = tail call double @llvm.nearbyint.f64(double %28)
   %30 = sext i32 %2 to i64
-  %31 = getelementptr double, ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %30
+  %31 = getelementptr [8 x i8], ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %30
   %32 = getelementptr i8, ptr %31, i64 608
   %33 = load double, ptr %32, align 8, !tbaa !79, !noalias !490
   %34 = fcmp ult double %29, %33
@@ -12168,7 +12168,7 @@ _ZN5arrow6StatusD2Ev.exit.i:                      ; preds = %41, %37, %35
 60:                                               ; preds = %4
   %61 = sub nsw i32 %2, %3
   %62 = sext i32 %61 to i64
-  %63 = getelementptr double, ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %62
+  %63 = getelementptr [8 x i8], ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %62
   %64 = getelementptr i8, ptr %63, i64 608
   %65 = load double, ptr %64, align 8, !tbaa !79
   %66 = fcmp ogt double %1, %65
@@ -12226,7 +12226,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %67, %69, %73
 
 84:                                               ; preds = %81
   %85 = zext nneg i32 %3 to i64
-  %86 = getelementptr inbounds nuw %"class.arrow::BasicDecimal256", ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 %85
+  %86 = getelementptr inbounds nuw [32 x i8], ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 %85
   %87 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256mLERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %86)
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   call fastcc void @_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion17RoundedRightShiftENS_10Decimal256Ei(ptr dead_on_unwind noalias writable align 8 %18, ptr noundef nonnull byval(%"class.arrow::Decimal256") align 8 %17, i32 noundef %82)
@@ -12249,7 +12249,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %67, %69, %73
   %91 = call i32 @llvm.umin.i32(i32 %.sroa.speculated46, i32 %.06870)
   %92 = add nuw nsw i32 %.073, %91
   %93 = zext nneg i32 %92 to i64
-  %94 = getelementptr inbounds nuw i32, ptr @_ZN5arrowL20kCeilLog2PowersOfTenE, i64 %93
+  %94 = getelementptr inbounds nuw [4 x i8], ptr @_ZN5arrowL20kCeilLog2PowersOfTenE, i64 %93
   %95 = load i32, ptr %94, align 4, !tbaa !63
   %96 = sub nsw i32 %95, %.03372
   %.sroa.speculated = call i32 @llvm.smin.i32(i32 %96, i32 %.06771)
@@ -12260,7 +12260,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %67, %69, %73
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   %98 = sub nsw i32 %.06771, %.sroa.speculated
   %99 = zext nneg i32 %91 to i64
-  %100 = getelementptr inbounds nuw %"class.arrow::BasicDecimal256", ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 %99
+  %100 = getelementptr inbounds nuw [32 x i8], ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 %99
   %101 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256mLERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %100)
   %102 = sub nsw i32 %.06870, %91
   %103 = icmp sgt i32 %102, 0
@@ -12273,7 +12273,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %67, %69, %73
 
 106:                                              ; preds = %._crit_edge
   %107 = zext nneg i32 %102 to i64
-  %108 = getelementptr inbounds nuw %"class.arrow::BasicDecimal256", ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 %107
+  %108 = getelementptr inbounds nuw [32 x i8], ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 %107
   %109 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256mLERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %108)
   br label %110
 
@@ -12290,7 +12290,7 @@ _ZN5arrow6StatusD2Ev.exit:                        ; preds = %67, %69, %73
 112:                                              ; preds = %74
   %113 = add nsw i32 %78, -53
   %114 = zext nneg i32 %3 to i64
-  %115 = getelementptr inbounds nuw %"class.arrow::BasicDecimal256", ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 %114
+  %115 = getelementptr inbounds nuw [32 x i8], ptr @_ZN5arrowL22kDecimal256PowersOfTenE, i64 %114
   %116 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256mLERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(32) %115)
   %117 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN5arrow15BasicDecimal256lSEj(ptr noundef nonnull align 8 dereferenceable(32) %17, i32 noundef %113)
   br label %118
@@ -12377,7 +12377,7 @@ define internal fastcc noundef float @_ZN5arrow12_GLOBAL__N_124Decimal256RealCon
 
 15:                                               ; preds = %11
   %16 = sext i32 %12 to i64
-  %17 = getelementptr float, ptr @_ZN5arrowL17kFloatPowersOfTenE, i64 %16
+  %17 = getelementptr [4 x i8], ptr @_ZN5arrowL17kFloatPowersOfTenE, i64 %16
   %18 = getelementptr i8, ptr %17, i64 304
   %19 = load float, ptr %18, align 4, !tbaa !51
   br label %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal256Ei.exit
@@ -12438,7 +12438,7 @@ _ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIfEET_RK
 
 47:                                               ; preds = %34
   %48 = sext i32 %45 to i64
-  %49 = getelementptr float, ptr @_ZN5arrowL17kFloatPowersOfTenE, i64 %48
+  %49 = getelementptr [4 x i8], ptr @_ZN5arrowL17kFloatPowersOfTenE, i64 %48
   %50 = getelementptr i8, ptr %49, i64 304
   %51 = load float, ptr %50, align 4, !tbaa !51
   br label %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIfEET_RKNS_10Decimal256Ei.exit12
@@ -12505,7 +12505,7 @@ define internal fastcc noundef double @_ZN5arrow12_GLOBAL__N_124Decimal256RealCo
 
 15:                                               ; preds = %11
   %16 = sext i32 %12 to i64
-  %17 = getelementptr double, ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %16
+  %17 = getelementptr [8 x i8], ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %16
   %18 = getelementptr i8, ptr %17, i64 608
   %19 = load double, ptr %18, align 8, !tbaa !79
   br label %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal256Ei.exit
@@ -12566,7 +12566,7 @@ _ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIdEET_RK
 
 47:                                               ; preds = %34
   %48 = sext i32 %45 to i64
-  %49 = getelementptr double, ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %48
+  %49 = getelementptr [8 x i8], ptr @_ZN5arrowL18kDoublePowersOfTenE, i64 %48
   %50 = getelementptr i8, ptr %49, i64 608
   %51 = load double, ptr %50, align 8, !tbaa !79
   br label %_ZN5arrow12_GLOBAL__N_124Decimal256RealConversion21ToRealPositiveNoSplitIdEET_RKNS_10Decimal256Ei.exit12

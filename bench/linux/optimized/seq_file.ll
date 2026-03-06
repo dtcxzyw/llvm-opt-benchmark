@@ -2530,7 +2530,7 @@ define dso_local ptr @seq_hlist_start_percpu(ptr noundef %0, ptr noundef writeon
 
 17:                                               ; preds = %13
   %18 = and i64 %14, 63
-  %19 = getelementptr i64, ptr @__per_cpu_offset, i64 %18
+  %19 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %18
   %20 = load i64, ptr %19, align 8
   %21 = add i64 %20, %4
   %22 = inttoptr i64 %21 to ptr

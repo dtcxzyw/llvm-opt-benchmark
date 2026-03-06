@@ -3,7 +3,6 @@ source_filename = "bench/lua/original/lstate.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.StackValue = type { %struct.TValue }
 %struct.TValue = type { %union.Value, i8 }
 %union.Value = type { ptr }
 
@@ -252,7 +251,7 @@ define dso_local ptr @lua_newthread(ptr noundef %0) local_unnamed_addr #1 {
 44:                                               ; preds = %44, %8
   %indvars.iv.i = phi i64 [ 0, %8 ], [ %indvars.iv.next.i, %44 ]
   %45 = load ptr, ptr %16, align 8, !tbaa !30
-  %46 = getelementptr inbounds nuw %union.StackValue, ptr %45, i64 %indvars.iv.i
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %45, i64 %indvars.iv.i
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store i8 0, ptr %47, align 8, !tbaa !30
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -608,7 +607,7 @@ define internal void @f_luaopen(ptr noundef %0, ptr readnone captures(none) %1) 
 9:                                                ; preds = %9, %2
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %9 ]
   %10 = load ptr, ptr %7, align 8, !tbaa !30
-  %11 = getelementptr inbounds nuw %union.StackValue, ptr %10, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %indvars.iv.i
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i8 0, ptr %12, align 8, !tbaa !30
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1

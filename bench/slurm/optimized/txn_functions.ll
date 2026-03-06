@@ -52,7 +52,7 @@ define dso_local range(i32 -1, 1) i32 @sacctmgr_list_txn(i32 noundef %0, ptr nou
 15:                                               ; preds = %.lr.ph, %_set_cond.exit
   %storemerge126 = phi i32 [ 0, %.lr.ph ], [ %184, %_set_cond.exit ]
   %16 = sext i32 %storemerge126 to i64
-  %17 = getelementptr inbounds ptr, ptr %1, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %1, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #9
   %20 = trunc i64 %19 to i32
@@ -85,7 +85,7 @@ define dso_local range(i32 -1, 1) i32 @sacctmgr_list_txn(i32 noundef %0, ptr nou
 
 34:                                               ; preds = %183, %.lr.ph180.i
   %indvars.iv.i = phi i64 [ %33, %.lr.ph180.i ], [ %indvars.iv.next.i, %183 ]
-  %35 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv.i
+  %35 = getelementptr inbounds [8 x i8], ptr %1, i64 %indvars.iv.i
   %36 = load ptr, ptr %35, align 8
   %37 = call i32 @parse_option_end(ptr noundef %36) #8
   %.not.i = icmp eq i32 %37, 0

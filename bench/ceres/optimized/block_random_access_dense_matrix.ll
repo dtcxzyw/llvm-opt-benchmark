@@ -3,14 +3,6 @@ source_filename = "bench/ceres/original/block_random_access_dense_matrix.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.ceres::internal::CellInfo" = type { ptr, %"class.std::mutex" }
-%"class.std::mutex" = type { %"class.std::__mutex_base" }
-%"class.std::__mutex_base" = type { %union.pthread_mutex_t }
-%union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
-%struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
-%struct.__pthread_internal_list = type { ptr, ptr }
-%"struct.ceres::internal::Block" = type { i32, i32 }
-
 $_ZN5ceres8internal28BlockRandomAccessDenseMatrixD2Ev = comdat any
 
 $_ZN5ceres8internal28BlockRandomAccessDenseMatrixD0Ev = comdat any
@@ -121,7 +113,7 @@ _ZNSt10unique_ptrIA_N5ceres8internal8CellInfoESt14default_deleteIS3_EED2Ev.exit.
 
 50:                                               ; preds = %.lr.ph, %50
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %50 ]
-  %51 = getelementptr inbounds nuw %"struct.ceres::internal::CellInfo", ptr %39, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [48 x i8], ptr %39, i64 %indvars.iv
   store ptr %35, ptr %51, align 8, !tbaa !48
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %37
@@ -196,12 +188,12 @@ define hidden noundef nonnull ptr @_ZN5ceres8internal28BlockRandomAccessDenseMat
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = sext i32 %1 to i64
   %10 = load ptr, ptr %8, align 8, !tbaa !6
-  %11 = getelementptr inbounds nuw %"struct.ceres::internal::Block", ptr %10, i64 %9
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %9
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = load i32, ptr %12, align 4, !tbaa !37
   store i32 %13, ptr %3, align 4, !tbaa !54
   %14 = sext i32 %2 to i64
-  %15 = getelementptr inbounds nuw %"struct.ceres::internal::Block", ptr %10, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = load i32, ptr %16, align 4, !tbaa !37
   store i32 %17, ptr %4, align 4, !tbaa !54
@@ -218,8 +210,8 @@ define hidden noundef nonnull ptr @_ZN5ceres8internal28BlockRandomAccessDenseMat
   %26 = ashr exact i64 %25, 3
   %27 = mul i64 %26, %9
   %28 = load ptr, ptr %20, align 8, !tbaa !44
-  %29 = getelementptr %"struct.ceres::internal::CellInfo", ptr %28, i64 %27
-  %30 = getelementptr %"struct.ceres::internal::CellInfo", ptr %29, i64 %14
+  %29 = getelementptr [48 x i8], ptr %28, i64 %27
+  %30 = getelementptr [48 x i8], ptr %29, i64 %14
   ret ptr %30
 }
 

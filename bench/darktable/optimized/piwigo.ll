@@ -2454,7 +2454,7 @@ define noundef ptr @get_params(ptr noundef readonly captures(none) %0) local_unn
 
 switch.lookup:                                    ; preds = %6
   %18 = zext nneg i32 %15 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.get_params, i64 %18
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.get_params, i64 %18
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %19
 
@@ -2811,7 +2811,7 @@ define range(i32 0, 2) i32 @set_params(ptr noundef %0, ptr noundef %1, i32 nound
 
 switch.lookup:                                    ; preds = %8
   %24 = zext nneg i32 %20 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.set_params, i64 %24
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.set_params, i64 %24
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %.sink.split
 

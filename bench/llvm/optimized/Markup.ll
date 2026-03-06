@@ -159,7 +159,7 @@ define dso_local void @_ZN4llvm9symbolize12MarkupParser8nextNodeEv(ptr dead_on_u
   %16 = add nuw nsw i64 %12, 1
   store i64 %16, ptr %11, align 8, !tbaa !27
   %17 = load ptr, ptr %7, align 8, !tbaa !21
-  %18 = getelementptr inbounds nuw %"struct.llvm::symbolize::MarkupNode", ptr %17, i64 %12
+  %18 = getelementptr inbounds nuw [96 x i8], ptr %17, i64 %12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(96) %18, i64 32, i1 false)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -395,7 +395,7 @@ _ZNSt8optionalIN4llvm9symbolize10MarkupNodeEEC2IS2_TnNSt9enable_ifIX7__and_vISt6
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_9symbolize10MarkupNodeELb0EE28reserveForParamAndGetAddressERS2_m.exit.i, label %124, !prof !52
 
 124:                                              ; preds = %114
-  %125 = getelementptr inbounds nuw %"struct.llvm::symbolize::MarkupNode", ptr %.pre3.i, i64 %120
+  %125 = getelementptr inbounds nuw [96 x i8], ptr %.pre3.i, i64 %120
   %126 = icmp uge ptr %5, %.pre3.i
   %127 = icmp ult ptr %5, %125
   %spec.select.i.i.i.i.i = and i1 %126, %127
@@ -420,7 +420,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9symbolize10MarkupNodeELb0EE28reserveForPar
   %.016.i.i.i = phi ptr [ %5, %114 ], [ %133, %128 ], [ %5, %.critedge.i.i.i ]
   %135 = load i32, ptr %8, align 8, !tbaa !23
   %136 = zext i32 %135 to i64
-  %137 = getelementptr inbounds nuw %"struct.llvm::symbolize::MarkupNode", ptr %134, i64 %136
+  %137 = getelementptr inbounds nuw [96 x i8], ptr %134, i64 %136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %137, ptr noundef nonnull align 8 dereferenceable(96) %.016.i.i.i, i64 32, i1 false)
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 32
   %139 = getelementptr inbounds nuw i8, ptr %137, i64 48
@@ -697,7 +697,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit: ; pred
   %65 = phi i32 [ %.pre43, %60 ], [ %.pre.i, %62 ]
   %66 = load ptr, ptr %11, align 8, !tbaa !21
   %67 = zext i32 %65 to i64
-  %68 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %66, i64 %67
+  %68 = getelementptr inbounds nuw [16 x i8], ptr %66, i64 %67
   store ptr %.sroa.6.03639, ptr %68, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %68, i64 8
   store i64 0, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -856,7 +856,7 @@ define dso_local void @_ZN4llvm9symbolize12MarkupParser22parseTextOutsideMarkupE
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_9symbolize10MarkupNodeELb0EE28reserveForParamAndGetAddressERS2_m.exit.i, label %40, !prof !52
 
 40:                                               ; preds = %33
-  %41 = getelementptr inbounds nuw %"struct.llvm::symbolize::MarkupNode", ptr %.pre3.i, i64 %37
+  %41 = getelementptr inbounds nuw [96 x i8], ptr %.pre3.i, i64 %37
   %42 = icmp uge ptr %5, %.pre3.i
   %43 = icmp ult ptr %5, %41
   %spec.select.i.i.i.i.i = and i1 %42, %43
@@ -880,7 +880,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9symbolize10MarkupNodeELb0EE28reserveForPar
   %.016.i.i.i = phi ptr [ %5, %33 ], [ %48, %44 ], [ %5, %.critedge.i.i.i ]
   %50 = load i32, ptr %21, align 8, !tbaa !23
   %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds nuw %"struct.llvm::symbolize::MarkupNode", ptr %49, i64 %51
+  %52 = getelementptr inbounds nuw [96 x i8], ptr %49, i64 %51
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %52, ptr noundef nonnull align 8 dereferenceable(96) %.016.i.i.i, i64 32, i1 false)
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 32
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 48
@@ -940,7 +940,7 @@ _ZN4llvm9symbolize10MarkupNodeD2Ev.exit:          ; preds = %_ZN4llvm23SmallVect
   br i1 %.not.i.i.not.i10, label %_ZN4llvm23SmallVectorTemplateBaseINS_9symbolize10MarkupNodeELb0EE28reserveForParamAndGetAddressERS2_m.exit.i15, label %73, !prof !52
 
 73:                                               ; preds = %67
-  %74 = getelementptr inbounds nuw %"struct.llvm::symbolize::MarkupNode", ptr %.pre3.i11, i64 %70
+  %74 = getelementptr inbounds nuw [96 x i8], ptr %.pre3.i11, i64 %70
   %75 = icmp uge ptr %6, %.pre3.i11
   %76 = icmp ult ptr %6, %74
   %spec.select.i.i.i.i.i12 = and i1 %75, %76
@@ -964,7 +964,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9symbolize10MarkupNodeELb0EE28reserveForPar
   %.016.i.i.i16 = phi ptr [ %6, %67 ], [ %81, %77 ], [ %6, %.critedge.i.i.i13 ]
   %83 = load i32, ptr %21, align 8, !tbaa !23
   %84 = zext i32 %83 to i64
-  %85 = getelementptr inbounds nuw %"struct.llvm::symbolize::MarkupNode", ptr %82, i64 %84
+  %85 = getelementptr inbounds nuw [96 x i8], ptr %82, i64 %84
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %85, ptr noundef nonnull align 8 dereferenceable(96) %.016.i.i.i16, i64 32, i1 false)
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 32
   %87 = getelementptr inbounds nuw i8, ptr %85, i64 48
@@ -1043,7 +1043,7 @@ _ZN4llvm9symbolize10MarkupNodeD2Ev.exit19:        ; preds = %_ZN4llvm23SmallVect
   br i1 %.not.i.i.not.i21, label %_ZN4llvm23SmallVectorTemplateBaseINS_9symbolize10MarkupNodeELb0EE28reserveForParamAndGetAddressERS2_m.exit.i26, label %124, !prof !52
 
 124:                                              ; preds = %._crit_edge.thread
-  %125 = getelementptr inbounds nuw %"struct.llvm::symbolize::MarkupNode", ptr %.pre3.i22, i64 %120
+  %125 = getelementptr inbounds nuw [96 x i8], ptr %.pre3.i22, i64 %120
   %126 = icmp uge ptr %7, %.pre3.i22
   %127 = icmp ult ptr %7, %125
   %spec.select.i.i.i.i.i23 = and i1 %126, %127
@@ -1068,7 +1068,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9symbolize10MarkupNodeELb0EE28reserveForPar
   %.016.i.i.i27 = phi ptr [ %7, %._crit_edge.thread ], [ %133, %128 ], [ %7, %.critedge.i.i.i24 ]
   %135 = load i32, ptr %118, align 8, !tbaa !23
   %136 = zext i32 %135 to i64
-  %137 = getelementptr inbounds nuw %"struct.llvm::symbolize::MarkupNode", ptr %134, i64 %136
+  %137 = getelementptr inbounds nuw [96 x i8], ptr %134, i64 %136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %137, ptr noundef nonnull align 8 dereferenceable(96) %.016.i.i.i27, i64 32, i1 false)
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 32
   %139 = getelementptr inbounds nuw i8, ptr %137, i64 48
@@ -1347,7 +1347,7 @@ _ZSt4moveIPN4llvm9StringRefES2_ET0_T_S4_S3_.exit35: ; preds = %37, %36, %34
   %.idx40 = shl nuw nsw i64 %.026, 4
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx40
   %44 = load ptr, ptr %0, align 8, !tbaa !21
-  %45 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %44, i64 %.026
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %44, i64 %.026
   %46 = sub nsw i64 %40, %.026
   %gepdiff = shl nsw i64 %46, 4
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %45, ptr align 8 %43, i64 %gepdiff, i1 false)

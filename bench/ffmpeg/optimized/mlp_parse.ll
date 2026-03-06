@@ -198,7 +198,7 @@ mlp_samplerate.exit:                              ; preds = %47
   %135 = zext i8 %134 to i32
   %136 = getelementptr inbounds nuw i8, ptr %1, i64 40
   store i32 %135, ptr %136, align 8, !tbaa !24
-  %137 = getelementptr inbounds nuw i64, ptr @mlp_layout, i64 %132
+  %137 = getelementptr inbounds nuw [8 x i8], ptr @mlp_layout, i64 %132
   %138 = load i64, ptr %137, align 8, !tbaa !25
   br label %truehd_layout.exit101
 
@@ -294,7 +294,7 @@ truehd_channels.exit:                             ; preds = %192
 202:                                              ; preds = %202, %truehd_channels.exit
   %indvars.iv.i89 = phi i64 [ 0, %truehd_channels.exit ], [ %indvars.iv.next.i90, %202 ]
   %.09.i = phi i64 [ 0, %truehd_channels.exit ], [ %210, %202 ]
-  %203 = getelementptr inbounds nuw i64, ptr @thd_layout, i64 %indvars.iv.i89
+  %203 = getelementptr inbounds nuw [8 x i8], ptr @thd_layout, i64 %indvars.iv.i89
   %204 = load i64, ptr %203, align 8, !tbaa !25
   %205 = trunc nuw nsw i64 %indvars.iv.i89 to i32
   %206 = lshr i32 %188, %205
@@ -357,7 +357,7 @@ truehd_channels.exit96:                           ; preds = %233
 243:                                              ; preds = %243, %truehd_channels.exit96
   %indvars.iv.i97 = phi i64 [ 0, %truehd_channels.exit96 ], [ %indvars.iv.next.i99, %243 ]
   %.09.i98 = phi i64 [ 0, %truehd_channels.exit96 ], [ %251, %243 ]
-  %244 = getelementptr inbounds nuw i64, ptr @thd_layout, i64 %indvars.iv.i97
+  %244 = getelementptr inbounds nuw [8 x i8], ptr @thd_layout, i64 %indvars.iv.i97
   %245 = load i64, ptr %244, align 8, !tbaa !25
   %246 = trunc nuw nsw i64 %indvars.iv.i97 to i32
   %247 = lshr i32 %230, %246

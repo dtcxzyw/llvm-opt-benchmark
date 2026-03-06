@@ -606,7 +606,7 @@ define hidden ptr @mlib_ImageCreateRowTable(ptr noundef captures(address_is_null
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store ptr %17, ptr %17, align 8
   %18 = sext i32 %.val to i64
-  %19 = getelementptr ptr, ptr %14, i64 %18
+  %19 = getelementptr [8 x i8], ptr %14, i64 %18
   %20 = getelementptr i8, ptr %19, i64 16
   store ptr %17, ptr %20, align 8
   %21 = icmp sgt i32 %.val, 0
@@ -620,7 +620,7 @@ define hidden ptr @mlib_ImageCreateRowTable(ptr noundef captures(address_is_null
 23:                                               ; preds = %.lr.ph, %23
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
   %.02635 = phi ptr [ %.val33, %.lr.ph ], [ %26, %23 ]
-  %24 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 16
   store ptr %.02635, ptr %25, align 8
   %26 = getelementptr inbounds i8, ptr %.02635, i64 %22

@@ -272,7 +272,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit: ; preds = 
   %53 = phi i32 [ %45, %.lr.ph ], [ %.pre.i, %50 ]
   %54 = load ptr, ptr %7, align 8, !tbaa !64
   %55 = zext i32 %53 to i64
-  %56 = getelementptr inbounds nuw ptr, ptr %54, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %55
   %57 = ptrtoint ptr %48 to i64
   store i64 %57, ptr %56, align 1
   %58 = load i32, ptr %15, align 8, !tbaa !65
@@ -652,7 +652,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit: ; preds =
   %34 = phi i32 [ %29, %2 ], [ %.pre.i, %31 ]
   %35 = load ptr, ptr %3, align 8, !tbaa !64
   %36 = zext i32 %34 to i64
-  %37 = getelementptr inbounds nuw ptr, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %36
   %38 = ptrtoint ptr %28 to i64
   store i64 %38, ptr %37, align 1
   %39 = load i32, ptr %18, align 8, !tbaa !65
@@ -685,7 +685,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit35: ; preds
   %54 = phi i32 [ %49, %_ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit ], [ %.pre.i34, %51 ]
   %55 = load ptr, ptr %3, align 8, !tbaa !64
   %56 = zext i32 %54 to i64
-  %57 = getelementptr inbounds nuw ptr, ptr %55, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %56
   %58 = ptrtoint ptr %48 to i64
   store i64 %58, ptr %57, align 1
   %59 = load i32, ptr %18, align 8, !tbaa !65
@@ -738,7 +738,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit38: ; preds
   %89 = phi i32 [ %84, %_ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit35 ], [ %.pre.i37, %86 ]
   %90 = load ptr, ptr %3, align 8, !tbaa !64
   %91 = zext i32 %89 to i64
-  %92 = getelementptr inbounds nuw ptr, ptr %90, i64 %91
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %91
   %93 = ptrtoint ptr %77 to i64
   store i64 %93, ptr %92, align 1
   %94 = load i32, ptr %18, align 8, !tbaa !65
@@ -746,7 +746,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit38: ; preds
   store i32 %95, ptr %18, align 8, !tbaa !65
   %96 = call noundef ptr @_ZN4llvm4Type10getInt32TyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8) %12) #9
   %97 = zext i32 %1 to i64
-  %98 = getelementptr inbounds nuw i32, ptr @_ZZN4llvm6toCABIENS_14AtomicOrderingEE6lookup, i64 %97
+  %98 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN4llvm6toCABIENS_14AtomicOrderingEE6lookup, i64 %97
   %99 = load i32, ptr %98, align 4, !tbaa !91
   %100 = sext i32 %99 to i64
   %101 = call noundef ptr @_ZN4llvm11ConstantInt3getEPNS_11IntegerTypeEmb(ptr noundef %96, i64 noundef %100, i1 noundef zeroext false) #9
@@ -766,7 +766,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit41: ; preds
   %107 = phi i32 [ %102, %_ZN4llvm23SmallVectorTemplateBaseIPNS_5ValueELb1EE9push_backES2_.exit38 ], [ %.pre.i40, %104 ]
   %108 = load ptr, ptr %3, align 8, !tbaa !64
   %109 = zext i32 %107 to i64
-  %110 = getelementptr inbounds nuw ptr, ptr %108, i64 %109
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %109
   %111 = ptrtoint ptr %101 to i64
   store i64 %111, ptr %110, align 1
   %112 = load i32, ptr %18, align 8, !tbaa !65
@@ -864,7 +864,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_4TypeELb1EE9push_backES2_.exit: ; preds = 
   %154 = phi i32 [ %146, %.lr.ph ], [ %.pre.i43, %151 ]
   %155 = load ptr, ptr %6, align 8, !tbaa !64
   %156 = zext i32 %154 to i64
-  %157 = getelementptr inbounds nuw ptr, ptr %155, i64 %156
+  %157 = getelementptr inbounds nuw [8 x i8], ptr %155, i64 %156
   %158 = ptrtoint ptr %149 to i64
   store i64 %158, ptr %157, align 1
   %159 = load i32, ptr %116, align 8, !tbaa !65

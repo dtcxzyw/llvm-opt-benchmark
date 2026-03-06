@@ -1145,7 +1145,7 @@ define ptr @X509_VERIFY_PARAM_get0(i32 noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %1
   %4 = sext i32 %0 to i64
-  %5 = getelementptr inbounds %struct.X509_VERIFY_PARAM_st, ptr @default_table, i64 %4
+  %5 = getelementptr inbounds [112 x i8], ptr @default_table, i64 %4
   br label %10
 
 6:                                                ; preds = %1

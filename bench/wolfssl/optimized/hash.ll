@@ -209,7 +209,7 @@ define dso_local i32 @md5_test() local_unnamed_addr #0 {
 
 .preheader:                                       ; preds = %0, %23
   %indvars.iv = phi i64 [ %indvars.iv.next, %23 ], [ 0, %0 ]
-  %9 = getelementptr inbounds nuw %struct.testVector, ptr %3, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [32 x i8], ptr %3, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 16, !tbaa !11
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %12 = load i64, ptr %11, align 16, !tbaa !13
@@ -289,7 +289,7 @@ define dso_local i32 @sha_test() local_unnamed_addr #0 {
 
 .preheader:                                       ; preds = %0, %20
   %indvars.iv = phi i64 [ %indvars.iv.next, %20 ], [ 0, %0 ]
-  %8 = getelementptr inbounds nuw %struct.testVector, ptr %3, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [32 x i8], ptr %3, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 16, !tbaa !11
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %11 = load i64, ptr %10, align 16, !tbaa !13
@@ -607,7 +607,7 @@ define dso_local range(i32 -20009, 1) i32 @hmac_md5_test() local_unnamed_addr #0
 
 .preheader:                                       ; preds = %0, %27
   %indvars.iv = phi i64 [ %indvars.iv.next, %27 ], [ 0, %0 ]
-  %7 = getelementptr inbounds nuw ptr, ptr @__const.hmac_md5_test.keys, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @__const.hmac_md5_test.keys, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #7
   %10 = trunc i64 %9 to i32
@@ -616,7 +616,7 @@ define dso_local range(i32 -20009, 1) i32 @hmac_md5_test() local_unnamed_addr #0
   br i1 %.not23, label %12, label %.loopexit
 
 12:                                               ; preds = %.preheader
-  %13 = getelementptr inbounds nuw %struct.testVector, ptr %3, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [32 x i8], ptr %3, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 16, !tbaa !11
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %16 = load i64, ptr %15, align 16, !tbaa !13
@@ -690,7 +690,7 @@ define dso_local range(i32 -20009, 1) i32 @hmac_sha_test() local_unnamed_addr #0
 
 .preheader:                                       ; preds = %0, %27
   %indvars.iv = phi i64 [ %indvars.iv.next, %27 ], [ 0, %0 ]
-  %7 = getelementptr inbounds nuw ptr, ptr @__const.hmac_sha384_test.keys, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @__const.hmac_sha384_test.keys, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #7
   %10 = trunc i64 %9 to i32
@@ -699,7 +699,7 @@ define dso_local range(i32 -20009, 1) i32 @hmac_sha_test() local_unnamed_addr #0
   br i1 %.not23, label %12, label %.loopexit
 
 12:                                               ; preds = %.preheader
-  %13 = getelementptr inbounds nuw %struct.testVector, ptr %3, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [32 x i8], ptr %3, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 16, !tbaa !11
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %16 = load i64, ptr %15, align 16, !tbaa !13
@@ -773,7 +773,7 @@ define dso_local range(i32 -20009, 1) i32 @hmac_sha224_test() local_unnamed_addr
 
 .preheader:                                       ; preds = %0, %27
   %indvars.iv = phi i64 [ %indvars.iv.next, %27 ], [ 0, %0 ]
-  %7 = getelementptr inbounds nuw ptr, ptr @__const.hmac_sha384_test.keys, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @__const.hmac_sha384_test.keys, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #7
   %10 = trunc i64 %9 to i32
@@ -782,7 +782,7 @@ define dso_local range(i32 -20009, 1) i32 @hmac_sha224_test() local_unnamed_addr
   br i1 %.not23, label %12, label %.loopexit
 
 12:                                               ; preds = %.preheader
-  %13 = getelementptr inbounds nuw %struct.testVector, ptr %3, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [32 x i8], ptr %3, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 16, !tbaa !11
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %16 = load i64, ptr %15, align 16, !tbaa !13
@@ -856,7 +856,7 @@ define dso_local range(i32 -20009, 1) i32 @hmac_sha256_test() local_unnamed_addr
 
 .preheader:                                       ; preds = %0, %27
   %indvars.iv = phi i64 [ %indvars.iv.next, %27 ], [ 0, %0 ]
-  %7 = getelementptr inbounds nuw ptr, ptr @__const.hmac_sha384_test.keys, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @__const.hmac_sha384_test.keys, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #7
   %10 = trunc i64 %9 to i32
@@ -865,7 +865,7 @@ define dso_local range(i32 -20009, 1) i32 @hmac_sha256_test() local_unnamed_addr
   br i1 %.not23, label %12, label %.loopexit
 
 12:                                               ; preds = %.preheader
-  %13 = getelementptr inbounds nuw %struct.testVector, ptr %3, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [32 x i8], ptr %3, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 16, !tbaa !11
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %16 = load i64, ptr %15, align 16, !tbaa !13
@@ -939,7 +939,7 @@ define dso_local range(i32 -20009, 1) i32 @hmac_sha384_test() local_unnamed_addr
 
 .preheader:                                       ; preds = %0, %27
   %indvars.iv = phi i64 [ %indvars.iv.next, %27 ], [ 0, %0 ]
-  %7 = getelementptr inbounds nuw ptr, ptr @__const.hmac_sha384_test.keys, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @__const.hmac_sha384_test.keys, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !4
   %9 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #7
   %10 = trunc i64 %9 to i32
@@ -948,7 +948,7 @@ define dso_local range(i32 -20009, 1) i32 @hmac_sha384_test() local_unnamed_addr
   br i1 %.not23, label %12, label %.loopexit
 
 12:                                               ; preds = %.preheader
-  %13 = getelementptr inbounds nuw %struct.testVector, ptr %3, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [32 x i8], ptr %3, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 16, !tbaa !11
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %16 = load i64, ptr %15, align 16, !tbaa !13

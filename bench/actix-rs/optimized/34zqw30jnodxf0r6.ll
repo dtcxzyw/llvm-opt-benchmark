@@ -250,10 +250,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !4, !align !5, !noundef !4
   %.val = load i8, ptr %2, align 1, !range !6, !noundef !4
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h96a77f12c543d8f7E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h96a77f12c543d8f7E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h96a77f12c543d8f7E.45", i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h96a77f12c543d8f7E.45", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -2159,7 +2159,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h5bd7ef2991c5fe
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.backedge.i
   %10 = phi i64 [ %12, %.backedge.i ], [ %.sroa.7.0, %.lr.ph.i ]
-  %11 = getelementptr inbounds { { ptr, i64 }, i8, [7 x i8] }, ptr @anon.854811f44bca550c56cb6f681a6a9a44.280.llvm.2002727345234535996, i64 %10
+  %11 = getelementptr inbounds [24 x i8], ptr @anon.854811f44bca550c56cb6f681a6a9a44.280.llvm.2002727345234535996, i64 %10
   %12 = add nuw i64 %10, 1
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %14 = load i8, ptr %13, align 8, !alias.scope !324, !noalias !327, !noundef !4
@@ -2269,7 +2269,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h6b2f126ef85bd9
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.backedge.i
   %10 = phi i64 [ %12, %.backedge.i ], [ %.sroa.7.0, %.lr.ph.i ]
-  %11 = getelementptr inbounds nuw { { ptr, i64 }, i8, [7 x i8] }, ptr @anon.854811f44bca550c56cb6f681a6a9a44.281.llvm.2002727345234535996, i64 %10
+  %11 = getelementptr inbounds nuw [24 x i8], ptr @anon.854811f44bca550c56cb6f681a6a9a44.281.llvm.2002727345234535996, i64 %10
   %12 = add nuw nsw i64 %10, 1
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %14 = load i8, ptr %13, align 8, !alias.scope !366, !noalias !369, !noundef !4
@@ -2379,7 +2379,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h6cd368069d19aa
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.backedge.i
   %10 = phi i64 [ %12, %.backedge.i ], [ %.sroa.7.0, %.lr.ph.i ]
-  %11 = getelementptr inbounds nuw { { ptr, i64 }, i8, [7 x i8] }, ptr @anon.854811f44bca550c56cb6f681a6a9a44.273.llvm.2002727345234535996, i64 %10
+  %11 = getelementptr inbounds nuw [24 x i8], ptr @anon.854811f44bca550c56cb6f681a6a9a44.273.llvm.2002727345234535996, i64 %10
   %12 = add nuw nsw i64 %10, 1
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %14 = load i8, ptr %13, align 8, !alias.scope !408, !noalias !411, !noundef !4
@@ -2489,7 +2489,7 @@ define hidden noundef zeroext i1 @_ZN8bitflags6parser9to_writer17h9f991704ee37cb
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i, %.backedge.i
   %10 = phi i64 [ %12, %.backedge.i ], [ %.sroa.7.0, %.lr.ph.i ]
-  %11 = getelementptr inbounds nuw { { ptr, i64 }, i8, [7 x i8] }, ptr @anon.854811f44bca550c56cb6f681a6a9a44.269.llvm.2002727345234535996, i64 %10
+  %11 = getelementptr inbounds nuw [24 x i8], ptr @anon.854811f44bca550c56cb6f681a6a9a44.269.llvm.2002727345234535996, i64 %10
   %12 = add nuw nsw i64 %10, 1
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %14 = load i8, ptr %13, align 8, !alias.scope !450, !noalias !453, !noundef !4
@@ -2664,7 +2664,7 @@ define hidden noundef nonnull align 8 dereferenceable(176) ptr @"_ZN9hashbrown11
   store i8 %19, ptr %26, align 1, !noalias !494
   %27 = load ptr, ptr %4, align 8, !alias.scope !501, !noalias !494, !nonnull !4, !noundef !4
   %28 = sub nsw i64 0, %9
-  %29 = getelementptr inbounds { { { ptr, [3 x i64] } }, { { { i64, [20 x i64] }, i64 } } }, ptr %27, i64 %28
+  %29 = getelementptr inbounds [208 x i8], ptr %27, i64 %28
   %30 = and i8 %17, 1
   %31 = zext nneg i8 %30 to i64
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -9878,7 +9878,7 @@ define noundef zeroext i1 @"_ZN86_$LT$actix_http..h1..dispatcher.._..InternalBit
 
 .lr.ph.split.i.i:                                 ; preds = %.lr.ph.i.i, %.backedge.i.i
   %10 = phi i64 [ %12, %.backedge.i.i ], [ %.sroa.7.0.i, %.lr.ph.i.i ]
-  %11 = getelementptr inbounds { { ptr, i64 }, i8, [7 x i8] }, ptr @anon.854811f44bca550c56cb6f681a6a9a44.287.llvm.2002727345234535996, i64 %10
+  %11 = getelementptr inbounds [24 x i8], ptr @anon.854811f44bca550c56cb6f681a6a9a44.287.llvm.2002727345234535996, i64 %10
   %12 = add nuw i64 %10, 1
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %14 = load i8, ptr %13, align 8, !alias.scope !1299, !noalias !1302, !noundef !4

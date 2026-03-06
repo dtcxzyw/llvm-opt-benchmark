@@ -20,7 +20,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<zxing::Ref<zxing::qrcode::DataBlock>, std::allocator<zxing::Ref<zxing::qrcode::DataBlock>>>::_Vector_impl" = type { %"struct.std::_Vector_base<zxing::Ref<zxing::qrcode::DataBlock>, std::allocator<zxing::Ref<zxing::qrcode::DataBlock>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<zxing::Ref<zxing::qrcode::DataBlock>, std::allocator<zxing::Ref<zxing::qrcode::DataBlock>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.zxing::qrcode::DecodedBitStreamParser" = type { %"class.std::__cxx11::basic_string" }
-%"class.zxing::Ref.26" = type { ptr }
 %"class.zxing::ArrayRef.15" = type { %"class.zxing::Counted.base", ptr }
 
 $_ZN5zxing12ErrorHandlerD2Ev = comdat any
@@ -1359,7 +1358,7 @@ _ZN5zxing8ArrayRefIcED2Ev.exit158:                ; preds = %247, %250, %255
   %267 = phi ptr [ %275, %271 ], [ %245, %.preheader206 ]
   %.058219 = phi i64 [ %273, %271 ], [ 0, %.preheader206 ]
   %.059218 = phi i32 [ %272, %271 ], [ 0, %.preheader206 ]
-  %268 = getelementptr inbounds nuw %"class.zxing::Ref.26", ptr %267, i64 %.058219
+  %268 = getelementptr inbounds nuw [8 x i8], ptr %267, i64 %.058219
   %269 = load ptr, ptr %268, align 8, !tbaa !58
   %270 = invoke noundef i32 @_ZN5zxing6qrcode9DataBlock19getNumDataCodewordsEv(ptr noundef nonnull align 8 dereferenceable(40) %269)
           to label %271 unwind label %281
@@ -1409,7 +1408,7 @@ _ZN5zxing8ArrayRefIcED2Ev.exit158:                ; preds = %247, %250, %255
 
 298:                                              ; preds = %293
   %299 = load ptr, ptr %15, align 8, !tbaa !57
-  %300 = getelementptr inbounds nuw %"class.zxing::Ref.26", ptr %299, i64 %.054232
+  %300 = getelementptr inbounds nuw [8 x i8], ptr %299, i64 %.054232
   %301 = load ptr, ptr %300, align 8, !tbaa !58
   %.not.i.i159 = icmp eq ptr %301, null
   br i1 %.not.i.i159, label %_ZN5zxing3RefINS_6qrcode9DataBlockEEC2ERKS3_.exit, label %302
@@ -2632,7 +2631,7 @@ _ZN5zxing8ArrayRefIiEC2ERKS1_.exit:               ; preds = %32, %_ZN5zxing8Arra
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %32 ]
   %33 = getelementptr inbounds nuw i8, ptr %11, i64 %indvars.iv
   %34 = load i8, ptr %33, align 1, !tbaa !27
-  %35 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv
   %36 = zext i8 %34 to i32
   store i32 %36, ptr %35, align 4, !tbaa !91
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2715,7 +2714,7 @@ _ZN5zxing8ArrayRefIiED2Ev.exit28:                 ; preds = %56, %59, %64
 .lr.ph40:                                         ; preds = %.lr.ph40.preheader, %.lr.ph40
   %indvars.iv43 = phi i64 [ 0, %.lr.ph40.preheader ], [ %indvars.iv.next44, %.lr.ph40 ]
   %68 = load ptr, ptr %18, align 8, !tbaa !87
-  %69 = getelementptr inbounds nuw i32, ptr %68, i64 %indvars.iv43
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %indvars.iv43
   %70 = load i32, ptr %69, align 4, !tbaa !91
   %71 = load ptr, ptr %6, align 8, !tbaa !51
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 16

@@ -6,15 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.b2BodyState = type { %struct.b2Vec2, float, i32, %struct.b2Vec2, %struct.b2Rot }
 %struct.b2Vec2 = type { float, float }
 %struct.b2Rot = type { float, float }
-%struct.b2Body = type { [32 x i8], ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, float, float, float, float, i32, i32, i32, i16, i8, i8, i8, i8 }
-%struct.b2SolverSet = type { %struct.b2BodySimArray, %struct.b2BodyStateArray, %struct.b2JointSimArray, %struct.b2ContactSimArray, %struct.b2IslandSimArray, i32 }
-%struct.b2BodySimArray = type { ptr, i32, i32 }
-%struct.b2BodyStateArray = type { ptr, i32, i32 }
-%struct.b2JointSimArray = type { ptr, i32, i32 }
-%struct.b2ContactSimArray = type { ptr, i32, i32 }
-%struct.b2IslandSimArray = type { ptr, i32, i32 }
-%struct.b2BodySim = type { %struct.b2Transform, %struct.b2Vec2, %struct.b2Rot, %struct.b2Vec2, %struct.b2Vec2, %struct.b2Vec2, float, float, float, float, float, float, float, float, i32, i8, i8, i8, i8, i8 }
-%struct.b2Transform = type { %struct.b2Vec2, %struct.b2Rot }
 
 @__const.b2SolveWeldJoint.dummyState = private unnamed_addr constant %struct.b2BodyState { %struct.b2Vec2 zeroinitializer, float 0.000000e+00, i32 0, %struct.b2Vec2 zeroinitializer, %struct.b2Rot { float 1.000000e+00, float 0.000000e+00 } }, align 4
 
@@ -140,29 +131,29 @@ define hidden void @b2PrepareWeldJoint(ptr noundef captures(none) initializes((3
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 1032
   %.val = load ptr, ptr %9, align 8, !tbaa !75
   %10 = sext i32 %4 to i64
-  %11 = getelementptr inbounds %struct.b2Body, ptr %.val, i64 %10
+  %11 = getelementptr inbounds [128 x i8], ptr %.val, i64 %10
   %12 = sext i32 %6 to i64
-  %13 = getelementptr inbounds %struct.b2Body, ptr %.val, i64 %12
+  %13 = getelementptr inbounds [128 x i8], ptr %.val, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 1072
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %16 = load i32, ptr %15, align 8, !tbaa !76
   %.val90 = load ptr, ptr %14, align 8, !tbaa !78
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds %struct.b2SolverSet, ptr %.val90, i64 %17
+  %18 = getelementptr inbounds [88 x i8], ptr %.val90, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %20 = load i32, ptr %19, align 8, !tbaa !76
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds %struct.b2SolverSet, ptr %.val90, i64 %21
+  %22 = getelementptr inbounds [88 x i8], ptr %.val90, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 44
   %24 = load i32, ptr %23, align 4, !tbaa !79
   %25 = getelementptr inbounds nuw i8, ptr %13, i64 44
   %26 = load i32, ptr %25, align 4, !tbaa !79
   %.val92 = load ptr, ptr %18, align 8, !tbaa !80
   %27 = sext i32 %24 to i64
-  %28 = getelementptr inbounds %struct.b2BodySim, ptr %.val92, i64 %27
+  %28 = getelementptr inbounds [100 x i8], ptr %.val92, i64 %27
   %.val93 = load ptr, ptr %22, align 8, !tbaa !80
   %29 = sext i32 %26 to i64
-  %30 = getelementptr inbounds %struct.b2BodySim, ptr %.val93, i64 %29
+  %30 = getelementptr inbounds [100 x i8], ptr %.val93, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 60
   %32 = load float, ptr %31, align 4, !tbaa !82
   %33 = getelementptr inbounds nuw i8, ptr %28, i64 64
@@ -383,7 +374,7 @@ define hidden void @b2WarmStartWeldJoint(ptr noundef readonly captures(none) %0,
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %17 = load ptr, ptr %16, align 8, !tbaa !108
   %18 = sext i32 %13 to i64
-  %19 = getelementptr inbounds %struct.b2BodyState, ptr %17, i64 %18
+  %19 = getelementptr inbounds [32 x i8], ptr %17, i64 %18
   br label %20
 
 20:                                               ; preds = %2, %15
@@ -397,7 +388,7 @@ define hidden void @b2WarmStartWeldJoint(ptr noundef readonly captures(none) %0,
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %27 = load ptr, ptr %26, align 8, !tbaa !108
   %28 = sext i32 %23 to i64
-  %29 = getelementptr inbounds %struct.b2BodyState, ptr %27, i64 %28
+  %29 = getelementptr inbounds [32 x i8], ptr %27, i64 %28
   br label %30
 
 30:                                               ; preds = %20, %25
@@ -512,7 +503,7 @@ define hidden void @b2SolveWeldJoint(ptr noundef captures(none) %0, ptr noundef 
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %18 = load ptr, ptr %17, align 8, !tbaa !108
   %19 = sext i32 %14 to i64
-  %20 = getelementptr inbounds %struct.b2BodyState, ptr %18, i64 %19
+  %20 = getelementptr inbounds [32 x i8], ptr %18, i64 %19
   br label %21
 
 21:                                               ; preds = %3, %16
@@ -526,7 +517,7 @@ define hidden void @b2SolveWeldJoint(ptr noundef captures(none) %0, ptr noundef 
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %28 = load ptr, ptr %27, align 8, !tbaa !108
   %29 = sext i32 %24 to i64
-  %30 = getelementptr inbounds %struct.b2BodyState, ptr %28, i64 %29
+  %30 = getelementptr inbounds [32 x i8], ptr %28, i64 %29
   %.sroa.068.0.copyload.pre = load <2 x float>, ptr %30, align 4
   br label %31
 

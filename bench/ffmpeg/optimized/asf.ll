@@ -154,7 +154,7 @@ define range(i32 -2147483648, 2) i32 @ff_asf_handle_byte_array(ptr noundef %0, p
   %52 = load i32, ptr %51, align 4, !tbaa !30
   %53 = add i32 %52, -1
   %54 = zext i32 %53 to i64
-  %55 = getelementptr inbounds nuw ptr, ptr %50, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !31
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %58 = load ptr, ptr %57, align 8, !tbaa !33
@@ -181,7 +181,7 @@ define range(i32 -2147483648, 2) i32 @ff_asf_handle_byte_array(ptr noundef %0, p
 67:                                               ; preds = %66, %65, %61
   %68 = getelementptr inbounds nuw i8, ptr %56, i64 80
   %69 = zext nneg i32 %.050.i to i64
-  %70 = getelementptr inbounds nuw ptr, ptr @ff_id3v2_picture_types, i64 %69
+  %70 = getelementptr inbounds nuw [8 x i8], ptr @ff_id3v2_picture_types, i64 %69
   %71 = load ptr, ptr %70, align 8, !tbaa !28
   %72 = call i32 @av_dict_set(ptr noundef nonnull %68, ptr noundef nonnull @.str.7, ptr noundef %71, i32 noundef 0) #5
   %73 = icmp slt i32 %72, 0

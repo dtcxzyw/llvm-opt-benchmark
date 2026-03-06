@@ -9,25 +9,9 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.gmx::ArrayRefIter" = type { ptr }
 %"class.gmx::ArrayRef.0" = type { %"struct.gmx::ArrayRefIter.1", %"struct.gmx::ArrayRefIter.1" }
 %"struct.gmx::ArrayRefIter.1" = type { ptr }
-%"class.gmx::AnalysisDataFrameAverager" = type <{ %"class.std::vector.69", i8, [7 x i8] }>
-%"class.std::vector.69" = type { %"struct.std::_Vector_base.70" }
-%"struct.std::_Vector_base.70" = type { %"struct.std::_Vector_base<gmx::AnalysisDataFrameAverager::AverageItem, std::allocator<gmx::AnalysisDataFrameAverager::AverageItem>>::_Vector_impl" }
-%"struct.std::_Vector_base<gmx::AnalysisDataFrameAverager::AverageItem, std::allocator<gmx::AnalysisDataFrameAverager::AverageItem>>::_Vector_impl" = type { %"struct.std::_Vector_base<gmx::AnalysisDataFrameAverager::AverageItem, std::allocator<gmx::AnalysisDataFrameAverager::AverageItem>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<gmx::AnalysisDataFrameAverager::AverageItem, std::allocator<gmx::AnalysisDataFrameAverager::AverageItem>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.gmx::AnalysisDataValue" = type { float, float, %"class.gmx::FlagsTemplate" }
-%"class.gmx::FlagsTemplate" = type { i64 }
-%"struct.gmx::AnalysisDataFrameAverager::AverageItem" = type <{ double, double, i32, [4 x i8] }>
 %"class.std::shared_ptr.99" = type { %"class.std::__shared_ptr.100" }
 %"class.std::__shared_ptr.100" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
-%"class.std::vector.92" = type { %"struct.std::_Vector_base.93" }
-%"struct.std::_Vector_base.93" = type { %"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl" }
-%"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl" = type { %"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<long, std::allocator<long>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.126" = type { %"struct.std::_Vector_base.127" }
-%"struct.std::_Vector_base.127" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" }
-%"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.gmx::APIError" = type { %"class.gmx::GromacsException" }
 %"class.gmx::GromacsException" = type { %"class.std::exception", %"class.std::shared_ptr.149" }
 %"class.std::exception" = type { ptr }
@@ -443,7 +427,7 @@ define void @_ZN3gmx8internal27BasicAverageHistogramModule11dataStartedEPNS_20Ab
   br i1 %18, label %19, label %_ZNSt6vectorIN3gmx25AnalysisDataFrameAveragerESaIS1_EE6resizeEm.exit
 
 19:                                               ; preds = %17
-  %20 = getelementptr inbounds nuw %"class.gmx::AnalysisDataFrameAverager", ptr %9, i64 %6
+  %20 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 %6
   %.not.i.i = icmp eq ptr %8, %20
   br i1 %.not.i.i, label %_ZNSt6vectorIN3gmx25AnalysisDataFrameAveragerESaIS1_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -497,7 +481,7 @@ _ZNSt6vectorIN3gmx25AnalysisDataFrameAveragerESaIS1_EE6resizeEm.exit: ; preds = 
 
 38:                                               ; preds = %32
   %39 = load ptr, ptr %4, align 8, !tbaa !35
-  %40 = getelementptr inbounds nuw %"class.gmx::AnalysisDataFrameAverager", ptr %39, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [32 x i8], ptr %39, i64 %indvars.iv
   %41 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEi(ptr noundef nonnull align 8 dereferenceable(16) %1, i32 noundef %34)
   tail call void @_ZN3gmx25AnalysisDataFrameAverager14setColumnCountEi(ptr noundef nonnull align 8 dereferenceable(25) %40, i32 noundef %41)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -519,7 +503,7 @@ define void @_ZN3gmx8internal27BasicAverageHistogramModule11pointsAddedERKNS_23A
   %5 = load i32, ptr %4, align 4, !tbaa !48
   %6 = sext i32 %5 to i64
   %7 = load ptr, ptr %3, align 8, !tbaa !35
-  %8 = getelementptr inbounds nuw %"class.gmx::AnalysisDataFrameAverager", ptr %7, i64 %6
+  %8 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 %6
   tail call void @_ZN3gmx25AnalysisDataFrameAverager9addPointsERKNS_23AnalysisDataPointSetRefE(ptr noundef nonnull align 8 dereferenceable(25) %8, ptr noundef nonnull align 8 dereferenceable(40) %1)
   ret void
 }
@@ -548,7 +532,7 @@ define void @_ZN3gmx8internal27BasicAverageHistogramModule12dataFinishedEv(ptr n
 7:                                                ; preds = %.lr.ph15, %._crit_edge
   %indvars.iv18 = phi i64 [ 0, %.lr.ph15 ], [ %indvars.iv.next19, %._crit_edge ]
   %8 = load ptr, ptr %4, align 8, !tbaa !35
-  %9 = getelementptr inbounds nuw %"class.gmx::AnalysisDataFrameAverager", ptr %8, i64 %indvars.iv18
+  %9 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 %indvars.iv18
   tail call void @_ZN3gmx25AnalysisDataFrameAverager6finishEv(ptr noundef nonnull align 8 dereferenceable(25) %9)
   %10 = load i32, ptr %5, align 8, !tbaa !46
   %11 = icmp sgt i32 %10, 0
@@ -573,11 +557,11 @@ define void @_ZN3gmx8internal27BasicAverageHistogramModule12dataFinishedEv(ptr n
   %19 = add nsw i32 %18, %12
   %20 = sext i32 %19 to i64
   %21 = load ptr, ptr %6, align 8, !tbaa !54
-  %22 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %21, i64 %20
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %20
   %23 = load ptr, ptr %4, align 8, !tbaa !35
-  %24 = getelementptr inbounds nuw %"class.gmx::AnalysisDataFrameAverager", ptr %23, i64 %indvars.iv18
+  %24 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %indvars.iv18
   %25 = load ptr, ptr %24, align 8, !tbaa !39
-  %26 = getelementptr inbounds nuw %"struct.gmx::AnalysisDataFrameAverager::AverageItem", ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [24 x i8], ptr %25, i64 %indvars.iv
   %27 = load double, ptr %26, align 8, !tbaa !55
   %28 = fptrunc double %27 to float
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
@@ -748,7 +732,7 @@ define void @_ZThn128_N3gmx8internal27BasicAverageHistogramModule11pointsAddedER
   %5 = load i32, ptr %4, align 4, !tbaa !48
   %6 = sext i32 %5 to i64
   %7 = load ptr, ptr %3, align 8, !tbaa !35
-  %8 = getelementptr inbounds nuw %"class.gmx::AnalysisDataFrameAverager", ptr %7, i64 %6
+  %8 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 %6
   tail call void @_ZN3gmx25AnalysisDataFrameAverager9addPointsERKNS_23AnalysisDataPointSetRefE(ptr noundef nonnull align 8 dereferenceable(25) %8, ptr noundef nonnull align 8 dereferenceable(40) %1)
   ret void
 }
@@ -956,7 +940,7 @@ _ZNSt12__shared_ptrIN3gmx19IAnalysisDataModuleELN9__gnu_cxx12_Lock_policyE2EED2E
   br i1 %73, label %74, label %_ZN3gmx26AnalysisDataFrameLocalDataIlE15setDataSetCountEi.exit
 
 74:                                               ; preds = %72
-  %75 = getelementptr inbounds nuw i32, ptr %64, i64 %61
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %61
   %.not.i.i.i15 = icmp eq ptr %63, %75
   br i1 %.not.i.i.i15, label %_ZN3gmx26AnalysisDataFrameLocalDataIlE15setDataSetCountEi.exit, label %76
 
@@ -1006,7 +990,7 @@ _ZN3gmx26AnalysisDataFrameLocalDataIlE15setDataSetCountEi.exit.._crit_edge_crit_
   br i1 %94, label %_ZN3gmx26AnalysisDataFrameLocalDataIlE14setColumnCountEii.exit.us, label %.split19.us
 
 _ZN3gmx26AnalysisDataFrameLocalDataIlE14setColumnCountEii.exit.us: ; preds = %84
-  %95 = getelementptr inbounds nuw i32, ptr %88, i64 %indvars.iv
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %indvars.iv
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 4
   store i32 %.fr20, ptr %96, align 4, !tbaa !60
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1079,7 +1063,7 @@ define void @_ZN3gmx33AnalysisDataSimpleHistogramModule12frameStartedERKNS_23Ana
   %13 = sub i64 %11, %12
   %14 = sdiv exact i64 %13, 24
   %15 = urem i64 %7, %14
-  %16 = getelementptr inbounds nuw %"class.std::vector.92", ptr %10, i64 %15
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !97
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !97
@@ -1116,14 +1100,14 @@ define void @_ZN3gmx33AnalysisDataSimpleHistogramModule11pointsAddedERKNS_23Anal
   %16 = sub i64 %14, %15
   %17 = sdiv exact i64 %16, 24
   %18 = urem i64 %10, %17
-  %19 = getelementptr inbounds nuw %"class.std::vector.92", ptr %13, i64 %18
+  %19 = getelementptr inbounds nuw [24 x i8], ptr %13, i64 %18
   %20 = sext i32 %8 to i64
   %21 = load ptr, ptr %5, align 8, !tbaa !91
-  %22 = getelementptr i32, ptr %21, i64 %20
+  %22 = getelementptr [4 x i8], ptr %21, i64 %20
   %23 = load i32, ptr %22, align 4, !tbaa !60
   %24 = load ptr, ptr %19, align 8, !tbaa !100
   %25 = sext i32 %23 to i64
-  %26 = getelementptr inbounds i64, ptr %24, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %24, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %29 = load ptr, ptr %28, align 8, !tbaa !102
@@ -1149,7 +1133,7 @@ define void @_ZN3gmx33AnalysisDataSimpleHistogramModule11pointsAddedERKNS_23Anal
 40:                                               ; preds = %.lr.ph, %68
   %.sroa.0.0.copyload.i.i.i16 = phi ptr [ %.sroa.0.0.copyload.i.i.i13, %.lr.ph ], [ %.sroa.0.0.copyload.i.i.i, %68 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %68 ]
-  %41 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %.sroa.0.0.copyload.i.i.i16, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0.copyload.i.i.i16, i64 %indvars.iv
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load i64, ptr %42, align 8, !tbaa !66
   %44 = and i64 %43, 4
@@ -1190,7 +1174,7 @@ _ZNK3gmx25AnalysisHistogramSettings7findBinEf.exit: ; preds = %49, %54
 
 63:                                               ; preds = %_ZNK3gmx25AnalysisHistogramSettings7findBinEf.exit
   %64 = sext i32 %.0.i to i64
-  %65 = getelementptr inbounds i64, ptr %26, i64 %64
+  %65 = getelementptr inbounds [8 x i8], ptr %26, i64 %64
   %66 = load i64, ptr %65, align 8, !tbaa !99
   %67 = add nsw i64 %66, 1
   store i64 %67, ptr %65, align 8, !tbaa !99
@@ -1224,7 +1208,7 @@ define void @_ZN3gmx33AnalysisDataSimpleHistogramModule13frameFinishedERKNS_23An
   %14 = sub i64 %12, %13
   %15 = sdiv exact i64 %14, 24
   %16 = urem i64 %8, %15
-  %17 = getelementptr inbounds nuw %"class.std::vector.92", ptr %11, i64 %16
+  %17 = getelementptr inbounds nuw [24 x i8], ptr %11, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %19 = tail call noundef nonnull align 8 dereferenceable(45) ptr @_ZN3gmx19AnalysisDataStorage10startFrameERKNS_23AnalysisDataFrameHeaderE(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 4 dereferenceable(12) %1)
   %20 = load ptr, ptr %3, align 8, !tbaa !68
@@ -1249,25 +1233,25 @@ define void @_ZN3gmx33AnalysisDataSimpleHistogramModule13frameFinishedERKNS_23An
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv25 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next26, %._crit_edge.us ]
   %29 = load ptr, ptr %5, align 8, !tbaa !91
-  %30 = getelementptr i32, ptr %29, i64 %indvars.iv25
+  %30 = getelementptr [4 x i8], ptr %29, i64 %indvars.iv25
   %31 = load i32, ptr %30, align 4, !tbaa !60
   %32 = load ptr, ptr %17, align 8, !tbaa !100
   %33 = sext i32 %31 to i64
-  %34 = getelementptr inbounds i64, ptr %32, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %32, i64 %33
   %35 = trunc nuw nsw i64 %indvars.iv25 to i32
   tail call void @_ZN3gmx24AnalysisDataStorageFrame13selectDataSetEi(ptr noundef nonnull align 8 dereferenceable(45) %19, i32 noundef %35)
   %36 = load i32, ptr %27, align 4, !tbaa !107
   %37 = load ptr, ptr %26, align 8, !tbaa !54
   %38 = sext i32 %36 to i64
-  %invariant.gep = getelementptr %"class.gmx::AnalysisDataValue", ptr %37, i64 %38
+  %invariant.gep = getelementptr [16 x i8], ptr %37, i64 %38
   br label %39
 
 39:                                               ; preds = %.lr.ph.us, %39
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %39 ]
-  %40 = getelementptr inbounds nuw i64, ptr %34, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv
   %41 = load i64, ptr %40, align 8, !tbaa !99
   %42 = sitofp i64 %41 to float
-  %gep = getelementptr %"class.gmx::AnalysisDataValue", ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [16 x i8], ptr %invariant.gep, i64 %indvars.iv
   store float %42, ptr %gep, align 8, !tbaa !61
   %43 = getelementptr inbounds nuw i8, ptr %gep, i64 8
   %44 = load i64, ptr %43, align 8, !tbaa !66
@@ -1360,7 +1344,7 @@ define void @_ZThn16_N3gmx33AnalysisDataSimpleHistogramModule12frameStartedERKNS
   %13 = sub i64 %11, %12
   %14 = sdiv exact i64 %13, 24
   %15 = urem i64 %7, %14
-  %16 = getelementptr inbounds nuw %"class.std::vector.92", ptr %10, i64 %15
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !97
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !97
@@ -1397,14 +1381,14 @@ define void @_ZThn16_N3gmx33AnalysisDataSimpleHistogramModule11pointsAddedERKNS_
   %16 = sub i64 %14, %15
   %17 = sdiv exact i64 %16, 24
   %18 = urem i64 %10, %17
-  %19 = getelementptr inbounds nuw %"class.std::vector.92", ptr %13, i64 %18
+  %19 = getelementptr inbounds nuw [24 x i8], ptr %13, i64 %18
   %20 = sext i32 %8 to i64
   %21 = load ptr, ptr %5, align 8, !tbaa !91
-  %22 = getelementptr i32, ptr %21, i64 %20
+  %22 = getelementptr [4 x i8], ptr %21, i64 %20
   %23 = load i32, ptr %22, align 4, !tbaa !60
   %24 = load ptr, ptr %19, align 8, !tbaa !100
   %25 = sext i32 %23 to i64
-  %26 = getelementptr inbounds i64, ptr %24, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %24, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %29 = load ptr, ptr %28, align 8, !tbaa !102
@@ -1427,7 +1411,7 @@ define void @_ZThn16_N3gmx33AnalysisDataSimpleHistogramModule11pointsAddedERKNS_
 40:                                               ; preds = %68, %.lr.ph.i
   %.sroa.0.0.copyload.i.i.i16.i = phi ptr [ %.sroa.0.0.copyload.i.i.i13.i, %.lr.ph.i ], [ %.sroa.0.0.copyload.i.i.i.i, %68 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %68 ]
-  %41 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %.sroa.0.0.copyload.i.i.i16.i, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0.copyload.i.i.i16.i, i64 %indvars.iv.i
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load i64, ptr %42, align 8, !tbaa !66
   %44 = and i64 %43, 4
@@ -1468,7 +1452,7 @@ _ZNK3gmx25AnalysisHistogramSettings7findBinEf.exit.i: ; preds = %54, %49
 
 63:                                               ; preds = %_ZNK3gmx25AnalysisHistogramSettings7findBinEf.exit.i
   %64 = sext i32 %.0.i.i to i64
-  %65 = getelementptr inbounds i64, ptr %26, i64 %64
+  %65 = getelementptr inbounds [8 x i8], ptr %26, i64 %64
   %66 = load i64, ptr %65, align 8, !tbaa !99
   %67 = add nsw i64 %66, 1
   store i64 %67, ptr %65, align 8, !tbaa !99
@@ -1693,7 +1677,7 @@ _ZNSt12__shared_ptrIN3gmx19IAnalysisDataModuleELN9__gnu_cxx12_Lock_policyE2EED2E
   br i1 %73, label %74, label %_ZN3gmx26AnalysisDataFrameLocalDataIdE15setDataSetCountEi.exit
 
 74:                                               ; preds = %72
-  %75 = getelementptr inbounds nuw i32, ptr %64, i64 %61
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %61
   %.not.i.i.i15 = icmp eq ptr %63, %75
   br i1 %.not.i.i.i15, label %_ZN3gmx26AnalysisDataFrameLocalDataIdE15setDataSetCountEi.exit, label %76
 
@@ -1743,7 +1727,7 @@ _ZN3gmx26AnalysisDataFrameLocalDataIdE15setDataSetCountEi.exit.._crit_edge_crit_
   br i1 %94, label %_ZN3gmx26AnalysisDataFrameLocalDataIdE14setColumnCountEii.exit.us, label %.split19.us
 
 _ZN3gmx26AnalysisDataFrameLocalDataIdE14setColumnCountEii.exit.us: ; preds = %84
-  %95 = getelementptr inbounds nuw i32, ptr %88, i64 %indvars.iv
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %indvars.iv
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 4
   store i32 %.fr20, ptr %96, align 4, !tbaa !60
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1816,7 +1800,7 @@ define void @_ZN3gmx35AnalysisDataWeightedHistogramModule12frameStartedERKNS_23A
   %13 = sub i64 %11, %12
   %14 = sdiv exact i64 %13, 24
   %15 = urem i64 %7, %14
-  %16 = getelementptr inbounds nuw %"class.std::vector.126", ptr %10, i64 %15
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !121
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !121
@@ -1968,19 +1952,19 @@ _ZNK3gmx25AnalysisHistogramSettings7findBinEf.exit: ; preds = %36, %42
   %62 = sub i64 %60, %61
   %63 = sdiv exact i64 %62, 24
   %64 = urem i64 %57, %63
-  %65 = getelementptr inbounds nuw %"class.std::vector.126", ptr %55, i64 %64
+  %65 = getelementptr inbounds nuw [24 x i8], ptr %55, i64 %64
   %66 = load ptr, ptr %65, align 8, !tbaa !127
   %67 = getelementptr inbounds nuw i8, ptr %31, i64 56
   %68 = load ptr, ptr %67, align 8, !tbaa !91
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %70 = load i32, ptr %69, align 4, !tbaa !48
   %71 = sext i32 %70 to i64
-  %72 = getelementptr i32, ptr %68, i64 %71
+  %72 = getelementptr [4 x i8], ptr %68, i64 %71
   %73 = load i32, ptr %72, align 4, !tbaa !60
   %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds double, ptr %66, i64 %74
+  %75 = getelementptr inbounds [8 x i8], ptr %66, i64 %74
   %76 = sext i32 %.0.i to i64
-  %77 = getelementptr inbounds double, ptr %75, i64 %76
+  %77 = getelementptr inbounds [8 x i8], ptr %75, i64 %76
   %.pre = load double, ptr %77, align 8, !tbaa !123
   br label %78
 
@@ -1988,7 +1972,7 @@ _ZNK3gmx25AnalysisHistogramSettings7findBinEf.exit: ; preds = %36, %42
   %79 = phi double [ %.pre, %.lr.ph ], [ %83, %78 ]
   %.ptr = phi ptr [ %.sroa.0.0.copyload.i.i.i, %.lr.ph ], [ %.sroa.0.0.copyload.i.i.i24, %78 ]
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %78 ]
-  %80 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %.ptr, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw [16 x i8], ptr %.ptr, i64 %indvars.iv
   %81 = load float, ptr %80, align 8, !tbaa !61
   %82 = fpext float %81 to double
   %83 = fadd double %79, %82
@@ -2029,7 +2013,7 @@ define void @_ZN3gmx35AnalysisDataWeightedHistogramModule13frameFinishedERKNS_23
   %14 = sub i64 %12, %13
   %15 = sdiv exact i64 %14, 24
   %16 = urem i64 %8, %15
-  %17 = getelementptr inbounds nuw %"class.std::vector.126", ptr %11, i64 %16
+  %17 = getelementptr inbounds nuw [24 x i8], ptr %11, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %19 = tail call noundef nonnull align 8 dereferenceable(45) ptr @_ZN3gmx19AnalysisDataStorage10startFrameERKNS_23AnalysisDataFrameHeaderE(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull align 4 dereferenceable(12) %1)
   %20 = load ptr, ptr %3, align 8, !tbaa !113
@@ -2054,25 +2038,25 @@ define void @_ZN3gmx35AnalysisDataWeightedHistogramModule13frameFinishedERKNS_23
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv25 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next26, %._crit_edge.us ]
   %29 = load ptr, ptr %5, align 8, !tbaa !91
-  %30 = getelementptr i32, ptr %29, i64 %indvars.iv25
+  %30 = getelementptr [4 x i8], ptr %29, i64 %indvars.iv25
   %31 = load i32, ptr %30, align 4, !tbaa !60
   %32 = load ptr, ptr %17, align 8, !tbaa !127
   %33 = sext i32 %31 to i64
-  %34 = getelementptr inbounds double, ptr %32, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %32, i64 %33
   %35 = trunc nuw nsw i64 %indvars.iv25 to i32
   tail call void @_ZN3gmx24AnalysisDataStorageFrame13selectDataSetEi(ptr noundef nonnull align 8 dereferenceable(45) %19, i32 noundef %35)
   %36 = load i32, ptr %27, align 4, !tbaa !107
   %37 = load ptr, ptr %26, align 8, !tbaa !54
   %38 = sext i32 %36 to i64
-  %invariant.gep = getelementptr %"class.gmx::AnalysisDataValue", ptr %37, i64 %38
+  %invariant.gep = getelementptr [16 x i8], ptr %37, i64 %38
   br label %39
 
 39:                                               ; preds = %.lr.ph.us, %39
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %39 ]
-  %40 = getelementptr inbounds nuw double, ptr %34, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv
   %41 = load double, ptr %40, align 8, !tbaa !123
   %42 = fptrunc double %41 to float
-  %gep = getelementptr %"class.gmx::AnalysisDataValue", ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [16 x i8], ptr %invariant.gep, i64 %indvars.iv
   store float %42, ptr %gep, align 8, !tbaa !61
   %43 = getelementptr inbounds nuw i8, ptr %gep, i64 8
   %44 = load i64, ptr %43, align 8, !tbaa !66
@@ -2163,7 +2147,7 @@ define void @_ZThn16_N3gmx35AnalysisDataWeightedHistogramModule12frameStartedERK
   %13 = sub i64 %11, %12
   %14 = sdiv exact i64 %13, 24
   %15 = urem i64 %7, %14
-  %16 = getelementptr inbounds nuw %"class.std::vector.126", ptr %10, i64 %15
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !121
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !121
@@ -2255,7 +2239,7 @@ define void @_ZN3gmx28AnalysisDataBinAverageModule11dataStartedEPNS_20AbstractAn
   br i1 %20, label %21, label %_ZNSt6vectorIN3gmx25AnalysisDataFrameAveragerESaIS1_EE6resizeEm.exit
 
 21:                                               ; preds = %19
-  %22 = getelementptr inbounds nuw %"class.gmx::AnalysisDataFrameAverager", ptr %11, i64 %8
+  %22 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 %8
   %.not.i.i = icmp eq ptr %10, %22
   br i1 %.not.i.i, label %_ZNSt6vectorIN3gmx25AnalysisDataFrameAveragerESaIS1_EE6resizeEm.exit, label %.lr.ph.i.i.i.i.i
 
@@ -2300,7 +2284,7 @@ _ZNSt6vectorIN3gmx25AnalysisDataFrameAveragerESaIS1_EE6resizeEm.exit: ; preds = 
   %35 = load ptr, ptr %4, align 8, !tbaa !132
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 24
   %37 = load ptr, ptr %36, align 8, !tbaa !35
-  %38 = getelementptr inbounds nuw %"class.gmx::AnalysisDataFrameAverager", ptr %37, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [32 x i8], ptr %37, i64 %indvars.iv
   %39 = load i32, ptr %33, align 8, !tbaa !46
   tail call void @_ZN3gmx25AnalysisDataFrameAverager14setColumnCountEi(ptr noundef nonnull align 8 dereferenceable(25) %38, i32 noundef %39)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2441,13 +2425,13 @@ _ZNK3gmx25AnalysisHistogramSettings7findBinEf.exit: ; preds = %35, %41
   %55 = load i32, ptr %54, align 4, !tbaa !48
   %56 = sext i32 %55 to i64
   %57 = load ptr, ptr %53, align 8, !tbaa !35
-  %58 = getelementptr inbounds nuw %"class.gmx::AnalysisDataFrameAverager", ptr %57, i64 %56
+  %58 = getelementptr inbounds nuw [32 x i8], ptr %57, i64 %56
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.ptr = phi ptr [ %.sroa.0.0.copyload.i.i.i, %.lr.ph.preheader ], [ %.sroa.0.0.copyload.i.i.i24, %.lr.ph ]
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %59 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %.ptr, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [16 x i8], ptr %.ptr, i64 %indvars.iv
   %60 = load float, ptr %59, align 8, !tbaa !61
   tail call void @_ZN3gmx25AnalysisDataFrameAverager8addValueEif(ptr noundef nonnull align 8 dereferenceable(25) %58, i32 noundef %.0.i, float noundef %60)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2499,7 +2483,7 @@ define void @_ZN3gmx28AnalysisDataBinAverageModule12dataFinishedEv(ptr noundef n
   %8 = load ptr, ptr %4, align 8, !tbaa !132
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %10 = load ptr, ptr %9, align 8, !tbaa !35
-  %11 = getelementptr inbounds nuw %"class.gmx::AnalysisDataFrameAverager", ptr %10, i64 %indvars.iv19
+  %11 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %indvars.iv19
   tail call void @_ZN3gmx25AnalysisDataFrameAverager6finishEv(ptr noundef nonnull align 8 dereferenceable(25) %11)
   %12 = load i32, ptr %5, align 8, !tbaa !46
   %13 = icmp sgt i32 %12, 0
@@ -2524,9 +2508,9 @@ define void @_ZN3gmx28AnalysisDataBinAverageModule12dataFinishedEv(ptr noundef n
   %21 = add nsw i32 %20, %14
   %22 = sext i32 %21 to i64
   %23 = load ptr, ptr %6, align 8, !tbaa !54
-  %24 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %23, i64 %22
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %23, i64 %22
   %25 = load ptr, ptr %11, align 8, !tbaa !39
-  %26 = getelementptr inbounds nuw %"struct.gmx::AnalysisDataFrameAverager::AverageItem", ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [24 x i8], ptr %25, i64 %indvars.iv
   %27 = load double, ptr %26, align 8, !tbaa !55
   %28 = fptrunc double %27 to float
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 16
@@ -3143,14 +3127,14 @@ define void @_ZNK3gmx24AbstractAverageHistogram22resampleDoubleBinWidthEb(ptr de
 
 57:                                               ; preds = %55
   %58 = load ptr, ptr %41, align 8, !tbaa !54
-  %59 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %58, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [16 x i8], ptr %58, i64 %indvars.iv
   %60 = load float, ptr %59, align 8, !tbaa !61
   %61 = invoke noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(98) %1)
           to label %.thread68.us unwind label %.split77.us
 
 .thread68.us:                                     ; preds = %57
   %62 = load ptr, ptr %41, align 8, !tbaa !54
-  %63 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %62, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [16 x i8], ptr %62, i64 %indvars.iv
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 4
   %65 = load float, ptr %64, align 4, !tbaa !65
   %66 = invoke noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(98) %11)
@@ -3158,7 +3142,7 @@ define void @_ZNK3gmx24AbstractAverageHistogram22resampleDoubleBinWidthEb(ptr de
 
 67:                                               ; preds = %.thread68.us
   %68 = load ptr, ptr %42, align 8, !tbaa !54
-  %69 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %68, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [16 x i8], ptr %68, i64 %indvars.iv
   %70 = fadd float %60, 0.000000e+00
   %71 = call float @llvm.fmuladd.f32(float %65, float %65, float 0.000000e+00)
   %sqrt.us = call float @llvm.sqrt.f32(float %71)
@@ -3222,7 +3206,7 @@ define void @_ZNK3gmx24AbstractAverageHistogram22resampleDoubleBinWidthEb(ptr de
   %89 = add nsw i32 %88, %.045
   %90 = sext i32 %89 to i64
   %91 = load ptr, ptr %41, align 8, !tbaa !54
-  %92 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %91, i64 %90
+  %92 = getelementptr inbounds nuw [16 x i8], ptr %91, i64 %90
   %93 = load float, ptr %92, align 8, !tbaa !61
   %94 = invoke noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(98) %1)
           to label %95 unwind label %136
@@ -3232,7 +3216,7 @@ define void @_ZNK3gmx24AbstractAverageHistogram22resampleDoubleBinWidthEb(ptr de
   %97 = add nsw i32 %96, %.045
   %98 = sext i32 %97 to i64
   %99 = load ptr, ptr %41, align 8, !tbaa !54
-  %100 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %99, i64 %98
+  %100 = getelementptr inbounds nuw [16 x i8], ptr %99, i64 %98
   %101 = load float, ptr %100, align 8, !tbaa !61
   %102 = invoke noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(98) %1)
           to label %103 unwind label %.split77
@@ -3242,7 +3226,7 @@ define void @_ZNK3gmx24AbstractAverageHistogram22resampleDoubleBinWidthEb(ptr de
   %105 = add nsw i32 %104, %.045
   %106 = sext i32 %105 to i64
   %107 = load ptr, ptr %41, align 8, !tbaa !54
-  %108 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %107, i64 %106
+  %108 = getelementptr inbounds nuw [16 x i8], ptr %107, i64 %106
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 4
   %110 = load float, ptr %109, align 4, !tbaa !65
   %111 = invoke noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(98) %1)
@@ -3253,7 +3237,7 @@ define void @_ZNK3gmx24AbstractAverageHistogram22resampleDoubleBinWidthEb(ptr de
   %114 = add nsw i32 %113, %.045
   %115 = sext i32 %114 to i64
   %116 = load ptr, ptr %41, align 8, !tbaa !54
-  %117 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %116, i64 %115
+  %117 = getelementptr inbounds nuw [16 x i8], ptr %116, i64 %115
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 4
   %119 = load float, ptr %118, align 4, !tbaa !65
   %120 = invoke noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(98) %11)
@@ -3265,7 +3249,7 @@ define void @_ZNK3gmx24AbstractAverageHistogram22resampleDoubleBinWidthEb(ptr de
   %124 = add nsw i32 %123, %.045
   %125 = sext i32 %124 to i64
   %126 = load ptr, ptr %42, align 8, !tbaa !54
-  %127 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %126, i64 %125
+  %127 = getelementptr inbounds nuw [16 x i8], ptr %126, i64 %125
   %128 = fadd float %93, %101
   %129 = call float @llvm.fmuladd.f32(float %110, float %110, float %122)
   %sqrt = call float @llvm.sqrt.f32(float %129)
@@ -3442,7 +3426,7 @@ define void @_ZN3gmx24AbstractAverageHistogram20normalizeProbabilityEv(ptr nound
   %12 = add nsw i32 %11, %.01116
   %13 = sext i32 %12 to i64
   %14 = load ptr, ptr %5, align 8, !tbaa !54
-  %15 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %14, i64 %13
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %13
   %16 = load float, ptr %15, align 4, !tbaa !149
   %17 = fpext float %16 to double
   %18 = fadd double %.01013, %17
@@ -3467,7 +3451,7 @@ define void @_ZN3gmx24AbstractAverageHistogram20normalizeProbabilityEv(ptr nound
   %31 = add nsw i32 %30, %.01116
   %32 = sext i32 %31 to i64
   %33 = load ptr, ptr %5, align 8, !tbaa !54
-  %34 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %33, i64 %32
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 %32
   %35 = load float, ptr %34, align 4, !tbaa !149
   %36 = fmul float %35, %28
   store float %36, ptr %34, align 4, !tbaa !149
@@ -3476,7 +3460,7 @@ define void @_ZN3gmx24AbstractAverageHistogram20normalizeProbabilityEv(ptr nound
   %39 = add nsw i32 %38, %.01116
   %40 = sext i32 %39 to i64
   %41 = load ptr, ptr %5, align 8, !tbaa !54
-  %42 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %41, i64 %40
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %40
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %44 = load float, ptr %43, align 4, !tbaa !149
   %45 = fmul float %44, %28
@@ -3514,7 +3498,7 @@ define void @_ZN3gmx24AbstractAverageHistogram11scaleSingleEif(ptr noundef nonnu
   %11 = add nsw i32 %10, %1
   %12 = sext i32 %11 to i64
   %13 = load ptr, ptr %7, align 8, !tbaa !54
-  %14 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %12
   %15 = load float, ptr %14, align 4, !tbaa !149
   %16 = fmul float %2, %15
   store float %16, ptr %14, align 4, !tbaa !149
@@ -3523,7 +3507,7 @@ define void @_ZN3gmx24AbstractAverageHistogram11scaleSingleEif(ptr noundef nonnu
   %19 = add nsw i32 %18, %1
   %20 = sext i32 %19 to i64
   %21 = load ptr, ptr %7, align 8, !tbaa !54
-  %22 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %21, i64 %20
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %20
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
   %24 = load float, ptr %23, align 4, !tbaa !149
   %25 = fmul float %2, %24
@@ -3574,7 +3558,7 @@ define void @_ZN3gmx24AbstractAverageHistogram14makeCumulativeEv(ptr noundef non
   %18 = add nsw i32 %17, %.01316
   %19 = sext i32 %18 to i64
   %20 = load ptr, ptr %5, align 8, !tbaa !54
-  %21 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %20, i64 %19
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %19
   %22 = load float, ptr %21, align 4, !tbaa !149
   %23 = fpext float %22 to double
   %24 = fadd double %.01214, %23
@@ -3583,14 +3567,14 @@ define void @_ZN3gmx24AbstractAverageHistogram14makeCumulativeEv(ptr noundef non
   %27 = add nsw i32 %26, %.01316
   %28 = sext i32 %27 to i64
   %29 = load ptr, ptr %5, align 8, !tbaa !54
-  %30 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %29, i64 %28
+  %30 = getelementptr inbounds nuw [16 x i8], ptr %29, i64 %28
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, i8 0, i64 16, i1 false)
   %31 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(98) %0)
   %32 = mul nsw i32 %31, %.015
   %33 = add nsw i32 %32, %.01316
   %34 = sext i32 %33 to i64
   %35 = load ptr, ptr %5, align 8, !tbaa !54
-  %36 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %35, i64 %34
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 %34
   %37 = fptrunc double %24 to float
   store float %37, ptr %36, align 8, !tbaa !61
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
@@ -3630,7 +3614,7 @@ define void @_ZN3gmx24AbstractAverageHistogram8scaleAllEf(ptr noundef nonnull al
   %12 = add nsw i32 %11, %.04
   %13 = sext i32 %12 to i64
   %14 = load ptr, ptr %6, align 8, !tbaa !54
-  %15 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %14, i64 %13
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %13
   %16 = load float, ptr %15, align 4, !tbaa !149
   %17 = fmul float %1, %16
   store float %17, ptr %15, align 4, !tbaa !149
@@ -3639,7 +3623,7 @@ define void @_ZN3gmx24AbstractAverageHistogram8scaleAllEf(ptr noundef nonnull al
   %20 = add nsw i32 %19, %.04
   %21 = sext i32 %20 to i64
   %22 = load ptr, ptr %6, align 8, !tbaa !54
-  %23 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %22, i64 %21
+  %23 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %21
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %25 = load float, ptr %24, align 4, !tbaa !149
   %26 = fmul float %1, %25
@@ -3684,7 +3668,7 @@ define void @_ZN3gmx24AbstractAverageHistogram16scaleAllByVectorEPKf(ptr noundef
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
-  %12 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %13 = load float, ptr %12, align 4, !tbaa !149
   %14 = tail call noundef i32 @_ZNK3gmx20AbstractAnalysisData11columnCountEv(ptr noundef nonnull align 8 dereferenceable(98) %0)
   %15 = trunc nuw nsw i64 %indvars.iv to i32
@@ -3692,7 +3676,7 @@ define void @_ZN3gmx24AbstractAverageHistogram16scaleAllByVectorEPKf(ptr noundef
   %17 = add nsw i32 %16, %.01214
   %18 = sext i32 %17 to i64
   %19 = load ptr, ptr %6, align 8, !tbaa !54
-  %20 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %19, i64 %18
+  %20 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %18
   %21 = load float, ptr %20, align 4, !tbaa !149
   %22 = fmul float %13, %21
   store float %22, ptr %20, align 4, !tbaa !149
@@ -3702,7 +3686,7 @@ define void @_ZN3gmx24AbstractAverageHistogram16scaleAllByVectorEPKf(ptr noundef
   %26 = add nsw i32 %25, %.01214
   %27 = sext i32 %26 to i64
   %28 = load ptr, ptr %6, align 8, !tbaa !54
-  %29 = getelementptr inbounds nuw %"class.gmx::AnalysisDataValue", ptr %28, i64 %27
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %27
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load float, ptr %30, align 4, !tbaa !149
   %32 = fmul float %23, %31
@@ -3887,9 +3871,9 @@ _ZNSt6vectorIN3gmx25AnalysisDataFrameAveragerESaIS1_EE11_S_relocateEPS1_S4_S4_RS
 
 _ZNSt12_Vector_baseIN3gmx25AnalysisDataFrameAveragerESaIS1_EE13_M_deallocateEPS1_m.exit41: ; preds = %_ZNSt6vectorIN3gmx25AnalysisDataFrameAveragerESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %43
   store ptr %27, ptr %0, align 8, !tbaa !35
-  %47 = getelementptr inbounds nuw %"class.gmx::AnalysisDataFrameAverager", ptr %28, i64 %1
+  %47 = getelementptr inbounds nuw [32 x i8], ptr %28, i64 %1
   store ptr %47, ptr %4, align 8, !tbaa !38
-  %48 = getelementptr inbounds nuw %"class.gmx::AnalysisDataFrameAverager", ptr %27, i64 %25
+  %48 = getelementptr inbounds nuw [32 x i8], ptr %27, i64 %25
   store ptr %48, ptr %11, align 8, !tbaa !45
   br label %49
 
@@ -4576,9 +4560,9 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36: ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !91
-  %39 = getelementptr inbounds nuw i32, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !88
-  %40 = getelementptr inbounds nuw i32, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !183
   br label %41
 
@@ -4876,7 +4860,7 @@ _ZNSt6vectorIS_IlSaIlEESaIS1_EE6resizeEm.exit:    ; preds = %_ZSt11partial_sumIN
   br i1 %41, label %42, label %_ZNSt6vectorIlSaIlEE6resizeEm.exit
 
 42:                                               ; preds = %40
-  %43 = getelementptr inbounds nuw i64, ptr %32, i64 %29
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %29
   %.not.i.i6 = icmp eq ptr %31, %43
   br i1 %.not.i.i6, label %_ZNSt6vectorIlSaIlEE6resizeEm.exit, label %44
 
@@ -4985,9 +4969,9 @@ _ZNSt6vectorIS_IlSaIlEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr
 
 _ZNSt12_Vector_baseISt6vectorIlSaIlEESaIS2_EE13_M_deallocateEPS2_m.exit37: ; preds = %_ZNSt6vectorIS_IlSaIlEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %38
   store ptr %26, ptr %0, align 8, !tbaa !96
-  %42 = getelementptr inbounds nuw %"class.std::vector.92", ptr %27, i64 %1
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %27, i64 %1
   store ptr %42, ptr %4, align 8, !tbaa !94
-  %43 = getelementptr inbounds nuw %"class.std::vector.92", ptr %26, i64 %24
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %24
   store ptr %43, ptr %11, align 8, !tbaa !186
   br label %44
 
@@ -5087,9 +5071,9 @@ _ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIlSaIlEE13_M_deallocateEPlm.exit36: ; preds = %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !100
-  %39 = getelementptr inbounds nuw i64, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !191
-  %40 = getelementptr inbounds nuw i64, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !184
   br label %41
 
@@ -5588,7 +5572,7 @@ _ZNSt6vectorIS_IdSaIdEESaIS1_EE6resizeEm.exit:    ; preds = %_ZSt11partial_sumIN
   br i1 %41, label %42, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
 42:                                               ; preds = %40
-  %43 = getelementptr inbounds nuw double, ptr %32, i64 %29
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %29
   %.not.i.i6 = icmp eq ptr %31, %43
   br i1 %.not.i.i6, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit, label %44
 
@@ -5693,9 +5677,9 @@ _ZNSt6vectorIS_IdSaIdEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds = %.lr
 
 _ZNSt12_Vector_baseISt6vectorIdSaIdEESaIS2_EE13_M_deallocateEPS2_m.exit37: ; preds = %_ZNSt6vectorIS_IdSaIdEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %38
   store ptr %26, ptr %0, align 8, !tbaa !120
-  %42 = getelementptr inbounds nuw %"class.std::vector.126", ptr %27, i64 %1
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %27, i64 %1
   store ptr %42, ptr %4, align 8, !tbaa !118
-  %43 = getelementptr inbounds nuw %"class.std::vector.126", ptr %26, i64 %24
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %24
   store ptr %43, ptr %11, align 8, !tbaa !201
   br label %44
 
@@ -5792,9 +5776,9 @@ _ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit36: ; preds = %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !127
-  %39 = getelementptr inbounds nuw double, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !202
-  %40 = getelementptr inbounds nuw double, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !199
   br label %41
 

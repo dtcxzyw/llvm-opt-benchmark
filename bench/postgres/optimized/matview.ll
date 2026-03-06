@@ -6,9 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.StringInfoData = type { ptr, i32, i32, i32 }
 %struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
 %struct.__sigset_t = type { [16 x i64] }
-%union.ListCell = type { ptr }
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.nameData = type { [64 x i8] }
 
 @.str = private unnamed_addr constant [36 x i8] c"cache lookup failed for relation %u\00", align 1
 @.str.1 = private unnamed_addr constant [10 x i8] c"matview.c\00", align 1
@@ -290,7 +287,7 @@ list_length.exit.thread:                          ; preds = %77, %list_length.ex
 .lr.ph123:                                        ; preds = %.lr.ph, %.loopexit
   %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit ], [ 0, %.lr.ph ]
   %93 = load ptr, ptr %90, align 8
-  %94 = getelementptr inbounds nuw %union.ListCell, ptr %93, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %indvars.iv
   %95 = load i32, ptr %94, align 8
   %96 = call ptr @index_open(i32 noundef %95, i32 noundef 1) #7
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 328
@@ -343,7 +340,7 @@ list_length.exit.thread:                          ; preds = %77, %list_length.ex
 
 125:                                              ; preds = %124, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %124 ]
-  %126 = getelementptr inbounds nuw i16, ptr %123, i64 %indvars.iv.i
+  %126 = getelementptr inbounds nuw [2 x i8], ptr %123, i64 %indvars.iv.i
   %127 = load i16, ptr %126, align 2
   %128 = icmp sgt i16 %127, 0
   br i1 %128, label %124, label %.loopexit
@@ -624,7 +621,7 @@ refresh_matview_datafill.exit:                    ; preds = %175, %179
   %.0119.i125 = phi i8 [ %.1.i, %is_usable_unique_index.exit.thread.i ], [ 0, %.lr.ph120.i ]
   %indvars.iv131.i124 = phi i64 [ %indvars.iv.next132.i, %is_usable_unique_index.exit.thread.i ], [ 0, %.lr.ph120.i ]
   %275 = load ptr, ptr %272, align 8
-  %276 = getelementptr inbounds nuw %union.ListCell, ptr %275, i64 %indvars.iv131.i124
+  %276 = getelementptr inbounds nuw [8 x i8], ptr %275, i64 %indvars.iv131.i124
   %277 = load i32, ptr %276, align 8
   %278 = call ptr @index_open(i32 noundef %277, i32 noundef 3) #7
   %279 = getelementptr inbounds nuw i8, ptr %278, i64 328
@@ -677,7 +674,7 @@ refresh_matview_datafill.exit:                    ; preds = %175, %179
 
 307:                                              ; preds = %306, %.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %306 ]
-  %308 = getelementptr inbounds nuw i16, ptr %305, i64 %indvars.iv.i.i
+  %308 = getelementptr inbounds nuw [2 x i8], ptr %305, i64 %indvars.iv.i.i
   %309 = load i16, ptr %308, align 2
   %310 = icmp sgt i16 %309, 0
   br i1 %310, label %306, label %is_usable_unique_index.exit.thread.i
@@ -707,10 +704,10 @@ is_usable_unique_index.exit.i:                    ; preds = %306
 322:                                              ; preds = %367, %.lr.ph.i
   %indvars.iv.i100 = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i103, %367 ]
   %.2117.i = phi i8 [ %.0119.i125, %.lr.ph.i ], [ %.3.i102, %367 ]
-  %323 = getelementptr inbounds nuw i16, ptr %320, i64 %indvars.iv.i100
+  %323 = getelementptr inbounds nuw [2 x i8], ptr %320, i64 %indvars.iv.i100
   %324 = load i16, ptr %323, align 2
   %325 = sext i16 %324 to i64
-  %326 = getelementptr inbounds nuw i32, ptr %321, i64 %indvars.iv.i100
+  %326 = getelementptr inbounds nuw [4 x i8], ptr %321, i64 %indvars.iv.i100
   %327 = load i32, ptr %326, align 4
   %328 = add nsw i64 %325, -1
   %329 = load i32, ptr %266, align 8
@@ -718,7 +715,7 @@ is_usable_unique_index.exit.i:                    ; preds = %306
   %331 = shl nsw i64 %330, 4
   %332 = getelementptr i8, ptr %266, i64 %331
   %333 = getelementptr i8, ptr %332, i64 24
-  %334 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %333, i64 %328
+  %334 = getelementptr inbounds [100 x i8], ptr %333, i64 %328
   %335 = getelementptr inbounds nuw i8, ptr %334, i64 68
   %336 = load i32, ptr %335, align 4
   %337 = zext i32 %327 to i64
@@ -755,7 +752,7 @@ is_usable_unique_index.exit.i:                    ; preds = %306
   unreachable
 
 356:                                              ; preds = %342
-  %357 = getelementptr inbounds i32, ptr %269, i64 %328
+  %357 = getelementptr inbounds [4 x i8], ptr %269, i64 %328
   %358 = load i32, ptr %357, align 4
   %359 = icmp eq i32 %358, %352
   br i1 %359, label %367, label %360

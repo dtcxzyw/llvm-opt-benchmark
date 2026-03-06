@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %union._GMutex = type { ptr }
-%struct.CacheSet = type { ptr, ptr, i64, ptr }
-%struct.CacheBlock = type { i64, i8 }
 
 @qemu_plugin_version = local_unnamed_addr global i32 4, align 4
 @limit = internal unnamed_addr global i32 0, align 4
@@ -117,7 +115,7 @@ define range(i32 -1, 1) i32 @qemu_plugin_install(i64 noundef %0, ptr noundef rea
   %.0100188 = phi i32 [ 16, %.lr.ph.preheader ], [ %.2102, %glib_auto_cleanup_GStrv.exit ]
   %.0103187 = phi i32 [ 64, %.lr.ph.preheader ], [ %.2105, %glib_auto_cleanup_GStrv.exit ]
   %.0106186 = phi i32 [ 2097152, %.lr.ph.preheader ], [ %.2108, %glib_auto_cleanup_GStrv.exit ]
-  %14 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   %16 = tail call ptr @g_strsplit(ptr noundef %15, ptr noundef nonnull @.str, i32 noundef 2) #12
   %17 = load ptr, ptr %16, align 8
@@ -591,7 +589,7 @@ pow_of_two.exit.i:                                ; preds = %.lr.ph.i.i, %.prehe
 .lr.ph.i:                                         ; preds = %pow_of_two.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %pow_of_two.exit.i ]
   %31 = tail call noalias ptr @g_malloc0_n(i64 noundef %16, i64 noundef 16) #16
-  %32 = getelementptr inbounds nuw %struct.CacheSet, ptr %23, i64 %indvars.iv.i
+  %32 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %indvars.iv.i
   store ptr %31, ptr %32, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %22
@@ -617,7 +615,7 @@ pow_of_two.exit.i:                                ; preds = %.lr.ph.i.i, %.prehe
   br label %cache_init.exit
 
 cache_init.exit:                                  ; preds = %._crit_edge.i, %42
-  %43 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   store ptr %18, ptr %43, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %44 = load i32, ptr @cores, align 4
@@ -723,10 +721,10 @@ define internal void @plugin_exit(i64 %0, ptr readnone captures(none) %1) #0 {
   %12 = trunc nuw nsw i64 %indvars.iv.i to i32
   tail call void (ptr, ptr, ...) @g_string_append_printf(ptr noundef %3, ptr noundef nonnull @.str.32, i32 noundef %12) #12
   %13 = load ptr, ptr @l1_dcaches, align 8
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv.i
   %15 = load ptr, ptr %14, align 8
   %16 = load ptr, ptr @l1_icaches, align 8
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.i
   %18 = load ptr, ptr %17, align 8
   %19 = load i8, ptr @use_l2, align 1, !range !3, !noundef !4
   %20 = trunc nuw i8 %19 to i1
@@ -745,7 +743,7 @@ define internal void @plugin_exit(i64 %0, ptr readnone captures(none) %1) #0 {
 
 29:                                               ; preds = %.lr.ph.i
   %30 = load ptr, ptr @l2_ucaches, align 8
-  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv.i
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv.i
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %34 = load i64, ptr %33, align 8
@@ -841,12 +839,12 @@ append_stats_line.exit.i:                         ; preds = %65, %.thread35.i
   %83 = phi i64 [ %l1_dmem_accesses.promoted.i.i, %.preheader.split.us.preheader.i.i ], [ %101, %.preheader.split.us.i.i ]
   %84 = phi i64 [ %l2_misses.promoted.i.i, %.preheader.split.us.preheader.i.i ], [ %106, %.preheader.split.us.i.i ]
   %85 = phi i64 [ %l2_mem_accesses.promoted.i.i, %.preheader.split.us.preheader.i.i ], [ %109, %.preheader.split.us.i.i ]
-  %86 = getelementptr inbounds nuw ptr, ptr %75, i64 %indvars.iv30.i.i
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %indvars.iv30.i.i
   %87 = load ptr, ptr %86, align 8
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 48
   %89 = load i64, ptr %88, align 8
   %90 = add i64 %89, %80
-  %91 = getelementptr inbounds nuw ptr, ptr %76, i64 %indvars.iv30.i.i
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %indvars.iv30.i.i
   %92 = load ptr, ptr %91, align 8
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 48
   %94 = load i64, ptr %93, align 8
@@ -857,7 +855,7 @@ append_stats_line.exit.i:                         ; preds = %65, %.thread35.i
   %99 = getelementptr inbounds nuw i8, ptr %92, i64 40
   %100 = load i64, ptr %99, align 8
   %101 = add i64 %100, %83
-  %102 = getelementptr inbounds nuw ptr, ptr %79, i64 %indvars.iv30.i.i
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %indvars.iv30.i.i
   %103 = load ptr, ptr %102, align 8
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 48
   %105 = load i64, ptr %104, align 8
@@ -880,12 +878,12 @@ append_stats_line.exit.i:                         ; preds = %65, %.thread35.i
   %111 = phi i64 [ %l1_dmisses.promoted.i.i, %.preheader.split.preheader.i.i ], [ %123, %.preheader.split.i.i ]
   %112 = phi i64 [ %l1_imem_accesses.promoted.i.i, %.preheader.split.preheader.i.i ], [ %126, %.preheader.split.i.i ]
   %113 = phi i64 [ %l1_dmem_accesses.promoted.i.i, %.preheader.split.preheader.i.i ], [ %129, %.preheader.split.i.i ]
-  %114 = getelementptr inbounds nuw ptr, ptr %75, i64 %indvars.iv.i.i
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %indvars.iv.i.i
   %115 = load ptr, ptr %114, align 8
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 48
   %117 = load i64, ptr %116, align 8
   %118 = add i64 %117, %110
-  %119 = getelementptr inbounds nuw ptr, ptr %76, i64 %indvars.iv.i.i
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %indvars.iv.i.i
   %120 = load ptr, ptr %119, align 8
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 48
   %122 = load i64, ptr %121, align 8
@@ -1090,7 +1088,7 @@ log_top_insns.exit:                               ; preds = %220, %._crit_edge62
 
 .lr.ph.i4:                                        ; preds = %log_top_insns.exit, %cache_free.exit.i
   %indvars.iv.i5 = phi i64 [ %indvars.iv.next.i7, %cache_free.exit.i ], [ 0, %log_top_insns.exit ]
-  %236 = getelementptr inbounds nuw ptr, ptr %233, i64 %indvars.iv.i5
+  %236 = getelementptr inbounds nuw [8 x i8], ptr %233, i64 %indvars.iv.i5
   %237 = load ptr, ptr %236, align 8
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 8
   %239 = load i32, ptr %238, align 8
@@ -1105,7 +1103,7 @@ log_top_insns.exit:                               ; preds = %220, %._crit_edge62
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i4, %.lr.ph.i.i
   %indvars.iv.i.i8 = phi i64 [ %indvars.iv.next.i.i9, %.lr.ph.i.i ], [ 0, %.lr.ph.i4 ]
   %242 = load ptr, ptr %237, align 8
-  %243 = getelementptr inbounds nuw %struct.CacheSet, ptr %242, i64 %indvars.iv.i.i8
+  %243 = getelementptr inbounds nuw [32 x i8], ptr %242, i64 %indvars.iv.i.i8
   %244 = load ptr, ptr %243, align 8
   tail call void @g_free(ptr noundef %244) #12
   %indvars.iv.next.i.i9 = add nuw nsw i64 %indvars.iv.i.i8, 1
@@ -1135,7 +1133,7 @@ caches_free.exit:                                 ; preds = %cache_free.exit.i
 
 .lr.ph.i11:                                       ; preds = %caches_free.exit, %cache_free.exit.i15
   %indvars.iv.i12 = phi i64 [ %indvars.iv.next.i16, %cache_free.exit.i15 ], [ 0, %caches_free.exit ]
-  %255 = getelementptr inbounds nuw ptr, ptr %253, i64 %indvars.iv.i12
+  %255 = getelementptr inbounds nuw [8 x i8], ptr %253, i64 %indvars.iv.i12
   %256 = load ptr, ptr %255, align 8
   %257 = getelementptr inbounds nuw i8, ptr %256, i64 8
   %258 = load i32, ptr %257, align 8
@@ -1150,7 +1148,7 @@ caches_free.exit:                                 ; preds = %cache_free.exit.i
 .lr.ph.i.i17:                                     ; preds = %.lr.ph.i11, %.lr.ph.i.i17
   %indvars.iv.i.i18 = phi i64 [ %indvars.iv.next.i.i19, %.lr.ph.i.i17 ], [ 0, %.lr.ph.i11 ]
   %261 = load ptr, ptr %256, align 8
-  %262 = getelementptr inbounds nuw %struct.CacheSet, ptr %261, i64 %indvars.iv.i.i18
+  %262 = getelementptr inbounds nuw [32 x i8], ptr %261, i64 %indvars.iv.i.i18
   %263 = load ptr, ptr %262, align 8
   tail call void @g_free(ptr noundef %263) #12
   %indvars.iv.next.i.i19 = add nuw nsw i64 %indvars.iv.i.i18, 1
@@ -1190,7 +1188,7 @@ caches_free.exit20:                               ; preds = %cache_free.exit.i15
 
 .lr.ph.i22:                                       ; preds = %276, %cache_free.exit.i26
   %indvars.iv.i23 = phi i64 [ %indvars.iv.next.i27, %cache_free.exit.i26 ], [ 0, %276 ]
-  %280 = getelementptr inbounds nuw ptr, ptr %277, i64 %indvars.iv.i23
+  %280 = getelementptr inbounds nuw [8 x i8], ptr %277, i64 %indvars.iv.i23
   %281 = load ptr, ptr %280, align 8
   %282 = getelementptr inbounds nuw i8, ptr %281, i64 8
   %283 = load i32, ptr %282, align 8
@@ -1205,7 +1203,7 @@ caches_free.exit20:                               ; preds = %cache_free.exit.i15
 .lr.ph.i.i28:                                     ; preds = %.lr.ph.i22, %.lr.ph.i.i28
   %indvars.iv.i.i29 = phi i64 [ %indvars.iv.next.i.i30, %.lr.ph.i.i28 ], [ 0, %.lr.ph.i22 ]
   %286 = load ptr, ptr %281, align 8
-  %287 = getelementptr inbounds nuw %struct.CacheSet, ptr %286, i64 %indvars.iv.i.i29
+  %287 = getelementptr inbounds nuw [32 x i8], ptr %286, i64 %indvars.iv.i.i29
   %288 = load ptr, ptr %287, align 8
   tail call void @g_free(ptr noundef %288) #12
   %indvars.iv.next.i.i30 = add nuw nsw i64 %indvars.iv.i.i29, 1
@@ -1259,13 +1257,13 @@ declare void @g_strfreev(ptr noundef) local_unnamed_addr #1
 define internal void @lru_update_blk(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) #5 {
   %4 = load ptr, ptr %0, align 8
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds %struct.CacheSet, ptr %4, i64 %5
+  %6 = getelementptr inbounds [32 x i8], ptr %4, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i64, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = sext i32 %2 to i64
-  %12 = getelementptr inbounds i64, ptr %10, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %10, i64 %11
   store i64 %8, ptr %12, align 8
   %13 = add i64 %8, 1
   store i64 %13, ptr %7, align 8
@@ -1289,11 +1287,11 @@ define internal void @lru_priorities_init(ptr noundef readonly captures(none) %0
   %8 = sext i32 %7 to i64
   %9 = tail call noalias ptr @g_malloc0_n(i64 noundef %8, i64 noundef 8) #16
   %10 = load ptr, ptr %0, align 8
-  %11 = getelementptr inbounds nuw %struct.CacheSet, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [32 x i8], ptr %10, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %9, ptr %12, align 8
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds nuw %struct.CacheSet, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 %indvars.iv
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store i64 0, ptr %15, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1316,7 +1314,7 @@ define internal void @lru_priorities_destroy(ptr noundef readonly captures(none)
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds nuw %struct.CacheSet, ptr %5, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %indvars.iv
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   tail call void @g_free(ptr noundef %8) #12
@@ -1334,7 +1332,7 @@ define internal void @lru_priorities_destroy(ptr noundef readonly captures(none)
 define internal void @fifo_update_on_miss(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = sext i32 %1 to i64
-  %6 = getelementptr inbounds %struct.CacheSet, ptr %4, i64 %5
+  %6 = getelementptr inbounds [32 x i8], ptr %4, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = sext i32 %2 to i64
@@ -1354,7 +1352,7 @@ define internal void @fifo_init(ptr noundef readonly captures(none) %0) #0 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
   %5 = tail call ptr @g_queue_new() #12
   %6 = load ptr, ptr %0, align 8
-  %7 = getelementptr inbounds nuw %struct.CacheSet, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr %5, ptr %8, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1377,7 +1375,7 @@ define internal void @fifo_destroy(ptr noundef readonly captures(none) %0) #0 {
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
   %5 = load ptr, ptr %0, align 8
-  %6 = getelementptr inbounds nuw %struct.CacheSet, ptr %5, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %indvars.iv
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
   tail call void @g_queue_free(ptr noundef %8) #12
@@ -1452,10 +1450,10 @@ define internal void @vcpu_mem_access(i32 noundef %0, i32 noundef %1, i64 nounde
   %12 = urem i32 %0, %11
   %13 = load ptr, ptr @l1_dcache_locks, align 8
   %14 = sext i32 %12 to i64
-  %15 = getelementptr inbounds %union._GMutex, ptr %13, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %13, i64 %14
   tail call void @g_mutex_lock(ptr noundef %15) #12
   %16 = load ptr, ptr @l1_dcaches, align 8
-  %17 = getelementptr inbounds ptr, ptr %16, i64 %14
+  %17 = getelementptr inbounds [8 x i8], ptr %16, i64 %14
   %18 = load ptr, ptr %17, align 8
   %19 = tail call fastcc zeroext i1 @access_cache(ptr noundef %18, i64 noundef %10)
   br i1 %19, label %.critedge._crit_edge, label %20
@@ -1468,7 +1466,7 @@ define internal void @vcpu_mem_access(i32 noundef %0, i32 noundef %1, i64 nounde
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %22 = atomicrmw add ptr %21, i64 1 seq_cst, align 8
   %23 = load ptr, ptr @l1_dcaches, align 8
-  %24 = getelementptr inbounds ptr, ptr %23, i64 %14
+  %24 = getelementptr inbounds [8 x i8], ptr %23, i64 %14
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 48
   %27 = load i64, ptr %26, align 8
@@ -1478,14 +1476,14 @@ define internal void @vcpu_mem_access(i32 noundef %0, i32 noundef %1, i64 nounde
 
 29:                                               ; preds = %.critedge._crit_edge, %20
   %30 = phi ptr [ %.pre, %.critedge._crit_edge ], [ %23, %20 ]
-  %31 = getelementptr inbounds ptr, ptr %30, i64 %14
+  %31 = getelementptr inbounds [8 x i8], ptr %30, i64 %14
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 40
   %34 = load i64, ptr %33, align 8
   %35 = add i64 %34, 1
   store i64 %35, ptr %33, align 8
   %36 = load ptr, ptr @l1_dcache_locks, align 8
-  %37 = getelementptr inbounds %union._GMutex, ptr %36, i64 %14
+  %37 = getelementptr inbounds [8 x i8], ptr %36, i64 %14
   tail call void @g_mutex_unlock(ptr noundef %37) #12
   %.not = xor i1 %19, true
   %38 = load i8, ptr @use_l2, align 1, !range !3
@@ -1495,10 +1493,10 @@ define internal void @vcpu_mem_access(i32 noundef %0, i32 noundef %1, i64 nounde
 
 40:                                               ; preds = %29
   %41 = load ptr, ptr @l2_ucache_locks, align 8
-  %42 = getelementptr inbounds %union._GMutex, ptr %41, i64 %14
+  %42 = getelementptr inbounds [8 x i8], ptr %41, i64 %14
   tail call void @g_mutex_lock(ptr noundef %42) #12
   %43 = load ptr, ptr @l2_ucaches, align 8
-  %44 = getelementptr inbounds ptr, ptr %43, i64 %14
+  %44 = getelementptr inbounds [8 x i8], ptr %43, i64 %14
   %45 = load ptr, ptr %44, align 8
   %46 = tail call fastcc zeroext i1 @access_cache(ptr noundef %45, i64 noundef %10)
   br i1 %46, label %._crit_edge, label %47
@@ -1511,7 +1509,7 @@ define internal void @vcpu_mem_access(i32 noundef %0, i32 noundef %1, i64 nounde
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %49 = atomicrmw add ptr %48, i64 1 seq_cst, align 8
   %50 = load ptr, ptr @l2_ucaches, align 8
-  %51 = getelementptr inbounds ptr, ptr %50, i64 %14
+  %51 = getelementptr inbounds [8 x i8], ptr %50, i64 %14
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 48
   %54 = load i64, ptr %53, align 8
@@ -1521,14 +1519,14 @@ define internal void @vcpu_mem_access(i32 noundef %0, i32 noundef %1, i64 nounde
 
 56:                                               ; preds = %._crit_edge, %47
   %57 = phi ptr [ %.pre29, %._crit_edge ], [ %50, %47 ]
-  %58 = getelementptr inbounds ptr, ptr %57, i64 %14
+  %58 = getelementptr inbounds [8 x i8], ptr %57, i64 %14
   %59 = load ptr, ptr %58, align 8
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 40
   %61 = load i64, ptr %60, align 8
   %62 = add i64 %61, 1
   store i64 %62, ptr %60, align 8
   %63 = load ptr, ptr @l2_ucache_locks, align 8
-  %64 = getelementptr inbounds %union._GMutex, ptr %63, i64 %14
+  %64 = getelementptr inbounds [8 x i8], ptr %63, i64 %14
   tail call void @g_mutex_unlock(ptr noundef %64) #12
   br label %65
 
@@ -1546,10 +1544,10 @@ define internal void @vcpu_insn_exec(i32 noundef %0, ptr noundef captures(none) 
   %6 = urem i32 %0, %5
   %7 = load ptr, ptr @l1_icache_locks, align 8
   %8 = sext i32 %6 to i64
-  %9 = getelementptr inbounds %union._GMutex, ptr %7, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %7, i64 %8
   tail call void @g_mutex_lock(ptr noundef %9) #12
   %10 = load ptr, ptr @l1_icaches, align 8
-  %11 = getelementptr inbounds ptr, ptr %10, i64 %8
+  %11 = getelementptr inbounds [8 x i8], ptr %10, i64 %8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call fastcc zeroext i1 @access_cache(ptr noundef %12, i64 noundef %4)
   br i1 %13, label %._crit_edge, label %14
@@ -1562,7 +1560,7 @@ define internal void @vcpu_insn_exec(i32 noundef %0, ptr noundef captures(none) 
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %16 = atomicrmw add ptr %15, i64 1 seq_cst, align 8
   %17 = load ptr, ptr @l1_icaches, align 8
-  %18 = getelementptr inbounds ptr, ptr %17, i64 %8
+  %18 = getelementptr inbounds [8 x i8], ptr %17, i64 %8
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 48
   %21 = load i64, ptr %20, align 8
@@ -1572,14 +1570,14 @@ define internal void @vcpu_insn_exec(i32 noundef %0, ptr noundef captures(none) 
 
 23:                                               ; preds = %._crit_edge, %14
   %24 = phi ptr [ %.pre, %._crit_edge ], [ %17, %14 ]
-  %25 = getelementptr inbounds ptr, ptr %24, i64 %8
+  %25 = getelementptr inbounds [8 x i8], ptr %24, i64 %8
   %26 = load ptr, ptr %25, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %28 = load i64, ptr %27, align 8
   %29 = add i64 %28, 1
   store i64 %29, ptr %27, align 8
   %30 = load ptr, ptr @l1_icache_locks, align 8
-  %31 = getelementptr inbounds %union._GMutex, ptr %30, i64 %8
+  %31 = getelementptr inbounds [8 x i8], ptr %30, i64 %8
   tail call void @g_mutex_unlock(ptr noundef %31) #12
   %.not = xor i1 %13, true
   %32 = load i8, ptr @use_l2, align 1, !range !3
@@ -1589,10 +1587,10 @@ define internal void @vcpu_insn_exec(i32 noundef %0, ptr noundef captures(none) 
 
 34:                                               ; preds = %23
   %35 = load ptr, ptr @l2_ucache_locks, align 8
-  %36 = getelementptr inbounds %union._GMutex, ptr %35, i64 %8
+  %36 = getelementptr inbounds [8 x i8], ptr %35, i64 %8
   tail call void @g_mutex_lock(ptr noundef %36) #12
   %37 = load ptr, ptr @l2_ucaches, align 8
-  %38 = getelementptr inbounds ptr, ptr %37, i64 %8
+  %38 = getelementptr inbounds [8 x i8], ptr %37, i64 %8
   %39 = load ptr, ptr %38, align 8
   %40 = tail call fastcc zeroext i1 @access_cache(ptr noundef %39, i64 noundef %4)
   br i1 %40, label %._crit_edge22, label %41
@@ -1605,7 +1603,7 @@ define internal void @vcpu_insn_exec(i32 noundef %0, ptr noundef captures(none) 
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %43 = atomicrmw add ptr %42, i64 1 seq_cst, align 8
   %44 = load ptr, ptr @l2_ucaches, align 8
-  %45 = getelementptr inbounds ptr, ptr %44, i64 %8
+  %45 = getelementptr inbounds [8 x i8], ptr %44, i64 %8
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 48
   %48 = load i64, ptr %47, align 8
@@ -1615,14 +1613,14 @@ define internal void @vcpu_insn_exec(i32 noundef %0, ptr noundef captures(none) 
 
 50:                                               ; preds = %._crit_edge22, %41
   %51 = phi ptr [ %.pre23, %._crit_edge22 ], [ %44, %41 ]
-  %52 = getelementptr inbounds ptr, ptr %51, i64 %8
+  %52 = getelementptr inbounds [8 x i8], ptr %51, i64 %8
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %55 = load i64, ptr %54, align 8
   %56 = add i64 %55, 1
   store i64 %56, ptr %54, align 8
   %57 = load ptr, ptr @l2_ucache_locks, align 8
-  %58 = getelementptr inbounds %union._GMutex, ptr %57, i64 %8
+  %58 = getelementptr inbounds [8 x i8], ptr %57, i64 %8
   tail call void @g_mutex_unlock(ptr noundef %58) #12
   br label %59
 
@@ -1655,14 +1653,14 @@ define internal fastcc noundef zeroext i1 @access_cache(ptr noundef %0, i64 noun
 
 .lr.ph.i:                                         ; preds = %2
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds nuw %struct.CacheSet, ptr %13, i64 %9
+  %14 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 %9
   %15 = load ptr, ptr %14, align 8
   %wide.trip.count.i = zext nneg i32 %11 to i64
   br label %16
 
 16:                                               ; preds = %24, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %24 ]
-  %17 = getelementptr inbounds nuw %struct.CacheBlock, ptr %15, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %indvars.iv.i
   %18 = load i64, ptr %17, align 8
   %19 = icmp eq i64 %18, %4
   br i1 %19, label %20, label %24
@@ -1691,7 +1689,7 @@ in_cache.exit:                                    ; preds = %20
 
 .lr.ph.i34:                                       ; preds = %24, %33
   %indvars.iv.i36 = phi i64 [ %indvars.iv.next.i37, %33 ], [ 0, %24 ]
-  %29 = getelementptr inbounds nuw %struct.CacheBlock, ptr %15, i64 %indvars.iv.i36
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %indvars.iv.i36
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load i8, ptr %30, align 8, !range !3, !noundef !4
   %32 = trunc nuw i8 %31 to i1
@@ -1738,7 +1736,7 @@ get_invalid_block.exit.thread:                    ; preds = %33, %2
   %indvars.iv.i.i = phi i64 [ 1, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
   %.021.i.i = phi i64 [ %46, %.lr.ph.preheader.i.i ], [ %spec.select1718.i.i, %.lr.ph.i.i ]
   %.01320.i.i = phi i32 [ 0, %.lr.ph.preheader.i.i ], [ %spec.select.i.i, %.lr.ph.i.i ]
-  %47 = getelementptr inbounds nuw i64, ptr %44, i64 %indvars.iv.i.i
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv.i.i
   %48 = load i64, ptr %47, align 8
   %sext.i.i = shl i64 %.021.i.i, 32
   %49 = ashr exact i64 %sext.i.i, 32
@@ -1779,15 +1777,15 @@ get_replaced_block.exit:                          ; preds = %.lr.ph.i.i, %get_in
 
 64:                                               ; preds = %62, %get_replaced_block.exit
   %65 = load ptr, ptr %0, align 8
-  %66 = getelementptr inbounds nuw %struct.CacheSet, ptr %65, i64 %9
+  %66 = getelementptr inbounds nuw [32 x i8], ptr %65, i64 %9
   %67 = load ptr, ptr %66, align 8
   %68 = sext i32 %.0 to i64
-  %69 = getelementptr inbounds %struct.CacheBlock, ptr %67, i64 %68
+  %69 = getelementptr inbounds [16 x i8], ptr %67, i64 %68
   store i64 %4, ptr %69, align 8
   %70 = load ptr, ptr %0, align 8
-  %71 = getelementptr inbounds nuw %struct.CacheSet, ptr %70, i64 %9
+  %71 = getelementptr inbounds nuw [32 x i8], ptr %70, i64 %9
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds %struct.CacheBlock, ptr %72, i64 %68
+  %73 = getelementptr inbounds [16 x i8], ptr %72, i64 %68
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   store i8 1, ptr %74, align 8
   br label %75

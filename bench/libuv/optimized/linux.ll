@@ -12,24 +12,10 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.watcher_list = type { %struct.anon.13, %struct.uv__queue, i32, ptr, i32 }
 %struct.anon.13 = type { ptr, ptr, ptr, i32 }
 %struct.uv__queue = type { ptr, ptr }
-%struct.uv__io_uring_sqe = type { i8, i8, i16, i32, %union.anon.3, %union.anon.4, i32, %union.anon.5, i64, %union.anon.6 }
-%union.anon.3 = type { i64 }
-%union.anon.4 = type { i64 }
-%union.anon.5 = type { i32 }
-%union.anon.6 = type { [3 x i64] }
 %struct.timespec = type { i64, i64 }
 %struct.uv__invalidate = type { ptr, ptr, i32 }
 %struct.__sigset_t = type { [16 x i64] }
-%struct.uv__io_uring_cqe = type { i64, i32, i32 }
 %struct.cpu = type { i64, i64, i64, i64, i64, i64, i32 }
-%struct.uv_cpu_info_s = type { ptr, i32, %struct.uv_cpu_times_s }
-%struct.uv_cpu_times_s = type { i64, i64, i64, i64, i64 }
-%struct.uv_interface_address_s = type { ptr, [6 x i8], i32, %union.anon.8, %union.anon.10 }
-%union.anon.8 = type { %struct.sockaddr_in6 }
-%struct.sockaddr_in6 = type { i16, i16, i32, %struct.in6_addr, i32 }
-%struct.in6_addr = type { %union.anon.9 }
-%union.anon.9 = type { [4 x i32] }
-%union.anon.10 = type { %struct.sockaddr_in6 }
 %struct.sysinfo = type { i64, [3 x i64], i64, i64, i64, i64, i64, i64, i16, i16, i64, i64, i32, [0 x i8] }
 
 @uv__kernel_version.cached_version = internal unnamed_addr global i32 0, align 4
@@ -459,7 +445,7 @@ uv__use_io_uring.exit.thread86:                   ; preds = %4, %uv__use_io_urin
 118:                                              ; preds = %114, %118
   %.070110 = phi i32 [ 0, %114 ], [ %121, %118 ]
   %119 = zext i32 %.070110 to i64
-  %120 = getelementptr inbounds nuw i32, ptr %117, i64 %119
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %117, i64 %119
   store i32 %.070110, ptr %120, align 4
   %121 = add i32 %.070110, 1
   %122 = load i32, ptr %81, align 8
@@ -873,7 +859,7 @@ define hidden void @uv__platform_invalidate_fd(ptr noundef readonly captures(non
   %13 = phi i32 [ %9, %.lr.ph ], [ %21, %20 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr inbounds nuw %struct.epoll_event, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [12 x i8], ptr %14, i64 %indvars.iv
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = load i32, ptr %16, align 1
   %18 = icmp eq i32 %17, %1
@@ -1089,7 +1075,7 @@ uv__use_io_uring.exit.thread:                     ; preds = %11, %uv__use_io_uri
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %49 = load ptr, ptr %48, align 8
   %50 = zext i32 %47 to i64
-  %51 = getelementptr inbounds nuw %struct.uv__io_uring_sqe, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [64 x i8], ptr %49, i64 %50
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %51, i8 0, i64 64, i1 false)
   %52 = ptrtoint ptr %2 to i64
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 32
@@ -1977,10 +1963,10 @@ define hidden void @uv__io_poll(ptr noundef %0, i32 noundef %1) local_unnamed_ad
   store i32 %51, ptr %49, align 4
   %52 = and i32 %50, %48
   %53 = zext i32 %52 to i64
-  %54 = getelementptr inbounds nuw %struct.epoll_event, ptr %5, i64 %53
+  %54 = getelementptr inbounds nuw [12 x i8], ptr %5, i64 %53
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %54, ptr noundef nonnull readonly align 4 dereferenceable(12) %7, i64 12, i1 false)
   %55 = load ptr, ptr %31, align 8
-  %56 = getelementptr inbounds nuw %struct.uv__io_uring_sqe, ptr %55, i64 %53
+  %56 = getelementptr inbounds nuw [64 x i8], ptr %55, i64 %53
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %56, i8 0, i64 64, i1 false)
   %57 = ptrtoint ptr %54 to i64
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 16
@@ -2176,7 +2162,7 @@ uv__update_time.exit:                             ; preds = %128, %131
   %.0125183 = phi i32 [ 0, %.lr.ph186.preheader ], [ %.1126, %uv__poll_io_uring.exit ]
   %.0127182 = phi i32 [ 0, %.lr.ph186.preheader ], [ %.1128, %uv__poll_io_uring.exit ]
   %.0130181 = phi i32 [ 0, %.lr.ph186.preheader ], [ %.1131, %uv__poll_io_uring.exit ]
-  %142 = getelementptr inbounds nuw %struct.epoll_event, ptr %4, i64 %indvars.iv
+  %142 = getelementptr inbounds nuw [12 x i8], ptr %4, i64 %indvars.iv
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 4
   %144 = load i32, ptr %143, align 4
   %145 = icmp eq i32 %144, -1
@@ -2202,7 +2188,7 @@ uv__update_time.exit:                             ; preds = %128, %131
   %.03945.i = phi i32 [ %.1.i, %279 ], [ 0, %149 ]
   %156 = and i32 %.046.i, %154
   %157 = zext i32 %156 to i64
-  %158 = getelementptr inbounds nuw %struct.uv__io_uring_cqe, ptr %155, i64 %157
+  %158 = getelementptr inbounds nuw [16 x i8], ptr %155, i64 %157
   %159 = load i64, ptr %158, align 8
   %160 = inttoptr i64 %159 to ptr
   %161 = load i32, ptr %99, align 8
@@ -2430,7 +2416,7 @@ uv__iou_fs_statx_post.exit.i:                     ; preds = %178, %174
 307:                                              ; preds = %146
   %308 = load ptr, ptr %93, align 8
   %309 = sext i32 %144 to i64
-  %310 = getelementptr inbounds ptr, ptr %308, i64 %309
+  %310 = getelementptr inbounds [8 x i8], ptr %308, i64 %309
   %311 = load ptr, ptr %310, align 8
   %312 = icmp eq ptr %311, null
   br i1 %312, label %313, label %315
@@ -2655,7 +2641,7 @@ define internal fastcc void @uv__epoll_ctl_flush(i32 noundef %0, ptr noundef rea
   %40 = and i32 %39, %36
   %41 = load ptr, ptr %32, align 8
   %42 = zext i32 %40 to i64
-  %43 = getelementptr inbounds nuw %struct.uv__io_uring_cqe, ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load i32, ptr %44, align 8
   %46 = icmp eq i32 %45, 0
@@ -2685,7 +2671,7 @@ define internal fastcc void @uv__epoll_ctl_flush(i32 noundef %0, ptr noundef rea
   unreachable
 
 56:                                               ; preds = %54
-  %57 = getelementptr inbounds nuw %struct.epoll_event, ptr %4, i64 %52
+  %57 = getelementptr inbounds nuw [12 x i8], ptr %4, i64 %52
   %58 = load i32, ptr %33, align 8
   %59 = load ptr, ptr %5, align 8
   %60 = load i32, ptr %59, align 4
@@ -2693,10 +2679,10 @@ define internal fastcc void @uv__epoll_ctl_flush(i32 noundef %0, ptr noundef rea
   store i32 %61, ptr %59, align 4
   %62 = and i32 %60, %58
   %63 = zext i32 %62 to i64
-  %64 = getelementptr inbounds nuw %struct.epoll_event, ptr %2, i64 %63
+  %64 = getelementptr inbounds nuw [12 x i8], ptr %2, i64 %63
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %64, ptr noundef nonnull align 4 dereferenceable(12) %57, i64 12, i1 false)
   %65 = load ptr, ptr %34, align 8
-  %66 = getelementptr inbounds nuw %struct.uv__io_uring_sqe, ptr %65, i64 %63
+  %66 = getelementptr inbounds nuw [64 x i8], ptr %65, i64 %63
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %66, i8 0, i64 64, i1 false)
   %67 = ptrtoint ptr %64 to i64
   %68 = getelementptr inbounds nuw i8, ptr %66, i64 16
@@ -2972,7 +2958,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_cpu_info(ptr nounde
 
 36:                                               ; preds = %33
   %37 = zext nneg i32 %34 to i64
-  %38 = getelementptr inbounds nuw %struct.cpu, ptr %9, i64 %37
+  %38 = getelementptr inbounds nuw [56 x i8], ptr %9, i64 %37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %38, ptr noundef nonnull align 8 dereferenceable(56) %5, i64 56, i1 false)
   %39 = and i32 %34, 7
   %40 = shl nuw nsw i32 1, %39
@@ -3062,7 +3048,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_cpu_info(ptr nounde
   %76 = lshr exact i64 %.068.add, 6
   %77 = trunc nuw nsw i64 %76 to i32
   %78 = zext nneg i32 %73 to i64
-  %79 = getelementptr inbounds nuw %struct.cpu, ptr %9, i64 %78
+  %79 = getelementptr inbounds nuw [56 x i8], ptr %9, i64 %78
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 48
   store i32 %77, ptr %80, align 8
   br label %.loopexit86.preheader
@@ -3111,7 +3097,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_cpu_info(ptr nounde
 
 100:                                              ; preds = %95
   %101 = zext i32 %.pre107 to i64
-  %102 = getelementptr inbounds nuw %struct.cpu, ptr %9, i64 %101
+  %102 = getelementptr inbounds nuw [56 x i8], ptr %9, i64 %101
   %103 = call i32 (ptr, ptr, ...) @fscanf(ptr noundef nonnull %98, ptr noundef nonnull @.str.17, ptr noundef nonnull %102)
   %.not85 = icmp eq i32 %103, 1
   br i1 %.not85, label %105, label %104
@@ -3153,7 +3139,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_cpu_info(ptr nounde
   %119 = sext i32 %.063.lcssa to i64
   store i32 %.063.lcssa, ptr %1, align 4
   %120 = load ptr, ptr %0, align 8
-  %121 = getelementptr inbounds %struct.uv_cpu_info_s, ptr %120, i64 %119
+  %121 = getelementptr inbounds [56 x i8], ptr %120, i64 %119
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(512) %121, ptr noundef nonnull align 16 dereferenceable(512) %7, i64 512, i1 false)
   store i32 0, ptr %3, align 4
   br i1 %.not103, label %._crit_edge102, label %.lr.ph101
@@ -3174,11 +3160,11 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_cpu_info(ptr nounde
 
 130:                                              ; preds = %.lr.ph101
   %131 = zext nneg i32 %storemerge8298 to i64
-  %132 = getelementptr inbounds nuw %struct.cpu, ptr %9, i64 %131
+  %132 = getelementptr inbounds nuw [56 x i8], ptr %9, i64 %131
   %133 = load ptr, ptr %0, align 8
   %134 = add i32 %.06499, 1
   %135 = zext i32 %.06499 to i64
-  %136 = getelementptr inbounds nuw %struct.uv_cpu_info_s, ptr %133, i64 %135
+  %136 = getelementptr inbounds nuw [56 x i8], ptr %133, i64 %135
   %137 = getelementptr inbounds nuw i8, ptr %132, i64 48
   %138 = load i32, ptr %137, align 8
   %139 = zext i32 %138 to i64
@@ -3520,7 +3506,7 @@ define dso_local void @uv_free_interface_addresses(ptr noundef %0, i32 noundef %
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %4 = getelementptr inbounds nuw %struct.uv_interface_address_s, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [80 x i8], ptr %0, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8
   tail call void @uv__free(ptr noundef %5) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

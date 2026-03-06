@@ -35,7 +35,7 @@ define noundef nonnull ptr @SCT_validation_status_string(ptr noundef %0) local_u
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.SCT_validation_status_string, i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.SCT_validation_status_string, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %5
 

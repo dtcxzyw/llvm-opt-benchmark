@@ -52,7 +52,7 @@ define range(i32 -1, 1) i32 @dtstat(ptr noundef %0, ptr noundef initializes((0, 
 
 .lr.ph.split.us.i:                                ; preds = %34, %.lr.ph.i
   %indvars.iv5.i = phi i64 [ %indvars.iv.next6.i, %34 ], [ %23, %.lr.ph.i ]
-  %24 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv5.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %indvars.iv5.i
   br label %25
 
 25:                                               ; preds = %25, %.lr.ph.split.us.i
@@ -136,7 +136,7 @@ dthstat.exit._crit_edge:                          ; preds = %dthstat.exit
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.split.i.preheader, %58
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %58 ], [ %54, %.lr.ph.split.i.preheader ]
-  %55 = getelementptr inbounds nuw ptr, ptr %.val62, i64 %indvars.iv.i
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %.val62, i64 %indvars.iv.i
   br label %56
 
 56:                                               ; preds = %56, %.lr.ph.split.i
@@ -148,7 +148,7 @@ dthstat.exit._crit_edge:                          ; preds = %dthstat.exit
   br i1 %.not.i, label %58, label %56, !llvm.loop !20
 
 58:                                               ; preds = %56
-  %59 = getelementptr inbounds nuw i64, ptr %51, i64 %.0.i
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %.0.i
   %60 = load i64, ptr %59, align 8, !tbaa !25
   %61 = add i64 %60, 1
   store i64 %61, ptr %59, align 8, !tbaa !25
@@ -158,7 +158,7 @@ dthstat.exit._crit_edge:                          ; preds = %dthstat.exit
 
 63:                                               ; preds = %50, %63
   %.04477 = phi i64 [ 0, %50 ], [ %65, %63 ]
-  %64 = getelementptr inbounds nuw i64, ptr %51, i64 %.04477
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %.04477
   store i64 0, ptr %64, align 8, !tbaa !25
   %65 = add i64 %.04477, 1
   %66 = load i64, ptr %10, align 8, !tbaa !23
@@ -227,7 +227,7 @@ dthstat.exit._crit_edge:                          ; preds = %dthstat.exit
 
 93:                                               ; preds = %87, %93
   %.04378 = phi i64 [ 0, %87 ], [ %95, %93 ]
-  %94 = getelementptr inbounds nuw i64, ptr %88, i64 %.04378
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %.04378
   store i64 0, ptr %94, align 8, !tbaa !25
   %95 = add i64 %.04378, 1
   %96 = load i64, ptr %11, align 8, !tbaa !22
@@ -237,7 +237,7 @@ dthstat.exit._crit_edge:                          ; preds = %dthstat.exit
 97:                                               ; preds = %89, %103
   %.079 = phi i64 [ 0, %89 ], [ %105, %103 ]
   %98 = phi i64 [ %.promoted, %89 ], [ %104, %103 ]
-  %99 = getelementptr inbounds nuw i64, ptr %88, i64 %.079
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %.079
   %100 = load i64, ptr %99, align 8, !tbaa !25
   %101 = icmp ugt i64 %100, %98
   br i1 %101, label %102, label %103
@@ -309,7 +309,7 @@ define internal fastcc void @dttstat(ptr noundef %0, ptr noundef readonly captur
   br i1 %.not20, label %23, label %19
 
 19:                                               ; preds = %18
-  %20 = getelementptr inbounds nuw i64, ptr %3, i64 %2
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %2
   %21 = load i64, ptr %20, align 8, !tbaa !25
   %22 = add i64 %21, 1
   store i64 %22, ptr %20, align 8, !tbaa !25

@@ -173,7 +173,7 @@ define linkonce_odr void @_ZNSt6vectorIN3gmx17CorrelationTensorESaIS1_EE6resizeE
   br i1 %15, label %16, label %_ZNSt6vectorIN3gmx17CorrelationTensorESaIS1_EE15_M_erase_at_endEPS1_.exit
 
 16:                                               ; preds = %14
-  %17 = getelementptr inbounds nuw %"class.gmx::CorrelationTensor", ptr %6, i64 %1
+  %17 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %1
   %.not.i = icmp eq ptr %5, %17
   br i1 %.not.i, label %_ZNSt6vectorIN3gmx17CorrelationTensorESaIS1_EE15_M_erase_at_endEPS1_.exit, label %.lr.ph.i.i.i.i
 
@@ -480,7 +480,7 @@ _ZSt22__uninitialized_move_aIPN3gmx17CorrelationTensorES2_SaIS1_EET0_T_S5_S4_RT1
 
 _ZSt22__uninitialized_move_aIPN3gmx17CorrelationTensorES2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; preds = %_ZSt22__uninitialized_move_aIPN3gmx17CorrelationTensorES2_SaIS1_EET0_T_S5_S4_RT1_.exit.loopexit, %23
   %34 = phi ptr [ %.pre, %_ZSt22__uninitialized_move_aIPN3gmx17CorrelationTensorES2_SaIS1_EET0_T_S5_S4_RT1_.exit.loopexit ], [ %17, %23 ]
-  %35 = getelementptr inbounds nuw %"class.gmx::CorrelationTensor", ptr %34, i64 %2
+  %35 = getelementptr inbounds nuw [24 x i8], ptr %34, i64 %2
   store ptr %35, ptr %9, align 8, !tbaa !32
   %36 = ptrtoint ptr %24 to i64
   %37 = sub i64 %36, %19
@@ -852,7 +852,7 @@ _ZSt24__uninitialized_fill_n_aIPN3gmx17CorrelationTensorEmS1_S1_ET_S3_T0_RKT1_RS
 
 _ZSt34__uninitialized_move_if_noexcept_aIPN3gmx17CorrelationTensorES2_SaIS1_EET0_T_S5_S4_RT1_.exit: ; preds = %.lr.ph.i.i.i.i.i93, %_ZSt24__uninitialized_fill_n_aIPN3gmx17CorrelationTensorEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit91
   %.0.lcssa.i.i.i.i.i97 = phi ptr [ %152, %_ZSt24__uninitialized_fill_n_aIPN3gmx17CorrelationTensorEmS1_S1_ET_S3_T0_RKT1_RSaIT2_E.exit91 ], [ %175, %.lr.ph.i.i.i.i.i93 ]
-  %176 = getelementptr inbounds nuw %"class.gmx::CorrelationTensor", ptr %.0.lcssa.i.i.i.i.i97, i64 %2
+  %176 = getelementptr inbounds nuw [24 x i8], ptr %.0.lcssa.i.i.i.i.i97, i64 %2
   %.not11.i.i.i.i.i98 = icmp eq ptr %1, %10
   br i1 %.not11.i.i.i.i.i98, label %_ZSt34__uninitialized_move_if_noexcept_aIPN3gmx17CorrelationTensorES2_SaIS1_EET0_T_S5_S4_RT1_.exit104, label %.lr.ph.i.i.i.i.i99
 
@@ -961,7 +961,7 @@ _ZSt8_DestroyIPN3gmx17CorrelationTensorES1_EvT_S3_RSaIT0_E.exit: ; preds = %_ZSt
 _ZNSt12_Vector_baseIN3gmx17CorrelationTensorESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZSt8_DestroyIPN3gmx17CorrelationTensorES1_EvT_S3_RSaIT0_E.exit, %214
   store ptr %152, ptr %0, align 8, !tbaa !33
   store ptr %.0.lcssa.i.i.i.i.i103, ptr %9, align 8, !tbaa !32
-  %218 = getelementptr inbounds nuw %"class.gmx::CorrelationTensor", ptr %152, i64 %146
+  %218 = getelementptr inbounds nuw [24 x i8], ptr %152, i64 %146
   store ptr %218, ptr %7, align 8, !tbaa !35
   br label %227
 
@@ -969,7 +969,7 @@ _ZNSt12_Vector_baseIN3gmx17CorrelationTensorESaIS1_EE13_M_deallocateEPS1_m.exit:
   %219 = extractvalue { ptr, i32 } %162, 0
   %220 = tail call ptr @__cxa_begin_catch(ptr %219) #16
   %.not66 = icmp eq ptr %152, null
-  %221 = getelementptr inbounds nuw %"class.gmx::CorrelationTensor", ptr %153, i64 %2
+  %221 = getelementptr inbounds nuw [24 x i8], ptr %153, i64 %2
   %222 = select i1 %.not66, ptr %153, ptr %152
   %223 = select i1 %.not66, ptr %221, ptr %152
   invoke void @_ZSt8_DestroyIPN3gmx17CorrelationTensorES1_EvT_S3_RSaIT0_E(ptr noundef nonnull %222, ptr noundef nonnull %223, ptr noundef nonnull align 1 dereferenceable(1) %0)

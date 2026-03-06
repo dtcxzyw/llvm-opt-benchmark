@@ -212,7 +212,7 @@ define void @_ZN15wiggle_generate8wasmtime11link_module17hb869d6407f4936e6E(ptr 
   %86 = load ptr, ptr %85, align 8, !nonnull !3, !noundef !3
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %88 = load i64, ptr %87, align 8, !noundef !3
-  %89 = getelementptr inbounds { i64, [1 x i64] }, ptr %86, i64 %88
+  %89 = getelementptr inbounds [16 x i8], ptr %86, i64 %88
   store ptr %86, ptr %56, align 8
   %90 = getelementptr inbounds nuw i8, ptr %56, i64 8
   store ptr %89, ptr %90, align 8

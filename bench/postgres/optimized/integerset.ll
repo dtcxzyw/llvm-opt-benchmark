@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.simple8b_mode = type { i8, i8 }
-%struct.leaf_item = type { i64, i64 }
 
 @CurrentMemoryContext = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [68 x i8] c"cannot add new values to integer set while iteration is in progress\00", align 1
@@ -135,11 +134,11 @@ define dso_local void @intset_add_member(ptr noundef captures(none) %0, i64 noun
   %44 = phi i64 [ 0, %.lr.ph.i ], [ %159, %151 ]
   %.053.i = phi i32 [ 0, %.lr.ph.i ], [ %158, %151 ]
   %.152.i = phi ptr [ %.039.i, %.lr.ph.i ], [ %.2.i, %151 ]
-  %45 = getelementptr inbounds i64, ptr %23, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %23, i64 %44
   %46 = load i64, ptr %45, align 8
   %47 = add i32 %.053.i, 1
   %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds i64, ptr %23, i64 %48
+  %49 = getelementptr inbounds [8 x i8], ptr %23, i64 %48
   %50 = load i64, ptr %49, align 8
   %51 = xor i64 %46, -1
   %52 = add i64 %50, %51
@@ -166,7 +165,7 @@ define dso_local void @intset_add_member(ptr noundef captures(none) %0, i64 noun
 55:                                               ; preds = %54
   %56 = add i32 %.053.i.i.ph, 1
   %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds %struct.simple8b_mode, ptr @simple8b_modes, i64 %57
+  %58 = getelementptr inbounds [2 x i8], ptr @simple8b_modes, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 1
   %60 = load i8, ptr %59, align 1
   %61 = zext i8 %60 to i32
@@ -182,7 +181,7 @@ define dso_local void @intset_add_member(ptr noundef captures(none) %0, i64 noun
 
 66:                                               ; preds = %64
   %67 = sext i32 %65 to i64
-  %68 = getelementptr inbounds i64, ptr %49, i64 %67
+  %68 = getelementptr inbounds [8 x i8], ptr %49, i64 %67
   %69 = load i64, ptr %68, align 8
   %70 = xor i64 %.043.i.i, -1
   %71 = add i64 %69, %70
@@ -212,9 +211,9 @@ define dso_local void @intset_add_member(ptr noundef captures(none) %0, i64 noun
   %indvars.iv.i.i = phi i64 [ %77, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %78 ]
   %.14262.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %87, %78 ]
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
-  %79 = getelementptr inbounds nuw i64, ptr %49, i64 %indvars.iv.next.i.i
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv.next.i.i
   %80 = load i64, ptr %79, align 8
-  %81 = getelementptr i64, ptr %49, i64 %indvars.iv.i.i
+  %81 = getelementptr [8 x i8], ptr %49, i64 %indvars.iv.i.i
   %82 = getelementptr i8, ptr %81, i64 -16
   %83 = load i64, ptr %82, align 8
   %84 = xor i64 %83, -1
@@ -268,7 +267,7 @@ tailrecurse.i.i:                                  ; preds = %132, %96
 
 tailrecurse._crit_edge.i.i:                       ; preds = %tailrecurse.i.i
   %.phi.trans.insert.i.i = sext i32 %.tr47.i.i to i64
-  %.phi.trans.insert56.i.i = getelementptr inbounds ptr, ptr %25, i64 %.phi.trans.insert.i.i
+  %.phi.trans.insert56.i.i = getelementptr inbounds [8 x i8], ptr %25, i64 %.phi.trans.insert.i.i
   %.pre.i.i = load ptr, ptr %.phi.trans.insert56.i.i, align 8
   br label %127
 
@@ -307,7 +306,7 @@ tailrecurse._crit_edge.i.i:                       ; preds = %tailrecurse.i.i
   store i16 1, ptr %121, align 2
   store ptr %117, ptr %42, align 8
   %125 = sext i32 %.tr47.i.i to i64
-  %126 = getelementptr inbounds ptr, ptr %25, i64 %125
+  %126 = getelementptr inbounds [8 x i8], ptr %25, i64 %125
   store ptr %117, ptr %126, align 8
   br label %127
 
@@ -320,7 +319,7 @@ tailrecurse._crit_edge.i.i:                       ; preds = %tailrecurse.i.i
   br i1 %131, label %intset_update_upper.exit.i, label %132
 
 132:                                              ; preds = %127
-  %133 = getelementptr inbounds ptr, ptr %25, i64 %.pre-phi.i.i
+  %133 = getelementptr inbounds [8 x i8], ptr %25, i64 %.pre-phi.i.i
   %134 = load ptr, ptr %0, align 8
   %135 = tail call ptr @MemoryContextAlloc(ptr noundef %134, i64 noundef 1032) #10
   %136 = tail call i64 @GetMemoryChunkSpace(ptr noundef %135) #10
@@ -343,10 +342,10 @@ intset_update_upper.exit.i:                       ; preds = %127
   %144 = getelementptr inbounds nuw i8, ptr %128, i64 2
   %145 = getelementptr inbounds nuw i8, ptr %128, i64 8
   %146 = zext nneg i16 %130 to i64
-  %147 = getelementptr inbounds nuw i64, ptr %145, i64 %146
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %145, i64 %146
   store i64 %46, ptr %147, align 8
   %148 = getelementptr inbounds nuw i8, ptr %128, i64 520
-  %149 = getelementptr inbounds nuw ptr, ptr %148, i64 %146
+  %149 = getelementptr inbounds nuw [8 x i8], ptr %148, i64 %146
   store ptr %.tr48.i.i, ptr %149, align 8
   %150 = add nuw nsw i16 %130, 1
   store i16 %150, ptr %144, align 2
@@ -361,7 +360,7 @@ intset_update_upper.exit.i:                       ; preds = %127
   %155 = add i16 %152, 1
   store i16 %155, ptr %154, align 2
   %156 = zext i16 %152 to i64
-  %157 = getelementptr inbounds nuw %struct.leaf_item, ptr %153, i64 %156
+  %157 = getelementptr inbounds nuw [16 x i8], ptr %153, i64 %156
   store i64 %46, ptr %157, align 8
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %157, i64 8
   store i64 %.056.i.i, ptr %.sroa.6.0..sroa_idx.i, align 8
@@ -377,7 +376,7 @@ intset_update_upper.exit.i:                       ; preds = %127
   br i1 %163, label %164, label %intset_flush_buffered_values.exit
 
 164:                                              ; preds = %._crit_edge.i
-  %165 = getelementptr inbounds i64, ptr %23, i64 %159
+  %165 = getelementptr inbounds [8 x i8], ptr %23, i64 %159
   %166 = sub i32 %162, %158
   %167 = sext i32 %166 to i64
   %168 = shl nsw i64 %167, 3
@@ -395,7 +394,7 @@ intset_flush_buffered_values.exit:                ; preds = %._crit_edge.i, %164
   %172 = phi i32 [ %170, %intset_flush_buffered_values.exit ], [ %20, %18 ]
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %174 = sext i32 %172 to i64
-  %175 = getelementptr inbounds i64, ptr %173, i64 %174
+  %175 = getelementptr inbounds [8 x i8], ptr %173, i64 %174
   store i64 %1, ptr %175, align 8
   %176 = load i32, ptr %19, align 8
   %177 = add i32 %176, 1
@@ -435,7 +434,7 @@ define dso_local zeroext i1 @intset_is_member(ptr noundef readonly captures(none
   %10 = sdiv i32 %9, 2
   %11 = add i32 %10, %.023.i
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds i64, ptr %7, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %7, i64 %12
   %14 = load i64, ptr %13, align 8
   %15 = icmp ugt i64 %1, %14
   %16 = add i32 %11, 1
@@ -450,7 +449,7 @@ intset_binsrch_uint64.exit:                       ; preds = %.lr.ph.split.i
 
 18:                                               ; preds = %intset_binsrch_uint64.exit
   %19 = sext i32 %spec.select21.i to i64
-  %20 = getelementptr inbounds i64, ptr %7, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %7, i64 %19
   %21 = load i64, ptr %20, align 8
   %22 = icmp eq i64 %21, %1
   br label %.critedge
@@ -488,7 +487,7 @@ intset_binsrch_uint64.exit:                       ; preds = %.lr.ph.split.i
   %35 = sdiv i32 %34, 2
   %36 = add i32 %35, %.023.us.i
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds i64, ptr %30, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %30, i64 %37
   %39 = load i64, ptr %38, align 8
   %.not.us.i = icmp ult i64 %1, %39
   %40 = add i32 %36, 1
@@ -505,7 +504,7 @@ intset_binsrch_uint64.exit54:                     ; preds = %.lr.ph.split.us.i
   %43 = getelementptr inbounds nuw i8, ptr %.03767, i64 520
   %44 = add i32 %spec.select19.us.i, -1
   %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds ptr, ptr %43, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr %43, i64 %45
   %47 = load ptr, ptr %46, align 8
   %.039 = add nsw i32 %.03968, -1
   %48 = icmp sgt i32 %.03968, 1
@@ -530,7 +529,7 @@ intset_binsrch_uint64.exit54:                     ; preds = %.lr.ph.split.us.i
   %54 = sdiv i32 %53, 2
   %55 = add i32 %54, %.020.i
   %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds %struct.leaf_item, ptr %49, i64 %56
+  %57 = getelementptr inbounds [16 x i8], ptr %49, i64 %56
   %58 = load i64, ptr %57, align 8
   %.not.i56 = icmp ult i64 %1, %58
   %59 = add i32 %55, 1
@@ -546,7 +545,7 @@ intset_binsrch_leaf.exit:                         ; preds = %.lr.ph.i55
 62:                                               ; preds = %intset_binsrch_leaf.exit
   %63 = add i32 %.1.i, -1
   %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds %struct.leaf_item, ptr %49, i64 %64
+  %65 = getelementptr inbounds [16 x i8], ptr %49, i64 %64
   %66 = load i64, ptr %65, align 8
   %67 = icmp eq i64 %66, %1
   br i1 %67, label %.critedge, label %68
@@ -555,7 +554,7 @@ intset_binsrch_leaf.exit:                         ; preds = %.lr.ph.i55
   %69 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %70 = load i64, ptr %69, align 8
   %71 = lshr i64 %70, 60
-  %72 = getelementptr inbounds nuw %struct.simple8b_mode, ptr @simple8b_modes, i64 %71
+  %72 = getelementptr inbounds nuw [2 x i8], ptr @simple8b_modes, i64 %71
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 1
   %74 = load i8, ptr %73, align 1
   %75 = load i8, ptr %72, align 2
@@ -652,7 +651,7 @@ define dso_local noundef zeroext i1 @intset_iterate_next(ptr noundef %0, ptr nou
   %15 = add nsw i32 %.lcssa37, 1
   store i32 %15, ptr %3, align 4
   %16 = sext i32 %.lcssa37 to i64
-  %17 = getelementptr inbounds i64, ptr %14, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %14, i64 %16
   %18 = load i64, ptr %17, align 8
   br label %66
 
@@ -676,13 +675,13 @@ define dso_local noundef zeroext i1 @intset_iterate_next(ptr noundef %0, ptr nou
   %31 = add nsw i32 %24, 1
   store i32 %31, ptr %7, align 8
   %32 = sext i32 %24 to i64
-  %33 = getelementptr inbounds %struct.leaf_item, ptr %30, i64 %32
+  %33 = getelementptr inbounds [16 x i8], ptr %30, i64 %32
   %34 = load i64, ptr %33, align 8
   store i64 %34, ptr %8, align 8
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %36 = load i64, ptr %35, align 8
   %37 = lshr i64 %36, 60
-  %38 = getelementptr inbounds nuw %struct.simple8b_mode, ptr @simple8b_modes, i64 %37
+  %38 = getelementptr inbounds nuw [2 x i8], ptr @simple8b_modes, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 1
   %40 = load i8, ptr %39, align 1
   %41 = zext i8 %40 to i32
@@ -705,7 +704,7 @@ define dso_local noundef zeroext i1 @intset_iterate_next(ptr noundef %0, ptr nou
   %46 = and i64 %.02124.i, %44
   %47 = add i64 %.02025.i, 1
   %48 = add i64 %47, %46
-  %49 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv.i
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.i
   store i64 %48, ptr %49, align 8
   %50 = lshr i64 %.02124.i, %43
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1

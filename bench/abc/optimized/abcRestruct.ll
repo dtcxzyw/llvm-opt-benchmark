@@ -5,9 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.Cut_ParamsStruct_t_ = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
 %struct.timespec = type { i64, i64 }
-%struct.Dec_Node_t_ = type { %struct.Dec_Edge_t_, %struct.Dec_Edge_t_, %union.anon.1, i32 }
-%struct.Dec_Edge_t_ = type { i32 }
-%union.anon.1 = type { ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 @stdout = external local_unnamed_addr global ptr, align 8
@@ -134,7 +131,7 @@ Abc_Clock.exit79:                                 ; preds = %.split, %36
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %58 ], [ 0, %46 ]
   %50 = getelementptr i8, ptr %.val1321.i, i64 8
   %.val14.val.i = load ptr, ptr %50, align 8, !tbaa !44
-  %51 = getelementptr inbounds nuw ptr, ptr %.val14.val.i, i64 %indvars.iv.i
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %.val14.val.i, i64 %indvars.iv.i
   %52 = load ptr, ptr %51, align 8, !tbaa !45
   %53 = getelementptr i8, ptr %52, i64 44
   %.val15.i = load i32, ptr %53, align 4, !tbaa !46
@@ -231,7 +228,7 @@ Abc_Clock.exit81:                                 ; preds = %Abc_NtkStartCutManF
   %113 = phi ptr [ %79, %.lr.ph ], [ %451, %450 ]
   %114 = getelementptr i8, ptr %113, i64 8
   %.val75.val = load ptr, ptr %114, align 8, !tbaa !44
-  %115 = getelementptr inbounds nuw ptr, ptr %.val75.val, i64 %indvars.iv
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %.val75.val, i64 %indvars.iv
   %116 = load ptr, ptr %115, align 8, !tbaa !45
   %117 = icmp eq ptr %116, null
   br i1 %117, label %450, label %118
@@ -371,14 +368,14 @@ Abc_Clock.exit88:                                 ; preds = %Abc_Clock.exit86, %
 173:                                              ; preds = %Vec_PtrPush.exit.i.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %Vec_PtrPush.exit.i.i ]
   %174 = load ptr, ptr %116, align 8, !tbaa !60
-  %175 = getelementptr inbounds nuw i32, ptr %172, i64 %indvars.iv.i.i
+  %175 = getelementptr inbounds nuw [4 x i8], ptr %172, i64 %indvars.iv.i.i
   %176 = load i32, ptr %175, align 4, !tbaa !55
   %177 = getelementptr i8, ptr %174, i64 32
   %.val94.i.i = load ptr, ptr %177, align 8, !tbaa !38
   %178 = getelementptr i8, ptr %.val94.i.i, i64 8
   %.val94.val.i.i = load ptr, ptr %178, align 8, !tbaa !44
   %179 = sext i32 %176 to i64
-  %180 = getelementptr inbounds ptr, ptr %.val94.val.i.i, i64 %179
+  %180 = getelementptr inbounds [8 x i8], ptr %.val94.val.i.i, i64 %179
   %181 = load ptr, ptr %180, align 8, !tbaa !45
   %182 = icmp eq ptr %181, null
   br i1 %182, label %Abc_NodeRestructureCut.exit.thread.i, label %183
@@ -449,7 +446,7 @@ Vec_PtrPush.exit.i.i:                             ; preds = %209, %Vec_PtrGrow.e
   %213 = add nsw i32 %212, 1
   store i32 %213, ptr %185, align 4, !tbaa !39
   %214 = sext i32 %212 to i64
-  %215 = getelementptr inbounds ptr, ptr %211, i64 %214
+  %215 = getelementptr inbounds [8 x i8], ptr %211, i64 %214
   store ptr %181, ptr %215, align 8, !tbaa !45
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %216 = load i32, ptr %.023.i, align 8
@@ -600,7 +597,7 @@ Abc_Clock.exit101.i.i:                            ; preds = %268, %Abc_Clock.exi
 
 289:                                              ; preds = %289, %.lr.ph121.i.i
   %indvars.iv126.i.i = phi i64 [ 0, %.lr.ph121.i.i ], [ %indvars.iv.next127.i.i, %289 ]
-  %290 = getelementptr inbounds nuw ptr, ptr %.val93.i.i, i64 %indvars.iv126.i.i
+  %290 = getelementptr inbounds nuw [8 x i8], ptr %.val93.i.i, i64 %indvars.iv126.i.i
   %291 = load ptr, ptr %290, align 8, !tbaa !45
   %292 = getelementptr inbounds nuw i8, ptr %291, i64 44
   %293 = load i32, ptr %292, align 4, !tbaa !46
@@ -672,7 +669,7 @@ Abc_NtkIncrementTravId.exit.i.i:                  ; preds = %Vec_IntFill.exit.i.
 
 321:                                              ; preds = %321, %.lr.ph123.i.i
   %indvars.iv129.i.i = phi i64 [ 0, %.lr.ph123.i.i ], [ %indvars.iv.next130.i.i, %321 ]
-  %322 = getelementptr inbounds nuw ptr, ptr %.val92.i.i, i64 %indvars.iv129.i.i
+  %322 = getelementptr inbounds nuw [8 x i8], ptr %.val92.i.i, i64 %indvars.iv129.i.i
   %323 = load ptr, ptr %322, align 8, !tbaa !45
   %324 = getelementptr inbounds nuw i8, ptr %323, i64 44
   %325 = load i32, ptr %324, align 4, !tbaa !46
@@ -734,8 +731,8 @@ Abc_Clock.exit103.i.i:                            ; preds = %329, %.critedge2.i.
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ]
-  %349 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %344, i64 %indvars.iv.i.i.i
-  %350 = getelementptr inbounds nuw ptr, ptr %.val33.pre.i.i.i, i64 %indvars.iv.i.i.i
+  %349 = getelementptr inbounds nuw [24 x i8], ptr %344, i64 %indvars.iv.i.i.i
+  %350 = getelementptr inbounds nuw [8 x i8], ptr %.val33.pre.i.i.i, i64 %indvars.iv.i.i.i
   %351 = load ptr, ptr %350, align 8, !tbaa !45
   %352 = getelementptr inbounds nuw i8, ptr %349, i64 8
   store ptr %351, ptr %352, align 8, !tbaa !100
@@ -776,7 +773,7 @@ Dec_GraphFree.exit.i.i.i:                         ; preds = %365, %363
   %367 = lshr i32 %361, 1
   %.val34.i.i.i = load ptr, ptr %345, align 8, !tbaa !99
   %368 = zext nneg i32 %367 to i64
-  %369 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val34.i.i.i, i64 %368
+  %369 = getelementptr inbounds nuw [24 x i8], ptr %.val34.i.i.i, i64 %368
   %370 = getelementptr inbounds nuw i8, ptr %369, i64 8
   %371 = load ptr, ptr %370, align 8, !tbaa !100
   %372 = ptrtoint ptr %371 to i64
@@ -1384,7 +1381,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %94 = add nsw i32 %93, 1
   store i32 %94, ptr %57, align 4, !tbaa !93
   %95 = sext i32 %93 to i64
-  %96 = getelementptr inbounds i32, ptr %92, i64 %95
+  %96 = getelementptr inbounds [4 x i8], ptr %92, i64 %95
   store i32 %68, ptr %96, align 4, !tbaa !55
   %97 = add nuw nsw i32 %.027, 1
   %exitcond.not = icmp eq i32 %97, 20
@@ -1440,7 +1437,7 @@ define void @Abc_RestructNodeDivisors(ptr noundef readonly captures(none) %0, pt
   %12 = phi ptr [ %51, %Vec_PtrPush.exit ], [ %8, %3 ]
   %13 = getelementptr i8, ptr %12, i64 8
   %.val48 = load ptr, ptr %13, align 8, !tbaa !44
-  %14 = getelementptr inbounds nuw ptr, ptr %.val48, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %.val48, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !45
   %16 = load ptr, ptr %4, align 8, !tbaa !112
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
@@ -1507,7 +1504,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %45 = add nsw i32 %44, 1
   store i32 %45, ptr %17, align 4, !tbaa !39
   %46 = sext i32 %44 to i64
-  %47 = getelementptr inbounds ptr, ptr %43, i64 %46
+  %47 = getelementptr inbounds [8 x i8], ptr %43, i64 %46
   store ptr %15, ptr %47, align 8, !tbaa !45
   %48 = getelementptr inbounds nuw i8, ptr %15, i64 20
   %49 = load i32, ptr %48, align 4
@@ -1530,7 +1527,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %indvars.iv85 = phi i64 [ %indvars.iv.next86, %.critedge4 ], [ 0, %.critedge.preheader ]
   %57 = getelementptr i8, ptr %56, i64 8
   %.val49 = load ptr, ptr %57, align 8, !tbaa !44
-  %58 = getelementptr inbounds nuw ptr, ptr %.val49, i64 %indvars.iv85
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %.val49, i64 %indvars.iv85
   %59 = load ptr, ptr %58, align 8, !tbaa !45
   %60 = getelementptr i8, ptr %59, i64 44
   %.val5170 = load i32, ptr %60, align 4, !tbaa !46
@@ -1550,10 +1547,10 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %.val52.val = load ptr, ptr %64, align 8, !tbaa !38
   %65 = getelementptr i8, ptr %.val52.val, i64 8
   %.val52.val.val = load ptr, ptr %65, align 8, !tbaa !44
-  %66 = getelementptr inbounds nuw i32, ptr %.val53, i64 %indvars.iv82
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %.val53, i64 %indvars.iv82
   %67 = load i32, ptr %66, align 4, !tbaa !55
   %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds ptr, ptr %.val52.val.val, i64 %68
+  %69 = getelementptr inbounds [8 x i8], ptr %.val52.val.val, i64 %68
   %70 = load ptr, ptr %69, align 8, !tbaa !45
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 20
   %72 = load i32, ptr %71, align 4
@@ -1574,7 +1571,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %78 = getelementptr i8, ptr %.val55.val, i64 8
   %.val55.val.val = load ptr, ptr %78, align 8, !tbaa !44
   %79 = sext i32 %.val56.val to i64
-  %80 = getelementptr inbounds ptr, ptr %.val55.val.val, i64 %79
+  %80 = getelementptr inbounds [8 x i8], ptr %.val55.val.val, i64 %79
   %81 = load ptr, ptr %80, align 8, !tbaa !45
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 20
   %83 = load i32, ptr %82, align 4
@@ -1586,7 +1583,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %86 = getelementptr i8, ptr %.val56, i64 4
   %.val58.val = load i32, ptr %86, align 4, !tbaa !55
   %87 = sext i32 %.val58.val to i64
-  %88 = getelementptr inbounds ptr, ptr %.val55.val.val, i64 %87
+  %88 = getelementptr inbounds [8 x i8], ptr %.val55.val.val, i64 %87
   %89 = load ptr, ptr %88, align 8, !tbaa !45
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 20
   %91 = load i32, ptr %90, align 4
@@ -1660,7 +1657,7 @@ Vec_PtrPush.exit65:                               ; preds = %.Vec_PtrGrow.exit11
   %123 = add nsw i32 %122, 1
   store i32 %123, ptr %95, align 4, !tbaa !39
   %124 = sext i32 %122 to i64
-  %125 = getelementptr inbounds ptr, ptr %121, i64 %124
+  %125 = getelementptr inbounds [8 x i8], ptr %121, i64 %124
   store ptr %70, ptr %125, align 8, !tbaa !45
   %126 = load i32, ptr %71, align 4
   %127 = or i32 %126, 64
@@ -1693,7 +1690,7 @@ Vec_PtrPush.exit65:                               ; preds = %.Vec_PtrGrow.exit11
   %135 = phi ptr [ %142, %.critedge2 ], [ %131, %.critedge2.preheader ]
   %136 = getelementptr i8, ptr %135, i64 8
   %.val50 = load ptr, ptr %136, align 8, !tbaa !44
-  %137 = getelementptr inbounds nuw ptr, ptr %.val50, i64 %indvars.iv88
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %.val50, i64 %indvars.iv88
   %138 = load ptr, ptr %137, align 8, !tbaa !45
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 20
   %140 = load i32, ptr %139, align 4
@@ -1730,11 +1727,11 @@ define void @Abc_NodeEdgeDsdPermute(ptr noundef readonly captures(none) %0, ptr 
   %9 = getelementptr i8, ptr %2, i64 8
   %.val83 = load ptr, ptr %9, align 8, !tbaa !92
   %10 = sext i32 %.val82 to i64
-  %11 = getelementptr i32, ptr %.val83, i64 %10
+  %11 = getelementptr [4 x i8], ptr %.val83, i64 %10
   %12 = getelementptr i8, ptr %11, i64 -4
   %13 = load i32, ptr %12, align 4, !tbaa !55
   %14 = sext i32 %6 to i64
-  %15 = getelementptr inbounds i32, ptr %.val83, i64 %14
+  %15 = getelementptr inbounds [4 x i8], ptr %.val83, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !55
   %17 = and i32 %16, 2147483647
   %18 = lshr i32 %13, 1
@@ -1742,12 +1739,12 @@ define void @Abc_NodeEdgeDsdPermute(ptr noundef readonly captures(none) %0, ptr 
   %20 = getelementptr i8, ptr %0, i64 16
   %.val = load ptr, ptr %20, align 8, !tbaa !99
   %21 = zext nneg i32 %19 to i64
-  %22 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val, i64 %21
+  %22 = getelementptr inbounds nuw [24 x i8], ptr %.val, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !100
   %25 = lshr i32 %17, 1
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val, i64 %26
+  %27 = getelementptr inbounds nuw [24 x i8], ptr %.val, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !100
   %.not = icmp eq ptr %24, null
@@ -1780,13 +1777,13 @@ define void @Abc_NodeEdgeDsdPermute(ptr noundef readonly captures(none) %0, ptr 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.thread.us
   %indvars.iv112 = phi i64 [ %indvars.iv.next113, %.thread.us ], [ %47, %.lr.ph ]
   %.val85.us = load ptr, ptr %9, align 8, !tbaa !92
-  %48 = getelementptr inbounds nuw i32, ptr %.val85.us, i64 %indvars.iv112
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %.val85.us, i64 %indvars.iv112
   %49 = load i32, ptr %48, align 4, !tbaa !55
   %50 = and i32 %49, 2147483647
   %51 = lshr i32 %50, 1
   %.val81.us = load ptr, ptr %20, align 8, !tbaa !99
   %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val81.us, i64 %52
+  %53 = getelementptr inbounds nuw [24 x i8], ptr %.val81.us, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load ptr, ptr %54, align 8, !tbaa !100
   %.not74.us = icmp eq ptr %55, null
@@ -1826,13 +1823,13 @@ define void @Abc_NodeEdgeDsdPermute(ptr noundef readonly captures(none) %0, ptr 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.thread
   %indvars.iv = phi i64 [ %indvars.iv.next, %.thread ], [ %47, %.lr.ph ]
   %.val85 = load ptr, ptr %9, align 8, !tbaa !92
-  %75 = getelementptr inbounds nuw i32, ptr %.val85, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %.val85, i64 %indvars.iv
   %76 = load i32, ptr %75, align 4, !tbaa !55
   %77 = and i32 %76, 2147483647
   %78 = lshr i32 %77, 1
   %.val81 = load ptr, ptr %20, align 8, !tbaa !99
   %79 = zext nneg i32 %78 to i64
-  %80 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val81, i64 %79
+  %80 = getelementptr inbounds nuw [24 x i8], ptr %.val81, i64 %79
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %82 = load ptr, ptr %81, align 8, !tbaa !100
   %.not74 = icmp eq ptr %82, null
@@ -1880,9 +1877,9 @@ define void @Abc_NodeEdgeDsdPermute(ptr noundef readonly captures(none) %0, ptr 
   %indvars.iv112.lcssa.sink = phi i64 [ %indvars.iv, %100 ], [ %indvars.iv112, %.split.us ]
   %.lcssa124.sink = phi i32 [ %77, %100 ], [ %50, %.split.us ]
   %.val88 = load ptr, ptr %9, align 8, !tbaa !92
-  %104 = getelementptr inbounds nuw i32, ptr %.val88, i64 %indvars.iv112.lcssa.sink
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %.val88, i64 %indvars.iv112.lcssa.sink
   store i32 %17, ptr %104, align 4, !tbaa !55
-  %105 = getelementptr inbounds i32, ptr %.val88, i64 %14
+  %105 = getelementptr inbounds [4 x i8], ptr %.val88, i64 %14
   store i32 %.lcssa124.sink, ptr %105, align 4, !tbaa !55
   br label %.loopexit
 
@@ -1993,7 +1990,7 @@ Abc_NodeTravId.exit:                              ; preds = %1, %._crit_edge.i.i
   %43 = getelementptr i8, ptr %.val2, i64 232
   %.val.i.i = load ptr, ptr %43, align 8, !tbaa !92
   %44 = sext i32 %.val3 to i64
-  %45 = getelementptr inbounds i32, ptr %.val.i.i, i64 %44
+  %45 = getelementptr inbounds [4 x i8], ptr %.val.i.i, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !55
   %47 = getelementptr inbounds nuw i8, ptr %.val, i64 216
   %48 = load i32, ptr %47, align 8, !tbaa !94
@@ -2021,7 +2018,7 @@ define void @Abc_NodeEdgeDsdPushOrdered(ptr noundef readonly captures(none) %0, 
   %12 = getelementptr i8, ptr %0, i64 16
   %.val18 = load ptr, ptr %12, align 8, !tbaa !99
   %13 = zext nneg i32 %11 to i64
-  %14 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val18, i64 %13
+  %14 = getelementptr inbounds nuw [24 x i8], ptr %.val18, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = zext nneg i32 %5 to i64
   br label %17
@@ -2029,12 +2026,12 @@ define void @Abc_NodeEdgeDsdPushOrdered(ptr noundef readonly captures(none) %0, 
 17:                                               ; preds = %.lr.ph, %29
   %indvars.iv = phi i64 [ %16, %.lr.ph ], [ %indvars.iv.next, %29 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %18 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.next
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv.next
   %19 = load i32, ptr %18, align 4, !tbaa !55
   %20 = lshr i32 %19, 1
   %21 = and i32 %20, 1073741823
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val18, i64 %22
+  %23 = getelementptr inbounds nuw [24 x i8], ptr %.val18, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load i32, ptr %24, align 8
   %26 = and i32 %25, 16383
@@ -2044,7 +2041,7 @@ define void @Abc_NodeEdgeDsdPushOrdered(ptr noundef readonly captures(none) %0, 
   br i1 %.not, label %._crit_edge.loopexit.split.loop.exit, label %29
 
 29:                                               ; preds = %17
-  %30 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   store i32 %19, ptr %30, align 4, !tbaa !55
   %31 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %31, label %17, label %._crit_edge, !llvm.loop !130
@@ -2056,7 +2053,7 @@ define void @Abc_NodeEdgeDsdPushOrdered(ptr noundef readonly captures(none) %0, 
 ._crit_edge:                                      ; preds = %29, %._crit_edge.loopexit.split.loop.exit, %3
   %.0.in.lcssa = phi i32 [ %5, %3 ], [ %32, %._crit_edge.loopexit.split.loop.exit ], [ 0, %29 ]
   %33 = sext i32 %.0.in.lcssa to i64
-  %34 = getelementptr inbounds i32, ptr %9, i64 %33
+  %34 = getelementptr inbounds [4 x i8], ptr %9, i64 %33
   store i32 %2, ptr %34, align 4, !tbaa !55
   ret void
 }
@@ -2177,7 +2174,7 @@ Vec_IntPush.exit.us:                              ; preds = %Vec_IntPush.exit.us
   %61 = add nsw i32 %60, 1
   store i32 %61, ptr %25, align 4, !tbaa !93
   %62 = sext i32 %60 to i64
-  %63 = getelementptr inbounds i32, ptr %.pre.i.us564, i64 %62
+  %63 = getelementptr inbounds [4 x i8], ptr %.pre.i.us564, i64 %62
   store i32 %39, ptr %63, align 4, !tbaa !55
   %64 = add nuw nsw i32 %.0371547.us, 1
   %65 = tail call i32 @Dsd_NodeReadDecsNum(ptr noundef %11) #21
@@ -2220,7 +2217,7 @@ Vec_IntFree.exit:                                 ; preds = %.split.us, %73
   %76 = lshr i32 %70, 1
   %.val18.i = load ptr, ptr %35, align 8, !tbaa !99
   %77 = zext nneg i32 %76 to i64
-  %78 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val18.i, i64 %77
+  %78 = getelementptr inbounds nuw [24 x i8], ptr %.val18.i, i64 %77
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %80 = zext nneg i32 %67 to i64
   br label %81
@@ -2228,12 +2225,12 @@ Vec_IntFree.exit:                                 ; preds = %.split.us, %73
 81:                                               ; preds = %93, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %80, %.lr.ph.i ], [ %indvars.iv.next.i, %93 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %82 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv.next.i
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv.next.i
   %83 = load i32, ptr %82, align 4, !tbaa !55
   %84 = lshr i32 %83, 1
   %85 = and i32 %84, 1073741823
   %86 = zext nneg i32 %85 to i64
-  %87 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val18.i, i64 %86
+  %87 = getelementptr inbounds nuw [24 x i8], ptr %.val18.i, i64 %86
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 16
   %89 = load i32, ptr %88, align 8
   %90 = and i32 %89, 16383
@@ -2243,7 +2240,7 @@ Vec_IntFree.exit:                                 ; preds = %.split.us, %73
   br i1 %.not.i477, label %._crit_edge.loopexit.split.loop.exit.i, label %93
 
 93:                                               ; preds = %81
-  %94 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv.i
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv.i
   store i32 %83, ptr %94, align 4, !tbaa !55
   %95 = icmp samesign ugt i64 %indvars.iv.i, 1
   br i1 %95, label %81, label %Abc_NodeEdgeDsdPushOrdered.exit, !llvm.loop !130
@@ -2255,7 +2252,7 @@ Vec_IntFree.exit:                                 ; preds = %.split.us, %73
 
 Abc_NodeEdgeDsdPushOrdered.exit:                  ; preds = %93, %74, %._crit_edge.loopexit.split.loop.exit.i
   %.0.in.lcssa.i = phi i64 [ 0, %74 ], [ %96, %._crit_edge.loopexit.split.loop.exit.i ], [ 0, %93 ]
-  %97 = getelementptr inbounds i32, ptr %30, i64 %.0.in.lcssa.i
+  %97 = getelementptr inbounds [4 x i8], ptr %30, i64 %.0.in.lcssa.i
   store i32 %70, ptr %97, align 4, !tbaa !55
   %98 = add nuw nsw i32 %.0371547, 1
   %99 = tail call i32 @Dsd_NodeReadDecsNum(ptr noundef %11) #21
@@ -2306,24 +2303,24 @@ Abc_NodeEdgeDsdPushOrdered.exit:                  ; preds = %93, %74, %._crit_ed
   %114 = add nsw i32 %.val472553, -1
   store i32 %114, ptr %25, align 4, !tbaa !93
   %115 = zext nneg i32 %114 to i64
-  %116 = getelementptr inbounds nuw i32, ptr %111, i64 %115
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %111, i64 %115
   %117 = load i32, ptr %116, align 4, !tbaa !55
   %118 = and i32 %117, 2147483647
   %119 = add nsw i32 %.val472553, -2
   store i32 %119, ptr %25, align 4, !tbaa !93
   %120 = zext nneg i32 %119 to i64
-  %121 = getelementptr inbounds nuw i32, ptr %111, i64 %120
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %111, i64 %120
   %122 = load i32, ptr %121, align 4, !tbaa !55
   %123 = and i32 %122, 2147483647
   %124 = lshr i32 %118, 1
   %.val468 = load ptr, ptr %107, align 8, !tbaa !99
   %125 = zext nneg i32 %124 to i64
-  %126 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val468, i64 %125
+  %126 = getelementptr inbounds nuw [24 x i8], ptr %.val468, i64 %125
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 8
   %128 = load ptr, ptr %127, align 8, !tbaa !100
   %129 = lshr i32 %123, 1
   %130 = zext nneg i32 %129 to i64
-  %131 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val468, i64 %130
+  %131 = getelementptr inbounds nuw [24 x i8], ptr %.val468, i64 %130
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 8
   %133 = load ptr, ptr %132, align 8, !tbaa !100
   %.not435 = icmp eq ptr %128, null
@@ -2405,7 +2402,7 @@ Dec_GraphAddNodeOr.exit:                          ; preds = %.thread, %173
   %177 = add nsw i32 %175, 1
   store i32 %177, ptr %108, align 8, !tbaa !97
   %178 = sext i32 %175 to i64
-  %179 = getelementptr inbounds %struct.Dec_Node_t_, ptr %176, i64 %178
+  %179 = getelementptr inbounds [24 x i8], ptr %176, i64 %178
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %180, i8 0, i64 16, i1 false)
   %181 = getelementptr inbounds nuw i8, ptr %179, i64 4
@@ -2427,11 +2424,11 @@ Dec_GraphAddNodeOr.exit:                          ; preds = %.thread, %173
   %194 = and i32 %193, 2147483646
   %195 = or disjoint i32 %194, 1
   %.val466 = load ptr, ptr %107, align 8, !tbaa !99
-  %196 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val466, i64 %125
+  %196 = getelementptr inbounds nuw [24 x i8], ptr %.val466, i64 %125
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 16
   %198 = load i32, ptr %197, align 8
   %199 = and i32 %198, 16383
-  %200 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val466, i64 %130
+  %200 = getelementptr inbounds nuw [24 x i8], ptr %.val466, i64 %130
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 16
   %202 = load i32, ptr %201, align 8
   %203 = and i32 %202, 16383
@@ -2439,7 +2436,7 @@ Dec_GraphAddNodeOr.exit:                          ; preds = %.thread, %173
   %205 = add nuw nsw i32 %204, 1
   %206 = lshr exact i32 %194, 1
   %207 = zext nneg i32 %206 to i64
-  %208 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val466, i64 %207
+  %208 = getelementptr inbounds nuw [24 x i8], ptr %.val466, i64 %207
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 16
   %210 = load i32, ptr %209, align 8
   %211 = and i32 %205, 16383
@@ -2454,7 +2451,7 @@ Dec_GraphAddNodeOr.exit:                          ; preds = %.thread, %173
   %216 = xor i64 %215, 1
   %217 = inttoptr i64 %216 to ptr
   %.val463 = load ptr, ptr %107, align 8, !tbaa !99
-  %218 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val463, i64 %207
+  %218 = getelementptr inbounds nuw [24 x i8], ptr %.val463, i64 %207
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 8
   store ptr %217, ptr %219, align 8, !tbaa !100
   %220 = and i64 %215, -2
@@ -2493,13 +2490,13 @@ Vec_IntFree.exit479:                              ; preds = %225, %227
 
 Abc_NodeEdgeDsdPushOrdered.exit487.thread:        ; preds = %228
   %233 = sext i32 %229 to i64
-  %234 = getelementptr inbounds i32, ptr %232, i64 %233
+  %234 = getelementptr inbounds [4 x i8], ptr %232, i64 %233
   store i32 %195, ptr %234, align 4, !tbaa !55
   br label %Vec_IntFree.exit489
 
 .lr.ph.i481:                                      ; preds = %228
   %.val18.i482 = load ptr, ptr %107, align 8, !tbaa !99
-  %235 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val18.i482, i64 %207
+  %235 = getelementptr inbounds nuw [24 x i8], ptr %.val18.i482, i64 %207
   %236 = getelementptr inbounds nuw i8, ptr %235, i64 16
   %237 = zext nneg i32 %229 to i64
   br label %238
@@ -2507,12 +2504,12 @@ Abc_NodeEdgeDsdPushOrdered.exit487.thread:        ; preds = %228
 238:                                              ; preds = %250, %.lr.ph.i481
   %indvars.iv.i483 = phi i64 [ %237, %.lr.ph.i481 ], [ %indvars.iv.next.i484, %250 ]
   %indvars.iv.next.i484 = add nsw i64 %indvars.iv.i483, -1
-  %239 = getelementptr inbounds nuw i32, ptr %232, i64 %indvars.iv.next.i484
+  %239 = getelementptr inbounds nuw [4 x i8], ptr %232, i64 %indvars.iv.next.i484
   %240 = load i32, ptr %239, align 4, !tbaa !55
   %241 = lshr i32 %240, 1
   %242 = and i32 %241, 1073741823
   %243 = zext nneg i32 %242 to i64
-  %244 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val18.i482, i64 %243
+  %244 = getelementptr inbounds nuw [24 x i8], ptr %.val18.i482, i64 %243
   %245 = getelementptr inbounds nuw i8, ptr %244, i64 16
   %246 = load i32, ptr %245, align 8
   %247 = and i32 %246, 16383
@@ -2522,7 +2519,7 @@ Abc_NodeEdgeDsdPushOrdered.exit487.thread:        ; preds = %228
   br i1 %.not.i485, label %._crit_edge.loopexit.split.loop.exit.i486, label %250
 
 250:                                              ; preds = %238
-  %251 = getelementptr inbounds nuw i32, ptr %232, i64 %indvars.iv.i483
+  %251 = getelementptr inbounds nuw [4 x i8], ptr %232, i64 %indvars.iv.i483
   store i32 %240, ptr %251, align 4, !tbaa !55
   %252 = icmp samesign ugt i64 %indvars.iv.i483, 1
   br i1 %252, label %238, label %Abc_NodeEdgeDsdPushOrdered.exit487, !llvm.loop !130
@@ -2534,7 +2531,7 @@ Abc_NodeEdgeDsdPushOrdered.exit487.thread:        ; preds = %228
 
 Abc_NodeEdgeDsdPushOrdered.exit487:               ; preds = %250, %._crit_edge.loopexit.split.loop.exit.i486
   %.0.in.lcssa.i480 = phi i64 [ %253, %._crit_edge.loopexit.split.loop.exit.i486 ], [ 0, %250 ]
-  %254 = getelementptr inbounds i32, ptr %232, i64 %.0.in.lcssa.i480
+  %254 = getelementptr inbounds [4 x i8], ptr %232, i64 %.0.in.lcssa.i480
   store i32 %195, ptr %254, align 4, !tbaa !55
   br label %110, !llvm.loop !132
 
@@ -2544,7 +2541,7 @@ Vec_IntFree.exit489:                              ; preds = %Abc_NodeEdgeDsdPush
   %256 = add nsw i32 %.val472.lcssa, -1
   store i32 %256, ptr %25, align 4, !tbaa !93
   %257 = sext i32 %256 to i64
-  %258 = getelementptr inbounds i32, ptr %255, i64 %257
+  %258 = getelementptr inbounds [4 x i8], ptr %255, i64 %257
   %259 = load i32, ptr %258, align 4, !tbaa !55
   tail call void @free(ptr noundef nonnull %255) #21
   tail call void @free(ptr noundef nonnull %23) #21
@@ -2568,24 +2565,24 @@ Vec_IntFree.exit489:                              ; preds = %Abc_NodeEdgeDsdPush
   %268 = add nsw i32 %.val470550, -1
   store i32 %268, ptr %25, align 4, !tbaa !93
   %269 = zext nneg i32 %268 to i64
-  %270 = getelementptr inbounds nuw i32, ptr %265, i64 %269
+  %270 = getelementptr inbounds nuw [4 x i8], ptr %265, i64 %269
   %271 = load i32, ptr %270, align 4, !tbaa !55
   %272 = and i32 %271, 2147483647
   %273 = add nsw i32 %.val470550, -2
   store i32 %273, ptr %25, align 4, !tbaa !93
   %274 = zext nneg i32 %273 to i64
-  %275 = getelementptr inbounds nuw i32, ptr %265, i64 %274
+  %275 = getelementptr inbounds nuw [4 x i8], ptr %265, i64 %274
   %276 = load i32, ptr %275, align 4, !tbaa !55
   %277 = and i32 %276, 2147483647
   %278 = lshr i32 %272, 1
   %.val461 = load ptr, ptr %103, align 8, !tbaa !99
   %279 = zext nneg i32 %278 to i64
-  %280 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val461, i64 %279
+  %280 = getelementptr inbounds nuw [24 x i8], ptr %.val461, i64 %279
   %281 = getelementptr inbounds nuw i8, ptr %280, i64 8
   %282 = load ptr, ptr %281, align 8, !tbaa !100
   %283 = lshr i32 %277, 1
   %284 = zext nneg i32 %283 to i64
-  %285 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val461, i64 %284
+  %285 = getelementptr inbounds nuw [24 x i8], ptr %.val461, i64 %284
   %286 = getelementptr inbounds nuw i8, ptr %285, i64 8
   %287 = load ptr, ptr %286, align 8, !tbaa !100
   %.not423 = icmp eq ptr %282, null
@@ -2667,7 +2664,7 @@ Dec_GraphAddNodeAnd.exit.i:                       ; preds = %322, %.thread520
   %326 = add nsw i32 %324, 1
   store i32 %326, ptr %104, align 8, !tbaa !97
   %327 = sext i32 %324 to i64
-  %328 = getelementptr inbounds %struct.Dec_Node_t_, ptr %325, i64 %327
+  %328 = getelementptr inbounds [24 x i8], ptr %325, i64 %327
   %329 = getelementptr inbounds nuw i8, ptr %328, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %329, i8 0, i64 16, i1 false)
   store i32 %310, ptr %328, align 8, !tbaa !100
@@ -2721,7 +2718,7 @@ Dec_GraphAddNodeAnd.exit42.i:                     ; preds = %352, %Dec_GraphAddN
   %356 = add nsw i32 %354, 1
   store i32 %356, ptr %104, align 8, !tbaa !97
   %357 = sext i32 %354 to i64
-  %358 = getelementptr inbounds %struct.Dec_Node_t_, ptr %355, i64 %357
+  %358 = getelementptr inbounds [24 x i8], ptr %355, i64 %357
   %359 = getelementptr inbounds nuw i8, ptr %358, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %359, i8 0, i64 16, i1 false)
   store i32 %272, ptr %358, align 8, !tbaa !100
@@ -2774,7 +2771,7 @@ Dec_GraphAddNodeOr.exit.i:                        ; preds = %381, %Dec_GraphAddN
   %385 = add nsw i32 %383, 1
   store i32 %385, ptr %104, align 8, !tbaa !97
   %386 = sext i32 %383 to i64
-  %387 = getelementptr inbounds %struct.Dec_Node_t_, ptr %384, i64 %386
+  %387 = getelementptr inbounds [24 x i8], ptr %384, i64 %386
   %388 = getelementptr inbounds nuw i8, ptr %387, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %388, i8 0, i64 16, i1 false)
   %389 = getelementptr inbounds nuw i8, ptr %387, i64 4
@@ -2829,7 +2826,7 @@ Dec_GraphAddNodeAnd.exit55.i:                     ; preds = %410, %398
   %414 = add nsw i32 %412, 1
   store i32 %414, ptr %104, align 8, !tbaa !97
   %415 = sext i32 %412 to i64
-  %416 = getelementptr inbounds %struct.Dec_Node_t_, ptr %413, i64 %415
+  %416 = getelementptr inbounds [24 x i8], ptr %413, i64 %415
   %417 = getelementptr inbounds nuw i8, ptr %416, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %417, i8 0, i64 16, i1 false)
   store i32 %272, ptr %416, align 8, !tbaa !100
@@ -2884,7 +2881,7 @@ Dec_GraphAddNodeAnd.exit62.i:                     ; preds = %441, %Dec_GraphAddN
   %445 = add nsw i32 %443, 1
   store i32 %445, ptr %104, align 8, !tbaa !97
   %446 = sext i32 %443 to i64
-  %447 = getelementptr inbounds %struct.Dec_Node_t_, ptr %444, i64 %446
+  %447 = getelementptr inbounds [24 x i8], ptr %444, i64 %446
   %448 = getelementptr inbounds nuw i8, ptr %447, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %448, i8 0, i64 16, i1 false)
   store i32 %429, ptr %447, align 8, !tbaa !100
@@ -2937,7 +2934,7 @@ Dec_GraphAddNodeOr.exit69.i:                      ; preds = %470, %Dec_GraphAddN
   %474 = add nsw i32 %472, 1
   store i32 %474, ptr %104, align 8, !tbaa !97
   %475 = sext i32 %472 to i64
-  %476 = getelementptr inbounds %struct.Dec_Node_t_, ptr %473, i64 %475
+  %476 = getelementptr inbounds [24 x i8], ptr %473, i64 %475
   %477 = getelementptr inbounds nuw i8, ptr %476, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %477, i8 0, i64 16, i1 false)
   %478 = getelementptr inbounds nuw i8, ptr %476, i64 4
@@ -2959,11 +2956,11 @@ Dec_GraphAddNodeXor.exit:                         ; preds = %Dec_GraphAddNodeOr.
   %or.cond3519523 = phi i1 [ %or.cond3519524, %Dec_GraphAddNodeOr.exit.i ], [ true, %Dec_GraphAddNodeOr.exit69.i ]
   %.sroa.033.0.i = phi i32 [ %397, %Dec_GraphAddNodeOr.exit.i ], [ %485, %Dec_GraphAddNodeOr.exit69.i ]
   %.val459 = load ptr, ptr %103, align 8, !tbaa !99
-  %487 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val459, i64 %279
+  %487 = getelementptr inbounds nuw [24 x i8], ptr %.val459, i64 %279
   %488 = getelementptr inbounds nuw i8, ptr %487, i64 16
   %489 = load i32, ptr %488, align 8
   %490 = and i32 %489, 16383
-  %491 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val459, i64 %284
+  %491 = getelementptr inbounds nuw [24 x i8], ptr %.val459, i64 %284
   %492 = getelementptr inbounds nuw i8, ptr %491, i64 16
   %493 = load i32, ptr %492, align 8
   %494 = and i32 %493, 16383
@@ -2971,7 +2968,7 @@ Dec_GraphAddNodeXor.exit:                         ; preds = %Dec_GraphAddNodeOr.
   %496 = add nuw nsw i32 %495, 2
   %497 = lshr i32 %.sroa.033.0.i, 1
   %498 = zext nneg i32 %497 to i64
-  %499 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val459, i64 %498
+  %499 = getelementptr inbounds nuw [24 x i8], ptr %.val459, i64 %498
   %500 = getelementptr inbounds nuw i8, ptr %499, i64 16
   %501 = load i32, ptr %500, align 8
   %502 = and i32 %496, 16383
@@ -2988,7 +2985,7 @@ Dec_GraphAddNodeXor.exit:                         ; preds = %Dec_GraphAddNodeOr.
   %509 = xor i64 %508, %507
   %510 = inttoptr i64 %509 to ptr
   %.val456 = load ptr, ptr %103, align 8, !tbaa !99
-  %511 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val456, i64 %498
+  %511 = getelementptr inbounds nuw [24 x i8], ptr %.val456, i64 %498
   %512 = getelementptr inbounds nuw i8, ptr %511, i64 8
   store ptr %510, ptr %512, align 8, !tbaa !100
   %513 = and i64 %507, -2
@@ -3140,13 +3137,13 @@ Vec_IntFree.exit491:                              ; preds = %587, %589
 
 Abc_NodeEdgeDsdPushOrdered.exit499.thread:        ; preds = %590
   %595 = sext i32 %591 to i64
-  %596 = getelementptr inbounds i32, ptr %594, i64 %595
+  %596 = getelementptr inbounds [4 x i8], ptr %594, i64 %595
   store i32 %.sroa.033.0.i, ptr %596, align 4, !tbaa !55
   br label %Vec_IntFree.exit501
 
 .lr.ph.i493:                                      ; preds = %590
   %.val18.i494 = load ptr, ptr %103, align 8, !tbaa !99
-  %597 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val18.i494, i64 %498
+  %597 = getelementptr inbounds nuw [24 x i8], ptr %.val18.i494, i64 %498
   %598 = getelementptr inbounds nuw i8, ptr %597, i64 16
   %599 = zext nneg i32 %591 to i64
   br label %600
@@ -3154,12 +3151,12 @@ Abc_NodeEdgeDsdPushOrdered.exit499.thread:        ; preds = %590
 600:                                              ; preds = %612, %.lr.ph.i493
   %indvars.iv.i495 = phi i64 [ %599, %.lr.ph.i493 ], [ %indvars.iv.next.i496, %612 ]
   %indvars.iv.next.i496 = add nsw i64 %indvars.iv.i495, -1
-  %601 = getelementptr inbounds nuw i32, ptr %594, i64 %indvars.iv.next.i496
+  %601 = getelementptr inbounds nuw [4 x i8], ptr %594, i64 %indvars.iv.next.i496
   %602 = load i32, ptr %601, align 4, !tbaa !55
   %603 = lshr i32 %602, 1
   %604 = and i32 %603, 1073741823
   %605 = zext nneg i32 %604 to i64
-  %606 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val18.i494, i64 %605
+  %606 = getelementptr inbounds nuw [24 x i8], ptr %.val18.i494, i64 %605
   %607 = getelementptr inbounds nuw i8, ptr %606, i64 16
   %608 = load i32, ptr %607, align 8
   %609 = and i32 %608, 16383
@@ -3169,7 +3166,7 @@ Abc_NodeEdgeDsdPushOrdered.exit499.thread:        ; preds = %590
   br i1 %.not.i497, label %._crit_edge.loopexit.split.loop.exit.i498, label %612
 
 612:                                              ; preds = %600
-  %613 = getelementptr inbounds nuw i32, ptr %594, i64 %indvars.iv.i495
+  %613 = getelementptr inbounds nuw [4 x i8], ptr %594, i64 %indvars.iv.i495
   store i32 %602, ptr %613, align 4, !tbaa !55
   %614 = icmp samesign ugt i64 %indvars.iv.i495, 1
   br i1 %614, label %600, label %Abc_NodeEdgeDsdPushOrdered.exit499, !llvm.loop !130
@@ -3181,7 +3178,7 @@ Abc_NodeEdgeDsdPushOrdered.exit499.thread:        ; preds = %590
 
 Abc_NodeEdgeDsdPushOrdered.exit499:               ; preds = %612, %._crit_edge.loopexit.split.loop.exit.i498
   %.0.in.lcssa.i492 = phi i64 [ %615, %._crit_edge.loopexit.split.loop.exit.i498 ], [ 0, %612 ]
-  %616 = getelementptr inbounds i32, ptr %594, i64 %.0.in.lcssa.i492
+  %616 = getelementptr inbounds [4 x i8], ptr %594, i64 %.0.in.lcssa.i492
   store i32 %.sroa.033.0.i, ptr %616, align 4, !tbaa !55
   br label %264, !llvm.loop !133
 
@@ -3191,7 +3188,7 @@ Vec_IntFree.exit501:                              ; preds = %Abc_NodeEdgeDsdPush
   %618 = add nsw i32 %.val470.lcssa, -1
   store i32 %618, ptr %25, align 4, !tbaa !93
   %619 = sext i32 %618 to i64
-  %620 = getelementptr inbounds i32, ptr %617, i64 %619
+  %620 = getelementptr inbounds [4 x i8], ptr %617, i64 %619
   %621 = load i32, ptr %620, align 4, !tbaa !55
   call void @free(ptr noundef nonnull %617) #21
   call void @free(ptr noundef nonnull %23) #21
@@ -3299,7 +3296,7 @@ Vec_IntFree.exit501:                              ; preds = %Abc_NodeEdgeDsdPush
   tail call void @Cudd_RecursiveDeref(ptr noundef %682, ptr noundef %629) #21
   %683 = load i32, ptr %.0368, align 8, !tbaa !78
   %684 = sext i32 %683 to i64
-  %685 = getelementptr inbounds i32, ptr %101, i64 %684
+  %685 = getelementptr inbounds [4 x i8], ptr %101, i64 %684
   %686 = load i32, ptr %685, align 4, !tbaa !55
   %687 = and i32 %686, 2147483647
   %688 = ptrtoint ptr %.0367 to i64
@@ -3307,14 +3304,14 @@ Vec_IntFree.exit501:                              ; preds = %Abc_NodeEdgeDsdPush
   %690 = inttoptr i64 %689 to ptr
   %691 = load i32, ptr %690, align 8, !tbaa !78
   %692 = sext i32 %691 to i64
-  %693 = getelementptr inbounds i32, ptr %101, i64 %692
+  %693 = getelementptr inbounds [4 x i8], ptr %101, i64 %692
   %694 = load i32, ptr %693, align 4, !tbaa !55
   %695 = ptrtoint ptr %.0 to i64
   %696 = and i64 %695, -2
   %697 = inttoptr i64 %696 to ptr
   %698 = load i32, ptr %697, align 8, !tbaa !78
   %699 = sext i32 %698 to i64
-  %700 = getelementptr inbounds i32, ptr %101, i64 %699
+  %700 = getelementptr inbounds [4 x i8], ptr %101, i64 %699
   %701 = load i32, ptr %700, align 4, !tbaa !55
   %702 = trunc i64 %688 to i32
   %703 = xor i32 %694, %702
@@ -3334,19 +3331,19 @@ Vec_IntFree.exit501:                              ; preds = %Abc_NodeEdgeDsdPush
   %715 = getelementptr i8, ptr %0, i64 16
   %.val454 = load ptr, ptr %715, align 8, !tbaa !99
   %716 = zext nneg i32 %714 to i64
-  %717 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val454, i64 %716
+  %717 = getelementptr inbounds nuw [24 x i8], ptr %.val454, i64 %716
   %718 = getelementptr inbounds nuw i8, ptr %717, i64 8
   %719 = load ptr, ptr %718, align 8, !tbaa !100
   %720 = lshr i32 %694, 1
   %721 = and i32 %720, 1073741823
   %722 = zext nneg i32 %721 to i64
-  %723 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val454, i64 %722
+  %723 = getelementptr inbounds nuw [24 x i8], ptr %.val454, i64 %722
   %724 = getelementptr inbounds nuw i8, ptr %723, i64 8
   %725 = load ptr, ptr %724, align 8, !tbaa !100
   %726 = lshr i32 %701, 1
   %727 = and i32 %726, 1073741823
   %728 = zext nneg i32 %727 to i64
-  %729 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val454, i64 %728
+  %729 = getelementptr inbounds nuw [24 x i8], ptr %.val454, i64 %728
   %730 = getelementptr inbounds nuw i8, ptr %729, i64 8
   %731 = load ptr, ptr %730, align 8, !tbaa !100
   %.not410 = icmp eq ptr %719, null
@@ -3441,7 +3438,7 @@ Dec_GraphAddNodeAnd.exit.i502:                    ; preds = %776, %.thread648
   %780 = add nsw i32 %778, 1
   store i32 %780, ptr %763, align 8, !tbaa !97
   %781 = sext i32 %778 to i64
-  %782 = getelementptr inbounds %struct.Dec_Node_t_, ptr %779, i64 %781
+  %782 = getelementptr inbounds [24 x i8], ptr %779, i64 %781
   %783 = getelementptr inbounds nuw i8, ptr %782, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %783, i8 0, i64 16, i1 false)
   store i32 %687, ptr %782, align 8, !tbaa !100
@@ -3494,7 +3491,7 @@ Dec_GraphAddNodeAnd.exit40.i:                     ; preds = %805, %Dec_GraphAddN
   %809 = add nsw i32 %807, 1
   store i32 %809, ptr %763, align 8, !tbaa !97
   %810 = sext i32 %807 to i64
-  %811 = getelementptr inbounds %struct.Dec_Node_t_, ptr %808, i64 %810
+  %811 = getelementptr inbounds [24 x i8], ptr %808, i64 %810
   %812 = getelementptr inbounds nuw i8, ptr %811, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %812, i8 0, i64 16, i1 false)
   store i32 %794, ptr %811, align 8, !tbaa !100
@@ -3546,7 +3543,7 @@ Dec_GraphAddNodeOr.exit.i503:                     ; preds = %833, %Dec_GraphAddN
   %837 = add nsw i32 %835, 1
   store i32 %837, ptr %763, align 8, !tbaa !97
   %838 = sext i32 %835 to i64
-  %839 = getelementptr inbounds %struct.Dec_Node_t_, ptr %836, i64 %838
+  %839 = getelementptr inbounds [24 x i8], ptr %836, i64 %838
   %840 = getelementptr inbounds nuw i8, ptr %839, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %840, i8 0, i64 16, i1 false)
   %841 = getelementptr inbounds nuw i8, ptr %839, i64 4
@@ -3605,7 +3602,7 @@ Dec_GraphAddNodeAnd.exit53.i:                     ; preds = %866, %850
   %870 = add nsw i32 %868, 1
   store i32 %870, ptr %853, align 8, !tbaa !97
   %871 = sext i32 %868 to i64
-  %872 = getelementptr inbounds %struct.Dec_Node_t_, ptr %869, i64 %871
+  %872 = getelementptr inbounds [24 x i8], ptr %869, i64 %871
   %873 = getelementptr inbounds nuw i8, ptr %872, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %873, i8 0, i64 16, i1 false)
   store i32 %687, ptr %872, align 8, !tbaa !100
@@ -3659,7 +3656,7 @@ Dec_GraphAddNodeAnd.exit60.i:                     ; preds = %896, %Dec_GraphAddN
   %900 = add nsw i32 %898, 1
   store i32 %900, ptr %853, align 8, !tbaa !97
   %901 = sext i32 %898 to i64
-  %902 = getelementptr inbounds %struct.Dec_Node_t_, ptr %899, i64 %901
+  %902 = getelementptr inbounds [24 x i8], ptr %899, i64 %901
   %903 = getelementptr inbounds nuw i8, ptr %902, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %903, i8 0, i64 16, i1 false)
   store i32 %885, ptr %902, align 8, !tbaa !100
@@ -3712,7 +3709,7 @@ Dec_GraphAddNodeOr.exit67.i:                      ; preds = %925, %Dec_GraphAddN
   %929 = add nsw i32 %927, 1
   store i32 %929, ptr %853, align 8, !tbaa !97
   %930 = sext i32 %927 to i64
-  %931 = getelementptr inbounds %struct.Dec_Node_t_, ptr %928, i64 %930
+  %931 = getelementptr inbounds [24 x i8], ptr %928, i64 %930
   %932 = getelementptr inbounds nuw i8, ptr %931, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %932, i8 0, i64 16, i1 false)
   %933 = getelementptr inbounds nuw i8, ptr %931, i64 4
@@ -3736,15 +3733,15 @@ Dec_GraphAddNodeMux.exit:                         ; preds = %Dec_GraphAddNodeOr.
   %943 = phi i1 [ %762, %Dec_GraphAddNodeOr.exit.i503 ], [ %752, %Dec_GraphAddNodeOr.exit67.i ]
   %.sroa.031.0.i = phi i32 [ %849, %Dec_GraphAddNodeOr.exit.i503 ], [ %940, %Dec_GraphAddNodeOr.exit67.i ]
   %.val451 = load ptr, ptr %715, align 8, !tbaa !99
-  %944 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val451, i64 %716
+  %944 = getelementptr inbounds nuw [24 x i8], ptr %.val451, i64 %716
   %945 = getelementptr inbounds nuw i8, ptr %944, i64 16
   %946 = load i32, ptr %945, align 8
   %947 = and i32 %946, 16383
-  %948 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val451, i64 %722
+  %948 = getelementptr inbounds nuw [24 x i8], ptr %.val451, i64 %722
   %949 = getelementptr inbounds nuw i8, ptr %948, i64 16
   %950 = load i32, ptr %949, align 8
   %951 = and i32 %950, 16383
-  %952 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val451, i64 %728
+  %952 = getelementptr inbounds nuw [24 x i8], ptr %.val451, i64 %728
   %953 = getelementptr inbounds nuw i8, ptr %952, i64 16
   %954 = load i32, ptr %953, align 8
   %955 = and i32 %954, 16383
@@ -3753,7 +3750,7 @@ Dec_GraphAddNodeMux.exit:                         ; preds = %Dec_GraphAddNodeOr.
   %958 = add nuw nsw i32 %957, 2
   %959 = lshr i32 %.sroa.031.0.i, 1
   %960 = zext nneg i32 %959 to i64
-  %961 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val451, i64 %960
+  %961 = getelementptr inbounds nuw [24 x i8], ptr %.val451, i64 %960
   %962 = getelementptr inbounds nuw i8, ptr %961, i64 16
   %963 = load i32, ptr %962, align 8
   %964 = and i32 %958, 16383
@@ -3770,7 +3767,7 @@ Dec_GraphAddNodeMux.exit:                         ; preds = %Dec_GraphAddNodeOr.
   %971 = xor i64 %970, %969
   %972 = inttoptr i64 %971 to ptr
   %.val447 = load ptr, ptr %715, align 8, !tbaa !99
-  %973 = getelementptr inbounds nuw %struct.Dec_Node_t_, ptr %.val447, i64 %960
+  %973 = getelementptr inbounds nuw [24 x i8], ptr %.val447, i64 %960
   %974 = getelementptr inbounds nuw i8, ptr %973, i64 8
   store ptr %972, ptr %974, align 8, !tbaa !100
   %975 = and i64 %969, -2
@@ -4070,14 +4067,14 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %3, %Vec_IntFill.exi
 31:                                               ; preds = %.lr.ph, %Abc_NodeSetTravIdCurrent.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Abc_NodeSetTravIdCurrent.exit ]
   %32 = load ptr, ptr %1, align 8, !tbaa !60
-  %33 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv
   %34 = load i32, ptr %33, align 4, !tbaa !55
   %35 = getelementptr i8, ptr %32, i64 32
   %.val39 = load ptr, ptr %35, align 8, !tbaa !38
   %36 = getelementptr i8, ptr %.val39, i64 8
   %.val39.val = load ptr, ptr %36, align 8, !tbaa !44
   %37 = sext i32 %34 to i64
-  %38 = getelementptr inbounds ptr, ptr %.val39.val, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %.val39.val, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !45
   %40 = icmp eq ptr %39, null
   br i1 %40, label %.critedge, label %41
@@ -4148,7 +4145,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %71 = add nsw i32 %70, 1
   store i32 %71, ptr %43, align 4, !tbaa !39
   %72 = sext i32 %70 to i64
-  %73 = getelementptr inbounds ptr, ptr %69, i64 %72
+  %73 = getelementptr inbounds [8 x i8], ptr %69, i64 %72
   store ptr %39, ptr %73, align 8, !tbaa !45
   %.val47 = load ptr, ptr %39, align 8, !tbaa !60
   %74 = getelementptr i8, ptr %39, i64 16
@@ -4249,7 +4246,7 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %Vec_PtrPush.exit, %
   %117 = getelementptr i8, ptr %.val47, i64 232
   %.val.i.i.i = load ptr, ptr %117, align 8, !tbaa !92
   %118 = sext i32 %.val48 to i64
-  %119 = getelementptr inbounds i32, ptr %.val.i.i.i, i64 %118
+  %119 = getelementptr inbounds [4 x i8], ptr %.val.i.i.i, i64 %118
   store i32 %76, ptr %119, align 4, !tbaa !55
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %120 = load i32, ptr %2, align 8
@@ -4263,7 +4260,7 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %Vec_PtrPush.exit, %
   %indvars.iv123 = phi i64 [ %indvars.iv.next124, %.critedge2 ], [ 0, %.preheader ]
   %125 = getelementptr i8, ptr %124, i64 8
   %.val37 = load ptr, ptr %125, align 8, !tbaa !44
-  %126 = getelementptr inbounds nuw ptr, ptr %.val37, i64 %indvars.iv123
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %.val37, i64 %indvars.iv123
   %127 = load ptr, ptr %126, align 8, !tbaa !45
   %128 = getelementptr i8, ptr %127, i64 44
   %.val38111 = load i32, ptr %128, align 4, !tbaa !46
@@ -4282,10 +4279,10 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %Vec_PtrPush.exit, %
   %.val40.val = load ptr, ptr %132, align 8, !tbaa !38
   %133 = getelementptr i8, ptr %.val40.val, i64 8
   %.val40.val.val = load ptr, ptr %133, align 8, !tbaa !44
-  %134 = getelementptr inbounds nuw i32, ptr %.val41, i64 %indvars.iv120
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %.val41, i64 %indvars.iv120
   %135 = load i32, ptr %134, align 4, !tbaa !55
   %136 = sext i32 %135 to i64
-  %137 = getelementptr inbounds ptr, ptr %.val40.val.val, i64 %136
+  %137 = getelementptr inbounds [8 x i8], ptr %.val40.val.val, i64 %136
   %138 = load ptr, ptr %137, align 8, !tbaa !45
   %.val2.i = load ptr, ptr %138, align 8, !tbaa !60
   %139 = getelementptr i8, ptr %138, i64 16
@@ -4386,7 +4383,7 @@ Abc_NodeIsTravIdCurrent.exit:                     ; preds = %131, %._crit_edge.i
   %180 = getelementptr i8, ptr %.val2.i, i64 232
   %.val.i.i.i64 = load ptr, ptr %180, align 8, !tbaa !92
   %181 = sext i32 %.val3.i to i64
-  %182 = getelementptr inbounds i32, ptr %.val.i.i.i64, i64 %181
+  %182 = getelementptr inbounds [4 x i8], ptr %.val.i.i.i64, i64 %181
   %183 = load i32, ptr %182, align 4, !tbaa !55
   %184 = getelementptr inbounds nuw i8, ptr %.val43, i64 216
   %185 = load i32, ptr %184, align 8, !tbaa !94
@@ -4409,7 +4406,7 @@ Abc_NodeIsTravIdCurrent.exit:                     ; preds = %131, %._crit_edge.i
   %192 = getelementptr i8, ptr %.val43.val, i64 8
   %.val43.val.val = load ptr, ptr %192, align 8, !tbaa !44
   %193 = sext i32 %.val44.val to i64
-  %194 = getelementptr inbounds ptr, ptr %.val43.val.val, i64 %193
+  %194 = getelementptr inbounds [8 x i8], ptr %.val43.val.val, i64 %193
   %195 = load ptr, ptr %194, align 8, !tbaa !45
   %.val2.i66 = load ptr, ptr %195, align 8, !tbaa !60
   %196 = getelementptr i8, ptr %195, i64 16
@@ -4510,7 +4507,7 @@ Abc_NodeIsTravIdCurrent.exit84:                   ; preds = %189, %._crit_edge.i
   %237 = getelementptr i8, ptr %.val2.i66, i64 232
   %.val.i.i.i82 = load ptr, ptr %237, align 8, !tbaa !92
   %238 = sext i32 %.val3.i67 to i64
-  %239 = getelementptr inbounds i32, ptr %.val.i.i.i82, i64 %238
+  %239 = getelementptr inbounds [4 x i8], ptr %.val.i.i.i82, i64 %238
   %240 = load i32, ptr %239, align 4, !tbaa !55
   %241 = getelementptr inbounds nuw i8, ptr %.val.i81, i64 216
   %242 = load i32, ptr %241, align 8, !tbaa !94
@@ -4527,7 +4524,7 @@ Abc_NodeIsTravIdCurrent.exit84:                   ; preds = %189, %._crit_edge.i
   %246 = getelementptr i8, ptr %.val45.val, i64 8
   %.val45.val.val = load ptr, ptr %246, align 8, !tbaa !44
   %247 = sext i32 %.val46.val to i64
-  %248 = getelementptr inbounds ptr, ptr %.val45.val.val, i64 %247
+  %248 = getelementptr inbounds [8 x i8], ptr %.val45.val.val, i64 %247
   %249 = load ptr, ptr %248, align 8, !tbaa !45
   %250 = tail call fastcc i32 @Abc_NodeIsTravIdCurrent(ptr noundef %249)
   %.not36 = icmp eq i32 %250, 0
@@ -4599,7 +4596,7 @@ Vec_PtrPush.exit91:                               ; preds = %.Vec_PtrGrow.exit11
   %281 = add nsw i32 %280, 1
   store i32 %281, ptr %253, align 4, !tbaa !39
   %282 = sext i32 %280 to i64
-  %283 = getelementptr inbounds ptr, ptr %279, i64 %282
+  %283 = getelementptr inbounds [8 x i8], ptr %279, i64 %282
   store ptr %138, ptr %283, align 8, !tbaa !45
   %.val49 = load ptr, ptr %138, align 8, !tbaa !60
   %.val50 = load i32, ptr %139, align 8, !tbaa !49
@@ -4699,7 +4696,7 @@ Abc_NodeSetTravIdCurrent.exit106:                 ; preds = %Vec_PtrPush.exit91,
   %326 = getelementptr i8, ptr %.val49, i64 232
   %.val.i.i.i104 = load ptr, ptr %326, align 8, !tbaa !92
   %327 = sext i32 %.val50 to i64
-  %328 = getelementptr inbounds i32, ptr %.val.i.i.i104, i64 %327
+  %328 = getelementptr inbounds [4 x i8], ptr %.val.i.i.i104, i64 %327
   store i32 %285, ptr %328, align 4, !tbaa !55
   br label %329
 
@@ -4838,7 +4835,7 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %.lr.ph, %._crit_edg
   %46 = getelementptr i8, ptr %.val7, i64 232
   %.val.i.i.i = load ptr, ptr %46, align 8, !tbaa !92
   %47 = sext i32 %.val8 to i64
-  %48 = getelementptr inbounds i32, ptr %.val.i.i.i, i64 %47
+  %48 = getelementptr inbounds [4 x i8], ptr %.val.i.i.i, i64 %47
   store i32 %5, ptr %48, align 4, !tbaa !55
   %49 = getelementptr i8, ptr %.tr11, i64 32
   %.val4 = load ptr, ptr %49, align 8, !tbaa !125
@@ -4848,7 +4845,7 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %.lr.ph, %._crit_edg
   %51 = getelementptr i8, ptr %.val.val, i64 8
   %.val.val.val = load ptr, ptr %51, align 8, !tbaa !44
   %52 = sext i32 %.val4.val to i64
-  %53 = getelementptr inbounds ptr, ptr %.val.val.val, i64 %52
+  %53 = getelementptr inbounds [8 x i8], ptr %.val.val.val, i64 %52
   %54 = load ptr, ptr %53, align 8, !tbaa !45
   %55 = tail call i32 @Abc_NodeResubMffc_rec(ptr noundef %54)
   %.val5 = load ptr, ptr %.tr11, align 8, !tbaa !60
@@ -4860,7 +4857,7 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %.lr.ph, %._crit_edg
   %58 = getelementptr i8, ptr %.val5.val, i64 8
   %.val5.val.val = load ptr, ptr %58, align 8, !tbaa !44
   %59 = sext i32 %.val6.val to i64
-  %60 = getelementptr inbounds ptr, ptr %.val5.val.val, i64 %59
+  %60 = getelementptr inbounds [8 x i8], ptr %.val5.val.val, i64 %59
   %61 = load ptr, ptr %60, align 8, !tbaa !45
   %62 = add i32 %accumulator.tr10, 1
   %63 = add i32 %62, %55
@@ -4932,7 +4929,7 @@ Abc_NtkIncrementTravId.exit:                      ; preds = %4, %Vec_IntFill.exi
 28:                                               ; preds = %.lr.ph, %Abc_NodeSetTravIdCurrent.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Abc_NodeSetTravIdCurrent.exit ]
   %.val40 = load ptr, ptr %27, align 8, !tbaa !44
-  %29 = getelementptr inbounds nuw ptr, ptr %.val40, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %.val40, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8, !tbaa !45
   %.val41 = load ptr, ptr %30, align 8, !tbaa !60
   %31 = getelementptr i8, ptr %30, i64 16
@@ -5033,7 +5030,7 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %28, %._crit_edge.i.
   %74 = getelementptr i8, ptr %.val41, i64 232
   %.val.i.i.i = load ptr, ptr %74, align 8, !tbaa !92
   %75 = sext i32 %.val42 to i64
-  %76 = getelementptr inbounds i32, ptr %.val.i.i.i, i64 %75
+  %76 = getelementptr inbounds [4 x i8], ptr %.val.i.i.i, i64 %75
   store i32 %33, ptr %76, align 4, !tbaa !55
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -5071,7 +5068,7 @@ Abc_NodeSetTravIdCurrent.exit:                    ; preds = %28, %._crit_edge.i.
   %indvars.iv56 = phi i64 [ %84, %.lr.ph50 ], [ %indvars.iv.next57, %125 ]
   %.049 = phi i32 [ 0, %.lr.ph50 ], [ %.1, %125 ]
   %.val39 = load ptr, ptr %83, align 8, !tbaa !44
-  %89 = getelementptr inbounds ptr, ptr %.val39, i64 %indvars.iv56
+  %89 = getelementptr inbounds [8 x i8], ptr %.val39, i64 %indvars.iv56
   %90 = load ptr, ptr %89, align 8, !tbaa !45
   %91 = tail call fastcc i32 @Abc_NodeIsTravIdCurrent(ptr noundef %90)
   %.not = icmp eq i32 %91, 0
@@ -5154,7 +5151,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %.sink79 = phi ptr [ %120, %Vec_PtrPush.exit ], [ %.val43, %123 ]
   %.1 = phi i32 [ %.049, %Vec_PtrPush.exit ], [ %124, %123 ]
   %126 = sext i32 %.sink to i64
-  %127 = getelementptr inbounds ptr, ptr %.sink79, i64 %126
+  %127 = getelementptr inbounds [8 x i8], ptr %.sink79, i64 %126
   store ptr %90, ptr %127, align 8, !tbaa !45
   %indvars.iv.next57 = add nsw i64 %indvars.iv56, 1
   %.val37 = load i32, ptr %81, align 4, !tbaa !39
@@ -5168,11 +5165,11 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %130 = phi ptr [ %.pre, %.lr.ph54 ], [ %135, %.critedge2 ]
   %131 = getelementptr i8, ptr %130, i64 8
   %.val38 = load ptr, ptr %131, align 8, !tbaa !44
-  %132 = getelementptr inbounds nuw ptr, ptr %.val38, i64 %indvars.iv61
+  %132 = getelementptr inbounds nuw [8 x i8], ptr %.val38, i64 %indvars.iv61
   %133 = load ptr, ptr %132, align 8, !tbaa !45
   %indvars.iv.next60 = add nsw i64 %indvars.iv59, 1
   %.val44 = load ptr, ptr %87, align 8, !tbaa !44
-  %134 = getelementptr inbounds ptr, ptr %.val44, i64 %indvars.iv59
+  %134 = getelementptr inbounds [8 x i8], ptr %.val44, i64 %indvars.iv59
   store ptr %133, ptr %134, align 8, !tbaa !45
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %135 = load ptr, ptr %78, align 8, !tbaa !113
@@ -5215,10 +5212,10 @@ define void @Abc_NodeMffcSimulate(ptr noundef readonly captures(none) %0, i32 no
 13:                                               ; preds = %.lr.ph, %Vec_IntPush.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Vec_IntPush.exit ]
   %.val34 = load ptr, ptr %7, align 8, !tbaa !44
-  %14 = getelementptr inbounds nuw ptr, ptr %.val34, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %.val34, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !45
   %.val35 = load ptr, ptr %8, align 8, !tbaa !92
-  %16 = getelementptr inbounds nuw i32, ptr %.val35, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %.val35, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4, !tbaa !55
   %18 = zext i32 %17 to i64
   %19 = inttoptr i64 %18 to ptr
@@ -5284,7 +5281,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %46 = add nsw i32 %45, 1
   store i32 %46, ptr %5, align 4, !tbaa !93
   %47 = sext i32 %45 to i64
-  %48 = getelementptr inbounds i32, ptr %44, i64 %47
+  %48 = getelementptr inbounds [4 x i8], ptr %44, i64 %47
   store i32 %17, ptr %48, align 4, !tbaa !55
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -5293,7 +5290,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 49:                                               ; preds = %.lr.ph52, %Vec_IntPush.exit48
   %indvars.iv54 = phi i64 [ %12, %.lr.ph52 ], [ %indvars.iv.next55, %Vec_IntPush.exit48 ]
   %.val33 = load ptr, ptr %11, align 8, !tbaa !44
-  %50 = getelementptr inbounds ptr, ptr %.val33, i64 %indvars.iv54
+  %50 = getelementptr inbounds [8 x i8], ptr %.val33, i64 %indvars.iv54
   %51 = load ptr, ptr %50, align 8, !tbaa !45
   %.val36 = load ptr, ptr %51, align 8, !tbaa !60
   %52 = getelementptr i8, ptr %51, i64 32
@@ -5304,7 +5301,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %54 = getelementptr i8, ptr %.val36.val, i64 8
   %.val36.val.val = load ptr, ptr %54, align 8, !tbaa !44
   %55 = sext i32 %.val37.val to i64
-  %56 = getelementptr inbounds ptr, ptr %.val36.val.val, i64 %55
+  %56 = getelementptr inbounds [8 x i8], ptr %.val36.val.val, i64 %55
   %57 = load ptr, ptr %56, align 8, !tbaa !45
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 56
   %59 = load ptr, ptr %58, align 8, !tbaa !100
@@ -5313,7 +5310,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %62 = getelementptr i8, ptr %.val37, i64 4
   %.val39.val = load i32, ptr %62, align 4, !tbaa !55
   %63 = sext i32 %.val39.val to i64
-  %64 = getelementptr inbounds ptr, ptr %.val36.val.val, i64 %63
+  %64 = getelementptr inbounds [8 x i8], ptr %.val36.val.val, i64 %63
   %65 = load ptr, ptr %64, align 8, !tbaa !45
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 56
   %67 = load ptr, ptr %66, align 8, !tbaa !100
@@ -5392,7 +5389,7 @@ Vec_IntPush.exit48:                               ; preds = %.Vec_IntGrow.exit10
   %106 = add nsw i32 %105, 1
   store i32 %106, ptr %5, align 4, !tbaa !93
   %107 = sext i32 %105 to i64
-  %108 = getelementptr inbounds i32, ptr %104, i64 %107
+  %108 = getelementptr inbounds [4 x i8], ptr %104, i64 %107
   store i32 %77, ptr %108, align 4, !tbaa !55
   %indvars.iv.next55 = add nsw i64 %indvars.iv54, 1
   %.val = load i32, ptr %9, align 4, !tbaa !39
@@ -5416,7 +5413,7 @@ define noalias noundef ptr @Abc_NodeMffcConstants(ptr noundef readnone captures(
   %4 = getelementptr i8, ptr %1, i64 8
   %.val9 = load ptr, ptr %4, align 8, !tbaa !92
   %5 = sext i32 %.val to i64
-  %6 = getelementptr i32, ptr %.val9, i64 %5
+  %6 = getelementptr [4 x i8], ptr %.val9, i64 %5
   %7 = getelementptr i8, ptr %6, i64 -4
   %8 = load i32, ptr %7, align 4, !tbaa !55
   switch i32 %8, label %12 [
@@ -5454,7 +5451,7 @@ define noalias noundef ptr @Abc_NodeMffcSingleVar(ptr noundef readonly captures(
   %10 = getelementptr i8, ptr %1, i64 8
   %.val39 = load ptr, ptr %10, align 8, !tbaa !92
   %11 = sext i32 %.val38 to i64
-  %12 = getelementptr i32, ptr %.val39, i64 %11
+  %12 = getelementptr [4 x i8], ptr %.val39, i64 %11
   %13 = getelementptr i8, ptr %12, i64 -4
   %14 = load i32, ptr %13, align 4, !tbaa !55
   %15 = icmp sgt i32 %2, 0
@@ -5468,7 +5465,7 @@ define noalias noundef ptr @Abc_NodeMffcSingleVar(ptr noundef readonly captures(
 16:                                               ; preds = %.lr.ph, %138
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %138 ]
   %.val37 = load ptr, ptr %10, align 8, !tbaa !92
-  %17 = getelementptr inbounds nuw i32, ptr %.val37, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %.val37, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4, !tbaa !55
   %19 = icmp eq i32 %14, %18
   %20 = xor i32 %18, %14
@@ -5492,7 +5489,7 @@ define noalias noundef ptr @Abc_NodeMffcSingleVar(ptr noundef readonly captures(
   %29 = load ptr, ptr %28, align 8, !tbaa !112
   %30 = getelementptr i8, ptr %29, i64 8
   %.val = load ptr, ptr %30, align 8, !tbaa !44
-  %31 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8, !tbaa !45
   %33 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %32, ptr %33, align 8, !tbaa !100
@@ -5567,7 +5564,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %65 = add nsw i32 %64, 1
   store i32 %65, ptr %5, align 4, !tbaa !93
   %66 = sext i32 %64 to i64
-  %67 = getelementptr inbounds i32, ptr %63, i64 %66
+  %67 = getelementptr inbounds [4 x i8], ptr %63, i64 %66
   %indvars.iv.tr72 = trunc i64 %indvars.iv to i32
   %68 = shl i32 %indvars.iv.tr72, 1
   store i32 %68, ptr %67, align 4, !tbaa !55
@@ -5640,7 +5637,7 @@ Vec_IntPush.exit46:                               ; preds = %.Vec_IntGrow.exit10
   %99 = add nsw i32 %98, 1
   store i32 %99, ptr %5, align 4, !tbaa !93
   %100 = sext i32 %98 to i64
-  %101 = getelementptr inbounds i32, ptr %97, i64 %100
+  %101 = getelementptr inbounds [4 x i8], ptr %97, i64 %100
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
   %102 = shl i32 %indvars.iv.tr, 1
   %103 = or disjoint i32 %102, 1
@@ -5713,7 +5710,7 @@ Vec_IntPush.exit53:                               ; preds = %.Vec_IntGrow.exit10
   %134 = add nsw i32 %133, 1
   store i32 %134, ptr %106, align 4, !tbaa !93
   %135 = sext i32 %133 to i64
-  %136 = getelementptr inbounds i32, ptr %132, i64 %135
+  %136 = getelementptr inbounds [4 x i8], ptr %132, i64 %135
   %137 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %137, ptr %136, align 4, !tbaa !55
   br label %138
@@ -5735,7 +5732,7 @@ define noalias noundef ptr @Abc_NodeMffcSingleNode(ptr noundef readonly captures
   %6 = getelementptr i8, ptr %1, i64 8
   %.val40 = load ptr, ptr %6, align 8, !tbaa !92
   %7 = sext i32 %.val39 to i64
-  %8 = getelementptr i32, ptr %.val40, i64 %7
+  %8 = getelementptr [4 x i8], ptr %.val40, i64 %7
   %9 = getelementptr i8, ptr %8, i64 -4
   %10 = load i32, ptr %9, align 4, !tbaa !55
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 4
@@ -5763,7 +5760,7 @@ define noalias noundef ptr @Abc_NodeMffcSingleNode(ptr noundef readonly captures
 
 .lr.ph:                                           ; preds = %16
   %18 = load ptr, ptr %14, align 8, !tbaa !92
-  %19 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv51
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv51
   %20 = load i32, ptr %19, align 4, !tbaa !55
   br label %22
 
@@ -5774,7 +5771,7 @@ define noalias noundef ptr @Abc_NodeMffcSingleNode(ptr noundef readonly captures
 
 22:                                               ; preds = %.lr.ph, %21
   %indvars.iv48 = phi i64 [ %indvars.iv, %.lr.ph ], [ %indvars.iv.next49, %21 ]
-  %23 = getelementptr inbounds nuw i32, ptr %18, i64 %indvars.iv48
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %indvars.iv48
   %24 = load i32, ptr %23, align 4, !tbaa !55
   %25 = or i32 %24, %20
   %26 = xor i32 %25, %10
@@ -5802,14 +5799,14 @@ Dec_GraphAddNodeAnd.exit:                         ; preds = %22
   %40 = getelementptr i8, ptr %38, i64 8
   %.val36 = load ptr, ptr %40, align 8, !tbaa !44
   %41 = zext nneg i32 %39 to i64
-  %42 = getelementptr inbounds nuw ptr, ptr %.val36, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %.val36, i64 %41
   %43 = load ptr, ptr %42, align 8, !tbaa !45
   %44 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %43, ptr %44, align 8, !tbaa !100
   %45 = lshr i32 %30, 1
   %.val = load ptr, ptr %40, align 8, !tbaa !44
   %46 = zext nneg i32 %45 to i64
-  %47 = getelementptr inbounds nuw ptr, ptr %.val, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %46
   %48 = load ptr, ptr %47, align 8, !tbaa !45
   %49 = getelementptr inbounds nuw i8, ptr %35, i64 32
   store ptr %48, ptr %49, align 8, !tbaa !100
@@ -5867,7 +5864,7 @@ define noalias noundef ptr @Abc_NodeResubEval(ptr noundef captures(none) %0, ptr
   %20 = getelementptr i8, ptr %18, i64 8
   %.val9.i = load ptr, ptr %20, align 8, !tbaa !92
   %21 = sext i32 %.val.i to i64
-  %22 = getelementptr i32, ptr %.val9.i, i64 %21
+  %22 = getelementptr [4 x i8], ptr %.val9.i, i64 %21
   %23 = getelementptr i8, ptr %22, i64 -4
   %24 = load i32, ptr %23, align 4, !tbaa !55
   switch i32 %24, label %Abc_NodeMffcConstants.exit [

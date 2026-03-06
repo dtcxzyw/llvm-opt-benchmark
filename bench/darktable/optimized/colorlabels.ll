@@ -52,7 +52,7 @@ define hidden range(i32 -1, 6) i32 @_get_colorlabel(ptr noundef readonly capture
 
 6:                                                ; preds = %2, %10
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %10 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !17
   %9 = icmp eq ptr %8, %1
   br i1 %9, label %.split.loop.exit, label %10
@@ -126,7 +126,7 @@ define void @gui_init(ptr noundef initializes((280, 288), (416, 424)) %0) local_
   %10 = trunc i64 %indvars.iv to i32
   %11 = or i32 %10, 136
   %12 = tail call ptr @dtgtk_button_new(ptr noundef nonnull @dtgtk_cairo_paint_label, i32 noundef %11, ptr noundef null) #10
-  %13 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   store ptr %12, ptr %13, align 8, !tbaa !17
   tail call void @dt_gui_add_class(ptr noundef %12, ptr noundef nonnull @.str.1) #10
   %14 = load ptr, ptr %13, align 8, !tbaa !17
@@ -180,7 +180,7 @@ define internal fastcc ptr @_get_tooltip_for(i32 noundef %0) unnamed_addr #2 {
   %2 = alloca [128 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds ptr, ptr @dt_colorlabels_name, i64 %3
+  %4 = getelementptr inbounds [8 x i8], ptr @dt_colorlabels_name, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !56
   %6 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 128, ptr noundef nonnull @.str.8, ptr noundef %5) #10
   %7 = call ptr @dt_conf_get_string_const(ptr noundef nonnull %2) #10
@@ -228,7 +228,7 @@ define internal void @_lib_colorlabels_button_clicked_callback(ptr noundef readn
 
 7:                                                ; preds = %11, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %11 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.i
   %9 = load ptr, ptr %8, align 8, !tbaa !17
   %10 = icmp eq ptr %9, %0
   br i1 %10, label %.split.loop.exit.i, label %11
@@ -340,7 +340,7 @@ define internal noundef i32 @_lib_colorlabels_enter_notify_callback(ptr noundef 
 
 7:                                                ; preds = %11, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %11 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.i
   %9 = load ptr, ptr %8, align 8, !tbaa !17
   %10 = icmp eq ptr %9, %0
   br i1 %10, label %.split.loop.exit.i, label %11
@@ -471,7 +471,7 @@ define internal range(i32 0, 2) i32 @_lib_colorlabels_key_press(ptr noundef %0, 
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 104
   %22 = load i32, ptr %21, align 8, !tbaa !64
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds ptr, ptr @dt_colorlabels_name, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr @dt_colorlabels_name, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !56
   %26 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 128, ptr noundef nonnull @.str.8, ptr noundef %25) #10
   call void @dt_conf_set_string(ptr noundef nonnull %4, ptr noundef %20) #10
@@ -480,7 +480,7 @@ define internal range(i32 0, 2) i32 @_lib_colorlabels_key_press(ptr noundef %0, 
   %29 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %30 = load i32, ptr %21, align 8, !tbaa !64
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds ptr, ptr %29, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %29, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !17
   call void @gtk_widget_set_tooltip_markup(ptr noundef %33, ptr noundef %28) #10
   call void @g_free(ptr noundef %28) #10

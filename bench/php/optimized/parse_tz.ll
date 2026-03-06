@@ -3,10 +3,6 @@ source_filename = "bench/php/original/parse_tz.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct._ttinfo = type { i32, i32, i32, i32, i32 }
-%struct._tlinfo = type { i64, i32 }
-%struct._timelib_tzdb_index_entry = type { ptr, i32 }
-
 @.str = private unnamed_addr constant [15 x i8] c"Africa/Abidjan\00", align 1
 @.str.1 = private unnamed_addr constant [13 x i8] c"Africa/Accra\00", align 1
 @.str.2 = private unnamed_addr constant [19 x i8] c"Africa/Addis_Ababa\00", align 1
@@ -759,7 +755,7 @@ detect_slim_file.exit:                            ; preds = %35, %39
   %86 = phi i64 [ 0, %.lr.ph ], [ %131, %85 ]
   %.066 = phi i32 [ 0, %.lr.ph ], [ %130, %85 ]
   %87 = load ptr, ptr %80, align 8, !tbaa !43
-  %88 = getelementptr inbounds nuw i64, ptr %87, i64 %86
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %86
   %89 = load i64, ptr %88, align 8, !tbaa !44
   %90 = tail call noalias dereferenceable_or_null(64) ptr @_ecalloc(i64 noundef 1, i64 noundef 64) #16
   %91 = tail call ptr @timelib_time_ctor() #17
@@ -784,7 +780,7 @@ detect_slim_file.exit:                            ; preds = %35, %39
   %108 = tail call noalias dereferenceable_or_null(64) ptr @_ecalloc(i64 noundef 1, i64 noundef 64) #16
   %109 = load ptr, ptr %61, align 8, !tbaa !35
   %110 = zext i8 %106 to i64
-  %111 = getelementptr inbounds nuw %struct._ttinfo, ptr %109, i64 %110
+  %111 = getelementptr inbounds nuw [20 x i8], ptr %109, i64 %110
   %112 = load i32, ptr %111, align 4, !tbaa !36
   %113 = sext i32 %112 to i64
   %114 = getelementptr inbounds nuw i8, ptr %111, i64 4
@@ -800,7 +796,7 @@ detect_slim_file.exit:                            ; preds = %35, %39
   %124 = load i32, ptr %123, align 4, !tbaa !42
   %125 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %108, i64 noundef 64, ptr noundef nonnull @.str.621, i32 noundef %107, i64 noundef %113, i32 noundef %115, i32 noundef %117, ptr noundef %120, i32 noundef %122, i32 noundef %124) #17
   %126 = load ptr, ptr %80, align 8, !tbaa !43
-  %127 = getelementptr inbounds nuw i64, ptr %126, i64 %86
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %86
   %128 = load i64, ptr %127, align 8, !tbaa !44
   %129 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.614, ptr noundef nonnull %90, i64 noundef %128, ptr noundef nonnull %108)
   tail call void @_efree(ptr noundef nonnull %90) #17
@@ -815,7 +811,7 @@ detect_slim_file.exit:                            ; preds = %35, %39
   %135 = phi i64 [ 0, %.lr.ph68 ], [ %160, %134 ]
   %.167 = phi i32 [ 0, %.lr.ph68 ], [ %159, %134 ]
   %136 = load ptr, ptr %83, align 8, !tbaa !43
-  %137 = getelementptr inbounds nuw i64, ptr %136, i64 %135
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %136, i64 %135
   %138 = load i64, ptr %137, align 8, !tbaa !44
   %139 = tail call noalias dereferenceable_or_null(64) ptr @_ecalloc(i64 noundef 1, i64 noundef 64) #16
   %140 = tail call ptr @timelib_time_ctor() #17
@@ -834,7 +830,7 @@ detect_slim_file.exit:                            ; preds = %35, %39
   %152 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %139, i64 noundef 64, ptr noundef nonnull @.str.622, i64 noundef %141, i64 noundef %143, i64 noundef %145, i64 noundef %147, i64 noundef %149, i64 noundef %151) #17
   tail call void @timelib_time_dtor(ptr noundef nonnull %140) #17
   %153 = load ptr, ptr %84, align 8, !tbaa !58
-  %154 = getelementptr inbounds nuw %struct._tlinfo, ptr %153, i64 %135
+  %154 = getelementptr inbounds nuw [16 x i8], ptr %153, i64 %135
   %155 = load i64, ptr %154, align 8, !tbaa !59
   %156 = getelementptr inbounds nuw i8, ptr %154, i64 8
   %157 = load i32, ptr %156, align 8, !tbaa !61
@@ -883,7 +879,7 @@ detect_slim_file.exit:                            ; preds = %35, %39
   %180 = tail call noalias dereferenceable_or_null(64) ptr @_ecalloc(i64 noundef 1, i64 noundef 64) #16
   %181 = load ptr, ptr %61, align 8, !tbaa !35
   %182 = sext i32 %179 to i64
-  %183 = getelementptr inbounds %struct._ttinfo, ptr %181, i64 %182
+  %183 = getelementptr inbounds [20 x i8], ptr %181, i64 %182
   %184 = load i32, ptr %183, align 4, !tbaa !36
   %185 = sext i32 %184 to i64
   %186 = getelementptr inbounds nuw i8, ptr %183, i64 4
@@ -912,7 +908,7 @@ detect_slim_file.exit:                            ; preds = %35, %39
   %205 = tail call noalias dereferenceable_or_null(64) ptr @_ecalloc(i64 noundef 1, i64 noundef 64) #16
   %206 = load ptr, ptr %61, align 8, !tbaa !35
   %207 = sext i32 %204 to i64
-  %208 = getelementptr inbounds %struct._ttinfo, ptr %206, i64 %207
+  %208 = getelementptr inbounds [20 x i8], ptr %206, i64 %207
   %209 = load i32, ptr %208, align 4, !tbaa !36
   %210 = sext i32 %209 to i64
   %211 = getelementptr inbounds nuw i8, ptr %208, i64 4
@@ -977,7 +973,7 @@ define hidden range(i32 0, 2) i32 @timelib_timezone_id_is_valid(ptr noundef %0, 
   %10 = lshr i32 %9, 1
   %11 = load ptr, ptr %7, align 8, !tbaa !74
   %12 = zext nneg i32 %10 to i64
-  %13 = getelementptr inbounds nuw %struct._timelib_tzdb_index_entry, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !75
   %15 = tail call i32 @timelib_strcasecmp(ptr noundef %0, ptr noundef %14) #17
   %16 = icmp slt i32 %15, 0
@@ -1028,7 +1024,7 @@ define hidden noundef ptr @timelib_parse_tzfile(ptr noundef %0, ptr noundef read
   %12 = lshr i32 %11, 1
   %13 = load ptr, ptr %9, align 8, !tbaa !74
   %14 = zext nneg i32 %12 to i64
-  %15 = getelementptr inbounds nuw %struct._timelib_tzdb_index_entry, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !75
   %17 = tail call i32 @timelib_strcasecmp(ptr noundef %0, ptr noundef %16) #17
   %18 = icmp slt i32 %17, 0
@@ -1056,7 +1052,7 @@ define hidden noundef ptr @timelib_parse_tzfile(ptr noundef %0, ptr noundef read
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %27 = load ptr, ptr %26, align 8, !tbaa !77
   %28 = load ptr, ptr %9, align 8, !tbaa !74
-  %29 = getelementptr inbounds nuw %struct._timelib_tzdb_index_entry, ptr %28, i64 %14
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %14
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load i32, ptr %30, align 8, !tbaa !78
   %32 = zext i32 %31 to i64
@@ -1262,7 +1258,7 @@ skip_32bit_transitions.exit:                      ; preds = %read_preamble.exit
 .lr.ph.i:                                         ; preds = %124, %138
   %128 = phi i64 [ %140, %138 ], [ 0, %124 ]
   %.0100112.i = phi i32 [ %139, %138 ], [ 0, %124 ]
-  %129 = getelementptr inbounds nuw i64, ptr %123, i64 %128
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %123, i64 %128
   %130 = load i64, ptr %129, align 8, !tbaa !44
   %131 = tail call noundef i64 @llvm.bswap.i64(i64 %130)
   store i64 %131, ptr %129, align 8, !tbaa !44
@@ -1272,7 +1268,7 @@ skip_32bit_transitions.exit:                      ; preds = %read_preamble.exit
 132:                                              ; preds = %.lr.ph.i
   %133 = add i32 %.0100112.i, -1
   %134 = zext i32 %133 to i64
-  %135 = getelementptr inbounds nuw i64, ptr %123, i64 %134
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %123, i64 %134
   %136 = load i64, ptr %135, align 8, !tbaa !44
   %137 = icmp sgt i64 %131, %136
   br i1 %137, label %138, label %.loopexit
@@ -1343,7 +1339,7 @@ skip_32bit_transitions.exit:                      ; preds = %read_preamble.exit
   %163 = phi i64 [ %204, %.lr.ph.i61 ], [ 0, %.preheader334.i ]
   %.0308335.i = phi i32 [ %203, %.lr.ph.i61 ], [ 0, %.preheader334.i ]
   %164 = mul i32 %.0308335.i, 6
-  %165 = getelementptr inbounds nuw %struct._ttinfo, ptr %160, i64 %163
+  %165 = getelementptr inbounds nuw [20 x i8], ptr %160, i64 %163
   %166 = zext i32 %164 to i64
   %167 = getelementptr inbounds nuw i8, ptr %153, i64 %166
   %168 = load i8, ptr %167, align 1, !tbaa !57
@@ -1437,21 +1433,21 @@ skip_32bit_transitions.exit:                      ; preds = %read_preamble.exit
   %225 = mul i32 %.1336.i, 3
   %226 = add i32 %225, 1
   %227 = zext i32 %226 to i64
-  %228 = getelementptr inbounds nuw i32, ptr %215, i64 %227
+  %228 = getelementptr inbounds nuw [4 x i8], ptr %215, i64 %227
   %229 = load i32, ptr %228, align 4, !tbaa !73
   %230 = sext i32 %229 to i64
   %231 = shl nsw i64 %230, 32
   %232 = zext i32 %225 to i64
-  %233 = getelementptr inbounds nuw i32, ptr %215, i64 %232
+  %233 = getelementptr inbounds nuw [4 x i8], ptr %215, i64 %232
   %234 = load i32, ptr %233, align 4, !tbaa !73
   %235 = sext i32 %234 to i64
   %236 = add i64 %231, %235
   %237 = tail call noundef i64 @llvm.bswap.i64(i64 %236)
-  %238 = getelementptr inbounds nuw %struct._tlinfo, ptr %221, i64 %224
+  %238 = getelementptr inbounds nuw [16 x i8], ptr %221, i64 %224
   store i64 %237, ptr %238, align 8, !tbaa !59
   %239 = add i32 %225, 2
   %240 = zext i32 %239 to i64
-  %241 = getelementptr inbounds nuw i32, ptr %215, i64 %240
+  %241 = getelementptr inbounds nuw [4 x i8], ptr %215, i64 %240
   %242 = load i32, ptr %241, align 4, !tbaa !73
   %243 = tail call noundef i32 @llvm.bswap.i32(i32 %242)
   %244 = getelementptr inbounds nuw i8, ptr %238, i64 8
@@ -1494,7 +1490,7 @@ skip_32bit_transitions.exit:                      ; preds = %read_preamble.exit
   %259 = getelementptr inbounds nuw i8, ptr %252, i64 %258
   %260 = load i8, ptr %259, align 1, !tbaa !57
   %261 = zext i8 %260 to i32
-  %262 = getelementptr inbounds nuw %struct._ttinfo, ptr %256, i64 %258
+  %262 = getelementptr inbounds nuw [20 x i8], ptr %256, i64 %258
   %263 = getelementptr inbounds nuw i8, ptr %262, i64 12
   store i32 %261, ptr %263, align 4, !tbaa !41
   %264 = add i32 %.2339.i, 1
@@ -1535,7 +1531,7 @@ skip_32bit_transitions.exit:                      ; preds = %read_preamble.exit
   %278 = getelementptr inbounds nuw i8, ptr %271, i64 %277
   %279 = load i8, ptr %278, align 1, !tbaa !57
   %280 = zext i8 %279 to i32
-  %281 = getelementptr inbounds nuw %struct._ttinfo, ptr %275, i64 %277
+  %281 = getelementptr inbounds nuw [20 x i8], ptr %275, i64 %277
   %282 = getelementptr inbounds nuw i8, ptr %281, i64 16
   store i32 %280, ptr %282, align 4, !tbaa !42
   %283 = add i32 %.3343.i, 1
@@ -1757,7 +1753,7 @@ define internal fastcc range(i32 0, 2) i32 @integrate_posix_string(ptr noundef c
 
 14:                                               ; preds = %30, %.lr.ph.i
   %.016.i = phi i64 [ 0, %.lr.ph.i ], [ %31, %30 ]
-  %15 = getelementptr inbounds nuw %struct._ttinfo, ptr %.pre.pre, i64 %.016.i
+  %15 = getelementptr inbounds nuw [20 x i8], ptr %.pre.pre, i64 %.016.i
   %16 = load i32, ptr %15, align 4, !tbaa !36
   %17 = icmp eq i32 %16, %9
   br i1 %17, label %18, label %30
@@ -1800,7 +1796,7 @@ find_ttinfo_index.exit:                           ; preds = %22
 36:                                               ; preds = %find_ttinfo_index.exit.thread, %find_ttinfo_index.exit
   %37 = phi ptr [ %.pre38, %find_ttinfo_index.exit.thread ], [ %23, %find_ttinfo_index.exit ]
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %39 = getelementptr inbounds nuw %struct._ttinfo, ptr %.pre.pre, i64 %12
+  %39 = getelementptr inbounds nuw [20 x i8], ptr %.pre.pre, i64 %12
   store i32 %9, ptr %39, align 4, !tbaa !36
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
   store i32 0, ptr %40, align 4, !tbaa !38
@@ -1822,7 +1818,7 @@ find_ttinfo_index.exit:                           ; preds = %22
   %52 = trunc i64 %42 to i32
   %53 = load ptr, ptr %38, align 8, !tbaa !35
   %54 = load i64, ptr %11, align 8, !tbaa !33
-  %55 = getelementptr inbounds nuw %struct._ttinfo, ptr %53, i64 %54
+  %55 = getelementptr inbounds nuw [20 x i8], ptr %53, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   store i32 %52, ptr %56, align 4, !tbaa !39
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 12
@@ -1851,7 +1847,7 @@ find_ttinfo_index.exit:                           ; preds = %22
 
 69:                                               ; preds = %84, %.lr.ph.i26
   %.016.i27 = phi i64 [ 0, %.lr.ph.i26 ], [ %85, %84 ]
-  %70 = getelementptr inbounds nuw %struct._ttinfo, ptr %.pre.pre, i64 %.016.i27
+  %70 = getelementptr inbounds nuw [20 x i8], ptr %.pre.pre, i64 %.016.i27
   %71 = load i32, ptr %70, align 4, !tbaa !36
   %72 = icmp eq i32 %71, %68
   br i1 %72, label %73, label %84
@@ -1889,7 +1885,7 @@ find_ttinfo_index.exit30:                         ; preds = %77
   br i1 %89, label %90, label %114
 
 90:                                               ; preds = %find_ttinfo_index.exit30.thread, %find_ttinfo_index.exit30
-  %91 = getelementptr inbounds nuw %struct._ttinfo, ptr %.pre.pre, i64 %12
+  %91 = getelementptr inbounds nuw [20 x i8], ptr %.pre.pre, i64 %12
   store i32 %68, ptr %91, align 4, !tbaa !36
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 4
   store i32 1, ptr %92, align 4, !tbaa !38
@@ -1910,7 +1906,7 @@ find_ttinfo_index.exit30:                         ; preds = %77
   %103 = trunc i64 %94 to i32
   %104 = load ptr, ptr %.phi.trans.insert.phi.trans.insert, align 8, !tbaa !35
   %105 = load i64, ptr %11, align 8, !tbaa !33
-  %106 = getelementptr inbounds nuw %struct._ttinfo, ptr %104, i64 %105
+  %106 = getelementptr inbounds nuw [20 x i8], ptr %104, i64 %105
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 8
   store i32 %103, ptr %107, align 4, !tbaa !39
   %108 = getelementptr inbounds nuw i8, ptr %106, i64 12
@@ -2157,7 +2153,7 @@ define hidden ptr @timelib_fetch_timezone_offset(ptr noundef %0, i64 noundef %1,
 
 27:                                               ; preds = %21
   %28 = add i64 %5, -1
-  %29 = getelementptr inbounds nuw i64, ptr %8, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %28
   %30 = load i64, ptr %29, align 8, !tbaa !44
   %.not51 = icmp slt i64 %1, %30
   br i1 %.not51, label %46, label %31
@@ -2182,7 +2178,7 @@ define hidden ptr @timelib_fetch_timezone_offset(ptr noundef %0, i64 noundef %1,
   %42 = getelementptr i8, ptr %41, i64 -1
   %43 = load i8, ptr %42, align 1, !tbaa !57
   %44 = zext i8 %43 to i64
-  %45 = getelementptr inbounds nuw %struct._ttinfo, ptr %38, i64 %44
+  %45 = getelementptr inbounds nuw [20 x i8], ptr %38, i64 %44
   br label %67
 
 46:                                               ; preds = %27
@@ -2196,7 +2192,7 @@ define hidden ptr @timelib_fetch_timezone_offset(ptr noundef %0, i64 noundef %1,
   %49 = add i32 %.04254, %.04353
   %50 = lshr i32 %49, 1
   %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds nuw i64, ptr %8, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %51
   %53 = load i64, ptr %52, align 8, !tbaa !44
   %54 = icmp slt i64 %1, %53
   %.043. = select i1 %54, i32 %.04353, i32 %50
@@ -2207,7 +2203,7 @@ define hidden ptr @timelib_fetch_timezone_offset(ptr noundef %0, i64 noundef %1,
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
   %.phi.trans.insert = zext nneg i32 %.043. to i64
-  %.phi.trans.insert55 = getelementptr inbounds nuw i64, ptr %8, i64 %.phi.trans.insert
+  %.phi.trans.insert55 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.phi.trans.insert
   %.pre = load i64, ptr %.phi.trans.insert55, align 8, !tbaa !44
   %57 = zext nneg i32 %.043. to i64
   br label %._crit_edge
@@ -2223,7 +2219,7 @@ define hidden ptr @timelib_fetch_timezone_offset(ptr noundef %0, i64 noundef %1,
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 %.043.lcssa
   %64 = load i8, ptr %63, align 1, !tbaa !57
   %65 = zext i8 %64 to i64
-  %66 = getelementptr inbounds nuw %struct._ttinfo, ptr %60, i64 %65
+  %66 = getelementptr inbounds nuw [20 x i8], ptr %60, i64 %65
   br label %67
 
 67:                                               ; preds = %14, %._crit_edge, %36, %34, %24, %18, %12
@@ -2308,7 +2304,7 @@ define hidden ptr @timelib_get_time_zone_info(i64 noundef %0, ptr noundef %1) lo
 
 29:                                               ; preds = %.preheader
   %30 = and i64 %indvars.iv.next.i, 2147483647
-  %31 = getelementptr inbounds nuw %struct._tlinfo, ptr %27, i64 %30
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %30
   %32 = load i64, ptr %31, align 8, !tbaa !59
   %33 = icmp sgt i64 %0, %32
   br i1 %33, label %fetch_leaptime_offset.exit, label %.preheader

@@ -32,10 +32,6 @@ module asm ".popsection\09\09\09\09\09"
 %struct.pcpu_hot = type { %union.anon.9 }
 %union.anon.9 = type { %struct.anon.10, [16 x i8] }
 %struct.anon.10 = type { ptr, i32, i32, i64, i64, ptr, i16, i8 }
-%struct.module_memory = type { ptr, i32, %struct.mod_tree_node }
-%struct.mod_tree_node = type { ptr, %struct.latch_tree_node }
-%struct.latch_tree_node = type { [2 x %struct.rb_node] }
-%struct.rb_node = type { i64, ptr, ptr }
 %struct.insn = type { %struct.insn_field, %struct.insn_field, %struct.insn_field, %struct.insn_field, %struct.insn_field, %struct.insn_field, %struct.insn_field, %union.anon.5, %union.anon.6, i32, i32, i8, i8, i8, i8, ptr, ptr, ptr }
 %struct.insn_field = type { %union.anon.4, i8, i8 }
 %union.anon.4 = type { i32 }
@@ -197,7 +193,7 @@ define dso_local noundef ptr @callthunks_translate_call_dest(ptr noundef %0) loc
   br i1 %33, label %43, label %34
 
 34:                                               ; preds = %27
-  %35 = getelementptr %struct.module_memory, ptr %26, i64 %28
+  %35 = getelementptr [72 x i8], ptr %26, i64 %28
   %36 = load ptr, ptr %35, align 8
   %37 = ptrtoint ptr %36 to i64
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
@@ -476,7 +472,7 @@ define internal fastcc void @patch_call(ptr noundef %0, ptr noundef readonly cap
   br i1 %72, label %82, label %73
 
 73:                                               ; preds = %66
-  %74 = getelementptr %struct.module_memory, ptr %65, i64 %67
+  %74 = getelementptr [72 x i8], ptr %65, i64 %67
   %75 = load ptr, ptr %74, align 8
   %76 = ptrtoint ptr %75 to i64
   %77 = getelementptr inbounds nuw i8, ptr %74, i64 8

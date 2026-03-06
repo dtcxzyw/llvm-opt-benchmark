@@ -53,18 +53,18 @@ define hidden void @aom_scale_frame(ptr noundef readonly captures(none) %0, ptr 
   %41 = zext i1 %40 to i32
   %42 = ashr i32 %15, %41
   %43 = ashr i32 %21, %41
-  %44 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv
   %45 = load ptr, ptr %44, align 8
   %46 = zext i1 %40 to i64
-  %47 = getelementptr inbounds nuw i32, ptr %24, i64 %46
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %46
   %48 = load i32, ptr %47, align 4
-  %49 = getelementptr inbounds nuw i32, ptr %0, i64 %46
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %46
   %50 = load i32, ptr %49, align 4
-  %51 = getelementptr inbounds nuw i32, ptr %17, i64 %46
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %46
   %52 = load i32, ptr %51, align 4
-  %53 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv
   %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds nuw i32, ptr %26, i64 %46
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %46
   %56 = load i32, ptr %55, align 4
   %57 = icmp slt i32 %48, 0
   %58 = add i32 %52, -1
@@ -392,11 +392,11 @@ define hidden void @aom_scale_frame(ptr noundef readonly captures(none) %0, ptr 
   br i1 %184, label %.preheader219.i, label %Scale2D.exit, !llvm.loop !12
 
 Scale2D.exit.thread:                              ; preds = %.preheader221.i, %.preheader.i
-  %185 = getelementptr inbounds nuw i32, ptr %1, i64 %46
+  %185 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %46
   br label %.loopexit81
 
 Scale2D.exit:                                     ; preds = %117, %93, %71, %._crit_edge.us245.i, %.preheader219.i, %._crit_edge.us.i, %125, %78, %136
-  %186 = getelementptr inbounds nuw i32, ptr %1, i64 %46
+  %186 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %46
   %187 = load i32, ptr %186, align 4
   %188 = icmp slt i32 %42, %187
   %189 = icmp sgt i32 %43, 0
@@ -432,7 +432,7 @@ Scale2D.exit:                                     ; preds = %117, %93, %71, %._c
 
 .loopexit81:                                      ; preds = %191, %Scale2D.exit.thread, %Scale2D.exit
   %208 = phi ptr [ %185, %Scale2D.exit.thread ], [ %186, %Scale2D.exit ], [ %186, %191 ]
-  %209 = getelementptr inbounds nuw i32, ptr %38, i64 %46
+  %209 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %46
   %210 = load i32, ptr %209, align 4
   %211 = icmp slt i32 %43, %210
   br i1 %211, label %.lr.ph90, label %.loopexit

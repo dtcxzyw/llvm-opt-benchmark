@@ -723,7 +723,7 @@ _ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit.i:   ; preds = %.noexc33, %50
   %58 = phi i32 [ %.pre2.i.i, %.noexc33 ], [ %52, %50 ]
   %59 = getelementptr inbounds i8, ptr %57, i64 -4
   %60 = zext i32 %58 to i64
-  %61 = getelementptr inbounds nuw ptr, ptr %57, i64 %60
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %60
   store ptr %48, ptr %61, align 8, !tbaa !168
   %62 = add i32 %58, 1
   store i32 %62, ptr %59, align 4, !tbaa !167
@@ -949,7 +949,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   %143 = phi i32 [ %.pre2.i.i48, %.noexc49 ], [ %137, %135 ]
   %144 = getelementptr inbounds i8, ptr %142, i64 -4
   %145 = zext i32 %143 to i64
-  %146 = getelementptr inbounds nuw ptr, ptr %142, i64 %145
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %142, i64 %145
   store ptr %127, ptr %146, align 8, !tbaa !168
   %147 = add i32 %143, 1
   store i32 %147, ptr %144, align 4, !tbaa !167
@@ -1277,7 +1277,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_127lemma_inductive_generaliz
   %indvars.iv = phi i64 [ %21, %.lr.ph ], [ %indvars.iv.next, %_ZN12_GLOBAL__N_127lemma_inductive_generalizer11generalize1Ej.exit ]
   %.0714 = phi i32 [ 0, %.lr.ph ], [ %229, %_ZN12_GLOBAL__N_127lemma_inductive_generalizer11generalize1Ej.exit ]
   %23 = load ptr, ptr %9, align 8, !tbaa !165
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !168
   %.val.i = load i8, ptr %10, align 8, !tbaa !140, !range !178, !noundef !179
   %.val13.i = load i32, ptr %11, align 8
@@ -1480,8 +1480,8 @@ _ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i:       ; preds = %._crit_edge.i.i.i
 
 110:                                              ; preds = %110, %.lr.ph.i.i.i.i.i.i
   %indvars.iv.i.i.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i.i ], [ %indvars.iv.next.i.i.i.i.i.i, %110 ]
-  %111 = getelementptr inbounds nuw ptr, ptr %106, i64 %indvars.iv.i.i.i.i.i.i
-  %112 = getelementptr inbounds nuw ptr, ptr %.pre.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %indvars.iv.i.i.i.i.i.i
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i
   %113 = load ptr, ptr %112, align 8, !tbaa !225
   store ptr %113, ptr %111, align 8, !tbaa !225
   %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i, 1
@@ -1498,7 +1498,7 @@ _ZN6bufferIP3astLb0ELj16EE9push_backERKS1_.exit.i.i.i.i: ; preds = %_ZN6bufferIP
   %114 = phi i32 [ %100, %._crit_edge.i.i.i.i.i ], [ %.pre2.i.i.i.i.i, %_ZN6bufferIP3astLb0ELj16EE6expandEv.exit.i.i.i.i.i ]
   %115 = phi ptr [ %.pre.i.i.i.i.i, %._crit_edge.i.i.i.i.i ], [ %106, %_ZN6bufferIP3astLb0ELj16EE6expandEv.exit.i.i.i.i.i ]
   %116 = zext i32 %114 to i64
-  %117 = getelementptr inbounds nuw ptr, ptr %115, i64 %116
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %115, i64 %116
   store ptr %94, ptr %117, align 8, !tbaa !225
   %118 = add i32 %114, 1
   store i32 %118, ptr %19, align 8, !tbaa !223
@@ -1567,7 +1567,7 @@ common.resume:                                    ; preds = %_ZNSt7__cxx1112basi
 .lr.ph37.i.i.i:                                   ; preds = %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i, %147
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %147 ], [ %indvars.iv, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i ]
   %.036.i.i.i = phi i32 [ %.1.i.i.i, %147 ], [ 0, %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i ]
-  %137 = getelementptr inbounds nuw ptr, ptr %86, i64 %indvars.iv.i.i.i
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %indvars.iv.i.i.i
   %138 = load ptr, ptr %137, align 8, !tbaa !168
   %139 = load ptr, ptr %14, align 8, !tbaa !131
   %140 = icmp eq ptr %138, %139
@@ -1609,7 +1609,7 @@ _ZN12_GLOBAL__N_127lemma_inductive_generalizer15generalize_coreEj.exit.i: ; pred
   %153 = phi ptr [ %61, %.lr.ph.i ], [ %228, %226 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %226 ]
   %154 = load ptr, ptr %9, align 8, !tbaa !165
-  %155 = getelementptr inbounds nuw ptr, ptr %154, i64 %indvars.iv.i
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %154, i64 %indvars.iv.i
   %156 = load ptr, ptr %155, align 8, !tbaa !168
   %157 = load ptr, ptr %14, align 8, !tbaa !131
   %158 = icmp eq ptr %156, %157
@@ -1764,7 +1764,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   %221 = phi i32 [ %.pre2.i.i.i, %_ZN6vectorIP4exprLb0EjE13expand_vectorEv.exit ], [ %168, %166 ]
   %222 = getelementptr inbounds i8, ptr %220, i64 -4
   %223 = zext i32 %221 to i64
-  %224 = getelementptr inbounds nuw ptr, ptr %220, i64 %223
+  %224 = getelementptr inbounds nuw [8 x i8], ptr %220, i64 %223
   store ptr %156, ptr %224, align 8, !tbaa !168
   %225 = add i32 %221, 1
   store i32 %225, ptr %222, align 4, !tbaa !167
@@ -1823,7 +1823,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_127lemma_inductive_generaliz
   %indvars.iv = phi i64 [ %25, %.lr.ph ], [ %indvars.iv.next, %_ZN12_GLOBAL__N_127lemma_inductive_generalizer7weaken1Ej.exit ]
   %.0734 = phi i32 [ 0, %.lr.ph ], [ %307, %_ZN12_GLOBAL__N_127lemma_inductive_generalizer7weaken1Ej.exit ]
   %27 = load ptr, ptr %11, align 8, !tbaa !165
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8, !tbaa !168
   %.val.i = load i8, ptr %12, align 8, !tbaa !140, !range !178, !noundef !179
   %.val34.i = load i32, ptr %13, align 8
@@ -1887,7 +1887,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.
   %.phi.trans.insert.i.i.i = getelementptr inbounds i8, ptr %.pre.i.i.i, i64 -4
   %.pre2.i.i.i = load i32, ptr %.phi.trans.insert.i.i.i, align 4, !tbaa !167
   %57 = zext i32 %.pre2.i.i.i to i64
-  %58 = getelementptr inbounds nuw ptr, ptr %.pre.i.i.i, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i.i.i, i64 %57
   store ptr %29, ptr %58, align 8, !tbaa !168
   %59 = add i32 %.pre2.i.i.i, 1
   store i32 %59, ptr %.phi.trans.insert.i.i.i, align 4, !tbaa !167
@@ -2080,7 +2080,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i17: ; pre
   %129 = phi ptr [ %.pre.i.i, %.noexc37.i ], [ %76, %78 ]
   %130 = getelementptr inbounds i8, ptr %129, i64 -4
   %131 = zext i32 %128 to i64
-  %132 = getelementptr inbounds nuw ptr, ptr %129, i64 %131
+  %132 = getelementptr inbounds nuw [8 x i8], ptr %129, i64 %131
   store ptr %75, ptr %132, align 8, !tbaa !168
   %133 = add i32 %128, 1
   store i32 %133, ptr %130, align 4, !tbaa !167
@@ -2230,7 +2230,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.thread.i: ; preds
   %191 = phi ptr [ %.pre.i.i40.i, %.noexc43.i ], [ %138, %140 ]
   %192 = getelementptr inbounds i8, ptr %191, i64 -4
   %193 = zext i32 %190 to i64
-  %194 = getelementptr inbounds nuw ptr, ptr %191, i64 %193
+  %194 = getelementptr inbounds nuw [8 x i8], ptr %191, i64 %193
   store ptr %75, ptr %194, align 8, !tbaa !168
   %195 = add i32 %190, 1
   store i32 %195, ptr %192, align 4, !tbaa !167
@@ -2318,7 +2318,7 @@ _ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i.i.i:       ; preds = %_ZN15ref_vector_cor
   %227 = phi ptr [ %220, %.lr.ph.i.i.i ], [ %255, %253 ]
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %253 ]
   %228 = load ptr, ptr %11, align 8, !tbaa !165
-  %229 = getelementptr inbounds nuw ptr, ptr %228, i64 %indvars.iv.i.i.i
+  %229 = getelementptr inbounds nuw [8 x i8], ptr %228, i64 %indvars.iv.i.i.i
   %230 = load ptr, ptr %229, align 8, !tbaa !168
   %231 = load ptr, ptr %14, align 8, !tbaa !131
   %232 = icmp eq ptr %230, %231
@@ -2363,7 +2363,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   %248 = phi i32 [ %.pre2.i.i.i.i.i, %.noexc50.i ], [ %241, %239 ]
   %249 = getelementptr inbounds i8, ptr %247, i64 -4
   %250 = zext i32 %248 to i64
-  %251 = getelementptr inbounds nuw ptr, ptr %247, i64 %250
+  %251 = getelementptr inbounds nuw [8 x i8], ptr %247, i64 %250
   store ptr %230, ptr %251, align 8, !tbaa !168
   %252 = add i32 %248, 1
   store i32 %252, ptr %249, align 4, !tbaa !167
@@ -2417,7 +2417,7 @@ _ZN12_GLOBAL__N_127lemma_inductive_generalizer17is_cube_inductiveEv.exit.i: ; pr
 
 _ZN6vectorIP4exprLb0EjE6shrinkEj.exit.i:          ; preds = %_ZN12_GLOBAL__N_127lemma_inductive_generalizer17is_cube_inductiveEv.exit.i, %_ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE5emptyEv.exit.i.i, %_ZN12_GLOBAL__N_127lemma_inductive_generalizer17load_cube_to_coreEv.exit.i.i, %61
   %273 = load ptr, ptr %11, align 8, !tbaa !165
-  %274 = getelementptr inbounds nuw ptr, ptr %273, i64 %indvars.iv
+  %274 = getelementptr inbounds nuw [8 x i8], ptr %273, i64 %indvars.iv
   store ptr %29, ptr %274, align 8, !tbaa !168
   %275 = getelementptr inbounds i8, ptr %273, i64 -4
   store i32 %49, ptr %275, align 4, !tbaa !167

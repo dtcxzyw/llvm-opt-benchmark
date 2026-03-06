@@ -45,7 +45,7 @@ define internal range(i32 0, 101) i32 @tedcaptions_read_probe(ptr noundef readon
 .preheader:                                       ; preds = %1, %18
   %indvars.iv = phi i64 [ %indvars.iv.next, %18 ], [ 0, %1 ]
   %.021 = phi i32 [ %.1, %18 ], [ 0, %1 ]
-  %7 = getelementptr inbounds nuw ptr, ptr @tedcaptions_read_probe.tags, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @tedcaptions_read_probe.tags, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !12
   %9 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %8) #6
   %.not19 = icmp eq ptr %9, null
@@ -294,7 +294,7 @@ select.unfold37:                                  ; preds = %.critedge.i.i76.i, 
 skip_spaces.exit.preheader.i.i:                   ; preds = %select.unfold37, %skip_spaces.exit.i78.i
   %102 = phi i1 [ false, %skip_spaces.exit.i78.i ], [ true, %select.unfold37 ]
   %indvars.iv.i.i = phi i64 [ 1, %skip_spaces.exit.i78.i ], [ 0, %select.unfold37 ]
-  %103 = getelementptr inbounds nuw ptr, ptr @parse_boolean.text, i64 %indvars.iv.i.i
+  %103 = getelementptr inbounds nuw [8 x i8], ptr @parse_boolean.text, i64 %indvars.iv.i.i
   %104 = load ptr, ptr %103, align 8, !tbaa !12
   %105 = load i8, ptr %104, align 1, !tbaa !11
   %106 = sext i8 %105 to i32
@@ -691,7 +691,7 @@ select.unfold45:                                  ; preds = %81, %191, %122, %25
 
 267:                                              ; preds = %.lr.ph, %267
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %267 ]
-  %268 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %indvars.iv
+  %268 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %indvars.iv
   %269 = load ptr, ptr %268, align 8, !tbaa !51
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 8
   %271 = load i64, ptr %270, align 8, !tbaa !43
@@ -703,7 +703,7 @@ select.unfold45:                                  ; preds = %81, %191, %122, %25
 
 ._crit_edge:                                      ; preds = %267, %260
   %273 = sext i32 %263 to i64
-  %274 = getelementptr ptr, ptr %.pre, i64 %273
+  %274 = getelementptr [8 x i8], ptr %.pre, i64 %273
   %275 = getelementptr i8, ptr %274, i64 -8
   %276 = load ptr, ptr %275, align 8, !tbaa !51
   %277 = getelementptr inbounds nuw i8, ptr %26, i64 16

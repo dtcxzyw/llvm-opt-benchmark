@@ -1348,7 +1348,7 @@ put_bits.exit74.i:                                ; preds = %626, %621, %610
   %634 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i
   %635 = load i8, ptr %634, align 1, !tbaa !38
   %636 = zext i8 %635 to i64
-  %637 = getelementptr inbounds nuw i16, ptr %6, i64 %636
+  %637 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %636
   %638 = load i16, ptr %637, align 2, !tbaa !52
   %639 = zext i16 %638 to i32
   %640 = icmp sgt i32 %632, 8
@@ -1478,7 +1478,7 @@ put_bits.exit86.i:                                ; preds = %699, %691, %681
   %704 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv4.i
   %705 = load i8, ptr %704, align 1, !tbaa !38
   %706 = zext i8 %705 to i64
-  %707 = getelementptr inbounds nuw i16, ptr %7, i64 %706
+  %707 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %706
   %708 = load i16, ptr %707, align 2, !tbaa !52
   %709 = zext i16 %708 to i32
   %710 = icmp sgt i32 %702, 8
@@ -4074,7 +4074,7 @@ define void @ff_mjpeg_build_huffman_codes(ptr noundef writeonly captures(none) %
   %17 = zext i8 %16 to i64
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 %17
   store i8 %10, ptr %18, align 1, !tbaa !38
-  %19 = getelementptr inbounds nuw i16, ptr %1, i64 %17
+  %19 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %17
   store i16 %.11820, ptr %19, align 2, !tbaa !52
   %20 = add i16 %.11820, 1
   %21 = add nuw nsw i32 %.01621, 1
@@ -4252,7 +4252,7 @@ put_bits.exit:                                    ; preds = %15, %37
   %49 = getelementptr inbounds nuw i8, ptr %2, i64 %48
   %50 = load i8, ptr %49, align 1, !tbaa !38
   %51 = zext i8 %50 to i32
-  %52 = getelementptr inbounds nuw i16, ptr %3, i64 %48
+  %52 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %48
   %53 = load i16, ptr %52, align 2, !tbaa !52
   %54 = zext i16 %53 to i32
   %55 = load i32, ptr %0, align 8, !tbaa !33

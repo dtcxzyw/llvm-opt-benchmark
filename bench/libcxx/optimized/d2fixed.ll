@@ -218,7 +218,7 @@ define hidden { ptr, i32 } @_ZNSt3__120__d2fixed_buffered_nB8ne210000EPcS0_dj(pt
   %reass.sub = sub i32 %35, %.0209
   %36 = shl nuw nsw i64 %.0210, 8
   %37 = zext nneg i32 %33 to i64
-  %38 = getelementptr inbounds nuw i16, ptr @_ZNSt3__114__POW10_OFFSETE, i64 %37
+  %38 = getelementptr inbounds nuw [2 x i8], ptr @_ZNSt3__114__POW10_OFFSETE, i64 %37
   %39 = load i16, ptr %38, align 2, !tbaa !10
   %40 = zext nneg i64 %36 to i128
   %41 = zext nneg i32 %reass.sub to i64
@@ -231,7 +231,7 @@ define hidden { ptr, i32 } @_ZNSt3__120__d2fixed_buffered_nB8ne210000EPcS0_dj(pt
   %47 = udiv i16 %.lhs.trunc, 9
   %48 = zext nneg i16 %47 to i64
   %49 = zext i16 %39 to i64
-  %invariant.gep = getelementptr [3 x i64], ptr @_ZNSt3__113__POW10_SPLITE, i64 %49
+  %invariant.gep = getelementptr [24 x i8], ptr @_ZNSt3__113__POW10_SPLITE, i64 %49
   br label %50
 
 50:                                               ; preds = %.lr.ph, %.backedge
@@ -239,7 +239,7 @@ define hidden { ptr, i32 } @_ZNSt3__120__d2fixed_buffered_nB8ne210000EPcS0_dj(pt
   %.2195349 = phi ptr [ %0, %.lr.ph ], [ %.2195.be, %.backedge ]
   %.1212348 = phi i8 [ 0, %.lr.ph ], [ %.1212.be, %.backedge ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %gep = getelementptr [3 x i64], ptr %invariant.gep, i64 %indvars.iv.next
+  %gep = getelementptr [24 x i8], ptr %invariant.gep, i64 %indvars.iv.next
   %51 = load i64, ptr %gep, align 8, !tbaa !12
   %52 = zext i64 %51 to i128
   %53 = mul nuw nsw i128 %52, %40
@@ -575,7 +575,7 @@ _ZNSt3__116__decimalLength9B8ne210000Ej.exit:     ; preds = %144, %146, %148, %1
 .lr.ph356:                                        ; preds = %242, %251
   %.10422 = phi ptr [ %252, %251 ], [ %.8, %242 ]
   %.0217421 = phi i64 [ %253, %251 ], [ 0, %242 ]
-  %254 = getelementptr inbounds nuw i16, ptr @_ZNSt3__116__POW10_OFFSET_2E, i64 %231
+  %254 = getelementptr inbounds nuw [2 x i8], ptr @_ZNSt3__116__POW10_OFFSET_2E, i64 %231
   %255 = load i16, ptr %254, align 2, !tbaa !10
   %256 = zext i16 %255 to i32
   %invariant.op = sub nsw i32 %256, %234
@@ -615,7 +615,7 @@ _ZNSt3__116__decimalLength9B8ne210000Ej.exit:     ; preds = %144, %146, %148, %1
   %.11354480 = phi ptr [ %421, %420 ], [ %.10422, %.lr.ph356 ]
   %indvars.iv393479 = phi i64 [ %indvars.iv.next394, %420 ], [ %.0217421, %.lr.ph356 ]
   %274 = zext nneg i32 %.reass481 to i64
-  %275 = getelementptr inbounds nuw [3 x i64], ptr @_ZNSt3__115__POW10_SPLIT_2E, i64 %274
+  %275 = getelementptr inbounds nuw [24 x i8], ptr @_ZNSt3__115__POW10_SPLIT_2E, i64 %274
   %276 = load i64, ptr %275, align 8, !tbaa !12
   %277 = zext i64 %276 to i128
   %278 = mul nuw nsw i128 %277, %262
@@ -998,7 +998,7 @@ define hidden { ptr, i32 } @_ZNSt3__118__d2exp_buffered_nB8ne210000EPcS0_dj(ptr 
   %reass.sub = sub i32 %39, %.0233
   %40 = shl nuw nsw i64 %.0241, 8
   %41 = zext nneg i32 %37 to i64
-  %42 = getelementptr inbounds nuw i16, ptr @_ZNSt3__114__POW10_OFFSETE, i64 %41
+  %42 = getelementptr inbounds nuw [2 x i8], ptr @_ZNSt3__114__POW10_OFFSETE, i64 %41
   %43 = load i16, ptr %42, align 2, !tbaa !10
   %44 = zext nneg i64 %40 to i128
   %45 = zext nneg i32 %reass.sub to i64
@@ -1011,7 +1011,7 @@ define hidden { ptr, i32 } @_ZNSt3__118__d2exp_buffered_nB8ne210000EPcS0_dj(ptr 
   %51 = udiv i16 %.lhs.trunc, 9
   %52 = zext nneg i16 %51 to i64
   %53 = zext i16 %43 to i64
-  %invariant.gep = getelementptr [3 x i64], ptr @_ZNSt3__113__POW10_SPLITE, i64 %53
+  %invariant.gep = getelementptr [24 x i8], ptr @_ZNSt3__113__POW10_SPLITE, i64 %53
   br label %54
 
 54:                                               ; preds = %.lr.ph, %239
@@ -1020,7 +1020,7 @@ define hidden { ptr, i32 } @_ZNSt3__118__d2exp_buffered_nB8ne210000EPcS0_dj(ptr 
   %.1252486 = phi i32 [ 0, %.lr.ph ], [ %.3254, %239 ]
   %.1273485 = phi i32 [ 0, %.lr.ph ], [ %.3275, %239 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %gep = getelementptr [3 x i64], ptr %invariant.gep, i64 %indvars.iv.next
+  %gep = getelementptr [24 x i8], ptr %invariant.gep, i64 %indvars.iv.next
   %55 = load i64, ptr %gep, align 8, !tbaa !12
   %56 = zext i64 %55 to i128
   %57 = mul nuw nsw i128 %56, %44
@@ -1327,7 +1327,7 @@ _ZNSt3__117__append_d_digitsB8ne210000EjjPc.exit: ; preds = %219, %228
   %244 = getelementptr inbounds nuw i8, ptr @_ZNSt3__113__MIN_BLOCK_2E, i64 %243
   %245 = load i8, ptr %244, align 1, !tbaa !6
   %246 = zext i8 %245 to i32
-  %247 = getelementptr inbounds nuw i16, ptr @_ZNSt3__116__POW10_OFFSET_2E, i64 %243
+  %247 = getelementptr inbounds nuw [2 x i8], ptr @_ZNSt3__116__POW10_OFFSET_2E, i64 %243
   %248 = load i16, ptr %247, align 2, !tbaa !10
   %249 = zext i16 %248 to i32
   %invariant.op = sub nsw i32 %249, %246
@@ -1358,7 +1358,7 @@ _ZNSt3__117__append_d_digitsB8ne210000EjjPc.exit: ; preds = %219, %228
 
 263:                                              ; preds = %261
   %264 = zext nneg i32 %.reass to i64
-  %265 = getelementptr inbounds nuw [3 x i64], ptr @_ZNSt3__115__POW10_SPLIT_2E, i64 %264
+  %265 = getelementptr inbounds nuw [24 x i8], ptr @_ZNSt3__115__POW10_SPLIT_2E, i64 %264
   %266 = load i64, ptr %265, align 8, !tbaa !12
   %267 = zext i64 %266 to i128
   %268 = mul nuw nsw i128 %267, %255

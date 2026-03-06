@@ -843,7 +843,7 @@ define linkonce_odr dso_local void @_ZN6google8protobuf16RepeatedPtrFieldIN4onnx
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx10GraphProtoEE6DeleteEPS4_PNS0_5ArenaE.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx10GraphProtoEE6DeleteEPS4_PNS0_5ArenaE.exit ]
-  %11 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !74
   %13 = icmp eq ptr %12, null
   br i1 %13, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx10GraphProtoEE6DeleteEPS4_PNS0_5ArenaE.exit, label %14
@@ -894,7 +894,7 @@ define linkonce_odr dso_local void @_ZN6google8protobuf16RepeatedPtrFieldIN4onnx
 
 .lr.ph.i:                                         ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx11TensorProtoEE6DeleteEPS4_PNS0_5ArenaE.exit.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx11TensorProtoEE6DeleteEPS4_PNS0_5ArenaE.exit.i ]
-  %11 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i
   %12 = load ptr, ptr %11, align 8, !tbaa !74
   %13 = icmp eq ptr %12, null
   br i1 %13, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx11TensorProtoEE6DeleteEPS4_PNS0_5ArenaE.exit.i, label %14
@@ -1062,9 +1062,9 @@ _ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traits
 
 .lr.ph.i.i.i:                                     ; preds = %.noexc44, %.lr.ph.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %.noexc44 ]
-  %73 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv.i.i.i
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv.i.i.i
   %74 = load ptr, ptr %73, align 8, !tbaa !74
-  %75 = getelementptr inbounds nuw ptr, ptr %62, i64 %indvars.iv.i.i.i
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %indvars.iv.i.i.i
   %76 = load ptr, ptr %75, align 8, !tbaa !74
   invoke void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx11TensorProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(248) %74, ptr noundef %76)
           to label %.noexc44 unwind label %.loopexit.split-lp101.loopexit
@@ -1076,7 +1076,7 @@ _ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traits
 
 .lr.ph6.i.i.i:                                    ; preds = %.noexc46, %.lr.ph6.preheader.i.i.i
   %indvars.iv8.i.i.i = phi i64 [ %72, %.lr.ph6.preheader.i.i.i ], [ %indvars.iv.next9.i.i.i, %.noexc46 ]
-  %77 = getelementptr inbounds ptr, ptr %61, i64 %indvars.iv8.i.i.i
+  %77 = getelementptr inbounds [8 x i8], ptr %61, i64 %indvars.iv8.i.i.i
   %78 = load ptr, ptr %77, align 8, !tbaa !74
   %79 = invoke noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4onnx11TensorProtoEJEEEPT_PS1_DpOT0_(ptr noundef %70)
           to label %.noexc45 unwind label %.loopexit100
@@ -1086,7 +1086,7 @@ _ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traits
           to label %.noexc46 unwind label %.loopexit100
 
 .noexc46:                                         ; preds = %.noexc45
-  %80 = getelementptr inbounds ptr, ptr %62, i64 %indvars.iv8.i.i.i
+  %80 = getelementptr inbounds [8 x i8], ptr %62, i64 %indvars.iv8.i.i.i
   store ptr %79, ptr %80, align 8, !tbaa !74
   %indvars.iv.next9.i.i.i = add nsw i64 %indvars.iv8.i.i.i, 1
   %lftr.wideiv.i.i.i = trunc i64 %indvars.iv.next9.i.i.i to i32
@@ -1147,9 +1147,9 @@ _ZN6google8protobuf16RepeatedPtrFieldIN4onnx11TensorProtoEEC2ERKS4_.exit: ; pred
 
 .lr.ph.i.i.i58:                                   ; preds = %.noexc63, %.lr.ph.preheader.i.i.i56
   %indvars.iv.i.i.i59 = phi i64 [ 0, %.lr.ph.preheader.i.i.i56 ], [ %indvars.iv.next.i.i.i60, %.noexc63 ]
-  %105 = getelementptr inbounds nuw ptr, ptr %93, i64 %indvars.iv.i.i.i59
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %indvars.iv.i.i.i59
   %106 = load ptr, ptr %105, align 8, !tbaa !74
-  %107 = getelementptr inbounds nuw ptr, ptr %94, i64 %indvars.iv.i.i.i59
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %indvars.iv.i.i.i59
   %108 = load ptr, ptr %107, align 8, !tbaa !74
   invoke void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx10GraphProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(184) %106, ptr noundef %108)
           to label %.noexc63 unwind label %.loopexit.split-lp.loopexit
@@ -1161,7 +1161,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN4onnx11TensorProtoEEC2ERKS4_.exit: ; pred
 
 .lr.ph6.i.i.i51:                                  ; preds = %.noexc65, %.lr.ph6.preheader.i.i.i50
   %indvars.iv8.i.i.i52 = phi i64 [ %104, %.lr.ph6.preheader.i.i.i50 ], [ %indvars.iv.next9.i.i.i53, %.noexc65 ]
-  %109 = getelementptr inbounds ptr, ptr %93, i64 %indvars.iv8.i.i.i52
+  %109 = getelementptr inbounds [8 x i8], ptr %93, i64 %indvars.iv8.i.i.i52
   %110 = load ptr, ptr %109, align 8, !tbaa !74
   %111 = invoke noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4onnx10GraphProtoEJEEEPT_PS1_DpOT0_(ptr noundef %102)
           to label %.noexc64 unwind label %.loopexit
@@ -1171,7 +1171,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN4onnx11TensorProtoEEC2ERKS4_.exit: ; pred
           to label %.noexc65 unwind label %.loopexit
 
 .noexc65:                                         ; preds = %.noexc64
-  %112 = getelementptr inbounds ptr, ptr %94, i64 %indvars.iv8.i.i.i52
+  %112 = getelementptr inbounds [8 x i8], ptr %94, i64 %indvars.iv8.i.i.i52
   store ptr %111, ptr %112, align 8, !tbaa !74
   %indvars.iv.next9.i.i.i53 = add nsw i64 %indvars.iv8.i.i.i52, 1
   %lftr.wideiv.i.i.i54 = trunc i64 %indvars.iv.next9.i.i.i53 to i32
@@ -1584,7 +1584,7 @@ _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx10GraphProtoEE6DeleteEPS4_PNS0_5ArenaE.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx10GraphProtoEE6DeleteEPS4_PNS0_5ArenaE.exit ]
-  %34 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv
   %35 = load ptr, ptr %34, align 8, !tbaa !74
   %36 = icmp eq ptr %35, null
   br i1 %36, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx10GraphProtoEE6DeleteEPS4_PNS0_5ArenaE.exit, label %37
@@ -1631,7 +1631,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN4onnx10GraphProtoEED2Ev.exit: ; preds = %
 
 .lr.ph.i.i:                                       ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx11TensorProtoEE6DeleteEPS4_PNS0_5ArenaE.exit.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx11TensorProtoEE6DeleteEPS4_PNS0_5ArenaE.exit.i.i ]
-  %48 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv.i.i
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv.i.i
   %49 = load ptr, ptr %48, align 8, !tbaa !74
   %50 = icmp eq ptr %49, null
   br i1 %50, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx11TensorProtoEE6DeleteEPS4_PNS0_5ArenaE.exit.i.i, label %51
@@ -1849,7 +1849,7 @@ define dso_local void @_ZN4onnx14AttributeProto5ClearEv(ptr noundef nonnull alig
 11:                                               ; preds = %11, %7
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %11 ], [ 0, %7 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.i.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i.i
   %13 = load ptr, ptr %12, align 8, !tbaa !74
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 0, ptr %14, align 8, !tbaa !96
@@ -1878,7 +1878,7 @@ _ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traits
 24:                                               ; preds = %24, %20
   %indvars.iv.i.i16 = phi i64 [ %indvars.iv.next.i.i17, %24 ], [ 0, %20 ]
   %indvars.iv.next.i.i17 = add nuw nsw i64 %indvars.iv.i.i16, 1
-  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv.i.i16
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv.i.i16
   %26 = load ptr, ptr %25, align 8, !tbaa !74
   tail call void @_ZN4onnx11TensorProto5ClearEv(ptr noundef nonnull align 8 dereferenceable(248) %26)
   %exitcond.not.i.i18 = icmp eq i64 %indvars.iv.next.i.i17, %wide.trip.count.i.i15
@@ -1904,7 +1904,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN4onnx11TensorProtoEE5ClearEv.exit: ; pred
 35:                                               ; preds = %35, %31
   %indvars.iv = phi i64 [ %indvars.iv.next, %35 ], [ 0, %31 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %36 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8, !tbaa !74
   tail call void @_ZN4onnx10GraphProto5ClearEv(ptr noundef nonnull align 8 dereferenceable(184) %37)
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2061,7 +2061,7 @@ define dso_local void @_ZN4onnx11TensorProto5ClearEv(ptr noundef nonnull align 8
 12:                                               ; preds = %12, %8
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %12 ], [ 0, %8 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.i.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.i.i
   %14 = load ptr, ptr %13, align 8, !tbaa !74
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   store i64 0, ptr %15, align 8, !tbaa !96
@@ -2096,7 +2096,7 @@ _ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traits
 28:                                               ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx22StringStringEntryProtoEE5ClearEPS4_.exit.i.i, %24
   %indvars.iv.i.i12 = phi i64 [ %indvars.iv.next.i.i13, %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx22StringStringEntryProtoEE5ClearEPS4_.exit.i.i ], [ 0, %24 ]
   %indvars.iv.next.i.i13 = add nuw nsw i64 %indvars.iv.i.i12, 1
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv.i.i12
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv.i.i12
   %30 = load ptr, ptr %29, align 8, !tbaa !74
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load i32, ptr %31, align 4, !tbaa !50
@@ -2308,7 +2308,7 @@ define dso_local void @_ZN4onnx10GraphProto5ClearEv(ptr noundef nonnull align 8 
 9:                                                ; preds = %9, %5
   %indvars.iv = phi i64 [ %indvars.iv.next, %9 ], [ 0, %5 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !74
   tail call void @_ZN4onnx9NodeProto5ClearEv(ptr noundef nonnull align 8 dereferenceable(128) %11)
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2334,7 +2334,7 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase5ClearINS0_16RepeatedPtrFieldI
 20:                                               ; preds = %20, %16
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %20 ], [ 0, %16 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %21 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv.i.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv.i.i
   %22 = load ptr, ptr %21, align 8, !tbaa !74
   tail call void @_ZN4onnx11TensorProto5ClearEv(ptr noundef nonnull align 8 dereferenceable(248) %22)
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -2360,7 +2360,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN4onnx11TensorProtoEE5ClearEv.exit: ; pred
 31:                                               ; preds = %31, %27
   %indvars.iv.i.i6 = phi i64 [ %indvars.iv.next.i.i7, %31 ], [ 0, %27 ]
   %indvars.iv.next.i.i7 = add nuw nsw i64 %indvars.iv.i.i6, 1
-  %32 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv.i.i6
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv.i.i6
   %33 = load ptr, ptr %32, align 8, !tbaa !74
   tail call void @_ZN4onnx14ValueInfoProto5ClearEv(ptr noundef nonnull align 8 dereferenceable(48) %33)
   %exitcond.not.i.i8 = icmp eq i64 %indvars.iv.next.i.i7, %wide.trip.count.i.i5
@@ -2386,7 +2386,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN4onnx14ValueInfoProtoEE5ClearEv.exit: ; p
 42:                                               ; preds = %42, %38
   %indvars.iv.i.i10 = phi i64 [ %indvars.iv.next.i.i11, %42 ], [ 0, %38 ]
   %indvars.iv.next.i.i11 = add nuw nsw i64 %indvars.iv.i.i10, 1
-  %43 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv.i.i10
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv.i.i10
   %44 = load ptr, ptr %43, align 8, !tbaa !74
   tail call void @_ZN4onnx14ValueInfoProto5ClearEv(ptr noundef nonnull align 8 dereferenceable(48) %44)
   %exitcond.not.i.i12 = icmp eq i64 %indvars.iv.next.i.i11, %wide.trip.count.i.i9
@@ -2412,7 +2412,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN4onnx14ValueInfoProtoEE5ClearEv.exit13: ;
 53:                                               ; preds = %53, %49
   %indvars.iv.i.i15 = phi i64 [ %indvars.iv.next.i.i16, %53 ], [ 0, %49 ]
   %indvars.iv.next.i.i16 = add nuw nsw i64 %indvars.iv.i.i15, 1
-  %54 = getelementptr inbounds nuw ptr, ptr %52, i64 %indvars.iv.i.i15
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %indvars.iv.i.i15
   %55 = load ptr, ptr %54, align 8, !tbaa !74
   tail call void @_ZN4onnx14ValueInfoProto5ClearEv(ptr noundef nonnull align 8 dereferenceable(48) %55)
   %exitcond.not.i.i17 = icmp eq i64 %indvars.iv.next.i.i16, %wide.trip.count.i.i14
@@ -2438,7 +2438,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN4onnx14ValueInfoProtoEE5ClearEv.exit18: ;
 64:                                               ; preds = %64, %60
   %indvars.iv.i.i20 = phi i64 [ %indvars.iv.next.i.i21, %64 ], [ 0, %60 ]
   %indvars.iv.next.i.i21 = add nuw nsw i64 %indvars.iv.i.i20, 1
-  %65 = getelementptr inbounds nuw ptr, ptr %63, i64 %indvars.iv.i.i20
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %indvars.iv.i.i20
   %66 = load ptr, ptr %65, align 8, !tbaa !74
   tail call void @_ZN4onnx16TensorAnnotation5ClearEv(ptr noundef nonnull align 8 dereferenceable(56) %66)
   %exitcond.not.i.i22 = icmp eq i64 %indvars.iv.next.i.i21, %wide.trip.count.i.i19
@@ -2985,7 +2985,7 @@ _ZN6google8protobuf8internal12ParseContext12ParseMessageIN4onnx10GraphProtoEEEPK
 _ZN4onnx14AttributeProto20_internal_add_floatsEf.exit: ; preds = %233, %239
   %240 = load ptr, ptr %30, align 8, !tbaa !66
   %241 = zext i32 %234 to i64
-  %242 = getelementptr inbounds nuw float, ptr %240, i64 %241
+  %242 = getelementptr inbounds nuw [4 x i8], ptr %240, i64 %241
   store float %.0.copyload.i2.i90, ptr %242, align 4, !tbaa !127
   store i32 %238, ptr %28, align 8, !tbaa !79
   %243 = getelementptr inbounds nuw i8, ptr %.2, i64 5
@@ -3063,7 +3063,7 @@ _ZN6google8protobuf8internal12ReadVarint64EPPKc.exit95: ; preds = %258, %267, %2
 _ZN4onnx14AttributeProto18_internal_add_intsEl.exit: ; preds = %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit95, %278
   %279 = load ptr, ptr %27, align 8, !tbaa !69
   %280 = zext i32 %274 to i64
-  %281 = getelementptr inbounds nuw i64, ptr %279, i64 %280
+  %281 = getelementptr inbounds nuw [8 x i8], ptr %279, i64 %280
   store i64 %.0.i93, ptr %281, align 8, !tbaa !129
   store i32 %277, ptr %25, align 8, !tbaa !67
   %.not55 = icmp eq ptr %.0.i.i94, null
@@ -3115,7 +3115,7 @@ _ZN4onnx14AttributeProto18_internal_add_intsEl.exit: ; preds = %_ZN6google8proto
   %304 = add nsw i32 %299, 1
   store i32 %304, ptr %23, align 8, !tbaa !80
   %305 = sext i32 %299 to i64
-  %306 = getelementptr inbounds ptr, ptr %303, i64 %305
+  %306 = getelementptr inbounds [8 x i8], ptr %303, i64 %305
   %307 = load ptr, ptr %306, align 8, !tbaa !74
   br label %_ZN4onnx14AttributeProto21_internal_add_stringsB5cxx11Ev.exit
 
@@ -3172,7 +3172,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   %331 = add nsw i32 %330, 1
   store i32 %331, ptr %23, align 8, !tbaa !80
   %332 = sext i32 %330 to i64
-  %333 = getelementptr inbounds ptr, ptr %329, i64 %332
+  %333 = getelementptr inbounds [8 x i8], ptr %329, i64 %332
   store ptr %.sink5.i.i.i.i.i, ptr %333, align 8, !tbaa !74
   br label %_ZN4onnx14AttributeProto21_internal_add_stringsB5cxx11Ev.exit
 
@@ -3223,7 +3223,7 @@ _ZN4onnx14AttributeProto21_internal_add_stringsB5cxx11Ev.exit: ; preds = %302, %
   %355 = add nsw i32 %350, 1
   store i32 %355, ptr %17, align 8, !tbaa !80
   %356 = sext i32 %350 to i64
-  %357 = getelementptr inbounds ptr, ptr %354, i64 %356
+  %357 = getelementptr inbounds [8 x i8], ptr %354, i64 %356
   %358 = load ptr, ptr %357, align 8, !tbaa !74
   br label %_ZN4onnx14AttributeProto21_internal_add_tensorsEv.exit
 
@@ -3253,7 +3253,7 @@ _ZN4onnx14AttributeProto21_internal_add_stringsB5cxx11Ev.exit: ; preds = %302, %
   %373 = add nsw i32 %372, 1
   store i32 %373, ptr %17, align 8, !tbaa !80
   %374 = sext i32 %372 to i64
-  %375 = getelementptr inbounds ptr, ptr %371, i64 %374
+  %375 = getelementptr inbounds [8 x i8], ptr %371, i64 %374
   store ptr %369, ptr %375, align 8, !tbaa !74
   br label %_ZN4onnx14AttributeProto21_internal_add_tensorsEv.exit
 
@@ -3358,7 +3358,7 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i105: ; preds = %_ZN4onnx14Attri
   %427 = add nsw i32 %422, 1
   store i32 %427, ptr %13, align 8, !tbaa !80
   %428 = sext i32 %422 to i64
-  %429 = getelementptr inbounds ptr, ptr %426, i64 %428
+  %429 = getelementptr inbounds [8 x i8], ptr %426, i64 %428
   %430 = load ptr, ptr %429, align 8, !tbaa !74
   br label %_ZN4onnx14AttributeProto20_internal_add_graphsEv.exit
 
@@ -3388,7 +3388,7 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i105: ; preds = %_ZN4onnx14Attri
   %445 = add nsw i32 %444, 1
   store i32 %445, ptr %13, align 8, !tbaa !80
   %446 = sext i32 %444 to i64
-  %447 = getelementptr inbounds ptr, ptr %443, i64 %446
+  %447 = getelementptr inbounds [8 x i8], ptr %443, i64 %446
   store ptr %441, ptr %447, align 8, !tbaa !74
   br label %_ZN4onnx14AttributeProto20_internal_add_graphsEv.exit
 
@@ -4054,7 +4054,7 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint32ToArrayEjPh.exit107: ; p
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit110: ; preds = %163, %165
   %.0.i109 = phi ptr [ %166, %165 ], [ %.6172, %163 ]
   %167 = load ptr, ptr %158, align 8, !tbaa !66
-  %168 = getelementptr inbounds nuw float, ptr %167, i64 %indvars.iv
+  %168 = getelementptr inbounds nuw [4 x i8], ptr %167, i64 %indvars.iv
   %169 = load i32, ptr %168, align 4, !tbaa !127
   store i8 61, ptr %.0.i109, align 1, !tbaa !78
   %170 = getelementptr inbounds nuw i8, ptr %.0.i109, i64 1
@@ -4090,7 +4090,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit110: ; preds = %
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit114: ; preds = %176, %178
   %.0.i113 = phi ptr [ %179, %178 ], [ %.7174, %176 ]
   %180 = load ptr, ptr %162, align 8, !tbaa !69
-  %181 = getelementptr inbounds nuw i64, ptr %180, i64 %indvars.iv220
+  %181 = getelementptr inbounds nuw [8 x i8], ptr %180, i64 %indvars.iv220
   %182 = load i64, ptr %181, align 8, !tbaa !129
   store i8 64, ptr %.0.i113, align 1, !tbaa !78
   %183 = getelementptr inbounds nuw i8, ptr %.0.i113, i64 1
@@ -4160,7 +4160,7 @@ _ZN6google8protobuf2io17CodedOutputStream20WriteVarint64ToArrayEmPh.exit119: ; p
   %.8180 = phi ptr [ %.7.lcssa, %.lr.ph182 ], [ %.0.i.i122, %_ZN6google8protobuf2io19EpsCopyOutputStream10WriteBytesINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPhjRKT_SA_.exit ]
   %211 = load ptr, ptr %175, align 8, !tbaa !71
   %212 = getelementptr inbounds nuw i8, ptr %211, i64 8
-  %213 = getelementptr inbounds nuw ptr, ptr %212, i64 %indvars.iv225
+  %213 = getelementptr inbounds nuw [8 x i8], ptr %212, i64 %indvars.iv225
   %214 = load ptr, ptr %213, align 8, !tbaa !74
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 8
   %216 = load i64, ptr %215, align 8, !tbaa !96
@@ -4224,7 +4224,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit126: ; preds = %
   %237 = load ptr, ptr %209, align 8, !tbaa !71
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 8
   %239 = sext i32 %.075185 to i64
-  %240 = getelementptr inbounds ptr, ptr %238, i64 %239
+  %240 = getelementptr inbounds [8 x i8], ptr %238, i64 %239
   %241 = load ptr, ptr %240, align 8, !tbaa !74
   store i8 82, ptr %.0.i125, align 1, !tbaa !78
   %242 = getelementptr inbounds nuw i8, ptr %.0.i125, i64 1
@@ -4303,7 +4303,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit134: ; preds = %
   %275 = load ptr, ptr %232, align 8, !tbaa !71
   %276 = getelementptr inbounds nuw i8, ptr %275, i64 8
   %277 = sext i32 %.074191 to i64
-  %278 = getelementptr inbounds ptr, ptr %276, i64 %277
+  %278 = getelementptr inbounds [8 x i8], ptr %276, i64 %277
   %279 = load ptr, ptr %278, align 8, !tbaa !74
   store i8 90, ptr %.0.i133, align 1, !tbaa !78
   %280 = getelementptr inbounds nuw i8, ptr %.0.i133, i64 1
@@ -4567,7 +4567,7 @@ define dso_local noundef i64 @_ZNK4onnx14AttributeProto12ByteSizeLongEv(ptr noun
 28:                                               ; preds = %.lr.ph, %28
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %28 ]
   %.04775 = phi i64 [ %15, %.lr.ph ], [ %42, %28 ]
-  %29 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8, !tbaa !74
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load i64, ptr %31, align 8, !tbaa !96
@@ -4945,7 +4945,7 @@ _ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEE
   %30 = add nsw i32 %29, %26
   store i32 %30, ptr %23, align 8, !tbaa !79
   %31 = sext i32 %24 to i64
-  %32 = getelementptr inbounds float, ptr %28, i64 %31
+  %32 = getelementptr inbounds [4 x i8], ptr %28, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %34 = load ptr, ptr %33, align 8, !tbaa !66
   %35 = load i32, ptr %20, align 8, !tbaa !79
@@ -4972,7 +4972,7 @@ _ZN6google8protobuf13RepeatedFieldIfE9MergeFromERKS2_.exit: ; preds = %_ZN6googl
   %48 = add nsw i32 %47, %44
   store i32 %48, ptr %41, align 8, !tbaa !67
   %49 = sext i32 %42 to i64
-  %50 = getelementptr inbounds i64, ptr %46, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %46, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %52 = load ptr, ptr %51, align 8, !tbaa !69
   %53 = load i32, ptr %38, align 8, !tbaa !67
@@ -5049,9 +5049,9 @@ _ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traits
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %96 = getelementptr inbounds nuw ptr, ptr %84, i64 %indvars.iv.i
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %indvars.iv.i
   %97 = load ptr, ptr %96, align 8, !tbaa !74
-  %98 = getelementptr inbounds nuw ptr, ptr %85, i64 %indvars.iv.i
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %indvars.iv.i
   %99 = load ptr, ptr %98, align 8, !tbaa !74
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx11TensorProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(248) %97, ptr noundef %99)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -5060,11 +5060,11 @@ _ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traits
 
 .lr.ph6.i:                                        ; preds = %.lr.ph6.i, %.lr.ph6.preheader.i
   %indvars.iv8.i = phi i64 [ %95, %.lr.ph6.preheader.i ], [ %indvars.iv.next9.i, %.lr.ph6.i ]
-  %100 = getelementptr inbounds ptr, ptr %84, i64 %indvars.iv8.i
+  %100 = getelementptr inbounds [8 x i8], ptr %84, i64 %indvars.iv8.i
   %101 = load ptr, ptr %100, align 8, !tbaa !74
   %102 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4onnx11TensorProtoEJEEEPT_PS1_DpOT0_(ptr noundef %93)
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx11TensorProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(248) %101, ptr noundef %102)
-  %103 = getelementptr inbounds ptr, ptr %85, i64 %indvars.iv8.i
+  %103 = getelementptr inbounds [8 x i8], ptr %85, i64 %indvars.iv8.i
   store ptr %102, ptr %103, align 8, !tbaa !74
   %indvars.iv.next9.i = add nsw i64 %indvars.iv8.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next9.i to i32
@@ -5121,9 +5121,9 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase9MergeFromINS0_16RepeatedPtrFi
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %129 = getelementptr inbounds nuw ptr, ptr %117, i64 %indvars.iv.i.i
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %indvars.iv.i.i
   %130 = load ptr, ptr %129, align 8, !tbaa !74
-  %131 = getelementptr inbounds nuw ptr, ptr %118, i64 %indvars.iv.i.i
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %118, i64 %indvars.iv.i.i
   %132 = load ptr, ptr %131, align 8, !tbaa !74
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx10GraphProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(184) %130, ptr noundef %132)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -5132,11 +5132,11 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase9MergeFromINS0_16RepeatedPtrFi
 
 .lr.ph6.i.i:                                      ; preds = %.lr.ph6.i.i, %.lr.ph6.preheader.i.i
   %indvars.iv8.i.i = phi i64 [ %128, %.lr.ph6.preheader.i.i ], [ %indvars.iv.next9.i.i, %.lr.ph6.i.i ]
-  %133 = getelementptr inbounds ptr, ptr %117, i64 %indvars.iv8.i.i
+  %133 = getelementptr inbounds [8 x i8], ptr %117, i64 %indvars.iv8.i.i
   %134 = load ptr, ptr %133, align 8, !tbaa !74
   %135 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4onnx10GraphProtoEJEEEPT_PS1_DpOT0_(ptr noundef %126)
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx10GraphProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(184) %134, ptr noundef %135)
-  %136 = getelementptr inbounds ptr, ptr %118, i64 %indvars.iv8.i.i
+  %136 = getelementptr inbounds [8 x i8], ptr %118, i64 %indvars.iv8.i.i
   store ptr %135, ptr %136, align 8, !tbaa !74
   %indvars.iv.next9.i.i = add nsw i64 %indvars.iv8.i.i, 1
   %lftr.wideiv.i.i = trunc i64 %indvars.iv.next9.i.i to i32
@@ -5515,7 +5515,7 @@ _ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEE
   %30 = add nsw i32 %29, %26
   store i32 %30, ptr %23, align 8, !tbaa !67
   %31 = sext i32 %24 to i64
-  %32 = getelementptr inbounds i64, ptr %28, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %28, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %34 = load ptr, ptr %33, align 8, !tbaa !69
   %35 = load i32, ptr %20, align 8, !tbaa !67
@@ -5542,7 +5542,7 @@ _ZN6google8protobuf13RepeatedFieldIlE9MergeFromERKS2_.exit: ; preds = %_ZN6googl
   %48 = add nsw i32 %47, %44
   store i32 %48, ptr %41, align 8, !tbaa !79
   %49 = sext i32 %42 to i64
-  %50 = getelementptr inbounds float, ptr %46, i64 %49
+  %50 = getelementptr inbounds [4 x i8], ptr %46, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %52 = load ptr, ptr %51, align 8, !tbaa !66
   %53 = load i32, ptr %38, align 8, !tbaa !79
@@ -5569,7 +5569,7 @@ _ZN6google8protobuf13RepeatedFieldIfE9MergeFromERKS2_.exit: ; preds = %_ZN6googl
   %66 = add nsw i32 %65, %62
   store i32 %66, ptr %59, align 8, !tbaa !101
   %67 = sext i32 %60 to i64
-  %68 = getelementptr inbounds i32, ptr %64, i64 %67
+  %68 = getelementptr inbounds [4 x i8], ptr %64, i64 %67
   %69 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %70 = load ptr, ptr %69, align 8, !tbaa !159
   %71 = load i32, ptr %56, align 8, !tbaa !101
@@ -5627,7 +5627,7 @@ _ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traits
   %105 = add nsw i32 %104, %101
   store i32 %105, ptr %98, align 8, !tbaa !67
   %106 = sext i32 %99 to i64
-  %107 = getelementptr inbounds i64, ptr %103, i64 %106
+  %107 = getelementptr inbounds [8 x i8], ptr %103, i64 %106
   %108 = getelementptr inbounds nuw i8, ptr %1, i64 120
   %109 = load ptr, ptr %108, align 8, !tbaa !69
   %110 = load i32, ptr %95, align 8, !tbaa !67
@@ -5654,7 +5654,7 @@ _ZN6google8protobuf13RepeatedFieldIlE9MergeFromERKS2_.exit34: ; preds = %_ZN6goo
   %123 = add nsw i32 %122, %119
   store i32 %123, ptr %116, align 8, !tbaa !102
   %124 = sext i32 %117 to i64
-  %125 = getelementptr inbounds double, ptr %121, i64 %124
+  %125 = getelementptr inbounds [8 x i8], ptr %121, i64 %124
   %126 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %127 = load ptr, ptr %126, align 8, !tbaa !160
   %128 = load i32, ptr %113, align 8, !tbaa !102
@@ -5681,7 +5681,7 @@ _ZN6google8protobuf13RepeatedFieldIdE9MergeFromERKS2_.exit: ; preds = %_ZN6googl
   %141 = add nsw i32 %140, %137
   store i32 %141, ptr %134, align 8, !tbaa !103
   %142 = sext i32 %135 to i64
-  %143 = getelementptr inbounds i64, ptr %139, i64 %142
+  %143 = getelementptr inbounds [8 x i8], ptr %139, i64 %142
   %144 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %145 = load ptr, ptr %144, align 8, !tbaa !161
   %146 = load i32, ptr %131, align 8, !tbaa !103
@@ -5727,9 +5727,9 @@ _ZN6google8protobuf13RepeatedFieldImE9MergeFromERKS2_.exit: ; preds = %_ZN6googl
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %168 = getelementptr inbounds nuw ptr, ptr %156, i64 %indvars.iv.i.i
+  %168 = getelementptr inbounds nuw [8 x i8], ptr %156, i64 %indvars.iv.i.i
   %169 = load ptr, ptr %168, align 8, !tbaa !74
-  %170 = getelementptr inbounds nuw ptr, ptr %157, i64 %indvars.iv.i.i
+  %170 = getelementptr inbounds nuw [8 x i8], ptr %157, i64 %indvars.iv.i.i
   %171 = load ptr, ptr %170, align 8, !tbaa !74
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx22StringStringEntryProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(40) %169, ptr noundef %171)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -5738,11 +5738,11 @@ _ZN6google8protobuf13RepeatedFieldImE9MergeFromERKS2_.exit: ; preds = %_ZN6googl
 
 .lr.ph6.i.i:                                      ; preds = %.lr.ph6.i.i, %.lr.ph6.preheader.i.i
   %indvars.iv8.i.i = phi i64 [ %167, %.lr.ph6.preheader.i.i ], [ %indvars.iv.next9.i.i, %.lr.ph6.i.i ]
-  %172 = getelementptr inbounds ptr, ptr %156, i64 %indvars.iv8.i.i
+  %172 = getelementptr inbounds [8 x i8], ptr %156, i64 %indvars.iv8.i.i
   %173 = load ptr, ptr %172, align 8, !tbaa !74
   %174 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4onnx22StringStringEntryProtoEJEEEPT_PS1_DpOT0_(ptr noundef %165)
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx22StringStringEntryProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(40) %173, ptr noundef %174)
-  %175 = getelementptr inbounds ptr, ptr %157, i64 %indvars.iv8.i.i
+  %175 = getelementptr inbounds [8 x i8], ptr %157, i64 %indvars.iv8.i.i
   store ptr %174, ptr %175, align 8, !tbaa !74
   %indvars.iv.next9.i.i = add nsw i64 %indvars.iv8.i.i, 1
   %lftr.wideiv.i.i = trunc i64 %indvars.iv.next9.i.i to i32
@@ -6104,9 +6104,9 @@ _ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEE
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %39 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv.i.i
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !74
-  %41 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv.i.i
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv.i.i
   %42 = load ptr, ptr %41, align 8, !tbaa !74
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx9NodeProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(128) %40, ptr noundef %42)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -6115,11 +6115,11 @@ _ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEE
 
 .lr.ph6.i.i:                                      ; preds = %.lr.ph6.i.i, %.lr.ph6.preheader.i.i
   %indvars.iv8.i.i = phi i64 [ %38, %.lr.ph6.preheader.i.i ], [ %indvars.iv.next9.i.i, %.lr.ph6.i.i ]
-  %43 = getelementptr inbounds ptr, ptr %27, i64 %indvars.iv8.i.i
+  %43 = getelementptr inbounds [8 x i8], ptr %27, i64 %indvars.iv8.i.i
   %44 = load ptr, ptr %43, align 8, !tbaa !74
   %45 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4onnx9NodeProtoEJEEEPT_PS1_DpOT0_(ptr noundef %36)
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx9NodeProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(128) %44, ptr noundef %45)
-  %46 = getelementptr inbounds ptr, ptr %28, i64 %indvars.iv8.i.i
+  %46 = getelementptr inbounds [8 x i8], ptr %28, i64 %indvars.iv8.i.i
   store ptr %45, ptr %46, align 8, !tbaa !74
   %indvars.iv.next9.i.i = add nsw i64 %indvars.iv8.i.i, 1
   %lftr.wideiv.i.i = trunc i64 %indvars.iv.next9.i.i to i32
@@ -6176,9 +6176,9 @@ _ZN6google8protobuf16RepeatedPtrFieldIN4onnx9NodeProtoEE9MergeFromERKS4_.exit: ;
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %72 = getelementptr inbounds nuw ptr, ptr %60, i64 %indvars.iv.i
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %indvars.iv.i
   %73 = load ptr, ptr %72, align 8, !tbaa !74
-  %74 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv.i
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv.i
   %75 = load ptr, ptr %74, align 8, !tbaa !74
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx11TensorProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(248) %73, ptr noundef %75)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -6187,11 +6187,11 @@ _ZN6google8protobuf16RepeatedPtrFieldIN4onnx9NodeProtoEE9MergeFromERKS4_.exit: ;
 
 .lr.ph6.i:                                        ; preds = %.lr.ph6.i, %.lr.ph6.preheader.i
   %indvars.iv8.i = phi i64 [ %71, %.lr.ph6.preheader.i ], [ %indvars.iv.next9.i, %.lr.ph6.i ]
-  %76 = getelementptr inbounds ptr, ptr %60, i64 %indvars.iv8.i
+  %76 = getelementptr inbounds [8 x i8], ptr %60, i64 %indvars.iv8.i
   %77 = load ptr, ptr %76, align 8, !tbaa !74
   %78 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4onnx11TensorProtoEJEEEPT_PS1_DpOT0_(ptr noundef %69)
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx11TensorProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(248) %77, ptr noundef %78)
-  %79 = getelementptr inbounds ptr, ptr %61, i64 %indvars.iv8.i
+  %79 = getelementptr inbounds [8 x i8], ptr %61, i64 %indvars.iv8.i
   store ptr %78, ptr %79, align 8, !tbaa !74
   %indvars.iv.next9.i = add nsw i64 %indvars.iv8.i, 1
   %lftr.wideiv.i = trunc i64 %indvars.iv.next9.i to i32
@@ -6248,9 +6248,9 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase9MergeFromINS0_16RepeatedPtrFi
 
 .lr.ph.i29:                                       ; preds = %.lr.ph.i29, %.lr.ph.preheader.i27
   %indvars.iv.i30 = phi i64 [ 0, %.lr.ph.preheader.i27 ], [ %indvars.iv.next.i31, %.lr.ph.i29 ]
-  %105 = getelementptr inbounds nuw ptr, ptr %93, i64 %indvars.iv.i30
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %indvars.iv.i30
   %106 = load ptr, ptr %105, align 8, !tbaa !74
-  %107 = getelementptr inbounds nuw ptr, ptr %94, i64 %indvars.iv.i30
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %indvars.iv.i30
   %108 = load ptr, ptr %107, align 8, !tbaa !74
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx14ValueInfoProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(48) %106, ptr noundef %108)
   %indvars.iv.next.i31 = add nuw nsw i64 %indvars.iv.i30, 1
@@ -6259,11 +6259,11 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase9MergeFromINS0_16RepeatedPtrFi
 
 .lr.ph6.i22:                                      ; preds = %.lr.ph6.i22, %.lr.ph6.preheader.i21
   %indvars.iv8.i23 = phi i64 [ %104, %.lr.ph6.preheader.i21 ], [ %indvars.iv.next9.i24, %.lr.ph6.i22 ]
-  %109 = getelementptr inbounds ptr, ptr %93, i64 %indvars.iv8.i23
+  %109 = getelementptr inbounds [8 x i8], ptr %93, i64 %indvars.iv8.i23
   %110 = load ptr, ptr %109, align 8, !tbaa !74
   %111 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4onnx14ValueInfoProtoEJEEEPT_PS1_DpOT0_(ptr noundef %102)
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx14ValueInfoProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(48) %110, ptr noundef %111)
-  %112 = getelementptr inbounds ptr, ptr %94, i64 %indvars.iv8.i23
+  %112 = getelementptr inbounds [8 x i8], ptr %94, i64 %indvars.iv8.i23
   store ptr %111, ptr %112, align 8, !tbaa !74
   %indvars.iv.next9.i24 = add nsw i64 %indvars.iv8.i23, 1
   %lftr.wideiv.i25 = trunc i64 %indvars.iv.next9.i24 to i32
@@ -6320,9 +6320,9 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase9MergeFromINS0_16RepeatedPtrFi
 
 .lr.ph.i44:                                       ; preds = %.lr.ph.i44, %.lr.ph.preheader.i42
   %indvars.iv.i45 = phi i64 [ 0, %.lr.ph.preheader.i42 ], [ %indvars.iv.next.i46, %.lr.ph.i44 ]
-  %138 = getelementptr inbounds nuw ptr, ptr %126, i64 %indvars.iv.i45
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %indvars.iv.i45
   %139 = load ptr, ptr %138, align 8, !tbaa !74
-  %140 = getelementptr inbounds nuw ptr, ptr %127, i64 %indvars.iv.i45
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %127, i64 %indvars.iv.i45
   %141 = load ptr, ptr %140, align 8, !tbaa !74
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx14ValueInfoProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(48) %139, ptr noundef %141)
   %indvars.iv.next.i46 = add nuw nsw i64 %indvars.iv.i45, 1
@@ -6331,11 +6331,11 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase9MergeFromINS0_16RepeatedPtrFi
 
 .lr.ph6.i37:                                      ; preds = %.lr.ph6.i37, %.lr.ph6.preheader.i36
   %indvars.iv8.i38 = phi i64 [ %137, %.lr.ph6.preheader.i36 ], [ %indvars.iv.next9.i39, %.lr.ph6.i37 ]
-  %142 = getelementptr inbounds ptr, ptr %126, i64 %indvars.iv8.i38
+  %142 = getelementptr inbounds [8 x i8], ptr %126, i64 %indvars.iv8.i38
   %143 = load ptr, ptr %142, align 8, !tbaa !74
   %144 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4onnx14ValueInfoProtoEJEEEPT_PS1_DpOT0_(ptr noundef %135)
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx14ValueInfoProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(48) %143, ptr noundef %144)
-  %145 = getelementptr inbounds ptr, ptr %127, i64 %indvars.iv8.i38
+  %145 = getelementptr inbounds [8 x i8], ptr %127, i64 %indvars.iv8.i38
   store ptr %144, ptr %145, align 8, !tbaa !74
   %indvars.iv.next9.i39 = add nsw i64 %indvars.iv8.i38, 1
   %lftr.wideiv.i40 = trunc i64 %indvars.iv.next9.i39 to i32
@@ -6392,9 +6392,9 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase9MergeFromINS0_16RepeatedPtrFi
 
 .lr.ph.i60:                                       ; preds = %.lr.ph.i60, %.lr.ph.preheader.i58
   %indvars.iv.i61 = phi i64 [ 0, %.lr.ph.preheader.i58 ], [ %indvars.iv.next.i62, %.lr.ph.i60 ]
-  %171 = getelementptr inbounds nuw ptr, ptr %159, i64 %indvars.iv.i61
+  %171 = getelementptr inbounds nuw [8 x i8], ptr %159, i64 %indvars.iv.i61
   %172 = load ptr, ptr %171, align 8, !tbaa !74
-  %173 = getelementptr inbounds nuw ptr, ptr %160, i64 %indvars.iv.i61
+  %173 = getelementptr inbounds nuw [8 x i8], ptr %160, i64 %indvars.iv.i61
   %174 = load ptr, ptr %173, align 8, !tbaa !74
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx14ValueInfoProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(48) %172, ptr noundef %174)
   %indvars.iv.next.i62 = add nuw nsw i64 %indvars.iv.i61, 1
@@ -6403,11 +6403,11 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase9MergeFromINS0_16RepeatedPtrFi
 
 .lr.ph6.i53:                                      ; preds = %.lr.ph6.i53, %.lr.ph6.preheader.i52
   %indvars.iv8.i54 = phi i64 [ %170, %.lr.ph6.preheader.i52 ], [ %indvars.iv.next9.i55, %.lr.ph6.i53 ]
-  %175 = getelementptr inbounds ptr, ptr %159, i64 %indvars.iv8.i54
+  %175 = getelementptr inbounds [8 x i8], ptr %159, i64 %indvars.iv8.i54
   %176 = load ptr, ptr %175, align 8, !tbaa !74
   %177 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4onnx14ValueInfoProtoEJEEEPT_PS1_DpOT0_(ptr noundef %168)
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx14ValueInfoProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(48) %176, ptr noundef %177)
-  %178 = getelementptr inbounds ptr, ptr %160, i64 %indvars.iv8.i54
+  %178 = getelementptr inbounds [8 x i8], ptr %160, i64 %indvars.iv8.i54
   store ptr %177, ptr %178, align 8, !tbaa !74
   %indvars.iv.next9.i55 = add nsw i64 %indvars.iv8.i54, 1
   %lftr.wideiv.i56 = trunc i64 %indvars.iv.next9.i55 to i32
@@ -6464,9 +6464,9 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase9MergeFromINS0_16RepeatedPtrFi
 
 .lr.ph.i75:                                       ; preds = %.lr.ph.i75, %.lr.ph.preheader.i73
   %indvars.iv.i76 = phi i64 [ 0, %.lr.ph.preheader.i73 ], [ %indvars.iv.next.i77, %.lr.ph.i75 ]
-  %204 = getelementptr inbounds nuw ptr, ptr %192, i64 %indvars.iv.i76
+  %204 = getelementptr inbounds nuw [8 x i8], ptr %192, i64 %indvars.iv.i76
   %205 = load ptr, ptr %204, align 8, !tbaa !74
-  %206 = getelementptr inbounds nuw ptr, ptr %193, i64 %indvars.iv.i76
+  %206 = getelementptr inbounds nuw [8 x i8], ptr %193, i64 %indvars.iv.i76
   %207 = load ptr, ptr %206, align 8, !tbaa !74
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx16TensorAnnotationEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(56) %205, ptr noundef %207)
   %indvars.iv.next.i77 = add nuw nsw i64 %indvars.iv.i76, 1
@@ -6475,11 +6475,11 @@ _ZN6google8protobuf8internal20RepeatedPtrFieldBase9MergeFromINS0_16RepeatedPtrFi
 
 .lr.ph6.i68:                                      ; preds = %.lr.ph6.i68, %.lr.ph6.preheader.i67
   %indvars.iv8.i69 = phi i64 [ %203, %.lr.ph6.preheader.i67 ], [ %indvars.iv.next9.i70, %.lr.ph6.i68 ]
-  %208 = getelementptr inbounds ptr, ptr %192, i64 %indvars.iv8.i69
+  %208 = getelementptr inbounds [8 x i8], ptr %192, i64 %indvars.iv8.i69
   %209 = load ptr, ptr %208, align 8, !tbaa !74
   %210 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4onnx16TensorAnnotationEJEEEPT_PS1_DpOT0_(ptr noundef %201)
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx16TensorAnnotationEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(56) %209, ptr noundef %210)
-  %211 = getelementptr inbounds ptr, ptr %193, i64 %indvars.iv8.i69
+  %211 = getelementptr inbounds [8 x i8], ptr %193, i64 %indvars.iv8.i69
   store ptr %210, ptr %211, align 8, !tbaa !74
   %indvars.iv.next9.i70 = add nsw i64 %indvars.iv8.i69, 1
   %lftr.wideiv.i71 = trunc i64 %indvars.iv.next9.i70 to i32
@@ -8429,7 +8429,7 @@ define linkonce_odr dso_local void @_ZN6google8protobuf16RepeatedPtrFieldIN4onnx
 
 .lr.ph.i:                                         ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx14AttributeProtoEE6DeleteEPS4_PNS0_5ArenaE.exit.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx14AttributeProtoEE6DeleteEPS4_PNS0_5ArenaE.exit.i ]
-  %11 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i
   %12 = load ptr, ptr %11, align 8, !tbaa !74
   %13 = icmp eq ptr %12, null
   br i1 %13, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx14AttributeProtoEE6DeleteEPS4_PNS0_5ArenaE.exit.i, label %14
@@ -8569,9 +8569,9 @@ _ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traits
 
 .lr.ph.i.i.i:                                     ; preds = %.noexc32, %.lr.ph.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %.noexc32 ]
-  %66 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv.i.i.i
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %indvars.iv.i.i.i
   %67 = load ptr, ptr %66, align 8, !tbaa !74
-  %68 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv.i.i.i
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv.i.i.i
   %69 = load ptr, ptr %68, align 8, !tbaa !74
   invoke void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx14AttributeProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(192) %67, ptr noundef %69)
           to label %.noexc32 unwind label %.loopexit.split-lp.loopexit
@@ -8583,7 +8583,7 @@ _ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traits
 
 .lr.ph6.i.i.i:                                    ; preds = %.noexc34, %.lr.ph6.preheader.i.i.i
   %indvars.iv8.i.i.i = phi i64 [ %65, %.lr.ph6.preheader.i.i.i ], [ %indvars.iv.next9.i.i.i, %.noexc34 ]
-  %70 = getelementptr inbounds ptr, ptr %54, i64 %indvars.iv8.i.i.i
+  %70 = getelementptr inbounds [8 x i8], ptr %54, i64 %indvars.iv8.i.i.i
   %71 = load ptr, ptr %70, align 8, !tbaa !74
   %72 = invoke noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4onnx14AttributeProtoEJEEEPT_PS1_DpOT0_(ptr noundef %63)
           to label %.noexc33 unwind label %.loopexit
@@ -8593,7 +8593,7 @@ _ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traits
           to label %.noexc34 unwind label %.loopexit
 
 .noexc34:                                         ; preds = %.noexc33
-  %73 = getelementptr inbounds ptr, ptr %55, i64 %indvars.iv8.i.i.i
+  %73 = getelementptr inbounds [8 x i8], ptr %55, i64 %indvars.iv8.i.i.i
   store ptr %72, ptr %73, align 8, !tbaa !74
   %indvars.iv.next9.i.i.i = add nsw i64 %indvars.iv8.i.i.i, 1
   %lftr.wideiv.i.i.i = trunc i64 %indvars.iv.next9.i.i.i to i32
@@ -8898,7 +8898,7 @@ _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx14AttributeProtoEE6DeleteEPS4_PNS0_5ArenaE.exit.i
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx14AttributeProtoEE6DeleteEPS4_PNS0_5ArenaE.exit.i ]
-  %34 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv
   %35 = load ptr, ptr %34, align 8, !tbaa !74
   %36 = icmp eq ptr %35, null
   br i1 %36, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx14AttributeProtoEE6DeleteEPS4_PNS0_5ArenaE.exit.i, label %37
@@ -9072,7 +9072,7 @@ define dso_local void @_ZN4onnx9NodeProto5ClearEv(ptr noundef nonnull align 8 ca
 9:                                                ; preds = %9, %5
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %9 ], [ 0, %5 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i.i
   %11 = load ptr, ptr %10, align 8, !tbaa !74
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i64 0, ptr %12, align 8, !tbaa !96
@@ -9101,7 +9101,7 @@ _ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traits
 22:                                               ; preds = %22, %18
   %indvars.iv.i.i10 = phi i64 [ %indvars.iv.next.i.i11, %22 ], [ 0, %18 ]
   %indvars.iv.next.i.i11 = add nuw nsw i64 %indvars.iv.i.i10, 1
-  %23 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv.i.i10
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv.i.i10
   %24 = load ptr, ptr %23, align 8, !tbaa !74
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 0, ptr %25, align 8, !tbaa !96
@@ -9130,7 +9130,7 @@ _ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traits
 35:                                               ; preds = %35, %31
   %indvars.iv = phi i64 [ %indvars.iv.next, %35 ], [ 0, %31 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %36 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8, !tbaa !74
   tail call void @_ZN4onnx14AttributeProto5ClearEv(ptr noundef nonnull align 8 dereferenceable(192) %37)
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -9355,7 +9355,7 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread: ; preds = %_ZN6google8p
   %69 = add nsw i32 %64, 1
   store i32 %69, ptr %24, align 8, !tbaa !80
   %70 = sext i32 %64 to i64
-  %71 = getelementptr inbounds ptr, ptr %68, i64 %70
+  %71 = getelementptr inbounds [8 x i8], ptr %68, i64 %70
   %72 = load ptr, ptr %71, align 8, !tbaa !74
   br label %_ZN4onnx9NodeProto19_internal_add_inputB5cxx11Ev.exit
 
@@ -9412,7 +9412,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   %96 = add nsw i32 %95, 1
   store i32 %96, ptr %24, align 8, !tbaa !80
   %97 = sext i32 %95 to i64
-  %98 = getelementptr inbounds ptr, ptr %94, i64 %97
+  %98 = getelementptr inbounds [8 x i8], ptr %94, i64 %97
   store ptr %.sink5.i.i.i.i.i, ptr %98, align 8, !tbaa !74
   br label %_ZN4onnx9NodeProto19_internal_add_inputB5cxx11Ev.exit
 
@@ -9463,7 +9463,7 @@ _ZN4onnx9NodeProto19_internal_add_inputB5cxx11Ev.exit: ; preds = %67, %_ZN6googl
   %120 = add nsw i32 %115, 1
   store i32 %120, ptr %20, align 8, !tbaa !80
   %121 = sext i32 %115 to i64
-  %122 = getelementptr inbounds ptr, ptr %119, i64 %121
+  %122 = getelementptr inbounds [8 x i8], ptr %119, i64 %121
   %123 = load ptr, ptr %122, align 8, !tbaa !74
   br label %_ZN4onnx9NodeProto20_internal_add_outputB5cxx11Ev.exit
 
@@ -9520,7 +9520,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   %147 = add nsw i32 %146, 1
   store i32 %147, ptr %20, align 8, !tbaa !80
   %148 = sext i32 %146 to i64
-  %149 = getelementptr inbounds ptr, ptr %145, i64 %148
+  %149 = getelementptr inbounds [8 x i8], ptr %145, i64 %148
   store ptr %.sink5.i.i.i.i.i56, ptr %149, align 8, !tbaa !74
   br label %_ZN4onnx9NodeProto20_internal_add_outputB5cxx11Ev.exit
 
@@ -9647,7 +9647,7 @@ _ZN4onnx9NodeProto25_internal_mutable_op_typeB5cxx11Ev.exit: ; preds = %_ZNK6goo
   %207 = add nsw i32 %202, 1
   store i32 %207, ptr %12, align 8, !tbaa !80
   %208 = sext i32 %202 to i64
-  %209 = getelementptr inbounds ptr, ptr %206, i64 %208
+  %209 = getelementptr inbounds [8 x i8], ptr %206, i64 %208
   %210 = load ptr, ptr %209, align 8, !tbaa !74
   br label %_ZN4onnx9NodeProto23_internal_add_attributeEv.exit
 
@@ -9677,7 +9677,7 @@ _ZN4onnx9NodeProto25_internal_mutable_op_typeB5cxx11Ev.exit: ; preds = %_ZNK6goo
   %225 = add nsw i32 %224, 1
   store i32 %225, ptr %12, align 8, !tbaa !80
   %226 = sext i32 %224 to i64
-  %227 = getelementptr inbounds ptr, ptr %223, i64 %226
+  %227 = getelementptr inbounds [8 x i8], ptr %223, i64 %226
   store ptr %221, ptr %227, align 8, !tbaa !74
   br label %_ZN4onnx9NodeProto23_internal_add_attributeEv.exit
 
@@ -9901,7 +9901,7 @@ define dso_local noundef ptr @_ZNK4onnx9NodeProto18_InternalSerializeEPhPN6googl
   %.076 = phi ptr [ %1, %.lr.ph ], [ %.0.i47, %_ZN6google8protobuf2io19EpsCopyOutputStream11WriteStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPhjRKT_SA_.exit ]
   %13 = load ptr, ptr %7, align 8, !tbaa !71
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !74
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i64, ptr %17, align 8, !tbaa !96
@@ -9951,7 +9951,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11WriteStringINSt7__cxx1112basic_stri
   %.178 = phi ptr [ %.0.lcssa, %.lr.ph80 ], [ %.0.i48, %_ZN6google8protobuf2io19EpsCopyOutputStream11WriteStringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPhjRKT_SA_.exit50 ]
   %37 = load ptr, ptr %11, align 8, !tbaa !71
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv97
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv97
   %40 = load ptr, ptr %39, align 8, !tbaa !74
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load i64, ptr %41, align 8, !tbaa !96
@@ -10091,7 +10091,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %98,
   %102 = load ptr, ptr %96, align 8, !tbaa !71
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
   %104 = sext i32 %.04183 to i64
-  %105 = getelementptr inbounds ptr, ptr %103, i64 %104
+  %105 = getelementptr inbounds [8 x i8], ptr %103, i64 %104
   %106 = load ptr, ptr %105, align 8, !tbaa !74
   store i8 42, ptr %.0.i57, align 1, !tbaa !78
   %107 = getelementptr inbounds nuw i8, ptr %.0.i57, i64 1
@@ -10271,7 +10271,7 @@ define dso_local noundef i64 @_ZNK4onnx9NodeProto12ByteSizeLongEv(ptr noundef no
 17:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %17 ]
   %.03146 = phi i64 [ %4, %.lr.ph ], [ %31, %17 ]
-  %18 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !74
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i64, ptr %20, align 8, !tbaa !96
@@ -10308,7 +10308,7 @@ define dso_local noundef i64 @_ZNK4onnx9NodeProto12ByteSizeLongEv(ptr noundef no
 40:                                               ; preds = %.lr.ph50, %40
   %indvars.iv63 = phi i64 [ 0, %.lr.ph50 ], [ %indvars.iv.next64, %40 ]
   %.148 = phi i64 [ %12, %.lr.ph50 ], [ %54, %40 ]
-  %41 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv63
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv63
   %42 = load ptr, ptr %41, align 8, !tbaa !74
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load i64, ptr %43, align 8, !tbaa !96
@@ -10625,9 +10625,9 @@ _ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traits
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %81 = getelementptr inbounds nuw ptr, ptr %69, i64 %indvars.iv.i.i
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %indvars.iv.i.i
   %82 = load ptr, ptr %81, align 8, !tbaa !74
-  %83 = getelementptr inbounds nuw ptr, ptr %70, i64 %indvars.iv.i.i
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %indvars.iv.i.i
   %84 = load ptr, ptr %83, align 8, !tbaa !74
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx14AttributeProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(192) %82, ptr noundef %84)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -10636,11 +10636,11 @@ _ZN6google8protobuf16RepeatedPtrFieldINSt7__cxx1112basic_stringIcSt11char_traits
 
 .lr.ph6.i.i:                                      ; preds = %.lr.ph6.i.i, %.lr.ph6.preheader.i.i
   %indvars.iv8.i.i = phi i64 [ %80, %.lr.ph6.preheader.i.i ], [ %indvars.iv.next9.i.i, %.lr.ph6.i.i ]
-  %85 = getelementptr inbounds ptr, ptr %69, i64 %indvars.iv8.i.i
+  %85 = getelementptr inbounds [8 x i8], ptr %69, i64 %indvars.iv8.i.i
   %86 = load ptr, ptr %85, align 8, !tbaa !74
   %87 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4onnx14AttributeProtoEJEEEPT_PS1_DpOT0_(ptr noundef %78)
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx14AttributeProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(192) %86, ptr noundef %87)
-  %88 = getelementptr inbounds ptr, ptr %70, i64 %indvars.iv8.i.i
+  %88 = getelementptr inbounds [8 x i8], ptr %70, i64 %indvars.iv8.i.i
   store ptr %87, ptr %88, align 8, !tbaa !74
   %indvars.iv.next9.i.i = add nsw i64 %indvars.iv8.i.i, 1
   %lftr.wideiv.i.i = trunc i64 %indvars.iv.next9.i.i to i32
@@ -11094,7 +11094,7 @@ define linkonce_odr dso_local void @_ZN6google8protobuf16RepeatedPtrFieldIN4onnx
 
 .lr.ph.i:                                         ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx22StringStringEntryProtoEE6DeleteEPS4_PNS0_5ArenaE.exit.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx22StringStringEntryProtoEE6DeleteEPS4_PNS0_5ArenaE.exit.i ]
-  %11 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i
   %12 = load ptr, ptr %11, align 8, !tbaa !74
   %13 = icmp eq ptr %12, null
   br i1 %13, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx22StringStringEntryProtoEE6DeleteEPS4_PNS0_5ArenaE.exit.i, label %14
@@ -11145,7 +11145,7 @@ define linkonce_odr dso_local void @_ZN6google8protobuf16RepeatedPtrFieldIN4onnx
 
 .lr.ph.i:                                         ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx18OperatorSetIdProtoEE6DeleteEPS4_PNS0_5ArenaE.exit.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx18OperatorSetIdProtoEE6DeleteEPS4_PNS0_5ArenaE.exit.i ]
-  %11 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i
   %12 = load ptr, ptr %11, align 8, !tbaa !74
   %13 = icmp eq ptr %12, null
   br i1 %13, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx18OperatorSetIdProtoEE6DeleteEPS4_PNS0_5ArenaE.exit.i, label %14
@@ -11212,9 +11212,9 @@ define dso_local void @_ZN4onnx10ModelProtoC2ERKS0_(ptr noundef nonnull align 8 
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ]
-  %26 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv.i.i.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv.i.i.i
   %27 = load ptr, ptr %26, align 8, !tbaa !74
-  %28 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv.i.i.i
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.i.i.i
   %29 = load ptr, ptr %28, align 8, !tbaa !74
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx18OperatorSetIdProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef %29)
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -11223,11 +11223,11 @@ define dso_local void @_ZN4onnx10ModelProtoC2ERKS0_(ptr noundef nonnull align 8 
 
 .lr.ph6.i.i.i:                                    ; preds = %.lr.ph6.i.i.i, %.lr.ph6.preheader.i.i.i
   %indvars.iv8.i.i.i = phi i64 [ %25, %.lr.ph6.preheader.i.i.i ], [ %indvars.iv.next9.i.i.i, %.lr.ph6.i.i.i ]
-  %30 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv8.i.i.i
+  %30 = getelementptr inbounds [8 x i8], ptr %14, i64 %indvars.iv8.i.i.i
   %31 = load ptr, ptr %30, align 8, !tbaa !74
   %32 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4onnx18OperatorSetIdProtoEJEEEPT_PS1_DpOT0_(ptr noundef %23)
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx18OperatorSetIdProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(40) %31, ptr noundef %32)
-  %33 = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv8.i.i.i
+  %33 = getelementptr inbounds [8 x i8], ptr %15, i64 %indvars.iv8.i.i.i
   store ptr %32, ptr %33, align 8, !tbaa !74
   %indvars.iv.next9.i.i.i = add nsw i64 %indvars.iv8.i.i.i, 1
   %lftr.wideiv.i.i.i = trunc i64 %indvars.iv.next9.i.i.i to i32
@@ -11288,9 +11288,9 @@ _ZN6google8protobuf16RepeatedPtrFieldIN4onnx18OperatorSetIdProtoEEC2ERKS4_.exit:
 
 .lr.ph.i.i.i41:                                   ; preds = %.noexc46, %.lr.ph.preheader.i.i.i39
   %indvars.iv.i.i.i42 = phi i64 [ 0, %.lr.ph.preheader.i.i.i39 ], [ %indvars.iv.next.i.i.i43, %.noexc46 ]
-  %58 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv.i.i.i42
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv.i.i.i42
   %59 = load ptr, ptr %58, align 8, !tbaa !74
-  %60 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv.i.i.i42
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv.i.i.i42
   %61 = load ptr, ptr %60, align 8, !tbaa !74
   invoke void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx22StringStringEntryProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(40) %59, ptr noundef %61)
           to label %.noexc46 unwind label %.loopexit.split-lp.loopexit
@@ -11302,7 +11302,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN4onnx18OperatorSetIdProtoEEC2ERKS4_.exit:
 
 .lr.ph6.i.i.i34:                                  ; preds = %.noexc48, %.lr.ph6.preheader.i.i.i33
   %indvars.iv8.i.i.i35 = phi i64 [ %57, %.lr.ph6.preheader.i.i.i33 ], [ %indvars.iv.next9.i.i.i36, %.noexc48 ]
-  %62 = getelementptr inbounds ptr, ptr %46, i64 %indvars.iv8.i.i.i35
+  %62 = getelementptr inbounds [8 x i8], ptr %46, i64 %indvars.iv8.i.i.i35
   %63 = load ptr, ptr %62, align 8, !tbaa !74
   %64 = invoke noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4onnx22StringStringEntryProtoEJEEEPT_PS1_DpOT0_(ptr noundef %55)
           to label %.noexc47 unwind label %.loopexit
@@ -11312,7 +11312,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN4onnx18OperatorSetIdProtoEEC2ERKS4_.exit:
           to label %.noexc48 unwind label %.loopexit
 
 .noexc48:                                         ; preds = %.noexc47
-  %65 = getelementptr inbounds ptr, ptr %47, i64 %indvars.iv8.i.i.i35
+  %65 = getelementptr inbounds [8 x i8], ptr %47, i64 %indvars.iv8.i.i.i35
   store ptr %64, ptr %65, align 8, !tbaa !74
   %indvars.iv.next9.i.i.i36 = add nsw i64 %indvars.iv8.i.i.i35, 1
   %lftr.wideiv.i.i.i37 = trunc i64 %indvars.iv.next9.i.i.i36 to i32
@@ -11643,7 +11643,7 @@ _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv
 
 .lr.ph.i.i:                                       ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx22StringStringEntryProtoEE6DeleteEPS4_PNS0_5ArenaE.exit.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx22StringStringEntryProtoEE6DeleteEPS4_PNS0_5ArenaE.exit.i.i ]
-  %34 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv.i.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv.i.i
   %35 = load ptr, ptr %34, align 8, !tbaa !74
   %36 = icmp eq ptr %35, null
   br i1 %36, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx22StringStringEntryProtoEE6DeleteEPS4_PNS0_5ArenaE.exit.i.i, label %37
@@ -11690,7 +11690,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN4onnx22StringStringEntryProtoEED2Ev.exit:
 
 .lr.ph.i.i6:                                      ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx18OperatorSetIdProtoEE6DeleteEPS4_PNS0_5ArenaE.exit.i.i, %.lr.ph.preheader.i.i4
   %indvars.iv.i.i7 = phi i64 [ 0, %.lr.ph.preheader.i.i4 ], [ %indvars.iv.next.i.i8, %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx18OperatorSetIdProtoEE6DeleteEPS4_PNS0_5ArenaE.exit.i.i ]
-  %48 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv.i.i7
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv.i.i7
   %49 = load ptr, ptr %48, align 8, !tbaa !74
   %50 = icmp eq ptr %49, null
   br i1 %50, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx18OperatorSetIdProtoEE6DeleteEPS4_PNS0_5ArenaE.exit.i.i, label %51
@@ -11875,7 +11875,7 @@ define dso_local void @_ZN4onnx10ModelProto5ClearEv(ptr noundef nonnull align 8 
 9:                                                ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx18OperatorSetIdProtoEE5ClearEPS4_.exit.i.i, %5
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx18OperatorSetIdProtoEE5ClearEPS4_.exit.i.i ], [ 0, %5 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i.i
   %11 = load ptr, ptr %10, align 8, !tbaa !74
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load i32, ptr %12, align 4, !tbaa !50
@@ -11941,7 +11941,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN4onnx18OperatorSetIdProtoEE5ClearEv.exit:
 42:                                               ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx22StringStringEntryProtoEE5ClearEPS4_.exit.i.i, %38
   %indvars.iv.i.i14 = phi i64 [ %indvars.iv.next.i.i15, %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx22StringStringEntryProtoEE5ClearEPS4_.exit.i.i ], [ 0, %38 ]
   %indvars.iv.next.i.i15 = add nuw nsw i64 %indvars.iv.i.i14, 1
-  %43 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv.i.i14
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv.i.i14
   %44 = load ptr, ptr %43, align 8, !tbaa !74
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load i32, ptr %45, align 4, !tbaa !50
@@ -12589,7 +12589,7 @@ _ZN6google8protobuf8internal12ParseContext12ParseMessageIN4onnx10GraphProtoEEEPK
   %234 = add nsw i32 %229, 1
   store i32 %234, ptr %15, align 8, !tbaa !80
   %235 = sext i32 %229 to i64
-  %236 = getelementptr inbounds ptr, ptr %233, i64 %235
+  %236 = getelementptr inbounds [8 x i8], ptr %233, i64 %235
   %237 = load ptr, ptr %236, align 8, !tbaa !74
   br label %_ZN4onnx10ModelProto26_internal_add_opset_importEv.exit
 
@@ -12619,7 +12619,7 @@ _ZN6google8protobuf8internal12ParseContext12ParseMessageIN4onnx10GraphProtoEEEPK
   %252 = add nsw i32 %251, 1
   store i32 %252, ptr %15, align 8, !tbaa !80
   %253 = sext i32 %251 to i64
-  %254 = getelementptr inbounds ptr, ptr %250, i64 %253
+  %254 = getelementptr inbounds [8 x i8], ptr %250, i64 %253
   store ptr %248, ptr %254, align 8, !tbaa !74
   br label %_ZN4onnx10ModelProto26_internal_add_opset_importEv.exit
 
@@ -12724,7 +12724,7 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i78: ; preds = %_ZN4onnx10ModelP
   %306 = add nsw i32 %301, 1
   store i32 %306, ptr %9, align 8, !tbaa !80
   %307 = sext i32 %301 to i64
-  %308 = getelementptr inbounds ptr, ptr %305, i64 %307
+  %308 = getelementptr inbounds [8 x i8], ptr %305, i64 %307
   %309 = load ptr, ptr %308, align 8, !tbaa !74
   br label %_ZN4onnx10ModelProto28_internal_add_metadata_propsEv.exit
 
@@ -12754,7 +12754,7 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i78: ; preds = %_ZN4onnx10ModelP
   %324 = add nsw i32 %323, 1
   store i32 %324, ptr %9, align 8, !tbaa !80
   %325 = sext i32 %323 to i64
-  %326 = getelementptr inbounds ptr, ptr %322, i64 %325
+  %326 = getelementptr inbounds [8 x i8], ptr %322, i64 %325
   store ptr %320, ptr %326, align 8, !tbaa !74
   br label %_ZN4onnx10ModelProto28_internal_add_metadata_propsEv.exit
 
@@ -13267,7 +13267,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit87: ; preds = %1
   %189 = load ptr, ptr %181, align 8, !tbaa !71
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 8
   %191 = sext i32 %.045114 to i64
-  %192 = getelementptr inbounds ptr, ptr %190, i64 %191
+  %192 = getelementptr inbounds [8 x i8], ptr %190, i64 %191
   %193 = load ptr, ptr %192, align 8, !tbaa !74
   store i8 66, ptr %.0.i86, align 1, !tbaa !78
   %194 = getelementptr inbounds nuw i8, ptr %.0.i86, i64 1
@@ -13349,7 +13349,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit95: ; preds = %2
   %230 = load ptr, ptr %184, align 8, !tbaa !71
   %231 = getelementptr inbounds nuw i8, ptr %230, i64 8
   %232 = sext i32 %.044116 to i64
-  %233 = getelementptr inbounds ptr, ptr %231, i64 %232
+  %233 = getelementptr inbounds [8 x i8], ptr %231, i64 %232
   %234 = load ptr, ptr %233, align 8, !tbaa !74
   store i8 114, ptr %.0.i94, align 1, !tbaa !78
   %235 = getelementptr inbounds nuw i8, ptr %.0.i94, i64 1
@@ -13909,9 +13909,9 @@ _ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEE
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %39 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv.i.i
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !74
-  %41 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv.i.i
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv.i.i
   %42 = load ptr, ptr %41, align 8, !tbaa !74
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx18OperatorSetIdProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef %42)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -13920,11 +13920,11 @@ _ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEE
 
 .lr.ph6.i.i:                                      ; preds = %.lr.ph6.i.i, %.lr.ph6.preheader.i.i
   %indvars.iv8.i.i = phi i64 [ %38, %.lr.ph6.preheader.i.i ], [ %indvars.iv.next9.i.i, %.lr.ph6.i.i ]
-  %43 = getelementptr inbounds ptr, ptr %27, i64 %indvars.iv8.i.i
+  %43 = getelementptr inbounds [8 x i8], ptr %27, i64 %indvars.iv8.i.i
   %44 = load ptr, ptr %43, align 8, !tbaa !74
   %45 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4onnx18OperatorSetIdProtoEJEEEPT_PS1_DpOT0_(ptr noundef %36)
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx18OperatorSetIdProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(40) %44, ptr noundef %45)
-  %46 = getelementptr inbounds ptr, ptr %28, i64 %indvars.iv8.i.i
+  %46 = getelementptr inbounds [8 x i8], ptr %28, i64 %indvars.iv8.i.i
   store ptr %45, ptr %46, align 8, !tbaa !74
   %indvars.iv.next9.i.i = add nsw i64 %indvars.iv8.i.i, 1
   %lftr.wideiv.i.i = trunc i64 %indvars.iv.next9.i.i to i32
@@ -13981,9 +13981,9 @@ _ZN6google8protobuf16RepeatedPtrFieldIN4onnx18OperatorSetIdProtoEE9MergeFromERKS
 
 .lr.ph.i.i37:                                     ; preds = %.lr.ph.i.i37, %.lr.ph.preheader.i.i35
   %indvars.iv.i.i38 = phi i64 [ 0, %.lr.ph.preheader.i.i35 ], [ %indvars.iv.next.i.i39, %.lr.ph.i.i37 ]
-  %72 = getelementptr inbounds nuw ptr, ptr %60, i64 %indvars.iv.i.i38
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %indvars.iv.i.i38
   %73 = load ptr, ptr %72, align 8, !tbaa !74
-  %74 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv.i.i38
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv.i.i38
   %75 = load ptr, ptr %74, align 8, !tbaa !74
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx22StringStringEntryProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(40) %73, ptr noundef %75)
   %indvars.iv.next.i.i39 = add nuw nsw i64 %indvars.iv.i.i38, 1
@@ -13992,11 +13992,11 @@ _ZN6google8protobuf16RepeatedPtrFieldIN4onnx18OperatorSetIdProtoEE9MergeFromERKS
 
 .lr.ph6.i.i30:                                    ; preds = %.lr.ph6.i.i30, %.lr.ph6.preheader.i.i29
   %indvars.iv8.i.i31 = phi i64 [ %71, %.lr.ph6.preheader.i.i29 ], [ %indvars.iv.next9.i.i32, %.lr.ph6.i.i30 ]
-  %76 = getelementptr inbounds ptr, ptr %60, i64 %indvars.iv8.i.i31
+  %76 = getelementptr inbounds [8 x i8], ptr %60, i64 %indvars.iv8.i.i31
   %77 = load ptr, ptr %76, align 8, !tbaa !74
   %78 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4onnx22StringStringEntryProtoEJEEEPT_PS1_DpOT0_(ptr noundef %69)
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx22StringStringEntryProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(40) %77, ptr noundef %78)
-  %79 = getelementptr inbounds ptr, ptr %61, i64 %indvars.iv8.i.i31
+  %79 = getelementptr inbounds [8 x i8], ptr %61, i64 %indvars.iv8.i.i31
   store ptr %78, ptr %79, align 8, !tbaa !74
   %indvars.iv.next9.i.i32 = add nsw i64 %indvars.iv8.i.i31, 1
   %lftr.wideiv.i.i33 = trunc i64 %indvars.iv.next9.i.i32 to i32
@@ -15611,9 +15611,9 @@ define dso_local void @_ZN4onnx16TensorAnnotationC2ERKS0_(ptr noundef nonnull al
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ]
-  %26 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv.i.i.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv.i.i.i
   %27 = load ptr, ptr %26, align 8, !tbaa !74
-  %28 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv.i.i.i
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.i.i.i
   %29 = load ptr, ptr %28, align 8, !tbaa !74
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx22StringStringEntryProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(40) %27, ptr noundef %29)
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -15622,11 +15622,11 @@ define dso_local void @_ZN4onnx16TensorAnnotationC2ERKS0_(ptr noundef nonnull al
 
 .lr.ph6.i.i.i:                                    ; preds = %.lr.ph6.i.i.i, %.lr.ph6.preheader.i.i.i
   %indvars.iv8.i.i.i = phi i64 [ %25, %.lr.ph6.preheader.i.i.i ], [ %indvars.iv.next9.i.i.i, %.lr.ph6.i.i.i ]
-  %30 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv8.i.i.i
+  %30 = getelementptr inbounds [8 x i8], ptr %14, i64 %indvars.iv8.i.i.i
   %31 = load ptr, ptr %30, align 8, !tbaa !74
   %32 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4onnx22StringStringEntryProtoEJEEEPT_PS1_DpOT0_(ptr noundef %23)
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx22StringStringEntryProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(40) %31, ptr noundef %32)
-  %33 = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv8.i.i.i
+  %33 = getelementptr inbounds [8 x i8], ptr %15, i64 %indvars.iv8.i.i.i
   store ptr %32, ptr %33, align 8, !tbaa !74
   %indvars.iv.next9.i.i.i = add nsw i64 %indvars.iv8.i.i.i, 1
   %lftr.wideiv.i.i.i = trunc i64 %indvars.iv.next9.i.i.i to i32
@@ -15823,7 +15823,7 @@ _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv
 
 .lr.ph.i.i:                                       ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx22StringStringEntryProtoEE6DeleteEPS4_PNS0_5ArenaE.exit.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx22StringStringEntryProtoEE6DeleteEPS4_PNS0_5ArenaE.exit.i.i ]
-  %40 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv.i.i
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv.i.i
   %41 = load ptr, ptr %40, align 8, !tbaa !74
   %42 = icmp eq ptr %41, null
   br i1 %42, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx22StringStringEntryProtoEE6DeleteEPS4_PNS0_5ArenaE.exit.i.i, label %43
@@ -15893,7 +15893,7 @@ define dso_local void @_ZN4onnx16TensorAnnotation5ClearEv(ptr noundef nonnull al
 9:                                                ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx22StringStringEntryProtoEE5ClearEPS4_.exit.i.i, %5
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx22StringStringEntryProtoEE5ClearEPS4_.exit.i.i ], [ 0, %5 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i.i
   %11 = load ptr, ptr %10, align 8, !tbaa !74
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load i32, ptr %12, align 4, !tbaa !50
@@ -16154,7 +16154,7 @@ _ZN4onnx16TensorAnnotation29_internal_mutable_tensor_nameB5cxx11Ev.exit: ; preds
   %76 = add nsw i32 %71, 1
   store i32 %76, ptr %9, align 8, !tbaa !80
   %77 = sext i32 %71 to i64
-  %78 = getelementptr inbounds ptr, ptr %75, i64 %77
+  %78 = getelementptr inbounds [8 x i8], ptr %75, i64 %77
   %79 = load ptr, ptr %78, align 8, !tbaa !74
   br label %_ZN4onnx16TensorAnnotation42_internal_add_quant_parameter_tensor_namesEv.exit
 
@@ -16184,7 +16184,7 @@ _ZN4onnx16TensorAnnotation29_internal_mutable_tensor_nameB5cxx11Ev.exit: ; preds
   %94 = add nsw i32 %93, 1
   store i32 %94, ptr %9, align 8, !tbaa !80
   %95 = sext i32 %93 to i64
-  %96 = getelementptr inbounds ptr, ptr %92, i64 %95
+  %96 = getelementptr inbounds [8 x i8], ptr %92, i64 %95
   store ptr %90, ptr %96, align 8, !tbaa !74
   br label %_ZN4onnx16TensorAnnotation42_internal_add_quant_parameter_tensor_namesEv.exit
 
@@ -16375,7 +16375,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %32,
   %36 = load ptr, ptr %27, align 8, !tbaa !71
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = sext i32 %.01419 to i64
-  %39 = getelementptr inbounds ptr, ptr %37, i64 %38
+  %39 = getelementptr inbounds [8 x i8], ptr %37, i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !74
   store i8 18, ptr %.0.i16, align 1, !tbaa !78
   %41 = getelementptr inbounds nuw i8, ptr %.0.i16, i64 1
@@ -16693,9 +16693,9 @@ _ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEE
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %39 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv.i.i
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !74
-  %41 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv.i.i
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv.i.i
   %42 = load ptr, ptr %41, align 8, !tbaa !74
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx22StringStringEntryProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(40) %40, ptr noundef %42)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -16704,11 +16704,11 @@ _ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEE
 
 .lr.ph6.i.i:                                      ; preds = %.lr.ph6.i.i, %.lr.ph6.preheader.i.i
   %indvars.iv8.i.i = phi i64 [ %38, %.lr.ph6.preheader.i.i ], [ %indvars.iv.next9.i.i, %.lr.ph6.i.i ]
-  %43 = getelementptr inbounds ptr, ptr %27, i64 %indvars.iv8.i.i
+  %43 = getelementptr inbounds [8 x i8], ptr %27, i64 %indvars.iv8.i.i
   %44 = load ptr, ptr %43, align 8, !tbaa !74
   %45 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4onnx22StringStringEntryProtoEJEEEPT_PS1_DpOT0_(ptr noundef %36)
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx22StringStringEntryProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(40) %44, ptr noundef %45)
-  %46 = getelementptr inbounds ptr, ptr %28, i64 %indvars.iv8.i.i
+  %46 = getelementptr inbounds [8 x i8], ptr %28, i64 %indvars.iv8.i.i
   store ptr %45, ptr %46, align 8, !tbaa !74
   %indvars.iv.next9.i.i = add nsw i64 %indvars.iv8.i.i, 1
   %lftr.wideiv.i.i = trunc i64 %indvars.iv.next9.i.i to i32
@@ -17013,7 +17013,7 @@ define linkonce_odr dso_local void @_ZN6google8protobuf16RepeatedPtrFieldIN4onnx
 
 .lr.ph.i:                                         ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx16TensorAnnotationEE6DeleteEPS4_PNS0_5ArenaE.exit.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx16TensorAnnotationEE6DeleteEPS4_PNS0_5ArenaE.exit.i ]
-  %11 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i
   %12 = load ptr, ptr %11, align 8, !tbaa !74
   %13 = icmp eq ptr %12, null
   br i1 %13, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx16TensorAnnotationEE6DeleteEPS4_PNS0_5ArenaE.exit.i, label %14
@@ -17064,7 +17064,7 @@ define linkonce_odr dso_local void @_ZN6google8protobuf16RepeatedPtrFieldIN4onnx
 
 .lr.ph.i:                                         ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx14ValueInfoProtoEE6DeleteEPS4_PNS0_5ArenaE.exit.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx14ValueInfoProtoEE6DeleteEPS4_PNS0_5ArenaE.exit.i ]
-  %11 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i
   %12 = load ptr, ptr %11, align 8, !tbaa !74
   %13 = icmp eq ptr %12, null
   br i1 %13, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx14ValueInfoProtoEE6DeleteEPS4_PNS0_5ArenaE.exit.i, label %14
@@ -17115,7 +17115,7 @@ define linkonce_odr dso_local void @_ZN6google8protobuf16RepeatedPtrFieldIN4onnx
 
 .lr.ph.i:                                         ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx9NodeProtoEE6DeleteEPS4_PNS0_5ArenaE.exit.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx9NodeProtoEE6DeleteEPS4_PNS0_5ArenaE.exit.i ]
-  %11 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i
   %12 = load ptr, ptr %11, align 8, !tbaa !74
   %13 = icmp eq ptr %12, null
   br i1 %13, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx9NodeProtoEE6DeleteEPS4_PNS0_5ArenaE.exit.i, label %14
@@ -17182,9 +17182,9 @@ define dso_local void @_ZN4onnx10GraphProtoC2ERKS0_(ptr noundef nonnull align 8 
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ]
-  %26 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv.i.i.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv.i.i.i
   %27 = load ptr, ptr %26, align 8, !tbaa !74
-  %28 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv.i.i.i
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.i.i.i
   %29 = load ptr, ptr %28, align 8, !tbaa !74
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx9NodeProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(128) %27, ptr noundef %29)
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -17193,11 +17193,11 @@ define dso_local void @_ZN4onnx10GraphProtoC2ERKS0_(ptr noundef nonnull align 8 
 
 .lr.ph6.i.i.i:                                    ; preds = %.lr.ph6.i.i.i, %.lr.ph6.preheader.i.i.i
   %indvars.iv8.i.i.i = phi i64 [ %25, %.lr.ph6.preheader.i.i.i ], [ %indvars.iv.next9.i.i.i, %.lr.ph6.i.i.i ]
-  %30 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv8.i.i.i
+  %30 = getelementptr inbounds [8 x i8], ptr %14, i64 %indvars.iv8.i.i.i
   %31 = load ptr, ptr %30, align 8, !tbaa !74
   %32 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4onnx9NodeProtoEJEEEPT_PS1_DpOT0_(ptr noundef %23)
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx9NodeProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(128) %31, ptr noundef %32)
-  %33 = getelementptr inbounds ptr, ptr %15, i64 %indvars.iv8.i.i.i
+  %33 = getelementptr inbounds [8 x i8], ptr %15, i64 %indvars.iv8.i.i.i
   store ptr %32, ptr %33, align 8, !tbaa !74
   %indvars.iv.next9.i.i.i = add nsw i64 %indvars.iv8.i.i.i, 1
   %lftr.wideiv.i.i.i = trunc i64 %indvars.iv.next9.i.i.i to i32
@@ -17258,9 +17258,9 @@ _ZN6google8protobuf16RepeatedPtrFieldIN4onnx9NodeProtoEEC2ERKS4_.exit: ; preds =
 
 .lr.ph.i.i.i44:                                   ; preds = %.noexc49, %.lr.ph.preheader.i.i.i42
   %indvars.iv.i.i.i45 = phi i64 [ 0, %.lr.ph.preheader.i.i.i42 ], [ %indvars.iv.next.i.i.i46, %.noexc49 ]
-  %58 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv.i.i.i45
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv.i.i.i45
   %59 = load ptr, ptr %58, align 8, !tbaa !74
-  %60 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv.i.i.i45
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv.i.i.i45
   %61 = load ptr, ptr %60, align 8, !tbaa !74
   invoke void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx11TensorProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(248) %59, ptr noundef %61)
           to label %.noexc49 unwind label %.loopexit.split-lp170.loopexit
@@ -17272,7 +17272,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN4onnx9NodeProtoEEC2ERKS4_.exit: ; preds =
 
 .lr.ph6.i.i.i37:                                  ; preds = %.noexc51, %.lr.ph6.preheader.i.i.i36
   %indvars.iv8.i.i.i38 = phi i64 [ %57, %.lr.ph6.preheader.i.i.i36 ], [ %indvars.iv.next9.i.i.i39, %.noexc51 ]
-  %62 = getelementptr inbounds ptr, ptr %46, i64 %indvars.iv8.i.i.i38
+  %62 = getelementptr inbounds [8 x i8], ptr %46, i64 %indvars.iv8.i.i.i38
   %63 = load ptr, ptr %62, align 8, !tbaa !74
   %64 = invoke noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4onnx11TensorProtoEJEEEPT_PS1_DpOT0_(ptr noundef %55)
           to label %.noexc50 unwind label %.loopexit169
@@ -17282,7 +17282,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN4onnx9NodeProtoEEC2ERKS4_.exit: ; preds =
           to label %.noexc51 unwind label %.loopexit169
 
 .noexc51:                                         ; preds = %.noexc50
-  %65 = getelementptr inbounds ptr, ptr %47, i64 %indvars.iv8.i.i.i38
+  %65 = getelementptr inbounds [8 x i8], ptr %47, i64 %indvars.iv8.i.i.i38
   store ptr %64, ptr %65, align 8, !tbaa !74
   %indvars.iv.next9.i.i.i39 = add nsw i64 %indvars.iv8.i.i.i38, 1
   %lftr.wideiv.i.i.i40 = trunc i64 %indvars.iv.next9.i.i.i39 to i32
@@ -17343,9 +17343,9 @@ _ZN6google8protobuf16RepeatedPtrFieldIN4onnx11TensorProtoEEC2ERKS4_.exit: ; pred
 
 .lr.ph.i.i.i63:                                   ; preds = %.noexc68, %.lr.ph.preheader.i.i.i61
   %indvars.iv.i.i.i64 = phi i64 [ 0, %.lr.ph.preheader.i.i.i61 ], [ %indvars.iv.next.i.i.i65, %.noexc68 ]
-  %90 = getelementptr inbounds nuw ptr, ptr %78, i64 %indvars.iv.i.i.i64
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %indvars.iv.i.i.i64
   %91 = load ptr, ptr %90, align 8, !tbaa !74
-  %92 = getelementptr inbounds nuw ptr, ptr %79, i64 %indvars.iv.i.i.i64
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %indvars.iv.i.i.i64
   %93 = load ptr, ptr %92, align 8, !tbaa !74
   invoke void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx14ValueInfoProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(48) %91, ptr noundef %93)
           to label %.noexc68 unwind label %.loopexit.split-lp163.loopexit
@@ -17357,7 +17357,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN4onnx11TensorProtoEEC2ERKS4_.exit: ; pred
 
 .lr.ph6.i.i.i56:                                  ; preds = %.noexc70, %.lr.ph6.preheader.i.i.i55
   %indvars.iv8.i.i.i57 = phi i64 [ %89, %.lr.ph6.preheader.i.i.i55 ], [ %indvars.iv.next9.i.i.i58, %.noexc70 ]
-  %94 = getelementptr inbounds ptr, ptr %78, i64 %indvars.iv8.i.i.i57
+  %94 = getelementptr inbounds [8 x i8], ptr %78, i64 %indvars.iv8.i.i.i57
   %95 = load ptr, ptr %94, align 8, !tbaa !74
   %96 = invoke noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4onnx14ValueInfoProtoEJEEEPT_PS1_DpOT0_(ptr noundef %87)
           to label %.noexc69 unwind label %.loopexit162
@@ -17367,7 +17367,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN4onnx11TensorProtoEEC2ERKS4_.exit: ; pred
           to label %.noexc70 unwind label %.loopexit162
 
 .noexc70:                                         ; preds = %.noexc69
-  %97 = getelementptr inbounds ptr, ptr %79, i64 %indvars.iv8.i.i.i57
+  %97 = getelementptr inbounds [8 x i8], ptr %79, i64 %indvars.iv8.i.i.i57
   store ptr %96, ptr %97, align 8, !tbaa !74
   %indvars.iv.next9.i.i.i58 = add nsw i64 %indvars.iv8.i.i.i57, 1
   %lftr.wideiv.i.i.i59 = trunc i64 %indvars.iv.next9.i.i.i58 to i32
@@ -17428,9 +17428,9 @@ _ZN6google8protobuf16RepeatedPtrFieldIN4onnx14ValueInfoProtoEEC2ERKS4_.exit: ; p
 
 .lr.ph.i.i.i83:                                   ; preds = %.noexc88, %.lr.ph.preheader.i.i.i81
   %indvars.iv.i.i.i84 = phi i64 [ 0, %.lr.ph.preheader.i.i.i81 ], [ %indvars.iv.next.i.i.i85, %.noexc88 ]
-  %122 = getelementptr inbounds nuw ptr, ptr %110, i64 %indvars.iv.i.i.i84
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %110, i64 %indvars.iv.i.i.i84
   %123 = load ptr, ptr %122, align 8, !tbaa !74
-  %124 = getelementptr inbounds nuw ptr, ptr %111, i64 %indvars.iv.i.i.i84
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %indvars.iv.i.i.i84
   %125 = load ptr, ptr %124, align 8, !tbaa !74
   invoke void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx14ValueInfoProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(48) %123, ptr noundef %125)
           to label %.noexc88 unwind label %.loopexit.split-lp156.loopexit
@@ -17442,7 +17442,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN4onnx14ValueInfoProtoEEC2ERKS4_.exit: ; p
 
 .lr.ph6.i.i.i76:                                  ; preds = %.noexc90, %.lr.ph6.preheader.i.i.i75
   %indvars.iv8.i.i.i77 = phi i64 [ %121, %.lr.ph6.preheader.i.i.i75 ], [ %indvars.iv.next9.i.i.i78, %.noexc90 ]
-  %126 = getelementptr inbounds ptr, ptr %110, i64 %indvars.iv8.i.i.i77
+  %126 = getelementptr inbounds [8 x i8], ptr %110, i64 %indvars.iv8.i.i.i77
   %127 = load ptr, ptr %126, align 8, !tbaa !74
   %128 = invoke noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4onnx14ValueInfoProtoEJEEEPT_PS1_DpOT0_(ptr noundef %119)
           to label %.noexc89 unwind label %.loopexit155
@@ -17452,7 +17452,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN4onnx14ValueInfoProtoEEC2ERKS4_.exit: ; p
           to label %.noexc90 unwind label %.loopexit155
 
 .noexc90:                                         ; preds = %.noexc89
-  %129 = getelementptr inbounds ptr, ptr %111, i64 %indvars.iv8.i.i.i77
+  %129 = getelementptr inbounds [8 x i8], ptr %111, i64 %indvars.iv8.i.i.i77
   store ptr %128, ptr %129, align 8, !tbaa !74
   %indvars.iv.next9.i.i.i78 = add nsw i64 %indvars.iv8.i.i.i77, 1
   %lftr.wideiv.i.i.i79 = trunc i64 %indvars.iv.next9.i.i.i78 to i32
@@ -17513,9 +17513,9 @@ _ZN6google8protobuf16RepeatedPtrFieldIN4onnx14ValueInfoProtoEEC2ERKS4_.exit91: ;
 
 .lr.ph.i.i.i104:                                  ; preds = %.noexc109, %.lr.ph.preheader.i.i.i102
   %indvars.iv.i.i.i105 = phi i64 [ 0, %.lr.ph.preheader.i.i.i102 ], [ %indvars.iv.next.i.i.i106, %.noexc109 ]
-  %154 = getelementptr inbounds nuw ptr, ptr %142, i64 %indvars.iv.i.i.i105
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %142, i64 %indvars.iv.i.i.i105
   %155 = load ptr, ptr %154, align 8, !tbaa !74
-  %156 = getelementptr inbounds nuw ptr, ptr %143, i64 %indvars.iv.i.i.i105
+  %156 = getelementptr inbounds nuw [8 x i8], ptr %143, i64 %indvars.iv.i.i.i105
   %157 = load ptr, ptr %156, align 8, !tbaa !74
   invoke void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx14ValueInfoProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(48) %155, ptr noundef %157)
           to label %.noexc109 unwind label %.loopexit.split-lp149.loopexit
@@ -17527,7 +17527,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN4onnx14ValueInfoProtoEEC2ERKS4_.exit91: ;
 
 .lr.ph6.i.i.i97:                                  ; preds = %.noexc111, %.lr.ph6.preheader.i.i.i96
   %indvars.iv8.i.i.i98 = phi i64 [ %153, %.lr.ph6.preheader.i.i.i96 ], [ %indvars.iv.next9.i.i.i99, %.noexc111 ]
-  %158 = getelementptr inbounds ptr, ptr %142, i64 %indvars.iv8.i.i.i98
+  %158 = getelementptr inbounds [8 x i8], ptr %142, i64 %indvars.iv8.i.i.i98
   %159 = load ptr, ptr %158, align 8, !tbaa !74
   %160 = invoke noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4onnx14ValueInfoProtoEJEEEPT_PS1_DpOT0_(ptr noundef %151)
           to label %.noexc110 unwind label %.loopexit148
@@ -17537,7 +17537,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN4onnx14ValueInfoProtoEEC2ERKS4_.exit91: ;
           to label %.noexc111 unwind label %.loopexit148
 
 .noexc111:                                        ; preds = %.noexc110
-  %161 = getelementptr inbounds ptr, ptr %143, i64 %indvars.iv8.i.i.i98
+  %161 = getelementptr inbounds [8 x i8], ptr %143, i64 %indvars.iv8.i.i.i98
   store ptr %160, ptr %161, align 8, !tbaa !74
   %indvars.iv.next9.i.i.i99 = add nsw i64 %indvars.iv8.i.i.i98, 1
   %lftr.wideiv.i.i.i100 = trunc i64 %indvars.iv.next9.i.i.i99 to i32
@@ -17598,9 +17598,9 @@ _ZN6google8protobuf16RepeatedPtrFieldIN4onnx14ValueInfoProtoEEC2ERKS4_.exit112: 
 
 .lr.ph.i.i.i124:                                  ; preds = %.noexc129, %.lr.ph.preheader.i.i.i122
   %indvars.iv.i.i.i125 = phi i64 [ 0, %.lr.ph.preheader.i.i.i122 ], [ %indvars.iv.next.i.i.i126, %.noexc129 ]
-  %186 = getelementptr inbounds nuw ptr, ptr %174, i64 %indvars.iv.i.i.i125
+  %186 = getelementptr inbounds nuw [8 x i8], ptr %174, i64 %indvars.iv.i.i.i125
   %187 = load ptr, ptr %186, align 8, !tbaa !74
-  %188 = getelementptr inbounds nuw ptr, ptr %175, i64 %indvars.iv.i.i.i125
+  %188 = getelementptr inbounds nuw [8 x i8], ptr %175, i64 %indvars.iv.i.i.i125
   %189 = load ptr, ptr %188, align 8, !tbaa !74
   invoke void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx16TensorAnnotationEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(56) %187, ptr noundef %189)
           to label %.noexc129 unwind label %.loopexit.split-lp.loopexit
@@ -17612,7 +17612,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN4onnx14ValueInfoProtoEEC2ERKS4_.exit112: 
 
 .lr.ph6.i.i.i117:                                 ; preds = %.noexc131, %.lr.ph6.preheader.i.i.i116
   %indvars.iv8.i.i.i118 = phi i64 [ %185, %.lr.ph6.preheader.i.i.i116 ], [ %indvars.iv.next9.i.i.i119, %.noexc131 ]
-  %190 = getelementptr inbounds ptr, ptr %174, i64 %indvars.iv8.i.i.i118
+  %190 = getelementptr inbounds [8 x i8], ptr %174, i64 %indvars.iv8.i.i.i118
   %191 = load ptr, ptr %190, align 8, !tbaa !74
   %192 = invoke noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4onnx16TensorAnnotationEJEEEPT_PS1_DpOT0_(ptr noundef %183)
           to label %.noexc130 unwind label %.loopexit
@@ -17622,7 +17622,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN4onnx14ValueInfoProtoEEC2ERKS4_.exit112: 
           to label %.noexc131 unwind label %.loopexit
 
 .noexc131:                                        ; preds = %.noexc130
-  %193 = getelementptr inbounds ptr, ptr %175, i64 %indvars.iv8.i.i.i118
+  %193 = getelementptr inbounds [8 x i8], ptr %175, i64 %indvars.iv8.i.i.i118
   store ptr %192, ptr %193, align 8, !tbaa !74
   %indvars.iv.next9.i.i.i119 = add nsw i64 %indvars.iv8.i.i.i118, 1
   %lftr.wideiv.i.i.i120 = trunc i64 %indvars.iv.next9.i.i.i119 to i32
@@ -17973,7 +17973,7 @@ _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv
 
 .lr.ph.i.i:                                       ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx16TensorAnnotationEE6DeleteEPS4_PNS0_5ArenaE.exit.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx16TensorAnnotationEE6DeleteEPS4_PNS0_5ArenaE.exit.i.i ]
-  %47 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv.i.i
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv.i.i
   %48 = load ptr, ptr %47, align 8, !tbaa !74
   %49 = icmp eq ptr %48, null
   br i1 %49, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx16TensorAnnotationEE6DeleteEPS4_PNS0_5ArenaE.exit.i.i, label %50
@@ -18020,7 +18020,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN4onnx16TensorAnnotationEED2Ev.exit: ; pre
 
 .lr.ph.i.i8:                                      ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx14ValueInfoProtoEE6DeleteEPS4_PNS0_5ArenaE.exit.i.i, %.lr.ph.preheader.i.i6
   %indvars.iv.i.i9 = phi i64 [ 0, %.lr.ph.preheader.i.i6 ], [ %indvars.iv.next.i.i10, %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx14ValueInfoProtoEE6DeleteEPS4_PNS0_5ArenaE.exit.i.i ]
-  %61 = getelementptr inbounds nuw ptr, ptr %58, i64 %indvars.iv.i.i9
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %indvars.iv.i.i9
   %62 = load ptr, ptr %61, align 8, !tbaa !74
   %63 = icmp eq ptr %62, null
   br i1 %63, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx14ValueInfoProtoEE6DeleteEPS4_PNS0_5ArenaE.exit.i.i, label %64
@@ -18067,7 +18067,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN4onnx14ValueInfoProtoEED2Ev.exit: ; preds
 
 .lr.ph.i.i19:                                     ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx14ValueInfoProtoEE6DeleteEPS4_PNS0_5ArenaE.exit.i.i21, %.lr.ph.preheader.i.i17
   %indvars.iv.i.i20 = phi i64 [ 0, %.lr.ph.preheader.i.i17 ], [ %indvars.iv.next.i.i22, %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx14ValueInfoProtoEE6DeleteEPS4_PNS0_5ArenaE.exit.i.i21 ]
-  %75 = getelementptr inbounds nuw ptr, ptr %72, i64 %indvars.iv.i.i20
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %indvars.iv.i.i20
   %76 = load ptr, ptr %75, align 8, !tbaa !74
   %77 = icmp eq ptr %76, null
   br i1 %77, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx14ValueInfoProtoEE6DeleteEPS4_PNS0_5ArenaE.exit.i.i21, label %78
@@ -18114,7 +18114,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN4onnx14ValueInfoProtoEED2Ev.exit26: ; pre
 
 .lr.ph.i.i32:                                     ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx14ValueInfoProtoEE6DeleteEPS4_PNS0_5ArenaE.exit.i.i34, %.lr.ph.preheader.i.i30
   %indvars.iv.i.i33 = phi i64 [ 0, %.lr.ph.preheader.i.i30 ], [ %indvars.iv.next.i.i35, %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx14ValueInfoProtoEE6DeleteEPS4_PNS0_5ArenaE.exit.i.i34 ]
-  %89 = getelementptr inbounds nuw ptr, ptr %86, i64 %indvars.iv.i.i33
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %indvars.iv.i.i33
   %90 = load ptr, ptr %89, align 8, !tbaa !74
   %91 = icmp eq ptr %90, null
   br i1 %91, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx14ValueInfoProtoEE6DeleteEPS4_PNS0_5ArenaE.exit.i.i34, label %92
@@ -18161,7 +18161,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN4onnx14ValueInfoProtoEED2Ev.exit39: ; pre
 
 .lr.ph.i.i45:                                     ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx11TensorProtoEE6DeleteEPS4_PNS0_5ArenaE.exit.i.i, %.lr.ph.preheader.i.i43
   %indvars.iv.i.i46 = phi i64 [ 0, %.lr.ph.preheader.i.i43 ], [ %indvars.iv.next.i.i47, %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx11TensorProtoEE6DeleteEPS4_PNS0_5ArenaE.exit.i.i ]
-  %103 = getelementptr inbounds nuw ptr, ptr %100, i64 %indvars.iv.i.i46
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %indvars.iv.i.i46
   %104 = load ptr, ptr %103, align 8, !tbaa !74
   %105 = icmp eq ptr %104, null
   br i1 %105, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx11TensorProtoEE6DeleteEPS4_PNS0_5ArenaE.exit.i.i, label %106
@@ -18208,7 +18208,7 @@ _ZN6google8protobuf16RepeatedPtrFieldIN4onnx11TensorProtoEED2Ev.exit: ; preds = 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx9NodeProtoEE6DeleteEPS4_PNS0_5ArenaE.exit.i
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx9NodeProtoEE6DeleteEPS4_PNS0_5ArenaE.exit.i ]
-  %117 = getelementptr inbounds nuw ptr, ptr %114, i64 %indvars.iv
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %indvars.iv
   %118 = load ptr, ptr %117, align 8, !tbaa !74
   %119 = icmp eq ptr %118, null
   br i1 %119, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx9NodeProtoEE6DeleteEPS4_PNS0_5ArenaE.exit.i, label %120
@@ -18397,7 +18397,7 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread: ; preds = %_ZN6google8p
   %79 = add nsw i32 %74, 1
   store i32 %79, ptr %34, align 8, !tbaa !80
   %80 = sext i32 %74 to i64
-  %81 = getelementptr inbounds ptr, ptr %78, i64 %80
+  %81 = getelementptr inbounds [8 x i8], ptr %78, i64 %80
   %82 = load ptr, ptr %81, align 8, !tbaa !74
   br label %_ZN4onnx10GraphProto18_internal_add_nodeEv.exit
 
@@ -18427,7 +18427,7 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread: ; preds = %_ZN6google8p
   %97 = add nsw i32 %96, 1
   store i32 %97, ptr %34, align 8, !tbaa !80
   %98 = sext i32 %96 to i64
-  %99 = getelementptr inbounds ptr, ptr %95, i64 %98
+  %99 = getelementptr inbounds [8 x i8], ptr %95, i64 %98
   store ptr %93, ptr %99, align 8, !tbaa !74
   br label %_ZN4onnx10GraphProto18_internal_add_nodeEv.exit
 
@@ -18570,7 +18570,7 @@ _ZN4onnx10GraphProto22_internal_mutable_nameB5cxx11Ev.exit: ; preds = %_ZNK6goog
   %168 = add nsw i32 %163, 1
   store i32 %168, ptr %29, align 8, !tbaa !80
   %169 = sext i32 %163 to i64
-  %170 = getelementptr inbounds ptr, ptr %167, i64 %169
+  %170 = getelementptr inbounds [8 x i8], ptr %167, i64 %169
   %171 = load ptr, ptr %170, align 8, !tbaa !74
   br label %_ZN4onnx10GraphProto25_internal_add_initializerEv.exit
 
@@ -18600,7 +18600,7 @@ _ZN4onnx10GraphProto22_internal_mutable_nameB5cxx11Ev.exit: ; preds = %_ZNK6goog
   %186 = add nsw i32 %185, 1
   store i32 %186, ptr %29, align 8, !tbaa !80
   %187 = sext i32 %185 to i64
-  %188 = getelementptr inbounds ptr, ptr %184, i64 %187
+  %188 = getelementptr inbounds [8 x i8], ptr %184, i64 %187
   store ptr %182, ptr %188, align 8, !tbaa !74
   br label %_ZN4onnx10GraphProto25_internal_add_initializerEv.exit
 
@@ -18747,7 +18747,7 @@ _ZN4onnx10GraphProto28_internal_mutable_doc_stringB5cxx11Ev.exit: ; preds = %_ZN
   %258 = add nsw i32 %253, 1
   store i32 %258, ptr %23, align 8, !tbaa !80
   %259 = sext i32 %253 to i64
-  %260 = getelementptr inbounds ptr, ptr %257, i64 %259
+  %260 = getelementptr inbounds [8 x i8], ptr %257, i64 %259
   %261 = load ptr, ptr %260, align 8, !tbaa !74
   br label %_ZN4onnx10GraphProto19_internal_add_inputEv.exit
 
@@ -18777,7 +18777,7 @@ _ZN4onnx10GraphProto28_internal_mutable_doc_stringB5cxx11Ev.exit: ; preds = %_ZN
   %276 = add nsw i32 %275, 1
   store i32 %276, ptr %23, align 8, !tbaa !80
   %277 = sext i32 %275 to i64
-  %278 = getelementptr inbounds ptr, ptr %274, i64 %277
+  %278 = getelementptr inbounds [8 x i8], ptr %274, i64 %277
   store ptr %272, ptr %278, align 8, !tbaa !74
   br label %_ZN4onnx10GraphProto19_internal_add_inputEv.exit
 
@@ -18882,7 +18882,7 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i68: ; preds = %_ZN4onnx10GraphP
   %330 = add nsw i32 %325, 1
   store i32 %330, ptr %19, align 8, !tbaa !80
   %331 = sext i32 %325 to i64
-  %332 = getelementptr inbounds ptr, ptr %329, i64 %331
+  %332 = getelementptr inbounds [8 x i8], ptr %329, i64 %331
   %333 = load ptr, ptr %332, align 8, !tbaa !74
   br label %_ZN4onnx10GraphProto20_internal_add_outputEv.exit
 
@@ -18912,7 +18912,7 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i68: ; preds = %_ZN4onnx10GraphP
   %348 = add nsw i32 %347, 1
   store i32 %348, ptr %19, align 8, !tbaa !80
   %349 = sext i32 %347 to i64
-  %350 = getelementptr inbounds ptr, ptr %346, i64 %349
+  %350 = getelementptr inbounds [8 x i8], ptr %346, i64 %349
   store ptr %344, ptr %350, align 8, !tbaa !74
   br label %_ZN4onnx10GraphProto20_internal_add_outputEv.exit
 
@@ -19017,7 +19017,7 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i86: ; preds = %_ZN4onnx10GraphP
   %402 = add nsw i32 %397, 1
   store i32 %402, ptr %15, align 8, !tbaa !80
   %403 = sext i32 %397 to i64
-  %404 = getelementptr inbounds ptr, ptr %401, i64 %403
+  %404 = getelementptr inbounds [8 x i8], ptr %401, i64 %403
   %405 = load ptr, ptr %404, align 8, !tbaa !74
   br label %_ZN4onnx10GraphProto24_internal_add_value_infoEv.exit
 
@@ -19047,7 +19047,7 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i86: ; preds = %_ZN4onnx10GraphP
   %420 = add nsw i32 %419, 1
   store i32 %420, ptr %15, align 8, !tbaa !80
   %421 = sext i32 %419 to i64
-  %422 = getelementptr inbounds ptr, ptr %418, i64 %421
+  %422 = getelementptr inbounds [8 x i8], ptr %418, i64 %421
   store ptr %416, ptr %422, align 8, !tbaa !74
   br label %_ZN4onnx10GraphProto24_internal_add_value_infoEv.exit
 
@@ -19152,7 +19152,7 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i105: ; preds = %_ZN4onnx10Graph
   %474 = add nsw i32 %469, 1
   store i32 %474, ptr %9, align 8, !tbaa !80
   %475 = sext i32 %469 to i64
-  %476 = getelementptr inbounds ptr, ptr %473, i64 %475
+  %476 = getelementptr inbounds [8 x i8], ptr %473, i64 %475
   %477 = load ptr, ptr %476, align 8, !tbaa !74
   br label %_ZN4onnx10GraphProto37_internal_add_quantization_annotationEv.exit
 
@@ -19182,7 +19182,7 @@ _ZN6google8protobuf8internal8ReadSizeEPPKc.exit.i105: ; preds = %_ZN4onnx10Graph
   %492 = add nsw i32 %491, 1
   store i32 %492, ptr %9, align 8, !tbaa !80
   %493 = sext i32 %491 to i64
-  %494 = getelementptr inbounds ptr, ptr %490, i64 %493
+  %494 = getelementptr inbounds [8 x i8], ptr %490, i64 %493
   store ptr %488, ptr %494, align 8, !tbaa !74
   br label %_ZN4onnx10GraphProto37_internal_add_quantization_annotationEv.exit
 
@@ -19332,7 +19332,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %10,
   %14 = load ptr, ptr %6, align 8, !tbaa !71
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = sext i32 %.059125 to i64
-  %17 = getelementptr inbounds ptr, ptr %15, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !74
   store i8 10, ptr %.0.i64, align 1, !tbaa !78
   %19 = getelementptr inbounds nuw i8, ptr %.0.i64, i64 1
@@ -19454,7 +19454,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit69: ; preds = %6
   %73 = load ptr, ptr %67, align 8, !tbaa !71
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %75 = sext i32 %.061127 to i64
-  %76 = getelementptr inbounds ptr, ptr %74, i64 %75
+  %76 = getelementptr inbounds [8 x i8], ptr %74, i64 %75
   %77 = load ptr, ptr %76, align 8, !tbaa !74
   store i8 42, ptr %.0.i68, align 1, !tbaa !78
   %78 = getelementptr inbounds nuw i8, ptr %.0.i68, i64 1
@@ -19581,7 +19581,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit82: ; preds = %1
   %134 = load ptr, ptr %126, align 8, !tbaa !71
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 8
   %136 = sext i32 %.062132 to i64
-  %137 = getelementptr inbounds ptr, ptr %135, i64 %136
+  %137 = getelementptr inbounds [8 x i8], ptr %135, i64 %136
   %138 = load ptr, ptr %137, align 8, !tbaa !74
   store i8 90, ptr %.0.i81, align 1, !tbaa !78
   %139 = getelementptr inbounds nuw i8, ptr %.0.i81, i64 1
@@ -19665,7 +19665,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit90: ; preds = %1
   %174 = load ptr, ptr %129, align 8, !tbaa !71
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 8
   %176 = sext i32 %.060137 to i64
-  %177 = getelementptr inbounds ptr, ptr %175, i64 %176
+  %177 = getelementptr inbounds [8 x i8], ptr %175, i64 %176
   %178 = load ptr, ptr %177, align 8, !tbaa !74
   store i8 98, ptr %.0.i89, align 1, !tbaa !78
   %179 = getelementptr inbounds nuw i8, ptr %.0.i89, i64 1
@@ -19749,7 +19749,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit98: ; preds = %2
   %214 = load ptr, ptr %169, align 8, !tbaa !71
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 8
   %216 = sext i32 %.058143 to i64
-  %217 = getelementptr inbounds ptr, ptr %215, i64 %216
+  %217 = getelementptr inbounds [8 x i8], ptr %215, i64 %216
   %218 = load ptr, ptr %217, align 8, !tbaa !74
   store i8 106, ptr %.0.i97, align 1, !tbaa !78
   %219 = getelementptr inbounds nuw i8, ptr %.0.i97, i64 1
@@ -19831,7 +19831,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit106: ; preds = %
   %255 = load ptr, ptr %209, align 8, !tbaa !71
   %256 = getelementptr inbounds nuw i8, ptr %255, i64 8
   %257 = sext i32 %.057149 to i64
-  %258 = getelementptr inbounds ptr, ptr %256, i64 %257
+  %258 = getelementptr inbounds [8 x i8], ptr %256, i64 %257
   %259 = load ptr, ptr %258, align 8, !tbaa !74
   store i8 114, ptr %.0.i105, align 1, !tbaa !78
   %260 = getelementptr inbounds nuw i8, ptr %.0.i105, i64 1
@@ -21905,9 +21905,9 @@ _ZN6google8protobuf13RepeatedFieldImEC2ERKS2_.exit: ; preds = %.noexc55, %_ZN6go
 
 .lr.ph.i.i.i:                                     ; preds = %.noexc58, %.lr.ph.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %.noexc58 ]
-  %129 = getelementptr inbounds nuw ptr, ptr %117, i64 %indvars.iv.i.i.i
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %indvars.iv.i.i.i
   %130 = load ptr, ptr %129, align 8, !tbaa !74
-  %131 = getelementptr inbounds nuw ptr, ptr %118, i64 %indvars.iv.i.i.i
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %118, i64 %indvars.iv.i.i.i
   %132 = load ptr, ptr %131, align 8, !tbaa !74
   invoke void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx22StringStringEntryProtoEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(40) %130, ptr noundef %132)
           to label %.noexc58 unwind label %.loopexit.split-lp.loopexit
@@ -21919,7 +21919,7 @@ _ZN6google8protobuf13RepeatedFieldImEC2ERKS2_.exit: ; preds = %.noexc55, %_ZN6go
 
 .lr.ph6.i.i.i:                                    ; preds = %.noexc60, %.lr.ph6.preheader.i.i.i
   %indvars.iv8.i.i.i = phi i64 [ %128, %.lr.ph6.preheader.i.i.i ], [ %indvars.iv.next9.i.i.i, %.noexc60 ]
-  %133 = getelementptr inbounds ptr, ptr %117, i64 %indvars.iv8.i.i.i
+  %133 = getelementptr inbounds [8 x i8], ptr %117, i64 %indvars.iv8.i.i.i
   %134 = load ptr, ptr %133, align 8, !tbaa !74
   %135 = invoke noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4onnx22StringStringEntryProtoEJEEEPT_PS1_DpOT0_(ptr noundef %126)
           to label %.noexc59 unwind label %.loopexit
@@ -21929,7 +21929,7 @@ _ZN6google8protobuf13RepeatedFieldImEC2ERKS2_.exit: ; preds = %.noexc55, %_ZN6go
           to label %.noexc60 unwind label %.loopexit
 
 .noexc60:                                         ; preds = %.noexc59
-  %136 = getelementptr inbounds ptr, ptr %118, i64 %indvars.iv8.i.i.i
+  %136 = getelementptr inbounds [8 x i8], ptr %118, i64 %indvars.iv8.i.i.i
   store ptr %135, ptr %136, align 8, !tbaa !74
   %indvars.iv.next9.i.i.i = add nsw i64 %indvars.iv8.i.i.i, 1
   %lftr.wideiv.i.i.i = trunc i64 %indvars.iv.next9.i.i.i to i32
@@ -22319,7 +22319,7 @@ _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv
 
 .lr.ph.i.i:                                       ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx22StringStringEntryProtoEE6DeleteEPS4_PNS0_5ArenaE.exit.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx22StringStringEntryProtoEE6DeleteEPS4_PNS0_5ArenaE.exit.i.i ]
-  %34 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv.i.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv.i.i
   %35 = load ptr, ptr %34, align 8, !tbaa !74
   %36 = icmp eq ptr %35, null
   br i1 %36, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx22StringStringEntryProtoEE6DeleteEPS4_PNS0_5ArenaE.exit.i.i, label %37
@@ -22723,7 +22723,7 @@ _ZN4onnx11TensorProto18_internal_add_dimsEl.exit: ; preds = %_ZN6google8protobuf
   %104 = phi ptr [ %.0.i.i75, %_ZN6google8protobuf8internal12ReadVarint64EPPKc.exit ], [ %.pre199, %103 ]
   %105 = load ptr, ptr %42, align 8, !tbaa !69
   %106 = zext i32 %99 to i64
-  %107 = getelementptr inbounds nuw i64, ptr %105, i64 %106
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %106
   store i64 %.0.i74, ptr %107, align 8, !tbaa !129
   store i32 %102, ptr %40, align 8, !tbaa !67
   %.not64 = icmp eq ptr %104, null
@@ -22917,7 +22917,7 @@ _ZN4onnx11TensorProto24_internal_add_float_dataEf.exit: ; preds = %190, %195
   %196 = phi ptr [ %.0.i73133, %190 ], [ %.pre197, %195 ]
   %197 = load ptr, ptr %37, align 8, !tbaa !66
   %198 = zext i32 %191 to i64
-  %199 = getelementptr inbounds nuw float, ptr %197, i64 %198
+  %199 = getelementptr inbounds nuw [4 x i8], ptr %197, i64 %198
   store float %.0.copyload.i2.i, ptr %199, align 4, !tbaa !127
   store i32 %194, ptr %35, align 8, !tbaa !79
   %200 = getelementptr inbounds nuw i8, ptr %196, i64 4
@@ -22953,7 +22953,7 @@ _ZN4onnx11TensorProto24_internal_add_float_dataEf.exit: ; preds = %190, %195
 _ZN4onnx11TensorProto24_internal_add_int32_dataEi.exit: ; preds = %204, %211
   %212 = load ptr, ptr %34, align 8, !tbaa !159
   %213 = zext i32 %207 to i64
-  %214 = getelementptr inbounds nuw i32, ptr %212, i64 %213
+  %214 = getelementptr inbounds nuw [4 x i8], ptr %212, i64 %213
   store i32 %206, ptr %214, align 4, !tbaa !50
   store i32 %210, ptr %32, align 8, !tbaa !101
   %215 = load ptr, ptr %3, align 8, !tbaa !146
@@ -22992,7 +22992,7 @@ _ZN4onnx11TensorProto24_internal_add_int32_dataEi.exit: ; preds = %204, %211
   %231 = add nsw i32 %226, 1
   store i32 %231, ptr %30, align 8, !tbaa !80
   %232 = sext i32 %226 to i64
-  %233 = getelementptr inbounds ptr, ptr %230, i64 %232
+  %233 = getelementptr inbounds [8 x i8], ptr %230, i64 %232
   %234 = load ptr, ptr %233, align 8, !tbaa !74
   br label %_ZN4onnx11TensorProto25_internal_add_string_dataB5cxx11Ev.exit
 
@@ -23049,7 +23049,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   %258 = add nsw i32 %257, 1
   store i32 %258, ptr %30, align 8, !tbaa !80
   %259 = sext i32 %257 to i64
-  %260 = getelementptr inbounds ptr, ptr %256, i64 %259
+  %260 = getelementptr inbounds [8 x i8], ptr %256, i64 %259
   store ptr %.sink5.i.i.i.i.i, ptr %260, align 8, !tbaa !74
   %.pre196 = load ptr, ptr %3, align 8, !tbaa !146
   br label %_ZN4onnx11TensorProto25_internal_add_string_dataB5cxx11Ev.exit
@@ -23100,7 +23100,7 @@ _ZN4onnx11TensorProto25_internal_add_string_dataB5cxx11Ev.exit: ; preds = %229, 
 _ZN4onnx11TensorProto24_internal_add_int64_dataEl.exit: ; preds = %272, %278
   %279 = load ptr, ptr %27, align 8, !tbaa !69
   %280 = zext i32 %274 to i64
-  %281 = getelementptr inbounds nuw i64, ptr %279, i64 %280
+  %281 = getelementptr inbounds nuw [8 x i8], ptr %279, i64 %280
   store i64 %273, ptr %281, align 8, !tbaa !129
   store i32 %277, ptr %25, align 8, !tbaa !67
   %282 = load ptr, ptr %3, align 8, !tbaa !146
@@ -23219,7 +23219,7 @@ _ZN4onnx11TensorProto25_internal_add_double_dataEd.exit: ; preds = %324, %329
   %330 = phi ptr [ %.0.i73133, %324 ], [ %.pre193, %329 ]
   %331 = load ptr, ptr %22, align 8, !tbaa !160
   %332 = zext i32 %325 to i64
-  %333 = getelementptr inbounds nuw double, ptr %331, i64 %332
+  %333 = getelementptr inbounds nuw [8 x i8], ptr %331, i64 %332
   store double %.0.copyload.i2.i94, ptr %333, align 8, !tbaa !245
   store i32 %328, ptr %20, align 8, !tbaa !102
   %334 = getelementptr inbounds nuw i8, ptr %330, i64 8
@@ -23259,7 +23259,7 @@ _ZN4onnx11TensorProto25_internal_add_double_dataEd.exit: ; preds = %324, %329
 _ZN4onnx11TensorProto25_internal_add_uint64_dataEm.exit: ; preds = %338, %344
   %345 = load ptr, ptr %19, align 8, !tbaa !161
   %346 = zext i32 %340 to i64
-  %347 = getelementptr inbounds nuw i64, ptr %345, i64 %346
+  %347 = getelementptr inbounds nuw [8 x i8], ptr %345, i64 %346
   store i64 %339, ptr %347, align 8, !tbaa !129
   store i32 %343, ptr %17, align 8, !tbaa !103
   %348 = load ptr, ptr %3, align 8, !tbaa !146
@@ -23339,7 +23339,7 @@ _ZN4onnx11TensorProto28_internal_mutable_doc_stringB5cxx11Ev.exit: ; preds = %_Z
   %383 = add nsw i32 %378, 1
   store i32 %383, ptr %12, align 8, !tbaa !80
   %384 = sext i32 %378 to i64
-  %385 = getelementptr inbounds ptr, ptr %382, i64 %384
+  %385 = getelementptr inbounds [8 x i8], ptr %382, i64 %384
   %386 = load ptr, ptr %385, align 8, !tbaa !74
   br label %_ZN4onnx11TensorProto27_internal_add_external_dataEv.exit
 
@@ -23369,7 +23369,7 @@ _ZN4onnx11TensorProto28_internal_mutable_doc_stringB5cxx11Ev.exit: ; preds = %_Z
   %401 = add nsw i32 %400, 1
   store i32 %401, ptr %12, align 8, !tbaa !80
   %402 = sext i32 %400 to i64
-  %403 = getelementptr inbounds ptr, ptr %399, i64 %402
+  %403 = getelementptr inbounds [8 x i8], ptr %399, i64 %402
   store ptr %397, ptr %403, align 8, !tbaa !74
   %.pre191 = load ptr, ptr %3, align 8, !tbaa !146
   br label %_ZN4onnx11TensorProto27_internal_add_external_dataEv.exit
@@ -23615,7 +23615,7 @@ define dso_local noundef ptr @_ZNK4onnx11TensorProto18_InternalSerializeEPhPN6go
 _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %11, %13
   %.0.i100 = phi ptr [ %14, %13 ], [ %.0192, %11 ]
   %15 = load ptr, ptr %7, align 8, !tbaa !69
-  %16 = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %17 = load i64, ptr %16, align 8, !tbaa !129
   store i8 8, ptr %.0.i100, align 1, !tbaa !78
   %18 = getelementptr inbounds nuw i8, ptr %.0.i100, i64 1
@@ -23910,7 +23910,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream15UnsafeWriteSizeEjPh.exit.i: ; preds
   %152 = load ptr, ptr %151, align 8, !tbaa !159
   %153 = load i32, ptr %140, align 8, !tbaa !101
   %154 = sext i32 %153 to i64
-  %155 = getelementptr inbounds i32, ptr %152, i64 %154
+  %155 = getelementptr inbounds [4 x i8], ptr %152, i64 %154
   br label %156
 
 156:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintImEEPhT_S4_.exit.i, %_ZN6google8protobuf2io19EpsCopyOutputStream15UnsafeWriteSizeEjPh.exit.i
@@ -24003,7 +24003,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream17WriteVarintPackedINS0_13RepeatedFie
   %.5208 = phi ptr [ %.4, %.lr.ph209 ], [ %.0.i.i128, %_ZN6google8protobuf2io19EpsCopyOutputStream10WriteBytesINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEPhjRKT_SA_.exit ]
   %196 = load ptr, ptr %191, align 8, !tbaa !71
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 8
-  %198 = getelementptr inbounds nuw ptr, ptr %197, i64 %indvars.iv269
+  %198 = getelementptr inbounds nuw [8 x i8], ptr %197, i64 %indvars.iv269
   %199 = load ptr, ptr %198, align 8, !tbaa !74
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 8
   %201 = load i64, ptr %200, align 8, !tbaa !96
@@ -24079,7 +24079,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream15UnsafeWriteSizeEjPh.exit.i84: ; pre
   %228 = load ptr, ptr %227, align 8, !tbaa !69
   %229 = load i32, ptr %216, align 8, !tbaa !67
   %230 = sext i32 %229 to i64
-  %231 = getelementptr inbounds i64, ptr %228, i64 %230
+  %231 = getelementptr inbounds [8 x i8], ptr %228, i64 %230
   br label %232
 
 232:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintImEEPhT_S4_.exit.i89, %_ZN6google8protobuf2io19EpsCopyOutputStream15UnsafeWriteSizeEjPh.exit.i84
@@ -24331,7 +24331,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream15UnsafeWriteSizeEjPh.exit.i93: ; pre
   %344 = load ptr, ptr %343, align 8, !tbaa !161
   %345 = load i32, ptr %332, align 8, !tbaa !103
   %346 = sext i32 %345 to i64
-  %347 = getelementptr inbounds i64, ptr %344, i64 %346
+  %347 = getelementptr inbounds [8 x i8], ptr %344, i64 %346
   br label %348
 
 348:                                              ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintImEEPhT_S4_.exit.i98, %_ZN6google8protobuf2io19EpsCopyOutputStream15UnsafeWriteSizeEjPh.exit.i93
@@ -24469,7 +24469,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit158: ; preds = %
   %405 = load ptr, ptr %399, align 8, !tbaa !71
   %406 = getelementptr inbounds nuw i8, ptr %405, i64 8
   %407 = sext i32 %.063233 to i64
-  %408 = getelementptr inbounds ptr, ptr %406, i64 %407
+  %408 = getelementptr inbounds [8 x i8], ptr %406, i64 %407
   %409 = load ptr, ptr %408, align 8, !tbaa !74
   store i8 106, ptr %.0.i157, align 1, !tbaa !78
   %410 = getelementptr inbounds nuw i8, ptr %.0.i157, i64 1
@@ -24703,7 +24703,7 @@ _ZN6google8protobuf8internal14WireFormatLite9Int32SizeEi.exit88: ; preds = %27, 
 51:                                               ; preds = %.lr.ph, %51
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %51 ]
   %.2123 = phi i64 [ %44, %.lr.ph ], [ %65, %51 ]
-  %52 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %indvars.iv
   %53 = load ptr, ptr %52, align 8, !tbaa !74
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %55 = load i64, ptr %54, align 8, !tbaa !96
@@ -26809,7 +26809,7 @@ define linkonce_odr dso_local void @_ZN6google8protobuf16RepeatedPtrFieldIN4onnx
 
 .lr.ph.i:                                         ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx26TensorShapeProto_DimensionEE6DeleteEPS4_PNS0_5ArenaE.exit.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx26TensorShapeProto_DimensionEE6DeleteEPS4_PNS0_5ArenaE.exit.i ]
-  %11 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i
   %12 = load ptr, ptr %11, align 8, !tbaa !74
   %13 = icmp eq ptr %12, null
   br i1 %13, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx26TensorShapeProto_DimensionEE6DeleteEPS4_PNS0_5ArenaE.exit.i, label %14
@@ -26871,9 +26871,9 @@ define dso_local void @_ZN4onnx16TensorShapeProtoC2ERKS0_(ptr noundef nonnull al
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ]
-  %22 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.i.i.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i.i.i
   %23 = load ptr, ptr %22, align 8, !tbaa !74
-  %24 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.i.i.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.i.i.i
   %25 = load ptr, ptr %24, align 8, !tbaa !74
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx26TensorShapeProto_DimensionEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef %25)
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -26882,11 +26882,11 @@ define dso_local void @_ZN4onnx16TensorShapeProtoC2ERKS0_(ptr noundef nonnull al
 
 .lr.ph6.i.i.i:                                    ; preds = %.lr.ph6.i.i.i, %.lr.ph6.preheader.i.i.i
   %indvars.iv8.i.i.i = phi i64 [ %21, %.lr.ph6.preheader.i.i.i ], [ %indvars.iv.next9.i.i.i, %.lr.ph6.i.i.i ]
-  %26 = getelementptr inbounds ptr, ptr %10, i64 %indvars.iv8.i.i.i
+  %26 = getelementptr inbounds [8 x i8], ptr %10, i64 %indvars.iv8.i.i.i
   %27 = load ptr, ptr %26, align 8, !tbaa !74
   %28 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4onnx26TensorShapeProto_DimensionEJEEEPT_PS1_DpOT0_(ptr noundef %19)
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx26TensorShapeProto_DimensionEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef %28)
-  %29 = getelementptr inbounds ptr, ptr %11, i64 %indvars.iv8.i.i.i
+  %29 = getelementptr inbounds [8 x i8], ptr %11, i64 %indvars.iv8.i.i.i
   store ptr %28, ptr %29, align 8, !tbaa !74
   %indvars.iv.next9.i.i.i = add nsw i64 %indvars.iv8.i.i.i, 1
   %lftr.wideiv.i.i.i = trunc i64 %indvars.iv.next9.i.i.i to i32
@@ -27036,7 +27036,7 @@ _ZN6google8protobuf8internal16InternalMetadata6DeleteINS0_15UnknownFieldSetEEEvv
 
 .lr.ph.i.i:                                       ; preds = %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx26TensorShapeProto_DimensionEE6DeleteEPS4_PNS0_5ArenaE.exit.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx26TensorShapeProto_DimensionEE6DeleteEPS4_PNS0_5ArenaE.exit.i.i ]
-  %33 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv.i.i
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv.i.i
   %34 = load ptr, ptr %33, align 8, !tbaa !74
   %35 = icmp eq ptr %34, null
   br i1 %35, label %_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx26TensorShapeProto_DimensionEE6DeleteEPS4_PNS0_5ArenaE.exit.i.i, label %36
@@ -27106,7 +27106,7 @@ define dso_local void @_ZN4onnx16TensorShapeProto5ClearEv(ptr noundef nonnull al
 9:                                                ; preds = %9, %5
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %9 ], [ 0, %5 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i.i
   %11 = load ptr, ptr %10, align 8, !tbaa !74
   tail call void @_ZN4onnx26TensorShapeProto_Dimension5ClearEv(ptr noundef nonnull align 8 dereferenceable(48) %11)
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -27241,7 +27241,7 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread: ; preds = %_ZN6google8p
   %53 = add nsw i32 %48, 1
   store i32 %53, ptr %9, align 8, !tbaa !80
   %54 = sext i32 %48 to i64
-  %55 = getelementptr inbounds ptr, ptr %52, i64 %54
+  %55 = getelementptr inbounds [8 x i8], ptr %52, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !74
   br label %_ZN4onnx16TensorShapeProto17_internal_add_dimEv.exit
 
@@ -27271,7 +27271,7 @@ _ZN6google8protobuf8internal7ReadTagEPKcPjj.exit.thread: ; preds = %_ZN6google8p
   %71 = add nsw i32 %70, 1
   store i32 %71, ptr %9, align 8, !tbaa !80
   %72 = sext i32 %70 to i64
-  %73 = getelementptr inbounds ptr, ptr %69, i64 %72
+  %73 = getelementptr inbounds [8 x i8], ptr %69, i64 %72
   store ptr %67, ptr %73, align 8, !tbaa !74
   br label %_ZN4onnx16TensorShapeProto17_internal_add_dimEv.exit
 
@@ -27426,7 +27426,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream11EnsureSpaceEPh.exit: ; preds = %11,
   %15 = load ptr, ptr %6, align 8, !tbaa !71
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = sext i32 %.01114 to i64
-  %18 = getelementptr inbounds ptr, ptr %16, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !74
   store i8 10, ptr %.0.i12, align 1, !tbaa !78
   %20 = getelementptr inbounds nuw i8, ptr %.0.i12, i64 1
@@ -27729,9 +27729,9 @@ _ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEE
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %39 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv.i.i
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv.i.i
   %40 = load ptr, ptr %39, align 8, !tbaa !74
-  %41 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv.i.i
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv.i.i
   %42 = load ptr, ptr %41, align 8, !tbaa !74
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx26TensorShapeProto_DimensionEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(48) %40, ptr noundef %42)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -27740,11 +27740,11 @@ _ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEE
 
 .lr.ph6.i.i:                                      ; preds = %.lr.ph6.i.i, %.lr.ph6.preheader.i.i
   %indvars.iv8.i.i = phi i64 [ %38, %.lr.ph6.preheader.i.i ], [ %indvars.iv.next9.i.i, %.lr.ph6.i.i ]
-  %43 = getelementptr inbounds ptr, ptr %27, i64 %indvars.iv8.i.i
+  %43 = getelementptr inbounds [8 x i8], ptr %27, i64 %indvars.iv8.i.i
   %44 = load ptr, ptr %43, align 8, !tbaa !74
   %45 = tail call noundef ptr @_ZN6google8protobuf5Arena18CreateMaybeMessageIN4onnx26TensorShapeProto_DimensionEJEEEPT_PS1_DpOT0_(ptr noundef %36)
   tail call void @_ZN6google8protobuf8internal18GenericTypeHandlerIN4onnx26TensorShapeProto_DimensionEE5MergeERKS4_PS4_(ptr noundef nonnull align 8 dereferenceable(48) %44, ptr noundef %45)
-  %46 = getelementptr inbounds ptr, ptr %28, i64 %indvars.iv8.i.i
+  %46 = getelementptr inbounds [8 x i8], ptr %28, i64 %indvars.iv8.i.i
   store ptr %45, ptr %46, align 8, !tbaa !74
   %indvars.iv.next9.i.i = add nsw i64 %indvars.iv8.i.i, 1
   %lftr.wideiv.i.i = trunc i64 %indvars.iv.next9.i.i to i32
@@ -27789,7 +27789,7 @@ define dso_local void @_ZN4onnx16TensorShapeProto8CopyFromERKN6google8protobuf7M
 12:                                               ; preds = %12, %8
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %12 ], [ 0, %8 ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.i.i.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.i.i.i
   %14 = load ptr, ptr %13, align 8, !tbaa !74
   tail call void @_ZN4onnx26TensorShapeProto_Dimension5ClearEv(ptr noundef nonnull align 8 dereferenceable(48) %14)
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
@@ -27859,7 +27859,7 @@ define dso_local void @_ZN4onnx16TensorShapeProto8CopyFromERKS0_(ptr noundef non
 12:                                               ; preds = %12, %8
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %12 ], [ 0, %8 ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.i.i.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.i.i.i
   %14 = load ptr, ptr %13, align 8, !tbaa !74
   tail call void @_ZN4onnx26TensorShapeProto_Dimension5ClearEv(ptr noundef nonnull align 8 dereferenceable(48) %14)
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
@@ -28219,7 +28219,7 @@ define dso_local void @_ZN4onnx16TypeProto_Tensor5ClearEv(ptr noundef nonnull al
 15:                                               ; preds = %15, %11
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %15 ], [ 0, %11 ]
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv.i.i.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv.i.i.i
   %17 = load ptr, ptr %16, align 8, !tbaa !74
   tail call void @_ZN4onnx26TensorShapeProto_Dimension5ClearEv(ptr noundef nonnull align 8 dereferenceable(48) %17)
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, %wide.trip.count.i.i.i
@@ -28948,7 +28948,7 @@ define dso_local void @_ZN4onnx16TypeProto_Tensor8CopyFromERKN6google8protobuf7M
 18:                                               ; preds = %18, %14
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %18 ], [ 0, %14 ]
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %19 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv.i.i.i.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv.i.i.i.i
   %20 = load ptr, ptr %19, align 8, !tbaa !74
   tail call void @_ZN4onnx26TensorShapeProto_Dimension5ClearEv(ptr noundef nonnull align 8 dereferenceable(48) %20)
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, %wide.trip.count.i.i.i.i
@@ -29052,7 +29052,7 @@ define dso_local void @_ZN4onnx16TypeProto_Tensor8CopyFromERKS0_(ptr noundef non
 18:                                               ; preds = %18, %14
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %18 ], [ 0, %14 ]
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %19 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv.i.i.i.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv.i.i.i.i
   %20 = load ptr, ptr %19, align 8, !tbaa !74
   tail call void @_ZN4onnx26TensorShapeProto_Dimension5ClearEv(ptr noundef nonnull align 8 dereferenceable(48) %20)
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, %wide.trip.count.i.i.i.i
@@ -32950,7 +32950,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
 
 _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.us: ; preds = %_ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.us.preheader, %_ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.us
   %indvars.iv36 = phi i64 [ %11, %_ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.us.preheader ], [ %indvars.iv.next37, %_ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPNS0_5ArenaE.exit.us ]
-  %12 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv36
+  %12 = getelementptr inbounds [8 x i8], ptr %2, i64 %indvars.iv36
   %13 = load ptr, ptr %12, align 8, !tbaa !74
   %14 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #24
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -32959,7 +32959,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
   store i64 0, ptr %16, align 8, !tbaa !96
   store i8 0, ptr %15, align 8, !tbaa !78
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %13)
-  %17 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv36
+  %17 = getelementptr inbounds [8 x i8], ptr %1, i64 %indvars.iv36
   store ptr %14, ptr %17, align 8, !tbaa !74
   %indvars.iv.next37 = add nsw i64 %indvars.iv36, 1
   %exitcond40.not = icmp eq i64 %indvars.iv.next37, %wide.trip.count39
@@ -32967,9 +32967,9 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %18 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !74
-  %20 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !74
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull align 8 dereferenceable(32) %19)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -32981,7 +32981,7 @@ _ZN6google8protobuf8internal17StringTypeHandler16NewFromPrototypeEPKNSt7__cxx111
 
 .lr.ph28.split:                                   ; preds = %.lr.ph28, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i
   %indvars.iv32 = phi i64 [ %indvars.iv.next33, %_ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i ], [ %11, %.lr.ph28 ]
-  %22 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv32
+  %22 = getelementptr inbounds [8 x i8], ptr %2, i64 %indvars.iv32
   %23 = load ptr, ptr %22, align 8, !tbaa !74
   %24 = load ptr, ptr %10, align 8, !tbaa !132
   %.not.i.i.i = icmp eq ptr %24, null
@@ -32999,7 +32999,7 @@ _ZNK6google8protobuf5Arena9AllocHookEPKSt9type_infom.exit.i.i: ; preds = %25, %.
   store i64 0, ptr %28, align 8, !tbaa !96
   store i8 0, ptr %27, align 8, !tbaa !78
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %26, ptr noundef nonnull align 8 dereferenceable(32) %23)
-  %29 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv32
+  %29 = getelementptr inbounds [8 x i8], ptr %1, i64 %indvars.iv32
   store ptr %26, ptr %29, align 8, !tbaa !74
   %indvars.iv.next33 = add nsw i64 %indvars.iv32, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next33 to i32

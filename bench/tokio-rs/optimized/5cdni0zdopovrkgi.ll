@@ -386,10 +386,10 @@ switch.lookup:
   %.val = load i8, ptr %2, align 1, !range !41, !noundef !5
   %switch.tableidx = add nsw i8 %.val, -1
   %3 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hae47677991530a43E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hae47677991530a43E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hae47677991530a43E.20", i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hae47677991530a43E.20", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -1069,7 +1069,7 @@ define hidden { ptr, ptr } @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$3pop17hb733ede50a977
   tail call void @llvm.assume(i1 %8)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !5, !noundef !5
-  %11 = getelementptr inbounds { ptr, ptr }, ptr %10, i64 %6
+  %11 = getelementptr inbounds [16 x i8], ptr %10, i64 %6
   %12 = load ptr, ptr %11, align 8, !nonnull !5, !align !45, !noundef !5
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %14 = load ptr, ptr %13, align 8, !noundef !5
@@ -1105,7 +1105,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h262aaa5b30ce008eE.ll
   %10 = phi i64 [ %.pre, %._crit_edge ], [ %5, %2 ]
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !nonnull !5, !noundef !5
-  %13 = getelementptr inbounds ptr, ptr %12, i64 %10
+  %13 = getelementptr inbounds [8 x i8], ptr %12, i64 %10
   store ptr %1, ptr %13, align 8
   %14 = load i64, ptr %4, align 8, !noundef !5
   %15 = add i64 %14, 1
@@ -3104,7 +3104,7 @@ define hidden void @_ZN5tokio7runtime9scheduler5defer5Defer5defer17hee69addc8ea0
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %12 = load ptr, ptr %11, align 8, !nonnull !5, !noundef !5
-  %13 = getelementptr { ptr, ptr }, ptr %12, i64 %8
+  %13 = getelementptr [16 x i8], ptr %12, i64 %8
   %14 = getelementptr i8, ptr %13, i64 -16
   %.not12 = icmp eq ptr %14, null
   br i1 %.not12, label %.critedge, label %15
@@ -3206,7 +3206,7 @@ define hidden void @_ZN5tokio7runtime9scheduler5defer5Defer5defer17hee69addc8ea0
   %66 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %55, %52 ]
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %68 = load ptr, ptr %67, align 8, !alias.scope !437, !noalias !440, !nonnull !5, !noundef !5
-  %69 = getelementptr inbounds { ptr, ptr }, ptr %68, i64 %66
+  %69 = getelementptr inbounds [16 x i8], ptr %68, i64 %66
   store ptr %53, ptr %69, align 8, !noalias !440
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store ptr %54, ptr %70, align 8
@@ -3272,7 +3272,7 @@ define hidden void @_ZN5tokio7runtime9scheduler5defer5Defer4wake17hf2b726b94e029
   %12 = icmp ult i64 %10, %11
   tail call void @llvm.assume(i1 %12)
   %13 = load ptr, ptr %5, align 8, !alias.scope !454, !nonnull !5, !noundef !5
-  %14 = getelementptr inbounds { ptr, ptr }, ptr %13, i64 %10
+  %14 = getelementptr inbounds [16 x i8], ptr %13, i64 %10
   %15 = load ptr, ptr %14, align 8, !noalias !454, !nonnull !5, !align !45, !noundef !5
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %17 = load ptr, ptr %16, align 8, !noalias !454, !noundef !5
@@ -4203,7 +4203,7 @@ _ZN5tokio7runtime6driver6Handle2io17hd3cae55507d04e29E.exit: ; preds = %2
 
 .lr.ph.i.i:                                       ; preds = %20, %"_ZN4core3ptr90drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..io..scheduled_io..ScheduledIo$GT$$GT$17h274f4d10167f9418E.exit.i.i"
   %.09.i.i = phi i64 [ %27, %"_ZN4core3ptr90drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..io..scheduled_io..ScheduledIo$GT$$GT$17h274f4d10167f9418E.exit.i.i" ], [ 0, %20 ]
-  %26 = getelementptr inbounds ptr, ptr %22, i64 %.09.i.i
+  %26 = getelementptr inbounds [8 x i8], ptr %22, i64 %.09.i.i
   %27 = add nuw i64 %.09.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !606)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !609)
@@ -4229,7 +4229,7 @@ _ZN5tokio7runtime6driver6Handle2io17hd3cae55507d04e29E.exit: ; preds = %2
 
 .lr.ph12.i.i:                                     ; preds = %33, %"_ZN4core3ptr90drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..io..scheduled_io..ScheduledIo$GT$$GT$17h274f4d10167f9418E.exit8.i.i"
   %.110.i.i = phi i64 [ %37, %"_ZN4core3ptr90drop_in_place$LT$alloc..sync..Arc$LT$tokio..runtime..io..scheduled_io..ScheduledIo$GT$$GT$17h274f4d10167f9418E.exit8.i.i" ], [ %27, %33 ]
-  %36 = getelementptr inbounds ptr, ptr %22, i64 %.110.i.i
+  %36 = getelementptr inbounds [8 x i8], ptr %22, i64 %.110.i.i
   %37 = add i64 %.110.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !617)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !620)
@@ -4327,7 +4327,7 @@ _ZN5tokio7runtime6driver6Handle2io17hd3cae55507d04e29E.exit: ; preds = %2
 68:                                               ; preds = %._crit_edge.i.i, %56
   %69 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %57, %56 ]
   %70 = load ptr, ptr %45, align 8, !alias.scope !625, !noalias !615, !nonnull !5, !noundef !5
-  %71 = getelementptr inbounds ptr, ptr %70, i64 %69
+  %71 = getelementptr inbounds [8 x i8], ptr %70, i64 %69
   store ptr %52, ptr %71, align 8, !noalias !601
   %72 = load i64, ptr %46, align 8, !alias.scope !625, !noalias !615, !noundef !5
   %73 = add i64 %72, 1
@@ -7159,7 +7159,7 @@ define hidden noundef ptr @_ZN5tokio7runtime2io6driver6Handle17deregister_source
   %33 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %21, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcf2eb0553f332036E.llvm.4117860391599875382.exit.i" ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %35 = load ptr, ptr %34, align 8, !alias.scope !1141, !noalias !1129, !nonnull !5, !noundef !5
-  %36 = getelementptr inbounds ptr, ptr %35, i64 %33
+  %36 = getelementptr inbounds [8 x i8], ptr %35, i64 %33
   store ptr %16, ptr %36, align 8, !noalias !1129
   %37 = load i64, ptr %20, align 8, !alias.scope !1141, !noalias !1129, !noundef !5
   %38 = add i64 %37, 1
@@ -7313,7 +7313,7 @@ define hidden noundef ptr @_ZN5tokio7runtime2io6driver6Handle17deregister_source
   %33 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %21, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcf2eb0553f332036E.llvm.4117860391599875382.exit.i" ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %35 = load ptr, ptr %34, align 8, !alias.scope !1180, !noalias !1168, !nonnull !5, !noundef !5
-  %36 = getelementptr inbounds ptr, ptr %35, i64 %33
+  %36 = getelementptr inbounds [8 x i8], ptr %35, i64 %33
   store ptr %16, ptr %36, align 8, !noalias !1168
   %37 = load i64, ptr %20, align 8, !alias.scope !1180, !noalias !1168, !noundef !5
   %38 = add i64 %37, 1
@@ -7467,7 +7467,7 @@ define hidden noundef ptr @_ZN5tokio7runtime2io6driver6Handle17deregister_source
   %33 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %21, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcf2eb0553f332036E.llvm.4117860391599875382.exit.i" ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %35 = load ptr, ptr %34, align 8, !alias.scope !1219, !noalias !1207, !nonnull !5, !noundef !5
-  %36 = getelementptr inbounds ptr, ptr %35, i64 %33
+  %36 = getelementptr inbounds [8 x i8], ptr %35, i64 %33
   store ptr %16, ptr %36, align 8, !noalias !1207
   %37 = load i64, ptr %20, align 8, !alias.scope !1219, !noalias !1207, !noundef !5
   %38 = add i64 %37, 1
@@ -7621,7 +7621,7 @@ define hidden noundef ptr @_ZN5tokio7runtime2io6driver6Handle17deregister_source
   %33 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %21, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcf2eb0553f332036E.llvm.4117860391599875382.exit.i" ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %35 = load ptr, ptr %34, align 8, !alias.scope !1258, !noalias !1246, !nonnull !5, !noundef !5
-  %36 = getelementptr inbounds ptr, ptr %35, i64 %33
+  %36 = getelementptr inbounds [8 x i8], ptr %35, i64 %33
   store ptr %16, ptr %36, align 8, !noalias !1246
   %37 = load i64, ptr %20, align 8, !alias.scope !1258, !noalias !1246, !noundef !5
   %38 = add i64 %37, 1
@@ -7785,7 +7785,7 @@ define hidden noundef ptr @_ZN5tokio7runtime2io6driver6Handle17deregister_source
   %36 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %24, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcf2eb0553f332036E.llvm.4117860391599875382.exit.i" ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %38 = load ptr, ptr %37, align 8, !alias.scope !1306, !noalias !1294, !nonnull !5, !noundef !5
-  %39 = getelementptr inbounds ptr, ptr %38, i64 %36
+  %39 = getelementptr inbounds [8 x i8], ptr %38, i64 %36
   store ptr %19, ptr %39, align 8, !noalias !1294
   %40 = load i64, ptr %23, align 8, !alias.scope !1306, !noalias !1294, !noundef !5
   %41 = add i64 %40, 1
@@ -7939,7 +7939,7 @@ define hidden noundef ptr @_ZN5tokio7runtime2io6driver6Handle17deregister_source
   %33 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %21, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcf2eb0553f332036E.llvm.4117860391599875382.exit.i" ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %35 = load ptr, ptr %34, align 8, !alias.scope !1345, !noalias !1333, !nonnull !5, !noundef !5
-  %36 = getelementptr inbounds ptr, ptr %35, i64 %33
+  %36 = getelementptr inbounds [8 x i8], ptr %35, i64 %33
   store ptr %16, ptr %36, align 8, !noalias !1333
   %37 = load i64, ptr %20, align 8, !alias.scope !1345, !noalias !1333, !noundef !5
   %38 = add i64 %37, 1
@@ -8093,7 +8093,7 @@ define hidden noundef ptr @_ZN5tokio7runtime2io6driver6Handle17deregister_source
   %33 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %21, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcf2eb0553f332036E.llvm.4117860391599875382.exit.i" ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %35 = load ptr, ptr %34, align 8, !alias.scope !1384, !noalias !1372, !nonnull !5, !noundef !5
-  %36 = getelementptr inbounds ptr, ptr %35, i64 %33
+  %36 = getelementptr inbounds [8 x i8], ptr %35, i64 %33
   store ptr %16, ptr %36, align 8, !noalias !1372
   %37 = load i64, ptr %20, align 8, !alias.scope !1384, !noalias !1372, !noundef !5
   %38 = add i64 %37, 1
@@ -8247,7 +8247,7 @@ define hidden noundef ptr @_ZN5tokio7runtime2io6driver6Handle17deregister_source
   %33 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %21, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcf2eb0553f332036E.llvm.4117860391599875382.exit.i" ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %35 = load ptr, ptr %34, align 8, !alias.scope !1423, !noalias !1411, !nonnull !5, !noundef !5
-  %36 = getelementptr inbounds ptr, ptr %35, i64 %33
+  %36 = getelementptr inbounds [8 x i8], ptr %35, i64 %33
   store ptr %16, ptr %36, align 8, !noalias !1411
   %37 = load i64, ptr %20, align 8, !alias.scope !1423, !noalias !1411, !noundef !5
   %38 = add i64 %37, 1
@@ -8401,7 +8401,7 @@ define hidden noundef ptr @_ZN5tokio7runtime2io6driver6Handle17deregister_source
   %33 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %21, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcf2eb0553f332036E.llvm.4117860391599875382.exit.i" ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %35 = load ptr, ptr %34, align 8, !alias.scope !1462, !noalias !1450, !nonnull !5, !noundef !5
-  %36 = getelementptr inbounds ptr, ptr %35, i64 %33
+  %36 = getelementptr inbounds [8 x i8], ptr %35, i64 %33
   store ptr %16, ptr %36, align 8, !noalias !1450
   %37 = load i64, ptr %20, align 8, !alias.scope !1462, !noalias !1450, !noundef !5
   %38 = add i64 %37, 1
@@ -8565,7 +8565,7 @@ define hidden noundef ptr @_ZN5tokio7runtime2io6driver6Handle17deregister_source
   %36 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %24, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcf2eb0553f332036E.llvm.4117860391599875382.exit.i" ]
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %38 = load ptr, ptr %37, align 8, !alias.scope !1510, !noalias !1498, !nonnull !5, !noundef !5
-  %39 = getelementptr inbounds ptr, ptr %38, i64 %36
+  %39 = getelementptr inbounds [8 x i8], ptr %38, i64 %36
   store ptr %19, ptr %39, align 8, !noalias !1498
   %40 = load i64, ptr %23, align 8, !alias.scope !1510, !noalias !1498, !noundef !5
   %41 = add i64 %40, 1
@@ -8859,7 +8859,7 @@ define noundef zeroext i1 @_ZN5tokio7runtime2io16registration_set15RegistrationS
   %21 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %10, %"_ZN68_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcf2eb0553f332036E.llvm.4117860391599875382.exit" ]
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load ptr, ptr %22, align 8, !alias.scope !1557, !nonnull !5, !noundef !5
-  %24 = getelementptr inbounds ptr, ptr %23, i64 %21
+  %24 = getelementptr inbounds [8 x i8], ptr %23, i64 %21
   store ptr %5, ptr %24, align 8
   %25 = load i64, ptr %9, align 8, !alias.scope !1557, !noundef !5
   %26 = add i64 %25, 1
@@ -8979,7 +8979,7 @@ define hidden void @_ZN5tokio7runtime2io12scheduled_io11ScheduledIo4wake17he2f3c
   br i1 %21, label %_ZN5tokio4util9wake_list8WakeList4push17hc0e5ac01899e14fdE.exit, label %.invoke113, !prof !1580
 
 _ZN5tokio4util9wake_list8WakeList4push17hc0e5ac01899e14fdE.exit: ; preds = %19
-  %22 = getelementptr inbounds nuw { ptr, ptr }, ptr %4, i64 %20
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %20
   store ptr %16, ptr %22, align 8, !alias.scope !1575, !noalias !1578
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %18, ptr %23, align 8, !alias.scope !1575, !noalias !1578
@@ -9012,7 +9012,7 @@ _ZN5tokio4util9wake_list8WakeList4push17hc0e5ac01899e14fdE.exit: ; preds = %19
   br i1 %37, label %_ZN5tokio4util9wake_list8WakeList4push17hc0e5ac01899e14fdE.exit29, label %.invoke113, !prof !1580
 
 _ZN5tokio4util9wake_list8WakeList4push17hc0e5ac01899e14fdE.exit29: ; preds = %35
-  %38 = getelementptr inbounds nuw { ptr, ptr }, ptr %4, i64 %36
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %36
   store ptr %30, ptr %38, align 8, !alias.scope !1581, !noalias !1584
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store ptr %32, ptr %39, align 8, !alias.scope !1581, !noalias !1584
@@ -9092,7 +9092,7 @@ _ZN5tokio4util9wake_list8WakeList4push17hc0e5ac01899e14fdE.exit29: ; preds = %35
   %68 = phi i64 [ %69, %.noexc38 ], [ 32, %"_ZN4core3ptr111drop_in_place$LT$tokio..loom..std..parking_lot..MutexGuard$LT$tokio..runtime..io..scheduled_io..Waiters$GT$$GT$17h29516fd59305b170E.exit" ]
   %69 = add nsw i64 %68, -1
   store i64 %69, ptr %5, align 8, !alias.scope !1592
-  %70 = getelementptr inbounds nuw { ptr, ptr }, ptr %4, i64 %69
+  %70 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %69
   %71 = load ptr, ptr %70, align 8, !alias.scope !1592, !nonnull !5, !align !45, !noundef !5
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %73 = load ptr, ptr %72, align 8, !alias.scope !1592, !noundef !5
@@ -9168,7 +9168,7 @@ _ZN5tokio4util9wake_list8WakeList8wake_all17hf305bd504b00dfdfE.exit: ; preds = %
   %92 = phi i64 [ %93, %.noexc51 ], [ %90, %.preheader.i46 ]
   %93 = add nsw i64 %92, -1
   store i64 %93, ptr %5, align 8, !alias.scope !1595
-  %94 = getelementptr inbounds nuw { ptr, ptr }, ptr %4, i64 %93
+  %94 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %93
   %95 = load ptr, ptr %94, align 8, !alias.scope !1595, !nonnull !5, !align !45, !noundef !5
   %96 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %97 = load ptr, ptr %96, align 8, !alias.scope !1595, !noundef !5
@@ -9204,7 +9204,7 @@ common.resume:                                    ; preds = %.thread
   unreachable
 
 _ZN5tokio4util9wake_list8WakeList4push17hc0e5ac01899e14fdE.exit54: ; preds = %100
-  %104 = getelementptr inbounds nuw { ptr, ptr }, ptr %4, i64 %.pre
+  %104 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %.pre
   store ptr %87, ptr %104, align 8, !alias.scope !1598, !noalias !1601
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 8
   store ptr %89, ptr %105, align 8, !alias.scope !1598, !noalias !1601
@@ -9254,7 +9254,7 @@ define void @_ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc
   br i1 %9, label %switch.lookup, label %_ZN5tokio2io8interest8Interest4mask17h33a86d7060fdc780E.exit
 
 switch.lookup:                                    ; preds = %.split.i
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E, i64 %8
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5tokio7runtime2io12scheduled_io11ScheduledIo11ready_event17h44cc4f4c6cade1c6E, i64 %8
   %switch.load = load i64, ptr %switch.gep, align 8
   %10 = and i64 %5, %switch.load
   br label %_ZN5tokio2io8interest8Interest4mask17h33a86d7060fdc780E.exit

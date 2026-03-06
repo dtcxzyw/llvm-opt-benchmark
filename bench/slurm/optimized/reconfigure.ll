@@ -9,7 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.slurm_node_alias_addrs_t = type { i64, ptr, ptr, i32, ptr }
 %struct.sockaddr_storage = type { i16, [118 x i8], i64 }
 %struct.timeval = type { i64, i64 }
-%struct.controller_ping_t = type { ptr, i8, i64, i32 }
 %struct.shutdown_msg = type { i16 }
 %struct.set_debug_flags_msg = type { i64, i64 }
 %struct.set_debug_level_msg = type { i32 }
@@ -177,9 +176,9 @@ define dso_local ptr @ping_all_controllers() local_unnamed_addr #0 {
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %4, i8 0, i64 20, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 288), align 8
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds nuw %struct.controller_ping_t, ptr %9, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 %indvars.iv
   store ptr %15, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = trunc nuw nsw i64 %indvars.iv to i32

@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.LOCKTAG = type { i32, i32, i32, i16, i8, i8 }
 %struct.XactLockTableWaitInfo = type { i32, ptr, ptr }
 %struct.ErrorContextCallback = type { ptr, ptr, ptr }
-%union.ListCell = type { ptr }
 
 @MyDatabaseId = external local_unnamed_addr global i32, align 4
 @error_context_stack = external local_unnamed_addr global ptr, align 8
@@ -880,7 +879,7 @@ ItemPointerIsValid.exit:                          ; preds = %3
 switch.lookup:                                    ; preds = %8
   %switch.tableidx = add i32 %2, -1
   %12 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.XactLockTableWaitErrorCb, i64 %12
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.XactLockTableWaitErrorCb, i64 %12
   %switch.load = load ptr, ptr %switch.gep, align 8
   %13 = tail call i32 @set_errcontext_domain(ptr noundef null) #8
   %14 = load ptr, ptr %4, align 8
@@ -1056,7 +1055,7 @@ define dso_local void @WaitForLockersMultiple(ptr noundef readonly captures(addr
   %.051.us = phi ptr [ %15, %.lr.ph.split.us ], [ null, %.lr.ph ]
   %.03650.us = phi i32 [ %.137.us, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds nuw %union.ListCell, ptr %11, i64 %indvars.iv78
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv78
   %13 = load ptr, ptr %12, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %14 = call ptr @GetLockConflicts(ptr noundef %13, i32 noundef %1, ptr noundef nonnull %4) #8
@@ -1074,7 +1073,7 @@ define dso_local void @WaitForLockersMultiple(ptr noundef readonly captures(addr
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
   %.051 = phi ptr [ %23, %.lr.ph.split ], [ null, %.lr.ph ]
   %19 = load ptr, ptr %10, align 8
-  %20 = getelementptr inbounds nuw %union.ListCell, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %22 = tail call ptr @GetLockConflicts(ptr noundef %21, i32 noundef %1, ptr noundef null) #8
@@ -1116,7 +1115,7 @@ define dso_local void @WaitForLockersMultiple(ptr noundef readonly captures(addr
   %indvars.iv84 = phi i64 [ %indvars.iv.next85, %._crit_edge.split.us.us ], [ 0, %.lr.ph63.split.us.split ]
   %.03860.us71 = phi i32 [ %.139.lcssa.us, %._crit_edge.split.us.us ], [ 0, %.lr.ph63.split.us.split ]
   %34 = load ptr, ptr %30, align 8
-  %35 = getelementptr inbounds nuw %union.ListCell, ptr %34, i64 %indvars.iv84
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv84
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 4
   %38 = load i32, ptr %37, align 4
@@ -1172,7 +1171,7 @@ define dso_local void @WaitForLockersMultiple(ptr noundef readonly captures(addr
   %59 = phi i32 [ %70, %._crit_edge.split ], [ %57, %.lr.ph63.split.split ]
   %indvars.iv81 = phi i64 [ %indvars.iv.next82, %._crit_edge.split ], [ 0, %.lr.ph63.split.split ]
   %60 = load ptr, ptr %56, align 8
-  %61 = getelementptr inbounds nuw %union.ListCell, ptr %60, i64 %indvars.iv81
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %indvars.iv81
   %62 = load ptr, ptr %61, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 4
   %64 = load i32, ptr %63, align 4
@@ -1634,7 +1633,7 @@ define dso_local ptr @GetLockNameFromTagType(i16 noundef zeroext %0) local_unnam
 
 3:                                                ; preds = %1
   %4 = zext nneg i16 %0 to i64
-  %5 = getelementptr inbounds nuw ptr, ptr @LockTagTypeNames, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @LockTagTypeNames, i64 %4
   %6 = load ptr, ptr %5, align 8
   br label %7
 

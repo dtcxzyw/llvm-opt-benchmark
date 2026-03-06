@@ -5,9 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.dt_iop_sharpen_params_t = type { float, float, float }
 %struct.dt_introspection_t = type { i32, i32, ptr, i64, ptr, i64, i64, ptr }
-%union.dt_introspection_field_t = type { %struct.dt_introspection_type_double_t }
-%struct.dt_introspection_type_double_t = type { %struct.dt_introspection_type_header_t, double, double, double }
-%struct.dt_introspection_type_header_t = type { i32, ptr, ptr, ptr, ptr, i64, i64, ptr }
 
 @.str = private unnamed_addr constant [19 x i8] c"modulename\04sharpen\00", align 1
 @.str.1 = private unnamed_addr constant [69 x i8] c"sharpen the details in the image using a standard UnSharp Mask (USM)\00", align 1
@@ -232,7 +229,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %58 = sext i32 %57 to i64
   %59 = zext nneg i32 %25 to i64
   %60 = add nuw i32 %25, 1
-  %invariant.gep.i = getelementptr float, ptr %55, i64 %59
+  %invariant.gep.i = getelementptr [4 x i8], ptr %55, i64 %59
   %61 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %54
   br label %62
 
@@ -246,7 +243,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %67 = fmul reassoc nnan nsz arcp contract afn float %66, 5.000000e-01
   %68 = fmul reassoc nsz arcp contract afn float %67, %61
   %69 = call reassoc nsz arcp contract afn float @llvm.exp.f32(float %68)
-  %gep.i = getelementptr float, ptr %invariant.gep.i, i64 %indvars.iv.i
+  %gep.i = getelementptr [4 x i8], ptr %invariant.gep.i, i64 %indvars.iv.i
   store float %69, ptr %gep.i, align 4, !tbaa !47
   %70 = fadd reassoc nsz arcp contract afn float %69, %.02228.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
@@ -260,7 +257,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 
 .lr.ph32.i:                                       ; preds = %.lr.ph32.i.preheader, %.lr.ph32.i
   %indvars.iv34.i = phi i64 [ %indvars.iv.next35.i, %.lr.ph32.i ], [ %58, %.lr.ph32.i.preheader ]
-  %gep42.i = getelementptr float, ptr %invariant.gep.i, i64 %indvars.iv34.i
+  %gep42.i = getelementptr [4 x i8], ptr %invariant.gep.i, i64 %indvars.iv34.i
   %72 = load float, ptr %gep42.i, align 4, !tbaa !47
   %73 = fmul reassoc nsz arcp contract afn float %72, %71
   store float %73, ptr %gep42.i, align 4, !tbaa !47
@@ -324,8 +321,8 @@ init_gaussian_kernel.exit:                        ; preds = %41
 100:                                              ; preds = %95
   %101 = shl nuw nsw i64 %indvars.iv291, 2
   %102 = mul i64 %101, %75
-  %103 = getelementptr inbounds nuw float, ptr %2, i64 %102
-  %104 = getelementptr inbounds nuw float, ptr %3, i64 %102
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %102
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %102
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %104, ptr align 4 %103, i64 %78, i1 false)
   %.pre = load i32, ptr %30, align 4, !tbaa !46
   br label %.loopexit
@@ -375,7 +372,7 @@ init_gaussian_kernel.exit:                        ; preds = %41
 .lr.ph:                                           ; preds = %111, %119
   %.0192231 = phi i64 [ %120, %119 ], [ %106, %111 ]
   %114 = sub i64 %.0192231, %106
-  %115 = getelementptr inbounds nuw float, ptr %55, i64 %114
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %114
   %116 = load float, ptr %115, align 4, !tbaa !47
   %117 = mul i64 %.0192231, %75
   %118 = add i64 %117, %.0191233
@@ -393,7 +390,7 @@ init_gaussian_kernel.exit:                        ; preds = %41
   %123 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx222
   %124 = load float, ptr %123, align 4, !tbaa !47
   %125 = fmul reassoc nsz arcp contract afn float %124, %116
-  %126 = getelementptr inbounds nuw float, ptr %9, i64 %.0193229
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %.0193229
   %127 = load float, ptr %126, align 4, !tbaa !47
   %128 = fadd reassoc nsz arcp contract afn float %127, %125
   store float %128, ptr %126, align 4, !tbaa !47
@@ -407,7 +404,7 @@ init_gaussian_kernel.exit:                        ; preds = %41
 
 ._crit_edge242:                                   ; preds = %._crit_edge240, %.preheader.us.preheader, %.preheader225
   %130 = mul i64 %81, %indvars.iv291
-  %131 = getelementptr inbounds nuw float, ptr %3, i64 %130
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %130
   br i1 %82, label %.lr.ph245, label %._crit_edge246
 
 .lr.ph245:                                        ; preds = %._crit_edge242
@@ -415,7 +412,7 @@ init_gaussian_kernel.exit:                        ; preds = %41
   br label %154
 
 ._crit_edge240:                                   ; preds = %136
-  %133 = getelementptr inbounds nuw float, ptr %79, i64 %.0198241
+  %133 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %.0198241
   store float %145, ptr %133, align 4, !tbaa !47
   %134 = add nuw i64 %.0198241, 1
   %135 = icmp ult i64 %134, %75
@@ -425,7 +422,7 @@ init_gaussian_kernel.exit:                        ; preds = %41
   %.0200238 = phi float [ 0.000000e+00, %.preheader ], [ %145, %136 ]
   %.0201237 = phi i64 [ %106, %.preheader ], [ %146, %136 ]
   %137 = sub i64 %.0201237, %106
-  %138 = getelementptr inbounds nuw float, ptr %55, i64 %137
+  %138 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %137
   %139 = load float, ptr %138, align 4, !tbaa !47
   %140 = mul i64 %.0201237, %75
   %141 = add i64 %140, %.0198241
@@ -481,7 +478,7 @@ init_gaussian_kernel.exit:                        ; preds = %41
 .lr.ph251.preheader:                              ; preds = %161
   %.neg = sub i64 %92, %indvars.iv284
   %163 = sext i32 %indvars.iv279 to i64
-  %164 = getelementptr float, ptr %55, i64 %.neg
+  %164 = getelementptr [4 x i8], ptr %55, i64 %.neg
   br label %.lr.ph251
 
 ._crit_edge252:                                   ; preds = %.lr.ph251, %161
@@ -498,9 +495,9 @@ init_gaussian_kernel.exit:                        ; preds = %41
 .lr.ph251:                                        ; preds = %.lr.ph251.preheader, %.lr.ph251
   %indvars.iv281 = phi i64 [ %163, %.lr.ph251.preheader ], [ %indvars.iv.next282, %.lr.ph251 ]
   %.0195248 = phi float [ 0.000000e+00, %.lr.ph251.preheader ], [ %176, %.lr.ph251 ]
-  %171 = getelementptr float, ptr %164, i64 %indvars.iv281
+  %171 = getelementptr [4 x i8], ptr %164, i64 %indvars.iv281
   %172 = load float, ptr %171, align 4, !tbaa !47
-  %173 = getelementptr inbounds float, ptr %79, i64 %indvars.iv281
+  %173 = getelementptr inbounds [4 x i8], ptr %79, i64 %indvars.iv281
   %174 = load float, ptr %173, align 4, !tbaa !47
   %175 = fmul reassoc nsz arcp contract afn float %174, %172
   %176 = fadd reassoc nsz arcp contract afn float %175, %.0195248
@@ -713,7 +710,7 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
 
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw %union.dt_introspection_field_t, ptr @introspection_linear, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [88 x i8], ptr @introspection_linear, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store ptr %0, ptr %8, align 8, !tbaa !87
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

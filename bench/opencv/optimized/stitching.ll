@@ -433,7 +433,7 @@ define hidden noundef range(i32 0, 2) i32 @_Z12parseCmdArgsiPPc(i32 noundef %0, 
   %.058304 = phi i32 [ 1, %.lr.ph ], [ %331, %330 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %54 = sext i32 %.058304 to i64
-  %55 = getelementptr inbounds ptr, ptr %1, i64 %54
+  %55 = getelementptr inbounds [8 x i8], ptr %1, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !66
   store ptr %30, ptr %11, align 8, !tbaa !67
   %57 = icmp eq ptr %56, null
@@ -743,7 +743,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit114: ; preds = %13
 142:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit114
   %143 = add nsw i32 %.058304, 1
   %144 = sext i32 %143 to i64
-  %145 = getelementptr inbounds ptr, ptr %1, i64 %144
+  %145 = getelementptr inbounds [8 x i8], ptr %1, i64 %144
   %146 = load ptr, ptr %145, align 8, !tbaa !66
   %147 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_Z11result_nameB5cxx11, i64 8), align 8, !tbaa !59
   %148 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %146) #19
@@ -816,7 +816,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit122: ; preds = %16
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %171 = add nsw i32 %.058304, 1
   %172 = sext i32 %171 to i64
-  %173 = getelementptr inbounds ptr, ptr %1, i64 %172
+  %173 = getelementptr inbounds [8 x i8], ptr %1, i64 %172
   %174 = load ptr, ptr %173, align 8, !tbaa !66
   store ptr %48, ptr %16, align 8, !tbaa !67
   %175 = icmp eq ptr %174, null
@@ -1662,7 +1662,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNS
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !4
   store ptr %.0.lcssa.i.i.i.i21, ptr %4, align 8, !tbaa !10
-  %29 = getelementptr inbounds nuw %"class.cv::Mat", ptr %20, i64 %16
+  %29 = getelementptr inbounds nuw [96 x i8], ptr %20, i64 %16
   store ptr %29, ptr %28, align 8, !tbaa !86
   ret void
 }
@@ -1751,7 +1751,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNS
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !4
   store ptr %.0.lcssa.i.i.i.i31, ptr %4, align 8, !tbaa !10
-  %29 = getelementptr inbounds nuw %"class.cv::Mat", ptr %20, i64 %16
+  %29 = getelementptr inbounds nuw [96 x i8], ptr %20, i64 %16
   store ptr %29, ptr %28, align 8, !tbaa !86
   ret void
 

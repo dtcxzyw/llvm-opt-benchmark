@@ -305,7 +305,7 @@ define noundef i32 @_ZN4evmc7tooling3runERNS_2VME13evmc_revisionlSt17basic_strin
 
 switch.lookup:                                    ; preds = %9
   %28 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4evmc7tooling3runERNS_2VME13evmc_revisionlSt17basic_string_viewIhNS_11byte_traitsIhEEES7_bbRSo, i64 %28
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4evmc7tooling3runERNS_2VME13evmc_revisionlSt17basic_string_viewIhNS_11byte_traitsIhEEES7_bbRSo, i64 %28
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZlsRSo13evmc_revision.exit
 
@@ -415,7 +415,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %71
 
 switch.lookup111:                                 ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
   %75 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep112 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4evmc7tooling3runERNS_2VME13evmc_revisionlSt17basic_string_viewIhNS_11byte_traitsIhEEES7_bbRSo.2, i64 %75
+  %switch.gep112 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4evmc7tooling3runERNS_2VME13evmc_revisionlSt17basic_string_viewIhNS_11byte_traitsIhEEES7_bbRSo.2, i64 %75
   %switch.load113 = load ptr, ptr %switch.gep112, align 8
   br label %_ZN4evmc9to_stringE16evmc_status_code.exit.i
 
@@ -977,7 +977,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit57: ; preds = %277
 
 switch.lookup115:                                 ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit57
   %285 = zext nneg i32 %switch.tableidx114 to i64
-  %switch.gep116 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN4evmc7tooling3runERNS_2VME13evmc_revisionlSt17basic_string_viewIhNS_11byte_traitsIhEEES7_bbRSo.2, i64 %285
+  %switch.gep116 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4evmc7tooling3runERNS_2VME13evmc_revisionlSt17basic_string_viewIhNS_11byte_traitsIhEEES7_bbRSo.2, i64 %285
   %switch.load117 = load ptr, ptr %switch.gep116, align 8
   br label %_ZN4evmc9to_stringE16evmc_status_code.exit.i58
 
@@ -1528,7 +1528,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK4evmc10MockedHost14account_existsERK
   %18 = load i64, ptr %17, align 8, !tbaa !17
   %19 = urem i64 %16, %18
   %20 = load ptr, ptr %4, align 8, !tbaa !6
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %19
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %19
   %22 = load ptr, ptr %21, align 8, !tbaa !123
   %.not.i.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i.i, label %_ZNKSt13unordered_mapIN4evmc7addressENS0_13MockedAccountESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S2_EEE5countERS8_.exit, label %_ZNKSt10_HashtableIN4evmc7addressESt4pairIKS1_NS0_13MockedAccountEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE15_M_bucket_beginEm.exit.i.i
@@ -1634,7 +1634,7 @@ define linkonce_odr void @_ZNK4evmc10MockedHost11get_storageERKNS_7addressERKNS_
   %20 = load i64, ptr %19, align 8, !tbaa !17
   %21 = urem i64 %18, %20
   %22 = load ptr, ptr %6, align 8, !tbaa !6
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %21
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %21
   %24 = load ptr, ptr %23, align 8, !tbaa !123
   %.not.i.i.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i.i.i, label %.loopexit22, label %25
@@ -1711,7 +1711,7 @@ _ZNKSt13unordered_mapIN4evmc7addressENS0_13MockedAccountESt4hashIS1_ESt8equal_to
   %71 = load i64, ptr %70, align 8, !tbaa !126
   %72 = urem i64 %69, %71
   %73 = load ptr, ptr %54, align 8, !tbaa !128
-  %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %72
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %72
   %75 = load ptr, ptr %74, align 8, !tbaa !123
   %.not.i.i.i.i4 = icmp eq ptr %75, null
   br i1 %.not.i.i.i.i4, label %.loopexit, label %76
@@ -1852,7 +1852,7 @@ define linkonce_odr void @_ZNK4evmc10MockedHost11get_balanceERKNS_7addressE(ptr 
   %19 = load i64, ptr %18, align 8, !tbaa !17
   %20 = urem i64 %17, %19
   %21 = load ptr, ptr %5, align 8, !tbaa !6
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %20
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %20
   %23 = load ptr, ptr %22, align 8, !tbaa !123
   %.not.i.i.i.i = icmp eq ptr %23, null
   br i1 %.not.i.i.i.i, label %.loopexit, label %24
@@ -1947,7 +1947,7 @@ define linkonce_odr noundef i64 @_ZNK4evmc10MockedHost13get_code_sizeERKNS_7addr
   %18 = load i64, ptr %17, align 8, !tbaa !17
   %19 = urem i64 %16, %18
   %20 = load ptr, ptr %4, align 8, !tbaa !6
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %19
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %19
   %22 = load ptr, ptr %21, align 8, !tbaa !123
   %.not.i.i.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i.i.i, label %_ZNKSt13unordered_mapIN4evmc7addressENS0_13MockedAccountESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S2_EEE4findERS8_.exit.thread, label %23
@@ -2039,7 +2039,7 @@ define linkonce_odr void @_ZNK4evmc10MockedHost13get_code_hashERKNS_7addressE(pt
   %19 = load i64, ptr %18, align 8, !tbaa !17
   %20 = urem i64 %17, %19
   %21 = load ptr, ptr %5, align 8, !tbaa !6
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %20
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %20
   %23 = load ptr, ptr %22, align 8, !tbaa !123
   %.not.i.i.i.i = icmp eq ptr %23, null
   br i1 %.not.i.i.i.i, label %.loopexit, label %24
@@ -2134,7 +2134,7 @@ define linkonce_odr noundef i64 @_ZNK4evmc10MockedHost9copy_codeERKNS_7addressEm
   %21 = load i64, ptr %20, align 8, !tbaa !17
   %22 = urem i64 %19, %21
   %23 = load ptr, ptr %7, align 8, !tbaa !6
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %22
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %22
   %25 = load ptr, ptr %24, align 8, !tbaa !123
   %.not.i.i.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i.i.i, label %_ZNKSt13unordered_mapIN4evmc7addressENS0_13MockedAccountESt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_S2_EEE4findERS8_.exit.thread, label %26
@@ -2302,7 +2302,7 @@ _ZNSt6vectorIN4evmc7addressESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i: ; p
 _ZNSt6vectorIN4evmc7addressESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %32, %_ZNSt6vectorIN4evmc7addressESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i
   store ptr %27, ptr %6, align 8, !tbaa !98
   store ptr %31, ptr %7, align 8, !tbaa !131
-  %36 = getelementptr inbounds nuw %"struct.evmc::address", ptr %27, i64 %25
+  %36 = getelementptr inbounds nuw [20 x i8], ptr %27, i64 %25
   store ptr %36, ptr %9, align 8, !tbaa !101
   br label %_ZNSt6vectorIN4evmc7addressESaIS1_EE12emplace_backIJRKS1_EEERS1_DpOT_.exit
 
@@ -2534,7 +2534,7 @@ _ZNSt6vectorI12evmc_messageSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i: ; pr
 _ZNSt6vectorI12evmc_messageSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i: ; preds = %90, %_ZNSt6vectorI12evmc_messageSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i
   store ptr %85, ptr %7, align 8, !tbaa !113
   store ptr %89, ptr %9, align 8, !tbaa !138
-  %94 = getelementptr inbounds nuw %struct.evmc_message, ptr %85, i64 %83
+  %94 = getelementptr inbounds nuw [184 x i8], ptr %85, i64 %83
   store ptr %94, ptr %76, align 8, !tbaa !116
   br label %_ZNSt6vectorI12evmc_messageSaIS0_EE12emplace_backIJRKS0_EEERS0_DpOT_.exit
 
@@ -2713,7 +2713,7 @@ _ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i: ; preds = %27, %.noex
 _ZNSt6vectorIlSaIlEE17_M_realloc_insertIJRlEEEvN9__gnu_cxx17__normal_iteratorIPlS1_EEDpOT_.exit.i: ; preds = %29, %_ZNSt6vectorIlSaIlEE11_S_relocateEPlS2_S2_RS0_.exit16.i.i
   store ptr %24, ptr %4, align 8, !tbaa !117
   store ptr %28, ptr %5, align 8, !tbaa !155
-  %33 = getelementptr inbounds nuw i64, ptr %24, i64 %22
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %22
   store ptr %33, ptr %7, align 8, !tbaa !120
   br label %_ZNSt6vectorIlSaIlEE12emplace_backIJRlEEES3_DpOT_.exit
 
@@ -3022,7 +3022,7 @@ define linkonce_odr void @_ZNK4evmc10MockedHost21get_transient_storageERKNS_7add
   %20 = load i64, ptr %19, align 8, !tbaa !17
   %21 = urem i64 %18, %20
   %22 = load ptr, ptr %6, align 8, !tbaa !6
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %21
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %21
   %24 = load ptr, ptr %23, align 8, !tbaa !123
   %.not.i.i.i.i = icmp eq ptr %24, null
   br i1 %.not.i.i.i.i, label %.loopexit22, label %25
@@ -3099,7 +3099,7 @@ _ZNKSt13unordered_mapIN4evmc7addressENS0_13MockedAccountESt4hashIS1_ESt8equal_to
   %71 = load i64, ptr %70, align 8, !tbaa !162
   %72 = urem i64 %69, %71
   %73 = load ptr, ptr %54, align 8, !tbaa !164
-  %74 = getelementptr inbounds nuw ptr, ptr %73, i64 %72
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %72
   %75 = load ptr, ptr %74, align 8, !tbaa !123
   %.not.i.i.i.i4 = icmp eq ptr %75, null
   br i1 %.not.i.i.i.i4, label %.loopexit, label %76
@@ -3330,7 +3330,7 @@ _ZNSt6vectorIN4evmc7addressESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i: ; p
 _ZNSt6vectorIN4evmc7addressESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %50, %_ZNSt6vectorIN4evmc7addressESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i
   store ptr %45, ptr %3, align 8, !tbaa !98
   store ptr %49, ptr %5, align 8, !tbaa !131
-  %54 = getelementptr inbounds nuw %"struct.evmc::address", ptr %45, i64 %43
+  %54 = getelementptr inbounds nuw [20 x i8], ptr %45, i64 %43
   store ptr %54, ptr %35, align 8, !tbaa !101
   br label %_ZNSt6vectorIN4evmc7addressESaIS1_EE12emplace_backIJRKS1_EEERS1_DpOT_.exit
 
@@ -3543,7 +3543,7 @@ _ZN4evmceqERKNS_7bytes32ES2_.exit25.thread:       ; preds = %_ZN4evmc7is_zeroERK
 
 switch.lookup:                                    ; preds = %_ZN4evmceqERKNS_7bytes32ES2_.exit25.thread
   %110 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZZN4evmc10MockedHost11set_storageERKNS_7addressERKNS_7bytes32ES6_ENKUlvE_clEv, i64 %110
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZZN4evmc10MockedHost11set_storageERKNS_7addressERKNS_7bytes32ES6_ENKUlvE_clEv, i64 %110
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN4evmc7is_zeroERKNS_7bytes32E.exit15.thread
 
@@ -3573,7 +3573,7 @@ define linkonce_odr noundef nonnull align 4 dereferenceable(68) ptr @_ZNSt8__det
   %19 = load i64, ptr %18, align 8, !tbaa !126
   %20 = urem i64 %17, %19
   %21 = load ptr, ptr %0, align 8, !tbaa !128
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %20
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %20
   %23 = load ptr, ptr %22, align 8, !tbaa !123
   %.not.i.i = icmp eq ptr %23, null
   br i1 %.not.i.i, label %.loopexit, label %24
@@ -3711,7 +3711,7 @@ _ZNSt10_HashtableIN4evmc7bytes32ESt4pairIKS1_NS0_12StorageValueEESaIS5_ENSt8__de
 32:                                               ; preds = %_ZNSt10_HashtableIN4evmc7bytes32ESt4pairIKS1_NS0_12StorageValueEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit, %6
   %.0 = phi i64 [ %31, %_ZNSt10_HashtableIN4evmc7bytes32ESt4pairIKS1_NS0_12StorageValueEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit ], [ %2, %6 ]
   %33 = load ptr, ptr %0, align 8, !tbaa !128
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8, !tbaa !123
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %39, label %36
@@ -3751,7 +3751,7 @@ _ZNSt10_HashtableIN4evmc7bytes32ESt4pairIKS1_NS0_12StorageValueEESaIS5_ENSt8__de
   %59 = xor i64 %56, %58
   %60 = mul i64 %59, 1099511628211
   %61 = urem i64 %60, %44
-  %62 = getelementptr inbounds nuw ptr, ptr %33, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %61
   store ptr %4, ptr %62, align 8, !tbaa !123
   br label %63
 
@@ -3825,7 +3825,7 @@ _ZNSt10_HashtableIN4evmc7bytes32ESt4pairIKS1_NS0_12StorageValueEESaIS5_ENSt8__de
   %27 = xor i64 %24, %26
   %28 = mul i64 %27, 1099511628211
   %29 = urem i64 %28, %1
-  %30 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !123
   %.not27 = icmp eq ptr %31, null
   br i1 %.not27, label %32, label %37
@@ -3840,7 +3840,7 @@ _ZNSt10_HashtableIN4evmc7bytes32ESt4pairIKS1_NS0_12StorageValueEESaIS5_ENSt8__de
   br i1 %.not28, label %40, label %35
 
 35:                                               ; preds = %32
-  %36 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %36, align 8, !tbaa !123
   br label %40
 
@@ -3898,7 +3898,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__det
   %17 = load i64, ptr %16, align 8, !tbaa !21
   %18 = urem i64 %15, %17
   %19 = load ptr, ptr %0, align 8, !tbaa !19
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %18
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %18
   %21 = load ptr, ptr %20, align 8, !tbaa !123
   %.not.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i, label %.loopexit30, label %22
@@ -4036,7 +4036,7 @@ _ZNSt10_HashtableIN4evmc7addressESt4pairIKS1_St6vectorIS1_SaIS1_EEESaIS7_ENSt8__
 32:                                               ; preds = %_ZNSt10_HashtableIN4evmc7addressESt4pairIKS1_St6vectorIS1_SaIS1_EEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit, %6
   %.0 = phi i64 [ %31, %_ZNSt10_HashtableIN4evmc7addressESt4pairIKS1_St6vectorIS1_SaIS1_EEESaIS7_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit ], [ %2, %6 ]
   %33 = load ptr, ptr %0, align 8, !tbaa !19
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8, !tbaa !123
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %39, label %36
@@ -4073,7 +4073,7 @@ _ZNSt10_HashtableIN4evmc7addressESt4pairIKS1_St6vectorIS1_SaIS1_EEESaIS7_ENSt8__
   %56 = xor i64 %52, %55
   %57 = mul i64 %56, 1099511628211
   %58 = urem i64 %57, %44
-  %59 = getelementptr inbounds nuw ptr, ptr %33, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %58
   store ptr %4, ptr %59, align 8, !tbaa !123
   br label %60
 
@@ -4168,7 +4168,7 @@ _ZNSt10_HashtableIN4evmc7addressESt4pairIKS1_St6vectorIS1_SaIS1_EEESaIS7_ENSt8__
   %24 = xor i64 %20, %23
   %25 = mul i64 %24, 1099511628211
   %26 = urem i64 %25, %1
-  %27 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !123
   %.not27 = icmp eq ptr %28, null
   br i1 %.not27, label %29, label %34
@@ -4183,7 +4183,7 @@ _ZNSt10_HashtableIN4evmc7addressESt4pairIKS1_St6vectorIS1_SaIS1_EEESaIS7_ENSt8__
   br i1 %.not28, label %37, label %32
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %33, align 8, !tbaa !123
   br label %37
 
@@ -4398,7 +4398,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIhN4evmc11byte_traitsIhEESaIhEEESaIS6_EE11
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIhN4evmc11byte_traitsIhEESaIhEEESaIS6_EE13_M_deallocateEPS6_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIhN4evmc11byte_traitsIhEESaIhEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit35, %65
   store ptr %23, ptr %0, align 8, !tbaa !90
   store ptr %.0.lcssa.i.i.i.i34, ptr %5, align 8, !tbaa !93
-  %69 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %69 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %69, ptr %64, align 8, !tbaa !95
   ret void
 
@@ -4629,7 +4629,7 @@ _ZNSt6vectorIN4evmc10MockedHost10log_recordESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_
 _ZNSt12_Vector_baseIN4evmc10MockedHost10log_recordESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN4evmc10MockedHost10log_recordESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit23, %91
   store ptr %20, ptr %0, align 8, !tbaa !103
   store ptr %.0.lcssa.i.i.i.i22, ptr %4, align 8, !tbaa !106
-  %95 = getelementptr inbounds nuw %"struct.evmc::MockedHost::log_record", ptr %20, i64 %16
+  %95 = getelementptr inbounds nuw [80 x i8], ptr %20, i64 %16
   store ptr %95, ptr %90, align 8, !tbaa !112
   ret void
 }
@@ -5255,7 +5255,7 @@ define linkonce_odr noundef nonnull align 1 dereferenceable(32) ptr @_ZNSt8__det
   %19 = load i64, ptr %18, align 8, !tbaa !162
   %20 = urem i64 %17, %19
   %21 = load ptr, ptr %0, align 8, !tbaa !164
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %20
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %20
   %23 = load ptr, ptr %22, align 8, !tbaa !123
   %.not.i.i = icmp eq ptr %23, null
   br i1 %.not.i.i, label %.loopexit, label %24
@@ -5393,7 +5393,7 @@ _ZNSt10_HashtableIN4evmc7bytes32ESt4pairIKS1_S1_ESaIS4_ENSt8__detail10_Select1st
 32:                                               ; preds = %_ZNSt10_HashtableIN4evmc7bytes32ESt4pairIKS1_S1_ESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit, %6
   %.0 = phi i64 [ %31, %_ZNSt10_HashtableIN4evmc7bytes32ESt4pairIKS1_S1_ESaIS4_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit ], [ %2, %6 ]
   %33 = load ptr, ptr %0, align 8, !tbaa !164
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8, !tbaa !123
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %39, label %36
@@ -5433,7 +5433,7 @@ _ZNSt10_HashtableIN4evmc7bytes32ESt4pairIKS1_S1_ESaIS4_ENSt8__detail10_Select1st
   %59 = xor i64 %56, %58
   %60 = mul i64 %59, 1099511628211
   %61 = urem i64 %60, %44
-  %62 = getelementptr inbounds nuw ptr, ptr %33, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %61
   store ptr %4, ptr %62, align 8, !tbaa !123
   br label %63
 
@@ -5501,7 +5501,7 @@ _ZNSt10_HashtableIN4evmc7bytes32ESt4pairIKS1_S1_ESaIS4_ENSt8__detail10_Select1st
   %27 = xor i64 %24, %26
   %28 = mul i64 %27, 1099511628211
   %29 = urem i64 %28, %1
-  %30 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !123
   %.not27 = icmp eq ptr %31, null
   br i1 %.not27, label %32, label %37
@@ -5516,7 +5516,7 @@ _ZNSt10_HashtableIN4evmc7bytes32ESt4pairIKS1_S1_ESaIS4_ENSt8__detail10_Select1st
   br i1 %.not28, label %40, label %35
 
 35:                                               ; preds = %32
-  %36 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %36, align 8, !tbaa !123
   br label %40
 
@@ -5897,7 +5897,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(216) ptr @_ZNSt8__de
   %17 = load i64, ptr %16, align 8, !tbaa !17
   %18 = urem i64 %15, %17
   %19 = load ptr, ptr %0, align 8, !tbaa !6
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %18
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %18
   %21 = load ptr, ptr %20, align 8, !tbaa !123
   %.not.i.i = icmp eq ptr %21, null
   br i1 %.not.i.i, label %.loopexit30, label %22
@@ -6062,7 +6062,7 @@ _ZNSt10_HashtableIN4evmc7addressESt4pairIKS1_NS0_13MockedAccountEESaIS5_ENSt8__d
 32:                                               ; preds = %_ZNSt10_HashtableIN4evmc7addressESt4pairIKS1_NS0_13MockedAccountEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit, %6
   %.0 = phi i64 [ %31, %_ZNSt10_HashtableIN4evmc7addressESt4pairIKS1_NS0_13MockedAccountEESaIS5_ENSt8__detail10_Select1stESt8equal_toIS1_ESt4hashIS1_ENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit ], [ %2, %6 ]
   %33 = load ptr, ptr %0, align 8, !tbaa !6
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8, !tbaa !123
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %39, label %36
@@ -6099,7 +6099,7 @@ _ZNSt10_HashtableIN4evmc7addressESt4pairIKS1_NS0_13MockedAccountEESaIS5_ENSt8__d
   %56 = xor i64 %52, %55
   %57 = mul i64 %56, 1099511628211
   %58 = urem i64 %57, %44
-  %59 = getelementptr inbounds nuw ptr, ptr %33, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %58
   store ptr %4, ptr %59, align 8, !tbaa !123
   br label %60
 
@@ -6181,7 +6181,7 @@ _ZNSt10_HashtableIN4evmc7addressESt4pairIKS1_NS0_13MockedAccountEESaIS5_ENSt8__d
   %24 = xor i64 %20, %23
   %25 = mul i64 %24, 1099511628211
   %26 = urem i64 %25, %1
-  %27 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !123
   %.not27 = icmp eq ptr %28, null
   br i1 %.not27, label %29, label %34
@@ -6196,7 +6196,7 @@ _ZNSt10_HashtableIN4evmc7addressESt4pairIKS1_NS0_13MockedAccountEESaIS5_ENSt8__d
   br i1 %.not28, label %37, label %32
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %33, align 8, !tbaa !123
   br label %37
 

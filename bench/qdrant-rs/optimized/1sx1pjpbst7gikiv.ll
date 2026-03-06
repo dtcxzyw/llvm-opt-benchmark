@@ -405,7 +405,7 @@ define void @_ZN6common10validation24validate_collection_name17h435e1248381afd06
 37:                                               ; preds = %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17hcc471fc217cd8dbbE.exit.i", %.lr.ph.i
   %38 = phi i64 [ 0, %.lr.ph.i ], [ %39, %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17hcc471fc217cd8dbbE.exit.i" ]
   %39 = add nuw nsw i64 %38, 1
-  %40 = getelementptr inbounds nuw i32, ptr %16, i64 %38
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %38
   %41 = load i32, ptr %40, align 4, !range !55, !alias.scope !56, !noalias !53, !noundef !5
   call void @llvm.experimental.noalias.scope.decl(metadata !59)
   %42 = icmp samesign ult i32 %41, 128
@@ -558,7 +558,7 @@ define void @_ZN6common10validation24validate_collection_name17h435e1248381afd06
   %106 = icmp eq <16 x i8> %.0.copyload.i.i.i.i.i.i.i, %93
   %107 = icmp eq <16 x i8> %.0.copyload2.i.i.i.i.i.i.i, %94
   %108 = and <16 x i1> %106, %107
-  %109 = getelementptr inbounds nuw i16, ptr %5, i64 %.sroa.022.0137.i.i.i.i.i.i
+  %109 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %.sroa.022.0137.i.i.i.i.i.i
   store <16 x i1> %108, ptr %109, align 2, !noalias !89
   %exitcond.not.i38.i.i.i.i.i = icmp eq i64 %102, 4
   br i1 %exitcond.not.i38.i.i.i.i.i, label %.preheader133.i.i.i.i.i.i, label %101
@@ -576,7 +576,7 @@ define void @_ZN6common10validation24validate_collection_name17h435e1248381afd06
   %.sroa.028.0139.i.i.i.i.i.i = phi i64 [ %115, %119 ], [ 0, %101 ]
   %.2138.i.i.i.i.i.i = phi i8 [ %.3.i.i.i.i.i.i, %119 ], [ 0, %101 ]
   %115 = add nuw nsw i64 %.sroa.028.0139.i.i.i.i.i.i, 1
-  %116 = getelementptr inbounds nuw i16, ptr %5, i64 %.sroa.028.0139.i.i.i.i.i.i
+  %116 = getelementptr inbounds nuw [2 x i8], ptr %5, i64 %.sroa.028.0139.i.i.i.i.i.i
   %117 = load i16, ptr %116, align 2, !noalias !89, !noundef !5
   %118 = icmp eq i16 %117, 0
   br i1 %118, label %119, label %120

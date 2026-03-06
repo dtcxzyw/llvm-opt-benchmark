@@ -489,7 +489,7 @@ define internal void @"_ZN90_$LT$fundu..standard..time_units..TimeUnits$u20$as$u
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h95ff814f8c684f9dE.exit.i.i.i.i.i": ; preds = %.lr.ph.i.i
   %7 = zext nneg i8 %.val3.i.i to i64
-  %8 = getelementptr inbounds nuw { ptr, i64 }, ptr @anon.87f6e18fecb33f35561fd9552121b522.44, i64 %7
+  %8 = getelementptr inbounds nuw [16 x i8], ptr @anon.87f6e18fecb33f35561fd9552121b522.44, i64 %7
   %9 = load ptr, ptr %8, align 8, !noalias !144, !nonnull !5, !align !134, !noundef !5
   %lhsc = load i8, ptr %9, align 1
   %rhsc = load i8, ptr %2, align 1
@@ -512,7 +512,7 @@ define internal void @"_ZN90_$LT$fundu..standard..time_units..TimeUnits$u20$as$u
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h95ff814f8c684f9dE.exit.i.i.i.i.i.i": ; preds = %.preheader.preheader
   %15 = zext nneg i8 %.val4.i.i to i64
-  %16 = getelementptr inbounds nuw { ptr, i64 }, ptr @anon.87f6e18fecb33f35561fd9552121b522.44, i64 %15
+  %16 = getelementptr inbounds nuw [16 x i8], ptr @anon.87f6e18fecb33f35561fd9552121b522.44, i64 %15
   %17 = load ptr, ptr %16, align 8, !noalias !159, !nonnull !5, !align !134, !noundef !5
   %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr noundef nonnull readonly align 1 dereferenceable(2) %17, ptr noundef nonnull readonly align 1 dereferenceable(2) %2, i64 2), !alias.scope !168, !noalias !159
   %18 = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
@@ -800,7 +800,7 @@ _ZN7uu_tail4args10FilterMode18from_obsolete_args17h822dcc31b6d83fc0E.exit: ; pre
 47:                                               ; preds = %._crit_edge.i, %38
   %48 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %39, %38 ]
   %49 = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !195, !noalias !198, !nonnull !5, !noundef !5
-  %50 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] } }, ptr %49, i64 %48
+  %50 = getelementptr inbounds [48 x i8], ptr %49, i64 %48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %50, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 48, i1 false)
   %51 = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !195, !noalias !198, !noundef !5
   %52 = add i64 %51, 1
@@ -2290,7 +2290,7 @@ define noundef zeroext i1 @_ZN7uu_tail4args8Settings14has_only_stdin17hc4a146a24
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i64, ptr %4, align 8, !noundef !5
-  %6 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] } }, ptr %3, i64 %5
+  %6 = getelementptr inbounds [48 x i8], ptr %3, i64 %5
   br label %7
 
 7:                                                ; preds = %10, %1
@@ -2323,7 +2323,7 @@ define noundef zeroext i1 @_ZN7uu_tail4args8Settings9has_stdin17h4f93487a64c1f12
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i64, ptr %4, align 8, !noundef !5
-  %6 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] } }, ptr %3, i64 %5
+  %6 = getelementptr inbounds [48 x i8], ptr %3, i64 %5
   br label %7
 
 7:                                                ; preds = %9, %1
@@ -2579,7 +2579,7 @@ _ZN7uu_tail8platform4unix19supports_pid_checks17hfceec79db2c5f31cE.exit.thread.t
   %99 = load ptr, ptr %98, align 8, !alias.scope !500, !nonnull !5, !noundef !5
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %101 = load i64, ptr %100, align 8, !alias.scope !500, !noundef !5
-  %102 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] } }, ptr %99, i64 %101
+  %102 = getelementptr inbounds [48 x i8], ptr %99, i64 %101
   br label %103
 
 103:                                              ; preds = %105, %_ZN7uu_tail8platform4unix19supports_pid_checks17hfceec79db2c5f31cE.exit.thread.thread
@@ -2772,7 +2772,7 @@ define noundef range(i8 0, 3) i8 @_ZN7uu_tail4args8Settings6verify17hd689aeb9d6a
   %3 = load ptr, ptr %2, align 8, !nonnull !5, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i64, ptr %4, align 8, !noundef !5
-  %6 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [2 x i64] } }, ptr %3, i64 %5
+  %6 = getelementptr inbounds [48 x i8], ptr %3, i64 %5
   br label %7
 
 7:                                                ; preds = %9, %1
@@ -3961,7 +3961,7 @@ define void @_ZN7uu_tail4args6uu_app17he1ec4deed8b814e2E(ptr noalias noundef wri
   %226 = phi i64 [ %.pre.i.i, %.noexc.i89 ], [ %217, %214 ]
   %227 = getelementptr inbounds nuw i8, ptr %100, i64 136
   %228 = load ptr, ptr %227, align 8, !alias.scope !778, !noalias !782, !nonnull !5, !noundef !5
-  %229 = getelementptr inbounds { { { { ptr, i64 } } } }, ptr %228, i64 %226
+  %229 = getelementptr inbounds [16 x i8], ptr %228, i64 %226
   store ptr @anon.87f6e18fecb33f35561fd9552121b522.59, ptr %229, align 8, !noalias !782
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 8
   store i64 6, ptr %230, align 8, !noalias !775
@@ -4448,7 +4448,7 @@ define void @_ZN7uu_tail4args6uu_app17he1ec4deed8b814e2E(ptr noalias noundef wri
   %359 = phi i64 [ %.pre.i.i158, %.noexc.i157 ], [ %350, %347 ]
   %360 = getelementptr inbounds nuw i8, ptr %93, i64 136
   %361 = load ptr, ptr %360, align 8, !alias.scope !947, !noalias !952, !nonnull !5, !noundef !5
-  %362 = getelementptr inbounds { { { { ptr, i64 } } } }, ptr %361, i64 %359
+  %362 = getelementptr inbounds [16 x i8], ptr %361, i64 %359
   store ptr @anon.87f6e18fecb33f35561fd9552121b522.72, ptr %362, align 8, !noalias !952
   %363 = getelementptr inbounds nuw i8, ptr %362, i64 8
   store i64 3, ptr %363, align 8, !noalias !957
@@ -5624,7 +5624,7 @@ define void @_ZN7uu_tail4args6uu_app17he1ec4deed8b814e2E(ptr noalias noundef wri
   %658 = phi i64 [ %.pre.i.i319, %.noexc.i318 ], [ %649, %646 ]
   %659 = getelementptr inbounds nuw i8, ptr %73, i64 136
   %660 = load ptr, ptr %659, align 8, !alias.scope !1397, !noalias !1402, !nonnull !5, !noundef !5
-  %661 = getelementptr inbounds { { { { ptr, i64 } } } }, ptr %660, i64 %658
+  %661 = getelementptr inbounds [16 x i8], ptr %660, i64 %658
   store ptr @anon.87f6e18fecb33f35561fd9552121b522.58, ptr %661, align 8, !noalias !1402
   %662 = getelementptr inbounds nuw i8, ptr %661, i64 8
   store i64 5, ptr %662, align 8, !noalias !1407
@@ -5796,7 +5796,7 @@ define void @_ZN7uu_tail4args6uu_app17he1ec4deed8b814e2E(ptr noalias noundef wri
   %709 = phi i64 [ %.pre.i.i342, %.noexc.i341 ], [ %700, %697 ]
   %710 = getelementptr inbounds nuw i8, ptr %70, i64 136
   %711 = load ptr, ptr %710, align 8, !alias.scope !1460, !noalias !1465, !nonnull !5, !noundef !5
-  %712 = getelementptr inbounds { { { { ptr, i64 } } } }, ptr %711, i64 %709
+  %712 = getelementptr inbounds [16 x i8], ptr %711, i64 %709
   store ptr @anon.87f6e18fecb33f35561fd9552121b522.57, ptr %712, align 8, !noalias !1465
   %713 = getelementptr inbounds nuw i8, ptr %712, i64 8
   store i64 1, ptr %713, align 8, !noalias !1470

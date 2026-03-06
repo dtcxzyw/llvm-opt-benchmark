@@ -110,13 +110,13 @@ define void @_ZN11fish_printf6fmt_fp7decimal7Decimal3new17h5818cd8688c37821E(ptr
   %43 = load i64, ptr %36, align 8, !noalias !8, !noundef !7
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !8
   %44 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !8, !nonnull !7, !noundef !7
-  %45 = getelementptr inbounds nuw i32, ptr %44, i64 %42
-  %46 = getelementptr inbounds nuw i32, ptr %44, i64 %41
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %42
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %41
   %47 = icmp samesign eq i64 %40, %41
   br i1 %47, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.noexc15
-  %48 = getelementptr inbounds nuw i32, ptr %44, i64 %40
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %40
   %49 = trunc nuw nsw i64 %.sroa.0.0.sroa.speculated.i.i to i32
   %notmask19.i = shl nsw i32 -1, %49
   %50 = xor i32 %notmask19.i, -1
@@ -138,7 +138,7 @@ define void @_ZN11fish_printf6fmt_fp7decimal7Decimal3new17h5818cd8688c37821E(ptr
 
 ._crit_edge.i:                                    ; preds = %52, %.noexc15
   %.sroa.09.0.lcssa.i = phi i32 [ 0, %.noexc15 ], [ %57, %52 ]
-  %59 = getelementptr inbounds nuw i32, ptr %44, i64 %43
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %43
   %60 = icmp samesign eq i64 %42, %43
   br i1 %60, label %._crit_edge29.i, label %.lr.ph28.i
 
@@ -175,7 +175,7 @@ define void @_ZN11fish_printf6fmt_fp7decimal7Decimal3new17h5818cd8688c37821E(ptr
   %74 = select i1 %.not.i.i.i, i64 0, i64 %73
   %.sroa.01.0.i.i.i = sub nuw i64 %72, %74
   %75 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !11, !nonnull !7, !noundef !7
-  %76 = getelementptr inbounds nuw i32, ptr %75, i64 %.sroa.01.0.i.i.i
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %.sroa.01.0.i.i.i
   %77 = load i32, ptr %76, align 4, !noundef !7
   %78 = icmp eq i32 %77, 0
   br i1 %78, label %79, label %_ZN11fish_printf6fmt_fp7decimal7Decimal18trim_leading_zeros17hd840b9016cf0208eE.exit.i
@@ -380,7 +380,7 @@ _ZN11fish_printf6fmt_fp7decimal7Decimal11shift_right17ha0edca1f3cd59267E.exit: ;
 
 135:                                              ; preds = %.lr.ph, %25
   %136 = load ptr, ptr %18, align 8, !alias.scope !4, !nonnull !7, !noundef !7
-  %137 = getelementptr inbounds nuw i32, ptr %136, i64 %21
+  %137 = getelementptr inbounds nuw [4 x i8], ptr %136, i64 %21
   store i32 %22, ptr %137, align 4
   %138 = add i64 %21, 1
   store i64 %138, ptr %19, align 8, !alias.scope !4
@@ -435,7 +435,7 @@ define { i32, i32 } @_ZN11fish_printf6fmt_fp7decimal7Decimal4last17h6006382ae8e5
   %.sroa.01.0.i = sub nuw i64 %8, %10
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !alias.scope !29, !nonnull !7, !noundef !7
-  %13 = getelementptr inbounds nuw i32, ptr %12, i64 %.sroa.01.0.i
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %.sroa.01.0.i
   %14 = load i32, ptr %13, align 4, !noundef !7
   br label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$3get17h6e5389268633a260E.exit.thread"
 
@@ -472,7 +472,7 @@ define noundef i32 @_ZN11fish_printf6fmt_fp7decimal7Decimal8exponent17h5ba47adcc
   %.sroa.01.0.i.i = sub nuw i64 %6, %8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !alias.scope !35, !nonnull !7, !noundef !7
-  %11 = getelementptr inbounds nuw i32, ptr %10, i64 %.sroa.01.0.i.i
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %.sroa.01.0.i.i
   %12 = load i32, ptr %11, align 4, !noalias !32, !noundef !7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %14 = load i32, ptr %13, align 8, !noundef !7
@@ -585,7 +585,7 @@ define void @_ZN11fish_printf6fmt_fp7decimal7Decimal26round_to_fractional_digits
   %.not.i.i = icmp ult i64 %40, %41
   %42 = select i1 %.not.i.i, i64 0, i64 %41
   %.sroa.01.0.i.i = sub nuw i64 %40, %42
-  %43 = getelementptr inbounds nuw i32, ptr %38, i64 %.sroa.01.0.i.i
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %.sroa.01.0.i.i
   %44 = load i32, ptr %43, align 4, !noundef !7
   %45 = urem i32 %44, %23
   %46 = sub nuw i32 %44, %45
@@ -627,7 +627,7 @@ define void @_ZN11fish_printf6fmt_fp7decimal7Decimal26round_to_fractional_digits
   %63 = select i1 %.not.i.i.i, i64 0, i64 %62
   %.sroa.01.0.i.i.i = sub nuw i64 %61, %63
   %64 = load ptr, ptr %37, align 8, !alias.scope !61, !noalias !64, !nonnull !7, !noundef !7
-  %65 = getelementptr inbounds nuw i32, ptr %64, i64 %.sroa.01.0.i.i.i
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %.sroa.01.0.i.i.i
   %66 = load i32, ptr %65, align 4, !noalias !52, !noundef !7
   %67 = udiv i32 %66, %23
   br label %81
@@ -652,7 +652,7 @@ define void @_ZN11fish_printf6fmt_fp7decimal7Decimal26round_to_fractional_digits
   %77 = select i1 %.not.i.i11.i, i64 0, i64 %76
   %.sroa.01.0.i.i12.i = sub nuw i64 %75, %77
   %78 = load ptr, ptr %37, align 8, !alias.scope !70, !noalias !73, !nonnull !7, !noundef !7
-  %79 = getelementptr inbounds nuw i32, ptr %78, i64 %.sroa.01.0.i.i12.i
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %78, i64 %.sroa.01.0.i.i12.i
   %80 = load i32, ptr %79, align 4, !noalias !52, !noundef !7
   br label %81
 
@@ -714,7 +714,7 @@ _ZN11fish_printf6fmt_fp7decimal7Decimal15should_round_up17hccc858425dbdb3a4E.exi
   %109 = select i1 %.not.i.i20, i64 0, i64 %108
   %.sroa.01.0.i.i21 = sub nuw i64 %107, %109
   %110 = load ptr, ptr %37, align 8, !alias.scope !83, !noalias !86, !nonnull !7, !noundef !7
-  %111 = getelementptr inbounds nuw i32, ptr %110, i64 %.sroa.01.0.i.i21
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %110, i64 %.sroa.01.0.i.i21
   %112 = load i32, ptr %111, align 4, !noundef !7
   %113 = add i32 %112, %23
   store i32 %113, ptr %111, align 4
@@ -780,7 +780,7 @@ _ZN11fish_printf6fmt_fp7decimal7Decimal15should_round_up17hccc858425dbdb3a4E.exi
   %137 = select i1 %.not.i.i23, i64 0, i64 %136
   %.sroa.01.0.i.i24 = sub nuw i64 %135, %137
   %138 = load ptr, ptr %37, align 8, !alias.scope !103, !noalias !93, !nonnull !7, !noundef !7
-  %139 = getelementptr inbounds nuw i32, ptr %138, i64 %.sroa.01.0.i.i24
+  %139 = getelementptr inbounds nuw [4 x i8], ptr %138, i64 %.sroa.01.0.i.i24
   %140 = load i32, ptr %139, align 4, !noundef !7
   %141 = icmp ugt i32 %140, 999999999
   br i1 %141, label %"_ZN95_$LT$fish_printf..fmt_fp..decimal..Decimal$u20$as$u20$core..ops..index..IndexMut$LT$i32$GT$$GT$9index_mut17h4d68d035a1c91692E.exit28", label %_ZN11fish_printf6fmt_fp7decimal7Decimal15should_round_up17hccc858425dbdb3a4E.exit.thread.loopexit
@@ -821,7 +821,7 @@ _ZN11fish_printf6fmt_fp7decimal7Decimal19trim_trailing_zeros17h27b270d91c937ecbE
   %155 = select i1 %.not.i.i29, i64 0, i64 %154
   %.sroa.01.0.i.i30 = sub nuw i64 %153, %155
   %156 = load ptr, ptr %37, align 8, !alias.scope !110, !noalias !113, !nonnull !7, !noundef !7
-  %157 = getelementptr inbounds nuw i32, ptr %156, i64 %.sroa.01.0.i.i30
+  %157 = getelementptr inbounds nuw [4 x i8], ptr %156, i64 %.sroa.01.0.i.i30
   %158 = load i32, ptr %157, align 4, !noundef !7
   %159 = add i32 %158, 1
   store i32 %159, ptr %157, align 4
@@ -856,7 +856,7 @@ define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN92_$LT$fish_printf..f
   %.sroa.01.0.i = sub nuw i64 %14, %16
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8, !alias.scope !118, !nonnull !7, !noundef !7
-  %19 = getelementptr inbounds nuw i32, ptr %18, i64 %.sroa.01.0.i
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %.sroa.01.0.i
   ret ptr %19
 
 20:                                               ; preds = %6
@@ -890,7 +890,7 @@ define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN95_$LT$fish_printf..f
   %.sroa.01.0.i = sub nuw i64 %14, %16
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8, !alias.scope !121, !nonnull !7, !noundef !7
-  %19 = getelementptr inbounds nuw i32, ptr %18, i64 %.sroa.01.0.i
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %.sroa.01.0.i
   ret ptr %19
 
 20:                                               ; preds = %6

@@ -16,7 +16,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.block_reader = type { i32, %struct.reftable_block, i32, ptr, ptr, i64, i32, ptr, i16, i32 }
 %struct.block_iter = type { i32, ptr, i64, i32, %struct.reftable_buf, %struct.reftable_buf }
 %struct.reftable_buf = type { i64, i64, ptr }
-%struct.anon = type { ptr, i32 }
 
 @.str = private unnamed_addr constant [5 x i8] c"REFT\00", align 1
 @.str.1 = private unnamed_addr constant [18 x i8] c"reftable/reader.c\00", align 1
@@ -1255,7 +1254,7 @@ table_iter_init.exit:                             ; preds = %10
 
 26:                                               ; preds = %table_iter_init.exit, %60
   %.01236 = phi i64 [ 0, %table_iter_init.exit ], [ %61, %60 ]
-  %27 = getelementptr inbounds nuw %struct.anon, ptr @__const.reftable_reader_print_blocks.sections, i64 %.01236
+  %27 = getelementptr inbounds nuw [16 x i8], ptr @__const.reftable_reader_print_blocks.sections, i64 %.01236
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load i32, ptr %28, align 8, !tbaa !70
   %30 = trunc i32 %29 to i8

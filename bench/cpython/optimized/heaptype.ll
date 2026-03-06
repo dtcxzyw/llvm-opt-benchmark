@@ -2420,7 +2420,7 @@ PyTuple_GET_SIZE.exit:                            ; preds = %10
   unreachable
 
 25:                                               ; preds = %21
-  %26 = getelementptr ptr, ptr %20, i64 %.030
+  %26 = getelementptr [8 x i8], ptr %20, i64 %.030
   %27 = load ptr, ptr %26, align 8, !tbaa !23
   %28 = load i32, ptr %27, align 8, !tbaa !8
   %29 = icmp slt i32 %28, 0
@@ -2432,7 +2432,7 @@ PyTuple_GET_SIZE.exit:                            ; preds = %10
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %25, %30
-  %32 = getelementptr ptr, ptr %18, i64 %.030
+  %32 = getelementptr [8 x i8], ptr %18, i64 %.030
   store ptr %27, ptr %32, align 8, !tbaa !23
   %33 = add nuw nsw i64 %.030, 1
   %exitcond.not = icmp eq i64 %33, %13
@@ -2523,7 +2523,7 @@ Py_SIZE.exit:                                     ; preds = %7
   br i1 %.not10, label %_Py_NewRef.exit, label %16
 
 16:                                               ; preds = %14
-  %17 = getelementptr ptr, ptr %15, i64 %1
+  %17 = getelementptr [8 x i8], ptr %15, i64 %1
   %18 = load ptr, ptr %17, align 8, !tbaa !23
   %19 = load i32, ptr %18, align 8, !tbaa !8
   %20 = icmp slt i32 %19, 0
@@ -2575,7 +2575,7 @@ Py_SIZE.exit:                                     ; preds = %7
   br i1 %.not24, label %10, label %.loopexit
 
 10:                                               ; preds = %Py_SIZE.exit
-  %11 = getelementptr ptr, ptr %4, i64 %.01627
+  %11 = getelementptr [8 x i8], ptr %4, i64 %.01627
   %12 = load ptr, ptr %11, align 8, !tbaa !23
   %.not22 = icmp eq ptr %12, null
   br i1 %.not22, label %15, label %13
@@ -2633,7 +2633,7 @@ Py_SET_SIZE.exit:                                 ; preds = %6
 
 .lr.ph:                                           ; preds = %Py_SET_SIZE.exit, %Py_DECREF.exit
   %.01321 = phi i64 [ %19, %Py_DECREF.exit ], [ 0, %Py_SET_SIZE.exit ]
-  %11 = getelementptr ptr, ptr %2, i64 %.01321
+  %11 = getelementptr [8 x i8], ptr %2, i64 %.01321
   %12 = load ptr, ptr %11, align 8, !tbaa !23
   %.not16 = icmp eq ptr %12, null
   br i1 %.not16, label %Py_DECREF.exit, label %13

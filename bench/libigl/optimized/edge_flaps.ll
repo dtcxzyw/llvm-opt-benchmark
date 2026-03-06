@@ -89,13 +89,13 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE11setConstantE
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %41
   %indvars.iv52 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next53, %41 ]
-  %invariant.gep = getelementptr i32, ptr %34, i64 %indvars.iv52
-  %37 = getelementptr i32, ptr %35, i64 %indvars.iv52
+  %invariant.gep = getelementptr [4 x i8], ptr %34, i64 %indvars.iv52
+  %37 = getelementptr [4 x i8], ptr %35, i64 %indvars.iv52
   %38 = load ptr, ptr %3, align 8
   %39 = load i64, ptr %12, align 8
-  %invariant.gep45 = getelementptr i32, ptr %38, i64 %39
+  %invariant.gep45 = getelementptr [4 x i8], ptr %38, i64 %39
   %40 = load ptr, ptr %4, align 8
-  %invariant.gep47 = getelementptr i32, ptr %40, i64 %25
+  %invariant.gep47 = getelementptr [4 x i8], ptr %40, i64 %25
   %.sink = trunc i64 %indvars.iv52 to i32
   br label %42
 
@@ -110,17 +110,17 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE11setConstantE
 42:                                               ; preds = %.preheader, %67
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %67 ]
   %43 = mul nuw nsw i64 %32, %indvars.iv
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %43
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %43
   %44 = load i32, ptr %gep, align 4, !tbaa !15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %45 = icmp eq i64 %indvars.iv.next, 3
   %46 = and i64 %indvars.iv.next, 4294967295
   %47 = select i1 %45, i64 0, i64 %46
   %48 = mul nuw nsw i64 %32, %47
-  %49 = getelementptr i32, ptr %37, i64 %48
+  %49 = getelementptr [4 x i8], ptr %37, i64 %48
   %50 = load i32, ptr %49, align 4, !tbaa !15
   %51 = sext i32 %44 to i64
-  %52 = getelementptr i32, ptr %36, i64 %51
+  %52 = getelementptr [4 x i8], ptr %36, i64 %51
   %53 = load i32, ptr %52, align 4, !tbaa !15
   %54 = icmp eq i32 %50, %53
   br i1 %54, label %55, label %66
@@ -131,10 +131,10 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE11setConstantE
   %57 = and i64 %56, 4294967295
   %58 = select i1 %.cmp, i64 2, i64 %57
   %59 = mul nuw nsw i64 %32, %58
-  %60 = getelementptr i32, ptr %37, i64 %59
+  %60 = getelementptr [4 x i8], ptr %37, i64 %59
   %61 = load i32, ptr %60, align 4, !tbaa !15
   %62 = load i64, ptr %6, align 8, !tbaa !4
-  %63 = getelementptr i32, ptr %52, i64 %62
+  %63 = getelementptr [4 x i8], ptr %52, i64 %62
   %64 = load i32, ptr %63, align 4, !tbaa !15
   %65 = icmp eq i32 %61, %64
   br i1 %65, label %67, label %66
@@ -145,9 +145,9 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE11setConstantE
 67:                                               ; preds = %55, %66
   %invariant.gep45.sink = phi ptr [ %invariant.gep45, %66 ], [ %38, %55 ]
   %invariant.gep47.sink = phi ptr [ %invariant.gep47, %66 ], [ %40, %55 ]
-  %gep46 = getelementptr i32, ptr %invariant.gep45.sink, i64 %51
+  %gep46 = getelementptr [4 x i8], ptr %invariant.gep45.sink, i64 %51
   store i32 %.sink, ptr %gep46, align 4, !tbaa !15
-  %gep48 = getelementptr i32, ptr %invariant.gep47.sink, i64 %51
+  %gep48 = getelementptr [4 x i8], ptr %invariant.gep47.sink, i64 %51
   %68 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %68, ptr %gep48, align 4, !tbaa !15
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3

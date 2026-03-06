@@ -23,8 +23,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.6" = type { %"struct.std::_Vector_base<gmx_file_position_t, std::allocator<gmx_file_position_t>>::_Vector_impl" }
 %"struct.std::_Vector_base<gmx_file_position_t, std::allocator<gmx_file_position_t>>::_Vector_impl" = type { %"struct.std::_Vector_base<gmx_file_position_t, std::allocator<gmx_file_position_t>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<gmx_file_position_t, std::allocator<gmx_file_position_t>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%struct.gmx_file_position_t = type <{ [4096 x i8], i64, %"struct.std::array", i32, [4 x i8] }>
-%"struct.std::array" = type { [16 x i8] }
 
 $_ZNSt10filesystem7__cxx114pathC2IA123_cS1_EERKT_NS1_6formatE = comdat any
 
@@ -1573,7 +1571,7 @@ _ZNSt6vectorI19gmx_file_position_tSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit21.i.
 _ZNSt6vectorI19gmx_file_position_tSaIS0_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i: ; preds = %55, %_ZNSt6vectorI19gmx_file_position_tSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit21.i.i
   store ptr %50, ptr %0, align 8, !tbaa !69
   store ptr %54, ptr %21, align 8, !tbaa !65
-  %56 = getelementptr inbounds nuw %struct.gmx_file_position_t, ptr %50, i64 %48
+  %56 = getelementptr inbounds nuw [4128 x i8], ptr %50, i64 %48
   store ptr %56, ptr %22, align 8, !tbaa !68
   br label %_ZNSt6vectorI19gmx_file_position_tSaIS0_EE12emplace_backIJEEERS0_DpOT_.exit
 

@@ -44,7 +44,7 @@ define noundef float @_Z19print_and_integrateP8_IO_FILEifPKfS2_i(ptr noundef cap
   br i1 %.not44.us, label %15, label %8
 
 8:                                                ; preds = %.lr.ph.split.us
-  %9 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv65
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv65
   %10 = load float, ptr %9, align 4, !tbaa !4
   %11 = getelementptr i8, ptr %9, i64 -4
   %12 = load float, ptr %11, align 4, !tbaa !4
@@ -66,7 +66,7 @@ define noundef float @_Z19print_and_integrateP8_IO_FILEifPKfS2_i(ptr noundef cap
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %30
   %indvars.iv60 = phi i64 [ %indvars.iv.next61, %30 ], [ 0, %.lr.ph.split ]
   %.03445.us48 = phi float [ %.135.us50, %30 ], [ 0.000000e+00, %.lr.ph.split ]
-  %17 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv60
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv60
   %18 = load float, ptr %17, align 4, !tbaa !4
   %19 = trunc nuw nsw i64 %indvars.iv60 to i32
   %20 = uitofp nneg i32 %19 to float
@@ -93,7 +93,7 @@ define noundef float @_Z19print_and_integrateP8_IO_FILEifPKfS2_i(ptr noundef cap
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %48
   %indvars.iv = phi i64 [ %indvars.iv.next, %48 ], [ 0, %.lr.ph.split ]
   %.03445 = phi float [ %.135, %48 ], [ 0.000000e+00, %.lr.ph.split ]
-  %31 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %32 = load float, ptr %31, align 4, !tbaa !4
   %33 = trunc nuw nsw i64 %indvars.iv to i32
   %34 = srem i32 %33, %5
@@ -150,7 +150,7 @@ define noundef float @_Z19print_and_integrateP8_IO_FILEifPKfS2_i(ptr noundef cap
   %52 = uitofp nneg i32 %51 to float
   %53 = fmul float %2, %52
   %54 = fpext float %53 to double
-  %55 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv75
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv75
   %56 = load float, ptr %55, align 4, !tbaa !4
   %57 = fpext float %56 to double
   %58 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str, double noundef %54, double noundef %57) #14
@@ -169,7 +169,7 @@ define noundef float @_Z19print_and_integrateP8_IO_FILEifPKfS2_i(ptr noundef cap
   %63 = uitofp nneg i32 %59 to float
   %64 = fmul float %2, %63
   %65 = fpext float %64 to double
-  %66 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv70
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv70
   %67 = load float, ptr %66, align 4, !tbaa !4
   %68 = fpext float %67 to double
   %69 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str, double noundef %65, double noundef %68) #14
@@ -222,7 +222,7 @@ define noundef float @_Z17evaluate_integraliPKfS0_S0_fPf(i32 noundef %0, ptr nou
   br i1 %.not.us.us, label %20, label %12
 
 12:                                               ; preds = %.preheader.split.us.split.us
-  %13 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv113
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv113
   %14 = load float, ptr %13, align 4, !tbaa !4
   %15 = getelementptr i8, ptr %13, i64 -4
   %16 = load float, ptr %15, align 4, !tbaa !4
@@ -234,7 +234,7 @@ define noundef float @_Z17evaluate_integraliPKfS0_S0_fPf(i32 noundef %0, ptr nou
 20:                                               ; preds = %12, %.preheader.split.us.split.us
   %.055.us.us = phi double [ %19, %12 ], [ 0.000000e+00, %.preheader.split.us.split.us ]
   %21 = icmp samesign ult i64 %indvars.iv113, %11
-  %22 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv113
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv113
   br i1 %21, label %23, label %._crit_edge118
 
 ._crit_edge118:                                   ; preds = %20
@@ -253,7 +253,7 @@ define noundef float @_Z17evaluate_integraliPKfS0_S0_fPf(i32 noundef %0, ptr nou
 30:                                               ; preds = %._crit_edge118, %23
   %31 = phi float [ %26, %23 ], [ %.pre120, %._crit_edge118 ]
   %.156.us.us = phi double [ %29, %23 ], [ %.055.us.us, %._crit_edge118 ]
-  %32 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv113
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv113
   %33 = load float, ptr %32, align 4, !tbaa !4
   %34 = fpext float %33 to double
   %35 = tail call double @llvm.fmuladd.f64(double %.156.us.us, double %34, double %.067.us.us)
@@ -277,7 +277,7 @@ define noundef float @_Z17evaluate_integraliPKfS0_S0_fPf(i32 noundef %0, ptr nou
   br i1 %.not.us, label %47, label %39
 
 39:                                               ; preds = %.preheader.split.us.split
-  %40 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv108
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv108
   %41 = load float, ptr %40, align 4, !tbaa !4
   %42 = getelementptr i8, ptr %40, i64 -4
   %43 = load float, ptr %42, align 4, !tbaa !4
@@ -289,7 +289,7 @@ define noundef float @_Z17evaluate_integraliPKfS0_S0_fPf(i32 noundef %0, ptr nou
 47:                                               ; preds = %39, %.preheader.split.us.split
   %.055.us = phi double [ %46, %39 ], [ 0.000000e+00, %.preheader.split.us.split ]
   %48 = icmp samesign ult i64 %indvars.iv108, %11
-  %49 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv108
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv108
   br i1 %48, label %50, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %47
@@ -308,11 +308,11 @@ define noundef float @_Z17evaluate_integraliPKfS0_S0_fPf(i32 noundef %0, ptr nou
 57:                                               ; preds = %._crit_edge, %50
   %58 = phi float [ %53, %50 ], [ %.pre, %._crit_edge ]
   %.156.us = phi double [ %56, %50 ], [ %.055.us, %._crit_edge ]
-  %59 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv108
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv108
   %60 = load float, ptr %59, align 4, !tbaa !4
   %61 = fpext float %60 to double
   %62 = tail call double @llvm.fmuladd.f64(double %.156.us, double %61, double %.067.us)
-  %63 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv108
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv108
   %64 = load float, ptr %63, align 4, !tbaa !4
   %65 = fpext float %64 to double
   %66 = fmul double %.156.us, %65
@@ -346,7 +346,7 @@ define noundef float @_Z17evaluate_integraliPKfS0_S0_fPf(i32 noundef %0, ptr nou
   br i1 %.not.us75, label %84, label %76
 
 76:                                               ; preds = %.preheader.split.split.us
-  %77 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv103
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv103
   %78 = load float, ptr %77, align 4, !tbaa !4
   %79 = getelementptr i8, ptr %77, i64 -4
   %80 = load float, ptr %79, align 4, !tbaa !4
@@ -361,7 +361,7 @@ define noundef float @_Z17evaluate_integraliPKfS0_S0_fPf(i32 noundef %0, ptr nou
   br i1 %85, label %86, label %94
 
 86:                                               ; preds = %84
-  %87 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv103
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv103
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 4
   %89 = load float, ptr %88, align 4, !tbaa !4
   %90 = load float, ptr %87, align 4, !tbaa !4
@@ -372,7 +372,7 @@ define noundef float @_Z17evaluate_integraliPKfS0_S0_fPf(i32 noundef %0, ptr nou
 
 94:                                               ; preds = %86, %84
   %.156.us77 = phi double [ %93, %86 ], [ %.055.us76, %84 ]
-  %95 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv103
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv103
   %96 = load float, ptr %95, align 4, !tbaa !4
   %97 = fpext float %96 to double
   %98 = tail call double @llvm.fmuladd.f64(double %.156.us77, double %97, double %.067.us72)
@@ -404,7 +404,7 @@ define noundef float @_Z17evaluate_integraliPKfS0_S0_fPf(i32 noundef %0, ptr nou
   br i1 %.not, label %111, label %103
 
 103:                                              ; preds = %.preheader.split.split
-  %104 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %105 = load float, ptr %104, align 4, !tbaa !4
   %106 = getelementptr i8, ptr %104, i64 -4
   %107 = load float, ptr %106, align 4, !tbaa !4
@@ -419,7 +419,7 @@ define noundef float @_Z17evaluate_integraliPKfS0_S0_fPf(i32 noundef %0, ptr nou
   br i1 %112, label %113, label %121
 
 113:                                              ; preds = %111
-  %114 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 4
   %116 = load float, ptr %115, align 4, !tbaa !4
   %117 = load float, ptr %114, align 4, !tbaa !4
@@ -430,11 +430,11 @@ define noundef float @_Z17evaluate_integraliPKfS0_S0_fPf(i32 noundef %0, ptr nou
 
 121:                                              ; preds = %113, %111
   %.156 = phi double [ %120, %113 ], [ %.055, %111 ]
-  %122 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %123 = load float, ptr %122, align 4, !tbaa !4
   %124 = fpext float %123 to double
   %125 = tail call double @llvm.fmuladd.f64(double %.156, double %124, double %.067)
-  %126 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %127 = load float, ptr %126, align 4, !tbaa !4
   %128 = fpext float %127 to double
   %129 = fmul double %.156, %128

@@ -3,7 +3,6 @@ source_filename = "bench/abc/original/giaCSatP.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.Gia_Obj_t_ = type <{ i64, i32 }>
 %struct.timespec = type { i64, i64 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
@@ -439,7 +438,7 @@ define i32 @CbsP_ManPropagate(ptr noundef captures(none) %0, i32 noundef %1) loc
 .lr.ph.preheader:                                 ; preds = %11
   %15 = sext i32 %12 to i64
   %16 = load ptr, ptr %5, align 8, !tbaa !47
-  %17 = getelementptr inbounds ptr, ptr %16, i64 %15
+  %17 = getelementptr inbounds [8 x i8], ptr %16, i64 %15
   %18 = load ptr, ptr %17, align 8, !tbaa !84
   %.not115 = icmp eq ptr %18, null
   br i1 %.not115, label %.critedge, label %.lr.ph117
@@ -453,7 +452,7 @@ define i32 @CbsP_ManPropagate(ptr noundef captures(none) %0, i32 noundef %1) loc
 
 .lr.ph:                                           ; preds = %19
   %23 = load ptr, ptr %5, align 8, !tbaa !47
-  %24 = getelementptr inbounds ptr, ptr %23, i64 %indvars.iv.next
+  %24 = getelementptr inbounds [8 x i8], ptr %23, i64 %indvars.iv.next
   %25 = load ptr, ptr %24, align 8, !tbaa !84
   %.not = icmp eq ptr %25, null
   br i1 %.not, label %.critedge, label %.lr.ph117, !llvm.loop !85
@@ -469,7 +468,7 @@ define i32 @CbsP_ManPropagate(ptr noundef captures(none) %0, i32 noundef %1) loc
 28:                                               ; preds = %.lr.ph117
   %29 = and i64 %.val.i, 536870911
   %30 = sub nsw i64 0, %29
-  %31 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %26, i64 %30
+  %31 = getelementptr inbounds [12 x i8], ptr %26, i64 %30
   %.val.i.i = load i64, ptr %31, align 4
   %32 = and i64 %.val.i.i, 1073741824
   %.not.i.i = icmp eq i64 %32, 0
@@ -483,7 +482,7 @@ define i32 @CbsP_ManPropagate(ptr noundef captures(none) %0, i32 noundef %1) loc
   %40 = lshr i64 %.val.i, 32
   %41 = and i64 %40, 536870911
   %42 = sub nsw i64 0, %41
-  %43 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %26, i64 %42
+  %43 = getelementptr inbounds [12 x i8], ptr %26, i64 %42
   %.val.i74.i = load i64, ptr %43, align 4
   %44 = and i64 %.val.i74.i, 1073741824
   %.not.i75.i = icmp eq i64 %44, 0
@@ -545,7 +544,7 @@ define i32 @CbsP_ManPropagate(ptr noundef captures(none) %0, i32 noundef %1) loc
   %75 = lshr i64 %74, 32
   %76 = and i64 %75, 536870911
   %77 = sub nsw i64 0, %76
-  %78 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %26, i64 %77
+  %78 = getelementptr inbounds [12 x i8], ptr %26, i64 %77
   %79 = lshr i64 %74, 61
   %80 = and i64 %79, 1
   %81 = ptrtoint ptr %78 to i64
@@ -592,7 +591,7 @@ define i32 @CbsP_ManPropagate(ptr noundef captures(none) %0, i32 noundef %1) loc
   %102 = lshr i64 %101, 32
   %103 = and i64 %102, 536870911
   %104 = sub nsw i64 0, %103
-  %105 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %26, i64 %104
+  %105 = getelementptr inbounds [12 x i8], ptr %26, i64 %104
   %106 = lshr i64 %101, 61
   %107 = and i64 %106, 1
   %108 = ptrtoint ptr %105 to i64
@@ -601,7 +600,7 @@ define i32 @CbsP_ManPropagate(ptr noundef captures(none) %0, i32 noundef %1) loc
   %111 = inttoptr i64 %110 to ptr
   %112 = and i64 %101, 536870911
   %113 = sub nsw i64 0, %112
-  %114 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %26, i64 %113
+  %114 = getelementptr inbounds [12 x i8], ptr %26, i64 %113
   tail call fastcc void @CbsP_ManAssign(ptr noundef nonnull %0, ptr noundef %111, i32 noundef %1, ptr noundef nonnull %26, ptr noundef nonnull %114)
   br label %CbsP_ManPropagateOne.exit.thread
 
@@ -645,7 +644,7 @@ CbsP_QuePush.exit:                                ; preds = %._crit_edge.i, %128
   %132 = add nsw i32 %130, 1
   store i32 %132, ptr %6, align 4, !tbaa !87
   %133 = sext i32 %130 to i64
-  %134 = getelementptr inbounds ptr, ptr %131, i64 %133
+  %134 = getelementptr inbounds [8 x i8], ptr %131, i64 %133
   store ptr %26, ptr %134, align 8, !tbaa !84
   br label %CbsP_ManPropagateOne.exit.thread
 
@@ -674,7 +673,7 @@ CbsP_ManPropagateOne.exit.thread:                 ; preds = %99, %100, %73, %84,
 .lr.ph79.preheader:                               ; preds = %.critedge
   %138 = sext i32 %135 to i64
   %139 = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !48
-  %140 = getelementptr inbounds ptr, ptr %139, i64 %138
+  %140 = getelementptr inbounds [8 x i8], ptr %139, i64 %138
   %141 = load ptr, ptr %140, align 8, !tbaa !84
   %.not42119 = icmp eq ptr %141, null
   br i1 %.not42119, label %.critedge2, label %.lr.ph122
@@ -688,7 +687,7 @@ CbsP_ManPropagateOne.exit.thread:                 ; preds = %99, %100, %73, %84,
 
 .lr.ph79:                                         ; preds = %142
   %146 = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !48
-  %147 = getelementptr inbounds ptr, ptr %146, i64 %indvars.iv.next90
+  %147 = getelementptr inbounds [8 x i8], ptr %146, i64 %indvars.iv.next90
   %148 = load ptr, ptr %147, align 8, !tbaa !84
   %.not42 = icmp eq ptr %148, null
   br i1 %.not42, label %.critedge2, label %.lr.ph122, !llvm.loop !94
@@ -708,7 +707,7 @@ CbsP_ManPropagateOne.exit.thread:                 ; preds = %99, %100, %73, %84,
   br i1 %narrow.i.not.i52, label %CbsP_VarIsJust.exit.thread, label %154
 
 154:                                              ; preds = %.lr.ph122
-  %155 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %149, i64 %.pre
+  %155 = getelementptr inbounds [12 x i8], ptr %149, i64 %.pre
   %.val.i53 = load i64, ptr %155, align 4
   %156 = and i64 %.val.i53, 1073741824
   %.not3.i = icmp eq i64 %156, 0
@@ -718,7 +717,7 @@ CbsP_VarIsJust.exit:                              ; preds = %154
   %157 = lshr i64 %.val6.i, 32
   %158 = and i64 %157, 536870911
   %159 = sub nsw i64 0, %158
-  %160 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %149, i64 %159
+  %160 = getelementptr inbounds [12 x i8], ptr %149, i64 %159
   %.val5.i = load i64, ptr %160, align 4
   %161 = and i64 %.val5.i, 1073741824
   %.not43.not = icmp eq i64 %161, 0
@@ -727,12 +726,12 @@ CbsP_VarIsJust.exit:                              ; preds = %154
 162:                                              ; preds = %CbsP_VarIsJust.exit
   %163 = add nsw i32 %.078121, 1
   %164 = sext i32 %.078121 to i64
-  %165 = getelementptr inbounds ptr, ptr %150, i64 %164
+  %165 = getelementptr inbounds [8 x i8], ptr %150, i64 %164
   store ptr %149, ptr %165, align 8, !tbaa !84
   br label %CbsP_ManPropagateTwo.exit.thread
 
 CbsP_VarIsJust.exit.thread:                       ; preds = %.lr.ph122, %154, %CbsP_VarIsJust.exit
-  %166 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %149, i64 %.pre
+  %166 = getelementptr inbounds [12 x i8], ptr %149, i64 %.pre
   %.val.i.i54 = load i64, ptr %166, align 4
   %167 = and i64 %.val.i.i54, 1073741824
   %.not.i.i55 = icmp eq i64 %167, 0
@@ -746,7 +745,7 @@ CbsP_VarIsJust.exit.thread:                       ; preds = %.lr.ph122, %154, %C
   %175 = lshr i64 %.val6.i, 32
   %176 = and i64 %175, 536870911
   %177 = sub nsw i64 0, %176
-  %178 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %149, i64 %177
+  %178 = getelementptr inbounds [12 x i8], ptr %149, i64 %177
   %.val.i28.i = load i64, ptr %178, align 4
   %179 = and i64 %.val.i28.i, 1073741824
   %.not.i29.i = icmp eq i64 %179, 0
@@ -788,7 +787,7 @@ CbsP_VarIsJust.exit.thread:                       ; preds = %.lr.ph122, %154, %C
   %202 = lshr i64 %201, 32
   %203 = and i64 %202, 536870911
   %204 = sub nsw i64 0, %203
-  %205 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %149, i64 %204
+  %205 = getelementptr inbounds [12 x i8], ptr %149, i64 %204
   %206 = lshr i64 %201, 61
   %207 = and i64 %206, 1
   %208 = ptrtoint ptr %205 to i64
@@ -797,7 +796,7 @@ CbsP_VarIsJust.exit.thread:                       ; preds = %.lr.ph122, %154, %C
   %211 = inttoptr i64 %210 to ptr
   %212 = and i64 %201, 536870911
   %213 = sub nsw i64 0, %212
-  %214 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %149, i64 %213
+  %214 = getelementptr inbounds [12 x i8], ptr %149, i64 %213
   tail call fastcc void @CbsP_ManAssign(ptr noundef %0, ptr noundef %211, i32 noundef %1, ptr noundef nonnull %149, ptr noundef nonnull %214)
   br label %CbsP_ManPropagateTwo.exit.thread
 
@@ -905,7 +904,7 @@ CbsP_ManCheckLimits.exit:                         ; preds = %19
   %42 = phi i32 [ %.val72, %.lr.ph.i ], [ %55, %CbsP_QuePush.exit.i ]
   %43 = phi ptr [ %.pre.i, %.lr.ph.i ], [ %53, %CbsP_QuePush.exit.i ]
   %indvars.iv.i = phi i64 [ %39, %.lr.ph.i ], [ %indvars.iv.next.i, %CbsP_QuePush.exit.i ]
-  %44 = getelementptr inbounds ptr, ptr %43, i64 %indvars.iv.i
+  %44 = getelementptr inbounds [8 x i8], ptr %43, i64 %indvars.iv.i
   %45 = load ptr, ptr %44, align 8, !tbaa !84
   %46 = load i32, ptr %38, align 8, !tbaa !88
   %47 = icmp eq i32 %42, %46
@@ -927,7 +926,7 @@ CbsP_QuePush.exit.i:                              ; preds = %48, %41
   %55 = add nsw i32 %54, 1
   store i32 %55, ptr %30, align 4, !tbaa !87
   %56 = sext i32 %54 to i64
-  %57 = getelementptr inbounds ptr, ptr %53, i64 %56
+  %57 = getelementptr inbounds [8 x i8], ptr %53, i64 %56
   store ptr %45, ptr %57, align 8, !tbaa !84
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next.i, %40
@@ -993,7 +992,7 @@ CbsP_ManCheckLimits.exit80:                       ; preds = %68
 82:                                               ; preds = %85, %.lr.ph.i81
   %indvars.iv.i82 = phi i64 [ %81, %.lr.ph.i81 ], [ %indvars.iv.next.i84, %85 ]
   %.01012.i = phi ptr [ null, %.lr.ph.i81 ], [ %.1.i, %85 ]
-  %83 = getelementptr inbounds ptr, ptr %80, i64 %indvars.iv.i82
+  %83 = getelementptr inbounds [8 x i8], ptr %80, i64 %indvars.iv.i82
   %84 = load ptr, ptr %83, align 8, !tbaa !84
   %.not.i83 = icmp eq ptr %84, null
   br i1 %.not.i83, label %CbsP_ManDecideHighest.exit, label %85
@@ -1025,7 +1024,7 @@ CbsP_ManCheckLimits.exit80:                       ; preds = %68
 95:                                               ; preds = %98, %.lr.ph.i86
   %indvars.iv.i88 = phi i64 [ %94, %.lr.ph.i86 ], [ %indvars.iv.next.i92, %98 ]
   %.01012.i89 = phi ptr [ null, %.lr.ph.i86 ], [ %.1.i91, %98 ]
-  %96 = getelementptr inbounds ptr, ptr %93, i64 %indvars.iv.i88
+  %96 = getelementptr inbounds [8 x i8], ptr %93, i64 %indvars.iv.i88
   %97 = load ptr, ptr %96, align 8, !tbaa !84
   %.not.i90 = icmp eq ptr %97, null
   br i1 %.not.i90, label %CbsP_ManDecideHighest.exit, label %98
@@ -1056,7 +1055,7 @@ CbsP_ManDecideHighest.exit:                       ; preds = %85, %82, %98, %95, 
   %108 = load i64, ptr %.055, align 4
   %109 = and i64 %108, 536870911
   %110 = sub nsw i64 0, %109
-  %111 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.055, i64 %110
+  %111 = getelementptr inbounds [12 x i8], ptr %.055, i64 %110
   %112 = getelementptr i8, ptr %107, i64 32
   %.val73 = load ptr, ptr %112, align 8, !tbaa !109
   %113 = getelementptr i8, ptr %107, i64 144
@@ -1072,7 +1071,7 @@ CbsP_ManDecideHighest.exit:                       ; preds = %85, %82, %98, %95, 
   %121 = lshr i64 %108, 32
   %122 = and i64 %121, 536870911
   %123 = sub nsw i64 0, %122
-  %124 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.055, i64 %123
+  %124 = getelementptr inbounds [12 x i8], ptr %.055, i64 %123
   %125 = ptrtoint ptr %124 to i64
   %126 = sub i64 %125, %115
   %127 = sdiv exact i64 %126, 12
@@ -1103,7 +1102,7 @@ CbsP_ManDecideHighest.exit:                       ; preds = %85, %82, %98, %95, 
   %140 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %141 = load ptr, ptr %140, align 8, !tbaa !89
   %142 = sext i32 %136 to i64
-  %143 = getelementptr inbounds ptr, ptr %141, i64 %142
+  %143 = getelementptr inbounds [8 x i8], ptr %141, i64 %142
   %144 = load ptr, ptr %143, align 8, !tbaa !84
   %145 = and i64 %.126, -2
   %146 = inttoptr i64 %145 to ptr
@@ -1128,7 +1127,7 @@ CbsP_ManDecideHighest.exit:                       ; preds = %85, %82, %98, %95, 
 152:                                              ; preds = %150
   %153 = load ptr, ptr %140, align 8, !tbaa !89
   %154 = sext i32 %149 to i64
-  %155 = getelementptr inbounds ptr, ptr %153, i64 %154
+  %155 = getelementptr inbounds [8 x i8], ptr %153, i64 %154
   %156 = load ptr, ptr %155, align 8, !tbaa !84
   %.not71 = icmp eq ptr %156, %144
   br i1 %.not71, label %157, label %CbsP_ManCheckLimits.exit.thread
@@ -1212,7 +1211,7 @@ define internal fastcc ptr @CbsP_ManDecideMaxFF(ptr noundef readonly captures(no
   %indvars.iv = phi i64 [ %10, %.lr.ph ], [ %indvars.iv.next, %14 ]
   %.021 = phi ptr [ null, %.lr.ph ], [ %spec.select17, %14 ]
   %.01220 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %14 ]
-  %12 = getelementptr inbounds ptr, ptr %8, i64 %indvars.iv
+  %12 = getelementptr inbounds [8 x i8], ptr %8, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !84
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %.critedge, label %14
@@ -1226,7 +1225,7 @@ define internal fastcc ptr @CbsP_ManDecideMaxFF(ptr noundef readonly captures(no
   %17 = load i64, ptr %13, align 4
   %18 = and i64 %17, 536870911
   %19 = sub nsw i64 0, %18
-  %20 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %13, i64 %19
+  %20 = getelementptr inbounds [12 x i8], ptr %13, i64 %19
   %21 = ptrtoint ptr %20 to i64
   %22 = ptrtoint ptr %.val.val to i64
   %23 = sub i64 %21, %22
@@ -1238,7 +1237,7 @@ define internal fastcc ptr @CbsP_ManDecideMaxFF(ptr noundef readonly captures(no
   %28 = lshr i64 %17, 32
   %29 = and i64 %28, 536870911
   %30 = sub nsw i64 0, %29
-  %31 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %13, i64 %30
+  %31 = getelementptr inbounds [12 x i8], ptr %13, i64 %30
   %32 = ptrtoint ptr %31 to i64
   %33 = sub i64 %32, %22
   %34 = sdiv exact i64 %33, 12
@@ -1329,7 +1328,7 @@ CbsP_QuePush.exit:                                ; preds = %._crit_edge.i, %42
   %46 = add nsw i32 %44, 1
   store i32 %46, ptr %15, align 4, !tbaa !87
   %47 = sext i32 %44 to i64
-  %48 = getelementptr inbounds ptr, ptr %45, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %45, i64 %47
   store ptr %8, ptr %48, align 8, !tbaa !84
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %50 = load ptr, ptr %49, align 8, !tbaa !58
@@ -1397,7 +1396,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %79 = add nsw i32 %78, 1
   store i32 %79, ptr %51, align 4, !tbaa !52
   %80 = sext i32 %78 to i64
-  %81 = getelementptr inbounds i32, ptr %77, i64 %80
+  %81 = getelementptr inbounds [4 x i8], ptr %77, i64 %80
   store i32 %2, ptr %81, align 4, !tbaa !81
   %82 = load ptr, ptr %49, align 8, !tbaa !58
   %.not = icmp eq ptr %3, null
@@ -1476,7 +1475,7 @@ Vec_IntPush.exit31:                               ; preds = %.Vec_IntGrow.exit10
   %118 = add nsw i32 %117, 1
   store i32 %118, ptr %90, align 4, !tbaa !52
   %119 = sext i32 %117 to i64
-  %120 = getelementptr inbounds i32, ptr %116, i64 %119
+  %120 = getelementptr inbounds [4 x i8], ptr %116, i64 %119
   store i32 %89, ptr %120, align 4, !tbaa !81
   %121 = load ptr, ptr %49, align 8, !tbaa !58
   %.not22 = icmp eq ptr %4, null
@@ -1555,7 +1554,7 @@ Vec_IntPush.exit38:                               ; preds = %.Vec_IntGrow.exit10
   %157 = add nsw i32 %156, 1
   store i32 %157, ptr %129, align 4, !tbaa !52
   %158 = sext i32 %156 to i64
-  %159 = getelementptr inbounds i32, ptr %155, i64 %158
+  %159 = getelementptr inbounds [4 x i8], ptr %155, i64 %158
   store i32 %128, ptr %159, align 4, !tbaa !81
   br i1 %.not, label %164, label %160
 
@@ -1589,7 +1588,7 @@ define internal fastcc void @CbsP_ManCancelUntil(ptr noundef captures(none) init
 11:                                               ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ %10, %.lr.ph ], [ %indvars.iv.next, %15 ]
   %12 = load ptr, ptr %4, align 8, !tbaa !47
-  %13 = getelementptr inbounds ptr, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds [8 x i8], ptr %12, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !84
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %.critedge, label %15
@@ -1674,12 +1673,12 @@ CbsP_QuePush.exit:                                ; preds = %._crit_edge.i, %20
   %24 = add nsw i32 %22, 1
   store i32 %24, ptr %5, align 4, !tbaa !87
   %25 = sext i32 %22 to i64
-  %26 = getelementptr inbounds ptr, ptr %23, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %23, i64 %25
   store ptr null, ptr %26, align 8, !tbaa !84
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %.03866 = add nsw i32 %1, 1
   %28 = sext i32 %.03866 to i64
-  %29 = getelementptr inbounds ptr, ptr %23, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %23, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !84
   %.not67 = icmp eq ptr %30, null
   br i1 %.not67, label %.preheader, label %.lr.ph
@@ -1697,7 +1696,7 @@ CbsP_QuePush.exit:                                ; preds = %._crit_edge.i, %20
   %.0.lcssa = phi i32 [ -1, %CbsP_QuePush.exit ], [ %.1, %91 ]
   %.13970 = add nsw i32 %2, 1
   %37 = sext i32 %.13970 to i64
-  %38 = getelementptr inbounds ptr, ptr %36, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %36, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !84
   %.not4571 = icmp eq ptr %39, null
   br i1 %.not4571, label %._crit_edge, label %.lr.ph74
@@ -1762,7 +1761,7 @@ CbsP_QuePush.exit55:                              ; preds = %._crit_edge.i49, %6
   %68 = add nsw i32 %66, 1
   store i32 %68, ptr %5, align 4, !tbaa !87
   %69 = sext i32 %66 to i64
-  %70 = getelementptr inbounds ptr, ptr %67, i64 %69
+  %70 = getelementptr inbounds [8 x i8], ptr %67, i64 %69
   store ptr %47, ptr %70, align 8, !tbaa !84
   %71 = load i32, ptr %31, align 4, !tbaa !97
   %72 = add nsw i32 %71, 1
@@ -1786,7 +1785,7 @@ CbsP_QuePush.exit55:                              ; preds = %._crit_edge.i49, %6
   %87 = getelementptr i8, ptr %85, i64 8
   %.val4.i = load ptr, ptr %87, align 8, !tbaa !56
   %88 = sext i32 %86 to i64
-  %89 = getelementptr inbounds i32, ptr %.val4.i, i64 %88
+  %89 = getelementptr inbounds [4 x i8], ptr %.val4.i, i64 %88
   %90 = load i32, ptr %89, align 4, !tbaa !81
   %spec.select = tail call i32 @llvm.smax.i32(i32 %.068, i32 %90)
   br label %91
@@ -1796,7 +1795,7 @@ CbsP_QuePush.exit55:                              ; preds = %._crit_edge.i49, %6
   %93 = phi ptr [ %46, %44 ], [ %67, %CbsP_QuePush.exit55 ]
   %.1 = phi i32 [ %.068, %44 ], [ %spec.select, %CbsP_QuePush.exit55 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %94 = getelementptr inbounds ptr, ptr %93, i64 %indvars.iv.next
+  %94 = getelementptr inbounds [8 x i8], ptr %93, i64 %indvars.iv.next
   %95 = load ptr, ptr %94, align 8, !tbaa !84
   %.not = icmp eq ptr %95, null
   br i1 %.not, label %.preheader, label %44, !llvm.loop !113
@@ -1854,7 +1853,7 @@ CbsP_QuePush.exit62:                              ; preds = %._crit_edge.i56, %1
   %120 = add nsw i32 %118, 1
   store i32 %120, ptr %5, align 4, !tbaa !87
   %121 = sext i32 %118 to i64
-  %122 = getelementptr inbounds ptr, ptr %119, i64 %121
+  %122 = getelementptr inbounds [8 x i8], ptr %119, i64 %121
   store ptr %99, ptr %122, align 8, !tbaa !84
   %123 = load i32, ptr %40, align 4, !tbaa !97
   %124 = add nsw i32 %123, 1
@@ -1878,7 +1877,7 @@ CbsP_QuePush.exit62:                              ; preds = %._crit_edge.i56, %1
   %139 = getelementptr i8, ptr %137, i64 8
   %.val4.i65 = load ptr, ptr %139, align 8, !tbaa !56
   %140 = sext i32 %138 to i64
-  %141 = getelementptr inbounds i32, ptr %.val4.i65, i64 %140
+  %141 = getelementptr inbounds [4 x i8], ptr %.val4.i65, i64 %140
   %142 = load i32, ptr %141, align 4, !tbaa !81
   %spec.select48 = tail call i32 @llvm.smax.i32(i32 %.272, i32 %142)
   br label %143
@@ -1888,7 +1887,7 @@ CbsP_QuePush.exit62:                              ; preds = %._crit_edge.i56, %1
   %145 = phi ptr [ %98, %96 ], [ %119, %CbsP_QuePush.exit62 ]
   %.3 = phi i32 [ %.272, %96 ], [ %spec.select48, %CbsP_QuePush.exit62 ]
   %indvars.iv.next83 = add nsw i64 %indvars.iv82, 1
-  %146 = getelementptr inbounds ptr, ptr %145, i64 %indvars.iv.next83
+  %146 = getelementptr inbounds [8 x i8], ptr %145, i64 %indvars.iv.next83
   %147 = load ptr, ptr %146, align 8, !tbaa !84
   %.not45 = icmp eq ptr %147, null
   br i1 %.not45, label %._crit_edge, label %96, !llvm.loop !114
@@ -1909,7 +1908,7 @@ CbsP_QuePush.exit62:                              ; preds = %._crit_edge.i56, %1
 .lr.ph79:                                         ; preds = %.lr.ph79.preheader, %.lr.ph79
   %indvars.iv85 = phi i64 [ %152, %.lr.ph79.preheader ], [ %indvars.iv.next86, %.lr.ph79 ]
   %153 = load ptr, ptr %27, align 8, !tbaa !89
-  %154 = getelementptr inbounds ptr, ptr %153, i64 %indvars.iv85
+  %154 = getelementptr inbounds [8 x i8], ptr %153, i64 %indvars.iv85
   %155 = load ptr, ptr %154, align 8, !tbaa !84
   %156 = load i64, ptr %155, align 4
   %157 = or i64 %156, 1073741824
@@ -1962,7 +1961,7 @@ CbsP_QueFinish.exit:                              ; preds = %._crit_edge.i.i, %1
   %178 = add nsw i32 %176, 1
   store i32 %178, ptr %5, align 4, !tbaa !87
   %179 = sext i32 %176 to i64
-  %180 = getelementptr inbounds ptr, ptr %177, i64 %179
+  %180 = getelementptr inbounds [8 x i8], ptr %177, i64 %179
   store ptr null, ptr %180, align 8, !tbaa !84
   store i32 %178, ptr %4, align 8, !tbaa !102
   ret i32 %161
@@ -2042,7 +2041,7 @@ CbsP_ManCheckLimits.exit.thread:                  ; preds = %7, %10, %16, %22, %
 39:                                               ; preds = %43, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %43 ]
   %40 = load ptr, ptr %33, align 8, !tbaa !47
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv.i
   %42 = load ptr, ptr %41, align 8, !tbaa !84
   %.not.i22 = icmp eq ptr %42, null
   br i1 %.not.i22, label %CbsP_ManCancelUntil.exit, label %43
@@ -2157,7 +2156,7 @@ define internal fastcc void @CbsP_ManSaveModel(ptr noundef captures(none) initia
   %11 = phi i32 [ %7, %.lr.ph ], [ %60, %59 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %59 ]
   %12 = load ptr, ptr %5, align 8, !tbaa !47
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !84
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %.critedge, label %15
@@ -2243,7 +2242,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %56 = add nsw i32 %55, 1
   store i32 %56, ptr %3, align 4, !tbaa !52
   %57 = sext i32 %55 to i64
-  %58 = getelementptr inbounds i32, ptr %54, i64 %57
+  %58 = getelementptr inbounds [4 x i8], ptr %54, i64 %57
   store i32 %30, ptr %58, align 4, !tbaa !81
   %.pre = load i32, ptr %6, align 4, !tbaa !83
   br label %59
@@ -2365,7 +2364,7 @@ CbsP_ManCheckLimits.exit.thread:                  ; preds = %23, %25, %30, %35, 
 53:                                               ; preds = %57, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %57 ]
   %54 = load ptr, ptr %47, align 8, !tbaa !47
-  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv.i
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %indvars.iv.i
   %56 = load ptr, ptr %55, align 8, !tbaa !84
   %.not.i49 = icmp eq ptr %56, null
   br i1 %.not.i49, label %CbsP_ManCancelUntil.exit, label %57
@@ -2952,10 +2951,10 @@ Vec_StrAlloc.exit:                                ; preds = %Abc_Clock.exit, %26
   %.val75 = load ptr, ptr %41, align 8, !tbaa !109
   %62 = getelementptr i8, ptr %61, i64 8
   %.val76.val = load ptr, ptr %62, align 8, !tbaa !56
-  %63 = getelementptr inbounds nuw i32, ptr %.val76.val, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %.val76.val, i64 %indvars.iv
   %64 = load i32, ptr %63, align 4, !tbaa !81
   %65 = sext i32 %64 to i64
-  %66 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val75, i64 %65
+  %66 = getelementptr inbounds [12 x i8], ptr %.val75, i64 %65
   %.not = icmp eq ptr %.val75, null
   br i1 %.not, label %.critedge.loopexit, label %67
 
@@ -2964,7 +2963,7 @@ Vec_StrAlloc.exit:                                ; preds = %Abc_Clock.exit, %26
   %68 = load i64, ptr %66, align 4
   %69 = and i64 %68, 536870911
   %70 = sub nsw i64 0, %69
-  %71 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %66, i64 %70
+  %71 = getelementptr inbounds [12 x i8], ptr %66, i64 %70
   %.val77 = load i64, ptr %71, align 4
   %72 = and i64 %.val77, 2305843005455597567
   %narrow.i.not = icmp eq i64 %72, 2305843005455597567
@@ -3125,7 +3124,7 @@ Abc_Clock.exit88:                                 ; preds = %130, %133
   %136 = load i64, ptr %66, align 4
   %137 = and i64 %136, 536870911
   %138 = sub nsw i64 0, %137
-  %139 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %66, i64 %138
+  %139 = getelementptr inbounds [12 x i8], ptr %66, i64 %138
   %140 = lshr i64 %136, 29
   %141 = and i64 %140, 1
   %142 = ptrtoint ptr %139 to i64
@@ -3238,10 +3237,10 @@ Abc_Clock.exit97:                                 ; preds = %173, %182
   %.val79 = load ptr, ptr %20, align 8, !tbaa !135
   %193 = getelementptr i8, ptr %.val79, i64 8
   %.val79.val = load ptr, ptr %193, align 8, !tbaa !56
-  %194 = getelementptr inbounds nuw i32, ptr %.val79.val, i64 %indvars.iv
+  %194 = getelementptr inbounds nuw [4 x i8], ptr %.val79.val, i64 %indvars.iv
   %195 = load i32, ptr %194, align 4, !tbaa !81
   %196 = sext i32 %195 to i64
-  %197 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val78, i64 %196
+  %197 = getelementptr inbounds [12 x i8], ptr %.val78, i64 %196
   %198 = load i64, ptr %197, align 4
   %199 = and i32 %195, 536870911
   %200 = zext nneg i32 %199 to i64
@@ -3443,7 +3442,7 @@ CbsP_QuePush.exit:                                ; preds = %._crit_edge.i, %22
   %27 = add nsw i32 %25, 1
   store i32 %27, ptr %7, align 4, !tbaa !87
   %28 = sext i32 %25 to i64
-  %29 = getelementptr inbounds ptr, ptr %26, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %26, i64 %28
   store ptr null, ptr %29, align 8, !tbaa !84
   %30 = icmp eq i32 %27, %24
   br i1 %30, label %31, label %CbsP_QuePush.exit17
@@ -3467,7 +3466,7 @@ CbsP_QuePush.exit17:                              ; preds = %CbsP_QuePush.exit, 
   %40 = add nsw i32 %38, 1
   store i32 %40, ptr %7, align 4, !tbaa !87
   %41 = sext i32 %38 to i64
-  %42 = getelementptr inbounds ptr, ptr %39, i64 %41
+  %42 = getelementptr inbounds [8 x i8], ptr %39, i64 %41
   store ptr %2, ptr %42, align 8, !tbaa !84
   %43 = icmp eq i32 %40, %37
   br i1 %43, label %44, label %CbsP_QuePush.exit24
@@ -3489,7 +3488,7 @@ CbsP_QuePush.exit24:                              ; preds = %CbsP_QuePush.exit17
   %52 = add nsw i32 %50, 1
   store i32 %52, ptr %7, align 4, !tbaa !87
   %53 = sext i32 %50 to i64
-  %54 = getelementptr inbounds ptr, ptr %51, i64 %53
+  %54 = getelementptr inbounds [8 x i8], ptr %51, i64 %53
   store ptr %3, ptr %54, align 8, !tbaa !84
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %69, label %55
@@ -3516,7 +3515,7 @@ CbsP_QuePush.exit31:                              ; preds = %55, %58
   %66 = add nsw i32 %64, 1
   store i32 %66, ptr %7, align 4, !tbaa !87
   %67 = sext i32 %64 to i64
-  %68 = getelementptr inbounds ptr, ptr %65, i64 %67
+  %68 = getelementptr inbounds [8 x i8], ptr %65, i64 %67
   store ptr %4, ptr %68, align 8, !tbaa !84
   br label %69
 
@@ -3564,7 +3563,7 @@ CbsP_QueFinish.exit:                              ; preds = %._crit_edge.i.i, %8
   %88 = add nsw i32 %86, 1
   store i32 %88, ptr %7, align 4, !tbaa !87
   %89 = sext i32 %86 to i64
-  %90 = getelementptr inbounds ptr, ptr %87, i64 %89
+  %90 = getelementptr inbounds [8 x i8], ptr %87, i64 %89
   store ptr null, ptr %90, align 8, !tbaa !84
   store i32 %88, ptr %6, align 8, !tbaa !102
   ret i32 %70
@@ -3603,7 +3602,7 @@ define internal fastcc void @CbsP_ManDeriveReason(ptr noundef captures(none) %0,
   %20 = phi ptr [ %.pre, %.lr.ph ], [ %140, %139 ]
   %indvars.iv = phi i64 [ %18, %.lr.ph ], [ %indvars.iv.next, %139 ]
   %.065 = phi i32 [ %8, %.lr.ph ], [ %.1, %139 ]
-  %21 = getelementptr inbounds ptr, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds [8 x i8], ptr %20, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !84
   %23 = load i64, ptr %22, align 4
   %24 = and i64 %23, 1073741824
@@ -3678,7 +3677,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %56 = add nsw i32 %55, 1
   store i32 %56, ptr %28, align 4, !tbaa !59
   %57 = sext i32 %55 to i64
-  %58 = getelementptr inbounds ptr, ptr %54, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %54, i64 %57
   store ptr %22, ptr %58, align 8, !tbaa !152
   %59 = load ptr, ptr %13, align 8, !tbaa !80
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
@@ -3699,7 +3698,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %73 = getelementptr i8, ptr %71, i64 8
   %.val4.i = load ptr, ptr %73, align 8, !tbaa !56
   %74 = sext i32 %72 to i64
-  %75 = getelementptr inbounds i32, ptr %.val4.i, i64 %74
+  %75 = getelementptr inbounds [4 x i8], ptr %.val4.i, i64 %74
   %76 = load i32, ptr %75, align 4, !tbaa !81
   %77 = icmp slt i32 %76, %1
   br i1 %77, label %78, label %81
@@ -3776,7 +3775,7 @@ CbsP_QuePush.exit:                                ; preds = %._crit_edge.i, %103
   %109 = add nsw i32 %107, 1
   store i32 %109, ptr %9, align 4, !tbaa !87
   %110 = sext i32 %107 to i64
-  %111 = getelementptr inbounds ptr, ptr %108, i64 %110
+  %111 = getelementptr inbounds [8 x i8], ptr %108, i64 %110
   store ptr %85, ptr %111, align 8, !tbaa !84
   %112 = getelementptr i8, ptr %105, i64 32
   %.val.i53 = load ptr, ptr %112, align 8, !tbaa !109
@@ -3789,7 +3788,7 @@ CbsP_QuePush.exit:                                ; preds = %._crit_edge.i, %103
   %118 = load i32, ptr %117, align 4, !tbaa !81
   %119 = mul nsw i32 %118, 3
   %120 = sext i32 %119 to i64
-  %121 = getelementptr i32, ptr %.val5.i55, i64 %120
+  %121 = getelementptr [4 x i8], ptr %.val5.i55, i64 %120
   %122 = getelementptr i8, ptr %121, i64 8
   %123 = load i32, ptr %122, align 4, !tbaa !81
   %124 = sext i32 %123 to i64
@@ -3826,7 +3825,7 @@ CbsP_QuePush.exit62:                              ; preds = %126, %129
   %.sink = phi ptr [ %125, %CbsP_QuePush.exit62 ], [ %22, %87 ], [ %22, %78 ]
   %.1.ph = phi i32 [ %.065, %CbsP_QuePush.exit62 ], [ %.065, %87 ], [ %80, %78 ]
   %137 = sext i32 %.sink103 to i64
-  %138 = getelementptr inbounds ptr, ptr %.sink101, i64 %137
+  %138 = getelementptr inbounds [8 x i8], ptr %.sink101, i64 %137
   store ptr %.sink, ptr %138, align 8, !tbaa !84
   br label %139
 
@@ -3852,7 +3851,7 @@ CbsP_QuePush.exit62:                              ; preds = %126, %129
   %145 = phi ptr [ %151, %.lr.ph69 ], [ %.pre80, %._crit_edge ]
   %146 = getelementptr i8, ptr %145, i64 8
   %.val48 = load ptr, ptr %146, align 8, !tbaa !62
-  %147 = getelementptr inbounds nuw ptr, ptr %.val48, i64 %indvars.iv71
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %.val48, i64 %indvars.iv71
   %148 = load ptr, ptr %147, align 8, !tbaa !152
   %149 = load i64, ptr %148, align 4
   %150 = or i64 %149, 1073741824

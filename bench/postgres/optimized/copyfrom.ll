@@ -5,12 +5,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.ErrorContextCallback = type { ptr, ptr, ptr }
 %struct.CopyMultiInsertInfo = type { ptr, i32, i32, ptr, ptr, i32, i32 }
-%union.ListCell = type { ptr }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.nameData = type { [64 x i8] }
-%struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [8 x i8] c"COPY %s\00", align 1
 @.str.1 = private unnamed_addr constant [30 x i8] c"COPY %s, line %llu, column %s\00", align 1
@@ -719,7 +715,7 @@ CopyMultiInsertInfoInit.exit.thread:              ; preds = %CopyMultiInsertInfo
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 8016
   %240 = load i32, ptr %239, align 8
   %241 = sext i32 %240 to i64
-  %242 = getelementptr inbounds ptr, ptr %238, i64 %241
+  %242 = getelementptr inbounds [8 x i8], ptr %238, i64 %241
   %243 = load ptr, ptr %242, align 8
   %244 = icmp eq ptr %243, null
   br i1 %244, label %245, label %CopyMultiInsertInfoNextFreeSlot.exit
@@ -963,7 +959,7 @@ CopyMultiInsertInfoSetupBuffer.exit:              ; preds = %329, %334
   %365 = getelementptr inbounds nuw i8, ptr %364, i64 8016
   %366 = load i32, ptr %365, align 8
   %367 = sext i32 %366 to i64
-  %368 = getelementptr inbounds ptr, ptr %364, i64 %367
+  %368 = getelementptr inbounds [8 x i8], ptr %364, i64 %367
   %369 = load ptr, ptr %368, align 8
   %370 = icmp eq ptr %369, null
   br i1 %370, label %371, label %CopyMultiInsertInfoNextFreeSlot.exit378
@@ -1101,7 +1097,7 @@ CopyMultiInsertInfoNextFreeSlot.exit378:          ; preds = %362, %371
   %440 = getelementptr inbounds nuw i8, ptr %.2.val, i64 8016
   %441 = load i32, ptr %440, align 8
   %442 = sext i32 %441 to i64
-  %443 = getelementptr inbounds i64, ptr %439, i64 %442
+  %443 = getelementptr inbounds [8 x i8], ptr %439, i64 %442
   store i64 %437, ptr %443, align 8
   %444 = load i32, ptr %440, align 8
   %445 = add i32 %444, 1
@@ -1268,7 +1264,7 @@ CopyMultiInsertInfoNextFreeSlot.exit378:          ; preds = %362, %371
 .lr.ph4.i:                                        ; preds = %.lr.ph.i, %CopyMultiInsertBufferCleanup.exit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %CopyMultiInsertBufferCleanup.exit.i ], [ 0, %.lr.ph.i ]
   %515 = load ptr, ptr %512, align 8
-  %516 = getelementptr inbounds nuw %union.ListCell, ptr %515, i64 %indvars.iv.i
+  %516 = getelementptr inbounds nuw [8 x i8], ptr %515, i64 %indvars.iv.i
   %517 = load ptr, ptr %516, align 8
   %518 = getelementptr inbounds nuw i8, ptr %517, i64 8000
   %519 = load ptr, ptr %518, align 8
@@ -1290,7 +1286,7 @@ CopyMultiInsertInfoNextFreeSlot.exit378:          ; preds = %362, %371
 
 527:                                              ; preds = %.preheader, %530
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %530 ], [ 0, %.preheader ]
-  %528 = getelementptr inbounds nuw ptr, ptr %517, i64 %indvars.iv.i.i
+  %528 = getelementptr inbounds nuw [8 x i8], ptr %517, i64 %indvars.iv.i.i
   %529 = load ptr, ptr %528, align 8
   %.not.i.i = icmp eq ptr %529, null
   br i1 %.not.i.i, label %.critedge.i.i, label %530
@@ -1450,7 +1446,7 @@ define internal fastcc void @CopyMultiInsertInfoFlush(ptr noundef nonnull captur
 .lr.ph54:                                         ; preds = %.lr.ph, %CopyMultiInsertBufferFlush.exit
   %indvars.iv53 = phi i64 [ %indvars.iv.next, %CopyMultiInsertBufferFlush.exit ], [ 0, %.lr.ph ]
   %16 = load ptr, ptr %9, align 8
-  %17 = getelementptr inbounds nuw %union.ListCell, ptr %16, i64 %indvars.iv53
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv53
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %10, align 8
   %20 = load ptr, ptr %11, align 8
@@ -1491,7 +1487,7 @@ define internal fastcc void @CopyMultiInsertInfoFlush(ptr noundef nonnull captur
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 112
   %40 = load ptr, ptr %39, align 8
   %41 = sext i32 %.098109.i to i64
-  %42 = getelementptr inbounds ptr, ptr %18, i64 %41
+  %42 = getelementptr inbounds [8 x i8], ptr %18, i64 %41
   %43 = call ptr %40(ptr noundef %20, ptr noundef nonnull %24, ptr noundef %42, ptr noundef null, ptr noundef nonnull %4) #11
   %44 = add i32 %37, %.098109.i
   %45 = load i32, ptr %4, align 4
@@ -1517,7 +1513,7 @@ define internal fastcc void @CopyMultiInsertInfoFlush(ptr noundef nonnull captur
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %56 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv.i
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv.i
   %57 = load ptr, ptr %56, align 8
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 56
   store i32 %55, ptr %58, align 8
@@ -1545,7 +1541,7 @@ define internal fastcc void @CopyMultiInsertInfoFlush(ptr noundef nonnull captur
 
 .lr.ph112.i:                                      ; preds = %.lr.ph112.i, %.preheader.i
   %indvars.iv118.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next119.i, %.lr.ph112.i ]
-  %69 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv118.i
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv118.i
   %70 = load ptr, ptr %69, align 8
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %72 = load ptr, ptr %71, align 8
@@ -1611,10 +1607,10 @@ define internal fastcc void @CopyMultiInsertInfoFlush(ptr noundef nonnull captur
   br i1 %106, label %107, label %115
 
 107:                                              ; preds = %104
-  %108 = getelementptr inbounds nuw i64, ptr %102, i64 %indvars.iv121.i
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 %indvars.iv121.i
   %109 = load i64, ptr %108, align 8
   store i64 %109, ptr %80, align 8
-  %110 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv121.i
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv121.i
   %111 = load ptr, ptr %110, align 8
   %112 = call ptr @ExecInsertIndexTuples(ptr noundef nonnull %24, ptr noundef %111, ptr noundef %20, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef null, ptr noundef null, i1 noundef zeroext false) #11
   %113 = load ptr, ptr %110, align 8
@@ -1641,17 +1637,17 @@ define internal fastcc void @CopyMultiInsertInfoFlush(ptr noundef nonnull captur
   br i1 %124, label %125, label %131
 
 125:                                              ; preds = %121, %117
-  %126 = getelementptr inbounds nuw i64, ptr %102, i64 %indvars.iv121.i
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 %indvars.iv121.i
   %127 = load i64, ptr %126, align 8
   store i64 %127, ptr %80, align 8
-  %128 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv121.i
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv121.i
   %129 = load ptr, ptr %128, align 8
   %130 = load ptr, ptr %103, align 8
   call void @ExecARInsertTriggers(ptr noundef %20, ptr noundef nonnull %24, ptr noundef %129, ptr noundef null, ptr noundef %130) #11
   br label %131
 
 131:                                              ; preds = %125, %121, %115, %107
-  %132 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv121.i
+  %132 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv121.i
   %133 = load ptr, ptr %132, align 8
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 8
   %135 = load ptr, ptr %134, align 8
@@ -1742,7 +1738,7 @@ list_length.exit:                                 ; preds = %list_length.exit.lr
 
 171:                                              ; preds = %.preheader, %174
   %indvars.iv.i30 = phi i64 [ %indvars.iv.next.i32, %174 ], [ 0, %.preheader ]
-  %172 = getelementptr inbounds nuw ptr, ptr %.0, i64 %indvars.iv.i30
+  %172 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %indvars.iv.i30
   %173 = load ptr, ptr %172, align 8
   %.not.i31 = icmp eq ptr %173, null
   br i1 %.not.i31, label %.critedge.i, label %174
@@ -1896,7 +1892,7 @@ define dso_local ptr @BeginCopyFrom(ptr noundef %0, ptr noundef %1, ptr noundef 
 .lr.ph312:                                        ; preds = %.lr.ph, %61
   %indvars.iv = phi i64 [ %indvars.iv.next, %61 ], [ 0, %.lr.ph ]
   %45 = load ptr, ptr %42, align 8
-  %46 = getelementptr inbounds nuw %union.ListCell, ptr %45, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv
   %47 = load i32, ptr %46, align 8
   %48 = add i32 %47, -1
   %49 = load i32, ptr %23, align 8
@@ -1909,7 +1905,7 @@ define dso_local ptr @BeginCopyFrom(ptr noundef %0, ptr noundef %1, ptr noundef 
   %53 = sext i32 %49 to i64
   %54 = shl nsw i64 %53, 4
   %55 = getelementptr i8, ptr %23, i64 %54
-  %56 = getelementptr %struct.FormData_pg_attribute, ptr %55, i64 %50
+  %56 = getelementptr [100 x i8], ptr %55, i64 %50
   %57 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   %58 = tail call i32 @errcode(i32 noundef 393348) #11
   %59 = getelementptr i8, ptr %56, i64 28
@@ -1991,7 +1987,7 @@ define dso_local ptr @BeginCopyFrom(ptr noundef %0, ptr noundef %1, ptr noundef 
 .lr.ph321:                                        ; preds = %.lr.ph314, %114
   %indvars.iv349 = phi i64 [ %indvars.iv.next350, %114 ], [ 0, %.lr.ph314 ]
   %98 = load ptr, ptr %95, align 8
-  %99 = getelementptr inbounds nuw %union.ListCell, ptr %98, i64 %indvars.iv349
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %indvars.iv349
   %100 = load i32, ptr %99, align 8
   %101 = add i32 %100, -1
   %102 = load i32, ptr %23, align 8
@@ -2004,7 +2000,7 @@ define dso_local ptr @BeginCopyFrom(ptr noundef %0, ptr noundef %1, ptr noundef 
   %106 = sext i32 %102 to i64
   %107 = shl nsw i64 %106, 4
   %108 = getelementptr i8, ptr %23, i64 %107
-  %109 = getelementptr %struct.FormData_pg_attribute, ptr %108, i64 %103
+  %109 = getelementptr [100 x i8], ptr %108, i64 %103
   %110 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   %111 = tail call i32 @errcode(i32 noundef 393348) #11
   %112 = getelementptr i8, ptr %109, i64 28
@@ -2049,7 +2045,7 @@ define dso_local ptr @BeginCopyFrom(ptr noundef %0, ptr noundef %1, ptr noundef 
 .lr.ph330:                                        ; preds = %.lr.ph323, %150
   %indvars.iv352 = phi i64 [ %indvars.iv.next353, %150 ], [ 0, %.lr.ph323 ]
   %134 = load ptr, ptr %131, align 8
-  %135 = getelementptr inbounds nuw %union.ListCell, ptr %134, i64 %indvars.iv352
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %134, i64 %indvars.iv352
   %136 = load i32, ptr %135, align 8
   %137 = add i32 %136, -1
   %138 = load i32, ptr %23, align 8
@@ -2062,7 +2058,7 @@ define dso_local ptr @BeginCopyFrom(ptr noundef %0, ptr noundef %1, ptr noundef 
   %142 = sext i32 %138 to i64
   %143 = shl nsw i64 %142, 4
   %144 = getelementptr i8, ptr %23, i64 %143
-  %145 = getelementptr %struct.FormData_pg_attribute, ptr %144, i64 %139
+  %145 = getelementptr [100 x i8], ptr %144, i64 %139
   %146 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   %147 = tail call i32 @errcode(i32 noundef 393348) #11
   %148 = getelementptr i8, ptr %145, i64 28
@@ -2240,7 +2236,7 @@ define dso_local ptr @BeginCopyFrom(ptr noundef %0, ptr noundef %1, ptr noundef 
   %242 = shl nsw i64 %241, 4
   %243 = getelementptr i8, ptr %23, i64 %242
   %244 = getelementptr i8, ptr %243, i64 24
-  %245 = getelementptr inbounds %struct.FormData_pg_attribute, ptr %244, i64 %239
+  %245 = getelementptr inbounds [100 x i8], ptr %244, i64 %239
   %246 = getelementptr inbounds nuw i8, ptr %245, i64 91
   %247 = load i8, ptr %246, align 1, !range !4, !noundef !5
   %248 = trunc nuw i8 %247 to i1
@@ -2251,7 +2247,7 @@ define dso_local ptr @BeginCopyFrom(ptr noundef %0, ptr noundef %1, ptr noundef 
   %251 = trunc nuw i8 %250 to i1
   %252 = getelementptr inbounds nuw i8, ptr %245, i64 68
   %253 = load i32, ptr %252, align 4
-  %254 = getelementptr inbounds i32, ptr %226, i64 %239
+  %254 = getelementptr inbounds [4 x i8], ptr %226, i64 %239
   br i1 %251, label %255, label %256
 
 255:                                              ; preds = %249
@@ -2264,9 +2260,9 @@ define dso_local ptr @BeginCopyFrom(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 257:                                              ; preds = %256, %255
   %258 = load i32, ptr %9, align 4
-  %259 = getelementptr inbounds %struct.FmgrInfo, ptr %224, i64 %239
+  %259 = getelementptr inbounds [48 x i8], ptr %224, i64 %239
   call void @fmgr_info(i32 noundef %258, ptr noundef %259) #11
-  %260 = getelementptr inbounds ptr, ptr %229, i64 %239
+  %260 = getelementptr inbounds [8 x i8], ptr %229, i64 %239
   store ptr null, ptr %260, align 8
   %261 = load ptr, ptr %231, align 8
   %.not296 = icmp eq ptr %261, null
@@ -2301,7 +2297,7 @@ define dso_local ptr @BeginCopyFrom(ptr noundef %0, ptr noundef %1, ptr noundef 
 
 278:                                              ; preds = %273
   %279 = sext i16 %.0334 to i64
-  %280 = getelementptr inbounds i32, ptr %227, i64 %279
+  %280 = getelementptr inbounds [4 x i8], ptr %227, i64 %279
   %281 = trunc nuw nsw i64 %239 to i32
   store i32 %281, ptr %280, align 4
   %282 = add i16 %.0334, 1

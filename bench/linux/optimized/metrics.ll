@@ -149,7 +149,7 @@ define dso_local noundef ptr @ip_fib_metrics_init(ptr noundef %0, ptr noundef %1
 
 71:                                               ; preds = %55
   %72 = zext nneg i32 %37 to i64
-  %73 = getelementptr i32, ptr %13, i64 %72
+  %73 = getelementptr [4 x i8], ptr %13, i64 %72
   store i32 %65, ptr %73, align 4
   %.pre = load i16, ptr %18, align 2
   %.pre21 = zext i16 %.pre to i32

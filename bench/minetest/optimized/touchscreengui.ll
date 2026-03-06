@@ -36,15 +36,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.irr::SEvent" = type { i32, %union.anon.24 }
 %union.anon.24 = type { %"struct.irr::SEvent::SGUIEvent", [24 x i8] }
 %"struct.irr::SEvent::SGUIEvent" = type { ptr, ptr, i32 }
-%struct.button_info = type { float, float, i32, %"class.std::vector", ptr, i8, i32, %"class.std::vector.3" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.3" = type { %"struct.std::_Vector_base.4" }
-%"struct.std::_Vector_base.4" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::__cxx11::basic_string.18" = type { %"struct.std::__cxx11::basic_string<wchar_t>::_Alloc_hider", i64, %union.anon.22 }
 %"struct.std::__cxx11::basic_string<wchar_t>::_Alloc_hider" = type { ptr }
 %union.anon.22 = type { i64, [8 x i8] }
@@ -1397,7 +1388,7 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %7 = zext nneg i32 %id to i64
   %reltable.shift = shl nuw nsw i64 %7, 2
   %reltable.intrinsic = call ptr @llvm.load.relative.i64(ptr nonnull @reltable._ZL13id_to_keycode19touch_gui_button_id, i64 %reltable.shift)
-  %switch.gep198 = getelementptr inbounds nuw i64, ptr @switch.table._ZL13id_to_keycode19touch_gui_button_id.61, i64 %7
+  %switch.gep198 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZL13id_to_keycode19touch_gui_button_id.61, i64 %7
   %switch.load199 = load i64, ptr %switch.gep198, align 8
   %8 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %key, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %reltable.intrinsic, i64 noundef %switch.load199)
           to label %sw.epilog unwind label %lpad1
@@ -2024,7 +2015,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
   %.pre = phi ptr [ %.pre.pre, %if.then.i39.i.i ], [ %15, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit38.i.i ]
   store ptr %call5.i.i.i.i.i, ptr %ids, align 8, !tbaa !50
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i141, align 8, !tbaa !59
-  %add.ptr19.i.i = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
   store ptr %add.ptr19.i.i, ptr %_M_end_of_storage.i, align 8, !tbaa !119
   br label %_ZNSt6vectorImSaImEE9push_backERKm.exit
 
@@ -2152,7 +2143,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
   %.pre198 = phi ptr [ %.pre198.pre, %if.then.i39.i.i177 ], [ %call4, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit38.i.i173 ]
   store ptr %call5.i.i.i.i.i168, ptr %ids77, align 8, !tbaa !50
   store ptr %incdec.ptr.i.i175, ptr %_M_finish.i149, align 8, !tbaa !59
-  %add.ptr19.i.i179 = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i.i168, i64 %cond.i.i.i164
+  %add.ptr19.i.i179 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i168, i64 %cond.i.i.i164
   store ptr %add.ptr19.i.i179, ptr %_M_end_of_storage.i150, align 8, !tbaa !119
   br label %_ZNSt6vectorImSaImEE9push_backERKm.exit182
 
@@ -3066,7 +3057,7 @@ entry:
   %call2 = tail call noundef ptr %2(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 4 dereferenceable(16) %button_rect, ptr noundef null, i32 noundef %id, ptr noundef %1, ptr noundef null)
   %m_buttons = getelementptr inbounds nuw i8, ptr %this, i64 296
   %idxprom = zext i32 %id to i64
-  %arrayidx = getelementptr inbounds nuw %struct.button_info, ptr %m_buttons, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [80 x i8], ptr %m_buttons, i64 %idxprom
   %gui_button = getelementptr inbounds nuw i8, ptr %arrayidx, i64 40
   store ptr %call2, ptr %gui_button, align 8, !tbaa !66
   %vtable4 = load ptr, ptr %call2, align 8, !tbaa !37
@@ -3097,7 +3088,7 @@ invoke.cont.i.i:                                  ; preds = %entry
   br label %_ZNSt6vectorImSaImEE5clearEv.exit
 
 _ZNSt6vectorImSaImEE5clearEv.exit:                ; preds = %invoke.cont.i.i, %entry
-  %arrayidx10 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr @_Z18button_image_namesB5cxx11, i64 %idxprom
+  %arrayidx10 = getelementptr inbounds nuw [32 x i8], ptr @_Z18button_image_namesB5cxx11, i64 %idxprom
   %m_texturesource = getelementptr inbounds nuw i8, ptr %this, i64 32
   %6 = load ptr, ptr %m_texturesource, align 8, !tbaa !178
   %m_device = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -3210,7 +3201,7 @@ _ZNSt6vectorImSaImEE5clearEv.exit:                ; preds = %invoke.cont.i.i, %i
 
 invoke.cont16:                                    ; preds = %_ZNSt6vectorImSaImEE5clearEv.exit
   %idxprom = sext i32 %texture_id to i64
-  %arrayidx = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr @_Z20joystick_image_namesB5cxx11, i64 %idxprom
+  %arrayidx = getelementptr inbounds [32 x i8], ptr @_Z20joystick_image_namesB5cxx11, i64 %idxprom
   invoke fastcc void @_ZL19load_button_texturePK11button_infoRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN3irr4core4rectIiEEP20ISimpleTextureSourcePNSA_5video12IVideoDriverE(ptr noundef nonnull %call2, ptr noundef nonnull align 8 dereferenceable(32) %arrayidx, ptr noundef nonnull align 4 dereferenceable(16) %button_rect, ptr noundef %13, ptr noundef %call17)
           to label %nrvo.skipdtor unwind label %lpad
 
@@ -4082,7 +4073,7 @@ call2.i11.i.noexc817:                             ; preds = %if.then141
   %.pre19.i.i815 = load ptr, ptr %ref.tmp171, align 8, !tbaa !174
   %_M_string_length.i.i.i.i809 = getelementptr inbounds nuw i8, ptr %ref.tmp171, i64 8
   store i64 %.pre18.i.i814, ptr %_M_string_length.i.i.i.i809, align 8, !tbaa !184
-  %arrayidx.i.i.i810 = getelementptr inbounds i32, ptr %.pre19.i.i815, i64 %.pre18.i.i814
+  %arrayidx.i.i.i810 = getelementptr inbounds [4 x i8], ptr %.pre19.i.i815, i64 %.pre18.i.i814
   store i32 0, ptr %arrayidx.i.i.i810, align 4, !tbaa !182
   call void @llvm.lifetime.end.p0(ptr nonnull %__dnew.i.i805)
   %120 = load ptr, ptr %m_guienv.i, align 8, !tbaa !141
@@ -5777,7 +5768,7 @@ invoke.cont:
   store ptr %0, ptr %_M_right.i.i.i.i, align 8, !tbaa !202
   %_M_node_count.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i, align 8, !tbaa !203
-  %add.ptr.i = getelementptr inbounds %"struct.std::pair", ptr %__l.coerce0, i64 %__l.coerce1
+  %add.ptr.i = getelementptr inbounds [40 x i8], ptr %__l.coerce0, i64 %__l.coerce1
   %cmp.not7.i = icmp eq i64 %__l.coerce1, 0
   br i1 %cmp.not7.i, label %invoke.cont5, label %for.body.i
 
@@ -6477,7 +6468,7 @@ entry:
   %translated = alloca %"struct.irr::SEvent", align 8
   %m_buttons = getelementptr inbounds nuw i8, ptr %this, i64 296
   %idxprom = zext i32 %button to i64
-  %arrayidx = getelementptr inbounds nuw %struct.button_info, ptr %m_buttons, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [80 x i8], ptr %m_buttons, i64 %idxprom
   call void @llvm.lifetime.start.p0(ptr nonnull %translated)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %translated, i8 0, i64 56, i1 false)
   store i32 2, ptr %translated, align 8, !tbaa !116
@@ -6548,7 +6539,7 @@ if.then.i39.i.i:                                  ; preds = %_ZNSt6vectorImSaImE
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i: ; preds = %if.then.i39.i.i, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit38.i.i
   store ptr %call5.i.i.i.i.i, ptr %ids, align 8, !tbaa !50
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8, !tbaa !59
-  %add.ptr19.i.i = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
   store ptr %add.ptr19.i.i, ptr %_M_end_of_storage.i, align 8, !tbaa !119
   br label %_ZNSt6vectorImSaImEE9push_backERKm.exit
 
@@ -7460,7 +7451,7 @@ if.end98:                                         ; preds = %for.body.i360, %if.
   %86 = load i64, ptr %_M_bucket_count.i.i.i, align 8
   %rem.i.i.i.i.i = urem i64 %85, %86
   %87 = load ptr, ptr %m_pointer_downpos, align 8, !tbaa !153
-  %arrayidx.i.i.i.i = getelementptr inbounds ptr, ptr %87, i64 %rem.i.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds [8 x i8], ptr %87, i64 %rem.i.i.i.i.i
   %88 = load ptr, ptr %arrayidx.i.i.i.i, align 8, !tbaa !67
   %tobool.not.i.i.i.i = icmp eq ptr %88, null
   br i1 %tobool.not.i.i.i.i, label %cleanup.cont.i.i, label %if.end.i.i.i.i
@@ -7521,7 +7512,7 @@ _ZNSt13unordered_mapImN3irr4core8vector2dIiEESt4hashImESt8equal_toImESaISt4pairI
   %95 = load i64, ptr %_M_bucket_count.i.i.i396, align 8
   %rem.i.i.i.i.i397 = urem i64 %94, %95
   %96 = load ptr, ptr %m_pointer_pos, align 8, !tbaa !153
-  %arrayidx.i.i.i.i398 = getelementptr inbounds ptr, ptr %96, i64 %rem.i.i.i.i.i397
+  %arrayidx.i.i.i.i398 = getelementptr inbounds [8 x i8], ptr %96, i64 %rem.i.i.i.i.i397
   %97 = load ptr, ptr %arrayidx.i.i.i.i398, align 8, !tbaa !67
   %tobool.not.i.i.i.i399 = icmp eq ptr %97, null
   br i1 %tobool.not.i.i.i.i399, label %cleanup.cont.i.i410, label %if.end.i.i.i.i400
@@ -7668,7 +7659,7 @@ land.lhs.true119:                                 ; preds = %if.else113
   %116 = load i64, ptr %_M_bucket_count.i.i.i439, align 8
   %rem.i.i.i.i.i440 = urem i64 %.pre702, %116
   %117 = load ptr, ptr %m_pointer_pos120, align 8, !tbaa !153
-  %arrayidx.i.i.i.i441 = getelementptr inbounds ptr, ptr %117, i64 %rem.i.i.i.i.i440
+  %arrayidx.i.i.i.i441 = getelementptr inbounds [8 x i8], ptr %117, i64 %rem.i.i.i.i.i440
   %118 = load ptr, ptr %arrayidx.i.i.i.i441, align 8, !tbaa !67
   %tobool.not.i.i.i.i442 = icmp eq ptr %118, null
   br i1 %tobool.not.i.i.i.i442, label %cleanup.cont.i.i453, label %if.end.i.i.i.i443
@@ -7737,7 +7728,7 @@ if.end125:                                        ; preds = %_ZNSt13unordered_ma
   %128 = load i64, ptr %_M_bucket_count.i.i.i467, align 8
   %rem.i.i.i.i.i468 = urem i64 %127, %128
   %129 = load ptr, ptr %m_pointer_downpos126, align 8, !tbaa !153
-  %arrayidx.i.i.i.i469 = getelementptr inbounds ptr, ptr %129, i64 %rem.i.i.i.i.i468
+  %arrayidx.i.i.i.i469 = getelementptr inbounds [8 x i8], ptr %129, i64 %rem.i.i.i.i.i468
   %130 = load ptr, ptr %arrayidx.i.i.i.i469, align 8, !tbaa !67
   %tobool.not.i.i.i.i470 = icmp eq ptr %130, null
   br i1 %tobool.not.i.i.i.i470, label %cleanup.cont.i.i481, label %if.end.i.i.i.i471
@@ -7802,7 +7793,7 @@ _ZNSt13unordered_mapImN3irr4core8vector2dIiEESt4hashImESt8equal_toImESaISt4pairI
   %139 = load i64, ptr %_M_bucket_count.i.i.i501, align 8
   %rem.i.i.i.i.i502 = urem i64 %136, %139
   %140 = load ptr, ptr %m_pointer_pos130, align 8, !tbaa !153
-  %arrayidx.i.i.i.i503 = getelementptr inbounds ptr, ptr %140, i64 %rem.i.i.i.i.i502
+  %arrayidx.i.i.i.i503 = getelementptr inbounds [8 x i8], ptr %140, i64 %rem.i.i.i.i.i502
   %141 = load ptr, ptr %arrayidx.i.i.i.i503, align 8, !tbaa !67
   %tobool.not.i.i.i.i504 = icmp eq ptr %141, null
   br i1 %tobool.not.i.i.i.i504, label %cleanup.cont.i.i515, label %if.end.i.i.i.i505
@@ -8220,7 +8211,7 @@ entry:
   %1 = load i64, ptr %_M_bucket_count.i.i, align 8
   %rem.i.i.i.i = urem i64 %0, %1
   %2 = load ptr, ptr %this, align 8, !tbaa !153
-  %arrayidx.i.i.i = getelementptr inbounds ptr, ptr %2, i64 %rem.i.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds [8 x i8], ptr %2, i64 %rem.i.i.i.i
   %3 = load ptr, ptr %arrayidx.i.i.i, align 8, !tbaa !67
   %tobool.not.i.i.i = icmp eq ptr %3, null
   br i1 %tobool.not.i.i.i, label %cleanup.cont.i, label %if.end.i.i.i
@@ -9920,7 +9911,7 @@ entry:
   %0 = load i64, ptr %_M_bucket_count.i.i.i, align 8
   %rem.i.i.i.i.i = urem i64 %conv.i.i.i.i, %0
   %1 = load ptr, ptr %m_hotbar_rects, align 8, !tbaa !145
-  %arrayidx.i.i.i.i = getelementptr inbounds nuw ptr, ptr %1, i64 %rem.i.i.i.i.i
+  %arrayidx.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %rem.i.i.i.i.i
   %2 = load ptr, ptr %arrayidx.i.i.i.i, align 8, !tbaa !67
   %tobool.not.i.i.i.i = icmp eq ptr %2, null
   br i1 %tobool.not.i.i.i.i, label %cleanup.cont.i.i, label %if.end.i.i.i.i
@@ -11098,7 +11089,7 @@ _ZNSt12_Vector_baseISt10shared_ptrI11button_infoESaIS2_EE13_M_deallocateEPS2_m.e
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !70
   store ptr %__cur.0.lcssa.i.i.i41, ptr %_M_finish.i.i, align 8, !tbaa !71
-  %add.ptr19 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr19 = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr19, ptr %_M_end_of_storage, align 8, !tbaa !112
   ret void
 }
@@ -11296,7 +11287,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %cond.i47, ptr %this, align 8, !tbaa !46
   store ptr %__cur.0.lcssa.i.i.i63, ptr %_M_finish.i.i, align 8, !tbaa !47
-  %add.ptr26 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %cond.i47, i64 %cond.i
+  %add.ptr26 = getelementptr inbounds nuw [32 x i8], ptr %cond.i47, i64 %cond.i
   store ptr %add.ptr26, ptr %_M_end_of_storage, align 8, !tbaa !114
   ret void
 
@@ -11528,7 +11519,7 @@ if.end:                                           ; preds = %for.body.i, %for.co
   %7 = load i64, ptr %_M_bucket_count.i, align 8, !tbaa !154
   %rem.i.i.i = urem i64 %2, %7
   %.pre = load ptr, ptr %this, align 8, !tbaa !153
-  %arrayidx.i33.phi.trans.insert = getelementptr inbounds ptr, ptr %.pre, i64 %rem.i.i.i
+  %arrayidx.i33.phi.trans.insert = getelementptr inbounds [8 x i8], ptr %.pre, i64 %rem.i.i.i
   %.pre57 = load ptr, ptr %arrayidx.i33.phi.trans.insert, align 8, !tbaa !67
   br label %if.end13
 
@@ -11538,7 +11529,7 @@ if.else:                                          ; preds = %entry
   %9 = load i64, ptr %_M_bucket_count.i28, align 8
   %rem.i.i.i29 = urem i64 %8, %9
   %10 = load ptr, ptr %this, align 8, !tbaa !153
-  %arrayidx.i = getelementptr inbounds ptr, ptr %10, i64 %rem.i.i.i29
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %10, i64 %rem.i.i.i29
   %11 = load ptr, ptr %arrayidx.i, align 8, !tbaa !67
   %tobool.not.i30 = icmp eq ptr %11, null
   br i1 %tobool.not.i30, label %cleanup16, label %if.end.i
@@ -11602,10 +11593,10 @@ cond.end.i:                                       ; preds = %if.then.i, %if.end1
   br i1 %cmp.not.i.i, label %_ZNSt10_HashtableImSt4pairIKmN3irr4core8vector2dIiEEESaIS6_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNS8_15_Hash_node_baseEPNS8_10_Hash_nodeIS6_Lb0EEE.exit, label %if.then3.i.i
 
 if.then3.i.i:                                     ; preds = %cond.end.i
-  %arrayidx5.i.i = getelementptr inbounds ptr, ptr %23, i64 %rem.i.i.i.i38
+  %arrayidx5.i.i = getelementptr inbounds [8 x i8], ptr %23, i64 %rem.i.i.i.i38
   store ptr %22, ptr %arrayidx5.i.i, align 8, !tbaa !67
   %.pre.i = load ptr, ptr %this, align 8, !tbaa !153
-  %arrayidx7.i.phi.trans.insert.i = getelementptr inbounds ptr, ptr %.pre.i, i64 %__bkt.06571
+  %arrayidx7.i.phi.trans.insert.i = getelementptr inbounds [8 x i8], ptr %.pre.i, i64 %__bkt.06571
   %.pre42.i = load ptr, ptr %arrayidx7.i.phi.trans.insert.i, align 8, !tbaa !67
   br label %if.end.i.i
 
@@ -11617,7 +11608,7 @@ if.end.i.i:                                       ; preds = %if.then3.i.i, %if.t
   %27 = phi ptr [ %18, %if.then.i ], [ %.pre42.i, %if.then3.i.i ], [ %11, %if.end13.thread ]
   %28 = phi ptr [ %19, %if.then.i ], [ %.pre.i, %if.then3.i.i ], [ %10, %if.end13.thread ]
   %_M_before_begin.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %arrayidx7.i.i = getelementptr inbounds ptr, ptr %28, i64 %__bkt.06572
+  %arrayidx7.i.i = getelementptr inbounds [8 x i8], ptr %28, i64 %__bkt.06572
   %cmp8.i.i = icmp eq ptr %_M_before_begin.i.i, %27
   br i1 %cmp8.i.i, label %if.then9.i.i, label %if.end11.i.i
 
@@ -11640,7 +11631,7 @@ if.then6.i:                                       ; preds = %if.else.i
   br i1 %cmp10.not.i, label %_ZNSt10_HashtableImSt4pairIKmN3irr4core8vector2dIiEEESaIS6_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNS8_15_Hash_node_baseEPNS8_10_Hash_nodeIS6_Lb0EEE.exit, label %if.then11.i
 
 if.then11.i:                                      ; preds = %if.then6.i
-  %arrayidx13.i = getelementptr inbounds ptr, ptr %19, i64 %rem.i.i.i33.i
+  %arrayidx13.i = getelementptr inbounds [8 x i8], ptr %19, i64 %rem.i.i.i33.i
   store ptr %__prev_n.0, ptr %arrayidx13.i, align 8, !tbaa !67
   br label %_ZNSt10_HashtableImSt4pairIKmN3irr4core8vector2dIiEEESaIS6_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE8_M_eraseEmPNS8_15_Hash_node_baseEPNS8_10_Hash_nodeIS6_Lb0EEE.exit
 
@@ -11717,7 +11708,7 @@ _ZNSt10_HashtableImSt4pairIKmN3irr4core8vector2dIiEEESaIS6_ENSt8__detail10_Selec
 if.end:                                           ; preds = %_ZNSt10_HashtableImSt4pairIKmN3irr4core8vector2dIiEEESaIS6_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRS1_.exit, %entry
   %__bkt.addr.0 = phi i64 [ %rem.i.i.i, %_ZNSt10_HashtableImSt4pairIKmN3irr4core8vector2dIiEEESaIS6_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRS1_.exit ], [ %__bkt, %entry ]
   %13 = load ptr, ptr %this, align 8, !tbaa !153
-  %arrayidx.i = getelementptr inbounds ptr, ptr %13, i64 %__bkt.addr.0
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %13, i64 %__bkt.addr.0
   %14 = load ptr, ptr %arrayidx.i, align 8, !tbaa !67
   %tobool.not.i = icmp eq ptr %14, null
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
@@ -11743,14 +11734,14 @@ if.then14.i:                                      ; preds = %if.else.i
   %19 = load i64, ptr %_M_bucket_count, align 8, !tbaa !154
   %20 = load i64, ptr %add.ptr.i, align 8, !tbaa !9
   %rem.i.i.i.i = urem i64 %20, %19
-  %arrayidx17.i = getelementptr inbounds ptr, ptr %13, i64 %rem.i.i.i.i
+  %arrayidx17.i = getelementptr inbounds [8 x i8], ptr %13, i64 %rem.i.i.i.i
   store ptr %__node, ptr %arrayidx17.i, align 8, !tbaa !67
   %.pre.i = load ptr, ptr %this, align 8, !tbaa !153
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then14.i, %if.else.i
   %21 = phi ptr [ %.pre.i, %if.then14.i ], [ %13, %if.else.i ]
-  %arrayidx20.i = getelementptr inbounds ptr, ptr %21, i64 %__bkt.addr.0
+  %arrayidx20.i = getelementptr inbounds [8 x i8], ptr %21, i64 %__bkt.addr.0
   store ptr %_M_before_begin.i, ptr %arrayidx20.i, align 8, !tbaa !67
   br label %_ZNSt10_HashtableImSt4pairIKmN3irr4core8vector2dIiEEESaIS6_ENSt8__detail10_Select1stESt8equal_toImESt4hashImENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE22_M_insert_bucket_beginEmPNS8_10_Hash_nodeIS6_Lb0EEE.exit
 
@@ -11811,7 +11802,7 @@ while.body:                                       ; preds = %_ZNSt10_HashtableIm
   %add.ptr = getelementptr inbounds nuw i8, ptr %__p.044, i64 8
   %2 = load i64, ptr %add.ptr, align 8, !tbaa !9
   %rem.i.i = urem i64 %2, %__bkt_count
-  %arrayidx = getelementptr inbounds ptr, ptr %retval.0.i, i64 %rem.i.i
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %retval.0.i, i64 %rem.i.i
   %3 = load ptr, ptr %arrayidx, align 8, !tbaa !67
   %tobool5.not = icmp eq ptr %3, null
   br i1 %tobool5.not, label %if.then, label %if.else
@@ -11826,7 +11817,7 @@ if.then:                                          ; preds = %while.body
   br i1 %tobool14.not, label %if.end22, label %if.then15
 
 if.then15:                                        ; preds = %if.then
-  %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.043
+  %arrayidx16 = getelementptr inbounds [8 x i8], ptr %retval.0.i, i64 %__bbegin_bkt.043
   br label %if.end22.sink.split
 
 if.else:                                          ; preds = %while.body
@@ -11920,7 +11911,7 @@ _ZNSt10_HashtableItSt4pairIKtN3irr4core4rectIiEEESaIS6_ENSt8__detail10_Select1st
 if.end:                                           ; preds = %_ZNSt10_HashtableItSt4pairIKtN3irr4core4rectIiEEESaIS6_ENSt8__detail10_Select1stESt8equal_toItESt4hashItENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit, %entry
   %__bkt.addr.0 = phi i64 [ %rem.i.i.i, %_ZNSt10_HashtableItSt4pairIKtN3irr4core4rectIiEEESaIS6_ENSt8__detail10_Select1stESt8equal_toItESt4hashItENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit ], [ %__bkt, %entry ]
   %13 = load ptr, ptr %this, align 8, !tbaa !145
-  %arrayidx.i = getelementptr inbounds ptr, ptr %13, i64 %__bkt.addr.0
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %13, i64 %__bkt.addr.0
   %14 = load ptr, ptr %arrayidx.i, align 8, !tbaa !67
   %tobool.not.i = icmp eq ptr %14, null
   br i1 %tobool.not.i, label %if.else.i, label %if.then.i
@@ -11947,14 +11938,14 @@ if.then14.i:                                      ; preds = %if.else.i
   %20 = load i16, ptr %add.ptr.i, align 2, !tbaa !207
   %conv.i.i.i.i.i = zext i16 %20 to i64
   %rem.i.i.i.i = urem i64 %conv.i.i.i.i.i, %19
-  %arrayidx17.i = getelementptr inbounds nuw ptr, ptr %13, i64 %rem.i.i.i.i
+  %arrayidx17.i = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %rem.i.i.i.i
   store ptr %__node, ptr %arrayidx17.i, align 8, !tbaa !67
   %.pre.i = load ptr, ptr %this, align 8, !tbaa !145
   br label %if.end.i
 
 if.end.i:                                         ; preds = %if.then14.i, %if.else.i
   %21 = phi ptr [ %.pre.i, %if.then14.i ], [ %13, %if.else.i ]
-  %arrayidx20.i = getelementptr inbounds ptr, ptr %21, i64 %__bkt.addr.0
+  %arrayidx20.i = getelementptr inbounds [8 x i8], ptr %21, i64 %__bkt.addr.0
   store ptr %_M_before_begin.i, ptr %arrayidx20.i, align 8, !tbaa !67
   br label %_ZNSt10_HashtableItSt4pairIKtN3irr4core4rectIiEEESaIS6_ENSt8__detail10_Select1stESt8equal_toItESt4hashItENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE22_M_insert_bucket_beginEmPNS8_10_Hash_nodeIS6_Lb0EEE.exit
 
@@ -12014,7 +12005,7 @@ while.body:                                       ; preds = %_ZNSt10_HashtableIt
   %2 = load i16, ptr %add.ptr, align 8, !tbaa !207
   %conv.i.i.i = zext i16 %2 to i64
   %rem.i.i = urem i64 %conv.i.i.i, %__bkt_count
-  %arrayidx = getelementptr inbounds nuw ptr, ptr %retval.0.i, i64 %rem.i.i
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %retval.0.i, i64 %rem.i.i
   %3 = load ptr, ptr %arrayidx, align 8, !tbaa !67
   %tobool5.not = icmp eq ptr %3, null
   br i1 %tobool5.not, label %if.then, label %if.else
@@ -12029,7 +12020,7 @@ if.then:                                          ; preds = %while.body
   br i1 %tobool14.not, label %if.end22, label %if.then15
 
 if.then15:                                        ; preds = %if.then
-  %arrayidx16 = getelementptr inbounds nuw ptr, ptr %retval.0.i, i64 %__bbegin_bkt.043
+  %arrayidx16 = getelementptr inbounds nuw [8 x i8], ptr %retval.0.i, i64 %__bbegin_bkt.043
   br label %if.end22.sink.split
 
 if.else:                                          ; preds = %while.body

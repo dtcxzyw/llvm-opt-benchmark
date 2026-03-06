@@ -13,21 +13,13 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr" = type { ptr, %"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr" }
 %"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr" = type { ptr }
 %"class.pxrInternal_v0_24__pxrReserved__::TfWeakPtr.0" = type { ptr, %"class.pxrInternal_v0_24__pxrReserved__::TfRefPtr" }
-%"class.tbb::detail::d2::micro_queue" = type <{ %"struct.std::atomic.14", %"struct.std::atomic.16", %"struct.std::atomic.14", %"struct.std::atomic.16", %"class.tbb::detail::d1::spin_mutex", [7 x i8] }>
-%"struct.std::atomic.14" = type { %"struct.std::__atomic_base.15" }
-%"struct.std::__atomic_base.15" = type { ptr }
-%"struct.std::atomic.16" = type { %"struct.std::__atomic_base.17" }
-%"struct.std::__atomic_base.17" = type { i64 }
-%"class.tbb::detail::d1::spin_mutex" = type { %"struct.std::atomic.18" }
-%"struct.std::atomic.18" = type { %"struct.std::__atomic_base.19" }
-%"struct.std::__atomic_base.19" = type { i8 }
-%"class.std::shared_ptr.9" = type { %"class.std::__shared_ptr.10" }
-%"class.std::__shared_ptr.10" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::shared_ptr<pxrInternal_v0_24__pxrReserved__::TraceCollection>, std::allocator<std::shared_ptr<pxrInternal_v0_24__pxrReserved__::TraceCollection>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::shared_ptr<pxrInternal_v0_24__pxrReserved__::TraceCollection>, std::allocator<std::shared_ptr<pxrInternal_v0_24__pxrReserved__::TraceCollection>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::shared_ptr<pxrInternal_v0_24__pxrReserved__::TraceCollection>, std::allocator<std::shared_ptr<pxrInternal_v0_24__pxrReserved__::TraceCollection>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::shared_ptr<pxrInternal_v0_24__pxrReserved__::TraceCollection>, std::allocator<std::shared_ptr<pxrInternal_v0_24__pxrReserved__::TraceCollection>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"class.std::shared_ptr.9" = type { %"class.std::__shared_ptr.10" }
+%"class.std::__shared_ptr.10" = type { ptr, %"class.std::__shared_count" }
+%"class.std::__shared_count" = type { ptr }
 %"class.pxrInternal_v0_24__pxrReserved__::TfAnyWeakPtr" = type { %"struct.pxrInternal_v0_24__pxrReserved__::TfAnyWeakPtr::_Data" }
 %"struct.pxrInternal_v0_24__pxrReserved__::TfAnyWeakPtr::_Data" = type { [4 x ptr] }
 %"class.pxrInternal_v0_24__pxrReserved__::TfType" = type { ptr }
@@ -478,13 +470,13 @@ _ZNKSt8functionIFbvEEclEv.exit:                   ; preds = %2
   %17 = load ptr, ptr %13, align 8
   %18 = mul i64 %16, 3
   %19 = and i64 %18, 7
-  %20 = getelementptr inbounds nuw %"class.tbb::detail::d2::micro_queue", ptr %17, i64 %19
+  %20 = getelementptr inbounds nuw [40 x i8], ptr %17, i64 %19
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr null, ptr %3, align 8
   %21 = call noundef i64 @_ZN3tbb6detail2d211micro_queueISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEENS0_2d123cache_aligned_allocatorIS6_EEE12prepare_pageEmRNS1_20concurrent_queue_repIS6_S9_EENS8_INSA_11padded_pageEEERPSE_(ptr noundef nonnull align 8 dereferenceable(33) %20, i64 noundef %16, ptr noundef nonnull align 128 dereferenceable(648) %17, ptr noundef nonnull align 8 dereferenceable(8) %3)
   %22 = load ptr, ptr %3, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  %24 = getelementptr inbounds %"class.std::shared_ptr.9", ptr %23, i64 %21
+  %24 = getelementptr inbounds [16 x i8], ptr %23, i64 %21
   %25 = load ptr, ptr %12, align 8
   store ptr %25, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -538,7 +530,7 @@ define linkonce_odr void @_ZN3tbb6detail2d216concurrent_queueISt10shared_ptrIN32
 
 5:                                                ; preds = %11, %2
   %.08.i = phi i64 [ 0, %2 ], [ %12, %11 ]
-  %6 = getelementptr inbounds nuw %"class.tbb::detail::d2::micro_queue", ptr %4, i64 %.08.i
+  %6 = getelementptr inbounds nuw [40 x i8], ptr %4, i64 %.08.i
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load atomic i64, ptr %7 monotonic, align 8
   %9 = icmp ugt i64 %8, 1
@@ -680,7 +672,7 @@ _ZNSt6vectorISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollection
   %28 = load ptr, ptr %8, align 8
   %29 = mul i64 %.057.i.i, 3
   %30 = and i64 %29, 7
-  %31 = getelementptr inbounds nuw %"class.tbb::detail::d2::micro_queue", ptr %28, i64 %30
+  %31 = getelementptr inbounds nuw [40 x i8], ptr %28, i64 %30
   %32 = invoke noundef zeroext i1 @_ZN3tbb6detail2d211micro_queueISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEENS0_2d123cache_aligned_allocatorIS6_EEE3popEPvmRNS1_20concurrent_queue_repIS6_S9_EERNS8_ISD_EE(ptr noundef nonnull align 8 dereferenceable(33) %31, ptr noundef nonnull align 8 dereferenceable(16) %3, i64 noundef %.057.i.i, ptr noundef nonnull align 128 dereferenceable(648) %28, ptr noundef nonnull align 8 dereferenceable(16) %7)
           to label %.noexc unwind label %.loopexit
 
@@ -1061,7 +1053,7 @@ _ZNK3tbb6detail2d216concurrent_queueISt10shared_ptrIN32pxrInternal_v0_24__pxrRes
   %34 = load ptr, ptr %3, align 8
   %35 = mul i64 %.057.i.i, 3
   %36 = and i64 %35, 7
-  %37 = getelementptr inbounds nuw %"class.tbb::detail::d2::micro_queue", ptr %34, i64 %36
+  %37 = getelementptr inbounds nuw [40 x i8], ptr %34, i64 %36
   %38 = invoke noundef zeroext i1 @_ZN3tbb6detail2d211micro_queueISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEENS0_2d123cache_aligned_allocatorIS6_EEE3popEPvmRNS1_20concurrent_queue_repIS6_S9_EERNS8_ISD_EE(ptr noundef nonnull align 8 dereferenceable(33) %37, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %.057.i.i, ptr noundef nonnull align 128 dereferenceable(648) %34, ptr noundef nonnull align 8 dereferenceable(16) %0)
           to label %.noexc unwind label %74
 
@@ -1168,7 +1160,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__32TraceReporterDa
 
 6:                                                ; preds = %12, %3
   %.08.i.i = phi i64 [ 0, %3 ], [ %13, %12 ]
-  %7 = getelementptr inbounds nuw %"class.tbb::detail::d2::micro_queue", ptr %5, i64 %.08.i.i
+  %7 = getelementptr inbounds nuw [40 x i8], ptr %5, i64 %.08.i.i
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load atomic i64, ptr %8 monotonic, align 8
   %10 = icmp ugt i64 %9, 1
@@ -2046,7 +2038,7 @@ _ZN3tbb6detail2d225micro_queue_pop_finalizerINS1_11micro_queueISt10shared_ptrIN3
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZN3tbb6detail2d211micro_queueISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEENS0_2d123cache_aligned_allocatorIS6_EEE23assign_and_destroy_itemEPvRNSA_11padded_pageEm(ptr noundef nonnull align 8 dereferenceable(33) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(272) %2, i64 noundef %3) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %6 = getelementptr inbounds %"class.std::shared_ptr.9", ptr %5, i64 %3
+  %6 = getelementptr inbounds [16 x i8], ptr %5, i64 %3
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load ptr, ptr %8, align 8
@@ -2392,7 +2384,7 @@ _ZNSt6vectorISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollection
 _ZNSt12_Vector_baseISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__15TraceCollectionEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, %40
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8
-  %44 = getelementptr inbounds nuw %"class.std::shared_ptr.9", ptr %20, i64 %16
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %44, ptr %39, align 8
   ret void
 }

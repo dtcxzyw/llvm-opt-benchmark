@@ -681,7 +681,7 @@ define linkonce_odr hidden void @_ZN17opencv_tensorflow10VersionDef27_internal_a
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !15
   %12 = zext i32 %4 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %12
   store i32 %1, ptr %13, align 4, !tbaa !48
   br label %_ZN6google8protobuf13RepeatedFieldIiE3AddERKi.exit
 
@@ -689,7 +689,7 @@ define linkonce_odr hidden void @_ZN17opencv_tensorflow10VersionDef27_internal_a
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load ptr, ptr %15, align 8, !tbaa !15
   %17 = zext i32 %4 to i64
-  %18 = getelementptr inbounds nuw i32, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %17
   store i32 %1, ptr %18, align 4, !tbaa !48
   %.pre.i = add i32 %4, 1
   br label %_ZN6google8protobuf13RepeatedFieldIiE3AddERKi.exit
@@ -872,7 +872,7 @@ _ZN6google8protobuf2io19EpsCopyOutputStream15UnsafeWriteSizeEjPh.exit: ; preds =
   %72 = load ptr, ptr %71, align 8, !tbaa !15
   %73 = load i32, ptr %60, align 8, !tbaa !10
   %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds i32, ptr %72, i64 %74
+  %75 = getelementptr inbounds [4 x i8], ptr %72, i64 %74
   br label %76
 
 76:                                               ; preds = %_ZN6google8protobuf2io19EpsCopyOutputStream12UnsafeVarintImEEPhT_S4_.exit.i, %_ZN6google8protobuf2io19EpsCopyOutputStream15UnsafeWriteSizeEjPh.exit
@@ -1047,7 +1047,7 @@ define hidden void @_ZN17opencv_tensorflow10VersionDef9MergeImplEPN6google8proto
   %13 = add nsw i32 %12, %9
   store i32 %13, ptr %6, align 8, !tbaa !10
   %14 = sext i32 %7 to i64
-  %15 = getelementptr inbounds i32, ptr %11, i64 %14
+  %15 = getelementptr inbounds [4 x i8], ptr %11, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load ptr, ptr %16, align 8, !tbaa !15
   %18 = load i32, ptr %3, align 8, !tbaa !10
@@ -1120,7 +1120,7 @@ define hidden void @_ZN17opencv_tensorflow10VersionDef9MergeFromERKS0_(ptr nound
   %13 = add nsw i32 %12, %9
   store i32 %13, ptr %6, align 8, !tbaa !10
   %14 = sext i32 %7 to i64
-  %15 = getelementptr inbounds i32, ptr %11, i64 %14
+  %15 = getelementptr inbounds [4 x i8], ptr %11, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load ptr, ptr %16, align 8, !tbaa !15
   %18 = load i32, ptr %3, align 8, !tbaa !10
@@ -1205,7 +1205,7 @@ _ZN17opencv_tensorflow10VersionDef5ClearEv.exit:  ; preds = %4, %10
   %20 = add nsw i32 %19, %16
   store i32 %20, ptr %5, align 8, !tbaa !10
   %21 = sext i32 %14 to i64
-  %22 = getelementptr inbounds i32, ptr %18, i64 %21
+  %22 = getelementptr inbounds [4 x i8], ptr %18, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %24 = load ptr, ptr %23, align 8, !tbaa !15
   %25 = load i32, ptr %11, align 8, !tbaa !10

@@ -514,12 +514,12 @@ define dso_local void @clockevents_register_device(ptr noundef initializes((56, 
   %13 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #14, !srcloc !34
   %14 = and i32 %13, 63
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr [1 x i64], ptr @cpu_bit_bitmap, i64 %15
+  %16 = getelementptr [8 x i8], ptr @cpu_bit_bitmap, i64 %15
   %17 = getelementptr i8, ptr %16, i64 8
   %18 = lshr i32 %13, 6
   %19 = zext nneg i32 %18 to i64
   %20 = sub nsw i64 0, %19
-  %21 = getelementptr i64, ptr %17, i64 %20
+  %21 = getelementptr [8 x i8], ptr %17, i64 %20
   store ptr %21, ptr %3, align 16
   br label %22
 
@@ -1106,7 +1106,7 @@ define internal void @__clockevents_unbind(ptr noundef captures(none) %0) #0 ali
 
 7:                                                ; preds = %1
   %8 = sext i32 %3 to i64
-  %9 = getelementptr i64, ptr @__per_cpu_offset, i64 %8
+  %9 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %8
   %10 = load i64, ptr %9, align 8
   %11 = add i64 %10, ptrtoint (ptr @tick_cpu_device to i64)
   %12 = inttoptr i64 %11 to ptr
@@ -1227,7 +1227,7 @@ define internal fastcc i32 @tick_init_sysfs() unnamed_addr #3 section ".init.tex
 
 14:                                               ; preds = %10
   %15 = and i64 %11, 63
-  %16 = getelementptr i64, ptr @__per_cpu_offset, i64 %15
+  %16 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %15
   %17 = load i64, ptr %16, align 8
   %18 = add i64 %17, ptrtoint (ptr @tick_percpu_dev to i64)
   %19 = inttoptr i64 %18 to ptr
@@ -1294,7 +1294,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @current_device_s
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
-  %11 = getelementptr i64, ptr @__per_cpu_offset, i64 %10
+  %11 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %10
   %12 = load i64, ptr %11, align 8
   %13 = add i64 %12, ptrtoint (ptr @tick_cpu_device to i64)
   %14 = inttoptr i64 %13 to ptr
@@ -1385,7 +1385,7 @@ define internal i64 @unbind_device_store(ptr noundef readonly captures(none) %0,
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 648
   %31 = load i32, ptr %30, align 8
   %32 = sext i32 %31 to i64
-  %33 = getelementptr i64, ptr @__per_cpu_offset, i64 %32
+  %33 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %32
   %34 = load i64, ptr %33, align 8
   %35 = add i64 %34, ptrtoint (ptr @tick_cpu_device to i64)
   %36 = inttoptr i64 %35 to ptr

@@ -30,20 +30,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_crypto_hash_
 %struct.crypto_type = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32 }
 %struct.static_call_key = type { ptr, %union.anon.14 }
 %union.anon.14 = type { i64 }
-%struct.page = type { i64, %union.anon, %union.anon.6, %struct.atomic_t, [8 x i8] }
-%union.anon = type { %struct.anon }
-%struct.anon = type { %union.anon.0, ptr, %union.anon.2, i64 }
-%union.anon.0 = type { %struct.list_head }
-%struct.list_head = type { ptr, ptr }
-%union.anon.2 = type { i64 }
-%union.anon.6 = type { %struct.atomic_t }
-%struct.atomic_t = type { i32 }
-%struct.ahash_alg = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, %struct.hash_alg_common }
-%struct.hash_alg_common = type { i32, i32, %struct.crypto_alg }
-%struct.crypto_alg = type { %struct.list_head, %struct.list_head, i32, i32, i32, i32, i32, %struct.refcount_struct, [128 x i8], [128 x i8], ptr, %union.anon.7, ptr, ptr, ptr, ptr }
-%struct.refcount_struct = type { %struct.atomic_t }
-%union.anon.7 = type { %struct.cipher_alg }
-%struct.cipher_alg = type { i32, i32, ptr, ptr, ptr }
 
 @__UNIQUE_ID___addressable_shash_ahash_update439 = internal global ptr @shash_ahash_update, section ".discard.addressable", align 8
 @__UNIQUE_ID___addressable_shash_ahash_finup440 = internal global ptr @shash_ahash_finup, section ".discard.addressable", align 8
@@ -119,7 +105,7 @@ define dso_local range(i32 -2147483648, 1) i32 @shash_ahash_update(ptr noundef r
   %24 = inttoptr i64 %23 to ptr
   %25 = lshr i32 %17, 12
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr %struct.page, ptr %24, i64 %26
+  %27 = getelementptr [64 x i8], ptr %24, i64 %26
   %28 = ptrtoint ptr %27 to i64
   %29 = load i64, ptr @vmemmap_base, align 8
   %30 = sub i64 %28, %29
@@ -177,7 +163,7 @@ define dso_local range(i32 -2147483648, 1) i32 @shash_ahash_update(ptr noundef r
   %71 = inttoptr i64 %70 to ptr
   %72 = lshr i32 %68, 12
   %73 = zext nneg i32 %72 to i64
-  %74 = getelementptr %struct.page, ptr %71, i64 %73
+  %74 = getelementptr [64 x i8], ptr %71, i64 %73
   %75 = and i32 %68, 4095
   %76 = getelementptr inbounds nuw i8, ptr %66, i64 12
   %77 = load i32, ptr %76, align 4
@@ -254,7 +240,7 @@ define dso_local range(i32 -2147483648, 1) i32 @shash_ahash_update(ptr noundef r
   %135 = inttoptr i64 %134 to ptr
   %136 = lshr i32 %132, 12
   %137 = zext nneg i32 %136 to i64
-  %138 = getelementptr %struct.page, ptr %135, i64 %137
+  %138 = getelementptr [64 x i8], ptr %135, i64 %137
   %139 = and i32 %132, 4095
   %140 = getelementptr inbounds nuw i8, ptr %130, i64 12
   %141 = load i32, ptr %140, align 4
@@ -322,7 +308,7 @@ define dso_local range(i32 0, 4097) i32 @crypto_hash_walk_first(ptr noundef read
   %21 = inttoptr i64 %20 to ptr
   %22 = lshr i32 %17, 12
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr %struct.page, ptr %21, i64 %23
+  %24 = getelementptr [64 x i8], ptr %21, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store ptr %24, ptr %25, align 8
   %26 = and i32 %17, 4095
@@ -423,7 +409,7 @@ define dso_local i32 @crypto_hash_walk_done(ptr noundef captures(none) %0, i32 n
   %46 = inttoptr i64 %45 to ptr
   %47 = lshr i32 %43, 12
   %48 = zext nneg i32 %47 to i64
-  %49 = getelementptr %struct.page, ptr %46, i64 %48
+  %49 = getelementptr [64 x i8], ptr %46, i64 %48
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %49, ptr %50, align 8
   %51 = and i32 %43, 4095
@@ -497,7 +483,7 @@ define dso_local i32 @shash_ahash_finup(ptr noundef readonly captures(none) %0, 
   %27 = inttoptr i64 %26 to ptr
   %28 = lshr i32 %20, 12
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr %struct.page, ptr %27, i64 %29
+  %30 = getelementptr [64 x i8], ptr %27, i64 %29
   %31 = ptrtoint ptr %30 to i64
   %32 = load i64, ptr @vmemmap_base, align 8
   %33 = sub i64 %31, %32
@@ -582,7 +568,7 @@ define dso_local i32 @shash_ahash_finup(ptr noundef readonly captures(none) %0, 
   %89 = inttoptr i64 %88 to ptr
   %90 = lshr i32 %86, 12
   %91 = zext nneg i32 %90 to i64
-  %92 = getelementptr %struct.page, ptr %89, i64 %91
+  %92 = getelementptr [64 x i8], ptr %89, i64 %91
   %93 = and i32 %86, 4095
   %94 = getelementptr inbounds nuw i8, ptr %84, i64 12
   %95 = load i32, ptr %94, align 4
@@ -1280,7 +1266,7 @@ define dso_local i32 @crypto_register_ahashes(ptr noundef %0, i32 noundef %1) #0
 6:                                                ; preds = %39, %4
   %indvars.iv = phi i32 [ %indvars.iv.next, %39 ], [ -1, %4 ]
   %7 = phi i64 [ %40, %39 ], [ 0, %4 ]
-  %8 = getelementptr %struct.ahash_alg, ptr %0, i64 %7
+  %8 = getelementptr [480 x i8], ptr %0, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 92
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 0
@@ -1343,7 +1329,7 @@ define dso_local i32 @crypto_register_ahashes(ptr noundef %0, i32 noundef %1) #0
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv13 = phi i64 [ %38, %.preheader.preheader ], [ %indvars.iv.next14, %.preheader ]
-  %.split = getelementptr %struct.ahash_alg, ptr %0, i64 %indvars.iv13
+  %.split = getelementptr [480 x i8], ptr %0, i64 %indvars.iv13
   %42 = getelementptr i8, ptr %.split, i64 96
   tail call void @crypto_unregister_alg(ptr noundef %42) #9
   %indvars.iv.next14 = add nsw i64 %indvars.iv13, -1
@@ -1367,7 +1353,7 @@ define dso_local void @crypto_unregister_ahashes(ptr noundef %0, i32 noundef %1)
 
 7:                                                ; preds = %7, %5
   %8 = phi i64 [ %6, %5 ], [ %10, %7 ]
-  %.split = getelementptr %struct.ahash_alg, ptr %0, i64 %8
+  %.split = getelementptr [480 x i8], ptr %0, i64 %8
   %9 = getelementptr i8, ptr %.split, i64 96
   tail call void @crypto_unregister_alg(ptr noundef %9) #9
   %10 = add nsw i64 %8, -1

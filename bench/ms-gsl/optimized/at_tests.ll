@@ -4988,7 +4988,7 @@ define dso_local void @_ZN29at_tests_InitializerList_Test8TestBodyEv(ptr nonnull
 _ZN3gsl2atIiEET_St16initializer_listIS1_El.exit:  ; preds = %1, %_ZN7testing15AssertionResultD2Ev.exit179
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %_ZN7testing15AssertionResultD2Ev.exit179 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %46 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %47 = load i32, ptr %46, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %48 = zext i32 %47 to i64
@@ -5129,7 +5129,7 @@ _ZN3gsl2atIiEET_St16initializer_listIS1_El.exit162: ; preds = %_ZN3gsl2atIiEET_S
   store i32 2, ptr %37, align 4
   store i32 3, ptr %38, align 4
   store i32 4, ptr %39, align 4
-  %89 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv
   %90 = load i32, ptr %89, align 4
   %91 = zext i32 %90 to i64
   %92 = icmp eq i64 %indvars.iv.next, %91

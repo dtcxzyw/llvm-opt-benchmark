@@ -6,7 +6,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.trace_probe_log = type { ptr, ptr, i32, i32 }
 %struct.fetch_type = type { ptr, i64, i8, i8, ptr, ptr, ptr }
 %struct.list_head = type { ptr, ptr }
-%struct.probe_arg = type { ptr, i8, i32, i32, ptr, ptr, ptr, ptr }
 
 @print_type_format_u8 = dso_local constant [3 x i8] c"%u\00", align 1
 @print_type_format_u16 = dso_local constant [3 x i8] c"%u\00", align 1
@@ -583,7 +582,7 @@ define dso_local void @__trace_probe_log_err(i32 noundef %0, i32 noundef %1) loc
   %15 = phi i32 [ 0, %8 ], [ %23, %12 ]
   %16 = icmp eq i64 %13, %10
   %17 = select i1 %16, i32 %15, i32 %14
-  %18 = getelementptr ptr, ptr %3, i64 %13
+  %18 = getelementptr [8 x i8], ptr %3, i64 %13
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i64 @strlen(ptr noundef %19) #16
   %21 = trunc i64 %20 to i32
@@ -616,7 +615,7 @@ define dso_local void @__trace_probe_log_err(i32 noundef %0, i32 noundef %1) loc
 39:                                               ; preds = %39, %36
   %40 = phi i64 [ 0, %36 ], [ %52, %39 ]
   %41 = phi ptr [ %29, %36 ], [ %51, %39 ]
-  %42 = getelementptr ptr, ptr %37, i64 %40
+  %42 = getelementptr [8 x i8], ptr %37, i64 %40
   %43 = load ptr, ptr %42, align 8
   %44 = tail call i64 @strlen(ptr noundef %43) #16
   %45 = tail call ptr @strcpy(ptr noundef %41, ptr noundef %43) #16
@@ -870,7 +869,7 @@ define dso_local i32 @traceprobe_parse_probe_arg(ptr noundef %0, i32 noundef %1,
   %5 = alloca ptr, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = sext i32 %1 to i64
-  %8 = getelementptr %struct.probe_arg, ptr %6, i64 %7
+  %8 = getelementptr [56 x i8], ptr %6, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load i32, ptr %9, align 8
   %11 = add i32 %10, 1
@@ -978,7 +977,7 @@ define dso_local i32 @traceprobe_parse_probe_arg(ptr noundef %0, i32 noundef %1,
 
 .loopexit32:                                      ; preds = %.loopexit32.preheader, %64
   %71 = phi i64 [ %65, %64 ], [ 0, %.loopexit32.preheader ]
-  %72 = getelementptr ptr, ptr @reserved_field_names, i64 %71
+  %72 = getelementptr [8 x i8], ptr @reserved_field_names, i64 %71
   %73 = load ptr, ptr %72, align 8
   %74 = tail call i32 @strcmp(ptr noundef %73, ptr noundef nonnull dereferenceable(1) %32) #16
   %75 = icmp eq i32 %74, 0
@@ -1636,7 +1635,7 @@ define dso_local noundef ptr @traceprobe_expand_meta_args(i32 noundef %0, ptr no
   %12 = phi i32 [ -1, %8 ], [ %35, %34 ]
   %13 = phi i64 [ 0, %8 ], [ %37, %34 ]
   %14 = phi i32 [ 0, %8 ], [ %36, %34 ]
-  %15 = getelementptr ptr, ptr %1, i64 %13
+  %15 = getelementptr [8 x i8], ptr %1, i64 %13
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 @strncmp(ptr noundef %16, ptr noundef nonnull dereferenceable(5) @.str.12, i64 noundef 4) #16
   %18 = icmp eq i32 %17, 0
@@ -1856,7 +1855,7 @@ define internal fastcc i32 @__set_print_fmt(ptr noundef readonly captures(none) 
   %20 = phi i32 [ %13, %17 ], [ %88, %87 ]
   %21 = phi i32 [ 0, %17 ], [ %89, %87 ]
   %22 = sext i32 %21 to i64
-  %23 = getelementptr %struct.probe_arg, ptr %18, i64 %22
+  %23 = getelementptr [56 x i8], ptr %18, i64 %22
   %24 = sext i32 %20 to i64
   %25 = getelementptr i8, ptr %1, i64 %24
   %26 = sub i32 %2, %20
@@ -1966,7 +1965,7 @@ define internal fastcc i32 @__set_print_fmt(ptr noundef readonly captures(none) 
   %104 = phi i32 [ %126, %.loopexit.split.us.us ], [ %99, %102 ]
   %105 = phi i32 [ %127, %.loopexit.split.us.us ], [ 0, %102 ]
   %106 = sext i32 %105 to i64
-  %107 = getelementptr %struct.probe_arg, ptr %103, i64 %106
+  %107 = getelementptr [56 x i8], ptr %103, i64 %106
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 16
   %109 = load i32, ptr %108, align 8
   %110 = icmp eq i32 %109, 0
@@ -2016,7 +2015,7 @@ define internal fastcc i32 @__set_print_fmt(ptr noundef readonly captures(none) 
   %141 = phi i32 [ %178, %.loopexit.split ], [ %99, %102 ]
   %142 = phi i32 [ %179, %.loopexit.split ], [ 0, %102 ]
   %143 = sext i32 %142 to i64
-  %144 = getelementptr %struct.probe_arg, ptr %103, i64 %143
+  %144 = getelementptr [56 x i8], ptr %103, i64 %143
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 16
   %146 = load i32, ptr %145, align 8
   %147 = icmp eq i32 %146, 0
@@ -2092,7 +2091,7 @@ define dso_local i32 @traceprobe_define_arg_fields(ptr noundef %0, i64 noundef %
 14:                                               ; preds = %10, %8
   %15 = phi i32 [ 0, %8 ], [ %11, %10 ]
   %16 = sext i32 %15 to i64
-  %17 = getelementptr %struct.probe_arg, ptr %4, i64 %16
+  %17 = getelementptr [56 x i8], ptr %4, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 48
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
@@ -2234,7 +2233,7 @@ define dso_local void @trace_probe_cleanup(ptr noundef %0) local_unnamed_addr #0
 7:                                                ; preds = %traceprobe_free_probe_arg.exit, %5
   %8 = phi i32 [ 0, %5 ], [ %28, %traceprobe_free_probe_arg.exit ]
   %9 = sext i32 %8 to i64
-  %10 = getelementptr %struct.probe_arg, ptr %6, i64 %9
+  %10 = getelementptr [56 x i8], ptr %6, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %traceprobe_free_probe_arg.exit, label %.preheader.i
@@ -2669,10 +2668,10 @@ define dso_local i32 @trace_probe_compare_arg_type(ptr noundef readonly captures
 
 22:                                               ; preds = %19
   %23 = sext i32 %20 to i64
-  %24 = getelementptr %struct.probe_arg, ptr %15, i64 %23
+  %24 = getelementptr [56 x i8], ptr %15, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 48
   %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr %struct.probe_arg, ptr %16, i64 %23
+  %27 = getelementptr [56 x i8], ptr %16, i64 %23
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 48
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %26, %29
@@ -2734,13 +2733,13 @@ define dso_local zeroext i1 @trace_probe_match_command_args(ptr noundef readonly
 
 13:                                               ; preds = %13, %11
   %14 = phi i64 [ 0, %11 ], [ %25, %13 ]
-  %15 = getelementptr %struct.probe_arg, ptr %9, i64 %14
+  %15 = getelementptr [56 x i8], ptr %9, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %19 = load ptr, ptr %18, align 8
   %20 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 64, ptr noundef nonnull @.str.13, ptr noundef %17, ptr noundef %19) #16
-  %21 = getelementptr ptr, ptr %2, i64 %14
+  %21 = getelementptr [8 x i8], ptr %2, i64 %14
   %22 = load ptr, ptr %21, align 8
   %23 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef %22) #16
   %24 = icmp eq i32 %23, 0
@@ -2804,7 +2803,7 @@ define dso_local noundef range(i32 -12, 1) i32 @trace_probe_print_args(ptr nound
 
 9:                                                ; preds = %.loopexit, %7
   %10 = phi i64 [ 0, %7 ], [ %57, %.loopexit ]
-  %11 = getelementptr %struct.probe_arg, ptr %1, i64 %10
+  %11 = getelementptr [56 x i8], ptr %1, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load ptr, ptr %12, align 8
   tail call void (ptr, ptr, ...) @trace_seq_printf(ptr noundef %0, ptr noundef nonnull @.str.14, ptr noundef %13) #16
@@ -2968,7 +2967,7 @@ define internal fastcc ptr @find_fetch_type(ptr noundef %0, i64 noundef range(i6
   br i1 %40, label %.loopexit, label %41, !llvm.loop !38
 
 41:                                               ; preds = %.preheader
-  %42 = getelementptr %struct.fetch_type, ptr @probe_fetch_types, i64 %39
+  %42 = getelementptr [48 x i8], ptr @probe_fetch_types, i64 %39
   %43 = load ptr, ptr %42, align 16
   %44 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %15, ptr noundef nonnull dereferenceable(1) %43) #16
   %45 = icmp eq i32 %44, 0

@@ -103,7 +103,7 @@ CleanupLogPriorities.exit.preheader:              ; preds = %.lr.ph.i, %2
 
 CleanupLogPriorities.exit:                        ; preds = %CleanupLogPriorities.exit.preheader, %11
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %11 ], [ 0, %CleanupLogPriorities.exit.preheader ]
-  %8 = getelementptr inbounds nuw ptr, ptr @SDL_priority_prefixes, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr @SDL_priority_prefixes, i64 %indvars.iv.i
   %9 = load ptr, ptr %8, align 8
   %.not.i3 = icmp eq ptr %9, null
   br i1 %.not.i3, label %11, label %10
@@ -182,7 +182,7 @@ CleanupLogPriorities.exit:                        ; preds = %.lr.ph.i, %1
 
 10:                                               ; preds = %CleanupLogPriorities.exit, %10
   %indvars.iv = phi i64 [ 0, %CleanupLogPriorities.exit ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds nuw i32, ptr @SDL_log_priorities, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [4 x i8], ptr @SDL_log_priorities, i64 %indvars.iv
   store i32 %0, ptr %11, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 19
@@ -239,7 +239,7 @@ define hidden void @SDL_SetLogPriority_REAL(i32 noundef %0, i32 noundef %1) loca
 
 5:                                                ; preds = %2
   %6 = zext nneg i32 %0 to i64
-  %7 = getelementptr inbounds nuw i32, ptr @SDL_log_priorities, i64 %6
+  %7 = getelementptr inbounds nuw [4 x i8], ptr @SDL_log_priorities, i64 %6
   store i32 %1, ptr %7, align 4
   br label %19
 
@@ -291,7 +291,7 @@ define hidden i32 @SDL_GetLogPriority_REAL(i32 noundef %0) local_unnamed_addr #0
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw i32, ptr @SDL_log_priorities, i64 %4
+  %5 = getelementptr inbounds nuw [4 x i8], ptr @SDL_log_priorities, i64 %4
   %6 = load i32, ptr %5, align 4
   br label %22
 
@@ -393,7 +393,7 @@ CleanupLogPriorities.exit:                        ; preds = %.lr.ph.i, %0
 
 .preheader.i.i:                                   ; preds = %20, %29
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %29 ], [ 1, %20 ]
-  %23 = getelementptr inbounds nuw ptr, ptr @SDL_priority_names, i64 %indvars.iv.i.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr @SDL_priority_names, i64 %indvars.iv.i.i
   %24 = load ptr, ptr %23, align 8
   %25 = tail call i32 @SDL_strncasecmp_REAL(ptr noundef nonnull %7, ptr noundef %24, i64 noundef %12) #8
   %26 = icmp eq i32 %25, 0
@@ -433,7 +433,7 @@ CleanupLogPriorities.exit.i.i:                    ; preds = %.lr.ph.i.i.i, %.loo
 
 36:                                               ; preds = %36, %CleanupLogPriorities.exit.i.i
   %indvars.iv.i37.i = phi i64 [ 0, %CleanupLogPriorities.exit.i.i ], [ %indvars.iv.next.i38.i, %36 ]
-  %37 = getelementptr inbounds nuw i32, ptr @SDL_log_priorities, i64 %indvars.iv.i37.i
+  %37 = getelementptr inbounds nuw [4 x i8], ptr @SDL_log_priorities, i64 %indvars.iv.i37.i
   store i32 %.2.ph.i, ptr %37, align 4
   %indvars.iv.next.i38.i = add nuw nsw i64 %indvars.iv.i37.i, 1
   %exitcond.not.i39.i = icmp eq i64 %indvars.iv.next.i38.i, 19
@@ -474,7 +474,7 @@ SDL_SetLogPriorities_REAL.exit.i:                 ; preds = %36
 
 .preheader.i43.i:                                 ; preds = %51, %60
   %indvars.iv.i44.i = phi i64 [ %indvars.iv.next.i45.i, %60 ], [ 0, %51 ]
-  %54 = getelementptr inbounds nuw ptr, ptr @SDL_category_names, i64 %indvars.iv.i44.i
+  %54 = getelementptr inbounds nuw [8 x i8], ptr @SDL_category_names, i64 %indvars.iv.i44.i
   %55 = load ptr, ptr %54, align 8
   %56 = tail call i32 @SDL_strncasecmp_REAL(ptr noundef nonnull %.02690.i, ptr noundef %55, i64 noundef %45) #8
   %57 = icmp eq i32 %56, 0
@@ -529,7 +529,7 @@ SDL_SetLogPriorities_REAL.exit.i:                 ; preds = %36
 
 .preheader.i52.i:                                 ; preds = %78, %87
   %indvars.iv.i53.i = phi i64 [ %indvars.iv.next.i54.i, %87 ], [ 1, %78 ]
-  %81 = getelementptr inbounds nuw ptr, ptr @SDL_priority_names, i64 %indvars.iv.i53.i
+  %81 = getelementptr inbounds nuw [8 x i8], ptr @SDL_priority_names, i64 %indvars.iv.i53.i
   %82 = load ptr, ptr %81, align 8
   %83 = tail call i32 @SDL_strncasecmp_REAL(ptr noundef nonnull %62, ptr noundef %82, i64 noundef %.025.i) #8
   %84 = icmp eq i32 %83, 0
@@ -555,7 +555,7 @@ SDL_SetLogPriorities_REAL.exit.i:                 ; preds = %36
 
 .preheader.i:                                     ; preds = %.loopexit.sink.split.i50.i, %94
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %94 ], [ 0, %.loopexit.sink.split.i50.i ]
-  %90 = getelementptr inbounds nuw i32, ptr @SDL_log_priorities, i64 %indvars.iv.i
+  %90 = getelementptr inbounds nuw [4 x i8], ptr @SDL_log_priorities, i64 %indvars.iv.i
   %91 = load i32, ptr %90, align 4
   %92 = icmp eq i32 %91, 0
   br i1 %92, label %93, label %94
@@ -583,7 +583,7 @@ SDL_SetLogPriorities_REAL.exit.i:                 ; preds = %36
 
 98:                                               ; preds = %95
   %99 = zext nneg i32 %.267.ph.i to i64
-  %100 = getelementptr inbounds nuw i32, ptr @SDL_log_priorities, i64 %99
+  %100 = getelementptr inbounds nuw [4 x i8], ptr @SDL_log_priorities, i64 %99
   store i32 %.3.ph.i, ptr %100, align 4
   br label %SDL_SetLogPriority_REAL.exit.i
 
@@ -646,7 +646,7 @@ ParseLogPriorities.exit:                          ; preds = %ParseLogCategory.ex
 
 118:                                              ; preds = %.preheader, %126
   %indvars.iv = phi i64 [ %indvars.iv.next, %126 ], [ 0, %.preheader ]
-  %119 = getelementptr inbounds nuw i32, ptr @SDL_log_priorities, i64 %indvars.iv
+  %119 = getelementptr inbounds nuw [4 x i8], ptr @SDL_log_priorities, i64 %indvars.iv
   %120 = load i32, ptr %119, align 4
   %.not16 = icmp eq i32 %120, 0
   br i1 %.not16, label %121, label %126
@@ -711,7 +711,7 @@ define hidden zeroext i1 @SDL_SetLogPriorityPrefix_REAL(i32 noundef %0, ptr noun
   %12 = load ptr, ptr @SDL_log_function_lock, align 8
   tail call void @SDL_LockMutex_REAL(ptr noundef %12) #8
   %13 = zext nneg i32 %0 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr @SDL_priority_prefixes, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr @SDL_priority_prefixes, i64 %13
   %15 = load ptr, ptr %14, align 8
   %.not17 = icmp eq ptr %15, null
   br i1 %.not17, label %17, label %16
@@ -768,7 +768,7 @@ define hidden void @SDL_LogMessageV_REAL(i32 noundef %0, i32 noundef %1, ptr nou
 
 10:                                               ; preds = %8
   %11 = zext nneg i32 %0 to i64
-  %12 = getelementptr inbounds nuw i32, ptr @SDL_log_priorities, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr @SDL_log_priorities, i64 %11
   %13 = load i32, ptr %12, align 4
   br label %SDL_GetLogPriority_REAL.exit
 
@@ -999,7 +999,7 @@ define internal void @SDL_LogOutput(ptr readnone captures(none) %0, i32 %1, i32 
 
 7:                                                ; preds = %4
   %8 = zext nneg i32 %2 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr @SDL_priority_prefixes, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @SDL_priority_prefixes, i64 %8
   %10 = load ptr, ptr %9, align 8
   %.not.i = icmp eq ptr %10, null
   br i1 %.not.i, label %11, label %GetLogPriorityPrefix.exit
@@ -1011,7 +1011,7 @@ define internal void @SDL_LogOutput(ptr readnone captures(none) %0, i32 %1, i32 
 
 switch.lookup:                                    ; preds = %11
   %13 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.SDL_LogOutput, i64 %13
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.SDL_LogOutput, i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %GetLogPriorityPrefix.exit
 

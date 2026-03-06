@@ -937,7 +937,7 @@ retransmits_timed_out.exit15:                     ; preds = %463, %455, %.thread
   %531 = load ptr, ptr %2, align 8
   %532 = getelementptr inbounds nuw i8, ptr %531, i64 432
   %533 = load ptr, ptr %532, align 8
-  %534 = getelementptr i64, ptr %533, i64 %530
+  %534 = getelementptr [8 x i8], ptr %533, i64 %530
   tail call void asm "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %534, ptr elementtype(i64) %534) #6, !srcloc !21
   br label %.critedge
 

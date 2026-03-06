@@ -114,7 +114,7 @@ define dso_local noundef zeroext i1 @fixup_umip_exception(ptr noundef %0) local_
   %37 = phi i1 [ false, %32 ], [ false, %31 ], [ true, %26 ], [ true, %30 ], [ false, %.thread.fold.split ]
   %38 = phi i32 [ 3, %32 ], [ 2, %31 ], [ %29, %26 ], [ %29, %30 ], [ 4, %.thread.fold.split ]
   %39 = zext nneg i32 %38 to i64
-  %40 = getelementptr ptr, ptr @umip_insns, i64 %39
+  %40 = getelementptr [8 x i8], ptr @umip_insns, i64 %39
   %41 = load ptr, ptr %40, align 8
   call void (ptr, ptr, ptr, ...) @umip_printk(ptr noundef nonnull %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef %41)
   call void (ptr, ptr, ptr, ...) @umip_printk(ptr noundef nonnull %0, ptr noundef nonnull @.str, ptr noundef nonnull @.str.2)

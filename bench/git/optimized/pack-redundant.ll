@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.strbuf = type { i64, i64, ptr }
 %struct.git_hash_algo = type { ptr, i32, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.object_id = type { [32 x i8], i32 }
-%struct.llist_item = type { ptr, %struct.object_id }
 
 @strbuf_slopbuf = external global [0 x i8], align 1
 @__const.cmd_pack_redundant.idx_name = private unnamed_addr constant %struct.strbuf { i64 0, i64 0, ptr @strbuf_slopbuf }, align 8
@@ -63,7 +62,7 @@ sub_0.preheader:                                  ; preds = %4
 sub_0:                                            ; preds = %sub_0.preheader, %30
   %indvars.iv = phi i64 [ 1, %sub_0.preheader ], [ %indvars.iv.next, %30 ]
   %.036359 = phi i32 [ 0, %sub_0.preheader ], [ %.238.ph, %30 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !4
   %11 = load i8, ptr %10, align 1
   %.not382 = icmp eq i8 %11, 45
@@ -145,7 +144,7 @@ sub_1:                                            ; preds = %sub_0
 
 .preheader:                                       ; preds = %35
   %36 = sext i32 %.1 to i64
-  %37 = getelementptr inbounds ptr, ptr %1, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %1, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !4
   %.not48362 = icmp eq ptr %38, null
   br i1 %.not48362, label %load_all.exit, label %.lr.ph
@@ -201,7 +200,7 @@ sub_1:                                            ; preds = %sub_0
 
 add_pack_file.exit:                               ; preds = %.lr.ph.i56
   tail call fastcc void @add_pack(ptr noundef %.011.i)
-  %55 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv.next494
+  %55 = getelementptr inbounds [8 x i8], ptr %1, i64 %indvars.iv.next494
   %56 = load ptr, ptr %55, align 8, !tbaa !4
   %.not48 = icmp eq ptr %56, null
   br i1 %.not48, label %load_all.exit, label %.lr.ph, !llvm.loop !19
@@ -799,7 +798,7 @@ llist_sorted_difference_inplace.exit131:          ; preds = %llist_sorted_remove
 249:                                              ; preds = %249, %247
   %indvars.iv.i.i36.i = phi i64 [ 1, %247 ], [ %indvars.iv.next.i.i37.i, %249 ]
   %250 = phi ptr [ %free_nodes.promoted.i.i35.i, %247 ], [ %251, %249 ]
-  %251 = getelementptr inbounds nuw %struct.llist_item, ptr %248, i64 %indvars.iv.i.i36.i
+  %251 = getelementptr inbounds nuw [48 x i8], ptr %248, i64 %indvars.iv.i.i36.i
   store ptr %250, ptr %251, align 8, !tbaa !56
   %indvars.iv.next.i.i37.i = add nuw nsw i64 %indvars.iv.i.i36.i, 1
   %exitcond.not.i.i38.i = icmp eq i64 %indvars.iv.next.i.i37.i, 512
@@ -838,7 +837,7 @@ llist_item_get.exit.i15.i:                        ; preds = %249, %245
 261:                                              ; preds = %261, %259
   %indvars.iv.i20.i32.i = phi i64 [ 1, %259 ], [ %indvars.iv.next.i21.i33.i, %261 ]
   %262 = phi ptr [ %free_nodes.promoted.i19.i31.i, %259 ], [ %263, %261 ]
-  %263 = getelementptr inbounds nuw %struct.llist_item, ptr %260, i64 %indvars.iv.i20.i32.i
+  %263 = getelementptr inbounds nuw [48 x i8], ptr %260, i64 %indvars.iv.i20.i32.i
   store ptr %262, ptr %263, align 8, !tbaa !56
   %indvars.iv.next.i21.i33.i = add nuw nsw i64 %indvars.iv.i20.i32.i, 1
   %exitcond.not.i22.i34.i = icmp eq i64 %indvars.iv.next.i21.i33.i, 512
@@ -902,7 +901,7 @@ llist_copy.exit39.i:                              ; preds = %._crit_edge.i29.i, 
 284:                                              ; preds = %284, %282
   %indvars.iv.i.i.i = phi i64 [ 1, %282 ], [ %indvars.iv.next.i.i.i, %284 ]
   %285 = phi ptr [ %free_nodes.promoted.i.i.i, %282 ], [ %286, %284 ]
-  %286 = getelementptr inbounds nuw %struct.llist_item, ptr %283, i64 %indvars.iv.i.i.i
+  %286 = getelementptr inbounds nuw [48 x i8], ptr %283, i64 %indvars.iv.i.i.i
   store ptr %285, ptr %286, align 8, !tbaa !56
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 512
@@ -941,7 +940,7 @@ llist_item_get.exit.i.i:                          ; preds = %284, %280
 296:                                              ; preds = %296, %294
   %indvars.iv.i20.i.i = phi i64 [ 1, %294 ], [ %indvars.iv.next.i21.i.i, %296 ]
   %297 = phi ptr [ %free_nodes.promoted.i19.i.i, %294 ], [ %298, %296 ]
-  %298 = getelementptr inbounds nuw %struct.llist_item, ptr %295, i64 %indvars.iv.i20.i.i
+  %298 = getelementptr inbounds nuw [48 x i8], ptr %295, i64 %indvars.iv.i20.i.i
   store ptr %297, ptr %298, align 8, !tbaa !56
   %indvars.iv.next.i21.i.i = add nuw nsw i64 %indvars.iv.i20.i.i, 1
   %exitcond.not.i22.i.i = icmp eq i64 %indvars.iv.next.i21.i.i, 512
@@ -1647,14 +1646,14 @@ pack_list_size.exit.i.i:                          ; preds = %.lr.ph.i.i.i
   %.02331.i.i = phi ptr [ %.023.i.i, %.lr.ph.i97.i ], [ %.2.i, %533 ]
   %.02230.i.i = phi i64 [ %535, %.lr.ph.i97.i ], [ 0, %533 ]
   %535 = add i64 %.02230.i.i, 1
-  %536 = getelementptr inbounds nuw ptr, ptr %534, i64 %.02230.i.i
+  %536 = getelementptr inbounds nuw [8 x i8], ptr %534, i64 %.02230.i.i
   store ptr %.02331.i.i, ptr %536, align 8, !tbaa !20
   %.023.i.i = load ptr, ptr %.02331.i.i, align 8, !tbaa !20
   %.not.i98.i = icmp eq ptr %.023.i.i, null
   br i1 %.not.i98.i, label %._crit_edge.i.i178, label %.lr.ph.i97.i, !llvm.loop !85
 
 ._crit_edge.i.i178:                               ; preds = %.lr.ph.i97.i
-  %537 = getelementptr inbounds nuw ptr, ptr %534, i64 %.02230.i.i
+  %537 = getelementptr inbounds nuw [8 x i8], ptr %534, i64 %.02230.i.i
   %538 = icmp ugt i64 %535, 1
   br i1 %538, label %sane_qsort.exit.i.thread.i, label %sane_qsort.exit.i.i
 
@@ -1685,7 +1684,7 @@ sane_qsort.exit.i.i:                              ; preds = %._crit_edge.i.i178
   %541 = phi ptr [ %544, %.lr.ph33.i.i ], [ %.pre.i99.i, %.lr.ph33.preheader.i.i ]
   %.032.i.i = phi i64 [ %542, %.lr.ph33.i.i ], [ 0, %.lr.ph33.preheader.i.i ]
   %542 = add nuw i64 %.032.i.i, 1
-  %543 = getelementptr inbounds nuw ptr, ptr %534, i64 %542
+  %543 = getelementptr inbounds nuw [8 x i8], ptr %534, i64 %542
   %544 = load ptr, ptr %543, align 8, !tbaa !20
   store ptr %544, ptr %541, align 8, !tbaa !30
   %exitcond.not.i.i = icmp eq i64 %542, %.02230.i.i
@@ -2251,7 +2250,7 @@ define internal fastcc ptr @llist_insert_sorted_unique(ptr noundef captures(none
 19:                                               ; preds = %19, %17
   %indvars.iv.i.i = phi i64 [ 1, %17 ], [ %indvars.iv.next.i.i, %19 ]
   %20 = phi ptr [ %free_nodes.promoted.i.i, %17 ], [ %21, %19 ]
-  %21 = getelementptr inbounds nuw %struct.llist_item, ptr %18, i64 %indvars.iv.i.i
+  %21 = getelementptr inbounds nuw [48 x i8], ptr %18, i64 %indvars.iv.i.i
   store ptr %20, ptr %21, align 8, !tbaa !56
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 512
@@ -2283,7 +2282,7 @@ llist_item_get.exit.i:                            ; preds = %19, %15
 
 33:                                               ; preds = %.preheader80, %35
   %.0811.i.i.i = phi i64 [ %36, %35 ], [ 0, %.preheader80 ]
-  %34 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i.i
+  %34 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i.i
   %.not.i.i.i = icmp eq ptr %25, %34
   br i1 %.not.i.i.i, label %.split.loop.exit9.i.i.i, label %35
 
@@ -2367,7 +2366,7 @@ oidread.exit.i:                                   ; preds = %35, %.split.loop.ex
 64:                                               ; preds = %64, %62
   %indvars.iv.i.i.i = phi i64 [ 1, %62 ], [ %indvars.iv.next.i.i.i, %64 ]
   %65 = phi ptr [ %free_nodes.promoted.i.i.i, %62 ], [ %66, %64 ]
-  %66 = getelementptr inbounds nuw %struct.llist_item, ptr %63, i64 %indvars.iv.i.i.i
+  %66 = getelementptr inbounds nuw [48 x i8], ptr %63, i64 %indvars.iv.i.i.i
   store ptr %65, ptr %66, align 8, !tbaa !56
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i27 = icmp eq i64 %indvars.iv.next.i.i.i, 512
@@ -2399,7 +2398,7 @@ llist_item_get.exit.i.i:                          ; preds = %64, %60
 
 78:                                               ; preds = %.preheader, %80
   %.0811.i.i.i.i = phi i64 [ %81, %80 ], [ 0, %.preheader ]
-  %79 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i.i.i
+  %79 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i.i.i
   %.not.i.i.i.i = icmp eq ptr %70, %79
   br i1 %.not.i.i.i.i, label %.split.loop.exit9.i.i.i.i, label %80
 
@@ -2596,7 +2595,7 @@ define internal fastcc void @add_pack(ptr noundef nonnull %0) unnamed_addr #0 {
 37:                                               ; preds = %37, %35
   %indvars.iv.i.i.i = phi i64 [ 1, %35 ], [ %indvars.iv.next.i.i.i, %37 ]
   %38 = phi ptr [ %free_nodes.promoted.i.i.i, %35 ], [ %39, %37 ]
-  %39 = getelementptr inbounds nuw %struct.llist_item, ptr %36, i64 %indvars.iv.i.i.i
+  %39 = getelementptr inbounds nuw [48 x i8], ptr %36, i64 %indvars.iv.i.i.i
   store ptr %38, ptr %39, align 8, !tbaa !56
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 512
@@ -2628,7 +2627,7 @@ llist_item_get.exit.i.i:                          ; preds = %37, %33
 
 51:                                               ; preds = %.preheader, %53
   %.0811.i.i.i.i = phi i64 [ %54, %53 ], [ 0, %.preheader ]
-  %52 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i.i.i
+  %52 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i.i.i
   %.not.i.i.i.i = icmp eq ptr %43, %52
   br i1 %.not.i.i.i.i, label %.split.loop.exit9.i.i.i.i, label %53
 
@@ -2758,7 +2757,7 @@ define internal fastcc noundef ptr @llist_copy(ptr noundef readonly captures(non
 13:                                               ; preds = %13, %11
   %indvars.iv.i = phi i64 [ 1, %11 ], [ %indvars.iv.next.i, %13 ]
   %14 = phi ptr [ %free_nodes.promoted.i, %11 ], [ %15, %13 ]
-  %15 = getelementptr inbounds nuw %struct.llist_item, ptr %12, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw [48 x i8], ptr %12, i64 %indvars.iv.i
   store ptr %14, ptr %15, align 8, !tbaa !56
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 512
@@ -2797,7 +2796,7 @@ llist_item_get.exit:                              ; preds = %13, %9
 25:                                               ; preds = %25, %23
   %indvars.iv.i20 = phi i64 [ 1, %23 ], [ %indvars.iv.next.i21, %25 ]
   %26 = phi ptr [ %free_nodes.promoted.i19, %23 ], [ %27, %25 ]
-  %27 = getelementptr inbounds nuw %struct.llist_item, ptr %24, i64 %indvars.iv.i20
+  %27 = getelementptr inbounds nuw [48 x i8], ptr %24, i64 %indvars.iv.i20
   store ptr %26, ptr %27, align 8, !tbaa !56
   %indvars.iv.next.i21 = add nuw nsw i64 %indvars.iv.i20, 1
   %exitcond.not.i22 = icmp eq i64 %indvars.iv.next.i21, 512

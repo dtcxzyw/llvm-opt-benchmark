@@ -5,12 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.strvec = type { ptr, i64, i64 }
 %struct.strbuf = type { i64, i64, ptr }
-%struct.pathspec_magic = type { i32, i8, ptr }
-%struct.pathspec_item = type { ptr, ptr, i32, i32, i32, i32, i32, i32, ptr, ptr }
 %struct.string_list = type { ptr, i64, i64, i8, ptr }
-%struct.attr_match = type { ptr, i32 }
-%struct.string_list_item = type { ptr, ptr }
-%struct.attr_check_item = type { ptr, ptr }
 
 @the_repository = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [3 x i8] c", \00", align 1
@@ -117,7 +112,7 @@ define dso_local void @add_pathspec_matches_against_index(ptr noundef %0, ptr no
 .lr.ph27.split.us:                                ; preds = %.lr.ph27, %33
   %indvars.iv34 = phi i64 [ %indvars.iv.next35, %33 ], [ 0, %.lr.ph27 ]
   %14 = load ptr, ptr %1, align 8, !tbaa !31
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv34
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv34
   %16 = load ptr, ptr %15, align 8, !tbaa !32
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 56
   %18 = load i32, ptr %17, align 8, !tbaa !34
@@ -154,7 +149,7 @@ define dso_local void @add_pathspec_matches_against_index(ptr noundef %0, ptr no
 .lr.ph27.split:                                   ; preds = %.lr.ph27, %.lr.ph27.split
   %indvars.iv31 = phi i64 [ %indvars.iv.next32, %.lr.ph27.split ], [ 0, %.lr.ph27 ]
   %37 = load ptr, ptr %1, align 8, !tbaa !31
-  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv31
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv31
   %39 = load ptr, ptr %38, align 8, !tbaa !32
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 64
   %41 = load i32, ptr %40, align 8, !tbaa !34
@@ -206,7 +201,7 @@ define dso_local ptr @find_pathspecs_matching_skip_worktree(ptr noundef %0) loca
 .lr.ph:                                           ; preds = %1, %30
   %indvars.iv = phi i64 [ %indvars.iv.next, %30 ], [ 0, %1 ]
   %10 = load ptr, ptr %4, align 8, !tbaa !31
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !32
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %14 = load i32, ptr %13, align 8, !tbaa !34
@@ -252,7 +247,7 @@ define dso_local void @pathspec_magic_names(i32 noundef %0, ptr noundef %1) loca
 
 4:                                                ; preds = %2, %25
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %25 ]
-  %5 = getelementptr inbounds nuw %struct.pathspec_magic, ptr @pathspec_magic, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [16 x i8], ptr @pathspec_magic, i64 %indvars.iv
   %6 = load i32, ptr %5, align 16, !tbaa !54
   %7 = and i32 %6, %0
   %.not = icmp eq i32 %7, 0
@@ -419,7 +414,7 @@ define dso_local void @parse_pathspec(ptr noundef captures(none) initializes((0,
 
 41:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %42 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.next
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.next
   %43 = load ptr, ptr %42, align 8, !tbaa !61
   %.not93 = icmp eq ptr %43, null
   br i1 %.not93, label %st_mult.exit.loopexit, label %.lr.ph, !llvm.loop !72
@@ -461,9 +456,9 @@ st_mult.exit:                                     ; preds = %st_mult.exit.loopex
 .lr.ph115.split.us:                               ; preds = %.lr.ph115, %75
   %indvars.iv140 = phi i64 [ %indvars.iv.next141, %75 ], [ 0, %.lr.ph115 ]
   %.0114.us = phi i32 [ %spec.select.us, %75 ], [ 0, %.lr.ph115 ]
-  %58 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv140
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv140
   %59 = load ptr, ptr %58, align 8, !tbaa !61
-  %60 = getelementptr inbounds nuw %struct.pathspec_item, ptr %48, i64 %indvars.iv140
+  %60 = getelementptr inbounds nuw [56 x i8], ptr %48, i64 %indvars.iv140
   tail call fastcc void @init_pathspec_item(ptr noundef %60, i32 noundef %2, ptr noundef %3, i32 noundef %54, ptr noundef %59)
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %62 = load i32, ptr %61, align 8, !tbaa !73
@@ -501,9 +496,9 @@ st_mult.exit:                                     ; preds = %st_mult.exit.loopex
 .lr.ph115.split:                                  ; preds = %.lr.ph115, %102
   %indvars.iv137 = phi i64 [ %indvars.iv.next138, %102 ], [ 0, %.lr.ph115 ]
   %.0114 = phi i32 [ %spec.select, %102 ], [ 0, %.lr.ph115 ]
-  %79 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv137
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv137
   %80 = load ptr, ptr %79, align 8, !tbaa !61
-  %81 = getelementptr inbounds nuw %struct.pathspec_item, ptr %48, i64 %indvars.iv137
+  %81 = getelementptr inbounds nuw [56 x i8], ptr %48, i64 %indvars.iv137
   tail call fastcc void @init_pathspec_item(ptr noundef %81, i32 noundef %2, ptr noundef %3, i32 noundef %54, ptr noundef %80)
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %83 = load i32, ptr %82, align 8, !tbaa !73
@@ -562,7 +557,7 @@ st_mult.exit:                                     ; preds = %st_mult.exit.loopex
 
 107:                                              ; preds = %._crit_edge
   %108 = select i1 %.not90, i32 0, i32 %54
-  %109 = getelementptr inbounds nuw %struct.pathspec_item, ptr %48, i64 %.lcssa107
+  %109 = getelementptr inbounds nuw [56 x i8], ptr %48, i64 %.lcssa107
   tail call fastcc void @init_pathspec_item(ptr noundef %109, i32 noundef 0, ptr noundef %3, i32 noundef %108, ptr noundef nonnull @.str.8)
   %110 = load i32, ptr %0, align 8, !tbaa !4
   %111 = add nsw i32 %110, 1
@@ -810,7 +805,7 @@ strcspn_escaped.exit.i.i:                         ; preds = %35, %.preheader52.i
   %81 = load ptr, ptr %.054.i74.i.i, align 8, !tbaa !84
   %82 = load ptr, ptr %11, align 8, !tbaa !78
   %83 = sext i32 %79 to i64
-  %84 = getelementptr inbounds %struct.attr_match, ptr %82, i64 %83
+  %84 = getelementptr inbounds [16 x i8], ptr %82, i64 %83
   %85 = load i8, ptr %81, align 1, !tbaa !11
   switch i8 %85, label %94 [
     i8 33, label %86
@@ -922,7 +917,7 @@ attr_value_unescape.exit.i.i.i:                   ; preds = %105
   %130 = getelementptr inbounds nuw i8, ptr %.054.i74.i.i, i64 16
   %131 = load ptr, ptr %6, align 8, !tbaa !82
   %132 = load i64, ptr %28, align 8, !tbaa !79
-  %133 = getelementptr inbounds nuw %struct.string_list_item, ptr %131, i64 %132
+  %133 = getelementptr inbounds nuw [16 x i8], ptr %131, i64 %132
   %134 = icmp ult ptr %130, %133
   br i1 %134, label %.lr.ph.i.i, label %.critedge.i.i.i
 
@@ -946,7 +941,7 @@ parse_pathspec_attr_match.exit.i.i:               ; preds = %.critedge.i.i.i
 
 .preheader.i.i:                                   ; preds = %56, %147
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %147 ], [ 0, %56 ]
-  %140 = getelementptr inbounds nuw %struct.pathspec_magic, ptr @pathspec_magic, i64 %indvars.iv.i.i
+  %140 = getelementptr inbounds nuw [16 x i8], ptr @pathspec_magic, i64 %indvars.iv.i.i
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 8
   %142 = load ptr, ptr %141, align 8, !tbaa !58
   %143 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %142) #19
@@ -1014,7 +1009,7 @@ parse_long_magic.exit.i:                          ; preds = %29
 
 .preheader.i11.i:                                 ; preds = %158, %163
   %indvars.iv.i12.i = phi i64 [ %indvars.iv.next.i13.i, %163 ], [ 0, %158 ]
-  %164 = getelementptr inbounds nuw %struct.pathspec_magic, ptr @pathspec_magic, i64 %indvars.iv.i12.i
+  %164 = getelementptr inbounds nuw [16 x i8], ptr @pathspec_magic, i64 %indvars.iv.i12.i
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 4
   %166 = load i8, ptr %165, align 4, !tbaa !59
   %167 = icmp eq i8 %166, %157
@@ -1328,7 +1323,7 @@ get_literal_global.exit:                          ; preds = %269, %272
 
 283:                                              ; preds = %306, %280
   %indvars.iv.i = phi i64 [ 0, %280 ], [ %indvars.iv.next.i, %306 ]
-  %284 = getelementptr inbounds nuw %struct.pathspec_magic, ptr @pathspec_magic, i64 %indvars.iv.i
+  %284 = getelementptr inbounds nuw [16 x i8], ptr @pathspec_magic, i64 %indvars.iv.i
   %285 = load i32, ptr %284, align 16, !tbaa !54
   %286 = and i32 %285, %.095103118132
   %.not24.i = icmp ne i32 %286, 0
@@ -1699,9 +1694,9 @@ copy_array.exit:                                  ; preds = %st_mult.exit, %st_m
 .lr.ph44:                                         ; preds = %copy_array.exit, %._crit_edge
   %indvars.iv48 = phi i64 [ %indvars.iv.next49, %._crit_edge ], [ 0, %copy_array.exit ]
   %13 = load ptr, ptr %8, align 8, !tbaa !63
-  %14 = getelementptr inbounds nuw %struct.pathspec_item, ptr %13, i64 %indvars.iv48
+  %14 = getelementptr inbounds nuw [56 x i8], ptr %13, i64 %indvars.iv48
   %15 = load ptr, ptr %9, align 8, !tbaa !63
-  %16 = getelementptr inbounds nuw %struct.pathspec_item, ptr %15, i64 %indvars.iv48
+  %16 = getelementptr inbounds nuw [56 x i8], ptr %15, i64 %indvars.iv48
   %17 = load ptr, ptr %16, align 8, !tbaa !64
   %18 = tail call ptr @xstrdup(ptr noundef %17) #17
   store ptr %18, ptr %14, align 8, !tbaa !64
@@ -1743,7 +1738,7 @@ copy_array.exit40:                                ; preds = %st_mult.exit35, %st
   %34 = phi i32 [ %40, %xstrdup_or_null.exit ], [ %32, %copy_array.exit40 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %xstrdup_or_null.exit ], [ 0, %copy_array.exit40 ]
   %35 = load ptr, ptr %30, align 8, !tbaa !78
-  %36 = getelementptr inbounds nuw %struct.attr_match, ptr %35, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8, !tbaa !89
   %.not.i41 = icmp eq ptr %37, null
   br i1 %.not.i41, label %xstrdup_or_null.exit, label %38
@@ -1757,7 +1752,7 @@ xstrdup_or_null.exit:                             ; preds = %.lr.ph, %38
   %40 = phi i32 [ %.pre, %38 ], [ %34, %.lr.ph ]
   %41 = phi ptr [ %39, %38 ], [ null, %.lr.ph ]
   %42 = load ptr, ptr %29, align 8, !tbaa !78
-  %43 = getelementptr inbounds nuw %struct.attr_match, ptr %42, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %42, i64 %indvars.iv
   store ptr %41, ptr %43, align 8, !tbaa !89
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %44 = sext i32 %40 to i64
@@ -1795,16 +1790,16 @@ define dso_local void @clear_pathspec(ptr noundef captures(none) %0) local_unnam
 5:                                                ; preds = %.lr.ph27, %39
   %indvars.iv30 = phi i64 [ 0, %.lr.ph27 ], [ %indvars.iv.next31, %39 ]
   %6 = load ptr, ptr %4, align 8, !tbaa !63
-  %7 = getelementptr inbounds nuw %struct.pathspec_item, ptr %6, i64 %indvars.iv30
+  %7 = getelementptr inbounds nuw [56 x i8], ptr %6, i64 %indvars.iv30
   %8 = load ptr, ptr %7, align 8, !tbaa !64
   tail call void @free(ptr noundef %8) #17
   %9 = load ptr, ptr %4, align 8, !tbaa !63
-  %10 = getelementptr inbounds nuw %struct.pathspec_item, ptr %9, i64 %indvars.iv30
+  %10 = getelementptr inbounds nuw [56 x i8], ptr %9, i64 %indvars.iv30
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !68
   tail call void @free(ptr noundef %12) #17
   %13 = load ptr, ptr %4, align 8, !tbaa !63
-  %14 = getelementptr inbounds nuw %struct.pathspec_item, ptr %13, i64 %indvars.iv30
+  %14 = getelementptr inbounds nuw [56 x i8], ptr %13, i64 %indvars.iv30
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 36
   %16 = load i32, ptr %15, align 4, !tbaa !83
   %17 = icmp sgt i32 %16, 0
@@ -1813,15 +1808,15 @@ define dso_local void @clear_pathspec(ptr noundef captures(none) %0) local_unnam
 .lr.ph:                                           ; preds = %5, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %5 ]
   %18 = phi ptr [ %24, %.lr.ph ], [ %13, %5 ]
-  %19 = getelementptr inbounds nuw %struct.pathspec_item, ptr %18, i64 %indvars.iv30
+  %19 = getelementptr inbounds nuw [56 x i8], ptr %18, i64 %indvars.iv30
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %21 = load ptr, ptr %20, align 8, !tbaa !78
-  %22 = getelementptr inbounds nuw %struct.attr_match, ptr %21, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8, !tbaa !89
   tail call void @free(ptr noundef %23) #17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = load ptr, ptr %4, align 8, !tbaa !63
-  %25 = getelementptr inbounds nuw %struct.pathspec_item, ptr %24, i64 %indvars.iv30
+  %25 = getelementptr inbounds nuw [56 x i8], ptr %24, i64 %indvars.iv30
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 36
   %27 = load i32, ptr %26, align 4, !tbaa !83
   %28 = sext i32 %27 to i64
@@ -1830,12 +1825,12 @@ define dso_local void @clear_pathspec(ptr noundef captures(none) %0) local_unnam
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
   %30 = phi ptr [ %13, %5 ], [ %24, %.lr.ph ]
-  %31 = getelementptr inbounds nuw %struct.pathspec_item, ptr %30, i64 %indvars.iv30
+  %31 = getelementptr inbounds nuw [56 x i8], ptr %30, i64 %indvars.iv30
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 40
   %33 = load ptr, ptr %32, align 8, !tbaa !78
   tail call void @free(ptr noundef %33) #17
   %34 = load ptr, ptr %4, align 8, !tbaa !63
-  %35 = getelementptr inbounds nuw %struct.pathspec_item, ptr %34, i64 %indvars.iv30
+  %35 = getelementptr inbounds nuw [56 x i8], ptr %34, i64 %indvars.iv30
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 48
   %37 = load ptr, ptr %36, align 8, !tbaa !77
   %.not = icmp eq ptr %37, null
@@ -1901,10 +1896,10 @@ define dso_local range(i32 0, 2) i32 @match_pathspec_attrs(ptr noundef %0, ptr n
 
 21:                                               ; preds = %.lr.ph, %41
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %41 ]
-  %22 = getelementptr inbounds nuw %struct.attr_check_item, ptr %18, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %indvars.iv
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !116
-  %25 = getelementptr inbounds nuw %struct.attr_match, ptr %20, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %indvars.iv
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %27 = load i32, ptr %26, align 8, !tbaa !86
   %28 = icmp eq ptr %24, @git_attr__true
@@ -1982,7 +1977,7 @@ define dso_local range(i32 0, 2) i32 @pathspec_needs_expanded_index(ptr noundef 
   %.05475 = phi ptr [ null, %.lr.ph77 ], [ %.256.ph, %.thread ]
   %12 = load ptr, ptr %9, align 8, !tbaa !63
   %13 = zext i32 %.03876 to i64
-  %14 = getelementptr inbounds nuw %struct.pathspec_item, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [56 x i8], ptr %12, i64 %13
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.sroa.3.0.copyload = load ptr, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !61
   %.sroa.911.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 20
@@ -2015,7 +2010,7 @@ define dso_local range(i32 0, 2) i32 @pathspec_needs_expanded_index(ptr noundef 
   %27 = phi i32 [ %48, %47 ], [ %26, %25 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %47 ], [ 0, %25 ]
   %28 = load ptr, ptr %0, align 8, !tbaa !31
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8, !tbaa !32
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 52
   %32 = load i32, ptr %31, align 4, !tbaa !34
@@ -2081,7 +2076,7 @@ define dso_local range(i32 0, 2) i32 @pathspec_needs_expanded_index(ptr noundef 
 .lr.ph.i.i:                                       ; preds = %54, %83
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %83 ], [ 0, %54 ]
   %63 = load ptr, ptr %57, align 8, !tbaa !31
-  %64 = getelementptr inbounds nuw ptr, ptr %63, i64 %indvars.iv.i.i
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %indvars.iv.i.i
   %65 = load ptr, ptr %64, align 8, !tbaa !32
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 56
   %67 = load i32, ptr %66, align 8, !tbaa !34

@@ -10020,7 +10020,7 @@ common.ret:                                       ; preds = %1133, %970, %276, %
   %.val.i.i244 = load ptr, ptr %468, align 8, !noalias !1492, !nonnull !5, !noundef !5
   %476 = getelementptr i8, ptr %1, i64 128
   %.val86.i.i = load i64, ptr %476, align 8, !noalias !1492, !noundef !5
-  %477 = getelementptr inbounds { { { ptr, i64 }, i64 }, i8, [7 x i8] }, ptr %.val.i.i244, i64 %.val86.i.i
+  %477 = getelementptr inbounds [32 x i8], ptr %.val.i.i244, i64 %.val86.i.i
   br label %478
 
 478:                                              ; preds = %.noexc87.i.i, %475

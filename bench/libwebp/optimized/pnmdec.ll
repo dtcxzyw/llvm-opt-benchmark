@@ -336,7 +336,7 @@ define hidden range(i32 0, 2) i32 @ReadPNM(ptr noundef %0, i64 noundef %1, ptr n
   %138 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i.i
   %139 = load i8, ptr %138, align 1, !tbaa !20
   %140 = sext i8 %139 to i64
-  %141 = getelementptr inbounds i16, ptr %.pre.i.i, i64 %140
+  %141 = getelementptr inbounds [2 x i8], ptr %.pre.i.i, i64 %140
   %142 = load i16, ptr %141, align 2, !tbaa !28
   %143 = and i16 %142, 16384
   %.not51.i.i = icmp eq i16 %143, 0

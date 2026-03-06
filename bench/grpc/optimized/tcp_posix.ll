@@ -19,10 +19,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::__atomic_base.31" = type { ptr }
 %"struct.std::array" = type { [7 x i8] }
 %"class.grpc_core::NoDestruct.121" = type { [24 x i8] }
-%struct.grpc_slice = type { ptr, %"union.grpc_slice::grpc_slice_data" }
-%"union.grpc_slice::grpc_slice_data" = type { %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted", [8 x i8] }
-%"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted" = type { i64, ptr }
-%struct.iovec = type { ptr, i64 }
 %"class.absl::lts_20240722::Status" = type { i64 }
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
@@ -49,6 +45,7 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.26 = type { %"class.absl::lts_20240722::Status" }
 %union.anon.27 = type { %"class.std::__cxx11::basic_string" }
 %struct.msghdr = type { ptr, i32, ptr, i64, ptr, i64, i32 }
+%struct.iovec = type { ptr, i64 }
 %"class.absl::lts_20240722::AlphaNum" = type { %"class.std::basic_string_view", [32 x i8] }
 %"class.std::basic_string_view" = type { i64, ptr }
 %"class.std::shared_ptr.87" = type { %"class.std::__shared_ptr.88" }
@@ -61,20 +58,10 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.80" = type { %"struct.std::_Head_base.83" }
 %"struct.std::_Head_base.83" = type { ptr }
 %"struct.grpc_core::BasicMemoryQuota::PressureInfo" = type { double, double, i64 }
-%"struct.grpc_core::GlobalStatsCollector::Data" = type { %"struct.std::atomic.33", %"struct.std::atomic.33", %"struct.std::atomic.33", %"struct.std::atomic.33", %"struct.std::atomic.33", %"struct.std::atomic.33", %"struct.std::atomic.33", %"struct.std::atomic.33", %"struct.std::atomic.33", %"struct.std::atomic.33", %"struct.std::atomic.33", %"struct.std::atomic.33", %"struct.std::atomic.33", %"struct.std::atomic.33", %"struct.std::atomic.33", %"struct.std::atomic.33", %"struct.std::atomic.33", %"struct.std::atomic.33", %"struct.std::atomic.33", %"struct.std::atomic.33", %"struct.std::atomic.33", %"struct.std::atomic.33", %"struct.std::atomic.33", %"struct.std::atomic.33", %"struct.std::atomic.33", %"struct.std::atomic.33", %"struct.std::atomic.33", %"struct.std::atomic.33", %"struct.std::atomic.33", %"struct.std::atomic.33", %"struct.std::atomic.33", %"struct.std::atomic.33", %"struct.std::atomic.33", %"struct.std::atomic.33", %"struct.std::atomic.33", %"struct.std::atomic.33", %"struct.std::atomic.33", %"class.grpc_core::HistogramCollector_65536_26", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_80_10", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_80_10", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_65536_26", %"class.grpc_core::HistogramCollector_1800000_40", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_100000_20", %"class.grpc_core::HistogramCollector_100000_20", %"class.grpc_core::HistogramCollector_10000_20", %"class.grpc_core::HistogramCollector_10000_20", %"class.grpc_core::HistogramCollector_100000_20", %"class.grpc_core::HistogramCollector_100000_20", %"class.grpc_core::HistogramCollector_100000_20", %"class.grpc_core::HistogramCollector_10000_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_100_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20", %"class.grpc_core::HistogramCollector_16777216_20" }
-%"class.grpc_core::HistogramCollector_80_10" = type { [10 x %"struct.std::atomic.33"] }
-%"class.grpc_core::HistogramCollector_65536_26" = type { [26 x %"struct.std::atomic.33"] }
-%"class.grpc_core::HistogramCollector_1800000_40" = type { [40 x %"struct.std::atomic.33"] }
-%"class.grpc_core::HistogramCollector_100000_20" = type { [20 x %"struct.std::atomic.33"] }
-%"class.grpc_core::HistogramCollector_10000_20" = type { [20 x %"struct.std::atomic.33"] }
-%"class.grpc_core::HistogramCollector_100_20" = type { [20 x %"struct.std::atomic.33"] }
-%"class.grpc_core::HistogramCollector_16777216_20" = type { [20 x %"struct.std::atomic.33"] }
+%struct.grpc_slice = type { ptr, %"union.grpc_slice::grpc_slice_data" }
+%"union.grpc_slice::grpc_slice_data" = type { %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted", [8 x i8] }
+%"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted" = type { i64, ptr }
 %"class.grpc_core::PerCpuOptions" = type { i64, i64 }
-%"class.grpc_core::TcpZerocopySendRecord" = type { %struct.grpc_slice_buffer, %"struct.std::atomic", %"struct.grpc_core::TcpZerocopySendRecord::OutgoingOffset" }
-%struct.grpc_slice_buffer = type { ptr, ptr, i64, i64, i64, [6 x %struct.grpc_slice] }
-%"struct.std::atomic" = type { %"struct.std::__atomic_base" }
-%"struct.std::__atomic_base" = type { i64 }
-%"struct.grpc_core::TcpZerocopySendRecord::OutgoingOffset" = type { i64, i64 }
 %"class.grpc_core::DebugLocation" = type { i8 }
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<absl::lts_20240722::Status, std::allocator<absl::lts_20240722::Status>>::_Vector_impl" }
@@ -367,7 +354,7 @@ define noundef i64 @_ZN9grpc_core21TcpZerocopySendRecord12PopulateIovsEPmS1_S1_P
   %16 = phi i64 [ %9, %.lr.ph ], [ 0, %34 ]
   %17 = phi i64 [ %11, %.lr.ph ], [ %42, %34 ]
   %.014 = phi i64 [ 0, %.lr.ph ], [ %43, %34 ]
-  %18 = getelementptr inbounds nuw %struct.grpc_slice, ptr %14, i64 %17
+  %18 = getelementptr inbounds nuw [32 x i8], ptr %14, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !22
   %.not = icmp eq ptr %19, null
   br i1 %.not, label %27, label %20
@@ -376,7 +363,7 @@ define noundef i64 @_ZN9grpc_core21TcpZerocopySendRecord12PopulateIovsEPmS1_S1_P
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !25
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 %16
-  %24 = getelementptr inbounds nuw %struct.iovec, ptr %4, i64 %.014
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %.014
   store ptr %23, ptr %24, align 8, !tbaa !26
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %26 = load i64, ptr %25, align 8, !tbaa !25
@@ -385,7 +372,7 @@ define noundef i64 @_ZN9grpc_core21TcpZerocopySendRecord12PopulateIovsEPmS1_S1_P
 27:                                               ; preds = %15
   %28 = getelementptr inbounds nuw i8, ptr %18, i64 9
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 %16
-  %30 = getelementptr inbounds nuw %struct.iovec, ptr %4, i64 %.014
+  %30 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %.014
   store ptr %29, ptr %30, align 8, !tbaa !26
   %31 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %32 = load i8, ptr %31, align 8, !tbaa !25
@@ -394,7 +381,7 @@ define noundef i64 @_ZN9grpc_core21TcpZerocopySendRecord12PopulateIovsEPmS1_S1_P
 
 34:                                               ; preds = %27, %20
   %35 = phi i64 [ %26, %20 ], [ %33, %27 ]
-  %36 = getelementptr inbounds nuw %struct.iovec, ptr %4, i64 %.014
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %.014
   %37 = sub i64 %35, %16
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store i64 %37, ptr %38, align 8, !tbaa !28
@@ -435,7 +422,7 @@ define void @_ZN9grpc_core21TcpZerocopySendRecord24UpdateOffsetForBytesSentEmm(p
   %.01018 = phi i64 [ %4, %.lr.ph ], [ %25, %24 ]
   %10 = add i64 %9, -1
   store i64 %10, ptr %5, align 8, !tbaa !9
-  %11 = getelementptr inbounds nuw %struct.grpc_slice, ptr %7, i64 %10
+  %11 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !22
   %.not13 = icmp eq ptr %12, null
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -2228,7 +2215,7 @@ _ZN4absl12lts_2024072212log_internal12Check_NEImplImjEEPNSt7__cxx1112basic_strin
 
 203:                                              ; preds = %218, %.lr.ph.i44
   %.085199.i = phi i64 [ 0, %.lr.ph.i44 ], [ %222, %218 ]
-  %204 = getelementptr inbounds nuw %struct.grpc_slice, ptr %186, i64 %.085199.i
+  %204 = getelementptr inbounds nuw [32 x i8], ptr %186, i64 %.085199.i
   %205 = load ptr, ptr %204, align 8, !tbaa !22
   %.not106.i = icmp eq ptr %205, null
   br i1 %.not106.i, label %212, label %206
@@ -2236,7 +2223,7 @@ _ZN4absl12lts_2024072212log_internal12Check_NEImplImjEEPNSt7__cxx1112basic_strin
 206:                                              ; preds = %203
   %207 = getelementptr inbounds nuw i8, ptr %204, i64 16
   %208 = load ptr, ptr %207, align 8, !tbaa !25
-  %209 = getelementptr inbounds nuw %struct.iovec, ptr %13, i64 %.085199.i
+  %209 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %.085199.i
   store ptr %208, ptr %209, align 16, !tbaa !26
   %210 = getelementptr inbounds nuw i8, ptr %204, i64 8
   %211 = load i64, ptr %210, align 8, !tbaa !25
@@ -2244,7 +2231,7 @@ _ZN4absl12lts_2024072212log_internal12Check_NEImplImjEEPNSt7__cxx1112basic_strin
 
 212:                                              ; preds = %203
   %213 = getelementptr inbounds nuw i8, ptr %204, i64 9
-  %214 = getelementptr inbounds nuw %struct.iovec, ptr %13, i64 %.085199.i
+  %214 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %.085199.i
   store ptr %213, ptr %214, align 16, !tbaa !26
   %215 = getelementptr inbounds nuw i8, ptr %204, i64 8
   %216 = load i8, ptr %215, align 8, !tbaa !25
@@ -2253,7 +2240,7 @@ _ZN4absl12lts_2024072212log_internal12Check_NEImplImjEEPNSt7__cxx1112basic_strin
 
 218:                                              ; preds = %212, %206
   %219 = phi i64 [ %211, %206 ], [ %217, %212 ]
-  %220 = getelementptr inbounds nuw %struct.iovec, ptr %13, i64 %.085199.i
+  %220 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %.085199.i
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 8
   store i64 %219, ptr %221, align 8, !tbaa !28
   %222 = add nuw nsw i64 %.085199.i, 1
@@ -2307,7 +2294,7 @@ _ZN4absl12lts_2024072212log_internal12Check_NEImplImjEEPNSt7__cxx1112basic_strin
 .noexc55:                                         ; preds = %.noexc54
   %234 = getelementptr inbounds nuw i8, ptr %231, i64 904
   %235 = sext i32 %233 to i64
-  %236 = getelementptr inbounds %"struct.std::atomic.33", ptr %234, i64 %235
+  %236 = getelementptr inbounds [8 x i8], ptr %234, i64 %235
   %237 = atomicrmw add ptr %236, i64 1 monotonic, align 8
   %238 = load ptr, ptr %57, align 8, !tbaa !132
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 16
@@ -2323,7 +2310,7 @@ _ZN4absl12lts_2024072212log_internal12Check_NEImplImjEEPNSt7__cxx1112basic_strin
 .noexc57:                                         ; preds = %.noexc56
   %244 = getelementptr inbounds nuw i8, ptr %241, i64 1064
   %245 = sext i32 %243 to i64
-  %246 = getelementptr inbounds %"struct.std::atomic.33", ptr %244, i64 %245
+  %246 = getelementptr inbounds [8 x i8], ptr %244, i64 %245
   %247 = atomicrmw add ptr %246, i64 1 monotonic, align 8
   br label %248
 
@@ -2389,7 +2376,7 @@ _ZN9grpc_core6PerCpuINS_20GlobalStatsCollector4DataEE8this_cpuEv.exit.i: ; preds
   %262 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 8), align 8, !tbaa !205
   %263 = urem i64 %261, %262
   %264 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 16), align 8, !tbaa !215
-  %265 = getelementptr inbounds nuw %"struct.grpc_core::GlobalStatsCollector::Data", ptr %264, i64 %263
+  %265 = getelementptr inbounds nuw [6632 x i8], ptr %264, i64 %263
   %266 = getelementptr inbounds nuw i8, ptr %265, i64 80
   %267 = atomicrmw add ptr %266, i64 1 monotonic, align 8
   %268 = load i32, ptr %199, align 8, !tbaa !87
@@ -2747,7 +2734,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit130.i: ; preds = %
 .noexc71:                                         ; preds = %.noexc70
   %391 = getelementptr inbounds nuw i8, ptr %388, i64 744
   %392 = sext i32 %390 to i64
-  %393 = getelementptr inbounds %"struct.std::atomic.33", ptr %391, i64 %392
+  %393 = getelementptr inbounds [8 x i8], ptr %391, i64 %392
   %394 = atomicrmw add ptr %393, i64 1 monotonic, align 8
   %395 = uitofp nneg i64 %269 to double
   %396 = load double, ptr %200, align 8, !tbaa !114
@@ -2841,7 +2828,7 @@ thread-pre-split173.i:                            ; preds = %424, %418, %thread-
   %.0206.i = phi i64 [ %452, %451 ], [ 0, %.preheader.i50 ]
   %.071205.i = phi i64 [ %.1.i, %451 ], [ 0, %.preheader.i50 ]
   %.072204.i = phi i64 [ %.173.i, %451 ], [ %269, %.preheader.i50 ]
-  %439 = getelementptr inbounds nuw %struct.iovec, ptr %13, i64 %.0206.i
+  %439 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %.0206.i
   %440 = getelementptr inbounds nuw i8, ptr %439, i64 8
   %441 = load i64, ptr %440, align 8, !tbaa !28
   %.not98.i = icmp ult i64 %.072204.i, %441
@@ -2855,7 +2842,7 @@ thread-pre-split173.i:                            ; preds = %424, %418, %thread-
   %445 = load ptr, ptr %439, align 16, !tbaa !26
   %446 = getelementptr inbounds nuw i8, ptr %445, i64 %.072204.i
   %447 = sub nuw i64 %441, %.072204.i
-  %448 = getelementptr inbounds nuw %struct.iovec, ptr %13, i64 %.071205.i
+  %448 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %.071205.i
   store ptr %446, ptr %448, align 16, !tbaa !26
   %449 = getelementptr inbounds nuw i8, ptr %448, i64 8
   store i64 %447, ptr %449, align 8, !tbaa !28
@@ -3224,7 +3211,7 @@ _ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit22.i: ; preds = %_
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %556 = getelementptr inbounds nuw i8, ptr %555, i64 8
   %557 = load ptr, ptr %556, align 8, !tbaa !188
-  %558 = getelementptr inbounds nuw %struct.grpc_slice, ptr %557, i64 %.01038.i
+  %558 = getelementptr inbounds nuw [32 x i8], ptr %557, i64 %.01038.i
   %559 = invoke noundef ptr @_Z15grpc_dump_sliceRK10grpc_slicej(ptr noundef nonnull align 8 dereferenceable(32) %558, i32 noundef 3)
           to label %.noexc94 unwind label %.loopexit
 
@@ -3634,7 +3621,7 @@ define internal void @_ZL16tcp_handle_writePvN4absl12lts_202407226StatusE(ptr no
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 628
   %26 = load i32, ptr %25, align 4, !tbaa !225
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds ptr, ptr %24, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %24, i64 %27
   store ptr %16, ptr %28, align 8, !tbaa !226
   %29 = add nsw i32 %26, 1
   store i32 %29, ptr %25, align 4, !tbaa !225
@@ -4596,7 +4583,7 @@ _ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %2
 _ZNSt6vectorIPFvPvESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %25, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !240
   store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !238
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !241
   br label %_ZNSt6vectorIPFvPvESaIS2_EE9push_backERKS2_.exit
 
@@ -4709,7 +4696,7 @@ _ZN9grpc_core20PerCpuShardingHelper15GetShardingBitsEv.exit: ; preds = %_ZTWN9gr
   %22 = load i64, ptr %21, align 8, !tbaa !205
   %23 = urem i64 %20, %22
   %24 = load ptr, ptr %18, align 8, !tbaa !215
-  %25 = getelementptr inbounds nuw %"struct.grpc_core::GlobalStatsCollector::Data", ptr %24, i64 %23
+  %25 = getelementptr inbounds nuw [6632 x i8], ptr %24, i64 %23
   ret ptr %25
 }
 
@@ -4822,7 +4809,7 @@ define linkonce_odr void @_ZN9grpc_core18TcpZerocopySendCtxC2Eim(ptr noundef non
 .lr.ph:                                           ; preds = %.preheader, %_ZN9grpc_core21TcpZerocopySendRecordC2Ev.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN9grpc_core21TcpZerocopySendRecordC2Ev.exit ], [ 0, %.preheader ]
   %44 = load ptr, ptr %0, align 8, !tbaa !246
-  %45 = getelementptr inbounds nuw %"class.grpc_core::TcpZerocopySendRecord", ptr %44, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [256 x i8], ptr %44, i64 %indvars.iv
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 232
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %46, i8 0, i64 24, i1 false)
   invoke void @grpc_slice_buffer_init(ptr noundef nonnull align 8 dereferenceable(256) %45)
@@ -4830,9 +4817,9 @@ define linkonce_odr void @_ZN9grpc_core18TcpZerocopySendCtxC2Eim(ptr noundef non
 
 _ZN9grpc_core21TcpZerocopySendRecordC2Ev.exit:    ; preds = %.lr.ph
   %47 = load ptr, ptr %0, align 8, !tbaa !246
-  %48 = getelementptr inbounds nuw %"class.grpc_core::TcpZerocopySendRecord", ptr %47, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [256 x i8], ptr %47, i64 %indvars.iv
   %49 = load ptr, ptr %23, align 8, !tbaa !224
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv
   store ptr %48, ptr %50, align 8, !tbaa !226
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %51 = load i32, ptr %5, align 8, !tbaa !234
@@ -5119,7 +5106,7 @@ _ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit134: ; preds = %41
 43:                                               ; preds = %_ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit134
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %44 = load ptr, ptr %32, align 8, !tbaa !188
-  %45 = getelementptr inbounds nuw %struct.grpc_slice, ptr %44, i64 %.085209
+  %45 = getelementptr inbounds nuw [32 x i8], ptr %44, i64 %.085209
   %46 = invoke noundef ptr @_Z15grpc_dump_sliceRK10grpc_slicej(ptr noundef nonnull align 8 dereferenceable(32) %45, i32 noundef 3)
           to label %47 unwind label %68
 
@@ -5511,7 +5498,7 @@ _ZSt8_DestroyIPN4absl12lts_202407226StatusES2_EvT_S4_RSaIT0_E.exit.i: ; preds = 
   %193 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %194 = load ptr, ptr %193, align 8, !tbaa !224
   %195 = sext i32 %192 to i64
-  %196 = getelementptr inbounds ptr, ptr %194, i64 %195
+  %196 = getelementptr inbounds [8 x i8], ptr %194, i64 %195
   %197 = load ptr, ptr %196, align 8, !tbaa !226
   br label %_ZN9grpc_core18TcpZerocopySendCtx22TryGetSendRecordLockedEv.exit.i.i
 
@@ -5556,7 +5543,7 @@ _ZN9grpc_core18TcpZerocopySendCtx13GetSendRecordEv.exit.i: ; preds = %_ZN9grpc_c
   %212 = getelementptr inbounds nuw i8, ptr %0, i64 616
   %213 = load ptr, ptr %212, align 8, !tbaa !224
   %214 = sext i32 %211 to i64
-  %215 = getelementptr inbounds ptr, ptr %213, i64 %214
+  %215 = getelementptr inbounds [8 x i8], ptr %213, i64 %214
   %216 = load ptr, ptr %215, align 8, !tbaa !226
   br label %_ZN9grpc_core18TcpZerocopySendCtx22TryGetSendRecordLockedEv.exit.i14.i
 
@@ -6593,7 +6580,7 @@ define internal fastcc noundef zeroext i1 @_ZL18tcp_flush_zerocopyPN12_GLOBAL__N
   %.0.i = phi i64 [ 0, %.lr.ph.i.i ], [ %61, %56 ]
   %39 = phi i64 [ %35, %.lr.ph.i.i ], [ 0, %56 ]
   %.014.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %63, %56 ]
-  %40 = getelementptr inbounds nuw %struct.grpc_slice, ptr %36, i64 %38
+  %40 = getelementptr inbounds nuw [32 x i8], ptr %36, i64 %38
   %41 = load ptr, ptr %40, align 8, !tbaa !22
   %.not.i.i = icmp eq ptr %41, null
   br i1 %.not.i.i, label %49, label %42
@@ -6602,7 +6589,7 @@ define internal fastcc noundef zeroext i1 @_ZL18tcp_flush_zerocopyPN12_GLOBAL__N
   %43 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %44 = load ptr, ptr %43, align 8, !tbaa !25
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 %39
-  %46 = getelementptr inbounds nuw %struct.iovec, ptr %8, i64 %.014.i.i
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %.014.i.i
   store ptr %45, ptr %46, align 16, !tbaa !26
   %47 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %48 = load i64, ptr %47, align 8, !tbaa !25
@@ -6611,7 +6598,7 @@ define internal fastcc noundef zeroext i1 @_ZL18tcp_flush_zerocopyPN12_GLOBAL__N
 49:                                               ; preds = %37
   %50 = getelementptr inbounds nuw i8, ptr %40, i64 9
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 %39
-  %52 = getelementptr inbounds nuw %struct.iovec, ptr %8, i64 %.014.i.i
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %.014.i.i
   store ptr %51, ptr %52, align 16, !tbaa !26
   %53 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %54 = load i8, ptr %53, align 8, !tbaa !25
@@ -6620,7 +6607,7 @@ define internal fastcc noundef zeroext i1 @_ZL18tcp_flush_zerocopyPN12_GLOBAL__N
 
 56:                                               ; preds = %49, %42
   %57 = phi i64 [ %48, %42 ], [ %55, %49 ]
-  %58 = getelementptr inbounds nuw %struct.iovec, ptr %8, i64 %.014.i.i
+  %58 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %.014.i.i
   %59 = sub i64 %57, %39
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 8
   store i64 %59, ptr %60, align 8, !tbaa !28
@@ -6672,14 +6659,14 @@ _ZN9grpc_core21TcpZerocopySendRecord12PopulateIovsEPmS1_S1_P5iovec.exit.i: ; pre
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 504
   %76 = call noundef i32 @_ZN9grpc_core21Histogram_16777216_209BucketForEi(i32 noundef %73)
   %77 = sext i32 %76 to i64
-  %78 = getelementptr inbounds %"struct.std::atomic.33", ptr %75, i64 %77
+  %78 = getelementptr inbounds [8 x i8], ptr %75, i64 %77
   %79 = atomicrmw add ptr %78, i64 1 monotonic, align 8
   %80 = trunc i64 %.0.lcssa.i.i to i32
   %81 = call noundef nonnull align 8 dereferenceable(6632) ptr @_ZN9grpc_core6PerCpuINS_20GlobalStatsCollector4DataEE8this_cpuEv(ptr noundef nonnull align 8 dereferenceable(24) @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E)
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 664
   %83 = call noundef i32 @_ZN9grpc_core15Histogram_80_109BucketForEi(i32 noundef %80)
   %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds %"struct.std::atomic.33", ptr %82, i64 %84
+  %85 = getelementptr inbounds [8 x i8], ptr %82, i64 %84
   %86 = atomicrmw add ptr %85, i64 1 monotonic, align 8
   %87 = load i32, ptr %25, align 8, !tbaa !87
   br label %88
@@ -6732,7 +6719,7 @@ _ZN9grpc_core6PerCpuINS_20GlobalStatsCollector4DataEE8this_cpuEv.exit.i: ; preds
   %103 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 8), align 8, !tbaa !205
   %104 = urem i64 %102, %103
   %105 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 16), align 8, !tbaa !215
-  %106 = getelementptr inbounds nuw %"struct.grpc_core::GlobalStatsCollector::Data", ptr %105, i64 %104
+  %106 = getelementptr inbounds nuw [6632 x i8], ptr %105, i64 %104
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 72
   %108 = atomicrmw add ptr %107, i64 1 monotonic, align 8
   %109 = call i64 @sendmsg(i32 noundef %87, ptr noundef nonnull %7, i32 noundef 67125248)
@@ -6974,7 +6961,7 @@ _ZN9grpc_core8EventLog6AppendESt17basic_string_viewIcSt11char_traitsIcEEl.exit.i
   %.01018.i.i = phi i64 [ %182, %.lr.ph.i35.i ], [ %200, %199 ]
   %186 = add i64 %185, -1
   store i64 %186, ptr %13, align 8, !tbaa !9
-  %187 = getelementptr inbounds nuw %struct.grpc_slice, ptr %183, i64 %186
+  %187 = getelementptr inbounds nuw [32 x i8], ptr %183, i64 %186
   %188 = load ptr, ptr %187, align 8, !tbaa !22
   %.not13.i.i = icmp eq ptr %188, null
   %189 = getelementptr inbounds nuw i8, ptr %187, i64 8
@@ -7063,7 +7050,7 @@ _ZL21do_tcp_flush_zerocopyPN12_GLOBAL__N_18grpc_tcpEPN9grpc_core21TcpZerocopySen
   %220 = getelementptr inbounds nuw i8, ptr %0, i64 628
   %221 = load i32, ptr %220, align 4, !tbaa !225
   %222 = sext i32 %221 to i64
-  %223 = getelementptr inbounds ptr, ptr %219, i64 %222
+  %223 = getelementptr inbounds [8 x i8], ptr %219, i64 %222
   store ptr %1, ptr %223, align 8, !tbaa !226
   %224 = add nsw i32 %221, 1
   store i32 %224, ptr %220, align 4, !tbaa !225
@@ -7137,7 +7124,7 @@ define internal fastcc noundef zeroext i1 @_ZL9tcp_flushPN12_GLOBAL__N_18grpc_tc
   %.081155 = phi i64 [ 0, %.lr.ph ], [ %58, %51 ]
   %.082154 = phi i64 [ 0, %.lr.ph ], [ %56, %51 ]
   %.192153 = phi i64 [ %.091, %.lr.ph ], [ %57, %51 ]
-  %35 = getelementptr inbounds nuw %struct.grpc_slice, ptr %32, i64 %.192153
+  %35 = getelementptr inbounds nuw [32 x i8], ptr %32, i64 %.192153
   %36 = load ptr, ptr %35, align 8, !tbaa !22
   %.not102 = icmp eq ptr %36, null
   br i1 %.not102, label %44, label %37
@@ -7146,7 +7133,7 @@ define internal fastcc noundef zeroext i1 @_ZL9tcp_flushPN12_GLOBAL__N_18grpc_tc
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %39 = load ptr, ptr %38, align 8, !tbaa !25
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 %34
-  %41 = getelementptr inbounds nuw %struct.iovec, ptr %5, i64 %.081155
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %.081155
   store ptr %40, ptr %41, align 16, !tbaa !26
   %42 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %43 = load i64, ptr %42, align 8, !tbaa !25
@@ -7155,7 +7142,7 @@ define internal fastcc noundef zeroext i1 @_ZL9tcp_flushPN12_GLOBAL__N_18grpc_tc
 44:                                               ; preds = %33
   %45 = getelementptr inbounds nuw i8, ptr %35, i64 9
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 %34
-  %47 = getelementptr inbounds nuw %struct.iovec, ptr %5, i64 %.081155
+  %47 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %.081155
   store ptr %46, ptr %47, align 16, !tbaa !26
   %48 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %49 = load i8, ptr %48, align 8, !tbaa !25
@@ -7164,7 +7151,7 @@ define internal fastcc noundef zeroext i1 @_ZL9tcp_flushPN12_GLOBAL__N_18grpc_tc
 
 51:                                               ; preds = %44, %37
   %52 = phi i64 [ %43, %37 ], [ %50, %44 ]
-  %53 = getelementptr inbounds nuw %struct.iovec, ptr %5, i64 %.081155
+  %53 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %.081155
   %54 = sub i64 %52, %34
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
   store i64 %54, ptr %55, align 8, !tbaa !28
@@ -7225,14 +7212,14 @@ define internal fastcc noundef zeroext i1 @_ZL9tcp_flushPN12_GLOBAL__N_18grpc_tc
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 504
   %77 = call noundef i32 @_ZN9grpc_core21Histogram_16777216_209BucketForEi(i32 noundef %74)
   %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds %"struct.std::atomic.33", ptr %76, i64 %78
+  %79 = getelementptr inbounds [8 x i8], ptr %76, i64 %78
   %80 = atomicrmw add ptr %79, i64 1 monotonic, align 8
   %81 = trunc i64 %58 to i32
   %82 = call noundef nonnull align 8 dereferenceable(6632) ptr @_ZN9grpc_core6PerCpuINS_20GlobalStatsCollector4DataEE8this_cpuEv(ptr noundef nonnull align 8 dereferenceable(24) @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E)
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 664
   %84 = call noundef i32 @_ZN9grpc_core15Histogram_80_109BucketForEi(i32 noundef %81)
   %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds %"struct.std::atomic.33", ptr %83, i64 %85
+  %86 = getelementptr inbounds [8 x i8], ptr %83, i64 %85
   %87 = atomicrmw add ptr %86, i64 1 monotonic, align 8
   %88 = load i32, ptr %23, align 8, !tbaa !87
   br label %89
@@ -7285,7 +7272,7 @@ _ZN9grpc_core6PerCpuINS_20GlobalStatsCollector4DataEE8this_cpuEv.exit: ; preds =
   %104 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 8), align 8, !tbaa !205
   %105 = urem i64 %103, %104
   %106 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN9grpc_core19NoDestructSingletonINS_20GlobalStatsCollectorEE6value_E, i64 16), align 8, !tbaa !215
-  %107 = getelementptr inbounds nuw %"struct.grpc_core::GlobalStatsCollector::Data", ptr %106, i64 %105
+  %107 = getelementptr inbounds nuw [6632 x i8], ptr %106, i64 %105
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 72
   %109 = atomicrmw add ptr %108, i64 1 monotonic, align 8
   %110 = call i64 @sendmsg(i32 noundef %88, ptr noundef nonnull %4, i32 noundef 16384)
@@ -7511,7 +7498,7 @@ _ZN9grpc_core8EventLog6AppendESt17basic_string_viewIcSt11char_traitsIcEEl.exit: 
   %.083161 = phi i64 [ %178, %.lr.ph162 ], [ %201, %200 ]
   %.3160 = phi i64 [ %57, %.lr.ph162 ], [ %187, %200 ]
   %187 = add i64 %.3160, -1
-  %188 = getelementptr inbounds nuw %struct.grpc_slice, ptr %180, i64 %187
+  %188 = getelementptr inbounds nuw [32 x i8], ptr %180, i64 %187
   %189 = load ptr, ptr %188, align 8, !tbaa !22
   %.not100 = icmp eq ptr %189, null
   %190 = getelementptr inbounds nuw i8, ptr %188, i64 8
@@ -7996,7 +7983,7 @@ _ZL14CmsgIsZeroCopyRK7cmsghdr.exit:               ; preds = %_ZL13CmsgIsIpLevelR
   %84 = load i64, ptr %26, align 8, !tbaa !244
   %85 = urem i64 %83, %84
   %86 = load ptr, ptr %24, align 8, !tbaa !243
-  %87 = getelementptr inbounds nuw ptr, ptr %86, i64 %85
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %85
   %88 = load ptr, ptr %87, align 8, !tbaa !291, !nonnull !123, !noundef !123
   %89 = load ptr, ptr %88, align 8, !tbaa !249
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
@@ -8021,7 +8008,7 @@ _ZNSt13unordered_mapIjPN9grpc_core21TcpZerocopySendRecordESt4hashIjESt8equal_toI
   %.pre8.i = load ptr, ptr %24, align 8, !tbaa !243
   %.pre9.i = zext i32 %.04.i to i64
   %.pre10.i = urem i64 %.pre9.i, %.pre.i63
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre8.i, i64 %.pre10.i
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre8.i, i64 %.pre10.i
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !291
   br label %_ZNSt13unordered_mapIjPN9grpc_core21TcpZerocopySendRecordESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit.i
 
@@ -8033,7 +8020,7 @@ _ZNSt13unordered_mapIjPN9grpc_core21TcpZerocopySendRecordESt4hashIjESt8equal_toI
   %.sroa.06.1.i.i.i = phi ptr [ %89, %82 ], [ %.sroa.06.0.i.i.i, %_ZNSt13unordered_mapIjPN9grpc_core21TcpZerocopySendRecordESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit.loopexit.i ], [ %93, %.lr.ph.i.i.i.i.i ]
   %102 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i, i64 16
   %103 = load ptr, ptr %102, align 8, !tbaa !293
-  %104 = getelementptr inbounds nuw ptr, ptr %100, i64 %.pre-phi11.i
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %.pre-phi11.i
   br label %105
 
 105:                                              ; preds = %105, %_ZNSt13unordered_mapIjPN9grpc_core21TcpZerocopySendRecordESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit.i
@@ -8060,7 +8047,7 @@ _ZNSt10_HashtableIjSt4pairIKjPN9grpc_core21TcpZerocopySendRecordEESaIS5_ENSt8__d
   br i1 %.not9.i.i.i.i.i.i, label %128, label %115
 
 115:                                              ; preds = %110
-  %116 = getelementptr inbounds nuw ptr, ptr %100, i64 %114
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %114
   store ptr %99, ptr %116, align 8, !tbaa !291
   br label %._crit_edge.i.i.i.i.i.i
 
@@ -8088,7 +8075,7 @@ _ZNSt10_HashtableIjSt4pairIKjPN9grpc_core21TcpZerocopySendRecordEESaIS5_ENSt8__d
   br i1 %.not17.i.i.i.i.i, label %128, label %126
 
 126:                                              ; preds = %121
-  %127 = getelementptr inbounds nuw ptr, ptr %100, i64 %125
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %125
   store ptr %.0.i.i.i.i.i, ptr %127, align 8, !tbaa !291
   br label %128
 
@@ -8121,7 +8108,7 @@ _ZN9grpc_core18TcpZerocopySendCtx17ReleaseSendRecordEj.exit.i: ; preds = %128
   %139 = load ptr, ptr %22, align 8, !tbaa !224
   %140 = load i32, ptr %23, align 4, !tbaa !225
   %141 = sext i32 %140 to i64
-  %142 = getelementptr inbounds ptr, ptr %139, i64 %141
+  %142 = getelementptr inbounds [8 x i8], ptr %139, i64 %141
   store ptr %103, ptr %142, align 8, !tbaa !226
   %143 = add nsw i32 %140, 1
   store i32 %143, ptr %23, align 4, !tbaa !225
@@ -8701,7 +8688,7 @@ define linkonce_odr noundef ptr @_ZN9grpc_core18TcpZerocopySendCtx23ReleaseSendR
   %15 = load i64, ptr %14, align 8, !tbaa !244
   %16 = urem i64 %13, %15
   %17 = load ptr, ptr %3, align 8, !tbaa !243
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %16
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %16
   %19 = load ptr, ptr %18, align 8, !tbaa !291, !nonnull !123, !noundef !123
   %20 = load ptr, ptr %19, align 8, !tbaa !249
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -8736,7 +8723,7 @@ _ZNSt13unordered_mapIjPN9grpc_core21TcpZerocopySendRecordESt4hashIjESt8equal_toI
   %.sroa.06.1.i.i = phi ptr [ %20, %12 ], [ %.sroa.06.0.i.i, %_ZNSt13unordered_mapIjPN9grpc_core21TcpZerocopySendRecordESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE4findERS8_.exit.loopexit ], [ %24, %.lr.ph.i.i.i.i ]
   %32 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i, i64 16
   %33 = load ptr, ptr %32, align 8, !tbaa !293
-  %34 = getelementptr inbounds nuw ptr, ptr %30, i64 %.pre-phi11
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.pre-phi11
   %35 = load ptr, ptr %34, align 8, !tbaa !291
   br label %36
 
@@ -8764,7 +8751,7 @@ _ZNSt10_HashtableIjSt4pairIKjPN9grpc_core21TcpZerocopySendRecordEESaIS5_ENSt8__d
   br i1 %.not9.i.i.i.i.i, label %_ZNSt13unordered_mapIjPN9grpc_core21TcpZerocopySendRecordESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE5eraseENSt8__detail14_Node_iteratorIS9_Lb0ELb0EEE.exit, label %46
 
 46:                                               ; preds = %41
-  %47 = getelementptr inbounds nuw ptr, ptr %30, i64 %45
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %45
   store ptr %35, ptr %47, align 8, !tbaa !291
   br label %._crit_edge.i.i.i.i.i
 
@@ -8793,7 +8780,7 @@ _ZNSt10_HashtableIjSt4pairIKjPN9grpc_core21TcpZerocopySendRecordEESaIS5_ENSt8__d
   br i1 %.not17.i.i.i.i, label %_ZNSt13unordered_mapIjPN9grpc_core21TcpZerocopySendRecordESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE5eraseENSt8__detail14_Node_iteratorIS9_Lb0ELb0EEE.exit, label %58
 
 58:                                               ; preds = %53
-  %59 = getelementptr inbounds nuw ptr, ptr %30, i64 %57
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %57
   store ptr %.0.i.i.i.i, ptr %59, align 8, !tbaa !291
   br label %_ZNSt13unordered_mapIjPN9grpc_core21TcpZerocopySendRecordESt4hashIjESt8equal_toIjESaISt4pairIKjS2_EEE5eraseENSt8__detail14_Node_iteratorIS9_Lb0ELb0EEE.exit
 
@@ -9057,7 +9044,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIjSt4pairIKjPN9grpc_core21TcpZ
   %13 = load i64, ptr %12, align 8, !tbaa !244
   %14 = urem i64 %11, %13
   %15 = load ptr, ptr %0, align 8, !tbaa !243
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %14
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %14
   %17 = load ptr, ptr %16, align 8, !tbaa !291
   %.not.i.i = icmp eq ptr %17, null
   br i1 %.not.i.i, label %.critedge28, label %30
@@ -9193,7 +9180,7 @@ _ZNSt10_HashtableIjSt4pairIKjPN9grpc_core21TcpZerocopySendRecordEESaIS5_ENSt8__d
 31:                                               ; preds = %_ZNSt10_HashtableIjSt4pairIKjPN9grpc_core21TcpZerocopySendRecordEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableIjSt4pairIKjPN9grpc_core21TcpZerocopySendRecordEESaIS5_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS7_18_Mod_range_hashingENS7_20_Default_ranged_hashENS7_20_Prime_rehash_policyENS7_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit ], [ %1, %5 ]
   %32 = load ptr, ptr %0, align 8, !tbaa !243
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0
   %34 = load ptr, ptr %33, align 8, !tbaa !291
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %38, label %35
@@ -9220,7 +9207,7 @@ _ZNSt10_HashtableIjSt4pairIKjPN9grpc_core21TcpZerocopySendRecordEESaIS5_ENSt8__d
   %45 = load i32, ptr %43, align 4, !tbaa !3
   %46 = zext i32 %45 to i64
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %32, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !291
   br label %49
 
@@ -9295,7 +9282,7 @@ _ZNSt10_HashtableIjSt4pairIKjPN9grpc_core21TcpZerocopySendRecordEESaIS5_ENSt8__d
   %16 = load i32, ptr %15, align 8, !tbaa !3
   %17 = zext i32 %16 to i64
   %18 = urem i64 %17, %1
-  %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !291
   %.not27 = icmp eq ptr %20, null
   br i1 %.not27, label %21, label %26
@@ -9310,7 +9297,7 @@ _ZNSt10_HashtableIjSt4pairIKjPN9grpc_core21TcpZerocopySendRecordEESaIS5_ENSt8__d
   br i1 %.not28, label %29, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %25, align 8, !tbaa !291
   br label %29
 
@@ -11032,7 +11019,7 @@ define linkonce_odr void @_ZN9grpc_core18TcpZerocopySendCtxD2Ev(ptr noundef nonn
 .lr.ph:                                           ; preds = %.preheader, %_ZN9grpc_core21TcpZerocopySendRecordD2Ev.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN9grpc_core21TcpZerocopySendRecordD2Ev.exit ], [ 0, %.preheader ]
   %6 = load ptr, ptr %0, align 8, !tbaa !246
-  %7 = getelementptr inbounds nuw %"class.grpc_core::TcpZerocopySendRecord", ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 %indvars.iv
   invoke void @grpc_slice_buffer_destroy(ptr noundef nonnull align 8 dereferenceable(256) %7)
           to label %_ZN9grpc_core21TcpZerocopySendRecordD2Ev.exit unwind label %8
 

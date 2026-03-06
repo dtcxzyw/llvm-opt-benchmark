@@ -350,7 +350,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__16TfPatternMatcherESaIS1_
   store ptr %19, ptr %0, align 8
   %46 = getelementptr inbounds i8, ptr %19, i64 %17
   store ptr %46, ptr %14, align 8
-  %47 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TfPatternMatcher", ptr %19, i64 %1
+  %47 = getelementptr inbounds nuw [104 x i8], ptr %19, i64 %1
   store ptr %47, ptr %6, align 8
   br label %48
 
@@ -2008,7 +2008,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__16TfPatternMatcherESaIS1_EE11_S_
 _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__16TfPatternMatcherESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__16TfPatternMatcherESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22, %82
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8
-  %86 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::TfPatternMatcher", ptr %20, i64 %16
+  %86 = getelementptr inbounds nuw [104 x i8], ptr %20, i64 %16
   store ptr %86, ptr %81, align 8
   ret void
 }

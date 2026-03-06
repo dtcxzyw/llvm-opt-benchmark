@@ -65,14 +65,13 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.xgboost::InitNewThread" = type { %"struct.xgboost::GlobalConfiguration", i32 }
 %"struct.xgboost::GlobalConfiguration" = type { %"struct.xgboost::XGBoostParameter", i32, i8, i32 }
 %"struct.xgboost::XGBoostParameter" = type { i8 }
-%"class.xgboost::collective::RabitTracker::WorkerProxy" = type { %"class.xgboost::collective::TCPSocket", %"struct.xgboost::collective::proto::PeerInfo", i32, i32, %"class.std::__cxx11::basic_string", i32, %"class.std::__cxx11::basic_string", i32, %"struct.xgboost::collective::Result" }
-%"class.std::thread" = type { %"class.std::thread::id" }
-%"class.std::thread::id" = type { i64 }
 %"class.std::future" = type { %"class.std::__basic_future" }
 %"class.std::__basic_future" = type { %"class.std::shared_ptr" }
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
+%"class.std::thread" = type { %"class.std::thread::id" }
+%"class.std::thread::id" = type { i64 }
 %"class.std::error_condition" = type { i32, ptr }
 %class.anon.29 = type <{ ptr, %class.anon.28, %"struct.xgboost::InitNewThread", [4 x i8] }>
 %class.anon.28 = type { ptr }
@@ -116,9 +115,9 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::pair.80" = type <{ %"struct.xgboost::collective::Result", i32, [4 x i8] }>
 %"struct.__gnu_cxx::__ops::_Iter_comp_iter" = type { %"struct.xgboost::collective::RabitTracker::WorkerCmp" }
 %"struct.xgboost::collective::RabitTracker::WorkerCmp" = type { i8 }
+%"class.xgboost::collective::RabitTracker::WorkerProxy" = type { %"class.xgboost::collective::TCPSocket", %"struct.xgboost::collective::proto::PeerInfo", i32, i32, %"class.std::__cxx11::basic_string", i32, %"class.std::__cxx11::basic_string", i32, %"struct.xgboost::collective::Result" }
 %"struct.__gnu_cxx::__ops::_Iter_comp_val" = type { %"struct.xgboost::collective::RabitTracker::WorkerCmp" }
 %"struct.__gnu_cxx::__ops::_Val_comp_iter" = type { %"struct.xgboost::collective::RabitTracker::WorkerCmp" }
-%"struct.std::pair" = type <{ %"class.std::__cxx11::basic_string", i32, [4 x i8] }>
 %"class.std::function.142" = type { %"class.std::_Function_base", ptr }
 %"class.std::unique_ptr.119" = type { %"struct.std::__uniq_ptr_data.120" }
 %"struct.std::__uniq_ptr_data.120" = type { %"class.std::__uniq_ptr_impl.121" }
@@ -143,7 +142,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<xgboost::collective::RabitTracker::WorkerProxy, std::allocator<xgboost::collective::RabitTracker::WorkerProxy>>::_Vector_impl" = type { %"struct.std::_Vector_base<xgboost::collective::RabitTracker::WorkerProxy, std::allocator<xgboost::collective::RabitTracker::WorkerProxy>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<xgboost::collective::RabitTracker::WorkerProxy, std::allocator<xgboost::collective::RabitTracker::WorkerProxy>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"struct.xgboost::collective::proto::Error" = type { i8 }
-%struct.pollfd = type { i32, i16, i16 }
 %class.anon.181 = type { ptr }
 
 $_ZN7xgboost11RequiredArgIKNS_11JsonIntegerEEERKDaRKNS_4JsonENS_10StringViewES8_ = comdat any
@@ -3486,13 +3484,13 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN7xgboost10collective12RabitTracker11W
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41 ]
   %46 = phi i32 [ %32, %.lr.ph ], [ %198, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit41 ]
   %47 = load ptr, ptr %2, align 8, !tbaa !193
-  %48 = getelementptr inbounds nuw %"class.xgboost::collective::RabitTracker::WorkerProxy", ptr %47, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [144 x i8], ptr %47, i64 %indvars.iv
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %49 = trunc nuw nsw i64 %indvars.iv.next to i32
   %50 = add i32 %46, %49
   %51 = srem i32 %50, %46
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds nuw %"class.xgboost::collective::RabitTracker::WorkerProxy", ptr %47, i64 %52
+  %53 = getelementptr inbounds nuw [144 x i8], ptr %47, i64 %52
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i32 %51, ptr %8, align 8, !tbaa !195
   store ptr %48, ptr %34, align 8, !tbaa !188
@@ -3678,7 +3676,7 @@ _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit32.i.i: ; preds =
 "_ZNSt6vectorISt6threadSaIS0_EE17_M_realloc_insertIJZN7xgboost10collective12RabitTracker9BootstrapEPS_INS6_11WorkerProxyESaIS7_EEE3$_0EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i": ; preds = %102, %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit32.i.i
   store ptr %82, ptr %7, align 8, !tbaa !212
   store ptr %101, ptr %37, align 8, !tbaa !204
-  %114 = getelementptr inbounds nuw %"class.std::thread", ptr %82, i64 %80
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %80
   store ptr %114, ptr %38, align 8, !tbaa !213
   br label %"_ZNSt6vectorISt6threadSaIS0_EE12emplace_backIJZN7xgboost10collective12RabitTracker9BootstrapEPS_INS6_11WorkerProxyESaIS7_EEE3$_0EEERS0_DpOT_.exit"
 
@@ -5409,7 +5407,7 @@ _ZNSt6vectorIN7xgboost10collective11SockAddressESaIS2_EE11_S_relocateEPS2_S5_S5_
   br label %_ZNSt6vectorIN7xgboost10collective11SockAddressESaIS2_EE17_M_realloc_insertIJNS1_10SockAddrV4EEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
 _ZNSt6vectorIN7xgboost10collective11SockAddressESaIS2_EE17_M_realloc_insertIJNS1_10SockAddrV4EEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %167, %_ZNSt6vectorIN7xgboost10collective11SockAddressESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32.i.i
-  %168 = getelementptr inbounds nuw %"class.xgboost::collective::SockAddress", ptr %161, i64 %159
+  %168 = getelementptr inbounds nuw [48 x i8], ptr %161, i64 %159
   br label %_ZNSt6vectorIN7xgboost10collective11SockAddressESaIS2_EE12emplace_backIJNS1_10SockAddrV4EEEERS2_DpOT_.exit
 
 _ZNSt6vectorIN7xgboost10collective11SockAddressESaIS2_EE12emplace_backIJNS1_10SockAddrV4EEEERS2_DpOT_.exit: ; preds = %_ZNSt6vectorIN7xgboost10collective11SockAddressESaIS2_EE17_M_realloc_insertIJNS1_10SockAddrV4EEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %146
@@ -5662,7 +5660,7 @@ _ZNSt6vectorIN7xgboost10collective11SockAddressESaIS2_EE11_S_relocateEPS2_S5_S5_
   br label %_ZNSt6vectorIN7xgboost10collective11SockAddressESaIS2_EE17_M_realloc_insertIJNS1_10SockAddrV6EEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
 _ZNSt6vectorIN7xgboost10collective11SockAddressESaIS2_EE17_M_realloc_insertIJNS1_10SockAddrV6EEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %245, %_ZNSt6vectorIN7xgboost10collective11SockAddressESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit32.i.i175
-  %246 = getelementptr inbounds nuw %"class.xgboost::collective::SockAddress", ptr %239, i64 %237
+  %246 = getelementptr inbounds nuw [48 x i8], ptr %239, i64 %237
   br label %_ZNSt6vectorIN7xgboost10collective11SockAddressESaIS2_EE12emplace_backIJNS1_10SockAddrV6EEEERS2_DpOT_.exit
 
 _ZNSt6vectorIN7xgboost10collective11SockAddressESaIS2_EE12emplace_backIJNS1_10SockAddrV6EEEERS2_DpOT_.exit: ; preds = %_ZNSt6vectorIN7xgboost10collective11SockAddressESaIS2_EE17_M_realloc_insertIJNS1_10SockAddrV6EEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %224
@@ -7861,7 +7859,7 @@ _ZNSt6vectorIPvSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; preds = %3
           to label %.noexc27 unwind label %22
 
 .noexc27:                                         ; preds = %8
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %2
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %2
   store ptr null, ptr %10, align 8, !tbaa !398
   %12 = add nsw i64 %2, -1
   %13 = icmp eq i64 %12, 0
@@ -7917,7 +7915,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %20, %17
 32:                                               ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %indvars.iv = phi i64 [ %31, %.lr.ph ], [ %indvars.iv.next, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %33 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv
+  %33 = getelementptr inbounds [8 x i8], ptr %26, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8, !tbaa !18
   invoke void @_ZN4dmlc8DemangleB5cxx11EPKc(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef %34)
           to label %35 unwind label %48
@@ -15502,7 +15500,7 @@ define linkonce_odr ptr @_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal
   %7 = ptrtoint ptr %0 to i64
   %8 = sub i64 %6, %7
   %9 = sdiv i64 %8, 288
-  %10 = getelementptr inbounds %"class.xgboost::collective::RabitTracker::WorkerProxy", ptr %0, i64 %9
+  %10 = getelementptr inbounds [144 x i8], ptr %0, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %12 = getelementptr inbounds i8, ptr %1, i64 -144
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -15611,7 +15609,7 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN7xg
 44:                                               ; preds = %_ZN7xgboost10collective12RabitTracker11WorkerProxyD2Ev.exit29, %11
   %.010 = phi i64 [ %13, %11 ], [ %125, %_ZN7xgboost10collective12RabitTracker11WorkerProxyD2Ev.exit29 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %45 = getelementptr inbounds %"class.xgboost::collective::RabitTracker::WorkerProxy", ptr %0, i64 %.010
+  %45 = getelementptr inbounds [144 x i8], ptr %0, i64 %.010
   store i8 0, ptr %14, align 4, !tbaa !79
   %46 = load i32, ptr %45, align 4, !tbaa !68
   store i32 %46, ptr %4, align 8, !tbaa !68
@@ -16410,13 +16408,13 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7
   %.035 = phi i64 [ %spec.select, %.lr.ph ], [ %1, %5 ]
   %12 = shl i64 %.035, 1
   %13 = add i64 %12, 2
-  %14 = getelementptr inbounds %"class.xgboost::collective::RabitTracker::WorkerProxy", ptr %0, i64 %13
+  %14 = getelementptr inbounds [144 x i8], ptr %0, i64 %13
   %15 = or disjoint i64 %12, 1
-  %16 = getelementptr inbounds %"class.xgboost::collective::RabitTracker::WorkerProxy", ptr %0, i64 %15
+  %16 = getelementptr inbounds [144 x i8], ptr %0, i64 %15
   %17 = call noundef zeroext i1 @_ZN7xgboost10collective12RabitTracker9WorkerCmpclERKNS1_11WorkerProxyES5_(ptr noundef nonnull align 1 dereferenceable(1) %6, ptr noundef nonnull align 8 dereferenceable(144) %14, ptr noundef nonnull align 8 dereferenceable(144) %16)
   %spec.select = select i1 %17, i64 %15, i64 %13
-  %18 = getelementptr inbounds %"class.xgboost::collective::RabitTracker::WorkerProxy", ptr %0, i64 %spec.select
-  %19 = getelementptr inbounds %"class.xgboost::collective::RabitTracker::WorkerProxy", ptr %0, i64 %.035
+  %18 = getelementptr inbounds [144 x i8], ptr %0, i64 %spec.select
+  %19 = getelementptr inbounds [144 x i8], ptr %0, i64 %.035
   %20 = call noundef nonnull align 8 dereferenceable(144) ptr @_ZN7xgboost10collective12RabitTracker11WorkerProxyaSEOS2_(ptr noundef nonnull align 8 dereferenceable(144) %19, ptr noundef nonnull align 8 dereferenceable(144) %18) #13
   %21 = icmp slt i64 %spec.select, %10
   br i1 %21, label %.lr.ph, label %._crit_edge, !llvm.loop !671
@@ -16436,8 +16434,8 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN7
 28:                                               ; preds = %24
   %29 = shl nsw i64 %.0.lcssa, 1
   %30 = or disjoint i64 %29, 1
-  %31 = getelementptr inbounds %"class.xgboost::collective::RabitTracker::WorkerProxy", ptr %0, i64 %30
-  %32 = getelementptr inbounds %"class.xgboost::collective::RabitTracker::WorkerProxy", ptr %0, i64 %.0.lcssa
+  %31 = getelementptr inbounds [144 x i8], ptr %0, i64 %30
+  %32 = getelementptr inbounds [144 x i8], ptr %0, i64 %.0.lcssa
   %33 = call noundef nonnull align 8 dereferenceable(144) ptr @_ZN7xgboost10collective12RabitTracker11WorkerProxyaSEOS2_(ptr noundef nonnull align 8 dereferenceable(144) %32, ptr noundef nonnull align 8 dereferenceable(144) %31) #13
   br label %34
 
@@ -16581,7 +16579,7 @@ _ZN7xgboost10collective12RabitTracker11WorkerProxyC2EOS2_.exit: ; preds = %83, %
   %.018.i = phi i64 [ %.0919.i, %101 ], [ %.1, %_ZN7xgboost10collective12RabitTracker11WorkerProxyC2EOS2_.exit ]
   %.0919.in.i = add nsw i64 %.018.i, -1
   %.0919.i = sdiv i64 %.0919.in.i, 2
-  %99 = getelementptr inbounds %"class.xgboost::collective::RabitTracker::WorkerProxy", ptr %0, i64 %.0919.i
+  %99 = getelementptr inbounds [144 x i8], ptr %0, i64 %.0919.i
   %100 = invoke noundef zeroext i1 @_ZN7xgboost10collective12RabitTracker9WorkerCmpclERKNS1_11WorkerProxyES5_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(144) %99, ptr noundef nonnull align 8 dereferenceable(144) %8)
           to label %.noexc unwind label %120
 
@@ -16589,14 +16587,14 @@ _ZN7xgboost10collective12RabitTracker11WorkerProxyC2EOS2_.exit: ; preds = %83, %
   br i1 %100, label %101, label %.loopexit
 
 101:                                              ; preds = %.noexc
-  %102 = getelementptr inbounds %"class.xgboost::collective::RabitTracker::WorkerProxy", ptr %0, i64 %.018.i
+  %102 = getelementptr inbounds [144 x i8], ptr %0, i64 %.018.i
   %103 = call noundef nonnull align 8 dereferenceable(144) ptr @_ZN7xgboost10collective12RabitTracker11WorkerProxyaSEOS2_(ptr noundef nonnull align 8 dereferenceable(144) %102, ptr noundef nonnull align 8 dereferenceable(144) %99) #13
   %104 = icmp sgt i64 %.0919.i, %1
   br i1 %104, label %.lr.ph.i, label %.loopexit, !llvm.loop !672
 
 .loopexit:                                        ; preds = %101, %.noexc, %_ZN7xgboost10collective12RabitTracker11WorkerProxyC2EOS2_.exit
   %.0.lcssa.i = phi i64 [ %.1, %_ZN7xgboost10collective12RabitTracker11WorkerProxyC2EOS2_.exit ], [ %.018.i, %.noexc ], [ %.0919.i, %101 ]
-  %105 = getelementptr inbounds %"class.xgboost::collective::RabitTracker::WorkerProxy", ptr %0, i64 %.0.lcssa.i
+  %105 = getelementptr inbounds [144 x i8], ptr %0, i64 %.0.lcssa.i
   %106 = call noundef nonnull align 8 dereferenceable(144) ptr @_ZN7xgboost10collective12RabitTracker11WorkerProxyaSEOS2_(ptr noundef nonnull align 8 dereferenceable(144) %105, ptr noundef nonnull align 8 dereferenceable(144) %8) #13
   %107 = load ptr, ptr %95, align 8, !tbaa !64
   %.not.i.i.i = icmp eq ptr %107, null
@@ -19022,7 +19020,7 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiESaIS7
 _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiESaIS7_EE13_M_deallocateEPS7_m.exit: ; preds = %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit37, %79
   store ptr %23, ptr %0, align 8, !tbaa !182
   store ptr %.0.lcssa.i.i.i36, ptr %5, align 8, !tbaa !185
-  %83 = getelementptr inbounds nuw %"struct.std::pair", ptr %23, i64 %17
+  %83 = getelementptr inbounds nuw [40 x i8], ptr %23, i64 %17
   store ptr %83, ptr %78, align 8, !tbaa !187
   ret void
 }
@@ -20489,7 +20487,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i.i8.i:   ; preds = %200
   %205 = load i64, ptr %95, align 8, !tbaa !789, !noalias !802
   %206 = urem i64 %204, %205
   %207 = load ptr, ptr %47, align 8, !tbaa !782, !noalias !802
-  %208 = getelementptr inbounds nuw ptr, ptr %207, i64 %206
+  %208 = getelementptr inbounds nuw [8 x i8], ptr %207, i64 %206
   %209 = load ptr, ptr %208, align 8, !tbaa !805, !noalias !802
   %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %209, null
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %.loopexit.i.i.i.i.i.i.i, label %210
@@ -24584,7 +24582,7 @@ define linkonce_odr void @_ZN5rabit5utils10PollHelper4PollENSt6chrono8durationIl
 _ZNSt12_Vector_baseI6pollfdSaIS0_EE11_M_allocateEm.exit.i: ; preds = %14
   %15 = shl nuw nsw i64 %12, 3
   %16 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %15) #39
-  %17 = getelementptr inbounds nuw %struct.pollfd, ptr %16, i64 %12
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %12
   br label %_ZNSt6vectorI6pollfdSaIS0_EE7reserveEm.exit
 
 _ZNSt6vectorI6pollfdSaIS0_EE7reserveEm.exit:      ; preds = %_ZNSt12_Vector_baseI6pollfdSaIS0_EE11_M_allocateEm.exit.i, %14
@@ -24683,7 +24681,7 @@ _ZNSt6vectorI6pollfdSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i: ; preds = %
   br label %_ZNSt6vectorI6pollfdSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i
 
 _ZNSt6vectorI6pollfdSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i: ; preds = %50, %_ZNSt6vectorI6pollfdSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i
-  %51 = getelementptr inbounds nuw %struct.pollfd, ptr %46, i64 %44
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %44
   br label %_ZNSt6vectorI6pollfdSaIS0_EE9push_backERKS0_.exit
 
 _ZNSt6vectorI6pollfdSaIS0_EE9push_backERKS0_.exit: ; preds = %_ZNSt6vectorI6pollfdSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i, %33
@@ -25302,7 +25300,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit99: ; preds = %_ZN
   %297 = load i64, ptr %195, align 8, !tbaa !789
   %298 = urem i64 %296, %297
   %299 = load ptr, ptr %1, align 8, !tbaa !782
-  %300 = getelementptr inbounds nuw ptr, ptr %299, i64 %298
+  %300 = getelementptr inbounds nuw [8 x i8], ptr %299, i64 %298
   %301 = load ptr, ptr %300, align 8, !tbaa !805
   %.not.i.i.i.i = icmp eq ptr %301, null
   br i1 %.not.i.i.i.i, label %.loopexit.i.i, label %302
@@ -25478,7 +25476,7 @@ _ZNSt10_HashtableIiSt4pairIKi6pollfdESaIS3_ENSt8__detail10_Select1stESt8equal_to
 31:                                               ; preds = %_ZNSt10_HashtableIiSt4pairIKi6pollfdESaIS3_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableIiSt4pairIKi6pollfdESaIS3_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit ], [ %1, %5 ]
   %32 = load ptr, ptr %0, align 8, !tbaa !782
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0
   %34 = load ptr, ptr %33, align 8, !tbaa !805
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %38, label %35
@@ -25505,7 +25503,7 @@ _ZNSt10_HashtableIiSt4pairIKi6pollfdESaIS3_ENSt8__detail10_Select1stESt8equal_to
   %45 = load i32, ptr %43, align 4, !tbaa !68
   %46 = sext i32 %45 to i64
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %32, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !805
   br label %49
 
@@ -25570,7 +25568,7 @@ _ZNSt10_HashtableIiSt4pairIKi6pollfdESaIS3_ENSt8__detail10_Select1stESt8equal_to
   %16 = load i32, ptr %15, align 8, !tbaa !68
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
-  %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !805
   %.not27 = icmp eq ptr %20, null
   br i1 %.not27, label %21, label %26
@@ -25585,7 +25583,7 @@ _ZNSt10_HashtableIiSt4pairIKi6pollfdESaIS3_ENSt8__detail10_Select1stESt8equal_to
   br i1 %.not28, label %29, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %25, align 8, !tbaa !805
   br label %29
 
@@ -26789,7 +26787,7 @@ _ZNSt6vectorIN7xgboost10collective12RabitTracker11WorkerProxyESaIS3_EE11_S_reloc
 _ZNSt12_Vector_baseIN7xgboost10collective12RabitTracker11WorkerProxyESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN7xgboost10collective12RabitTracker11WorkerProxyESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, %28
   store ptr %20, ptr %0, align 8, !tbaa !193
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !844
-  %32 = getelementptr inbounds nuw %"class.xgboost::collective::RabitTracker::WorkerProxy", ptr %20, i64 %16
+  %32 = getelementptr inbounds nuw [144 x i8], ptr %20, i64 %16
   store ptr %32, ptr %27, align 8, !tbaa !851
   ret void
 }

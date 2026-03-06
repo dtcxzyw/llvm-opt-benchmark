@@ -441,7 +441,7 @@ _ZN26GrowableArrayWithAllocatorIP13ObjectMonitor13GrowableArrayIS1_EE6appendERKS
   store i32 %34, ptr %2, align 8
   %35 = load ptr, ptr %7, align 8
   %36 = sext i32 %33 to i64
-  %37 = getelementptr inbounds ptr, ptr %35, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %35, i64 %36
   store ptr %.056, ptr %37, align 8
   %exitcond.not = icmp eq i64 %.040, %17
   br i1 %exitcond.not, label %.critedge, label %38
@@ -712,7 +712,7 @@ define hidden noundef zeroext i1 @_ZN18ObjectSynchronizer12quick_notifyEP7oopDes
 
 19:                                               ; preds = %17
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %20 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv.next.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv.next.i
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, %0
   br i1 %22, label %_ZNK9LockStack8containsEP7oopDesc.exit.thread, label %17, !llvm.loop !16
@@ -985,7 +985,7 @@ _ZNK7oopDesc5klassEv.exit:                        ; preds = %9, %19
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 1736
   %38 = zext nneg i32 %34 to i64
-  %39 = getelementptr ptr, ptr %37, i64 %38
+  %39 = getelementptr [8 x i8], ptr %37, i64 %38
   %40 = getelementptr i8, ptr %39, i64 -8
   %41 = load ptr, ptr %40, align 8
   %.not.i = icmp eq ptr %41, %0
@@ -1447,7 +1447,7 @@ _ZNK6HandleclEv.exit24:                           ; preds = %_ZNK6HandleclEv.exi
   %50 = sub i32 %49, %29
   %51 = lshr i32 %50, 3
   %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr inbounds nuw ptr, ptr %48, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %52
   store ptr %47, ptr %53, align 8
   %54 = add i32 %49, 8
   store i32 %54, ptr %27, align 8
@@ -1464,7 +1464,7 @@ _ZNK6HandleclEv.exit25:                           ; preds = %41
 60:                                               ; preds = %_ZNK6HandleclEv.exit25
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 1736
   %62 = zext nneg i32 %58 to i64
-  %63 = getelementptr ptr, ptr %61, i64 %62
+  %63 = getelementptr [8 x i8], ptr %61, i64 %62
   %64 = getelementptr i8, ptr %63, i64 -8
   %65 = load ptr, ptr %64, align 8
   %.not.i = icmp eq ptr %65, %55
@@ -1643,7 +1643,7 @@ define hidden void @_ZN18ObjectSynchronizer4exitEP7oopDescP9BasicLockP10JavaThre
 17:                                               ; preds = %12
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 1736
   %19 = zext nneg i32 %.pre to i64
-  %20 = getelementptr ptr, ptr %18, i64 %19
+  %20 = getelementptr [8 x i8], ptr %18, i64 %19
   %21 = getelementptr i8, ptr %20, i64 -8
   %22 = load ptr, ptr %21, align 8
   %.not.i = icmp eq ptr %22, %0
@@ -1672,13 +1672,13 @@ _ZN9LockStack18try_recursive_exitEP7oopDesc.exit: ; preds = %23
 
 30:                                               ; preds = %.backedge.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %31 = getelementptr inbounds nuw ptr, ptr %28, i64 %indvars.iv.next.i
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv.next.i
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, %0
   br i1 %33, label %_ZNK9LockStack12is_recursiveEP7oopDesc.exit, label %.backedge.i, !llvm.loop !28
 
 _ZNK9LockStack12is_recursiveEP7oopDesc.exit:      ; preds = %30
-  %34 = getelementptr ptr, ptr %28, i64 %indvars.iv.i
+  %34 = getelementptr [8 x i8], ptr %28, i64 %indvars.iv.i
   %35 = getelementptr i8, ptr %34, i64 -16
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, %0
@@ -1715,7 +1715,7 @@ _ZNK9LockStack12is_recursiveEP7oopDesc.exit.thread: ; preds = %_ZNK9LockStack12i
 50:                                               ; preds = %60, %.lr.ph.i
   %indvars.iv.i21 = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i23, %60 ]
   %.019.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %60 ]
-  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv.i21
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv.i21
   %52 = load ptr, ptr %51, align 8
   %.not.i22 = icmp eq ptr %52, %0
   br i1 %.not.i22, label %60, label %53
@@ -1727,7 +1727,7 @@ _ZNK9LockStack12is_recursiveEP7oopDesc.exit.thread: ; preds = %_ZNK9LockStack12i
 
 55:                                               ; preds = %53
   %56 = sext i32 %.019.i to i64
-  %57 = getelementptr inbounds ptr, ptr %49, i64 %56
+  %57 = getelementptr inbounds [8 x i8], ptr %49, i64 %56
   store ptr %52, ptr %57, align 8
   br label %58
 
@@ -2181,7 +2181,7 @@ _ZNK6HandleclEv.exit:                             ; preds = %6
 
 18:                                               ; preds = %16
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %19 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv.next.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv.next.i
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, %3
   br i1 %21, label %_ZNK9LockStack8containsEP7oopDesc.exit.thread, label %16, !llvm.loop !16
@@ -2256,7 +2256,7 @@ _ZNK6HandleclEv.exit:                             ; preds = %6
 
 18:                                               ; preds = %16
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %19 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv.next.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv.next.i
   %20 = load ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, %3
   br i1 %21, label %_ZNK9LockStack8containsEP7oopDesc.exit.thread, label %16, !llvm.loop !16
@@ -2735,7 +2735,7 @@ _ZNK6HandleclEv.exit6:                            ; preds = %14, %16
 
 27:                                               ; preds = %25
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %28 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv.next.i
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv.next.i
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, %18
   br i1 %30, label %_ZNK9LockStack8containsEP7oopDesc.exit, label %25, !llvm.loop !16
@@ -2770,7 +2770,7 @@ _ZNK6HandleclEv.exit6:                            ; preds = %14, %16
 
 49:                                               ; preds = %47
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, -1
-  %50 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv.next.i.i
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv.next.i.i
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, %40
   br i1 %52, label %_ZNK9LockStack8containsEP7oopDesc.exit, label %47, !llvm.loop !16
@@ -3325,7 +3325,7 @@ _ZN23EventJavaMonitorInflateC2E14EventStartTime.exit: ; preds = %3, %12
 
 43:                                               ; preds = %41
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %44 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv.next.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv.next.i
   %45 = load ptr, ptr %44, align 8
   %46 = icmp eq ptr %45, %1
   br i1 %46, label %47, label %41, !llvm.loop !16
@@ -3355,7 +3355,7 @@ _ZN13ObjectMonitor24set_owner_from_anonymousEP6Thread.exit: ; preds = %47, %49
 54:                                               ; preds = %64, %.lr.ph.i
   %indvars.iv.i96 = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i97, %64 ]
   %.019.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %64 ]
-  %55 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv.i96
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv.i96
   %56 = load ptr, ptr %55, align 8
   %.not.i = icmp eq ptr %56, %1
   br i1 %.not.i, label %64, label %57
@@ -3367,7 +3367,7 @@ _ZN13ObjectMonitor24set_owner_from_anonymousEP6Thread.exit: ; preds = %47, %49
 
 59:                                               ; preds = %57
   %60 = sext i32 %.019.i to i64
-  %61 = getelementptr inbounds ptr, ptr %38, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %38, i64 %60
   store ptr %56, ptr %61, align 8
   br label %62
 
@@ -3457,7 +3457,7 @@ _ZN9LockStack6removeEP7oopDesc.exit:              ; preds = %_ZN13ObjectMonitor2
 
 96:                                               ; preds = %94
   %indvars.iv.next.i99 = add nsw i64 %indvars.iv.i98, -1
-  %97 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv.next.i99
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv.next.i99
   %98 = load ptr, ptr %97, align 8
   %99 = icmp eq ptr %98, %1
   br i1 %99, label %_ZNK9LockStack8containsEP7oopDesc.exit100, label %94, !llvm.loop !16
@@ -3508,7 +3508,7 @@ _ZN13ObjectMonitor14set_owner_fromEPvS0_.exit:    ; preds = %_ZN13ObjectMonitor1
 115:                                              ; preds = %125, %.lr.ph.i104
   %indvars.iv.i106 = phi i64 [ 0, %.lr.ph.i104 ], [ %indvars.iv.next.i111, %125 ]
   %.019.i107 = phi i32 [ 0, %.lr.ph.i104 ], [ %.1.i110, %125 ]
-  %116 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv.i106
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv.i106
   %117 = load ptr, ptr %116, align 8
   %.not.i108 = icmp eq ptr %117, %1
   br i1 %.not.i108, label %125, label %118
@@ -3520,7 +3520,7 @@ _ZN13ObjectMonitor14set_owner_fromEPvS0_.exit:    ; preds = %_ZN13ObjectMonitor1
 
 120:                                              ; preds = %118
   %121 = sext i32 %.019.i107 to i64
-  %122 = getelementptr inbounds ptr, ptr %21, i64 %121
+  %122 = getelementptr inbounds [8 x i8], ptr %21, i64 %121
   store ptr %117, ptr %122, align 8
   br label %123
 
@@ -4259,7 +4259,7 @@ define hidden noundef i64 @_ZN18ObjectSynchronizer21deflate_idle_monitorsEv() lo
   %17 = load i32, ptr %10, align 8
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 40
   %19 = zext i32 %17 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %19
   %21 = load volatile ptr, ptr %20, align 8
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %22, label %25
@@ -4405,7 +4405,7 @@ _ZN17NativeHeapTrimmer11SuspendMarkC2EPKc.exit.i: ; preds = %76, %_ZN29ObjectMon
 79:                                               ; preds = %85, %.lr.ph.i18
   %.017.i = phi i64 [ 0, %.lr.ph.i18 ], [ %86, %85 ]
   %80 = load ptr, ptr %54, align 8
-  %81 = getelementptr inbounds nuw ptr, ptr %80, i64 %.017.i
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %.017.i
   %82 = load ptr, ptr %81, align 8
   %83 = icmp eq ptr %82, null
   br i1 %83, label %85, label %84
@@ -4496,7 +4496,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %_ZN29ObjectMonitorD
   %106 = load i32, ptr %10, align 8
   %107 = getelementptr inbounds nuw i8, ptr %105, i64 40
   %108 = zext i32 %106 to i64
-  %109 = getelementptr inbounds nuw ptr, ptr %107, i64 %108
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %108
   %110 = load volatile ptr, ptr %109, align 8
   %.not5.i = icmp eq ptr %110, null
   br i1 %.not5.i, label %114, label %111
@@ -4650,7 +4650,7 @@ define hidden noundef nonnull ptr @_ZN18ObjectSynchronizer18inflate_cause_nameEN
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN18ObjectSynchronizer18inflate_cause_nameENS_12InflateCauseE, i64 %5
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN18ObjectSynchronizer18inflate_cause_nameENS_12InflateCauseE, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   ret ptr %switch.load
 }
@@ -6776,7 +6776,7 @@ define linkonce_odr hidden noundef ptr @_ZNK12VM_Operation4nameEv(ptr noundef no
   %4 = load ptr, ptr %3, align 8
   %5 = tail call noundef i32 %4(ptr noundef nonnull align 8 dereferenceable(16) %0) #19
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr @_ZN12VM_Operation6_namesE, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @_ZN12VM_Operation6_namesE, i64 %6
   %8 = load ptr, ptr %7, align 8
   ret ptr %8
 }
@@ -7096,9 +7096,9 @@ _ZN13GrowableArrayIP13ObjectMonitorE8allocateEv.exit: ; preds = %7, %11, %15
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -7115,7 +7115,7 @@ _ZN13GrowableArrayIP13ObjectMonitorE8allocateEv.exit: ; preds = %7, %11, %15
 
 .lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
   %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv20
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv20
   store ptr null, ptr %35, align 8
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %36 = load i32, ptr %3, align 4

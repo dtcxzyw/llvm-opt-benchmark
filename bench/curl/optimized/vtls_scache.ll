@@ -5,8 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.curl_trc_feat = type { ptr, i32 }
 %struct.HMAC_params = type { ptr, ptr, ptr, i32, i32, i32 }
-%struct.Curl_ssl_scache_peer = type { ptr, ptr, ptr, ptr, %struct.Curl_llist, ptr, ptr, [32 x i8], [32 x i8], i64, i64, i8 }
-%struct.Curl_llist = type { ptr, ptr, ptr, i64 }
 %struct.dynbuf = type { ptr, i64, i64, i64 }
 
 @Curl_cfree = external local_unnamed_addr global ptr, align 8
@@ -386,7 +384,7 @@ define hidden range(i32 0, 28) i32 @Curl_ssl_scache_create(i64 noundef %0, i64 n
 .lr.ph:                                           ; preds = %11, %.lr.ph
   %.025 = phi i64 [ %19, %.lr.ph ], [ 0, %11 ]
   %15 = load ptr, ptr %8, align 8, !tbaa !30
-  %16 = getelementptr inbounds nuw %struct.Curl_ssl_scache_peer, ptr %15, i64 %.025
+  %16 = getelementptr inbounds nuw [168 x i8], ptr %15, i64 %.025
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 144
   store i64 %1, ptr %17, align 8, !tbaa !32
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 32
@@ -421,7 +419,7 @@ define hidden void @Curl_ssl_scache_destroy(ptr noundef %0) local_unnamed_addr #
 .lr.ph:                                           ; preds = %.preheader, %cf_ssl_scache_clear_peer.exit
   %.08 = phi i64 [ %30, %cf_ssl_scache_clear_peer.exit ], [ 0, %.preheader ]
   %4 = load ptr, ptr %0, align 8, !tbaa !30
-  %5 = getelementptr inbounds nuw %struct.Curl_ssl_scache_peer, ptr %4, i64 %.08
+  %5 = getelementptr inbounds nuw [168 x i8], ptr %4, i64 %.08
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
   tail call void @Curl_llist_destroy(ptr noundef nonnull %6, ptr noundef null) #9
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 64
@@ -1748,7 +1746,7 @@ define internal fastcc i32 @cf_ssl_find_peer_by_key(ptr noundef %0, ptr noundef 
 .lr.ph135:                                        ; preds = %.lr.ph.split.us.split, %cf_ssl_scache_match_auth.exit.thread.us
   %.069113.us134 = phi i64 [ %28, %cf_ssl_scache_match_auth.exit.thread.us ], [ 0, %.lr.ph.split.us.split ]
   %12 = load ptr, ptr %1, align 8, !tbaa !30
-  %13 = getelementptr inbounds nuw %struct.Curl_ssl_scache_peer, ptr %12, i64 %.069113.us134
+  %13 = getelementptr inbounds nuw [168 x i8], ptr %12, i64 %.069113.us134
   %14 = load ptr, ptr %13, align 8, !tbaa !42
   %.not93.us = icmp eq ptr %14, null
   br i1 %.not93.us, label %cf_ssl_scache_match_auth.exit.thread.us, label %15
@@ -1760,7 +1758,7 @@ define internal fastcc i32 @cf_ssl_find_peer_by_key(ptr noundef %0, ptr noundef 
 
 17:                                               ; preds = %15
   %18 = load ptr, ptr %1, align 8, !tbaa !30
-  %19 = getelementptr inbounds nuw %struct.Curl_ssl_scache_peer, ptr %18, i64 %.069113.us134
+  %19 = getelementptr inbounds nuw [168 x i8], ptr %18, i64 %.069113.us134
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !39
   %.not12.i.us = icmp eq ptr %21, null
@@ -1794,7 +1792,7 @@ cf_ssl_scache_match_auth.exit.thread.us:          ; preds = %25, %22, %17, %15, 
 .lr.ph130:                                        ; preds = %.lr.ph.split.split, %cf_ssl_scache_match_auth.exit.thread
   %.069113129 = phi i64 [ %55, %cf_ssl_scache_match_auth.exit.thread ], [ 0, %.lr.ph.split.split ]
   %32 = load ptr, ptr %1, align 8, !tbaa !30
-  %33 = getelementptr inbounds nuw %struct.Curl_ssl_scache_peer, ptr %32, i64 %.069113129
+  %33 = getelementptr inbounds nuw [168 x i8], ptr %32, i64 %.069113129
   %34 = load ptr, ptr %33, align 8, !tbaa !42
   %.not93 = icmp eq ptr %34, null
   br i1 %.not93, label %cf_ssl_scache_match_auth.exit.thread, label %35
@@ -1806,7 +1804,7 @@ cf_ssl_scache_match_auth.exit.thread.us:          ; preds = %25, %22, %17, %15, 
 
 37:                                               ; preds = %35
   %38 = load ptr, ptr %1, align 8, !tbaa !30
-  %39 = getelementptr inbounds nuw %struct.Curl_ssl_scache_peer, ptr %38, i64 %.069113129
+  %39 = getelementptr inbounds nuw [168 x i8], ptr %38, i64 %.069113129
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !39
   %42 = load ptr, ptr %8, align 8, !tbaa !148
@@ -1832,7 +1830,7 @@ cf_ssl_scache_match_auth.exit:                    ; preds = %44
 .split.us:                                        ; preds = %cf_ssl_scache_match_auth.exit, %25
   %.us-phi116 = phi i64 [ %.069113.us134, %25 ], [ %.069113129, %cf_ssl_scache_match_auth.exit ]
   %53 = load ptr, ptr %1, align 8, !tbaa !30
-  %54 = getelementptr inbounds nuw %struct.Curl_ssl_scache_peer, ptr %53, i64 %.us-phi116
+  %54 = getelementptr inbounds nuw [168 x i8], ptr %53, i64 %.us-phi116
   store ptr %54, ptr %4, align 8, !tbaa !161
   br label %169
 
@@ -1870,7 +1868,7 @@ cf_ssl_scache_match_auth.exit.thread:             ; preds = %44, %37, %.lr.ph130
   %65 = phi ptr [ %93, %cf_ssl_scache_match_auth.exit103.thread.us ], [ %.pre, %.lr.ph149.preheader ]
   %.170137.us148 = phi i64 [ %94, %cf_ssl_scache_match_auth.exit103.thread.us ], [ 0, %.lr.ph149.preheader ]
   %.066138.us147 = phi i64 [ %.268.us, %cf_ssl_scache_match_auth.exit103.thread.us ], [ 0, %.lr.ph149.preheader ]
-  %66 = getelementptr inbounds nuw %struct.Curl_ssl_scache_peer, ptr %65, i64 %.170137.us148
+  %66 = getelementptr inbounds nuw [168 x i8], ptr %65, i64 %.170137.us148
   %67 = load ptr, ptr %66, align 8, !tbaa !42
   %.not84.us = icmp eq ptr %67, null
   br i1 %.not84.us, label %68, label %cf_ssl_scache_match_auth.exit103.thread.us
@@ -1918,7 +1916,7 @@ cf_ssl_scache_match_auth.exit.thread:             ; preds = %44, %37, %.lr.ph130
 
 87:                                               ; preds = %84
   %88 = load ptr, ptr %1, align 8, !tbaa !30
-  %89 = getelementptr inbounds nuw %struct.Curl_ssl_scache_peer, ptr %88, i64 %.170137.us148
+  %89 = getelementptr inbounds nuw [168 x i8], ptr %88, i64 %.170137.us148
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 112
   %bcmp.us = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %90, ptr noundef nonnull dereferenceable(32) %6, i64 32)
   %.not88.us = icmp eq i32 %bcmp.us, 0
@@ -1941,7 +1939,7 @@ cf_ssl_scache_match_auth.exit103.thread.us:       ; preds = %91, %78, %75, %72, 
   %.170137214 = phi i64 [ %151, %cf_ssl_scache_match_auth.exit103.thread ], [ 0, %.lr.ph139.split.preheader ]
   %.066138213 = phi i64 [ %.268, %cf_ssl_scache_match_auth.exit103.thread ], [ 0, %.lr.ph139.split.preheader ]
   %96 = load ptr, ptr %1, align 8, !tbaa !30
-  %97 = getelementptr inbounds nuw %struct.Curl_ssl_scache_peer, ptr %96, i64 %.170137214
+  %97 = getelementptr inbounds nuw [168 x i8], ptr %96, i64 %.170137214
   %98 = load ptr, ptr %97, align 8, !tbaa !42
   %.not84 = icmp eq ptr %98, null
   br i1 %.not84, label %99, label %cf_ssl_scache_match_auth.exit103.thread
@@ -1988,7 +1986,7 @@ cf_ssl_scache_match_auth.exit103:                 ; preds = %108
 120:                                              ; preds = %118, %117
   %.167 = phi i64 [ %.066138213, %117 ], [ %119, %118 ]
   %121 = load ptr, ptr %1, align 8, !tbaa !30
-  %122 = getelementptr inbounds nuw %struct.Curl_ssl_scache_peer, ptr %121, i64 %.170137214
+  %122 = getelementptr inbounds nuw [168 x i8], ptr %121, i64 %.170137214
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 80
   %124 = call i32 @Curl_hmacit(ptr noundef nonnull @Curl_HMAC_SHA256, ptr noundef nonnull %123, i64 noundef 32, ptr noundef %2, i64 noundef %.167, ptr noundef nonnull %6) #9
   %.not87 = icmp eq i32 %124, 0
@@ -1996,7 +1994,7 @@ cf_ssl_scache_match_auth.exit103:                 ; preds = %108
 
 125:                                              ; preds = %120
   %126 = load ptr, ptr %1, align 8, !tbaa !30
-  %127 = getelementptr inbounds nuw %struct.Curl_ssl_scache_peer, ptr %126, i64 %.170137214
+  %127 = getelementptr inbounds nuw [168 x i8], ptr %126, i64 %.170137214
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 112
   %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(32) %128, ptr noundef nonnull dereferenceable(32) %6, i64 32)
   %.not88 = icmp eq i32 %bcmp, 0
@@ -2042,7 +2040,7 @@ cf_ssl_scache_match_auth.exit103:                 ; preds = %108
   %145 = load ptr, ptr @Curl_cstrdup, align 8, !tbaa !3
   %146 = call ptr %145(ptr noundef %2) #9
   %147 = load ptr, ptr %1, align 8, !tbaa !30
-  %148 = getelementptr inbounds nuw %struct.Curl_ssl_scache_peer, ptr %147, i64 %.us-phi144
+  %148 = getelementptr inbounds nuw [168 x i8], ptr %147, i64 %.us-phi144
   store ptr %146, ptr %148, align 8, !tbaa !42
   %.not92 = icmp eq ptr %146, null
   br i1 %.not92, label %.thread, label %149
@@ -2316,7 +2314,7 @@ define internal fastcc i32 @cf_ssl_add_peer(ptr noundef %0, ptr noundef readonly
   %.pre4546.i = phi ptr [ %.pre45.i, %40 ], [ %.pre.i, %.lr.ph.preheader.i ]
   %.039.i = phi i64 [ %41, %40 ], [ 0, %.lr.ph.preheader.i ]
   %.02338.i = phi ptr [ %.1.i, %40 ], [ null, %.lr.ph.preheader.i ]
-  %16 = getelementptr inbounds nuw %struct.Curl_ssl_scache_peer, ptr %.pre4546.i, i64 %.039.i
+  %16 = getelementptr inbounds nuw [168 x i8], ptr %.pre4546.i, i64 %.039.i
   %17 = load ptr, ptr %16, align 8, !tbaa !42
   %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %18, label %22
@@ -2342,7 +2340,7 @@ define internal fastcc i32 @cf_ssl_add_peer(ptr noundef %0, ptr noundef readonly
   br i1 %.not26.i, label %28, label %30
 
 28:                                               ; preds = %25
-  %29 = getelementptr inbounds nuw %struct.Curl_ssl_scache_peer, ptr %.pre45.pre.i, i64 %.039.i
+  %29 = getelementptr inbounds nuw [168 x i8], ptr %.pre45.pre.i, i64 %.039.i
   br label %.loopexit.i
 
 30:                                               ; preds = %25, %22
@@ -2351,7 +2349,7 @@ define internal fastcc i32 @cf_ssl_add_peer(ptr noundef %0, ptr noundef readonly
   br i1 %.not28.i, label %38, label %31
 
 31:                                               ; preds = %30
-  %32 = getelementptr inbounds nuw %struct.Curl_ssl_scache_peer, ptr %.pre45.i, i64 %.039.i
+  %32 = getelementptr inbounds nuw [168 x i8], ptr %.pre45.i, i64 %.039.i
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 152
   %34 = load i64, ptr %33, align 8, !tbaa !43
   %35 = getelementptr inbounds nuw i8, ptr %.02338.i, i64 152
@@ -2360,7 +2358,7 @@ define internal fastcc i32 @cf_ssl_add_peer(ptr noundef %0, ptr noundef readonly
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %31, %30
-  %39 = getelementptr inbounds nuw %struct.Curl_ssl_scache_peer, ptr %.pre45.i, i64 %.039.i
+  %39 = getelementptr inbounds nuw [168 x i8], ptr %.pre45.i, i64 %.039.i
   br label %40
 
 40:                                               ; preds = %38, %31

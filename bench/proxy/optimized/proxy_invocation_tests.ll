@@ -11108,7 +11108,7 @@ define internal void @_ZN3pro7details25invocation_dispatcher_refIPSt6vectorINSt7
   unreachable
 
 _ZN3pro7details15invoke_dispatchIN12_GLOBAL__N_14spec6WeakAt4__FTENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRSt6vectorISB_SaISB_EEiEEET0_DpOT1_.exit: ; preds = %3
-  %12 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %.val, i64 %6
+  %12 = getelementptr inbounds [32 x i8], ptr %.val, i64 %6
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %12)
   ret void
 }

@@ -49,7 +49,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.cv::Ptr.32" = type { %"class.std::shared_ptr.33" }
 %"class.std::shared_ptr.33" = type { %"class.std::__shared_ptr.34" }
 %"class.std::__shared_ptr.34" = type { ptr, %"class.std::__shared_count" }
-%"struct.cv::OP" = type { ptr, i32, i32, i32, i32, i32, i32, i32 }
 %struct.z_stream_s = type { ptr, i32, i64, ptr, i32, i64, ptr, ptr, ptr, ptr, ptr, i32, i64, i64 }
 %"class.cv::AutoBuffer.31" = type { ptr, i64, [1032 x i8] }
 %"class.std::vector.41" = type { %"struct.std::_Vector_base.42" }
@@ -350,7 +349,7 @@ define hidden noundef zeroext i1 @_ZN2cv9APNGFrame6setMatERKNS_3MatEjj(ptr nound
   br i1 %50, label %51, label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit
 
 51:                                               ; preds = %49
-  %52 = getelementptr inbounds nuw ptr, ptr %41, i64 %38
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %38
   %.not.i.i = icmp eq ptr %40, %52
   br i1 %.not.i.i, label %_ZNSt6vectorIPhSaIS0_EE6resizeEm.exit, label %53
 
@@ -375,7 +374,7 @@ _ZNSt6vectorIPhSaIS0_EE6resizeEm.exit:            ; preds = %47, %49, %51, %53
   %59 = mul i32 %25, %58
   %60 = zext i32 %59 to i64
   %61 = getelementptr inbounds nuw i8, ptr %57, i64 %60
-  %62 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv
   store ptr %61, ptr %62, align 8, !tbaa !36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -978,7 +977,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %9, %_
   %28 = getelementptr inbounds nuw i8, ptr %6, i64 160
   %29 = load ptr, ptr %28, align 8, !tbaa !118
   %30 = zext nneg i32 %19 to i64
-  %31 = getelementptr i64, ptr %29, i64 %30
+  %31 = getelementptr [8 x i8], ptr %29, i64 %30
   %32 = getelementptr i8, ptr %31, i64 -8
   %33 = load i64, ptr %32, align 8, !tbaa !119
   %34 = mul i64 %33, %27
@@ -1723,7 +1722,7 @@ define hidden noundef zeroext i1 @_ZN2cv10PngDecoder22readFromStreamOrBufferEPvm
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %26 = load ptr, ptr %25, align 8, !tbaa !118
   %27 = zext nneg i32 %16 to i64
-  %28 = getelementptr i64, ptr %26, i64 %27
+  %28 = getelementptr [8 x i8], ptr %26, i64 %27
   %29 = getelementptr i8, ptr %28, i64 -8
   %30 = load i64, ptr %29, align 8, !tbaa !119
   %31 = mul i64 %30, %24
@@ -2603,7 +2602,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit:                 ; preds = %45
   %236 = add i32 %235, %.055153
   %237 = zext i32 %236 to i64
   %238 = load ptr, ptr %233, align 8, !tbaa !19
-  %239 = getelementptr inbounds nuw ptr, ptr %238, i64 %237
+  %239 = getelementptr inbounds nuw [8 x i8], ptr %238, i64 %237
   %240 = load ptr, ptr %239, align 8, !tbaa !36
   %241 = load i32, ptr %164, align 8, !tbaa !126
   %242 = load i32, ptr %1, align 8, !tbaa !20
@@ -2904,7 +2903,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i: ; preds = %448, %.n
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i: ; preds = %450, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i
   store ptr %445, ptr %425, align 8, !tbaa !98
   store ptr %449, ptr %426, align 8, !tbaa !191
-  %451 = getelementptr inbounds nuw i32, ptr %445, i64 %443
+  %451 = getelementptr inbounds nuw [4 x i8], ptr %445, i64 %443
   store ptr %451, ptr %428, align 8, !tbaa !192
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
 
@@ -3203,7 +3202,7 @@ _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %_ZNSt6vectorIiSaIiE
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %569 ]
   %570 = mul i64 %568, %indvars.iv
   %571 = getelementptr inbounds nuw i8, ptr %.pre160, i64 %570
-  %572 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv
+  %572 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv
   store ptr %571, ptr %572, align 8, !tbaa !36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3486,7 +3485,7 @@ _ZN2cv10PngDecoder10InitPngPtrEv.exit:            ; preds = %_ZN2cv10PngDecoder1
   %.015 = phi i64 [ %70, %.lr.ph ], [ 0, %55 ]
   %61 = load ptr, ptr %4, align 8, !tbaa !100
   %62 = load ptr, ptr %11, align 8, !tbaa !101
-  %63 = getelementptr inbounds nuw %"struct.cv::Chunk", ptr %60, i64 %.015
+  %63 = getelementptr inbounds nuw [24 x i8], ptr %60, i64 %.015
   %64 = load ptr, ptr %63, align 8, !tbaa !91
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %66 = load ptr, ptr %65, align 8, !tbaa !133
@@ -3783,7 +3782,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i: ; preds = %27, %_ZNKS
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %29, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
   store ptr %23, ptr %0, align 8, !tbaa !98
   store ptr %28, ptr %3, align 8, !tbaa !191
-  %30 = getelementptr inbounds nuw i32, ptr %23, i64 %21
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %21
   store ptr %30, ptr %5, align 8, !tbaa !192
   br label %_ZNSt6vectorIiSaIiEE12emplace_backIJiEEEvDpOT_.exit
 
@@ -4151,7 +4150,7 @@ define hidden void @_ZN2cv10PngDecoder6row_fnEP14png_struct_defPhji(ptr noundef 
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1064
   %7 = zext i32 %2 to i64
   %8 = load ptr, ptr %6, align 8, !tbaa !19
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %7
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %7
   %10 = load ptr, ptr %9, align 8, !tbaa !36
   tail call void @png_progressive_combine_row(ptr noundef %0, ptr noundef %10, ptr noundef %1)
   ret void
@@ -4795,7 +4794,7 @@ define hidden noundef zeroext i1 @_ZN2cv10PngEncoder5writeERKNS_3MatERKSt6vector
   %.05793 = phi i1 [ %.1, %.thread82 ], [ false, %41 ]
   %.05892 = phi i32 [ %.286, %.thread82 ], [ 3, %41 ]
   %.06091 = phi i32 [ %.1618185, %.thread82 ], [ -1, %41 ]
-  %50 = getelementptr inbounds nuw i32, ptr %44, i64 %.094
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %.094
   %51 = load i32, ptr %50, align 4, !tbaa !137
   switch i32 %51, label %.thread82 [
     i32 16, label %.thread
@@ -4950,7 +4949,7 @@ _ZN2cv10AutoBufferIPhLm136EE8allocateEm.exit:     ; preds = %91, %_ZN2cv10AutoBu
   %109 = load ptr, ptr %105, align 8, !tbaa !33
   %110 = mul i64 %107, %indvars.iv
   %111 = getelementptr inbounds nuw i8, ptr %109, i64 %110
-  %112 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %indvars.iv
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %indvars.iv
   store ptr %111, ptr %112, align 8, !tbaa !36
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -5615,7 +5614,7 @@ define hidden void @_ZN2cv10PngEncoder13deflateRectOpEPhiiiiiiii(ptr noundef non
   %31 = tail call i32 @deflate(ptr noundef nonnull %24, i32 noundef 4)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 7680
   %33 = sext i32 %9 to i64
-  %34 = getelementptr inbounds %"struct.cv::OP", ptr %32, i64 %33
+  %34 = getelementptr inbounds [40 x i8], ptr %32, i64 %33
   store ptr %1, ptr %34, align 8, !tbaa !254
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 7496
   %36 = load i64, ptr %35, align 8, !tbaa !256
@@ -6128,7 +6127,7 @@ define hidden noundef zeroext i1 @_ZN2cv10PngEncoder7getRectEjjPhS1_S1_jjijji(pt
   %140 = tail call i32 @deflate(ptr noundef nonnull %133, i32 noundef 4)
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 7680
   %142 = sext i32 %119 to i64
-  %143 = getelementptr %"struct.cv::OP", ptr %141, i64 %142
+  %143 = getelementptr [40 x i8], ptr %141, i64 %142
   store ptr %4, ptr %143, align 8, !tbaa !254
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 7496
   %145 = load i64, ptr %144, align 8, !tbaa !256
@@ -6207,7 +6206,7 @@ define hidden void @_ZN2cv10PngEncoder14deflateRectFinEPhPjiiS1_ii(ptr noundef n
   %9 = alloca %struct.z_stream_s, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 7680
   %11 = sext i32 %7 to i64
-  %12 = getelementptr inbounds %"struct.cv::OP", ptr %10, i64 %11
+  %12 = getelementptr inbounds [40 x i8], ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !254
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %15 = load i32, ptr %14, align 8, !tbaa !261
@@ -6346,7 +6345,7 @@ define hidden noundef zeroext i1 @_ZN2cv10PngEncoder14writeanimationERKNS_9Anima
   %.0297563 = phi i32 [ %.2517, %.thread513 ], [ 3, %.preheader539 ]
   %.0301562 = phi i1 [ %.1302, %.thread513 ], [ false, %.preheader539 ]
   %.0303561 = phi i64 [ %56, %.thread513 ], [ 0, %.preheader539 ]
-  %41 = getelementptr inbounds nuw i32, ptr %34, i64 %.0303561
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %.0303561
   %42 = load i32, ptr %41, align 4, !tbaa !137
   switch i32 %42, label %.thread513 [
     i32 16, label %.thread
@@ -6719,7 +6718,7 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit413:         ; preds = %.noexc412, %_ZN2cv1
   store i32 1, ptr %193, align 4, !tbaa !17
   store i32 1000, ptr %194, align 8, !tbaa !18
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  %215 = getelementptr inbounds nuw %"class.cv::Mat", ptr %214, i64 %indvars.iv
+  %215 = getelementptr inbounds nuw [96 x i8], ptr %214, i64 %indvars.iv
   invoke void @_ZNK2cv3Mat5cloneEv(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %17, ptr noundef nonnull align 8 dereferenceable(96) %215)
           to label %216 unwind label %242
 
@@ -6744,7 +6743,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit: ; preds = %219, %222
   call void @_ZN2cv3MatD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %17) #33
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   %223 = load ptr, ptr %28, align 8, !tbaa !95
-  %224 = getelementptr inbounds nuw %"class.cv::Mat", ptr %223, i64 %indvars.iv
+  %224 = getelementptr inbounds nuw [96 x i8], ptr %223, i64 %indvars.iv
   %225 = load i32, ptr %224, align 8, !tbaa !20
   %226 = and i32 %225, 4088
   %227 = icmp eq i32 %226, 24
@@ -6758,7 +6757,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit: ; preds = %219, %222
   store ptr %224, ptr %199, align 8, !tbaa !186
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
   %229 = load ptr, ptr %15, align 8, !tbaa !95
-  %230 = getelementptr inbounds nuw %"class.cv::Mat", ptr %229, i64 %indvars.iv
+  %230 = getelementptr inbounds nuw [96 x i8], ptr %229, i64 %indvars.iv
   store i64 0, ptr %201, align 8
   store i32 33619968, ptr %19, align 8, !tbaa !183
   store ptr %230, ptr %200, align 8, !tbaa !186
@@ -6769,7 +6768,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit: ; preds = %219, %222
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %.pre = load ptr, ptr %28, align 8, !tbaa !95
-  %.phi.trans.insert = getelementptr inbounds nuw %"class.cv::Mat", ptr %.pre, i64 %indvars.iv
+  %.phi.trans.insert = getelementptr inbounds nuw [96 x i8], ptr %.pre, i64 %indvars.iv
   %.pre660 = load i32, ptr %.phi.trans.insert, align 8, !tbaa !20
   br label %249
 
@@ -6839,7 +6838,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit: ; preds = %219, %222
   br i1 %253, label %254, label %261
 
 254:                                              ; preds = %249
-  %255 = getelementptr inbounds nuw %"class.cv::Mat", ptr %251, i64 %indvars.iv
+  %255 = getelementptr inbounds nuw [96 x i8], ptr %251, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
   store i32 0, ptr %202, align 8, !tbaa !187
   store i32 0, ptr %203, align 4, !tbaa !188
@@ -6847,7 +6846,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit: ; preds = %219, %222
   store ptr %255, ptr %204, align 8, !tbaa !186
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   %256 = load ptr, ptr %15, align 8, !tbaa !95
-  %257 = getelementptr inbounds nuw %"class.cv::Mat", ptr %256, i64 %indvars.iv
+  %257 = getelementptr inbounds nuw [96 x i8], ptr %256, i64 %indvars.iv
   store i64 0, ptr %206, align 8
   store i32 33619968, ptr %21, align 8, !tbaa !183
   store ptr %257, ptr %205, align 8, !tbaa !186
@@ -6868,7 +6867,7 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit: ; preds = %219, %222
 
 261:                                              ; preds = %258, %249
   %262 = load ptr, ptr %15, align 8, !tbaa !95
-  %263 = getelementptr inbounds nuw %"class.cv::Mat", ptr %262, i64 %indvars.iv
+  %263 = getelementptr inbounds nuw [96 x i8], ptr %262, i64 %indvars.iv
   %264 = load i32, ptr %263, align 8, !tbaa !20
   %265 = and i32 %264, 7
   %.not382 = icmp eq i32 %265, 0
@@ -6895,9 +6894,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backEOS1_.exit: ; preds = %219, %222
 
 270:                                              ; preds = %267, %261
   %271 = phi ptr [ %.pre661, %267 ], [ %262, %261 ]
-  %272 = getelementptr inbounds nuw %"class.cv::Mat", ptr %271, i64 %indvars.iv
+  %272 = getelementptr inbounds nuw [96 x i8], ptr %271, i64 %indvars.iv
   %273 = load ptr, ptr %209, align 8, !tbaa !98
-  %274 = getelementptr inbounds nuw i32, ptr %273, i64 %indvars.iv
+  %274 = getelementptr inbounds nuw [4 x i8], ptr %273, i64 %indvars.iv
   %275 = load i32, ptr %274, align 4, !tbaa !137
   %276 = invoke noundef zeroext i1 @_ZN2cv9APNGFrame6setMatERKNS_3MatEjj(ptr noundef nonnull align 8 dereferenceable(1088) %16, ptr noundef nonnull align 8 dereferenceable(96) %272, i32 noundef %275, i32 noundef 1000)
           to label %277 unwind label %.loopexit538
@@ -7559,7 +7558,7 @@ _ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit456:  ; preds = %.noexc455, %_ZN2cv1
 
 542:                                              ; preds = %_ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit456, %542
   %indvars.iv623 = phi i64 [ 0, %_ZN2cv10AutoBufferIhLm1032EE8allocateEm.exit456 ], [ %indvars.iv.next624, %542 ]
-  %543 = getelementptr inbounds nuw %"struct.cv::OP", ptr %0, i64 %indvars.iv623
+  %543 = getelementptr inbounds nuw [40 x i8], ptr %0, i64 %indvars.iv623
   %544 = getelementptr inbounds nuw i8, ptr %543, i64 7708
   store i32 0, ptr %544, align 4, !tbaa !264
   %indvars.iv.next624 = add nuw nsw i64 %indvars.iv623, 1
@@ -7670,7 +7669,7 @@ _ZN2cv10PngEncoder13deflateRectOpEPhiiiiiiii.exit: ; preds = %.noexc460
 
 587:                                              ; preds = %.preheader536, %587
   %indvars.iv626 = phi i64 [ 0, %.preheader536 ], [ %indvars.iv.next627, %587 ]
-  %588 = getelementptr inbounds nuw %"struct.cv::OP", ptr %0, i64 %indvars.iv626
+  %588 = getelementptr inbounds nuw [40 x i8], ptr %0, i64 %indvars.iv626
   %589 = getelementptr inbounds nuw i8, ptr %588, i64 7708
   store i32 0, ptr %589, align 4, !tbaa !264
   %indvars.iv.next627 = add nuw nsw i64 %indvars.iv626, 1
@@ -7679,10 +7678,10 @@ _ZN2cv10PngEncoder13deflateRectOpEPhiiiiiiii.exit: ; preds = %.noexc460
 
 590:                                              ; preds = %587
   %591 = load ptr, ptr %14, align 8, !tbaa !301
-  %592 = getelementptr inbounds nuw %"class.cv::APNGFrame", ptr %591, i64 %indvars.iv655
+  %592 = getelementptr inbounds nuw [1088 x i8], ptr %591, i64 %indvars.iv655
   %593 = load ptr, ptr %592, align 8, !tbaa !34
   %indvars.iv.next656 = add nuw nsw i64 %indvars.iv655, 1
-  %594 = getelementptr inbounds nuw %"class.cv::APNGFrame", ptr %591, i64 %indvars.iv.next656
+  %594 = getelementptr inbounds nuw [1088 x i8], ptr %591, i64 %indvars.iv.next656
   %595 = load ptr, ptr %594, align 8, !tbaa !34
   %596 = load ptr, ptr %9, align 8, !tbaa !208
   %597 = invoke noundef zeroext i1 @_ZN2cv10PngEncoder7getRectEjjPhS1_S1_jjijji(ptr noundef nonnull align 8 dereferenceable(8960) %0, i32 noundef %134, i32 noundef %136, ptr noundef %593, ptr noundef %595, ptr noundef %596, i32 noundef %spec.select519, i32 noundef %144, i32 noundef %433, i32 noundef %143, i32 noundef %.0299, i32 noundef 0)
@@ -7694,7 +7693,7 @@ _ZN2cv10PngEncoder13deflateRectOpEPhiiiiiiii.exit: ; preds = %.noexc460
 599:                                              ; preds = %598
   %600 = load ptr, ptr %8, align 8, !tbaa !208
   %601 = load ptr, ptr %14, align 8, !tbaa !301
-  %602 = getelementptr inbounds nuw %"class.cv::APNGFrame", ptr %601, i64 %indvars.iv655
+  %602 = getelementptr inbounds nuw [1088 x i8], ptr %601, i64 %indvars.iv655
   %603 = load ptr, ptr %602, align 8, !tbaa !34
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %600, ptr align 1 %603, i64 %146, i1 false)
   %.not607 = icmp eq i32 %.0331593, 0
@@ -7766,7 +7765,7 @@ _ZN2cv10PngEncoder13deflateRectOpEPhiiiiiiii.exit: ; preds = %.noexc460
 .loopexit533:                                     ; preds = %619, %._crit_edge578.us, %.preheader534, %.preheader532
   %628 = load ptr, ptr %8, align 8, !tbaa !208
   %629 = load ptr, ptr %14, align 8, !tbaa !301
-  %630 = getelementptr inbounds nuw %"class.cv::APNGFrame", ptr %629, i64 %indvars.iv.next656
+  %630 = getelementptr inbounds nuw [1088 x i8], ptr %629, i64 %indvars.iv.next656
   %631 = load ptr, ptr %630, align 8, !tbaa !34
   %632 = load ptr, ptr %10, align 8, !tbaa !208
   %633 = invoke noundef zeroext i1 @_ZN2cv10PngEncoder7getRectEjjPhS1_S1_jjijji(ptr noundef nonnull align 8 dereferenceable(8960) %0, i32 noundef %134, i32 noundef %136, ptr noundef %628, ptr noundef %631, ptr noundef %632, i32 noundef %spec.select519, i32 noundef %144, i32 noundef %433, i32 noundef 1, i32 noundef %.0299, i32 noundef 1)
@@ -7779,7 +7778,7 @@ _ZN2cv10PngEncoder13deflateRectOpEPhiiiiiiii.exit: ; preds = %.noexc460
 635:                                              ; preds = %634
   %636 = load ptr, ptr %12, align 8, !tbaa !208
   %637 = load ptr, ptr %14, align 8, !tbaa !301
-  %638 = getelementptr inbounds nuw %"class.cv::APNGFrame", ptr %637, i64 %indvars.iv.next656
+  %638 = getelementptr inbounds nuw [1088 x i8], ptr %637, i64 %indvars.iv.next656
   %639 = load ptr, ptr %638, align 8, !tbaa !34
   %640 = load ptr, ptr %11, align 8, !tbaa !208
   %641 = invoke noundef zeroext i1 @_ZN2cv10PngEncoder7getRectEjjPhS1_S1_jjijji(ptr noundef nonnull align 8 dereferenceable(8960) %0, i32 noundef %134, i32 noundef %136, ptr noundef %636, ptr noundef %639, ptr noundef %640, i32 noundef %spec.select519, i32 noundef %144, i32 noundef %433, i32 noundef %143, i32 noundef %.0299, i32 noundef 2)
@@ -7793,7 +7792,7 @@ _ZN2cv10PngEncoder13deflateRectOpEPhiiiiiiii.exit: ; preds = %.noexc460
   %indvars.iv640 = phi i64 [ 1, %642 ], [ %indvars.iv.next641, %653 ]
   %.0582 = phi i32 [ 0, %642 ], [ %.1, %653 ]
   %.0293581 = phi i32 [ %643, %642 ], [ %.1294, %653 ]
-  %645 = getelementptr inbounds nuw %"struct.cv::OP", ptr %560, i64 %indvars.iv640
+  %645 = getelementptr inbounds nuw [40 x i8], ptr %560, i64 %indvars.iv640
   %646 = getelementptr inbounds nuw i8, ptr %645, i64 28
   %647 = load i32, ptr %646, align 4, !tbaa !264
   %.not373 = icmp eq i32 %647, 0
@@ -7841,7 +7840,7 @@ _ZN2cv10PngEncoder13deflateRectOpEPhiiiiiiii.exit: ; preds = %.noexc460
 
 662:                                              ; preds = %661
   %663 = load ptr, ptr %14, align 8, !tbaa !301
-  %664 = getelementptr inbounds nuw %"class.cv::APNGFrame", ptr %663, i64 %indvars.iv655
+  %664 = getelementptr inbounds nuw [1088 x i8], ptr %663, i64 %indvars.iv655
   %665 = getelementptr inbounds nuw i8, ptr %664, i64 1052
   %666 = load i32, ptr %665, align 4, !tbaa !17
   invoke void @png_save_uint_16(ptr noundef nonnull %583, i32 noundef %666)
@@ -7849,7 +7848,7 @@ _ZN2cv10PngEncoder13deflateRectOpEPhiiiiiiii.exit: ; preds = %.noexc460
 
 667:                                              ; preds = %662
   %668 = load ptr, ptr %14, align 8, !tbaa !301
-  %669 = getelementptr inbounds nuw %"class.cv::APNGFrame", ptr %668, i64 %indvars.iv655
+  %669 = getelementptr inbounds nuw [1088 x i8], ptr %668, i64 %indvars.iv655
   %670 = getelementptr inbounds nuw i8, ptr %669, i64 1056
   %671 = load i32, ptr %670, align 8, !tbaa !18
   invoke void @png_save_uint_16(ptr noundef nonnull %584, i32 noundef %671)
@@ -7877,7 +7876,7 @@ _ZN2cv10PngEncoder13deflateRectOpEPhiiiiiiii.exit: ; preds = %.noexc460
 680:                                              ; preds = %679
   %681 = load ptr, ptr %12, align 8, !tbaa !208
   %682 = load ptr, ptr %14, align 8, !tbaa !301
-  %683 = getelementptr inbounds nuw %"class.cv::APNGFrame", ptr %682, i64 %indvars.iv655
+  %683 = getelementptr inbounds nuw [1088 x i8], ptr %682, i64 %indvars.iv655
   %684 = load ptr, ptr %683, align 8, !tbaa !34
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %681, ptr align 1 %684, i64 %146, i1 false)
   %685 = icmp eq i32 %655, 1
@@ -7947,7 +7946,7 @@ _ZN2cv10PngEncoder13deflateRectOpEPhiiiiiiii.exit: ; preds = %.noexc460
 
 .loopexit:                                        ; preds = %700, %._crit_edge587.us, %.preheader530, %.preheader529, %679, %680
   %709 = sext i32 %.1 to i64
-  %710 = getelementptr inbounds %"struct.cv::OP", ptr %560, i64 %709
+  %710 = getelementptr inbounds [40 x i8], ptr %560, i64 %709
   %711 = getelementptr inbounds nuw i8, ptr %710, i64 12
   %712 = load i32, ptr %711, align 4, !tbaa !260
   %713 = getelementptr inbounds nuw i8, ptr %710, i64 16
@@ -8001,7 +8000,7 @@ _ZN2cv10PngEncoder13deflateRectOpEPhiiiiiiii.exit: ; preds = %.noexc460
 736:                                              ; preds = %734
   %737 = getelementptr inbounds nuw i8, ptr %25, i64 20
   %738 = load ptr, ptr %14, align 8, !tbaa !301
-  %739 = getelementptr inbounds nuw %"class.cv::APNGFrame", ptr %738, i64 %723
+  %739 = getelementptr inbounds nuw [1088 x i8], ptr %738, i64 %723
   %740 = getelementptr inbounds nuw i8, ptr %739, i64 1052
   %741 = load i32, ptr %740, align 4, !tbaa !17
   invoke void @png_save_uint_16(ptr noundef nonnull %737, i32 noundef %741)
@@ -8010,7 +8009,7 @@ _ZN2cv10PngEncoder13deflateRectOpEPhiiiiiiii.exit: ; preds = %.noexc460
 742:                                              ; preds = %736
   %743 = getelementptr inbounds nuw i8, ptr %25, i64 22
   %744 = load ptr, ptr %14, align 8, !tbaa !301
-  %745 = getelementptr inbounds nuw %"class.cv::APNGFrame", ptr %744, i64 %723
+  %745 = getelementptr inbounds nuw [1088 x i8], ptr %744, i64 %723
   %746 = getelementptr inbounds nuw i8, ptr %745, i64 1056
   %747 = load i32, ptr %746, align 8, !tbaa !18
   invoke void @png_save_uint_16(ptr noundef nonnull %743, i32 noundef %747)
@@ -8671,9 +8670,9 @@ _ZNSt6vectorIPhSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit: ; preds = %_ZSt27__uni
 
 _ZNSt12_Vector_baseIPhSaIS0_EE13_M_deallocateEPS0_m.exit36: ; preds = %_ZNSt6vectorIPhSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !19
-  %38 = getelementptr inbounds nuw ptr, ptr %31, i64 %1
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %38, ptr %4, align 8, !tbaa !35
-  %39 = getelementptr inbounds nuw ptr, ptr %30, i64 %28
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %39, ptr %11, align 8, !tbaa !295
   br label %40
 
@@ -8896,7 +8895,7 @@ _ZNSt12_Vector_baseIN2cv5ChunkESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_Z
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !92
   store ptr %.0.lcssa.i.i.i.i32, ptr %4, align 8, !tbaa !93
-  %62 = getelementptr inbounds nuw %"struct.cv::Chunk", ptr %20, i64 %16
+  %62 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %62, ptr %61, align 8, !tbaa !132
   ret void
 
@@ -9029,7 +9028,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_10PngDecode
   %indvars.iv.i.i.i = phi i64 [ %13, %.lr.ph54.i.i.i ], [ %indvars.iv.next.i.i.i, %.loopexit.i.i.i ]
   %15 = load ptr, ptr %.val, align 8, !tbaa !325
   %16 = load ptr, ptr %15, align 8, !tbaa !19
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.i.i.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.i.i.i
   %18 = load ptr, ptr %17, align 8, !tbaa !36
   %19 = load ptr, ptr %7, align 8, !tbaa !327
   %20 = load ptr, ptr %8, align 8, !tbaa !328
@@ -9038,7 +9037,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_10PngDecode
   %23 = add i32 %21, %22
   %24 = zext i32 %23 to i64
   %25 = load ptr, ptr %19, align 8, !tbaa !19
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %24
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %24
   %27 = load ptr, ptr %26, align 8, !tbaa !36
   %28 = load ptr, ptr %9, align 8, !tbaa !329
   %29 = load i32, ptr %28, align 4, !tbaa !137
@@ -9046,7 +9045,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_10PngDecode
   %31 = load i32, ptr %30, align 4, !tbaa !137
   %32 = mul i32 %31, %29
   %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds nuw i16, ptr %27, i64 %33
+  %34 = getelementptr inbounds nuw [2 x i8], ptr %27, i64 %33
   %35 = load ptr, ptr %11, align 8, !tbaa !331
   %36 = load i8, ptr %35, align 1, !tbaa !121
   %37 = icmp eq i8 %36, 0
@@ -9146,8 +9145,8 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_10PngDecode
   %98 = load ptr, ptr %10, align 8, !tbaa !330
   %99 = load i32, ptr %98, align 4, !tbaa !137
   %100 = sext i32 %99 to i64
-  %101 = getelementptr inbounds i16, ptr %.04452.i.i.i, i64 %100
-  %102 = getelementptr inbounds i16, ptr %.04650.i.i.i, i64 %100
+  %101 = getelementptr inbounds [2 x i8], ptr %.04452.i.i.i, i64 %100
+  %102 = getelementptr inbounds [2 x i8], ptr %.04650.i.i.i, i64 %100
   %103 = load ptr, ptr %12, align 8, !tbaa !332
   %104 = load i32, ptr %103, align 4, !tbaa !137
   %105 = icmp ult i32 %97, %104
@@ -9225,7 +9224,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_10PngDecode
   %indvars.iv.i.i.i = phi i64 [ %13, %.lr.ph54.i.i.i ], [ %indvars.iv.next.i.i.i, %.loopexit.i.i.i ]
   %15 = load ptr, ptr %.val, align 8, !tbaa !338
   %16 = load ptr, ptr %15, align 8, !tbaa !19
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv.i.i.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.i.i.i
   %18 = load ptr, ptr %17, align 8, !tbaa !36
   %19 = load ptr, ptr %7, align 8, !tbaa !340
   %20 = load ptr, ptr %8, align 8, !tbaa !341
@@ -9234,7 +9233,7 @@ define internal void @"_ZNSt17_Function_handlerIFvRKN2cv5RangeEEZNS0_10PngDecode
   %23 = add i32 %21, %22
   %24 = zext i32 %23 to i64
   %25 = load ptr, ptr %19, align 8, !tbaa !19
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %24
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %24
   %27 = load ptr, ptr %26, align 8, !tbaa !36
   %28 = load ptr, ptr %9, align 8, !tbaa !342
   %29 = load i32, ptr %28, align 4, !tbaa !137
@@ -9534,7 +9533,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNS
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !95
   store ptr %.0.lcssa.i.i.i.i21, ptr %4, align 8, !tbaa !96
-  %29 = getelementptr inbounds nuw %"class.cv::Mat", ptr %20, i64 %16
+  %29 = getelementptr inbounds nuw [96 x i8], ptr %20, i64 %16
   store ptr %29, ptr %28, align 8, !tbaa !289
   ret void
 }
@@ -9661,7 +9660,7 @@ _ZNSt12_Vector_baseIN2cv9APNGFrameESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds =
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !301
   store ptr %45, ptr %4, align 8, !tbaa !292
-  %52 = getelementptr inbounds nuw %"class.cv::APNGFrame", ptr %20, i64 %16
+  %52 = getelementptr inbounds nuw [1088 x i8], ptr %20, i64 %16
   store ptr %52, ptr %51, align 8, !tbaa !294
   ret void
 

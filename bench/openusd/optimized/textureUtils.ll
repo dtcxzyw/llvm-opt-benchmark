@@ -17,11 +17,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.pxrInternal_v0_24__pxrReserved__::ArResolvedPath" = type { %"class.std::__cxx11::basic_string" }
 %"class.pxrInternal_v0_24__pxrReserved__::TfToken" = type { %"class.pxrInternal_v0_24__pxrReserved__::TfPointerAndBits.3" }
 %"class.pxrInternal_v0_24__pxrReserved__::TfPointerAndBits.3" = type { ptr }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl.base", [4 x i8] }
-%"struct.std::_Tuple_impl.base" = type <{ %"struct.std::_Tuple_impl.4", %"struct.std::_Head_base.5" }>
-%"struct.std::_Tuple_impl.4" = type { %"struct.std::_Head_base" }
-%"struct.std::_Head_base" = type { %"class.pxrInternal_v0_24__pxrReserved__::TfToken" }
-%"struct.std::_Head_base.5" = type { i32 }
 
 $_ZNSt6vectorISt5tupleIJiN32pxrInternal_v0_24__pxrReserved__7TfTokenEEESaIS3_EED2Ev = comdat any
 
@@ -95,7 +90,7 @@ _ZNSt12_Vector_baseISt5tupleIJiN32pxrInternal_v0_24__pxrReserved__7TfTokenEEESaI
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %28, ptr %0, align 8
   store ptr %28, ptr %29, align 8
-  %30 = getelementptr inbounds nuw %"class.std::tuple", ptr %28, i64 %22
+  %30 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %22
   store ptr %30, ptr %26, align 8
   br label %.lr.ph
 
@@ -484,7 +479,7 @@ _ZNSt6vectorISt5tupleIJiN32pxrInternal_v0_24__pxrReserved__7TfTokenEEESaIS3_EE11
 _ZNSt12_Vector_baseISt5tupleIJiN32pxrInternal_v0_24__pxrReserved__7TfTokenEEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorISt5tupleIJiN32pxrInternal_v0_24__pxrReserved__7TfTokenEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit23, %40
   store ptr %21, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i22, ptr %5, align 8
-  %44 = getelementptr inbounds nuw %"class.std::tuple", ptr %21, i64 %17
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %17
   store ptr %44, ptr %39, align 8
   ret void
 }

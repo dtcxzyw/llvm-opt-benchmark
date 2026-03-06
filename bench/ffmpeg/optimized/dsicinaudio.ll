@@ -80,7 +80,7 @@ define internal i32 @cinaudio_decode_frame(ptr noundef %0, ptr noundef initializ
   %30 = getelementptr inbounds nuw i8, ptr %.13335, i64 1
   %31 = load i8, ptr %.13335, align 1, !tbaa !32
   %32 = zext i8 %31 to i64
-  %33 = getelementptr inbounds nuw i16, ptr @cinaudio_delta16_table, i64 %32
+  %33 = getelementptr inbounds nuw [2 x i8], ptr @cinaudio_delta16_table, i64 %32
   %34 = load i16, ptr %33, align 2, !tbaa !43
   %35 = sext i16 %34 to i32
   %36 = add nsw i32 %.137, %35

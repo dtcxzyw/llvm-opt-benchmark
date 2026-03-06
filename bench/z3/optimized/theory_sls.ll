@@ -9,14 +9,12 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.smt::b_justification" = type { ptr }
 %class.symbol = type { ptr }
 %class.params_ref = type { ptr }
-%"struct.smt::bool_var_data" = type { %"class.smt::b_justification", i64 }
 %class.ref_vector = type { %class.ref_vector_core }
 %class.ref_vector_core = type { %class.ref_manager_wrapper, %class.ptr_vector.7 }
 %class.ref_manager_wrapper = type { ptr }
 %class.ptr_vector.7 = type { %class.vector.8 }
 %class.vector.8 = type { ptr }
 %class.vector.5 = type { ptr }
-%class.justified_expr = type { ptr, ptr, ptr }
 %struct.smt_params = type { %struct.preprocessor_params.base, %struct.dyn_ack_params, %struct.qi_params, %struct.theory_arith_params.base, i8, %struct.theory_array_params.base, %struct.theory_bv_params, [4 x i8], %struct.theory_str_params.base, %struct.theory_seq_params, %struct.theory_pb_params.base, %struct.theory_datatype_params, i8, i8, i8, i8, i8, i8, i32, i8, i32, double, double, i32, i32, i32, i32, i32, i8, i32, i32, i32, i32, i32, i32, i8, i32, i8, i8, i8, i8, i8, %class.symbol, i8, i8, i32, i32, i8, i8, i8, i8, i32, i8, i32, i32, double, i8, double, double, i32, i8, i32, i32, double, i32, i32, i32, i32, i32, double, i8, i8, i8, i8, %class.symbol, i8, i8, i8, i8, i8, i8, i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, double, i8, %class.symbol }
 %struct.preprocessor_params.base = type <{ %struct.pattern_inference_params.base, %struct.bit_blaster_params, i32, i32, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 }>
 %struct.pattern_inference_params.base = type <{ i8, [3 x i8], i32, i8, i8, [2 x i8], i32, i8, [3 x i8], i32, i32, i8, [3 x i8], i32, i8, i8 }>
@@ -619,7 +617,7 @@ define hidden void @_ZN3smt10theory_sls11force_phaseEN3sat7literalE(ptr noundef 
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8872
   %8 = load ptr, ptr %7, align 8, !tbaa !546
   %9 = zext nneg i32 %5 to i64
-  %10 = getelementptr inbounds nuw %"struct.smt::bool_var_data", ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = and i64 %12, -201326593
@@ -641,7 +639,7 @@ define hidden void @_ZThn56_N3smt10theory_sls11force_phaseEN3sat7literalE(ptr no
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8872
   %8 = load ptr, ptr %7, align 8, !tbaa !546
   %9 = zext nneg i32 %5 to i64
-  %10 = getelementptr inbounds nuw %"struct.smt::bool_var_data", ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i64, ptr %11, align 8
   %13 = and i64 %12, -201326593
@@ -696,7 +694,7 @@ define hidden noundef ptr @_ZN3smt10theory_sls13bool_var2exprEj(ptr noundef nonn
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8840
   %6 = load ptr, ptr %5, align 8, !tbaa !549
   %7 = zext i32 %1 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !550
   ret ptr %9
 }
@@ -708,7 +706,7 @@ define hidden noundef ptr @_ZThn56_N3smt10theory_sls13bool_var2exprEj(ptr nounde
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8840
   %6 = load ptr, ptr %5, align 8, !tbaa !549
   %7 = zext i32 %1 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !550
   ret ptr %9
 }
@@ -766,7 +764,7 @@ _ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i:  ; preds = %3
 
 _ZNK3smt7context14e_internalizedEPK4expr.exit:    ; preds = %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i
   %13 = zext i32 %7 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %8, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %13
   %.pre.i.then.val = load ptr, ptr %14, align 8, !tbaa !554
   %.not10 = icmp eq ptr %.pre.i.then.val, null
   br i1 %.not10, label %_ZNK3smt7context14e_internalizedEPK4expr.exit.thread, label %15
@@ -801,7 +799,7 @@ _ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i.i: ; preds = %3
 
 _ZNK3smt7context14e_internalizedEPK4expr.exit.i:  ; preds = %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.i.i.i
   %13 = zext i32 %7 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %8, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %13
   %.pre.i.then.val.i = load ptr, ptr %14, align 8, !tbaa !554
   %.not10.i = icmp eq ptr %.pre.i.then.val.i, null
   br i1 %.not10.i, label %_ZN3smt10theory_sls13get_smt_valueEP4exprR7obj_refIS1_11ast_managerE.exit, label %15
@@ -822,7 +820,7 @@ define hidden void @_ZN3smt10theory_sls12inc_activityEjd(ptr noundef nonnull rea
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8880
   %7 = load ptr, ptr %6, align 8, !tbaa !555
   %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds nuw double, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8960
   %11 = load double, ptr %10, align 8, !tbaa !556
   %12 = load double, ptr %9, align 8, !tbaa !557
@@ -851,7 +849,7 @@ define hidden void @_ZThn56_N3smt10theory_sls12inc_activityEjd(ptr noundef reado
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8880
   %7 = load ptr, ptr %6, align 8, !tbaa !555
   %8 = zext i32 %1 to i64
-  %9 = getelementptr inbounds nuw double, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8960
   %11 = load double, ptr %10, align 8, !tbaa !556
   %12 = load double, ptr %9, align 8, !tbaa !557
@@ -993,7 +991,7 @@ _ZNK3smt7context25get_num_asserted_formulasEv.exit: ; preds = %18, %54
   br label %112
 
 38:                                               ; preds = %_ZNK3smt7context25get_num_asserted_formulasEv.exit
-  %39 = getelementptr inbounds nuw %class.justified_expr, ptr %30, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [24 x i8], ptr %30, i64 %indvars.iv
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !565
   %.not.i.i.i.i = icmp eq ptr %41, null
@@ -1035,7 +1033,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.
   %57 = phi i32 [ %.pre2.i.i, %.noexc ], [ %49, %47 ]
   %58 = getelementptr inbounds i8, ptr %56, i64 -4
   %59 = zext i32 %57 to i64
-  %60 = getelementptr inbounds nuw ptr, ptr %56, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %59
   store ptr %41, ptr %60, align 8, !tbaa !550
   %61 = add i32 %57, 1
   store i32 %61, ptr %58, align 4, !tbaa !534
@@ -1453,13 +1451,13 @@ _ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit:     ; preds = %_ZNK6vectorIN3sat7l
 24:                                               ; preds = %_ZNK6vectorIN3sat7literalELb0EjE4sizeEv.exit
   %25 = load ptr, ptr %6, align 8, !tbaa !542
   %26 = zext i32 %19 to i64
-  %27 = getelementptr inbounds nuw %"class.sat::literal", ptr %20, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %26
   %.sroa.01.0.copyload = load i32, ptr %27, align 4, !tbaa !534
   %28 = lshr i32 %.sroa.01.0.copyload, 1
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 8872
   %30 = load ptr, ptr %29, align 8, !tbaa !546
   %31 = zext nneg i32 %28 to i64
-  %32 = getelementptr inbounds nuw %"struct.smt::bool_var_data", ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load i64, ptr %33, align 8
   %35 = trunc i64 %34 to i32
@@ -2208,7 +2206,7 @@ _ZN6vectorIPN3smt5enodeELb0EjE9push_backERKS2_.exit: ; preds = %6, %_ZNK6vectorI
   %13 = phi ptr [ %.pre.i, %_ZNK6vectorIPN3smt5enodeELb0EjE4sizeEv.exit.thread ], [ %4, %6 ]
   %14 = getelementptr inbounds i8, ptr %13, i64 -4
   %15 = zext i32 %12 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %13, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %15
   store ptr %1, ptr %16, align 8, !tbaa !554
   %17 = add i32 %12, 1
   store i32 %17, ptr %14, align 4, !tbaa !534

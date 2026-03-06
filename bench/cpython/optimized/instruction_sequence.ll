@@ -919,9 +919,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._err_stackitem = type { ptr, ptr }
 %struct.anon.807 = type { %struct.PyGC_Head, %struct.PyVarObject, [1 x ptr] }
 %struct.anon.808 = type { %struct.PyGC_Head, %struct.PyVarObject, [1 x ptr] }
-%struct._PyInstruction = type { i32, i32, %struct._Py_SourceLocation, %struct._PyExceptHandlerInfo, i32, i32 }
-%struct._Py_SourceLocation = type { i32, i32, i32, i32 }
-%struct._PyExceptHandlerInfo = type { i32, i32, i32 }
 
 @_PyOpcode_opcode_metadata = external local_unnamed_addr constant [266 x %struct.opcode_metadata], align 16
 @PyType_Type = external global %struct._typeobject, align 8
@@ -1001,13 +998,13 @@ define hidden range(i32 -1, 1) i32 @_PyInstructionSequence_UseLabel(ptr noundef 
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %12 = load i32, ptr %11, align 4, !tbaa !16
   %13 = sext i32 %1 to i64
-  %14 = getelementptr i32, ptr %.pre, i64 %13
+  %14 = getelementptr [4 x i8], ptr %.pre, i64 %13
   store i32 %12, ptr %14, align 4, !tbaa !17
   br label %20
 
 15:                                               ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ %10, %.lr.ph ], [ %indvars.iv.next, %15 ]
-  %16 = getelementptr i32, ptr %.pre, i64 %indvars.iv
+  %16 = getelementptr [4 x i8], ptr %.pre, i64 %indvars.iv
   store i32 -111, ptr %16, align 4, !tbaa !17
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %17 = load i32, ptr %3, align 8, !tbaa !14
@@ -1050,10 +1047,10 @@ define hidden noundef i32 @_PyInstructionSequence_ApplyLabelMap(ptr noundef capt
 
 11:                                               ; preds = %.lr.ph, %35
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %35 ]
-  %12 = getelementptr %struct._PyInstruction, ptr %9, i64 %indvars.iv
+  %12 = getelementptr [44 x i8], ptr %9, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4, !tbaa !21
   %14 = sext i32 %13 to i64
-  %15 = getelementptr %struct.opcode_metadata, ptr @_PyOpcode_opcode_metadata, i64 %14
+  %15 = getelementptr [4 x i8], ptr @_PyOpcode_opcode_metadata, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
   %17 = load i16, ptr %16, align 2, !tbaa !25
   %.fr26 = freeze i16 %17
@@ -1068,7 +1065,7 @@ define hidden noundef i32 @_PyInstructionSequence_ApplyLabelMap(ptr noundef capt
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %23 = load i32, ptr %22, align 4, !tbaa !28
   %24 = sext i32 %23 to i64
-  %25 = getelementptr i32, ptr %3, i64 %24
+  %25 = getelementptr [4 x i8], ptr %3, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !17
   store i32 %26, ptr %22, align 4, !tbaa !28
   br label %27
@@ -1081,7 +1078,7 @@ define hidden noundef i32 @_PyInstructionSequence_ApplyLabelMap(ptr noundef capt
 
 31:                                               ; preds = %27
   %32 = zext nneg i32 %29 to i64
-  %33 = getelementptr i32, ptr %3, i64 %32
+  %33 = getelementptr [4 x i8], ptr %3, i64 %32
   %34 = load i32, ptr %33, align 4, !tbaa !17
   store i32 %34, ptr %28, align 4, !tbaa !29
   br label %35
@@ -1118,7 +1115,7 @@ instr_sequence_next_inst.exit:                    ; preds = %5
 16:                                               ; preds = %instr_sequence_next_inst.exit
   %17 = load ptr, ptr %9, align 8, !tbaa !20
   %18 = sext i32 %13 to i64
-  %19 = getelementptr %struct._PyInstruction, ptr %17, i64 %18
+  %19 = getelementptr [44 x i8], ptr %17, i64 %18
   store i32 %1, ptr %19, align 4, !tbaa !21
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i32 %2, ptr %20, align 4, !tbaa !28
@@ -1162,7 +1159,7 @@ instr_sequence_next_inst.exit:                    ; preds = %6
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %17 = load ptr, ptr %10, align 8, !tbaa !20
   %18 = sext i32 %1 to i64
-  %19 = getelementptr %struct._PyInstruction, ptr %17, i64 %18
+  %19 = getelementptr [44 x i8], ptr %17, i64 %18
   store i32 %2, ptr %19, align 4, !tbaa !21
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   store i32 %3, ptr %20, align 4, !tbaa !28
@@ -1185,9 +1182,9 @@ instr_sequence_next_inst.exit:                    ; preds = %6
   %.026.in34 = phi i32 [ %.02635, %.lr.ph ], [ %14, %.preheader ]
   %27 = load ptr, ptr %10, align 8, !tbaa !20
   %28 = sext i32 %.026.in34 to i64
-  %29 = getelementptr %struct._PyInstruction, ptr %27, i64 %28
+  %29 = getelementptr [44 x i8], ptr %27, i64 %28
   %30 = sext i32 %.02635 to i64
-  %31 = getelementptr %struct._PyInstruction, ptr %27, i64 %30
+  %31 = getelementptr [44 x i8], ptr %27, i64 %30
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(44) %29, ptr noundef nonnull align 4 dereferenceable(44) %31, i64 44, i1 false), !tbaa.struct !31
   %.026 = add i32 %.02635, -1
   %.not = icmp slt i32 %.026, %1
@@ -1196,7 +1193,7 @@ instr_sequence_next_inst.exit:                    ; preds = %6
 32:                                               ; preds = %.lr.ph38, %38
   %33 = phi i32 [ %23, %.lr.ph38 ], [ %39, %38 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph38 ], [ %indvars.iv.next, %38 ]
-  %34 = getelementptr i32, ptr %26, i64 %indvars.iv
+  %34 = getelementptr [4 x i8], ptr %26, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4, !tbaa !17
   %.not30 = icmp slt i32 %35, %1
   br i1 %.not30, label %38, label %36
@@ -1655,7 +1652,7 @@ InstructionSequenceType_addop_impl.exit.sink.split: ; preds = %instr_sequence_ne
   %.sroa.5.12.insert.insert.i48.sink = phi i64 [ %.sroa.5.12.insert.insert.i, %instr_sequence_next_inst.exit.i.i ], [ %.sroa.5.12.insert.insert.i48, %instr_sequence_next_inst.exit.i.i49 ]
   %.sink64 = load ptr, ptr %.sink64.in, align 8, !tbaa !20
   %72 = sext i32 %.sink to i64
-  %73 = getelementptr %struct._PyInstruction, ptr %.sink64, i64 %72
+  %73 = getelementptr [44 x i8], ptr %.sink64, i64 %72
   store i32 %13, ptr %73, align 4, !tbaa !21
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 4
   store i32 %20, ptr %74, align 4, !tbaa !28
@@ -1738,7 +1735,7 @@ define internal noundef ptr @InstructionSequenceType_use_label(ptr noundef %0, p
 
 23:                                               ; preds = %23, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %22, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %23 ]
-  %24 = getelementptr i32, ptr %.pre.i.i, i64 %indvars.iv.i.i
+  %24 = getelementptr [4 x i8], ptr %.pre.i.i, i64 %indvars.iv.i.i
   store i32 -111, ptr %24, align 4, !tbaa !17
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
   %25 = load i32, ptr %15, align 8, !tbaa !14
@@ -1750,7 +1747,7 @@ _PyInstructionSequence_UseLabel.exit.i:           ; preds = %23, %.preheader.i.i
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %29 = load i32, ptr %28, align 4, !tbaa !16
   %30 = sext i32 %13 to i64
-  %31 = getelementptr i32, ptr %.pre.i.i, i64 %30
+  %31 = getelementptr [4 x i8], ptr %.pre.i.i, i64 %30
   store i32 %29, ptr %31, align 4, !tbaa !17
   br label %InstructionSequenceType_use_label_impl.exit
 
@@ -1779,7 +1776,7 @@ _PyInstructionSequence_UseLabel.exit.i:           ; preds = %23, %.preheader.i.i
 
 42:                                               ; preds = %42, %.lr.ph.i.i26
   %indvars.iv.i.i27 = phi i64 [ %41, %.lr.ph.i.i26 ], [ %indvars.iv.next.i.i28, %42 ]
-  %43 = getelementptr i32, ptr %.pre.i.i24, i64 %indvars.iv.i.i27
+  %43 = getelementptr [4 x i8], ptr %.pre.i.i24, i64 %indvars.iv.i.i27
   store i32 -111, ptr %43, align 4, !tbaa !17
   %indvars.iv.next.i.i28 = add nsw i64 %indvars.iv.i.i27, 1
   %44 = load i32, ptr %34, align 8, !tbaa !14
@@ -1911,10 +1908,10 @@ define internal ptr @InstructionSequenceType_get_instructions(ptr noundef captur
 
 12:                                               ; preds = %36, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %36 ]
-  %13 = getelementptr %struct._PyInstruction, ptr %10, i64 %indvars.iv.i.i
+  %13 = getelementptr [44 x i8], ptr %10, i64 %indvars.iv.i.i
   %14 = load i32, ptr %13, align 4, !tbaa !21
   %15 = sext i32 %14 to i64
-  %16 = getelementptr %struct.opcode_metadata, ptr @_PyOpcode_opcode_metadata, i64 %15
+  %16 = getelementptr [4 x i8], ptr @_PyOpcode_opcode_metadata, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 2
   %18 = load i16, ptr %17, align 2, !tbaa !25
   %.fr26.i.i = freeze i16 %18
@@ -1929,7 +1926,7 @@ define internal ptr @InstructionSequenceType_get_instructions(ptr noundef captur
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %24 = load i32, ptr %23, align 4, !tbaa !28
   %25 = sext i32 %24 to i64
-  %26 = getelementptr i32, ptr %4, i64 %25
+  %26 = getelementptr [4 x i8], ptr %4, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !17
   store i32 %27, ptr %23, align 4, !tbaa !28
   br label %28
@@ -1942,7 +1939,7 @@ define internal ptr @InstructionSequenceType_get_instructions(ptr noundef captur
 
 32:                                               ; preds = %28
   %33 = zext nneg i32 %30 to i64
-  %34 = getelementptr i32, ptr %4, i64 %33
+  %34 = getelementptr [4 x i8], ptr %4, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !17
   store i32 %35, ptr %29, align 4, !tbaa !29
   br label %36
@@ -1977,7 +1974,7 @@ _PyInstructionSequence_ApplyLabelMap.exit.i:      ; preds = %._crit_edge.i.i, %2
 47:                                               ; preds = %43, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %43 ]
   %48 = load ptr, ptr %42, align 8, !tbaa !20
-  %49 = getelementptr %struct._PyInstruction, ptr %48, i64 %indvars.iv.i
+  %49 = getelementptr [44 x i8], ptr %48, i64 %indvars.iv.i
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %.sroa.0.0.copyload.i = load i32, ptr %50, align 4, !tbaa !17
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %49, i64 12
@@ -1988,7 +1985,7 @@ _PyInstructionSequence_ApplyLabelMap.exit.i:      ; preds = %._crit_edge.i.i, %2
   %.sroa.9.0.copyload.i = load i32, ptr %.sroa.9.0..sroa_idx.i, align 4, !tbaa !17
   %51 = load i32, ptr %49, align 4, !tbaa !21
   %52 = sext i32 %51 to i64
-  %53 = getelementptr %struct.opcode_metadata, ptr @_PyOpcode_opcode_metadata, i64 %52
+  %53 = getelementptr [4 x i8], ptr @_PyOpcode_opcode_metadata, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 2
   %55 = load i16, ptr %54, align 2, !tbaa !25
   %56 = and i16 %55, 1

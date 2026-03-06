@@ -392,7 +392,7 @@ define internal i32 @dissect_xtp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   tail call void @llvm.assume(i1 %41)
   %.not177 = icmp eq i32 %.0166183, 0
   %42 = select i1 %.not177, ptr @.str.176, ptr @.str.175
-  %43 = getelementptr ptr, ptr @dissect_xtp.fstr, i64 %indvars.iv
+  %43 = getelementptr [8 x i8], ptr @dissect_xtp.fstr, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8
   %45 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %35, i64 noundef %37, i32 noundef 2, i64 noundef %40, ptr noundef nonnull @.str.174, ptr noundef nonnull %42, ptr noundef %44)
   %46 = tail call i32 @llvm.smin.i32(i32 %45, i32 %36)

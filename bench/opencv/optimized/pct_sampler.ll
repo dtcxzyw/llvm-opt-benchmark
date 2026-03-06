@@ -22,7 +22,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::Size_" = type { i32, i32 }
 %"class.cv::Rect_" = type { i32, i32, i32, i32 }
 %"class.cv::_OutputArray" = type { %"class.cv::_InputArray" }
-%"class.cv::Point_" = type { float, float }
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<cv::Point_<float>, std::allocator<cv::Point_<float>>>::_Vector_impl" }
 %"struct.std::_Vector_base<cv::Point_<float>, std::allocator<cv::Point_<float>>>::_Vector_impl" = type { %"struct.std::_Vector_base<cv::Point_<float>, std::allocator<cv::Point_<float>>>::_Vector_impl_data" }
@@ -429,7 +428,7 @@ _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS
   %.pre = phi ptr [ %.pre.pre, %60 ], [ %37, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i ]
   store ptr %55, ptr %26, align 8, !tbaa !23
   store ptr %59, ptr %28, align 8, !tbaa !50
-  %61 = getelementptr inbounds nuw float, ptr %55, i64 %53
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %53
   store ptr %61, ptr %29, align 8, !tbaa !51
   br label %_ZNSt6vectorIfSaIfEE9push_backEOf.exit
 
@@ -496,7 +495,7 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i20: ; preds = %82, %.
 _ZNSt6vectorIfSaIfEE17_M_realloc_insertIJfEEEvN9__gnu_cxx17__normal_iteratorIPfS1_EEDpOT_.exit.i.i22: ; preds = %84, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit16.i.i.i20
   store ptr %79, ptr %27, align 8, !tbaa !23
   store ptr %83, ptr %30, align 8, !tbaa !50
-  %85 = getelementptr inbounds nuw float, ptr %79, i64 %77
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %77
   store ptr %85, ptr %31, align 8, !tbaa !51
   br label %_ZNSt6vectorIfSaIfEE9push_backEOf.exit25
 
@@ -815,7 +814,7 @@ _ZN2cv11xfeatures2d14pct_signatures15GrayscaleBitmapD2Ev.exit: ; preds = %_ZNSt6
 83:                                               ; preds = %.lr.ph, %170
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %170 ]
   %84 = phi ptr [ %46, %.lr.ph ], [ %195, %170 ]
-  %85 = getelementptr inbounds nuw %"class.cv::Point_", ptr %84, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %indvars.iv
   %86 = load float, ptr %85, align 4, !tbaa !70
   %87 = load i32, ptr %53, align 4, !tbaa !72
   %88 = sitofp i32 %87 to float
@@ -1278,7 +1277,7 @@ define linkonce_odr hidden void @_ZN2cv11xfeatures2d14pct_signatures15PCTSampler
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = sext i32 %1 to i64
   %6 = load ptr, ptr %4, align 8, !tbaa !23
-  %7 = getelementptr inbounds nuw float, ptr %6, i64 %5
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %5
   store float %2, ptr %7, align 4, !tbaa !52
   ret void
 }
@@ -1343,9 +1342,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %23, %
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %28 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %29 = load float, ptr %28, align 4, !tbaa !52
-  %30 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv
   store float %29, ptr %30, align 4, !tbaa !52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1357,7 +1356,7 @@ define linkonce_odr hidden void @_ZN2cv11xfeatures2d14pct_signatures15PCTSampler
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = sext i32 %1 to i64
   %6 = load ptr, ptr %4, align 8, !tbaa !23
-  %7 = getelementptr inbounds nuw float, ptr %6, i64 %5
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %5
   store float %2, ptr %7, align 4, !tbaa !52
   ret void
 }
@@ -1422,9 +1421,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %23, %
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %28 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %29 = load float, ptr %28, align 4, !tbaa !52
-  %30 = getelementptr inbounds nuw float, ptr %14, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv
   store float %29, ptr %30, align 4, !tbaa !52
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

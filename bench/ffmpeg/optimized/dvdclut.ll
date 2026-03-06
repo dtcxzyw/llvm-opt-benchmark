@@ -30,7 +30,7 @@ define i32 @ff_dvdclut_palette_extradata_cat(ptr noundef readonly captures(none)
 
 8:                                                ; preds = %5, %8
   %indvars.iv = phi i64 [ 0, %5 ], [ %indvars.iv.next, %8 ]
-  %9 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %10 = load i32, ptr %9, align 4, !tbaa !4
   %.not8 = icmp eq i64 %indvars.iv, 15
   %11 = select i1 %.not8, ptr @.str.3, ptr @.str.2
@@ -58,7 +58,7 @@ define range(i32 -22, 1) i32 @ff_dvdclut_yuv_to_rgb(ptr noundef captures(none) %
 
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %2 ]
-  %3 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %4 = load i32, ptr %3, align 4, !tbaa !4
   %5 = lshr i32 %4, 16
   %6 = and i32 %5, 255

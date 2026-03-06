@@ -82,10 +82,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.google::CheckOpString" = type { ptr }
 %"class.google::LogMessageFatal" = type { %"class.google::LogMessage" }
 %"class.google::LogMessage" = type { ptr, ptr }
-%"class.folly::hazptr_tc_entry" = type { ptr }
-%"class.folly::UnboundedQueue<folly::CPUThreadPoolExecutor::CPUTask, false, false, false, 6>::Entry" = type { %"class.folly::SaturatingSemaphore", [12 x i8], %"union.std::aligned_storage<128, 16>::type" }
-%"class.folly::SaturatingSemaphore" = type { %"struct.std::atomic" }
-%"union.std::aligned_storage<128, 16>::type" = type { [128 x i8] }
 %"class.folly::WaitOptions" = type <{ %"class.std::chrono::duration.9", i8, [7 x i8] }>
 %"class.folly::hazptr_obj_list" = type <{ %"class.folly::hazptr_detail::linked_list", i32, [4 x i8] }>
 %"class.folly::hazptr_detail::linked_list" = type { ptr, ptr }
@@ -99,10 +95,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.folly::f14::detail::SizeAndChunkShiftAndPackedBegin" = type { %"struct.folly::f14::detail::PackedSizeAndChunkShift", %"class.folly::f14::detail::PackedChunkItemPtr" }
 %"struct.folly::f14::detail::PackedSizeAndChunkShift" = type { i64 }
 %"class.folly::f14::detail::PackedChunkItemPtr" = type { i64 }
-%"struct.folly::f14::detail::F14Chunk" = type { %"struct.std::array.101", i8, i8, %"struct.std::array.102" }
-%"struct.std::array.101" = type { [14 x i8] }
-%"struct.std::array.102" = type { [14 x %"union.std::aligned_storage<8, 8>::type"] }
-%"union.std::aligned_storage<8, 8>::type" = type { [8 x i8] }
 %"class.folly::detail::ScopeGuardImpl" = type { %"class.folly::detail::ScopeGuardImplBase", %class.anon.109 }
 %"class.folly::detail::ScopeGuardImplBase" = type { i8 }
 %class.anon.109 = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
@@ -114,12 +106,10 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Deque_base<folly::hazptr_obj_base_linked<folly::UnboundedQueue<folly::CPUThreadPoolExecutor::CPUTask, false, false, false, 6>::Segment> *, std::allocator<folly::hazptr_obj_base_linked<folly::UnboundedQueue<folly::CPUThreadPoolExecutor::CPUTask, false, false, false, 6>::Segment> *>>::_Deque_impl" = type { %"struct.std::_Deque_base<folly::hazptr_obj_base_linked<folly::UnboundedQueue<folly::CPUThreadPoolExecutor::CPUTask, false, false, false, 6>::Segment> *, std::allocator<folly::hazptr_obj_base_linked<folly::UnboundedQueue<folly::CPUThreadPoolExecutor::CPUTask, false, false, false, 6>::Segment> *>>::_Deque_impl_data" }
 %"struct.std::_Deque_base<folly::hazptr_obj_base_linked<folly::UnboundedQueue<folly::CPUThreadPoolExecutor::CPUTask, false, false, false, 6>::Segment> *, std::allocator<folly::hazptr_obj_base_linked<folly::UnboundedQueue<folly::CPUThreadPoolExecutor::CPUTask, false, false, false, 6>::Segment> *>>::_Deque_impl_data" = type { ptr, i64, %"struct.std::_Deque_iterator.128", %"struct.std::_Deque_iterator.128" }
 %"struct.std::_Deque_iterator.128" = type { ptr, ptr, ptr, ptr }
-%"struct.folly::IndexedMemPool<folly::detail::LifoSemRawNode<std::atomic>, 32, 200, std::atomic, folly::IndexedMemPoolTraits<folly::detail::LifoSemRawNode<std::atomic>, false, false>>::Slot" = type { %"union.std::aligned_storage<16, 8>::type", %"struct.std::atomic", %"struct.std::atomic" }
-%"union.std::aligned_storage<16, 8>::type" = type { [16 x i8] }
-%"struct.folly::threadlocal_detail::ElementWrapper" = type { ptr, i64 }
 %"struct.folly::SingletonThreadLocal<folly::hazptr_tc<>, folly::hazptr_tc_tls_tag>::Wrapper" = type { %"struct.folly::SingletonThreadLocal<folly::hazptr_tc<>, folly::hazptr_tc_tls_tag>::ObjectWrapper", %"struct.folly::detail::SingletonThreadLocalState::Tracking" }
 %"struct.folly::SingletonThreadLocal<folly::hazptr_tc<>, folly::hazptr_tc_tls_tag>::ObjectWrapper" = type { %"class.folly::hazptr_tc" }
 %"class.folly::hazptr_tc" = type <{ [9 x %"class.folly::hazptr_tc_entry"], i8, i8, [6 x i8] }>
+%"class.folly::hazptr_tc_entry" = type { ptr }
 %"struct.folly::detail::SingletonThreadLocalState::Tracking" = type { %"class.std::unordered_map", %"class.std::unordered_map.141" }
 %"class.std::unordered_map" = type { %"class.std::_Hashtable" }
 %"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
@@ -146,36 +136,12 @@ target triple = "x86_64-pc-linux-gnu"
 %class.anon.233 = type { ptr, ptr }
 %"class.std::reference_wrapper" = type { ptr }
 %"class.folly::LockedPtr.225" = type { %"class.std::shared_lock" }
-%"struct.folly::Synchronized" = type <{ %"struct.folly::threadlocal_detail::ThreadEntrySet", %"class.folly::SharedMutexImpl", [4 x i8] }>
-%"struct.folly::threadlocal_detail::ThreadEntrySet" = type { %"class.std::vector.180", %"class.std::unordered_map.185" }
-%"class.std::vector.180" = type { %"struct.std::_Vector_base.181" }
-%"struct.std::_Vector_base.181" = type { %"struct.std::_Vector_base<folly::threadlocal_detail::ThreadEntry *, std::allocator<folly::threadlocal_detail::ThreadEntry *>>::_Vector_impl" }
-%"struct.std::_Vector_base<folly::threadlocal_detail::ThreadEntry *, std::allocator<folly::threadlocal_detail::ThreadEntry *>>::_Vector_impl" = type { %"struct.std::_Vector_base<folly::threadlocal_detail::ThreadEntry *, std::allocator<folly::threadlocal_detail::ThreadEntry *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<folly::threadlocal_detail::ThreadEntry *, std::allocator<folly::threadlocal_detail::ThreadEntry *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::unordered_map.185" = type { %"class.std::_Hashtable.186" }
-%"class.std::_Hashtable.186" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
-%"class.folly::SharedMutexImpl" = type { %"struct.std::atomic" }
 %"class.std::unique_ptr.251" = type { %"struct.std::__uniq_ptr_data.252" }
 %"struct.std::__uniq_ptr_data.252" = type { %"class.std::__uniq_ptr_impl.253" }
 %"class.std::__uniq_ptr_impl.253" = type { %"class.std::tuple.254" }
 %"class.std::tuple.254" = type { %"struct.std::_Tuple_impl.255" }
 %"struct.std::_Tuple_impl.255" = type { %"struct.std::_Head_base.258" }
 %"struct.std::_Head_base.258" = type { ptr }
-%"struct.folly::IndexedMemPool<folly::detail::LifoSemRawNode<std::atomic>, 32, 200, std::atomic, folly::IndexedMemPoolTraits<folly::detail::LifoSemRawNode<std::atomic>, false, false>>::LocalList" = type { %"class.folly::AtomicStruct.250", [56 x i8] }
-%"class.folly::AtomicStruct.250" = type { %"struct.std::atomic.10" }
-%"class.folly::UnboundedQueue.281" = type { %"struct.folly::UnboundedQueue<folly::CPUThreadPoolExecutor::CPUTask, false, false, true>::Consumer", [16 x i8], %"struct.folly::UnboundedQueue<folly::CPUThreadPoolExecutor::CPUTask, false, false, true>::Producer", [48 x i8] }
-%"struct.folly::UnboundedQueue<folly::CPUThreadPoolExecutor::CPUTask, false, false, true>::Consumer" = type { %"struct.std::atomic.282", %"struct.std::atomic.10", %"class.folly::hazptr_obj_cohort" }
-%"struct.std::atomic.282" = type { %"struct.std::__atomic_base.283" }
-%"struct.std::__atomic_base.283" = type { ptr }
-%"class.folly::hazptr_obj_cohort" = type { %"class.folly::hazptr_detail::shared_head_tail_list", %"struct.std::atomic.68", %"struct.std::atomic.12", %"struct.std::atomic.12", %"struct.std::atomic.66" }
-%"class.folly::hazptr_detail::shared_head_tail_list" = type { %"struct.std::atomic.66", %"struct.std::atomic.66" }
-%"struct.std::atomic.12" = type { %"struct.std::__atomic_base.13" }
-%"struct.std::__atomic_base.13" = type { i8 }
-%"struct.std::atomic.66" = type { %"struct.std::__atomic_base.67" }
-%"struct.std::__atomic_base.67" = type { ptr }
-%"struct.folly::UnboundedQueue<folly::CPUThreadPoolExecutor::CPUTask, false, false, true>::Producer" = type { %"struct.std::atomic.282", %"struct.std::atomic.10" }
-%"class.folly::UnboundedQueue<folly::CPUThreadPoolExecutor::CPUTask, false, false, true>::Entry" = type { %"class.folly::SaturatingSemaphore.249", [12 x i8], %"union.std::aligned_storage<128, 16>::type" }
-%"class.folly::SaturatingSemaphore.249" = type { %"struct.std::atomic" }
 %"class.std::stack.289" = type { %"class.std::deque.290" }
 %"class.std::deque.290" = type { %"class.std::_Deque_base.291" }
 %"class.std::_Deque_base.291" = type { %"struct.std::_Deque_base<folly::hazptr_obj_base_linked<folly::UnboundedQueue<folly::CPUThreadPoolExecutor::CPUTask, false, false, true>::Segment> *, std::allocator<folly::hazptr_obj_base_linked<folly::UnboundedQueue<folly::CPUThreadPoolExecutor::CPUTask, false, false, true>::Segment> *>>::_Deque_impl" }
@@ -199,6 +165,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.folly::Optional<folly::ThrottledLifoSem::Waiter>::StorageNonTriviallyDestructible" = type <{ %union.anon.337, i8, [7 x i8] }>
 %union.anon.337 = type { %"struct.folly::ThrottledLifoSem::Waiter" }
 %"struct.folly::ThrottledLifoSem::Waiter" = type { %"class.folly::SaturatingSemaphore.249", %"class.boost::intrusive::list_member_hook" }
+%"class.folly::SaturatingSemaphore.249" = type { %"struct.std::atomic" }
 %"class.boost::intrusive::list_member_hook" = type { %"class.boost::intrusive::generic_hook" }
 %"class.boost::intrusive::generic_hook" = type { %"struct.boost::intrusive::list_node" }
 %"struct.boost::intrusive::list_node" = type { ptr, ptr }
@@ -231,20 +198,12 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.420" = type { %"struct.std::_Head_base.423" }
 %"struct.std::_Head_base.423" = type { ptr }
 %"struct.folly::detail::LifoSemBase<folly::SaturatingSemaphore<>>::Options" = type { i8 }
-%"class.folly::MPMCQueue" = type { %"class.folly::detail::MPMCQueueBase" }
-%"class.folly::detail::MPMCQueueBase" = type { i64, %union.anon.442, %union.anon.445, %"struct.std::atomic.10", %"struct.std::atomic.10", [24 x i8], %"struct.std::atomic.10", [56 x i8], %"struct.std::atomic.10", [56 x i8], %"struct.std::atomic", [60 x i8], %"struct.std::atomic", [60 x i8] }
-%union.anon.442 = type { ptr }
-%union.anon.445 = type { i32 }
-%"struct.folly::detail::SingleElementQueue" = type { %"union.std::aligned_storage<128, 16>::type", %"struct.folly::detail::TurnSequencer", [12 x i8] }
-%"struct.folly::detail::TurnSequencer" = type { %"struct.std::atomic" }
 %"class.std::unique_ptr.452" = type { %"struct.std::__uniq_ptr_data.453" }
 %"struct.std::__uniq_ptr_data.453" = type { %"class.std::__uniq_ptr_impl.454" }
 %"class.std::__uniq_ptr_impl.454" = type { %"class.std::tuple.455" }
 %"class.std::tuple.455" = type { %"struct.std::_Tuple_impl.456" }
 %"struct.std::_Tuple_impl.456" = type { %"struct.std::_Head_base.459" }
 %"struct.std::_Head_base.459" = type { ptr }
-%"struct.std::atomic.32" = type { %"struct.std::__atomic_base.33" }
-%"struct.std::__atomic_base.33" = type { ptr }
 
 $_ZNK5folly8Executor16getNumPrioritiesEv = comdat any
 
@@ -3168,7 +3127,7 @@ _ZN5folly9hazptr_tcISt6atomicE7try_getEv.exit:    ; preds = %_ZN5folly20Singleto
   %11 = add i8 %10, -1
   store i8 %11, ptr %9, align 8, !tbaa !225, !noalias !222
   %12 = zext i8 %11 to i64
-  %13 = getelementptr inbounds nuw %"class.folly::hazptr_tc_entry", ptr %8, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !227, !noalias !222
   %.not.i.not = icmp eq ptr %14, null
   br i1 %.not.i.not, label %.thread, label %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit
@@ -3224,7 +3183,7 @@ _ZN5folly14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm6
   %31 = mul i64 %22, 27
   %32 = and i64 %31, 63
   %33 = getelementptr inbounds nuw i8, ptr %.0.i16.lcssa47, i64 64
-  %34 = getelementptr inbounds nuw %"class.folly::UnboundedQueue<folly::CPUThreadPoolExecutor::CPUTask, false, false, false, 6>::Entry", ptr %33, i64 %32
+  %34 = getelementptr inbounds nuw [144 x i8], ptr %33, i64 %32
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store ptr null, ptr %35, align 16, !tbaa !48
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 64
@@ -3434,7 +3393,7 @@ _ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit.thread: ; pre
   %135 = add nuw nsw i8 %133, 1
   store i8 %135, ptr %132, align 8, !tbaa !225
   %136 = zext nneg i8 %133 to i64
-  %137 = getelementptr inbounds nuw %"class.folly::hazptr_tc_entry", ptr %131, i64 %136
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %131, i64 %136
   store ptr %.sroa.026.1, ptr %137, align 8, !tbaa !227
   br label %_ZN5folly13hazptr_holderISt6atomicED2Ev.exit3
 
@@ -3501,7 +3460,7 @@ _ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit18.thread: ; p
   %163 = add nuw nsw i8 %161, 1
   store i8 %163, ptr %160, align 8, !tbaa !225
   %164 = zext nneg i8 %161 to i64
-  %165 = getelementptr inbounds nuw %"class.folly::hazptr_tc_entry", ptr %159, i64 %164
+  %165 = getelementptr inbounds nuw [8 x i8], ptr %159, i64 %164
   store ptr %.sroa.026.1, ptr %165, align 8, !tbaa !227
   br label %_ZN5folly13hazptr_holderISt6atomicED2Ev.exit
 
@@ -3724,7 +3683,7 @@ _ZN5folly9hazptr_tcISt6atomicE7try_getEv.exit.i:  ; preds = %_ZN5folly20Singleto
   %16 = add i8 %15, -1
   store i8 %16, ptr %14, align 8, !tbaa !225, !noalias !250
   %17 = zext i8 %16 to i64
-  %18 = getelementptr inbounds nuw %"class.folly::hazptr_tc_entry", ptr %13, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !227, !noalias !250
   %.not.i.i.not = icmp eq ptr %19, null
   br i1 %.not.i.i.not, label %.thread, label %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit.i
@@ -3779,7 +3738,7 @@ _ZN5folly14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm6
   %35 = mul i64 %26, 27
   %36 = and i64 %35, 63
   %37 = getelementptr inbounds nuw i8, ptr %.0.i.i1.lcssa24, i64 64
-  %38 = getelementptr inbounds nuw %"class.folly::UnboundedQueue<folly::CPUThreadPoolExecutor::CPUTask, false, false, false, 6>::Entry", ptr %37, i64 %36
+  %38 = getelementptr inbounds nuw [144 x i8], ptr %37, i64 %36
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !256
   store i64 2000, ptr %5, align 8, !noalias !256
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -3961,7 +3920,7 @@ _ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit.i.thread: ; p
   %118 = add nuw nsw i8 %116, 1
   store i8 %118, ptr %115, align 8, !tbaa !225
   %119 = zext nneg i8 %116 to i64
-  %120 = getelementptr inbounds nuw %"class.folly::hazptr_tc_entry", ptr %114, i64 %119
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %119
   store ptr %.sroa.0.1, ptr %120, align 8, !tbaa !227
   br label %_ZN5folly14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm6ESt6atomicE11dequeueImplEv.exit
 
@@ -4053,7 +4012,7 @@ _ZN5folly9hazptr_tcISt6atomicE7try_getEv.exit.i:  ; preds = %_ZN5folly20Singleto
   %24 = add i8 %23, -1
   store i8 %24, ptr %22, align 8, !tbaa !225, !noalias !262
   %25 = zext i8 %24 to i64
-  %26 = getelementptr inbounds nuw %"class.folly::hazptr_tc_entry", ptr %21, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !227, !noalias !262
   %.not.i.i.not = icmp eq ptr %27, null
   br i1 %.not.i.i.not, label %.thread, label %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit.i
@@ -4108,7 +4067,7 @@ _ZN5folly14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm6
   %43 = mul i64 %34, 27
   %44 = and i64 %43, 63
   %45 = getelementptr inbounds nuw i8, ptr %.0.i.i1.lcssa37, i64 64
-  %46 = getelementptr inbounds nuw %"class.folly::UnboundedQueue<folly::CPUThreadPoolExecutor::CPUTask, false, false, false, 6>::Entry", ptr %45, i64 %44
+  %46 = getelementptr inbounds nuw [144 x i8], ptr %45, i64 %44
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !268
   store i64 2000, ptr %6, align 8, !noalias !268
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -4290,7 +4249,7 @@ _ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit.i.thread: ; p
   %126 = add nuw nsw i8 %124, 1
   store i8 %126, ptr %123, align 8, !tbaa !225
   %127 = zext nneg i8 %124 to i64
-  %128 = getelementptr inbounds nuw %"class.folly::hazptr_tc_entry", ptr %122, i64 %127
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %127
   store ptr %.sroa.019.1, ptr %128, align 8, !tbaa !227
   br label %_ZN5folly14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm6ESt6atomicE11dequeueImplEv.exit
 
@@ -4413,7 +4372,7 @@ define linkonce_odr void @_ZN5folly13hazptr_domainISt6atomicE18cleanup_cohort_ta
   %7 = lshr i64 %6, 8
   %8 = and i64 %7, 7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  %10 = getelementptr inbounds nuw %"class.folly::hazptr_detail::shared_head_only_list", ptr %9, i64 %8
+  %10 = getelementptr inbounds nuw [24 x i8], ptr %9, i64 %8
   %11 = tail call i64 @pthread_self() #45
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -4710,7 +4669,7 @@ define linkonce_odr void @_ZN5folly17hazptr_obj_cohortISt6atomicE12reclaim_listE
   %25 = ptrtoint ptr %22 to i64
   %26 = lshr i64 %25, 8
   %27 = and i64 %26, 7
-  %28 = getelementptr inbounds nuw %"class.folly::hazptr_detail::shared_head_only_list", ptr getelementptr inbounds nuw (i8, ptr @_ZN5folly14default_domainE, i64 32), i64 %27
+  %28 = getelementptr inbounds nuw [24 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN5folly14default_domainE, i64 32), i64 %27
   %29 = icmp eq ptr %22, null
   br i1 %29, label %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E4pushERNS0_11linked_listIS4_EEb.exit.i.i, label %30
 
@@ -4735,7 +4694,7 @@ _ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E8
 41:                                               ; preds = %18
   %42 = lshr i64 %20, 8
   %43 = and i64 %42, 7
-  %44 = getelementptr inbounds nuw %"class.folly::hazptr_detail::shared_head_only_list", ptr getelementptr inbounds nuw (i8, ptr @_ZN5folly14default_domainE, i64 224), i64 %43
+  %44 = getelementptr inbounds nuw [24 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN5folly14default_domainE, i64 224), i64 %43
   %45 = icmp eq ptr %22, null
   br i1 %45, label %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E4pushERNS0_11linked_listIS4_EEb.exit.i.i, label %46
 
@@ -5477,7 +5436,7 @@ define linkonce_odr void @_ZN5folly13hazptr_domainISt6atomicE14do_reclamationEi(
   %.0.i76.i = phi i64 [ %27, %30 ], [ %62, %61 ]
   %.023.i75.i = phi i64 [ %37, %30 ], [ %63, %61 ]
   %40 = and i64 %.0.i76.i, %38
-  %41 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %.pre.i, i64 %40
+  %41 = getelementptr inbounds nuw [128 x i8], ptr %.pre.i, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 80
   call void @llvm.prefetch.p0(ptr nonnull %43, i32 0, i32 3, i32 1), !noalias !320
@@ -5501,7 +5460,7 @@ define linkonce_odr void @_ZN5folly13hazptr_domainISt6atomicE14do_reclamationEi(
   %54 = and i32 %53, %.sroa.042.0.i
   %55 = zext nneg i32 %52 to i64
   call void @llvm.assume(i1 %49)
-  %56 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %42, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %55
   %57 = load ptr, ptr %56, align 8, !tbaa !323, !noalias !320
   %58 = icmp eq ptr %57, %.0.i.i.i.i
   br i1 %58, label %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKvvvvvEEE19tryEmplaceValueImplIS5_JS5_EEESt4pairINS1_11F14ItemIterIPNS1_8F14ChunkIS5_EEEEbES9_ImmERKT_DpOT0_.exit, label %.critedge.i.i, !prof !143, !llvm.loop !324
@@ -5543,7 +5502,7 @@ _ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKvvvvvEEE16reserveForI
   %notmask.i31.i = shl nsw i64 -1, %.pre-phi.i
   %72 = xor i64 %notmask.i31.i, -1
   %73 = and i64 %27, %72
-  %74 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %71, i64 %73
+  %74 = getelementptr inbounds nuw [128 x i8], ptr %71, i64 %73
   %75 = load <16 x i8>, ptr %74, align 16, !tbaa !48, !noalias !320
   %76 = icmp slt <16 x i8> %75, zeroinitializer
   %77 = bitcast <16 x i1> %76 to i16
@@ -5559,7 +5518,7 @@ _ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKvvvvvEEE16reserveForI
 82:                                               ; preds = %_ZN5folly3f146detail8F14ChunkIPKvE25incrOutboundOverflowCountEv.exit.i, %79
   %83 = phi i64 [ %73, %79 ], [ %90, %_ZN5folly3f146detail8F14ChunkIPKvE25incrOutboundOverflowCountEv.exit.i ]
   %.028.i = phi i64 [ %27, %79 ], [ %89, %_ZN5folly3f146detail8F14ChunkIPKvE25incrOutboundOverflowCountEv.exit.i ]
-  %84 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %71, i64 %83
+  %84 = getelementptr inbounds nuw [128 x i8], ptr %71, i64 %83
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 15
   %86 = load i8, ptr %85, align 1, !tbaa !326, !noalias !320
   %.not.i32.i = icmp eq i8 %86, -2
@@ -5573,7 +5532,7 @@ _ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKvvvvvEEE16reserveForI
 _ZN5folly3f146detail8F14ChunkIPKvE25incrOutboundOverflowCountEv.exit.i: ; preds = %87, %82
   %89 = add i64 %81, %.028.i
   %90 = and i64 %89, %72
-  %91 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %71, i64 %90
+  %91 = getelementptr inbounds nuw [128 x i8], ptr %71, i64 %90
   %92 = load <16 x i8>, ptr %91, align 16, !noalias !320
   %93 = icmp slt <16 x i8> %92, zeroinitializer
   %94 = bitcast <16 x i1> %93 to i16
@@ -5607,7 +5566,7 @@ _ZN5folly3f146detail8F14ChunkIPKvE6setTagEmm.exit.i: ; preds = %100
   %107 = trunc nuw i64 %26 to i8
   store i8 %107, ptr %103, align 1, !tbaa !48, !noalias !320
   %108 = getelementptr inbounds nuw i8, ptr %.029.i, i64 16
-  %109 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %108, i64 %102
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %102
   %110 = icmp ne ptr %.029.i, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
   call void @llvm.assume(i1 %110)
   store ptr %.0.i.i.i.i, ptr %109, align 8, !tbaa !323, !noalias !320
@@ -5870,10 +5829,10 @@ define linkonce_odr noundef zeroext i1 @_ZN5folly13hazptr_domainISt6atomicE23ext
 8:                                                ; preds = %3, %8
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %8 ]
   %.02025 = phi i1 [ true, %3 ], [ %spec.select, %8 ]
-  %9 = getelementptr inbounds nuw %"class.folly::hazptr_detail::shared_head_only_list", ptr %5, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %indvars.iv
   %10 = atomicrmw xchg ptr %9, i64 0 acq_rel, align 8
   %11 = inttoptr i64 %10 to ptr
-  %12 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store ptr %11, ptr %12, align 8, !tbaa !292
   %.not21 = icmp eq i64 %10, 0
   %spec.select = select i1 %.not21, i1 %.02025, i1 false
@@ -5888,13 +5847,13 @@ define linkonce_odr noundef zeroext i1 @_ZN5folly13hazptr_domainISt6atomicE23ext
 15:                                               ; preds = %.preheader, %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E11push_unlockERNS0_11linked_listIS4_EE.exit
   %indvars.iv31 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next32, %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E11push_unlockERNS0_11linked_listIS4_EE.exit ]
   %.227 = phi i1 [ %spec.select, %.preheader ], [ %.3, %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E11push_unlockERNS0_11linked_listIS4_EE.exit ]
-  %16 = getelementptr inbounds nuw %"class.folly::hazptr_detail::shared_head_only_list", ptr %6, i64 %indvars.iv31
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %indvars.iv31
   %17 = load atomic i64, ptr %16 acquire, align 8
   %18 = trunc i64 %17 to i1
   br i1 %18, label %19, label %21
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv31
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv31
   store ptr null, ptr %20, align 8, !tbaa !292
   br label %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E11push_unlockERNS0_11linked_listIS4_EE.exit
 
@@ -5969,7 +5928,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5folly13hazptr_domainISt6atomicE23ext
 _ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E7pop_allEb.exit: ; preds = %36, %37
   %53 = and i64 %25, -2
   %54 = inttoptr i64 %53 to ptr
-  %55 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv31
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv31
   store ptr %54, ptr %55, align 8, !tbaa !292
   %.not = icmp eq i64 %53, 0
   br i1 %.not, label %56, label %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E11push_unlockERNS0_11linked_listIS4_EE.exit
@@ -6019,7 +5978,7 @@ define linkonce_odr noundef i32 @_ZN5folly13hazptr_domainISt6atomicE12match_tagg
 7:                                                ; preds = %3, %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E11push_unlockERNS0_11linked_listIS4_EE.exit
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E11push_unlockERNS0_11linked_listIS4_EE.exit ]
   %.030 = phi i32 [ 0, %3 ], [ %.1, %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E11push_unlockERNS0_11linked_listIS4_EE.exit ]
-  %8 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !292
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E11push_unlockERNS0_11linked_listIS4_EE.exit, label %.lr.ph.i
@@ -6065,7 +6024,7 @@ define linkonce_odr noundef i32 @_ZN5folly13hazptr_domainISt6atomicE12match_tagg
   %.0.i.i23.i.i = phi i64 [ %29, %15 ], [ %58, %57 ]
   %.023.i.i22.i.i = phi i64 [ %12, %15 ], [ %59, %57 ]
   %36 = and i64 %.0.i.i23.i.i, %14
-  %37 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %13, i64 %36
+  %37 = getelementptr inbounds nuw [128 x i8], ptr %13, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 80
   tail call void @llvm.prefetch.p0(ptr nonnull %39, i32 0, i32 3, i32 1)
@@ -6089,7 +6048,7 @@ define linkonce_odr noundef i32 @_ZN5folly13hazptr_domainISt6atomicE12match_tagg
   %50 = and i32 %49, %.sroa.03.0.i.i
   %51 = zext nneg i32 %48 to i64
   tail call void @llvm.assume(i1 %45)
-  %52 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %38, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !323
   %54 = icmp eq ptr %.012.i, %53
   br i1 %54, label %_ZZN5folly13hazptr_domainISt6atomicE12match_taggedEPPNS_10hazptr_objIS1_EERNS_10F14FastSetIPKvNS_23HeterogeneousAccessHashIS9_vEENS_26HeterogeneousAccessEqualToIS9_vEESaIS9_EEEENKUlS5_E_clES5_.exit.i, label %.critedge.i.i.i.i, !prof !143, !llvm.loop !324
@@ -6168,7 +6127,7 @@ _ZN5folly17hazptr_obj_cohortISt6atomicE17cas_safe_list_topERPNS_10hazptr_objIS1_
   br i1 %77, label %_ZN5folly17hazptr_obj_cohortISt6atomicE13push_safe_objEPNS_10hazptr_objIS1_EE.exit.loopexit, label %_ZN5folly17hazptr_obj_cohortISt6atomicE17cas_safe_list_topERPNS_10hazptr_objIS1_EES5_.exit.i, !llvm.loop !344
 
 _ZN5folly17hazptr_obj_cohortISt6atomicE13push_safe_objEPNS_10hazptr_objIS1_EE.exit._crit_edge: ; preds = %_ZN5folly17hazptr_obj_cohortISt6atomicE13push_safe_objEPNS_10hazptr_objIS1_EE.exit.loopexit, %_ZN5folly13hazptr_domainISt6atomicE20list_match_conditionIZNS2_12match_taggedEPPNS_10hazptr_objIS1_EERNS_10F14FastSetIPKvNS_23HeterogeneousAccessHashISA_vEENS_26HeterogeneousAccessEqualToISA_vEESaISA_EEEEUlS6_E_EEvS6_RNS_15hazptr_obj_listIS1_EESL_RKT_.exit
-  %78 = getelementptr inbounds nuw %"class.folly::hazptr_detail::shared_head_only_list", ptr %5, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %indvars.iv
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %80 = load i32, ptr %79, align 8, !tbaa !271
   %81 = icmp sgt i32 %80, 0
@@ -6263,7 +6222,7 @@ _ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E4
   %.01045 = phi i32 [ 0, %4 ], [ %99, %_ZN5folly15hazptr_obj_listISt6atomicE6spliceERS2_.exit14 ]
   %.sroa.025.044 = phi ptr [ null, %4 ], [ %.sroa.025.4, %_ZN5folly15hazptr_obj_listISt6atomicE6spliceERS2_.exit14 ]
   %.sroa.828.043 = phi ptr [ null, %4 ], [ %.sroa.828.2, %_ZN5folly15hazptr_obj_listISt6atomicE6spliceERS2_.exit14 ]
-  %25 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8, !tbaa !292
   %.not11.i = icmp eq ptr %26, null
   br i1 %.not11.i, label %_ZN5folly13hazptr_domainISt6atomicE20list_match_conditionIZNS2_22match_reclaim_untaggedEPPNS_10hazptr_objIS1_EERNS_10F14FastSetIPKvNS_23HeterogeneousAccessHashISA_vEENS_26HeterogeneousAccessEqualToISA_vEESaISA_EEERbEUlS6_E_EEvS6_RNS_15hazptr_obj_listIS1_EESM_RKT_.exit.thread, label %.lr.ph.i
@@ -6315,7 +6274,7 @@ _ZN5folly13hazptr_domainISt6atomicE20list_match_conditionIZNS2_22match_reclaim_u
   %.0.i.i23.i.i = phi i64 [ %46, %32 ], [ %75, %74 ]
   %.023.i.i22.i.i = phi i64 [ %29, %32 ], [ %76, %74 ]
   %53 = and i64 %.0.i.i23.i.i, %31
-  %54 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %30, i64 %53
+  %54 = getelementptr inbounds nuw [128 x i8], ptr %30, i64 %53
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 80
   call void @llvm.prefetch.p0(ptr nonnull %56, i32 0, i32 3, i32 1)
@@ -6339,7 +6298,7 @@ _ZN5folly13hazptr_domainISt6atomicE20list_match_conditionIZNS2_22match_reclaim_u
   %67 = and i32 %66, %.sroa.03.0.i.i
   %68 = zext nneg i32 %65 to i64
   call void @llvm.assume(i1 %62)
-  %69 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %55, i64 %68
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %68
   %70 = load ptr, ptr %69, align 8, !tbaa !323
   %71 = icmp eq ptr %.012.i, %70
   br i1 %71, label %_ZZN5folly13hazptr_domainISt6atomicE22match_reclaim_untaggedEPPNS_10hazptr_objIS1_EERNS_10F14FastSetIPKvNS_23HeterogeneousAccessHashIS9_vEENS_26HeterogeneousAccessEqualToIS9_vEESaIS9_EEERbENKUlS5_E_clES5_.exit.i, label %.critedge.i.i.i.i, !prof !143, !llvm.loop !324
@@ -6419,7 +6378,7 @@ _ZN5folly13hazptr_domainISt6atomicE19reclaim_unprotectedEPNS_10hazptr_objIS1_EER
 
 90:                                               ; preds = %90, %_ZN5folly13hazptr_domainISt6atomicE19reclaim_unprotectedEPNS_10hazptr_objIS1_EERNS_15hazptr_obj_listIS1_EE.exit
   %indvars.iv.i = phi i64 [ 0, %_ZN5folly13hazptr_domainISt6atomicE19reclaim_unprotectedEPNS_10hazptr_objIS1_EERNS_15hazptr_obj_listIS1_EE.exit ], [ %indvars.iv.next.i, %90 ]
-  %91 = getelementptr inbounds nuw %"class.folly::hazptr_detail::shared_head_only_list", ptr %7, i64 %indvars.iv.i
+  %91 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %indvars.iv.i
   %92 = load atomic i64, ptr %91 acquire, align 8
   %93 = icmp eq i64 %92, 0
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -6657,7 +6616,7 @@ define linkonce_odr void @_ZN5folly3f146detail8F14TableINS1_20ValueContainerPoli
 
 .lr.ph.i:                                         ; preds = %6, %.lr.ph.i
   %.08.i = phi i64 [ %32, %.lr.ph.i ], [ 0, %6 ]
-  %31 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %30, i64 %.08.i
+  %31 = getelementptr inbounds nuw [128 x i8], ptr %30, i64 %.08.i
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %31, i8 0, i64 16, i1 false)
   %32 = add nuw i64 %.08.i, 1
   %exitcond.not.i = icmp eq i64 %32, %4
@@ -6734,9 +6693,9 @@ _ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKvvvvvEEE16initializeC
 
 56:                                               ; preds = %51
   store i8 %50, ptr %52, align 1, !tbaa !48
-  %57 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %45, i64 %.042133
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %.042133
   call void @llvm.assume(i1 %46)
-  %58 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %47, i64 %.0134
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %.0134
   %59 = load ptr, ptr %58, align 8, !tbaa !323
   store ptr %59, ptr %57, align 8, !tbaa !323
   %60 = add nuw i64 %.042133, 1
@@ -6750,7 +6709,7 @@ _ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyIPKvvvvvEEE16initializeC
 
 64:                                               ; preds = %61
   %65 = add i64 %.1, -1
-  %66 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %45, i64 %65
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %65
   %67 = icmp ne ptr %30, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
   call void @llvm.assume(i1 %67)
   %68 = and i64 %65, 255
@@ -6802,7 +6761,7 @@ _ZNSt15__new_allocatorIhE8allocateEmPKv.exit.i:   ; preds = %75
 _ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit: ; preds = %_ZNSt15__new_allocatorIhE8allocateEmPKv.exit.i, %74
   %.0117 = phi ptr [ %18, %74 ], [ %78, %_ZNSt15__new_allocatorIhE8allocateEmPKv.exit.i ]
   call void @llvm.memset.p0.i64(ptr nonnull align 1 %.0117, i8 0, i64 %4, i1 false)
-  %81 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %19, i64 %2
+  %81 = getelementptr inbounds nuw [128 x i8], ptr %19, i64 %2
   br label %82
 
 .loopexit:                                        ; preds = %146, %82
@@ -6849,7 +6808,7 @@ _ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit: ; preds = %_ZNSt15__new_allo
   %.sroa.8.1 = add i32 %.sroa.8.1.in, 1
   %.sroa.081.1 = lshr i32 %.sroa.081.0126, %.pn
   %97 = zext i32 %.sroa.8.1.in to i64
-  %98 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %88, i64 %97
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %97
   %99 = load ptr, ptr %98, align 8, !tbaa !323
   %100 = ptrtoint ptr %99 to i64
   %101 = zext i64 %100 to i128
@@ -6889,7 +6848,7 @@ _ZNSt16allocator_traitsISaIhEE8allocateERS0_m.exit: ; preds = %_ZNSt15__new_allo
 
 .lr.ph.i76:                                       ; preds = %116, %_ZN5folly3f146detail8F14ChunkIPKvE25incrOutboundOverflowCountEv.exit.i
   %128 = phi i64 [ %135, %_ZN5folly3f146detail8F14ChunkIPKvE25incrOutboundOverflowCountEv.exit.i ], [ %124, %116 ]
-  %129 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %123, i64 %128
+  %129 = getelementptr inbounds nuw [128 x i8], ptr %123, i64 %128
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 15
   %131 = load i8, ptr %130, align 1, !tbaa !326
   %.not.i.i = icmp eq i8 %131, -2
@@ -6912,7 +6871,7 @@ _ZN5folly3f146detail8F14ChunkIPKvE25incrOutboundOverflowCountEv.exit.i: ; preds 
   %.lcssa22.i = phi i64 [ %124, %116 ], [ %135, %_ZN5folly3f146detail8F14ChunkIPKvE25incrOutboundOverflowCountEv.exit.i ]
   %.018.lcssa.i = phi i8 [ 0, %116 ], [ 16, %_ZN5folly3f146detail8F14ChunkIPKvE25incrOutboundOverflowCountEv.exit.i ]
   %.lcssa.i = phi i8 [ %126, %116 ], [ %137, %_ZN5folly3f146detail8F14ChunkIPKvE25incrOutboundOverflowCountEv.exit.i ]
-  %.lcssa21.i = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %123, i64 %.lcssa22.i
+  %.lcssa21.i = getelementptr inbounds nuw [128 x i8], ptr %123, i64 %.lcssa22.i
   %139 = getelementptr inbounds nuw i8, ptr %.0117, i64 %.lcssa22.i
   %140 = add nuw nsw i8 %.lcssa.i, 1
   store i8 %140, ptr %139, align 1, !tbaa !48
@@ -6934,7 +6893,7 @@ _ZN5folly3f146detail8F14ChunkIPKvE25incrOutboundOverflowCountEv.exit.i: ; preds 
   %150 = add i8 %149, %.018.lcssa.i
   store i8 %150, ptr %148, align 2, !tbaa !331
   %151 = getelementptr inbounds nuw i8, ptr %.lcssa21.i, i64 16
-  %152 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %151, i64 %141
+  %152 = getelementptr inbounds nuw [8 x i8], ptr %151, i64 %141
   %153 = icmp ne ptr %.lcssa21.i, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
   call void @llvm.assume(i1 %153)
   %154 = load ptr, ptr %98, align 8, !tbaa !323
@@ -6958,11 +6917,11 @@ _ZN5folly3f146detail8F14ChunkIPKvE25incrOutboundOverflowCountEv.exit.i: ; preds 
 
 163:                                              ; preds = %159
   %164 = load ptr, ptr %0, align 8, !tbaa !313
-  %165 = getelementptr inbounds nuw %"struct.folly::f14::detail::F14Chunk", ptr %164, i64 %.041
+  %165 = getelementptr inbounds nuw [128 x i8], ptr %164, i64 %.041
   %166 = zext nneg i8 %161 to i64
   %167 = add nsw i64 %166, -1
   %168 = getelementptr inbounds nuw i8, ptr %165, i64 16
-  %169 = getelementptr inbounds nuw %"union.std::aligned_storage<8, 8>::type", ptr %168, i64 %167
+  %169 = getelementptr inbounds nuw [8 x i8], ptr %168, i64 %167
   %170 = icmp ne ptr %165, @_ZZN5folly3f146detail20getF14EmptyTagVectorEvE8instance
   call void @llvm.assume(i1 %170)
   %171 = icmp ult i8 %161, 17
@@ -7285,7 +7244,7 @@ define linkonce_odr void @_ZN5folly14UnboundedQueueINS_21CPUThreadPoolExecutor7C
   %.1 = phi ptr [ %.0.i.i.i, %11 ], [ %.012, %.lr.ph ]
   %15 = mul i64 %.01011, 27
   %16 = and i64 %15, 63
-  %17 = getelementptr inbounds nuw %"class.folly::UnboundedQueue<folly::CPUThreadPoolExecutor::CPUTask, false, false, false, 6>::Entry", ptr %.1, i64 %16
+  %17 = getelementptr inbounds nuw [144 x i8], ptr %.1, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 80
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 168
   %20 = load ptr, ptr %19, align 8, !tbaa !168
@@ -7551,7 +7510,7 @@ _ZN5folly13hazptr_detail21shared_head_tail_listINS_10hazptr_objISt6atomicEES3_E4
   %37 = ptrtoint ptr %0 to i64
   %38 = lshr i64 %37, 8
   %39 = and i64 %38, 7
-  %40 = getelementptr inbounds nuw %"class.folly::hazptr_detail::shared_head_only_list", ptr %36, i64 %39
+  %40 = getelementptr inbounds nuw [24 x i8], ptr %36, i64 %39
   %41 = load atomic i64, ptr %40 acquire, align 8
   %42 = inttoptr i64 %41 to ptr
   store ptr %42, ptr %34, align 8, !tbaa !177
@@ -8096,7 +8055,7 @@ _ZNSt11_Deque_baseIPN5folly22hazptr_obj_base_linkedINS0_14UnboundedQueueINS0_21C
   store ptr %7, ptr %0, align 8, !tbaa !404
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %9
   %.idx = shl nuw nsw i64 %3, 3
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
@@ -8190,7 +8149,7 @@ _ZNSt11_Deque_baseIPN5folly22hazptr_obj_base_linkedINS0_14UnboundedQueueINS0_21C
   store ptr %48, ptr %49, align 8, !tbaa !402
   store ptr %39, ptr %37, align 8, !tbaa !413
   %50 = and i64 %1, 63
-  %51 = getelementptr inbounds nuw ptr, ptr %46, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %50
   store ptr %51, ptr %43, align 8, !tbaa !388
   ret void
 
@@ -8302,9 +8261,9 @@ define linkonce_odr void @_ZNSt5dequeIPN5folly22hazptr_obj_base_linkedINS0_14Unb
   %19 = load ptr, ptr %0, align 8, !tbaa !404
   %20 = sub i64 %15, %13
   %21 = lshr i64 %20, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = select i1 %2, i64 %1, i64 0
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = icmp ult ptr %24, %7
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %26, %7
@@ -8323,12 +8282,12 @@ define linkonce_odr void @_ZNSt5dequeIPN5folly22hazptr_obj_base_linkedINS0_14Unb
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPPPN5folly22hazptr_obj_base_linkedINS0_14UnboundedQueueINS0_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm6ESt6atomicE7SegmentES5_St14default_deleteIS7_EEESD_ET0_T_SF_SE_.exit, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw ptr, ptr %24, i64 %12
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %12
   %34 = ptrtoint ptr %26 to i64
   %35 = sub i64 %34, %9
   %36 = ashr exact i64 %35, 3
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds ptr, ptr %33, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %33, i64 %37
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %38, ptr align 8 %7, i64 %35, i1 false)
   br label %_ZSt4copyIPPPN5folly22hazptr_obj_base_linkedINS0_14UnboundedQueueINS0_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm6ESt6atomicE7SegmentES5_St14default_deleteIS7_EEESD_ET0_T_SF_SE_.exit
 
@@ -8356,9 +8315,9 @@ _ZNSt11_Deque_baseIPN5folly22hazptr_obj_base_linkedINS0_14UnboundedQueueINS0_21C
   %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #42
   %47 = sub i64 %41, %13
   %48 = lshr i64 %47, 1
-  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %48
   %50 = select i1 %2, i64 %1, i64 0
-  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i25 = icmp eq ptr %52, %7
   br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPPPN5folly22hazptr_obj_base_linkedINS0_14UnboundedQueueINS0_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm6ESt6atomicE7SegmentES5_St14default_deleteIS7_EEESD_ET0_T_SF_SE_.exit26, label %53
@@ -8386,7 +8345,7 @@ _ZSt4copyIPPPN5folly22hazptr_obj_base_linkedINS0_14UnboundedQueueINS0_21CPUThrea
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 512
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %60, ptr %61, align 8, !tbaa !402
-  %62 = getelementptr inbounds nuw ptr, ptr %.0, i64 %12
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %12
   %63 = getelementptr inbounds i8, ptr %62, i64 -8
   store ptr %63, ptr %4, align 8, !tbaa !399
   %64 = load ptr, ptr %63, align 8, !tbaa !400
@@ -8450,7 +8409,7 @@ _ZN5folly13hazptr_detail21shared_head_tail_listINS_10hazptr_objISt6atomicEES3_E7
 21:                                               ; preds = %18
   %22 = lshr i64 %10, 8
   %23 = and i64 %22, 7
-  %24 = getelementptr inbounds nuw %"class.folly::hazptr_detail::shared_head_only_list", ptr getelementptr inbounds nuw (i8, ptr @_ZN5folly14default_domainE, i64 32), i64 %23
+  %24 = getelementptr inbounds nuw [24 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN5folly14default_domainE, i64 32), i64 %23
   %25 = load atomic i64, ptr %24 acquire, align 8
   %26 = inttoptr i64 %25 to ptr
   %27 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5.i, i64 8
@@ -8471,7 +8430,7 @@ _ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E8
 35:                                               ; preds = %18
   %36 = lshr i64 %19, 8
   %37 = and i64 %36, 7
-  %38 = getelementptr inbounds nuw %"class.folly::hazptr_detail::shared_head_only_list", ptr getelementptr inbounds nuw (i8, ptr @_ZN5folly14default_domainE, i64 224), i64 %37
+  %38 = getelementptr inbounds nuw [24 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN5folly14default_domainE, i64 224), i64 %37
   %39 = load atomic i64, ptr %38 acquire, align 8
   %40 = and i64 %39, 1
   %41 = and i64 %39, -2
@@ -8545,7 +8504,7 @@ _ZN5folly6detail11LifoSemBaseINS_19SaturatingSemaphoreILb1ESt6atomicEES3_E9idxTo
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %14 = load ptr, ptr %13, align 64, !tbaa !414
   %15 = and i64 %2, 4294967295
-  %16 = getelementptr inbounds nuw %"struct.folly::IndexedMemPool<folly::detail::LifoSemRawNode<std::atomic>, 32, 200, std::atomic, folly::IndexedMemPoolTraits<folly::detail::LifoSemRawNode<std::atomic>, false, false>>::Slot", ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load atomic i32, ptr %17 monotonic, align 4
   %19 = icmp eq i32 %18, 0
@@ -8607,7 +8566,7 @@ _ZN5folly6detail11LifoSemBaseINS_19SaturatingSemaphoreILb1ESt6atomicEES3_E9idxTo
   %42 = phi ptr [ %41, %40 ], [ %.0.i.i.i.i, %38 ]
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 64
   %44 = load ptr, ptr %43, align 64, !tbaa !414
-  %45 = getelementptr inbounds nuw %"struct.folly::IndexedMemPool<folly::detail::LifoSemRawNode<std::atomic>, 32, 200, std::atomic, folly::IndexedMemPoolTraits<folly::detail::LifoSemRawNode<std::atomic>, false, false>>::Slot", ptr %44, i64 %15
+  %45 = getelementptr inbounds nuw [24 x i8], ptr %44, i64 %15
   %46 = cmpxchg ptr %45, i32 0, i32 1 release monotonic, align 4
   %47 = extractvalue { i32, i1 } %46, 1
   br i1 %47, label %_ZN5folly19SaturatingSemaphoreILb1ESt6atomicE22postFastWaiterMayBlockEv.exit, label %48
@@ -8806,7 +8765,7 @@ _ZNK5folly14ThreadLocalPtrINS_20SingletonThreadLocalINS_9hazptr_tcISt6atomicEENS
   %12 = load atomic i32, ptr %4 acquire, align 4
   %13 = load ptr, ptr %11, align 8, !tbaa !426
   %14 = zext i32 %12 to i64
-  %15 = getelementptr inbounds nuw %"struct.folly::threadlocal_detail::ElementWrapper", ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !431
   %.not.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i, label %17, label %_ZNK5folly11ThreadLocalINS_20SingletonThreadLocalINS_9hazptr_tcISt6atomicEENS_17hazptr_tc_tls_tagENS_6detail11DefaultMakeIS4_EES5_E7WrapperES5_vEdeEv.exit, !prof !151
@@ -9465,7 +9424,7 @@ _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockE
   %84 = load i64, ptr %83, align 8, !tbaa !490
   %85 = urem i64 %31, %84
   %86 = load ptr, ptr %82, align 8, !tbaa !491
-  %87 = getelementptr inbounds nuw ptr, ptr %86, i64 %85
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %85
   %88 = load ptr, ptr %87, align 8, !tbaa !492
   %.not.i.i.i.i.i = icmp eq ptr %88, null
   br i1 %.not.i.i.i.i.i, label %.loopexit, label %89
@@ -10072,7 +10031,7 @@ _ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit: ; preds = %3, %5
   %.1.ph = phi i32 [ 0, %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit ], [ %18, %17 ]
   %10 = shl i32 %.1.ph, 2
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw %"struct.std::atomic.10", ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 %11
   br label %13
 
 13:                                               ; preds = %.outer, %24
@@ -10140,7 +10099,7 @@ _ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit: ; preds = %4, %6
   %.4 = phi i32 [ %3, %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit ], [ %21, %20 ]
   %14 = shl i32 %.4, 2
   %15 = zext i32 %14 to i64
-  %16 = getelementptr inbounds nuw %"struct.std::atomic.10", ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 %15
   %17 = load atomic i64, ptr %16 acquire, align 32
   %18 = and i64 %17, -2
   %19 = icmp eq i64 %18, %9
@@ -10156,7 +10115,7 @@ _ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit: ; preds = %4, %6
   %.02648 = phi i32 [ 0, %.lr.ph ], [ %.127, %34 ]
   %24 = shl i64 %indvars.iv, 2
   %25 = and i64 %24, 4294967292
-  %26 = getelementptr inbounds nuw %"struct.std::atomic.10", ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 %25
   %27 = load atomic i64, ptr %26 acquire, align 32
   %28 = and i64 %27, -2
   %29 = icmp eq i64 %28, %9
@@ -10308,7 +10267,7 @@ _ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit: ; preds = %3, %5
   %.1.ph = phi i32 [ 0, %_ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit ], [ %18, %17 ]
   %10 = shl i32 %.1.ph, 2
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw %"struct.std::atomic.10", ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 %11
   br label %13
 
 13:                                               ; preds = %.outer, %24
@@ -10497,7 +10456,7 @@ _ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit: ; preds = %4, %6
   %.4 = phi i32 [ %.250, %16 ], [ %25, %24 ]
   %18 = shl i32 %.4, 2
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw %"struct.std::atomic.10", ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 %19
   %21 = load atomic i64, ptr %20 acquire, align 32
   %22 = and i64 %21, -2
   %23 = icmp eq i64 %22, %9
@@ -10535,7 +10494,7 @@ _ZN5folly19shared_mutex_detail21getMaxDeferredReadersEv.exit: ; preds = %4, %6
   %.02651 = phi i32 [ 0, %.lr.ph ], [ %.127, %46 ]
   %36 = shl i64 %indvars.iv, 2
   %37 = and i64 %36, 4294967292
-  %38 = getelementptr inbounds nuw %"struct.std::atomic.10", ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 %37
   %39 = load atomic i64, ptr %38 acquire, align 32
   %40 = and i64 %39, -2
   %41 = icmp eq i64 %40, %9
@@ -10635,7 +10594,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5folly18threadlocal_detail14ThreadEnt
   %16 = load i64, ptr %15, align 8, !tbaa !490
   %17 = urem i64 %14, %16
   %18 = load ptr, ptr %3, align 8, !tbaa !491
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %17
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %17
   %20 = load ptr, ptr %19, align 8, !tbaa !492
   %.not.i.i.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i.i.i, label %.loopexit, label %21
@@ -10727,7 +10686,7 @@ _ZNSt6vectorIPN5folly18threadlocal_detail11ThreadEntryESaIS3_EE11_S_relocateEPS3
 _ZNSt6vectorIPN5folly18threadlocal_detail11ThreadEntryESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %58, %_ZNSt6vectorIPN5folly18threadlocal_detail11ThreadEntryESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
   store ptr %53, ptr %0, align 8, !tbaa !496
   store ptr %57, ptr %34, align 8, !tbaa !499
-  %59 = getelementptr inbounds nuw ptr, ptr %53, i64 %51
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %51
   store ptr %59, ptr %36, align 8, !tbaa !533
   br label %_ZNSt6vectorIPN5folly18threadlocal_detail11ThreadEntryESaIS3_EE9push_backERKS3_.exit
 
@@ -10744,7 +10703,7 @@ _ZNSt6vectorIPN5folly18threadlocal_detail11ThreadEntryESaIS3_EE9push_backERKS3_.
   %69 = load i64, ptr %68, align 8, !tbaa !490
   %70 = urem i64 %67, %69
   %71 = load ptr, ptr %3, align 8, !tbaa !491
-  %72 = getelementptr inbounds nuw ptr, ptr %71, i64 %70
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %70
   %73 = load ptr, ptr %72, align 8, !tbaa !492
   %.not.i.i.i.i2 = icmp eq ptr %73, null
   br i1 %.not.i.i.i.i2, label %.loopexit.i.i, label %74
@@ -10938,7 +10897,7 @@ _ZNSt10_HashtableIPN5folly18threadlocal_detail11ThreadEntryESt4pairIKS3_mESaIS6_
 31:                                               ; preds = %_ZNSt10_HashtableIPN5folly18threadlocal_detail11ThreadEntryESt4pairIKS3_mESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableIPN5folly18threadlocal_detail11ThreadEntryESt4pairIKS3_mESaIS6_ENSt8__detail10_Select1stESt8equal_toIS3_ESt4hashIS3_ENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit ], [ %1, %5 ]
   %32 = load ptr, ptr %0, align 8, !tbaa !491
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0
   %34 = load ptr, ptr %33, align 8, !tbaa !492
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %38, label %35
@@ -10965,7 +10924,7 @@ _ZNSt10_HashtableIPN5folly18threadlocal_detail11ThreadEntryESt4pairIKS3_mESaIS6_
   %45 = load ptr, ptr %43, align 8, !tbaa !488
   %46 = ptrtoint ptr %45 to i64
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %32, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !492
   br label %49
 
@@ -11030,7 +10989,7 @@ _ZNSt10_HashtableIPN5folly18threadlocal_detail11ThreadEntryESt4pairIKS3_mESaIS6_
   %16 = load ptr, ptr %15, align 8, !tbaa !488
   %17 = ptrtoint ptr %16 to i64
   %18 = urem i64 %17, %1
-  %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !492
   %.not27 = icmp eq ptr %20, null
   br i1 %.not27, label %21, label %26
@@ -11045,7 +11004,7 @@ _ZNSt10_HashtableIPN5folly18threadlocal_detail11ThreadEntryESt4pairIKS3_mESaIS6_
   br i1 %.not28, label %29, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %25, align 8, !tbaa !492
   br label %29
 
@@ -11144,7 +11103,7 @@ define linkonce_odr void @_ZN5folly17atomic_grow_arrayINS_12SynchronizedINS_18th
 
 .lr.ph:                                           ; preds = %10, %15
   %.01822 = phi i64 [ %16, %15 ], [ %5, %10 ]
-  %13 = getelementptr ptr, ptr %4, i64 %.01822
+  %13 = getelementptr [8 x i8], ptr %4, i64 %.01822
   %14 = load ptr, ptr %13, align 8, !tbaa !475
   %.not20 = icmp eq ptr %14, null
   br i1 %.not20, label %15, label %.critedge
@@ -11162,7 +11121,7 @@ define linkonce_odr void @_ZN5folly17atomic_grow_arrayINS_12SynchronizedINS_18th
 
 .lr.ph26:                                         ; preds = %.critedge
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %20 = getelementptr ptr, ptr %19, i64 %.018.lcssa
+  %20 = getelementptr [8 x i8], ptr %19, i64 %.018.lcssa
   br label %35
 
 ._crit_edge.loopexit:                             ; preds = %_ZN5folly12SynchronizedINS_18threadlocal_detail14ThreadEntrySetENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEED2Ev.exit
@@ -11190,7 +11149,7 @@ define linkonce_odr void @_ZN5folly17atomic_grow_arrayINS_12SynchronizedINS_18th
 35:                                               ; preds = %.lr.ph26, %_ZN5folly12SynchronizedINS_18threadlocal_detail14ThreadEntrySetENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEED2Ev.exit
   %.025 = phi i64 [ 0, %.lr.ph26 ], [ %66, %_ZN5folly12SynchronizedINS_18threadlocal_detail14ThreadEntrySetENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEED2Ev.exit ]
   %36 = xor i64 %.025, -1
-  %37 = getelementptr ptr, ptr %20, i64 %36
+  %37 = getelementptr [8 x i8], ptr %20, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !475
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 80
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -11487,7 +11446,7 @@ define linkonce_odr void @_ZN5folly18threadlocal_detail11ThreadEntry12resetEleme
 _ZN5folly17atomic_grow_arrayINS_12SynchronizedINS_18threadlocal_detail14ThreadEntrySetENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_32atomic_grow_array_policy_defaultIS8_EEEixEm.exit: ; preds = %18, %21
   %23 = phi ptr [ %.0.i.i, %18 ], [ %22, %21 ]
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %15
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %15
   %26 = load ptr, ptr %25, align 8, !tbaa !475
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !560)
@@ -11567,7 +11526,7 @@ _ZN5folly16SynchronizedBaseINS_12SynchronizedINS_18threadlocal_detail14ThreadEnt
   %60 = load i64, ptr %59, align 8, !tbaa !490
   %61 = urem i64 %58, %60
   %62 = load ptr, ptr %57, align 8, !tbaa !491
-  %63 = getelementptr inbounds nuw ptr, ptr %62, i64 %61
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %61
   %64 = load ptr, ptr %63, align 8, !tbaa !492
   %.not.i.i.i.i.i = icmp eq ptr %64, null
   br i1 %.not.i.i.i.i.i, label %.loopexit, label %65
@@ -11622,7 +11581,7 @@ _ZN5folly16SynchronizedBaseINS_12SynchronizedINS_18threadlocal_detail14ThreadEnt
 
 81:                                               ; preds = %.loopexit16
   %82 = load ptr, ptr %0, align 8, !tbaa !426
-  %83 = getelementptr inbounds nuw %"struct.folly::threadlocal_detail::ElementWrapper", ptr %82, i64 %15
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %82, i64 %15
   br i1 %.not, label %_ZN5folly18threadlocal_detail14ElementWrapper3setIPNS_20SingletonThreadLocalINS_9hazptr_tcISt6atomicEENS_17hazptr_tc_tls_tagENS_6detail11DefaultMakeIS6_EES7_E7WrapperEEEvT_.exit, label %84
 
 84:                                               ; preds = %81
@@ -11888,7 +11847,7 @@ _ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitFo
 38:                                               ; preds = %_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15waitForZeroBitsINS3_11WaitForeverEEEbRjjjRT_.exit.thread
   %39 = shl i32 %36, 2
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw %"struct.std::atomic.10", ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 %40
   %42 = load atomic i64, ptr %41 monotonic, align 32
   %.not = icmp eq i64 %42, 0
   br i1 %.not, label %72, label %43
@@ -11926,7 +11885,7 @@ _ZN5folly14AccessSpreaderISt6atomicE5stateEv.exit: ; preds = %43, %45
   %58 = xor i32 %.04186, %54
   %59 = shl nuw nsw i32 %58, 2
   %60 = zext nneg i32 %59 to i64
-  %61 = getelementptr inbounds nuw %"struct.std::atomic.10", ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 %60
+  %61 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 %60
   %62 = load atomic i64, ptr %61 monotonic, align 32
   %63 = icmp eq i64 %62, 0
   br i1 %63, label %64, label %55
@@ -11982,7 +11941,7 @@ _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit: ; 
 _ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit57.thread: ; preds = %76, %80, %72
   %83 = shl i32 %.044.ph, 2
   %84 = zext i32 %83 to i64
-  %85 = getelementptr inbounds nuw %"struct.std::atomic.10", ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 %84
+  %85 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE15deferredReadersE, i64 %84
   br i1 %15, label %86, label %.thread76
 
 86:                                               ; preds = %_ZNSt13__atomic_baseIjE23compare_exchange_strongERjjSt12memory_orderS2_.exit57.thread
@@ -12239,7 +12198,7 @@ define linkonce_odr noundef ptr @_ZN5folly17atomic_grow_arrayINS_12SynchronizedI
   store i64 %1, ptr %24, align 8, !tbaa !190
   store ptr %4, ptr %23, align 16, !tbaa !500
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %1
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %1
   %27 = ptrtoint ptr %26 to i64
   %28 = add i64 %27, 8
   %29 = and i64 %28, -16
@@ -12257,9 +12216,9 @@ define linkonce_odr noundef ptr @_ZN5folly17atomic_grow_arrayINS_12SynchronizedI
 
 33:                                               ; preds = %.lr.ph, %33
   %.03950 = phi i64 [ 0, %.lr.ph ], [ %37, %33 ]
-  %34 = getelementptr inbounds nuw ptr, ptr %31, i64 %.03950
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %.03950
   %35 = load ptr, ptr %34, align 8, !tbaa !475
-  %36 = getelementptr inbounds nuw ptr, ptr %25, i64 %.03950
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.03950
   store ptr %35, ptr %36, align 8, !tbaa !475
   %37 = add nuw i64 %.03950, 1
   %exitcond.not = icmp eq i64 %37, %9
@@ -12284,7 +12243,7 @@ define linkonce_odr noundef ptr @_ZN5folly17atomic_grow_arrayINS_12SynchronizedI
 
 .critedge:                                        ; preds = %42
   %45 = sub nuw i64 %.03754, %9
-  %46 = getelementptr inbounds nuw %"struct.folly::Synchronized", ptr %30, i64 %45
+  %46 = getelementptr inbounds nuw [88 x i8], ptr %30, i64 %45
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 72
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %46, i8 0, i64 88, i1 false), !alias.scope !577
@@ -12297,7 +12256,7 @@ define linkonce_odr noundef ptr @_ZN5folly17atomic_grow_arrayINS_12SynchronizedI
   store float 1.000000e+00, ptr %51, align 8, !tbaa !580, !alias.scope !577
   %52 = getelementptr inbounds nuw i8, ptr %46, i64 64
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %52, i8 0, i64 20, i1 false), !alias.scope !577
-  %53 = getelementptr inbounds nuw ptr, ptr %25, i64 %.03754
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.03754
   store ptr %46, ptr %53, align 8, !tbaa !475
   %54 = add i64 %.03754, 1
   %exitcond58.not = icmp eq i64 %54, %1
@@ -12398,7 +12357,7 @@ _ZN5folly13hazptr_domainISt6atomicE9cas_availERmm.exit.i.i: ; preds = %.critedge
   %17 = phi i8 [ %.promoted, %.preheader ], [ %18, %16 ]
   %18 = add i8 %17, -1
   %19 = zext i8 %18 to i64
-  %20 = getelementptr inbounds nuw %"class.folly::hazptr_tc_entry", ptr %0, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !227
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 24
   store ptr %.016, ptr %22, align 8, !tbaa !246
@@ -12820,7 +12779,7 @@ _ZN5folly6detail11LifoSemBaseINS_19SaturatingSemaphoreILb1ESt6atomicEES3_E9idxTo
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 64
   %30 = load ptr, ptr %29, align 64, !tbaa !414, !noalias !597
   %31 = zext i32 %23 to i64
-  %32 = getelementptr inbounds nuw %"struct.folly::IndexedMemPool<folly::detail::LifoSemRawNode<std::atomic>, 32, 200, std::atomic, folly::IndexedMemPoolTraits<folly::detail::LifoSemRawNode<std::atomic>, false, false>>::Slot", ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [24 x i8], ptr %30, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store atomic i32 0, ptr %33 monotonic, align 4, !noalias !597
   store i32 0, ptr %32, align 4, !tbaa !45, !noalias !597
@@ -13082,7 +13041,7 @@ _ZN5folly6detail11LifoSemBaseINS_19SaturatingSemaphoreILb1ESt6atomicEES3_E9idxTo
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 64
   %46 = load ptr, ptr %45, align 64, !tbaa !414
   %47 = and i64 %.sroa.0.0, 4294967295
-  %48 = getelementptr inbounds nuw %"struct.folly::IndexedMemPool<folly::detail::LifoSemRawNode<std::atomic>, 32, 200, std::atomic, folly::IndexedMemPoolTraits<folly::detail::LifoSemRawNode<std::atomic>, false, false>>::Slot", ptr %46, i64 %47
+  %48 = getelementptr inbounds nuw [24 x i8], ptr %46, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load atomic i32, ptr %49 monotonic, align 4
   %.not49.not = icmp eq i32 %50, 0
@@ -13120,7 +13079,7 @@ _ZN5folly6detail11LifoSemBaseINS_19SaturatingSemaphoreILb1ESt6atomicEES3_E9idxTo
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 64
   %61 = load ptr, ptr %60, align 64, !tbaa !414
   %62 = zext i32 %.0205064 to i64
-  %63 = getelementptr inbounds nuw %"struct.folly::IndexedMemPool<folly::detail::LifoSemRawNode<std::atomic>, 32, 200, std::atomic, folly::IndexedMemPoolTraits<folly::detail::LifoSemRawNode<std::atomic>, false, false>>::Slot", ptr %61, i64 %62
+  %63 = getelementptr inbounds nuw [24 x i8], ptr %61, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %65 = load atomic i32, ptr %64 monotonic, align 4
   %.not.not = icmp eq i32 %65, 0
@@ -13277,7 +13236,7 @@ _ZN5folly6detail11LifoSemBaseINS_19SaturatingSemaphoreILb1ESt6atomicEES3_E9idxTo
   %42 = phi ptr [ %41, %40 ], [ %.0.i.i.i.i, %38 ]
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 64
   %44 = load ptr, ptr %43, align 64, !tbaa !414
-  %45 = getelementptr inbounds nuw %"struct.folly::IndexedMemPool<folly::detail::LifoSemRawNode<std::atomic>, 32, 200, std::atomic, folly::IndexedMemPoolTraits<folly::detail::LifoSemRawNode<std::atomic>, false, false>>::Slot", ptr %44, i64 %5
+  %45 = getelementptr inbounds nuw [24 x i8], ptr %44, i64 %5
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = trunc i64 %20 to i32
   %spec.select = select i1 %.not50, i32 0, i32 %47
@@ -13318,7 +13277,7 @@ _ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS
   %13 = zext i8 %12 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %15 = getelementptr inbounds nuw %"struct.folly::IndexedMemPool<folly::detail::LifoSemRawNode<std::atomic>, 32, 200, std::atomic, folly::IndexedMemPoolTraits<folly::detail::LifoSemRawNode<std::atomic>, false, false>>::LocalList", ptr %14, i64 %13
+  %15 = getelementptr inbounds nuw [64 x i8], ptr %14, i64 %13
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 2176
   br label %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE10globalPushERNS7_4SlotEj.exit.i
@@ -13333,7 +13292,7 @@ _ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS
 19:                                               ; preds = %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE10globalPushERNS7_4SlotEj.exit.i
   %20 = load ptr, ptr %16, align 64, !tbaa !414
   %21 = and i64 %18, 4294967295
-  %22 = getelementptr inbounds nuw %"struct.folly::IndexedMemPool<folly::detail::LifoSemRawNode<std::atomic>, 32, 200, std::atomic, folly::IndexedMemPoolTraits<folly::detail::LifoSemRawNode<std::atomic>, false, false>>::Slot", ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = load atomic i32, ptr %23 monotonic, align 4
   %.sroa.2.0.insert.shift.i27.i = add i64 %.sroa.9.0.extract.shift.i, 1095216660480
@@ -13355,7 +13314,7 @@ _ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS
 29:                                               ; preds = %.preheader.i
   %30 = load ptr, ptr %16, align 64, !tbaa !414
   %31 = and i64 %27, 4294967295
-  %32 = getelementptr inbounds nuw %"struct.folly::IndexedMemPool<folly::detail::LifoSemRawNode<std::atomic>, 32, 200, std::atomic, folly::IndexedMemPoolTraits<folly::detail::LifoSemRawNode<std::atomic>, false, false>>::Slot", ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [24 x i8], ptr %30, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 20
   %34 = load atomic i32, ptr %33 monotonic, align 4
   %35 = and i64 %27, -4294967296
@@ -13383,7 +13342,7 @@ _ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS
 
 _ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE9globalPopEv.exit.i: ; preds = %29
   %48 = load ptr, ptr %16, align 64, !tbaa !414
-  %49 = getelementptr inbounds nuw %"struct.folly::IndexedMemPool<folly::detail::LifoSemRawNode<std::atomic>, 32, 200, std::atomic, folly::IndexedMemPoolTraits<folly::detail::LifoSemRawNode<std::atomic>, false, false>>::Slot", ptr %48, i64 %31
+  %49 = getelementptr inbounds nuw [24 x i8], ptr %48, i64 %31
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %51 = load atomic i32, ptr %50 monotonic, align 4
   %52 = and i64 %18, -1099511627776
@@ -13412,7 +13371,7 @@ _ZN5folly12AtomicStructINS_14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomic
 _ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE8localPopERNS_12AtomicStructINS7_9TaggedPtrES3_EE.exit: ; preds = %43
   %61 = load ptr, ptr %16, align 64, !tbaa !414
   %62 = zext i32 %45 to i64
-  %63 = getelementptr inbounds nuw %"struct.folly::IndexedMemPool<folly::detail::LifoSemRawNode<std::atomic>, 32, 200, std::atomic, folly::IndexedMemPoolTraits<folly::detail::LifoSemRawNode<std::atomic>, false, false>>::Slot", ptr %61, i64 %62
+  %63 = getelementptr inbounds nuw [24 x i8], ptr %61, i64 %62
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %63, i8 0, i64 16, i1 false)
   %.not = icmp eq i32 %45, 0
   br i1 %.not, label %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE8localPopERNS_12AtomicStructINS7_9TaggedPtrES3_EE.exit.thread, label %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE8localPopERNS_12AtomicStructINS7_9TaggedPtrES3_EE.exit.thread9
@@ -13426,7 +13385,7 @@ _ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS
   %.pre-phi = phi i64 [ %.pre, %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE8localPopERNS_12AtomicStructINS7_9TaggedPtrES3_EE.exit.thread9.loopexit ], [ %62, %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE8localPopERNS_12AtomicStructINS7_9TaggedPtrES3_EE.exit ]
   %.2.ph.i12 = phi i32 [ %.2.ph.i12.ph, %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE8localPopERNS_12AtomicStructINS7_9TaggedPtrES3_EE.exit.thread9.loopexit ], [ %45, %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE8localPopERNS_12AtomicStructINS7_9TaggedPtrES3_EE.exit ]
   %64 = load ptr, ptr %16, align 64, !tbaa !414
-  %65 = getelementptr inbounds nuw %"struct.folly::IndexedMemPool<folly::detail::LifoSemRawNode<std::atomic>, 32, 200, std::atomic, folly::IndexedMemPoolTraits<folly::detail::LifoSemRawNode<std::atomic>, false, false>>::Slot", ptr %64, i64 %.pre-phi
+  %65 = getelementptr inbounds nuw [24 x i8], ptr %64, i64 %.pre-phi
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 16
   store atomic i32 -1, ptr %66 release, align 4
   br label %_ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS_20IndexedMemPoolTraitsIS4_Lb0ELb0EEEE8localPopERNS_12AtomicStructINS7_9TaggedPtrES3_EE.exit.thread
@@ -13710,10 +13669,10 @@ _ZN5folly14IndexedMemPoolINS_6detail14LifoSemRawNodeISt6atomicEELj32ELj200ES3_NS
   %30 = zext i8 %29 to i64
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %31 = getelementptr inbounds nuw i8, ptr %19, i64 128
-  %32 = getelementptr inbounds nuw %"struct.folly::IndexedMemPool<folly::detail::LifoSemRawNode<std::atomic>, 32, 200, std::atomic, folly::IndexedMemPoolTraits<folly::detail::LifoSemRawNode<std::atomic>, false, false>>::LocalList", ptr %31, i64 %30
+  %32 = getelementptr inbounds nuw [64 x i8], ptr %31, i64 %30
   %33 = getelementptr inbounds nuw i8, ptr %19, i64 64
   %34 = load ptr, ptr %33, align 64, !tbaa !414
-  %35 = getelementptr inbounds nuw %"struct.folly::IndexedMemPool<folly::detail::LifoSemRawNode<std::atomic>, 32, 200, std::atomic, folly::IndexedMemPoolTraits<folly::detail::LifoSemRawNode<std::atomic>, false, false>>::Slot", ptr %34, i64 %.0.i
+  %35 = getelementptr inbounds nuw [24 x i8], ptr %34, i64 %.0.i
   %36 = load atomic i64, ptr %32 acquire, align 8
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %invariant.op.i = or disjoint i64 %.0.i, 1103806595072
@@ -14251,7 +14210,7 @@ define linkonce_odr i8 @_ZN5folly30PriorityUnboundedBlockingQueueINS_21CPUThread
   unreachable
 
 _ZN5folly25PriorityUnboundedQueueSetINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm6ESt6atomicE11at_priorityEm.exit: ; preds = %3
-  %23 = getelementptr inbounds nuw %"class.folly::UnboundedQueue.281", ptr %7, i64 %21
+  %23 = getelementptr inbounds nuw [128 x i8], ptr %7, i64 %21
   %24 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN5folly20SingletonThreadLocalINS_9hazptr_tcISt6atomicEENS_17hazptr_tc_tls_tagENS_6detail11DefaultMakeIS3_EES4_E3getEvE5cache)
   %25 = load ptr, ptr %24, align 8, !tbaa !220, !noalias !618
   %.not.i9.i = icmp eq ptr %25, null
@@ -14272,7 +14231,7 @@ _ZN5folly9hazptr_tcISt6atomicE7try_getEv.exit.i:  ; preds = %_ZN5folly20Singleto
   %31 = add i8 %30, -1
   store i8 %31, ptr %29, align 8, !tbaa !225, !noalias !618
   %32 = zext i8 %31 to i64
-  %33 = getelementptr inbounds nuw %"class.folly::hazptr_tc_entry", ptr %28, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !227, !noalias !618
   %.not.i.i.not = icmp eq ptr %34, null
   br i1 %.not.i.i.not, label %.thread, label %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit.i
@@ -14328,7 +14287,7 @@ _ZN5folly14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm6
   %51 = mul i64 %42, 27
   %52 = and i64 %51, 255
   %53 = getelementptr inbounds nuw i8, ptr %.0.i.lcssa35, i64 64
-  %54 = getelementptr inbounds nuw %"class.folly::UnboundedQueue<folly::CPUThreadPoolExecutor::CPUTask, false, false, true>::Entry", ptr %53, i64 %52
+  %54 = getelementptr inbounds nuw [144 x i8], ptr %53, i64 %52
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   store ptr null, ptr %55, align 16, !tbaa !48
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 64
@@ -14545,7 +14504,7 @@ _ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit.i.thread: ; p
   %156 = add nuw nsw i8 %154, 1
   store i8 %156, ptr %153, align 8, !tbaa !225
   %157 = zext nneg i8 %154 to i64
-  %158 = getelementptr inbounds nuw %"class.folly::hazptr_tc_entry", ptr %152, i64 %157
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %152, i64 %157
   store ptr %.sroa.011.1, ptr %158, align 8, !tbaa !227
   br label %_ZN5folly14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm6ESt6atomicE11enqueueImplIS2_EEvOT_.exit
 
@@ -14611,7 +14570,7 @@ _ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit15.i.thread: ;
   %186 = add nuw nsw i8 %184, 1
   store i8 %186, ptr %183, align 8, !tbaa !225
   %187 = zext nneg i8 %184 to i64
-  %188 = getelementptr inbounds nuw %"class.folly::hazptr_tc_entry", ptr %182, i64 %187
+  %188 = getelementptr inbounds nuw [8 x i8], ptr %182, i64 %187
   store ptr %.sroa.011.1, ptr %188, align 8, !tbaa !227
   br label %_ZN5folly13hazptr_holderISt6atomicED2Ev.exit.i
 
@@ -14851,7 +14810,7 @@ _ZNSt12_Vector_baseIN5folly14UnboundedQueueINS0_21CPUThreadPoolExecutor7CPUTaskE
   store ptr %17, ptr %0, align 8, !tbaa !613
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %17, ptr %18, align 8, !tbaa !616
-  %19 = getelementptr inbounds nuw %"class.folly::UnboundedQueue.281", ptr %17, i64 %1
+  %19 = getelementptr inbounds nuw [128 x i8], ptr %17, i64 %1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %19, ptr %20, align 8, !tbaa !630
   %21 = invoke noundef ptr @_ZSt27__uninitialized_default_n_aIPN5folly14UnboundedQueueINS0_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm6ESt6atomicEEmNS0_19AlignedSysAllocatorIS5_NS0_10FixedAlignILm64EEEEEET_SB_T0_RT1_(ptr noundef %17, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(24) %0)
@@ -15115,7 +15074,7 @@ define linkonce_odr void @_ZN5folly14UnboundedQueueINS_21CPUThreadPoolExecutor7C
   %.1 = phi ptr [ %.0.i.i.i, %11 ], [ %.012, %.lr.ph ]
   %15 = mul i64 %.01011, 27
   %16 = and i64 %15, 255
-  %17 = getelementptr inbounds nuw %"class.folly::UnboundedQueue<folly::CPUThreadPoolExecutor::CPUTask, false, false, true>::Entry", ptr %.1, i64 %16
+  %17 = getelementptr inbounds nuw [144 x i8], ptr %.1, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 80
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 168
   %20 = load ptr, ptr %19, align 8, !tbaa !168
@@ -15638,7 +15597,7 @@ _ZNSt11_Deque_baseIPN5folly22hazptr_obj_base_linkedINS0_14UnboundedQueueINS0_21C
   store ptr %7, ptr %0, align 8, !tbaa !653
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %9
   %.idx = shl nuw nsw i64 %3, 3
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
@@ -15732,7 +15691,7 @@ _ZNSt11_Deque_baseIPN5folly22hazptr_obj_base_linkedINS0_14UnboundedQueueINS0_21C
   store ptr %48, ptr %49, align 8, !tbaa !651
   store ptr %39, ptr %37, align 8, !tbaa !662
   %50 = and i64 %1, 63
-  %51 = getelementptr inbounds nuw ptr, ptr %46, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %50
   store ptr %51, ptr %43, align 8, !tbaa !637
   ret void
 
@@ -15841,9 +15800,9 @@ define linkonce_odr void @_ZNSt5dequeIPN5folly22hazptr_obj_base_linkedINS0_14Unb
   %19 = load ptr, ptr %0, align 8, !tbaa !653
   %20 = sub i64 %15, %13
   %21 = lshr i64 %20, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = select i1 %2, i64 %1, i64 0
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = icmp ult ptr %24, %7
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %26, %7
@@ -15862,12 +15821,12 @@ define linkonce_odr void @_ZNSt5dequeIPN5folly22hazptr_obj_base_linkedINS0_14Unb
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPPPN5folly22hazptr_obj_base_linkedINS0_14UnboundedQueueINS0_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm6ESt6atomicE7SegmentES5_St14default_deleteIS7_EEESD_ET0_T_SF_SE_.exit, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw ptr, ptr %24, i64 %12
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %12
   %34 = ptrtoint ptr %26 to i64
   %35 = sub i64 %34, %9
   %36 = ashr exact i64 %35, 3
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds ptr, ptr %33, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %33, i64 %37
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %38, ptr align 8 %7, i64 %35, i1 false)
   br label %_ZSt4copyIPPPN5folly22hazptr_obj_base_linkedINS0_14UnboundedQueueINS0_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm6ESt6atomicE7SegmentES5_St14default_deleteIS7_EEESD_ET0_T_SF_SE_.exit
 
@@ -15895,9 +15854,9 @@ _ZNSt11_Deque_baseIPN5folly22hazptr_obj_base_linkedINS0_14UnboundedQueueINS0_21C
   %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #42
   %47 = sub i64 %41, %13
   %48 = lshr i64 %47, 1
-  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %48
   %50 = select i1 %2, i64 %1, i64 0
-  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i25 = icmp eq ptr %52, %7
   br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPPPN5folly22hazptr_obj_base_linkedINS0_14UnboundedQueueINS0_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm6ESt6atomicE7SegmentES5_St14default_deleteIS7_EEESD_ET0_T_SF_SE_.exit26, label %53
@@ -15925,7 +15884,7 @@ _ZSt4copyIPPPN5folly22hazptr_obj_base_linkedINS0_14UnboundedQueueINS0_21CPUThrea
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 512
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %60, ptr %61, align 8, !tbaa !651
-  %62 = getelementptr inbounds nuw ptr, ptr %.0, i64 %12
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %12
   %63 = getelementptr inbounds i8, ptr %62, i64 -8
   store ptr %63, ptr %4, align 8, !tbaa !648
   %64 = load ptr, ptr %63, align 8, !tbaa !649
@@ -16186,7 +16145,7 @@ _ZN5folly9hazptr_tcISt6atomicE7try_getEv.exit.i:  ; preds = %_ZN5folly20Singleto
   %38 = add i8 %37, -1
   store i8 %38, ptr %36, align 8, !tbaa !225, !noalias !670
   %39 = zext i8 %38 to i64
-  %40 = getelementptr inbounds nuw %"class.folly::hazptr_tc_entry", ptr %35, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !227, !noalias !670
   %.not.i.i.not = icmp eq ptr %41, null
   br i1 %.not.i.i.not, label %_ZN5folly9hazptr_tcISt6atomicE7try_getEv.exit.i.thread, label %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit.i, !prof !673
@@ -16242,7 +16201,7 @@ _ZN5folly13hazptr_holderISt6atomicE7protectINS_14UnboundedQueueINS_21CPUThreadPo
 56:                                               ; preds = %_ZN5folly13hazptr_holderISt6atomicE7protectINS_14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm6ES1_E7SegmentEZNS2_7protectIS8_EEPT_RKS1_ISB_EEUlPS8_E_EESB_SE_T0_.exit.i
   %57 = mul i64 %49, 27
   %58 = and i64 %57, 255
-  %59 = getelementptr inbounds nuw %"class.folly::UnboundedQueue<folly::CPUThreadPoolExecutor::CPUTask, false, false, true>::Entry", ptr %55, i64 %58
+  %59 = getelementptr inbounds nuw [144 x i8], ptr %55, i64 %58
   %60 = load atomic i32, ptr %59 acquire, align 4
   %61 = icmp eq i32 %60, 1
   br i1 %61, label %_ZN5folly14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm6ESt6atomicE18tryDequeueWaitElemINSt6chrono3_V212steady_clockENS6_8durationIlSt5ratioILl1ELl1000000000EEEEEEbRNS4_5EntryEmRKNS6_10time_pointIT_T0_EE.exit.thread, label %_ZN5folly14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm6ESt6atomicE5Entry12tryWaitUntilINSt6chrono3_V212steady_clockENS7_8durationIlSt5ratioILl1ELl1000000000EEEEEEbRKNS7_10time_pointIT_T0_EE.exit, !prof !143
@@ -16662,7 +16621,7 @@ _ZN5folly13hazptr_detail21shared_head_tail_listINS_10hazptr_objISt6atomicEES3_E7
 232:                                              ; preds = %229
   %233 = lshr i64 %222, 8
   %234 = and i64 %233, 7
-  %235 = getelementptr inbounds nuw %"class.folly::hazptr_detail::shared_head_only_list", ptr getelementptr inbounds nuw (i8, ptr @_ZN5folly14default_domainE, i64 32), i64 %234
+  %235 = getelementptr inbounds nuw [24 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN5folly14default_domainE, i64 32), i64 %234
   %236 = load atomic i64, ptr %235 acquire, align 8
   %237 = inttoptr i64 %236 to ptr
   %238 = getelementptr inbounds nuw i8, ptr %.0.i.i.i5.i.i, i64 8
@@ -16683,7 +16642,7 @@ _ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E8
 246:                                              ; preds = %229
   %247 = lshr i64 %230, 8
   %248 = and i64 %247, 7
-  %249 = getelementptr inbounds nuw %"class.folly::hazptr_detail::shared_head_only_list", ptr getelementptr inbounds nuw (i8, ptr @_ZN5folly14default_domainE, i64 224), i64 %248
+  %249 = getelementptr inbounds nuw [24 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN5folly14default_domainE, i64 224), i64 %248
   %250 = load atomic i64, ptr %249 acquire, align 8
   %251 = and i64 %250, 1
   %252 = and i64 %250, -2
@@ -16781,7 +16740,7 @@ _ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E4
   %288 = ptrtoint ptr %285 to i64
   %289 = lshr i64 %288, 8
   %290 = and i64 %289, 7
-  %291 = getelementptr inbounds nuw %"class.folly::hazptr_detail::shared_head_only_list", ptr getelementptr inbounds nuw (i8, ptr @_ZN5folly14default_domainE, i64 32), i64 %290
+  %291 = getelementptr inbounds nuw [24 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN5folly14default_domainE, i64 32), i64 %290
   %292 = icmp eq ptr %285, null
   br i1 %292, label %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E4pushERNS0_11linked_listIS4_EEb.exit.i.i.i, label %293
 
@@ -16806,7 +16765,7 @@ _ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E8
 304:                                              ; preds = %281
   %305 = lshr i64 %283, 8
   %306 = and i64 %305, 7
-  %307 = getelementptr inbounds nuw %"class.folly::hazptr_detail::shared_head_only_list", ptr getelementptr inbounds nuw (i8, ptr @_ZN5folly14default_domainE, i64 224), i64 %306
+  %307 = getelementptr inbounds nuw [24 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN5folly14default_domainE, i64 224), i64 %306
   %308 = icmp eq ptr %285, null
   br i1 %308, label %_ZN5folly13hazptr_detail21shared_head_only_listINS_10hazptr_objISt6atomicEES3_E4pushERNS0_11linked_listIS4_EEb.exit.i.i.i, label %309
 
@@ -16928,7 +16887,7 @@ _ZN5folly26hazptr_domain_push_retiredISt6atomicEEvRNS_15hazptr_obj_listIT_EERNS_
   %358 = ptrtoint ptr %.010.i27 to i64
   %359 = lshr i64 %358, 8
   %360 = and i64 %359, 7
-  %361 = getelementptr inbounds nuw %"class.folly::hazptr_detail::shared_head_only_list", ptr getelementptr inbounds nuw (i8, ptr @_ZN5folly14default_domainE, i64 32), i64 %360
+  %361 = getelementptr inbounds nuw [24 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN5folly14default_domainE, i64 32), i64 %360
   %362 = load atomic i64, ptr %361 acquire, align 8
   %363 = inttoptr i64 %362 to ptr
   store ptr %363, ptr %189, align 8, !tbaa !177
@@ -17085,7 +17044,7 @@ _ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit.i.thread: ; p
   %433 = add nuw nsw i8 %431, 1
   store i8 %433, ptr %430, align 8, !tbaa !225
   %434 = zext nneg i8 %431 to i64
-  %435 = getelementptr inbounds nuw %"class.folly::hazptr_tc_entry", ptr %429, i64 %434
+  %435 = getelementptr inbounds nuw [8 x i8], ptr %429, i64 %434
   store ptr %.sroa.074.2, ptr %435, align 8, !tbaa !227
   br label %_ZN5folly14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm6ESt6atomicE15tryDequeueUntilINSt6chrono3_V212steady_clockENS6_8durationIlSt5ratioILl1ELl1000000000EEEEEENS_8OptionalIS2_EERKNS6_10time_pointIT_T0_EE.exit
 
@@ -17395,7 +17354,7 @@ _ZN5folly9hazptr_tcISt6atomicE7try_getEv.exit:    ; preds = %_ZN5folly20Singleto
   %11 = add i8 %10, -1
   store i8 %11, ptr %9, align 8, !tbaa !225, !noalias !688
   %12 = zext i8 %11 to i64
-  %13 = getelementptr inbounds nuw %"class.folly::hazptr_tc_entry", ptr %8, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !227, !noalias !688
   %.not.i.not = icmp eq ptr %14, null
   br i1 %.not.i.not, label %.thread, label %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit
@@ -17451,7 +17410,7 @@ _ZN5folly14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm6
   %31 = mul i64 %22, 27
   %32 = and i64 %31, 63
   %33 = getelementptr inbounds nuw i8, ptr %.0.i16.lcssa50, i64 64
-  %34 = getelementptr inbounds nuw %"class.folly::UnboundedQueue<folly::CPUThreadPoolExecutor::CPUTask, false, false, false, 6>::Entry", ptr %33, i64 %32
+  %34 = getelementptr inbounds nuw [144 x i8], ptr %33, i64 %32
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   store ptr null, ptr %35, align 16, !tbaa !48
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 64
@@ -17661,7 +17620,7 @@ _ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit.thread: ; pre
   %135 = add nuw nsw i8 %133, 1
   store i8 %135, ptr %132, align 8, !tbaa !225
   %136 = zext nneg i8 %133 to i64
-  %137 = getelementptr inbounds nuw %"class.folly::hazptr_tc_entry", ptr %131, i64 %136
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %131, i64 %136
   store ptr %.sroa.027.1, ptr %137, align 8, !tbaa !227
   br label %_ZN5folly13hazptr_holderISt6atomicED2Ev.exit3
 
@@ -17728,7 +17687,7 @@ _ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit18.thread: ; p
   %163 = add nuw nsw i8 %161, 1
   store i8 %163, ptr %160, align 8, !tbaa !225
   %164 = zext nneg i8 %161 to i64
-  %165 = getelementptr inbounds nuw %"class.folly::hazptr_tc_entry", ptr %159, i64 %164
+  %165 = getelementptr inbounds nuw [8 x i8], ptr %159, i64 %164
   store ptr %.sroa.027.1, ptr %165, align 8, !tbaa !227
   br label %_ZN5folly13hazptr_holderISt6atomicED2Ev.exit
 
@@ -17849,7 +17808,7 @@ _ZN5folly9hazptr_tcISt6atomicE7try_getEv.exit.i:  ; preds = %_ZN5folly20Singleto
   %19 = add i8 %18, -1
   store i8 %19, ptr %17, align 8, !tbaa !225, !noalias !696
   %20 = zext i8 %19 to i64
-  %21 = getelementptr inbounds nuw %"class.folly::hazptr_tc_entry", ptr %16, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !227, !noalias !696
   %.not.i.i.not = icmp eq ptr %22, null
   br i1 %.not.i.i.not, label %.thread, label %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit.i
@@ -17904,7 +17863,7 @@ _ZN5folly14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm6
   %38 = mul i64 %29, 27
   %39 = and i64 %38, 63
   %40 = getelementptr inbounds nuw i8, ptr %.0.i.i1.lcssa24, i64 64
-  %41 = getelementptr inbounds nuw %"class.folly::UnboundedQueue<folly::CPUThreadPoolExecutor::CPUTask, false, false, false, 6>::Entry", ptr %40, i64 %39
+  %41 = getelementptr inbounds nuw [144 x i8], ptr %40, i64 %39
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !702
   store i64 2000, ptr %5, align 8, !noalias !702
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -18086,7 +18045,7 @@ _ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit.i.thread: ; p
   %121 = add nuw nsw i8 %119, 1
   store i8 %121, ptr %118, align 8, !tbaa !225
   %122 = zext nneg i8 %119 to i64
-  %123 = getelementptr inbounds nuw %"class.folly::hazptr_tc_entry", ptr %117, i64 %122
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %122
   store ptr %.sroa.0.1, ptr %123, align 8, !tbaa !227
   br label %_ZN5folly14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm6ESt6atomicE11dequeueImplEv.exit
 
@@ -18186,7 +18145,7 @@ _ZN5folly9hazptr_tcISt6atomicE7try_getEv.exit.i:  ; preds = %_ZN5folly20Singleto
   %27 = add i8 %26, -1
   store i8 %27, ptr %25, align 8, !tbaa !225, !noalias !708
   %28 = zext i8 %27 to i64
-  %29 = getelementptr inbounds nuw %"class.folly::hazptr_tc_entry", ptr %24, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !227, !noalias !708
   %.not.i.i.not = icmp eq ptr %30, null
   br i1 %.not.i.i.not, label %.thread, label %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit.i
@@ -18241,7 +18200,7 @@ _ZN5folly14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm6
   %46 = mul i64 %37, 27
   %47 = and i64 %46, 63
   %48 = getelementptr inbounds nuw i8, ptr %.0.i.i1.lcssa37, i64 64
-  %49 = getelementptr inbounds nuw %"class.folly::UnboundedQueue<folly::CPUThreadPoolExecutor::CPUTask, false, false, false, 6>::Entry", ptr %48, i64 %47
+  %49 = getelementptr inbounds nuw [144 x i8], ptr %48, i64 %47
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !714
   store i64 2000, ptr %6, align 8, !noalias !714
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -18423,7 +18382,7 @@ _ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit.i.thread: ; p
   %129 = add nuw nsw i8 %127, 1
   store i8 %129, ptr %126, align 8, !tbaa !225
   %130 = zext nneg i8 %127 to i64
-  %131 = getelementptr inbounds nuw %"class.folly::hazptr_tc_entry", ptr %125, i64 %130
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %125, i64 %130
   store ptr %.sroa.019.1, ptr %131, align 8, !tbaa !227
   br label %_ZN5folly14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb0ELm6ELm6ESt6atomicE11dequeueImplEv.exit
 
@@ -20940,7 +20899,7 @@ define linkonce_odr i8 @_ZN5folly30PriorityUnboundedBlockingQueueINS_21CPUThread
   unreachable
 
 _ZN5folly25PriorityUnboundedQueueSetINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm6ESt6atomicE11at_priorityEm.exit: ; preds = %3
-  %23 = getelementptr inbounds nuw %"class.folly::UnboundedQueue.281", ptr %7, i64 %21
+  %23 = getelementptr inbounds nuw [128 x i8], ptr %7, i64 %21
   %24 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZZN5folly20SingletonThreadLocalINS_9hazptr_tcISt6atomicEENS_17hazptr_tc_tls_tagENS_6detail11DefaultMakeIS3_EES4_E3getEvE5cache)
   %25 = load ptr, ptr %24, align 8, !tbaa !220, !noalias !807
   %.not.i9.i = icmp eq ptr %25, null
@@ -20961,7 +20920,7 @@ _ZN5folly9hazptr_tcISt6atomicE7try_getEv.exit.i:  ; preds = %_ZN5folly20Singleto
   %31 = add i8 %30, -1
   store i8 %31, ptr %29, align 8, !tbaa !225, !noalias !807
   %32 = zext i8 %31 to i64
-  %33 = getelementptr inbounds nuw %"class.folly::hazptr_tc_entry", ptr %28, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !227, !noalias !807
   %.not.i.i.not = icmp eq ptr %34, null
   br i1 %.not.i.i.not, label %.thread, label %_ZN5folly19make_hazard_pointerISt6atomicEENS_13hazptr_holderIT_EERNS_13hazptr_domainIS3_EE.exit.i
@@ -21017,7 +20976,7 @@ _ZN5folly14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm6
   %51 = mul i64 %42, 27
   %52 = and i64 %51, 255
   %53 = getelementptr inbounds nuw i8, ptr %.0.i.lcssa39, i64 64
-  %54 = getelementptr inbounds nuw %"class.folly::UnboundedQueue<folly::CPUThreadPoolExecutor::CPUTask, false, false, true>::Entry", ptr %53, i64 %52
+  %54 = getelementptr inbounds nuw [144 x i8], ptr %53, i64 %52
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   store ptr null, ptr %55, align 16, !tbaa !48
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 64
@@ -21234,7 +21193,7 @@ _ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit.i.thread: ; p
   %156 = add nuw nsw i8 %154, 1
   store i8 %156, ptr %153, align 8, !tbaa !225
   %157 = zext nneg i8 %154 to i64
-  %158 = getelementptr inbounds nuw %"class.folly::hazptr_tc_entry", ptr %152, i64 %157
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %152, i64 %157
   store ptr %.sroa.013.1, ptr %158, align 8, !tbaa !227
   br label %_ZN5folly14UnboundedQueueINS_21CPUThreadPoolExecutor7CPUTaskELb0ELb0ELb1ELm8ELm6ESt6atomicE11enqueueImplIS2_EEvOT_.exit
 
@@ -21300,7 +21259,7 @@ _ZN5folly9hazptr_tcISt6atomicE7try_putEPNS_10hazptr_recIS1_EE.exit15.i.thread: ;
   %186 = add nuw nsw i8 %184, 1
   store i8 %186, ptr %183, align 8, !tbaa !225
   %187 = zext nneg i8 %184 to i64
-  %188 = getelementptr inbounds nuw %"class.folly::hazptr_tc_entry", ptr %182, i64 %187
+  %188 = getelementptr inbounds nuw [8 x i8], ptr %182, i64 %187
   store ptr %.sroa.013.1, ptr %188, align 8, !tbaa !227
   br label %_ZN5folly13hazptr_holderISt6atomicED2Ev.exit.i
 
@@ -23354,7 +23313,7 @@ define linkonce_odr void @_ZN5folly18NamedThreadFactory9newThreadEONS_8FunctionI
 
 17:                                               ; preds = %21, %3
   %.08.i4.i.i.i.i.i.i.i = phi i64 [ 0, %3 ], [ %22, %21 ]
-  %18 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i4.i.i.i.i.i.i.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i4.i.i.i.i.i.i.i
   %19 = load i64, ptr %18, align 8, !tbaa !190, !noalias !858
   %20 = icmp ult i64 %11, %19
   br i1 %20, label %_ZN5folly6detail19to_ascii_size_arrayILm10EEEmm.exit.i.i.i.i.i.i.i, label %21, !prof !151
@@ -23681,7 +23640,7 @@ _ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EENSt9
 
 16:                                               ; preds = %20, %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EENSt9enable_ifIXaasr12IsSomeStringIT0_EE5valuesr12IsSomeStringIT_EE5valueEvE4typeERKS8_PS9_.exit
   %.08.i.i4.i.i.i.i = phi i64 [ 0, %_ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EENSt9enable_ifIXaasr12IsSomeStringIT0_EE5valuesr12IsSomeStringIT_EE5valueEvE4typeERKS8_PS9_.exit ], [ %21, %20 ]
-  %17 = getelementptr inbounds nuw i64, ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i.i4.i.i.i.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE, i64 %.08.i.i4.i.i.i.i
   %18 = load i64, ptr %17, align 8, !tbaa !190
   %19 = icmp ult i64 %15, %18
   br i1 %19, label %.loopexit.i.i.i.i, label %20, !prof !151
@@ -23706,7 +23665,7 @@ _ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EENSt9
   %25 = add i64 %.014.i5.i.i.i.i, -2
   %26 = udiv i64 %.0.i6.i.i.i.i, 100
   %27 = urem i64 %.0.i6.i.i.i.i, 100
-  %28 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %27
+  %28 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %27
   %29 = load i16, ptr %28, align 2, !tbaa !866
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 %25
   store i16 %29, ptr %30, align 1
@@ -23717,7 +23676,7 @@ _ZN5folly8toAppendINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_EENSt9
   %32 = phi i64 [ %22, %.loopexit.i.i.i.i ], [ %24, %.lr.ph.i.i.i.i ]
   %.014.i.lcssa.i.i.i.i = phi i64 [ %22, %.loopexit.i.i.i.i ], [ %25, %.lr.ph.i.i.i.i ]
   %.0.i.lcssa.i.i.i.i = phi i64 [ %15, %.loopexit.i.i.i.i ], [ %26, %.lr.ph.i.i.i.i ]
-  %33 = getelementptr inbounds nuw i16, ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.lcssa.i.i.i.i
+  %33 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE, i64 %.0.i.lcssa.i.i.i.i
   %34 = load i16, ptr %33, align 2, !tbaa !866
   %35 = icmp eq i64 %.014.i.lcssa.i.i.i.i, 2
   br i1 %35, label %36, label %37, !prof !151
@@ -24597,7 +24556,7 @@ _ZNSt12_Vector_baseIN5folly9MPMCQueueINS0_21CPUThreadPoolExecutor7CPUTaskESt6ato
   store ptr %19, ptr %0, align 8, !tbaa !882
   %53 = getelementptr inbounds nuw i8, ptr %19, i64 %17
   store ptr %53, ptr %14, align 8, !tbaa !877
-  %54 = getelementptr inbounds nuw %"class.folly::MPMCQueue", ptr %19, i64 %1
+  %54 = getelementptr inbounds nuw [320 x i8], ptr %19, i64 %1
   store ptr %54, ptr %6, align 8, !tbaa !880
   br label %55
 
@@ -24923,7 +24882,7 @@ _ZN6google12Check_LTImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
 41:                                               ; preds = %_ZN6google12Check_LTImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit._crit_edge, %_ZN6google12Check_LTImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread
   %42 = phi ptr [ %.pre, %_ZN6google12Check_LTImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit._crit_edge ], [ %34, %_ZN6google12Check_LTImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKT_RKT0_PKc.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %43 = getelementptr inbounds nuw %"class.folly::MPMCQueue", ptr %42, i64 %30
+  %43 = getelementptr inbounds nuw [320 x i8], ptr %42, i64 %30
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 64
   %45 = load atomic i64, ptr %44 acquire, align 8
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
@@ -24988,7 +24947,7 @@ _ZN6google12Check_LTImplImmEEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   %73 = sext i32 %50 to i64
   %74 = mul i64 %.0.i10, %73
   %75 = urem i64 %74, %48
-  %76 = getelementptr inbounds nuw %"struct.folly::detail::SingleElementQueue", ptr %47, i64 %75
+  %76 = getelementptr inbounds nuw [144 x i8], ptr %47, i64 %75
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 144
   %78 = udiv i64 %.0.i10, %48
   %79 = trunc i64 %78 to i32
@@ -25084,7 +25043,7 @@ _ZN5folly6detail11LifoSemBaseINS_19SaturatingSemaphoreILb1ESt6atomicEES3_E4waitE
   %31 = sext i32 %17 to i64
   %32 = mul i64 %.0.i.i, %31
   %33 = urem i64 %32, %15
-  %34 = getelementptr inbounds nuw %"struct.folly::detail::SingleElementQueue", ptr %14, i64 %33
+  %34 = getelementptr inbounds nuw [144 x i8], ptr %14, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 144
   %36 = udiv i64 %.0.i.i, %15
   %37 = trunc i64 %36 to i32
@@ -25150,7 +25109,7 @@ define linkonce_odr void @_ZN5folly24PriorityLifoSemMPMCQueueINS_21CPUThreadPool
   %31 = sext i32 %20 to i64
   %32 = mul i64 %.0.i.i, %31
   %33 = urem i64 %32, %18
-  %34 = getelementptr inbounds nuw %"struct.folly::detail::SingleElementQueue", ptr %17, i64 %33
+  %34 = getelementptr inbounds nuw [144 x i8], ptr %17, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 144
   %36 = udiv i64 %.0.i.i, %18
   %37 = trunc i64 %36 to i32
@@ -25660,7 +25619,7 @@ _ZNSt6vectorIN5folly9MPMCQueueINS0_21CPUThreadPoolExecutor7CPUTaskESt6atomicLb0E
 _ZNSt12_Vector_baseIN5folly9MPMCQueueINS0_21CPUThreadPoolExecutor7CPUTaskESt6atomicLb0ESaIS3_EEESaIS6_EE13_M_deallocateEPS6_m.exit: ; preds = %_ZNSt6vectorIN5folly9MPMCQueueINS0_21CPUThreadPoolExecutor7CPUTaskESt6atomicLb0ESaIS3_EEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit32, %79
   store ptr %20, ptr %0, align 8, !tbaa !882
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8, !tbaa !877
-  %83 = getelementptr inbounds nuw %"class.folly::MPMCQueue", ptr %20, i64 %16
+  %83 = getelementptr inbounds nuw [320 x i8], ptr %20, i64 %16
   store ptr %83, ptr %78, align 8, !tbaa !880
   ret void
 
@@ -25782,7 +25741,7 @@ _ZN5folly6detail13MPMCQueueBaseINS_9MPMCQueueINS_21CPUThreadPoolExecutor7CPUTask
   br i1 %38, label %.loopexit, label %39
 
 39:                                               ; preds = %.noexc
-  %40 = getelementptr inbounds %"struct.folly::detail::SingleElementQueue", ptr %37, i64 %26
+  %40 = getelementptr inbounds [144 x i8], ptr %37, i64 %26
   br label %41
 
 41:                                               ; preds = %41, %39
@@ -26741,7 +26700,7 @@ define noundef ptr @_ZN5folly21CPUThreadPoolExecutor16getQueueObserverEa(ptr nou
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 504
   %8 = zext i8 %1 to i64
-  %9 = getelementptr inbounds nuw %"struct.std::atomic.32", ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %8
   %10 = load atomic i64, ptr %9 acquire, align 8
   %.0.i.i = inttoptr i64 %10 to ptr
   %.not = icmp eq i64 %10, 0
@@ -27964,7 +27923,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN5folly18ThreadPoolE
   %.013.i.i.i = phi i64 [ %.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN5folly18ThreadPoolExecutor6ThreadEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i.i.i ], [ %16, %.critedge.i.i ]
   %.sroa.011.012.i.i.i = phi ptr [ %.sroa.011.1.i.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN5folly18ThreadPoolExecutor6ThreadEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i.i.i ], [ %.sroa.038.049.i.i, %.critedge.i.i ]
   %28 = lshr i64 %.013.i.i.i, 1
-  %29 = getelementptr inbounds nuw %"class.std::shared_ptr.0", ptr %.sroa.011.012.i.i.i, i64 %28
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.011.012.i.i.i, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !18
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %32 = load i64, ptr %31, align 8, !tbaa !27
@@ -27991,7 +27950,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN5folly18ThreadPoolE
   %.013.i28.i.i = phi i64 [ %.1.i33.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN5folly18ThreadPoolExecutor6ThreadEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i27.i.i ], [ %40, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN5folly18ThreadPoolExecutor6ThreadEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valINS4_10ThreadList7CompareEEEET_SH_SH_RKT0_T1_.exit.i.i ]
   %.sroa.011.012.i29.i.i = phi ptr [ %.sroa.011.1.i32.i.i, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN5folly18ThreadPoolExecutor6ThreadEESt6vectorIS6_SaIS6_EEEElEvRT_T0_.exit.i27.i.i ], [ %38, %_ZSt13__lower_boundIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN5folly18ThreadPoolExecutor6ThreadEESt6vectorIS6_SaIS6_EEEES6_NS0_5__ops14_Iter_comp_valINS4_10ThreadList7CompareEEEET_SH_SH_RKT0_T1_.exit.i.i ]
   %42 = lshr i64 %.013.i28.i.i, 1
-  %43 = getelementptr inbounds nuw %"class.std::shared_ptr.0", ptr %.sroa.011.012.i29.i.i, i64 %42
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.011.012.i29.i.i, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !18
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %46 = load i64, ptr %45, align 8, !tbaa !27

@@ -1072,7 +1072,7 @@ define internal range(i32 0, 2) i32 @template_private_test(i32 noundef %0) #0 {
 
 .preheader229:                                    ; preds = %15, %.preheader229
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader229 ], [ 0, %15 ]
-  %18 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   %19 = trunc i64 %indvars.iv to i32
   %20 = mul i32 %19, -16
   store i32 %20, ptr %18, align 4, !tbaa !17
@@ -1082,7 +1082,7 @@ define internal range(i32 0, 2) i32 @template_private_test(i32 noundef %0) #0 {
 
 .preheader:                                       ; preds = %.preheader229, %.preheader
   %indvars.iv233 = phi i64 [ %indvars.iv.next234, %.preheader ], [ 0, %.preheader229 ]
-  %21 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv233
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv233
   %indvars.iv233.tr = trunc i64 %indvars.iv233 to i32
   %22 = shl i32 %indvars.iv233.tr, 1
   store i32 %22, ptr %21, align 4, !tbaa !17
@@ -1825,7 +1825,7 @@ define internal range(i32 0, 2) i32 @builder_limit_test() #0 {
 
 .preheader37:                                     ; preds = %19, %.preheader37
   %indvars.iv41 = phi i64 [ %indvars.iv.next42, %.preheader37 ], [ 0, %19 ]
-  %22 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %20, i64 %indvars.iv41
+  %22 = getelementptr inbounds nuw [40 x i8], ptr %20, i64 %indvars.iv41
   %23 = load ptr, ptr %22, align 8, !tbaa !9
   %.not28 = icmp eq ptr %23, null
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
@@ -1854,7 +1854,7 @@ define internal range(i32 0, 2) i32 @builder_limit_test() #0 {
 
 .preheader:                                       ; preds = %32, %.preheader
   %indvars.iv44 = phi i64 [ %indvars.iv.next45, %.preheader ], [ 0, %32 ]
-  %35 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %33, i64 %indvars.iv44
+  %35 = getelementptr inbounds nuw [40 x i8], ptr %33, i64 %indvars.iv44
   %36 = load ptr, ptr %35, align 8, !tbaa !9
   %.not32 = icmp eq ptr %36, null
   %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1

@@ -312,7 +312,7 @@ i2r_ISSUER_SERIAL.exit.i.i.i:                     ; preds = %66, %64, %59, %50, 
   br i1 %89, label %switch.lookup, label %91
 
 switch.lookup:                                    ; preds = %87
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.i2r_TARGETING_INFORMATION, i64 %88
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.i2r_TARGETING_INFORMATION, i64 %88
   %switch.load = load ptr, ptr %switch.gep, align 8
   %90 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %2, ptr noundef nonnull %switch.load, i32 noundef range(i32 -2147483640, -2147483648) %13, ptr noundef nonnull @.str.22) #4
   br label %91

@@ -3,8 +3,6 @@ source_filename = "bench/llvm/original/ObjCARCInstKind.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"class.llvm::Use" = type { ptr, ptr, ptr, ptr }
-
 $_ZN4llvm7objcarc16GetCallSiteClassERKNS_8CallBaseE = comdat any
 
 $_ZN4llvm7objcarc27IsPotentialRetainableObjPtrEPKNS_5ValueE = comdat any
@@ -470,7 +468,7 @@ define dso_local noundef range(i32 0, 25) i32 @_ZN4llvm7objcarc16GetFunctionClas
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm7objcarc16GetFunctionClassEPKNS_8FunctionE, i64 %5
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN4llvm7objcarc16GetFunctionClassEPKNS_8FunctionE, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %6
 
@@ -596,7 +594,7 @@ _ZL18isUseOnlyIntrinsicj.exit:                    ; preds = %8, %5, %_ZN4llvm16d
   %33 = and i32 %27, 134217727
   %34 = zext nneg i32 %33 to i64
   %35 = sub nsw i64 0, %34
-  %36 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %35
+  %36 = getelementptr inbounds [32 x i8], ptr %0, i64 %35
   br label %_ZNK4llvm4User10getOperandEj.exit
 
 _ZNK4llvm4User10getOperandEj.exit:                ; preds = %29, %32
@@ -625,7 +623,7 @@ _ZNK4llvm4User10getOperandEj.exit:                ; preds = %29, %32
   %49 = and i32 %43, 134217727
   %50 = zext nneg i32 %49 to i64
   %51 = sub nsw i64 0, %50
-  %52 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %51
+  %52 = getelementptr inbounds [32 x i8], ptr %0, i64 %51
   br label %_ZNK4llvm4User8operandsEv.exit
 
 _ZNK4llvm4User8operandsEv.exit:                   ; preds = %45, %48
@@ -728,7 +726,7 @@ define linkonce_odr hidden noundef i32 @_ZN4llvm7objcarc16GetCallSiteClassERKNS_
   %4 = and i32 %3, 134217727
   %5 = zext nneg i32 %4 to i64
   %6 = sub nsw i64 0, %5
-  %7 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %6
+  %7 = getelementptr inbounds [32 x i8], ptr %0, i64 %6
   %8 = tail call noundef ptr @_ZN4llvm8CallBase7arg_endEv(ptr noundef nonnull align 8 dereferenceable(88) %0)
   %.not23 = icmp eq ptr %7, %8
   br i1 %.not23, label %._crit_edge, label %.lr.ph
@@ -993,10 +991,10 @@ _ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i:   ; preds = %14, %_ZNK4llvm8Call
 _ZNK4llvm8CallBase25getNumTotalBundleOperandsEv.exit: ; preds = %_ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i, %23
   %.0.i = phi i64 [ %35, %23 ], [ 0, %_ZNK4llvm8CallBase17hasOperandBundlesEv.exit.i ]
   %36 = sub nsw i64 0, %.0.i.i
-  %37 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %36
+  %37 = getelementptr inbounds [32 x i8], ptr %0, i64 %36
   %38 = getelementptr inbounds i8, ptr %37, i64 -32
   %39 = sub nsw i64 0, %.0.i
-  %40 = getelementptr inbounds %"class.llvm::Use", ptr %38, i64 %39
+  %40 = getelementptr inbounds [32 x i8], ptr %38, i64 %39
   ret ptr %40
 }
 

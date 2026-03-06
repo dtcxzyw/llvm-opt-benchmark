@@ -37,7 +37,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::_OutputArray" = type { %"class.cv::_InputArray" }
 %"class.cv::_InputArray" = type { i32, ptr, %"class.cv::Size_" }
 %"class.cv::Size_" = type { i32, i32 }
-%"struct.cv::usac::SPRT_history" = type <{ double, double, double, i32, [4 x i8] }>
 
 $_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv = comdat any
 
@@ -443,7 +442,7 @@ define hidden noundef i32 @_ZN2cv4usac7Quality10getInliersERKNS_3PtrINS0_5ErrorE
 20:                                               ; preds = %.lr.ph, %30
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
   %.01112 = phi i32 [ 0, %.lr.ph ], [ %.1, %30 ]
-  %21 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv
   %22 = load float, ptr %21, align 4, !tbaa !20
   %23 = fpext float %22 to double
   %24 = fcmp ogt double %3, %23
@@ -452,7 +451,7 @@ define hidden noundef i32 @_ZN2cv4usac7Quality10getInliersERKNS_3PtrINS0_5ErrorE
 25:                                               ; preds = %20
   %26 = add nsw i32 %.01112, 1
   %27 = sext i32 %.01112 to i64
-  %28 = getelementptr inbounds nuw i32, ptr %12, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %27
   %29 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %29, ptr %28, align 4, !tbaa !22
   br label %30
@@ -527,7 +526,7 @@ _ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit:    ; preds = %_ZSt4fillISt13_Bit_
 34:                                               ; preds = %.lr.ph, %47
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %47 ]
   %.02126 = phi i32 [ 0, %.lr.ph ], [ %.1, %47 ]
-  %35 = getelementptr inbounds nuw float, ptr %32, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv
   %36 = load float, ptr %35, align 4, !tbaa !20
   %37 = fpext float %36 to double
   %38 = fcmp ogt double %3, %37
@@ -536,7 +535,7 @@ _ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit:    ; preds = %_ZSt4fillISt13_Bit_
 39:                                               ; preds = %34
   %40 = lshr i64 %indvars.iv, 6
   %.zext = and i64 %40, 67108863
-  %41 = getelementptr inbounds nuw i64, ptr %25, i64 %.zext
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.zext
   %42 = and i64 %indvars.iv, 63
   %43 = shl nuw i64 1, %42
   %44 = load i64, ptr %41, align 8, !tbaa !29
@@ -615,7 +614,7 @@ _ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit:    ; preds = %_ZSt4fillISt13_Bit_
 25:                                               ; preds = %21
   %26 = lshr i32 %.031, 6
   %.zext = zext nneg i32 %26 to i64
-  %27 = getelementptr inbounds nuw i64, ptr %20, i64 %.zext
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.zext
   %28 = and i32 %.031, 63
   %29 = zext nneg i32 %28 to i64
   %30 = shl nuw i64 1, %29
@@ -661,7 +660,7 @@ define hidden noundef i32 @_ZN2cv4usac7Quality10getInliersERKSt6vectorIfSaIfEERS
 12:                                               ; preds = %8
   %13 = add nsw i32 %.0915, 1
   %14 = sext i32 %.0915 to i64
-  %15 = getelementptr inbounds nuw i32, ptr %7, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %14
   store i32 %.016, ptr %15, align 4, !tbaa !22
   br label %16
 
@@ -1292,7 +1291,7 @@ define linkonce_odr hidden i64 @_ZNK2cv4usac17RansacQualityImpl8getScoreERKSt6ve
 12:                                               ; preds = %.lr.ph, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
   %.078 = phi i32 [ 0, %.lr.ph ], [ %.1, %12 ]
-  %13 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %14 = load float, ptr %13, align 4, !tbaa !20
   %15 = fpext float %14 to double
   %16 = fcmp ogt double %8, %15
@@ -1332,7 +1331,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac17RansacQualityImpl10getInli
 22:                                               ; preds = %32, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %32 ]
   %.01112.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %32 ]
-  %23 = getelementptr inbounds nuw float, ptr %21, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv.i
   %24 = load float, ptr %23, align 4, !tbaa !20
   %25 = fpext float %24 to double
   %26 = fcmp ogt double %6, %25
@@ -1341,7 +1340,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac17RansacQualityImpl10getInli
 27:                                               ; preds = %22
   %28 = add nsw i32 %.01112.i, 1
   %29 = sext i32 %.01112.i to i64
-  %30 = getelementptr inbounds nuw i32, ptr %14, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %29
   %31 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %31, ptr %30, align 4, !tbaa !22
   br label %32
@@ -1384,7 +1383,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac17RansacQualityImpl10getInli
 21:                                               ; preds = %31, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %31 ]
   %.01112.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %31 ]
-  %22 = getelementptr inbounds nuw float, ptr %20, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv.i
   %23 = load float, ptr %22, align 4, !tbaa !20
   %24 = fpext float %23 to double
   %25 = fcmp ogt double %3, %24
@@ -1393,7 +1392,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac17RansacQualityImpl10getInli
 26:                                               ; preds = %21
   %27 = add nsw i32 %.01112.i, 1
   %28 = sext i32 %.01112.i to i64
-  %29 = getelementptr inbounds nuw i32, ptr %13, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %28
   %30 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %30, ptr %29, align 4, !tbaa !22
   br label %31
@@ -1487,7 +1486,7 @@ _ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit.i:  ; preds = %_ZSt4fillISt13_Bit_
 36:                                               ; preds = %49, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %49 ]
   %.02126.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %49 ]
-  %37 = getelementptr inbounds nuw float, ptr %34, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv.i
   %38 = load float, ptr %37, align 4, !tbaa !20
   %39 = fpext float %38 to double
   %40 = fcmp ogt double %6, %39
@@ -1496,7 +1495,7 @@ _ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit.i:  ; preds = %_ZSt4fillISt13_Bit_
 41:                                               ; preds = %36
   %42 = lshr i64 %indvars.iv.i, 6
   %.zext.i = and i64 %42, 67108863
-  %43 = getelementptr inbounds nuw i64, ptr %27, i64 %.zext.i
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.zext.i
   %44 = and i64 %indvars.iv.i, 63
   %45 = shl nuw i64 1, %44
   %46 = load i64, ptr %43, align 8, !tbaa !29
@@ -1906,7 +1905,7 @@ define linkonce_odr hidden i64 @_ZNK2cv4usac15MsacQualityImpl8getScoreERKSt6vect
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
   %.017 = phi float [ 0.000000e+00, %.lr.ph ], [ %.1, %30 ]
   %.01215 = phi i32 [ 0, %.lr.ph ], [ %.113, %30 ]
-  %19 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %20 = load float, ptr %19, align 4, !tbaa !20
   %21 = fcmp olt float %20, %8
   br i1 %21, label %22, label %30
@@ -1960,7 +1959,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac15MsacQualityImpl10getInlier
 22:                                               ; preds = %32, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %32 ]
   %.01112.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %32 ]
-  %23 = getelementptr inbounds nuw float, ptr %21, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv.i
   %24 = load float, ptr %23, align 4, !tbaa !20
   %25 = fpext float %24 to double
   %26 = fcmp ogt double %6, %25
@@ -1969,7 +1968,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac15MsacQualityImpl10getInlier
 27:                                               ; preds = %22
   %28 = add nsw i32 %.01112.i, 1
   %29 = sext i32 %.01112.i to i64
-  %30 = getelementptr inbounds nuw i32, ptr %14, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %29
   %31 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %31, ptr %30, align 4, !tbaa !22
   br label %32
@@ -2012,7 +2011,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac15MsacQualityImpl10getInlier
 21:                                               ; preds = %31, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %31 ]
   %.01112.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %31 ]
-  %22 = getelementptr inbounds nuw float, ptr %20, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv.i
   %23 = load float, ptr %22, align 4, !tbaa !20
   %24 = fpext float %23 to double
   %25 = fcmp ogt double %3, %24
@@ -2021,7 +2020,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac15MsacQualityImpl10getInlier
 26:                                               ; preds = %21
   %27 = add nsw i32 %.01112.i, 1
   %28 = sext i32 %.01112.i to i64
-  %29 = getelementptr inbounds nuw i32, ptr %13, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %28
   %30 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %30, ptr %29, align 4, !tbaa !22
   br label %31
@@ -2114,7 +2113,7 @@ _ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit.i:  ; preds = %_ZSt4fillISt13_Bit_
 36:                                               ; preds = %49, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %49 ]
   %.02126.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %49 ]
-  %37 = getelementptr inbounds nuw float, ptr %34, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv.i
   %38 = load float, ptr %37, align 4, !tbaa !20
   %39 = fpext float %38 to double
   %40 = fcmp ogt double %6, %39
@@ -2123,7 +2122,7 @@ _ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit.i:  ; preds = %_ZSt4fillISt13_Bit_
 41:                                               ; preds = %36
   %42 = lshr i64 %indvars.iv.i, 6
   %.zext.i = and i64 %42, 67108863
-  %43 = getelementptr inbounds nuw i64, ptr %27, i64 %.zext.i
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.zext.i
   %44 = and i64 %indvars.iv.i, 63
   %45 = shl nuw i64 1, %44
   %46 = load i64, ptr %43, align 8, !tbaa !29
@@ -2400,10 +2399,10 @@ _ZN2cv3PtrINS_4usac11GammaValuesEEC2ERKS3_.exit:  ; preds = %_ZN2cv3PtrINS_4usac
   %101 = fptoui double %100 to i32
   %spec.select = tail call i32 @llvm.umin.i32(i32 %86, i32 %101)
   %102 = zext i32 %spec.select to i64
-  %103 = getelementptr inbounds nuw double, ptr %95, i64 %102
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %95, i64 %102
   %104 = load double, ptr %103, align 8, !tbaa !143
   %105 = fmul double %.03040, 2.500000e-01
-  %106 = getelementptr inbounds nuw double, ptr %97, i64 %102
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %102
   %107 = load double, ptr %106, align 8, !tbaa !143
   %108 = fsub double %107, %98
   %109 = fmul double %105, %108
@@ -2774,12 +2773,12 @@ define linkonce_odr hidden i64 @_ZNK2cv4usac17MagsacQualityImpl8getScoreERKNS_3M
   %43 = load ptr, ptr %20, align 8, !tbaa !138
   %44 = zext i32 %spec.select to i64
   %45 = load ptr, ptr %43, align 8, !tbaa !139
-  %46 = getelementptr inbounds nuw double, ptr %45, i64 %44
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %44
   %47 = load double, ptr %46, align 8, !tbaa !143
   %48 = fmul double %30, 2.500000e-01
   %49 = load ptr, ptr %21, align 8, !tbaa !142
   %50 = load ptr, ptr %49, align 8, !tbaa !139
-  %51 = getelementptr inbounds nuw double, ptr %50, i64 %44
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %44
   %52 = load double, ptr %51, align 8, !tbaa !143
   %53 = load double, ptr %22, align 8, !tbaa !131
   %54 = fsub double %52, %53
@@ -2867,7 +2866,7 @@ define linkonce_odr hidden i64 @_ZNK2cv4usac17MagsacQualityImpl8getScoreERKSt6ve
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %56 ]
   %.01524 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1, %56 ]
   %.01722 = phi i32 [ 0, %.lr.ph ], [ %.118, %56 ]
-  %33 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   %34 = load float, ptr %33, align 4, !tbaa !20
   %35 = fpext float %34 to double
   %36 = fcmp ogt double %8, %35
@@ -2882,11 +2881,11 @@ define linkonce_odr hidden i64 @_ZNK2cv4usac17MagsacQualityImpl8getScoreERKSt6ve
   %spec.select = tail call i32 @llvm.umin.i32(i32 %14, i32 %41)
   %42 = zext i32 %spec.select to i64
   %43 = load ptr, ptr %19, align 8, !tbaa !139
-  %44 = getelementptr inbounds nuw double, ptr %43, i64 %42
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %42
   %45 = load double, ptr %44, align 8, !tbaa !143
   %46 = fmul double %35, 2.500000e-01
   %47 = load ptr, ptr %21, align 8, !tbaa !139
-  %48 = getelementptr inbounds nuw double, ptr %47, i64 %42
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %42
   %49 = load double, ptr %48, align 8, !tbaa !143
   %50 = fsub double %49, %23
   %51 = fmul double %46, %50
@@ -2932,7 +2931,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac17MagsacQualityImpl10getInli
 22:                                               ; preds = %32, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %32 ]
   %.01112.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %32 ]
-  %23 = getelementptr inbounds nuw float, ptr %21, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv.i
   %24 = load float, ptr %23, align 4, !tbaa !20
   %25 = fpext float %24 to double
   %26 = fcmp ogt double %6, %25
@@ -2941,7 +2940,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac17MagsacQualityImpl10getInli
 27:                                               ; preds = %22
   %28 = add nsw i32 %.01112.i, 1
   %29 = sext i32 %.01112.i to i64
-  %30 = getelementptr inbounds nuw i32, ptr %14, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %29
   %31 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %31, ptr %30, align 4, !tbaa !22
   br label %32
@@ -2984,7 +2983,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac17MagsacQualityImpl10getInli
 21:                                               ; preds = %31, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %31 ]
   %.01112.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %31 ]
-  %22 = getelementptr inbounds nuw float, ptr %20, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv.i
   %23 = load float, ptr %22, align 4, !tbaa !20
   %24 = fpext float %23 to double
   %25 = fcmp ogt double %3, %24
@@ -2993,7 +2992,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac17MagsacQualityImpl10getInli
 26:                                               ; preds = %21
   %27 = add nsw i32 %.01112.i, 1
   %28 = sext i32 %.01112.i to i64
-  %29 = getelementptr inbounds nuw i32, ptr %13, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %28
   %30 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %30, ptr %29, align 4, !tbaa !22
   br label %31
@@ -3087,7 +3086,7 @@ _ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit.i:  ; preds = %_ZSt4fillISt13_Bit_
 36:                                               ; preds = %49, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %49 ]
   %.02126.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %49 ]
-  %37 = getelementptr inbounds nuw float, ptr %34, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv.i
   %38 = load float, ptr %37, align 4, !tbaa !20
   %39 = fpext float %38 to double
   %40 = fcmp ogt double %6, %39
@@ -3096,7 +3095,7 @@ _ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit.i:  ; preds = %_ZSt4fillISt13_Bit_
 41:                                               ; preds = %36
   %42 = lshr i64 %indvars.iv.i, 6
   %.zext.i = and i64 %42, 67108863
-  %43 = getelementptr inbounds nuw i64, ptr %27, i64 %.zext.i
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.zext.i
   %44 = and i64 %indvars.iv.i, 63
   %45 = shl nuw i64 1, %44
   %46 = load i64, ptr %43, align 8, !tbaa !29
@@ -3405,7 +3404,7 @@ _ZNSt6vectorIfSaIfEEC2ERKS1_.exit:                ; preds = %.thread, %21
 36:                                               ; preds = %.lr.ph, %36
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %36 ]
   %.012 = phi i32 [ 0, %.lr.ph ], [ %.1, %36 ]
-  %37 = getelementptr inbounds nuw float, ptr %28, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv
   %38 = load float, ptr %37, align 4, !tbaa !20
   %39 = fpext float %38 to double
   %40 = fcmp ogt double %33, %39
@@ -3517,7 +3516,7 @@ _ZNSt6vectorIfSaIfEEC2ERKS1_.exit:                ; preds = %.thread, %15
 30:                                               ; preds = %.lr.ph, %30
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
   %.012 = phi i32 [ 0, %.lr.ph ], [ %.1, %30 ]
-  %31 = getelementptr inbounds nuw float, ptr %22, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv
   %32 = load float, ptr %31, align 4, !tbaa !20
   %33 = fpext float %32 to double
   %34 = fcmp ogt double %27, %33
@@ -3589,7 +3588,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac16LMedsQualityImpl10getInlie
 22:                                               ; preds = %32, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %32 ]
   %.01112.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %32 ]
-  %23 = getelementptr inbounds nuw float, ptr %21, i64 %indvars.iv.i
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv.i
   %24 = load float, ptr %23, align 4, !tbaa !20
   %25 = fpext float %24 to double
   %26 = fcmp ogt double %6, %25
@@ -3598,7 +3597,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac16LMedsQualityImpl10getInlie
 27:                                               ; preds = %22
   %28 = add nsw i32 %.01112.i, 1
   %29 = sext i32 %.01112.i to i64
-  %30 = getelementptr inbounds nuw i32, ptr %14, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %29
   %31 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %31, ptr %30, align 4, !tbaa !22
   br label %32
@@ -3641,7 +3640,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac16LMedsQualityImpl10getInlie
 21:                                               ; preds = %31, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %31 ]
   %.01112.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %31 ]
-  %22 = getelementptr inbounds nuw float, ptr %20, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv.i
   %23 = load float, ptr %22, align 4, !tbaa !20
   %24 = fpext float %23 to double
   %25 = fcmp ogt double %3, %24
@@ -3650,7 +3649,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2cv4usac16LMedsQualityImpl10getInlie
 26:                                               ; preds = %21
   %27 = add nsw i32 %.01112.i, 1
   %28 = sext i32 %.01112.i to i64
-  %29 = getelementptr inbounds nuw i32, ptr %13, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %28
   %30 = trunc nuw nsw i64 %indvars.iv.i to i32
   store i32 %30, ptr %29, align 4, !tbaa !22
   br label %31
@@ -3733,7 +3732,7 @@ _ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit.i:  ; preds = %_ZSt4fillISt13_Bit_
 36:                                               ; preds = %49, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %49 ]
   %.02126.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %49 ]
-  %37 = getelementptr inbounds nuw float, ptr %34, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv.i
   %38 = load float, ptr %37, align 4, !tbaa !20
   %39 = fpext float %38 to double
   %40 = fcmp ogt double %6, %39
@@ -3742,7 +3741,7 @@ _ZSt4fillISt13_Bit_iteratorbEvT_S1_RKT0_.exit.i:  ; preds = %_ZSt4fillISt13_Bit_
 41:                                               ; preds = %36
   %42 = lshr i64 %indvars.iv.i, 6
   %.zext.i = and i64 %42, 67108863
-  %43 = getelementptr inbounds nuw i64, ptr %27, i64 %.zext.i
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.zext.i
   %44 = and i64 %indvars.iv.i, 63
   %45 = shl nuw i64 1, %44
   %46 = load i64, ptr %43, align 8, !tbaa !29
@@ -4221,7 +4220,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %43
           to label %.noexc35 unwind label %77
 
 .noexc35:                                         ; preds = %60
-  %63 = getelementptr inbounds nuw i32, ptr %62, i64 %57
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %57
   store i32 0, ptr %62, align 4, !tbaa !22
   %64 = getelementptr i8, ptr %62, i64 4
   %65 = add nsw i64 %57, -1
@@ -4268,7 +4267,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %_ZSt6fill_nIPimiET_
 
 79:                                               ; preds = %.lr.ph, %79
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %79 ]
-  %80 = getelementptr inbounds nuw i32, ptr %68, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %indvars.iv
   %81 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %81, ptr %80, align 4, !tbaa !22
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4352,7 +4351,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %_ZNSt6vectorIN
           to label %.noexc43 unwind label %122
 
 .noexc43:                                         ; preds = %106
-  %109 = getelementptr inbounds nuw float, ptr %108, i64 %57
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %108, i64 %57
   store float 0.000000e+00, ptr %108, align 4, !tbaa !20
   %110 = getelementptr i8, ptr %108, i64 4
   %111 = add nsw i64 %57, -1
@@ -4842,7 +4841,7 @@ _ZN2cv3RNG7uniformEii.exit:                       ; preds = %21
   %65 = add nsw i32 %spec.store.select, 1
   %66 = sext i32 %spec.store.select to i64
   %67 = load ptr, ptr %55, align 8, !tbaa !16
-  %68 = getelementptr inbounds nuw i32, ptr %67, i64 %66
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %66
   %69 = load i32, ptr %68, align 4, !tbaa !22
   %70 = load ptr, ptr %64, align 8, !tbaa !11
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 72
@@ -4911,7 +4910,7 @@ _ZN2cv3RNG7uniformEii.exit:                       ; preds = %21
   %106 = add nsw i32 %spec.store.select1, 1
   %107 = sext i32 %spec.store.select1 to i64
   %108 = load ptr, ptr %43, align 8, !tbaa !16
-  %109 = getelementptr inbounds nuw i32, ptr %108, i64 %107
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %108, i64 %107
   %110 = load i32, ptr %109, align 4, !tbaa !22
   %111 = load ptr, ptr %22, align 8, !tbaa !3
   %112 = load ptr, ptr %111, align 8, !tbaa !11
@@ -4941,7 +4940,7 @@ _ZN2cv3RNG7uniformEii.exit:                       ; preds = %21
   %.7 = phi i32 [ %120, %119 ], [ %.695, %123 ]
   %129 = sext i32 %110 to i64
   %130 = load ptr, ptr %47, align 8, !tbaa !17
-  %131 = getelementptr inbounds nuw float, ptr %130, i64 %129
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %130, i64 %129
   store float %115, ptr %131, align 4, !tbaa !20
   %132 = add nuw nsw i32 %.26592, 1
   %133 = load i32, ptr %27, align 8, !tbaa !154
@@ -5142,7 +5141,7 @@ _ZNSt6vectorIN2cv4usac12SPRT_historyESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22
 _ZNSt6vectorIN2cv4usac12SPRT_historyESaIS2_EE17_M_realloc_insertIJRS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %74, %_ZNSt6vectorIN2cv4usac12SPRT_historyESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
   store ptr %69, ptr %13, align 8, !tbaa !186
   store ptr %73, ptr %14, align 8, !tbaa !187
-  %75 = getelementptr inbounds nuw %"struct.cv::usac::SPRT_history", ptr %69, i64 %67
+  %75 = getelementptr inbounds nuw [32 x i8], ptr %69, i64 %67
   store ptr %75, ptr %52, align 8, !tbaa !185
   br label %_ZNSt6vectorIN2cv4usac12SPRT_historyESaIS2_EE12emplace_backIJRS2_EEEvDpOT_.exit
 

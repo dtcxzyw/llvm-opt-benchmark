@@ -3145,9 +3145,9 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 .lr.ph.i.i:                                       ; preds = %1081, %1088
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %1088 ], [ 0, %1081 ]
-  %1089 = getelementptr inbounds nuw float, ptr %1017, i64 %indvars.iv.i.i
+  %1089 = getelementptr inbounds nuw [4 x i8], ptr %1017, i64 %indvars.iv.i.i
   %1090 = load float, ptr %1089, align 4
-  %1091 = getelementptr inbounds nuw float, ptr %1084, i64 %indvars.iv.i.i
+  %1091 = getelementptr inbounds nuw [4 x i8], ptr %1084, i64 %indvars.iv.i.i
   %1092 = load float, ptr %1091, align 4
   %1093 = fsub float %1090, %1092
   %1094 = call float @llvm.fabs.f32(float %1093)
@@ -3221,9 +3221,9 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.thread.i:           ; preds = %_ZNSt6vectorIfSaIfE
 
 .lr.ph.i138.i:                                    ; preds = %1112, %1119
   %indvars.iv.i139.i = phi i64 [ %indvars.iv.next.i140.i, %1119 ], [ 0, %1112 ]
-  %1120 = getelementptr inbounds nuw float, ptr %1023, i64 %indvars.iv.i139.i
+  %1120 = getelementptr inbounds nuw [4 x i8], ptr %1023, i64 %indvars.iv.i139.i
   %1121 = load float, ptr %1120, align 4
-  %1122 = getelementptr inbounds nuw float, ptr %1115, i64 %indvars.iv.i139.i
+  %1122 = getelementptr inbounds nuw [4 x i8], ptr %1115, i64 %indvars.iv.i139.i
   %1123 = load float, ptr %1122, align 4
   %1124 = fsub float %1121, %1123
   %1125 = call float @llvm.fabs.f32(float %1124)
@@ -3667,9 +3667,9 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 .lr.ph.i201.i:                                    ; preds = %1305, %1312
   %indvars.iv.i202.i = phi i64 [ %indvars.iv.next.i203.i, %1312 ], [ 0, %1305 ]
-  %1313 = getelementptr inbounds nuw float, ptr %1017, i64 %indvars.iv.i202.i
+  %1313 = getelementptr inbounds nuw [4 x i8], ptr %1017, i64 %indvars.iv.i202.i
   %1314 = load float, ptr %1313, align 4
-  %1315 = getelementptr inbounds nuw float, ptr %1308, i64 %indvars.iv.i202.i
+  %1315 = getelementptr inbounds nuw [4 x i8], ptr %1308, i64 %indvars.iv.i202.i
   %1316 = load float, ptr %1315, align 4
   %1317 = fsub float %1314, %1316
   %1318 = call float @llvm.fabs.f32(float %1317)
@@ -3743,9 +3743,9 @@ _ZNSt6vectorIfSaIfEED2Ev.exit208.i:               ; preds = %_ZNSt6vectorIfSaIfE
 
 .lr.ph.i216.i:                                    ; preds = %1335, %1342
   %indvars.iv.i217.i = phi i64 [ %indvars.iv.next.i218.i, %1342 ], [ 0, %1335 ]
-  %1343 = getelementptr inbounds nuw float, ptr %1023, i64 %indvars.iv.i217.i
+  %1343 = getelementptr inbounds nuw [4 x i8], ptr %1023, i64 %indvars.iv.i217.i
   %1344 = load float, ptr %1343, align 4
-  %1345 = getelementptr inbounds nuw float, ptr %1338, i64 %indvars.iv.i217.i
+  %1345 = getelementptr inbounds nuw [4 x i8], ptr %1338, i64 %indvars.iv.i217.i
   %1346 = load float, ptr %1345, align 4
   %1347 = fsub float %1344, %1346
   %1348 = call float @llvm.fabs.f32(float %1347)
@@ -4658,9 +4658,9 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 .lr.ph.i.i125:                                    ; preds = %1612, %1626
   %indvars.iv.i.i126 = phi i64 [ %indvars.iv.next.i.i127, %1626 ], [ 0, %1612 ]
-  %1627 = getelementptr inbounds nuw float, ptr %1615, i64 %indvars.iv.i.i126
+  %1627 = getelementptr inbounds nuw [4 x i8], ptr %1615, i64 %indvars.iv.i.i126
   %1628 = load float, ptr %1627, align 4
-  %1629 = getelementptr inbounds nuw float, ptr %1622, i64 %indvars.iv.i.i126
+  %1629 = getelementptr inbounds nuw [4 x i8], ptr %1622, i64 %indvars.iv.i.i126
   %1630 = load float, ptr %1629, align 4
   %1631 = fsub float %1628, %1630
   %1632 = call float @llvm.fabs.f32(float %1631)
@@ -4749,9 +4749,9 @@ _ZNSt6vectorIfSaIfEED2Ev.exit.i:                  ; preds = %_ZN10open_spiel7All
 
 .lr.ph.i124.i:                                    ; preds = %1651, %1665
   %indvars.iv.i125.i = phi i64 [ %indvars.iv.next.i126.i, %1665 ], [ 0, %1651 ]
-  %1666 = getelementptr inbounds nuw float, ptr %1654, i64 %indvars.iv.i125.i
+  %1666 = getelementptr inbounds nuw [4 x i8], ptr %1654, i64 %indvars.iv.i125.i
   %1667 = load float, ptr %1666, align 4
-  %1668 = getelementptr inbounds nuw float, ptr %1661, i64 %indvars.iv.i125.i
+  %1668 = getelementptr inbounds nuw [4 x i8], ptr %1661, i64 %indvars.iv.i125.i
   %1669 = load float, ptr %1668, align 4
   %1670 = fsub float %1667, %1669
   %1671 = call float @llvm.fabs.f32(float %1670)
@@ -5255,9 +5255,9 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
 
 .lr.ph.i187.i:                                    ; preds = %1874, %1885
   %indvars.iv.i188.i = phi i64 [ %indvars.iv.next.i189.i, %1885 ], [ 0, %1874 ]
-  %1886 = getelementptr inbounds nuw float, ptr %1772, i64 %indvars.iv.i188.i
+  %1886 = getelementptr inbounds nuw [4 x i8], ptr %1772, i64 %indvars.iv.i188.i
   %1887 = load float, ptr %1886, align 4
-  %1888 = getelementptr inbounds nuw float, ptr %1881, i64 %indvars.iv.i188.i
+  %1888 = getelementptr inbounds nuw [4 x i8], ptr %1881, i64 %indvars.iv.i188.i
   %1889 = load float, ptr %1888, align 4
   %1890 = fsub float %1887, %1889
   %1891 = call float @llvm.fabs.f32(float %1890)
@@ -5343,9 +5343,9 @@ _ZNSt6vectorIfSaIfEED2Ev.exit193.i:               ; preds = %_ZN10open_spiel7All
 
 .lr.ph.i200.i:                                    ; preds = %1910, %1921
   %indvars.iv.i201.i = phi i64 [ %indvars.iv.next.i202.i, %1921 ], [ 0, %1910 ]
-  %1922 = getelementptr inbounds nuw float, ptr %1785, i64 %indvars.iv.i201.i
+  %1922 = getelementptr inbounds nuw [4 x i8], ptr %1785, i64 %indvars.iv.i201.i
   %1923 = load float, ptr %1922, align 4
-  %1924 = getelementptr inbounds nuw float, ptr %1917, i64 %indvars.iv.i201.i
+  %1924 = getelementptr inbounds nuw [4 x i8], ptr %1917, i64 %indvars.iv.i201.i
   %1925 = load float, ptr %1924, align 4
   %1926 = fsub float %1923, %1925
   %1927 = call float @llvm.fabs.f32(float %1926)
@@ -9759,7 +9759,7 @@ define internal fastcc void @_ZN10open_spiel9laser_tag12_GLOBAL__N_126get_obs_te
   %14 = trunc nuw nsw i64 %indvars.iv to i32
   %15 = sub nsw i32 %14, %.02232
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds float, ptr %6, i64 %16
+  %17 = getelementptr inbounds [4 x i8], ptr %6, i64 %16
   store float 1.000000e+00, ptr %17, align 4
   br label %49
 
@@ -9768,7 +9768,7 @@ define internal fastcc void @_ZN10open_spiel9laser_tag12_GLOBAL__N_126get_obs_te
   %20 = trunc nuw nsw i64 %indvars.iv to i32
   %21 = add i32 %19, %20
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds float, ptr %6, i64 %22
+  %23 = getelementptr inbounds [4 x i8], ptr %6, i64 %22
   store float 1.000000e+00, ptr %23, align 4
   br label %49
 
@@ -9777,7 +9777,7 @@ define internal fastcc void @_ZN10open_spiel9laser_tag12_GLOBAL__N_126get_obs_te
   %26 = trunc nuw nsw i64 %indvars.iv to i32
   %27 = add i32 %25, %26
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds float, ptr %6, i64 %28
+  %29 = getelementptr inbounds [4 x i8], ptr %6, i64 %28
   store float 1.000000e+00, ptr %29, align 4
   br label %49
 
@@ -9786,7 +9786,7 @@ define internal fastcc void @_ZN10open_spiel9laser_tag12_GLOBAL__N_126get_obs_te
   %32 = trunc nuw nsw i64 %indvars.iv to i32
   %33 = add i32 %31, %32
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds float, ptr %6, i64 %34
+  %35 = getelementptr inbounds [4 x i8], ptr %6, i64 %34
   store float 1.000000e+00, ptr %35, align 4
   br label %49
 

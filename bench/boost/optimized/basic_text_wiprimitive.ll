@@ -862,7 +862,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5boost7archive9iterators18dataflow_e
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5boost7archive9iterators18dataflow_exception4whatEv, i64 %5
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5boost7archive9iterators18dataflow_exception4whatEv, i64 %5
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %6
 

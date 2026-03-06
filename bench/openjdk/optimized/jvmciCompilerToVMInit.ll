@@ -17691,7 +17691,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
 
 488:                                              ; preds = %.lr.ph, %623
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %623 ]
-  %489 = getelementptr inbounds nuw %struct.VMStructEntry, ptr @_ZN14JVMCIVMStructs21localHotSpotVMStructsE, i64 %indvars.iv
+  %489 = getelementptr inbounds nuw [48 x i8], ptr @_ZN14JVMCIVMStructs21localHotSpotVMStructsE, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(48) %489, i64 48, i1 false)
   %490 = load ptr, ptr %6, align 8
   %491 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %490) #8
@@ -18009,7 +18009,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
 643:                                              ; preds = %.lr.ph3601, %671
   %indvars.iv3615 = phi i64 [ 0, %.lr.ph3601 ], [ %indvars.iv.next3616, %671 ]
   %.020783600 = phi i32 [ 0, %.lr.ph3601 ], [ %673, %671 ]
-  %644 = getelementptr inbounds nuw %struct.VMIntConstantEntry, ptr @_ZN14JVMCIVMStructs26localHotSpotVMIntConstantsE, i64 %indvars.iv3615
+  %644 = getelementptr inbounds nuw [16 x i8], ptr @_ZN14JVMCIVMStructs26localHotSpotVMIntConstantsE, i64 %indvars.iv3615
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, ptr noundef nonnull align 8 dereferenceable(16) %644, i64 16, i1 false)
   %645 = load ptr, ptr %17, align 8
   %.not2424 = icmp eq ptr %645, null
@@ -18088,7 +18088,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
 674:                                              ; preds = %.lr.ph3604, %701
   %indvars.iv3620 = phi i64 [ 0, %.lr.ph3604 ], [ %indvars.iv.next3621, %701 ]
   %.13603 = phi i32 [ %.02078.lcssa, %.lr.ph3604 ], [ %703, %701 ]
-  %675 = getelementptr inbounds nuw %struct.VMLongConstantEntry, ptr @_ZN14JVMCIVMStructs27localHotSpotVMLongConstantsE, i64 %indvars.iv3620
+  %675 = getelementptr inbounds nuw [16 x i8], ptr @_ZN14JVMCIVMStructs27localHotSpotVMLongConstantsE, i64 %indvars.iv3620
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, ptr noundef nonnull align 8 dereferenceable(16) %675, i64 16, i1 false)
   %676 = load ptr, ptr %21, align 8
   %.not2421 = icmp eq ptr %676, null
@@ -18186,7 +18186,7 @@ define hidden noundef ptr @_Z18readConfiguration0P7JNIEnv_P8JVMCIEnv(ptr noundef
 
 714:                                              ; preds = %.lr.ph3607, %742
   %indvars.iv3625 = phi i64 [ 0, %.lr.ph3607 ], [ %indvars.iv.next3626, %742 ]
-  %715 = getelementptr inbounds nuw %struct.VMAddressEntry, ptr @_ZN14JVMCIVMStructs23localHotSpotVMAddressesE, i64 %indvars.iv3625
+  %715 = getelementptr inbounds nuw [16 x i8], ptr @_ZN14JVMCIVMStructs23localHotSpotVMAddressesE, i64 %indvars.iv3625
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %25, ptr noundef nonnull align 8 dereferenceable(16) %715, i64 16, i1 false)
   %716 = load ptr, ptr %25, align 8
   %.not2418 = icmp eq ptr %716, null
@@ -23145,7 +23145,7 @@ _ZN12CompilerToVM12cstring_hashERKPKc.exit:       ; preds = %.lr.ph.i, %2
   %.05.lcssa.i = phi i32 [ 0, %2 ], [ %8, %.lr.ph.i ]
   %11 = and i32 %.05.lcssa.i, 255
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw ptr, ptr %0, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %12
   %14 = load ptr, ptr %13, align 8
   %.not11.i.i = icmp eq ptr %14, null
   br i1 %.not11.i.i, label %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE11lookup_nodeEjSA_.exit, label %.lr.ph.i.i
@@ -23202,7 +23202,7 @@ _ZN12CompilerToVM12cstring_hashERKPKc.exit:       ; preds = %.lr.ph.i, %3
   %.05.lcssa.i = phi i32 [ 0, %3 ], [ %9, %.lr.ph.i ]
   %12 = and i32 %.05.lcssa.i, 255
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %0, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %13
   %15 = load ptr, ptr %14, align 8
   %.not11.i = icmp eq ptr %15, null
   br i1 %.not11.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256EPKc11JVMCIObjectES2_S3_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_ZN12CompilerToVM12cstring_hashERKS2_EEXadL_ZNS8_14cstring_equalsESA_SA_EEE11lookup_nodeEjSA_.exit.thread, label %.lr.ph.i12
@@ -23269,7 +23269,7 @@ define linkonce_odr hidden noundef ptr @_ZNK21ResourceHashtableBaseI29FixedResou
   %6 = xor i32 %5, %4
   %7 = and i32 %6, 255
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %0, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %8
   %10 = load ptr, ptr %9, align 8
   %.not11.i.i = icmp eq ptr %10, null
   br i1 %.not11.i.i, label %_ZNK21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256El11JVMCIObjectElS1_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIlEjRKT_EEXadL_Z16primitive_equalsIlEbS9_S9_EEE11lookup_nodeEjRKl.exit, label %.lr.ph.i.i
@@ -23308,7 +23308,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN21ResourceHashtableBaseI29Fixe
   %7 = xor i32 %6, %5
   %8 = and i32 %7, 255
   %9 = zext nneg i32 %8 to i64
-  %10 = getelementptr inbounds nuw ptr, ptr %0, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %9
   %11 = load ptr, ptr %10, align 8
   %.not11.i = icmp eq ptr %11, null
   br i1 %.not11.i, label %_ZN21ResourceHashtableBaseI29FixedResourceHashtableStorageILj256El11JVMCIObjectElS1_LN6AnyObj15allocation_typeE1EL8MEMFLAGS9EXadL_Z14primitive_hashIlEjRKT_EEXadL_Z16primitive_equalsIlEbS9_S9_EEE11lookup_nodeEjRKl.exit.thread, label %.lr.ph.i

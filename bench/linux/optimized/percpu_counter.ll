@@ -24,7 +24,6 @@ module asm ".previous\09\09\09\09\09"
 %union.anon = type { %struct.atomic_t }
 %struct.atomic_t = type { i32 }
 %struct.list_head = type { ptr, ptr }
-%struct.percpu_counter = type { %struct.raw_spinlock, i64, %struct.list_head, ptr }
 
 @__cpu_possible_mask = external dso_local local_unnamed_addr global %struct.cpumask, align 8
 @__per_cpu_offset = external dso_local local_unnamed_addr global [64 x i64], align 16
@@ -72,7 +71,7 @@ define dso_local void @percpu_counter_set(ptr noundef %0, i64 noundef %1) #0 ali
   %16 = load ptr, ptr %4, align 8
   %17 = ptrtoint ptr %16 to i64
   %18 = and i64 %12, 63
-  %19 = getelementptr i64, ptr @__per_cpu_offset, i64 %18
+  %19 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %18
   %20 = load i64, ptr %19, align 8
   %21 = add i64 %20, %17
   %22 = inttoptr i64 %21 to ptr
@@ -196,7 +195,7 @@ define dso_local i64 @__percpu_counter_sum(ptr noundef %0) #0 align 16 {
   %20 = load ptr, ptr %8, align 8
   %21 = ptrtoint ptr %20 to i64
   %22 = and i64 %16, 63
-  %23 = getelementptr i64, ptr @__per_cpu_offset, i64 %22
+  %23 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %22
   %24 = load i64, ptr %23, align 8
   %25 = add i64 %24, %21
   %26 = inttoptr i64 %25 to ptr
@@ -237,7 +236,7 @@ define dso_local noundef range(i32 -12, 1) i32 @__percpu_counter_init_many(ptr n
 
 .preheader:                                       ; preds = %10, %.preheader
   %15 = phi i64 [ %23, %.preheader ], [ 0, %10 ]
-  %16 = getelementptr %struct.percpu_counter, ptr %0, i64 %15
+  %16 = getelementptr [40 x i8], ptr %0, i64 %15
   store i32 0, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store volatile ptr %17, ptr %17, align 8
@@ -261,7 +260,7 @@ define dso_local noundef range(i32 -12, 1) i32 @__percpu_counter_init_many(ptr n
 27:                                               ; preds = %25, %27
   %28 = phi ptr [ %30, %27 ], [ %.pre, %25 ]
   %29 = phi i64 [ %33, %27 ], [ 0, %25 ]
-  %.split = getelementptr %struct.percpu_counter, ptr %0, i64 %29
+  %.split = getelementptr [40 x i8], ptr %0, i64 %29
   %30 = getelementptr i8, ptr %.split, i64 16
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr %30, ptr %31, align 8
@@ -314,7 +313,7 @@ define dso_local void @percpu_counter_destroy_many(ptr noundef captures(address_
 
 14:                                               ; preds = %14, %12
   %15 = phi i64 [ 0, %12 ], [ %21, %14 ]
-  %.split = getelementptr %struct.percpu_counter, ptr %0, i64 %15
+  %.split = getelementptr [40 x i8], ptr %0, i64 %15
   %16 = getelementptr i8, ptr %.split, i64 16
   %17 = getelementptr i8, ptr %.split, i64 24
   %18 = load ptr, ptr %17, align 8
@@ -336,7 +335,7 @@ define dso_local void @percpu_counter_destroy_many(ptr noundef captures(address_
 
 25:                                               ; preds = %25, %23
   %26 = phi i64 [ 0, %23 ], [ %28, %25 ]
-  %.split2 = getelementptr %struct.percpu_counter, ptr %0, i64 %26
+  %.split2 = getelementptr [40 x i8], ptr %0, i64 %26
   %27 = getelementptr i8, ptr %.split2, i64 32
   store ptr null, ptr %27, align 8
   %28 = add nuw nsw i64 %26, 1
@@ -400,7 +399,7 @@ define dso_local range(i32 -1, 2) i32 @__percpu_counter_compare(ptr noundef %0, 
   %33 = load ptr, ptr %21, align 8
   %34 = ptrtoint ptr %33 to i64
   %35 = and i64 %29, 63
-  %36 = getelementptr i64, ptr @__per_cpu_offset, i64 %35
+  %36 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %35
   %37 = load i64, ptr %36, align 8
   %38 = add i64 %37, %34
   %39 = inttoptr i64 %38 to ptr
@@ -533,7 +532,7 @@ define dso_local noundef zeroext i1 @__percpu_counter_limited_add(ptr noundef %0
   %65 = load ptr, ptr %12, align 8
   %66 = ptrtoint ptr %65 to i64
   %67 = and i64 %61, 63
-  %68 = getelementptr i64, ptr @__per_cpu_offset, i64 %67
+  %68 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %67
   %69 = load i64, ptr %68, align 8
   %70 = add i64 %69, %66
   %71 = inttoptr i64 %70 to ptr
@@ -632,7 +631,7 @@ define internal noundef i32 @percpu_counter_cpu_dead(i32 noundef %0) #0 align 16
 
 7:                                                ; preds = %1
   %8 = zext i32 %0 to i64
-  %9 = getelementptr i64, ptr @__per_cpu_offset, i64 %8
+  %9 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %8
   br label %10
 
 10:                                               ; preds = %10, %7

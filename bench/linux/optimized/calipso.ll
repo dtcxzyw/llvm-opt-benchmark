@@ -11,7 +11,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.qspinlock = type { %union.anon.0 }
 %union.anon.0 = type { %struct.atomic_t }
 %struct.atomic_t = type { i32 }
-%struct.calipso_map_cache_bkt = type { %struct.spinlock, i32, %struct.list_head }
 
 @calipso_cache_enabled = dso_local local_unnamed_addr global i32 1, align 4
 @calipso_cache_bucketsize = dso_local local_unnamed_addr global i32 10, align 4
@@ -130,7 +129,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @calipso_cache_init() unnam
 
 .preheader:                                       ; preds = %0, %.preheader
   %4 = phi i64 [ %9, %.preheader ], [ 0, %0 ]
-  %5 = getelementptr %struct.calipso_map_cache_bkt, ptr %2, i64 %4
+  %5 = getelementptr [24 x i8], ptr %2, i64 %4
   store i32 0, ptr %5, align 8
   %6 = getelementptr i8, ptr %5, i64 4
   store i32 0, ptr %6, align 4
@@ -166,10 +165,10 @@ define internal void @calipso_cache_invalidate() #0 align 16 {
 1:                                                ; preds = %.loopexit, %0
   %2 = phi i64 [ 0, %0 ], [ %40, %.loopexit ]
   %3 = load ptr, ptr @calipso_cache, align 8
-  %4 = getelementptr %struct.calipso_map_cache_bkt, ptr %3, i64 %2
+  %4 = getelementptr [24 x i8], ptr %3, i64 %2
   tail call void @_raw_spin_lock_bh(ptr noundef %4) #14
   %5 = load ptr, ptr @calipso_cache, align 8
-  %.split = getelementptr %struct.calipso_map_cache_bkt, ptr %5, i64 %2
+  %.split = getelementptr [24 x i8], ptr %5, i64 %2
   %6 = getelementptr i8, ptr %.split, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, %6
@@ -227,7 +226,7 @@ define internal void @calipso_cache_invalidate() #0 align 16 {
   tail call void @kfree(ptr noundef %33) #14
   tail call void @kfree(ptr noundef %10) #14
   %34 = load ptr, ptr @calipso_cache, align 8
-  %35 = getelementptr %struct.calipso_map_cache_bkt, ptr %34, i64 %2
+  %35 = getelementptr [24 x i8], ptr %34, i64 %2
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = icmp eq ptr %11, %36
   br i1 %37, label %.loopexit, label %.preheader, !llvm.loop !13
@@ -1126,10 +1125,10 @@ define internal i32 @calipso_opt_getattr(ptr noundef %0, ptr noundef %1) #0 alig
   %18 = and i32 %17, 127
   %19 = load ptr, ptr @calipso_cache, align 8
   %20 = zext nneg i32 %18 to i64
-  %21 = getelementptr %struct.calipso_map_cache_bkt, ptr %19, i64 %20
+  %21 = getelementptr [24 x i8], ptr %19, i64 %20
   tail call void @_raw_spin_lock_bh(ptr noundef %21) #14
   %22 = load ptr, ptr @calipso_cache, align 8
-  %.split = getelementptr %struct.calipso_map_cache_bkt, ptr %22, i64 %20
+  %.split = getelementptr [24 x i8], ptr %22, i64 %20
   %23 = getelementptr i8, ptr %.split, i64 8
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, %23
@@ -1196,7 +1195,7 @@ define internal i32 @calipso_opt_getattr(ptr noundef %0, ptr noundef %1) #0 alig
 
 64:                                               ; preds = %57
   %65 = load ptr, ptr @calipso_cache, align 8
-  %66 = getelementptr %struct.calipso_map_cache_bkt, ptr %65, i64 %20
+  %66 = getelementptr [24 x i8], ptr %65, i64 %20
   tail call void @_raw_spin_unlock_bh(ptr noundef %66) #14
   br label %151
 
@@ -1238,7 +1237,7 @@ define internal i32 @calipso_opt_getattr(ptr noundef %0, ptr noundef %1) #0 alig
 
 88:                                               ; preds = %80, %73
   %89 = load ptr, ptr @calipso_cache, align 8
-  %90 = getelementptr %struct.calipso_map_cache_bkt, ptr %89, i64 %20
+  %90 = getelementptr [24 x i8], ptr %89, i64 %20
   tail call void @_raw_spin_unlock_bh(ptr noundef %90) #14
   br label %151
 
@@ -1817,10 +1816,10 @@ define internal noundef range(i32 -12, 1) i32 @calipso_cache_add(ptr noundef %0,
   %38 = and i32 %37, 127
   %39 = load ptr, ptr @calipso_cache, align 8
   %40 = zext nneg i32 %38 to i64
-  %41 = getelementptr %struct.calipso_map_cache_bkt, ptr %39, i64 %40
+  %41 = getelementptr [24 x i8], ptr %39, i64 %40
   tail call void @_raw_spin_lock_bh(ptr noundef %41) #14
   %42 = load ptr, ptr @calipso_cache, align 8
-  %43 = getelementptr %struct.calipso_map_cache_bkt, ptr %42, i64 %40
+  %43 = getelementptr [24 x i8], ptr %42, i64 %40
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %45 = load i32, ptr %44, align 4
   %46 = load i32, ptr @calipso_cache_bucketsize, align 4
@@ -1908,7 +1907,7 @@ define internal noundef range(i32 -12, 1) i32 @calipso_cache_add(ptr noundef %0,
 
 88:                                               ; preds = %.thread, %48
   %89 = phi ptr [ %.pre, %.thread ], [ %42, %48 ]
-  %90 = getelementptr %struct.calipso_map_cache_bkt, ptr %89, i64 %40
+  %90 = getelementptr [24 x i8], ptr %89, i64 %40
   tail call void @_raw_spin_unlock_bh(ptr noundef %90) #14
   br label %110
 

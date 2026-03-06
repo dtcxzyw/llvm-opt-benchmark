@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.TupleTableSlotOps = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.HASHCTL = type { i64, i64, i64, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr }
-%union.ListCell = type { ptr }
 %struct.ScanKeyData = type { i32, i16, i16, i32, i32, %struct.FmgrInfo, i64 }
 %struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
 %struct.nameData = type { [64 x i8] }
@@ -97,7 +96,7 @@ list_length.exit:                                 ; preds = %19, %20
   br i1 %.not82, label %32, label %29, !llvm.loop !4
 
 32:                                               ; preds = %29
-  %33 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv
   store i32 %30, ptr %33, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -131,7 +130,7 @@ list_length.exit:                                 ; preds = %19, %20
   %indvars.iv102 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next103, %44 ]
   %45 = load ptr, ptr %39, align 8
   %46 = call ptr @MakeSingleTupleTableSlot(ptr noundef %45, ptr noundef nonnull @TTSOpsHeapTuple) #9
-  %47 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv102
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv102
   store ptr %46, ptr %47, align 8
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %exitcond106.not = icmp eq i64 %indvars.iv.next103, %35
@@ -141,7 +140,7 @@ list_length.exit:                                 ; preds = %19, %20
   %.07490128 = phi i32 [ %.175, %107 ], [ 0, %.lr.ph92 ]
   %indvars.iv107127 = phi i64 [ %indvars.iv.next108, %107 ], [ 0, %.lr.ph92 ]
   %48 = load ptr, ptr %41, align 8
-  %49 = getelementptr inbounds nuw %union.ListCell, ptr %48, i64 %indvars.iv107127
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %indvars.iv107127
   %50 = load ptr, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load ptr, ptr %51, align 8
@@ -165,7 +164,7 @@ list_length.exit:                                 ; preds = %19, %20
 
 62:                                               ; preds = %.lr.ph129
   %63 = sext i32 %.07490128 to i64
-  %64 = getelementptr inbounds ptr, ptr %38, i64 %63
+  %64 = getelementptr inbounds [8 x i8], ptr %38, i64 %63
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %67 = load ptr, ptr %66, align 8
@@ -180,7 +179,7 @@ list_length.exit:                                 ; preds = %19, %20
   %75 = load i32, ptr %74, align 8
   %76 = sext i32 %75 to i64
   call void @llvm.memset.p0.i64(ptr align 1 %72, i8 0, i64 %76, i1 false)
-  %77 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv107127
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv107127
   %78 = load i32, ptr %77, align 4
   %79 = zext i32 %78 to i64
   %80 = load ptr, ptr %64, align 8
@@ -243,7 +242,7 @@ list_length.exit:                                 ; preds = %19, %20
 
 .lr.ph97:                                         ; preds = %.critedge.thread, %.lr.ph97
   %indvars.iv112 = phi i64 [ %indvars.iv.next113, %.lr.ph97 ], [ 0, %.critedge.thread ]
-  %112 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv112
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv112
   %113 = load ptr, ptr %112, align 8
   call void @ExecDropSingleTupleTableSlot(ptr noundef %113) #9
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
@@ -421,10 +420,10 @@ define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef 
 
 45:                                               ; preds = %.lr.ph.us, %45
   %indvars.iv204 = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next205, %45 ]
-  %46 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv204
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv204
   %47 = load ptr, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 64
-  %49 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv204
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv204
   store ptr %48, ptr %49, align 8
   %indvars.iv.next205 = add nuw nsw i64 %indvars.iv204, 1
   %exitcond208.not = icmp eq i64 %indvars.iv.next205, %wide.trip.count207
@@ -446,10 +445,10 @@ define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef 
 
 56:                                               ; preds = %.lr.ph, %56
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %56 ]
-  %57 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv
   %58 = load ptr, ptr %57, align 8
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 64
-  %60 = getelementptr inbounds nuw ptr, ptr %51, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %indvars.iv
   store ptr %59, ptr %60, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -463,7 +462,7 @@ define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef 
 61:                                               ; preds = %45
   tail call void @pg_qsort(ptr noundef nonnull %43, i64 noundef %41, i64 noundef 8, ptr noundef nonnull @sort_order_cmp) #9
   %62 = zext nneg i32 %40 to i64
-  %63 = getelementptr ptr, ptr %43, i64 %62
+  %63 = getelementptr [8 x i8], ptr %43, i64 %62
   %64 = getelementptr i8, ptr %63, i64 -8
   %65 = load ptr, ptr %64, align 8
   %66 = getelementptr i8, ptr %65, i64 16
@@ -479,7 +478,7 @@ define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef 
 
 .lr.ph166:                                        ; preds = %.lr.ph166.preheader, %84
   %indvars.iv199 = phi i64 [ 0, %.lr.ph166.preheader ], [ %indvars.iv.next200, %84 ]
-  %74 = getelementptr inbounds nuw ptr, ptr %51, i64 %indvars.iv199
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %indvars.iv199
   %75 = load ptr, ptr %74, align 8
   %76 = getelementptr i8, ptr %75, i64 16
   %.val117 = load ptr, ptr %76, align 8
@@ -545,7 +544,7 @@ define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef 
 108:                                              ; preds = %103
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %109 = zext nneg i32 %.0102 to i64
-  %110 = getelementptr inbounds nuw ptr, ptr %51, i64 %109
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %109
   %111 = load ptr, ptr %110, align 8
   %112 = getelementptr i8, ptr %111, i64 16
   %.val119 = load ptr, ptr %112, align 8
@@ -577,7 +576,7 @@ define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef 
 128:                                              ; preds = %.preheader275, %144
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %144 ], [ %wide.trip.count202, %.preheader275 ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %129 = getelementptr inbounds nuw ptr, ptr %51, i64 %indvars.iv.next.i
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %indvars.iv.next.i
   %130 = load ptr, ptr %129, align 8
   %131 = tail call ptr @heap_copytuple(ptr noundef %130) #9
   %132 = getelementptr i8, ptr %131, i64 16
@@ -648,7 +647,7 @@ define dso_local void @AddEnumLabel(i32 noundef %0, ptr noundef %1, ptr noundef 
 
 161:                                              ; preds = %.lr.ph175.us, %178
   %indvars.iv209 = phi i64 [ 0, %.lr.ph175.us ], [ %indvars.iv.next210, %178 ]
-  %162 = getelementptr inbounds nuw ptr, ptr %156, i64 %indvars.iv209
+  %162 = getelementptr inbounds nuw [8 x i8], ptr %156, i64 %indvars.iv209
   %163 = load ptr, ptr %162, align 8
   %164 = getelementptr i8, ptr %163, i64 16
   %.val120.us = load ptr, ptr %164, align 8
@@ -889,7 +888,7 @@ define dso_local void @RenameEnumLabel(i32 noundef %0, ptr noundef %1, ptr nound
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
   %.02934 = phi i1 [ false, %.lr.ph ], [ %.1, %19 ]
   %.03033 = phi ptr [ null, %.lr.ph ], [ %spec.select, %19 ]
-  %20 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 64
   %23 = getelementptr i8, ptr %21, i64 80

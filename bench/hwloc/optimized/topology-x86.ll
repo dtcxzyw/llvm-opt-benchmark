@@ -9,9 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.hwloc_binding_hooks = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.hwloc_topology_support = type { ptr, ptr, ptr, ptr }
 %struct.hwloc_topology_membind_support = type { i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8 }
-%struct.procinfo = type { i32, i32, [8 x i32], ptr, i32, i32, ptr, [13 x i8], [49 x i8], i32, i32, i32, i32, i32 }
-%struct.cpuiddump_entry = type { i32, i32, i32, i32, i32, i32, i32, i32, i32 }
-%struct.cacheinfo = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64 }
 
 @hwloc_x86_disc_component = internal global %struct.hwloc_disc_component { ptr @.str, i32 2, i32 1, ptr @hwloc_x86_component_instantiate, i32 45, i32 1, ptr null }, align 8
 @hwloc_x86_component = hidden local_unnamed_addr constant { i32, [4 x i8], ptr, ptr, i32, [4 x i8], i64, ptr } { i32 8, [4 x i8] zeroinitializer, ptr null, ptr null, i32 0, [4 x i8] zeroinitializer, i64 0, ptr @hwloc_x86_disc_component }, align 8
@@ -539,7 +536,7 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_look_x86(ptr noundef captures
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
-  %56 = getelementptr inbounds nuw %struct.procinfo, ptr %54, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [152 x i8], ptr %54, i64 %indvars.iv
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %53
@@ -563,7 +560,7 @@ define internal fastcc range(i32 -1, 1) i32 @hwloc_look_x86(ptr noundef captures
 
 62:                                               ; preds = %87, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %87 ]
-  %63 = getelementptr inbounds nuw %struct.cpuiddump_entry, ptr %61, i64 %indvars.iv.i.i
+  %63 = getelementptr inbounds nuw [36 x i8], ptr %61, i64 %indvars.iv.i.i
   %64 = load i32, ptr %63, align 4, !tbaa !76
   %65 = and i32 %64, 1
   %.not.i.i = icmp eq i32 %65, 0
@@ -703,7 +700,7 @@ cpuid_or_from_dump.exit:                          ; preds = %.critedge.i.i, %90
 
 124:                                              ; preds = %152, %.lr.ph.i.i148
   %indvars.iv.i.i150 = phi i64 [ 0, %.lr.ph.i.i148 ], [ %indvars.iv.next.i.i153, %152 ]
-  %125 = getelementptr inbounds nuw %struct.cpuiddump_entry, ptr %123, i64 %indvars.iv.i.i150
+  %125 = getelementptr inbounds nuw [36 x i8], ptr %123, i64 %indvars.iv.i.i150
   %126 = load i32, ptr %125, align 4, !tbaa !76
   %127 = and i32 %126, 1
   %.not.i.i151 = icmp eq i32 %127, 0
@@ -801,7 +798,7 @@ cpuid_or_from_dump.exit164:                       ; preds = %.critedge.i.i163, %
 
 167:                                              ; preds = %197, %.lr.ph.i.i167
   %indvars.iv.i.i169 = phi i64 [ 0, %.lr.ph.i.i167 ], [ %indvars.iv.next.i.i172, %197 ]
-  %168 = getelementptr inbounds nuw %struct.cpuiddump_entry, ptr %166, i64 %indvars.iv.i.i169
+  %168 = getelementptr inbounds nuw [36 x i8], ptr %166, i64 %indvars.iv.i.i169
   %169 = load i32, ptr %168, align 4, !tbaa !76
   %170 = and i32 %169, 1
   %.not.i.i170 = icmp eq i32 %170, 0
@@ -890,7 +887,7 @@ cpuid_or_from_dump.exit183:                       ; preds = %.critedge.i.i182, %
 
 206:                                              ; preds = %234, %.lr.ph.i.i186
   %indvars.iv.i.i188 = phi i64 [ 0, %.lr.ph.i.i186 ], [ %indvars.iv.next.i.i191, %234 ]
-  %207 = getelementptr inbounds nuw %struct.cpuiddump_entry, ptr %205, i64 %indvars.iv.i.i188
+  %207 = getelementptr inbounds nuw [36 x i8], ptr %205, i64 %indvars.iv.i.i188
   %208 = load i32, ptr %207, align 4, !tbaa !76
   %209 = and i32 %208, 1
   %.not.i.i189 = icmp eq i32 %209, 0
@@ -1007,7 +1004,7 @@ cpuid_or_from_dump.exit202:                       ; preds = %.critedge.i.i201, %
 
 254:                                              ; preds = %282, %.lr.ph.i.i205
   %indvars.iv.i.i207 = phi i64 [ 0, %.lr.ph.i.i205 ], [ %indvars.iv.next.i.i210, %282 ]
-  %255 = getelementptr inbounds nuw %struct.cpuiddump_entry, ptr %253, i64 %indvars.iv.i.i207
+  %255 = getelementptr inbounds nuw [36 x i8], ptr %253, i64 %indvars.iv.i.i207
   %256 = load i32, ptr %255, align 4, !tbaa !76
   %257 = and i32 %256, 1
   %.not.i.i208 = icmp eq i32 %257, 0
@@ -1146,7 +1143,7 @@ cpuid_or_from_dump.exit221:                       ; preds = %.critedge.i.i220, %
 
 311:                                              ; preds = %304, %302
   %.070.us.i = phi ptr [ %303, %302 ], [ null, %304 ]
-  %312 = getelementptr inbounds nuw %struct.procinfo, ptr %54, i64 %indvars.iv99.i
+  %312 = getelementptr inbounds nuw [152 x i8], ptr %54, i64 %indvars.iv99.i
   call fastcc void @look_proc(ptr noundef nonnull %0, ptr noundef %312, i32 noundef range(i32 1, 0) %.0274287, i32 noundef %.1275331344, ptr noundef nonnull readonly %8, i32 noundef range(i32 0, 5) %.0117, ptr noundef %.070.us.i)
   %313 = load ptr, ptr %17, align 8, !tbaa !21
   %.not89.us.i = icmp eq ptr %313, null
@@ -1203,7 +1200,7 @@ cpuiddump_free.exit.us.i:                         ; preds = %316, %314
 
 333:                                              ; preds = %326, %324
   %.070.i = phi ptr [ %325, %324 ], [ null, %326 ]
-  %334 = getelementptr inbounds nuw %struct.procinfo, ptr %54, i64 %indvars.iv.i
+  %334 = getelementptr inbounds nuw [152 x i8], ptr %54, i64 %indvars.iv.i
   call fastcc void @look_proc(ptr noundef nonnull %0, ptr noundef %334, i32 noundef range(i32 1, 0) %.0274287, i32 noundef %.1275331344, ptr noundef nonnull readonly %8, i32 noundef range(i32 0, 5) %.0117, ptr noundef %.070.i)
   %335 = load ptr, ptr %17, align 8, !tbaa !21
   %.not89.i = icmp eq ptr %335, null
@@ -1273,7 +1270,7 @@ cpuiddump_free.exit.i:                            ; preds = %338, %336
 
 .lr.ph93.i:                                       ; preds = %366, %.lr.ph93.preheader.i
   %indvars.iv104.i = phi i64 [ 0, %.lr.ph93.preheader.i ], [ %indvars.iv.next105.i, %366 ]
-  %360 = getelementptr inbounds nuw %struct.procinfo, ptr %54, i64 %indvars.iv104.i
+  %360 = getelementptr inbounds nuw [152 x i8], ptr %54, i64 %indvars.iv104.i
   %361 = getelementptr inbounds nuw i8, ptr %360, i64 140
   %362 = load i32, ptr %361, align 4, !tbaa !89
   switch i32 %362, label %366 [
@@ -1365,7 +1362,7 @@ look_procs.exit.thread:                           ; preds = %345, %351, %348, %3
 
 .lr.ph377:                                        ; preds = %.lr.ph377.preheader, %.lr.ph377
   %indvars.iv392 = phi i64 [ 0, %.lr.ph377.preheader ], [ %indvars.iv.next393, %.lr.ph377 ]
-  %383 = getelementptr inbounds nuw %struct.procinfo, ptr %54, i64 %indvars.iv392
+  %383 = getelementptr inbounds nuw [152 x i8], ptr %54, i64 %indvars.iv392
   %384 = getelementptr inbounds nuw i8, ptr %383, i64 56
   %385 = load ptr, ptr %384, align 8, !tbaa !99
   call void @free(ptr noundef %385) #23
@@ -1573,7 +1570,7 @@ define internal fastcc void @cpuid_or_from_dump(ptr noundef nonnull captures(non
 
 10:                                               ; preds = %44, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %44 ]
-  %11 = getelementptr inbounds nuw %struct.cpuiddump_entry, ptr %9, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [36 x i8], ptr %9, i64 %indvars.iv.i
   %12 = load i32, ptr %11, align 4, !tbaa !76
   %13 = and i32 %12, 1
   %.not.i = icmp eq i32 %13, 0
@@ -1699,7 +1696,7 @@ define internal fastcc void @look_proc(ptr noundef captures(none) %0, ptr nounde
 
 20:                                               ; preds = %39, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %39 ]
-  %21 = getelementptr inbounds nuw %struct.cpuiddump_entry, ptr %19, i64 %indvars.iv.i.i
+  %21 = getelementptr inbounds nuw [36 x i8], ptr %19, i64 %indvars.iv.i.i
   %22 = load i32, ptr %21, align 4, !tbaa !76
   %23 = and i32 %22, 1
   %.not.i.i = icmp eq i32 %23, 0
@@ -1933,7 +1930,7 @@ hwloc_flsl_manual.exit:                           ; preds = %51, %55
 
 124:                                              ; preds = %152, %.lr.ph.i.i266
   %indvars.iv.i.i268 = phi i64 [ 0, %.lr.ph.i.i266 ], [ %indvars.iv.next.i.i271, %152 ]
-  %125 = getelementptr inbounds nuw %struct.cpuiddump_entry, ptr %123, i64 %indvars.iv.i.i268
+  %125 = getelementptr inbounds nuw [36 x i8], ptr %123, i64 %indvars.iv.i.i268
   %126 = load i32, ptr %125, align 4, !tbaa !76
   %127 = and i32 %126, 1
   %.not.i.i269 = icmp eq i32 %127, 0
@@ -2054,7 +2051,7 @@ cpuid_or_from_dump.exit282:                       ; preds = %.critedge.i.i281, %
 
 178:                                              ; preds = %204, %.lr.ph.i.i285
   %indvars.iv.i.i287 = phi i64 [ 0, %.lr.ph.i.i285 ], [ %indvars.iv.next.i.i290, %204 ]
-  %179 = getelementptr inbounds nuw %struct.cpuiddump_entry, ptr %177, i64 %indvars.iv.i.i287
+  %179 = getelementptr inbounds nuw [36 x i8], ptr %177, i64 %indvars.iv.i.i287
   %180 = load i32, ptr %179, align 4, !tbaa !76
   %181 = and i32 %180, 1
   %.not.i.i288 = icmp eq i32 %181, 0
@@ -2165,7 +2162,7 @@ cpuid_or_from_dump.exit301:                       ; preds = %.critedge.i.i300, %
 
 226:                                              ; preds = %235, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %235 ]
-  %227 = getelementptr inbounds nuw %struct.cpuiddump_entry, ptr %225, i64 %indvars.iv.i.i.i
+  %227 = getelementptr inbounds nuw [36 x i8], ptr %225, i64 %indvars.iv.i.i.i
   %228 = load i32, ptr %227, align 4, !tbaa !76
   %229 = and i32 %228, 1
   %.not.i.i.i = icmp eq i32 %229, 0
@@ -2242,7 +2239,7 @@ read_amd_cores_legacy.exit:                       ; preds = %.critedge.i.i.i, %.
 
 259:                                              ; preds = %272, %.lr.ph.i.i.i306
   %indvars.iv.i.i.i308 = phi i64 [ 0, %.lr.ph.i.i.i306 ], [ %indvars.iv.next.i.i.i311, %272 ]
-  %260 = getelementptr inbounds nuw %struct.cpuiddump_entry, ptr %258, i64 %indvars.iv.i.i.i308
+  %260 = getelementptr inbounds nuw [36 x i8], ptr %258, i64 %indvars.iv.i.i.i308
   %261 = load i32, ptr %260, align 4, !tbaa !76
   %262 = and i32 %261, 1
   %.not.i.i.i309 = icmp eq i32 %262, 0
@@ -2420,7 +2417,7 @@ cpuid_or_from_dump.exit.us.i:                     ; preds = %315, %321
 
 331:                                              ; preds = %353, %.lr.ph.i.i.us.i
   %indvars.iv.i.i.us.i = phi i64 [ 0, %.lr.ph.i.i.us.i ], [ %indvars.iv.next.i.i.us.i, %353 ]
-  %332 = getelementptr inbounds nuw %struct.cpuiddump_entry, ptr %328, i64 %indvars.iv.i.i.us.i
+  %332 = getelementptr inbounds nuw [36 x i8], ptr %328, i64 %indvars.iv.i.i.us.i
   %333 = load i32, ptr %332, align 4, !tbaa !76
   %334 = and i32 %333, 1
   %.not.i.i.us.i = icmp eq i32 %334, 0
@@ -2524,7 +2521,7 @@ cpuid_or_from_dump.exit.thread.i:                 ; preds = %353
 
 375:                                              ; preds = %405, %.lr.ph.i.i50.i
   %indvars.iv.i.i52.i = phi i64 [ 0, %.lr.ph.i.i50.i ], [ %indvars.iv.next.i.i55.i, %405 ]
-  %376 = getelementptr inbounds nuw %struct.cpuiddump_entry, ptr %373, i64 %indvars.iv.i.i52.i
+  %376 = getelementptr inbounds nuw [36 x i8], ptr %373, i64 %indvars.iv.i.i52.i
   %377 = load i32, ptr %376, align 4, !tbaa !76
   %378 = and i32 %377, 1
   %.not.i.i53.i = icmp eq i32 %378, 0
@@ -2694,7 +2691,7 @@ read_amd_caches_topoext.exit:                     ; preds = %cpuid_or_from_dump.
 
 456:                                              ; preds = %469, %.lr.ph.i.i.i321
   %indvars.iv.i.i.i323 = phi i64 [ 0, %.lr.ph.i.i.i321 ], [ %indvars.iv.next.i.i.i326, %469 ]
-  %457 = getelementptr inbounds nuw %struct.cpuiddump_entry, ptr %455, i64 %indvars.iv.i.i.i323
+  %457 = getelementptr inbounds nuw [36 x i8], ptr %455, i64 %indvars.iv.i.i.i323
   %458 = load i32, ptr %457, align 4, !tbaa !76
   %459 = and i32 %458, 1
   %.not.i.i.i324 = icmp eq i32 %459, 0
@@ -2758,7 +2755,7 @@ cpuid_or_from_dump.exit.i332:                     ; preds = %472, %.critedge.i.i
   %487 = add i32 %486, 1
   store i32 %487, ptr %309, align 4, !tbaa !112
   %488 = zext i32 %486 to i64
-  %489 = getelementptr inbounds nuw %struct.cacheinfo, ptr %484, i64 %488
+  %489 = getelementptr inbounds nuw [48 x i8], ptr %484, i64 %488
   store i32 1, ptr %489, align 8, !tbaa !114
   %490 = getelementptr inbounds nuw i8, ptr %489, i64 4
   store i32 1, ptr %490, align 4, !tbaa !116
@@ -2806,7 +2803,7 @@ setup__amd_cache_legacy.exit.i:                   ; preds = %485, %478, %cpuid_o
   %513 = add i32 %512, 1
   store i32 %513, ptr %309, align 4, !tbaa !112
   %514 = zext i32 %512 to i64
-  %515 = getelementptr inbounds nuw %struct.cacheinfo, ptr %510, i64 %514
+  %515 = getelementptr inbounds nuw [48 x i8], ptr %510, i64 %514
   store i32 2, ptr %515, align 8, !tbaa !114
   %516 = getelementptr inbounds nuw i8, ptr %515, i64 4
   store i32 1, ptr %516, align 4, !tbaa !116
@@ -2850,7 +2847,7 @@ setup__amd_cache_legacy.exit12.i:                 ; preds = %511, %504, %setup__
 
 532:                                              ; preds = %560, %.lr.ph.i.i15.i
   %indvars.iv.i.i17.i = phi i64 [ 0, %.lr.ph.i.i15.i ], [ %indvars.iv.next.i.i20.i, %560 ]
-  %533 = getelementptr inbounds nuw %struct.cpuiddump_entry, ptr %531, i64 %indvars.iv.i.i17.i
+  %533 = getelementptr inbounds nuw [36 x i8], ptr %531, i64 %indvars.iv.i.i17.i
   %534 = load i32, ptr %533, align 4, !tbaa !76
   %535 = and i32 %534, 1
   %.not.i.i18.i = icmp eq i32 %535, 0
@@ -2951,7 +2948,7 @@ cpuid_or_from_dump.exit31.i:                      ; preds = %563, %.critedge.i.i
   %580 = add i32 %579, 1
   store i32 %580, ptr %309, align 4, !tbaa !112
   %581 = zext i32 %579 to i64
-  %582 = getelementptr inbounds nuw %struct.cacheinfo, ptr %577, i64 %581
+  %582 = getelementptr inbounds nuw [48 x i8], ptr %577, i64 %581
   store i32 0, ptr %582, align 8, !tbaa !114
   %583 = getelementptr inbounds nuw i8, ptr %582, i64 4
   store i32 2, ptr %583, align 4, !tbaa !116
@@ -2967,7 +2964,7 @@ cpuid_or_from_dump.exit31.i:                      ; preds = %563, %.critedge.i.i
   %589 = lshr i32 %.1.i, 12
   %590 = and i32 %589, 15
   %591 = zext nneg i32 %590 to i64
-  %592 = getelementptr inbounds nuw i32, ptr @setup__amd_cache_legacy.ways_tab, i64 %591
+  %592 = getelementptr inbounds nuw [4 x i8], ptr @setup__amd_cache_legacy.ways_tab, i64 %591
   %593 = load i32, ptr %592, align 4, !tbaa !67
   %594 = getelementptr inbounds nuw i8, ptr %582, i64 28
   store i32 %593, ptr %594, align 4
@@ -3005,7 +3002,7 @@ setup__amd_cache_legacy.exit35.i:                 ; preds = %578, %571, %568, %c
   %610 = add i32 %609, 1
   store i32 %610, ptr %309, align 4, !tbaa !112
   %611 = zext i32 %609 to i64
-  %612 = getelementptr inbounds nuw %struct.cacheinfo, ptr %607, i64 %611
+  %612 = getelementptr inbounds nuw [48 x i8], ptr %607, i64 %611
   store i32 0, ptr %612, align 8, !tbaa !114
   %613 = getelementptr inbounds nuw i8, ptr %612, i64 4
   store i32 3, ptr %613, align 4, !tbaa !116
@@ -3021,7 +3018,7 @@ setup__amd_cache_legacy.exit35.i:                 ; preds = %578, %571, %568, %c
   %619 = lshr i32 %storemerge.i23.i, 12
   %620 = and i32 %619, 15
   %621 = zext nneg i32 %620 to i64
-  %622 = getelementptr inbounds nuw i32, ptr @setup__amd_cache_legacy.ways_tab, i64 %621
+  %622 = getelementptr inbounds nuw [4 x i8], ptr @setup__amd_cache_legacy.ways_tab, i64 %621
   %623 = load i32, ptr %622, align 4, !tbaa !67
   %624 = getelementptr inbounds nuw i8, ptr %612, i64 28
   store i32 %623, ptr %624, align 4
@@ -3090,7 +3087,7 @@ cpuid_or_from_dump.exit.us.i354:                  ; preds = %627, %639
 
 647:                                              ; preds = %677, %.lr.ph.i.i.i340
   %indvars.iv.i.i.i341 = phi i64 [ 0, %.lr.ph.i.i.i340 ], [ %indvars.iv.next.i.i.i344, %677 ]
-  %648 = getelementptr inbounds nuw %struct.cpuiddump_entry, ptr %644, i64 %indvars.iv.i.i.i341
+  %648 = getelementptr inbounds nuw [36 x i8], ptr %644, i64 %indvars.iv.i.i.i341
   %649 = load i32, ptr %648, align 4, !tbaa !76
   %650 = and i32 %649, 1
   %.not.i.i.i342 = icmp eq i32 %650, 0
@@ -3190,7 +3187,7 @@ cpuid_or_from_dump.exit.thread.i346:              ; preds = %677
 694:                                              ; preds = %.loopexit.i347
   store ptr %692, ptr %310, align 8, !tbaa !99
   %695 = zext i32 %.pre542 to i64
-  %696 = getelementptr inbounds nuw %struct.cacheinfo, ptr %692, i64 %695
+  %696 = getelementptr inbounds nuw [48 x i8], ptr %692, i64 %695
   br label %697
 
 697:                                              ; preds = %749, %694
@@ -3212,7 +3209,7 @@ cpuid_or_from_dump.exit.thread.i346:              ; preds = %677
 
 702:                                              ; preds = %732, %.lr.ph.i.i65.i
   %indvars.iv.i.i67.i = phi i64 [ 0, %.lr.ph.i.i65.i ], [ %indvars.iv.next.i.i70.i, %732 ]
-  %703 = getelementptr inbounds nuw %struct.cpuiddump_entry, ptr %700, i64 %indvars.iv.i.i67.i
+  %703 = getelementptr inbounds nuw [36 x i8], ptr %700, i64 %indvars.iv.i.i67.i
   %704 = load i32, ptr %703, align 4, !tbaa !76
   %705 = and i32 %704, 1
   %.not.i.i68.i = icmp eq i32 %705, 0
@@ -3382,7 +3379,7 @@ read_intel_caches.exit:                           ; preds = %cpuid_or_from_dump.
 
 789:                                              ; preds = %.lr.ph, %.thread416
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread416 ]
-  %790 = getelementptr inbounds nuw %struct.cacheinfo, ptr %781, i64 %indvars.iv
+  %790 = getelementptr inbounds nuw [48 x i8], ptr %781, i64 %indvars.iv
   %791 = getelementptr inbounds nuw i8, ptr %790, i64 8
   %792 = load i32, ptr %791, align 8, !tbaa !117
   %793 = udiv i32 %.pre544, %792
@@ -3585,7 +3582,7 @@ define internal fastcc void @summarize(ptr noundef readonly captures(none) %0, p
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %19 ]
   %.0397497 = phi i32 [ -1, %.lr.ph.preheader ], [ %.1398, %19 ]
-  %14 = getelementptr inbounds nuw %struct.procinfo, ptr %1, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [152 x i8], ptr %1, i64 %indvars.iv
   %15 = load i32, ptr %14, align 8, !tbaa !104
   %.not446 = icmp eq i32 %15, 0
   br i1 %.not446, label %19, label %16
@@ -3655,7 +3652,7 @@ define internal fastcc void @summarize(ptr noundef readonly captures(none) %0, p
   %38 = getelementptr inbounds nuw i8, ptr %.01.i.i.us, i64 184
   call void @hwloc_bitmap_free(ptr noundef %30) #23
   %39 = zext i32 %29 to i64
-  %40 = getelementptr inbounds nuw %struct.procinfo, ptr %1, i64 %39
+  %40 = getelementptr inbounds nuw [152 x i8], ptr %1, i64 %39
   call fastcc void @hwloc_x86_add_cpuinfos(ptr noundef nonnull %.01.i.i.us, ptr noundef %40)
   %41 = load ptr, ptr %38, align 8, !tbaa !62
   %42 = call i32 @hwloc_bitmap_andnot(ptr noundef %22, ptr noundef %22, ptr noundef %41) #23
@@ -3672,7 +3669,7 @@ define internal fastcc void @summarize(ptr noundef readonly captures(none) %0, p
 .lr.ph505.split:                                  ; preds = %.lr.ph505, %._crit_edge502
   %47 = phi i32 [ %66, %._crit_edge502 ], [ %27, %.lr.ph505 ]
   %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds nuw %struct.procinfo, ptr %1, i64 %48
+  %49 = getelementptr inbounds nuw [152 x i8], ptr %1, i64 %48
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %51 = load i32, ptr %50, align 8, !tbaa !67
   %52 = call noalias ptr @hwloc_bitmap_alloc() #23
@@ -3681,7 +3678,7 @@ define internal fastcc void @summarize(ptr noundef readonly captures(none) %0, p
 
 .lr.ph501:                                        ; preds = %.lr.ph505.split, %62
   %indvars.iv600 = phi i64 [ %indvars.iv.next601, %62 ], [ %48, %.lr.ph505.split ]
-  %54 = getelementptr inbounds nuw %struct.procinfo, ptr %1, i64 %indvars.iv600
+  %54 = getelementptr inbounds nuw [152 x i8], ptr %1, i64 %indvars.iv600
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load i32, ptr %55, align 8, !tbaa !67
   %57 = icmp eq i32 %56, %51
@@ -3713,7 +3710,7 @@ define internal fastcc void @summarize(ptr noundef readonly captures(none) %0, p
   call void @hwloc_bitmap_free(ptr noundef %30) #23
   %67 = call ptr @hwloc_get_obj_by_depth(ptr noundef readonly %10, i32 noundef 0, i32 noundef 0) #24
   %68 = zext i32 %29 to i64
-  %69 = getelementptr inbounds nuw %struct.procinfo, ptr %1, i64 %68
+  %69 = getelementptr inbounds nuw [152 x i8], ptr %1, i64 %68
   call fastcc void @hwloc_x86_add_cpuinfos(ptr noundef %67, ptr noundef %69)
   br label %.loopexit483
 
@@ -3733,7 +3730,7 @@ define internal fastcc void @summarize(ptr noundef readonly captures(none) %0, p
   %74 = phi i32 [ %111, %110 ], [ %73, %71 ]
   %.1401514 = phi i32 [ %.2402, %110 ], [ 0, %71 ]
   %75 = zext i32 %74 to i64
-  %76 = getelementptr inbounds nuw %struct.procinfo, ptr %1, i64 %75
+  %76 = getelementptr inbounds nuw [152 x i8], ptr %1, i64 %75
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %78 = load i32, ptr %77, align 8, !tbaa !67
   %79 = getelementptr inbounds nuw i8, ptr %76, i64 16
@@ -3752,7 +3749,7 @@ define internal fastcc void @summarize(ptr noundef readonly captures(none) %0, p
 
 .lr.ph511:                                        ; preds = %84, %102
   %indvars.iv604 = phi i64 [ %indvars.iv.next605, %102 ], [ %75, %84 ]
-  %87 = getelementptr inbounds nuw %struct.procinfo, ptr %1, i64 %indvars.iv604
+  %87 = getelementptr inbounds nuw [152 x i8], ptr %1, i64 %indvars.iv604
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 16
   %89 = load i32, ptr %88, align 8, !tbaa !67
   %90 = icmp eq i32 %89, -1
@@ -3861,7 +3858,7 @@ define internal fastcc void @summarize(ptr noundef readonly captures(none) %0, p
 
 132:                                              ; preds = %130, %127
   %133 = sext i32 %.1398 to i64
-  %134 = getelementptr inbounds %struct.procinfo, ptr %1, i64 %133
+  %134 = getelementptr inbounds [152 x i8], ptr %1, i64 %133
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 40
   %136 = load ptr, ptr %135, align 8, !tbaa !100
   %.not430 = icmp eq ptr %136, null
@@ -3877,7 +3874,7 @@ define internal fastcc void @summarize(ptr noundef readonly captures(none) %0, p
   %.0392528 = phi i32 [ %.0392, %.loopexit480 ], [ %.0392526, %.lr.ph530.preheader ]
   %139 = load ptr, ptr %135, align 8, !tbaa !100
   %140 = zext i32 %.0392528 to i64
-  %141 = getelementptr inbounds nuw i32, ptr %139, i64 %140
+  %141 = getelementptr inbounds nuw [4 x i8], ptr %139, i64 %140
   %142 = load i32, ptr %141, align 4, !tbaa !67
   %.not444 = icmp eq i32 %142, -1
   br i1 %.not444, label %.loopexit480, label %143
@@ -3891,10 +3888,10 @@ define internal fastcc void @summarize(ptr noundef readonly captures(none) %0, p
 .lr.ph525:                                        ; preds = %143, %._crit_edge522
   %146 = phi i32 [ %174, %._crit_edge522 ], [ %145, %143 ]
   %147 = zext i32 %146 to i64
-  %148 = getelementptr inbounds nuw %struct.procinfo, ptr %1, i64 %147
+  %148 = getelementptr inbounds nuw [152 x i8], ptr %1, i64 %147
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 40
   %150 = load ptr, ptr %149, align 8, !tbaa !100
-  %151 = getelementptr inbounds nuw i32, ptr %150, i64 %140
+  %151 = getelementptr inbounds nuw [4 x i8], ptr %150, i64 %140
   %152 = load i32, ptr %151, align 4, !tbaa !67
   %153 = call noalias ptr @hwloc_bitmap_alloc() #23
   %154 = icmp ult i32 %146, %12
@@ -3902,10 +3899,10 @@ define internal fastcc void @summarize(ptr noundef readonly captures(none) %0, p
 
 .lr.ph521:                                        ; preds = %.lr.ph525, %165
   %indvars.iv609 = phi i64 [ %indvars.iv.next610, %165 ], [ %147, %.lr.ph525 ]
-  %155 = getelementptr inbounds nuw %struct.procinfo, ptr %1, i64 %indvars.iv609
+  %155 = getelementptr inbounds nuw [152 x i8], ptr %1, i64 %indvars.iv609
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 40
   %157 = load ptr, ptr %156, align 8, !tbaa !100
-  %158 = getelementptr inbounds nuw i32, ptr %157, i64 %140
+  %158 = getelementptr inbounds nuw [4 x i8], ptr %157, i64 %140
   %159 = load i32, ptr %158, align 4, !tbaa !67
   %160 = icmp eq i32 %159, %152
   br i1 %160, label %161, label %165
@@ -3970,7 +3967,7 @@ define internal fastcc void @summarize(ptr noundef readonly captures(none) %0, p
 .lr.ph537:                                        ; preds = %183, %218
   %186 = phi i32 [ %219, %218 ], [ %185, %183 ]
   %187 = zext i32 %186 to i64
-  %188 = getelementptr inbounds nuw %struct.procinfo, ptr %1, i64 %187
+  %188 = getelementptr inbounds nuw [152 x i8], ptr %1, i64 %187
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 8
   %190 = load i32, ptr %189, align 8, !tbaa !67
   %191 = getelementptr inbounds nuw i8, ptr %188, i64 32
@@ -3989,7 +3986,7 @@ define internal fastcc void @summarize(ptr noundef readonly captures(none) %0, p
 
 .lr.ph533:                                        ; preds = %196, %214
   %indvars.iv614 = phi i64 [ %indvars.iv.next615, %214 ], [ %187, %196 ]
-  %199 = getelementptr inbounds nuw %struct.procinfo, ptr %1, i64 %indvars.iv614
+  %199 = getelementptr inbounds nuw [152 x i8], ptr %1, i64 %indvars.iv614
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 32
   %201 = load i32, ptr %200, align 8, !tbaa !67
   %202 = icmp eq i32 %201, -1
@@ -4054,7 +4051,7 @@ define internal fastcc void @summarize(ptr noundef readonly captures(none) %0, p
 .lr.ph544:                                        ; preds = %223, %264
   %226 = phi i32 [ %265, %264 ], [ %225, %223 ]
   %227 = zext i32 %226 to i64
-  %228 = getelementptr inbounds nuw %struct.procinfo, ptr %1, i64 %227
+  %228 = getelementptr inbounds nuw [152 x i8], ptr %1, i64 %227
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 8
   %230 = load i32, ptr %229, align 8, !tbaa !67
   %231 = getelementptr inbounds nuw i8, ptr %228, i64 16
@@ -4075,7 +4072,7 @@ define internal fastcc void @summarize(ptr noundef readonly captures(none) %0, p
 
 .lr.ph540:                                        ; preds = %238, %260
   %indvars.iv619 = phi i64 [ %indvars.iv.next620, %260 ], [ %227, %238 ]
-  %241 = getelementptr inbounds nuw %struct.procinfo, ptr %1, i64 %indvars.iv619
+  %241 = getelementptr inbounds nuw [152 x i8], ptr %1, i64 %indvars.iv619
   %242 = getelementptr inbounds nuw i8, ptr %241, i64 12
   %243 = load i32, ptr %242, align 4, !tbaa !67
   %244 = icmp eq i32 %243, -1
@@ -4136,7 +4133,7 @@ define internal fastcc void @summarize(ptr noundef readonly captures(none) %0, p
 
 .lr.ph546:                                        ; preds = %.lr.ph546.preheader, %275
   %indvars.iv624 = phi i64 [ 0, %.lr.ph546.preheader ], [ %indvars.iv.next625, %275 ]
-  %266 = getelementptr inbounds nuw %struct.procinfo, ptr %1, i64 %indvars.iv624
+  %266 = getelementptr inbounds nuw [152 x i8], ptr %1, i64 %indvars.iv624
   %267 = load i32, ptr %266, align 8, !tbaa !104
   %.not443 = icmp eq i32 %267, 0
   br i1 %.not443, label %275, label %268
@@ -4163,7 +4160,7 @@ define internal fastcc void @summarize(ptr noundef readonly captures(none) %0, p
 .preheader475:                                    ; preds = %.preheader475.preheader, %._crit_edge550
   %indvars.iv634 = phi i64 [ 0, %.preheader475.preheader ], [ %indvars.iv.next635, %._crit_edge550 ]
   %.1393552 = phi i32 [ 0, %.preheader475.preheader ], [ %.2394.lcssa, %._crit_edge550 ]
-  %276 = getelementptr inbounds nuw %struct.procinfo, ptr %1, i64 %indvars.iv634
+  %276 = getelementptr inbounds nuw [152 x i8], ptr %1, i64 %indvars.iv634
   %277 = getelementptr inbounds nuw i8, ptr %276, i64 52
   %278 = load i32, ptr %277, align 4, !tbaa !112
   %.not585 = icmp eq i32 %278, 0
@@ -4186,7 +4183,7 @@ define internal fastcc void @summarize(ptr noundef readonly captures(none) %0, p
 281:                                              ; preds = %.lr.ph549, %281
   %indvars.iv629 = phi i64 [ 0, %.lr.ph549 ], [ %indvars.iv.next630, %281 ]
   %.2394547 = phi i32 [ %.1393552, %.lr.ph549 ], [ %spec.select, %281 ]
-  %282 = getelementptr inbounds nuw %struct.cacheinfo, ptr %280, i64 %indvars.iv629
+  %282 = getelementptr inbounds nuw [48 x i8], ptr %280, i64 %indvars.iv629
   %283 = getelementptr inbounds nuw i8, ptr %282, i64 4
   %284 = load i32, ptr %283, align 4, !tbaa !116
   %spec.select = call i32 @llvm.umax.i32(i32 %284, i32 %.2394547)
@@ -4233,7 +4230,7 @@ define internal fastcc void @summarize(ptr noundef readonly captures(none) %0, p
 .preheader471:                                    ; preds = %294, %432
   %297 = phi i32 [ %433, %432 ], [ %296, %294 ]
   %298 = zext i32 %297 to i64
-  %299 = getelementptr inbounds nuw %struct.procinfo, ptr %1, i64 %298
+  %299 = getelementptr inbounds nuw [152 x i8], ptr %1, i64 %298
   %300 = getelementptr inbounds nuw i8, ptr %299, i64 52
   %301 = load i32, ptr %300, align 4, !tbaa !112
   %.not586 = icmp eq i32 %301, 0
@@ -4247,7 +4244,7 @@ define internal fastcc void @summarize(ptr noundef readonly captures(none) %0, p
 
 304:                                              ; preds = %.lr.ph556, %312
   %indvars.iv639 = phi i64 [ 0, %.lr.ph556 ], [ %indvars.iv.next640, %312 ]
-  %305 = getelementptr inbounds nuw %struct.cacheinfo, ptr %303, i64 %indvars.iv639
+  %305 = getelementptr inbounds nuw [48 x i8], ptr %303, i64 %indvars.iv639
   %306 = getelementptr inbounds nuw i8, ptr %305, i64 4
   %307 = load i32, ptr %306, align 4, !tbaa !116
   %308 = icmp eq i32 %307, %.4396580
@@ -4323,7 +4320,7 @@ define internal fastcc void @summarize(ptr noundef readonly captures(none) %0, p
 
 335:                                              ; preds = %334, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %334 ]
-  %336 = getelementptr inbounds nuw %struct.hwloc_info_s, ptr %333, i64 %indvars.iv.i.i
+  %336 = getelementptr inbounds nuw [16 x i8], ptr %333, i64 %indvars.iv.i.i
   %337 = load ptr, ptr %336, align 8, !tbaa !93
   %338 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %337, ptr noundef nonnull dereferenceable(10) @.str.54) #24
   %.not.not.i.i = icmp eq i32 %338, 0
@@ -4339,7 +4336,7 @@ hwloc_obj_get_info_by_name.exit.thread:           ; preds = %334, %328, %hwloc_o
   %341 = getelementptr inbounds nuw i8, ptr %299, i64 56
   %342 = load ptr, ptr %341, align 8, !tbaa !99
   %343 = zext i32 %.0391.lcssa to i64
-  %344 = getelementptr inbounds nuw %struct.cacheinfo, ptr %342, i64 %343
+  %344 = getelementptr inbounds nuw [48 x i8], ptr %342, i64 %343
   %345 = getelementptr inbounds nuw i8, ptr %344, i64 24
   %346 = load i32, ptr %345, align 8, !tbaa !123
   %.not442 = icmp eq i32 %346, 0
@@ -4360,7 +4357,7 @@ hwloc_obj_get_info_by_name.exit.thread:           ; preds = %334, %328, %hwloc_o
   %355 = getelementptr inbounds nuw i8, ptr %299, i64 56
   %356 = load ptr, ptr %355, align 8, !tbaa !99
   %357 = zext i32 %.0391.lcssa to i64
-  %358 = getelementptr inbounds nuw %struct.cacheinfo, ptr %356, i64 %357
+  %358 = getelementptr inbounds nuw [48 x i8], ptr %356, i64 %357
   %359 = getelementptr inbounds nuw i8, ptr %358, i64 12
   %360 = load i32, ptr %359, align 4, !tbaa !127
   %361 = call noalias ptr @hwloc_bitmap_alloc() #23
@@ -4369,7 +4366,7 @@ hwloc_obj_get_info_by_name.exit.thread:           ; preds = %334, %328, %hwloc_o
 
 .preheader:                                       ; preds = %.loopexit, %396
   %indvars.iv649 = phi i64 [ %indvars.iv.next650, %396 ], [ %298, %.loopexit ]
-  %363 = getelementptr inbounds nuw %struct.procinfo, ptr %1, i64 %indvars.iv649
+  %363 = getelementptr inbounds nuw [152 x i8], ptr %1, i64 %indvars.iv649
   %364 = getelementptr inbounds nuw i8, ptr %363, i64 52
   %365 = load i32, ptr %364, align 4, !tbaa !112
   %.not587 = icmp eq i32 %365, 0
@@ -4383,7 +4380,7 @@ hwloc_obj_get_info_by_name.exit.thread:           ; preds = %334, %328, %hwloc_o
 
 368:                                              ; preds = %.lr.ph566, %376
   %indvars.iv644 = phi i64 [ 0, %.lr.ph566 ], [ %indvars.iv.next645, %376 ]
-  %369 = getelementptr inbounds nuw %struct.cacheinfo, ptr %367, i64 %indvars.iv644
+  %369 = getelementptr inbounds nuw [48 x i8], ptr %367, i64 %indvars.iv644
   %370 = getelementptr inbounds nuw i8, ptr %369, i64 4
   %371 = load i32, ptr %370, align 4, !tbaa !116
   %372 = icmp eq i32 %371, %.4396580
@@ -4422,7 +4419,7 @@ hwloc_obj_get_info_by_name.exit.thread:           ; preds = %334, %328, %hwloc_o
   %385 = getelementptr inbounds nuw i8, ptr %363, i64 56
   %386 = load ptr, ptr %385, align 8, !tbaa !99
   %387 = zext i32 %.0.lcssa to i64
-  %388 = getelementptr inbounds nuw %struct.cacheinfo, ptr %386, i64 %387
+  %388 = getelementptr inbounds nuw [48 x i8], ptr %386, i64 %387
   %389 = getelementptr inbounds nuw i8, ptr %388, i64 12
   %390 = load i32, ptr %389, align 4, !tbaa !127
   %391 = icmp eq i32 %390, %360
@@ -4450,27 +4447,27 @@ hwloc_obj_get_info_by_name.exit.thread:           ; preds = %334, %328, %hwloc_o
   %400 = getelementptr inbounds nuw i8, ptr %399, i64 8
   store i32 %.4396580, ptr %400, align 8, !tbaa !25
   %401 = load ptr, ptr %355, align 8, !tbaa !99
-  %402 = getelementptr inbounds nuw %struct.cacheinfo, ptr %401, i64 %357
+  %402 = getelementptr inbounds nuw [48 x i8], ptr %401, i64 %357
   %403 = getelementptr inbounds nuw i8, ptr %402, i64 40
   %404 = load i64, ptr %403, align 8, !tbaa !122
   %405 = load ptr, ptr %398, align 8, !tbaa !141
   store i64 %404, ptr %405, align 8, !tbaa !25
   %406 = load ptr, ptr %355, align 8, !tbaa !99
-  %407 = getelementptr inbounds nuw %struct.cacheinfo, ptr %406, i64 %357
+  %407 = getelementptr inbounds nuw [48 x i8], ptr %406, i64 %357
   %408 = getelementptr inbounds nuw i8, ptr %407, i64 16
   %409 = load i32, ptr %408, align 8, !tbaa !118
   %410 = load ptr, ptr %398, align 8, !tbaa !141
   %411 = getelementptr inbounds nuw i8, ptr %410, i64 12
   store i32 %409, ptr %411, align 4, !tbaa !25
   %412 = load ptr, ptr %355, align 8, !tbaa !99
-  %413 = getelementptr inbounds nuw %struct.cacheinfo, ptr %412, i64 %357
+  %413 = getelementptr inbounds nuw [48 x i8], ptr %412, i64 %357
   %414 = getelementptr inbounds nuw i8, ptr %413, i64 28
   %415 = load i32, ptr %414, align 4, !tbaa !120
   %416 = load ptr, ptr %398, align 8, !tbaa !141
   %417 = getelementptr inbounds nuw i8, ptr %416, i64 16
   store i32 %415, ptr %417, align 8, !tbaa !25
   %418 = load ptr, ptr %355, align 8, !tbaa !99
-  %419 = getelementptr inbounds nuw %struct.cacheinfo, ptr %418, i64 %357
+  %419 = getelementptr inbounds nuw [48 x i8], ptr %418, i64 %357
   %420 = load i32, ptr %419, align 8, !tbaa !114
   %421 = load ptr, ptr %398, align 8, !tbaa !141
   %422 = getelementptr inbounds nuw i8, ptr %421, i64 20
@@ -4478,7 +4475,7 @@ hwloc_obj_get_info_by_name.exit.thread:           ; preds = %334, %328, %hwloc_o
   %423 = getelementptr inbounds nuw i8, ptr %397, i64 184
   store ptr %361, ptr %423, align 8, !tbaa !62
   %424 = load ptr, ptr %355, align 8, !tbaa !99
-  %425 = getelementptr inbounds nuw %struct.cacheinfo, ptr %424, i64 %357
+  %425 = getelementptr inbounds nuw [48 x i8], ptr %424, i64 %357
   %426 = getelementptr inbounds nuw i8, ptr %425, i64 24
   %427 = load i32, ptr %426, align 8, !tbaa !123
   %.not440 = icmp eq i32 %427, 0
@@ -4638,7 +4635,7 @@ cpuid_or_from_dump.exit.us:                       ; preds = %.lr.ph
 
 28:                                               ; preds = %50, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %50 ]
-  %29 = getelementptr inbounds nuw %struct.cpuiddump_entry, ptr %27, i64 %indvars.iv.i.i
+  %29 = getelementptr inbounds nuw [36 x i8], ptr %27, i64 %indvars.iv.i.i
   %30 = load i32, ptr %29, align 4, !tbaa !76
   %31 = and i32 %30, 1
   %.not.i.i = icmp eq i32 %31, 0
@@ -4792,7 +4789,7 @@ cpuid_or_from_dump.exit95.us:                     ; preds = %116
   %103 = and i32 %100, %102
   store i32 %97, ptr %73, align 4, !tbaa !105
   %104 = load ptr, ptr %70, align 8, !tbaa !100
-  %105 = getelementptr inbounds nuw i32, ptr %104, i64 %indvars.iv196
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %104, i64 %indvars.iv196
   store i32 -1, ptr %105, align 4, !tbaa !67
   %trunc.us = trunc i32 %99 to i8
   switch i8 %trunc.us, label %115 [
@@ -4869,7 +4866,7 @@ cpuid_or_from_dump.exit95.us:                     ; preds = %116
 
 119:                                              ; preds = %142, %.lr.ph.i.i79
   %indvars.iv.i.i81 = phi i64 [ 0, %.lr.ph.i.i79 ], [ %indvars.iv.next.i.i84, %142 ]
-  %120 = getelementptr inbounds nuw %struct.cpuiddump_entry, ptr %118, i64 %indvars.iv.i.i81
+  %120 = getelementptr inbounds nuw [36 x i8], ptr %118, i64 %indvars.iv.i.i81
   %121 = load i32, ptr %120, align 4, !tbaa !76
   %122 = and i32 %121, 1
   %.not.i.i82 = icmp eq i32 %122, 0
@@ -4953,7 +4950,7 @@ cpuid_or_from_dump.exit95:                        ; preds = %137, %139
   %163 = and i32 %160, %162
   store i32 %153, ptr %73, align 4, !tbaa !105
   %164 = load ptr, ptr %70, align 8, !tbaa !100
-  %165 = getelementptr inbounds nuw i32, ptr %164, i64 %indvars.iv
+  %165 = getelementptr inbounds nuw [4 x i8], ptr %164, i64 %indvars.iv
   store i32 -1, ptr %165, align 4, !tbaa !67
   %trunc = trunc i32 %159 to i8
   switch i8 %trunc, label %175 [
@@ -5106,10 +5103,10 @@ define internal fastcc void @hwloc_x86_add_groups(ptr noundef %0, ptr noundef no
 10:                                               ; preds = %.lr.ph46, %50
   %11 = phi i32 [ %8, %.lr.ph46 ], [ %51, %50 ]
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds nuw %struct.procinfo, ptr %1, i64 %12
+  %13 = getelementptr inbounds nuw [152 x i8], ptr %1, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load i32, ptr %14, align 8, !tbaa !67
-  %16 = getelementptr inbounds nuw i32, ptr %14, i64 %9
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %9
   %17 = load i32, ptr %16, align 4, !tbaa !67
   %18 = icmp eq i32 %17, -1
   br i1 %18, label %19, label %21
@@ -5125,9 +5122,9 @@ define internal fastcc void @hwloc_x86_add_groups(ptr noundef %0, ptr noundef no
 
 .lr.ph:                                           ; preds = %21, %39
   %indvars.iv = phi i64 [ %indvars.iv.next, %39 ], [ %12, %21 ]
-  %24 = getelementptr inbounds nuw %struct.procinfo, ptr %1, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [152 x i8], ptr %1, i64 %indvars.iv
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %9
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %9
   %27 = load i32, ptr %26, align 4, !tbaa !67
   %28 = icmp eq i32 %27, -1
   br i1 %28, label %29, label %31

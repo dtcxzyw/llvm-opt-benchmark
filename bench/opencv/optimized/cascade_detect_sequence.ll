@@ -45,8 +45,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.4" = type { %"struct.std::_Vector_base<cv::dpm::DPMDetector::ObjectDetection, std::allocator<cv::dpm::DPMDetector::ObjectDetection>>::_Vector_impl" }
 %"struct.std::_Vector_base<cv::dpm::DPMDetector::ObjectDetection, std::allocator<cv::dpm::DPMDetector::ObjectDetection>>::_Vector_impl" = type { %"struct.std::_Vector_base<cv::dpm::DPMDetector::ObjectDetection, std::allocator<cv::dpm::DPMDetector::ObjectDetection>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<cv::dpm::DPMDetector::ObjectDetection, std::allocator<cv::dpm::DPMDetector::ObjectDetection>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.cv::dpm::DPMDetector::ObjectDetection" = type { %"class.cv::Rect_", float, i32 }
-%"class.cv::Rect_" = type { i32, i32, i32, i32 }
 
 $_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev = comdat any
 
@@ -938,7 +936,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit152: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i143
   %312 = load ptr, ptr %19, align 8, !tbaa !59
-  %313 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %312, i64 %.0367
+  %313 = getelementptr inbounds nuw [32 x i8], ptr %312, i64 %.0367
   call void @llvm.experimental.noalias.scope.decl(metadata !64)
   %314 = getelementptr inbounds nuw i8, ptr %313, i64 8
   %315 = load i64, ptr %314, align 8, !tbaa !15, !noalias !64
@@ -1037,7 +1035,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit161: ; preds = %_Z
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %344
   %346 = load ptr, ptr %19, align 8, !tbaa !59
-  %347 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %346, i64 %.0367
+  %347 = getelementptr inbounds nuw [32 x i8], ptr %346, i64 %.0367
   %348 = load ptr, ptr %347, align 8, !tbaa !12
   %349 = getelementptr inbounds nuw i8, ptr %347, i64 8
   %350 = load i64, ptr %349, align 8, !tbaa !15
@@ -1301,7 +1299,7 @@ _ZNSt6vectorIN2cv3dpm11DPMDetector15ObjectDetectionESaIS3_EEC2ERKS5_.exit: ; pre
   store i64 0, ptr %270, align 8
   store i32 50397184, ptr %3, align 8, !tbaa !84
   store ptr %24, ptr %269, align 8, !tbaa !87
-  %432 = getelementptr inbounds nuw %"struct.cv::dpm::DPMDetector::ObjectDetection", ptr %412, i64 %431
+  %432 = getelementptr inbounds nuw [24 x i8], ptr %412, i64 %431
   %.sroa.0.0.copyload.i = load i64, ptr %432, align 4
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %432, i64 8
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 4
@@ -1846,7 +1844,7 @@ define hidden void @_Z9drawBoxesRN2cv3MatESt6vectorINS_3dpm11DPMDetector15Object
   store i64 0, ptr %12, align 8
   store i32 50397184, ptr %5, align 8, !tbaa !84
   store ptr %0, ptr %11, align 8, !tbaa !87
-  %18 = getelementptr inbounds nuw %"struct.cv::dpm::DPMDetector::ObjectDetection", ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [24 x i8], ptr %16, i64 %17
   %.sroa.0.0.copyload = load i64, ptr %18, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %18, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 4
@@ -2155,7 +2153,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8, !tbaa !59
   store ptr %.0.lcssa.i.i.i.i35, ptr %5, align 8, !tbaa !51
-  %74 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %74 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %74, ptr %73, align 8, !tbaa !54
   ret void
 

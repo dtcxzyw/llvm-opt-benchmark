@@ -7,9 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.except_stacknode = type { ptr, i32, %union.anon }
 %union.anon = type { ptr }
 %struct.except_cleanup = type { ptr, ptr }
-%struct._xmpp_attr_info = type { ptr, ptr, i8, i8, ptr, ptr }
-%struct._xmpp_attr_info_ext = type { ptr, %struct._xmpp_attr_info }
-%struct._xmpp_elem_info = type { i32, ptr, ptr, i32 }
 
 @.str = private unnamed_addr constant [3 x i8] c"id\00", align 1
 @.str.1 = private unnamed_addr constant [7 x i8] c"jingle\00", align 1
@@ -657,7 +654,7 @@ define internal fastcc void @xmpp_unknown_items(ptr noundef %0, ptr noundef %1, 
 
 .lr.ph:                                           ; preds = %22
   %23 = zext nneg i32 %4 to i64
-  %24 = getelementptr i32, ptr @ett_unknown, i64 %23
+  %24 = getelementptr [4 x i8], ptr @ett_unknown, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 408
   %26 = add nuw nsw i32 %4, 1
   br label %27
@@ -900,7 +897,7 @@ define hidden ptr @xmpp_steal_element_by_names(ptr noundef readonly captures(non
 
 6:                                                ; preds = %.lr.ph, %xmpp_steal_element_by_name.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %xmpp_steal_element_by_name.exit.thread ]
-  %7 = getelementptr ptr, ptr %1, i64 %indvars.iv
+  %7 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %9 = tail call ptr @wmem_packet_scope()
   %10 = tail call noalias dereferenceable_or_null(64) ptr @wmem_alloc(ptr noundef %9, i64 noundef 64) #10
@@ -1562,7 +1559,7 @@ define hidden void @xmpp_display_attrs(ptr noundef %0, ptr noundef readonly capt
 17:                                               ; preds = %.lr.ph, %87
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %87 ]
   %.0106 = phi i1 [ false, %.lr.ph ], [ %.1, %87 ]
-  %18 = getelementptr %struct._xmpp_attr_info, ptr %4, i64 %indvars.iv
+  %18 = getelementptr [40 x i8], ptr %4, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %15, align 8
   %21 = tail call ptr @g_hash_table_lookup(ptr noundef %20, ptr noundef %19)
@@ -1885,7 +1882,7 @@ define hidden void @xmpp_display_attrs_ext(ptr noundef %0, ptr noundef readonly 
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %130 ]
   %.1143.us = phi i1 [ %.0109145.us, %.preheader.us ], [ %.3.us, %130 ]
   %27 = load ptr, ptr %.0147.us, align 8
-  %28 = getelementptr %struct._xmpp_attr_info_ext, ptr %4, i64 %indvars.iv
+  %28 = getelementptr [48 x i8], ptr %4, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   %30 = tail call i32 @strcmp(ptr noundef %27, ptr noundef %29) #11
   %31 = icmp eq i32 %30, 0
@@ -2127,7 +2124,7 @@ define hidden void @xmpp_display_elems(ptr noundef %0, ptr noundef readonly capt
 
 12:                                               ; preds = %.lr.ph, %.critedge
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.critedge ]
-  %13 = getelementptr %struct._xmpp_elem_info, ptr %4, i64 %indvars.iv
+  %13 = getelementptr [32 x i8], ptr %4, i64 %indvars.iv
   %14 = load i32, ptr %13, align 8
   switch i32 %14, label %.critedge [
     i32 2, label %15
@@ -2327,7 +2324,7 @@ xmpp_steal_element_by_attr.exit:                  ; preds = %91
 
 111:                                              ; preds = %xmpp_steal_element_by_name.exit.thread.i, %.lr.ph.i101
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i101 ], [ %indvars.iv.next.i, %xmpp_steal_element_by_name.exit.thread.i ]
-  %112 = getelementptr ptr, ptr %108, i64 %indvars.iv.i
+  %112 = getelementptr [8 x i8], ptr %108, i64 %indvars.iv.i
   %113 = load ptr, ptr %112, align 8
   %114 = tail call ptr @wmem_packet_scope()
   %115 = tail call noalias dereferenceable_or_null(64) ptr @wmem_alloc(ptr noundef %114, i64 noundef 64) #10
@@ -2391,7 +2388,7 @@ define hidden void @xmpp_val_enum_list(ptr noundef %0, ptr noundef %1, ptr nound
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr ptr, ptr %6, i64 %indvars.iv
+  %11 = getelementptr [8 x i8], ptr %6, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %3, ptr noundef %12) #11
   %14 = icmp eq i32 %13, 0

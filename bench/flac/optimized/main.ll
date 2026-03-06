@@ -10,7 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { ptr }
 %struct.anon.0 = type { i32, i32, i32, i32 }
 %struct.timeval = type { i64, i64 }
-%struct.share__option = type { ptr, i32, ptr, i32 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %struct.decode_options_t = type { i32, i32, %struct.replaygain_synthesis_spec_t, i32, i32, i64, i32, %struct.utils__SkipUntilSpecification, %struct.utils__SkipUntilSpecification, i32, %struct.utils__CueSpecification, i32, i32, i32, i32, %union.anon.2 }
 %struct.utils__SkipUntilSpecification = type { i32, i32, %union.anon.1 }
@@ -508,7 +507,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 30:                                               ; preds = %28
   %31 = load i32, ptr %5, align 4, !tbaa !41
   %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds %struct.share__option, ptr @long_options_, i64 %32
+  %33 = getelementptr inbounds [32 x i8], ptr @long_options_, i64 %32
   %34 = load ptr, ptr %33, align 16, !tbaa !42
   %35 = load ptr, ptr @share__optarg, align 8, !tbaa !45
   %36 = call fastcc i32 @parse_option(i32 noundef 0, ptr noundef %34, ptr noundef %35)
@@ -562,7 +561,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
   %indvars.iv.next22.i = add nsw i64 %indvars.iv21.i, 1
   %55 = trunc nsw i64 %indvars.iv.next22.i to i32
   store i32 %55, ptr @share__optind, align 4, !tbaa !41
-  %56 = getelementptr inbounds ptr, ptr %1, i64 %indvars.iv21.i
+  %56 = getelementptr inbounds [8 x i8], ptr %1, i64 %indvars.iv21.i
   %57 = load ptr, ptr %56, align 8, !tbaa !45
   %58 = call noalias ptr @strdup(ptr noundef readonly %57) #21
   %59 = icmp eq ptr %58, null
@@ -574,7 +573,7 @@ define dso_local i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0
 
 local_strdup.exit.i:                              ; preds = %54
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %61 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv.i
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv.i
   store ptr %58, ptr %61, align 8, !tbaa !45
   %62 = icmp eq i64 %indvars.iv.next.i, %47
   br i1 %62, label %.loopexit, label %54, !llvm.loop !49
@@ -1239,7 +1238,7 @@ sub_0.i:                                          ; preds = %424, %sub_0.prehead
   %indvars.iv.i3 = phi i64 [ 0, %sub_0.preheader.i ], [ %indvars.iv.next.i4, %424 ]
   %.157162.i = phi i32 [ 0, %sub_0.preheader.i ], [ %.258.i, %424 ]
   %414 = phi i1 [ true, %sub_0.preheader.i ], [ false, %424 ]
-  %415 = getelementptr inbounds nuw ptr, ptr %413, i64 %indvars.iv.i3
+  %415 = getelementptr inbounds nuw [8 x i8], ptr %413, i64 %indvars.iv.i3
   %416 = load ptr, ptr %415, align 8, !tbaa !45
   %417 = load i8, ptr %416, align 1
   %.not173.i = icmp eq i8 %417, 45
@@ -1303,7 +1302,7 @@ sub_0156.i:                                       ; preds = %452, %sub_0156.preh
   %indvars.iv177.i = phi i64 [ 0, %sub_0156.preheader.i ], [ %indvars.iv.next178.i, %452 ]
   %.561165.i = phi i32 [ 0, %sub_0156.preheader.i ], [ %.662.i, %452 ]
   %.066163.i = phi i32 [ 1, %sub_0156.preheader.i ], [ %.167.i, %452 ]
-  %440 = getelementptr inbounds nuw ptr, ptr %439, i64 %indvars.iv177.i
+  %440 = getelementptr inbounds nuw [8 x i8], ptr %439, i64 %indvars.iv177.i
   %441 = load ptr, ptr %440, align 8, !tbaa !45
   %442 = load i8, ptr %441, align 1
   %.not175.i = icmp eq i8 %442, 45
@@ -1365,7 +1364,7 @@ sub_0156.i:                                       ; preds = %452, %sub_0156.preh
   %indvars.iv180.i = phi i64 [ %indvars.iv.next181.i, %473 ], [ 0, %460 ]
   %.8169.i = phi i32 [ %.9.ph.i, %473 ], [ 0, %460 ]
   %462 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 6320), align 8, !tbaa !36
-  %463 = getelementptr inbounds nuw ptr, ptr %462, i64 %indvars.iv180.i
+  %463 = getelementptr inbounds nuw [8 x i8], ptr %462, i64 %indvars.iv180.i
   %464 = load ptr, ptr %463, align 8, !tbaa !45
   %465 = call fastcc ptr @get_encoded_outfilename(ptr noundef %464)
   %.not126.i = icmp eq ptr %465, null
@@ -1395,7 +1394,7 @@ sub_0156.i:                                       ; preds = %452, %sub_0156.preh
 476:                                              ; preds = %.lr.ph.i5
   %477 = load ptr, ptr @stderr, align 8, !tbaa !39
   %478 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 6320), align 8, !tbaa !36
-  %479 = getelementptr inbounds nuw ptr, ptr %478, i64 %indvars.iv180.i
+  %479 = getelementptr inbounds nuw [8 x i8], ptr %478, i64 %indvars.iv180.i
   %480 = load ptr, ptr %479, align 8, !tbaa !45
   call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %477, i32 noundef 1, ptr noundef nonnull @.str.45, ptr noundef %480) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1417,7 +1416,7 @@ do_it.exit:                                       ; preds = %424, %476, %.thread
   %483 = phi i32 [ %489, %488 ], [ %482, %.preheader.i7 ]
   %484 = phi ptr [ %490, %488 ], [ %481, %.preheader.i7 ]
   %indvars.iv.i9 = phi i64 [ %indvars.iv.next.i11, %488 ], [ 0, %.preheader.i7 ]
-  %485 = getelementptr inbounds nuw ptr, ptr %484, i64 %indvars.iv.i9
+  %485 = getelementptr inbounds nuw [8 x i8], ptr %484, i64 %indvars.iv.i9
   %486 = load ptr, ptr %485, align 8, !tbaa !45
   %.not10.i = icmp eq ptr %486, null
   br i1 %.not10.i, label %488, label %487
@@ -1457,7 +1456,7 @@ do_it.exit:                                       ; preds = %424, %476, %.thread
 
 .lr.ph14.i:                                       ; preds = %497, %.lr.ph14.i
   %indvars.iv19.i = phi i64 [ %indvars.iv.next20.i, %.lr.ph14.i ], [ 0, %497 ]
-  %499 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 6336), i64 %indvars.iv19.i
+  %499 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 6336), i64 %indvars.iv19.i
   %500 = load ptr, ptr %499, align 8, !tbaa !85
   call void @FLAC__metadata_object_delete(ptr noundef %500) #21
   %indvars.iv.next20.i = add nuw nsw i64 %indvars.iv19.i, 1
@@ -1780,7 +1779,7 @@ sub_0193:                                         ; preds = %sub_0, %.tail
 109:                                              ; preds = %106
   call void @flac__foreign_metadata_delete(ptr noundef nonnull %.0113) #21
   %110 = zext nneg i32 %.1117176 to i64
-  %111 = getelementptr inbounds nuw ptr, ptr @FileFormatString, i64 %110
+  %111 = getelementptr inbounds nuw [8 x i8], ptr @FileFormatString, i64 %110
   %112 = load ptr, ptr %111, align 8, !tbaa !45
   call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.198, ptr noundef %112)
   br label %249
@@ -1799,7 +1798,7 @@ sub_0193:                                         ; preds = %sub_0, %.tail
 116:                                              ; preds = %114
   call void @flac__foreign_metadata_delete(ptr noundef nonnull %.0113) #21
   %117 = zext nneg i32 %.1117176227 to i64
-  %118 = getelementptr inbounds nuw ptr, ptr @FileFormatString, i64 %117
+  %118 = getelementptr inbounds nuw [8 x i8], ptr @FileFormatString, i64 %117
   %119 = load ptr, ptr %118, align 8, !tbaa !45
   call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.199, ptr noundef %119)
   br label %249
@@ -1818,7 +1817,7 @@ sub_0193:                                         ; preds = %sub_0, %.tail
 123:                                              ; preds = %.thread188
   call void @flac__foreign_metadata_delete(ptr noundef nonnull %.0113) #21
   %124 = zext nneg i32 %.1117176229 to i64
-  %125 = getelementptr inbounds nuw ptr, ptr @FileFormatString, i64 %124
+  %125 = getelementptr inbounds nuw [8 x i8], ptr @FileFormatString, i64 %124
   %126 = load ptr, ptr %125, align 8, !tbaa !45
   call void (ptr, ...) @usage_error(ptr noundef nonnull @.str.200, ptr noundef %126)
   br label %249
@@ -1847,7 +1846,7 @@ sub_0193:                                         ; preds = %sub_0, %.tail
 
 switch.lookup:                                    ; preds = %132
   %134 = zext nneg i32 %.1117177 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.decode_file, i64 %134
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.decode_file, i64 %134
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %get_decoded_outfilename.exit
 
@@ -2257,7 +2256,7 @@ sub_0:                                            ; preds = %get_encoded_outfile
 69:                                               ; preds = %68
   %70 = load ptr, ptr @stderr, align 8, !tbaa !39
   %71 = zext nneg i32 %.1241 to i64
-  %72 = getelementptr inbounds nuw ptr, ptr @FileFormatString, i64 %71
+  %72 = getelementptr inbounds nuw [8 x i8], ptr @FileFormatString, i64 %71
   %73 = load ptr, ptr %72, align 8, !tbaa !45
   call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %70, i32 noundef 1, ptr noundef nonnull @.str.249, ptr noundef nonnull %0, ptr noundef %73, ptr noundef nonnull @.str.208) #21
   %74 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 16), align 8, !tbaa !88
@@ -2361,7 +2360,7 @@ sub_0:                                            ; preds = %get_encoded_outfile
 108:                                              ; preds = %107
   %109 = load ptr, ptr @stderr, align 8, !tbaa !39
   %110 = zext nneg i32 %.1241476 to i64
-  %111 = getelementptr inbounds nuw ptr, ptr @FileFormatString, i64 %110
+  %111 = getelementptr inbounds nuw [8 x i8], ptr @FileFormatString, i64 %110
   %112 = load ptr, ptr %111, align 8, !tbaa !45
   call void (ptr, i32, ptr, ...) @flac__utils_printf(ptr noundef %109, i32 noundef 1, ptr noundef nonnull @.str.249, ptr noundef nonnull %0, ptr noundef %112, ptr noundef nonnull @.str.208) #21
   %113 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 16), align 8, !tbaa !88
@@ -3611,7 +3610,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_option(i32 noundef range(i32 0
   %99 = call ptr @grabbag__picture_parse_specification(ptr noundef %2, ptr noundef nonnull %4) #21
   %100 = load i32, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 6848), align 8, !tbaa !84
   %101 = zext i32 %100 to i64
-  %102 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 6336), i64 %101
+  %102 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 6336), i64 %101
   store ptr %99, ptr %102, align 8, !tbaa !85
   %103 = icmp eq ptr %99, null
   br i1 %103, label %104, label %106
@@ -4023,7 +4022,7 @@ define internal fastcc range(i32 0, 2) i32 @parse_option(i32 noundef range(i32 0
   unreachable
 
 add_compression_setting_bool.exit:                ; preds = %286
-  %290 = getelementptr inbounds nuw %struct.compression_setting_t, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %287
+  %290 = getelementptr inbounds nuw [16 x i8], ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %287
   store i32 9, ptr %290, align 8, !tbaa !29
   %291 = getelementptr inbounds nuw i8, ptr %290, i64 8
   store i32 0, ptr %291, align 8, !tbaa !31
@@ -4046,7 +4045,7 @@ add_compression_setting_bool.exit:                ; preds = %286
   unreachable
 
 add_compression_setting_bool.exit207:             ; preds = %296
-  %300 = getelementptr inbounds nuw %struct.compression_setting_t, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %297
+  %300 = getelementptr inbounds nuw [16 x i8], ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %297
   store i32 2, ptr %300, align 8, !tbaa !29
   %301 = getelementptr inbounds nuw i8, ptr %300, i64 8
   store i32 0, ptr %301, align 8, !tbaa !31
@@ -4060,7 +4059,7 @@ add_compression_setting_bool.exit207:             ; preds = %296
   unreachable
 
 add_compression_setting_bool.exit208:             ; preds = %add_compression_setting_bool.exit207
-  %305 = getelementptr inbounds nuw %struct.compression_setting_t, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %302
+  %305 = getelementptr inbounds nuw [16 x i8], ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %302
   store i32 3, ptr %305, align 8, !tbaa !29
   %306 = getelementptr inbounds nuw i8, ptr %305, i64 8
   store i32 0, ptr %306, align 8, !tbaa !31
@@ -4083,7 +4082,7 @@ add_compression_setting_bool.exit208:             ; preds = %add_compression_set
   unreachable
 
 add_compression_setting_bool.exit209:             ; preds = %311
-  %315 = getelementptr inbounds nuw %struct.compression_setting_t, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %312
+  %315 = getelementptr inbounds nuw [16 x i8], ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %312
   store i32 2, ptr %315, align 8, !tbaa !29
   %316 = getelementptr inbounds nuw i8, ptr %315, i64 8
   store i32 0, ptr %316, align 8, !tbaa !31
@@ -4097,7 +4096,7 @@ add_compression_setting_bool.exit209:             ; preds = %311
   unreachable
 
 add_compression_setting_bool.exit210:             ; preds = %add_compression_setting_bool.exit209
-  %320 = getelementptr inbounds nuw %struct.compression_setting_t, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %317
+  %320 = getelementptr inbounds nuw [16 x i8], ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %317
   store i32 3, ptr %320, align 8, !tbaa !29
   %321 = getelementptr inbounds nuw i8, ptr %320, i64 8
   store i32 0, ptr %321, align 8, !tbaa !31
@@ -4120,7 +4119,7 @@ add_compression_setting_bool.exit210:             ; preds = %add_compression_set
   unreachable
 
 add_compression_setting_bool.exit211:             ; preds = %326
-  %330 = getelementptr inbounds nuw %struct.compression_setting_t, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %327
+  %330 = getelementptr inbounds nuw [16 x i8], ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %327
   store i32 7, ptr %330, align 8, !tbaa !29
   %331 = getelementptr inbounds nuw i8, ptr %330, i64 8
   store i32 0, ptr %331, align 8, !tbaa !31
@@ -4376,7 +4375,7 @@ sub_0:                                            ; preds = %3
   unreachable
 
 .thread:                                          ; preds = %428
-  %432 = getelementptr inbounds nuw %struct.compression_setting_t, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %429
+  %432 = getelementptr inbounds nuw [16 x i8], ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %429
   store i32 0, ptr %432, align 8, !tbaa !29
   %433 = getelementptr inbounds nuw i8, ptr %432, i64 8
   store i32 %426, ptr %433, align 8, !tbaa !31
@@ -4398,7 +4397,7 @@ sub_0:                                            ; preds = %3
   unreachable
 
 add_compression_setting_bool.exit213:             ; preds = %436
-  %440 = getelementptr inbounds nuw %struct.compression_setting_t, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %437
+  %440 = getelementptr inbounds nuw [16 x i8], ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %437
   store i32 9, ptr %440, align 8, !tbaa !29
   %441 = getelementptr inbounds nuw i8, ptr %440, i64 8
   store i32 1, ptr %441, align 8, !tbaa !31
@@ -4416,7 +4415,7 @@ add_compression_setting_bool.exit213:             ; preds = %436
   unreachable
 
 add_compression_setting_bool.exit214:             ; preds = %443
-  %447 = getelementptr inbounds nuw %struct.compression_setting_t, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %444
+  %447 = getelementptr inbounds nuw [16 x i8], ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %444
   store i32 8, ptr %447, align 8, !tbaa !29
   %448 = getelementptr inbounds nuw i8, ptr %447, i64 8
   store i32 1, ptr %448, align 8, !tbaa !31
@@ -4440,7 +4439,7 @@ add_compression_setting_bool.exit214:             ; preds = %443
   unreachable
 
 .thread227:                                       ; preds = %454
-  %458 = getelementptr inbounds nuw %struct.compression_setting_t, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %455
+  %458 = getelementptr inbounds nuw [16 x i8], ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %455
   store i32 5, ptr %458, align 8, !tbaa !29
   %459 = getelementptr inbounds nuw i8, ptr %458, i64 8
   store i32 %452, ptr %459, align 8, !tbaa !31
@@ -4462,7 +4461,7 @@ add_compression_setting_bool.exit214:             ; preds = %443
   unreachable
 
 add_compression_setting_string.exit:              ; preds = %462
-  %466 = getelementptr inbounds nuw %struct.compression_setting_t, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %463
+  %466 = getelementptr inbounds nuw [16 x i8], ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %463
   store i32 4, ptr %466, align 8, !tbaa !29
   %467 = getelementptr inbounds nuw i8, ptr %466, i64 8
   store ptr %2, ptr %467, align 8, !tbaa !31
@@ -4480,7 +4479,7 @@ add_compression_setting_string.exit:              ; preds = %462
   unreachable
 
 add_compression_setting_bool.exit216:             ; preds = %469
-  %473 = getelementptr inbounds nuw %struct.compression_setting_t, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %470
+  %473 = getelementptr inbounds nuw [16 x i8], ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %470
   store i32 2, ptr %473, align 8, !tbaa !29
   %474 = getelementptr inbounds nuw i8, ptr %473, i64 8
   store i32 1, ptr %474, align 8, !tbaa !31
@@ -4494,7 +4493,7 @@ add_compression_setting_bool.exit216:             ; preds = %469
   unreachable
 
 add_compression_setting_bool.exit217:             ; preds = %add_compression_setting_bool.exit216
-  %478 = getelementptr inbounds nuw %struct.compression_setting_t, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %475
+  %478 = getelementptr inbounds nuw [16 x i8], ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %475
   store i32 3, ptr %478, align 8, !tbaa !29
   %479 = getelementptr inbounds nuw i8, ptr %478, i64 8
   store i32 0, ptr %479, align 8, !tbaa !31
@@ -4512,7 +4511,7 @@ add_compression_setting_bool.exit217:             ; preds = %add_compression_set
   unreachable
 
 add_compression_setting_bool.exit218:             ; preds = %481
-  %485 = getelementptr inbounds nuw %struct.compression_setting_t, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %482
+  %485 = getelementptr inbounds nuw [16 x i8], ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %482
   store i32 2, ptr %485, align 8, !tbaa !29
   %486 = getelementptr inbounds nuw i8, ptr %485, i64 8
   store i32 1, ptr %486, align 8, !tbaa !31
@@ -4526,7 +4525,7 @@ add_compression_setting_bool.exit218:             ; preds = %481
   unreachable
 
 add_compression_setting_bool.exit219:             ; preds = %add_compression_setting_bool.exit218
-  %490 = getelementptr inbounds nuw %struct.compression_setting_t, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %487
+  %490 = getelementptr inbounds nuw [16 x i8], ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %487
   store i32 3, ptr %490, align 8, !tbaa !29
   %491 = getelementptr inbounds nuw i8, ptr %490, i64 8
   store i32 1, ptr %491, align 8, !tbaa !31
@@ -4544,7 +4543,7 @@ add_compression_setting_bool.exit219:             ; preds = %add_compression_set
   unreachable
 
 add_compression_setting_bool.exit220:             ; preds = %493
-  %497 = getelementptr inbounds nuw %struct.compression_setting_t, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %494
+  %497 = getelementptr inbounds nuw [16 x i8], ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %494
   store i32 7, ptr %497, align 8, !tbaa !29
   %498 = getelementptr inbounds nuw i8, ptr %497, i64 8
   store i32 1, ptr %498, align 8, !tbaa !31
@@ -4575,7 +4574,7 @@ add_compression_setting_bool.exit220:             ; preds = %493
   unreachable
 
 add_compression_setting_uint32_t.exit221:         ; preds = %504
-  %508 = getelementptr inbounds nuw %struct.compression_setting_t, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %505
+  %508 = getelementptr inbounds nuw [16 x i8], ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %505
   store i32 6, ptr %508, align 8, !tbaa !29
   %509 = getelementptr inbounds nuw i8, ptr %508, i64 8
   store i32 %502, ptr %509, align 8, !tbaa !31
@@ -4598,7 +4597,7 @@ add_compression_setting_uint32_t.exit221:         ; preds = %504
   unreachable
 
 add_compression_setting_uint32_t.exit222:         ; preds = %514
-  %518 = getelementptr inbounds nuw %struct.compression_setting_t, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %515
+  %518 = getelementptr inbounds nuw [16 x i8], ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %515
   store i32 10, ptr %518, align 8, !tbaa !29
   %519 = getelementptr inbounds nuw i8, ptr %518, i64 8
   store i32 0, ptr %519, align 8, !tbaa !31
@@ -4623,7 +4622,7 @@ add_compression_setting_uint32_t.exit222:         ; preds = %514
   unreachable
 
 add_compression_setting_uint32_t.exit223:         ; preds = %525
-  %529 = getelementptr inbounds nuw %struct.compression_setting_t, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %526
+  %529 = getelementptr inbounds nuw [16 x i8], ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %526
   store i32 11, ptr %529, align 8, !tbaa !29
   %530 = getelementptr inbounds nuw i8, ptr %529, i64 8
   store i32 %522, ptr %530, align 8, !tbaa !31
@@ -4651,7 +4650,7 @@ add_compression_setting_uint32_t.exit223:         ; preds = %525
   unreachable
 
 add_compression_setting_uint32_t.exit224:         ; preds = %537
-  %541 = getelementptr inbounds nuw %struct.compression_setting_t, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %538
+  %541 = getelementptr inbounds nuw [16 x i8], ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %538
   store i32 10, ptr %541, align 8, !tbaa !29
   %542 = getelementptr inbounds nuw i8, ptr %541, i64 8
   store i32 %534, ptr %542, align 8, !tbaa !31
@@ -4677,7 +4676,7 @@ add_compression_setting_uint32_t.exit224:         ; preds = %537
   unreachable
 
 add_compression_setting_uint32_t.exit225:         ; preds = %549
-  %553 = getelementptr inbounds nuw %struct.compression_setting_t, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %550
+  %553 = getelementptr inbounds nuw [16 x i8], ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %550
   store i32 11, ptr %553, align 8, !tbaa !29
   %554 = getelementptr inbounds nuw i8, ptr %553, i64 8
   store i32 %546, ptr %554, align 8, !tbaa !31
@@ -4697,7 +4696,7 @@ add_compression_setting_uint32_t.exit225:         ; preds = %549
 
 add_compression_setting_uint32_t.exit226:         ; preds = %556
   %561 = trunc i64 %557 to i32
-  %562 = getelementptr inbounds nuw %struct.compression_setting_t, ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %558
+  %562 = getelementptr inbounds nuw [16 x i8], ptr getelementptr inbounds nuw (i8, ptr @option_values, i64 192), i64 %558
   store i32 12, ptr %562, align 8, !tbaa !29
   %563 = getelementptr inbounds nuw i8, ptr %562, i64 8
   store i32 %561, ptr %563, align 8, !tbaa !31

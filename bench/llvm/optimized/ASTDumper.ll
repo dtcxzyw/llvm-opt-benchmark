@@ -75,7 +75,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.clang::BlockDecl::Capture" = type { %"class.llvm::PointerIntPair.718", ptr }
 %"class.llvm::PointerIntPair.718" = type { %"struct.llvm::detail::PunnedPointer.719" }
 %"struct.llvm::detail::PunnedPointer.719" = type { [8 x i8] }
-%"struct.std::pair" = type { %"class.clang::QualType", ptr }
 %class.anon.721 = type { ptr, %class.anon.720, %"class.std::__cxx11::basic_string" }
 %class.anon.737 = type { ptr, ptr }
 %class.anon.738 = type { ptr, %class.anon.737, %"class.std::__cxx11::basic_string" }
@@ -103,16 +102,10 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::pointer_union_detail::PointerUnionMembers.890" = type { %"class.llvm::pointer_union_detail::PointerUnionMembers.891" }
 %"class.llvm::pointer_union_detail::PointerUnionMembers.891" = type { %"class.llvm::PointerIntPair.892" }
 %"class.llvm::PointerIntPair.892" = type { %"struct.llvm::detail::PunnedPointer.390" }
-%"struct.llvm::detail::DenseMapPair" = type { %"struct.std::pair.899" }
-%"struct.std::pair.899" = type { %"class.clang::DeclarationName", %"class.clang::StoredDeclsList" }
-%"class.clang::StoredDeclsList" = type { %"class.llvm::PointerIntPair.901" }
-%"class.llvm::PointerIntPair.901" = type { %"struct.llvm::detail::PunnedPointer.902" }
-%"struct.llvm::detail::PunnedPointer.902" = type { [8 x i8] }
 %class.anon.906 = type { ptr, %class.anon.904, %"class.std::__cxx11::basic_string" }
 %class.anon.904 = type <{ ptr, %"class.clang::DeclListNode::iterator", i8, [7 x i8] }>
 %"class.clang::DeclListNode::iterator" = type { %"class.llvm::PointerUnion.888" }
 %"class.std::function.907" = type { %"class.std::_Function_base", ptr }
-%"struct.std::pair.933" = type { ptr, i64 }
 %class.anon.969 = type { ptr, %class.anon.968, %"class.std::__cxx11::basic_string" }
 %class.anon.968 = type { ptr, %"class.clang::QualType" }
 %class.anon.971 = type { ptr, %class.anon.970, %"class.std::__cxx11::basic_string" }
@@ -123,12 +116,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.anon.1449 = type { ptr, %"class.clang::TypeLoc" }
 %class.anon.1044 = type { ptr, ptr }
 %class.anon.1045 = type { i8, ptr, %"class.std::__cxx11::basic_string", %class.anon.1044 }
-%"class.clang::DeclAccessPair" = type { %"struct.llvm::support::detail::packed_endian_specific_integral" }
-%"struct.llvm::support::detail::packed_endian_specific_integral" = type { %struct.anon }
-%struct.anon = type { [8 x i8] }
-%"class.clang::LambdaCapture" = type { %"class.llvm::PointerIntPair.1417", %"class.clang::SourceLocation", %"class.clang::SourceLocation" }
-%"class.llvm::PointerIntPair.1417" = type { %"struct.llvm::detail::PunnedPointer.386" }
-%"struct.llvm::detail::PunnedPointer.386" = type { [8 x i8] }
 %class.anon.1424 = type { ptr, %"class.clang::GenericSelectionExpr::AssociationTy" }
 %"class.clang::GenericSelectionExpr::AssociationTy" = type <{ ptr, ptr, i8, [7 x i8] }>
 %"class.llvm::filter_iterator_impl" = type { %"class.llvm::filter_iterator_base" }
@@ -1072,7 +1059,7 @@ define dso_local void @_ZN5clang9ASTDumper22dumpInvalidDeclContextEPKNS_11DeclCo
   %18 = phi i32 [ %37, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i ], [ %17, %14 ]
   %19 = load ptr, ptr %15, align 8, !tbaa !24
   %20 = zext i32 %18 to i64
-  %21 = getelementptr inbounds nuw %"class.std::function", ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [32 x i8], ptr %19, i64 %20
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 1, ptr %5, align 1, !tbaa !25
   %22 = getelementptr inbounds i8, ptr %21, i64 -16
@@ -1095,7 +1082,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i:               ; preds = %.lr.ph.i.i
   store i32 %29, ptr %16, align 8, !tbaa !23
   %30 = load ptr, ptr %15, align 8, !tbaa !24
   %31 = zext i32 %29 to i64
-  %32 = getelementptr inbounds nuw %"class.std::function", ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [32 x i8], ptr %30, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load ptr, ptr %33, align 8, !tbaa !26
   %.not.i.i1.i.i = icmp eq ptr %34, null
@@ -1188,7 +1175,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i.i:             ; preds = %49, %47
   br i1 %.not.i.i.not.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i.i.i, label %73, !prof !57
 
 73:                                               ; preds = %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_9ASTDumper22dumpInvalidDeclContextEPKNS3_11DeclContextEE3$_0EEvN4llvm9StringRefET_EUlbE_vEEOSD_.exit.i.i"
-  %74 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i.i.i, i64 %69
+  %74 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i.i.i, i64 %69
   %75 = icmp uge ptr %8, %.pre3.i.i.i
   %76 = icmp ult ptr %8, %74
   %spec.select.i.i.i.i.i.i.i = and i1 %75, %76
@@ -1213,7 +1200,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i.i.i = phi ptr [ %8, %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_9ASTDumper22dumpInvalidDeclContextEPKNS3_11DeclContextEE3$_0EEvN4llvm9StringRefET_EUlbE_vEEOSD_.exit.i.i" ], [ %82, %77 ], [ %8, %.critedge.i.i.i.i.i ]
   %84 = load i32, ptr %67, align 8, !tbaa !23
   %85 = zext i32 %84 to i64
-  %86 = getelementptr inbounds nuw %"class.std::function", ptr %83, i64 %85
+  %86 = getelementptr inbounds nuw [32 x i8], ptr %83, i64 %85
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 24
   %88 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %86, i8 0, i64 24, i1 false)
@@ -1253,7 +1240,7 @@ _ZNSt14_Function_baseD2Ev.exit.i.i:               ; preds = %98, %_ZN4llvm23Smal
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %103 = load i32, ptr %102, align 8, !tbaa !23
   %104 = zext i32 %103 to i64
-  %105 = getelementptr inbounds nuw %"class.std::function", ptr %101, i64 %104
+  %105 = getelementptr inbounds nuw [32 x i8], ptr %101, i64 %104
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 0, ptr %4, align 1, !tbaa !25
   %106 = getelementptr inbounds i8, ptr %105, i64 -16
@@ -1274,7 +1261,7 @@ _ZNKSt8functionIFvbEEclEb.exit5.i.i:              ; preds = %100
   %112 = load ptr, ptr %59, align 8, !tbaa !24
   %113 = load i32, ptr %102, align 8, !tbaa !23
   %114 = zext i32 %113 to i64
-  %115 = getelementptr inbounds nuw %"class.std::function", ptr %112, i64 %114
+  %115 = getelementptr inbounds nuw [32 x i8], ptr %112, i64 %114
   %116 = getelementptr inbounds i8, ptr %115, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %117 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1393,7 +1380,7 @@ define dso_local void @_ZN5clang9ASTDumper11dumpLookupsEPKNS_11DeclContextEb(ptr
   %19 = phi i32 [ %38, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i ], [ %18, %15 ]
   %20 = load ptr, ptr %16, align 8, !tbaa !24
   %21 = zext i32 %19 to i64
-  %22 = getelementptr inbounds nuw %"class.std::function", ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %21
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 1, ptr %6, align 1, !tbaa !25
   %23 = getelementptr inbounds i8, ptr %22, i64 -16
@@ -1416,7 +1403,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i:               ; preds = %.lr.ph.i.i
   store i32 %30, ptr %17, align 8, !tbaa !23
   %31 = load ptr, ptr %16, align 8, !tbaa !24
   %32 = zext i32 %30 to i64
-  %33 = getelementptr inbounds nuw %"class.std::function", ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [32 x i8], ptr %31, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %34, align 8, !tbaa !26
   %.not.i.i1.i.i = icmp eq ptr %35, null
@@ -1509,7 +1496,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i.i:             ; preds = %50, %48
   br i1 %.not.i.i.not.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i.i.i, label %74, !prof !57
 
 74:                                               ; preds = %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_9ASTDumper11dumpLookupsEPKNS3_11DeclContextEbE3$_0EEvN4llvm9StringRefET_EUlbE_vEEOSD_.exit.i.i"
-  %75 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i.i.i, i64 %70
+  %75 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i.i.i, i64 %70
   %76 = icmp uge ptr %8, %.pre3.i.i.i
   %77 = icmp ult ptr %8, %75
   %spec.select.i.i.i.i.i.i.i = and i1 %76, %77
@@ -1534,7 +1521,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i.i.i = phi ptr [ %8, %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_9ASTDumper11dumpLookupsEPKNS3_11DeclContextEbE3$_0EEvN4llvm9StringRefET_EUlbE_vEEOSD_.exit.i.i" ], [ %83, %78 ], [ %8, %.critedge.i.i.i.i.i ]
   %85 = load i32, ptr %68, align 8, !tbaa !23
   %86 = zext i32 %85 to i64
-  %87 = getelementptr inbounds nuw %"class.std::function", ptr %84, i64 %86
+  %87 = getelementptr inbounds nuw [32 x i8], ptr %84, i64 %86
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 24
   %89 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %87, i8 0, i64 24, i1 false)
@@ -1574,7 +1561,7 @@ _ZNSt14_Function_baseD2Ev.exit.i.i:               ; preds = %99, %_ZN4llvm23Smal
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %104 = load i32, ptr %103, align 8, !tbaa !23
   %105 = zext i32 %104 to i64
-  %106 = getelementptr inbounds nuw %"class.std::function", ptr %102, i64 %105
+  %106 = getelementptr inbounds nuw [32 x i8], ptr %102, i64 %105
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i8 0, ptr %5, align 1, !tbaa !25
   %107 = getelementptr inbounds i8, ptr %106, i64 -16
@@ -1595,7 +1582,7 @@ _ZNKSt8functionIFvbEEclEb.exit5.i.i:              ; preds = %101
   %113 = load ptr, ptr %60, align 8, !tbaa !24
   %114 = load i32, ptr %103, align 8, !tbaa !23
   %115 = zext i32 %114 to i64
-  %116 = getelementptr inbounds nuw %"class.std::function", ptr %113, i64 %115
+  %116 = getelementptr inbounds nuw [32 x i8], ptr %113, i64 %115
   %117 = getelementptr inbounds i8, ptr %116, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %118 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1724,7 +1711,7 @@ define linkonce_odr void @_ZN5clang9ASTDumper16dumpTemplateDeclINS_20FunctionTem
 _ZNK5clang21TemplateParameterList17getRequiresClauseEv.exit.i: ; preds = %._crit_edge.i
   %18 = and i32 %16, 536870911
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %9, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !83
   %.not16.i = icmp eq ptr %21, null
   br i1 %.not16.i, label %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE22dumpTemplateParametersEPKNS_21TemplateParameterListE.exit, label %32
@@ -1801,7 +1788,7 @@ _ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4Decl
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %53 = load i32, ptr %52, align 8
   %54 = zext i32 %53 to i64
-  %.sroa.0.0.i.i.i = getelementptr inbounds nuw ptr, ptr %51, i64 %54
+  %.sroa.0.0.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %54
   %.not2122 = icmp eq ptr %48, %.sroa.0.0.i.i.i
   br i1 %.not2122, label %.loopexit, label %.lr.ph
 
@@ -1875,7 +1862,7 @@ define linkonce_odr void @_ZN5clang9ASTDumper16dumpTemplateDeclINS_17ClassTempla
 _ZNK5clang21TemplateParameterList17getRequiresClauseEv.exit.i: ; preds = %._crit_edge.i
   %18 = and i32 %16, 536870911
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %9, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !83
   %.not16.i = icmp eq ptr %21, null
   br i1 %.not16.i, label %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE22dumpTemplateParametersEPKNS_21TemplateParameterListE.exit, label %32
@@ -1952,7 +1939,7 @@ _ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4Decl
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %53 = load i32, ptr %52, align 8
   %54 = zext i32 %53 to i64
-  %.sroa.0.0.i.i.i = getelementptr inbounds nuw ptr, ptr %51, i64 %54
+  %.sroa.0.0.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %54
   %.not2223 = icmp eq ptr %48, %.sroa.0.0.i.i.i
   br i1 %.not2223, label %.loopexit, label %.lr.ph
 
@@ -2040,7 +2027,7 @@ define linkonce_odr void @_ZN5clang9ASTDumper16dumpTemplateDeclINS_15VarTemplate
 _ZNK5clang21TemplateParameterList17getRequiresClauseEv.exit.i: ; preds = %._crit_edge.i
   %18 = and i32 %16, 536870911
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %9, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !83
   %.not16.i = icmp eq ptr %21, null
   br i1 %.not16.i, label %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE22dumpTemplateParametersEPKNS_21TemplateParameterListE.exit, label %32
@@ -2117,7 +2104,7 @@ _ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4Decl
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %53 = load i32, ptr %52, align 8
   %54 = zext i32 %53 to i64
-  %.sroa.0.0.i.i.i = getelementptr inbounds nuw ptr, ptr %51, i64 %54
+  %.sroa.0.0.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %54
   %.not2122 = icmp eq ptr %48, %.sroa.0.0.i.i.i
   br i1 %.not2122, label %.loopexit, label %.lr.ph
 
@@ -5098,7 +5085,7 @@ _ZN5clang10ColorScopeD2Ev.exit.i.i.i:             ; preds = %98, %_ZNSt7__cxx111
   %110 = phi i32 [ %129, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i ], [ %108, %_ZN5clang10ColorScopeD2Ev.exit.i.i.i ]
   %111 = zext i32 %110 to i64
   %112 = load ptr, ptr %104, align 8, !tbaa !24
-  %113 = getelementptr inbounds nuw %"class.std::function", ptr %112, i64 %111
+  %113 = getelementptr inbounds nuw [32 x i8], ptr %112, i64 %111
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !25
   %114 = getelementptr inbounds i8, ptr %113, i64 -16
@@ -5121,7 +5108,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i.i:             ; preds = %.lr.ph.i.i.i
   store i32 %121, ptr %105, align 8, !tbaa !23
   %122 = load ptr, ptr %104, align 8, !tbaa !24
   %123 = zext i32 %121 to i64
-  %124 = getelementptr inbounds nuw %"class.std::function", ptr %122, i64 %123
+  %124 = getelementptr inbounds nuw [32 x i8], ptr %122, i64 %123
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 16
   %126 = load ptr, ptr %125, align 8, !tbaa !26
   %.not.i.i12.i.i.i = icmp eq ptr %126, null
@@ -5275,7 +5262,7 @@ define linkonce_odr hidden void @_ZN5clang17TextTreeStructure8AddChildIZNS_16AST
   %18 = phi i32 [ %37, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %17, %14 ]
   %19 = load ptr, ptr %15, align 8, !tbaa !24
   %20 = zext i32 %18 to i64
-  %21 = getelementptr inbounds nuw %"class.std::function", ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [32 x i8], ptr %19, i64 %20
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i8 1, ptr %8, align 1, !tbaa !25
   %22 = getelementptr inbounds i8, ptr %21, i64 -16
@@ -5298,7 +5285,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %29, ptr %16, align 8, !tbaa !23
   %30 = load ptr, ptr %15, align 8, !tbaa !24
   %31 = zext i32 %29 to i64
-  %32 = getelementptr inbounds nuw %"class.std::function", ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [32 x i8], ptr %30, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load ptr, ptr %33, align 8, !tbaa !26
   %.not.i.i1 = icmp eq ptr %34, null
@@ -5462,7 +5449,7 @@ _ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_16ASTNodeTraver
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i, label %100, !prof !57
 
 100:                                              ; preds = %_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_16ASTNodeTraverserINS3_9ASTDumperENS3_14TextNodeDumperEE5VisitEPKNS3_4DeclEbEUlvE_EEvN4llvm9StringRefET_EUlbE_vEEOSG_.exit
-  %101 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i, i64 %96
+  %101 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i, i64 %96
   %102 = icmp uge ptr %10, %.pre3.i
   %103 = icmp ult ptr %10, %101
   %spec.select.i.i.i.i.i = and i1 %102, %103
@@ -5487,7 +5474,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i = phi ptr [ %10, %_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_16ASTNodeTraverserINS3_9ASTDumperENS3_14TextNodeDumperEE5VisitEPKNS3_4DeclEbEUlvE_EEvN4llvm9StringRefET_EUlbE_vEEOSG_.exit ], [ %109, %104 ], [ %10, %.critedge.i.i.i ]
   %111 = load i32, ptr %94, align 8, !tbaa !23
   %112 = zext i32 %111 to i64
-  %113 = getelementptr inbounds nuw %"class.std::function", ptr %110, i64 %112
+  %113 = getelementptr inbounds nuw [32 x i8], ptr %110, i64 %112
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 24
   %115 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %113, i8 0, i64 24, i1 false)
@@ -5527,7 +5514,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN4llvm23SmallVect
   %129 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %130 = load i32, ptr %129, align 8, !tbaa !23
   %131 = zext i32 %130 to i64
-  %132 = getelementptr inbounds nuw %"class.std::function", ptr %128, i64 %131
+  %132 = getelementptr inbounds nuw [32 x i8], ptr %128, i64 %131
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 0, ptr %6, align 1, !tbaa !25
   %133 = getelementptr inbounds i8, ptr %132, i64 -16
@@ -5548,7 +5535,7 @@ _ZNKSt8functionIFvbEEclEb.exit5:                  ; preds = %127
   %139 = load ptr, ptr %74, align 8, !tbaa !24
   %140 = load i32, ptr %129, align 8, !tbaa !23
   %141 = zext i32 %140 to i64
-  %142 = getelementptr inbounds nuw %"class.std::function", ptr %139, i64 %141
+  %142 = getelementptr inbounds nuw [32 x i8], ptr %139, i64 %141
   %143 = getelementptr inbounds i8, ptr %142, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %144 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -5678,7 +5665,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %9
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %25 = load i32, ptr %24, align 8, !tbaa !23
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr %23, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %26
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %21
@@ -6325,7 +6312,7 @@ define linkonce_odr hidden void @_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14
   %11 = load i32, ptr %10, align 4, !tbaa !683
   %12 = zext i32 %11 to i64
   %13 = extractvalue { ptr, i64 } %8, 0
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %12
   %.not10 = icmp eq ptr %6, %14
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -6358,7 +6345,7 @@ define linkonce_odr hidden void @_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14
   %11 = load i32, ptr %10, align 4, !tbaa !683
   %12 = zext i32 %11 to i64
   %13 = extractvalue { ptr, i64 } %8, 0
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %12
   %.not26 = icmp eq ptr %6, %14
   br i1 %.not26, label %._crit_edge, label %.lr.ph
 
@@ -6544,7 +6531,7 @@ define linkonce_odr hidden void @_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %6 = load i32, ptr %5, align 8, !tbaa !692
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %4, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %7
   %.not12 = icmp eq ptr %3, %8
   br i1 %.not12, label %._crit_edge, label %.lr.ph
 
@@ -6653,7 +6640,7 @@ define linkonce_odr hidden void @_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14
 
 13:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
-  %14 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %11, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [24 x i8], ptr %11, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.474.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
   store ptr %0, ptr %4, align 8, !tbaa !89
@@ -6804,7 +6791,7 @@ _ZNK5clang14DeclaratorDecl25getTrailingRequiresClauseEv.exit.thread: ; preds = %
   %73 = load i64, ptr %72, align 8
   %74 = lshr i64 %73, 44
   %75 = and i64 %74, 131071
-  %76 = getelementptr inbounds nuw ptr, ptr %71, i64 %75
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %75
   %.not42110 = icmp eq ptr %70, %76
   br i1 %.not42110, label %.loopexit, label %.lr.ph112
 
@@ -6963,7 +6950,7 @@ define linkonce_odr hidden void @_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14
 
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
-  %10 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %7, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.46.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   store ptr %0, ptr %3, align 8, !tbaa !89
@@ -7018,7 +7005,7 @@ define linkonce_odr hidden void @_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14
 _ZNK5clang21TemplateParameterList17getRequiresClauseEv.exit.i: ; preds = %._crit_edge.i
   %17 = and i32 %15, 536870911
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr %8, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !83
   %.not16.i = icmp eq ptr %20, null
   br i1 %.not16.i, label %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE22dumpTemplateParametersEPKNS_21TemplateParameterListE.exit, label %31
@@ -7073,7 +7060,7 @@ _ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE22dumpTemplatePar
 
 38:                                               ; preds = %.lr.ph, %38
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %38 ]
-  %39 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %36, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [24 x i8], ptr %36, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.46.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %39, i64 24, i1 false)
   store ptr %0, ptr %4, align 8, !tbaa !89
@@ -7179,7 +7166,7 @@ _ZNK5clang23NonTypeTemplateParmDecl28getPlaceholderTypeConstraintEv.exit: ; pred
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %17 = load i32, ptr %16, align 4, !tbaa !762
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw %"struct.std::pair", ptr %15, i64 %18
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !83
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %_ZNK5clang23NonTypeTemplateParmDecl28getPlaceholderTypeConstraintEv.exit.thread, label %21
@@ -7427,7 +7414,7 @@ define linkonce_odr hidden void @_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14
 
 10:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %8, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.46.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
   store ptr %0, ptr %4, align 8, !tbaa !89
@@ -7474,7 +7461,7 @@ _ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE24dumpTemplateArg
 _ZNK5clang21TemplateParameterList17getRequiresClauseEv.exit.i: ; preds = %._crit_edge.i
   %24 = and i32 %22, 536870911
   %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw ptr, ptr %15, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !83
   %.not16.i = icmp eq ptr %27, null
   br i1 %.not16.i, label %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE22dumpTemplateParametersEPKNS_21TemplateParameterListE.exit, label %38
@@ -7665,7 +7652,7 @@ define linkonce_odr hidden void @_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14
 _ZNK5clang21TemplateParameterList17getRequiresClauseEv.exit.i: ; preds = %._crit_edge.i
   %17 = and i32 %15, 536870911
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr %8, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !83
   %.not16.i = icmp eq ptr %20, null
   br i1 %.not16.i, label %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE22dumpTemplateParametersEPKNS_21TemplateParameterListE.exit, label %31
@@ -7838,7 +7825,7 @@ define linkonce_odr hidden void @_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14
 _ZNK5clang21TemplateParameterList17getRequiresClauseEv.exit.i: ; preds = %._crit_edge.i
   %17 = and i32 %15, 536870911
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr %8, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !83
   %.not16.i = icmp eq ptr %20, null
   br i1 %.not16.i, label %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE22dumpTemplateParametersEPKNS_21TemplateParameterListE.exit, label %31
@@ -7945,7 +7932,7 @@ define linkonce_odr hidden void @_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14
 _ZNK5clang21TemplateParameterList17getRequiresClauseEv.exit.i: ; preds = %._crit_edge.i
   %16 = and i32 %14, 536870911
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %7, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !83
   %.not16.i = icmp eq ptr %19, null
   br i1 %.not16.i, label %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE22dumpTemplateParametersEPKNS_21TemplateParameterListE.exit, label %30
@@ -8178,7 +8165,7 @@ _ZZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitERKNS_9Blo
   %24 = phi i32 [ %43, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %23, %_ZZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitERKNS_9BlockDecl7CaptureEENKUlvE_clEv.exit ]
   %25 = load ptr, ptr %21, align 8, !tbaa !24
   %26 = zext i32 %24 to i64
-  %27 = getelementptr inbounds nuw %"class.std::function", ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [32 x i8], ptr %25, i64 %26
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i8 1, ptr %8, align 1, !tbaa !25
   %28 = getelementptr inbounds i8, ptr %27, i64 -16
@@ -8201,7 +8188,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %35, ptr %22, align 8, !tbaa !23
   %36 = load ptr, ptr %21, align 8, !tbaa !24
   %37 = zext i32 %35 to i64
-  %38 = getelementptr inbounds nuw %"class.std::function", ptr %36, i64 %37
+  %38 = getelementptr inbounds nuw [32 x i8], ptr %36, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load ptr, ptr %39, align 8, !tbaa !26
   %.not.i.i1 = icmp eq ptr %40, null
@@ -8365,7 +8352,7 @@ _ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_16ASTNodeTraver
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i, label %106, !prof !57
 
 106:                                              ; preds = %_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_16ASTNodeTraverserINS3_9ASTDumperENS3_14TextNodeDumperEE5VisitERKNS3_9BlockDecl7CaptureEEUlvE_EEvN4llvm9StringRefET_EUlbE_vEEOSH_.exit
-  %107 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i, i64 %102
+  %107 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i, i64 %102
   %108 = icmp uge ptr %10, %.pre3.i
   %109 = icmp ult ptr %10, %107
   %spec.select.i.i.i.i.i = and i1 %108, %109
@@ -8390,7 +8377,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i = phi ptr [ %10, %_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_16ASTNodeTraverserINS3_9ASTDumperENS3_14TextNodeDumperEE5VisitERKNS3_9BlockDecl7CaptureEEUlvE_EEvN4llvm9StringRefET_EUlbE_vEEOSH_.exit ], [ %115, %110 ], [ %10, %.critedge.i.i.i ]
   %117 = load i32, ptr %100, align 8, !tbaa !23
   %118 = zext i32 %117 to i64
-  %119 = getelementptr inbounds nuw %"class.std::function", ptr %116, i64 %118
+  %119 = getelementptr inbounds nuw [32 x i8], ptr %116, i64 %118
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 24
   %121 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %119, i8 0, i64 24, i1 false)
@@ -8430,7 +8417,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN4llvm23SmallVect
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %136 = load i32, ptr %135, align 8, !tbaa !23
   %137 = zext i32 %136 to i64
-  %138 = getelementptr inbounds nuw %"class.std::function", ptr %134, i64 %137
+  %138 = getelementptr inbounds nuw [32 x i8], ptr %134, i64 %137
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 0, ptr %6, align 1, !tbaa !25
   %139 = getelementptr inbounds i8, ptr %138, i64 -16
@@ -8451,7 +8438,7 @@ _ZNKSt8functionIFvbEEclEb.exit5:                  ; preds = %133
   %145 = load ptr, ptr %80, align 8, !tbaa !24
   %146 = load i32, ptr %135, align 8, !tbaa !23
   %147 = zext i32 %146 to i64
-  %148 = getelementptr inbounds nuw %"class.std::function", ptr %145, i64 %147
+  %148 = getelementptr inbounds nuw [32 x i8], ptr %145, i64 %147
   %149 = getelementptr inbounds i8, ptr %148, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %150 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -8782,7 +8769,7 @@ _ZZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitERKNS_9Blo
   %115 = phi i32 [ %134, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %113, %_ZZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitERKNS_9BlockDecl7CaptureEENKUlvE_clEv.exit ]
   %116 = zext i32 %115 to i64
   %117 = load ptr, ptr %103, align 8, !tbaa !24
-  %118 = getelementptr inbounds nuw %"class.std::function", ptr %117, i64 %116
+  %118 = getelementptr inbounds nuw [32 x i8], ptr %117, i64 %116
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !25
   %119 = getelementptr inbounds i8, ptr %118, i64 -16
@@ -8805,7 +8792,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %126, ptr %104, align 8, !tbaa !23
   %127 = load ptr, ptr %103, align 8, !tbaa !24
   %128 = zext i32 %126 to i64
-  %129 = getelementptr inbounds nuw %"class.std::function", ptr %127, i64 %128
+  %129 = getelementptr inbounds nuw [32 x i8], ptr %127, i64 %128
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 16
   %131 = load ptr, ptr %130, align 8, !tbaa !26
   %.not.i.i13 = icmp eq ptr %131, null
@@ -8956,7 +8943,7 @@ define linkonce_odr hidden void @_ZN5clang17TextTreeStructure8AddChildIZNS_16AST
   %21 = phi i32 [ %40, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %20, %17 ]
   %22 = load ptr, ptr %18, align 8, !tbaa !24
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %"class.std::function", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %23
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 1, ptr %9, align 1, !tbaa !25
   %25 = getelementptr inbounds i8, ptr %24, i64 -16
@@ -8979,7 +8966,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %32, ptr %19, align 8, !tbaa !23
   %33 = load ptr, ptr %18, align 8, !tbaa !24
   %34 = zext i32 %32 to i64
-  %35 = getelementptr inbounds nuw %"class.std::function", ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw [32 x i8], ptr %33, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8, !tbaa !26
   %.not.i.i1 = icmp eq ptr %37, null
@@ -9143,7 +9130,7 @@ _ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_16ASTNodeTraver
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i, label %103, !prof !57
 
 103:                                              ; preds = %_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_16ASTNodeTraverserINS3_9ASTDumperENS3_14TextNodeDumperEE5VisitEPKNS3_9OMPClauseEEUlvE_EEvN4llvm9StringRefET_EUlbE_vEEOSG_.exit
-  %104 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i, i64 %99
+  %104 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i, i64 %99
   %105 = icmp uge ptr %12, %.pre3.i
   %106 = icmp ult ptr %12, %104
   %spec.select.i.i.i.i.i = and i1 %105, %106
@@ -9168,7 +9155,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i = phi ptr [ %12, %_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_16ASTNodeTraverserINS3_9ASTDumperENS3_14TextNodeDumperEE5VisitEPKNS3_9OMPClauseEEUlvE_EEvN4llvm9StringRefET_EUlbE_vEEOSG_.exit ], [ %112, %107 ], [ %12, %.critedge.i.i.i ]
   %114 = load i32, ptr %97, align 8, !tbaa !23
   %115 = zext i32 %114 to i64
-  %116 = getelementptr inbounds nuw %"class.std::function", ptr %113, i64 %115
+  %116 = getelementptr inbounds nuw [32 x i8], ptr %113, i64 %115
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 24
   %118 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %116, i8 0, i64 24, i1 false)
@@ -9208,7 +9195,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN4llvm23SmallVect
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %133 = load i32, ptr %132, align 8, !tbaa !23
   %134 = zext i32 %133 to i64
-  %135 = getelementptr inbounds nuw %"class.std::function", ptr %131, i64 %134
+  %135 = getelementptr inbounds nuw [32 x i8], ptr %131, i64 %134
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 1, !tbaa !25
   %136 = getelementptr inbounds i8, ptr %135, i64 -16
@@ -9229,7 +9216,7 @@ _ZNKSt8functionIFvbEEclEb.exit5:                  ; preds = %130
   %142 = load ptr, ptr %77, align 8, !tbaa !24
   %143 = load i32, ptr %132, align 8, !tbaa !23
   %144 = zext i32 %143 to i64
-  %145 = getelementptr inbounds nuw %"class.std::function", ptr %142, i64 %144
+  %145 = getelementptr inbounds nuw [32 x i8], ptr %142, i64 %144
   %146 = getelementptr inbounds i8, ptr %145, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %147 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -9633,7 +9620,7 @@ _ZN5clang10ColorScopeD2Ev.exit:                   ; preds = %_ZNSt7__cxx1112basi
   %109 = phi i32 [ %128, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %107, %_ZN5clang10ColorScopeD2Ev.exit ]
   %110 = zext i32 %109 to i64
   %111 = load ptr, ptr %103, align 8, !tbaa !24
-  %112 = getelementptr inbounds nuw %"class.std::function", ptr %111, i64 %110
+  %112 = getelementptr inbounds nuw [32 x i8], ptr %111, i64 %110
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !25
   %113 = getelementptr inbounds i8, ptr %112, i64 -16
@@ -9656,7 +9643,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %120, ptr %104, align 8, !tbaa !23
   %121 = load ptr, ptr %103, align 8, !tbaa !24
   %122 = zext i32 %120 to i64
-  %123 = getelementptr inbounds nuw %"class.std::function", ptr %121, i64 %122
+  %123 = getelementptr inbounds nuw [32 x i8], ptr %121, i64 %122
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 16
   %125 = load ptr, ptr %124, align 8, !tbaa !26
   %.not.i.i12 = icmp eq ptr %125, null
@@ -9862,7 +9849,7 @@ define linkonce_odr hidden void @_ZN5clang17TextTreeStructure8AddChildIZNS_16AST
   %22 = phi i32 [ %41, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %21, %15 ]
   %23 = load ptr, ptr %19, align 8, !tbaa !24
   %24 = zext i32 %22 to i64
-  %25 = getelementptr inbounds nuw %"class.std::function", ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %24
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 1, ptr %9, align 1, !tbaa !25
   %26 = getelementptr inbounds i8, ptr %25, i64 -16
@@ -9885,7 +9872,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %33, ptr %20, align 8, !tbaa !23
   %34 = load ptr, ptr %19, align 8, !tbaa !24
   %35 = zext i32 %33 to i64
-  %36 = getelementptr inbounds nuw %"class.std::function", ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [32 x i8], ptr %34, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8, !tbaa !26
   %.not.i.i1 = icmp eq ptr %38, null
@@ -10051,7 +10038,7 @@ _ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_16ASTNodeTraver
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i, label %104, !prof !57
 
 104:                                              ; preds = %_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_16ASTNodeTraverserINS3_9ASTDumperENS3_14TextNodeDumperEE5VisitEPKNS3_18CXXCtorInitializerEEUlvE_EEvN4llvm9StringRefET_EUlbE_vEEOSG_.exit
-  %105 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i, i64 %100
+  %105 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i, i64 %100
   %106 = icmp uge ptr %11, %.pre3.i
   %107 = icmp ult ptr %11, %105
   %spec.select.i.i.i.i.i = and i1 %106, %107
@@ -10076,7 +10063,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i = phi ptr [ %11, %_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_16ASTNodeTraverserINS3_9ASTDumperENS3_14TextNodeDumperEE5VisitEPKNS3_18CXXCtorInitializerEEUlvE_EEvN4llvm9StringRefET_EUlbE_vEEOSG_.exit ], [ %113, %108 ], [ %11, %.critedge.i.i.i ]
   %115 = load i32, ptr %98, align 8, !tbaa !23
   %116 = zext i32 %115 to i64
-  %117 = getelementptr inbounds nuw %"class.std::function", ptr %114, i64 %116
+  %117 = getelementptr inbounds nuw [32 x i8], ptr %114, i64 %116
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 24
   %119 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %117, i8 0, i64 24, i1 false)
@@ -10116,7 +10103,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN4llvm23SmallVect
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %134 = load i32, ptr %133, align 8, !tbaa !23
   %135 = zext i32 %134 to i64
-  %136 = getelementptr inbounds nuw %"class.std::function", ptr %132, i64 %135
+  %136 = getelementptr inbounds nuw [32 x i8], ptr %132, i64 %135
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 1, !tbaa !25
   %137 = getelementptr inbounds i8, ptr %136, i64 -16
@@ -10137,7 +10124,7 @@ _ZNKSt8functionIFvbEEclEb.exit5:                  ; preds = %131
   %143 = load ptr, ptr %78, align 8, !tbaa !24
   %144 = load i32, ptr %133, align 8, !tbaa !23
   %145 = zext i32 %144 to i64
-  %146 = getelementptr inbounds nuw %"class.std::function", ptr %143, i64 %145
+  %146 = getelementptr inbounds nuw [32 x i8], ptr %143, i64 %145
   %147 = getelementptr inbounds i8, ptr %146, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %148 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -10463,7 +10450,7 @@ _ZN5clang10ColorScopeD2Ev.exit:                   ; preds = %_ZNSt7__cxx1112basi
   %116 = phi i32 [ %135, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %114, %_ZN5clang10ColorScopeD2Ev.exit ]
   %117 = zext i32 %116 to i64
   %118 = load ptr, ptr %103, align 8, !tbaa !24
-  %119 = getelementptr inbounds nuw %"class.std::function", ptr %118, i64 %117
+  %119 = getelementptr inbounds nuw [32 x i8], ptr %118, i64 %117
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !25
   %120 = getelementptr inbounds i8, ptr %119, i64 -16
@@ -10486,7 +10473,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %127, ptr %104, align 8, !tbaa !23
   %128 = load ptr, ptr %103, align 8, !tbaa !24
   %129 = zext i32 %127 to i64
-  %130 = getelementptr inbounds nuw %"class.std::function", ptr %128, i64 %129
+  %130 = getelementptr inbounds nuw [32 x i8], ptr %128, i64 %129
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 16
   %132 = load ptr, ptr %131, align 8, !tbaa !26
   %.not.i.i12 = icmp eq ptr %132, null
@@ -10626,7 +10613,7 @@ define linkonce_odr hidden void @_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14
 
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %5, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.48.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   store ptr %0, ptr %3, align 8, !tbaa !89
@@ -10687,7 +10674,7 @@ define linkonce_odr hidden void @_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14
 _ZNK5clang21TemplateParameterList17getRequiresClauseEv.exit: ; preds = %._crit_edge
   %14 = and i32 %12, 536870911
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %5, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !83
   %.not16 = icmp eq ptr %17, null
   br i1 %.not16, label %_ZNK5clang21TemplateParameterList17getRequiresClauseEv.exit.thread, label %28
@@ -10820,7 +10807,7 @@ _ZZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4Typ
   %37 = phi i32 [ %56, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %36, %_ZZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4TypeEENKUlvE_clEv.exit ]
   %38 = load ptr, ptr %34, align 8, !tbaa !24
   %39 = zext i32 %37 to i64
-  %40 = getelementptr inbounds nuw %"class.std::function", ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [32 x i8], ptr %38, i64 %39
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 1, ptr %9, align 1, !tbaa !25
   %41 = getelementptr inbounds i8, ptr %40, i64 -16
@@ -10843,7 +10830,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %48, ptr %35, align 8, !tbaa !23
   %49 = load ptr, ptr %34, align 8, !tbaa !24
   %50 = zext i32 %48 to i64
-  %51 = getelementptr inbounds nuw %"class.std::function", ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [32 x i8], ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %53 = load ptr, ptr %52, align 8, !tbaa !26
   %.not.i.i2 = icmp eq ptr %53, null
@@ -11008,7 +10995,7 @@ _ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_16ASTNodeTraver
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i, label %118, !prof !57
 
 118:                                              ; preds = %_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_16ASTNodeTraverserINS3_9ASTDumperENS3_14TextNodeDumperEE5VisitEPKNS3_4TypeEEUlvE_EEvN4llvm9StringRefET_EUlbE_vEEOSG_.exit
-  %119 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i, i64 %114
+  %119 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i, i64 %114
   %120 = icmp uge ptr %11, %.pre3.i
   %121 = icmp ult ptr %11, %119
   %spec.select.i.i.i.i.i = and i1 %120, %121
@@ -11033,7 +11020,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i = phi ptr [ %11, %_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_16ASTNodeTraverserINS3_9ASTDumperENS3_14TextNodeDumperEE5VisitEPKNS3_4TypeEEUlvE_EEvN4llvm9StringRefET_EUlbE_vEEOSG_.exit ], [ %127, %122 ], [ %11, %.critedge.i.i.i ]
   %129 = load i32, ptr %112, align 8, !tbaa !23
   %130 = zext i32 %129 to i64
-  %131 = getelementptr inbounds nuw %"class.std::function", ptr %128, i64 %130
+  %131 = getelementptr inbounds nuw [32 x i8], ptr %128, i64 %130
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 24
   %133 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %131, i8 0, i64 24, i1 false)
@@ -11073,7 +11060,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN4llvm23SmallVect
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %148 = load i32, ptr %147, align 8, !tbaa !23
   %149 = zext i32 %148 to i64
-  %150 = getelementptr inbounds nuw %"class.std::function", ptr %146, i64 %149
+  %150 = getelementptr inbounds nuw [32 x i8], ptr %146, i64 %149
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 1, !tbaa !25
   %151 = getelementptr inbounds i8, ptr %150, i64 -16
@@ -11094,7 +11081,7 @@ _ZNKSt8functionIFvbEEclEb.exit6:                  ; preds = %145
   %157 = load ptr, ptr %93, align 8, !tbaa !24
   %158 = load i32, ptr %147, align 8, !tbaa !23
   %159 = zext i32 %158 to i64
-  %160 = getelementptr inbounds nuw %"class.std::function", ptr %157, i64 %159
+  %160 = getelementptr inbounds nuw [32 x i8], ptr %157, i64 %159
   %161 = getelementptr inbounds i8, ptr %160, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %162 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -12194,7 +12181,7 @@ _ZZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4Typ
   %133 = phi i32 [ %152, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %131, %_ZZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4TypeEENKUlvE_clEv.exit ]
   %134 = zext i32 %133 to i64
   %135 = load ptr, ptr %103, align 8, !tbaa !24
-  %136 = getelementptr inbounds nuw %"class.std::function", ptr %135, i64 %134
+  %136 = getelementptr inbounds nuw [32 x i8], ptr %135, i64 %134
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !25
   %137 = getelementptr inbounds i8, ptr %136, i64 -16
@@ -12217,7 +12204,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %144, ptr %104, align 8, !tbaa !23
   %145 = load ptr, ptr %103, align 8, !tbaa !24
   %146 = zext i32 %144 to i64
-  %147 = getelementptr inbounds nuw %"class.std::function", ptr %145, i64 %146
+  %147 = getelementptr inbounds nuw [32 x i8], ptr %145, i64 %146
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 16
   %149 = load ptr, ptr %148, align 8, !tbaa !26
   %.not.i.i14 = icmp eq ptr %149, null
@@ -12366,7 +12353,7 @@ define linkonce_odr hidden void @_ZN5clang17TextTreeStructure8AddChildIZNS_16AST
   %20 = phi i32 [ %39, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %19, %15 ]
   %21 = load ptr, ptr %17, align 8, !tbaa !24
   %22 = zext i32 %20 to i64
-  %23 = getelementptr inbounds nuw %"class.std::function", ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 %22
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 1, ptr %9, align 1, !tbaa !25
   %24 = getelementptr inbounds i8, ptr %23, i64 -16
@@ -12389,7 +12376,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %31, ptr %18, align 8, !tbaa !23
   %32 = load ptr, ptr %17, align 8, !tbaa !24
   %33 = zext i32 %31 to i64
-  %34 = getelementptr inbounds nuw %"class.std::function", ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [32 x i8], ptr %32, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8, !tbaa !26
   %.not.i.i1 = icmp eq ptr %36, null
@@ -12555,7 +12542,7 @@ _ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_16ASTNodeTraver
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i, label %102, !prof !57
 
 102:                                              ; preds = %_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_16ASTNodeTraverserINS3_9ASTDumperENS3_14TextNodeDumperEE5VisitEPKNS3_4AttrEEUlvE_EEvN4llvm9StringRefET_EUlbE_vEEOSG_.exit
-  %103 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i, i64 %98
+  %103 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i, i64 %98
   %104 = icmp uge ptr %11, %.pre3.i
   %105 = icmp ult ptr %11, %103
   %spec.select.i.i.i.i.i = and i1 %104, %105
@@ -12580,7 +12567,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i = phi ptr [ %11, %_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_16ASTNodeTraverserINS3_9ASTDumperENS3_14TextNodeDumperEE5VisitEPKNS3_4AttrEEUlvE_EEvN4llvm9StringRefET_EUlbE_vEEOSG_.exit ], [ %111, %106 ], [ %11, %.critedge.i.i.i ]
   %113 = load i32, ptr %96, align 8, !tbaa !23
   %114 = zext i32 %113 to i64
-  %115 = getelementptr inbounds nuw %"class.std::function", ptr %112, i64 %114
+  %115 = getelementptr inbounds nuw [32 x i8], ptr %112, i64 %114
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 24
   %117 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %115, i8 0, i64 24, i1 false)
@@ -12620,7 +12607,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN4llvm23SmallVect
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %132 = load i32, ptr %131, align 8, !tbaa !23
   %133 = zext i32 %132 to i64
-  %134 = getelementptr inbounds nuw %"class.std::function", ptr %130, i64 %133
+  %134 = getelementptr inbounds nuw [32 x i8], ptr %130, i64 %133
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 1, !tbaa !25
   %135 = getelementptr inbounds i8, ptr %134, i64 -16
@@ -12641,7 +12628,7 @@ _ZNKSt8functionIFvbEEclEb.exit5:                  ; preds = %129
   %141 = load ptr, ptr %76, align 8, !tbaa !24
   %142 = load i32, ptr %131, align 8, !tbaa !23
   %143 = zext i32 %142 to i64
-  %144 = getelementptr inbounds nuw %"class.std::function", ptr %141, i64 %143
+  %144 = getelementptr inbounds nuw [32 x i8], ptr %141, i64 %143
   %145 = getelementptr inbounds i8, ptr %144, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %146 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -14303,7 +14290,7 @@ _ZN5clang10ColorScopeD2Ev.exit:                   ; preds = %_ZNSt7__cxx1112basi
   %114 = phi i32 [ %133, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %112, %_ZN5clang10ColorScopeD2Ev.exit ]
   %115 = zext i32 %114 to i64
   %116 = load ptr, ptr %103, align 8, !tbaa !24
-  %117 = getelementptr inbounds nuw %"class.std::function", ptr %116, i64 %115
+  %117 = getelementptr inbounds nuw [32 x i8], ptr %116, i64 %115
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !25
   %118 = getelementptr inbounds i8, ptr %117, i64 -16
@@ -14326,7 +14313,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %125, ptr %104, align 8, !tbaa !23
   %126 = load ptr, ptr %103, align 8, !tbaa !24
   %127 = zext i32 %125 to i64
-  %128 = getelementptr inbounds nuw %"class.std::function", ptr %126, i64 %127
+  %128 = getelementptr inbounds nuw [32 x i8], ptr %126, i64 %127
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 16
   %130 = load ptr, ptr %129, align 8, !tbaa !26
   %.not.i.i12 = icmp eq ptr %130, null
@@ -14678,7 +14665,7 @@ _ZN5clang10ColorScopeD2Ev.exit:                   ; preds = %_ZNSt7__cxx1112basi
   %109 = phi i32 [ %128, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %107, %_ZN5clang10ColorScopeD2Ev.exit ]
   %110 = zext i32 %109 to i64
   %111 = load ptr, ptr %103, align 8, !tbaa !24
-  %112 = getelementptr inbounds nuw %"class.std::function", ptr %111, i64 %110
+  %112 = getelementptr inbounds nuw [32 x i8], ptr %111, i64 %110
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !25
   %113 = getelementptr inbounds i8, ptr %112, i64 -16
@@ -14701,7 +14688,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %120, ptr %104, align 8, !tbaa !23
   %121 = load ptr, ptr %103, align 8, !tbaa !24
   %122 = zext i32 %120 to i64
-  %123 = getelementptr inbounds nuw %"class.std::function", ptr %121, i64 %122
+  %123 = getelementptr inbounds nuw [32 x i8], ptr %121, i64 %122
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 16
   %125 = load ptr, ptr %124, align 8, !tbaa !26
   %.not.i.i12 = icmp eq ptr %125, null
@@ -14945,7 +14932,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit10:               ; preds = %46, %48
   %81 = load i32, ptr %80, align 8, !noalias !1069
   %82 = select i1 %.not.i.i.i.i.i.i.i, i32 %81, i32 4
   %83 = zext i32 %82 to i64
-  %84 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %79, i64 %83
+  %84 = getelementptr inbounds nuw [16 x i8], ptr %79, i64 %83
   br label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang15DeclarationNameENS2_15StoredDeclsListELj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_E5beginEv.exit.i
 
 85:                                               ; preds = %73
@@ -14979,7 +14966,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang15DeclarationNameENS2_15StoredD
   %.pre-phi = phi ptr [ %79, %76 ], [ %89, %85 ], [ %89, %.lr.ph.i6.i12.i5.i.i ], [ %89, %.critedge2.i9.i15.i12.i.i ]
   %.pn17.i.i = phi ptr [ %84, %76 ], [ %89, %85 ], [ %94, %.critedge2.i9.i15.i12.i.i ], [ %.sroa.0.3.i6.i.i, %.lr.ph.i6.i12.i5.i.i ]
   %.pn15.i.i = phi ptr [ %84, %76 ], [ %94, %85 ], [ %94, %.lr.ph.i6.i12.i5.i.i ], [ %94, %.critedge2.i9.i15.i12.i.i ]
-  %96 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.pre-phi, i64 %.pre-phi97
+  %96 = getelementptr inbounds nuw [16 x i8], ptr %.pre-phi, i64 %.pre-phi97
   br label %_ZNK5clang11DeclContext7lookupsEv.exit
 
 97:                                               ; preds = %52
@@ -15001,7 +14988,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang15DeclarationNameENS2_15StoredD
   %107 = load i32, ptr %106, align 8, !noalias !1075
   %108 = select i1 %.not.i.i.i.i.i.i.i32, i32 %107, i32 4
   %109 = zext i32 %108 to i64
-  %110 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %105, i64 %109
+  %110 = getelementptr inbounds nuw [16 x i8], ptr %105, i64 %109
   br label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang15DeclarationNameENS2_15StoredDeclsListELj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_E5beginEv.exit.i19
 
 111:                                              ; preds = %99
@@ -15035,7 +15022,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang15DeclarationNameENS2_15StoredD
   %.pre-phi98 = phi ptr [ %105, %102 ], [ %115, %111 ], [ %115, %.lr.ph.i6.i12.i5.i.i15 ], [ %115, %.critedge2.i9.i15.i12.i.i30 ]
   %.pn17.i.i21 = phi ptr [ %110, %102 ], [ %115, %111 ], [ %120, %.critedge2.i9.i15.i12.i.i30 ], [ %.sroa.0.3.i6.i.i16, %.lr.ph.i6.i12.i5.i.i15 ]
   %.pn15.i.i22 = phi ptr [ %110, %102 ], [ %120, %111 ], [ %120, %.lr.ph.i6.i12.i5.i.i15 ], [ %120, %.critedge2.i9.i15.i12.i.i30 ]
-  %122 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.pre-phi98, i64 %.pre-phi100
+  %122 = getelementptr inbounds nuw [16 x i8], ptr %.pre-phi98, i64 %.pre-phi100
   br label %_ZNK5clang11DeclContext7lookupsEv.exit
 
 _ZNK5clang11DeclContext7lookupsEv.exit:           ; preds = %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang15DeclarationNameENS2_15StoredDeclsListELj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_E5beginEv.exit.i19, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang15DeclarationNameENS2_15StoredDeclsListELj4ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_E5beginEv.exit.i
@@ -15104,7 +15091,7 @@ _ZN5clang11DeclContext20all_lookups_iteratorppEv.exit: ; preds = %_ZN5clang11Dec
   %150 = phi i32 [ %169, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i ], [ %149, %148 ]
   %151 = load ptr, ptr %130, align 8, !tbaa !24
   %152 = zext i32 %150 to i64
-  %153 = getelementptr inbounds nuw %"class.std::function", ptr %151, i64 %152
+  %153 = getelementptr inbounds nuw [32 x i8], ptr %151, i64 %152
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 1, ptr %9, align 1, !tbaa !25
   %154 = getelementptr inbounds i8, ptr %153, i64 -16
@@ -15127,7 +15114,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i:               ; preds = %.lr.ph.i.i
   store i32 %161, ptr %131, align 8, !tbaa !23
   %162 = load ptr, ptr %130, align 8, !tbaa !24
   %163 = zext i32 %161 to i64
-  %164 = getelementptr inbounds nuw %"class.std::function", ptr %162, i64 %163
+  %164 = getelementptr inbounds nuw [32 x i8], ptr %162, i64 %163
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 16
   %166 = load ptr, ptr %165, align 8, !tbaa !26
   %.not.i.i1.i.i = icmp eq ptr %166, null
@@ -15207,7 +15194,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i.i:             ; preds = %179, %177
   br i1 %.not.i.i.not.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i.i.i, label %192, !prof !57
 
 192:                                              ; preds = %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZZNS3_9ASTDumper11dumpLookupsEPKNS3_11DeclContextEbENK3$_0clEvEUlvE_EEvN4llvm9StringRefET_EUlbE_vEEOSE_.exit.i.i"
-  %193 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i.i.i, i64 %189
+  %193 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i.i.i, i64 %189
   %194 = icmp uge ptr %11, %.pre3.i.i.i
   %195 = icmp ult ptr %11, %193
   %spec.select.i.i.i.i.i.i.i = and i1 %194, %195
@@ -15231,7 +15218,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i.i.i = phi ptr [ %11, %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZZNS3_9ASTDumper11dumpLookupsEPKNS3_11DeclContextEbENK3$_0clEvEUlvE_EEvN4llvm9StringRefET_EUlbE_vEEOSE_.exit.i.i" ], [ %200, %196 ], [ %11, %.critedge.i.i.i.i.i ]
   %202 = load i32, ptr %131, align 8, !tbaa !23
   %203 = zext i32 %202 to i64
-  %204 = getelementptr inbounds nuw %"class.std::function", ptr %201, i64 %203
+  %204 = getelementptr inbounds nuw [32 x i8], ptr %201, i64 %203
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 24
   %206 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %204, i8 0, i64 24, i1 false)
@@ -15270,7 +15257,7 @@ _ZNSt14_Function_baseD2Ev.exit.i.i:               ; preds = %216, %_ZN4llvm23Sma
   %219 = load ptr, ptr %130, align 8, !tbaa !24
   %220 = load i32, ptr %131, align 8, !tbaa !23
   %221 = zext i32 %220 to i64
-  %222 = getelementptr inbounds nuw %"class.std::function", ptr %219, i64 %221
+  %222 = getelementptr inbounds nuw [32 x i8], ptr %219, i64 %221
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i8 0, ptr %8, align 1, !tbaa !25
   %223 = getelementptr inbounds i8, ptr %222, i64 -16
@@ -15291,7 +15278,7 @@ _ZNKSt8functionIFvbEEclEb.exit5.i.i:              ; preds = %218
   %229 = load ptr, ptr %130, align 8, !tbaa !24
   %230 = load i32, ptr %131, align 8, !tbaa !23
   %231 = zext i32 %230 to i64
-  %232 = getelementptr inbounds nuw %"class.std::function", ptr %229, i64 %231
+  %232 = getelementptr inbounds nuw [32 x i8], ptr %229, i64 %231
   %233 = getelementptr inbounds i8, ptr %232, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i64 0, ptr %132, align 8
@@ -15479,7 +15466,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i.i.i:           ; preds = %292, %290
   %303 = phi i32 [ %322, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i56 ], [ %302, %"_ZZZN5clang9ASTDumper11dumpLookupsEPKNS_11DeclContextEbENK3$_0clEvENKUlvE0_clEv.exit.i.i" ]
   %304 = load ptr, ptr %300, align 8, !tbaa !24
   %305 = zext i32 %303 to i64
-  %306 = getelementptr inbounds nuw %"class.std::function", ptr %304, i64 %305
+  %306 = getelementptr inbounds nuw [32 x i8], ptr %304, i64 %305
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 1, ptr %4, align 1, !tbaa !25
   %307 = getelementptr inbounds i8, ptr %306, i64 -16
@@ -15502,7 +15489,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i53:             ; preds = %.lr.ph.i.i51
   store i32 %314, ptr %301, align 8, !tbaa !23
   %315 = load ptr, ptr %300, align 8, !tbaa !24
   %316 = zext i32 %314 to i64
-  %317 = getelementptr inbounds nuw %"class.std::function", ptr %315, i64 %316
+  %317 = getelementptr inbounds nuw [32 x i8], ptr %315, i64 %316
   %318 = getelementptr inbounds nuw i8, ptr %317, i64 16
   %319 = load ptr, ptr %318, align 8, !tbaa !26
   %.not.i.i1.i.i54 = icmp eq ptr %319, null
@@ -15596,7 +15583,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i.i59:           ; preds = %334, %332
   br i1 %.not.i.i.not.i.i.i42, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i.i.i46, label %359, !prof !57
 
 359:                                              ; preds = %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZZNS3_9ASTDumper11dumpLookupsEPKNS3_11DeclContextEbENK3$_0clEvEUlvE0_EEvN4llvm9StringRefET_EUlbE_vEEOSE_.exit.i.i"
-  %360 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i.i.i43, i64 %355
+  %360 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i.i.i43, i64 %355
   %361 = icmp uge ptr %6, %.pre3.i.i.i43
   %362 = icmp ult ptr %6, %360
   %spec.select.i.i.i.i.i.i.i44 = and i1 %361, %362
@@ -15621,7 +15608,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i.i.i47 = phi ptr [ %6, %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZZNS3_9ASTDumper11dumpLookupsEPKNS3_11DeclContextEbENK3$_0clEvEUlvE0_EEvN4llvm9StringRefET_EUlbE_vEEOSE_.exit.i.i" ], [ %368, %363 ], [ %6, %.critedge.i.i.i.i.i45 ]
   %370 = load i32, ptr %353, align 8, !tbaa !23
   %371 = zext i32 %370 to i64
-  %372 = getelementptr inbounds nuw %"class.std::function", ptr %369, i64 %371
+  %372 = getelementptr inbounds nuw [32 x i8], ptr %369, i64 %371
   %373 = getelementptr inbounds nuw i8, ptr %372, i64 24
   %374 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i47, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %372, i8 0, i64 24, i1 false)
@@ -15661,7 +15648,7 @@ _ZNSt14_Function_baseD2Ev.exit.i.i50:             ; preds = %384, %_ZN4llvm23Sma
   %388 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %389 = load i32, ptr %388, align 8, !tbaa !23
   %390 = zext i32 %389 to i64
-  %391 = getelementptr inbounds nuw %"class.std::function", ptr %387, i64 %390
+  %391 = getelementptr inbounds nuw [32 x i8], ptr %387, i64 %390
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 0, ptr %3, align 1, !tbaa !25
   %392 = getelementptr inbounds i8, ptr %391, i64 -16
@@ -15682,7 +15669,7 @@ _ZNKSt8functionIFvbEEclEb.exit6.i.i:              ; preds = %386
   %398 = load ptr, ptr %345, align 8, !tbaa !24
   %399 = load i32, ptr %388, align 8, !tbaa !23
   %400 = zext i32 %399 to i64
-  %401 = getelementptr inbounds nuw %"class.std::function", ptr %398, i64 %400
+  %401 = getelementptr inbounds nuw [32 x i8], ptr %398, i64 %400
   %402 = getelementptr inbounds i8, ptr %401, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %403 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -15926,7 +15913,7 @@ _ZN5clang10ColorScopeD2Ev.exit:                   ; preds = %_ZN4llvm11raw_ostre
   %84 = phi i32 [ %103, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i ], [ %83, %82 ]
   %85 = load ptr, ptr %66, align 8, !tbaa !24
   %86 = zext i32 %84 to i64
-  %87 = getelementptr inbounds nuw %"class.std::function", ptr %85, i64 %86
+  %87 = getelementptr inbounds nuw [32 x i8], ptr %85, i64 %86
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i8 1, ptr %4, align 1, !tbaa !25
   %88 = getelementptr inbounds i8, ptr %87, i64 -16
@@ -15949,7 +15936,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i:               ; preds = %.lr.ph.i.i
   store i32 %95, ptr %67, align 8, !tbaa !23
   %96 = load ptr, ptr %66, align 8, !tbaa !24
   %97 = zext i32 %95 to i64
-  %98 = getelementptr inbounds nuw %"class.std::function", ptr %96, i64 %97
+  %98 = getelementptr inbounds nuw [32 x i8], ptr %96, i64 %97
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 16
   %100 = load ptr, ptr %99, align 8, !tbaa !26
   %.not.i.i1.i.i = icmp eq ptr %100, null
@@ -16029,7 +16016,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i.i:             ; preds = %113, %111
   br i1 %.not.i.i.not.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i.i.i, label %126, !prof !57
 
 126:                                              ; preds = %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZZZNS3_9ASTDumper11dumpLookupsEPKNS3_11DeclContextEbENK3$_0clEvENKUlvE_clEvEUlvE_EEvN4llvm9StringRefET_EUlbE_vEEOSF_.exit.i.i"
-  %127 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i.i.i, i64 %123
+  %127 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i.i.i, i64 %123
   %128 = icmp uge ptr %6, %.pre3.i.i.i
   %129 = icmp ult ptr %6, %127
   %spec.select.i.i.i.i.i.i.i = and i1 %128, %129
@@ -16053,7 +16040,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i.i.i = phi ptr [ %6, %"_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZZZNS3_9ASTDumper11dumpLookupsEPKNS3_11DeclContextEbENK3$_0clEvENKUlvE_clEvEUlvE_EEvN4llvm9StringRefET_EUlbE_vEEOSF_.exit.i.i" ], [ %134, %130 ], [ %6, %.critedge.i.i.i.i.i ]
   %136 = load i32, ptr %67, align 8, !tbaa !23
   %137 = zext i32 %136 to i64
-  %138 = getelementptr inbounds nuw %"class.std::function", ptr %135, i64 %137
+  %138 = getelementptr inbounds nuw [32 x i8], ptr %135, i64 %137
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 24
   %140 = getelementptr inbounds nuw i8, ptr %.016.i.i.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %138, i8 0, i64 24, i1 false)
@@ -16092,7 +16079,7 @@ _ZNSt14_Function_baseD2Ev.exit.i.i:               ; preds = %150, %_ZN4llvm23Sma
   %153 = load ptr, ptr %66, align 8, !tbaa !24
   %154 = load i32, ptr %67, align 8, !tbaa !23
   %155 = zext i32 %154 to i64
-  %156 = getelementptr inbounds nuw %"class.std::function", ptr %153, i64 %155
+  %156 = getelementptr inbounds nuw [32 x i8], ptr %153, i64 %155
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 0, ptr %3, align 1, !tbaa !25
   %157 = getelementptr inbounds i8, ptr %156, i64 -16
@@ -16113,7 +16100,7 @@ _ZNKSt8functionIFvbEEclEb.exit5.i.i:              ; preds = %152
   %163 = load ptr, ptr %66, align 8, !tbaa !24
   %164 = load i32, ptr %67, align 8, !tbaa !23
   %165 = zext i32 %164 to i64
-  %166 = getelementptr inbounds nuw %"class.std::function", ptr %163, i64 %165
+  %166 = getelementptr inbounds nuw [32 x i8], ptr %163, i64 %165
   %167 = getelementptr inbounds i8, ptr %166, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store i64 0, ptr %68, align 8
@@ -16666,7 +16653,7 @@ _ZN5clang10ColorScopeD2Ev.exit.i.i.i:             ; preds = %98, %_ZNSt7__cxx111
   %110 = phi i32 [ %129, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i ], [ %108, %_ZN5clang10ColorScopeD2Ev.exit.i.i.i ]
   %111 = zext i32 %110 to i64
   %112 = load ptr, ptr %104, align 8, !tbaa !24
-  %113 = getelementptr inbounds nuw %"class.std::function", ptr %112, i64 %111
+  %113 = getelementptr inbounds nuw [32 x i8], ptr %112, i64 %111
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !25
   %114 = getelementptr inbounds i8, ptr %113, i64 -16
@@ -16689,7 +16676,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i.i:             ; preds = %.lr.ph.i.i.i
   store i32 %121, ptr %105, align 8, !tbaa !23
   %122 = load ptr, ptr %104, align 8, !tbaa !24
   %123 = zext i32 %121 to i64
-  %124 = getelementptr inbounds nuw %"class.std::function", ptr %122, i64 %123
+  %124 = getelementptr inbounds nuw [32 x i8], ptr %122, i64 %123
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 16
   %126 = load ptr, ptr %125, align 8, !tbaa !26
   %.not.i.i12.i.i.i = icmp eq ptr %126, null
@@ -17011,7 +16998,7 @@ _ZN5clang10ColorScopeD2Ev.exit.i.i.i:             ; preds = %98, %_ZNSt7__cxx111
   %110 = phi i32 [ %129, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i ], [ %108, %_ZN5clang10ColorScopeD2Ev.exit.i.i.i ]
   %111 = zext i32 %110 to i64
   %112 = load ptr, ptr %104, align 8, !tbaa !24
-  %113 = getelementptr inbounds nuw %"class.std::function", ptr %112, i64 %111
+  %113 = getelementptr inbounds nuw [32 x i8], ptr %112, i64 %111
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !25
   %114 = getelementptr inbounds i8, ptr %113, i64 -16
@@ -17034,7 +17021,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i.i:             ; preds = %.lr.ph.i.i.i
   store i32 %121, ptr %105, align 8, !tbaa !23
   %122 = load ptr, ptr %104, align 8, !tbaa !24
   %123 = zext i32 %121 to i64
-  %124 = getelementptr inbounds nuw %"class.std::function", ptr %122, i64 %123
+  %124 = getelementptr inbounds nuw [32 x i8], ptr %122, i64 %123
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 16
   %126 = load ptr, ptr %125, align 8, !tbaa !26
   %.not.i.i12.i.i.i = icmp eq ptr %126, null
@@ -17405,7 +17392,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i.i.i.i:         ; preds = %129, %127
   %139 = phi i32 [ %158, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i ], [ %137, %"_ZZZN5clang9ASTDumper11dumpLookupsEPKNS_11DeclContextEbENK3$_0clEvENKUlvE0_clEv.exit.i.i.i" ]
   %140 = zext i32 %139 to i64
   %141 = load ptr, ptr %104, align 8, !tbaa !24
-  %142 = getelementptr inbounds nuw %"class.std::function", ptr %141, i64 %140
+  %142 = getelementptr inbounds nuw [32 x i8], ptr %141, i64 %140
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !25
   %143 = getelementptr inbounds i8, ptr %142, i64 -16
@@ -17428,7 +17415,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i.i:             ; preds = %.lr.ph.i.i.i
   store i32 %150, ptr %105, align 8, !tbaa !23
   %151 = load ptr, ptr %104, align 8, !tbaa !24
   %152 = zext i32 %150 to i64
-  %153 = getelementptr inbounds nuw %"class.std::function", ptr %151, i64 %152
+  %153 = getelementptr inbounds nuw [32 x i8], ptr %151, i64 %152
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 16
   %155 = load ptr, ptr %154, align 8, !tbaa !26
   %.not.i.i13.i.i.i = icmp eq ptr %155, null
@@ -17750,7 +17737,7 @@ _ZN5clang10ColorScopeD2Ev.exit.i.i.i:             ; preds = %98, %_ZNSt7__cxx111
   %110 = phi i32 [ %129, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit.i.i.i ], [ %108, %_ZN5clang10ColorScopeD2Ev.exit.i.i.i ]
   %111 = zext i32 %110 to i64
   %112 = load ptr, ptr %104, align 8, !tbaa !24
-  %113 = getelementptr inbounds nuw %"class.std::function", ptr %112, i64 %111
+  %113 = getelementptr inbounds nuw [32 x i8], ptr %112, i64 %111
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !25
   %114 = getelementptr inbounds i8, ptr %113, i64 -16
@@ -17773,7 +17760,7 @@ _ZNKSt8functionIFvbEEclEb.exit.i.i.i:             ; preds = %.lr.ph.i.i.i
   store i32 %121, ptr %105, align 8, !tbaa !23
   %122 = load ptr, ptr %104, align 8, !tbaa !24
   %123 = zext i32 %121 to i64
-  %124 = getelementptr inbounds nuw %"class.std::function", ptr %122, i64 %123
+  %124 = getelementptr inbounds nuw [32 x i8], ptr %122, i64 %123
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 16
   %126 = load ptr, ptr %125, align 8, !tbaa !26
   %.not.i.i12.i.i.i = icmp eq ptr %126, null
@@ -18245,7 +18232,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds 
   %21 = phi i32 [ %14, %10 ], [ %.pre.i, %17 ]
   %22 = load ptr, ptr %12, align 8, !tbaa !24
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %"struct.std::pair.933", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %23
   store ptr %11, ptr %24, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %8, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -18286,7 +18273,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Start
   %47 = phi i32 [ %40, %32 ], [ %.pre.i.i, %43 ]
   %48 = load ptr, ptr %33, align 8, !tbaa !24
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   %51 = ptrtoint ptr %39 to i64
   store i64 %51, ptr %50, align 1
   %52 = load i32, ptr %34, align 8, !tbaa !23
@@ -19007,7 +18994,7 @@ _ZNK5clang8QualType5splitEv.exit:                 ; preds = %15, %20
   %25 = phi i32 [ %44, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %24, %_ZNK5clang8QualType5splitEv.exit ]
   %26 = load ptr, ptr %22, align 8, !tbaa !24
   %27 = zext i32 %25 to i64
-  %28 = getelementptr inbounds nuw %"class.std::function", ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [32 x i8], ptr %26, i64 %27
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 1, ptr %9, align 1, !tbaa !25
   %29 = getelementptr inbounds i8, ptr %28, i64 -16
@@ -19030,7 +19017,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %36, ptr %23, align 8, !tbaa !23
   %37 = load ptr, ptr %22, align 8, !tbaa !24
   %38 = zext i32 %36 to i64
-  %39 = getelementptr inbounds nuw %"class.std::function", ptr %37, i64 %38
+  %39 = getelementptr inbounds nuw [32 x i8], ptr %37, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load ptr, ptr %40, align 8, !tbaa !26
   %.not.i.i1 = icmp eq ptr %41, null
@@ -19196,7 +19183,7 @@ _ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_16ASTNodeTraver
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i, label %107, !prof !57
 
 107:                                              ; preds = %_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_16ASTNodeTraverserINS3_9ASTDumperENS3_14TextNodeDumperEE5VisitENS3_8QualTypeEEUlvE_EEvN4llvm9StringRefET_EUlbE_vEEOSE_.exit
-  %108 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i, i64 %103
+  %108 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i, i64 %103
   %109 = icmp uge ptr %11, %.pre3.i
   %110 = icmp ult ptr %11, %108
   %spec.select.i.i.i.i.i = and i1 %109, %110
@@ -19221,7 +19208,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i = phi ptr [ %11, %_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_16ASTNodeTraverserINS3_9ASTDumperENS3_14TextNodeDumperEE5VisitENS3_8QualTypeEEUlvE_EEvN4llvm9StringRefET_EUlbE_vEEOSE_.exit ], [ %116, %111 ], [ %11, %.critedge.i.i.i ]
   %118 = load i32, ptr %101, align 8, !tbaa !23
   %119 = zext i32 %118 to i64
-  %120 = getelementptr inbounds nuw %"class.std::function", ptr %117, i64 %119
+  %120 = getelementptr inbounds nuw [32 x i8], ptr %117, i64 %119
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 24
   %122 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %120, i8 0, i64 24, i1 false)
@@ -19261,7 +19248,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN4llvm23SmallVect
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %137 = load i32, ptr %136, align 8, !tbaa !23
   %138 = zext i32 %137 to i64
-  %139 = getelementptr inbounds nuw %"class.std::function", ptr %135, i64 %138
+  %139 = getelementptr inbounds nuw [32 x i8], ptr %135, i64 %138
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 1, !tbaa !25
   %140 = getelementptr inbounds i8, ptr %139, i64 -16
@@ -19282,7 +19269,7 @@ _ZNKSt8functionIFvbEEclEb.exit5:                  ; preds = %134
   %146 = load ptr, ptr %81, align 8, !tbaa !24
   %147 = load i32, ptr %136, align 8, !tbaa !23
   %148 = zext i32 %147 to i64
-  %149 = getelementptr inbounds nuw %"class.std::function", ptr %146, i64 %148
+  %149 = getelementptr inbounds nuw [32 x i8], ptr %146, i64 %148
   %150 = getelementptr inbounds i8, ptr %149, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %151 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -19618,7 +19605,7 @@ _ZZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitENS_8QualT
   %117 = phi i32 [ %136, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %115, %_ZZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitENS_8QualTypeEENKUlvE_clEv.exit ]
   %118 = zext i32 %117 to i64
   %119 = load ptr, ptr %103, align 8, !tbaa !24
-  %120 = getelementptr inbounds nuw %"class.std::function", ptr %119, i64 %118
+  %120 = getelementptr inbounds nuw [32 x i8], ptr %119, i64 %118
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !25
   %121 = getelementptr inbounds i8, ptr %120, i64 -16
@@ -19641,7 +19628,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %128, ptr %104, align 8, !tbaa !23
   %129 = load ptr, ptr %103, align 8, !tbaa !24
   %130 = zext i32 %128 to i64
-  %131 = getelementptr inbounds nuw %"class.std::function", ptr %129, i64 %130
+  %131 = getelementptr inbounds nuw [32 x i8], ptr %129, i64 %130
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 16
   %133 = load ptr, ptr %132, align 8, !tbaa !26
   %.not.i.i13 = icmp eq ptr %133, null
@@ -19816,7 +19803,7 @@ _ZZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitENS_7TypeL
   %27 = phi i32 [ %46, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %26, %_ZZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitENS_7TypeLocEENKUlvE_clEv.exit ]
   %28 = load ptr, ptr %24, align 8, !tbaa !24
   %29 = zext i32 %27 to i64
-  %30 = getelementptr inbounds nuw %"class.std::function", ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [32 x i8], ptr %28, i64 %29
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 1, ptr %9, align 1, !tbaa !25
   %31 = getelementptr inbounds i8, ptr %30, i64 -16
@@ -19839,7 +19826,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %38, ptr %25, align 8, !tbaa !23
   %39 = load ptr, ptr %24, align 8, !tbaa !24
   %40 = zext i32 %38 to i64
-  %41 = getelementptr inbounds nuw %"class.std::function", ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [32 x i8], ptr %39, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8, !tbaa !26
   %.not.i.i1 = icmp eq ptr %43, null
@@ -20003,7 +19990,7 @@ _ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_16ASTNodeTraver
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i, label %109, !prof !57
 
 109:                                              ; preds = %_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_16ASTNodeTraverserINS3_9ASTDumperENS3_14TextNodeDumperEE5VisitENS3_7TypeLocEEUlvE_EEvN4llvm9StringRefET_EUlbE_vEEOSE_.exit
-  %110 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i, i64 %105
+  %110 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i, i64 %105
   %111 = icmp uge ptr %11, %.pre3.i
   %112 = icmp ult ptr %11, %110
   %spec.select.i.i.i.i.i = and i1 %111, %112
@@ -20028,7 +20015,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i = phi ptr [ %11, %_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_16ASTNodeTraverserINS3_9ASTDumperENS3_14TextNodeDumperEE5VisitENS3_7TypeLocEEUlvE_EEvN4llvm9StringRefET_EUlbE_vEEOSE_.exit ], [ %118, %113 ], [ %11, %.critedge.i.i.i ]
   %120 = load i32, ptr %103, align 8, !tbaa !23
   %121 = zext i32 %120 to i64
-  %122 = getelementptr inbounds nuw %"class.std::function", ptr %119, i64 %121
+  %122 = getelementptr inbounds nuw [32 x i8], ptr %119, i64 %121
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 24
   %124 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %122, i8 0, i64 24, i1 false)
@@ -20068,7 +20055,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN4llvm23SmallVect
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %139 = load i32, ptr %138, align 8, !tbaa !23
   %140 = zext i32 %139 to i64
-  %141 = getelementptr inbounds nuw %"class.std::function", ptr %137, i64 %140
+  %141 = getelementptr inbounds nuw [32 x i8], ptr %137, i64 %140
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 1, !tbaa !25
   %142 = getelementptr inbounds i8, ptr %141, i64 -16
@@ -20089,7 +20076,7 @@ _ZNKSt8functionIFvbEEclEb.exit5:                  ; preds = %136
   %148 = load ptr, ptr %83, align 8, !tbaa !24
   %149 = load i32, ptr %138, align 8, !tbaa !23
   %150 = zext i32 %149 to i64
-  %151 = getelementptr inbounds nuw %"class.std::function", ptr %148, i64 %150
+  %151 = getelementptr inbounds nuw [32 x i8], ptr %148, i64 %150
   %152 = getelementptr inbounds i8, ptr %151, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %153 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -20397,8 +20384,8 @@ define linkonce_odr hidden void @_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.experimental.noalias.scope.decl(metadata !1168)
-  %13 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %8, i64 %indvars.iv
-  %14 = getelementptr inbounds nuw %"struct.clang::TemplateArgumentLocInfo", ptr %9, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %.sroa.0.0.copyload.i.i = load i64, ptr %14, align 8, !noalias !1168
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false), !tbaa.struct !1171
   store i64 %.sroa.0.0.copyload.i.i, ptr %10, align 8, !alias.scope !1168
@@ -20499,8 +20486,8 @@ define linkonce_odr hidden void @_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.experimental.noalias.scope.decl(metadata !1173)
-  %13 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %8, i64 %indvars.iv
-  %14 = getelementptr inbounds nuw %"struct.clang::TemplateArgumentLocInfo", ptr %9, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %.sroa.0.0.copyload.i.i = load i64, ptr %14, align 8, !noalias !1173
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false), !tbaa.struct !1171
   store i64 %.sroa.0.0.copyload.i.i, ptr %10, align 8, !alias.scope !1173
@@ -20782,7 +20769,7 @@ _ZZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitENS_7TypeL
   %119 = phi i32 [ %138, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %117, %_ZZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitENS_7TypeLocEENKUlvE_clEv.exit ]
   %120 = zext i32 %119 to i64
   %121 = load ptr, ptr %104, align 8, !tbaa !24
-  %122 = getelementptr inbounds nuw %"class.std::function", ptr %121, i64 %120
+  %122 = getelementptr inbounds nuw [32 x i8], ptr %121, i64 %120
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !25
   %123 = getelementptr inbounds i8, ptr %122, i64 -16
@@ -20805,7 +20792,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %130, ptr %105, align 8, !tbaa !23
   %131 = load ptr, ptr %104, align 8, !tbaa !24
   %132 = zext i32 %130 to i64
-  %133 = getelementptr inbounds nuw %"class.std::function", ptr %131, i64 %132
+  %133 = getelementptr inbounds nuw [32 x i8], ptr %131, i64 %132
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 16
   %135 = load ptr, ptr %134, align 8, !tbaa !26
   %.not.i.i14 = icmp eq ptr %135, null
@@ -20954,7 +20941,7 @@ define linkonce_odr hidden void @_ZN5clang12NodeStreamer8AddChildIZNS_16ASTNodeT
   %21 = phi i32 [ %40, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %20, %16 ]
   %22 = load ptr, ptr %18, align 8, !tbaa !24
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %"class.std::function", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %23
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 1, ptr %9, align 1, !tbaa !25
   %25 = getelementptr inbounds i8, ptr %24, i64 -16
@@ -20977,7 +20964,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %32, ptr %19, align 8, !tbaa !23
   %33 = load ptr, ptr %18, align 8, !tbaa !24
   %34 = zext i32 %32 to i64
-  %35 = getelementptr inbounds nuw %"class.std::function", ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw [32 x i8], ptr %33, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8, !tbaa !26
   %.not.i.i1 = icmp eq ptr %37, null
@@ -21162,7 +21149,7 @@ _ZNSt8functionIFvbEEC2IZN5clang12NodeStreamer8AddChildIZNS3_16ASTNodeTraverserIN
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i, label %106, !prof !57
 
 106:                                              ; preds = %_ZNSt8functionIFvbEEC2IZN5clang12NodeStreamer8AddChildIZNS3_16ASTNodeTraverserINS3_10JSONDumperENS3_14JSONNodeDumperEE5VisitEPKNS3_4DeclEbEUlvE_EEvN4llvm9StringRefET_EUlbE_vEEOSG_.exit
-  %107 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i, i64 %102
+  %107 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i, i64 %102
   %108 = icmp uge ptr %12, %.pre3.i
   %109 = icmp ult ptr %12, %107
   %spec.select.i.i.i.i.i = and i1 %108, %109
@@ -21187,7 +21174,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i = phi ptr [ %12, %_ZNSt8functionIFvbEEC2IZN5clang12NodeStreamer8AddChildIZNS3_16ASTNodeTraverserINS3_10JSONDumperENS3_14JSONNodeDumperEE5VisitEPKNS3_4DeclEbEUlvE_EEvN4llvm9StringRefET_EUlbE_vEEOSG_.exit ], [ %115, %110 ], [ %12, %.critedge.i.i.i ]
   %117 = load i32, ptr %100, align 8, !tbaa !23
   %118 = zext i32 %117 to i64
-  %119 = getelementptr inbounds nuw %"class.std::function", ptr %116, i64 %118
+  %119 = getelementptr inbounds nuw [32 x i8], ptr %116, i64 %118
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 24
   %121 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %119, i8 0, i64 24, i1 false)
@@ -21227,7 +21214,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN4llvm23SmallVect
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %136 = load i32, ptr %135, align 8, !tbaa !23
   %137 = zext i32 %136 to i64
-  %138 = getelementptr inbounds nuw %"class.std::function", ptr %134, i64 %137
+  %138 = getelementptr inbounds nuw [32 x i8], ptr %134, i64 %137
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 0, ptr %6, align 1, !tbaa !25
   %139 = getelementptr inbounds i8, ptr %138, i64 -16
@@ -21248,7 +21235,7 @@ _ZNKSt8functionIFvbEEclEb.exit4:                  ; preds = %133
   %145 = load ptr, ptr %82, align 8, !tbaa !24
   %146 = load i32, ptr %135, align 8, !tbaa !23
   %147 = zext i32 %146 to i64
-  %148 = getelementptr inbounds nuw %"class.std::function", ptr %145, i64 %147
+  %148 = getelementptr inbounds nuw [32 x i8], ptr %145, i64 %147
   %149 = getelementptr inbounds i8, ptr %148, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %150 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -21389,7 +21376,7 @@ _ZNK5clang4Decl10attr_beginEv.exit.i:             ; preds = %9
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %25 = load i32, ptr %24, align 8, !tbaa !23
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr %23, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %26
   br label %_ZNK5clang4Decl5attrsEv.exit
 
 _ZNK5clang4Decl5attrsEv.exit:                     ; preds = %_ZNK5clang4Decl10attr_beginEv.exit.i, %21
@@ -22036,7 +22023,7 @@ define linkonce_odr hidden void @_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_
   %11 = load i32, ptr %10, align 4, !tbaa !683
   %12 = zext i32 %11 to i64
   %13 = extractvalue { ptr, i64 } %8, 0
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %12
   %.not10 = icmp eq ptr %6, %14
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -22069,7 +22056,7 @@ define linkonce_odr hidden void @_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_
   %11 = load i32, ptr %10, align 4, !tbaa !683
   %12 = zext i32 %11 to i64
   %13 = extractvalue { ptr, i64 } %8, 0
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %12
   %.not26 = icmp eq ptr %6, %14
   br i1 %.not26, label %._crit_edge, label %.lr.ph
 
@@ -22255,7 +22242,7 @@ define linkonce_odr hidden void @_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %6 = load i32, ptr %5, align 8, !tbaa !692
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %4, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %7
   %.not12 = icmp eq ptr %3, %8
   br i1 %.not12, label %._crit_edge, label %.lr.ph
 
@@ -22364,7 +22351,7 @@ define linkonce_odr hidden void @_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_
 
 13:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
-  %14 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %11, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [24 x i8], ptr %11, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.474.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
   store ptr %0, ptr %4, align 8, !tbaa !555
@@ -22515,7 +22502,7 @@ _ZNK5clang14DeclaratorDecl25getTrailingRequiresClauseEv.exit.thread: ; preds = %
   %73 = load i64, ptr %72, align 8
   %74 = lshr i64 %73, 44
   %75 = and i64 %74, 131071
-  %76 = getelementptr inbounds nuw ptr, ptr %71, i64 %75
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %75
   %.not42110 = icmp eq ptr %70, %76
   br i1 %.not42110, label %.loopexit, label %.lr.ph112
 
@@ -22674,7 +22661,7 @@ define linkonce_odr hidden void @_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_
 
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
-  %10 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %7, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.46.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   store ptr %0, ptr %3, align 8, !tbaa !555
@@ -22729,7 +22716,7 @@ define linkonce_odr hidden void @_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_
 _ZNK5clang21TemplateParameterList17getRequiresClauseEv.exit.i: ; preds = %._crit_edge.i
   %17 = and i32 %15, 536870911
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr %8, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !83
   %.not16.i = icmp eq ptr %20, null
   br i1 %.not16.i, label %_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE22dumpTemplateParametersEPKNS_21TemplateParameterListE.exit, label %31
@@ -22784,7 +22771,7 @@ _ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE22dumpTemplateP
 
 38:                                               ; preds = %.lr.ph, %38
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %38 ]
-  %39 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %36, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [24 x i8], ptr %36, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.46.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %39, i64 24, i1 false)
   store ptr %0, ptr %4, align 8, !tbaa !555
@@ -22890,7 +22877,7 @@ _ZNK5clang23NonTypeTemplateParmDecl28getPlaceholderTypeConstraintEv.exit: ; pred
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 84
   %17 = load i32, ptr %16, align 4, !tbaa !762
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw %"struct.std::pair", ptr %15, i64 %18
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !83
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %_ZNK5clang23NonTypeTemplateParmDecl28getPlaceholderTypeConstraintEv.exit.thread, label %21
@@ -23138,7 +23125,7 @@ define linkonce_odr hidden void @_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_
 
 10:                                               ; preds = %.lr.ph, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %10 ]
-  %11 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %8, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.46.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
   store ptr %0, ptr %4, align 8, !tbaa !555
@@ -23185,7 +23172,7 @@ _ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE24dumpTemplateA
 _ZNK5clang21TemplateParameterList17getRequiresClauseEv.exit.i: ; preds = %._crit_edge.i
   %24 = and i32 %22, 536870911
   %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw ptr, ptr %15, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !83
   %.not16.i = icmp eq ptr %27, null
   br i1 %.not16.i, label %_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE22dumpTemplateParametersEPKNS_21TemplateParameterListE.exit, label %38
@@ -23376,7 +23363,7 @@ define linkonce_odr hidden void @_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_
 _ZNK5clang21TemplateParameterList17getRequiresClauseEv.exit.i: ; preds = %._crit_edge.i
   %17 = and i32 %15, 536870911
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr %8, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !83
   %.not16.i = icmp eq ptr %20, null
   br i1 %.not16.i, label %_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE22dumpTemplateParametersEPKNS_21TemplateParameterListE.exit, label %31
@@ -23549,7 +23536,7 @@ define linkonce_odr hidden void @_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_
 _ZNK5clang21TemplateParameterList17getRequiresClauseEv.exit.i: ; preds = %._crit_edge.i
   %17 = and i32 %15, 536870911
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr %8, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !83
   %.not16.i = icmp eq ptr %20, null
   br i1 %.not16.i, label %_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE22dumpTemplateParametersEPKNS_21TemplateParameterListE.exit, label %31
@@ -23656,7 +23643,7 @@ define linkonce_odr hidden void @_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_
 _ZNK5clang21TemplateParameterList17getRequiresClauseEv.exit.i: ; preds = %._crit_edge.i
   %16 = and i32 %14, 536870911
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %7, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !83
   %.not16.i = icmp eq ptr %19, null
   br i1 %.not16.i, label %_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE22dumpTemplateParametersEPKNS_21TemplateParameterListE.exit, label %30
@@ -23880,7 +23867,7 @@ define linkonce_odr hidden void @_ZN5clang12NodeStreamer8AddChildIZNS_16ASTNodeT
   %24 = phi i32 [ %43, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %23, %19 ]
   %25 = load ptr, ptr %21, align 8, !tbaa !24
   %26 = zext i32 %24 to i64
-  %27 = getelementptr inbounds nuw %"class.std::function", ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [32 x i8], ptr %25, i64 %26
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 1, ptr %10, align 1, !tbaa !25
   %28 = getelementptr inbounds i8, ptr %27, i64 -16
@@ -23903,7 +23890,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %35, ptr %22, align 8, !tbaa !23
   %36 = load ptr, ptr %21, align 8, !tbaa !24
   %37 = zext i32 %35 to i64
-  %38 = getelementptr inbounds nuw %"class.std::function", ptr %36, i64 %37
+  %38 = getelementptr inbounds nuw [32 x i8], ptr %36, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load ptr, ptr %39, align 8, !tbaa !26
   %.not.i.i1 = icmp eq ptr %40, null
@@ -24088,7 +24075,7 @@ _ZNSt8functionIFvbEEC2IZN5clang12NodeStreamer8AddChildIZNS3_16ASTNodeTraverserIN
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i, label %109, !prof !57
 
 109:                                              ; preds = %_ZNSt8functionIFvbEEC2IZN5clang12NodeStreamer8AddChildIZNS3_16ASTNodeTraverserINS3_10JSONDumperENS3_14JSONNodeDumperEE5VisitEPKNS3_4StmtEN4llvm9StringRefEEUlvE_EEvSE_T_EUlbE_vEEOSG_.exit
-  %110 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i, i64 %105
+  %110 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i, i64 %105
   %111 = icmp uge ptr %14, %.pre3.i
   %112 = icmp ult ptr %14, %110
   %spec.select.i.i.i.i.i = and i1 %111, %112
@@ -24113,7 +24100,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i = phi ptr [ %14, %_ZNSt8functionIFvbEEC2IZN5clang12NodeStreamer8AddChildIZNS3_16ASTNodeTraverserINS3_10JSONDumperENS3_14JSONNodeDumperEE5VisitEPKNS3_4StmtEN4llvm9StringRefEEUlvE_EEvSE_T_EUlbE_vEEOSG_.exit ], [ %118, %113 ], [ %14, %.critedge.i.i.i ]
   %120 = load i32, ptr %103, align 8, !tbaa !23
   %121 = zext i32 %120 to i64
-  %122 = getelementptr inbounds nuw %"class.std::function", ptr %119, i64 %121
+  %122 = getelementptr inbounds nuw [32 x i8], ptr %119, i64 %121
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 24
   %124 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %122, i8 0, i64 24, i1 false)
@@ -24153,7 +24140,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN4llvm23SmallVect
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %139 = load i32, ptr %138, align 8, !tbaa !23
   %140 = zext i32 %139 to i64
-  %141 = getelementptr inbounds nuw %"class.std::function", ptr %137, i64 %140
+  %141 = getelementptr inbounds nuw [32 x i8], ptr %137, i64 %140
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 1, !tbaa !25
   %142 = getelementptr inbounds i8, ptr %141, i64 -16
@@ -24174,7 +24161,7 @@ _ZNKSt8functionIFvbEEclEb.exit4:                  ; preds = %136
   %148 = load ptr, ptr %85, align 8, !tbaa !24
   %149 = load i32, ptr %138, align 8, !tbaa !23
   %150 = zext i32 %149 to i64
-  %151 = getelementptr inbounds nuw %"class.std::function", ptr %148, i64 %150
+  %151 = getelementptr inbounds nuw [32 x i8], ptr %148, i64 %150
   %152 = getelementptr inbounds i8, ptr %151, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %153 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -25400,7 +25387,7 @@ define linkonce_odr hidden void @_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
   %12 = phi i64 [ %11, %._crit_edge.loopexit ], [ 0, %2 ]
-  %13 = getelementptr inbounds nuw ptr, ptr %4, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %15 = load i32, ptr %14, align 4, !tbaa !1217
   %16 = zext i32 %15 to i64
@@ -25469,7 +25456,7 @@ _ZNK5clang12OverloadExpr23hasExplicitTemplateArgsEv.exit: ; preds = %2
   %10 = zext i32 %9 to i64
   %.04.i.i.v.v.i.i = select i1 %7, i64 64, i64 80
   %.04.i.i.v.i.i = getelementptr inbounds nuw i8, ptr %1, i64 %.04.i.i.v.v.i.i
-  %.04.i.i.i.i = getelementptr inbounds nuw %"class.clang::DeclAccessPair", ptr %.04.i.i.v.i.i, i64 %10
+  %.04.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %.04.i.i.v.i.i, i64 %10
   %11 = load i32, ptr %.04.i.i.i.i, align 8, !tbaa !1220
   %.not23 = icmp eq i32 %11, 0
   br i1 %.not23, label %_ZNK5clang12OverloadExpr23hasExplicitTemplateArgsEv.exit.thread, label %_ZNK5clang12OverloadExpr18template_argumentsEv.exit
@@ -25565,7 +25552,7 @@ define linkonce_odr hidden void @_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_
 _ZNK5clang21TemplateParameterList17getRequiresClauseEv.exit.i: ; preds = %._crit_edge.i
   %26 = and i32 %24, 536870911
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds nuw ptr, ptr %18, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !83
   %.not16.i = icmp eq ptr %29, null
   br i1 %.not16.i, label %_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE22dumpTemplateParametersEPKNS_21TemplateParameterListE.exit, label %40
@@ -25623,7 +25610,7 @@ _ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE22dumpTemplateP
 49:                                               ; preds = %.lr.ph, %_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitEPKNS_4DeclEb.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitEPKNS_4DeclEb.exit ]
   %50 = tail call noundef ptr @_ZNK5clang10LambdaExpr13capture_beginEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #21
-  %51 = getelementptr inbounds nuw %"class.clang::LambdaCapture", ptr %50, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [16 x i8], ptr %50, i64 %indvars.iv
   %.0.copyload.i.i.i.i.i = load i64, ptr %51, align 8
   %52 = trunc i64 %.0.copyload.i.i.i.i.i to i1
   br i1 %52, label %_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitEPKNS_4DeclEb.exit, label %53
@@ -25657,7 +25644,7 @@ _ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE22dumpTemplateP
   br label %_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitEPKNS_4DeclEb.exit
 
 65:                                               ; preds = %53
-  %66 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %67 = load ptr, ptr %66, align 8, !tbaa !83
   tail call void @_ZN5clang12NodeStreamer8AddChildIZNS_16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitEPKNS_4StmtEN4llvm9StringRefEEUlvE_EEvSA_T_(ptr noundef nonnull align 8 dereferenceable(1224) %14, ptr null, i64 0, ptr %67, ptr nonnull align 4 dereferenceable(8) %0)
   br label %_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitEPKNS_4DeclEb.exit
@@ -25803,7 +25790,7 @@ _ZNK5clang8QualType5splitEv.exit:                 ; preds = %16, %18
 25:                                               ; preds = %2
   %26 = and i32 %5, 32767
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds nuw ptr, ptr %7, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !1213
   %.sroa.0.0.copyload.i9 = load i64, ptr %29, align 8, !tbaa !34
   %30 = and i64 %.sroa.0.0.copyload.i9, 8
@@ -25845,7 +25832,7 @@ _ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitENS_8Qual
   %45 = lshr i32 %44, 30
   %.lobit.i.i = and i32 %45, 1
   %46 = zext nneg i32 %.lobit.i.i to i64
-  %47 = getelementptr inbounds nuw ptr, ptr %43, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %46
   %48 = and i32 %44, 32767
   %49 = lshr i32 %44, 15
   %50 = and i32 %49, 32767
@@ -25858,10 +25845,10 @@ _ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitENS_8Qual
 .lr.ph:                                           ; preds = %_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitENS_8QualTypeE.exit
   %53 = add nuw nsw i32 %.lobit.i.i, %48
   %54 = zext nneg i32 %53 to i64
-  %55 = getelementptr inbounds nuw ptr, ptr %43, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %54
   %56 = xor i32 %.lobit.i.i, 1
   %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr inbounds nuw ptr, ptr %55, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.454.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.555.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -25979,11 +25966,11 @@ define linkonce_odr hidden void @_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_
   %11 = lshr i32 %6, 19
   %12 = and i32 %11, 1
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %10, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %16 = load i32, ptr %15, align 8, !tbaa !1238, !noalias !1235
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %14, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %17
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %9, ptr %3, align 8, !noalias !1240
@@ -26351,7 +26338,7 @@ define linkonce_odr hidden void @_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load i32, ptr %15, align 8, !tbaa !1268
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr %16, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %18
   br label %_ZNK5clang8DeclStmt5declsEv.exit
 
 _ZNK5clang8DeclStmt5declsEv.exit:                 ; preds = %9, %13
@@ -26563,7 +26550,7 @@ _ZZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitEPKNS_4T
   %40 = phi i32 [ %59, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %39, %_ZZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitEPKNS_4TypeEENKUlvE_clEv.exit ]
   %41 = load ptr, ptr %37, align 8, !tbaa !24
   %42 = zext i32 %40 to i64
-  %43 = getelementptr inbounds nuw %"class.std::function", ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw [32 x i8], ptr %41, i64 %42
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 1, ptr %10, align 1, !tbaa !25
   %44 = getelementptr inbounds i8, ptr %43, i64 -16
@@ -26586,7 +26573,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %51, ptr %38, align 8, !tbaa !23
   %52 = load ptr, ptr %37, align 8, !tbaa !24
   %53 = zext i32 %51 to i64
-  %54 = getelementptr inbounds nuw %"class.std::function", ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw [32 x i8], ptr %52, i64 %53
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load ptr, ptr %55, align 8, !tbaa !26
   %.not.i.i2 = icmp eq ptr %56, null
@@ -26774,7 +26761,7 @@ _ZNSt8functionIFvbEEC2IZN5clang12NodeStreamer8AddChildIZNS3_16ASTNodeTraverserIN
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i, label %123, !prof !57
 
 123:                                              ; preds = %_ZNSt8functionIFvbEEC2IZN5clang12NodeStreamer8AddChildIZNS3_16ASTNodeTraverserINS3_10JSONDumperENS3_14JSONNodeDumperEE5VisitEPKNS3_4TypeEEUlvE_EEvN4llvm9StringRefET_EUlbE_vEEOSG_.exit
-  %124 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i, i64 %119
+  %124 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i, i64 %119
   %125 = icmp uge ptr %13, %.pre3.i
   %126 = icmp ult ptr %13, %124
   %spec.select.i.i.i.i.i = and i1 %125, %126
@@ -26799,7 +26786,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i = phi ptr [ %13, %_ZNSt8functionIFvbEEC2IZN5clang12NodeStreamer8AddChildIZNS3_16ASTNodeTraverserINS3_10JSONDumperENS3_14JSONNodeDumperEE5VisitEPKNS3_4TypeEEUlvE_EEvN4llvm9StringRefET_EUlbE_vEEOSG_.exit ], [ %132, %127 ], [ %13, %.critedge.i.i.i ]
   %134 = load i32, ptr %117, align 8, !tbaa !23
   %135 = zext i32 %134 to i64
-  %136 = getelementptr inbounds nuw %"class.std::function", ptr %133, i64 %135
+  %136 = getelementptr inbounds nuw [32 x i8], ptr %133, i64 %135
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 24
   %138 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %136, i8 0, i64 24, i1 false)
@@ -26839,7 +26826,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN4llvm23SmallVect
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %153 = load i32, ptr %152, align 8, !tbaa !23
   %154 = zext i32 %153 to i64
-  %155 = getelementptr inbounds nuw %"class.std::function", ptr %151, i64 %154
+  %155 = getelementptr inbounds nuw [32 x i8], ptr %151, i64 %154
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 1, !tbaa !25
   %156 = getelementptr inbounds i8, ptr %155, i64 -16
@@ -26860,7 +26847,7 @@ _ZNKSt8functionIFvbEEclEb.exit5:                  ; preds = %150
   %162 = load ptr, ptr %99, align 8, !tbaa !24
   %163 = load i32, ptr %152, align 8, !tbaa !23
   %164 = zext i32 %163 to i64
-  %165 = getelementptr inbounds nuw %"class.std::function", ptr %162, i64 %164
+  %165 = getelementptr inbounds nuw [32 x i8], ptr %162, i64 %164
   %166 = getelementptr inbounds i8, ptr %165, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %167 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -27750,7 +27737,7 @@ _ZN5clang23templateargumentvisitor4BaseIN4llvm14make_const_refENS_10JSONDumperEv
   %64 = phi i32 [ %83, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %63, %_ZN5clang23templateargumentvisitor4BaseIN4llvm14make_const_refENS_10JSONDumperEvJEE5VisitERKNS_16TemplateArgumentE.exit ]
   %65 = load ptr, ptr %61, align 8, !tbaa !24
   %66 = zext i32 %64 to i64
-  %67 = getelementptr inbounds nuw %"class.std::function", ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw [32 x i8], ptr %65, i64 %66
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 1, ptr %10, align 1, !tbaa !25
   %68 = getelementptr inbounds i8, ptr %67, i64 -16
@@ -27773,7 +27760,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %75, ptr %62, align 8, !tbaa !23
   %76 = load ptr, ptr %61, align 8, !tbaa !24
   %77 = zext i32 %75 to i64
-  %78 = getelementptr inbounds nuw %"class.std::function", ptr %76, i64 %77
+  %78 = getelementptr inbounds nuw [32 x i8], ptr %76, i64 %77
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 16
   %80 = load ptr, ptr %79, align 8, !tbaa !26
   %.not.i.i1 = icmp eq ptr %80, null
@@ -27959,7 +27946,7 @@ _ZNSt8functionIFvbEEC2IZN5clang12NodeStreamer8AddChildIZNS3_16ASTNodeTraverserIN
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i, label %147, !prof !57
 
 147:                                              ; preds = %_ZNSt8functionIFvbEEC2IZN5clang12NodeStreamer8AddChildIZNS3_16ASTNodeTraverserINS3_10JSONDumperENS3_14JSONNodeDumperEE5VisitERKNS3_16TemplateArgumentENS3_11SourceRangeEPKNS3_4DeclEPKcEUlvE_EEvN4llvm9StringRefET_EUlbE_vEEOSM_.exit
-  %148 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i, i64 %143
+  %148 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i, i64 %143
   %149 = icmp uge ptr %13, %.pre3.i
   %150 = icmp ult ptr %13, %148
   %spec.select.i.i.i.i.i = and i1 %149, %150
@@ -27984,7 +27971,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i = phi ptr [ %13, %_ZNSt8functionIFvbEEC2IZN5clang12NodeStreamer8AddChildIZNS3_16ASTNodeTraverserINS3_10JSONDumperENS3_14JSONNodeDumperEE5VisitERKNS3_16TemplateArgumentENS3_11SourceRangeEPKNS3_4DeclEPKcEUlvE_EEvN4llvm9StringRefET_EUlbE_vEEOSM_.exit ], [ %156, %151 ], [ %13, %.critedge.i.i.i ]
   %158 = load i32, ptr %141, align 8, !tbaa !23
   %159 = zext i32 %158 to i64
-  %160 = getelementptr inbounds nuw %"class.std::function", ptr %157, i64 %159
+  %160 = getelementptr inbounds nuw [32 x i8], ptr %157, i64 %159
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 24
   %162 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %160, i8 0, i64 24, i1 false)
@@ -28024,7 +28011,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN4llvm23SmallVect
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %177 = load i32, ptr %176, align 8, !tbaa !23
   %178 = zext i32 %177 to i64
-  %179 = getelementptr inbounds nuw %"class.std::function", ptr %175, i64 %178
+  %179 = getelementptr inbounds nuw [32 x i8], ptr %175, i64 %178
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 1, !tbaa !25
   %180 = getelementptr inbounds i8, ptr %179, i64 -16
@@ -28045,7 +28032,7 @@ _ZNKSt8functionIFvbEEclEb.exit4:                  ; preds = %174
   %186 = load ptr, ptr %123, align 8, !tbaa !24
   %187 = load i32, ptr %176, align 8, !tbaa !23
   %188 = zext i32 %187 to i64
-  %189 = getelementptr inbounds nuw %"class.std::function", ptr %186, i64 %188
+  %189 = getelementptr inbounds nuw [32 x i8], ptr %186, i64 %188
   %190 = getelementptr inbounds i8, ptr %189, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %191 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -28324,7 +28311,7 @@ _ZZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitERKNS_16
   %33 = phi i32 [ %52, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %31, %_ZZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitERKNS_16TemplateArgumentENS_11SourceRangeEPKNS_4DeclEPKcENKUlvE_clEv.exit ]
   %34 = zext i32 %33 to i64
   %35 = load ptr, ptr %15, align 8, !tbaa !24
-  %36 = getelementptr inbounds nuw %"class.std::function", ptr %35, i64 %34
+  %36 = getelementptr inbounds nuw [32 x i8], ptr %35, i64 %34
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !25
   %37 = getelementptr inbounds i8, ptr %36, i64 -16
@@ -28347,7 +28334,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %44, ptr %16, align 8, !tbaa !23
   %45 = load ptr, ptr %15, align 8, !tbaa !24
   %46 = zext i32 %44 to i64
-  %47 = getelementptr inbounds nuw %"class.std::function", ptr %45, i64 %46
+  %47 = getelementptr inbounds nuw [32 x i8], ptr %45, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load ptr, ptr %48, align 8, !tbaa !26
   %.not.i.i3 = icmp eq ptr %49, null
@@ -28671,7 +28658,7 @@ _ZZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitEPKNS_4T
   %46 = phi i32 [ %65, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %44, %_ZZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitEPKNS_4TypeEENKUlvE_clEv.exit ]
   %47 = zext i32 %46 to i64
   %48 = load ptr, ptr %15, align 8, !tbaa !24
-  %49 = getelementptr inbounds nuw %"class.std::function", ptr %48, i64 %47
+  %49 = getelementptr inbounds nuw [32 x i8], ptr %48, i64 %47
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !25
   %50 = getelementptr inbounds i8, ptr %49, i64 -16
@@ -28694,7 +28681,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %57, ptr %16, align 8, !tbaa !23
   %58 = load ptr, ptr %15, align 8, !tbaa !24
   %59 = zext i32 %57 to i64
-  %60 = getelementptr inbounds nuw %"class.std::function", ptr %58, i64 %59
+  %60 = getelementptr inbounds nuw [32 x i8], ptr %58, i64 %59
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 16
   %62 = load ptr, ptr %61, align 8, !tbaa !26
   %.not.i.i3 = icmp eq ptr %62, null
@@ -28866,7 +28853,7 @@ _ZNK5clang8QualType5splitEv.exit:                 ; preds = %17, %23
   %28 = phi i32 [ %47, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %27, %_ZNK5clang8QualType5splitEv.exit ]
   %29 = load ptr, ptr %25, align 8, !tbaa !24
   %30 = zext i32 %28 to i64
-  %31 = getelementptr inbounds nuw %"class.std::function", ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [32 x i8], ptr %29, i64 %30
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 1, ptr %10, align 1, !tbaa !25
   %32 = getelementptr inbounds i8, ptr %31, i64 -16
@@ -28889,7 +28876,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %39, ptr %26, align 8, !tbaa !23
   %40 = load ptr, ptr %25, align 8, !tbaa !24
   %41 = zext i32 %39 to i64
-  %42 = getelementptr inbounds nuw %"class.std::function", ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [32 x i8], ptr %40, i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load ptr, ptr %43, align 8, !tbaa !26
   %.not.i.i1 = icmp eq ptr %44, null
@@ -29076,7 +29063,7 @@ _ZNSt8functionIFvbEEC2IZN5clang12NodeStreamer8AddChildIZNS3_16ASTNodeTraverserIN
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i, label %113, !prof !57
 
 113:                                              ; preds = %_ZNSt8functionIFvbEEC2IZN5clang12NodeStreamer8AddChildIZNS3_16ASTNodeTraverserINS3_10JSONDumperENS3_14JSONNodeDumperEE5VisitENS3_8QualTypeEEUlvE_EEvN4llvm9StringRefET_EUlbE_vEEOSE_.exit
-  %114 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i, i64 %109
+  %114 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i, i64 %109
   %115 = icmp uge ptr %13, %.pre3.i
   %116 = icmp ult ptr %13, %114
   %spec.select.i.i.i.i.i = and i1 %115, %116
@@ -29101,7 +29088,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i = phi ptr [ %13, %_ZNSt8functionIFvbEEC2IZN5clang12NodeStreamer8AddChildIZNS3_16ASTNodeTraverserINS3_10JSONDumperENS3_14JSONNodeDumperEE5VisitENS3_8QualTypeEEUlvE_EEvN4llvm9StringRefET_EUlbE_vEEOSE_.exit ], [ %122, %117 ], [ %13, %.critedge.i.i.i ]
   %124 = load i32, ptr %107, align 8, !tbaa !23
   %125 = zext i32 %124 to i64
-  %126 = getelementptr inbounds nuw %"class.std::function", ptr %123, i64 %125
+  %126 = getelementptr inbounds nuw [32 x i8], ptr %123, i64 %125
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 24
   %128 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %126, i8 0, i64 24, i1 false)
@@ -29141,7 +29128,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN4llvm23SmallVect
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %143 = load i32, ptr %142, align 8, !tbaa !23
   %144 = zext i32 %143 to i64
-  %145 = getelementptr inbounds nuw %"class.std::function", ptr %141, i64 %144
+  %145 = getelementptr inbounds nuw [32 x i8], ptr %141, i64 %144
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 1, !tbaa !25
   %146 = getelementptr inbounds i8, ptr %145, i64 -16
@@ -29162,7 +29149,7 @@ _ZNKSt8functionIFvbEEclEb.exit4:                  ; preds = %140
   %152 = load ptr, ptr %89, align 8, !tbaa !24
   %153 = load i32, ptr %142, align 8, !tbaa !23
   %154 = zext i32 %153 to i64
-  %155 = getelementptr inbounds nuw %"class.std::function", ptr %152, i64 %154
+  %155 = getelementptr inbounds nuw [32 x i8], ptr %152, i64 %154
   %156 = getelementptr inbounds i8, ptr %155, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %157 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -29342,7 +29329,7 @@ _ZZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitENS_8Qua
   %30 = phi i32 [ %49, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %28, %_ZZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitENS_8QualTypeEENKUlvE_clEv.exit ]
   %31 = zext i32 %30 to i64
   %32 = load ptr, ptr %15, align 8, !tbaa !24
-  %33 = getelementptr inbounds nuw %"class.std::function", ptr %32, i64 %31
+  %33 = getelementptr inbounds nuw [32 x i8], ptr %32, i64 %31
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !25
   %34 = getelementptr inbounds i8, ptr %33, i64 -16
@@ -29365,7 +29352,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %41, ptr %16, align 8, !tbaa !23
   %42 = load ptr, ptr %15, align 8, !tbaa !24
   %43 = zext i32 %41 to i64
-  %44 = getelementptr inbounds nuw %"class.std::function", ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [32 x i8], ptr %42, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8, !tbaa !26
   %.not.i.i3 = icmp eq ptr %46, null
@@ -29533,7 +29520,7 @@ define linkonce_odr hidden void @_ZN5clang12NodeStreamer8AddChildIZNS_16ASTNodeT
   %24 = phi i32 [ %43, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %23, %19 ]
   %25 = load ptr, ptr %21, align 8, !tbaa !24
   %26 = zext i32 %24 to i64
-  %27 = getelementptr inbounds nuw %"class.std::function", ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [32 x i8], ptr %25, i64 %26
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 1, ptr %10, align 1, !tbaa !25
   %28 = getelementptr inbounds i8, ptr %27, i64 -16
@@ -29556,7 +29543,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %35, ptr %22, align 8, !tbaa !23
   %36 = load ptr, ptr %21, align 8, !tbaa !24
   %37 = zext i32 %35 to i64
-  %38 = getelementptr inbounds nuw %"class.std::function", ptr %36, i64 %37
+  %38 = getelementptr inbounds nuw [32 x i8], ptr %36, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load ptr, ptr %39, align 8, !tbaa !26
   %.not.i.i1 = icmp eq ptr %40, null
@@ -29741,7 +29728,7 @@ _ZNSt8functionIFvbEEC2IZN5clang12NodeStreamer8AddChildIZNS3_16ASTNodeTraverserIN
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i, label %109, !prof !57
 
 109:                                              ; preds = %_ZNSt8functionIFvbEEC2IZN5clang12NodeStreamer8AddChildIZNS3_16ASTNodeTraverserINS3_10JSONDumperENS3_14JSONNodeDumperEE5VisitEPKNS3_8concepts11RequirementEEUlvE_EEvN4llvm9StringRefET_EUlbE_vEEOSH_.exit
-  %110 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i, i64 %105
+  %110 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i, i64 %105
   %111 = icmp uge ptr %14, %.pre3.i
   %112 = icmp ult ptr %14, %110
   %spec.select.i.i.i.i.i = and i1 %111, %112
@@ -29766,7 +29753,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i = phi ptr [ %14, %_ZNSt8functionIFvbEEC2IZN5clang12NodeStreamer8AddChildIZNS3_16ASTNodeTraverserINS3_10JSONDumperENS3_14JSONNodeDumperEE5VisitEPKNS3_8concepts11RequirementEEUlvE_EEvN4llvm9StringRefET_EUlbE_vEEOSH_.exit ], [ %118, %113 ], [ %14, %.critedge.i.i.i ]
   %120 = load i32, ptr %103, align 8, !tbaa !23
   %121 = zext i32 %120 to i64
-  %122 = getelementptr inbounds nuw %"class.std::function", ptr %119, i64 %121
+  %122 = getelementptr inbounds nuw [32 x i8], ptr %119, i64 %121
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 24
   %124 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %122, i8 0, i64 24, i1 false)
@@ -29806,7 +29793,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN4llvm23SmallVect
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %139 = load i32, ptr %138, align 8, !tbaa !23
   %140 = zext i32 %139 to i64
-  %141 = getelementptr inbounds nuw %"class.std::function", ptr %137, i64 %140
+  %141 = getelementptr inbounds nuw [32 x i8], ptr %137, i64 %140
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 1, !tbaa !25
   %142 = getelementptr inbounds i8, ptr %141, i64 -16
@@ -29827,7 +29814,7 @@ _ZNKSt8functionIFvbEEclEb.exit4:                  ; preds = %136
   %148 = load ptr, ptr %85, align 8, !tbaa !24
   %149 = load i32, ptr %138, align 8, !tbaa !23
   %150 = zext i32 %149 to i64
-  %151 = getelementptr inbounds nuw %"class.std::function", ptr %148, i64 %150
+  %151 = getelementptr inbounds nuw [32 x i8], ptr %148, i64 %150
   %152 = getelementptr inbounds i8, ptr %151, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %153 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -30075,7 +30062,7 @@ define linkonce_odr hidden void @_ZZN5clang12NodeStreamer8AddChildIZNS_16ASTNode
   %22 = phi i32 [ %41, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %20, %14 ]
   %23 = zext i32 %22 to i64
   %24 = load ptr, ptr %15, align 8, !tbaa !24
-  %25 = getelementptr inbounds nuw %"class.std::function", ptr %24, i64 %23
+  %25 = getelementptr inbounds nuw [32 x i8], ptr %24, i64 %23
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !25
   %26 = getelementptr inbounds i8, ptr %25, i64 -16
@@ -30098,7 +30085,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %33, ptr %16, align 8, !tbaa !23
   %34 = load ptr, ptr %15, align 8, !tbaa !24
   %35 = zext i32 %33 to i64
-  %36 = getelementptr inbounds nuw %"class.std::function", ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [32 x i8], ptr %34, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8, !tbaa !26
   %.not.i.i2 = icmp eq ptr %38, null
@@ -30265,7 +30252,7 @@ define linkonce_odr hidden void @_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_
 _ZNK5clang21TemplateParameterList17getRequiresClauseEv.exit: ; preds = %._crit_edge
   %14 = and i32 %12, 536870911
   %15 = zext nneg i32 %14 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %5, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !83
   %.not16 = icmp eq ptr %17, null
   br i1 %.not16, label %_ZNK5clang21TemplateParameterList17getRequiresClauseEv.exit.thread, label %28
@@ -30391,7 +30378,7 @@ _ZZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitERKNS_20
   %40 = phi i32 [ %59, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %39, %_ZZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitERKNS_20GenericSelectionExpr13AssociationTyILb1EEEENKUlvE_clEv.exit ]
   %41 = load ptr, ptr %37, align 8, !tbaa !24
   %42 = zext i32 %40 to i64
-  %43 = getelementptr inbounds nuw %"class.std::function", ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw [32 x i8], ptr %41, i64 %42
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 1, ptr %9, align 1, !tbaa !25
   %44 = getelementptr inbounds i8, ptr %43, i64 -16
@@ -30414,7 +30401,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %51, ptr %38, align 8, !tbaa !23
   %52 = load ptr, ptr %37, align 8, !tbaa !24
   %53 = zext i32 %51 to i64
-  %54 = getelementptr inbounds nuw %"class.std::function", ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw [32 x i8], ptr %52, i64 %53
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 16
   %56 = load ptr, ptr %55, align 8, !tbaa !26
   %.not.i.i2 = icmp eq ptr %56, null
@@ -30600,7 +30587,7 @@ _ZNSt8functionIFvbEEC2IZN5clang12NodeStreamer8AddChildIZNS3_16ASTNodeTraverserIN
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i, label %123, !prof !57
 
 123:                                              ; preds = %_ZNSt8functionIFvbEEC2IZN5clang12NodeStreamer8AddChildIZNS3_16ASTNodeTraverserINS3_10JSONDumperENS3_14JSONNodeDumperEE5VisitERKNS3_20GenericSelectionExpr13AssociationTyILb1EEEEUlvE_EEvN4llvm9StringRefET_EUlbE_vEEOSI_.exit
-  %124 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i, i64 %119
+  %124 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i, i64 %119
   %125 = icmp uge ptr %12, %.pre3.i
   %126 = icmp ult ptr %12, %124
   %spec.select.i.i.i.i.i = and i1 %125, %126
@@ -30625,7 +30612,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i = phi ptr [ %12, %_ZNSt8functionIFvbEEC2IZN5clang12NodeStreamer8AddChildIZNS3_16ASTNodeTraverserINS3_10JSONDumperENS3_14JSONNodeDumperEE5VisitERKNS3_20GenericSelectionExpr13AssociationTyILb1EEEEUlvE_EEvN4llvm9StringRefET_EUlbE_vEEOSI_.exit ], [ %132, %127 ], [ %12, %.critedge.i.i.i ]
   %134 = load i32, ptr %117, align 8, !tbaa !23
   %135 = zext i32 %134 to i64
-  %136 = getelementptr inbounds nuw %"class.std::function", ptr %133, i64 %135
+  %136 = getelementptr inbounds nuw [32 x i8], ptr %133, i64 %135
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 24
   %138 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %136, i8 0, i64 24, i1 false)
@@ -30665,7 +30652,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN4llvm23SmallVect
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %153 = load i32, ptr %152, align 8, !tbaa !23
   %154 = zext i32 %153 to i64
-  %155 = getelementptr inbounds nuw %"class.std::function", ptr %151, i64 %154
+  %155 = getelementptr inbounds nuw [32 x i8], ptr %151, i64 %154
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 0, ptr %6, align 1, !tbaa !25
   %156 = getelementptr inbounds i8, ptr %155, i64 -16
@@ -30686,7 +30673,7 @@ _ZNKSt8functionIFvbEEclEb.exit5:                  ; preds = %150
   %162 = load ptr, ptr %99, align 8, !tbaa !24
   %163 = load i32, ptr %152, align 8, !tbaa !23
   %164 = zext i32 %163 to i64
-  %165 = getelementptr inbounds nuw %"class.std::function", ptr %162, i64 %164
+  %165 = getelementptr inbounds nuw [32 x i8], ptr %162, i64 %164
   %166 = getelementptr inbounds i8, ptr %165, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %167 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -30893,7 +30880,7 @@ _ZZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitERKNS_20
   %41 = phi i32 [ %60, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %39, %_ZZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitERKNS_20GenericSelectionExpr13AssociationTyILb1EEEENKUlvE_clEv.exit ]
   %42 = zext i32 %41 to i64
   %43 = load ptr, ptr %15, align 8, !tbaa !24
-  %44 = getelementptr inbounds nuw %"class.std::function", ptr %43, i64 %42
+  %44 = getelementptr inbounds nuw [32 x i8], ptr %43, i64 %42
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !25
   %45 = getelementptr inbounds i8, ptr %44, i64 -16
@@ -30916,7 +30903,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %52, ptr %16, align 8, !tbaa !23
   %53 = load ptr, ptr %15, align 8, !tbaa !24
   %54 = zext i32 %52 to i64
-  %55 = getelementptr inbounds nuw %"class.std::function", ptr %53, i64 %54
+  %55 = getelementptr inbounds nuw [32 x i8], ptr %53, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %57 = load ptr, ptr %56, align 8, !tbaa !26
   %.not.i.i3 = icmp eq ptr %57, null
@@ -31167,7 +31154,7 @@ define linkonce_odr hidden void @_ZN5clang12NodeStreamer8AddChildIZNS_16ASTNodeT
   %24 = phi i32 [ %43, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %23, %19 ]
   %25 = load ptr, ptr %21, align 8, !tbaa !24
   %26 = zext i32 %24 to i64
-  %27 = getelementptr inbounds nuw %"class.std::function", ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [32 x i8], ptr %25, i64 %26
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 1, ptr %10, align 1, !tbaa !25
   %28 = getelementptr inbounds i8, ptr %27, i64 -16
@@ -31190,7 +31177,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %35, ptr %22, align 8, !tbaa !23
   %36 = load ptr, ptr %21, align 8, !tbaa !24
   %37 = zext i32 %35 to i64
-  %38 = getelementptr inbounds nuw %"class.std::function", ptr %36, i64 %37
+  %38 = getelementptr inbounds nuw [32 x i8], ptr %36, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load ptr, ptr %39, align 8, !tbaa !26
   %.not.i.i1 = icmp eq ptr %40, null
@@ -31375,7 +31362,7 @@ _ZNSt8functionIFvbEEC2IZN5clang12NodeStreamer8AddChildIZNS3_16ASTNodeTraverserIN
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i, label %109, !prof !57
 
 109:                                              ; preds = %_ZNSt8functionIFvbEEC2IZN5clang12NodeStreamer8AddChildIZNS3_16ASTNodeTraverserINS3_10JSONDumperENS3_14JSONNodeDumperEE5VisitEPKNS3_13OpenACCClauseEEUlvE_EEvN4llvm9StringRefET_EUlbE_vEEOSG_.exit
-  %110 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i, i64 %105
+  %110 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i, i64 %105
   %111 = icmp uge ptr %14, %.pre3.i
   %112 = icmp ult ptr %14, %110
   %spec.select.i.i.i.i.i = and i1 %111, %112
@@ -31400,7 +31387,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i = phi ptr [ %14, %_ZNSt8functionIFvbEEC2IZN5clang12NodeStreamer8AddChildIZNS3_16ASTNodeTraverserINS3_10JSONDumperENS3_14JSONNodeDumperEE5VisitEPKNS3_13OpenACCClauseEEUlvE_EEvN4llvm9StringRefET_EUlbE_vEEOSG_.exit ], [ %118, %113 ], [ %14, %.critedge.i.i.i ]
   %120 = load i32, ptr %103, align 8, !tbaa !23
   %121 = zext i32 %120 to i64
-  %122 = getelementptr inbounds nuw %"class.std::function", ptr %119, i64 %121
+  %122 = getelementptr inbounds nuw [32 x i8], ptr %119, i64 %121
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 24
   %124 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %122, i8 0, i64 24, i1 false)
@@ -31440,7 +31427,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN4llvm23SmallVect
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %139 = load i32, ptr %138, align 8, !tbaa !23
   %140 = zext i32 %139 to i64
-  %141 = getelementptr inbounds nuw %"class.std::function", ptr %137, i64 %140
+  %141 = getelementptr inbounds nuw [32 x i8], ptr %137, i64 %140
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 1, !tbaa !25
   %142 = getelementptr inbounds i8, ptr %141, i64 -16
@@ -31461,7 +31448,7 @@ _ZNKSt8functionIFvbEEclEb.exit4:                  ; preds = %136
   %148 = load ptr, ptr %85, align 8, !tbaa !24
   %149 = load i32, ptr %138, align 8, !tbaa !23
   %150 = zext i32 %149 to i64
-  %151 = getelementptr inbounds nuw %"class.std::function", ptr %148, i64 %150
+  %151 = getelementptr inbounds nuw [32 x i8], ptr %148, i64 %150
   %152 = getelementptr inbounds i8, ptr %151, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %153 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -31703,7 +31690,7 @@ define linkonce_odr hidden void @_ZZN5clang12NodeStreamer8AddChildIZNS_16ASTNode
   %22 = phi i32 [ %41, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %20, %14 ]
   %23 = zext i32 %22 to i64
   %24 = load ptr, ptr %15, align 8, !tbaa !24
-  %25 = getelementptr inbounds nuw %"class.std::function", ptr %24, i64 %23
+  %25 = getelementptr inbounds nuw [32 x i8], ptr %24, i64 %23
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !25
   %26 = getelementptr inbounds i8, ptr %25, i64 -16
@@ -31726,7 +31713,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %33, ptr %16, align 8, !tbaa !23
   %34 = load ptr, ptr %15, align 8, !tbaa !24
   %35 = zext i32 %33 to i64
-  %36 = getelementptr inbounds nuw %"class.std::function", ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [32 x i8], ptr %34, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8, !tbaa !26
   %.not.i.i2 = icmp eq ptr %38, null
@@ -31974,7 +31961,7 @@ define linkonce_odr hidden void @_ZN5clang12NodeStreamer8AddChildIZNS_16ASTNodeT
   %24 = phi i32 [ %43, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %23, %19 ]
   %25 = load ptr, ptr %21, align 8, !tbaa !24
   %26 = zext i32 %24 to i64
-  %27 = getelementptr inbounds nuw %"class.std::function", ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [32 x i8], ptr %25, i64 %26
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 1, ptr %10, align 1, !tbaa !25
   %28 = getelementptr inbounds i8, ptr %27, i64 -16
@@ -31997,7 +31984,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %35, ptr %22, align 8, !tbaa !23
   %36 = load ptr, ptr %21, align 8, !tbaa !24
   %37 = zext i32 %35 to i64
-  %38 = getelementptr inbounds nuw %"class.std::function", ptr %36, i64 %37
+  %38 = getelementptr inbounds nuw [32 x i8], ptr %36, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load ptr, ptr %39, align 8, !tbaa !26
   %.not.i.i1 = icmp eq ptr %40, null
@@ -32182,7 +32169,7 @@ _ZNSt8functionIFvbEEC2IZN5clang12NodeStreamer8AddChildIZNS3_16ASTNodeTraverserIN
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i, label %109, !prof !57
 
 109:                                              ; preds = %_ZNSt8functionIFvbEEC2IZN5clang12NodeStreamer8AddChildIZNS3_16ASTNodeTraverserINS3_10JSONDumperENS3_14JSONNodeDumperEE5VisitEPKNS3_9OMPClauseEEUlvE_EEvN4llvm9StringRefET_EUlbE_vEEOSG_.exit
-  %110 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i, i64 %105
+  %110 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i, i64 %105
   %111 = icmp uge ptr %14, %.pre3.i
   %112 = icmp ult ptr %14, %110
   %spec.select.i.i.i.i.i = and i1 %111, %112
@@ -32207,7 +32194,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i = phi ptr [ %14, %_ZNSt8functionIFvbEEC2IZN5clang12NodeStreamer8AddChildIZNS3_16ASTNodeTraverserINS3_10JSONDumperENS3_14JSONNodeDumperEE5VisitEPKNS3_9OMPClauseEEUlvE_EEvN4llvm9StringRefET_EUlbE_vEEOSG_.exit ], [ %118, %113 ], [ %14, %.critedge.i.i.i ]
   %120 = load i32, ptr %103, align 8, !tbaa !23
   %121 = zext i32 %120 to i64
-  %122 = getelementptr inbounds nuw %"class.std::function", ptr %119, i64 %121
+  %122 = getelementptr inbounds nuw [32 x i8], ptr %119, i64 %121
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 24
   %124 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %122, i8 0, i64 24, i1 false)
@@ -32247,7 +32234,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN4llvm23SmallVect
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %139 = load i32, ptr %138, align 8, !tbaa !23
   %140 = zext i32 %139 to i64
-  %141 = getelementptr inbounds nuw %"class.std::function", ptr %137, i64 %140
+  %141 = getelementptr inbounds nuw [32 x i8], ptr %137, i64 %140
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 1, !tbaa !25
   %142 = getelementptr inbounds i8, ptr %141, i64 -16
@@ -32268,7 +32255,7 @@ _ZNKSt8functionIFvbEEclEb.exit4:                  ; preds = %136
   %148 = load ptr, ptr %85, align 8, !tbaa !24
   %149 = load i32, ptr %138, align 8, !tbaa !23
   %150 = zext i32 %149 to i64
-  %151 = getelementptr inbounds nuw %"class.std::function", ptr %148, i64 %150
+  %151 = getelementptr inbounds nuw [32 x i8], ptr %148, i64 %150
   %152 = getelementptr inbounds i8, ptr %151, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %153 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -32508,7 +32495,7 @@ define linkonce_odr hidden void @_ZZN5clang12NodeStreamer8AddChildIZNS_16ASTNode
   %22 = phi i32 [ %41, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %20, %14 ]
   %23 = zext i32 %22 to i64
   %24 = load ptr, ptr %15, align 8, !tbaa !24
-  %25 = getelementptr inbounds nuw %"class.std::function", ptr %24, i64 %23
+  %25 = getelementptr inbounds nuw [32 x i8], ptr %24, i64 %23
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !25
   %26 = getelementptr inbounds i8, ptr %25, i64 -16
@@ -32531,7 +32518,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %33, ptr %16, align 8, !tbaa !23
   %34 = load ptr, ptr %15, align 8, !tbaa !24
   %35 = zext i32 %33 to i64
-  %36 = getelementptr inbounds nuw %"class.std::function", ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [32 x i8], ptr %34, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8, !tbaa !26
   %.not.i.i2 = icmp eq ptr %38, null
@@ -32729,7 +32716,7 @@ define linkonce_odr hidden void @_ZZN5clang12NodeStreamer8AddChildIZNS_16ASTNode
   %22 = phi i32 [ %41, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %20, %14 ]
   %23 = zext i32 %22 to i64
   %24 = load ptr, ptr %15, align 8, !tbaa !24
-  %25 = getelementptr inbounds nuw %"class.std::function", ptr %24, i64 %23
+  %25 = getelementptr inbounds nuw [32 x i8], ptr %24, i64 %23
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !25
   %26 = getelementptr inbounds i8, ptr %25, i64 -16
@@ -32752,7 +32739,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %33, ptr %16, align 8, !tbaa !23
   %34 = load ptr, ptr %15, align 8, !tbaa !24
   %35 = zext i32 %33 to i64
-  %36 = getelementptr inbounds nuw %"class.std::function", ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [32 x i8], ptr %34, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8, !tbaa !26
   %.not.i.i2 = icmp eq ptr %38, null
@@ -32923,7 +32910,7 @@ _ZZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitERKNS_9B
   %27 = phi i32 [ %46, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %26, %_ZZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitERKNS_9BlockDecl7CaptureEENKUlvE_clEv.exit ]
   %28 = load ptr, ptr %24, align 8, !tbaa !24
   %29 = zext i32 %27 to i64
-  %30 = getelementptr inbounds nuw %"class.std::function", ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [32 x i8], ptr %28, i64 %29
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 1, ptr %9, align 1, !tbaa !25
   %31 = getelementptr inbounds i8, ptr %30, i64 -16
@@ -32946,7 +32933,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %38, ptr %25, align 8, !tbaa !23
   %39 = load ptr, ptr %24, align 8, !tbaa !24
   %40 = zext i32 %38 to i64
-  %41 = getelementptr inbounds nuw %"class.std::function", ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [32 x i8], ptr %39, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8, !tbaa !26
   %.not.i.i1 = icmp eq ptr %43, null
@@ -33131,7 +33118,7 @@ _ZNSt8functionIFvbEEC2IZN5clang12NodeStreamer8AddChildIZNS3_16ASTNodeTraverserIN
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i, label %112, !prof !57
 
 112:                                              ; preds = %_ZNSt8functionIFvbEEC2IZN5clang12NodeStreamer8AddChildIZNS3_16ASTNodeTraverserINS3_10JSONDumperENS3_14JSONNodeDumperEE5VisitERKNS3_9BlockDecl7CaptureEEUlvE_EEvN4llvm9StringRefET_EUlbE_vEEOSH_.exit
-  %113 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i, i64 %108
+  %113 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i, i64 %108
   %114 = icmp uge ptr %12, %.pre3.i
   %115 = icmp ult ptr %12, %113
   %spec.select.i.i.i.i.i = and i1 %114, %115
@@ -33156,7 +33143,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i = phi ptr [ %12, %_ZNSt8functionIFvbEEC2IZN5clang12NodeStreamer8AddChildIZNS3_16ASTNodeTraverserINS3_10JSONDumperENS3_14JSONNodeDumperEE5VisitERKNS3_9BlockDecl7CaptureEEUlvE_EEvN4llvm9StringRefET_EUlbE_vEEOSH_.exit ], [ %121, %116 ], [ %12, %.critedge.i.i.i ]
   %123 = load i32, ptr %106, align 8, !tbaa !23
   %124 = zext i32 %123 to i64
-  %125 = getelementptr inbounds nuw %"class.std::function", ptr %122, i64 %124
+  %125 = getelementptr inbounds nuw [32 x i8], ptr %122, i64 %124
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 24
   %127 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %125, i8 0, i64 24, i1 false)
@@ -33196,7 +33183,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN4llvm23SmallVect
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %142 = load i32, ptr %141, align 8, !tbaa !23
   %143 = zext i32 %142 to i64
-  %144 = getelementptr inbounds nuw %"class.std::function", ptr %140, i64 %143
+  %144 = getelementptr inbounds nuw [32 x i8], ptr %140, i64 %143
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 0, ptr %6, align 1, !tbaa !25
   %145 = getelementptr inbounds i8, ptr %144, i64 -16
@@ -33217,7 +33204,7 @@ _ZNKSt8functionIFvbEEclEb.exit4:                  ; preds = %139
   %151 = load ptr, ptr %88, align 8, !tbaa !24
   %152 = load i32, ptr %141, align 8, !tbaa !23
   %153 = zext i32 %152 to i64
-  %154 = getelementptr inbounds nuw %"class.std::function", ptr %151, i64 %153
+  %154 = getelementptr inbounds nuw [32 x i8], ptr %151, i64 %153
   %155 = getelementptr inbounds i8, ptr %154, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %156 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -33392,7 +33379,7 @@ _ZZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitERKNS_9B
   %28 = phi i32 [ %47, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %26, %_ZZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitERKNS_9BlockDecl7CaptureEENKUlvE_clEv.exit ]
   %29 = zext i32 %28 to i64
   %30 = load ptr, ptr %15, align 8, !tbaa !24
-  %31 = getelementptr inbounds nuw %"class.std::function", ptr %30, i64 %29
+  %31 = getelementptr inbounds nuw [32 x i8], ptr %30, i64 %29
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !25
   %32 = getelementptr inbounds i8, ptr %31, i64 -16
@@ -33415,7 +33402,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %39, ptr %16, align 8, !tbaa !23
   %40 = load ptr, ptr %15, align 8, !tbaa !24
   %41 = zext i32 %39 to i64
-  %42 = getelementptr inbounds nuw %"class.std::function", ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [32 x i8], ptr %40, i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load ptr, ptr %43, align 8, !tbaa !26
   %.not.i.i2 = icmp eq ptr %44, null
@@ -33632,7 +33619,7 @@ define linkonce_odr hidden void @_ZN5clang12NodeStreamer8AddChildIZNS_16ASTNodeT
   %25 = phi i32 [ %44, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %24, %17 ]
   %26 = load ptr, ptr %22, align 8, !tbaa !24
   %27 = zext i32 %25 to i64
-  %28 = getelementptr inbounds nuw %"class.std::function", ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [32 x i8], ptr %26, i64 %27
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 1, ptr %10, align 1, !tbaa !25
   %29 = getelementptr inbounds i8, ptr %28, i64 -16
@@ -33655,7 +33642,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %36, ptr %23, align 8, !tbaa !23
   %37 = load ptr, ptr %22, align 8, !tbaa !24
   %38 = zext i32 %36 to i64
-  %39 = getelementptr inbounds nuw %"class.std::function", ptr %37, i64 %38
+  %39 = getelementptr inbounds nuw [32 x i8], ptr %37, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %41 = load ptr, ptr %40, align 8, !tbaa !26
   %.not.i.i1 = icmp eq ptr %41, null
@@ -33842,7 +33829,7 @@ _ZNSt8functionIFvbEEC2IZN5clang12NodeStreamer8AddChildIZNS3_16ASTNodeTraverserIN
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i, label %110, !prof !57
 
 110:                                              ; preds = %_ZNSt8functionIFvbEEC2IZN5clang12NodeStreamer8AddChildIZNS3_16ASTNodeTraverserINS3_10JSONDumperENS3_14JSONNodeDumperEE5VisitEPKNS3_18CXXCtorInitializerEEUlvE_EEvN4llvm9StringRefET_EUlbE_vEEOSG_.exit
-  %111 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i, i64 %106
+  %111 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i, i64 %106
   %112 = icmp uge ptr %13, %.pre3.i
   %113 = icmp ult ptr %13, %111
   %spec.select.i.i.i.i.i = and i1 %112, %113
@@ -33867,7 +33854,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i = phi ptr [ %13, %_ZNSt8functionIFvbEEC2IZN5clang12NodeStreamer8AddChildIZNS3_16ASTNodeTraverserINS3_10JSONDumperENS3_14JSONNodeDumperEE5VisitEPKNS3_18CXXCtorInitializerEEUlvE_EEvN4llvm9StringRefET_EUlbE_vEEOSG_.exit ], [ %119, %114 ], [ %13, %.critedge.i.i.i ]
   %121 = load i32, ptr %104, align 8, !tbaa !23
   %122 = zext i32 %121 to i64
-  %123 = getelementptr inbounds nuw %"class.std::function", ptr %120, i64 %122
+  %123 = getelementptr inbounds nuw [32 x i8], ptr %120, i64 %122
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 24
   %125 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %123, i8 0, i64 24, i1 false)
@@ -33907,7 +33894,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN4llvm23SmallVect
   %139 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %140 = load i32, ptr %139, align 8, !tbaa !23
   %141 = zext i32 %140 to i64
-  %142 = getelementptr inbounds nuw %"class.std::function", ptr %138, i64 %141
+  %142 = getelementptr inbounds nuw [32 x i8], ptr %138, i64 %141
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 1, !tbaa !25
   %143 = getelementptr inbounds i8, ptr %142, i64 -16
@@ -33928,7 +33915,7 @@ _ZNKSt8functionIFvbEEclEb.exit4:                  ; preds = %137
   %149 = load ptr, ptr %86, align 8, !tbaa !24
   %150 = load i32, ptr %139, align 8, !tbaa !23
   %151 = zext i32 %150 to i64
-  %152 = getelementptr inbounds nuw %"class.std::function", ptr %149, i64 %151
+  %152 = getelementptr inbounds nuw [32 x i8], ptr %149, i64 %151
   %153 = getelementptr inbounds i8, ptr %152, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %154 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -34098,7 +34085,7 @@ define linkonce_odr hidden void @_ZZN5clang12NodeStreamer8AddChildIZNS_16ASTNode
   %29 = phi i32 [ %48, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %27, %14 ]
   %30 = zext i32 %29 to i64
   %31 = load ptr, ptr %15, align 8, !tbaa !24
-  %32 = getelementptr inbounds nuw %"class.std::function", ptr %31, i64 %30
+  %32 = getelementptr inbounds nuw [32 x i8], ptr %31, i64 %30
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !25
   %33 = getelementptr inbounds i8, ptr %32, i64 -16
@@ -34121,7 +34108,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %40, ptr %16, align 8, !tbaa !23
   %41 = load ptr, ptr %15, align 8, !tbaa !24
   %42 = zext i32 %40 to i64
-  %43 = getelementptr inbounds nuw %"class.std::function", ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw [32 x i8], ptr %41, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load ptr, ptr %44, align 8, !tbaa !26
   %.not.i.i2 = icmp eq ptr %45, null
@@ -34268,7 +34255,7 @@ define linkonce_odr hidden void @_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_
 
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %5, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.48.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   store ptr %0, ptr %3, align 8, !tbaa !555
@@ -34341,7 +34328,7 @@ _ZZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitENS_7Typ
   %30 = phi i32 [ %49, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %29, %_ZZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitENS_7TypeLocEENKUlvE_clEv.exit ]
   %31 = load ptr, ptr %27, align 8, !tbaa !24
   %32 = zext i32 %30 to i64
-  %33 = getelementptr inbounds nuw %"class.std::function", ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [32 x i8], ptr %31, i64 %32
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 1, ptr %10, align 1, !tbaa !25
   %34 = getelementptr inbounds i8, ptr %33, i64 -16
@@ -34364,7 +34351,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %41, ptr %28, align 8, !tbaa !23
   %42 = load ptr, ptr %27, align 8, !tbaa !24
   %43 = zext i32 %41 to i64
-  %44 = getelementptr inbounds nuw %"class.std::function", ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [32 x i8], ptr %42, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load ptr, ptr %45, align 8, !tbaa !26
   %.not.i.i1 = icmp eq ptr %46, null
@@ -34549,7 +34536,7 @@ _ZNSt8functionIFvbEEC2IZN5clang12NodeStreamer8AddChildIZNS3_16ASTNodeTraverserIN
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i, label %115, !prof !57
 
 115:                                              ; preds = %_ZNSt8functionIFvbEEC2IZN5clang12NodeStreamer8AddChildIZNS3_16ASTNodeTraverserINS3_10JSONDumperENS3_14JSONNodeDumperEE5VisitENS3_7TypeLocEEUlvE_EEvN4llvm9StringRefET_EUlbE_vEEOSE_.exit
-  %116 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i, i64 %111
+  %116 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i, i64 %111
   %117 = icmp uge ptr %13, %.pre3.i
   %118 = icmp ult ptr %13, %116
   %spec.select.i.i.i.i.i = and i1 %117, %118
@@ -34574,7 +34561,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i = phi ptr [ %13, %_ZNSt8functionIFvbEEC2IZN5clang12NodeStreamer8AddChildIZNS3_16ASTNodeTraverserINS3_10JSONDumperENS3_14JSONNodeDumperEE5VisitENS3_7TypeLocEEUlvE_EEvN4llvm9StringRefET_EUlbE_vEEOSE_.exit ], [ %124, %119 ], [ %13, %.critedge.i.i.i ]
   %126 = load i32, ptr %109, align 8, !tbaa !23
   %127 = zext i32 %126 to i64
-  %128 = getelementptr inbounds nuw %"class.std::function", ptr %125, i64 %127
+  %128 = getelementptr inbounds nuw [32 x i8], ptr %125, i64 %127
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 24
   %130 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %128, i8 0, i64 24, i1 false)
@@ -34614,7 +34601,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN4llvm23SmallVect
   %144 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %145 = load i32, ptr %144, align 8, !tbaa !23
   %146 = zext i32 %145 to i64
-  %147 = getelementptr inbounds nuw %"class.std::function", ptr %143, i64 %146
+  %147 = getelementptr inbounds nuw [32 x i8], ptr %143, i64 %146
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 1, !tbaa !25
   %148 = getelementptr inbounds i8, ptr %147, i64 -16
@@ -34635,7 +34622,7 @@ _ZNKSt8functionIFvbEEclEb.exit4:                  ; preds = %142
   %154 = load ptr, ptr %91, align 8, !tbaa !24
   %155 = load i32, ptr %144, align 8, !tbaa !23
   %156 = zext i32 %155 to i64
-  %157 = getelementptr inbounds nuw %"class.std::function", ptr %154, i64 %156
+  %157 = getelementptr inbounds nuw [32 x i8], ptr %154, i64 %156
   %158 = getelementptr inbounds i8, ptr %157, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %159 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -34952,8 +34939,8 @@ define linkonce_odr hidden void @_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.experimental.noalias.scope.decl(metadata !1399)
-  %13 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %8, i64 %indvars.iv
-  %14 = getelementptr inbounds nuw %"struct.clang::TemplateArgumentLocInfo", ptr %9, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %.sroa.0.0.copyload.i.i = load i64, ptr %14, align 8, !noalias !1399
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false), !tbaa.struct !1171
   store i64 %.sroa.0.0.copyload.i.i, ptr %10, align 8, !alias.scope !1399
@@ -35054,8 +35041,8 @@ define linkonce_odr hidden void @_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %12 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.experimental.noalias.scope.decl(metadata !1403)
-  %13 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %8, i64 %indvars.iv
-  %14 = getelementptr inbounds nuw %"struct.clang::TemplateArgumentLocInfo", ptr %9, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %.sroa.0.0.copyload.i.i = load i64, ptr %14, align 8, !noalias !1403
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false), !tbaa.struct !1171
   store i64 %.sroa.0.0.copyload.i.i, ptr %10, align 8, !alias.scope !1403
@@ -35170,7 +35157,7 @@ _ZZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitENS_7Typ
   %32 = phi i32 [ %51, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %30, %_ZZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitENS_7TypeLocEENKUlvE_clEv.exit ]
   %33 = zext i32 %32 to i64
   %34 = load ptr, ptr %16, align 8, !tbaa !24
-  %35 = getelementptr inbounds nuw %"class.std::function", ptr %34, i64 %33
+  %35 = getelementptr inbounds nuw [32 x i8], ptr %34, i64 %33
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !25
   %36 = getelementptr inbounds i8, ptr %35, i64 -16
@@ -35193,7 +35180,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %43, ptr %17, align 8, !tbaa !23
   %44 = load ptr, ptr %16, align 8, !tbaa !24
   %45 = zext i32 %43 to i64
-  %46 = getelementptr inbounds nuw %"class.std::function", ptr %44, i64 %45
+  %46 = getelementptr inbounds nuw [32 x i8], ptr %44, i64 %45
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr %47, align 8, !tbaa !26
   %.not.i.i3 = icmp eq ptr %48, null
@@ -35359,7 +35346,7 @@ define linkonce_odr hidden void @_ZN5clang10JSONDumper17writeTemplateDeclINS_15V
 _ZNK5clang21TemplateParameterList17getRequiresClauseEv.exit.i: ; preds = %._crit_edge.i
   %18 = and i32 %16, 536870911
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %9, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !83
   %.not16.i = icmp eq ptr %21, null
   br i1 %.not16.i, label %_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE22dumpTemplateParametersEPKNS_21TemplateParameterListE.exit, label %32
@@ -35434,7 +35421,7 @@ _ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitEPKNS_4De
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %52 = load i32, ptr %51, align 8
   %53 = zext i32 %52 to i64
-  %.sroa.0.0.i.i.i = getelementptr inbounds nuw ptr, ptr %50, i64 %53
+  %.sroa.0.0.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %53
   %.not2122 = icmp eq ptr %47, %.sroa.0.0.i.i.i
   br i1 %.not2122, label %._crit_edge, label %.lr.ph
 
@@ -35731,7 +35718,7 @@ define linkonce_odr hidden void @_ZN5clang12NodeStreamer8AddChildIZNS_10JSONDump
   %23 = phi i32 [ %42, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %22, %17 ]
   %24 = load ptr, ptr %20, align 8, !tbaa !24
   %25 = zext i32 %23 to i64
-  %26 = getelementptr inbounds nuw %"class.std::function", ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [32 x i8], ptr %24, i64 %25
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 1, ptr %10, align 1, !tbaa !25
   %27 = getelementptr inbounds i8, ptr %26, i64 -16
@@ -35754,7 +35741,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %34, ptr %21, align 8, !tbaa !23
   %35 = load ptr, ptr %20, align 8, !tbaa !24
   %36 = zext i32 %34 to i64
-  %37 = getelementptr inbounds nuw %"class.std::function", ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [32 x i8], ptr %35, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load ptr, ptr %38, align 8, !tbaa !26
   %.not.i.i1 = icmp eq ptr %39, null
@@ -35941,7 +35928,7 @@ _ZNSt8functionIFvbEEC2IZN5clang12NodeStreamer8AddChildIZNS3_10JSONDumper31writeT
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i, label %108, !prof !57
 
 108:                                              ; preds = %_ZNSt8functionIFvbEEC2IZN5clang12NodeStreamer8AddChildIZNS3_10JSONDumper31writeTemplateDeclSpecializationINS3_29VarTemplateSpecializationDeclEEEvPKT_bbEUlvE_EEvN4llvm9StringRefES9_EUlbE_vEEOS9_.exit
-  %109 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i, i64 %104
+  %109 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i, i64 %104
   %110 = icmp uge ptr %13, %.pre3.i
   %111 = icmp ult ptr %13, %109
   %spec.select.i.i.i.i.i = and i1 %110, %111
@@ -35966,7 +35953,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i = phi ptr [ %13, %_ZNSt8functionIFvbEEC2IZN5clang12NodeStreamer8AddChildIZNS3_10JSONDumper31writeTemplateDeclSpecializationINS3_29VarTemplateSpecializationDeclEEEvPKT_bbEUlvE_EEvN4llvm9StringRefES9_EUlbE_vEEOS9_.exit ], [ %117, %112 ], [ %13, %.critedge.i.i.i ]
   %119 = load i32, ptr %102, align 8, !tbaa !23
   %120 = zext i32 %119 to i64
-  %121 = getelementptr inbounds nuw %"class.std::function", ptr %118, i64 %120
+  %121 = getelementptr inbounds nuw [32 x i8], ptr %118, i64 %120
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 24
   %123 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %121, i8 0, i64 24, i1 false)
@@ -36006,7 +35993,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN4llvm23SmallVect
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %138 = load i32, ptr %137, align 8, !tbaa !23
   %139 = zext i32 %138 to i64
-  %140 = getelementptr inbounds nuw %"class.std::function", ptr %136, i64 %139
+  %140 = getelementptr inbounds nuw [32 x i8], ptr %136, i64 %139
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 1, !tbaa !25
   %141 = getelementptr inbounds i8, ptr %140, i64 -16
@@ -36027,7 +36014,7 @@ _ZNKSt8functionIFvbEEclEb.exit4:                  ; preds = %135
   %147 = load ptr, ptr %84, align 8, !tbaa !24
   %148 = load i32, ptr %137, align 8, !tbaa !23
   %149 = zext i32 %148 to i64
-  %150 = getelementptr inbounds nuw %"class.std::function", ptr %147, i64 %149
+  %150 = getelementptr inbounds nuw [32 x i8], ptr %147, i64 %149
   %151 = getelementptr inbounds i8, ptr %150, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %152 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -36193,7 +36180,7 @@ define linkonce_odr hidden void @_ZZN5clang12NodeStreamer8AddChildIZNS_10JSONDum
   %26 = phi i32 [ %45, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %24, %14 ]
   %27 = zext i32 %26 to i64
   %28 = load ptr, ptr %15, align 8, !tbaa !24
-  %29 = getelementptr inbounds nuw %"class.std::function", ptr %28, i64 %27
+  %29 = getelementptr inbounds nuw [32 x i8], ptr %28, i64 %27
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !25
   %30 = getelementptr inbounds i8, ptr %29, i64 -16
@@ -36216,7 +36203,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %37, ptr %16, align 8, !tbaa !23
   %38 = load ptr, ptr %15, align 8, !tbaa !24
   %39 = zext i32 %37 to i64
-  %40 = getelementptr inbounds nuw %"class.std::function", ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [32 x i8], ptr %38, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load ptr, ptr %41, align 8, !tbaa !26
   %.not.i.i2 = icmp eq ptr %42, null
@@ -36375,7 +36362,7 @@ define linkonce_odr hidden void @_ZN5clang12NodeStreamer8AddChildIZNS_10JSONDump
   %23 = phi i32 [ %42, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %22, %17 ]
   %24 = load ptr, ptr %20, align 8, !tbaa !24
   %25 = zext i32 %23 to i64
-  %26 = getelementptr inbounds nuw %"class.std::function", ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [32 x i8], ptr %24, i64 %25
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 1, ptr %10, align 1, !tbaa !25
   %27 = getelementptr inbounds i8, ptr %26, i64 -16
@@ -36398,7 +36385,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %34, ptr %21, align 8, !tbaa !23
   %35 = load ptr, ptr %20, align 8, !tbaa !24
   %36 = zext i32 %34 to i64
-  %37 = getelementptr inbounds nuw %"class.std::function", ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [32 x i8], ptr %35, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load ptr, ptr %38, align 8, !tbaa !26
   %.not.i.i1 = icmp eq ptr %39, null
@@ -36585,7 +36572,7 @@ _ZNSt8functionIFvbEEC2IZN5clang12NodeStreamer8AddChildIZNS3_10JSONDumper31writeT
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i, label %108, !prof !57
 
 108:                                              ; preds = %_ZNSt8functionIFvbEEC2IZN5clang12NodeStreamer8AddChildIZNS3_10JSONDumper31writeTemplateDeclSpecializationINS3_29VarTemplateSpecializationDeclEEEvPKT_bbEUlvE0_EEvN4llvm9StringRefES9_EUlbE_vEEOS9_.exit
-  %109 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i, i64 %104
+  %109 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i, i64 %104
   %110 = icmp uge ptr %13, %.pre3.i
   %111 = icmp ult ptr %13, %109
   %spec.select.i.i.i.i.i = and i1 %110, %111
@@ -36610,7 +36597,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i = phi ptr [ %13, %_ZNSt8functionIFvbEEC2IZN5clang12NodeStreamer8AddChildIZNS3_10JSONDumper31writeTemplateDeclSpecializationINS3_29VarTemplateSpecializationDeclEEEvPKT_bbEUlvE0_EEvN4llvm9StringRefES9_EUlbE_vEEOS9_.exit ], [ %117, %112 ], [ %13, %.critedge.i.i.i ]
   %119 = load i32, ptr %102, align 8, !tbaa !23
   %120 = zext i32 %119 to i64
-  %121 = getelementptr inbounds nuw %"class.std::function", ptr %118, i64 %120
+  %121 = getelementptr inbounds nuw [32 x i8], ptr %118, i64 %120
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 24
   %123 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %121, i8 0, i64 24, i1 false)
@@ -36650,7 +36637,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN4llvm23SmallVect
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %138 = load i32, ptr %137, align 8, !tbaa !23
   %139 = zext i32 %138 to i64
-  %140 = getelementptr inbounds nuw %"class.std::function", ptr %136, i64 %139
+  %140 = getelementptr inbounds nuw [32 x i8], ptr %136, i64 %139
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 1, !tbaa !25
   %141 = getelementptr inbounds i8, ptr %140, i64 -16
@@ -36671,7 +36658,7 @@ _ZNKSt8functionIFvbEEclEb.exit4:                  ; preds = %135
   %147 = load ptr, ptr %84, align 8, !tbaa !24
   %148 = load i32, ptr %137, align 8, !tbaa !23
   %149 = zext i32 %148 to i64
-  %150 = getelementptr inbounds nuw %"class.std::function", ptr %147, i64 %149
+  %150 = getelementptr inbounds nuw [32 x i8], ptr %147, i64 %149
   %151 = getelementptr inbounds i8, ptr %150, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %152 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -36835,7 +36822,7 @@ define linkonce_odr hidden void @_ZZN5clang12NodeStreamer8AddChildIZNS_10JSONDum
   %26 = phi i32 [ %45, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %24, %14 ]
   %27 = zext i32 %26 to i64
   %28 = load ptr, ptr %15, align 8, !tbaa !24
-  %29 = getelementptr inbounds nuw %"class.std::function", ptr %28, i64 %27
+  %29 = getelementptr inbounds nuw [32 x i8], ptr %28, i64 %27
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !25
   %30 = getelementptr inbounds i8, ptr %29, i64 -16
@@ -36858,7 +36845,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %37, ptr %16, align 8, !tbaa !23
   %38 = load ptr, ptr %15, align 8, !tbaa !24
   %39 = zext i32 %37 to i64
-  %40 = getelementptr inbounds nuw %"class.std::function", ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [32 x i8], ptr %38, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load ptr, ptr %41, align 8, !tbaa !26
   %.not.i.i2 = icmp eq ptr %42, null
@@ -37024,7 +37011,7 @@ define linkonce_odr hidden void @_ZN5clang10JSONDumper17writeTemplateDeclINS_20F
 _ZNK5clang21TemplateParameterList17getRequiresClauseEv.exit.i: ; preds = %._crit_edge.i
   %18 = and i32 %16, 536870911
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %9, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !83
   %.not16.i = icmp eq ptr %21, null
   br i1 %.not16.i, label %_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE22dumpTemplateParametersEPKNS_21TemplateParameterListE.exit, label %32
@@ -37099,7 +37086,7 @@ _ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitEPKNS_4De
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %52 = load i32, ptr %51, align 8
   %53 = zext i32 %52 to i64
-  %.sroa.0.0.i.i.i = getelementptr inbounds nuw ptr, ptr %50, i64 %53
+  %.sroa.0.0.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %53
   %.not2122 = icmp eq ptr %47, %.sroa.0.0.i.i.i
   br i1 %.not2122, label %._crit_edge, label %.lr.ph
 
@@ -37370,7 +37357,7 @@ define linkonce_odr hidden void @_ZN5clang12NodeStreamer8AddChildIZNS_10JSONDump
   %23 = phi i32 [ %42, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %22, %17 ]
   %24 = load ptr, ptr %20, align 8, !tbaa !24
   %25 = zext i32 %23 to i64
-  %26 = getelementptr inbounds nuw %"class.std::function", ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [32 x i8], ptr %24, i64 %25
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 1, ptr %10, align 1, !tbaa !25
   %27 = getelementptr inbounds i8, ptr %26, i64 -16
@@ -37393,7 +37380,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %34, ptr %21, align 8, !tbaa !23
   %35 = load ptr, ptr %20, align 8, !tbaa !24
   %36 = zext i32 %34 to i64
-  %37 = getelementptr inbounds nuw %"class.std::function", ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [32 x i8], ptr %35, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load ptr, ptr %38, align 8, !tbaa !26
   %.not.i.i1 = icmp eq ptr %39, null
@@ -37580,7 +37567,7 @@ _ZNSt8functionIFvbEEC2IZN5clang12NodeStreamer8AddChildIZNS3_10JSONDumper31writeT
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i, label %108, !prof !57
 
 108:                                              ; preds = %_ZNSt8functionIFvbEEC2IZN5clang12NodeStreamer8AddChildIZNS3_10JSONDumper31writeTemplateDeclSpecializationINS3_12FunctionDeclEEEvPKT_bbEUlvE_EEvN4llvm9StringRefES9_EUlbE_vEEOS9_.exit
-  %109 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i, i64 %104
+  %109 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i, i64 %104
   %110 = icmp uge ptr %13, %.pre3.i
   %111 = icmp ult ptr %13, %109
   %spec.select.i.i.i.i.i = and i1 %110, %111
@@ -37605,7 +37592,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i = phi ptr [ %13, %_ZNSt8functionIFvbEEC2IZN5clang12NodeStreamer8AddChildIZNS3_10JSONDumper31writeTemplateDeclSpecializationINS3_12FunctionDeclEEEvPKT_bbEUlvE_EEvN4llvm9StringRefES9_EUlbE_vEEOS9_.exit ], [ %117, %112 ], [ %13, %.critedge.i.i.i ]
   %119 = load i32, ptr %102, align 8, !tbaa !23
   %120 = zext i32 %119 to i64
-  %121 = getelementptr inbounds nuw %"class.std::function", ptr %118, i64 %120
+  %121 = getelementptr inbounds nuw [32 x i8], ptr %118, i64 %120
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 24
   %123 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %121, i8 0, i64 24, i1 false)
@@ -37645,7 +37632,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN4llvm23SmallVect
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %138 = load i32, ptr %137, align 8, !tbaa !23
   %139 = zext i32 %138 to i64
-  %140 = getelementptr inbounds nuw %"class.std::function", ptr %136, i64 %139
+  %140 = getelementptr inbounds nuw [32 x i8], ptr %136, i64 %139
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 1, !tbaa !25
   %141 = getelementptr inbounds i8, ptr %140, i64 -16
@@ -37666,7 +37653,7 @@ _ZNKSt8functionIFvbEEclEb.exit4:                  ; preds = %135
   %147 = load ptr, ptr %84, align 8, !tbaa !24
   %148 = load i32, ptr %137, align 8, !tbaa !23
   %149 = zext i32 %148 to i64
-  %150 = getelementptr inbounds nuw %"class.std::function", ptr %147, i64 %149
+  %150 = getelementptr inbounds nuw [32 x i8], ptr %147, i64 %149
   %151 = getelementptr inbounds i8, ptr %150, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %152 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -37830,7 +37817,7 @@ define linkonce_odr hidden void @_ZZN5clang12NodeStreamer8AddChildIZNS_10JSONDum
   %26 = phi i32 [ %45, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %24, %14 ]
   %27 = zext i32 %26 to i64
   %28 = load ptr, ptr %15, align 8, !tbaa !24
-  %29 = getelementptr inbounds nuw %"class.std::function", ptr %28, i64 %27
+  %29 = getelementptr inbounds nuw [32 x i8], ptr %28, i64 %27
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !25
   %30 = getelementptr inbounds i8, ptr %29, i64 -16
@@ -37853,7 +37840,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %37, ptr %16, align 8, !tbaa !23
   %38 = load ptr, ptr %15, align 8, !tbaa !24
   %39 = zext i32 %37 to i64
-  %40 = getelementptr inbounds nuw %"class.std::function", ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [32 x i8], ptr %38, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load ptr, ptr %41, align 8, !tbaa !26
   %.not.i.i2 = icmp eq ptr %42, null
@@ -38012,7 +37999,7 @@ define linkonce_odr hidden void @_ZN5clang12NodeStreamer8AddChildIZNS_10JSONDump
   %23 = phi i32 [ %42, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %22, %17 ]
   %24 = load ptr, ptr %20, align 8, !tbaa !24
   %25 = zext i32 %23 to i64
-  %26 = getelementptr inbounds nuw %"class.std::function", ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [32 x i8], ptr %24, i64 %25
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 1, ptr %10, align 1, !tbaa !25
   %27 = getelementptr inbounds i8, ptr %26, i64 -16
@@ -38035,7 +38022,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %34, ptr %21, align 8, !tbaa !23
   %35 = load ptr, ptr %20, align 8, !tbaa !24
   %36 = zext i32 %34 to i64
-  %37 = getelementptr inbounds nuw %"class.std::function", ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [32 x i8], ptr %35, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load ptr, ptr %38, align 8, !tbaa !26
   %.not.i.i1 = icmp eq ptr %39, null
@@ -38222,7 +38209,7 @@ _ZNSt8functionIFvbEEC2IZN5clang12NodeStreamer8AddChildIZNS3_10JSONDumper31writeT
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i, label %108, !prof !57
 
 108:                                              ; preds = %_ZNSt8functionIFvbEEC2IZN5clang12NodeStreamer8AddChildIZNS3_10JSONDumper31writeTemplateDeclSpecializationINS3_12FunctionDeclEEEvPKT_bbEUlvE0_EEvN4llvm9StringRefES9_EUlbE_vEEOS9_.exit
-  %109 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i, i64 %104
+  %109 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i, i64 %104
   %110 = icmp uge ptr %13, %.pre3.i
   %111 = icmp ult ptr %13, %109
   %spec.select.i.i.i.i.i = and i1 %110, %111
@@ -38247,7 +38234,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i = phi ptr [ %13, %_ZNSt8functionIFvbEEC2IZN5clang12NodeStreamer8AddChildIZNS3_10JSONDumper31writeTemplateDeclSpecializationINS3_12FunctionDeclEEEvPKT_bbEUlvE0_EEvN4llvm9StringRefES9_EUlbE_vEEOS9_.exit ], [ %117, %112 ], [ %13, %.critedge.i.i.i ]
   %119 = load i32, ptr %102, align 8, !tbaa !23
   %120 = zext i32 %119 to i64
-  %121 = getelementptr inbounds nuw %"class.std::function", ptr %118, i64 %120
+  %121 = getelementptr inbounds nuw [32 x i8], ptr %118, i64 %120
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 24
   %123 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %121, i8 0, i64 24, i1 false)
@@ -38287,7 +38274,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN4llvm23SmallVect
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %138 = load i32, ptr %137, align 8, !tbaa !23
   %139 = zext i32 %138 to i64
-  %140 = getelementptr inbounds nuw %"class.std::function", ptr %136, i64 %139
+  %140 = getelementptr inbounds nuw [32 x i8], ptr %136, i64 %139
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 1, !tbaa !25
   %141 = getelementptr inbounds i8, ptr %140, i64 -16
@@ -38308,7 +38295,7 @@ _ZNKSt8functionIFvbEEclEb.exit4:                  ; preds = %135
   %147 = load ptr, ptr %84, align 8, !tbaa !24
   %148 = load i32, ptr %137, align 8, !tbaa !23
   %149 = zext i32 %148 to i64
-  %150 = getelementptr inbounds nuw %"class.std::function", ptr %147, i64 %149
+  %150 = getelementptr inbounds nuw [32 x i8], ptr %147, i64 %149
   %151 = getelementptr inbounds i8, ptr %150, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %152 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -38472,7 +38459,7 @@ define linkonce_odr hidden void @_ZZN5clang12NodeStreamer8AddChildIZNS_10JSONDum
   %26 = phi i32 [ %45, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %24, %14 ]
   %27 = zext i32 %26 to i64
   %28 = load ptr, ptr %15, align 8, !tbaa !24
-  %29 = getelementptr inbounds nuw %"class.std::function", ptr %28, i64 %27
+  %29 = getelementptr inbounds nuw [32 x i8], ptr %28, i64 %27
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !25
   %30 = getelementptr inbounds i8, ptr %29, i64 -16
@@ -38495,7 +38482,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %37, ptr %16, align 8, !tbaa !23
   %38 = load ptr, ptr %15, align 8, !tbaa !24
   %39 = zext i32 %37 to i64
-  %40 = getelementptr inbounds nuw %"class.std::function", ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [32 x i8], ptr %38, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load ptr, ptr %41, align 8, !tbaa !26
   %.not.i.i2 = icmp eq ptr %42, null
@@ -38661,7 +38648,7 @@ define linkonce_odr hidden void @_ZN5clang10JSONDumper17writeTemplateDeclINS_17C
 _ZNK5clang21TemplateParameterList17getRequiresClauseEv.exit.i: ; preds = %._crit_edge.i
   %18 = and i32 %16, 536870911
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %9, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !83
   %.not16.i = icmp eq ptr %21, null
   br i1 %.not16.i, label %_ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE22dumpTemplateParametersEPKNS_21TemplateParameterListE.exit, label %32
@@ -38736,7 +38723,7 @@ _ZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitEPKNS_4De
   %51 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %52 = load i32, ptr %51, align 8
   %53 = zext i32 %52 to i64
-  %.sroa.0.0.i.i.i = getelementptr inbounds nuw ptr, ptr %50, i64 %53
+  %.sroa.0.0.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %53
   %.not2223 = icmp eq ptr %47, %.sroa.0.0.i.i.i
   br i1 %.not2223, label %._crit_edge, label %.lr.ph
 
@@ -39047,7 +39034,7 @@ define linkonce_odr hidden void @_ZN5clang12NodeStreamer8AddChildIZNS_10JSONDump
   %23 = phi i32 [ %42, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %22, %17 ]
   %24 = load ptr, ptr %20, align 8, !tbaa !24
   %25 = zext i32 %23 to i64
-  %26 = getelementptr inbounds nuw %"class.std::function", ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [32 x i8], ptr %24, i64 %25
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 1, ptr %10, align 1, !tbaa !25
   %27 = getelementptr inbounds i8, ptr %26, i64 -16
@@ -39070,7 +39057,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %34, ptr %21, align 8, !tbaa !23
   %35 = load ptr, ptr %20, align 8, !tbaa !24
   %36 = zext i32 %34 to i64
-  %37 = getelementptr inbounds nuw %"class.std::function", ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [32 x i8], ptr %35, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load ptr, ptr %38, align 8, !tbaa !26
   %.not.i.i1 = icmp eq ptr %39, null
@@ -39257,7 +39244,7 @@ _ZNSt8functionIFvbEEC2IZN5clang12NodeStreamer8AddChildIZNS3_10JSONDumper31writeT
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i, label %108, !prof !57
 
 108:                                              ; preds = %_ZNSt8functionIFvbEEC2IZN5clang12NodeStreamer8AddChildIZNS3_10JSONDumper31writeTemplateDeclSpecializationINS3_31ClassTemplateSpecializationDeclEEEvPKT_bbEUlvE_EEvN4llvm9StringRefES9_EUlbE_vEEOS9_.exit
-  %109 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i, i64 %104
+  %109 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i, i64 %104
   %110 = icmp uge ptr %13, %.pre3.i
   %111 = icmp ult ptr %13, %109
   %spec.select.i.i.i.i.i = and i1 %110, %111
@@ -39282,7 +39269,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i = phi ptr [ %13, %_ZNSt8functionIFvbEEC2IZN5clang12NodeStreamer8AddChildIZNS3_10JSONDumper31writeTemplateDeclSpecializationINS3_31ClassTemplateSpecializationDeclEEEvPKT_bbEUlvE_EEvN4llvm9StringRefES9_EUlbE_vEEOS9_.exit ], [ %117, %112 ], [ %13, %.critedge.i.i.i ]
   %119 = load i32, ptr %102, align 8, !tbaa !23
   %120 = zext i32 %119 to i64
-  %121 = getelementptr inbounds nuw %"class.std::function", ptr %118, i64 %120
+  %121 = getelementptr inbounds nuw [32 x i8], ptr %118, i64 %120
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 24
   %123 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %121, i8 0, i64 24, i1 false)
@@ -39322,7 +39309,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN4llvm23SmallVect
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %138 = load i32, ptr %137, align 8, !tbaa !23
   %139 = zext i32 %138 to i64
-  %140 = getelementptr inbounds nuw %"class.std::function", ptr %136, i64 %139
+  %140 = getelementptr inbounds nuw [32 x i8], ptr %136, i64 %139
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 1, !tbaa !25
   %141 = getelementptr inbounds i8, ptr %140, i64 -16
@@ -39343,7 +39330,7 @@ _ZNKSt8functionIFvbEEclEb.exit4:                  ; preds = %135
   %147 = load ptr, ptr %84, align 8, !tbaa !24
   %148 = load i32, ptr %137, align 8, !tbaa !23
   %149 = zext i32 %148 to i64
-  %150 = getelementptr inbounds nuw %"class.std::function", ptr %147, i64 %149
+  %150 = getelementptr inbounds nuw [32 x i8], ptr %147, i64 %149
   %151 = getelementptr inbounds i8, ptr %150, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %152 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -39507,7 +39494,7 @@ define linkonce_odr hidden void @_ZZN5clang12NodeStreamer8AddChildIZNS_10JSONDum
   %26 = phi i32 [ %45, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %24, %14 ]
   %27 = zext i32 %26 to i64
   %28 = load ptr, ptr %15, align 8, !tbaa !24
-  %29 = getelementptr inbounds nuw %"class.std::function", ptr %28, i64 %27
+  %29 = getelementptr inbounds nuw [32 x i8], ptr %28, i64 %27
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !25
   %30 = getelementptr inbounds i8, ptr %29, i64 -16
@@ -39530,7 +39517,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %37, ptr %16, align 8, !tbaa !23
   %38 = load ptr, ptr %15, align 8, !tbaa !24
   %39 = zext i32 %37 to i64
-  %40 = getelementptr inbounds nuw %"class.std::function", ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [32 x i8], ptr %38, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load ptr, ptr %41, align 8, !tbaa !26
   %.not.i.i2 = icmp eq ptr %42, null
@@ -39689,7 +39676,7 @@ define linkonce_odr hidden void @_ZN5clang12NodeStreamer8AddChildIZNS_10JSONDump
   %23 = phi i32 [ %42, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %22, %17 ]
   %24 = load ptr, ptr %20, align 8, !tbaa !24
   %25 = zext i32 %23 to i64
-  %26 = getelementptr inbounds nuw %"class.std::function", ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [32 x i8], ptr %24, i64 %25
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 1, ptr %10, align 1, !tbaa !25
   %27 = getelementptr inbounds i8, ptr %26, i64 -16
@@ -39712,7 +39699,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %34, ptr %21, align 8, !tbaa !23
   %35 = load ptr, ptr %20, align 8, !tbaa !24
   %36 = zext i32 %34 to i64
-  %37 = getelementptr inbounds nuw %"class.std::function", ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [32 x i8], ptr %35, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load ptr, ptr %38, align 8, !tbaa !26
   %.not.i.i1 = icmp eq ptr %39, null
@@ -39899,7 +39886,7 @@ _ZNSt8functionIFvbEEC2IZN5clang12NodeStreamer8AddChildIZNS3_10JSONDumper31writeT
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i, label %108, !prof !57
 
 108:                                              ; preds = %_ZNSt8functionIFvbEEC2IZN5clang12NodeStreamer8AddChildIZNS3_10JSONDumper31writeTemplateDeclSpecializationINS3_31ClassTemplateSpecializationDeclEEEvPKT_bbEUlvE0_EEvN4llvm9StringRefES9_EUlbE_vEEOS9_.exit
-  %109 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i, i64 %104
+  %109 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i, i64 %104
   %110 = icmp uge ptr %13, %.pre3.i
   %111 = icmp ult ptr %13, %109
   %spec.select.i.i.i.i.i = and i1 %110, %111
@@ -39924,7 +39911,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i = phi ptr [ %13, %_ZNSt8functionIFvbEEC2IZN5clang12NodeStreamer8AddChildIZNS3_10JSONDumper31writeTemplateDeclSpecializationINS3_31ClassTemplateSpecializationDeclEEEvPKT_bbEUlvE0_EEvN4llvm9StringRefES9_EUlbE_vEEOS9_.exit ], [ %117, %112 ], [ %13, %.critedge.i.i.i ]
   %119 = load i32, ptr %102, align 8, !tbaa !23
   %120 = zext i32 %119 to i64
-  %121 = getelementptr inbounds nuw %"class.std::function", ptr %118, i64 %120
+  %121 = getelementptr inbounds nuw [32 x i8], ptr %118, i64 %120
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 24
   %123 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %121, i8 0, i64 24, i1 false)
@@ -39964,7 +39951,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN4llvm23SmallVect
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %138 = load i32, ptr %137, align 8, !tbaa !23
   %139 = zext i32 %138 to i64
-  %140 = getelementptr inbounds nuw %"class.std::function", ptr %136, i64 %139
+  %140 = getelementptr inbounds nuw [32 x i8], ptr %136, i64 %139
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 1, !tbaa !25
   %141 = getelementptr inbounds i8, ptr %140, i64 -16
@@ -39985,7 +39972,7 @@ _ZNKSt8functionIFvbEEclEb.exit4:                  ; preds = %135
   %147 = load ptr, ptr %84, align 8, !tbaa !24
   %148 = load i32, ptr %137, align 8, !tbaa !23
   %149 = zext i32 %148 to i64
-  %150 = getelementptr inbounds nuw %"class.std::function", ptr %147, i64 %149
+  %150 = getelementptr inbounds nuw [32 x i8], ptr %147, i64 %149
   %151 = getelementptr inbounds i8, ptr %150, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %152 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -40149,7 +40136,7 @@ define linkonce_odr hidden void @_ZZN5clang12NodeStreamer8AddChildIZNS_10JSONDum
   %26 = phi i32 [ %45, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %24, %14 ]
   %27 = zext i32 %26 to i64
   %28 = load ptr, ptr %15, align 8, !tbaa !24
-  %29 = getelementptr inbounds nuw %"class.std::function", ptr %28, i64 %27
+  %29 = getelementptr inbounds nuw [32 x i8], ptr %28, i64 %27
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !25
   %30 = getelementptr inbounds i8, ptr %29, i64 -16
@@ -40172,7 +40159,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %37, ptr %16, align 8, !tbaa !23
   %38 = load ptr, ptr %15, align 8, !tbaa !24
   %39 = zext i32 %37 to i64
-  %40 = getelementptr inbounds nuw %"class.std::function", ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [32 x i8], ptr %38, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
   %42 = load ptr, ptr %41, align 8, !tbaa !26
   %.not.i.i2 = icmp eq ptr %42, null
@@ -40332,7 +40319,7 @@ define linkonce_odr hidden void @_ZN5clang12NodeStreamer8AddChildIZNS_16ASTNodeT
   %23 = phi i32 [ %42, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %22, %17 ]
   %24 = load ptr, ptr %20, align 8, !tbaa !24
   %25 = zext i32 %23 to i64
-  %26 = getelementptr inbounds nuw %"class.std::function", ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [32 x i8], ptr %24, i64 %25
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 1, ptr %10, align 1, !tbaa !25
   %27 = getelementptr inbounds i8, ptr %26, i64 -16
@@ -40355,7 +40342,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %34, ptr %21, align 8, !tbaa !23
   %35 = load ptr, ptr %20, align 8, !tbaa !24
   %36 = zext i32 %34 to i64
-  %37 = getelementptr inbounds nuw %"class.std::function", ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [32 x i8], ptr %35, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load ptr, ptr %38, align 8, !tbaa !26
   %.not.i.i1 = icmp eq ptr %39, null
@@ -40542,7 +40529,7 @@ _ZNSt8functionIFvbEEC2IZN5clang12NodeStreamer8AddChildIZNS3_16ASTNodeTraverserIN
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i, label %108, !prof !57
 
 108:                                              ; preds = %_ZNSt8functionIFvbEEC2IZN5clang12NodeStreamer8AddChildIZNS3_16ASTNodeTraverserINS3_10JSONDumperENS3_14JSONNodeDumperEE5VisitEPKNS3_4AttrEEUlvE_EEvN4llvm9StringRefET_EUlbE_vEEOSG_.exit
-  %109 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i, i64 %104
+  %109 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i, i64 %104
   %110 = icmp uge ptr %13, %.pre3.i
   %111 = icmp ult ptr %13, %109
   %spec.select.i.i.i.i.i = and i1 %110, %111
@@ -40567,7 +40554,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i = phi ptr [ %13, %_ZNSt8functionIFvbEEC2IZN5clang12NodeStreamer8AddChildIZNS3_16ASTNodeTraverserINS3_10JSONDumperENS3_14JSONNodeDumperEE5VisitEPKNS3_4AttrEEUlvE_EEvN4llvm9StringRefET_EUlbE_vEEOSG_.exit ], [ %117, %112 ], [ %13, %.critedge.i.i.i ]
   %119 = load i32, ptr %102, align 8, !tbaa !23
   %120 = zext i32 %119 to i64
-  %121 = getelementptr inbounds nuw %"class.std::function", ptr %118, i64 %120
+  %121 = getelementptr inbounds nuw [32 x i8], ptr %118, i64 %120
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 24
   %123 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %121, i8 0, i64 24, i1 false)
@@ -40607,7 +40594,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN4llvm23SmallVect
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %138 = load i32, ptr %137, align 8, !tbaa !23
   %139 = zext i32 %138 to i64
-  %140 = getelementptr inbounds nuw %"class.std::function", ptr %136, i64 %139
+  %140 = getelementptr inbounds nuw [32 x i8], ptr %136, i64 %139
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 1, !tbaa !25
   %141 = getelementptr inbounds i8, ptr %140, i64 -16
@@ -40628,7 +40615,7 @@ _ZNKSt8functionIFvbEEclEb.exit4:                  ; preds = %135
   %147 = load ptr, ptr %84, align 8, !tbaa !24
   %148 = load i32, ptr %137, align 8, !tbaa !23
   %149 = zext i32 %148 to i64
-  %150 = getelementptr inbounds nuw %"class.std::function", ptr %147, i64 %149
+  %150 = getelementptr inbounds nuw [32 x i8], ptr %147, i64 %149
   %151 = getelementptr inbounds i8, ptr %150, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %152 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -42134,7 +42121,7 @@ define linkonce_odr hidden void @_ZZN5clang12NodeStreamer8AddChildIZNS_16ASTNode
   %27 = phi i32 [ %46, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %25, %14 ]
   %28 = zext i32 %27 to i64
   %29 = load ptr, ptr %15, align 8, !tbaa !24
-  %30 = getelementptr inbounds nuw %"class.std::function", ptr %29, i64 %28
+  %30 = getelementptr inbounds nuw [32 x i8], ptr %29, i64 %28
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !25
   %31 = getelementptr inbounds i8, ptr %30, i64 -16
@@ -42157,7 +42144,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %38, ptr %16, align 8, !tbaa !23
   %39 = load ptr, ptr %15, align 8, !tbaa !24
   %40 = zext i32 %38 to i64
-  %41 = getelementptr inbounds nuw %"class.std::function", ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [32 x i8], ptr %39, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load ptr, ptr %42, align 8, !tbaa !26
   %.not.i.i2 = icmp eq ptr %43, null
@@ -42350,7 +42337,7 @@ _ZZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitEPKNS_8c
   %34 = phi i32 [ %53, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %33, %_ZZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitEPKNS_8comments7CommentEPKNS4_11FullCommentEENKUlvE_clEv.exit ]
   %35 = load ptr, ptr %31, align 8, !tbaa !24
   %36 = zext i32 %34 to i64
-  %37 = getelementptr inbounds nuw %"class.std::function", ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [32 x i8], ptr %35, i64 %36
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   store i8 1, ptr %10, align 1, !tbaa !25
   %38 = getelementptr inbounds i8, ptr %37, i64 -16
@@ -42373,7 +42360,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph25
   store i32 %45, ptr %32, align 8, !tbaa !23
   %46 = load ptr, ptr %31, align 8, !tbaa !24
   %47 = zext i32 %45 to i64
-  %48 = getelementptr inbounds nuw %"class.std::function", ptr %46, i64 %47
+  %48 = getelementptr inbounds nuw [32 x i8], ptr %46, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %50 = load ptr, ptr %49, align 8, !tbaa !26
   %.not.i.i2 = icmp eq ptr %50, null
@@ -42558,7 +42545,7 @@ _ZNSt8functionIFvbEEC2IZN5clang12NodeStreamer8AddChildIZNS3_16ASTNodeTraverserIN
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i, label %119, !prof !57
 
 119:                                              ; preds = %_ZNSt8functionIFvbEEC2IZN5clang12NodeStreamer8AddChildIZNS3_16ASTNodeTraverserINS3_10JSONDumperENS3_14JSONNodeDumperEE5VisitEPKNS3_8comments7CommentEPKNSA_11FullCommentEEUlvE_EEvN4llvm9StringRefET_EUlbE_vEEOSK_.exit
-  %120 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i, i64 %115
+  %120 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i, i64 %115
   %121 = icmp uge ptr %13, %.pre3.i
   %122 = icmp ult ptr %13, %120
   %spec.select.i.i.i.i.i = and i1 %121, %122
@@ -42583,7 +42570,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i = phi ptr [ %13, %_ZNSt8functionIFvbEEC2IZN5clang12NodeStreamer8AddChildIZNS3_16ASTNodeTraverserINS3_10JSONDumperENS3_14JSONNodeDumperEE5VisitEPKNS3_8comments7CommentEPKNSA_11FullCommentEEUlvE_EEvN4llvm9StringRefET_EUlbE_vEEOSK_.exit ], [ %128, %123 ], [ %13, %.critedge.i.i.i ]
   %130 = load i32, ptr %113, align 8, !tbaa !23
   %131 = zext i32 %130 to i64
-  %132 = getelementptr inbounds nuw %"class.std::function", ptr %129, i64 %131
+  %132 = getelementptr inbounds nuw [32 x i8], ptr %129, i64 %131
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 24
   %134 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %132, i8 0, i64 24, i1 false)
@@ -42623,7 +42610,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN4llvm23SmallVect
   %148 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %149 = load i32, ptr %148, align 8, !tbaa !23
   %150 = zext i32 %149 to i64
-  %151 = getelementptr inbounds nuw %"class.std::function", ptr %147, i64 %150
+  %151 = getelementptr inbounds nuw [32 x i8], ptr %147, i64 %150
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 1, !tbaa !25
   %152 = getelementptr inbounds i8, ptr %151, i64 -16
@@ -42644,7 +42631,7 @@ _ZNKSt8functionIFvbEEclEb.exit5:                  ; preds = %146
   %158 = load ptr, ptr %95, align 8, !tbaa !24
   %159 = load i32, ptr %148, align 8, !tbaa !23
   %160 = zext i32 %159 to i64
-  %161 = getelementptr inbounds nuw %"class.std::function", ptr %158, i64 %160
+  %161 = getelementptr inbounds nuw [32 x i8], ptr %158, i64 %160
   %162 = getelementptr inbounds i8, ptr %161, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %163 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -42848,7 +42835,7 @@ _ZZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitEPKNS_8c
   %38 = phi i32 [ %57, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %36, %_ZZN5clang16ASTNodeTraverserINS_10JSONDumperENS_14JSONNodeDumperEE5VisitEPKNS_8comments7CommentEPKNS4_11FullCommentEENKUlvE_clEv.exit ]
   %39 = zext i32 %38 to i64
   %40 = load ptr, ptr %16, align 8, !tbaa !24
-  %41 = getelementptr inbounds nuw %"class.std::function", ptr %40, i64 %39
+  %41 = getelementptr inbounds nuw [32 x i8], ptr %40, i64 %39
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !25
   %42 = getelementptr inbounds i8, ptr %41, i64 -16
@@ -42871,7 +42858,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %49, ptr %17, align 8, !tbaa !23
   %50 = load ptr, ptr %16, align 8, !tbaa !24
   %51 = zext i32 %49 to i64
-  %52 = getelementptr inbounds nuw %"class.std::function", ptr %50, i64 %51
+  %52 = getelementptr inbounds nuw [32 x i8], ptr %50, i64 %51
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load ptr, ptr %53, align 8, !tbaa !26
   %.not.i.i2 = icmp eq ptr %54, null
@@ -43061,7 +43048,7 @@ define linkonce_odr hidden void @_ZZN5clang12NodeStreamer8AddChildIZNS_16ASTNode
   %22 = phi i32 [ %41, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %20, %14 ]
   %23 = zext i32 %22 to i64
   %24 = load ptr, ptr %15, align 8, !tbaa !24
-  %25 = getelementptr inbounds nuw %"class.std::function", ptr %24, i64 %23
+  %25 = getelementptr inbounds nuw [32 x i8], ptr %24, i64 %23
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !25
   %26 = getelementptr inbounds i8, ptr %25, i64 -16
@@ -43084,7 +43071,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %33, ptr %16, align 8, !tbaa !23
   %34 = load ptr, ptr %15, align 8, !tbaa !24
   %35 = zext i32 %33 to i64
-  %36 = getelementptr inbounds nuw %"class.std::function", ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [32 x i8], ptr %34, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8, !tbaa !26
   %.not.i.i2 = icmp eq ptr %38, null
@@ -43242,7 +43229,7 @@ define linkonce_odr hidden void @_ZN5clang17TextTreeStructure8AddChildIZNS_16AST
   %21 = phi i32 [ %40, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %20, %17 ]
   %22 = load ptr, ptr %18, align 8, !tbaa !24
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %"class.std::function", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %23
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 1, ptr %9, align 1, !tbaa !25
   %25 = getelementptr inbounds i8, ptr %24, i64 -16
@@ -43265,7 +43252,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %32, ptr %19, align 8, !tbaa !23
   %33 = load ptr, ptr %18, align 8, !tbaa !24
   %34 = zext i32 %32 to i64
-  %35 = getelementptr inbounds nuw %"class.std::function", ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw [32 x i8], ptr %33, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8, !tbaa !26
   %.not.i.i1 = icmp eq ptr %37, null
@@ -43429,7 +43416,7 @@ _ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_16ASTNodeTraver
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i, label %103, !prof !57
 
 103:                                              ; preds = %_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_16ASTNodeTraverserINS3_9ASTDumperENS3_14TextNodeDumperEE5VisitEPKNS3_4StmtEN4llvm9StringRefEEUlvE_EEvSE_T_EUlbE_vEEOSG_.exit
-  %104 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i, i64 %99
+  %104 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i, i64 %99
   %105 = icmp uge ptr %12, %.pre3.i
   %106 = icmp ult ptr %12, %104
   %spec.select.i.i.i.i.i = and i1 %105, %106
@@ -43454,7 +43441,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i = phi ptr [ %12, %_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_16ASTNodeTraverserINS3_9ASTDumperENS3_14TextNodeDumperEE5VisitEPKNS3_4StmtEN4llvm9StringRefEEUlvE_EEvSE_T_EUlbE_vEEOSG_.exit ], [ %112, %107 ], [ %12, %.critedge.i.i.i ]
   %114 = load i32, ptr %97, align 8, !tbaa !23
   %115 = zext i32 %114 to i64
-  %116 = getelementptr inbounds nuw %"class.std::function", ptr %113, i64 %115
+  %116 = getelementptr inbounds nuw [32 x i8], ptr %113, i64 %115
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 24
   %118 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %116, i8 0, i64 24, i1 false)
@@ -43494,7 +43481,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN4llvm23SmallVect
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %133 = load i32, ptr %132, align 8, !tbaa !23
   %134 = zext i32 %133 to i64
-  %135 = getelementptr inbounds nuw %"class.std::function", ptr %131, i64 %134
+  %135 = getelementptr inbounds nuw [32 x i8], ptr %131, i64 %134
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 1, !tbaa !25
   %136 = getelementptr inbounds i8, ptr %135, i64 -16
@@ -43515,7 +43502,7 @@ _ZNKSt8functionIFvbEEclEb.exit5:                  ; preds = %130
   %142 = load ptr, ptr %77, align 8, !tbaa !24
   %143 = load i32, ptr %132, align 8, !tbaa !23
   %144 = zext i32 %143 to i64
-  %145 = getelementptr inbounds nuw %"class.std::function", ptr %142, i64 %144
+  %145 = getelementptr inbounds nuw [32 x i8], ptr %142, i64 %144
   %146 = getelementptr inbounds i8, ptr %145, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %147 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -44730,7 +44717,7 @@ define linkonce_odr hidden void @_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
   %12 = phi i64 [ %11, %._crit_edge.loopexit ], [ 0, %2 ]
-  %13 = getelementptr inbounds nuw ptr, ptr %4, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %15 = load i32, ptr %14, align 4, !tbaa !1217
   %16 = zext i32 %15 to i64
@@ -44799,7 +44786,7 @@ _ZNK5clang12OverloadExpr23hasExplicitTemplateArgsEv.exit: ; preds = %2
   %10 = zext i32 %9 to i64
   %.04.i.i.v.v.i.i = select i1 %7, i64 64, i64 80
   %.04.i.i.v.i.i = getelementptr inbounds nuw i8, ptr %1, i64 %.04.i.i.v.v.i.i
-  %.04.i.i.i.i = getelementptr inbounds nuw %"class.clang::DeclAccessPair", ptr %.04.i.i.v.i.i, i64 %10
+  %.04.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %.04.i.i.v.i.i, i64 %10
   %11 = load i32, ptr %.04.i.i.i.i, align 8, !tbaa !1220
   %.not23 = icmp eq i32 %11, 0
   br i1 %.not23, label %_ZNK5clang12OverloadExpr23hasExplicitTemplateArgsEv.exit.thread, label %_ZNK5clang12OverloadExpr18template_argumentsEv.exit
@@ -44895,7 +44882,7 @@ define linkonce_odr hidden void @_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14
 _ZNK5clang21TemplateParameterList17getRequiresClauseEv.exit.i: ; preds = %._crit_edge.i
   %26 = and i32 %24, 536870911
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds nuw ptr, ptr %18, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !83
   %.not16.i = icmp eq ptr %29, null
   br i1 %.not16.i, label %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE22dumpTemplateParametersEPKNS_21TemplateParameterListE.exit, label %40
@@ -44953,7 +44940,7 @@ _ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE22dumpTemplatePar
 49:                                               ; preds = %.lr.ph, %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit ]
   %50 = tail call noundef ptr @_ZNK5clang10LambdaExpr13capture_beginEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #21
-  %51 = getelementptr inbounds nuw %"class.clang::LambdaCapture", ptr %50, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [16 x i8], ptr %50, i64 %indvars.iv
   %.0.copyload.i.i.i.i.i = load i64, ptr %51, align 8
   %52 = trunc i64 %.0.copyload.i.i.i.i.i to i1
   br i1 %52, label %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit, label %53
@@ -44987,7 +44974,7 @@ _ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE22dumpTemplatePar
   br label %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit
 
 65:                                               ; preds = %53
-  %66 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %67 = load ptr, ptr %66, align 8, !tbaa !83
   tail call void @_ZN5clang17TextTreeStructure8AddChildIZNS_16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4StmtEN4llvm9StringRefEEUlvE_EEvSA_T_(ptr noundef nonnull align 8 dereferenceable(1096) %14, ptr null, i64 0, ptr %67, ptr nonnull align 4 dereferenceable(8) %0)
   br label %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_4DeclEb.exit
@@ -45133,7 +45120,7 @@ _ZNK5clang8QualType5splitEv.exit:                 ; preds = %16, %18
 25:                                               ; preds = %2
   %26 = and i32 %5, 32767
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds nuw ptr, ptr %7, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !1213
   %.sroa.0.0.copyload.i9 = load i64, ptr %29, align 8, !tbaa !34
   %30 = and i64 %.sroa.0.0.copyload.i9, 8
@@ -45175,7 +45162,7 @@ _ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitENS_8QualTy
   %45 = lshr i32 %44, 30
   %.lobit.i.i = and i32 %45, 1
   %46 = zext nneg i32 %.lobit.i.i to i64
-  %47 = getelementptr inbounds nuw ptr, ptr %43, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %46
   %48 = and i32 %44, 32767
   %49 = lshr i32 %44, 15
   %50 = and i32 %49, 32767
@@ -45188,10 +45175,10 @@ _ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitENS_8QualTy
 .lr.ph:                                           ; preds = %_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitENS_8QualTypeE.exit
   %53 = add nuw nsw i32 %.lobit.i.i, %48
   %54 = zext nneg i32 %53 to i64
-  %55 = getelementptr inbounds nuw ptr, ptr %43, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %54
   %56 = xor i32 %.lobit.i.i, 1
   %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr inbounds nuw ptr, ptr %55, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.454.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
   %.sroa.555.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -45309,11 +45296,11 @@ define linkonce_odr hidden void @_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14
   %11 = lshr i32 %6, 19
   %12 = and i32 %11, 1
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %10, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %16 = load i32, ptr %15, align 8, !tbaa !1238, !noalias !1526
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %14, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %17
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %9, ptr %3, align 8, !noalias !1529
@@ -45681,7 +45668,7 @@ define linkonce_odr hidden void @_ZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load i32, ptr %15, align 8, !tbaa !1268
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr %16, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %18
   br label %_ZNK5clang8DeclStmt5declsEv.exit
 
 _ZNK5clang8DeclStmt5declsEv.exit:                 ; preds = %9, %13
@@ -45808,7 +45795,7 @@ define linkonce_odr hidden void @_ZN5clang17TextTreeStructure8AddChildIZNS_16AST
   %21 = phi i32 [ %40, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %20, %17 ]
   %22 = load ptr, ptr %18, align 8, !tbaa !24
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %"class.std::function", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %23
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 1, ptr %9, align 1, !tbaa !25
   %25 = getelementptr inbounds i8, ptr %24, i64 -16
@@ -45831,7 +45818,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %32, ptr %19, align 8, !tbaa !23
   %33 = load ptr, ptr %18, align 8, !tbaa !24
   %34 = zext i32 %32 to i64
-  %35 = getelementptr inbounds nuw %"class.std::function", ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw [32 x i8], ptr %33, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8, !tbaa !26
   %.not.i.i1 = icmp eq ptr %37, null
@@ -45995,7 +45982,7 @@ _ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_16ASTNodeTraver
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i, label %103, !prof !57
 
 103:                                              ; preds = %_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_16ASTNodeTraverserINS3_9ASTDumperENS3_14TextNodeDumperEE5VisitEPKNS3_8concepts11RequirementEEUlvE_EEvN4llvm9StringRefET_EUlbE_vEEOSH_.exit
-  %104 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i, i64 %99
+  %104 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i, i64 %99
   %105 = icmp uge ptr %12, %.pre3.i
   %106 = icmp ult ptr %12, %104
   %spec.select.i.i.i.i.i = and i1 %105, %106
@@ -46020,7 +46007,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i = phi ptr [ %12, %_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_16ASTNodeTraverserINS3_9ASTDumperENS3_14TextNodeDumperEE5VisitEPKNS3_8concepts11RequirementEEUlvE_EEvN4llvm9StringRefET_EUlbE_vEEOSH_.exit ], [ %112, %107 ], [ %12, %.critedge.i.i.i ]
   %114 = load i32, ptr %97, align 8, !tbaa !23
   %115 = zext i32 %114 to i64
-  %116 = getelementptr inbounds nuw %"class.std::function", ptr %113, i64 %115
+  %116 = getelementptr inbounds nuw [32 x i8], ptr %113, i64 %115
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 24
   %118 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %116, i8 0, i64 24, i1 false)
@@ -46060,7 +46047,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN4llvm23SmallVect
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %133 = load i32, ptr %132, align 8, !tbaa !23
   %134 = zext i32 %133 to i64
-  %135 = getelementptr inbounds nuw %"class.std::function", ptr %131, i64 %134
+  %135 = getelementptr inbounds nuw [32 x i8], ptr %131, i64 %134
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 1, !tbaa !25
   %136 = getelementptr inbounds i8, ptr %135, i64 -16
@@ -46081,7 +46068,7 @@ _ZNKSt8functionIFvbEEclEb.exit5:                  ; preds = %130
   %142 = load ptr, ptr %77, align 8, !tbaa !24
   %143 = load i32, ptr %132, align 8, !tbaa !23
   %144 = zext i32 %143 to i64
-  %145 = getelementptr inbounds nuw %"class.std::function", ptr %142, i64 %144
+  %145 = getelementptr inbounds nuw [32 x i8], ptr %142, i64 %144
   %146 = getelementptr inbounds i8, ptr %145, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %147 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -46483,7 +46470,7 @@ _ZN5clang10ColorScopeD2Ev.exit:                   ; preds = %_ZNSt7__cxx1112basi
   %109 = phi i32 [ %128, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %107, %_ZN5clang10ColorScopeD2Ev.exit ]
   %110 = zext i32 %109 to i64
   %111 = load ptr, ptr %103, align 8, !tbaa !24
-  %112 = getelementptr inbounds nuw %"class.std::function", ptr %111, i64 %110
+  %112 = getelementptr inbounds nuw [32 x i8], ptr %111, i64 %110
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !25
   %113 = getelementptr inbounds i8, ptr %112, i64 -16
@@ -46506,7 +46493,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %120, ptr %104, align 8, !tbaa !23
   %121 = load ptr, ptr %103, align 8, !tbaa !24
   %122 = zext i32 %120 to i64
-  %123 = getelementptr inbounds nuw %"class.std::function", ptr %121, i64 %122
+  %123 = getelementptr inbounds nuw [32 x i8], ptr %121, i64 %122
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 16
   %125 = load ptr, ptr %124, align 8, !tbaa !26
   %.not.i.i12 = icmp eq ptr %125, null
@@ -46696,7 +46683,7 @@ _ZZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitERKNS_20Ge
   %37 = phi i32 [ %56, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %36, %_ZZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitERKNS_20GenericSelectionExpr13AssociationTyILb1EEEENKUlvE_clEv.exit ]
   %38 = load ptr, ptr %34, align 8, !tbaa !24
   %39 = zext i32 %37 to i64
-  %40 = getelementptr inbounds nuw %"class.std::function", ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [32 x i8], ptr %38, i64 %39
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i8 1, ptr %8, align 1, !tbaa !25
   %41 = getelementptr inbounds i8, ptr %40, i64 -16
@@ -46719,7 +46706,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %48, ptr %35, align 8, !tbaa !23
   %49 = load ptr, ptr %34, align 8, !tbaa !24
   %50 = zext i32 %48 to i64
-  %51 = getelementptr inbounds nuw %"class.std::function", ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [32 x i8], ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 16
   %53 = load ptr, ptr %52, align 8, !tbaa !26
   %.not.i.i2 = icmp eq ptr %53, null
@@ -46882,7 +46869,7 @@ _ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_16ASTNodeTraver
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i, label %118, !prof !57
 
 118:                                              ; preds = %_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_16ASTNodeTraverserINS3_9ASTDumperENS3_14TextNodeDumperEE5VisitERKNS3_20GenericSelectionExpr13AssociationTyILb1EEEEUlvE_EEvN4llvm9StringRefET_EUlbE_vEEOSI_.exit
-  %119 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i, i64 %114
+  %119 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i, i64 %114
   %120 = icmp uge ptr %10, %.pre3.i
   %121 = icmp ult ptr %10, %119
   %spec.select.i.i.i.i.i = and i1 %120, %121
@@ -46907,7 +46894,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i = phi ptr [ %10, %_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_16ASTNodeTraverserINS3_9ASTDumperENS3_14TextNodeDumperEE5VisitERKNS3_20GenericSelectionExpr13AssociationTyILb1EEEEUlvE_EEvN4llvm9StringRefET_EUlbE_vEEOSI_.exit ], [ %127, %122 ], [ %10, %.critedge.i.i.i ]
   %129 = load i32, ptr %112, align 8, !tbaa !23
   %130 = zext i32 %129 to i64
-  %131 = getelementptr inbounds nuw %"class.std::function", ptr %128, i64 %130
+  %131 = getelementptr inbounds nuw [32 x i8], ptr %128, i64 %130
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 24
   %133 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %131, i8 0, i64 24, i1 false)
@@ -46947,7 +46934,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN4llvm23SmallVect
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %148 = load i32, ptr %147, align 8, !tbaa !23
   %149 = zext i32 %148 to i64
-  %150 = getelementptr inbounds nuw %"class.std::function", ptr %146, i64 %149
+  %150 = getelementptr inbounds nuw [32 x i8], ptr %146, i64 %149
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 0, ptr %6, align 1, !tbaa !25
   %151 = getelementptr inbounds i8, ptr %150, i64 -16
@@ -46968,7 +46955,7 @@ _ZNKSt8functionIFvbEEclEb.exit6:                  ; preds = %145
   %157 = load ptr, ptr %93, align 8, !tbaa !24
   %158 = load i32, ptr %147, align 8, !tbaa !23
   %159 = zext i32 %158 to i64
-  %160 = getelementptr inbounds nuw %"class.std::function", ptr %157, i64 %159
+  %160 = getelementptr inbounds nuw [32 x i8], ptr %157, i64 %159
   %161 = getelementptr inbounds i8, ptr %160, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %162 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -47329,7 +47316,7 @@ _ZZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitERKNS_20Ge
   %128 = phi i32 [ %147, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %126, %_ZZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitERKNS_20GenericSelectionExpr13AssociationTyILb1EEEENKUlvE_clEv.exit ]
   %129 = zext i32 %128 to i64
   %130 = load ptr, ptr %103, align 8, !tbaa !24
-  %131 = getelementptr inbounds nuw %"class.std::function", ptr %130, i64 %129
+  %131 = getelementptr inbounds nuw [32 x i8], ptr %130, i64 %129
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !25
   %132 = getelementptr inbounds i8, ptr %131, i64 -16
@@ -47352,7 +47339,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %139, ptr %104, align 8, !tbaa !23
   %140 = load ptr, ptr %103, align 8, !tbaa !24
   %141 = zext i32 %139 to i64
-  %142 = getelementptr inbounds nuw %"class.std::function", ptr %140, i64 %141
+  %142 = getelementptr inbounds nuw [32 x i8], ptr %140, i64 %141
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 16
   %144 = load ptr, ptr %143, align 8, !tbaa !26
   %.not.i.i14 = icmp eq ptr %144, null
@@ -47583,7 +47570,7 @@ define linkonce_odr hidden void @_ZN5clang17TextTreeStructure8AddChildIZNS_16AST
   %21 = phi i32 [ %40, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %20, %17 ]
   %22 = load ptr, ptr %18, align 8, !tbaa !24
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %"class.std::function", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %23
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 1, ptr %9, align 1, !tbaa !25
   %25 = getelementptr inbounds i8, ptr %24, i64 -16
@@ -47606,7 +47593,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %32, ptr %19, align 8, !tbaa !23
   %33 = load ptr, ptr %18, align 8, !tbaa !24
   %34 = zext i32 %32 to i64
-  %35 = getelementptr inbounds nuw %"class.std::function", ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw [32 x i8], ptr %33, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8, !tbaa !26
   %.not.i.i1 = icmp eq ptr %37, null
@@ -47770,7 +47757,7 @@ _ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_16ASTNodeTraver
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i, label %103, !prof !57
 
 103:                                              ; preds = %_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_16ASTNodeTraverserINS3_9ASTDumperENS3_14TextNodeDumperEE5VisitEPKNS3_13OpenACCClauseEEUlvE_EEvN4llvm9StringRefET_EUlbE_vEEOSG_.exit
-  %104 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i, i64 %99
+  %104 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i, i64 %99
   %105 = icmp uge ptr %12, %.pre3.i
   %106 = icmp ult ptr %12, %104
   %spec.select.i.i.i.i.i = and i1 %105, %106
@@ -47795,7 +47782,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i = phi ptr [ %12, %_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_16ASTNodeTraverserINS3_9ASTDumperENS3_14TextNodeDumperEE5VisitEPKNS3_13OpenACCClauseEEUlvE_EEvN4llvm9StringRefET_EUlbE_vEEOSG_.exit ], [ %112, %107 ], [ %12, %.critedge.i.i.i ]
   %114 = load i32, ptr %97, align 8, !tbaa !23
   %115 = zext i32 %114 to i64
-  %116 = getelementptr inbounds nuw %"class.std::function", ptr %113, i64 %115
+  %116 = getelementptr inbounds nuw [32 x i8], ptr %113, i64 %115
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 24
   %118 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %116, i8 0, i64 24, i1 false)
@@ -47835,7 +47822,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN4llvm23SmallVect
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %133 = load i32, ptr %132, align 8, !tbaa !23
   %134 = zext i32 %133 to i64
-  %135 = getelementptr inbounds nuw %"class.std::function", ptr %131, i64 %134
+  %135 = getelementptr inbounds nuw [32 x i8], ptr %131, i64 %134
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 1, !tbaa !25
   %136 = getelementptr inbounds i8, ptr %135, i64 -16
@@ -47856,7 +47843,7 @@ _ZNKSt8functionIFvbEEclEb.exit5:                  ; preds = %130
   %142 = load ptr, ptr %77, align 8, !tbaa !24
   %143 = load i32, ptr %132, align 8, !tbaa !23
   %144 = zext i32 %143 to i64
-  %145 = getelementptr inbounds nuw %"class.std::function", ptr %142, i64 %144
+  %145 = getelementptr inbounds nuw [32 x i8], ptr %142, i64 %144
   %146 = getelementptr inbounds i8, ptr %145, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %147 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -48252,7 +48239,7 @@ _ZN5clang10ColorScopeD2Ev.exit:                   ; preds = %_ZNSt7__cxx1112basi
   %109 = phi i32 [ %128, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %107, %_ZN5clang10ColorScopeD2Ev.exit ]
   %110 = zext i32 %109 to i64
   %111 = load ptr, ptr %103, align 8, !tbaa !24
-  %112 = getelementptr inbounds nuw %"class.std::function", ptr %111, i64 %110
+  %112 = getelementptr inbounds nuw [32 x i8], ptr %111, i64 %110
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !25
   %113 = getelementptr inbounds i8, ptr %112, i64 -16
@@ -48275,7 +48262,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %120, ptr %104, align 8, !tbaa !23
   %121 = load ptr, ptr %103, align 8, !tbaa !24
   %122 = zext i32 %120 to i64
-  %123 = getelementptr inbounds nuw %"class.std::function", ptr %121, i64 %122
+  %123 = getelementptr inbounds nuw [32 x i8], ptr %121, i64 %122
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 16
   %125 = load ptr, ptr %124, align 8, !tbaa !26
   %.not.i.i12 = icmp eq ptr %125, null
@@ -48707,7 +48694,7 @@ _ZN5clang10ColorScopeD2Ev.exit:                   ; preds = %_ZNSt7__cxx1112basi
   %109 = phi i32 [ %128, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %107, %_ZN5clang10ColorScopeD2Ev.exit ]
   %110 = zext i32 %109 to i64
   %111 = load ptr, ptr %103, align 8, !tbaa !24
-  %112 = getelementptr inbounds nuw %"class.std::function", ptr %111, i64 %110
+  %112 = getelementptr inbounds nuw [32 x i8], ptr %111, i64 %110
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !25
   %113 = getelementptr inbounds i8, ptr %112, i64 -16
@@ -48730,7 +48717,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %120, ptr %104, align 8, !tbaa !23
   %121 = load ptr, ptr %103, align 8, !tbaa !24
   %122 = zext i32 %120 to i64
-  %123 = getelementptr inbounds nuw %"class.std::function", ptr %121, i64 %122
+  %123 = getelementptr inbounds nuw [32 x i8], ptr %121, i64 %122
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 16
   %125 = load ptr, ptr %124, align 8, !tbaa !26
   %.not.i.i12 = icmp eq ptr %125, null
@@ -48910,7 +48897,7 @@ _ZZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_8com
   %31 = phi i32 [ %50, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %30, %_ZZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_8comments7CommentEPKNS4_11FullCommentEENKUlvE_clEv.exit ]
   %32 = load ptr, ptr %28, align 8, !tbaa !24
   %33 = zext i32 %31 to i64
-  %34 = getelementptr inbounds nuw %"class.std::function", ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [32 x i8], ptr %32, i64 %33
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 1, ptr %9, align 1, !tbaa !25
   %35 = getelementptr inbounds i8, ptr %34, i64 -16
@@ -48933,7 +48920,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph17
   store i32 %42, ptr %29, align 8, !tbaa !23
   %43 = load ptr, ptr %28, align 8, !tbaa !24
   %44 = zext i32 %42 to i64
-  %45 = getelementptr inbounds nuw %"class.std::function", ptr %43, i64 %44
+  %45 = getelementptr inbounds nuw [32 x i8], ptr %43, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load ptr, ptr %46, align 8, !tbaa !26
   %.not.i.i2 = icmp eq ptr %47, null
@@ -49097,7 +49084,7 @@ _ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_16ASTNodeTraver
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i, label %113, !prof !57
 
 113:                                              ; preds = %_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_16ASTNodeTraverserINS3_9ASTDumperENS3_14TextNodeDumperEE5VisitEPKNS3_8comments7CommentEPKNSA_11FullCommentEEUlvE_EEvN4llvm9StringRefET_EUlbE_vEEOSK_.exit
-  %114 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i, i64 %109
+  %114 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i, i64 %109
   %115 = icmp uge ptr %11, %.pre3.i
   %116 = icmp ult ptr %11, %114
   %spec.select.i.i.i.i.i = and i1 %115, %116
@@ -49122,7 +49109,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i = phi ptr [ %11, %_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_16ASTNodeTraverserINS3_9ASTDumperENS3_14TextNodeDumperEE5VisitEPKNS3_8comments7CommentEPKNSA_11FullCommentEEUlvE_EEvN4llvm9StringRefET_EUlbE_vEEOSK_.exit ], [ %122, %117 ], [ %11, %.critedge.i.i.i ]
   %124 = load i32, ptr %107, align 8, !tbaa !23
   %125 = zext i32 %124 to i64
-  %126 = getelementptr inbounds nuw %"class.std::function", ptr %123, i64 %125
+  %126 = getelementptr inbounds nuw [32 x i8], ptr %123, i64 %125
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 24
   %128 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %126, i8 0, i64 24, i1 false)
@@ -49162,7 +49149,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN4llvm23SmallVect
   %142 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %143 = load i32, ptr %142, align 8, !tbaa !23
   %144 = zext i32 %143 to i64
-  %145 = getelementptr inbounds nuw %"class.std::function", ptr %141, i64 %144
+  %145 = getelementptr inbounds nuw [32 x i8], ptr %141, i64 %144
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 1, !tbaa !25
   %146 = getelementptr inbounds i8, ptr %145, i64 -16
@@ -49183,7 +49170,7 @@ _ZNKSt8functionIFvbEEclEb.exit6:                  ; preds = %140
   %152 = load ptr, ptr %87, align 8, !tbaa !24
   %153 = load i32, ptr %142, align 8, !tbaa !23
   %154 = zext i32 %153 to i64
-  %155 = getelementptr inbounds nuw %"class.std::function", ptr %152, i64 %154
+  %155 = getelementptr inbounds nuw [32 x i8], ptr %152, i64 %154
   %156 = getelementptr inbounds i8, ptr %155, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %157 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -49539,7 +49526,7 @@ _ZZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_8com
   %125 = phi i32 [ %144, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %123, %_ZZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitEPKNS_8comments7CommentEPKNS4_11FullCommentEENKUlvE_clEv.exit ]
   %126 = zext i32 %125 to i64
   %127 = load ptr, ptr %104, align 8, !tbaa !24
-  %128 = getelementptr inbounds nuw %"class.std::function", ptr %127, i64 %126
+  %128 = getelementptr inbounds nuw [32 x i8], ptr %127, i64 %126
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !25
   %129 = getelementptr inbounds i8, ptr %128, i64 -16
@@ -49562,7 +49549,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %136, ptr %105, align 8, !tbaa !23
   %137 = load ptr, ptr %104, align 8, !tbaa !24
   %138 = zext i32 %136 to i64
-  %139 = getelementptr inbounds nuw %"class.std::function", ptr %137, i64 %138
+  %139 = getelementptr inbounds nuw [32 x i8], ptr %137, i64 %138
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 16
   %141 = load ptr, ptr %140, align 8, !tbaa !26
   %.not.i.i13 = icmp eq ptr %141, null
@@ -49714,7 +49701,7 @@ define linkonce_odr hidden void @_ZN5clang17TextTreeStructure8AddChildIZNS_16AST
   %22 = phi i32 [ %41, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %21, %14 ]
   %23 = load ptr, ptr %19, align 8, !tbaa !24
   %24 = zext i32 %22 to i64
-  %25 = getelementptr inbounds nuw %"class.std::function", ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %24
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   store i8 1, ptr %8, align 1, !tbaa !25
   %26 = getelementptr inbounds i8, ptr %25, i64 -16
@@ -49737,7 +49724,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %33, ptr %20, align 8, !tbaa !23
   %34 = load ptr, ptr %19, align 8, !tbaa !24
   %35 = zext i32 %33 to i64
-  %36 = getelementptr inbounds nuw %"class.std::function", ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [32 x i8], ptr %34, i64 %35
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8, !tbaa !26
   %.not.i.i1 = icmp eq ptr %38, null
@@ -49918,7 +49905,7 @@ _ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_16ASTNodeTraver
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i, label %116, !prof !57
 
 116:                                              ; preds = %_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_16ASTNodeTraverserINS3_9ASTDumperENS3_14TextNodeDumperEE5VisitERKNS3_7APValueENS3_8QualTypeEEUlvE_EEvN4llvm9StringRefET_EUlbE_vEEOSH_.exit
-  %117 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i, i64 %112
+  %117 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i, i64 %112
   %118 = icmp uge ptr %10, %.pre3.i
   %119 = icmp ult ptr %10, %117
   %spec.select.i.i.i.i.i = and i1 %118, %119
@@ -49943,7 +49930,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i = phi ptr [ %10, %_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_16ASTNodeTraverserINS3_9ASTDumperENS3_14TextNodeDumperEE5VisitERKNS3_7APValueENS3_8QualTypeEEUlvE_EEvN4llvm9StringRefET_EUlbE_vEEOSH_.exit ], [ %125, %120 ], [ %10, %.critedge.i.i.i ]
   %127 = load i32, ptr %110, align 8, !tbaa !23
   %128 = zext i32 %127 to i64
-  %129 = getelementptr inbounds nuw %"class.std::function", ptr %126, i64 %128
+  %129 = getelementptr inbounds nuw [32 x i8], ptr %126, i64 %128
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 24
   %131 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %129, i8 0, i64 24, i1 false)
@@ -49983,7 +49970,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN4llvm23SmallVect
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %146 = load i32, ptr %145, align 8, !tbaa !23
   %147 = zext i32 %146 to i64
-  %148 = getelementptr inbounds nuw %"class.std::function", ptr %144, i64 %147
+  %148 = getelementptr inbounds nuw [32 x i8], ptr %144, i64 %147
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store i8 0, ptr %6, align 1, !tbaa !25
   %149 = getelementptr inbounds i8, ptr %148, i64 -16
@@ -50004,7 +49991,7 @@ _ZNKSt8functionIFvbEEclEb.exit5:                  ; preds = %143
   %155 = load ptr, ptr %84, align 8, !tbaa !24
   %156 = load i32, ptr %145, align 8, !tbaa !23
   %157 = zext i32 %156 to i64
-  %158 = getelementptr inbounds nuw %"class.std::function", ptr %155, i64 %157
+  %158 = getelementptr inbounds nuw [32 x i8], ptr %155, i64 %157
   %159 = getelementptr inbounds i8, ptr %158, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %160 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -50345,7 +50332,7 @@ _ZN5clang10ColorScopeD2Ev.exit:                   ; preds = %_ZNSt7__cxx1112basi
   %113 = phi i32 [ %132, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %111, %_ZN5clang10ColorScopeD2Ev.exit ]
   %114 = zext i32 %113 to i64
   %115 = load ptr, ptr %103, align 8, !tbaa !24
-  %116 = getelementptr inbounds nuw %"class.std::function", ptr %115, i64 %114
+  %116 = getelementptr inbounds nuw [32 x i8], ptr %115, i64 %114
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !25
   %117 = getelementptr inbounds i8, ptr %116, i64 -16
@@ -50368,7 +50355,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %124, ptr %104, align 8, !tbaa !23
   %125 = load ptr, ptr %103, align 8, !tbaa !24
   %126 = zext i32 %124 to i64
-  %127 = getelementptr inbounds nuw %"class.std::function", ptr %125, i64 %126
+  %127 = getelementptr inbounds nuw [32 x i8], ptr %125, i64 %126
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 16
   %129 = load ptr, ptr %128, align 8, !tbaa !26
   %.not.i.i12 = icmp eq ptr %129, null
@@ -50538,7 +50525,7 @@ define linkonce_odr hidden void @_ZN5clang17TextTreeStructure8AddChildIZNS_16AST
   %20 = phi i32 [ %39, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %19, %15 ]
   %21 = load ptr, ptr %17, align 8, !tbaa !24
   %22 = zext i32 %20 to i64
-  %23 = getelementptr inbounds nuw %"class.std::function", ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 %22
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 1, ptr %9, align 1, !tbaa !25
   %24 = getelementptr inbounds i8, ptr %23, i64 -16
@@ -50561,7 +50548,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %31, ptr %18, align 8, !tbaa !23
   %32 = load ptr, ptr %17, align 8, !tbaa !24
   %33 = zext i32 %31 to i64
-  %34 = getelementptr inbounds nuw %"class.std::function", ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [32 x i8], ptr %32, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
   %36 = load ptr, ptr %35, align 8, !tbaa !26
   %.not.i.i1 = icmp eq ptr %36, null
@@ -50727,7 +50714,7 @@ _ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_16ASTNodeTraver
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i, label %102, !prof !57
 
 102:                                              ; preds = %_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_16ASTNodeTraverserINS3_9ASTDumperENS3_14TextNodeDumperEE5VisitEPKNS3_16ConceptReferenceEEUlvE_EEvN4llvm9StringRefET_EUlbE_vEEOSG_.exit
-  %103 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i, i64 %98
+  %103 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i, i64 %98
   %104 = icmp uge ptr %11, %.pre3.i
   %105 = icmp ult ptr %11, %103
   %spec.select.i.i.i.i.i = and i1 %104, %105
@@ -50752,7 +50739,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i = phi ptr [ %11, %_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_16ASTNodeTraverserINS3_9ASTDumperENS3_14TextNodeDumperEE5VisitEPKNS3_16ConceptReferenceEEUlvE_EEvN4llvm9StringRefET_EUlbE_vEEOSG_.exit ], [ %111, %106 ], [ %11, %.critedge.i.i.i ]
   %113 = load i32, ptr %96, align 8, !tbaa !23
   %114 = zext i32 %113 to i64
-  %115 = getelementptr inbounds nuw %"class.std::function", ptr %112, i64 %114
+  %115 = getelementptr inbounds nuw [32 x i8], ptr %112, i64 %114
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 24
   %117 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %115, i8 0, i64 24, i1 false)
@@ -50792,7 +50779,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN4llvm23SmallVect
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %132 = load i32, ptr %131, align 8, !tbaa !23
   %133 = zext i32 %132 to i64
-  %134 = getelementptr inbounds nuw %"class.std::function", ptr %130, i64 %133
+  %134 = getelementptr inbounds nuw [32 x i8], ptr %130, i64 %133
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 1, !tbaa !25
   %135 = getelementptr inbounds i8, ptr %134, i64 -16
@@ -50813,7 +50800,7 @@ _ZNKSt8functionIFvbEEclEb.exit5:                  ; preds = %129
   %141 = load ptr, ptr %76, align 8, !tbaa !24
   %142 = load i32, ptr %131, align 8, !tbaa !23
   %143 = zext i32 %142 to i64
-  %144 = getelementptr inbounds nuw %"class.std::function", ptr %141, i64 %143
+  %144 = getelementptr inbounds nuw [32 x i8], ptr %141, i64 %143
   %145 = getelementptr inbounds i8, ptr %144, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %146 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -51135,7 +51122,7 @@ _ZN5clang10ColorScopeD2Ev.exit:                   ; preds = %_ZNSt7__cxx1112basi
   %113 = phi i32 [ %132, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %111, %_ZN5clang10ColorScopeD2Ev.exit ]
   %114 = zext i32 %113 to i64
   %115 = load ptr, ptr %103, align 8, !tbaa !24
-  %116 = getelementptr inbounds nuw %"class.std::function", ptr %115, i64 %114
+  %116 = getelementptr inbounds nuw [32 x i8], ptr %115, i64 %114
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !25
   %117 = getelementptr inbounds i8, ptr %116, i64 -16
@@ -51158,7 +51145,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %124, ptr %104, align 8, !tbaa !23
   %125 = load ptr, ptr %103, align 8, !tbaa !24
   %126 = zext i32 %124 to i64
-  %127 = getelementptr inbounds nuw %"class.std::function", ptr %125, i64 %126
+  %127 = getelementptr inbounds nuw [32 x i8], ptr %125, i64 %126
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 16
   %129 = load ptr, ptr %128, align 8, !tbaa !26
   %.not.i.i12 = icmp eq ptr %129, null
@@ -51411,7 +51398,7 @@ _ZN5clang23templateargumentvisitor4BaseIN4llvm14make_const_refENS_9ASTDumperEvJE
   %61 = phi i32 [ %80, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %60, %_ZN5clang23templateargumentvisitor4BaseIN4llvm14make_const_refENS_9ASTDumperEvJEE5VisitERKNS_16TemplateArgumentE.exit ]
   %62 = load ptr, ptr %58, align 8, !tbaa !24
   %63 = zext i32 %61 to i64
-  %64 = getelementptr inbounds nuw %"class.std::function", ptr %62, i64 %63
+  %64 = getelementptr inbounds nuw [32 x i8], ptr %62, i64 %63
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   store i8 1, ptr %9, align 1, !tbaa !25
   %65 = getelementptr inbounds i8, ptr %64, i64 -16
@@ -51434,7 +51421,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %72, ptr %59, align 8, !tbaa !23
   %73 = load ptr, ptr %58, align 8, !tbaa !24
   %74 = zext i32 %72 to i64
-  %75 = getelementptr inbounds nuw %"class.std::function", ptr %73, i64 %74
+  %75 = getelementptr inbounds nuw [32 x i8], ptr %73, i64 %74
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %77 = load ptr, ptr %76, align 8, !tbaa !26
   %.not.i.i1 = icmp eq ptr %77, null
@@ -51597,7 +51584,7 @@ _ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_16ASTNodeTraver
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetAddressERS3_m.exit.i, label %142, !prof !57
 
 142:                                              ; preds = %_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_16ASTNodeTraverserINS3_9ASTDumperENS3_14TextNodeDumperEE5VisitERKNS3_16TemplateArgumentENS3_11SourceRangeEPKNS3_4DeclEPKcEUlvE_EEvN4llvm9StringRefET_EUlbE_vEEOSM_.exit
-  %143 = getelementptr inbounds nuw %"class.std::function", ptr %.pre3.i, i64 %138
+  %143 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i, i64 %138
   %144 = icmp uge ptr %11, %.pre3.i
   %145 = icmp ult ptr %11, %143
   %spec.select.i.i.i.i.i = and i1 %144, %145
@@ -51622,7 +51609,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE28reserveForParamAndGetA
   %.016.i.i.i = phi ptr [ %11, %_ZNSt8functionIFvbEEC2IZN5clang17TextTreeStructure8AddChildIZNS3_16ASTNodeTraverserINS3_9ASTDumperENS3_14TextNodeDumperEE5VisitERKNS3_16TemplateArgumentENS3_11SourceRangeEPKNS3_4DeclEPKcEUlvE_EEvN4llvm9StringRefET_EUlbE_vEEOSM_.exit ], [ %151, %146 ], [ %11, %.critedge.i.i.i ]
   %153 = load i32, ptr %136, align 8, !tbaa !23
   %154 = zext i32 %153 to i64
-  %155 = getelementptr inbounds nuw %"class.std::function", ptr %152, i64 %154
+  %155 = getelementptr inbounds nuw [32 x i8], ptr %152, i64 %154
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 24
   %157 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %155, i8 0, i64 24, i1 false)
@@ -51662,7 +51649,7 @@ _ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN4llvm23SmallVect
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %172 = load i32, ptr %171, align 8, !tbaa !23
   %173 = zext i32 %172 to i64
-  %174 = getelementptr inbounds nuw %"class.std::function", ptr %170, i64 %173
+  %174 = getelementptr inbounds nuw [32 x i8], ptr %170, i64 %173
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i8 0, ptr %7, align 1, !tbaa !25
   %175 = getelementptr inbounds i8, ptr %174, i64 -16
@@ -51683,7 +51670,7 @@ _ZNKSt8functionIFvbEEclEb.exit5:                  ; preds = %169
   %181 = load ptr, ptr %117, align 8, !tbaa !24
   %182 = load i32, ptr %171, align 8, !tbaa !23
   %183 = zext i32 %182 to i64
-  %184 = getelementptr inbounds nuw %"class.std::function", ptr %181, i64 %183
+  %184 = getelementptr inbounds nuw [32 x i8], ptr %181, i64 %183
   %185 = getelementptr inbounds i8, ptr %184, i64 -32
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %186 = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -52116,7 +52103,7 @@ _ZZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitERKNS_16Te
   %120 = phi i32 [ %139, %_ZN4llvm23SmallVectorTemplateBaseISt8functionIFvbEELb0EE8pop_backEv.exit ], [ %118, %_ZZN5clang16ASTNodeTraverserINS_9ASTDumperENS_14TextNodeDumperEE5VisitERKNS_16TemplateArgumentENS_11SourceRangeEPKNS_4DeclEPKcENKUlvE_clEv.exit ]
   %121 = zext i32 %120 to i64
   %122 = load ptr, ptr %103, align 8, !tbaa !24
-  %123 = getelementptr inbounds nuw %"class.std::function", ptr %122, i64 %121
+  %123 = getelementptr inbounds nuw [32 x i8], ptr %122, i64 %121
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 1, ptr %3, align 1, !tbaa !25
   %124 = getelementptr inbounds i8, ptr %123, i64 -16
@@ -52139,7 +52126,7 @@ _ZNKSt8functionIFvbEEclEb.exit:                   ; preds = %.lr.ph
   store i32 %131, ptr %104, align 8, !tbaa !23
   %132 = load ptr, ptr %103, align 8, !tbaa !24
   %133 = zext i32 %131 to i64
-  %134 = getelementptr inbounds nuw %"class.std::function", ptr %132, i64 %133
+  %134 = getelementptr inbounds nuw [32 x i8], ptr %132, i64 %133
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 16
   %136 = load ptr, ptr %135, align 8, !tbaa !26
   %.not.i.i13 = icmp eq ptr %136, null

@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.TableFuncRoutine = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%union.ListCell = type { ptr }
 %struct.JsonValueList = type { ptr, ptr }
 %struct.JsonPathExecContext = type { ptr, ptr, ptr, ptr, %struct.JsonBaseObjectInfo, i32, i32, i8, i8, i8, i8 }
 %struct.JsonBaseObjectInfo = type { ptr, i32 }
@@ -181,7 +180,7 @@ define internal void @JsonTableInitOpaque(ptr noundef captures(none) %0, i32 %1)
 
 25:                                               ; preds = %.split
   %26 = load ptr, ptr %19, align 8
-  %27 = getelementptr inbounds nuw %union.ListCell, ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv
   br label %28
 
 28:                                               ; preds = %.split, %25
@@ -199,7 +198,7 @@ define internal void @JsonTableInitOpaque(ptr noundef captures(none) %0, i32 %1)
   br i1 %37, label %38, label %.thread
 
 38:                                               ; preds = %33
-  %39 = getelementptr inbounds nuw %union.ListCell, ptr %34, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv
   %40 = load ptr, ptr %29, align 8
   %41 = load ptr, ptr %39, align 8
   %42 = tail call ptr @palloc(i64 noundef 40) #10
@@ -356,11 +355,11 @@ GetJsonTableExecContext.exit:                     ; preds = %11
   %22 = getelementptr i8, ptr %21, i64 16
   %.val = load ptr, ptr %22, align 8
   %23 = sext i32 %1 to i64
-  %24 = getelementptr inbounds %union.ListCell, ptr %.val, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %.val, i64 %23
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds ptr, ptr %27, i64 %23
+  %28 = getelementptr inbounds [8 x i8], ptr %27, i64 %23
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 72
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 80
@@ -830,7 +829,7 @@ JsonValueListInitIterator.exit.i:                 ; preds = %23, %22, %2
   %.val9.i.i = load ptr, ptr %31, align 8
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.11.1.i, i64 8
   %36 = sext i32 %.val.i4.i to i64
-  %37 = getelementptr inbounds %union.ListCell, ptr %.val9.i.i, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %.val9.i.i, i64 %36
   %38 = icmp ult ptr %35, %37
   %..i.i.i = select i1 %38, ptr %35, ptr null
   br label %JsonValueListNext.exit.i
@@ -1099,7 +1098,7 @@ define internal ptr @GetJsonPathVar(ptr noundef readonly captures(address_is_nul
 12:                                               ; preds = %.lr.ph52, %22
   %indvars.iv = phi i64 [ 0, %.lr.ph52 ], [ %indvars.iv.next, %22 ]
   %.0324651 = phi i32 [ 1, %.lr.ph52 ], [ %23, %22 ]
-  %13 = getelementptr inbounds nuw %union.ListCell, ptr %11, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i32, ptr %15, align 8
@@ -1630,7 +1629,7 @@ JsonValueListInitIterator.exit.i:                 ; preds = %85, %84, %.critedge
   %.val9.i.i = load ptr, ptr %93, align 8
   %97 = getelementptr inbounds nuw i8, ptr %.sroa.11.1.i, i64 8
   %98 = sext i32 %.val.i4.i to i64
-  %99 = getelementptr inbounds %union.ListCell, ptr %.val9.i.i, i64 %98
+  %99 = getelementptr inbounds [8 x i8], ptr %.val9.i.i, i64 %98
   %100 = icmp ult ptr %97, %99
   %..i.i.i = select i1 %100, ptr %97, ptr null
   br label %JsonValueListNext.exit.i
@@ -3529,7 +3528,7 @@ JsonbType.exit.thread767:                         ; preds = %589, %588
   %indvars.iv = phi i64 [ 0, %.thread770 ], [ %indvars.iv.next, %684 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, ptr noundef nonnull align 8 dereferenceable(16) @__const.executeDateTimeMethod.escontext.90, i64 16, i1 false)
-  %686 = getelementptr inbounds nuw ptr, ptr @executeDateTimeMethod.fmt_txt, i64 %indvars.iv
+  %686 = getelementptr inbounds nuw [8 x i8], ptr @executeDateTimeMethod.fmt_txt, i64 %indvars.iv
   %687 = load ptr, ptr %686, align 8
   %.not157.i = icmp eq ptr %687, null
   br i1 %.not157.i, label %688, label %694
@@ -3538,7 +3537,7 @@ JsonbType.exit.thread767:                         ; preds = %589, %588
   %689 = load ptr, ptr @TopMemoryContext, align 8
   %690 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %689, ptr @CurrentMemoryContext, align 8
-  %691 = getelementptr inbounds nuw ptr, ptr @executeDateTimeMethod.fmt_str, i64 %indvars.iv
+  %691 = getelementptr inbounds nuw [8 x i8], ptr @executeDateTimeMethod.fmt_str, i64 %indvars.iv
   %692 = load ptr, ptr %691, align 8
   %693 = call ptr @cstring_to_text(ptr noundef %692) #10
   store ptr %693, ptr %686, align 8
@@ -5172,7 +5171,7 @@ JsonValueListInitIterator.exit109:                ; preds = %58, %55, %53
   %.val9.i100 = load ptr, ptr %66, align 8
   %76 = getelementptr inbounds nuw i8, ptr %.sroa.11136.0, i64 8
   %77 = sext i32 %.val.i99 to i64
-  %78 = getelementptr inbounds %union.ListCell, ptr %.val9.i100, i64 %77
+  %78 = getelementptr inbounds [8 x i8], ptr %.val9.i100, i64 %77
   %79 = icmp ult ptr %76, %78
   %..i.i101 = select i1 %79, ptr %76, ptr null
   br label %JsonValueListNext.exit102
@@ -5271,7 +5270,7 @@ executeStartsWith.exit.thread153.us:              ; preds = %executeStartsWith.e
   %.val9.i.us = load ptr, ptr %94, align 8
   %112 = getelementptr inbounds nuw i8, ptr %.sroa.15.0189.us, i64 8
   %113 = sext i32 %.val.i.us to i64
-  %114 = getelementptr inbounds %union.ListCell, ptr %.val9.i.us, i64 %113
+  %114 = getelementptr inbounds [8 x i8], ptr %.val9.i.us, i64 %113
   %115 = icmp ult ptr %112, %114
   %..i.i.us = select i1 %115, ptr %112, ptr null
   br label %JsonValueListNext.exit.us
@@ -5375,7 +5374,7 @@ JsonValueListInitIterator.exit131:                ; preds = %133, %130, %128
   %.val9.i122 = load ptr, ptr %141, align 8
   %149 = getelementptr inbounds nuw i8, ptr %.sroa.11142.0, i64 8
   %150 = sext i32 %.val.i121 to i64
-  %151 = getelementptr inbounds %union.ListCell, ptr %.val9.i122, i64 %150
+  %151 = getelementptr inbounds [8 x i8], ptr %.val9.i122, i64 %150
   %152 = icmp ult ptr %149, %151
   %..i.i123 = select i1 %152, ptr %149, ptr null
   br label %JsonValueListNext.exit124
@@ -5789,7 +5788,7 @@ executeNextItem.exit.thread.us.us:                ; preds = %executeNextItem.exi
   %.val9.i.us.us.us = load ptr, ptr %24, align 8
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.11.0.ph.us.us, i64 8
   %52 = sext i32 %.val.i39.us.us.us to i64
-  %53 = getelementptr inbounds %union.ListCell, ptr %.val9.i.us.us.us, i64 %52
+  %53 = getelementptr inbounds [8 x i8], ptr %.val9.i.us.us.us, i64 %52
   %54 = icmp ult ptr %51, %53
   %..i.i.us.us.us = select i1 %54, ptr %51, ptr null
   br label %JsonValueListNext.exit.us.us.us
@@ -5820,7 +5819,7 @@ JsonValueListNext.exit.us.us.us:                  ; preds = %49, %.outer.us.us
   %.val9.i = load ptr, ptr %24, align 8
   %59 = getelementptr inbounds nuw i8, ptr %.sroa.11.0, i64 8
   %60 = sext i32 %.val.i39 to i64
-  %61 = getelementptr inbounds %union.ListCell, ptr %.val9.i, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %.val9.i, i64 %60
   %62 = icmp ult ptr %59, %61
   %..i.i = select i1 %62, ptr %59, ptr null
   br label %JsonValueListNext.exit
@@ -6897,7 +6896,7 @@ JsonValueListInitIterator.exit.split.us:          ; preds = %JsonValueListInitIt
   %.val9.i.us = load ptr, ptr %32, align 8
   %37 = getelementptr inbounds nuw i8, ptr %.sroa.1176.0.us, i64 8
   %38 = sext i32 %.val.i54.us to i64
-  %39 = getelementptr inbounds %union.ListCell, ptr %.val9.i.us, i64 %38
+  %39 = getelementptr inbounds [8 x i8], ptr %.val9.i.us, i64 %38
   %40 = icmp ult ptr %37, %39
   %..i.i.us = select i1 %40, ptr %37, ptr null
   br label %JsonValueListNext.exit.us
@@ -6952,7 +6951,7 @@ JsonValueListInitIterator.exit.split:             ; preds = %JsonValueListInitIt
   %.val9.i = load ptr, ptr %32, align 8
   %56 = getelementptr inbounds nuw i8, ptr %.sroa.1176.0, i64 8
   %57 = sext i32 %.val.i54 to i64
-  %58 = getelementptr inbounds %union.ListCell, ptr %.val9.i, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %.val9.i, i64 %57
   %59 = icmp ult ptr %56, %58
   %..i.i = select i1 %59, ptr %56, ptr null
   br label %JsonValueListNext.exit
@@ -6986,7 +6985,7 @@ JsonValueListInitIterator.exit61:                 ; preds = %62
   %.val9.i64 = load ptr, ptr %53, align 8
   %68 = getelementptr inbounds nuw i8, ptr %.val.i57, i64 16
   %69 = sext i32 %.val.i63 to i64
-  %70 = getelementptr inbounds %union.ListCell, ptr %.val9.i64, i64 %69
+  %70 = getelementptr inbounds [8 x i8], ptr %.val9.i64, i64 %69
   %71 = icmp ult ptr %68, %70
   %..i.i65 = select i1 %71, ptr %68, ptr null
   br label %JsonValueListNext.exit66
@@ -7040,7 +7039,7 @@ JsonValueListNext.exit66:                         ; preds = %62, %JsonValueListI
   %.val9.i69 = load ptr, ptr %73, align 8
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.15.194, i64 8
   %86 = sext i32 %.val.i68 to i64
-  %87 = getelementptr inbounds %union.ListCell, ptr %.val9.i69, i64 %86
+  %87 = getelementptr inbounds [8 x i8], ptr %.val9.i69, i64 %86
   %88 = icmp ult ptr %85, %87
   %..i.i70 = select i1 %88, ptr %85, ptr null
   br label %JsonValueListNext.exit71
@@ -7612,7 +7611,7 @@ JsonValueListAppend.exit:                         ; preds = %JsonValueListAppend
   %.val9.i = load ptr, ptr %27, align 8
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.11.0, i64 8
   %32 = sext i32 %.val.i20 to i64
-  %33 = getelementptr inbounds %union.ListCell, ptr %.val9.i, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %.val9.i, i64 %32
   %34 = icmp ult ptr %31, %33
   %..i.i = select i1 %34, ptr %31, ptr null
   br label %JsonValueListNext.exit
@@ -7822,7 +7821,7 @@ define internal fastcc noundef ptr @JsonTableInitPlan(ptr noundef %0, ptr nounde
 
 33:                                               ; preds = %30
   %34 = load ptr, ptr %28, align 8
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv
   store ptr %6, ptr %35, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %36 = and i64 %indvars.iv.next, 2147483648
@@ -8093,7 +8092,7 @@ tailrecurse:                                      ; preds = %43, %1
   %.val9.i = load ptr, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %26 = sext i32 %.val.i to i64
-  %27 = getelementptr inbounds %union.ListCell, ptr %.val9.i, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %.val9.i, i64 %26
   %28 = icmp ult ptr %25, %27
   %..i.i = select i1 %28, ptr %25, ptr null
   store ptr %..i.i, ptr %17, align 8

@@ -33,10 +33,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.atomic64_t = type { i64 }
 %struct.work_struct = type { %struct.atomic64_t, %struct.list_head, ptr }
 %struct.pgd_t = type { i64 }
-%struct.p4d_t = type { i64 }
-%struct.pte_t = type { i64 }
-%struct.pud_t = type { i64 }
-%struct.pmd_t = type { i64 }
 
 @pti_mode = internal unnamed_addr global i32 0, align 4
 @.str = private unnamed_addr constant [20 x i8] c"disabled on XEN PV.\00", align 1
@@ -271,7 +267,7 @@ define internal fastcc void @pti_clone_user_shared() unnamed_addr #0 section ".i
 
 11:                                               ; preds = %7
   %12 = and i64 %8, 63
-  %13 = getelementptr i64, ptr @__per_cpu_offset, i64 %12
+  %13 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %12
   %14 = load i64, ptr %13, align 8
   %15 = add i64 %14, ptrtoint (ptr @cpu_tss_rw to i64)
   %16 = inttoptr i64 %15 to ptr
@@ -418,7 +414,7 @@ define internal fastcc void @pti_clone_p4d(i64 noundef range(i64 -2199023255552,
   %7 = zext nneg i32 %6 to i64
   %8 = lshr i64 %0, %7
   %9 = and i64 %8, 511
-  %10 = getelementptr %struct.pgd_t, ptr %5, i64 %9
+  %10 = getelementptr [8 x i8], ptr %5, i64 %9
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 106)) #10
           to label %11 [label %11, label %23], !srcloc !23
 
@@ -433,7 +429,7 @@ define internal fastcc void @pti_clone_p4d(i64 noundef range(i64 -2199023255552,
   %19 = add i32 %18, -1
   %20 = zext i32 %19 to i64
   %21 = and i64 %17, %20
-  %22 = getelementptr %struct.p4d_t, ptr %16, i64 %21
+  %22 = getelementptr [8 x i8], ptr %16, i64 %21
   br label %23
 
 23:                                               ; preds = %11, %4
@@ -506,7 +502,7 @@ define internal fastcc noundef ptr @pti_user_pagetable_walk_pte(i64 noundef %0) 
   %32 = inttoptr i64 %31 to ptr
   %33 = lshr i64 %0, 12
   %34 = and i64 %33, 511
-  %35 = getelementptr %struct.pte_t, ptr %32, i64 %34
+  %35 = getelementptr [8 x i8], ptr %32, i64 %34
   %36 = load i64, ptr %35, align 8
   %37 = and i64 %36, 4
   %38 = icmp eq i64 %37, 0
@@ -539,7 +535,7 @@ define internal fastcc ptr @pti_user_pagetable_walk_p4d(i64 noundef %0) unnamed_
   %5 = zext nneg i32 %4 to i64
   %6 = lshr i64 %0, %5
   %7 = and i64 %6, 511
-  %8 = getelementptr %struct.pgd_t, ptr %3, i64 %7
+  %8 = getelementptr [8 x i8], ptr %3, i64 %7
   %9 = ptrtoint ptr %8 to i64
   %10 = or i64 %9, 4096
   %11 = inttoptr i64 %10 to ptr
@@ -633,7 +629,7 @@ define internal fastcc ptr @pti_user_pagetable_walk_p4d(i64 noundef %0) unnamed_
   %56 = add i32 %55, -1
   %57 = zext i32 %56 to i64
   %58 = and i64 %54, %57
-  %59 = getelementptr %struct.p4d_t, ptr %53, i64 %58
+  %59 = getelementptr [8 x i8], ptr %53, i64 %58
   br label %60
 
 60:                                               ; preds = %48, %47, %24, %16, %14
@@ -737,7 +733,7 @@ define internal fastcc ptr @pti_user_pagetable_walk_pmd(i64 noundef %0) unnamed_
   %49 = inttoptr i64 %48 to ptr
   %50 = lshr i64 %0, 30
   %51 = and i64 %50, 511
-  %52 = getelementptr %struct.pud_t, ptr %49, i64 %51
+  %52 = getelementptr [8 x i8], ptr %49, i64 %51
   %53 = load i64, ptr %52, align 8
   %54 = and i64 %53, 129
   %55 = icmp eq i64 %54, 129
@@ -793,7 +789,7 @@ define internal fastcc ptr @pti_user_pagetable_walk_pmd(i64 noundef %0) unnamed_
   %81 = inttoptr i64 %80 to ptr
   %82 = lshr i64 %0, 21
   %83 = and i64 %82, 511
-  %84 = getelementptr %struct.pmd_t, ptr %81, i64 %83
+  %84 = getelementptr [8 x i8], ptr %81, i64 %83
   br label %85
 
 85:                                               ; preds = %73, %63, %56, %14, %1
@@ -820,7 +816,7 @@ define internal fastcc void @pti_clone_pgtable(i64 noundef %0, i64 noundef %1) u
   %9 = zext nneg i32 %8 to i64
   %10 = lshr i64 %4, %9
   %11 = and i64 %10, 511
-  %12 = getelementptr %struct.pgd_t, ptr %7, i64 %11
+  %12 = getelementptr [8 x i8], ptr %7, i64 %11
   %13 = load i64, ptr %12, align 8
   callbr void asm sideeffect "# ALT: oldinstr2\0A661:\0A\09jmp 6f\0A662:\0A# ALT: padding2\0A.skip -((((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)) > 0) * (((6651f-6641f) ^ (((6651f-6641f) ^ (6652f-6642f)) & -(-((6651f-6641f) < (6652f-6642f))))) - (662b-661b)), 0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 3*32+21)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A .long 661b - .\0A .long 6642f - .\0A .4byte ${0:P}\0A .byte 663b-661b\0A .byte 6652f-6642f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09jmp ${4:l}\0A6651:\0A# ALT: replacement 2\0A6642:\0A\09\0A6652:\0A.popsection\0A.pushsection .altinstr_aux,\22ax\22\0A6:\0A testb $1,${2:P} (% rip)\0A jnz ${3:l}\0A jmp ${4:l}\0A.popsection\0A", "i,i,i,!i,!i,~{dirflag},~{fpsr},~{flags}"(i16 528, i32 1, ptr nonnull getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 106)) #10
           to label %14 [label %14, label %.critedge], !srcloc !23
@@ -850,7 +846,7 @@ define internal fastcc void @pti_clone_pgtable(i64 noundef %0, i64 noundef %1) u
   %24 = add i32 %23, -1
   %25 = zext i32 %24 to i64
   %26 = and i64 %22, %25
-  %27 = getelementptr %struct.p4d_t, ptr %21, i64 %26
+  %27 = getelementptr [8 x i8], ptr %21, i64 %26
   br label %28
 
 28:                                               ; preds = %16, %.critedge
@@ -873,7 +869,7 @@ define internal fastcc void @pti_clone_pgtable(i64 noundef %0, i64 noundef %1) u
   %38 = inttoptr i64 %37 to ptr
   %39 = lshr i64 %4, 30
   %40 = and i64 %39, 511
-  %41 = getelementptr %struct.pud_t, ptr %38, i64 %40
+  %41 = getelementptr [8 x i8], ptr %38, i64 %40
   %42 = load i64, ptr %41, align 8
   %43 = and i64 %42, -97
   %44 = icmp eq i64 %43, 0
@@ -904,7 +900,7 @@ define internal fastcc void @pti_clone_pgtable(i64 noundef %0, i64 noundef %1) u
   %58 = inttoptr i64 %57 to ptr
   %59 = lshr i64 %4, 21
   %60 = and i64 %59, 511
-  %61 = getelementptr %struct.pmd_t, ptr %58, i64 %60
+  %61 = getelementptr [8 x i8], ptr %58, i64 %60
   %62 = load i64, ptr %61, align 8
   %63 = and i64 %62, -97
   %64 = icmp eq i64 %63, 0

@@ -3,10 +3,6 @@ source_filename = "bench/postgres/original/xlogstats.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.DecodedBkpBlock = type { i8, %struct.RelFileLocator, i32, i32, i32, i8, i8, i8, ptr, i16, i16, i16, i8, i8, ptr, i16, i16 }
-%struct.RelFileLocator = type { i32, i32, i32 }
-%struct.XLogRecStats = type { i64, i64, i64 }
-
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @XLogRecGetLen(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #0 {
   store i32 0, ptr %2, align 4
@@ -23,7 +19,7 @@ define dso_local void @XLogRecGetLen(ptr noundef readonly captures(none) %0, ptr
   %.016 = phi i32 [ %27, %24 ], [ 0, %3 ]
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 88
   %11 = sext i32 %.016 to i64
-  %12 = getelementptr inbounds %struct.DecodedBkpBlock, ptr %10, i64 %11
+  %12 = getelementptr inbounds [64 x i8], ptr %10, i64 %11
   %13 = load i8, ptr %12, align 8, !range !4, !noundef !5
   %14 = trunc nuw i8 %13 to i1
   br i1 %14, label %15, label %24
@@ -87,7 +83,7 @@ define dso_local void @XLogRecStoreStats(ptr noundef captures(none) %0, ptr noun
   %indvars.iv = phi i64 [ 0, %.lr.ph.i.preheader ], [ %indvars.iv.next, %26 ]
   %.0 = phi i32 [ 0, %.lr.ph.i.preheader ], [ %.1, %26 ]
   %13 = phi i32 [ 0, %.lr.ph.i.preheader ], [ %27, %26 ]
-  %14 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %11, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [64 x i8], ptr %11, i64 %indvars.iv
   %15 = load i8, ptr %14, align 8, !range !4, !noundef !5
   %16 = trunc nuw i8 %15 to i1
   br i1 %16, label %17, label %26
@@ -124,7 +120,7 @@ XLogRecGetLen.exit:                               ; preds = %XLogRecGetLen.exit.
   %32 = sub i32 %31, %29
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %34 = zext i8 %8 to i64
-  %35 = getelementptr inbounds nuw %struct.XLogRecStats, ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw [24 x i8], ptr %33, i64 %34
   %36 = load i64, ptr %35, align 8
   %37 = add i64 %36, 1
   store i64 %37, ptr %35, align 8
@@ -145,9 +141,9 @@ XLogRecGetLen.exit:                               ; preds = %XLogRecGetLen.exit.
   %50 = and i8 %48, 7
   %spec.select = select i1 %49, i8 %50, i8 %48
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 6168
-  %52 = getelementptr inbounds nuw [16 x %struct.XLogRecStats], ptr %51, i64 %34
+  %52 = getelementptr inbounds nuw [384 x i8], ptr %51, i64 %34
   %53 = zext nneg i8 %spec.select to i64
-  %54 = getelementptr inbounds nuw %struct.XLogRecStats, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw [24 x i8], ptr %52, i64 %53
   %55 = load i64, ptr %54, align 8
   %56 = add i64 %55, 1
   store i64 %56, ptr %54, align 8

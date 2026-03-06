@@ -71,7 +71,7 @@ define i32 @Aig_NodeDeref_rec(ptr noundef readonly captures(none) %0, i32 nounde
   %38 = getelementptr inbounds nuw i8, ptr %15, i64 36
   %39 = load i32, ptr %38, align 4, !tbaa !12
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds float, ptr %3, i64 %40
+  %41 = getelementptr inbounds [4 x i8], ptr %3, i64 %40
   %42 = load float, ptr %41, align 4, !tbaa !3
   %43 = fpext float %42 to double
   %44 = fmul double %43, 2.000000e+00
@@ -137,7 +137,7 @@ define i32 @Aig_NodeDeref_rec(ptr noundef readonly captures(none) %0, i32 nounde
   %81 = getelementptr inbounds nuw i8, ptr %57, i64 36
   %82 = load i32, ptr %81, align 4, !tbaa !12
   %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds float, ptr %3, i64 %83
+  %84 = getelementptr inbounds [4 x i8], ptr %3, i64 %83
   %85 = load float, ptr %84, align 4, !tbaa !3
   %86 = fpext float %85 to double
   %87 = fmul double %86, 2.000000e+00
@@ -461,7 +461,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %50 = add nsw i32 %49, 1
   store i32 %50, ptr %22, align 4, !tbaa !27
   %51 = sext i32 %49 to i64
-  %52 = getelementptr inbounds ptr, ptr %48, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %48, i64 %51
   store ptr %.tr3645, ptr %52, align 8, !tbaa !31
   br label %.loopexit
 
@@ -577,7 +577,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %45 = add nsw i32 %44, 1
   store i32 %45, ptr %17, align 4, !tbaa !27
   %46 = sext i32 %44 to i64
-  %47 = getelementptr inbounds ptr, ptr %43, i64 %46
+  %47 = getelementptr inbounds [8 x i8], ptr %43, i64 %46
   store ptr %1, ptr %47, align 8, !tbaa !31
   br label %51
 
@@ -630,7 +630,7 @@ define i32 @Aig_NodeMffcLabelCut(ptr noundef %0, ptr noundef captures(none) %1, 
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
   %.val19 = load ptr, ptr %6, align 8, !tbaa !30
-  %8 = getelementptr inbounds nuw ptr, ptr %.val19, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %.val19, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !31
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load i64, ptr %10, align 8
@@ -659,7 +659,7 @@ define i32 @Aig_NodeMffcLabelCut(ptr noundef %0, ptr noundef captures(none) %1, 
 22:                                               ; preds = %.lr.ph25, %22
   %indvars.iv27 = phi i64 [ 0, %.lr.ph25 ], [ %indvars.iv.next28, %22 ]
   %.val20 = load ptr, ptr %21, align 8, !tbaa !30
-  %23 = getelementptr inbounds nuw ptr, ptr %.val20, i64 %indvars.iv27
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %.val20, i64 %indvars.iv27
   %24 = load ptr, ptr %23, align 8, !tbaa !31
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = load i64, ptr %25, align 8
@@ -694,7 +694,7 @@ define range(i32 0, 2) i32 @Aig_NodeMffcExtendCut(ptr noundef %0, ptr noundef %1
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
   %.03446 = phi i32 [ 0, %.lr.ph ], [ %16, %8 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %.val44, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %.val44, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !31
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load i64, ptr %11, align 8
@@ -726,7 +726,7 @@ define range(i32 0, 2) i32 @Aig_NodeMffcExtendCut(ptr noundef %0, ptr noundef %1
   %.050 = phi i32 [ 1000000000, %.lr.ph51 ], [ %.1, %34 ]
   %.03748 = phi ptr [ null, %.lr.ph51 ], [ %.138, %34 ]
   %.val43 = load ptr, ptr %21, align 8, !tbaa !30
-  %23 = getelementptr inbounds nuw ptr, ptr %.val43, i64 %indvars.iv54
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %.val43, i64 %indvars.iv54
   %24 = load ptr, ptr %23, align 8, !tbaa !31
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %26 = load i64, ptr %25, align 8

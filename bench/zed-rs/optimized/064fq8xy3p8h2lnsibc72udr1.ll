@@ -97,7 +97,7 @@ define hidden void @"_ZN15async_broadcast14Inner$LT$T$GT$11try_recv_at17ha69061e
   %.sroa.09.0 = sub nuw i64 %28, %30
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = load ptr, ptr %31, align 8, !nonnull !5, !noundef !5
-  %33 = getelementptr inbounds { { i8, [55 x i8] }, i64 }, ptr %32, i64 %.sroa.09.0
+  %33 = getelementptr inbounds [64 x i8], ptr %32, i64 %.sroa.09.0
   %34 = add i64 %7, 1
   store i64 %34, ptr %2, align 8
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 56
@@ -126,7 +126,7 @@ define hidden void @"_ZN15async_broadcast14Inner$LT$T$GT$11try_recv_at17ha69061e
   store i64 %44, ptr %13, align 8, !alias.scope !7, !noalias !10
   %45 = icmp ult i64 %44, %29
   tail call void @llvm.assume(i1 %45)
-  %46 = getelementptr inbounds { { i8, [55 x i8] }, i64 }, ptr %32, i64 %27
+  %46 = getelementptr inbounds [64 x i8], ptr %32, i64 %27
   %.sroa.0.0.copyload = load i8, ptr %46, align 8, !noalias !7
   %47 = icmp eq i8 %.sroa.0.0.copyload, 10
   br i1 %47, label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pop_front17hdeeb5de52a87a55cE.exit.thread", label %49
@@ -234,7 +234,7 @@ define hidden void @"_ZN15async_broadcast14Inner$LT$T$GT$11try_recv_at17hba5937f
   %.sroa.08.0 = sub nuw i64 %28, %30
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %32 = load ptr, ptr %31, align 8, !nonnull !5, !noundef !5
-  %33 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } }, i64, i64 }, i64 }, ptr %32, i64 %.sroa.08.0
+  %33 = getelementptr inbounds [48 x i8], ptr %32, i64 %.sroa.08.0
   %34 = add i64 %7, 1
   store i64 %34, ptr %2, align 8
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 40
@@ -263,7 +263,7 @@ define hidden void @"_ZN15async_broadcast14Inner$LT$T$GT$11try_recv_at17hba5937f
   store i64 %44, ptr %13, align 8, !alias.scope !12, !noalias !15
   %45 = icmp ult i64 %44, %29
   tail call void @llvm.assume(i1 %45)
-  %46 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } }, i64, i64 }, i64 }, ptr %32, i64 %27
+  %46 = getelementptr inbounds [48 x i8], ptr %32, i64 %27
   %.sroa.0.0.copyload = load i64, ptr %46, align 8, !noalias !12
   %47 = icmp eq i64 %.sroa.0.0.copyload, -9223372036854775808
   br i1 %47, label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pop_front17h449a2902762cc72bE.exit.thread", label %49
@@ -582,7 +582,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.8429083252963556395.exit.
   tail call void @llvm.assume(i1 %94)
   %95 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %96 = load ptr, ptr %95, align 8, !alias.scope !30, !noalias !38, !nonnull !5, !noundef !5
-  %97 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } }, i64, i64 }, i64 }, ptr %96, i64 %89
+  %97 = getelementptr inbounds [48 x i8], ptr %96, i64 %89
   %.sroa.042.0.copyload = load i64, ptr %97, align 8, !noalias !30
   %98 = icmp eq i64 %.sroa.042.0.copyload, -9223372036854775808
   br i1 %98, label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pop_front17h449a2902762cc72bE.exit.thread", label %99
@@ -658,7 +658,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.8429083252963556395.exit.
   %.sroa.0.0.i = sub nuw i64 %119, %120
   %121 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %122 = load ptr, ptr %121, align 8, !alias.scope !25, !noalias !28, !nonnull !5, !noundef !5
-  %123 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } }, i64, i64 }, i64 }, ptr %122, i64 %.sroa.0.0.i
+  %123 = getelementptr inbounds [48 x i8], ptr %122, i64 %.sroa.0.0.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %123, ptr noundef nonnull align 8 dereferenceable(48) %7, i64 48, i1 false)
   %124 = load i64, ptr %66, align 8, !alias.scope !25, !noalias !28, !noundef !5
   %125 = add i64 %124, 1
@@ -990,7 +990,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.8429083252963556395.exit.
   tail call void @llvm.assume(i1 %92)
   %93 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %94 = load ptr, ptr %93, align 8, !alias.scope !87, !noalias !95, !nonnull !5, !noundef !5
-  %95 = getelementptr inbounds { { i8, [55 x i8] }, i64 }, ptr %94, i64 %87
+  %95 = getelementptr inbounds [64 x i8], ptr %94, i64 %87
   %.sroa.043.0.copyload = load i8, ptr %95, align 8, !noalias !87
   %96 = icmp eq i8 %.sroa.043.0.copyload, 10
   br i1 %96, label %"_ZN5alloc11collections9vec_deque21VecDeque$LT$T$C$A$GT$9pop_front17hdeeb5de52a87a55cE.exit.thread", label %97
@@ -1046,7 +1046,7 @@ _ZN3std4sync6poison4Flag4done17h7e8e2f4eb26e84baE.llvm.8429083252963556395.exit.
   %.sroa.0.0.i = sub nuw i64 %108, %109
   %110 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %111 = load ptr, ptr %110, align 8, !alias.scope !82, !noalias !85, !nonnull !5, !noundef !5
-  %112 = getelementptr inbounds { { i8, [55 x i8] }, i64 }, ptr %111, i64 %.sroa.0.0.i
+  %112 = getelementptr inbounds [64 x i8], ptr %111, i64 %.sroa.0.0.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %112, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 64, i1 false)
   %113 = load i64, ptr %64, align 8, !alias.scope !82, !noalias !85, !noundef !5
   %114 = add i64 %113, 1
@@ -1875,10 +1875,10 @@ common.resume:                                    ; preds = %40, %24
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !221
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %50 = load ptr, ptr %49, align 8, !alias.scope !218, !noalias !223, !nonnull !5, !noundef !5
-  %51 = getelementptr inbounds { { i8, [55 x i8] }, i64 }, ptr %50, i64 %42
-  %52 = getelementptr inbounds { { i8, [55 x i8] }, i64 }, ptr %50, i64 %46
-  %53 = getelementptr inbounds { { i8, [55 x i8] }, i64 }, ptr %50, i64 %44
-  %54 = getelementptr inbounds { { i8, [55 x i8] }, i64 }, ptr %50, i64 %48
+  %51 = getelementptr inbounds [64 x i8], ptr %50, i64 %42
+  %52 = getelementptr inbounds [64 x i8], ptr %50, i64 %46
+  %53 = getelementptr inbounds [64 x i8], ptr %50, i64 %44
+  %54 = getelementptr inbounds [64 x i8], ptr %50, i64 %48
   %55 = tail call i64 @llvm.usub.sat.i64(i64 %34, i64 %36)
   br label %56
 
@@ -1908,7 +1908,7 @@ common.resume:                                    ; preds = %40, %24
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %61
-  %67 = getelementptr inbounds { { i8, [55 x i8] }, i64 }, ptr %.sroa.0.sroa.048.0, i64 %66
+  %67 = getelementptr inbounds [64 x i8], ptr %.sroa.0.sroa.048.0, i64 %66
   %68 = icmp eq i64 %.sroa.37.0, %66
   br i1 %68, label %"_ZN116_$LT$alloc..collections..vec_deque..iter_mut..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17h52cc59fe8b5dc719E.exit.thread", label %69
 
@@ -1922,7 +1922,7 @@ common.resume:                                    ; preds = %40, %24
           to label %"_ZN116_$LT$alloc..collections..vec_deque..iter_mut..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17h52cc59fe8b5dc719E.exit" unwind label %.loopexit
 
 "_ZN116_$LT$alloc..collections..vec_deque..iter_mut..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17h52cc59fe8b5dc719E.exit": ; preds = %69
-  %76 = getelementptr inbounds { { i8, [55 x i8] }, i64 }, ptr %.sroa.26.sroa.0.0, i64 %75
+  %76 = getelementptr inbounds [64 x i8], ptr %.sroa.26.sroa.0.0, i64 %75
   %77 = icmp eq i64 %70, %75
   br i1 %77, label %"_ZN116_$LT$alloc..collections..vec_deque..iter_mut..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17h52cc59fe8b5dc719E.exit.thread", label %"_ZN116_$LT$alloc..collections..vec_deque..iter_mut..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd26e7629871f3f7fE.exit.thread"
 
@@ -2112,10 +2112,10 @@ common.resume:                                    ; preds = %40, %24
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !243
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %50 = load ptr, ptr %49, align 8, !alias.scope !240, !noalias !245, !nonnull !5, !noundef !5
-  %51 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } }, i64, i64 }, i64 }, ptr %50, i64 %42
-  %52 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } }, i64, i64 }, i64 }, ptr %50, i64 %46
-  %53 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } }, i64, i64 }, i64 }, ptr %50, i64 %44
-  %54 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } }, i64, i64 }, i64 }, ptr %50, i64 %48
+  %51 = getelementptr inbounds [48 x i8], ptr %50, i64 %42
+  %52 = getelementptr inbounds [48 x i8], ptr %50, i64 %46
+  %53 = getelementptr inbounds [48 x i8], ptr %50, i64 %44
+  %54 = getelementptr inbounds [48 x i8], ptr %50, i64 %48
   %55 = tail call i64 @llvm.usub.sat.i64(i64 %34, i64 %36)
   br label %56
 
@@ -2145,7 +2145,7 @@ common.resume:                                    ; preds = %40, %24
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %61
-  %67 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } }, i64, i64 }, i64 }, ptr %.sroa.0.sroa.048.0, i64 %66
+  %67 = getelementptr inbounds [48 x i8], ptr %.sroa.0.sroa.048.0, i64 %66
   %68 = icmp eq i64 %.sroa.37.0, %66
   br i1 %68, label %"_ZN116_$LT$alloc..collections..vec_deque..iter_mut..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17h5b98eb0995c34003E.exit.thread", label %69
 
@@ -2159,7 +2159,7 @@ common.resume:                                    ; preds = %40, %24
           to label %"_ZN116_$LT$alloc..collections..vec_deque..iter_mut..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17h5b98eb0995c34003E.exit" unwind label %.loopexit
 
 "_ZN116_$LT$alloc..collections..vec_deque..iter_mut..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17h5b98eb0995c34003E.exit": ; preds = %69
-  %76 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } }, i64, i64 }, i64 }, ptr %.sroa.26.sroa.0.0, i64 %75
+  %76 = getelementptr inbounds [48 x i8], ptr %.sroa.26.sroa.0.0, i64 %75
   %77 = icmp eq i64 %70, %75
   br i1 %77, label %"_ZN116_$LT$alloc..collections..vec_deque..iter_mut..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17h5b98eb0995c34003E.exit.thread", label %"_ZN116_$LT$alloc..collections..vec_deque..iter_mut..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hdb836cf194e2885aE.exit.thread"
 

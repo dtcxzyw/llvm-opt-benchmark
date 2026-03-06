@@ -100,8 +100,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.188" = type { %"struct.std::_Head_base.191" }
 %"struct.std::_Head_base.191" = type { ptr }
 %"struct.llvm::yaml::EmptyContext" = type { i8 }
-%"struct.(anonymous namespace)::Versioned" = type { %"class.llvm::VersionTuple", %"struct.(anonymous namespace)::TopLevelItems" }
-%"class.llvm::VersionTuple" = type { i64, i64 }
 %"class.std::optional.164" = type { %"struct.std::_Optional_base.165" }
 %"struct.std::_Optional_base.165" = type { %"struct.std::_Optional_payload.167" }
 %"struct.std::_Optional_payload.167" = type { %"struct.std::_Optional_payload_base.base.169", [3 x i8] }
@@ -118,10 +116,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Optional_payload_base.103" = type { %"union.std::_Optional_payload_base<clang::NullabilityKind>::_Storage", i8 }
 %"union.std::_Optional_payload_base<clang::NullabilityKind>::_Storage" = type { %"struct.std::_Optional_payload_base<clang::NullabilityKind>::_Empty_byte" }
 %"struct.std::_Optional_payload_base<clang::NullabilityKind>::_Empty_byte" = type { i8 }
-%"struct.(anonymous namespace)::GlobalVariable" = type { %"class.llvm::StringRef", %"class.std::optional.99", %"struct.(anonymous namespace)::AvailabilityItem", %"class.std::optional", %"class.llvm::StringRef", %"class.llvm::StringRef" }
-%"struct.(anonymous namespace)::EnumConstant" = type { %"class.llvm::StringRef", %"struct.(anonymous namespace)::AvailabilityItem", %"class.std::optional", %"class.llvm::StringRef" }
-%"struct.(anonymous namespace)::Typedef" = type { %"class.llvm::StringRef", %"struct.(anonymous namespace)::AvailabilityItem", %"class.llvm::StringRef", %"class.std::optional", [6 x i8], %"class.std::optional.72", %"class.std::optional.72", %"class.std::optional.164" }
-%"struct.(anonymous namespace)::Namespace" = type { %"class.llvm::StringRef", %"struct.(anonymous namespace)::AvailabilityItem", %"class.llvm::StringRef", %"class.std::optional", %"struct.(anonymous namespace)::TopLevelItems" }
 %"class.llvm::SmallString" = type { %"class.llvm::SmallVector.66" }
 %"class.llvm::SmallVector.66" = type { %"class.llvm::SmallVectorImpl.67", %"struct.llvm::SmallVectorStorage.71" }
 %"class.llvm::SmallVectorImpl.67" = type { %"class.llvm::SmallVectorTemplateBase.68" }
@@ -136,37 +130,11 @@ target triple = "x86_64-pc-linux-gnu"
 %"union.llvm::Twine::Child" = type { %struct.anon }
 %struct.anon = type { ptr, i64 }
 %class.anon = type { i8 }
-%"struct.(anonymous namespace)::Class" = type { %"class.llvm::StringRef", i8, %"struct.(anonymous namespace)::AvailabilityItem", %"class.std::optional", %"class.llvm::StringRef", %"class.std::optional.72", %"class.std::optional.72", %"class.std::optional", %"class.std::optional", %"class.std::vector.78", %"class.std::vector.83" }
-%"class.std::vector.78" = type { %"struct.std::_Vector_base.79" }
-%"struct.std::_Vector_base.79" = type { %"struct.std::_Vector_base<(anonymous namespace)::Method, std::allocator<(anonymous namespace)::Method>>::_Vector_impl" }
-%"struct.std::_Vector_base<(anonymous namespace)::Method, std::allocator<(anonymous namespace)::Method>>::_Vector_impl" = type { %"struct.std::_Vector_base<(anonymous namespace)::Method, std::allocator<(anonymous namespace)::Method>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<(anonymous namespace)::Method, std::allocator<(anonymous namespace)::Method>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.83" = type { %"struct.std::_Vector_base.84" }
-%"struct.std::_Vector_base.84" = type { %"struct.std::_Vector_base<(anonymous namespace)::Property, std::allocator<(anonymous namespace)::Property>>::_Vector_impl" }
-%"struct.std::_Vector_base<(anonymous namespace)::Property, std::allocator<(anonymous namespace)::Property>>::_Vector_impl" = type { %"struct.std::_Vector_base<(anonymous namespace)::Property, std::allocator<(anonymous namespace)::Property>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<(anonymous namespace)::Property, std::allocator<(anonymous namespace)::Property>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.(anonymous namespace)::Method" = type { %"class.llvm::StringRef", i32, %"class.std::vector.89", %"class.std::vector.94", %"class.std::optional.99", [2 x i8], %"class.std::optional.105", %"struct.(anonymous namespace)::AvailabilityItem", %"class.std::optional", %"class.llvm::StringRef", i32, i8, i8, %"class.llvm::StringRef", %"class.llvm::StringRef" }
-%"class.std::vector.89" = type { %"struct.std::_Vector_base.90" }
-%"struct.std::_Vector_base.90" = type { %"struct.std::_Vector_base<(anonymous namespace)::Param, std::allocator<(anonymous namespace)::Param>>::_Vector_impl" }
-%"struct.std::_Vector_base<(anonymous namespace)::Param, std::allocator<(anonymous namespace)::Param>>::_Vector_impl" = type { %"struct.std::_Vector_base<(anonymous namespace)::Param, std::allocator<(anonymous namespace)::Param>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<(anonymous namespace)::Param, std::allocator<(anonymous namespace)::Param>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.94" = type { %"struct.std::_Vector_base.95" }
-%"struct.std::_Vector_base.95" = type { %"struct.std::_Vector_base<clang::NullabilityKind, std::allocator<clang::NullabilityKind>>::_Vector_impl" }
-%"struct.std::_Vector_base<clang::NullabilityKind, std::allocator<clang::NullabilityKind>>::_Vector_impl" = type { %"struct.std::_Vector_base<clang::NullabilityKind, std::allocator<clang::NullabilityKind>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<clang::NullabilityKind, std::allocator<clang::NullabilityKind>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::optional.105" = type { %"struct.std::_Optional_base.106" }
 %"struct.std::_Optional_base.106" = type { %"struct.std::_Optional_payload.108" }
 %"struct.std::_Optional_payload.108" = type { %"struct.std::_Optional_payload_base.base.110", [3 x i8] }
 %"struct.std::_Optional_payload_base.base.110" = type <{ %"union.std::_Optional_payload_base<clang::api_notes::RetainCountConventionKind>::_Storage", i8 }>
 %"union.std::_Optional_payload_base<clang::api_notes::RetainCountConventionKind>::_Storage" = type { i32 }
-%"struct.(anonymous namespace)::Property" = type { %"class.llvm::StringRef", %"class.std::optional.116", %"class.std::optional.99", %"struct.(anonymous namespace)::AvailabilityItem", %"class.std::optional", %"class.llvm::StringRef", %"class.std::optional", %"class.llvm::StringRef" }
-%"class.std::optional.116" = type { %"struct.std::_Optional_base.117" }
-%"struct.std::_Optional_base.117" = type { %"struct.std::_Optional_payload.119" }
-%"struct.std::_Optional_payload.119" = type { %"struct.std::_Optional_payload_base.base.121", [3 x i8] }
-%"struct.std::_Optional_payload_base.base.121" = type <{ %"union.std::_Optional_payload_base<(anonymous namespace)::MethodKind>::_Storage", i8 }>
-%"union.std::_Optional_payload_base<(anonymous namespace)::MethodKind>::_Storage" = type { i32 }
-%"struct.(anonymous namespace)::Function" = type { %"class.llvm::StringRef", %"class.std::vector.89", %"class.std::vector.94", %"class.std::optional.99", [2 x i8], %"class.std::optional.105", %"struct.(anonymous namespace)::AvailabilityItem", %"class.std::optional", %"class.llvm::StringRef", %"class.llvm::StringRef", %"class.llvm::StringRef", %"class.llvm::StringRef" }
-%"struct.(anonymous namespace)::Param" = type { i32, %"class.std::optional", %"class.std::optional", %"class.std::optional.99", [2 x i8], %"class.std::optional.105", %"class.llvm::StringRef" }
 %"class.std::optional.141" = type { %"struct.std::_Optional_base.142" }
 %"struct.std::_Optional_base.142" = type { %"struct.std::_Optional_payload.144" }
 %"struct.std::_Optional_payload.144" = type { %"struct.std::_Optional_payload_base.base.146", [3 x i8] }
@@ -181,17 +149,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"struct.(anonymous namespace)::Tag" = type { %"class.llvm::StringRef", %"struct.(anonymous namespace)::AvailabilityItem", %"class.llvm::StringRef", %"class.std::optional", [6 x i8], %"class.std::optional.72", %"class.std::optional.72", %"class.std::optional.128", %"class.std::optional.128", %"class.std::optional.128", %"class.std::optional.128", %"class.std::optional.141", %"class.std::optional", [2 x i8], %"class.std::optional.149", %"class.std::optional", %"class.std::optional", %"class.std::vector.0", %"class.std::vector.157", %"class.std::vector.15" }
-%"class.std::optional.149" = type { %"struct.std::_Optional_base.150" }
-%"struct.std::_Optional_base.150" = type { %"struct.std::_Optional_payload.152" }
-%"struct.std::_Optional_payload.152" = type { %"struct.std::_Optional_payload_base.base.154", [3 x i8] }
-%"struct.std::_Optional_payload_base.base.154" = type <{ %"union.std::_Optional_payload_base<(anonymous namespace)::EnumConvenienceAliasKind>::_Storage", i8 }>
-%"union.std::_Optional_payload_base<(anonymous namespace)::EnumConvenienceAliasKind>::_Storage" = type { i32 }
-%"class.std::vector.157" = type { %"struct.std::_Vector_base.158" }
-%"struct.std::_Vector_base.158" = type { %"struct.std::_Vector_base<(anonymous namespace)::Field, std::allocator<(anonymous namespace)::Field>>::_Vector_impl" }
-%"struct.std::_Vector_base<(anonymous namespace)::Field, std::allocator<(anonymous namespace)::Field>>::_Vector_impl" = type { %"struct.std::_Vector_base<(anonymous namespace)::Field, std::allocator<(anonymous namespace)::Field>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<(anonymous namespace)::Field, std::allocator<(anonymous namespace)::Field>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.(anonymous namespace)::Field" = type { %"class.llvm::StringRef", %"class.std::optional.99", %"struct.(anonymous namespace)::AvailabilityItem", %"class.std::optional", %"class.llvm::StringRef", %"class.llvm::StringRef" }
 %"class.std::optional.234" = type { %"struct.std::_Optional_base.235" }
 %"struct.std::_Optional_base.235" = type { %"struct.std::_Optional_payload.237" }
 %"struct.std::_Optional_payload.237" = type { %"struct.std::_Optional_payload.base.241", [7 x i8] }
@@ -203,6 +160,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.clang::api_notes::CommonEntityInfo" = type { %"class.std::__cxx11::basic_string", i8, %"class.std::__cxx11::basic_string" }
 %"class.clang::api_notes::ContextInfo" = type <{ %"class.clang::api_notes::CommonTypeInfo", i8, [7 x i8] }>
 %"class.clang::api_notes::CommonTypeInfo" = type { %"class.clang::api_notes::CommonEntityInfo", %"class.std::optional.128", %"class.std::optional.128" }
+%"class.llvm::VersionTuple" = type { i64, i64 }
 %"class.llvm::StringSet" = type { %"class.llvm::StringMap" }
 %"class.llvm::StringMap" = type { %"class.llvm::StringMapImpl" }
 %"class.llvm::StringMapImpl" = type { ptr, i32, i32, i32, i32 }
@@ -1017,15 +975,15 @@ _ZNSt6vectorIN12_GLOBAL__N_19VersionedESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
 
 _ZNSt12_Vector_baseIN12_GLOBAL__N_19VersionedESaIS1_EE13_M_deallocateEPS1_m.exit.i.i.i.i.i.i.i.i.i: ; preds = %182, %_ZNSt6vectorIN12_GLOBAL__N_19VersionedESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i.i.i.i.i.i.i.i.i
   store ptr %105, ptr %51, align 8, !tbaa !8
-  %186 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Versioned", ptr %106, i64 %95
+  %186 = getelementptr inbounds nuw [208 x i8], ptr %106, i64 %95
   store ptr %186, ptr %80, align 8, !tbaa !12
-  %187 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Versioned", ptr %105, i64 %103
+  %187 = getelementptr inbounds nuw [208 x i8], ptr %105, i64 %103
   store ptr %187, ptr %81, align 8, !tbaa !15
   br label %_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_19VersionedESaIS4_EELb1EE7elementERNS0_2IOERS6_m.exit.i.i.i.i.i.i
 
 _ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_19VersionedESaIS4_EELb1EE7elementERNS0_2IOERS6_m.exit.i.i.i.i.i.i: ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_19VersionedESaIS1_EE13_M_deallocateEPS1_m.exit.i.i.i.i.i.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_19VersionedEmS1_ET_S3_T0_RSaIT1_E.exit.i.i.i.i.i.i.i.i.i, %88
   %.val6.i.i.i.i.i.i.i = phi ptr [ %105, %_ZNSt12_Vector_baseIN12_GLOBAL__N_19VersionedESaIS1_EE13_M_deallocateEPS1_m.exit.i.i.i.i.i.i.i.i.i ], [ %.val6.pre.i.i.i.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_19VersionedEmS1_ET_S3_T0_RSaIT1_E.exit.i.i.i.i.i.i.i.i.i ], [ %.val.i.i.i.i.i.i.i, %88 ]
-  %188 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Versioned", ptr %.val6.i.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i
+  %188 = getelementptr inbounds nuw [208 x i8], ptr %.val6.i.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i
   %189 = load ptr, ptr %0, align 8, !tbaa !42
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 104
   %191 = load ptr, ptr %190, align 8
@@ -1404,15 +1362,15 @@ _ZNSt6vectorIN12_GLOBAL__N_114GlobalVariableESaIS1_EE11_S_relocateEPS1_S4_S4_RS2
 
 _ZNSt12_Vector_baseIN12_GLOBAL__N_114GlobalVariableESaIS1_EE13_M_deallocateEPS1_m.exit.i.i.i.i.i.i.i: ; preds = %133, %_ZNSt6vectorIN12_GLOBAL__N_114GlobalVariableESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i.i.i.i.i.i.i
   store ptr %128, ptr %72, align 8, !tbaa !63
-  %135 = getelementptr inbounds nuw %"struct.(anonymous namespace)::GlobalVariable", ptr %129, i64 %118
+  %135 = getelementptr inbounds nuw [88 x i8], ptr %129, i64 %118
   store ptr %135, ptr %101, align 8, !tbaa !66
-  %136 = getelementptr inbounds nuw %"struct.(anonymous namespace)::GlobalVariable", ptr %128, i64 %126
+  %136 = getelementptr inbounds nuw [88 x i8], ptr %128, i64 %126
   store ptr %136, ptr %102, align 8, !tbaa !67
   br label %_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_114GlobalVariableESaIS4_EELb1EE7elementERNS0_2IOERS6_m.exit.i.i.i.i
 
 _ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_114GlobalVariableESaIS4_EELb1EE7elementERNS0_2IOERS6_m.exit.i.i.i.i: ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_114GlobalVariableESaIS1_EE13_M_deallocateEPS1_m.exit.i.i.i.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_114GlobalVariableEmS1_ET_S3_T0_RSaIT1_E.exit.i.i.i.i.i.i.i, %111
   %.val6.i.i.i.i.i = phi ptr [ %128, %_ZNSt12_Vector_baseIN12_GLOBAL__N_114GlobalVariableESaIS1_EE13_M_deallocateEPS1_m.exit.i.i.i.i.i.i.i ], [ %.val6.pre.i.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_114GlobalVariableEmS1_ET_S3_T0_RSaIT1_E.exit.i.i.i.i.i.i.i ], [ %.val.i.i.i.i.i, %111 ]
-  %137 = getelementptr inbounds nuw %"struct.(anonymous namespace)::GlobalVariable", ptr %.val6.i.i.i.i.i, i64 %indvars.iv.i.i.i.i
+  %137 = getelementptr inbounds nuw [88 x i8], ptr %.val6.i.i.i.i.i, i64 %indvars.iv.i.i.i.i
   %138 = load ptr, ptr %0, align 8, !tbaa !42
   %139 = getelementptr inbounds nuw i8, ptr %138, i64 104
   %140 = load ptr, ptr %139, align 8
@@ -1735,15 +1693,15 @@ _ZNSt6vectorIN12_GLOBAL__N_112EnumConstantESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.
 
 _ZNSt12_Vector_baseIN12_GLOBAL__N_112EnumConstantESaIS1_EE13_M_deallocateEPS1_m.exit.i.i.i.i.i.i.i: ; preds = %279, %_ZNSt6vectorIN12_GLOBAL__N_112EnumConstantESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i.i.i.i.i.i.i
   store ptr %274, ptr %222, align 8, !tbaa !68
-  %281 = getelementptr inbounds nuw %"struct.(anonymous namespace)::EnumConstant", ptr %275, i64 %264
+  %281 = getelementptr inbounds nuw [64 x i8], ptr %275, i64 %264
   store ptr %281, ptr %242, align 8, !tbaa !71
-  %282 = getelementptr inbounds nuw %"struct.(anonymous namespace)::EnumConstant", ptr %274, i64 %272
+  %282 = getelementptr inbounds nuw [64 x i8], ptr %274, i64 %272
   store ptr %282, ptr %249, align 8, !tbaa !72
   br label %_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_112EnumConstantESaIS4_EELb1EE7elementERNS0_2IOERS6_m.exit.i.i.i.i
 
 _ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_112EnumConstantESaIS4_EELb1EE7elementERNS0_2IOERS6_m.exit.i.i.i.i: ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_112EnumConstantESaIS1_EE13_M_deallocateEPS1_m.exit.i.i.i.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_112EnumConstantEmS1_ET_S3_T0_RSaIT1_E.exit.i.i.i.i.i.i.i, %257
   %.val6.i.i.i.i.i31 = phi ptr [ %274, %_ZNSt12_Vector_baseIN12_GLOBAL__N_112EnumConstantESaIS1_EE13_M_deallocateEPS1_m.exit.i.i.i.i.i.i.i ], [ %.val6.pre.i.i.i.i.i30, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_112EnumConstantEmS1_ET_S3_T0_RSaIT1_E.exit.i.i.i.i.i.i.i ], [ %.val.i.i.i.i.i25, %257 ]
-  %283 = getelementptr inbounds nuw %"struct.(anonymous namespace)::EnumConstant", ptr %.val6.i.i.i.i.i31, i64 %indvars.iv.i.i.i.i22
+  %283 = getelementptr inbounds nuw [64 x i8], ptr %.val6.i.i.i.i.i31, i64 %indvars.iv.i.i.i.i22
   %284 = load ptr, ptr %0, align 8, !tbaa !42
   %285 = getelementptr inbounds nuw i8, ptr %284, i64 104
   %286 = load ptr, ptr %285, align 8
@@ -2047,15 +2005,15 @@ _ZNSt6vectorIN12_GLOBAL__N_17TypedefESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i
 
 _ZNSt12_Vector_baseIN12_GLOBAL__N_17TypedefESaIS1_EE13_M_deallocateEPS1_m.exit.i.i.i.i.i.i.i: ; preds = %419, %_ZNSt6vectorIN12_GLOBAL__N_17TypedefESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i.i.i.i.i.i.i
   store ptr %414, ptr %356, align 8, !tbaa !78
-  %421 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Typedef", ptr %415, i64 %404
+  %421 = getelementptr inbounds nuw [120 x i8], ptr %415, i64 %404
   store ptr %421, ptr %385, align 8, !tbaa !81
-  %422 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Typedef", ptr %414, i64 %412
+  %422 = getelementptr inbounds nuw [120 x i8], ptr %414, i64 %412
   store ptr %422, ptr %386, align 8, !tbaa !82
   br label %_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_17TypedefESaIS4_EELb1EE7elementERNS0_2IOERS6_m.exit.i.i.i.i
 
 _ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_17TypedefESaIS4_EELb1EE7elementERNS0_2IOERS6_m.exit.i.i.i.i: ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_17TypedefESaIS1_EE13_M_deallocateEPS1_m.exit.i.i.i.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_17TypedefEmS1_ET_S3_T0_RSaIT1_E.exit.i.i.i.i.i.i.i, %397
   %.val6.i.i.i.i.i64 = phi ptr [ %414, %_ZNSt12_Vector_baseIN12_GLOBAL__N_17TypedefESaIS1_EE13_M_deallocateEPS1_m.exit.i.i.i.i.i.i.i ], [ %.val6.pre.i.i.i.i.i63, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_17TypedefEmS1_ET_S3_T0_RSaIT1_E.exit.i.i.i.i.i.i.i ], [ %.val.i.i.i.i.i58, %397 ]
-  %423 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Typedef", ptr %.val6.i.i.i.i.i64, i64 %indvars.iv.i.i.i.i55
+  %423 = getelementptr inbounds nuw [120 x i8], ptr %.val6.i.i.i.i.i64, i64 %indvars.iv.i.i.i.i55
   %424 = load ptr, ptr %0, align 8, !tbaa !42
   %425 = getelementptr inbounds nuw i8, ptr %424, i64 104
   %426 = load ptr, ptr %425, align 8
@@ -2459,15 +2417,15 @@ _ZNSt6vectorIN12_GLOBAL__N_19NamespaceESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
 
 _ZNSt12_Vector_baseIN12_GLOBAL__N_19NamespaceESaIS1_EE13_M_deallocateEPS1_m.exit.i.i.i.i: ; preds = %621, %_ZNSt6vectorIN12_GLOBAL__N_19NamespaceESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i.i.i.i
   store ptr %544, ptr %492, align 8, !tbaa !83
-  %625 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Namespace", ptr %545, i64 %534
+  %625 = getelementptr inbounds nuw [256 x i8], ptr %545, i64 %534
   store ptr %625, ptr %512, align 8, !tbaa !86
-  %626 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Namespace", ptr %544, i64 %542
+  %626 = getelementptr inbounds nuw [256 x i8], ptr %544, i64 %542
   store ptr %626, ptr %519, align 8, !tbaa !87
   br label %_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_19NamespaceESaIS4_EELb1EE7elementERNS0_2IOERS6_m.exit.i
 
 _ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_19NamespaceESaIS4_EELb1EE7elementERNS0_2IOERS6_m.exit.i: ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_19NamespaceESaIS1_EE13_M_deallocateEPS1_m.exit.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_19NamespaceEmS1_ET_S3_T0_RSaIT1_E.exit.i.i.i.i, %527
   %.val6.i.i85 = phi ptr [ %544, %_ZNSt12_Vector_baseIN12_GLOBAL__N_19NamespaceESaIS1_EE13_M_deallocateEPS1_m.exit.i.i.i.i ], [ %.val6.pre.i.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_19NamespaceEmS1_ET_S3_T0_RSaIT1_E.exit.i.i.i.i ], [ %.val.i.i83, %527 ]
-  %627 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Namespace", ptr %.val6.i.i85, i64 %indvars.iv
+  %627 = getelementptr inbounds nuw [256 x i8], ptr %.val6.i.i85, i64 %indvars.iv
   %628 = load ptr, ptr %0, align 8, !tbaa !42
   %629 = getelementptr inbounds nuw i8, ptr %628, i64 104
   %630 = load ptr, ptr %629, align 8
@@ -3669,15 +3627,15 @@ _ZNSt6vectorIN12_GLOBAL__N_15ClassESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i.i
 
 _ZNSt12_Vector_baseIN12_GLOBAL__N_15ClassESaIS1_EE13_M_deallocateEPS1_m.exit.i.i.i.i.i.i: ; preds = %191, %_ZNSt6vectorIN12_GLOBAL__N_15ClassESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i.i.i.i.i.i
   store ptr %168, ptr %2, align 8, !tbaa !53
-  %195 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Class", ptr %169, i64 %158
+  %195 = getelementptr inbounds nuw [176 x i8], ptr %169, i64 %158
   store ptr %195, ptr %131, align 8, !tbaa !56
-  %196 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Class", ptr %168, i64 %166
+  %196 = getelementptr inbounds nuw [176 x i8], ptr %168, i64 %166
   store ptr %196, ptr %132, align 8, !tbaa !57
   br label %_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_15ClassESaIS4_EELb1EE7elementERNS0_2IOERS6_m.exit.i.i.i
 
 _ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_15ClassESaIS4_EELb1EE7elementERNS0_2IOERS6_m.exit.i.i.i: ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_15ClassESaIS1_EE13_M_deallocateEPS1_m.exit.i.i.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_15ClassEmS1_ET_S3_T0_RSaIT1_E.exit.i.i.i.i.i.i, %151
   %.val6.i.i.i.i = phi ptr [ %168, %_ZNSt12_Vector_baseIN12_GLOBAL__N_15ClassESaIS1_EE13_M_deallocateEPS1_m.exit.i.i.i.i.i.i ], [ %.val6.pre.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_15ClassEmS1_ET_S3_T0_RSaIT1_E.exit.i.i.i.i.i.i ], [ %.val.i.i.i.i, %151 ]
-  %197 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Class", ptr %.val6.i.i.i.i, i64 %indvars.iv.i.i.i
+  %197 = getelementptr inbounds nuw [176 x i8], ptr %.val6.i.i.i.i, i64 %indvars.iv.i.i.i
   %198 = load ptr, ptr %0, align 8, !tbaa !42
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 104
   %200 = load ptr, ptr %199, align 8
@@ -4023,15 +3981,15 @@ _ZNSt6vectorIN12_GLOBAL__N_16MethodESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i.
 
 _ZNSt12_Vector_baseIN12_GLOBAL__N_16MethodESaIS1_EE13_M_deallocateEPS1_m.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %352, %_ZNSt6vectorIN12_GLOBAL__N_16MethodESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
   store ptr %327, ptr %273, align 8, !tbaa !162
-  %356 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Method", ptr %328, i64 %317
+  %356 = getelementptr inbounds nuw [176 x i8], ptr %328, i64 %317
   store ptr %356, ptr %302, align 8, !tbaa !165
-  %357 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Method", ptr %327, i64 %325
+  %357 = getelementptr inbounds nuw [176 x i8], ptr %327, i64 %325
   store ptr %357, ptr %303, align 8, !tbaa !166
   br label %_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_16MethodESaIS4_EELb1EE7elementERNS0_2IOERS6_m.exit.i.i.i.i.i.i.i.i.i.i
 
 _ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_16MethodESaIS4_EELb1EE7elementERNS0_2IOERS6_m.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_16MethodESaIS1_EE13_M_deallocateEPS1_m.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_16MethodEmS1_ET_S3_T0_RSaIT1_E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %310
   %.val6.i.i.i.i.i.i.i.i.i.i.i = phi ptr [ %327, %_ZNSt12_Vector_baseIN12_GLOBAL__N_16MethodESaIS1_EE13_M_deallocateEPS1_m.exit.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.val6.pre.i.i.i.i.i.i.i.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_16MethodEmS1_ET_S3_T0_RSaIT1_E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.val.i.i.i.i.i.i.i.i.i.i.i, %310 ]
-  %358 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Method", ptr %.val6.i.i.i.i.i.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
+  %358 = getelementptr inbounds nuw [176 x i8], ptr %.val6.i.i.i.i.i.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i.i.i
   %359 = load ptr, ptr %0, align 8, !tbaa !42
   %360 = getelementptr inbounds nuw i8, ptr %359, i64 104
   %361 = load ptr, ptr %360, align 8
@@ -5107,15 +5065,15 @@ _ZNSt6vectorIN12_GLOBAL__N_18PropertyESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.
 
 _ZNSt12_Vector_baseIN12_GLOBAL__N_18PropertyESaIS1_EE13_M_deallocateEPS1_m.exit.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %903, %_ZNSt6vectorIN12_GLOBAL__N_18PropertyESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i.i.i.i.i.i.i.i.i.i.i.i.i
   store ptr %898, ptr %844, align 8, !tbaa !167
-  %905 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Property", ptr %899, i64 %888
+  %905 = getelementptr inbounds nuw [104 x i8], ptr %899, i64 %888
   store ptr %905, ptr %873, align 8, !tbaa !170
-  %906 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Property", ptr %898, i64 %896
+  %906 = getelementptr inbounds nuw [104 x i8], ptr %898, i64 %896
   store ptr %906, ptr %874, align 8, !tbaa !171
   br label %_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_18PropertyESaIS4_EELb1EE7elementERNS0_2IOERS6_m.exit.i.i.i.i.i.i.i.i.i.i
 
 _ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_18PropertyESaIS4_EELb1EE7elementERNS0_2IOERS6_m.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_18PropertyESaIS1_EE13_M_deallocateEPS1_m.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_18PropertyEmS1_ET_S3_T0_RSaIT1_E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i, %881
   %.val6.i.i.i.i.i48.i.i.i.i.i.i = phi ptr [ %898, %_ZNSt12_Vector_baseIN12_GLOBAL__N_18PropertyESaIS1_EE13_M_deallocateEPS1_m.exit.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.val6.pre.i.i.i.i.i47.i.i.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_18PropertyEmS1_ET_S3_T0_RSaIT1_E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i ], [ %.val.i.i.i.i.i42.i.i.i.i.i.i, %881 ]
-  %907 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Property", ptr %.val6.i.i.i.i.i48.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i39.i.i.i.i.i.i
+  %907 = getelementptr inbounds nuw [104 x i8], ptr %.val6.i.i.i.i.i48.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i39.i.i.i.i.i.i
   %908 = load ptr, ptr %0, align 8, !tbaa !42
   %909 = getelementptr inbounds nuw i8, ptr %908, i64 104
   %910 = load ptr, ptr %909, align 8
@@ -6115,15 +6073,15 @@ _ZNSt6vectorIN12_GLOBAL__N_18FunctionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.
 
 _ZNSt12_Vector_baseIN12_GLOBAL__N_18FunctionESaIS1_EE13_M_deallocateEPS1_m.exit.i.i.i.i.i.i: ; preds = %112, %_ZNSt6vectorIN12_GLOBAL__N_18FunctionESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i.i.i.i.i.i
   store ptr %87, ptr %2, align 8, !tbaa !58
-  %116 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Function", ptr %88, i64 %77
+  %116 = getelementptr inbounds nuw [176 x i8], ptr %88, i64 %77
   store ptr %116, ptr %59, align 8, !tbaa !61
-  %117 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Function", ptr %87, i64 %85
+  %117 = getelementptr inbounds nuw [176 x i8], ptr %87, i64 %85
   store ptr %117, ptr %60, align 8, !tbaa !62
   br label %_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_18FunctionESaIS4_EELb1EE7elementERNS0_2IOERS6_m.exit.i.i.i
 
 _ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_18FunctionESaIS4_EELb1EE7elementERNS0_2IOERS6_m.exit.i.i.i: ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_18FunctionESaIS1_EE13_M_deallocateEPS1_m.exit.i.i.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_18FunctionEmS1_ET_S3_T0_RSaIT1_E.exit.i.i.i.i.i.i, %70
   %.val6.i.i.i.i = phi ptr [ %87, %_ZNSt12_Vector_baseIN12_GLOBAL__N_18FunctionESaIS1_EE13_M_deallocateEPS1_m.exit.i.i.i.i.i.i ], [ %.val6.pre.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_18FunctionEmS1_ET_S3_T0_RSaIT1_E.exit.i.i.i.i.i.i ], [ %.val.i.i.i.i, %70 ]
-  %118 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Function", ptr %.val6.i.i.i.i, i64 %indvars.iv.i.i.i
+  %118 = getelementptr inbounds nuw [176 x i8], ptr %.val6.i.i.i.i, i64 %indvars.iv.i.i.i
   %119 = load ptr, ptr %0, align 8, !tbaa !42
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 104
   %121 = load ptr, ptr %120, align 8
@@ -6717,15 +6675,15 @@ _ZNSt6vectorIN12_GLOBAL__N_15ParamESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i.i
 
 _ZNSt12_Vector_baseIN12_GLOBAL__N_15ParamESaIS1_EE13_M_deallocateEPS1_m.exit.i.i.i.i.i.i: ; preds = %90, %_ZNSt6vectorIN12_GLOBAL__N_15ParamESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i.i.i.i.i.i
   store ptr %81, ptr %1, align 8, !tbaa !180
-  %92 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Param", ptr %82, i64 %67
+  %92 = getelementptr inbounds nuw [40 x i8], ptr %82, i64 %67
   store ptr %92, ptr %48, align 8, !tbaa !183
-  %93 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Param", ptr %81, i64 %79
+  %93 = getelementptr inbounds nuw [40 x i8], ptr %81, i64 %79
   store ptr %93, ptr %49, align 8, !tbaa !184
   br label %_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_15ParamESaIS4_EELb1EE7elementERNS0_2IOERS6_m.exit.i.i.i
 
 _ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_15ParamESaIS4_EELb1EE7elementERNS0_2IOERS6_m.exit.i.i.i: ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_15ParamESaIS1_EE13_M_deallocateEPS1_m.exit.i.i.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_15ParamEmS1_ET_S3_T0_RSaIT1_E.exit.i.i.i.i.i.i, %60
   %.val6.i.i.i.i = phi ptr [ %81, %_ZNSt12_Vector_baseIN12_GLOBAL__N_15ParamESaIS1_EE13_M_deallocateEPS1_m.exit.i.i.i.i.i.i ], [ %.val6.pre.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_15ParamEmS1_ET_S3_T0_RSaIT1_E.exit.i.i.i.i.i.i ], [ %.val.i.i.i.i, %60 ]
-  %94 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Param", ptr %.val6.i.i.i.i, i64 %indvars.iv.i.i.i
+  %94 = getelementptr inbounds nuw [40 x i8], ptr %.val6.i.i.i.i, i64 %indvars.iv.i.i.i
   %95 = load ptr, ptr %0, align 8, !tbaa !42
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 104
   %97 = load ptr, ptr %96, align 8
@@ -8107,15 +8065,15 @@ _ZNSt6vectorIN12_GLOBAL__N_13TagESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i.i.i
 
 _ZNSt12_Vector_baseIN12_GLOBAL__N_13TagESaIS1_EE13_M_deallocateEPS1_m.exit.i.i.i: ; preds = %238, %_ZNSt6vectorIN12_GLOBAL__N_13TagESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i.i.i
   store ptr %124, ptr %1, align 8, !tbaa !73
-  %242 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Tag", ptr %125, i64 %114
+  %242 = getelementptr inbounds nuw [368 x i8], ptr %125, i64 %114
   store ptr %242, ptr %81, align 8, !tbaa !76
-  %243 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Tag", ptr %124, i64 %122
+  %243 = getelementptr inbounds nuw [368 x i8], ptr %124, i64 %122
   store ptr %243, ptr %82, align 8, !tbaa !77
   br label %_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_13TagESaIS4_EELb1EE7elementERNS0_2IOERS6_m.exit
 
 _ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_13TagESaIS4_EELb1EE7elementERNS0_2IOERS6_m.exit: ; preds = %107, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_13TagEmS1_ET_S3_T0_RSaIT1_E.exit.i.i.i, %_ZNSt12_Vector_baseIN12_GLOBAL__N_13TagESaIS1_EE13_M_deallocateEPS1_m.exit.i.i.i
   %.val6.i = phi ptr [ %124, %_ZNSt12_Vector_baseIN12_GLOBAL__N_13TagESaIS1_EE13_M_deallocateEPS1_m.exit.i.i.i ], [ %.val6.pre.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_13TagEmS1_ET_S3_T0_RSaIT1_E.exit.i.i.i ], [ %.val.i5, %107 ]
-  %244 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Tag", ptr %.val6.i, i64 %indvars.iv
+  %244 = getelementptr inbounds nuw [368 x i8], ptr %.val6.i, i64 %indvars.iv
   %245 = load ptr, ptr %0, align 8, !tbaa !42
   %246 = getelementptr inbounds nuw i8, ptr %245, i64 104
   %247 = load ptr, ptr %246, align 8
@@ -8756,15 +8714,15 @@ _ZNSt6vectorIN12_GLOBAL__N_15FieldESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i.i
 
 _ZNSt12_Vector_baseIN12_GLOBAL__N_15FieldESaIS1_EE13_M_deallocateEPS1_m.exit.i.i.i.i.i.i.i.i: ; preds = %534, %_ZNSt6vectorIN12_GLOBAL__N_15FieldESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit.i.i.i.i.i.i.i.i
   store ptr %529, ptr %475, align 8, !tbaa !237
-  %536 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Field", ptr %530, i64 %519
+  %536 = getelementptr inbounds nuw [88 x i8], ptr %530, i64 %519
   store ptr %536, ptr %504, align 8, !tbaa !240
-  %537 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Field", ptr %529, i64 %527
+  %537 = getelementptr inbounds nuw [88 x i8], ptr %529, i64 %527
   store ptr %537, ptr %505, align 8, !tbaa !241
   br label %_ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_15FieldESaIS4_EELb1EE7elementERNS0_2IOERS6_m.exit.i.i.i.i.i
 
 _ZN4llvm4yaml15IsResizableBaseISt6vectorIN12_GLOBAL__N_15FieldESaIS4_EELb1EE7elementERNS0_2IOERS6_m.exit.i.i.i.i.i: ; preds = %_ZNSt12_Vector_baseIN12_GLOBAL__N_15FieldESaIS1_EE13_M_deallocateEPS1_m.exit.i.i.i.i.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_15FieldEmS1_ET_S3_T0_RSaIT1_E.exit.i.i.i.i.i.i.i.i, %512
   %.val6.i.i.i.i.i.i = phi ptr [ %529, %_ZNSt12_Vector_baseIN12_GLOBAL__N_15FieldESaIS1_EE13_M_deallocateEPS1_m.exit.i.i.i.i.i.i.i.i ], [ %.val6.pre.i.i.i.i.i.i, %_ZSt27__uninitialized_default_n_aIPN12_GLOBAL__N_15FieldEmS1_ET_S3_T0_RSaIT1_E.exit.i.i.i.i.i.i.i.i ], [ %.val.i.i.i.i.i.i, %512 ]
-  %538 = getelementptr inbounds nuw %"struct.(anonymous namespace)::Field", ptr %.val6.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i
+  %538 = getelementptr inbounds nuw [88 x i8], ptr %.val6.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i
   %539 = load ptr, ptr %0, align 8, !tbaa !42
   %540 = getelementptr inbounds nuw i8, ptr %539, i64 104
   %541 = load ptr, ptr %540, align 8
@@ -12693,7 +12651,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit463:               ; preds = %808
 .lr.ph.i:                                         ; preds = %828, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %828 ]
   %822 = load ptr, ptr %58, align 8, !tbaa !362
-  %823 = getelementptr inbounds nuw ptr, ptr %822, i64 %indvars.iv.i
+  %823 = getelementptr inbounds nuw [8 x i8], ptr %822, i64 %indvars.iv.i
   %824 = load ptr, ptr %823, align 8, !tbaa !363
   %magicptr.i = ptrtoint ptr %824 to i64
   switch i64 %magicptr.i, label %825 [
@@ -12734,7 +12692,7 @@ _ZN4llvm9StringMapISt9nullopt_tNS_15MallocAllocatorEED2Ev.exit: ; preds = %828, 
 .lr.ph.i467:                                      ; preds = %843, %.lr.ph.preheader.i466
   %indvars.iv.i468 = phi i64 [ 0, %.lr.ph.preheader.i466 ], [ %indvars.iv.next.i470, %843 ]
   %837 = load ptr, ptr %55, align 8, !tbaa !362
-  %838 = getelementptr inbounds nuw ptr, ptr %837, i64 %indvars.iv.i468
+  %838 = getelementptr inbounds nuw [8 x i8], ptr %837, i64 %indvars.iv.i468
   %839 = load ptr, ptr %838, align 8, !tbaa !363
   %magicptr.i469 = ptrtoint ptr %839 to i64
   switch i64 %magicptr.i469, label %840 [
@@ -12775,7 +12733,7 @@ _ZN4llvm9StringMapISt9nullopt_tNS_15MallocAllocatorEED2Ev.exit472: ; preds = %84
 .lr.ph.i475:                                      ; preds = %858, %.lr.ph.preheader.i474
   %indvars.iv.i476 = phi i64 [ 0, %.lr.ph.preheader.i474 ], [ %indvars.iv.next.i478, %858 ]
   %852 = load ptr, ptr %50, align 8, !tbaa !362
-  %853 = getelementptr inbounds nuw ptr, ptr %852, i64 %indvars.iv.i476
+  %853 = getelementptr inbounds nuw [8 x i8], ptr %852, i64 %indvars.iv.i476
   %854 = load ptr, ptr %853, align 8, !tbaa !363
   %magicptr.i477 = ptrtoint ptr %854 to i64
   switch i64 %magicptr.i477, label %855 [
@@ -12816,7 +12774,7 @@ _ZN4llvm9StringMapISt9nullopt_tNS_15MallocAllocatorEED2Ev.exit480: ; preds = %85
 .lr.ph.i483:                                      ; preds = %873, %.lr.ph.preheader.i482
   %indvars.iv.i484 = phi i64 [ 0, %.lr.ph.preheader.i482 ], [ %indvars.iv.next.i486, %873 ]
   %867 = load ptr, ptr %45, align 8, !tbaa !362
-  %868 = getelementptr inbounds nuw ptr, ptr %867, i64 %indvars.iv.i484
+  %868 = getelementptr inbounds nuw [8 x i8], ptr %867, i64 %indvars.iv.i484
   %869 = load ptr, ptr %868, align 8, !tbaa !363
   %magicptr.i485 = ptrtoint ptr %869 to i64
   switch i64 %magicptr.i485, label %870 [
@@ -12857,7 +12815,7 @@ _ZN4llvm9StringMapISt9nullopt_tNS_15MallocAllocatorEED2Ev.exit488: ; preds = %87
 .lr.ph.i491:                                      ; preds = %888, %.lr.ph.preheader.i490
   %indvars.iv.i492 = phi i64 [ 0, %.lr.ph.preheader.i490 ], [ %indvars.iv.next.i494, %888 ]
   %882 = load ptr, ptr %40, align 8, !tbaa !362
-  %883 = getelementptr inbounds nuw ptr, ptr %882, i64 %indvars.iv.i492
+  %883 = getelementptr inbounds nuw [8 x i8], ptr %882, i64 %indvars.iv.i492
   %884 = load ptr, ptr %883, align 8, !tbaa !363
   %magicptr.i493 = ptrtoint ptr %884 to i64
   switch i64 %magicptr.i493, label %885 [
@@ -12898,7 +12856,7 @@ _ZN4llvm9StringMapISt9nullopt_tNS_15MallocAllocatorEED2Ev.exit496: ; preds = %88
 .lr.ph.i499:                                      ; preds = %903, %.lr.ph.preheader.i498
   %indvars.iv.i500 = phi i64 [ 0, %.lr.ph.preheader.i498 ], [ %indvars.iv.next.i502, %903 ]
   %897 = load ptr, ptr %37, align 8, !tbaa !362
-  %898 = getelementptr inbounds nuw ptr, ptr %897, i64 %indvars.iv.i500
+  %898 = getelementptr inbounds nuw [8 x i8], ptr %897, i64 %indvars.iv.i500
   %899 = load ptr, ptr %898, align 8, !tbaa !363
   %magicptr.i501 = ptrtoint ptr %899 to i64
   switch i64 %magicptr.i501, label %900 [
@@ -12939,7 +12897,7 @@ _ZN4llvm9StringMapISt9nullopt_tNS_15MallocAllocatorEED2Ev.exit504: ; preds = %90
 .lr.ph.i507:                                      ; preds = %918, %.lr.ph.preheader.i506
   %indvars.iv.i508 = phi i64 [ 0, %.lr.ph.preheader.i506 ], [ %indvars.iv.next.i510, %918 ]
   %912 = load ptr, ptr %34, align 8, !tbaa !362
-  %913 = getelementptr inbounds nuw ptr, ptr %912, i64 %indvars.iv.i508
+  %913 = getelementptr inbounds nuw [8 x i8], ptr %912, i64 %indvars.iv.i508
   %914 = load ptr, ptr %913, align 8, !tbaa !363
   %magicptr.i509 = ptrtoint ptr %914 to i64
   switch i64 %magicptr.i509, label %915 [
@@ -12980,7 +12938,7 @@ _ZN4llvm9StringMapISt9nullopt_tNS_15MallocAllocatorEED2Ev.exit512: ; preds = %91
 .lr.ph.i515:                                      ; preds = %933, %.lr.ph.preheader.i514
   %indvars.iv.i516 = phi i64 [ 0, %.lr.ph.preheader.i514 ], [ %indvars.iv.next.i518, %933 ]
   %927 = load ptr, ptr %31, align 8, !tbaa !362
-  %928 = getelementptr inbounds nuw ptr, ptr %927, i64 %indvars.iv.i516
+  %928 = getelementptr inbounds nuw [8 x i8], ptr %927, i64 %indvars.iv.i516
   %929 = load ptr, ptr %928, align 8, !tbaa !363
   %magicptr.i517 = ptrtoint ptr %929 to i64
   switch i64 %magicptr.i517, label %930 [
@@ -14835,7 +14793,7 @@ _ZN12_GLOBAL__N_113YAMLConverter13convertMethodERKNS_6MethodEN5clang9api_notes9C
 .lr.ph.i:                                         ; preds = %573, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %573 ]
   %567 = load ptr, ptr %40, align 8, !tbaa !362
-  %568 = getelementptr inbounds nuw ptr, ptr %567, i64 %indvars.iv.i
+  %568 = getelementptr inbounds nuw [8 x i8], ptr %567, i64 %indvars.iv.i
   %569 = load ptr, ptr %568, align 8, !tbaa !363
   %magicptr.i = ptrtoint ptr %569 to i64
   switch i64 %magicptr.i, label %570 [
@@ -14876,7 +14834,7 @@ _ZN4llvm9StringMapISt9nullopt_tNS_15MallocAllocatorEED2Ev.exit: ; preds = %573, 
 .lr.ph.i219:                                      ; preds = %588, %.lr.ph.preheader.i218
   %indvars.iv.i220 = phi i64 [ 0, %.lr.ph.preheader.i218 ], [ %indvars.iv.next.i222, %588 ]
   %582 = load ptr, ptr %39, align 8, !tbaa !362
-  %583 = getelementptr inbounds nuw ptr, ptr %582, i64 %indvars.iv.i220
+  %583 = getelementptr inbounds nuw [8 x i8], ptr %582, i64 %indvars.iv.i220
   %584 = load ptr, ptr %583, align 8, !tbaa !363
   %magicptr.i221 = ptrtoint ptr %584 to i64
   switch i64 %magicptr.i221, label %585 [
@@ -14917,7 +14875,7 @@ _ZN4llvm9StringMapISt9nullopt_tNS_15MallocAllocatorEED2Ev.exit224: ; preds = %58
 .lr.ph.i227:                                      ; preds = %603, %.lr.ph.preheader.i226
   %indvars.iv.i228 = phi i64 [ 0, %.lr.ph.preheader.i226 ], [ %indvars.iv.next.i230, %603 ]
   %597 = load ptr, ptr %32, align 8, !tbaa !362
-  %598 = getelementptr inbounds nuw ptr, ptr %597, i64 %indvars.iv.i228
+  %598 = getelementptr inbounds nuw [8 x i8], ptr %597, i64 %indvars.iv.i228
   %599 = load ptr, ptr %598, align 8, !tbaa !363
   %magicptr.i229 = ptrtoint ptr %599 to i64
   switch i64 %magicptr.i229, label %600 [
@@ -17413,7 +17371,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapISt9nullopt_tNS_15Mall
   %5 = tail call noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, i32 noundef %3) #15
   %6 = load ptr, ptr %0, align 8, !tbaa !362
   %7 = zext i32 %5 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !363
   %magicptr = ptrtoint ptr %9 to i64
   switch i64 %magicptr, label %.preheader.i.i [
@@ -17465,7 +17423,7 @@ _ZN4llvm14StringMapEntryISt9nullopt_tE6createINS_15MallocAllocatorEJEEEPS2_NS_9S
   %25 = tail call noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %5) #15
   %26 = load ptr, ptr %0, align 8, !tbaa !362
   %27 = zext i32 %25 to i64
-  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %27
   br label %.preheader.i.i23
 
 .preheader.i.i23:                                 ; preds = %.critedge.i.i.i25, %_ZN4llvm14StringMapEntryISt9nullopt_tE6createINS_15MallocAllocatorEJEEEPS2_NS_9StringRefERT_DpOT0_.exit
@@ -17931,7 +17889,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapISt4pairIbbENS_15Mallo
   %5 = tail call noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, i32 noundef %3) #15
   %6 = load ptr, ptr %0, align 8, !tbaa !362
   %7 = zext i32 %5 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !363
   %magicptr = ptrtoint ptr %9 to i64
   switch i64 %magicptr, label %.preheader.i.i [
@@ -17987,7 +17945,7 @@ _ZN4llvm14StringMapEntryISt4pairIbbEE6createINS_15MallocAllocatorEJEEEPS3_NS_9St
   %27 = tail call noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %5) #15
   %28 = load ptr, ptr %0, align 8, !tbaa !362
   %29 = zext i32 %27 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %29
   br label %.preheader.i.i23
 
 .preheader.i.i23:                                 ; preds = %.critedge.i.i.i25, %_ZN4llvm14StringMapEntryISt4pairIbbEE6createINS_15MallocAllocatorEJEEEPS3_NS_9StringRefERT_DpOT0_.exit
@@ -18247,7 +18205,7 @@ _ZNSt8optionalIN5clang9api_notes9ParamInfoEEaSIRS2_EENSt9enable_ifIX7__and_vISt6
 128:                                              ; preds = %126
   %129 = zext nneg i32 %115 to i64
   %130 = load ptr, ptr %23, align 8, !tbaa !336
-  %131 = getelementptr inbounds nuw %"class.clang::api_notes::ParamInfo", ptr %130, i64 %129
+  %131 = getelementptr inbounds nuw [120 x i8], ptr %130, i64 %129
   %132 = call noundef nonnull align 8 dereferenceable(113) ptr @_ZN5clang9api_notes9ParamInfooRERKS1_(ptr noundef nonnull align 8 dereferenceable(113) %131, ptr noundef nonnull align 8 dereferenceable(113) %5)
   br label %155
 
@@ -18486,7 +18444,7 @@ define linkonce_odr hidden void @_ZNSt6vectorIN5clang9api_notes9ParamInfoESaIS2_
   br i1 %14, label %15, label %_ZNSt6vectorIN5clang9api_notes9ParamInfoESaIS2_EE15_M_erase_at_endEPS2_.exit
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds nuw %"class.clang::api_notes::ParamInfo", ptr %5, i64 %1
+  %16 = getelementptr inbounds nuw [120 x i8], ptr %5, i64 %1
   %.not.i = icmp eq ptr %4, %16
   br i1 %.not.i, label %_ZNSt6vectorIN5clang9api_notes9ParamInfoESaIS2_EE15_M_erase_at_endEPS2_.exit, label %.lr.ph.i.i.i.i
 
@@ -19054,9 +19012,9 @@ _ZNSt6vectorIN5clang9api_notes9ParamInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.ex
 
 _ZNSt12_Vector_baseIN5clang9api_notes9ParamInfoESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN5clang9api_notes9ParamInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit, %119
   store ptr %44, ptr %0, align 8, !tbaa !336
-  %123 = getelementptr inbounds nuw %"class.clang::api_notes::ParamInfo", ptr %45, i64 %1
+  %123 = getelementptr inbounds nuw [120 x i8], ptr %45, i64 %1
   store ptr %123, ptr %4, align 8, !tbaa !337
-  %124 = getelementptr inbounds nuw %"class.clang::api_notes::ParamInfo", ptr %44, i64 %42
+  %124 = getelementptr inbounds nuw [120 x i8], ptr %44, i64 %42
   store ptr %124, ptr %11, align 8, !tbaa !339
   br label %125
 

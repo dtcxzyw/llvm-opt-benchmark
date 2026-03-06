@@ -264,7 +264,7 @@ _ZNSt6vectorI14plic_context_tSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i.i: 
 _ZNSt6vectorI14plic_context_tSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i: ; preds = %54, %_ZNSt6vectorI14plic_context_tSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i.i
   store ptr %48, ptr %5, align 8, !tbaa !33
   store ptr %53, ptr %22, align 8, !tbaa !28
-  %55 = getelementptr inbounds nuw %struct.plic_context_t, ptr %48, i64 %46
+  %55 = getelementptr inbounds nuw [1424 x i8], ptr %48, i64 %46
   store ptr %55, ptr %23, align 8, !tbaa !29
   br label %56
 
@@ -357,7 +357,7 @@ _ZNSt6vectorI14plic_context_tSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i.i27
 _ZNSt6vectorI14plic_context_tSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i30: ; preds = %88, %_ZNSt6vectorI14plic_context_tSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i.i27
   store ptr %82, ptr %5, align 8, !tbaa !33
   store ptr %87, ptr %22, align 8, !tbaa !28
-  %89 = getelementptr inbounds nuw %struct.plic_context_t, ptr %82, i64 %80
+  %89 = getelementptr inbounds nuw [1424 x i8], ptr %82, i64 %80
   store ptr %89, ptr %23, align 8, !tbaa !29
   br label %_ZNSt6vectorI14plic_context_tSaIS0_EE9push_backEOS0_.exit33
 
@@ -440,14 +440,14 @@ define noundef range(i32 0, -1) i32 @_ZN6plic_t20context_best_pendingEPK14plic_c
   %indvars.iv48 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next49, %.loopexit ]
   %.02844 = phi i32 [ 0, %.lr.ph ], [ %.1, %.loopexit ]
   %.02943 = phi i8 [ 0, %.lr.ph ], [ %.130, %.loopexit ]
-  %14 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv48
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv48
   %15 = load i32, ptr %14, align 4, !tbaa !52
   %.not35 = icmp eq i32 %15, 0
   br i1 %.not35, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %13
   %16 = shl i64 %indvars.iv48, 5
-  %17 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv48
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv48
   %18 = and i64 %16, 4294967264
   br label %19
 
@@ -519,14 +519,14 @@ define void @_ZN6plic_t14context_updateEPK14plic_context_t(ptr noundef nonnull r
   %indvars.iv48.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next49.i, %.loopexit.i ]
   %.02844.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %.loopexit.i ]
   %.02943.i = phi i8 [ 0, %.lr.ph.i ], [ %.130.i, %.loopexit.i ]
-  %12 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv48.i
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv48.i
   %13 = load i32, ptr %12, align 4, !tbaa !52
   %.not35.i = icmp eq i32 %13, 0
   br i1 %.not35.i, label %.loopexit.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %11
   %14 = shl i64 %indvars.iv48.i, 5
-  %15 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv48.i
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv48.i
   %16 = and i64 %14, 4294967264
   br label %17
 
@@ -623,14 +623,14 @@ define noundef i32 @_ZN6plic_t13context_claimEP14plic_context_t(ptr noundef nonn
   %indvars.iv48.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next49.i, %.loopexit.i ]
   %.02844.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %.loopexit.i ]
   %.02943.i = phi i8 [ 0, %.lr.ph.i ], [ %.130.i, %.loopexit.i ]
-  %12 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv48.i
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv48.i
   %13 = load i32, ptr %12, align 4, !tbaa !52
   %.not35.i = icmp eq i32 %13, 0
   br i1 %.not35.i, label %.loopexit.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %11
   %14 = shl i64 %indvars.iv48.i, 5
-  %15 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv48.i
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv48.i
   %16 = and i64 %14, 4294967264
   br label %17
 
@@ -693,7 +693,7 @@ _ZN6plic_t20context_best_pendingEPK14plic_context_t.exit: ; preds = %.loopexit.i
   %33 = shl nuw i32 1, %32
   %34 = lshr i32 %.028..i, 5
   %35 = zext nneg i32 %34 to i64
-  %36 = getelementptr inbounds nuw i32, ptr %8, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !52
   %38 = or i32 %37, %33
   store i32 %38, ptr %36, align 4, !tbaa !52
@@ -715,14 +715,14 @@ _ZN6plic_t20context_best_pendingEPK14plic_context_t.exit: ; preds = %.loopexit.i
   %indvars.iv48.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next49.i.i, %.loopexit.i.i ]
   %.02844.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %.1.i.i, %.loopexit.i.i ]
   %.02943.i.i = phi i8 [ 0, %.lr.ph.i.i ], [ %.130.i.i, %.loopexit.i.i ]
-  %43 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv48.i.i
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv48.i.i
   %44 = load i32, ptr %43, align 4, !tbaa !52
   %.not35.i.i = icmp eq i32 %44, 0
   br i1 %.not35.i.i, label %.loopexit.i.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %42
   %45 = shl i64 %indvars.iv48.i.i, 5
-  %46 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv48.i.i
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv48.i.i
   %47 = and i64 %45, 4294967264
   br label %48
 
@@ -874,7 +874,7 @@ define noundef zeroext i1 @_ZN6plic_t12pending_readEmPj(ptr noundef nonnull read
 .lr.ph:                                           ; preds = %10
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 140
   %17 = and i64 %5, 4294967295
-  %18 = getelementptr inbounds nuw i32, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %17
   br label %19
 
 19:                                               ; preds = %.lr.ph, %19
@@ -909,7 +909,7 @@ define noundef zeroext i1 @_ZN6plic_t19context_enable_readEPK14plic_context_tmPj
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %12 = and i64 %5, 4294967295
-  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !52
   br label %15
 
@@ -931,7 +931,7 @@ define noundef zeroext i1 @_ZN6plic_t20context_enable_writeEP14plic_context_tmj(
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %11 = and i64 %5, 4294967295
-  %12 = getelementptr inbounds nuw i32, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !52
   %14 = icmp eq i32 %6, 0
   %15 = and i32 %3, -2
@@ -941,12 +941,12 @@ define noundef zeroext i1 @_ZN6plic_t20context_enable_writeEP14plic_context_tmj(
   %18 = shl i64 %5, 5
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 1076
-  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %11
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %11
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 140
-  %23 = getelementptr inbounds nuw i32, ptr %22, i64 %11
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %11
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 268
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 1292
-  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %11
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %11
   %27 = and i64 %18, 4294967264
   br label %62
 
@@ -966,14 +966,14 @@ define noundef zeroext i1 @_ZN6plic_t20context_enable_writeEP14plic_context_tmj(
   %indvars.iv48.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next49.i.i, %.loopexit.i.i ]
   %.02844.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %.1.i.i, %.loopexit.i.i ]
   %.02943.i.i = phi i8 [ 0, %.lr.ph.i.i ], [ %.130.i.i, %.loopexit.i.i ]
-  %34 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv48.i.i
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv48.i.i
   %35 = load i32, ptr %34, align 4, !tbaa !52
   %.not35.i.i = icmp eq i32 %35, 0
   br i1 %.not35.i.i, label %.loopexit.i.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %33
   %36 = shl i64 %indvars.iv48.i.i, 5
-  %37 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv48.i.i
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv48.i.i
   %38 = and i64 %36, 4294967264
   br label %39
 
@@ -1154,7 +1154,7 @@ define noundef zeroext i1 @_ZN6plic_t13context_writeEP14plic_context_tmj(ptr nou
   %19 = lshr i32 %3, 5
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %21 = zext nneg i32 %19 to i64
-  %22 = getelementptr inbounds nuw i32, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !52
   %24 = and i32 %23, %14
   %.not = icmp eq i32 %24, 0
@@ -1163,7 +1163,7 @@ define noundef zeroext i1 @_ZN6plic_t13context_writeEP14plic_context_tmj(ptr nou
 25:                                               ; preds = %18
   %26 = xor i32 %14, -1
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 1292
-  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %21
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %21
   %29 = load i32, ptr %28, align 4, !tbaa !52
   %30 = and i32 %29, %26
   store i32 %30, ptr %28, align 4, !tbaa !52
@@ -1189,14 +1189,14 @@ define noundef zeroext i1 @_ZN6plic_t13context_writeEP14plic_context_tmj(ptr nou
   %indvars.iv48.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next49.i.i, %.loopexit.i.i ]
   %.02844.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %.1.i.i, %.loopexit.i.i ]
   %.02943.i.i = phi i8 [ 0, %.lr.ph.i.i ], [ %.130.i.i, %.loopexit.i.i ]
-  %41 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv48.i.i
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv48.i.i
   %42 = load i32, ptr %41, align 4, !tbaa !52
   %.not35.i.i = icmp eq i32 %42, 0
   br i1 %.not35.i.i, label %.loopexit.i.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %40
   %43 = shl i64 %indvars.iv48.i.i, 5
-  %44 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv48.i.i
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %indvars.iv48.i.i
   %45 = and i64 %43, 4294967264
   br label %46
 
@@ -1296,7 +1296,7 @@ define void @_ZN6plic_t19set_interrupt_levelEji(ptr noundef nonnull align 8 capt
 15:                                               ; preds = %7
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 1076
   %17 = zext nneg i32 %12 to i64
-  %18 = getelementptr inbounds nuw i32, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !52
   %20 = or i32 %19, %14
   store i32 %20, ptr %18, align 4, !tbaa !52
@@ -1306,7 +1306,7 @@ define void @_ZN6plic_t19set_interrupt_levelEji(ptr noundef nonnull align 8 capt
   %22 = xor i32 %14, -1
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 1076
   %24 = zext nneg i32 %12 to i64
-  %25 = getelementptr inbounds nuw i32, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !52
   %27 = and i32 %26, %22
   store i32 %27, ptr %25, align 4, !tbaa !52
@@ -1335,9 +1335,9 @@ define void @_ZN6plic_t19set_interrupt_levelEji(ptr noundef nonnull align 8 capt
 
 .critedge:                                        ; preds = %.critedge.lr.ph, %38
   %.039 = phi i64 [ 0, %.critedge.lr.ph ], [ %39, %38 ]
-  %40 = getelementptr inbounds nuw %struct.plic_context_t, ptr %32, i64 %.039
+  %40 = getelementptr inbounds nuw [1424 x i8], ptr %32, i64 %.039
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 12
-  %42 = getelementptr inbounds nuw i32, ptr %41, i64 %37
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %37
   %43 = load i32, ptr %42, align 4, !tbaa !52
   %44 = and i32 %43, %14
   %.not36 = icmp eq i32 %44, 0
@@ -1348,7 +1348,7 @@ define void @_ZN6plic_t19set_interrupt_levelEji(ptr noundef nonnull align 8 capt
 
 46:                                               ; preds = %45
   %47 = getelementptr inbounds nuw i8, ptr %40, i64 140
-  %48 = getelementptr inbounds nuw i32, ptr %47, i64 %37
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %37
   %49 = load i32, ptr %48, align 4, !tbaa !52
   %50 = or i32 %49, %14
   store i32 %50, ptr %48, align 4, !tbaa !52
@@ -1360,7 +1360,7 @@ define void @_ZN6plic_t19set_interrupt_levelEji(ptr noundef nonnull align 8 capt
 53:                                               ; preds = %45
   %54 = xor i32 %14, -1
   %55 = getelementptr inbounds nuw i8, ptr %40, i64 140
-  %56 = getelementptr inbounds nuw i32, ptr %55, i64 %37
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %37
   %57 = load i32, ptr %56, align 4, !tbaa !52
   %58 = and i32 %57, %54
   store i32 %58, ptr %56, align 4, !tbaa !52
@@ -1368,7 +1368,7 @@ define void @_ZN6plic_t19set_interrupt_levelEji(ptr noundef nonnull align 8 capt
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 %9
   store i8 0, ptr %60, align 1, !tbaa !32
   %61 = getelementptr inbounds nuw i8, ptr %40, i64 1292
-  %62 = getelementptr inbounds nuw i32, ptr %61, i64 %37
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %37
   %63 = load i32, ptr %62, align 4, !tbaa !52
   %64 = and i32 %63, %54
   store i32 %64, ptr %62, align 4, !tbaa !52
@@ -1393,14 +1393,14 @@ define void @_ZN6plic_t19set_interrupt_levelEji(ptr noundef nonnull align 8 capt
   %indvars.iv48.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next49.i.i, %.loopexit.i.i ]
   %.02844.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %.1.i.i, %.loopexit.i.i ]
   %.02943.i.i = phi i8 [ 0, %.lr.ph.i.i ], [ %.130.i.i, %.loopexit.i.i ]
-  %74 = getelementptr inbounds nuw i32, ptr %68, i64 %indvars.iv48.i.i
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %indvars.iv48.i.i
   %75 = load i32, ptr %74, align 4, !tbaa !52
   %.not35.i.i = icmp eq i32 %75, 0
   br i1 %.not35.i.i, label %.loopexit.i.i, label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %73
   %76 = shl i64 %indvars.iv48.i.i, 5
-  %77 = getelementptr inbounds nuw i32, ptr %70, i64 %indvars.iv48.i.i
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %indvars.iv48.i.i
   %78 = and i64 %76, 4294967264
   br label %79
 
@@ -1549,7 +1549,7 @@ define noundef zeroext i1 @_ZN6plic_t4loadEmmPh(ptr noundef nonnull align 8 dere
 
 .lr.ph.i:                                         ; preds = %38
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 140
-  %45 = getelementptr inbounds nuw i32, ptr %44, i64 %33
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %33
   br label %46
 
 46:                                               ; preds = %46, %.lr.ph.i
@@ -1593,9 +1593,9 @@ define noundef zeroext i1 @_ZN6plic_t4loadEmmPh(ptr noundef nonnull align 8 dere
   br i1 %73, label %74, label %_ZN6plic_t13priority_readEmPj.exit
 
 74:                                               ; preds = %68
-  %75 = getelementptr inbounds nuw %struct.plic_context_t, ptr %62, i64 %58
+  %75 = getelementptr inbounds nuw [1424 x i8], ptr %62, i64 %58
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 12
-  %77 = getelementptr inbounds nuw i32, ptr %76, i64 %69
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %69
   %78 = load i32, ptr %77, align 4, !tbaa !52
   br label %_ZN6plic_t13priority_readEmPj.exit
 
@@ -1620,7 +1620,7 @@ define noundef zeroext i1 @_ZN6plic_t4loadEmmPh(ptr noundef nonnull align 8 dere
   br i1 %94, label %95, label %_ZN6plic_t13priority_readEmPj.exit
 
 95:                                               ; preds = %81
-  %96 = getelementptr inbounds nuw %struct.plic_context_t, ptr %89, i64 %85
+  %96 = getelementptr inbounds nuw [1424 x i8], ptr %89, i64 %85
   switch i64 %84, label %_ZN6plic_t13priority_readEmPj.exit [
     i64 0, label %97
     i64 4, label %101
@@ -1746,7 +1746,7 @@ _Z23write_little_endian_regIjEvPT_mmPKh.exit:     ; preds = %.preheader
 
 57:                                               ; preds = %44
   %58 = and i64 %1, 127
-  %59 = getelementptr inbounds nuw %struct.plic_context_t, ptr %51, i64 %47
+  %59 = getelementptr inbounds nuw [1424 x i8], ptr %51, i64 %47
   %60 = tail call noundef zeroext i1 @_ZN6plic_t20context_enable_writeEP14plic_context_tmj(ptr noundef nonnull align 8 dereferenceable(1204) %0, ptr noundef nonnull %59, i64 noundef %58, i32 noundef %28)
   br label %_ZN6plic_t14priority_writeEmj.exit
 
@@ -1771,7 +1771,7 @@ _Z23write_little_endian_regIjEvPT_mmPKh.exit:     ; preds = %.preheader
 
 76:                                               ; preds = %63
   %77 = and i64 %1, 4095
-  %78 = getelementptr inbounds nuw %struct.plic_context_t, ptr %70, i64 %66
+  %78 = getelementptr inbounds nuw [1424 x i8], ptr %70, i64 %66
   %79 = tail call noundef zeroext i1 @_ZN6plic_t13context_writeEP14plic_context_tmj(ptr noundef nonnull align 8 dereferenceable(1204) %0, ptr noundef nonnull %78, i64 noundef %77, i32 noundef %28)
   br label %_ZN6plic_t14priority_writeEmj.exit
 

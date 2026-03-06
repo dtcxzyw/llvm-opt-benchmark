@@ -70,7 +70,7 @@ define internal noundef range(i32 0, 2) i32 @_ZL18Abc_CommandGlucoseP12Abc_Frame
 
 10:                                               ; preds = %7
   %11 = sext i32 %8 to i64
-  %12 = getelementptr inbounds ptr, ptr %2, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %2, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !7
   %14 = tail call i64 @strtol(ptr noundef nonnull captures(none) %13, ptr noundef null, i32 noundef 10) #10
   %15 = trunc i64 %14 to i32
@@ -104,7 +104,7 @@ define internal noundef range(i32 0, 2) i32 @_ZL18Abc_CommandGlucoseP12Abc_Frame
 
 26:                                               ; preds = %22
   %27 = sext i32 %23 to i64
-  %28 = getelementptr inbounds ptr, ptr %2, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %2, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !7
   call void @Glucose2_SolveCnf(ptr noundef %29, ptr noundef nonnull %4) #10
   br label %41

@@ -18,7 +18,7 @@ define range(i32 0, -2147483648) i32 @uprv_itou_77(ptr noundef captures(none) %0
   %10 = add nsw i32 %.v, %8
   %11 = trunc i32 %10 to i16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %12 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   store i16 %11, ptr %12, align 2, !tbaa !3
   %13 = udiv i32 %.0, %3
   %14 = icmp ule i32 %3, %.0
@@ -39,7 +39,7 @@ define range(i32 0, -2147483648) i32 @uprv_itou_77(ptr noundef captures(none) %0
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv49 = phi i64 [ %indvars.iv47, %.lr.ph.preheader ], [ %indvars.iv.next50, %.lr.ph ]
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
-  %19 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv49
+  %19 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv49
   store i16 48, ptr %19, align 2, !tbaa !3
   %exitcond.not = icmp eq i64 %indvars.iv.next50, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !9
@@ -51,7 +51,7 @@ define range(i32 0, -2147483648) i32 @uprv_itou_77(ptr noundef captures(none) %0
 
 21:                                               ; preds = %._crit_edge
   %22 = zext nneg i32 %.1.lcssa to i64
-  %23 = getelementptr inbounds nuw i16, ptr %0, i64 %22
+  %23 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %22
   store i16 0, ptr %23, align 2, !tbaa !3
   br label %24
 
@@ -63,15 +63,15 @@ define range(i32 0, -2147483648) i32 @uprv_itou_77(ptr noundef captures(none) %0
 .lr.ph43.preheader:                               ; preds = %24
   %26 = zext nneg i32 %.1.lcssa to i64
   %wide.trip.count55 = zext nneg i32 %25 to i64
-  %27 = getelementptr i16, ptr %0, i64 %26
+  %27 = getelementptr [2 x i8], ptr %0, i64 %26
   br label %.lr.ph43
 
 .lr.ph43:                                         ; preds = %.lr.ph43.preheader, %.lr.ph43
   %indvars.iv52 = phi i64 [ 0, %.lr.ph43.preheader ], [ %indvars.iv.next53, %.lr.ph43 ]
   %28 = xor i64 %indvars.iv52, -1
-  %29 = getelementptr i16, ptr %27, i64 %28
+  %29 = getelementptr [2 x i8], ptr %27, i64 %28
   %30 = load i16, ptr %29, align 2, !tbaa !3
-  %31 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv52
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv52
   %32 = load i16, ptr %31, align 2, !tbaa !3
   store i16 %32, ptr %29, align 2, !tbaa !3
   store i16 %30, ptr %31, align 2, !tbaa !3

@@ -306,7 +306,7 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit51: ; preds = %._crit_edge
 79:                                               ; preds = %69
   %80 = load ptr, ptr %66, align 8, !tbaa !12
   %81 = mul nuw nsw i64 %.03070, %3
-  %82 = getelementptr inbounds nuw i64, ptr %5, i64 %81
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %81
   %83 = load ptr, ptr %80, align 8, !tbaa !16
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 40
   %85 = load ptr, ptr %84, align 8
@@ -319,7 +319,7 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit51: ; preds = %._crit_edge
   br i1 %87, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader
-  %88 = getelementptr inbounds nuw i32, ptr %4, i64 %81
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %81
   br label %92
 
 ._crit_edge:                                      ; preds = %92, %.preheader
@@ -336,13 +336,13 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit54: ; preds = %79, %69
 
 92:                                               ; preds = %.lr.ph, %92
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %92 ]
-  %93 = getelementptr inbounds nuw float, ptr %63, i64 %indvars.iv
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %indvars.iv
   %94 = load float, ptr %93, align 4, !tbaa !34
   %95 = fpext float %94 to double
   %96 = fmul double %95, 2.500000e-01
   %97 = tail call double @llvm.round.f64(double %96)
   %98 = fptosi double %97 to i32
-  %99 = getelementptr inbounds nuw i32, ptr %88, i64 %indvars.iv
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %indvars.iv
   store i32 %98, ptr %99, align 4, !tbaa !35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %70

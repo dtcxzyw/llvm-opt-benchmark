@@ -527,7 +527,7 @@ define dso_local void @tcg_region_reset_all() local_unnamed_addr #1 {
 13:                                               ; preds = %.lr.ph, %tcg_region_initial_alloc__locked.exit
   %14 = phi i64 [ 0, %.lr.ph ], [ %33, %tcg_region_initial_alloc__locked.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %tcg_region_initial_alloc__locked.exit ]
-  %15 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %16 = load atomic i64, ptr %15 monotonic, align 8
   %17 = icmp eq i64 %14, %5
   br i1 %17, label %18, label %tcg_region_initial_alloc__locked.exit
@@ -1069,7 +1069,7 @@ define dso_local i64 @tcg_code_size() local_unnamed_addr #1 {
 6:                                                ; preds = %.lr.ph, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
   %.02225 = phi i64 [ %4, %.lr.ph ], [ %20, %19 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %8 = load atomic i64, ptr %7 monotonic, align 8
   %9 = inttoptr i64 %8 to ptr
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 152

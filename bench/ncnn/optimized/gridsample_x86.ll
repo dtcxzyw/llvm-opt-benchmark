@@ -11142,7 +11142,7 @@ define internal void @_ZN4ncnnL45gridsample_2d_bilinear_apply_interpolation_p4ER
 
 47:                                               ; preds = %.lr.ph
   %48 = zext nneg i32 %45 to i64
-  %49 = getelementptr inbounds nuw float, ptr %34, i64 %48
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %48
   %50 = load <4 x float>, ptr %49, align 1, !tbaa !529
   br label %51
 
@@ -11155,7 +11155,7 @@ define internal void @_ZN4ncnnL45gridsample_2d_bilinear_apply_interpolation_p4ER
 
 56:                                               ; preds = %51
   %57 = zext nneg i32 %54 to i64
-  %58 = getelementptr inbounds nuw float, ptr %34, i64 %57
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %57
   %59 = load <4 x float>, ptr %58, align 1, !tbaa !529
   br label %60
 
@@ -11168,7 +11168,7 @@ define internal void @_ZN4ncnnL45gridsample_2d_bilinear_apply_interpolation_p4ER
 
 65:                                               ; preds = %60
   %66 = zext nneg i32 %63 to i64
-  %67 = getelementptr inbounds nuw float, ptr %34, i64 %66
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %66
   %68 = load <4 x float>, ptr %67, align 1, !tbaa !529
   br label %69
 
@@ -11181,7 +11181,7 @@ define internal void @_ZN4ncnnL45gridsample_2d_bilinear_apply_interpolation_p4ER
 
 74:                                               ; preds = %69
   %75 = zext nneg i32 %72 to i64
-  %76 = getelementptr inbounds nuw float, ptr %34, i64 %75
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %75
   %77 = load <4 x float>, ptr %76, align 1, !tbaa !529
   br label %78
 
@@ -11333,7 +11333,7 @@ define internal void @_ZN4ncnnL41gridsample_nearest_apply_interpolation_p4ERKNS_
 
 46:                                               ; preds = %.lr.ph
   %47 = zext nneg i32 %44 to i64
-  %48 = getelementptr inbounds nuw float, ptr %34, i64 %47
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %47
   %49 = load <4 x float>, ptr %48, align 1, !tbaa !529
   br label %50
 
@@ -11515,7 +11515,7 @@ define internal void @_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolation_p4ERK
 
 115:                                              ; preds = %112
   %116 = zext nneg i32 %113 to i64
-  %117 = getelementptr inbounds nuw float, ptr %46, i64 %116
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %116
   %118 = load <4 x float>, ptr %117, align 1, !tbaa !529
   br label %119
 
@@ -11528,7 +11528,7 @@ define internal void @_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolation_p4ERK
 
 124:                                              ; preds = %119
   %125 = zext nneg i32 %122 to i64
-  %126 = getelementptr inbounds nuw float, ptr %46, i64 %125
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %125
   %127 = load <4 x float>, ptr %126, align 1, !tbaa !529
   br label %128
 
@@ -11541,7 +11541,7 @@ define internal void @_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolation_p4ERK
 
 133:                                              ; preds = %128
   %134 = zext nneg i32 %131 to i64
-  %135 = getelementptr inbounds nuw float, ptr %46, i64 %134
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %134
   %136 = load <4 x float>, ptr %135, align 1, !tbaa !529
   br label %137
 
@@ -11554,7 +11554,7 @@ define internal void @_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolation_p4ERK
 
 142:                                              ; preds = %137
   %143 = zext nneg i32 %140 to i64
-  %144 = getelementptr inbounds nuw float, ptr %46, i64 %143
+  %144 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %143
   %145 = load <4 x float>, ptr %144, align 1, !tbaa !529
   br label %146
 
@@ -11562,7 +11562,7 @@ define internal void @_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolation_p4ERK
   %147 = phi fast <4 x float> [ %145, %142 ], [ zeroinitializer, %137 ]
   %148 = load <4 x float>, ptr %7, align 16, !tbaa !529
   %149 = fmul fast <4 x float> %148, %120
-  %150 = getelementptr inbounds nuw <4 x float>, ptr %15, i64 %indvars.iv
+  %150 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %indvars.iv
   store <4 x float> %149, ptr %150, align 16, !tbaa !529
   %151 = load <4 x float>, ptr %8, align 16, !tbaa !529
   %152 = fmul fast <4 x float> %151, %129
@@ -11700,7 +11700,7 @@ define internal void @_ZN4ncnnL45gridsample_3d_bilinear_apply_interpolation_p4ER
 
 47:                                               ; preds = %.lr.ph
   %48 = zext nneg i32 %45 to i64
-  %49 = getelementptr inbounds nuw float, ptr %34, i64 %48
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %48
   %50 = load <4 x float>, ptr %49, align 1, !tbaa !529
   br label %51
 
@@ -11713,7 +11713,7 @@ define internal void @_ZN4ncnnL45gridsample_3d_bilinear_apply_interpolation_p4ER
 
 56:                                               ; preds = %51
   %57 = zext nneg i32 %54 to i64
-  %58 = getelementptr inbounds nuw float, ptr %34, i64 %57
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %57
   %59 = load <4 x float>, ptr %58, align 1, !tbaa !529
   br label %60
 
@@ -11726,7 +11726,7 @@ define internal void @_ZN4ncnnL45gridsample_3d_bilinear_apply_interpolation_p4ER
 
 65:                                               ; preds = %60
   %66 = zext nneg i32 %63 to i64
-  %67 = getelementptr inbounds nuw float, ptr %34, i64 %66
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %66
   %68 = load <4 x float>, ptr %67, align 1, !tbaa !529
   br label %69
 
@@ -11739,7 +11739,7 @@ define internal void @_ZN4ncnnL45gridsample_3d_bilinear_apply_interpolation_p4ER
 
 74:                                               ; preds = %69
   %75 = zext nneg i32 %72 to i64
-  %76 = getelementptr inbounds nuw float, ptr %34, i64 %75
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %75
   %77 = load <4 x float>, ptr %76, align 1, !tbaa !529
   br label %78
 
@@ -11752,7 +11752,7 @@ define internal void @_ZN4ncnnL45gridsample_3d_bilinear_apply_interpolation_p4ER
 
 83:                                               ; preds = %78
   %84 = zext nneg i32 %81 to i64
-  %85 = getelementptr inbounds nuw float, ptr %34, i64 %84
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %84
   %86 = load <4 x float>, ptr %85, align 1, !tbaa !529
   br label %87
 
@@ -11765,7 +11765,7 @@ define internal void @_ZN4ncnnL45gridsample_3d_bilinear_apply_interpolation_p4ER
 
 92:                                               ; preds = %87
   %93 = zext nneg i32 %90 to i64
-  %94 = getelementptr inbounds nuw float, ptr %34, i64 %93
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %93
   %95 = load <4 x float>, ptr %94, align 1, !tbaa !529
   br label %96
 
@@ -11778,7 +11778,7 @@ define internal void @_ZN4ncnnL45gridsample_3d_bilinear_apply_interpolation_p4ER
 
 101:                                              ; preds = %96
   %102 = zext nneg i32 %99 to i64
-  %103 = getelementptr inbounds nuw float, ptr %34, i64 %102
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %102
   %104 = load <4 x float>, ptr %103, align 1, !tbaa !529
   br label %105
 
@@ -11791,7 +11791,7 @@ define internal void @_ZN4ncnnL45gridsample_3d_bilinear_apply_interpolation_p4ER
 
 110:                                              ; preds = %105
   %111 = zext nneg i32 %108 to i64
-  %112 = getelementptr inbounds nuw float, ptr %34, i64 %111
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %111
   %113 = load <4 x float>, ptr %112, align 1, !tbaa !529
   br label %114
 
@@ -11923,7 +11923,7 @@ define internal void @_ZN4ncnnL45gridsample_2d_bilinear_apply_interpolation_p1ER
 
 41:                                               ; preds = %37
   %42 = zext nneg i32 %39 to i64
-  %43 = getelementptr inbounds nuw float, ptr %35, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %42
   %44 = load float, ptr %43, align 4, !tbaa !59
   br label %45
 
@@ -11936,7 +11936,7 @@ define internal void @_ZN4ncnnL45gridsample_2d_bilinear_apply_interpolation_p1ER
 
 50:                                               ; preds = %45
   %51 = zext nneg i32 %48 to i64
-  %52 = getelementptr inbounds nuw float, ptr %35, i64 %51
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %51
   %53 = load float, ptr %52, align 4, !tbaa !59
   br label %54
 
@@ -11949,7 +11949,7 @@ define internal void @_ZN4ncnnL45gridsample_2d_bilinear_apply_interpolation_p1ER
 
 59:                                               ; preds = %54
   %60 = zext nneg i32 %57 to i64
-  %61 = getelementptr inbounds nuw float, ptr %35, i64 %60
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %60
   %62 = load float, ptr %61, align 4, !tbaa !59
   br label %63
 
@@ -11962,7 +11962,7 @@ define internal void @_ZN4ncnnL45gridsample_2d_bilinear_apply_interpolation_p1ER
 
 68:                                               ; preds = %63
   %69 = zext nneg i32 %66 to i64
-  %70 = getelementptr inbounds nuw float, ptr %35, i64 %69
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %69
   %71 = load float, ptr %70, align 4, !tbaa !59
   br label %72
 
@@ -12076,7 +12076,7 @@ define internal void @_ZN4ncnnL41gridsample_nearest_apply_interpolation_p1ERKNS_
 
 40:                                               ; preds = %37
   %41 = zext nneg i32 %38 to i64
-  %42 = getelementptr inbounds nuw float, ptr %35, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %41
   %43 = load float, ptr %42, align 4, !tbaa !59
   br label %44
 
@@ -12253,7 +12253,7 @@ define internal void @_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolation_p1ERK
 
 100:                                              ; preds = %97
   %101 = zext nneg i32 %98 to i64
-  %102 = getelementptr inbounds nuw float, ptr %39, i64 %101
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %101
   %103 = load float, ptr %102, align 4, !tbaa !59
   %104 = fmul fast float %103, %50
   br label %105
@@ -12267,7 +12267,7 @@ define internal void @_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolation_p1ERK
 
 110:                                              ; preds = %105
   %111 = zext nneg i32 %108 to i64
-  %112 = getelementptr inbounds nuw float, ptr %39, i64 %111
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %111
   %113 = load float, ptr %112, align 4, !tbaa !59
   %114 = fmul fast float %113, %53
   %115 = fadd fast float %114, %106
@@ -12282,7 +12282,7 @@ define internal void @_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolation_p1ERK
 
 121:                                              ; preds = %116
   %122 = zext nneg i32 %119 to i64
-  %123 = getelementptr inbounds nuw float, ptr %39, i64 %122
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %122
   %124 = load float, ptr %123, align 4, !tbaa !59
   %125 = fmul fast float %124, %58
   %126 = fadd fast float %125, %117
@@ -12297,7 +12297,7 @@ define internal void @_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolation_p1ERK
 
 132:                                              ; preds = %127
   %133 = zext nneg i32 %130 to i64
-  %134 = getelementptr inbounds nuw float, ptr %39, i64 %133
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %133
   %135 = load float, ptr %134, align 4, !tbaa !59
   %136 = fmul fast float %135, %60
   %137 = fsub fast float %128, %136
@@ -12305,7 +12305,7 @@ define internal void @_ZN4ncnnL44gridsample_2d_bicubic_apply_interpolation_p1ERK
 
 138:                                              ; preds = %132, %127
   %139 = phi float [ %137, %132 ], [ %128, %127 ]
-  %140 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv
+  %140 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv
   store float %139, ptr %140, align 4, !tbaa !59
   %141 = getelementptr inbounds nuw i8, ptr %.061136.us, i64 16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -12401,7 +12401,7 @@ define internal void @_ZN4ncnnL45gridsample_3d_bilinear_apply_interpolation_p1ER
 
 41:                                               ; preds = %37
   %42 = zext nneg i32 %39 to i64
-  %43 = getelementptr inbounds nuw float, ptr %35, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %42
   %44 = load float, ptr %43, align 4, !tbaa !59
   br label %45
 
@@ -12414,7 +12414,7 @@ define internal void @_ZN4ncnnL45gridsample_3d_bilinear_apply_interpolation_p1ER
 
 50:                                               ; preds = %45
   %51 = zext nneg i32 %48 to i64
-  %52 = getelementptr inbounds nuw float, ptr %35, i64 %51
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %51
   %53 = load float, ptr %52, align 4, !tbaa !59
   br label %54
 
@@ -12427,7 +12427,7 @@ define internal void @_ZN4ncnnL45gridsample_3d_bilinear_apply_interpolation_p1ER
 
 59:                                               ; preds = %54
   %60 = zext nneg i32 %57 to i64
-  %61 = getelementptr inbounds nuw float, ptr %35, i64 %60
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %60
   %62 = load float, ptr %61, align 4, !tbaa !59
   br label %63
 
@@ -12440,7 +12440,7 @@ define internal void @_ZN4ncnnL45gridsample_3d_bilinear_apply_interpolation_p1ER
 
 68:                                               ; preds = %63
   %69 = zext nneg i32 %66 to i64
-  %70 = getelementptr inbounds nuw float, ptr %35, i64 %69
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %69
   %71 = load float, ptr %70, align 4, !tbaa !59
   br label %72
 
@@ -12453,7 +12453,7 @@ define internal void @_ZN4ncnnL45gridsample_3d_bilinear_apply_interpolation_p1ER
 
 77:                                               ; preds = %72
   %78 = zext nneg i32 %75 to i64
-  %79 = getelementptr inbounds nuw float, ptr %35, i64 %78
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %78
   %80 = load float, ptr %79, align 4, !tbaa !59
   br label %81
 
@@ -12466,7 +12466,7 @@ define internal void @_ZN4ncnnL45gridsample_3d_bilinear_apply_interpolation_p1ER
 
 86:                                               ; preds = %81
   %87 = zext nneg i32 %84 to i64
-  %88 = getelementptr inbounds nuw float, ptr %35, i64 %87
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %87
   %89 = load float, ptr %88, align 4, !tbaa !59
   br label %90
 
@@ -12479,7 +12479,7 @@ define internal void @_ZN4ncnnL45gridsample_3d_bilinear_apply_interpolation_p1ER
 
 95:                                               ; preds = %90
   %96 = zext nneg i32 %93 to i64
-  %97 = getelementptr inbounds nuw float, ptr %35, i64 %96
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %96
   %98 = load float, ptr %97, align 4, !tbaa !59
   br label %99
 
@@ -12492,7 +12492,7 @@ define internal void @_ZN4ncnnL45gridsample_3d_bilinear_apply_interpolation_p1ER
 
 104:                                              ; preds = %99
   %105 = zext nneg i32 %102 to i64
-  %106 = getelementptr inbounds nuw float, ptr %35, i64 %105
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %105
   %107 = load float, ptr %106, align 4, !tbaa !59
   br label %108
 

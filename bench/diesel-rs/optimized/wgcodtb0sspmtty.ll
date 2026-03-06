@@ -550,7 +550,7 @@ define hidden void @_ZN6diesel5mysql10connection14prepared_query17h4f04274fe5a28
   %.sroa.055.0.copyload = load i64, ptr %27, align 8
   %.sroa.456.0.copyload = load ptr, ptr %.sroa.420.0..sroa_idx, align 8, !nonnull !5, !noundef !5
   %.sroa.557.0.copyload = load i64, ptr %.sroa.521.0..sroa_idx, align 8
-  %37 = getelementptr inbounds { i64, [2 x i64] }, ptr %.sroa.456.0.copyload, i64 %.sroa.557.0.copyload
+  %37 = getelementptr inbounds [24 x i8], ptr %.sroa.456.0.copyload, i64 %.sroa.557.0.copyload
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 64
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.11.0..sroa_idx, i8 0, i64 24, i1 false)
@@ -816,7 +816,7 @@ define hidden void @_ZN6diesel5mysql10connection14prepared_query17heb407bd5a368d
   %.sroa.055.0.copyload = load i64, ptr %27, align 8
   %.sroa.456.0.copyload = load ptr, ptr %.sroa.420.0..sroa_idx, align 8, !nonnull !5, !noundef !5
   %.sroa.557.0.copyload = load i64, ptr %.sroa.521.0..sroa_idx, align 8
-  %36 = getelementptr inbounds { i64, [2 x i64] }, ptr %.sroa.456.0.copyload, i64 %.sroa.557.0.copyload
+  %36 = getelementptr inbounds [24 x i8], ptr %.sroa.456.0.copyload, i64 %.sroa.557.0.copyload
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 64
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.11.0..sroa_idx, i8 0, i64 24, i1 false)

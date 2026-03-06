@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cvc5::internal::prop::SatLiteral" = type { i64 }
 %"class.cvc5::internal::NodeTemplate.371" = type { ptr }
 %"class.cvc5::internal::NodeTemplate" = type { ptr }
-%"struct.std::pair" = type <{ %"class.cvc5::internal::NodeTemplate.371", i32, [4 x i8] }>
 
 $_ZNSt6vectorISt4pairIN4cvc58internal12NodeTemplateILb1EEEjESaIS5_EED2Ev = comdat any
 
@@ -494,7 +493,7 @@ define hidden void @_ZN4cvc58internal4prop18TheoryPreregistrar15notifyBacktrackE
   %17 = xor i64 %.033, -1
   %18 = load ptr, ptr %7, align 8, !tbaa !28
   %19 = getelementptr i8, ptr %18, i64 %13
-  %20 = getelementptr %"struct.std::pair", ptr %19, i64 %17
+  %20 = getelementptr [16 x i8], ptr %19, i64 %17
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load i32, ptr %21, align 4, !tbaa !232
   %.not = icmp ugt i32 %22, %6
@@ -538,7 +537,7 @@ define hidden noundef zeroext i1 @_ZN4cvc58internal4prop18TheoryPreregistrar14no
   %18 = icmp eq i32 %17, 2
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %20 = zext i1 %18 to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !241, !noalias !238
   br label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit
 
@@ -987,7 +986,7 @@ _ZSt8_DestroyIPSt4pairIN4cvc58internal12NodeTemplateILb1EEEjES5_EvT_S7_RSaIT0_E.
 _ZNSt12_Vector_baseISt4pairIN4cvc58internal12NodeTemplateILb1EEEjESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZSt8_DestroyIPSt4pairIN4cvc58internal12NodeTemplateILb1EEEjES5_EvT_S7_RSaIT0_E.exit, %62
   store ptr %23, ptr %0, align 8, !tbaa !28
   store ptr %46, ptr %5, align 8, !tbaa !29
-  %66 = getelementptr inbounds nuw %"struct.std::pair", ptr %23, i64 %17
+  %66 = getelementptr inbounds nuw [16 x i8], ptr %23, i64 %17
   store ptr %66, ptr %61, align 8, !tbaa !36
   ret void
 

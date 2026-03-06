@@ -3,11 +3,6 @@ source_filename = "bench/llvm/original/FunctionSummary.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.llvm::detail::DenseMapPair" = type { %"struct.std::pair" }
-%"struct.std::pair" = type { ptr, %"class.clang::ento::FunctionSummariesTy::FunctionSummary" }
-%"class.clang::ento::FunctionSummariesTy::FunctionSummary" = type { %"class.llvm::SmallBitVector", i64 }
-%"class.llvm::SmallBitVector" = type { i64 }
-
 @_ZN4llvm24DisableABIBreakingChecksE = external global i32, align 4
 @_ZN4llvm30VerifyDisableABIBreakingChecksE = weak hidden local_unnamed_addr global ptr @_ZN4llvm24DisableABIBreakingChecksE, align 8
 
@@ -23,7 +18,7 @@ define dso_local noundef i32 @_ZN5clang4ento19FunctionSummariesTy22getTotalNumBa
   br i1 %4, label %9, label %11
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %5, i64 %8
+  %10 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %8
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4DeclENS2_4ento19FunctionSummariesTy15FunctionSummaryENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E5beginEv.exit
 
 11:                                               ; preds = %1
@@ -49,7 +44,7 @@ define dso_local noundef i32 @_ZN5clang4ento19FunctionSummariesTy22getTotalNumBa
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4DeclENS2_4ento19FunctionSummariesTy15FunctionSummaryENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E5beginEv.exit: ; preds = %.lr.ph.i6.i12.i3.i, %.critedge2.i8.i14.i6.i, %9, %11
   %.pn14.i = phi ptr [ %10, %9 ], [ %5, %11 ], [ %.sroa.0.3.i4.i, %.lr.ph.i6.i12.i3.i ], [ %12, %.critedge2.i8.i14.i6.i ]
   %.pn12.i = phi ptr [ %10, %9 ], [ %12, %11 ], [ %12, %.critedge2.i8.i14.i6.i ], [ %12, %.lr.ph.i6.i12.i3.i ]
-  %15 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %5, i64 %8
+  %15 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %8
   %.not8 = icmp eq ptr %.pn14.i, %15
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
@@ -101,7 +96,7 @@ define dso_local noundef i32 @_ZN5clang4ento19FunctionSummariesTy29getTotalNumVi
   br i1 %4, label %9, label %11
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %5, i64 %8
+  %10 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %8
   br label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4DeclENS2_4ento19FunctionSummariesTy15FunctionSummaryENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E5beginEv.exit
 
 11:                                               ; preds = %1
@@ -127,7 +122,7 @@ define dso_local noundef i32 @_ZN5clang4ento19FunctionSummariesTy29getTotalNumVi
 _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN5clang4DeclENS2_4ento19FunctionSummariesTy15FunctionSummaryENS_12DenseMapInfoIS5_vEENS_6detail12DenseMapPairIS5_S8_EEEES5_S8_SA_SD_E5beginEv.exit: ; preds = %.lr.ph.i6.i12.i3.i, %.critedge2.i8.i14.i6.i, %9, %11
   %.pn14.i = phi ptr [ %10, %9 ], [ %5, %11 ], [ %.sroa.0.3.i4.i, %.lr.ph.i6.i12.i3.i ], [ %12, %.critedge2.i8.i14.i6.i ]
   %.pn12.i = phi ptr [ %10, %9 ], [ %12, %11 ], [ %12, %.critedge2.i8.i14.i6.i ], [ %12, %.lr.ph.i6.i12.i3.i ]
-  %15 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %5, i64 %8
+  %15 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 %8
   %.not8 = icmp eq ptr %.pn14.i, %15
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 

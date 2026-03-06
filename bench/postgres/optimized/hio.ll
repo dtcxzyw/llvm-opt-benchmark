@@ -3,7 +3,6 @@ source_filename = "bench/postgres/original/hio.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.ItemIdData = type { i32 }
 %struct.BufferManagerRelation = type { ptr, ptr, i8 }
 
 @.str = private unnamed_addr constant [28 x i8] c"failed to add tuple to page\00", align 1
@@ -26,7 +25,7 @@ define dso_local void @RelationPutHeapTuple(ptr noundef readnone captures(none) 
   %7 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %8 = xor i32 %1, -1
   %9 = zext nneg i32 %8 to i64
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %9
   %11 = load ptr, ptr %10, align 8
   br label %BufferGetPage.exit
 
@@ -70,7 +69,7 @@ BufferGetPage.exit:                               ; preds = %6, %12
 35:                                               ; preds = %27
   %36 = zext i16 %22 to i64
   %37 = getelementptr i8, ptr %.0.i.i, i64 20
-  %38 = getelementptr %struct.ItemIdData, ptr %37, i64 %36
+  %38 = getelementptr [4 x i8], ptr %37, i64 %36
   %.val = load i32, ptr %38, align 4
   %39 = and i32 %.val, 32767
   %40 = zext nneg i32 %39 to i64
@@ -265,7 +264,7 @@ ReadBufferBI.exit:                                ; preds = %76, %84, %87
   %92 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %93 = xor i32 %.0.i, -1
   %94 = zext nneg i32 %93 to i64
-  %95 = getelementptr inbounds nuw ptr, ptr %92, i64 %94
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %94
   %96 = load ptr, ptr %95, align 8
   br label %BufferGetPage.exit
 
@@ -299,7 +298,7 @@ BufferGetPage.exit:                               ; preds = %91, %97
   %109 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %110 = xor i32 %.0.i, -1
   %111 = zext nneg i32 %110 to i64
-  %112 = getelementptr inbounds nuw ptr, ptr %109, i64 %111
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %109, i64 %111
   %113 = load ptr, ptr %112, align 8
   br label %BufferGetPage.exit196
 
@@ -336,7 +335,7 @@ BufferGetPage.exit196:                            ; preds = %108, %114
 
 131:                                              ; preds = %130
   %132 = load ptr, ptr @LocalBufferBlockPointers, align 8
-  %133 = getelementptr inbounds nuw ptr, ptr %132, i64 %64
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %132, i64 %64
   %134 = load ptr, ptr %133, align 8
   br label %BufferGetPage.exit199
 
@@ -370,7 +369,7 @@ BufferGetPage.exit199:                            ; preds = %131, %135
   %147 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %148 = xor i32 %143, -1
   %149 = zext nneg i32 %148 to i64
-  %150 = getelementptr inbounds nuw ptr, ptr %147, i64 %149
+  %150 = getelementptr inbounds nuw [8 x i8], ptr %147, i64 %149
   %151 = load ptr, ptr %150, align 8
   br label %BufferGetPage.exit201
 
@@ -405,7 +404,7 @@ BufferGetPage.exit201:                            ; preds = %146, %152
   %164 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %165 = xor i32 %143, -1
   %166 = zext nneg i32 %165 to i64
-  %167 = getelementptr inbounds nuw ptr, ptr %164, i64 %166
+  %167 = getelementptr inbounds nuw [8 x i8], ptr %164, i64 %166
   %168 = load ptr, ptr %167, align 8
   br label %BufferGetPage.exit203
 
@@ -445,7 +444,7 @@ BufferGetPage.exit203:                            ; preds = %163, %169
   %183 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %184 = xor i32 %.0158, -1
   %185 = zext nneg i32 %184 to i64
-  %186 = getelementptr inbounds nuw ptr, ptr %183, i64 %185
+  %186 = getelementptr inbounds nuw [8 x i8], ptr %183, i64 %185
   %187 = load ptr, ptr %186, align 8
   br label %BufferGetPage.exit205
 
@@ -625,7 +624,7 @@ BufferGetPage.exit205:                            ; preds = %182, %188
   %254 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %255 = xor i32 %248, -1
   %256 = zext nneg i32 %255 to i64
-  %257 = getelementptr inbounds nuw ptr, ptr %254, i64 %256
+  %257 = getelementptr inbounds nuw [8 x i8], ptr %254, i64 %256
   %258 = load ptr, ptr %257, align 8
   br label %BufferGetPage.exit.i
 
@@ -680,7 +679,7 @@ BufferGetPage.exit.i:                             ; preds = %259, %253
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %.lr.ph.split.us.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.split.us.i ], [ 1, %.lr.ph.i ]
-  %281 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.i
+  %281 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv.i
   %282 = load i32, ptr %281, align 4
   call void @ReleaseBuffer(i32 noundef %282) #7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -697,7 +696,7 @@ BufferGetPage.exit.i:                             ; preds = %259, %253
 
 .lr.ph.split.i:                                   ; preds = %292, %.lr.ph.split.preheader.i
   %indvars.iv92.i = phi i64 [ 1, %.lr.ph.split.preheader.i ], [ %indvars.iv.next93.i, %292 ]
-  %287 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv92.i
+  %287 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv92.i
   %288 = load i32, ptr %287, align 4
   call void @ReleaseBuffer(i32 noundef %288) #7
   %.not75.not.i = icmp samesign ult i64 %indvars.iv92.i, %280
@@ -751,7 +750,7 @@ RelationAddBlocks.exit:                           ; preds = %._crit_edge.thread.
   %307 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %308 = xor i32 %248, -1
   %309 = zext nneg i32 %308 to i64
-  %310 = getelementptr inbounds nuw ptr, ptr %307, i64 %309
+  %310 = getelementptr inbounds nuw [8 x i8], ptr %307, i64 %309
   %311 = load ptr, ptr %310, align 8
   br label %BufferGetPage.exit209
 
@@ -925,7 +924,7 @@ define internal fastcc noundef zeroext i1 @GetVisibilityMapPins(ptr noundef %0, 
 
 BufferGetPage.exit.us.us.us:                      ; preds = %.split.us
   %25 = load ptr, ptr @LocalBufferBlockPointers, align 8
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %18
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %18
   %27 = load ptr, ptr %26, align 8
   %28 = getelementptr i8, ptr %27, i64 10
   %.val63.us.us.us = load i16, ptr %28, align 2
@@ -958,7 +957,7 @@ BufferGetPage.exit.us.us72:                       ; preds = %.split.us
 
 40:                                               ; preds = %.split
   %41 = load ptr, ptr @LocalBufferBlockPointers, align 8
-  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %18
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %18
   %43 = load ptr, ptr %42, align 8
   br label %BufferGetPage.exit
 
@@ -987,7 +986,7 @@ BufferGetPage.exit:                               ; preds = %40, %44
 
 55:                                               ; preds = %53
   %56 = load ptr, ptr @LocalBufferBlockPointers, align 8
-  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %24
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %24
   %58 = load ptr, ptr %57, align 8
   br label %BufferGetPage.exit65
 

@@ -59,7 +59,7 @@ define dso_local i64 @uuid_in(ptr noundef readonly captures(none) %0) local_unna
   %22 = load ptr, ptr %21, align 8
   %23 = and i16 %20, 255
   %24 = zext nneg i16 %23 to i64
-  %25 = getelementptr inbounds nuw i16, ptr %22, i64 %24
+  %25 = getelementptr inbounds nuw [2 x i8], ptr %22, i64 %24
   %26 = load i16, ptr %25, align 2
   %27 = and i16 %26, 4096
   %.not28.i = icmp eq i16 %27, 0
@@ -68,7 +68,7 @@ define dso_local i64 @uuid_in(ptr noundef readonly captures(none) %0) local_unna
 28:                                               ; preds = %19
   %29 = lshr i16 %20, 8
   %30 = zext nneg i16 %29 to i64
-  %31 = getelementptr inbounds nuw i16, ptr %22, i64 %30
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %22, i64 %30
   %32 = load i16, ptr %31, align 2
   %33 = and i16 %32, 4096
   %.not29.i = icmp eq i16 %33, 0

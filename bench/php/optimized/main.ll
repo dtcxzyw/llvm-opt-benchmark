@@ -860,7 +860,7 @@ zend_string_free.exit120:                         ; preds = %escape_html.exit, %
 
 switch.lookup:                                    ; preds = %.split
   %64 = zext nneg i32 %54 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.php_verror, i64 %64
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.php_verror, i64 %64
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %65
 
@@ -1747,7 +1747,7 @@ define dso_local void @php_request_shutdown(ptr noundef readnone captures(none) 
 
 .preheader:                                       ; preds = %47, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %47 ]
-  %51 = getelementptr inbounds nuw %struct._zval_struct, ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 344), i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [16 x i8], ptr getelementptr inbounds nuw (i8, ptr @core_globals, i64 344), i64 %indvars.iv
   call void @zval_ptr_dtor(ptr noundef nonnull %51) #30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 6
@@ -2327,7 +2327,7 @@ zend_hash_str_find_ptr.exit38.thread:             ; preds = %php_disable_classes
 .lr.ph:                                           ; preds = %124, %._crit_edge
   %128 = phi i1 [ false, %._crit_edge ], [ true, %124 ]
   %indvars.iv = phi i64 [ 1, %._crit_edge ], [ 0, %124 ]
-  %129 = getelementptr inbounds nuw %struct.anon.10, ptr @__const.php_module_startup.directives, i64 %indvars.iv
+  %129 = getelementptr inbounds nuw [160 x i8], ptr @__const.php_module_startup.directives, i64 %indvars.iv
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 16
   %131 = load ptr, ptr %130, align 16, !tbaa !12
   %132 = getelementptr inbounds nuw i8, ptr %129, i64 8
@@ -2581,10 +2581,10 @@ zend_string_copy.exit144:                         ; preds = %zend_string_copy.ex
 
 switch.lookup:                                    ; preds = %.split7
   %88 = zext nneg i32 %86 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.php_error_cb, i64 %88
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.php_error_cb, i64 %88
   %switch.load = load ptr, ptr %switch.gep, align 8
   %89 = zext nneg i32 %86 to i64
-  %switch.gep157 = getelementptr inbounds nuw i32, ptr @switch.table.php_error_cb.2, i64 %89
+  %switch.gep157 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.php_error_cb.2, i64 %89
   %switch.load158 = load i32, ptr %switch.gep157, align 4
   br label %90
 

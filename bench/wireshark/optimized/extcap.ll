@@ -9,8 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._GCond = type { ptr, [2 x i32] }
 %union._GMutex = type { ptr }
 %struct._extcap_callback_info_t = type { ptr, ptr, ptr, ptr, ptr }
-%struct.extcap_run_extcaps_info = type { ptr, ptr, i32, ptr }
-%struct.extcap_iface_info = type { ptr, ptr }
 
 @_loaded_interfaces = internal unnamed_addr global ptr null, align 8
 @_tool_for_ifname = internal unnamed_addr global ptr null, align 8
@@ -139,7 +137,7 @@ extcap_loaded_interfaces.exit:                    ; preds = %2
 .lr.ph39:                                         ; preds = %20, %.lr.ph39
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph39 ], [ 0, %20 ]
   %25 = load ptr, ptr %21, align 8
-  %26 = getelementptr ptr, ptr %25, i64 %indvars.iv
+  %26 = getelementptr [8 x i8], ptr %25, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 16
@@ -333,7 +331,7 @@ extcap_run_all.exit.i:                            ; preds = %.lr.ph.i.i.i, %54
 
 .lr.ph22.i.i:                                     ; preds = %.loopexit.i, %._crit_edge.i.i
   %indvars.iv26.i.i = phi i64 [ %indvars.iv.next27.i.i, %._crit_edge.i.i ], [ 0, %.loopexit.i ]
-  %79 = getelementptr %struct.extcap_run_extcaps_info, ptr %49, i64 %indvars.iv26.i.i
+  %79 = getelementptr [32 x i8], ptr %49, i64 %indvars.iv26.i.i
   %80 = load ptr, ptr %79, align 8
   call void @g_free(ptr noundef %80)
   %81 = getelementptr inbounds nuw i8, ptr %79, i64 8
@@ -359,7 +357,7 @@ extcap_run_all.exit.i:                            ; preds = %.lr.ph.i.i.i, %54
 88:                                               ; preds = %88, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %88 ]
   %89 = load ptr, ptr %85, align 8
-  %90 = getelementptr %struct.extcap_iface_info, ptr %89, i64 %indvars.iv.i.i
+  %90 = getelementptr [16 x i8], ptr %89, i64 %indvars.iv.i.i
   %91 = load ptr, ptr %90, align 8
   call void @g_free(ptr noundef %91)
   %92 = getelementptr inbounds nuw i8, ptr %90, i64 8
@@ -382,7 +380,7 @@ extcap_free_extcaps_info_array.exit.i:            ; preds = %._crit_edge.i.i
 97:                                               ; preds = %.loopexit.i, %.lr.ph53.i
   %indvars.iv62.i = phi i64 [ 0, %.lr.ph53.i ], [ %indvars.iv.next63.i, %.loopexit.i ]
   %.152.i = phi i1 [ false, %.lr.ph53.i ], [ %.2.i, %.loopexit.i ]
-  %98 = getelementptr %struct.extcap_run_extcaps_info, ptr %49, i64 %indvars.iv62.i
+  %98 = getelementptr [32 x i8], ptr %49, i64 %indvars.iv62.i
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %100 = load ptr, ptr %99, align 8
   %.not36.i = icmp eq ptr %100, null
@@ -677,7 +675,7 @@ process_new_extcap.exit.i:                        ; preds = %.sink.split.i.i, %1
   %indvars.iv.i = phi i64 [ 0, %.lr.ph50.i ], [ %indvars.iv.next.i, %236 ]
   %.349.i = phi i1 [ %.152.i, %.lr.ph50.i ], [ %.4.i, %236 ]
   %229 = load ptr, ptr %226, align 8
-  %230 = getelementptr %struct.extcap_iface_info, ptr %229, i64 %indvars.iv.i
+  %230 = getelementptr [16 x i8], ptr %229, i64 %indvars.iv.i
   %231 = getelementptr inbounds nuw i8, ptr %230, i64 8
   %232 = load ptr, ptr %231, align 8
   %.not37.i = icmp eq ptr %232, null
@@ -880,7 +878,7 @@ define internal fastcc void @extcap_run_one(ptr noundef nonnull readonly capture
   %15 = load ptr, ptr %.01015.i, align 8
   %16 = tail call noalias ptr @g_strdup(ptr noundef %15)
   %17 = sext i32 %.016.i to i64
-  %18 = getelementptr ptr, ptr %14, i64 %17
+  %18 = getelementptr [8 x i8], ptr %14, i64 %17
   store ptr %16, ptr %18, align 8
   %19 = getelementptr inbounds nuw i8, ptr %.01015.i, i64 8
   %20 = load ptr, ptr %19, align 8
@@ -927,7 +925,7 @@ extcap_convert_arguments_to_array.exit:           ; preds = %.lr.ph.i, %5, %9
 
 .lr.ph.i12:                                       ; preds = %.lr.ph.i12, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i12 ]
-  %38 = getelementptr ptr, ptr %.011.i, i64 %indvars.iv.i
+  %38 = getelementptr [8 x i8], ptr %.011.i, i64 %indvars.iv.i
   %39 = load ptr, ptr %38, align 8
   call void @g_free(ptr noundef %39)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -2608,7 +2606,7 @@ define internal void @extcap_process_interfaces_cb(ptr noundef %0, ptr noundef c
   %32 = load ptr, ptr %18, align 8
   %33 = add i32 %.076, 1
   %34 = zext i32 %.076 to i64
-  %35 = getelementptr %struct.extcap_iface_info, ptr %32, i64 %34
+  %35 = getelementptr [16 x i8], ptr %32, i64 %34
   %36 = load ptr, ptr %1, align 8
   store ptr %36, ptr %31, align 8
   %37 = call ptr @g_strdupv(ptr noundef nonnull %4)

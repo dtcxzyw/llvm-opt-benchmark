@@ -383,7 +383,7 @@ define internal fastcc i32 @dissect_sll_common(ptr noundef %0, ptr noundef %1, p
 
 switch.lookup:                                    ; preds = %7
   %11 = zext nneg i16 %8 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissect_sll_common, i64 %11
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_sll_common, i64 %11
   %switch.load = load i32, ptr %switch.gep, align 4
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 348
   store i32 %switch.load, ptr %12, align 4

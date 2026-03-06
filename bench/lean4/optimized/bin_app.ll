@@ -215,7 +215,7 @@ define hidden void @_ZN4lean10mk_bin_ropERKNS_4exprES2_jPS1_(ptr dead_on_unwind 
 18:                                               ; preds = %5
   %19 = add i32 %3, -1
   %20 = zext i32 %19 to i64
-  %21 = getelementptr inbounds nuw %"class.lean::expr", ptr %4, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !3
   store ptr %22, ptr %0, align 8, !tbaa !3
   %23 = ptrtoint ptr %22 to i64
@@ -248,7 +248,7 @@ _ZN4lean4exprC2ERKS0_.exit18:                     ; preds = %18, %27, %29, %30
   %indvars.iv = phi i64 [ %31, %_ZN4lean10object_refD2Ev.exit ], [ %20, %_ZN4lean4exprC2ERKS0_.exit18 ]
   %31 = add nsw i64 %indvars.iv, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %32 = getelementptr inbounds nuw %"class.lean::expr", ptr %4, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %31
   invoke void @_ZN4lean6mk_appERKNS_4exprES2_S2_(ptr dead_on_unwind nonnull writable sret(%"class.lean::expr") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %32, ptr noundef nonnull align 8 dereferenceable(8) %0)
           to label %33 unwind label %45
 
@@ -580,7 +580,7 @@ _ZN4lean4exprC2ERKS0_.exit17:                     ; preds = %18, %24, %26, %27
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZN4lean10object_refD2Ev.exit
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZN4lean10object_refD2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %28 = getelementptr inbounds nuw %"class.lean::expr", ptr %4, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   invoke void @_ZN4lean6mk_appERKNS_4exprES2_S2_(ptr dead_on_unwind nonnull writable sret(%"class.lean::expr") align 8 %6, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(8) %28)
           to label %29 unwind label %41
 

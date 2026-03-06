@@ -544,7 +544,7 @@ proto_item_set_generated.exit:                    ; preds = %17, %30, %33
 143:                                              ; preds = %153, %.lr.ph7.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph7.i ], [ %indvars.iv.next.i, %153 ]
   %144 = load ptr, ptr %139, align 8
-  %145 = getelementptr i32, ptr %144, i64 %indvars.iv.i
+  %145 = getelementptr [4 x i8], ptr %144, i64 %indvars.iv.i
   %146 = load i32, ptr %145, align 4
   %.not71.i = icmp eq i32 %146, -1
   br i1 %.not71.i, label %153, label %147
@@ -618,13 +618,13 @@ proto_item_set_generated.exit:                    ; preds = %17, %30, %33
   %189 = load i32, ptr @hf_lbmpdm_offset_entry_id, align 4
   %190 = call ptr @proto_tree_add_item(ptr noundef %188, i32 noundef %189, ptr noundef %0, i32 noundef %.0116133.i, i32 noundef 4, i32 noundef %24)
   %191 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %.0116133.i, i32 noundef %24)
-  %192 = getelementptr i32, ptr %177, i64 %indvars.iv.i94
+  %192 = getelementptr [4 x i8], ptr %177, i64 %indvars.iv.i94
   store i32 %191, ptr %192, align 4
   %193 = load i32, ptr @hf_lbmpdm_offset_entry_offset, align 4
   %194 = add i32 %.0116.in129.i, 12
   %195 = call ptr @proto_tree_add_item(ptr noundef %188, i32 noundef %193, ptr noundef %0, i32 noundef %194, i32 noundef 4, i32 noundef %24)
   %196 = call i32 @tvb_get_uint32(ptr noundef %0, i32 noundef %194, i32 noundef %24)
-  %197 = getelementptr i32, ptr %179, i64 %indvars.iv.i94
+  %197 = getelementptr [4 x i8], ptr %179, i64 %indvars.iv.i94
   store i32 %196, ptr %197, align 4
   %198 = icmp slt i32 %191, 0
   %199 = icmp slt i32 %196, 0
@@ -676,12 +676,12 @@ proto_item_set_generated.exit:                    ; preds = %17, %30, %33
 
 .lr.ph140.i:                                      ; preds = %220, %.lr.ph140.preheader.i
   %indvars.iv147.i = phi i64 [ 0, %.lr.ph140.preheader.i ], [ %indvars.iv.next148.i, %220 ]
-  %212 = getelementptr i32, ptr %179, i64 %indvars.iv147.i
+  %212 = getelementptr [4 x i8], ptr %179, i64 %indvars.iv147.i
   %213 = load i32, ptr %212, align 4
-  %214 = getelementptr i32, ptr %177, i64 %indvars.iv147.i
+  %214 = getelementptr [4 x i8], ptr %177, i64 %indvars.iv147.i
   %215 = load i32, ptr %214, align 4
   %216 = sext i32 %215 to i64
-  %217 = getelementptr i32, ptr %209, i64 %216
+  %217 = getelementptr [4 x i8], ptr %209, i64 %216
   store i32 %213, ptr %217, align 4
   %218 = icmp eq i32 %213, %.0.lcssa.i
   br i1 %218, label %219, label %220
@@ -998,7 +998,7 @@ lbmpdm_definition_field_add.exit.thread.i:        ; preds = %lbmpdm_definition_f
 
 switch.lookup:                                    ; preds = %383
   %389 = zext nneg i16 %385 to i64
-  %switch.gep = getelementptr inbounds nuw i16, ptr @switch.table.lbmpdm_dissect_lbmpdm_payload, i64 %389
+  %switch.gep = getelementptr inbounds nuw [2 x i8], ptr @switch.table.lbmpdm_dissect_lbmpdm_payload, i64 %389
   %switch.load = load i16, ptr %switch.gep, align 2
   br label %390
 

@@ -298,7 +298,7 @@ define hidden noundef i32 @"_ZN67_$LT$wasmi_core..simd..I64x2$u20$as$u20$wasmi_c
   %5 = phi i1 [ true, %2 ], [ false, %4 ]
   %.sroa.07.012 = phi i64 [ 0, %2 ], [ 1, %4 ]
   %6 = trunc nuw nsw i64 %.sroa.07.012 to i32
-  %7 = getelementptr inbounds nuw i64, ptr %0, i64 %.sroa.07.012
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.sroa.07.012
   %8 = load i64, ptr %7, align 8, !noundef !3
   %.lobit.i = lshr i64 %8, 63
   %9 = trunc nuw nsw i64 %.lobit.i to i32
@@ -318,7 +318,7 @@ define hidden noundef zeroext i1 @"_ZN67_$LT$wasmi_core..simd..I64x2$u20$as$u20$
   %.sroa.0.0.in12 = phi i1 [ %1, %3 ], [ %10, %5 ]
   %6 = phi i1 [ true, %3 ], [ false, %5 ]
   %.sroa.06.011 = phi i64 [ 0, %3 ], [ 1, %5 ]
-  %7 = getelementptr inbounds nuw i64, ptr %0, i64 %.sroa.06.011
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.sroa.06.011
   %8 = load i64, ptr %7, align 8, !noundef !3
   %9 = icmp ne i64 %8, 0
   %10 = and i1 %.sroa.0.0.in12, %9
@@ -425,7 +425,7 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..si
 5:                                                ; preds = %2, %5
   %.sroa.01.05 = phi i64 [ 0, %2 ], [ %6, %5 ]
   %6 = add nuw nsw i64 %.sroa.01.05, 1
-  %7 = getelementptr inbounds nuw i32, ptr %3, i64 %.sroa.01.05
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.sroa.01.05
   %8 = load i32, ptr %7, align 4, !noundef !3
   %.sroa.0.0.i.i = tail call noundef range(i32 0, -2147483647) i32 @llvm.abs.i32(i32 %8, i1 false)
   store i32 %.sroa.0.0.i.i, ptr %7, align 4
@@ -448,7 +448,7 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..si
 8:                                                ; preds = %3, %8
   %.sroa.01.05 = phi i64 [ 0, %3 ], [ %9, %8 ]
   %9 = add nuw nsw i64 %.sroa.01.05, 1
-  %10 = getelementptr inbounds nuw i32, ptr %4, i64 %.sroa.01.05
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.sroa.01.05
   %11 = load i32, ptr %10, align 4, !noundef !3
   %12 = shl i32 %11, %6
   store i32 %12, ptr %10, align 4
@@ -469,7 +469,7 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..si
 6:                                                ; preds = %3, %6
   %.sroa.01.05 = phi i64 [ 0, %3 ], [ %7, %6 ]
   %7 = add nuw nsw i64 %.sroa.01.05, 1
-  %8 = getelementptr inbounds nuw i32, ptr %4, i64 %.sroa.01.05
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.sroa.01.05
   %9 = load i32, ptr %8, align 4, !noundef !3
   %10 = tail call noundef float @_ZN10wasmi_core4wasm17f32_convert_i32_s17hf2893616a76259d3E(i32 noundef %9)
   %11 = tail call noundef i32 @"_ZN66_$LT$f32$u20$as$u20$wasmi_core..simd..ReinterpretAs$LT$i32$GT$$GT$14reinterpret_as17h38632b0372caa746E"(float noundef %10)
@@ -493,7 +493,7 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..si
 8:                                                ; preds = %3, %8
   %.sroa.01.05 = phi i64 [ 0, %3 ], [ %9, %8 ]
   %9 = add nuw nsw i64 %.sroa.01.05, 1
-  %10 = getelementptr inbounds nuw i32, ptr %4, i64 %.sroa.01.05
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.sroa.01.05
   %11 = load i32, ptr %10, align 4, !noundef !3
   %12 = ashr i32 %11, %6
   store i32 %12, ptr %10, align 4
@@ -514,7 +514,7 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..si
 5:                                                ; preds = %2, %5
   %.sroa.01.05 = phi i64 [ 0, %2 ], [ %6, %5 ]
   %6 = add nuw nsw i64 %.sroa.01.05, 1
-  %7 = getelementptr inbounds nuw i32, ptr %3, i64 %.sroa.01.05
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.sroa.01.05
   %8 = load i32, ptr %7, align 4, !noundef !3
   %9 = sub i32 0, %8
   store i32 %9, ptr %7, align 4
@@ -535,9 +535,9 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..si
 6:                                                ; preds = %3, %6
   %.sroa.01.05 = phi i64 [ 0, %3 ], [ %7, %6 ]
   %7 = add nuw nsw i64 %.sroa.01.05, 1
-  %8 = getelementptr inbounds nuw i32, ptr %4, i64 %.sroa.01.05
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.sroa.01.05
   %9 = load i32, ptr %8, align 4, !noundef !3
-  %10 = getelementptr inbounds nuw i32, ptr %2, i64 %.sroa.01.05
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.sroa.01.05
   %11 = load i32, ptr %10, align 4, !noundef !3
   %12 = sub i32 %9, %11
   store i32 %12, ptr %8, align 4
@@ -558,9 +558,9 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..si
 6:                                                ; preds = %3, %6
   %.sroa.01.05 = phi i64 [ 0, %3 ], [ %7, %6 ]
   %7 = add nuw nsw i64 %.sroa.01.05, 1
-  %8 = getelementptr inbounds nuw i32, ptr %4, i64 %.sroa.01.05
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.sroa.01.05
   %9 = load i32, ptr %8, align 4, !noundef !3
-  %10 = getelementptr inbounds nuw i32, ptr %2, i64 %.sroa.01.05
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.sroa.01.05
   %11 = load i32, ptr %10, align 4, !noundef !3
   %12 = add i32 %11, %9
   store i32 %12, ptr %8, align 4
@@ -581,9 +581,9 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..si
 6:                                                ; preds = %3, %6
   %.sroa.01.05 = phi i64 [ 0, %3 ], [ %7, %6 ]
   %7 = add nuw nsw i64 %.sroa.01.05, 1
-  %8 = getelementptr inbounds nuw i32, ptr %4, i64 %.sroa.01.05
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.sroa.01.05
   %9 = load i32, ptr %8, align 4, !noundef !3
-  %10 = getelementptr inbounds nuw i32, ptr %2, i64 %.sroa.01.05
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.sroa.01.05
   %11 = load i32, ptr %10, align 4, !noundef !3
   %12 = mul i32 %11, %9
   store i32 %12, ptr %8, align 4
@@ -604,9 +604,9 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..si
 6:                                                ; preds = %3, %6
   %.sroa.01.05 = phi i64 [ 0, %3 ], [ %7, %6 ]
   %7 = add nuw nsw i64 %.sroa.01.05, 1
-  %8 = getelementptr inbounds nuw i32, ptr %4, i64 %.sroa.01.05
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.sroa.01.05
   %9 = load i32, ptr %8, align 4, !noundef !3
-  %10 = getelementptr inbounds nuw i32, ptr %2, i64 %.sroa.01.05
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.sroa.01.05
   %11 = load i32, ptr %10, align 4, !noundef !3
   %.sroa.0.0.sroa.speculated.i.i = tail call noundef i32 @llvm.smax.i32(i32 %11, i32 %9)
   store i32 %.sroa.0.0.sroa.speculated.i.i, ptr %8, align 4
@@ -627,9 +627,9 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..si
 6:                                                ; preds = %3, %6
   %.sroa.01.05 = phi i64 [ 0, %3 ], [ %7, %6 ]
   %7 = add nuw nsw i64 %.sroa.01.05, 1
-  %8 = getelementptr inbounds nuw i32, ptr %4, i64 %.sroa.01.05
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.sroa.01.05
   %9 = load i32, ptr %8, align 4, !noundef !3
-  %10 = getelementptr inbounds nuw i32, ptr %2, i64 %.sroa.01.05
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.sroa.01.05
   %11 = load i32, ptr %10, align 4, !noundef !3
   %.sroa.0.0.sroa.speculated.i.i = tail call noundef i32 @llvm.smin.i32(i32 %11, i32 %9)
   store i32 %.sroa.0.0.sroa.speculated.i.i, ptr %8, align 4
@@ -648,9 +648,9 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..si
 5:                                                ; preds = %5, %3
   %.sroa.01.05.i = phi i64 [ 0, %3 ], [ %6, %5 ]
   %6 = add nuw nsw i64 %.sroa.01.05.i, 1
-  %7 = getelementptr inbounds nuw i32, ptr %4, i64 %.sroa.01.05.i
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.sroa.01.05.i
   %8 = load i32, ptr %7, align 4, !noalias !57, !noundef !3
-  %9 = getelementptr inbounds nuw i32, ptr %2, i64 %.sroa.01.05.i
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.sroa.01.05.i
   %10 = load i32, ptr %9, align 4, !alias.scope !52, !noalias !59, !noundef !3
   %11 = icmp slt i32 %8, %10
   %..i.i = sext i1 %11 to i32
@@ -675,9 +675,9 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..si
 5:                                                ; preds = %5, %3
   %.sroa.01.05.i = phi i64 [ 0, %3 ], [ %6, %5 ]
   %6 = add nuw nsw i64 %.sroa.01.05.i, 1
-  %7 = getelementptr inbounds nuw i32, ptr %4, i64 %.sroa.01.05.i
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.sroa.01.05.i
   %8 = load i32, ptr %7, align 4, !noalias !66, !noundef !3
-  %9 = getelementptr inbounds nuw i32, ptr %2, i64 %.sroa.01.05.i
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.sroa.01.05.i
   %10 = load i32, ptr %9, align 4, !alias.scope !61, !noalias !68, !noundef !3
   %11 = icmp eq i32 %8, %10
   %..i.i = sext i1 %11 to i32
@@ -702,9 +702,9 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..si
 5:                                                ; preds = %5, %3
   %.sroa.01.05.i = phi i64 [ 0, %3 ], [ %6, %5 ]
   %6 = add nuw nsw i64 %.sroa.01.05.i, 1
-  %7 = getelementptr inbounds nuw i32, ptr %4, i64 %.sroa.01.05.i
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.sroa.01.05.i
   %8 = load i32, ptr %7, align 4, !noalias !75, !noundef !3
-  %9 = getelementptr inbounds nuw i32, ptr %2, i64 %.sroa.01.05.i
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.sroa.01.05.i
   %10 = load i32, ptr %9, align 4, !alias.scope !70, !noalias !77, !noundef !3
   %.not.i.i = icmp sle i32 %8, %10
   %..i.i = sext i1 %.not.i.i to i32
@@ -729,9 +729,9 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..si
 5:                                                ; preds = %5, %3
   %.sroa.01.05.i = phi i64 [ 0, %3 ], [ %6, %5 ]
   %6 = add nuw nsw i64 %.sroa.01.05.i, 1
-  %7 = getelementptr inbounds nuw i32, ptr %4, i64 %.sroa.01.05.i
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.sroa.01.05.i
   %8 = load i32, ptr %7, align 4, !noalias !84, !noundef !3
-  %9 = getelementptr inbounds nuw i32, ptr %2, i64 %.sroa.01.05.i
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.sroa.01.05.i
   %10 = load i32, ptr %9, align 4, !alias.scope !79, !noalias !86, !noundef !3
   %.not.i.i = icmp ne i32 %8, %10
   %..i.i = sext i1 %.not.i.i to i32
@@ -756,9 +756,9 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..si
 5:                                                ; preds = %5, %3
   %.sroa.01.05.i = phi i64 [ 0, %3 ], [ %6, %5 ]
   %6 = add nuw nsw i64 %.sroa.01.05.i, 1
-  %7 = getelementptr inbounds nuw i32, ptr %4, i64 %.sroa.01.05.i
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.sroa.01.05.i
   %8 = load i32, ptr %7, align 4, !noalias !93, !noundef !3
-  %9 = getelementptr inbounds nuw i32, ptr %2, i64 %.sroa.01.05.i
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.sroa.01.05.i
   %10 = load i32, ptr %9, align 4, !alias.scope !88, !noalias !95, !noundef !3
   %11 = icmp sgt i32 %8, %10
   %..i.i = sext i1 %11 to i32
@@ -783,9 +783,9 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..si
 5:                                                ; preds = %5, %3
   %.sroa.01.05.i = phi i64 [ 0, %3 ], [ %6, %5 ]
   %6 = add nuw nsw i64 %.sroa.01.05.i, 1
-  %7 = getelementptr inbounds nuw i32, ptr %4, i64 %.sroa.01.05.i
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.sroa.01.05.i
   %8 = load i32, ptr %7, align 4, !noalias !102, !noundef !3
-  %9 = getelementptr inbounds nuw i32, ptr %2, i64 %.sroa.01.05.i
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.sroa.01.05.i
   %10 = load i32, ptr %9, align 4, !alias.scope !97, !noalias !104, !noundef !3
   %.not.i.i = icmp sge i32 %8, %10
   %..i.i = sext i1 %.not.i.i to i32
@@ -810,7 +810,7 @@ define hidden noundef zeroext i1 @"_ZN67_$LT$wasmi_core..simd..I32x4$u20$as$u20$
   %.sroa.0.0.in12 = phi i1 [ %1, %3 ], [ %10, %5 ]
   %.sroa.06.011 = phi i64 [ 0, %3 ], [ %6, %5 ]
   %6 = add nuw nsw i64 %.sroa.06.011, 1
-  %7 = getelementptr inbounds nuw i32, ptr %0, i64 %.sroa.06.011
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.sroa.06.011
   %8 = load i32, ptr %7, align 4, !noundef !3
   %9 = icmp ne i32 %8, 0
   %10 = and i1 %.sroa.0.0.in12, %9
@@ -830,7 +830,7 @@ define hidden noundef i32 @"_ZN67_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_c
   %.sroa.07.012 = phi i64 [ 0, %2 ], [ %5, %4 ]
   %5 = add nuw nsw i64 %.sroa.07.012, 1
   %6 = trunc nuw nsw i64 %.sroa.07.012 to i32
-  %7 = getelementptr inbounds nuw i32, ptr %0, i64 %.sroa.07.012
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.sroa.07.012
   %8 = load i32, ptr %7, align 4, !noundef !3
   %.lobit.i = lshr i32 %8, 31
   %9 = shl nuw nsw i32 %.lobit.i, %6
@@ -854,7 +854,7 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..U32x4$u20$as$u20$wasmi_core..si
 8:                                                ; preds = %3, %8
   %.sroa.01.05 = phi i64 [ 0, %3 ], [ %9, %8 ]
   %9 = add nuw nsw i64 %.sroa.01.05, 1
-  %10 = getelementptr inbounds nuw i32, ptr %4, i64 %.sroa.01.05
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.sroa.01.05
   %11 = load i32, ptr %10, align 4, !noundef !3
   %12 = lshr i32 %11, %6
   store i32 %12, ptr %10, align 4
@@ -875,7 +875,7 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..U32x4$u20$as$u20$wasmi_core..si
 6:                                                ; preds = %3, %6
   %.sroa.01.05 = phi i64 [ 0, %3 ], [ %7, %6 ]
   %7 = add nuw nsw i64 %.sroa.01.05, 1
-  %8 = getelementptr inbounds nuw i32, ptr %4, i64 %.sroa.01.05
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.sroa.01.05
   %9 = load i32, ptr %8, align 4, !noundef !3
   %10 = tail call noundef float @_ZN10wasmi_core4wasm17f32_convert_i32_u17ha9bfc83e76e33776E(i32 noundef %9)
   %11 = tail call noundef i32 @"_ZN66_$LT$f32$u20$as$u20$wasmi_core..simd..ReinterpretAs$LT$u32$GT$$GT$14reinterpret_as17hf13192b77fbb1b98E"(float noundef %10)
@@ -897,9 +897,9 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..U32x4$u20$as$u20$wasmi_core..si
 6:                                                ; preds = %3, %6
   %.sroa.01.05 = phi i64 [ 0, %3 ], [ %7, %6 ]
   %7 = add nuw nsw i64 %.sroa.01.05, 1
-  %8 = getelementptr inbounds nuw i32, ptr %4, i64 %.sroa.01.05
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.sroa.01.05
   %9 = load i32, ptr %8, align 4, !noundef !3
-  %10 = getelementptr inbounds nuw i32, ptr %2, i64 %.sroa.01.05
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.sroa.01.05
   %11 = load i32, ptr %10, align 4, !noundef !3
   %.sroa.0.0.sroa.speculated.i.i = tail call noundef i32 @llvm.umin.i32(i32 %11, i32 %9)
   store i32 %.sroa.0.0.sroa.speculated.i.i, ptr %8, align 4
@@ -920,9 +920,9 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..U32x4$u20$as$u20$wasmi_core..si
 6:                                                ; preds = %3, %6
   %.sroa.01.05 = phi i64 [ 0, %3 ], [ %7, %6 ]
   %7 = add nuw nsw i64 %.sroa.01.05, 1
-  %8 = getelementptr inbounds nuw i32, ptr %4, i64 %.sroa.01.05
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.sroa.01.05
   %9 = load i32, ptr %8, align 4, !noundef !3
-  %10 = getelementptr inbounds nuw i32, ptr %2, i64 %.sroa.01.05
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.sroa.01.05
   %11 = load i32, ptr %10, align 4, !noundef !3
   %.sroa.0.0.sroa.speculated.i.i = tail call noundef i32 @llvm.umax.i32(i32 %11, i32 %9)
   store i32 %.sroa.0.0.sroa.speculated.i.i, ptr %8, align 4
@@ -941,9 +941,9 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..U32x4$u20$as$u20$wasmi_core..si
 5:                                                ; preds = %5, %3
   %.sroa.01.05.i = phi i64 [ 0, %3 ], [ %6, %5 ]
   %6 = add nuw nsw i64 %.sroa.01.05.i, 1
-  %7 = getelementptr inbounds nuw i32, ptr %4, i64 %.sroa.01.05.i
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.sroa.01.05.i
   %8 = load i32, ptr %7, align 4, !noalias !111, !noundef !3
-  %9 = getelementptr inbounds nuw i32, ptr %2, i64 %.sroa.01.05.i
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.sroa.01.05.i
   %10 = load i32, ptr %9, align 4, !alias.scope !106, !noalias !113, !noundef !3
   %.not.i.i = icmp ule i32 %8, %10
   %..i.i = sext i1 %.not.i.i to i32
@@ -968,9 +968,9 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..U32x4$u20$as$u20$wasmi_core..si
 5:                                                ; preds = %5, %3
   %.sroa.01.05.i = phi i64 [ 0, %3 ], [ %6, %5 ]
   %6 = add nuw nsw i64 %.sroa.01.05.i, 1
-  %7 = getelementptr inbounds nuw i32, ptr %4, i64 %.sroa.01.05.i
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.sroa.01.05.i
   %8 = load i32, ptr %7, align 4, !noalias !120, !noundef !3
-  %9 = getelementptr inbounds nuw i32, ptr %2, i64 %.sroa.01.05.i
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.sroa.01.05.i
   %10 = load i32, ptr %9, align 4, !alias.scope !115, !noalias !122, !noundef !3
   %11 = icmp ugt i32 %8, %10
   %..i.i = sext i1 %11 to i32
@@ -995,9 +995,9 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..U32x4$u20$as$u20$wasmi_core..si
 5:                                                ; preds = %5, %3
   %.sroa.01.05.i = phi i64 [ 0, %3 ], [ %6, %5 ]
   %6 = add nuw nsw i64 %.sroa.01.05.i, 1
-  %7 = getelementptr inbounds nuw i32, ptr %4, i64 %.sroa.01.05.i
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.sroa.01.05.i
   %8 = load i32, ptr %7, align 4, !noalias !129, !noundef !3
-  %9 = getelementptr inbounds nuw i32, ptr %2, i64 %.sroa.01.05.i
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.sroa.01.05.i
   %10 = load i32, ptr %9, align 4, !alias.scope !124, !noalias !131, !noundef !3
   %.not.i.i = icmp uge i32 %8, %10
   %..i.i = sext i1 %.not.i.i to i32
@@ -1022,9 +1022,9 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..U32x4$u20$as$u20$wasmi_core..si
 5:                                                ; preds = %5, %3
   %.sroa.01.05.i = phi i64 [ 0, %3 ], [ %6, %5 ]
   %6 = add nuw nsw i64 %.sroa.01.05.i, 1
-  %7 = getelementptr inbounds nuw i32, ptr %4, i64 %.sroa.01.05.i
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.sroa.01.05.i
   %8 = load i32, ptr %7, align 4, !noalias !138, !noundef !3
-  %9 = getelementptr inbounds nuw i32, ptr %2, i64 %.sroa.01.05.i
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.sroa.01.05.i
   %10 = load i32, ptr %9, align 4, !alias.scope !133, !noalias !140, !noundef !3
   %11 = icmp ult i32 %8, %10
   %..i.i = sext i1 %11 to i32
@@ -1054,7 +1054,7 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..si
 9:                                                ; preds = %3, %9
   %.sroa.01.05 = phi i64 [ 0, %3 ], [ %10, %9 ]
   %10 = add nuw nsw i64 %.sroa.01.05, 1
-  %11 = getelementptr inbounds nuw i16, ptr %4, i64 %.sroa.01.05
+  %11 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %.sroa.01.05
   %12 = load i16, ptr %11, align 2, !noundef !3
   %13 = shl i16 %12, %7
   store i16 %13, ptr %11, align 2
@@ -1075,7 +1075,7 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..si
 5:                                                ; preds = %2, %5
   %.sroa.01.05 = phi i64 [ 0, %2 ], [ %6, %5 ]
   %6 = add nuw nsw i64 %.sroa.01.05, 1
-  %7 = getelementptr inbounds nuw i16, ptr %3, i64 %.sroa.01.05
+  %7 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %.sroa.01.05
   %8 = load i16, ptr %7, align 2, !noundef !3
   %9 = sub i16 0, %8
   store i16 %9, ptr %7, align 2
@@ -1096,7 +1096,7 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..si
 5:                                                ; preds = %2, %5
   %.sroa.01.05 = phi i64 [ 0, %2 ], [ %6, %5 ]
   %6 = add nuw nsw i64 %.sroa.01.05, 1
-  %7 = getelementptr inbounds nuw i16, ptr %3, i64 %.sroa.01.05
+  %7 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %.sroa.01.05
   %8 = load i16, ptr %7, align 2, !noundef !3
   %.sroa.0.0.i.i = tail call noundef range(i16 0, -32767) i16 @llvm.abs.i16(i16 %8, i1 false)
   store i16 %.sroa.0.0.i.i, ptr %7, align 2
@@ -1120,7 +1120,7 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..si
 9:                                                ; preds = %3, %9
   %.sroa.01.05 = phi i64 [ 0, %3 ], [ %10, %9 ]
   %10 = add nuw nsw i64 %.sroa.01.05, 1
-  %11 = getelementptr inbounds nuw i16, ptr %4, i64 %.sroa.01.05
+  %11 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %.sroa.01.05
   %12 = load i16, ptr %11, align 2, !noundef !3
   %13 = ashr i16 %12, %7
   store i16 %13, ptr %11, align 2
@@ -1141,9 +1141,9 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..si
 6:                                                ; preds = %3, %6
   %.sroa.01.05 = phi i64 [ 0, %3 ], [ %7, %6 ]
   %7 = add nuw nsw i64 %.sroa.01.05, 1
-  %8 = getelementptr inbounds nuw i16, ptr %4, i64 %.sroa.01.05
+  %8 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %.sroa.01.05
   %9 = load i16, ptr %8, align 2, !noundef !3
-  %10 = getelementptr inbounds nuw i16, ptr %2, i64 %.sroa.01.05
+  %10 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %.sroa.01.05
   %11 = load i16, ptr %10, align 2, !noundef !3
   %.sroa.0.0.sroa.speculated.i.i = tail call noundef i16 @llvm.smin.i16(i16 %11, i16 %9)
   store i16 %.sroa.0.0.sroa.speculated.i.i, ptr %8, align 2
@@ -1164,9 +1164,9 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..si
 6:                                                ; preds = %3, %6
   %.sroa.01.05 = phi i64 [ 0, %3 ], [ %7, %6 ]
   %7 = add nuw nsw i64 %.sroa.01.05, 1
-  %8 = getelementptr inbounds nuw i16, ptr %4, i64 %.sroa.01.05
+  %8 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %.sroa.01.05
   %9 = load i16, ptr %8, align 2, !noundef !3
-  %10 = getelementptr inbounds nuw i16, ptr %2, i64 %.sroa.01.05
+  %10 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %.sroa.01.05
   %11 = load i16, ptr %10, align 2, !noundef !3
   %.sroa.0.0.sroa.speculated.i.i = tail call noundef i16 @llvm.smax.i16(i16 %11, i16 %9)
   store i16 %.sroa.0.0.sroa.speculated.i.i, ptr %8, align 2
@@ -1187,9 +1187,9 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..si
 6:                                                ; preds = %3, %6
   %.sroa.01.05 = phi i64 [ 0, %3 ], [ %7, %6 ]
   %7 = add nuw nsw i64 %.sroa.01.05, 1
-  %8 = getelementptr inbounds nuw i16, ptr %4, i64 %.sroa.01.05
+  %8 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %.sroa.01.05
   %9 = load i16, ptr %8, align 2, !noundef !3
-  %10 = getelementptr inbounds nuw i16, ptr %2, i64 %.sroa.01.05
+  %10 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %.sroa.01.05
   %11 = load i16, ptr %10, align 2, !noundef !3
   %12 = mul i16 %11, %9
   store i16 %12, ptr %8, align 2
@@ -1210,9 +1210,9 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..si
 6:                                                ; preds = %3, %6
   %.sroa.01.05 = phi i64 [ 0, %3 ], [ %7, %6 ]
   %7 = add nuw nsw i64 %.sroa.01.05, 1
-  %8 = getelementptr inbounds nuw i16, ptr %4, i64 %.sroa.01.05
+  %8 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %.sroa.01.05
   %9 = load i16, ptr %8, align 2, !noundef !3
-  %10 = getelementptr inbounds nuw i16, ptr %2, i64 %.sroa.01.05
+  %10 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %.sroa.01.05
   %11 = load i16, ptr %10, align 2, !noundef !3
   %12 = add i16 %11, %9
   store i16 %12, ptr %8, align 2
@@ -1233,9 +1233,9 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..si
 6:                                                ; preds = %3, %6
   %.sroa.01.05 = phi i64 [ 0, %3 ], [ %7, %6 ]
   %7 = add nuw nsw i64 %.sroa.01.05, 1
-  %8 = getelementptr inbounds nuw i16, ptr %4, i64 %.sroa.01.05
+  %8 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %.sroa.01.05
   %9 = load i16, ptr %8, align 2, !noundef !3
-  %10 = getelementptr inbounds nuw i16, ptr %2, i64 %.sroa.01.05
+  %10 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %.sroa.01.05
   %11 = load i16, ptr %10, align 2, !noundef !3
   %12 = tail call noundef i16 @_ZN10wasmi_core4simd17i16x8_q15mulr_sat17h737bb391b9370d77E(i16 noundef %9, i16 noundef %11)
   store i16 %12, ptr %8, align 2
@@ -1256,9 +1256,9 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..si
 6:                                                ; preds = %3, %6
   %.sroa.01.05 = phi i64 [ 0, %3 ], [ %7, %6 ]
   %7 = add nuw nsw i64 %.sroa.01.05, 1
-  %8 = getelementptr inbounds nuw i16, ptr %4, i64 %.sroa.01.05
+  %8 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %.sroa.01.05
   %9 = load i16, ptr %8, align 2, !noundef !3
-  %10 = getelementptr inbounds nuw i16, ptr %2, i64 %.sroa.01.05
+  %10 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %.sroa.01.05
   %11 = load i16, ptr %10, align 2, !noundef !3
   %12 = tail call noundef i16 @llvm.ssub.sat.i16(i16 %9, i16 %11)
   store i16 %12, ptr %8, align 2
@@ -1279,9 +1279,9 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..si
 6:                                                ; preds = %3, %6
   %.sroa.01.05 = phi i64 [ 0, %3 ], [ %7, %6 ]
   %7 = add nuw nsw i64 %.sroa.01.05, 1
-  %8 = getelementptr inbounds nuw i16, ptr %4, i64 %.sroa.01.05
+  %8 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %.sroa.01.05
   %9 = load i16, ptr %8, align 2, !noundef !3
-  %10 = getelementptr inbounds nuw i16, ptr %2, i64 %.sroa.01.05
+  %10 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %.sroa.01.05
   %11 = load i16, ptr %10, align 2, !noundef !3
   %12 = tail call noundef i16 @llvm.sadd.sat.i16(i16 %9, i16 %11)
   store i16 %12, ptr %8, align 2
@@ -1302,9 +1302,9 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..si
 6:                                                ; preds = %3, %6
   %.sroa.01.05 = phi i64 [ 0, %3 ], [ %7, %6 ]
   %7 = add nuw nsw i64 %.sroa.01.05, 1
-  %8 = getelementptr inbounds nuw i16, ptr %4, i64 %.sroa.01.05
+  %8 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %.sroa.01.05
   %9 = load i16, ptr %8, align 2, !noundef !3
-  %10 = getelementptr inbounds nuw i16, ptr %2, i64 %.sroa.01.05
+  %10 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %.sroa.01.05
   %11 = load i16, ptr %10, align 2, !noundef !3
   %12 = sub i16 %9, %11
   store i16 %12, ptr %8, align 2
@@ -1323,9 +1323,9 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..si
 5:                                                ; preds = %5, %3
   %.sroa.01.05.i = phi i64 [ 0, %3 ], [ %6, %5 ]
   %6 = add nuw nsw i64 %.sroa.01.05.i, 1
-  %7 = getelementptr inbounds nuw i16, ptr %4, i64 %.sroa.01.05.i
+  %7 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %.sroa.01.05.i
   %8 = load i16, ptr %7, align 2, !noalias !147, !noundef !3
-  %9 = getelementptr inbounds nuw i16, ptr %2, i64 %.sroa.01.05.i
+  %9 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %.sroa.01.05.i
   %10 = load i16, ptr %9, align 2, !alias.scope !142, !noalias !149, !noundef !3
   %.not.i.i = icmp sle i16 %8, %10
   %..i.i = sext i1 %.not.i.i to i16
@@ -1350,9 +1350,9 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..si
 5:                                                ; preds = %5, %3
   %.sroa.01.05.i = phi i64 [ 0, %3 ], [ %6, %5 ]
   %6 = add nuw nsw i64 %.sroa.01.05.i, 1
-  %7 = getelementptr inbounds nuw i16, ptr %4, i64 %.sroa.01.05.i
+  %7 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %.sroa.01.05.i
   %8 = load i16, ptr %7, align 2, !noalias !156, !noundef !3
-  %9 = getelementptr inbounds nuw i16, ptr %2, i64 %.sroa.01.05.i
+  %9 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %.sroa.01.05.i
   %10 = load i16, ptr %9, align 2, !alias.scope !151, !noalias !158, !noundef !3
   %11 = icmp sgt i16 %8, %10
   %..i.i = sext i1 %11 to i16
@@ -1377,9 +1377,9 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..si
 5:                                                ; preds = %5, %3
   %.sroa.01.05.i = phi i64 [ 0, %3 ], [ %6, %5 ]
   %6 = add nuw nsw i64 %.sroa.01.05.i, 1
-  %7 = getelementptr inbounds nuw i16, ptr %4, i64 %.sroa.01.05.i
+  %7 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %.sroa.01.05.i
   %8 = load i16, ptr %7, align 2, !noalias !165, !noundef !3
-  %9 = getelementptr inbounds nuw i16, ptr %2, i64 %.sroa.01.05.i
+  %9 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %.sroa.01.05.i
   %10 = load i16, ptr %9, align 2, !alias.scope !160, !noalias !167, !noundef !3
   %.not.i.i = icmp ne i16 %8, %10
   %..i.i = sext i1 %.not.i.i to i16
@@ -1404,9 +1404,9 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..si
 5:                                                ; preds = %5, %3
   %.sroa.01.05.i = phi i64 [ 0, %3 ], [ %6, %5 ]
   %6 = add nuw nsw i64 %.sroa.01.05.i, 1
-  %7 = getelementptr inbounds nuw i16, ptr %4, i64 %.sroa.01.05.i
+  %7 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %.sroa.01.05.i
   %8 = load i16, ptr %7, align 2, !noalias !174, !noundef !3
-  %9 = getelementptr inbounds nuw i16, ptr %2, i64 %.sroa.01.05.i
+  %9 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %.sroa.01.05.i
   %10 = load i16, ptr %9, align 2, !alias.scope !169, !noalias !176, !noundef !3
   %11 = icmp slt i16 %8, %10
   %..i.i = sext i1 %11 to i16
@@ -1431,9 +1431,9 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..si
 5:                                                ; preds = %5, %3
   %.sroa.01.05.i = phi i64 [ 0, %3 ], [ %6, %5 ]
   %6 = add nuw nsw i64 %.sroa.01.05.i, 1
-  %7 = getelementptr inbounds nuw i16, ptr %4, i64 %.sroa.01.05.i
+  %7 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %.sroa.01.05.i
   %8 = load i16, ptr %7, align 2, !noalias !183, !noundef !3
-  %9 = getelementptr inbounds nuw i16, ptr %2, i64 %.sroa.01.05.i
+  %9 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %.sroa.01.05.i
   %10 = load i16, ptr %9, align 2, !alias.scope !178, !noalias !185, !noundef !3
   %.not.i.i = icmp sge i16 %8, %10
   %..i.i = sext i1 %.not.i.i to i16
@@ -1458,9 +1458,9 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..si
 5:                                                ; preds = %5, %3
   %.sroa.01.05.i = phi i64 [ 0, %3 ], [ %6, %5 ]
   %6 = add nuw nsw i64 %.sroa.01.05.i, 1
-  %7 = getelementptr inbounds nuw i16, ptr %4, i64 %.sroa.01.05.i
+  %7 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %.sroa.01.05.i
   %8 = load i16, ptr %7, align 2, !noalias !192, !noundef !3
-  %9 = getelementptr inbounds nuw i16, ptr %2, i64 %.sroa.01.05.i
+  %9 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %.sroa.01.05.i
   %10 = load i16, ptr %9, align 2, !alias.scope !187, !noalias !194, !noundef !3
   %11 = icmp eq i16 %8, %10
   %..i.i = sext i1 %11 to i16
@@ -1486,7 +1486,7 @@ define hidden noundef i32 @"_ZN67_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_c
   %.sroa.07.012 = phi i64 [ 0, %2 ], [ %5, %4 ]
   %5 = add nuw nsw i64 %.sroa.07.012, 1
   %6 = trunc nuw nsw i64 %.sroa.07.012 to i32
-  %7 = getelementptr inbounds nuw i16, ptr %0, i64 %.sroa.07.012
+  %7 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %.sroa.07.012
   %8 = load i16, ptr %7, align 2, !noundef !3
   %.lobit.i = lshr i16 %8, 15
   %9 = zext nneg i16 %.lobit.i to i32
@@ -1507,7 +1507,7 @@ define hidden noundef zeroext i1 @"_ZN67_$LT$wasmi_core..simd..I16x8$u20$as$u20$
   %.sroa.0.0.in12 = phi i1 [ %1, %3 ], [ %10, %5 ]
   %.sroa.06.011 = phi i64 [ 0, %3 ], [ %6, %5 ]
   %6 = add nuw nsw i64 %.sroa.06.011, 1
-  %7 = getelementptr inbounds nuw i16, ptr %0, i64 %.sroa.06.011
+  %7 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %.sroa.06.011
   %8 = load i16, ptr %7, align 2, !noundef !3
   %9 = icmp ne i16 %8, 0
   %10 = and i1 %.sroa.0.0.in12, %9
@@ -1531,7 +1531,7 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..U16x8$u20$as$u20$wasmi_core..si
 9:                                                ; preds = %3, %9
   %.sroa.01.05 = phi i64 [ 0, %3 ], [ %10, %9 ]
   %10 = add nuw nsw i64 %.sroa.01.05, 1
-  %11 = getelementptr inbounds nuw i16, ptr %4, i64 %.sroa.01.05
+  %11 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %.sroa.01.05
   %12 = load i16, ptr %11, align 2, !noundef !3
   %13 = lshr i16 %12, %7
   store i16 %13, ptr %11, align 2
@@ -1552,9 +1552,9 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..U16x8$u20$as$u20$wasmi_core..si
 6:                                                ; preds = %3, %6
   %.sroa.01.05 = phi i64 [ 0, %3 ], [ %7, %6 ]
   %7 = add nuw nsw i64 %.sroa.01.05, 1
-  %8 = getelementptr inbounds nuw i16, ptr %4, i64 %.sroa.01.05
+  %8 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %.sroa.01.05
   %9 = load i16, ptr %8, align 2, !noundef !3
-  %10 = getelementptr inbounds nuw i16, ptr %2, i64 %.sroa.01.05
+  %10 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %.sroa.01.05
   %11 = load i16, ptr %10, align 2, !noundef !3
   %12 = zext i16 %9 to i32
   %13 = zext i16 %11 to i32
@@ -1580,9 +1580,9 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..U16x8$u20$as$u20$wasmi_core..si
 6:                                                ; preds = %3, %6
   %.sroa.01.05 = phi i64 [ 0, %3 ], [ %7, %6 ]
   %7 = add nuw nsw i64 %.sroa.01.05, 1
-  %8 = getelementptr inbounds nuw i16, ptr %4, i64 %.sroa.01.05
+  %8 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %.sroa.01.05
   %9 = load i16, ptr %8, align 2, !noundef !3
-  %10 = getelementptr inbounds nuw i16, ptr %2, i64 %.sroa.01.05
+  %10 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %.sroa.01.05
   %11 = load i16, ptr %10, align 2, !noundef !3
   %12 = tail call noundef i16 @llvm.uadd.sat.i16(i16 %9, i16 %11)
   store i16 %12, ptr %8, align 2
@@ -1603,9 +1603,9 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..U16x8$u20$as$u20$wasmi_core..si
 6:                                                ; preds = %3, %6
   %.sroa.01.05 = phi i64 [ 0, %3 ], [ %7, %6 ]
   %7 = add nuw nsw i64 %.sroa.01.05, 1
-  %8 = getelementptr inbounds nuw i16, ptr %4, i64 %.sroa.01.05
+  %8 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %.sroa.01.05
   %9 = load i16, ptr %8, align 2, !noundef !3
-  %10 = getelementptr inbounds nuw i16, ptr %2, i64 %.sroa.01.05
+  %10 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %.sroa.01.05
   %11 = load i16, ptr %10, align 2, !noundef !3
   %.sroa.0.0.sroa.speculated.i.i = tail call noundef i16 @llvm.umax.i16(i16 %11, i16 %9)
   store i16 %.sroa.0.0.sroa.speculated.i.i, ptr %8, align 2
@@ -1626,9 +1626,9 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..U16x8$u20$as$u20$wasmi_core..si
 6:                                                ; preds = %3, %6
   %.sroa.01.05 = phi i64 [ 0, %3 ], [ %7, %6 ]
   %7 = add nuw nsw i64 %.sroa.01.05, 1
-  %8 = getelementptr inbounds nuw i16, ptr %4, i64 %.sroa.01.05
+  %8 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %.sroa.01.05
   %9 = load i16, ptr %8, align 2, !noundef !3
-  %10 = getelementptr inbounds nuw i16, ptr %2, i64 %.sroa.01.05
+  %10 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %.sroa.01.05
   %11 = load i16, ptr %10, align 2, !noundef !3
   %12 = tail call noundef i16 @llvm.usub.sat.i16(i16 %9, i16 %11)
   store i16 %12, ptr %8, align 2
@@ -1649,9 +1649,9 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..U16x8$u20$as$u20$wasmi_core..si
 6:                                                ; preds = %3, %6
   %.sroa.01.05 = phi i64 [ 0, %3 ], [ %7, %6 ]
   %7 = add nuw nsw i64 %.sroa.01.05, 1
-  %8 = getelementptr inbounds nuw i16, ptr %4, i64 %.sroa.01.05
+  %8 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %.sroa.01.05
   %9 = load i16, ptr %8, align 2, !noundef !3
-  %10 = getelementptr inbounds nuw i16, ptr %2, i64 %.sroa.01.05
+  %10 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %.sroa.01.05
   %11 = load i16, ptr %10, align 2, !noundef !3
   %.sroa.0.0.sroa.speculated.i.i = tail call noundef i16 @llvm.umin.i16(i16 %11, i16 %9)
   store i16 %.sroa.0.0.sroa.speculated.i.i, ptr %8, align 2
@@ -1670,9 +1670,9 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..U16x8$u20$as$u20$wasmi_core..si
 5:                                                ; preds = %5, %3
   %.sroa.01.05.i = phi i64 [ 0, %3 ], [ %6, %5 ]
   %6 = add nuw nsw i64 %.sroa.01.05.i, 1
-  %7 = getelementptr inbounds nuw i16, ptr %4, i64 %.sroa.01.05.i
+  %7 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %.sroa.01.05.i
   %8 = load i16, ptr %7, align 2, !noalias !201, !noundef !3
-  %9 = getelementptr inbounds nuw i16, ptr %2, i64 %.sroa.01.05.i
+  %9 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %.sroa.01.05.i
   %10 = load i16, ptr %9, align 2, !alias.scope !196, !noalias !203, !noundef !3
   %.not.i.i = icmp uge i16 %8, %10
   %..i.i = sext i1 %.not.i.i to i16
@@ -1697,9 +1697,9 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..U16x8$u20$as$u20$wasmi_core..si
 5:                                                ; preds = %5, %3
   %.sroa.01.05.i = phi i64 [ 0, %3 ], [ %6, %5 ]
   %6 = add nuw nsw i64 %.sroa.01.05.i, 1
-  %7 = getelementptr inbounds nuw i16, ptr %4, i64 %.sroa.01.05.i
+  %7 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %.sroa.01.05.i
   %8 = load i16, ptr %7, align 2, !noalias !210, !noundef !3
-  %9 = getelementptr inbounds nuw i16, ptr %2, i64 %.sroa.01.05.i
+  %9 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %.sroa.01.05.i
   %10 = load i16, ptr %9, align 2, !alias.scope !205, !noalias !212, !noundef !3
   %11 = icmp ugt i16 %8, %10
   %..i.i = sext i1 %11 to i16
@@ -1724,9 +1724,9 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..U16x8$u20$as$u20$wasmi_core..si
 5:                                                ; preds = %5, %3
   %.sroa.01.05.i = phi i64 [ 0, %3 ], [ %6, %5 ]
   %6 = add nuw nsw i64 %.sroa.01.05.i, 1
-  %7 = getelementptr inbounds nuw i16, ptr %4, i64 %.sroa.01.05.i
+  %7 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %.sroa.01.05.i
   %8 = load i16, ptr %7, align 2, !noalias !219, !noundef !3
-  %9 = getelementptr inbounds nuw i16, ptr %2, i64 %.sroa.01.05.i
+  %9 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %.sroa.01.05.i
   %10 = load i16, ptr %9, align 2, !alias.scope !214, !noalias !221, !noundef !3
   %.not.i.i = icmp ule i16 %8, %10
   %..i.i = sext i1 %.not.i.i to i16
@@ -1751,9 +1751,9 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..U16x8$u20$as$u20$wasmi_core..si
 5:                                                ; preds = %5, %3
   %.sroa.01.05.i = phi i64 [ 0, %3 ], [ %6, %5 ]
   %6 = add nuw nsw i64 %.sroa.01.05.i, 1
-  %7 = getelementptr inbounds nuw i16, ptr %4, i64 %.sroa.01.05.i
+  %7 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %.sroa.01.05.i
   %8 = load i16, ptr %7, align 2, !noalias !228, !noundef !3
-  %9 = getelementptr inbounds nuw i16, ptr %2, i64 %.sroa.01.05.i
+  %9 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %.sroa.01.05.i
   %10 = load i16, ptr %9, align 2, !alias.scope !223, !noalias !230, !noundef !3
   %11 = icmp ult i16 %8, %10
   %..i.i = sext i1 %11 to i16
@@ -2507,7 +2507,7 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..F32x4$u20$as$u20$wasmi_core..si
 6:                                                ; preds = %3, %6
   %.sroa.01.05 = phi i64 [ 0, %3 ], [ %7, %6 ]
   %7 = add nuw nsw i64 %.sroa.01.05, 1
-  %8 = getelementptr inbounds nuw float, ptr %4, i64 %.sroa.01.05
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.sroa.01.05
   %9 = load float, ptr %8, align 4, !noundef !3
   %10 = tail call noundef i32 @_ZN10wasmi_core4wasm19i32_trunc_sat_f32_u17hf6e379db2f660f8aE(float noundef %9)
   %11 = tail call noundef float @"_ZN66_$LT$u32$u20$as$u20$wasmi_core..simd..ReinterpretAs$LT$f32$GT$$GT$14reinterpret_as17h4649f344475af332E"(i32 noundef %10)
@@ -2529,7 +2529,7 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..F32x4$u20$as$u20$wasmi_core..si
 5:                                                ; preds = %2, %5
   %.sroa.01.05 = phi i64 [ 0, %2 ], [ %6, %5 ]
   %6 = add nuw nsw i64 %.sroa.01.05, 1
-  %7 = getelementptr inbounds nuw float, ptr %3, i64 %.sroa.01.05
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.sroa.01.05
   %8 = load float, ptr %7, align 4, !noundef !3
   %9 = tail call noundef float @_ZN10wasmi_core4wasm8f32_sqrt17hbc360aa692ffeee8E(float noundef %8)
   store float %9, ptr %7, align 4
@@ -2550,7 +2550,7 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..F32x4$u20$as$u20$wasmi_core..si
 5:                                                ; preds = %2, %5
   %.sroa.01.05 = phi i64 [ 0, %2 ], [ %6, %5 ]
   %6 = add nuw nsw i64 %.sroa.01.05, 1
-  %7 = getelementptr inbounds nuw float, ptr %3, i64 %.sroa.01.05
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.sroa.01.05
   %8 = load float, ptr %7, align 4, !noundef !3
   %9 = fneg float %8
   store float %9, ptr %7, align 4
@@ -2571,7 +2571,7 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..F32x4$u20$as$u20$wasmi_core..si
 5:                                                ; preds = %2, %5
   %.sroa.01.05 = phi i64 [ 0, %2 ], [ %6, %5 ]
   %6 = add nuw nsw i64 %.sroa.01.05, 1
-  %7 = getelementptr inbounds nuw float, ptr %3, i64 %.sroa.01.05
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.sroa.01.05
   %8 = load float, ptr %7, align 4, !noundef !3
   %9 = tail call noundef float @llvm.fabs.f32(float %8)
   store float %9, ptr %7, align 4
@@ -2592,7 +2592,7 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..F32x4$u20$as$u20$wasmi_core..si
 5:                                                ; preds = %2, %5
   %.sroa.01.05 = phi i64 [ 0, %2 ], [ %6, %5 ]
   %6 = add nuw nsw i64 %.sroa.01.05, 1
-  %7 = getelementptr inbounds nuw float, ptr %3, i64 %.sroa.01.05
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.sroa.01.05
   %8 = load float, ptr %7, align 4, !noundef !3
   %9 = tail call noundef float @_ZN10wasmi_core4wasm8f32_ceil17hddba5e1308bc6783E(float noundef %8)
   store float %9, ptr %7, align 4
@@ -2613,7 +2613,7 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..F32x4$u20$as$u20$wasmi_core..si
 5:                                                ; preds = %2, %5
   %.sroa.01.05 = phi i64 [ 0, %2 ], [ %6, %5 ]
   %6 = add nuw nsw i64 %.sroa.01.05, 1
-  %7 = getelementptr inbounds nuw float, ptr %3, i64 %.sroa.01.05
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.sroa.01.05
   %8 = load float, ptr %7, align 4, !noundef !3
   %9 = tail call noundef float @_ZN10wasmi_core4wasm9f32_trunc17h8fc26967338f5a40E(float noundef %8)
   store float %9, ptr %7, align 4
@@ -2634,7 +2634,7 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..F32x4$u20$as$u20$wasmi_core..si
 5:                                                ; preds = %2, %5
   %.sroa.01.05 = phi i64 [ 0, %2 ], [ %6, %5 ]
   %6 = add nuw nsw i64 %.sroa.01.05, 1
-  %7 = getelementptr inbounds nuw float, ptr %3, i64 %.sroa.01.05
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.sroa.01.05
   %8 = load float, ptr %7, align 4, !noundef !3
   %9 = tail call noundef float @_ZN10wasmi_core4wasm9f32_floor17he32d74d3a8023301E(float noundef %8)
   store float %9, ptr %7, align 4
@@ -2655,7 +2655,7 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..F32x4$u20$as$u20$wasmi_core..si
 6:                                                ; preds = %3, %6
   %.sroa.01.05 = phi i64 [ 0, %3 ], [ %7, %6 ]
   %7 = add nuw nsw i64 %.sroa.01.05, 1
-  %8 = getelementptr inbounds nuw float, ptr %4, i64 %.sroa.01.05
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.sroa.01.05
   %9 = load float, ptr %8, align 4, !noundef !3
   %10 = tail call noundef i32 @_ZN10wasmi_core4wasm19i32_trunc_sat_f32_s17h4ba14e50e4d59c69E(float noundef %9)
   %11 = tail call noundef float @"_ZN66_$LT$i32$u20$as$u20$wasmi_core..simd..ReinterpretAs$LT$f32$GT$$GT$14reinterpret_as17h11b2156220435c5dE"(i32 noundef %10)
@@ -2677,7 +2677,7 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..F32x4$u20$as$u20$wasmi_core..si
 5:                                                ; preds = %2, %5
   %.sroa.01.05 = phi i64 [ 0, %2 ], [ %6, %5 ]
   %6 = add nuw nsw i64 %.sroa.01.05, 1
-  %7 = getelementptr inbounds nuw float, ptr %3, i64 %.sroa.01.05
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.sroa.01.05
   %8 = load float, ptr %7, align 4, !noundef !3
   %9 = tail call noundef float @_ZN10wasmi_core4wasm11f32_nearest17h50839b185388d11dE(float noundef %8)
   store float %9, ptr %7, align 4
@@ -2698,9 +2698,9 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..F32x4$u20$as$u20$wasmi_core..si
 6:                                                ; preds = %3, %6
   %.sroa.01.05 = phi i64 [ 0, %3 ], [ %7, %6 ]
   %7 = add nuw nsw i64 %.sroa.01.05, 1
-  %8 = getelementptr inbounds nuw float, ptr %4, i64 %.sroa.01.05
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.sroa.01.05
   %9 = load float, ptr %8, align 4, !noundef !3
-  %10 = getelementptr inbounds nuw float, ptr %2, i64 %.sroa.01.05
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.sroa.01.05
   %11 = load float, ptr %10, align 4, !noundef !3
   %12 = fcmp olt float %11, %9
   %.sroa.0.0.sroa.speculated.i.i = select i1 %12, float %11, float %9
@@ -2722,9 +2722,9 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..F32x4$u20$as$u20$wasmi_core..si
 6:                                                ; preds = %3, %6
   %.sroa.01.05 = phi i64 [ 0, %3 ], [ %7, %6 ]
   %7 = add nuw nsw i64 %.sroa.01.05, 1
-  %8 = getelementptr inbounds nuw float, ptr %4, i64 %.sroa.01.05
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.sroa.01.05
   %9 = load float, ptr %8, align 4, !noundef !3
-  %10 = getelementptr inbounds nuw float, ptr %2, i64 %.sroa.01.05
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.sroa.01.05
   %11 = load float, ptr %10, align 4, !noundef !3
   %12 = fsub float %9, %11
   store float %12, ptr %8, align 4
@@ -2745,9 +2745,9 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..F32x4$u20$as$u20$wasmi_core..si
 6:                                                ; preds = %3, %6
   %.sroa.01.05 = phi i64 [ 0, %3 ], [ %7, %6 ]
   %7 = add nuw nsw i64 %.sroa.01.05, 1
-  %8 = getelementptr inbounds nuw float, ptr %4, i64 %.sroa.01.05
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.sroa.01.05
   %9 = load float, ptr %8, align 4, !noundef !3
-  %10 = getelementptr inbounds nuw float, ptr %2, i64 %.sroa.01.05
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.sroa.01.05
   %11 = load float, ptr %10, align 4, !noundef !3
   %12 = fadd float %9, %11
   store float %12, ptr %8, align 4
@@ -2768,9 +2768,9 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..F32x4$u20$as$u20$wasmi_core..si
 6:                                                ; preds = %3, %6
   %.sroa.01.05 = phi i64 [ 0, %3 ], [ %7, %6 ]
   %7 = add nuw nsw i64 %.sroa.01.05, 1
-  %8 = getelementptr inbounds nuw float, ptr %4, i64 %.sroa.01.05
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.sroa.01.05
   %9 = load float, ptr %8, align 4, !noundef !3
-  %10 = getelementptr inbounds nuw float, ptr %2, i64 %.sroa.01.05
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.sroa.01.05
   %11 = load float, ptr %10, align 4, !noundef !3
   %12 = tail call noundef float @_ZN10wasmi_core4wasm7f32_min17hfa412a1ed574aa50E(float noundef %9, float noundef %11)
   store float %12, ptr %8, align 4
@@ -2791,9 +2791,9 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..F32x4$u20$as$u20$wasmi_core..si
 6:                                                ; preds = %3, %6
   %.sroa.01.05 = phi i64 [ 0, %3 ], [ %7, %6 ]
   %7 = add nuw nsw i64 %.sroa.01.05, 1
-  %8 = getelementptr inbounds nuw float, ptr %4, i64 %.sroa.01.05
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.sroa.01.05
   %9 = load float, ptr %8, align 4, !noundef !3
-  %10 = getelementptr inbounds nuw float, ptr %2, i64 %.sroa.01.05
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.sroa.01.05
   %11 = load float, ptr %10, align 4, !noundef !3
   %12 = fcmp olt float %9, %11
   %.sroa.0.0.sroa.speculated.i.i = select i1 %12, float %11, float %9
@@ -2815,9 +2815,9 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..F32x4$u20$as$u20$wasmi_core..si
 6:                                                ; preds = %3, %6
   %.sroa.01.05 = phi i64 [ 0, %3 ], [ %7, %6 ]
   %7 = add nuw nsw i64 %.sroa.01.05, 1
-  %8 = getelementptr inbounds nuw float, ptr %4, i64 %.sroa.01.05
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.sroa.01.05
   %9 = load float, ptr %8, align 4, !noundef !3
-  %10 = getelementptr inbounds nuw float, ptr %2, i64 %.sroa.01.05
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.sroa.01.05
   %11 = load float, ptr %10, align 4, !noundef !3
   %12 = tail call noundef float @_ZN10wasmi_core4wasm7f32_max17hbfe928edf371a173E(float noundef %9, float noundef %11)
   store float %12, ptr %8, align 4
@@ -2838,9 +2838,9 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..F32x4$u20$as$u20$wasmi_core..si
 6:                                                ; preds = %3, %6
   %.sroa.01.05 = phi i64 [ 0, %3 ], [ %7, %6 ]
   %7 = add nuw nsw i64 %.sroa.01.05, 1
-  %8 = getelementptr inbounds nuw float, ptr %4, i64 %.sroa.01.05
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.sroa.01.05
   %9 = load float, ptr %8, align 4, !noundef !3
-  %10 = getelementptr inbounds nuw float, ptr %2, i64 %.sroa.01.05
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.sroa.01.05
   %11 = load float, ptr %10, align 4, !noundef !3
   %12 = fmul float %9, %11
   store float %12, ptr %8, align 4
@@ -2861,9 +2861,9 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..F32x4$u20$as$u20$wasmi_core..si
 6:                                                ; preds = %3, %6
   %.sroa.01.05 = phi i64 [ 0, %3 ], [ %7, %6 ]
   %7 = add nuw nsw i64 %.sroa.01.05, 1
-  %8 = getelementptr inbounds nuw float, ptr %4, i64 %.sroa.01.05
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.sroa.01.05
   %9 = load float, ptr %8, align 4, !noundef !3
-  %10 = getelementptr inbounds nuw float, ptr %2, i64 %.sroa.01.05
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.sroa.01.05
   %11 = load float, ptr %10, align 4, !noundef !3
   %12 = fdiv float %9, %11
   store float %12, ptr %8, align 4
@@ -2884,11 +2884,11 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..F32x4$u20$as$u20$wasmi_core..si
 7:                                                ; preds = %4, %7
   %.sroa.03.08 = phi i64 [ 0, %4 ], [ %8, %7 ]
   %8 = add nuw nsw i64 %.sroa.03.08, 1
-  %9 = getelementptr inbounds nuw float, ptr %5, i64 %.sroa.03.08
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.sroa.03.08
   %10 = load float, ptr %9, align 4, !noundef !3
-  %11 = getelementptr inbounds nuw float, ptr %2, i64 %.sroa.03.08
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.sroa.03.08
   %12 = load float, ptr %11, align 4, !noundef !3
-  %13 = getelementptr inbounds nuw float, ptr %3, i64 %.sroa.03.08
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.sroa.03.08
   %14 = load float, ptr %13, align 4, !noundef !3
   %15 = tail call noundef float @llvm.fma.f32(float %10, float %12, float %14)
   store float %15, ptr %9, align 4
@@ -2909,11 +2909,11 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..F32x4$u20$as$u20$wasmi_core..si
 7:                                                ; preds = %4, %7
   %.sroa.03.08 = phi i64 [ 0, %4 ], [ %8, %7 ]
   %8 = add nuw nsw i64 %.sroa.03.08, 1
-  %9 = getelementptr inbounds nuw float, ptr %5, i64 %.sroa.03.08
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %.sroa.03.08
   %10 = load float, ptr %9, align 4, !noundef !3
-  %11 = getelementptr inbounds nuw float, ptr %2, i64 %.sroa.03.08
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.sroa.03.08
   %12 = load float, ptr %11, align 4, !noundef !3
-  %13 = getelementptr inbounds nuw float, ptr %3, i64 %.sroa.03.08
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.sroa.03.08
   %14 = load float, ptr %13, align 4, !noundef !3
   %15 = fneg float %10
   %16 = tail call noundef float @llvm.fma.f32(float %15, float %12, float %14)
@@ -2933,9 +2933,9 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..F32x4$u20$as$u20$wasmi_core..si
 5:                                                ; preds = %5, %3
   %.sroa.01.05.i = phi i64 [ 0, %3 ], [ %6, %5 ]
   %6 = add nuw nsw i64 %.sroa.01.05.i, 1
-  %7 = getelementptr inbounds nuw float, ptr %4, i64 %.sroa.01.05.i
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.sroa.01.05.i
   %8 = load float, ptr %7, align 4, !noalias !327, !noundef !3
-  %9 = getelementptr inbounds nuw float, ptr %2, i64 %.sroa.01.05.i
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.sroa.01.05.i
   %10 = load float, ptr %9, align 4, !alias.scope !322, !noalias !329, !noundef !3
   %11 = fcmp oge float %8, %10
   %..i.i = select i1 %11, float 0xFFFFFFFFE0000000, float 0.000000e+00
@@ -2960,9 +2960,9 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..F32x4$u20$as$u20$wasmi_core..si
 5:                                                ; preds = %5, %3
   %.sroa.01.05.i = phi i64 [ 0, %3 ], [ %6, %5 ]
   %6 = add nuw nsw i64 %.sroa.01.05.i, 1
-  %7 = getelementptr inbounds nuw float, ptr %4, i64 %.sroa.01.05.i
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.sroa.01.05.i
   %8 = load float, ptr %7, align 4, !noalias !336, !noundef !3
-  %9 = getelementptr inbounds nuw float, ptr %2, i64 %.sroa.01.05.i
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.sroa.01.05.i
   %10 = load float, ptr %9, align 4, !alias.scope !331, !noalias !338, !noundef !3
   %11 = fcmp oeq float %8, %10
   %..i.i = select i1 %11, float 0xFFFFFFFFE0000000, float 0.000000e+00
@@ -2987,9 +2987,9 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..F32x4$u20$as$u20$wasmi_core..si
 5:                                                ; preds = %5, %3
   %.sroa.01.05.i = phi i64 [ 0, %3 ], [ %6, %5 ]
   %6 = add nuw nsw i64 %.sroa.01.05.i, 1
-  %7 = getelementptr inbounds nuw float, ptr %4, i64 %.sroa.01.05.i
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.sroa.01.05.i
   %8 = load float, ptr %7, align 4, !noalias !345, !noundef !3
-  %9 = getelementptr inbounds nuw float, ptr %2, i64 %.sroa.01.05.i
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.sroa.01.05.i
   %10 = load float, ptr %9, align 4, !alias.scope !340, !noalias !347, !noundef !3
   %11 = fcmp olt float %8, %10
   %..i.i = select i1 %11, float 0xFFFFFFFFE0000000, float 0.000000e+00
@@ -3014,9 +3014,9 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..F32x4$u20$as$u20$wasmi_core..si
 5:                                                ; preds = %5, %3
   %.sroa.01.05.i = phi i64 [ 0, %3 ], [ %6, %5 ]
   %6 = add nuw nsw i64 %.sroa.01.05.i, 1
-  %7 = getelementptr inbounds nuw float, ptr %4, i64 %.sroa.01.05.i
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.sroa.01.05.i
   %8 = load float, ptr %7, align 4, !noalias !354, !noundef !3
-  %9 = getelementptr inbounds nuw float, ptr %2, i64 %.sroa.01.05.i
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.sroa.01.05.i
   %10 = load float, ptr %9, align 4, !alias.scope !349, !noalias !356, !noundef !3
   %11 = fcmp ogt float %8, %10
   %..i.i = select i1 %11, float 0xFFFFFFFFE0000000, float 0.000000e+00
@@ -3041,9 +3041,9 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..F32x4$u20$as$u20$wasmi_core..si
 5:                                                ; preds = %5, %3
   %.sroa.01.05.i = phi i64 [ 0, %3 ], [ %6, %5 ]
   %6 = add nuw nsw i64 %.sroa.01.05.i, 1
-  %7 = getelementptr inbounds nuw float, ptr %4, i64 %.sroa.01.05.i
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.sroa.01.05.i
   %8 = load float, ptr %7, align 4, !noalias !363, !noundef !3
-  %9 = getelementptr inbounds nuw float, ptr %2, i64 %.sroa.01.05.i
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.sroa.01.05.i
   %10 = load float, ptr %9, align 4, !alias.scope !358, !noalias !365, !noundef !3
   %11 = fcmp ole float %8, %10
   %..i.i = select i1 %11, float 0xFFFFFFFFE0000000, float 0.000000e+00
@@ -3068,9 +3068,9 @@ define hidden void @"_ZN67_$LT$wasmi_core..simd..F32x4$u20$as$u20$wasmi_core..si
 5:                                                ; preds = %5, %3
   %.sroa.01.05.i = phi i64 [ 0, %3 ], [ %6, %5 ]
   %6 = add nuw nsw i64 %.sroa.01.05.i, 1
-  %7 = getelementptr inbounds nuw float, ptr %4, i64 %.sroa.01.05.i
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.sroa.01.05.i
   %8 = load float, ptr %7, align 4, !noalias !372, !noundef !3
-  %9 = getelementptr inbounds nuw float, ptr %2, i64 %.sroa.01.05.i
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.sroa.01.05.i
   %10 = load float, ptr %9, align 4, !alias.scope !367, !noalias !374, !noundef !3
   %11 = fcmp une float %8, %10
   %..i.i = select i1 %11, float 0xFFFFFFFFE0000000, float 0.000000e+00
@@ -3657,7 +3657,7 @@ define hidden void @"_ZN103_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..s
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %7 = load i16, ptr %6, align 2, !alias.scope !474, !noalias !475, !noundef !3
   %8 = tail call noundef i32 @_ZN10wasmi_core4simd29i32x4_extadd_pairwise_i16x8_s15extadd_pairwise17h92338798c029c3adE(i16 noundef %5, i16 noundef %7), !noalias !478
-  %9 = getelementptr inbounds nuw i32, ptr %3, i64 %.sroa.6.06.i.i
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.sroa.6.06.i.i
   store i32 %8, ptr %9, align 4
   %10 = add nuw nsw i64 %.sroa.6.06.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %10, 4
@@ -3676,14 +3676,14 @@ define hidden void @"_ZN103_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..s
 "_ZN103_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..simd..FromNarrow$LT$wasmi_core..simd..I16x8$GT$$GT$15pairwise_binary28_$u7b$$u7b$closure$u7d$$u7d$17h0b85c951f8adb6f1E.exit.i.i.i": ; preds = %"_ZN103_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..simd..FromNarrow$LT$wasmi_core..simd..I16x8$GT$$GT$15pairwise_binary28_$u7b$$u7b$closure$u7d$$u7d$17h0b85c951f8adb6f1E.exit.i.i.i", %3
   %.sroa.6.02.i.i = phi i64 [ 0, %3 ], [ %17, %"_ZN103_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..simd..FromNarrow$LT$wasmi_core..simd..I16x8$GT$$GT$15pairwise_binary28_$u7b$$u7b$closure$u7d$$u7d$17h0b85c951f8adb6f1E.exit.i.i.i" ]
   %5 = shl nuw nsw i64 %.sroa.6.02.i.i, 1
-  %6 = getelementptr inbounds nuw i16, ptr %1, i64 %5
+  %6 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %5
   %7 = load i16, ptr %6, align 2, !noalias !479, !noundef !3
   %8 = or disjoint i64 %5, 1
-  %9 = getelementptr inbounds nuw i16, ptr %1, i64 %8
+  %9 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %8
   %10 = load i16, ptr %9, align 2, !noalias !479, !noundef !3
-  %11 = getelementptr inbounds nuw i16, ptr %2, i64 %5
+  %11 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %5
   %12 = load i16, ptr %11, align 2, !noalias !479, !noundef !3
-  %13 = getelementptr inbounds nuw i16, ptr %2, i64 %8
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %8
   %14 = load i16, ptr %13, align 2, !noalias !479, !noundef !3
   %.sroa.44.0.insert.ext.i.i.i.i = zext i16 %14 to i32
   %.sroa.44.0.insert.shift.i.i.i.i = shl nuw i32 %.sroa.44.0.insert.ext.i.i.i.i, 16
@@ -3694,7 +3694,7 @@ define hidden void @"_ZN103_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..s
   %.sroa.05.0.insert.ext.i.i.i.i = zext i16 %7 to i32
   %.sroa.05.0.insert.insert.i.i.i.i = or disjoint i32 %.sroa.46.0.insert.shift.i.i.i.i, %.sroa.05.0.insert.ext.i.i.i.i
   %15 = tail call noundef i32 @_ZN10wasmi_core4simd17i32x4_dot_i16x8_s3dot17hba86967bd58ee68aE(i32 %.sroa.05.0.insert.insert.i.i.i.i, i32 %.sroa.0.0.insert.insert.i.i.i.i), !noalias !479
-  %16 = getelementptr inbounds nuw i32, ptr %4, i64 %.sroa.6.02.i.i
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.sroa.6.02.i.i
   store i32 %15, ptr %16, align 4
   %17 = add nuw nsw i64 %.sroa.6.02.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %17, 4
@@ -3712,10 +3712,10 @@ define hidden void @"_ZN103_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..s
 
 4:                                                ; preds = %4, %2
   %.sroa.6.05.i.i = phi i64 [ 0, %2 ], [ %9, %4 ]
-  %5 = getelementptr inbounds nuw i16, ptr %1, i64 %.sroa.6.05.i.i
+  %5 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %.sroa.6.05.i.i
   %6 = load i16, ptr %5, align 2, !alias.scope !484, !noalias !489, !noundef !3
   %7 = sext i16 %6 to i32
-  %8 = getelementptr inbounds nuw i32, ptr %3, i64 %.sroa.6.05.i.i
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.sroa.6.05.i.i
   store i32 %7, ptr %8, align 4
   %9 = add nuw nsw i64 %.sroa.6.05.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %9, 4
@@ -3733,11 +3733,11 @@ define hidden void @"_ZN103_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..s
 
 4:                                                ; preds = %4, %2
   %.sroa.6.05.i.i = phi i64 [ 0, %2 ], [ %10, %4 ]
-  %5 = getelementptr inbounds nuw i16, ptr %1, i64 %.sroa.6.05.i.i
+  %5 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %.sroa.6.05.i.i
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i16, ptr %6, align 2, !alias.scope !492, !noalias !497, !noundef !3
   %8 = sext i16 %7 to i32
-  %9 = getelementptr inbounds nuw i32, ptr %3, i64 %.sroa.6.05.i.i
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.sroa.6.05.i.i
   store i32 %8, ptr %9, align 4
   %10 = add nuw nsw i64 %.sroa.6.05.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %10, 4
@@ -3755,14 +3755,14 @@ define hidden void @"_ZN103_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..s
 
 5:                                                ; preds = %5, %3
   %.sroa.6.02.i.i = phi i64 [ 0, %3 ], [ %14, %5 ]
-  %6 = getelementptr inbounds nuw i16, ptr %1, i64 %.sroa.6.02.i.i
+  %6 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %.sroa.6.02.i.i
   %7 = load i16, ptr %6, align 2, !noalias !500, !noundef !3
-  %8 = getelementptr inbounds nuw i16, ptr %2, i64 %.sroa.6.02.i.i
+  %8 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %.sroa.6.02.i.i
   %9 = load i16, ptr %8, align 2, !noalias !500, !noundef !3
   %10 = sext i16 %7 to i32
   %11 = sext i16 %9 to i32
   %12 = mul nsw i32 %11, %10
-  %13 = getelementptr inbounds nuw i32, ptr %4, i64 %.sroa.6.02.i.i
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.sroa.6.02.i.i
   store i32 %12, ptr %13, align 4
   %14 = add nuw nsw i64 %.sroa.6.02.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %14, 4
@@ -3781,14 +3781,14 @@ define hidden void @"_ZN103_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..s
 5:                                                ; preds = %5, %3
   %.sroa.6.02.i.i = phi i64 [ 0, %3 ], [ %15, %5 ]
   %6 = or disjoint i64 %.sroa.6.02.i.i, 4
-  %7 = getelementptr inbounds nuw i16, ptr %1, i64 %6
+  %7 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %6
   %8 = load i16, ptr %7, align 2, !noalias !505, !noundef !3
-  %9 = getelementptr inbounds nuw i16, ptr %2, i64 %6
+  %9 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %6
   %10 = load i16, ptr %9, align 2, !noalias !505, !noundef !3
   %11 = sext i16 %8 to i32
   %12 = sext i16 %10 to i32
   %13 = mul nsw i32 %12, %11
-  %14 = getelementptr inbounds nuw i32, ptr %4, i64 %.sroa.6.02.i.i
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.sroa.6.02.i.i
   store i32 %13, ptr %14, align 4
   %15 = add nuw nsw i64 %.sroa.6.02.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %15, 4
@@ -3814,7 +3814,7 @@ define hidden void @"_ZN103_$LT$wasmi_core..simd..U32x4$u20$as$u20$wasmi_core..s
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 2
   %7 = load i16, ptr %6, align 2, !alias.scope !516, !noalias !517, !noundef !3
   %8 = tail call noundef i32 @_ZN10wasmi_core4simd29i32x4_extadd_pairwise_i16x8_u15extadd_pairwise17h40423550ea4a66beE(i16 noundef %5, i16 noundef %7), !noalias !520
-  %9 = getelementptr inbounds nuw i32, ptr %3, i64 %.sroa.6.06.i.i
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.sroa.6.06.i.i
   store i32 %8, ptr %9, align 4
   %10 = add nuw nsw i64 %.sroa.6.06.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %10, 4
@@ -3832,10 +3832,10 @@ define hidden void @"_ZN103_$LT$wasmi_core..simd..U32x4$u20$as$u20$wasmi_core..s
 
 4:                                                ; preds = %4, %2
   %.sroa.6.05.i.i = phi i64 [ 0, %2 ], [ %9, %4 ]
-  %5 = getelementptr inbounds nuw i16, ptr %1, i64 %.sroa.6.05.i.i
+  %5 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %.sroa.6.05.i.i
   %6 = load i16, ptr %5, align 2, !alias.scope !521, !noalias !526, !noundef !3
   %7 = zext i16 %6 to i32
-  %8 = getelementptr inbounds nuw i32, ptr %3, i64 %.sroa.6.05.i.i
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.sroa.6.05.i.i
   store i32 %7, ptr %8, align 4
   %9 = add nuw nsw i64 %.sroa.6.05.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %9, 4
@@ -3853,11 +3853,11 @@ define hidden void @"_ZN103_$LT$wasmi_core..simd..U32x4$u20$as$u20$wasmi_core..s
 
 4:                                                ; preds = %4, %2
   %.sroa.6.05.i.i = phi i64 [ 0, %2 ], [ %10, %4 ]
-  %5 = getelementptr inbounds nuw i16, ptr %1, i64 %.sroa.6.05.i.i
+  %5 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %.sroa.6.05.i.i
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i16, ptr %6, align 2, !alias.scope !529, !noalias !534, !noundef !3
   %8 = zext i16 %7 to i32
-  %9 = getelementptr inbounds nuw i32, ptr %3, i64 %.sroa.6.05.i.i
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.sroa.6.05.i.i
   store i32 %8, ptr %9, align 4
   %10 = add nuw nsw i64 %.sroa.6.05.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %10, 4
@@ -3875,14 +3875,14 @@ define hidden void @"_ZN103_$LT$wasmi_core..simd..U32x4$u20$as$u20$wasmi_core..s
 
 5:                                                ; preds = %5, %3
   %.sroa.6.02.i.i = phi i64 [ 0, %3 ], [ %14, %5 ]
-  %6 = getelementptr inbounds nuw i16, ptr %1, i64 %.sroa.6.02.i.i
+  %6 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %.sroa.6.02.i.i
   %7 = load i16, ptr %6, align 2, !noalias !537, !noundef !3
-  %8 = getelementptr inbounds nuw i16, ptr %2, i64 %.sroa.6.02.i.i
+  %8 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %.sroa.6.02.i.i
   %9 = load i16, ptr %8, align 2, !noalias !537, !noundef !3
   %10 = zext i16 %7 to i32
   %11 = zext i16 %9 to i32
   %12 = mul nuw i32 %11, %10
-  %13 = getelementptr inbounds nuw i32, ptr %4, i64 %.sroa.6.02.i.i
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.sroa.6.02.i.i
   store i32 %12, ptr %13, align 4
   %14 = add nuw nsw i64 %.sroa.6.02.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %14, 4
@@ -3901,14 +3901,14 @@ define hidden void @"_ZN103_$LT$wasmi_core..simd..U32x4$u20$as$u20$wasmi_core..s
 5:                                                ; preds = %5, %3
   %.sroa.6.02.i.i = phi i64 [ 0, %3 ], [ %15, %5 ]
   %6 = or disjoint i64 %.sroa.6.02.i.i, 4
-  %7 = getelementptr inbounds nuw i16, ptr %1, i64 %6
+  %7 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %6
   %8 = load i16, ptr %7, align 2, !noalias !542, !noundef !3
-  %9 = getelementptr inbounds nuw i16, ptr %2, i64 %6
+  %9 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %6
   %10 = load i16, ptr %9, align 2, !noalias !542, !noundef !3
   %11 = zext i16 %8 to i32
   %12 = zext i16 %10 to i32
   %13 = mul nuw i32 %12, %11
-  %14 = getelementptr inbounds nuw i32, ptr %4, i64 %.sroa.6.02.i.i
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.sroa.6.02.i.i
   store i32 %13, ptr %14, align 4
   %15 = add nuw nsw i64 %.sroa.6.02.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %15, 4
@@ -3934,7 +3934,7 @@ define hidden void @"_ZN103_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..s
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %8 = load i8, ptr %7, align 1, !alias.scope !553, !noalias !554, !noundef !3
   %9 = tail call noundef i16 @_ZN10wasmi_core4simd29i16x8_extadd_pairwise_i8x16_s15extadd_pairwise17h94e260bfec76fbfeE(i8 noundef %6, i8 noundef %8), !noalias !557
-  %10 = getelementptr inbounds nuw i16, ptr %3, i64 %.sroa.6.06.i.i
+  %10 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %.sroa.6.06.i.i
   store i16 %9, ptr %10, align 2
   %11 = add nuw nsw i64 %.sroa.6.06.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %11, 8
@@ -3971,7 +3971,7 @@ define hidden void @"_ZN103_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..s
   %.sroa.05.0.insert.ext.i.i.i.i = zext i8 %7 to i16
   %.sroa.05.0.insert.insert.i.i.i.i = or disjoint i16 %.sroa.46.0.insert.shift.i.i.i.i, %.sroa.05.0.insert.ext.i.i.i.i
   %15 = tail call noundef i16 @_ZN10wasmi_core4simd31i16x8_relaxed_dot_i8x16_i7x16_s3dot17h8baa079e8ed3d2e9E(i16 %.sroa.05.0.insert.insert.i.i.i.i, i16 %.sroa.0.0.insert.insert.i.i.i.i), !noalias !558
-  %16 = getelementptr inbounds nuw i16, ptr %4, i64 %.sroa.6.02.i.i
+  %16 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %.sroa.6.02.i.i
   store i16 %15, ptr %16, align 2
   %17 = add nuw nsw i64 %.sroa.6.02.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %17, 8
@@ -3992,7 +3992,7 @@ define hidden void @"_ZN103_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..s
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.6.05.i.i
   %6 = load i8, ptr %5, align 1, !alias.scope !563, !noalias !568, !noundef !3
   %7 = sext i8 %6 to i16
-  %8 = getelementptr inbounds nuw i16, ptr %3, i64 %.sroa.6.05.i.i
+  %8 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %.sroa.6.05.i.i
   store i16 %7, ptr %8, align 2
   %9 = add nuw nsw i64 %.sroa.6.05.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %9, 8
@@ -4014,7 +4014,7 @@ define hidden void @"_ZN103_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..s
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i8, ptr %6, align 1, !alias.scope !571, !noalias !576, !noundef !3
   %8 = sext i8 %7 to i16
-  %9 = getelementptr inbounds nuw i16, ptr %3, i64 %.sroa.6.05.i.i
+  %9 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %.sroa.6.05.i.i
   store i16 %8, ptr %9, align 2
   %10 = add nuw nsw i64 %.sroa.6.05.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %10, 8
@@ -4039,7 +4039,7 @@ define hidden void @"_ZN103_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..s
   %10 = sext i8 %7 to i16
   %11 = sext i8 %9 to i16
   %12 = mul nsw i16 %11, %10
-  %13 = getelementptr inbounds nuw i16, ptr %4, i64 %.sroa.6.02.i.i
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %.sroa.6.02.i.i
   store i16 %12, ptr %13, align 2
   %14 = add nuw nsw i64 %.sroa.6.02.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %14, 8
@@ -4065,7 +4065,7 @@ define hidden void @"_ZN103_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..s
   %11 = sext i8 %8 to i16
   %12 = sext i8 %10 to i16
   %13 = mul nsw i16 %12, %11
-  %14 = getelementptr inbounds nuw i16, ptr %4, i64 %.sroa.6.02.i.i
+  %14 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %.sroa.6.02.i.i
   store i16 %13, ptr %14, align 2
   %15 = add nuw nsw i64 %.sroa.6.02.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %15, 8
@@ -4091,7 +4091,7 @@ define hidden void @"_ZN103_$LT$wasmi_core..simd..U16x8$u20$as$u20$wasmi_core..s
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %8 = load i8, ptr %7, align 1, !alias.scope !595, !noalias !596, !noundef !3
   %9 = tail call noundef i16 @_ZN10wasmi_core4simd29i16x8_extadd_pairwise_i8x16_u15extadd_pairwise17he8a271a10c8b2ee7E(i8 noundef %6, i8 noundef %8), !noalias !599
-  %10 = getelementptr inbounds nuw i16, ptr %3, i64 %.sroa.6.06.i.i
+  %10 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %.sroa.6.06.i.i
   store i16 %9, ptr %10, align 2
   %11 = add nuw nsw i64 %.sroa.6.06.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %11, 8
@@ -4112,7 +4112,7 @@ define hidden void @"_ZN103_$LT$wasmi_core..simd..U16x8$u20$as$u20$wasmi_core..s
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.6.05.i.i
   %6 = load i8, ptr %5, align 1, !alias.scope !600, !noalias !605, !noundef !3
   %7 = zext i8 %6 to i16
-  %8 = getelementptr inbounds nuw i16, ptr %3, i64 %.sroa.6.05.i.i
+  %8 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %.sroa.6.05.i.i
   store i16 %7, ptr %8, align 2
   %9 = add nuw nsw i64 %.sroa.6.05.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %9, 8
@@ -4134,7 +4134,7 @@ define hidden void @"_ZN103_$LT$wasmi_core..simd..U16x8$u20$as$u20$wasmi_core..s
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load i8, ptr %6, align 1, !alias.scope !608, !noalias !613, !noundef !3
   %8 = zext i8 %7 to i16
-  %9 = getelementptr inbounds nuw i16, ptr %3, i64 %.sroa.6.05.i.i
+  %9 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %.sroa.6.05.i.i
   store i16 %8, ptr %9, align 2
   %10 = add nuw nsw i64 %.sroa.6.05.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %10, 8
@@ -4159,7 +4159,7 @@ define hidden void @"_ZN103_$LT$wasmi_core..simd..U16x8$u20$as$u20$wasmi_core..s
   %10 = zext i8 %7 to i16
   %11 = zext i8 %9 to i16
   %12 = mul nuw i16 %11, %10
-  %13 = getelementptr inbounds nuw i16, ptr %4, i64 %.sroa.6.02.i.i
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %.sroa.6.02.i.i
   store i16 %12, ptr %13, align 2
   %14 = add nuw nsw i64 %.sroa.6.02.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %14, 8
@@ -4185,7 +4185,7 @@ define hidden void @"_ZN103_$LT$wasmi_core..simd..U16x8$u20$as$u20$wasmi_core..s
   %11 = zext i8 %8 to i16
   %12 = zext i8 %10 to i16
   %13 = mul nuw i16 %12, %11
-  %14 = getelementptr inbounds nuw i16, ptr %4, i64 %.sroa.6.02.i.i
+  %14 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %.sroa.6.02.i.i
   store i16 %13, ptr %14, align 2
   %15 = add nuw nsw i64 %.sroa.6.02.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %15, 8
@@ -4258,14 +4258,14 @@ define hidden void @"_ZN101_$LT$wasmi_core..simd..I32x4$u20$as$u20$wasmi_core..s
   br i1 %5, label %6, label %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_128_$u7b$$u7b$closure$u7d$$u7d$17h8ae9897c64879795E.exit.i.i"
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds nuw double, ptr %1, i64 %.sroa.6.02.i.i
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.sroa.6.02.i.i
   %8 = load double, ptr %7, align 8, !noalias !662, !noundef !3
   %9 = tail call noundef i32 @_ZN10wasmi_core4wasm19i32_trunc_sat_f64_s17h0fa037716e707cbdE(double noundef %8), !noalias !662
   br label %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_128_$u7b$$u7b$closure$u7d$$u7d$17h8ae9897c64879795E.exit.i.i"
 
 "_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_128_$u7b$$u7b$closure$u7d$$u7d$17h8ae9897c64879795E.exit.i.i": ; preds = %6, %4
   %.sroa.0.0.i.i.i.i = phi i32 [ 0, %4 ], [ %9, %6 ]
-  %10 = getelementptr inbounds nuw i32, ptr %3, i64 %.sroa.6.02.i.i
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.sroa.6.02.i.i
   store i32 %.sroa.0.0.i.i.i.i, ptr %10, align 4
   %11 = add nuw nsw i64 %.sroa.6.02.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %11, 4
@@ -4287,14 +4287,14 @@ define hidden void @"_ZN101_$LT$wasmi_core..simd..U32x4$u20$as$u20$wasmi_core..s
   br i1 %5, label %6, label %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_128_$u7b$$u7b$closure$u7d$$u7d$17hc500a02523d2bc96E.exit.i.i"
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds nuw double, ptr %1, i64 %.sroa.6.02.i.i
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.sroa.6.02.i.i
   %8 = load double, ptr %7, align 8, !noalias !667, !noundef !3
   %9 = tail call noundef i32 @_ZN10wasmi_core4wasm19i32_trunc_sat_f64_u17h8d22788b0af3afc6E(double noundef %8), !noalias !667
   br label %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_128_$u7b$$u7b$closure$u7d$$u7d$17hc500a02523d2bc96E.exit.i.i"
 
 "_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_128_$u7b$$u7b$closure$u7d$$u7d$17hc500a02523d2bc96E.exit.i.i": ; preds = %6, %4
   %.sroa.0.0.i.i.i.i = phi i32 [ 0, %4 ], [ %9, %6 ]
-  %10 = getelementptr inbounds nuw i32, ptr %3, i64 %.sroa.6.02.i.i
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.sroa.6.02.i.i
   store i32 %.sroa.0.0.i.i.i.i, ptr %10, align 4
   %11 = add nuw nsw i64 %.sroa.6.02.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %11, 4
@@ -4316,14 +4316,14 @@ define hidden void @"_ZN101_$LT$wasmi_core..simd..F32x4$u20$as$u20$wasmi_core..s
   br i1 %5, label %6, label %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_128_$u7b$$u7b$closure$u7d$$u7d$17he34de1255244c728E.exit.i.i"
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds nuw double, ptr %1, i64 %.sroa.6.02.i.i
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.sroa.6.02.i.i
   %8 = load double, ptr %7, align 8, !noalias !672, !noundef !3
   %9 = tail call noundef float @_ZN10wasmi_core4wasm14f32_demote_f6417hd1562f00a3d6371eE(double noundef %8), !noalias !672
   br label %"_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_128_$u7b$$u7b$closure$u7d$$u7d$17he34de1255244c728E.exit.i.i"
 
 "_ZN4core3ops9try_trait26NeverShortCircuit$LT$T$GT$10wrap_mut_128_$u7b$$u7b$closure$u7d$$u7d$17he34de1255244c728E.exit.i.i": ; preds = %6, %4
   %.sroa.0.0.i.i.i.i = phi float [ 0.000000e+00, %4 ], [ %9, %6 ]
-  %10 = getelementptr inbounds nuw float, ptr %3, i64 %.sroa.6.02.i.i
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.sroa.6.02.i.i
   store float %.sroa.0.0.i.i.i.i, ptr %10, align 4
   %11 = add nuw nsw i64 %.sroa.6.02.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %11, 4
@@ -4342,13 +4342,13 @@ define hidden void @"_ZN101_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..s
 "_ZN101_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..simd..FromWide$LT$wasmi_core..simd..I32x4$GT$$GT$13from_low_high28_$u7b$$u7b$closure$u7d$$u7d$17hccf353ce3d836414E.exit.i.i.i": ; preds = %"_ZN101_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..simd..FromWide$LT$wasmi_core..simd..I32x4$GT$$GT$13from_low_high28_$u7b$$u7b$closure$u7d$$u7d$17hccf353ce3d836414E.exit.i.i.i", %3
   %.sroa.6.02.i.i = phi i64 [ 0, %3 ], [ %11, %"_ZN101_$LT$wasmi_core..simd..I16x8$u20$as$u20$wasmi_core..simd..FromWide$LT$wasmi_core..simd..I32x4$GT$$GT$13from_low_high28_$u7b$$u7b$closure$u7d$$u7d$17hccf353ce3d836414E.exit.i.i.i" ]
   %5 = icmp samesign ult i64 %.sroa.6.02.i.i, 4
-  %6 = getelementptr inbounds nuw i32, ptr %1, i64 %.sroa.6.02.i.i
-  %7 = getelementptr i32, ptr %2, i64 %.sroa.6.02.i.i
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.sroa.6.02.i.i
+  %7 = getelementptr [4 x i8], ptr %2, i64 %.sroa.6.02.i.i
   %8 = getelementptr i8, ptr %7, i64 -16
   %.sink.in.i.i.i.i = select i1 %5, ptr %6, ptr %8
   %.sink.i.i.i.i = load i32, ptr %.sink.in.i.i.i.i, align 4, !noalias !677, !noundef !3
   %9 = tail call noundef i16 @_ZN10wasmi_core4simd17narrow_i32_to_i1617ha2a8f108bd579bdfE(i32 noundef %.sink.i.i.i.i), !noalias !677
-  %10 = getelementptr inbounds nuw i16, ptr %4, i64 %.sroa.6.02.i.i
+  %10 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %.sroa.6.02.i.i
   store i16 %9, ptr %10, align 2
   %11 = add nuw nsw i64 %.sroa.6.02.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %11, 8
@@ -4367,13 +4367,13 @@ define hidden void @"_ZN101_$LT$wasmi_core..simd..U16x8$u20$as$u20$wasmi_core..s
 "_ZN101_$LT$wasmi_core..simd..U16x8$u20$as$u20$wasmi_core..simd..FromWide$LT$wasmi_core..simd..U32x4$GT$$GT$13from_low_high28_$u7b$$u7b$closure$u7d$$u7d$17h39b82757d53ddf5dE.exit.i.i.i": ; preds = %"_ZN101_$LT$wasmi_core..simd..U16x8$u20$as$u20$wasmi_core..simd..FromWide$LT$wasmi_core..simd..U32x4$GT$$GT$13from_low_high28_$u7b$$u7b$closure$u7d$$u7d$17h39b82757d53ddf5dE.exit.i.i.i", %3
   %.sroa.6.02.i.i = phi i64 [ 0, %3 ], [ %11, %"_ZN101_$LT$wasmi_core..simd..U16x8$u20$as$u20$wasmi_core..simd..FromWide$LT$wasmi_core..simd..U32x4$GT$$GT$13from_low_high28_$u7b$$u7b$closure$u7d$$u7d$17h39b82757d53ddf5dE.exit.i.i.i" ]
   %5 = icmp samesign ult i64 %.sroa.6.02.i.i, 4
-  %6 = getelementptr inbounds nuw i32, ptr %1, i64 %.sroa.6.02.i.i
-  %7 = getelementptr i32, ptr %2, i64 %.sroa.6.02.i.i
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.sroa.6.02.i.i
+  %7 = getelementptr [4 x i8], ptr %2, i64 %.sroa.6.02.i.i
   %8 = getelementptr i8, ptr %7, i64 -16
   %.sink.in.i.i.i.i = select i1 %5, ptr %6, ptr %8
   %.sink.i.i.i.i = load i32, ptr %.sink.in.i.i.i.i, align 4, !noalias !682, !noundef !3
   %9 = tail call noundef i16 @_ZN10wasmi_core4simd17narrow_u32_to_u1617hf926f3e87aa78a32E(i32 noundef %.sink.i.i.i.i), !noalias !682
-  %10 = getelementptr inbounds nuw i16, ptr %4, i64 %.sroa.6.02.i.i
+  %10 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %.sroa.6.02.i.i
   store i16 %9, ptr %10, align 2
   %11 = add nuw nsw i64 %.sroa.6.02.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %11, 8
@@ -4392,8 +4392,8 @@ define hidden void @"_ZN101_$LT$wasmi_core..simd..I8x16$u20$as$u20$wasmi_core..s
 "_ZN101_$LT$wasmi_core..simd..I8x16$u20$as$u20$wasmi_core..simd..FromWide$LT$wasmi_core..simd..I16x8$GT$$GT$13from_low_high28_$u7b$$u7b$closure$u7d$$u7d$17hf2428f6191a7917dE.exit.i.i.i": ; preds = %"_ZN101_$LT$wasmi_core..simd..I8x16$u20$as$u20$wasmi_core..simd..FromWide$LT$wasmi_core..simd..I16x8$GT$$GT$13from_low_high28_$u7b$$u7b$closure$u7d$$u7d$17hf2428f6191a7917dE.exit.i.i.i", %3
   %.sroa.6.02.i.i = phi i64 [ 0, %3 ], [ %11, %"_ZN101_$LT$wasmi_core..simd..I8x16$u20$as$u20$wasmi_core..simd..FromWide$LT$wasmi_core..simd..I16x8$GT$$GT$13from_low_high28_$u7b$$u7b$closure$u7d$$u7d$17hf2428f6191a7917dE.exit.i.i.i" ]
   %5 = icmp samesign ult i64 %.sroa.6.02.i.i, 8
-  %6 = getelementptr inbounds nuw i16, ptr %1, i64 %.sroa.6.02.i.i
-  %7 = getelementptr i16, ptr %2, i64 %.sroa.6.02.i.i
+  %6 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %.sroa.6.02.i.i
+  %7 = getelementptr [2 x i8], ptr %2, i64 %.sroa.6.02.i.i
   %8 = getelementptr i8, ptr %7, i64 -16
   %.sink.in.i.i.i.i = select i1 %5, ptr %6, ptr %8
   %.sink.i.i.i.i = load i16, ptr %.sink.in.i.i.i.i, align 2, !noalias !687, !noundef !3
@@ -4417,8 +4417,8 @@ define hidden void @"_ZN101_$LT$wasmi_core..simd..U8x16$u20$as$u20$wasmi_core..s
 "_ZN101_$LT$wasmi_core..simd..U8x16$u20$as$u20$wasmi_core..simd..FromWide$LT$wasmi_core..simd..U16x8$GT$$GT$13from_low_high28_$u7b$$u7b$closure$u7d$$u7d$17h52775e955ef45fb9E.exit.i.i.i": ; preds = %"_ZN101_$LT$wasmi_core..simd..U8x16$u20$as$u20$wasmi_core..simd..FromWide$LT$wasmi_core..simd..U16x8$GT$$GT$13from_low_high28_$u7b$$u7b$closure$u7d$$u7d$17h52775e955ef45fb9E.exit.i.i.i", %3
   %.sroa.6.02.i.i = phi i64 [ 0, %3 ], [ %11, %"_ZN101_$LT$wasmi_core..simd..U8x16$u20$as$u20$wasmi_core..simd..FromWide$LT$wasmi_core..simd..U16x8$GT$$GT$13from_low_high28_$u7b$$u7b$closure$u7d$$u7d$17h52775e955ef45fb9E.exit.i.i.i" ]
   %5 = icmp samesign ult i64 %.sroa.6.02.i.i, 8
-  %6 = getelementptr inbounds nuw i16, ptr %1, i64 %.sroa.6.02.i.i
-  %7 = getelementptr i16, ptr %2, i64 %.sroa.6.02.i.i
+  %6 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %.sroa.6.02.i.i
+  %7 = getelementptr [2 x i8], ptr %2, i64 %.sroa.6.02.i.i
   %8 = getelementptr i8, ptr %7, i64 -16
   %.sink.in.i.i.i.i = select i1 %5, ptr %6, ptr %8
   %.sink.i.i.i.i = load i16, ptr %.sink.in.i.i.i.i, align 2, !noalias !692, !noundef !3

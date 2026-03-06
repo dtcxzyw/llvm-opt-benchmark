@@ -9,8 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.5" = type { %"struct.std::_Vector_base<gmx::HashedMap<gmx_ga2la_t::Entry>::hashEntry, std::allocator<gmx::HashedMap<gmx_ga2la_t::Entry>::hashEntry>>::_Vector_impl" }
 %"struct.std::_Vector_base<gmx::HashedMap<gmx_ga2la_t::Entry>::hashEntry, std::allocator<gmx::HashedMap<gmx_ga2la_t::Entry>::hashEntry>>::_Vector_impl" = type { %"struct.std::_Vector_base<gmx::HashedMap<gmx_ga2la_t::Entry>::hashEntry, std::allocator<gmx::HashedMap<gmx_ga2la_t::Entry>::hashEntry>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<gmx::HashedMap<gmx_ga2la_t::Entry>::hashEntry, std::allocator<gmx::HashedMap<gmx_ga2la_t::Entry>::hashEntry>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.gmx_ga2la_t::Entry" = type { i32, i32 }
-%"struct.gmx::HashedMap<gmx_ga2la_t::Entry>::hashEntry" = type { i32, %"struct.gmx_ga2la_t::Entry", i32 }
 
 $_ZNSt8__detail9__variant16_Variant_storageILb0EJSt6vectorIN11gmx_ga2la_t5EntryESaIS4_EEN3gmx9HashedMapIS4_EEEED2Ev = comdat any
 
@@ -79,7 +77,7 @@ _ZNSt6vectorIN11gmx_ga2la_t5EntryESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: ; p
 
 .noexc8:                                          ; preds = %14
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %16, i8 -1, i64 %15, i1 false)
-  %17 = getelementptr inbounds nuw %"struct.gmx_ga2la_t::Entry", ptr %16, i64 %11
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %11
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 %15
   br label %_ZSt3getILm0EJSt6vectorIN11gmx_ga2la_t5EntryESaIS2_EEN3gmx9HashedMapIS2_EEEERNSt19variant_alternativeIXT_ESt7variantIJDpT0_EEE4typeERSC_.exit.i
 
@@ -411,9 +409,9 @@ _ZNSt6vectorIN3gmx9HashedMapIN11gmx_ga2la_t5EntryEE9hashEntryESaIS5_EE11_S_reloc
 
 _ZNSt12_Vector_baseIN3gmx9HashedMapIN11gmx_ga2la_t5EntryEE9hashEntryESaIS5_EE13_M_deallocateEPS5_m.exit41: ; preds = %_ZNSt6vectorIN3gmx9HashedMapIN11gmx_ga2la_t5EntryEE9hashEntryESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %37
   store ptr %29, ptr %0, align 8, !tbaa !24
-  %39 = getelementptr inbounds nuw %"struct.gmx::HashedMap<gmx_ga2la_t::Entry>::hashEntry", ptr %30, i64 %1
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !29
-  %40 = getelementptr inbounds nuw %"struct.gmx::HashedMap<gmx_ga2la_t::Entry>::hashEntry", ptr %29, i64 %27
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %29, i64 %27
   store ptr %40, ptr %11, align 8, !tbaa !25
   br label %41
 
@@ -614,7 +612,7 @@ define internal void @_ZN11gmx_ga2la_t5clearEb.omp_outlined(ptr noalias noundef 
 
 23:                                               ; preds = %.lr.ph, %23
   %.014 = phi i64 [ %21, %.lr.ph ], [ %26, %23 ]
-  %24 = getelementptr inbounds nuw %"struct.gmx_ga2la_t::Entry", ptr %22, i64 %.014
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %.014
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   store i32 -1, ptr %25, align 4, !tbaa !59
   %26 = add i64 %.014, 1
@@ -737,7 +735,7 @@ _ZN3gmx9HashedMapIN11gmx_ga2la_t5EntryEE5clearEv.exit: ; preds = %.lr.ph.i, %8, 
   br i1 %46, label %47, label %_ZN3gmx9HashedMapIN11gmx_ga2la_t5EntryEE6resizeEi.exit
 
 47:                                               ; preds = %45
-  %48 = getelementptr inbounds nuw %"struct.gmx::HashedMap<gmx_ga2la_t::Entry>::hashEntry", ptr %37, i64 %34
+  %48 = getelementptr inbounds nuw [16 x i8], ptr %37, i64 %34
   %.not.i.i.i = icmp eq ptr %36, %48
   br i1 %.not.i.i.i, label %_ZN3gmx9HashedMapIN11gmx_ga2la_t5EntryEE6resizeEi.exit, label %49
 
@@ -796,7 +794,7 @@ define internal void @_ZN3gmx9HashedMapIN11gmx_ga2la_t5EntryEE5clearEv.omp_outli
 
 23:                                               ; preds = %.lr.ph, %23
   %.013 = phi i64 [ %21, %.lr.ph ], [ %26, %23 ]
-  %24 = getelementptr inbounds nuw %"struct.gmx::HashedMap<gmx_ga2la_t::Entry>::hashEntry", ptr %22, i64 %.013
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %.013
   store i32 -1, ptr %24, align 4, !tbaa !36
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 12
   store i32 -1, ptr %25, align 4, !tbaa !39

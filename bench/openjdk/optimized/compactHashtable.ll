@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.LogTagSet = type { ptr, i64, [5 x i32], [4 x i8], %class.LogOutputList, %class.LogDecorators, ptr }
 %class.LogOutputList = type <{ [6 x ptr], i32, [4 x i8] }>
 %class.LogDecorators = type { i32 }
-%"class.CompactHashtableWriter::Entry" = type { i32, i32 }
 %class.NumberSeq = type { %class.AbsSeq, double, double }
 %class.AbsSeq = type { ptr, i32, double, double, double, double, double }
 %class.LogMessageTemplate = type { %class.LogMessageImpl.base, [7 x i8] }
@@ -127,7 +126,7 @@ define hidden void @_ZN22CompactHashtableWriterC2EiP21CompactHashtableStats(ptr 
 
 21:                                               ; preds = %16, %.lr.ph
   %22 = load ptr, ptr %11, align 8
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv
   store ptr %14, ptr %23, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %24 = load i32, ptr %7, align 4
@@ -169,7 +168,7 @@ define hidden void @_ZN22CompactHashtableWriterD2Ev(ptr noundef nonnull readonly
   %7 = phi i32 [ %3, %.lr.ph ], [ %23, %22 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %22 ]
   %8 = load ptr, ptr %5, align 8
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, null
   br i1 %11, label %22, label %12
@@ -260,7 +259,7 @@ define hidden void @_ZN22CompactHashtableWriter3addEjj(ptr noundef nonnull align
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = sext i32 %6 to i64
-  %10 = getelementptr inbounds ptr, ptr %8, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8
   %12 = load i32, ptr %11, align 8
   %13 = icmp sgt i32 %12, 0
@@ -279,7 +278,7 @@ define hidden void @_ZN22CompactHashtableWriter3addEjj(ptr noundef nonnull align
 
 17:                                               ; preds = %16, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %16 ]
-  %18 = getelementptr inbounds nuw %"class.CompactHashtableWriter::Entry", ptr %15, i64 %indvars.iv.i.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.i.i
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %20 = load i32, ptr %19, align 4
   %21 = icmp eq i32 %20, %2
@@ -306,7 +305,7 @@ _ZN26GrowableArrayWithAllocatorIN22CompactHashtableWriter5EntryE13GrowableArrayI
   %31 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = sext i32 %29 to i64
-  %34 = getelementptr inbounds %"class.CompactHashtableWriter::Entry", ptr %32, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %32, i64 %33
   %.sroa.3.0.insert.ext = zext i32 %2 to i64
   %.sroa.3.0.insert.shift = shl nuw i64 %.sroa.3.0.insert.ext, 32
   %.sroa.0.0.insert.ext = zext i32 %1 to i64
@@ -337,7 +336,7 @@ define hidden void @_ZN22CompactHashtableWriter14allocate_tableEv(ptr noundef no
 7:                                                ; preds = %.lr.ph, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
   %.014 = phi i32 [ 0, %.lr.ph ], [ %.1, %19 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %10, 1
@@ -452,7 +451,7 @@ define hidden void @_ZN22CompactHashtableWriter10dump_tableEP9NumberSeq(ptr noun
   %indvars.iv44 = phi i64 [ 0, %.lr.ph37 ], [ %indvars.iv.next45, %59 ]
   %.02235 = phi i32 [ 0, %.lr.ph37 ], [ %.1, %59 ]
   %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv44
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv44
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr %15, align 4
   %17 = icmp eq i32 %16, 1
@@ -463,7 +462,7 @@ define hidden void @_ZN22CompactHashtableWriter10dump_tableEP9NumberSeq(ptr noun
 20:                                               ; preds = %12
   %21 = or disjoint i32 %19, 1073741824
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  %23 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv44
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv44
   store i32 %21, ptr %23, align 4
   %24 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %25 = load ptr, ptr %24, align 8
@@ -474,7 +473,7 @@ define hidden void @_ZN22CompactHashtableWriter10dump_tableEP9NumberSeq(ptr noun
   %28 = add i32 %.02235, 1
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %30 = sext i32 %.02235 to i64
-  %31 = getelementptr inbounds i32, ptr %29, i64 %30
+  %31 = getelementptr inbounds [4 x i8], ptr %29, i64 %30
   store i32 %.sroa.1.0.extract.trunc, ptr %31, align 4
   %32 = load i32, ptr %11, align 4
   %33 = add nsw i32 %32, 1
@@ -483,7 +482,7 @@ define hidden void @_ZN22CompactHashtableWriter10dump_tableEP9NumberSeq(ptr noun
 
 34:                                               ; preds = %12
   %35 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  %36 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv44
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %indvars.iv44
   store i32 %19, ptr %36, align 4
   %37 = icmp sgt i32 %16, 0
   br i1 %37, label %.lr.ph, label %._crit_edge
@@ -497,7 +496,7 @@ define hidden void @_ZN22CompactHashtableWriter10dump_tableEP9NumberSeq(ptr noun
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %39 ]
   %.232 = phi i32 [ %.02235, %.lr.ph ], [ %49, %39 ]
   %40 = load ptr, ptr %38, align 8
-  %41 = getelementptr inbounds nuw %"class.CompactHashtableWriter::Entry", ptr %40, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv
   %42 = load i64, ptr %41, align 4
   %.sroa.0.0.extract.trunc = trunc i64 %42 to i32
   %.sroa.2.0.extract.shift = lshr i64 %42, 32
@@ -506,13 +505,13 @@ define hidden void @_ZN22CompactHashtableWriter10dump_tableEP9NumberSeq(ptr noun
   %44 = add i32 %.232, 1
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %46 = sext i32 %.232 to i64
-  %47 = getelementptr inbounds i32, ptr %45, i64 %46
+  %47 = getelementptr inbounds [4 x i8], ptr %45, i64 %46
   store i32 %.sroa.0.0.extract.trunc, ptr %47, align 4
   %48 = load ptr, ptr %8, align 8
   %49 = add i32 %.232, 2
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %51 = sext i32 %44 to i64
-  %52 = getelementptr inbounds i32, ptr %50, i64 %51
+  %52 = getelementptr inbounds [4 x i8], ptr %50, i64 %51
   store i32 %.sroa.2.0.extract.trunc, ptr %52, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -558,7 +557,7 @@ define hidden void @_ZN22CompactHashtableWriter10dump_tableEP9NumberSeq(ptr noun
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %69 = load ptr, ptr %68, align 8
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 4
-  %71 = getelementptr inbounds i32, ptr %70, i64 %.pre-phi
+  %71 = getelementptr inbounds [4 x i8], ptr %70, i64 %.pre-phi
   store i32 %.022.lcssa, ptr %71, align 4
   ret void
 }
@@ -1501,7 +1500,7 @@ switch.hole_check:                                ; preds = %.lr.ph
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %30 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN17HashtableTextDump8unescapeEPKcS1_i, i64 %30
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN17HashtableTextDump8unescapeEPKcS1_i, i64 %30
   %switch.load = load i32, ptr %switch.gep, align 4
   %31 = shl i32 %.01618, 4
   %32 = add i32 %31, %switch.load
@@ -1958,9 +1957,9 @@ _ZN13GrowableArrayIN22CompactHashtableWriter5EntryEE8allocateEv.exit.i: ; preds 
 
 30:                                               ; preds = %30, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %30 ]
-  %31 = getelementptr inbounds nuw %"class.CompactHashtableWriter::Entry", ptr %.0.i.i1, i64 %indvars.iv.i
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i1, i64 %indvars.iv.i
   %32 = load ptr, ptr %27, align 8
-  %33 = getelementptr inbounds nuw %"class.CompactHashtableWriter::Entry", ptr %32, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv.i
   %34 = load i64, ptr %33, align 4
   store i64 %34, ptr %31, align 4
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1

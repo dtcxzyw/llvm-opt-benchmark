@@ -448,7 +448,7 @@ _ZN3std3sys4unix5locks12futex_rwlock6RwLock4read17hcf89595deae72817E.exit.i.i.i.
   %158 = getelementptr inbounds nuw i8, ptr %88, i64 648
   %159 = load ptr, ptr %158, align 8, !noalias !18, !nonnull !5, !noundef !5
   %160 = load i64, ptr %109, align 16, !noalias !18, !noundef !5
-  %161 = getelementptr inbounds ptr, ptr %159, i64 %160
+  %161 = getelementptr inbounds [8 x i8], ptr %159, i64 %160
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !18
   store ptr %70, ptr %7, align 8, !noalias !18
   store ptr %159, ptr %.sroa.26.0..sroa_idx.i.i.i.i.i, align 8, !noalias !18
@@ -481,7 +481,7 @@ thread-pre-split.i.i.i.i.i:                       ; preds = %.critedge
   %171 = sub nuw i64 %169, %170
   %172 = lshr exact i64 %171, 3
   %.0.sroa.speculated.i.i.i.i.i.i.i.i.i.i = call noundef range(i64 0, 2305843009213693952) i64 @llvm.umin.i64(i64 range(i64 0, 2305843009213693952) %172, i64 range(i64 0, -1) %165)
-  %173 = getelementptr inbounds nuw ptr, ptr %166, i64 %.0.sroa.speculated.i.i.i.i.i.i.i.i.i.i
+  %173 = getelementptr inbounds nuw [8 x i8], ptr %166, i64 %.0.sroa.speculated.i.i.i.i.i.i.i.i.i.i
   %174 = sub i64 %165, %.0.sroa.speculated.i.i.i.i.i.i.i.i.i.i
   %175 = icmp ne i64 %174, 0
   %176 = icmp eq ptr %173, %168
@@ -510,7 +510,7 @@ thread-pre-split.i.i.i.i.i:                       ; preds = %.critedge
   %185 = sub nuw i64 %183, %184
   %186 = lshr exact i64 %185, 3
   %.not.i.i.i.i.i.i.i.i.i = icmp ult i64 %.0.i.i.i.i.i.i.i.i, %186
-  %187 = getelementptr inbounds nuw ptr, ptr %178, i64 %.0.i.i.i.i.i.i.i.i
+  %187 = getelementptr inbounds nuw [8 x i8], ptr %178, i64 %.0.i.i.i.i.i.i.i.i
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 8
   %storemerge.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i, ptr %188, ptr %182
   store ptr %storemerge.i.i.i.i.i.i.i.i.i, ptr %.sroa.26.sroa.3.0..sroa.26.0..sroa_idx.sroa_idx.i.i.i.i.i, align 8, !alias.scope !68, !noalias !55

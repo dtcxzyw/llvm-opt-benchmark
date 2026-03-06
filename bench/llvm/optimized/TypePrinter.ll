@@ -20,13 +20,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"union.llvm::Twine::Child" = type { %struct.anon }
 %struct.anon = type { ptr, i64 }
 %"class.llvm::StringRef" = type { ptr, i64 }
-%"class.clang::QualType" = type { %"class.llvm::PointerIntPair" }
-%"class.llvm::PointerIntPair" = type { %"struct.llvm::detail::PunnedPointer" }
-%"struct.llvm::detail::PunnedPointer" = type { [8 x i8] }
-%"class.clang::SourceLocation" = type { i32 }
-%"struct.clang::FunctionType::FunctionTypeExtraBitfields" = type { i16, [6 x i8] }
-%"struct.clang::FunctionType::FunctionTypeArmAttributes" = type { i16, [6 x i8] }
-%"struct.clang::FunctionType::ExceptionType" = type { %"class.clang::QualType" }
 %"class.llvm::APInt" = type <{ %union.anon.460, i32, [4 x i8] }>
 %union.anon.460 = type { i64 }
 %"class.llvm::APSInt" = type { %"class.llvm::APInt.base", i8, [3 x i8] }
@@ -95,12 +88,12 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.clang::FunctionEffectWithCondition" = type { %"class.clang::FunctionEffect", %"class.clang::EffectConditionExpr" }
 %"class.clang::FunctionEffect" = type { i8 }
 %"class.clang::EffectConditionExpr" = type { ptr }
-%"class.clang::FunctionType::ExtParameterInfo" = type { i8 }
 %"class.clang::DeclarationName" = type { i64 }
 %"struct.llvm::detail::DenseMapPair" = type { %"struct.std::pair.677" }
 %"struct.std::pair.677" = type { i32, ptr }
 %"class.clang::PresumedLoc" = type { ptr, %"class.clang::FileID", i32, i32, %"class.clang::SourceLocation" }
 %"class.clang::FileID" = type { i32 }
+%"class.clang::SourceLocation" = type { i32 }
 %"class.llvm::SmallString.646" = type { %"class.llvm::SmallVector.647" }
 %"class.llvm::SmallVector.647" = type { %"class.llvm::SmallVectorImpl.428", %"struct.llvm::SmallVectorStorage.648" }
 %"struct.llvm::SmallVectorStorage.648" = type { [1024 x i8] }
@@ -447,10 +440,10 @@ _ZNK5clang17FunctionProtoType16getNumExceptionsEv.exit: ; preds = %_ZN4llvm11raw
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %42 = lshr i64 %27, 38
   %43 = and i64 %42, 65535
-  %44 = getelementptr inbounds nuw %"class.clang::QualType", ptr %41, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %43
   %45 = lshr i64 %27, 60
   %46 = and i64 %45, 1
-  %47 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %44, i64 %46
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %46
   %48 = ptrtoint ptr %47 to i64
   %49 = add i64 %48, 7
   %50 = and i64 %49, -8
@@ -476,10 +469,10 @@ _ZNK5clang17FunctionProtoType16getNumExceptionsEv.exit: ; preds = %_ZN4llvm11raw
   %59 = load i64, ptr %6, align 16
   %60 = lshr i64 %59, 38
   %61 = and i64 %60, 65535
-  %62 = getelementptr inbounds nuw %"class.clang::QualType", ptr %54, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %61
   %63 = lshr i64 %59, 60
   %64 = and i64 %63, 1
-  %65 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %62, i64 %64
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %64
   %66 = ptrtoint ptr %65 to i64
   %67 = add i64 %66, 7
   %68 = and i64 %67, -8
@@ -499,8 +492,8 @@ _ZNK5clang17FunctionProtoType16getExceptionTypeEj.exit: ; preds = %.split, %71
   %75 = phi i64 [ 0, %.split ], [ %74, %71 ]
   %76 = lshr i64 %59, 59
   %77 = and i64 %76, 1
-  %78 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeExtraBitfields", ptr %69, i64 %77
-  %79 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeArmAttributes", ptr %78, i64 %75
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %77
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %75
   br label %113
 
 .split18:                                         ; preds = %58
@@ -527,10 +520,10 @@ _ZN4llvm11raw_ostreamlsEPKc.exit26:               ; preds = %86, %88
   %91 = load i64, ptr %6, align 16
   %92 = lshr i64 %91, 38
   %93 = and i64 %92, 65535
-  %94 = getelementptr inbounds nuw %"class.clang::QualType", ptr %54, i64 %93
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %93
   %95 = lshr i64 %91, 60
   %96 = and i64 %95, 1
-  %97 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %94, i64 %96
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %96
   %98 = ptrtoint ptr %97 to i64
   %99 = add i64 %98, 7
   %100 = and i64 %99, -8
@@ -550,9 +543,9 @@ _ZNK5clang17FunctionProtoType16getExceptionTypeEj.exit30: ; preds = %_ZN4llvm11r
   %107 = phi i64 [ 0, %_ZN4llvm11raw_ostreamlsEPKc.exit26 ], [ %106, %103 ]
   %108 = lshr i64 %91, 59
   %109 = and i64 %108, 1
-  %110 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeExtraBitfields", ptr %101, i64 %109
-  %111 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeArmAttributes", ptr %110, i64 %107
-  %112 = getelementptr inbounds nuw %"class.clang::QualType", ptr %111, i64 %indvars.iv
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %109
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %110, i64 %107
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %indvars.iv
   br label %113
 
 113:                                              ; preds = %_ZNK5clang17FunctionProtoType16getExceptionTypeEj.exit, %_ZNK5clang17FunctionProtoType16getExceptionTypeEj.exit30
@@ -711,10 +704,10 @@ _ZN4llvm11raw_ostreamlsEc.exit39:                 ; preds = %181, %183
   %192 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %193 = lshr i64 %185, 38
   %194 = and i64 %193, 65535
-  %195 = getelementptr inbounds nuw %"class.clang::QualType", ptr %192, i64 %194
+  %195 = getelementptr inbounds nuw [8 x i8], ptr %192, i64 %194
   %196 = lshr i64 %185, 60
   %197 = and i64 %196, 1
-  %198 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %195, i64 %197
+  %198 = getelementptr inbounds nuw [4 x i8], ptr %195, i64 %197
   %199 = ptrtoint ptr %198 to i64
   %200 = add i64 %199, 7
   %201 = and i64 %200, -8
@@ -746,9 +739,9 @@ _ZNK5clang17FunctionProtoType15getNoexceptExprEv.exit: ; preds = %_ZN4llvm25trai
   %spec.select.i.i.i.i.i = phi i64 [ %214, %211 ], [ 0, %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEES9_JSA_SC_SE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISA_EE.exit.i.i.i ]
   %215 = lshr i64 %185, 59
   %216 = and i64 %215, 1
-  %217 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeExtraBitfields", ptr %202, i64 %216
-  %218 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeArmAttributes", ptr %217, i64 %208
-  %219 = getelementptr inbounds nuw %"struct.clang::FunctionType::ExceptionType", ptr %218, i64 %spec.select.i.i.i.i.i
+  %217 = getelementptr inbounds nuw [8 x i8], ptr %202, i64 %216
+  %218 = getelementptr inbounds nuw [8 x i8], ptr %217, i64 %208
+  %219 = getelementptr inbounds nuw [8 x i8], ptr %218, i64 %spec.select.i.i.i.i.i
   %220 = load ptr, ptr %219, align 8, !tbaa !28
   %.not = icmp eq ptr %220, null
   br i1 %.not, label %_ZNK5clang17FunctionProtoType15getNoexceptExprEv.exit.thread, label %221
@@ -775,8 +768,8 @@ _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionPr
 
 _ZNK5clang17FunctionProtoType15getNoexceptExprEv.exit49: ; preds = %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEES9_JSA_SC_SE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISA_EE.exit.i.i.i46, %227
   %spec.select.i.i.i.i.i48 = phi i64 [ %230, %227 ], [ 0, %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEES9_JSA_SC_SE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISA_EE.exit.i.i.i46 ]
-  %231 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeArmAttributes", ptr %217, i64 %226
-  %232 = getelementptr inbounds nuw %"struct.clang::FunctionType::ExceptionType", ptr %231, i64 %spec.select.i.i.i.i.i48
+  %231 = getelementptr inbounds nuw [8 x i8], ptr %217, i64 %226
+  %232 = getelementptr inbounds nuw [8 x i8], ptr %231, i64 %spec.select.i.i.i.i.i48
   %233 = load ptr, ptr %232, align 8, !tbaa !28
   store ptr @.str.5, ptr %5, align 8, !tbaa !30
   %234 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -848,10 +841,10 @@ define dso_local { ptr, i64 } @_ZN5clang23getParameterABISpellingENS_12Parameter
 switch.lookup:
   %switch.tableidx = add nsw i32 %0, -1
   %1 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN12_GLOBAL__N_111TypePrinter10printAfterEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE.48, i64 %1
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN12_GLOBAL__N_111TypePrinter10printAfterEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE.48, i64 %1
   %switch.load = load i64, ptr %switch.gep, align 8
   %2 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12_GLOBAL__N_111TypePrinter10printAfterEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE.49, i64 %2
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN12_GLOBAL__N_111TypePrinter10printAfterEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE.49, i64 %2
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %switch.load2, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %switch.load, 1
@@ -1133,7 +1126,7 @@ define internal fastcc noundef zeroext i1 @_ZL29isSubstitutedTemplateArgumentRN5
   br i1 %43, label %44, label %.thread49
 
 44:                                               ; preds = %40
-  %45 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %3, i64 %42
+  %45 = getelementptr inbounds nuw [24 x i8], ptr %3, i64 %42
   %46 = call noundef zeroext i1 @_ZNK5clang16TemplateArgument18structurallyEqualsERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %45, ptr noundef nonnull align 8 dereferenceable(24) %1) #18
   br label %.thread49
 
@@ -1342,7 +1335,7 @@ _ZN4llvm16dyn_cast_or_nullIN5clang24TemplateTemplateParmDeclENS1_12TemplateDeclE
   br i1 %138, label %139, label %142
 
 139:                                              ; preds = %135
-  %140 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %3, i64 %137
+  %140 = getelementptr inbounds nuw [24 x i8], ptr %3, i64 %137
   call void @_ZNK5clang10ASTContext28getCanonicalTemplateArgumentERKNS_16TemplateArgumentE(ptr dead_on_unwind nonnull writable sret(%"class.clang::TemplateArgument") align 8 %15, ptr noundef nonnull align 8 dereferenceable(23216) %0, ptr noundef nonnull align 8 dereferenceable(24) %140) #18
   %141 = call noundef zeroext i1 @_ZNK5clang16TemplateArgument18structurallyEqualsERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %1) #18
   br label %142
@@ -1430,7 +1423,7 @@ define internal fastcc void @_ZL7printToIN5clang16TemplateArgumentEEvRN4llvm11ra
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang16TemplateArgumentELb1EE9push_backERKS2_.exit, label %27, !prof !66
 
 27:                                               ; preds = %.lr.ph
-  %28 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %.pre3.i, i64 %24
+  %28 = getelementptr inbounds nuw [24 x i8], ptr %.pre3.i, i64 %24
   %29 = icmp uge ptr %.054108, %.pre3.i
   %30 = icmp ult ptr %.054108, %28
   %spec.select.i.i.i.i.i = and i1 %29, %30
@@ -1455,7 +1448,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang16TemplateArgumentELb1EE9push_backERKS2
   %.016.i.i.i = phi ptr [ %.054108, %.lr.ph ], [ %36, %31 ], [ %.054108, %.critedge.i.i.i ]
   %38 = load i32, ptr %20, align 8, !tbaa !64
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %37, i64 %39
+  %40 = getelementptr inbounds nuw [24 x i8], ptr %37, i64 %39
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %40, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i, i64 24, i1 false)
   %41 = load i32, ptr %20, align 8, !tbaa !64
   %42 = add i32 %41, 1
@@ -1466,7 +1459,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang16TemplateArgumentELb1EE9push_backERKS2
 
 .lr.ph110:                                        ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang16TemplateArgumentELb1EE9push_backERKS2_.exit, %48
   %.sroa.8.1109 = phi i64 [ %49, %48 ], [ %2, %_ZN4llvm23SmallVectorTemplateBaseIN5clang16TemplateArgumentELb1EE9push_backERKS2_.exit ]
-  %44 = getelementptr %"class.clang::TemplateArgument", ptr %1, i64 %.sroa.8.1109
+  %44 = getelementptr [24 x i8], ptr %1, i64 %.sroa.8.1109
   %45 = getelementptr i8, ptr %44, i64 -24
   %46 = load i32, ptr %45, align 8
   %47 = icmp slt i32 %46, 0
@@ -1813,7 +1806,7 @@ define internal fastcc void @_ZL7printToIN5clang19TemplateArgumentLocEEvRN4llvm1
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseIN5clang16TemplateArgumentELb1EE9push_backERKS2_.exit, label %26, !prof !66
 
 26:                                               ; preds = %.lr.ph
-  %27 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %.pre3.i, i64 %23
+  %27 = getelementptr inbounds nuw [24 x i8], ptr %.pre3.i, i64 %23
   %28 = icmp uge ptr %.054110, %.pre3.i
   %29 = icmp ult ptr %.054110, %27
   %spec.select.i.i.i.i.i = and i1 %28, %29
@@ -1838,7 +1831,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang16TemplateArgumentELb1EE9push_backERKS2
   %.016.i.i.i = phi ptr [ %.054110, %.lr.ph ], [ %35, %30 ], [ %.054110, %.critedge.i.i.i ]
   %37 = load i32, ptr %19, align 8, !tbaa !64
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %36, i64 %38
+  %39 = getelementptr inbounds nuw [24 x i8], ptr %36, i64 %38
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %39, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i, i64 24, i1 false)
   %40 = load i32, ptr %19, align 8, !tbaa !64
   %41 = add i32 %40, 1
@@ -1849,7 +1842,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN5clang16TemplateArgumentELb1EE9push_backERKS2
 
 .preheader:                                       ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang16TemplateArgumentELb1EE9push_backERKS2_.exit, %47
   %.sroa.8.1111 = phi i64 [ %48, %47 ], [ %2, %_ZN4llvm23SmallVectorTemplateBaseIN5clang16TemplateArgumentELb1EE9push_backERKS2_.exit ]
-  %43 = getelementptr %"class.clang::TemplateArgumentLoc", ptr %1, i64 %.sroa.8.1111
+  %43 = getelementptr [32 x i8], ptr %1, i64 %.sroa.8.1111
   %44 = getelementptr i8, ptr %43, i64 -32
   %45 = load i32, ptr %44, align 8
   %46 = icmp slt i32 %45, 0
@@ -4484,7 +4477,7 @@ define internal fastcc noundef zeroext i1 @_ZL17isSubstitutedTypeRN5clang10ASTCo
   br i1 %42, label %43, label %.thread
 
 43:                                               ; preds = %40
-  %44 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %3, i64 %41
+  %44 = getelementptr inbounds nuw [24 x i8], ptr %3, i64 %41
   %45 = load i32, ptr %44, align 8
   %46 = and i32 %45, 2147483647
   %47 = icmp eq i32 %46, 1
@@ -4680,8 +4673,8 @@ _ZNK5clang10ASTContext16getQualifiedTypeENS_8QualTypeENS_10QualifiersE.exit: ; p
 
 .lr.ph:                                           ; preds = %.lr.ph, %.lr.ph.preheader
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %147 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %.sroa.0109.1.ph, i64 %indvars.iv
-  %148 = getelementptr inbounds nuw %"class.clang::TemplateArgument", ptr %143, i64 %indvars.iv
+  %147 = getelementptr inbounds nuw [24 x i8], ptr %.sroa.0109.1.ph, i64 %indvars.iv
+  %148 = getelementptr inbounds nuw [24 x i8], ptr %143, i64 %indvars.iv
   %149 = call fastcc noundef zeroext i1 @_ZL29isSubstitutedTemplateArgumentRN5clang10ASTContextENS_16TemplateArgumentES2_N4llvm8ArrayRefIS2_EEj(ptr noundef nonnull align 8 dereferenceable(23216) %0, ptr noundef nonnull byval(%"class.clang::TemplateArgument") align 8 %147, ptr noundef nonnull byval(%"class.clang::TemplateArgument") align 8 %148, ptr %3, i64 %4, i32 noundef %5)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not82 = icmp ne i64 %indvars.iv.next, %146
@@ -4865,7 +4858,7 @@ _ZNK4llvm6APSInt10isNegativeEv.exit:              ; preds = %61
   %70 = load ptr, ptr %0, align 8
   %71 = lshr i32 %65, 6
   %72 = zext nneg i32 %71 to i64
-  %73 = getelementptr inbounds nuw i64, ptr %70, i64 %72
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %72
   %.in.i.i.i.i = select i1 %69, ptr %0, ptr %73
   %74 = load i64, ptr %.in.i.i.i.i, align 8, !tbaa !13
   %75 = and i64 %74, %68
@@ -4887,7 +4880,7 @@ _ZNK4llvm6APSInt10isNegativeEv.exit30:            ; preds = %76
   %85 = load ptr, ptr %1, align 8
   %86 = lshr i32 %80, 6
   %87 = zext nneg i32 %86 to i64
-  %88 = getelementptr inbounds nuw i64, ptr %85, i64 %87
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %87
   %.in.i.i.i.i29 = select i1 %84, ptr %1, ptr %88
   %89 = load i64, ptr %.in.i.i.i.i29, align 8, !tbaa !13
   %90 = and i64 %89, %83
@@ -7163,10 +7156,10 @@ _ZN4llvm11raw_ostreamlsEc.exit111.i:              ; preds = %685, %683
 704:                                              ; preds = %.split.i
   %705 = lshr i64 %702, 38
   %706 = and i64 %705, 65535
-  %707 = getelementptr inbounds nuw %"class.clang::QualType", ptr %693, i64 %706
+  %707 = getelementptr inbounds nuw [8 x i8], ptr %693, i64 %706
   %708 = lshr i64 %702, 60
   %709 = and i64 %708, 1
-  %710 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %707, i64 %709
+  %710 = getelementptr inbounds nuw [4 x i8], ptr %707, i64 %709
   %711 = ptrtoint ptr %710 to i64
   %712 = add i64 %711, 7
   %713 = and i64 %712, -8
@@ -7200,18 +7193,18 @@ _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionPr
   %728 = trunc nuw nsw i64 %727 to i32
   %729 = and i32 %728, 15
   %730 = and i64 %727, 15
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 %730
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 %730
   %switch.load = load i64, ptr %switch.gep, align 8
   %731 = lshr i64 %702, 59
   %732 = and i64 %731, 1
-  %733 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeExtraBitfields", ptr %714, i64 %732
-  %734 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeArmAttributes", ptr %733, i64 %720
-  %735 = getelementptr inbounds nuw %"struct.clang::FunctionType::ExceptionType", ptr %734, i64 %spec.select.i.i.i.i.i.i.i.i
+  %733 = getelementptr inbounds nuw [8 x i8], ptr %714, i64 %732
+  %734 = getelementptr inbounds nuw [8 x i8], ptr %733, i64 %720
+  %735 = getelementptr inbounds nuw [8 x i8], ptr %734, i64 %spec.select.i.i.i.i.i.i.i.i
   %.off.i.i.i.i.i.i.i = add nsw i32 %729, -6
   %switch.i.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i.i, 3
   %736 = zext i1 %switch.i.i.i.i.i.i.i to i64
-  %737 = getelementptr inbounds nuw ptr, ptr %735, i64 %736
-  %738 = getelementptr inbounds nuw ptr, ptr %737, i64 %switch.load
+  %737 = getelementptr inbounds nuw [8 x i8], ptr %735, i64 %736
+  %738 = getelementptr inbounds nuw [8 x i8], ptr %737, i64 %switch.load
   br label %_ZNK5clang17FunctionProtoType19getExtParameterInfoEj.exit.i
 
 .split94.i:                                       ; preds = %701
@@ -7243,10 +7236,10 @@ _ZN4llvm11raw_ostreamlsEPKc.exit.i280:            ; preds = %747, %745
 752:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit.i280
   %753 = lshr i64 %750, 38
   %754 = and i64 %753, 65535
-  %755 = getelementptr inbounds nuw %"class.clang::QualType", ptr %693, i64 %754
+  %755 = getelementptr inbounds nuw [8 x i8], ptr %693, i64 %754
   %756 = lshr i64 %750, 60
   %757 = and i64 %756, 1
-  %758 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %755, i64 %757
+  %758 = getelementptr inbounds nuw [4 x i8], ptr %755, i64 %757
   %759 = ptrtoint ptr %758 to i64
   %760 = add i64 %759, 7
   %761 = and i64 %760, -8
@@ -7280,19 +7273,19 @@ _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionPr
   %776 = trunc nuw nsw i64 %775 to i32
   %777 = and i32 %776, 15
   %778 = and i64 %775, 15
-  %switch.gep47 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 %778
+  %switch.gep47 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 %778
   %switch.load48 = load i64, ptr %switch.gep47, align 8
   %779 = lshr i64 %750, 59
   %780 = and i64 %779, 1
-  %781 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeExtraBitfields", ptr %762, i64 %780
-  %782 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeArmAttributes", ptr %781, i64 %768
-  %783 = getelementptr inbounds nuw %"struct.clang::FunctionType::ExceptionType", ptr %782, i64 %spec.select.i.i.i.i.i.i.i118.i
+  %781 = getelementptr inbounds nuw [8 x i8], ptr %762, i64 %780
+  %782 = getelementptr inbounds nuw [8 x i8], ptr %781, i64 %768
+  %783 = getelementptr inbounds nuw [8 x i8], ptr %782, i64 %spec.select.i.i.i.i.i.i.i118.i
   %.off.i.i.i.i.i.i121.i = add nsw i32 %777, -6
   %switch.i.i.i.i.i.i122.i = icmp ult i32 %.off.i.i.i.i.i.i121.i, 3
   %784 = zext i1 %switch.i.i.i.i.i.i122.i to i64
-  %785 = getelementptr inbounds nuw ptr, ptr %783, i64 %784
-  %786 = getelementptr inbounds nuw ptr, ptr %785, i64 %switch.load48
-  %787 = getelementptr inbounds nuw %"class.clang::FunctionType::ExtParameterInfo", ptr %786, i64 %indvars.iv.i
+  %785 = getelementptr inbounds nuw [8 x i8], ptr %783, i64 %784
+  %786 = getelementptr inbounds nuw [8 x i8], ptr %785, i64 %switch.load48
+  %787 = getelementptr inbounds nuw i8, ptr %786, i64 %indvars.iv.i
   br label %_ZNK5clang17FunctionProtoType19getExtParameterInfoEj.exit.i
 
 _ZNK5clang17FunctionProtoType19getExtParameterInfoEj.exit.i: ; preds = %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEESC_JSE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISE_EE.exit.i.i.i117.i, %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEESC_JSE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISE_EE.exit.i.i.i.i
@@ -7405,7 +7398,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit136.i:            ; preds = %834, %832
   br i1 %.not105.i, label %_ZN4llvm11raw_ostreamlsEPKc.exit152.i, label %840
 
 840:                                              ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit136.i
-  %841 = getelementptr inbounds nuw %"class.clang::QualType", ptr %693, i64 %indvars.iv.i
+  %841 = getelementptr inbounds nuw [8 x i8], ptr %693, i64 %indvars.iv.i
   %.sroa.0.0.copyload.i.i286 = load i64, ptr %841, align 8, !tbaa !13
   %842 = and i64 %.sroa.0.0.copyload.i.i286, -16
   %843 = inttoptr i64 %842 to ptr
@@ -7570,10 +7563,10 @@ _ZN4llvm11raw_ostreamlsEPKc.exit141.i:            ; preds = %916, %914
   %.0.i.i140.i = phi ptr [ %915, %914 ], [ %2, %916 ]
   %switch.tableidx = add nsw i8 %814, -1
   %919 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep49 = getelementptr inbounds nuw i64, ptr @switch.table._ZN12_GLOBAL__N_111TypePrinter10printAfterEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE.48, i64 %919
+  %switch.gep49 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN12_GLOBAL__N_111TypePrinter10printAfterEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE.48, i64 %919
   %switch.load50 = load i64, ptr %switch.gep49, align 8
   %920 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep51 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12_GLOBAL__N_111TypePrinter10printAfterEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE.49, i64 %920
+  %switch.gep51 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN12_GLOBAL__N_111TypePrinter10printAfterEPKN5clang4TypeENS1_10QualifiersERN4llvm11raw_ostreamE.49, i64 %920
   %switch.load52 = load ptr, ptr %switch.gep51, align 8
   %921 = getelementptr inbounds nuw i8, ptr %.0.i.i140.i, i64 24
   %922 = load ptr, ptr %921, align 8, !tbaa !3
@@ -7622,7 +7615,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit149.i: ; preds = %931, %929
   br label %_ZN4llvm11raw_ostreamlsEPKc.exit152.i
 
 _ZN4llvm11raw_ostreamlsEPKc.exit152.i:            ; preds = %943, %941, %906, %_ZN4llvm11raw_ostreamlsEPKc.exit136.i, %_ZN4llvm11raw_ostreamlsEPKc.exit.i280, %.split.i
-  %947 = getelementptr inbounds nuw %"class.clang::QualType", ptr %693, i64 %indvars.iv.i
+  %947 = getelementptr inbounds nuw [8 x i8], ptr %693, i64 %indvars.iv.i
   %.sroa.0.0.copyload.i153.i = load i64, ptr %947, align 8, !tbaa !13
   %.val.i154.i = load i64, ptr %0, align 8
   %948 = and i64 %.val.i154.i, 1099511627776
@@ -7798,10 +7791,10 @@ _ZNK5clang17FunctionProtoType20hasArmTypeAttributesEv.exit.i.i: ; preds = %_ZN4l
   %1030 = getelementptr inbounds nuw i8, ptr %.tr474, i64 48
   %1031 = lshr i64 %1025, 38
   %1032 = and i64 %1031, 65535
-  %1033 = getelementptr inbounds nuw %"class.clang::QualType", ptr %1030, i64 %1032
+  %1033 = getelementptr inbounds nuw [8 x i8], ptr %1030, i64 %1032
   %1034 = lshr i64 %1025, 60
   %1035 = and i64 %1034, 1
-  %1036 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %1033, i64 %1035
+  %1036 = getelementptr inbounds nuw [4 x i8], ptr %1033, i64 %1035
   %1037 = ptrtoint ptr %1036 to i64
   %1038 = add i64 %1037, 7
   %1039 = and i64 %1038, -8
@@ -8233,10 +8226,10 @@ _ZN4llvm11raw_ostreamlsEPKc.exit210.i:            ; preds = %1270, %1268, %1258,
   %1276 = getelementptr inbounds nuw i8, ptr %.tr474, i64 48
   %1277 = lshr i64 %1273, 38
   %1278 = and i64 %1277, 65535
-  %1279 = getelementptr inbounds nuw %"class.clang::QualType", ptr %1276, i64 %1278
+  %1279 = getelementptr inbounds nuw [8 x i8], ptr %1276, i64 %1278
   %1280 = lshr i64 %1273, 60
   %1281 = and i64 %1280, 1
-  %1282 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %1279, i64 %1281
+  %1282 = getelementptr inbounds nuw [4 x i8], ptr %1279, i64 %1281
   %1283 = ptrtoint ptr %1282 to i64
   %1284 = add i64 %1283, 7
   %1285 = and i64 %1284, -8
@@ -8262,35 +8255,35 @@ _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionPr
   %1298 = trunc nuw nsw i64 %1297 to i32
   %1299 = and i32 %1298, 15
   %1300 = and i64 %1297, 15
-  %switch.gep53 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 %1300
+  %switch.gep53 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 %1300
   %switch.load54 = load i64, ptr %switch.gep53, align 8
   %1301 = getelementptr inbounds nuw i8, ptr %1286, i64 8
-  %1302 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeArmAttributes", ptr %1301, i64 %1292
-  %1303 = getelementptr inbounds nuw %"struct.clang::FunctionType::ExceptionType", ptr %1302, i64 %spec.select.i.i.i.i.i.i.i.i.i.i284
+  %1302 = getelementptr inbounds nuw [8 x i8], ptr %1301, i64 %1292
+  %1303 = getelementptr inbounds nuw [8 x i8], ptr %1302, i64 %spec.select.i.i.i.i.i.i.i.i.i.i284
   %.off.i.i.i.i.i.i.i.i.i = add nsw i32 %1299, -6
   %switch.i.i.i.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i.i.i.i, 3
   %1304 = zext i1 %switch.i.i.i.i.i.i.i.i.i to i64
-  %1305 = getelementptr inbounds nuw ptr, ptr %1303, i64 %1304
-  %1306 = getelementptr inbounds nuw ptr, ptr %1305, i64 %switch.load54
+  %1305 = getelementptr inbounds nuw [8 x i8], ptr %1303, i64 %1304
+  %1306 = getelementptr inbounds nuw [8 x i8], ptr %1305, i64 %switch.load54
   %1307 = and i64 %1273, 288230376151711744
   %.not.i.i.i.i.i.i.i = icmp eq i64 %1307, 0
   %1308 = select i1 %.not.i.i.i.i.i.i.i, i64 0, i64 %1278
-  %1309 = getelementptr inbounds nuw %"class.clang::FunctionType::ExtParameterInfo", ptr %1306, i64 %1308
+  %1309 = getelementptr inbounds nuw i8, ptr %1306, i64 %1308
   %1310 = ptrtoint ptr %1309 to i64
   %1311 = add i64 %1310, 7
   %1312 = and i64 %1311, -8
   %1313 = inttoptr i64 %1312 to ptr
   %1314 = lshr i64 %1273, 37
   %1315 = and i64 %1314, 1
-  %1316 = getelementptr inbounds nuw %"class.clang::Qualifiers", ptr %1313, i64 %1315
+  %1316 = getelementptr inbounds nuw [8 x i8], ptr %1313, i64 %1315
   br i1 %.not10.i.i, label %.lr.ph339.i, label %switch.lookup
 
 switch.lookup:                                    ; preds = %_ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionProtoTypeENS_15TrailingObjectsIS3_JNS2_8QualTypeENS2_14SourceLocationENS2_12FunctionType26FunctionTypeExtraBitfieldsENS7_25FunctionTypeArmAttributesENS7_13ExceptionTypeEPNS2_4ExprEPNS2_12FunctionDeclENS7_16ExtParameterInfoENS2_10QualifiersENS2_14FunctionEffectENS2_19EffectConditionExprEEEES9_JSA_SC_SE_SF_SG_SH_SI_EE22getTrailingObjectsImplEPKS3_NS0_19TrailingObjectsBase13OverloadTokenISA_EE.exit.i.i.i.i.i.i.i.i
   %1317 = and i64 %1297, 15
-  %switch.gep55 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 %1317
+  %switch.gep55 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 %1317
   %switch.load56 = load i64, ptr %switch.gep55, align 8
-  %1318 = getelementptr inbounds nuw ptr, ptr %1305, i64 %switch.load56
-  %1319 = getelementptr inbounds nuw %"class.clang::FunctionType::ExtParameterInfo", ptr %1318, i64 %1308
+  %1318 = getelementptr inbounds nuw [8 x i8], ptr %1305, i64 %switch.load56
+  %1319 = getelementptr inbounds nuw i8, ptr %1318, i64 %1308
   %1320 = ptrtoint ptr %1319 to i64
   %1321 = add i64 %1320, 7
   %1322 = and i64 %1321, -8
@@ -8322,12 +8315,12 @@ switch.lookup:                                    ; preds = %_ZN4llvm25trailing_
 1333:                                             ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit237.i, %.lr.ph339.i
   %.sroa.5.0338.i = phi i64 [ 0, %.lr.ph339.i ], [ %1392, %_ZN4llvm11raw_ostreamlsEPKc.exit237.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %1334 = getelementptr inbounds nuw %"class.clang::FunctionEffect", ptr %1316, i64 %.sroa.5.0338.i
+  %1334 = getelementptr inbounds nuw i8, ptr %1316, i64 %.sroa.5.0338.i
   %.sroa.0.0.copyload.i219.i = load i8, ptr %1334, align 1, !tbaa !235
   br i1 %.not10.i.i, label %_ZNK5clang22FunctionEffectIteratorINS_18FunctionEffectsRefEEdeEv.exit.i, label %1335
 
 1335:                                             ; preds = %1333
-  %1336 = getelementptr inbounds nuw %"class.clang::EffectConditionExpr", ptr %.sroa.7.0.i, i64 %.sroa.5.0338.i
+  %1336 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.7.0.i, i64 %.sroa.5.0338.i
   %1337 = load i64, ptr %1336, align 8, !tbaa !28
   %1338 = inttoptr i64 %1337 to ptr
   br label %_ZNK5clang22FunctionEffectIteratorINS_18FunctionEffectsRefEEdeEv.exit.i
@@ -16861,7 +16854,7 @@ _ZN4llvm11raw_ostreamlsEc.exit60:                 ; preds = %193, %195
   %199 = lshr i32 %198, 19
   %200 = and i32 %199, 127
   %201 = zext nneg i32 %200 to i64
-  %202 = getelementptr inbounds nuw %"class.clang::QualType", ptr %197, i64 %201
+  %202 = getelementptr inbounds nuw [8 x i8], ptr %197, i64 %201
   %203 = lshr i32 %198, 23
   %204 = and i32 %203, 504
   %.idx127 = zext nneg i32 %204 to i64
@@ -17267,7 +17260,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_111TypePrinter23printPackIndexingBe
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %13 = tail call i64 @_ZNK5clang16PackIndexingType16getSelectedIndexEv(ptr noundef nonnull align 16 dereferenceable(64) %1) #18
   %14 = and i64 %13, 4294967295
-  %15 = getelementptr inbounds nuw %"class.clang::QualType", ptr %12, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %14
   %.sroa.0.0.copyload.i = load i64, ptr %15, align 8, !tbaa !13
   %16 = and i64 %.sroa.0.0.copyload.i, 8
   %.not.i15 = icmp eq i64 %16, 0
@@ -18964,7 +18957,7 @@ _ZNK5clang4Decl19specific_attr_beginINS_17PreferredNameAttrEEENS_22specific_attr
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %18 = load i32, ptr %17, align 8, !tbaa !64
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %16, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %19
   br label %_ZNK5clang4Decl14specific_attrsINS_17PreferredNameAttrEEEN4llvm14iterator_rangeINS_22specific_attr_iteratorIT_NS3_11SmallVectorIPNS_4AttrELj4EEEEEEEv.exit
 
 _ZNK5clang4Decl14specific_attrsINS_17PreferredNameAttrEEEN4llvm14iterator_rangeINS_22specific_attr_iteratorIT_NS3_11SmallVectorIPNS_4AttrELj4EEEEEEEv.exit: ; preds = %6, %_ZNK5clang4Decl19specific_attr_beginINS_17PreferredNameAttrEEENS_22specific_attr_iteratorIT_N4llvm11SmallVectorIPNS_4AttrELj4EEEEEv.exit.i, %14
@@ -23372,7 +23365,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4l
   %11 = add i32 %6, -1
   %.02744.i = and i32 %10, %11
   %12 = zext i32 %.02744.i to i64
-  %13 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %12
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !318
   %15 = icmp eq i32 %9, %14
   br i1 %15, label %.loopexit, label %.lr.ph.i, !prof !695
@@ -23400,7 +23393,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4l
   %25 = add i32 %.02546.i, %.02747.i
   %.027.i = and i32 %25, %11
   %26 = zext i32 %.027.i to i64
-  %27 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %26
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !318
   %29 = icmp eq i32 %9, %28
   br i1 %29, label %.loopexit, label %.lr.ph.i, !prof !696, !llvm.loop !697
@@ -23486,7 +23479,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapIiPKcNS_12De
   %13 = add i32 %8, -1
   %.02744.i = and i32 %12, %13
   %14 = zext i32 %.02744.i to i64
-  %15 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %6, i64 %14
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !318
   %17 = icmp eq i32 %11, %16
   br i1 %17, label %.loopexit, label %.lr.ph.i, !prof !695
@@ -23514,7 +23507,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapIiPKcNS_12De
   %27 = add i32 %.02546.i, %.02747.i
   %.027.i = and i32 %27, %13
   %28 = zext i32 %.027.i to i64
-  %29 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %6, i64 %28
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !318
   %31 = icmp eq i32 %11, %30
   br i1 %31, label %.loopexit, label %.lr.ph.i, !prof !696, !llvm.loop !697
@@ -23586,7 +23579,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIiPKcNS_12DenseMapInfoIivEENS_6detail12DenseM
   %.sink29 = phi ptr [ %46, %55 ], [ %15, %10 ], [ %29, %23 ]
   %.sink = phi i8 [ 1, %55 ], [ 0, %10 ], [ 0, %23 ]
   %61 = zext i32 %.sink32 to i64
-  %62 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.sink30, i64 %61
+  %62 = getelementptr inbounds nuw [16 x i8], ptr %.sink30, i64 %61
   store ptr %.sink29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %62, ptr %.sroa.4.0..sroa_idx, align 8
@@ -23609,7 +23602,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %11 = add i32 %6, -1
   %.02744 = and i32 %10, %11
   %12 = zext i32 %.02744 to i64
-  %13 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %12
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !318
   %15 = icmp eq i32 %9, %14
   br i1 %15, label %._crit_edge, label %.lr.ph, !prof !695
@@ -23637,7 +23630,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %25 = add i32 %.02747, %.02546
   %.027 = and i32 %25, %11
   %26 = zext i32 %.027 to i64
-  %27 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %26
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !318
   %29 = icmp eq i32 %9, %28
   br i1 %29, label %._crit_edge, label %.lr.ph, !prof !696, !llvm.loop !697
@@ -23741,7 +23734,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIiPKcNS_12DenseMapInfoIivEENS_6detail12DenseM
   %43 = mul i32 %41, 37
   %.02744.i.i = and i32 %43, %39
   %44 = zext i32 %.02744.i.i to i64
-  %45 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %21, i64 %44
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %44
   %46 = load i32, ptr %45, align 4, !tbaa !318
   %47 = icmp eq i32 %41, %46
   br i1 %47, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIiPKcNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E15LookupBucketForIiEEbRKT_RPS8_.exit.i, label %.lr.ph.i13.i, !prof !695
@@ -23769,7 +23762,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIiPKcNS_12DenseMapInfoIivEENS_6detail12DenseM
   %57 = add i32 %.02546.i.i, %.02747.i.i
   %.027.i.i = and i32 %57, %39
   %58 = zext i32 %.027.i.i to i64
-  %59 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %21, i64 %58
+  %59 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %58
   %60 = load i32, ptr %59, align 4, !tbaa !318
   %61 = icmp eq i32 %41, %60
   br i1 %61, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIiPKcNS_12DenseMapInfoIivEENS_6detail12DenseMapPairIiS3_EEEEiS3_S5_S8_E15LookupBucketForIiEEbRKT_RPS8_.exit.i, label %.lr.ph.i13.i, !prof !696, !llvm.loop !697
@@ -24761,10 +24754,10 @@ define linkonce_odr hidden i64 @_ZNK5clang17FunctionProtoType14getMethodQualsEv(
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = lshr i64 %3, 38
   %8 = and i64 %7, 65535
-  %9 = getelementptr inbounds nuw %"class.clang::QualType", ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %8
   %10 = lshr i64 %3, 60
   %11 = and i64 %10, 1
-  %12 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %11
   %13 = ptrtoint ptr %12 to i64
   %14 = add i64 %13, 7
   %15 = and i64 %14, -8
@@ -24798,22 +24791,22 @@ _ZN4llvm25trailing_objects_internal19TrailingObjectsImplILi8EN5clang17FunctionPr
   %30 = trunc nuw nsw i64 %29 to i32
   %31 = and i32 %30, 15
   %32 = and i64 %29, 15
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 %32
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5clang17FunctionProtoType14getMethodQualsEv, i64 %32
   %switch.load = load i64, ptr %switch.gep, align 8
   %33 = lshr i64 %3, 59
   %34 = and i64 %33, 1
-  %35 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeExtraBitfields", ptr %16, i64 %34
-  %36 = getelementptr inbounds nuw %"struct.clang::FunctionType::FunctionTypeArmAttributes", ptr %35, i64 %22
-  %37 = getelementptr inbounds nuw %"struct.clang::FunctionType::ExceptionType", ptr %36, i64 %spec.select.i.i.i.i.i.i.i
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %34
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %22
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %spec.select.i.i.i.i.i.i.i
   %.off.i.i.i.i.i.i = add nsw i32 %31, -6
   %switch.i.i.i.i.i.i = icmp ult i32 %.off.i.i.i.i.i.i, 3
   %38 = zext i1 %switch.i.i.i.i.i.i to i64
-  %39 = getelementptr inbounds nuw ptr, ptr %37, i64 %38
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %switch.load
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %38
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %switch.load
   %41 = and i64 %3, 288230376151711744
   %.not.i.i.i.i = icmp eq i64 %41, 0
   %42 = select i1 %.not.i.i.i.i, i64 0, i64 %8
-  %43 = getelementptr inbounds nuw %"class.clang::FunctionType::ExtParameterInfo", ptr %40, i64 %42
+  %43 = getelementptr inbounds nuw i8, ptr %40, i64 %42
   %44 = ptrtoint ptr %43 to i64
   %45 = add i64 %44, 7
   %46 = and i64 %45, -8

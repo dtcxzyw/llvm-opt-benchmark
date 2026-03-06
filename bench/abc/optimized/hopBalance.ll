@@ -28,7 +28,7 @@ define ptr @Hop_ManBalance(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
   %10 = phi ptr [ %15, %.lr.ph ], [ %7, %2 ]
   %11 = getelementptr i8, ptr %10, i64 8
   %.val30 = load ptr, ptr %11, align 8, !tbaa !19
-  %12 = getelementptr inbounds nuw ptr, ptr %.val30, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %.val30, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !20
   %14 = tail call ptr @Hop_ObjCreatePi(ptr noundef nonnull %3) #10
   store ptr %14, ptr %13, align 8, !tbaa !15
@@ -60,7 +60,7 @@ define ptr @Hop_ManBalance(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
   %27 = phi ptr [ %42, %.lr.ph38 ], [ %24, %.critedge ]
   %28 = getelementptr i8, ptr %27, i64 8
   %.val31 = load ptr, ptr %28, align 8, !tbaa !19
-  %29 = getelementptr inbounds nuw ptr, ptr %.val31, i64 %indvars.iv40
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %.val31, i64 %indvars.iv40
   %30 = load ptr, ptr %29, align 8, !tbaa !20
   %31 = getelementptr i8, ptr %30, i64 16
   %.val32 = load ptr, ptr %31, align 8, !tbaa !28
@@ -95,7 +95,7 @@ define ptr @Hop_ManBalance(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %54
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %54 ], [ 0, %.lr.ph.i.preheader ]
-  %48 = getelementptr inbounds nuw ptr, ptr %.pre.pre, i64 %indvars.iv.i
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %.pre.pre, i64 %indvars.iv.i
   %49 = load ptr, ptr %48, align 8, !tbaa !20
   %.not.i = icmp eq ptr %49, null
   br i1 %.not.i, label %54, label %50
@@ -209,7 +209,7 @@ Vec_PtrGrow.exit.i.i:                             ; preds = %21, %9
   %indvars.iv.i.i = phi i64 [ %25, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
   %calloc.i.i.i = tail call noalias noundef dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
   %27 = load ptr, ptr %24, align 8, !tbaa !26
-  %28 = getelementptr inbounds ptr, ptr %27, i64 %indvars.iv.i.i
+  %28 = getelementptr inbounds [8 x i8], ptr %27, i64 %indvars.iv.i.i
   store ptr %calloc.i.i.i, ptr %28, align 8, !tbaa !20
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
   %lftr.wideiv.i.i = trunc i64 %indvars.iv.next.i.i to i32
@@ -221,7 +221,7 @@ Vec_PtrGrow.exit.i.i:                             ; preds = %21, %9
   %29 = getelementptr i8, ptr %2, i64 8
   %.val.i.i = load ptr, ptr %29, align 8, !tbaa !26
   %30 = sext i32 %3 to i64
-  %31 = getelementptr inbounds ptr, ptr %.val.i.i, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %.val.i.i, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !20
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %34 = load i32, ptr %33, align 4, !tbaa !17
@@ -287,7 +287,7 @@ Vec_VecPush.exit.i:                               ; preds = %57, %Vec_PtrGrow.ex
   %61 = add nsw i32 %60, 1
   store i32 %61, ptr %33, align 4, !tbaa !17
   %62 = sext i32 %60 to i64
-  %63 = getelementptr inbounds ptr, ptr %59, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %59, i64 %62
   store ptr null, ptr %63, align 8, !tbaa !20
   br label %64
 
@@ -295,7 +295,7 @@ Vec_VecPush.exit.i:                               ; preds = %57, %Vec_PtrGrow.ex
   %.pre-phi.i = phi i64 [ %.pre.i, %._crit_edge.i ], [ %30, %Vec_VecPush.exit.i ]
   %65 = getelementptr i8, ptr %2, i64 8
   %.val21.i = load ptr, ptr %65, align 8, !tbaa !26
-  %66 = getelementptr inbounds ptr, ptr %.val21.i, i64 %.pre-phi.i
+  %66 = getelementptr inbounds [8 x i8], ptr %.val21.i, i64 %.pre-phi.i
   %67 = load ptr, ptr %66, align 8, !tbaa !20
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 4
   store i32 0, ptr %68, align 4, !tbaa !17
@@ -311,7 +311,7 @@ Vec_VecPush.exit.i:                               ; preds = %57, %Vec_PtrGrow.ex
 72:                                               ; preds = %72, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %72 ]
   %.val19.i = load ptr, ptr %71, align 8, !tbaa !19
-  %73 = getelementptr inbounds nuw ptr, ptr %.val19.i, i64 %indvars.iv.i
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %.val19.i, i64 %indvars.iv.i
   %74 = load ptr, ptr %73, align 8, !tbaa !20
   %75 = ptrtoint ptr %74 to i64
   %76 = and i64 %75, -2
@@ -365,14 +365,14 @@ Hop_NodeBalanceCone.exit:                         ; preds = %.critedge.i
 96:                                               ; preds = %.lr.ph, %96
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %96 ]
   %97 = load ptr, ptr %94, align 8, !tbaa !19
-  %98 = getelementptr inbounds nuw ptr, ptr %97, i64 %indvars.iv
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %indvars.iv
   %99 = load ptr, ptr %98, align 8, !tbaa !20
   %100 = ptrtoint ptr %99 to i64
   %101 = and i64 %100, -2
   %102 = inttoptr i64 %101 to ptr
   %103 = tail call fastcc ptr @Hop_NodeBalance_rec(ptr noundef %0, ptr noundef %102, ptr noundef nonnull %2, i32 noundef %95, i32 noundef %4)
   %104 = load ptr, ptr %94, align 8, !tbaa !19
-  %105 = getelementptr inbounds nuw ptr, ptr %104, i64 %indvars.iv
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 %indvars.iv
   %106 = load ptr, ptr %105, align 8, !tbaa !20
   %107 = ptrtoint ptr %106 to i64
   %108 = and i64 %107, 1
@@ -445,7 +445,7 @@ define range(i32 -1, 2) i32 @Hop_NodeBalanceCone_rec(ptr noundef %0, ptr noundef
 
 20:                                               ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
-  %21 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !20
   %23 = icmp eq ptr %22, %1
   br i1 %23, label %.loopexit, label %15
@@ -457,7 +457,7 @@ define range(i32 -1, 2) i32 @Hop_NodeBalanceCone_rec(ptr noundef %0, ptr noundef
 
 25:                                               ; preds = %.lr.ph54, %24
   %indvars.iv60 = phi i64 [ 0, %.lr.ph54 ], [ %indvars.iv.next61, %24 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv60
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv60
   %27 = load ptr, ptr %26, align 8, !tbaa !20
   %28 = icmp eq ptr %27, %19
   br i1 %28, label %.loopexit, label %24
@@ -554,7 +554,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %70 = add nsw i32 %69, 1
   store i32 %70, ptr %42, align 4, !tbaa !17
   %71 = sext i32 %69 to i64
-  %72 = getelementptr inbounds ptr, ptr %68, i64 %71
+  %72 = getelementptr inbounds [8 x i8], ptr %68, i64 %71
   store ptr %1, ptr %72, align 8, !tbaa !20
   %73 = load i32, ptr %7, align 8
   %74 = or i32 %73, 32
@@ -665,7 +665,7 @@ Vec_PtrSort.exit:                                 ; preds = %4
   %.val19.i = load ptr, ptr %12, align 8, !tbaa !19
   %22 = add nsw i32 %20, -3
   %23 = zext nneg i32 %20 to i64
-  %24 = getelementptr ptr, ptr %.val19.i, i64 %23
+  %24 = getelementptr [8 x i8], ptr %.val19.i, i64 %23
   %25 = getelementptr i8, ptr %24, i64 -16
   %26 = load ptr, ptr %25, align 8, !tbaa !20
   %27 = ptrtoint ptr %26 to i64
@@ -678,7 +678,7 @@ Vec_PtrSort.exit:                                 ; preds = %4
 
 32:                                               ; preds = %39, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %31, %.lr.ph.i ], [ %indvars.iv.next.i, %39 ]
-  %33 = getelementptr inbounds nuw ptr, ptr %.val19.i, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %.val19.i, i64 %indvars.iv.i
   %34 = load ptr, ptr %33, align 8, !tbaa !20
   %35 = ptrtoint ptr %34 to i64
   %36 = and i64 %35, -2
@@ -708,11 +708,11 @@ Hop_NodeBalanceFindLeft.exit:                     ; preds = %39, %._crit_edge.sp
 46:                                               ; preds = %Hop_NodeBalanceFindLeft.exit
   %.val46.i = load ptr, ptr %12, align 8, !tbaa !19
   %47 = zext nneg i32 %20 to i64
-  %48 = getelementptr ptr, ptr %.val46.i, i64 %47
+  %48 = getelementptr [8 x i8], ptr %.val46.i, i64 %47
   %49 = getelementptr i8, ptr %48, i64 -8
   %50 = load ptr, ptr %49, align 8, !tbaa !20
   %51 = zext nneg i32 %44 to i64
-  %52 = getelementptr inbounds nuw ptr, ptr %.val46.i, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %.val46.i, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !20
   %54 = ptrtoint ptr %50 to i64
   %55 = and i64 %54, -2
@@ -742,7 +742,7 @@ Hop_NodeBalanceFindLeft.exit:                     ; preds = %39, %._crit_edge.sp
 67:                                               ; preds = %66, %.lr.ph.i15
   %indvars.iv.i16 = phi i64 [ %64, %.lr.ph.i15 ], [ %indvars.iv.next.i17, %66 ]
   %.val44.i = load ptr, ptr %12, align 8, !tbaa !19
-  %68 = getelementptr inbounds ptr, ptr %.val44.i, i64 %indvars.iv.i16
+  %68 = getelementptr inbounds [8 x i8], ptr %.val44.i, i64 %indvars.iv.i16
   %69 = load ptr, ptr %68, align 8, !tbaa !20
   %70 = ptrtoint ptr %69 to i64
   %71 = and i64 %70, -2
@@ -778,10 +778,10 @@ Hop_NodeBalanceFindLeft.exit:                     ; preds = %39, %._crit_edge.sp
 
 .loopexit.sink.split.i:                           ; preds = %67, %86
   %.val49.i.sink = phi ptr [ %.val49.i, %86 ], [ %.val44.i, %67 ]
-  %87 = getelementptr inbounds ptr, ptr %.val49.i.sink, i64 %indvars.iv.i16
+  %87 = getelementptr inbounds [8 x i8], ptr %.val49.i.sink, i64 %indvars.iv.i16
   store ptr %53, ptr %87, align 8, !tbaa !20
   %.val50.i = load ptr, ptr %12, align 8, !tbaa !19
-  %88 = getelementptr inbounds nuw ptr, ptr %.val50.i, i64 %51
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %.val50.i, i64 %51
   store ptr %69, ptr %88, align 8, !tbaa !20
   br label %Hop_NodeBalancePermute.exit
 
@@ -789,13 +789,13 @@ Hop_NodeBalancePermute.exit:                      ; preds = %66, %Hop_NodeBalanc
   %89 = load ptr, ptr %12, align 8, !tbaa !19
   %90 = load i32, ptr %5, align 4, !tbaa !17
   %91 = sext i32 %90 to i64
-  %92 = getelementptr ptr, ptr %89, i64 %91
+  %92 = getelementptr [8 x i8], ptr %89, i64 %91
   %93 = getelementptr i8, ptr %92, i64 -8
   %94 = load ptr, ptr %93, align 8, !tbaa !20
   %95 = add nsw i32 %90, -2
   store i32 %95, ptr %5, align 4, !tbaa !17
   %96 = sext i32 %95 to i64
-  %97 = getelementptr inbounds ptr, ptr %89, i64 %96
+  %97 = getelementptr inbounds [8 x i8], ptr %89, i64 %96
   %98 = load ptr, ptr %97, align 8, !tbaa !20
   %99 = tail call ptr @Hop_Oper(ptr noundef %0, ptr noundef %94, ptr noundef %98, i32 noundef %2) #10
   %100 = load i32, ptr %5, align 4, !tbaa !17
@@ -814,7 +814,7 @@ Hop_NodeBalancePermute.exit:                      ; preds = %66, %Hop_NodeBalanc
 
 104:                                              ; preds = %103, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %103 ]
-  %105 = getelementptr inbounds nuw ptr, ptr %102, i64 %indvars.iv.i.i
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 %indvars.iv.i.i
   %106 = load ptr, ptr %105, align 8, !tbaa !20
   %107 = icmp eq ptr %106, %99
   br i1 %107, label %Hop_NodeBalancePushUniqueOrderByLevel.exit, label %103
@@ -879,7 +879,7 @@ Vec_PtrGrow.exit.i.i.i:                           ; preds = %116, %114
   %133 = add i32 %132, 1
   store i32 %133, ptr %5, align 4, !tbaa !17
   %134 = sext i32 %132 to i64
-  %135 = getelementptr inbounds ptr, ptr %131, i64 %134
+  %135 = getelementptr inbounds [8 x i8], ptr %131, i64 %134
   store ptr %99, ptr %135, align 8, !tbaa !20
   %136 = icmp sgt i32 %132, 0
   br i1 %136, label %.lr.ph.preheader.i, label %._crit_edge
@@ -893,10 +893,10 @@ Vec_PtrGrow.exit.i.i.i:                           ; preds = %116, %114
   %.022.i = phi i32 [ %132, %.lr.ph.preheader.i ], [ %.0.i, %155 ]
   %138 = load ptr, ptr %12, align 8, !tbaa !19
   %139 = zext nneg i32 %.022.i to i64
-  %140 = getelementptr inbounds nuw ptr, ptr %138, i64 %139
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %138, i64 %139
   %141 = load ptr, ptr %140, align 8, !tbaa !20
   %142 = add nsw i64 %indvars.iv.i19, -2
-  %143 = getelementptr inbounds nuw ptr, ptr %138, i64 %142
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %138, i64 %142
   %144 = load ptr, ptr %143, align 8, !tbaa !20
   %145 = ptrtoint ptr %141 to i64
   %146 = and i64 %145, -2
@@ -916,7 +916,7 @@ Vec_PtrGrow.exit.i.i.i:                           ; preds = %116, %114
 155:                                              ; preds = %.lr.ph.i18
   store ptr %144, ptr %140, align 8, !tbaa !20
   %156 = load ptr, ptr %12, align 8, !tbaa !19
-  %157 = getelementptr inbounds nuw ptr, ptr %156, i64 %142
+  %157 = getelementptr inbounds nuw [8 x i8], ptr %156, i64 %142
   store ptr %141, ptr %157, align 8, !tbaa !20
   %.0.i = add nsw i32 %.022.i, -1
   %158 = icmp sgt i32 %.022.i, 1

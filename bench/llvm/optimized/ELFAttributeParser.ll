@@ -20,12 +20,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorBase" = type { ptr, i64, i64 }
 %"struct.llvm::SmallVectorStorage" = type { [8 x i8] }
 %class.anon = type { i8 }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.40" }
-%"struct.std::_Head_base.40" = type { ptr }
 
 $_ZNSt10_HashtableIjSt4pairIKjN4llvm9StringRefEESaIS4_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS6_18_Mod_range_hashingENS6_20_Default_ranged_hashENS6_20_Prime_rehash_policyENS6_17_Hashtable_traitsILb0ELb0ELb1EEEE10_M_emplaceIJRjRS3_EEES0_INS6_14_Node_iteratorIS4_Lb0ELb0EEEbESt17integral_constantIbLb1EEDpOT_ = comdat any
 
@@ -159,7 +153,7 @@ _ZN4llvm17createStringErrorESt10error_codeRKNS_5TwineE.exit: ; preds = %_ZN4llvm
   br label %39
 
 33:                                               ; preds = %6
-  %34 = getelementptr inbounds nuw ptr, ptr %4, i64 %15
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %15
   %35 = load ptr, ptr %34, align 8, !tbaa !36
   %.not.i34 = icmp eq ptr %35, null
   br i1 %.not.i34, label %_ZN4llvm5ErrorD2Ev.exit, label %36
@@ -1573,7 +1567,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIjSt4pairIKjN4llvm9StringRefEE
   %12 = load i64, ptr %11, align 8, !tbaa !192
   %13 = urem i64 %10, %12
   %14 = load ptr, ptr %0, align 8, !tbaa !193
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %13
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %13
   %16 = load ptr, ptr %15, align 8, !tbaa !194
   %.not.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i, label %.critedge18, label %28
@@ -1650,7 +1644,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIjSt4pairIKjN4llvm9StringRefEE
 53:                                               ; preds = %49, %.critedge18
   %.0.i19 = phi i64 [ %52, %49 ], [ %41, %.critedge18 ]
   %54 = load ptr, ptr %0, align 8, !tbaa !193
-  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %.0.i19
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %.0.i19
   %56 = load ptr, ptr %55, align 8, !tbaa !194
   %.not.i.i20 = icmp eq ptr %56, null
   br i1 %.not.i.i20, label %60, label %57
@@ -1676,7 +1670,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIjSt4pairIKjN4llvm9StringRefEE
   %66 = load i32, ptr %64, align 4, !tbaa !60
   %67 = zext i32 %66 to i64
   %68 = urem i64 %67, %65
-  %69 = getelementptr inbounds nuw ptr, ptr %54, i64 %68
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %68
   store ptr %4, ptr %69, align 8, !tbaa !194
   br label %70
 
@@ -1762,7 +1756,7 @@ _ZNSt10_HashtableIjSt4pairIKjN4llvm9StringRefEESaIS4_ENSt8__detail10_Select1stES
   %18 = load i32, ptr %17, align 8, !tbaa !60
   %19 = zext i32 %18 to i64
   %20 = urem i64 %19, %1
-  %21 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !194
   %.not27 = icmp eq ptr %22, null
   br i1 %.not27, label %23, label %28
@@ -1777,7 +1771,7 @@ _ZNSt10_HashtableIjSt4pairIKjN4llvm9StringRefEESaIS4_ENSt8__detail10_Select1stES
   br i1 %.not28, label %31, label %26
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %27, align 8, !tbaa !194
   br label %31
 
@@ -2114,7 +2108,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i, %68
   store ptr %61, ptr %40, align 8, !tbaa !233
   store ptr %67, ptr %41, align 8, !tbaa !230
-  %69 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %61, i64 %59
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %59
   store ptr %69, ptr %43, align 8, !tbaa !232
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit
 
@@ -2264,7 +2258,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit52: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i49, %130
   store ptr %124, ptr %79, align 8, !tbaa !233
   store ptr %.0.lcssa.i.i.i21.i50, ptr %83, align 8, !tbaa !230
-  %131 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %124, i64 %122
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %122
   store ptr %131, ptr %85, align 8, !tbaa !232
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit21
 
@@ -2384,7 +2378,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, %31
   store ptr %20, ptr %0, align 8, !tbaa !233
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !230
-  %35 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %20, i64 %16
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %35, ptr %30, align 8, !tbaa !232
   ret void
 }
@@ -2420,7 +2414,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__det
   %14 = load i64, ptr %13, align 8, !tbaa !274
   %15 = urem i64 %12, %14
   %16 = load ptr, ptr %0, align 8, !tbaa !275
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %15
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %15
   %18 = load ptr, ptr %17, align 8, !tbaa !194
   %.not.i.i = icmp eq ptr %18, null
   br i1 %.not.i.i, label %.critedge17, label %30
@@ -2497,7 +2491,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__det
 55:                                               ; preds = %51, %.critedge17
   %.0.i18 = phi i64 [ %54, %51 ], [ %43, %.critedge17 ]
   %56 = load ptr, ptr %0, align 8, !tbaa !275
-  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %.0.i18
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %.0.i18
   %58 = load ptr, ptr %57, align 8, !tbaa !194
   %.not.i.i19 = icmp eq ptr %58, null
   br i1 %.not.i.i19, label %62, label %59
@@ -2523,7 +2517,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__det
   %68 = load i32, ptr %66, align 4, !tbaa !60
   %69 = zext i32 %68 to i64
   %70 = urem i64 %69, %67
-  %71 = getelementptr inbounds nuw ptr, ptr %56, i64 %70
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %70
   store ptr %3, ptr %71, align 8, !tbaa !194
   br label %72
 
@@ -2598,7 +2592,7 @@ _ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4
   %18 = load i32, ptr %17, align 8, !tbaa !60
   %19 = zext i32 %18 to i64
   %20 = urem i64 %19, %1
-  %21 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !194
   %.not27 = icmp eq ptr %22, null
   br i1 %.not27, label %23, label %28
@@ -2613,7 +2607,7 @@ _ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__detail10_Select1stESt8equal_toIjESt4
   br i1 %.not28, label %31, label %26
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %27, align 8, !tbaa !194
   br label %31
 
@@ -2671,7 +2665,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__det
   %13 = load i64, ptr %12, align 8, !tbaa !274
   %14 = urem i64 %11, %13
   %15 = load ptr, ptr %0, align 8, !tbaa !275
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %14
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %14
   %17 = load ptr, ptr %16, align 8, !tbaa !194
   %.not.i.i = icmp eq ptr %17, null
   br i1 %.not.i.i, label %.critedge17, label %29
@@ -2748,7 +2742,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__det
 54:                                               ; preds = %50, %.critedge17
   %.0.i18 = phi i64 [ %53, %50 ], [ %42, %.critedge17 ]
   %55 = load ptr, ptr %0, align 8, !tbaa !275
-  %56 = getelementptr inbounds nuw ptr, ptr %55, i64 %.0.i18
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %.0.i18
   %57 = load ptr, ptr %56, align 8, !tbaa !194
   %.not.i.i19 = icmp eq ptr %57, null
   br i1 %.not.i.i19, label %61, label %58
@@ -2774,7 +2768,7 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableIjSt4pairIKjjESaIS2_ENSt8__det
   %67 = load i32, ptr %65, align 4, !tbaa !60
   %68 = zext i32 %67 to i64
   %69 = urem i64 %68, %66
-  %70 = getelementptr inbounds nuw ptr, ptr %55, i64 %69
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %69
   store ptr %3, ptr %70, align 8, !tbaa !194
   br label %71
 

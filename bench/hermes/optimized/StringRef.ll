@@ -438,7 +438,7 @@ for.body14.us.us.us:                              ; preds = %for.body14.us.us.us
   %7 = phi i32 [ %conv8.us71.us, %for.body7.us69.us ], [ %.sroa.speculated.us.us.us, %for.body14.us.us.us ]
   %x.066.us.us.us = phi i64 [ 1, %for.body7.us69.us ], [ %inc54.us.us.us, %for.body14.us.us.us ]
   %Previous.065.us.us.us = phi i32 [ %conv11.us73.us, %for.body7.us69.us ], [ %8, %for.body14.us.us.us ]
-  %arrayidx15.us.us.us = getelementptr inbounds nuw i32, ptr %Row.0110, i64 %x.066.us.us.us
+  %arrayidx15.us.us.us = getelementptr inbounds nuw [4 x i8], ptr %Row.0110, i64 %x.066.us.us.us
   %8 = load i32, ptr %arrayidx15.us.us.us, align 4
   %9 = getelementptr i8, ptr %ToArray.coerce0, i64 %x.066.us.us.us
   %arrayidx.i42.us.us.us = getelementptr i8, ptr %9, i64 -1
@@ -479,7 +479,7 @@ for.body14.us.us:                                 ; preds = %for.body14.us.us, %
   %x.066.us.us = phi i64 [ 1, %for.body7.us69 ], [ %inc54.us.us, %for.body14.us.us ]
   %Previous.065.us.us = phi i32 [ %conv11.us73, %for.body7.us69 ], [ %14, %for.body14.us.us ]
   %BestThisRow.064.us.us = phi i32 [ %conv8.us71, %for.body7.us69 ], [ %.sroa.speculated54.us.us, %for.body14.us.us ]
-  %arrayidx15.us.us = getelementptr inbounds nuw i32, ptr %Row.0110, i64 %x.066.us.us
+  %arrayidx15.us.us = getelementptr inbounds nuw [4 x i8], ptr %Row.0110, i64 %x.066.us.us
   %14 = load i32, ptr %arrayidx15.us.us, align 4
   %15 = getelementptr i8, ptr %ToArray.coerce0, i64 %x.066.us.us
   %arrayidx.i42.us.us = getelementptr i8, ptr %15, i64 -1
@@ -522,7 +522,7 @@ for.body14.us:                                    ; preds = %if.end50.us, %for.b
   %20 = phi i32 [ %conv8.us81, %for.body7.us79 ], [ %storemerge, %if.end50.us ]
   %x.066.us = phi i64 [ 1, %for.body7.us79 ], [ %inc54.us, %if.end50.us ]
   %Previous.065.us = phi i32 [ %conv11.us83, %for.body7.us79 ], [ %21, %if.end50.us ]
-  %arrayidx15.us = getelementptr inbounds nuw i32, ptr %Row.0110, i64 %x.066.us
+  %arrayidx15.us = getelementptr inbounds nuw [4 x i8], ptr %Row.0110, i64 %x.066.us
   %21 = load i32, ptr %arrayidx15.us, align 4
   %sub36.us = add nsw i64 %x.066.us, -1
   %arrayidx.i46.us = getelementptr inbounds i8, ptr %ToArray.coerce0, i64 %sub36.us
@@ -531,7 +531,7 @@ for.body14.us:                                    ; preds = %if.end50.us, %for.b
   br i1 %cmp39.us, label %if.end50.us, label %if.else42.us
 
 if.else42.us:                                     ; preds = %for.body14.us
-  %arrayidx44.us = getelementptr inbounds i32, ptr %Row.0110, i64 %sub36.us
+  %arrayidx44.us = getelementptr inbounds [4 x i8], ptr %Row.0110, i64 %sub36.us
   %cmp.i47.us = icmp ult i32 %21, %20
   %__b.__a.i48.us = select i1 %cmp.i47.us, ptr %arrayidx15.us, ptr %arrayidx44.us
   %23 = load i32, ptr %__b.__a.i48.us, align 4
@@ -553,7 +553,7 @@ for.cond12.for.end55_crit_edge.split.us:          ; preds = %if.end50.us
 for.body:                                         ; preds = %for.body.preheader, %for.body
   %conv62 = phi i64 [ %conv, %for.body ], [ 1, %for.body.preheader ]
   %i.061 = phi i32 [ %inc, %for.body ], [ 1, %for.body.preheader ]
-  %arrayidx = getelementptr inbounds nuw i32, ptr %Row.0109, i64 %conv62
+  %arrayidx = getelementptr inbounds nuw [4 x i8], ptr %Row.0109, i64 %conv62
   store i32 %i.061, ptr %arrayidx, align 4
   %inc = add i32 %i.061, 1
   %conv = zext i32 %inc to i64
@@ -580,7 +580,7 @@ for.body14:                                       ; preds = %for.body7, %if.end5
   %x.066 = phi i64 [ 1, %for.body7 ], [ %inc54, %if.end50 ]
   %Previous.065 = phi i32 [ %conv11, %for.body7 ], [ %26, %if.end50 ]
   %BestThisRow.064 = phi i32 [ %conv8, %for.body7 ], [ %.sroa.speculated54, %if.end50 ]
-  %arrayidx15 = getelementptr inbounds nuw i32, ptr %Row.0110, i64 %x.066
+  %arrayidx15 = getelementptr inbounds nuw [4 x i8], ptr %Row.0110, i64 %x.066
   %26 = load i32, ptr %arrayidx15, align 4
   %sub36 = add nsw i64 %x.066, -1
   %arrayidx.i46 = getelementptr inbounds i8, ptr %ToArray.coerce0, i64 %sub36
@@ -589,7 +589,7 @@ for.body14:                                       ; preds = %for.body7, %if.end5
   br i1 %cmp39, label %if.end50, label %if.else42
 
 if.else42:                                        ; preds = %for.body14
-  %arrayidx44 = getelementptr inbounds i32, ptr %Row.0110, i64 %sub36
+  %arrayidx44 = getelementptr inbounds [4 x i8], ptr %Row.0110, i64 %sub36
   %cmp.i47 = icmp ult i32 %26, %25
   %__b.__a.i48 = select i1 %cmp.i47, ptr %arrayidx15, ptr %arrayidx44
   %28 = load i32, ptr %__b.__a.i48, align 4
@@ -613,7 +613,7 @@ if.then58:                                        ; preds = %for.cond12.for.end5
   br label %cleanup
 
 for.end63:                                        ; preds = %for.cond5, %for.cond12.for.end55_crit_edge.split.us, %for.cond5.us74, %for.cond12.for.end55_crit_edge.split.us.us.us, %for.cond5.for.end63_crit_edge.split.us, %for.cond5.preheader
-  %arrayidx64 = getelementptr inbounds nuw i32, ptr %Row.0110, i64 %ToArray.coerce1
+  %arrayidx64 = getelementptr inbounds nuw [4 x i8], ptr %Row.0110, i64 %ToArray.coerce1
   %29 = load i32, ptr %arrayidx64, align 4
   br label %cleanup
 
@@ -1049,7 +1049,7 @@ for.body:                                         ; preds = %entry, %for.body
   %rem.i.i4.i.i = and i64 %conv, 63
   %shl.i5.i.i = shl nuw i64 1, %rem.i.i4.i.i
   %div1.i.i.i.i = lshr i64 %conv, 6
-  %arrayidx.i.i.i = getelementptr inbounds nuw i64, ptr %CharBits, i64 %div1.i.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %CharBits, i64 %div1.i.i.i.i
   %1 = load i64, ptr %arrayidx.i.i.i, align 8
   %or.i.i = or i64 %shl.i5.i.i, %1
   store i64 %or.i.i, ptr %arrayidx.i.i.i, align 8
@@ -1073,7 +1073,7 @@ for.body9:                                        ; preds = %for.body9.lr.ph, %f
   %4 = load i8, ptr %arrayidx, align 1
   %conv10 = zext i8 %4 to i64
   %div1.i.i.i.i6 = lshr i64 %conv10, 6
-  %arrayidx.i.i.i7 = getelementptr inbounds nuw i64, ptr %CharBits, i64 %div1.i.i.i.i6
+  %arrayidx.i.i.i7 = getelementptr inbounds nuw [8 x i8], ptr %CharBits, i64 %div1.i.i.i.i6
   %5 = load i64, ptr %arrayidx.i.i.i7, align 8
   %rem.i.i.i.i = and i64 %conv10, 63
   %shl.i.i.i = shl nuw i64 1, %rem.i.i.i.i
@@ -1136,7 +1136,7 @@ for.body:                                         ; preds = %entry, %for.body
   %rem.i.i4.i.i = and i64 %conv, 63
   %shl.i5.i.i = shl nuw i64 1, %rem.i.i4.i.i
   %div1.i.i.i.i = lshr i64 %conv, 6
-  %arrayidx.i.i.i = getelementptr inbounds nuw i64, ptr %CharBits, i64 %div1.i.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %CharBits, i64 %div1.i.i.i.i
   %1 = load i64, ptr %arrayidx.i.i.i, align 8
   %or.i.i = or i64 %shl.i5.i.i, %1
   store i64 %or.i.i, ptr %arrayidx.i.i.i, align 8
@@ -1160,7 +1160,7 @@ for.body9:                                        ; preds = %for.body9.lr.ph, %f
   %4 = load i8, ptr %arrayidx, align 1
   %conv10 = zext i8 %4 to i64
   %div1.i.i.i.i6 = lshr i64 %conv10, 6
-  %arrayidx.i.i.i7 = getelementptr inbounds nuw i64, ptr %CharBits, i64 %div1.i.i.i.i6
+  %arrayidx.i.i.i7 = getelementptr inbounds nuw [8 x i8], ptr %CharBits, i64 %div1.i.i.i.i6
   %5 = load i64, ptr %arrayidx.i.i.i7, align 8
   %rem.i.i.i.i = and i64 %conv10, 63
   %shl.i.i.i = shl nuw i64 1, %rem.i.i.i.i
@@ -1194,7 +1194,7 @@ for.body:                                         ; preds = %entry, %for.body
   %rem.i.i4.i.i = and i64 %conv, 63
   %shl.i5.i.i = shl nuw i64 1, %rem.i.i4.i.i
   %div1.i.i.i.i = lshr i64 %conv, 6
-  %arrayidx.i.i.i = getelementptr inbounds nuw i64, ptr %CharBits, i64 %div1.i.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %CharBits, i64 %div1.i.i.i.i
   %1 = load i64, ptr %arrayidx.i.i.i, align 8
   %or.i.i = or i64 %shl.i5.i.i, %1
   store i64 %or.i.i, ptr %arrayidx.i.i.i, align 8
@@ -1220,7 +1220,7 @@ for.body8:                                        ; preds = %for.cond6
   %4 = load i8, ptr %arrayidx, align 1
   %conv9 = zext i8 %4 to i64
   %div1.i.i.i.i6 = lshr i64 %conv9, 6
-  %arrayidx.i.i.i7 = getelementptr inbounds nuw i64, ptr %CharBits, i64 %div1.i.i.i.i6
+  %arrayidx.i.i.i7 = getelementptr inbounds nuw [8 x i8], ptr %CharBits, i64 %div1.i.i.i.i6
   %5 = load i64, ptr %arrayidx.i.i.i7, align 8
   %rem.i.i.i.i = and i64 %conv9, 63
   %shl.i.i.i = shl nuw i64 1, %rem.i.i.i.i
@@ -1275,7 +1275,7 @@ for.body:                                         ; preds = %entry, %for.body
   %rem.i.i4.i.i = and i64 %conv, 63
   %shl.i5.i.i = shl nuw i64 1, %rem.i.i4.i.i
   %div1.i.i.i.i = lshr i64 %conv, 6
-  %arrayidx.i.i.i = getelementptr inbounds nuw i64, ptr %CharBits, i64 %div1.i.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %CharBits, i64 %div1.i.i.i.i
   %1 = load i64, ptr %arrayidx.i.i.i, align 8
   %or.i.i = or i64 %shl.i5.i.i, %1
   store i64 %or.i.i, ptr %arrayidx.i.i.i, align 8
@@ -1301,7 +1301,7 @@ for.body9:                                        ; preds = %for.cond7
   %4 = load i8, ptr %arrayidx, align 1
   %conv10 = zext i8 %4 to i64
   %div1.i.i.i.i6 = lshr i64 %conv10, 6
-  %arrayidx.i.i.i7 = getelementptr inbounds nuw i64, ptr %CharBits, i64 %div1.i.i.i.i6
+  %arrayidx.i.i.i7 = getelementptr inbounds nuw [8 x i8], ptr %CharBits, i64 %div1.i.i.i.i6
   %5 = load i64, ptr %arrayidx.i.i.i7, align 8
   %rem.i.i.i.i = and i64 %conv10, 63
   %shl.i.i.i = shl nuw i64 1, %rem.i.i.i.i
@@ -1361,7 +1361,7 @@ _ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_.exit.us: ;
   %5 = phi i32 [ %.pre.i.us, %if.then.i.us ], [ %3, %if.end.us ]
   %6 = load ptr, ptr %A, align 8
   %conv.i3.i.us = zext i32 %5 to i64
-  %add.ptr.i.i.us = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %6, i64 %conv.i3.i.us
+  %add.ptr.i.i.us = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %conv.i3.i.us
   store ptr %1, ptr %add.ptr.i.i.us, align 1
   %ref.tmp.sroa.2.0.add.ptr.i.i.sroa_idx.us = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.us, i64 8
   store i64 %2, ptr %ref.tmp.sroa.2.0.add.ptr.i.i.sroa_idx.us, align 1
@@ -1404,7 +1404,7 @@ _ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_.exit: ; pr
   %14 = phi i32 [ %.pre.i, %if.then.i ], [ %12, %if.then4 ]
   %15 = load ptr, ptr %A, align 8
   %conv.i3.i = zext i32 %14 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %15, i64 %conv.i3.i
+  %add.ptr.i.i = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %conv.i3.i
   store ptr %10, ptr %add.ptr.i.i, align 1
   %ref.tmp.sroa.2.0.add.ptr.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 8
   store i64 %11, ptr %ref.tmp.sroa.2.0.add.ptr.i.i.sroa_idx, align 1
@@ -1448,7 +1448,7 @@ _ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_.exit34: ; 
   %21 = phi i32 [ %.pre.i30, %if.then.i28 ], [ %19, %if.then13 ]
   %22 = load ptr, ptr %A, align 8
   %conv.i3.i31 = zext i32 %21 to i64
-  %add.ptr.i.i32 = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %22, i64 %conv.i3.i31
+  %add.ptr.i.i32 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %conv.i3.i31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %add.ptr.i.i32, ptr noundef nonnull align 8 dereferenceable(16) %S, i64 16, i1 false)
   %23 = load i32, ptr %Size.i.i25, align 8
   %add.i33 = add i32 %23, 1
@@ -1511,7 +1511,7 @@ _ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_.exit.us: ;
   %3 = phi i32 [ %.pre.i.us, %if.then.i24.us ], [ %1, %if.end.us ]
   %4 = load ptr, ptr %A, align 8
   %conv.i3.i.us = zext i32 %3 to i64
-  %add.ptr.i.i.us = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %4, i64 %conv.i3.i.us
+  %add.ptr.i.i.us = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %conv.i3.i.us
   store ptr %S.sroa.0.0110.us, ptr %add.ptr.i.i.us, align 1
   %ref.tmp.sroa.2.0.add.ptr.i.i.sroa_idx.us = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.us, i64 8
   store i64 %.sroa.speculated56.us, ptr %ref.tmp.sroa.2.0.add.ptr.i.i.sroa_idx.us, align 1
@@ -1563,7 +1563,7 @@ _ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_.exit: ; pr
   %9 = phi i32 [ %.pre.i, %if.then.i24 ], [ %7, %if.then4 ]
   %10 = load ptr, ptr %A, align 8
   %conv.i3.i = zext i32 %9 to i64
-  %add.ptr.i.i = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %10, i64 %conv.i3.i
+  %add.ptr.i.i = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %conv.i3.i
   store ptr %S.sroa.0.0110, ptr %add.ptr.i.i, align 1
   %ref.tmp.sroa.2.0.add.ptr.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 8
   store i64 %6, ptr %ref.tmp.sroa.2.0.add.ptr.i.i.sroa_idx, align 1
@@ -1610,7 +1610,7 @@ _ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_.exit40: ; 
   %14 = phi i32 [ %.pre.i36, %if.then.i34 ], [ %12, %if.then12 ]
   %15 = load ptr, ptr %A, align 8
   %conv.i3.i37 = zext i32 %14 to i64
-  %add.ptr.i.i38 = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %15, i64 %conv.i3.i37
+  %add.ptr.i.i38 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %conv.i3.i37
   store ptr %S.sroa.0.0105, ptr %add.ptr.i.i38, align 1
   %S.sroa.6.0.add.ptr.i.i38.sroa_idx = getelementptr inbounds nuw i8, ptr %add.ptr.i.i38, i64 8
   store i64 %S.sroa.6.0103, ptr %S.sroa.6.0.add.ptr.i.i38.sroa_idx, align 1

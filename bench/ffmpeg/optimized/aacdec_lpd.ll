@@ -49,7 +49,7 @@ define range(i32 -1163346256, 1) i32 @ff_aac_parse_fac_data(ptr noundef writeonl
 
 30:                                               ; preds = %.lr.ph, %.loopexit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.loopexit ]
-  %31 = getelementptr inbounds nuw [8 x i32], ptr %26, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [32 x i8], ptr %26, i64 %indvars.iv
   %32 = load i32, ptr %29, align 8, !tbaa !11
   %.promoted.i.i.i = load i32, ptr %27, align 8, !tbaa !4
   br label %33
@@ -122,7 +122,7 @@ parse_qn.exit.i:                                  ; preds = %44, %get_unary.exit
   %70 = add i32 %60, %.1.le.i
   %71 = tail call i32 @llvm.umin.i32(i32 %61, i32 %70)
   store i32 %71, ptr %27, align 8, !tbaa !4
-  %72 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv.i
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv.i
   store i32 %69, ptr %72, align 4, !tbaa !23
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 8

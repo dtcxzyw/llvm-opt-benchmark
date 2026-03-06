@@ -129,7 +129,7 @@ for.body:                                         ; preds = %entry, %for.inc
   %2 = phi ptr [ %5, %for.inc ], [ %1, %entry ]
   %3 = phi ptr [ %6, %for.inc ], [ %0, %entry ]
   %i.08 = phi i64 [ %inc, %for.inc ], [ 0, %entry ]
-  %add.ptr.i = getelementptr inbounds ptr, ptr %2, i64 %i.08
+  %add.ptr.i = getelementptr inbounds [8 x i8], ptr %2, i64 %i.08
   %4 = load ptr, ptr %add.ptr.i, align 8
   %isnull = icmp eq ptr %4, null
   br i1 %isnull, label %for.inc, label %delete.notnull
@@ -446,7 +446,7 @@ if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIPN3re2
 _ZNSt6vectorIPN3re23RE2ESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIPN3re23RE2ESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i
   store ptr %call5.i.i.i.i.i, ptr %this, align 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8
-  %add.ptr19.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i, i64 %cond.i.i.i
   store ptr %add.ptr19.i.i, ptr %_M_end_of_storage.i, align 8
   br label %if.end22
 
@@ -612,7 +612,7 @@ lpad7:                                            ; preds = %_ZN10LogMessageC2EP
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %7 = phi ptr [ %3, %for.body.lr.ph ], [ %11, %for.body ]
   %i.023 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %add.ptr.i = getelementptr inbounds ptr, ptr %7, i64 %i.023
+  %add.ptr.i = getelementptr inbounds [8 x i8], ptr %7, i64 %i.023
   %8 = load ptr, ptr %add.ptr.i, align 8
   %call17 = tail call noundef ptr @_ZN3re29Prefilter7FromRE2EPKNS_3RE2E(ptr noundef %8)
   %9 = load ptr, ptr %prefilter_tree_, align 8
@@ -674,7 +674,7 @@ entry:
 for.body:                                         ; preds = %entry, %for.inc
   %2 = phi ptr [ %5, %for.inc ], [ %1, %entry ]
   %i.010 = phi i64 [ %inc, %for.inc ], [ 0, %entry ]
-  %add.ptr.i = getelementptr inbounds ptr, ptr %2, i64 %i.010
+  %add.ptr.i = getelementptr inbounds [8 x i8], ptr %2, i64 %i.010
   %3 = load ptr, ptr %add.ptr.i, align 8
   %call.i.i = tail call noundef zeroext i1 @_ZN3re23RE213PartialMatchNEN4absl7debian211string_viewERKS0_PKPKNS0_3ArgEi(ptr %text.coerce0, i64 %text.coerce1, ptr noundef nonnull align 8 dereferenceable(148) %3, ptr noundef null, i32 noundef 0)
   br i1 %call.i.i, label %if.then, label %for.inc
@@ -769,11 +769,11 @@ for.cond.preheader:                               ; preds = %if.end
 for.body:                                         ; preds = %for.cond.preheader, %for.inc
   %6 = phi ptr [ %14, %for.inc ], [ %5, %for.cond.preheader ]
   %i.023 = phi i64 [ %inc, %for.inc ], [ 0, %for.cond.preheader ]
-  %add.ptr.i = getelementptr inbounds i32, ptr %6, i64 %i.023
+  %add.ptr.i = getelementptr inbounds [4 x i8], ptr %6, i64 %i.023
   %7 = load i32, ptr %add.ptr.i, align 4
   %conv = sext i32 %7 to i64
   %8 = load ptr, ptr %this, align 8
-  %add.ptr.i6 = getelementptr inbounds ptr, ptr %8, i64 %conv
+  %add.ptr.i6 = getelementptr inbounds [8 x i8], ptr %8, i64 %conv
   %9 = load ptr, ptr %add.ptr.i6, align 8
   %call.i.i7 = invoke noundef zeroext i1 @_ZN3re23RE213PartialMatchNEN4absl7debian211string_viewERKS0_PKPKNS0_3ArgEi(ptr %text.coerce0, i64 %text.coerce1, ptr noundef nonnull align 8 dereferenceable(148) %9, ptr noundef null, i32 noundef 0)
           to label %invoke.cont10 unwind label %lpad5.loopexit
@@ -783,7 +783,7 @@ invoke.cont10:                                    ; preds = %for.body
 
 cleanup.thread:                                   ; preds = %invoke.cont10
   %10 = load ptr, ptr %regexps, align 8
-  %add.ptr.i8 = getelementptr inbounds i32, ptr %10, i64 %i.023
+  %add.ptr.i8 = getelementptr inbounds [4 x i8], ptr %10, i64 %i.023
   %11 = load i32, ptr %add.ptr.i8, align 4
   br label %if.then.i.i.i10
 
@@ -871,11 +871,11 @@ for.body.lr.ph:                                   ; preds = %for.cond.preheader
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %5 = phi ptr [ %4, %for.body.lr.ph ], [ %19, %for.inc ]
   %i.026 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.inc ]
-  %add.ptr.i = getelementptr inbounds i32, ptr %5, i64 %i.026
+  %add.ptr.i = getelementptr inbounds [4 x i8], ptr %5, i64 %i.026
   %6 = load i32, ptr %add.ptr.i, align 4
   %conv = sext i32 %6 to i64
   %7 = load ptr, ptr %this, align 8
-  %add.ptr.i6 = getelementptr inbounds ptr, ptr %7, i64 %conv
+  %add.ptr.i6 = getelementptr inbounds [8 x i8], ptr %7, i64 %conv
   %8 = load ptr, ptr %add.ptr.i6, align 8
   %call.i.i7 = invoke noundef zeroext i1 @_ZN3re23RE213PartialMatchNEN4absl7debian211string_viewERKS0_PKPKNS0_3ArgEi(ptr %text.coerce0, i64 %text.coerce1, ptr noundef nonnull align 8 dereferenceable(148) %8, ptr noundef null, i32 noundef 0)
           to label %invoke.cont5 unwind label %lpad.loopexit
@@ -885,7 +885,7 @@ invoke.cont5:                                     ; preds = %for.body
 
 if.then:                                          ; preds = %invoke.cont5
   %9 = load ptr, ptr %regexps, align 8
-  %add.ptr.i8 = getelementptr inbounds i32, ptr %9, i64 %i.026
+  %add.ptr.i8 = getelementptr inbounds [4 x i8], ptr %9, i64 %i.026
   %10 = load ptr, ptr %_M_finish.i.i, align 8
   %11 = load ptr, ptr %_M_end_of_storage.i, align 8
   %cmp.not.i = icmp eq ptr %10, %11
@@ -950,7 +950,7 @@ if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIiSaIiE
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i
   store ptr %call5.i.i.i.i.i10, ptr %matching_regexps, align 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i.i, align 8
-  %add.ptr19.i.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i10, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i.i10, i64 %cond.i.i.i
   store ptr %add.ptr19.i.i, ptr %_M_end_of_storage.i, align 8
   br label %for.inc
 

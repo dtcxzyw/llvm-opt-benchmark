@@ -883,7 +883,7 @@ define hidden void @"_ZN117_$LT$core..iter..adapters..step_by..StepBy$LT$I$GT$$u
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %12 = phi i64 [ %15, %.lr.ph.i ], [ %.sroa.4.0.copyload, %.lr.ph.i.preheader ]
   %13 = phi i64 [ %16, %.lr.ph.i ], [ %10, %.lr.ph.i.preheader ]
-  %14 = getelementptr inbounds nuw i64, ptr %.sroa.7.0.copyload, i64 %12
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.7.0.copyload, i64 %12
   store i64 %13, ptr %14, align 8, !noalias !101
   %15 = add i64 %12, 1
   %16 = add i64 %storemerge.i.i.i.i13.i, %13
@@ -910,7 +910,7 @@ define hidden void @"_ZN117_$LT$core..iter..adapters..step_by..StepBy$LT$I$GT$$u
   %26 = load ptr, ptr %25, align 8, !alias.scope !123, !noundef !37
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %28 = load i64, ptr %27, align 8, !alias.scope !123, !noundef !37
-  %29 = getelementptr inbounds nuw i64, ptr %26, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %28
   store i64 %20, ptr %29, align 8, !noalias !123
   %30 = add i64 %28, 1
   store i64 %30, ptr %27, align 8, !alias.scope !123
@@ -978,7 +978,7 @@ define hidden { i64, i64 } @_ZN11polars_core13chunked_array3ops13search_sorted11
   br i1 %27, label %28, label %36
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw ptr, ptr %4, i64 %.sroa.0.046
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.sroa.0.046
   %30 = load ptr, ptr %29, align 8, !nonnull !37, !align !124, !noundef !37
   %31 = getelementptr i8, ptr %30, i64 48
   %.val.i = load i64, ptr %31, align 8, !noundef !37
@@ -1011,7 +1011,7 @@ define hidden { i64, i64 } @_ZN11polars_core13chunked_array3ops13search_sorted11
 43:                                               ; preds = %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1a416ccfcbccc036E.exit"
   %44 = icmp ult i64 %.sroa.0.0.i, %12
   tail call void @llvm.assume(i1 %44)
-  %45 = getelementptr inbounds nuw ptr, ptr %10, i64 %.sroa.0.0.i
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.sroa.0.0.i
   %46 = load ptr, ptr %45, align 8, !noalias !126, !nonnull !37, !align !124, !noundef !37
   %.val.i19 = load ptr, ptr %8, align 8, !noalias !126
   %.val1.i = load double, ptr %14, align 8, !noalias !126
@@ -1047,7 +1047,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h03a5debdb3aae44dE.exit.i.i.i:
   %.val1.i.i.i = load i64, ptr %67, align 8, !noalias !126, !noundef !37
   %68 = icmp ult i64 %.sroa.5.0.i, %.val1.i.i.i
   tail call void @llvm.assume(i1 %68)
-  %69 = getelementptr inbounds nuw double, ptr %.val.i.i.i, i64 %.sroa.5.0.i
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %.val.i.i.i, i64 %.sroa.5.0.i
   %70 = load double, ptr %69, align 8, !noalias !126, !noundef !37
   %71 = fcmp ord double %.val1.i, 0.000000e+00
   %72 = fcmp ult double %.val1.i, %70
@@ -1066,7 +1066,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h03a5debdb3aae44dE.exit.i.i.i:
 75:                                               ; preds = %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1a416ccfcbccc036E.exit"
   %76 = icmp ult i64 %.sroa.0.046, %12
   tail call void @llvm.assume(i1 %76)
-  %77 = getelementptr inbounds nuw ptr, ptr %10, i64 %.sroa.0.046
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.sroa.0.046
   %78 = load ptr, ptr %77, align 8, !noalias !129, !nonnull !37, !align !124, !noundef !37
   %.val.i20 = load ptr, ptr %8, align 8, !noalias !129
   %.val1.i21 = load double, ptr %14, align 8, !noalias !129
@@ -1102,7 +1102,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h03a5debdb3aae44dE.exit.i.i.i2
   %.val1.i.i.i25 = load i64, ptr %99, align 8, !noalias !129, !noundef !37
   %100 = icmp ult i64 %.sroa.6.0, %.val1.i.i.i25
   tail call void @llvm.assume(i1 %100)
-  %101 = getelementptr inbounds nuw double, ptr %.val.i.i.i24, i64 %.sroa.6.0
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %.val.i.i.i24, i64 %.sroa.6.0
   %102 = load double, ptr %101, align 8, !noalias !129, !noundef !37
   %103 = fcmp ord double %.val1.i21, 0.000000e+00
   %104 = fcmp ult double %.val1.i21, %102
@@ -1173,7 +1173,7 @@ define hidden { i64, i64 } @_ZN11polars_core13chunked_array3ops13search_sorted11
   br i1 %27, label %28, label %36
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw ptr, ptr %4, i64 %.sroa.0.045
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.sroa.0.045
   %30 = load ptr, ptr %29, align 8, !nonnull !37, !align !124, !noundef !37
   %31 = getelementptr i8, ptr %30, i64 48
   %.val.i = load i64, ptr %31, align 8, !noundef !37
@@ -1206,7 +1206,7 @@ define hidden { i64, i64 } @_ZN11polars_core13chunked_array3ops13search_sorted11
 43:                                               ; preds = %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h8eb1b5f0453d48e7E.exit"
   %44 = icmp ult i64 %.sroa.0.0.i, %12
   tail call void @llvm.assume(i1 %44)
-  %45 = getelementptr inbounds nuw ptr, ptr %10, i64 %.sroa.0.0.i
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.sroa.0.0.i
   %46 = load ptr, ptr %45, align 8, !noalias !133, !nonnull !37, !align !124, !noundef !37
   %.val.i19 = load ptr, ptr %8, align 8, !noalias !133
   %.val1.i = load float, ptr %14, align 4, !noalias !133
@@ -1242,7 +1242,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h98ac015d2cb3acdcE.exit.i.i.i:
   %.val1.i.i.i = load i64, ptr %67, align 8, !noalias !133, !noundef !37
   %68 = icmp ult i64 %.sroa.5.0.i, %.val1.i.i.i
   tail call void @llvm.assume(i1 %68)
-  %69 = getelementptr inbounds nuw float, ptr %.val.i.i.i, i64 %.sroa.5.0.i
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %.val.i.i.i, i64 %.sroa.5.0.i
   %70 = load float, ptr %69, align 4, !noalias !133, !noundef !37
   %71 = fcmp uno float %70, 0.000000e+00
   %72 = fcmp oge float %70, %.val1.i
@@ -1261,7 +1261,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h98ac015d2cb3acdcE.exit.i.i.i:
 76:                                               ; preds = %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h8eb1b5f0453d48e7E.exit"
   %77 = icmp ult i64 %.sroa.0.045, %12
   tail call void @llvm.assume(i1 %77)
-  %78 = getelementptr inbounds nuw ptr, ptr %10, i64 %.sroa.0.045
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.sroa.0.045
   %79 = load ptr, ptr %78, align 8, !noalias !136, !nonnull !37, !align !124, !noundef !37
   %.val.i20 = load ptr, ptr %8, align 8, !noalias !136
   %.val1.i21 = load float, ptr %14, align 4, !noalias !136
@@ -1297,7 +1297,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h98ac015d2cb3acdcE.exit.i.i.i2
   %.val1.i.i.i25 = load i64, ptr %100, align 8, !noalias !136, !noundef !37
   %101 = icmp ult i64 %.sroa.6.0, %.val1.i.i.i25
   tail call void @llvm.assume(i1 %101)
-  %102 = getelementptr inbounds nuw float, ptr %.val.i.i.i24, i64 %.sroa.6.0
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %.val.i.i.i24, i64 %.sroa.6.0
   %103 = load float, ptr %102, align 4, !noalias !136, !noundef !37
   %104 = fcmp uno float %103, 0.000000e+00
   %105 = fcmp oge float %103, %.val1.i21
@@ -1377,7 +1377,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h03a5debdb3aae44dE.exit.i.i.i:
   %.val1.i.i.i = load i64, ptr %8, align 8, !noalias !142, !noundef !37
   %30 = icmp ult i64 %10, %.val1.i.i.i
   tail call void @llvm.assume(i1 %30)
-  %31 = getelementptr inbounds nuw double, ptr %.val.i.i.i, i64 %10
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %.val.i.i.i, i64 %10
   %32 = load double, ptr %31, align 8, !noalias !142, !noundef !37
   %33 = fcmp uno double %.val1.i, 0.000000e+00
   %34 = fcmp oge double %.val1.i, %32
@@ -1428,7 +1428,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h03a5debdb3aae44dE.exit.i.i.i1
   %.val1.i.i.i16 = load i64, ptr %58, align 8, !noalias !139, !noundef !37
   %59 = icmp ult i64 %.sroa.0.028.lcssa, %.val1.i.i.i16
   tail call void @llvm.assume(i1 %59)
-  %60 = getelementptr inbounds nuw double, ptr %.val.i.i.i15, i64 %.sroa.0.028.lcssa
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %.val.i.i.i15, i64 %.sroa.0.028.lcssa
   %61 = load double, ptr %60, align 8, !noalias !139, !noundef !37
   %62 = fcmp uno double %.val1.i12, 0.000000e+00
   %63 = fcmp oge double %.val1.i12, %61
@@ -1504,7 +1504,7 @@ define hidden { i64, i64 } @_ZN11polars_core13chunked_array3ops13search_sorted11
   br i1 %27, label %28, label %36
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw ptr, ptr %4, i64 %.sroa.0.046
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.sroa.0.046
   %30 = load ptr, ptr %29, align 8, !nonnull !37, !align !124, !noundef !37
   %31 = getelementptr i8, ptr %30, i64 48
   %.val.i = load i64, ptr %31, align 8, !noundef !37
@@ -1537,7 +1537,7 @@ define hidden { i64, i64 } @_ZN11polars_core13chunked_array3ops13search_sorted11
 43:                                               ; preds = %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h56f98c260548dc67E.exit"
   %44 = icmp ult i64 %.sroa.0.0.i, %12
   tail call void @llvm.assume(i1 %44)
-  %45 = getelementptr inbounds nuw ptr, ptr %10, i64 %.sroa.0.0.i
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.sroa.0.0.i
   %46 = load ptr, ptr %45, align 8, !noalias !145, !nonnull !37, !align !124, !noundef !37
   %.val.i19 = load ptr, ptr %8, align 8, !noalias !145
   %.val1.i = load float, ptr %14, align 4, !noalias !145
@@ -1573,7 +1573,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h98ac015d2cb3acdcE.exit.i.i.i:
   %.val1.i.i.i = load i64, ptr %67, align 8, !noalias !145, !noundef !37
   %68 = icmp ult i64 %.sroa.5.0.i, %.val1.i.i.i
   tail call void @llvm.assume(i1 %68)
-  %69 = getelementptr inbounds nuw float, ptr %.val.i.i.i, i64 %.sroa.5.0.i
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %.val.i.i.i, i64 %.sroa.5.0.i
   %70 = load float, ptr %69, align 4, !noalias !145, !noundef !37
   %71 = fcmp ord float %70, 0.000000e+00
   %72 = fcmp ult float %70, %.val1.i
@@ -1592,7 +1592,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h98ac015d2cb3acdcE.exit.i.i.i:
 75:                                               ; preds = %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h56f98c260548dc67E.exit"
   %76 = icmp ult i64 %.sroa.0.046, %12
   tail call void @llvm.assume(i1 %76)
-  %77 = getelementptr inbounds nuw ptr, ptr %10, i64 %.sroa.0.046
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.sroa.0.046
   %78 = load ptr, ptr %77, align 8, !noalias !148, !nonnull !37, !align !124, !noundef !37
   %.val.i20 = load ptr, ptr %8, align 8, !noalias !148
   %.val1.i21 = load float, ptr %14, align 4, !noalias !148
@@ -1628,7 +1628,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h98ac015d2cb3acdcE.exit.i.i.i2
   %.val1.i.i.i25 = load i64, ptr %99, align 8, !noalias !148, !noundef !37
   %100 = icmp ult i64 %.sroa.6.0, %.val1.i.i.i25
   tail call void @llvm.assume(i1 %100)
-  %101 = getelementptr inbounds nuw float, ptr %.val.i.i.i24, i64 %.sroa.6.0
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %.val.i.i.i24, i64 %.sroa.6.0
   %102 = load float, ptr %101, align 4, !noalias !148, !noundef !37
   %103 = fcmp ord float %102, 0.000000e+00
   %104 = fcmp ult float %102, %.val1.i21
@@ -1690,7 +1690,7 @@ define hidden noundef i64 @_ZN11polars_core13chunked_array3ops13search_sorted11l
   %.sroa.022.031 = phi i64 [ %unswitched.select, %.lr.ph.split ], [ %1, %.lr.ph ]
   %14 = icmp ult i64 %13, %.val1.i16.pre
   tail call void @llvm.assume(i1 %14)
-  %15 = getelementptr inbounds nuw double, ptr %.val.i15.pre, i64 %13
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %.val.i15.pre, i64 %13
   %16 = load double, ptr %15, align 8, !noundef !37
   %17 = fcmp ult double %.val2.i17.pre, %16
   %unswitched.select = select i1 %17, i64 %13, i64 %.sroa.022.031
@@ -1705,7 +1705,7 @@ define hidden noundef i64 @_ZN11polars_core13chunked_array3ops13search_sorted11l
   %.sroa.0.028.lcssa = phi i64 [ %spec.select29, %.lr.ph.split ], [ %0, %3 ], [ %8, %.lr.ph.split.us ]
   %21 = icmp ult i64 %.sroa.0.028.lcssa, %.val1.i16.pre
   tail call void @llvm.assume(i1 %21)
-  %22 = getelementptr inbounds nuw double, ptr %.val.i15.pre, i64 %.sroa.0.028.lcssa
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %.val.i15.pre, i64 %.sroa.0.028.lcssa
   %23 = load double, ptr %22, align 8, !noundef !37
   %24 = fcmp ord double %.val2.i17.pre, 0.000000e+00
   %25 = fcmp ult double %.val2.i17.pre, %23
@@ -1736,7 +1736,7 @@ define hidden noundef i64 @_ZN11polars_core13chunked_array3ops13search_sorted11l
   %.sroa.021.030 = phi i64 [ %spec.select, %.lr.ph ], [ %1, %3 ]
   %8 = icmp ult i64 %7, %.val1.i16.pre
   tail call void @llvm.assume(i1 %8)
-  %9 = getelementptr inbounds nuw double, ptr %.val.i15.pre, i64 %7
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %.val.i15.pre, i64 %7
   %10 = load double, ptr %9, align 8, !noundef !37
   %11 = fcmp uno double %10, 0.000000e+00
   %12 = fcmp oge double %10, %.val2.i17.pre
@@ -1753,7 +1753,7 @@ define hidden noundef i64 @_ZN11polars_core13chunked_array3ops13search_sorted11l
   %.sroa.0.027.lcssa = phi i64 [ %0, %3 ], [ %spec.select28, %.lr.ph ]
   %17 = icmp ult i64 %.sroa.0.027.lcssa, %.val1.i16.pre
   tail call void @llvm.assume(i1 %17)
-  %18 = getelementptr inbounds nuw double, ptr %.val.i15.pre, i64 %.sroa.0.027.lcssa
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.val.i15.pre, i64 %.sroa.0.027.lcssa
   %19 = load double, ptr %18, align 8, !noundef !37
   %20 = fcmp uno double %19, 0.000000e+00
   %21 = fcmp oge double %19, %.val2.i17.pre
@@ -1806,7 +1806,7 @@ define hidden { i64, i64 } @_ZN11polars_core13chunked_array3ops13search_sorted11
   br i1 %27, label %28, label %36
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw ptr, ptr %4, i64 %.sroa.0.045
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.sroa.0.045
   %30 = load ptr, ptr %29, align 8, !nonnull !37, !align !124, !noundef !37
   %31 = getelementptr i8, ptr %30, i64 48
   %.val.i = load i64, ptr %31, align 8, !noundef !37
@@ -1839,7 +1839,7 @@ define hidden { i64, i64 } @_ZN11polars_core13chunked_array3ops13search_sorted11
 43:                                               ; preds = %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h4b46b139d20b251fE.exit"
   %44 = icmp ult i64 %.sroa.0.0.i, %12
   tail call void @llvm.assume(i1 %44)
-  %45 = getelementptr inbounds nuw ptr, ptr %10, i64 %.sroa.0.0.i
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.sroa.0.0.i
   %46 = load ptr, ptr %45, align 8, !noalias !151, !nonnull !37, !align !124, !noundef !37
   %.val.i19 = load ptr, ptr %8, align 8, !noalias !151
   %.val1.i = load float, ptr %14, align 4, !noalias !151
@@ -1875,7 +1875,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h98ac015d2cb3acdcE.exit.i.i.i:
   %.val1.i.i.i = load i64, ptr %67, align 8, !noalias !151, !noundef !37
   %68 = icmp ult i64 %.sroa.5.0.i, %.val1.i.i.i
   tail call void @llvm.assume(i1 %68)
-  %69 = getelementptr inbounds nuw float, ptr %.val.i.i.i, i64 %.sroa.5.0.i
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %.val.i.i.i, i64 %.sroa.5.0.i
   %70 = load float, ptr %69, align 4, !noalias !151, !noundef !37
   %71 = fcmp uno float %.val1.i, 0.000000e+00
   %72 = fcmp oge float %.val1.i, %70
@@ -1894,7 +1894,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h98ac015d2cb3acdcE.exit.i.i.i:
 76:                                               ; preds = %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h4b46b139d20b251fE.exit"
   %77 = icmp ult i64 %.sroa.0.045, %12
   tail call void @llvm.assume(i1 %77)
-  %78 = getelementptr inbounds nuw ptr, ptr %10, i64 %.sroa.0.045
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.sroa.0.045
   %79 = load ptr, ptr %78, align 8, !noalias !154, !nonnull !37, !align !124, !noundef !37
   %.val.i20 = load ptr, ptr %8, align 8, !noalias !154
   %.val1.i21 = load float, ptr %14, align 4, !noalias !154
@@ -1930,7 +1930,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h98ac015d2cb3acdcE.exit.i.i.i2
   %.val1.i.i.i25 = load i64, ptr %100, align 8, !noalias !154, !noundef !37
   %101 = icmp ult i64 %.sroa.6.0, %.val1.i.i.i25
   tail call void @llvm.assume(i1 %101)
-  %102 = getelementptr inbounds nuw float, ptr %.val.i.i.i24, i64 %.sroa.6.0
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %.val.i.i.i24, i64 %.sroa.6.0
   %103 = load float, ptr %102, align 4, !noalias !154, !noundef !37
   %104 = fcmp uno float %.val1.i21, 0.000000e+00
   %105 = fcmp oge float %.val1.i21, %103
@@ -2001,7 +2001,7 @@ define hidden { i64, i64 } @_ZN11polars_core13chunked_array3ops13search_sorted11
   br i1 %27, label %28, label %36
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw ptr, ptr %4, i64 %.sroa.0.046
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.sroa.0.046
   %30 = load ptr, ptr %29, align 8, !nonnull !37, !align !124, !noundef !37
   %31 = getelementptr i8, ptr %30, i64 48
   %.val.i = load i64, ptr %31, align 8, !noundef !37
@@ -2034,7 +2034,7 @@ define hidden { i64, i64 } @_ZN11polars_core13chunked_array3ops13search_sorted11
 43:                                               ; preds = %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17heb21cf0887fe302cE.exit"
   %44 = icmp ult i64 %.sroa.0.0.i, %12
   tail call void @llvm.assume(i1 %44)
-  %45 = getelementptr inbounds nuw ptr, ptr %10, i64 %.sroa.0.0.i
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.sroa.0.0.i
   %46 = load ptr, ptr %45, align 8, !noalias !157, !nonnull !37, !align !124, !noundef !37
   %.val.i19 = load ptr, ptr %8, align 8, !noalias !157
   %.val1.i = load float, ptr %14, align 4, !noalias !157
@@ -2070,7 +2070,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h98ac015d2cb3acdcE.exit.i.i.i:
   %.val1.i.i.i = load i64, ptr %67, align 8, !noalias !157, !noundef !37
   %68 = icmp ult i64 %.sroa.5.0.i, %.val1.i.i.i
   tail call void @llvm.assume(i1 %68)
-  %69 = getelementptr inbounds nuw float, ptr %.val.i.i.i, i64 %.sroa.5.0.i
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %.val.i.i.i, i64 %.sroa.5.0.i
   %70 = load float, ptr %69, align 4, !noalias !157, !noundef !37
   %71 = fcmp ord float %.val1.i, 0.000000e+00
   %72 = fcmp ult float %.val1.i, %70
@@ -2089,7 +2089,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h98ac015d2cb3acdcE.exit.i.i.i:
 75:                                               ; preds = %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17heb21cf0887fe302cE.exit"
   %76 = icmp ult i64 %.sroa.0.046, %12
   tail call void @llvm.assume(i1 %76)
-  %77 = getelementptr inbounds nuw ptr, ptr %10, i64 %.sroa.0.046
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.sroa.0.046
   %78 = load ptr, ptr %77, align 8, !noalias !160, !nonnull !37, !align !124, !noundef !37
   %.val.i20 = load ptr, ptr %8, align 8, !noalias !160
   %.val1.i21 = load float, ptr %14, align 4, !noalias !160
@@ -2125,7 +2125,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h98ac015d2cb3acdcE.exit.i.i.i2
   %.val1.i.i.i25 = load i64, ptr %99, align 8, !noalias !160, !noundef !37
   %100 = icmp ult i64 %.sroa.6.0, %.val1.i.i.i25
   tail call void @llvm.assume(i1 %100)
-  %101 = getelementptr inbounds nuw float, ptr %.val.i.i.i24, i64 %.sroa.6.0
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %.val.i.i.i24, i64 %.sroa.6.0
   %102 = load float, ptr %101, align 4, !noalias !160, !noundef !37
   %103 = fcmp ord float %.val1.i21, 0.000000e+00
   %104 = fcmp ult float %.val1.i21, %102
@@ -2205,7 +2205,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h03a5debdb3aae44dE.exit.i.i.i:
   %.val1.i.i.i = load i64, ptr %8, align 8, !noalias !166, !noundef !37
   %30 = icmp ult i64 %10, %.val1.i.i.i
   tail call void @llvm.assume(i1 %30)
-  %31 = getelementptr inbounds nuw double, ptr %.val.i.i.i, i64 %10
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %.val.i.i.i, i64 %10
   %32 = load double, ptr %31, align 8, !noalias !166, !noundef !37
   %33 = fcmp uno double %32, 0.000000e+00
   %34 = fcmp oge double %32, %.val1.i
@@ -2256,7 +2256,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h03a5debdb3aae44dE.exit.i.i.i1
   %.val1.i.i.i16 = load i64, ptr %58, align 8, !noalias !163, !noundef !37
   %59 = icmp ult i64 %.sroa.0.028.lcssa, %.val1.i.i.i16
   tail call void @llvm.assume(i1 %59)
-  %60 = getelementptr inbounds nuw double, ptr %.val.i.i.i15, i64 %.sroa.0.028.lcssa
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %.val.i.i.i15, i64 %.sroa.0.028.lcssa
   %61 = load double, ptr %60, align 8, !noalias !163, !noundef !37
   %62 = fcmp uno double %61, 0.000000e+00
   %63 = fcmp oge double %61, %.val1.i12
@@ -2331,7 +2331,7 @@ define hidden { i64, i64 } @_ZN11polars_core13chunked_array3ops13search_sorted11
   br i1 %26, label %27, label %35
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds nuw ptr, ptr %4, i64 %.sroa.0.041
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.sroa.0.041
   %29 = load ptr, ptr %28, align 8, !nonnull !37, !align !124, !noundef !37
   %30 = getelementptr i8, ptr %29, i64 48
   %.val.i = load i64, ptr %30, align 8, !noundef !37
@@ -2364,7 +2364,7 @@ define hidden { i64, i64 } @_ZN11polars_core13chunked_array3ops13search_sorted11
 42:                                               ; preds = %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h8237e202ef959cbfE.exit"
   %43 = icmp ult i64 %.sroa.0.0.i, %11
   tail call void @llvm.assume(i1 %43)
-  %44 = getelementptr inbounds nuw ptr, ptr %9, i64 %.sroa.0.0.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.sroa.0.0.i
   %45 = load ptr, ptr %44, align 8, !noalias !169, !nonnull !37, !align !124, !noundef !37
   %46 = getelementptr i8, ptr %45, i64 40
   %.val.i19 = load ptr, ptr %46, align 8, !noalias !169, !noundef !37
@@ -2373,7 +2373,7 @@ define hidden { i64, i64 } @_ZN11polars_core13chunked_array3ops13search_sorted11
   %.val2.i = load float, ptr %13, align 4, !alias.scope !172, !noalias !175, !noundef !37
   %48 = icmp ult i64 %.sroa.5.0.i, %.val1.i
   tail call void @llvm.assume(i1 %48)
-  %49 = getelementptr inbounds nuw float, ptr %.val.i19, i64 %.sroa.5.0.i
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %.val.i19, i64 %.sroa.5.0.i
   %50 = load float, ptr %49, align 4, !noalias !169, !noundef !37
   %51 = fcmp ord float %.val2.i, 0.000000e+00
   %52 = fcmp ult float %.val2.i, %50
@@ -2383,7 +2383,7 @@ define hidden { i64, i64 } @_ZN11polars_core13chunked_array3ops13search_sorted11
 53:                                               ; preds = %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h8237e202ef959cbfE.exit"
   %54 = icmp ult i64 %.sroa.0.041, %11
   tail call void @llvm.assume(i1 %54)
-  %55 = getelementptr inbounds nuw ptr, ptr %9, i64 %.sroa.0.041
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.sroa.0.041
   %56 = load ptr, ptr %55, align 8, !noalias !177, !nonnull !37, !align !124, !noundef !37
   %57 = getelementptr i8, ptr %56, i64 40
   %.val.i20 = load ptr, ptr %57, align 8, !noalias !177, !noundef !37
@@ -2392,7 +2392,7 @@ define hidden { i64, i64 } @_ZN11polars_core13chunked_array3ops13search_sorted11
   %.val2.i22 = load float, ptr %13, align 4, !alias.scope !180, !noalias !183, !noundef !37
   %59 = icmp ult i64 %.sroa.6.0, %.val1.i21
   tail call void @llvm.assume(i1 %59)
-  %60 = getelementptr inbounds nuw float, ptr %.val.i20, i64 %.sroa.6.0
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %.val.i20, i64 %.sroa.6.0
   %61 = load float, ptr %60, align 4, !noalias !177, !noundef !37
   %62 = fcmp ord float %.val2.i22, 0.000000e+00
   %63 = fcmp ult float %.val2.i22, %61
@@ -2447,7 +2447,7 @@ define hidden { i64, i64 } @_ZN11polars_core13chunked_array3ops13search_sorted11
   br i1 %26, label %27, label %35
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds nuw ptr, ptr %4, i64 %.sroa.0.041
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.sroa.0.041
   %29 = load ptr, ptr %28, align 8, !nonnull !37, !align !124, !noundef !37
   %30 = getelementptr i8, ptr %29, i64 48
   %.val.i = load i64, ptr %30, align 8, !noundef !37
@@ -2480,7 +2480,7 @@ define hidden { i64, i64 } @_ZN11polars_core13chunked_array3ops13search_sorted11
 42:                                               ; preds = %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd2ee1cb0f3c0201aE.exit"
   %43 = icmp ult i64 %.sroa.0.0.i, %11
   tail call void @llvm.assume(i1 %43)
-  %44 = getelementptr inbounds nuw ptr, ptr %9, i64 %.sroa.0.0.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.sroa.0.0.i
   %45 = load ptr, ptr %44, align 8, !noalias !185, !nonnull !37, !align !124, !noundef !37
   %46 = getelementptr i8, ptr %45, i64 40
   %.val.i19 = load ptr, ptr %46, align 8, !noalias !185, !noundef !37
@@ -2489,7 +2489,7 @@ define hidden { i64, i64 } @_ZN11polars_core13chunked_array3ops13search_sorted11
   %.val2.i = load double, ptr %13, align 8, !alias.scope !188, !noalias !191, !noundef !37
   %48 = icmp ult i64 %.sroa.5.0.i, %.val1.i
   tail call void @llvm.assume(i1 %48)
-  %49 = getelementptr inbounds nuw double, ptr %.val.i19, i64 %.sroa.5.0.i
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %.val.i19, i64 %.sroa.5.0.i
   %50 = load double, ptr %49, align 8, !noalias !185, !noundef !37
   %51 = fcmp ord double %50, 0.000000e+00
   %52 = fcmp ult double %50, %.val2.i
@@ -2499,7 +2499,7 @@ define hidden { i64, i64 } @_ZN11polars_core13chunked_array3ops13search_sorted11
 53:                                               ; preds = %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hd2ee1cb0f3c0201aE.exit"
   %54 = icmp ult i64 %.sroa.0.041, %11
   tail call void @llvm.assume(i1 %54)
-  %55 = getelementptr inbounds nuw ptr, ptr %9, i64 %.sroa.0.041
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.sroa.0.041
   %56 = load ptr, ptr %55, align 8, !noalias !193, !nonnull !37, !align !124, !noundef !37
   %57 = getelementptr i8, ptr %56, i64 40
   %.val.i20 = load ptr, ptr %57, align 8, !noalias !193, !noundef !37
@@ -2508,7 +2508,7 @@ define hidden { i64, i64 } @_ZN11polars_core13chunked_array3ops13search_sorted11
   %.val2.i22 = load double, ptr %13, align 8, !alias.scope !196, !noalias !199, !noundef !37
   %59 = icmp ult i64 %.sroa.6.0, %.val1.i21
   tail call void @llvm.assume(i1 %59)
-  %60 = getelementptr inbounds nuw double, ptr %.val.i20, i64 %.sroa.6.0
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %.val.i20, i64 %.sroa.6.0
   %61 = load double, ptr %60, align 8, !noalias !193, !noundef !37
   %62 = fcmp ord double %61, 0.000000e+00
   %63 = fcmp ult double %61, %.val2.i22
@@ -2573,7 +2573,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h03a5debdb3aae44dE.exit.i.i.i:
   %.val1.i.i.i = load i64, ptr %8, align 8, !noalias !204, !noundef !37
   %30 = icmp ult i64 %10, %.val1.i.i.i
   tail call void @llvm.assume(i1 %30)
-  %31 = getelementptr inbounds nuw double, ptr %.val.i.i.i, i64 %10
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %.val.i.i.i, i64 %10
   %32 = load double, ptr %31, align 8, !noalias !204, !noundef !37
   %33 = fcmp ord double %.val1.i, 0.000000e+00
   %34 = fcmp ult double %.val1.i, %32
@@ -2624,7 +2624,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h03a5debdb3aae44dE.exit.i.i.i1
   %.val1.i.i.i16 = load i64, ptr %57, align 8, !noalias !201, !noundef !37
   %58 = icmp ult i64 %.sroa.0.029.lcssa, %.val1.i.i.i16
   tail call void @llvm.assume(i1 %58)
-  %59 = getelementptr inbounds nuw double, ptr %.val.i.i.i15, i64 %.sroa.0.029.lcssa
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %.val.i.i.i15, i64 %.sroa.0.029.lcssa
   %60 = load double, ptr %59, align 8, !noalias !201, !noundef !37
   %61 = fcmp ord double %.val1.i12, 0.000000e+00
   %62 = fcmp ult double %.val1.i12, %60
@@ -2678,7 +2678,7 @@ define hidden noundef i64 @_ZN11polars_core13chunked_array3ops13search_sorted11l
   %.sroa.022.031 = phi i64 [ %spec.select, %.lr.ph ], [ %1, %3 ]
   %8 = icmp ult i64 %7, %.val1.i16.pre
   tail call void @llvm.assume(i1 %8)
-  %9 = getelementptr inbounds nuw float, ptr %.val.i15.pre, i64 %7
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %.val.i15.pre, i64 %7
   %10 = load float, ptr %9, align 4, !noundef !37
   %11 = fcmp ord float %10, 0.000000e+00
   %12 = fcmp ult float %10, %.val2.i17.pre
@@ -2695,7 +2695,7 @@ define hidden noundef i64 @_ZN11polars_core13chunked_array3ops13search_sorted11l
   %.sroa.0.028.lcssa = phi i64 [ %0, %3 ], [ %spec.select29, %.lr.ph ]
   %16 = icmp ult i64 %.sroa.0.028.lcssa, %.val1.i16.pre
   tail call void @llvm.assume(i1 %16)
-  %17 = getelementptr inbounds nuw float, ptr %.val.i15.pre, i64 %.sroa.0.028.lcssa
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %.val.i15.pre, i64 %.sroa.0.028.lcssa
   %18 = load float, ptr %17, align 4, !noundef !37
   %19 = fcmp ord float %18, 0.000000e+00
   %20 = fcmp ult float %18, %.val2.i17.pre
@@ -2747,7 +2747,7 @@ define hidden { i64, i64 } @_ZN11polars_core13chunked_array3ops13search_sorted11
   br i1 %26, label %27, label %35
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds nuw ptr, ptr %4, i64 %.sroa.0.040
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.sroa.0.040
   %29 = load ptr, ptr %28, align 8, !nonnull !37, !align !124, !noundef !37
   %30 = getelementptr i8, ptr %29, i64 48
   %.val.i = load i64, ptr %30, align 8, !noundef !37
@@ -2780,7 +2780,7 @@ define hidden { i64, i64 } @_ZN11polars_core13chunked_array3ops13search_sorted11
 42:                                               ; preds = %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf04153db25ae01b9E.exit"
   %43 = icmp ult i64 %.sroa.0.0.i, %11
   tail call void @llvm.assume(i1 %43)
-  %44 = getelementptr inbounds nuw ptr, ptr %9, i64 %.sroa.0.0.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.sroa.0.0.i
   %45 = load ptr, ptr %44, align 8, !noalias !207, !nonnull !37, !align !124, !noundef !37
   %46 = getelementptr i8, ptr %45, i64 40
   %.val.i19 = load ptr, ptr %46, align 8, !noalias !207, !noundef !37
@@ -2789,7 +2789,7 @@ define hidden { i64, i64 } @_ZN11polars_core13chunked_array3ops13search_sorted11
   %.val2.i = load double, ptr %13, align 8, !alias.scope !210, !noalias !213, !noundef !37
   %48 = icmp ult i64 %.sroa.5.0.i, %.val1.i
   tail call void @llvm.assume(i1 %48)
-  %49 = getelementptr inbounds nuw double, ptr %.val.i19, i64 %.sroa.5.0.i
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %.val.i19, i64 %.sroa.5.0.i
   %50 = load double, ptr %49, align 8, !noalias !207, !noundef !37
   %51 = fcmp uno double %.val2.i, 0.000000e+00
   %52 = fcmp oge double %.val2.i, %50
@@ -2799,7 +2799,7 @@ define hidden { i64, i64 } @_ZN11polars_core13chunked_array3ops13search_sorted11
 54:                                               ; preds = %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hf04153db25ae01b9E.exit"
   %55 = icmp ult i64 %.sroa.0.040, %11
   tail call void @llvm.assume(i1 %55)
-  %56 = getelementptr inbounds nuw ptr, ptr %9, i64 %.sroa.0.040
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.sroa.0.040
   %57 = load ptr, ptr %56, align 8, !noalias !215, !nonnull !37, !align !124, !noundef !37
   %58 = getelementptr i8, ptr %57, i64 40
   %.val.i20 = load ptr, ptr %58, align 8, !noalias !215, !noundef !37
@@ -2808,7 +2808,7 @@ define hidden { i64, i64 } @_ZN11polars_core13chunked_array3ops13search_sorted11
   %.val2.i22 = load double, ptr %13, align 8, !alias.scope !218, !noalias !221, !noundef !37
   %60 = icmp ult i64 %.sroa.6.0, %.val1.i21
   tail call void @llvm.assume(i1 %60)
-  %61 = getelementptr inbounds nuw double, ptr %.val.i20, i64 %.sroa.6.0
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %.val.i20, i64 %.sroa.6.0
   %62 = load double, ptr %61, align 8, !noalias !215, !noundef !37
   %63 = fcmp uno double %.val2.i22, 0.000000e+00
   %64 = fcmp oge double %.val2.i22, %62
@@ -2873,7 +2873,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h98ac015d2cb3acdcE.exit.i.i.i:
   %.val1.i.i.i = load i64, ptr %8, align 8, !noalias !226, !noundef !37
   %30 = icmp ult i64 %10, %.val1.i.i.i
   tail call void @llvm.assume(i1 %30)
-  %31 = getelementptr inbounds nuw float, ptr %.val.i.i.i, i64 %10
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %.val.i.i.i, i64 %10
   %32 = load float, ptr %31, align 4, !noalias !226, !noundef !37
   %33 = fcmp ord float %.val1.i, 0.000000e+00
   %34 = fcmp ult float %.val1.i, %32
@@ -2924,7 +2924,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h98ac015d2cb3acdcE.exit.i.i.i1
   %.val1.i.i.i16 = load i64, ptr %57, align 8, !noalias !223, !noundef !37
   %58 = icmp ult i64 %.sroa.0.029.lcssa, %.val1.i.i.i16
   tail call void @llvm.assume(i1 %58)
-  %59 = getelementptr inbounds nuw float, ptr %.val.i.i.i15, i64 %.sroa.0.029.lcssa
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %.val.i.i.i15, i64 %.sroa.0.029.lcssa
   %60 = load float, ptr %59, align 4, !noalias !223, !noundef !37
   %61 = fcmp ord float %.val1.i12, 0.000000e+00
   %62 = fcmp ult float %.val1.i12, %60
@@ -3009,7 +3009,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h98ac015d2cb3acdcE.exit.i.i.i:
   %.val1.i.i.i = load i64, ptr %8, align 8, !noalias !232, !noundef !37
   %30 = icmp ult i64 %10, %.val1.i.i.i
   tail call void @llvm.assume(i1 %30)
-  %31 = getelementptr inbounds nuw float, ptr %.val.i.i.i, i64 %10
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %.val.i.i.i, i64 %10
   %32 = load float, ptr %31, align 4, !noalias !232, !noundef !37
   %33 = fcmp uno float %32, 0.000000e+00
   %34 = fcmp oge float %32, %.val1.i
@@ -3060,7 +3060,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h98ac015d2cb3acdcE.exit.i.i.i1
   %.val1.i.i.i16 = load i64, ptr %58, align 8, !noalias !229, !noundef !37
   %59 = icmp ult i64 %.sroa.0.028.lcssa, %.val1.i.i.i16
   tail call void @llvm.assume(i1 %59)
-  %60 = getelementptr inbounds nuw float, ptr %.val.i.i.i15, i64 %.sroa.0.028.lcssa
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %.val.i.i.i15, i64 %.sroa.0.028.lcssa
   %61 = load float, ptr %60, align 4, !noalias !229, !noundef !37
   %62 = fcmp uno float %61, 0.000000e+00
   %63 = fcmp oge float %61, %.val1.i12
@@ -3135,7 +3135,7 @@ define hidden { i64, i64 } @_ZN11polars_core13chunked_array3ops13search_sorted11
   br i1 %26, label %27, label %35
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds nuw ptr, ptr %4, i64 %.sroa.0.041
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.sroa.0.041
   %29 = load ptr, ptr %28, align 8, !nonnull !37, !align !124, !noundef !37
   %30 = getelementptr i8, ptr %29, i64 48
   %.val.i = load i64, ptr %30, align 8, !noundef !37
@@ -3168,7 +3168,7 @@ define hidden { i64, i64 } @_ZN11polars_core13chunked_array3ops13search_sorted11
 42:                                               ; preds = %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h4d496d143a7fb944E.exit"
   %43 = icmp ult i64 %.sroa.0.0.i, %11
   tail call void @llvm.assume(i1 %43)
-  %44 = getelementptr inbounds nuw ptr, ptr %9, i64 %.sroa.0.0.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.sroa.0.0.i
   %45 = load ptr, ptr %44, align 8, !noalias !235, !nonnull !37, !align !124, !noundef !37
   %46 = getelementptr i8, ptr %45, i64 40
   %.val.i19 = load ptr, ptr %46, align 8, !noalias !235, !noundef !37
@@ -3177,7 +3177,7 @@ define hidden { i64, i64 } @_ZN11polars_core13chunked_array3ops13search_sorted11
   %.val2.i = load double, ptr %13, align 8, !alias.scope !238, !noalias !241, !noundef !37
   %48 = icmp ult i64 %.sroa.5.0.i, %.val1.i
   tail call void @llvm.assume(i1 %48)
-  %49 = getelementptr inbounds nuw double, ptr %.val.i19, i64 %.sroa.5.0.i
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %.val.i19, i64 %.sroa.5.0.i
   %50 = load double, ptr %49, align 8, !noalias !235, !noundef !37
   %51 = fcmp ord double %.val2.i, 0.000000e+00
   %52 = fcmp ult double %.val2.i, %50
@@ -3187,7 +3187,7 @@ define hidden { i64, i64 } @_ZN11polars_core13chunked_array3ops13search_sorted11
 53:                                               ; preds = %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h4d496d143a7fb944E.exit"
   %54 = icmp ult i64 %.sroa.0.041, %11
   tail call void @llvm.assume(i1 %54)
-  %55 = getelementptr inbounds nuw ptr, ptr %9, i64 %.sroa.0.041
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.sroa.0.041
   %56 = load ptr, ptr %55, align 8, !noalias !243, !nonnull !37, !align !124, !noundef !37
   %57 = getelementptr i8, ptr %56, i64 40
   %.val.i20 = load ptr, ptr %57, align 8, !noalias !243, !noundef !37
@@ -3196,7 +3196,7 @@ define hidden { i64, i64 } @_ZN11polars_core13chunked_array3ops13search_sorted11
   %.val2.i22 = load double, ptr %13, align 8, !alias.scope !246, !noalias !249, !noundef !37
   %59 = icmp ult i64 %.sroa.6.0, %.val1.i21
   tail call void @llvm.assume(i1 %59)
-  %60 = getelementptr inbounds nuw double, ptr %.val.i20, i64 %.sroa.6.0
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %.val.i20, i64 %.sroa.6.0
   %61 = load double, ptr %60, align 8, !noalias !243, !noundef !37
   %62 = fcmp ord double %.val2.i22, 0.000000e+00
   %63 = fcmp ult double %.val2.i22, %61
@@ -3252,7 +3252,7 @@ define hidden { i64, i64 } @_ZN11polars_core13chunked_array3ops13search_sorted11
   br i1 %27, label %28, label %36
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw ptr, ptr %4, i64 %.sroa.0.045
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.sroa.0.045
   %30 = load ptr, ptr %29, align 8, !nonnull !37, !align !124, !noundef !37
   %31 = getelementptr i8, ptr %30, i64 48
   %.val.i = load i64, ptr %31, align 8, !noundef !37
@@ -3285,7 +3285,7 @@ define hidden { i64, i64 } @_ZN11polars_core13chunked_array3ops13search_sorted11
 43:                                               ; preds = %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hdf1f0fc7c37aa49eE.exit"
   %44 = icmp ult i64 %.sroa.0.0.i, %12
   tail call void @llvm.assume(i1 %44)
-  %45 = getelementptr inbounds nuw ptr, ptr %10, i64 %.sroa.0.0.i
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.sroa.0.0.i
   %46 = load ptr, ptr %45, align 8, !noalias !251, !nonnull !37, !align !124, !noundef !37
   %.val.i19 = load ptr, ptr %8, align 8, !noalias !251
   %.val1.i = load double, ptr %14, align 8, !noalias !251
@@ -3321,7 +3321,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h03a5debdb3aae44dE.exit.i.i.i:
   %.val1.i.i.i = load i64, ptr %67, align 8, !noalias !251, !noundef !37
   %68 = icmp ult i64 %.sroa.5.0.i, %.val1.i.i.i
   tail call void @llvm.assume(i1 %68)
-  %69 = getelementptr inbounds nuw double, ptr %.val.i.i.i, i64 %.sroa.5.0.i
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %.val.i.i.i, i64 %.sroa.5.0.i
   %70 = load double, ptr %69, align 8, !noalias !251, !noundef !37
   %71 = fcmp uno double %70, 0.000000e+00
   %72 = fcmp oge double %70, %.val1.i
@@ -3340,7 +3340,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h03a5debdb3aae44dE.exit.i.i.i:
 76:                                               ; preds = %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hdf1f0fc7c37aa49eE.exit"
   %77 = icmp ult i64 %.sroa.0.045, %12
   tail call void @llvm.assume(i1 %77)
-  %78 = getelementptr inbounds nuw ptr, ptr %10, i64 %.sroa.0.045
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.sroa.0.045
   %79 = load ptr, ptr %78, align 8, !noalias !254, !nonnull !37, !align !124, !noundef !37
   %.val.i20 = load ptr, ptr %8, align 8, !noalias !254
   %.val1.i21 = load double, ptr %14, align 8, !noalias !254
@@ -3376,7 +3376,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h03a5debdb3aae44dE.exit.i.i.i2
   %.val1.i.i.i25 = load i64, ptr %100, align 8, !noalias !254, !noundef !37
   %101 = icmp ult i64 %.sroa.6.0, %.val1.i.i.i25
   tail call void @llvm.assume(i1 %101)
-  %102 = getelementptr inbounds nuw double, ptr %.val.i.i.i24, i64 %.sroa.6.0
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %.val.i.i.i24, i64 %.sroa.6.0
   %103 = load double, ptr %102, align 8, !noalias !254, !noundef !37
   %104 = fcmp uno double %103, 0.000000e+00
   %105 = fcmp oge double %103, %.val1.i21
@@ -3446,7 +3446,7 @@ define hidden { i64, i64 } @_ZN11polars_core13chunked_array3ops13search_sorted11
   br i1 %26, label %27, label %35
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds nuw ptr, ptr %4, i64 %.sroa.0.041
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.sroa.0.041
   %29 = load ptr, ptr %28, align 8, !nonnull !37, !align !124, !noundef !37
   %30 = getelementptr i8, ptr %29, i64 48
   %.val.i = load i64, ptr %30, align 8, !noundef !37
@@ -3479,7 +3479,7 @@ define hidden { i64, i64 } @_ZN11polars_core13chunked_array3ops13search_sorted11
 42:                                               ; preds = %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0b8782918be22910E.exit"
   %43 = icmp ult i64 %.sroa.0.0.i, %11
   tail call void @llvm.assume(i1 %43)
-  %44 = getelementptr inbounds nuw ptr, ptr %9, i64 %.sroa.0.0.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.sroa.0.0.i
   %45 = load ptr, ptr %44, align 8, !noalias !257, !nonnull !37, !align !124, !noundef !37
   %46 = getelementptr i8, ptr %45, i64 40
   %.val.i19 = load ptr, ptr %46, align 8, !noalias !257, !noundef !37
@@ -3488,7 +3488,7 @@ define hidden { i64, i64 } @_ZN11polars_core13chunked_array3ops13search_sorted11
   %.val2.i = load float, ptr %13, align 4, !alias.scope !260, !noalias !263, !noundef !37
   %48 = icmp ult i64 %.sroa.5.0.i, %.val1.i
   tail call void @llvm.assume(i1 %48)
-  %49 = getelementptr inbounds nuw float, ptr %.val.i19, i64 %.sroa.5.0.i
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %.val.i19, i64 %.sroa.5.0.i
   %50 = load float, ptr %49, align 4, !noalias !257, !noundef !37
   %51 = fcmp ord float %50, 0.000000e+00
   %52 = fcmp ult float %50, %.val2.i
@@ -3498,7 +3498,7 @@ define hidden { i64, i64 } @_ZN11polars_core13chunked_array3ops13search_sorted11
 53:                                               ; preds = %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0b8782918be22910E.exit"
   %54 = icmp ult i64 %.sroa.0.041, %11
   tail call void @llvm.assume(i1 %54)
-  %55 = getelementptr inbounds nuw ptr, ptr %9, i64 %.sroa.0.041
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.sroa.0.041
   %56 = load ptr, ptr %55, align 8, !noalias !265, !nonnull !37, !align !124, !noundef !37
   %57 = getelementptr i8, ptr %56, i64 40
   %.val.i20 = load ptr, ptr %57, align 8, !noalias !265, !noundef !37
@@ -3507,7 +3507,7 @@ define hidden { i64, i64 } @_ZN11polars_core13chunked_array3ops13search_sorted11
   %.val2.i22 = load float, ptr %13, align 4, !alias.scope !268, !noalias !271, !noundef !37
   %59 = icmp ult i64 %.sroa.6.0, %.val1.i21
   tail call void @llvm.assume(i1 %59)
-  %60 = getelementptr inbounds nuw float, ptr %.val.i20, i64 %.sroa.6.0
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %.val.i20, i64 %.sroa.6.0
   %61 = load float, ptr %60, align 4, !noalias !265, !noundef !37
   %62 = fcmp ord float %61, 0.000000e+00
   %63 = fcmp ult float %61, %.val2.i22
@@ -3554,7 +3554,7 @@ define hidden noundef i64 @_ZN11polars_core13chunked_array3ops13search_sorted11l
   %.sroa.022.031 = phi i64 [ %unswitched.select, %.lr.ph.split ], [ %1, %.lr.ph ]
   %14 = icmp ult i64 %13, %.val1.i16.pre
   tail call void @llvm.assume(i1 %14)
-  %15 = getelementptr inbounds nuw float, ptr %.val.i15.pre, i64 %13
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %.val.i15.pre, i64 %13
   %16 = load float, ptr %15, align 4, !noundef !37
   %17 = fcmp ult float %.val2.i17.pre, %16
   %unswitched.select = select i1 %17, i64 %13, i64 %.sroa.022.031
@@ -3569,7 +3569,7 @@ define hidden noundef i64 @_ZN11polars_core13chunked_array3ops13search_sorted11l
   %.sroa.0.028.lcssa = phi i64 [ %spec.select29, %.lr.ph.split ], [ %0, %3 ], [ %8, %.lr.ph.split.us ]
   %21 = icmp ult i64 %.sroa.0.028.lcssa, %.val1.i16.pre
   tail call void @llvm.assume(i1 %21)
-  %22 = getelementptr inbounds nuw float, ptr %.val.i15.pre, i64 %.sroa.0.028.lcssa
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.val.i15.pre, i64 %.sroa.0.028.lcssa
   %23 = load float, ptr %22, align 4, !noundef !37
   %24 = fcmp ord float %.val2.i17.pre, 0.000000e+00
   %25 = fcmp ult float %.val2.i17.pre, %23
@@ -3621,7 +3621,7 @@ define hidden { i64, i64 } @_ZN11polars_core13chunked_array3ops13search_sorted11
   br i1 %26, label %27, label %35
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds nuw ptr, ptr %4, i64 %.sroa.0.040
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.sroa.0.040
   %29 = load ptr, ptr %28, align 8, !nonnull !37, !align !124, !noundef !37
   %30 = getelementptr i8, ptr %29, i64 48
   %.val.i = load i64, ptr %30, align 8, !noundef !37
@@ -3654,7 +3654,7 @@ define hidden { i64, i64 } @_ZN11polars_core13chunked_array3ops13search_sorted11
 42:                                               ; preds = %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0e5c1931830dbae6E.exit"
   %43 = icmp ult i64 %.sroa.0.0.i, %11
   tail call void @llvm.assume(i1 %43)
-  %44 = getelementptr inbounds nuw ptr, ptr %9, i64 %.sroa.0.0.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.sroa.0.0.i
   %45 = load ptr, ptr %44, align 8, !noalias !273, !nonnull !37, !align !124, !noundef !37
   %46 = getelementptr i8, ptr %45, i64 40
   %.val.i19 = load ptr, ptr %46, align 8, !noalias !273, !noundef !37
@@ -3663,7 +3663,7 @@ define hidden { i64, i64 } @_ZN11polars_core13chunked_array3ops13search_sorted11
   %.val2.i = load float, ptr %13, align 4, !alias.scope !276, !noalias !279, !noundef !37
   %48 = icmp ult i64 %.sroa.5.0.i, %.val1.i
   tail call void @llvm.assume(i1 %48)
-  %49 = getelementptr inbounds nuw float, ptr %.val.i19, i64 %.sroa.5.0.i
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %.val.i19, i64 %.sroa.5.0.i
   %50 = load float, ptr %49, align 4, !noalias !273, !noundef !37
   %51 = fcmp uno float %50, 0.000000e+00
   %52 = fcmp oge float %50, %.val2.i
@@ -3673,7 +3673,7 @@ define hidden { i64, i64 } @_ZN11polars_core13chunked_array3ops13search_sorted11
 54:                                               ; preds = %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h0e5c1931830dbae6E.exit"
   %55 = icmp ult i64 %.sroa.0.040, %11
   tail call void @llvm.assume(i1 %55)
-  %56 = getelementptr inbounds nuw ptr, ptr %9, i64 %.sroa.0.040
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.sroa.0.040
   %57 = load ptr, ptr %56, align 8, !noalias !281, !nonnull !37, !align !124, !noundef !37
   %58 = getelementptr i8, ptr %57, i64 40
   %.val.i20 = load ptr, ptr %58, align 8, !noalias !281, !noundef !37
@@ -3682,7 +3682,7 @@ define hidden { i64, i64 } @_ZN11polars_core13chunked_array3ops13search_sorted11
   %.val2.i22 = load float, ptr %13, align 4, !alias.scope !284, !noalias !287, !noundef !37
   %60 = icmp ult i64 %.sroa.6.0, %.val1.i21
   tail call void @llvm.assume(i1 %60)
-  %61 = getelementptr inbounds nuw float, ptr %.val.i20, i64 %.sroa.6.0
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %.val.i20, i64 %.sroa.6.0
   %62 = load float, ptr %61, align 4, !noalias !281, !noundef !37
   %63 = fcmp uno float %62, 0.000000e+00
   %64 = fcmp oge float %62, %.val2.i22
@@ -3747,7 +3747,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h03a5debdb3aae44dE.exit.i.i.i:
   %.val1.i.i.i = load i64, ptr %8, align 8, !noalias !292, !noundef !37
   %30 = icmp ult i64 %10, %.val1.i.i.i
   tail call void @llvm.assume(i1 %30)
-  %31 = getelementptr inbounds nuw double, ptr %.val.i.i.i, i64 %10
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %.val.i.i.i, i64 %10
   %32 = load double, ptr %31, align 8, !noalias !292, !noundef !37
   %33 = fcmp ord double %32, 0.000000e+00
   %34 = fcmp ult double %32, %.val1.i
@@ -3798,7 +3798,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h03a5debdb3aae44dE.exit.i.i.i1
   %.val1.i.i.i16 = load i64, ptr %57, align 8, !noalias !289, !noundef !37
   %58 = icmp ult i64 %.sroa.0.029.lcssa, %.val1.i.i.i16
   tail call void @llvm.assume(i1 %58)
-  %59 = getelementptr inbounds nuw double, ptr %.val.i.i.i15, i64 %.sroa.0.029.lcssa
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %.val.i.i.i15, i64 %.sroa.0.029.lcssa
   %60 = load double, ptr %59, align 8, !noalias !289, !noundef !37
   %61 = fcmp ord double %60, 0.000000e+00
   %62 = fcmp ult double %60, %.val1.i12
@@ -3852,7 +3852,7 @@ define hidden noundef i64 @_ZN11polars_core13chunked_array3ops13search_sorted11l
   %.sroa.021.030 = phi i64 [ %spec.select, %.lr.ph ], [ %1, %3 ]
   %8 = icmp ult i64 %7, %.val1.i16.pre
   tail call void @llvm.assume(i1 %8)
-  %9 = getelementptr inbounds nuw float, ptr %.val.i15.pre, i64 %7
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %.val.i15.pre, i64 %7
   %10 = load float, ptr %9, align 4, !noundef !37
   %11 = fcmp uno float %10, 0.000000e+00
   %12 = fcmp oge float %10, %.val2.i17.pre
@@ -3869,7 +3869,7 @@ define hidden noundef i64 @_ZN11polars_core13chunked_array3ops13search_sorted11l
   %.sroa.0.027.lcssa = phi i64 [ %0, %3 ], [ %spec.select28, %.lr.ph ]
   %17 = icmp ult i64 %.sroa.0.027.lcssa, %.val1.i16.pre
   tail call void @llvm.assume(i1 %17)
-  %18 = getelementptr inbounds nuw float, ptr %.val.i15.pre, i64 %.sroa.0.027.lcssa
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %.val.i15.pre, i64 %.sroa.0.027.lcssa
   %19 = load float, ptr %18, align 4, !noundef !37
   %20 = fcmp uno float %19, 0.000000e+00
   %21 = fcmp oge float %19, %.val2.i17.pre
@@ -3922,7 +3922,7 @@ define hidden { i64, i64 } @_ZN11polars_core13chunked_array3ops13search_sorted11
   br i1 %27, label %28, label %36
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw ptr, ptr %4, i64 %.sroa.0.046
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.sroa.0.046
   %30 = load ptr, ptr %29, align 8, !nonnull !37, !align !124, !noundef !37
   %31 = getelementptr i8, ptr %30, i64 48
   %.val.i = load i64, ptr %31, align 8, !noundef !37
@@ -3955,7 +3955,7 @@ define hidden { i64, i64 } @_ZN11polars_core13chunked_array3ops13search_sorted11
 43:                                               ; preds = %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1436e8e3bd86186eE.exit"
   %44 = icmp ult i64 %.sroa.0.0.i, %12
   tail call void @llvm.assume(i1 %44)
-  %45 = getelementptr inbounds nuw ptr, ptr %10, i64 %.sroa.0.0.i
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.sroa.0.0.i
   %46 = load ptr, ptr %45, align 8, !noalias !295, !nonnull !37, !align !124, !noundef !37
   %.val.i19 = load ptr, ptr %8, align 8, !noalias !295
   %.val1.i = load double, ptr %14, align 8, !noalias !295
@@ -3991,7 +3991,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h03a5debdb3aae44dE.exit.i.i.i:
   %.val1.i.i.i = load i64, ptr %67, align 8, !noalias !295, !noundef !37
   %68 = icmp ult i64 %.sroa.5.0.i, %.val1.i.i.i
   tail call void @llvm.assume(i1 %68)
-  %69 = getelementptr inbounds nuw double, ptr %.val.i.i.i, i64 %.sroa.5.0.i
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %.val.i.i.i, i64 %.sroa.5.0.i
   %70 = load double, ptr %69, align 8, !noalias !295, !noundef !37
   %71 = fcmp ord double %70, 0.000000e+00
   %72 = fcmp ult double %70, %.val1.i
@@ -4010,7 +4010,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h03a5debdb3aae44dE.exit.i.i.i:
 75:                                               ; preds = %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h1436e8e3bd86186eE.exit"
   %76 = icmp ult i64 %.sroa.0.046, %12
   tail call void @llvm.assume(i1 %76)
-  %77 = getelementptr inbounds nuw ptr, ptr %10, i64 %.sroa.0.046
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.sroa.0.046
   %78 = load ptr, ptr %77, align 8, !noalias !298, !nonnull !37, !align !124, !noundef !37
   %.val.i20 = load ptr, ptr %8, align 8, !noalias !298
   %.val1.i21 = load double, ptr %14, align 8, !noalias !298
@@ -4046,7 +4046,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h03a5debdb3aae44dE.exit.i.i.i2
   %.val1.i.i.i25 = load i64, ptr %99, align 8, !noalias !298, !noundef !37
   %100 = icmp ult i64 %.sroa.6.0, %.val1.i.i.i25
   tail call void @llvm.assume(i1 %100)
-  %101 = getelementptr inbounds nuw double, ptr %.val.i.i.i24, i64 %.sroa.6.0
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %.val.i.i.i24, i64 %.sroa.6.0
   %102 = load double, ptr %101, align 8, !noalias !298, !noundef !37
   %103 = fcmp ord double %102, 0.000000e+00
   %104 = fcmp ult double %102, %.val1.i21
@@ -4116,7 +4116,7 @@ define hidden { i64, i64 } @_ZN11polars_core13chunked_array3ops13search_sorted11
   br i1 %26, label %27, label %35
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds nuw ptr, ptr %4, i64 %.sroa.0.040
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.sroa.0.040
   %29 = load ptr, ptr %28, align 8, !nonnull !37, !align !124, !noundef !37
   %30 = getelementptr i8, ptr %29, i64 48
   %.val.i = load i64, ptr %30, align 8, !noundef !37
@@ -4149,7 +4149,7 @@ define hidden { i64, i64 } @_ZN11polars_core13chunked_array3ops13search_sorted11
 42:                                               ; preds = %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc5756b0077b98d8bE.exit"
   %43 = icmp ult i64 %.sroa.0.0.i, %11
   tail call void @llvm.assume(i1 %43)
-  %44 = getelementptr inbounds nuw ptr, ptr %9, i64 %.sroa.0.0.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.sroa.0.0.i
   %45 = load ptr, ptr %44, align 8, !noalias !301, !nonnull !37, !align !124, !noundef !37
   %46 = getelementptr i8, ptr %45, i64 40
   %.val.i19 = load ptr, ptr %46, align 8, !noalias !301, !noundef !37
@@ -4158,7 +4158,7 @@ define hidden { i64, i64 } @_ZN11polars_core13chunked_array3ops13search_sorted11
   %.val2.i = load double, ptr %13, align 8, !alias.scope !304, !noalias !307, !noundef !37
   %48 = icmp ult i64 %.sroa.5.0.i, %.val1.i
   tail call void @llvm.assume(i1 %48)
-  %49 = getelementptr inbounds nuw double, ptr %.val.i19, i64 %.sroa.5.0.i
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %.val.i19, i64 %.sroa.5.0.i
   %50 = load double, ptr %49, align 8, !noalias !301, !noundef !37
   %51 = fcmp uno double %50, 0.000000e+00
   %52 = fcmp oge double %50, %.val2.i
@@ -4168,7 +4168,7 @@ define hidden { i64, i64 } @_ZN11polars_core13chunked_array3ops13search_sorted11
 54:                                               ; preds = %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17hc5756b0077b98d8bE.exit"
   %55 = icmp ult i64 %.sroa.0.040, %11
   tail call void @llvm.assume(i1 %55)
-  %56 = getelementptr inbounds nuw ptr, ptr %9, i64 %.sroa.0.040
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.sroa.0.040
   %57 = load ptr, ptr %56, align 8, !noalias !309, !nonnull !37, !align !124, !noundef !37
   %58 = getelementptr i8, ptr %57, i64 40
   %.val.i20 = load ptr, ptr %58, align 8, !noalias !309, !noundef !37
@@ -4177,7 +4177,7 @@ define hidden { i64, i64 } @_ZN11polars_core13chunked_array3ops13search_sorted11
   %.val2.i22 = load double, ptr %13, align 8, !alias.scope !312, !noalias !315, !noundef !37
   %60 = icmp ult i64 %.sroa.6.0, %.val1.i21
   tail call void @llvm.assume(i1 %60)
-  %61 = getelementptr inbounds nuw double, ptr %.val.i20, i64 %.sroa.6.0
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %.val.i20, i64 %.sroa.6.0
   %62 = load double, ptr %61, align 8, !noalias !309, !noundef !37
   %63 = fcmp uno double %62, 0.000000e+00
   %64 = fcmp oge double %62, %.val2.i22
@@ -4224,7 +4224,7 @@ define hidden noundef i64 @_ZN11polars_core13chunked_array3ops13search_sorted11l
   %.sroa.021.030 = phi i64 [ %unswitched.select, %.lr.ph.split ], [ %1, %.lr.ph ]
   %14 = icmp ult i64 %13, %.val1.i16.pre
   tail call void @llvm.assume(i1 %14)
-  %15 = getelementptr inbounds nuw double, ptr %.val.i15.pre, i64 %13
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %.val.i15.pre, i64 %13
   %16 = load double, ptr %15, align 8, !noundef !37
   %17 = fcmp oge double %.val2.i17.pre, %16
   %unswitched.select = select i1 %17, i64 %13, i64 %.sroa.021.030
@@ -4239,7 +4239,7 @@ define hidden noundef i64 @_ZN11polars_core13chunked_array3ops13search_sorted11l
   %.sroa.0.027.lcssa = phi i64 [ %0, %.lr.ph.split.us ], [ %0, %3 ], [ %spec.select28, %.lr.ph.split ]
   %21 = icmp ult i64 %.sroa.0.027.lcssa, %.val1.i16.pre
   tail call void @llvm.assume(i1 %21)
-  %22 = getelementptr inbounds nuw double, ptr %.val.i15.pre, i64 %.sroa.0.027.lcssa
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %.val.i15.pre, i64 %.sroa.0.027.lcssa
   %23 = load double, ptr %22, align 8, !noundef !37
   %24 = fcmp uno double %.val2.i17.pre, 0.000000e+00
   %25 = fcmp oge double %.val2.i17.pre, %23
@@ -4270,7 +4270,7 @@ define hidden noundef i64 @_ZN11polars_core13chunked_array3ops13search_sorted11l
   %.sroa.022.031 = phi i64 [ %spec.select, %.lr.ph ], [ %1, %3 ]
   %8 = icmp ult i64 %7, %.val1.i16.pre
   tail call void @llvm.assume(i1 %8)
-  %9 = getelementptr inbounds nuw double, ptr %.val.i15.pre, i64 %7
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %.val.i15.pre, i64 %7
   %10 = load double, ptr %9, align 8, !noundef !37
   %11 = fcmp ord double %10, 0.000000e+00
   %12 = fcmp ult double %10, %.val2.i17.pre
@@ -4287,7 +4287,7 @@ define hidden noundef i64 @_ZN11polars_core13chunked_array3ops13search_sorted11l
   %.sroa.0.028.lcssa = phi i64 [ %0, %3 ], [ %spec.select29, %.lr.ph ]
   %16 = icmp ult i64 %.sroa.0.028.lcssa, %.val1.i16.pre
   tail call void @llvm.assume(i1 %16)
-  %17 = getelementptr inbounds nuw double, ptr %.val.i15.pre, i64 %.sroa.0.028.lcssa
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %.val.i15.pre, i64 %.sroa.0.028.lcssa
   %18 = load double, ptr %17, align 8, !noundef !37
   %19 = fcmp ord double %18, 0.000000e+00
   %20 = fcmp ult double %18, %.val2.i17.pre
@@ -4339,7 +4339,7 @@ define hidden { i64, i64 } @_ZN11polars_core13chunked_array3ops13search_sorted11
   br i1 %26, label %27, label %35
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds nuw ptr, ptr %4, i64 %.sroa.0.040
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.sroa.0.040
   %29 = load ptr, ptr %28, align 8, !nonnull !37, !align !124, !noundef !37
   %30 = getelementptr i8, ptr %29, i64 48
   %.val.i = load i64, ptr %30, align 8, !noundef !37
@@ -4372,7 +4372,7 @@ define hidden { i64, i64 } @_ZN11polars_core13chunked_array3ops13search_sorted11
 42:                                               ; preds = %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h4fa842096d02d21bE.exit"
   %43 = icmp ult i64 %.sroa.0.0.i, %11
   tail call void @llvm.assume(i1 %43)
-  %44 = getelementptr inbounds nuw ptr, ptr %9, i64 %.sroa.0.0.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.sroa.0.0.i
   %45 = load ptr, ptr %44, align 8, !noalias !317, !nonnull !37, !align !124, !noundef !37
   %46 = getelementptr i8, ptr %45, i64 40
   %.val.i19 = load ptr, ptr %46, align 8, !noalias !317, !noundef !37
@@ -4381,7 +4381,7 @@ define hidden { i64, i64 } @_ZN11polars_core13chunked_array3ops13search_sorted11
   %.val2.i = load float, ptr %13, align 4, !alias.scope !320, !noalias !323, !noundef !37
   %48 = icmp ult i64 %.sroa.5.0.i, %.val1.i
   tail call void @llvm.assume(i1 %48)
-  %49 = getelementptr inbounds nuw float, ptr %.val.i19, i64 %.sroa.5.0.i
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %.val.i19, i64 %.sroa.5.0.i
   %50 = load float, ptr %49, align 4, !noalias !317, !noundef !37
   %51 = fcmp uno float %.val2.i, 0.000000e+00
   %52 = fcmp oge float %.val2.i, %50
@@ -4391,7 +4391,7 @@ define hidden { i64, i64 } @_ZN11polars_core13chunked_array3ops13search_sorted11
 54:                                               ; preds = %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h4fa842096d02d21bE.exit"
   %55 = icmp ult i64 %.sroa.0.040, %11
   tail call void @llvm.assume(i1 %55)
-  %56 = getelementptr inbounds nuw ptr, ptr %9, i64 %.sroa.0.040
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.sroa.0.040
   %57 = load ptr, ptr %56, align 8, !noalias !325, !nonnull !37, !align !124, !noundef !37
   %58 = getelementptr i8, ptr %57, i64 40
   %.val.i20 = load ptr, ptr %58, align 8, !noalias !325, !noundef !37
@@ -4400,7 +4400,7 @@ define hidden { i64, i64 } @_ZN11polars_core13chunked_array3ops13search_sorted11
   %.val2.i22 = load float, ptr %13, align 4, !alias.scope !328, !noalias !331, !noundef !37
   %60 = icmp ult i64 %.sroa.6.0, %.val1.i21
   tail call void @llvm.assume(i1 %60)
-  %61 = getelementptr inbounds nuw float, ptr %.val.i20, i64 %.sroa.6.0
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %.val.i20, i64 %.sroa.6.0
   %62 = load float, ptr %61, align 4, !noalias !325, !noundef !37
   %63 = fcmp uno float %.val2.i22, 0.000000e+00
   %64 = fcmp oge float %.val2.i22, %62
@@ -4465,7 +4465,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h98ac015d2cb3acdcE.exit.i.i.i:
   %.val1.i.i.i = load i64, ptr %8, align 8, !noalias !336, !noundef !37
   %30 = icmp ult i64 %10, %.val1.i.i.i
   tail call void @llvm.assume(i1 %30)
-  %31 = getelementptr inbounds nuw float, ptr %.val.i.i.i, i64 %10
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %.val.i.i.i, i64 %10
   %32 = load float, ptr %31, align 4, !noalias !336, !noundef !37
   %33 = fcmp ord float %32, 0.000000e+00
   %34 = fcmp ult float %32, %.val1.i
@@ -4516,7 +4516,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h98ac015d2cb3acdcE.exit.i.i.i1
   %.val1.i.i.i16 = load i64, ptr %57, align 8, !noalias !333, !noundef !37
   %58 = icmp ult i64 %.sroa.0.029.lcssa, %.val1.i.i.i16
   tail call void @llvm.assume(i1 %58)
-  %59 = getelementptr inbounds nuw float, ptr %.val.i.i.i15, i64 %.sroa.0.029.lcssa
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %.val.i.i.i15, i64 %.sroa.0.029.lcssa
   %60 = load float, ptr %59, align 4, !noalias !333, !noundef !37
   %61 = fcmp ord float %60, 0.000000e+00
   %62 = fcmp ult float %60, %.val1.i12
@@ -4592,7 +4592,7 @@ define hidden { i64, i64 } @_ZN11polars_core13chunked_array3ops13search_sorted11
   br i1 %27, label %28, label %36
 
 28:                                               ; preds = %26
-  %29 = getelementptr inbounds nuw ptr, ptr %4, i64 %.sroa.0.045
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.sroa.0.045
   %30 = load ptr, ptr %29, align 8, !nonnull !37, !align !124, !noundef !37
   %31 = getelementptr i8, ptr %30, i64 48
   %.val.i = load i64, ptr %31, align 8, !noundef !37
@@ -4625,7 +4625,7 @@ define hidden { i64, i64 } @_ZN11polars_core13chunked_array3ops13search_sorted11
 43:                                               ; preds = %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h44ad7f081c9586baE.exit"
   %44 = icmp ult i64 %.sroa.0.0.i, %12
   tail call void @llvm.assume(i1 %44)
-  %45 = getelementptr inbounds nuw ptr, ptr %10, i64 %.sroa.0.0.i
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.sroa.0.0.i
   %46 = load ptr, ptr %45, align 8, !noalias !339, !nonnull !37, !align !124, !noundef !37
   %.val.i19 = load ptr, ptr %8, align 8, !noalias !339
   %.val1.i = load double, ptr %14, align 8, !noalias !339
@@ -4661,7 +4661,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h03a5debdb3aae44dE.exit.i.i.i:
   %.val1.i.i.i = load i64, ptr %67, align 8, !noalias !339, !noundef !37
   %68 = icmp ult i64 %.sroa.5.0.i, %.val1.i.i.i
   tail call void @llvm.assume(i1 %68)
-  %69 = getelementptr inbounds nuw double, ptr %.val.i.i.i, i64 %.sroa.5.0.i
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %.val.i.i.i, i64 %.sroa.5.0.i
   %70 = load double, ptr %69, align 8, !noalias !339, !noundef !37
   %71 = fcmp uno double %.val1.i, 0.000000e+00
   %72 = fcmp oge double %.val1.i, %70
@@ -4680,7 +4680,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h03a5debdb3aae44dE.exit.i.i.i:
 76:                                               ; preds = %"_ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h44ad7f081c9586baE.exit"
   %77 = icmp ult i64 %.sroa.0.045, %12
   tail call void @llvm.assume(i1 %77)
-  %78 = getelementptr inbounds nuw ptr, ptr %10, i64 %.sroa.0.045
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.sroa.0.045
   %79 = load ptr, ptr %78, align 8, !noalias !342, !nonnull !37, !align !124, !noundef !37
   %.val.i20 = load ptr, ptr %8, align 8, !noalias !342
   %.val1.i21 = load double, ptr %14, align 8, !noalias !342
@@ -4716,7 +4716,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h03a5debdb3aae44dE.exit.i.i.i2
   %.val1.i.i.i25 = load i64, ptr %100, align 8, !noalias !342, !noundef !37
   %101 = icmp ult i64 %.sroa.6.0, %.val1.i.i.i25
   tail call void @llvm.assume(i1 %101)
-  %102 = getelementptr inbounds nuw double, ptr %.val.i.i.i24, i64 %.sroa.6.0
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %.val.i.i.i24, i64 %.sroa.6.0
   %103 = load double, ptr %102, align 8, !noalias !342, !noundef !37
   %104 = fcmp uno double %.val1.i21, 0.000000e+00
   %105 = fcmp oge double %.val1.i21, %103
@@ -4796,7 +4796,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h98ac015d2cb3acdcE.exit.i.i.i:
   %.val1.i.i.i = load i64, ptr %8, align 8, !noalias !348, !noundef !37
   %30 = icmp ult i64 %10, %.val1.i.i.i
   tail call void @llvm.assume(i1 %30)
-  %31 = getelementptr inbounds nuw float, ptr %.val.i.i.i, i64 %10
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %.val.i.i.i, i64 %10
   %32 = load float, ptr %31, align 4, !noalias !348, !noundef !37
   %33 = fcmp uno float %.val1.i, 0.000000e+00
   %34 = fcmp oge float %.val1.i, %32
@@ -4847,7 +4847,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h98ac015d2cb3acdcE.exit.i.i.i1
   %.val1.i.i.i16 = load i64, ptr %58, align 8, !noalias !345, !noundef !37
   %59 = icmp ult i64 %.sroa.0.028.lcssa, %.val1.i.i.i16
   tail call void @llvm.assume(i1 %59)
-  %60 = getelementptr inbounds nuw float, ptr %.val.i.i.i15, i64 %.sroa.0.028.lcssa
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %.val.i.i.i15, i64 %.sroa.0.028.lcssa
   %61 = load float, ptr %60, align 4, !noalias !345, !noundef !37
   %62 = fcmp uno float %.val1.i12, 0.000000e+00
   %63 = fcmp oge float %.val1.i12, %61
@@ -4914,7 +4914,7 @@ define hidden noundef i64 @_ZN11polars_core13chunked_array3ops13search_sorted11l
   %.sroa.021.030 = phi i64 [ %unswitched.select, %.lr.ph.split ], [ %1, %.lr.ph ]
   %14 = icmp ult i64 %13, %.val1.i16.pre
   tail call void @llvm.assume(i1 %14)
-  %15 = getelementptr inbounds nuw float, ptr %.val.i15.pre, i64 %13
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %.val.i15.pre, i64 %13
   %16 = load float, ptr %15, align 4, !noundef !37
   %17 = fcmp oge float %.val2.i17.pre, %16
   %unswitched.select = select i1 %17, i64 %13, i64 %.sroa.021.030
@@ -4929,7 +4929,7 @@ define hidden noundef i64 @_ZN11polars_core13chunked_array3ops13search_sorted11l
   %.sroa.0.027.lcssa = phi i64 [ %0, %.lr.ph.split.us ], [ %0, %3 ], [ %spec.select28, %.lr.ph.split ]
   %21 = icmp ult i64 %.sroa.0.027.lcssa, %.val1.i16.pre
   tail call void @llvm.assume(i1 %21)
-  %22 = getelementptr inbounds nuw float, ptr %.val.i15.pre, i64 %.sroa.0.027.lcssa
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %.val.i15.pre, i64 %.sroa.0.027.lcssa
   %23 = load float, ptr %22, align 4, !noundef !37
   %24 = fcmp uno float %.val2.i17.pre, 0.000000e+00
   %25 = fcmp oge float %.val2.i17.pre, %23
@@ -4992,7 +4992,7 @@ define hidden void @_ZN11polars_core13chunked_array3ops13search_sorted16binary_s
   %55 = load ptr, ptr %54, align 8, !nonnull !37, !noundef !37
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %57 = load i64, ptr %56, align 8, !noundef !37
-  %58 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %55, i64 %57
+  %58 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %57
   call void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h9efdd4d4abbdcd3eE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %53, ptr noundef nonnull %55, ptr noundef nonnull %58, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0bb29a53de908bccc74361d8340ca66a.62)
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %60 = load i64, ptr %59, align 8, !noundef !37
@@ -5207,7 +5207,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h03a5debdb3aae44dE.exit.i.i: ;
 
 139:                                              ; preds = %135, %.lr.ph.i
   %140 = load ptr, ptr %126, align 8, !alias.scope !376, !noalias !379, !nonnull !37, !noundef !37
-  %141 = getelementptr inbounds nuw i64, ptr %140, i64 %131
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %140, i64 %131
   store i64 %.sroa.01.025.i, ptr %141, align 8, !noalias !354
   %142 = add nuw nsw i64 %131, 1
   store i64 %142, ptr %127, align 8, !alias.scope !376, !noalias !379
@@ -5220,7 +5220,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h03a5debdb3aae44dE.exit.i.i: ;
 
 147:                                              ; preds = %137, %._crit_edge.i
   %148 = load ptr, ptr %126, align 8, !alias.scope !381, !noalias !384, !nonnull !37, !noundef !37
-  %149 = getelementptr inbounds nuw i64, ptr %148, i64 %142
+  %149 = getelementptr inbounds nuw [8 x i8], ptr %148, i64 %142
   store i64 %145, ptr %149, align 8, !noalias !354
   %150 = add nuw i64 %131, 2
   store i64 %150, ptr %127, align 8, !alias.scope !381, !noalias !384
@@ -5364,7 +5364,7 @@ _ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks17ha5fb7ac
 
 180:                                              ; preds = %176, %.lr.ph.i17
   %181 = load ptr, ptr %167, align 8, !alias.scope !419, !noalias !422, !nonnull !37, !noundef !37
-  %182 = getelementptr inbounds nuw i64, ptr %181, i64 %172
+  %182 = getelementptr inbounds nuw [8 x i8], ptr %181, i64 %172
   store i64 %.sroa.01.025.i18, ptr %182, align 8, !noalias !401
   %183 = add nuw nsw i64 %172, 1
   store i64 %183, ptr %168, align 8, !alias.scope !419, !noalias !422
@@ -5377,7 +5377,7 @@ _ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks17ha5fb7ac
 
 188:                                              ; preds = %178, %._crit_edge.i21
   %189 = load ptr, ptr %167, align 8, !alias.scope !424, !noalias !427, !nonnull !37, !noundef !37
-  %190 = getelementptr inbounds nuw i64, ptr %189, i64 %183
+  %190 = getelementptr inbounds nuw [8 x i8], ptr %189, i64 %183
   store i64 %186, ptr %190, align 8, !noalias !401
   %191 = add nuw i64 %172, 2
   store i64 %191, ptr %168, align 8, !alias.scope !424, !noalias !427
@@ -5529,7 +5529,7 @@ _ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks17h5157b15
 
 222:                                              ; preds = %218, %.lr.ph.i47
   %223 = load ptr, ptr %209, align 8, !alias.scope !463, !noalias !466, !nonnull !37, !noundef !37
-  %224 = getelementptr inbounds nuw i64, ptr %223, i64 %214
+  %224 = getelementptr inbounds nuw [8 x i8], ptr %223, i64 %214
   store i64 %.sroa.01.025.i48, ptr %224, align 8, !noalias !468
   %225 = add nuw nsw i64 %214, 1
   store i64 %225, ptr %210, align 8, !alias.scope !463, !noalias !466
@@ -5542,7 +5542,7 @@ _ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks17h5157b15
 
 230:                                              ; preds = %220, %._crit_edge.i51
   %231 = load ptr, ptr %209, align 8, !alias.scope !469, !noalias !472, !nonnull !37, !noundef !37
-  %232 = getelementptr inbounds nuw i64, ptr %231, i64 %225
+  %232 = getelementptr inbounds nuw [8 x i8], ptr %231, i64 %225
   store i64 %228, ptr %232, align 8, !noalias !468
   %233 = add nuw i64 %214, 2
   store i64 %233, ptr %210, align 8, !alias.scope !469, !noalias !472
@@ -5689,7 +5689,7 @@ _ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks17hc0d0f5a
 
 263:                                              ; preds = %259, %.lr.ph.i77
   %264 = load ptr, ptr %250, align 8, !alias.scope !509, !noalias !512, !nonnull !37, !noundef !37
-  %265 = getelementptr inbounds nuw i64, ptr %264, i64 %255
+  %265 = getelementptr inbounds nuw [8 x i8], ptr %264, i64 %255
   store i64 %.sroa.01.025.i78, ptr %265, align 8, !noalias !514
   %266 = add nuw nsw i64 %255, 1
   store i64 %266, ptr %251, align 8, !alias.scope !509, !noalias !512
@@ -5702,7 +5702,7 @@ _ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks17hc0d0f5a
 
 271:                                              ; preds = %261, %._crit_edge.i81
   %272 = load ptr, ptr %250, align 8, !alias.scope !515, !noalias !518, !nonnull !37, !noundef !37
-  %273 = getelementptr inbounds nuw i64, ptr %272, i64 %266
+  %273 = getelementptr inbounds nuw [8 x i8], ptr %272, i64 %266
   store i64 %269, ptr %273, align 8, !noalias !514
   %274 = add nuw i64 %255, 2
   store i64 %274, ptr %251, align 8, !alias.scope !515, !noalias !518
@@ -5853,7 +5853,7 @@ _ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks17h686ada7
 
 306:                                              ; preds = %302, %.lr.ph.i107
   %307 = load ptr, ptr %293, align 8, !alias.scope !554, !noalias !557, !nonnull !37, !noundef !37
-  %308 = getelementptr inbounds nuw i64, ptr %307, i64 %298
+  %308 = getelementptr inbounds nuw [8 x i8], ptr %307, i64 %298
   store i64 %.sroa.01.025.i108, ptr %308, align 8, !noalias !536
   %309 = add nuw nsw i64 %298, 1
   store i64 %309, ptr %294, align 8, !alias.scope !554, !noalias !557
@@ -5866,7 +5866,7 @@ _ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks17h686ada7
 
 314:                                              ; preds = %304, %._crit_edge.i111
   %315 = load ptr, ptr %293, align 8, !alias.scope !559, !noalias !562, !nonnull !37, !noundef !37
-  %316 = getelementptr inbounds nuw i64, ptr %315, i64 %309
+  %316 = getelementptr inbounds nuw [8 x i8], ptr %315, i64 %309
   store i64 %312, ptr %316, align 8, !noalias !536
   %317 = add nuw i64 %298, 2
   store i64 %317, ptr %294, align 8, !alias.scope !559, !noalias !562
@@ -6010,7 +6010,7 @@ _ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks17hf93d651
 
 347:                                              ; preds = %343, %.lr.ph.i137
   %348 = load ptr, ptr %334, align 8, !alias.scope !597, !noalias !600, !nonnull !37, !noundef !37
-  %349 = getelementptr inbounds nuw i64, ptr %348, i64 %339
+  %349 = getelementptr inbounds nuw [8 x i8], ptr %348, i64 %339
   store i64 %.sroa.01.025.i138, ptr %349, align 8, !noalias !579
   %350 = add nuw nsw i64 %339, 1
   store i64 %350, ptr %335, align 8, !alias.scope !597, !noalias !600
@@ -6023,7 +6023,7 @@ _ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks17hf93d651
 
 355:                                              ; preds = %345, %._crit_edge.i141
   %356 = load ptr, ptr %334, align 8, !alias.scope !602, !noalias !605, !nonnull !37, !noundef !37
-  %357 = getelementptr inbounds nuw i64, ptr %356, i64 %350
+  %357 = getelementptr inbounds nuw [8 x i8], ptr %356, i64 %350
   store i64 %353, ptr %357, align 8, !noalias !579
   %358 = add nuw i64 %339, 2
   store i64 %358, ptr %335, align 8, !alias.scope !602, !noalias !605
@@ -6169,7 +6169,7 @@ _ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks17h1dc6ca0
 
 388:                                              ; preds = %384, %.lr.ph.i167
   %389 = load ptr, ptr %375, align 8, !alias.scope !641, !noalias !644, !nonnull !37, !noundef !37
-  %390 = getelementptr inbounds nuw i64, ptr %389, i64 %380
+  %390 = getelementptr inbounds nuw [8 x i8], ptr %389, i64 %380
   store i64 %.sroa.01.025.i168, ptr %390, align 8, !noalias !646
   %391 = add nuw nsw i64 %380, 1
   store i64 %391, ptr %376, align 8, !alias.scope !641, !noalias !644
@@ -6182,7 +6182,7 @@ _ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks17h1dc6ca0
 
 396:                                              ; preds = %386, %._crit_edge.i171
   %397 = load ptr, ptr %375, align 8, !alias.scope !647, !noalias !650, !nonnull !37, !noundef !37
-  %398 = getelementptr inbounds nuw i64, ptr %397, i64 %391
+  %398 = getelementptr inbounds nuw [8 x i8], ptr %397, i64 %391
   store i64 %394, ptr %398, align 8, !noalias !646
   %399 = add nuw i64 %380, 2
   store i64 %399, ptr %376, align 8, !alias.scope !647, !noalias !650
@@ -6338,7 +6338,7 @@ _ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks17h82df38e
 
 431:                                              ; preds = %427, %.lr.ph.i197
   %432 = load ptr, ptr %418, align 8, !alias.scope !687, !noalias !690, !nonnull !37, !noundef !37
-  %433 = getelementptr inbounds nuw i64, ptr %432, i64 %423
+  %433 = getelementptr inbounds nuw [8 x i8], ptr %432, i64 %423
   store i64 %.sroa.01.025.i198, ptr %433, align 8, !noalias !692
   %434 = add nuw nsw i64 %423, 1
   store i64 %434, ptr %419, align 8, !alias.scope !687, !noalias !690
@@ -6351,7 +6351,7 @@ _ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks17h82df38e
 
 439:                                              ; preds = %429, %._crit_edge.i201
   %440 = load ptr, ptr %418, align 8, !alias.scope !693, !noalias !696, !nonnull !37, !noundef !37
-  %441 = getelementptr inbounds nuw i64, ptr %440, i64 %434
+  %441 = getelementptr inbounds nuw [8 x i8], ptr %440, i64 %434
   store i64 %437, ptr %441, align 8, !noalias !692
   %442 = add nuw i64 %423, 2
   store i64 %442, ptr %419, align 8, !alias.scope !693, !noalias !696
@@ -6456,7 +6456,7 @@ define hidden void @_ZN11polars_core13chunked_array3ops13search_sorted16binary_s
   %55 = load ptr, ptr %54, align 8, !nonnull !37, !noundef !37
   %56 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %57 = load i64, ptr %56, align 8, !noundef !37
-  %58 = getelementptr inbounds nuw { { { { ptr, ptr } }, {} }, {} }, ptr %55, i64 %57
+  %58 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %57
   call void @"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hfa152097a08642efE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %53, ptr noundef nonnull %55, ptr noundef nonnull %58, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.0bb29a53de908bccc74361d8340ca66a.62)
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %60 = load i64, ptr %59, align 8, !noundef !37
@@ -6671,7 +6671,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h98ac015d2cb3acdcE.exit.i.i: ;
 
 139:                                              ; preds = %135, %.lr.ph.i
   %140 = load ptr, ptr %126, align 8, !alias.scope !732, !noalias !735, !nonnull !37, !noundef !37
-  %141 = getelementptr inbounds nuw i64, ptr %140, i64 %131
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %140, i64 %131
   store i64 %.sroa.01.025.i, ptr %141, align 8, !noalias !714
   %142 = add nuw nsw i64 %131, 1
   store i64 %142, ptr %127, align 8, !alias.scope !732, !noalias !735
@@ -6684,7 +6684,7 @@ _ZN12polars_arrow5array5Array17is_null_unchecked17h98ac015d2cb3acdcE.exit.i.i: ;
 
 147:                                              ; preds = %137, %._crit_edge.i
   %148 = load ptr, ptr %126, align 8, !alias.scope !737, !noalias !740, !nonnull !37, !noundef !37
-  %149 = getelementptr inbounds nuw i64, ptr %148, i64 %142
+  %149 = getelementptr inbounds nuw [8 x i8], ptr %148, i64 %142
   store i64 %145, ptr %149, align 8, !noalias !714
   %150 = add nuw i64 %131, 2
   store i64 %150, ptr %127, align 8, !alias.scope !737, !noalias !740
@@ -6828,7 +6828,7 @@ _ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks17hfa60b21
 
 180:                                              ; preds = %176, %.lr.ph.i17
   %181 = load ptr, ptr %167, align 8, !alias.scope !775, !noalias !778, !nonnull !37, !noundef !37
-  %182 = getelementptr inbounds nuw i64, ptr %181, i64 %172
+  %182 = getelementptr inbounds nuw [8 x i8], ptr %181, i64 %172
   store i64 %.sroa.01.025.i18, ptr %182, align 8, !noalias !757
   %183 = add nuw nsw i64 %172, 1
   store i64 %183, ptr %168, align 8, !alias.scope !775, !noalias !778
@@ -6841,7 +6841,7 @@ _ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks17hfa60b21
 
 188:                                              ; preds = %178, %._crit_edge.i21
   %189 = load ptr, ptr %167, align 8, !alias.scope !780, !noalias !783, !nonnull !37, !noundef !37
-  %190 = getelementptr inbounds nuw i64, ptr %189, i64 %183
+  %190 = getelementptr inbounds nuw [8 x i8], ptr %189, i64 %183
   store i64 %186, ptr %190, align 8, !noalias !757
   %191 = add nuw i64 %172, 2
   store i64 %191, ptr %168, align 8, !alias.scope !780, !noalias !783
@@ -6993,7 +6993,7 @@ _ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks17h735979e
 
 222:                                              ; preds = %218, %.lr.ph.i47
   %223 = load ptr, ptr %209, align 8, !alias.scope !819, !noalias !822, !nonnull !37, !noundef !37
-  %224 = getelementptr inbounds nuw i64, ptr %223, i64 %214
+  %224 = getelementptr inbounds nuw [8 x i8], ptr %223, i64 %214
   store i64 %.sroa.01.025.i48, ptr %224, align 8, !noalias !824
   %225 = add nuw nsw i64 %214, 1
   store i64 %225, ptr %210, align 8, !alias.scope !819, !noalias !822
@@ -7006,7 +7006,7 @@ _ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks17h735979e
 
 230:                                              ; preds = %220, %._crit_edge.i51
   %231 = load ptr, ptr %209, align 8, !alias.scope !825, !noalias !828, !nonnull !37, !noundef !37
-  %232 = getelementptr inbounds nuw i64, ptr %231, i64 %225
+  %232 = getelementptr inbounds nuw [8 x i8], ptr %231, i64 %225
   store i64 %228, ptr %232, align 8, !noalias !824
   %233 = add nuw i64 %214, 2
   store i64 %233, ptr %210, align 8, !alias.scope !825, !noalias !828
@@ -7153,7 +7153,7 @@ _ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks17hd02c255
 
 263:                                              ; preds = %259, %.lr.ph.i77
   %264 = load ptr, ptr %250, align 8, !alias.scope !865, !noalias !868, !nonnull !37, !noundef !37
-  %265 = getelementptr inbounds nuw i64, ptr %264, i64 %255
+  %265 = getelementptr inbounds nuw [8 x i8], ptr %264, i64 %255
   store i64 %.sroa.01.025.i78, ptr %265, align 8, !noalias !870
   %266 = add nuw nsw i64 %255, 1
   store i64 %266, ptr %251, align 8, !alias.scope !865, !noalias !868
@@ -7166,7 +7166,7 @@ _ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks17hd02c255
 
 271:                                              ; preds = %261, %._crit_edge.i81
   %272 = load ptr, ptr %250, align 8, !alias.scope !871, !noalias !874, !nonnull !37, !noundef !37
-  %273 = getelementptr inbounds nuw i64, ptr %272, i64 %266
+  %273 = getelementptr inbounds nuw [8 x i8], ptr %272, i64 %266
   store i64 %269, ptr %273, align 8, !noalias !870
   %274 = add nuw i64 %255, 2
   store i64 %274, ptr %251, align 8, !alias.scope !871, !noalias !874
@@ -7317,7 +7317,7 @@ _ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks17hff599b8
 
 306:                                              ; preds = %302, %.lr.ph.i107
   %307 = load ptr, ptr %293, align 8, !alias.scope !910, !noalias !913, !nonnull !37, !noundef !37
-  %308 = getelementptr inbounds nuw i64, ptr %307, i64 %298
+  %308 = getelementptr inbounds nuw [8 x i8], ptr %307, i64 %298
   store i64 %.sroa.01.025.i108, ptr %308, align 8, !noalias !892
   %309 = add nuw nsw i64 %298, 1
   store i64 %309, ptr %294, align 8, !alias.scope !910, !noalias !913
@@ -7330,7 +7330,7 @@ _ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks17hff599b8
 
 314:                                              ; preds = %304, %._crit_edge.i111
   %315 = load ptr, ptr %293, align 8, !alias.scope !915, !noalias !918, !nonnull !37, !noundef !37
-  %316 = getelementptr inbounds nuw i64, ptr %315, i64 %309
+  %316 = getelementptr inbounds nuw [8 x i8], ptr %315, i64 %309
   store i64 %312, ptr %316, align 8, !noalias !892
   %317 = add nuw i64 %298, 2
   store i64 %317, ptr %294, align 8, !alias.scope !915, !noalias !918
@@ -7474,7 +7474,7 @@ _ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks17hc9025b3
 
 347:                                              ; preds = %343, %.lr.ph.i137
   %348 = load ptr, ptr %334, align 8, !alias.scope !953, !noalias !956, !nonnull !37, !noundef !37
-  %349 = getelementptr inbounds nuw i64, ptr %348, i64 %339
+  %349 = getelementptr inbounds nuw [8 x i8], ptr %348, i64 %339
   store i64 %.sroa.01.025.i138, ptr %349, align 8, !noalias !935
   %350 = add nuw nsw i64 %339, 1
   store i64 %350, ptr %335, align 8, !alias.scope !953, !noalias !956
@@ -7487,7 +7487,7 @@ _ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks17hc9025b3
 
 355:                                              ; preds = %345, %._crit_edge.i141
   %356 = load ptr, ptr %334, align 8, !alias.scope !958, !noalias !961, !nonnull !37, !noundef !37
-  %357 = getelementptr inbounds nuw i64, ptr %356, i64 %350
+  %357 = getelementptr inbounds nuw [8 x i8], ptr %356, i64 %350
   store i64 %353, ptr %357, align 8, !noalias !935
   %358 = add nuw i64 %339, 2
   store i64 %358, ptr %335, align 8, !alias.scope !958, !noalias !961
@@ -7633,7 +7633,7 @@ _ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks17h7c22ba3
 
 388:                                              ; preds = %384, %.lr.ph.i167
   %389 = load ptr, ptr %375, align 8, !alias.scope !997, !noalias !1000, !nonnull !37, !noundef !37
-  %390 = getelementptr inbounds nuw i64, ptr %389, i64 %380
+  %390 = getelementptr inbounds nuw [8 x i8], ptr %389, i64 %380
   store i64 %.sroa.01.025.i168, ptr %390, align 8, !noalias !1002
   %391 = add nuw nsw i64 %380, 1
   store i64 %391, ptr %376, align 8, !alias.scope !997, !noalias !1000
@@ -7646,7 +7646,7 @@ _ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks17h7c22ba3
 
 396:                                              ; preds = %386, %._crit_edge.i171
   %397 = load ptr, ptr %375, align 8, !alias.scope !1003, !noalias !1006, !nonnull !37, !noundef !37
-  %398 = getelementptr inbounds nuw i64, ptr %397, i64 %391
+  %398 = getelementptr inbounds nuw [8 x i8], ptr %397, i64 %391
   store i64 %394, ptr %398, align 8, !noalias !1002
   %399 = add nuw i64 %380, 2
   store i64 %399, ptr %376, align 8, !alias.scope !1003, !noalias !1006
@@ -7802,7 +7802,7 @@ _ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks17h1adfe14
 
 431:                                              ; preds = %427, %.lr.ph.i197
   %432 = load ptr, ptr %418, align 8, !alias.scope !1043, !noalias !1046, !nonnull !37, !noundef !37
-  %433 = getelementptr inbounds nuw i64, ptr %432, i64 %423
+  %433 = getelementptr inbounds nuw [8 x i8], ptr %432, i64 %423
   store i64 %.sroa.01.025.i198, ptr %433, align 8, !noalias !1048
   %434 = add nuw nsw i64 %423, 1
   store i64 %434, ptr %419, align 8, !alias.scope !1043, !noalias !1046
@@ -7815,7 +7815,7 @@ _ZN11polars_core13chunked_array3ops13search_sorted18lower_bound_chunks17h1adfe14
 
 439:                                              ; preds = %429, %._crit_edge.i201
   %440 = load ptr, ptr %418, align 8, !alias.scope !1049, !noalias !1052, !nonnull !37, !noundef !37
-  %441 = getelementptr inbounds nuw i64, ptr %440, i64 %434
+  %441 = getelementptr inbounds nuw [8 x i8], ptr %440, i64 %434
   store i64 %437, ptr %441, align 8, !noalias !1048
   %442 = add nuw i64 %423, 2
   store i64 %442, ptr %419, align 8, !alias.scope !1049, !noalias !1052
@@ -8208,7 +8208,7 @@ _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h7df8419d9464d12fE.exit
 
 123:                                              ; preds = %119
   %124 = load ptr, ptr %111, align 8, !noalias !1104, !nonnull !37, !noundef !37
-  %125 = getelementptr inbounds nuw { { { { i32 } }, { { i8 } }, [3 x i8], { { { { i64, ptr, {} }, {} }, i64 } } }, [4 x i64] }, ptr %124, i64 %110
+  %125 = getelementptr inbounds nuw [64 x i8], ptr %124, i64 %110
   invoke void @"_ZN3std4sync6poison5mutex14Mutex$LT$T$GT$8try_lock17hd9f9796a5082abf5E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %4, ptr noundef nonnull align 8 %125)
           to label %127 unwind label %.loopexit.i, !noalias !1104
 
@@ -8255,7 +8255,7 @@ _ZN14regex_automata4meta5regex9RegexInfo13is_impossible17h7df8419d9464d12fE.exit
 143:                                              ; preds = %138, %130
   %144 = getelementptr inbounds nuw i8, ptr %131, i64 16
   %145 = load ptr, ptr %144, align 8, !alias.scope !1108, !noalias !1111, !nonnull !37, !noundef !37
-  %146 = getelementptr inbounds nuw ptr, ptr %145, i64 %135
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %145, i64 %135
   store ptr %.sroa.418.0.copyload, ptr %146, align 8, !noalias !1111
   %147 = add i64 %135, 1
   store i64 %147, ptr %134, align 8, !alias.scope !1108, !noalias !1113

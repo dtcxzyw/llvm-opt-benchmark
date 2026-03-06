@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %"struct.llvm::codeview::GloballyHashedType" = type { %"struct.std::array" }
 %"struct.std::array" = type { [8 x i8] }
-%"class.llvm::ArrayRef" = type { ptr, i64 }
 %"class.llvm::codeview::TypeIndex" = type { %"struct.llvm::support::detail::packed_endian_specific_integral" }
 %"struct.llvm::support::detail::packed_endian_specific_integral" = type { %struct.anon }
 %struct.anon = type { [4 x i8] }
@@ -13,9 +12,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.19" = type { %"struct.std::_Vector_base<llvm::codeview::CVRecord<llvm::codeview::TypeLeafKind>, std::allocator<llvm::codeview::CVRecord<llvm::codeview::TypeLeafKind>>>::_Vector_impl" }
 %"struct.std::_Vector_base<llvm::codeview::CVRecord<llvm::codeview::TypeLeafKind>, std::allocator<llvm::codeview::CVRecord<llvm::codeview::TypeLeafKind>>>::_Vector_impl" = type { %"struct.std::_Vector_base<llvm::codeview::CVRecord<llvm::codeview::TypeLeafKind>, std::allocator<llvm::codeview::CVRecord<llvm::codeview::TypeLeafKind>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<llvm::codeview::CVRecord<llvm::codeview::TypeLeafKind>, std::allocator<llvm::codeview::CVRecord<llvm::codeview::TypeLeafKind>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.std::pair.57" = type { ptr, i64 }
-%"struct.llvm::detail::DenseMapPair" = type { %"struct.std::pair.55" }
-%"struct.std::pair.55" = type { %"struct.llvm::codeview::GloballyHashedType", %"class.llvm::codeview::TypeIndex" }
 
 $_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE = comdat any
 
@@ -162,7 +158,7 @@ define dso_local { ptr, i64 } @_ZN4llvm8codeview22GlobalTypeTableBuilder7getType
   %5 = add nsw i32 %4, -4096
   %6 = zext i32 %5 to i64
   %7 = load ptr, ptr %3, align 8, !tbaa !13
-  %8 = getelementptr inbounds nuw %"class.llvm::ArrayRef", ptr %7, i64 %6
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %6
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8, !tbaa !19
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !21
@@ -386,7 +382,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8ArrayRefIhEELb1EE9push_backES2_.exit: ; pr
   %56 = phi i32 [ %49, %47 ], [ %.pre.i8, %52 ]
   %57 = load ptr, ptr %48, align 8, !tbaa !13
   %58 = zext i32 %56 to i64
-  %59 = getelementptr inbounds nuw %"class.llvm::ArrayRef", ptr %57, i64 %58
+  %59 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %58
   store ptr %.0.i.i.i.i, ptr %59, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %59, i64 8
   store i64 %2, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -412,7 +408,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8codeview18GloballyHashedTypeELb1EE9push_ba
   %69 = phi i32 [ %62, %_ZN4llvm23SmallVectorTemplateBaseINS_8ArrayRefIhEELb1EE9push_backES2_.exit ], [ %.pre.i6, %65 ]
   %70 = load ptr, ptr %7, align 8, !tbaa !13
   %71 = zext i32 %69 to i64
-  %72 = getelementptr inbounds nuw %"struct.llvm::codeview::GloballyHashedType", ptr %70, i64 %71
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %71
   store i64 %.sroa.0.0.copyload.i, ptr %72, align 1
   %73 = load i32, ptr %9, align 8, !tbaa !3
   %74 = add i32 %73, 1
@@ -556,7 +552,7 @@ _ZL9stabilizeRN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm
   %46 = add nsw i32 %45, -4096
   %47 = zext i32 %46 to i64
   %48 = load ptr, ptr %44, align 8, !tbaa !13
-  %49 = getelementptr inbounds nuw %"class.llvm::ArrayRef", ptr %48, i64 %47
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %48, i64 %47
   store ptr %.sroa.04.0, ptr %49, align 8, !tbaa !19
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 8
   store i64 %3, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !21
@@ -565,7 +561,7 @@ _ZL9stabilizeRN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm
   %51 = add nsw i32 %50, -4096
   %52 = zext i32 %51 to i64
   %53 = load ptr, ptr %9, align 8, !tbaa !13
-  %54 = getelementptr inbounds nuw %"struct.llvm::codeview::GloballyHashedType", ptr %53, i64 %52
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %52
   %55 = load i64, ptr %7, align 8, !tbaa !24
   store i64 %55, ptr %54, align 1, !tbaa !24
   br label %56
@@ -607,7 +603,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds 
   %21 = phi i32 [ %14, %10 ], [ %.pre.i, %17 ]
   %22 = load ptr, ptr %12, align 8, !tbaa !13
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %"struct.std::pair.57", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %23
   store ptr %11, ptr %24, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %8, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -648,7 +644,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Start
   %47 = phi i32 [ %40, %32 ], [ %.pre.i.i, %43 ]
   %48 = load ptr, ptr %33, align 8, !tbaa !13
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   %51 = ptrtoint ptr %39 to i64
   store i64 %51, ptr %50, align 1
   %52 = load i32, ptr %34, align 8, !tbaa !3
@@ -795,7 +791,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %9 = add i32 %6, -1
   %10 = and i32 %9, %.sroa.0.0.extract.trunc.i.i
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %11
+  %12 = getelementptr inbounds nuw [12 x i8], ptr %4, i64 %11
   %.sroa.05.0.copyload54 = load i64, ptr %12, align 1, !tbaa !24
   %.not73 = icmp eq i64 %.sroa.0.0.copyload.i, %.sroa.05.0.copyload54
   br i1 %.not73, label %.thread, label %.lr.ph, !prof !75
@@ -823,7 +819,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %19 = add i32 %.03658, %.03857
   %20 = and i32 %19, %9
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %21
+  %22 = getelementptr inbounds nuw [12 x i8], ptr %4, i64 %21
   %.sroa.05.0.copyload = load i64, ptr %22, align 1, !tbaa !24
   %.not76 = icmp eq i64 %.sroa.0.0.copyload.i, %.sroa.05.0.copyload
   br i1 %.not76, label %.thread, label %.lr.ph, !prof !76, !llvm.loop !77
@@ -950,7 +946,7 @@ _ZN4llvm8DenseMapINS_8codeview18GloballyHashedTypeENS1_9TypeIndexENS_12DenseMapI
 
 29:                                               ; preds = %_ZN4llvm8DenseMapINS_8codeview18GloballyHashedTypeENS1_9TypeIndexENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEE15allocateBucketsEj.exit
   %30 = zext i32 %3 to i64
-  %31 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %30
+  %31 = getelementptr inbounds nuw [12 x i8], ptr %4, i64 %30
   tail call void @_ZN4llvm12DenseMapBaseINS_8DenseMapINS_8codeview18GloballyHashedTypeENS2_9TypeIndexENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S4_EEEES3_S4_S6_S9_E18moveFromOldBucketsEPS9_SC_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef nonnull %4, ptr noundef nonnull %31)
   %32 = mul nuw nsw i64 %30, 12
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull %4, i64 noundef %32, i64 noundef 1) #14

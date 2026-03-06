@@ -6,8 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %struct.Cec_ParSim_t_ = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
 %struct.timespec = type { i64, i64 }
-%struct.Gia_Obj_t_ = type <{ i64, i32 }>
-%struct.Gia_Rpr_t_ = type { i32 }
 %struct.Cec_ParSat_t_ = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
 
 @.str = private unnamed_addr constant [87 x i8] c"The CEX has flop values different from 0, but they are currently not used by \22resim\22.\0A\00", align 1
@@ -64,7 +62,7 @@ define void @Cec_ManSeqDeriveInfoFromCex(ptr noundef readonly captures(none) %0,
   %.04454 = phi i32 [ 0, %.lr.ph ], [ %16, %15 ]
   %18 = lshr i32 %.04454, 5
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds nuw i32, ptr %14, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %19
   %21 = load i32, ptr %20, align 4, !tbaa !14
   %22 = and i32 %.04454, 31
   %23 = shl nuw i32 1, %22
@@ -93,7 +91,7 @@ define void @Cec_ManSeqDeriveInfoFromCex(ptr noundef readonly captures(none) %0,
 
 .lr.ph56.us:                                      ; preds = %.lr.ph56.us.preheader, %.lr.ph56.us
   %indvars.iv = phi i64 [ 0, %.lr.ph56.us.preheader ], [ %indvars.iv.next, %.lr.ph56.us ]
-  %30 = getelementptr inbounds nuw ptr, ptr %.val, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8, !tbaa !9
   tail call void @llvm.memset.p0.i64(ptr align 4 %31, i8 0, i64 %29, i1 false), !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -132,14 +130,14 @@ define void @Cec_ManSeqDeriveInfoFromCex(ptr noundef readonly captures(none) %0,
   %indvars.iv93 = phi i64 [ %41, %.lr.ph63.us.preheader ], [ %indvars.iv.next94, %._crit_edge.us69 ]
   %.04365.us = phi i32 [ %35, %.lr.ph63.us.preheader ], [ %58, %._crit_edge.us69 ]
   %.val47.us = load ptr, ptr %4, align 8, !tbaa !3
-  %42 = getelementptr inbounds nuw ptr, ptr %.val47.us, i64 %indvars.iv93
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %.val47.us, i64 %indvars.iv93
   %43 = load ptr, ptr %42, align 8, !tbaa !9
   br label %44
 
 44:                                               ; preds = %.lr.ph63.us, %44
   %indvars.iv89 = phi i64 [ 0, %.lr.ph63.us ], [ %indvars.iv.next90, %44 ]
   %45 = tail call i32 @Gia_ManRandom(i32 noundef 0) #14
-  %46 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv89
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv89
   store i32 %45, ptr %46, align 4, !tbaa !14
   %indvars.iv.next90 = add nuw nsw i64 %indvars.iv89, 1
   %exitcond92.not = icmp eq i64 %indvars.iv.next90, %wide.trip.count
@@ -150,7 +148,7 @@ define void @Cec_ManSeqDeriveInfoFromCex(ptr noundef readonly captures(none) %0,
   %47 = load i32, ptr %43, align 4, !tbaa !14
   %48 = ashr i32 %.04365.us, 5
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds i32, ptr %40, i64 %49
+  %50 = getelementptr inbounds [4 x i8], ptr %40, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !14
   %52 = and i32 %.04365.us, 31
   %53 = lshr i32 %51, %52
@@ -189,14 +187,14 @@ define void @Cec_ManSeqDeriveInfoFromCex(ptr noundef readonly captures(none) %0,
 .lr.ph72.us:                                      ; preds = %.lr.ph72.us.preheader, %._crit_edge.us77
   %indvars.iv101 = phi i64 [ %66, %.lr.ph72.us.preheader ], [ %indvars.iv.next102, %._crit_edge.us77 ]
   %.val48.us = load ptr, ptr %4, align 8, !tbaa !3
-  %67 = getelementptr inbounds nuw ptr, ptr %.val48.us, i64 %indvars.iv101
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %.val48.us, i64 %indvars.iv101
   %68 = load ptr, ptr %67, align 8, !tbaa !9
   br label %69
 
 69:                                               ; preds = %.lr.ph72.us, %69
   %indvars.iv96 = phi i64 [ 0, %.lr.ph72.us ], [ %indvars.iv.next97, %69 ]
   %70 = tail call i32 @Gia_ManRandom(i32 noundef 0) #14
-  %71 = getelementptr inbounds nuw i32, ptr %68, i64 %indvars.iv96
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %indvars.iv96
   store i32 %70, ptr %71, align 4, !tbaa !14
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %exitcond100.not = icmp eq i64 %indvars.iv.next97, %wide.trip.count99
@@ -213,12 +211,12 @@ define void @Cec_ManSeqDeriveInfoFromCex(ptr noundef readonly captures(none) %0,
   %indvars.iv86 = phi i64 [ %41, %.lr.ph67.split.preheader ], [ %indvars.iv.next87, %.lr.ph67.split ]
   %.04365 = phi i32 [ %35, %.lr.ph67.split.preheader ], [ %87, %.lr.ph67.split ]
   %indvars.iv.next87 = add nuw nsw i64 %indvars.iv86, 1
-  %74 = getelementptr inbounds nuw ptr, ptr %.val47.pre, i64 %indvars.iv86
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %.val47.pre, i64 %indvars.iv86
   %75 = load ptr, ptr %74, align 8, !tbaa !9
   %76 = load i32, ptr %75, align 4, !tbaa !14
   %77 = ashr i32 %.04365, 5
   %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds i32, ptr %40, i64 %78
+  %79 = getelementptr inbounds [4 x i8], ptr %40, i64 %78
   %80 = load i32, ptr %79, align 4, !tbaa !14
   %81 = and i32 %.04365, 31
   %82 = lshr i32 %80, %81
@@ -332,7 +330,7 @@ define void @Cec_ManSeqDeriveInfoInitRandom(ptr noundef readonly captures(none) 
 
 .lr.ph.us.us:                                     ; preds = %.lr.ph.us.us.preheader, %.lr.ph.us.us
   %indvars.iv58 = phi i64 [ 0, %.lr.ph.us.us.preheader ], [ %indvars.iv.next59, %.lr.ph.us.us ]
-  %16 = getelementptr inbounds nuw ptr, ptr %.val27, i64 %indvars.iv58
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %.val27, i64 %indvars.iv58
   %17 = load ptr, ptr %16, align 8, !tbaa !9
   tail call void @llvm.memset.p0.i64(ptr align 4 %17, i8 0, i64 %15, i1 false), !tbaa !14
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
@@ -343,12 +341,12 @@ define void @Cec_ManSeqDeriveInfoInitRandom(ptr noundef readonly captures(none) 
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.split.us37
   %indvars.iv52 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next53, %._crit_edge.split.us37 ]
-  %20 = getelementptr inbounds nuw ptr, ptr %.val27, i64 %indvars.iv52
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %.val27, i64 %indvars.iv52
   %21 = load ptr, ptr %20, align 8, !tbaa !9
   %22 = trunc nuw nsw i64 %indvars.iv52 to i32
   %23 = lshr i64 %indvars.iv52, 5
   %24 = and i64 %23, 134217727
-  %25 = getelementptr inbounds nuw i32, ptr %14, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %24
   %26 = and i32 %22, 31
   br label %27
 
@@ -358,7 +356,7 @@ define void @Cec_ManSeqDeriveInfoInitRandom(ptr noundef readonly captures(none) 
   %29 = lshr i32 %28, %26
   %30 = and i32 %29, 1
   %sext.us = sub nsw i32 0, %30
-  %31 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv
   store i32 %sext.us, ptr %31, align 4, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -396,14 +394,14 @@ define void @Cec_ManSeqDeriveInfoInitRandom(ptr noundef readonly captures(none) 
 .lr.ph.us45:                                      ; preds = %.lr.ph.us45.preheader, %._crit_edge.us
   %indvars.iv66 = phi i64 [ %39, %.lr.ph.us45.preheader ], [ %indvars.iv.next67, %._crit_edge.us ]
   %.val.us = load ptr, ptr %4, align 8, !tbaa !3
-  %40 = getelementptr inbounds nuw ptr, ptr %.val.us, i64 %indvars.iv66
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %.val.us, i64 %indvars.iv66
   %41 = load ptr, ptr %40, align 8, !tbaa !9
   br label %42
 
 42:                                               ; preds = %.lr.ph.us45, %42
   %indvars.iv61 = phi i64 [ 0, %.lr.ph.us45 ], [ %indvars.iv.next62, %42 ]
   %43 = tail call i32 @Gia_ManRandom(i32 noundef 0) #14
-  %44 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv61
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %indvars.iv61
   store i32 %43, ptr %44, align 4, !tbaa !14
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
   %exitcond65.not = icmp eq i64 %indvars.iv.next62, %wide.trip.count64
@@ -467,23 +465,23 @@ define range(i32 0, 2) i32 @Cec_ManSeqResimulate(ptr noundef %0, ptr noundef rea
   %.val64139 = phi i32 [ %.val64, %._crit_edge ], [ %.val6478, %.lr.ph82 ]
   %25 = phi i32 [ %41, %._crit_edge ], [ %13, %.lr.ph82 ]
   %indvars.iv122 = phi i64 [ %indvars.iv.next123, %._crit_edge ], [ 0, %.lr.ph82 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %.val62, i64 %indvars.iv122
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.val62, i64 %indvars.iv122
   %27 = load ptr, ptr %26, align 8, !tbaa !9
   %.val66.val = load i32, ptr %10, align 4, !tbaa !61
   %28 = trunc nuw nsw i64 %indvars.iv122 to i32
   %29 = sub i32 %28, %.val64139
   %30 = add i32 %29, %.val66.val
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds ptr, ptr %.val61, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %.val61, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !9
   %34 = icmp sgt i32 %25, 0
   br i1 %34, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.lr.ph82.split, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph82.split ]
-  %35 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv
   %36 = load i32, ptr %35, align 4, !tbaa !14
-  %37 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv
   store i32 %36, ptr %37, align 4, !tbaa !14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %38 = load i32, ptr %12, align 8, !tbaa !57
@@ -572,18 +570,18 @@ define range(i32 0, 2) i32 @Cec_ManSeqResimulate(ptr noundef %0, ptr noundef rea
   %indvars.iv131 = phi i64 [ 0, %.lr.ph91.split.preheader ], [ %indvars.iv.next132, %._crit_edge86 ]
   %indvars.iv129 = phi i64 [ %58, %.lr.ph91.split.preheader ], [ %indvars.iv.next130, %._crit_edge86 ]
   %indvars.iv.next130 = add nsw i64 %indvars.iv129, 1
-  %68 = getelementptr inbounds ptr, ptr %.val60, i64 %indvars.iv129
+  %68 = getelementptr inbounds [8 x i8], ptr %.val60, i64 %indvars.iv129
   %69 = load ptr, ptr %68, align 8, !tbaa !9
-  %70 = getelementptr inbounds nuw ptr, ptr %.val59, i64 %indvars.iv131
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %.val59, i64 %indvars.iv131
   %71 = load ptr, ptr %70, align 8, !tbaa !9
   %72 = icmp sgt i32 %67, 0
   br i1 %72, label %.lr.ph85, label %._crit_edge86
 
 .lr.ph85:                                         ; preds = %.lr.ph91.split, %.lr.ph85
   %indvars.iv126 = phi i64 [ %indvars.iv.next127, %.lr.ph85 ], [ 0, %.lr.ph91.split ]
-  %73 = getelementptr inbounds nuw i32, ptr %69, i64 %indvars.iv126
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %indvars.iv126
   %74 = load i32, ptr %73, align 4, !tbaa !14
-  %75 = getelementptr inbounds nuw i32, ptr %71, i64 %indvars.iv126
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %indvars.iv126
   store i32 %74, ptr %75, align 4, !tbaa !14
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %76 = load i32, ptr %23, align 8, !tbaa !57
@@ -614,21 +612,21 @@ define range(i32 0, 2) i32 @Cec_ManSeqResimulate(ptr noundef %0, ptr noundef rea
   %85 = sub i32 %.155106, %.val63146
   %86 = add i32 %85, %.val68.val
   %87 = sext i32 %86 to i64
-  %88 = getelementptr inbounds ptr, ptr %.val58, i64 %87
+  %88 = getelementptr inbounds [8 x i8], ptr %.val58, i64 %87
   %89 = load ptr, ptr %88, align 8, !tbaa !9
   %.val72.val = load i32, ptr %53, align 4, !tbaa !61
   %90 = add i32 %85, %.val72.val
   %91 = sext i32 %90 to i64
-  %92 = getelementptr inbounds ptr, ptr %.val, i64 %91
+  %92 = getelementptr inbounds [8 x i8], ptr %.val, i64 %91
   %93 = load ptr, ptr %92, align 8, !tbaa !9
   %94 = icmp sgt i32 %84, 0
   br i1 %94, label %.lr.ph102, label %._crit_edge103
 
 .lr.ph102:                                        ; preds = %83, %.lr.ph102
   %indvars.iv136 = phi i64 [ %indvars.iv.next137, %.lr.ph102 ], [ 0, %83 ]
-  %95 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv136
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %indvars.iv136
   %96 = load i32, ptr %95, align 4, !tbaa !14
-  %97 = getelementptr inbounds nuw i32, ptr %93, i64 %indvars.iv136
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %indvars.iv136
   store i32 %96, ptr %97, align 4, !tbaa !14
   %indvars.iv.next137 = add nuw nsw i64 %indvars.iv136, 1
   %98 = load i32, ptr %23, align 8, !tbaa !57
@@ -815,7 +813,7 @@ Abc_Clock.exit:                                   ; preds = %3, %9
   %53 = sext i32 %52 to i64
   %54 = mul nsw i64 %53, 12
   %55 = call noalias ptr @malloc(i64 noundef %54) #16
-  %56 = getelementptr inbounds ptr, ptr %55, i64 %53
+  %56 = getelementptr inbounds [8 x i8], ptr %55, i64 %53
   %57 = icmp sgt i32 %52, 0
   br i1 %57, label %.lr.ph.preheader.i, label %Vec_PtrAllocSimInfo.exit
 
@@ -825,8 +823,8 @@ Abc_Clock.exit:                                   ; preds = %3, %9
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %58 = getelementptr inbounds nuw i32, ptr %56, i64 %indvars.iv.i
-  %59 = getelementptr inbounds nuw ptr, ptr %55, i64 %indvars.iv.i
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv.i
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv.i
   store ptr %58, ptr %59, align 8, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -962,16 +960,16 @@ define i32 @Cec_ManCountNonConstOutputs(ptr noundef readonly captures(none) %0) 
 12:                                               ; preds = %.lr.ph.split, %12
   %indvars.iv = phi i64 [ 0, %.lr.ph.split ], [ %indvars.iv.next, %12 ]
   %.022 = phi i32 [ 0, %.lr.ph.split ], [ %spec.select, %12 ]
-  %13 = getelementptr inbounds nuw i32, ptr %.val17.val, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %.val17.val, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4, !tbaa !14
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val16, i64 %15
+  %16 = getelementptr inbounds [12 x i8], ptr %.val16, i64 %15
   %.val3.i = load i64, ptr %16, align 4
   %17 = trunc i64 %.val3.i to i32
   %18 = and i32 %17, 536870911
   %19 = sub nsw i32 %14, %18
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds %struct.Gia_Rpr_t_, ptr %3, i64 %20
+  %21 = getelementptr inbounds [4 x i8], ptr %3, i64 %20
   %22 = load i32, ptr %21, align 4
   %23 = and i32 %22, 268435455
   %.not20 = icmp ne i32 %23, 0
@@ -1020,14 +1018,14 @@ define range(i32 0, 2) i32 @Cec_ManCheckNonTrivialCands(ptr noundef readonly cap
   %indvars.iv82 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %10 = getelementptr i8, ptr %.val395283, i64 8
   %.val44.val = load ptr, ptr %10, align 8, !tbaa !85
-  %11 = getelementptr inbounds nuw i32, ptr %.val44.val, i64 %indvars.iv82
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %.val44.val, i64 %indvars.iv82
   %12 = load i32, ptr %11, align 4, !tbaa !14
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val4384, i64 %13
+  %14 = getelementptr inbounds [12 x i8], ptr %.val4384, i64 %13
   %15 = load i64, ptr %14, align 4
   %16 = and i64 %15, 536870911
   %17 = sub nsw i64 0, %16
-  %18 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %14, i64 %17
+  %18 = getelementptr inbounds [12 x i8], ptr %14, i64 %17
   %19 = load i64, ptr %18, align 4
   %20 = or i64 %19, 1073741824
   store i64 %20, ptr %18, align 4
@@ -1063,7 +1061,7 @@ define range(i32 0, 2) i32 @Cec_ManCheckNonTrivialCands(ptr noundef readonly cap
 
 .lr.ph55.split:                                   ; preds = %.lr.ph55.split.preheader, %38
   %indvars.iv68 = phi i64 [ 0, %.lr.ph55.split.preheader ], [ %indvars.iv.next69, %38 ]
-  %28 = getelementptr inbounds nuw %struct.Gia_Obj_t_, ptr %.val40, i64 %indvars.iv68
+  %28 = getelementptr inbounds nuw [12 x i8], ptr %.val40, i64 %indvars.iv68
   %.val46 = load i64, ptr %28, align 4
   %29 = and i64 %.val46, 2147483648
   %.not.i.i = icmp eq i64 %29, 0
@@ -1080,7 +1078,7 @@ define range(i32 0, 2) i32 @Cec_ManCheckNonTrivialCands(ptr noundef readonly cap
 
 34:                                               ; preds = %.lr.ph55.split
   %.val45 = load ptr, ptr %2, align 8, !tbaa !78
-  %35 = getelementptr inbounds nuw %struct.Gia_Rpr_t_, ptr %.val45, i64 %indvars.iv68
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %.val45, i64 %indvars.iv68
   %36 = load i32, ptr %35, align 4
   %37 = and i32 %36, 268435455
   %.not35 = icmp eq i32 %37, 268435455
@@ -1108,14 +1106,14 @@ define range(i32 0, 2) i32 @Cec_ManCheckNonTrivialCands(ptr noundef readonly cap
 41:                                               ; preds = %.lr.ph65
   %42 = getelementptr i8, ptr %.val3764, i64 8
   %.val42.val = load ptr, ptr %42, align 8, !tbaa !85
-  %43 = getelementptr inbounds nuw i32, ptr %.val42.val, i64 %indvars.iv71
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %.val42.val, i64 %indvars.iv71
   %44 = load i32, ptr %43, align 4, !tbaa !14
   %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val41, i64 %45
+  %46 = getelementptr inbounds [12 x i8], ptr %.val41, i64 %45
   %47 = load i64, ptr %46, align 4
   %48 = and i64 %47, 536870911
   %49 = sub nsw i64 0, %48
-  %50 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %46, i64 %49
+  %50 = getelementptr inbounds [12 x i8], ptr %46, i64 %49
   %51 = load i64, ptr %50, align 4
   %52 = and i64 %51, -1073741825
   store i64 %52, ptr %50, align 4
@@ -1247,7 +1245,7 @@ define range(i32 -1, 2) i32 @Cec_ManSeqSemiformal(ptr noundef %0, ptr noundef re
   %62 = sext i32 %57 to i64
   %63 = mul i64 %61, %62
   %64 = call noalias ptr @malloc(i64 noundef %63) #16
-  %65 = getelementptr inbounds ptr, ptr %64, i64 %62
+  %65 = getelementptr inbounds [8 x i8], ptr %64, i64 %62
   %66 = icmp sgt i32 %57, 0
   br i1 %66, label %.lr.ph.preheader.i, label %Vec_PtrAllocSimInfo.exit
 
@@ -1258,8 +1256,8 @@ define range(i32 -1, 2) i32 @Cec_ManSeqSemiformal(ptr noundef %0, ptr noundef re
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %67 = mul nsw i64 %indvars.iv.i, %59
-  %68 = getelementptr inbounds i32, ptr %65, i64 %67
-  %69 = getelementptr inbounds nuw ptr, ptr %64, i64 %indvars.iv.i
+  %68 = getelementptr inbounds [4 x i8], ptr %65, i64 %67
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %indvars.iv.i
   store ptr %68, ptr %69, align 8, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1297,12 +1295,12 @@ Vec_PtrAllocSimInfo.exit:                         ; preds = %Vec_PtrAllocSimInfo
 
 .lr.ph.us.i:                                      ; preds = %._crit_edge.split.us37.i, %.lr.ph.us.preheader.i
   %indvars.iv52.i = phi i64 [ 0, %.lr.ph.us.preheader.i ], [ %indvars.iv.next53.i, %._crit_edge.split.us37.i ]
-  %81 = getelementptr inbounds nuw ptr, ptr %64, i64 %indvars.iv52.i
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %indvars.iv52.i
   %82 = load ptr, ptr %81, align 8, !tbaa !9
   %83 = trunc nuw nsw i64 %indvars.iv52.i to i32
   %84 = lshr i64 %indvars.iv52.i, 5
   %85 = and i64 %84, 134217727
-  %86 = getelementptr inbounds nuw i32, ptr %34, i64 %85
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %85
   %87 = and i32 %83, 31
   br label %88
 
@@ -1312,7 +1310,7 @@ Vec_PtrAllocSimInfo.exit:                         ; preds = %Vec_PtrAllocSimInfo
   %90 = lshr i32 %89, %87
   %91 = and i32 %90, 1
   %sext.us.i = sub nsw i32 0, %91
-  %92 = getelementptr inbounds nuw i32, ptr %82, i64 %indvars.iv.i85
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %82, i64 %indvars.iv.i85
   store i32 %sext.us.i, ptr %92, align 4, !tbaa !14
   %indvars.iv.next.i86 = add nuw nsw i64 %indvars.iv.i85, 1
   %exitcond.not.i87 = icmp eq i64 %indvars.iv.next.i86, %wide.trip.count.i84
@@ -1347,14 +1345,14 @@ Vec_PtrAllocSimInfo.exit:                         ; preds = %Vec_PtrAllocSimInfo
 .lr.ph.us45.i:                                    ; preds = %._crit_edge.us.i, %.lr.ph.us45.preheader.i
   %indvars.iv66.i = phi i64 [ %98, %.lr.ph.us45.preheader.i ], [ %indvars.iv.next67.i, %._crit_edge.us.i ]
   %.val.us.i = load ptr, ptr %77, align 8, !tbaa !3
-  %99 = getelementptr inbounds nuw ptr, ptr %.val.us.i, i64 %indvars.iv66.i
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %.val.us.i, i64 %indvars.iv66.i
   %100 = load ptr, ptr %99, align 8, !tbaa !9
   br label %101
 
 101:                                              ; preds = %101, %.lr.ph.us45.i
   %indvars.iv61.i = phi i64 [ 0, %.lr.ph.us45.i ], [ %indvars.iv.next62.i, %101 ]
   %102 = call i32 @Gia_ManRandom(i32 noundef 0) #14
-  %103 = getelementptr inbounds nuw i32, ptr %100, i64 %indvars.iv61.i
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %100, i64 %indvars.iv61.i
   store i32 %102, ptr %103, align 4, !tbaa !14
   %indvars.iv.next62.i = add nuw nsw i64 %indvars.iv61.i, 1
   %exitcond65.not.i = icmp eq i64 %indvars.iv.next62.i, %wide.trip.count64.i
@@ -1517,16 +1515,16 @@ Vec_PtrFree.exit:                                 ; preds = %Cec_ManSeqResimulat
 156:                                              ; preds = %156, %.lr.ph.split.i
   %indvars.iv.i96 = phi i64 [ 0, %.lr.ph.split.i ], [ %indvars.iv.next.i97, %156 ]
   %.022.i = phi i32 [ 0, %.lr.ph.split.i ], [ %spec.select.i, %156 ]
-  %157 = getelementptr inbounds nuw i32, ptr %.val17.val.i, i64 %indvars.iv.i96
+  %157 = getelementptr inbounds nuw [4 x i8], ptr %.val17.val.i, i64 %indvars.iv.i96
   %158 = load i32, ptr %157, align 4, !tbaa !14
   %159 = sext i32 %158 to i64
-  %160 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val16.i, i64 %159
+  %160 = getelementptr inbounds [12 x i8], ptr %.val16.i, i64 %159
   %.val3.i.i = load i64, ptr %160, align 4
   %161 = trunc i64 %.val3.i.i to i32
   %162 = and i32 %161, 536870911
   %163 = sub nsw i32 %158, %162
   %164 = sext i32 %163 to i64
-  %165 = getelementptr inbounds %struct.Gia_Rpr_t_, ptr %148, i64 %164
+  %165 = getelementptr inbounds [4 x i8], ptr %148, i64 %164
   %166 = load i32, ptr %165, align 4
   %167 = and i32 %166, 268435455
   %.not20.i = icmp ne i32 %167, 0

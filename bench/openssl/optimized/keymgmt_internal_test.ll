@@ -573,10 +573,10 @@ define internal fastcc range(i32 0, 2) i32 @test_pass_rsa(ptr noundef readonly c
 .preheader:                                       ; preds = %145, %160
   %.0108 = phi i64 [ %161, %160 ], [ 0, %145 ]
   %.164107 = phi i32 [ %.2, %160 ], [ 0, %145 ]
-  %150 = getelementptr inbounds nuw i64, ptr @test_pass_rsa.expected, i64 %.0108
+  %150 = getelementptr inbounds nuw [8 x i8], ptr @test_pass_rsa.expected, i64 %.0108
   %151 = load i64, ptr %150, align 8, !tbaa !20
   %152 = trunc i64 %151 to i32
-  %153 = getelementptr inbounds nuw i64, ptr @test_pass_rsa.keydata, i64 %.0108
+  %153 = getelementptr inbounds nuw [8 x i8], ptr @test_pass_rsa.keydata, i64 %.0108
   %154 = load i64, ptr %153, align 8, !tbaa !20
   %155 = trunc i64 %154 to i32
   %156 = call i32 @test_int_eq(ptr noundef nonnull @.str, i32 noundef 249, ptr noundef nonnull @.str.44, ptr noundef nonnull @.str.45, i32 noundef %152, i32 noundef %155) #3

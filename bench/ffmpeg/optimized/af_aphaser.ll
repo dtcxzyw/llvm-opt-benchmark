@@ -336,7 +336,7 @@ define internal void @phaser_dbl(ptr noundef captures(none) %0, ptr noundef read
   %.05675.us = phi ptr [ %48, %._crit_edge.us ], [ %24, %.lr.ph.us.preheader ]
   %.05774.us = phi ptr [ %47, %._crit_edge.us ], [ %23, %.lr.ph.us.preheader ]
   %25 = sext i32 %.05576.us to i64
-  %26 = getelementptr inbounds i32, ptr %14, i64 %25
+  %26 = getelementptr inbounds [4 x i8], ptr %14, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !64
   %28 = add nsw i32 %27, %.05477.us
   %.not.us = icmp slt i32 %28, %16
@@ -350,8 +350,8 @@ define internal void @phaser_dbl(ptr noundef captures(none) %0, ptr noundef read
   %35 = mul nsw i32 %34, %4
   %36 = sext i32 %31 to i64
   %37 = sext i32 %35 to i64
-  %invariant.gep = getelementptr double, ptr %7, i64 %36
-  %invariant.gep102 = getelementptr double, ptr %7, i64 %37
+  %invariant.gep = getelementptr [8 x i8], ptr %7, i64 %36
+  %invariant.gep102 = getelementptr [8 x i8], ptr %7, i64 %37
   br label %38
 
 38:                                               ; preds = %.lr.ph.us, %38
@@ -360,12 +360,12 @@ define internal void @phaser_dbl(ptr noundef captures(none) %0, ptr noundef read
   %.15870.us = phi ptr [ %.05774.us, %.lr.ph.us ], [ %47, %38 ]
   %39 = load double, ptr %.15870.us, align 8, !tbaa !65
   %40 = load double, ptr %18, align 8, !tbaa !20
-  %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %indvars.iv
   %41 = load double, ptr %gep, align 8, !tbaa !65
   %42 = load double, ptr %19, align 8, !tbaa !24
   %43 = fmul nsz double %41, %42
   %44 = tail call nsz double @llvm.fmuladd.f64(double %39, double %40, double %43)
-  %gep103 = getelementptr double, ptr %invariant.gep102, i64 %indvars.iv
+  %gep103 = getelementptr [8 x i8], ptr %invariant.gep102, i64 %indvars.iv
   store double %44, ptr %gep103, align 8, !tbaa !65
   %45 = load double, ptr %20, align 8, !tbaa !25
   %46 = fmul nsz double %44, %45
@@ -440,12 +440,12 @@ define internal void @phaser_dblp(ptr noundef captures(none) %0, ptr noundef rea
 
 .lr.ph.us:                                        ; preds = %._crit_edge.us, %.preheader.split.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge.us ], [ 0, %.preheader.split.us ]
-  %24 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !63
-  %26 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8, !tbaa !63
   %28 = mul nsw i64 %indvars.iv, %23
-  %29 = getelementptr inbounds double, ptr %8, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %8, i64 %28
   br label %30
 
 30:                                               ; preds = %.lr.ph.us, %30
@@ -457,14 +457,14 @@ define internal void @phaser_dblp(ptr noundef captures(none) %0, ptr noundef rea
   %31 = load double, ptr %.05472.us, align 8, !tbaa !65
   %32 = load double, ptr %16, align 8, !tbaa !20
   %33 = sext i32 %.171.us to i64
-  %34 = getelementptr inbounds i32, ptr %21, i64 %33
+  %34 = getelementptr inbounds [4 x i8], ptr %21, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !64
   %36 = add nsw i32 %35, %.15770.us
   %.not.us = icmp slt i32 %36, %10
   %37 = select i1 %.not.us, i32 0, i32 %10
   %38 = sub nsw i32 %36, %37
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds double, ptr %29, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr %29, i64 %39
   %41 = load double, ptr %40, align 8, !tbaa !65
   %42 = load double, ptr %17, align 8, !tbaa !24
   %43 = fmul nsz double %41, %42
@@ -478,7 +478,7 @@ define internal void @phaser_dblp(ptr noundef captures(none) %0, ptr noundef rea
   %49 = select i1 %.not69.us, i32 0, i32 %10
   %50 = sub nsw i32 %48, %49
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds double, ptr %29, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %29, i64 %51
   store double %44, ptr %52, align 8, !tbaa !65
   %53 = load double, ptr %18, align 8, !tbaa !25
   %54 = fmul nsz double %44, %53
@@ -544,7 +544,7 @@ define internal void @phaser_flt(ptr noundef captures(none) %0, ptr noundef read
   %.05675.us = phi ptr [ %50, %._crit_edge.us ], [ %24, %.lr.ph.us.preheader ]
   %.05774.us = phi ptr [ %49, %._crit_edge.us ], [ %23, %.lr.ph.us.preheader ]
   %25 = sext i32 %.05576.us to i64
-  %26 = getelementptr inbounds i32, ptr %14, i64 %25
+  %26 = getelementptr inbounds [4 x i8], ptr %14, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !64
   %28 = add nsw i32 %27, %.05477.us
   %.not.us = icmp slt i32 %28, %16
@@ -558,8 +558,8 @@ define internal void @phaser_flt(ptr noundef captures(none) %0, ptr noundef read
   %35 = mul nsw i32 %34, %4
   %36 = sext i32 %31 to i64
   %37 = sext i32 %35 to i64
-  %invariant.gep = getelementptr double, ptr %7, i64 %36
-  %invariant.gep102 = getelementptr double, ptr %7, i64 %37
+  %invariant.gep = getelementptr [8 x i8], ptr %7, i64 %36
+  %invariant.gep102 = getelementptr [8 x i8], ptr %7, i64 %37
   br label %38
 
 38:                                               ; preds = %.lr.ph.us, %38
@@ -569,12 +569,12 @@ define internal void @phaser_flt(ptr noundef captures(none) %0, ptr noundef read
   %39 = load float, ptr %.15870.us, align 4, !tbaa !71
   %40 = fpext nsz float %39 to double
   %41 = load double, ptr %18, align 8, !tbaa !20
-  %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %indvars.iv
   %42 = load double, ptr %gep, align 8, !tbaa !65
   %43 = load double, ptr %19, align 8, !tbaa !24
   %44 = fmul nsz double %42, %43
   %45 = tail call nsz double @llvm.fmuladd.f64(double %40, double %41, double %44)
-  %gep103 = getelementptr double, ptr %invariant.gep102, i64 %indvars.iv
+  %gep103 = getelementptr [8 x i8], ptr %invariant.gep102, i64 %indvars.iv
   store double %45, ptr %gep103, align 8, !tbaa !65
   %46 = load double, ptr %20, align 8, !tbaa !25
   %47 = fmul nsz double %45, %46
@@ -650,12 +650,12 @@ define internal void @phaser_fltp(ptr noundef captures(none) %0, ptr noundef rea
 
 .lr.ph.us:                                        ; preds = %._crit_edge.us, %.preheader.split.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge.us ], [ 0, %.preheader.split.us ]
-  %24 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !63
-  %26 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8, !tbaa !63
   %28 = mul nsw i64 %indvars.iv, %23
-  %29 = getelementptr inbounds double, ptr %8, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %8, i64 %28
   br label %30
 
 30:                                               ; preds = %.lr.ph.us, %30
@@ -668,14 +668,14 @@ define internal void @phaser_fltp(ptr noundef captures(none) %0, ptr noundef rea
   %32 = fpext nsz float %31 to double
   %33 = load double, ptr %16, align 8, !tbaa !20
   %34 = sext i32 %.171.us to i64
-  %35 = getelementptr inbounds i32, ptr %21, i64 %34
+  %35 = getelementptr inbounds [4 x i8], ptr %21, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !64
   %37 = add nsw i32 %36, %.15770.us
   %.not.us = icmp slt i32 %37, %10
   %38 = select i1 %.not.us, i32 0, i32 %10
   %39 = sub nsw i32 %37, %38
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds double, ptr %29, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %29, i64 %40
   %42 = load double, ptr %41, align 8, !tbaa !65
   %43 = load double, ptr %17, align 8, !tbaa !24
   %44 = fmul nsz double %42, %43
@@ -689,7 +689,7 @@ define internal void @phaser_fltp(ptr noundef captures(none) %0, ptr noundef rea
   %50 = select i1 %.not69.us, i32 0, i32 %10
   %51 = sub nsw i32 %49, %50
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds double, ptr %29, i64 %52
+  %53 = getelementptr inbounds [8 x i8], ptr %29, i64 %52
   store double %45, ptr %53, align 8, !tbaa !65
   %54 = load double, ptr %18, align 8, !tbaa !25
   %55 = fmul nsz double %45, %54
@@ -756,7 +756,7 @@ define internal void @phaser_s16(ptr noundef captures(none) %0, ptr noundef read
   %.05675.us = phi ptr [ %50, %._crit_edge.us ], [ %24, %.lr.ph.us.preheader ]
   %.05774.us = phi ptr [ %49, %._crit_edge.us ], [ %23, %.lr.ph.us.preheader ]
   %25 = sext i32 %.05576.us to i64
-  %26 = getelementptr inbounds i32, ptr %14, i64 %25
+  %26 = getelementptr inbounds [4 x i8], ptr %14, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !64
   %28 = add nsw i32 %27, %.05477.us
   %.not.us = icmp slt i32 %28, %16
@@ -770,8 +770,8 @@ define internal void @phaser_s16(ptr noundef captures(none) %0, ptr noundef read
   %35 = mul nsw i32 %34, %4
   %36 = sext i32 %31 to i64
   %37 = sext i32 %35 to i64
-  %invariant.gep = getelementptr double, ptr %7, i64 %36
-  %invariant.gep102 = getelementptr double, ptr %7, i64 %37
+  %invariant.gep = getelementptr [8 x i8], ptr %7, i64 %36
+  %invariant.gep102 = getelementptr [8 x i8], ptr %7, i64 %37
   br label %38
 
 38:                                               ; preds = %.lr.ph.us, %38
@@ -781,12 +781,12 @@ define internal void @phaser_s16(ptr noundef captures(none) %0, ptr noundef read
   %39 = load i16, ptr %.15870.us, align 2, !tbaa !77
   %40 = sitofp i16 %39 to double
   %41 = load double, ptr %18, align 8, !tbaa !20
-  %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %indvars.iv
   %42 = load double, ptr %gep, align 8, !tbaa !65
   %43 = load double, ptr %19, align 8, !tbaa !24
   %44 = fmul nsz double %42, %43
   %45 = tail call nsz double @llvm.fmuladd.f64(double %40, double %41, double %44)
-  %gep103 = getelementptr double, ptr %invariant.gep102, i64 %indvars.iv
+  %gep103 = getelementptr [8 x i8], ptr %invariant.gep102, i64 %indvars.iv
   store double %45, ptr %gep103, align 8, !tbaa !65
   %46 = load double, ptr %20, align 8, !tbaa !25
   %47 = fmul nsz double %45, %46
@@ -862,12 +862,12 @@ define internal void @phaser_s16p(ptr noundef captures(none) %0, ptr noundef rea
 
 .lr.ph.us:                                        ; preds = %._crit_edge.us, %.preheader.split.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge.us ], [ 0, %.preheader.split.us ]
-  %24 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !63
-  %26 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8, !tbaa !63
   %28 = mul nsw i64 %indvars.iv, %23
-  %29 = getelementptr inbounds double, ptr %8, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %8, i64 %28
   br label %30
 
 30:                                               ; preds = %.lr.ph.us, %30
@@ -880,14 +880,14 @@ define internal void @phaser_s16p(ptr noundef captures(none) %0, ptr noundef rea
   %32 = sitofp i16 %31 to double
   %33 = load double, ptr %16, align 8, !tbaa !20
   %34 = sext i32 %.171.us to i64
-  %35 = getelementptr inbounds i32, ptr %21, i64 %34
+  %35 = getelementptr inbounds [4 x i8], ptr %21, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !64
   %37 = add nsw i32 %36, %.15770.us
   %.not.us = icmp slt i32 %37, %10
   %38 = select i1 %.not.us, i32 0, i32 %10
   %39 = sub nsw i32 %37, %38
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds double, ptr %29, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %29, i64 %40
   %42 = load double, ptr %41, align 8, !tbaa !65
   %43 = load double, ptr %17, align 8, !tbaa !24
   %44 = fmul nsz double %42, %43
@@ -901,7 +901,7 @@ define internal void @phaser_s16p(ptr noundef captures(none) %0, ptr noundef rea
   %50 = select i1 %.not69.us, i32 0, i32 %10
   %51 = sub nsw i32 %49, %50
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds double, ptr %29, i64 %52
+  %53 = getelementptr inbounds [8 x i8], ptr %29, i64 %52
   store double %45, ptr %53, align 8, !tbaa !65
   %54 = load double, ptr %18, align 8, !tbaa !25
   %55 = fmul nsz double %45, %54
@@ -966,7 +966,7 @@ define internal void @phaser_s32(ptr noundef captures(none) %0, ptr noundef read
   %.05675.us = phi ptr [ %49, %._crit_edge.us ], [ %22, %.lr.ph.us.preheader ]
   %.05774.us = phi ptr [ %48, %._crit_edge.us ], [ %21, %.lr.ph.us.preheader ]
   %23 = sext i32 %.05576.us to i64
-  %24 = getelementptr inbounds i32, ptr %14, i64 %23
+  %24 = getelementptr inbounds [4 x i8], ptr %14, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !64
   %26 = add nsw i32 %25, %.05477.us
   %27 = load i32, ptr %15, align 4, !tbaa !53
@@ -981,8 +981,8 @@ define internal void @phaser_s32(ptr noundef captures(none) %0, ptr noundef read
   %34 = mul nsw i32 %33, %4
   %35 = sext i32 %30 to i64
   %36 = sext i32 %34 to i64
-  %invariant.gep = getelementptr double, ptr %7, i64 %35
-  %invariant.gep102 = getelementptr double, ptr %7, i64 %36
+  %invariant.gep = getelementptr [8 x i8], ptr %7, i64 %35
+  %invariant.gep102 = getelementptr [8 x i8], ptr %7, i64 %36
   br label %37
 
 37:                                               ; preds = %.lr.ph.us, %37
@@ -992,12 +992,12 @@ define internal void @phaser_s32(ptr noundef captures(none) %0, ptr noundef read
   %38 = load i32, ptr %.15870.us, align 4, !tbaa !64
   %39 = sitofp i32 %38 to double
   %40 = load double, ptr %17, align 8, !tbaa !20
-  %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %indvars.iv
   %41 = load double, ptr %gep, align 8, !tbaa !65
   %42 = load double, ptr %18, align 8, !tbaa !24
   %43 = fmul nsz double %41, %42
   %44 = tail call nsz double @llvm.fmuladd.f64(double %39, double %40, double %43)
-  %gep103 = getelementptr double, ptr %invariant.gep102, i64 %indvars.iv
+  %gep103 = getelementptr [8 x i8], ptr %invariant.gep102, i64 %indvars.iv
   store double %44, ptr %gep103, align 8, !tbaa !65
   %45 = load double, ptr %19, align 8, !tbaa !25
   %46 = fmul nsz double %44, %45
@@ -1079,15 +1079,15 @@ define internal void @phaser_s32p(ptr noundef captures(none) %0, ptr noundef rea
 
 .lr.ph.us:                                        ; preds = %._crit_edge.us, %.preheader.split.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge.us ], [ 0, %.preheader.split.us ]
-  %21 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !63
-  %23 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8, !tbaa !63
   %25 = load i32, ptr %9, align 4, !tbaa !53
   %26 = trunc nuw nsw i64 %indvars.iv to i32
   %27 = mul nsw i32 %25, %26
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds double, ptr %8, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %8, i64 %28
   %30 = load i32, ptr %10, align 8, !tbaa !61
   %31 = load i32, ptr %11, align 4, !tbaa !60
   br label %32
@@ -1102,7 +1102,7 @@ define internal void @phaser_s32p(ptr noundef captures(none) %0, ptr noundef rea
   %34 = sitofp i32 %33 to double
   %35 = load double, ptr %13, align 8, !tbaa !20
   %36 = sext i32 %.171.us to i64
-  %37 = getelementptr inbounds i32, ptr %20, i64 %36
+  %37 = getelementptr inbounds [4 x i8], ptr %20, i64 %36
   %38 = load i32, ptr %37, align 4, !tbaa !64
   %39 = add nsw i32 %38, %.15770.us
   %40 = load i32, ptr %9, align 4, !tbaa !53
@@ -1110,7 +1110,7 @@ define internal void @phaser_s32p(ptr noundef captures(none) %0, ptr noundef rea
   %41 = select i1 %.not.us, i32 0, i32 %40
   %42 = sub nsw i32 %39, %41
   %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds double, ptr %29, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr %29, i64 %43
   %45 = load double, ptr %44, align 8, !tbaa !65
   %46 = load double, ptr %14, align 8, !tbaa !24
   %47 = fmul nsz double %45, %46
@@ -1125,7 +1125,7 @@ define internal void @phaser_s32p(ptr noundef captures(none) %0, ptr noundef rea
   %54 = select i1 %.not69.us, i32 0, i32 %40
   %55 = sub nsw i32 %53, %54
   %56 = sext i32 %55 to i64
-  %57 = getelementptr inbounds double, ptr %29, i64 %56
+  %57 = getelementptr inbounds [8 x i8], ptr %29, i64 %56
   store double %48, ptr %57, align 8, !tbaa !65
   %58 = load double, ptr %16, align 8, !tbaa !25
   %59 = fmul nsz double %48, %58

@@ -3,14 +3,11 @@ source_filename = "bench/luajit/original/lib_ffi.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.CType = type { i32, i32, i16, i16, %struct.GCRef }
-%struct.GCRef = type { i64 }
 %struct.CPState = type { i32, i32, %struct.CPValue, ptr, ptr, ptr, %struct.SBuf, ptr, ptr, ptr, ptr, i32, i32, i32, i32, [7 x i8], i8 }
 %struct.CPValue = type { %union.anon.2, i32 }
 %union.anon.2 = type { i32 }
 %struct.SBuf = type { ptr, ptr, ptr, %struct.MRef }
 %struct.MRef = type { i64 }
-%union.TValue = type { i64 }
 
 @lj_lib_init_ffi_meta = internal constant [147 x i8] c"\A49\13\07__index\0A__newindex\04__eq\05__len\04__lt\04__le\08__concat\06__call\05__add\05__sub\05__mul\05__div\05__mod\05__pow\05__unm\0A__tostring\07__pairs\08__ipairs\C3ffi\CB__metatable\FA\FF", align 16
 @lj_lib_cf_ffi_meta = internal constant [18 x ptr] [ptr @lj_cf_ffi_meta___index, ptr @lj_cf_ffi_meta___newindex, ptr @lj_cf_ffi_meta___eq, ptr @lj_cf_ffi_meta___len, ptr @lj_cf_ffi_meta___lt, ptr @lj_cf_ffi_meta___le, ptr @lj_cf_ffi_meta___concat, ptr @lj_cf_ffi_meta___call, ptr @lj_cf_ffi_meta___add, ptr @lj_cf_ffi_meta___sub, ptr @lj_cf_ffi_meta___mul, ptr @lj_cf_ffi_meta___div, ptr @lj_cf_ffi_meta___mod, ptr @lj_cf_ffi_meta___pow, ptr @lj_cf_ffi_meta___unm, ptr @lj_cf_ffi_meta___tostring, ptr @lj_cf_ffi_meta___pairs, ptr @lj_cf_ffi_meta___ipairs], align 16
@@ -420,7 +417,7 @@ ffi_checkcdata.exit:                              ; preds = %14
 31:                                               ; preds = %31, %29
   %.pn.in = phi i32 [ %.027, %29 ], [ %34, %31 ]
   %.pn = zext i32 %.pn.in to i64
-  %.0.i = getelementptr inbounds nuw %struct.CType, ptr %30, i64 %.pn
+  %.0.i = getelementptr inbounds nuw [24 x i8], ptr %30, i64 %.pn
   %32 = load i32, ptr %.0.i, align 8, !tbaa !52
   %33 = icmp slt i32 %32, -1879048192
   %34 = and i32 %32, 65535
@@ -616,7 +613,7 @@ ffi_checkcdata.exit:                              ; preds = %7
 
 30:                                               ; preds = %30, %20
   %.pn = phi i64 [ %29, %20 ], [ %34, %30 ]
-  %.0.i = getelementptr inbounds nuw %struct.CType, ptr %28, i64 %.pn
+  %.0.i = getelementptr inbounds nuw [24 x i8], ptr %28, i64 %.pn
   %31 = load i32, ptr %.0.i, align 8, !tbaa !52
   %32 = icmp slt i32 %31, -1879048192
   %33 = and i32 %31, 65535
@@ -636,7 +633,7 @@ ctype_raw.exit:                                   ; preds = %30
   %40 = phi i32 [ %31, %37 ], [ %44, %39 ]
   %41 = and i32 %40, 65535
   %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr inbounds nuw %struct.CType, ptr %28, i64 %42
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %28, i64 %42
   %44 = load i32, ptr %43, align 8, !tbaa !52
   %45 = icmp slt i32 %44, -1879048192
   br i1 %45, label %39, label %ctype_rawchild.exit, !llvm.loop !57
@@ -717,7 +714,7 @@ cdata_getptr.exit:                                ; preds = %78, %82
   %85 = phi i32 [ %46, %cdata_getptr.exit ], [ %89, %84 ]
   %86 = and i32 %85, 65535
   %87 = zext nneg i32 %86 to i64
-  %88 = getelementptr inbounds nuw %struct.CType, ptr %28, i64 %87
+  %88 = getelementptr inbounds nuw [24 x i8], ptr %28, i64 %87
   %89 = load i32, ptr %88, align 8, !tbaa !52
   %90 = icmp slt i32 %89, -1879048192
   br i1 %90, label %84, label %ctype_rawchild.exit72, !llvm.loop !57
@@ -839,7 +836,7 @@ define internal fastcc i32 @ffi_index_meta(ptr noundef %0, ptr noundef %1, ptr n
 33:                                               ; preds = %14
   %34 = tail call i64 @llvm.umax.i64(i64 %20, i64 -14)
   %spec.select = xor i64 %34, -1
-  %35 = getelementptr inbounds nuw ptr, ptr @lj_obj_itypename, i64 %spec.select
+  %35 = getelementptr inbounds nuw [8 x i8], ptr @lj_obj_itypename, i64 %spec.select
   %36 = load ptr, ptr %35, align 8, !tbaa !45
   br label %37
 
@@ -1023,7 +1020,7 @@ ffi_checkctype.exit:                              ; preds = %32, %41, %44
 47:                                               ; preds = %47, %ffi_checkctype.exit
   %.pn.in = phi i32 [ %.0.i61, %ffi_checkctype.exit ], [ %50, %47 ]
   %.pn = zext i32 %.pn.in to i64
-  %.0.i = getelementptr inbounds nuw %struct.CType, ptr %46, i64 %.pn
+  %.0.i = getelementptr inbounds nuw [24 x i8], ptr %46, i64 %.pn
   %48 = load i32, ptr %.0.i, align 8, !tbaa !52
   %49 = icmp slt i32 %48, -1879048192
   %50 = and i32 %48, 65535
@@ -1354,7 +1351,7 @@ ffi_checkcdata.exit:                              ; preds = %15
 
 25:                                               ; preds = %25, %ffi_checkcdata.exit
   %.pn = phi i64 [ %24, %ffi_checkcdata.exit ], [ %29, %25 ]
-  %.0.i = getelementptr inbounds nuw %struct.CType, ptr %23, i64 %.pn
+  %.0.i = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %.pn
   %26 = load i32, ptr %.0.i, align 8, !tbaa !52
   %27 = icmp slt i32 %26, -1879048192
   %28 = and i32 %26, 65535
@@ -1377,7 +1374,7 @@ ctype_raw.exit:                                   ; preds = %25
   %37 = inttoptr i64 %36 to ptr
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 424
   %39 = zext nneg i32 %1 to i64
-  %40 = getelementptr inbounds nuw %struct.GCRef, ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %39
   %41 = load i64, ptr %40, align 8, !tbaa !25
   %42 = inttoptr i64 %41 to ptr
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
@@ -1457,7 +1454,7 @@ ffi_clib_index.exit:                              ; preds = %20
   %42 = load i16, ptr %41, align 2, !tbaa !48
   %43 = load ptr, ptr %36, align 8, !tbaa !51
   %44 = zext i16 %42 to i64
-  %45 = getelementptr inbounds nuw %struct.CType, ptr %43, i64 %44
+  %45 = getelementptr inbounds nuw [24 x i8], ptr %43, i64 %44
   %46 = load i32, ptr %45, align 8, !tbaa !52
   %.mask24 = and i32 %46, -268435456
   %.not26 = icmp eq i32 %.mask24, -1073741824
@@ -1472,7 +1469,7 @@ ffi_clib_index.exit:                              ; preds = %20
 51:                                               ; preds = %51, %47
   %.pn.in = phi i32 [ %48, %47 ], [ %54, %51 ]
   %.pn = zext nneg i32 %.pn.in to i64
-  %.0.i = getelementptr inbounds nuw %struct.CType, ptr %43, i64 %.pn
+  %.0.i = getelementptr inbounds nuw [24 x i8], ptr %43, i64 %.pn
   %52 = load i32, ptr %.0.i, align 8, !tbaa !52
   %53 = icmp slt i32 %52, -1879048192
   %54 = and i32 %52, 65535
@@ -1585,7 +1582,7 @@ ffi_clib_index.exit:                              ; preds = %20
   %47 = load i16, ptr %46, align 2, !tbaa !48
   %48 = load ptr, ptr %41, align 8, !tbaa !51
   %49 = zext i16 %47 to i64
-  %50 = getelementptr inbounds nuw %struct.CType, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [24 x i8], ptr %48, i64 %49
   %51 = load i32, ptr %50, align 8, !tbaa !52
   %.mask30 = and i32 %51, -268435456
   %52 = icmp eq i32 %.mask30, -1073741824
@@ -1594,7 +1591,7 @@ ffi_clib_index.exit:                              ; preds = %20
 .preheader:                                       ; preds = %35
   %53 = and i32 %51, 65535
   %54 = zext nneg i32 %53 to i64
-  %55 = getelementptr inbounds nuw %struct.CType, ptr %48, i64 %54
+  %55 = getelementptr inbounds nuw [24 x i8], ptr %48, i64 %54
   %56 = load i32, ptr %55, align 8, !tbaa !52
   %57 = icmp slt i32 %56, -1879048192
   br i1 %57, label %.lr.ph, label %._crit_edge
@@ -1608,7 +1605,7 @@ ffi_clib_index.exit:                              ; preds = %20
   br i1 %61, label %62, label %67
 
 62:                                               ; preds = %.lr.ph
-  %63 = getelementptr inbounds nuw %struct.CType, ptr %48, i64 %59
+  %63 = getelementptr inbounds nuw [24 x i8], ptr %48, i64 %59
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 4
   %65 = load i32, ptr %64, align 4, !tbaa !58
   %66 = or i32 %65, %.02635
@@ -1618,7 +1615,7 @@ ffi_clib_index.exit:                              ; preds = %20
   %.127 = phi i32 [ %66, %62 ], [ %.02635, %.lr.ph ]
   %68 = and i32 %58, 65535
   %69 = zext nneg i32 %68 to i64
-  %70 = getelementptr inbounds nuw %struct.CType, ptr %48, i64 %69
+  %70 = getelementptr inbounds nuw [24 x i8], ptr %48, i64 %69
   %71 = load i32, ptr %70, align 8, !tbaa !52
   %72 = icmp slt i32 %71, -1879048192
   br i1 %72, label %.lr.ph, label %._crit_edge.loopexit
@@ -1734,7 +1731,7 @@ ffi_checkcdata.exit:                              ; preds = %8
 
 25:                                               ; preds = %25, %ffi_checkcdata.exit
   %.pn = phi i64 [ %24, %ffi_checkcdata.exit ], [ %29, %25 ]
-  %.0.i = getelementptr inbounds nuw %struct.CType, ptr %23, i64 %.pn
+  %.0.i = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %.pn
   %26 = load i32, ptr %.0.i, align 8, !tbaa !52
   %27 = icmp slt i32 %26, -1879048192
   %28 = and i32 %26, 65535
@@ -1765,7 +1762,7 @@ ctype_raw.exit:                                   ; preds = %25
   %43 = getelementptr inbounds nuw i8, ptr %19, i64 184
   %44 = load ptr, ptr %43, align 8, !tbaa !74
   %45 = zext i32 %38 to i64
-  %46 = getelementptr inbounds nuw i16, ptr %44, i64 %45
+  %46 = getelementptr inbounds nuw [2 x i8], ptr %44, i64 %45
   %47 = load i16, ptr %46, align 2, !tbaa !75
   %.not = icmp eq i16 %47, 0
   br i1 %.not, label %83, label %48
@@ -1783,7 +1780,7 @@ ctype_raw.exit:                                   ; preds = %25
   %56 = load i64, ptr %55, align 8, !tbaa !77
   %57 = inttoptr i64 %56 to ptr
   %58 = sext i32 %38 to i64
-  %59 = getelementptr inbounds %union.TValue, ptr %57, i64 %58
+  %59 = getelementptr inbounds [8 x i8], ptr %57, i64 %58
   br label %62
 
 60:                                               ; preds = %48
@@ -1821,7 +1818,7 @@ ctype_raw.exit:                                   ; preds = %25
 78:                                               ; preds = %62
   store i64 -1, ptr %63, align 8, !tbaa !23
   %79 = load ptr, ptr %43, align 8, !tbaa !74
-  %80 = getelementptr inbounds nuw i16, ptr %79, i64 %45
+  %80 = getelementptr inbounds nuw [2 x i8], ptr %79, i64 %45
   store i16 0, ptr %80, align 2, !tbaa !75
   %81 = getelementptr inbounds nuw i8, ptr %19, i64 196
   %82 = load i32, ptr %81, align 4, !tbaa !78
@@ -1985,7 +1982,7 @@ ffi_checkctype.exit:                              ; preds = %30, %39, %42
 45:                                               ; preds = %45, %ffi_checkctype.exit
   %.pn.in = phi i32 [ %.0.i27, %ffi_checkctype.exit ], [ %48, %45 ]
   %.pn = zext i32 %.pn.in to i64
-  %.0.i = getelementptr inbounds nuw %struct.CType, ptr %44, i64 %.pn
+  %.0.i = getelementptr inbounds nuw [24 x i8], ptr %44, i64 %.pn
   %46 = load i32, ptr %.0.i, align 8, !tbaa !52
   %47 = icmp slt i32 %46, -1879048192
   %48 = and i32 %46, 65535
@@ -2142,7 +2139,7 @@ ffi_checkint.exit:                                ; preds = %1
 22:                                               ; preds = %18
   %23 = load ptr, ptr %8, align 8, !tbaa !51
   %24 = zext i32 %17 to i64
-  %25 = getelementptr inbounds nuw %struct.CType, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %24
   call void @lua_createtable(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 4) #9
   %26 = load ptr, ptr %12, align 8, !tbaa !4
   %27 = getelementptr inbounds i8, ptr %26, i64 -8
@@ -2396,7 +2393,7 @@ ffi_checkctype.exit:                              ; preds = %30, %39, %42
   %90 = phi i32 [ %94, %89 ], [ %66, %.preheader ]
   %91 = and i32 %90, 65535
   %92 = zext nneg i32 %91 to i64
-  %93 = getelementptr inbounds nuw %struct.CType, ptr %88, i64 %92
+  %93 = getelementptr inbounds nuw [24 x i8], ptr %88, i64 %92
   %94 = load i32, ptr %93, align 8, !tbaa !52
   %95 = icmp slt i32 %94, -1879048192
   br i1 %95, label %89, label %ctype_rawchild.exit, !llvm.loop !57
@@ -3262,7 +3259,7 @@ ffi_checkctype.exit:                              ; preds = %30, %39, %42
 48:                                               ; preds = %48, %ffi_checkctype.exit
   %.pn.in = phi i32 [ %.0.i36, %ffi_checkctype.exit ], [ %51, %48 ]
   %.pn = zext i32 %.pn.in to i64
-  %.0.i = getelementptr inbounds nuw %struct.CType, ptr %47, i64 %.pn
+  %.0.i = getelementptr inbounds nuw [24 x i8], ptr %47, i64 %.pn
   %49 = load i32, ptr %.0.i, align 8, !tbaa !52
   %50 = icmp slt i32 %49, -1879048192
   %51 = and i32 %49, 65535
@@ -3387,7 +3384,7 @@ ffi_checkcdata.exit:                              ; preds = %7
 
 25:                                               ; preds = %25, %ffi_checkcdata.exit
   %.pn = phi i64 [ %24, %ffi_checkcdata.exit ], [ %29, %25 ]
-  %.0.i = getelementptr inbounds nuw %struct.CType, ptr %23, i64 %.pn
+  %.0.i = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %.pn
   %26 = load i32, ptr %.0.i, align 8, !tbaa !52
   %27 = icmp slt i32 %26, -1879048192
   %28 = and i32 %26, 65535

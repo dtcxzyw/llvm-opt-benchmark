@@ -254,9 +254,9 @@ define internal fastcc i32 @reftable_stack_reload_maybe_reuse(ptr noundef captur
 
 58:                                               ; preds = %58, %.preheader.i.i
   %.012.i.i = phi i64 [ 0, %.preheader.i.i ], [ %62, %58 ]
-  %59 = getelementptr inbounds nuw ptr, ptr %57, i64 %.012.i.i
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %.012.i.i
   %60 = load ptr, ptr %59, align 8, !tbaa !39
-  %61 = getelementptr inbounds nuw ptr, ptr %56, i64 %.012.i.i
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %.012.i.i
   store ptr %60, ptr %61, align 8, !tbaa !39
   %62 = add nuw i64 %.012.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %62, %54
@@ -296,7 +296,7 @@ stack_copy_readers.exit.i:                        ; preds = %58, %52, %.thread.i
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph, %89
   %.087210.i = phi i64 [ %90, %89 ], [ 0, %.lr.ph ]
-  %73 = getelementptr inbounds nuw ptr, ptr %.097.i, i64 %.087210.i
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %.097.i, i64 %.087210.i
   %74 = load ptr, ptr %73, align 8, !tbaa !39
   %.not140.i = icmp eq ptr %74, null
   br i1 %.not140.i, label %89, label %75
@@ -308,7 +308,7 @@ stack_copy_readers.exit.i:                        ; preds = %58, %52, %.thread.i
   br i1 %78, label %.split.i, label %89
 
 .split.i:                                         ; preds = %75
-  %79 = getelementptr inbounds nuw ptr, ptr %.097.i, i64 %.087210.i
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %.097.i, i64 %.087210.i
   store ptr %74, ptr %5, align 8, !tbaa !39
   store ptr null, ptr %79, align 8, !tbaa !39
   %80 = add i64 %.0103.i111, 1
@@ -349,7 +349,7 @@ st_mult.exit.i.i:                                 ; preds = %82
   %.2101168.i = phi i64 [ %.099.i112, %88 ], [ %spec.select.i.i, %st_mult.exit.i.i ]
   %.4112167.i = phi ptr [ %.1109.i110, %88 ], [ %87, %st_mult.exit.i.i ]
   %91 = load ptr, ptr %5, align 8, !tbaa !39
-  %92 = getelementptr inbounds nuw ptr, ptr %.4112167.i, i64 %.0103.i111
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %.4112167.i, i64 %.0103.i111
   store ptr %91, ptr %92, align 8, !tbaa !39
   call void @reftable_reader_incref(ptr noundef %91) #16
   %.pre.i = load ptr, ptr %5, align 8, !tbaa !39
@@ -404,7 +404,7 @@ stack_filename.exit.i:                            ; preds = %96
   %.1104321.i = phi i64 [ %80, %.loopexit.i ], [ %.1104322.i, %._crit_edge284.i ]
   %.2110317.i = phi ptr [ %.4112167.i, %.loopexit.i ], [ %.2110318.i, %._crit_edge284.i ]
   %109 = phi ptr [ %.pre.i, %.loopexit.i ], [ %.pre285.i, %._crit_edge284.i ]
-  %110 = getelementptr inbounds nuw ptr, ptr %.1107.i, i64 %.195.i113
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %.1107.i, i64 %.195.i113
   store ptr %109, ptr %110, align 8, !tbaa !39
   %111 = add i64 %.195.i113, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -428,7 +428,7 @@ stack_filename.exit.i:                            ; preds = %96
 .lr.ph234.i:                                      ; preds = %.preheader.i, %132
   %.188233.i = phi i64 [ %133, %132 ], [ 0, %.preheader.i ]
   %.5232.i = phi i32 [ %.6.i, %132 ], [ %114, %.preheader.i ]
-  %116 = getelementptr inbounds nuw ptr, ptr %.097.i, i64 %.188233.i
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %.097.i, i64 %.188233.i
   %117 = load ptr, ptr %116, align 8, !tbaa !39
   %.not139.i = icmp eq ptr %117, null
   br i1 %.not139.i, label %132, label %118
@@ -495,7 +495,7 @@ stack_filename.exit152.i:                         ; preds = %123
 
 .lr.ph237.i:                                      ; preds = %141, %.lr.ph237.i
   %.289235.i = phi i64 [ %144, %.lr.ph237.i ], [ 0, %141 ]
-  %142 = getelementptr inbounds nuw ptr, ptr %.1109.i.lcssa, i64 %.289235.i
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %.1109.i.lcssa, i64 %.289235.i
   %143 = load ptr, ptr %142, align 8, !tbaa !39
   call void @reftable_reader_decref(ptr noundef %143) #16
   %144 = add nuw i64 %.289235.i, 1
@@ -517,7 +517,7 @@ stack_copy_readers.exit.thread.i:                 ; preds = %stack_filename.exit
 
 .lr.ph239.i:                                      ; preds = %stack_copy_readers.exit.thread.i, %.lr.ph239.i
   %.3238.i = phi i64 [ %147, %.lr.ph239.i ], [ 0, %stack_copy_readers.exit.thread.i ]
-  %145 = getelementptr inbounds nuw ptr, ptr %.1107.i, i64 %.3238.i
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %.1107.i, i64 %.3238.i
   %146 = load ptr, ptr %145, align 8, !tbaa !39
   call void @reftable_reader_decref(ptr noundef %146) #16
   %147 = add nuw i64 %.3238.i, 1
@@ -749,12 +749,12 @@ read_lines.exit.thread42:                         ; preds = %17, %read_lines.exi
 has_name.exit.us:                                 ; preds = %.lr.ph, %43
   %.03046.us = phi i64 [ %44, %43 ], [ 0, %.lr.ph ]
   %32 = load ptr, ptr %23, align 8, !tbaa !38
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.03046.us
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.03046.us
   %34 = load ptr, ptr %33, align 8, !tbaa !39
   %35 = call ptr @reader_name(ptr noundef %34) #16
   call void @reftable_buf_reset(ptr noundef nonnull %3) #16
   %36 = load ptr, ptr %23, align 8, !tbaa !38
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %.03046.us
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %.03046.us
   %38 = load ptr, ptr %37, align 8, !tbaa !39
   call void @reftable_reader_decref(ptr noundef %38) #16
   %39 = load i64, ptr %30, align 8
@@ -784,7 +784,7 @@ has_name.exit.us:                                 ; preds = %.lr.ph, %43
 .lr.ph.split:                                     ; preds = %.lr.ph, %76
   %.03046 = phi i64 [ %77, %76 ], [ 0, %.lr.ph ]
   %48 = load ptr, ptr %23, align 8, !tbaa !38
-  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %.03046
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %.03046
   %50 = load ptr, ptr %49, align 8, !tbaa !39
   %51 = call ptr @reader_name(ptr noundef %50) #16
   call void @reftable_buf_reset(ptr noundef nonnull %3) #16
@@ -825,7 +825,7 @@ has_name.exit.us:                                 ; preds = %.lr.ph, %43
 has_name.exit:                                    ; preds = %.lr.ph.i, %64, %61, %.loopexit
   %67 = phi i1 [ false, %61 ], [ false, %.loopexit ], [ %66, %64 ], [ true, %.lr.ph.i ]
   %68 = load ptr, ptr %23, align 8, !tbaa !38
-  %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %.03046
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %.03046
   %70 = load ptr, ptr %69, align 8, !tbaa !39
   call void @reftable_reader_decref(ptr noundef %70) #16
   %71 = load i64, ptr %30, align 8
@@ -1128,14 +1128,14 @@ read_lines.exit:                                  ; preds = %32
 
 51:                                               ; preds = %.lr.ph, %49
   %.037 = phi i64 [ 0, %.lr.ph ], [ %50, %49 ]
-  %52 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %.037
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %.037
   %53 = load ptr, ptr %52, align 8, !tbaa !43
   %.not = icmp eq ptr %53, null
   br i1 %.not, label %.thread34, label %54
 
 54:                                               ; preds = %51
   %55 = load ptr, ptr %48, align 8, !tbaa !38
-  %56 = getelementptr inbounds nuw ptr, ptr %55, i64 %.037
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %.037
   %57 = load ptr, ptr %56, align 8, !tbaa !39
   %58 = load ptr, ptr %57, align 8, !tbaa !44
   %59 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %58, ptr noundef nonnull dereferenceable(1) %53) #18
@@ -1147,7 +1147,7 @@ read_lines.exit:                                  ; preds = %32
   %61 = load ptr, ptr %60, align 8, !tbaa !34
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = load i64, ptr %62, align 8, !tbaa !36
-  %64 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %63
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %63
   %65 = load ptr, ptr %64, align 8, !tbaa !43
   %.not28 = icmp eq ptr %65, null
   %spec.select = select i1 %.not28, i32 %.0.i44, i32 1
@@ -1250,7 +1250,7 @@ define internal fastcc void @reftable_addition_close(ptr noundef %0) unnamed_add
   %9 = phi ptr [ %.pre, %.lr.ph ], [ %27, %stack_filename.exit.thread ]
   %.016 = phi i64 [ 0, %.lr.ph ], [ %29, %stack_filename.exit.thread ]
   %10 = load ptr, ptr %5, align 8, !tbaa !71
-  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %.016
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.016
   %12 = load ptr, ptr %11, align 8, !tbaa !43
   call void @reftable_buf_reset(ptr noundef nonnull %2) #16
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 160
@@ -1276,11 +1276,11 @@ stack_filename.exit:                              ; preds = %17
 
 stack_filename.exit.thread:                       ; preds = %17, %8, %21, %stack_filename.exit
   %24 = load ptr, ptr %6, align 8, !tbaa !70
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %.016
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %.016
   %26 = load ptr, ptr %25, align 8, !tbaa !43
   call void @reftable_free(ptr noundef %26) #16
   %27 = load ptr, ptr %6, align 8, !tbaa !70
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %.016
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.016
   store ptr null, ptr %28, align 8, !tbaa !43
   %29 = add nuw i64 %.016, 1
   %30 = load i64, ptr %3, align 8, !tbaa !67
@@ -1342,7 +1342,7 @@ define dso_local i32 @reftable_addition_commit(ptr noundef %0) local_unnamed_add
   %.050 = phi i64 [ %13, %12 ], [ 0, %.preheader46 ]
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 224
   %24 = load ptr, ptr %23, align 8, !tbaa !38
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %.050
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %.050
   %26 = load ptr, ptr %25, align 8, !tbaa !39
   %27 = load ptr, ptr %26, align 8, !tbaa !44
   %28 = call i32 @reftable_buf_addstr(ptr noundef nonnull %2, ptr noundef %27) #16
@@ -1363,7 +1363,7 @@ define dso_local i32 @reftable_addition_commit(ptr noundef %0) local_unnamed_add
 37:                                               ; preds = %.lr.ph52, %33
   %.151 = phi i64 [ 0, %.lr.ph52 ], [ %34, %33 ]
   %38 = load ptr, ptr %21, align 8, !tbaa !70
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.151
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %.151
   %40 = load ptr, ptr %39, align 8, !tbaa !43
   %41 = call i32 @reftable_buf_addstr(ptr noundef nonnull %2, ptr noundef %40) #16
   %42 = icmp slt i32 %41, 0
@@ -1425,7 +1425,7 @@ stack_fsync.exit:                                 ; preds = %58, %60
 68:                                               ; preds = %.lr.ph54, %68
   %.253 = phi i64 [ 0, %.lr.ph54 ], [ %72, %68 ]
   %69 = load ptr, ptr %67, align 8, !tbaa !70
-  %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %.253
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %.253
   %71 = load ptr, ptr %70, align 8, !tbaa !43
   call void @reftable_free(ptr noundef %71) #16
   %72 = add nuw i64 %.253, 1
@@ -1508,12 +1508,12 @@ define dso_local i32 @reftable_stack_auto_compact(ptr noundef %0) local_unnamed_
 
 24:                                               ; preds = %24, %.lr.ph.i
   %.015.i = phi i64 [ 0, %.lr.ph.i ], [ %31, %24 ]
-  %25 = getelementptr inbounds nuw ptr, ptr %21, i64 %.015.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.015.i
   %26 = load ptr, ptr %25, align 8, !tbaa !39
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %28 = load i64, ptr %27, align 8, !tbaa !79
   %29 = sub i64 %28, %23
-  %30 = getelementptr inbounds nuw i64, ptr %16, i64 %.015.i
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.015.i
   store i64 %29, ptr %30, align 8, !tbaa !12
   %31 = add nuw i64 %.015.i, 1
   %32 = load i64, ptr %18, align 8, !tbaa !36
@@ -1539,10 +1539,10 @@ define dso_local i32 @reftable_stack_auto_compact(ptr noundef %0) local_unnamed_
   br i1 %.not27.i, label %suggest_compaction_segment.exit, label %39
 
 39:                                               ; preds = %38
-  %40 = getelementptr i64, ptr %16, i64 %.0.in.i
+  %40 = getelementptr [8 x i8], ptr %16, i64 %.0.in.i
   %41 = getelementptr i8, ptr %40, i64 -16
   %42 = load i64, ptr %41, align 8, !tbaa !12, !noalias !82
-  %43 = getelementptr inbounds nuw i64, ptr %16, i64 %.0.i
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.0.i
   %44 = load i64, ptr %43, align 8, !tbaa !12, !noalias !82
   %45 = mul i64 %44, %37
   %46 = icmp ult i64 %42, %45
@@ -1553,7 +1553,7 @@ define dso_local i32 @reftable_stack_auto_compact(ptr noundef %0) local_unnamed_
   %.12535.i = phi i64 [ %51, %.lr.ph.i12 ], [ %44, %39 ]
   %47 = phi i64 [ %spec.select39.i, %.lr.ph.i12 ], [ 0, %39 ]
   %48 = add i64 %.136.i, -1
-  %49 = getelementptr inbounds nuw i64, ptr %16, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %48
   %50 = load i64, ptr %49, align 8, !tbaa !12, !noalias !82
   %51 = add i64 %50, %.12535.i
   %52 = mul i64 %.12535.i, %37
@@ -1674,7 +1674,7 @@ define internal fastcc i32 @reftable_stack_init_addition(ptr noundef initializes
   %40 = load ptr, ptr %39, align 8, !tbaa !38
   %41 = add i64 %35, 4294967295
   %42 = and i64 %41, 4294967295
-  %43 = getelementptr inbounds nuw ptr, ptr %40, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !39
   %45 = tail call i64 @reftable_reader_max_update_index(ptr noundef %44) #16
   %46 = add i64 %45, 1
@@ -1898,7 +1898,7 @@ stack_filename.exit:                              ; preds = %31
   %116 = load i64, ptr %98, align 8, !tbaa !67
   %117 = add i64 %116, 1
   store i64 %117, ptr %98, align 8, !tbaa !67
-  %118 = getelementptr inbounds nuw ptr, ptr %115, i64 %116
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %115, i64 %116
   store ptr %114, ptr %118, align 8, !tbaa !43
   br label %stack_filename.exit.thread
 
@@ -2022,7 +2022,7 @@ define dso_local i64 @reftable_stack_next_update_index(ptr noundef readonly capt
   %10 = load ptr, ptr %9, align 8, !tbaa !38
   %11 = add i64 %5, 4294967295
   %12 = and i64 %11, 4294967295
-  %13 = getelementptr inbounds nuw ptr, ptr %10, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !39
   %15 = tail call i64 @reftable_reader_max_update_index(ptr noundef %14) #16
   %16 = add i64 %15, 1
@@ -2125,7 +2125,7 @@ st_mult.exit:                                     ; preds = %32
 
 .lr.ph:                                           ; preds = %.preheader276, %.lr.ph
   %.0165286 = phi i64 [ %39, %.lr.ph ], [ 0, %.preheader276 ]
-  %38 = getelementptr inbounds nuw %struct.reftable_flock, ptr %37, i64 %.0165286
+  %38 = getelementptr inbounds nuw [24 x i8], ptr %37, i64 %.0165286
   store ptr null, ptr %38, align 8, !tbaa !43
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %38, i64 8
   store i32 -1, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !8
@@ -2151,7 +2151,7 @@ st_mult.exit:                                     ; preds = %32
 46:                                               ; preds = %44
   %47 = load ptr, ptr %41, align 8, !tbaa !38
   %48 = add i64 %.1166, -1
-  %49 = getelementptr inbounds nuw ptr, ptr %47, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %48
   %50 = load ptr, ptr %49, align 8, !tbaa !39
   %51 = call ptr @reader_name(ptr noundef %50) #16
   call void @reftable_buf_reset(ptr noundef nonnull %9) #16
@@ -2171,7 +2171,7 @@ stack_filename.exit:                              ; preds = %55
   br i1 %59, label %stack_filename.exit.thread, label %60
 
 60:                                               ; preds = %stack_filename.exit
-  %61 = getelementptr inbounds nuw %struct.reftable_flock, ptr %37, i64 %.1164
+  %61 = getelementptr inbounds nuw [24 x i8], ptr %37, i64 %.1164
   %62 = load ptr, ptr %43, align 8, !tbaa !50
   %63 = call i32 @flock_acquire(ptr noundef %61, ptr noundef %62, i64 noundef 0) #16
   %64 = icmp slt i32 %63, 0
@@ -2266,7 +2266,7 @@ stack_filename.exit:                              ; preds = %55
 
 .lr.ph300:                                        ; preds = %.preheader272
   %112 = load ptr, ptr %41, align 8, !tbaa !38
-  %113 = getelementptr inbounds nuw ptr, ptr %112, i64 %.0149
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %.0149
   %114 = load ptr, ptr %113, align 8, !tbaa !39
   %115 = load ptr, ptr %114, align 8, !tbaa !44
   br label %116
@@ -2279,7 +2279,7 @@ stack_filename.exit:                              ; preds = %55
   br i1 %.not212, label %.preheader270, label %142
 
 .preheader270:                                    ; preds = %116
-  %119 = getelementptr inbounds nuw ptr, ptr %110, i64 %.0153299
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %110, i64 %.0153299
   %120 = sub i64 %40, %.0149
   %121 = icmp ugt i64 %120, 1
   br i1 %121, label %.lr.ph302, label %._crit_edge303
@@ -2303,10 +2303,10 @@ stack_filename.exit:                              ; preds = %55
   br i1 %131, label %132, label %stack_filename.exit.thread
 
 132:                                              ; preds = %129
-  %133 = getelementptr inbounds nuw ptr, ptr %112, i64 %130
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %130
   %134 = load ptr, ptr %133, align 8, !tbaa !39
   %135 = load ptr, ptr %134, align 8, !tbaa !44
-  %136 = getelementptr ptr, ptr %119, i64 %.0151301
+  %136 = getelementptr [8 x i8], ptr %119, i64 %.0151301
   %137 = load ptr, ptr %136, align 8, !tbaa !43
   %138 = icmp ne ptr %135, null
   %139 = icmp ne ptr %137, null
@@ -2320,7 +2320,7 @@ stack_filename.exit:                              ; preds = %55
 
 142:                                              ; preds = %116
   %143 = add i64 %.0153299, 1
-  %144 = getelementptr inbounds nuw ptr, ptr %110, i64 %143
+  %144 = getelementptr inbounds nuw [8 x i8], ptr %110, i64 %143
   %145 = load ptr, ptr %144, align 8, !tbaa !43
   %.not211 = icmp eq ptr %145, null
   br i1 %.not211, label %stack_filename.exit.thread, label %116, !llvm.loop !119
@@ -2363,11 +2363,11 @@ stack_filename.exit:                              ; preds = %55
 .lr.ph305:                                        ; preds = %.preheader268, %159
   %.0148304 = phi i64 [ %160, %159 ], [ 0, %.preheader268 ]
   %165 = load ptr, ptr %41, align 8, !tbaa !38
-  %166 = getelementptr inbounds nuw ptr, ptr %165, i64 %.0148304
+  %166 = getelementptr inbounds nuw [8 x i8], ptr %165, i64 %.0148304
   %167 = load ptr, ptr %166, align 8, !tbaa !39
   %168 = load ptr, ptr %167, align 8, !tbaa !44
   %169 = call ptr @reftable_strdup(ptr noundef %168) #16
-  %170 = getelementptr inbounds nuw ptr, ptr %155, i64 %.0148304
+  %170 = getelementptr inbounds nuw [8 x i8], ptr %155, i64 %.0148304
   store ptr %169, ptr %170, align 8, !tbaa !43
   %.not210 = icmp eq ptr %169, null
   br i1 %.not210, label %stack_filename.exit.thread, label %159
@@ -2380,11 +2380,11 @@ stack_filename.exit:                              ; preds = %55
 
 172:                                              ; preds = %.thread255
   %173 = load ptr, ptr %41, align 8, !tbaa !38
-  %174 = getelementptr inbounds nuw ptr, ptr %173, i64 %.0149
+  %174 = getelementptr inbounds nuw [8 x i8], ptr %173, i64 %.0149
   %175 = load ptr, ptr %174, align 8, !tbaa !39
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 40
   %177 = load i64, ptr %176, align 8, !tbaa !121
-  %178 = getelementptr inbounds nuw ptr, ptr %173, i64 %2
+  %178 = getelementptr inbounds nuw [8 x i8], ptr %173, i64 %2
   %179 = load ptr, ptr %178, align 8, !tbaa !39
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 48
   %181 = load i64, ptr %180, align 8, !tbaa !122
@@ -2422,7 +2422,7 @@ stack_filename.exit:                              ; preds = %55
 
 .lr.ph308:                                        ; preds = %197, %198
   %.2167306 = phi i64 [ %199, %198 ], [ 0, %197 ]
-  %200 = getelementptr inbounds nuw ptr, ptr %171, i64 %.2167306
+  %200 = getelementptr inbounds nuw [8 x i8], ptr %171, i64 %.2167306
   %201 = load ptr, ptr %200, align 8, !tbaa !43
   %202 = call i32 @reftable_buf_addstr(ptr noundef nonnull %6, ptr noundef %201) #16
   %203 = icmp slt i32 %202, 0
@@ -2454,7 +2454,7 @@ stack_filename.exit:                              ; preds = %55
 215:                                              ; preds = %.preheader, %221
   %.3168.in = phi i64 [ %.3168, %221 ], [ %.1172, %.preheader ]
   %.3168 = add i64 %.3168.in, 1
-  %216 = getelementptr inbounds nuw ptr, ptr %171, i64 %.3168
+  %216 = getelementptr inbounds nuw [8 x i8], ptr %171, i64 %.3168
   %217 = load ptr, ptr %216, align 8, !tbaa !43
   %.not215 = icmp eq ptr %217, null
   br i1 %.not215, label %224, label %218
@@ -2535,7 +2535,7 @@ stack_fsync.exit:                                 ; preds = %240, %242
 
 .lr.ph311:                                        ; preds = %256, %270
   %.4169310 = phi i64 [ %271, %270 ], [ 0, %256 ]
-  %262 = getelementptr inbounds nuw %struct.reftable_flock, ptr %37, i64 %.4169310
+  %262 = getelementptr inbounds nuw [24 x i8], ptr %37, i64 %.4169310
   call void @reftable_buf_reset(ptr noundef nonnull %9) #16
   %263 = load ptr, ptr %262, align 8, !tbaa !117
   %264 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %263) #18
@@ -2567,7 +2567,7 @@ stack_filename.exit.thread:                       ; preds = %73, %46, %55, %stac
 
 .lr.ph313.split:                                  ; preds = %stack_filename.exit.thread, %.lr.ph313.split
   %.5170312 = phi i64 [ %278, %.lr.ph313.split ], [ 0, %stack_filename.exit.thread ]
-  %276 = getelementptr inbounds nuw %struct.reftable_flock, ptr %.0150.fr, i64 %.5170312
+  %276 = getelementptr inbounds nuw [24 x i8], ptr %.0150.fr, i64 %.5170312
   %277 = call i32 @flock_release(ptr noundef nonnull %276) #16
   %278 = add nuw i64 %.5170312, 1
   %exitcond342.not = icmp eq i64 %278, %.0163
@@ -2622,10 +2622,10 @@ define dso_local void @suggest_compaction_segment(ptr dead_on_unwind noalias wri
   br i1 %.not27, label %.loopexit, label %8
 
 8:                                                ; preds = %7
-  %9 = getelementptr i64, ptr %1, i64 %.0.in
+  %9 = getelementptr [8 x i8], ptr %1, i64 %.0.in
   %10 = getelementptr i8, ptr %9, i64 -16
   %11 = load i64, ptr %10, align 8, !tbaa !12
-  %12 = getelementptr inbounds nuw i64, ptr %1, i64 %.0
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.0
   %13 = load i64, ptr %12, align 8, !tbaa !12
   %14 = mul i64 %13, %6
   %15 = icmp ult i64 %11, %14
@@ -2643,7 +2643,7 @@ define dso_local void @suggest_compaction_segment(ptr dead_on_unwind noalias wri
   %.12535 = phi i64 [ %13, %.lr.ph ], [ %24, %18 ]
   %20 = phi i64 [ 0, %.lr.ph ], [ %spec.select39, %18 ]
   %21 = add i64 %.136, -1
-  %22 = getelementptr inbounds nuw i64, ptr %1, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %21
   %23 = load i64, ptr %22, align 8, !tbaa !12
   %24 = add i64 %23, %.12535
   %25 = mul i64 %.12535, %6
@@ -2858,7 +2858,7 @@ is_table_name.exit.i:                             ; preds = %25
 
 32:                                               ; preds = %.preheader.i
   %33 = load ptr, ptr %23, align 8, !tbaa !38
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.027.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.027.i
   %35 = load ptr, ptr %34, align 8, !tbaa !39
   %36 = call ptr @reader_name(ptr noundef %35) #16
   %37 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %36, ptr noundef nonnull dereferenceable(1) %27) #18
@@ -3033,11 +3033,11 @@ define internal fastcc i32 @stack_compact_locked(ptr noundef %0, i64 noundef %1,
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) @__const.stack_compact_locked.tab_file, i64 24, i1 false)
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %20 = load ptr, ptr %19, align 8, !tbaa !38
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %1
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %1
   %22 = load ptr, ptr %21, align 8, !tbaa !39
   %23 = tail call i64 @reftable_reader_min_update_index(ptr noundef %22) #16
   %24 = load ptr, ptr %19, align 8, !tbaa !38
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %2
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %2
   %26 = load ptr, ptr %25, align 8, !tbaa !39
   %27 = tail call i64 @reftable_reader_max_update_index(ptr noundef %26) #16
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -3127,17 +3127,17 @@ stack_filename.exit:                              ; preds = %39
   br label %._crit_edge199.i
 
 ._crit_edge199.i:                                 ; preds = %._crit_edge.i, %64
-  %68 = getelementptr inbounds nuw ptr, ptr %.pre.i, i64 %1
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i, i64 %1
   %69 = load ptr, ptr %68, align 8, !tbaa !39
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 40
   %71 = load i64, ptr %70, align 8, !tbaa !121
-  %72 = getelementptr inbounds nuw ptr, ptr %.pre.i, i64 %2
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i, i64 %2
   %73 = load ptr, ptr %72, align 8, !tbaa !39
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 48
   %75 = load i64, ptr %74, align 8, !tbaa !122
   call void @reftable_writer_set_limits(ptr noundef %65, i64 noundef %71, i64 noundef %75) #16
   %76 = load ptr, ptr %19, align 8, !tbaa !38
-  %77 = getelementptr inbounds nuw ptr, ptr %76, i64 %1
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %1
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 180
   %79 = load i32, ptr %78, align 4, !tbaa !52
   %80 = call i32 @reftable_merged_table_new(ptr noundef nonnull %6, ptr noundef %77, i64 noundef %66, i32 noundef %79) #16
@@ -3147,7 +3147,7 @@ stack_filename.exit:                              ; preds = %39
 82:                                               ; preds = %82, %.lr.ph.i
   %83 = phi i64 [ %.promoted.i, %.lr.ph.i ], [ %88, %82 ]
   %.087.i = phi i64 [ %1, %.lr.ph.i ], [ %89, %82 ]
-  %84 = getelementptr inbounds nuw ptr, ptr %.pre.i, i64 %.087.i
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i, i64 %.087.i
   %85 = load ptr, ptr %84, align 8, !tbaa !39
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 24
   %87 = load i64, ptr %86, align 8, !tbaa !79

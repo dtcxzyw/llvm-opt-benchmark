@@ -86,10 +86,10 @@ define hidden void @_Z31mbedtls_ct_mpi_uint_cond_assignmPmPKmh(i64 noundef %0, p
 
 8:                                                ; preds = %.lr.ph, %8
   %.011 = phi i64 [ 0, %.lr.ph ], [ %16, %8 ]
-  %9 = getelementptr inbounds nuw i64, ptr %2, i64 %.011
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.011
   %10 = load i64, ptr %9, align 8, !tbaa !8
   %11 = and i64 %10, %6
-  %12 = getelementptr inbounds nuw i64, ptr %1, i64 %.011
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.011
   %13 = load i64, ptr %12, align 8, !tbaa !8
   %14 = and i64 %13, %7
   %15 = or i64 %14, %11
@@ -236,10 +236,10 @@ define hidden i32 @mbedtls_mpi_safe_cond_assign(ptr noundef %0, ptr noundef read
 
 27:                                               ; preds = %27, %.lr.ph.i
   %.011.i = phi i64 [ 0, %.lr.ph.i ], [ %35, %27 ]
-  %28 = getelementptr inbounds nuw i64, ptr %24, i64 %.011.i
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %.011.i
   %29 = load i64, ptr %28, align 8, !tbaa !8
   %30 = and i64 %29, %25
-  %31 = getelementptr inbounds nuw i64, ptr %22, i64 %.011.i
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %.011.i
   %32 = load i64, ptr %31, align 8, !tbaa !8
   %33 = and i64 %32, %26
   %34 = or i64 %33, %30
@@ -263,7 +263,7 @@ _Z31mbedtls_ct_mpi_uint_cond_assignmPmPKmh.exit:  ; preds = %_Z31mbedtls_ct_mpi_
 
 .lr.ph.split:                                     ; preds = %_Z31mbedtls_ct_mpi_uint_cond_assignmPmPKmh.exit, %.lr.ph.split
   %.018 = phi i64 [ %42, %.lr.ph.split ], [ %36, %_Z31mbedtls_ct_mpi_uint_cond_assignmPmPKmh.exit ]
-  %41 = getelementptr inbounds nuw i64, ptr %22, i64 %.018
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %.018
   store i64 0, ptr %41, align 8, !tbaa !8
   %42 = add nuw i64 %.018, 1
   %43 = load i64, ptr %37, align 8, !tbaa !11
@@ -329,9 +329,9 @@ define hidden i32 @mbedtls_mpi_safe_cond_swap(ptr noundef %0, ptr noundef %1, i8
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %.03845 = phi i64 [ %40, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %36 = getelementptr inbounds nuw i64, ptr %33, i64 %.03845
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.03845
   %37 = load i64, ptr %36, align 8, !tbaa !8
-  %38 = getelementptr inbounds nuw i64, ptr %35, i64 %.03845
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.03845
   %39 = load i64, ptr %38, align 8, !tbaa !8
   store i64 %39, ptr %36, align 8, !tbaa !8
   store i64 %37, ptr %38, align 8, !tbaa !8
@@ -378,9 +378,9 @@ define hidden range(i32 -4, 1) i32 @mbedtls_mpi_lt_mpi_ct(ptr noundef readonly c
   %.03338 = phi i64 [ %5, %.lr.ph ], [ %22, %20 ]
   %.03437 = phi i32 [ %14, %.lr.ph ], [ %49, %20 ]
   %22 = add i64 %.03338, -1
-  %23 = getelementptr inbounds nuw i64, ptr %17, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %22
   %24 = load i64, ptr %23, align 8, !tbaa !8
-  %25 = getelementptr inbounds nuw i64, ptr %19, i64 %22
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %22
   %26 = load i64, ptr %25, align 8, !tbaa !8
   %27 = xor i64 %26, %24
   %28 = sub i64 %24, %26

@@ -4,10 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %class.anon = type { ptr, ptr, ptr }
-%"class.llvm::Use" = type { ptr, ptr, ptr, ptr }
-%"struct.llvm::CallBase::BundleOpInfo" = type { ptr, i32, i32 }
-%"struct.llvm::detail::DenseMapPair" = type { %"struct.std::pair.117" }
-%"struct.std::pair.117" = type { ptr, ptr }
 
 @_ZN4llvm24DisableABIBreakingChecksE = external global i32, align 4
 @_ZN4llvm30VerifyDisableABIBreakingChecksE = weak hidden local_unnamed_addr global ptr @_ZN4llvm24DisableABIBreakingChecksE, align 8
@@ -285,7 +281,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm7objcarc6RRInfo5MergeERKS1_(ptr nou
 
 _ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5beginEv.exit: ; preds = %.lr.ph.i5.i.i7.i5.i, %.critedge2.i7.i.i9.i11.i, %8
   %.sroa.0.4.i8.i = phi ptr [ %24, %8 ], [ %.sroa.0.3.i6.i, %.lr.ph.i5.i.i7.i5.i ], [ %32, %.critedge2.i7.i.i9.i11.i ]
-  %35 = getelementptr inbounds nuw ptr, ptr %24, i64 %.v.i5.i3.i
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %.v.i5.i3.i
   %.not6.i = icmp eq ptr %.sroa.0.4.i8.i, %35
   br i1 %.not6.i, label %_ZN4llvm15SmallPtrSetImplIPNS_11InstructionEE6insertINS_19SmallPtrSetIteratorIS2_EEEEvT_S7_.exit, label %.lr.ph.i
 
@@ -402,7 +398,7 @@ _ZN4llvm15SmallPtrSetImplIPNS_11InstructionEE6insertINS_19SmallPtrSetIteratorIS2
 
 _ZNK4llvm15SmallPtrSetImplIPNS_11InstructionEE5beginEv.exit27: ; preds = %.lr.ph.i5.i.i7.i5.i19, %.critedge2.i7.i.i9.i11.i25, %_ZN4llvm15SmallPtrSetImplIPNS_11InstructionEE6insertINS_19SmallPtrSetIteratorIS2_EEEEvT_S7_.exit
   %.sroa.0.4.i8.i22 = phi ptr [ %72, %_ZN4llvm15SmallPtrSetImplIPNS_11InstructionEE6insertINS_19SmallPtrSetIteratorIS2_EEEEvT_S7_.exit ], [ %.sroa.0.3.i6.i20, %.lr.ph.i5.i.i7.i5.i19 ], [ %78, %.critedge2.i7.i.i9.i11.i25 ]
-  %81 = getelementptr inbounds nuw ptr, ptr %72, i64 %.v.i5.i3.i16
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %.v.i5.i3.i16
   %.not3840 = icmp eq ptr %.sroa.0.4.i8.i22, %81
   br i1 %.not3840, label %._crit_edge, label %.lr.ph
 
@@ -1260,7 +1256,7 @@ define dso_local void @_ZN4llvm7objcarc16BottomUpPtrState18HandlePotentialUseEPN
   %27 = and i32 %21, 134217727
   %28 = zext nneg i32 %27 to i64
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds %"class.llvm::Use", ptr %18, i64 %29
+  %30 = getelementptr inbounds [32 x i8], ptr %18, i64 %29
   br label %_ZNK4llvm4User10getOperandEj.exit.i
 
 _ZNK4llvm4User10getOperandEj.exit.i:              ; preds = %26, %23
@@ -1499,7 +1495,7 @@ _ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i.i: ; preds = %71, %_ZNK4llvm8C
   %indvars.iv.i = phi i64 [ 0, %.critedge.i.preheader.i ], [ %indvars.iv.next.i, %82 ]
   %83 = tail call { ptr, i64 } @_ZN4llvm4User13getDescriptorEv(ptr noundef nonnull align 8 dereferenceable(88) %53) #8, !noalias !218
   %84 = extractvalue { ptr, i64 } %83, 0
-  %85 = getelementptr inbounds nuw %"struct.llvm::CallBase::BundleOpInfo", ptr %84, i64 %indvars.iv.i
+  %85 = getelementptr inbounds nuw [16 x i8], ptr %84, i64 %indvars.iv.i
   %86 = load ptr, ptr %85, align 8, !tbaa !221, !noalias !224
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %88 = load i32, ptr %87, align 4, !tbaa !46, !noalias !214
@@ -1863,7 +1859,7 @@ _ZN4llvm7objcarc8PtrState21InsertReverseInsertPtEPNS_11InstructionE.exit: ; pred
   %44 = add i32 %36, -1
   %.01826.i.i.i.i.i = and i32 %44, %43
   %45 = zext nneg i32 %.01826.i.i.i.i.i to i64
-  %46 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %34, i64 %45
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %45
   %47 = load ptr, ptr %46, align 8, !tbaa !237
   %48 = icmp eq ptr %1, %47
   br i1 %48, label %_ZNK4llvm7objcarc21BundledRetainClaimRVs8containsEPKNS_11InstructionE.exit, label %.lr.ph.i.i.i.i.i, !prof !239
@@ -1880,7 +1876,7 @@ _ZN4llvm7objcarc8PtrState21InsertReverseInsertPtEPNS_11InstructionE.exit: ; pred
   %52 = add i32 %.01627.i.i.i.i.i, %.01828.i.i.i.i.i
   %.018.i.i.i.i.i = and i32 %52, %44
   %53 = zext i32 %.018.i.i.i.i.i to i64
-  %54 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %34, i64 %53
+  %54 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %53
   %55 = load ptr, ptr %54, align 8, !tbaa !237
   %56 = icmp eq ptr %spec.select.i.i.i, %55
   br i1 %56, label %_ZNK4llvm7objcarc21BundledRetainClaimRVs8containsEPKNS_11InstructionE.exit, label %.lr.ph.i.i.i.i.i, !prof !241, !llvm.loop !242

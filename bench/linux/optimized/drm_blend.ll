@@ -12,8 +12,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_drm_atomic_n
 module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_drm_plane_create_blend_mode_property: ; .asciz \22\22 ; .asciz \22\22 ; .balign 8 ; .quad drm_plane_create_blend_mode_property ; .previous"
 
 %struct.drm_prop_enum_list = type { i32, ptr }
-%struct.__drm_planes_state = type { ptr, ptr, ptr, ptr }
-%struct.__drm_crtcs_state = type { ptr, ptr, ptr, ptr, ptr, ptr, i64 }
 
 @.str = private unnamed_addr constant [6 x i8] c"alpha\00", align 1
 @__UNIQUE_ID___addressable_drm_plane_create_alpha_property362 = internal global ptr @drm_plane_create_alpha_property, section ".discard.addressable", align 8
@@ -264,7 +262,7 @@ define dso_local i32 @drm_atomic_normalize_zpos(ptr readnone captures(none) %0, 
   %18 = phi ptr [ %4, %8 ], [ %49, %48 ]
   %19 = phi i64 [ 0, %8 ], [ %50, %48 ]
   %20 = load ptr, ptr %9, align 8
-  %21 = getelementptr %struct.__drm_planes_state, ptr %20, i64 %19
+  %21 = getelementptr [32 x i8], ptr %20, i64 %19
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
   br i1 %23, label %48, label %24
@@ -292,7 +290,7 @@ define dso_local i32 @drm_atomic_normalize_zpos(ptr readnone captures(none) %0, 
   %40 = getelementptr inbounds nuw i8, ptr %28, i64 144
   %41 = load i32, ptr %40, align 8
   %42 = zext i32 %41 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %39, i64 %42
+  %.split = getelementptr [56 x i8], ptr %39, i64 %42
   %43 = getelementptr i8, ptr %.split, i64 24
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 10
@@ -314,7 +312,7 @@ define dso_local i32 @drm_atomic_normalize_zpos(ptr readnone captures(none) %0, 
 55:                                               ; preds = %171, %15
   %56 = phi i64 [ 0, %15 ], [ %172, %171 ]
   %57 = load ptr, ptr %16, align 8
-  %58 = getelementptr %struct.__drm_crtcs_state, ptr %57, i64 %56
+  %58 = getelementptr [56 x i8], ptr %57, i64 %56
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %59, null
   br i1 %60, label %171, label %61
@@ -403,7 +401,7 @@ define dso_local i32 @drm_atomic_normalize_zpos(ptr readnone captures(none) %0, 
 117:                                              ; preds = %113
   %118 = add i32 %106, 1
   %119 = sext i32 %106 to i64
-  %120 = getelementptr ptr, ptr %96, i64 %119
+  %120 = getelementptr [8 x i8], ptr %96, i64 %119
   store ptr %115, ptr %120, align 8
   br i1 %82, label %.thread15, label %121
 
@@ -440,7 +438,7 @@ define dso_local i32 @drm_atomic_normalize_zpos(ptr readnone captures(none) %0, 
 
 .split20.us:                                      ; preds = %137, %.split20.us
   %139 = phi i64 [ %149, %.split20.us ], [ 0, %137 ]
-  %140 = getelementptr ptr, ptr %96, i64 %139
+  %140 = getelementptr [8 x i8], ptr %96, i64 %139
   %141 = load ptr, ptr %140, align 8
   %142 = load ptr, ptr %141, align 8
   %143 = getelementptr inbounds nuw i8, ptr %141, i64 84
@@ -457,7 +455,7 @@ define dso_local i32 @drm_atomic_normalize_zpos(ptr readnone captures(none) %0, 
 
 .split20:                                         ; preds = %137, %.split20
   %151 = phi i64 [ %162, %.split20 ], [ 0, %137 ]
-  %152 = getelementptr ptr, ptr %96, i64 %151
+  %152 = getelementptr [8 x i8], ptr %96, i64 %151
   %153 = load ptr, ptr %152, align 8
   %154 = load ptr, ptr %153, align 8
   %155 = getelementptr inbounds nuw i8, ptr %153, i64 84
@@ -526,7 +524,7 @@ define dso_local i32 @drm_plane_create_blend_mode_property(ptr noundef %0, i32 n
 
 .preheader:                                       ; preds = %10, %28
   %14 = phi i64 [ %29, %28 ], [ 0, %10 ]
-  %15 = getelementptr %struct.drm_prop_enum_list, ptr @drm_plane_create_blend_mode_property.props, i64 %14
+  %15 = getelementptr [16 x i8], ptr @drm_plane_create_blend_mode_property.props, i64 %14
   %16 = load i32, ptr %15, align 16
   %17 = zext nneg i32 %16 to i64
   %18 = shl nuw i64 1, %17

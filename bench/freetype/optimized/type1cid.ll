@@ -15,16 +15,13 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.CID_Parser_ = type { %struct.PS_ParserRec_, ptr, ptr, i64, i64, i64, ptr, i32 }
 %struct.PS_ParserRec_ = type { ptr, ptr, ptr, i32, ptr, %struct.PS_Parser_FuncsRec_ }
 %struct.PS_Parser_FuncsRec_ = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.CID_FaceDictRec_ = type { %struct.PS_PrivateRec_, i32, i64, i64, i64, i8, i8, %struct.FT_Matrix_, %struct.FT_Vector_, i32, i64, i32 }
-%struct.PS_PrivateRec_ = type { i32, i32, i8, i8, i8, i8, [14 x i16], [10 x i16], [14 x i16], [10 x i16], i64, i32, i32, [1 x i16], [1 x i16], i8, i8, i8, i8, [13 x i16], [13 x i16], i64, i64, i64, [2 x i16] }
-%struct.FT_Matrix_ = type { i64, i64, i64, i64 }
-%struct.FT_Vector_ = type { i64, i64 }
-%struct.CID_SubrsRec_ = type { i32, ptr }
 %struct.T1_DecoderRec_ = type { %struct.T1_BuilderRec_, [256 x i64], ptr, [17 x %struct.T1_Decoder_ZoneRec_], ptr, ptr, i32, ptr, i32, i32, ptr, ptr, ptr, %struct.FT_Matrix_, %struct.FT_Vector_, i32, i32, [7 x %struct.FT_Vector_], ptr, i32, ptr, %struct.T1_Decoder_FuncsRec_, ptr, i32, i8, %struct.FT_Generic_ }
 %struct.T1_BuilderRec_ = type { ptr, ptr, ptr, ptr, ptr, ptr, i64, i64, %struct.FT_Vector_, %struct.FT_Vector_, %struct.FT_BBox_, i32, i8, i8, i8, ptr, ptr, %struct.T1_Builder_FuncsRec_ }
 %struct.FT_BBox_ = type { i64, i64, i64, i64 }
 %struct.T1_Builder_FuncsRec_ = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.T1_Decoder_ZoneRec_ = type { ptr, ptr, ptr }
+%struct.FT_Matrix_ = type { i64, i64, i64, i64 }
+%struct.FT_Vector_ = type { i64, i64 }
 %struct.T1_Decoder_FuncsRec_ = type { ptr, ptr, ptr, ptr }
 %struct.FT_Generic_ = type { ptr, ptr }
 %struct.FT_Data_ = type { ptr, i32 }
@@ -706,7 +703,7 @@ cid_load_keyword.exit.thread.i.i:                 ; preds = %244
 .thread.i.i.i:                                    ; preds = %244
   %247 = load ptr, ptr %186, align 8, !tbaa !96
   %248 = zext i32 %245 to i64
-  %249 = getelementptr inbounds nuw %struct.CID_FaceDictRec_, ptr %247, i64 %248
+  %249 = getelementptr inbounds nuw [336 x i8], ptr %247, i64 %248
   br label %250
 
 250:                                              ; preds = %.thread.i.i.i, %243, %242, %241, %238
@@ -875,7 +872,7 @@ cid_parse_dict.exit.i:                            ; preds = %260
 
 326:                                              ; preds = %325, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %325 ]
-  %327 = getelementptr inbounds nuw %struct.CID_FaceDictRec_, ptr %324, i64 %indvars.iv.i
+  %327 = getelementptr inbounds nuw [336 x i8], ptr %324, i64 %indvars.iv.i
   %328 = getelementptr inbounds nuw i8, ptr %327, i64 120
   %329 = load i32, ptr %328, align 8, !tbaa !115
   %or.cond86.i = icmp ugt i32 %329, 1000
@@ -1177,7 +1174,7 @@ define internal void @cid_face_done(ptr noundef captures(address_is_null) %0) #2
   %11 = phi i32 [ %20, %19 ], [ %10, %.preheader ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %19 ], [ 0, %.preheader ]
   %12 = load ptr, ptr %7, align 8, !tbaa !158
-  %13 = getelementptr inbounds nuw %struct.CID_SubrsRec_, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %12, i64 %indvars.iv
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !159
   %.not59 = icmp eq ptr %15, null
@@ -1296,7 +1293,7 @@ cid_size_get_globals_funcs.exit:                  ; preds = %9
   %15 = load ptr, ptr %14, align 8, !tbaa !176
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %17 = load i64, ptr %16, align 8, !tbaa !177
-  %18 = getelementptr inbounds %struct.CID_FaceDictRec_, ptr %15, i64 %17
+  %18 = getelementptr inbounds [336 x i8], ptr %15, i64 %17
   %19 = load ptr, ptr %11, align 8, !tbaa !178
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 184
   %21 = load ptr, ptr %20, align 8, !tbaa !157
@@ -2244,7 +2241,7 @@ define internal fastcc i32 @cid_read_subrs(ptr noundef captures(none) initialize
   %.0120185 = phi i32 [ 0, %.lr.ph ], [ %.1121167, %.thread162 ]
   %.0122184 = phi ptr [ null, %.lr.ph ], [ %.1123166, %.thread162 ]
   %23 = load ptr, ptr %16, align 8, !tbaa !96
-  %24 = getelementptr inbounds nuw %struct.CID_FaceDictRec_, ptr %23, i64 %indvars.iv215
+  %24 = getelementptr inbounds nuw [336 x i8], ptr %23, i64 %indvars.iv215
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %26 = load i32, ptr %25, align 4, !tbaa !261
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 312
@@ -2332,7 +2329,7 @@ cid_get_offset.exit.us.preheader:                 ; preds = %52
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
   %scevgep.i = getelementptr i8, ptr %.0177, i64 %54
-  %64 = getelementptr inbounds nuw i64, ptr %.2124, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %.2124, i64 %indvars.iv
   store i64 %62, ptr %64, align 8, !tbaa !104
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2352,14 +2349,14 @@ cid_get_offset.exit.us.preheader:                 ; preds = %52
   %68 = phi i64 [ %.pre, %.split180.us ], [ %71, %65 ]
   %.1127181 = phi i32 [ 1, %.split180.us ], [ %66, %65 ]
   %69 = zext i32 %.1127181 to i64
-  %70 = getelementptr inbounds nuw i64, ptr %.2124, i64 %69
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %.2124, i64 %69
   %71 = load i64, ptr %70, align 8, !tbaa !104
   %72 = icmp ugt i64 %68, %71
   br i1 %72, label %.thread155.sink.split, label %65
 
 73:                                               ; preds = %65
   %74 = zext i32 %28 to i64
-  %75 = getelementptr inbounds nuw i64, ptr %.2124, i64 %74
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %.2124, i64 %74
   %76 = load i64, ptr %75, align 8, !tbaa !104
   %77 = load i64, ptr %19, align 8, !tbaa !67
   %78 = load i64, ptr %17, align 8, !tbaa !109
@@ -2414,11 +2411,11 @@ cid_get_offset.exit.us.preheader:                 ; preds = %52
   %102 = phi ptr [ %.pre222, %.preheader169 ], [ %107, %101 ]
   %103 = phi i64 [ %.pre221, %.preheader169 ], [ %105, %101 ]
   %indvars.iv203 = phi i64 [ 1, %.preheader169 ], [ %indvars.iv.next204, %101 ]
-  %104 = getelementptr inbounds nuw i64, ptr %.2124, i64 %indvars.iv203
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %.2124, i64 %indvars.iv203
   %105 = load i64, ptr %104, align 8, !tbaa !104
   %106 = sub i64 %105, %103
   %107 = getelementptr inbounds nuw i8, ptr %102, i64 %106
-  %108 = getelementptr inbounds nuw ptr, ptr %100, i64 %indvars.iv203
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %indvars.iv203
   store ptr %107, ptr %108, align 8, !tbaa !106
   %indvars.iv.next204 = add nuw nsw i64 %indvars.iv203, 1
   %exitcond208 = icmp eq i64 %indvars.iv.next204, %wide.trip.count207
@@ -2431,14 +2428,14 @@ cid_get_offset.exit.us.preheader:                 ; preds = %52
 .preheader168:                                    ; preds = %109, %.preheader168
   %indvars.iv209 = phi i64 [ %indvars.iv.next210, %.preheader168 ], [ 0, %109 ]
   %indvars.iv.next210 = add nuw nsw i64 %indvars.iv209, 1
-  %111 = getelementptr inbounds nuw i64, ptr %.2124, i64 %indvars.iv.next210
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %.2124, i64 %indvars.iv.next210
   %112 = load i64, ptr %111, align 8, !tbaa !104
-  %113 = getelementptr inbounds nuw i64, ptr %.2124, i64 %indvars.iv209
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %.2124, i64 %indvars.iv209
   %114 = load i64, ptr %113, align 8, !tbaa !104
   %115 = sub i64 %112, %114
   %116 = load ptr, ptr %20, align 8, !tbaa !265
   %117 = load ptr, ptr %85, align 8, !tbaa !159
-  %118 = getelementptr inbounds nuw ptr, ptr %117, i64 %indvars.iv209
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %indvars.iv209
   %119 = load ptr, ptr %118, align 8, !tbaa !106
   call void %116(ptr noundef %119, i64 noundef %115, i16 noundef zeroext 4330) #14
   %exitcond214.not = icmp eq i64 %indvars.iv.next210, %74
@@ -2486,7 +2483,7 @@ cid_get_offset.exit.us.preheader:                 ; preds = %52
 .lr.ph189:                                        ; preds = %.preheader, %137
   %127 = phi ptr [ %139, %137 ], [ %125, %.preheader ]
   %indvars.iv218 = phi i64 [ %indvars.iv.next219, %137 ], [ 0, %.preheader ]
-  %128 = getelementptr inbounds nuw %struct.CID_SubrsRec_, ptr %127, i64 %indvars.iv218
+  %128 = getelementptr inbounds nuw [16 x i8], ptr %127, i64 %indvars.iv218
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 8
   %130 = load ptr, ptr %129, align 8, !tbaa !159
   %.not148 = icmp eq ptr %130, null
@@ -2496,7 +2493,7 @@ cid_get_offset.exit.us.preheader:                 ; preds = %52
   %132 = load ptr, ptr %130, align 8, !tbaa !106
   call void @ft_mem_free(ptr noundef %4, ptr noundef %132) #14
   %133 = load ptr, ptr %13, align 8, !tbaa !158
-  %134 = getelementptr inbounds nuw %struct.CID_SubrsRec_, ptr %133, i64 %indvars.iv218
+  %134 = getelementptr inbounds nuw [16 x i8], ptr %133, i64 %indvars.iv218
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 8
   %136 = load ptr, ptr %135, align 8, !tbaa !159
   store ptr null, ptr %136, align 8, !tbaa !106
@@ -2506,7 +2503,7 @@ cid_get_offset.exit.us.preheader:                 ; preds = %52
   %138 = phi ptr [ null, %.lr.ph189 ], [ %136, %131 ]
   call void @ft_mem_free(ptr noundef %4, ptr noundef %138) #14
   %139 = load ptr, ptr %13, align 8, !tbaa !158
-  %140 = getelementptr inbounds nuw %struct.CID_SubrsRec_, ptr %139, i64 %indvars.iv218
+  %140 = getelementptr inbounds nuw [16 x i8], ptr %139, i64 %indvars.iv218
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 8
   store ptr null, ptr %141, align 8, !tbaa !159
   %indvars.iv.next219 = add nuw nsw i64 %indvars.iv218, 1
@@ -2580,7 +2577,7 @@ define internal void @parse_fd_array(ptr noundef captures(none) %0, ptr noundef 
 
 .lr.ph:                                           ; preds = %20, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %20 ]
-  %23 = getelementptr inbounds nuw %struct.CID_FaceDictRec_, ptr %18, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [336 x i8], ptr %18, i64 %indvars.iv
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 120
   store i32 7, ptr %24, align 8, !tbaa !115
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 124
@@ -2615,7 +2612,7 @@ define internal void @cid_parse_font_matrix(ptr noundef captures(none) %0, ptr n
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %11 = load ptr, ptr %10, align 8, !tbaa !176
   %12 = zext i32 %5 to i64
-  %13 = getelementptr inbounds nuw %struct.CID_FaceDictRec_, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [336 x i8], ptr %11, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 264
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 296
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 104
@@ -2718,7 +2715,7 @@ define internal void @parse_expansion_factor(ptr noundef readonly captures(none)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 576
   %10 = load ptr, ptr %9, align 8, !tbaa !176
   %11 = zext i32 %4 to i64
-  %12 = getelementptr inbounds nuw %struct.CID_FaceDictRec_, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [336 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %14 = load ptr, ptr %13, align 8, !tbaa !276
   %15 = tail call i64 %14(ptr noundef nonnull %1, i32 noundef 0) #14
@@ -2902,7 +2899,7 @@ cid_get_offset.exit:                              ; preds = %.lr.ph.i, %36
   %.1 = phi ptr [ %46, %59 ], [ %68, %75 ]
   %78 = getelementptr inbounds nuw i8, ptr %12, i64 600
   %79 = load ptr, ptr %78, align 8, !tbaa !158
-  %80 = getelementptr inbounds nuw %struct.CID_SubrsRec_, ptr %79, i64 %77
+  %80 = getelementptr inbounds nuw [16 x i8], ptr %79, i64 %77
   %81 = load i32, ptr %80, align 8, !tbaa !267
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 2716
   store i32 %81, ptr %82, align 4, !tbaa !295
@@ -2914,7 +2911,7 @@ cid_get_offset.exit:                              ; preds = %.lr.ph.i, %36
   %87 = getelementptr inbounds nuw i8, ptr %12, i64 576
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %86, i8 0, i64 16, i1 false)
   %88 = load ptr, ptr %87, align 8, !tbaa !96
-  %89 = getelementptr inbounds nuw %struct.CID_FaceDictRec_, ptr %88, i64 %77
+  %89 = getelementptr inbounds nuw [336 x i8], ptr %88, i64 %77
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 2744
   %91 = getelementptr inbounds nuw i8, ptr %89, i64 264
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %90, ptr noundef nonnull align 8 dereferenceable(32) %91, i64 32, i1 false), !tbaa.struct !222

@@ -3048,7 +3048,7 @@ define linkonce_odr hidden void @_ZN2cv8io_utils11DepthSource8getDepthEv(ptr dea
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %34 = add nuw i64 %24, 1
   store i64 %34, ptr %23, align 8, !tbaa !135
-  %35 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %27, i64 %24
+  %35 = getelementptr inbounds nuw [32 x i8], ptr %27, i64 %24
   invoke void @_ZN2cv6imreadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr dead_on_unwind nonnull writable sret(%"class.cv::Mat") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %35, i32 noundef 2)
           to label %36 unwind label %42
 
@@ -5683,7 +5683,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8, !tbaa !137
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !136
-  %70 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %70 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %70, ptr %69, align 8, !tbaa !186
   ret void
 }

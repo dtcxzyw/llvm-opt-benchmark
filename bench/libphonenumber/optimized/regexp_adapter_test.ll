@@ -18106,7 +18106,7 @@ _ZNSt6vectorIPKN4i18n12phonenumbers17RegExpTestContextESaIS4_EE11_S_relocateEPS4
 _ZNSt6vectorIPKN4i18n12phonenumbers17RegExpTestContextESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i: ; preds = %35, %_ZNSt6vectorIPKN4i18n12phonenumbers17RegExpTestContextESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit16.i.i.i
   store ptr %30, ptr %3, align 8, !tbaa !252
   store ptr %34, ptr %11, align 8, !tbaa !255
-  %36 = getelementptr inbounds nuw ptr, ptr %30, i64 %28
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %36, ptr %13, align 8, !tbaa !254
   br label %_ZNSt6vectorIPKN4i18n12phonenumbers17RegExpTestContextESaIS4_EE9push_backEOS4_.exit
 

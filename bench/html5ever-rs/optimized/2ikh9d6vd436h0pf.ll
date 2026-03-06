@@ -53,7 +53,7 @@ define hidden noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display
   br i1 %21, label %22, label %27, !prof !21
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds nuw { ptr, i64 }, ptr @anon.6dd4c94a770fa611fd0f90a1f94be9fc.1125.llvm.11517934075587973166, i64 %20
+  %23 = getelementptr inbounds nuw [16 x i8], ptr @anon.6dd4c94a770fa611fd0f90a1f94be9fc.1125.llvm.11517934075587973166, i64 %20
   %24 = load ptr, ptr %23, align 8, !noalias !16, !nonnull !4, !align !17, !noundef !4
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %26 = load i64, ptr %25, align 8, !noalias !16, !noundef !4
@@ -114,7 +114,7 @@ define hidden noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display
   br i1 %21, label %22, label %27, !prof !21
 
 22:                                               ; preds = %19
-  %23 = getelementptr inbounds nuw { ptr, i64 }, ptr @anon.6dd4c94a770fa611fd0f90a1f94be9fc.1111.llvm.11517934075587973166, i64 %20
+  %23 = getelementptr inbounds nuw [16 x i8], ptr @anon.6dd4c94a770fa611fd0f90a1f94be9fc.1111.llvm.11517934075587973166, i64 %20
   %24 = load ptr, ptr %23, align 8, !noalias !31, !nonnull !4, !align !17, !noundef !4
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %26 = load i64, ptr %25, align 8, !noalias !31, !noundef !4

@@ -6,8 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::ios_base::Init" = type { i8 }
 %"class.Ipopt::SmartPtr.72" = type { ptr }
 %"class.Ipopt::SmartPtr.16" = type { ptr }
-%"class.Ipopt::SmartPtr.38" = type { ptr }
-%"class.Ipopt::SmartPtr.46" = type { ptr }
 %"class.std::vector.0" = type { %"struct.std::_Vector_base.1" }
 %"struct.std::_Vector_base.1" = type { %"struct.std::_Vector_base<Ipopt::SmartPtr<const Ipopt::Vector>, std::allocator<Ipopt::SmartPtr<const Ipopt::Vector>>>::_Vector_impl" }
 %"struct.std::_Vector_base<Ipopt::SmartPtr<const Ipopt::Vector>, std::allocator<Ipopt::SmartPtr<const Ipopt::Vector>>>::_Vector_impl" = type { %"struct.std::_Vector_base<Ipopt::SmartPtr<const Ipopt::Vector>, std::allocator<Ipopt::SmartPtr<const Ipopt::Vector>>>::_Vector_impl_data" }
@@ -2648,7 +2646,7 @@ _ZN5Ipopt8SmartPtrINS_14DenseGenMatrixEED2Ev.exit: ; preds = %468, %._crit_edge
   %489 = load ptr, ptr %424, align 8, !tbaa !60
   %490 = getelementptr inbounds nuw i8, ptr %489, i64 104
   %491 = load ptr, ptr %490, align 8, !tbaa !3, !noalias !153
-  %492 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr.38", ptr %491, i64 %indvars.iv
+  %492 = getelementptr inbounds nuw [8 x i8], ptr %491, i64 %indvars.iv
   %493 = load ptr, ptr %492, align 8, !tbaa !10, !noalias !153
   %.not.i.i253 = icmp eq ptr %493, null
   br i1 %.not.i.i253, label %_ZNK5Ipopt17MultiVectorMatrix8ConstVecEi.exit.i, label %498
@@ -2656,7 +2654,7 @@ _ZN5Ipopt8SmartPtrINS_14DenseGenMatrixEED2Ev.exit: ; preds = %468, %._crit_edge
 _ZNK5Ipopt17MultiVectorMatrix8ConstVecEi.exit.i:  ; preds = %.lr.ph
   %494 = getelementptr inbounds nuw i8, ptr %489, i64 80
   %495 = load ptr, ptr %494, align 8, !tbaa !21, !noalias !153
-  %496 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr.46", ptr %495, i64 %indvars.iv
+  %496 = getelementptr inbounds nuw [8 x i8], ptr %495, i64 %indvars.iv
   %497 = load ptr, ptr %496, align 8, !tbaa !25, !noalias !153
   %.not.i.i.i254 = icmp eq ptr %497, null
   br i1 %.not.i.i.i254, label %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit256, label %498
@@ -3604,7 +3602,7 @@ _ZNSt6vectorIN5Ipopt8SmartPtrIKNS0_6VectorEEESaIS4_EE17_S_check_init_lenEmRKS5_.
 
 .lr.ph.preheader.i.i.i.i.i193:                    ; preds = %.lr.ph.preheader.i.i.i.i.i
   store ptr %75, ptr %23, align 8, !tbaa !21
-  %76 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr.46", ptr %75, i64 %71
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %71
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %75, i8 0, i64 %74, i1 false), !tbaa !25
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %75, i64 %74
   %77 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -3617,7 +3615,7 @@ _ZNSt6vectorIN5Ipopt8SmartPtrIKNS0_6VectorEEESaIS4_EE17_S_check_init_lenEmRKS5_.
 
 .lr.ph.preheader.i.i.i.i.i203:                    ; preds = %.lr.ph.preheader.i.i.i.i.i193
   store ptr %79, ptr %24, align 8, !tbaa !21
-  %80 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr.46", ptr %79, i64 %71
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %71
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %79, i8 0, i64 %74, i1 false), !tbaa !25
   %scevgep.i.i.i.i.i194 = getelementptr i8, ptr %79, i64 %74
   %81 = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -3664,7 +3662,7 @@ _ZNSt6vectorIN5Ipopt8SmartPtrINS0_6VectorEEESaIS3_EE17_S_check_init_lenEmRKS4_.e
 
 .lr.ph.preheader.i.i.i.i.i213:                    ; preds = %.lr.ph.preheader.i.i.i.i.i203
   store ptr %83, ptr %25, align 8, !tbaa !21
-  %100 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr.46", ptr %83, i64 %71
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %71
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %83, i8 0, i64 %74, i1 false), !tbaa !25
   %scevgep.i.i.i.i.i204 = getelementptr i8, ptr %83, i64 %74
   %101 = getelementptr inbounds nuw i8, ptr %25, i64 8
@@ -3677,7 +3675,7 @@ _ZNSt6vectorIN5Ipopt8SmartPtrINS0_6VectorEEESaIS3_EE17_S_check_init_lenEmRKS4_.e
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader.i.i.i.i.i213
   store ptr %103, ptr %26, align 8, !tbaa !21
-  %104 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr.46", ptr %103, i64 %71
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %71
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %103, i8 0, i64 %74, i1 false), !tbaa !25
   %scevgep.i.i.i.i.i214 = getelementptr i8, ptr %103, i64 %74
   %105 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -3752,7 +3750,7 @@ _ZN5Ipopt8SmartPtrIKNS_11VectorSpaceEED2Ev.exit229: ; preds = %114, %120
 
 137:                                              ; preds = %134
   %138 = load ptr, ptr %107, align 8, !tbaa !3, !noalias !163
-  %139 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr.38", ptr %138, i64 %indvars.iv
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %138, i64 %indvars.iv
   %140 = load ptr, ptr %139, align 8, !tbaa !10, !noalias !163
   %.not.i.i230 = icmp eq ptr %140, null
   br i1 %.not.i.i230, label %_ZNK5Ipopt17MultiVectorMatrix8ConstVecEi.exit.i, label %._crit_edge625
@@ -3763,7 +3761,7 @@ _ZN5Ipopt8SmartPtrIKNS_11VectorSpaceEED2Ev.exit229: ; preds = %114, %120
 
 _ZNK5Ipopt17MultiVectorMatrix8ConstVecEi.exit.i:  ; preds = %137
   %141 = load ptr, ptr %108, align 8, !tbaa !21, !noalias !163
-  %142 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr.46", ptr %141, i64 %indvars.iv
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %141, i64 %indvars.iv
   %143 = load ptr, ptr %142, align 8, !tbaa !25, !noalias !163
   %.not.i.i.i231 = icmp eq ptr %143, null
   %.pre627 = load ptr, ptr %23, align 8, !tbaa !21
@@ -3782,7 +3780,7 @@ _ZNK5Ipopt17MultiVectorMatrix9GetVectorEi.exit.thread: ; preds = %_ZNK5Ipopt17Mu
   %149 = phi ptr [ %145, %144 ], [ %.pre627, %_ZNK5Ipopt17MultiVectorMatrix8ConstVecEi.exit.i ]
   %.not.i.i.i232588 = phi i1 [ false, %144 ], [ true, %_ZNK5Ipopt17MultiVectorMatrix8ConstVecEi.exit.i ]
   %.0.i4.i587 = phi ptr [ %.0.i3.i, %144 ], [ null, %_ZNK5Ipopt17MultiVectorMatrix8ConstVecEi.exit.i ]
-  %150 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr.46", ptr %149, i64 %indvars.iv
+  %150 = getelementptr inbounds nuw [8 x i8], ptr %149, i64 %indvars.iv
   %151 = load ptr, ptr %150, align 8, !tbaa !25
   %.not.i.i.i.i233 = icmp eq ptr %151, null
   br i1 %.not.i.i.i.i233, label %161, label %152
@@ -3841,14 +3839,14 @@ _ZNK5Ipopt6Vector7MakeNewEv.exit:                 ; preds = %169
 _ZN5Ipopt8SmartPtrINS_6VectorEEC2EPS1_.exit:      ; preds = %175, %_ZNK5Ipopt6Vector7MakeNewEv.exit
   %179 = load ptr, ptr %16, align 8, !tbaa !128
   %180 = load ptr, ptr %107, align 8, !tbaa !3, !noalias !166
-  %181 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr.38", ptr %180, i64 %indvars.iv
+  %181 = getelementptr inbounds nuw [8 x i8], ptr %180, i64 %indvars.iv
   %182 = load ptr, ptr %181, align 8, !tbaa !10, !noalias !166
   %.not.i.i239 = icmp eq ptr %182, null
   br i1 %.not.i.i239, label %_ZNK5Ipopt17MultiVectorMatrix8ConstVecEi.exit.i243, label %_ZNK5Ipopt17MultiVectorMatrix8ConstVecEi.exit.thread.i240
 
 _ZNK5Ipopt17MultiVectorMatrix8ConstVecEi.exit.i243: ; preds = %_ZN5Ipopt8SmartPtrINS_6VectorEEC2EPS1_.exit
   %183 = load ptr, ptr %108, align 8, !tbaa !21, !noalias !166
-  %184 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr.46", ptr %183, i64 %indvars.iv
+  %184 = getelementptr inbounds nuw [8 x i8], ptr %183, i64 %indvars.iv
   %185 = load ptr, ptr %184, align 8, !tbaa !25, !noalias !166
   %.not.i.i.i244 = icmp eq ptr %185, null
   br i1 %.not.i.i.i244, label %_ZNK5Ipopt17MultiVectorMatrix9GetVectorEi.exit245, label %_ZNK5Ipopt17MultiVectorMatrix8ConstVecEi.exit.thread.i240
@@ -3888,7 +3886,7 @@ _ZNK5Ipopt6Matrix10MultVectorEdRKNS_6VectorEdRS1_.exit: ; preds = %_ZNK5Ipopt17M
   %201 = getelementptr inbounds nuw i8, ptr %174, i64 8
   %202 = load i32, ptr %201, align 8, !tbaa !13, !noalias !169
   %203 = load ptr, ptr %23, align 8, !tbaa !21
-  %204 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr.46", ptr %203, i64 %indvars.iv
+  %204 = getelementptr inbounds nuw [8 x i8], ptr %203, i64 %indvars.iv
   %205 = add nsw i32 %202, 2
   store i32 %205, ptr %201, align 8, !tbaa !13
   %206 = load ptr, ptr %204, align 8, !tbaa !25
@@ -3982,7 +3980,7 @@ _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit.sink.split: ; preds = %_ZN5Ipopt8Smart
 _ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit:        ; preds = %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit.sink.split, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit254, %162, %161
   %250 = phi ptr [ %149, %162 ], [ %203, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit254 ], [ %149, %161 ], [ %.ph, %_ZN5Ipopt8SmartPtrIKNS_6VectorEED2Ev.exit.sink.split ]
   %251 = load ptr, ptr %17, align 8, !tbaa !60
-  %252 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr.46", ptr %250, i64 %indvars.iv
+  %252 = getelementptr inbounds nuw [8 x i8], ptr %250, i64 %indvars.iv
   %253 = load ptr, ptr %252, align 8, !tbaa !25
   %254 = trunc nuw nsw i64 %indvars.iv to i32
   invoke void @_ZN5Ipopt17MultiVectorMatrix9SetVectorEiRKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(128) %251, i32 noundef %254, ptr noundef nonnull align 8 dereferenceable(205) %253)
@@ -4022,7 +4020,7 @@ _ZN5Ipopt8SmartPtrINS_6VectorEEaSEPS1_.exit:      ; preds = %261, %_ZNK5Ipopt6Ve
   %269 = getelementptr inbounds nuw i8, ptr %260, i64 8
   %270 = load i32, ptr %269, align 8, !tbaa !13, !noalias !172
   %271 = load ptr, ptr %24, align 8, !tbaa !21
-  %272 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr.46", ptr %271, i64 %indvars.iv
+  %272 = getelementptr inbounds nuw [8 x i8], ptr %271, i64 %indvars.iv
   %273 = add nsw i32 %270, 2
   store i32 %273, ptr %269, align 8, !tbaa !13
   %274 = load ptr, ptr %272, align 8, !tbaa !25
@@ -4107,7 +4105,7 @@ _ZN5Ipopt8SmartPtrINS_6VectorEEaSEPS1_.exit279:   ; preds = %305, %301
   %313 = getelementptr inbounds nuw i8, ptr %296, i64 8
   %314 = load i32, ptr %313, align 8, !tbaa !13, !noalias !175
   %315 = load ptr, ptr %25, align 8, !tbaa !21
-  %316 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr.46", ptr %315, i64 %indvars.iv
+  %316 = getelementptr inbounds nuw [8 x i8], ptr %315, i64 %indvars.iv
   %317 = add nsw i32 %314, 2
   store i32 %317, ptr %313, align 8, !tbaa !13
   %318 = load ptr, ptr %316, align 8, !tbaa !25
@@ -4192,7 +4190,7 @@ _ZN5Ipopt8SmartPtrINS_6VectorEEaSEPS1_.exit294:   ; preds = %349, %345
   %357 = getelementptr inbounds nuw i8, ptr %340, i64 8
   %358 = load i32, ptr %357, align 8, !tbaa !13, !noalias !178
   %359 = load ptr, ptr %26, align 8, !tbaa !21
-  %360 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr.46", ptr %359, i64 %indvars.iv
+  %360 = getelementptr inbounds nuw [8 x i8], ptr %359, i64 %indvars.iv
   %361 = add nsw i32 %358, 2
   store i32 %361, ptr %357, align 8, !tbaa !13
   %362 = load ptr, ptr %360, align 8, !tbaa !25
@@ -4274,7 +4272,7 @@ _ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit306:      ; preds = %_ZN5Ipopt8SmartPtrI
 
 .lr.ph.preheader.i.i.i.i.i317:                    ; preds = %_ZNSt6vectorIN5Ipopt8SmartPtrINS0_6VectorEEESaIS3_EE17_S_check_init_lenEmRKS4_.exit.i
   store ptr %113, ptr %27, align 8, !tbaa !3
-  %397 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr.38", ptr %113, i64 %71
+  %397 = getelementptr inbounds nuw [8 x i8], ptr %113, i64 %71
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %113, i8 0, i64 %112, i1 false), !tbaa !10
   %scevgep.i.i.i.i.i223 = getelementptr i8, ptr %113, i64 %112
   %398 = getelementptr inbounds nuw i8, ptr %27, i64 8
@@ -4287,7 +4285,7 @@ _ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit306:      ; preds = %_ZN5Ipopt8SmartPtrI
 
 .lr.ph.preheader.i.i.i.i.i327:                    ; preds = %.lr.ph.preheader.i.i.i.i.i317
   store ptr %400, ptr %28, align 8, !tbaa !3
-  %401 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr.38", ptr %400, i64 %71
+  %401 = getelementptr inbounds nuw [8 x i8], ptr %400, i64 %71
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %400, i8 0, i64 %112, i1 false), !tbaa !10
   %scevgep.i.i.i.i.i318 = getelementptr i8, ptr %400, i64 %112
   %402 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -4300,7 +4298,7 @@ _ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit306:      ; preds = %_ZN5Ipopt8SmartPtrI
 
 .lr.ph.preheader.i.i.i.i.i337:                    ; preds = %.lr.ph.preheader.i.i.i.i.i327
   store ptr %404, ptr %29, align 8, !tbaa !3
-  %405 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr.38", ptr %404, i64 %71
+  %405 = getelementptr inbounds nuw [8 x i8], ptr %404, i64 %71
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %404, i8 0, i64 %112, i1 false), !tbaa !10
   %scevgep.i.i.i.i.i328 = getelementptr i8, ptr %404, i64 %112
   %406 = getelementptr inbounds nuw i8, ptr %29, i64 8
@@ -4313,7 +4311,7 @@ _ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit306:      ; preds = %_ZN5Ipopt8SmartPtrI
 
 .lr.ph603:                                        ; preds = %.lr.ph.preheader.i.i.i.i.i337
   store ptr %408, ptr %30, align 8, !tbaa !3
-  %409 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr.38", ptr %408, i64 %71
+  %409 = getelementptr inbounds nuw [8 x i8], ptr %408, i64 %71
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %408, i8 0, i64 %112, i1 false), !tbaa !10
   %scevgep.i.i.i.i.i338 = getelementptr i8, ptr %408, i64 %112
   %410 = getelementptr inbounds nuw i8, ptr %30, i64 8
@@ -4384,7 +4382,7 @@ _ZN5Ipopt8SmartPtrINS_6VectorEED2Ev.exit306:      ; preds = %_ZN5Ipopt8SmartPtrI
 
 _ZNK5Ipopt6Vector7MakeNewEv.exit346:              ; preds = %447
   %453 = load ptr, ptr %27, align 8, !tbaa !3
-  %454 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr.38", ptr %453, i64 %indvars.iv613
+  %454 = getelementptr inbounds nuw [8 x i8], ptr %453, i64 %indvars.iv613
   %.not.i.i347 = icmp eq ptr %452, null
   br i1 %.not.i.i347, label %459, label %455
 
@@ -4426,7 +4424,7 @@ _ZNK5Ipopt6Vector7MakeNewEv.exit346:              ; preds = %447
 
 _ZNK5Ipopt6Vector7MakeNewEv.exit351:              ; preds = %470
   %476 = load ptr, ptr %28, align 8, !tbaa !3
-  %477 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr.38", ptr %476, i64 %indvars.iv613
+  %477 = getelementptr inbounds nuw [8 x i8], ptr %476, i64 %indvars.iv613
   %.not.i.i352 = icmp eq ptr %475, null
   br i1 %.not.i.i352, label %482, label %478
 
@@ -4468,7 +4466,7 @@ _ZNK5Ipopt6Vector7MakeNewEv.exit351:              ; preds = %470
 
 _ZNK5Ipopt6Vector7MakeNewEv.exit356:              ; preds = %493
   %499 = load ptr, ptr %29, align 8, !tbaa !3
-  %500 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr.38", ptr %499, i64 %indvars.iv613
+  %500 = getelementptr inbounds nuw [8 x i8], ptr %499, i64 %indvars.iv613
   %.not.i.i357 = icmp eq ptr %498, null
   br i1 %.not.i.i357, label %505, label %501
 
@@ -4510,7 +4508,7 @@ _ZNK5Ipopt6Vector7MakeNewEv.exit356:              ; preds = %493
 
 _ZNK5Ipopt6Vector7MakeNewEv.exit361:              ; preds = %516
   %522 = load ptr, ptr %30, align 8, !tbaa !3
-  %523 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr.38", ptr %522, i64 %indvars.iv613
+  %523 = getelementptr inbounds nuw [8 x i8], ptr %522, i64 %indvars.iv613
   %.not.i.i362 = icmp eq ptr %521, null
   br i1 %.not.i.i362, label %528, label %524
 
@@ -5017,7 +5015,7 @@ _ZN5Ipopt8SmartPtrINS_17MultiVectorMatrixEEaSEPS1_.exit413: ; preds = %_ZNK5Ipop
   %indvars.iv619 = phi i64 [ 0, %.lr.ph605.preheader ], [ %indvars.iv.next620, %_ZN5Ipopt8SmartPtrINS_14CompoundVectorEED2Ev.exit ]
   %776 = load ptr, ptr %19, align 8, !tbaa !60
   %777 = load ptr, ptr %27, align 8, !tbaa !3
-  %778 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr.38", ptr %777, i64 %indvars.iv619
+  %778 = getelementptr inbounds nuw [8 x i8], ptr %777, i64 %indvars.iv619
   %779 = load ptr, ptr %778, align 8, !tbaa !10
   %780 = trunc nuw nsw i64 %indvars.iv619 to i32
   invoke void @_ZN5Ipopt17MultiVectorMatrix9SetVectorEiRKNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(128) %776, i32 noundef %780, ptr noundef nonnull align 8 dereferenceable(205) %779)
@@ -5044,28 +5042,28 @@ _ZN5Ipopt8SmartPtrINS_17MultiVectorMatrixEEaSEPS1_.exit413: ; preds = %_ZNK5Ipop
 
 _ZN5Ipopt8SmartPtrINS_14CompoundVectorEEC2EPS1_.exit: ; preds = %788, %787
   %792 = load ptr, ptr %27, align 8, !tbaa !3
-  %793 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr.38", ptr %792, i64 %indvars.iv619
+  %793 = getelementptr inbounds nuw [8 x i8], ptr %792, i64 %indvars.iv619
   %794 = load ptr, ptr %793, align 8, !tbaa !10
   invoke void @_ZN5Ipopt14CompoundVector15SetCompNonConstEiRNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(265) %786, i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(205) %794)
           to label %795 unwind label %822
 
 795:                                              ; preds = %_ZN5Ipopt8SmartPtrINS_14CompoundVectorEEC2EPS1_.exit
   %796 = load ptr, ptr %28, align 8, !tbaa !3
-  %797 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr.38", ptr %796, i64 %indvars.iv619
+  %797 = getelementptr inbounds nuw [8 x i8], ptr %796, i64 %indvars.iv619
   %798 = load ptr, ptr %797, align 8, !tbaa !10
   invoke void @_ZN5Ipopt14CompoundVector15SetCompNonConstEiRNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(265) %786, i32 noundef 1, ptr noundef nonnull align 8 dereferenceable(205) %798)
           to label %799 unwind label %822
 
 799:                                              ; preds = %795
   %800 = load ptr, ptr %29, align 8, !tbaa !3
-  %801 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr.38", ptr %800, i64 %indvars.iv619
+  %801 = getelementptr inbounds nuw [8 x i8], ptr %800, i64 %indvars.iv619
   %802 = load ptr, ptr %801, align 8, !tbaa !10
   invoke void @_ZN5Ipopt14CompoundVector15SetCompNonConstEiRNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(265) %786, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(205) %802)
           to label %803 unwind label %822
 
 803:                                              ; preds = %799
   %804 = load ptr, ptr %30, align 8, !tbaa !3
-  %805 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr.38", ptr %804, i64 %indvars.iv619
+  %805 = getelementptr inbounds nuw [8 x i8], ptr %804, i64 %indvars.iv619
   %806 = load ptr, ptr %805, align 8, !tbaa !10
   invoke void @_ZN5Ipopt14CompoundVector15SetCompNonConstEiRNS_6VectorE(ptr noundef nonnull align 8 dereferenceable(265) %786, i32 noundef 3, ptr noundef nonnull align 8 dereferenceable(205) %806)
           to label %807 unwind label %822
@@ -5716,28 +5714,28 @@ define linkonce_odr noundef i32 @_ZN5Ipopt15AugSystemSolver10MultiSolveEPKNS_9Sy
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %33
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %33 ]
   %34 = load ptr, ptr %13, align 8, !tbaa !21
-  %35 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr.46", ptr %34, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8, !tbaa !25
   %37 = load ptr, ptr %14, align 8, !tbaa !21
-  %38 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr.46", ptr %37, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   %39 = load ptr, ptr %38, align 8, !tbaa !25
   %40 = load ptr, ptr %15, align 8, !tbaa !21
-  %41 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr.46", ptr %40, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv
   %42 = load ptr, ptr %41, align 8, !tbaa !25
   %43 = load ptr, ptr %16, align 8, !tbaa !21
-  %44 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr.46", ptr %43, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv
   %45 = load ptr, ptr %44, align 8, !tbaa !25
   %46 = load ptr, ptr %17, align 8, !tbaa !3
-  %47 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr.38", ptr %46, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv
   %48 = load ptr, ptr %47, align 8, !tbaa !10
   %49 = load ptr, ptr %18, align 8, !tbaa !3
-  %50 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr.38", ptr %49, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv
   %51 = load ptr, ptr %50, align 8, !tbaa !10
   %52 = load ptr, ptr %19, align 8, !tbaa !3
-  %53 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr.38", ptr %52, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %indvars.iv
   %54 = load ptr, ptr %53, align 8, !tbaa !10
   %55 = load ptr, ptr %20, align 8, !tbaa !3
-  %56 = getelementptr inbounds nuw %"class.Ipopt::SmartPtr.38", ptr %55, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv
   %57 = load ptr, ptr %56, align 8, !tbaa !10
   %58 = load ptr, ptr %0, align 8, !tbaa !16
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 24

@@ -3,7 +3,6 @@ source_filename = "bench/ffmpeg/original/ffmpeg_enc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.EncStatsComponent = type { i32, ptr, i64 }
 %struct.EncoderThread = type { ptr, ptr }
 %struct.AVSubtitle = type { i16, i32, i32, i32, ptr, i64 }
 
@@ -205,7 +204,7 @@ define i32 @enc_open(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 32:                                               ; preds = %.lr.ph, %47
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %47 ]
   %33 = load ptr, ptr %29, align 8, !tbaa !73
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv
   %35 = load ptr, ptr %34, align 8, !tbaa !74
   %36 = load i32, ptr %35, align 8, !tbaa !76
   %37 = tail call ptr @av_frame_side_data_desc(i32 noundef %36) #15
@@ -217,7 +216,7 @@ define i32 @enc_open(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
 
 41:                                               ; preds = %32
   %42 = load ptr, ptr %29, align 8, !tbaa !73
-  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8, !tbaa !74
   %45 = tail call i32 @av_frame_side_data_clone(ptr noundef nonnull %30, ptr noundef nonnull %31, ptr noundef %44, i32 noundef 1) #15
   %46 = icmp slt i32 %45, 0
@@ -892,7 +891,7 @@ define void @enc_stats_write(ptr noundef readonly captures(none) %0, ptr noundef
 56:                                               ; preds = %.lr.ph, %143
   %.0123 = phi i64 [ 0, %.lr.ph ], [ %144, %143 ]
   %57 = load ptr, ptr %1, align 8, !tbaa !160
-  %58 = getelementptr inbounds nuw %struct.EncStatsComponent, ptr %57, i64 %.0123
+  %58 = getelementptr inbounds nuw [24 x i8], ptr %57, i64 %.0123
   %59 = load i32, ptr %58, align 8, !tbaa !161
   switch i32 %59, label %94 [
     i32 0, label %60
@@ -1417,7 +1416,7 @@ check_recording_time.exit.i:                      ; preds = %69, %67
 89:                                               ; preds = %87
   store i32 1, ptr %55, align 4, !tbaa !184
   %90 = load ptr, ptr %56, align 8, !tbaa !196
-  %91 = getelementptr inbounds nuw ptr, ptr %90, i64 %indvars.iv.i
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %indvars.iv.i
   store ptr %91, ptr %56, align 8, !tbaa !196
   br label %92
 
@@ -1553,7 +1552,7 @@ check_recording_time.exit:                        ; preds = %128, %124
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %161 = load ptr, ptr %160, align 8, !tbaa !207
   %162 = sext i32 %155 to i64
-  %163 = getelementptr inbounds i64, ptr %161, i64 %162
+  %163 = getelementptr inbounds [8 x i8], ptr %161, i64 %162
   %164 = load i64, ptr %163, align 8, !tbaa !154
   %165 = tail call i32 @av_compare_ts(i64 noundef %144, i64 %149, i64 noundef %164, i64 4294967296000001) #15
   %166 = icmp sgt i32 %165, -1

@@ -1274,7 +1274,7 @@ _ZN2cv5utilsL18_getDataSearchPathB5cxx11Ev.exit:  ; preds = %302, %299, %_ZNKSt7
   %.06512465 = phi i64 [ %311, %.lr.ph ], [ %334, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1158 ]
   %334 = add i64 %.06512465, -1
   %335 = load ptr, ptr %304, align 8, !tbaa !54
-  %336 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %335, i64 %334
+  %336 = getelementptr inbounds nuw [32 x i8], ptr %335, i64 %334
   call void @_ZN2cv5utils2fs4joinERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(32) %336, ptr noundef nonnull align 8 dereferenceable(32) %1)
   %337 = invoke noundef ptr @_ZN2cv5utils7logging8internal15getGlobalLogTagEv()
           to label %340 unwind label %338
@@ -1772,7 +1772,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i11
   %521 = phi ptr [ %.pre2509, %.lr.ph2471 ], [ %752, %749 ]
   %.06732470 = phi i64 [ 0, %.lr.ph2471 ], [ %750, %749 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
-  %522 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %521, i64 %.06732470
+  %522 = getelementptr inbounds nuw [32 x i8], ptr %521, i64 %.06732470
   store ptr %463, ptr %31, align 8, !tbaa !20
   %523 = load ptr, ptr %522, align 8, !tbaa !21
   %524 = getelementptr inbounds nuw i8, ptr %522, i64 8
@@ -2019,7 +2019,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit1198: ; pred
   %.06762467 = phi i64 [ %609, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1240 ], [ %608, %.lr.ph2468.preheader ]
   %609 = add i64 %.06762467, -1
   %610 = load ptr, ptr %408, align 8, !tbaa !54
-  %611 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %610, i64 %609
+  %611 = getelementptr inbounds nuw [32 x i8], ptr %610, i64 %609
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
   invoke void @_ZN2cv5utils2fs4joinERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %34, ptr noundef nonnull align 8 dereferenceable(32) %31, ptr noundef nonnull align 8 dereferenceable(32) %611)
           to label %612 unwind label %613
@@ -2622,7 +2622,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
   %829 = phi ptr [ %.pre2512, %.lr.ph2477 ], [ %1060, %1057 ]
   %.06892476 = phi i64 [ 0, %.lr.ph2477 ], [ %1058, %1057 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %42)
-  %830 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %829, i64 %.06892476
+  %830 = getelementptr inbounds nuw [32 x i8], ptr %829, i64 %.06892476
   store ptr %777, ptr %42, align 8, !tbaa !20
   %831 = load ptr, ptr %830, align 8, !tbaa !21
   %832 = getelementptr inbounds nuw i8, ptr %830, i64 8
@@ -2869,7 +2869,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit1314: ; pred
   %.06942473 = phi i64 [ %917, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1356 ], [ %916, %.lr.ph2474.preheader ]
   %917 = add i64 %.06942473, -1
   %918 = load ptr, ptr %408, align 8, !tbaa !54
-  %919 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %918, i64 %917
+  %919 = getelementptr inbounds nuw [32 x i8], ptr %918, i64 %917
   call void @llvm.lifetime.start.p0(ptr nonnull %45)
   invoke void @_ZN2cv5utils2fs4joinERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %45, ptr noundef nonnull align 8 dereferenceable(32) %42, ptr noundef nonnull align 8 dereferenceable(32) %919)
           to label %920 unwind label %921
@@ -4112,7 +4112,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1489: ; preds = %1
   %.06922479 = phi i64 [ %1365, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1528 ], [ %1358, %.lr.ph2480.preheader ]
   %1365 = add i64 %.06922479, -1
   %1366 = load ptr, ptr %408, align 8, !tbaa !54
-  %1367 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %1366, i64 %1365
+  %1367 = getelementptr inbounds nuw [32 x i8], ptr %1366, i64 %1365
   call void @llvm.lifetime.start.p0(ptr nonnull %63)
   invoke void @_ZN2cv5utils2fs4joinERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %63, ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull align 8 dereferenceable(32) %1367)
           to label %1368 unwind label %1369
@@ -5166,7 +5166,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit1618: ; pred
   %.06812483 = phi i64 [ %1709, %.lr.ph2484 ], [ %1737, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1664 ]
   %1737 = add i64 %.06812483, -1
   %1738 = load ptr, ptr %408, align 8, !tbaa !54
-  %1739 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %1738, i64 %1737
+  %1739 = getelementptr inbounds nuw [32 x i8], ptr %1738, i64 %1737
   call void @llvm.lifetime.start.p0(ptr nonnull %78)
   invoke void @_ZN2cv5utils2fs4joinERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %78, ptr noundef nonnull align 8 dereferenceable(32) %77, ptr noundef nonnull align 8 dereferenceable(32) %1739)
           to label %1740 unwind label %1741
@@ -6483,7 +6483,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1797: ; preds = %2
   %.06622486 = phi i64 [ %2222, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1836 ], [ %2215, %.lr.ph2487.preheader ]
   %2222 = add i64 %.06622486, -1
   %2223 = load ptr, ptr %408, align 8, !tbaa !54
-  %2224 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %2223, i64 %2222
+  %2224 = getelementptr inbounds nuw [32 x i8], ptr %2223, i64 %2222
   call void @llvm.lifetime.start.p0(ptr nonnull %95)
   invoke void @_ZN2cv5utils2fs4joinERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %95, ptr noundef nonnull align 8 dereferenceable(32) %93, ptr noundef nonnull align 8 dereferenceable(32) %2224)
           to label %2225 unwind label %2226
@@ -7128,7 +7128,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit1878: ; pred
   %.06522489 = phi i64 [ %2455, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit1920 ], [ %2452, %.lr.ph2490.preheader ]
   %2455 = add i64 %.06522489, -1
   %2456 = load ptr, ptr %408, align 8, !tbaa !54
-  %2457 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %2456, i64 %2455
+  %2457 = getelementptr inbounds nuw [32 x i8], ptr %2456, i64 %2455
   call void @llvm.lifetime.start.p0(ptr nonnull %104)
   invoke void @_ZN2cv5utils2fs4joinERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %104, ptr noundef nonnull align 8 dereferenceable(32) %100, ptr noundef nonnull align 8 dereferenceable(32) %2457)
           to label %2458 unwind label %2459
@@ -7938,7 +7938,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2002: ; preds = %2
   %.04262492 = phi i64 [ %2702, %.lr.ph2493 ], [ %2726, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2041 ]
   %2726 = add i64 %.04262492, -1
   %2727 = load ptr, ptr %408, align 8, !tbaa !54
-  %2728 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %2727, i64 %2726
+  %2728 = getelementptr inbounds nuw [32 x i8], ptr %2727, i64 %2726
   call void @llvm.lifetime.start.p0(ptr nonnull %117)
   invoke void @_ZN2cv5utils2fs4joinERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES9_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %117, ptr noundef nonnull align 8 dereferenceable(32) %113, ptr noundef nonnull align 8 dereferenceable(32) %2728)
           to label %2729 unwind label %2730
@@ -9595,7 +9595,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8, !tbaa !54
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !16
-  %70 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %70 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %70, ptr %69, align 8, !tbaa !19
   ret void
 }
@@ -9804,7 +9804,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8, !tbaa !54
   store ptr %.0.lcssa.i.i.i.i35, ptr %5, align 8, !tbaa !16
-  %74 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %74 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %74, ptr %73, align 8, !tbaa !19
   ret void
 

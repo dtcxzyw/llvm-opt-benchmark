@@ -49,7 +49,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ip_generic_g
 %struct.nf_hook_state = type { i8, i8, ptr, ptr, ptr, ptr, ptr }
 %struct.ip_fraglist_iter = type { ptr, ptr, i32, i32 }
 %struct.ip_frag_state = type { i8, i32, i32, i32, i32, i32, i32, i16 }
-%struct.bio_vec = type { ptr, i32, i32 }
 %struct.ip_options_data = type { %struct.ip_options_rcu, [40 x i8] }
 %struct.ip_options_rcu = type { %struct.callback_head, %struct.ip_options }
 %struct.ip_options = type { i32, i32, i8, i8, i8, i8, i8, i8, i8, i8, [0 x i8] }
@@ -2987,7 +2986,7 @@ define internal fastcc noundef range(i32 -105, 1) i32 @ip_setup_cork(ptr noundef
 
 50:                                               ; preds = %46, %41
   %51 = phi i64 [ 0, %41 ], [ %49, %46 ]
-  %.split = getelementptr [14 x ptr], ptr @kmalloc_caches, i64 %51
+  %.split = getelementptr [112 x i8], ptr @kmalloc_caches, i64 %51
   %52 = getelementptr i8, ptr %.split, i64 48
   %53 = load ptr, ptr %52, align 16
   %54 = tail call noalias align 8 dereferenceable_or_null(56) ptr @kmalloc_trace(ptr noundef %53, i32 noundef %43, i64 noundef 56) #15
@@ -3627,7 +3626,7 @@ define internal fastcc i32 @__ip_append_data(ptr noundef %0, ptr noundef readonl
 
 386:                                              ; preds = %382
   %387 = zext i8 %358 to i64
-  %388 = getelementptr %struct.bio_vec, ptr %375, i64 %387
+  %388 = getelementptr [16 x i8], ptr %375, i64 %387
   %389 = getelementptr i8, ptr %388, i64 32
   %390 = load ptr, ptr %389, align 8
   %391 = icmp eq ptr %390, %373
@@ -3650,7 +3649,7 @@ define internal fastcc i32 @__ip_append_data(ptr noundef %0, ptr noundef readonl
 401:                                              ; preds = %399
   %402 = getelementptr inbounds nuw i8, ptr %375, i64 48
   %403 = zext i8 %358 to i64
-  %404 = getelementptr %struct.bio_vec, ptr %402, i64 %403
+  %404 = getelementptr [16 x i8], ptr %402, i64 %403
   store ptr %373, ptr %404, align 8
   %405 = getelementptr inbounds nuw i8, ptr %404, i64 12
   store i32 %374, ptr %405, align 4
@@ -5387,7 +5386,7 @@ ip_flush_pending_frames.exit:                     ; preds = %140, %132
   %184 = zext i16 %183 to i64
   %185 = getelementptr i8, ptr %181, i64 %184
   %186 = zext nneg i32 %166 to i64
-  %187 = getelementptr i16, ptr %185, i64 %186
+  %187 = getelementptr [2 x i8], ptr %185, i64 %186
   store i16 %179, ptr %187, align 2
   br label %188
 
@@ -5650,7 +5649,7 @@ define internal i32 @ip_finish_output2(ptr noundef readonly captures(none) %0, p
   %86 = lshr i32 %82, %85
   %87 = load ptr, ptr %74, align 8
   %88 = zext i32 %86 to i64
-  %89 = getelementptr ptr, ptr %87, i64 %88
+  %89 = getelementptr [8 x i8], ptr %87, i64 %88
   %90 = load volatile ptr, ptr %89, align 8
   %91 = icmp eq ptr %90, null
   br i1 %91, label %.loopexit13, label %.preheader11
@@ -5921,7 +5920,7 @@ define internal fastcc ptr @ip_neigh_gw4(ptr noundef %0, i32 noundef %1) unnamed
   %21 = lshr i32 %17, %20
   %22 = load ptr, ptr %9, align 8
   %23 = zext i32 %21 to i64
-  %24 = getelementptr ptr, ptr %22, i64 %23
+  %24 = getelementptr [8 x i8], ptr %22, i64 %23
   %25 = load volatile ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %.loopexit3, label %.preheader
@@ -5993,7 +5992,7 @@ define internal fastcc ptr @ip_neigh_gw6(ptr noundef %0, ptr noundef %1) unnamed
   %38 = lshr i32 %34, %37
   %39 = load ptr, ptr %7, align 8
   %40 = zext i32 %38 to i64
-  %41 = getelementptr ptr, ptr %39, i64 %40
+  %41 = getelementptr [8 x i8], ptr %39, i64 %40
   %42 = load volatile ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, null
   br i1 %43, label %.loopexit3, label %.preheader

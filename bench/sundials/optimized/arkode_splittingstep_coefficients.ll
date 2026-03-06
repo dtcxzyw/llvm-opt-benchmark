@@ -87,8 +87,8 @@ define noalias noundef ptr @SplittingStepCoefficients_Alloc(i32 noundef %0, i32 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %34 = mul nuw nsw i64 %indvars.iv, %26
-  %35 = getelementptr inbounds nuw ptr, ptr %25, i64 %34
-  %36 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %34
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
   store ptr %35, ptr %36, align 8, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %15
@@ -118,7 +118,7 @@ define noalias noundef ptr @SplittingStepCoefficients_Alloc(i32 noundef %0, i32 
 .preheader:                                       ; preds = %.preheader.preheader, %._crit_edge86
   %indvars.iv95 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next96, %._crit_edge86 ]
   %44 = mul nuw nsw i64 %indvars.iv95, %33
-  %45 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv95
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv95
   %46 = load ptr, ptr %45, align 8, !tbaa !16
   br label %47
 
@@ -131,8 +131,8 @@ define noalias noundef ptr @SplittingStepCoefficients_Alloc(i32 noundef %0, i32 
   %indvars.iv90 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next91, %47 ]
   %48 = add nuw nsw i64 %indvars.iv90, %44
   %49 = mul nuw nsw i64 %48, %31
-  %50 = getelementptr inbounds nuw double, ptr %29, i64 %49
-  %51 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv90
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %49
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv90
   store ptr %50, ptr %51, align 8, !tbaa !18
   %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
   %exitcond94.not = icmp eq i64 %indvars.iv.next91, %wide.trip.count93
@@ -343,7 +343,7 @@ define noalias noundef ptr @SplittingStepCoefficients_LoadCoefficients(i32 nound
 
 13:                                               ; preds = %13, %5
   %indvars.iv.i = phi i64 [ 0, %5 ], [ %indvars.iv.next.i, %13 ]
-  %14 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv.i
   store double 1.000000e+00, ptr %14, align 8, !tbaa !21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 2
@@ -369,7 +369,7 @@ define noalias noundef ptr @SplittingStepCoefficients_LoadCoefficients(i32 nound
 .preheader.us.i.i:                                ; preds = %._crit_edge.us.i.i, %20
   %exitcond69.not.i.i = phi i1 [ false, %20 ], [ true, %._crit_edge.us.i.i ]
   %indvars.iv65.i.i = phi i64 [ 1, %20 ], [ 2, %._crit_edge.us.i.i ]
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv65.i.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv65.i.i
   %27 = load ptr, ptr %26, align 8, !tbaa !18
   br label %28
 
@@ -378,7 +378,7 @@ define noalias noundef ptr @SplittingStepCoefficients_LoadCoefficients(i32 nound
   %29 = add nuw nsw i64 %indvars.iv.i.i, %indvars.iv65.i.i
   %30 = icmp samesign ult i64 %29, 2
   %31 = select i1 %30, double 5.000000e-01, double 1.000000e+00
-  %32 = getelementptr inbounds nuw double, ptr %27, i64 %indvars.iv.i.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv.i.i
   store double %31, ptr %32, align 8, !tbaa !21
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond64.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 2
@@ -432,10 +432,10 @@ define noalias noundef ptr @SplittingStepCoefficients_LoadCoefficients(i32 nound
   %59 = add nuw nsw i64 %indvars.iv.i17, 1
   %60 = icmp eq i64 %indvars.iv.i17, 0
   %61 = select i1 %60, double 0x3FD12C51FE7A92BE, double 0x3FED6DDE0097FA22
-  %62 = getelementptr inbounds nuw double, ptr %55, i64 %indvars.iv.i17
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv.i17
   store double %61, ptr %62, align 8, !tbaa !21
   %63 = select i1 %60, double 0x3FB4910FFB402EF0, double 0x3FE769D700C2B6A1
-  %64 = getelementptr inbounds nuw double, ptr %57, i64 %indvars.iv.i17
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %indvars.iv.i17
   store double %63, ptr %64, align 8, !tbaa !21
   %exitcond.not.i19 = icmp eq i64 %59, 2
   br i1 %exitcond.not.i19, label %._crit_edge.us.i, label %58
@@ -447,7 +447,7 @@ define noalias noundef ptr @SplittingStepCoefficients_LoadCoefficients(i32 nound
 
 67:                                               ; preds = %67, %._crit_edge.us.i
   %indvars.iv46.i = phi i64 [ 0, %._crit_edge.us.i ], [ %indvars.iv.next47.i, %67 ]
-  %68 = getelementptr inbounds nuw double, ptr %66, i64 %indvars.iv46.i
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %indvars.iv46.i
   store double 1.000000e+00, ptr %68, align 8, !tbaa !21
   %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
   %exitcond50.not.i = icmp eq i64 %indvars.iv.next47.i, 2
@@ -549,7 +549,7 @@ define noalias noundef ptr @SplittingStepCoefficients_LieTrotter(i32 noundef %0)
 
 13:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
-  %14 = getelementptr inbounds nuw double, ptr %12, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   store double 1.000000e+00, ptr %14, align 8, !tbaa !21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -588,7 +588,7 @@ define noalias noundef ptr @SplittingStepCoefficients_Strang(i32 noundef %0) loc
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
   %indvars.iv65.i = phi i64 [ 1, %.preheader.us.preheader.i ], [ %indvars.iv.next66.i, %._crit_edge.us.i ]
-  %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv65.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv65.i
   %16 = load ptr, ptr %15, align 8, !tbaa !18
   br label %17
 
@@ -598,7 +598,7 @@ define noalias noundef ptr @SplittingStepCoefficients_Strang(i32 noundef %0) loc
   %19 = trunc nuw i64 %18 to i32
   %20 = icmp sgt i32 %0, %19
   %21 = select i1 %20, double 5.000000e-01, double 1.000000e+00
-  %22 = getelementptr inbounds nuw double, ptr %16, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv.i
   store double %21, ptr %22, align 8, !tbaa !21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond64.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -634,14 +634,14 @@ define noalias noundef ptr @SplittingStepCoefficients_ThirdOrderSuzuki(i32 nound
   %11 = load ptr, ptr %10, align 8, !tbaa !15
   %12 = load ptr, ptr %11, align 8, !tbaa !16
   %13 = zext nneg i32 %0 to i64
-  %invariant.gep = getelementptr ptr, ptr %12, i64 %13
+  %invariant.gep = getelementptr [8 x i8], ptr %12, i64 %13
   br label %.preheader36.us
 
 .preheader36.us:                                  ; preds = %._crit_edge.us, %.preheader36.lr.ph
   %indvars.iv41 = phi i64 [ %indvars.iv.next42, %._crit_edge.us ], [ 1, %.preheader36.lr.ph ]
-  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv41
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv41
   %15 = load ptr, ptr %14, align 8, !tbaa !18
-  %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv41
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %indvars.iv41
   %16 = getelementptr i8, ptr %gep, i64 -8
   %17 = load ptr, ptr %16, align 8, !tbaa !18
   br label %18
@@ -652,10 +652,10 @@ define noalias noundef ptr @SplittingStepCoefficients_ThirdOrderSuzuki(i32 nound
   %20 = trunc nuw i64 %19 to i32
   %21 = icmp sgt i32 %0, %20
   %22 = select i1 %21, double 0x3FD12C51FE7A92BE, double 0x3FED6DDE0097FA22
-  %23 = getelementptr inbounds nuw double, ptr %15, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   store double %22, ptr %23, align 8, !tbaa !21
   %24 = select i1 %21, double 0x3FB4910FFB402EF0, double 0x3FE769D700C2B6A1
-  %25 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   store double %24, ptr %25, align 8, !tbaa !21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %13
@@ -675,14 +675,14 @@ define noalias noundef ptr @SplittingStepCoefficients_ThirdOrderSuzuki(i32 nound
   %28 = load ptr, ptr %27, align 8, !tbaa !15
   %29 = load ptr, ptr %28, align 8, !tbaa !16
   %30 = sext i32 %3 to i64
-  %31 = getelementptr inbounds ptr, ptr %29, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !18
   %wide.trip.count49 = zext nneg i32 %0 to i64
   br label %33
 
 33:                                               ; preds = %.lr.ph, %33
   %indvars.iv46 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next47, %33 ]
-  %34 = getelementptr inbounds nuw double, ptr %32, i64 %indvars.iv46
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv46
   store double 1.000000e+00, ptr %34, align 8, !tbaa !21
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %exitcond50.not = icmp eq i64 %indvars.iv.next47, %wide.trip.count49
@@ -759,7 +759,7 @@ define noalias noundef ptr @SplittingStepCoefficients_LoadCoefficientsByName(ptr
 
 18:                                               ; preds = %18, %10
   %indvars.iv.i = phi i64 [ 0, %10 ], [ %indvars.iv.next.i, %18 ]
-  %19 = getelementptr inbounds nuw double, ptr %17, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv.i
   store double 1.000000e+00, ptr %19, align 8, !tbaa !21
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 2
@@ -790,7 +790,7 @@ define noalias noundef ptr @SplittingStepCoefficients_LoadCoefficientsByName(ptr
 .preheader.us.i.i:                                ; preds = %._crit_edge.us.i.i, %28
   %exitcond69.not.i.i = phi i1 [ false, %28 ], [ true, %._crit_edge.us.i.i ]
   %indvars.iv65.i.i = phi i64 [ 1, %28 ], [ 2, %._crit_edge.us.i.i ]
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv65.i.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv65.i.i
   %35 = load ptr, ptr %34, align 8, !tbaa !18
   br label %36
 
@@ -799,7 +799,7 @@ define noalias noundef ptr @SplittingStepCoefficients_LoadCoefficientsByName(ptr
   %37 = add nuw nsw i64 %indvars.iv.i.i, %indvars.iv65.i.i
   %38 = icmp samesign ult i64 %37, 2
   %39 = select i1 %38, double 5.000000e-01, double 1.000000e+00
-  %40 = getelementptr inbounds nuw double, ptr %35, i64 %indvars.iv.i.i
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv.i.i
   store double %39, ptr %40, align 8, !tbaa !21
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond64.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 2
@@ -863,10 +863,10 @@ define noalias noundef ptr @SplittingStepCoefficients_LoadCoefficientsByName(ptr
   %73 = add nuw nsw i64 %indvars.iv.i25, 1
   %74 = icmp eq i64 %indvars.iv.i25, 0
   %75 = select i1 %74, double 0x3FD12C51FE7A92BE, double 0x3FED6DDE0097FA22
-  %76 = getelementptr inbounds nuw double, ptr %69, i64 %indvars.iv.i25
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %indvars.iv.i25
   store double %75, ptr %76, align 8, !tbaa !21
   %77 = select i1 %74, double 0x3FB4910FFB402EF0, double 0x3FE769D700C2B6A1
-  %78 = getelementptr inbounds nuw double, ptr %71, i64 %indvars.iv.i25
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %indvars.iv.i25
   store double %77, ptr %78, align 8, !tbaa !21
   %exitcond.not.i27 = icmp eq i64 %73, 2
   br i1 %exitcond.not.i27, label %._crit_edge.us.i, label %72
@@ -878,7 +878,7 @@ define noalias noundef ptr @SplittingStepCoefficients_LoadCoefficientsByName(ptr
 
 81:                                               ; preds = %81, %._crit_edge.us.i
   %indvars.iv46.i = phi i64 [ 0, %._crit_edge.us.i ], [ %indvars.iv.next47.i, %81 ]
-  %82 = getelementptr inbounds nuw double, ptr %80, i64 %indvars.iv46.i
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %indvars.iv46.i
   store double 1.000000e+00, ptr %82, align 8, !tbaa !21
   %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
   %exitcond50.not.i = icmp eq i64 %indvars.iv.next47.i, 2
@@ -971,7 +971,7 @@ define noundef ptr @SplittingStepCoefficients_IDToName(i32 noundef %0) local_unn
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.SplittingStepCoefficients_IDToName, i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.SplittingStepCoefficients_IDToName, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %5
 
@@ -1004,19 +1004,19 @@ define noalias noundef ptr @SplittingStepCoefficients_Parallel(i32 noundef %0) l
   %10 = sub nsw i32 1, %0
   %11 = sitofp i32 %10 to double
   %12 = sext i32 %0 to i64
-  %13 = getelementptr inbounds double, ptr %.pre, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %.pre, i64 %12
   store double %11, ptr %13, align 8, !tbaa !21
   br label %21
 
 14:                                               ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
-  %15 = getelementptr inbounds nuw double, ptr %.pre, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %indvars.iv
   store double 1.000000e+00, ptr %15, align 8, !tbaa !21
-  %16 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !18
-  %20 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   store double 1.000000e+00, ptr %20, align 8, !tbaa !21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1047,7 +1047,7 @@ define noalias noundef ptr @SplittingStepCoefficients_SymmetricParallel(i32 noun
   %10 = load ptr, ptr %9, align 8, !tbaa !15
   %11 = load ptr, ptr %10, align 8, !tbaa !16
   %12 = zext nneg i32 %0 to i64
-  %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !18
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %16 = zext nneg i32 %0 to i64
@@ -1058,10 +1058,10 @@ define noalias noundef ptr @SplittingStepCoefficients_SymmetricParallel(i32 noun
   %indvars.iv32 = phi i64 [ 0, %.lr.ph28 ], [ %indvars.iv.next33, %._crit_edge ]
   %indvars.iv.in = phi i32 [ %0, %.lr.ph28 ], [ %indvars.iv, %._crit_edge ]
   %indvars.iv = add i32 %indvars.iv.in, -1
-  %18 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv32
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv32
   store double 1.000000e+00, ptr %18, align 8, !tbaa !21
   %19 = sext i32 %indvars.iv to i64
-  %20 = getelementptr inbounds nuw ptr, ptr %17, i64 %indvars.iv32
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv32
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !18
   br label %23
@@ -1073,7 +1073,7 @@ define noalias noundef ptr @SplittingStepCoefficients_SymmetricParallel(i32 noun
 
 23:                                               ; preds = %.lr.ph, %23
   %indvars.iv29 = phi i64 [ %19, %.lr.ph ], [ %indvars.iv.next30, %23 ]
-  %24 = getelementptr inbounds double, ptr %22, i64 %indvars.iv29
+  %24 = getelementptr inbounds [8 x i8], ptr %22, i64 %indvars.iv29
   store double 1.000000e+00, ptr %24, align 8, !tbaa !21
   %indvars.iv.next30 = add nsw i64 %indvars.iv29, 1
   %25 = icmp slt i64 %indvars.iv.next30, %16
@@ -1173,7 +1173,7 @@ define void @SplittingStepCoefficients_Write(ptr noundef readonly captures(addre
 .lr.ph:                                           ; preds = %18, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %18 ]
   %36 = load ptr, ptr %0, align 8, !tbaa !14
-  %37 = getelementptr inbounds nuw double, ptr %36, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv
   %38 = load double, ptr %37, align 8, !tbaa !21
   %39 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.15, double noundef %38) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1216,11 +1216,11 @@ define void @SplittingStepCoefficients_Write(ptr noundef readonly captures(addre
 .lr.ph53:                                         ; preds = %.lr.ph58, %.lr.ph53
   %indvars.iv64 = phi i64 [ %indvars.iv.next65, %.lr.ph53 ], [ 0, %.lr.ph58 ]
   %54 = load ptr, ptr %9, align 8, !tbaa !15
-  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv70
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %indvars.iv70
   %56 = load ptr, ptr %55, align 8, !tbaa !16
-  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %indvars.iv67
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv67
   %58 = load ptr, ptr %57, align 8, !tbaa !18
-  %59 = getelementptr inbounds nuw double, ptr %58, i64 %indvars.iv64
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %indvars.iv64
   %60 = load double, ptr %59, align 8, !tbaa !21
   %61 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %1, ptr noundef nonnull @.str.15, double noundef %60) #16
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
@@ -1258,7 +1258,7 @@ define internal fastcc ptr @SplittingStepCoefficients_ComposeStrangHelper(i32 no
 
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
   %indvars.iv65 = phi i64 [ 1, %.preheader.us.preheader ], [ %indvars.iv.next66, %._crit_edge.us ]
-  %13 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv65
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv65
   %14 = load ptr, ptr %13, align 8, !tbaa !18
   br label %15
 
@@ -1268,7 +1268,7 @@ define internal fastcc ptr @SplittingStepCoefficients_ComposeStrangHelper(i32 no
   %17 = trunc nuw i64 %16 to i32
   %18 = icmp sgt i32 %0, %17
   %19 = select i1 %18, double %11, double %4
-  %20 = getelementptr inbounds nuw double, ptr %14, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   store double %19, ptr %20, align 8, !tbaa !21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond64.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1281,7 +1281,7 @@ define internal fastcc ptr @SplittingStepCoefficients_ComposeStrangHelper(i32 no
 
 ._crit_edge62:                                    ; preds = %._crit_edge.us, %9
   %21 = sext i32 %0 to i64
-  %22 = getelementptr ptr, ptr %5, i64 %21
+  %22 = getelementptr [8 x i8], ptr %5, i64 %21
   %23 = getelementptr i8, ptr %22, i64 -8
   br label %.loopexit
 

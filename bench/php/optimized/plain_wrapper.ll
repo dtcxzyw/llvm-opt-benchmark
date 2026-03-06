@@ -1096,10 +1096,10 @@ do_fstat.exit.thread:                             ; preds = %51, %do_fstat.exit
 
 switch.lookup:                                    ; preds = %80
   %85 = zext nneg i32 %83 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.php_stdiop_set_option, i64 %85
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.php_stdiop_set_option, i64 %85
   %switch.load = load i32, ptr %switch.gep, align 4
   %86 = zext nneg i32 %83 to i64
-  %switch.gep131 = getelementptr inbounds nuw i32, ptr @switch.table.php_stdiop_set_option.1, i64 %86
+  %switch.gep131 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.php_stdiop_set_option.1, i64 %86
   %switch.load132 = load i32, ptr %switch.gep131, align 4
   %87 = tail call ptr @mmap(ptr noundef null, i64 noundef %81, i32 noundef %switch.load, i32 noundef %switch.load132, i32 noundef %16, i64 noundef %76) #17
   %88 = getelementptr inbounds nuw i8, ptr %3, i64 24

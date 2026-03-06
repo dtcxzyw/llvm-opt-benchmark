@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.pg_enc2name = type { ptr, i32 }
 %struct.pg_wchar_tbl = type { ptr, ptr, ptr, ptr, ptr, ptr, i32 }
-%union.ListCell = type { ptr }
 
 @backend_startup_complete = internal unnamed_addr global i1 false, align 1
 @TopMemoryContext = external local_unnamed_addr global ptr, align 8
@@ -127,7 +126,7 @@ define dso_local range(i32 -1, 1) i32 @PrepareClientEncoding(i32 noundef %0) loc
 
 35:                                               ; preds = %.lr.ph63, %.critedge
   %indvars.iv = phi i64 [ 0, %.lr.ph63 ], [ %indvars.iv.next, %.critedge ]
-  %36 = getelementptr inbounds nuw %union.ListCell, ptr %34, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8
   %38 = load i32, ptr %37, align 8
   %39 = icmp eq i32 %38, %6
@@ -193,7 +192,7 @@ define dso_local range(i32 -1, 1) i32 @SetClientEncoding(i32 noundef %0) local_u
 
 11:                                               ; preds = %4
   %12 = zext nneg i32 %0 to i64
-  %13 = getelementptr inbounds nuw %struct.pg_enc2name, ptr @pg_enc2name_tbl, i64 %12
+  %13 = getelementptr inbounds nuw [16 x i8], ptr @pg_enc2name_tbl, i64 %12
   store ptr %13, ptr @ClientEncoding, align 8
   store ptr null, ptr @ToServerConvProc, align 8
   store ptr null, ptr @ToClientConvProc, align 8
@@ -206,7 +205,7 @@ define dso_local range(i32 -1, 1) i32 @SetClientEncoding(i32 noundef %0) local_u
 
 .lr.ph:                                           ; preds = %14
   %16 = zext nneg i32 %0 to i64
-  %17 = getelementptr inbounds nuw %struct.pg_enc2name, ptr @pg_enc2name_tbl, i64 %16
+  %17 = getelementptr inbounds nuw [16 x i8], ptr @pg_enc2name_tbl, i64 %16
   br label %18
 
 18:                                               ; preds = %.lr.ph, %45
@@ -222,7 +221,7 @@ define dso_local range(i32 -1, 1) i32 @SetClientEncoding(i32 noundef %0) local_u
   %23 = getelementptr inbounds nuw i8, ptr %.sroa.0.037, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = sext i32 %.sroa.7.036 to i64
-  %26 = getelementptr inbounds %union.ListCell, ptr %24, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %24, i64 %25
   %27 = load ptr, ptr %26, align 8
   %28 = load i32, ptr %27, align 8
   %29 = icmp eq i32 %28, %7
@@ -301,7 +300,7 @@ define dso_local void @InitializeClientEncoding() local_unnamed_addr #0 {
   %10 = tail call i32 @errcode(i32 noundef 1088) #12
   %11 = load i32, ptr @pending_client_encoding, align 4
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw %struct.pg_enc2name, ptr @pg_enc2name_tbl, i64 %12
+  %13 = getelementptr inbounds nuw [16 x i8], ptr @pg_enc2name_tbl, i64 %12
   %14 = load ptr, ptr %13, align 8
   %15 = load ptr, ptr @DatabaseEncoding, align 8
   %16 = load ptr, ptr %15, align 8
@@ -381,7 +380,7 @@ define dso_local ptr @pg_do_encoding_conversion(ptr noundef %0, i32 noundef %1, 
 
 10:                                               ; preds = %8
   %11 = sext i32 %3 to i64
-  %12 = getelementptr inbounds %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %11
+  %12 = getelementptr inbounds [56 x i8], ptr @pg_wchar_table, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 40
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i32 %14(ptr noundef %0, i32 noundef %1) #12
@@ -459,7 +458,7 @@ pg_verify_mbstr.exit:                             ; preds = %10, %33, %53, %4
 ; Function Attrs: nounwind uwtable
 define dso_local zeroext i1 @pg_verify_mbstr(i32 noundef %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = sext i32 %0 to i64
-  %6 = getelementptr inbounds %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %5
+  %6 = getelementptr inbounds [56 x i8], ptr @pg_wchar_table, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef %1, i32 noundef %2) #12
@@ -607,7 +606,7 @@ define dso_local i64 @pg_convert(ptr noundef readonly captures(none) %0) #0 {
   %.v = select i1 %.not47, i64 4, i64 1
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 %.v
   %49 = zext nneg i32 %9 to i64
-  %50 = getelementptr inbounds nuw %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %49
+  %50 = getelementptr inbounds nuw [56 x i8], ptr @pg_wchar_table, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 40
   %52 = load ptr, ptr %51, align 8
   %53 = tail call i32 %52(ptr noundef nonnull %48, i32 noundef %46) #12
@@ -760,7 +759,7 @@ define dso_local i32 @pg_verify_mbstr_len(i32 noundef %0, ptr noundef %1, i32 no
 
 12:                                               ; preds = %4
   %13 = sext i32 %0 to i64
-  %14 = getelementptr inbounds %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %13
+  %14 = getelementptr inbounds [56 x i8], ptr @pg_wchar_table, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %16 = load ptr, ptr %15, align 8
   %17 = icmp sgt i32 %2, 0
@@ -830,7 +829,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @pg_encoding_max_length_
 
 5:                                                ; preds = %1
   %6 = and i64 %3, 63
-  %7 = getelementptr inbounds nuw %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %6
+  %7 = getelementptr inbounds nuw [56 x i8], ptr @pg_wchar_table, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %9 = load i32, ptr %8, align 8
   %10 = sext i32 %9 to i64
@@ -871,7 +870,7 @@ define dso_local ptr @pg_any_to_server(ptr noundef %0, i32 noundef %1, i32 nound
 
 11:                                               ; preds = %5
   %12 = sext i32 %8 to i64
-  %13 = getelementptr inbounds %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %12
+  %13 = getelementptr inbounds [56 x i8], ptr @pg_wchar_table, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %15 = load ptr, ptr %14, align 8
   %16 = tail call i32 %15(ptr noundef %0, i32 noundef %1) #12
@@ -899,7 +898,7 @@ define dso_local ptr @pg_any_to_server(ptr noundef %0, i32 noundef %1, i32 nound
 
 24:                                               ; preds = %23
   %25 = zext nneg i32 %2 to i64
-  %26 = getelementptr inbounds nuw %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %25
+  %26 = getelementptr inbounds nuw [56 x i8], ptr @pg_wchar_table, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %28 = load ptr, ptr %27, align 8
   %29 = tail call i32 %28(ptr noundef %0, i32 noundef %1) #12
@@ -1032,7 +1031,7 @@ define dso_local ptr @pg_server_to_client(ptr noundef %0, i32 noundef %1) local_
 
 15:                                               ; preds = %13
   %16 = sext i32 %5 to i64
-  %17 = getelementptr inbounds %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %16
+  %17 = getelementptr inbounds [56 x i8], ptr @pg_wchar_table, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 40
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i32 %19(ptr noundef %0, i32 noundef %1) #12
@@ -1075,7 +1074,7 @@ define dso_local ptr @pg_server_to_any(ptr noundef %0, i32 noundef %1, i32 nound
 
 13:                                               ; preds = %11
   %14 = sext i32 %2 to i64
-  %15 = getelementptr inbounds %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %14
+  %15 = getelementptr inbounds [56 x i8], ptr @pg_wchar_table, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %17 = load ptr, ptr %16, align 8
   %18 = tail call i32 %17(ptr noundef %0, i32 noundef %1) #12
@@ -1457,7 +1456,7 @@ define dso_local i32 @pg_mb2wchar(ptr noundef %0, ptr noundef %1) local_unnamed_
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %6
+  %7 = getelementptr inbounds nuw [56 x i8], ptr @pg_wchar_table, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #15
   %10 = trunc i64 %9 to i32
@@ -1471,7 +1470,7 @@ define dso_local i32 @pg_mb2wchar_with_len(ptr noundef %0, ptr noundef %1, i32 n
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %7
+  %8 = getelementptr inbounds nuw [56 x i8], ptr @pg_wchar_table, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 %9(ptr noundef %0, ptr noundef %1, i32 noundef %2) #12
   ret i32 %10
@@ -1480,7 +1479,7 @@ define dso_local i32 @pg_mb2wchar_with_len(ptr noundef %0, ptr noundef %1, i32 n
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @pg_encoding_mb2wchar_with_len(i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = sext i32 %0 to i64
-  %6 = getelementptr inbounds %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %5
+  %6 = getelementptr inbounds [56 x i8], ptr @pg_wchar_table, i64 %5
   %7 = load ptr, ptr %6, align 8
   %8 = tail call i32 %7(ptr noundef %1, ptr noundef %2, i32 noundef %3) #12
   ret i32 %8
@@ -1492,7 +1491,7 @@ define dso_local i32 @pg_wchar2mb(ptr noundef %0, ptr noundef %1) local_unnamed_
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = zext i32 %5 to i64
-  %7 = getelementptr inbounds nuw %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %6
+  %7 = getelementptr inbounds nuw [56 x i8], ptr @pg_wchar_table, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i64 @pg_wchar_strlen(ptr noundef %0) #12
@@ -1509,7 +1508,7 @@ define dso_local i32 @pg_wchar2mb_with_len(ptr noundef %0, ptr noundef %1, i32 n
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %7
+  %8 = getelementptr inbounds nuw [56 x i8], ptr @pg_wchar_table, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10(ptr noundef %0, ptr noundef %1, i32 noundef %2) #12
@@ -1519,7 +1518,7 @@ define dso_local i32 @pg_wchar2mb_with_len(ptr noundef %0, ptr noundef %1, i32 n
 ; Function Attrs: nounwind uwtable
 define dso_local i32 @pg_encoding_wchar2mb_with_len(i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = sext i32 %0 to i64
-  %6 = getelementptr inbounds %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %5
+  %6 = getelementptr inbounds [56 x i8], ptr @pg_wchar_table, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef %1, ptr noundef %2, i32 noundef %3) #12
@@ -1532,7 +1531,7 @@ define dso_local i32 @pg_mblen(ptr noundef %0) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %5
+  %6 = getelementptr inbounds nuw [56 x i8], ptr @pg_wchar_table, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef %0) #12
@@ -1545,7 +1544,7 @@ define dso_local i32 @pg_dsplen(ptr noundef %0) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %5
+  %6 = getelementptr inbounds nuw [56 x i8], ptr @pg_wchar_table, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 %8(ptr noundef %0) #12
@@ -1558,7 +1557,7 @@ define dso_local i32 @pg_mbstrlen(ptr noundef %0) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = sext i32 %4 to i64
-  %6 = getelementptr inbounds %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %5
+  %6 = getelementptr inbounds [56 x i8], ptr @pg_wchar_table, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 1
@@ -1581,7 +1580,7 @@ define dso_local i32 @pg_mbstrlen(ptr noundef %0) local_unnamed_addr #0 {
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i32, ptr %15, align 8
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %17
+  %18 = getelementptr inbounds nuw [56 x i8], ptr @pg_wchar_table, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = tail call i32 %20(ptr noundef nonnull %.069) #12
@@ -1603,7 +1602,7 @@ define dso_local i32 @pg_database_encoding_max_length() local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %4
+  %5 = getelementptr inbounds [56 x i8], ptr @pg_wchar_table, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %7 = load i32, ptr %6, align 8
   ret i32 %7
@@ -1615,7 +1614,7 @@ define dso_local i32 @pg_mbstrlen_with_len(ptr noundef %0, i32 noundef %1) local
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %6
+  %7 = getelementptr inbounds [56 x i8], ptr @pg_wchar_table, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %9 = load i32, ptr %8, align 8
   %10 = icmp eq i32 %9, 1
@@ -1638,7 +1637,7 @@ define dso_local i32 @pg_mbstrlen_with_len(ptr noundef %0, i32 noundef %1) local
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i32, ptr %15, align 8
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %17
+  %18 = getelementptr inbounds nuw [56 x i8], ptr @pg_wchar_table, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = tail call i32 %20(ptr noundef nonnull %.01213) #12
@@ -1690,7 +1689,7 @@ define dso_local i32 @pg_mbcliplen(ptr noundef %0, i32 noundef %1, i32 noundef %
 
 16:                                               ; preds = %3
   %17 = sext i32 %6 to i64
-  %18 = getelementptr inbounds %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %17
+  %18 = getelementptr inbounds [56 x i8], ptr @pg_wchar_table, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = icmp sgt i32 %1, 0
@@ -1759,7 +1758,7 @@ define dso_local i32 @pg_encoding_mbcliplen(i32 noundef %0, ptr noundef %1, i32 
 
 14:                                               ; preds = %4
   %15 = sext i32 %0 to i64
-  %16 = getelementptr inbounds %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %15
+  %16 = getelementptr inbounds [56 x i8], ptr @pg_wchar_table, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8
   %19 = icmp sgt i32 %2, 0
@@ -1803,7 +1802,7 @@ define dso_local i32 @pg_mbcharcliplen(ptr noundef %0, i32 noundef %1, i32 nound
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %7
+  %8 = getelementptr inbounds [56 x i8], ptr @pg_wchar_table, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %10 = load i32, ptr %9, align 8
   %11 = icmp eq i32 %10, 1
@@ -1852,7 +1851,7 @@ define dso_local i32 @pg_mbcharcliplen(ptr noundef %0, i32 noundef %1, i32 nound
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i32, ptr %23, align 8
   %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds nuw %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %25
+  %26 = getelementptr inbounds nuw [56 x i8], ptr @pg_wchar_table, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8
   %29 = tail call i32 %28(ptr noundef nonnull %.01824) #12
@@ -1886,7 +1885,7 @@ define dso_local void @SetDatabaseEncoding(i32 noundef %0) local_unnamed_addr #0
 
 5:                                                ; preds = %1
   %6 = zext nneg i32 %0 to i64
-  %7 = getelementptr inbounds nuw %struct.pg_enc2name, ptr @pg_enc2name_tbl, i64 %6
+  %7 = getelementptr inbounds nuw [16 x i8], ptr @pg_enc2name_tbl, i64 %6
   store ptr %7, ptr @DatabaseEncoding, align 8
   ret void
 }
@@ -1894,7 +1893,7 @@ define dso_local void @SetDatabaseEncoding(i32 noundef %0) local_unnamed_addr #0
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define dso_local void @SetMessageEncoding(i32 noundef %0) local_unnamed_addr #7 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr inbounds %struct.pg_enc2name, ptr @pg_enc2name_tbl, i64 %2
+  %3 = getelementptr inbounds [16 x i8], ptr @pg_enc2name_tbl, i64 %2
   store ptr %3, ptr @MessageEncoding, align 8
   ret void
 }
@@ -2156,7 +2155,7 @@ define internal noundef zeroext i1 @pg_generic_charinc(ptr noundef %0, i32 nound
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load i32, ptr %7, align 8
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %9
+  %10 = getelementptr inbounds [56 x i8], ptr @pg_wchar_table, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %12 = load ptr, ptr %11, align 8
   br label %13
@@ -2183,7 +2182,7 @@ define dso_local zeroext i1 @pg_verifymbstr(ptr noundef %0, i32 noundef %1, i1 n
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds %struct.pg_wchar_tbl, ptr @pg_wchar_table, i64 %7
+  %8 = getelementptr inbounds [56 x i8], ptr @pg_wchar_table, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 %10(ptr noundef %0, i32 noundef %1) #12
@@ -2246,7 +2245,7 @@ define dso_local void @report_invalid_encoding(i32 noundef %0, ptr noundef %1, i
   %24 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   %25 = call i32 @errcode(i32 noundef 17301634) #12
   %26 = sext i32 %0 to i64
-  %27 = getelementptr inbounds %struct.pg_enc2name, ptr @pg_enc2name_tbl, i64 %26
+  %27 = getelementptr inbounds [16 x i8], ptr @pg_enc2name_tbl, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.19, ptr noundef %28, ptr noundef nonnull %4) #12
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1720, ptr noundef nonnull @__func__.report_invalid_encoding) #12
@@ -2276,10 +2275,10 @@ define dso_local void @check_encoding_conversion_args(i32 noundef %0, i32 nounde
 12:                                               ; preds = %9
   %13 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   %14 = zext nneg i32 %3 to i64
-  %15 = getelementptr inbounds nuw %struct.pg_enc2name, ptr @pg_enc2name_tbl, i64 %14
+  %15 = getelementptr inbounds nuw [16 x i8], ptr @pg_enc2name_tbl, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = zext nneg i32 %0 to i64
-  %18 = getelementptr inbounds nuw %struct.pg_enc2name, ptr @pg_enc2name_tbl, i64 %17
+  %18 = getelementptr inbounds nuw [16 x i8], ptr @pg_enc2name_tbl, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.13, ptr noundef %16, ptr noundef %19) #12
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1680, ptr noundef nonnull @__func__.check_encoding_conversion_args) #12
@@ -2304,10 +2303,10 @@ define dso_local void @check_encoding_conversion_args(i32 noundef %0, i32 nounde
 28:                                               ; preds = %25
   %29 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   %30 = zext nneg i32 %4 to i64
-  %31 = getelementptr inbounds nuw %struct.pg_enc2name, ptr @pg_enc2name_tbl, i64 %30
+  %31 = getelementptr inbounds nuw [16 x i8], ptr @pg_enc2name_tbl, i64 %30
   %32 = load ptr, ptr %31, align 8
   %33 = zext nneg i32 %1 to i64
-  %34 = getelementptr inbounds nuw %struct.pg_enc2name, ptr @pg_enc2name_tbl, i64 %33
+  %34 = getelementptr inbounds nuw [16 x i8], ptr @pg_enc2name_tbl, i64 %33
   %35 = load ptr, ptr %34, align 8
   %36 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.15, ptr noundef %32, ptr noundef %35) #12
   tail call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1686, ptr noundef nonnull @__func__.check_encoding_conversion_args) #12
@@ -2375,10 +2374,10 @@ define dso_local void @report_untranslatable_char(i32 noundef %0, i32 noundef %1
   %25 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #13
   %26 = call i32 @errcode(i32 noundef 84017282) #12
   %27 = sext i32 %0 to i64
-  %28 = getelementptr inbounds %struct.pg_enc2name, ptr @pg_enc2name_tbl, i64 %27
+  %28 = getelementptr inbounds [16 x i8], ptr @pg_enc2name_tbl, i64 %27
   %29 = load ptr, ptr %28, align 8
   %30 = sext i32 %1 to i64
-  %31 = getelementptr inbounds %struct.pg_enc2name, ptr @pg_enc2name_tbl, i64 %30
+  %31 = getelementptr inbounds [16 x i8], ptr @pg_enc2name_tbl, i64 %30
   %32 = load ptr, ptr %31, align 8
   %33 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.20, ptr noundef nonnull %5, ptr noundef %29, ptr noundef %32) #12
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1754, ptr noundef nonnull @__func__.report_untranslatable_char) #12

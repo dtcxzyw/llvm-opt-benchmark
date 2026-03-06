@@ -4,10 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.relopt_parse_elt = type { ptr, i32, i32 }
-%struct.ItemIdData = type { i32 }
-%struct.HashScanPosItem = type { %struct.ItemPointerData, i16 }
-%struct.ItemPointerData = type { %struct.BlockIdData, i16 }
-%struct.BlockIdData = type { i16, i16 }
 
 @.str = private unnamed_addr constant [50 x i8] c"missing support function %d(%u,%u) for index \22%s\22\00", align 1
 @.str.1 = private unnamed_addr constant [11 x i8] c"hashutil.c\00", align 1
@@ -148,7 +144,7 @@ define dso_local void @_hash_checkpage(ptr noundef readonly captures(none) %0, i
   %6 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %7 = xor i32 %1, -1
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %8
   %10 = load ptr, ptr %9, align 8
   br label %BufferGetPage.exit
 
@@ -345,7 +341,7 @@ define dso_local zeroext i16 @_hash_binsearch(ptr noundef readonly captures(none
   %16 = lshr i32 %15, 1
   %17 = trunc nuw i32 %16 to i16
   %18 = zext nneg i32 %16 to i64
-  %19 = getelementptr %struct.ItemIdData, ptr %11, i64 %18
+  %19 = getelementptr [4 x i8], ptr %11, i64 %18
   %.val17 = load i32, ptr %19, align 4
   %20 = and i32 %.val17, 32767
   %21 = zext nneg i32 %20 to i64
@@ -395,7 +391,7 @@ define dso_local zeroext i16 @_hash_binsearch_last(ptr noundef readonly captures
   %15 = lshr i32 %14, 1
   %16 = trunc nuw i32 %15 to i16
   %17 = zext nneg i32 %15 to i64
-  %18 = getelementptr %struct.ItemIdData, ptr %9, i64 %17
+  %18 = getelementptr [4 x i8], ptr %9, i64 %17
   %.val17 = load i32, ptr %18, align 4
   %19 = and i32 %.val17, 32767
   %20 = zext nneg i32 %19 to i64
@@ -433,7 +429,7 @@ define dso_local i32 @_hash_get_oldblock_from_newbucket(ptr noundef %0, i32 noun
   %10 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %11 = xor i32 %7, -1
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw ptr, ptr %10, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %12
   %14 = load ptr, ptr %13, align 8
   br label %BufferGetPage.exit
 
@@ -468,7 +464,7 @@ BufferGetPage.exit:                               ; preds = %9, %15
 _hash_spareindex.exit:                            ; preds = %21, %25
   %.0.i = phi i32 [ %31, %25 ], [ %23, %21 ]
   %32 = sext i32 %.0.i to i64
-  %33 = getelementptr i32, ptr %.0.i.i, i64 %32
+  %33 = getelementptr [4 x i8], ptr %.0.i.i, i64 %32
   %34 = getelementptr i8, ptr %33, i64 72
   %35 = load i32, ptr %34, align 4
   br label %36
@@ -495,7 +491,7 @@ define dso_local i32 @_hash_get_newblock_from_oldbucket(ptr noundef %0, i32 noun
   %6 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %7 = xor i32 %3, -1
   %8 = zext nneg i32 %7 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %8
   %10 = load ptr, ptr %9, align 8
   br label %BufferGetPage.exit
 
@@ -546,7 +542,7 @@ _hash_spareindex.exit:                            ; preds = %27, %34
   %.0.i13 = phi i32 [ %40, %34 ], [ %.0.i.i12, %27 ]
   %41 = add nsw i32 %.0.i13, -1
   %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds nuw i32, ptr %28, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %42
   %44 = load i32, ptr %43, align 4
   %45 = add i32 %29, %44
   br label %BufferGetPage.exit._crit_edge
@@ -602,7 +598,7 @@ define dso_local void @_hash_kill_items(ptr noundef readonly captures(none) %0) 
   %19 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %20 = xor i32 %.043, -1
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = load ptr, ptr %22, align 8
   br label %BufferGetPage.exit
 
@@ -646,10 +642,10 @@ BufferGetPage.exit:                               ; preds = %18, %24
 44:                                               ; preds = %.outer, %.loopexit
   %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit ], [ %indvars.iv.ph, %.outer ]
   %45 = load ptr, ptr %41, align 8
-  %46 = getelementptr inbounds nuw i32, ptr %45, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %indvars.iv
   %47 = load i32, ptr %46, align 4
   %48 = sext i32 %47 to i64
-  %49 = getelementptr inbounds %struct.HashScanPosItem, ptr %42, i64 %48
+  %49 = getelementptr inbounds [8 x i8], ptr %42, i64 %48
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 6
   %51 = load i16, ptr %50, align 2
   %.not56 = icmp ugt i16 %51, %.0.i
@@ -663,7 +659,7 @@ BufferGetPage.exit:                               ; preds = %18, %24
 .lr.ph:                                           ; preds = %44, %52
   %.04457 = phi i16 [ %53, %52 ], [ %51, %44 ]
   %54 = zext i16 %.04457 to i64
-  %55 = getelementptr %struct.ItemIdData, ptr %43, i64 %54
+  %55 = getelementptr [4 x i8], ptr %43, i64 %54
   %.val50 = load i32, ptr %55, align 4
   %56 = and i32 %.val50, 32767
   %57 = zext nneg i32 %56 to i64
@@ -677,7 +673,7 @@ BufferGetPage.exit:                               ; preds = %18, %24
   br i1 %exitcond.not, label %._crit_edge, label %44, !llvm.loop !9
 
 .loopexit.thread:                                 ; preds = %.lr.ph
-  %60 = getelementptr %struct.ItemIdData, ptr %43, i64 %54
+  %60 = getelementptr [4 x i8], ptr %43, i64 %54
   %61 = load i32, ptr %60, align 4
   %62 = or i32 %61, 98304
   store i32 %62, ptr %60, align 4

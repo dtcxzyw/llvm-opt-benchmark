@@ -62,7 +62,7 @@ define weak_odr dso_local noundef double @_ZN3igl16box_surface_areaIdLi3EEET_RKN
   br i1 %14, label %.lr.ph.i, label %.loopexit.i
 
 .lr.ph.i:                                         ; preds = %13
-  %15 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv24.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv24.i
   %16 = load double, ptr %15, align 8, !tbaa !13
   %17 = fmul double %16, 2.000000e+00
   br label %18
@@ -70,7 +70,7 @@ define weak_odr dso_local noundef double @_ZN3igl16box_surface_areaIdLi3EEET_RKN
 18:                                               ; preds = %18, %.lr.ph.i
   %indvars.iv21.i = phi i64 [ %indvars.iv.i, %.lr.ph.i ], [ %indvars.iv.next22.i, %18 ]
   %.117.i = phi double [ %.01319.i, %.lr.ph.i ], [ %21, %18 ]
-  %19 = getelementptr inbounds nuw double, ptr %2, i64 %indvars.iv21.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv21.i
   %20 = load double, ptr %19, align 8, !tbaa !13
   %21 = tail call double @llvm.fmuladd.f64(double %17, double %20, double %.117.i)
   %indvars.iv.next22.i = add nuw nsw i64 %indvars.iv21.i, 1

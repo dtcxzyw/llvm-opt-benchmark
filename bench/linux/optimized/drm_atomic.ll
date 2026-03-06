@@ -38,10 +38,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_drm_atomic_p
 module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_drm_state_dump: ; .asciz \22\22 ; .asciz \22\22 ; .balign 8 ; .quad drm_state_dump ; .previous"
 
 %struct.drm_debugfs_info = type { ptr, ptr, i32, ptr }
-%struct.__drm_connnectors_state = type { ptr, ptr, ptr, ptr, ptr }
-%struct.__drm_crtcs_state = type { ptr, ptr, ptr, ptr, ptr, ptr, i64 }
-%struct.__drm_planes_state = type { ptr, ptr, ptr, ptr }
-%struct.__drm_private_objs_state = type { ptr, ptr, ptr, ptr }
 %struct.drm_connector_list_iter = type { ptr, ptr }
 %struct.drm_printer = type { ptr, ptr, ptr, ptr }
 
@@ -402,7 +398,7 @@ define dso_local void @drm_atomic_state_default_clear(ptr noundef %0) #0 align 1
   %21 = phi i32 [ %11, %13 ], [ %44, %43 ]
   %22 = phi i64 [ 0, %13 ], [ %45, %43 ]
   %23 = load ptr, ptr %14, align 8
-  %24 = getelementptr %struct.__drm_connnectors_state, ptr %23, i64 %22
+  %24 = getelementptr [40 x i8], ptr %23, i64 %22
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %43, label %27
@@ -416,18 +412,18 @@ define dso_local void @drm_atomic_state_default_clear(ptr noundef %0) #0 align 1
   %33 = load ptr, ptr %32, align 8
   tail call void %31(ptr noundef nonnull %25, ptr noundef %33) #10
   %34 = load ptr, ptr %14, align 8
-  %35 = getelementptr %struct.__drm_connnectors_state, ptr %34, i64 %22
+  %35 = getelementptr [40 x i8], ptr %34, i64 %22
   store ptr null, ptr %35, align 8
   %36 = load ptr, ptr %14, align 8
-  %.split = getelementptr %struct.__drm_connnectors_state, ptr %36, i64 %22
+  %.split = getelementptr [40 x i8], ptr %36, i64 %22
   %37 = getelementptr i8, ptr %.split, i64 8
   store ptr null, ptr %37, align 8
   %38 = load ptr, ptr %14, align 8
-  %.split11 = getelementptr %struct.__drm_connnectors_state, ptr %38, i64 %22
+  %.split11 = getelementptr [40 x i8], ptr %38, i64 %22
   %39 = getelementptr i8, ptr %.split11, i64 16
   store ptr null, ptr %39, align 8
   %40 = load ptr, ptr %14, align 8
-  %.split12 = getelementptr %struct.__drm_connnectors_state, ptr %40, i64 %22
+  %.split12 = getelementptr [40 x i8], ptr %40, i64 %22
   %41 = getelementptr i8, ptr %.split12, i64 24
   store ptr null, ptr %41, align 8
   %42 = getelementptr inbounds nuw i8, ptr %25, i64 64
@@ -455,7 +451,7 @@ define dso_local void @drm_atomic_state_default_clear(ptr noundef %0) #0 align 1
 53:                                               ; preds = %88, %18
   %54 = phi i64 [ 0, %18 ], [ %89, %88 ]
   %55 = load ptr, ptr %19, align 8
-  %56 = getelementptr %struct.__drm_crtcs_state, ptr %55, i64 %54
+  %56 = getelementptr [56 x i8], ptr %55, i64 %54
   %57 = load ptr, ptr %56, align 8
   %58 = icmp eq ptr %57, null
   br i1 %58, label %88, label %59
@@ -469,22 +465,22 @@ define dso_local void @drm_atomic_state_default_clear(ptr noundef %0) #0 align 1
   %65 = load ptr, ptr %64, align 8
   tail call void %63(ptr noundef nonnull %57, ptr noundef %65) #10
   %66 = load ptr, ptr %19, align 8
-  %67 = getelementptr %struct.__drm_crtcs_state, ptr %66, i64 %54
+  %67 = getelementptr [56 x i8], ptr %66, i64 %54
   store ptr null, ptr %67, align 8
   %68 = load ptr, ptr %19, align 8
-  %.split13 = getelementptr %struct.__drm_crtcs_state, ptr %68, i64 %54
+  %.split13 = getelementptr [56 x i8], ptr %68, i64 %54
   %69 = getelementptr i8, ptr %.split13, i64 8
   store ptr null, ptr %69, align 8
   %70 = load ptr, ptr %19, align 8
-  %.split14 = getelementptr %struct.__drm_crtcs_state, ptr %70, i64 %54
+  %.split14 = getelementptr [56 x i8], ptr %70, i64 %54
   %71 = getelementptr i8, ptr %.split14, i64 16
   store ptr null, ptr %71, align 8
   %72 = load ptr, ptr %19, align 8
-  %.split15 = getelementptr %struct.__drm_crtcs_state, ptr %72, i64 %54
+  %.split15 = getelementptr [56 x i8], ptr %72, i64 %54
   %73 = getelementptr i8, ptr %.split15, i64 24
   store ptr null, ptr %73, align 8
   %74 = load ptr, ptr %19, align 8
-  %.split16 = getelementptr %struct.__drm_crtcs_state, ptr %74, i64 %54
+  %.split16 = getelementptr [56 x i8], ptr %74, i64 %54
   %75 = getelementptr i8, ptr %.split16, i64 32
   %76 = load ptr, ptr %75, align 8
   %77 = icmp eq ptr %76, null
@@ -511,7 +507,7 @@ define dso_local void @drm_atomic_state_default_clear(ptr noundef %0) #0 align 1
 
 .thread:                                          ; preds = %82, %84, %85
   %86 = load ptr, ptr %19, align 8
-  %.split17 = getelementptr %struct.__drm_crtcs_state, ptr %86, i64 %54
+  %.split17 = getelementptr [56 x i8], ptr %86, i64 %54
   %87 = getelementptr i8, ptr %.split17, i64 32
   store ptr null, ptr %87, align 8
   br label %88
@@ -537,7 +533,7 @@ define dso_local void @drm_atomic_state_default_clear(ptr noundef %0) #0 align 1
   %99 = phi i32 [ %49, %51 ], [ %121, %120 ]
   %100 = phi i64 [ 0, %51 ], [ %122, %120 ]
   %101 = load ptr, ptr %52, align 8
-  %102 = getelementptr %struct.__drm_planes_state, ptr %101, i64 %100
+  %102 = getelementptr [32 x i8], ptr %101, i64 %100
   %103 = load ptr, ptr %102, align 8
   %104 = icmp eq ptr %103, null
   br i1 %104, label %120, label %105
@@ -551,18 +547,18 @@ define dso_local void @drm_atomic_state_default_clear(ptr noundef %0) #0 align 1
   %111 = load ptr, ptr %110, align 8
   tail call void %109(ptr noundef nonnull %103, ptr noundef %111) #10
   %112 = load ptr, ptr %52, align 8
-  %113 = getelementptr %struct.__drm_planes_state, ptr %112, i64 %100
+  %113 = getelementptr [32 x i8], ptr %112, i64 %100
   store ptr null, ptr %113, align 8
   %114 = load ptr, ptr %52, align 8
-  %.split18 = getelementptr %struct.__drm_planes_state, ptr %114, i64 %100
+  %.split18 = getelementptr [32 x i8], ptr %114, i64 %100
   %115 = getelementptr i8, ptr %.split18, i64 8
   store ptr null, ptr %115, align 8
   %116 = load ptr, ptr %52, align 8
-  %.split19 = getelementptr %struct.__drm_planes_state, ptr %116, i64 %100
+  %.split19 = getelementptr [32 x i8], ptr %116, i64 %100
   %117 = getelementptr i8, ptr %.split19, i64 16
   store ptr null, ptr %117, align 8
   %118 = load ptr, ptr %52, align 8
-  %.split20 = getelementptr %struct.__drm_planes_state, ptr %118, i64 %100
+  %.split20 = getelementptr [32 x i8], ptr %118, i64 %100
   %119 = getelementptr i8, ptr %.split20, i64 24
   store ptr null, ptr %119, align 8
   %.pre29 = load i32, ptr %48, align 8
@@ -578,7 +574,7 @@ define dso_local void @drm_atomic_state_default_clear(ptr noundef %0) #0 align 1
 125:                                              ; preds = %125, %96
   %126 = phi i64 [ 0, %96 ], [ %144, %125 ]
   %127 = load ptr, ptr %97, align 8
-  %128 = getelementptr %struct.__drm_private_objs_state, ptr %127, i64 %126
+  %128 = getelementptr [32 x i8], ptr %127, i64 %126
   %129 = load ptr, ptr %128, align 8
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 80
   %131 = load ptr, ptr %130, align 8
@@ -588,18 +584,18 @@ define dso_local void @drm_atomic_state_default_clear(ptr noundef %0) #0 align 1
   %135 = load ptr, ptr %134, align 8
   tail call void %133(ptr noundef %129, ptr noundef %135) #10
   %136 = load ptr, ptr %97, align 8
-  %137 = getelementptr %struct.__drm_private_objs_state, ptr %136, i64 %126
+  %137 = getelementptr [32 x i8], ptr %136, i64 %126
   store ptr null, ptr %137, align 8
   %138 = load ptr, ptr %97, align 8
-  %.split21 = getelementptr %struct.__drm_private_objs_state, ptr %138, i64 %126
+  %.split21 = getelementptr [32 x i8], ptr %138, i64 %126
   %139 = getelementptr i8, ptr %.split21, i64 8
   store ptr null, ptr %139, align 8
   %140 = load ptr, ptr %97, align 8
-  %.split22 = getelementptr %struct.__drm_private_objs_state, ptr %140, i64 %126
+  %.split22 = getelementptr [32 x i8], ptr %140, i64 %126
   %141 = getelementptr i8, ptr %.split22, i64 16
   store ptr null, ptr %141, align 8
   %142 = load ptr, ptr %97, align 8
-  %.split23 = getelementptr %struct.__drm_private_objs_state, ptr %142, i64 %126
+  %.split23 = getelementptr [32 x i8], ptr %142, i64 %126
   %143 = getelementptr i8, ptr %.split23, i64 24
   store ptr null, ptr %143, align 8
   %144 = add nuw nsw i64 %126, 1
@@ -752,7 +748,7 @@ define dso_local ptr @drm_atomic_get_crtc_state(ptr noundef %0, ptr noundef %1) 
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = load ptr, ptr %11, align 8
   %13 = zext i32 %10 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %12, i64 %13
+  %.split = getelementptr [56 x i8], ptr %12, i64 %13
   %14 = getelementptr i8, ptr %.split, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
@@ -782,21 +778,21 @@ define dso_local ptr @drm_atomic_get_crtc_state(ptr noundef %0, ptr noundef %1) 
 32:                                               ; preds = %25
   %33 = load ptr, ptr %11, align 8
   %34 = sext i32 %4 to i64
-  %.split4 = getelementptr %struct.__drm_crtcs_state, ptr %33, i64 %34
+  %.split4 = getelementptr [56 x i8], ptr %33, i64 %34
   %35 = getelementptr i8, ptr %.split4, i64 8
   store ptr %30, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 1480
   %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr %11, align 8
-  %.split5 = getelementptr %struct.__drm_crtcs_state, ptr %38, i64 %34
+  %.split5 = getelementptr [56 x i8], ptr %38, i64 %34
   %39 = getelementptr i8, ptr %.split5, i64 16
   store ptr %37, ptr %39, align 8
   %40 = load ptr, ptr %11, align 8
-  %.split6 = getelementptr %struct.__drm_crtcs_state, ptr %40, i64 %34
+  %.split6 = getelementptr [56 x i8], ptr %40, i64 %34
   %41 = getelementptr i8, ptr %.split6, i64 24
   store ptr %30, ptr %41, align 8
   %42 = load ptr, ptr %11, align 8
-  %43 = getelementptr %struct.__drm_crtcs_state, ptr %42, i64 %34
+  %43 = getelementptr [56 x i8], ptr %42, i64 %34
   store ptr %1, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %30, i64 328
   store ptr %0, ptr %44, align 8
@@ -883,7 +879,7 @@ define dso_local ptr @drm_atomic_get_plane_state(ptr noundef %0, ptr noundef %1)
   %26 = load ptr, ptr %25, align 8
   %27 = load i32, ptr %3, align 4
   %28 = zext i32 %27 to i64
-  %.split = getelementptr %struct.__drm_planes_state, ptr %26, i64 %28
+  %.split = getelementptr [32 x i8], ptr %26, i64 %28
   %29 = getelementptr i8, ptr %.split, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
@@ -913,20 +909,20 @@ define dso_local ptr @drm_atomic_get_plane_state(ptr noundef %0, ptr noundef %1)
 47:                                               ; preds = %40
   %48 = load ptr, ptr %25, align 8
   %49 = sext i32 %4 to i64
-  %.split6 = getelementptr %struct.__drm_planes_state, ptr %48, i64 %49
+  %.split6 = getelementptr [32 x i8], ptr %48, i64 %49
   %50 = getelementptr i8, ptr %.split6, i64 8
   store ptr %45, ptr %50, align 8
   %51 = load ptr, ptr %25, align 8
-  %52 = getelementptr %struct.__drm_planes_state, ptr %51, i64 %49
+  %52 = getelementptr [32 x i8], ptr %51, i64 %49
   store ptr %1, ptr %52, align 8
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 1240
   %54 = load ptr, ptr %53, align 8
   %55 = load ptr, ptr %25, align 8
-  %.split7 = getelementptr %struct.__drm_planes_state, ptr %55, i64 %49
+  %.split7 = getelementptr [32 x i8], ptr %55, i64 %49
   %56 = getelementptr i8, ptr %.split7, i64 16
   store ptr %54, ptr %56, align 8
   %57 = load ptr, ptr %25, align 8
-  %.split8 = getelementptr %struct.__drm_planes_state, ptr %57, i64 %49
+  %.split8 = getelementptr [32 x i8], ptr %57, i64 %49
   %58 = getelementptr i8, ptr %.split8, i64 24
   store ptr %45, ptr %58, align 8
   %59 = getelementptr inbounds nuw i8, ptr %45, i64 160
@@ -1045,7 +1041,7 @@ define dso_local ptr @drm_atomic_get_private_obj_state(ptr noundef %0, ptr nound
 
 12:                                               ; preds = %10, %6
   %indvars.iv = phi i64 [ %indvars.iv.next, %10 ], [ 0, %6 ]
-  %13 = getelementptr %struct.__drm_private_objs_state, ptr %8, i64 %indvars.iv
+  %13 = getelementptr [32 x i8], ptr %8, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, %1
   br i1 %15, label %16, label %10
@@ -1083,7 +1079,7 @@ define dso_local ptr @drm_atomic_get_private_obj_state(ptr noundef %0, ptr nound
   store ptr %34, ptr %32, align 8
   %37 = load i32, ptr %3, align 8
   %38 = sext i32 %37 to i64
-  %39 = getelementptr %struct.__drm_private_objs_state, ptr %34, i64 %38
+  %39 = getelementptr [32 x i8], ptr %34, i64 %38
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(32) %39, i8 0, i64 32, i1 false)
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %41 = load ptr, ptr %40, align 8
@@ -1094,21 +1090,21 @@ define dso_local ptr @drm_atomic_get_private_obj_state(ptr noundef %0, ptr nound
 
 45:                                               ; preds = %36
   %46 = load ptr, ptr %32, align 8
-  %.split = getelementptr %struct.__drm_private_objs_state, ptr %46, i64 %38
+  %.split = getelementptr [32 x i8], ptr %46, i64 %38
   %47 = getelementptr i8, ptr %.split, i64 8
   store ptr %43, ptr %47, align 8
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %49 = load ptr, ptr %48, align 8
   %50 = load ptr, ptr %32, align 8
-  %.split6 = getelementptr %struct.__drm_private_objs_state, ptr %50, i64 %38
+  %.split6 = getelementptr [32 x i8], ptr %50, i64 %38
   %51 = getelementptr i8, ptr %.split6, i64 16
   store ptr %49, ptr %51, align 8
   %52 = load ptr, ptr %32, align 8
-  %.split7 = getelementptr %struct.__drm_private_objs_state, ptr %52, i64 %38
+  %.split7 = getelementptr [32 x i8], ptr %52, i64 %38
   %53 = getelementptr i8, ptr %.split7, i64 24
   store ptr %43, ptr %53, align 8
   %54 = load ptr, ptr %32, align 8
-  %55 = getelementptr %struct.__drm_private_objs_state, ptr %54, i64 %38
+  %55 = getelementptr [32 x i8], ptr %54, i64 %38
   store ptr %1, ptr %55, align 8
   store ptr %0, ptr %43, align 8
   store i32 %29, ptr %3, align 8
@@ -1155,7 +1151,7 @@ define dso_local ptr @drm_atomic_get_old_private_obj_state(ptr noundef readonly 
 
 12:                                               ; preds = %10, %6
   %indvars.iv = phi i64 [ %indvars.iv.next, %10 ], [ 0, %6 ]
-  %13 = getelementptr %struct.__drm_private_objs_state, ptr %8, i64 %indvars.iv
+  %13 = getelementptr [32 x i8], ptr %8, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, %1
   br i1 %15, label %16, label %10
@@ -1190,7 +1186,7 @@ define dso_local ptr @drm_atomic_get_new_private_obj_state(ptr noundef readonly 
 
 12:                                               ; preds = %10, %6
   %indvars.iv = phi i64 [ %indvars.iv.next, %10 ], [ 0, %6 ]
-  %13 = getelementptr %struct.__drm_private_objs_state, ptr %8, i64 %indvars.iv
+  %13 = getelementptr [32 x i8], ptr %8, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, %1
   br i1 %15, label %16, label %10
@@ -1220,7 +1216,7 @@ define dso_local ptr @drm_atomic_get_old_connector_for_encoder(ptr noundef reado
 
 10:                                               ; preds = %21, %6
   %11 = phi i64 [ 0, %6 ], [ %22, %21 ]
-  %12 = getelementptr %struct.__drm_connnectors_state, ptr %8, i64 %11
+  %12 = getelementptr [40 x i8], ptr %8, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %21, label %15
@@ -1258,7 +1254,7 @@ define dso_local ptr @drm_atomic_get_new_connector_for_encoder(ptr noundef reado
 
 10:                                               ; preds = %21, %6
   %11 = phi i64 [ 0, %6 ], [ %22, %21 ]
-  %12 = getelementptr %struct.__drm_connnectors_state, ptr %8, i64 %11
+  %12 = getelementptr [40 x i8], ptr %8, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %21, label %15
@@ -1296,7 +1292,7 @@ define dso_local ptr @drm_atomic_get_old_crtc_for_encoder(ptr noundef readonly c
 
 10:                                               ; preds = %21, %6
   %11 = phi i64 [ 0, %6 ], [ %22, %21 ]
-  %12 = getelementptr %struct.__drm_connnectors_state, ptr %8, i64 %11
+  %12 = getelementptr [40 x i8], ptr %8, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %21, label %15
@@ -1322,7 +1318,7 @@ define dso_local ptr @drm_atomic_get_old_crtc_for_encoder(ptr noundef readonly c
 
 28:                                               ; preds = %24
   %29 = sext i32 %26 to i64
-  %.split = getelementptr %struct.__drm_connnectors_state, ptr %8, i64 %29
+  %.split = getelementptr [40 x i8], ptr %8, i64 %29
   %30 = getelementptr i8, ptr %.split, i64 16
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
@@ -1353,7 +1349,7 @@ define dso_local ptr @drm_atomic_get_new_crtc_for_encoder(ptr noundef readonly c
 
 10:                                               ; preds = %21, %6
   %11 = phi i64 [ 0, %6 ], [ %22, %21 ]
-  %12 = getelementptr %struct.__drm_connnectors_state, ptr %8, i64 %11
+  %12 = getelementptr [40 x i8], ptr %8, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %21, label %15
@@ -1379,7 +1375,7 @@ define dso_local ptr @drm_atomic_get_new_crtc_for_encoder(ptr noundef readonly c
 
 28:                                               ; preds = %24
   %29 = sext i32 %26 to i64
-  %.split = getelementptr %struct.__drm_connnectors_state, ptr %8, i64 %29
+  %.split = getelementptr [40 x i8], ptr %8, i64 %29
   %30 = getelementptr i8, ptr %.split, i64 24
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
@@ -1452,7 +1448,7 @@ define dso_local ptr @drm_atomic_get_connector_state(ptr noundef %0, ptr noundef
   store ptr %34, ptr %27, align 8
   %37 = load i32, ptr %19, align 8
   %38 = sext i32 %37 to i64
-  %39 = getelementptr %struct.__drm_connnectors_state, ptr %34, i64 %38
+  %39 = getelementptr [40 x i8], ptr %34, i64 %38
   %40 = sub i32 %26, %37
   %41 = sext i32 %40 to i64
   %42 = mul nsw i64 %41, 40
@@ -1464,7 +1460,7 @@ define dso_local ptr @drm_atomic_get_connector_state(ptr noundef %0, ptr noundef
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %45 = load ptr, ptr %44, align 8
   %46 = sext i32 %18 to i64
-  %.split = getelementptr %struct.__drm_connnectors_state, ptr %45, i64 %46
+  %.split = getelementptr [40 x i8], ptr %45, i64 %46
   %47 = getelementptr i8, ptr %.split, i64 8
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, null
@@ -1483,21 +1479,21 @@ define dso_local ptr @drm_atomic_get_connector_state(ptr noundef %0, ptr noundef
   %58 = getelementptr inbounds nuw i8, ptr %1, i64 64
   tail call void @drm_mode_object_get(ptr noundef nonnull %58) #10
   %59 = load ptr, ptr %44, align 8
-  %.split7 = getelementptr %struct.__drm_connnectors_state, ptr %59, i64 %46
+  %.split7 = getelementptr [40 x i8], ptr %59, i64 %46
   %60 = getelementptr i8, ptr %.split7, i64 8
   store ptr %55, ptr %60, align 8
   %61 = getelementptr inbounds nuw i8, ptr %1, i64 1904
   %62 = load ptr, ptr %61, align 8
   %63 = load ptr, ptr %44, align 8
-  %.split8 = getelementptr %struct.__drm_connnectors_state, ptr %63, i64 %46
+  %.split8 = getelementptr [40 x i8], ptr %63, i64 %46
   %64 = getelementptr i8, ptr %.split8, i64 16
   store ptr %62, ptr %64, align 8
   %65 = load ptr, ptr %44, align 8
-  %.split9 = getelementptr %struct.__drm_connnectors_state, ptr %65, i64 %46
+  %.split9 = getelementptr [40 x i8], ptr %65, i64 %46
   %66 = getelementptr i8, ptr %.split9, i64 24
   store ptr %55, ptr %66, align 8
   %67 = load ptr, ptr %44, align 8
-  %68 = getelementptr %struct.__drm_connnectors_state, ptr %67, i64 %46
+  %68 = getelementptr [40 x i8], ptr %67, i64 %46
   store ptr %1, ptr %68, align 8
   %69 = getelementptr inbounds nuw i8, ptr %55, i64 32
   store ptr %0, ptr %69, align 8
@@ -1560,7 +1556,7 @@ define dso_local ptr @drm_atomic_get_old_bridge_state(ptr noundef readonly captu
 
 13:                                               ; preds = %10, %6
   %14 = phi i64 [ %11, %10 ], [ 0, %6 ]
-  %15 = getelementptr %struct.__drm_private_objs_state, ptr %8, i64 %14
+  %15 = getelementptr [32 x i8], ptr %8, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, %1
   br i1 %17, label %18, label %10
@@ -1595,7 +1591,7 @@ define dso_local ptr @drm_atomic_get_new_bridge_state(ptr noundef readonly captu
 
 13:                                               ; preds = %10, %6
   %14 = phi i64 [ %11, %10 ], [ 0, %6 ]
-  %15 = getelementptr %struct.__drm_private_objs_state, ptr %8, i64 %14
+  %15 = getelementptr [32 x i8], ptr %8, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, %1
   br i1 %17, label %18, label %10
@@ -1770,7 +1766,7 @@ define dso_local i32 @drm_atomic_add_affected_planes(ptr noundef %0, ptr noundef
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %4, i64 %7
+  %.split = getelementptr [56 x i8], ptr %4, i64 %7
   %8 = getelementptr i8, ptr %.split, i64 16
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr i8, ptr %.split, i64 24
@@ -1891,7 +1887,7 @@ define dso_local i32 @drm_atomic_check_only(ptr noundef %0) #0 align 16 {
 24:                                               ; preds = %41, %14
   %25 = phi i64 [ 0, %14 ], [ %43, %41 ]
   %26 = phi i32 [ 0, %14 ], [ %42, %41 ]
-  %27 = getelementptr %struct.__drm_crtcs_state, ptr %16, i64 %25
+  %27 = getelementptr [56 x i8], ptr %16, i64 %25
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
   br i1 %29, label %41, label %30
@@ -1937,7 +1933,7 @@ define dso_local i32 @drm_atomic_check_only(ptr noundef %0) #0 align 16 {
 52:                                               ; preds = %315, %22
   %53 = phi i64 [ 0, %22 ], [ %316, %315 ]
   %54 = load ptr, ptr %23, align 8
-  %55 = getelementptr %struct.__drm_planes_state, ptr %54, i64 %53
+  %55 = getelementptr [32 x i8], ptr %54, i64 %53
   %56 = load ptr, ptr %55, align 8
   %57 = icmp eq ptr %56, null
   br i1 %57, label %315, label %58
@@ -2324,7 +2320,7 @@ define dso_local i32 @drm_atomic_check_only(ptr noundef %0) #0 align 16 {
 
 327:                                              ; preds = %431, %48
   %328 = phi i64 [ 0, %48 ], [ %432, %431 ]
-  %329 = getelementptr %struct.__drm_crtcs_state, ptr %50, i64 %328
+  %329 = getelementptr [56 x i8], ptr %50, i64 %328
   %330 = load ptr, ptr %329, align 8
   %331 = icmp eq ptr %330, null
   br i1 %331, label %431, label %332
@@ -2493,7 +2489,7 @@ define dso_local i32 @drm_atomic_check_only(ptr noundef %0) #0 align 16 {
 434:                                              ; preds = %.thread54, %325
   %435 = phi i64 [ 0, %325 ], [ %537, %.thread54 ]
   %436 = load ptr, ptr %326, align 8
-  %437 = getelementptr %struct.__drm_connnectors_state, ptr %436, i64 %435
+  %437 = getelementptr [40 x i8], ptr %436, i64 %435
   %438 = load ptr, ptr %437, align 8
   %439 = icmp eq ptr %438, null
   br i1 %439, label %.thread54, label %440
@@ -2569,7 +2565,7 @@ define dso_local i32 @drm_atomic_check_only(ptr noundef %0) #0 align 16 {
   %489 = getelementptr inbounds nuw i8, ptr %470, i64 144
   %490 = load i32, ptr %489, align 8
   %491 = zext i32 %490 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %488, i64 %491
+  %.split = getelementptr [56 x i8], ptr %488, i64 %491
   %492 = getelementptr i8, ptr %.split, i64 8
   %493 = load ptr, ptr %492, align 8
   %494 = getelementptr inbounds nuw i8, ptr %493, i64 9
@@ -2709,7 +2705,7 @@ define dso_local i32 @drm_atomic_check_only(ptr noundef %0) #0 align 16 {
 
 568:                                              ; preds = %590, %564
   %569 = phi i64 [ 0, %564 ], [ %591, %590 ]
-  %570 = getelementptr %struct.__drm_crtcs_state, ptr %566, i64 %569
+  %570 = getelementptr [56 x i8], ptr %566, i64 %569
   %571 = load ptr, ptr %570, align 8
   %572 = icmp eq ptr %571, null
   br i1 %572, label %590, label %573
@@ -2758,7 +2754,7 @@ define dso_local i32 @drm_atomic_check_only(ptr noundef %0) #0 align 16 {
 598:                                              ; preds = %615, %594
   %599 = phi i64 [ 0, %594 ], [ %617, %615 ]
   %600 = phi i32 [ 0, %594 ], [ %616, %615 ]
-  %601 = getelementptr %struct.__drm_crtcs_state, ptr %596, i64 %599
+  %601 = getelementptr [56 x i8], ptr %596, i64 %599
   %602 = load ptr, ptr %601, align 8
   %603 = icmp eq ptr %602, null
   br i1 %603, label %615, label %604
@@ -2935,7 +2931,7 @@ define dso_local void @drm_atomic_print_new_state(ptr noundef %0, ptr noundef %1
   %32 = phi ptr [ %19, %23 ], [ %42, %41 ]
   %33 = phi i64 [ 0, %23 ], [ %43, %41 ]
   %34 = load ptr, ptr %24, align 8
-  %35 = getelementptr %struct.__drm_planes_state, ptr %34, i64 %33
+  %35 = getelementptr [32 x i8], ptr %34, i64 %33
   %36 = load ptr, ptr %35, align 8
   %37 = icmp eq ptr %36, null
   br i1 %37, label %41, label %38
@@ -2970,7 +2966,7 @@ define dso_local void @drm_atomic_print_new_state(ptr noundef %0, ptr noundef %1
   %54 = phi ptr [ %25, %29 ], [ %64, %63 ]
   %55 = phi i64 [ 0, %29 ], [ %65, %63 ]
   %56 = load ptr, ptr %30, align 8
-  %57 = getelementptr %struct.__drm_crtcs_state, ptr %56, i64 %55
+  %57 = getelementptr [56 x i8], ptr %56, i64 %55
   %58 = load ptr, ptr %57, align 8
   %59 = icmp eq ptr %58, null
   br i1 %59, label %63, label %60
@@ -3005,7 +3001,7 @@ define dso_local void @drm_atomic_print_new_state(ptr noundef %0, ptr noundef %1
   %76 = phi i32 [ %49, %51 ], [ %86, %85 ]
   %77 = phi i64 [ 0, %51 ], [ %87, %85 ]
   %78 = load ptr, ptr %52, align 8
-  %79 = getelementptr %struct.__drm_connnectors_state, ptr %78, i64 %77
+  %79 = getelementptr [40 x i8], ptr %78, i64 %77
   %80 = load ptr, ptr %79, align 8
   %81 = icmp eq ptr %80, null
   br i1 %81, label %85, label %82
@@ -3028,7 +3024,7 @@ define dso_local void @drm_atomic_print_new_state(ptr noundef %0, ptr noundef %1
   %91 = phi i32 [ %71, %73 ], [ %105, %104 ]
   %92 = phi i64 [ 0, %73 ], [ %106, %104 ]
   %93 = load ptr, ptr %74, align 8
-  %.split = getelementptr %struct.__drm_private_objs_state, ptr %93, i64 %92
+  %.split = getelementptr [32 x i8], ptr %93, i64 %92
   %94 = getelementptr i8, ptr %.split, i64 24
   %95 = load ptr, ptr %94, align 8
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
@@ -3309,7 +3305,7 @@ define dso_local i32 @__drm_atomic_helper_set_config(ptr noundef readonly captur
   %109 = phi i32 [ %99, %101 ], [ %128, %127 ]
   %110 = phi i64 [ 0, %101 ], [ %129, %127 ]
   %111 = load ptr, ptr %102, align 8
-  %112 = getelementptr %struct.__drm_connnectors_state, ptr %111, i64 %110
+  %112 = getelementptr [40 x i8], ptr %111, i64 %110
   %113 = load ptr, ptr %112, align 8
   %114 = icmp eq ptr %113, null
   br i1 %114, label %127, label %115
@@ -3364,7 +3360,7 @@ define dso_local i32 @__drm_atomic_helper_set_config(ptr noundef readonly captur
   %145 = phi i64 [ 0, %106 ], [ %134, %132 ]
   %146 = phi i32 [ 0, %106 ], [ %133, %132 ]
   %147 = load ptr, ptr %107, align 8
-  %148 = getelementptr ptr, ptr %147, i64 %145
+  %148 = getelementptr [8 x i8], ptr %147, i64 %145
   %149 = load ptr, ptr %148, align 8
   %150 = call ptr @drm_atomic_get_connector_state(ptr noundef %1, ptr noundef %149)
   %151 = icmp ugt ptr %150, inttoptr (i64 -4096 to ptr)
@@ -3385,7 +3381,7 @@ define dso_local i32 @__drm_atomic_helper_set_config(ptr noundef readonly captur
   %160 = phi ptr [ %138, %142 ], [ %181, %180 ]
   %161 = phi i64 [ 0, %142 ], [ %182, %180 ]
   %162 = load ptr, ptr %143, align 8
-  %163 = getelementptr %struct.__drm_crtcs_state, ptr %162, i64 %161
+  %163 = getelementptr [56 x i8], ptr %162, i64 %161
   %164 = load ptr, ptr %163, align 8
   %165 = icmp eq ptr %164, null
   br i1 %165, label %180, label %166

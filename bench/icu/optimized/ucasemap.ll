@@ -1903,7 +1903,7 @@ _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
 ._crit_edge:                                      ; preds = %158
   %165 = lshr i32 %161, 5
   %166 = zext nneg i32 %165 to i64
-  %167 = getelementptr inbounds nuw i16, ptr %163, i64 %166
+  %167 = getelementptr inbounds nuw [2 x i8], ptr %163, i64 %166
   %168 = load i16, ptr %167, align 2, !tbaa !43
   %169 = zext i16 %168 to i32
   %170 = shl nuw nsw i32 %169, 2
@@ -1921,7 +1921,7 @@ _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
   %178 = lshr i32 %161, 5
   %179 = add nuw nsw i32 %178, %177
   %180 = zext nneg i32 %179 to i64
-  %181 = getelementptr inbounds nuw i16, ptr %163, i64 %180
+  %181 = getelementptr inbounds nuw [2 x i8], ptr %163, i64 %180
   %182 = load i16, ptr %181, align 2, !tbaa !43
   %183 = zext i16 %182 to i32
   %184 = shl nuw nsw i32 %183, 2
@@ -1950,7 +1950,7 @@ _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
 196:                                              ; preds = %192
   %197 = lshr i32 %.7226, 5
   %198 = zext nneg i32 %197 to i64
-  %199 = getelementptr inbounds nuw i16, ptr %163, i64 %198
+  %199 = getelementptr inbounds nuw [2 x i8], ptr %163, i64 %198
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 4160
   %201 = load i16, ptr %200, align 2, !tbaa !43
   %202 = zext i16 %201 to i32
@@ -1958,7 +1958,7 @@ _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
   %204 = and i32 %203, 63
   %205 = add nuw nsw i32 %204, %202
   %206 = zext nneg i32 %205 to i64
-  %207 = getelementptr inbounds nuw i16, ptr %163, i64 %206
+  %207 = getelementptr inbounds nuw [2 x i8], ptr %163, i64 %206
   %208 = load i16, ptr %207, align 2, !tbaa !43
   %209 = zext i16 %208 to i32
   %210 = shl nuw nsw i32 %209, 2
@@ -1969,7 +1969,7 @@ _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
 213:                                              ; preds = %175, %194, %196, %189, %._crit_edge
   %214 = phi i32 [ %172, %._crit_edge ], [ %186, %175 ], [ %191, %189 ], [ %195, %194 ], [ %212, %196 ]
   %215 = sext i32 %214 to i64
-  %216 = getelementptr inbounds i16, ptr %163, i64 %215
+  %216 = getelementptr inbounds [2 x i8], ptr %163, i64 %215
   %217 = load i16, ptr %216, align 2, !tbaa !43
   %218 = zext i16 %217 to i32
   %219 = and i32 %218, 8
@@ -3349,7 +3349,7 @@ _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
 ._crit_edge.i:                                    ; preds = %154
   %161 = lshr i32 %157, 5
   %162 = zext nneg i32 %161 to i64
-  %163 = getelementptr inbounds nuw i16, ptr %159, i64 %162
+  %163 = getelementptr inbounds nuw [2 x i8], ptr %159, i64 %162
   %164 = load i16, ptr %163, align 2, !tbaa !43
   %165 = zext i16 %164 to i32
   %166 = shl nuw nsw i32 %165, 2
@@ -3367,7 +3367,7 @@ _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
   %174 = lshr i32 %157, 5
   %175 = add nuw nsw i32 %174, %173
   %176 = zext nneg i32 %175 to i64
-  %177 = getelementptr inbounds nuw i16, ptr %159, i64 %176
+  %177 = getelementptr inbounds nuw [2 x i8], ptr %159, i64 %176
   %178 = load i16, ptr %177, align 2, !tbaa !43
   %179 = zext i16 %178 to i32
   %180 = shl nuw nsw i32 %179, 2
@@ -3396,7 +3396,7 @@ _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
 192:                                              ; preds = %188
   %193 = lshr i32 %.7215.i, 5
   %194 = zext nneg i32 %193 to i64
-  %195 = getelementptr inbounds nuw i16, ptr %159, i64 %194
+  %195 = getelementptr inbounds nuw [2 x i8], ptr %159, i64 %194
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 4160
   %197 = load i16, ptr %196, align 2, !tbaa !43
   %198 = zext i16 %197 to i32
@@ -3404,7 +3404,7 @@ _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
   %200 = and i32 %199, 63
   %201 = add nuw nsw i32 %200, %198
   %202 = zext nneg i32 %201 to i64
-  %203 = getelementptr inbounds nuw i16, ptr %159, i64 %202
+  %203 = getelementptr inbounds nuw [2 x i8], ptr %159, i64 %202
   %204 = load i16, ptr %203, align 2, !tbaa !43
   %205 = zext i16 %204 to i32
   %206 = shl nuw nsw i32 %205, 2
@@ -3415,7 +3415,7 @@ _ZN6icu_7712ByteSinkUtil15appendUnchangedEPKhiRNS_8ByteSinkEjPNS_5EditsER10UErro
 209:                                              ; preds = %192, %190, %185, %171, %._crit_edge.i
   %210 = phi i32 [ %168, %._crit_edge.i ], [ %182, %171 ], [ %187, %185 ], [ %191, %190 ], [ %208, %192 ]
   %211 = sext i32 %210 to i64
-  %212 = getelementptr inbounds i16, ptr %159, i64 %211
+  %212 = getelementptr inbounds [2 x i8], ptr %159, i64 %211
   %213 = load i16, ptr %212, align 2, !tbaa !43
   %214 = zext i16 %213 to i32
   %215 = and i32 %214, 8

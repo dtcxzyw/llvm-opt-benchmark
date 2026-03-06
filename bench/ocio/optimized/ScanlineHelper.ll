@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.Imath_3_1::half" = type { i16 }
 
 $_ZN19OpenColorIO_v2_5dev21GenericScanlineHelperIhhEC5ENS_8BitDepthERKSt10shared_ptrIKNS_5OpCPUEES2_S8_ = comdat any
 
@@ -594,7 +593,7 @@ _ZN19OpenColorIO_v2_5dev19GetOptimizationModeERKNS_16GenericImageDescE.exit11: ;
   br i1 %60, label %61, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 61:                                               ; preds = %59
-  %62 = getelementptr inbounds nuw float, ptr %51, i64 %47
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %47
   %.not.i.i = icmp eq ptr %50, %62
   br i1 %.not.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %63
 
@@ -811,7 +810,7 @@ _ZN19OpenColorIO_v2_5dev19GetOptimizationModeERKNS_16GenericImageDescE.exit: ; p
   br i1 %36, label %37, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds nuw float, ptr %27, i64 %23
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %23
   %.not.i.i = icmp eq ptr %26, %38
   br i1 %.not.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %39
 
@@ -1409,7 +1408,7 @@ _ZN19OpenColorIO_v2_5dev19GetOptimizationModeERKNS_16GenericImageDescE.exit11: ;
   br i1 %60, label %61, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 61:                                               ; preds = %59
-  %62 = getelementptr inbounds nuw float, ptr %51, i64 %47
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %47
   %.not.i.i = icmp eq ptr %50, %62
   br i1 %.not.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %63
 
@@ -1439,7 +1438,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %57, %59, %61, %63
   br i1 %76, label %77, label %_ZNSt6vectorItSaItEE6resizeEm.exit
 
 77:                                               ; preds = %75
-  %78 = getelementptr inbounds nuw i16, ptr %67, i64 %47
+  %78 = getelementptr inbounds nuw [2 x i8], ptr %67, i64 %47
   %.not.i.i12 = icmp eq ptr %66, %78
   br i1 %.not.i.i12, label %_ZNSt6vectorItSaItEE6resizeEm.exit, label %79
 
@@ -1512,7 +1511,7 @@ _ZN19OpenColorIO_v2_5dev19GetOptimizationModeERKNS_16GenericImageDescE.exit: ; p
   br i1 %36, label %37, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds nuw float, ptr %27, i64 %23
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %23
   %.not.i.i = icmp eq ptr %26, %38
   br i1 %.not.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %39
 
@@ -1544,7 +1543,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %33, %35, %37, %39
   br i1 %53, label %54, label %_ZNSt6vectorItSaItEE6resizeEm.exit
 
 54:                                               ; preds = %52
-  %55 = getelementptr inbounds nuw i16, ptr %44, i64 %23
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %44, i64 %23
   %.not.i.i5 = icmp eq ptr %43, %55
   br i1 %.not.i.i5, label %_ZNSt6vectorItSaItEE6resizeEm.exit, label %56
 
@@ -2130,7 +2129,7 @@ _ZN19OpenColorIO_v2_5dev19GetOptimizationModeERKNS_16GenericImageDescE.exit11: ;
   br i1 %60, label %61, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 61:                                               ; preds = %59
-  %62 = getelementptr inbounds nuw float, ptr %51, i64 %47
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %47
   %.not.i.i = icmp eq ptr %50, %62
   br i1 %.not.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %63
 
@@ -2160,7 +2159,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %57, %59, %61, %63
   br i1 %76, label %77, label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit
 
 77:                                               ; preds = %75
-  %78 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %67, i64 %47
+  %78 = getelementptr inbounds nuw [2 x i8], ptr %67, i64 %47
   %.not.i.i12 = icmp eq ptr %66, %78
   br i1 %.not.i.i12, label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit, label %79
 
@@ -2233,7 +2232,7 @@ _ZN19OpenColorIO_v2_5dev19GetOptimizationModeERKNS_16GenericImageDescE.exit: ; p
   br i1 %36, label %37, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds nuw float, ptr %27, i64 %23
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %23
   %.not.i.i = icmp eq ptr %26, %38
   br i1 %.not.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %39
 
@@ -2265,7 +2264,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %33, %35, %37, %39
   br i1 %53, label %54, label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit
 
 54:                                               ; preds = %52
-  %55 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %44, i64 %23
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %44, i64 %23
   %.not.i.i5 = icmp eq ptr %43, %55
   br i1 %.not.i.i5, label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit, label %56
 
@@ -2851,7 +2850,7 @@ _ZN19OpenColorIO_v2_5dev19GetOptimizationModeERKNS_16GenericImageDescE.exit11: ;
   br i1 %60, label %61, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 61:                                               ; preds = %59
-  %62 = getelementptr inbounds nuw float, ptr %51, i64 %47
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %47
   %.not.i.i = icmp eq ptr %50, %62
   br i1 %.not.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %63
 
@@ -2881,7 +2880,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %57, %59, %61, %63
   br i1 %76, label %77, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit13
 
 77:                                               ; preds = %75
-  %78 = getelementptr inbounds nuw float, ptr %67, i64 %47
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %47
   %.not.i.i12 = icmp eq ptr %66, %78
   br i1 %.not.i.i12, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit13, label %79
 
@@ -2954,7 +2953,7 @@ _ZN19OpenColorIO_v2_5dev19GetOptimizationModeERKNS_16GenericImageDescE.exit: ; p
   br i1 %36, label %37, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds nuw float, ptr %27, i64 %23
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %23
   %.not.i.i = icmp eq ptr %26, %38
   br i1 %.not.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %39
 
@@ -2986,7 +2985,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %33, %35, %37, %39
   br i1 %53, label %54, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit6
 
 54:                                               ; preds = %52
-  %55 = getelementptr inbounds nuw float, ptr %44, i64 %23
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %23
   %.not.i.i5 = icmp eq ptr %43, %55
   br i1 %.not.i.i5, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit6, label %56
 
@@ -3562,7 +3561,7 @@ _ZN19OpenColorIO_v2_5dev19GetOptimizationModeERKNS_16GenericImageDescE.exit11: ;
   br i1 %55, label %56, label %_ZNSt6vectorItSaItEE6resizeEm.exit
 
 56:                                               ; preds = %54
-  %57 = getelementptr inbounds nuw i16, ptr %45, i64 %41
+  %57 = getelementptr inbounds nuw [2 x i8], ptr %45, i64 %41
   %.not.i.i = icmp eq ptr %44, %57
   br i1 %.not.i.i, label %_ZNSt6vectorItSaItEE6resizeEm.exit, label %58
 
@@ -3597,7 +3596,7 @@ _ZNSt6vectorItSaItEE6resizeEm.exit:               ; preds = %56, %54, %_ZN19Open
   br i1 %74, label %75, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 75:                                               ; preds = %73
-  %76 = getelementptr inbounds nuw float, ptr %65, i64 %61
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %61
   %.not.i.i12 = icmp eq ptr %64, %76
   br i1 %.not.i.i12, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %77
 
@@ -3675,7 +3674,7 @@ _ZN19OpenColorIO_v2_5dev19GetOptimizationModeERKNS_16GenericImageDescE.exit: ; p
   br i1 %36, label %37, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds nuw float, ptr %27, i64 %23
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %23
   %.not.i.i = icmp eq ptr %26, %38
   br i1 %.not.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %39
 
@@ -3705,7 +3704,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %33, %35, %37, %39
   br i1 %52, label %53, label %_ZNSt6vectorItSaItEE6resizeEm.exit
 
 53:                                               ; preds = %51
-  %54 = getelementptr inbounds nuw i16, ptr %43, i64 %23
+  %54 = getelementptr inbounds nuw [2 x i8], ptr %43, i64 %23
   %.not.i.i5 = icmp eq ptr %42, %54
   br i1 %.not.i.i5, label %_ZNSt6vectorItSaItEE6resizeEm.exit, label %55
 
@@ -4286,7 +4285,7 @@ _ZN19OpenColorIO_v2_5dev19GetOptimizationModeERKNS_16GenericImageDescE.exit11: ;
   br i1 %55, label %56, label %_ZNSt6vectorItSaItEE6resizeEm.exit
 
 56:                                               ; preds = %54
-  %57 = getelementptr inbounds nuw i16, ptr %45, i64 %41
+  %57 = getelementptr inbounds nuw [2 x i8], ptr %45, i64 %41
   %.not.i.i = icmp eq ptr %44, %57
   br i1 %.not.i.i, label %_ZNSt6vectorItSaItEE6resizeEm.exit, label %58
 
@@ -4321,7 +4320,7 @@ _ZNSt6vectorItSaItEE6resizeEm.exit:               ; preds = %56, %54, %_ZN19Open
   br i1 %74, label %75, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 75:                                               ; preds = %73
-  %76 = getelementptr inbounds nuw float, ptr %65, i64 %61
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %61
   %.not.i.i12 = icmp eq ptr %64, %76
   br i1 %.not.i.i12, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %77
 
@@ -4351,7 +4350,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %71, %73, %75, %77
   br i1 %90, label %91, label %_ZNSt6vectorItSaItEE6resizeEm.exit14
 
 91:                                               ; preds = %89
-  %92 = getelementptr inbounds nuw i16, ptr %81, i64 %61
+  %92 = getelementptr inbounds nuw [2 x i8], ptr %81, i64 %61
   %.not.i.i13 = icmp eq ptr %80, %92
   br i1 %.not.i.i13, label %_ZNSt6vectorItSaItEE6resizeEm.exit14, label %93
 
@@ -4424,7 +4423,7 @@ _ZN19OpenColorIO_v2_5dev19GetOptimizationModeERKNS_16GenericImageDescE.exit: ; p
   br i1 %36, label %37, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds nuw float, ptr %27, i64 %23
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %23
   %.not.i.i = icmp eq ptr %26, %38
   br i1 %.not.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %39
 
@@ -4454,7 +4453,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %33, %35, %37, %39
   br i1 %52, label %53, label %_ZNSt6vectorItSaItEE6resizeEm.exit
 
 53:                                               ; preds = %51
-  %54 = getelementptr inbounds nuw i16, ptr %43, i64 %23
+  %54 = getelementptr inbounds nuw [2 x i8], ptr %43, i64 %23
   %.not.i.i5 = icmp eq ptr %42, %54
   br i1 %.not.i.i5, label %_ZNSt6vectorItSaItEE6resizeEm.exit, label %55
 
@@ -4484,7 +4483,7 @@ _ZNSt6vectorItSaItEE6resizeEm.exit:               ; preds = %49, %51, %53, %55
   br i1 %68, label %69, label %_ZNSt6vectorItSaItEE6resizeEm.exit7
 
 69:                                               ; preds = %67
-  %70 = getelementptr inbounds nuw i16, ptr %59, i64 %23
+  %70 = getelementptr inbounds nuw [2 x i8], ptr %59, i64 %23
   %.not.i.i6 = icmp eq ptr %58, %70
   br i1 %.not.i.i6, label %_ZNSt6vectorItSaItEE6resizeEm.exit7, label %71
 
@@ -5058,7 +5057,7 @@ _ZN19OpenColorIO_v2_5dev19GetOptimizationModeERKNS_16GenericImageDescE.exit11: ;
   br i1 %55, label %56, label %_ZNSt6vectorItSaItEE6resizeEm.exit
 
 56:                                               ; preds = %54
-  %57 = getelementptr inbounds nuw i16, ptr %45, i64 %41
+  %57 = getelementptr inbounds nuw [2 x i8], ptr %45, i64 %41
   %.not.i.i = icmp eq ptr %44, %57
   br i1 %.not.i.i, label %_ZNSt6vectorItSaItEE6resizeEm.exit, label %58
 
@@ -5093,7 +5092,7 @@ _ZNSt6vectorItSaItEE6resizeEm.exit:               ; preds = %56, %54, %_ZN19Open
   br i1 %74, label %75, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 75:                                               ; preds = %73
-  %76 = getelementptr inbounds nuw float, ptr %65, i64 %61
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %61
   %.not.i.i12 = icmp eq ptr %64, %76
   br i1 %.not.i.i12, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %77
 
@@ -5123,7 +5122,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %71, %73, %75, %77
   br i1 %90, label %91, label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit
 
 91:                                               ; preds = %89
-  %92 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %81, i64 %61
+  %92 = getelementptr inbounds nuw [2 x i8], ptr %81, i64 %61
   %.not.i.i13 = icmp eq ptr %80, %92
   br i1 %.not.i.i13, label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit, label %93
 
@@ -5196,7 +5195,7 @@ _ZN19OpenColorIO_v2_5dev19GetOptimizationModeERKNS_16GenericImageDescE.exit: ; p
   br i1 %36, label %37, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds nuw float, ptr %27, i64 %23
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %23
   %.not.i.i = icmp eq ptr %26, %38
   br i1 %.not.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %39
 
@@ -5226,7 +5225,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %33, %35, %37, %39
   br i1 %52, label %53, label %_ZNSt6vectorItSaItEE6resizeEm.exit
 
 53:                                               ; preds = %51
-  %54 = getelementptr inbounds nuw i16, ptr %43, i64 %23
+  %54 = getelementptr inbounds nuw [2 x i8], ptr %43, i64 %23
   %.not.i.i5 = icmp eq ptr %42, %54
   br i1 %.not.i.i5, label %_ZNSt6vectorItSaItEE6resizeEm.exit, label %55
 
@@ -5256,7 +5255,7 @@ _ZNSt6vectorItSaItEE6resizeEm.exit:               ; preds = %49, %51, %53, %55
   br i1 %68, label %69, label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit
 
 69:                                               ; preds = %67
-  %70 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %59, i64 %23
+  %70 = getelementptr inbounds nuw [2 x i8], ptr %59, i64 %23
   %.not.i.i6 = icmp eq ptr %58, %70
   br i1 %.not.i.i6, label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit, label %71
 
@@ -5830,7 +5829,7 @@ _ZN19OpenColorIO_v2_5dev19GetOptimizationModeERKNS_16GenericImageDescE.exit11: ;
   br i1 %55, label %56, label %_ZNSt6vectorItSaItEE6resizeEm.exit
 
 56:                                               ; preds = %54
-  %57 = getelementptr inbounds nuw i16, ptr %45, i64 %41
+  %57 = getelementptr inbounds nuw [2 x i8], ptr %45, i64 %41
   %.not.i.i = icmp eq ptr %44, %57
   br i1 %.not.i.i, label %_ZNSt6vectorItSaItEE6resizeEm.exit, label %58
 
@@ -5865,7 +5864,7 @@ _ZNSt6vectorItSaItEE6resizeEm.exit:               ; preds = %56, %54, %_ZN19Open
   br i1 %74, label %75, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 75:                                               ; preds = %73
-  %76 = getelementptr inbounds nuw float, ptr %65, i64 %61
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %61
   %.not.i.i12 = icmp eq ptr %64, %76
   br i1 %.not.i.i12, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %77
 
@@ -5895,7 +5894,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %71, %73, %75, %77
   br i1 %90, label %91, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit14
 
 91:                                               ; preds = %89
-  %92 = getelementptr inbounds nuw float, ptr %81, i64 %61
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %81, i64 %61
   %.not.i.i13 = icmp eq ptr %80, %92
   br i1 %.not.i.i13, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit14, label %93
 
@@ -5968,7 +5967,7 @@ _ZN19OpenColorIO_v2_5dev19GetOptimizationModeERKNS_16GenericImageDescE.exit: ; p
   br i1 %36, label %37, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds nuw float, ptr %27, i64 %23
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %23
   %.not.i.i = icmp eq ptr %26, %38
   br i1 %.not.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %39
 
@@ -5998,7 +5997,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %33, %35, %37, %39
   br i1 %52, label %53, label %_ZNSt6vectorItSaItEE6resizeEm.exit
 
 53:                                               ; preds = %51
-  %54 = getelementptr inbounds nuw i16, ptr %43, i64 %23
+  %54 = getelementptr inbounds nuw [2 x i8], ptr %43, i64 %23
   %.not.i.i5 = icmp eq ptr %42, %54
   br i1 %.not.i.i5, label %_ZNSt6vectorItSaItEE6resizeEm.exit, label %55
 
@@ -6028,7 +6027,7 @@ _ZNSt6vectorItSaItEE6resizeEm.exit:               ; preds = %49, %51, %53, %55
   br i1 %68, label %69, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit7
 
 69:                                               ; preds = %67
-  %70 = getelementptr inbounds nuw float, ptr %59, i64 %23
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %23
   %.not.i.i6 = icmp eq ptr %58, %70
   br i1 %.not.i.i6, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit7, label %71
 
@@ -6602,7 +6601,7 @@ _ZN19OpenColorIO_v2_5dev19GetOptimizationModeERKNS_16GenericImageDescE.exit11: ;
   br i1 %55, label %56, label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit
 
 56:                                               ; preds = %54
-  %57 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %45, i64 %41
+  %57 = getelementptr inbounds nuw [2 x i8], ptr %45, i64 %41
   %.not.i.i = icmp eq ptr %44, %57
   br i1 %.not.i.i, label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit, label %58
 
@@ -6637,7 +6636,7 @@ _ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit: ; preds = %56, %54, %_ZN19
   br i1 %74, label %75, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 75:                                               ; preds = %73
-  %76 = getelementptr inbounds nuw float, ptr %65, i64 %61
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %61
   %.not.i.i12 = icmp eq ptr %64, %76
   br i1 %.not.i.i12, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %77
 
@@ -6715,7 +6714,7 @@ _ZN19OpenColorIO_v2_5dev19GetOptimizationModeERKNS_16GenericImageDescE.exit: ; p
   br i1 %36, label %37, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds nuw float, ptr %27, i64 %23
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %23
   %.not.i.i = icmp eq ptr %26, %38
   br i1 %.not.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %39
 
@@ -6745,7 +6744,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %33, %35, %37, %39
   br i1 %52, label %53, label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit
 
 53:                                               ; preds = %51
-  %54 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %43, i64 %23
+  %54 = getelementptr inbounds nuw [2 x i8], ptr %43, i64 %23
   %.not.i.i5 = icmp eq ptr %42, %54
   br i1 %.not.i.i5, label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit, label %55
 
@@ -7326,7 +7325,7 @@ _ZN19OpenColorIO_v2_5dev19GetOptimizationModeERKNS_16GenericImageDescE.exit11: ;
   br i1 %55, label %56, label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit
 
 56:                                               ; preds = %54
-  %57 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %45, i64 %41
+  %57 = getelementptr inbounds nuw [2 x i8], ptr %45, i64 %41
   %.not.i.i = icmp eq ptr %44, %57
   br i1 %.not.i.i, label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit, label %58
 
@@ -7361,7 +7360,7 @@ _ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit: ; preds = %56, %54, %_ZN19
   br i1 %74, label %75, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 75:                                               ; preds = %73
-  %76 = getelementptr inbounds nuw float, ptr %65, i64 %61
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %61
   %.not.i.i12 = icmp eq ptr %64, %76
   br i1 %.not.i.i12, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %77
 
@@ -7391,7 +7390,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %71, %73, %75, %77
   br i1 %90, label %91, label %_ZNSt6vectorItSaItEE6resizeEm.exit
 
 91:                                               ; preds = %89
-  %92 = getelementptr inbounds nuw i16, ptr %81, i64 %61
+  %92 = getelementptr inbounds nuw [2 x i8], ptr %81, i64 %61
   %.not.i.i13 = icmp eq ptr %80, %92
   br i1 %.not.i.i13, label %_ZNSt6vectorItSaItEE6resizeEm.exit, label %93
 
@@ -7464,7 +7463,7 @@ _ZN19OpenColorIO_v2_5dev19GetOptimizationModeERKNS_16GenericImageDescE.exit: ; p
   br i1 %36, label %37, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds nuw float, ptr %27, i64 %23
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %23
   %.not.i.i = icmp eq ptr %26, %38
   br i1 %.not.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %39
 
@@ -7494,7 +7493,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %33, %35, %37, %39
   br i1 %52, label %53, label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit
 
 53:                                               ; preds = %51
-  %54 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %43, i64 %23
+  %54 = getelementptr inbounds nuw [2 x i8], ptr %43, i64 %23
   %.not.i.i5 = icmp eq ptr %42, %54
   br i1 %.not.i.i5, label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit, label %55
 
@@ -7524,7 +7523,7 @@ _ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit: ; preds = %49, %51, %53, %
   br i1 %68, label %69, label %_ZNSt6vectorItSaItEE6resizeEm.exit
 
 69:                                               ; preds = %67
-  %70 = getelementptr inbounds nuw i16, ptr %59, i64 %23
+  %70 = getelementptr inbounds nuw [2 x i8], ptr %59, i64 %23
   %.not.i.i6 = icmp eq ptr %58, %70
   br i1 %.not.i.i6, label %_ZNSt6vectorItSaItEE6resizeEm.exit, label %71
 
@@ -8098,7 +8097,7 @@ _ZN19OpenColorIO_v2_5dev19GetOptimizationModeERKNS_16GenericImageDescE.exit11: ;
   br i1 %55, label %56, label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit
 
 56:                                               ; preds = %54
-  %57 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %45, i64 %41
+  %57 = getelementptr inbounds nuw [2 x i8], ptr %45, i64 %41
   %.not.i.i = icmp eq ptr %44, %57
   br i1 %.not.i.i, label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit, label %58
 
@@ -8133,7 +8132,7 @@ _ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit: ; preds = %56, %54, %_ZN19
   br i1 %74, label %75, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 75:                                               ; preds = %73
-  %76 = getelementptr inbounds nuw float, ptr %65, i64 %61
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %61
   %.not.i.i12 = icmp eq ptr %64, %76
   br i1 %.not.i.i12, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %77
 
@@ -8163,7 +8162,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %71, %73, %75, %77
   br i1 %90, label %91, label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit14
 
 91:                                               ; preds = %89
-  %92 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %81, i64 %61
+  %92 = getelementptr inbounds nuw [2 x i8], ptr %81, i64 %61
   %.not.i.i13 = icmp eq ptr %80, %92
   br i1 %.not.i.i13, label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit14, label %93
 
@@ -8236,7 +8235,7 @@ _ZN19OpenColorIO_v2_5dev19GetOptimizationModeERKNS_16GenericImageDescE.exit: ; p
   br i1 %36, label %37, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds nuw float, ptr %27, i64 %23
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %23
   %.not.i.i = icmp eq ptr %26, %38
   br i1 %.not.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %39
 
@@ -8266,7 +8265,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %33, %35, %37, %39
   br i1 %52, label %53, label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit
 
 53:                                               ; preds = %51
-  %54 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %43, i64 %23
+  %54 = getelementptr inbounds nuw [2 x i8], ptr %43, i64 %23
   %.not.i.i5 = icmp eq ptr %42, %54
   br i1 %.not.i.i5, label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit, label %55
 
@@ -8296,7 +8295,7 @@ _ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit: ; preds = %49, %51, %53, %
   br i1 %68, label %69, label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit7
 
 69:                                               ; preds = %67
-  %70 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %59, i64 %23
+  %70 = getelementptr inbounds nuw [2 x i8], ptr %59, i64 %23
   %.not.i.i6 = icmp eq ptr %58, %70
   br i1 %.not.i.i6, label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit7, label %71
 
@@ -8870,7 +8869,7 @@ _ZN19OpenColorIO_v2_5dev19GetOptimizationModeERKNS_16GenericImageDescE.exit11: ;
   br i1 %55, label %56, label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit
 
 56:                                               ; preds = %54
-  %57 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %45, i64 %41
+  %57 = getelementptr inbounds nuw [2 x i8], ptr %45, i64 %41
   %.not.i.i = icmp eq ptr %44, %57
   br i1 %.not.i.i, label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit, label %58
 
@@ -8905,7 +8904,7 @@ _ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit: ; preds = %56, %54, %_ZN19
   br i1 %74, label %75, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 75:                                               ; preds = %73
-  %76 = getelementptr inbounds nuw float, ptr %65, i64 %61
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %61
   %.not.i.i12 = icmp eq ptr %64, %76
   br i1 %.not.i.i12, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %77
 
@@ -8935,7 +8934,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %71, %73, %75, %77
   br i1 %90, label %91, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit14
 
 91:                                               ; preds = %89
-  %92 = getelementptr inbounds nuw float, ptr %81, i64 %61
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %81, i64 %61
   %.not.i.i13 = icmp eq ptr %80, %92
   br i1 %.not.i.i13, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit14, label %93
 
@@ -9008,7 +9007,7 @@ _ZN19OpenColorIO_v2_5dev19GetOptimizationModeERKNS_16GenericImageDescE.exit: ; p
   br i1 %36, label %37, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds nuw float, ptr %27, i64 %23
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %23
   %.not.i.i = icmp eq ptr %26, %38
   br i1 %.not.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %39
 
@@ -9038,7 +9037,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %33, %35, %37, %39
   br i1 %52, label %53, label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit
 
 53:                                               ; preds = %51
-  %54 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %43, i64 %23
+  %54 = getelementptr inbounds nuw [2 x i8], ptr %43, i64 %23
   %.not.i.i5 = icmp eq ptr %42, %54
   br i1 %.not.i.i5, label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit, label %55
 
@@ -9068,7 +9067,7 @@ _ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit: ; preds = %49, %51, %53, %
   br i1 %68, label %69, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit7
 
 69:                                               ; preds = %67
-  %70 = getelementptr inbounds nuw float, ptr %59, i64 %23
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %23
   %.not.i.i6 = icmp eq ptr %58, %70
   br i1 %.not.i.i6, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit7, label %71
 
@@ -9642,7 +9641,7 @@ _ZN19OpenColorIO_v2_5dev19GetOptimizationModeERKNS_16GenericImageDescE.exit11: ;
   br i1 %55, label %56, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 56:                                               ; preds = %54
-  %57 = getelementptr inbounds nuw float, ptr %45, i64 %41
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %41
   %.not.i.i = icmp eq ptr %44, %57
   br i1 %.not.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %58
 
@@ -9677,7 +9676,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %56, %54, %_ZN19Open
   br i1 %74, label %75, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit13
 
 75:                                               ; preds = %73
-  %76 = getelementptr inbounds nuw float, ptr %65, i64 %61
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %61
   %.not.i.i12 = icmp eq ptr %64, %76
   br i1 %.not.i.i12, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit13, label %77
 
@@ -9755,7 +9754,7 @@ _ZN19OpenColorIO_v2_5dev19GetOptimizationModeERKNS_16GenericImageDescE.exit: ; p
   br i1 %36, label %37, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds nuw float, ptr %27, i64 %23
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %23
   %.not.i.i = icmp eq ptr %26, %38
   br i1 %.not.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %39
 
@@ -9785,7 +9784,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %33, %35, %37, %39
   br i1 %52, label %53, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit6
 
 53:                                               ; preds = %51
-  %54 = getelementptr inbounds nuw float, ptr %43, i64 %23
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %23
   %.not.i.i5 = icmp eq ptr %42, %54
   br i1 %.not.i.i5, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit6, label %55
 
@@ -10366,7 +10365,7 @@ _ZN19OpenColorIO_v2_5dev19GetOptimizationModeERKNS_16GenericImageDescE.exit11: ;
   br i1 %55, label %56, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 56:                                               ; preds = %54
-  %57 = getelementptr inbounds nuw float, ptr %45, i64 %41
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %41
   %.not.i.i = icmp eq ptr %44, %57
   br i1 %.not.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %58
 
@@ -10401,7 +10400,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %56, %54, %_ZN19Open
   br i1 %74, label %75, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit13
 
 75:                                               ; preds = %73
-  %76 = getelementptr inbounds nuw float, ptr %65, i64 %61
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %61
   %.not.i.i12 = icmp eq ptr %64, %76
   br i1 %.not.i.i12, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit13, label %77
 
@@ -10431,7 +10430,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit13:             ; preds = %71, %73, %75, %77
   br i1 %90, label %91, label %_ZNSt6vectorItSaItEE6resizeEm.exit
 
 91:                                               ; preds = %89
-  %92 = getelementptr inbounds nuw i16, ptr %81, i64 %61
+  %92 = getelementptr inbounds nuw [2 x i8], ptr %81, i64 %61
   %.not.i.i14 = icmp eq ptr %80, %92
   br i1 %.not.i.i14, label %_ZNSt6vectorItSaItEE6resizeEm.exit, label %93
 
@@ -10504,7 +10503,7 @@ _ZN19OpenColorIO_v2_5dev19GetOptimizationModeERKNS_16GenericImageDescE.exit: ; p
   br i1 %36, label %37, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds nuw float, ptr %27, i64 %23
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %23
   %.not.i.i = icmp eq ptr %26, %38
   br i1 %.not.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %39
 
@@ -10534,7 +10533,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %33, %35, %37, %39
   br i1 %52, label %53, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit6
 
 53:                                               ; preds = %51
-  %54 = getelementptr inbounds nuw float, ptr %43, i64 %23
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %23
   %.not.i.i5 = icmp eq ptr %42, %54
   br i1 %.not.i.i5, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit6, label %55
 
@@ -10564,7 +10563,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit6:              ; preds = %49, %51, %53, %55
   br i1 %68, label %69, label %_ZNSt6vectorItSaItEE6resizeEm.exit
 
 69:                                               ; preds = %67
-  %70 = getelementptr inbounds nuw i16, ptr %59, i64 %23
+  %70 = getelementptr inbounds nuw [2 x i8], ptr %59, i64 %23
   %.not.i.i7 = icmp eq ptr %58, %70
   br i1 %.not.i.i7, label %_ZNSt6vectorItSaItEE6resizeEm.exit, label %71
 
@@ -11138,7 +11137,7 @@ _ZN19OpenColorIO_v2_5dev19GetOptimizationModeERKNS_16GenericImageDescE.exit11: ;
   br i1 %55, label %56, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 56:                                               ; preds = %54
-  %57 = getelementptr inbounds nuw float, ptr %45, i64 %41
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %41
   %.not.i.i = icmp eq ptr %44, %57
   br i1 %.not.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %58
 
@@ -11173,7 +11172,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %56, %54, %_ZN19Open
   br i1 %74, label %75, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit13
 
 75:                                               ; preds = %73
-  %76 = getelementptr inbounds nuw float, ptr %65, i64 %61
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %61
   %.not.i.i12 = icmp eq ptr %64, %76
   br i1 %.not.i.i12, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit13, label %77
 
@@ -11203,7 +11202,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit13:             ; preds = %71, %73, %75, %77
   br i1 %90, label %91, label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit
 
 91:                                               ; preds = %89
-  %92 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %81, i64 %61
+  %92 = getelementptr inbounds nuw [2 x i8], ptr %81, i64 %61
   %.not.i.i14 = icmp eq ptr %80, %92
   br i1 %.not.i.i14, label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit, label %93
 
@@ -11276,7 +11275,7 @@ _ZN19OpenColorIO_v2_5dev19GetOptimizationModeERKNS_16GenericImageDescE.exit: ; p
   br i1 %36, label %37, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds nuw float, ptr %27, i64 %23
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %23
   %.not.i.i = icmp eq ptr %26, %38
   br i1 %.not.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %39
 
@@ -11306,7 +11305,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %33, %35, %37, %39
   br i1 %52, label %53, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit6
 
 53:                                               ; preds = %51
-  %54 = getelementptr inbounds nuw float, ptr %43, i64 %23
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %23
   %.not.i.i5 = icmp eq ptr %42, %54
   br i1 %.not.i.i5, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit6, label %55
 
@@ -11336,7 +11335,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit6:              ; preds = %49, %51, %53, %55
   br i1 %68, label %69, label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit
 
 69:                                               ; preds = %67
-  %70 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %59, i64 %23
+  %70 = getelementptr inbounds nuw [2 x i8], ptr %59, i64 %23
   %.not.i.i7 = icmp eq ptr %58, %70
   br i1 %.not.i.i7, label %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE6resizeEm.exit, label %71
 
@@ -11910,7 +11909,7 @@ _ZN19OpenColorIO_v2_5dev19GetOptimizationModeERKNS_16GenericImageDescE.exit11: ;
   br i1 %55, label %56, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 56:                                               ; preds = %54
-  %57 = getelementptr inbounds nuw float, ptr %45, i64 %41
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %41
   %.not.i.i = icmp eq ptr %44, %57
   br i1 %.not.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %58
 
@@ -11945,7 +11944,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %56, %54, %_ZN19Open
   br i1 %74, label %75, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit13
 
 75:                                               ; preds = %73
-  %76 = getelementptr inbounds nuw float, ptr %65, i64 %61
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %61
   %.not.i.i12 = icmp eq ptr %64, %76
   br i1 %.not.i.i12, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit13, label %77
 
@@ -11975,7 +11974,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit13:             ; preds = %71, %73, %75, %77
   br i1 %90, label %91, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit15
 
 91:                                               ; preds = %89
-  %92 = getelementptr inbounds nuw float, ptr %81, i64 %61
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %81, i64 %61
   %.not.i.i14 = icmp eq ptr %80, %92
   br i1 %.not.i.i14, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit15, label %93
 
@@ -12048,7 +12047,7 @@ _ZN19OpenColorIO_v2_5dev19GetOptimizationModeERKNS_16GenericImageDescE.exit: ; p
   br i1 %36, label %37, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds nuw float, ptr %27, i64 %23
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %23
   %.not.i.i = icmp eq ptr %26, %38
   br i1 %.not.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %39
 
@@ -12078,7 +12077,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %33, %35, %37, %39
   br i1 %52, label %53, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit6
 
 53:                                               ; preds = %51
-  %54 = getelementptr inbounds nuw float, ptr %43, i64 %23
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %23
   %.not.i.i5 = icmp eq ptr %42, %54
   br i1 %.not.i.i5, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit6, label %55
 
@@ -12108,7 +12107,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit6:              ; preds = %49, %51, %53, %55
   br i1 %68, label %69, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit8
 
 69:                                               ; preds = %67
-  %70 = getelementptr inbounds nuw float, ptr %59, i64 %23
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %23
   %.not.i.i7 = icmp eq ptr %58, %70
   br i1 %.not.i.i7, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit8, label %71
 
@@ -12649,9 +12648,9 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36: ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !47
-  %39 = getelementptr inbounds nuw float, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !46
-  %40 = getelementptr inbounds nuw float, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !51
   br label %41
 
@@ -12748,9 +12747,9 @@ _ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseItSaItEE13_M_deallocateEPtm.exit36: ; preds = %_ZNSt6vectorItSaItEE11_S_relocateEPtS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !80
-  %39 = getelementptr inbounds nuw i16, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [2 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !79
-  %40 = getelementptr inbounds nuw i16, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !81
   br label %41
 
@@ -12847,9 +12846,9 @@ _ZNSt6vectorIN9Imath_3_14halfESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: ; preds
 
 _ZNSt12_Vector_baseIN9Imath_3_14halfESaIS1_EE13_M_deallocateEPS1_m.exit36: ; preds = %_ZNSt6vectorIN9Imath_3_14halfESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !103
-  %39 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [2 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !102
-  %40 = getelementptr inbounds nuw %"class.Imath_3_1::half", ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !104
   br label %41
 

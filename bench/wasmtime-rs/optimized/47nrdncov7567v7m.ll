@@ -2428,7 +2428,7 @@ define hidden void @"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$12remo
   unreachable
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17h4eb800db7c4e5a67E.exit": ; preds = %18
-  %20 = getelementptr inbounds nuw { { { { ptr, i64 } } } }, ptr %6, i64 %12
+  %20 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %12
   %21 = load ptr, ptr %20, align 8, !noalias !518, !nonnull !5, !align !116, !noundef !5
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %23 = load i64, ptr %22, align 8, !noalias !518, !noundef !5
@@ -2452,7 +2452,7 @@ define hidden void @"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$12remo
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17heb437758ffe5f4c5E.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6remove17h4eb800db7c4e5a67E.exit"
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %33 = load ptr, ptr %32, align 8, !alias.scope !521, !noalias !524, !nonnull !5, !noundef !5
-  %34 = getelementptr inbounds nuw { { i128, [2 x i64] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i8, i8, [6 x i8] }, ptr %33, i64 %12
+  %34 = getelementptr inbounds nuw [112 x i8], ptr %33, i64 %12
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %.sroa.5, ptr noundef nonnull align 16 dereferenceable(112) %34, i64 112, i1 false)
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 112
@@ -2479,7 +2479,7 @@ define hidden noundef align 8 dereferenceable_or_null(16) ptr @"_ZN12clap_builde
   %4 = load ptr, ptr %3, align 8, !nonnull !5, !noundef !5
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !5
-  %7 = getelementptr inbounds i128, ptr %4, i64 %6
+  %7 = getelementptr inbounds [16 x i8], ptr %4, i64 %6
   %.val18 = load i128, ptr %1, align 16
   br label %8
 
@@ -2509,7 +2509,7 @@ define hidden noundef align 8 dereferenceable_or_null(16) ptr @"_ZN12clap_builde
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load ptr, ptr %19, align 8, !nonnull !5, !noundef !5
-  %21 = getelementptr inbounds nuw { { { { { ptr, ptr } }, {} }, {} } }, ptr %20, i64 %.sroa.8.0
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %.sroa.8.0
   br label %.loopexit
 
 22:                                               ; preds = %14
@@ -2530,7 +2530,7 @@ define hidden void @"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$6inser
   %11 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load i64, ptr %12, align 8, !noundef !5
-  %14 = getelementptr inbounds { { { { ptr, i64 } } } }, ptr %11, i64 %13
+  %14 = getelementptr inbounds [16 x i8], ptr %11, i64 %13
   br label %15
 
 15:                                               ; preds = %"_ZN67_$LT$clap_builder..util..id..Id$u20$as$u20$core..cmp..PartialEq$GT$2eq17h9a3bd1ea7e078b23E.exit", %5
@@ -2561,7 +2561,7 @@ define hidden void @"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$6inser
 23:                                               ; preds = %.noexc.i, %17
   %24 = phi ptr [ %.pre, %.noexc.i ], [ %11, %17 ]
   %25 = phi i64 [ %.pre.i.i, %.noexc.i ], [ %13, %17 ]
-  %26 = getelementptr inbounds { { { { ptr, i64 } } } }, ptr %24, i64 %25
+  %26 = getelementptr inbounds [16 x i8], ptr %24, i64 %25
   store ptr %18, ptr %26, align 8, !noalias !536
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store i64 %19, ptr %27, align 8, !noalias !541
@@ -2617,7 +2617,7 @@ define hidden void @"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$6inser
   %47 = phi i64 [ %.pre.i1.i, %._crit_edge.i.i ], [ %32, %23 ]
   %48 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %49 = load ptr, ptr %48, align 8, !alias.scope !543, !noalias !546, !nonnull !5, !noundef !5
-  %50 = getelementptr inbounds { { i128, [2 x i64] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i8, i8, [6 x i8] }, ptr %49, i64 %47
+  %50 = getelementptr inbounds [112 x i8], ptr %49, i64 %47
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %50, ptr noundef nonnull align 16 dereferenceable(112) %4, i64 112, i1 false)
   %51 = load i64, ptr %31, align 8, !alias.scope !543, !noalias !546, !noundef !5
   %52 = add i64 %51, 1
@@ -2651,7 +2651,7 @@ define hidden void @"_ZN12clap_builder4util8flat_map20FlatMap$LT$K$C$V$GT$6inser
 62:                                               ; preds = %56
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %64 = load ptr, ptr %63, align 8, !nonnull !5, !noundef !5
-  %65 = getelementptr inbounds nuw { { i128, [2 x i64] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, i8, i8, [6 x i8] }, ptr %64, i64 %.sroa.8.0
+  %65 = getelementptr inbounds nuw [112 x i8], ptr %64, i64 %.sroa.8.0
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %.sroa.0.i, ptr noundef nonnull align 16 dereferenceable(112) %65, i64 112, i1 false)
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(112) %65, ptr noundef nonnull align 16 dereferenceable(112) %4, i64 112, i1 false)

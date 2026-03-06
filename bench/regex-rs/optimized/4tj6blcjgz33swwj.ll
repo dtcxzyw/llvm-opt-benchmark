@@ -141,7 +141,7 @@ define hidden void @_ZN14regex_automata4meta5regex7Builder10build_many17h6e95316
   %55 = extractvalue { i64, i64 } %51, 1
   %56 = load ptr, ptr %.sroa.2.0..sroa_idx, align 8, !nonnull !9, !noundef !9
   %57 = load i64, ptr %.sroa.3.0..sroa_idx, align 8, !noundef !9
-  %58 = getelementptr inbounds { i64, ptr }, ptr %56, i64 %57
+  %58 = getelementptr inbounds [16 x i8], ptr %56, i64 %57
   %.sroa.4118.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 48
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.4118.0..sroa_idx, i8 0, i64 24, i1 false)
@@ -362,7 +362,7 @@ define hidden void @_ZN14regex_automata4meta5regex7Builder10build_many17h6e95316
   %157 = getelementptr inbounds nuw i8, ptr %23, i64 105
   store i8 %.sroa.518.0.i.i, ptr %157, align 1, !alias.scope !30, !noalias !53
   call void @llvm.lifetime.start.p0(ptr nonnull %22), !noalias !28
-  %158 = getelementptr inbounds { { i64, [4 x i64] }, ptr }, ptr %79, i64 %80
+  %158 = getelementptr inbounds [48 x i8], ptr %79, i64 %80
   invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17ha899343e308f32b2E.llvm.615997076723623618"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %22, ptr noundef nonnull readonly align 8 %79, ptr noundef nonnull readonly %158)
           to label %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17hffc5956967af5192E.exit.i" unwind label %251, !noalias !54
 
@@ -867,7 +867,7 @@ define hidden void @_ZN14regex_automata4meta5regex7Builder10build_many17h6e95316
 301:                                              ; preds = %._crit_edge.i, %"_ZN4core3ptr61drop_in_place$LT$regex_syntax..hir..translate..Translator$GT$17h3554cccd2cd93bbfE.exit"
   %302 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %293, %"_ZN4core3ptr61drop_in_place$LT$regex_syntax..hir..translate..Translator$GT$17h3554cccd2cd93bbfE.exit" ]
   %303 = load ptr, ptr %.sroa.22.0..sroa_idx, align 8, !alias.scope !142, !noalias !145, !nonnull !9, !noundef !9
-  %304 = getelementptr inbounds { { i64, [4 x i64] }, ptr }, ptr %303, i64 %302
+  %304 = getelementptr inbounds [48 x i8], ptr %303, i64 %302
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %304, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.725, i64 48, i1 false)
   %305 = add i64 %302, 1
   store i64 %305, ptr %.sroa.33.0..sroa_idx, align 8, !alias.scope !142, !noalias !145
@@ -1035,7 +1035,7 @@ define hidden void @_ZN14regex_automata4meta5regex7Builder10build_many17h6e95316
 347:                                              ; preds = %._crit_edge.i107, %338
   %348 = phi i64 [ %.pre.i108, %._crit_edge.i107 ], [ %339, %338 ]
   %349 = load ptr, ptr %.sroa.2.0..sroa_idx, align 8, !alias.scope !165, !nonnull !9, !noundef !9
-  %350 = getelementptr inbounds { i64, ptr }, ptr %349, i64 %348
+  %350 = getelementptr inbounds [16 x i8], ptr %349, i64 %348
   store i64 %336, ptr %350, align 8
   %351 = getelementptr inbounds nuw i8, ptr %350, i64 8
   store ptr %335, ptr %351, align 8

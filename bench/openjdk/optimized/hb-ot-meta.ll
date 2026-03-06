@@ -3,12 +3,6 @@ source_filename = "bench/openjdk/original/hb-ot-meta.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.OT::DataMap" = type { %"struct.OT::Tag", %"struct.OT::OffsetTo", %"struct.OT::IntType" }
-%"struct.OT::Tag" = type { %"struct.OT::IntType" }
-%"struct.OT::OffsetTo" = type { %"struct.OT::Offset" }
-%"struct.OT::Offset" = type { %"struct.OT::IntType" }
-%"struct.OT::IntType" = type { %struct.BEInt }
-%struct.BEInt = type { [4 x i8] }
 %struct.hb_sanitize_context_t = type <{ %struct.hb_dispatch_context_t, [4 x i8], ptr, ptr, i32, i32, i32, i32, i8, [3 x i8], i32, ptr, i32, i8, i8, [2 x i8] }>
 %struct.hb_dispatch_context_t = type { i32 }
 
@@ -141,7 +135,7 @@ _ZNK10hb_array_tIKN2OT7DataMapEE9sub_arrayEjPj.exit: ; preds = %4
 .lr.ph.i.i:                                       ; preds = %_ZNK10hb_array_tIKN2OT7DataMapEE9sub_arrayEjPj.exit
   %29 = getelementptr inbounds nuw i8, ptr %spec.select.i.i1.i.i, i64 16
   %30 = zext i32 %1 to i64
-  %31 = getelementptr inbounds nuw %"struct.OT::DataMap", ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [12 x i8], ptr %29, i64 %30
   br label %_ZN9hb_iter_tI13hb_map_iter_tIS0_I10hb_array_tIKN2OT7DataMapEEMS3_KFjvEL24hb_function_sortedness_t0ELPv0EEZNKS2_4meta13accelerator_t11get_entriesEjPjP16hb_ot_meta_tag_tEUljE_LS8_0ELS9_0EESE_EdeEv.exit.us.i.i
 
 _ZN9hb_iter_tI13hb_map_iter_tIS0_I10hb_array_tIKN2OT7DataMapEEMS3_KFjvEL24hb_function_sortedness_t0ELPv0EEZNKS2_4meta13accelerator_t11get_entriesEjPjP16hb_ot_meta_tag_tEUljE_LS8_0ELS9_0EESE_EdeEv.exit.us.i.i: ; preds = %.lr.ph.i.i, %_ZNR9hb_iter_tI13hb_map_iter_tIS0_I10hb_array_tIKN2OT7DataMapEEMS3_KFjvEL24hb_function_sortedness_t0ELPv0EEZNKS2_4meta13accelerator_t11get_entriesEjPjP16hb_ot_meta_tag_tEUljE_LS8_0ELS9_0EESE_EppEv.exit.us.i.i
@@ -326,7 +320,7 @@ define linkonce_odr hidden noundef ptr @_ZNK2OT4meta13accelerator_t15reference_e
 
 27:                                               ; preds = %47, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %47 ]
-  %28 = getelementptr inbounds nuw %"struct.OT::DataMap", ptr %10, i64 %indvars.iv.i.i.i
+  %28 = getelementptr inbounds nuw [12 x i8], ptr %10, i64 %indvars.iv.i.i.i
   %29 = load i8, ptr %28, align 1
   %30 = zext i8 %29 to i32
   %31 = shl nuw i32 %30, 24
@@ -354,7 +348,7 @@ define linkonce_odr hidden noundef ptr @_ZNK2OT4meta13accelerator_t15reference_e
 
 48:                                               ; preds = %27
   %49 = and i64 %indvars.iv.i.i.i, 4294967295
-  %50 = getelementptr inbounds nuw %"struct.OT::DataMap", ptr %10, i64 %49
+  %50 = getelementptr inbounds nuw [12 x i8], ptr %10, i64 %49
   br label %_ZNK2OT7ArrayOfINS_7DataMapENS_7IntTypeIjLj4EEEE7lsearchIjEERKS1_RKT_S7_.exit
 
 _ZNK2OT7ArrayOfINS_7DataMapENS_7IntTypeIjLj4EEEE7lsearchIjEERKS1_RKT_S7_.exit: ; preds = %47, %2, %48
@@ -718,7 +712,7 @@ _ZNK2OT7ArrayOfINS_7DataMapENS_7IntTypeIjLj4EEEE16sanitize_shallowEP21hb_sanitiz
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %78
   %79 = phi i32 [ %61, %.lr.ph.preheader ], [ %128, %78 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %78 ]
-  %80 = getelementptr inbounds nuw %"struct.OT::DataMap", ptr %3, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw [12 x i8], ptr %3, i64 %indvars.iv
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 12
   %82 = ptrtoint ptr %81 to i64
   %83 = sub i64 %82, %7

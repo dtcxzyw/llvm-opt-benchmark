@@ -218,7 +218,7 @@ filter_decrypt.exit.thread.i:                     ; preds = %50
   %78 = phi i32 [ %59, %.lr.ph.i ], [ %560, %567 ]
   %79 = phi ptr [ %60, %.lr.ph.i ], [ %558, %567 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %567 ]
-  %80 = getelementptr inbounds nuw i32, ptr %62, i64 %indvars.iv.i
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %indvars.iv.i
   %81 = load i32, ptr %80, align 4, !tbaa !3
   switch i32 %81, label %557 [
     i32 4, label %82
@@ -395,7 +395,7 @@ select.unfold.thread.i.i:                         ; preds = %130
   %147 = tail call ptr @__ctype_b_loc() #12
   %148 = load ptr, ptr %147, align 8, !tbaa !30
   %149 = zext nneg i32 %.076.i.i to i64
-  %150 = getelementptr inbounds nuw i16, ptr %148, i64 %149
+  %150 = getelementptr inbounds nuw [2 x i8], ptr %148, i64 %149
   %151 = load i16, ptr %150, align 2, !tbaa !32
   %152 = and i16 %151, 8192
   %.not111.i.i = icmp eq i16 %152, 0

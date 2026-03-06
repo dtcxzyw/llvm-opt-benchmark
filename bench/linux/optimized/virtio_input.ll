@@ -13,9 +13,7 @@ module asm ".previous\09\09\09\09\09"
 %struct.virtio_device_id = type { i32, i32 }
 %struct.static_call_key = type { ptr, %union.anon.2 }
 %union.anon.2 = type { i64 }
-%struct.input_absinfo = type { i32, i32, i32, i32, i32, i32 }
 %struct.scatterlist = type { i64, i32, i32, i64, i32, i32 }
-%struct.virtio_input_event = type { i16, i16, i32 }
 
 @__UNIQUE_ID___addressable_virtio_input_driver_init363 = internal global ptr @virtio_input_driver_init, section ".discard.addressable", align 8
 @virtio_input_driver = internal global %struct.virtio_driver { %struct.device_driver { ptr @.str, ptr null, ptr null, ptr null, i8 0, i32 0, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null }, ptr @id_table, ptr @features, i32 0, ptr null, i32 0, ptr null, ptr @virtinput_probe, ptr null, ptr @virtinput_remove, ptr null, ptr @virtinput_freeze, ptr @virtinput_restore }, align 8
@@ -641,7 +639,7 @@ define internal i32 @virtinput_probe(ptr noundef %0) #2 align 16 {
   br i1 %363, label %366, label %364
 
 364:                                              ; preds = %309
-  %.split = getelementptr %struct.input_absinfo, ptr %362, i64 %303
+  %.split = getelementptr [24 x i8], ptr %362, i64 %303
   %365 = getelementptr i8, ptr %.split, i64 20
   store i32 %345, ptr %365, align 4
   br label %366
@@ -1098,7 +1096,7 @@ define internal fastcc void @virtinput_fill_evt(ptr noundef %0) unnamed_addr #2 
 
 13:                                               ; preds = %13, %9
   %14 = phi i64 [ 0, %9 ], [ %18, %13 ]
-  %15 = getelementptr %struct.virtio_input_event, ptr %11, i64 %14
+  %15 = getelementptr [8 x i8], ptr %11, i64 %14
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, i8 0, i64 32, i1 false), !annotation !5
   call void @sg_init_one(ptr noundef nonnull %2, ptr noundef %15, i32 noundef 8) #10

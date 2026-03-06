@@ -36,7 +36,7 @@ define internal range(i32 0, 2) i32 @test_poly1305(i32 noundef %0) #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %5 = sext i32 %0 to i64
-  %6 = getelementptr inbounds %struct.TESTDATA, ptr @tests, i64 %5
+  %6 = getelementptr inbounds [3096 x i8], ptr @tests, i64 %5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3096) %3, ptr noundef nonnull align 8 dereferenceable(3096) %6, i64 3096, i1 false), !tbaa.struct !4
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %8 = load i64, ptr %3, align 8, !tbaa !10

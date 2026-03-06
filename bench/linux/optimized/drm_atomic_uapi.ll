@@ -10,12 +10,9 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_drm_atomic_s
 module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_drm_atomic_set_crtc_for_connector: ; .asciz \22\22 ; .asciz \22\22 ; .balign 8 ; .quad drm_atomic_set_crtc_for_connector ; .previous"
 
 %struct.drm_mode_modeinfo = type { i32, i16, i16, i16, i16, i16, i16, i16, i16, i16, i16, i32, i32, i32, [32 x i8] }
-%struct.__drm_crtcs_state = type { ptr, ptr, ptr, ptr, ptr, ptr, i64 }
-%struct.__drm_connnectors_state = type { ptr, ptr, ptr, ptr, ptr }
 %struct.drm_modeset_acquire_ctx = type { %struct.ww_acquire_ctx, ptr, i32, %struct.list_head, i8, i8 }
 %struct.ww_acquire_ctx = type { ptr, i64, i32, i16, i16 }
 %struct.list_head = type { ptr, ptr }
-%struct.drm_out_fence_state = type { ptr, ptr, i32 }
 
 @.str = private unnamed_addr constant [41 x i8] c"Set [MODE:%s] for [CRTC:%d:%s] state %p\0A\00", align 1
 @.str.1 = private unnamed_addr constant [40 x i8] c"Set [NOMODE] for [CRTC:%d:%s] state %p\0A\00", align 1
@@ -489,7 +486,7 @@ define dso_local i32 @drm_atomic_set_crtc_for_connector(ptr noundef %0, ptr noun
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 144
   %15 = load i32, ptr %14, align 8
   %16 = zext i32 %15 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %13, i64 %16
+  %.split = getelementptr [56 x i8], ptr %13, i64 %16
   %17 = getelementptr i8, ptr %.split, i64 24
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 136
@@ -1682,7 +1679,7 @@ define dso_local i32 @drm_atomic_connector_commit_dpms(ptr noundef %0, ptr nound
 38:                                               ; preds = %54, %31
   %39 = phi i64 [ 0, %31 ], [ %55, %54 ]
   %40 = phi i1 [ true, %31 ], [ %56, %54 ]
-  %41 = getelementptr %struct.__drm_connnectors_state, ptr %33, i64 %39
+  %41 = getelementptr [40 x i8], ptr %33, i64 %39
   %42 = load ptr, ptr %41, align 8
   %43 = icmp eq ptr %42, null
   br i1 %43, label %54, label %44
@@ -2205,7 +2202,7 @@ define dso_local i32 @drm_atomic_set_property(ptr noundef %0, ptr noundef %1, pt
   %279 = getelementptr inbounds nuw i8, ptr %266, i64 48
   %280 = load ptr, ptr %279, align 8
   %281 = zext i32 %268 to i64
-  %.split28 = getelementptr %struct.__drm_connnectors_state, ptr %280, i64 %281
+  %.split28 = getelementptr [40 x i8], ptr %280, i64 %281
   %282 = getelementptr i8, ptr %.split28, i64 32
   store ptr %264, ptr %282, align 8
   br label %318
@@ -2435,7 +2432,7 @@ define dso_local i32 @drm_atomic_set_property(ptr noundef %0, ptr noundef %1, pt
   %427 = getelementptr i8, ptr %2, i64 48
   %428 = load i32, ptr %427, align 8
   %429 = zext i32 %428 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %426, i64 %429
+  %.split = getelementptr [56 x i8], ptr %426, i64 %429
   %430 = getelementptr i8, ptr %.split, i64 40
   store ptr %412, ptr %430, align 8
   br label %.thread
@@ -3190,7 +3187,7 @@ define dso_local i32 @drm_mode_atomic_ioctl(ptr noundef %0, ptr noundef readonly
   %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit ], [ 0, %106 ]
   %109 = phi i32 [ %181, %.loopexit ], [ 0, %106 ]
   %110 = call i64 @llvm.read_register.i64(metadata !0)
-  %111 = getelementptr i32, ptr %8, i64 %indvars.iv
+  %111 = getelementptr [4 x i8], ptr %8, i64 %indvars.iv
   %112 = call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %111, i64 4, i64 %110) #11, !srcloc !31
   %113 = extractvalue { ptr, i32, i64 } %112, 0
   %114 = extractvalue { ptr, i32, i64 } %112, 1
@@ -3239,7 +3236,7 @@ define dso_local i32 @drm_mode_atomic_ioctl(ptr noundef %0, ptr noundef readonly
 
 136:                                              ; preds = %127
   %137 = call i64 @llvm.read_register.i64(metadata !0)
-  %138 = getelementptr i32, ptr %11, i64 %indvars.iv
+  %138 = getelementptr [4 x i8], ptr %11, i64 %indvars.iv
   %139 = call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %138, i64 4, i64 %137) #11, !srcloc !32
   %140 = extractvalue { ptr, i32, i64 } %139, 0
   %141 = extractvalue { ptr, i32, i64 } %139, 1
@@ -3274,7 +3271,7 @@ define dso_local i32 @drm_mode_atomic_ioctl(ptr noundef %0, ptr noundef readonly
   store i64 0, ptr %5, align 8, !annotation !6
   %155 = call i64 @llvm.read_register.i64(metadata !0)
   %156 = zext i32 %153 to i64
-  %157 = getelementptr i32, ptr %14, i64 %156
+  %157 = getelementptr [4 x i8], ptr %14, i64 %156
   %158 = call { ptr, i32, i64 } asm sideeffect "call __get_user_${4:P}", "={ax},={rdx},={rsp},0,i,{rsp},~{dirflag},~{fpsr},~{flags}"(ptr %157, i64 4, i64 %155) #11, !srcloc !34
   %159 = extractvalue { ptr, i32, i64 } %158, 0
   %160 = extractvalue { ptr, i32, i64 } %158, 2
@@ -3303,7 +3300,7 @@ define dso_local i32 @drm_mode_atomic_ioctl(ptr noundef %0, ptr noundef readonly
   br label %.thread
 
 173:                                              ; preds = %164
-  %174 = getelementptr i64, ptr %17, i64 %156
+  %174 = getelementptr [8 x i8], ptr %17, i64 %156
   %175 = call i64 @_copy_from_user(ptr noundef nonnull %5, ptr noundef %174, i64 noundef 8) #11
   %176 = icmp eq i64 %175, 0
   br i1 %176, label %177, label %.thread
@@ -3358,7 +3355,7 @@ define dso_local i32 @drm_mode_atomic_ioctl(ptr noundef %0, ptr noundef readonly
   %197 = phi i64 [ %288, %286 ], [ 0, %187 ]
   %198 = phi i32 [ %287, %286 ], [ 0, %187 ]
   %199 = load ptr, ptr %101, align 8
-  %200 = getelementptr %struct.__drm_crtcs_state, ptr %199, i64 %197
+  %200 = getelementptr [56 x i8], ptr %199, i64 %197
   %201 = load ptr, ptr %200, align 8
   %202 = icmp eq ptr %201, null
   br i1 %202, label %286, label %203
@@ -3373,7 +3370,7 @@ define dso_local i32 @drm_mode_atomic_ioctl(ptr noundef %0, ptr noundef readonly
   %210 = getelementptr inbounds nuw i8, ptr %201, i64 144
   %211 = load i32, ptr %210, align 8
   %212 = zext i32 %211 to i64
-  %.split.i = getelementptr %struct.__drm_crtcs_state, ptr %209, i64 %212
+  %.split.i = getelementptr [56 x i8], ptr %209, i64 %212
   %213 = getelementptr i8, ptr %.split.i, i64 40
   %214 = load ptr, ptr %213, align 8
   store ptr null, ptr %213, align 8
@@ -3442,7 +3439,7 @@ define dso_local i32 @drm_mode_atomic_ioctl(ptr noundef %0, ptr noundef readonly
 
 251:                                              ; preds = %245
   %252 = zext i32 %.5 to i64
-  %253 = getelementptr %struct.drm_out_fence_state, ptr %249, i64 %252
+  %253 = getelementptr [24 x i8], ptr %249, i64 %252
   %254 = getelementptr inbounds nuw i8, ptr %253, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %254, i8 0, i64 16, i1 false)
   store ptr %214, ptr %253, align 8
@@ -3526,7 +3523,7 @@ select.unfold.i:                                  ; preds = %270, %261, %257
   %.3 = phi i32 [ %.4, %351 ], [ %.1, %194 ]
   %294 = phi i64 [ %352, %351 ], [ 0, %194 ]
   %295 = load ptr, ptr %105, align 8
-  %296 = getelementptr %struct.__drm_connnectors_state, ptr %295, i64 %294
+  %296 = getelementptr [40 x i8], ptr %295, i64 %294
   %297 = load ptr, ptr %296, align 8
   %298 = icmp eq ptr %297, null
   br i1 %298, label %351, label %299
@@ -3543,7 +3540,7 @@ select.unfold.i:                                  ; preds = %270, %261, %257
   %306 = getelementptr inbounds nuw i8, ptr %297, i64 136
   %307 = load i32, ptr %306, align 8
   %308 = zext i32 %307 to i64
-  %.split22.i = getelementptr %struct.__drm_connnectors_state, ptr %295, i64 %308
+  %.split22.i = getelementptr [40 x i8], ptr %295, i64 %308
   %309 = getelementptr i8, ptr %.split22.i, i64 32
   %310 = load ptr, ptr %309, align 8
   store ptr null, ptr %309, align 8
@@ -3560,7 +3557,7 @@ select.unfold.i:                                  ; preds = %270, %261, %257
 
 318:                                              ; preds = %312
   %319 = zext i32 %.3 to i64
-  %320 = getelementptr %struct.drm_out_fence_state, ptr %316, i64 %319
+  %320 = getelementptr [24 x i8], ptr %316, i64 %319
   %321 = getelementptr inbounds nuw i8, ptr %320, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %321, i8 0, i64 16, i1 false)
   store ptr %310, ptr %320, align 8
@@ -3669,7 +3666,7 @@ prepare_signaling.exit:                           ; preds = %.loopexit.i, %.loop
   %371 = phi ptr [ %382, %381 ], [ %367, %366 ]
   %372 = phi i64 [ %383, %381 ], [ 0, %366 ]
   %373 = load ptr, ptr %101, align 8
-  %374 = getelementptr %struct.__drm_crtcs_state, ptr %373, i64 %372
+  %374 = getelementptr [56 x i8], ptr %373, i64 %372
   %375 = load ptr, ptr %374, align 8
   %376 = icmp eq ptr %375, null
   br i1 %376, label %381, label %377
@@ -3740,7 +3737,7 @@ set_async_flip.exit:                              ; preds = %set_async_flip.exit
 .preheader:                                       ; preds = %408, %.preheader
   %410 = phi i32 [ %418, %.preheader ], [ 0, %408 ]
   %411 = sext i32 %410 to i64
-  %412 = getelementptr %struct.drm_out_fence_state, ptr %.838, i64 %411
+  %412 = getelementptr [24 x i8], ptr %.838, i64 %411
   %413 = getelementptr inbounds nuw i8, ptr %412, i64 16
   %414 = load i32, ptr %413, align 8
   %415 = getelementptr inbounds nuw i8, ptr %412, i64 8
@@ -3759,7 +3756,7 @@ set_async_flip.exit:                              ; preds = %set_async_flip.exit
   %420 = phi ptr [ %442, %441 ], [ %404, %.thread49 ]
   %421 = phi i64 [ %443, %441 ], [ 0, %.thread49 ]
   %422 = load ptr, ptr %101, align 8
-  %423 = getelementptr %struct.__drm_crtcs_state, ptr %422, i64 %421
+  %423 = getelementptr [56 x i8], ptr %422, i64 %421
   %424 = load ptr, ptr %423, align 8
   %425 = icmp eq ptr %424, null
   br i1 %425, label %441, label %426
@@ -3810,7 +3807,7 @@ set_async_flip.exit:                              ; preds = %set_async_flip.exit
 .preheader56:                                     ; preds = %449, %480
   %451 = phi i32 [ %481, %480 ], [ 0, %449 ]
   %452 = sext i32 %451 to i64
-  %453 = getelementptr %struct.drm_out_fence_state, ptr %.03052, i64 %452
+  %453 = getelementptr [24 x i8], ptr %.03052, i64 %452
   %454 = getelementptr inbounds nuw i8, ptr %453, i64 8
   %455 = load ptr, ptr %454, align 8
   %456 = icmp eq ptr %455, null

@@ -9,8 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Optional_payload_base.base" = type <{ %"union.std::_Optional_payload_base<llvm::VersionTuple>::_Storage", i8 }>
 %"union.std::_Optional_payload_base<llvm::VersionTuple>::_Storage" = type { %"class.llvm::VersionTuple" }
 %"class.llvm::VersionTuple" = type { i64, i64 }
-%"struct.llvm::detail::DenseMapPair" = type { %"struct.std::pair" }
-%"struct.std::pair" = type { %"class.llvm::VersionTuple", %"class.llvm::VersionTuple" }
 %"class.std::optional.8" = type { %"struct.std::_Optional_base.9" }
 %"struct.std::_Optional_base.9" = type { %"struct.std::_Optional_payload.11" }
 %"struct.std::_Optional_payload.11" = type { %"struct.std::_Optional_payload.base.15", [7 x i8] }
@@ -20,18 +18,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.clang::DarwinSDKInfo::RelatedTargetVersionMapping" = type { %"class.llvm::VersionTuple", %"class.llvm::VersionTuple", %"class.llvm::VersionTuple", %"class.llvm::VersionTuple", %"class.llvm::DenseMap" }
 %"class.llvm::DenseMap" = type <{ ptr, i32, i32, i32, [4 x i8] }>
 %"class.llvm::DenseMapIterator.21" = type { ptr, ptr }
-%"struct.llvm::detail::DenseMapPair.22" = type { %"struct.std::pair.23" }
-%"struct.std::pair.23" = type { %"class.llvm::json::ObjectKey", %"class.llvm::json::Value" }
-%"class.llvm::json::ObjectKey" = type { %"class.std::unique_ptr", %"class.llvm::StringRef" }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.26" }
-%"struct.std::_Head_base.26" = type { ptr }
-%"class.llvm::StringRef" = type { ptr, i64 }
-%"class.llvm::json::Value" = type { i16, [6 x i8], %"struct.llvm::AlignedCharArrayUnion" }
-%"struct.llvm::AlignedCharArrayUnion" = type { [32 x i8] }
 %"class.std::optional.35" = type { %"struct.std::_Optional_base.36" }
 %"struct.std::_Optional_base.36" = type { %"struct.std::_Optional_payload.38" }
 %"struct.std::_Optional_payload.38" = type { %"struct.std::_Optional_payload.base.45", [7 x i8] }
@@ -45,6 +31,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Optional_payload.30" = type { %"struct.std::_Optional_payload_base.base.32", [7 x i8] }
 %"struct.std::_Optional_payload_base.base.32" = type <{ %"union.std::_Optional_payload_base<llvm::StringRef>::_Storage", i8 }>
 %"union.std::_Optional_payload_base<llvm::StringRef>::_Storage" = type { %"class.llvm::StringRef" }
+%"class.llvm::StringRef" = type { ptr, i64 }
 %"struct.std::pair.48" = type { %"class.llvm::StringRef", %"class.llvm::StringRef" }
 %"class.llvm::Triple" = type { %"class.std::__cxx11::basic_string", i32, i32, i32, i32, i32, i32 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
@@ -54,8 +41,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"union.llvm::Twine::Child" = type { %struct.anon }
 %struct.anon = type { ptr, i64 }
 %"struct.clang::DarwinSDKInfo::OSEnvPair" = type { i64 }
-%"struct.llvm::detail::DenseMapPair.77" = type { %"struct.std::pair.78" }
-%"struct.std::pair.78" = type { i64, %"class.std::optional.8" }
 %"class.llvm::Expected" = type { %union.anon.50, i8, [7 x i8] }
 %union.anon.50 = type { %"struct.llvm::AlignedCharArrayUnion.51" }
 %"struct.llvm::AlignedCharArrayUnion.51" = type { [64 x i8] }
@@ -72,6 +57,13 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::Expected.56" = type { %union.anon.57, i8, [7 x i8] }
 %union.anon.57 = type { %"struct.llvm::AlignedCharArrayUnion.58" }
 %"struct.llvm::AlignedCharArrayUnion.58" = type { [40 x i8] }
+%"class.llvm::json::ObjectKey" = type { %"class.std::unique_ptr", %"class.llvm::StringRef" }
+%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
+%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
+%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
+%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
+%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.26" }
+%"struct.std::_Head_base.26" = type { ptr }
 
 $_ZN4llvm12DenseMapBaseINS_8DenseMapINS_12VersionTupleES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_EixEOS2_ = comdat any
 
@@ -295,7 +287,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_12VersionTupleES2_NS_12DenseMapInfoIS2_vE
   %.017.i = phi i32 [ %111, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_12VersionTupleES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E12getHashValueERKS2_.exit.i ], [ %135, %_ZN4llvm12DenseMapInfoINS_12VersionTupleEvE7isEqualERKS1_S4_.exit21.thread.i ]
   %.015.i = phi i32 [ 1, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_12VersionTupleES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E12getHashValueERKS2_.exit.i ], [ %133, %_ZN4llvm12DenseMapInfoINS_12VersionTupleEvE7isEqualERKS1_S4_.exit21.thread.i ]
   %114 = zext i32 %.017.i to i64
-  %115 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %78, i64 %114
+  %115 = getelementptr inbounds nuw [32 x i8], ptr %78, i64 %114
   %116 = load i64, ptr %115, align 4
   %117 = trunc i64 %116 to i32
   %118 = icmp eq i32 %112, %117
@@ -388,7 +380,7 @@ define dso_local void @_ZN5clang13DarwinSDKInfo27RelatedTargetVersionMapping9par
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %16 = load i32, ptr %15, align 8, !tbaa !25
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.22", ptr %14, i64 %17
+  %18 = getelementptr inbounds nuw [64 x i8], ptr %14, i64 %17
   br i1 %13, label %_ZNK4llvm4json6Object5beginEv.exit, label %19
 
 19:                                               ; preds = %4
@@ -413,7 +405,7 @@ _ZNK4llvm4json6Object5beginEv.exit:               ; preds = %4, %19
   store ptr %.pn8.i.i, ptr %7, align 8
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %.pn6.i.i, ptr %22, align 8
-  %23 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.22", ptr %21, i64 %.pre-phi
+  %23 = getelementptr inbounds nuw [64 x i8], ptr %21, i64 %.pre-phi
   %.not90 = icmp eq ptr %.pn8.i.i, %23
   br i1 %.not90, label %._crit_edge, label %.lr.ph
 
@@ -924,7 +916,7 @@ _ZL13getVersionKeyRKN4llvm4json6ObjectENS_9StringRefE.exit45.thread: ; preds = %
   %42 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %43 = load i32, ptr %42, align 8, !tbaa !25
   %44 = zext i32 %43 to i64
-  %45 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.22", ptr %41, i64 %44
+  %45 = getelementptr inbounds nuw [64 x i8], ptr %41, i64 %44
   br i1 %40, label %_ZNK4llvm4json6Object5beginEv.exit, label %46
 
 46:                                               ; preds = %37
@@ -948,7 +940,7 @@ _ZNK4llvm4json6Object5beginEv.exit:               ; preds = %37, %46
   %48 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %.pn6.i.i, ptr %48, align 8
   %49 = load ptr, ptr %36, align 8, !tbaa !24
-  %50 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.22", ptr %49, i64 %.pre-phi
+  %50 = getelementptr inbounds nuw [64 x i8], ptr %49, i64 %.pre-phi
   %.not124125 = icmp eq ptr %.pn8.i.i, %50
   br i1 %.not124125, label %._crit_edge, label %.lr.ph
 
@@ -1442,7 +1434,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN4
   %14 = add i32 %6, -1
   %15 = and i32 %14, %13
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.77", ptr %4, i64 %16
+  %17 = getelementptr inbounds nuw [104 x i8], ptr %4, i64 %16
   %18 = load i64, ptr %17, align 8, !tbaa !37
   %19 = icmp eq i64 %9, %18
   br i1 %19, label %.loopexit, label %.lr.ph.i, !prof !98
@@ -1470,7 +1462,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN4
   %29 = add i32 %.02745.i, %.02546.i
   %30 = and i32 %29, %14
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.77", ptr %4, i64 %31
+  %32 = getelementptr inbounds nuw [104 x i8], ptr %4, i64 %31
   %33 = load i64, ptr %32, align 8, !tbaa !37
   %34 = icmp eq i64 %9, %33
   br i1 %34, label %.loopexit, label %.lr.ph.i, !prof !99, !llvm.loop !100
@@ -2367,7 +2359,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_12VersionTupleES2_NS_12DenseMapInfoIS2_vE
   %.027 = phi i32 [ %40, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_12VersionTupleES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E12getHashValueERKS2_.exit ], [ %81, %.thread ]
   %.025 = phi i32 [ 1, %_ZN4llvm12DenseMapBaseINS_8DenseMapINS_12VersionTupleES2_NS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S2_EEEES2_S2_S4_S7_E12getHashValueERKS2_.exit ], [ %79, %.thread ]
   %43 = zext i32 %.027 to i64
-  %44 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %43
+  %44 = getelementptr inbounds nuw [32 x i8], ptr %4, i64 %43
   %45 = load i64, ptr %44, align 4
   %46 = trunc i64 %45 to i32
   %47 = icmp eq i32 %41, %46
@@ -2600,7 +2592,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %14 = add i32 %6, -1
   %15 = and i32 %14, %13
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.77", ptr %4, i64 %16
+  %17 = getelementptr inbounds nuw [104 x i8], ptr %4, i64 %16
   %18 = load i64, ptr %17, align 8, !tbaa !37
   %19 = icmp eq i64 %9, %18
   br i1 %19, label %._crit_edge, label %.lr.ph, !prof !98
@@ -2628,7 +2620,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %29 = add i32 %.02546, %.02745
   %30 = and i32 %29, %14
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.77", ptr %4, i64 %31
+  %32 = getelementptr inbounds nuw [104 x i8], ptr %4, i64 %31
   %33 = load i64, ptr %32, align 8, !tbaa !37
   %34 = icmp eq i64 %9, %33
   br i1 %34, label %._crit_edge, label %.lr.ph, !prof !99, !llvm.loop !100
@@ -2689,7 +2681,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optiona
 
 30:                                               ; preds = %2
   %31 = zext i32 %4 to i64
-  %32 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.77", ptr %5, i64 %31
+  %32 = getelementptr inbounds nuw [104 x i8], ptr %5, i64 %31
   tail call void @_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_E18moveFromOldBucketsEPSB_SE_(ptr noundef nonnull align 8 dereferenceable(20) %0, ptr noundef nonnull %5, ptr noundef nonnull %32)
   %33 = mul nuw nsw i64 %31, 104
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull %5, i64 noundef %33, i64 noundef 8) #14
@@ -2746,7 +2738,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27Related
   %21 = add i32 %15, -1
   %22 = and i32 %21, %20
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.77", ptr %14, i64 %23
+  %24 = getelementptr inbounds nuw [104 x i8], ptr %14, i64 %23
   %25 = load i64, ptr %24, align 8, !tbaa !37
   %26 = icmp eq i64 %12, %25
   br i1 %26, label %_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_E15LookupBucketForImEEbRKT_RPSB_.exit, label %.lr.ph.i13, !prof !98
@@ -2774,7 +2766,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27Related
   %36 = add i32 %.02745.i, %.02546.i
   %37 = and i32 %36, %21
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.77", ptr %14, i64 %38
+  %39 = getelementptr inbounds nuw [104 x i8], ptr %14, i64 %38
   %40 = load i64, ptr %39, align 8, !tbaa !37
   %41 = icmp eq i64 %12, %40
   br i1 %41, label %_ZN4llvm12DenseMapBaseINS_8DenseMapImSt8optionalIN5clang13DarwinSDKInfo27RelatedTargetVersionMappingEENS_12DenseMapInfoImvEENS_6detail12DenseMapPairImS6_EEEEmS6_S8_SB_E15LookupBucketForImEEbRKT_RPSB_.exit, label %.lr.ph.i13, !prof !99, !llvm.loop !100

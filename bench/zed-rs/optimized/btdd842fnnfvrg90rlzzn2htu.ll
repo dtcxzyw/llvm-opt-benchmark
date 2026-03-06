@@ -45,7 +45,7 @@ define hidden { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20
 
 ; Function Attrs: nonlazybind uwtable
 define hidden { i64, ptr } @_ZN10futures_io6if_std9AsyncRead18poll_read_vectored17ha34f53f841339a95E(ptr noalias noundef align 8 dereferenceable(56) %0, ptr noalias noundef align 8 dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 8 captures(address) %2, i64 noundef %3) unnamed_addr #1 {
-  %5 = getelementptr inbounds { { { ptr, i64 }, {} } }, ptr %2, i64 %3
+  %5 = getelementptr inbounds [16 x i8], ptr %2, i64 %3
   br label %6
 
 6:                                                ; preds = %10, %4

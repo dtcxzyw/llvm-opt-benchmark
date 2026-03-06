@@ -2053,11 +2053,11 @@ define ptr @cJSON_GetObjectItem(ptr noundef readonly captures(address_is_null) %
   %14 = load ptr, ptr %13, align 8, !tbaa !54
   %15 = load i8, ptr %1, align 1, !tbaa !34
   %16 = zext i8 %15 to i64
-  %17 = getelementptr inbounds nuw i32, ptr %14, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !56
   %19 = load i8, ptr %9, align 1, !tbaa !34
   %20 = zext i8 %19 to i64
-  %21 = getelementptr inbounds nuw i32, ptr %14, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !56
   %23 = icmp eq i32 %18, %22
   br i1 %23, label %.lr.ph.i.i, label %case_insensitive_strcmp.exit.thread30.i
@@ -2074,11 +2074,11 @@ define ptr @cJSON_GetObjectItem(ptr noundef readonly captures(address_is_null) %
   %28 = getelementptr inbounds nuw i8, ptr %.02129.i.i, i64 1
   %29 = load i8, ptr %27, align 1, !tbaa !34
   %30 = zext i8 %29 to i64
-  %31 = getelementptr inbounds nuw i32, ptr %14, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !56
   %33 = load i8, ptr %28, align 1, !tbaa !34
   %34 = zext i8 %33 to i64
-  %35 = getelementptr inbounds nuw i32, ptr %14, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !56
   %37 = icmp eq i32 %32, %36
   br i1 %37, label %.lr.ph.i.i, label %case_insensitive_strcmp.exit.thread30.i
@@ -2157,11 +2157,11 @@ define range(i32 0, 2) i32 @cJSON_HasObjectItem(ptr noundef readonly captures(ad
   %14 = load ptr, ptr %13, align 8, !tbaa !54
   %15 = load i8, ptr %1, align 1, !tbaa !34
   %16 = zext i8 %15 to i64
-  %17 = getelementptr inbounds nuw i32, ptr %14, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !56
   %19 = load i8, ptr %9, align 1, !tbaa !34
   %20 = zext i8 %19 to i64
-  %21 = getelementptr inbounds nuw i32, ptr %14, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !56
   %23 = icmp eq i32 %18, %22
   br i1 %23, label %.lr.ph.i.i.i, label %case_insensitive_strcmp.exit.thread30.i.i
@@ -2178,11 +2178,11 @@ define range(i32 0, 2) i32 @cJSON_HasObjectItem(ptr noundef readonly captures(ad
   %28 = getelementptr inbounds nuw i8, ptr %.02129.i.i.i, i64 1
   %29 = load i8, ptr %27, align 1, !tbaa !34
   %30 = zext i8 %29 to i64
-  %31 = getelementptr inbounds nuw i32, ptr %14, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !56
   %33 = load i8, ptr %28, align 1, !tbaa !34
   %34 = zext i8 %33 to i64
-  %35 = getelementptr inbounds nuw i32, ptr %14, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !56
   %37 = icmp eq i32 %32, %36
   br i1 %37, label %.lr.ph.i.i.i, label %case_insensitive_strcmp.exit.thread30.i.i
@@ -3798,11 +3798,11 @@ define ptr @cJSON_DetachItemFromObject(ptr noundef captures(address_is_null) %0,
   %14 = load ptr, ptr %13, align 8, !tbaa !54
   %15 = load i8, ptr %1, align 1, !tbaa !34
   %16 = zext i8 %15 to i64
-  %17 = getelementptr inbounds nuw i32, ptr %14, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !56
   %19 = load i8, ptr %9, align 1, !tbaa !34
   %20 = zext i8 %19 to i64
-  %21 = getelementptr inbounds nuw i32, ptr %14, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !56
   %23 = icmp eq i32 %18, %22
   br i1 %23, label %.lr.ph.i.i.i, label %case_insensitive_strcmp.exit.thread30.i.i
@@ -3819,11 +3819,11 @@ define ptr @cJSON_DetachItemFromObject(ptr noundef captures(address_is_null) %0,
   %28 = getelementptr inbounds nuw i8, ptr %.02129.i.i.i, i64 1
   %29 = load i8, ptr %27, align 1, !tbaa !34
   %30 = zext i8 %29 to i64
-  %31 = getelementptr inbounds nuw i32, ptr %14, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !56
   %33 = load i8, ptr %28, align 1, !tbaa !34
   %34 = zext i8 %33 to i64
-  %35 = getelementptr inbounds nuw i32, ptr %14, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !56
   %37 = icmp eq i32 %32, %36
   br i1 %37, label %.lr.ph.i.i.i, label %case_insensitive_strcmp.exit.thread30.i.i
@@ -3994,11 +3994,11 @@ define void @cJSON_DeleteItemFromObject(ptr noundef captures(address_is_null) %0
   %14 = load ptr, ptr %13, align 8, !tbaa !54
   %15 = load i8, ptr %1, align 1, !tbaa !34
   %16 = zext i8 %15 to i64
-  %17 = getelementptr inbounds nuw i32, ptr %14, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !56
   %19 = load i8, ptr %9, align 1, !tbaa !34
   %20 = zext i8 %19 to i64
-  %21 = getelementptr inbounds nuw i32, ptr %14, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !56
   %23 = icmp eq i32 %18, %22
   br i1 %23, label %.lr.ph.i.i.i.i, label %case_insensitive_strcmp.exit.thread30.i.i.i
@@ -4015,11 +4015,11 @@ define void @cJSON_DeleteItemFromObject(ptr noundef captures(address_is_null) %0
   %28 = getelementptr inbounds nuw i8, ptr %.02129.i.i.i.i, i64 1
   %29 = load i8, ptr %27, align 1, !tbaa !34
   %30 = zext i8 %29 to i64
-  %31 = getelementptr inbounds nuw i32, ptr %14, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !56
   %33 = load i8, ptr %28, align 1, !tbaa !34
   %34 = zext i8 %33 to i64
-  %35 = getelementptr inbounds nuw i32, ptr %14, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !56
   %37 = icmp eq i32 %32, %36
   br i1 %37, label %.lr.ph.i.i.i.i, label %case_insensitive_strcmp.exit.thread30.i.i.i
@@ -4535,11 +4535,11 @@ cJSON_strdup.exit.thread:                         ; preds = %16
   %43 = load ptr, ptr %42, align 8, !tbaa !54
   %44 = load i8, ptr %1, align 1, !tbaa !34
   %45 = zext i8 %44 to i64
-  %46 = getelementptr inbounds nuw i32, ptr %43, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !56
   %48 = load i8, ptr %38, align 1, !tbaa !34
   %49 = zext i8 %48 to i64
-  %50 = getelementptr inbounds nuw i32, ptr %43, i64 %49
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !56
   %52 = icmp eq i32 %47, %51
   br i1 %52, label %.lr.ph.i.i, label %case_insensitive_strcmp.exit.thread30.i
@@ -4556,11 +4556,11 @@ cJSON_strdup.exit.thread:                         ; preds = %16
   %57 = getelementptr inbounds nuw i8, ptr %.02129.i.i, i64 1
   %58 = load i8, ptr %56, align 1, !tbaa !34
   %59 = zext i8 %58 to i64
-  %60 = getelementptr inbounds nuw i32, ptr %43, i64 %59
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %59
   %61 = load i32, ptr %60, align 4, !tbaa !56
   %62 = load i8, ptr %57, align 1, !tbaa !34
   %63 = zext i8 %62 to i64
-  %64 = getelementptr inbounds nuw i32, ptr %43, i64 %63
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %63
   %65 = load i32, ptr %64, align 4, !tbaa !56
   %66 = icmp eq i32 %61, %65
   br i1 %66, label %.lr.ph.i.i, label %case_insensitive_strcmp.exit.thread30.i
@@ -4733,7 +4733,7 @@ cJSON_CreateArray.exit:                           ; preds = %5
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %21
   %.039 = phi ptr [ %12, %21 ], [ null, %.lr.ph.split.preheader ]
   %.02338 = phi i64 [ %22, %21 ], [ 0, %.lr.ph.split.preheader ]
-  %10 = getelementptr inbounds nuw i32, ptr %0, i64 %.02338
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.02338
   %11 = load i32, ptr %10, align 4, !tbaa !56
   %global_hooks.val.i32 = load ptr, ptr @global_hooks, align 8, !tbaa !18
   %12 = tail call ptr %global_hooks.val.i32(i64 noundef 64) #33
@@ -4817,7 +4817,7 @@ cJSON_CreateArray.exit:                           ; preds = %5
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %27
   %.037 = phi ptr [ %12, %27 ], [ null, %.lr.ph.split.preheader ]
   %.02336 = phi i64 [ %28, %27 ], [ 0, %.lr.ph.split.preheader ]
-  %10 = getelementptr inbounds nuw float, ptr %0, i64 %.02336
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.02336
   %11 = load float, ptr %10, align 4, !tbaa !57
   %global_hooks.val.i32 = load ptr, ptr @global_hooks, align 8, !tbaa !18
   %12 = tail call ptr %global_hooks.val.i32(i64 noundef 64) #33
@@ -4914,7 +4914,7 @@ cJSON_CreateArray.exit:                           ; preds = %5
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %26
   %.037 = phi ptr [ %12, %26 ], [ null, %.lr.ph.split.preheader ]
   %.02336 = phi i64 [ %27, %26 ], [ 0, %.lr.ph.split.preheader ]
-  %10 = getelementptr inbounds nuw double, ptr %0, i64 %.02336
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.02336
   %11 = load double, ptr %10, align 8, !tbaa !51
   %global_hooks.val.i32 = load ptr, ptr @global_hooks, align 8, !tbaa !18
   %12 = tail call ptr %global_hooks.val.i32(i64 noundef 64) #33
@@ -5010,7 +5010,7 @@ cJSON_CreateArray.exit:                           ; preds = %5
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %28
   %.043 = phi ptr [ %12, %28 ], [ null, %.lr.ph.split.preheader ]
   %.02342 = phi i64 [ %29, %28 ], [ 0, %.lr.ph.split.preheader ]
-  %10 = getelementptr inbounds nuw ptr, ptr %0, i64 %.02342
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.02342
   %11 = load ptr, ptr %10, align 8, !tbaa !35
   %global_hooks.val.i32 = load ptr, ptr @global_hooks, align 8, !tbaa !18
   %12 = tail call ptr %global_hooks.val.i32(i64 noundef 64) #33
@@ -5648,11 +5648,11 @@ define range(i32 0, 2) i32 @cJSON_Compare(ptr noundef readonly captures(address)
   %64 = load ptr, ptr %63, align 8, !tbaa !54
   %65 = load i8, ptr %55, align 1, !tbaa !34
   %66 = zext i8 %65 to i64
-  %67 = getelementptr inbounds nuw i32, ptr %64, i64 %66
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %66
   %68 = load i32, ptr %67, align 4, !tbaa !56
   %69 = load i8, ptr %59, align 1, !tbaa !34
   %70 = zext i8 %69 to i64
-  %71 = getelementptr inbounds nuw i32, ptr %64, i64 %70
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %70
   %72 = load i32, ptr %71, align 4, !tbaa !56
   %73 = icmp eq i32 %68, %72
   br i1 %73, label %.lr.ph.i.i.us, label %case_insensitive_strcmp.exit.thread30.i.us
@@ -5669,11 +5669,11 @@ define range(i32 0, 2) i32 @cJSON_Compare(ptr noundef readonly captures(address)
   %78 = getelementptr inbounds nuw i8, ptr %.02129.i.i.us, i64 1
   %79 = load i8, ptr %77, align 1, !tbaa !34
   %80 = zext i8 %79 to i64
-  %81 = getelementptr inbounds nuw i32, ptr %64, i64 %80
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %80
   %82 = load i32, ptr %81, align 4, !tbaa !56
   %83 = load i8, ptr %78, align 1, !tbaa !34
   %84 = zext i8 %83 to i64
-  %85 = getelementptr inbounds nuw i32, ptr %64, i64 %84
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %84
   %86 = load i32, ptr %85, align 4, !tbaa !56
   %87 = icmp eq i32 %82, %86
   br i1 %87, label %.lr.ph.i.i.us, label %case_insensitive_strcmp.exit.thread30.i.us
@@ -5763,11 +5763,11 @@ get_object_item.exit.loopexit111:                 ; preds = %97
   %113 = load ptr, ptr %112, align 8, !tbaa !54
   %114 = load i8, ptr %104, align 1, !tbaa !34
   %115 = zext i8 %114 to i64
-  %116 = getelementptr inbounds nuw i32, ptr %113, i64 %115
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %113, i64 %115
   %117 = load i32, ptr %116, align 4, !tbaa !56
   %118 = load i8, ptr %108, align 1, !tbaa !34
   %119 = zext i8 %118 to i64
-  %120 = getelementptr inbounds nuw i32, ptr %113, i64 %119
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %113, i64 %119
   %121 = load i32, ptr %120, align 4, !tbaa !56
   %122 = icmp eq i32 %117, %121
   br i1 %122, label %.lr.ph.i.i90.us, label %case_insensitive_strcmp.exit.thread30.i88.us
@@ -5784,11 +5784,11 @@ get_object_item.exit.loopexit111:                 ; preds = %97
   %127 = getelementptr inbounds nuw i8, ptr %.02129.i.i92.us, i64 1
   %128 = load i8, ptr %126, align 1, !tbaa !34
   %129 = zext i8 %128 to i64
-  %130 = getelementptr inbounds nuw i32, ptr %113, i64 %129
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %113, i64 %129
   %131 = load i32, ptr %130, align 4, !tbaa !56
   %132 = load i8, ptr %127, align 1, !tbaa !34
   %133 = zext i8 %132 to i64
-  %134 = getelementptr inbounds nuw i32, ptr %113, i64 %133
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %113, i64 %133
   %135 = load i32, ptr %134, align 4, !tbaa !56
   %136 = icmp eq i32 %131, %135
   br i1 %136, label %.lr.ph.i.i90.us, label %case_insensitive_strcmp.exit.thread30.i88.us

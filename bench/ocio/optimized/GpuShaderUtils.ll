@@ -4588,7 +4588,7 @@ define internal fastcc void @"_ZZN19OpenColorIO_v2_5dev13GpuShaderText22declareF
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %14 = load ptr, ptr %9, align 8, !tbaa !195
   %15 = load ptr, ptr %14, align 8, !tbaa !177
-  %16 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   %17 = load float, ptr %16, align 4, !tbaa !196
   %18 = load i32, ptr %4, align 8, !tbaa !60
   call void @_ZN19OpenColorIO_v2_5dev14getFloatStringIfEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_NS_11GpuLanguageE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %2, float noundef %17, i32 noundef %18)
@@ -4808,7 +4808,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit34: ; preds = %_ZN
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.noexc35
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.noexc35 ], [ 0, %.lr.ph.i.preheader ]
-  %60 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.i
   %61 = load i32, ptr %60, align 4, !tbaa !176
   %62 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %29, i32 noundef %61)
           to label %.noexc unwind label %.loopexit
@@ -4954,7 +4954,7 @@ _ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLinelsEPKc.exit58: ; preds = %
 
 .lr.ph.i59:                                       ; preds = %.lr.ph.i59.preheader, %.noexc66
   %indvars.iv.i60 = phi i64 [ %indvars.iv.next.i61, %.noexc66 ], [ 0, %.lr.ph.i59.preheader ]
-  %102 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i60
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.i60
   %103 = load i32, ptr %102, align 4, !tbaa !176
   %104 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %83, i32 noundef %103)
           to label %.noexc65 unwind label %.loopexit.split-lp.loopexit
@@ -5033,7 +5033,7 @@ _ZN19OpenColorIO_v2_5dev13GpuShaderText13GpuShaderLinelsEPKc.exit84: ; preds = %
 
 .lr.ph.i85:                                       ; preds = %.lr.ph.i85.preheader, %.noexc92
   %indvars.iv.i86 = phi i64 [ %indvars.iv.next.i87, %.noexc92 ], [ 0, %.lr.ph.i85.preheader ]
-  %128 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i86
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.i86
   %129 = load i32, ptr %128, align 4, !tbaa !176
   %130 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %117, i32 noundef %129)
           to label %.noexc91 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -5108,7 +5108,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit110: ; preds = %_Z
 
 .lr.ph.i111:                                      ; preds = %.lr.ph.i111.preheader, %.noexc118
   %indvars.iv.i112 = phi i64 [ %indvars.iv.next.i113, %.noexc118 ], [ 0, %.lr.ph.i111.preheader ]
-  %152 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i112
+  %152 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.i112
   %153 = load i32, ptr %152, align 4, !tbaa !176
   %154 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8) %137, i32 noundef %153)
           to label %.noexc117 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -5197,10 +5197,10 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev13getVecKeywordILi2EEEN
 
 switch.lookup:                                    ; preds = %2
   %7 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN19OpenColorIO_v2_5dev13getVecKeywordILi4EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11GpuLanguageE, i64 %7
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN19OpenColorIO_v2_5dev13getVecKeywordILi4EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11GpuLanguageE, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   %8 = zext nneg i32 %1 to i64
-  %switch.gep10 = getelementptr inbounds nuw i64, ptr @switch.table._ZN19OpenColorIO_v2_5dev13getVecKeywordILi4EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11GpuLanguageE.3, i64 %8
+  %switch.gep10 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN19OpenColorIO_v2_5dev13getVecKeywordILi4EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11GpuLanguageE.3, i64 %8
   %switch.load11 = load i64, ptr %switch.gep10, align 8
   %9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %switch.load, i64 noundef %switch.load11)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit6.invoke unwind label %5
@@ -5689,10 +5689,10 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev13getVecKeywordILi3EEEN
 
 switch.lookup:                                    ; preds = %2
   %7 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN19OpenColorIO_v2_5dev13getVecKeywordILi4EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11GpuLanguageE, i64 %7
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN19OpenColorIO_v2_5dev13getVecKeywordILi4EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11GpuLanguageE, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   %8 = zext nneg i32 %1 to i64
-  %switch.gep10 = getelementptr inbounds nuw i64, ptr @switch.table._ZN19OpenColorIO_v2_5dev13getVecKeywordILi4EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11GpuLanguageE.3, i64 %8
+  %switch.gep10 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN19OpenColorIO_v2_5dev13getVecKeywordILi4EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11GpuLanguageE.3, i64 %8
   %switch.load11 = load i64, ptr %switch.gep10, align 8
   %9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %switch.load, i64 noundef %switch.load11)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit6.invoke unwind label %5
@@ -6962,10 +6962,10 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev13getVecKeywordILi4EEEN
 
 switch.lookup:                                    ; preds = %2
   %7 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN19OpenColorIO_v2_5dev13getVecKeywordILi4EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11GpuLanguageE, i64 %7
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN19OpenColorIO_v2_5dev13getVecKeywordILi4EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11GpuLanguageE, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   %8 = zext nneg i32 %1 to i64
-  %switch.gep10 = getelementptr inbounds nuw i64, ptr @switch.table._ZN19OpenColorIO_v2_5dev13getVecKeywordILi4EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11GpuLanguageE.3, i64 %8
+  %switch.gep10 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN19OpenColorIO_v2_5dev13getVecKeywordILi4EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_11GpuLanguageE.3, i64 %8
   %switch.load11 = load i64, ptr %switch.gep10, align 8
   %9 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %switch.load, i64 noundef %switch.load11)
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit6.invoke unwind label %5
@@ -20722,7 +20722,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev15getMatrixValuesIfLi3E
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw float, ptr %1, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %25
   %27 = load float, ptr %26, align 4, !tbaa !196
   invoke void @_ZN19OpenColorIO_v2_5dev14getFloatStringIfEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_NS_11GpuLanguageE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, float noundef %27, i32 noundef %2)
           to label %28 unwind label %62
@@ -20992,7 +20992,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev15getMatrixValuesIdLi3E
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw double, ptr %1, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %25
   %27 = load double, ptr %26, align 8, !tbaa !654
   invoke void @_ZN19OpenColorIO_v2_5dev14getFloatStringIdEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_NS_11GpuLanguageE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, double noundef %27, i32 noundef %2)
           to label %28 unwind label %62
@@ -21257,7 +21257,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev15getMatrixValuesIfLi4E
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw float, ptr %1, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %23
   %25 = load float, ptr %24, align 4, !tbaa !196
   invoke void @_ZN19OpenColorIO_v2_5dev14getFloatStringIfEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_NS_11GpuLanguageE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, float noundef %25, i32 noundef %2)
           to label %26 unwind label %60
@@ -21522,7 +21522,7 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev15getMatrixValuesIdLi4E
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw double, ptr %1, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %23
   %25 = load double, ptr %24, align 8, !tbaa !654
   invoke void @_ZN19OpenColorIO_v2_5dev14getFloatStringIdEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEET_NS_11GpuLanguageE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, double noundef %25, i32 noundef %2)
           to label %26 unwind label %60

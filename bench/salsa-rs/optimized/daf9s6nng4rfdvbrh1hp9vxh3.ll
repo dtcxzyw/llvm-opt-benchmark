@@ -612,7 +612,7 @@ define hidden void @_ZN5salsa12active_query11ActiveQuery14seed_iteration17hb8013
 
 11:                                               ; preds = %6
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %12 = getelementptr inbounds nuw { i32, [2 x i32] }, ptr %3, i64 %4
+  %12 = getelementptr inbounds nuw [12 x i8], ptr %3, i64 %4
   call void @"_ZN107_$LT$indexmap..set..IndexSet$LT$T$C$S$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$T$GT$$GT$9from_iter17h5a963889e79cf611E"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %7, ptr noundef nonnull %3, ptr noundef nonnull %12)
   invoke void @"_ZN4core3ptr142drop_in_place$LT$indexmap..set..IndexSet$LT$salsa..zalsa_local..QueryEdge$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$17h35e6dbdb75f5708dE"(ptr noalias noundef nonnull align 8 dereferenceable(56) %0)
           to label %16 unwind label %14
@@ -873,7 +873,7 @@ define noundef zeroext i1 @"_ZN68_$LT$salsa..active_query..QueryStack$u20$as$u20
   %16 = load ptr, ptr %15, align 8, !nonnull !3, !noundef !3
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %18 = load i64, ptr %17, align 8, !noundef !3
-  %19 = getelementptr inbounds nuw { { { { { { { i64, ptr, {} }, {} }, i64 }, { { { ptr, i64, i64, i64 }, {}, {} } } }, { {} } } }, { i32, i32 }, i64, { { { { ptr, i64, i64, i64 }, {}, {} }, {} } }, { { { { ptr, i64, i64, i64 }, {}, {} }, {} } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, {} } } }, { { ptr, {} } }, i32, i8, i8, i8, [1 x i8] }, ptr %16, i64 %18
+  %19 = getelementptr inbounds nuw [184 x i8], ptr %16, i64 %18
   %20 = call noundef align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17h48c579d969aacf23E(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull %16, ptr noundef nonnull %19)
   %21 = call noundef zeroext i1 @_ZN4core3fmt8builders9DebugList6finish17h7a7cb238ea66350dE(ptr noalias noundef nonnull align 8 dereferenceable(16) %20)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -999,7 +999,7 @@ _ZN5salsa12active_query11ActiveQuery3new17hab1cf61f6d8ddfbbE.exit: ; preds = %16
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hb5fa87f1c777621dE.exit": ; preds = %_ZN5salsa12active_query11ActiveQuery3new17hab1cf61f6d8ddfbbE.exit, %38
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %44 = load ptr, ptr %43, align 8, !alias.scope !76, !noalias !79, !nonnull !3, !noundef !3
-  %45 = getelementptr inbounds nuw { { { { { { { i64, ptr, {} }, {} }, i64 }, { { { ptr, i64, i64, i64 }, {}, {} } } }, { {} } } }, { i32, i32 }, i64, { { { { ptr, i64, i64, i64 }, {}, {} }, {} } }, { { { { ptr, i64, i64, i64 }, {}, {} }, {} } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, {} } } }, { { ptr, {} } }, i32, i8, i8, i8, [1 x i8] }, ptr %44, i64 %13
+  %45 = getelementptr inbounds nuw [184 x i8], ptr %44, i64 %13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(184) %45, ptr noundef nonnull align 8 dereferenceable(184) %9, i64 184, i1 false)
   %46 = add nuw nsw i64 %13, 1
   store i64 %46, ptr %12, align 8, !alias.scope !76, !noalias !79
@@ -1016,7 +1016,7 @@ _ZN5salsa12active_query11ActiveQuery3new17hab1cf61f6d8ddfbbE.exit: ; preds = %16
 50:                                               ; preds = %4
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %52 = load ptr, ptr %51, align 8, !nonnull !3, !noundef !3
-  %53 = getelementptr inbounds nuw { { { { { { { i64, ptr, {} }, {} }, i64 }, { { { ptr, i64, i64, i64 }, {}, {} } } }, { {} } } }, { i32, i32 }, i64, { { { { ptr, i64, i64, i64 }, {}, {} }, {} } }, { { { { ptr, i64, i64, i64 }, {}, {} }, {} } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, {} } } }, { { ptr, {} } }, i32, i8, i8, i8, [1 x i8] }, ptr %52, i64 %11
+  %53 = getelementptr inbounds nuw [184 x i8], ptr %52, i64 %11
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 56
   store i32 %1, ptr %54, align 8, !alias.scope !81
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 60
@@ -1055,7 +1055,7 @@ define hidden void @_ZN5salsa12active_query10QueryStack18pop_into_revisions17h98
 18:                                               ; preds = %4
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load ptr, ptr %19, align 8, !nonnull !3, !noundef !3
-  %21 = getelementptr inbounds nuw { { { { { { { i64, ptr, {} }, {} }, i64 }, { { { ptr, i64, i64, i64 }, {}, {} } } }, { {} } } }, { i32, i32 }, i64, { { { { ptr, i64, i64, i64 }, {}, {} }, {} } }, { { { { ptr, i64, i64, i64 }, {}, {} }, {} } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, {} } } }, { { ptr, {} } }, i32, i8, i8, i8, [1 x i8] }, ptr %20, i64 %14
+  %21 = getelementptr inbounds nuw [184 x i8], ptr %20, i64 %14
   tail call void @llvm.experimental.noalias.scope.decl(metadata !84)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !87)
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 182
@@ -1250,7 +1250,7 @@ define hidden void @_ZN5salsa12active_query10QueryStack3pop17h84872e966b0302caE(
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !nonnull !3, !noundef !3
-  %13 = getelementptr inbounds nuw { { { { { { { i64, ptr, {} }, {} }, i64 }, { { { ptr, i64, i64, i64 }, {}, {} } } }, { {} } } }, { i32, i32 }, i64, { { { { ptr, i64, i64, i64 }, {}, {} }, {} } }, { { { { ptr, i64, i64, i64 }, {}, {} }, {} } }, { { { { { ptr, i64, i64, i64 }, {}, {} }, {} } } }, { { ptr, {} } }, i32, i8, i8, i8, [1 x i8] }, ptr %12, i64 %6
+  %13 = getelementptr inbounds nuw [184 x i8], ptr %12, i64 %6
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 72
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 104
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 136

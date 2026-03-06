@@ -42,7 +42,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.anon.5 = type { ptr, ptr }
 %struct.pmix_class_t = type { ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, i64 }
 %struct.pmix_data_array = type { i16, i64, ptr }
-%struct.pmix_info = type { [512 x i8], i32, %struct.pmix_value }
 
 @.str = private unnamed_addr constant [7 x i8] c"client\00", align 1
 @pmix_ptl_client_module = local_unnamed_addr global %struct.pmix_ptl_module_t { ptr @.str, ptr null, ptr null, ptr null, ptr null, ptr @connect_to_peer, ptr null, ptr null, ptr null }, align 8
@@ -96,7 +95,7 @@ define internal i32 @connect_to_peer(ptr noundef %0, ptr noundef %1, i64 noundef
 
 15:                                               ; preds = %4
   %16 = zext nneg i32 %14 to i64
-  %17 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %16
+  %17 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %19 = load i32, ptr %18, align 4, !tbaa !20
   %20 = icmp sgt i32 %19, 1
@@ -117,7 +116,7 @@ define internal i32 @connect_to_peer(ptr noundef %0, ptr noundef %1, i64 noundef
 
 .lr.ph:                                           ; preds = %22, %23
   %.098184 = phi i64 [ %24, %23 ], [ 0, %22 ]
-  %25 = getelementptr inbounds nuw %struct.pmix_info, ptr %1, i64 %.098184
+  %25 = getelementptr inbounds nuw [552 x i8], ptr %1, i64 %.098184
   %26 = tail call zeroext i1 @PMIx_Check_key(ptr noundef %25, ptr noundef nonnull @.str.2) #11
   br i1 %26, label %27, label %23
 
@@ -141,7 +140,7 @@ define internal i32 @connect_to_peer(ptr noundef %0, ptr noundef %1, i64 noundef
 
 37:                                               ; preds = %.lr.ph187
   %38 = add i64 %.097186, 1
-  %39 = getelementptr inbounds nuw ptr, ptr %35, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !3
   %.not = icmp eq ptr %40, null
   br i1 %.not, label %._crit_edge, label %.lr.ph187, !llvm.loop !26
@@ -203,7 +202,7 @@ thread-pre-split:                                 ; preds = %.lr.ph187
 
 66:                                               ; preds = %64
   %67 = zext nneg i32 %65 to i64
-  %68 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %67
+  %68 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %67
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %70 = load i32, ptr %69, align 4, !tbaa !20
   %71 = icmp sgt i32 %70, 1
@@ -553,7 +552,7 @@ pmix_obj_run_destructors.exit156:                 ; preds = %.lr.ph.i153, %212
 
 238:                                              ; preds = %236
   %239 = zext nneg i32 %237 to i64
-  %240 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %239
+  %240 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %239
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 4
   %242 = load i32, ptr %241, align 4, !tbaa !20
   %243 = icmp sgt i32 %242, 1
@@ -674,7 +673,7 @@ pmix_obj_run_destructors.exit168:                 ; preds = %.lr.ph.i165, %269
 
 298:                                              ; preds = %296
   %299 = zext nneg i32 %297 to i64
-  %300 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %299
+  %300 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %299
   %301 = getelementptr inbounds nuw i8, ptr %300, i64 4
   %302 = load i32, ptr %301, align 4, !tbaa !20
   %303 = icmp sgt i32 %302, 1
@@ -707,7 +706,7 @@ pmix_obj_run_destructors.exit168:                 ; preds = %.lr.ph.i165, %269
 
 316:                                              ; preds = %314
   %317 = zext nneg i32 %315 to i64
-  %318 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %317
+  %318 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %317
   %319 = getelementptr inbounds nuw i8, ptr %318, i64 4
   %320 = load i32, ptr %319, align 4, !tbaa !20
   %321 = icmp sgt i32 %320, 1

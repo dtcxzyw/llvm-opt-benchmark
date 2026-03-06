@@ -14,7 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.zxing::Ref" = type { ptr }
 
 $_ZN5zxing8ArrayRefIcED2Ev = comdat any
 
@@ -221,7 +220,7 @@ _ZNSt12_Vector_baseIN5zxing3RefINS0_6qrcode9DataBlockEEESaIS4_EEC2EmRKS5_.exit.t
 
 .noexc129:                                        ; preds = %.lr.ph.preheader.i.i.i.i.i
   store ptr %27, ptr %6, align 8, !tbaa !22
-  %28 = getelementptr inbounds nuw %"class.zxing::Ref", ptr %27, i64 %21
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %21
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %27, i8 0, i64 %26, i1 false), !tbaa !25
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %27, i64 %26
   br label %36
@@ -229,7 +228,7 @@ _ZNSt12_Vector_baseIN5zxing3RefINS0_6qrcode9DataBlockEEESaIS4_EEC2EmRKS5_.exit.t
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %32
   %.0211 = phi i32 [ %33, %32 ], [ 0, %.lr.ph.preheader ]
   %.068210 = phi i64 [ %34, %32 ], [ 0, %.lr.ph.preheader ]
-  %29 = getelementptr inbounds nuw ptr, ptr %19, i64 %.068210
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.068210
   %30 = load ptr, ptr %29, align 8, !tbaa !28
   %31 = invoke noundef i32 @_ZN5zxing6qrcode3ECB8getCountEv(ptr noundef nonnull align 4 dereferenceable(8) %30)
           to label %32 unwind label %.thread180
@@ -295,7 +294,7 @@ _ZNSt12_Vector_baseIN5zxing3RefINS0_6qrcode9DataBlockEEESaIS4_EEC2EmRKS5_.exit.t
 .lr.ph216:                                        ; preds = %36, %73
   %.096214 = phi i64 [ %indvars.iv, %73 ], [ 0, %36 ]
   %.0100213 = phi i64 [ %74, %73 ], [ 0, %36 ]
-  %66 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0100213
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %.0100213
   %67 = load ptr, ptr %66, align 8, !tbaa !28
   %sext = shl i64 %.096214, 32
   %68 = ashr exact i64 %sext, 32
@@ -402,10 +401,10 @@ _ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i.i.i: ; preds = %.noexc131
   %100 = getelementptr inbounds nuw i8, ptr %94, i64 32
   store ptr %83, ptr %100, align 8, !tbaa !15
   store i32 2, ptr %84, align 8, !tbaa !3
-  %.phi.trans.insert = getelementptr inbounds nuw %"class.zxing::Ref", ptr %39, i64 %indvars.iv
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !25
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %101 = getelementptr inbounds nuw %"class.zxing::Ref", ptr %39, i64 %indvars.iv
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv
   store i32 2, ptr %96, align 8, !tbaa !3
   %.not5.i.i = icmp eq ptr %.pre, null
   br i1 %.not5.i.i, label %111, label %102
@@ -492,7 +491,7 @@ _ZN5zxing8ArrayRefIcED2Ev.exit140:                ; preds = %92
 
 136:                                              ; preds = %134
   %137 = and i64 %indvars.iv.next269, 2147483647
-  %138 = getelementptr inbounds nuw %"class.zxing::Ref", ptr %39, i64 %137
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %137
   %139 = load ptr, ptr %138, align 8, !tbaa !25
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 32
   %141 = load ptr, ptr %140, align 8, !tbaa !15
@@ -604,7 +603,7 @@ _ZN5zxing12ErrorHandlerD2Ev.exit144:              ; preds = %163, %_ZNKSt7__cxx1
   %181 = load ptr, ptr %180, align 8, !tbaa !37
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 %indvars.iv273
   %183 = load i8, ptr %182, align 1, !tbaa !47
-  %184 = getelementptr inbounds nuw %"class.zxing::Ref", ptr %39, i64 %indvars.iv271
+  %184 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv271
   %185 = load ptr, ptr %184, align 8, !tbaa !25
   %186 = getelementptr inbounds nuw i8, ptr %185, i64 32
   %187 = load ptr, ptr %186, align 8, !tbaa !15
@@ -691,7 +690,7 @@ _ZN5zxing12ErrorHandlerD2Ev.exit144:              ; preds = %163, %_ZNKSt7__cxx1
   %222 = zext i1 %.not110.us to i32
   %223 = add nsw i32 %.067239.us, %222
   %224 = load i8, ptr %221, align 1, !tbaa !47
-  %225 = getelementptr inbounds nuw %"class.zxing::Ref", ptr %39, i64 %indvars.iv294
+  %225 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv294
   %226 = load ptr, ptr %225, align 8, !tbaa !25
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 32
   %228 = load ptr, ptr %227, align 8, !tbaa !15
@@ -719,7 +718,7 @@ _ZN5zxing12ErrorHandlerD2Ev.exit144:              ; preds = %163, %_ZNKSt7__cxx1
   %239 = load ptr, ptr %238, align 8, !tbaa !37
   %240 = getelementptr inbounds nuw i8, ptr %239, i64 %indvars.iv286
   %241 = load i8, ptr %240, align 1, !tbaa !47
-  %242 = getelementptr inbounds nuw %"class.zxing::Ref", ptr %39, i64 %indvars.iv284
+  %242 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv284
   %243 = load ptr, ptr %242, align 8, !tbaa !25
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 32
   %245 = load ptr, ptr %244, align 8, !tbaa !15

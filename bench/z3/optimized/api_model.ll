@@ -7,11 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::atomic.110" = type { %"struct.std::__atomic_base.111" }
 %"struct.std::__atomic_base.111" = type { i8 }
 %class.params_ref = type { ptr }
-%"class.obj_map<func_decl, std::pair<unsigned int, expr *>>::obj_map_entry" = type { %"struct.obj_map<func_decl, std::pair<unsigned int, expr *>>::key_data" }
-%"struct.obj_map<func_decl, std::pair<unsigned int, expr *>>::key_data" = type { ptr, %"struct.std::pair" }
-%"struct.std::pair" = type { i32, ptr }
-%"class.obj_map<func_decl, func_interp *>::obj_map_entry" = type { %"struct.obj_map<func_decl, func_interp *>::key_data" }
-%"struct.obj_map<func_decl, func_interp *>::key_data" = type { ptr, ptr }
 %class.obj_ref = type { ptr, ptr }
 %"class.model::scoped_model_completion" = type { i8, ptr }
 %class.ast_translation = type <{ ptr, ptr, %class.svector.88, %class.ptr_vector.18, %class.ptr_vector.18, %class.obj_map.90, i32, i32, i32, i32, i32, [4 x i8] }>
@@ -572,7 +567,7 @@ define ptr @Z3_model_get_const_interp(ptr noundef %0, ptr noundef %1, ptr nounde
   %.idx.i.i.i.i = mul nuw nsw i64 %24, 24
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx.i.i.i.i
   %26 = zext i32 %20 to i64
-  %27 = getelementptr inbounds nuw %"class.obj_map<func_decl, std::pair<unsigned int, expr *>>::obj_map_entry", ptr %23, i64 %26
+  %27 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %26
   %.not34.i.i.i.i = icmp eq i32 %22, %20
   br i1 %.not34.i.i.i.i, label %.preheader.i.i.i.i, label %.lr.ph.i.i.i.i
 
@@ -852,7 +847,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK10model_core18has_interpretat
   %.idx.i.i.i = mul nuw nsw i64 %11, 24
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx.i.i.i
   %13 = zext i32 %7 to i64
-  %14 = getelementptr inbounds nuw %"class.obj_map<func_decl, std::pair<unsigned int, expr *>>::obj_map_entry", ptr %10, i64 %13
+  %14 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 %13
   %.not34.i.i.i = icmp eq i32 %9, %7
   br i1 %.not34.i.i.i, label %.preheader.i.i.i, label %.lr.ph.i.i.i
 
@@ -924,7 +919,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK10model_core18has_interpretat
   %.idx.i.i.i3 = shl nuw nsw i64 %42, 4
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 %.idx.i.i.i3
   %44 = zext i32 %38 to i64
-  %45 = getelementptr inbounds nuw %"class.obj_map<func_decl, func_interp *>::obj_map_entry", ptr %41, i64 %44
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %41, i64 %44
   %.not34.i.i.i4 = icmp eq i32 %40, %38
   br i1 %.not34.i.i.i4, label %.preheader.i.i.i10, label %.lr.ph.i.i.i5
 
@@ -1031,7 +1026,7 @@ define noundef ptr @Z3_model_get_func_interp(ptr noundef %0, ptr noundef %1, ptr
   %.idx.i.i.i.i = shl nuw nsw i64 %24, 4
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 %.idx.i.i.i.i
   %26 = zext i32 %20 to i64
-  %27 = getelementptr inbounds nuw %"class.obj_map<func_decl, func_interp *>::obj_map_entry", ptr %23, i64 %26
+  %27 = getelementptr inbounds nuw [16 x i8], ptr %23, i64 %26
   %.not34.i.i.i.i = icmp eq i32 %22, %20
   br i1 %.not34.i.i.i.i, label %.preheader.i.i.i.i, label %.lr.ph.i.i.i.i
 
@@ -1369,7 +1364,7 @@ _ZNK10model_core17get_num_constantsEv.exit:       ; preds = %13
 
 22:                                               ; preds = %_ZNK10model_core17get_num_constantsEv.exit
   %23 = zext i32 %2 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr %17, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !208
   br i1 %5, label %26, label %_ZN10z3_log_ctxD2Ev.exit, !prof !174
 
@@ -1602,7 +1597,7 @@ _ZNK10model_core17get_num_functionsEv.exit.thread: ; preds = %6, %_ZNK10model_co
 
 14:                                               ; preds = %_ZNK10model_core17get_num_functionsEv.exit
   %15 = zext i32 %2 to i64
-  %16 = getelementptr inbounds nuw ptr, ptr %10, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !208
   br label %18
 
@@ -1655,7 +1650,7 @@ _ZNK10model_core17get_num_functionsEv.exit.i:     ; preds = %14
 
 22:                                               ; preds = %_ZNK10model_core17get_num_functionsEv.exit.i
   %23 = zext i32 %2 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr %18, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !208
   br label %get_model_func_decl_core.exit
 
@@ -2434,7 +2429,7 @@ _ZN15ref_vector_coreI3ast19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.e
   %63 = phi ptr [ %.pre.i.i, %.noexc ], [ %52, %54 ]
   %64 = getelementptr inbounds i8, ptr %63, i64 -4
   %65 = zext i32 %62 to i64
-  %66 = getelementptr inbounds nuw ptr, ptr %63, i64 %65
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %65
   store ptr %47, ptr %66, align 8, !tbaa !235
   %67 = add i32 %62, 1
   store i32 %67, ptr %64, align 4, !tbaa !207
@@ -3679,7 +3674,7 @@ _ZNK11func_interp11num_entriesEv.exit.thread:     ; preds = %13, %_ZNK11func_int
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load ptr, ptr %39, align 8, !tbaa !274
   %41 = zext i32 %2 to i64
-  %42 = getelementptr inbounds nuw ptr, ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %41
   %43 = load ptr, ptr %42, align 8, !tbaa !280
   %44 = getelementptr inbounds nuw i8, ptr %26, i64 40
   store ptr %43, ptr %44, align 8, !tbaa !281
@@ -4577,7 +4572,7 @@ define ptr @Z3_func_entry_get_arg(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %20 = load ptr, ptr %19, align 8, !tbaa !281
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = zext i32 %2 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !226
   br label %_ZN10z3_log_ctxD2Ev.exit
 
@@ -4603,7 +4598,7 @@ define ptr @Z3_func_entry_get_arg(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %32 = load ptr, ptr %31, align 8, !tbaa !281
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = zext i32 %2 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !226
   invoke void @_Z4SetRPKv(ptr noundef %36)
           to label %39 unwind label %37

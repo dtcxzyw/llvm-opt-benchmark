@@ -603,10 +603,10 @@ define internal fastcc i32 @dissect_logcat_text(ptr noundef %0, ptr noundef %1, 
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
   %.046 = phi i32 [ 0, %.lr.ph ], [ %36, %30 ]
   %31 = load ptr, ptr %27, align 8
-  %32 = getelementptr ptr, ptr %31, i64 %indvars.iv
+  %32 = getelementptr [8 x i8], ptr %31, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %34 = getelementptr ptr, ptr %20, i64 %indvars.iv.next
+  %34 = getelementptr [8 x i8], ptr %20, i64 %indvars.iv.next
   %35 = load ptr, ptr %34, align 8
   %36 = tail call i32 %33(ptr noundef %8, ptr noundef %35, ptr noundef %0, ptr noundef %12, i32 noundef %.046, ptr noundef %2)
   %37 = load i32, ptr %24, align 8

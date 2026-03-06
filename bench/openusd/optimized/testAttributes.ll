@@ -246,7 +246,7 @@ _ZL10TestAndSet9Operation.exit:                   ; preds = %0, %3
 define linkonce_odr dso_local void @_ZN4TestD2Ev(ptr noundef nonnull align 4 dereferenceable(4) %0) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = load i32, ptr %0, align 4
   %3 = zext i32 %2 to i64
-  %4 = getelementptr inbounds nuw i32, ptr @_ZL12dependencies, i64 %3
+  %4 = getelementptr inbounds nuw [4 x i8], ptr @_ZL12dependencies, i64 %3
   %5 = load i32, ptr %4, align 4
   %6 = load i32, ptr @_ZL4done, align 4
   %7 = and i32 %6, %5

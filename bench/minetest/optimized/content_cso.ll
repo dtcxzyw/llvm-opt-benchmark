@@ -25,7 +25,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.irr::core::vector2d" = type { float, float }
 %"class.irr::core::dimension2d" = type { float, float }
 %"class.irr::video::SColor" = type { i32 }
-%struct.ContentLightingFlags = type { i8 }
 
 $_ZN12SmokePuffCSOC2EPN3irr5scene13ISceneManagerEP17ClientEnvironmentRKNS0_4core8vector3dIfEERKNS6_8vector2dIfEE = comdat any
 
@@ -481,7 +480,7 @@ invoke.cont74:                                    ; preds = %invoke.cont67
   %m_content_lighting_flag_cache.i.i = getelementptr inbounds nuw i8, ptr %call.i131, i64 312
   %29 = and i32 %call66, 65535
   %idxprom.i.i = zext nneg i32 %29 to i64
-  %arrayidx.i.i = getelementptr inbounds nuw %struct.ContentLightingFlags, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %m_content_lighting_flag_cache.i.i, i64 %idxprom.i.i
   %retval.sroa.0.0.copyload.i.i = load i8, ptr %arrayidx.i.i, align 1, !tbaa !41
   %30 = and i8 %retval.sroa.0.0.copyload.i.i, 16
   %bf.cast.not.i.i.i = icmp eq i8 %30, 0

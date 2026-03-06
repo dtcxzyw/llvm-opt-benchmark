@@ -3,11 +3,6 @@ source_filename = "bench/php/original/tree.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct._zval_struct = type { %union._zend_value, %union.anon, %union.anon.2 }
-%union._zend_value = type { i64 }
-%union.anon = type { i32 }
-%union.anon.2 = type { i32 }
-
 @.str = private unnamed_addr constant [54 x i8] c"Cannot have more than one element child in a document\00", align 1
 @.str.1 = private unnamed_addr constant [53 x i8] c"Document types must be the first child in a document\00", align 1
 @xmlFree = external local_unnamed_addr global ptr, align 8
@@ -378,7 +373,7 @@ dom_doc_from_context_node.exit:                   ; preds = %4, %4, %7
 
 32:                                               ; preds = %.lr.ph67, %.loopexit
   %indvars.iv = phi i64 [ 0, %.lr.ph67 ], [ %indvars.iv.next, %.loopexit ]
-  %33 = getelementptr inbounds nuw %struct._zval_struct, ptr %2, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %indvars.iv
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load i8, ptr %34, align 8, !tbaa !18
   %36 = icmp eq i8 %35, 8
@@ -1120,7 +1115,7 @@ define internal fastcc range(i32 -1, 1) i32 @dom_sanity_check_node_list_types(pt
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.critedge
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.critedge ]
-  %4 = getelementptr inbounds nuw %struct._zval_struct, ptr %0, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %indvars.iv
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i8, ptr %5, align 8, !tbaa !18
   switch i8 %6, label %28 [
@@ -1350,7 +1345,7 @@ dom_is_node_in_list.exit.loopexit:                ; preds = %25
 
 .lr.ph.i:                                         ; preds = %30, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %30 ]
-  %21 = getelementptr inbounds nuw %struct._zval_struct, ptr %1, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv.i
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i8, ptr %22, align 8, !tbaa !18
   %24 = icmp eq i8 %23, 8
@@ -1450,7 +1445,7 @@ dom_is_node_in_list.exit.loopexit:                ; preds = %25
 
 .lr.ph.i:                                         ; preds = %30, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %30 ]
-  %21 = getelementptr inbounds nuw %struct._zval_struct, ptr %1, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv.i
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i8, ptr %22, align 8, !tbaa !18
   %24 = icmp eq i8 %23, 8
@@ -1605,7 +1600,7 @@ dom_is_node_in_list.exit.loopexit:                ; preds = %25
 
 .lr.ph.i:                                         ; preds = %30, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %30 ]
-  %21 = getelementptr inbounds nuw %struct._zval_struct, ptr %1, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv.i
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i8, ptr %22, align 8, !tbaa !18
   %24 = icmp eq i8 %23, 8

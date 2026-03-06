@@ -78,7 +78,7 @@ define range(i32 0, 2) i32 @cmdCheckShellEscape(ptr readnone captures(none) %0, 
   %strlen = tail call i64 @strlen(ptr nonnull dereferenceable(1) %8)
   %endptr = getelementptr inbounds i8, ptr %8, i64 %strlen
   store i16 32, ptr %endptr, align 1
-  %12 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !3
   %14 = tail call ptr @strncat(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %13, i64 noundef 4096) #25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -276,11 +276,11 @@ define noalias noundef ptr @CmdAddToArgv(i32 noundef %0, ptr noundef readonly ca
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %9 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !3
   %11 = tail call ptr @Extra_UtilStrsav(ptr noundef %10) #25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %12 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv.next
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv.next
   store ptr %11, ptr %12, align 8, !tbaa !3
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !40
@@ -300,7 +300,7 @@ define void @CmdFreeArgv(i32 noundef %0, ptr noundef captures(address_is_null) %
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %7 ]
-  %4 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   %.not12 = icmp eq ptr %5, null
   br i1 %.not12, label %7, label %6
@@ -366,7 +366,7 @@ define ptr @CmdSplitLine(ptr noundef readonly captures(none) %0, ptr noundef %1,
   %.161 = phi ptr [ %.060, %11 ], [ %21, %15 ]
   %16 = load i8, ptr %.161, align 1, !tbaa !8
   %17 = sext i8 %16 to i64
-  %18 = getelementptr inbounds i16, ptr %14, i64 %17
+  %18 = getelementptr inbounds [2 x i8], ptr %14, i64 %17
   %19 = load i16, ptr %18, align 2, !tbaa !48
   %20 = and i16 %19, 8192
   %.not = icmp eq i16 %20, 0
@@ -387,7 +387,7 @@ define ptr @CmdSplitLine(ptr noundef readonly captures(none) %0, ptr noundef %1,
 
 23:                                               ; preds = %.preheader76
   %24 = sext i8 %22 to i64
-  %25 = getelementptr inbounds i16, ptr %14, i64 %24
+  %25 = getelementptr inbounds [2 x i8], ptr %14, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !48
   %27 = and i16 %26, 8192
   %.not70 = icmp eq i16 %27, 0
@@ -450,7 +450,7 @@ define ptr @CmdSplitLine(ptr noundef readonly captures(none) %0, ptr noundef %1,
 54:                                               ; preds = %.lr.ph
   %55 = load ptr, ptr %9, align 8, !tbaa !46
   %56 = sext i8 %53 to i64
-  %57 = getelementptr inbounds i16, ptr %55, i64 %56
+  %57 = getelementptr inbounds [2 x i8], ptr %55, i64 %56
   %58 = load i16, ptr %57, align 2, !tbaa !48
   %59 = and i16 %58, 8192
   %.not71 = icmp eq i16 %59, 0
@@ -533,7 +533,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %89 = add nuw nsw i32 %13, 1
   store i32 %89, ptr %6, align 4, !tbaa !42
   %90 = zext nneg i32 %13 to i64
-  %91 = getelementptr inbounds nuw ptr, ptr %88, i64 %90
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %90
   store ptr %50, ptr %91, align 8, !tbaa !53
   br label %11
 
@@ -631,7 +631,7 @@ define range(i32 0, 2) i32 @CmdApplyAlias(ptr noundef %0, ptr noundef captures(n
 .lr.ph.preheader:                                 ; preds = %31
   %37 = zext nneg i32 %.0112184 to i64
   %38 = sext i32 %30 to i64
-  %invariant.gep = getelementptr ptr, ptr %35, i64 %38
+  %invariant.gep = getelementptr [8 x i8], ptr %35, i64 %38
   br label %.lr.ph
 
 .preheader154:                                    ; preds = %.lr.ph, %31
@@ -648,9 +648,9 @@ define range(i32 0, 2) i32 @CmdApplyAlias(ptr noundef %0, ptr noundef captures(n
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %37, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %41 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv.next
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv.next
   %42 = load ptr, ptr %41, align 8, !tbaa !3
-  %gep = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv.next
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %indvars.iv.next
   store ptr %42, ptr %gep, align 8, !tbaa !3
   %43 = icmp samesign ugt i64 %indvars.iv, 2
   br i1 %43, label %.lr.ph, label %.preheader154, !llvm.loop !60
@@ -672,7 +672,7 @@ define range(i32 0, 2) i32 @CmdApplyAlias(ptr noundef %0, ptr noundef captures(n
   %.2114177 = phi i32 [ %.3115223237, %102 ], [ %.1113, %.loopexit ]
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
   %50 = load ptr, ptr %49, align 8, !tbaa !57
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv209
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv209
   %52 = load ptr, ptr %51, align 8, !tbaa !3
   %53 = icmp eq ptr %52, null
   br i1 %53, label %54, label %.preheader
@@ -708,7 +708,7 @@ define range(i32 0, 2) i32 @CmdApplyAlias(ptr noundef %0, ptr noundef captures(n
 
 .lr.ph.i:                                         ; preds = %70, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %70 ]
-  %67 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv.i
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %indvars.iv.i
   %68 = load ptr, ptr %67, align 8, !tbaa !3
   %.not12.i = icmp eq ptr %68, null
   br i1 %.not12.i, label %70, label %69
@@ -746,7 +746,7 @@ CmdFreeArgv.exit:                                 ; preds = %._crit_edge.i, %._c
 
 .lr.ph.i148:                                      ; preds = %77, %.lr.ph.preheader.i146
   %indvars.iv.i149 = phi i64 [ 0, %.lr.ph.preheader.i146 ], [ %indvars.iv.next.i151, %77 ]
-  %74 = getelementptr inbounds nuw ptr, ptr %72, i64 %indvars.iv.i149
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %indvars.iv.i149
   %75 = load ptr, ptr %74, align 8, !tbaa !3
   %.not12.i150 = icmp eq ptr %75, null
   br i1 %.not12.i150, label %77, label %76
@@ -809,14 +809,14 @@ CmdFreeArgv.exit153:                              ; preds = %CmdFreeArgv.exit, %
   %91 = sext i32 %.0102168 to i64
   %92 = sext i32 %79 to i64
   %93 = sext i32 %.0109178 to i64
-  %invariant.gep247 = getelementptr ptr, ptr %89, i64 %92
+  %invariant.gep247 = getelementptr [8 x i8], ptr %89, i64 %92
   br label %.lr.ph170
 
 .lr.ph170:                                        ; preds = %.lr.ph170.preheader, %.lr.ph170
   %indvars.iv202 = phi i64 [ %91, %.lr.ph170.preheader ], [ %indvars.iv.next203, %.lr.ph170 ]
-  %94 = getelementptr inbounds ptr, ptr %89, i64 %indvars.iv202
+  %94 = getelementptr inbounds [8 x i8], ptr %89, i64 %indvars.iv202
   %95 = load ptr, ptr %94, align 8, !tbaa !3
-  %gep248 = getelementptr ptr, ptr %invariant.gep247, i64 %indvars.iv202
+  %gep248 = getelementptr [8 x i8], ptr %invariant.gep247, i64 %indvars.iv202
   store ptr %95, ptr %gep248, align 8, !tbaa !3
   %indvars.iv.next203 = add nsw i64 %indvars.iv202, -1
   %96 = icmp sgt i64 %indvars.iv.next203, %93
@@ -834,14 +834,14 @@ CmdFreeArgv.exit153:                              ; preds = %CmdFreeArgv.exit, %
   %.3115224 = phi i32 [ %.2114177, %.thread ], [ %97, %.loopexit238 ]
   %98 = sext i32 %.0109178 to i64
   %wide.trip.count = zext nneg i32 %78 to i64
-  %invariant.gep249 = getelementptr ptr, ptr %.3226, i64 %98
+  %invariant.gep249 = getelementptr [8 x i8], ptr %.3226, i64 %98
   br label %99
 
 99:                                               ; preds = %.lr.ph174, %99
   %indvars.iv206 = phi i64 [ 0, %.lr.ph174 ], [ %indvars.iv.next207, %99 ]
-  %100 = getelementptr inbounds nuw ptr, ptr %.pre227, i64 %indvars.iv206
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %.pre227, i64 %indvars.iv206
   %101 = load ptr, ptr %100, align 8, !tbaa !3
-  %gep250 = getelementptr ptr, ptr %invariant.gep249, i64 %indvars.iv206
+  %gep250 = getelementptr [8 x i8], ptr %invariant.gep249, i64 %indvars.iv206
   store ptr %101, ptr %gep250, align 8, !tbaa !3
   %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next207, %wide.trip.count
@@ -1115,7 +1115,7 @@ define noalias noundef ptr @CmdDupArgv(i32 noundef %0, ptr noundef readonly capt
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %Abc_UtilStrsav.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %Abc_UtilStrsav.exit ]
-  %7 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !3
   %.not.i = icmp eq ptr %8, null
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %9
@@ -1129,7 +1129,7 @@ define noalias noundef ptr @CmdDupArgv(i32 noundef %0, ptr noundef readonly capt
 
 Abc_UtilStrsav.exit:                              ; preds = %.lr.ph, %9
   %14 = phi ptr [ %12, %9 ], [ null, %.lr.ph ]
-  %15 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   store ptr %14, ptr %15, align 8, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1200,7 +1200,7 @@ define void @CmdCommandPrint(ptr noundef %0, i32 noundef %1, i32 noundef %2) loc
 20:                                               ; preds = %.critedge.us
   %21 = add nsw i32 %.0100127.us, 1
   %22 = sext i32 %.0100127.us to i64
-  %23 = getelementptr inbounds ptr, ptr %14, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %14, i64 %22
   store ptr %17, ptr %23, align 8, !tbaa !31
   br label %24
 
@@ -1230,7 +1230,7 @@ define void @CmdCommandPrint(ptr noundef %0, i32 noundef %1, i32 noundef %2) loc
   %indvars.iv = phi i64 [ %indvars.iv.next, %.critedge ], [ 0, %.critedge.lr.ph ]
   %29 = load ptr, ptr %5, align 8, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %30 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   store ptr %29, ptr %30, align 8, !tbaa !31
   %31 = call i32 @st__gen(ptr noundef %15, ptr noundef nonnull %4, ptr noundef nonnull %5) #25
   %.not = icmp eq i32 %31, 0
@@ -1239,7 +1239,7 @@ define void @CmdCommandPrint(ptr noundef %0, i32 noundef %1, i32 noundef %2) loc
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv152 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next153, %.lr.ph ]
   %.094129 = phi i32 [ 0, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
-  %32 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv152
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv152
   %33 = load ptr, ptr %32, align 8, !tbaa !31
   %34 = load ptr, ptr %33, align 8, !tbaa !72
   %35 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %34) #28
@@ -1278,7 +1278,7 @@ define void @CmdCommandPrint(ptr noundef %0, i32 noundef %1, i32 noundef %2) loc
   br label %61
 
 44:                                               ; preds = %43
-  %45 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv159
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv159
   %46 = load ptr, ptr %45, align 8, !tbaa !31
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load ptr, ptr %47, align 8, !tbaa !71
@@ -1323,7 +1323,7 @@ define void @CmdCommandPrint(ptr noundef %0, i32 noundef %1, i32 noundef %2) loc
   %indvars.iv155 = phi i64 [ %indvars.iv.next156, %.lr.ph135 ], [ %64, %63 ]
   %66 = load ptr, ptr %39, align 8, !tbaa !78
   %fputc121 = call i32 @fputc(i32 10, ptr %66)
-  %67 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv155
+  %67 = getelementptr inbounds [8 x i8], ptr %14, i64 %indvars.iv155
   %68 = load ptr, ptr %67, align 8, !tbaa !31
   %69 = load ptr, ptr %68, align 8, !tbaa !72
   %70 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %69) #28
@@ -1353,7 +1353,7 @@ define void @CmdCommandPrint(ptr noundef %0, i32 noundef %1, i32 noundef %2) loc
   %82 = load ptr, ptr %39, align 8, !tbaa !78
   %fputc120 = call i32 @fputc(i32 10, ptr %82)
   %83 = load ptr, ptr %39, align 8, !tbaa !78
-  %84 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv159
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv159
   %85 = load ptr, ptr %84, align 8, !tbaa !31
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %87 = load ptr, ptr %86, align 8, !tbaa !71
@@ -1395,7 +1395,7 @@ define void @CmdCommandPrint(ptr noundef %0, i32 noundef %1, i32 noundef %2) loc
   %indvars.iv164 = phi i64 [ %100, %.lr.ph148.preheader ], [ %indvars.iv.next165, %.lr.ph148 ]
   %101 = load ptr, ptr %39, align 8, !tbaa !78
   %fputc113 = call i32 @fputc(i32 10, ptr %101)
-  %102 = getelementptr inbounds ptr, ptr %14, i64 %indvars.iv164
+  %102 = getelementptr inbounds [8 x i8], ptr %14, i64 %indvars.iv164
   %103 = load ptr, ptr %102, align 8, !tbaa !31
   %104 = load ptr, ptr %103, align 8, !tbaa !72
   %105 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %104) #28
@@ -1523,7 +1523,7 @@ define void @CmdPrintTable(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %indvars.iv33 = phi i64 [ %indvars.iv.next34, %.lr.ph.split.us ], [ 0, %.lr.ph ]
-  %14 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv33
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv33
   %15 = load ptr, ptr %14, align 8, !tbaa !3
   %16 = call i32 @st__lookup(ptr noundef nonnull %0, ptr noundef %15, ptr noundef nonnull %4) #25
   %17 = load ptr, ptr @stdout, align 8, !tbaa !66
@@ -1538,7 +1538,7 @@ define void @CmdPrintTable(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
   %indvars.iv = phi i64 [ %indvars.iv.next, %.critedge ], [ 0, %2 ]
   %21 = load ptr, ptr %3, align 8, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   store ptr %21, ptr %22, align 8, !tbaa !3
   %23 = call i32 @st__gen(ptr noundef %10, ptr noundef nonnull %3, ptr noundef nonnull %4) #25
   %.not = icmp eq i32 %23, 0
@@ -1546,7 +1546,7 @@ define void @CmdPrintTable(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv30 = phi i64 [ %indvars.iv.next31, %.lr.ph.split ], [ 0, %.lr.ph ]
-  %24 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv30
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv30
   %25 = load ptr, ptr %24, align 8, !tbaa !3
   %26 = call i32 @st__lookup(ptr noundef nonnull %0, ptr noundef %25, ptr noundef nonnull %4) #25
   %27 = call ptr (...) @Abc_FrameGetGlobalFrame() #25
@@ -1739,7 +1739,7 @@ define noundef nonnull ptr @Cmd_GenScript(ptr noundef readonly captures(none) %0
   %5 = tail call i32 @rand() #25
   %6 = srem i32 %5, %1
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds ptr, ptr %0, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %0, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !3
   %10 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) @Cmd_GenScript.pScript, ptr noundef nonnull dereferenceable(1) %9) #25
   %strlen4 = tail call i64 @strlen(ptr nonnull dereferenceable(1) @Cmd_GenScript.pScript)
@@ -1786,7 +1786,7 @@ define void @Cmd_CommandSGen(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32
   %14 = tail call i32 @rand() #25
   %15 = srem i32 %14, 6
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds ptr, ptr @__const.Cmd_CommandSGen.pComms, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr @__const.Cmd_CommandSGen.pComms, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !3
   %19 = tail call ptr @strcat(ptr noundef nonnull dereferenceable(1) @Cmd_GenScript.pScript, ptr noundef nonnull dereferenceable(1) %18) #25
   %strlen4.i = tail call i64 @strlen(ptr nonnull dereferenceable(1) @Cmd_GenScript.pScript)
@@ -1852,7 +1852,7 @@ Cmd_GenScript.exit:                               ; preds = %.lr.ph.i, %13
   %indvars.iv = phi i64 [ %indvars.iv.next, %48 ], [ 0, %.preheader ]
   %40 = getelementptr i8, ptr %39, i64 8
   %.031.val40.val = load ptr, ptr %40, align 8, !tbaa !45
-  %41 = getelementptr inbounds nuw ptr, ptr %.031.val40.val, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %.031.val40.val, i64 %indvars.iv
   %42 = load ptr, ptr %41, align 8, !tbaa !53
   %43 = icmp eq ptr %42, null
   br i1 %43, label %48, label %44

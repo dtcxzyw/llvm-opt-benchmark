@@ -526,7 +526,7 @@ define internal i32 @pcie_portdrv_probe(ptr noundef %0, ptr readnone captures(no
 .preheader:                                       ; preds = %129, %.preheader
   %132 = phi i64 [ %135, %.preheader ], [ 0, %129 ]
   %133 = call i32 @pci_irq_vector(ptr noundef %0, i32 noundef 0) #13
-  %134 = getelementptr i32, ptr %5, i64 %132
+  %134 = getelementptr [4 x i8], ptr %5, i64 %132
   store i32 %133, ptr %134, align 4
   %135 = add nuw nsw i64 %132, 1
   %136 = icmp eq i64 %135, 5
@@ -553,7 +553,7 @@ define internal i32 @pcie_portdrv_probe(ptr noundef %0, ptr readnone captures(no
   br i1 %149, label %190, label %150
 
 150:                                              ; preds = %143
-  %151 = getelementptr i32, ptr %5, i64 %144
+  %151 = getelementptr [4 x i8], ptr %5, i64 %144
   %152 = load i32, ptr %151, align 4
   %153 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 80), align 16
   %154 = call noalias noundef align 8 dereferenceable_or_null(760) ptr @kmalloc_trace(ptr noundef %153, i32 noundef 3520, i64 noundef 760) #15

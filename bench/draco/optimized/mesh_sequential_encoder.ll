@@ -8,20 +8,12 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"struct.std::array" = type { [3 x %"class.draco::IndexType.44"] }
-%"class.draco::IndexType.44" = type { i32 }
 %"class.std::unique_ptr.67" = type { %"struct.std::__uniq_ptr_data.68" }
 %"struct.std::__uniq_ptr_data.68" = type { %"class.std::__uniq_ptr_impl.69" }
 %"class.std::__uniq_ptr_impl.69" = type { %"class.std::tuple.70" }
 %"class.std::tuple.70" = type { %"struct.std::_Tuple_impl.71" }
 %"struct.std::_Tuple_impl.71" = type { %"struct.std::_Head_base.74" }
 %"struct.std::_Head_base.74" = type { ptr }
-%"class.std::unique_ptr.45" = type { %"struct.std::__uniq_ptr_data.46" }
-%"struct.std::__uniq_ptr_data.46" = type { %"class.std::__uniq_ptr_impl.47" }
-%"class.std::__uniq_ptr_impl.47" = type { %"class.std::tuple.48" }
-%"class.std::tuple.48" = type { %"struct.std::_Tuple_impl.49" }
-%"struct.std::_Tuple_impl.49" = type { %"struct.std::_Head_base.52" }
-%"struct.std::_Head_base.52" = type { ptr }
 
 $_ZN5draco12EncodeVarintIjEEbT_PNS_13EncoderBufferE = comdat any
 
@@ -266,7 +258,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit23:  ; preds = %65, %68
   %85 = load ptr, ptr %12, align 8, !tbaa !6
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 192
   %87 = load ptr, ptr %86, align 8, !tbaa !29
-  %88 = getelementptr inbounds nuw %"struct.std::array", ptr %87, i64 %indvars.iv75
+  %88 = getelementptr inbounds nuw [12 x i8], ptr %87, i64 %indvars.iv75
   %89 = load ptr, ptr %23, align 8, !tbaa !30
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %90 = load i32, ptr %88, align 4, !tbaa !70
@@ -366,7 +358,7 @@ _ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit26:  ; preds = %_ZN5draco13EncoderB
   %131 = load ptr, ptr %12, align 8, !tbaa !6
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 192
   %133 = load ptr, ptr %132, align 8, !tbaa !29
-  %134 = getelementptr inbounds nuw %"struct.std::array", ptr %133, i64 %indvars.iv70
+  %134 = getelementptr inbounds nuw [12 x i8], ptr %133, i64 %indvars.iv70
   %135 = load ptr, ptr %23, align 8, !tbaa !30
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %136 = load i32, ptr %134, align 4, !tbaa !70
@@ -477,7 +469,7 @@ _ZN5draco13EncoderBuffer6EncodeItEEbRKT_.exit28:  ; preds = %_ZN5draco13EncoderB
   %177 = load ptr, ptr %12, align 8, !tbaa !6
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 192
   %179 = load ptr, ptr %178, align 8, !tbaa !29
-  %180 = getelementptr inbounds nuw %"struct.std::array", ptr %179, i64 %indvars.iv65
+  %180 = getelementptr inbounds nuw [12 x i8], ptr %179, i64 %indvars.iv65
   %181 = load i32, ptr %180, align 4, !tbaa !70
   %182 = load ptr, ptr %23, align 8, !tbaa !30
   %183 = call noundef zeroext i1 @_ZN5draco12EncodeVarintIjEEbT_PNS_13EncoderBufferE(i32 noundef %181, ptr noundef %182)
@@ -505,7 +497,7 @@ _ZN5draco13EncoderBuffer6EncodeItEEbRKT_.exit28:  ; preds = %_ZN5draco13EncoderB
   %197 = load ptr, ptr %12, align 8, !tbaa !6
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 192
   %199 = load ptr, ptr %198, align 8, !tbaa !29
-  %200 = getelementptr inbounds nuw %"struct.std::array", ptr %199, i64 %indvars.iv
+  %200 = getelementptr inbounds nuw [12 x i8], ptr %199, i64 %indvars.iv
   %201 = getelementptr inbounds nuw i8, ptr %192, i64 8
   %202 = load ptr, ptr %201, align 8, !tbaa !69
   %203 = getelementptr inbounds nuw i8, ptr %200, i64 12
@@ -642,7 +634,7 @@ define noundef zeroext i1 @_ZN5draco21MeshSequentialEncoder24CompressAndEncodeIn
   %23 = load ptr, ptr %2, align 8, !tbaa !6
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 192
   %25 = load ptr, ptr %24, align 8, !tbaa !29
-  %26 = getelementptr inbounds nuw %"struct.std::array", ptr %25, i64 %indvars.iv70
+  %26 = getelementptr inbounds nuw [12 x i8], ptr %25, i64 %indvars.iv70
   br label %28
 
 27:                                               ; preds = %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
@@ -656,7 +648,7 @@ define noundef zeroext i1 @_ZN5draco21MeshSequentialEncoder24CompressAndEncodeIn
   %.sroa.027.253 = phi ptr [ %.sroa.027.059, %.lr.ph ], [ %.sroa.027.3, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ]
   %.sroa.10.152 = phi ptr [ %.sroa.10.058, %.lr.ph ], [ %.sroa.10.2, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ]
   %.sroa.14.251 = phi ptr [ %.sroa.14.056, %.lr.ph ], [ %.sroa.14.3, %_ZNSt6vectorIjSaIjEE9push_backERKj.exit ]
-  %29 = getelementptr inbounds nuw %"class.draco::IndexType.44", ptr %26, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv
   %30 = load i32, ptr %29, align 4, !tbaa !70
   %31 = sub nsw i32 %30, %.155
   %32 = tail call i32 @llvm.abs.i32(i32 %31, i1 true)
@@ -714,7 +706,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i: ; preds = %50, %.noex
   br label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i
 
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i: ; preds = %51, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i
-  %52 = getelementptr inbounds nuw i32, ptr %47, i64 %45
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %45
   br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
 
 _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i, %34
@@ -872,7 +864,7 @@ _ZNSt6vectorISt10unique_ptrIN5draco17AttributesEncoderESt14default_deleteIS2_EES
 .noexc:                                           ; preds = %44, %_ZNSt6vectorISt10unique_ptrIN5draco17AttributesEncoderESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i
   store ptr %37, ptr %16, align 8, !tbaa !101
   store ptr %43, ptr %17, align 8, !tbaa !97
-  %45 = getelementptr inbounds nuw %"class.std::unique_ptr.45", ptr %37, i64 %35
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %35
   store ptr %45, ptr %19, align 8, !tbaa !98
   br label %_ZNSt10unique_ptrIN5draco17AttributesEncoderESt14default_deleteIS1_EED2Ev.exit
 
@@ -1014,7 +1006,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i: ; preds = %27, %_ZNKS
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %29, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
   store ptr %24, ptr %4, align 8, !tbaa !110
   store ptr %28, ptr %5, align 8, !tbaa !108
-  %30 = getelementptr inbounds nuw i32, ptr %24, i64 %22
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %22
   store ptr %30, ptr %7, align 8, !tbaa !109
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
@@ -1052,7 +1044,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit:          ; preds = %9, %_ZNSt6vectorIiS
   br i1 %48, label %49, label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit
 
 49:                                               ; preds = %47
-  %50 = getelementptr inbounds nuw i32, ptr %35, i64 %43
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %43
   %.not.i.i = icmp eq ptr %34, %50
   br i1 %.not.i.i, label %_ZNSt6vectorIiSaIiEE6resizeEmRKi.exit, label %51
 
@@ -1077,7 +1069,7 @@ _ZNSt6vectorIiSaIiEE6resizeEmRKi.exit:            ; preds = %45, %47, %49, %51
   %60 = trunc i64 %59 to i32
   %61 = add nsw i32 %60, -1
   %62 = sext i32 %1 to i64
-  %63 = getelementptr inbounds nuw i32, ptr %53, i64 %62
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %62
   store i32 %61, ptr %63, align 4, !tbaa !87
   ret void
 }
@@ -1401,7 +1393,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco15LinearSequencer24GenerateSequ
   unreachable
 
 _ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE2atEm.exit: ; preds = %19
-  %21 = getelementptr inbounds nuw %"class.draco::IndexType.44", ptr %14, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv
   %22 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %22, ptr %21, align 4, !tbaa !70
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1489,9 +1481,9 @@ _ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE11_S_reloca
 
 _ZNSt12_Vector_baseIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE13_M_deallocateEPS3_m.exit37.i: ; preds = %34, %_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit.i
   store ptr %28, ptr %0, align 8, !tbaa !145
-  %36 = getelementptr inbounds nuw %"class.draco::IndexType.44", ptr %29, i64 %12
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %12
   store ptr %36, ptr %3, align 8, !tbaa !142
-  %37 = getelementptr inbounds nuw %"class.draco::IndexType.44", ptr %28, i64 %26
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %26
   store ptr %37, ptr %13, align 8, !tbaa !147
   br label %_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE17_M_default_appendEm.exit
 
@@ -1500,7 +1492,7 @@ _ZNSt12_Vector_baseIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE13_M
   br i1 %39, label %40, label %_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE17_M_default_appendEm.exit
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds nuw %"class.draco::IndexType.44", ptr %5, i64 %1
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %1
   %.not.i4 = icmp eq ptr %4, %41
   br i1 %.not.i4, label %_ZNSt6vectorIN5draco9IndexTypeIjNS0_20PointIndex_tag_type_EEESaIS3_EE17_M_default_appendEm.exit, label %42
 
@@ -1558,7 +1550,7 @@ define linkonce_odr void @_ZNSt6vectorIiSaIiEE14_M_fill_insertEN9__gnu_cxx17__no
 
 _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit: ; preds = %23, %20
   %24 = phi ptr [ %.pre, %23 ], [ %9, %20 ]
-  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %2
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %2
   store ptr %25, ptr %8, align 8, !tbaa !108
   %.not.i.i.i.i.i = icmp eq ptr %21, %1
   br i1 %.not.i.i.i.i.i, label %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit, label %26
@@ -1567,7 +1559,7 @@ _ZSt22__uninitialized_move_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit: ; preds = %23, %20
   %27 = sub i64 %22, %16
   %28 = ashr exact i64 %27, 2
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds i32, ptr %9, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %9, i64 %29
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %30, ptr align 4 %1, i64 %27, i1 false)
   br label %_ZSt13move_backwardIPiS0_ET0_T_S2_S1_.exit
 
@@ -1678,7 +1670,7 @@ _ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit80: ; preds = %.l
   br label %_ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit
 
 _ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit: ; preds = %67, %_ZSt24__uninitialized_fill_n_aIPimiiET_S1_T0_RKT1_RSaIT2_E.exit80
-  %68 = getelementptr inbounds nuw i32, ptr %63, i64 %2
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %2
   %69 = sub i64 %11, %56
   %.not.i.i.i.i.i.i.i.i.i82 = icmp eq ptr %9, %1
   br i1 %.not.i.i.i.i.i.i.i.i.i82, label %71, label %70
@@ -1700,7 +1692,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPiS0_SaIiEET0_T_S3_S2_RT1_.exit: ; pred
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit: ; preds = %71, %73
   store ptr %62, ptr %0, align 8, !tbaa !110
   store ptr %72, ptr %8, align 8, !tbaa !108
-  %75 = getelementptr inbounds nuw i32, ptr %62, i64 %55
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %55
   store ptr %75, ptr %6, align 8, !tbaa !109
   br label %_ZSt4fillIPiiEvT_S1_RKT0_.exit
 

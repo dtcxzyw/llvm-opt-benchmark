@@ -13,10 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.pmix_tma = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.pmix_list_item_t = type { %struct.pmix_object_t, ptr, ptr, i32 }
 %struct.pmix_output_desc_t = type { i8, i8, i32, i8, i32, ptr, ptr, i32, ptr, i32, i8, i8, i8, i8, ptr, i32, i32 }
-%struct.pmix_info = type { [512 x i8], i32, %struct.pmix_value }
-%struct.pmix_value = type { i16, %union.anon }
-%union.anon = type { %struct.pmix_envar_t }
-%struct.pmix_envar_t = type { ptr, ptr, i8 }
 %struct.ucred = type { i32, i32, i32 }
 
 @.str = private unnamed_addr constant [7 x i8] c"native\00", align 1
@@ -46,7 +42,7 @@ define internal noundef i32 @native_init() #0 {
 
 2:                                                ; preds = %0
   %3 = zext nneg i32 %1 to i64
-  %4 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %3
+  %4 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %6 = load i32, ptr %5, align 4, !tbaa !18
   %7 = icmp sgt i32 %6, 1
@@ -68,7 +64,7 @@ define internal void @native_finalize() #0 {
 
 2:                                                ; preds = %0
   %3 = zext nneg i32 %1 to i64
-  %4 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %3
+  %4 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %6 = load i32, ptr %5, align 4, !tbaa !18
   %7 = icmp sgt i32 %6, 1
@@ -97,7 +93,7 @@ define internal range(i32 -47, 1) i32 @create_cred(ptr noundef readonly captures
 
 .preheader:                                       ; preds = %6, %9
   %.03446 = phi i64 [ %10, %9 ], [ 0, %6 ]
-  %11 = getelementptr inbounds nuw %struct.pmix_info, ptr %1, i64 %.03446
+  %11 = getelementptr inbounds nuw [552 x i8], ptr %1, i64 %.03446
   %12 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %11, ptr noundef nonnull dereferenceable(15) @.str.3, i64 noundef 511) #8
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %9
@@ -112,7 +108,7 @@ define internal range(i32 -47, 1) i32 @create_cred(ptr noundef readonly captures
 
 19:                                               ; preds = %.lr.ph
   %20 = add i64 %.03548, 1
-  %21 = getelementptr inbounds nuw ptr, ptr %17, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !24
   %.not.not = icmp eq ptr %22, null
   br i1 %.not.not, label %._crit_edge, label %.lr.ph, !llvm.loop !25
@@ -198,7 +194,7 @@ define internal range(i32 -47, 1) i32 @validate_cred(ptr noundef readonly captur
 
 11:                                               ; preds = %6
   %12 = zext nneg i32 %10 to i64
-  %13 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %12
+  %13 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 4, !tbaa !18
   %16 = icmp sgt i32 %15, 1
@@ -226,7 +222,7 @@ define internal range(i32 -47, 1) i32 @validate_cred(ptr noundef readonly captur
 
 25:                                               ; preds = %23
   %26 = zext nneg i32 %24 to i64
-  %27 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %26
+  %27 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 4
   %29 = load i32, ptr %28, align 4, !tbaa !18
   %30 = icmp sgt i32 %29, 1
@@ -252,7 +248,7 @@ define internal range(i32 -47, 1) i32 @validate_cred(ptr noundef readonly captur
 
 41:                                               ; preds = %39
   %42 = zext nneg i32 %40 to i64
-  %43 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %42
+  %43 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %45 = load i32, ptr %44, align 4, !tbaa !18
   %46 = icmp sgt i32 %45, 1
@@ -299,7 +295,7 @@ define internal range(i32 -47, 1) i32 @validate_cred(ptr noundef readonly captur
 
 .preheader:                                       ; preds = %64, %83
   %.05885 = phi i64 [ %84, %83 ], [ 0, %64 ]
-  %67 = getelementptr inbounds nuw %struct.pmix_info, ptr %1, i64 %.05885
+  %67 = getelementptr inbounds nuw [552 x i8], ptr %1, i64 %.05885
   %68 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %67, ptr noundef nonnull dereferenceable(15) @.str.3, i64 noundef 511) #8
   %69 = icmp eq i32 %68, 0
   br i1 %69, label %70, label %83
@@ -314,7 +310,7 @@ define internal range(i32 -47, 1) i32 @validate_cred(ptr noundef readonly captur
 
 75:                                               ; preds = %.lr.ph
   %76 = add i64 %.082, 1
-  %77 = getelementptr inbounds nuw ptr, ptr %73, i64 %76
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %76
   %78 = load ptr, ptr %77, align 8, !tbaa !24
   %.not79.not = icmp eq ptr %78, null
   br i1 %.not79.not, label %.critedge, label %.lr.ph, !llvm.loop !50
@@ -354,7 +350,7 @@ define internal range(i32 -47, 1) i32 @validate_cred(ptr noundef readonly captur
 
 91:                                               ; preds = %89
   %92 = zext nneg i32 %90 to i64
-  %93 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %92
+  %93 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %92
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 4
   %95 = load i32, ptr %94, align 4, !tbaa !18
   %96 = icmp sgt i32 %95, 1
@@ -377,7 +373,7 @@ define internal range(i32 -47, 1) i32 @validate_cred(ptr noundef readonly captur
 
 103:                                              ; preds = %101
   %104 = zext nneg i32 %102 to i64
-  %105 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %104
+  %105 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %104
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 4
   %107 = load i32, ptr %106, align 4, !tbaa !18
   %108 = icmp sgt i32 %107, 1

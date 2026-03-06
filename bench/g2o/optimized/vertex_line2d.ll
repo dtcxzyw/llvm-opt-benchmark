@@ -16,7 +16,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.Eigen::PlainObjectBase.73" = type { %"class.Eigen::DenseStorage.80" }
 %"class.Eigen::DenseStorage.80" = type { %"struct.Eigen::internal::plain_array.81" }
 %"struct.Eigen::internal::plain_array.81" = type { [4 x double] }
-%"struct.g2o::Line2D" = type { %"class.Eigen::Matrix" }
 
 $_ZN3g2o10BaseVertexILi2ENS_6Line2DEED2Ev = comdat any
 
@@ -265,7 +264,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3g2o10Ba
   %7 = load ptr, ptr %4, align 16, !tbaa !3
   %.idx.i.i.i = shl nsw i64 %6, 4
   %8 = getelementptr i8, ptr %7, i64 %.idx.i.i.i
-  %9 = getelementptr double, ptr %8, i64 %5
+  %9 = getelementptr [8 x i8], ptr %8, i64 %5
   ret ptr %9
 }
 
@@ -277,7 +276,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN3g2o10Bas
   %7 = load ptr, ptr %4, align 16, !tbaa !3
   %.idx.i.i.i = shl nsw i64 %6, 4
   %8 = getelementptr i8, ptr %7, i64 %.idx.i.i.i
-  %9 = getelementptr double, ptr %8, i64 %5
+  %9 = getelementptr [8 x i8], ptr %8, i64 %5
   ret ptr %9
 }
 
@@ -323,7 +322,7 @@ define linkonce_odr noundef i32 @_ZNK3g2o10BaseVertexILi2ENS_6Line2DEE5copyBEPd(
 define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3g2o10BaseVertexILi2ENS_6Line2DEE1bEi(ptr noundef nonnull align 16 dereferenceable(200) %0, i32 noundef %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds double, ptr %3, i64 %4
+  %5 = getelementptr inbounds [8 x i8], ptr %3, i64 %4
   ret ptr %5
 }
 
@@ -331,7 +330,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3g2o10Ba
 define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN3g2o10BaseVertexILi2ENS_6Line2DEE1bEi(ptr noundef nonnull align 16 dereferenceable(200) %0, i32 noundef %1) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds double, ptr %3, i64 %4
+  %5 = getelementptr inbounds [8 x i8], ptr %3, i64 %4
   ret ptr %5
 }
 
@@ -456,7 +455,7 @@ _ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELin1ELi1ELb0EEEE
   %49 = phi double [ 0.000000e+00, %23 ], [ %64, %63 ]
   %.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %.048.i.i.i, 4
   %50 = getelementptr inbounds nuw i8, ptr %4, i64 %.idx.i.i.i.i.i.i.i
-  %51 = getelementptr inbounds nuw double, ptr %50, i64 %.048.i.i.i
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %.048.i.i.i
   br i1 %.not.i.i.i.i.i.not.i.i.i, label %_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEELin1ELi1ELb0EEEE6lpNormILi1EEEdv.exit.thread.i.i.i, label %55
 
 _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEELin1ELi1ELb0EEEE6lpNormILi1EEEdv.exit.thread.i.i.i: ; preds = %48
@@ -567,7 +566,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK3g2o16OptimizableGraph6Vertex15getEs
   br i1 %21, label %22, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw double, ptr %12, i64 %9
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %9
   %.not.i.i = icmp eq ptr %11, %23
   br i1 %.not.i.i, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit, label %24
 
@@ -634,7 +633,7 @@ define linkonce_odr noundef zeroext i1 @_ZNK3g2o16OptimizableGraph6Vertex22getMi
   br i1 %21, label %22, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit
 
 22:                                               ; preds = %20
-  %23 = getelementptr inbounds nuw double, ptr %12, i64 %9
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %9
   %.not.i.i = icmp eq ptr %11, %23
   br i1 %.not.i.i, label %_ZNSt6vectorIdSaIdEE6resizeEm.exit, label %24
 
@@ -728,7 +727,7 @@ _ZNSt6vectorIN3g2o6Line2DESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32.i.i.i: ; p
 _ZNSt6vectorIN3g2o6Line2DESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %29, %_ZNSt6vectorIN3g2o6Line2DESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit32.i.i.i
   store ptr %24, ptr %2, align 16, !tbaa !63
   store ptr %28, ptr %4, align 8, !tbaa !85
-  %30 = getelementptr inbounds nuw %"struct.g2o::Line2D", ptr %24, i64 %22
+  %30 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %22
   store ptr %30, ptr %6, align 16, !tbaa !64
   br label %_ZNSt5stackIN3g2o6Line2DESt6vectorIS1_SaIS1_EEE4pushERKS1_.exit
 
@@ -1022,9 +1021,9 @@ _ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit36: ; preds = %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !84
-  %39 = getelementptr inbounds nuw double, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !82
-  %40 = getelementptr inbounds nuw double, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !93
   br label %41
 

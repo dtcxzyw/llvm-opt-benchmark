@@ -402,7 +402,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %31, %
   %40 = call noundef float @cosf(float noundef %39) #21, !tbaa !50, !noalias !36
   %41 = fsub float 1.000000e+00, %40
   %42 = fmul float %41, 5.000000e-01
-  %43 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv.i.i
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %indvars.iv.i.i
   store float %42, ptr %43, align 4, !tbaa !51, !noalias !36
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 16
   br i1 %exitcond.not.i.i, label %_ZN2cvL6hann1dEib.exit.i, label %36, !llvm.loop !52
@@ -426,7 +426,7 @@ _ZN2cvL6hann1dEib.exit.i:                         ; preds = %36
   %50 = call noundef float @cosf(float noundef %49) #21, !tbaa !50, !noalias !36
   %51 = fsub float 1.000000e+00, %50
   %52 = fmul float %51, 5.000000e-01
-  %53 = getelementptr inbounds nuw float, ptr %45, i64 %indvars.iv.i14.i
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %indvars.iv.i14.i
   store float %52, ptr %53, align 4, !tbaa !51, !noalias !36
   %exitcond.not.i16.i = icmp eq i64 %indvars.iv.next.i15.i, 16
   br i1 %exitcond.not.i16.i, label %_ZN2cvL6hann1dEib.exit17.i, label %46, !llvm.loop !52

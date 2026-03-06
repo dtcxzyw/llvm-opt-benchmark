@@ -3632,7 +3632,7 @@ _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit.thread: ; preds = %_ZNSt6vectorI
 _ZNSt12_Vector_baseIiSaIiEE11_M_allocateEm.exit:  ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit
   %10 = tail call noundef ptr @_ZNSt15__new_allocatorIiE8allocateEmPKv(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 noundef %6, ptr noundef null) #20
   store ptr %10, ptr %0, align 8, !tbaa !100
-  %11 = getelementptr inbounds nuw i32, ptr %10, i64 %6
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %11, ptr %12, align 8, !tbaa !101
   br label %.lr.ph.i.i.i.i.i.i.i.i

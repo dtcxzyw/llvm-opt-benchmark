@@ -157,7 +157,7 @@ define range(i32 0, 21) i32 @openioc_parse(ptr noundef %0, i32 noundef %1, ptr n
   %.0103 = phi ptr [ %59, %55 ], [ %67, %61 ]
   %62 = load i8, ptr %.0103, align 1, !tbaa !54
   %63 = sext i8 %62 to i64
-  %64 = getelementptr inbounds i16, ptr %60, i64 %63
+  %64 = getelementptr inbounds [2 x i8], ptr %60, i64 %63
   %65 = load i16, ptr %64, align 2, !tbaa !55
   %66 = and i16 %65, 8192
   %.not128 = icmp eq i16 %66, 0
@@ -183,7 +183,7 @@ define range(i32 0, 21) i32 @openioc_parse(ptr noundef %0, i32 noundef %1, ptr n
   %.0101141 = getelementptr i8, ptr %76, i64 -1
   %77 = load i8, ptr %.0101141, align 1, !tbaa !54
   %78 = sext i8 %77 to i64
-  %79 = getelementptr inbounds i16, ptr %60, i64 %78
+  %79 = getelementptr inbounds [2 x i8], ptr %60, i64 %78
   %80 = load i16, ptr %79, align 2, !tbaa !55
   %81 = and i16 %80, 8192
   %82 = icmp ne i16 %81, 0
@@ -200,7 +200,7 @@ define range(i32 0, 21) i32 @openioc_parse(ptr noundef %0, i32 noundef %1, ptr n
   %86 = load ptr, ptr %49, align 8, !tbaa !52
   %87 = load i8, ptr %.0101, align 1, !tbaa !54
   %88 = sext i8 %87 to i64
-  %89 = getelementptr inbounds i16, ptr %86, i64 %88
+  %89 = getelementptr inbounds [2 x i8], ptr %86, i64 %88
   %90 = load i16, ptr %89, align 2, !tbaa !55
   %91 = and i16 %90, 8192
   %92 = icmp ne i16 %91, 0
@@ -246,7 +246,7 @@ define range(i32 0, 21) i32 @openioc_parse(ptr noundef %0, i32 noundef %1, ptr n
 102:                                              ; preds = %.lr.ph150
   %103 = load ptr, ptr %49, align 8, !tbaa !52
   %104 = sext i8 %101 to i64
-  %105 = getelementptr inbounds i16, ptr %103, i64 %104
+  %105 = getelementptr inbounds [2 x i8], ptr %103, i64 %104
   %106 = load i16, ptr %105, align 2, !tbaa !55
   %107 = and i16 %106, 8192
   %.not132 = icmp eq i16 %107, 0
@@ -279,7 +279,7 @@ define range(i32 0, 21) i32 @openioc_parse(ptr noundef %0, i32 noundef %1, ptr n
   %114 = load ptr, ptr %49, align 8, !tbaa !52
   %115 = load i8, ptr %.1105153, align 1, !tbaa !54
   %116 = sext i8 %115 to i64
-  %117 = getelementptr inbounds i16, ptr %114, i64 %116
+  %117 = getelementptr inbounds [2 x i8], ptr %114, i64 %116
   %118 = load i16, ptr %117, align 2, !tbaa !55
   %119 = and i16 %118, 4096
   %.not131 = icmp eq i16 %119, 0

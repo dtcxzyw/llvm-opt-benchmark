@@ -361,7 +361,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17heb5fa18b5
   %.sroa.56.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !nonnull !4, !noundef !4
-  %13 = getelementptr inbounds { ptr, ptr, i64, { ptr } }, ptr %12, i64 %10
+  %13 = getelementptr inbounds [32 x i8], ptr %12, i64 %10
   store ptr %.val, ptr %13, align 8, !noalias !49
   %.sroa.0.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %13, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.sroa.4.0..sroa_idx.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.56.0..sroa_idx, i64 24, i1 false)
@@ -1048,7 +1048,7 @@ define hidden { ptr, ptr } @"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$
   %.val13 = load i64, ptr %90, align 8, !noundef !4
   %91 = icmp ult i64 %89, %.val13
   tail call void @llvm.assume(i1 %91)
-  %92 = getelementptr inbounds { { { i64 } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, ptr %.val12, i64 %89
+  %92 = getelementptr inbounds [56 x i8], ptr %.val12, i64 %89
   %93 = cmpxchg weak ptr %92, i64 0, i64 -4 acquire monotonic, align 8
   %94 = extractvalue { i64, i1 } %93, 1
   br i1 %94, label %"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$18_yield_write_shard17h1cea1d228ec3dd23E.exit", label %95
@@ -1213,7 +1213,7 @@ define hidden { ptr, ptr } @"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$
   %187 = add i64 %.sroa.0.021.i.i.i, %184
   %188 = and i64 %187, %.val4.i.i
   %189 = sub nsw i64 0, %188
-  %190 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i16, [1 x i16] }, i32, i32, i32, i32, i32, { i8, [16 x i8] }, [7 x i8] }, { { { { { ptr, ptr } }, {}, {} } } } }, ptr %.val.i.i, i64 %189
+  %190 = getelementptr inbounds [104 x i8], ptr %.val.i.i, i64 %189
   tail call void @llvm.experimental.noalias.scope.decl(metadata !168)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !171)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !174)
@@ -1302,7 +1302,7 @@ define hidden { ptr, ptr } @"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$
   %236 = add i64 %235, 1
   store i64 %236, ptr %234, align 8, !alias.scope !198, !noalias !199
   %237 = sub nsw i64 0, %.sroa.4.0.ph.i
-  %238 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i16, [1 x i16] }, i32, i32, i32, i32, i32, { i8, [16 x i8] }, [7 x i8] }, { { { { { ptr, ptr } }, {}, {} } } } }, ptr %.val.i.i, i64 %237
+  %238 = getelementptr inbounds [104 x i8], ptr %.val.i.i, i64 %237
   %239 = getelementptr inbounds i8, ptr %238, i64 -104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %239, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.010.i, i64 88, i1 false), !noalias !200
   %.sroa.411.0..sroa_idx.i = getelementptr inbounds i8, ptr %238, i64 -16
@@ -1548,7 +1548,7 @@ define hidden { ptr, ptr } @"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$
   %.val13 = load i64, ptr %90, align 8, !noundef !4
   %91 = icmp ult i64 %89, %.val13
   tail call void @llvm.assume(i1 %91)
-  %92 = getelementptr inbounds { { { i64 } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { i64, i64 } } } }, ptr %.val12, i64 %89
+  %92 = getelementptr inbounds [56 x i8], ptr %.val12, i64 %89
   %93 = cmpxchg weak ptr %92, i64 0, i64 -4 acquire monotonic, align 8
   %94 = extractvalue { i64, i1 } %93, 1
   br i1 %94, label %"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$u20$dashmap..t..Map$LT$K$C$V$C$S$GT$$GT$18_yield_write_shard17he05ab1756f4d13b1E.exit", label %95
@@ -1713,7 +1713,7 @@ define hidden { ptr, ptr } @"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$
   %187 = add i64 %.sroa.0.021.i.i.i, %184
   %188 = and i64 %187, %.val4.i.i
   %189 = sub nsw i64 0, %188
-  %190 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i16, [1 x i16] }, i32, i32, i32, i32, i32, { i8, [16 x i8] }, [7 x i8] }, { { { { { ptr, ptr } }, {}, {} } } } }, ptr %.val.i.i, i64 %189
+  %190 = getelementptr inbounds [104 x i8], ptr %.val.i.i, i64 %189
   tail call void @llvm.experimental.noalias.scope.decl(metadata !291)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !294)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !297)
@@ -1802,7 +1802,7 @@ define hidden { ptr, ptr } @"_ZN86_$LT$dashmap..DashMap$LT$K$C$V$C$S$GT$$u20$as$
   %236 = add i64 %235, 1
   store i64 %236, ptr %234, align 8, !alias.scope !321, !noalias !322
   %237 = sub nsw i64 0, %.sroa.4.0.ph.i
-  %238 = getelementptr inbounds { { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i16, [1 x i16] }, i32, i32, i32, i32, i32, { i8, [16 x i8] }, [7 x i8] }, { { { { { ptr, ptr } }, {}, {} } } } }, ptr %.val.i.i, i64 %237
+  %238 = getelementptr inbounds [104 x i8], ptr %.val.i.i, i64 %237
   %239 = getelementptr inbounds i8, ptr %238, i64 -104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %239, ptr noundef nonnull align 8 dereferenceable(88) %.sroa.010.i, i64 88, i1 false), !noalias !323
   %.sroa.411.0..sroa_idx.i = getelementptr inbounds i8, ptr %238, i64 -16
@@ -1956,7 +1956,7 @@ define hidden void @"_ZN97_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..ve
   %.sroa.56.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !alias.scope !343, !noalias !346, !nonnull !4, !noundef !4
-  %13 = getelementptr inbounds { ptr, ptr, i64, { ptr } }, ptr %12, i64 %10
+  %13 = getelementptr inbounds [32 x i8], ptr %12, i64 %10
   store ptr %.val.i, ptr %13, align 8, !noalias !351
   %.sroa.0.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %13, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.sroa.4.0..sroa_idx.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.56.0..sroa_idx.i, i64 24, i1 false)

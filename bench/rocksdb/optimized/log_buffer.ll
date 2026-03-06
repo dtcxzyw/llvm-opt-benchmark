@@ -86,7 +86,7 @@ define void @_ZN7rocksdb9LogBuffer14AddLogToBufferEmPKcP13__va_list_tag(ptr noun
 33:                                               ; preds = %28
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 2376
   %35 = load ptr, ptr %34, align 8, !tbaa !39
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %31
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %31
   %37 = add nuw nsw i64 %31, 1
   store i64 %37, ptr %30, align 16, !tbaa !38
   store ptr %17, ptr %36, align 8, !tbaa !43
@@ -151,7 +151,7 @@ _ZNSt6vectorIPN7rocksdb9LogBuffer11BufferedLogESaIS3_EE11_S_relocateEPS3_S6_S6_R
 _ZNSt6vectorIPN7rocksdb9LogBuffer11BufferedLogESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %64, %_ZNSt6vectorIPN7rocksdb9LogBuffer11BufferedLogESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %59, ptr %39, align 16, !tbaa !47
   store ptr %63, ptr %40, align 8, !tbaa !45
-  %65 = getelementptr inbounds nuw ptr, ptr %59, i64 %57
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %57
   store ptr %65, ptr %42, align 16, !tbaa !46
   br label %_ZN7rocksdb10autovectorIPNS_9LogBuffer11BufferedLogELm8EE9push_backERKS3_.exit
 
@@ -231,9 +231,9 @@ _ZN7rocksdb10autovectorIPNS_9LogBuffer11BufferedLogELm8EE5clearEv.exit: ; preds 
   %.sroa.5.018 = phi i64 [ 0, %.lr.ph ], [ %52, %51 ]
   %27 = icmp ult i64 %.sroa.5.018, 8
   %28 = load ptr, ptr %15, align 8
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %.sroa.5.018
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %.sroa.5.018
   %30 = load ptr, ptr %6, align 16
-  %31 = getelementptr ptr, ptr %30, i64 %.sroa.5.018
+  %31 = getelementptr [8 x i8], ptr %30, i64 %.sroa.5.018
   %32 = getelementptr i8, ptr %31, i64 -64
   %.0.i.i = select i1 %27, ptr %29, ptr %32
   %33 = load ptr, ptr %.0.i.i, align 8, !tbaa !43

@@ -191,7 +191,7 @@ define noalias nonnull ptr @l_Array_foldlMUnsafe_fold___at_Lean_Compiler_LCNF_in
   br label %lean_dec.exit
 
 lean_dec.exit:                                    ; preds = %20, %19, %17, %11
-  %21 = getelementptr inbounds nuw ptr, ptr %10, i64 %.02750
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.02750
   %22 = load ptr, ptr %21, align 8, !tbaa !10
   %23 = ptrtoint ptr %22 to i64
   %24 = trunc i64 %23 to i1
@@ -2118,7 +2118,7 @@ lean_dec.exit61:                                  ; preds = %30, %29, %27, %lean
   %.046110 = phi i64 [ %4, %.lr.ph ], [ %143, %142 ]
   %.049109 = phi ptr [ %5, %.lr.ph ], [ %69, %142 ]
   %.052108 = phi ptr [ %8, %.lr.ph ], [ %79, %142 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %10, i64 %.046110
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.046110
   %36 = load ptr, ptr %35, align 8, !tbaa !10
   %37 = ptrtoint ptr %36 to i64
   %38 = trunc i64 %37 to i1
@@ -2511,7 +2511,7 @@ lean_dec.exit68:                                  ; preds = %30, %29, %27, %lean
   %.052120 = phi i64 [ %4, %.lr.ph ], [ %151, %150 ]
   %.055119 = phi ptr [ %5, %.lr.ph ], [ %77, %150 ]
   %.058118 = phi ptr [ %8, %.lr.ph ], [ %87, %150 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %10, i64 %.052120
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.052120
   %36 = load ptr, ptr %35, align 8, !tbaa !10
   %37 = ptrtoint ptr %36 to i64
   %38 = trunc i64 %37 to i1
@@ -3999,7 +3999,7 @@ lean_alloc_ctor.exit86:                           ; preds = %138
 define internal fastcc void @lean_ctor_release(ptr noundef captures(none) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = zext nneg i32 %1 to i64
-  %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !10
   %7 = ptrtoint ptr %6 to i64
   %8 = trunc i64 %7 to i1

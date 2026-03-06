@@ -4,22 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"struct.std::piecewise_construct_t" = type { i8 }
-%"struct.ue2::dstate" = type { %"class.std::vector.18", i16, i16, [4 x i8], %"class.ue2::flat_set", %"class.ue2::flat_set" }
-%"class.std::vector.18" = type { %"struct.std::_Vector_base.19" }
-%"struct.std::_Vector_base.19" = type { %"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned short, std::allocator<unsigned short>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.ue2::flat_set" = type { %"class.ue2::flat_detail::flat_base.23" }
-%"class.ue2::flat_detail::flat_base.23" = type { %"class.std::tuple.24" }
-%"class.std::tuple.24" = type { %"struct.std::_Tuple_impl.25" }
-%"struct.std::_Tuple_impl.25" = type { %"struct.std::_Head_base.26" }
-%"struct.std::_Head_base.26" = type { %"class.boost::container::small_vector.27" }
-%"class.boost::container::small_vector.27" = type { %"class.boost::container::small_vector_base.base", [4 x i8] }
-%"class.boost::container::small_vector_base.base" = type <{ %"class.boost::container::vector.29", %"union.boost::move_detail::aligned_struct_wrapper.35" }>
-%"class.boost::container::vector.29" = type { %"struct.boost::container::vector_alloc_holder.30" }
-%"struct.boost::container::vector_alloc_holder.30" = type { ptr, i64, i64 }
-%"union.boost::move_detail::aligned_struct_wrapper.35" = type { %"struct.boost::move_detail::aligned_struct.36" }
-%"struct.boost::move_detail::aligned_struct.36" = type { [4 x i8] }
 %"struct.std::pair.88" = type <{ %"class.ue2::flat_detail::iter_wrapper.82", i8, [7 x i8] }>
 %"class.ue2::flat_detail::iter_wrapper.82" = type { %"class.boost::container::vec_iterator.87" }
 %"class.boost::container::vec_iterator.87" = type { ptr }
@@ -28,9 +12,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.boost::container::vec_iterator.81" = type { ptr }
 %"class.boost::container::vec_iterator.106" = type { ptr }
 %"class.boost::container::vec_iterator.471" = type { ptr }
-%struct.gough_ins = type { i32, i32, i32 }
-%"class.boost::detail::edge_desc_impl" = type { %"struct.boost::detail::edge_base", ptr }
-%"struct.boost::detail::edge_base" = type { i64, i64 }
 %"struct.std::pair.140" = type <{ %"class.ue2::flat_detail::iter_wrapper.142", i8, [7 x i8] }>
 %"class.ue2::flat_detail::iter_wrapper.142" = type { %"class.boost::container::vec_iterator.147" }
 %"class.boost::container::vec_iterator.147" = type { ptr }
@@ -38,22 +19,9 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.768" = type { %"struct.std::_Head_base.769" }
 %"struct.std::_Head_base.769" = type { ptr }
 %"class.std::tuple.435" = type { i8 }
+%"class.boost::detail::edge_desc_impl" = type { %"struct.boost::detail::edge_base", ptr }
+%"struct.boost::detail::edge_base" = type { i64, i64 }
 %"class.boost::container::vec_iterator.522" = type { ptr }
-%"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex" = type { %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::bidir_rand_stored_vertex" }
-%"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::bidir_rand_stored_vertex" = type { %"class.std::vector.332", %"class.std::vector.332", %"struct.ue2::GoughVertexProps" }
-%"class.std::vector.332" = type { %"struct.std::_Vector_base.333" }
-%"struct.std::_Vector_base.333" = type { %"struct.std::_Vector_base<boost::detail::stored_edge_iter<unsigned long, std::_List_iterator<boost::list_edge<unsigned long, ue2::GoughEdgeProps>>, ue2::GoughEdgeProps>, std::allocator<boost::detail::stored_edge_iter<unsigned long, std::_List_iterator<boost::list_edge<unsigned long, ue2::GoughEdgeProps>>, ue2::GoughEdgeProps>>>::_Vector_impl" }
-%"struct.std::_Vector_base<boost::detail::stored_edge_iter<unsigned long, std::_List_iterator<boost::list_edge<unsigned long, ue2::GoughEdgeProps>>, ue2::GoughEdgeProps>, std::allocator<boost::detail::stored_edge_iter<unsigned long, std::_List_iterator<boost::list_edge<unsigned long, ue2::GoughEdgeProps>>, ue2::GoughEdgeProps>>>::_Vector_impl" = type { %"struct.std::_Vector_base<boost::detail::stored_edge_iter<unsigned long, std::_List_iterator<boost::list_edge<unsigned long, ue2::GoughEdgeProps>>, ue2::GoughEdgeProps>, std::allocator<boost::detail::stored_edge_iter<unsigned long, std::_List_iterator<boost::list_edge<unsigned long, ue2::GoughEdgeProps>>, ue2::GoughEdgeProps>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<boost::detail::stored_edge_iter<unsigned long, std::_List_iterator<boost::list_edge<unsigned long, ue2::GoughEdgeProps>>, ue2::GoughEdgeProps>, std::allocator<boost::detail::stored_edge_iter<unsigned long, std::_List_iterator<boost::list_edge<unsigned long, ue2::GoughEdgeProps>>, ue2::GoughEdgeProps>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.ue2::GoughVertexProps" = type { i32, %"class.std::vector.289", %"class.std::vector.294", %"class.std::vector.294" }
-%"class.std::vector.289" = type { %"struct.std::_Vector_base.290" }
-%"struct.std::_Vector_base.290" = type { %"struct.std::_Vector_base<std::shared_ptr<ue2::GoughSSAVarJoin>, std::allocator<std::shared_ptr<ue2::GoughSSAVarJoin>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::shared_ptr<ue2::GoughSSAVarJoin>, std::allocator<std::shared_ptr<ue2::GoughSSAVarJoin>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::shared_ptr<ue2::GoughSSAVarJoin>, std::allocator<std::shared_ptr<ue2::GoughSSAVarJoin>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::shared_ptr<ue2::GoughSSAVarJoin>, std::allocator<std::shared_ptr<ue2::GoughSSAVarJoin>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.294" = type { %"struct.std::_Vector_base.295" }
-%"struct.std::_Vector_base.295" = type { %"struct.std::_Vector_base<std::pair<unsigned int, ue2::GoughSSAVar *>, std::allocator<std::pair<unsigned int, ue2::GoughSSAVar *>>>::_Vector_impl" }
-%"struct.std::_Vector_base<std::pair<unsigned int, ue2::GoughSSAVar *>, std::allocator<std::pair<unsigned int, ue2::GoughSSAVar *>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<unsigned int, ue2::GoughSSAVar *>, std::allocator<std::pair<unsigned int, ue2::GoughSSAVar *>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<std::pair<unsigned int, ue2::GoughSSAVar *>, std::allocator<std::pair<unsigned int, ue2::GoughSSAVar *>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.ue2::bytecode_ptr" = type { %"class.std::unique_ptr", i64, i64 }
 %"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
 %"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
@@ -109,11 +77,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::map.273" = type { %"class.std::_Rb_tree.274" }
 %"class.std::_Rb_tree.274" = type { %"struct.std::_Rb_tree<std::vector<gough_ins>, std::pair<const std::vector<gough_ins>, unsigned int>, std::_Select1st<std::pair<const std::vector<gough_ins>, unsigned int>>, std::less<std::vector<gough_ins>>>::_Rb_tree_impl" }
 %"struct.std::_Rb_tree<std::vector<gough_ins>, std::pair<const std::vector<gough_ins>, unsigned int>, std::_Select1st<std::pair<const std::vector<gough_ins>, unsigned int>>, std::less<std::vector<gough_ins>>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
-%"class.std::shared_ptr.338" = type { %"class.std::__shared_ptr.339" }
-%"class.std::__shared_ptr.339" = type { ptr, %"class.std::__shared_count" }
 %"struct.ue2::GoughEdgeProps" = type { i8, %"class.ue2::CharReach", %"class.std::vector.168" }
 %"class.ue2::CharReach" = type { %"class.ue2::bitfield" }
 %"class.ue2::bitfield" = type { %"struct.std::array.167" }
@@ -127,49 +90,37 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<ue2::flat_map<unsigned int, ue2::GoughSSAVarJoin *>, std::allocator<ue2::flat_map<unsigned int, ue2::GoughSSAVarJoin *>>>::_Vector_impl" = type { %"struct.std::_Vector_base<ue2::flat_map<unsigned int, ue2::GoughSSAVarJoin *>, std::allocator<ue2::flat_map<unsigned int, ue2::GoughSSAVarJoin *>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<ue2::flat_map<unsigned int, ue2::GoughSSAVarJoin *>, std::allocator<ue2::flat_map<unsigned int, ue2::GoughSSAVarJoin *>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::allocator.286" = type { i8 }
+%"struct.ue2::GoughVertexProps" = type { i32, %"class.std::vector.289", %"class.std::vector.294", %"class.std::vector.294" }
+%"class.std::vector.289" = type { %"struct.std::_Vector_base.290" }
+%"struct.std::_Vector_base.290" = type { %"struct.std::_Vector_base<std::shared_ptr<ue2::GoughSSAVarJoin>, std::allocator<std::shared_ptr<ue2::GoughSSAVarJoin>>>::_Vector_impl" }
+%"struct.std::_Vector_base<std::shared_ptr<ue2::GoughSSAVarJoin>, std::allocator<std::shared_ptr<ue2::GoughSSAVarJoin>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::shared_ptr<ue2::GoughSSAVarJoin>, std::allocator<std::shared_ptr<ue2::GoughSSAVarJoin>>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<std::shared_ptr<ue2::GoughSSAVarJoin>, std::allocator<std::shared_ptr<ue2::GoughSSAVarJoin>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"class.std::vector.294" = type { %"struct.std::_Vector_base.295" }
+%"struct.std::_Vector_base.295" = type { %"struct.std::_Vector_base<std::pair<unsigned int, ue2::GoughSSAVar *>, std::allocator<std::pair<unsigned int, ue2::GoughSSAVar *>>>::_Vector_impl" }
+%"struct.std::_Vector_base<std::pair<unsigned int, ue2::GoughSSAVar *>, std::allocator<std::pair<unsigned int, ue2::GoughSSAVar *>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::pair<unsigned int, ue2::GoughSSAVar *>, std::allocator<std::pair<unsigned int, ue2::GoughSSAVar *>>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<std::pair<unsigned int, ue2::GoughSSAVar *>, std::allocator<std::pair<unsigned int, ue2::GoughSSAVar *>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
+%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
+%"class.std::__shared_count" = type { ptr }
 %"class.std::map.324" = type { %"class.std::_Rb_tree.325" }
 %"class.std::_Rb_tree.325" = type { %"struct.std::_Rb_tree<unsigned short, std::pair<const unsigned short, boost::detail::edge_desc_impl<boost::bidirectional_tag, unsigned long>>, std::_Select1st<std::pair<const unsigned short, boost::detail::edge_desc_impl<boost::bidirectional_tag, unsigned long>>>, std::less<unsigned short>>::_Rb_tree_impl" }
 %"struct.std::_Rb_tree<unsigned short, std::pair<const unsigned short, boost::detail::edge_desc_impl<boost::bidirectional_tag, unsigned long>>, std::_Select1st<std::pair<const unsigned short, boost::detail::edge_desc_impl<boost::bidirectional_tag, unsigned long>>>, std::less<unsigned short>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
 %"struct.std::pair.329" = type <{ %"class.boost::detail::edge_desc_impl", i8, [7 x i8] }>
-%"struct.ue2::dstate_som" = type { %"class.std::set", %"class.std::set", %"class.ue2::flat_map" }
-%"class.std::set" = type { %"class.std::_Rb_tree.8" }
-%"class.std::_Rb_tree.8" = type { %"struct.std::_Rb_tree<ue2::som_report, ue2::som_report, std::_Identity<ue2::som_report>, std::less<ue2::som_report>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<ue2::som_report, ue2::som_report, std::_Identity<ue2::som_report>, std::less<ue2::som_report>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
-%"class.ue2::flat_map" = type { %"class.ue2::flat_detail::flat_base" }
-%"class.ue2::flat_detail::flat_base" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.14" }
-%"struct.std::_Head_base.14" = type { %"class.boost::container::small_vector" }
-%"class.boost::container::small_vector" = type { %"class.boost::container::small_vector_base" }
-%"class.boost::container::small_vector_base" = type { %"class.boost::container::vector", %"union.boost::move_detail::aligned_struct_wrapper" }
-%"class.boost::container::vector" = type { %"struct.boost::container::vector_alloc_holder" }
-%"struct.boost::container::vector_alloc_holder" = type { ptr, i64, i64 }
-%"union.boost::move_detail::aligned_struct_wrapper" = type { %"struct.boost::move_detail::aligned_struct" }
-%"struct.boost::move_detail::aligned_struct" = type { [32 x i8] }
-%"class.ue2::flat_map.307" = type { %"class.ue2::flat_detail::flat_base.308" }
-%"class.ue2::flat_detail::flat_base.308" = type { %"class.std::tuple.309" }
-%"class.std::tuple.309" = type { %"struct.std::_Tuple_impl.310" }
-%"struct.std::_Tuple_impl.310" = type { %"struct.std::_Head_base.311" }
-%"struct.std::_Head_base.311" = type { %"class.boost::container::small_vector.312" }
-%"class.boost::container::small_vector.312" = type { %"class.boost::container::small_vector_base.313" }
-%"class.boost::container::small_vector_base.313" = type { %"class.boost::container::vector.314", %"union.boost::move_detail::aligned_struct_wrapper.320" }
-%"class.boost::container::vector.314" = type { %"struct.boost::container::vector_alloc_holder.315" }
-%"struct.boost::container::vector_alloc_holder.315" = type { ptr, i64, i64 }
-%"union.boost::move_detail::aligned_struct_wrapper.320" = type { %"struct.boost::move_detail::aligned_struct.321" }
-%"struct.boost::move_detail::aligned_struct.321" = type { [16 x i8] }
-%"struct.std::pair.348" = type { i32, ptr }
-%"struct.std::pair.305" = type { i32, %"class.std::vector.99" }
-%"class.std::vector.99" = type { %"struct.std::_Vector_base.100" }
-%"struct.std::_Vector_base.100" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" }
-%"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::map.720" = type { %"class.std::_Rb_tree.721" }
 %"class.std::_Rb_tree.721" = type { %"struct.std::_Rb_tree<unsigned short, std::pair<const unsigned short, unsigned long>, std::_Select1st<std::pair<const unsigned short, unsigned long>>, std::less<unsigned short>>::_Rb_tree_impl" }
 %"struct.std::_Rb_tree<unsigned short, std::pair<const unsigned short, unsigned long>, std::_Select1st<std::pair<const unsigned short, unsigned long>>, std::less<unsigned short>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
 %"struct.std::less" = type { i8 }
 %"class.std::allocator.317" = type { i8 }
+%"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex" = type { %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::bidir_rand_stored_vertex" }
+%"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::bidir_rand_stored_vertex" = type { %"class.std::vector.332", %"class.std::vector.332", %"struct.ue2::GoughVertexProps" }
+%"class.std::vector.332" = type { %"struct.std::_Vector_base.333" }
+%"struct.std::_Vector_base.333" = type { %"struct.std::_Vector_base<boost::detail::stored_edge_iter<unsigned long, std::_List_iterator<boost::list_edge<unsigned long, ue2::GoughEdgeProps>>, ue2::GoughEdgeProps>, std::allocator<boost::detail::stored_edge_iter<unsigned long, std::_List_iterator<boost::list_edge<unsigned long, ue2::GoughEdgeProps>>, ue2::GoughEdgeProps>>>::_Vector_impl" }
+%"struct.std::_Vector_base<boost::detail::stored_edge_iter<unsigned long, std::_List_iterator<boost::list_edge<unsigned long, ue2::GoughEdgeProps>>, ue2::GoughEdgeProps>, std::allocator<boost::detail::stored_edge_iter<unsigned long, std::_List_iterator<boost::list_edge<unsigned long, ue2::GoughEdgeProps>>, ue2::GoughEdgeProps>>>::_Vector_impl" = type { %"struct.std::_Vector_base<boost::detail::stored_edge_iter<unsigned long, std::_List_iterator<boost::list_edge<unsigned long, ue2::GoughEdgeProps>>, ue2::GoughEdgeProps>, std::allocator<boost::detail::stored_edge_iter<unsigned long, std::_List_iterator<boost::list_edge<unsigned long, ue2::GoughEdgeProps>>, ue2::GoughEdgeProps>>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<boost::detail::stored_edge_iter<unsigned long, std::_List_iterator<boost::list_edge<unsigned long, ue2::GoughEdgeProps>>, ue2::GoughEdgeProps>, std::allocator<boost::detail::stored_edge_iter<unsigned long, std::_List_iterator<boost::list_edge<unsigned long, ue2::GoughEdgeProps>>, ue2::GoughEdgeProps>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::shared_ptr.402" = type { %"class.std::__shared_ptr.403" }
 %"class.std::__shared_ptr.403" = type { ptr, %"class.std::__shared_count" }
+%"class.std::shared_ptr.338" = type { %"class.std::__shared_ptr.339" }
+%"class.std::__shared_ptr.339" = type { ptr, %"class.std::__shared_count" }
 %"class.std::shared_ptr.405" = type { %"class.std::__shared_ptr.406" }
 %"class.std::__shared_ptr.406" = type { ptr, %"class.std::__shared_count" }
 %"class.std::tuple.453" = type { %"struct.std::_Tuple_impl.454" }
@@ -178,13 +129,15 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::map.439" = type { %"class.std::_Rb_tree.440" }
 %"class.std::_Rb_tree.440" = type { %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, std::shared_ptr<ue2::GoughSSAVarNew>>, std::_Select1st<std::pair<const unsigned int, std::shared_ptr<ue2::GoughSSAVarNew>>>, std::less<unsigned int>>::_Rb_tree_impl" }
 %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, std::shared_ptr<ue2::GoughSSAVarNew>>, std::_Select1st<std::pair<const unsigned int, std::shared_ptr<ue2::GoughSSAVarNew>>>, std::less<unsigned int>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
+%"class.boost::container::small_vector.312" = type { %"class.boost::container::small_vector_base.313" }
+%"class.boost::container::small_vector_base.313" = type { %"class.boost::container::vector.314", %"union.boost::move_detail::aligned_struct_wrapper.320" }
+%"class.boost::container::vector.314" = type { %"struct.boost::container::vector_alloc_holder.315" }
+%"struct.boost::container::vector_alloc_holder.315" = type { ptr, i64, i64 }
+%"union.boost::move_detail::aligned_struct_wrapper.320" = type { %"struct.boost::move_detail::aligned_struct.321" }
+%"struct.boost::move_detail::aligned_struct.321" = type { [16 x i8] }
 %"struct.boost::list_edge" = type { %"struct.boost::detail::edge_base.337", %"struct.ue2::GoughEdgeProps" }
 %"struct.boost::detail::edge_base.337" = type { i64, i64 }
-%"class.boost::detail::stored_edge_iter" = type { %"class.boost::detail::stored_edge", %"struct.std::_List_iterator" }
-%"class.boost::detail::stored_edge" = type { i64 }
-%"struct.std::_List_iterator" = type { ptr }
 %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, std::shared_ptr<ue2::GoughSSAVarNew>>, std::_Select1st<std::pair<const unsigned int, std::shared_ptr<ue2::GoughSSAVarNew>>>, std::less<unsigned int>>::_Auto_node" = type { ptr, ptr }
-%"struct.std::pair.353" = type { i32, ptr }
 %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, std::set<unsigned int>>, std::_Select1st<std::pair<const unsigned int, std::set<unsigned int>>>, std::less<unsigned int>>::_Auto_node" = type { ptr, ptr }
 %"class.std::unique_ptr.581" = type { %"struct.std::__uniq_ptr_data.582" }
 %"struct.std::__uniq_ptr_data.582" = type { %"class.std::__uniq_ptr_impl.583" }
@@ -196,6 +149,9 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::_Rb_tree.626" = type { %"struct.std::_Rb_tree<ue2::(anonymous namespace)::raw_gough_report_list, std::pair<const ue2::(anonymous namespace)::raw_gough_report_list, unsigned int>, std::_Select1st<std::pair<const ue2::(anonymous namespace)::raw_gough_report_list, unsigned int>>, std::less<ue2::(anonymous namespace)::raw_gough_report_list>>::_Rb_tree_impl" }
 %"struct.std::_Rb_tree<ue2::(anonymous namespace)::raw_gough_report_list, std::pair<const ue2::(anonymous namespace)::raw_gough_report_list, unsigned int>, std::_Select1st<std::pair<const ue2::(anonymous namespace)::raw_gough_report_list, unsigned int>>, std::less<ue2::(anonymous namespace)::raw_gough_report_list>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
 %"struct.ue2::(anonymous namespace)::raw_gough_report_list" = type { %"class.std::set" }
+%"class.std::set" = type { %"class.std::_Rb_tree.8" }
+%"class.std::_Rb_tree.8" = type { %"struct.std::_Rb_tree<ue2::som_report, ue2::som_report, std::_Identity<ue2::som_report>, std::less<ue2::som_report>>::_Rb_tree_impl" }
+%"struct.std::_Rb_tree<ue2::som_report, ue2::som_report, std::_Identity<ue2::som_report>, std::less<ue2::som_report>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
 %"struct.ue2::AccelScheme" = type { %"class.ue2::flat_set.589", %"class.ue2::CharReach", %"class.ue2::CharReach", i32, i32 }
 %"class.ue2::flat_set.589" = type { %"class.ue2::flat_detail::flat_base.590" }
 %"class.ue2::flat_detail::flat_base.590" = type { %"class.std::tuple.591" }
@@ -210,9 +166,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.boost::move_detail::aligned_struct.605" = type { [2 x i8] }
 %"struct.std::less.669" = type { i8 }
 %"class.std::allocator.601" = type { i8 }
-%"struct.std::pair.673" = type { i8, i8 }
 %"struct.std::_Rb_tree<ue2::som_report, ue2::som_report, std::_Identity<ue2::som_report>, std::less<ue2::som_report>>::_Alloc_node" = type { ptr }
-%struct.gough_report = type { i32, i32 }
 %"class.std::tuple.717" = type { %"struct.std::_Tuple_impl.718" }
 %"struct.std::_Tuple_impl.718" = type { %"struct.std::_Head_base.719" }
 %"struct.std::_Head_base.719" = type { ptr }
@@ -613,7 +567,7 @@ define hidden void @_ZN3ue211raw_som_dfa20stripExtraEodReportsEv(ptr noundef non
   %20 = sub i64 %18, %19
   %21 = sdiv exact i64 %20, 152
   %22 = load ptr, ptr %6, align 8
-  %23 = getelementptr inbounds nuw %"struct.ue2::dstate", ptr %22, i64 %21
+  %23 = getelementptr inbounds nuw [96 x i8], ptr %22, i64 %21
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 64
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 72
   store i64 0, ptr %25, align 8
@@ -800,7 +754,7 @@ _ZNSt8_Rb_treeIN3ue210som_reportES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE5eraseE
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.013.038, i64 32
   %86 = load ptr, ptr %24, align 8, !noalias !11
   %87 = load i64, ptr %25, align 8, !noalias !16
-  %88 = getelementptr inbounds nuw i32, ptr %86, i64 %87
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %87
   %89 = ptrtoint ptr %86 to i64
   %90 = icmp sgt i64 %87, 0
   br i1 %90, label %_ZSt7advanceIN5boost9container12vec_iteratorIPjLb0EEElEvRT_T0_.exit.i.preheader.i.i, label %_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjSt4lessIjEET_S7_S7_RKT0_T1_.exit.i
@@ -813,7 +767,7 @@ _ZSt7advanceIN5boost9container12vec_iteratorIPjLb0EEElEvRT_T0_.exit.i.i.i: ; pre
   %92 = phi ptr [ %100, %_ZSt7advanceIN5boost9container12vec_iteratorIPjLb0EEElEvRT_T0_.exit.i.i.i ], [ %86, %_ZSt7advanceIN5boost9container12vec_iteratorIPjLb0EEElEvRT_T0_.exit.i.preheader.i.i ]
   %.012.i.i.i = phi i64 [ %.1.i.i.i, %_ZSt7advanceIN5boost9container12vec_iteratorIPjLb0EEElEvRT_T0_.exit.i.i.i ], [ %87, %_ZSt7advanceIN5boost9container12vec_iteratorIPjLb0EEElEvRT_T0_.exit.i.preheader.i.i ]
   %93 = lshr i64 %.012.i.i.i, 1
-  %94 = getelementptr inbounds nuw i32, ptr %92, i64 %93
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %93
   %95 = load i32, ptr %94, align 4, !noalias !19
   %96 = icmp ult i32 %95, %91
   %97 = getelementptr inbounds nuw i8, ptr %94, i64 4
@@ -979,7 +933,7 @@ _ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIjSaIv
   %166 = sub i64 %165, %158
   %167 = ashr exact i64 %166, 2
   %168 = sub nsw i64 0, %167
-  %169 = getelementptr inbounds i32, ptr %88, i64 %168
+  %169 = getelementptr inbounds [4 x i8], ptr %88, i64 %168
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %169, ptr nonnull align 4 %102, i64 %166, i1 false), !noalias !26
   br label %_ZN5boost9container13move_backwardIPjS2_EENS0_3dtl37enable_if_memtransfer_copy_assignableIT_T0_S6_E4typeES5_S5_S6_.exit.i.i.i.i.i
 
@@ -1083,7 +1037,7 @@ define hidden void @_ZN3ue214GoughSSAVarMin12clear_inputsEv(ptr noundef nonnull 
   %9 = load ptr, ptr %8, align 8, !noalias !72
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 56
   %11 = load i64, ptr %10, align 8, !noalias !77
-  %12 = getelementptr inbounds nuw ptr, ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %11
   %13 = icmp sgt i64 %11, 0
   br i1 %13, label %_ZSt7advanceIN5boost9container12vec_iteratorIPPN3ue221GoughSSAVarWithInputsELb0EEElEvRT_T0_.exit.i.i.i.i, label %_ZSt11lower_boundIN5boost9container12vec_iteratorIPPN3ue221GoughSSAVarWithInputsELb0EEES5_St4lessIS5_EET_SA_SA_RKT0_T1_.exit.i.i
 
@@ -1091,7 +1045,7 @@ _ZSt7advanceIN5boost9container12vec_iteratorIPPN3ue221GoughSSAVarWithInputsELb0E
   %14 = phi ptr [ %22, %_ZSt7advanceIN5boost9container12vec_iteratorIPPN3ue221GoughSSAVarWithInputsELb0EEElEvRT_T0_.exit.i.i.i.i ], [ %9, %.lr.ph ]
   %.012.i.i.i.i = phi i64 [ %.1.i.i.i.i, %_ZSt7advanceIN5boost9container12vec_iteratorIPPN3ue221GoughSSAVarWithInputsELb0EEElEvRT_T0_.exit.i.i.i.i ], [ %11, %.lr.ph ]
   %15 = lshr i64 %.012.i.i.i.i, 1
-  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8, !noalias !80
   %18 = icmp ult ptr %17, %0
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -1148,7 +1102,7 @@ define hidden void @_ZN3ue214GoughSSAVarMin13replace_inputEPNS_11GoughSSAVarES2_
   %9 = load ptr, ptr %8, align 8, !noalias !90
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load i64, ptr %10, align 8, !noalias !95
-  %12 = getelementptr inbounds nuw ptr, ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %11
   %13 = icmp sgt i64 %11, 0
   br i1 %13, label %_ZSt7advanceIN5boost9container12vec_iteratorIPPN3ue211GoughSSAVarELb0EEElEvRT_T0_.exit.i.i.i.i, label %_ZSt11lower_boundIN5boost9container12vec_iteratorIPPN3ue211GoughSSAVarELb0EEES5_St4lessIS5_EET_SA_SA_RKT0_T1_.exit.i.i
 
@@ -1156,7 +1110,7 @@ _ZSt7advanceIN5boost9container12vec_iteratorIPPN3ue211GoughSSAVarELb0EEElEvRT_T0
   %14 = phi ptr [ %22, %_ZSt7advanceIN5boost9container12vec_iteratorIPPN3ue211GoughSSAVarELb0EEElEvRT_T0_.exit.i.i.i.i ], [ %9, %3 ]
   %.012.i.i.i.i = phi i64 [ %.1.i.i.i.i, %_ZSt7advanceIN5boost9container12vec_iteratorIPPN3ue211GoughSSAVarELb0EEElEvRT_T0_.exit.i.i.i.i ], [ %11, %3 ]
   %15 = lshr i64 %.012.i.i.i.i, 1
-  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8, !noalias !98
   %18 = icmp ult ptr %17, %1
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -1201,7 +1155,7 @@ _ZN3ue28flat_setIPNS_11GoughSSAVarESt4lessIS2_ESaIS2_EE5eraseERKS2_.exit: ; pred
   %36 = load ptr, ptr %35, align 8, !noalias !108
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %38 = load i64, ptr %37, align 8, !noalias !113
-  %39 = getelementptr inbounds nuw ptr, ptr %36, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %38
   %40 = icmp sgt i64 %38, 0
   br i1 %40, label %_ZSt7advanceIN5boost9container12vec_iteratorIPPN3ue221GoughSSAVarWithInputsELb0EEElEvRT_T0_.exit.i.i.i.i, label %_ZSt11lower_boundIN5boost9container12vec_iteratorIPPN3ue221GoughSSAVarWithInputsELb0EEES5_St4lessIS5_EET_SA_SA_RKT0_T1_.exit.i.i
 
@@ -1209,7 +1163,7 @@ _ZSt7advanceIN5boost9container12vec_iteratorIPPN3ue221GoughSSAVarWithInputsELb0E
   %41 = phi ptr [ %49, %_ZSt7advanceIN5boost9container12vec_iteratorIPPN3ue221GoughSSAVarWithInputsELb0EEElEvRT_T0_.exit.i.i.i.i ], [ %36, %_ZN3ue28flat_setIPNS_11GoughSSAVarESt4lessIS2_ESaIS2_EE5eraseERKS2_.exit ]
   %.012.i.i.i.i4 = phi i64 [ %.1.i.i.i.i7, %_ZSt7advanceIN5boost9container12vec_iteratorIPPN3ue221GoughSSAVarWithInputsELb0EEElEvRT_T0_.exit.i.i.i.i ], [ %38, %_ZN3ue28flat_setIPNS_11GoughSSAVarESt4lessIS2_ESaIS2_EE5eraseERKS2_.exit ]
   %42 = lshr i64 %.012.i.i.i.i4, 1
-  %43 = getelementptr inbounds nuw ptr, ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %42
   %44 = load ptr, ptr %43, align 8, !noalias !116
   %45 = icmp ult ptr %44, %0
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
@@ -1271,7 +1225,7 @@ define linkonce_odr hidden void @_ZN3ue28flat_setIPNS_11GoughSSAVarESt4lessIS2_E
   %6 = load ptr, ptr %1, align 8, !noalias !125
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8, !noalias !128
-  %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %8
   %10 = ptrtoint ptr %6 to i64
   %11 = icmp sgt i64 %8, 0
   br i1 %11, label %_ZSt7advanceIN5boost9container12vec_iteratorIPPN3ue211GoughSSAVarELb0EEElEvRT_T0_.exit.i.preheader.i, label %_ZSt11lower_boundIN5boost9container12vec_iteratorIPPN3ue211GoughSSAVarELb0EEES5_St4lessIS5_EET_SA_SA_RKT0_T1_.exit
@@ -1284,7 +1238,7 @@ _ZSt7advanceIN5boost9container12vec_iteratorIPPN3ue211GoughSSAVarELb0EEElEvRT_T0
   %13 = phi ptr [ %21, %_ZSt7advanceIN5boost9container12vec_iteratorIPPN3ue211GoughSSAVarELb0EEElEvRT_T0_.exit.i.i ], [ %6, %_ZSt7advanceIN5boost9container12vec_iteratorIPPN3ue211GoughSSAVarELb0EEElEvRT_T0_.exit.i.preheader.i ]
   %.012.i.i = phi i64 [ %.1.i.i, %_ZSt7advanceIN5boost9container12vec_iteratorIPPN3ue211GoughSSAVarELb0EEElEvRT_T0_.exit.i.i ], [ %8, %_ZSt7advanceIN5boost9container12vec_iteratorIPPN3ue211GoughSSAVarELb0EEElEvRT_T0_.exit.i.preheader.i ]
   %14 = lshr i64 %.012.i.i, 1
-  %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8, !noalias !131
   %17 = icmp ult ptr %16, %12
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -1358,7 +1312,7 @@ _ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIPN3ue
   %48 = sub i64 %47, %40
   %49 = ashr exact i64 %48, 3
   %50 = sub nsw i64 0, %49
-  %51 = getelementptr inbounds ptr, ptr %9, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %9, i64 %50
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %51, ptr nonnull align 8 %23, i64 %48, i1 false), !noalias !136
   br label %_ZN5boost9container13move_backwardIPPN3ue211GoughSSAVarES5_EENS0_3dtl37enable_if_memtransfer_copy_assignableIT_T0_S9_E4typeES8_S8_S9_.exit.i.i.i.i
 
@@ -1390,7 +1344,7 @@ define linkonce_odr hidden void @_ZN3ue28flat_setIPNS_21GoughSSAVarWithInputsESt
   %6 = load ptr, ptr %1, align 8, !noalias !147
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8, !noalias !150
-  %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %8
   %10 = ptrtoint ptr %6 to i64
   %11 = icmp sgt i64 %8, 0
   br i1 %11, label %_ZSt7advanceIN5boost9container12vec_iteratorIPPN3ue221GoughSSAVarWithInputsELb0EEElEvRT_T0_.exit.i.preheader.i, label %_ZSt11lower_boundIN5boost9container12vec_iteratorIPPN3ue221GoughSSAVarWithInputsELb0EEES5_St4lessIS5_EET_SA_SA_RKT0_T1_.exit
@@ -1403,7 +1357,7 @@ _ZSt7advanceIN5boost9container12vec_iteratorIPPN3ue221GoughSSAVarWithInputsELb0E
   %13 = phi ptr [ %21, %_ZSt7advanceIN5boost9container12vec_iteratorIPPN3ue221GoughSSAVarWithInputsELb0EEElEvRT_T0_.exit.i.i ], [ %6, %_ZSt7advanceIN5boost9container12vec_iteratorIPPN3ue221GoughSSAVarWithInputsELb0EEElEvRT_T0_.exit.i.preheader.i ]
   %.012.i.i = phi i64 [ %.1.i.i, %_ZSt7advanceIN5boost9container12vec_iteratorIPPN3ue221GoughSSAVarWithInputsELb0EEElEvRT_T0_.exit.i.i ], [ %8, %_ZSt7advanceIN5boost9container12vec_iteratorIPPN3ue221GoughSSAVarWithInputsELb0EEElEvRT_T0_.exit.i.preheader.i ]
   %14 = lshr i64 %.012.i.i, 1
-  %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8, !noalias !153
   %17 = icmp ult ptr %16, %12
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -1477,7 +1431,7 @@ _ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorIPN3ue
   %48 = sub i64 %47, %40
   %49 = ashr exact i64 %48, 3
   %50 = sub nsw i64 0, %49
-  %51 = getelementptr inbounds ptr, ptr %9, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %9, i64 %50
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %51, ptr nonnull align 8 %23, i64 %48, i1 false), !noalias !158
   br label %_ZN5boost9container13move_backwardIPPN3ue221GoughSSAVarWithInputsES5_EENS0_3dtl37enable_if_memtransfer_copy_assignableIT_T0_S9_E4typeES8_S8_S9_.exit.i.i.i.i
 
@@ -1573,7 +1527,7 @@ _ZNSt6vectorI9gough_insSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i: ; pred
 _ZNSt6vectorI9gough_insSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i: ; preds = %32, %_ZNSt6vectorI9gough_insSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i
   store ptr %27, ptr %1, align 8
   store ptr %31, ptr %7, align 8
-  %33 = getelementptr inbounds nuw %struct.gough_ins, ptr %27, i64 %25
+  %33 = getelementptr inbounds nuw [12 x i8], ptr %27, i64 %25
   store ptr %33, ptr %9, align 8
   br label %_ZNSt6vectorI9gough_insSaIS0_EE9push_backEOS0_.exit
 
@@ -1702,7 +1656,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEES6_ET0_T
   %41 = sub i64 %40, %11
   %42 = ashr exact i64 %41, 2
   %43 = sub nsw i64 0, %42
-  %44 = getelementptr inbounds i32, ptr %39, i64 %43
+  %44 = getelementptr inbounds [4 x i8], ptr %39, i64 %43
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %44, ptr noundef nonnull align 4 dereferenceable(1) %.sroa.072.1, i64 %41, i1 false)
   br label %_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops14_Val_less_iterEEvT_T0_.exit.i19.i.i.i
 
@@ -1808,7 +1762,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i: ; preds = %76, %.noex
   br label %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i
 
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i: ; preds = %78, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i
-  %79 = getelementptr inbounds nuw i32, ptr %72, i64 %70
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %70
   br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
 
 _ZNSt6vectorIjSaIjEE9push_backERKj.exit:          ; preds = %_ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i, %58, %51
@@ -1919,7 +1873,7 @@ _ZNSt6vectorI9gough_insSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i: ; pred
 _ZNSt6vectorI9gough_insSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i: ; preds = %114, %_ZNSt6vectorI9gough_insSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i
   store ptr %109, ptr %1, align 8
   store ptr %113, ptr %82, align 8
-  %115 = getelementptr inbounds nuw %struct.gough_ins, ptr %109, i64 %107
+  %115 = getelementptr inbounds nuw [12 x i8], ptr %109, i64 %107
   store ptr %115, ptr %83, align 8
   br label %_ZNSt6vectorI9gough_insSaIS0_EE9push_backEOS0_.exit
 
@@ -1998,7 +1952,7 @@ _ZNSt6vectorI9gough_insSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i48: ; pr
 _ZNSt6vectorI9gough_insSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i50: ; preds = %138, %_ZNSt6vectorI9gough_insSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i48
   store ptr %133, ptr %1, align 8
   store ptr %137, ptr %82, align 8
-  %139 = getelementptr inbounds nuw %struct.gough_ins, ptr %133, i64 %131
+  %139 = getelementptr inbounds nuw [12 x i8], ptr %133, i64 %131
   store ptr %139, ptr %83, align 8
   br label %_ZNSt6vectorI9gough_insSaIS0_EE9push_backEOS0_.exit
 
@@ -2039,7 +1993,7 @@ define hidden void @_ZN3ue214GoughSSAVarMin16remove_input_rawEPNS_11GoughSSAVarE
   %4 = load ptr, ptr %3, align 8, !noalias !186
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8, !noalias !191
-  %7 = getelementptr inbounds nuw ptr, ptr %4, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %6
   %8 = icmp sgt i64 %6, 0
   br i1 %8, label %_ZSt7advanceIN5boost9container12vec_iteratorIPPN3ue211GoughSSAVarELb0EEElEvRT_T0_.exit.i.i.i.i, label %_ZSt11lower_boundIN5boost9container12vec_iteratorIPPN3ue211GoughSSAVarELb0EEES5_St4lessIS5_EET_SA_SA_RKT0_T1_.exit.i.i
 
@@ -2047,7 +2001,7 @@ _ZSt7advanceIN5boost9container12vec_iteratorIPPN3ue211GoughSSAVarELb0EEElEvRT_T0
   %9 = phi ptr [ %17, %_ZSt7advanceIN5boost9container12vec_iteratorIPPN3ue211GoughSSAVarELb0EEElEvRT_T0_.exit.i.i.i.i ], [ %4, %2 ]
   %.012.i.i.i.i = phi i64 [ %.1.i.i.i.i, %_ZSt7advanceIN5boost9container12vec_iteratorIPPN3ue211GoughSSAVarELb0EEElEvRT_T0_.exit.i.i.i.i ], [ %6, %2 ]
   %10 = lshr i64 %.012.i.i.i.i, 1
-  %11 = getelementptr inbounds nuw ptr, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8, !noalias !194
   %13 = icmp ult ptr %12, %1
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -2115,7 +2069,7 @@ define hidden noundef ptr @_ZNK3ue215GoughSSAVarJoin9get_inputERKN5boost6detail1
   %10 = load ptr, ptr %9, align 8, !noalias !203
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.010.024, i64 48
   %12 = load i64, ptr %11, align 8, !noalias !208
-  %13 = getelementptr inbounds nuw %"class.boost::detail::edge_desc_impl", ptr %10, i64 %12
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %10, i64 %12
   %.not.i.i = icmp eq i64 %12, 0
   br i1 %.not.i.i, label %_ZSt11lower_boundIN5boost9container12vec_iteratorIPNS0_6detail14edge_desc_implINS0_17bidirectional_tagEmEELb1EEES6_St4lessIS6_EET_SB_SB_RKT0_T1_.exit.i.i, label %_ZSt7advanceIN5boost9container12vec_iteratorIPNS0_6detail14edge_desc_implINS0_17bidirectional_tagEmEELb1EEElEvRT_T0_.exit.i.i.i.i
 
@@ -2123,7 +2077,7 @@ _ZSt7advanceIN5boost9container12vec_iteratorIPNS0_6detail14edge_desc_implINS0_17
   %14 = phi ptr [ %23, %_ZSt7advanceIN5boost9container12vec_iteratorIPNS0_6detail14edge_desc_implINS0_17bidirectional_tagEmEELb1EEElEvRT_T0_.exit.i.i.i.i ], [ %10, %8 ]
   %.012.i.i.i.i = phi i64 [ %.1.i.i.i.i, %_ZSt7advanceIN5boost9container12vec_iteratorIPNS0_6detail14edge_desc_implINS0_17bidirectional_tagEmEELb1EEElEvRT_T0_.exit.i.i.i.i ], [ %12, %8 ]
   %15 = lshr i64 %.012.i.i.i.i, 1
-  %16 = getelementptr inbounds nuw %"class.boost::detail::edge_desc_impl", ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8, !noalias !213
   %19 = icmp ult ptr %18, %7
@@ -2248,7 +2202,7 @@ _ZNSt3mapIPN3ue211GoughSSAVarENS0_8flat_setIN5boost6detail14edge_desc_implINS4_1
   %17 = load ptr, ptr %16, align 8, !noalias !226
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 56
   %19 = load i64, ptr %18, align 8, !noalias !231
-  %20 = getelementptr inbounds nuw ptr, ptr %17, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %19
   %21 = icmp sgt i64 %19, 0
   br i1 %21, label %_ZSt7advanceIN5boost9container12vec_iteratorIPPN3ue221GoughSSAVarWithInputsELb0EEElEvRT_T0_.exit.i.i.i.i, label %_ZSt11lower_boundIN5boost9container12vec_iteratorIPPN3ue221GoughSSAVarWithInputsELb0EEES5_St4lessIS5_EET_SA_SA_RKT0_T1_.exit.i.i
 
@@ -2256,7 +2210,7 @@ _ZSt7advanceIN5boost9container12vec_iteratorIPPN3ue221GoughSSAVarWithInputsELb0E
   %22 = phi ptr [ %30, %_ZSt7advanceIN5boost9container12vec_iteratorIPPN3ue221GoughSSAVarWithInputsELb0EEElEvRT_T0_.exit.i.i.i.i ], [ %17, %.lr.ph ]
   %.012.i.i.i.i = phi i64 [ %.1.i.i.i.i, %_ZSt7advanceIN5boost9container12vec_iteratorIPPN3ue221GoughSSAVarWithInputsELb0EEElEvRT_T0_.exit.i.i.i.i ], [ %19, %.lr.ph ]
   %23 = lshr i64 %.012.i.i.i.i, 1
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8, !noalias !234
   %26 = icmp ult ptr %25, %0
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
@@ -2504,7 +2458,7 @@ _ZNSt3mapIPN3ue211GoughSSAVarENS0_8flat_setIN5boost6detail14edge_desc_implINS4_1
   %73 = load ptr, ptr %72, align 8, !noalias !261
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %75 = load i64, ptr %74, align 8, !noalias !266
-  %76 = getelementptr inbounds nuw ptr, ptr %73, i64 %75
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %75
   %77 = icmp sgt i64 %75, 0
   br i1 %77, label %_ZSt7advanceIN5boost9container12vec_iteratorIPPN3ue211GoughSSAVarELb0EEElEvRT_T0_.exit.i.preheader.i.i.i, label %_ZSt11lower_boundIN5boost9container12vec_iteratorIPPN3ue211GoughSSAVarELb0EEES5_St4lessIS5_EET_SA_SA_RKT0_T1_.exit.i.i
 
@@ -2516,7 +2470,7 @@ _ZSt7advanceIN5boost9container12vec_iteratorIPPN3ue211GoughSSAVarELb0EEElEvRT_T0
   %79 = phi ptr [ %87, %_ZSt7advanceIN5boost9container12vec_iteratorIPPN3ue211GoughSSAVarELb0EEElEvRT_T0_.exit.i.i.i.i ], [ %73, %_ZSt7advanceIN5boost9container12vec_iteratorIPPN3ue211GoughSSAVarELb0EEElEvRT_T0_.exit.i.preheader.i.i.i ]
   %.012.i.i.i.i25 = phi i64 [ %.1.i.i.i.i26, %_ZSt7advanceIN5boost9container12vec_iteratorIPPN3ue211GoughSSAVarELb0EEElEvRT_T0_.exit.i.i.i.i ], [ %75, %_ZSt7advanceIN5boost9container12vec_iteratorIPPN3ue211GoughSSAVarELb0EEElEvRT_T0_.exit.i.preheader.i.i.i ]
   %80 = lshr i64 %.012.i.i.i.i25, 1
-  %81 = getelementptr inbounds nuw ptr, ptr %79, i64 %80
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %80
   %82 = load ptr, ptr %81, align 8, !noalias !269
   %83 = icmp ult ptr %82, %78
   %84 = getelementptr inbounds nuw i8, ptr %81, i64 8
@@ -2566,7 +2520,7 @@ _ZN3ue28flat_setIPNS_11GoughSSAVarESt4lessIS2_ESaIS2_EE5eraseERKS2_.exit: ; pred
   %103 = load ptr, ptr %102, align 8, !noalias !278
   %104 = getelementptr inbounds nuw i8, ptr %101, i64 56
   %105 = load i64, ptr %104, align 8, !noalias !283
-  %106 = getelementptr inbounds nuw ptr, ptr %103, i64 %105
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %105
   %107 = icmp sgt i64 %105, 0
   br i1 %107, label %_ZSt7advanceIN5boost9container12vec_iteratorIPPN3ue221GoughSSAVarWithInputsELb0EEElEvRT_T0_.exit.i.i.i.i, label %_ZSt11lower_boundIN5boost9container12vec_iteratorIPPN3ue221GoughSSAVarWithInputsELb0EEES5_St4lessIS5_EET_SA_SA_RKT0_T1_.exit.i.i
 
@@ -2574,7 +2528,7 @@ _ZSt7advanceIN5boost9container12vec_iteratorIPPN3ue221GoughSSAVarWithInputsELb0E
   %108 = phi ptr [ %116, %_ZSt7advanceIN5boost9container12vec_iteratorIPPN3ue221GoughSSAVarWithInputsELb0EEElEvRT_T0_.exit.i.i.i.i ], [ %103, %_ZN3ue28flat_setIPNS_11GoughSSAVarESt4lessIS2_ESaIS2_EE5eraseERKS2_.exit ]
   %.012.i.i.i.i30 = phi i64 [ %.1.i.i.i.i33, %_ZSt7advanceIN5boost9container12vec_iteratorIPPN3ue221GoughSSAVarWithInputsELb0EEElEvRT_T0_.exit.i.i.i.i ], [ %105, %_ZN3ue28flat_setIPNS_11GoughSSAVarESt4lessIS2_ESaIS2_EE5eraseERKS2_.exit ]
   %109 = lshr i64 %.012.i.i.i.i30, 1
-  %110 = getelementptr inbounds nuw ptr, ptr %108, i64 %109
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %109
   %111 = load ptr, ptr %110, align 8, !noalias !286
   %112 = icmp ult ptr %111, %0
   %113 = getelementptr inbounds nuw i8, ptr %110, i64 8
@@ -2707,7 +2661,7 @@ define linkonce_odr hidden void @_ZN3ue28flat_setIN5boost6detail14edge_desc_impl
   %6 = load ptr, ptr %1, align 8, !noalias !295
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8, !noalias !298
-  %9 = getelementptr inbounds nuw %"class.boost::detail::edge_desc_impl", ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %8
   %10 = ptrtoint ptr %6 to i64
   %.not = icmp eq i64 %8, 0
   br i1 %.not, label %_ZSt11lower_boundIN5boost9container12vec_iteratorIPNS0_6detail14edge_desc_implINS0_17bidirectional_tagEmEELb0EEES6_St4lessIS6_EET_SB_SB_RKT0_T1_.exit, label %_ZSt7advanceIN5boost9container12vec_iteratorIPNS0_6detail14edge_desc_implINS0_17bidirectional_tagEmEELb0EEElEvRT_T0_.exit.lr.ph.i.i
@@ -2721,7 +2675,7 @@ _ZSt7advanceIN5boost9container12vec_iteratorIPNS0_6detail14edge_desc_implINS0_17
   %13 = phi ptr [ %6, %_ZSt7advanceIN5boost9container12vec_iteratorIPNS0_6detail14edge_desc_implINS0_17bidirectional_tagEmEELb0EEElEvRT_T0_.exit.lr.ph.i.i ], [ %22, %_ZSt7advanceIN5boost9container12vec_iteratorIPNS0_6detail14edge_desc_implINS0_17bidirectional_tagEmEELb0EEElEvRT_T0_.exit.i.i ]
   %.012.i.i = phi i64 [ %8, %_ZSt7advanceIN5boost9container12vec_iteratorIPNS0_6detail14edge_desc_implINS0_17bidirectional_tagEmEELb0EEElEvRT_T0_.exit.lr.ph.i.i ], [ %.1.i.i, %_ZSt7advanceIN5boost9container12vec_iteratorIPNS0_6detail14edge_desc_implINS0_17bidirectional_tagEmEELb0EEElEvRT_T0_.exit.i.i ]
   %14 = lshr i64 %.012.i.i, 1
-  %15 = getelementptr inbounds nuw %"class.boost::detail::edge_desc_impl", ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [24 x i8], ptr %13, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8, !noalias !301
   %18 = icmp ult ptr %17, %12
@@ -2795,7 +2749,7 @@ _ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorINS_6d
   %48 = ptrtoint ptr %43 to i64
   %49 = sub i64 %48, %42
   %.neg.i.i.i.i.i = sdiv exact i64 %49, -24
-  %50 = getelementptr inbounds %"class.boost::detail::edge_desc_impl", ptr %9, i64 %.neg.i.i.i.i.i
+  %50 = getelementptr inbounds [24 x i8], ptr %9, i64 %.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %50, ptr nonnull align 8 %24, i64 %49, i1 false), !noalias !307
   br label %_ZN5boost9container13move_backwardIPNS_6detail14edge_desc_implINS_17bidirectional_tagEmEES6_EENS0_3dtl37enable_if_memtransfer_copy_assignableIT_T0_SA_E4typeES9_S9_SA_.exit.i.i.i.i
 
@@ -2895,7 +2849,7 @@ _ZNSt3mapIPN3ue211GoughSSAVarENS0_8flat_setIN5boost6detail14edge_desc_implINS4_1
   %25 = load ptr, ptr %24, align 8, !noalias !318
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %27 = load i64, ptr %26, align 8, !noalias !323
-  %28 = getelementptr inbounds nuw ptr, ptr %25, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %27
   %29 = icmp sgt i64 %27, 0
   br i1 %29, label %_ZSt7advanceIN5boost9container12vec_iteratorIPPN3ue211GoughSSAVarELb0EEElEvRT_T0_.exit.i.i.i.i, label %_ZSt11lower_boundIN5boost9container12vec_iteratorIPPN3ue211GoughSSAVarELb0EEES5_St4lessIS5_EET_SA_SA_RKT0_T1_.exit.i.i
 
@@ -2903,7 +2857,7 @@ _ZSt7advanceIN5boost9container12vec_iteratorIPPN3ue211GoughSSAVarELb0EEElEvRT_T0
   %30 = phi ptr [ %38, %_ZSt7advanceIN5boost9container12vec_iteratorIPPN3ue211GoughSSAVarELb0EEElEvRT_T0_.exit.i.i.i.i ], [ %25, %_ZNSt3mapIPN3ue211GoughSSAVarENS0_8flat_setIN5boost6detail14edge_desc_implINS4_17bidirectional_tagEmEESt4lessIS8_ESaIS8_EEES9_IS2_ESaISt4pairIKS2_SC_EEE5eraseERSF_.exit ]
   %.012.i.i.i.i1 = phi i64 [ %.1.i.i.i.i2, %_ZSt7advanceIN5boost9container12vec_iteratorIPPN3ue211GoughSSAVarELb0EEElEvRT_T0_.exit.i.i.i.i ], [ %27, %_ZNSt3mapIPN3ue211GoughSSAVarENS0_8flat_setIN5boost6detail14edge_desc_implINS4_17bidirectional_tagEmEESt4lessIS8_ESaIS8_EEES9_IS2_ESaISt4pairIKS2_SC_EEE5eraseERSF_.exit ]
   %31 = lshr i64 %.012.i.i.i.i1, 1
-  %32 = getelementptr inbounds nuw ptr, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %31
   %33 = load ptr, ptr %32, align 8, !noalias !326
   %34 = icmp ult ptr %33, %1
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 8
@@ -2951,7 +2905,7 @@ _ZN3ue28flat_setIPNS_11GoughSSAVarESt4lessIS2_ESaIS2_EE5eraseERKS2_.exit: ; pred
 define hidden noundef zeroext i1 @_ZN3ue221find_normal_self_loopEmRKN5boost14adjacency_listINS0_4vecSES2_NS0_14bidirectionalSENS_16GoughVertexPropsENS_14GoughEdgePropsENS_15GoughGraphPropsENS0_5listSEEEPNS0_6detail14edge_desc_implINS0_17bidirectional_tagEmEE(i64 noundef %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #8 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8, !noalias !335
-  %6 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %5, i64 %0
+  %6 = getelementptr inbounds nuw [128 x i8], ptr %5, i64 %0
   %7 = load ptr, ptr %6, align 8, !noalias !335
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load ptr, ptr %8, align 8, !noalias !335
@@ -3061,7 +3015,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %5
   %.078.i = phi i1 [ %.4.i, %_ZN3ue226copy_propagate_update_varsISt10shared_ptrINS_15GoughSSAVarJoinEEEEvRSt6vectorIT_SaIS5_EEPb.exit.i ], [ false, %39 ]
   %.sroa.015.077.i = phi i64 [ %116, %_ZN3ue226copy_propagate_update_varsISt10shared_ptrINS_15GoughSSAVarJoinEEEEvRSt6vectorIT_SaIS5_EEPb.exit.i ], [ 0, %39 ]
   %46 = load ptr, ptr %29, align 8
-  %47 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %46, i64 %.sroa.015.077.i
+  %47 = getelementptr inbounds nuw [128 x i8], ptr %46, i64 %.sroa.015.077.i
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 56
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 64
   %50 = load ptr, ptr %49, align 8
@@ -3075,7 +3029,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %5
   %53 = phi ptr [ %108, %.thread.i.i ], [ %50, %.lr.ph.i ]
   %54 = phi i64 [ %110, %.thread.i.i ], [ 0, %.lr.ph.i ]
   %.052.i.i = phi i32 [ %109, %.thread.i.i ], [ 0, %.lr.ph.i ]
-  %55 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %52, i64 %54
+  %55 = getelementptr inbounds nuw [16 x i8], ptr %52, i64 %54
   %56 = load ptr, ptr %55, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 24
@@ -3276,7 +3230,7 @@ _ZN3ue226copy_propagate_update_varsISt10shared_ptrINS_15GoughSSAVarJoinEEEEvRSt6
   %122 = phi ptr [ %177, %.thread.i43.i ], [ %119, %.lr.ph83.i ]
   %123 = phi i64 [ %179, %.thread.i43.i ], [ 0, %.lr.ph83.i ]
   %.052.i23.i = phi i32 [ %178, %.thread.i43.i ], [ 0, %.lr.ph83.i ]
-  %124 = getelementptr inbounds nuw %"class.std::shared_ptr.338", ptr %121, i64 %123
+  %124 = getelementptr inbounds nuw [16 x i8], ptr %121, i64 %123
   %125 = load ptr, ptr %124, align 8
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 16
   %127 = getelementptr inbounds nuw i8, ptr %125, i64 24
@@ -3470,7 +3424,7 @@ _ZN3ue226copy_propagate_update_varsISt10shared_ptrINS_11GoughSSAVarEEEEvRSt6vect
 .lr.ph88.i:                                       ; preds = %185, %_ZN3ue2L25copy_propagate_report_setERSt6vectorISt4pairIjPNS_11GoughSSAVarEESaIS4_EE.exit60.i
   %.sroa.01.086.i = phi i64 [ %236, %_ZN3ue2L25copy_propagate_report_setERSt6vectorISt4pairIjPNS_11GoughSSAVarEESaIS4_EE.exit60.i ], [ 0, %185 ]
   %192 = load ptr, ptr %29, align 8
-  %193 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %192, i64 %.sroa.01.086.i
+  %193 = getelementptr inbounds nuw [128 x i8], ptr %192, i64 %.sroa.01.086.i
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 80
   %195 = load ptr, ptr %194, align 8
   %196 = getelementptr inbounds nuw i8, ptr %193, i64 88
@@ -3520,7 +3474,7 @@ _ZN3ue2L25copy_propagate_report_setERSt6vectorISt4pairIjPNS_11GoughSSAVarEESaIS4
 
 _ZN3ue2L25copy_propagate_report_setERSt6vectorISt4pairIjPNS_11GoughSSAVarEESaIS4_EE.exit.i: ; preds = %_ZN3ue2L25copy_propagate_report_setERSt6vectorISt4pairIjPNS_11GoughSSAVarEESaIS4_EE.exit.loopexit.i, %.lr.ph88.i
   %214 = phi ptr [ %.pre93.i, %_ZN3ue2L25copy_propagate_report_setERSt6vectorISt4pairIjPNS_11GoughSSAVarEESaIS4_EE.exit.loopexit.i ], [ %192, %.lr.ph88.i ]
-  %215 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %214, i64 %.sroa.01.086.i
+  %215 = getelementptr inbounds nuw [128 x i8], ptr %214, i64 %.sroa.01.086.i
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 104
   %217 = load ptr, ptr %216, align 8
   %218 = getelementptr inbounds nuw i8, ptr %215, i64 112
@@ -3592,7 +3546,7 @@ _ZN3ue2L16copy_propagationERN5boost14adjacency_listINS0_4vecSES2_NS0_14bidirecti
   %.sroa.29.0273.i = phi ptr [ %.sroa.29.9.i, %_ZN3ue2L17mark_live_reportsERKSt6vectorISt4pairIjPNS_11GoughSSAVarEESaIS4_EEPS0_IS3_SaIS3_EE.exit107.i ], [ null, %_ZN3ue2L16copy_propagationERN5boost14adjacency_listINS0_4vecSES2_NS0_14bidirectionalSENS_16GoughVertexPropsENS_14GoughEdgePropsENS_15GoughGraphPropsENS0_5listSEEERKNS_4GreyE.exit ]
   %.sroa.0191.0272.i = phi i64 [ %313, %_ZN3ue2L17mark_live_reportsERKSt6vectorISt4pairIjPNS_11GoughSSAVarEESaIS4_EEPS0_IS3_SaIS3_EE.exit107.i ], [ 0, %_ZN3ue2L16copy_propagationERN5boost14adjacency_listINS0_4vecSES2_NS0_14bidirectionalSENS_16GoughVertexPropsENS_14GoughEdgePropsENS_15GoughGraphPropsENS0_5listSEEERKNS_4GreyE.exit ]
   %247 = load ptr, ptr %238, align 8
-  %248 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %247, i64 %.sroa.0191.0272.i
+  %248 = getelementptr inbounds nuw [128 x i8], ptr %247, i64 %.sroa.0191.0272.i
   %249 = getelementptr inbounds nuw i8, ptr %248, i64 80
   %.val.i = load ptr, ptr %249, align 8
   %250 = getelementptr i8, ptr %248, i64 88
@@ -3673,7 +3627,7 @@ _ZNSt6vectorIPN3ue211GoughSSAVarESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   br label %_ZNSt6vectorIPN3ue211GoughSSAVarESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i
 
 _ZNSt6vectorIPN3ue211GoughSSAVarESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i: ; preds = %277, %_ZNSt6vectorIPN3ue211GoughSSAVarESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i.i
-  %278 = getelementptr inbounds nuw ptr, ptr %272, i64 %270
+  %278 = getelementptr inbounds nuw [8 x i8], ptr %272, i64 %270
   br label %_ZNSt6vectorIPN3ue211GoughSSAVarESaIS2_EE9push_backERKS2_.exit.i.i
 
 _ZNSt6vectorIPN3ue211GoughSSAVarESaIS2_EE9push_backERKS2_.exit.i.i: ; preds = %_ZNSt6vectorIPN3ue211GoughSSAVarESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i.i, %258, %253, %.lr.ph.i.i82
@@ -3693,7 +3647,7 @@ _ZNSt6vectorIPN3ue211GoughSSAVarESaIS2_EE9push_backERKS2_.exit.i.i: ; preds = %_
   %.sroa.29.6.i = phi ptr [ %.sroa.29.0273.i, %.lr.ph.i80 ], [ %.sroa.29.5.i, %.loopexit245.loopexit.i ]
   %.sroa.13.6.i = phi ptr [ %.sroa.13.0274.i, %.lr.ph.i80 ], [ %.sroa.13.5.i, %.loopexit245.loopexit.i ]
   %.sroa.0196.8.i = phi ptr [ %.sroa.0196.0275.i, %.lr.ph.i80 ], [ %.sroa.0196.7.i, %.loopexit245.loopexit.i ]
-  %281 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %280, i64 %.sroa.0191.0272.i
+  %281 = getelementptr inbounds nuw [128 x i8], ptr %280, i64 %.sroa.0191.0272.i
   %282 = getelementptr inbounds nuw i8, ptr %281, i64 104
   %.val88.i = load ptr, ptr %282, align 8
   %283 = getelementptr i8, ptr %281, i64 112
@@ -3774,7 +3728,7 @@ _ZNSt6vectorIPN3ue211GoughSSAVarESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   br label %_ZNSt6vectorIPN3ue211GoughSSAVarESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i104.i
 
 _ZNSt6vectorIPN3ue211GoughSSAVarESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i104.i: ; preds = %310, %_ZNSt6vectorIPN3ue211GoughSSAVarESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i102.i
-  %311 = getelementptr inbounds nuw ptr, ptr %305, i64 %303
+  %311 = getelementptr inbounds nuw [8 x i8], ptr %305, i64 %303
   br label %_ZNSt6vectorIPN3ue211GoughSSAVarESaIS2_EE9push_backERKS2_.exit.i97.i
 
 _ZNSt6vectorIPN3ue211GoughSSAVarESaIS2_EE9push_backERKS2_.exit.i97.i: ; preds = %_ZNSt6vectorIPN3ue211GoughSSAVarESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i104.i, %291, %286, %.lr.ph.i93.i
@@ -3909,7 +3863,7 @@ _ZNSt6vectorIPN3ue211GoughSSAVarESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   br label %_ZNSt6vectorIPN3ue211GoughSSAVarESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIPN3ue211GoughSSAVarESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %346, %_ZNSt6vectorIPN3ue211GoughSSAVarESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
-  %347 = getelementptr inbounds nuw ptr, ptr %341, i64 %339
+  %347 = getelementptr inbounds nuw [8 x i8], ptr %341, i64 %339
   br label %_ZNSt6vectorIPN3ue211GoughSSAVarESaIS2_EE9push_backERKS2_.exit.i
 
 _ZNSt6vectorIPN3ue211GoughSSAVarESaIS2_EE9push_backERKS2_.exit.i: ; preds = %_ZNSt6vectorIPN3ue211GoughSSAVarESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %327, %.lr.ph283.i
@@ -3934,7 +3888,7 @@ _ZNSt6vectorIPN3ue211GoughSSAVarESaIS2_EE9push_backERKS2_.exit.i: ; preds = %_ZN
 .preheader233.i:                                  ; preds = %._crit_edge.i87, %._crit_edge294.i
   %355 = phi ptr [ %361, %._crit_edge294.i ], [ %350, %._crit_edge.i87 ]
   %.sroa.0180.0296.i = phi i64 [ %362, %._crit_edge294.i ], [ 0, %._crit_edge.i87 ]
-  %356 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %355, i64 %.sroa.0180.0296.i
+  %356 = getelementptr inbounds nuw [128 x i8], ptr %355, i64 %.sroa.0180.0296.i
   %357 = getelementptr inbounds nuw i8, ptr %356, i64 56
   %358 = getelementptr inbounds nuw i8, ptr %356, i64 64
   %359 = load ptr, ptr %358, align 8
@@ -3957,7 +3911,7 @@ _ZNSt6vectorIPN3ue211GoughSSAVarESaIS2_EE9push_backERKS2_.exit.i: ; preds = %_ZN
   %363 = phi ptr [ %454, %_ZNSt6vectorISt10shared_ptrIN3ue215GoughSSAVarJoinEESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EE.exit.i ], [ %360, %.preheader233.i ]
   %364 = phi i64 [ %448, %_ZNSt6vectorISt10shared_ptrIN3ue215GoughSSAVarJoinEESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EE.exit.i ], [ 0, %.preheader233.i ]
   %.065292.i = phi i32 [ %.166.i, %_ZNSt6vectorISt10shared_ptrIN3ue215GoughSSAVarJoinEESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EE.exit.i ], [ 0, %.preheader233.i ]
-  %365 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %363, i64 %364
+  %365 = getelementptr inbounds nuw [16 x i8], ptr %363, i64 %364
   %366 = load ptr, ptr %365, align 8
   %367 = getelementptr inbounds nuw i8, ptr %366, i64 8
   %368 = load i8, ptr %367, align 8, !range !347, !noundef !348
@@ -3982,10 +3936,10 @@ _ZNSt6vectorIPN3ue211GoughSSAVarESaIS2_EE9push_backERKS2_.exit.i: ; preds = %_ZN
 
 378:                                              ; preds = %374
   %379 = load ptr, ptr %238, align 8
-  %380 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %379, i64 %.sroa.0180.0296.i
+  %380 = getelementptr inbounds nuw [128 x i8], ptr %379, i64 %.sroa.0180.0296.i
   %381 = getelementptr inbounds nuw i8, ptr %380, i64 56
   %382 = load ptr, ptr %381, align 8
-  %383 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %382, i64 %364
+  %383 = getelementptr inbounds nuw [16 x i8], ptr %382, i64 %364
   %384 = getelementptr inbounds nuw i8, ptr %383, i64 16
   %385 = getelementptr inbounds nuw i8, ptr %380, i64 64
   %386 = load ptr, ptr %385, align 8
@@ -4127,7 +4081,7 @@ _ZNSt6vectorISt10shared_ptrIN3ue215GoughSSAVarJoinEESaIS3_EE5eraseEN9__gnu_cxx17
   %.166.i = phi i32 [ %371, %370 ], [ %.065292.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt10shared_ptrIN3ue215GoughSSAVarJoinEESt6vectorIS5_SaIS5_EEEESA_ET0_T_SC_SB_.exit.i.i ], [ %.065292.i, %432 ], [ %.065292.i, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i.i ], [ %.065292.i, %447 ]
   %448 = zext i32 %.166.i to i64
   %449 = load ptr, ptr %238, align 8
-  %450 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %449, i64 %.sroa.0180.0296.i
+  %450 = getelementptr inbounds nuw [128 x i8], ptr %449, i64 %.sroa.0180.0296.i
   %451 = getelementptr inbounds nuw i8, ptr %450, i64 56
   %452 = getelementptr inbounds nuw i8, ptr %450, i64 64
   %453 = load ptr, ptr %452, align 8
@@ -4165,7 +4119,7 @@ _ZNSt6vectorISt10shared_ptrIN3ue215GoughSSAVarJoinEESaIS3_EE5eraseEN9__gnu_cxx17
   %465 = phi ptr [ %548, %_ZNSt6vectorISt10shared_ptrIN3ue211GoughSSAVarEESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EE.exit.i ], [ %463, %.preheader.i89 ]
   %466 = phi i64 [ %546, %_ZNSt6vectorISt10shared_ptrIN3ue211GoughSSAVarEESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EE.exit.i ], [ 0, %.preheader.i89 ]
   %.063297.i = phi i32 [ %.164.i, %_ZNSt6vectorISt10shared_ptrIN3ue211GoughSSAVarEESaIS3_EE5eraseEN9__gnu_cxx17__normal_iteratorIPKS3_S5_EE.exit.i ], [ 0, %.preheader.i89 ]
-  %467 = getelementptr inbounds nuw %"class.std::shared_ptr.338", ptr %465, i64 %466
+  %467 = getelementptr inbounds nuw [16 x i8], ptr %465, i64 %466
   %468 = load ptr, ptr %467, align 8
   %469 = getelementptr inbounds nuw i8, ptr %468, i64 8
   %470 = load i8, ptr %469, align 8, !range !347, !noundef !348
@@ -4190,7 +4144,7 @@ _ZNSt6vectorISt10shared_ptrIN3ue215GoughSSAVarJoinEESaIS3_EE5eraseEN9__gnu_cxx17
 
 480:                                              ; preds = %476
   %481 = load ptr, ptr %460, align 8
-  %482 = getelementptr inbounds nuw %"class.std::shared_ptr.338", ptr %481, i64 %466
+  %482 = getelementptr inbounds nuw [16 x i8], ptr %481, i64 %466
   %483 = getelementptr inbounds nuw i8, ptr %482, i64 16
   %484 = load ptr, ptr %461, align 8
   %.not.i129.i = icmp eq ptr %483, %484
@@ -4414,11 +4368,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit109: ; preds = %_Z
   %589 = load i64, ptr %588, align 8, !noalias !427
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %590 = load ptr, ptr %562, align 8
-  %591 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %590, i64 %589
+  %591 = getelementptr inbounds nuw [128 x i8], ptr %590, i64 %589
   %592 = getelementptr inbounds nuw i8, ptr %591, i64 48
   %593 = load i32, ptr %592, align 8
   store i32 %593, ptr %10, align 4
-  %594 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %590, i64 %587
+  %594 = getelementptr inbounds nuw [128 x i8], ptr %590, i64 %587
   %595 = getelementptr inbounds nuw i8, ptr %594, i64 48
   %596 = load i32, ptr %595, align 8
   store i32 %596, ptr %563, align 4
@@ -4427,7 +4381,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit109: ; preds = %_Z
 
 598:                                              ; preds = %601, %585
   %.0712.i.i.i.i = phi i64 [ 0, %585 ], [ %602, %601 ]
-  %599 = getelementptr inbounds nuw i64, ptr %597, i64 %.0712.i.i.i.i
+  %599 = getelementptr inbounds nuw [8 x i8], ptr %597, i64 %.0712.i.i.i.i
   %600 = load i64, ptr %599, align 8
   %.not.i.i.i.i111 = icmp eq i64 %600, 0
   br i1 %.not.i.i.i.i111, label %601, label %603
@@ -4571,7 +4525,7 @@ _ZN3ue2L12add_to_blockERKSt6vectorISt10shared_ptrINS_11GoughSSAVarEESaIS3_EEPS0_
 649:                                              ; preds = %1152, %.lr.ph257.i
   %.sroa.0167.0255.i = phi i64 [ 0, %.lr.ph257.i ], [ %1153, %1152 ]
   %650 = load ptr, ptr %565, align 8
-  %651 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %650, i64 %.sroa.0167.0255.i
+  %651 = getelementptr inbounds nuw [128 x i8], ptr %650, i64 %.sroa.0167.0255.i
   %652 = getelementptr inbounds nuw i8, ptr %651, i64 56
   %653 = load ptr, ptr %652, align 8
   %654 = getelementptr inbounds nuw i8, ptr %651, i64 64
@@ -5190,12 +5144,12 @@ _ZN3ue2L25prep_joins_for_generationERKN5boost14adjacency_listINS0_4vecSES2_NS0_1
   %879 = getelementptr inbounds nuw i8, ptr %.sroa.0165.0251.i, i64 32
   %880 = load i64, ptr %879, align 8
   %881 = load ptr, ptr %565, align 8
-  %882 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %881, i64 %880
+  %882 = getelementptr inbounds nuw [128 x i8], ptr %881, i64 %880
   %883 = getelementptr inbounds nuw i8, ptr %882, i64 48
   %884 = load i32, ptr %883, align 8
   %885 = getelementptr inbounds nuw i8, ptr %.sroa.0165.0251.i, i64 40
   %886 = load i64, ptr %885, align 8
-  %887 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %881, i64 %886
+  %887 = getelementptr inbounds nuw [128 x i8], ptr %881, i64 %886
   %888 = getelementptr inbounds nuw i8, ptr %887, i64 48
   %889 = load i32, ptr %888, align 8
   %.sroa.2.0..sroa_idx.i78.i = getelementptr inbounds nuw i8, ptr %.sroa.0165.0251.i, i64 48
@@ -5205,7 +5159,7 @@ _ZN3ue2L25prep_joins_for_generationERKN5boost14adjacency_listINS0_4vecSES2_NS0_1
 
 891:                                              ; preds = %894, %.lr.ph252.i
   %.0712.i.i.i80.i = phi i64 [ 0, %.lr.ph252.i ], [ %895, %894 ]
-  %892 = getelementptr inbounds nuw i64, ptr %890, i64 %.0712.i.i.i80.i
+  %892 = getelementptr inbounds nuw [8 x i8], ptr %890, i64 %.0712.i.i.i80.i
   %893 = load i64, ptr %892, align 8
   %.not.i.i.i81.i = icmp eq i64 %893, 0
   br i1 %.not.i.i.i81.i, label %894, label %896
@@ -5598,7 +5552,7 @@ _ZNSt6vectorI9gough_insSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i.i.i: ; 
 _ZNSt6vectorI9gough_insSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i.i: ; preds = %1046, %_ZNSt6vectorI9gough_insSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i.i.i
   store ptr %1041, ptr %971, align 8
   store ptr %1045, ptr %973, align 8
-  %1047 = getelementptr inbounds nuw %struct.gough_ins, ptr %1041, i64 %1039
+  %1047 = getelementptr inbounds nuw [12 x i8], ptr %1041, i64 %1039
   store ptr %1047, ptr %1016, align 8
   br label %_ZNSt6vectorI9gough_insSaIS0_EE9push_backEOS0_.exit.i.i
 
@@ -5676,7 +5630,7 @@ _ZNSt6vectorI9gough_insSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i25.i.i: 
 _ZNSt6vectorI9gough_insSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i27.i.i: ; preds = %1070, %_ZNSt6vectorI9gough_insSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i25.i.i
   store ptr %1065, ptr %971, align 8
   store ptr %1069, ptr %973, align 8
-  %1071 = getelementptr inbounds nuw %struct.gough_ins, ptr %1065, i64 %1063
+  %1071 = getelementptr inbounds nuw [12 x i8], ptr %1065, i64 %1063
   store ptr %1071, ptr %1016, align 8
   br label %_ZNSt6vectorI9gough_insSaIS0_EE9push_backEOS0_.exit28.i.i
 
@@ -5702,11 +5656,11 @@ _ZN3ue2L18add_joins_to_blockERNS_12_GLOBAL__N_114edge_join_infoEPSt6vectorI9goug
 1076:                                             ; preds = %_ZN3ue2L18add_joins_to_blockERNS_12_GLOBAL__N_114edge_join_infoEPSt6vectorI9gough_insSaIS4_EEj.exit.i
   %1077 = load i64, ptr %879, align 8
   %1078 = load ptr, ptr %565, align 8
-  %1079 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %1078, i64 %1077
+  %1079 = getelementptr inbounds nuw [128 x i8], ptr %1078, i64 %1077
   %1080 = getelementptr inbounds nuw i8, ptr %1079, i64 48
   %1081 = load i32, ptr %1080, align 8
   %1082 = load i64, ptr %885, align 8
-  %1083 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %1078, i64 %1082
+  %1083 = getelementptr inbounds nuw [128 x i8], ptr %1078, i64 %1082
   %1084 = getelementptr inbounds nuw i8, ptr %1083, i64 48
   %1085 = load i32, ptr %1084, align 8
   %.sroa.2.0.copyload.i131.i = load ptr, ptr %.sroa.2.0..sroa_idx.i78.i, align 8
@@ -5715,7 +5669,7 @@ _ZN3ue2L18add_joins_to_blockERNS_12_GLOBAL__N_114edge_join_infoEPSt6vectorI9goug
 
 1087:                                             ; preds = %1090, %1076
   %.0712.i.i.i132.i = phi i64 [ 0, %1076 ], [ %1091, %1090 ]
-  %1088 = getelementptr inbounds nuw i64, ptr %1086, i64 %.0712.i.i.i132.i
+  %1088 = getelementptr inbounds nuw [8 x i8], ptr %1086, i64 %.0712.i.i.i132.i
   %1089 = load i64, ptr %1088, align 8
   %.not.i.i.i133.i = icmp eq i64 %1089, 0
   br i1 %.not.i.i.i133.i, label %1090, label %1092
@@ -5968,7 +5922,7 @@ _ZNSt6vectorI9gough_insSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i.i: ; pr
 _ZNSt6vectorI9gough_insSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i.i: ; preds = %1180, %_ZNSt6vectorI9gough_insSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i.i
   store ptr %1175, ptr %1154, align 8
   store ptr %1179, ptr %1155, align 8
-  %1181 = getelementptr inbounds nuw %struct.gough_ins, ptr %1175, i64 %1173
+  %1181 = getelementptr inbounds nuw [12 x i8], ptr %1175, i64 %1173
   store ptr %1181, ptr %1157, align 8
   br label %_ZNSt6vectorI9gough_insSaIS0_EE9push_backEOS0_.exit.i
 
@@ -6343,10 +6297,10 @@ _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit186:            ; preds = %_ZSt6fill_nIPjmjET_
   %1313 = load i64, ptr %1312, align 8, !noalias !473
   %1314 = getelementptr inbounds nuw i8, ptr %.sroa.0101.0131.i, i64 32
   %1315 = load ptr, ptr %1307, align 8
-  %1316 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %1315, i64 %1311
+  %1316 = getelementptr inbounds nuw [128 x i8], ptr %1315, i64 %1311
   %1317 = getelementptr inbounds nuw i8, ptr %1316, i64 48
   %1318 = load i32, ptr %1317, align 8
-  %1319 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %1315, i64 %1313
+  %1319 = getelementptr inbounds nuw [128 x i8], ptr %1315, i64 %1313
   %1320 = getelementptr inbounds nuw i8, ptr %1319, i64 48
   %1321 = load i32, ptr %1320, align 8
   %1322 = getelementptr inbounds nuw i8, ptr %.sroa.0101.0131.i, i64 40
@@ -6354,7 +6308,7 @@ _ZNSt6vectorIjSaIjEEC2EmRKS0_.exit186:            ; preds = %_ZSt6fill_nIPjmjET_
 
 1323:                                             ; preds = %1326, %1309
   %.0712.i.i.i.i187 = phi i64 [ 0, %1309 ], [ %1327, %1326 ]
-  %1324 = getelementptr inbounds nuw i64, ptr %1322, i64 %.0712.i.i.i.i187
+  %1324 = getelementptr inbounds nuw [8 x i8], ptr %1322, i64 %.0712.i.i.i.i187
   %1325 = load i64, ptr %1324, align 8
   %.not.i.i.i.i188 = icmp eq i64 %1325, 0
   br i1 %.not.i.i.i.i188, label %1326, label %1328
@@ -6451,7 +6405,7 @@ _ZN3ue28containsISt3mapINS_13gough_edge_idESt6vectorI9gough_insSaIS4_EESt4lessIS
 
 _ZN3ue28containsISt3mapINS_13gough_edge_idESt6vectorI9gough_insSaIS4_EESt4lessIS2_ESaISt4pairIKS2_S6_EEEEEbRKT_RKNSE_8key_typeE.exit.i: ; preds = %_ZN3ue28containsISt3mapINS_13gough_edge_idESt6vectorI9gough_insSaIS4_EESt4lessIS2_ESaISt4pairIKS2_S6_EEEEEbRKT_RKNSE_8key_typeE.exit.i.preheader, %1368
   %.0712.i.i.i53.i = phi i64 [ %1369, %1368 ], [ 0, %_ZN3ue28containsISt3mapINS_13gough_edge_idESt6vectorI9gough_insSaIS4_EESt4lessIS2_ESaISt4pairIKS2_S6_EEEEEbRKT_RKNSE_8key_typeE.exit.i.preheader ]
-  %1366 = getelementptr inbounds nuw i64, ptr %1322, i64 %.0712.i.i.i53.i
+  %1366 = getelementptr inbounds nuw [8 x i8], ptr %1322, i64 %.0712.i.i.i53.i
   %1367 = load i64, ptr %1366, align 8
   %.not.i.i.i54.i = icmp eq i64 %1367, 0
   br i1 %.not.i.i.i54.i, label %1368, label %1370
@@ -6591,12 +6545,12 @@ _ZNKSt3mapIN3ue213gough_edge_idESt6vectorI9gough_insSaIS3_EESt4lessIS1_ESaISt4pa
 1425:                                             ; preds = %.noexc212, %.noexc211
   %.048.i = phi i32 [ %1424, %.noexc212 ], [ %1416, %.noexc211 ]
   %1426 = load ptr, ptr %1307, align 8
-  %1427 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %1426, i64 %1311
+  %1427 = getelementptr inbounds nuw [128 x i8], ptr %1426, i64 %1311
   %1428 = getelementptr inbounds nuw i8, ptr %1427, i64 48
   %1429 = load i32, ptr %1428, align 8
   %1430 = zext i32 %1429 to i64
   %1431 = load ptr, ptr %1256, align 8
-  %1432 = getelementptr inbounds nuw %"struct.ue2::dstate", ptr %1431, i64 %1430
+  %1432 = getelementptr inbounds nuw [96 x i8], ptr %1431, i64 %1430
   %1433 = getelementptr inbounds nuw i8, ptr %1432, i64 26
   %1434 = load i16, ptr %1433, align 2
   %1435 = zext i16 %1434 to i32
@@ -6604,7 +6558,7 @@ _ZNKSt3mapIN3ue213gough_edge_idESt6vectorI9gough_insSaIS3_EESt4lessIS1_ESaISt4pa
 
 1436:                                             ; preds = %1439, %1425
   %.0712.i.i.i = phi i64 [ 0, %1425 ], [ %1440, %1439 ]
-  %1437 = getelementptr inbounds nuw i64, ptr %1322, i64 %.0712.i.i.i
+  %1437 = getelementptr inbounds nuw [8 x i8], ptr %1322, i64 %.0712.i.i.i
   %1438 = load i64, ptr %1437, align 8
   %.not.i.i.i201 = icmp eq i64 %1438, 0
   br i1 %.not.i.i.i201, label %1439, label %_ZNK3ue29CharReach10find_firstEv.exit.i
@@ -6627,7 +6581,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.i:          ; preds = %1436
   %.0.i203311 = trunc i64 %1443 to i32
   %1446 = add i32 %1445, %.0.i203311
   %1447 = zext i32 %1446 to i64
-  %1448 = getelementptr inbounds nuw i32, ptr %.sroa.0233.0, i64 %1447
+  %1448 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0233.0, i64 %1447
   store i32 %.048.i, ptr %1448, align 4
   %.not.i.i74.i312 = icmp samesign ult i64 %1444, 256
   br i1 %.not.i.i74.i312, label %.lr.ph, label %._crit_edge.i204
@@ -6649,7 +6603,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.i:          ; preds = %1436
   br label %1461
 
 1454:                                             ; preds = %.lr.ph
-  %1455 = getelementptr inbounds nuw i64, ptr %1322, i64 %1452
+  %1455 = getelementptr inbounds nuw [8 x i8], ptr %1322, i64 %1452
   %1456 = load i64, ptr %1455, align 8
   %1457 = shl nsw i64 -2, %1453
   %1458 = and i64 %1456, %1457
@@ -6667,7 +6621,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.i:          ; preds = %1436
 
 1463:                                             ; preds = %1461
   %.0.i.i.i = add nuw nsw i64 %.0.in.i.i.i, 1
-  %1464 = getelementptr inbounds nuw i64, ptr %1322, i64 %.0.i.i.i
+  %1464 = getelementptr inbounds nuw [8 x i8], ptr %1322, i64 %.0.i.i.i
   %1465 = load i64, ptr %1464, align 8
   %.not22.i.i.i = icmp eq i64 %1465, 0
   br i1 %.not22.i.i.i, label %1461, label %1466, !llvm.loop !481
@@ -6684,13 +6638,13 @@ _ZNK3ue29CharReach9find_nextEm.exit.i:            ; preds = %1466, %1459
   %.0.i203 = trunc nuw nsw i64 %1469 to i32
   %1470 = add i32 %1445, %.0.i203
   %1471 = zext i32 %1470 to i64
-  %1472 = getelementptr inbounds nuw i32, ptr %.sroa.0233.0, i64 %1471
+  %1472 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0233.0, i64 %1471
   store i32 %.048.i, ptr %1472, align 4
   br label %.lr.ph
 
 1473:                                             ; preds = %._crit_edge.i204
   %1474 = zext i16 %1434 to i64
-  %1475 = getelementptr inbounds nuw i32, ptr %.sroa.0228.0, i64 %1474
+  %1475 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0228.0, i64 %1474
   store i32 %.048.i, ptr %1475, align 4
   br label %_ZN3ue28containsISt3mapINS_13gough_edge_idESt6vectorI9gough_insSaIS4_EESt4lessIS2_ESaISt4pairIKS2_S6_EEEEEbRKT_RKNSE_8key_typeE.exit.thread.i
 
@@ -7101,7 +7055,7 @@ _ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i: ; preds = %24
           to label %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i unwind label %43
 
 _ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i: ; preds = %_ZNSt12_Vector_baseImSaImEE11_M_allocateEm.exit.i
-  %27 = getelementptr inbounds nuw i64, ptr %26, i64 %21
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %21
   br label %_ZNSt6vectorImSaImEE7reserveEm.exit
 
 _ZNSt6vectorImSaImEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_baseImSaImEE13_M_deallocateEPmm.exit.i, %24
@@ -7415,7 +7369,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i: ; preds = %138, %.noe
   br label %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i
 
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i: ; preds = %139, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i
-  %140 = getelementptr inbounds nuw i64, ptr %135, i64 %133
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %135, i64 %133
   br label %_ZNSt6vectorImSaImEE9push_backERKm.exit
 
 _ZNSt6vectorImSaImEE9push_backERKm.exit:          ; preds = %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i, %122
@@ -7424,7 +7378,7 @@ _ZNSt6vectorImSaImEE9push_backERKm.exit:          ; preds = %_ZNSt6vectorImSaImE
   %.sroa.0285.11 = phi ptr [ %135, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i ], [ %.sroa.0285.4403, %122 ]
   %.sroa.19.4 = getelementptr inbounds nuw i8, ptr %.pn341, i64 8
   %141 = load ptr, ptr %61, align 8
-  %142 = getelementptr inbounds nuw %"struct.ue2::dstate_som", ptr %141, i64 %86
+  %142 = getelementptr inbounds nuw [152 x i8], ptr %141, i64 %86
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 104
   %144 = load i64, ptr %143, align 8, !noalias !490
   %.not342399 = icmp eq i64 %144, 0
@@ -7541,7 +7495,7 @@ _ZN3ue28containsISt3mapIjjSt4lessIjESaISt4pairIKjjEEEEEbRKT_RKNS9_8key_typeE.exi
           to label %182 unwind label %335
 
 182:                                              ; preds = %_ZN3ue28containsISt3mapIjjSt4lessIjESaISt4pairIKjjEEEEEbRKT_RKNS9_8key_typeE.exit.thread
-  %183 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %180, i64 %88
+  %183 = getelementptr inbounds nuw [128 x i8], ptr %180, i64 %88
   %184 = getelementptr inbounds nuw i8, ptr %181, i64 8
   store i32 1, ptr %184, align 8, !noalias !506
   %185 = getelementptr inbounds nuw i8, ptr %181, i64 12
@@ -7664,7 +7618,7 @@ _ZNSt6vectorISt10shared_ptrIN3ue215GoughSSAVarJoinEESaIS3_EE11_S_relocateEPS3_S6
 .noexc114:                                        ; preds = %234, %_ZNSt6vectorISt10shared_ptrIN3ue215GoughSSAVarJoinEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i
   store ptr %224, ptr %202, align 8
   store ptr %233, ptr %203, align 8
-  %235 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %224, i64 %222
+  %235 = getelementptr inbounds nuw [16 x i8], ptr %224, i64 %222
   store ptr %235, ptr %205, align 8
   br label %_ZNSt6vectorISt10shared_ptrIN3ue215GoughSSAVarJoinEESaIS3_EE9push_backEOS3_.exit._crit_edge
 
@@ -7672,12 +7626,12 @@ _ZNSt6vectorISt10shared_ptrIN3ue215GoughSSAVarJoinEESaIS3_EE9push_backEOS3_.exit
   %.pre448 = load ptr, ptr %5, align 8
   %.pre447 = load ptr, ptr %179, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %236 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %.pre447, i64 %88
+  %236 = getelementptr inbounds nuw [128 x i8], ptr %.pre447, i64 %88
   %237 = getelementptr inbounds nuw i8, ptr %236, i64 64
   %238 = load ptr, ptr %237, align 8
   %239 = getelementptr inbounds i8, ptr %238, i64 -16
   %240 = load ptr, ptr %239, align 8
-  %241 = getelementptr inbounds nuw %"class.ue2::flat_map.307", ptr %.pre448, i64 %88
+  %241 = getelementptr inbounds nuw [40 x i8], ptr %.pre448, i64 %88
   %242 = load ptr, ptr %241, align 8, !noalias !515
   %243 = getelementptr inbounds nuw i8, ptr %241, i64 8
   %244 = load i64, ptr %243, align 8, !noalias !522
@@ -7688,7 +7642,7 @@ _ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjPN3ue215GoughSSAVarJoinEE
   %246 = phi ptr [ %254, %_ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjPN3ue215GoughSSAVarJoinEELb0EEElEvRT_T0_.exit.i.i.i.i.i ], [ %242, %_ZNSt6vectorISt10shared_ptrIN3ue215GoughSSAVarJoinEESaIS3_EE9push_backEOS3_.exit._crit_edge ]
   %.013.i.i.i.i.i = phi i64 [ %.1.i.i.i.i.i, %_ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjPN3ue215GoughSSAVarJoinEELb0EEElEvRT_T0_.exit.i.i.i.i.i ], [ %244, %_ZNSt6vectorISt10shared_ptrIN3ue215GoughSSAVarJoinEESaIS3_EE9push_backEOS3_.exit._crit_edge ]
   %247 = lshr i64 %.013.i.i.i.i.i, 1
-  %248 = getelementptr inbounds nuw %"struct.std::pair.348", ptr %246, i64 %247
+  %248 = getelementptr inbounds nuw [16 x i8], ptr %246, i64 %247
   %249 = load i32, ptr %248, align 4, !noalias !525
   %250 = icmp ult i32 %249, %159
   %251 = getelementptr inbounds nuw i8, ptr %248, i64 16
@@ -7701,7 +7655,7 @@ _ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjPN3ue215GoughSSAVarJoinEE
 
 _ZN3ue28flat_mapIjPNS_15GoughSSAVarJoinESt4lessIjESaISt4pairIjS2_EEE16data_lower_boundERKj.exit.i.i: ; preds = %_ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjPN3ue215GoughSSAVarJoinEELb0EEElEvRT_T0_.exit.i.i.i.i.i, %_ZNSt6vectorISt10shared_ptrIN3ue215GoughSSAVarJoinEESaIS3_EE9push_backEOS3_.exit._crit_edge
   %256 = phi ptr [ %242, %_ZNSt6vectorISt10shared_ptrIN3ue215GoughSSAVarJoinEESaIS3_EE9push_backEOS3_.exit._crit_edge ], [ %254, %_ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjPN3ue215GoughSSAVarJoinEELb0EEElEvRT_T0_.exit.i.i.i.i.i ]
-  %257 = getelementptr inbounds nuw %"struct.std::pair.348", ptr %242, i64 %244
+  %257 = getelementptr inbounds nuw [16 x i8], ptr %242, i64 %244
   %258 = icmp eq ptr %256, %257
   br i1 %258, label %.critedge.i.i, label %259
 
@@ -7939,12 +7893,12 @@ _ZN5boost9container6vectorISt4pairIjPN3ue215GoughSSAVarJoinEENS0_22small_vector_
 339:                                              ; preds = %332, %175
   %340 = phi ptr [ %.pre449, %332 ], [ %158, %175 ]
   %341 = getelementptr inbounds nuw i8, ptr %.sroa.0275.0400, i64 32
-  %342 = getelementptr inbounds nuw %"struct.ue2::dstate_som", ptr %340, i64 %86
+  %342 = getelementptr inbounds nuw [152 x i8], ptr %340, i64 %86
   %343 = getelementptr inbounds nuw i8, ptr %342, i64 96
   %344 = load ptr, ptr %343, align 8, !noalias !490
   %345 = getelementptr inbounds nuw i8, ptr %342, i64 104
   %346 = load i64, ptr %345, align 8, !noalias !490
-  %347 = getelementptr inbounds nuw %"struct.std::pair.305", ptr %344, i64 %346
+  %347 = getelementptr inbounds nuw [32 x i8], ptr %344, i64 %346
   %.not342 = icmp eq ptr %341, %347
   br i1 %.not342, label %._crit_edge, label %.lr.ph
 
@@ -7962,24 +7916,24 @@ _ZN5boost9container6vectorISt4pairIjPN3ue215GoughSSAVarJoinEENS0_22small_vector_
 352:                                              ; preds = %.noexc119, %.lr.ph.i
   %353 = phi i64 [ 1, %.lr.ph.i ], [ %370, %.noexc119 ]
   %.023.i = phi i32 [ 1, %.lr.ph.i ], [ %369, %.noexc119 ]
-  %354 = getelementptr inbounds nuw i64, ptr %.sroa.0285.4.lcssa, i64 %353
+  %354 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0285.4.lcssa, i64 %353
   %355 = load i64, ptr %354, align 8
   %356 = load ptr, ptr %5, align 8
-  %357 = getelementptr inbounds nuw %"class.ue2::flat_map.307", ptr %356, i64 %355
+  %357 = getelementptr inbounds nuw [40 x i8], ptr %356, i64 %355
   %358 = load ptr, ptr %350, align 8
-  %359 = getelementptr inbounds nuw %"struct.ue2::dstate_som", ptr %358, i64 %353
+  %359 = getelementptr inbounds nuw [152 x i8], ptr %358, i64 %353
   %360 = load ptr, ptr %351, align 8
-  %361 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %360, i64 %355
+  %361 = getelementptr inbounds nuw [128 x i8], ptr %360, i64 %355
   %362 = getelementptr inbounds nuw i8, ptr %361, i64 80
   invoke fastcc void @_ZN3ue2L19translateRawReportsERN5boost14adjacency_listINS0_4vecSES2_NS0_14bidirectionalSENS_16GoughVertexPropsENS_14GoughEdgePropsENS_15GoughGraphPropsENS0_5listSEEERKNS_11raw_som_dfaERKNS_8flat_mapIjPNS_15GoughSSAVarJoinESt4lessIjESaISt4pairIjSF_EEEEmRKSt3setINS_10som_reportESG_ISP_ESaISP_EEPSt6vectorISI_IjPNS_11GoughSSAVarEESaISY_EE(ptr noundef nonnull align 8 dereferenceable(40) %357, ptr noundef nonnull align 8 dereferenceable(48) %359, ptr noundef %362)
           to label %.noexc118 unwind label %713
 
 .noexc118:                                        ; preds = %352
   %363 = load ptr, ptr %350, align 8
-  %364 = getelementptr inbounds nuw %"struct.ue2::dstate_som", ptr %363, i64 %353
+  %364 = getelementptr inbounds nuw [152 x i8], ptr %363, i64 %353
   %365 = getelementptr inbounds nuw i8, ptr %364, i64 48
   %366 = load ptr, ptr %351, align 8
-  %367 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %366, i64 %355
+  %367 = getelementptr inbounds nuw [128 x i8], ptr %366, i64 %355
   %368 = getelementptr inbounds nuw i8, ptr %367, i64 104
   invoke fastcc void @_ZN3ue2L19translateRawReportsERN5boost14adjacency_listINS0_4vecSES2_NS0_14bidirectionalSENS_16GoughVertexPropsENS_14GoughEdgePropsENS_15GoughGraphPropsENS0_5listSEEERKNS_11raw_som_dfaERKNS_8flat_mapIjPNS_15GoughSSAVarJoinESt4lessIjESaISt4pairIjSF_EEEEmRKSt3setINS_10som_reportESG_ISP_ESaISP_EEPSt6vectorISI_IjPNS_11GoughSSAVarEESaISY_EE(ptr noundef nonnull align 8 dereferenceable(40) %357, ptr noundef nonnull align 8 dereferenceable(48) %365, ptr noundef %368)
           to label %.noexc119 unwind label %713
@@ -8015,10 +7969,10 @@ _ZNSt3mapItN5boost6detail14edge_desc_implINS0_17bidirectional_tagEmEESt4lessItES
   store ptr %67, ptr %69, align 8
   store ptr %67, ptr %70, align 8
   store i64 0, ptr %71, align 8
-  %384 = getelementptr inbounds nuw i64, ptr %.sroa.0285.4.lcssa, i64 %379
+  %384 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0285.4.lcssa, i64 %379
   %385 = load i64, ptr %384, align 8
   %386 = load ptr, ptr %14, align 8
-  %387 = getelementptr inbounds nuw %"struct.ue2::dstate", ptr %386, i64 %379
+  %387 = getelementptr inbounds nuw [96 x i8], ptr %386, i64 %379
   %388 = getelementptr inbounds nuw i8, ptr %387, i64 8
   %389 = load ptr, ptr %388, align 8
   %390 = load ptr, ptr %387, align 8
@@ -8058,10 +8012,10 @@ _ZNSt3mapItN5boost6detail14edge_desc_implINS0_17bidirectional_tagEmEESt4lessItES
   ]
 
 _ZN3ue212is_triggeredENS_8nfa_kindE.exit121.thread: ; preds = %401, %401, %401
-  %406 = getelementptr inbounds nuw i16, ptr %402, i64 %403
+  %406 = getelementptr inbounds nuw [2 x i8], ptr %402, i64 %403
   %407 = load i16, ptr %406, align 2
   %408 = zext i16 %407 to i64
-  %409 = getelementptr inbounds nuw i64, ptr %.sroa.0285.4.lcssa, i64 %408
+  %409 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0285.4.lcssa, i64 %408
   %410 = load i64, ptr %409, align 8
   br i1 %405, label %417, label %518
 
@@ -8069,10 +8023,10 @@ _ZN3ue212is_triggeredENS_8nfa_kindE.exit121:      ; preds = %401
   br i1 %405, label %702, label %411
 
 411:                                              ; preds = %_ZN3ue212is_triggeredENS_8nfa_kindE.exit121
-  %412 = getelementptr inbounds nuw i16, ptr %402, i64 %403
+  %412 = getelementptr inbounds nuw [2 x i8], ptr %402, i64 %403
   %413 = load i16, ptr %412, align 2
   %414 = zext i16 %413 to i64
-  %415 = getelementptr inbounds nuw i64, ptr %.sroa.0285.4.lcssa, i64 %414
+  %415 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0285.4.lcssa, i64 %414
   %416 = load i64, ptr %415, align 8
   br label %518
 
@@ -8110,7 +8064,7 @@ _ZN3ue212is_triggeredENS_8nfa_kindE.exit121:      ; preds = %401
   br i1 %433, label %434, label %_ZNSt6vectorIN5boost6detail12adj_list_genINS0_14adjacency_listINS0_4vecSES4_NS0_14bidirectionalSEN3ue216GoughVertexPropsENS6_14GoughEdgePropsENS6_15GoughGraphPropsENS0_5listSEEES4_S4_S5_S7_S8_S9_SA_E6config13stored_vertexESaISE_EE6resizeEm.exit.i.i
 
 434:                                              ; preds = %432
-  %435 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %422, i64 %428
+  %435 = getelementptr inbounds nuw [128 x i8], ptr %422, i64 %428
   %.not.i.i.i.i125 = icmp eq ptr %421, %435
   br i1 %.not.i.i.i.i125, label %_ZNSt6vectorIN5boost6detail12adj_list_genINS0_14adjacency_listINS0_4vecSES4_NS0_14bidirectionalSEN3ue216GoughVertexPropsENS6_14GoughEdgePropsENS6_15GoughGraphPropsENS0_5listSEEES4_S4_S5_S7_S8_S9_SA_E6config13stored_vertexESaISE_EE6resizeEm.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i
 
@@ -8335,9 +8289,9 @@ _ZSt8_DestroyIPSt10shared_ptrIN3ue211GoughSSAVarEES3_EvT_S5_RSaIT0_E.exit.i.i.i:
   store i8 1, ptr %.sroa.2.0.copyload, align 8
   %508 = load i32, ptr %77, align 8
   %509 = load ptr, ptr %78, align 8
-  %510 = getelementptr inbounds nuw %"struct.ue2::dstate_som", ptr %509, i64 %379
+  %510 = getelementptr inbounds nuw [152 x i8], ptr %509, i64 %379
   %511 = getelementptr inbounds nuw i8, ptr %510, i64 96
-  %512 = getelementptr inbounds nuw %"struct.ue2::dstate_som", ptr %509, i64 %408
+  %512 = getelementptr inbounds nuw [152 x i8], ptr %509, i64 %408
   %513 = getelementptr inbounds nuw i8, ptr %512, i64 96
   %.val91 = load ptr, ptr %5, align 8
   invoke fastcc void @_ZN3ue2L16makeCFG_top_edgeERN5boost14adjacency_listINS0_4vecSES2_NS0_14bidirectionalSENS_16GoughVertexPropsENS_14GoughEdgePropsENS_15GoughGraphPropsENS0_5listSEEERKSt6vectorImSaImEERKSA_INS_8flat_mapIjPNS_15GoughSSAVarJoinESt4lessIjESaISt4pairIjSH_EEEESaISN_EEjRKNSF_IjSA_IjSaIjEESJ_SaISK_IjST_EEEESY_ttRKNS0_6detail14edge_desc_implINS0_17bidirectional_tagEmEE(ptr %.sroa.0285.4.lcssa, ptr %.val91, i32 noundef %508, ptr noundef nonnull align 8 dereferenceable(56) %511, ptr noundef nonnull align 8 dereferenceable(56) %513, i16 noundef zeroext %391, i16 noundef zeroext %407, ptr noundef nonnull align 8 dereferenceable(24) %10)
@@ -8472,7 +8426,7 @@ _ZNSt8_Rb_treeItSt4pairIKtN5boost6detail14edge_desc_implINS2_17bidirectional_tag
   %558 = and i64 %557, 63
   %559 = shl nuw i64 1, %558
   %560 = lshr i64 %557, 6
-  %561 = getelementptr inbounds nuw i64, ptr %555, i64 %560
+  %561 = getelementptr inbounds nuw [8 x i8], ptr %555, i64 %560
   %562 = load i64, ptr %561, align 8
   %563 = or i64 %562, %559
   store i64 %563, ptr %561, align 8
@@ -8517,7 +8471,7 @@ _ZN3ue28containsISt3mapItN5boost6detail14edge_desc_implINS2_17bidirectional_tagE
   br i1 %581, label %582, label %_ZNSt6vectorIN5boost6detail12adj_list_genINS0_14adjacency_listINS0_4vecSES4_NS0_14bidirectionalSEN3ue216GoughVertexPropsENS6_14GoughEdgePropsENS6_15GoughGraphPropsENS0_5listSEEES4_S4_S5_S7_S8_S9_SA_E6config13stored_vertexESaISE_EE6resizeEm.exit.i.i157
 
 582:                                              ; preds = %580
-  %583 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %570, i64 %576
+  %583 = getelementptr inbounds nuw [128 x i8], ptr %570, i64 %576
   %.not.i.i.i.i172 = icmp eq ptr %569, %583
   br i1 %.not.i.i.i.i172, label %_ZNSt6vectorIN5boost6detail12adj_list_genINS0_14adjacency_listINS0_4vecSES4_NS0_14bidirectionalSEN3ue216GoughVertexPropsENS6_14GoughEdgePropsENS6_15GoughGraphPropsENS0_5listSEEES4_S4_S5_S7_S8_S9_SA_E6config13stored_vertexESaISE_EE6resizeEm.exit.i.i157, label %.lr.ph.i.i.i.i.i.i.i173
 
@@ -8745,7 +8699,7 @@ _ZSt8_DestroyIPSt10shared_ptrIN3ue211GoughSSAVarEES3_EvT_S5_RSaIT0_E.exit.i.i.i1
   %659 = and i64 %658, 63
   %660 = shl nuw i64 1, %659
   %661 = lshr i64 %658, 6
-  %662 = getelementptr inbounds nuw i64, ptr %656, i64 %661
+  %662 = getelementptr inbounds nuw [8 x i8], ptr %656, i64 %661
   %663 = load i64, ptr %662, align 8
   %664 = or i64 %663, %660
   store i64 %664, ptr %662, align 8
@@ -8832,9 +8786,9 @@ _ZNSt8_Rb_treeItSt4pairIKtN5boost6detail14edge_desc_implINS2_17bidirectional_tag
   %693 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i193, i64 40
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %693, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false)
   %694 = load ptr, ptr %78, align 8
-  %695 = getelementptr inbounds nuw %"struct.ue2::dstate_som", ptr %694, i64 %379
+  %695 = getelementptr inbounds nuw [152 x i8], ptr %694, i64 %379
   %696 = getelementptr inbounds nuw i8, ptr %695, i64 96
-  %697 = getelementptr inbounds nuw %"struct.ue2::dstate_som", ptr %694, i64 %520
+  %697 = getelementptr inbounds nuw [152 x i8], ptr %694, i64 %520
   %698 = getelementptr inbounds nuw i8, ptr %697, i64 96
   %.val93 = load ptr, ptr %5, align 8
   invoke fastcc void @_ZN3ue2L12makeCFG_edgeERN5boost14adjacency_listINS0_4vecSES2_NS0_14bidirectionalSENS_16GoughVertexPropsENS_14GoughEdgePropsENS_15GoughGraphPropsENS0_5listSEEERKSt3mapIjjSt4lessIjESaISt4pairIKjjEEERKSt6vectorImSaImEERKSK_INS_8flat_mapIjPNS_15GoughSSAVarJoinESC_SaISD_IjSR_EEEESaISU_EERKNSP_IjSK_IjSaIjEESC_SaISD_IjS10_EEEES15_ttRKNS0_6detail14edge_desc_implINS0_17bidirectional_tagEmEE(ptr noundef nonnull align 8 dereferenceable(48) %82, ptr %.sroa.0285.4.lcssa, ptr %.val93, ptr noundef nonnull align 8 dereferenceable(56) %696, ptr noundef nonnull align 8 dereferenceable(56) %698, i16 noundef zeroext %391, i16 noundef zeroext %521, ptr noundef nonnull align 8 dereferenceable(24) %12)
@@ -8883,7 +8837,7 @@ _ZN3ue2L15makeCFG_reportsERN5boost14adjacency_listINS0_4vecSES2_NS0_14bidirectio
   %716 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %717 = load i16, ptr %716, align 8
   %718 = zext i16 %717 to i64
-  %719 = getelementptr inbounds nuw i64, ptr %.sroa.0285.4.lcssa, i64 %718
+  %719 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0285.4.lcssa, i64 %718
   br label %720
 
 720:                                              ; preds = %_ZN3ue2L15makeCFG_reportsERN5boost14adjacency_listINS0_4vecSES2_NS0_14bidirectionalSENS_16GoughVertexPropsENS_14GoughEdgePropsENS_15GoughGraphPropsENS0_5listSEEERKNS_11raw_som_dfaERKSt6vectorINS_8flat_mapIjPNS_15GoughSSAVarJoinESt4lessIjESaISt4pairIjSG_EEEESaISM_EERKSD_ImSaImEE.exit, %_ZN3ue2L15makeCFG_reportsERN5boost14adjacency_listINS0_4vecSES2_NS0_14bidirectionalSENS_16GoughVertexPropsENS_14GoughEdgePropsENS_15GoughGraphPropsENS0_5listSEEERKNS_11raw_som_dfaERKSt6vectorINS_8flat_mapIjPNS_15GoughSSAVarJoinESt4lessIjESaISt4pairIjSG_EEEESaISM_EERKSD_ImSaImEE.exit, %_ZN3ue2L15makeCFG_reportsERN5boost14adjacency_listINS0_4vecSES2_NS0_14bidirectionalSENS_16GoughVertexPropsENS_14GoughEdgePropsENS_15GoughGraphPropsENS0_5listSEEERKNS_11raw_som_dfaERKSt6vectorINS_8flat_mapIjPNS_15GoughSSAVarJoinESt4lessIjESaISt4pairIjSG_EEEESaISM_EERKSD_ImSaImEE.exit, %715
@@ -9052,7 +9006,7 @@ define internal fastcc void @_ZN3ue2L24update_accel_prog_offsetERKNS_12_GLOBAL__
   %26 = load ptr, ptr %11, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %28 = load ptr, ptr %27, align 8
-  %29 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %28, i64 %.sroa.072.092
+  %29 = getelementptr inbounds nuw [128 x i8], ptr %28, i64 %.sroa.072.092
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 48
   %31 = load i32, ptr %30, align 8
   %32 = trunc i32 %31 to i16
@@ -9102,7 +9056,7 @@ _ZNSt3mapItmSt4lessItESaISt4pairIKtmEEED2Ev.exit: ; preds = %._crit_edge97
   %49 = load ptr, ptr %11, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 24
   %51 = load ptr, ptr %50, align 8, !noalias !560
-  %52 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %51, i64 %48
+  %52 = getelementptr inbounds nuw [128 x i8], ptr %51, i64 %48
   %53 = load ptr, ptr %52, align 8, !noalias !560
   %54 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %55 = load ptr, ptr %54, align 8, !noalias !560
@@ -9141,7 +9095,7 @@ _ZN3ue221find_normal_self_loopEmRKN5boost14adjacency_listINS0_4vecSES2_NS0_14bid
 
 70:                                               ; preds = %73, %_ZN3ue221find_normal_self_loopEmRKN5boost14adjacency_listINS0_4vecSES2_NS0_14bidirectionalSENS_16GoughVertexPropsENS_14GoughEdgePropsENS_15GoughGraphPropsENS0_5listSEEEPNS0_6detail14edge_desc_implINS0_17bidirectional_tagEmEE.exit
   %.0712.i.i.i = phi i64 [ 0, %_ZN3ue221find_normal_self_loopEmRKN5boost14adjacency_listINS0_4vecSES2_NS0_14bidirectionalSENS_16GoughVertexPropsENS_14GoughEdgePropsENS_15GoughGraphPropsENS0_5listSEEEPNS0_6detail14edge_desc_implINS0_17bidirectional_tagEmEE.exit ], [ %74, %73 ]
-  %71 = getelementptr inbounds nuw i64, ptr %69, i64 %.0712.i.i.i
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %.0712.i.i.i
   %72 = load i64, ptr %71, align 8
   %.not.i.i.i = icmp eq i64 %72, 0
   br i1 %.not.i.i.i, label %73, label %75
@@ -9238,7 +9192,7 @@ _ZN3ue28containsISt3mapINS_13gough_edge_idESt6vectorI9gough_insSaIS4_EESt4lessIS
 
 _ZN3ue28containsISt3mapINS_13gough_edge_idESt6vectorI9gough_insSaIS4_EESt4lessIS2_ESaISt4pairIKS2_S6_EEEEEbRKT_RKNSE_8key_typeE.exit: ; preds = %_ZN3ue28containsISt3mapINS_13gough_edge_idESt6vectorI9gough_insSaIS4_EESt4lessIS2_ESaISt4pairIKS2_S6_EEEEEbRKT_RKNSE_8key_typeE.exit.preheader, %115
   %.0712.i.i.i46 = phi i64 [ %116, %115 ], [ 0, %_ZN3ue28containsISt3mapINS_13gough_edge_idESt6vectorI9gough_insSaIS4_EESt4lessIS2_ESaISt4pairIKS2_S6_EEEEEbRKT_RKNSE_8key_typeE.exit.preheader ]
-  %113 = getelementptr inbounds nuw i64, ptr %69, i64 %.0712.i.i.i46
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %.0712.i.i.i46
   %114 = load i64, ptr %113, align 8
   %.not.i.i.i47 = icmp eq i64 %114, 0
   br i1 %.not.i.i.i47, label %115, label %117
@@ -9966,7 +9920,7 @@ _ZNSt12_Vector_baseIN3ue28flat_mapIjPNS0_15GoughSSAVarJoinESt4lessIjESaISt4pairI
   store ptr %10, ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %10, ptr %11, align 8
-  %12 = getelementptr inbounds nuw %"class.ue2::flat_map.307", ptr %10, i64 %1
+  %12 = getelementptr inbounds nuw [40 x i8], ptr %10, i64 %1
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %12, ptr %13, align 8
   br label %.lr.ph.i.i.i.i
@@ -10282,13 +10236,13 @@ define internal fastcc void @_ZN3ue2L16makeCFG_top_edgeERN5boost14adjacency_list
   %9 = alloca %"class.std::shared_ptr.405", align 8
   %10 = alloca %"class.std::shared_ptr.338", align 8
   %11 = zext i16 %3 to i64
-  %12 = getelementptr inbounds nuw i64, ptr %.0.val, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %.0.val, i64 %11
   %13 = load i64, ptr %12, align 8
   %14 = zext i16 %4 to i64
-  %15 = getelementptr inbounds nuw i64, ptr %.0.val, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %.0.val, i64 %14
   %16 = load i64, ptr %15, align 8
-  %17 = getelementptr inbounds nuw %"class.ue2::flat_map.307", ptr %.0.val1, i64 %13
-  %18 = getelementptr inbounds nuw %"class.ue2::flat_map.307", ptr %.0.val1, i64 %16
+  %17 = getelementptr inbounds nuw [40 x i8], ptr %.0.val1, i64 %13
+  %18 = getelementptr inbounds nuw [40 x i8], ptr %.0.val1, i64 %16
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %20 = load i64, ptr %19, align 8, !noalias !583
   %.not36 = icmp eq i64 %20, 0
@@ -10471,7 +10425,7 @@ _ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjSt6vectorIjSaIjEEELb1EEEl
   %96 = phi ptr [ %104, %_ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjSt6vectorIjSaIjEEELb1EEElEvRT_T0_.exit.i.i.i.i.i.i ], [ %93, %92 ]
   %.013.i.i.i.i.i.i = phi i64 [ %.1.i.i.i.i.i.i, %_ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjSt6vectorIjSaIjEEELb1EEElEvRT_T0_.exit.i.i.i.i.i.i ], [ %94, %92 ]
   %97 = lshr i64 %.013.i.i.i.i.i.i, 1
-  %98 = getelementptr inbounds nuw %"struct.std::pair.305", ptr %96, i64 %97
+  %98 = getelementptr inbounds nuw [32 x i8], ptr %96, i64 %97
   %99 = load i32, ptr %98, align 4, !noalias !614
   %100 = icmp ult i32 %99, %30
   %101 = getelementptr inbounds nuw i8, ptr %98, i64 32
@@ -10484,7 +10438,7 @@ _ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjSt6vectorIjSaIjEEELb1EEEl
 
 _ZNK3ue28flat_mapIjSt6vectorIjSaIjEESt4lessIjESaISt4pairIjS3_EEE16data_lower_boundERKj.exit.i.i.i: ; preds = %_ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjSt6vectorIjSaIjEEELb1EEElEvRT_T0_.exit.i.i.i.i.i.i, %92
   %106 = phi ptr [ %93, %92 ], [ %104, %_ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjSt6vectorIjSaIjEEELb1EEElEvRT_T0_.exit.i.i.i.i.i.i ]
-  %107 = getelementptr inbounds nuw %"struct.std::pair.305", ptr %93, i64 %94
+  %107 = getelementptr inbounds nuw [32 x i8], ptr %93, i64 %94
   %.not.i.i.i40 = icmp eq ptr %106, %107
   br i1 %.not.i.i.i40, label %_ZN3ue28containsINS_8flat_mapIjSt6vectorIjSaIjEESt4lessIjESaISt4pairIjS4_EEEEEEbRKT_RKNSB_8key_typeE.exit.thread, label %_ZN3ue28containsINS_8flat_mapIjSt6vectorIjSaIjEESt4lessIjESaISt4pairIjS4_EEEEEEbRKT_RKNSB_8key_typeE.exit
 
@@ -10508,7 +10462,7 @@ _ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjPN3ue215GoughSSAVarJoinEE
   %114 = phi ptr [ %122, %_ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjPN3ue215GoughSSAVarJoinEELb1EEElEvRT_T0_.exit.i.i.i.i.i ], [ %111, %.thread ]
   %.013.i.i.i.i.i = phi i64 [ %.1.i.i.i.i.i, %_ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjPN3ue215GoughSSAVarJoinEELb1EEElEvRT_T0_.exit.i.i.i.i.i ], [ %112, %.thread ]
   %115 = lshr i64 %.013.i.i.i.i.i, 1
-  %116 = getelementptr inbounds nuw %"struct.std::pair.348", ptr %114, i64 %115
+  %116 = getelementptr inbounds nuw [16 x i8], ptr %114, i64 %115
   %117 = load i32, ptr %116, align 4, !noalias !633
   %118 = icmp ult i32 %117, %30
   %119 = getelementptr inbounds nuw i8, ptr %116, i64 16
@@ -10521,7 +10475,7 @@ _ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjPN3ue215GoughSSAVarJoinEE
 
 _ZNK3ue28flat_mapIjPNS_15GoughSSAVarJoinESt4lessIjESaISt4pairIjS2_EEE16data_lower_boundERKj.exit.i.i: ; preds = %_ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjPN3ue215GoughSSAVarJoinEELb1EEElEvRT_T0_.exit.i.i.i.i.i, %.thread
   %124 = phi ptr [ %111, %.thread ], [ %122, %_ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjPN3ue215GoughSSAVarJoinEELb1EEElEvRT_T0_.exit.i.i.i.i.i ]
-  %125 = getelementptr inbounds nuw %"struct.std::pair.348", ptr %111, i64 %112
+  %125 = getelementptr inbounds nuw [16 x i8], ptr %111, i64 %112
   %.not.i.i41 = icmp eq ptr %124, %125
   br i1 %.not.i.i41, label %_ZNK3ue28flat_mapIjPNS_15GoughSSAVarJoinESt4lessIjESaISt4pairIjS2_EEE9data_findERKj.exit.thread.i, label %126
 
@@ -10714,7 +10668,7 @@ _ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjPN3ue215GoughSSAVarJoinEE
   %201 = phi ptr [ %209, %_ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjPN3ue215GoughSSAVarJoinEELb1EEElEvRT_T0_.exit.i.i.i.i.i60 ], [ %198, %197 ]
   %.013.i.i.i.i.i61 = phi i64 [ %.1.i.i.i.i.i64, %_ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjPN3ue215GoughSSAVarJoinEELb1EEElEvRT_T0_.exit.i.i.i.i.i60 ], [ %199, %197 ]
   %202 = lshr i64 %.013.i.i.i.i.i61, 1
-  %203 = getelementptr inbounds nuw %"struct.std::pair.348", ptr %201, i64 %202
+  %203 = getelementptr inbounds nuw [16 x i8], ptr %201, i64 %202
   %204 = load i32, ptr %203, align 4, !noalias !655
   %205 = icmp ult i32 %204, %30
   %206 = getelementptr inbounds nuw i8, ptr %203, i64 16
@@ -10727,7 +10681,7 @@ _ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjPN3ue215GoughSSAVarJoinEE
 
 _ZNK3ue28flat_mapIjPNS_15GoughSSAVarJoinESt4lessIjESaISt4pairIjS2_EEE16data_lower_boundERKj.exit.i.i56: ; preds = %_ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjPN3ue215GoughSSAVarJoinEELb1EEElEvRT_T0_.exit.i.i.i.i.i60, %197
   %211 = phi ptr [ %198, %197 ], [ %209, %_ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjPN3ue215GoughSSAVarJoinEELb1EEElEvRT_T0_.exit.i.i.i.i.i60 ]
-  %212 = getelementptr inbounds nuw %"struct.std::pair.348", ptr %198, i64 %199
+  %212 = getelementptr inbounds nuw [16 x i8], ptr %198, i64 %199
   %.not.i.i57 = icmp eq ptr %211, %212
   br i1 %.not.i.i57, label %_ZNK3ue28flat_mapIjPNS_15GoughSSAVarJoinESt4lessIjESaISt4pairIjS2_EEE9data_findERKj.exit.thread.i58, label %213
 
@@ -10844,7 +10798,7 @@ _ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjPN3ue215GoughSSAVarJoinEE
   %255 = phi ptr [ %263, %_ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjPN3ue215GoughSSAVarJoinEELb1EEElEvRT_T0_.exit.i.i.i.i.i77 ], [ %252, %_ZN3ue28containsINS_8flat_mapIjSt6vectorIjSaIjEESt4lessIjESaISt4pairIjS4_EEEEEEbRKT_RKNSB_8key_typeE.exit.thread ]
   %.013.i.i.i.i.i78 = phi i64 [ %.1.i.i.i.i.i81, %_ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjPN3ue215GoughSSAVarJoinEELb1EEElEvRT_T0_.exit.i.i.i.i.i77 ], [ %253, %_ZN3ue28containsINS_8flat_mapIjSt6vectorIjSaIjEESt4lessIjESaISt4pairIjS4_EEEEEEbRKT_RKNSB_8key_typeE.exit.thread ]
   %256 = lshr i64 %.013.i.i.i.i.i78, 1
-  %257 = getelementptr inbounds nuw %"struct.std::pair.348", ptr %255, i64 %256
+  %257 = getelementptr inbounds nuw [16 x i8], ptr %255, i64 %256
   %258 = load i32, ptr %257, align 4, !noalias !673
   %259 = icmp ult i32 %258, %30
   %260 = getelementptr inbounds nuw i8, ptr %257, i64 16
@@ -10857,7 +10811,7 @@ _ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjPN3ue215GoughSSAVarJoinEE
 
 _ZNK3ue28flat_mapIjPNS_15GoughSSAVarJoinESt4lessIjESaISt4pairIjS2_EEE16data_lower_boundERKj.exit.i.i73: ; preds = %_ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjPN3ue215GoughSSAVarJoinEELb1EEElEvRT_T0_.exit.i.i.i.i.i77, %_ZN3ue28containsINS_8flat_mapIjSt6vectorIjSaIjEESt4lessIjESaISt4pairIjS4_EEEEEEbRKT_RKNSB_8key_typeE.exit.thread
   %265 = phi ptr [ %252, %_ZN3ue28containsINS_8flat_mapIjSt6vectorIjSaIjEESt4lessIjESaISt4pairIjS4_EEEEEEbRKT_RKNSB_8key_typeE.exit.thread ], [ %263, %_ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjPN3ue215GoughSSAVarJoinEELb1EEElEvRT_T0_.exit.i.i.i.i.i77 ]
-  %266 = getelementptr inbounds nuw %"struct.std::pair.348", ptr %252, i64 %253
+  %266 = getelementptr inbounds nuw [16 x i8], ptr %252, i64 %253
   %.not.i.i74 = icmp eq ptr %265, %266
   br i1 %.not.i.i74, label %_ZNK3ue28flat_mapIjPNS_15GoughSSAVarJoinESt4lessIjESaISt4pairIjS2_EEE9data_findERKj.exit.thread.i75, label %267
 
@@ -10944,7 +10898,7 @@ _ZNSt12__shared_ptrIN3ue214GoughSSAVarNewELN9__gnu_cxx12_Lock_policyE2EED2Ev.exi
   %300 = getelementptr inbounds nuw i8, ptr %.sroa.014.037, i64 32
   %301 = load ptr, ptr %2, align 8, !noalias !583
   %302 = load i64, ptr %19, align 8, !noalias !583
-  %303 = getelementptr inbounds nuw %"struct.std::pair.305", ptr %301, i64 %302
+  %303 = getelementptr inbounds nuw [32 x i8], ptr %301, i64 %302
   %.not = icmp eq ptr %300, %303
   br i1 %.not, label %._crit_edge, label %29, !llvm.loop !679
 
@@ -10978,13 +10932,13 @@ define internal fastcc void @_ZN3ue2L12makeCFG_edgeERN5boost14adjacency_listINS0
   %15 = alloca %"class.std::shared_ptr.405", align 8
   %16 = alloca %"class.std::shared_ptr.338", align 8
   %17 = zext i16 %3 to i64
-  %18 = getelementptr inbounds nuw i64, ptr %.0.val, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.val, i64 %17
   %19 = load i64, ptr %18, align 8
   %20 = zext i16 %4 to i64
-  %21 = getelementptr inbounds nuw i64, ptr %.0.val, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %.0.val, i64 %20
   %22 = load i64, ptr %21, align 8
-  %23 = getelementptr inbounds nuw %"class.ue2::flat_map.307", ptr %.0.val1, i64 %19
-  %24 = getelementptr inbounds nuw %"class.ue2::flat_map.307", ptr %.0.val1, i64 %22
+  %23 = getelementptr inbounds nuw [40 x i8], ptr %.0.val1, i64 %19
+  %24 = getelementptr inbounds nuw [40 x i8], ptr %.0.val1, i64 %22
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %25 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store i32 0, ptr %25, align 8
@@ -11140,7 +11094,7 @@ _ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjSt6vectorIjSaIjEEELb1EEEl
   %78 = phi ptr [ %86, %_ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjSt6vectorIjSaIjEEELb1EEElEvRT_T0_.exit.i.i.i.i.i.i ], [ %74, %_ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjSt6vectorIjSaIjEEELb1EEElEvRT_T0_.exit.i.preheader.i.i.i.i.i ]
   %.013.i.i.i.i.i.i = phi i64 [ %.1.i.i.i.i.i.i, %_ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjSt6vectorIjSaIjEEELb1EEElEvRT_T0_.exit.i.i.i.i.i.i ], [ %75, %_ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjSt6vectorIjSaIjEEELb1EEElEvRT_T0_.exit.i.preheader.i.i.i.i.i ]
   %79 = lshr i64 %.013.i.i.i.i.i.i, 1
-  %80 = getelementptr inbounds nuw %"struct.std::pair.305", ptr %78, i64 %79
+  %80 = getelementptr inbounds nuw [32 x i8], ptr %78, i64 %79
   %81 = load i32, ptr %80, align 4, !noalias !708
   %82 = icmp ult i32 %81, %77
   %83 = getelementptr inbounds nuw i8, ptr %80, i64 32
@@ -11153,7 +11107,7 @@ _ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjSt6vectorIjSaIjEEELb1EEEl
 
 _ZNK3ue28flat_mapIjSt6vectorIjSaIjEESt4lessIjESaISt4pairIjS3_EEE16data_lower_boundERKj.exit.i.i.i: ; preds = %_ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjSt6vectorIjSaIjEEELb1EEElEvRT_T0_.exit.i.i.i.i.i.i, %.lr.ph
   %88 = phi ptr [ %74, %.lr.ph ], [ %86, %_ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjSt6vectorIjSaIjEEELb1EEElEvRT_T0_.exit.i.i.i.i.i.i ]
-  %89 = getelementptr inbounds nuw %"struct.std::pair.305", ptr %74, i64 %75
+  %89 = getelementptr inbounds nuw [32 x i8], ptr %74, i64 %75
   %.not.i.i.i = icmp eq ptr %88, %89
   br i1 %.not.i.i.i, label %_ZN3ue28containsINS_8flat_mapIjSt6vectorIjSaIjEESt4lessIjESaISt4pairIjS4_EEEEEEbRKT_RKNSB_8key_typeE.exit.thread, label %_ZN3ue28containsINS_8flat_mapIjSt6vectorIjSaIjEESt4lessIjESaISt4pairIjS4_EEEEEEbRKT_RKNSB_8key_typeE.exit
 
@@ -11867,7 +11821,7 @@ _ZNSt12__shared_ptrIN3ue214GoughSSAVarNewELN9__gnu_cxx12_Lock_policyE2EE5resetEv
   %350 = load ptr, ptr %1, align 8, !noalias !719
   %351 = load i64, ptr %35, align 8, !noalias !728
   %352 = icmp sgt i64 %351, 0
-  %353 = getelementptr inbounds nuw %"struct.std::pair.305", ptr %350, i64 %351
+  %353 = getelementptr inbounds nuw [32 x i8], ptr %350, i64 %351
   %354 = load ptr, ptr %33, align 8
   %.not10.i.i.i.i208 = icmp eq ptr %354, null
   br label %355
@@ -11885,7 +11839,7 @@ _ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjSt6vectorIjSaIjEEELb1EEEl
   %357 = phi ptr [ %365, %_ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjSt6vectorIjSaIjEEELb1EEElEvRT_T0_.exit.i.i.i.i.i.i202 ], [ %350, %_ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjSt6vectorIjSaIjEEELb1EEElEvRT_T0_.exit.i.preheader.i.i.i.i.i201 ]
   %.013.i.i.i.i.i.i203 = phi i64 [ %.1.i.i.i.i.i.i206, %_ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjSt6vectorIjSaIjEEELb1EEElEvRT_T0_.exit.i.i.i.i.i.i202 ], [ %351, %_ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjSt6vectorIjSaIjEEELb1EEElEvRT_T0_.exit.i.preheader.i.i.i.i.i201 ]
   %358 = lshr i64 %.013.i.i.i.i.i.i203, 1
-  %359 = getelementptr inbounds nuw %"struct.std::pair.305", ptr %357, i64 %358
+  %359 = getelementptr inbounds nuw [32 x i8], ptr %357, i64 %358
   %360 = load i32, ptr %359, align 4, !noalias !733
   %361 = icmp ult i32 %360, %356
   %362 = getelementptr inbounds nuw i8, ptr %359, i64 32
@@ -11963,7 +11917,7 @@ _ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjPN3ue215GoughSSAVarJoinEE
   %385 = phi ptr [ %393, %_ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjPN3ue215GoughSSAVarJoinEELb1EEElEvRT_T0_.exit.i.i.i.i.i ], [ %382, %381 ]
   %.013.i.i.i.i.i = phi i64 [ %.1.i.i.i.i.i, %_ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjPN3ue215GoughSSAVarJoinEELb1EEElEvRT_T0_.exit.i.i.i.i.i ], [ %383, %381 ]
   %386 = lshr i64 %.013.i.i.i.i.i, 1
-  %387 = getelementptr inbounds nuw %"struct.std::pair.348", ptr %385, i64 %386
+  %387 = getelementptr inbounds nuw [16 x i8], ptr %385, i64 %386
   %388 = load i32, ptr %387, align 4, !noalias !751
   %389 = icmp ult i32 %388, %.5
   %390 = getelementptr inbounds nuw i8, ptr %387, i64 16
@@ -11976,7 +11930,7 @@ _ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjPN3ue215GoughSSAVarJoinEE
 
 _ZNK3ue28flat_mapIjPNS_15GoughSSAVarJoinESt4lessIjESaISt4pairIjS2_EEE16data_lower_boundERKj.exit.i.i: ; preds = %_ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjPN3ue215GoughSSAVarJoinEELb1EEElEvRT_T0_.exit.i.i.i.i.i, %381
   %395 = phi ptr [ %382, %381 ], [ %393, %_ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjPN3ue215GoughSSAVarJoinEELb1EEElEvRT_T0_.exit.i.i.i.i.i ]
-  %396 = getelementptr inbounds nuw %"struct.std::pair.348", ptr %382, i64 %383
+  %396 = getelementptr inbounds nuw [16 x i8], ptr %382, i64 %383
   %.not.i.i220 = icmp eq ptr %395, %396
   br i1 %.not.i.i220, label %_ZNK3ue28flat_mapIjPNS_15GoughSSAVarJoinESt4lessIjESaISt4pairIjS2_EEE9data_findERKj.exit.thread.i, label %397
 
@@ -12244,7 +12198,7 @@ _ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjSt6vectorIjSaIjEEELb1EEEl
   %503 = phi ptr [ %511, %_ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjSt6vectorIjSaIjEEELb1EEElEvRT_T0_.exit.i.i.i.i.i.i243 ], [ %499, %_ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjSt6vectorIjSaIjEEELb1EEElEvRT_T0_.exit.i.preheader.i.i.i.i.i242 ]
   %.013.i.i.i.i.i.i244 = phi i64 [ %.1.i.i.i.i.i.i247, %_ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjSt6vectorIjSaIjEEELb1EEElEvRT_T0_.exit.i.i.i.i.i.i243 ], [ %500, %_ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjSt6vectorIjSaIjEEELb1EEElEvRT_T0_.exit.i.preheader.i.i.i.i.i242 ]
   %504 = lshr i64 %.013.i.i.i.i.i.i244, 1
-  %505 = getelementptr inbounds nuw %"struct.std::pair.305", ptr %503, i64 %504
+  %505 = getelementptr inbounds nuw [32 x i8], ptr %503, i64 %504
   %506 = load i32, ptr %505, align 4, !noalias !774
   %507 = icmp ult i32 %506, %502
   %508 = getelementptr inbounds nuw i8, ptr %505, i64 32
@@ -12257,7 +12211,7 @@ _ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjSt6vectorIjSaIjEEELb1EEEl
 
 _ZNK3ue28flat_mapIjSt6vectorIjSaIjEESt4lessIjESaISt4pairIjS3_EEE16data_lower_boundERKj.exit.i.i.i239: ; preds = %_ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjSt6vectorIjSaIjEEELb1EEElEvRT_T0_.exit.i.i.i.i.i.i243, %.lr.ph103
   %513 = phi ptr [ %499, %.lr.ph103 ], [ %511, %_ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjSt6vectorIjSaIjEEELb1EEElEvRT_T0_.exit.i.i.i.i.i.i243 ]
-  %514 = getelementptr inbounds nuw %"struct.std::pair.305", ptr %499, i64 %500
+  %514 = getelementptr inbounds nuw [32 x i8], ptr %499, i64 %500
   %.not.i.i.i240 = icmp eq ptr %513, %514
   br i1 %.not.i.i.i240, label %_ZN3ue28containsINS_8flat_mapIjSt6vectorIjSaIjEESt4lessIjESaISt4pairIjS4_EEEEEEbRKT_RKNSB_8key_typeE.exit248.thread, label %_ZN3ue28containsINS_8flat_mapIjSt6vectorIjSaIjEESt4lessIjESaISt4pairIjS4_EEEEEEbRKT_RKNSB_8key_typeE.exit248
 
@@ -12315,7 +12269,7 @@ _ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjPN3ue215GoughSSAVarJoinEE
   %528 = phi ptr [ %536, %_ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjPN3ue215GoughSSAVarJoinEELb1EEElEvRT_T0_.exit.i.i.i.i.i265 ], [ %525, %_ZN3ue28containsISt3mapIjjSt4lessIjESaISt4pairIKjjEEEEEbRKT_RKNS9_8key_typeE.exit260.thread ]
   %.013.i.i.i.i.i266 = phi i64 [ %.1.i.i.i.i.i269, %_ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjPN3ue215GoughSSAVarJoinEELb1EEElEvRT_T0_.exit.i.i.i.i.i265 ], [ %526, %_ZN3ue28containsISt3mapIjjSt4lessIjESaISt4pairIKjjEEEEEbRKT_RKNS9_8key_typeE.exit260.thread ]
   %529 = lshr i64 %.013.i.i.i.i.i266, 1
-  %530 = getelementptr inbounds nuw %"struct.std::pair.348", ptr %528, i64 %529
+  %530 = getelementptr inbounds nuw [16 x i8], ptr %528, i64 %529
   %531 = load i32, ptr %530, align 4, !noalias !792
   %532 = icmp ult i32 %531, %515
   %533 = getelementptr inbounds nuw i8, ptr %530, i64 16
@@ -12328,7 +12282,7 @@ _ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjPN3ue215GoughSSAVarJoinEE
 
 _ZNK3ue28flat_mapIjPNS_15GoughSSAVarJoinESt4lessIjESaISt4pairIjS2_EEE16data_lower_boundERKj.exit.i.i261: ; preds = %_ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjPN3ue215GoughSSAVarJoinEELb1EEElEvRT_T0_.exit.i.i.i.i.i265, %_ZN3ue28containsISt3mapIjjSt4lessIjESaISt4pairIKjjEEEEEbRKT_RKNS9_8key_typeE.exit260.thread
   %538 = phi ptr [ %525, %_ZN3ue28containsISt3mapIjjSt4lessIjESaISt4pairIKjjEEEEEbRKT_RKNS9_8key_typeE.exit260.thread ], [ %536, %_ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjPN3ue215GoughSSAVarJoinEELb1EEElEvRT_T0_.exit.i.i.i.i.i265 ]
-  %539 = getelementptr inbounds nuw %"struct.std::pair.348", ptr %525, i64 %526
+  %539 = getelementptr inbounds nuw [16 x i8], ptr %525, i64 %526
   %.not.i.i262 = icmp eq ptr %538, %539
   br i1 %.not.i.i262, label %_ZNK3ue28flat_mapIjPNS_15GoughSSAVarJoinESt4lessIjESaISt4pairIjS2_EEE9data_findERKj.exit.thread.i263, label %540
 
@@ -12390,7 +12344,7 @@ _ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjPN3ue215GoughSSAVarJoinEE
   %559 = phi ptr [ %567, %_ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjPN3ue215GoughSSAVarJoinEELb1EEElEvRT_T0_.exit.i.i.i.i.i278 ], [ %556, %555 ]
   %.013.i.i.i.i.i279 = phi i64 [ %.1.i.i.i.i.i282, %_ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjPN3ue215GoughSSAVarJoinEELb1EEElEvRT_T0_.exit.i.i.i.i.i278 ], [ %557, %555 ]
   %560 = lshr i64 %.013.i.i.i.i.i279, 1
-  %561 = getelementptr inbounds nuw %"struct.std::pair.348", ptr %559, i64 %560
+  %561 = getelementptr inbounds nuw [16 x i8], ptr %559, i64 %560
   %562 = load i32, ptr %561, align 4, !noalias !810
   %563 = icmp ult i32 %562, %49
   %564 = getelementptr inbounds nuw i8, ptr %561, i64 16
@@ -12403,7 +12357,7 @@ _ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjPN3ue215GoughSSAVarJoinEE
 
 _ZNK3ue28flat_mapIjPNS_15GoughSSAVarJoinESt4lessIjESaISt4pairIjS2_EEE16data_lower_boundERKj.exit.i.i274: ; preds = %_ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjPN3ue215GoughSSAVarJoinEELb1EEElEvRT_T0_.exit.i.i.i.i.i278, %555
   %569 = phi ptr [ %556, %555 ], [ %567, %_ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjPN3ue215GoughSSAVarJoinEELb1EEElEvRT_T0_.exit.i.i.i.i.i278 ]
-  %570 = getelementptr inbounds nuw %"struct.std::pair.348", ptr %556, i64 %557
+  %570 = getelementptr inbounds nuw [16 x i8], ptr %556, i64 %557
   %.not.i.i275 = icmp eq ptr %569, %570
   br i1 %.not.i.i275, label %_ZNK3ue28flat_mapIjPNS_15GoughSSAVarJoinESt4lessIjESaISt4pairIjS2_EEE9data_findERKj.exit.thread.i276, label %571
 
@@ -12495,7 +12449,7 @@ _ZNSt12__shared_ptrIN3ue214GoughSSAVarNewELN9__gnu_cxx12_Lock_policyE2EED2Ev.exi
   %605 = phi i64 [ %47, %65 ], [ %.pre120, %_ZNSt12__shared_ptrIN3ue214GoughSSAVarNewELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit291 ]
   %606 = phi ptr [ %48, %65 ], [ %.pre119, %_ZNSt12__shared_ptrIN3ue214GoughSSAVarNewELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit291 ]
   %607 = getelementptr inbounds nuw i8, ptr %.sroa.022.0106, i64 32
-  %608 = getelementptr inbounds nuw %"struct.std::pair.305", ptr %606, i64 %605
+  %608 = getelementptr inbounds nuw [32 x i8], ptr %606, i64 %605
   %.not43 = icmp eq ptr %607, %608
   br i1 %.not43, label %._crit_edge109.loopexit, label %46
 
@@ -13586,7 +13540,7 @@ _ZNSt12_Vector_baseIN5boost6detail12adj_list_genINS0_14adjacency_listINS0_4vecSE
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i21, ptr %4, align 8
-  %167 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %20, i64 %16
+  %167 = getelementptr inbounds nuw [128 x i8], ptr %20, i64 %16
   store ptr %167, ptr %166, align 8
   ret void
 }
@@ -14055,7 +14009,7 @@ _ZN5boost9list_edgeImN3ue214GoughEdgePropsEEC2EmmRKS2_.exit: ; preds = %_ZSt10_C
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %50, i64 %1
+  %51 = getelementptr inbounds nuw [128 x i8], ptr %50, i64 %1
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 16
@@ -14130,13 +14084,13 @@ _ZNSt6vectorIN5boost6detail16stored_edge_iterImSt14_List_iteratorINS0_9list_edge
 _ZNSt6vectorIN5boost6detail16stored_edge_iterImSt14_List_iteratorINS0_9list_edgeImN3ue214GoughEdgePropsEEEES6_EESaIS9_EE17_M_realloc_insertIJS9_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i.i.i.i: ; preds = %77, %_ZNSt6vectorIN5boost6detail16stored_edge_iterImSt14_List_iteratorINS0_9list_edgeImN3ue214GoughEdgePropsEEEES6_EESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit22.i.i.i.i.i
   store ptr %72, ptr %51, align 8
   store ptr %76, ptr %52, align 8
-  %78 = getelementptr inbounds nuw %"class.boost::detail::stored_edge_iter", ptr %72, i64 %70
+  %78 = getelementptr inbounds nuw [16 x i8], ptr %72, i64 %70
   store ptr %78, ptr %54, align 8
   br label %79
 
 79:                                               ; preds = %56, %_ZNSt6vectorIN5boost6detail16stored_edge_iterImSt14_List_iteratorINS0_9list_edgeImN3ue214GoughEdgePropsEEEES6_EESaIS9_EE17_M_realloc_insertIJS9_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i.i.i.i
   %80 = load ptr, ptr %49, align 8
-  %81 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %80, i64 %2
+  %81 = getelementptr inbounds nuw [128 x i8], ptr %80, i64 %2
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 24
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 32
   %84 = load ptr, ptr %83, align 8
@@ -14212,7 +14166,7 @@ _ZNSt6vectorIN5boost6detail16stored_edge_iterImSt14_List_iteratorINS0_9list_edge
 _ZNSt6vectorIN5boost6detail16stored_edge_iterImSt14_List_iteratorINS0_9list_edgeImN3ue214GoughEdgePropsEEEES6_EESaIS9_EE17_M_realloc_insertIJS9_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i.i.i.i58: ; preds = %108, %_ZNSt6vectorIN5boost6detail16stored_edge_iterImSt14_List_iteratorINS0_9list_edgeImN3ue214GoughEdgePropsEEEES6_EESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit22.i.i.i.i.i55
   store ptr %103, ptr %82, align 8
   store ptr %107, ptr %83, align 8
-  %109 = getelementptr inbounds nuw %"class.boost::detail::stored_edge_iter", ptr %103, i64 %101
+  %109 = getelementptr inbounds nuw [16 x i8], ptr %103, i64 %101
   store ptr %109, ptr %85, align 8
   br label %116
 
@@ -14490,9 +14444,9 @@ _ZNSt6vectorIN5boost6detail12adj_list_genINS0_14adjacency_listINS0_4vecSES4_NS0_
 
 _ZNSt12_Vector_baseIN5boost6detail12adj_list_genINS0_14adjacency_listINS0_4vecSES4_NS0_14bidirectionalSEN3ue216GoughVertexPropsENS6_14GoughEdgePropsENS6_15GoughGraphPropsENS0_5listSEEES4_S4_S5_S7_S8_S9_SA_E6config13stored_vertexESaISE_EE13_M_deallocateEPSE_m.exit38: ; preds = %_ZNSt6vectorIN5boost6detail12adj_list_genINS0_14adjacency_listINS0_4vecSES4_NS0_14bidirectionalSEN3ue216GoughVertexPropsENS6_14GoughEdgePropsENS6_15GoughGraphPropsENS0_5listSEEES4_S4_S5_S7_S8_S9_SA_E6config13stored_vertexESaISE_EE11_S_relocateEPSE_SH_SH_RSF_.exit, %83
   store ptr %29, ptr %0, align 8
-  %84 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %30, i64 %1
+  %84 = getelementptr inbounds nuw [128 x i8], ptr %30, i64 %1
   store ptr %84, ptr %4, align 8
-  %85 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %29, i64 %27
+  %85 = getelementptr inbounds nuw [128 x i8], ptr %29, i64 %27
   store ptr %85, ptr %11, align 8
   br label %86
 
@@ -14863,7 +14817,7 @@ _ZNSt12_Vector_baseISt10shared_ptrIN3ue211GoughSSAVarEESaIS3_EE13_M_deallocateEP
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i21, ptr %4, align 8
-  %41 = getelementptr inbounds nuw %"class.std::shared_ptr.338", ptr %20, i64 %16
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %41, ptr %40, align 8
   ret void
 }
@@ -15666,7 +15620,7 @@ _ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjPN3ue215GoughSSAVarJoinEE
   %19 = phi ptr [ %27, %_ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjPN3ue215GoughSSAVarJoinEELb1EEElEvRT_T0_.exit.i.i.i.i.i ], [ %16, %15 ]
   %.013.i.i.i.i.i = phi i64 [ %.1.i.i.i.i.i, %_ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjPN3ue215GoughSSAVarJoinEELb1EEElEvRT_T0_.exit.i.i.i.i.i ], [ %17, %15 ]
   %20 = lshr i64 %.013.i.i.i.i.i, 1
-  %21 = getelementptr inbounds nuw %"struct.std::pair.348", ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %19, i64 %20
   %22 = load i32, ptr %21, align 4, !noalias !878
   %23 = icmp ult i32 %22, %13
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 16
@@ -15679,7 +15633,7 @@ _ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjPN3ue215GoughSSAVarJoinEE
 
 _ZNK3ue28flat_mapIjPNS_15GoughSSAVarJoinESt4lessIjESaISt4pairIjS2_EEE16data_lower_boundERKj.exit.i.i: ; preds = %_ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjPN3ue215GoughSSAVarJoinEELb1EEElEvRT_T0_.exit.i.i.i.i.i, %15
   %29 = phi ptr [ %16, %15 ], [ %27, %_ZSt7advanceIN5boost9container12vec_iteratorIPSt4pairIjPN3ue215GoughSSAVarJoinEELb1EEElEvRT_T0_.exit.i.i.i.i.i ]
-  %30 = getelementptr inbounds nuw %"struct.std::pair.348", ptr %16, i64 %17
+  %30 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %17
   %.not.i.i = icmp eq ptr %29, %30
   br i1 %.not.i.i, label %_ZNK3ue28flat_mapIjPNS_15GoughSSAVarJoinESt4lessIjESaISt4pairIjS2_EEE9data_findERKj.exit.thread.i, label %31
 
@@ -15777,7 +15731,7 @@ _ZNSt6vectorISt4pairIjPN3ue211GoughSSAVarEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.
 _ZNSt6vectorISt4pairIjPN3ue211GoughSSAVarEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i: ; preds = %65, %_ZNSt6vectorISt4pairIjPN3ue211GoughSSAVarEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i
   store ptr %60, ptr %2, align 8
   store ptr %64, ptr %8, align 8
-  %66 = getelementptr inbounds nuw %"struct.std::pair.353", ptr %60, i64 %58
+  %66 = getelementptr inbounds nuw [16 x i8], ptr %60, i64 %58
   store ptr %66, ptr %9, align 8
   br label %_ZNSt6vectorISt4pairIjPN3ue211GoughSSAVarEESaIS4_EE9push_backEOS4_.exit
 
@@ -17342,7 +17296,7 @@ _ZNSt6vectorI9gough_insSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i: ; pred
 _ZNSt6vectorI9gough_insSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i: ; preds = %48, %_ZNSt6vectorI9gough_insSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i
   store ptr %43, ptr %1, align 8
   store ptr %47, ptr %7, align 8
-  %49 = getelementptr inbounds nuw %struct.gough_ins, ptr %43, i64 %41
+  %49 = getelementptr inbounds nuw [12 x i8], ptr %43, i64 %41
   store ptr %49, ptr %8, align 8
   br label %_ZNSt6vectorI9gough_insSaIS0_EE9push_backEOS0_.exit
 
@@ -18550,11 +18504,11 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc68
 .lr.ph:                                           ; preds = %39, %.lr.ph
   %.sroa.0138.0187 = phi i64 [ %66, %.lr.ph ], [ 0, %39 ]
   %60 = load ptr, ptr %42, align 8
-  %61 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %60, i64 %.sroa.0138.0187
+  %61 = getelementptr inbounds nuw [128 x i8], ptr %60, i64 %.sroa.0138.0187
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 48
   %63 = load i32, ptr %62, align 8
   %64 = zext i32 %63 to i64
-  %65 = getelementptr inbounds nuw i64, ptr %.sroa.0143.0, i64 %64
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0143.0, i64 %64
   store i64 %.sroa.0138.0187, ptr %65, align 8
   %66 = add i64 %.sroa.0138.0187, 1
   %.not = icmp eq i64 %66, %49
@@ -18570,7 +18524,7 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc68
 71:                                               ; preds = %.lr.ph189, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
   %72 = phi i64 [ 0, %.lr.ph189 ], [ %193, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit ]
   %.038188 = phi i32 [ 0, %.lr.ph189 ], [ %192, %_ZNSt6vectorIjSaIjEE9push_backEOj.exit ]
-  %73 = getelementptr inbounds nuw i64, ptr %.sroa.0143.0, i64 %72
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0143.0, i64 %72
   %74 = load i64, ptr %73, align 8
   %75 = icmp eq i64 %74, -1
   br i1 %75, label %86, label %76
@@ -18579,7 +18533,7 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc68
   %77 = load ptr, ptr %40, align 8
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 24
   %79 = load ptr, ptr %78, align 8
-  %80 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %79, i64 %74
+  %80 = getelementptr inbounds nuw [128 x i8], ptr %79, i64 %74
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 80
   %82 = load ptr, ptr %81, align 8
   %83 = getelementptr inbounds nuw i8, ptr %80, i64 88
@@ -18650,7 +18604,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i: ; preds = %108, %.n
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i: ; preds = %110, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i
   store ptr %105, ptr %2, align 8
   store ptr %109, ptr %55, align 8
-  %111 = getelementptr inbounds nuw i32, ptr %105, i64 %103
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %105, i64 %103
   store ptr %111, ptr %56, align 8
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
 
@@ -18744,7 +18698,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i: ; preds = %142, %.noe
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i: ; preds = %144, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i
   store ptr %138, ptr %2, align 8
   store ptr %143, ptr %55, align 8
-  %145 = getelementptr inbounds nuw i32, ptr %138, i64 %136
+  %145 = getelementptr inbounds nuw [4 x i8], ptr %138, i64 %136
   store ptr %145, ptr %56, align 8
   br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit
 
@@ -18847,7 +18801,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i79: ; preds = %184, %
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i81: ; preds = %186, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i79
   store ptr %181, ptr %2, align 8
   store ptr %185, ptr %55, align 8
-  %187 = getelementptr inbounds nuw i32, ptr %181, i64 %179
+  %187 = getelementptr inbounds nuw [4 x i8], ptr %181, i64 %179
   store ptr %187, ptr %56, align 8
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit84
 
@@ -18924,7 +18878,7 @@ _ZNSt10unique_ptrIN3ue212_GLOBAL__N_126raw_gough_report_info_implESt14default_de
   %202 = load ptr, ptr %40, align 8
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 24
   %204 = load ptr, ptr %203, align 8
-  %205 = getelementptr inbounds nuw %"struct.boost::detail::adj_list_gen<boost::adjacency_list<boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps>, boost::vecS, boost::vecS, boost::bidirectionalS, ue2::GoughVertexProps, ue2::GoughEdgeProps, ue2::GoughGraphProps, boost::listS>::config::stored_vertex", ptr %204, i64 %199
+  %205 = getelementptr inbounds nuw [128 x i8], ptr %204, i64 %199
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 104
   %207 = load ptr, ptr %206, align 8
   %208 = getelementptr inbounds nuw i8, ptr %205, i64 112
@@ -18995,7 +18949,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i91: ; preds = %233, %
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i93: ; preds = %235, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i91
   store ptr %230, ptr %3, align 8
   store ptr %234, ptr %68, align 8
-  %236 = getelementptr inbounds nuw i32, ptr %230, i64 %228
+  %236 = getelementptr inbounds nuw [4 x i8], ptr %230, i64 %228
   store ptr %236, ptr %69, align 8
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit96
 
@@ -19089,7 +19043,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i101: ; preds = %267, %.
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJRKjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i103: ; preds = %269, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i101
   store ptr %263, ptr %3, align 8
   store ptr %268, ptr %68, align 8
-  %270 = getelementptr inbounds nuw i32, ptr %263, i64 %261
+  %270 = getelementptr inbounds nuw [4 x i8], ptr %263, i64 %261
   store ptr %270, ptr %69, align 8
   br label %_ZNSt6vectorIjSaIjEE9push_backERKj.exit106
 
@@ -19192,7 +19146,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i111: ; preds = %309, 
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i113: ; preds = %311, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i111
   store ptr %306, ptr %3, align 8
   store ptr %310, ptr %68, align 8
-  %312 = getelementptr inbounds nuw i32, ptr %306, i64 %304
+  %312 = getelementptr inbounds nuw [4 x i8], ptr %306, i64 %304
   store ptr %312, ptr %69, align 8
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit116
 
@@ -19361,7 +19315,7 @@ _ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorISt4pairIhh
 39:                                               ; preds = %24
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %41 = load i64, ptr %40, align 8, !noalias !921
-  %42 = getelementptr inbounds nuw %"struct.std::pair.673", ptr %25, i64 %41
+  %42 = getelementptr inbounds nuw [2 x i8], ptr %25, i64 %41
   invoke void @_ZN5boost9container6vectorISt4pairIhhENS0_22small_vector_allocatorIS3_SaIvEvEEvE6assignINS_13move_iteratorIPS3_EEEEvT_SC_PNS_11move_detail13disable_if_orIvNSD_7is_sameINSD_17integral_constantIjLj1EEENSG_IjLj0EEEEENSD_14is_convertibleISC_mEENS0_3dtl17is_input_iteratorISC_Xsr21has_iterator_categoryISC_EE5valueEEENSD_5bool_ILb0EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr %25, ptr %42, ptr noundef null)
           to label %.noexc.i.i.i.i.i.i.i.i unwind label %43
 
@@ -20981,7 +20935,7 @@ _ZNSt6vectorIN3ue212_GLOBAL__N_121raw_gough_report_listESaIS2_EE11_S_relocateEPS
 _ZNSt6vectorIN3ue212_GLOBAL__N_121raw_gough_report_listESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN3ue212_GLOBAL__N_121raw_gough_report_listESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit42.i, %83
   store ptr %44, ptr %0, align 8
   store ptr %82, ptr %5, align 8
-  %95 = getelementptr inbounds nuw %"struct.ue2::(anonymous namespace)::raw_gough_report_list", ptr %44, i64 %40
+  %95 = getelementptr inbounds nuw [48 x i8], ptr %44, i64 %40
   store ptr %95, ptr %7, align 8
   br label %96
 
@@ -21219,7 +21173,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i: ; preds = %32, %_ZN
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i: ; preds = %34, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i
   store ptr %29, ptr %3, align 8
   store ptr %33, ptr %7, align 8
-  %35 = getelementptr inbounds nuw i32, ptr %29, i64 %27
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %27
   store ptr %35, ptr %8, align 8
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
 
@@ -21273,7 +21227,7 @@ _ZN3ue210verify_u32ImEEjT_.exit:                  ; preds = %._crit_edge
   %55 = getelementptr inbounds nuw i8, ptr %.sroa.027.035, i64 32
   %56 = load i32, ptr %55, align 4
   %57 = zext i32 %.02136 to i64
-  %58 = getelementptr inbounds nuw %struct.gough_report, ptr %40, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %57
   store i32 %56, ptr %58, align 4
   %59 = getelementptr inbounds nuw i8, ptr %.sroa.027.035, i64 36
   %60 = load i32, ptr %59, align 4
@@ -22480,7 +22434,7 @@ _ZSt22__uninitialized_move_aIP9gough_insS1_SaIS0_EET0_T_S4_S3_RT1_.exit: ; preds
   %26 = ptrtoint ptr %22 to i64
   %27 = sub i64 %26, %18
   %.neg.i.i.i.i.i = sdiv exact i64 %27, -12
-  %28 = getelementptr inbounds %struct.gough_ins, ptr %13, i64 %.neg.i.i.i.i.i
+  %28 = getelementptr inbounds [12 x i8], ptr %13, i64 %.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %28, ptr align 4 %1, i64 %27, i1 false)
   br label %_ZSt13move_backwardIP9gough_insS1_ET0_T_S3_S2_.exit
 
@@ -22503,7 +22457,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPK9gough_insSt6vectorIS2_SaIS2_EEEEm
 _ZSt22__uninitialized_copy_aIN9__gnu_cxx17__normal_iteratorIPK9gough_insSt6vectorIS2_SaIS2_EEEEPS2_S2_ET0_T_SB_SA_RSaIT1_E.exit: ; preds = %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPK9gough_insSt6vectorIS2_SaIS2_EEEEmEvRT_T0_.exit, %30
   %33 = phi ptr [ %13, %_ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPK9gough_insSt6vectorIS2_SaIS2_EEEEmEvRT_T0_.exit ], [ %.pre, %30 ]
   %34 = sub nuw nsw i64 %9, %20
-  %35 = getelementptr inbounds nuw %struct.gough_ins, ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw [12 x i8], ptr %33, i64 %34
   store ptr %35, ptr %12, align 8
   %.not.i.i.i.i.i.i.i.i.i52 = icmp eq ptr %13, %1
   br i1 %.not.i.i.i.i.i.i.i.i.i52, label %_ZSt22__uninitialized_move_aIP9gough_insS1_SaIS0_EET0_T_S4_S3_RT1_.exit53, label %36
@@ -22586,7 +22540,7 @@ _ZNSt12_Vector_baseI9gough_insSaIS0_EE11_M_allocateEm.exit: ; preds = %_ZNKSt6ve
 _ZNSt12_Vector_baseI9gough_insSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %64, %66
   store ptr %55, ptr %0, align 8
   store ptr %65, ptr %12, align 8
-  %67 = getelementptr inbounds nuw %struct.gough_ins, ptr %55, i64 %51
+  %67 = getelementptr inbounds nuw [12 x i8], ptr %55, i64 %51
   store ptr %67, ptr %10, align 8
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPK9gough_insSt6vectorIS2_SaIS2_EEEENS1_IPS2_S7_EEET0_T_SC_SB_.exit
 
@@ -24251,7 +24205,7 @@ _ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIPN3ue211Go
 .thread.i:                                        ; preds = %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIPN3ue211GoughSSAVarESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE8allocateEm.exit
   %37 = load ptr, ptr %4, align 8
   store ptr %37, ptr %36, align 8
-  %38 = getelementptr inbounds nuw ptr, ptr %36, i64 %3
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %3
   br label %_ZN5boost9container6vectorIPN3ue211GoughSSAVarENS0_22small_vector_allocatorIS4_SaIvEvEEvE40priv_forward_range_insert_new_allocationINS0_3dtl17insert_copy_proxyIS7_PS4_EEEEvSC_mSC_mT_.exit
 
 39:                                               ; preds = %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIPN3ue211GoughSSAVarESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE8allocateEm.exit
@@ -24267,8 +24221,8 @@ _ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIPN3ue211Go
   %.0.i.i.i = phi ptr [ %41, %40 ], [ %36, %39 ]
   %43 = load ptr, ptr %4, align 8
   store ptr %43, ptr %.0.i.i.i, align 8
-  %44 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i, i64 %3
-  %45 = getelementptr inbounds nuw ptr, ptr %7, i64 %15
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i, i64 %3
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %15
   %46 = icmp ne ptr %6, %45
   %47 = icmp ne ptr %6, null
   %spec.select.i.i21.i = and i1 %47, %46
@@ -24370,7 +24324,7 @@ _ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIPN3ue221Go
 .thread.i:                                        ; preds = %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIPN3ue221GoughSSAVarWithInputsESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE8allocateEm.exit
   %37 = load ptr, ptr %4, align 8
   store ptr %37, ptr %36, align 8
-  %38 = getelementptr inbounds nuw ptr, ptr %36, i64 %3
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %3
   br label %_ZN5boost9container6vectorIPN3ue221GoughSSAVarWithInputsENS0_22small_vector_allocatorIS4_SaIvEvEEvE40priv_forward_range_insert_new_allocationINS0_3dtl17insert_move_proxyIS7_PS4_EEEEvSC_mSC_mT_.exit
 
 39:                                               ; preds = %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIPN3ue221GoughSSAVarWithInputsESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE8allocateEm.exit
@@ -24386,8 +24340,8 @@ _ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIPN3ue221Go
   %.0.i.i.i = phi ptr [ %41, %40 ], [ %36, %39 ]
   %43 = load ptr, ptr %4, align 8
   store ptr %43, ptr %.0.i.i.i, align 8
-  %44 = getelementptr inbounds nuw ptr, ptr %.0.i.i.i, i64 %3
-  %45 = getelementptr inbounds nuw ptr, ptr %7, i64 %15
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i.i, i64 %3
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %15
   %46 = icmp ne ptr %6, %45
   %47 = icmp ne ptr %6, null
   %spec.select.i.i21.i = and i1 %47, %46
@@ -24469,16 +24423,16 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_it
   %.035.i.i.i.i = phi i64 [ %spec.select.i.i.i.i, %.lr.ph.i.i.i.i ], [ 0, %.lr.ph.i.i ]
   %24 = shl i64 %.035.i.i.i.i, 1
   %25 = add i64 %24, 2
-  %26 = getelementptr inbounds i32, ptr %0, i64 %25
+  %26 = getelementptr inbounds [4 x i8], ptr %0, i64 %25
   %27 = or disjoint i64 %24, 1
-  %28 = getelementptr inbounds i32, ptr %0, i64 %27
+  %28 = getelementptr inbounds [4 x i8], ptr %0, i64 %27
   %29 = load i32, ptr %26, align 4
   %30 = load i32, ptr %28, align 4
   %31 = icmp ult i32 %29, %30
   %spec.select.i.i.i.i = select i1 %31, i64 %27, i64 %25
-  %32 = getelementptr inbounds i32, ptr %0, i64 %spec.select.i.i.i.i
+  %32 = getelementptr inbounds [4 x i8], ptr %0, i64 %spec.select.i.i.i.i
   %33 = load i32, ptr %32, align 4
-  %34 = getelementptr inbounds i32, ptr %0, i64 %.035.i.i.i.i
+  %34 = getelementptr inbounds [4 x i8], ptr %0, i64 %.035.i.i.i.i
   store i32 %33, ptr %34, align 4
   %35 = icmp slt i64 %spec.select.i.i.i.i, %22
   br i1 %35, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i, !llvm.loop !958
@@ -24498,9 +24452,9 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_it
 .thread.i.i.i:                                    ; preds = %38
   %42 = shl nuw nsw i64 %.0.lcssa.i.i.i.i, 1
   %43 = or disjoint i64 %42, 1
-  %44 = getelementptr inbounds nuw i32, ptr %0, i64 %43
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %43
   %45 = load i32, ptr %44, align 4
-  %46 = getelementptr inbounds i32, ptr %0, i64 %.0.lcssa.i.i.i.i
+  %46 = getelementptr inbounds [4 x i8], ptr %0, i64 %.0.lcssa.i.i.i.i
   store i32 %45, ptr %46, align 4
   br label %.lr.ph.i.i.i.i.i.preheader
 
@@ -24516,20 +24470,20 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_it
   %.019.i.i.i.i.i = phi i64 [ %.0920.i.i56.i.i.i, %51 ], [ %.019.i.i.i.i.i.ph, %.lr.ph.i.i.i.i.i.preheader ]
   %.0920.in.i.i.i.i.i = add nsw i64 %.019.i.i.i.i.i, -1
   %.0920.i.i56.i.i.i = lshr i64 %.0920.in.i.i.i.i.i, 1
-  %48 = getelementptr inbounds nuw i32, ptr %0, i64 %.0920.i.i56.i.i.i
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.0920.i.i56.i.i.i
   %49 = load i32, ptr %48, align 4
   %50 = icmp ult i32 %49, %16
   br i1 %50, label %51, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_RT0_.exit.i.i
 
 51:                                               ; preds = %.lr.ph.i.i.i.i.i
-  %52 = getelementptr inbounds i32, ptr %0, i64 %.019.i.i.i.i.i
+  %52 = getelementptr inbounds [4 x i8], ptr %0, i64 %.019.i.i.i.i.i
   store i32 %49, ptr %52, align 4
   %.not7.i.i.i = icmp eq i64 %.0920.i.i56.i.i.i, 0
   br i1 %.not7.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_RT0_.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !959
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_RT0_.exit.i.i: ; preds = %51, %.lr.ph.i.i.i.i.i, %47
   %.0.lcssa.i.i.i.i.i = phi i64 [ 0, %47 ], [ %.019.i.i.i.i.i, %.lr.ph.i.i.i.i.i ], [ 0, %51 ]
-  %53 = getelementptr inbounds i32, ptr %0, i64 %.0.lcssa.i.i.i.i.i
+  %53 = getelementptr inbounds [4 x i8], ptr %0, i64 %.0.lcssa.i.i.i.i.i
   store i32 %16, ptr %53, align 4
   %54 = icmp sgt i64 %19, 4
   br i1 %54, label %.lr.ph.i.i, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops15_Iter_less_iterEEvT_S9_S9_T0_.exit, !llvm.loop !960
@@ -24537,7 +24491,7 @@ _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEENS0_5__ops1
 55:                                               ; preds = %11
   %56 = add nsw i64 %.018, -1
   %57 = lshr i64 %12, 1
-  %58 = getelementptr inbounds nuw i32, ptr %0, i64 %57
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %57
   %59 = getelementptr inbounds i8, ptr %storemerge17, i64 -4
   %60 = load i32, ptr %10, align 4
   %61 = load i32, ptr %58, align 4
@@ -24661,13 +24615,13 @@ define linkonce_odr hidden void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iterato
 
 .split.preheader:                                 ; preds = %9
   %17 = or disjoint i64 %10, 1
-  %18 = getelementptr inbounds nuw i32, ptr %0, i64 %17
-  %19 = getelementptr inbounds nuw i32, ptr %0, i64 %16
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %17
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %16
   br label %.split
 
 .split.us:                                        ; preds = %9, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEljNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us
   %.08.us = phi i64 [ %43, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEljNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us ], [ %11, %9 ]
-  %20 = getelementptr inbounds i32, ptr %0, i64 %.08.us
+  %20 = getelementptr inbounds [4 x i8], ptr %0, i64 %.08.us
   %21 = load i32, ptr %20, align 4
   %22 = icmp slt i64 %.08.us, %13
   br i1 %22, label %.lr.ph.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEljNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us
@@ -24676,16 +24630,16 @@ define linkonce_odr hidden void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iterato
   %.035.i.us = phi i64 [ %spec.select.i.us, %.lr.ph.i.us ], [ %.08.us, %.split.us ]
   %23 = shl i64 %.035.i.us, 1
   %24 = add i64 %23, 2
-  %25 = getelementptr inbounds i32, ptr %0, i64 %24
+  %25 = getelementptr inbounds [4 x i8], ptr %0, i64 %24
   %26 = or disjoint i64 %23, 1
-  %27 = getelementptr inbounds i32, ptr %0, i64 %26
+  %27 = getelementptr inbounds [4 x i8], ptr %0, i64 %26
   %28 = load i32, ptr %25, align 4
   %29 = load i32, ptr %27, align 4
   %30 = icmp ult i32 %28, %29
   %spec.select.i.us = select i1 %30, i64 %26, i64 %24
-  %31 = getelementptr inbounds i32, ptr %0, i64 %spec.select.i.us
+  %31 = getelementptr inbounds [4 x i8], ptr %0, i64 %spec.select.i.us
   %32 = load i32, ptr %31, align 4
-  %33 = getelementptr inbounds i32, ptr %0, i64 %.035.i.us
+  %33 = getelementptr inbounds [4 x i8], ptr %0, i64 %.035.i.us
   store i32 %32, ptr %33, align 4
   %34 = icmp slt i64 %spec.select.i.us, %13
   br i1 %34, label %.lr.ph.i.us, label %._crit_edge.i.us, !llvm.loop !958
@@ -24698,20 +24652,20 @@ define linkonce_odr hidden void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iterato
   %.019.i.i.us = phi i64 [ %.0920.i.i.us, %39 ], [ %spec.select.i.us, %._crit_edge.i.us ]
   %.0920.in.i.i.us = add nsw i64 %.019.i.i.us, -1
   %.0920.i.i.us = sdiv i64 %.0920.in.i.i.us, 2
-  %36 = getelementptr inbounds nuw i32, ptr %0, i64 %.0920.i.i.us
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.0920.i.i.us
   %37 = load i32, ptr %36, align 4
   %38 = icmp ult i32 %37, %21
   br i1 %38, label %39, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEljNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us
 
 39:                                               ; preds = %.lr.ph.i.i.us
-  %40 = getelementptr inbounds nuw i32, ptr %0, i64 %.019.i.i.us
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.019.i.i.us
   store i32 %37, ptr %40, align 4
   %41 = icmp sgt i64 %.0920.i.i.us, %.08.us
   br i1 %41, label %.lr.ph.i.i.us, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEljNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us, !llvm.loop !959
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEljNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit.us: ; preds = %.lr.ph.i.i.us, %39, %.split.us, %._crit_edge.i.us
   %.0.lcssa.i.i.us = phi i64 [ %spec.select.i.us, %._crit_edge.i.us ], [ %.08.us, %.split.us ], [ %.019.i.i.us, %.lr.ph.i.i.us ], [ %.0920.i.i.us, %39 ]
-  %42 = getelementptr inbounds nuw i32, ptr %0, i64 %.0.lcssa.i.i.us
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.0.lcssa.i.i.us
   store i32 %21, ptr %42, align 4
   %.not.us = icmp eq i64 %.08.us, 0
   %43 = add nsw i64 %.08.us, -1
@@ -24719,7 +24673,7 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEljNS0_5_
 
 .split:                                           ; preds = %.split.preheader, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEljNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit
   %.08 = phi i64 [ %71, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEljNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit ], [ %11, %.split.preheader ]
-  %44 = getelementptr inbounds i32, ptr %0, i64 %.08
+  %44 = getelementptr inbounds [4 x i8], ptr %0, i64 %.08
   %45 = load i32, ptr %44, align 4
   %46 = icmp slt i64 %.08, %13
   br i1 %46, label %.lr.ph.i, label %._crit_edge.i
@@ -24728,16 +24682,16 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEljNS0_5_
   %.035.i = phi i64 [ %spec.select.i, %.lr.ph.i ], [ %.08, %.split ]
   %47 = shl i64 %.035.i, 1
   %48 = add i64 %47, 2
-  %49 = getelementptr inbounds i32, ptr %0, i64 %48
+  %49 = getelementptr inbounds [4 x i8], ptr %0, i64 %48
   %50 = or disjoint i64 %47, 1
-  %51 = getelementptr inbounds i32, ptr %0, i64 %50
+  %51 = getelementptr inbounds [4 x i8], ptr %0, i64 %50
   %52 = load i32, ptr %49, align 4
   %53 = load i32, ptr %51, align 4
   %54 = icmp ult i32 %52, %53
   %spec.select.i = select i1 %54, i64 %50, i64 %48
-  %55 = getelementptr inbounds i32, ptr %0, i64 %spec.select.i
+  %55 = getelementptr inbounds [4 x i8], ptr %0, i64 %spec.select.i
   %56 = load i32, ptr %55, align 4
-  %57 = getelementptr inbounds i32, ptr %0, i64 %.035.i
+  %57 = getelementptr inbounds [4 x i8], ptr %0, i64 %.035.i
   store i32 %56, ptr %57, align 4
   %58 = icmp slt i64 %spec.select.i, %13
   br i1 %58, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !958
@@ -24761,20 +24715,20 @@ _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEljNS0_5_
   %.019.i.i = phi i64 [ %.0920.i.i, %67 ], [ %.1.i, %62 ]
   %.0920.in.i.i = add nsw i64 %.019.i.i, -1
   %.0920.i.i = sdiv i64 %.0920.in.i.i, 2
-  %64 = getelementptr inbounds nuw i32, ptr %0, i64 %.0920.i.i
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.0920.i.i
   %65 = load i32, ptr %64, align 4
   %66 = icmp ult i32 %65, %45
   br i1 %66, label %67, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEljNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit
 
 67:                                               ; preds = %.lr.ph.i.i
-  %68 = getelementptr inbounds nuw i32, ptr %0, i64 %.019.i.i
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.019.i.i
   store i32 %65, ptr %68, align 4
   %69 = icmp sgt i64 %.0920.i.i, %.08
   br i1 %69, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEljNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit, !llvm.loop !959
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEljNS0_5__ops15_Iter_less_iterEEvT_T0_SA_T1_T2_.exit: ; preds = %.lr.ph.i.i, %67, %62
   %.0.lcssa.i.i = phi i64 [ %.1.i, %62 ], [ %.0920.i.i, %67 ], [ %.019.i.i, %.lr.ph.i.i ]
-  %70 = getelementptr inbounds nuw i32, ptr %0, i64 %.0.lcssa.i.i
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.0.lcssa.i.i
   store i32 %45, ptr %70, align 4
   %.not = icmp eq i64 %.08, 0
   %71 = add nsw i64 %.08, -1
@@ -25296,8 +25250,8 @@ _ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorINS_6detail
 39:                                               ; preds = %38
   %40 = mul i64 %36, 24
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %34, ptr align 8 %1, i64 %40, i1 false)
-  %41 = getelementptr inbounds %"class.boost::detail::edge_desc_impl", ptr %1, i64 %36
-  %42 = getelementptr inbounds nuw %"class.boost::detail::edge_desc_impl", ptr %34, i64 %36
+  %41 = getelementptr inbounds [24 x i8], ptr %1, i64 %36
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %34, i64 %36
   br label %_ZN5boost9container18copy_n_source_destINS_13move_iteratorIPNS_6detail14edge_desc_implINS_17bidirectional_tagEmEEEEmS7_EENS0_3dtl37enable_if_memtransfer_copy_assignableIT_T1_SB_E4typeESB_T0_RSC_.exit.i
 
 _ZN5boost9container18copy_n_source_destINS_13move_iteratorIPNS_6detail14edge_desc_implINS_17bidirectional_tagEmEEEEmS7_EENS0_3dtl37enable_if_memtransfer_copy_assignableIT_T1_SB_E4typeESB_T0_RSC_.exit.i: ; preds = %39, %38
@@ -25463,7 +25417,7 @@ _ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorINS_6detail
 
 .thread.i:                                        ; preds = %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorINS_6detail14edge_desc_implINS_17bidirectional_tagEmEESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE8allocateEm.exit
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  %37 = getelementptr inbounds nuw %"class.boost::detail::edge_desc_impl", ptr %36, i64 %3
+  %37 = getelementptr inbounds nuw [24 x i8], ptr %36, i64 %3
   br label %_ZN5boost9container6vectorINS_6detail14edge_desc_implINS_17bidirectional_tagEmEENS0_22small_vector_allocatorIS5_SaIvEvEEvE40priv_forward_range_insert_new_allocationINS0_3dtl17insert_copy_proxyIS8_PS5_EEEEvSD_mSD_mT_.exit
 
 38:                                               ; preds = %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorINS_6detail14edge_desc_implINS_17bidirectional_tagEmEESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE8allocateEm.exit
@@ -25478,8 +25432,8 @@ _ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorINS_6detail
 41:                                               ; preds = %39, %38
   %.0.i.i.i = phi ptr [ %40, %39 ], [ %36, %38 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.0.i.i.i, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
-  %42 = getelementptr inbounds nuw %"class.boost::detail::edge_desc_impl", ptr %.0.i.i.i, i64 %3
-  %43 = getelementptr inbounds nuw %"class.boost::detail::edge_desc_impl", ptr %7, i64 %15
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %.0.i.i.i, i64 %3
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %7, i64 %15
   %44 = icmp ne ptr %6, %43
   %45 = icmp ne ptr %6, null
   %spec.select.i.i21.i = and i1 %45, %44

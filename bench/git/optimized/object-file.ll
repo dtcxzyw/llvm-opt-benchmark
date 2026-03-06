@@ -14,7 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.fsck_options = type { ptr, ptr, i32, i32, ptr, %struct.oidset, %struct.oidset, %struct.oidset, %struct.oidset, %struct.oidset, ptr }
 %struct.oidset = type { %struct.kh_oid_set }
 %struct.kh_oid_set = type { i32, i32, i32, i32, ptr, ptr, ptr }
-%struct.git_hash_algo = type { ptr, i32, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
@@ -26,8 +25,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.git_zstream = type { %struct.z_stream_s, i64, i64, i64, i64, ptr, ptr }
 %struct.z_stream_s = type { ptr, i32, i64, ptr, i32, i64, ptr, ptr, ptr, ptr, ptr, i32, i64, i64 }
 %struct.pack_entry = type { i64, ptr }
-%struct.cached_object_entry = type { %struct.object_id, %struct.cached_object }
-%struct.cached_object = type { i32, ptr, i64 }
 %struct.utimbuf = type { i64, i64 }
 
 @.str = private unnamed_addr constant [5 x i8] c"sha1\00", align 1
@@ -307,7 +304,7 @@ define dso_local range(i32 0, 3) i32 @hash_algo_by_name(ptr noundef readonly cap
 .preheader:                                       ; preds = %1, %5
   %exitcond.not = phi i1 [ true, %5 ], [ false, %1 ]
   %indvars.iv = phi i64 [ 2, %5 ], [ 1, %1 ]
-  %2 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %indvars.iv
+  %2 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %indvars.iv
   %3 = load ptr, ptr %2, align 16, !tbaa !36
   %4 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(1) %3) #28
   %.not8 = icmp eq i32 %4, 0
@@ -335,7 +332,7 @@ define dso_local range(i32 0, 3) i32 @hash_algo_by_id(i32 noundef %0) local_unna
 2:                                                ; preds = %1, %7
   %exitcond.not = phi i1 [ false, %1 ], [ true, %7 ]
   %indvars.iv = phi i64 [ 1, %1 ], [ 2, %7 ]
-  %3 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %indvars.iv
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !39
   %6 = icmp eq i32 %0, %5
@@ -361,7 +358,7 @@ define dso_local range(i32 0, 3) i32 @hash_algo_by_length(i32 noundef %0) local_
 3:                                                ; preds = %1, %8
   %exitcond.not = phi i1 [ false, %1 ], [ true, %8 ]
   %indvars.iv = phi i64 [ 1, %1 ], [ 2, %8 ]
-  %4 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %indvars.iv
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i64, ptr %5, align 16, !tbaa !41
   %7 = icmp eq i64 %6, %2
@@ -1353,7 +1350,7 @@ _.exit.i:                                         ; preds = %98, %96
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 32
   %114 = load ptr, ptr %113, align 8, !tbaa !82
   %115 = zext i32 %110 to i64
-  %116 = getelementptr inbounds nuw ptr, ptr %114, i64 %115
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %115
   store ptr %111, ptr %116, align 8, !tbaa !86
   br label %117
 
@@ -1392,7 +1389,7 @@ alt_odb_usable.exit:                              ; preds = %117
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 32
   %134 = load ptr, ptr %133, align 8, !tbaa !82
   %135 = zext i32 %122 to i64
-  %136 = getelementptr inbounds nuw ptr, ptr %134, i64 %135
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %134, i64 %135
   store ptr %125, ptr %136, align 8, !tbaa !86
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) @__const.index_mem.nbuf, i64 24, i1 false)
@@ -2243,7 +2240,7 @@ define dso_local range(i32 -1, 1) i32 @check_object_signature(ptr noundef readon
 
 11:                                               ; preds = %5
   %12 = sext i32 %10 to i64
-  %13 = getelementptr inbounds %struct.git_hash_algo, ptr @hash_algos, i64 %12
+  %13 = getelementptr inbounds [112 x i8], ptr @hash_algos, i64 %12
   br label %17
 
 14:                                               ; preds = %5
@@ -2826,7 +2823,7 @@ define dso_local i32 @oid_object_info_extended(ptr noundef %0, ptr noundef %1, p
 
 17:                                               ; preds = %19, %14
   %.0811.i = phi i64 [ 0, %14 ], [ %20, %19 ]
-  %18 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i
+  %18 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i
   %.not.i = icmp eq ptr %16, %18
   br i1 %.not.i, label %.split.loop.exit9.i, label %19
 
@@ -2842,7 +2839,7 @@ define dso_local i32 @oid_object_info_extended(ptr noundef %0, ptr noundef %1, p
 
 .critedge:                                        ; preds = %19, %.split.loop.exit9.i
   %23 = sext i32 %13 to i64
-  %24 = getelementptr inbounds %struct.git_hash_algo, ptr @hash_algos, i64 %23
+  %24 = getelementptr inbounds [112 x i8], ptr @hash_algos, i64 %23
   %25 = and i32 %3, 32
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) @__const.index_mem.nbuf, i64 24, i1 false)
@@ -3255,7 +3252,7 @@ select.unfold:                                    ; preds = %._crit_edge.i, %35
 
 79:                                               ; preds = %81, %75
   %.0811.i.i = phi i64 [ 0, %75 ], [ %82, %81 ]
-  %80 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
+  %80 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i = icmp eq ptr %78, %80
   br i1 %.not.i.i, label %.split.loop.exit9.i.i, label %81
 
@@ -3335,7 +3332,7 @@ find_cached_object.exit:                          ; preds = %find_cached_object.
 
 111:                                              ; preds = %113, %107
   %.0811.i.i.i = phi i64 [ 0, %107 ], [ %114, %113 ]
-  %112 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i.i
+  %112 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i.i
   %.not.i.i.i = icmp eq ptr %110, %112
   br i1 %.not.i.i.i, label %.split.loop.exit9.i.i.i, label %113
 
@@ -3894,7 +3891,7 @@ st_mult.exit:                                     ; preds = %38
   %51 = add nsw i32 %49, 1
   store i32 %51, ptr @cached_object_nr, align 4, !tbaa !44
   %52 = sext i32 %49 to i64
-  %53 = getelementptr inbounds %struct.cached_object_entry, ptr %50, i64 %52
+  %53 = getelementptr inbounds [64 x i8], ptr %50, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 40
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 56
   store i64 %1, ptr %55, align 8, !tbaa !147
@@ -6301,7 +6298,7 @@ strbuf_setlen.exit77:                             ; preds = %66, %68
 
 86:                                               ; preds = %88, %82
   %.0811.i.i = phi i64 [ 0, %82 ], [ %89, %88 ]
-  %87 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i
+  %87 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i
   %.not.i.i78 = icmp eq ptr %85, %87
   br i1 %.not.i.i78, label %.split.loop.exit9.i.i, label %88
 
@@ -6531,7 +6528,7 @@ define dso_local ptr @odb_loose_cache(ptr noundef captures(none) %0, ptr noundef
   %8 = shl nuw nsw i64 1, %7
   %9 = lshr i64 %6, 5
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = getelementptr inbounds nuw i32, ptr %10, i64 %9
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %9
   %12 = load i32, ptr %11, align 4, !tbaa !44
   %13 = zext i32 %12 to i64
   %14 = and i64 %8, %13
@@ -7143,7 +7140,7 @@ define internal fastcc i32 @kh_put_odb_path_map(ptr noundef captures(none) %0, p
   %20 = load ptr, ptr %19, align 8, !tbaa !176
   %21 = lshr i32 %18, 4
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds nuw i32, ptr %20, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !44
   %25 = shl i32 %18, 1
   %26 = and i32 %25, 30
@@ -7163,7 +7160,7 @@ define internal fastcc i32 @kh_put_odb_path_map(ptr noundef captures(none) %0, p
   %.0 = phi i32 [ %52, %.critedge2 ], [ 0, %.preheader ]
   %32 = lshr i32 %.073, 4
   %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds nuw i32, ptr %31, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !44
   %36 = shl i32 %.073, 1
   %37 = and i32 %36, 30
@@ -7180,7 +7177,7 @@ define internal fastcc i32 @kh_put_odb_path_map(ptr noundef captures(none) %0, p
 42:                                               ; preds = %40
   %43 = load ptr, ptr %29, align 8, !tbaa !177
   %44 = zext i32 %.073 to i64
-  %45 = getelementptr inbounds nuw ptr, ptr %43, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %44
   %46 = load ptr, ptr %45, align 8, !tbaa !79
   %47 = tail call i32 @fspatheq(ptr noundef %46, ptr noundef %1) #27
   %.not85 = icmp eq i32 %47, 0
@@ -7188,7 +7185,7 @@ define internal fastcc i32 @kh_put_odb_path_map(ptr noundef captures(none) %0, p
   br i1 %.not85, label %..critedge2_crit_edge, label %.critedge
 
 ..critedge2_crit_edge:                            ; preds = %42
-  %.phi.trans.insert = getelementptr inbounds nuw i32, ptr %.pre92.pre, i64 %33
+  %.phi.trans.insert = getelementptr inbounds nuw [4 x i8], ptr %.pre92.pre, i64 %33
   %.pre93 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !44
   br label %.critedge2
 
@@ -7217,7 +7214,7 @@ define internal fastcc i32 @kh_put_odb_path_map(ptr noundef captures(none) %0, p
 58:                                               ; preds = %.critedge
   %59 = lshr i32 %.174, 4
   %60 = zext nneg i32 %59 to i64
-  %61 = getelementptr inbounds nuw i32, ptr %.pre92, i64 %60
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %.pre92, i64 %60
   %62 = load i32, ptr %61, align 4, !tbaa !44
   %63 = shl i32 %.174, 1
   %64 = and i32 %63, 30
@@ -7234,7 +7231,7 @@ define internal fastcc i32 @kh_put_odb_path_map(ptr noundef captures(none) %0, p
   %.072 = phi i32 [ %.1, %.critedge ], [ %18, %14 ], [ %spec.select91, %58 ]
   %69 = lshr i32 %.072, 4
   %70 = zext nneg i32 %69 to i64
-  %71 = getelementptr inbounds nuw i32, ptr %68, i64 %70
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %70
   %72 = load i32, ptr %71, align 4, !tbaa !44
   %73 = shl i32 %.072, 1
   %74 = and i32 %73, 30
@@ -7247,7 +7244,7 @@ define internal fastcc i32 @kh_put_odb_path_map(ptr noundef captures(none) %0, p
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %79 = load ptr, ptr %78, align 8, !tbaa !177
   %80 = zext i32 %.072 to i64
-  %81 = getelementptr inbounds nuw ptr, ptr %79, i64 %80
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %80
   store ptr %1, ptr %81, align 8, !tbaa !79
   %82 = shl nuw i32 3, %74
   %83 = xor i32 %82, -1
@@ -7271,7 +7268,7 @@ define internal fastcc i32 @kh_put_odb_path_map(ptr noundef captures(none) %0, p
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %94 = load ptr, ptr %93, align 8, !tbaa !177
   %95 = zext i32 %.072 to i64
-  %96 = getelementptr inbounds nuw ptr, ptr %94, i64 %95
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %95
   store ptr %1, ptr %96, align 8, !tbaa !79
   %97 = shl nuw i32 3, %74
   %98 = xor i32 %97, -1
@@ -7355,7 +7352,7 @@ st_mult.exit:                                     ; preds = %2
   %44 = load ptr, ptr %38, align 8, !tbaa !176
   %45 = lshr i32 %.1143, 4
   %46 = zext nneg i32 %45 to i64
-  %47 = getelementptr inbounds nuw i32, ptr %44, i64 %46
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %46
   %48 = load i32, ptr %47, align 4, !tbaa !44
   %49 = shl i32 %.1143, 1
   %50 = and i32 %49, 30
@@ -7367,10 +7364,10 @@ st_mult.exit:                                     ; preds = %2
 54:                                               ; preds = %42
   %55 = load ptr, ptr %39, align 8, !tbaa !177
   %56 = zext i32 %.1143 to i64
-  %57 = getelementptr inbounds nuw ptr, ptr %55, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %56
   %58 = load ptr, ptr %57, align 8, !tbaa !79
   %59 = load ptr, ptr %41, align 8, !tbaa !82
-  %60 = getelementptr inbounds nuw ptr, ptr %59, i64 %56
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %56
   %61 = load ptr, ptr %60, align 8, !tbaa !86
   %62 = shl nuw nsw i32 1, %50
   %63 = or i32 %48, %62
@@ -7384,7 +7381,7 @@ st_mult.exit:                                     ; preds = %2
   %.0100133 = and i32 %65, %40
   %66 = lshr i32 %.0100133, 4
   %67 = zext nneg i32 %66 to i64
-  %68 = getelementptr inbounds nuw i32, ptr %25, i64 %67
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %67
   %69 = load i32, ptr %68, align 4, !tbaa !44
   %70 = shl i32 %.0100133, 1
   %71 = and i32 %70, 30
@@ -7401,7 +7398,7 @@ st_mult.exit:                                     ; preds = %2
   %.0100 = and i32 %75, %40
   %76 = lshr i32 %.0100, 4
   %77 = zext nneg i32 %76 to i64
-  %78 = getelementptr inbounds nuw i32, ptr %25, i64 %77
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %77
   %79 = load i32, ptr %78, align 4, !tbaa !44
   %80 = shl i32 %.0100, 1
   %81 = and i32 %80, 30
@@ -7416,7 +7413,7 @@ st_mult.exit:                                     ; preds = %2
   %.lcssa128 = phi i32 [ %69, %64 ], [ %79, %.lr.ph ]
   %.lcssa127 = phi i32 [ %71, %64 ], [ %81, %.lr.ph ]
   %.lcssa = phi i32 [ %72, %64 ], [ %82, %.lr.ph ]
-  %84 = getelementptr inbounds nuw i32, ptr %25, i64 %.lcssa132
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %.lcssa132
   %85 = xor i32 %.lcssa, -1
   %86 = and i32 %.lcssa128, %85
   store i32 %86, ptr %84, align 4, !tbaa !44
@@ -7426,7 +7423,7 @@ st_mult.exit:                                     ; preds = %2
 
 89:                                               ; preds = %._crit_edge
   %90 = load ptr, ptr %38, align 8, !tbaa !176
-  %91 = getelementptr inbounds nuw i32, ptr %90, i64 %.lcssa132
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %.lcssa132
   %92 = load i32, ptr %91, align 4, !tbaa !44
   %93 = shl nuw i32 3, %.lcssa127
   %94 = and i32 %92, %93
@@ -7436,21 +7433,21 @@ st_mult.exit:                                     ; preds = %2
 .thread:                                          ; preds = %._crit_edge, %89
   %96 = load ptr, ptr %39, align 8, !tbaa !177
   %97 = zext i32 %.0100.lcssa to i64
-  %98 = getelementptr inbounds nuw ptr, ptr %96, i64 %97
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %97
   store ptr %.0102, ptr %98, align 8, !tbaa !79
   %99 = load ptr, ptr %41, align 8, !tbaa !82
-  %100 = getelementptr inbounds nuw ptr, ptr %99, i64 %97
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %97
   store ptr %.0104, ptr %100, align 8, !tbaa !86
   br label %111
 
 101:                                              ; preds = %89
   %102 = load ptr, ptr %39, align 8, !tbaa !177
   %103 = zext i32 %.0100.lcssa to i64
-  %104 = getelementptr inbounds nuw ptr, ptr %102, i64 %103
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 %103
   %105 = load ptr, ptr %104, align 8, !tbaa !79
   store ptr %.0102, ptr %104, align 8, !tbaa !79
   %106 = load ptr, ptr %41, align 8, !tbaa !82
-  %107 = getelementptr inbounds nuw ptr, ptr %106, i64 %103
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %103
   %108 = load ptr, ptr %107, align 8, !tbaa !86
   store ptr %.0104, ptr %107, align 8, !tbaa !86
   %109 = shl nuw nsw i32 1, %.lcssa127

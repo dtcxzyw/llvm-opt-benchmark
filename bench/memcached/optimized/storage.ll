@@ -14,8 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.__pthread_cond_s = type { %union.__atomic_wide_counter, %union.__atomic_wide_counter, [2 x i32], [2 x i32], i32, i32, [2 x i32] }
 %union.__atomic_wide_counter = type { i64 }
 %struct.extstore_stats = type { i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64, ptr }
-%struct.extstore_page_data = type { i64, i64, i32, i32, i8 }
-%struct.iovec = type { ptr, i64 }
 %struct.lru_pull_tail_return = type { ptr, i32 }
 %struct._obj_io = type { ptr, ptr, ptr, ptr, i32, i32, i32, i32, i16, i32, ptr }
 %struct.__storage_buk = type { i32, i32, i32, i64, i64, i32, i32, i32, i32, i8, i8 }
@@ -237,14 +235,14 @@ define dso_local void @process_extstore_stats(ptr noundef readonly captures(none
   %14 = trunc nuw nsw i64 %indvars.iv to i32
   %15 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 128, ptr noundef nonnull @.str, i32 noundef %14, ptr noundef nonnull @.str.1) #21
   %16 = load ptr, ptr %12, align 8, !tbaa !20
-  %17 = getelementptr inbounds nuw %struct.extstore_page_data, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [32 x i8], ptr %16, i64 %indvars.iv
   %18 = load i64, ptr %17, align 8, !tbaa !21
   %19 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 128, ptr noundef nonnull @.str.2, i64 noundef %18) #21
   %20 = trunc i32 %15 to i16
   call void %0(ptr noundef nonnull %3, i16 noundef zeroext %20, ptr noundef nonnull %4, i32 noundef %19, ptr noundef %1) #21
   %21 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 128, ptr noundef nonnull @.str, i32 noundef %14, ptr noundef nonnull @.str.3) #21
   %22 = load ptr, ptr %12, align 8, !tbaa !20
-  %23 = getelementptr inbounds nuw %struct.extstore_page_data, ptr %22, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %indvars.iv
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load i64, ptr %24, align 8, !tbaa !24
   %26 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 128, ptr noundef nonnull @.str.2, i64 noundef %25) #21
@@ -252,7 +250,7 @@ define dso_local void @process_extstore_stats(ptr noundef readonly captures(none
   call void %0(ptr noundef nonnull %3, i16 noundef zeroext %27, ptr noundef nonnull %4, i32 noundef %26, ptr noundef %1) #21
   %28 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 128, ptr noundef nonnull @.str, i32 noundef %14, ptr noundef nonnull @.str.4) #21
   %29 = load ptr, ptr %12, align 8, !tbaa !20
-  %30 = getelementptr inbounds nuw %struct.extstore_page_data, ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [32 x i8], ptr %29, i64 %indvars.iv
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load i32, ptr %31, align 8, !tbaa !25
   %33 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 128, ptr noundef nonnull @.str.5, i32 noundef %32) #21
@@ -260,7 +258,7 @@ define dso_local void @process_extstore_stats(ptr noundef readonly captures(none
   call void %0(ptr noundef nonnull %3, i16 noundef zeroext %34, ptr noundef nonnull %4, i32 noundef %33, ptr noundef %1) #21
   %35 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %3, i64 noundef 128, ptr noundef nonnull @.str, i32 noundef %14, ptr noundef nonnull @.str.6) #21
   %36 = load ptr, ptr %12, align 8, !tbaa !20
-  %37 = getelementptr inbounds nuw %struct.extstore_page_data, ptr %36, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [32 x i8], ptr %36, i64 %indvars.iv
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 20
   %39 = load i32, ptr %38, align 4, !tbaa !26
   %40 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 128, ptr noundef nonnull @.str.5, i32 noundef %39) #21
@@ -577,7 +575,7 @@ define dso_local range(i32 -1, 1) i32 @storage_get_item(ptr noundef %0, ptr noun
 131:                                              ; preds = %.lr.ph
   %132 = getelementptr inbounds nuw i8, ptr %123, i64 42
   %133 = load ptr, ptr %97, align 8, !tbaa !103
-  %134 = getelementptr inbounds nuw %struct.iovec, ptr %133, i64 %indvars.iv
+  %134 = getelementptr inbounds nuw [16 x i8], ptr %133, i64 %indvars.iv
   store ptr %132, ptr %134, align 8, !tbaa !104
   %135 = getelementptr inbounds nuw i8, ptr %123, i64 24
   %136 = load i32, ptr %135, align 8, !tbaa !13
@@ -1038,7 +1036,7 @@ define internal void @_storage_get_item_cb(ptr readnone captures(none) %0, ptr n
   %.07688 = phi i32 [ %36, %.lr.ph ], [ %24, %18 ]
   %30 = load ptr, ptr @crc32c, align 8, !tbaa !14
   %31 = load ptr, ptr %15, align 8, !tbaa !103
-  %32 = getelementptr inbounds nuw %struct.iovec, ptr %31, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8, !tbaa !104
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %35 = load i64, ptr %34, align 8, !tbaa !106
@@ -1095,7 +1093,7 @@ define internal void @_storage_get_item_cb(ptr readnone captures(none) %0, ptr n
   %65 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %66 = load i32, ptr %65, align 8, !tbaa !111
   %67 = zext i32 %66 to i64
-  %68 = getelementptr inbounds nuw %struct.iovec, ptr %64, i64 %67
+  %68 = getelementptr inbounds nuw [16 x i8], ptr %64, i64 %67
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
   %70 = load i64, ptr %69, align 8, !tbaa !106
   %71 = zext i8 %63 to i64
@@ -1113,12 +1111,12 @@ define internal void @_storage_get_item_cb(ptr readnone captures(none) %0, ptr n
   store i32 %79, ptr %59, align 8, !tbaa !4
   %80 = load i32, ptr %65, align 8, !tbaa !111
   %81 = zext i32 %80 to i64
-  %82 = getelementptr inbounds nuw %struct.iovec, ptr %64, i64 %81
+  %82 = getelementptr inbounds nuw [16 x i8], ptr %64, i64 %81
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   store i64 0, ptr %83, align 8, !tbaa !106
   %84 = add i32 %80, -1
   %85 = zext i32 %84 to i64
-  %86 = getelementptr inbounds nuw %struct.iovec, ptr %64, i64 %85
+  %86 = getelementptr inbounds nuw [16 x i8], ptr %64, i64 %85
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   store i64 0, ptr %87, align 8, !tbaa !106
   %88 = getelementptr inbounds nuw i8, ptr %6, i64 117
@@ -1159,7 +1157,7 @@ define internal void @_storage_get_item_cb(ptr readnone captures(none) %0, ptr n
 105:                                              ; preds = %100, %105
   %indvars.iv92 = phi i64 [ 0, %100 ], [ %indvars.iv.next93, %105 ]
   %106 = phi i32 [ %.promoted, %100 ], [ %111, %105 ]
-  %107 = getelementptr inbounds nuw %struct.iovec, ptr %90, i64 %indvars.iv92
+  %107 = getelementptr inbounds nuw [16 x i8], ptr %90, i64 %indvars.iv92
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %109 = load i64, ptr %108, align 8, !tbaa !106
   %110 = trunc i64 %109 to i32
@@ -1206,7 +1204,7 @@ define internal void @_storage_get_item_cb(ptr readnone captures(none) %0, ptr n
   %135 = getelementptr inbounds nuw i8, ptr %4, i64 128
   %136 = load i32, ptr %135, align 8, !tbaa !111
   %137 = zext i32 %136 to i64
-  %138 = getelementptr inbounds nuw %struct.iovec, ptr %134, i64 %137
+  %138 = getelementptr inbounds nuw [16 x i8], ptr %134, i64 %137
   store ptr %133, ptr %138, align 8, !tbaa !104
   br label %139
 
@@ -1380,7 +1378,7 @@ define internal noalias noundef nonnull ptr @storage_write_thread(ptr noundef %0
   br i1 %34, label %230, label %35
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %37 = load i32, ptr %36, align 4, !tbaa !13
   %.not = icmp eq i32 %37, 0
   br i1 %.not, label %40, label %38
@@ -1724,7 +1722,7 @@ storage_write.exit.thread:                        ; preds = %219, %45, %.critedg
 
 .preheader:                                       ; preds = %31, %.preheader
   %indvars.iv123 = phi i64 [ %indvars.iv.next124, %.preheader ], [ 0, %31 ]
-  %235 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv123
+  %235 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv123
   store i32 1, ptr %235, align 4, !tbaa !13
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next124, 64
@@ -1894,7 +1892,7 @@ define internal noalias noundef nonnull ptr @storage_compact_thread(ptr noundef 
 
 .preheader.i:                                     ; preds = %.loopexit, %.preheader.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.i ], [ 0, %.loopexit ]
-  %66 = getelementptr inbounds nuw %struct.__storage_buk, ptr %4, i64 %indvars.iv.i
+  %66 = getelementptr inbounds nuw [56 x i8], ptr %4, i64 %indvars.iv.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %66, i8 0, i64 56, i1 false)
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 16
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1925,11 +1923,11 @@ define internal noalias noundef nonnull ptr @storage_compact_thread(ptr noundef 
 
 .lr.ph.i:                                         ; preds = %70, %117
   %indvars.iv128.i = phi i64 [ %indvars.iv.next129.i, %117 ], [ 0, %70 ]
-  %75 = getelementptr inbounds nuw %struct.extstore_page_data, ptr %.pre136.i, i64 %indvars.iv128.i
+  %75 = getelementptr inbounds nuw [32 x i8], ptr %.pre136.i, i64 %indvars.iv128.i
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 20
   %77 = load i32, ptr %76, align 4, !tbaa !26
   %78 = zext i32 %77 to i64
-  %79 = getelementptr inbounds nuw %struct.__storage_buk, ptr %4, i64 %78
+  %79 = getelementptr inbounds nuw [56 x i8], ptr %4, i64 %78
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 40
   %81 = load i32, ptr %80, align 8, !tbaa !188
   %82 = add i32 %81, 1
@@ -2044,7 +2042,7 @@ define internal noalias noundef nonnull ptr @storage_compact_thread(ptr noundef 
 140:                                              ; preds = %166, %136
   %.sroa.0.5 = phi i8 [ %.sroa.0.4, %136 ], [ %.sroa.0.6, %166 ]
   %indvars.iv132.i = phi i64 [ 0, %136 ], [ %indvars.iv.next133.i, %166 ]
-  %141 = getelementptr inbounds nuw %struct.__storage_buk, ptr %4, i64 %indvars.iv132.i
+  %141 = getelementptr inbounds nuw [56 x i8], ptr %4, i64 %indvars.iv132.i
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 40
   %143 = load i32, ptr %142, align 8, !tbaa !188
   %144 = icmp eq i32 %143, 0
@@ -2601,7 +2599,7 @@ define dso_local noalias noundef ptr @storage_conf_parse(ptr noundef %0, i32 nou
   %20 = getelementptr i8, ptr %19, i64 -1
   %21 = load i8, ptr %20, align 1, !tbaa !4
   %22 = sext i8 %21 to i64
-  %23 = getelementptr inbounds i32, ptr %17, i64 %22
+  %23 = getelementptr inbounds [4 x i8], ptr %17, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !13
   store i8 0, ptr %20, align 1, !tbaa !4
   %sext = shl i32 %24, 24

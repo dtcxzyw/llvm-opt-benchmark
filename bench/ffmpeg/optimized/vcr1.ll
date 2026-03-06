@@ -90,7 +90,7 @@ define internal i32 @vcr1_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %.0128140 = phi ptr [ %39, %.preheader137 ], [ %8, %24 ]
   %36 = load i8, ptr %.0128140, align 1, !tbaa !33
   %37 = zext i8 %36 to i32
-  %38 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   store i32 %37, ptr %38, align 4, !tbaa !34
   %39 = getelementptr inbounds nuw i8, ptr %.0128140, i64 2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -140,7 +140,7 @@ define internal i32 @vcr1_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %66 = getelementptr inbounds nuw i8, ptr %.2146, i64 1
   %67 = load i8, ptr %.2146, align 1, !tbaa !33
   %68 = zext i8 %67 to i32
-  %69 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv165
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv165
   store i32 %68, ptr %69, align 4, !tbaa !34
   %indvars.iv.next166 = add nuw nsw i64 %indvars.iv165, 1
   %exitcond168.not = icmp eq i64 %indvars.iv.next166, 4
@@ -157,7 +157,7 @@ define internal i32 @vcr1_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %75 = load i8, ptr %74, align 1, !tbaa !33
   %76 = and i8 %75, 15
   %77 = zext nneg i8 %76 to i64
-  %78 = getelementptr inbounds nuw i32, ptr %6, i64 %77
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %77
   %79 = load i32, ptr %78, align 4, !tbaa !34
   %80 = sub nsw i32 %73, %79
   br label %.lr.ph154
@@ -173,7 +173,7 @@ define internal i32 @vcr1_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %82 = load i8, ptr %81, align 1, !tbaa !33
   %83 = and i8 %82, 15
   %84 = zext nneg i8 %83 to i64
-  %85 = getelementptr inbounds nuw i32, ptr %6, i64 %84
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %84
   %86 = load i32, ptr %85, align 4, !tbaa !34
   %87 = add nsw i32 %86, %.0120150
   %88 = trunc i32 %87 to i8
@@ -181,7 +181,7 @@ define internal i32 @vcr1_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %89 = load i8, ptr %81, align 1, !tbaa !33
   %90 = lshr i8 %89, 4
   %91 = zext nneg i8 %90 to i64
-  %92 = getelementptr inbounds nuw i32, ptr %6, i64 %91
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %91
   %93 = load i32, ptr %92, align 4, !tbaa !34
   %94 = add nsw i32 %93, %87
   %95 = trunc i32 %94 to i8
@@ -190,7 +190,7 @@ define internal i32 @vcr1_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %97 = load i8, ptr %.3148, align 1, !tbaa !33
   %98 = and i8 %97, 15
   %99 = zext nneg i8 %98 to i64
-  %100 = getelementptr inbounds nuw i32, ptr %6, i64 %99
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %99
   %101 = load i32, ptr %100, align 4, !tbaa !34
   %102 = add nsw i32 %101, %94
   %103 = trunc i32 %102 to i8
@@ -199,7 +199,7 @@ define internal i32 @vcr1_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %105 = load i8, ptr %.3148, align 1, !tbaa !33
   %106 = lshr i8 %105, 4
   %107 = zext nneg i8 %106 to i64
-  %108 = getelementptr inbounds nuw i32, ptr %6, i64 %107
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %107
   %109 = load i32, ptr %108, align 4, !tbaa !34
   %110 = add nsw i32 %109, %102
   %111 = trunc i32 %110 to i8
@@ -240,13 +240,13 @@ define internal i32 @vcr1_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
 
 .lr.ph.preheader:                                 ; preds = %131
   %133 = zext nneg i32 %46 to i64
-  %134 = getelementptr inbounds nuw i32, ptr %31, i64 %133
+  %134 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %133
   %135 = load i32, ptr %134, align 4, !tbaa !34
   %136 = getelementptr inbounds nuw i8, ptr %.1129156, i64 2
   %137 = load i8, ptr %136, align 1, !tbaa !33
   %138 = and i8 %137, 15
   %139 = zext nneg i8 %138 to i64
-  %140 = getelementptr inbounds nuw i32, ptr %6, i64 %139
+  %140 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %139
   %141 = load i32, ptr %140, align 4, !tbaa !34
   %142 = sub nsw i32 %135, %141
   br label %.lr.ph
@@ -260,7 +260,7 @@ define internal i32 @vcr1_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %144 = load i8, ptr %143, align 1, !tbaa !33
   %145 = and i8 %144, 15
   %146 = zext nneg i8 %145 to i64
-  %147 = getelementptr inbounds nuw i32, ptr %6, i64 %146
+  %147 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %146
   %148 = load i32, ptr %147, align 4, !tbaa !34
   %149 = add nsw i32 %148, %.1121144
   %150 = trunc i32 %149 to i8
@@ -268,7 +268,7 @@ define internal i32 @vcr1_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %151 = load i8, ptr %143, align 1, !tbaa !33
   %152 = lshr i8 %151, 4
   %153 = zext nneg i8 %152 to i64
-  %154 = getelementptr inbounds nuw i32, ptr %6, i64 %153
+  %154 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %153
   %155 = load i32, ptr %154, align 4, !tbaa !34
   %156 = add nsw i32 %155, %149
   %157 = trunc i32 %156 to i8
@@ -278,7 +278,7 @@ define internal i32 @vcr1_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %160 = load i8, ptr %159, align 1, !tbaa !33
   %161 = and i8 %160, 15
   %162 = zext nneg i8 %161 to i64
-  %163 = getelementptr inbounds nuw i32, ptr %6, i64 %162
+  %163 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %162
   %164 = load i32, ptr %163, align 4, !tbaa !34
   %165 = add nsw i32 %164, %156
   %166 = trunc i32 %165 to i8
@@ -287,7 +287,7 @@ define internal i32 @vcr1_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %168 = load i8, ptr %159, align 1, !tbaa !33
   %169 = lshr i8 %168, 4
   %170 = zext nneg i8 %169 to i64
-  %171 = getelementptr inbounds nuw i32, ptr %6, i64 %170
+  %171 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %170
   %172 = load i32, ptr %171, align 4, !tbaa !34
   %173 = add nsw i32 %172, %165
   %174 = trunc i32 %173 to i8
@@ -296,7 +296,7 @@ define internal i32 @vcr1_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %176 = load i8, ptr %.5142, align 1, !tbaa !33
   %177 = and i8 %176, 15
   %178 = zext nneg i8 %177 to i64
-  %179 = getelementptr inbounds nuw i32, ptr %6, i64 %178
+  %179 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %178
   %180 = load i32, ptr %179, align 4, !tbaa !34
   %181 = add nsw i32 %180, %173
   %182 = trunc i32 %181 to i8
@@ -305,7 +305,7 @@ define internal i32 @vcr1_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %184 = load i8, ptr %.5142, align 1, !tbaa !33
   %185 = lshr i8 %184, 4
   %186 = zext nneg i8 %185 to i64
-  %187 = getelementptr inbounds nuw i32, ptr %6, i64 %186
+  %187 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %186
   %188 = load i32, ptr %187, align 4, !tbaa !34
   %189 = add nsw i32 %188, %181
   %190 = trunc i32 %189 to i8
@@ -315,7 +315,7 @@ define internal i32 @vcr1_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %193 = load i8, ptr %192, align 1, !tbaa !33
   %194 = and i8 %193, 15
   %195 = zext nneg i8 %194 to i64
-  %196 = getelementptr inbounds nuw i32, ptr %6, i64 %195
+  %196 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %195
   %197 = load i32, ptr %196, align 4, !tbaa !34
   %198 = add nsw i32 %197, %189
   %199 = trunc i32 %198 to i8
@@ -324,7 +324,7 @@ define internal i32 @vcr1_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %201 = load i8, ptr %192, align 1, !tbaa !33
   %202 = lshr i8 %201, 4
   %203 = zext nneg i8 %202 to i64
-  %204 = getelementptr inbounds nuw i32, ptr %6, i64 %203
+  %204 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %203
   %205 = load i32, ptr %204, align 4, !tbaa !34
   %206 = add nsw i32 %205, %198
   %207 = trunc i32 %206 to i8

@@ -55,7 +55,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.anon.79 = type { ptr, ptr }
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
 %"class.dmlc::DateLogger" = type { [9 x i8] }
-%"class.xgboost::detail::GradientPairInternal" = type { float, float }
 %"class.std::__exception_ptr::exception_ptr" = type { ptr }
 %"class.dmlc::OMPException" = type { %"class.std::__exception_ptr::exception_ptr", %"class.std::mutex" }
 %"class.std::mutex" = type { %"class.std::__mutex_base" }
@@ -444,7 +443,7 @@ _ZNSt6vectorIPKN7xgboost14ObjFunctionRegESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.ex
 _ZNSt6vectorIPKN7xgboost14ObjFunctionRegESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %74, %_ZNSt6vectorIPKN7xgboost14ObjFunctionRegESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
   store ptr %69, ptr %50, align 8, !tbaa !29
   store ptr %73, ptr %51, align 8, !tbaa !24
-  %75 = getelementptr inbounds nuw ptr, ptr %69, i64 %67
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %67
   store ptr %75, ptr %53, align 8, !tbaa !28
   br label %_ZNSt6vectorIPKN7xgboost14ObjFunctionRegESaIS3_EE9push_backERKS3_.exit
 
@@ -512,7 +511,7 @@ _ZNSt6vectorIPN7xgboost14ObjFunctionRegESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exi
 _ZNSt6vectorIPN7xgboost14ObjFunctionRegESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %99, %_ZNSt6vectorIPN7xgboost14ObjFunctionRegESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %94, ptr %0, align 8, !tbaa !33
   store ptr %98, ptr %76, align 8, !tbaa !30
-  %100 = getelementptr inbounds nuw ptr, ptr %94, i64 %92
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %92
   store ptr %100, ptr %78, align 8, !tbaa !32
   br label %_ZNSt6vectorIPN7xgboost14ObjFunctionRegESaIS2_EE9push_backERKS2_.exit
 
@@ -2614,9 +2613,9 @@ _ZN7xgboost6common16AssertGPUSupportEv.exit:      ; preds = %_ZN4dmlc15LogMessag
 
 _ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm2EEELb1EEdeEv.exit.i.i.i: ; preds = %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm2EEELb1EEdeEv.exit.i.i.i, %23
   %.sroa.6.021.i.i.i = phi i64 [ %32, %_ZNK7xgboost6common6detail12SpanIteratorINS0_4SpanIKmLm2EEELb1EEdeEv.exit.i.i.i ], [ 0, %23 ]
-  %28 = getelementptr inbounds nuw i64, ptr %8, i64 %.sroa.6.021.i.i.i
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.sroa.6.021.i.i.i
   %29 = load i64, ptr %28, align 8, !tbaa !44
-  %30 = getelementptr inbounds nuw i64, ptr %4, i64 %.sroa.6.021.i.i.i
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.sroa.6.021.i.i.i
   %31 = load i64, ptr %30, align 8, !tbaa !44
   %.not4.i.i.i = icmp eq i64 %29, %31
   %32 = add nuw nsw i64 %.sroa.6.021.i.i.i, 1
@@ -3022,7 +3021,7 @@ _ZNSt6vectorIPvSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; preds = %3
           to label %.noexc27 unwind label %22
 
 .noexc27:                                         ; preds = %8
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %2
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %2
   store ptr null, ptr %10, align 8, !tbaa !51
   %12 = add nsw i64 %2, -1
   %13 = icmp eq i64 %12, 0
@@ -3078,7 +3077,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %20, %17
 32:                                               ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %indvars.iv = phi i64 [ %31, %.lr.ph ], [ %indvars.iv.next, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %33 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv
+  %33 = getelementptr inbounds [8 x i8], ptr %26, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8, !tbaa !160
   invoke void @_ZN4dmlc8DemangleB5cxx11EPKc(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef %34)
           to label %35 unwind label %48
@@ -4132,7 +4131,7 @@ define linkonce_odr void @_ZN7xgboost6common11ParallelForImZNS_6linalg21ElementW
 _ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i: ; preds = %21
   %24 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !189
-  %26 = getelementptr inbounds nuw float, ptr %25, i64 %.0153
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %.0153
   br label %_ZZN7xgboost3obj8HingeObj11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEENUlmmE_clEmm.exit.i
 
 _ZZN7xgboost3obj8HingeObj11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEENUlmmE_clEmm.exit.i: ; preds = %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i, %19
@@ -4146,8 +4145,8 @@ _ZZN7xgboost3obj8HingeObj11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfo
   %33 = mul i64 %32, %.04.i
   %34 = getelementptr inbounds nuw i8, ptr %16, i64 72
   %35 = load ptr, ptr %34, align 8, !tbaa !83
-  %36 = getelementptr float, ptr %35, i64 %30
-  %37 = getelementptr float, ptr %36, i64 %33
+  %36 = getelementptr [4 x i8], ptr %35, i64 %30
+  %37 = getelementptr [4 x i8], ptr %36, i64 %33
   %38 = load float, ptr %37, align 4, !tbaa !90
   %39 = getelementptr inbounds nuw i8, ptr %16, i64 96
   %40 = load i64, ptr %39, align 8, !tbaa !44
@@ -4157,8 +4156,8 @@ _ZZN7xgboost3obj8HingeObj11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfo
   %44 = mul i64 %43, %.04.i
   %45 = getelementptr inbounds nuw i8, ptr %16, i64 144
   %46 = load ptr, ptr %45, align 8, !tbaa !83
-  %47 = getelementptr float, ptr %46, i64 %41
-  %48 = getelementptr float, ptr %47, i64 %44
+  %47 = getelementptr [4 x i8], ptr %46, i64 %41
+  %48 = getelementptr [4 x i8], ptr %47, i64 %44
   %49 = load float, ptr %48, align 4, !tbaa !90
   %50 = fpext float %49 to double
   %51 = tail call double @llvm.fmuladd.f64(double %50, double 2.000000e+00, double -1.000000e+00)
@@ -4177,8 +4176,8 @@ _ZZN7xgboost3obj8HingeObj11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfo
   %64 = mul i64 %63, %.04.i
   %65 = getelementptr inbounds nuw i8, ptr %16, i64 216
   %66 = load ptr, ptr %65, align 8, !tbaa !120
-  %67 = getelementptr %"class.xgboost::detail::GradientPairInternal", ptr %66, i64 %61
-  %68 = getelementptr %"class.xgboost::detail::GradientPairInternal", ptr %67, i64 %64
+  %67 = getelementptr [8 x i8], ptr %66, i64 %61
+  %68 = getelementptr [8 x i8], ptr %67, i64 %64
   %69 = bitcast float %58 to i32
   %70 = select i1 %54, i32 %69, i32 0
   %71 = bitcast float %27 to i32
@@ -4359,7 +4358,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14defaul
 
 _ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.i: ; preds = %122
   %125 = load ptr, ptr %109, align 8, !tbaa !189
-  %126 = getelementptr inbounds nuw float, ptr %125, i64 %.057151
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %125, i64 %.057151
   br label %_ZZN7xgboost3obj8HingeObj11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEENUlmmE_clEmm.exit.i.i
 
 _ZZN7xgboost3obj8HingeObj11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEENUlmmE_clEmm.exit.i.i: ; preds = %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.i, %.lr.ph.i.i
@@ -4370,16 +4369,16 @@ _ZZN7xgboost3obj8HingeObj11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfo
   %130 = load i64, ptr %112, align 8, !tbaa !44
   %131 = mul i64 %130, %.04.i.i
   %132 = load ptr, ptr %113, align 8, !tbaa !83
-  %133 = getelementptr float, ptr %132, i64 %129
-  %134 = getelementptr float, ptr %133, i64 %131
+  %133 = getelementptr [4 x i8], ptr %132, i64 %129
+  %134 = getelementptr [4 x i8], ptr %133, i64 %131
   %135 = load float, ptr %134, align 4, !tbaa !90
   %136 = load i64, ptr %114, align 8, !tbaa !44
   %137 = mul i64 %136, %.057151
   %138 = load i64, ptr %115, align 8, !tbaa !44
   %139 = mul i64 %138, %.04.i.i
   %140 = load ptr, ptr %116, align 8, !tbaa !83
-  %141 = getelementptr float, ptr %140, i64 %137
-  %142 = getelementptr float, ptr %141, i64 %139
+  %141 = getelementptr [4 x i8], ptr %140, i64 %137
+  %142 = getelementptr [4 x i8], ptr %141, i64 %139
   %143 = load float, ptr %142, align 4, !tbaa !90
   %144 = fpext float %143 to double
   %145 = call double @llvm.fmuladd.f64(double %144, double 2.000000e+00, double -1.000000e+00)
@@ -4395,8 +4394,8 @@ _ZZN7xgboost3obj8HingeObj11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfo
   %155 = load i64, ptr %118, align 8, !tbaa !44
   %156 = mul i64 %155, %.04.i.i
   %157 = load ptr, ptr %119, align 8, !tbaa !120
-  %158 = getelementptr %"class.xgboost::detail::GradientPairInternal", ptr %157, i64 %154
-  %159 = getelementptr %"class.xgboost::detail::GradientPairInternal", ptr %158, i64 %156
+  %158 = getelementptr [8 x i8], ptr %157, i64 %154
+  %159 = getelementptr [8 x i8], ptr %158, i64 %156
   %160 = bitcast float %152 to i32
   %161 = select i1 %148, i32 %160, i32 0
   %162 = bitcast float %127 to i32
@@ -4477,7 +4476,7 @@ _ZN4dmlc12OMPException3RunIZN7xgboost6linalg21ElementWiseKernelHostIKfLi2ERZNS2_
 
 _ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.i81: ; preds = %190
   %193 = load ptr, ptr %177, align 8, !tbaa !189
-  %194 = getelementptr inbounds nuw float, ptr %193, i64 %.059149
+  %194 = getelementptr inbounds nuw [4 x i8], ptr %193, i64 %.059149
   br label %_ZZN7xgboost3obj8HingeObj11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEENUlmmE_clEmm.exit.i.i82
 
 _ZZN7xgboost3obj8HingeObj11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEENUlmmE_clEmm.exit.i.i82: ; preds = %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.i81, %.lr.ph.i.i79
@@ -4488,16 +4487,16 @@ _ZZN7xgboost3obj8HingeObj11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfo
   %198 = load i64, ptr %180, align 8, !tbaa !44
   %199 = mul i64 %198, %.04.i.i80
   %200 = load ptr, ptr %181, align 8, !tbaa !83
-  %201 = getelementptr float, ptr %200, i64 %197
-  %202 = getelementptr float, ptr %201, i64 %199
+  %201 = getelementptr [4 x i8], ptr %200, i64 %197
+  %202 = getelementptr [4 x i8], ptr %201, i64 %199
   %203 = load float, ptr %202, align 4, !tbaa !90
   %204 = load i64, ptr %182, align 8, !tbaa !44
   %205 = mul i64 %204, %.059149
   %206 = load i64, ptr %183, align 8, !tbaa !44
   %207 = mul i64 %206, %.04.i.i80
   %208 = load ptr, ptr %184, align 8, !tbaa !83
-  %209 = getelementptr float, ptr %208, i64 %205
-  %210 = getelementptr float, ptr %209, i64 %207
+  %209 = getelementptr [4 x i8], ptr %208, i64 %205
+  %210 = getelementptr [4 x i8], ptr %209, i64 %207
   %211 = load float, ptr %210, align 4, !tbaa !90
   %212 = fpext float %211 to double
   %213 = call double @llvm.fmuladd.f64(double %212, double 2.000000e+00, double -1.000000e+00)
@@ -4513,8 +4512,8 @@ _ZZN7xgboost3obj8HingeObj11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfo
   %223 = load i64, ptr %186, align 8, !tbaa !44
   %224 = mul i64 %223, %.04.i.i80
   %225 = load ptr, ptr %187, align 8, !tbaa !120
-  %226 = getelementptr %"class.xgboost::detail::GradientPairInternal", ptr %225, i64 %222
-  %227 = getelementptr %"class.xgboost::detail::GradientPairInternal", ptr %226, i64 %224
+  %226 = getelementptr [8 x i8], ptr %225, i64 %222
+  %227 = getelementptr [8 x i8], ptr %226, i64 %224
   %228 = bitcast float %220 to i32
   %229 = select i1 %216, i32 %228, i32 0
   %230 = bitcast float %195 to i32
@@ -4570,7 +4569,7 @@ _ZN4dmlc12OMPException3RunIZN7xgboost6linalg21ElementWiseKernelHostIKfLi2ERZNS2_
 
 _ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.i90: ; preds = %250
   %253 = load ptr, ptr %237, align 8, !tbaa !189
-  %254 = getelementptr inbounds nuw float, ptr %253, i64 %.060147
+  %254 = getelementptr inbounds nuw [4 x i8], ptr %253, i64 %.060147
   br label %_ZZN7xgboost3obj8HingeObj11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEENUlmmE_clEmm.exit.i.i91
 
 _ZZN7xgboost3obj8HingeObj11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEENUlmmE_clEmm.exit.i.i91: ; preds = %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.i90, %.lr.ph.i.i88
@@ -4581,16 +4580,16 @@ _ZZN7xgboost3obj8HingeObj11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfo
   %258 = load i64, ptr %240, align 8, !tbaa !44
   %259 = mul i64 %258, %.04.i.i89
   %260 = load ptr, ptr %241, align 8, !tbaa !83
-  %261 = getelementptr float, ptr %260, i64 %257
-  %262 = getelementptr float, ptr %261, i64 %259
+  %261 = getelementptr [4 x i8], ptr %260, i64 %257
+  %262 = getelementptr [4 x i8], ptr %261, i64 %259
   %263 = load float, ptr %262, align 4, !tbaa !90
   %264 = load i64, ptr %242, align 8, !tbaa !44
   %265 = mul i64 %264, %.060147
   %266 = load i64, ptr %243, align 8, !tbaa !44
   %267 = mul i64 %266, %.04.i.i89
   %268 = load ptr, ptr %244, align 8, !tbaa !83
-  %269 = getelementptr float, ptr %268, i64 %265
-  %270 = getelementptr float, ptr %269, i64 %267
+  %269 = getelementptr [4 x i8], ptr %268, i64 %265
+  %270 = getelementptr [4 x i8], ptr %269, i64 %267
   %271 = load float, ptr %270, align 4, !tbaa !90
   %272 = fpext float %271 to double
   %273 = call double @llvm.fmuladd.f64(double %272, double 2.000000e+00, double -1.000000e+00)
@@ -4606,8 +4605,8 @@ _ZZN7xgboost3obj8HingeObj11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfo
   %283 = load i64, ptr %246, align 8, !tbaa !44
   %284 = mul i64 %283, %.04.i.i89
   %285 = load ptr, ptr %247, align 8, !tbaa !120
-  %286 = getelementptr %"class.xgboost::detail::GradientPairInternal", ptr %285, i64 %282
-  %287 = getelementptr %"class.xgboost::detail::GradientPairInternal", ptr %286, i64 %284
+  %286 = getelementptr [8 x i8], ptr %285, i64 %282
+  %287 = getelementptr [8 x i8], ptr %286, i64 %284
   %288 = bitcast float %280 to i32
   %289 = select i1 %276, i32 %288, i32 0
   %290 = bitcast float %255 to i32
@@ -4688,7 +4687,7 @@ _ZN4dmlc12OMPException3RunIZN7xgboost6linalg21ElementWiseKernelHostIKfLi2ERZNS2_
 
 _ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.i99: ; preds = %318
   %321 = load ptr, ptr %305, align 8, !tbaa !189
-  %322 = getelementptr inbounds nuw float, ptr %321, i64 %.061145
+  %322 = getelementptr inbounds nuw [4 x i8], ptr %321, i64 %.061145
   br label %_ZZN7xgboost3obj8HingeObj11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEENUlmmE_clEmm.exit.i.i100
 
 _ZZN7xgboost3obj8HingeObj11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEENUlmmE_clEmm.exit.i.i100: ; preds = %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.i99, %.lr.ph.i.i97
@@ -4699,16 +4698,16 @@ _ZZN7xgboost3obj8HingeObj11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfo
   %326 = load i64, ptr %308, align 8, !tbaa !44
   %327 = mul i64 %326, %.04.i.i98
   %328 = load ptr, ptr %309, align 8, !tbaa !83
-  %329 = getelementptr float, ptr %328, i64 %325
-  %330 = getelementptr float, ptr %329, i64 %327
+  %329 = getelementptr [4 x i8], ptr %328, i64 %325
+  %330 = getelementptr [4 x i8], ptr %329, i64 %327
   %331 = load float, ptr %330, align 4, !tbaa !90
   %332 = load i64, ptr %310, align 8, !tbaa !44
   %333 = mul i64 %332, %.061145
   %334 = load i64, ptr %311, align 8, !tbaa !44
   %335 = mul i64 %334, %.04.i.i98
   %336 = load ptr, ptr %312, align 8, !tbaa !83
-  %337 = getelementptr float, ptr %336, i64 %333
-  %338 = getelementptr float, ptr %337, i64 %335
+  %337 = getelementptr [4 x i8], ptr %336, i64 %333
+  %338 = getelementptr [4 x i8], ptr %337, i64 %335
   %339 = load float, ptr %338, align 4, !tbaa !90
   %340 = fpext float %339 to double
   %341 = call double @llvm.fmuladd.f64(double %340, double 2.000000e+00, double -1.000000e+00)
@@ -4724,8 +4723,8 @@ _ZZN7xgboost3obj8HingeObj11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfo
   %351 = load i64, ptr %314, align 8, !tbaa !44
   %352 = mul i64 %351, %.04.i.i98
   %353 = load ptr, ptr %315, align 8, !tbaa !120
-  %354 = getelementptr %"class.xgboost::detail::GradientPairInternal", ptr %353, i64 %350
-  %355 = getelementptr %"class.xgboost::detail::GradientPairInternal", ptr %354, i64 %352
+  %354 = getelementptr [8 x i8], ptr %353, i64 %350
+  %355 = getelementptr [8 x i8], ptr %354, i64 %352
   %356 = bitcast float %348 to i32
   %357 = select i1 %344, i32 %356, i32 0
   %358 = bitcast float %323 to i32
@@ -4781,7 +4780,7 @@ _ZN4dmlc12OMPException3RunIZN7xgboost6linalg21ElementWiseKernelHostIKfLi2ERZNS2_
 
 _ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.i108: ; preds = %378
   %381 = load ptr, ptr %365, align 8, !tbaa !189
-  %382 = getelementptr inbounds nuw float, ptr %381, i64 %.058143
+  %382 = getelementptr inbounds nuw [4 x i8], ptr %381, i64 %.058143
   br label %_ZZN7xgboost3obj8HingeObj11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEENUlmmE_clEmm.exit.i.i109
 
 _ZZN7xgboost3obj8HingeObj11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEENUlmmE_clEmm.exit.i.i109: ; preds = %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.i108, %.lr.ph.i.i106
@@ -4792,16 +4791,16 @@ _ZZN7xgboost3obj8HingeObj11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfo
   %386 = load i64, ptr %368, align 8, !tbaa !44
   %387 = mul i64 %386, %.04.i.i107
   %388 = load ptr, ptr %369, align 8, !tbaa !83
-  %389 = getelementptr float, ptr %388, i64 %385
-  %390 = getelementptr float, ptr %389, i64 %387
+  %389 = getelementptr [4 x i8], ptr %388, i64 %385
+  %390 = getelementptr [4 x i8], ptr %389, i64 %387
   %391 = load float, ptr %390, align 4, !tbaa !90
   %392 = load i64, ptr %370, align 8, !tbaa !44
   %393 = mul i64 %392, %.058143
   %394 = load i64, ptr %371, align 8, !tbaa !44
   %395 = mul i64 %394, %.04.i.i107
   %396 = load ptr, ptr %372, align 8, !tbaa !83
-  %397 = getelementptr float, ptr %396, i64 %393
-  %398 = getelementptr float, ptr %397, i64 %395
+  %397 = getelementptr [4 x i8], ptr %396, i64 %393
+  %398 = getelementptr [4 x i8], ptr %397, i64 %395
   %399 = load float, ptr %398, align 4, !tbaa !90
   %400 = fpext float %399 to double
   %401 = call double @llvm.fmuladd.f64(double %400, double 2.000000e+00, double -1.000000e+00)
@@ -4817,8 +4816,8 @@ _ZZN7xgboost3obj8HingeObj11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfo
   %411 = load i64, ptr %374, align 8, !tbaa !44
   %412 = mul i64 %411, %.04.i.i107
   %413 = load ptr, ptr %375, align 8, !tbaa !120
-  %414 = getelementptr %"class.xgboost::detail::GradientPairInternal", ptr %413, i64 %410
-  %415 = getelementptr %"class.xgboost::detail::GradientPairInternal", ptr %414, i64 %412
+  %414 = getelementptr [8 x i8], ptr %413, i64 %410
+  %415 = getelementptr [8 x i8], ptr %414, i64 %412
   %416 = bitcast float %408 to i32
   %417 = select i1 %404, i32 %416, i32 0
   %418 = bitcast float %383 to i32
@@ -4874,7 +4873,7 @@ _ZN4dmlc12OMPException3RunIZN7xgboost6linalg21ElementWiseKernelHostIKfLi2ERZNS2_
 
 _ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.i117: ; preds = %438
   %441 = load ptr, ptr %425, align 8, !tbaa !189
-  %442 = getelementptr inbounds nuw float, ptr %441, i64 %.053142
+  %442 = getelementptr inbounds nuw [4 x i8], ptr %441, i64 %.053142
   br label %_ZZN7xgboost3obj8HingeObj11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEENUlmmE_clEmm.exit.i.i118
 
 _ZZN7xgboost3obj8HingeObj11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS_6linalg6TensorINS_6detail20GradientPairInternalIfEELi2EEEENUlmmE_clEmm.exit.i.i118: ; preds = %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.i117, %.lr.ph.i.i115
@@ -4885,16 +4884,16 @@ _ZZN7xgboost3obj8HingeObj11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfo
   %446 = load i64, ptr %428, align 8, !tbaa !44
   %447 = mul i64 %446, %.04.i.i116
   %448 = load ptr, ptr %429, align 8, !tbaa !83
-  %449 = getelementptr float, ptr %448, i64 %445
-  %450 = getelementptr float, ptr %449, i64 %447
+  %449 = getelementptr [4 x i8], ptr %448, i64 %445
+  %450 = getelementptr [4 x i8], ptr %449, i64 %447
   %451 = load float, ptr %450, align 4, !tbaa !90
   %452 = load i64, ptr %430, align 8, !tbaa !44
   %453 = mul i64 %452, %.053142
   %454 = load i64, ptr %431, align 8, !tbaa !44
   %455 = mul i64 %454, %.04.i.i116
   %456 = load ptr, ptr %432, align 8, !tbaa !83
-  %457 = getelementptr float, ptr %456, i64 %453
-  %458 = getelementptr float, ptr %457, i64 %455
+  %457 = getelementptr [4 x i8], ptr %456, i64 %453
+  %458 = getelementptr [4 x i8], ptr %457, i64 %455
   %459 = load float, ptr %458, align 4, !tbaa !90
   %460 = fpext float %459 to double
   %461 = call double @llvm.fmuladd.f64(double %460, double 2.000000e+00, double -1.000000e+00)
@@ -4910,8 +4909,8 @@ _ZZN7xgboost3obj8HingeObj11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfo
   %471 = load i64, ptr %434, align 8, !tbaa !44
   %472 = mul i64 %471, %.04.i.i116
   %473 = load ptr, ptr %435, align 8, !tbaa !120
-  %474 = getelementptr %"class.xgboost::detail::GradientPairInternal", ptr %473, i64 %470
-  %475 = getelementptr %"class.xgboost::detail::GradientPairInternal", ptr %474, i64 %472
+  %474 = getelementptr [8 x i8], ptr %473, i64 %470
+  %475 = getelementptr [8 x i8], ptr %474, i64 %472
   %476 = bitcast float %468 to i32
   %477 = select i1 %464, i32 %476, i32 0
   %478 = bitcast float %443 to i32
@@ -5186,7 +5185,7 @@ _ZN7xgboost6linalg12UnravelIndexILm2EEEDamNS_6common4SpanIKmXT_EEE.exit.i: ; pre
 _ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.i.i.i.i: ; preds = %45
   %48 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %49 = load ptr, ptr %48, align 8, !tbaa !189
-  %50 = getelementptr inbounds nuw float, ptr %49, i64 %.sink.i.i
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %.sink.i.i
   br label %_ZZN7xgboost6linalg21ElementWiseKernelHostIKfLi2ERZNS_3obj8HingeObj11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS0_6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlmmE_EEvNS0_10TensorViewIT_XT0_EEEiOT1_ENKUlmE0_clEm.exit
 
 _ZZN7xgboost6linalg21ElementWiseKernelHostIKfLi2ERZNS_3obj8HingeObj11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS0_6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlmmE_EEvNS0_10TensorViewIT_XT0_EEEiOT1_ENKUlmE0_clEm.exit: ; preds = %43, %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.i.i.i.i
@@ -5200,8 +5199,8 @@ _ZZN7xgboost6linalg21ElementWiseKernelHostIKfLi2ERZNS_3obj8HingeObj11GetGradient
   %57 = mul i64 %56, %.sroa.5.1.le.i.sink.i.i
   %58 = getelementptr inbounds nuw i8, ptr %40, i64 72
   %59 = load ptr, ptr %58, align 8, !tbaa !83
-  %60 = getelementptr float, ptr %59, i64 %54
-  %61 = getelementptr float, ptr %60, i64 %57
+  %60 = getelementptr [4 x i8], ptr %59, i64 %54
+  %61 = getelementptr [4 x i8], ptr %60, i64 %57
   %62 = load float, ptr %61, align 4, !tbaa !90
   %63 = getelementptr inbounds nuw i8, ptr %40, i64 96
   %64 = load i64, ptr %63, align 8, !tbaa !44
@@ -5211,8 +5210,8 @@ _ZZN7xgboost6linalg21ElementWiseKernelHostIKfLi2ERZNS_3obj8HingeObj11GetGradient
   %68 = mul i64 %67, %.sroa.5.1.le.i.sink.i.i
   %69 = getelementptr inbounds nuw i8, ptr %40, i64 144
   %70 = load ptr, ptr %69, align 8, !tbaa !83
-  %71 = getelementptr float, ptr %70, i64 %65
-  %72 = getelementptr float, ptr %71, i64 %68
+  %71 = getelementptr [4 x i8], ptr %70, i64 %65
+  %72 = getelementptr [4 x i8], ptr %71, i64 %68
   %73 = load float, ptr %72, align 4, !tbaa !90
   %74 = fpext float %73 to double
   %75 = tail call double @llvm.fmuladd.f64(double %74, double 2.000000e+00, double -1.000000e+00)
@@ -5231,8 +5230,8 @@ _ZZN7xgboost6linalg21ElementWiseKernelHostIKfLi2ERZNS_3obj8HingeObj11GetGradient
   %88 = mul i64 %87, %.sroa.5.1.le.i.sink.i.i
   %89 = getelementptr inbounds nuw i8, ptr %40, i64 216
   %90 = load ptr, ptr %89, align 8, !tbaa !120
-  %91 = getelementptr %"class.xgboost::detail::GradientPairInternal", ptr %90, i64 %85
-  %92 = getelementptr %"class.xgboost::detail::GradientPairInternal", ptr %91, i64 %88
+  %91 = getelementptr [8 x i8], ptr %90, i64 %85
+  %92 = getelementptr [8 x i8], ptr %91, i64 %88
   %93 = bitcast float %82 to i32
   %94 = select i1 %78, i32 %93, i32 0
   %95 = bitcast float %51 to i32
@@ -5654,7 +5653,7 @@ _ZN7xgboost6linalg12UnravelIndexILm2EEEDamNS_6common4SpanIKmXT_EEE.exit.i: ; pre
 _ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.i.i.i.i: ; preds = %33
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !189
-  %38 = getelementptr inbounds nuw float, ptr %37, i64 %.sink.i.i
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %.sink.i.i
   br label %_ZZN7xgboost6linalg21ElementWiseKernelHostIKfLi2ERZNS_3obj8HingeObj11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS0_6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlmmE_EEvNS0_10TensorViewIT_XT0_EEEiOT1_ENKUlmE0_clEm.exit
 
 _ZZN7xgboost6linalg21ElementWiseKernelHostIKfLi2ERZNS_3obj8HingeObj11GetGradientERKNS_16HostDeviceVectorIfEERKNS_8MetaInfoEiPNS0_6TensorINS_6detail20GradientPairInternalIfEELi2EEEEUlmmE_EEvNS0_10TensorViewIT_XT0_EEEiOT1_ENKUlmE0_clEm.exit: ; preds = %31, %_ZNK7xgboost6common4SpanIKfLm18446744073709551615EEixEm.exit.i.i.i.i.i.i.i
@@ -5668,8 +5667,8 @@ _ZZN7xgboost6linalg21ElementWiseKernelHostIKfLi2ERZNS_3obj8HingeObj11GetGradient
   %45 = mul i64 %44, %.sroa.5.1.le.i.sink.i.i
   %46 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %47 = load ptr, ptr %46, align 8, !tbaa !83
-  %48 = getelementptr float, ptr %47, i64 %42
-  %49 = getelementptr float, ptr %48, i64 %45
+  %48 = getelementptr [4 x i8], ptr %47, i64 %42
+  %49 = getelementptr [4 x i8], ptr %48, i64 %45
   %50 = load float, ptr %49, align 4, !tbaa !90
   %51 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %52 = load i64, ptr %51, align 8, !tbaa !44
@@ -5679,8 +5678,8 @@ _ZZN7xgboost6linalg21ElementWiseKernelHostIKfLi2ERZNS_3obj8HingeObj11GetGradient
   %56 = mul i64 %55, %.sroa.5.1.le.i.sink.i.i
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %58 = load ptr, ptr %57, align 8, !tbaa !83
-  %59 = getelementptr float, ptr %58, i64 %53
-  %60 = getelementptr float, ptr %59, i64 %56
+  %59 = getelementptr [4 x i8], ptr %58, i64 %53
+  %60 = getelementptr [4 x i8], ptr %59, i64 %56
   %61 = load float, ptr %60, align 4, !tbaa !90
   %62 = fpext float %61 to double
   %63 = tail call double @llvm.fmuladd.f64(double %62, double 2.000000e+00, double -1.000000e+00)
@@ -5699,8 +5698,8 @@ _ZZN7xgboost6linalg21ElementWiseKernelHostIKfLi2ERZNS_3obj8HingeObj11GetGradient
   %76 = mul i64 %75, %.sroa.5.1.le.i.sink.i.i
   %77 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %78 = load ptr, ptr %77, align 8, !tbaa !120
-  %79 = getelementptr %"class.xgboost::detail::GradientPairInternal", ptr %78, i64 %73
-  %80 = getelementptr %"class.xgboost::detail::GradientPairInternal", ptr %79, i64 %76
+  %79 = getelementptr [8 x i8], ptr %78, i64 %73
+  %80 = getelementptr [8 x i8], ptr %79, i64 %76
   %81 = bitcast float %70 to i32
   %82 = select i1 %66, i32 %81, i32 0
   %83 = bitcast float %39 to i32
@@ -5871,7 +5870,7 @@ _ZNK7xgboost6common9TransformILb0EE9EvaluatorIZNKS_3obj8HingeObj13PredTransformE
   unreachable
 
 _ZZNK7xgboost6common9TransformILb0EE9EvaluatorIZNKS_3obj8HingeObj13PredTransformEPNS_16HostDeviceVectorIfEEEUlmNS0_4SpanIfLm18446744073709551615EEEE_E9LaunchCPUIJS7_EEEvSB_DpPT_ENKUlmE_clEm.exit: ; preds = %_ZNK7xgboost6common9TransformILb0EE9EvaluatorIZNKS_3obj8HingeObj13PredTransformEPNS_16HostDeviceVectorIfEEEUlmNS0_4SpanIfLm18446744073709551615EEEE_E9UnpackHDVIfEENS9_IT_Lm18446744073709551615EEEPNS6_ISE_EE.exit.i
-  %26 = getelementptr inbounds nuw float, ptr %18, i64 %.04994
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %.04994
   %27 = load float, ptr %26, align 4, !tbaa !90
   %28 = fcmp ogt float %27, 0.000000e+00
   %29 = select i1 %28, float 1.000000e+00, float 0.000000e+00
@@ -6214,7 +6213,7 @@ _ZNK7xgboost6common9TransformILb0EE9EvaluatorIZNKS_3obj8HingeObj13PredTransformE
   unreachable
 
 _ZZNK7xgboost6common9TransformILb0EE9EvaluatorIZNKS_3obj8HingeObj13PredTransformEPNS_16HostDeviceVectorIfEEEUlmNS0_4SpanIfLm18446744073709551615EEEE_E9LaunchCPUIJS7_EEEvSB_DpPT_ENKUlmE_clEm.exit: ; preds = %_ZNK7xgboost6common9TransformILb0EE9EvaluatorIZNKS_3obj8HingeObj13PredTransformEPNS_16HostDeviceVectorIfEEEUlmNS0_4SpanIfLm18446744073709551615EEEE_E9UnpackHDVIfEENS9_IT_Lm18446744073709551615EEEPNS6_ISE_EE.exit.i
-  %20 = getelementptr inbounds nuw float, ptr %12, i64 %2
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %2
   %21 = load float, ptr %20, align 4, !tbaa !90
   %22 = fcmp ogt float %21, 0.000000e+00
   %23 = select i1 %22, float 1.000000e+00, float 0.000000e+00

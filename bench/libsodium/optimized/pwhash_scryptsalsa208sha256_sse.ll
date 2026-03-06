@@ -140,7 +140,7 @@ define hidden range(i32 -1, 1) i32 @_sodium_escrypt_kdf_sse(ptr noundef %0, ptr 
 .preheader82.i:                                   ; preds = %94, %80
   %.07485.i = phi i64 [ 0, %80 ], [ %95, %94 ]
   %83 = shl nuw nsw i64 %.07485.i, 4
-  %84 = getelementptr i32, ptr %68, i64 %83
+  %84 = getelementptr [4 x i8], ptr %68, i64 %83
   br label %85
 
 .preheader81.i:                                   ; preds = %94
@@ -154,7 +154,7 @@ define hidden range(i32 -1, 1) i32 @_sodium_escrypt_kdf_sse(ptr noundef %0, ptr 
   %89 = shl nuw nsw i64 %88, 2
   %90 = getelementptr i8, ptr %82, i64 %89
   %91 = load i32, ptr %90, align 1
-  %92 = getelementptr i32, ptr %84, i64 %.07684.i
+  %92 = getelementptr [4 x i8], ptr %84, i64 %.07684.i
   store i32 %91, ptr %92, align 4
   %93 = add nuw nsw i64 %.07684.i, 1
   %exitcond.not.i = icmp eq i64 %93, 16
@@ -223,7 +223,7 @@ define hidden range(i32 -1, 1) i32 @_sodium_escrypt_kdf_sse(ptr noundef %0, ptr 
 .preheader.i:                                     ; preds = %115, %140
   %.193.i = phi i64 [ %141, %140 ], [ 0, %115 ]
   %129 = shl nuw nsw i64 %.193.i, 4
-  %130 = getelementptr i32, ptr %69, i64 %129
+  %130 = getelementptr [4 x i8], ptr %69, i64 %129
   br label %131
 
 131:                                              ; preds = %131, %.preheader.i
@@ -233,7 +233,7 @@ define hidden range(i32 -1, 1) i32 @_sodium_escrypt_kdf_sse(ptr noundef %0, ptr 
   %134 = or disjoint i64 %133, %129
   %135 = shl nuw nsw i64 %134, 2
   %136 = getelementptr i8, ptr %82, i64 %135
-  %137 = getelementptr i32, ptr %130, i64 %.392.i
+  %137 = getelementptr [4 x i8], ptr %130, i64 %.392.i
   %138 = load i32, ptr %137, align 4
   store i32 %138, ptr %136, align 1
   %139 = add nuw nsw i64 %.392.i, 1
@@ -1077,9 +1077,9 @@ define internal fastcc void @blockmix_salsa8(ptr noundef readonly captures(none)
 define internal fastcc i32 @blockmix_salsa8_xor(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 64)) %2, i64 noundef range(i64 1, 4294967296) %3) unnamed_addr #3 {
   %5 = shl nuw nsw i64 %3, 3
   %6 = add nsw i64 %5, -4
-  %7 = getelementptr <2 x i64>, ptr %0, i64 %6
+  %7 = getelementptr [16 x i8], ptr %0, i64 %6
   %8 = load <2 x i64>, ptr %7, align 16
-  %9 = getelementptr <2 x i64>, ptr %1, i64 %6
+  %9 = getelementptr [16 x i8], ptr %1, i64 %6
   %10 = load <2 x i64>, ptr %9, align 16
   %11 = xor <2 x i64> %10, %8
   %12 = getelementptr i8, ptr %7, i64 16
@@ -1311,7 +1311,7 @@ define internal fastcc i32 @blockmix_salsa8_xor(ptr noundef readonly captures(no
   %.010431051 = phi i64 [ %424, %.lr.ph ], [ 0, %4 ]
   %222 = shl nuw nsw i64 %.010431051, 3
   %223 = or disjoint i64 %222, 4
-  %224 = getelementptr <2 x i64>, ptr %0, i64 %223
+  %224 = getelementptr [16 x i8], ptr %0, i64 %223
   %225 = load <2 x i64>, ptr %224, align 16
   %226 = getelementptr i8, ptr %224, i64 16
   %227 = load <2 x i64>, ptr %226, align 16
@@ -1319,7 +1319,7 @@ define internal fastcc i32 @blockmix_salsa8_xor(ptr noundef readonly captures(no
   %229 = load <2 x i64>, ptr %228, align 16
   %230 = getelementptr i8, ptr %224, i64 48
   %231 = load <2 x i64>, ptr %230, align 16
-  %232 = getelementptr <2 x i64>, ptr %1, i64 %223
+  %232 = getelementptr [16 x i8], ptr %1, i64 %223
   %233 = load <2 x i64>, ptr %232, align 16
   %234 = xor <2 x i64> %225, %.01055
   %235 = xor <2 x i64> %234, %233
@@ -1518,7 +1518,7 @@ define internal fastcc i32 @blockmix_salsa8_xor(ptr noundef readonly captures(no
   store <4 x i32> %422, ptr %423, align 16
   %424 = add nuw nsw i64 %.010431051, 1
   %425 = shl nuw nsw i64 %424, 3
-  %426 = getelementptr <2 x i64>, ptr %0, i64 %425
+  %426 = getelementptr [16 x i8], ptr %0, i64 %425
   %427 = load <2 x i64>, ptr %426, align 16
   %428 = getelementptr i8, ptr %426, i64 16
   %429 = load <2 x i64>, ptr %428, align 16
@@ -1526,7 +1526,7 @@ define internal fastcc i32 @blockmix_salsa8_xor(ptr noundef readonly captures(no
   %431 = load <2 x i64>, ptr %430, align 16
   %432 = getelementptr i8, ptr %426, i64 48
   %433 = load <2 x i64>, ptr %432, align 16
-  %434 = getelementptr <2 x i64>, ptr %1, i64 %425
+  %434 = getelementptr [16 x i8], ptr %1, i64 %425
   %435 = load <2 x i64>, ptr %434, align 16
   %436 = xor <2 x i64> %435, %427
   %437 = xor <2 x i64> %436, %414
@@ -1734,7 +1734,7 @@ define internal fastcc i32 @blockmix_salsa8_xor(ptr noundef readonly captures(no
   %.0.lcssa = phi <2 x i64> [ %.01050, %4 ], [ %.0, %.lr.ph ]
   %623 = shl nuw nsw i64 %221, 3
   %624 = or disjoint i64 %623, 4
-  %625 = getelementptr <2 x i64>, ptr %0, i64 %624
+  %625 = getelementptr [16 x i8], ptr %0, i64 %624
   %626 = load <2 x i64>, ptr %625, align 16
   %627 = getelementptr i8, ptr %625, i64 16
   %628 = load <2 x i64>, ptr %627, align 16
@@ -1742,7 +1742,7 @@ define internal fastcc i32 @blockmix_salsa8_xor(ptr noundef readonly captures(no
   %630 = load <2 x i64>, ptr %629, align 16
   %631 = getelementptr i8, ptr %625, i64 48
   %632 = load <2 x i64>, ptr %631, align 16
-  %633 = getelementptr <2 x i64>, ptr %1, i64 %624
+  %633 = getelementptr [16 x i8], ptr %1, i64 %624
   %634 = load <2 x i64>, ptr %633, align 16
   %635 = xor <2 x i64> %626, %.0.lcssa
   %636 = xor <2 x i64> %635, %634

@@ -796,7 +796,7 @@ proto_item_set_hidden.exit209.i.i:                ; preds = %231, %227, %224, %2
 
 switch.lookup:                                    ; preds = %254
   %259 = zext nneg i8 %93 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_someip_sd_pdu, i64 %259
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_someip_sd_pdu, i64 %259
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %260
 
@@ -862,7 +862,7 @@ proto_item_set_hidden.exit212.i.i:                ; preds = %254, %266, %263, %2
 
 .lr.ph.i.i.i:                                     ; preds = %302, %.lr.ph.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %289, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %302 ]
-  %290 = getelementptr i32, ptr @dissect_someip_sd_pdu.option_ports, i64 %indvars.iv.i.i.i
+  %290 = getelementptr [4 x i8], ptr @dissect_someip_sd_pdu.option_ports, i64 %indvars.iv.i.i.i
   %291 = load i32, ptr %290, align 4
   %292 = and i32 %291, 65535
   %293 = lshr i32 %291, 24
@@ -911,7 +911,7 @@ someip_sd_register_ports.exit.i.i:                ; preds = %302, %284
 
 .lr.ph.i215.i.i:                                  ; preds = %320, %.lr.ph.preheader.i214.i.i
   %indvars.iv.i216.i.i = phi i64 [ %307, %.lr.ph.preheader.i214.i.i ], [ %indvars.iv.next.i218.i.i, %320 ]
-  %308 = getelementptr i32, ptr @dissect_someip_sd_pdu.option_ports, i64 %indvars.iv.i216.i.i
+  %308 = getelementptr [4 x i8], ptr @dissect_someip_sd_pdu.option_ports, i64 %indvars.iv.i216.i.i
   %309 = load i32, ptr %308, align 4
   %310 = and i32 %309, 65535
   %311 = lshr i32 %309, 24
@@ -1209,7 +1209,7 @@ define internal noundef i32 @someipsd_entries_stats_tree_packet(ptr noundef %0, 
 
 switch.lookup:                                    ; preds = %32
   %34 = zext nneg i8 %28 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.someipsd_entries_stats_tree_packet, i64 %34
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.someipsd_entries_stats_tree_packet, i64 %34
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.sink.split
 
@@ -1303,7 +1303,7 @@ define internal fastcc void @dissect_someip_sd_pdu_options(ptr noundef %0, ptr n
   %.04 = phi i32 [ %4, %.lr.ph ], [ %200, %198 ]
   %.0643 = phi i32 [ 0, %.lr.ph ], [ %199, %198 ]
   %25 = sext i32 %.0643 to i64
-  %26 = getelementptr i32, ptr @dissect_someip_sd_pdu.option_ports, i64 %25
+  %26 = getelementptr [4 x i8], ptr @dissect_someip_sd_pdu.option_ports, i64 %25
   store i32 0, ptr %26, align 4
   %27 = call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef %.04)
   %28 = add i16 %27, 3

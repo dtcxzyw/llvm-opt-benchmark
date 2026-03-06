@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.H5D_layout_ops_t = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.H5D_efl_readvv_ud_t = type { ptr, ptr, ptr }
 %struct.H5D_efl_writevv_ud_t = type { ptr, ptr, ptr }
-%struct.H5O_efl_entry_t = type { i64, ptr, i64, i64 }
 
 @H5D_LOPS_EFL = local_unnamed_addr constant [1 x %struct.H5D_layout_ops_t] [%struct.H5D_layout_ops_t { ptr @H5D__efl_construct, ptr @H5D__efl_init, ptr @H5D__efl_is_space_alloc, ptr null, ptr @H5D__efl_io_init, ptr null, ptr @H5D__contig_read, ptr @H5D__contig_write, ptr @H5D__efl_readvv, ptr @H5D__efl_writevv, ptr null, ptr null, ptr null }], align 16
 @H5D_init_g = external local_unnamed_addr global i8, align 1
@@ -90,9 +89,9 @@ define internal range(i32 -1, 1) i32 @H5D__efl_construct(ptr noundef %0, ptr nou
 
 18:                                               ; preds = %.lr.ph, %17
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %17 ]
-  %19 = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %20 = load i64, ptr %19, align 8, !tbaa !48
-  %21 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv
   %22 = load i64, ptr %21, align 8, !tbaa !48
   %23 = icmp ugt i64 %20, %22
   br i1 %23, label %24, label %17
@@ -482,7 +481,7 @@ define internal range(i32 -1, 1) i32 @H5D__efl_readvv_cb(i64 noundef %0, i64 nou
 22:                                               ; preds = %32, %.lr.ph.i
   %.069113.i = phi i64 [ 0, %.lr.ph.i ], [ %33, %32 ]
   %.071112.i = phi i64 [ 0, %.lr.ph.i ], [ %28, %32 ]
-  %23 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %21, i64 %.069113.i
+  %23 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 %.069113.i
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %25 = load i64, ptr %24, align 8, !tbaa !86
   %26 = icmp eq i64 %25, -1
@@ -530,7 +529,7 @@ define internal range(i32 -1, 1) i32 @H5D__efl_readvv_cb(i64 noundef %0, i64 nou
 
 42:                                               ; preds = %36
   %43 = load ptr, ptr %34, align 8, !tbaa !85
-  %44 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %43, i64 %.170123.i
+  %44 = getelementptr inbounds nuw [32 x i8], ptr %43, i64 %.170123.i
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load i64, ptr %45, align 8, !tbaa !89
   %47 = add i64 %46, %.173122.i
@@ -573,7 +572,7 @@ define internal range(i32 -1, 1) i32 @H5D__efl_readvv_cb(i64 noundef %0, i64 nou
 
 73:                                               ; preds = %65
   %74 = load ptr, ptr %34, align 8, !tbaa !85
-  %75 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %74, i64 %.170123.i
+  %75 = getelementptr inbounds nuw [32 x i8], ptr %74, i64 %.170123.i
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
   %77 = load i64, ptr %76, align 8, !tbaa !89
   %78 = add nsw i64 %77, %.173122.i
@@ -589,7 +588,7 @@ define internal range(i32 -1, 1) i32 @H5D__efl_readvv_cb(i64 noundef %0, i64 nou
 
 85:                                               ; preds = %73
   %86 = load ptr, ptr %34, align 8, !tbaa !85
-  %87 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %86, i64 %.170123.i
+  %87 = getelementptr inbounds nuw [32 x i8], ptr %86, i64 %.170123.i
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 24
   %89 = load i64, ptr %88, align 8, !tbaa !86
   %90 = sub i64 %89, %.173122.i
@@ -739,7 +738,7 @@ define internal range(i32 -1, 1) i32 @H5D__efl_writevv_cb(i64 noundef %0, i64 no
 22:                                               ; preds = %32, %.lr.ph.i
   %.067112.i = phi i64 [ 0, %.lr.ph.i ], [ %33, %32 ]
   %.071111.i = phi i64 [ 0, %.lr.ph.i ], [ %28, %32 ]
-  %23 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %21, i64 %.067112.i
+  %23 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 %.067112.i
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %25 = load i64, ptr %24, align 8, !tbaa !86
   %26 = icmp eq i64 %25, -1
@@ -787,7 +786,7 @@ define internal range(i32 -1, 1) i32 @H5D__efl_writevv_cb(i64 noundef %0, i64 no
 
 42:                                               ; preds = %36
   %43 = load ptr, ptr %34, align 8, !tbaa !85
-  %44 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %43, i64 %.168122.i
+  %44 = getelementptr inbounds nuw [32 x i8], ptr %43, i64 %.168122.i
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load i64, ptr %45, align 8, !tbaa !89
   %47 = add i64 %46, %.170121.i
@@ -840,7 +839,7 @@ define internal range(i32 -1, 1) i32 @H5D__efl_writevv_cb(i64 noundef %0, i64 no
 
 79:                                               ; preds = %65
   %80 = load ptr, ptr %34, align 8, !tbaa !85
-  %81 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %80, i64 %.168122.i
+  %81 = getelementptr inbounds nuw [32 x i8], ptr %80, i64 %.168122.i
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %83 = load i64, ptr %82, align 8, !tbaa !89
   %84 = add nsw i64 %83, %.170121.i
@@ -856,7 +855,7 @@ define internal range(i32 -1, 1) i32 @H5D__efl_writevv_cb(i64 noundef %0, i64 no
 
 91:                                               ; preds = %79
   %92 = load ptr, ptr %34, align 8, !tbaa !85
-  %93 = getelementptr inbounds nuw %struct.H5O_efl_entry_t, ptr %92, i64 %.168122.i
+  %93 = getelementptr inbounds nuw [32 x i8], ptr %92, i64 %.168122.i
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 24
   %95 = load i64, ptr %94, align 8, !tbaa !86
   %96 = sub i64 %95, %.170121.i

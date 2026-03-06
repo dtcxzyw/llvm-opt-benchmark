@@ -1467,10 +1467,10 @@ PACKET_get_net_2.exit.thread.i:                   ; preds = %84, %73, %63, %.bac
   br label %.backedge.i, !llvm.loop !120
 
 111:                                              ; preds = %109
-  %112 = getelementptr inbounds nuw i16, ptr %.0135.ph, i64 %.0131.ph285
+  %112 = getelementptr inbounds nuw [2 x i8], ptr %.0135.ph, i64 %.0131.ph285
   store i16 %95, ptr %112, align 2, !tbaa !121
   %113 = add i64 %.0131.ph285, 1
-  %114 = getelementptr inbounds nuw %struct.PACKET, ptr %.0139.ph, i64 %.0131.ph285
+  %114 = getelementptr inbounds nuw [16 x i8], ptr %.0139.ph, i64 %.0131.ph285
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %114, ptr noundef nonnull align 8 dereferenceable(16) %10, i64 16, i1 false), !tbaa.struct !122
   %115 = icmp eq i64 %113, %.0129.ph
   br i1 %115, label %116, label %.backedge.i.outer282, !llvm.loop !120
@@ -1531,7 +1531,7 @@ extract_keyshares.exit:                           ; preds = %103
   %.044201 = phi i64 [ 0, %.lr.ph ], [ %233, %232 ]
   %.045200 = phi ptr [ %130, %.lr.ph ], [ %.1.ph, %232 ]
   %133 = load ptr, ptr %13, align 8, !tbaa !123
-  %134 = getelementptr inbounds nuw i64, ptr %133, i64 %.044201
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %133, i64 %.044201
   %135 = load i64, ptr %134, align 8, !tbaa !74
   %136 = load i64, ptr %131, align 8, !tbaa !110
   %137 = and i64 %136, 4194304
@@ -1553,7 +1553,7 @@ check_overlap.exit.thread:                        ; preds = %138
   %139 = phi i64 [ %158, %156 ], [ 0, %138 ]
   %.031.i = phi i64 [ %.1.i, %156 ], [ %135, %138 ]
   %.02530.i = phi i16 [ %157, %156 ], [ 0, %138 ]
-  %140 = getelementptr inbounds nuw i16, ptr %.0135.ph, i64 %139
+  %140 = getelementptr inbounds nuw [2 x i8], ptr %.0135.ph, i64 %139
   %141 = load i16, ptr %140, align 2, !tbaa !121
   %142 = call i32 @check_in_list(ptr noundef %0, i16 noundef zeroext %141, ptr noundef %.045200, i64 noundef %135, i32 noundef 1, ptr noundef nonnull %9) #12
   %.not.i = icmp eq i32 %142, 0
@@ -1578,7 +1578,7 @@ check_overlap.exit.thread:                        ; preds = %138
 
 152:                                              ; preds = %149
   %153 = zext i16 %.02530.i to i32
-  %154 = getelementptr inbounds nuw i16, ptr %.045200, i64 %150
+  %154 = getelementptr inbounds nuw [2 x i8], ptr %.045200, i64 %150
   %155 = load i16, ptr %154, align 2, !tbaa !121
   br label %156
 
@@ -1598,7 +1598,7 @@ check_overlap.exit:                               ; preds = %156
 
 160:                                              ; preds = %check_overlap.exit
   %161 = zext nneg i32 %.1122 to i64
-  %162 = getelementptr inbounds nuw %struct.PACKET, ptr %.0139.ph, i64 %161
+  %162 = getelementptr inbounds nuw [16 x i8], ptr %.0139.ph, i64 %161
   %163 = call fastcc i32 @tls_accept_ksgroup(ptr noundef %0, i16 noundef zeroext %.1127, ptr noundef nonnull %162)
   %.not56 = icmp eq i32 %163, 0
   br i1 %.not56, label %select.unfold, label %.thread172
@@ -1613,7 +1613,7 @@ check_overlap.exit:                               ; preds = %156
   %165 = phi i64 [ 0, %164 ], [ %183, %181 ]
   %.031.i63 = phi i64 [ %135, %164 ], [ %.1.i68, %181 ]
   %.02530.i64 = phi i16 [ 0, %164 ], [ %182, %181 ]
-  %166 = getelementptr inbounds nuw i16, ptr %.val59, i64 %165
+  %166 = getelementptr inbounds nuw [2 x i8], ptr %.val59, i64 %165
   %167 = load i16, ptr %166, align 2, !tbaa !121
   %168 = call i32 @check_in_list(ptr noundef %0, i16 noundef zeroext %167, ptr noundef %.045200, i64 noundef %135, i32 noundef 1, ptr noundef nonnull %8) #12
   %.not.i65 = icmp eq i32 %168, 0
@@ -1637,7 +1637,7 @@ check_overlap.exit:                               ; preds = %156
   br i1 %177, label %178, label %181
 
 178:                                              ; preds = %175
-  %179 = getelementptr inbounds nuw i16, ptr %.045200, i64 %176
+  %179 = getelementptr inbounds nuw [2 x i8], ptr %.045200, i64 %176
   %180 = load i16, ptr %179, align 2, !tbaa !121
   br label %181
 
@@ -1670,7 +1670,7 @@ check_overlap.exit87.thread:                      ; preds = %185
   %186 = phi i64 [ %205, %203 ], [ 0, %185 ]
   %.031.i72 = phi i64 [ %.1.i77, %203 ], [ %.0131.ph285, %185 ]
   %.02530.i73 = phi i16 [ %204, %203 ], [ 0, %185 ]
-  %187 = getelementptr inbounds nuw i16, ptr %.045200, i64 %186
+  %187 = getelementptr inbounds nuw [2 x i8], ptr %.045200, i64 %186
   %188 = load i16, ptr %187, align 2, !tbaa !121
   %189 = call i32 @check_in_list(ptr noundef %0, i16 noundef zeroext %188, ptr noundef nonnull %.0135.ph, i64 noundef %.0131.ph285, i32 noundef 1, ptr noundef nonnull %7) #12
   %.not.i74 = icmp eq i32 %189, 0
@@ -1695,7 +1695,7 @@ check_overlap.exit87.thread:                      ; preds = %185
 
 199:                                              ; preds = %196
   %200 = trunc i64 %197 to i32
-  %201 = getelementptr inbounds nuw i16, ptr %.0135.ph, i64 %197
+  %201 = getelementptr inbounds nuw [2 x i8], ptr %.0135.ph, i64 %197
   %202 = load i16, ptr %201, align 2, !tbaa !121
   br label %203
 
@@ -1715,7 +1715,7 @@ check_overlap.exit78:                             ; preds = %203
 
 207:                                              ; preds = %check_overlap.exit78
   %208 = sext i32 %.1124 to i64
-  %209 = getelementptr inbounds %struct.PACKET, ptr %.0139.ph, i64 %208
+  %209 = getelementptr inbounds [16 x i8], ptr %.0139.ph, i64 %208
   %210 = call fastcc i32 @tls_accept_ksgroup(ptr noundef %0, i16 noundef zeroext %.7, ptr noundef nonnull %209)
   %.not53 = icmp eq i32 %210, 0
   br i1 %.not53, label %select.unfold, label %.thread172
@@ -1730,7 +1730,7 @@ check_overlap.exit78:                             ; preds = %203
   %212 = phi i64 [ 0, %211 ], [ %230, %228 ]
   %.031.i81 = phi i64 [ %.val58, %211 ], [ %.1.i86, %228 ]
   %.02530.i82 = phi i16 [ 0, %211 ], [ %229, %228 ]
-  %213 = getelementptr inbounds nuw i16, ptr %.045200, i64 %212
+  %213 = getelementptr inbounds nuw [2 x i8], ptr %.045200, i64 %212
   %214 = load i16, ptr %213, align 2, !tbaa !121
   %215 = call i32 @check_in_list(ptr noundef %0, i16 noundef zeroext %214, ptr noundef %.val59, i64 noundef %.val58, i32 noundef 1, ptr noundef nonnull %6) #12
   %.not.i83 = icmp eq i32 %215, 0
@@ -1754,7 +1754,7 @@ check_overlap.exit78:                             ; preds = %203
   br i1 %224, label %225, label %228
 
 225:                                              ; preds = %222
-  %226 = getelementptr inbounds nuw i16, ptr %.val59, i64 %223
+  %226 = getelementptr inbounds nuw [2 x i8], ptr %.val59, i64 %223
   %227 = load i16, ptr %226, align 2, !tbaa !121
   br label %228
 
@@ -1780,7 +1780,7 @@ check_overlap.exit87:                             ; preds = %228
   br label %select.unfold
 
 232:                                              ; preds = %check_overlap.exit87, %check_overlap.exit87.thread, %check_overlap.exit69
-  %.1.ph = getelementptr inbounds nuw i16, ptr %.045200, i64 %135
+  %.1.ph = getelementptr inbounds nuw [2 x i8], ptr %.045200, i64 %135
   %233 = add nuw i64 %.044201, 1
   %234 = load i64, ptr %15, align 8, !tbaa !74
   %235 = icmp ult i64 %233, %234
@@ -3428,7 +3428,7 @@ define range(i32 0, 3) i32 @tls_construct_stoc_supported_groups(ptr noundef %0, 
   %.02846 = phi i64 [ %37, %36 ], [ 0, %14 ]
   %.02945 = phi i64 [ %.3.ph, %36 ], [ 1, %14 ]
   %17 = load ptr, ptr %6, align 8, !tbaa !119
-  %18 = getelementptr inbounds nuw i16, ptr %17, i64 %.02846
+  %18 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %.02846
   %19 = load i16, ptr %18, align 2, !tbaa !121
   %20 = call i32 @tls_valid_group(ptr noundef nonnull %0, i16 noundef zeroext %19, i32 noundef %15, i32 noundef %15, i32 noundef 0, ptr noundef null) #12
   %.not33 = icmp eq i32 %20, 0

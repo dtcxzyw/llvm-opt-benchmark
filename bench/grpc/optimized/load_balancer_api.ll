@@ -8,13 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.grpc_slice = type { ptr, %"union.grpc_slice::grpc_slice_data" }
 %"union.grpc_slice::grpc_slice_data" = type { %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted", [8 x i8] }
 %"struct.grpc_slice::grpc_slice_data::grpc_slice_refcounted" = type { i64, ptr }
-%"struct.grpc_core::GrpcLbClientStats::DropTokenCount" = type { %"class.std::unique_ptr", i64 }
-%"class.std::unique_ptr" = type { %"struct.std::__uniq_ptr_data" }
-%"struct.std::__uniq_ptr_data" = type { %"class.std::__uniq_ptr_impl" }
-%"class.std::__uniq_ptr_impl" = type { %"class.std::tuple" }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.2" }
-%"struct.std::_Head_base.2" = type { ptr }
 %"class.absl::lts_20240722::log_internal::LogMessage" = type { %"class.absl::lts_20240722::base_internal::ErrnoSaver", %"class.std::unique_ptr.7" }
 %"class.absl::lts_20240722::base_internal::ErrnoSaver" = type { i32 }
 %"class.std::unique_ptr.7" = type { %"struct.std::__uniq_ptr_data.8" }
@@ -23,7 +16,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.10" = type { %"struct.std::_Tuple_impl.11" }
 %"struct.std::_Tuple_impl.11" = type { %"struct.std::_Head_base.14" }
 %"struct.std::_Head_base.14" = type { ptr }
-%"struct.grpc_core::GrpcLbServer" = type { i32, [16 x i8], i32, [50 x i8], i8 }
 
 $_ZNSt6vectorIN9grpc_core12GrpcLbServerESaIS1_EE14_M_emplace_auxIJEEEN9__gnu_cxx17__normal_iteratorIPS1_S3_EENS6_IPKS1_S3_EEDpOT_ = comdat any
 
@@ -369,7 +361,7 @@ grpc_lb_v1_ClientStats_mutable_timestamp.exit:    ; preds = %grpc_lb_v1_LoadBala
   %87 = trunc i64 %86 to i1
   %88 = load ptr, ptr %83, align 8
   %89 = select i1 %87, ptr %88, ptr %83
-  %90 = getelementptr inbounds nuw %"struct.grpc_core::GrpcLbClientStats::DropTokenCount", ptr %89, i64 %.047
+  %90 = getelementptr inbounds nuw [16 x i8], ptr %89, i64 %.047
   tail call void asm sideeffect "", "r,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @grpc__lb__v1__ClientStatsPerToken_msg_init) #19, !srcloc !23
   %91 = load i64, ptr %84, align 1
   %92 = inttoptr i64 %91 to ptr
@@ -660,7 +652,7 @@ _ZNSt12_Vector_baseIN9grpc_core12GrpcLbServerESaIS1_EE13_M_deallocateEPS1_m.exit
   store ptr %64, ptr %32, align 8, !tbaa !55
   %68 = getelementptr inbounds nuw i8, ptr %64, i64 %62
   store ptr %68, ptr %59, align 8, !tbaa !56
-  %69 = getelementptr inbounds nuw %"struct.grpc_core::GrpcLbServer", ptr %64, i64 %43
+  %69 = getelementptr inbounds nuw [76 x i8], ptr %64, i64 %43
   store ptr %69, ptr %51, align 8, !tbaa !52
   br label %_ZNSt6vectorIN9grpc_core12GrpcLbServerESaIS1_EE7reserveEm.exit.i
 
@@ -672,7 +664,7 @@ _ZNSt6vectorIN9grpc_core12GrpcLbServerESaIS1_EE7reserveEm.exit.i: ; preds = %_ZN
   %.03352.i = phi i64 [ 0, %_ZNSt6vectorIN9grpc_core12GrpcLbServerESaIS1_EE7reserveEm.exit.i ], [ %103, %97 ]
   %72 = load ptr, ptr %70, align 8, !tbaa !57
   %73 = call ptr @_ZNSt6vectorIN9grpc_core12GrpcLbServerESaIS1_EE14_M_emplace_auxIJEEEN9__gnu_cxx17__normal_iteratorIPS1_S3_EENS6_IPKS1_S3_EEDpOT_(ptr noundef nonnull align 8 dereferenceable(24) %32, ptr %72)
-  %74 = getelementptr inbounds nuw ptr, ptr %46, i64 %.03352.i
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %.03352.i
   %75 = load ptr, ptr %74, align 8, !tbaa !58
   %.sroa.9.0..sroa_idx12.i.i = getelementptr inbounds nuw i8, ptr %75, i64 24
   %.sroa.9.0.copyload13.i.i = load i64, ptr %.sroa.9.0..sroa_idx12.i.i, align 1
@@ -897,7 +889,7 @@ define linkonce_odr ptr @_ZNSt6vectorIN9grpc_core12GrpcLbServerESaIS1_EE14_M_emp
   %23 = ptrtoint ptr %21 to i64
   %24 = sub i64 %23, %4
   %.neg.i.i.i.i.i.i = sdiv exact i64 %24, -76
-  %25 = getelementptr inbounds %"struct.grpc_core::GrpcLbServer", ptr %19, i64 %.neg.i.i.i.i.i.i
+  %25 = getelementptr inbounds [76 x i8], ptr %19, i64 %.neg.i.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %25, ptr align 4 %17, i64 %24, i1 false)
   br label %26
 
@@ -958,7 +950,7 @@ _ZNSt6vectorIN9grpc_core12GrpcLbServerESaIS1_EE17_M_realloc_insertIJEEEvN9__gnu_
   %48 = getelementptr inbounds i8, ptr %43, i64 %44
   store ptr %39, ptr %0, align 8, !tbaa !55
   store ptr %48, ptr %7, align 8, !tbaa !56
-  %49 = getelementptr inbounds nuw %"struct.grpc_core::GrpcLbServer", ptr %39, i64 %37
+  %49 = getelementptr inbounds nuw [76 x i8], ptr %39, i64 %37
   store ptr %49, ptr %9, align 8, !tbaa !52
   br label %50
 

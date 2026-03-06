@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"class.msdfgen::EdgeHolder" = type { ptr }
-%"struct.msdfgen::EdgeColoringInkTrapCorner" = type { i32, double, i8, i32 }
 %"class.std::queue" = type { %"class.std::deque" }
 %"class.std::deque" = type { %"class.std::_Deque_base" }
 %"class.std::_Deque_base" = type { %"struct.std::_Deque_base<int, std::allocator<int>>::_Deque_impl" }
@@ -194,7 +193,7 @@ if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIiSaIiE
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i
-  %add.ptr19.i.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i43, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i.i43, i64 %cond.i.i.i
   br label %if.end
 
 lpad.loopexit:                                    ; preds = %for.body69
@@ -286,7 +285,7 @@ if.else:                                          ; preds = %if.end54
 _ZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_.exit: ; preds = %if.else
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %colors, ptr noundef nonnull align 4 dereferenceable(12) @__const._ZN7msdfgen19edgeColoringInkTrapERNS_5ShapeEdy.colors, i64 12, i1 false)
   %rem.i = urem i64 %seed.addr.0256, 3
-  %arrayidx.i = getelementptr inbounds nuw i32, ptr @_ZZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_E5start, i64 %rem.i
+  %arrayidx.i = getelementptr inbounds nuw [4 x i8], ptr @_ZZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_E5start, i64 %rem.i
   %22 = load i32, ptr %arrayidx.i, align 4
   store i32 %22, ptr %colors, align 4
   %div.i52 = udiv i64 %seed.addr.0256, 3
@@ -297,7 +296,7 @@ _ZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_.exit: ; preds = %if.else
 
 if.then7.i54:                                     ; preds = %_ZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_.exit, %_ZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_.exit
   %rem.i55 = urem i64 %div.i52, 3
-  %arrayidx.i56 = getelementptr inbounds nuw i32, ptr @_ZZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_E5start, i64 %rem.i55
+  %arrayidx.i56 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_E5start, i64 %rem.i55
   %23 = load i32, ptr %arrayidx.i56, align 4
   store i32 %23, ptr %arrayidx80, align 4
   %div.i57 = udiv i64 %seed.addr.0256, 9
@@ -347,14 +346,14 @@ for.body93:                                       ; preds = %for.body93.lr.ph, %
   %add97 = fadd double %sub96, 5.000000e-01
   %conv98 = fptosi double %add97 to i32
   %29 = sext i32 %conv98 to i64
-  %30 = getelementptr i32, ptr %colors, i64 %29
+  %30 = getelementptr [4 x i8], ptr %colors, i64 %29
   %arrayidx100 = getelementptr i8, ptr %30, i64 -8
   %31 = load i32, ptr %arrayidx100, align 4
   %add103 = add nsw i32 %i.0247, %27
   %rem = srem i32 %add103, %conv
   %conv104 = sext i32 %rem to i64
   %32 = load ptr, ptr %contour.sroa.0.0251, align 8
-  %add.ptr.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %32, i64 %conv104
+  %add.ptr.i = getelementptr inbounds [8 x i8], ptr %32, i64 %conv104
   %call107 = invoke noundef ptr @_ZN7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i)
           to label %invoke.cont106 unwind label %lpad.loopexit.split-lp.loopexit
 
@@ -377,7 +376,7 @@ if.then117:                                       ; preds = %if.else112
 invoke.cont121:                                   ; preds = %if.then117
   %mul123 = mul nsw i32 %27, 3
   %idxprom125 = sext i32 %mul123 to i64
-  %arrayidx126 = getelementptr inbounds ptr, ptr %parts, i64 %idxprom125
+  %arrayidx126 = getelementptr inbounds [8 x i8], ptr %parts, i64 %idxprom125
   %arrayidx130 = getelementptr i8, ptr %arrayidx126, i64 8
   %arrayidx134 = getelementptr i8, ptr %arrayidx126, i64 16
   %vtable135 = load ptr, ptr %call122, align 8
@@ -403,13 +402,13 @@ if.then142:                                       ; preds = %invoke.cont137
 invoke.cont146:                                   ; preds = %if.then142
   %sub149 = sub nsw i32 3, %mul123
   %idxprom150 = sext i32 %sub149 to i64
-  %arrayidx151 = getelementptr inbounds ptr, ptr %parts, i64 %idxprom150
+  %arrayidx151 = getelementptr inbounds [8 x i8], ptr %parts, i64 %idxprom150
   %sub153 = sub nsw i32 4, %mul123
   %idxprom154 = sext i32 %sub153 to i64
-  %arrayidx155 = getelementptr inbounds ptr, ptr %parts, i64 %idxprom154
+  %arrayidx155 = getelementptr inbounds [8 x i8], ptr %parts, i64 %idxprom154
   %sub157 = sub nsw i32 5, %mul123
   %idxprom158 = sext i32 %sub157 to i64
-  %arrayidx159 = getelementptr inbounds ptr, ptr %parts, i64 %idxprom158
+  %arrayidx159 = getelementptr inbounds [8 x i8], ptr %parts, i64 %idxprom158
   %vtable160 = load ptr, ptr %call147, align 8
   %vfn161 = getelementptr inbounds nuw i8, ptr %vtable160, i64 120
   %36 = load ptr, ptr %vfn161, align 8
@@ -499,7 +498,7 @@ if.else.i.i:                                      ; preds = %for.body195
 invoke.cont203:                                   ; preds = %.noexc93, %if.else.i.i
   call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp198) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx194 = getelementptr inbounds nuw ptr, ptr %parts, i64 %indvars.iv.next
+  %arrayidx194 = getelementptr inbounds nuw [8 x i8], ptr %parts, i64 %indvars.iv.next
   %54 = load ptr, ptr %arrayidx194, align 8
   %tobool.not = icmp eq ptr %54, null
   br i1 %tobool.not, label %for.inc253, label %for.body195, !llvm.loop !10
@@ -521,7 +520,7 @@ _ZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_.exit118: ; preds = %if.else
   %sub.ptr.div.i105 = lshr exact i64 %sub.ptr.sub.i104, 3
   %conv217 = trunc i64 %sub.ptr.div.i105 to i32
   %rem.i108 = urem i64 %seed.addr.0256, 3
-  %arrayidx.i109 = getelementptr inbounds nuw i32, ptr @_ZZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_E5start, i64 %rem.i108
+  %arrayidx.i109 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_E5start, i64 %rem.i108
   %58 = load i32, ptr %arrayidx.i109, align 4
   %div.i110 = udiv i64 %seed.addr.0256, 3
   %cmp222238 = icmp sgt i32 %conv217, 0
@@ -544,7 +543,7 @@ for.body223:                                      ; preds = %for.body223.lr.ph, 
 
 land.lhs.true:                                    ; preds = %for.body223
   %conv230 = sext i32 %add227 to i64
-  %add.ptr.i119 = getelementptr inbounds i32, ptr %corners.sroa.0.4, i64 %conv230
+  %add.ptr.i119 = getelementptr inbounds [4 x i8], ptr %corners.sroa.0.4, i64 %conv230
   %60 = load i32, ptr %add.ptr.i119, align 4
   %cmp232 = icmp eq i32 %60, %rem226
   br i1 %cmp232, label %if.then233, label %if.end240
@@ -571,7 +570,7 @@ if.end.i:                                         ; preds = %if.then233
 
 if.then7.i121:                                    ; preds = %if.end.i, %if.end.i
   %rem.i122 = urem i64 %seed.addr.1239, 3
-  %arrayidx.i123 = getelementptr inbounds nuw i32, ptr @_ZZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_E5start, i64 %rem.i122
+  %arrayidx.i123 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_E5start, i64 %rem.i122
   %61 = load i32, ptr %arrayidx.i123, align 4
   %div.i124 = udiv i64 %seed.addr.1239, 3
   br label %if.end240
@@ -593,7 +592,7 @@ if.end240:                                        ; preds = %if.end8.i125, %if.t
   %spline.1 = phi i32 [ %spline.0241, %for.body223 ], [ %spline.0241, %land.lhs.true ], [ %add227, %if.end8.i125 ], [ %add227, %if.then7.i121 ], [ %add227, %if.then.i120 ]
   %conv243 = sext i32 %rem226 to i64
   %64 = load ptr, ptr %contour.sroa.0.0251, align 8
-  %add.ptr.i133 = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %64, i64 %conv243
+  %add.ptr.i133 = getelementptr inbounds [8 x i8], ptr %64, i64 %conv243
   %call246 = invoke noundef ptr @_ZN7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i133)
           to label %invoke.cont245 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -831,7 +830,7 @@ if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIN7msdf
   br label %_ZNSt6vectorIN7msdfgen25EdgeColoringInkTrapCornerESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i
 
 _ZNSt6vectorIN7msdfgen25EdgeColoringInkTrapCornerESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIN7msdfgen25EdgeColoringInkTrapCornerESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit17.i.i
-  %add.ptr19.i.i = getelementptr inbounds nuw %"struct.msdfgen::EdgeColoringInkTrapCorner", ptr %call5.i.i.i.i.i70, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw [24 x i8], ptr %call5.i.i.i.i.i70, i64 %cond.i.i.i
   br label %if.end
 
 lpad.loopexit:                                    ; preds = %for.body.i
@@ -972,7 +971,7 @@ if.else:                                          ; preds = %if.end60
 _ZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_.exit: ; preds = %if.else
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %colors, ptr noundef nonnull align 4 dereferenceable(12) @__const._ZN7msdfgen19edgeColoringInkTrapERNS_5ShapeEdy.colors, i64 12, i1 false)
   %rem.i = urem i64 %seed.addr.0328, 3
-  %arrayidx.i = getelementptr inbounds nuw i32, ptr @_ZZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_E5start, i64 %rem.i
+  %arrayidx.i = getelementptr inbounds nuw [4 x i8], ptr @_ZZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_E5start, i64 %rem.i
   %29 = load i32, ptr %arrayidx.i, align 4
   store i32 %29, ptr %colors, align 4
   %div.i83 = udiv i64 %seed.addr.0328, 3
@@ -983,7 +982,7 @@ _ZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_.exit: ; preds = %if.else
 
 if.then7.i85:                                     ; preds = %_ZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_.exit, %_ZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_.exit
   %rem.i86 = urem i64 %div.i83, 3
-  %arrayidx.i87 = getelementptr inbounds nuw i32, ptr @_ZZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_E5start, i64 %rem.i86
+  %arrayidx.i87 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_E5start, i64 %rem.i86
   %30 = load i32, ptr %arrayidx.i87, align 4
   store i32 %30, ptr %arrayidx87, align 4
   %div.i88 = udiv i64 %seed.addr.0328, 9
@@ -1033,14 +1032,14 @@ for.body102:                                      ; preds = %for.body102.lr.ph, 
   %add107 = fadd double %sub106, 5.000000e-01
   %conv108 = fptosi double %add107 to i32
   %36 = sext i32 %conv108 to i64
-  %37 = getelementptr i32, ptr %colors, i64 %36
+  %37 = getelementptr [4 x i8], ptr %colors, i64 %36
   %arrayidx110 = getelementptr i8, ptr %37, i64 -8
   %38 = load i32, ptr %arrayidx110, align 4
   %add113 = add nsw i32 %i.0319, %34
   %rem = srem i32 %add113, %conv
   %conv114 = sext i32 %rem to i64
   %39 = load ptr, ptr %contour.sroa.0.0323, align 8
-  %add.ptr.i = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %39, i64 %conv114
+  %add.ptr.i = getelementptr inbounds [8 x i8], ptr %39, i64 %conv114
   %call117 = invoke noundef ptr @_ZN7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i)
           to label %invoke.cont116 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -1063,7 +1062,7 @@ if.then127:                                       ; preds = %if.else122
 invoke.cont131:                                   ; preds = %if.then127
   %mul133 = mul nsw i32 %34, 3
   %idxprom135 = sext i32 %mul133 to i64
-  %arrayidx136 = getelementptr inbounds ptr, ptr %parts, i64 %idxprom135
+  %arrayidx136 = getelementptr inbounds [8 x i8], ptr %parts, i64 %idxprom135
   %arrayidx140 = getelementptr i8, ptr %arrayidx136, i64 8
   %arrayidx144 = getelementptr i8, ptr %arrayidx136, i64 16
   %vtable145 = load ptr, ptr %call132, align 8
@@ -1089,13 +1088,13 @@ if.then152:                                       ; preds = %invoke.cont147
 invoke.cont156:                                   ; preds = %if.then152
   %sub159 = sub nsw i32 3, %mul133
   %idxprom160 = sext i32 %sub159 to i64
-  %arrayidx161 = getelementptr inbounds ptr, ptr %parts, i64 %idxprom160
+  %arrayidx161 = getelementptr inbounds [8 x i8], ptr %parts, i64 %idxprom160
   %sub163 = sub nsw i32 4, %mul133
   %idxprom164 = sext i32 %sub163 to i64
-  %arrayidx165 = getelementptr inbounds ptr, ptr %parts, i64 %idxprom164
+  %arrayidx165 = getelementptr inbounds [8 x i8], ptr %parts, i64 %idxprom164
   %sub167 = sub nsw i32 5, %mul133
   %idxprom168 = sext i32 %sub167 to i64
-  %arrayidx169 = getelementptr inbounds ptr, ptr %parts, i64 %idxprom168
+  %arrayidx169 = getelementptr inbounds [8 x i8], ptr %parts, i64 %idxprom168
   %vtable170 = load ptr, ptr %call157, align 8
   %vfn171 = getelementptr inbounds nuw i8, ptr %vtable170, i64 120
   %43 = load ptr, ptr %vfn171, align 8
@@ -1185,7 +1184,7 @@ if.else.i.i:                                      ; preds = %for.body205
 invoke.cont213:                                   ; preds = %.noexc124, %if.else.i.i
   call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp208) #18
   %indvars.iv.next359 = add nuw nsw i64 %indvars.iv358, 1
-  %arrayidx204 = getelementptr inbounds nuw ptr, ptr %parts, i64 %indvars.iv.next359
+  %arrayidx204 = getelementptr inbounds nuw [8 x i8], ptr %parts, i64 %indvars.iv.next359
   %61 = load ptr, ptr %arrayidx204, align 8
   %tobool.not = icmp eq ptr %61, null
   br i1 %tobool.not, label %for.inc355, label %for.body205, !llvm.loop !17
@@ -1213,14 +1212,14 @@ if.then223:                                       ; preds = %if.else219
 for.body233:                                      ; preds = %if.then223, %for.inc259
   %indvars.iv = phi i64 [ 0, %if.then223 ], [ %indvars.iv.next, %for.inc259 ]
   %majorCornerCount.1299 = phi i32 [ %conv221, %if.then223 ], [ %majorCornerCount.2, %for.inc259 ]
-  %add.ptr.i131 = getelementptr inbounds nuw %"struct.msdfgen::EdgeColoringInkTrapCorner", ptr %corners.sroa.0.4, i64 %indvars.iv
+  %add.ptr.i131 = getelementptr inbounds nuw [24 x i8], ptr %corners.sroa.0.4, i64 %indvars.iv
   %prevEdgeLengthEstimate236 = getelementptr inbounds nuw i8, ptr %add.ptr.i131, i64 8
   %65 = load double, ptr %prevEdgeLengthEstimate236, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %66 = icmp eq i64 %indvars.iv.next, %64
   %67 = and i64 %indvars.iv.next, 4294967295
   %conv239 = select i1 %66, i64 0, i64 %67
-  %add.ptr.i132 = getelementptr inbounds nuw %"struct.msdfgen::EdgeColoringInkTrapCorner", ptr %corners.sroa.0.4, i64 %conv239
+  %add.ptr.i132 = getelementptr inbounds nuw [24 x i8], ptr %corners.sroa.0.4, i64 %conv239
   %prevEdgeLengthEstimate241 = getelementptr inbounds nuw i8, ptr %add.ptr.i132, i64 8
   %68 = load double, ptr %prevEdgeLengthEstimate241, align 8
   %cmp242 = fcmp ogt double %65, %68
@@ -1231,7 +1230,7 @@ land.lhs.true:                                    ; preds = %for.body233
   %70 = add i32 %69, 2
   %rem249 = urem i32 %70, %conv221
   %conv250 = zext nneg i32 %rem249 to i64
-  %add.ptr.i134 = getelementptr inbounds nuw %"struct.msdfgen::EdgeColoringInkTrapCorner", ptr %corners.sroa.0.4, i64 %conv250
+  %add.ptr.i134 = getelementptr inbounds nuw [24 x i8], ptr %corners.sroa.0.4, i64 %conv250
   %prevEdgeLengthEstimate252 = getelementptr inbounds nuw i8, ptr %add.ptr.i134, i64 8
   %71 = load double, ptr %prevEdgeLengthEstimate252, align 8
   %cmp253 = fcmp olt double %68, %71
@@ -1267,7 +1266,7 @@ for.body267:                                      ; preds = %for.body267.prehead
   %majorCornerCount.3304 = phi i32 [ %majorCornerCount.0, %for.body267.preheader ], [ %majorCornerCount.4, %for.inc285 ]
   %color263.0303 = phi i32 [ 7, %for.body267.preheader ], [ %color263.1, %for.inc285 ]
   %seed.addr.1302 = phi i64 [ %seed.addr.0328, %for.body267.preheader ], [ %seed.addr.2, %for.inc285 ]
-  %add.ptr.i136 = getelementptr inbounds nuw %"struct.msdfgen::EdgeColoringInkTrapCorner", ptr %corners.sroa.0.4, i64 %indvars.iv345
+  %add.ptr.i136 = getelementptr inbounds nuw [24 x i8], ptr %corners.sroa.0.4, i64 %indvars.iv345
   %minor270 = getelementptr inbounds nuw i8, ptr %add.ptr.i136, i64 16
   %73 = load i8, ptr %minor270, align 8
   %tobool271 = trunc i8 %73 to i1
@@ -1296,7 +1295,7 @@ if.end.i:                                         ; preds = %if.then272
 
 if.then7.i138:                                    ; preds = %if.end.i, %if.end.i
   %rem.i139 = urem i64 %seed.addr.1302, 3
-  %arrayidx.i140 = getelementptr inbounds nuw i32, ptr @_ZZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_E5start, i64 %rem.i139
+  %arrayidx.i140 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_E5start, i64 %rem.i139
   %74 = load i32, ptr %arrayidx.i140, align 4
   %div.i141 = udiv i64 %seed.addr.1302, 3
   br label %_ZN7msdfgenL11switchColorERNS_9EdgeColorERyS0_.exit149
@@ -1333,7 +1332,7 @@ for.inc285:                                       ; preds = %_ZN7msdfgenL11switc
 for.body291:                                      ; preds = %for.body291.preheader, %for.inc310
   %indvars.iv351 = phi i64 [ 0, %for.body291.preheader ], [ %indvars.iv.next352.pre-phi, %for.inc310 ]
   %color263.2310 = phi i32 [ %color263.1, %for.body291.preheader ], [ %color263.3, %for.inc310 ]
-  %add.ptr.i151 = getelementptr inbounds nuw %"struct.msdfgen::EdgeColoringInkTrapCorner", ptr %corners.sroa.0.4, i64 %indvars.iv351
+  %add.ptr.i151 = getelementptr inbounds nuw [24 x i8], ptr %corners.sroa.0.4, i64 %indvars.iv351
   %minor294 = getelementptr inbounds nuw i8, ptr %add.ptr.i151, i64 16
   %77 = load i8, ptr %minor294, align 8
   %tobool295 = trunc i8 %77 to i1
@@ -1344,7 +1343,7 @@ if.then296:                                       ; preds = %for.body291
   %79 = icmp eq i64 %78, %72
   %80 = and i64 %78, 4294967295
   %conv299 = select i1 %79, i64 0, i64 %80
-  %add.ptr.i152 = getelementptr inbounds nuw %"struct.msdfgen::EdgeColoringInkTrapCorner", ptr %corners.sroa.0.4, i64 %conv299
+  %add.ptr.i152 = getelementptr inbounds nuw [24 x i8], ptr %corners.sroa.0.4, i64 %conv299
   %color301 = getelementptr inbounds nuw i8, ptr %add.ptr.i152, i64 20
   %81 = load i32, ptr %color301, align 4
   %and = and i32 %81, %color263.2310
@@ -1395,7 +1394,7 @@ for.body325:                                      ; preds = %for.body325.prehead
 
 land.lhs.true331:                                 ; preds = %for.body325
   %conv333 = sext i32 %add329 to i64
-  %add.ptr.i162 = getelementptr inbounds %"struct.msdfgen::EdgeColoringInkTrapCorner", ptr %corners.sroa.0.4, i64 %conv333
+  %add.ptr.i162 = getelementptr inbounds [24 x i8], ptr %corners.sroa.0.4, i64 %conv333
   %87 = load i32, ptr %add.ptr.i162, align 8
   %cmp336 = icmp eq i32 %87, %rem328
   br i1 %cmp336, label %if.then337, label %if.end342
@@ -1410,7 +1409,7 @@ if.end342:                                        ; preds = %if.then337, %land.l
   %spline.1 = phi i32 [ %add329, %if.then337 ], [ %spline.0314, %land.lhs.true331 ], [ %spline.0314, %for.body325 ]
   %conv345 = sext i32 %rem328 to i64
   %89 = load ptr, ptr %contour.sroa.0.0323, align 8
-  %add.ptr.i164 = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %89, i64 %conv345
+  %add.ptr.i164 = getelementptr inbounds [8 x i8], ptr %89, i64 %conv345
   %call348 = invoke noundef ptr @_ZN7msdfgen10EdgeHolderptEv(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i164)
           to label %invoke.cont347 unwind label %lpad.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -1625,7 +1624,7 @@ if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIiSaIiE
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i
-  %add.ptr19.i.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i120, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i.i120, i64 %cond.i.i.i
   br label %if.end
 
 lpad.loopexit1096:                                ; preds = %for.body71, %_ZNKSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE12_M_check_lenEmPKc.exit.i.i.i
@@ -1750,7 +1749,7 @@ if.then.i18.i.i.i:                                ; preds = %_ZNSt6vectorIiSaIiE
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i: ; preds = %if.then.i18.i.i.i, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i
-  %add.ptr19.i.i.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i.i126, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i.i.i126, i64 %cond.i.i.i.i
   br label %invoke.cont56
 
 invoke.cont56:                                    ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i, %if.then.i.i
@@ -1829,7 +1828,7 @@ if.then.i18.i.i.i152:                             ; preds = %_ZNSt6vectorIPN7msd
   br label %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %if.then.i18.i.i.i152, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i
-  %add.ptr19.i.i.i153 = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i158, i64 %cond.i.i.i.i145
+  %add.ptr19.i.i.i153 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i158, i64 %cond.i.i.i.i145
   br label %for.inc77
 
 for.inc77:                                        ; preds = %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %if.then.i.i134
@@ -1943,7 +1942,7 @@ if.then.i18.i.i.i203:                             ; preds = %_ZNSt6vectorIiSaIiE
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i204
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i204: ; preds = %if.then.i18.i.i.i203, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i200
-  %add.ptr19.i.i.i205 = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i.i210, i64 %cond.i.i.i.i195
+  %add.ptr19.i.i.i205 = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i.i.i210, i64 %cond.i.i.i.i195
   br label %if.end101
 
 if.end101:                                        ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i204, %if.then.i.i183, %for.body94
@@ -1962,7 +1961,7 @@ if.end101:                                        ; preds = %_ZNSt6vectorIiSaIiE
   %rem123 = srem i32 %add122, %conv91
   %conv124 = sext i32 %rem123 to i64
   %28 = load ptr, ptr %contour.sroa.0.01413, align 8
-  %add.ptr.i244 = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %28, i64 %conv124
+  %add.ptr.i244 = getelementptr inbounds [8 x i8], ptr %28, i64 %conv124
   br i1 %tobool.not, label %if.else119, label %if.then109
 
 if.then109:                                       ; preds = %if.end101
@@ -2025,7 +2024,7 @@ if.then.i18.i.i.i235:                             ; preds = %_ZNSt6vectorIPN7msd
   br label %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i236
 
 _ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i236: ; preds = %if.then.i18.i.i.i235, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i232
-  %add.ptr19.i.i.i237 = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i242, i64 %cond.i.i.i.i227
+  %add.ptr19.i.i.i237 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i242, i64 %cond.i.i.i.i227
   br label %for.inc129
 
 if.else119:                                       ; preds = %if.end101
@@ -2057,7 +2056,7 @@ if.then137:                                       ; preds = %if.else132
 invoke.cont141:                                   ; preds = %if.then137
   %mul143 = mul nsw i32 %24, 3
   %idxprom = sext i32 %mul143 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %parts, i64 %idxprom
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %parts, i64 %idxprom
   %arrayidx148 = getelementptr i8, ptr %arrayidx, i64 8
   %arrayidx152 = getelementptr i8, ptr %arrayidx, i64 16
   %vtable153 = load ptr, ptr %call142, align 8
@@ -2083,13 +2082,13 @@ if.then160:                                       ; preds = %invoke.cont155
 invoke.cont164:                                   ; preds = %if.then160
   %sub167 = sub nsw i32 3, %mul143
   %idxprom168 = sext i32 %sub167 to i64
-  %arrayidx169 = getelementptr inbounds ptr, ptr %parts, i64 %idxprom168
+  %arrayidx169 = getelementptr inbounds [8 x i8], ptr %parts, i64 %idxprom168
   %sub171 = sub nsw i32 4, %mul143
   %idxprom172 = sext i32 %sub171 to i64
-  %arrayidx173 = getelementptr inbounds ptr, ptr %parts, i64 %idxprom172
+  %arrayidx173 = getelementptr inbounds [8 x i8], ptr %parts, i64 %idxprom172
   %sub175 = sub nsw i32 5, %mul143
   %idxprom176 = sext i32 %sub175 to i64
-  %arrayidx177 = getelementptr inbounds ptr, ptr %parts, i64 %idxprom176
+  %arrayidx177 = getelementptr inbounds [8 x i8], ptr %parts, i64 %idxprom176
   %vtable178 = load ptr, ptr %call165, align 8
   %vfn179 = getelementptr inbounds nuw i8, ptr %vtable178, i64 120
   %33 = load ptr, ptr %vfn179, align 8
@@ -2148,7 +2147,7 @@ if.then.i18.i.i278:                               ; preds = %_ZNSt6vectorIPN7msd
   br label %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
 _ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i278, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i
-  %add.ptr19.i.i279 = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i284, i64 %cond.i.i.i271
+  %add.ptr19.i.i279 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i284, i64 %cond.i.i.i271
   br label %invoke.cont182
 
 invoke.cont182:                                   ; preds = %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i, %if.then.i260
@@ -2213,7 +2212,7 @@ if.then.i18.i.i308:                               ; preds = %_ZNSt6vectorIPN7msd
   br label %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i309
 
 _ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i309: ; preds = %if.then.i18.i.i308, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i305
-  %add.ptr19.i.i310 = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i315, i64 %cond.i.i.i300
+  %add.ptr19.i.i310 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i315, i64 %cond.i.i.i300
   br label %invoke.cont184
 
 invoke.cont184:                                   ; preds = %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i309, %if.then.i288
@@ -2286,7 +2285,7 @@ if.then.i18.i.i.i345:                             ; preds = %_ZNSt6vectorIiSaIiE
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i346
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i346: ; preds = %if.then.i18.i.i.i345, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i342
-  %add.ptr19.i.i.i347 = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i.i352, i64 %cond.i.i.i.i337
+  %add.ptr19.i.i.i347 = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i.i.i352, i64 %cond.i.i.i.i337
   br label %invoke.cont192
 
 invoke.cont192:                                   ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i346, %if.then.i.i325
@@ -2344,7 +2343,7 @@ if.then.i18.i.i377:                               ; preds = %_ZNSt6vectorIPN7msd
   br label %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i378
 
 _ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i378: ; preds = %if.then.i18.i.i377, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i374
-  %add.ptr19.i.i379 = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i384, i64 %cond.i.i.i369
+  %add.ptr19.i.i379 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i384, i64 %cond.i.i.i369
   br label %invoke.cont194
 
 invoke.cont194:                                   ; preds = %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i378, %if.then.i357
@@ -2409,7 +2408,7 @@ if.then.i18.i.i409:                               ; preds = %_ZNSt6vectorIPN7msd
   br label %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i410
 
 _ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i410: ; preds = %if.then.i18.i.i409, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i406
-  %add.ptr19.i.i411 = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i416, i64 %cond.i.i.i401
+  %add.ptr19.i.i411 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i416, i64 %cond.i.i.i401
   br label %if.end208
 
 if.else197:                                       ; preds = %invoke.cont155
@@ -2457,7 +2456,7 @@ if.then.i18.i.i441:                               ; preds = %_ZNSt6vectorIPN7msd
   br label %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i442
 
 _ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i442: ; preds = %if.then.i18.i.i441, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i438
-  %add.ptr19.i.i443 = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i448, i64 %cond.i.i.i433
+  %add.ptr19.i.i443 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i448, i64 %cond.i.i.i433
   %.pre = ptrtoint ptr %call5.i.i.i.i.i448 to i64
   br label %invoke.cont199
 
@@ -2529,7 +2528,7 @@ if.then.i18.i.i.i478:                             ; preds = %_ZNSt6vectorIiSaIiE
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i479
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i479: ; preds = %if.then.i18.i.i.i478, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i475
-  %add.ptr19.i.i.i480 = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i.i485, i64 %cond.i.i.i.i470
+  %add.ptr19.i.i.i480 = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i.i.i485, i64 %cond.i.i.i.i470
   br label %invoke.cont205
 
 invoke.cont205:                                   ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i479, %if.then.i.i458
@@ -2589,7 +2588,7 @@ if.then.i18.i.i510:                               ; preds = %_ZNSt6vectorIPN7msd
   br label %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i511
 
 _ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i511: ; preds = %if.then.i18.i.i510, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i507
-  %add.ptr19.i.i512 = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i517, i64 %cond.i.i.i502
+  %add.ptr19.i.i512 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i517, i64 %cond.i.i.i502
   br label %if.end208
 
 if.end208:                                        ; preds = %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i511, %if.then.i490, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i410, %if.then.i389
@@ -2650,7 +2649,7 @@ if.else.i.i527:                                   ; preds = %for.body216
 invoke.cont224:                                   ; preds = %.noexc528, %if.else.i.i527
   call void @_ZN7msdfgen10EdgeHolderD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp219) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %arrayidx214 = getelementptr inbounds nuw ptr, ptr %parts, i64 %indvars.iv.next
+  %arrayidx214 = getelementptr inbounds nuw [8 x i8], ptr %parts, i64 %indvars.iv.next
   %64 = load ptr, ptr %arrayidx214, align 8
   %tobool215.not = icmp eq ptr %64, null
   br i1 %tobool215.not, label %for.inc273, label %for.body216, !llvm.loop !26
@@ -2692,7 +2691,7 @@ for.body242:                                      ; preds = %if.else230, %for.in
 
 land.lhs.true:                                    ; preds = %for.body242
   %conv249 = sext i32 %add246 to i64
-  %add.ptr.i541 = getelementptr inbounds i32, ptr %corners.sroa.0.2.lcssa, i64 %conv249
+  %add.ptr.i541 = getelementptr inbounds [4 x i8], ptr %corners.sroa.0.2.lcssa, i64 %conv249
   %69 = load i32, ptr %add.ptr.i541, align 4
   %cmp251 = icmp eq i32 %69, %rem245
   br i1 %cmp251, label %if.then252, label %if.end258
@@ -2758,7 +2757,7 @@ if.then.i18.i.i.i570:                             ; preds = %_ZNSt6vectorIiSaIiE
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i571
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i571: ; preds = %if.then.i18.i.i.i570, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit17.i.i.i567
-  %add.ptr19.i.i.i572 = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i.i.i577, i64 %cond.i.i.i.i562
+  %add.ptr19.i.i.i572 = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i.i.i577, i64 %cond.i.i.i.i562
   br label %if.end258
 
 if.end258:                                        ; preds = %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i571, %if.then.i.i550, %land.lhs.true, %for.body242
@@ -2768,7 +2767,7 @@ if.end258:                                        ; preds = %_ZNSt6vectorIiSaIiE
   %spline.1 = phi i32 [ %spline.01381, %for.body242 ], [ %spline.01381, %land.lhs.true ], [ %add246, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i571 ], [ %add246, %if.then.i.i550 ]
   %conv262 = sext i32 %rem245 to i64
   %71 = load ptr, ptr %contour.sroa.0.01413, align 8
-  %add.ptr.i579 = getelementptr inbounds %"class.msdfgen::EdgeHolder", ptr %71, i64 %conv262
+  %add.ptr.i579 = getelementptr inbounds [8 x i8], ptr %71, i64 %conv262
   %call265 = invoke noundef nonnull align 8 dereferenceable(12) ptr @_ZN7msdfgen10EdgeHolderdeEv(ptr noundef nonnull align 8 dereferenceable(8) %add.ptr.i579)
           to label %invoke.cont264 unwind label %lpad.loopexit.split-lp1097.loopexit.split-lp.loopexit
 
@@ -2826,7 +2825,7 @@ if.then.i18.i.i.i603:                             ; preds = %_ZNSt6vectorIPN7msd
   br label %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i604
 
 _ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i604: ; preds = %if.then.i18.i.i.i603, %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i.i600
-  %add.ptr19.i.i.i605 = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i610, i64 %cond.i.i.i.i595
+  %add.ptr19.i.i.i605 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i610, i64 %cond.i.i.i.i595
   br label %for.inc267
 
 for.inc267:                                       ; preds = %_ZNSt6vectorIPN7msdfgen11EdgeSegmentESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i604, %if.then.i.i583
@@ -2995,8 +2994,8 @@ for.body313.preheader:                            ; preds = %for.body300
 for.body300:                                      ; preds = %for.body300.preheader, %for.body300
   %indvars.iv1580 = phi i64 [ 0, %for.body300.preheader ], [ %indvars.iv.next1581, %for.body300 ]
   %76 = mul nsw i64 %indvars.iv1580, %conv293
-  %add.ptr.i686 = getelementptr inbounds double, ptr %call5.i.i.i.i2.i.i667, i64 %76
-  %add.ptr.i687 = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i2.i.i685, i64 %indvars.iv1580
+  %add.ptr.i686 = getelementptr inbounds [8 x i8], ptr %call5.i.i.i.i2.i.i667, i64 %76
+  %add.ptr.i687 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i685, i64 %indvars.iv1580
   store ptr %add.ptr.i686, ptr %add.ptr.i687, align 8
   %indvars.iv.next1581 = add nuw nsw i64 %indvars.iv1580, 1
   %exitcond1584.not = icmp eq i64 %indvars.iv.next1581, %wide.trip.count
@@ -3020,27 +3019,27 @@ for.cond311.loopexit:                             ; preds = %invoke.cont334, %fo
 for.body313:                                      ; preds = %for.body313.preheader, %for.cond311.loopexit
   %indvars.iv1592 = phi i64 [ 0, %for.body313.preheader ], [ %indvars.iv.next1593, %for.cond311.loopexit ]
   %indvars.iv1585 = phi i64 [ 1, %for.body313.preheader ], [ %indvars.iv.next1586, %for.cond311.loopexit ]
-  %add.ptr.i689 = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i2.i.i685, i64 %indvars.iv1592
+  %add.ptr.i689 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i685, i64 %indvars.iv1592
   %79 = load ptr, ptr %add.ptr.i689, align 8
-  %arrayidx317 = getelementptr inbounds nuw double, ptr %79, i64 %indvars.iv1592
+  %arrayidx317 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %indvars.iv1592
   store double -1.000000e+00, ptr %arrayidx317, align 8
   %indvars.iv.next1593 = add nuw nsw i64 %indvars.iv1592, 1
   %cmp3201432 = icmp slt i64 %indvars.iv.next1593, %conv293
   br i1 %cmp3201432, label %for.body321.lr.ph, label %for.cond311.loopexit
 
 for.body321.lr.ph:                                ; preds = %for.body313
-  %add.ptr.i691 = getelementptr inbounds nuw i32, ptr %splineStarts.sroa.0.14, i64 %indvars.iv1592
-  %add.ptr.i692 = getelementptr inbounds nuw i32, ptr %splineStarts.sroa.0.14, i64 %indvars.iv.next1593
+  %add.ptr.i691 = getelementptr inbounds nuw [4 x i8], ptr %splineStarts.sroa.0.14, i64 %indvars.iv1592
+  %add.ptr.i692 = getelementptr inbounds nuw [4 x i8], ptr %splineStarts.sroa.0.14, i64 %indvars.iv.next1593
   br label %for.body321
 
 for.body321:                                      ; preds = %for.body321.lr.ph, %invoke.cont334
   %indvars.iv1587 = phi i64 [ %indvars.iv1585, %for.body321.lr.ph ], [ %indvars.iv.next1588, %invoke.cont334 ]
   %80 = load i32, ptr %add.ptr.i691, align 4
   %81 = load i32, ptr %add.ptr.i692, align 4
-  %add.ptr.i693 = getelementptr inbounds nuw i32, ptr %splineStarts.sroa.0.14, i64 %indvars.iv1587
+  %add.ptr.i693 = getelementptr inbounds nuw [4 x i8], ptr %splineStarts.sroa.0.14, i64 %indvars.iv1587
   %82 = load i32, ptr %add.ptr.i693, align 4
   %indvars.iv.next1588 = add nuw nsw i64 %indvars.iv1587, 1
-  %add.ptr.i694 = getelementptr inbounds nuw i32, ptr %splineStarts.sroa.0.14, i64 %indvars.iv.next1588
+  %add.ptr.i694 = getelementptr inbounds nuw [4 x i8], ptr %splineStarts.sroa.0.14, i64 %indvars.iv.next1588
   %83 = load i32, ptr %add.ptr.i694, align 4
   %cmp12.i = icmp slt i32 %80, %81
   %cmp28.i = icmp slt i32 %82, %83
@@ -3060,14 +3059,14 @@ for.cond1.preheader.i:                            ; preds = %for.inc7.i, %for.co
   br i1 %tobool9.i, label %for.body3.lr.ph.i, label %for.inc7.i
 
 for.body3.lr.ph.i:                                ; preds = %for.cond1.preheader.i
-  %arrayidx.i = getelementptr inbounds ptr, ptr %edgeSegments.sroa.0.0.lcssa1672, i64 %indvars.iv18.i
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %edgeSegments.sroa.0.0.lcssa1672, i64 %indvars.iv18.i
   br label %for.body3.i
 
 for.body3.i:                                      ; preds = %_ZN7msdfgenL18edgeToEdgeDistanceERKNS_11EdgeSegmentES2_i.exit.i, %for.body3.lr.ph.i
   %indvars.iv.i = phi i64 [ %84, %for.body3.lr.ph.i ], [ %indvars.iv.next.i, %_ZN7msdfgenL18edgeToEdgeDistanceERKNS_11EdgeSegmentES2_i.exit.i ]
   %minDistance.111.i = phi double [ %minDistance.014.i, %for.body3.lr.ph.i ], [ %cond.i.i, %_ZN7msdfgenL18edgeToEdgeDistanceERKNS_11EdgeSegmentES2_i.exit.i ]
   %87 = load ptr, ptr %arrayidx.i, align 8
-  %arrayidx5.i = getelementptr inbounds ptr, ptr %edgeSegments.sroa.0.0.lcssa1672, i64 %indvars.iv.i
+  %arrayidx5.i = getelementptr inbounds [8 x i8], ptr %edgeSegments.sroa.0.0.lcssa1672, i64 %indvars.iv.i
   %88 = load ptr, ptr %arrayidx5.i, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %t.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %t59.i.i)
@@ -3274,11 +3273,11 @@ for.inc7.i:                                       ; preds = %_ZN7msdfgenL18edgeT
 invoke.cont334:                                   ; preds = %for.inc7.i, %for.body321
   %minDistance.0.lcssa.i = phi double [ 0x7FEFFFFFFFFFFFFF, %for.body321 ], [ %minDistance.1.lcssa.i, %for.inc7.i ]
   %137 = load ptr, ptr %add.ptr.i689, align 8
-  %arrayidx339 = getelementptr inbounds nuw double, ptr %137, i64 %indvars.iv1587
+  %arrayidx339 = getelementptr inbounds nuw [8 x i8], ptr %137, i64 %indvars.iv1587
   store double %minDistance.0.lcssa.i, ptr %arrayidx339, align 8
-  %add.ptr.i714 = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i2.i.i685, i64 %indvars.iv1587
+  %add.ptr.i714 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i685, i64 %indvars.iv1587
   %138 = load ptr, ptr %add.ptr.i714, align 8
-  %arrayidx343 = getelementptr inbounds nuw double, ptr %138, i64 %indvars.iv1592
+  %arrayidx343 = getelementptr inbounds nuw [8 x i8], ptr %138, i64 %indvars.iv1592
   store double %minDistance.0.lcssa.i, ptr %arrayidx343, align 8
   %exitcond1591.not = icmp eq i64 %indvars.iv.next1588, %wide.trip.count1590
   br i1 %exitcond1591.not, label %for.cond311.loopexit, label %for.body321, !llvm.loop !35
@@ -3323,7 +3322,7 @@ _ZNSt12_Vector_baseIPKdSaIS1_EE11_M_allocateEm.exit.i: ; preds = %if.end.i
           to label %_ZNSt12_Vector_baseIPKdSaIS1_EE13_M_deallocateEPS1_m.exit.i unwind label %lpad354.loopexit.split-lp
 
 _ZNSt12_Vector_baseIPKdSaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %_ZNSt12_Vector_baseIPKdSaIS1_EE11_M_allocateEm.exit.i
-  %add.ptr21.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i723, i64 %conv353
+  %add.ptr21.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i723, i64 %conv353
   br label %for.body359.preheader
 
 for.body359.preheader:                            ; preds = %_ZNSt12_Vector_baseIPKdSaIS1_EE13_M_deallocateEPS1_m.exit.i, %if.end.i
@@ -3353,7 +3352,7 @@ for.body359:                                      ; preds = %for.body359.prehead
   br i1 %cmp3631436, label %for.body364.lr.ph, label %for.cond357.loopexit
 
 for.body364.lr.ph:                                ; preds = %for.body359
-  %add.ptr.i724 = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i2.i.i685, i64 %indvars.iv1605
+  %add.ptr.i724 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i685, i64 %indvars.iv1605
   br label %for.body364
 
 for.body364:                                      ; preds = %for.body364.lr.ph, %for.inc371
@@ -3362,7 +3361,7 @@ for.body364:                                      ; preds = %for.body364.lr.ph, 
   %graphEdgeDistances.sroa.14.11438 = phi ptr [ %graphEdgeDistances.sroa.14.01446, %for.body364.lr.ph ], [ %graphEdgeDistances.sroa.14.3, %for.inc371 ]
   %graphEdgeDistances.sroa.0.21437 = phi ptr [ %graphEdgeDistances.sroa.0.11445, %for.body364.lr.ph ], [ %graphEdgeDistances.sroa.0.5, %for.inc371 ]
   %140 = load ptr, ptr %add.ptr.i724, align 8
-  %arrayidx369 = getelementptr inbounds nuw double, ptr %140, i64 %indvars.iv1600
+  %arrayidx369 = getelementptr inbounds nuw [8 x i8], ptr %140, i64 %indvars.iv1600
   %cmp.not.i.i727 = icmp eq ptr %graphEdgeDistances.sroa.14.11438, %graphEdgeDistances.sroa.23.11439
   br i1 %cmp.not.i.i727, label %if.else.i.i730, label %if.then.i.i728
 
@@ -3416,7 +3415,7 @@ if.then.i18.i.i.i746:                             ; preds = %_ZNSt6vectorIPKdSaI
   br label %_ZNSt6vectorIPKdSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIPKdSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %if.then.i18.i.i.i746, %_ZNSt6vectorIPKdSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit17.i.i.i
-  %add.ptr19.i.i.i747 = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i752, i64 %cond.i.i.i.i739
+  %add.ptr19.i.i.i747 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i752, i64 %cond.i.i.i.i739
   br label %for.inc371
 
 for.inc371:                                       ; preds = %_ZNSt6vectorIPKdSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i, %if.then.i.i728
@@ -3498,8 +3497,8 @@ land.rhs.lr.ph:                                   ; preds = %for.cond406.prehead
 for.body397:                                      ; preds = %for.body397.preheader, %for.body397
   %indvars.iv1611 = phi i64 [ 0, %for.body397.preheader ], [ %indvars.iv.next1612, %for.body397 ]
   %142 = mul nsw i64 %indvars.iv1611, %conv293
-  %add.ptr.i801 = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i.i782, i64 %142
-  %add.ptr.i802 = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i2.i.i800, i64 %indvars.iv1611
+  %add.ptr.i801 = getelementptr inbounds [4 x i8], ptr %call5.i.i.i.i2.i.i782, i64 %142
+  %add.ptr.i802 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i800, i64 %indvars.iv1611
   store ptr %add.ptr.i801, ptr %add.ptr.i802, align 8
   %indvars.iv.next1612 = add nuw nsw i64 %indvars.iv1611, 1
   %exitcond1617.not = icmp eq i64 %indvars.iv.next1612, %wide.trip.count1616
@@ -3517,7 +3516,7 @@ lpad392:                                          ; preds = %if.then.i.i.i.i.i78
 
 land.rhs:                                         ; preds = %land.rhs.lr.ph, %for.body411
   %indvars.iv1618 = phi i64 [ 0, %land.rhs.lr.ph ], [ %indvars.iv.next1619, %for.body411 ]
-  %add.ptr.i803 = getelementptr inbounds nuw ptr, ptr %graphEdgeDistances.sroa.0.2.lcssa, i64 %indvars.iv1618
+  %add.ptr.i803 = getelementptr inbounds nuw [8 x i8], ptr %graphEdgeDistances.sroa.0.2.lcssa, i64 %indvars.iv1618
   %145 = load ptr, ptr %add.ptr.i803, align 8
   %146 = load double, ptr %145, align 8
   %tobool410 = fcmp oeq double %146, 0.000000e+00
@@ -3531,14 +3530,14 @@ for.body411:                                      ; preds = %land.rhs
   %div415 = sdiv i32 %conv414, %sub284
   %rem416 = srem i32 %conv414, %sub284
   %conv417 = sext i32 %div415 to i64
-  %add.ptr.i805 = getelementptr inbounds ptr, ptr %call5.i.i.i.i2.i.i800, i64 %conv417
+  %add.ptr.i805 = getelementptr inbounds [8 x i8], ptr %call5.i.i.i.i2.i.i800, i64 %conv417
   %147 = load ptr, ptr %add.ptr.i805, align 8
   %idxprom419 = sext i32 %rem416 to i64
-  %arrayidx420 = getelementptr inbounds i32, ptr %147, i64 %idxprom419
+  %arrayidx420 = getelementptr inbounds [4 x i8], ptr %147, i64 %idxprom419
   store i32 1, ptr %arrayidx420, align 4
-  %add.ptr.i806 = getelementptr inbounds ptr, ptr %call5.i.i.i.i2.i.i800, i64 %idxprom419
+  %add.ptr.i806 = getelementptr inbounds [8 x i8], ptr %call5.i.i.i.i2.i.i800, i64 %idxprom419
   %148 = load ptr, ptr %add.ptr.i806, align 8
-  %arrayidx424 = getelementptr inbounds i32, ptr %148, i64 %conv417
+  %arrayidx424 = getelementptr inbounds [4 x i8], ptr %148, i64 %conv417
   store i32 1, ptr %arrayidx424, align 4
   %indvars.iv.next1619 = add nuw nsw i64 %indvars.iv1618, 1
   %exitcond1622.not = icmp eq i64 %indvars.iv.next1619, %wide.trip.count1621
@@ -3571,20 +3570,20 @@ for.cond1.preheader.i830:                         ; preds = %sw.epilog.i, %for.c
   br i1 %cmp218.not.i, label %sw.bb22.i, label %for.body3.lr.ph.i831
 
 for.body3.lr.ph.i831:                             ; preds = %for.cond1.preheader.i830
-  %arrayidx.i832 = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i2.i.i800, i64 %indvars.iv25.i
+  %arrayidx.i832 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i800, i64 %indvars.iv25.i
   %150 = load ptr, ptr %arrayidx.i832, align 8
   br label %for.body3.i833
 
 for.body3.i833:                                   ; preds = %for.inc.i, %for.body3.lr.ph.i831
   %indvars.iv.i834 = phi i64 [ 0, %for.body3.lr.ph.i831 ], [ %indvars.iv.next.i837, %for.inc.i ]
   %possibleColors.019.i = phi i32 [ 7, %for.body3.lr.ph.i831 ], [ %possibleColors.1.i, %for.inc.i ]
-  %arrayidx5.i835 = getelementptr inbounds nuw i32, ptr %150, i64 %indvars.iv.i834
+  %arrayidx5.i835 = getelementptr inbounds nuw [4 x i8], ptr %150, i64 %indvars.iv.i834
   %151 = load i32, ptr %arrayidx5.i835, align 4
   %tobool.not.i = icmp eq i32 %151, 0
   br i1 %tobool.not.i, label %for.inc.i, label %if.then.i836
 
 if.then.i836:                                     ; preds = %for.body3.i833
-  %arrayidx7.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i2.i.i825, i64 %indvars.iv.i834
+  %arrayidx7.i = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i2.i.i825, i64 %indvars.iv.i834
   %152 = load i32, ptr %arrayidx7.i, align 4
   %shl.i = shl nuw i32 1, %152
   %not.i = xor i32 %shl.i, -1
@@ -3644,7 +3643,7 @@ sw.bb22.i:                                        ; preds = %for.end.i, %for.con
 sw.epilog.i:                                      ; preds = %sw.bb22.i, %sw.bb17.i, %sw.bb12.i, %sw.bb11.i, %sw.bb9.i, %sw.bb8.i, %for.end.i
   %seed.addr.1.i = phi i64 [ %seed.addr.022.i, %for.end.i ], [ %div.i839, %sw.bb22.i ], [ %seed.addr.022.i, %sw.bb8.i ], [ %shr.i, %sw.bb9.i ], [ %seed.addr.022.i, %sw.bb11.i ], [ %shr16.i, %sw.bb12.i ], [ %shr21.i, %sw.bb17.i ]
   %color.0.i = phi i32 [ 0, %for.end.i ], [ %conv25.i, %sw.bb22.i ], [ 1, %sw.bb8.i ], [ %and10.i, %sw.bb9.i ], [ 2, %sw.bb11.i ], [ %shl15.i, %sw.bb12.i ], [ %add20.i, %sw.bb17.i ]
-  %arrayidx27.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i2.i.i825, i64 %indvars.iv25.i
+  %arrayidx27.i = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i2.i.i825, i64 %indvars.iv25.i
   store i32 %color.0.i, ptr %arrayidx27.i, align 4
   %indvars.iv.next26.i = add nuw nsw i64 %indvars.iv25.i, 1
   %exitcond29.not.i = icmp eq i64 %indvars.iv.next26.i, %wide.trip.count28.i
@@ -3656,7 +3655,7 @@ _ZN7msdfgenL22colorSecondDegreeGraphEPiPKPKiiy.exit: ; preds = %sw.epilog.i
 
 for.body439.lr.ph:                                ; preds = %_ZN7msdfgenL22colorSecondDegreeGraphEPiPKPKiiy.exit
   %sub.ptr.rhs.cast444 = ptrtoint ptr %call5.i.i.i.i2.i.i667 to i64
-  %add.ptr.i843 = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i.i825, i64 %conv293
+  %add.ptr.i843 = getelementptr inbounds [4 x i8], ptr %call5.i.i.i.i2.i.i825, i64 %conv293
   %wide.trip.count.i.i = zext nneg i32 %sub284 to i64
   %mul.i = shl nuw nsw i64 %wide.trip.count.i.i, 2
   %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %uncolored.i, i64 48
@@ -3678,7 +3677,7 @@ for.body463.preheader:                            ; preds = %for.cond461.prehead
 
 for.body439:                                      ; preds = %for.body439.lr.ph, %for.inc456
   %indvars.iv1623 = phi i64 [ %154, %for.body439.lr.ph ], [ %indvars.iv.next1624, %for.inc456 ]
-  %add.ptr.i840 = getelementptr inbounds nuw ptr, ptr %graphEdgeDistances.sroa.0.2.lcssa, i64 %indvars.iv1623
+  %add.ptr.i840 = getelementptr inbounds nuw [8 x i8], ptr %graphEdgeDistances.sroa.0.2.lcssa, i64 %indvars.iv1623
   %155 = load ptr, ptr %add.ptr.i840, align 8
   %sub.ptr.lhs.cast443 = ptrtoint ptr %155 to i64
   %sub.ptr.sub445 = sub i64 %sub.ptr.lhs.cast443, %sub.ptr.rhs.cast444
@@ -3688,18 +3687,18 @@ for.body439:                                      ; preds = %for.body439.lr.ph, 
   %rem451 = srem i32 %conv447, %sub284
   call void @llvm.lifetime.start.p0(ptr nonnull %uncolored.i)
   %idxprom.i = sext i32 %div450 to i64
-  %arrayidx.i844 = getelementptr inbounds ptr, ptr %call5.i.i.i.i2.i.i800, i64 %idxprom.i
+  %arrayidx.i844 = getelementptr inbounds [8 x i8], ptr %call5.i.i.i.i2.i.i800, i64 %idxprom.i
   %156 = load ptr, ptr %arrayidx.i844, align 8
   %idxprom1.i = sext i32 %rem451 to i64
-  %arrayidx2.i = getelementptr inbounds i32, ptr %156, i64 %idxprom1.i
+  %arrayidx2.i = getelementptr inbounds [4 x i8], ptr %156, i64 %idxprom1.i
   store i32 1, ptr %arrayidx2.i, align 4
-  %arrayidx4.i = getelementptr inbounds ptr, ptr %call5.i.i.i.i2.i.i800, i64 %idxprom1.i
+  %arrayidx4.i = getelementptr inbounds [8 x i8], ptr %call5.i.i.i.i2.i.i800, i64 %idxprom1.i
   %157 = load ptr, ptr %arrayidx4.i, align 8
-  %arrayidx6.i = getelementptr inbounds i32, ptr %157, i64 %idxprom.i
+  %arrayidx6.i = getelementptr inbounds [4 x i8], ptr %157, i64 %idxprom.i
   store i32 1, ptr %arrayidx6.i, align 4
-  %arrayidx8.i = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i.i825, i64 %idxprom.i
+  %arrayidx8.i = getelementptr inbounds [4 x i8], ptr %call5.i.i.i.i2.i.i825, i64 %idxprom.i
   %158 = load i32, ptr %arrayidx8.i, align 4
-  %arrayidx10.i = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i.i825, i64 %idxprom1.i
+  %arrayidx10.i = getelementptr inbounds [4 x i8], ptr %call5.i.i.i.i2.i.i825, i64 %idxprom1.i
   %159 = load i32, ptr %arrayidx10.i, align 4
   %cmp.not.i845 = icmp eq i32 %158, %159
   br i1 %cmp.not.i845, label %for.body.i.i847.preheader, label %for.inc456
@@ -3711,13 +3710,13 @@ for.body.i.i847.preheader:                        ; preds = %for.body439
 for.body.i.i847:                                  ; preds = %for.body.i.i847.preheader, %for.inc.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %for.inc.i.i ], [ 0, %for.body.i.i847.preheader ]
   %usedColors.06.i.i = phi i32 [ %usedColors.1.i.i, %for.inc.i.i ], [ 0, %for.body.i.i847.preheader ]
-  %arrayidx.i.i = getelementptr inbounds nuw i32, ptr %160, i64 %indvars.iv.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [4 x i8], ptr %160, i64 %indvars.iv.i.i
   %161 = load i32, ptr %arrayidx.i.i, align 4
   %tobool.not.i.i848 = icmp eq i32 %161, 0
   br i1 %tobool.not.i.i848, label %for.inc.i.i, label %if.then.i.i849
 
 if.then.i.i849:                                   ; preds = %for.body.i.i847
-  %arrayidx2.i.i = getelementptr inbounds nuw i32, ptr %call5.i.i.i.i2.i.i825, i64 %indvars.iv.i.i
+  %arrayidx2.i.i = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i.i2.i.i825, i64 %indvars.iv.i.i
   %162 = load i32, ptr %arrayidx2.i.i, align 4
   %shl.i.i = shl nuw i32 1, %162
   %or.i.i = or i32 %shl.i.i, %usedColors.06.i.i
@@ -3737,7 +3736,7 @@ _ZN7msdfgenL20vertexPossibleColorsEPKiS1_i.exit.i: ; preds = %for.inc.i.i
 if.then13.i:                                      ; preds = %_ZN7msdfgenL20vertexPossibleColorsEPKiS1_i.exit.i
   %164 = xor i32 %163, 7
   %idxprom14.i = zext nneg i32 %164 to i64
-  %arrayidx15.i = getelementptr inbounds nuw i32, ptr @_ZZN7msdfgenL10tryAddEdgeEPiPKS0_iiiS0_E20FIRST_POSSIBLE_COLOR, i64 %idxprom14.i
+  %arrayidx15.i = getelementptr inbounds nuw [4 x i8], ptr @_ZZN7msdfgenL10tryAddEdgeEPiPKS0_iiiS0_E20FIRST_POSSIBLE_COLOR, i64 %idxprom14.i
   %165 = load i32, ptr %arrayidx15.i, align 4
   store i32 %165, ptr %arrayidx10.i, align 4
   br label %for.inc456
@@ -3749,15 +3748,15 @@ if.end18.i:                                       ; preds = %_ZN7msdfgenL20verte
           to label %.noexc867 unwind label %lpad435
 
 .noexc867:                                        ; preds = %if.end18.i
-  %arrayidx21.i = getelementptr inbounds i32, ptr %add.ptr.i843, i64 %idxprom.i
+  %arrayidx21.i = getelementptr inbounds [4 x i8], ptr %add.ptr.i843, i64 %idxprom.i
   %166 = load i32, ptr %arrayidx21.i, align 4
   %shl.i852 = shl nuw i32 1, %166
   %not.i853 = and i32 %shl.i852, 7
   %and.i854 = xor i32 %not.i853, 7
   %idxprom22.i = zext nneg i32 %and.i854 to i64
-  %arrayidx23.i = getelementptr inbounds nuw i32, ptr @_ZZN7msdfgenL10tryAddEdgeEPiPKS0_iiiS0_E20FIRST_POSSIBLE_COLOR, i64 %idxprom22.i
+  %arrayidx23.i = getelementptr inbounds nuw [4 x i8], ptr @_ZZN7msdfgenL10tryAddEdgeEPiPKS0_iiiS0_E20FIRST_POSSIBLE_COLOR, i64 %idxprom22.i
   %167 = load i32, ptr %arrayidx23.i, align 4
-  %arrayidx25.i = getelementptr inbounds i32, ptr %add.ptr.i843, i64 %idxprom1.i
+  %arrayidx25.i = getelementptr inbounds [4 x i8], ptr %add.ptr.i843, i64 %idxprom1.i
   store i32 %167, ptr %arrayidx25.i, align 4
   invoke fastcc void @_ZN7msdfgenL20uncolorSameNeighborsERSt5queueIiSt5dequeIiSaIiEEEPiPKPKiii(ptr noundef nonnull align 8 dereferenceable(80) %uncolored.i, ptr noundef nonnull %add.ptr.i843, ptr noundef nonnull readonly %call5.i.i.i.i2.i.i800, i32 noundef range(i32 -2147483647, -2147483648) %rem451, i32 noundef range(i32 -2147483648, 2147483647) %sub284)
           to label %while.cond.outer.i unwind label %lpad.loopexit.split-lp.i
@@ -3804,20 +3803,20 @@ _ZNSt5queueIiSt5dequeIiSaIiEEE3popEv.exit.i:      ; preds = %if.else.i.i.i, %if.
   %177 = phi ptr [ %incdec.ptr.i.i.i859, %if.then.i.i.i858 ], [ %175, %if.else.i.i.i ]
   store ptr %177, ptr %_M_start.i.i.i, align 8
   %idxprom32.i = sext i32 %172 to i64
-  %arrayidx33.i = getelementptr inbounds ptr, ptr %call5.i.i.i.i2.i.i800, i64 %idxprom32.i
+  %arrayidx33.i = getelementptr inbounds [8 x i8], ptr %call5.i.i.i.i2.i.i800, i64 %idxprom32.i
   %178 = load ptr, ptr %arrayidx33.i, align 8
   br label %for.body.i57.i
 
 for.body.i57.i:                                   ; preds = %for.inc.i66.i, %_ZNSt5queueIiSt5dequeIiSaIiEEE3popEv.exit.i
   %indvars.iv.i58.i = phi i64 [ 0, %_ZNSt5queueIiSt5dequeIiSaIiEEE3popEv.exit.i ], [ %indvars.iv.next.i68.i, %for.inc.i66.i ]
   %usedColors.06.i59.i = phi i32 [ 0, %_ZNSt5queueIiSt5dequeIiSaIiEEE3popEv.exit.i ], [ %usedColors.1.i67.i, %for.inc.i66.i ]
-  %arrayidx.i60.i = getelementptr inbounds nuw i32, ptr %178, i64 %indvars.iv.i58.i
+  %arrayidx.i60.i = getelementptr inbounds nuw [4 x i8], ptr %178, i64 %indvars.iv.i58.i
   %179 = load i32, ptr %arrayidx.i60.i, align 4
   %tobool.not.i61.i = icmp eq i32 %179, 0
   br i1 %tobool.not.i61.i, label %for.inc.i66.i, label %if.then.i62.i
 
 if.then.i62.i:                                    ; preds = %for.body.i57.i
-  %arrayidx2.i63.i = getelementptr inbounds nuw i32, ptr %add.ptr.i843, i64 %indvars.iv.i58.i
+  %arrayidx2.i63.i = getelementptr inbounds nuw [4 x i8], ptr %add.ptr.i843, i64 %indvars.iv.i58.i
   %180 = load i32, ptr %arrayidx2.i63.i, align 4
   %shl.i64.i = shl nuw i32 1, %180
   %or.i65.i = or i32 %shl.i64.i, %usedColors.06.i59.i
@@ -3835,16 +3834,16 @@ _ZN7msdfgenL20vertexPossibleColorsEPKiS1_i.exit71.i: ; preds = %for.inc.i66.i
   br i1 %tobool36.not.i, label %do.body.preheader.i, label %if.then37.i
 
 do.body.preheader.i:                              ; preds = %_ZN7msdfgenL20vertexPossibleColorsEPKiS1_i.exit71.i
-  %arrayidx44.i = getelementptr inbounds i32, ptr %add.ptr.i843, i64 %idxprom32.i
-  %arrayidx48.i = getelementptr inbounds i32, ptr %178, i64 %idxprom.i
+  %arrayidx44.i = getelementptr inbounds [4 x i8], ptr %add.ptr.i843, i64 %idxprom32.i
+  %arrayidx48.i = getelementptr inbounds [4 x i8], ptr %178, i64 %idxprom.i
   br label %do.body.i
 
 if.then37.i:                                      ; preds = %_ZN7msdfgenL20vertexPossibleColorsEPKiS1_i.exit71.i
   %182 = xor i32 %181, 7
   %idxprom38.i = zext nneg i32 %182 to i64
-  %arrayidx39.i = getelementptr inbounds nuw i32, ptr @_ZZN7msdfgenL10tryAddEdgeEPiPKS0_iiiS0_E20FIRST_POSSIBLE_COLOR, i64 %idxprom38.i
+  %arrayidx39.i = getelementptr inbounds nuw [4 x i8], ptr @_ZZN7msdfgenL10tryAddEdgeEPiPKS0_iiiS0_E20FIRST_POSSIBLE_COLOR, i64 %idxprom38.i
   %183 = load i32, ptr %arrayidx39.i, align 4
-  %arrayidx41.i = getelementptr inbounds i32, ptr %add.ptr.i843, i64 %idxprom32.i
+  %arrayidx41.i = getelementptr inbounds [4 x i8], ptr %add.ptr.i843, i64 %idxprom32.i
   store i32 %183, ptr %arrayidx41.i, align 4
   %184 = load ptr, ptr %_M_finish.i.i.i, align 8
   %cmp.i.i.i.i860 = icmp eq ptr %184, %177
@@ -3888,10 +3887,10 @@ while.end.i:                                      ; preds = %while.cond.outer.i
 
 if.then60.i:                                      ; preds = %while.end.i
   %187 = load ptr, ptr %arrayidx.i844, align 8
-  %arrayidx64.i = getelementptr inbounds i32, ptr %187, i64 %idxprom1.i
+  %arrayidx64.i = getelementptr inbounds [4 x i8], ptr %187, i64 %idxprom1.i
   store i32 0, ptr %arrayidx64.i, align 4
   %188 = load ptr, ptr %arrayidx4.i, align 8
-  %arrayidx68.i = getelementptr inbounds i32, ptr %188, i64 %idxprom.i
+  %arrayidx68.i = getelementptr inbounds [4 x i8], ptr %188, i64 %idxprom.i
   store i32 0, ptr %arrayidx68.i, align 4
   br label %cleanup.i
 
@@ -3955,18 +3954,18 @@ for.body463:                                      ; preds = %for.body463.prehead
   %spline459.01460 = phi i32 [ -1, %for.body463.preheader ], [ %spec.select, %for.body463 ]
   %add464 = add nsw i32 %spline459.01460, 1
   %conv465 = sext i32 %add464 to i64
-  %add.ptr.i870 = getelementptr inbounds i32, ptr %splineStarts.sroa.0.14, i64 %conv465
+  %add.ptr.i870 = getelementptr inbounds [4 x i8], ptr %splineStarts.sroa.0.14, i64 %conv465
   %197 = load i32, ptr %add.ptr.i870, align 4
   %198 = zext i32 %197 to i64
   %cmp467 = icmp eq i64 %indvars.iv1626, %198
   %spec.select = select i1 %cmp467, i32 %add464, i32 %spline459.01460
   %conv471 = sext i32 %spec.select to i64
-  %add.ptr.i871 = getelementptr inbounds i32, ptr %call5.i.i.i.i2.i.i825, i64 %conv471
+  %add.ptr.i871 = getelementptr inbounds [4 x i8], ptr %call5.i.i.i.i2.i.i825, i64 %conv471
   %199 = load i32, ptr %add.ptr.i871, align 4
   %idxprom473 = sext i32 %199 to i64
-  %arrayidx474 = getelementptr inbounds i32, ptr @__const._ZN7msdfgen22edgeColoringByDistanceERNS_5ShapeEdy.colors, i64 %idxprom473
+  %arrayidx474 = getelementptr inbounds [4 x i8], ptr @__const._ZN7msdfgen22edgeColoringByDistanceERNS_5ShapeEdy.colors, i64 %idxprom473
   %200 = load i32, ptr %arrayidx474, align 4
-  %add.ptr.i872 = getelementptr inbounds nuw ptr, ptr %edgeSegments.sroa.0.0.lcssa1672, i64 %indvars.iv1626
+  %add.ptr.i872 = getelementptr inbounds nuw [8 x i8], ptr %edgeSegments.sroa.0.0.lcssa1672, i64 %indvars.iv1626
   %201 = load ptr, ptr %add.ptr.i872, align 8
   %color477 = getelementptr inbounds nuw i8, ptr %201, i64 8
   store i32 %200, ptr %color477, align 8
@@ -4118,8 +4117,8 @@ entry:
 
 for.body.lr.ph:                                   ; preds = %entry
   %idxprom = sext i32 %vertex to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %edgeMatrix, i64 %idxprom
-  %arrayidx6 = getelementptr inbounds i32, ptr %coloring, i64 %idxprom
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %edgeMatrix, i64 %idxprom
+  %arrayidx6 = getelementptr inbounds [4 x i8], ptr %coloring, i64 %idxprom
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %uncolored, i64 48
   %_M_last.i.i = getelementptr inbounds nuw i8, ptr %uncolored, i64 64
   br label %for.body
@@ -4131,8 +4130,8 @@ for.cond11.preheader:                             ; preds = %for.inc, %entry
 
 for.body13.lr.ph:                                 ; preds = %for.cond11.preheader
   %idxprom14 = zext nneg i32 %vertex to i64
-  %arrayidx15 = getelementptr inbounds nuw ptr, ptr %edgeMatrix, i64 %idxprom14
-  %arrayidx23 = getelementptr inbounds nuw i32, ptr %coloring, i64 %idxprom14
+  %arrayidx15 = getelementptr inbounds nuw [8 x i8], ptr %edgeMatrix, i64 %idxprom14
+  %arrayidx23 = getelementptr inbounds nuw [4 x i8], ptr %coloring, i64 %idxprom14
   %_M_finish.i.i15 = getelementptr inbounds nuw i8, ptr %uncolored, i64 48
   %_M_last.i.i16 = getelementptr inbounds nuw i8, ptr %uncolored, i64 64
   br label %for.body13
@@ -4141,13 +4140,13 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %storemerge26 = phi i32 [ %storemerge23, %for.body.lr.ph ], [ %storemerge, %for.inc ]
   %0 = load ptr, ptr %arrayidx, align 8
   %idxprom1 = sext i32 %storemerge26 to i64
-  %arrayidx2 = getelementptr inbounds i32, ptr %0, i64 %idxprom1
+  %arrayidx2 = getelementptr inbounds [4 x i8], ptr %0, i64 %idxprom1
   %1 = load i32, ptr %arrayidx2, align 4
   %tobool.not = icmp eq i32 %1, 0
   br i1 %tobool.not, label %for.inc, label %land.lhs.true
 
 land.lhs.true:                                    ; preds = %for.body
-  %arrayidx4 = getelementptr inbounds i32, ptr %coloring, i64 %idxprom1
+  %arrayidx4 = getelementptr inbounds [4 x i8], ptr %coloring, i64 %idxprom1
   %2 = load i32, ptr %arrayidx4, align 4
   %3 = load i32, ptr %arrayidx6, align 4
   %cmp7 = icmp eq i32 %2, %3
@@ -4183,13 +4182,13 @@ for.body13:                                       ; preds = %for.body13.lr.ph, %
   %storemerge1428 = phi i32 [ 0, %for.body13.lr.ph ], [ %inc30, %for.inc29 ]
   %8 = load ptr, ptr %arrayidx15, align 8
   %idxprom16 = sext i32 %storemerge1428 to i64
-  %arrayidx17 = getelementptr inbounds i32, ptr %8, i64 %idxprom16
+  %arrayidx17 = getelementptr inbounds [4 x i8], ptr %8, i64 %idxprom16
   %9 = load i32, ptr %arrayidx17, align 4
   %tobool18.not = icmp eq i32 %9, 0
   br i1 %tobool18.not, label %for.inc29, label %land.lhs.true19
 
 land.lhs.true19:                                  ; preds = %for.body13
-  %arrayidx21 = getelementptr inbounds i32, ptr %coloring, i64 %idxprom16
+  %arrayidx21 = getelementptr inbounds [4 x i8], ptr %coloring, i64 %idxprom16
   %10 = load i32, ptr %arrayidx21, align 4
   %11 = load i32, ptr %arrayidx23, align 4
   %cmp24 = icmp eq i32 %10, %11
@@ -4276,7 +4275,7 @@ entry:
   store ptr %call5.i.i2.i, ptr %this, align 8
   %sub = sub nsw i64 %.sroa.speculated, %add
   %div137 = lshr i64 %sub, 1
-  %add.ptr = getelementptr inbounds nuw ptr, ptr %call5.i.i2.i, i64 %div137
+  %add.ptr = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i2.i, i64 %div137
   %add.ptr14.idx = shl nuw nsw i64 %add, 3
   %add.ptr14 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 %add.ptr14.idx
   br label %for.body.i
@@ -4365,7 +4364,7 @@ try.cont:                                         ; preds = %invoke.cont.i
   store ptr %add.ptr.i12, ptr %_M_last.i13, align 8
   store ptr %12, ptr %_M_start, align 8
   %rem = and i64 %__num_elements, 127
-  %add.ptr36 = getelementptr inbounds nuw i32, ptr %13, i64 %rem
+  %add.ptr36 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %rem
   store ptr %add.ptr36, ptr %_M_finish, align 8
   ret void
 
@@ -4513,9 +4512,9 @@ if.then:                                          ; preds = %entry
   %3 = load ptr, ptr %this, align 8
   %sub = sub i64 %2, %add4
   %div17 = lshr i64 %sub, 1
-  %add.ptr = getelementptr inbounds nuw ptr, ptr %3, i64 %div17
+  %add.ptr = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %div17
   %cond = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
-  %add.ptr9 = getelementptr inbounds ptr, ptr %add.ptr, i64 %cond
+  %add.ptr9 = getelementptr inbounds [8 x i8], ptr %add.ptr, i64 %cond
   %cmp13 = icmp ult ptr %add.ptr9, %1
   %add.ptr21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %add.ptr21, %1
@@ -4534,12 +4533,12 @@ if.else:                                          ; preds = %if.then
   br i1 %tobool.not.i.i.i.i.i, label %if.end65, label %if.then.i.i.i.i.i19
 
 if.then.i.i.i.i.i19:                              ; preds = %if.else
-  %add.ptr29 = getelementptr inbounds ptr, ptr %add.ptr9, i64 %add
+  %add.ptr29 = getelementptr inbounds [8 x i8], ptr %add.ptr9, i64 %add
   %sub.ptr.lhs.cast.i.i.i.i.i20 = ptrtoint ptr %add.ptr21 to i64
   %sub.ptr.sub.i.i.i.i.i22 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i20, %sub.ptr.rhs.cast
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i22, 3
   %idx.neg.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
-  %add.ptr.i.i.i.i.i23 = getelementptr inbounds ptr, ptr %add.ptr29, i64 %idx.neg.i.i.i.i.i
+  %add.ptr.i.i.i.i.i23 = getelementptr inbounds [8 x i8], ptr %add.ptr29, i64 %idx.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i23, ptr align 8 %1, i64 %sub.ptr.sub.i.i.i.i.i22, i1 false)
   br label %if.end65
 
@@ -4567,9 +4566,9 @@ _ZNSt11_Deque_baseIiSaIiEE15_M_allocate_mapEm.exit: ; preds = %if.else31
   %call5.i.i2.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #20
   %sub40 = sub i64 %add38, %add4
   %div4116 = lshr i64 %sub40, 1
-  %add.ptr42 = getelementptr inbounds nuw ptr, ptr %call5.i.i2.i, i64 %div4116
+  %add.ptr42 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i2.i, i64 %div4116
   %cond47 = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
-  %add.ptr48 = getelementptr inbounds ptr, ptr %add.ptr42, i64 %cond47
+  %add.ptr48 = getelementptr inbounds [8 x i8], ptr %add.ptr42, i64 %cond47
   %add.ptr55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %tobool.not.i.i.i.i.i27 = icmp eq ptr %add.ptr55, %1
   br i1 %tobool.not.i.i.i.i.i27, label %_ZSt4copyIPPiS1_ET0_T_S3_S2_.exit30, label %if.then.i.i.i.i.i28
@@ -4596,7 +4595,7 @@ if.end65:                                         ; preds = %if.then.i.i.i.i.i19
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %5, i64 512
   %_M_last.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr %add.ptr.i, ptr %_M_last.i, align 8
-  %add.ptr70 = getelementptr inbounds ptr, ptr %__new_nstart.0, i64 %add
+  %add.ptr70 = getelementptr inbounds [8 x i8], ptr %__new_nstart.0, i64 %add
   %add.ptr71 = getelementptr inbounds i8, ptr %add.ptr70, i64 -8
   store ptr %add.ptr71, ptr %_M_node, align 8
   %6 = load ptr, ptr %add.ptr71, align 8
@@ -4777,7 +4776,7 @@ _ZNSt12_Vector_baseIN7msdfgen10EdgeHolderESaIS1_EE13_M_deallocateEPS1_m.exit: ; 
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i.i.i39, ptr %_M_finish.i.i, align 8
-  %add.ptr29 = getelementptr inbounds nuw %"class.msdfgen::EdgeHolder", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr29 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr29, ptr %_M_end_of_storage, align 8
   ret void
 

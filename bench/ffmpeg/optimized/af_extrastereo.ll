@@ -94,10 +94,10 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
   %indvars.iv48 = phi i64 [ %indvars.iv.next49, %.lr.ph.split.us ], [ 0, %.lr.ph ]
   %29 = shl nuw nsw i64 %indvars.iv48, 1
-  %30 = getelementptr inbounds nuw float, ptr %11, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %29
   %31 = load float, ptr %30, align 4, !tbaa !45
   %32 = or disjoint i64 %29, 1
-  %33 = getelementptr inbounds nuw float, ptr %11, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %32
   %34 = load float, ptr %33, align 4, !tbaa !45
   %35 = fadd nsz float %31, %34
   %36 = fmul nsz float %35, 5.000000e-01
@@ -105,9 +105,9 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %38 = tail call nsz float @llvm.fmuladd.f32(float %13, float %37, float %36)
   %39 = fsub nsz float %34, %36
   %40 = tail call nsz float @llvm.fmuladd.f32(float %13, float %39, float %36)
-  %41 = getelementptr inbounds nuw float, ptr %23, i64 %29
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %29
   store float %38, ptr %41, align 4, !tbaa !45
-  %42 = getelementptr inbounds nuw float, ptr %23, i64 %32
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %32
   store float %40, ptr %42, align 4, !tbaa !45
   %indvars.iv.next49 = add nuw nsw i64 %indvars.iv48, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next49, %wide.trip.count51
@@ -116,10 +116,10 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
   %43 = shl nuw nsw i64 %indvars.iv, 1
-  %44 = getelementptr inbounds nuw float, ptr %11, i64 %43
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %43
   %45 = load float, ptr %44, align 4, !tbaa !45
   %46 = or disjoint i64 %43, 1
-  %47 = getelementptr inbounds nuw float, ptr %11, i64 %46
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %46
   %48 = load float, ptr %47, align 4, !tbaa !45
   %49 = fadd nsz float %45, %48
   %50 = fmul nsz float %49, 5.000000e-01
@@ -135,9 +135,9 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %59 = select nsz i1 %58, float %54, float -1.000000e+00
   %60 = fcmp nsz ogt float %59, 1.000000e+00
   %..i44 = select nsz i1 %60, float 1.000000e+00, float %59
-  %61 = getelementptr inbounds nuw float, ptr %23, i64 %43
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %43
   store float %..i, ptr %61, align 4, !tbaa !45
-  %62 = getelementptr inbounds nuw float, ptr %23, i64 %46
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %46
   store float %..i44, ptr %62, align 4, !tbaa !45
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count51

@@ -53,7 +53,7 @@ define void @_ZN11fish_printf3arg3Arg6as_str17h6cb0ad0bcf0e4a4cE(ptr dead_on_unw
   %16 = load ptr, ptr %15, align 8, !nonnull !4, !align !7, !noundef !4
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %18 = load i64, ptr %17, align 8, !noundef !4
-  %19 = getelementptr inbounds nuw i32, ptr %16, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %18
   tail call void @"_ZN89_$LT$alloc..string..String$u20$as$u20$core..iter..traits..collect..Extend$LT$char$GT$$GT$6extend17h3898b777581243afE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %16, ptr noundef nonnull %19)
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %21 = load ptr, ptr %20, align 8, !nonnull !4, !noundef !4
@@ -80,7 +80,7 @@ define void @_ZN11fish_printf3arg3Arg6as_str17h6cb0ad0bcf0e4a4cE(ptr dead_on_unw
   %33 = load ptr, ptr %32, align 8, !nonnull !4, !noundef !4
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %35 = load i64, ptr %34, align 8, !noundef !4
-  %36 = getelementptr inbounds nuw i32, ptr %33, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %35
   tail call void @"_ZN89_$LT$alloc..string..String$u20$as$u20$core..iter..traits..collect..Extend$LT$char$GT$$GT$6extend17h3898b777581243afE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %33, ptr noundef nonnull %36)
   %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %38 = load ptr, ptr %37, align 8, !nonnull !4, !noundef !4

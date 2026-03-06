@@ -4895,7 +4895,7 @@ _ZN9uv_pep4407version12VersionSmall12push_release17h02d96fd89e4e4274E.exit: ; pr
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h77c87f6a639a8c00E.exit": ; preds = %99, %93
   %100 = getelementptr inbounds nuw i8, ptr %92, i64 72
   %101 = load ptr, ptr %100, align 8, !alias.scope !1176, !nonnull !3, !noundef !3
-  %102 = getelementptr inbounds i64, ptr %101, i64 %96
+  %102 = getelementptr inbounds [8 x i8], ptr %101, i64 %96
   store i64 %.sroa.phi.sroa.speculated, ptr %102, align 8
   %103 = add i64 %96, 1
   store i64 %103, ptr %95, align 8, !alias.scope !1176
@@ -5116,7 +5116,7 @@ define internal fastcc void @_ZN9uv_pep4407version7Version12with_release17hf25c6
 71:                                               ; preds = %22, %109
   %72 = phi i64 [ 0, %22 ], [ %73, %109 ]
   %73 = add nuw nsw i64 %72, 1
-  %74 = getelementptr inbounds nuw i64, ptr %.sroa.5.0..sroa_idx, i64 %72
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.5.0..sroa_idx, i64 %72
   %75 = load i64, ptr %74, align 8, !alias.scope !1200, !noundef !3
   %76 = load i8, ptr %9, align 1, !noundef !3
   %77 = icmp eq i8 %76, 0
@@ -5179,7 +5179,7 @@ _ZN9uv_pep4407version12VersionSmall12push_release17h02d96fd89e4e4274E.exit: ; pr
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h77c87f6a639a8c00E.exit": ; preds = %104, %98
   %105 = getelementptr inbounds nuw i8, ptr %97, i64 72
   %106 = load ptr, ptr %105, align 8, !alias.scope !1206, !nonnull !3, !noundef !3
-  %107 = getelementptr inbounds i64, ptr %106, i64 %101
+  %107 = getelementptr inbounds [8 x i8], ptr %106, i64 %101
   store i64 %75, ptr %107, align 8
   %108 = add i64 %101, 1
   store i64 %108, ptr %100, align 8, !alias.scope !1206

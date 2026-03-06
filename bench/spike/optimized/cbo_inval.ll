@@ -301,7 +301,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32i_cbo_invalP
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %66 = lshr i64 %1, 15
   %67 = and i64 %66, 31
-  %68 = getelementptr inbounds nuw i64, ptr %65, i64 %67
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %67
   %69 = load i64, ptr %68, align 8, !tbaa !3
   tail call void @_ZN5mmu_t11clean_invalEmbb(ptr noundef nonnull align 8 dereferenceable(43168) %64, i64 noundef %69, i1 noundef zeroext %.sink63, i1 noundef zeroext true)
   %70 = shl i64 %2, 32
@@ -859,7 +859,7 @@ define noundef i64 @_Z20fast_rv64i_cbo_invalP11processor_t6insn_tm(ptr noundef r
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %66 = lshr i64 %1, 15
   %67 = and i64 %66, 31
-  %68 = getelementptr inbounds nuw i64, ptr %65, i64 %67
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %67
   %69 = load i64, ptr %68, align 8, !tbaa !3
   tail call void @_ZN5mmu_t11clean_invalEmbb(ptr noundef nonnull align 8 dereferenceable(43168) %64, i64 noundef %69, i1 noundef zeroext %.sink63, i1 noundef zeroext true)
   %70 = add i64 %2, 4
@@ -978,7 +978,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32i_cbo_inva
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %66 = lshr i64 %1, 15
   %67 = and i64 %66, 31
-  %68 = getelementptr inbounds nuw i64, ptr %65, i64 %67
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %67
   %69 = load i64, ptr %68, align 8, !tbaa !3
   tail call void @_ZN5mmu_t11clean_invalEmbb(ptr noundef nonnull align 8 dereferenceable(43168) %64, i64 noundef %69, i1 noundef zeroext %.sink63, i1 noundef zeroext true)
   %70 = shl i64 %2, 32
@@ -1099,7 +1099,7 @@ define noundef i64 @_Z22logged_rv64i_cbo_invalP11processor_t6insn_tm(ptr noundef
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %66 = lshr i64 %1, 15
   %67 = and i64 %66, 31
-  %68 = getelementptr inbounds nuw i64, ptr %65, i64 %67
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %67
   %69 = load i64, ptr %68, align 8, !tbaa !3
   tail call void @_ZN5mmu_t11clean_invalEmbb(ptr noundef nonnull align 8 dereferenceable(43168) %64, i64 noundef %69, i1 noundef zeroext %.sink63, i1 noundef zeroext true)
   %70 = add i64 %2, 4
@@ -1253,7 +1253,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z20fast_rv32e_cbo_invalP
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %82 = load ptr, ptr %81, align 8, !tbaa !95
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %84 = getelementptr inbounds nuw i64, ptr %83, i64 %.sink75
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %.sink75
   %85 = load i64, ptr %84, align 8, !tbaa !3
   tail call void @_ZN5mmu_t11clean_invalEmbb(ptr noundef nonnull align 8 dereferenceable(43168) %82, i64 noundef %85, i1 noundef zeroext %.sink72, i1 noundef zeroext true)
   %86 = shl i64 %2, 32
@@ -1409,7 +1409,7 @@ define noundef i64 @_Z20fast_rv64e_cbo_invalP11processor_t6insn_tm(ptr noundef r
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %82 = load ptr, ptr %81, align 8, !tbaa !95
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %84 = getelementptr inbounds nuw i64, ptr %83, i64 %.sink75
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %.sink75
   %85 = load i64, ptr %84, align 8, !tbaa !3
   tail call void @_ZN5mmu_t11clean_invalEmbb(ptr noundef nonnull align 8 dereferenceable(43168) %82, i64 noundef %85, i1 noundef zeroext %.sink72, i1 noundef zeroext true)
   %86 = add i64 %2, 4
@@ -1563,7 +1563,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z22logged_rv32e_cbo_inva
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %82 = load ptr, ptr %81, align 8, !tbaa !95
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %84 = getelementptr inbounds nuw i64, ptr %83, i64 %.sink75
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %.sink75
   %85 = load i64, ptr %84, align 8, !tbaa !3
   tail call void @_ZN5mmu_t11clean_invalEmbb(ptr noundef nonnull align 8 dereferenceable(43168) %82, i64 noundef %85, i1 noundef zeroext %.sink72, i1 noundef zeroext true)
   %86 = shl i64 %2, 32
@@ -1719,7 +1719,7 @@ define noundef i64 @_Z22logged_rv64e_cbo_invalP11processor_t6insn_tm(ptr noundef
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %82 = load ptr, ptr %81, align 8, !tbaa !95
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %84 = getelementptr inbounds nuw i64, ptr %83, i64 %.sink75
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %.sink75
   %85 = load i64, ptr %84, align 8, !tbaa !3
   tail call void @_ZN5mmu_t11clean_invalEmbb(ptr noundef nonnull align 8 dereferenceable(43168) %82, i64 noundef %85, i1 noundef zeroext %.sink72, i1 noundef zeroext true)
   %86 = add i64 %2, 4

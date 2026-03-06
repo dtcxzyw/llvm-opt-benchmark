@@ -3,12 +3,11 @@ source_filename = "bench/bullet3/original/btCompoundShape.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.btCompoundShapeChild = type { %class.btTransform, ptr, i32, float, ptr }
 %class.btTransform = type { %class.btMatrix3x3, %class.btVector3 }
 %class.btMatrix3x3 = type { [3 x %class.btVector3] }
 %class.btVector3 = type { [4 x float] }
 %struct.btDbvtAabbMm = type { %class.btVector3, %class.btVector3 }
-%struct.btVector3FloatData = type { [4 x float] }
+%struct.btCompoundShapeChild = type { %class.btTransform, ptr, i32, float, ptr }
 
 $_ZN20btAlignedObjectArrayI20btCompoundShapeChildED2Ev = comdat any
 
@@ -137,9 +136,9 @@ _ZN20btAlignedObjectArrayI20btCompoundShapeChildE8allocateEi.exit.i: ; preds = %
 
 43:                                               ; preds = %43, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %43 ]
-  %44 = getelementptr inbounds nuw %struct.btCompoundShapeChild, ptr %.0.i.i, i64 %indvars.iv.i.i
+  %44 = getelementptr inbounds nuw [88 x i8], ptr %.0.i.i, i64 %indvars.iv.i.i
   %45 = load ptr, ptr %9, align 8, !tbaa !19
-  %46 = getelementptr inbounds nuw %struct.btCompoundShapeChild, ptr %45, i64 %indvars.iv.i.i
+  %46 = getelementptr inbounds nuw [88 x i8], ptr %45, i64 %indvars.iv.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %44, ptr noundef nonnull align 8 dereferenceable(88) %46, i64 16, i1 false), !tbaa.struct !31
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 16
@@ -405,9 +404,9 @@ define dso_local void @_ZN15btCompoundShape13addChildShapeERK11btTransformP16btC
 
 27:                                               ; preds = %3, %41
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %41 ]
-  %28 = getelementptr inbounds nuw float, ptr %22, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv
   %29 = load float, ptr %28, align 4, !tbaa !22
-  %30 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %31 = load float, ptr %30, align 4, !tbaa !22
   %32 = fcmp ogt float %29, %31
   br i1 %32, label %33, label %34
@@ -417,9 +416,9 @@ define dso_local void @_ZN15btCompoundShape13addChildShapeERK11btTransformP16btC
   br label %34
 
 34:                                               ; preds = %33, %27
-  %35 = getelementptr inbounds nuw float, ptr %23, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv
   %36 = load float, ptr %35, align 4, !tbaa !22
-  %37 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %38 = load float, ptr %37, align 4, !tbaa !22
   %39 = fcmp olt float %36, %38
   br i1 %39, label %40, label %41
@@ -486,9 +485,9 @@ _ZN20btAlignedObjectArrayI20btCompoundShapeChildE8allocateEi.exit.i.i: ; preds =
 
 67:                                               ; preds = %67, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %67 ]
-  %68 = getelementptr inbounds nuw %struct.btCompoundShapeChild, ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
+  %68 = getelementptr inbounds nuw [88 x i8], ptr %.0.i.i.i, i64 %indvars.iv.i.i.i
   %69 = load ptr, ptr %66, align 8, !tbaa !19
-  %70 = getelementptr inbounds nuw %struct.btCompoundShapeChild, ptr %69, i64 %indvars.iv.i.i.i
+  %70 = getelementptr inbounds nuw [88 x i8], ptr %69, i64 %indvars.iv.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %68, ptr noundef nonnull align 8 dereferenceable(88) %70, i64 16, i1 false), !tbaa.struct !31
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %72 = getelementptr inbounds nuw i8, ptr %68, i64 16
@@ -532,7 +531,7 @@ _ZN20btAlignedObjectArrayI20btCompoundShapeChildE9push_backERKS0_.exit: ; preds 
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %87 = load ptr, ptr %86, align 8, !tbaa !19
   %88 = sext i32 %85 to i64
-  %89 = getelementptr inbounds %struct.btCompoundShapeChild, ptr %87, i64 %88
+  %89 = getelementptr inbounds [88 x i8], ptr %87, i64 %88
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %89, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0, i64 16, i1 false), !tbaa.struct !31
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %90, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.16..sroa_idx, i64 16, i1 false), !tbaa.struct !31
@@ -567,7 +566,7 @@ define dso_local void @_ZN15btCompoundShape20updateChildTransformEiRK11btTransfo
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load ptr, ptr %8, align 8, !tbaa !19
   %10 = sext i32 %1 to i64
-  %11 = getelementptr inbounds %struct.btCompoundShapeChild, ptr %9, i64 %10
+  %11 = getelementptr inbounds [88 x i8], ptr %9, i64 %10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %11, ptr noundef nonnull align 4 dereferenceable(64) %2, i64 16, i1 false), !tbaa.struct !31
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
@@ -587,7 +586,7 @@ define dso_local void @_ZN15btCompoundShape20updateChildTransformEiRK11btTransfo
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %21 = load ptr, ptr %8, align 8, !tbaa !19
-  %22 = getelementptr inbounds %struct.btCompoundShapeChild, ptr %21, i64 %10
+  %22 = getelementptr inbounds [88 x i8], ptr %21, i64 %10
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 64
   %24 = load ptr, ptr %23, align 8, !tbaa !37
   %25 = load ptr, ptr %24, align 8, !tbaa !12
@@ -600,7 +599,7 @@ define dso_local void @_ZN15btCompoundShape20updateChildTransformEiRK11btTransfo
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %28, ptr noundef nonnull align 4 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !31
   %29 = load ptr, ptr %18, align 8, !tbaa !24
   %30 = load ptr, ptr %8, align 8, !tbaa !19
-  %31 = getelementptr inbounds %struct.btCompoundShapeChild, ptr %30, i64 %10
+  %31 = getelementptr inbounds [88 x i8], ptr %30, i64 %10
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 80
   %33 = load ptr, ptr %32, align 8, !tbaa !43
   call void @_ZN6btDbvt6updateEP10btDbvtNodeR12btDbvtAabbMm(ptr noundef nonnull align 8 dereferenceable(64) %29, ptr noundef %33, ptr noundef nonnull align 4 dereferenceable(32) %7)
@@ -645,7 +644,7 @@ define dso_local void @_ZN15btCompoundShape23removeChildShapeByIndexEi(ptr nound
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = load ptr, ptr %10, align 8, !tbaa !19
   %12 = sext i32 %1 to i64
-  %13 = getelementptr inbounds %struct.btCompoundShapeChild, ptr %11, i64 %12
+  %13 = getelementptr inbounds [88 x i8], ptr %11, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 80
   %15 = load ptr, ptr %14, align 8, !tbaa !43
   tail call void @_ZN6btDbvt6removeEP10btDbvtNode(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef %15)
@@ -659,7 +658,7 @@ define dso_local void @_ZN15btCompoundShape23removeChildShapeByIndexEi(ptr nound
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %21 = load ptr, ptr %20, align 8, !tbaa !19
-  %22 = getelementptr inbounds %struct.btCompoundShapeChild, ptr %21, i64 %.pre-phi
+  %22 = getelementptr inbounds [88 x i8], ptr %21, i64 %.pre-phi
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef nonnull align 8 dereferenceable(88) %22, i64 16, i1 false), !tbaa.struct !31
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -674,7 +673,7 @@ define dso_local void @_ZN15btCompoundShape23removeChildShapeByIndexEi(ptr nound
   %30 = getelementptr inbounds nuw i8, ptr %22, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %29, ptr noundef nonnull align 8 dereferenceable(24) %30, i64 24, i1 false)
   %31 = sext i32 %19 to i64
-  %32 = getelementptr inbounds %struct.btCompoundShapeChild, ptr %21, i64 %31
+  %32 = getelementptr inbounds [88 x i8], ptr %21, i64 %31
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %22, ptr noundef nonnull align 8 dereferenceable(88) %32, i64 16, i1 false), !tbaa.struct !31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %23, ptr noundef nonnull align 8 dereferenceable(16) %33, i64 16, i1 false), !tbaa.struct !31
@@ -685,7 +684,7 @@ define dso_local void @_ZN15btCompoundShape23removeChildShapeByIndexEi(ptr nound
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %30, ptr noundef nonnull align 8 dereferenceable(24) %36, i64 24, i1 false)
   %37 = load ptr, ptr %20, align 8, !tbaa !19
-  %38 = getelementptr inbounds %struct.btCompoundShapeChild, ptr %37, i64 %31
+  %38 = getelementptr inbounds [88 x i8], ptr %37, i64 %31
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %38, ptr noundef nonnull align 8 dereferenceable(88) %3, i64 16, i1 false), !tbaa.struct !31
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 8 dereferenceable(16) %24, i64 16, i1 false), !tbaa.struct !31
@@ -702,7 +701,7 @@ define dso_local void @_ZN15btCompoundShape23removeChildShapeByIndexEi(ptr nound
 
 44:                                               ; preds = %16
   %45 = load ptr, ptr %20, align 8, !tbaa !19
-  %46 = getelementptr inbounds %struct.btCompoundShapeChild, ptr %45, i64 %.pre-phi
+  %46 = getelementptr inbounds [88 x i8], ptr %45, i64 %.pre-phi
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 80
   %48 = load ptr, ptr %47, align 8, !tbaa !43
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 40
@@ -752,7 +751,7 @@ define dso_local void @_ZN15btCompoundShape16removeChildShapeEP16btCollisionShap
   %indvars.iv = phi i64 [ %16, %.lr.ph ], [ %indvars.iv.next, %64 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %22 = load ptr, ptr %10, align 8, !tbaa !19
-  %23 = getelementptr inbounds nuw %struct.btCompoundShapeChild, ptr %22, i64 %indvars.iv.next
+  %23 = getelementptr inbounds nuw [88 x i8], ptr %22, i64 %indvars.iv.next
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 64
   %25 = load ptr, ptr %24, align 8, !tbaa !37
   %26 = icmp eq ptr %25, %1
@@ -779,7 +778,7 @@ define dso_local void @_ZN15btCompoundShape16removeChildShapeEP16btCollisionShap
   %35 = phi i32 [ %21, %27 ], [ %.pre, %31 ]
   %36 = add nsw i32 %35, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %37 = getelementptr inbounds nuw %struct.btCompoundShapeChild, ptr %34, i64 %indvars.iv.next
+  %37 = getelementptr inbounds nuw [88 x i8], ptr %34, i64 %indvars.iv.next
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %3, ptr noundef nonnull align 8 dereferenceable(88) %37, i64 16, i1 false), !tbaa.struct !31
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(16) %38, i64 16, i1 false), !tbaa.struct !31
@@ -790,7 +789,7 @@ define dso_local void @_ZN15btCompoundShape16removeChildShapeEP16btCollisionShap
   %41 = getelementptr inbounds nuw i8, ptr %37, i64 64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %41, i64 24, i1 false)
   %42 = sext i32 %36 to i64
-  %43 = getelementptr inbounds %struct.btCompoundShapeChild, ptr %34, i64 %42
+  %43 = getelementptr inbounds [88 x i8], ptr %34, i64 %42
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %37, ptr noundef nonnull align 8 dereferenceable(88) %43, i64 16, i1 false), !tbaa.struct !31
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %44, i64 16, i1 false), !tbaa.struct !31
@@ -801,7 +800,7 @@ define dso_local void @_ZN15btCompoundShape16removeChildShapeEP16btCollisionShap
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 64
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, ptr noundef nonnull align 8 dereferenceable(24) %47, i64 24, i1 false)
   %48 = load ptr, ptr %10, align 8, !tbaa !19
-  %49 = getelementptr inbounds %struct.btCompoundShapeChild, ptr %48, i64 %42
+  %49 = getelementptr inbounds [88 x i8], ptr %48, i64 %42
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %49, ptr noundef nonnull align 8 dereferenceable(88) %3, i64 16, i1 false), !tbaa.struct !31
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !31
@@ -818,7 +817,7 @@ define dso_local void @_ZN15btCompoundShape16removeChildShapeEP16btCollisionShap
 
 55:                                               ; preds = %._crit_edge.i
   %56 = load ptr, ptr %10, align 8, !tbaa !19
-  %57 = getelementptr inbounds nuw %struct.btCompoundShapeChild, ptr %56, i64 %indvars.iv.next
+  %57 = getelementptr inbounds nuw [88 x i8], ptr %56, i64 %indvars.iv.next
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 80
   %59 = load ptr, ptr %58, align 8, !tbaa !43
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 40
@@ -875,7 +874,7 @@ define dso_local void @_ZN15btCompoundShape20recalculateLocalAabbEv(ptr noundef 
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %11 = load ptr, ptr %9, align 8, !tbaa !19
-  %12 = getelementptr inbounds nuw %struct.btCompoundShapeChild, ptr %11, i64 %indvars.iv27
+  %12 = getelementptr inbounds nuw [88 x i8], ptr %11, i64 %indvars.iv27
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %14 = load ptr, ptr %13, align 8, !tbaa !37
   %15 = load ptr, ptr %14, align 8, !tbaa !12
@@ -895,9 +894,9 @@ define dso_local void @_ZN15btCompoundShape20recalculateLocalAabbEv(ptr noundef 
 
 22:                                               ; preds = %10, %36
   %indvars.iv = phi i64 [ 0, %10 ], [ %indvars.iv.next, %36 ]
-  %23 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %24 = load float, ptr %23, align 4, !tbaa !22
-  %25 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %26 = load float, ptr %25, align 4, !tbaa !22
   %27 = fcmp ogt float %24, %26
   br i1 %27, label %28, label %29
@@ -907,9 +906,9 @@ define dso_local void @_ZN15btCompoundShape20recalculateLocalAabbEv(ptr noundef 
   br label %29
 
 29:                                               ; preds = %28, %22
-  %30 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %31 = load float, ptr %30, align 4, !tbaa !22
-  %32 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %33 = load float, ptr %32, align 4, !tbaa !22
   %34 = fcmp olt float %31, %33
   br i1 %34, label %35, label %36
@@ -1153,9 +1152,9 @@ define dso_local void @_ZNK15btCompoundShape31calculatePrincipalAxisTransformEPK
   %.sroa.15164.0172 = phi float [ 0.000000e+00, %.lr.ph ], [ %27, %12 ]
   %.sroa.9161.0171 = phi float [ 0.000000e+00, %.lr.ph ], [ %26, %12 ]
   %.sroa.0158.0170 = phi float [ 0.000000e+00, %.lr.ph ], [ %25, %12 ]
-  %13 = getelementptr inbounds nuw %struct.btCompoundShapeChild, ptr %11, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [88 x i8], ptr %11, i64 %indvars.iv
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 48
-  %15 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %16 = load float, ptr %14, align 4, !tbaa !22
   %17 = load float, ptr %15, align 4, !tbaa !22
   %18 = fmul float %16, %17
@@ -1220,17 +1219,17 @@ define dso_local void @_ZNK15btCompoundShape31calculatePrincipalAxisTransformEPK
   %indvars.iv186 = phi i64 [ 0, %.lr.ph180 ], [ %indvars.iv.next187, %45 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %53 = load ptr, ptr %42, align 8, !tbaa !19
-  %54 = getelementptr inbounds nuw %struct.btCompoundShapeChild, ptr %53, i64 %indvars.iv186
+  %54 = getelementptr inbounds nuw [88 x i8], ptr %53, i64 %indvars.iv186
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 64
   %56 = load ptr, ptr %55, align 8, !tbaa !37
-  %57 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv186
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv186
   %58 = load float, ptr %57, align 4, !tbaa !22
   %59 = load ptr, ptr %56, align 8, !tbaa !12
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 64
   %61 = load ptr, ptr %60, align 8
   call void %61(ptr noundef nonnull align 8 dereferenceable(32) %56, float noundef %58, ptr noundef nonnull align 4 dereferenceable(16) %6)
   %62 = load ptr, ptr %42, align 8, !tbaa !19
-  %63 = getelementptr inbounds nuw %struct.btCompoundShapeChild, ptr %62, i64 %indvars.iv186
+  %63 = getelementptr inbounds nuw [88 x i8], ptr %62, i64 %indvars.iv186
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 48
   %65 = load float, ptr %64, align 4, !tbaa !22
   %66 = fsub float %65, %30
@@ -1433,13 +1432,13 @@ define linkonce_odr dso_local void @_ZN11btMatrix3x311diagonalizeERS_fi(ptr noun
 
 40:                                               ; preds = %37, %26
   %.1 = phi i32 [ %.0115, %26 ], [ 1, %37 ]
-  %41 = getelementptr inbounds nuw %class.btVector3, ptr %0, i64 %.098
-  %42 = getelementptr inbounds nuw float, ptr %41, i64 %.1100
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %.098
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %.1100
   %43 = load float, ptr %42, align 4, !tbaa !22
-  %44 = getelementptr inbounds nuw %class.btVector3, ptr %0, i64 %.1100
-  %45 = getelementptr inbounds nuw float, ptr %44, i64 %.1100
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %.1100
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %.1100
   %46 = load float, ptr %45, align 4, !tbaa !22
-  %47 = getelementptr inbounds nuw float, ptr %41, i64 %.098
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %.098
   %48 = load float, ptr %47, align 4, !tbaa !22
   %49 = fsub float %46, %48
   %50 = fmul float %43, 2.000000e+00
@@ -1477,7 +1476,7 @@ define linkonce_odr dso_local void @_ZN11btMatrix3x311diagonalizeERS_fi(ptr noun
   %.0101 = phi float [ %59, %55 ], [ %67, %63 ]
   %.096 = phi float [ %61, %55 ], [ %69, %63 ]
   %.095 = phi float [ %62, %55 ], [ %70, %63 ]
-  %72 = getelementptr inbounds nuw float, ptr %44, i64 %.098
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %.098
   store float 0.000000e+00, ptr %72, align 4, !tbaa !22
   store float 0.000000e+00, ptr %42, align 4, !tbaa !22
   %73 = load float, ptr %47, align 4, !tbaa !22
@@ -1487,30 +1486,30 @@ define linkonce_odr dso_local void @_ZN11btMatrix3x311diagonalizeERS_fi(ptr noun
   %76 = load float, ptr %45, align 4, !tbaa !22
   %77 = tail call float @llvm.fmuladd.f32(float %.0101, float %43, float %76)
   store float %77, ptr %45, align 4, !tbaa !22
-  %78 = getelementptr inbounds nuw %class.btVector3, ptr %0, i64 %.1105
-  %79 = getelementptr inbounds nuw float, ptr %78, i64 %.098
+  %78 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %.1105
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %78, i64 %.098
   %80 = load float, ptr %79, align 4, !tbaa !22
-  %81 = getelementptr inbounds nuw float, ptr %78, i64 %.1100
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %78, i64 %.1100
   %82 = load float, ptr %81, align 4, !tbaa !22
   %83 = fneg float %82
   %84 = fmul float %.095, %83
   %85 = tail call float @llvm.fmuladd.f32(float %.096, float %80, float %84)
-  %86 = getelementptr inbounds nuw float, ptr %41, i64 %.1105
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %.1105
   store float %85, ptr %86, align 4, !tbaa !22
   store float %85, ptr %79, align 4, !tbaa !22
   %87 = fmul float %.095, %80
   %88 = tail call float @llvm.fmuladd.f32(float %.096, float %82, float %87)
-  %89 = getelementptr inbounds nuw float, ptr %44, i64 %.1105
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %.1105
   store float %88, ptr %89, align 4, !tbaa !22
   store float %88, ptr %81, align 4, !tbaa !22
   br label %90
 
 90:                                               ; preds = %71, %90
   %indvars.iv = phi i64 [ 0, %71 ], [ %indvars.iv.next, %90 ]
-  %91 = getelementptr inbounds nuw %class.btVector3, ptr %1, i64 %indvars.iv
-  %92 = getelementptr inbounds nuw float, ptr %91, i64 %.098
+  %91 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %.098
   %93 = load float, ptr %92, align 4, !tbaa !22
-  %94 = getelementptr inbounds nuw float, ptr %91, i64 %.1100
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %.1100
   %95 = load float, ptr %94, align 4, !tbaa !22
   %96 = fneg float %95
   %97 = fmul float %.095, %96
@@ -1575,7 +1574,7 @@ define dso_local void @_ZN15btCompoundShape15setLocalScalingERK9btVector3(ptr no
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN15btCompoundShape20updateChildTransformEiRK11btTransformb.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %31 = load ptr, ptr %11, align 8, !tbaa !19
-  %32 = getelementptr inbounds nuw %struct.btCompoundShapeChild, ptr %31, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [88 x i8], ptr %31, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %6, ptr noundef nonnull align 4 dereferenceable(64) %32, i64 16, i1 false), !tbaa.struct !31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %33, i64 16, i1 false), !tbaa.struct !31
@@ -1612,7 +1611,7 @@ define dso_local void @_ZN15btCompoundShape15setLocalScalingERK9btVector3(ptr no
   store <2 x float> %.sroa.0.4.vec.insert.i10, ptr %7, align 8
   store <2 x float> %.sroa.3.12.vec.insert.i11, ptr %17, align 8, !tbaa !32
   %57 = load ptr, ptr %11, align 8, !tbaa !19
-  %58 = getelementptr inbounds nuw %struct.btCompoundShapeChild, ptr %57, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [88 x i8], ptr %57, i64 %indvars.iv
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 64
   %60 = load ptr, ptr %59, align 8, !tbaa !37
   %61 = load ptr, ptr %60, align 8, !tbaa !12
@@ -1640,7 +1639,7 @@ define dso_local void @_ZN15btCompoundShape15setLocalScalingERK9btVector3(ptr no
   store <2 x float> %.sroa.0.4.vec.insert.i20, ptr %14, align 4
   store <2 x float> %.sroa.3.12.vec.insert.i21, ptr %23, align 4, !tbaa !32
   %79 = load ptr, ptr %11, align 8, !tbaa !19
-  %80 = getelementptr inbounds nuw %struct.btCompoundShapeChild, ptr %79, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw [88 x i8], ptr %79, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %80, ptr noundef nonnull align 4 dereferenceable(64) %6, i64 16, i1 false), !tbaa.struct !31
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %81, ptr noundef nonnull align 4 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !31
@@ -1656,7 +1655,7 @@ define dso_local void @_ZN15btCompoundShape15setLocalScalingERK9btVector3(ptr no
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %86 = load ptr, ptr %11, align 8, !tbaa !19
-  %87 = getelementptr inbounds nuw %struct.btCompoundShapeChild, ptr %86, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw [88 x i8], ptr %86, i64 %indvars.iv
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 64
   %89 = load ptr, ptr %88, align 8, !tbaa !37
   %90 = load ptr, ptr %89, align 8, !tbaa !12
@@ -1668,7 +1667,7 @@ define dso_local void @_ZN15btCompoundShape15setLocalScalingERK9btVector3(ptr no
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %25, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !31
   %93 = load ptr, ptr %24, align 8, !tbaa !24
   %94 = load ptr, ptr %11, align 8, !tbaa !19
-  %95 = getelementptr inbounds nuw %struct.btCompoundShapeChild, ptr %94, i64 %indvars.iv
+  %95 = getelementptr inbounds nuw [88 x i8], ptr %94, i64 %indvars.iv
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 80
   %97 = load ptr, ptr %96, align 8, !tbaa !43
   call void @_ZN6btDbvt6updateEP10btDbvtNodeR12btDbvtAabbMm(ptr noundef nonnull align 8 dereferenceable(64) %93, ptr noundef %97, ptr noundef nonnull align 4 dereferenceable(32) %5)
@@ -1714,7 +1713,7 @@ define dso_local void @_ZN15btCompoundShape26createAabbTreeFromChildrenEv(ptr no
 14:                                               ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
   %15 = load ptr, ptr %12, align 8, !tbaa !19
-  %16 = getelementptr inbounds nuw %struct.btCompoundShapeChild, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [88 x i8], ptr %15, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 64
@@ -1793,7 +1792,7 @@ define dso_local noundef nonnull ptr @_ZNK15btCompoundShape9serializeEPvP12btSer
   %31 = phi ptr [ %.pre, %.lr.ph ], [ %83, %_ZNK11btTransform14serializeFloatER20btTransformFloatData.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK11btTransform14serializeFloatER20btTransformFloatData.exit ]
   %.044 = phi ptr [ %18, %.lr.ph ], [ %101, %_ZNK11btTransform14serializeFloatER20btTransformFloatData.exit ]
-  %32 = getelementptr inbounds nuw %struct.btCompoundShapeChild, ptr %31, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [88 x i8], ptr %31, i64 %indvars.iv
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 76
   %34 = load float, ptr %33, align 4, !tbaa !68
   %35 = getelementptr inbounds nuw i8, ptr %.044, i64 76
@@ -1807,7 +1806,7 @@ define dso_local noundef nonnull ptr @_ZNK15btCompoundShape9serializeEPvP12btSer
   %42 = getelementptr inbounds nuw i8, ptr %.044, i64 64
   store ptr %41, ptr %42, align 8, !tbaa !75
   %43 = load ptr, ptr %25, align 8, !tbaa !19
-  %44 = getelementptr inbounds nuw %struct.btCompoundShapeChild, ptr %43, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [88 x i8], ptr %43, i64 %indvars.iv
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 64
   %46 = load ptr, ptr %45, align 8, !tbaa !37
   %47 = load ptr, ptr %2, align 8, !tbaa !12
@@ -1819,7 +1818,7 @@ define dso_local noundef nonnull ptr @_ZNK15btCompoundShape9serializeEPvP12btSer
 
 51:                                               ; preds = %30
   %52 = load ptr, ptr %25, align 8, !tbaa !19
-  %53 = getelementptr inbounds nuw %struct.btCompoundShapeChild, ptr %52, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [88 x i8], ptr %52, i64 %indvars.iv
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 64
   %55 = load ptr, ptr %54, align 8, !tbaa !37
   %56 = load ptr, ptr %55, align 8, !tbaa !12
@@ -1832,7 +1831,7 @@ define dso_local noundef nonnull ptr @_ZNK15btCompoundShape9serializeEPvP12btSer
   %63 = load ptr, ptr %62, align 8
   %64 = tail call noundef ptr %63(ptr noundef nonnull align 8 dereferenceable(8) %2, i64 noundef %60, i32 noundef 1)
   %65 = load ptr, ptr %25, align 8, !tbaa !19
-  %66 = getelementptr inbounds nuw %struct.btCompoundShapeChild, ptr %65, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [88 x i8], ptr %65, i64 %indvars.iv
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 64
   %68 = load ptr, ptr %67, align 8, !tbaa !37
   %69 = getelementptr inbounds nuw i8, ptr %64, i64 8
@@ -1842,7 +1841,7 @@ define dso_local noundef nonnull ptr @_ZNK15btCompoundShape9serializeEPvP12btSer
   %73 = load ptr, ptr %72, align 8
   %74 = tail call noundef ptr %73(ptr noundef nonnull align 8 dereferenceable(32) %68, ptr noundef %70, ptr noundef nonnull %2)
   %75 = load ptr, ptr %25, align 8, !tbaa !19
-  %76 = getelementptr inbounds nuw %struct.btCompoundShapeChild, ptr %75, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw [88 x i8], ptr %75, i64 %indvars.iv
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 64
   %78 = load ptr, ptr %77, align 8, !tbaa !37
   %79 = load ptr, ptr %2, align 8, !tbaa !12
@@ -1853,7 +1852,7 @@ define dso_local noundef nonnull ptr @_ZNK15btCompoundShape9serializeEPvP12btSer
 
 82:                                               ; preds = %51, %30
   %83 = load ptr, ptr %25, align 8, !tbaa !19
-  %84 = getelementptr inbounds nuw %struct.btCompoundShapeChild, ptr %83, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw [88 x i8], ptr %83, i64 %indvars.iv
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 72
   %86 = load i32, ptr %85, align 8, !tbaa !76
   %87 = getelementptr inbounds nuw i8, ptr %.044, i64 72
@@ -1862,15 +1861,15 @@ define dso_local noundef nonnull ptr @_ZNK15btCompoundShape9serializeEPvP12btSer
 
 88:                                               ; preds = %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit.i.i, %82
   %indvars.iv.i.i = phi i64 [ 0, %82 ], [ %indvars.iv.next.i.i, %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit.i.i ]
-  %89 = getelementptr inbounds nuw %class.btVector3, ptr %84, i64 %indvars.iv.i.i
-  %90 = getelementptr inbounds nuw %struct.btVector3FloatData, ptr %.044, i64 %indvars.iv.i.i
+  %89 = getelementptr inbounds nuw [16 x i8], ptr %84, i64 %indvars.iv.i.i
+  %90 = getelementptr inbounds nuw [16 x i8], ptr %.044, i64 %indvars.iv.i.i
   br label %91
 
 91:                                               ; preds = %91, %88
   %indvars.iv.i.i.i = phi i64 [ 0, %88 ], [ %indvars.iv.next.i.i.i, %91 ]
-  %92 = getelementptr inbounds nuw float, ptr %89, i64 %indvars.iv.i.i.i
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %indvars.iv.i.i.i
   %93 = load float, ptr %92, align 4, !tbaa !22
-  %94 = getelementptr inbounds nuw float, ptr %90, i64 %indvars.iv.i.i.i
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %indvars.iv.i.i.i
   store float %93, ptr %94, align 4, !tbaa !22
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 4
@@ -1888,9 +1887,9 @@ _ZNK11btMatrix3x314serializeFloatER20btMatrix3x3FloatData.exit.i: ; preds = %_ZN
 
 97:                                               ; preds = %97, %_ZNK11btMatrix3x314serializeFloatER20btMatrix3x3FloatData.exit.i
   %indvars.iv.i3.i = phi i64 [ 0, %_ZNK11btMatrix3x314serializeFloatER20btMatrix3x3FloatData.exit.i ], [ %indvars.iv.next.i4.i, %97 ]
-  %98 = getelementptr inbounds nuw float, ptr %95, i64 %indvars.iv.i3.i
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %95, i64 %indvars.iv.i3.i
   %99 = load float, ptr %98, align 4, !tbaa !22
-  %100 = getelementptr inbounds nuw float, ptr %96, i64 %indvars.iv.i3.i
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %96, i64 %indvars.iv.i3.i
   store float %99, ptr %100, align 4, !tbaa !22
   %indvars.iv.next.i4.i = add nuw nsw i64 %indvars.iv.i3.i, 1
   %exitcond.not.i5.i = icmp eq i64 %indvars.iv.next.i4.i, 4

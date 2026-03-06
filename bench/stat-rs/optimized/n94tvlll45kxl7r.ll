@@ -231,7 +231,7 @@ _ZN6statrs12distribution8internal20is_valid_multinomial17h4c67f80f13f34e9aE.exit
   unreachable
 
 24:                                               ; preds = %18
-  %25 = getelementptr double, ptr %20, i64 %22
+  %25 = getelementptr [8 x i8], ptr %20, i64 %22
   %26 = getelementptr i8, ptr %25, i64 -8
   %27 = load double, ptr %26, align 8, !alias.scope !28, !noalias !33, !noundef !4
   store double %27, ptr %6, align 8, !noalias !31
@@ -265,7 +265,7 @@ _ZN6statrs12distribution8internal20is_valid_multinomial17h4c67f80f13f34e9aE.exit
 36:                                               ; preds = %24
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !31
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %37 = getelementptr double, ptr %20, i64 %22
+  %37 = getelementptr [8 x i8], ptr %20, i64 %22
   %38 = getelementptr i8, ptr %37, i64 -8
   %39 = load double, ptr %38, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !34
@@ -296,8 +296,8 @@ _ZN6statrs12distribution8internal20is_valid_multinomial17h4c67f80f13f34e9aE.exit
 .lr.ph.i18:                                       ; preds = %46, %.lr.ph.i18
   %.sroa.01.015.i = phi i64 [ %48, %.lr.ph.i18 ], [ 0, %46 ]
   %48 = add nuw i64 %.sroa.01.015.i, 1
-  %49 = getelementptr inbounds double, ptr %47, i64 %.sroa.01.015.i
-  %50 = getelementptr inbounds double, ptr %1, i64 %.sroa.01.015.i
+  %49 = getelementptr inbounds [8 x i8], ptr %47, i64 %.sroa.01.015.i
+  %50 = getelementptr inbounds [8 x i8], ptr %1, i64 %.sroa.01.015.i
   %.val13.i = load double, ptr %50, align 8, !noalias !39, !noundef !4
   %51 = fdiv double %.val13.i, %39
   store double %51, ptr %49, align 8, !alias.scope !43, !noalias !39
@@ -383,8 +383,8 @@ define noundef double @"_ZN117_$LT$statrs..distribution..categorical..Categorica
 _ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.exit: ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8, !nonnull !4, !noundef !4
-  %7 = getelementptr inbounds double, ptr %6, i64 %1
-  %8 = getelementptr double, ptr %6, i64 %4
+  %7 = getelementptr inbounds [8 x i8], ptr %6, i64 %1
+  %8 = getelementptr [8 x i8], ptr %6, i64 %4
   %9 = getelementptr i8, ptr %8, i64 -8
   %10 = load double, ptr %9, align 8, !noundef !4
   %11 = load double, ptr %7, align 8, !noundef !4
@@ -418,8 +418,8 @@ _ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.e
   %.val = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %10 = load ptr, ptr %9, align 8, !nonnull !4, !noundef !4
-  %11 = getelementptr inbounds double, ptr %10, i64 %1
-  %12 = getelementptr double, ptr %.val, i64 %.val4
+  %11 = getelementptr inbounds [8 x i8], ptr %10, i64 %1
+  %12 = getelementptr [8 x i8], ptr %.val, i64 %.val4
   %13 = getelementptr i8, ptr %12, i64 -8
   %14 = load double, ptr %13, align 8, !noundef !4
   %15 = load double, ptr %11, align 8, !noundef !4
@@ -456,7 +456,7 @@ define noundef range(i64 0, -1) i64 @"_ZN117_$LT$statrs..distribution..categoric
 
 _ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.exit: ; preds = %6
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val) ]
-  %10 = getelementptr double, ptr %.val, i64 %.val1
+  %10 = getelementptr [8 x i8], ptr %.val, i64 %.val1
   %11 = getelementptr i8, ptr %10, i64 -8
   %12 = load double, ptr %11, align 8, !noundef !4
   %13 = fmul double %1, %12
@@ -484,7 +484,7 @@ _ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.e
   unreachable
 
 21:                                               ; preds = %.lr.ph.i
-  %22 = getelementptr inbounds double, ptr %.val, i64 %19
+  %22 = getelementptr inbounds [8 x i8], ptr %.val, i64 %19
   %23 = load double, ptr %22, align 8, !alias.scope !51, !noundef !4
   %24 = fcmp ogt double %23, %13
   br i1 %24, label %27, label %25
@@ -537,7 +537,7 @@ define { i64, double } @"_ZN118_$LT$statrs..distribution..categorical..Categoric
 .preheader:                                       ; preds = %1, %.preheader
   %.sroa.0.0.i = phi i64 [ %11, %.preheader ], [ 0, %1 ]
   %.sroa.07.0.i = phi double [ %10, %.preheader ], [ 0.000000e+00, %1 ]
-  %7 = getelementptr inbounds double, ptr %3, i64 %.sroa.0.0.i
+  %7 = getelementptr inbounds [8 x i8], ptr %3, i64 %.sroa.0.0.i
   %.val.i = load double, ptr %7, align 8, !noundef !4
   %8 = uitofp i64 %.sroa.0.0.i to double
   %9 = fmul double %.val.i, %8
@@ -565,7 +565,7 @@ define { i64, double } @"_ZN118_$LT$statrs..distribution..categorical..Categoric
 .preheader.i:                                     ; preds = %1, %.preheader.i
   %.sroa.0.0.i.i = phi i64 [ %11, %.preheader.i ], [ 0, %1 ]
   %.sroa.07.0.i.i = phi double [ %10, %.preheader.i ], [ 0.000000e+00, %1 ]
-  %7 = getelementptr inbounds double, ptr %3, i64 %.sroa.0.0.i.i
+  %7 = getelementptr inbounds [8 x i8], ptr %3, i64 %.sroa.0.0.i.i
   %.val.i.i = load double, ptr %7, align 8, !noalias !54, !noundef !4
   %8 = uitofp i64 %.sroa.0.0.i.i to double
   %9 = fmul double %.val.i.i, %8
@@ -577,7 +577,7 @@ define { i64, double } @"_ZN118_$LT$statrs..distribution..categorical..Categoric
 .preheader:                                       ; preds = %.preheader.i, %.preheader
   %.sroa.2.0.i = phi i64 [ %19, %.preheader ], [ 0, %.preheader.i ]
   %.sroa.07.0.i = phi double [ %18, %.preheader ], [ 0.000000e+00, %.preheader.i ]
-  %13 = getelementptr inbounds double, ptr %3, i64 %.sroa.2.0.i
+  %13 = getelementptr inbounds [8 x i8], ptr %3, i64 %.sroa.2.0.i
   %.val.i = load double, ptr %13, align 8, !noalias !57, !noundef !4
   %14 = uitofp i64 %.sroa.2.0.i to double
   %15 = fsub double %14, %10
@@ -606,7 +606,7 @@ define { i64, double } @"_ZN118_$LT$statrs..distribution..categorical..Categoric
 .preheader:                                       ; preds = %1, %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17h21f09dc7fea08e2cE.exit.i"
   %.sroa.07.0.i = phi double [ %.sroa.0.0.i.i, %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17h21f09dc7fea08e2cE.exit.i" ], [ 0.000000e+00, %1 ]
   %.sroa.09.0.i = phi i64 [ %14, %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17h21f09dc7fea08e2cE.exit.i" ], [ 0, %1 ]
-  %7 = getelementptr inbounds double, ptr %3, i64 %.sroa.09.0.i
+  %7 = getelementptr inbounds [8 x i8], ptr %3, i64 %.sroa.09.0.i
   %8 = load double, ptr %7, align 8, !alias.scope !60, !noundef !4
   %9 = fcmp ogt double %8, 0.000000e+00
   br i1 %9, label %10, label %"_ZN4core4iter8adapters6filter11filter_fold28_$u7b$$u7b$closure$u7d$$u7d$17h21f09dc7fea08e2cE.exit.i"
@@ -646,7 +646,7 @@ define noundef double @"_ZN112_$LT$statrs..distribution..categorical..Categorica
 
 _ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.exit.i: ; preds = %1
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.val.i) ]
-  %5 = getelementptr double, ptr %.val.i, i64 %.val1.i
+  %5 = getelementptr [8 x i8], ptr %.val.i, i64 %.val1.i
   %6 = getelementptr i8, ptr %5, i64 -8
   %7 = load double, ptr %6, align 8, !noalias !63, !noundef !4
   %8 = fmul double %7, 5.000000e-01
@@ -674,7 +674,7 @@ _ZN6statrs12distribution11categorical11Categorical7cdf_max17h52d7dfa5133b7b53E.e
   unreachable
 
 16:                                               ; preds = %.lr.ph.i.i
-  %17 = getelementptr inbounds double, ptr %.val.i, i64 %14
+  %17 = getelementptr inbounds [8 x i8], ptr %.val.i, i64 %14
   %18 = load double, ptr %17, align 8, !alias.scope !66, !noalias !63, !noundef !4
   %19 = fcmp ogt double %18, %8
   br i1 %19, label %22, label %20
@@ -710,7 +710,7 @@ define noundef double @"_ZN114_$LT$statrs..distribution..categorical..Categorica
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !4
   %.not = icmp ult i64 %1, %6
-  %7 = getelementptr inbounds double, ptr %4, i64 %1
+  %7 = getelementptr inbounds [8 x i8], ptr %4, i64 %1
   %anon.4768d052527bd36a73bfd89d5da159b4.16. = select i1 %.not, ptr %7, ptr @anon.4768d052527bd36a73bfd89d5da159b4.16
   %8 = load double, ptr %anon.4768d052527bd36a73bfd89d5da159b4.16., align 8, !noundef !4
   ret double %8
@@ -724,7 +724,7 @@ define noundef double @"_ZN114_$LT$statrs..distribution..categorical..Categorica
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !alias.scope !70, !noundef !4
   %.not.i = icmp ult i64 %1, %6
-  %7 = getelementptr inbounds double, ptr %4, i64 %1
+  %7 = getelementptr inbounds [8 x i8], ptr %4, i64 %1
   %anon.4768d052527bd36a73bfd89d5da159b4.16..i = select i1 %.not.i, ptr %7, ptr @anon.4768d052527bd36a73bfd89d5da159b4.16
   %8 = load double, ptr %anon.4768d052527bd36a73bfd89d5da159b4.16..i, align 8, !noalias !70, !noundef !4
   %9 = tail call noundef double @llvm.log.f64(double %8)
@@ -760,7 +760,7 @@ define void @_ZN6statrs12distribution11categorical16prob_mass_to_cdf17h5d695172f
 .preheader:                                       ; preds = %10, %"_ZN6statrs12distribution11categorical16prob_mass_to_cdf28_$u7b$$u7b$closure$u7d$$u7d$17hcbf7dbc4c77fbc29E.exit.i"
   %15 = phi i64 [ %23, %"_ZN6statrs12distribution11categorical16prob_mass_to_cdf28_$u7b$$u7b$closure$u7d$$u7d$17hcbf7dbc4c77fbc29E.exit.i" ], [ 0, %10 ]
   %.sroa.07.0.i = phi double [ %20, %"_ZN6statrs12distribution11categorical16prob_mass_to_cdf28_$u7b$$u7b$closure$u7d$$u7d$17hcbf7dbc4c77fbc29E.exit.i" ], [ 0.000000e+00, %10 ]
-  %16 = getelementptr inbounds double, ptr %1, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %1, i64 %15
   %.val22.i = load double, ptr %16, align 8, !noalias !73, !noundef !4
   %17 = load i64, ptr %5, align 8, !alias.scope !76, !noundef !4
   %18 = icmp eq i64 %15, %17
@@ -773,7 +773,7 @@ define void @_ZN6statrs12distribution11categorical16prob_mass_to_cdf17h5d695172f
 "_ZN6statrs12distribution11categorical16prob_mass_to_cdf28_$u7b$$u7b$closure$u7d$$u7d$17hcbf7dbc4c77fbc29E.exit.i": ; preds = %19, %.preheader
   %20 = fadd double %.sroa.07.0.i, %.val22.i
   %21 = load ptr, ptr %12, align 8, !alias.scope !76, !nonnull !4, !noundef !4
-  %22 = getelementptr inbounds double, ptr %21, i64 %15
+  %22 = getelementptr inbounds [8 x i8], ptr %21, i64 %15
   store double %20, ptr %22, align 8
   %23 = add nuw i64 %15, 1
   store i64 %23, ptr %13, align 8, !alias.scope !76

@@ -61,8 +61,8 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.ArgumentParser::Maybe" = type { %"class.std::__cxx11::basic_string" }
 %"class.std::function.263" = type { %"class.std::_Function_base", ptr }
 %"class.std::function.239" = type { %"class.std::_Function_base", ptr }
-%"class.std::basic_string_view" = type { i64, ptr }
 %"class.ArgumentParser::Instance" = type <{ ptr, ptr, ptr, ptr, %"class.std::basic_string_view", i64, i64, %"class.std::function.252", i8, [7 x i8] }>
+%"class.std::basic_string_view" = type { i64, ptr }
 %"class.std::function.252" = type { %"class.std::_Function_base", ptr }
 
 $_ZN18cmCTestTestCommand14MakeTestParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEEE16cmArgumentParserIT_Ev = comdat any
@@ -3442,7 +3442,7 @@ _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3
 _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE17_M_realloc_insertIJRS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i.i: ; preds = %32, %_ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i.i.i
   store ptr %27, ptr %7, align 8, !tbaa !132
   store ptr %31, ptr %8, align 8, !tbaa !130
-  %33 = getelementptr inbounds nuw %"class.std::basic_string_view", ptr %27, i64 %25
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %25
   store ptr %33, ptr %10, align 8, !tbaa !131
   br label %_ZSt10__invoke_rIvRZN16cmArgumentParserIN22cmCTestMemCheckCommand17MemCheckArgumentsEE18BindParsedKeywordsEMS2_St6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS8_EEEUlRN14ArgumentParser8InstanceES8_E_JSE_S8_EENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESI_E4typeEOSJ_DpOSK_.exit
 

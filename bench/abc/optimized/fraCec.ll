@@ -551,7 +551,7 @@ define i32 @Aig_ManCountXors(ptr noundef readonly captures(none) %0) local_unnam
   %.018 = phi i32 [ %.1, %23 ], [ 0, %1 ]
   %9 = getelementptr i8, ptr %8, i64 8
   %.val14 = load ptr, ptr %9, align 8, !tbaa !63
-  %10 = getelementptr inbounds nuw ptr, ptr %.val14, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %.val14, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !64
   %12 = icmp eq ptr %11, null
   br i1 %12, label %23, label %13
@@ -789,7 +789,7 @@ Abc_Clock.exit99:                                 ; preds = %68, %75
   %.018.i = phi i32 [ %.1.i, %116 ], [ 0, %96 ]
   %102 = getelementptr i8, ptr %101, i64 8
   %.val14.i = load ptr, ptr %102, align 8, !tbaa !63
-  %103 = getelementptr inbounds nuw ptr, ptr %.val14.i, i64 %indvars.iv.i
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %.val14.i, i64 %indvars.iv.i
   %104 = load ptr, ptr %103, align 8, !tbaa !64
   %105 = icmp eq ptr %104, null
   br i1 %105, label %116, label %106
@@ -1120,7 +1120,7 @@ define i32 @Fra_FraigCecPartitioned(ptr noundef %0, ptr noundef %1, i32 noundef 
   %indvars.iv76 = phi i64 [ %indvars.iv.next77, %21 ], [ 0, %.lr.ph ]
   %.052.us = phi i32 [ %14, %21 ], [ -1, %.lr.ph ]
   %.val45.us = load ptr, ptr %11, align 8, !tbaa !63
-  %12 = getelementptr inbounds nuw ptr, ptr %.val45.us, i64 %indvars.iv76
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %.val45.us, i64 %indvars.iv76
   %13 = load ptr, ptr %12, align 8, !tbaa !64
   store ptr %13, ptr %7, align 8, !tbaa !67
   %14 = add nsw i32 %.052.us, 1
@@ -1134,7 +1134,7 @@ define i32 @Fra_FraigCecPartitioned(ptr noundef %0, ptr noundef %1, i32 noundef 
   %17 = call i32 @Fra_FraigCec(ptr noundef nonnull %7, i32 noundef %2, i32 noundef 0)
   %18 = load ptr, ptr %7, align 8, !tbaa !67
   %.val49.us = load ptr, ptr %11, align 8, !tbaa !63
-  %19 = getelementptr inbounds nuw ptr, ptr %.val49.us, i64 %indvars.iv76
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.val49.us, i64 %indvars.iv76
   store ptr %18, ptr %19, align 8, !tbaa !64
   %20 = icmp eq i32 %17, 1
   br i1 %20, label %21, label %.critedge
@@ -1151,7 +1151,7 @@ define i32 @Fra_FraigCecPartitioned(ptr noundef %0, ptr noundef %1, i32 noundef 
   %.val4353 = phi i32 [ %.val43, %43 ], [ %.val4350, %.lr.ph ]
   %.052 = phi i32 [ %26, %43 ], [ -1, %.lr.ph ]
   %.val45 = load ptr, ptr %11, align 8, !tbaa !63
-  %24 = getelementptr inbounds nuw ptr, ptr %.val45, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.val45, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !64
   store ptr %25, ptr %7, align 8, !tbaa !67
   %26 = add nsw i32 %.052, 1
@@ -1180,7 +1180,7 @@ define i32 @Fra_FraigCecPartitioned(ptr noundef %0, ptr noundef %1, i32 noundef 
   %39 = call i32 @Fra_FraigCec(ptr noundef nonnull %7, i32 noundef %2, i32 noundef 0)
   %40 = load ptr, ptr %7, align 8, !tbaa !67
   %.val49 = load ptr, ptr %11, align 8, !tbaa !63
-  %41 = getelementptr inbounds nuw ptr, ptr %.val49, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %.val49, i64 %indvars.iv
   store ptr %40, ptr %41, align 8, !tbaa !64
   %42 = icmp eq i32 %39, 1
   br i1 %42, label %43, label %.critedge
@@ -1227,7 +1227,7 @@ define i32 @Fra_FraigCecPartitioned(ptr noundef %0, ptr noundef %1, i32 noundef 
 59:                                               ; preds = %.lr.ph68, %59
   %indvars.iv79 = phi i64 [ 0, %.lr.ph68 ], [ %indvars.iv.next80, %59 ]
   %.val44 = load ptr, ptr %58, align 8, !tbaa !63
-  %60 = getelementptr inbounds nuw ptr, ptr %.val44, i64 %indvars.iv79
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %.val44, i64 %indvars.iv79
   %61 = load ptr, ptr %60, align 8, !tbaa !64
   tail call void @Aig_ManStop(ptr noundef %61) #10
   %indvars.iv.next80 = add nuw nsw i64 %indvars.iv79, 1

@@ -10,7 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.reassembly_table = type { ptr, ptr, ptr, ptr, ptr }
 %struct.reassembly_table_functions = type { ptr, ptr, ptr, ptr, ptr, ptr }
 %struct._fragment_items = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.raknet_handler_entry = type { %struct._value_string, ptr }
 %struct._address = type { i32, i32, ptr, ptr }
 
 @.str = private unnamed_addr constant [9 x i8] c"udp.port\00", align 1
@@ -382,9 +381,9 @@ define hidden void @proto_register_raknet() local_unnamed_addr #0 {
 
 1:                                                ; preds = %1, %0
   %indvars.iv.i = phi i64 [ 0, %0 ], [ %indvars.iv.next.i, %1 ]
-  %2 = getelementptr %struct.raknet_handler_entry, ptr @raknet_offline_message_handlers, i64 %indvars.iv.i
+  %2 = getelementptr [24 x i8], ptr @raknet_offline_message_handlers, i64 %indvars.iv.i
   %3 = load i32, ptr %2, align 8
-  %4 = getelementptr %struct._value_string, ptr @raknet_offline_message_names, i64 %indvars.iv.i
+  %4 = getelementptr [16 x i8], ptr @raknet_offline_message_names, i64 %indvars.iv.i
   store i32 %3, ptr %4, align 16
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load ptr, ptr %5, align 8
@@ -401,9 +400,9 @@ define hidden void @proto_register_raknet() local_unnamed_addr #0 {
 
 9:                                                ; preds = %9, %8
   %indvars.iv17.i = phi i64 [ 0, %8 ], [ %indvars.iv.next18.i, %9 ]
-  %10 = getelementptr %struct.raknet_handler_entry, ptr @raknet_system_message_handlers, i64 %indvars.iv17.i
+  %10 = getelementptr [24 x i8], ptr @raknet_system_message_handlers, i64 %indvars.iv17.i
   %11 = load i32, ptr %10, align 8
-  %12 = getelementptr %struct._value_string, ptr @raknet_system_message_names, i64 %indvars.iv17.i
+  %12 = getelementptr [16 x i8], ptr @raknet_system_message_names, i64 %indvars.iv17.i
   store i32 %11, ptr %12, align 16
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %14 = load ptr, ptr %13, align 8
@@ -962,7 +961,7 @@ define hidden void @proto_reg_handoff_raknet() local_unnamed_addr #0 {
 
 1:                                                ; preds = %0, %1
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %1 ]
-  %2 = getelementptr %struct.raknet_handler_entry, ptr @raknet_offline_message_handlers, i64 %indvars.iv
+  %2 = getelementptr [24 x i8], ptr @raknet_offline_message_handlers, i64 %indvars.iv
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr @proto_raknet, align 4
@@ -975,7 +974,7 @@ define hidden void @proto_reg_handoff_raknet() local_unnamed_addr #0 {
 
 .preheader:                                       ; preds = %1, %.preheader
   %indvars.iv14 = phi i64 [ %indvars.iv.next15, %.preheader ], [ 0, %1 ]
-  %8 = getelementptr %struct.raknet_handler_entry, ptr @raknet_system_message_handlers, i64 %indvars.iv14
+  %8 = getelementptr [24 x i8], ptr @raknet_system_message_handlers, i64 %indvars.iv14
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load ptr, ptr %9, align 8
   %11 = load i32, ptr @proto_raknet, align 4

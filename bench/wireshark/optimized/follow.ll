@@ -550,7 +550,7 @@ addresses_equal.exit:                             ; preds = %69, %61, %copy_addr
   %84 = load i32, ptr %83, align 8
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %86 = zext nneg i8 %storemerge to i64
-  %87 = getelementptr i32, ptr %85, i64 %86
+  %87 = getelementptr [4 x i8], ptr %85, i64 %86
   %88 = load i32, ptr %87, align 4
   %89 = add i32 %88, %84
   store i32 %89, ptr %87, align 4

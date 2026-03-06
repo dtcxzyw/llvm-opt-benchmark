@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"struct.NMTUtil::S" = type { ptr, ptr }
-%class.VirtualMemory = type { i64, i64, i64 }
-%class.MallocMemory = type { %class.MemoryCounter, %class.MemoryCounter }
-%class.MemoryCounter = type { i64, i64, i64, i64 }
 %class.MetaspaceStats = type { i64, i64, i64 }
 %class.stringStream = type <{ %class.outputStream, ptr, i64, i64, i8, [48 x i8], [7 x i8] }>
 %class.outputStream = type { ptr, i32, i8, i32, i64, %class.TimeStamp, ptr, i64 }
@@ -174,7 +171,7 @@ define hidden void @_ZNK15MemReporterBase12print_mallocEPK13MemoryCounter8MEMFLA
   %16 = add i64 %15, %9
   %17 = udiv i64 %16, %14
   %18 = zext i8 %2 to i64
-  %19 = getelementptr inbounds nuw %"struct.NMTUtil::S", ptr @_ZN7NMTUtil8_stringsE, i64 %18
+  %19 = getelementptr inbounds nuw [16 x i8], ptr @_ZN7NMTUtil8_stringsE, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull @.str.7, ptr noundef nonnull %13, i64 noundef %17, ptr noundef %5, ptr noundef %21) #7
@@ -333,7 +330,7 @@ define hidden void @_ZN18MemSummaryReporter6reportEv(ptr noundef nonnull readonl
 13:                                               ; preds = %13, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %13 ]
   %.056.i = phi i64 [ 0, %1 ], [ %16, %13 ]
-  %14 = getelementptr inbounds nuw %class.VirtualMemory, ptr %12, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %indvars.iv.i
   %15 = load i64, ptr %14, align 8
   %16 = add i64 %15, %.056.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -343,7 +340,7 @@ define hidden void @_ZN18MemSummaryReporter6reportEv(ptr noundef nonnull readonl
 _ZNK21VirtualMemorySnapshot14total_reservedEv.exit: ; preds = %13, %_ZNK21VirtualMemorySnapshot14total_reservedEv.exit
   %indvars.iv.i31 = phi i64 [ %indvars.iv.next.i33, %_ZNK21VirtualMemorySnapshot14total_reservedEv.exit ], [ 0, %13 ]
   %.056.i32 = phi i64 [ %20, %_ZNK21VirtualMemorySnapshot14total_reservedEv.exit ], [ 0, %13 ]
-  %17 = getelementptr inbounds nuw %class.VirtualMemory, ptr %12, i64 %indvars.iv.i31
+  %17 = getelementptr inbounds nuw [24 x i8], ptr %12, i64 %indvars.iv.i31
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, %.056.i32
@@ -433,9 +430,9 @@ _ZNK21VirtualMemorySnapshot15total_committedEv.exit: ; preds = %_ZNK21VirtualMem
 75:                                               ; preds = %73
   %76 = trunc i64 %indvars.iv to i8
   %77 = load ptr, ptr %4, align 8
-  %78 = getelementptr inbounds nuw %class.MallocMemory, ptr %77, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [64 x i8], ptr %77, i64 %indvars.iv
   %79 = load ptr, ptr %11, align 8
-  %80 = getelementptr inbounds nuw %class.VirtualMemory, ptr %79, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw [24 x i8], ptr %79, i64 %indvars.iv
   tail call void @_ZN18MemSummaryReporter22report_summary_of_typeE8MEMFLAGSP12MallocMemoryP13VirtualMemory(ptr noundef nonnull align 8 dereferenceable(72) %0, i8 noundef zeroext %76, ptr noundef %78, ptr noundef %80)
   br label %81
 
@@ -521,7 +518,7 @@ define hidden void @_ZN18MemSummaryReporter22report_summary_of_typeE8MEMFLAGSP12
   %57 = load ptr, ptr %56, align 8
   %58 = tail call noundef ptr @_ZN7NMTUtil10scale_nameEm(i64 noundef %51) #7
   %59 = zext i8 %1 to i64
-  %60 = getelementptr inbounds nuw %"struct.NMTUtil::S", ptr @_ZN7NMTUtil8_stringsE, i64 %59
+  %60 = getelementptr inbounds nuw [16 x i8], ptr @_ZN7NMTUtil8_stringsE, i64 %59
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = load ptr, ptr %61, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %57, ptr noundef nonnull @.str.23, i32 noundef 26, ptr noundef %62) #7
@@ -991,7 +988,7 @@ define hidden noundef i32 @_ZN17MemDetailReporter38report_virtual_memory_allocat
 
 45:                                               ; preds = %28
   %46 = zext i8 %44 to i64
-  %47 = getelementptr inbounds nuw %"struct.NMTUtil::S", ptr @_ZN7NMTUtil8_stringsE, i64 %46
+  %47 = getelementptr inbounds nuw [16 x i8], ptr @_ZN7NMTUtil8_stringsE, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = load ptr, ptr %48, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %9, ptr noundef nonnull @.str.39, ptr noundef %49) #7
@@ -1081,7 +1078,7 @@ define hidden void @_ZN17MemDetailReporter28report_virtual_memory_regionEPK20Res
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %32 = load i8, ptr %31, align 8
   %33 = zext i8 %32 to i64
-  %34 = getelementptr inbounds nuw %"struct.NMTUtil::S", ptr @_ZN7NMTUtil8_stringsE, i64 %33
+  %34 = getelementptr inbounds nuw [16 x i8], ptr @_ZN7NMTUtil8_stringsE, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %12, ptr noundef nonnull @.str.43, ptr noundef %36) #7
@@ -1265,7 +1262,7 @@ define hidden void @_ZN22MemSummaryDiffReporter11report_diffEv(ptr noundef nonnu
 18:                                               ; preds = %18, %9
   %indvars.iv.i.i = phi i64 [ 0, %9 ], [ %indvars.iv.next.i.i, %18 ]
   %.056.i.i = phi i64 [ 0, %9 ], [ %21, %18 ]
-  %19 = getelementptr inbounds nuw %class.VirtualMemory, ptr %17, i64 %indvars.iv.i.i
+  %19 = getelementptr inbounds nuw [24 x i8], ptr %17, i64 %indvars.iv.i.i
   %20 = load i64, ptr %19, align 8
   %21 = add i64 %20, %.056.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -1284,7 +1281,7 @@ _ZNK11MemBaseline21total_reserved_memoryEv.exit:  ; preds = %18
 28:                                               ; preds = %28, %_ZNK11MemBaseline21total_reserved_memoryEv.exit
   %indvars.iv.i.i31 = phi i64 [ 0, %_ZNK11MemBaseline21total_reserved_memoryEv.exit ], [ %indvars.iv.next.i.i33, %28 ]
   %.056.i.i32 = phi i64 [ 0, %_ZNK11MemBaseline21total_reserved_memoryEv.exit ], [ %32, %28 ]
-  %29 = getelementptr inbounds nuw %class.VirtualMemory, ptr %22, i64 %indvars.iv.i.i31
+  %29 = getelementptr inbounds nuw [24 x i8], ptr %22, i64 %indvars.iv.i.i31
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 1832
   %31 = load i64, ptr %30, align 8
   %32 = add i64 %31, %.056.i.i32
@@ -1306,7 +1303,7 @@ _ZNK11MemBaseline22total_committed_memoryEv.exit: ; preds = %28
 41:                                               ; preds = %41, %_ZNK11MemBaseline22total_committed_memoryEv.exit
   %indvars.iv.i.i35 = phi i64 [ 0, %_ZNK11MemBaseline22total_committed_memoryEv.exit ], [ %indvars.iv.next.i.i37, %41 ]
   %.056.i.i36 = phi i64 [ 0, %_ZNK11MemBaseline22total_committed_memoryEv.exit ], [ %44, %41 ]
-  %42 = getelementptr inbounds nuw %class.VirtualMemory, ptr %40, i64 %indvars.iv.i.i35
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %40, i64 %indvars.iv.i.i35
   %43 = load i64, ptr %42, align 8
   %44 = add i64 %43, %.056.i.i36
   %indvars.iv.next.i.i37 = add nuw nsw i64 %indvars.iv.i.i35, 1
@@ -1325,7 +1322,7 @@ _ZNK11MemBaseline21total_reserved_memoryEv.exit39: ; preds = %41
 51:                                               ; preds = %51, %_ZNK11MemBaseline21total_reserved_memoryEv.exit39
   %indvars.iv.i.i40 = phi i64 [ 0, %_ZNK11MemBaseline21total_reserved_memoryEv.exit39 ], [ %indvars.iv.next.i.i42, %51 ]
   %.056.i.i41 = phi i64 [ 0, %_ZNK11MemBaseline21total_reserved_memoryEv.exit39 ], [ %55, %51 ]
-  %52 = getelementptr inbounds nuw %class.VirtualMemory, ptr %45, i64 %indvars.iv.i.i40
+  %52 = getelementptr inbounds nuw [24 x i8], ptr %45, i64 %indvars.iv.i.i40
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 1832
   %54 = load i64, ptr %53, align 8
   %55 = add i64 %54, %.056.i.i41
@@ -1388,7 +1385,7 @@ _ZNK11MemBaseline22total_committed_memoryEv.exit44: ; preds = %51
 98:                                               ; preds = %98, %_ZNK11MemBaseline22total_committed_memoryEv.exit44
   %indvars.iv.i = phi i64 [ 0, %_ZNK11MemBaseline22total_committed_memoryEv.exit44 ], [ %indvars.iv.next.i, %98 ]
   %.056.i = phi i64 [ 0, %_ZNK11MemBaseline22total_committed_memoryEv.exit44 ], [ %101, %98 ]
-  %99 = getelementptr inbounds nuw %class.VirtualMemory, ptr %97, i64 %indvars.iv.i
+  %99 = getelementptr inbounds nuw [24 x i8], ptr %97, i64 %indvars.iv.i
   %100 = load i64, ptr %99, align 8
   %101 = add i64 %100, %.056.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1398,7 +1395,7 @@ _ZNK11MemBaseline22total_committed_memoryEv.exit44: ; preds = %51
 _ZNK21VirtualMemorySnapshot14total_reservedEv.exit: ; preds = %98, %_ZNK21VirtualMemorySnapshot14total_reservedEv.exit
   %indvars.iv.i45 = phi i64 [ %indvars.iv.next.i47, %_ZNK21VirtualMemorySnapshot14total_reservedEv.exit ], [ 0, %98 ]
   %.056.i46 = phi i64 [ %105, %_ZNK21VirtualMemorySnapshot14total_reservedEv.exit ], [ 0, %98 ]
-  %102 = getelementptr inbounds nuw %class.VirtualMemory, ptr %97, i64 %indvars.iv.i45
+  %102 = getelementptr inbounds nuw [24 x i8], ptr %97, i64 %indvars.iv.i45
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
   %104 = load i64, ptr %103, align 8
   %105 = add i64 %104, %.056.i46
@@ -1414,7 +1411,7 @@ _ZNK21VirtualMemorySnapshot15total_committedEv.exit: ; preds = %_ZNK21VirtualMem
 108:                                              ; preds = %108, %_ZNK21VirtualMemorySnapshot15total_committedEv.exit
   %indvars.iv.i49 = phi i64 [ 0, %_ZNK21VirtualMemorySnapshot15total_committedEv.exit ], [ %indvars.iv.next.i51, %108 ]
   %.056.i50 = phi i64 [ 0, %_ZNK21VirtualMemorySnapshot15total_committedEv.exit ], [ %111, %108 ]
-  %109 = getelementptr inbounds nuw %class.VirtualMemory, ptr %107, i64 %indvars.iv.i49
+  %109 = getelementptr inbounds nuw [24 x i8], ptr %107, i64 %indvars.iv.i49
   %110 = load i64, ptr %109, align 8
   %111 = add i64 %110, %.056.i50
   %indvars.iv.next.i51 = add nuw nsw i64 %indvars.iv.i49, 1
@@ -1424,7 +1421,7 @@ _ZNK21VirtualMemorySnapshot15total_committedEv.exit: ; preds = %_ZNK21VirtualMem
 _ZNK21VirtualMemorySnapshot14total_reservedEv.exit53: ; preds = %108, %_ZNK21VirtualMemorySnapshot14total_reservedEv.exit53
   %indvars.iv.i54 = phi i64 [ %indvars.iv.next.i56, %_ZNK21VirtualMemorySnapshot14total_reservedEv.exit53 ], [ 0, %108 ]
   %.056.i55 = phi i64 [ %115, %_ZNK21VirtualMemorySnapshot14total_reservedEv.exit53 ], [ 0, %108 ]
-  %112 = getelementptr inbounds nuw %class.VirtualMemory, ptr %107, i64 %indvars.iv.i54
+  %112 = getelementptr inbounds nuw [24 x i8], ptr %107, i64 %indvars.iv.i54
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %114 = load i64, ptr %113, align 8
   %115 = add i64 %114, %.056.i55
@@ -1446,14 +1443,14 @@ _ZNK21VirtualMemorySnapshot15total_committedEv.exit58: ; preds = %_ZNK21VirtualM
 118:                                              ; preds = %116
   %119 = trunc i64 %indvars.iv to i8
   %120 = load ptr, ptr %33, align 8
-  %121 = getelementptr inbounds nuw %class.MallocMemory, ptr %120, i64 %indvars.iv
+  %121 = getelementptr inbounds nuw [64 x i8], ptr %120, i64 %indvars.iv
   %122 = getelementptr inbounds nuw i8, ptr %120, i64 1824
-  %123 = getelementptr inbounds nuw %class.VirtualMemory, ptr %122, i64 %indvars.iv
+  %123 = getelementptr inbounds nuw [24 x i8], ptr %122, i64 %indvars.iv
   %124 = getelementptr inbounds nuw i8, ptr %120, i64 2496
   %125 = load ptr, ptr %10, align 8
-  %126 = getelementptr inbounds nuw %class.MallocMemory, ptr %125, i64 %indvars.iv
+  %126 = getelementptr inbounds nuw [64 x i8], ptr %125, i64 %indvars.iv
   %127 = getelementptr inbounds nuw i8, ptr %125, i64 1824
-  %128 = getelementptr inbounds nuw %class.VirtualMemory, ptr %127, i64 %indvars.iv
+  %128 = getelementptr inbounds nuw [24 x i8], ptr %127, i64 %indvars.iv
   %129 = getelementptr inbounds nuw i8, ptr %125, i64 2496
   tail call void @_ZNK22MemSummaryDiffReporter20diff_summary_of_typeE8MEMFLAGSPK12MallocMemoryPK13VirtualMemoryRK22MetaspaceCombinedStatsS3_S6_S9_(ptr noundef nonnull align 8 dereferenceable(56) %0, i8 noundef zeroext %119, ptr noundef %121, ptr noundef nonnull %123, ptr noundef nonnull align 8 dereferenceable(72) %124, ptr noundef %126, ptr noundef nonnull %128, ptr noundef nonnull align 8 dereferenceable(72) %129)
   br label %130
@@ -1553,7 +1550,7 @@ define hidden void @_ZNK22MemSummaryDiffReporter17print_malloc_diffEmmmm8MEMFLAG
 
 18:                                               ; preds = %6
   %19 = zext i8 %5 to i64
-  %20 = getelementptr inbounds nuw %"struct.NMTUtil::S", ptr @_ZN7NMTUtil8_stringsE, i64 %19
+  %20 = getelementptr inbounds nuw [16 x i8], ptr @_ZN7NMTUtil8_stringsE, i64 %19
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull @.str.48, ptr noundef %22) #7
@@ -1712,7 +1709,7 @@ define hidden void @_ZNK22MemSummaryDiffReporter20diff_summary_of_typeE8MEMFLAGS
 
 94:                                               ; preds = %83, %79
   %95 = zext i8 %1 to i64
-  %96 = getelementptr inbounds nuw %"struct.NMTUtil::S", ptr @_ZN7NMTUtil8_stringsE, i64 %95
+  %96 = getelementptr inbounds nuw [16 x i8], ptr @_ZN7NMTUtil8_stringsE, i64 %95
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %98 = load ptr, ptr %97, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %11, ptr noundef nonnull @.str.23, i32 noundef 26, ptr noundef %98) #7
@@ -2805,7 +2802,7 @@ define hidden void @_ZNK21MemDetailDiffReporter24diff_virtual_memory_siteEPK15Na
 
 38:                                               ; preds = %33
   %39 = zext i8 %6 to i64
-  %40 = getelementptr inbounds nuw %"struct.NMTUtil::S", ptr @_ZN7NMTUtil8_stringsE, i64 %39
+  %40 = getelementptr inbounds nuw [16 x i8], ptr @_ZN7NMTUtil8_stringsE, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load ptr, ptr %41, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull @.str.39, ptr noundef %42) #7

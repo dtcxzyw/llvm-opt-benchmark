@@ -54,7 +54,7 @@ define void @lv_draw_sw_i1_to_argb8888(ptr noundef readonly captures(none) %0, p
 
 ._crit_edge.us:                                   ; preds = %13
   %23 = getelementptr inbounds nuw i8, ptr %.02432.us, i64 %10
-  %24 = getelementptr inbounds nuw i32, ptr %.02531.us, i64 %12
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %.02531.us, i64 %12
   %25 = add nuw i32 %.02333.us, 1
   %exitcond38.not = icmp eq i32 %25, %3
   br i1 %exitcond38.not, label %._crit_edge34, label %.preheader26.us, !llvm.loop !11
@@ -169,7 +169,7 @@ define void @lv_draw_sw_rgb565_swap(ptr noundef captures(none) %0, i32 noundef %
 72:                                               ; preds = %._crit_edge
   %73 = add nsw i32 %1, -1
   %74 = zext i32 %73 to i64
-  %75 = getelementptr inbounds nuw i16, ptr %0, i64 %74
+  %75 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %74
   %76 = load i16, ptr %75, align 2, !tbaa !14
   %rev = tail call i16 @llvm.bswap.i16(i16 %76)
   store i16 %rev, ptr %75, align 2, !tbaa !14
@@ -220,7 +220,7 @@ define void @lv_draw_sw_i1_invert(ptr noundef %0, i32 noundef %1) local_unnamed_
 
 .lr.ph39:                                         ; preds = %.lr.ph39.preheader, %.lr.ph39
   %indvars.iv = phi i64 [ 0, %.lr.ph39.preheader ], [ %indvars.iv.next, %.lr.ph39 ]
-  %20 = getelementptr inbounds nuw i32, ptr %.027.lcssa, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %.027.lcssa, i64 %indvars.iv
   %21 = load i32, ptr %20, align 4, !tbaa !8
   %22 = xor i32 %21, -1
   store i32 %22, ptr %20, align 4, !tbaa !8
@@ -229,7 +229,7 @@ define void @lv_draw_sw_i1_invert(ptr noundef %0, i32 noundef %1) local_unnamed_
   br i1 %exitcond.not, label %._crit_edge40, label %.lr.ph39, !llvm.loop !17
 
 ._crit_edge40:                                    ; preds = %.lr.ph39
-  %23 = getelementptr inbounds nuw i32, ptr %.027.lcssa, i64 %wide.trip.count
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %.027.lcssa, i64 %wide.trip.count
   %24 = and i32 %.0.lcssa, 3
   br label %25
 
@@ -459,15 +459,15 @@ define void @lv_draw_sw_rotate(ptr noundef readonly captures(none) %0, ptr nound
   %30 = xor i64 %indvars.iv28.i81, -1
   %31 = add nsw i64 %30, %28
   %32 = mul nsw i64 %31, %29
-  %invariant.gep.i82 = getelementptr i16, ptr %1, i64 %32
+  %invariant.gep.i82 = getelementptr [2 x i8], ptr %1, i64 %32
   br label %33
 
 33:                                               ; preds = %33, %.lr.ph.us.i80
   %indvars.iv30.i = phi i64 [ %indvars.iv28.i81, %.lr.ph.us.i80 ], [ %indvars.iv.next31.i, %33 ]
   %indvars.iv.i83 = phi i64 [ 0, %.lr.ph.us.i80 ], [ %indvars.iv.next.i85, %33 ]
-  %34 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv30.i
+  %34 = getelementptr inbounds [2 x i8], ptr %0, i64 %indvars.iv30.i
   %35 = load i16, ptr %34, align 2, !tbaa !14
-  %gep.i84 = getelementptr i16, ptr %invariant.gep.i82, i64 %indvars.iv.i83
+  %gep.i84 = getelementptr [2 x i8], ptr %invariant.gep.i82, i64 %indvars.iv.i83
   store i16 %35, ptr %gep.i84, align 2, !tbaa !14
   %indvars.iv.next31.i = add nsw i64 %indvars.iv30.i, %27
   %indvars.iv.next.i85 = add nuw nsw i64 %indvars.iv.i83, 1
@@ -547,15 +547,15 @@ define void @lv_draw_sw_rotate(ptr noundef readonly captures(none) %0, ptr nound
   %64 = xor i64 %indvars.iv28.i104, -1
   %65 = add nsw i64 %64, %62
   %66 = mul nsw i64 %65, %63
-  %invariant.gep.i105 = getelementptr i32, ptr %1, i64 %66
+  %invariant.gep.i105 = getelementptr [4 x i8], ptr %1, i64 %66
   br label %67
 
 67:                                               ; preds = %67, %.lr.ph.us.i103
   %indvars.iv30.i106 = phi i64 [ %indvars.iv28.i104, %.lr.ph.us.i103 ], [ %indvars.iv.next31.i109, %67 ]
   %indvars.iv.i107 = phi i64 [ 0, %.lr.ph.us.i103 ], [ %indvars.iv.next.i110, %67 ]
-  %68 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv30.i106
+  %68 = getelementptr inbounds [4 x i8], ptr %0, i64 %indvars.iv30.i106
   %69 = load i32, ptr %68, align 4, !tbaa !8
-  %gep.i108 = getelementptr i32, ptr %invariant.gep.i105, i64 %indvars.iv.i107
+  %gep.i108 = getelementptr [4 x i8], ptr %invariant.gep.i105, i64 %indvars.iv.i107
   store i32 %69, ptr %gep.i108, align 4, !tbaa !8
   %indvars.iv.next31.i109 = add nsw i64 %indvars.iv30.i106, %61
   %indvars.iv.next.i110 = add nuw nsw i64 %indvars.iv.i107, 1
@@ -635,7 +635,7 @@ define void @lv_draw_sw_rotate(ptr noundef readonly captures(none) %0, ptr nound
 .lr.ph.us.i128:                                   ; preds = %._crit_edge.us.i134, %.lr.ph.us.preheader.i126
   %indvars.iv29.i = phi i64 [ 0, %.lr.ph.us.preheader.i126 ], [ %indvars.iv.next30.i, %._crit_edge.us.i134 ]
   %94 = mul nsw i64 %indvars.iv29.i, %93
-  %invariant.gep.i129 = getelementptr i16, ptr %0, i64 %94
+  %invariant.gep.i129 = getelementptr [2 x i8], ptr %0, i64 %94
   %95 = trunc i64 %indvars.iv29.i to i32
   %96 = xor i32 %95, -1
   %97 = add i32 %3, %96
@@ -645,13 +645,13 @@ define void @lv_draw_sw_rotate(ptr noundef readonly captures(none) %0, ptr nound
 
 100:                                              ; preds = %100, %.lr.ph.us.i128
   %indvars.iv.i130 = phi i64 [ 0, %.lr.ph.us.i128 ], [ %indvars.iv.next.i132, %100 ]
-  %gep.i131 = getelementptr i16, ptr %invariant.gep.i129, i64 %indvars.iv.i130
+  %gep.i131 = getelementptr [2 x i8], ptr %invariant.gep.i129, i64 %indvars.iv.i130
   %101 = load i16, ptr %gep.i131, align 2, !tbaa !14
   %102 = trunc i64 %indvars.iv.i130 to i32
   %103 = xor i32 %102, -1
   %104 = add i32 %99, %103
   %105 = sext i32 %104 to i64
-  %106 = getelementptr inbounds i16, ptr %1, i64 %105
+  %106 = getelementptr inbounds [2 x i8], ptr %1, i64 %105
   store i16 %101, ptr %106, align 2, !tbaa !14
   %indvars.iv.next.i132 = add nuw nsw i64 %indvars.iv.i130, 1
   %exitcond.not.i133 = icmp eq i64 %indvars.iv.next.i132, %wide.trip.count.i127
@@ -729,7 +729,7 @@ define void @lv_draw_sw_rotate(ptr noundef readonly captures(none) %0, ptr nound
 .lr.ph.us.i151:                                   ; preds = %._crit_edge.us.i158, %.lr.ph.us.preheader.i148
   %indvars.iv29.i152 = phi i64 [ 0, %.lr.ph.us.preheader.i148 ], [ %indvars.iv.next30.i159, %._crit_edge.us.i158 ]
   %136 = mul nsw i64 %indvars.iv29.i152, %135
-  %invariant.gep.i153 = getelementptr i32, ptr %0, i64 %136
+  %invariant.gep.i153 = getelementptr [4 x i8], ptr %0, i64 %136
   %137 = trunc i64 %indvars.iv29.i152 to i32
   %138 = xor i32 %137, -1
   %139 = add i32 %3, %138
@@ -739,13 +739,13 @@ define void @lv_draw_sw_rotate(ptr noundef readonly captures(none) %0, ptr nound
 
 142:                                              ; preds = %142, %.lr.ph.us.i151
   %indvars.iv.i154 = phi i64 [ 0, %.lr.ph.us.i151 ], [ %indvars.iv.next.i156, %142 ]
-  %gep.i155 = getelementptr i32, ptr %invariant.gep.i153, i64 %indvars.iv.i154
+  %gep.i155 = getelementptr [4 x i8], ptr %invariant.gep.i153, i64 %indvars.iv.i154
   %143 = load i32, ptr %gep.i155, align 4, !tbaa !8
   %144 = trunc i64 %indvars.iv.i154 to i32
   %145 = xor i32 %144, -1
   %146 = add i32 %141, %145
   %147 = sext i32 %146 to i64
-  %148 = getelementptr inbounds i32, ptr %1, i64 %147
+  %148 = getelementptr inbounds [4 x i8], ptr %1, i64 %147
   store i32 %143, ptr %148, align 4, !tbaa !8
   %indvars.iv.next.i156 = add nuw nsw i64 %indvars.iv.i154, 1
   %exitcond.not.i157 = icmp eq i64 %indvars.iv.next.i156, %wide.trip.count.i150
@@ -829,13 +829,13 @@ define void @lv_draw_sw_rotate(ptr noundef readonly captures(none) %0, ptr nound
 172:                                              ; preds = %172, %.lr.ph.us.i179
   %indvars.iv30.i181 = phi i64 [ %indvars.iv28.i180, %.lr.ph.us.i179 ], [ %indvars.iv.next31.i183, %172 ]
   %indvars.iv.i182 = phi i64 [ 0, %.lr.ph.us.i179 ], [ %indvars.iv.next.i184, %172 ]
-  %173 = getelementptr inbounds i16, ptr %0, i64 %indvars.iv30.i181
+  %173 = getelementptr inbounds [2 x i8], ptr %0, i64 %indvars.iv30.i181
   %174 = load i16, ptr %173, align 2, !tbaa !14
   %175 = trunc i64 %indvars.iv.i182 to i32
   %176 = xor i32 %175, -1
   %177 = add i32 %171, %176
   %178 = sext i32 %177 to i64
-  %179 = getelementptr inbounds i16, ptr %1, i64 %178
+  %179 = getelementptr inbounds [2 x i8], ptr %1, i64 %178
   store i16 %174, ptr %179, align 2, !tbaa !14
   %indvars.iv.next31.i183 = add nsw i64 %indvars.iv30.i181, %169
   %indvars.iv.next.i184 = add nuw nsw i64 %indvars.iv.i182, 1
@@ -919,13 +919,13 @@ define void @lv_draw_sw_rotate(ptr noundef readonly captures(none) %0, ptr nound
 208:                                              ; preds = %208, %.lr.ph.us.i209
   %indvars.iv30.i212 = phi i64 [ %indvars.iv28.i210, %.lr.ph.us.i209 ], [ %indvars.iv.next31.i214, %208 ]
   %indvars.iv.i213 = phi i64 [ 0, %.lr.ph.us.i209 ], [ %indvars.iv.next.i215, %208 ]
-  %209 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv30.i212
+  %209 = getelementptr inbounds [4 x i8], ptr %0, i64 %indvars.iv30.i212
   %210 = load i32, ptr %209, align 4, !tbaa !8
   %211 = trunc i64 %indvars.iv.i213 to i32
   %212 = xor i32 %211, -1
   %213 = add i32 %207, %212
   %214 = sext i32 %213 to i64
-  %215 = getelementptr inbounds i32, ptr %1, i64 %214
+  %215 = getelementptr inbounds [4 x i8], ptr %1, i64 %214
   store i32 %210, ptr %215, align 4, !tbaa !8
   %indvars.iv.next31.i214 = add nsw i64 %indvars.iv30.i212, %205
   %indvars.iv.next.i215 = add nuw nsw i64 %indvars.iv.i213, 1

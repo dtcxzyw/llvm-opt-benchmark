@@ -238,7 +238,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i: ; p
 _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %82, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
   store ptr %75, ptr @pts, align 8, !tbaa !4
   store ptr %81, ptr getelementptr inbounds nuw (i8, ptr @pts, i64 8), align 8, !tbaa !18
-  %83 = getelementptr inbounds nuw %"class.cv::Point_", ptr %75, i64 %73
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %73
   store ptr %83, ptr getelementptr inbounds nuw (i8, ptr @pts, i64 16), align 8, !tbaa !19
   br label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backERKS2_.exit
 
@@ -259,7 +259,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backERKS2_.exit: ; preds = %58, %_ZNSt
   store ptr @img1, ptr %88, align 8, !tbaa !15
   %90 = load ptr, ptr @pts, align 8, !tbaa !4
   %91 = zext nneg i32 %84 to i64
-  %92 = getelementptr %"class.cv::Point_", ptr %90, i64 %91
+  %92 = getelementptr [8 x i8], ptr %90, i64 %91
   %93 = getelementptr i8, ptr %92, i64 -8
   %.sroa.08.0.copyload = load i64, ptr %93, align 4
   %.sroa.07.0.copyload = load i64, ptr @point, align 8

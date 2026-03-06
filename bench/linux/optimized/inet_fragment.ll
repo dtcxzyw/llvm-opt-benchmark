@@ -349,7 +349,7 @@ define dso_local void @inet_frag_kill(ptr noundef %0) #0 align 16 {
 77:                                               ; preds = %67
   %78 = getelementptr inbounds nuw i8, ptr %46, i64 64
   %79 = zext i32 %71 to i64
-  %80 = getelementptr ptr, ptr %78, i64 %79
+  %80 = getelementptr [8 x i8], ptr %78, i64 %79
   br label %81
 
 81:                                               ; preds = %77, %75
@@ -786,7 +786,7 @@ define dso_local ptr @inet_frag_find(ptr noundef %0, ptr noundef %1) #0 align 16
 38:                                               ; preds = %.split40.us
   %39 = getelementptr inbounds nuw i8, ptr %24, i64 64
   %40 = zext i32 %32 to i64
-  %41 = getelementptr ptr, ptr %39, i64 %40
+  %41 = getelementptr [8 x i8], ptr %39, i64 %40
   br label %.split36.us.us
 
 .split36.us.us:                                   ; preds = %38, %36
@@ -871,7 +871,7 @@ define dso_local ptr @inet_frag_find(ptr noundef %0, ptr noundef %1) #0 align 16
 96:                                               ; preds = %.split40
   %97 = getelementptr inbounds nuw i8, ptr %82, i64 64
   %98 = zext i32 %90 to i64
-  %99 = getelementptr ptr, ptr %97, i64 %98
+  %99 = getelementptr [8 x i8], ptr %97, i64 %98
   br label %.split36
 
 .split36:                                         ; preds = %96, %94
@@ -1048,7 +1048,7 @@ define dso_local ptr @inet_frag_find(ptr noundef %0, ptr noundef %1) #0 align 16
 209:                                              ; preds = %199
   %210 = getelementptr inbounds nuw i8, ptr %174, i64 64
   %211 = zext i32 %203 to i64
-  %212 = getelementptr ptr, ptr %210, i64 %211
+  %212 = getelementptr [8 x i8], ptr %210, i64 %211
   br label %213
 
 213:                                              ; preds = %209, %207

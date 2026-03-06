@@ -1135,7 +1135,7 @@ define linkonce_odr void @_ZN7xgboost6common5Index12SetBinOffsetERKSt6vectorIjSa
   br i1 %23, label %24, label %_ZNSt6vectorIjSaIjEE6resizeEm.exit
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds nuw i32, ptr %14, i64 %11
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %11
   %.not.i.i = icmp eq ptr %13, %25
   br i1 %.not.i.i, label %_ZNSt6vectorIjSaIjEE6resizeEm.exit, label %26
 
@@ -1851,7 +1851,7 @@ _ZNSt6vectorIPvSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; preds = %3
           to label %.noexc27 unwind label %22
 
 .noexc27:                                         ; preds = %8
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %2
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %2
   store ptr null, ptr %10, align 8, !tbaa !109
   %12 = add nsw i64 %2, -1
   %13 = icmp eq i64 %12, 0
@@ -1907,7 +1907,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %20, %17
 32:                                               ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %indvars.iv = phi i64 [ %31, %.lr.ph ], [ %indvars.iv.next, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %33 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv
+  %33 = getelementptr inbounds [8 x i8], ptr %26, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8, !tbaa !36
   invoke void @_ZN4dmlc8DemangleB5cxx11EPKc(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef %34)
           to label %35 unwind label %48
@@ -3005,7 +3005,7 @@ define linkonce_odr noundef i32 @_ZN7xgboost6common5Index17GetValueFromUint8EPKh
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i32 @_ZN7xgboost6common5Index18GetValueFromUint16EPKhm(ptr noundef %0, i64 noundef %1) #12 comdat align 2 {
-  %3 = getelementptr inbounds nuw i16, ptr %0, i64 %1
+  %3 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %1
   %4 = load i16, ptr %3, align 2, !tbaa !136
   %5 = zext i16 %4 to i32
   ret i32 %5
@@ -3013,7 +3013,7 @@ define linkonce_odr noundef i32 @_ZN7xgboost6common5Index18GetValueFromUint16EPK
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr noundef i32 @_ZN7xgboost6common5Index18GetValueFromUint32EPKhm(ptr noundef %0, i64 noundef %1) #12 comdat align 2 {
-  %3 = getelementptr inbounds nuw i32, ptr %0, i64 %1
+  %3 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %1
   %4 = load i32, ptr %3, align 4, !tbaa !75
   ret i32 %4
 }
@@ -3107,9 +3107,9 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit36: ; preds = %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !46
-  %39 = getelementptr inbounds nuw i32, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !49
-  %40 = getelementptr inbounds nuw i32, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !47
   br label %41
 

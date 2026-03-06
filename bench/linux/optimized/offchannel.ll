@@ -1396,7 +1396,7 @@ define dso_local i32 @ieee80211_mgmt_tx(ptr noundef readnone captures(none) %0, 
 .split.us:                                        ; preds = %114, %156
   %124 = phi i64 [ %159, %156 ], [ 0, %114 ]
   %125 = phi ptr [ %157, %156 ], [ null, %114 ]
-  %126 = getelementptr ptr, ptr %115, i64 %124
+  %126 = getelementptr [8 x i8], ptr %115, i64 %124
   %127 = load volatile ptr, ptr %126, align 8
   %128 = icmp eq ptr %127, null
   br i1 %128, label %156, label %129
@@ -1449,7 +1449,7 @@ define dso_local i32 @ieee80211_mgmt_tx(ptr noundef readnone captures(none) %0, 
 .split:                                           ; preds = %.split.preheader, %184
   %162 = phi i64 [ %187, %184 ], [ 0, %.split.preheader ]
   %163 = phi ptr [ %185, %184 ], [ null, %.split.preheader ]
-  %164 = getelementptr ptr, ptr %123, i64 %162
+  %164 = getelementptr [8 x i8], ptr %123, i64 %162
   %165 = load volatile ptr, ptr %164, align 8
   %166 = icmp eq ptr %165, null
   br i1 %166, label %184, label %167
@@ -1606,7 +1606,7 @@ define dso_local i32 @ieee80211_mgmt_tx(ptr noundef readnone captures(none) %0, 
 250:                                              ; preds = %250, %247
   %251 = phi i64 [ 0, %247 ], [ %257, %250 ]
   %252 = load ptr, ptr %249, align 8
-  %253 = getelementptr i16, ptr %252, i64 %251
+  %253 = getelementptr [2 x i8], ptr %252, i64 %251
   %254 = load i16, ptr %253, align 2
   %255 = zext i16 %254 to i64
   %256 = getelementptr i8, ptr %225, i64 %255

@@ -3,8 +3,6 @@ source_filename = "bench/openssl/original/ml_dsa_sample.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.poly_st = type { [256 x i32] }
-
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_ml_dsa_matrix_expand_A(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca [168 x i8], align 16
@@ -63,7 +61,7 @@ shake_xof.exit.i:                                 ; preds = %21
   %.120.i = phi i32 [ %.2.i, %.preheader.i.backedge ], [ 0, %shake_xof.exit.i ]
   %.012.ptr.i = getelementptr inbounds nuw i8, ptr %5, i64 %.012.idx21.i
   %25 = sext i32 %.120.i to i64
-  %26 = getelementptr inbounds i32, ptr %.122, i64 %25
+  %26 = getelementptr inbounds [4 x i8], ptr %.122, i64 %25
   %27 = load i16, ptr %.012.ptr.i, align 1
   %28 = zext i16 %27 to i32
   %29 = getelementptr inbounds nuw i8, ptr %.012.ptr.i, i64 2
@@ -154,7 +152,7 @@ define range(i32 0, 2) i32 @ossl_ml_dsa_vector_expand_S(ptr noundef %0, ptr noun
 .lr.ph:                                           ; preds = %6, %19
   %.02023 = phi i64 [ %22, %19 ], [ 0, %6 ]
   %16 = load ptr, ptr %4, align 8, !tbaa !22
-  %17 = getelementptr inbounds nuw %struct.poly_st, ptr %16, i64 %.02023
+  %17 = getelementptr inbounds nuw [1024 x i8], ptr %16, i64 %.02023
   %18 = call fastcc i32 @rej_bounded_poly(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %13, ptr noundef %7, ptr noundef %17)
   %.not21 = icmp eq i32 %18, 0
   br i1 %.not21, label %.loopexit, label %19
@@ -170,7 +168,7 @@ define range(i32 0, 2) i32 @ossl_ml_dsa_vector_expand_S(ptr noundef %0, ptr noun
 .lr.ph25:                                         ; preds = %.preheader, %26
   %.124 = phi i64 [ %29, %26 ], [ 0, %.preheader ]
   %23 = load ptr, ptr %5, align 8, !tbaa !22
-  %24 = getelementptr inbounds nuw %struct.poly_st, ptr %23, i64 %.124
+  %24 = getelementptr inbounds nuw [1024 x i8], ptr %23, i64 %.124
   %25 = call fastcc i32 @rej_bounded_poly(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %13, ptr noundef %7, ptr noundef %24)
   %.not = icmp eq i32 %25, 0
   br i1 %.not, label %.loopexit, label %26
@@ -276,7 +274,7 @@ shake_xof.exit:                                   ; preds = %9
   %15 = and i32 %14, 15
   %16 = lshr i32 %14, 4
   %17 = sext i32 %.130 to i64
-  %18 = getelementptr inbounds i32, ptr %4, i64 %17
+  %18 = getelementptr inbounds [4 x i8], ptr %4, i64 %17
   %19 = call i32 %2(i32 noundef %15, ptr noundef %18) #6, !callees !26
   %.not25 = icmp eq i32 %19, 0
   br i1 %.not25, label %23, label %20
@@ -293,7 +291,7 @@ shake_xof.exit:                                   ; preds = %9
 23:                                               ; preds = %._crit_edge, %.preheader
   %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %17, %.preheader ]
   %.2 = phi i32 [ %22, %._crit_edge ], [ %.130, %.preheader ]
-  %24 = getelementptr inbounds i32, ptr %4, i64 %.pre-phi
+  %24 = getelementptr inbounds [4 x i8], ptr %4, i64 %.pre-phi
   %25 = call i32 %2(i32 noundef %16, ptr noundef %24) #6, !callees !26
   %.not26 = icmp eq i32 %25, 0
   br i1 %.not26, label %29, label %26
@@ -415,9 +413,9 @@ shake_xof.exit:                                   ; preds = %10
   br i1 %.not27, label %19, label %29
 
 29:                                               ; preds = %23
-  %30 = getelementptr inbounds nuw i32, ptr %0, i64 %28
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %28
   %31 = load i32, ptr %30, align 4, !tbaa !13
-  %32 = getelementptr inbounds nuw i32, ptr %0, i64 %.02135
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.02135
   store i32 %31, ptr %32, align 4, !tbaa !13
   %.tr = trunc i64 %.02933 to i32
   %33 = shl i32 %.tr, 1

@@ -1691,9 +1691,9 @@ define range(i32 -1, 1) i32 @H5Pset_shared_mesg_index(i64 noundef %0, i32 nounde
 
 83:                                               ; preds = %76
   %84 = zext i32 %1 to i64
-  %85 = getelementptr inbounds nuw i32, ptr %6, i64 %84
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %84
   store i32 %2, ptr %85, align 4, !tbaa !17
-  %86 = getelementptr inbounds nuw i32, ptr %7, i64 %84
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %84
   store i32 %3, ptr %86, align 4, !tbaa !17
   %87 = call i32 @H5P_set(ptr noundef nonnull %50, ptr noundef nonnull @.str.35, ptr noundef nonnull %6) #9
   %88 = icmp slt i32 %87, 0
@@ -1865,7 +1865,7 @@ define range(i32 -1, 1) i32 @H5Pget_shared_mesg_index(i64 noundef %0, i32 nounde
 
 78:                                               ; preds = %77
   %79 = zext i32 %1 to i64
-  %80 = getelementptr inbounds nuw i32, ptr %6, i64 %79
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %79
   %81 = load i32, ptr %80, align 4, !tbaa !17
   store i32 %81, ptr %2, align 4, !tbaa !17
   br label %82
@@ -1876,7 +1876,7 @@ define range(i32 -1, 1) i32 @H5Pget_shared_mesg_index(i64 noundef %0, i32 nounde
 
 83:                                               ; preds = %82
   %84 = zext i32 %1 to i64
-  %85 = getelementptr inbounds nuw i32, ptr %7, i64 %84
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %84
   %86 = load i32, ptr %85, align 4, !tbaa !17
   store i32 %86, ptr %3, align 4, !tbaa !17
   br label %88
@@ -2843,7 +2843,7 @@ define internal range(i32 -1, 1) i32 @H5P__fcrt_btree_rank_dec(ptr noundef captu
   %18 = phi ptr [ %37, %.preheader ], [ %11, %9 ]
   %19 = load i8, ptr %18, align 1, !tbaa !16
   %20 = zext i8 %19 to i32
-  %21 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   store i32 %20, ptr %21, align 4, !tbaa !17
   %22 = getelementptr inbounds nuw i8, ptr %18, i64 1
   store ptr %22, ptr %0, align 8, !tbaa !19
@@ -2976,7 +2976,7 @@ define internal range(i32 -1, 1) i32 @H5P__fcrt_shmsg_index_types_dec(ptr nounde
   %17 = phi ptr [ %36, %.preheader ], [ %11, %9 ]
   %18 = load i8, ptr %17, align 1, !tbaa !16
   %19 = zext i8 %18 to i32
-  %20 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   store i32 %19, ptr %20, align 4, !tbaa !17
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 1
   store ptr %21, ptr %0, align 8, !tbaa !19
@@ -3107,7 +3107,7 @@ define internal range(i32 -1, 1) i32 @H5P__fcrt_shmsg_index_minsize_dec(ptr noun
   %17 = phi ptr [ %36, %.preheader ], [ %11, %9 ]
   %18 = load i8, ptr %17, align 1, !tbaa !16
   %19 = zext i8 %18 to i32
-  %20 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   store i32 %19, ptr %20, align 4, !tbaa !17
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 1
   store ptr %21, ptr %0, align 8, !tbaa !19

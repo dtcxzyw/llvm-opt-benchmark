@@ -2320,7 +2320,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i:               ; preds = %.noexc374
   call void @_ZN2cv3MatC1Ev(ptr noundef nonnull align 8 dereferenceable(96) %7) #21
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %889 = load ptr, ptr %100, align 8, !tbaa !91
-  %890 = getelementptr inbounds nuw %"class.cv::Mat", ptr %889, i64 %indvars.iv.i371
+  %890 = getelementptr inbounds nuw [96 x i8], ptr %889, i64 %indvars.iv.i371
   store i32 0, ptr %848, align 8, !tbaa !71
   store i32 0, ptr %849, align 4, !tbaa !73
   store i32 16842752, ptr %8, align 8, !tbaa !74
@@ -2336,7 +2336,7 @@ _ZNK2cv7MatExprcvNS_3MatEEv.exit.i:               ; preds = %.noexc374
 892:                                              ; preds = %883
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %893 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pr.i, i64 %indvars.iv.i371
+  %893 = getelementptr inbounds nuw [32 x i8], ptr %.pr.i, i64 %indvars.iv.i371
   %894 = load ptr, ptr %893, align 8, !tbaa !39
   %895 = getelementptr inbounds nuw i8, ptr %893, i64 8
   %896 = load i64, ptr %895, align 8, !tbaa !41
@@ -2435,7 +2435,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit88.i: ; preds = %_
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i unwind label %988
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit88.i
-  %925 = getelementptr inbounds nuw double, ptr %820, i64 %indvars.iv.i371
+  %925 = getelementptr inbounds nuw [8 x i8], ptr %820, i64 %indvars.iv.i371
   %926 = load double, ptr %925, align 8, !tbaa !80
   %927 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %853, double noundef %926)
           to label %928 unwind label %988
@@ -2532,7 +2532,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit119.i: ; preds = %
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit121.i unwind label %988
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit121.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit119.i
-  %955 = getelementptr inbounds nuw double, ptr %821, i64 %indvars.iv.i371
+  %955 = getelementptr inbounds nuw [8 x i8], ptr %821, i64 %indvars.iv.i371
   %956 = load double, ptr %955, align 8, !tbaa !80
   %957 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %853, double noundef %956)
           to label %958 unwind label %988

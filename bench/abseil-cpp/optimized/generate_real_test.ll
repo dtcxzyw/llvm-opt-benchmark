@@ -7965,7 +7965,7 @@ _ZN7testing15AssertionResultD2Ev.exit391:         ; preds = %688, %_ZNKSt14defau
 707:                                              ; preds = %643, %707
   %store_forwarded = phi float [ 5.000000e-01, %643 ], [ %709, %707 ]
   %indvars.iv513 = phi i64 [ 62, %643 ], [ %indvars.iv.next514, %707 ]
-  %708 = getelementptr inbounds nuw float, ptr %60, i64 %indvars.iv513
+  %708 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %indvars.iv513
   %709 = fmul float %store_forwarded, 5.000000e-01
   store float %709, ptr %708, align 4, !tbaa !60
   %indvars.iv.next514 = add nsw i64 %indvars.iv513, -1
@@ -7993,7 +7993,7 @@ _ZN7testing15AssertionResultD2Ev.exit391:         ; preds = %688, %_ZNKSt14defau
   %718 = add i32 %717, 528482304
   %719 = bitcast i32 %718 to float
   store i32 %718, ptr %62, align 4, !tbaa !60
-  %720 = getelementptr inbounds nuw float, ptr %60, i64 %indvars.iv541
+  %720 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %indvars.iv541
   %721 = load float, ptr %720, align 4, !tbaa !60, !noalias !83
   %722 = fcmp oeq float %721, %719
   br i1 %722, label %723, label %724
@@ -8131,7 +8131,7 @@ _ZN7testing15AssertionResultD2Ev.exit407:         ; preds = %750, %_ZNKSt14defau
   call void @llvm.lifetime.start.p0(ptr nonnull %65)
   call void @llvm.lifetime.start.p0(ptr nonnull %66)
   %759 = load float, ptr %720, align 4, !tbaa !60
-  %760 = getelementptr inbounds nuw float, ptr %60, i64 %indvars.iv518
+  %760 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %indvars.iv518
   %761 = load float, ptr %760, align 4, !tbaa !60
   %762 = fadd float %759, %761
   store float %762, ptr %66, align 4, !tbaa !60
@@ -8494,7 +8494,7 @@ _ZN7testing15AssertionResultD2Ev.exit438:         ; preds = %864, %_ZNKSt14defau
   call void @llvm.lifetime.start.p0(ptr nonnull %74)
   call void @llvm.lifetime.start.p0(ptr nonnull %75)
   %872 = load float, ptr %720, align 4, !tbaa !60
-  %873 = getelementptr inbounds nuw float, ptr %60, i64 %indvars.iv528
+  %873 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %indvars.iv528
   %874 = load float, ptr %873, align 4, !tbaa !60
   %875 = fadd float %872, %874
   store float %875, ptr %75, align 4, !tbaa !60
@@ -18614,7 +18614,7 @@ _ZN7testing15AssertionResultD2Ev.exit715:         ; preds = %1332, %_ZNKSt14defa
 1351:                                             ; preds = %1289, %1351
   %store_forwarded = phi double [ 5.000000e-01, %1289 ], [ %1353, %1351 ]
   %indvars.iv837 = phi i64 [ 62, %1289 ], [ %indvars.iv.next838, %1351 ]
-  %1352 = getelementptr inbounds nuw double, ptr %111, i64 %indvars.iv837
+  %1352 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %indvars.iv837
   %1353 = fmul double %store_forwarded, 5.000000e-01
   store double %1353, ptr %1352, align 8, !tbaa !70
   %indvars.iv.next838 = add nsw i64 %indvars.iv837, -1
@@ -18641,7 +18641,7 @@ _ZN7testing15AssertionResultD2Ev.exit715:         ; preds = %1332, %_ZNKSt14defa
   %1361 = add i64 %1360, 4318952042648305664
   %1362 = bitcast i64 %1361 to double
   store i64 %1361, ptr %113, align 8, !tbaa !70
-  %1363 = getelementptr inbounds nuw double, ptr %111, i64 %indvars.iv865
+  %1363 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %indvars.iv865
   %1364 = load double, ptr %1363, align 8, !tbaa !70, !noalias !110
   %1365 = fcmp oeq double %1364, %1362
   br i1 %1365, label %1366, label %1367
@@ -18779,7 +18779,7 @@ _ZN7testing15AssertionResultD2Ev.exit731:         ; preds = %1393, %_ZNKSt14defa
   call void @llvm.lifetime.start.p0(ptr nonnull %116)
   call void @llvm.lifetime.start.p0(ptr nonnull %117)
   %1402 = load double, ptr %1363, align 8, !tbaa !70
-  %1403 = getelementptr inbounds nuw double, ptr %111, i64 %indvars.iv842
+  %1403 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %indvars.iv842
   %1404 = load double, ptr %1403, align 8, !tbaa !70
   %1405 = fadd double %1402, %1404
   store double %1405, ptr %117, align 8, !tbaa !70
@@ -19140,7 +19140,7 @@ _ZN7testing15AssertionResultD2Ev.exit762:         ; preds = %1505, %_ZNKSt14defa
   call void @llvm.lifetime.start.p0(ptr nonnull %125)
   call void @llvm.lifetime.start.p0(ptr nonnull %126)
   %1513 = load double, ptr %1363, align 8, !tbaa !70
-  %1514 = getelementptr inbounds nuw double, ptr %111, i64 %indvars.iv852
+  %1514 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %indvars.iv852
   %1515 = load double, ptr %1514, align 8, !tbaa !70
   %1516 = fadd double %1513, %1515
   store double %1516, ptr %126, align 8, !tbaa !70

@@ -320,12 +320,12 @@ _ZNK4CGAL15Triangulation_3INS_28Robust_circumcenter_traits_3INS_5EpickEEENS_30Tr
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
   %81 = load double, ptr %80, align 8, !tbaa !58
   %82 = load ptr, ptr %1, align 8, !tbaa !60
-  %83 = getelementptr double, ptr %82, i64 %indvars.iv
+  %83 = getelementptr [8 x i8], ptr %82, i64 %indvars.iv
   store double %81, ptr %83, align 8, !tbaa !58
   %84 = getelementptr inbounds nuw i8, ptr %79, i64 24
   %85 = load double, ptr %84, align 8, !tbaa !58
   %86 = load i64, ptr %73, align 8, !tbaa !63
-  %87 = getelementptr double, ptr %83, i64 %86
+  %87 = getelementptr [8 x i8], ptr %83, i64 %86
   store double %85, ptr %87, align 8, !tbaa !58
   %88 = getelementptr inbounds nuw i8, ptr %79, i64 32
   %89 = load double, ptr %88, align 8, !tbaa !58
@@ -479,7 +479,7 @@ _ZN4CGAL15Filter_iteratorINS_8internal33Triangulation_ds_facet_iterator_3INS_30T
   %154 = and i64 %153, %149
   %.not322 = icmp eq i64 %154, 0
   %155 = sext i32 %.promoted.i.ph713 to i64
-  %156 = getelementptr inbounds %"class.CGAL::internal::CC_iterator.32", ptr %.cast, i64 %155
+  %156 = getelementptr inbounds [8 x i8], ptr %.cast, i64 %155
   %.not.us.i = icmp ne i32 %.promoted.i.ph713, %144
   %brmerge82.i = select i1 %or.cond81.i, i1 true, i1 %.not.us.i
   br label %_ZN4CGAL15Filter_iteratorINS_8internal33Triangulation_ds_facet_iterator_3INS_30Triangulation_data_structure_3INS_26Surface_mesh_vertex_base_3INS_28Robust_circumcenter_traits_3INS_5EpickEEENS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3IvEEEEEENS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS7_NS_24Surface_mesh_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3IvEEEEEEEENS_14Sequential_tagEEEEENS_15Triangulation_3IS7_SM_NS_7DefaultEE15Infinite_testerEEppEv.exit
@@ -688,7 +688,7 @@ _ZN4CGAL8internal33Triangulation_ds_facet_iterator_3INS_30Triangulation_data_str
 
 233:                                              ; preds = %_ZN4CGAL8internal33Triangulation_ds_facet_iterator_3INS_30Triangulation_data_structure_3INS_26Surface_mesh_vertex_base_3INS_28Robust_circumcenter_traits_3INS_5EpickEEENS_27Triangulation_vertex_base_3IS6_NS_30Triangulation_ds_vertex_base_3IvEEEEEENS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS6_NS_24Surface_mesh_cell_base_3IS6_NS_25Triangulation_cell_base_3IS6_NS_28Triangulation_ds_cell_base_3IvEEEEEEEENS_14Sequential_tagEEEE9incrementEv.exit.i.us.i.us
   %234 = sext i32 %231 to i64
-  %235 = getelementptr inbounds %"class.CGAL::internal::CC_iterator.32", ptr %230, i64 %234
+  %235 = getelementptr inbounds [8 x i8], ptr %230, i64 %234
   %.sroa.0.0.copyload.i.i.us.i.us = load ptr, ptr %235, align 8, !tbaa !76
   %236 = icmp ult ptr %.sroa.0.0.copyload.i.i.us.i.us, %230
   br i1 %236, label %.preheader.i.us.i.us.backedge, label %_ZN4CGAL8internal33Triangulation_ds_facet_iterator_3INS_30Triangulation_data_structure_3INS_26Surface_mesh_vertex_base_3INS_28Robust_circumcenter_traits_3INS_5EpickEEENS_27Triangulation_vertex_base_3IS6_NS_30Triangulation_ds_vertex_base_3IvEEEEEENS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS6_NS_24Surface_mesh_cell_base_3IS6_NS_25Triangulation_cell_base_3IS6_NS_28Triangulation_ds_cell_base_3IvEEEEEEEENS_14Sequential_tagEEEEppEv.exit.loopexit.us.i.us
@@ -703,7 +703,7 @@ _ZN4CGAL8internal33Triangulation_ds_facet_iterator_3INS_30Triangulation_data_str
   %237 = icmp slt i32 %231, 1
   %238 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.cast.i.us11.i.us, i64 32
   %239 = zext i1 %237 to i64
-  %240 = getelementptr inbounds nuw %"class.CGAL::internal::CC_iterator", ptr %238, i64 %239
+  %240 = getelementptr inbounds nuw [8 x i8], ptr %238, i64 %239
   %.sroa.0.0.copyload.i.i.i.i.us12.i.us = load ptr, ptr %240, align 8, !tbaa !51
   %.sroa.0.0.copyload.i.i.i.i.i.us13.i.us = load ptr, ptr %146, align 8, !tbaa !51
   %241 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i.us12.i.us, %.sroa.0.0.copyload.i.i.i.i.i.us13.i.us
@@ -712,7 +712,7 @@ _ZN4CGAL8internal33Triangulation_ds_facet_iterator_3INS_30Triangulation_data_str
 242:                                              ; preds = %_ZN4CGAL8internal33Triangulation_ds_facet_iterator_3INS_30Triangulation_data_structure_3INS_26Surface_mesh_vertex_base_3INS_28Robust_circumcenter_traits_3INS_5EpickEEENS_27Triangulation_vertex_base_3IS6_NS_30Triangulation_ds_vertex_base_3IvEEEEEENS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS6_NS_24Surface_mesh_cell_base_3IS6_NS_25Triangulation_cell_base_3IS6_NS_28Triangulation_ds_cell_base_3IvEEEEEEEENS_14Sequential_tagEEEEppEv.exit.loopexit.us.i.us
   %243 = icmp slt i32 %231, 2
   %244 = select i1 %243, i64 2, i64 1
-  %245 = getelementptr inbounds nuw %"class.CGAL::internal::CC_iterator", ptr %238, i64 %244
+  %245 = getelementptr inbounds nuw [8 x i8], ptr %238, i64 %244
   %.sroa.0.0.copyload.i5.i.i.i.us14.i.us = load ptr, ptr %245, align 8, !tbaa !51
   %246 = icmp eq ptr %.sroa.0.0.copyload.i5.i.i.i.us14.i.us, %.sroa.0.0.copyload.i.i.i.i.i.us13.i.us
   br i1 %246, label %.preheader.i.us.i.us.backedge, label %247
@@ -720,7 +720,7 @@ _ZN4CGAL8internal33Triangulation_ds_facet_iterator_3INS_30Triangulation_data_str
 247:                                              ; preds = %242
   %248 = icmp slt i32 %231, 3
   %249 = select i1 %248, i64 3, i64 2
-  %250 = getelementptr inbounds nuw %"class.CGAL::internal::CC_iterator", ptr %238, i64 %249
+  %250 = getelementptr inbounds nuw [8 x i8], ptr %238, i64 %249
   %.sroa.0.0.copyload.i7.i.i.i.us15.i.us = load ptr, ptr %250, align 8, !tbaa !51
   %251 = icmp eq ptr %.sroa.0.0.copyload.i7.i.i.i.us15.i.us, %.sroa.0.0.copyload.i.i.i.i.i.us13.i.us
   br i1 %251, label %.preheader.i.us.i.us.backedge, label %_ZN4CGAL15Filter_iteratorINS_8internal33Triangulation_ds_facet_iterator_3INS_30Triangulation_data_structure_3INS_26Surface_mesh_vertex_base_3INS_28Robust_circumcenter_traits_3INS_5EpickEEENS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3IvEEEEEENS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS7_NS_24Surface_mesh_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3IvEEEEEEEENS_14Sequential_tagEEEEENS_15Triangulation_3IS7_SM_NS_7DefaultEE15Infinite_testerEEppEv.exit.outer.backedge
@@ -787,7 +787,7 @@ _ZN4CGAL8internal33Triangulation_ds_facet_iterator_3INS_30Triangulation_data_str
 
 278:                                              ; preds = %_ZN4CGAL8internal33Triangulation_ds_facet_iterator_3INS_30Triangulation_data_structure_3INS_26Surface_mesh_vertex_base_3INS_28Robust_circumcenter_traits_3INS_5EpickEEENS_27Triangulation_vertex_base_3IS6_NS_30Triangulation_ds_vertex_base_3IvEEEEEENS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS6_NS_24Surface_mesh_cell_base_3IS6_NS_25Triangulation_cell_base_3IS6_NS_28Triangulation_ds_cell_base_3IvEEEEEEEENS_14Sequential_tagEEEE9incrementEv.exit.i.us.i
   %279 = sext i32 %276 to i64
-  %280 = getelementptr inbounds %"class.CGAL::internal::CC_iterator.32", ptr %275, i64 %279
+  %280 = getelementptr inbounds [8 x i8], ptr %275, i64 %279
   %.sroa.0.0.copyload.i.i.us.i = load ptr, ptr %280, align 8, !tbaa !76
   %281 = icmp ult ptr %.sroa.0.0.copyload.i.i.us.i, %275
   br i1 %281, label %.preheader.i.us.i.backedge, label %_ZN4CGAL8internal33Triangulation_ds_facet_iterator_3INS_30Triangulation_data_structure_3INS_26Surface_mesh_vertex_base_3INS_28Robust_circumcenter_traits_3INS_5EpickEEENS_27Triangulation_vertex_base_3IS6_NS_30Triangulation_ds_vertex_base_3IvEEEEEENS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS6_NS_24Surface_mesh_cell_base_3IS6_NS_25Triangulation_cell_base_3IS6_NS_28Triangulation_ds_cell_base_3IvEEEEEEEENS_14Sequential_tagEEEEppEv.exit.loopexit.us.i
@@ -803,7 +803,7 @@ _ZNK4CGAL8internal33Triangulation_ds_facet_iterator_3INS_30Triangulation_data_st
   %282 = icmp slt i32 %276, 1
   %283 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.cast.i.us11.i, i64 32
   %284 = zext i1 %282 to i64
-  %285 = getelementptr inbounds nuw %"class.CGAL::internal::CC_iterator", ptr %283, i64 %284
+  %285 = getelementptr inbounds nuw [8 x i8], ptr %283, i64 %284
   %.sroa.0.0.copyload.i.i.i.i.us12.i = load ptr, ptr %285, align 8, !tbaa !51
   %.sroa.0.0.copyload.i.i.i.i.i.us13.i = load ptr, ptr %146, align 8, !tbaa !51
   %286 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i.us12.i, %.sroa.0.0.copyload.i.i.i.i.i.us13.i
@@ -812,7 +812,7 @@ _ZNK4CGAL8internal33Triangulation_ds_facet_iterator_3INS_30Triangulation_data_st
 287:                                              ; preds = %_ZNK4CGAL8internal33Triangulation_ds_facet_iterator_3INS_30Triangulation_data_structure_3INS_26Surface_mesh_vertex_base_3INS_28Robust_circumcenter_traits_3INS_5EpickEEENS_27Triangulation_vertex_base_3IS6_NS_30Triangulation_ds_vertex_base_3IvEEEEEENS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS6_NS_24Surface_mesh_cell_base_3IS6_NS_25Triangulation_cell_base_3IS6_NS_28Triangulation_ds_cell_base_3IvEEEEEEEENS_14Sequential_tagEEEEneERKSM_.exit.thread.us10.i
   %288 = icmp slt i32 %276, 2
   %289 = select i1 %288, i64 2, i64 1
-  %290 = getelementptr inbounds nuw %"class.CGAL::internal::CC_iterator", ptr %283, i64 %289
+  %290 = getelementptr inbounds nuw [8 x i8], ptr %283, i64 %289
   %.sroa.0.0.copyload.i5.i.i.i.us14.i = load ptr, ptr %290, align 8, !tbaa !51
   %291 = icmp eq ptr %.sroa.0.0.copyload.i5.i.i.i.us14.i, %.sroa.0.0.copyload.i.i.i.i.i.us13.i
   br i1 %291, label %.preheader.i.us.i.backedge, label %292
@@ -820,7 +820,7 @@ _ZNK4CGAL8internal33Triangulation_ds_facet_iterator_3INS_30Triangulation_data_st
 292:                                              ; preds = %287
   %293 = icmp slt i32 %276, 3
   %294 = select i1 %293, i64 3, i64 2
-  %295 = getelementptr inbounds nuw %"class.CGAL::internal::CC_iterator", ptr %283, i64 %294
+  %295 = getelementptr inbounds nuw [8 x i8], ptr %283, i64 %294
   %.sroa.0.0.copyload.i7.i.i.i.us15.i = load ptr, ptr %295, align 8, !tbaa !51
   %296 = icmp eq ptr %.sroa.0.0.copyload.i7.i.i.i.us15.i, %.sroa.0.0.copyload.i.i.i.i.i.us13.i
   br i1 %296, label %.preheader.i.us.i.backedge, label %_ZN4CGAL15Filter_iteratorINS_8internal33Triangulation_ds_facet_iterator_3INS_30Triangulation_data_structure_3INS_26Surface_mesh_vertex_base_3INS_28Robust_circumcenter_traits_3INS_5EpickEEENS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3IvEEEEEENS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS7_NS_24Surface_mesh_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3IvEEEEEEEENS_14Sequential_tagEEEEENS_15Triangulation_3IS7_SM_NS_7DefaultEE15Infinite_testerEEppEv.exit.outer.backedge
@@ -873,20 +873,20 @@ _ZN4CGAL8internal33Triangulation_ds_facet_iterator_3INS_30Triangulation_data_str
   %313 = ptrtoint ptr %305 to i64
   store i64 %313, ptr %119, align 8, !tbaa !76
   %314 = getelementptr inbounds nuw i8, ptr %304, i64 224
-  %315 = getelementptr inbounds nuw %"class.CGAL::internal::CC_iterator", ptr %314, i64 %299
+  %315 = getelementptr inbounds nuw [8 x i8], ptr %314, i64 %299
   %.sroa.0.0.copyload.i.i.i.i.us21.i.us = load ptr, ptr %315, align 8, !tbaa !51
   %.sroa.0.0.copyload.i.i.i.i.i.us22.i.us = load ptr, ptr %146, align 8, !tbaa !51
   %316 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i.us21.i.us, %.sroa.0.0.copyload.i.i.i.i.i.us22.i.us
   br i1 %316, label %.split.split.split.us.i.us.backedge, label %317
 
 317:                                              ; preds = %_ZN4CGAL8internal33Triangulation_ds_facet_iterator_3INS_30Triangulation_data_structure_3INS_26Surface_mesh_vertex_base_3INS_28Robust_circumcenter_traits_3INS_5EpickEEENS_27Triangulation_vertex_base_3IS6_NS_30Triangulation_ds_vertex_base_3IvEEEEEENS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS6_NS_24Surface_mesh_cell_base_3IS6_NS_25Triangulation_cell_base_3IS6_NS_28Triangulation_ds_cell_base_3IvEEEEEEEENS_14Sequential_tagEEEEppEv.exit.loopexit1.us.i.us
-  %318 = getelementptr inbounds nuw %"class.CGAL::internal::CC_iterator", ptr %314, i64 %301
+  %318 = getelementptr inbounds nuw [8 x i8], ptr %314, i64 %301
   %.sroa.0.0.copyload.i5.i.i.i.us23.i.us = load ptr, ptr %318, align 8, !tbaa !51
   %319 = icmp eq ptr %.sroa.0.0.copyload.i5.i.i.i.us23.i.us, %.sroa.0.0.copyload.i.i.i.i.i.us22.i.us
   br i1 %319, label %.split.split.split.us.i.us.backedge, label %320
 
 320:                                              ; preds = %317
-  %321 = getelementptr inbounds nuw %"class.CGAL::internal::CC_iterator", ptr %314, i64 %303
+  %321 = getelementptr inbounds nuw [8 x i8], ptr %314, i64 %303
   %.sroa.0.0.copyload.i7.i.i.i.us24.i.us = load ptr, ptr %321, align 8, !tbaa !51
   %322 = icmp eq ptr %.sroa.0.0.copyload.i7.i.i.i.us24.i.us, %.sroa.0.0.copyload.i.i.i.i.i.us22.i.us
   br i1 %322, label %.split.split.split.us.i.us.backedge, label %_ZN4CGAL15Filter_iteratorINS_8internal33Triangulation_ds_facet_iterator_3INS_30Triangulation_data_structure_3INS_26Surface_mesh_vertex_base_3INS_28Robust_circumcenter_traits_3INS_5EpickEEENS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3IvEEEEEENS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS7_NS_24Surface_mesh_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3IvEEEEEEEENS_14Sequential_tagEEEEENS_15Triangulation_3IS7_SM_NS_7DefaultEE15Infinite_testerEEppEv.exit.outer.backedge
@@ -917,20 +917,20 @@ _ZN4CGAL8internal33Triangulation_ds_facet_iterator_3INS_30Triangulation_data_str
 _ZNK4CGAL8internal33Triangulation_ds_facet_iterator_3INS_30Triangulation_data_structure_3INS_26Surface_mesh_vertex_base_3INS_28Robust_circumcenter_traits_3INS_5EpickEEENS_27Triangulation_vertex_base_3IS6_NS_30Triangulation_ds_vertex_base_3IvEEEEEENS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS6_NS_24Surface_mesh_cell_base_3IS6_NS_25Triangulation_cell_base_3IS6_NS_28Triangulation_ds_cell_base_3IvEEEEEEEENS_14Sequential_tagEEEEneERKSM_.exit.thread.us19.i: ; preds = %_ZN4CGAL8internal33Triangulation_ds_facet_iterator_3INS_30Triangulation_data_structure_3INS_26Surface_mesh_vertex_base_3INS_28Robust_circumcenter_traits_3INS_5EpickEEENS_27Triangulation_vertex_base_3IS6_NS_30Triangulation_ds_vertex_base_3IvEEEEEENS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS6_NS_24Surface_mesh_cell_base_3IS6_NS_25Triangulation_cell_base_3IS6_NS_28Triangulation_ds_cell_base_3IvEEEEEEEENS_14Sequential_tagEEEEppEv.exit.loopexit1.us.i
   store i64 %341, ptr %119, align 8, !tbaa !76
   %332 = getelementptr inbounds nuw i8, ptr %323, i64 224
-  %333 = getelementptr inbounds nuw %"class.CGAL::internal::CC_iterator", ptr %332, i64 %299
+  %333 = getelementptr inbounds nuw [8 x i8], ptr %332, i64 %299
   %.sroa.0.0.copyload.i.i.i.i.us21.i = load ptr, ptr %333, align 8, !tbaa !51
   %.sroa.0.0.copyload.i.i.i.i.i.us22.i = load ptr, ptr %146, align 8, !tbaa !51
   %334 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i.us21.i, %.sroa.0.0.copyload.i.i.i.i.i.us22.i
   br i1 %334, label %.split.split.split.us.i.backedge, label %335
 
 335:                                              ; preds = %_ZNK4CGAL8internal33Triangulation_ds_facet_iterator_3INS_30Triangulation_data_structure_3INS_26Surface_mesh_vertex_base_3INS_28Robust_circumcenter_traits_3INS_5EpickEEENS_27Triangulation_vertex_base_3IS6_NS_30Triangulation_ds_vertex_base_3IvEEEEEENS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS6_NS_24Surface_mesh_cell_base_3IS6_NS_25Triangulation_cell_base_3IS6_NS_28Triangulation_ds_cell_base_3IvEEEEEEEENS_14Sequential_tagEEEEneERKSM_.exit.thread.us19.i
-  %336 = getelementptr inbounds nuw %"class.CGAL::internal::CC_iterator", ptr %332, i64 %301
+  %336 = getelementptr inbounds nuw [8 x i8], ptr %332, i64 %301
   %.sroa.0.0.copyload.i5.i.i.i.us23.i = load ptr, ptr %336, align 8, !tbaa !51
   %337 = icmp eq ptr %.sroa.0.0.copyload.i5.i.i.i.us23.i, %.sroa.0.0.copyload.i.i.i.i.i.us22.i
   br i1 %337, label %.split.split.split.us.i.backedge, label %338
 
 338:                                              ; preds = %335
-  %339 = getelementptr inbounds nuw %"class.CGAL::internal::CC_iterator", ptr %332, i64 %303
+  %339 = getelementptr inbounds nuw [8 x i8], ptr %332, i64 %303
   %.sroa.0.0.copyload.i7.i.i.i.us24.i = load ptr, ptr %339, align 8, !tbaa !51
   %340 = icmp eq ptr %.sroa.0.0.copyload.i7.i.i.i.us24.i, %.sroa.0.0.copyload.i.i.i.i.i.us22.i
   br i1 %340, label %.split.split.split.us.i.backedge, label %_ZN4CGAL15Filter_iteratorINS_8internal33Triangulation_ds_facet_iterator_3INS_30Triangulation_data_structure_3INS_26Surface_mesh_vertex_base_3INS_28Robust_circumcenter_traits_3INS_5EpickEEENS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3IvEEEEEENS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS7_NS_24Surface_mesh_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3IvEEEEEEEENS_14Sequential_tagEEEEENS_15Triangulation_3IS7_SM_NS_7DefaultEE15Infinite_testerEEppEv.exit.outer.backedge
@@ -969,20 +969,20 @@ _ZN4CGAL8internal33Triangulation_ds_facet_iterator_3INS_30Triangulation_data_str
   %351 = ptrtoint ptr %343 to i64
   store i64 %351, ptr %119, align 8, !tbaa !76
   %352 = getelementptr inbounds nuw i8, ptr %342, i64 224
-  %353 = getelementptr inbounds nuw %"class.CGAL::internal::CC_iterator", ptr %352, i64 %299
+  %353 = getelementptr inbounds nuw [8 x i8], ptr %352, i64 %299
   %.sroa.0.0.copyload.i.i.i.i.i143 = load ptr, ptr %353, align 8, !tbaa !51
   %.sroa.0.0.copyload.i.i.i.i.i.i144 = load ptr, ptr %146, align 8, !tbaa !51
   %354 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i.i143, %.sroa.0.0.copyload.i.i.i.i.i.i144
   br i1 %354, label %.split.split.split.i.backedge, label %355
 
 355:                                              ; preds = %_ZN4CGAL8internal33Triangulation_ds_facet_iterator_3INS_30Triangulation_data_structure_3INS_26Surface_mesh_vertex_base_3INS_28Robust_circumcenter_traits_3INS_5EpickEEENS_27Triangulation_vertex_base_3IS6_NS_30Triangulation_ds_vertex_base_3IvEEEEEENS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS6_NS_24Surface_mesh_cell_base_3IS6_NS_25Triangulation_cell_base_3IS6_NS_28Triangulation_ds_cell_base_3IvEEEEEEEENS_14Sequential_tagEEEEppEv.exit.loopexit1.i
-  %356 = getelementptr inbounds nuw %"class.CGAL::internal::CC_iterator", ptr %352, i64 %301
+  %356 = getelementptr inbounds nuw [8 x i8], ptr %352, i64 %301
   %.sroa.0.0.copyload.i5.i.i.i.i = load ptr, ptr %356, align 8, !tbaa !51
   %357 = icmp eq ptr %.sroa.0.0.copyload.i5.i.i.i.i, %.sroa.0.0.copyload.i.i.i.i.i.i144
   br i1 %357, label %.split.split.split.i.backedge, label %358
 
 358:                                              ; preds = %355
-  %359 = getelementptr inbounds nuw %"class.CGAL::internal::CC_iterator", ptr %352, i64 %303
+  %359 = getelementptr inbounds nuw [8 x i8], ptr %352, i64 %303
   %.sroa.0.0.copyload.i7.i.i.i.i = load ptr, ptr %359, align 8, !tbaa !51
   %360 = icmp eq ptr %.sroa.0.0.copyload.i7.i.i.i.i, %.sroa.0.0.copyload.i.i.i.i.i.i144
   br i1 %360, label %.split.split.split.i.backedge, label %_ZN4CGAL15Filter_iteratorINS_8internal33Triangulation_ds_facet_iterator_3INS_30Triangulation_data_structure_3INS_26Surface_mesh_vertex_base_3INS_28Robust_circumcenter_traits_3INS_5EpickEEENS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3IvEEEEEENS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS7_NS_24Surface_mesh_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3IvEEEEEEEENS_14Sequential_tagEEEEENS_15Triangulation_3IS7_SM_NS_7DefaultEE15Infinite_testerEEppEv.exit.outer.backedge
@@ -1091,11 +1091,11 @@ _ZNSt5stackISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52D
   %storemerge.i.i = phi ptr [ %384, %383 ], [ %394, %385 ]
   store ptr %storemerge.i.i, ptr %125, align 8, !tbaa !94
   %395 = sext i32 %.sroa.6.0.copyload308 to i64
-  %396 = getelementptr inbounds [3 x i32], ptr @_ZN4CGAL26Triangulation_utils_base_3IvE23tab_vertex_triple_indexE, i64 %395
+  %396 = getelementptr inbounds [12 x i8], ptr @_ZN4CGAL26Triangulation_utils_base_3IvE23tab_vertex_triple_indexE, i64 %395
   %397 = getelementptr inbounds nuw i8, ptr %.sroa.0290.0.copyload306, i64 32
   %398 = getelementptr inbounds nuw i8, ptr %.sroa.0290.0.copyload306, i64 40
   %399 = getelementptr inbounds nuw i8, ptr %.sroa.0290.0.copyload306, i64 48
-  %400 = getelementptr inbounds %"class.CGAL::internal::CC_iterator.32", ptr %.sroa.0290.0.copyload306, i64 %395
+  %400 = getelementptr inbounds [8 x i8], ptr %.sroa.0290.0.copyload306, i64 %395
   %401 = load ptr, ptr %130, align 8, !tbaa !37
   %402 = icmp eq ptr %401, null
   br i1 %402, label %.loopexit, label %_ZNSt5stackISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52Delaunay_triangulation_cell_base_with_circumcenter_3INS1_28Robust_circumcenter_traits_3INS1_5EpickEEENS1_24Surface_mesh_cell_base_3IS8_NS1_25Triangulation_cell_base_3IS8_NS1_28Triangulation_ds_cell_base_3INS1_30Triangulation_data_structure_3INS1_26Surface_mesh_vertex_base_3IS8_NS1_27Triangulation_vertex_base_3IS8_NS1_30Triangulation_ds_vertex_base_3IvEEEEEENS5_IS8_NS9_IS8_NSA_IS8_NSB_IvEEEEEEEENS1_14Sequential_tagEEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESt5dequeISW_SaISW_EEE3popEv.exit.split
@@ -1104,25 +1104,25 @@ _ZNSt5stackISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52D
   %403 = phi ptr [ %761, %_ZNSt5stackISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52Delaunay_triangulation_cell_base_with_circumcenter_3INS1_28Robust_circumcenter_traits_3INS1_5EpickEEENS1_24Surface_mesh_cell_base_3IS8_NS1_25Triangulation_cell_base_3IS8_NS1_28Triangulation_ds_cell_base_3INS1_30Triangulation_data_structure_3INS1_26Surface_mesh_vertex_base_3IS8_NS1_27Triangulation_vertex_base_3IS8_NS1_30Triangulation_ds_vertex_base_3IvEEEEEENS5_IS8_NS9_IS8_NSA_IS8_NSB_IvEEEEEEEENS1_14Sequential_tagEEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESt5dequeISW_SaISW_EEE4pushERKSW_.exit193 ], [ %storemerge.i.i, %_ZNSt5stackISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52Delaunay_triangulation_cell_base_with_circumcenter_3INS1_28Robust_circumcenter_traits_3INS1_5EpickEEENS1_24Surface_mesh_cell_base_3IS8_NS1_25Triangulation_cell_base_3IS8_NS1_28Triangulation_ds_cell_base_3INS1_30Triangulation_data_structure_3INS1_26Surface_mesh_vertex_base_3IS8_NS1_27Triangulation_vertex_base_3IS8_NS1_30Triangulation_ds_vertex_base_3IvEEEEEENS5_IS8_NS9_IS8_NSA_IS8_NSB_IvEEEEEEEENS1_14Sequential_tagEEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESt5dequeISW_SaISW_EEE3popEv.exit ]
   %indvars.iv457 = phi i64 [ %indvars.iv.next458, %_ZNSt5stackISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52Delaunay_triangulation_cell_base_with_circumcenter_3INS1_28Robust_circumcenter_traits_3INS1_5EpickEEENS1_24Surface_mesh_cell_base_3IS8_NS1_25Triangulation_cell_base_3IS8_NS1_28Triangulation_ds_cell_base_3INS1_30Triangulation_data_structure_3INS1_26Surface_mesh_vertex_base_3IS8_NS1_27Triangulation_vertex_base_3IS8_NS1_30Triangulation_ds_vertex_base_3IvEEEEEENS5_IS8_NS9_IS8_NSA_IS8_NSB_IvEEEEEEEENS1_14Sequential_tagEEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESt5dequeISW_SaISW_EEE4pushERKSW_.exit193 ], [ 0, %_ZNSt5stackISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52Delaunay_triangulation_cell_base_with_circumcenter_3INS1_28Robust_circumcenter_traits_3INS1_5EpickEEENS1_24Surface_mesh_cell_base_3IS8_NS1_25Triangulation_cell_base_3IS8_NS1_28Triangulation_ds_cell_base_3INS1_30Triangulation_data_structure_3INS1_26Surface_mesh_vertex_base_3IS8_NS1_27Triangulation_vertex_base_3IS8_NS1_30Triangulation_ds_vertex_base_3IvEEEEEENS5_IS8_NS9_IS8_NSA_IS8_NSB_IvEEEEEEEENS1_14Sequential_tagEEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESt5dequeISW_SaISW_EEE3popEv.exit ]
   %.2397 = phi i1 [ %.4, %_ZNSt5stackISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52Delaunay_triangulation_cell_base_with_circumcenter_3INS1_28Robust_circumcenter_traits_3INS1_5EpickEEENS1_24Surface_mesh_cell_base_3IS8_NS1_25Triangulation_cell_base_3IS8_NS1_28Triangulation_ds_cell_base_3INS1_30Triangulation_data_structure_3INS1_26Surface_mesh_vertex_base_3IS8_NS1_27Triangulation_vertex_base_3IS8_NS1_30Triangulation_ds_vertex_base_3IvEEEEEENS5_IS8_NS9_IS8_NSA_IS8_NSB_IvEEEEEEEENS1_14Sequential_tagEEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESt5dequeISW_SaISW_EEE4pushERKSW_.exit193 ], [ %.1400, %_ZNSt5stackISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52Delaunay_triangulation_cell_base_with_circumcenter_3INS1_28Robust_circumcenter_traits_3INS1_5EpickEEENS1_24Surface_mesh_cell_base_3IS8_NS1_25Triangulation_cell_base_3IS8_NS1_28Triangulation_ds_cell_base_3INS1_30Triangulation_data_structure_3INS1_26Surface_mesh_vertex_base_3IS8_NS1_27Triangulation_vertex_base_3IS8_NS1_30Triangulation_ds_vertex_base_3IvEEEEEENS5_IS8_NS9_IS8_NSA_IS8_NSB_IvEEEEEEEENS1_14Sequential_tagEEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESt5dequeISW_SaISW_EEE3popEv.exit ]
-  %404 = getelementptr inbounds nuw i32, ptr @_ZN4CGAL26Triangulation_utils_base_3IvE6cw_mapE, i64 %indvars.iv457
+  %404 = getelementptr inbounds nuw [4 x i8], ptr @_ZN4CGAL26Triangulation_utils_base_3IvE6cw_mapE, i64 %indvars.iv457
   %405 = load i32, ptr %404, align 4, !tbaa !64
   %406 = sext i32 %405 to i64
-  %407 = getelementptr inbounds i32, ptr %396, i64 %406
+  %407 = getelementptr inbounds [4 x i8], ptr %396, i64 %406
   %408 = load i32, ptr %407, align 4, !tbaa !64
-  %409 = getelementptr inbounds nuw i32, ptr @_ZN4CGAL26Triangulation_utils_base_3IvE7ccw_mapE, i64 %indvars.iv457
+  %409 = getelementptr inbounds nuw [4 x i8], ptr @_ZN4CGAL26Triangulation_utils_base_3IvE7ccw_mapE, i64 %indvars.iv457
   %410 = load i32, ptr %409, align 4, !tbaa !64
   %411 = sext i32 %410 to i64
-  %412 = getelementptr inbounds i32, ptr %396, i64 %411
+  %412 = getelementptr inbounds [4 x i8], ptr %396, i64 %411
   %413 = load i32, ptr %412, align 4, !tbaa !64
   %or.cond.i.i = icmp ult i32 %408, 4
   call void @llvm.assume(i1 %or.cond.i.i)
   %414 = zext nneg i32 %408 to i64
-  %415 = getelementptr inbounds nuw %"class.CGAL::internal::CC_iterator", ptr %397, i64 %414
+  %415 = getelementptr inbounds nuw [8 x i8], ptr %397, i64 %414
   %.sroa.0.0.copyload.i.i148 = load ptr, ptr %415, align 8, !tbaa !51
   %or.cond.i5.i = icmp ult i32 %413, 4
   call void @llvm.assume(i1 %or.cond.i5.i)
   %416 = zext nneg i32 %413 to i64
-  %417 = getelementptr inbounds nuw %"class.CGAL::internal::CC_iterator", ptr %397, i64 %416
+  %417 = getelementptr inbounds nuw [8 x i8], ptr %397, i64 %416
   %.sroa.0.0.copyload.i6.i = load ptr, ptr %417, align 8, !tbaa !51
   %418 = icmp ult ptr %.sroa.0.0.copyload.i.i148, %.sroa.0.0.copyload.i6.i
   %..i.i.i = select i1 %418, ptr %.sroa.0.0.copyload.i.i148, ptr %.sroa.0.0.copyload.i6.i
@@ -1292,7 +1292,7 @@ _ZN4CGAL8internal35Triangulation_ds_facet_circulator_3INS_30Triangulation_data_s
   %490 = getelementptr inbounds nuw i8, ptr %488, i64 %489
   %491 = load i8, ptr %490, align 1, !tbaa !126
   %492 = sext i8 %491 to i64
-  %493 = getelementptr inbounds %"class.CGAL::internal::CC_iterator.32", ptr %.sroa.10.0.i, i64 %492
+  %493 = getelementptr inbounds [8 x i8], ptr %.sroa.10.0.i, i64 %492
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %493, align 8, !tbaa !76
   %494 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i.i, i64 32
   %495 = load ptr, ptr %494, align 8, !tbaa !66
@@ -1391,7 +1391,7 @@ _ZNK4CGAL8internal35Triangulation_ds_facet_circulator_3INS_30Triangulation_data_
   %547 = getelementptr inbounds nuw i8, ptr %545, i64 %546
   %548 = load i8, ptr %547, align 1, !tbaa !126
   %549 = sext i8 %548 to i64
-  %550 = getelementptr inbounds %"class.CGAL::internal::CC_iterator.32", ptr %.sroa.0.0.copyload.i.i.i, i64 %549
+  %550 = getelementptr inbounds [8 x i8], ptr %.sroa.0.0.copyload.i.i.i, i64 %549
   %.sroa.0.0.copyload.i.i34.i = load ptr, ptr %550, align 8, !tbaa !76
   %551 = load ptr, ptr %.sroa.0.0.copyload.i.i34.i, align 8, !tbaa !46
   %552 = icmp eq ptr %.sroa.0.0.copyload.i.i.i, %551
@@ -1467,7 +1467,7 @@ _ZNKSt4lessISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52D
 
 _ZNSt3setISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52Delaunay_triangulation_cell_base_with_circumcenter_3INS1_28Robust_circumcenter_traits_3INS1_5EpickEEENS1_24Surface_mesh_cell_base_3IS8_NS1_25Triangulation_cell_base_3IS8_NS1_28Triangulation_ds_cell_base_3INS1_30Triangulation_data_structure_3INS1_26Surface_mesh_vertex_base_3IS8_NS1_27Triangulation_vertex_base_3IS8_NS1_30Triangulation_ds_vertex_base_3IvEEEEEENS5_IS8_NS9_IS8_NSA_IS8_NSB_IvEEEEEEEENS1_14Sequential_tagEEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESt4lessISW_ESaISW_EE4findERKSW_.exit166.thread: ; preds = %573, %_ZNKSt4lessISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52Delaunay_triangulation_cell_base_with_circumcenter_3INS1_28Robust_circumcenter_traits_3INS1_5EpickEEENS1_24Surface_mesh_cell_base_3IS8_NS1_25Triangulation_cell_base_3IS8_NS1_28Triangulation_ds_cell_base_3INS1_30Triangulation_data_structure_3INS1_26Surface_mesh_vertex_base_3IS8_NS1_27Triangulation_vertex_base_3IS8_NS1_30Triangulation_ds_vertex_base_3IvEEEEEENS5_IS8_NS9_IS8_NSA_IS8_NSB_IvEEEEEEEENS1_14Sequential_tagEEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiEEclERKSW_SZ_.exit.i.i162, %_ZNSt8_Rb_treeISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52Delaunay_triangulation_cell_base_with_circumcenter_3INS1_28Robust_circumcenter_traits_3INS1_5EpickEEENS1_24Surface_mesh_cell_base_3IS8_NS1_25Triangulation_cell_base_3IS8_NS1_28Triangulation_ds_cell_base_3INS1_30Triangulation_data_structure_3INS1_26Surface_mesh_vertex_base_3IS8_NS1_27Triangulation_vertex_base_3IS8_NS1_30Triangulation_ds_vertex_base_3IvEEEEEENS5_IS8_NS9_IS8_NSA_IS8_NSB_IvEEEEEEEENS1_14Sequential_tagEEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESW_St9_IdentityISW_ESt4lessISW_ESaISW_EE14_M_lower_boundEPSt13_Rb_tree_nodeISW_EPSt18_Rb_tree_node_baseRKSW_.exit.i.i161, %561
   %582 = zext nneg i32 %.0.i.i36.i to i64
-  %583 = getelementptr inbounds nuw %"class.CGAL::internal::CC_iterator.32", ptr %.sroa.0.0.copyload.i.i34.i, i64 %582
+  %583 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i34.i, i64 %582
   %.sroa.0.0.copyload.i.i167 = load ptr, ptr %583, align 8, !tbaa !76
   %584 = load ptr, ptr %.sroa.0.0.copyload.i.i167, align 8, !tbaa !46
   %585 = icmp eq ptr %.sroa.0.0.copyload.i.i34.i, %584
@@ -1712,7 +1712,7 @@ _ZNSt8_Rb_treeISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_
 697:                                              ; preds = %692
   %698 = sub i64 %685, %694
   %699 = lshr i64 %698, 1
-  %700 = getelementptr inbounds nuw ptr, ptr %686, i64 %699
+  %700 = getelementptr inbounds nuw [8 x i8], ptr %686, i64 %699
   %701 = icmp ult ptr %700, %661
   %702 = getelementptr inbounds nuw i8, ptr %660, i64 8
   br i1 %701, label %703, label %712
@@ -1737,7 +1737,7 @@ _ZNSt8_Rb_treeISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_
   br label %.noexc244
 
 712:                                              ; preds = %697
-  %713 = getelementptr inbounds nuw ptr, ptr %700, i64 %693
+  %713 = getelementptr inbounds nuw [8 x i8], ptr %700, i64 %693
   %714 = ptrtoint ptr %702 to i64
   %715 = sub i64 %714, %663
   %716 = ashr exact i64 %715, 3
@@ -1746,7 +1746,7 @@ _ZNSt8_Rb_treeISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_
 
 718:                                              ; preds = %712
   %719 = sub nsw i64 0, %716
-  %720 = getelementptr inbounds ptr, ptr %713, i64 %719
+  %720 = getelementptr inbounds [8 x i8], ptr %713, i64 %719
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %720, ptr align 8 %661, i64 %715, i1 false)
   br label %.noexc244
 
@@ -1793,7 +1793,7 @@ _ZNSt11_Deque_baseISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerI
 .noexc256:                                        ; preds = %_ZNSt11_Deque_baseISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52Delaunay_triangulation_cell_base_with_circumcenter_3INS1_28Robust_circumcenter_traits_3INS1_5EpickEEENS1_24Surface_mesh_cell_base_3IS8_NS1_25Triangulation_cell_base_3IS8_NS1_28Triangulation_ds_cell_base_3INS1_30Triangulation_data_structure_3INS1_26Surface_mesh_vertex_base_3IS8_NS1_27Triangulation_vertex_base_3IS8_NS1_30Triangulation_ds_vertex_base_3IvEEEEEENS5_IS8_NS9_IS8_NSA_IS8_NSB_IvEEEEEEEENS1_14Sequential_tagEEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESaISW_EE15_M_allocate_mapEm.exit.i
   %734 = sub nsw i64 %728, %694
   %735 = lshr i64 %734, 1
-  %736 = getelementptr inbounds nuw ptr, ptr %733, i64 %735
+  %736 = getelementptr inbounds nuw [8 x i8], ptr %733, i64 %735
   %737 = getelementptr inbounds nuw i8, ptr %660, i64 8
   %738 = ptrtoint ptr %737 to i64
   %739 = sub i64 %738, %663
@@ -1827,7 +1827,7 @@ _ZSt4copyIPPSt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52D
   store ptr %747, ptr %135, align 8, !tbaa !103
   %748 = getelementptr inbounds nuw i8, ptr %747, i64 512
   store ptr %748, ptr %133, align 8, !tbaa !110
-  %749 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %693
+  %749 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %693
   %750 = getelementptr inbounds i8, ptr %749, i64 -8
   store ptr %750, ptr %129, align 8, !tbaa !107
   %751 = load ptr, ptr %750, align 8, !tbaa !108
@@ -1952,11 +1952,11 @@ _ZNSt5stackISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52D
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %790 = load i32, ptr %789, align 8, !tbaa !64
   %791 = sext i32 %790 to i64
-  %792 = getelementptr inbounds [3 x i32], ptr @_ZN4CGAL26Triangulation_utils_base_3IvE23tab_vertex_triple_indexE, i64 %791
+  %792 = getelementptr inbounds [12 x i8], ptr @_ZN4CGAL26Triangulation_utils_base_3IvE23tab_vertex_triple_indexE, i64 %791
   %793 = load i32, ptr %792, align 4, !tbaa !64
   %794 = getelementptr inbounds nuw i8, ptr %788, i64 32
   %795 = zext nneg i32 %793 to i64
-  %796 = getelementptr inbounds nuw %"class.CGAL::internal::CC_iterator", ptr %794, i64 %795
+  %796 = getelementptr inbounds nuw [8 x i8], ptr %794, i64 %795
   %.sroa.0.0.copyload.i = load ptr, ptr %796, align 8, !tbaa !51
   store ptr %.sroa.0.0.copyload.i, ptr %9, align 8
   %797 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_26Surface_mesh_vertex_base_3INS0_28Robust_circumcenter_traits_3INS0_5EpickEEENS0_27Triangulation_vertex_base_3IS7_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_IS7_NS8_IS7_NS9_IvEEEEEENS0_52Delaunay_triangulation_cell_base_with_circumcenter_3IS7_NS0_24Surface_mesh_cell_base_3IS7_NS0_25Triangulation_cell_base_3IS7_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEENS0_14Sequential_tagEEEEEEEEENS0_7DefaultESR_SR_EELb0EEEiSt4lessIST_ESaISt4pairIKST_iEEEixEOST_(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(8) %9)
@@ -1968,11 +1968,11 @@ _ZNSt5stackISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52D
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %800 = load i32, ptr %789, align 4, !tbaa !64
   %801 = sext i32 %800 to i64
-  %802 = getelementptr inbounds [3 x i32], ptr @_ZN4CGAL26Triangulation_utils_base_3IvE23tab_vertex_triple_indexE, i64 %801
+  %802 = getelementptr inbounds [12 x i8], ptr @_ZN4CGAL26Triangulation_utils_base_3IvE23tab_vertex_triple_indexE, i64 %801
   %803 = getelementptr inbounds nuw i8, ptr %802, i64 4
   %804 = load i32, ptr %803, align 4, !tbaa !64
   %805 = zext nneg i32 %804 to i64
-  %806 = getelementptr inbounds nuw %"class.CGAL::internal::CC_iterator", ptr %794, i64 %805
+  %806 = getelementptr inbounds nuw [8 x i8], ptr %794, i64 %805
   %.sroa.0.0.copyload.i200 = load ptr, ptr %806, align 8, !tbaa !51
   store ptr %.sroa.0.0.copyload.i200, ptr %10, align 8
   %807 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_26Surface_mesh_vertex_base_3INS0_28Robust_circumcenter_traits_3INS0_5EpickEEENS0_27Triangulation_vertex_base_3IS7_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_IS7_NS8_IS7_NS9_IvEEEEEENS0_52Delaunay_triangulation_cell_base_with_circumcenter_3IS7_NS0_24Surface_mesh_cell_base_3IS7_NS0_25Triangulation_cell_base_3IS7_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEENS0_14Sequential_tagEEEEEEEEENS0_7DefaultESR_SR_EELb0EEEiSt4lessIST_ESaISt4pairIKST_iEEEixEOST_(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(8) %10)
@@ -1984,11 +1984,11 @@ _ZNSt5stackISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52D
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %810 = load i32, ptr %789, align 4, !tbaa !64
   %811 = sext i32 %810 to i64
-  %812 = getelementptr inbounds [3 x i32], ptr @_ZN4CGAL26Triangulation_utils_base_3IvE23tab_vertex_triple_indexE, i64 %811
+  %812 = getelementptr inbounds [12 x i8], ptr @_ZN4CGAL26Triangulation_utils_base_3IvE23tab_vertex_triple_indexE, i64 %811
   %813 = getelementptr inbounds nuw i8, ptr %812, i64 8
   %814 = load i32, ptr %813, align 4, !tbaa !64
   %815 = zext nneg i32 %814 to i64
-  %816 = getelementptr inbounds nuw %"class.CGAL::internal::CC_iterator", ptr %794, i64 %815
+  %816 = getelementptr inbounds nuw [8 x i8], ptr %794, i64 %815
   %.sroa.0.0.copyload.i202 = load ptr, ptr %816, align 8, !tbaa !51
   store ptr %.sroa.0.0.copyload.i202, ptr %11, align 8
   %817 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNSt3mapIN4CGAL8internal11CC_iteratorINS0_17Compact_containerINS0_26Surface_mesh_vertex_base_3INS0_28Robust_circumcenter_traits_3INS0_5EpickEEENS0_27Triangulation_vertex_base_3IS7_NS0_30Triangulation_ds_vertex_base_3INS0_30Triangulation_data_structure_3INS4_IS7_NS8_IS7_NS9_IvEEEEEENS0_52Delaunay_triangulation_cell_base_with_circumcenter_3IS7_NS0_24Surface_mesh_cell_base_3IS7_NS0_25Triangulation_cell_base_3IS7_NS0_28Triangulation_ds_cell_base_3IvEEEEEEEENS0_14Sequential_tagEEEEEEEEENS0_7DefaultESR_SR_EELb0EEEiSt4lessIST_ESaISt4pairIKST_iEEEixEOST_(ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(8) %11)
@@ -1998,10 +1998,10 @@ _ZNSt5stackISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52D
   %819 = load i32, ptr %817, align 4, !tbaa !64
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   %820 = load ptr, ptr %2, align 8, !tbaa !137
-  %821 = getelementptr i32, ptr %820, i64 %indvars.iv467
+  %821 = getelementptr [4 x i8], ptr %820, i64 %indvars.iv467
   store i32 %799, ptr %821, align 4, !tbaa !64
   %822 = load i64, ptr %765, align 8, !tbaa !140
-  %823 = getelementptr i32, ptr %821, i64 %822
+  %823 = getelementptr [4 x i8], ptr %821, i64 %822
   store i32 %809, ptr %823, align 4, !tbaa !64
   %.idx = shl i64 %822, 3
   %824 = getelementptr i8, ptr %821, i64 %.idx
@@ -2119,8 +2119,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %._crit_edge.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i
   %.05.i.i.i.i.i.i.i.i.i = phi i64 [ %869, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %863, %._crit_edge.i.i.i.i.i.i.i.i ]
-  %866 = getelementptr inbounds i32, ptr %860, i64 %.05.i.i.i.i.i.i.i.i.i
-  %867 = getelementptr inbounds i32, ptr %840, i64 %.05.i.i.i.i.i.i.i.i.i
+  %866 = getelementptr inbounds [4 x i8], ptr %860, i64 %.05.i.i.i.i.i.i.i.i.i
+  %867 = getelementptr inbounds [4 x i8], ptr %840, i64 %.05.i.i.i.i.i.i.i.i.i
   %868 = load i32, ptr %867, align 4, !tbaa !64
   store i32 %868, ptr %866, align 4, !tbaa !64
   %869 = add nsw i64 %.05.i.i.i.i.i.i.i.i.i, 1
@@ -2129,8 +2129,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %857, %.lr.ph.i.i.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i.i = phi i64 [ %873, %.lr.ph.i.i.i.i.i.i.i.i ], [ 0, %857 ]
-  %870 = getelementptr inbounds nuw i32, ptr %860, i64 %.011.i.i.i.i.i.i.i.i
-  %871 = getelementptr inbounds nuw i32, ptr %840, i64 %.011.i.i.i.i.i.i.i.i
+  %870 = getelementptr inbounds nuw [4 x i8], ptr %860, i64 %.011.i.i.i.i.i.i.i.i
+  %871 = getelementptr inbounds nuw [4 x i8], ptr %840, i64 %.011.i.i.i.i.i.i.i.i
   %872 = load <2 x i64>, ptr %871, align 16, !tbaa !126
   store <2 x i64> %872, ptr %870, align 16, !tbaa !126
   %873 = add nuw nsw i64 %.011.i.i.i.i.i.i.i.i, 4
@@ -2303,8 +2303,8 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i: ; preds = %919
 
 .lr.ph.i.i.i.i.i.i.i.i213:                        ; preds = %._crit_edge.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i213
   %.05.i.i.i.i.i.i.i.i = phi i64 [ %932, %.lr.ph.i.i.i.i.i.i.i.i213 ], [ %927, %._crit_edge.i.i.i.i.i.i.i ]
-  %929 = getelementptr inbounds double, ptr %.pre.i579, i64 %.05.i.i.i.i.i.i.i.i
-  %930 = getelementptr inbounds double, ptr %903, i64 %.05.i.i.i.i.i.i.i.i
+  %929 = getelementptr inbounds [8 x i8], ptr %.pre.i579, i64 %.05.i.i.i.i.i.i.i.i
+  %930 = getelementptr inbounds [8 x i8], ptr %903, i64 %.05.i.i.i.i.i.i.i.i
   %931 = load double, ptr %930, align 8, !tbaa !58
   store double %931, ptr %929, align 8, !tbaa !58
   %932 = add nsw i64 %.05.i.i.i.i.i.i.i.i, 1
@@ -2313,8 +2313,8 @@ _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i: ; preds = %919
 
 .lr.ph.i.i.i.i.i.i.i:                             ; preds = %925, %.lr.ph.i.i.i.i.i.i.i
   %.011.i.i.i.i.i.i.i = phi i64 [ %936, %.lr.ph.i.i.i.i.i.i.i ], [ 0, %925 ]
-  %933 = getelementptr inbounds nuw double, ptr %922, i64 %.011.i.i.i.i.i.i.i
-  %934 = getelementptr inbounds nuw double, ptr %903, i64 %.011.i.i.i.i.i.i.i
+  %933 = getelementptr inbounds nuw [8 x i8], ptr %922, i64 %.011.i.i.i.i.i.i.i
+  %934 = getelementptr inbounds nuw [8 x i8], ptr %903, i64 %.011.i.i.i.i.i.i.i
   %935 = load <2 x double>, ptr %934, align 16, !tbaa !126
   store <2 x double> %935, ptr %933, align 16, !tbaa !126
   %936 = add nuw nsw i64 %.011.i.i.i.i.i.i.i, 2
@@ -2407,8 +2407,8 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i: ; preds = %956
 
 .lr.ph.i.i.i.i.i.i.i.i224:                        ; preds = %._crit_edge.i.i.i.i.i.i.i223, %.lr.ph.i.i.i.i.i.i.i.i224
   %.05.i.i.i.i.i.i.i.i225 = phi i64 [ %970, %.lr.ph.i.i.i.i.i.i.i.i224 ], [ %965, %._crit_edge.i.i.i.i.i.i.i223 ]
-  %967 = getelementptr inbounds i32, ptr %.pre.i222584, i64 %.05.i.i.i.i.i.i.i.i225
-  %968 = getelementptr inbounds i32, ptr %940, i64 %.05.i.i.i.i.i.i.i.i225
+  %967 = getelementptr inbounds [4 x i8], ptr %.pre.i222584, i64 %.05.i.i.i.i.i.i.i.i225
+  %968 = getelementptr inbounds [4 x i8], ptr %940, i64 %.05.i.i.i.i.i.i.i.i225
   %969 = load i32, ptr %968, align 4, !tbaa !64
   store i32 %969, ptr %967, align 4, !tbaa !64
   %970 = add nsw i64 %.05.i.i.i.i.i.i.i.i225, 1
@@ -2417,8 +2417,8 @@ _ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i: ; preds = %956
 
 .lr.ph.i.i.i.i.i.i.i227:                          ; preds = %962, %.lr.ph.i.i.i.i.i.i.i227
   %.011.i.i.i.i.i.i.i228 = phi i64 [ %974, %.lr.ph.i.i.i.i.i.i.i227 ], [ 0, %962 ]
-  %971 = getelementptr inbounds nuw i32, ptr %959, i64 %.011.i.i.i.i.i.i.i228
-  %972 = getelementptr inbounds nuw i32, ptr %940, i64 %.011.i.i.i.i.i.i.i228
+  %971 = getelementptr inbounds nuw [4 x i8], ptr %959, i64 %.011.i.i.i.i.i.i.i228
+  %972 = getelementptr inbounds nuw [4 x i8], ptr %940, i64 %.011.i.i.i.i.i.i.i228
   %973 = load <2 x i64>, ptr %972, align 16, !tbaa !126
   store <2 x i64> %973, ptr %971, align 16, !tbaa !126
   %974 = add nuw nsw i64 %.011.i.i.i.i.i.i.i228, 4
@@ -2683,7 +2683,7 @@ _ZNK4CGAL8internal33Triangulation_ds_facet_iterator_3INS_30Triangulation_data_st
   %30 = icmp slt i32 %28, 1
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.cast.i.i, i64 32
   %32 = zext i1 %30 to i64
-  %33 = getelementptr inbounds nuw %"class.CGAL::internal::CC_iterator", ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %32
   %.sroa.0.0.copyload.i.i.i.i.i = load ptr, ptr %33, align 8, !tbaa !51
   %34 = icmp eq ptr %.sroa.0.0.copyload.i.i.i.i.i, %.sroa.0.0.copyload.i.i.i.i.i.i
   br i1 %34, label %_ZNK4CGAL15Triangulation_3INS_28Robust_circumcenter_traits_3INS_5EpickEEENS_30Triangulation_data_structure_3INS_26Surface_mesh_vertex_base_3IS3_NS_27Triangulation_vertex_base_3IS3_NS_30Triangulation_ds_vertex_base_3IvEEEEEENS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS3_NS_24Surface_mesh_cell_base_3IS3_NS_25Triangulation_cell_base_3IS3_NS_28Triangulation_ds_cell_base_3IvEEEEEEEENS_14Sequential_tagEEENS_7DefaultEE15Infinite_testerclERKNS_8internal33Triangulation_ds_facet_iterator_3ISK_EE.exit.thread.i, label %35
@@ -2691,7 +2691,7 @@ _ZNK4CGAL8internal33Triangulation_ds_facet_iterator_3INS_30Triangulation_data_st
 35:                                               ; preds = %_ZNK4CGAL8internal33Triangulation_ds_facet_iterator_3INS_30Triangulation_data_structure_3INS_26Surface_mesh_vertex_base_3INS_28Robust_circumcenter_traits_3INS_5EpickEEENS_27Triangulation_vertex_base_3IS6_NS_30Triangulation_ds_vertex_base_3IvEEEEEENS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS6_NS_24Surface_mesh_cell_base_3IS6_NS_25Triangulation_cell_base_3IS6_NS_28Triangulation_ds_cell_base_3IvEEEEEEEENS_14Sequential_tagEEEEneERKSM_.exit.thread.i
   %36 = icmp slt i32 %28, 2
   %37 = select i1 %36, i64 2, i64 1
-  %38 = getelementptr inbounds nuw %"class.CGAL::internal::CC_iterator", ptr %31, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %37
   %.sroa.0.0.copyload.i5.i.i.i.i = load ptr, ptr %38, align 8, !tbaa !51
   %39 = icmp eq ptr %.sroa.0.0.copyload.i5.i.i.i.i, %.sroa.0.0.copyload.i.i.i.i.i.i
   br i1 %39, label %_ZNK4CGAL15Triangulation_3INS_28Robust_circumcenter_traits_3INS_5EpickEEENS_30Triangulation_data_structure_3INS_26Surface_mesh_vertex_base_3IS3_NS_27Triangulation_vertex_base_3IS3_NS_30Triangulation_ds_vertex_base_3IvEEEEEENS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS3_NS_24Surface_mesh_cell_base_3IS3_NS_25Triangulation_cell_base_3IS3_NS_28Triangulation_ds_cell_base_3IvEEEEEEEENS_14Sequential_tagEEENS_7DefaultEE15Infinite_testerclERKNS_8internal33Triangulation_ds_facet_iterator_3ISK_EE.exit.thread.i, label %_ZNK4CGAL15Triangulation_3INS_28Robust_circumcenter_traits_3INS_5EpickEEENS_30Triangulation_data_structure_3INS_26Surface_mesh_vertex_base_3IS3_NS_27Triangulation_vertex_base_3IS3_NS_30Triangulation_ds_vertex_base_3IvEEEEEENS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS3_NS_24Surface_mesh_cell_base_3IS3_NS_25Triangulation_cell_base_3IS3_NS_28Triangulation_ds_cell_base_3IvEEEEEEEENS_14Sequential_tagEEENS_7DefaultEE15Infinite_testerclERKNS_8internal33Triangulation_ds_facet_iterator_3ISK_EE.exit.i
@@ -2699,7 +2699,7 @@ _ZNK4CGAL8internal33Triangulation_ds_facet_iterator_3INS_30Triangulation_data_st
 _ZNK4CGAL15Triangulation_3INS_28Robust_circumcenter_traits_3INS_5EpickEEENS_30Triangulation_data_structure_3INS_26Surface_mesh_vertex_base_3IS3_NS_27Triangulation_vertex_base_3IS3_NS_30Triangulation_ds_vertex_base_3IvEEEEEENS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS3_NS_24Surface_mesh_cell_base_3IS3_NS_25Triangulation_cell_base_3IS3_NS_28Triangulation_ds_cell_base_3IvEEEEEEEENS_14Sequential_tagEEENS_7DefaultEE15Infinite_testerclERKNS_8internal33Triangulation_ds_facet_iterator_3ISK_EE.exit.i: ; preds = %35
   %40 = icmp slt i32 %28, 3
   %41 = select i1 %40, i64 3, i64 2
-  %42 = getelementptr inbounds nuw %"class.CGAL::internal::CC_iterator", ptr %31, i64 %41
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %41
   %.sroa.0.0.copyload.i7.i.i.i.i = load ptr, ptr %42, align 8, !tbaa !51
   %43 = icmp eq ptr %.sroa.0.0.copyload.i7.i.i.i.i, %.sroa.0.0.copyload.i.i.i.i.i.i
   br i1 %43, label %_ZNK4CGAL15Triangulation_3INS_28Robust_circumcenter_traits_3INS_5EpickEEENS_30Triangulation_data_structure_3INS_26Surface_mesh_vertex_base_3IS3_NS_27Triangulation_vertex_base_3IS3_NS_30Triangulation_ds_vertex_base_3IvEEEEEENS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS3_NS_24Surface_mesh_cell_base_3IS3_NS_25Triangulation_cell_base_3IS3_NS_28Triangulation_ds_cell_base_3IvEEEEEEEENS_14Sequential_tagEEENS_7DefaultEE15Infinite_testerclERKNS_8internal33Triangulation_ds_facet_iterator_3ISK_EE.exit.thread.i, label %_ZN4CGAL15Filter_iteratorINS_8internal33Triangulation_ds_facet_iterator_3INS_30Triangulation_data_structure_3INS_26Surface_mesh_vertex_base_3INS_28Robust_circumcenter_traits_3INS_5EpickEEENS_27Triangulation_vertex_base_3IS7_NS_30Triangulation_ds_vertex_base_3IvEEEEEENS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS7_NS_24Surface_mesh_cell_base_3IS7_NS_25Triangulation_cell_base_3IS7_NS_28Triangulation_ds_cell_base_3IvEEEEEEEENS_14Sequential_tagEEEEENS_15Triangulation_3IS7_SM_NS_7DefaultEE15Infinite_testerEEC2ESN_RKSR_SN_.exit
@@ -2777,7 +2777,7 @@ _ZN4CGAL8internal33Triangulation_ds_facet_iterator_3INS_30Triangulation_data_str
 
 72:                                               ; preds = %_ZN4CGAL8internal33Triangulation_ds_facet_iterator_3INS_30Triangulation_data_structure_3INS_26Surface_mesh_vertex_base_3INS_28Robust_circumcenter_traits_3INS_5EpickEEENS_27Triangulation_vertex_base_3IS6_NS_30Triangulation_ds_vertex_base_3IvEEEEEENS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS6_NS_24Surface_mesh_cell_base_3IS6_NS_25Triangulation_cell_base_3IS6_NS_28Triangulation_ds_cell_base_3IvEEEEEEEENS_14Sequential_tagEEEE9incrementEv.exit.i.i
   %73 = sext i32 %70 to i64
-  %74 = getelementptr inbounds %"class.CGAL::internal::CC_iterator.32", ptr %69, i64 %73
+  %74 = getelementptr inbounds [8 x i8], ptr %69, i64 %73
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %74, align 8, !tbaa !76
   %75 = icmp ult ptr %.sroa.0.0.copyload.i.i.i, %69
   br i1 %75, label %49, label %_ZN4CGAL8internal33Triangulation_ds_facet_iterator_3INS_30Triangulation_data_structure_3INS_26Surface_mesh_vertex_base_3INS_28Robust_circumcenter_traits_3INS_5EpickEEENS_27Triangulation_vertex_base_3IS6_NS_30Triangulation_ds_vertex_base_3IvEEEEEENS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS6_NS_24Surface_mesh_cell_base_3IS6_NS_25Triangulation_cell_base_3IS6_NS_28Triangulation_ds_cell_base_3IvEEEEEEEENS_14Sequential_tagEEEEppEv.exit.i.loopexit, !llvm.loop !175
@@ -3495,7 +3495,7 @@ _ZN4CGAL17Compact_containerINS_52Delaunay_triangulation_cell_base_with_circumcen
   %74 = add nsw i32 %60, 1
   store i32 %74, ptr %4, align 8, !tbaa !88
   %.phi.trans.insert = sext i32 %74 to i64
-  %.phi.trans.insert17 = getelementptr inbounds %"class.CGAL::internal::CC_iterator.32", ptr %59, i64 %.phi.trans.insert
+  %.phi.trans.insert17 = getelementptr inbounds [8 x i8], ptr %59, i64 %.phi.trans.insert
   %.sroa.0.0.copyload.i.pre = load ptr, ptr %.phi.trans.insert17, align 8, !tbaa !76
   br label %_ZN4CGAL8internal33Triangulation_ds_facet_iterator_3INS_30Triangulation_data_structure_3INS_26Surface_mesh_vertex_base_3INS_28Robust_circumcenter_traits_3INS_5EpickEEENS_27Triangulation_vertex_base_3IS6_NS_30Triangulation_ds_vertex_base_3IvEEEEEENS_52Delaunay_triangulation_cell_base_with_circumcenter_3IS6_NS_24Surface_mesh_cell_base_3IS6_NS_25Triangulation_cell_base_3IS6_NS_28Triangulation_ds_cell_base_3IvEEEEEEEENS_14Sequential_tagEEEE9incrementEv.exit
 
@@ -3530,7 +3530,7 @@ _ZNSt11_Deque_baseISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerI
   store ptr %7, ptr %0, align 8, !tbaa !130
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %9
   %.idx = shl nuw nsw i64 %3, 3
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
@@ -3624,7 +3624,7 @@ _ZNSt11_Deque_baseISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerI
   store ptr %48, ptr %49, align 8, !tbaa !110
   store ptr %39, ptr %37, align 8, !tbaa !187
   %50 = and i64 %1, 31
-  %51 = getelementptr inbounds nuw %"struct.std::pair", ptr %46, i64 %50
+  %51 = getelementptr inbounds nuw [16 x i8], ptr %46, i64 %50
   store ptr %51, ptr %43, align 8, !tbaa !94
   ret void
 
@@ -3860,9 +3860,9 @@ define linkonce_odr dso_local void @_ZNSt5dequeISt4pairIN4CGAL8internal11CC_iter
   %19 = load ptr, ptr %0, align 8, !tbaa !130
   %20 = sub i64 %15, %13
   %21 = lshr i64 %20, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = select i1 %2, i64 %1, i64 0
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = icmp ult ptr %24, %7
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br i1 %25, label %27, label %36
@@ -3887,7 +3887,7 @@ define linkonce_odr dso_local void @_ZNSt5dequeISt4pairIN4CGAL8internal11CC_iter
   br label %_ZSt4copyIPPSt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52Delaunay_triangulation_cell_base_with_circumcenter_3INS1_28Robust_circumcenter_traits_3INS1_5EpickEEENS1_24Surface_mesh_cell_base_3IS8_NS1_25Triangulation_cell_base_3IS8_NS1_28Triangulation_ds_cell_base_3INS1_30Triangulation_data_structure_3INS1_26Surface_mesh_vertex_base_3IS8_NS1_27Triangulation_vertex_base_3IS8_NS1_30Triangulation_ds_vertex_base_3IvEEEEEENS5_IS8_NS9_IS8_NSA_IS8_NSB_IvEEEEEEEENS1_14Sequential_tagEEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESY_ET0_T_S10_SZ_.exit
 
 36:                                               ; preds = %18
-  %37 = getelementptr inbounds nuw ptr, ptr %24, i64 %12
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %12
   %38 = ptrtoint ptr %26 to i64
   %39 = sub i64 %38, %9
   %40 = ashr exact i64 %39, 3
@@ -3896,7 +3896,7 @@ define linkonce_odr dso_local void @_ZNSt5dequeISt4pairIN4CGAL8internal11CC_iter
 
 42:                                               ; preds = %36
   %43 = sub nsw i64 0, %40
-  %44 = getelementptr inbounds ptr, ptr %37, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr %37, i64 %43
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %44, ptr align 8 %7, i64 %39, i1 false)
   br label %_ZSt4copyIPPSt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52Delaunay_triangulation_cell_base_with_circumcenter_3INS1_28Robust_circumcenter_traits_3INS1_5EpickEEENS1_24Surface_mesh_cell_base_3IS8_NS1_25Triangulation_cell_base_3IS8_NS1_28Triangulation_ds_cell_base_3INS1_30Triangulation_data_structure_3INS1_26Surface_mesh_vertex_base_3IS8_NS1_27Triangulation_vertex_base_3IS8_NS1_30Triangulation_ds_vertex_base_3IvEEEEEENS5_IS8_NS9_IS8_NSA_IS8_NSB_IvEEEEEEEENS1_14Sequential_tagEEEEEEEEEEENS1_7DefaultEST_ST_EELb0EEEiESY_ET0_T_S10_SZ_.exit
 
@@ -3934,9 +3934,9 @@ _ZNSt11_Deque_baseISt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerI
   %57 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %56) #26
   %58 = sub i64 %52, %13
   %59 = lshr i64 %58, 1
-  %60 = getelementptr inbounds nuw ptr, ptr %57, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %59
   %61 = select i1 %2, i64 %1, i64 0
-  %62 = getelementptr inbounds nuw ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %61
   %63 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %64 = ptrtoint ptr %63 to i64
   %65 = sub i64 %64, %9
@@ -3973,7 +3973,7 @@ _ZSt4copyIPPSt4pairIN4CGAL8internal11CC_iteratorINS1_17Compact_containerINS1_52D
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 512
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %76, ptr %77, align 8, !tbaa !110
-  %78 = getelementptr inbounds nuw ptr, ptr %.0, i64 %12
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %12
   %79 = getelementptr inbounds i8, ptr %78, i64 -8
   store ptr %79, ptr %4, align 8, !tbaa !107
   %80 = load ptr, ptr %79, align 8, !tbaa !108
@@ -4098,11 +4098,11 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 
 .lr.ph.i:                                         ; preds = %.lr.ph54.i
   %33 = mul nsw i64 %.03251.i, %23
-  %invariant.gep.i = getelementptr i32, ptr %25, i64 %33
+  %invariant.gep.i = getelementptr [4 x i8], ptr %25, i64 %33
   %34 = xor i64 %.03251.i, -1
   %35 = add i64 %9, %34
   %36 = mul nsw i64 %35, %7
-  %invariant.gep41.i = getelementptr i32, ptr %5, i64 %36
+  %invariant.gep41.i = getelementptr [4 x i8], ptr %5, i64 %36
   br label %42
 
 .preheader39.i:                                   ; preds = %42, %.lr.ph54.i
@@ -4112,16 +4112,16 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 .lr.ph44.i:                                       ; preds = %.preheader39.i
   %38 = xor i64 %.03251.i, -1
   %39 = mul nsw i64 %.03251.i, %23
-  %invariant.gep = getelementptr i32, ptr %25, i64 %39
+  %invariant.gep = getelementptr [4 x i8], ptr %25, i64 %39
   %40 = add i64 %9, %38
   %41 = mul nsw i64 %40, %7
-  %invariant.gep30 = getelementptr i32, ptr %5, i64 %41
+  %invariant.gep30 = getelementptr [4 x i8], ptr %5, i64 %41
   br label %50
 
 42:                                               ; preds = %42, %.lr.ph.i
   %.03040.i = phi i64 [ 0, %.lr.ph.i ], [ %44, %42 ]
-  %gep.i = getelementptr i32, ptr %invariant.gep.i, i64 %.03040.i
-  %gep42.i = getelementptr i32, ptr %invariant.gep41.i, i64 %.03040.i
+  %gep.i = getelementptr [4 x i8], ptr %invariant.gep.i, i64 %.03040.i
+  %gep42.i = getelementptr [4 x i8], ptr %invariant.gep41.i, i64 %.03040.i
   %43 = load i32, ptr %gep42.i, align 4, !tbaa !64
   store i32 %43, ptr %gep.i, align 4, !tbaa !64
   %44 = add nuw nsw i64 %.03040.i, 1
@@ -4134,17 +4134,17 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 
 .lr.ph46.i:                                       ; preds = %.preheader.i
   %46 = mul nsw i64 %.03251.i, %23
-  %invariant.gep47.i = getelementptr i32, ptr %25, i64 %46
+  %invariant.gep47.i = getelementptr [4 x i8], ptr %25, i64 %46
   %47 = xor i64 %.03251.i, -1
   %48 = add i64 %9, %47
   %49 = mul nsw i64 %48, %7
-  %invariant.gep49.i = getelementptr i32, ptr %5, i64 %49
+  %invariant.gep49.i = getelementptr [4 x i8], ptr %5, i64 %49
   br label %57
 
 50:                                               ; preds = %50, %.lr.ph44.i
   %.02943.i = phi i64 [ %.03152.i, %.lr.ph44.i ], [ %52, %50 ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %.02943.i
-  %gep31 = getelementptr i32, ptr %invariant.gep30, i64 %.02943.i
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %.02943.i
+  %gep31 = getelementptr [4 x i8], ptr %invariant.gep30, i64 %.02943.i
   %51 = load <2 x i64>, ptr %gep31, align 1, !tbaa !126
   store <2 x i64> %51, ptr %gep, align 16, !tbaa !126
   %52 = add nsw i64 %.02943.i, 4
@@ -4161,8 +4161,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 
 57:                                               ; preds = %57, %.lr.ph46.i
   %.045.i = phi i64 [ %31, %.lr.ph46.i ], [ %59, %57 ]
-  %gep48.i = getelementptr i32, ptr %invariant.gep47.i, i64 %.045.i
-  %gep50.i = getelementptr i32, ptr %invariant.gep49.i, i64 %.045.i
+  %gep48.i = getelementptr [4 x i8], ptr %invariant.gep47.i, i64 %.045.i
+  %gep50.i = getelementptr [4 x i8], ptr %invariant.gep49.i, i64 %.045.i
   %58 = load i32, ptr %gep50.i, align 4, !tbaa !64
   store i32 %58, ptr %gep48.i, align 4, !tbaa !64
   %59 = add nsw i64 %.045.i, 1

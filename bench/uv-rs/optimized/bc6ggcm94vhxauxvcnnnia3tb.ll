@@ -2488,7 +2488,7 @@ define internal fastcc void @"_ZN4core3ptr45drop_in_place$LT$uv_extract..error..
 
 .lr.ph.i.i.i:                                     ; preds = %42, %"_ZN4core3ptr47drop_in_place$LT$std..ffi..os_str..OsString$GT$17h2e109a7278c73b3fE.exit.i.i.i"
   %.sroa.0.07.i.i.i = phi i64 [ %50, %"_ZN4core3ptr47drop_in_place$LT$std..ffi..os_str..OsString$GT$17h2e109a7278c73b3fE.exit.i.i.i" ], [ 0, %42 ]
-  %49 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } } }, ptr %45, i64 %.sroa.0.07.i.i.i
+  %49 = getelementptr inbounds [24 x i8], ptr %45, i64 %.sroa.0.07.i.i.i
   %50 = add nuw i64 %.sroa.0.07.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !997)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1000)
@@ -9198,7 +9198,7 @@ default.unreachable:                              ; preds = %205
 
 260:                                              ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17hec0478f937577d74E.exit.i", %._crit_edge.i
   %261 = phi ptr [ %.pre.i109, %._crit_edge.i ], [ %246, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17hec0478f937577d74E.exit.i" ]
-  %262 = getelementptr inbounds { ptr, { i64, [65 x i64] } }, ptr %261, i64 %228
+  %262 = getelementptr inbounds [536 x i8], ptr %261, i64 %228
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(536) %262, ptr noundef nonnull align 8 dereferenceable(536) %31, i64 536, i1 false), !noalias !3425
   %263 = add i64 %228, 1
   store i64 %263, ptr %46, align 8, !alias.scope !3397, !noalias !3400
@@ -9426,7 +9426,7 @@ default.unreachable:                              ; preds = %205
 
 316:                                              ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17hec0478f937577d74E.exit.i132", %._crit_edge.i123
   %317 = phi ptr [ %.pre.i125, %._crit_edge.i123 ], [ %311, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17hec0478f937577d74E.exit.i132" ]
-  %318 = getelementptr inbounds { ptr, { i64, [65 x i64] } }, ptr %317, i64 %293
+  %318 = getelementptr inbounds [536 x i8], ptr %317, i64 %293
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(536) %318, ptr noundef nonnull align 8 dereferenceable(536) %28, i64 536, i1 false), !noalias !3529
   %319 = add i64 %293, 1
   store i64 %319, ptr %46, align 8, !alias.scope !3504, !noalias !3507
@@ -9686,7 +9686,7 @@ _ZN3std2io5error5Error4kind17he6aa3f96c380349fE.llvm.11004923244570661734.exit: 
 
 372:                                              ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17hec0478f937577d74E.exit.i168", %._crit_edge.i159
   %373 = phi ptr [ %.pre.i161, %._crit_edge.i159 ], [ %367, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17hec0478f937577d74E.exit.i168" ]
-  %374 = getelementptr inbounds { ptr, { i64, [65 x i64] } }, ptr %373, i64 %349
+  %374 = getelementptr inbounds [536 x i8], ptr %373, i64 %349
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(536) %374, ptr noundef nonnull align 8 dereferenceable(536) %34, i64 536, i1 false), !noalias !3616
   %375 = add i64 %349, 1
   store i64 %375, ptr %46, align 8, !alias.scope !3591, !noalias !3594
@@ -14503,7 +14503,7 @@ _ZN4core5alloc6layout6Layout6repeat17h5a8b41c13a000041E.exit.i.i.i.i.i.i: ; pred
 ._crit_edge.i:                                    ; preds = %294, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h316ce5101c6eaf13E.exit.i"
   %.pre.i354 = phi ptr [ %310, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h316ce5101c6eaf13E.exit.i" ], [ %203, %294 ]
   %311 = phi i64 [ %298, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h316ce5101c6eaf13E.exit.i" ], [ %204, %294 ]
-  %312 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, { { { { { { i64, ptr, {} }, {} }, i64 } } } } }, ptr %.pre.i354, i64 %205
+  %312 = getelementptr inbounds [48 x i8], ptr %.pre.i354, i64 %205
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %312, ptr noundef nonnull readonly align 8 dereferenceable(48) %15, i64 48, i1 false), !noalias !4744
   %313 = add i64 %205, 1
   store i64 %313, ptr %185, align 8, !alias.scope !4744, !noalias !4796

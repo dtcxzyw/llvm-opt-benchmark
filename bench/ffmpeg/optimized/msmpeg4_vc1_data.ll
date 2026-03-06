@@ -35,8 +35,8 @@ define internal void @msmp4_vc1_vlcs_init() #0 {
 .preheader:                                       ; preds = %0, %.preheader
   %2 = phi i1 [ true, %0 ], [ false, %.preheader ]
   %indvars.iv14 = phi i64 [ 0, %0 ], [ 1, %.preheader ]
-  %3 = getelementptr inbounds nuw [2 x [120 x [2 x i32]]], ptr @ff_msmp4_dc_tables, i64 %indvars.iv14
-  %4 = getelementptr inbounds nuw [2 x ptr], ptr @ff_msmp4_dc_vlc, i64 %indvars.iv14
+  %3 = getelementptr inbounds nuw [1920 x i8], ptr @ff_msmp4_dc_tables, i64 %indvars.iv14
+  %4 = getelementptr inbounds nuw [16 x i8], ptr @ff_msmp4_dc_vlc, i64 %indvars.iv14
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %6 = call ptr @ff_vlc_init_tables_sparse(ptr noundef nonnull %1, i32 noundef 9, i32 noundef 120, ptr noundef nonnull %5, i32 noundef 8, i32 noundef 4, ptr noundef nonnull %3, i32 noundef 8, i32 noundef 4, ptr noundef null, i32 noundef 0, i32 noundef 0, i32 noundef 0) #4
   store ptr %6, ptr %4, align 16, !tbaa !4

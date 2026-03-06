@@ -4,17 +4,10 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.stbtt_bakedchar = type { i16, i16, i16, i16, float, float, float }
-%struct.stbtt_vertex = type { i16, i16, i16, i16, i8, i8 }
-%struct.stbtt__point = type { float, float }
-%struct.stbtt__edge = type { float, float, float, float, i32 }
 %struct.stbtt__bitmap = type { i32, i32, i32, ptr }
 %struct.stbtt_fontinfo = type { ptr, ptr, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32 }
 %struct.stbtt_pack_range = type { float, i32, ptr, i32, ptr, i8, i8 }
-%struct.stbrp_rect = type { i32, i32, i32, i32, i32, i32 }
-%struct.stbtt_packedchar = type { i16, i16, i16, i16, float, float, float, float, float }
-%struct.imguiGfxCmd = type { i8, i8, [2 x i8], i32, %union.anon }
-%union.anon = type { %struct.imguiGfxText }
-%struct.imguiGfxText = type { i16, i16, i16, ptr }
+%struct.stbtt__edge = type { float, float, float, float, i32 }
 
 @_ZL13g_circleVerts = internal unnamed_addr global [64 x float] zeroinitializer, align 16
 @.str.10 = private unnamed_addr constant [3 x i8] c"rb\00", align 1
@@ -1441,7 +1434,7 @@ _ZL20stbtt__GetGlyfOffsetPK14stbtt_fontinfoi.exit: ; preds = %77
   %115 = or disjoint i32 %99, %100
   %116 = add nuw nsw i32 %115, 1
   %wide.trip.count437 = zext nneg i32 %116 to i64
-  %invariant.gep = getelementptr inbounds nuw %struct.stbtt_vertex, ptr %105, i64 %114
+  %invariant.gep = getelementptr inbounds nuw [10 x i8], ptr %105, i64 %114
   br label %117
 
 117:                                              ; preds = %107, %128
@@ -1472,7 +1465,7 @@ _ZL20stbtt__GetGlyfOffsetPK14stbtt_fontinfoi.exit: ; preds = %77
   %.1297 = phi ptr [ %124, %123 ], [ %120, %119 ], [ %.0296405, %126 ]
   %.1278 = phi i8 [ %125, %123 ], [ 0, %119 ], [ %127, %126 ]
   %.1276 = phi i8 [ %121, %123 ], [ %121, %119 ], [ %.0275408, %126 ]
-  %gep = getelementptr inbounds nuw %struct.stbtt_vertex, ptr %invariant.gep, i64 %indvars.iv435
+  %gep = getelementptr inbounds nuw [10 x i8], ptr %invariant.gep, i64 %indvars.iv435
   %129 = getelementptr inbounds nuw i8, ptr %gep, i64 8
   store i8 %.1276, ptr %129, align 2
   %indvars.iv.next436 = add nuw nsw i64 %indvars.iv435, 1
@@ -1480,14 +1473,14 @@ _ZL20stbtt__GetGlyfOffsetPK14stbtt_fontinfoi.exit: ; preds = %77
   br i1 %exitcond438.not, label %.preheader397.preheader, label %117, !llvm.loop !10
 
 .preheader397.preheader:                          ; preds = %128
-  %invariant.gep455 = getelementptr inbounds nuw %struct.stbtt_vertex, ptr %105, i64 %114
+  %invariant.gep455 = getelementptr inbounds nuw [10 x i8], ptr %105, i64 %114
   br label %.preheader397
 
 .preheader397:                                    ; preds = %.preheader397.preheader, %154
   %indvars.iv439 = phi i64 [ 0, %.preheader397.preheader ], [ %indvars.iv.next440, %154 ]
   %.2298410 = phi ptr [ %.1297, %.preheader397.preheader ], [ %.3299, %154 ]
   %.0320409 = phi i16 [ 0, %.preheader397.preheader ], [ %.1321, %154 ]
-  %gep456 = getelementptr inbounds nuw %struct.stbtt_vertex, ptr %invariant.gep455, i64 %indvars.iv439
+  %gep456 = getelementptr inbounds nuw [10 x i8], ptr %invariant.gep455, i64 %indvars.iv439
   %130 = getelementptr inbounds nuw i8, ptr %gep456, i64 8
   %131 = load i8, ptr %130, align 2
   %132 = zext i8 %131 to i32
@@ -1532,14 +1525,14 @@ _ZL20stbtt__GetGlyfOffsetPK14stbtt_fontinfoi.exit: ; preds = %77
   br i1 %exitcond442.not, label %.preheader396.preheader, label %.preheader397, !llvm.loop !11
 
 .preheader396.preheader:                          ; preds = %154
-  %invariant.gep457 = getelementptr inbounds nuw %struct.stbtt_vertex, ptr %105, i64 %114
+  %invariant.gep457 = getelementptr inbounds nuw [10 x i8], ptr %105, i64 %114
   br label %.preheader396
 
 .preheader396:                                    ; preds = %.preheader396.preheader, %179
   %indvars.iv443 = phi i64 [ 0, %.preheader396.preheader ], [ %indvars.iv.next444, %179 ]
   %.4300413 = phi ptr [ %.3299, %.preheader396.preheader ], [ %.5301, %179 ]
   %.0318412 = phi i16 [ 0, %.preheader396.preheader ], [ %.1319, %179 ]
-  %gep458 = getelementptr inbounds nuw %struct.stbtt_vertex, ptr %invariant.gep457, i64 %indvars.iv443
+  %gep458 = getelementptr inbounds nuw [10 x i8], ptr %invariant.gep457, i64 %indvars.iv443
   %155 = getelementptr inbounds nuw i8, ptr %gep458, i64 8
   %156 = load i8, ptr %155, align 2
   %157 = zext i8 %156 to i32
@@ -1599,7 +1592,7 @@ _ZL20stbtt__GetGlyfOffsetPK14stbtt_fontinfoi.exit: ; preds = %77
   %.0322415 = phi i32 [ %.1323, %314 ], [ 0, %179 ]
   %181 = add nsw i32 %.3283431, %92
   %182 = sext i32 %181 to i64
-  %183 = getelementptr inbounds %struct.stbtt_vertex, ptr %105, i64 %182
+  %183 = getelementptr inbounds [10 x i8], ptr %105, i64 %182
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 8
   %185 = load i8, ptr %184, align 2
   %186 = load i16, ptr %183, align 2
@@ -1625,7 +1618,7 @@ _ZL20stbtt__GetGlyfOffsetPK14stbtt_fontinfoi.exit: ; preds = %77
 195:                                              ; preds = %194
   %196 = add nsw i32 %.0272432, 1
   %197 = sext i32 %.0272432 to i64
-  %198 = getelementptr inbounds %struct.stbtt_vertex, ptr %105, i64 %197
+  %198 = getelementptr inbounds [10 x i8], ptr %105, i64 %197
   %199 = add nsw i32 %.0305424, %.0316416
   %200 = lshr i32 %199, 1
   %201 = add nsw i32 %.0302426, %.0314419
@@ -1648,7 +1641,7 @@ _ZL20stbtt__GetGlyfOffsetPK14stbtt_fontinfoi.exit: ; preds = %77
 211:                                              ; preds = %195, %194
   %.0.i = phi i32 [ %196, %195 ], [ %.0272432, %194 ]
   %212 = sext i32 %.0.i to i64
-  %213 = getelementptr inbounds %struct.stbtt_vertex, ptr %105, i64 %212
+  %213 = getelementptr inbounds [10 x i8], ptr %105, i64 %212
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 8
   store i8 3, ptr %214, align 2
   %215 = trunc i32 %.0311422 to i16
@@ -1664,7 +1657,7 @@ _ZL20stbtt__GetGlyfOffsetPK14stbtt_fontinfoi.exit: ; preds = %77
 
 221:                                              ; preds = %193
   %222 = sext i32 %.0272432 to i64
-  %223 = getelementptr inbounds %struct.stbtt_vertex, ptr %105, i64 %222
+  %223 = getelementptr inbounds [10 x i8], ptr %105, i64 %222
   %224 = getelementptr inbounds nuw i8, ptr %223, i64 8
   %225 = trunc i32 %.0311422 to i16
   %226 = trunc i32 %.0308423 to i16
@@ -1693,7 +1686,7 @@ _ZL18stbtt__close_shapeP12stbtt_vertexiiiiiiiii.exit: ; preds = %211, %228, %232
   %234 = phi i64 [ %222, %228 ], [ %222, %232 ], [ %212, %211 ]
   %.sink.i386 = phi i16 [ %231, %228 ], [ 0, %232 ], [ %220, %211 ]
   %.1.in.i = phi i32 [ %.0272432, %228 ], [ %.0272432, %232 ], [ %.0.i, %211 ]
-  %235 = getelementptr inbounds %struct.stbtt_vertex, ptr %105, i64 %234
+  %235 = getelementptr inbounds [10 x i8], ptr %105, i64 %234
   %236 = getelementptr inbounds nuw i8, ptr %235, i64 6
   store i16 %.sink.i386, ptr %236, align 2
   %.1.i = add nsw i32 %.1.in.i, 1
@@ -1743,7 +1736,7 @@ _ZL18stbtt__close_shapeP12stbtt_vertexiiiiiiiii.exit: ; preds = %211, %228, %232
   %.4284 = phi i32 [ %261, %256 ], [ %.3283431, %247 ], [ %.3283431, %237 ]
   %263 = add nsw i32 %.1273, 1
   %264 = sext i32 %.1273 to i64
-  %265 = getelementptr inbounds %struct.stbtt_vertex, ptr %105, i64 %264
+  %265 = getelementptr inbounds [10 x i8], ptr %105, i64 %264
   %266 = getelementptr inbounds nuw i8, ptr %265, i64 8
   store i8 1, ptr %266, align 2
   %267 = trunc i32 %.1312 to i16
@@ -1781,7 +1774,7 @@ _ZL18stbtt__close_shapeP12stbtt_vertexiiiiiiiii.exit: ; preds = %211, %228, %232
 285:                                              ; preds = %284
   %286 = add nsw i32 %.0272432, 1
   %287 = sext i32 %.0272432 to i64
-  %288 = getelementptr inbounds %struct.stbtt_vertex, ptr %105, i64 %287
+  %288 = getelementptr inbounds [10 x i8], ptr %105, i64 %287
   %289 = add nsw i32 %.0316416, %187
   %290 = lshr i32 %289, 1
   %291 = add nsw i32 %.0314419, %190
@@ -1803,7 +1796,7 @@ _ZL18stbtt__close_shapeP12stbtt_vertexiiiiiiiii.exit: ; preds = %211, %228, %232
 
 301:                                              ; preds = %282
   %302 = sext i32 %.0272432 to i64
-  %303 = getelementptr inbounds %struct.stbtt_vertex, ptr %105, i64 %302
+  %303 = getelementptr inbounds [10 x i8], ptr %105, i64 %302
   %304 = getelementptr inbounds nuw i8, ptr %303, i64 8
   %305 = getelementptr inbounds nuw i8, ptr %303, i64 2
   br i1 %.not346, label %310, label %306
@@ -1861,7 +1854,7 @@ _ZL18stbtt__close_shapeP12stbtt_vertexiiiiiiiii.exit: ; preds = %211, %228, %232
 318:                                              ; preds = %317
   %319 = add nsw i32 %.4, 1
   %320 = sext i32 %.4 to i64
-  %321 = getelementptr inbounds %struct.stbtt_vertex, ptr %105, i64 %320
+  %321 = getelementptr inbounds [10 x i8], ptr %105, i64 %320
   %322 = add nsw i32 %.2307, %.1317
   %323 = lshr i32 %322, 1
   %324 = add nsw i32 %.2304, %.1315
@@ -1884,7 +1877,7 @@ _ZL18stbtt__close_shapeP12stbtt_vertexiiiiiiiii.exit: ; preds = %211, %228, %232
 334:                                              ; preds = %318, %317
   %.0.i389 = phi i32 [ %319, %318 ], [ %.4, %317 ]
   %335 = sext i32 %.0.i389 to i64
-  %336 = getelementptr inbounds %struct.stbtt_vertex, ptr %105, i64 %335
+  %336 = getelementptr inbounds [10 x i8], ptr %105, i64 %335
   %337 = getelementptr inbounds nuw i8, ptr %336, i64 8
   store i8 3, ptr %337, align 2
   %338 = trunc i32 %.2313 to i16
@@ -1900,7 +1893,7 @@ _ZL18stbtt__close_shapeP12stbtt_vertexiiiiiiiii.exit: ; preds = %211, %228, %232
 
 344:                                              ; preds = %316
   %345 = sext i32 %.4 to i64
-  %346 = getelementptr inbounds %struct.stbtt_vertex, ptr %105, i64 %345
+  %346 = getelementptr inbounds [10 x i8], ptr %105, i64 %345
   %347 = getelementptr inbounds nuw i8, ptr %346, i64 8
   %348 = trunc i32 %.2313 to i16
   %349 = trunc i32 %.2310 to i16
@@ -1929,7 +1922,7 @@ _ZL18stbtt__close_shapeP12stbtt_vertexiiiiiiiii.exit393: ; preds = %334, %351, %
   %357 = phi i64 [ %345, %351 ], [ %345, %355 ], [ %335, %334 ]
   %.sink.i390 = phi i16 [ %354, %351 ], [ 0, %355 ], [ %343, %334 ]
   %.1.in.i391 = phi i32 [ %.4, %351 ], [ %.4, %355 ], [ %.0.i389, %334 ]
-  %358 = getelementptr inbounds %struct.stbtt_vertex, ptr %105, i64 %357
+  %358 = getelementptr inbounds [10 x i8], ptr %105, i64 %357
   %359 = getelementptr inbounds nuw i8, ptr %358, i64 6
   store i16 %.sink.i390, ptr %359, align 2
   %.1.i392 = add nsw i32 %.1.in.i391, 1
@@ -2117,7 +2110,7 @@ _ZL18stbtt__close_shapeP12stbtt_vertexiiiiiiiii.exit393: ; preds = %334, %351, %
 
 471:                                              ; preds = %.preheader398, %471
   %indvars.iv = phi i64 [ 0, %.preheader398 ], [ %indvars.iv.next, %471 ]
-  %472 = getelementptr inbounds nuw %struct.stbtt_vertex, ptr %470, i64 %indvars.iv
+  %472 = getelementptr inbounds nuw [10 x i8], ptr %470, i64 %indvars.iv
   %473 = load i16, ptr %472, align 2
   %474 = getelementptr inbounds nuw i8, ptr %472, i64 2
   %475 = load i16, ptr %474, align 2
@@ -2189,7 +2182,7 @@ _ZL18stbtt__close_shapeP12stbtt_vertexiiiiiiiii.exit393: ; preds = %334, %351, %
 
 ._crit_edge:                                      ; preds = %512, %514
   %.pre-phi = phi i64 [ %515, %514 ], [ 0, %512 ]
-  %517 = getelementptr inbounds nuw %struct.stbtt_vertex, ptr %508, i64 %.pre-phi
+  %517 = getelementptr inbounds nuw [10 x i8], ptr %508, i64 %.pre-phi
   %518 = mul nuw nsw i64 %wide.trip.count, 10
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %517, ptr nonnull align 2 %470, i64 %518, i1 false)
   %.not340 = icmp eq ptr %.1404, null
@@ -3556,7 +3549,7 @@ define dso_local void @stbtt_Rasterize(ptr noundef readonly captures(none) %0, f
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.0763.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %spec.select.i, %.lr.ph.i ]
-  %21 = getelementptr inbounds nuw %struct.stbtt_vertex, ptr %2, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [10 x i8], ptr %2, i64 %indvars.iv.i
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i8, ptr %22, align 2
   %24 = icmp eq i8 %23, 1
@@ -3604,7 +3597,7 @@ define dso_local void @stbtt_Rasterize(ptr noundef readonly captures(none) %0, f
   %.0717.us.i = phi float [ 0.000000e+00, %.lr.ph10.us.i ], [ %.172.us.i, %_ZL16stbtt__add_pointP12stbtt__pointiff.exit.us.i ]
   %.1756.us.i = phi i32 [ %.07415.us.i, %.lr.ph10.us.i ], [ %.2.us.i, %_ZL16stbtt__add_pointP12stbtt__pointiff.exit.us.i ]
   %.2785.us.i = phi i32 [ -1, %.lr.ph10.us.i ], [ %.3.us.i, %_ZL16stbtt__add_pointP12stbtt__pointiff.exit.us.i ]
-  %41 = getelementptr inbounds nuw %struct.stbtt_vertex, ptr %2, i64 %indvars.iv19.i
+  %41 = getelementptr inbounds nuw [10 x i8], ptr %2, i64 %indvars.iv19.i
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load i8, ptr %42, align 2
   switch i8 %43, label %_ZL16stbtt__add_pointP12stbtt__pointiff.exit.us.i [
@@ -3645,7 +3638,7 @@ define dso_local void @stbtt_Rasterize(ptr noundef readonly captures(none) %0, f
 
 68:                                               ; preds = %60
   %69 = sext i32 %66 to i64
-  %70 = getelementptr inbounds %struct.stbtt__point, ptr %.183.us.i, i64 %69
+  %70 = getelementptr inbounds [8 x i8], ptr %.183.us.i, i64 %69
   store float %62, ptr %70, align 4
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 4
   store float %65, ptr %71, align 4
@@ -3659,7 +3652,7 @@ define dso_local void @stbtt_Rasterize(ptr noundef readonly captures(none) %0, f
 74:                                               ; preds = %72
   %75 = sub nsw i32 %.pre.i, %.1756.us.i
   %76 = zext nneg i32 %.2785.us.i to i64
-  %77 = getelementptr inbounds nuw i32, ptr %30, i64 %76
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %76
   store i32 %75, ptr %77, align 4
   br label %78
 
@@ -3676,7 +3669,7 @@ define dso_local void @stbtt_Rasterize(ptr noundef readonly captures(none) %0, f
 
 86:                                               ; preds = %78
   %87 = sext i32 %.pre.i to i64
-  %88 = getelementptr inbounds %struct.stbtt__point, ptr %.183.us.i, i64 %87
+  %88 = getelementptr inbounds [8 x i8], ptr %.183.us.i, i64 %87
   store float %81, ptr %88, align 4
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
   store float %84, ptr %89, align 4
@@ -3695,7 +3688,7 @@ _ZL16stbtt__add_pointP12stbtt__pointiff.exit.us.i: ; preds = %86, %78, %68, %60,
   %90 = load i32, ptr %15, align 4
   %91 = sub nsw i32 %90, %.2.us.i
   %92 = sext i32 %.3.us.i to i64
-  %93 = getelementptr inbounds i32, ptr %30, i64 %92
+  %93 = getelementptr inbounds [4 x i8], ptr %30, i64 %92
   store i32 %91, ptr %93, align 4
   br i1 %34, label %.preheader.split.us.i, label %_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit, !llvm.loop !19
 
@@ -3714,7 +3707,7 @@ _ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit: ; preds = %._crit_edge11
 .lr.ph.i24:                                       ; preds = %_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit, %.lr.ph.i24
   %indvars.iv.i25 = phi i64 [ %indvars.iv.next.i26, %.lr.ph.i24 ], [ 0, %_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit ]
   %.0854.i = phi i32 [ %96, %.lr.ph.i24 ], [ 0, %_ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit ]
-  %94 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv.i25
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv.i25
   %95 = load i32, ptr %94, align 4
   %96 = add nsw i32 %95, %.0854.i
   %indvars.iv.next.i26 = add nuw nsw i64 %indvars.iv.i25, 1
@@ -3740,8 +3733,8 @@ _ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit: ; preds = %._crit_edge11
   %.114.us.i = phi i32 [ %.2.lcssa.us.i, %._crit_edge10.split.us.us.i ], [ 0, %.preheader.i ]
   %.08812.us.i = phi i32 [ %108, %._crit_edge10.split.us.us.i ], [ 0, %.preheader.i ]
   %104 = sext i32 %.08812.us.i to i64
-  %105 = getelementptr inbounds %struct.stbtt__point, ptr %.183.us.i, i64 %104
-  %106 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv40.i
+  %105 = getelementptr inbounds [8 x i8], ptr %.183.us.i, i64 %104
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv40.i
   %107 = load i32, ptr %106, align 4
   %108 = add nsw i32 %107, %.08812.us.i
   %109 = icmp sgt i32 %107, 0
@@ -3763,10 +3756,10 @@ _ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit: ; preds = %._crit_edge11
   %.27.us.us.i = phi i32 [ %.114.us.i, %.lr.ph9.us.preheader.i ], [ %.3.us.us.i, %.lr.ph9.us._crit_edge.i ]
   %.0905.us.us.i = phi i32 [ %110, %.lr.ph9.us.preheader.i ], [ %.pre-phi55.i, %.lr.ph9.us._crit_edge.i ]
   %111 = sext i32 %.0905.us.us.i to i64
-  %112 = getelementptr inbounds %struct.stbtt__point, ptr %105, i64 %111
+  %112 = getelementptr inbounds [8 x i8], ptr %105, i64 %111
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 4
   %114 = load float, ptr %113, align 4
-  %115 = getelementptr inbounds nuw %struct.stbtt__point, ptr %105, i64 %indvars.iv35.i
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %indvars.iv35.i
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 4
   %117 = load float, ptr %116, align 4
   %118 = fcmp oeq float %114, %117
@@ -3774,7 +3767,7 @@ _ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit: ; preds = %._crit_edge11
 
 119:                                              ; preds = %.lr.ph9.us.i
   %120 = sext i32 %.27.us.us.i to i64
-  %121 = getelementptr inbounds %struct.stbtt__edge, ptr %102, i64 %120
+  %121 = getelementptr inbounds [20 x i8], ptr %102, i64 %120
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 16
   %123 = fcmp olt float %114, %117
   %sext160.i = shl i64 %indvars.iv35.i, 32
@@ -3782,7 +3775,7 @@ _ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit: ; preds = %._crit_edge11
   br i1 %123, label %124, label %._crit_edge53.i
 
 124:                                              ; preds = %119
-  %.phi.trans.insert49.i = getelementptr inbounds %struct.stbtt__point, ptr %105, i64 %.pre47.i
+  %.phi.trans.insert49.i = getelementptr inbounds [8 x i8], ptr %105, i64 %.pre47.i
   %.phi.trans.insert50.i = getelementptr inbounds nuw i8, ptr %.phi.trans.insert49.i, i64 4
   %.pre51.i = load float, ptr %.phi.trans.insert50.i, align 4
   br label %._crit_edge53.i
@@ -3793,7 +3786,7 @@ _ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit: ; preds = %._crit_edge11
   %.pre-phi48.i = phi i64 [ %.pre47.i, %124 ], [ %111, %119 ]
   %storemerge19.i = phi i32 [ 1, %124 ], [ 0, %119 ]
   store i32 %storemerge19.i, ptr %122, align 4
-  %126 = getelementptr inbounds %struct.stbtt__point, ptr %105, i64 %.pre-phi57.i
+  %126 = getelementptr inbounds [8 x i8], ptr %105, i64 %.pre-phi57.i
   %127 = load float, ptr %126, align 4
   %128 = tail call float @llvm.fmuladd.f32(float %127, float %4, float %6)
   store float %128, ptr %121, align 4
@@ -3802,7 +3795,7 @@ _ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit: ; preds = %._crit_edge11
   %131 = tail call float @llvm.fmuladd.f32(float %130, float %98, float %7)
   %132 = getelementptr inbounds nuw i8, ptr %121, i64 4
   store float %131, ptr %132, align 4
-  %133 = getelementptr inbounds %struct.stbtt__point, ptr %105, i64 %.pre-phi48.i
+  %133 = getelementptr inbounds [8 x i8], ptr %105, i64 %.pre-phi48.i
   %134 = load float, ptr %133, align 4
   %135 = tail call float @llvm.fmuladd.f32(float %134, float %4, float %6)
   %136 = getelementptr inbounds nuw i8, ptr %121, i64 8
@@ -3825,8 +3818,8 @@ _ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit: ; preds = %._crit_edge11
   %.114.i = phi i32 [ %.2.lcssa.i, %._crit_edge10.split.i ], [ 0, %.preheader.i ]
   %.08812.i = phi i32 [ %144, %._crit_edge10.split.i ], [ 0, %.preheader.i ]
   %140 = sext i32 %.08812.i to i64
-  %141 = getelementptr inbounds %struct.stbtt__point, ptr %.183.us.i, i64 %140
-  %142 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv30.i
+  %141 = getelementptr inbounds [8 x i8], ptr %.183.us.i, i64 %140
+  %142 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv30.i
   %143 = load i32, ptr %142, align 4
   %144 = add nsw i32 %143, %.08812.i
   %145 = icmp sgt i32 %143, 0
@@ -3842,10 +3835,10 @@ _ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit: ; preds = %._crit_edge11
   %.27.i = phi i32 [ %.114.i, %.lr.ph9.preheader.i ], [ %.3.i, %.lr.ph9._crit_edge.i ]
   %.0905.i = phi i32 [ %146, %.lr.ph9.preheader.i ], [ %.pre-phi59.i, %.lr.ph9._crit_edge.i ]
   %147 = sext i32 %.0905.i to i64
-  %148 = getelementptr inbounds %struct.stbtt__point, ptr %141, i64 %147
+  %148 = getelementptr inbounds [8 x i8], ptr %141, i64 %147
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 4
   %150 = load float, ptr %149, align 4
-  %151 = getelementptr inbounds nuw %struct.stbtt__point, ptr %141, i64 %indvars.iv25.i
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %141, i64 %indvars.iv25.i
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 4
   %153 = load float, ptr %152, align 4
   %154 = fcmp oeq float %150, %153
@@ -3853,7 +3846,7 @@ _ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit: ; preds = %._crit_edge11
 
 155:                                              ; preds = %.lr.ph9.i
   %156 = sext i32 %.27.i to i64
-  %157 = getelementptr inbounds %struct.stbtt__edge, ptr %102, i64 %156
+  %157 = getelementptr inbounds [20 x i8], ptr %102, i64 %156
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 16
   %159 = fcmp ogt float %150, %153
   %sext158.i = shl i64 %indvars.iv25.i, 32
@@ -3861,7 +3854,7 @@ _ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit: ; preds = %._crit_edge11
   br i1 %159, label %160, label %._crit_edge52.i
 
 160:                                              ; preds = %155
-  %.phi.trans.insert.i = getelementptr inbounds %struct.stbtt__point, ptr %141, i64 %.pre.i29
+  %.phi.trans.insert.i = getelementptr inbounds [8 x i8], ptr %141, i64 %.pre.i29
   %.phi.trans.insert45.i = getelementptr inbounds nuw i8, ptr %.phi.trans.insert.i, i64 4
   %.pre46.i = load float, ptr %.phi.trans.insert45.i, align 4
   br label %._crit_edge52.i
@@ -3872,7 +3865,7 @@ _ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit: ; preds = %._crit_edge11
   %.pre-phi.i = phi i64 [ %.pre.i29, %160 ], [ %147, %155 ]
   %storemerge.i = phi i32 [ 1, %160 ], [ 0, %155 ]
   store i32 %storemerge.i, ptr %158, align 4
-  %162 = getelementptr inbounds %struct.stbtt__point, ptr %141, i64 %.pre-phi61.i
+  %162 = getelementptr inbounds [8 x i8], ptr %141, i64 %.pre-phi61.i
   %163 = load float, ptr %162, align 4
   %164 = tail call float @llvm.fmuladd.f32(float %163, float %4, float %6)
   store float %164, ptr %157, align 4
@@ -3881,7 +3874,7 @@ _ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit: ; preds = %._crit_edge11
   %167 = tail call float @llvm.fmuladd.f32(float %166, float %98, float %7)
   %168 = getelementptr inbounds nuw i8, ptr %157, i64 4
   store float %167, ptr %168, align 4
-  %169 = getelementptr inbounds %struct.stbtt__point, ptr %141, i64 %.pre-phi.i
+  %169 = getelementptr inbounds [8 x i8], ptr %141, i64 %.pre-phi.i
   %170 = load float, ptr %169, align 4
   %171 = tail call float @llvm.fmuladd.f32(float %170, float %4, float %6)
   %172 = getelementptr inbounds nuw i8, ptr %157, i64 8
@@ -3918,7 +3911,7 @@ _ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit: ; preds = %._crit_edge11
 
 .lr.ph.i.i.i:                                     ; preds = %191, %.lr.ph.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 1, %.lr.ph.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %191 ]
-  %177 = getelementptr inbounds nuw %struct.stbtt__edge, ptr %102, i64 %indvars.iv.i.i.i
+  %177 = getelementptr inbounds nuw [20 x i8], ptr %102, i64 %indvars.iv.i.i.i
   %.sroa.0.0.copyload.i.i.i = load float, ptr %177, align 4
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %177, i64 4
   %.sroa.2.0.copyload.i.i.i = load float, ptr %.sroa.2.0..sroa_idx.i.i.i, align 4
@@ -3928,7 +3921,7 @@ _ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit: ; preds = %._crit_edge11
 
 178:                                              ; preds = %183, %.lr.ph.i.i.i
   %indvars.iv27.i.i.i = phi i64 [ %indvars.iv.i.i.i, %.lr.ph.i.i.i ], [ %indvars.iv.next28.i.i.i, %183 ]
-  %179 = getelementptr %struct.stbtt__edge, ptr %102, i64 %indvars.iv27.i.i.i
+  %179 = getelementptr [20 x i8], ptr %102, i64 %indvars.iv27.i.i.i
   %180 = getelementptr i8, ptr %179, i64 -16
   %181 = load float, ptr %180, align 4
   %182 = fcmp olt float %.sroa.2.0.copyload.i.i.i, %181
@@ -3953,7 +3946,7 @@ _ZL19stbtt_FlattenCurvesP12stbtt_vertexifPPiS1_Pv.exit: ; preds = %._crit_edge11
 
 188:                                              ; preds = %.split.loop.exit31.i.i.i
   %189 = sext i32 %.020.lcssa.i.i.i to i64
-  %190 = getelementptr inbounds %struct.stbtt__edge, ptr %102, i64 %189
+  %190 = getelementptr inbounds [20 x i8], ptr %102, i64 %189
   store float %.sroa.0.0.copyload.i.i.i, ptr %190, align 4
   %.sroa.2.0..sroa_idx22.i.i.i = getelementptr inbounds nuw i8, ptr %190, i64 4
   store float %.sroa.2.0.copyload.i.i.i, ptr %.sroa.2.0..sroa_idx22.i.i.i, align 4
@@ -3986,14 +3979,14 @@ _ZL17stbtt__sort_edgesP11stbtt__edgei.exit.i:     ; preds = %191, %._crit_edge16
 200:                                              ; preds = %194, %_ZL17stbtt__sort_edgesP11stbtt__edgei.exit.i
   %.074.i.i = phi ptr [ %199, %194 ], [ %14, %_ZL17stbtt__sort_edgesP11stbtt__edgei.exit.i ]
   %201 = sext i32 %192 to i64
-  %202 = getelementptr inbounds float, ptr %.074.i.i, i64 %201
+  %202 = getelementptr inbounds [4 x i8], ptr %.074.i.i, i64 %201
   %203 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %204 = load i32, ptr %203, align 4
   %205 = add nsw i32 %204, %9
   %206 = sitofp i32 %205 to float
   %207 = fadd float %206, 1.000000e+00
   %208 = sext i32 %.1.lcssa.i to i64
-  %209 = getelementptr inbounds %struct.stbtt__edge, ptr %102, i64 %208
+  %209 = getelementptr inbounds [20 x i8], ptr %102, i64 %208
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 4
   store float %207, ptr %210, align 4
   %211 = icmp sgt i32 %204, 0
@@ -4249,7 +4242,7 @@ _ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.thread.i.i: ; preds
   %333 = load float, ptr %332, align 4
   %334 = fsub float %.0.i.i.i.i, %.054.i.i.i.i
   %335 = sext i32 %301 to i64
-  %336 = getelementptr inbounds float, ptr %.074.i.i, i64 %335
+  %336 = getelementptr inbounds [4 x i8], ptr %.074.i.i, i64 %335
   %337 = load float, ptr %336, align 4
   %338 = tail call float @llvm.fmuladd.f32(float %333, float %334, float %337)
   store float %338, ptr %336, align 4
@@ -4274,7 +4267,7 @@ _ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.thread.i.i: ; preds
   %352 = fmul float %351, 5.000000e-01
   %353 = fsub float 1.000000e+00, %352
   %354 = sext i32 %301 to i64
-  %355 = getelementptr inbounds float, ptr %.074.i.i, i64 %354
+  %355 = getelementptr inbounds [4 x i8], ptr %.074.i.i, i64 %354
   %356 = load float, ptr %355, align 4
   %357 = tail call float @llvm.fmuladd.f32(float %348, float %353, float %356)
   store float %357, ptr %355, align 4
@@ -4333,7 +4326,7 @@ _ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.thread.i.i: ; preds
   %389 = load float, ptr %388, align 4
   %390 = fsub float %.0.i334.i.i.i, %.054.i332.i.i.i
   %391 = sext i32 %359 to i64
-  %392 = getelementptr inbounds float, ptr %202, i64 %391
+  %392 = getelementptr inbounds [4 x i8], ptr %202, i64 %391
   %393 = load float, ptr %392, align 4
   %394 = tail call float @llvm.fmuladd.f32(float %389, float %390, float %393)
   store float %394, ptr %392, align 4
@@ -4358,7 +4351,7 @@ _ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.thread.i.i: ; preds
   %408 = fmul float %407, 5.000000e-01
   %409 = fsub float 1.000000e+00, %408
   %410 = sext i32 %359 to i64
-  %411 = getelementptr inbounds float, ptr %202, i64 %410
+  %411 = getelementptr inbounds [4 x i8], ptr %202, i64 %410
   %412 = load float, ptr %411, align 4
   %413 = tail call float @llvm.fmuladd.f32(float %404, float %409, float %412)
   store float %413, ptr %411, align 4
@@ -4489,12 +4482,12 @@ _ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.thread.i.i: ; preds
   %494 = fsub float 1.000000e+00, %493
   %495 = fmul float %494, %488
   %496 = sext i32 %482 to i64
-  %497 = getelementptr inbounds float, ptr %.074.i.i, i64 %496
+  %497 = getelementptr inbounds [4 x i8], ptr %.074.i.i, i64 %496
   %498 = load float, ptr %497, align 4
   %499 = tail call float @llvm.fmuladd.f32(float %495, float %486, float %498)
   store float %499, ptr %497, align 4
   %500 = load float, ptr %487, align 4
-  %501 = getelementptr inbounds float, ptr %213, i64 %496
+  %501 = getelementptr inbounds [4 x i8], ptr %213, i64 %496
   %502 = load float, ptr %501, align 4
   %503 = tail call float @llvm.fmuladd.f32(float %500, float %486, float %502)
   store float %503, ptr %501, align 4
@@ -4535,7 +4528,7 @@ _ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.thread.i.i: ; preds
   %524 = fmul float %523, 5.000000e-01
   %525 = fsub float 1.000000e+00, %524
   %526 = sext i32 %.pre-phi.i.i.i to i64
-  %527 = getelementptr inbounds float, ptr %.074.i.i, i64 %526
+  %527 = getelementptr inbounds [4 x i8], ptr %.074.i.i, i64 %526
   %528 = load float, ptr %527, align 4
   %529 = tail call float @llvm.fmuladd.f32(float %520, float %525, float %528)
   store float %529, ptr %527, align 4
@@ -4552,7 +4545,7 @@ _ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.thread.i.i: ; preds
   %indvars.iv457.i.i.i = phi i64 [ %533, %.lr.ph453.i.i.i ], [ %indvars.iv.next458.i.i.i, %534 ]
   %.0295452.i.i.i = phi float [ %520, %.lr.ph453.i.i.i ], [ %539, %534 ]
   %535 = fadd float %532, %.0295452.i.i.i
-  %536 = getelementptr inbounds float, ptr %.074.i.i, i64 %indvars.iv457.i.i.i
+  %536 = getelementptr inbounds [4 x i8], ptr %.074.i.i, i64 %indvars.iv457.i.i.i
   %537 = load float, ptr %536, align 4
   %538 = fadd float %535, %537
   store float %538, ptr %536, align 4
@@ -4576,12 +4569,12 @@ _ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.thread.i.i: ; preds
   %549 = fsub float %.1294.i.i.i, %542
   %550 = tail call float @llvm.fmuladd.f32(float %548, float %549, float %.0295.lcssa.i.i.i)
   %551 = sext i32 %.pre-phi461.i.i.i to i64
-  %552 = getelementptr inbounds float, ptr %.074.i.i, i64 %551
+  %552 = getelementptr inbounds [4 x i8], ptr %.074.i.i, i64 %551
   %553 = load float, ptr %552, align 4
   %554 = fadd float %550, %553
   store float %554, ptr %552, align 4
   %555 = fsub float %.1294.i.i.i, %.1291.i.i.i
-  %556 = getelementptr inbounds float, ptr %213, i64 %551
+  %556 = getelementptr inbounds [4 x i8], ptr %213, i64 %551
   %557 = load float, ptr %556, align 4
   %558 = tail call float @llvm.fmuladd.f32(float %518, float %555, float %557)
   store float %558, ptr %556, align 4
@@ -4665,7 +4658,7 @@ _ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.thread.i.i: ; preds
 603:                                              ; preds = %600
   %604 = load float, ptr %561, align 4
   %605 = fsub float %.0.i348.i.i.i, %.054.i346.i.i.i
-  %606 = getelementptr inbounds nuw float, ptr %.074.i.i, i64 %indvars.iv.i.i95.i
+  %606 = getelementptr inbounds nuw [4 x i8], ptr %.074.i.i, i64 %indvars.iv.i.i95.i
   %607 = load float, ptr %606, align 4
   %608 = tail call float @llvm.fmuladd.f32(float %604, float %605, float %607)
   store float %608, ptr %606, align 4
@@ -4686,7 +4679,7 @@ _ZL17stbtt__new_activeP12stbtt__hheapP11stbtt__edgeifPv.exit.thread.i.i: ; preds
   %618 = fadd float %616, %617
   %619 = fmul float %618, 5.000000e-01
   %620 = fsub float 1.000000e+00, %619
-  %621 = getelementptr inbounds nuw float, ptr %.074.i.i, i64 %indvars.iv.i.i95.i
+  %621 = getelementptr inbounds nuw [4 x i8], ptr %.074.i.i, i64 %indvars.iv.i.i95.i
   %622 = load float, ptr %621, align 4
   %623 = tail call float @llvm.fmuladd.f32(float %615, float %620, float %622)
   store float %623, ptr %621, align 4
@@ -4745,7 +4738,7 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit351.i.i.i: ; pre
 652:                                              ; preds = %649
   %653 = load float, ptr %561, align 4
   %654 = fsub float %.0.i355.i.i.i, %.054.i353.i.i.i
-  %655 = getelementptr inbounds nuw float, ptr %.074.i.i, i64 %indvars.iv.i.i95.i
+  %655 = getelementptr inbounds nuw [4 x i8], ptr %.074.i.i, i64 %indvars.iv.i.i95.i
   %656 = load float, ptr %655, align 4
   %657 = tail call float @llvm.fmuladd.f32(float %653, float %654, float %656)
   store float %657, ptr %655, align 4
@@ -4766,7 +4759,7 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit351.i.i.i: ; pre
   %667 = fadd float %665, %666
   %668 = fmul float %667, 5.000000e-01
   %669 = fsub float 1.000000e+00, %668
-  %670 = getelementptr inbounds nuw float, ptr %.074.i.i, i64 %indvars.iv.i.i95.i
+  %670 = getelementptr inbounds nuw [4 x i8], ptr %.074.i.i, i64 %indvars.iv.i.i95.i
   %671 = load float, ptr %670, align 4
   %672 = tail call float @llvm.fmuladd.f32(float %664, float %669, float %671)
   store float %672, ptr %670, align 4
@@ -4825,7 +4818,7 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit358.i.i.i: ; pre
 701:                                              ; preds = %698
   %702 = load float, ptr %561, align 4
   %703 = fsub float %.0.i362.i.i.i, %.054.i360.i.i.i
-  %704 = getelementptr inbounds nuw float, ptr %.074.i.i, i64 %indvars.iv.i.i95.i
+  %704 = getelementptr inbounds nuw [4 x i8], ptr %.074.i.i, i64 %indvars.iv.i.i95.i
   %705 = load float, ptr %704, align 4
   %706 = tail call float @llvm.fmuladd.f32(float %702, float %703, float %705)
   store float %706, ptr %704, align 4
@@ -4846,7 +4839,7 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit358.i.i.i: ; pre
   %716 = fadd float %714, %715
   %717 = fmul float %716, 5.000000e-01
   %718 = fsub float 1.000000e+00, %717
-  %719 = getelementptr inbounds nuw float, ptr %.074.i.i, i64 %indvars.iv.i.i95.i
+  %719 = getelementptr inbounds nuw [4 x i8], ptr %.074.i.i, i64 %indvars.iv.i.i95.i
   %720 = load float, ptr %719, align 4
   %721 = tail call float @llvm.fmuladd.f32(float %713, float %718, float %720)
   store float %721, ptr %719, align 4
@@ -4910,7 +4903,7 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit358.i.i.i: ; pre
 753:                                              ; preds = %750
   %754 = load float, ptr %561, align 4
   %755 = fsub float %.0.i369.i.i.i, %.054.i367.i.i.i
-  %756 = getelementptr inbounds nuw float, ptr %.074.i.i, i64 %indvars.iv.i.i95.i
+  %756 = getelementptr inbounds nuw [4 x i8], ptr %.074.i.i, i64 %indvars.iv.i.i95.i
   %757 = load float, ptr %756, align 4
   %758 = tail call float @llvm.fmuladd.f32(float %754, float %755, float %757)
   store float %758, ptr %756, align 4
@@ -4931,7 +4924,7 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit358.i.i.i: ; pre
   %768 = fadd float %766, %767
   %769 = fmul float %768, 5.000000e-01
   %770 = fsub float 1.000000e+00, %769
-  %771 = getelementptr inbounds nuw float, ptr %.074.i.i, i64 %indvars.iv.i.i95.i
+  %771 = getelementptr inbounds nuw [4 x i8], ptr %.074.i.i, i64 %indvars.iv.i.i95.i
   %772 = load float, ptr %771, align 4
   %773 = tail call float @llvm.fmuladd.f32(float %765, float %770, float %772)
   store float %773, ptr %771, align 4
@@ -4990,7 +4983,7 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit372.i.i.i: ; pre
 802:                                              ; preds = %799
   %803 = load float, ptr %561, align 4
   %804 = fsub float %.0.i376.i.i.i, %.054.i374.i.i.i
-  %805 = getelementptr inbounds nuw float, ptr %.074.i.i, i64 %indvars.iv.i.i95.i
+  %805 = getelementptr inbounds nuw [4 x i8], ptr %.074.i.i, i64 %indvars.iv.i.i95.i
   %806 = load float, ptr %805, align 4
   %807 = tail call float @llvm.fmuladd.f32(float %803, float %804, float %806)
   store float %807, ptr %805, align 4
@@ -5011,7 +5004,7 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit372.i.i.i: ; pre
   %817 = fadd float %815, %816
   %818 = fmul float %817, 5.000000e-01
   %819 = fsub float 1.000000e+00, %818
-  %820 = getelementptr inbounds nuw float, ptr %.074.i.i, i64 %indvars.iv.i.i95.i
+  %820 = getelementptr inbounds nuw [4 x i8], ptr %.074.i.i, i64 %indvars.iv.i.i95.i
   %821 = load float, ptr %820, align 4
   %822 = tail call float @llvm.fmuladd.f32(float %814, float %819, float %821)
   store float %822, ptr %820, align 4
@@ -5070,7 +5063,7 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit379.i.i.i: ; pre
 851:                                              ; preds = %848
   %852 = load float, ptr %561, align 4
   %853 = fsub float %.0.i383.i.i.i, %.054.i381.i.i.i
-  %854 = getelementptr inbounds nuw float, ptr %.074.i.i, i64 %indvars.iv.i.i95.i
+  %854 = getelementptr inbounds nuw [4 x i8], ptr %.074.i.i, i64 %indvars.iv.i.i95.i
   %855 = load float, ptr %854, align 4
   %856 = tail call float @llvm.fmuladd.f32(float %852, float %853, float %855)
   store float %856, ptr %854, align 4
@@ -5091,7 +5084,7 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit379.i.i.i: ; pre
   %866 = fadd float %864, %865
   %867 = fmul float %866, 5.000000e-01
   %868 = fsub float 1.000000e+00, %867
-  %869 = getelementptr inbounds nuw float, ptr %.074.i.i, i64 %indvars.iv.i.i95.i
+  %869 = getelementptr inbounds nuw [4 x i8], ptr %.074.i.i, i64 %indvars.iv.i.i95.i
   %870 = load float, ptr %869, align 4
   %871 = tail call float @llvm.fmuladd.f32(float %863, float %868, float %870)
   store float %871, ptr %869, align 4
@@ -5154,7 +5147,7 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit379.i.i.i: ; pre
 902:                                              ; preds = %899
   %903 = load float, ptr %561, align 4
   %904 = fsub float %.0.i390.i.i.i, %.054.i388.i.i.i
-  %905 = getelementptr inbounds nuw float, ptr %.074.i.i, i64 %indvars.iv.i.i95.i
+  %905 = getelementptr inbounds nuw [4 x i8], ptr %.074.i.i, i64 %indvars.iv.i.i95.i
   %906 = load float, ptr %905, align 4
   %907 = tail call float @llvm.fmuladd.f32(float %903, float %904, float %906)
   store float %907, ptr %905, align 4
@@ -5175,7 +5168,7 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit379.i.i.i: ; pre
   %917 = fadd float %915, %916
   %918 = fmul float %917, 5.000000e-01
   %919 = fsub float 1.000000e+00, %918
-  %920 = getelementptr inbounds nuw float, ptr %.074.i.i, i64 %indvars.iv.i.i95.i
+  %920 = getelementptr inbounds nuw [4 x i8], ptr %.074.i.i, i64 %indvars.iv.i.i95.i
   %921 = load float, ptr %920, align 4
   %922 = tail call float @llvm.fmuladd.f32(float %914, float %919, float %921)
   store float %922, ptr %920, align 4
@@ -5234,7 +5227,7 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit393.i.i.i: ; pre
 951:                                              ; preds = %948
   %952 = load float, ptr %561, align 4
   %953 = fsub float %.0.i397.i.i.i, %.054.i395.i.i.i
-  %954 = getelementptr inbounds nuw float, ptr %.074.i.i, i64 %indvars.iv.i.i95.i
+  %954 = getelementptr inbounds nuw [4 x i8], ptr %.074.i.i, i64 %indvars.iv.i.i95.i
   %955 = load float, ptr %954, align 4
   %956 = tail call float @llvm.fmuladd.f32(float %952, float %953, float %955)
   store float %956, ptr %954, align 4
@@ -5255,7 +5248,7 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit393.i.i.i: ; pre
   %966 = fadd float %964, %965
   %967 = fmul float %966, 5.000000e-01
   %968 = fsub float 1.000000e+00, %967
-  %969 = getelementptr inbounds nuw float, ptr %.074.i.i, i64 %indvars.iv.i.i95.i
+  %969 = getelementptr inbounds nuw [4 x i8], ptr %.074.i.i, i64 %indvars.iv.i.i95.i
   %970 = load float, ptr %969, align 4
   %971 = tail call float @llvm.fmuladd.f32(float %963, float %968, float %970)
   store float %971, ptr %969, align 4
@@ -5318,7 +5311,7 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit393.i.i.i: ; pre
 1002:                                             ; preds = %999
   %1003 = load float, ptr %561, align 4
   %1004 = fsub float %.0.i404.i.i.i, %.054.i402.i.i.i
-  %1005 = getelementptr inbounds nuw float, ptr %.074.i.i, i64 %indvars.iv.i.i95.i
+  %1005 = getelementptr inbounds nuw [4 x i8], ptr %.074.i.i, i64 %indvars.iv.i.i95.i
   %1006 = load float, ptr %1005, align 4
   %1007 = tail call float @llvm.fmuladd.f32(float %1003, float %1004, float %1006)
   store float %1007, ptr %1005, align 4
@@ -5339,7 +5332,7 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit393.i.i.i: ; pre
   %1017 = fadd float %1015, %1016
   %1018 = fmul float %1017, 5.000000e-01
   %1019 = fsub float 1.000000e+00, %1018
-  %1020 = getelementptr inbounds nuw float, ptr %.074.i.i, i64 %indvars.iv.i.i95.i
+  %1020 = getelementptr inbounds nuw [4 x i8], ptr %.074.i.i, i64 %indvars.iv.i.i95.i
   %1021 = load float, ptr %1020, align 4
   %1022 = tail call float @llvm.fmuladd.f32(float %1014, float %1019, float %1021)
   store float %1022, ptr %1020, align 4
@@ -5398,7 +5391,7 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit407.i.i.i: ; pre
 1051:                                             ; preds = %1048
   %1052 = load float, ptr %561, align 4
   %1053 = fsub float %.0.i411.i.i.i, %.054.i409.i.i.i
-  %1054 = getelementptr inbounds nuw float, ptr %.074.i.i, i64 %indvars.iv.i.i95.i
+  %1054 = getelementptr inbounds nuw [4 x i8], ptr %.074.i.i, i64 %indvars.iv.i.i95.i
   %1055 = load float, ptr %1054, align 4
   %1056 = tail call float @llvm.fmuladd.f32(float %1052, float %1053, float %1055)
   store float %1056, ptr %1054, align 4
@@ -5419,7 +5412,7 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit407.i.i.i: ; pre
   %1066 = fadd float %1064, %1065
   %1067 = fmul float %1066, 5.000000e-01
   %1068 = fsub float 1.000000e+00, %1067
-  %1069 = getelementptr inbounds nuw float, ptr %.074.i.i, i64 %indvars.iv.i.i95.i
+  %1069 = getelementptr inbounds nuw [4 x i8], ptr %.074.i.i, i64 %indvars.iv.i.i95.i
   %1070 = load float, ptr %1069, align 4
   %1071 = tail call float @llvm.fmuladd.f32(float %1063, float %1068, float %1070)
   store float %1071, ptr %1069, align 4
@@ -5482,7 +5475,7 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit407.i.i.i: ; pre
 1102:                                             ; preds = %1099
   %1103 = load float, ptr %561, align 4
   %1104 = fsub float %.0.i418.i.i.i, %.054.i416.i.i.i
-  %1105 = getelementptr inbounds nuw float, ptr %.074.i.i, i64 %indvars.iv.i.i95.i
+  %1105 = getelementptr inbounds nuw [4 x i8], ptr %.074.i.i, i64 %indvars.iv.i.i95.i
   %1106 = load float, ptr %1105, align 4
   %1107 = tail call float @llvm.fmuladd.f32(float %1103, float %1104, float %1106)
   store float %1107, ptr %1105, align 4
@@ -5503,7 +5496,7 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit407.i.i.i: ; pre
   %1117 = fadd float %1115, %1116
   %1118 = fmul float %1117, 5.000000e-01
   %1119 = fsub float 1.000000e+00, %1118
-  %1120 = getelementptr inbounds nuw float, ptr %.074.i.i, i64 %indvars.iv.i.i95.i
+  %1120 = getelementptr inbounds nuw [4 x i8], ptr %.074.i.i, i64 %indvars.iv.i.i95.i
   %1121 = load float, ptr %1120, align 4
   %1122 = tail call float @llvm.fmuladd.f32(float %1114, float %1119, float %1121)
   store float %1122, ptr %1120, align 4
@@ -5562,7 +5555,7 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit421.i.i.i: ; pre
 1151:                                             ; preds = %1148
   %1152 = load float, ptr %561, align 4
   %1153 = fsub float %.0.i425.i.i.i, %.054.i423.i.i.i
-  %1154 = getelementptr inbounds nuw float, ptr %.074.i.i, i64 %indvars.iv.i.i95.i
+  %1154 = getelementptr inbounds nuw [4 x i8], ptr %.074.i.i, i64 %indvars.iv.i.i95.i
   %1155 = load float, ptr %1154, align 4
   %1156 = tail call float @llvm.fmuladd.f32(float %1152, float %1153, float %1155)
   store float %1156, ptr %1154, align 4
@@ -5583,7 +5576,7 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit421.i.i.i: ; pre
   %1166 = fadd float %1164, %1165
   %1167 = fmul float %1166, 5.000000e-01
   %1168 = fsub float 1.000000e+00, %1167
-  %1169 = getelementptr inbounds nuw float, ptr %.074.i.i, i64 %indvars.iv.i.i95.i
+  %1169 = getelementptr inbounds nuw [4 x i8], ptr %.074.i.i, i64 %indvars.iv.i.i95.i
   %1170 = load float, ptr %1169, align 4
   %1171 = tail call float @llvm.fmuladd.f32(float %1163, float %1168, float %1170)
   store float %1171, ptr %1169, align 4
@@ -5646,7 +5639,7 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit421.i.i.i: ; pre
 1202:                                             ; preds = %1199
   %1203 = load float, ptr %561, align 4
   %1204 = fsub float %.0.i432.i.i.i, %.054.i430.i.i.i
-  %1205 = getelementptr inbounds nuw float, ptr %.074.i.i, i64 %indvars.iv.i.i95.i
+  %1205 = getelementptr inbounds nuw [4 x i8], ptr %.074.i.i, i64 %indvars.iv.i.i95.i
   %1206 = load float, ptr %1205, align 4
   %1207 = tail call float @llvm.fmuladd.f32(float %1203, float %1204, float %1206)
   store float %1207, ptr %1205, align 4
@@ -5667,7 +5660,7 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit421.i.i.i: ; pre
   %1217 = fadd float %1215, %1216
   %1218 = fmul float %1217, 5.000000e-01
   %1219 = fsub float 1.000000e+00, %1218
-  %1220 = getelementptr inbounds nuw float, ptr %.074.i.i, i64 %indvars.iv.i.i95.i
+  %1220 = getelementptr inbounds nuw [4 x i8], ptr %.074.i.i, i64 %indvars.iv.i.i95.i
   %1221 = load float, ptr %1220, align 4
   %1222 = tail call float @llvm.fmuladd.f32(float %1214, float %1219, float %1221)
   store float %1222, ptr %1220, align 4
@@ -5726,7 +5719,7 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit435.i.i.i: ; pre
 1251:                                             ; preds = %1248
   %1252 = load float, ptr %561, align 4
   %1253 = fsub float %.0.i439.i.i.i, %.054.i437.i.i.i
-  %1254 = getelementptr inbounds nuw float, ptr %.074.i.i, i64 %indvars.iv.i.i95.i
+  %1254 = getelementptr inbounds nuw [4 x i8], ptr %.074.i.i, i64 %indvars.iv.i.i95.i
   %1255 = load float, ptr %1254, align 4
   %1256 = tail call float @llvm.fmuladd.f32(float %1252, float %1253, float %1255)
   store float %1256, ptr %1254, align 4
@@ -5747,7 +5740,7 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit435.i.i.i: ; pre
   %1266 = fadd float %1264, %1265
   %1267 = fmul float %1266, 5.000000e-01
   %1268 = fsub float 1.000000e+00, %1267
-  %1269 = getelementptr inbounds nuw float, ptr %.074.i.i, i64 %indvars.iv.i.i95.i
+  %1269 = getelementptr inbounds nuw [4 x i8], ptr %.074.i.i, i64 %indvars.iv.i.i95.i
   %1270 = load float, ptr %1269, align 4
   %1271 = tail call float @llvm.fmuladd.f32(float %1263, float %1268, float %1270)
   store float %1271, ptr %1269, align 4
@@ -5797,7 +5790,7 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit435.i.i.i: ; pre
 1296:                                             ; preds = %1293
   %1297 = load float, ptr %561, align 4
   %1298 = fsub float %.0.i446.i.i.i, %.054.i444.i.i.i
-  %1299 = getelementptr inbounds nuw float, ptr %.074.i.i, i64 %indvars.iv.i.i95.i
+  %1299 = getelementptr inbounds nuw [4 x i8], ptr %.074.i.i, i64 %indvars.iv.i.i95.i
   %1300 = load float, ptr %1299, align 4
   %1301 = tail call float @llvm.fmuladd.f32(float %1297, float %1298, float %1300)
   store float %1301, ptr %1299, align 4
@@ -5818,7 +5811,7 @@ _ZL26stbtt__handle_clipped_edgePfiP18stbtt__active_edgeffff.exit435.i.i.i: ; pre
   %1311 = fadd float %1309, %1310
   %1312 = fmul float %1311, 5.000000e-01
   %1313 = fsub float 1.000000e+00, %1312
-  %1314 = getelementptr inbounds nuw float, ptr %.074.i.i, i64 %indvars.iv.i.i95.i
+  %1314 = getelementptr inbounds nuw [4 x i8], ptr %.074.i.i, i64 %indvars.iv.i.i95.i
   %1315 = load float, ptr %1314, align 4
   %1316 = tail call float @llvm.fmuladd.f32(float %1308, float %1313, float %1315)
   store float %1316, ptr %1314, align 4
@@ -5843,10 +5836,10 @@ _ZL28stbtt__fill_active_edges_newPfS_iP18stbtt__active_edgef.exit.i.i: ; preds =
 .lr.ph22.i.i:                                     ; preds = %_ZL28stbtt__fill_active_edges_newPfS_iP18stbtt__active_edgef.exit.i.i, %.lr.ph22.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph22.i.i ], [ 0, %_ZL28stbtt__fill_active_edges_newPfS_iP18stbtt__active_edgef.exit.i.i ]
   %.07221.i.i = phi float [ %1321, %.lr.ph22.i.i ], [ 0.000000e+00, %_ZL28stbtt__fill_active_edges_newPfS_iP18stbtt__active_edgef.exit.i.i ]
-  %1319 = getelementptr inbounds nuw float, ptr %202, i64 %indvars.iv.i.i
+  %1319 = getelementptr inbounds nuw [4 x i8], ptr %202, i64 %indvars.iv.i.i
   %1320 = load float, ptr %1319, align 4
   %1321 = fadd float %.07221.i.i, %1320
-  %1322 = getelementptr inbounds nuw float, ptr %.074.i.i, i64 %indvars.iv.i.i
+  %1322 = getelementptr inbounds nuw [4 x i8], ptr %.074.i.i, i64 %indvars.iv.i.i
   %1323 = load float, ptr %1322, align 4
   %1324 = fadd float %1323, %1321
   %1325 = tail call noundef float @llvm.fabs.f32(float %1324)
@@ -6326,7 +6319,7 @@ stbtt_GetGlyphBitmapBox.exit:                     ; preds = %stbtt_GetGlyphHMetr
   %108 = getelementptr inbounds i8, ptr %105, i64 %107
   call void @stbtt_MakeGlyphBitmapSubpixel(ptr noundef nonnull readonly %14, ptr noundef %108, i32 noundef %94, i32 noundef %95, i32 noundef %4, float noundef %41, float noundef %41, float noundef 0.000000e+00, float noundef 0.000000e+00, i32 noundef %51)
   %109 = trunc i32 %spec.select72 to i16
-  %110 = getelementptr inbounds nuw %struct.stbtt_bakedchar, ptr %8, i64 %indvars.iv
+  %110 = getelementptr inbounds nuw [20 x i8], ptr %8, i64 %indvars.iv
   store i16 %109, ptr %110, align 4
   %111 = trunc i32 %spec.select to i16
   %112 = getelementptr inbounds nuw i8, ptr %110, i64 2
@@ -6371,7 +6364,7 @@ define dso_local void @stbtt_GetBakedQuad(ptr noundef readonly captures(none) %0
   %12 = sitofp i32 %2 to float
   %13 = fdiv float 1.000000e+00, %12
   %14 = sext i32 %3 to i64
-  %15 = getelementptr inbounds %struct.stbtt_bakedchar, ptr %0, i64 %14
+  %15 = getelementptr inbounds [20 x i8], ptr %0, i64 %14
   %16 = load float, ptr %4, align 4
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %18 = load float, ptr %17, align 4
@@ -6571,7 +6564,7 @@ define dso_local i32 @stbtt_PackFontRangesGatherRects(ptr noundef readonly captu
 17:                                               ; preds = %.lr.ph85, %._crit_edge
   %indvars.iv93 = phi i64 [ 0, %.lr.ph85 ], [ %indvars.iv.next94, %._crit_edge ]
   %.04682 = phi i32 [ 0, %.lr.ph85 ], [ %.1.lcssa, %._crit_edge ]
-  %18 = getelementptr inbounds nuw %struct.stbtt_pack_range, ptr %2, i64 %indvars.iv93
+  %18 = getelementptr inbounds nuw [40 x i8], ptr %2, i64 %indvars.iv93
   %19 = load float, ptr %18, align 8
   %20 = fcmp ogt float %19, 0.000000e+00
   br i1 %20, label %21, label %43
@@ -6657,7 +6650,7 @@ define dso_local i32 @stbtt_PackFontRangesGatherRects(ptr noundef readonly captu
   br label %81
 
 78:                                               ; preds = %71
-  %79 = getelementptr inbounds nuw i32, ptr %72, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %indvars.iv
   %80 = load i32, ptr %79, align 4
   br label %81
 
@@ -6829,7 +6822,7 @@ stbtt_GetGlyphBitmapBoxSubpixel.exit:             ; preds = %81, %91, %157, %160
   %210 = add i32 %.063, %84
   %211 = add i32 %210, %.061
   %212 = add i32 %211, %209
-  %213 = getelementptr inbounds %struct.stbrp_rect, ptr %4, i64 %indvars.iv88
+  %213 = getelementptr inbounds [24 x i8], ptr %4, i64 %indvars.iv88
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 12
   store i32 %212, ptr %214, align 4
   %215 = load i32, ptr %16, align 4
@@ -6896,7 +6889,7 @@ define dso_local range(i32 0, 2) i32 @stbtt_PackFontRangesRenderIntoRects(ptr no
   %indvars.iv277 = phi i64 [ 0, %.lr.ph250 ], [ %indvars.iv.next278, %._crit_edge ]
   %.0124247 = phi i32 [ 0, %.lr.ph250 ], [ %.1.lcssa, %._crit_edge ]
   %.0125246 = phi i32 [ 1, %.lr.ph250 ], [ %.1126.lcssa, %._crit_edge ]
-  %30 = getelementptr inbounds nuw %struct.stbtt_pack_range, ptr %2, i64 %indvars.iv277
+  %30 = getelementptr inbounds nuw [40 x i8], ptr %2, i64 %indvars.iv277
   %31 = load float, ptr %30, align 8
   %32 = fcmp ogt float %31, 0.000000e+00
   br i1 %32, label %33, label %55
@@ -6990,7 +6983,7 @@ _ZL23stbtt__oversample_shifti.exit:               ; preds = %55, %33
   %indvars.iv272 = phi i64 [ %94, %.lr.ph ], [ %indvars.iv.next273, %611 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %611 ]
   %.1126241 = phi i32 [ %.0125246, %.lr.ph ], [ %.2, %611 ]
-  %97 = getelementptr inbounds %struct.stbrp_rect, ptr %4, i64 %indvars.iv272
+  %97 = getelementptr inbounds [24 x i8], ptr %4, i64 %indvars.iv272
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 20
   %99 = load i32, ptr %98, align 4
   %.not = icmp eq i32 %99, 0
@@ -6998,7 +6991,7 @@ _ZL23stbtt__oversample_shifti.exit:               ; preds = %55, %33
 
 100:                                              ; preds = %95
   %101 = load ptr, ptr %91, align 8
-  %102 = getelementptr inbounds nuw %struct.stbtt_packedchar, ptr %101, i64 %indvars.iv
+  %102 = getelementptr inbounds nuw [28 x i8], ptr %101, i64 %indvars.iv
   %103 = load ptr, ptr %92, align 8
   %104 = icmp eq ptr %103, null
   br i1 %104, label %105, label %109
@@ -7010,7 +7003,7 @@ _ZL23stbtt__oversample_shifti.exit:               ; preds = %55, %33
   br label %stbtt_GetGlyphHMetrics.exit
 
 109:                                              ; preds = %100
-  %110 = getelementptr inbounds nuw i32, ptr %103, i64 %indvars.iv
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %103, i64 %indvars.iv
   %111 = load i32, ptr %110, align 4
   br label %stbtt_GetGlyphHMetrics.exit
 
@@ -7881,7 +7874,7 @@ define dso_local void @stbtt_PackFontRangesPackRects(ptr noundef readonly captur
 11:                                               ; preds = %42, %.lr.ph.i
   %12 = phi i32 [ %.pre.i, %.lr.ph.i ], [ %35, %42 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %42 ]
-  %13 = getelementptr inbounds nuw %struct.stbrp_rect, ptr %1, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %indvars.iv.i
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 12
   %15 = load i32, ptr %14, align 4
   %16 = add nsw i32 %15, %12
@@ -7952,7 +7945,7 @@ define dso_local void @stbtt_PackFontRangesPackRects(ptr noundef readonly captur
 
 .lr.ph43.i:                                       ; preds = %.lr.ph43.i, %.lr.ph43.preheader.i
   %indvars.iv46.i = phi i64 [ %45, %.lr.ph43.preheader.i ], [ %indvars.iv.next47.i, %.lr.ph43.i ]
-  %46 = getelementptr inbounds nuw %struct.stbrp_rect, ptr %1, i64 %indvars.iv46.i
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %indvars.iv46.i
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 20
   store i32 0, ptr %47, align 4
   %indvars.iv.next47.i = add nuw nsw i64 %indvars.iv46.i, 1
@@ -7975,7 +7968,7 @@ define dso_local range(i32 0, 2) i32 @stbtt_PackFontRanges(ptr noundef captures(
 
 .preheader52:                                     ; preds = %.preheader52.preheader, %._crit_edge
   %indvars.iv63 = phi i64 [ 0, %.preheader52.preheader ], [ %indvars.iv.next64, %._crit_edge ]
-  %8 = getelementptr inbounds nuw %struct.stbtt_pack_range, ptr %3, i64 %indvars.iv63
+  %8 = getelementptr inbounds nuw [40 x i8], ptr %3, i64 %indvars.iv63
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %10 = load i32, ptr %9, align 8
   %11 = icmp sgt i32 %10, 0
@@ -7992,19 +7985,19 @@ define dso_local range(i32 0, 2) i32 @stbtt_PackFontRanges(ptr noundef captures(
 13:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
   %14 = load ptr, ptr %12, align 8
-  %15 = getelementptr inbounds nuw %struct.stbtt_packedchar, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [28 x i8], ptr %14, i64 %indvars.iv
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 6
   store i16 0, ptr %16, align 2
   %17 = load ptr, ptr %12, align 8
-  %18 = getelementptr inbounds nuw %struct.stbtt_packedchar, ptr %17, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [28 x i8], ptr %17, i64 %indvars.iv
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i16 0, ptr %19, align 4
   %20 = load ptr, ptr %12, align 8
-  %21 = getelementptr inbounds nuw %struct.stbtt_packedchar, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [28 x i8], ptr %20, i64 %indvars.iv
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 2
   store i16 0, ptr %22, align 2
   %23 = load ptr, ptr %12, align 8
-  %24 = getelementptr inbounds nuw %struct.stbtt_packedchar, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [28 x i8], ptr %23, i64 %indvars.iv
   store i16 0, ptr %24, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %25 = load i32, ptr %9, align 8
@@ -8020,7 +8013,7 @@ define dso_local range(i32 0, 2) i32 @stbtt_PackFontRanges(ptr noundef captures(
 .lr.ph58:                                         ; preds = %.lr.ph58.preheader, %.lr.ph58
   %indvars.iv66 = phi i64 [ 0, %.lr.ph58.preheader ], [ %indvars.iv.next67, %.lr.ph58 ]
   %.04657 = phi i32 [ 0, %.lr.ph58.preheader ], [ %31, %.lr.ph58 ]
-  %28 = getelementptr inbounds nuw %struct.stbtt_pack_range, ptr %3, i64 %indvars.iv66
+  %28 = getelementptr inbounds nuw [40 x i8], ptr %3, i64 %indvars.iv66
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load i32, ptr %29, align 8
   %31 = add nsw i32 %30, %.04657
@@ -8063,7 +8056,7 @@ define dso_local range(i32 0, 2) i32 @stbtt_PackFontRanges(ptr noundef captures(
 48:                                               ; preds = %72, %.lr.ph.i.i
   %49 = phi i32 [ %.pre.i.i, %.lr.ph.i.i ], [ %68, %72 ]
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %72 ]
-  %50 = getelementptr inbounds nuw %struct.stbrp_rect, ptr %34, i64 %indvars.iv.i.i
+  %50 = getelementptr inbounds nuw [24 x i8], ptr %34, i64 %indvars.iv.i.i
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 12
   %52 = load i32, ptr %51, align 4
   %53 = add nsw i32 %52, %49
@@ -8127,7 +8120,7 @@ define dso_local range(i32 0, 2) i32 @stbtt_PackFontRanges(ptr noundef captures(
 
 .lr.ph43.i.i:                                     ; preds = %.lr.ph43.i.i, %.lr.ph43.preheader.i.i
   %indvars.iv46.i.i = phi i64 [ %75, %.lr.ph43.preheader.i.i ], [ %indvars.iv.next47.i.i, %.lr.ph43.i.i ]
-  %76 = getelementptr inbounds nuw %struct.stbrp_rect, ptr %34, i64 %indvars.iv46.i.i
+  %76 = getelementptr inbounds nuw [24 x i8], ptr %34, i64 %indvars.iv46.i.i
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 20
   store i32 0, ptr %77, align 4
   %indvars.iv.next47.i.i = add nuw nsw i64 %indvars.iv46.i.i, 1
@@ -8163,7 +8156,7 @@ define dso_local range(i32 0, 2) i32 @stbtt_PackFontRange(ptr noundef captures(n
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @stbtt_GetPackedQuad(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef writeonly captures(none) initializes((0, 32)) %6, i32 noundef %7) local_unnamed_addr #10 {
   %9 = sext i32 %3 to i64
-  %10 = getelementptr inbounds %struct.stbtt_packedchar, ptr %0, i64 %9
+  %10 = getelementptr inbounds [28 x i8], ptr %0, i64 %9
   %.not = icmp eq i32 %7, 0
   %11 = load float, ptr %4, align 4
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -9124,7 +9117,7 @@ define dso_local void @_Z17imguiRenderGLDrawv() local_unnamed_addr #19 {
 
 33:                                               ; preds = %.lr.ph, %_ZL8drawTextffPKcij.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZL8drawTextffPKcij.exit ]
-  %34 = getelementptr inbounds nuw %struct.imguiGfxCmd, ptr %6, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %indvars.iv
   %35 = load i8, ptr %34, align 8
   switch i8 %35, label %_ZL8drawTextffPKcij.exit [
     i8 0, label %36
@@ -9470,7 +9463,7 @@ _ZL15drawRoundedRectffffffj.exit:                 ; preds = %.preheader.i
 
 .preheader.i.i:                                   ; preds = %.preheader65.i, %240
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %240 ], [ 0, %.preheader65.i ]
-  %241 = getelementptr inbounds nuw float, ptr @_ZL10g_tabStops, i64 %indvars.iv.i.i
+  %241 = getelementptr inbounds nuw [4 x i8], ptr @_ZL10g_tabStops, i64 %indvars.iv.i.i
   %242 = load float, ptr %241, align 4
   %243 = fcmp olt float %.021.i.i, %242
   br i1 %243, label %.loopexit.i.i, label %240
@@ -9481,7 +9474,7 @@ _ZL15drawRoundedRectffffffj.exit:                 ; preds = %.preheader.i
 
 245:                                              ; preds = %244
   %246 = zext nneg i8 %239 to i64
-  %247 = getelementptr inbounds nuw %struct.stbtt_bakedchar, ptr @_ZL7g_cdata, i64 %246
+  %247 = getelementptr inbounds nuw [20 x i8], ptr @_ZL7g_cdata, i64 %246
   %248 = getelementptr inbounds i8, ptr %247, i64 -640
   %249 = getelementptr inbounds i8, ptr %247, i64 -632
   %250 = load float, ptr %249, align 4
@@ -9532,7 +9525,7 @@ _ZL13getTextLengthP15stbtt_bakedcharPKc.exit.i:   ; preds = %.preheader65.i
 
 .preheader.i33.i:                                 ; preds = %.preheader66.i, %272
   %indvars.iv.i34.i = phi i64 [ %indvars.iv.next.i35.i, %272 ], [ 0, %.preheader66.i ]
-  %273 = getelementptr inbounds nuw float, ptr @_ZL10g_tabStops, i64 %indvars.iv.i34.i
+  %273 = getelementptr inbounds nuw [4 x i8], ptr @_ZL10g_tabStops, i64 %indvars.iv.i34.i
   %274 = load float, ptr %273, align 4
   %275 = fcmp olt float %.021.i31.i, %274
   br i1 %275, label %.loopexit.i37.i, label %272
@@ -9543,7 +9536,7 @@ _ZL13getTextLengthP15stbtt_bakedcharPKc.exit.i:   ; preds = %.preheader65.i
 
 277:                                              ; preds = %276
   %278 = zext nneg i8 %271 to i64
-  %279 = getelementptr inbounds nuw %struct.stbtt_bakedchar, ptr @_ZL7g_cdata, i64 %278
+  %279 = getelementptr inbounds nuw [20 x i8], ptr @_ZL7g_cdata, i64 %278
   %280 = getelementptr inbounds i8, ptr %279, i64 -640
   %281 = getelementptr inbounds i8, ptr %279, i64 -632
   %282 = load float, ptr %281, align 4
@@ -9609,7 +9602,7 @@ _ZL13getTextLengthP15stbtt_bakedcharPKc.exit41.i: ; preds = %.preheader66.i
 
 .preheader.i61:                                   ; preds = %.lr.ph.i, %315
   %indvars.iv.i62 = phi i64 [ %indvars.iv.next.i63, %315 ], [ 0, %.lr.ph.i ]
-  %316 = getelementptr inbounds nuw float, ptr @_ZL10g_tabStops, i64 %indvars.iv.i62
+  %316 = getelementptr inbounds nuw [4 x i8], ptr @_ZL10g_tabStops, i64 %indvars.iv.i62
   %317 = load float, ptr %316, align 4
   %318 = fadd float %.063.i, %317
   %319 = fcmp olt float %.169.i, %318
@@ -9622,7 +9615,7 @@ _ZL13getTextLengthP15stbtt_bakedcharPKc.exit41.i: ; preds = %.preheader66.i
 321:                                              ; preds = %320
   %322 = add nuw nsw i64 %313, 4294967264
   %323 = and i64 %322, 4294967295
-  %324 = getelementptr inbounds nuw %struct.stbtt_bakedchar, ptr @_ZL7g_cdata, i64 %323
+  %324 = getelementptr inbounds nuw [20 x i8], ptr @_ZL7g_cdata, i64 %323
   %325 = getelementptr inbounds nuw i8, ptr %324, i64 8
   %326 = load float, ptr %325, align 4
   %327 = fadd float %.169.i, %326
@@ -9740,7 +9733,7 @@ define internal fastcc void @_ZL11drawPolygonPKfjfj(ptr noundef nonnull %0, i32 
   %.08694 = phi i32 [ %6, %3 ], [ %29, %7 ]
   %8 = shl nuw nsw i32 %.08694, 1
   %9 = zext nneg i32 %8 to i64
-  %10 = getelementptr inbounds nuw float, ptr %0, i64 %9
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %9
   %.idx = shl nuw nsw i64 %indvars.iv, 3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %12 = load float, ptr %11, align 4
@@ -9760,7 +9753,7 @@ define internal fastcc void @_ZL11drawPolygonPKfjfj(ptr noundef nonnull %0, i32 
   %25 = fmul float %19, %23
   %.088 = select i1 %22, float %25, float %19
   %.087 = select i1 %22, float %24, float %14
-  %26 = getelementptr inbounds nuw float, ptr @_ZL13g_tempNormals, i64 %9
+  %26 = getelementptr inbounds nuw [4 x i8], ptr @_ZL13g_tempNormals, i64 %9
   store float %.088, ptr %26, align 8
   %27 = fneg float %.087
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 4
@@ -9775,15 +9768,15 @@ define internal fastcc void @_ZL11drawPolygonPKfjfj(ptr noundef nonnull %0, i32 
   %.08997 = phi i32 [ %63, %54 ], [ %6, %7 ]
   %30 = shl nuw nsw i32 %.08997, 1
   %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr inbounds nuw float, ptr @_ZL13g_tempNormals, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr @_ZL13g_tempNormals, i64 %31
   %33 = load float, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %35 = load float, ptr %34, align 4
   %36 = shl nuw nsw i64 %indvars.iv102, 1
-  %37 = getelementptr inbounds nuw float, ptr @_ZL13g_tempNormals, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr @_ZL13g_tempNormals, i64 %36
   %38 = load float, ptr %37, align 8
   %39 = or disjoint i64 %36, 1
-  %40 = getelementptr inbounds nuw float, ptr @_ZL13g_tempNormals, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr @_ZL13g_tempNormals, i64 %39
   %41 = load float, ptr %40, align 4
   %42 = fadd float %33, %38
   %43 = fmul float %42, 5.000000e-01
@@ -9805,15 +9798,15 @@ define internal fastcc void @_ZL11drawPolygonPKfjfj(ptr noundef nonnull %0, i32 
 54:                                               ; preds = %49, %.preheader
   %.084 = phi float [ %52, %49 ], [ %43, %.preheader ]
   %.083 = phi float [ %53, %49 ], [ %45, %.preheader ]
-  %55 = getelementptr inbounds nuw float, ptr %0, i64 %36
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %36
   %56 = load float, ptr %55, align 4
   %57 = fadd float %.084, %56
-  %58 = getelementptr inbounds nuw float, ptr @_ZL12g_tempCoords, i64 %36
+  %58 = getelementptr inbounds nuw [4 x i8], ptr @_ZL12g_tempCoords, i64 %36
   store float %57, ptr %58, align 8
-  %59 = getelementptr inbounds nuw float, ptr %0, i64 %39
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %39
   %60 = load float, ptr %59, align 4
   %61 = fadd float %.083, %60
-  %62 = getelementptr inbounds nuw float, ptr @_ZL12g_tempCoords, i64 %39
+  %62 = getelementptr inbounds nuw [4 x i8], ptr @_ZL12g_tempCoords, i64 %39
   store float %61, ptr %62, align 4
   %indvars.iv.next103 = add nuw nsw i64 %indvars.iv102, 1
   %63 = trunc nuw nsw i64 %indvars.iv102 to i32
@@ -9831,17 +9824,17 @@ define internal fastcc void @_ZL11drawPolygonPKfjfj(ptr noundef nonnull %0, i32 
   %indvars.iv107 = phi i64 [ 0, %64 ], [ %indvars.iv.next108, %66 ]
   %.08099 = phi i32 [ %6, %64 ], [ %74, %66 ]
   %67 = shl nuw nsw i64 %indvars.iv107, 1
-  %68 = getelementptr inbounds nuw float, ptr %0, i64 %67
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %67
   call void @glVertex2fv(ptr noundef nonnull %68)
   %69 = shl nuw nsw i32 %.08099, 1
   %70 = zext nneg i32 %69 to i64
-  %71 = getelementptr inbounds nuw float, ptr %0, i64 %70
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %70
   call void @glVertex2fv(ptr noundef nonnull %71)
   call void @glColor4ubv(ptr noundef nonnull %5)
-  %72 = getelementptr inbounds nuw float, ptr @_ZL12g_tempCoords, i64 %70
+  %72 = getelementptr inbounds nuw [4 x i8], ptr @_ZL12g_tempCoords, i64 %70
   call void @glVertex2fv(ptr noundef nonnull %72)
   call void @glVertex2fv(ptr noundef nonnull %72)
-  %73 = getelementptr inbounds nuw float, ptr @_ZL12g_tempCoords, i64 %67
+  %73 = getelementptr inbounds nuw [4 x i8], ptr @_ZL12g_tempCoords, i64 %67
   call void @glVertex2fv(ptr noundef nonnull %73)
   call void @glColor4ubv(ptr noundef nonnull %4)
   call void @glVertex2fv(ptr noundef nonnull %68)
@@ -9858,10 +9851,10 @@ define internal fastcc void @_ZL11drawPolygonPKfjfj(ptr noundef nonnull %0, i32 
   %indvars.iv112 = phi i64 [ 2, %75 ], [ %indvars.iv.next113, %76 ]
   call void @glVertex2fv(ptr noundef nonnull %0)
   %77 = shl nuw i64 %indvars.iv112, 1
-  %78 = getelementptr float, ptr %0, i64 %77
+  %78 = getelementptr [4 x i8], ptr %0, i64 %77
   %79 = getelementptr i8, ptr %78, i64 -8
   call void @glVertex2fv(ptr noundef nonnull %79)
-  %80 = getelementptr inbounds nuw float, ptr %0, i64 %77
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %77
   call void @glVertex2fv(ptr noundef nonnull %80)
   %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
   %exitcond116.not = icmp eq i64 %indvars.iv.next113, %wide.trip.count
@@ -9938,7 +9931,7 @@ tailrecurse:                                      ; preds = %.lr.ph
 37:                                               ; preds = %36
   %38 = load i32, ptr %1, align 4
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds %struct.stbtt__point, ptr %0, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr %0, i64 %39
   store float %6, ptr %40, align 4
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 4
   store float %7, ptr %41, align 4
@@ -9967,12 +9960,12 @@ define internal fastcc void @_ZL27stbtt__sort_edges_quicksortP11stbtt__edgei(ptr
   %6 = getelementptr inbounds nuw i8, ptr %.078, i64 4
   %7 = load float, ptr %6, align 4
   %8 = zext nneg i32 %5 to i64
-  %9 = getelementptr inbounds nuw %struct.stbtt__edge, ptr %.078, i64 %8
+  %9 = getelementptr inbounds nuw [20 x i8], ptr %.078, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %11 = load float, ptr %10, align 4
   %12 = add nsw i32 %.06977, -1
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw %struct.stbtt__edge, ptr %.078, i64 %13
+  %14 = getelementptr inbounds nuw [20 x i8], ptr %.078, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %16 = load float, ptr %15, align 4
   %17 = fcmp olt float %11, %16
@@ -9984,7 +9977,7 @@ define internal fastcc void @_ZL27stbtt__sort_edges_quicksortP11stbtt__edgei(ptr
   %20 = fcmp uge float %7, %16
   %21 = xor i1 %20, %17
   %22 = select i1 %21, i64 0, i64 %13
-  %23 = getelementptr inbounds nuw %struct.stbtt__edge, ptr %.078, i64 %22
+  %23 = getelementptr inbounds nuw [20 x i8], ptr %.078, i64 %22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %3, ptr noundef nonnull align 4 dereferenceable(20) %23, i64 20, i1 false)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %23, ptr noundef nonnull align 4 dereferenceable(20) %9, i64 20, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %9, ptr noundef nonnull align 4 dereferenceable(20) %3, i64 20, i1 false)
@@ -10006,7 +9999,7 @@ define internal fastcc void @_ZL27stbtt__sort_edges_quicksortP11stbtt__edgei(ptr
 
 28:                                               ; preds = %28, %25
   %indvars.iv = phi i64 [ %indvars.iv.next, %28 ], [ %27, %25 ]
-  %29 = getelementptr inbounds %struct.stbtt__edge, ptr %.078, i64 %indvars.iv
+  %29 = getelementptr inbounds [20 x i8], ptr %.078, i64 %indvars.iv
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
   %31 = load float, ptr %30, align 4
   %32 = fcmp olt float %31, %26
@@ -10019,7 +10012,7 @@ define internal fastcc void @_ZL27stbtt__sort_edges_quicksortP11stbtt__edgei(ptr
 
 34:                                               ; preds = %34, %.preheader
   %indvars.iv81 = phi i64 [ %indvars.iv.next82, %34 ], [ %33, %.preheader ]
-  %35 = getelementptr inbounds %struct.stbtt__edge, ptr %.078, i64 %indvars.iv81
+  %35 = getelementptr inbounds [20 x i8], ptr %.078, i64 %indvars.iv81
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %37 = load float, ptr %36, align 4
   %38 = fcmp olt float %26, %37

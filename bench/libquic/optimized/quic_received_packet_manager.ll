@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"struct.std::pair" = type { i8, i8 }
-%"struct.std::pair.17" = type { i64, %"class.net::QuicTime" }
-%"class.net::QuicTime" = type { i64 }
 %"struct.net::QuicFrame" = type { i32, %union.anon.19 }
 %union.anon.19 = type { ptr }
 
@@ -276,7 +274,7 @@ _ZNSt5dequeISt4pairIhbESaIS1_EE9push_backEOS1_.exit15: ; preds = %44, %48
   br i1 %69, label %70, label %72
 
 70:                                               ; preds = %68
-  %71 = getelementptr inbounds %"struct.std::pair", ptr %57, i64 %55
+  %71 = getelementptr inbounds [2 x i8], ptr %57, i64 %55
   br label %_ZNSt5dequeISt4pairIhbESaIS1_EEixEm.exit
 
 72:                                               ; preds = %68
@@ -289,11 +287,11 @@ _ZNSt5dequeISt4pairIhbESaIS1_EE9push_backEOS1_.exit15: ; preds = %44, %48
 
 76:                                               ; preds = %74, %72
   %77 = phi i64 [ %73, %72 ], [ %75, %74 ]
-  %78 = getelementptr inbounds ptr, ptr %61, i64 %77
+  %78 = getelementptr inbounds [8 x i8], ptr %61, i64 %77
   %79 = load ptr, ptr %78, align 8, !tbaa !21, !noalias !38
   %80 = shl nsw i64 %77, 8
   %81 = sub nsw i64 %66, %80
-  %82 = getelementptr inbounds %"struct.std::pair", ptr %79, i64 %81
+  %82 = getelementptr inbounds [2 x i8], ptr %79, i64 %81
   br label %_ZNSt5dequeISt4pairIhbESaIS1_EEixEm.exit
 
 _ZNSt5dequeISt4pairIhbESaIS1_EEixEm.exit:         ; preds = %70, %76
@@ -816,7 +814,7 @@ _ZNSt6vectorISt4pairImN3net8QuicTimeEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit2
 _ZNSt6vectorISt4pairImN3net8QuicTimeEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %88, %_ZNSt6vectorISt4pairImN3net8QuicTimeEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i
   store ptr %83, ptr %62, align 8, !tbaa !97
   store ptr %87, ptr %63, align 8, !tbaa !98
-  %89 = getelementptr inbounds nuw %"struct.std::pair.17", ptr %83, i64 %81
+  %89 = getelementptr inbounds nuw [16 x i8], ptr %83, i64 %81
   store ptr %89, ptr %65, align 8, !tbaa !108
   br label %_ZNSt6vectorISt4pairImN3net8QuicTimeEESaIS3_EE9push_backEOS3_.exit
 
@@ -1262,7 +1260,7 @@ _ZNSt11_Deque_baseISt4pairIhbESaIS1_EE15_M_allocate_mapEm.exit:
   store ptr %7, ptr %0, align 8, !tbaa !18
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %9
   %.idx = shl nuw nsw i64 %3, 3
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
@@ -1354,7 +1352,7 @@ _ZNSt11_Deque_baseISt4pairIhbESaIS1_EE15_M_create_nodesEPPS1_S5_.exit: ; preds =
   store ptr %46, ptr %47, align 8, !tbaa !45
   store ptr %37, ptr %35, align 8, !tbaa !46
   %48 = and i64 %1, 255
-  %49 = getelementptr inbounds nuw %"struct.std::pair", ptr %44, i64 %48
+  %49 = getelementptr inbounds nuw [2 x i8], ptr %44, i64 %48
   store ptr %49, ptr %41, align 8, !tbaa !34
   ret void
 
@@ -1494,9 +1492,9 @@ define linkonce_odr void @_ZNSt5dequeISt4pairIhbESaIS1_EE17_M_reallocate_mapEmb(
   %19 = load ptr, ptr %0, align 8, !tbaa !18
   %20 = sub i64 %15, %13
   %21 = lshr i64 %20, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = select i1 %2, i64 %1, i64 0
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = icmp ult ptr %24, %7
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %26, %7
@@ -1515,12 +1513,12 @@ define linkonce_odr void @_ZNSt5dequeISt4pairIhbESaIS1_EE17_M_reallocate_mapEmb(
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPPSt4pairIhbES3_ET0_T_S5_S4_.exit, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw ptr, ptr %24, i64 %12
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %12
   %34 = ptrtoint ptr %26 to i64
   %35 = sub i64 %34, %9
   %36 = ashr exact i64 %35, 3
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds ptr, ptr %33, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %33, i64 %37
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %38, ptr align 8 %7, i64 %35, i1 false)
   br label %_ZSt4copyIPPSt4pairIhbES3_ET0_T_S5_S4_.exit
 
@@ -1548,9 +1546,9 @@ _ZNSt11_Deque_baseISt4pairIhbESaIS1_EE15_M_allocate_mapEm.exit: ; preds = %39
   %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #20
   %47 = sub i64 %41, %13
   %48 = lshr i64 %47, 1
-  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %48
   %50 = select i1 %2, i64 %1, i64 0
-  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i25 = icmp eq ptr %52, %7
   br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPPSt4pairIhbES3_ET0_T_S5_S4_.exit26, label %53
@@ -1577,7 +1575,7 @@ _ZSt4copyIPPSt4pairIhbES3_ET0_T_S5_S4_.exit:      ; preds = %32, %31, %28, %27, 
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 512
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %59, ptr %60, align 8, !tbaa !45
-  %61 = getelementptr inbounds nuw ptr, ptr %.0, i64 %12
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %12
   %62 = getelementptr inbounds i8, ptr %61, i64 -8
   store ptr %62, ptr %4, align 8, !tbaa !24
   %63 = load ptr, ptr %62, align 8, !tbaa !21

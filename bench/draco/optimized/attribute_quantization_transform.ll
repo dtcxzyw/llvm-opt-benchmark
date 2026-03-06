@@ -5,8 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"class.draco::Quantizer" = type { float }
-%"class.draco::IndexType" = type { i32 }
-%"class.draco::IndexType.46" = type { i32 }
 %"class.draco::Dequantizer" = type { float }
 
 $_ZN5draco30AttributeQuantizationTransformD2Ev = comdat any
@@ -89,7 +87,7 @@ define noundef zeroext i1 @_ZN5draco30AttributeQuantizationTransform17InitFromAt
   br i1 %26, label %27, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds nuw float, ptr %17, i64 %14
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %14
   %.not.i.i = icmp eq ptr %16, %28
   br i1 %.not.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %29
 
@@ -125,7 +123,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit:               ; preds = %23, %25, %27, %29
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %35 ]
   %36 = getelementptr inbounds nuw i8, ptr %.pre31, i64 %indvars.iv26
   %.0.copyload.i22 = load float, ptr %36, align 1
-  %37 = getelementptr inbounds nuw float, ptr %31, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv
   store float %.0.copyload.i22, ptr %37, align 4, !tbaa !39
   %indvars.iv.next27 = add nuw nsw i64 %indvars.iv26, 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -199,7 +197,7 @@ _ZN5draco22AttributeTransformData20AppendParameterValueIfEEvRKT_.exit: ; preds =
 .lr.ph:                                           ; preds = %_ZN5draco22AttributeTransformData20AppendParameterValueIiEEvRKT_.exit, %_ZN5draco22AttributeTransformData20AppendParameterValueIfEEvRKT_.exit12
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN5draco22AttributeTransformData20AppendParameterValueIfEEvRKT_.exit12 ], [ 0, %_ZN5draco22AttributeTransformData20AppendParameterValueIiEEvRKT_.exit ]
   %35 = phi ptr [ %50, %_ZN5draco22AttributeTransformData20AppendParameterValueIfEEvRKT_.exit12 ], [ %21, %_ZN5draco22AttributeTransformData20AppendParameterValueIiEEvRKT_.exit ]
-  %36 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %indvars.iv
   %37 = load ptr, ptr %5, align 8, !tbaa !42
   %38 = load ptr, ptr %4, align 8, !tbaa !19
   %39 = ptrtoint ptr %37 to i64
@@ -316,9 +314,9 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
 38:                                               ; preds = %38, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.us.us
   %indvars.iv57 = phi i64 [ %indvars.iv.next58, %38 ], [ 0, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.us.us ]
   %indvars.iv55 = phi i64 [ %indvars.iv.next56, %38 ], [ %37, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.us.us ]
-  %39 = getelementptr inbounds nuw float, ptr %20, i64 %indvars.iv57
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv57
   %40 = load float, ptr %39, align 4, !tbaa !39
-  %41 = getelementptr inbounds nuw float, ptr %26, i64 %indvars.iv57
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv57
   %42 = load float, ptr %41, align 4, !tbaa !39
   %43 = fsub float %40, %42
   %44 = fmul float %43, %27
@@ -326,7 +324,7 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   %46 = call float @llvm.floor.f32(float %45)
   %47 = fptosi float %46 to i32
   %indvars.iv.next56 = add nsw i64 %indvars.iv55, 1
-  %48 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv55
+  %48 = getelementptr inbounds [4 x i8], ptr %12, i64 %indvars.iv55
   store i32 %47, ptr %48, align 4, !tbaa !72
   %indvars.iv.next58 = add nuw nsw i64 %indvars.iv57, 1
   %exitcond63.not = icmp eq i64 %indvars.iv.next58, %wide.trip.count62
@@ -340,7 +338,7 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
 _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.us: ; preds = %.lr.ph36.split.us, %._crit_edge.us
   %indvars.iv50 = phi i64 [ %indvars.iv.next51, %._crit_edge.us ], [ 0, %.lr.ph36.split.us ]
   %.034.us = phi i64 [ %indvars.iv.next, %._crit_edge.us ], [ 0, %.lr.ph36.split.us ]
-  %49 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %22, i64 %indvars.iv50
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv50
   %50 = load i32, ptr %49, align 4, !tbaa !72
   %51 = zext i32 %50 to i64
   %52 = mul nsw i64 %24, %51
@@ -353,9 +351,9 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
 55:                                               ; preds = %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.us, %55
   %indvars.iv45 = phi i64 [ 0, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.us ], [ %indvars.iv.next46, %55 ]
   %indvars.iv = phi i64 [ %54, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.us ], [ %indvars.iv.next, %55 ]
-  %56 = getelementptr inbounds nuw float, ptr %20, i64 %indvars.iv45
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv45
   %57 = load float, ptr %56, align 4, !tbaa !39
-  %58 = getelementptr inbounds nuw float, ptr %26, i64 %indvars.iv45
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv45
   %59 = load float, ptr %58, align 4, !tbaa !39
   %60 = fsub float %57, %59
   %61 = fmul float %60, %27
@@ -363,7 +361,7 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   %63 = call float @llvm.floor.f32(float %62)
   %64 = fptosi float %63 to i32
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %65 = getelementptr inbounds i32, ptr %12, i64 %indvars.iv
+  %65 = getelementptr inbounds [4 x i8], ptr %12, i64 %indvars.iv
   store i32 %64, ptr %65, align 4, !tbaa !72
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next46, %wide.trip.count62
@@ -439,7 +437,7 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   %43 = phi i64 [ %61, %._crit_edge.us.us ], [ 0, %.lr.ph39.split.us ]
   %.037.us.us = phi i64 [ %indvars.iv.next55, %._crit_edge.us.us ], [ 0, %.lr.ph39.split.us ]
   %.02436.us.us = phi i32 [ %60, %._crit_edge.us.us ], [ 0, %.lr.ph39.split.us ]
-  %44 = getelementptr inbounds nuw %"class.draco::IndexType.46", ptr %24, i64 %43
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %43
   %.sroa.07.0.copyload.us.us = load i32, ptr %44, align 4, !tbaa !72
   %45 = zext i32 %.sroa.07.0.copyload.us.us to i64
   %46 = mul nsw i64 %32, %45
@@ -452,9 +450,9 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
 49:                                               ; preds = %49, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.us.us
   %indvars.iv56 = phi i64 [ %indvars.iv.next57, %49 ], [ 0, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.us.us ]
   %indvars.iv54 = phi i64 [ %indvars.iv.next55, %49 ], [ %48, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.us.us ]
-  %50 = getelementptr inbounds nuw float, ptr %21, i64 %indvars.iv56
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv56
   %51 = load float, ptr %50, align 4, !tbaa !39
-  %52 = getelementptr inbounds nuw float, ptr %34, i64 %indvars.iv56
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv56
   %53 = load float, ptr %52, align 4, !tbaa !39
   %54 = fsub float %51, %53
   %55 = fmul float %54, %35
@@ -462,7 +460,7 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   %57 = call float @llvm.floor.f32(float %56)
   %58 = fptosi float %57 to i32
   %indvars.iv.next55 = add nsw i64 %indvars.iv54, 1
-  %59 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv54
+  %59 = getelementptr inbounds [4 x i8], ptr %13, i64 %indvars.iv54
   store i32 %58, ptr %59, align 4, !tbaa !72
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
   %exitcond62.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count61
@@ -478,10 +476,10 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   %63 = phi i64 [ %84, %._crit_edge.us ], [ 0, %.lr.ph39.split.us ]
   %.037.us = phi i64 [ %indvars.iv.next, %._crit_edge.us ], [ 0, %.lr.ph39.split.us ]
   %.02436.us = phi i32 [ %83, %._crit_edge.us ], [ 0, %.lr.ph39.split.us ]
-  %64 = getelementptr inbounds nuw %"class.draco::IndexType.46", ptr %24, i64 %63
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %63
   %.sroa.07.0.copyload.us = load i32, ptr %64, align 4, !tbaa !72
   %65 = zext i32 %.sroa.07.0.copyload.us to i64
-  %66 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %30, i64 %65
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %65
   %67 = load i32, ptr %66, align 4, !tbaa !72
   %68 = zext i32 %67 to i64
   %69 = mul nsw i64 %32, %68
@@ -494,9 +492,9 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
 72:                                               ; preds = %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.us, %72
   %indvars.iv49 = phi i64 [ 0, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.us ], [ %indvars.iv.next50, %72 ]
   %indvars.iv = phi i64 [ %71, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit.us ], [ %indvars.iv.next, %72 ]
-  %73 = getelementptr inbounds nuw float, ptr %21, i64 %indvars.iv49
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv49
   %74 = load float, ptr %73, align 4, !tbaa !39
-  %75 = getelementptr inbounds nuw float, ptr %34, i64 %indvars.iv49
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv49
   %76 = load float, ptr %75, align 4, !tbaa !39
   %77 = fsub float %74, %76
   %78 = fmul float %77, %35
@@ -504,7 +502,7 @@ _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type
   %80 = call float @llvm.floor.f32(float %79)
   %81 = fptosi float %80 to i32
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %82 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv
+  %82 = getelementptr inbounds [4 x i8], ptr %13, i64 %indvars.iv
   store i32 %81, ptr %82, align 4, !tbaa !72
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next50, %wide.trip.count61
@@ -597,14 +595,14 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit37: ; preds = %17, %7
   %indvars.iv50 = phi i64 [ %36, %.preheader.us ], [ %indvars.iv.next51, %37 ]
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %37 ]
   %indvars.iv.next51 = add nsw i64 %indvars.iv50, 1
-  %38 = getelementptr inbounds i32, ptr %29, i64 %indvars.iv50
+  %38 = getelementptr inbounds [4 x i8], ptr %29, i64 %indvars.iv50
   %39 = load i32, ptr %38, align 4, !tbaa !72
   %40 = sitofp i32 %39 to float
   %41 = fmul float %34, %40
-  %42 = getelementptr inbounds nuw float, ptr %35, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %indvars.iv
   %43 = load float, ptr %42, align 4, !tbaa !39
   %44 = fadd float %41, %43
-  %45 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv
   store float %44, ptr %45, align 4, !tbaa !39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -666,7 +664,7 @@ define noundef zeroext i1 @_ZN5draco30AttributeQuantizationTransform13SetParamet
   store i32 %1, ptr %9, align 8, !tbaa !20
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = sext i32 %3 to i64
-  %12 = getelementptr inbounds float, ptr %2, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %2, i64 %11
   tail call void @_ZNSt6vectorIfSaIfEE13_M_assign_auxIPKfEEvT_S5_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef %2, ptr noundef %12)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store float %4, ptr %13, align 8, !tbaa !38
@@ -700,7 +698,7 @@ define noundef zeroext i1 @_ZN5draco30AttributeQuantizationTransform17ComputePar
   %13 = shl nuw nsw i64 %12, 2
   %14 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %13) #16
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %14, i8 0, i64 %13, i1 false), !tbaa !39
-  %15 = getelementptr inbounds nuw float, ptr %14, i64 %12
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %12
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 %13
   br label %_ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit
 
@@ -774,13 +772,13 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %22, %_ZNSt6vectorIf
 
 50:                                               ; preds = %.lr.ph.us, %64
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %64 ]
-  %51 = getelementptr inbounds nuw float, ptr %28, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv
   %52 = load float, ptr %51, align 4, !tbaa !39
   %53 = fcmp uno float %52, 0.000000e+00
   br i1 %53, label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit65, label %54
 
 54:                                               ; preds = %50
-  %55 = getelementptr inbounds nuw float, ptr %49, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv
   %56 = load float, ptr %55, align 4, !tbaa !39
   %57 = fcmp ogt float %56, %52
   br i1 %57, label %58, label %59
@@ -790,7 +788,7 @@ _ZNSt6vectorIfSaIfEED2Ev.exit:                    ; preds = %22, %_ZNSt6vectorIf
   br label %59
 
 59:                                               ; preds = %58, %54
-  %60 = getelementptr inbounds nuw float, ptr %27, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv
   %61 = load float, ptr %60, align 4, !tbaa !39
   %62 = fcmp olt float %61, %52
   br i1 %62, label %63, label %64
@@ -840,14 +838,14 @@ _ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit71: ; preds = %_ZNSt6vecto
 69:                                               ; preds = %.lr.ph, %.critedge60
   %indvars.iv123 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next124, %.critedge60 ]
   %70 = phi float [ %.promoted, %.lr.ph ], [ %82, %.critedge60 ]
-  %71 = getelementptr inbounds nuw float, ptr %65, i64 %indvars.iv123
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %indvars.iv123
   %72 = load float, ptr %71, align 4, !tbaa !39
   %73 = tail call float @llvm.fabs.f32(float %72)
   %or.cond100 = fcmp ueq float %73, 0x7FF0000000000000
   br i1 %or.cond100, label %_ZNSt10unique_ptrIA_fSt14default_deleteIS0_EED2Ev.exit65, label %74
 
 74:                                               ; preds = %69
-  %75 = getelementptr inbounds nuw float, ptr %27, i64 %indvars.iv123
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv123
   %76 = load float, ptr %75, align 4, !tbaa !39
   %77 = tail call float @llvm.fabs.f32(float %76)
   %or.cond102 = fcmp ueq float %77, 0x7FF0000000000000
@@ -996,7 +994,7 @@ define noundef zeroext i1 @_ZN5draco30AttributeQuantizationTransform16DecodePara
   br i1 %19, label %20, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit
 
 20:                                               ; preds = %18
-  %21 = getelementptr inbounds nuw float, ptr %10, i64 %7
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %7
   %.not.i.i = icmp eq ptr %9, %21
   br i1 %.not.i.i, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit, label %22
 
@@ -1426,9 +1424,9 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36: ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !37
-  %39 = getelementptr inbounds nuw float, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !36
-  %40 = getelementptr inbounds nuw float, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !86
   br label %41
 

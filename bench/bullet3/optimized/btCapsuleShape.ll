@@ -133,9 +133,9 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK14btCapsuleShape37localGetSup
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, i8 0, i64 16, i1 false)
   %19 = load i32, ptr %18, align 8, !tbaa !17
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds float, ptr %17, i64 %20
+  %21 = getelementptr inbounds [4 x i8], ptr %17, i64 %20
   %22 = load float, ptr %21, align 4, !tbaa !19
-  %23 = getelementptr inbounds float, ptr %3, i64 %20
+  %23 = getelementptr inbounds [4 x i8], ptr %3, i64 %20
   store float %22, ptr %23, align 4, !tbaa !19
   %.sroa.0.0.copyload = load float, ptr %3, align 4
   %.sroa.8.0.copyload = load float, ptr %15, align 4
@@ -164,7 +164,7 @@ define dso_local { <2 x float>, <2 x float> } @_ZNK14btCapsuleShape37localGetSup
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %33 = fneg float %22
-  %34 = getelementptr inbounds float, ptr %4, i64 %20
+  %34 = getelementptr inbounds [4 x i8], ptr %4, i64 %20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   store float %33, ptr %34, align 4, !tbaa !19
   %.sroa.0.0.copyload19 = load float, ptr %4, align 4
@@ -218,14 +218,14 @@ define dso_local void @_ZNK14btCapsuleShape49batchedUnitVectorGetSupportingVerte
 
 16:                                               ; preds = %.lr.ph, %47
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %47 ]
-  %17 = getelementptr inbounds nuw %class.btVector3, ptr %1, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   %18 = load i32, ptr %12, align 8, !tbaa !17
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds float, ptr %11, i64 %19
+  %20 = getelementptr inbounds [4 x i8], ptr %11, i64 %19
   %21 = load float, ptr %20, align 4, !tbaa !19
-  %22 = getelementptr inbounds float, ptr %5, i64 %19
+  %22 = getelementptr inbounds [4 x i8], ptr %5, i64 %19
   store float %21, ptr %22, align 4, !tbaa !19
   %.sroa.0.0.copyload = load float, ptr %5, align 4
   %.sroa.8.0.copyload = load float, ptr %8, align 4
@@ -243,7 +243,7 @@ define dso_local void @_ZNK14btCapsuleShape49batchedUnitVectorGetSupportingVerte
 
 32:                                               ; preds = %16
   %.sroa.12.0.copyload = load float, ptr %10, align 4, !tbaa !20
-  %33 = getelementptr inbounds nuw %class.btVector3, ptr %2, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %indvars.iv
   store float %.sroa.0.0.copyload, ptr %33, align 4
   %.sroa.8.0..sroa_idx28 = getelementptr inbounds nuw i8, ptr %33, i64 4
   store float %.sroa.8.0.copyload, ptr %.sroa.8.0..sroa_idx28, align 4
@@ -253,7 +253,7 @@ define dso_local void @_ZNK14btCapsuleShape49batchedUnitVectorGetSupportingVerte
   store float %.sroa.12.0.copyload, ptr %.sroa.12.0..sroa_idx42, align 4, !tbaa !20
   %.pre = load i32, ptr %12, align 8, !tbaa !17
   %.phi.trans.insert = sext i32 %.pre to i64
-  %.phi.trans.insert50 = getelementptr inbounds float, ptr %11, i64 %.phi.trans.insert
+  %.phi.trans.insert50 = getelementptr inbounds [4 x i8], ptr %11, i64 %.phi.trans.insert
   %.pre51 = load float, ptr %.phi.trans.insert50, align 4, !tbaa !19
   %.pre52 = load float, ptr %17, align 4, !tbaa !19
   %.pre53 = load float, ptr %24, align 4, !tbaa !19
@@ -270,7 +270,7 @@ define dso_local void @_ZNK14btCapsuleShape49batchedUnitVectorGetSupportingVerte
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %39 = fneg float %38
-  %40 = getelementptr inbounds float, ptr %6, i64 %.pre-phi
+  %40 = getelementptr inbounds [4 x i8], ptr %6, i64 %.pre-phi
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, i8 0, i64 16, i1 false)
   store float %39, ptr %40, align 4, !tbaa !19
   %.sroa.0.0.copyload26 = load float, ptr %6, align 4
@@ -284,7 +284,7 @@ define dso_local void @_ZNK14btCapsuleShape49batchedUnitVectorGetSupportingVerte
 
 45:                                               ; preds = %34
   %.sroa.12.0.copyload45 = load float, ptr %15, align 4, !tbaa !20
-  %46 = getelementptr inbounds nuw %class.btVector3, ptr %2, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %indvars.iv
   store float %.sroa.0.0.copyload26, ptr %46, align 4
   %.sroa.8.0..sroa_idx32 = getelementptr inbounds nuw i8, ptr %46, i64 4
   store float %.sroa.8.0.copyload31, ptr %.sroa.8.0..sroa_idx32, align 4
@@ -310,7 +310,7 @@ define dso_local void @_ZNK14btCapsuleShape21calculateLocalInertiaEfR9btVector3(
   %8 = srem i32 %7, 3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = sext i32 %8 to i64
-  %11 = getelementptr inbounds float, ptr %9, i64 %10
+  %11 = getelementptr inbounds [4 x i8], ptr %9, i64 %10
   %12 = load float, ptr %11, align 4, !tbaa !19
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store float %12, ptr %4, align 4, !tbaa !19
@@ -321,9 +321,9 @@ define dso_local void @_ZNK14btCapsuleShape21calculateLocalInertiaEfR9btVector3(
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store float 0.000000e+00, ptr %15, align 4, !tbaa !19
   %16 = sext i32 %6 to i64
-  %17 = getelementptr inbounds float, ptr %9, i64 %16
+  %17 = getelementptr inbounds [4 x i8], ptr %9, i64 %16
   %18 = load float, ptr %17, align 4, !tbaa !19
-  %19 = getelementptr inbounds float, ptr %4, i64 %16
+  %19 = getelementptr inbounds [4 x i8], ptr %4, i64 %16
   %20 = load float, ptr %19, align 4, !tbaa !19
   %21 = fadd float %18, %20
   store float %21, ptr %19, align 4, !tbaa !19
@@ -423,7 +423,7 @@ define linkonce_odr dso_local void @_ZNK14btCapsuleShape7getAabbERK11btTransform
   %9 = srem i32 %8, 3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %11 = sext i32 %9 to i64
-  %12 = getelementptr inbounds float, ptr %10, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %10, i64 %11
   %13 = load float, ptr %12, align 4, !tbaa !19
   store float %13, ptr %5, align 4, !tbaa !19
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -431,10 +431,10 @@ define linkonce_odr dso_local void @_ZNK14btCapsuleShape7getAabbERK11btTransform
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store float %13, ptr %15, align 4, !tbaa !19
   %16 = sext i32 %7 to i64
-  %17 = getelementptr inbounds float, ptr %10, i64 %16
+  %17 = getelementptr inbounds [4 x i8], ptr %10, i64 %16
   %18 = load float, ptr %17, align 4, !tbaa !19
   %19 = fadd float %13, %18
-  %20 = getelementptr inbounds float, ptr %5, i64 %16
+  %20 = getelementptr inbounds [4 x i8], ptr %5, i64 %16
   store float %19, ptr %20, align 4, !tbaa !19
   %21 = load float, ptr %1, align 4, !tbaa !19, !noalias !23
   %22 = tail call noundef float @llvm.fabs.f32(float %21)
@@ -544,7 +544,7 @@ define linkonce_odr dso_local void @_ZN14btCapsuleShape15setLocalScalingERK9btVe
   %28 = add nsw i32 %27, 2
   %29 = srem i32 %28, 3
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds float, ptr %3, i64 %30
+  %31 = getelementptr inbounds [4 x i8], ptr %3, i64 %30
   %32 = load float, ptr %31, align 4, !tbaa !19
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store float %32, ptr %33, align 8, !tbaa !7
@@ -570,7 +570,7 @@ define linkonce_odr dso_local { <2 x float>, <2 x float> } @_ZNK14btCapsuleShape
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %5 = load i32, ptr %4, align 8, !tbaa !17
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds float, ptr %2, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %2, i64 %6
   store float 1.000000e+00, ptr %7, align 4, !tbaa !19
   %.fca.0.load = load <2 x float>, ptr %2, align 8
   %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.fca.0.load, 0
@@ -605,9 +605,9 @@ define linkonce_odr dso_local noundef ptr @_ZNK14btCapsuleShape9serializeEPvP12b
 
 7:                                                ; preds = %7, %3
   %indvars.iv.i.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i.i, %7 ]
-  %8 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i.i
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.i.i
   %9 = load float, ptr %8, align 4, !tbaa !19
-  %10 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv.i.i
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv.i.i
   store float %9, ptr %10, align 4, !tbaa !19
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
@@ -620,9 +620,9 @@ _ZNK9btVector314serializeFloatER18btVector3FloatData.exit.i: ; preds = %7
 
 13:                                               ; preds = %13, %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit.i
   %indvars.iv.i8.i = phi i64 [ 0, %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit.i ], [ %indvars.iv.next.i9.i, %13 ]
-  %14 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv.i8.i
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv.i8.i
   %15 = load float, ptr %14, align 4, !tbaa !19
-  %16 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv.i8.i
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv.i8.i
   store float %15, ptr %16, align 4, !tbaa !19
   %indvars.iv.next.i9.i = add nuw nsw i64 %indvars.iv.i8.i, 1
   %exitcond.not.i10.i = icmp eq i64 %indvars.iv.next.i9.i, 4

@@ -60,14 +60,14 @@ define hidden range(i32 0, 2) i32 @six_step_fnt(ptr noundef %0, i64 noundef %1, 
   br i1 %29, label %119, label %.preheader
 
 .preheader:                                       ; preds = %27
-  %30 = getelementptr i64, ptr %0, i64 %1
+  %30 = getelementptr [8 x i8], ptr %0, i64 %1
   %31 = icmp ult ptr %0, %30
   br i1 %31, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.06783 = phi ptr [ %32, %.lr.ph ], [ %0, %.preheader ]
   tail call void @fnt_dif2(ptr noundef %.06783, i64 noundef %25, ptr noundef nonnull %28) #6
-  %32 = getelementptr i64, ptr %.06783, i64 %25
+  %32 = getelementptr [8 x i8], ptr %.06783, i64 %25
   %33 = icmp ult ptr %32, %30
   br i1 %33, label %.lr.ph, label %._crit_edge, !llvm.loop !3
 
@@ -78,7 +78,7 @@ define hidden range(i32 0, 2) i32 @six_step_fnt(ptr noundef %0, i64 noundef %1, 
 
 35:                                               ; preds = %._crit_edge
   %36 = sext i32 %2 to i64
-  %37 = getelementptr i64, ptr @mpd_moduli, i64 %36
+  %37 = getelementptr [8 x i8], ptr @mpd_moduli, i64 %36
   %38 = load i64, ptr %37, align 8, !tbaa !5
   %39 = tail call i64 @_mpd_getkernel(i64 noundef %1, i32 noundef -1, i32 noundef %2) #6
   %.not93 = icmp eq i64 %sext, 0
@@ -180,13 +180,13 @@ x64_mulmod.exit:                                  ; preds = %49, %61, %74
   %95 = select i1 %or.cond70.i, i64 0, i64 %38
   %spec.select108.i = sub i64 %93, %95
   %96 = shl i64 %.06585, %22
-  %97 = getelementptr i64, ptr %0, i64 %96
+  %97 = getelementptr [8 x i8], ptr %0, i64 %96
   br label %98
 
 98:                                               ; preds = %x64_mulmod.exit, %98
   %.084 = phi i64 [ 0, %x64_mulmod.exit ], [ %107, %98 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %99 = getelementptr i64, ptr %97, i64 %.084
+  %99 = getelementptr [8 x i8], ptr %97, i64 %.084
   %100 = load i64, ptr %99, align 8, !tbaa !5
   store i64 %100, ptr %6, align 8, !tbaa !5
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -230,7 +230,7 @@ x64_mulmod.exit:                                  ; preds = %49, %61, %74
 .lr.ph91:                                         ; preds = %115, %.lr.ph91
   %.189 = phi ptr [ %116, %.lr.ph91 ], [ %0, %115 ]
   tail call void @fnt_dif2(ptr noundef %.189, i64 noundef %23, ptr noundef nonnull %.068) #6
-  %116 = getelementptr i64, ptr %.189, i64 %23
+  %116 = getelementptr [8 x i8], ptr %.189, i64 %23
   %117 = icmp ult ptr %116, %30
   br i1 %117, label %.lr.ph91, label %.sink.split, !llvm.loop !13
 
@@ -869,20 +869,20 @@ define hidden range(i32 0, 2) i32 @inv_six_step_fnt(ptr noundef %0, i64 noundef 
   br i1 %27, label %120, label %.preheader
 
 .preheader:                                       ; preds = %3
-  %28 = getelementptr i64, ptr %0, i64 %1
+  %28 = getelementptr [8 x i8], ptr %0, i64 %1
   %29 = icmp ult ptr %0, %28
   br i1 %29, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.06782 = phi ptr [ %30, %.lr.ph ], [ %0, %.preheader ]
   tail call void @fnt_dif2(ptr noundef %.06782, i64 noundef %23, ptr noundef nonnull %26) #6
-  %30 = getelementptr i64, ptr %.06782, i64 %23
+  %30 = getelementptr [8 x i8], ptr %.06782, i64 %23
   %31 = icmp ult ptr %30, %28
   br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %32 = sext i32 %2 to i64
-  %33 = getelementptr i64, ptr @mpd_moduli, i64 %32
+  %33 = getelementptr [8 x i8], ptr @mpd_moduli, i64 %32
   %34 = load i64, ptr %33, align 8, !tbaa !5
   %35 = tail call i64 @_mpd_getkernel(i64 noundef %1, i32 noundef 1, i32 noundef %2) #6
   %.not92 = icmp eq i64 %sext, 0
@@ -984,13 +984,13 @@ x64_mulmod.exit:                                  ; preds = %45, %57, %70
   %91 = select i1 %or.cond70.i, i64 0, i64 %34
   %spec.select108.i = sub i64 %89, %91
   %92 = shl i64 %.06584, %22
-  %93 = getelementptr i64, ptr %0, i64 %92
+  %93 = getelementptr [8 x i8], ptr %0, i64 %92
   br label %94
 
 94:                                               ; preds = %x64_mulmod.exit, %94
   %.083 = phi i64 [ 0, %x64_mulmod.exit ], [ %103, %94 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %95 = getelementptr i64, ptr %93, i64 %.083
+  %95 = getelementptr [8 x i8], ptr %93, i64 %.083
   %96 = load i64, ptr %95, align 8, !tbaa !5
   store i64 %96, ptr %6, align 8, !tbaa !5
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -1044,7 +1044,7 @@ x64_mulmod.exit:                                  ; preds = %45, %57, %70
 .lr.ph90:                                         ; preds = %115, %.lr.ph90
   %.188 = phi ptr [ %116, %.lr.ph90 ], [ %0, %115 ]
   tail call void @fnt_dif2(ptr noundef %.188, i64 noundef %25, ptr noundef nonnull %.068) #6
-  %116 = getelementptr i64, ptr %.188, i64 %25
+  %116 = getelementptr [8 x i8], ptr %.188, i64 %25
   %117 = icmp ult ptr %116, %28
   br i1 %117, label %.lr.ph90, label %._crit_edge91, !llvm.loop !18
 

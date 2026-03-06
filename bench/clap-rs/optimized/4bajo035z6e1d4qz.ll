@@ -599,10 +599,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !77, !noundef !5
   %.val = load i8, ptr %2, align 1, !range !164, !noundef !5
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h213baf02e4a33cf3E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h213baf02e4a33cf3E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h213baf02e4a33cf3E.40", i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h213baf02e4a33cf3E.40", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -707,10 +707,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !5, !align !77, !noundef !5
   %.val = load i8, ptr %2, align 1, !range !181, !noundef !5
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h9bbd47eab129d92aE", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h9bbd47eab129d92aE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h9bbd47eab129d92aE.41", i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h9bbd47eab129d92aE.41", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hff61c25f281f3854E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -1602,8 +1602,8 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
 9:                                                ; preds = %6
   %10 = add nuw i64 %7, 1
   store i64 %10, ptr %2, align 8, !alias.scope !381
-  %11 = getelementptr inbounds { { { i64, ptr }, i64 } }, ptr %.val4.i.i, i64 %7
-  %12 = getelementptr inbounds { { { i64, ptr }, i64 } }, ptr %.val.i.i, i64 %7
+  %11 = getelementptr inbounds [24 x i8], ptr %.val4.i.i, i64 %7
+  %12 = getelementptr inbounds [24 x i8], ptr %.val.i.i, i64 %7
   %13 = getelementptr i8, ptr %11, i64 16
   %.fca.0.extract.val6 = load i64, ptr %13, align 8, !noundef !5
   %14 = getelementptr i8, ptr %12, i64 16
@@ -2372,7 +2372,7 @@ define internal void @"_ZN70_$LT$anstream..auto..AutoStream$LT$S$GT$$u20$as$u20$
 
 10:                                               ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !585)
-  %11 = getelementptr inbounds { ptr, i64 }, ptr %2, i64 %3
+  %11 = getelementptr inbounds [16 x i8], ptr %2, i64 %3
   br label %12
 
 12:                                               ; preds = %15, %10
@@ -2422,7 +2422,7 @@ define internal void @"_ZN70_$LT$anstream..auto..AutoStream$LT$S$GT$$u20$as$u20$
 
 10:                                               ; preds = %4
   tail call void @llvm.experimental.noalias.scope.decl(metadata !602)
-  %11 = getelementptr inbounds { ptr, i64 }, ptr %2, i64 %3
+  %11 = getelementptr inbounds [16 x i8], ptr %2, i64 %3
   br label %12
 
 12:                                               ; preds = %15, %10
@@ -2731,10 +2731,10 @@ define internal { ptr, i64 } @"_ZN70_$LT$core..num..error..ParseIntError$u20$as$
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !164, !noundef !5
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN70_$LT$core..num..error..ParseIntError$u20$as$u20$core..error..Error$GT$11description17hfc32915b18411ee8E", i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN70_$LT$core..num..error..ParseIntError$u20$as$u20$core..error..Error$GT$11description17hfc32915b18411ee8E", i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN70_$LT$core..num..error..ParseIntError$u20$as$u20$core..error..Error$GT$11description17hfc32915b18411ee8E.42", i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN70_$LT$core..num..error..ParseIntError$u20$as$u20$core..error..Error$GT$11description17hfc32915b18411ee8E.42", i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -2785,8 +2785,8 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   br i1 %exitcond.not, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h894abf0683dc50cdE.llvm.1283588139133547551.exit, label %6
 
 6:                                                ; preds = %.preheader
-  %7 = getelementptr inbounds { { { i64, ptr }, i64 } }, ptr %0, i64 %5
-  %8 = getelementptr inbounds { { { i64, ptr }, i64 } }, ptr %2, i64 %5
+  %7 = getelementptr inbounds [24 x i8], ptr %0, i64 %5
+  %8 = getelementptr inbounds [24 x i8], ptr %2, i64 %5
   %9 = getelementptr i8, ptr %7, i64 16
   %.fca.0.extract.val6.i = load i64, ptr %9, align 8, !noalias !698, !noundef !5
   %10 = getelementptr i8, ptr %8, i64 16
@@ -3330,10 +3330,10 @@ define hidden { ptr, i64 } @_ZN12clap_builder7builder6action9ArgAction13default_
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !181, !noundef !5
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN12clap_builder7builder6action9ArgAction13default_value17h639ad8884e9fbd10E, i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN12clap_builder7builder6action9ArgAction13default_value17h639ad8884e9fbd10E, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12clap_builder7builder6action9ArgAction13default_value17h639ad8884e9fbd10E.43, i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN12clap_builder7builder6action9ArgAction13default_value17h639ad8884e9fbd10E.43, i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -3345,10 +3345,10 @@ define hidden { ptr, i64 } @_ZN12clap_builder7builder6action9ArgAction21default_
 switch.lookup:
   %1 = load i8, ptr %0, align 1, !range !181, !noundef !5
   %2 = zext nneg i8 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN12clap_builder7builder6action9ArgAction21default_missing_value17h87a87df712a2e1c5E, i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN12clap_builder7builder6action9ArgAction21default_missing_value17h87a87df712a2e1c5E, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %3 = zext nneg i8 %1 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN12clap_builder7builder6action9ArgAction21default_missing_value17h87a87df712a2e1c5E.44, i64 %3
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN12clap_builder7builder6action9ArgAction21default_missing_value17h87a87df712a2e1c5E.44, i64 %3
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %4 = insertvalue { ptr, i64 } poison, ptr %switch.load3, 0
   %5 = insertvalue { ptr, i64 } %4, i64 %switch.load, 1
@@ -8717,8 +8717,8 @@ define hidden void @_ZN12clap_builder6parser11arg_matcher10ArgMatcher21fill_in_g
 
 42:                                               ; preds = %42, %39
   %.05.i.i = phi i64 [ 0, %39 ], [ %47, %42 ]
-  %43 = getelementptr inbounds nuw i64, ptr %28, i64 %.05.i.i
-  %44 = getelementptr inbounds nuw i64, ptr %41, i64 %.05.i.i
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %.05.i.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %.05.i.i
   %45 = load i64, ptr %43, align 8, !alias.scope !1857, !noalias !1860
   %46 = load i64, ptr %44, align 8, !alias.scope !1860, !noalias !1857
   store i64 %46, ptr %43, align 8, !alias.scope !1857, !noalias !1860
@@ -9083,7 +9083,7 @@ define hidden { ptr, ptr } @_ZN12clap_builder6parser11arg_matcher10ArgMatcher7ar
   %3 = load ptr, ptr %2, align 8, !alias.scope !1977, !nonnull !5, !noundef !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load i64, ptr %4, align 8, !alias.scope !1977, !noundef !5
-  %6 = getelementptr inbounds { ptr, i64 }, ptr %3, i64 %5
+  %6 = getelementptr inbounds [16 x i8], ptr %3, i64 %5
   %7 = insertvalue { ptr, ptr } poison, ptr %3, 0
   %8 = insertvalue { ptr, ptr } %7, ptr %6, 1
   ret { ptr, ptr } %8
@@ -9582,7 +9582,7 @@ _ZN12clap_builder6parser7matches11matched_arg10MatchedArg10push_index17hf01a63d8
   %15 = phi i64 [ %.pre.i.i, %14 ], [ %11, %8 ]
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %17 = load ptr, ptr %16, align 8, !alias.scope !2071, !nonnull !5, !noundef !5
-  %18 = getelementptr inbounds i64, ptr %17, i64 %15
+  %18 = getelementptr inbounds [8 x i8], ptr %17, i64 %15
   store i64 %2, ptr %18, align 8
   %19 = load i64, ptr %10, align 8, !alias.scope !2071, !noundef !5
   %20 = add i64 %19, 1

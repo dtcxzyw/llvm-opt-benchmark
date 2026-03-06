@@ -4,9 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.options_st = type { ptr, i32, i32, ptr }
-%struct.ip_ranges_st = type { i32, ptr, ptr, i32 }
 %struct.v3_ext_ctx = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.extvalues_st = type { ptr, i32 }
 
 @test_get_options.options = internal constant [9 x %struct.options_st] [%struct.options_st { ptr @OPT_HELP_STR, i32 1, i32 45, ptr @.str }, %struct.options_st { ptr @OPT_HELP_STR, i32 1, i32 45, ptr @.str.1 }, %struct.options_st { ptr @.str.2, i32 500, i32 45, ptr @.str.3 }, %struct.options_st { ptr @.str.4, i32 501, i32 45, ptr @.str.5 }, %struct.options_st { ptr @.str.6, i32 502, i32 115, ptr @.str.7 }, %struct.options_st { ptr @.str.8, i32 503, i32 110, ptr @.str.9 }, %struct.options_st { ptr @.str.10, i32 504, i32 112, ptr @.str.11 }, %struct.options_st { ptr @.str.12, i32 505, i32 110, ptr @.str.13 }, %struct.options_st zeroinitializer], align 16
 @OPT_HELP_STR = external constant [0 x i8], align 1
@@ -510,7 +508,7 @@ define internal range(i32 0, 2) i32 @test_addr_ranges() #1 {
   br i1 %.not35, label %check_addr.exit.thread, label %9
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds nuw %struct.ip_ranges_st, ptr @ranges, i64 %.02846
+  %10 = getelementptr inbounds nuw [32 x i8], ptr @ranges, i64 %.02846
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !9
   %13 = tail call ptr @a2i_IPADDRESS(ptr noundef %12) #6
@@ -651,7 +649,7 @@ define internal range(i32 0, 2) i32 @test_ext_syntax() #1 {
   %.02033 = phi i64 [ 0, %0 ], [ %40, %38 ]
   %.02132 = phi i32 [ 1, %0 ], [ %.223, %38 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %4 = getelementptr inbounds nuw %struct.extvalues_st, ptr @extvalues, i64 %.02033
+  %4 = getelementptr inbounds nuw [16 x i8], ptr @extvalues, i64 %.02033
   %5 = load ptr, ptr %4, align 16, !tbaa !30
   %6 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %5) #7
   %7 = trunc i64 %6 to i32
@@ -924,18 +922,18 @@ define internal range(i32 0, 2) i32 @test_addr_subset() #1 {
 5:                                                ; preds = %0, %4
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %4 ]
   %6 = tail call ptr @OPENSSL_sk_new_null() #6
-  %7 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   store ptr %6, ptr %7, align 8, !tbaa !35
   %8 = tail call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 434, ptr noundef nonnull @.str.128, ptr noundef %6) #6
   %.not33 = icmp eq i32 %8, 0
   br i1 %.not33, label %.loopexit, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds nuw %struct.ip_ranges_st, ptr @ranges, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [32 x i8], ptr @ranges, i64 %indvars.iv
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !9
   %13 = tail call ptr @a2i_IPADDRESS(ptr noundef %12) #6
-  %14 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   store ptr %13, ptr %14, align 8, !tbaa !37
   %15 = tail call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 435, ptr noundef nonnull @.str.129, ptr noundef %13) #6
   %.not34 = icmp eq i32 %15, 0
@@ -945,7 +943,7 @@ define internal range(i32 0, 2) i32 @test_addr_subset() #1 {
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %18 = load ptr, ptr %17, align 16, !tbaa !15
   %19 = tail call ptr @a2i_IPADDRESS(ptr noundef %18) #6
-  %20 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   store ptr %19, ptr %20, align 8, !tbaa !37
   %21 = tail call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 436, ptr noundef nonnull @.str.130, ptr noundef %19) #6
   %.not35 = icmp eq i32 %21, 0
@@ -1072,13 +1070,13 @@ define internal range(i32 0, 2) i32 @test_addr_subset() #1 {
 
 97:                                               ; preds = %.loopexit, %97
   %indvars.iv40 = phi i64 [ 0, %.loopexit ], [ %indvars.iv.next41, %97 ]
-  %98 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv40
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv40
   %99 = load ptr, ptr %98, align 8, !tbaa !35
   tail call void @OPENSSL_sk_pop_free(ptr noundef %99, ptr noundef nonnull @IPAddressFamily_free) #6
-  %100 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv40
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv40
   %101 = load ptr, ptr %100, align 8, !tbaa !37
   tail call void @ASN1_OCTET_STRING_free(ptr noundef %101) #6
-  %102 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv40
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv40
   %103 = load ptr, ptr %102, align 8, !tbaa !37
   tail call void @ASN1_OCTET_STRING_free(ptr noundef %103) #6
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1

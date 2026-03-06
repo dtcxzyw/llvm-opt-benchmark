@@ -27,7 +27,7 @@ define noundef i32 @_Z9tMPI_SendPKviP14tmpi_datatype_iiP10tmpi_comm_(ptr noundef
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !8
   %15 = sext i32 %3 to i64
-  %16 = getelementptr inbounds ptr, ptr %14, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !29
   %.not18 = icmp eq ptr %17, null
   br i1 %.not18, label %18, label %20
@@ -85,7 +85,7 @@ define noundef i32 @_Z9tMPI_RecvPviP14tmpi_datatype_iiP10tmpi_comm_P12tmpi_statu
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !8
   %17 = sext i32 %3 to i64
-  %18 = getelementptr inbounds ptr, ptr %16, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !29
   %.not23 = icmp eq ptr %19, null
   br i1 %.not23, label %20, label %22
@@ -137,7 +137,7 @@ define noundef i32 @_Z13tMPI_SendrecvPKviP14tmpi_datatype_iiPviS2_iiP10tmpi_comm
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !8
   %22 = sext i32 %3 to i64
-  %23 = getelementptr inbounds ptr, ptr %21, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %21, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !29
   %.not41 = icmp eq ptr %24, null
   br i1 %.not41, label %25, label %27
@@ -152,7 +152,7 @@ define noundef i32 @_Z13tMPI_SendrecvPKviP14tmpi_datatype_iiPviS2_iiP10tmpi_comm
 
 28:                                               ; preds = %27
   %29 = sext i32 %8 to i64
-  %30 = getelementptr inbounds ptr, ptr %21, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %21, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !29
   %.not43 = icmp eq ptr %31, null
   br i1 %.not43, label %32, label %34
@@ -232,7 +232,7 @@ define noundef i32 @_Z10tMPI_IsendPKviP14tmpi_datatype_iiP10tmpi_comm_PP9tmpi_re
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !8
   %17 = sext i32 %3 to i64
-  %18 = getelementptr inbounds ptr, ptr %16, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %16, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !29
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %22
@@ -285,7 +285,7 @@ define noundef i32 @_Z10tMPI_IrecvPviP14tmpi_datatype_iiP10tmpi_comm_PP9tmpi_req
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !8
   %18 = sext i32 %3 to i64
-  %19 = getelementptr inbounds ptr, ptr %17, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %17, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !29
   %.not31 = icmp eq ptr %20, null
   br i1 %.not31, label %21, label %23

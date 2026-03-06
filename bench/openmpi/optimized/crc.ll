@@ -1821,9 +1821,9 @@ define void @prte_initialize_crc_table() local_unnamed_addr #2 {
 1:                                                ; preds = %0, %1
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %1 ]
   %indexer.ext = and i64 %indvars.iv, 255
-  %tbl.ptradd = getelementptr inbounds nuw i32, ptr @.crctable, i64 %indexer.ext
+  %tbl.ptradd = getelementptr inbounds nuw [4 x i8], ptr @.crctable, i64 %indexer.ext
   %tbl.ld = load i32, ptr %tbl.ptradd, align 4
-  %2 = getelementptr inbounds nuw i32, ptr @_prte_crc_table, i64 %indvars.iv
+  %2 = getelementptr inbounds nuw [4 x i8], ptr @_prte_crc_table, i64 %indvars.iv
   store i32 %tbl.ld, ptr %2, align 4, !tbaa !21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
@@ -1892,7 +1892,7 @@ define i32 @prte_bcopy_uicrc_partial(ptr noundef %0, ptr noundef %1, i64 noundef
   %19 = xor i32 %16, %18
   %20 = shl i32 %.15887, 8
   %21 = zext nneg i32 %19 to i64
-  %22 = getelementptr inbounds nuw i32, ptr @_prte_crc_table, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr @_prte_crc_table, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !21
   %24 = xor i32 %23, %20
   %exitcond.not = icmp eq i64 %.05089.idx, 3
@@ -1926,7 +1926,7 @@ define i32 @prte_bcopy_uicrc_partial(ptr noundef %0, ptr noundef %1, i64 noundef
   %36 = xor i32 %34, %35
   %37 = shl i32 %.259101, 8
   %38 = zext nneg i32 %36 to i64
-  %39 = getelementptr inbounds nuw i32, ptr @_prte_crc_table, i64 %38
+  %39 = getelementptr inbounds nuw [4 x i8], ptr @_prte_crc_table, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !21
   %41 = xor i32 %40, %37
   %.not64 = icmp eq i64 %30, 0
@@ -1944,7 +1944,7 @@ define i32 @prte_bcopy_uicrc_partial(ptr noundef %0, ptr noundef %1, i64 noundef
   %47 = xor i32 %43, %46
   %48 = shl i32 %.3108, 8
   %49 = zext nneg i32 %47 to i64
-  %50 = getelementptr inbounds nuw i32, ptr @_prte_crc_table, i64 %49
+  %50 = getelementptr inbounds nuw [4 x i8], ptr @_prte_crc_table, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !21
   %52 = xor i32 %51, %48
   %.not65 = icmp eq i64 %42, 0
@@ -1971,7 +1971,7 @@ define i32 @prte_bcopy_uicrc_partial(ptr noundef %0, ptr noundef %1, i64 noundef
   %59 = xor i32 %57, %58
   %60 = shl i32 %.577, 8
   %61 = zext nneg i32 %59 to i64
-  %62 = getelementptr inbounds nuw i32, ptr @_prte_crc_table, i64 %61
+  %62 = getelementptr inbounds nuw [4 x i8], ptr @_prte_crc_table, i64 %61
   %63 = load i32, ptr %62, align 4, !tbaa !21
   %64 = xor i32 %63, %60
   %.not66 = icmp eq i64 %53, 0
@@ -1989,7 +1989,7 @@ define i32 @prte_bcopy_uicrc_partial(ptr noundef %0, ptr noundef %1, i64 noundef
   %70 = xor i32 %66, %69
   %71 = shl i32 %.682, 8
   %72 = zext nneg i32 %70 to i64
-  %73 = getelementptr inbounds nuw i32, ptr @_prte_crc_table, i64 %72
+  %73 = getelementptr inbounds nuw [4 x i8], ptr @_prte_crc_table, i64 %72
   %74 = load i32, ptr %73, align 4, !tbaa !21
   %75 = xor i32 %74, %71
   %.not67 = icmp eq i64 %65, 0
@@ -2053,7 +2053,7 @@ define i32 @prte_uicrc_partial(ptr noundef %0, i64 noundef %1, i32 noundef %2) l
   %14 = xor i32 %11, %13
   %15 = shl i32 %.12741, 8
   %16 = zext nneg i32 %14 to i64
-  %17 = getelementptr inbounds nuw i32, ptr @_prte_crc_table, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr @_prte_crc_table, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !21
   %19 = xor i32 %18, %15
   %exitcond.not = icmp eq i64 %.02443.idx, 3
@@ -2077,7 +2077,7 @@ define i32 @prte_uicrc_partial(ptr noundef %0, i64 noundef %1, i32 noundef %2) l
   %29 = xor i32 %25, %28
   %30 = shl i32 %.253, 8
   %31 = zext nneg i32 %29 to i64
-  %32 = getelementptr inbounds nuw i32, ptr @_prte_crc_table, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr @_prte_crc_table, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !21
   %34 = xor i32 %33, %30
   %.not31 = icmp eq i64 %24, 0
@@ -2095,7 +2095,7 @@ define i32 @prte_uicrc_partial(ptr noundef %0, i64 noundef %1, i32 noundef %2) l
   %40 = xor i32 %36, %39
   %41 = shl i32 %.439, 8
   %42 = zext nneg i32 %40 to i64
-  %43 = getelementptr inbounds nuw i32, ptr @_prte_crc_table, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr @_prte_crc_table, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !21
   %45 = xor i32 %44, %41
   %.not32 = icmp eq i64 %35, 0

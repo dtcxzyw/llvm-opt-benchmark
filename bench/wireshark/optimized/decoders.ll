@@ -5,9 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct._HF_OF_INTEREST_INFO = type { i32, ptr }
 %struct._TSUM_PREFERENCES = type { i32, i8, ptr, ptr, i8, i32, i8, i8, i8, i8, i8, i8, i8, i8 }
-%struct._PKT_INFO = type { i32, %struct.nstime_t, i8, i8, i8, i8, i8, i32, i32, i16, i16, i16, i8, i8, i16, i16, i64, i64, i16, i8, i8, i32, i16, i16, i8, %struct._RRPD }
-%struct.nstime_t = type { i64, i32 }
-%struct._RRPD = type { i8, i8, i32, i64, i64, i8, i8, i32, %struct.nstime_t, i32, %struct.nstime_t, i32, %struct.nstime_t, i32, %struct.nstime_t, i32, i32, i32 }
 
 @hf_of_interest = external local_unnamed_addr global [29 x %struct._HF_OF_INTEREST_INFO], align 16
 @preferences = external local_unnamed_addr global %struct._TSUM_PREFERENCES, align 8
@@ -236,7 +233,7 @@ define hidden i32 @decode_smb(ptr noundef readnone captures(none) %0, ptr nounde
 38:                                               ; preds = %.lr.ph, %38
   %.039 = phi i64 [ 0, %.lr.ph ], [ %55, %38 ]
   %39 = load i8, ptr %14, align 8, !range !6, !noundef !7
-  %40 = getelementptr %struct._PKT_INFO, ptr %3, i64 %.039
+  %40 = getelementptr [224 x i8], ptr %3, i64 %.039
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 88
   store i8 %39, ptr %41, align 8
   %42 = load i8, ptr %35, align 1
@@ -245,11 +242,11 @@ define hidden i32 @decode_smb(ptr noundef readnone captures(none) %0, ptr nounde
   %44 = load i32, ptr %36, align 4
   %45 = getelementptr inbounds nuw i8, ptr %40, i64 92
   store i32 %44, ptr %45, align 4
-  %46 = getelementptr i64, ptr %7, i64 %.039
+  %46 = getelementptr [8 x i8], ptr %7, i64 %.039
   %47 = load i64, ptr %46, align 8
   %48 = getelementptr inbounds nuw i8, ptr %40, i64 96
   store i64 %47, ptr %48, align 8
-  %49 = getelementptr i64, ptr %9, i64 %.039
+  %49 = getelementptr [8 x i8], ptr %9, i64 %.039
   %50 = load i64, ptr %49, align 8
   %51 = getelementptr inbounds nuw i8, ptr %40, i64 104
   store i64 %50, ptr %51, align 8

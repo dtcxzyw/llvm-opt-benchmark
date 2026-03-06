@@ -91,18 +91,18 @@ define void @LAPACKE_ctr_trans(i32 noundef %0, i8 noundef signext %1, i8 noundef
   %smin = tail call i32 @llvm.smin.i32(i32 %5, i32 %indvars.iv102)
   %41 = mul nsw i64 %indvars.iv106, %37
   %wide.trip.count104 = zext i32 %smin to i64
-  %invariant.gep117 = getelementptr { float, float }, ptr %4, i64 %41
-  %invariant.gep119 = getelementptr { float, float }, ptr %6, i64 %indvars.iv106
+  %invariant.gep117 = getelementptr [8 x i8], ptr %4, i64 %41
+  %invariant.gep119 = getelementptr [8 x i8], ptr %6, i64 %indvars.iv106
   br label %42
 
 42:                                               ; preds = %.lr.ph88, %42
   %indvars.iv99 = phi i64 [ 0, %.lr.ph88 ], [ %indvars.iv.next100, %42 ]
-  %gep118 = getelementptr { float, float }, ptr %invariant.gep117, i64 %indvars.iv99
+  %gep118 = getelementptr [8 x i8], ptr %invariant.gep117, i64 %indvars.iv99
   %43 = load float, ptr %gep118, align 4
   %44 = getelementptr inbounds nuw i8, ptr %gep118, i64 4
   %45 = load float, ptr %44, align 4
   %46 = mul nsw i64 %indvars.iv99, %35
-  %gep120 = getelementptr { float, float }, ptr %invariant.gep119, i64 %46
+  %gep120 = getelementptr [8 x i8], ptr %invariant.gep119, i64 %46
   %47 = getelementptr inbounds nuw i8, ptr %gep120, i64 4
   store float %43, ptr %gep120, align 4
   store float %45, ptr %47, align 4
@@ -118,18 +118,18 @@ define void @LAPACKE_ctr_trans(i32 noundef %0, i8 noundef signext %1, i8 noundef
 
 .lr.ph:                                           ; preds = %48
   %50 = mul nsw i64 %indvars.iv94, %32
-  %invariant.gep = getelementptr { float, float }, ptr %4, i64 %50
-  %invariant.gep115 = getelementptr { float, float }, ptr %6, i64 %indvars.iv94
+  %invariant.gep = getelementptr [8 x i8], ptr %4, i64 %50
+  %invariant.gep115 = getelementptr [8 x i8], ptr %6, i64 %indvars.iv94
   br label %51
 
 51:                                               ; preds = %.lr.ph, %51
   %indvars.iv91 = phi i64 [ %indvars.iv, %.lr.ph ], [ %indvars.iv.next92, %51 ]
-  %gep = getelementptr { float, float }, ptr %invariant.gep, i64 %indvars.iv91
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %indvars.iv91
   %52 = load float, ptr %gep, align 4
   %53 = getelementptr inbounds nuw i8, ptr %gep, i64 4
   %54 = load float, ptr %53, align 4
   %55 = mul nsw i64 %indvars.iv91, %30
-  %gep116 = getelementptr { float, float }, ptr %invariant.gep115, i64 %55
+  %gep116 = getelementptr [8 x i8], ptr %invariant.gep115, i64 %55
   %56 = getelementptr inbounds nuw i8, ptr %gep116, i64 4
   store float %52, ptr %gep116, align 4
   store float %54, ptr %56, align 4

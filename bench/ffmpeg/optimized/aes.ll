@@ -3,8 +3,6 @@ source_filename = "bench/ffmpeg/original/aes.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.av_aes_block = type { [2 x i64] }
-
 @av_aes_size = local_unnamed_addr constant i32 288, align 4
 @aes_static_init = internal global i32 0, align 4
 @sbox = internal global [256 x i8] zeroinitializer, align 16
@@ -229,7 +227,7 @@ define range(i32 -22, 1) i32 @av_aes_init(ptr noundef captures(none) initializes
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv158 = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next159, %.lr.ph ]
-  %82 = getelementptr inbounds nuw %union.av_aes_block, ptr %0, i64 %indvars.iv158
+  %82 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %indvars.iv158
   %.sroa.39.32.copyload = load i8, ptr %82, align 16
   %.sroa.41.32..sroa_idx = getelementptr inbounds nuw i8, ptr %82, i64 1
   %.sroa.41.32.copyload = load i8, ptr %.sroa.41.32..sroa_idx, align 1
@@ -310,63 +308,63 @@ define range(i32 -22, 1) i32 @av_aes_init(ptr noundef captures(none) initializes
   %129 = getelementptr inbounds nuw i8, ptr @sbox, i64 %128
   %130 = load i8, ptr %129, align 1, !tbaa !11
   %131 = zext i8 %85 to i64
-  %132 = getelementptr inbounds nuw i32, ptr @dec_multbl, i64 %131
+  %132 = getelementptr inbounds nuw [4 x i8], ptr @dec_multbl, i64 %131
   %133 = load i32, ptr %132, align 4, !tbaa !18
   %134 = zext i8 %130 to i64
-  %135 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @dec_multbl, i64 1024), i64 %134
+  %135 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @dec_multbl, i64 1024), i64 %134
   %136 = load i32, ptr %135, align 4, !tbaa !18
   %137 = xor i32 %136, %133
   %138 = zext i8 %112 to i64
-  %139 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @dec_multbl, i64 2048), i64 %138
+  %139 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @dec_multbl, i64 2048), i64 %138
   %140 = load i32, ptr %139, align 4, !tbaa !18
   %141 = xor i32 %137, %140
   %142 = zext i8 %106 to i64
-  %143 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @dec_multbl, i64 3072), i64 %142
+  %143 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @dec_multbl, i64 3072), i64 %142
   %144 = load i32, ptr %143, align 4, !tbaa !18
   %145 = xor i32 %141, %144
   %146 = zext i8 %88 to i64
-  %147 = getelementptr inbounds nuw i32, ptr @dec_multbl, i64 %146
+  %147 = getelementptr inbounds nuw [4 x i8], ptr @dec_multbl, i64 %146
   %148 = load i32, ptr %147, align 4, !tbaa !18
   %149 = zext i8 %127 to i64
-  %150 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @dec_multbl, i64 1024), i64 %149
+  %150 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @dec_multbl, i64 1024), i64 %149
   %151 = load i32, ptr %150, align 4, !tbaa !18
   %152 = xor i32 %151, %148
   %153 = zext i8 %118 to i64
-  %154 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @dec_multbl, i64 2048), i64 %153
+  %154 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @dec_multbl, i64 2048), i64 %153
   %155 = load i32, ptr %154, align 4, !tbaa !18
   %156 = xor i32 %152, %155
   %157 = zext i8 %97 to i64
-  %158 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @dec_multbl, i64 3072), i64 %157
+  %158 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @dec_multbl, i64 3072), i64 %157
   %159 = load i32, ptr %158, align 4, !tbaa !18
   %160 = xor i32 %156, %159
   %161 = zext i8 %91 to i64
-  %162 = getelementptr inbounds nuw i32, ptr @dec_multbl, i64 %161
+  %162 = getelementptr inbounds nuw [4 x i8], ptr @dec_multbl, i64 %161
   %163 = load i32, ptr %162, align 4, !tbaa !18
   %164 = zext i8 %124 to i64
-  %165 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @dec_multbl, i64 1024), i64 %164
+  %165 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @dec_multbl, i64 1024), i64 %164
   %166 = load i32, ptr %165, align 4, !tbaa !18
   %167 = xor i32 %166, %163
   %168 = zext i8 %109 to i64
-  %169 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @dec_multbl, i64 2048), i64 %168
+  %169 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @dec_multbl, i64 2048), i64 %168
   %170 = load i32, ptr %169, align 4, !tbaa !18
   %171 = xor i32 %167, %170
   %172 = zext i8 %100 to i64
-  %173 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @dec_multbl, i64 3072), i64 %172
+  %173 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @dec_multbl, i64 3072), i64 %172
   %174 = load i32, ptr %173, align 4, !tbaa !18
   %175 = xor i32 %171, %174
   %176 = zext i8 %94 to i64
-  %177 = getelementptr inbounds nuw i32, ptr @dec_multbl, i64 %176
+  %177 = getelementptr inbounds nuw [4 x i8], ptr @dec_multbl, i64 %176
   %178 = load i32, ptr %177, align 4, !tbaa !18
   %179 = zext i8 %121 to i64
-  %180 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @dec_multbl, i64 1024), i64 %179
+  %180 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @dec_multbl, i64 1024), i64 %179
   %181 = load i32, ptr %180, align 4, !tbaa !18
   %182 = xor i32 %181, %178
   %183 = zext i8 %115 to i64
-  %184 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @dec_multbl, i64 2048), i64 %183
+  %184 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @dec_multbl, i64 2048), i64 %183
   %185 = load i32, ptr %184, align 4, !tbaa !18
   %186 = xor i32 %182, %185
   %187 = zext i8 %103 to i64
-  %188 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @dec_multbl, i64 3072), i64 %187
+  %188 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @dec_multbl, i64 3072), i64 %187
   %189 = load i32, ptr %188, align 4, !tbaa !18
   %190 = xor i32 %186, %189
   store i32 %145, ptr %82, align 16
@@ -381,9 +379,9 @@ define range(i32 -22, 1) i32 @av_aes_init(ptr noundef captures(none) initializes
   %indvars.iv163 = phi i64 [ 0, %.lr.ph101.preheader ], [ %indvars.iv.next164, %.lr.ph101 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0)
   %191 = sub nsw i64 %81, %indvars.iv163
-  %192 = getelementptr inbounds %union.av_aes_block, ptr %0, i64 %191
+  %192 = getelementptr inbounds [16 x i8], ptr %0, i64 %191
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0, ptr noundef nonnull align 16 dereferenceable(16) %192, i64 16, i1 false), !tbaa.struct !20
-  %193 = getelementptr inbounds nuw %union.av_aes_block, ptr %0, i64 %indvars.iv163
+  %193 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %indvars.iv163
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %192, ptr noundef nonnull align 16 dereferenceable(16) %193, i64 16, i1 false), !tbaa.struct !20
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %193, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0, i64 16, i1 false), !tbaa.struct !20
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0)
@@ -407,7 +405,7 @@ define internal void @aes_decrypt(ptr noundef %0, ptr noundef writeonly captures
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %10 = sext i32 %5 to i64
-  %11 = getelementptr inbounds %union.av_aes_block, ptr %0, i64 %10
+  %11 = getelementptr inbounds [16 x i8], ptr %0, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %.not19 = icmp eq ptr %4, null
@@ -497,7 +495,7 @@ define internal void @aes_encrypt(ptr noundef %0, ptr noundef captures(none) %1,
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %10 = sext i32 %5 to i64
-  %11 = getelementptr inbounds %union.av_aes_block, ptr %0, i64 %10
+  %11 = getelementptr inbounds [16 x i8], ptr %0, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %.not20 = icmp eq ptr %4, null
@@ -745,76 +743,76 @@ define internal fastcc void @aes_crypt(ptr noundef %0, i32 noundef range(i32 0, 
   %46 = load i8, ptr %14, align 1, !tbaa !11
   %47 = load i8, ptr %18, align 1, !tbaa !11
   %48 = zext i8 %45 to i64
-  %49 = getelementptr inbounds nuw i32, ptr %3, i64 %48
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %48
   %50 = load i32, ptr %49, align 4, !tbaa !18
   %51 = zext i8 %46 to i64
-  %52 = getelementptr inbounds nuw i32, ptr %19, i64 %51
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %51
   %53 = load i32, ptr %52, align 4, !tbaa !18
   %54 = xor i32 %53, %50
   %55 = zext i8 %44 to i64
-  %56 = getelementptr inbounds nuw i32, ptr %20, i64 %55
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %55
   %57 = load i32, ptr %56, align 4, !tbaa !18
   %58 = xor i32 %54, %57
   %59 = zext i8 %47 to i64
-  %60 = getelementptr inbounds nuw i32, ptr %21, i64 %59
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %59
   %61 = load i32, ptr %60, align 4, !tbaa !18
   %62 = xor i32 %58, %61
   store i32 %62, ptr %9, align 8, !tbaa !11
   %63 = load i8, ptr %23, align 1, !tbaa !11
   %64 = load i8, ptr %26, align 1, !tbaa !11
   %65 = zext i8 %43 to i64
-  %66 = getelementptr inbounds nuw i32, ptr %3, i64 %65
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %65
   %67 = load i32, ptr %66, align 4, !tbaa !18
   %68 = zext i8 %63 to i64
-  %69 = getelementptr inbounds nuw i32, ptr %19, i64 %68
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %68
   %70 = load i32, ptr %69, align 4, !tbaa !18
   %71 = xor i32 %70, %67
   %72 = zext i8 %42 to i64
-  %73 = getelementptr inbounds nuw i32, ptr %20, i64 %72
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %72
   %74 = load i32, ptr %73, align 4, !tbaa !18
   %75 = xor i32 %71, %74
   %76 = zext i8 %64 to i64
-  %77 = getelementptr inbounds nuw i32, ptr %21, i64 %76
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %76
   %78 = load i32, ptr %77, align 4, !tbaa !18
   %79 = xor i32 %75, %78
   store i32 %79, ptr %27, align 4, !tbaa !11
   %80 = load i8, ptr %28, align 1, !tbaa !11
   %81 = load i8, ptr %30, align 1, !tbaa !11
   %82 = zext i8 %41 to i64
-  %83 = getelementptr inbounds nuw i32, ptr %3, i64 %82
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %82
   %84 = load i32, ptr %83, align 4, !tbaa !18
   %85 = zext i8 %80 to i64
-  %86 = getelementptr inbounds nuw i32, ptr %19, i64 %85
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %85
   %87 = load i32, ptr %86, align 4, !tbaa !18
   %88 = xor i32 %87, %84
   %89 = zext i8 %40 to i64
-  %90 = getelementptr inbounds nuw i32, ptr %20, i64 %89
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %89
   %91 = load i32, ptr %90, align 4, !tbaa !18
   %92 = xor i32 %88, %91
   %93 = zext i8 %81 to i64
-  %94 = getelementptr inbounds nuw i32, ptr %21, i64 %93
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %93
   %95 = load i32, ptr %94, align 4, !tbaa !18
   %96 = xor i32 %92, %95
   store i32 %96, ptr %31, align 8, !tbaa !11
   %97 = load i8, ptr %32, align 1, !tbaa !11
   %98 = load i8, ptr %34, align 1, !tbaa !11
   %99 = zext i8 %39 to i64
-  %100 = getelementptr inbounds nuw i32, ptr %3, i64 %99
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %99
   %101 = load i32, ptr %100, align 4, !tbaa !18
   %102 = zext i8 %97 to i64
-  %103 = getelementptr inbounds nuw i32, ptr %19, i64 %102
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %102
   %104 = load i32, ptr %103, align 4, !tbaa !18
   %105 = xor i32 %104, %101
   %106 = zext i8 %38 to i64
-  %107 = getelementptr inbounds nuw i32, ptr %20, i64 %106
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %106
   %108 = load i32, ptr %107, align 4, !tbaa !18
   %109 = xor i32 %105, %108
   %110 = zext i8 %98 to i64
-  %111 = getelementptr inbounds nuw i32, ptr %21, i64 %110
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %110
   %112 = load i32, ptr %111, align 4, !tbaa !18
   %113 = xor i32 %109, %112
   store i32 %113, ptr %35, align 4, !tbaa !11
-  %114 = getelementptr inbounds nuw %union.av_aes_block, ptr %0, i64 %indvars.iv.next
+  %114 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %indvars.iv.next
   %115 = load i64, ptr %9, align 8, !tbaa !11
   %116 = load i64, ptr %114, align 8, !tbaa !11
   %117 = xor i64 %116, %115
@@ -1024,17 +1022,17 @@ define internal fastcc void @init_multbl2(ptr noundef writeonly captures(none) %
   %63 = or disjoint i32 %61, %62
   %64 = shl nuw i32 %59, 24
   %65 = or disjoint i32 %64, %63
-  %66 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   store i32 %65, ptr %66, align 4, !tbaa !18
   %67 = shl nuw i32 %63, 8
   %68 = or disjoint i32 %67, %59
-  %69 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   store i32 %68, ptr %69, align 4, !tbaa !18
   %70 = tail call i32 @llvm.fshl.i32(i32 %65, i32 %65, i32 16)
-  %71 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   store i32 %70, ptr %71, align 4, !tbaa !18
   %72 = tail call i32 @llvm.fshl.i32(i32 %65, i32 %65, i32 24)
-  %73 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   store i32 %72, ptr %73, align 4, !tbaa !18
   br label %74
 

@@ -4180,7 +4180,7 @@ _ZN12tab_switcher19TabSwitcherDelegate16selected_item_id17h907136b6a69dbba6E.exi
 _ZN12tab_switcher19TabSwitcherDelegate16selected_item_id17h907136b6a69dbba6E.exit.i.i.i.i.i: ; preds = %"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h3ecf5ff505326b22E.exit.i.i.i.i"
   %101 = getelementptr inbounds nuw i8, ptr %71, i64 96
   %102 = load ptr, ptr %101, align 8, !alias.scope !835, !noalias !836, !nonnull !4, !noundef !4
-  %103 = getelementptr inbounds { { { { { ptr, ptr } }, {} }, {} }, i64, i64, i8, [7 x i8] }, ptr %102, i64 %99
+  %103 = getelementptr inbounds [40 x i8], ptr %102, i64 %99
   %104 = load ptr, ptr %103, align 8, !noalias !840, !nonnull !4, !noundef !4
   %105 = getelementptr inbounds nuw i8, ptr %103, i64 8
   %106 = load ptr, ptr %105, align 8, !noalias !840, !nonnull !4, !align !677, !noundef !4
@@ -4209,7 +4209,7 @@ _ZN12tab_switcher19TabSwitcherDelegate16selected_item_id17h907136b6a69dbba6E.exi
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !847
   %115 = load ptr, ptr %101, align 8, !alias.scope !848, !noalias !849, !nonnull !4, !noundef !4
   %116 = load i64, ptr %96, align 8, !alias.scope !848, !noalias !849, !noundef !4
-  %117 = getelementptr inbounds { { { { { ptr, ptr } }, {} }, {} }, i64, i64, i8, [7 x i8] }, ptr %115, i64 %116
+  %117 = getelementptr inbounds [40 x i8], ptr %115, i64 %116
   store ptr %115, ptr %4, align 8, !noalias !847
   %118 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %117, ptr %118, align 8, !noalias !847
@@ -5764,7 +5764,7 @@ _ZN4gpui3app10entity_map9EntityMap5lease17ha1071ecb776514aaE.exit.i.i: ; preds =
 48:                                               ; preds = %"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h7cdb147b33633be8E.exit.i.i"
   %49 = load ptr, ptr %1, align 8, !alias.scope !1076, !noalias !1079, !nonnull !4
   %.sink12.i.i.i.i = select i1 %45, ptr %49, ptr %1
-  %50 = getelementptr { { i32, i32 } }, ptr %.sink12.i.i.i.i, i64 %.sink11.i.i.i.i
+  %50 = getelementptr [8 x i8], ptr %.sink12.i.i.i.i, i64 %.sink11.i.i.i.i
   %51 = getelementptr i8, ptr %50, i64 -8
   %52 = load i32, ptr %51, align 4, !range !689, !noalias !1082, !noundef !4
   %53 = getelementptr i8, ptr %50, i64 -4
@@ -6352,7 +6352,7 @@ _ZN4gpui3app10entity_map9EntityMap5lease17hbc604aa7fe9439aeE.exit.i.i: ; preds =
 52:                                               ; preds = %"_ZN84_$LT$gpui..app..entity_map..Lease$LT$T$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h3ecf5ff505326b22E.exit.i.i"
   %53 = load ptr, ptr %1, align 8, !alias.scope !1149, !noalias !1152, !nonnull !4
   %.sink12.i.i.i.i = select i1 %49, ptr %53, ptr %1
-  %54 = getelementptr { { i32, i32 } }, ptr %.sink12.i.i.i.i, i64 %.sink11.i.i.i.i
+  %54 = getelementptr [8 x i8], ptr %.sink12.i.i.i.i, i64 %.sink11.i.i.i.i
   %55 = getelementptr i8, ptr %54, i64 -4
   %56 = load i32, ptr %55, align 4, !noalias !1155, !noundef !4
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -6381,7 +6381,7 @@ _ZN4gpui3app10entity_map9EntityMap5lease17hbc604aa7fe9439aeE.exit.i.i: ; preds =
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %73 = load ptr, ptr %72, align 8, !alias.scope !1156, !noalias !1159, !nonnull !4
   %.sink12.i5.i.i.i = select i1 %68, ptr %73, ptr %72
-  %74 = getelementptr { { i32, i32 } }, ptr %.sink12.i5.i.i.i, i64 %.sink11.i6.i.i.i
+  %74 = getelementptr [8 x i8], ptr %.sink12.i5.i.i.i, i64 %.sink11.i6.i.i.i
   %75 = getelementptr i8, ptr %74, i64 -4
   %76 = load i32, ptr %75, align 4, !noalias !1155, !noundef !4
   %77 = icmp eq i32 %76, %56
@@ -11011,7 +11011,7 @@ _ZN4gpui3app10entity_map9EntityMap5lease17hbc604aa7fe9439aeE.exit: ; preds = %4
   %.sroa.4.0.copyload.i.i = load ptr, ptr %.sroa.4.0..sroa_idx.i.i, align 8, !alias.scope !1841, !noalias !1844, !nonnull !4, !noundef !4
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %8, i64 16
   %.sroa.5.0.copyload.i.i = load i64, ptr %.sroa.5.0..sroa_idx.i.i, align 8, !alias.scope !1841, !noalias !1844
-  %48 = getelementptr inbounds { { { { i64, [1 x i64] }, { i64, [7 x i64] }, { i64, [2 x i64] }, { i64, [3 x i64] }, { i64, [3 x i64] }, { i64, [3 x i64] }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { [16 x i8], i8, [7 x i8] }, ptr, { float, float }, { i32, [3 x i32] }, ptr, ptr, ptr, ptr, ptr, ptr, { ptr, [1 x i64] }, { ptr, [3 x i64] }, { ptr, [1 x i64] }, i8, i8, i8, i8, [4 x i8] }, { { [6 x i64] }, i64 } } }, ptr %.sroa.4.0.copyload.i.i, i64 %.sroa.5.0.copyload.i.i
+  %48 = getelementptr inbounds [720 x i8], ptr %.sroa.4.0.copyload.i.i, i64 %.sroa.5.0.copyload.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !1831
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1846
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 1536

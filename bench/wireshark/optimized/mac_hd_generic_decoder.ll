@@ -1116,7 +1116,7 @@ decode_packing_subheader.exit:                    ; preds = %331, %338, %343
 
 .preheader:                                       ; preds = %365, %379
   %indvars.iv = phi i64 [ %indvars.iv.next, %379 ], [ 0, %365 ]
-  %372 = getelementptr i32, ptr @dissect_mac_header_generic_decoder.cid_list, i64 %indvars.iv
+  %372 = getelementptr [4 x i8], ptr @dissect_mac_header_generic_decoder.cid_list, i64 %indvars.iv
   %373 = load i32, ptr %372, align 4
   %374 = icmp eq i32 %373, %37
   br i1 %374, label %.loopexit.sink.split, label %375
@@ -1126,7 +1126,7 @@ decode_packing_subheader.exit:                    ; preds = %331, %338, %343
   br i1 %376, label %377, label %379
 
 377:                                              ; preds = %375
-  %378 = getelementptr i32, ptr @dissect_mac_header_generic_decoder.cid_list, i64 %indvars.iv
+  %378 = getelementptr [4 x i8], ptr @dissect_mac_header_generic_decoder.cid_list, i64 %indvars.iv
   store i32 %37, ptr %378, align 4
   br label %.loopexit.sink.split
 
@@ -1171,7 +1171,7 @@ decode_packing_subheader.exit:                    ; preds = %331, %338, %343
   %396 = load i32, ptr @cid_adj_array_size, align 4
   %397 = add i32 %396, -1024
   %398 = zext i32 %397 to i64
-  %399 = getelementptr i32, ptr %395, i64 %398
+  %399 = getelementptr [4 x i8], ptr %395, i64 %398
   tail call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(4096) %399, i8 noundef 0, i64 noundef 4096, i1 noundef false) #4
   %400 = load i32, ptr %301, align 4
   %401 = icmp ugt i32 %400, %396
@@ -1184,9 +1184,9 @@ decode_packing_subheader.exit:                    ; preds = %331, %338, %343
   br i1 %403, label %404, label %._crit_edge._crit_edge
 
 404:                                              ; preds = %._crit_edge
-  %405 = getelementptr i32, ptr @cid_vernier, i64 %.0442496
+  %405 = getelementptr [4 x i8], ptr @cid_vernier, i64 %.0442496
   %406 = load i32, ptr %405, align 4
-  %407 = getelementptr i32, ptr @cid_adjust, i64 %.0442496
+  %407 = getelementptr [4 x i8], ptr @cid_adjust, i64 %.0442496
   %408 = load i32, ptr %407, align 4
   %409 = add i32 %408, %406
   store i32 %409, ptr %407, align 4
@@ -1203,10 +1203,10 @@ decode_packing_subheader.exit:                    ; preds = %331, %338, %343
   store i8 %spec.store.select, ptr %410, align 1
   %415 = load ptr, ptr @cid_adj_array, align 8
   %416 = zext i32 %.lcssa to i64
-  %417 = getelementptr i32, ptr %415, i64 %416
+  %417 = getelementptr [4 x i8], ptr %415, i64 %416
   %418 = load i32, ptr %417, align 4
   %.not471 = icmp eq i32 %418, 0
-  %419 = getelementptr i32, ptr @cid_adjust, i64 %.0442496
+  %419 = getelementptr [4 x i8], ptr @cid_adjust, i64 %.0442496
   br i1 %.not471, label %425, label %420
 
 420:                                              ; preds = %._crit_edge._crit_edge
@@ -1241,7 +1241,7 @@ decode_packing_subheader.exit:                    ; preds = %331, %338, %343
   store i8 0, ptr @first_gmh, align 1
   %437 = load i32, ptr @dissect_mac_header_generic_decoder.cid_base, align 4
   %438 = add i32 %436, %437
-  %439 = getelementptr i32, ptr @cid_vernier, i64 %.0442496
+  %439 = getelementptr [4 x i8], ptr @cid_vernier, i64 %.0442496
   %440 = load i32, ptr %439, align 4
   %441 = add i32 %438, %440
   %442 = load i32, ptr %302, align 8
@@ -1570,7 +1570,7 @@ define internal void @wimax_defragment_init() #0 {
 
 1:                                                ; preds = %0, %1
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %1 ]
-  %2 = getelementptr i32, ptr @cid_adjust, i64 %indvars.iv
+  %2 = getelementptr [4 x i8], ptr @cid_adjust, i64 %indvars.iv
   store i32 1, ptr %2, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64

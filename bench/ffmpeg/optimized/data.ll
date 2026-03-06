@@ -60,15 +60,15 @@ define nonnull ptr @ff_vvc_get_mip_matrix(i32 noundef %0, i32 noundef %1) local_
   ]
 
 7:                                                ; preds = %5
-  %8 = getelementptr inbounds [16 x [4 x i8]], ptr @mip_matrix_4x4, i64 %6
+  %8 = getelementptr inbounds [64 x i8], ptr @mip_matrix_4x4, i64 %6
   br label %13
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds [16 x [8 x i8]], ptr @mip_matrix_8x8, i64 %6
+  %10 = getelementptr inbounds [128 x i8], ptr @mip_matrix_8x8, i64 %6
   br label %13
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds [64 x [7 x i8]], ptr @mip_matrix_16x16, i64 %6
+  %12 = getelementptr inbounds [448 x i8], ptr @mip_matrix_16x16, i64 %6
   br label %13
 
 13:                                               ; preds = %11, %9, %7

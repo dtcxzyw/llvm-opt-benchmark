@@ -3,8 +3,8 @@ source_filename = "bench/ffmpeg/original/ip.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.sockaddr_storage = type { i16, [118 x i8], i64 }
 %struct.addrinfo = type { i32, i32, i32, i32, i32, ptr, ptr, ptr }
+%struct.sockaddr_storage = type { i16, [118 x i8], i64 }
 
 @.str = private unnamed_addr constant [2 x i8] c"0\00", align 1
 @.str.1 = private unnamed_addr constant [3 x i8] c"%d\00", align 1
@@ -42,7 +42,7 @@ define range(i32 0, 2) i32 @ff_ip_check_source_lists(ptr noundef readonly captur
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %compare_addr.exit.thread.us
   %indvars.iv61 = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next62, %compare_addr.exit.thread.us ]
-  %11 = getelementptr inbounds nuw %struct.sockaddr_storage, ptr %7, i64 %indvars.iv61
+  %11 = getelementptr inbounds nuw [128 x i8], ptr %7, i64 %indvars.iv61
   %12 = load i16, ptr %11, align 8, !tbaa !12
   %.not.i.us = icmp eq i16 %12, 2
   br i1 %.not.i.us, label %compare_addr.exit.us, label %compare_addr.exit.thread.us
@@ -61,7 +61,7 @@ compare_addr.exit.thread.us:                      ; preds = %compare_addr.exit.u
 
 .lr.ph.split.us32:                                ; preds = %.lr.ph.split.us32.preheader, %compare_addr.exit.thread.us37
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.us32.preheader ], [ %indvars.iv.next, %compare_addr.exit.thread.us37 ]
-  %16 = getelementptr inbounds nuw %struct.sockaddr_storage, ptr %7, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [128 x i8], ptr %7, i64 %indvars.iv
   %17 = load i16, ptr %16, align 8, !tbaa !12
   %.not.i.us34 = icmp eq i16 %17, 10
   br i1 %.not.i.us34, label %compare_addr.exit.us35, label %compare_addr.exit.thread.us37
@@ -108,7 +108,7 @@ compare_addr.exit.thread.us37:                    ; preds = %compare_addr.exit.u
 
 .lr.ph39.split.us:                                ; preds = %.lr.ph39.split.us.preheader, %compare_addr.exit20.thread.us
   %indvars.iv71 = phi i64 [ 0, %.lr.ph39.split.us.preheader ], [ %indvars.iv.next72, %compare_addr.exit20.thread.us ]
-  %27 = getelementptr inbounds nuw %struct.sockaddr_storage, ptr %23, i64 %indvars.iv71
+  %27 = getelementptr inbounds nuw [128 x i8], ptr %23, i64 %indvars.iv71
   %28 = load i16, ptr %27, align 8, !tbaa !12
   %.not.i18.us = icmp eq i16 %28, 2
   br i1 %.not.i18.us, label %compare_addr.exit20.us, label %compare_addr.exit20.thread.us
@@ -127,7 +127,7 @@ compare_addr.exit20.thread.us:                    ; preds = %compare_addr.exit20
 
 .lr.ph39.split.us42:                              ; preds = %.lr.ph39.split.us42.preheader, %compare_addr.exit20.thread.us47
   %indvars.iv66 = phi i64 [ 0, %.lr.ph39.split.us42.preheader ], [ %indvars.iv.next67, %compare_addr.exit20.thread.us47 ]
-  %32 = getelementptr inbounds nuw %struct.sockaddr_storage, ptr %23, i64 %indvars.iv66
+  %32 = getelementptr inbounds nuw [128 x i8], ptr %23, i64 %indvars.iv66
   %33 = load i16, ptr %32, align 8, !tbaa !12
   %.not.i18.us44 = icmp eq i16 %33, 10
   br i1 %.not.i18.us44, label %compare_addr.exit20.us45, label %compare_addr.exit20.thread.us47

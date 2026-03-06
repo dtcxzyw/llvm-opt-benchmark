@@ -7,10 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.VkExtent2D = type { i32, i32 }
 %struct.VkDisplayPlaneCapabilitiesKHR = type { i32, %struct.VkOffset2D, %struct.VkOffset2D, %struct.VkExtent2D, %struct.VkExtent2D, %struct.VkOffset2D, %struct.VkOffset2D, %struct.VkExtent2D, %struct.VkExtent2D }
 %struct.VkOffset2D = type { i32, i32 }
-%struct.VkDisplayPropertiesKHR = type { ptr, ptr, %struct.VkExtent2D, %struct.VkExtent2D, i32, i32, i32 }
-%struct.VkDisplayModePropertiesKHR = type { ptr, %struct.VkDisplayModeParametersKHR }
-%struct.VkDisplayModeParametersKHR = type { %struct.VkExtent2D, i32 }
-%struct.VkDisplayPlanePropertiesKHR = type { ptr, i32 }
 
 @.str = private unnamed_addr constant [11 x i8] c"VK_SUCCESS\00", align 1
 @.str.1 = private unnamed_addr constant [13 x i8] c"VK_NOT_READY\00", align 1
@@ -401,7 +397,7 @@ define hidden noundef zeroext i1 @SDL_Vulkan_Display_CreateSurface(ptr noundef r
 .lr.ph:                                           ; preds = %.preheader262, %209
   %indvars.iv = phi i64 [ %indvars.iv.next, %209 ], [ 0, %.preheader262 ]
   %.1201281 = phi i32 [ %.2202.ph, %209 ], [ %.0200, %.preheader262 ]
-  %50 = getelementptr inbounds nuw ptr, ptr %44, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %indvars.iv
   %51 = load ptr, ptr %50, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store i32 0, ptr %7, align 4
@@ -453,7 +449,7 @@ define hidden noundef zeroext i1 @SDL_Vulkan_Display_CreateSurface(ptr noundef r
 
 73:                                               ; preds = %66
   %74 = zext nneg i32 %.1201281 to i64
-  %75 = getelementptr inbounds nuw %struct.VkDisplayPropertiesKHR, ptr %65, i64 %74
+  %75 = getelementptr inbounds nuw [48 x i8], ptr %65, i64 %74
   %76 = load ptr, ptr %75, align 8
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 24
   %.sroa.0.0.copyload = load i32, ptr %77, align 8
@@ -504,7 +500,7 @@ define hidden noundef zeroext i1 @SDL_Vulkan_Display_CreateSurface(ptr noundef r
   %indvars.iv315 = phi i64 [ 0, %.preheader261.preheader ], [ %indvars.iv.next316, %111 ]
   %.0195285 = phi i32 [ 0, %.preheader261.preheader ], [ %.1196, %111 ]
   %.0197284 = phi i32 [ -1, %.preheader261.preheader ], [ %.1198, %111 ]
-  %98 = getelementptr inbounds nuw %struct.VkDisplayModePropertiesKHR, ptr %90, i64 %indvars.iv315
+  %98 = getelementptr inbounds nuw [24 x i8], ptr %90, i64 %indvars.iv315
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %100 = load i32, ptr %99, align 8
   %101 = icmp eq i32 %100, %.sroa.0.0.copyload
@@ -544,7 +540,7 @@ define hidden noundef zeroext i1 @SDL_Vulkan_Display_CreateSurface(ptr noundef r
 116:                                              ; preds = %112
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false)
   %117 = zext nneg i32 %.1198 to i64
-  %118 = getelementptr inbounds nuw %struct.VkDisplayModePropertiesKHR, ptr %90, i64 %117
+  %118 = getelementptr inbounds nuw [24 x i8], ptr %90, i64 %117
   %119 = load ptr, ptr %118, align 8
   %120 = getelementptr inbounds nuw i8, ptr %5, i64 24
   store ptr %119, ptr %120, align 8
@@ -598,7 +594,7 @@ define hidden noundef zeroext i1 @SDL_Vulkan_Display_CreateSurface(ptr noundef r
   %indvars.iv323 = phi i64 [ 0, %.lr.ph289 ], [ %indvars.iv.next324, %186 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   store i32 0, ptr %11, align 4
-  %148 = getelementptr inbounds nuw %struct.VkDisplayPlanePropertiesKHR, ptr %135, i64 %indvars.iv323
+  %148 = getelementptr inbounds nuw [16 x i8], ptr %135, i64 %indvars.iv323
   %149 = load ptr, ptr %148, align 8
   %150 = icmp eq ptr %149, null
   br i1 %150, label %186, label %151
@@ -640,7 +636,7 @@ define hidden noundef zeroext i1 @SDL_Vulkan_Display_CreateSurface(ptr noundef r
 
 .preheader:                                       ; preds = %.preheader.preheader, %171
   %indvars.iv318 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next319, %171 ]
-  %169 = getelementptr inbounds nuw ptr, ptr %161, i64 %indvars.iv318
+  %169 = getelementptr inbounds nuw [8 x i8], ptr %161, i64 %indvars.iv318
   %170 = load ptr, ptr %169, align 8
   %.not233 = icmp eq ptr %170, %76
   br i1 %.not233, label %.critedge.split.loop.exit373, label %171
@@ -715,7 +711,7 @@ define hidden noundef zeroext i1 @SDL_Vulkan_Display_CreateSurface(ptr noundef r
 193:                                              ; preds = %190
   %194 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i32 %152, ptr %194, align 8
-  %195 = getelementptr inbounds nuw %struct.VkDisplayPlanePropertiesKHR, ptr %135, i64 %indvars.iv323
+  %195 = getelementptr inbounds nuw [16 x i8], ptr %135, i64 %indvars.iv323
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 8
   %197 = load i32, ptr %196, align 8
   %198 = getelementptr inbounds nuw i8, ptr %5, i64 36
@@ -733,7 +729,7 @@ define hidden noundef zeroext i1 @SDL_Vulkan_Display_CreateSurface(ptr noundef r
 
 202:                                              ; preds = %193, %201
   %indvars.iv326 = phi i64 [ 0, %193 ], [ %indvars.iv.next327, %201 ]
-  %203 = getelementptr inbounds nuw i32, ptr @alphaModes, i64 %indvars.iv326
+  %203 = getelementptr inbounds nuw [4 x i8], ptr @alphaModes, i64 %indvars.iv326
   %204 = load i32, ptr %203, align 4
   %205 = and i32 %204, %200
   %.not239 = icmp eq i32 %205, 0

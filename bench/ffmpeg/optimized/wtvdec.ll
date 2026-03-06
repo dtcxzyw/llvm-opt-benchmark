@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.AVCodecTag = type { i32, i32 }
 %struct.AVMetadataConv = type { ptr, ptr }
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
-%struct.AVIndexEntry = type { i64, i64, i32, i32 }
 
 @.str = private unnamed_addr constant [4 x i8] c"wtv\00", align 1
 @.str.1 = private unnamed_addr constant [25 x i8] c"Windows Television (WTV)\00", align 1
@@ -609,7 +608,7 @@ parse_legacy_attrib.exit:                         ; preds = %224, %59, %.thread.
   %266 = load ptr, ptr %265, align 8, !tbaa !44
   %267 = load i32, ptr %260, align 8, !tbaa !43
   %268 = sext i32 %267 to i64
-  %269 = getelementptr inbounds %struct.AVIndexEntry, ptr %266, i64 %268
+  %269 = getelementptr inbounds [24 x i8], ptr %266, i64 %268
   %270 = getelementptr inbounds i8, ptr %269, i64 -24
   br label %271
 
@@ -777,7 +776,7 @@ define internal range(i32 -38, 1) i32 @read_seek(ptr noundef %0, i32 %1, i64 nou
 36:                                               ; preds = %34
   %37 = load ptr, ptr %16, align 8, !tbaa !44
   %38 = sext i32 %35 to i64
-  %39 = getelementptr %struct.AVIndexEntry, ptr %37, i64 %38
+  %39 = getelementptr [24 x i8], ptr %37, i64 %38
   %40 = getelementptr i8, ptr %39, i64 -24
   %41 = load i64, ptr %40, align 8, !tbaa !45
   %42 = tail call i64 @avio_seek(ptr noundef %7, i64 noundef %41, i32 noundef 0) #12
@@ -793,7 +792,7 @@ define internal range(i32 -38, 1) i32 @read_seek(ptr noundef %0, i32 %1, i64 nou
 47:                                               ; preds = %12
   %48 = load ptr, ptr %16, align 8, !tbaa !44
   %49 = zext nneg i32 %20 to i64
-  %50 = getelementptr inbounds nuw %struct.AVIndexEntry, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [24 x i8], ptr %48, i64 %49
   %51 = load i64, ptr %50, align 8, !tbaa !45
   %52 = tail call i64 @avio_seek(ptr noundef %7, i64 noundef %51, i32 noundef 0) #12
   %53 = icmp slt i64 %52, 0
@@ -801,7 +800,7 @@ define internal range(i32 -38, 1) i32 @read_seek(ptr noundef %0, i32 %1, i64 nou
 
 54:                                               ; preds = %47
   %55 = load ptr, ptr %16, align 8, !tbaa !44
-  %56 = getelementptr inbounds nuw %struct.AVIndexEntry, ptr %55, i64 %49
+  %56 = getelementptr inbounds nuw [24 x i8], ptr %55, i64 %49
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load i64, ptr %57, align 8, !tbaa !49
   %59 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -1032,7 +1031,7 @@ define internal fastcc ptr @wtvfile_open2(ptr noundef %0, ptr noundef nonnull %1
   %.078.i.i = phi i32 [ 0, %117 ], [ %124, %119 ]
   %120 = tail call i32 @avio_rl32(ptr noundef %118) #12
   %121 = zext nneg i32 %.09.i.i to i64
-  %122 = getelementptr inbounds nuw i32, ptr %114, i64 %121
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %121
   store i32 %120, ptr %122, align 4, !tbaa !57
   %.not.i.i = icmp ne i32 %120, 0
   %123 = zext i1 %.not.i.i to i32
@@ -1056,7 +1055,7 @@ read_ints.exit.i:                                 ; preds = %119
   %.078.i51.i = phi i32 [ 0, %126 ], [ %133, %128 ]
   %129 = tail call i32 @avio_rl32(ptr noundef %127) #12
   %130 = zext nneg i32 %.09.i50.i to i64
-  %131 = getelementptr inbounds nuw i32, ptr %8, i64 %130
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %130
   store i32 %129, ptr %131, align 4, !tbaa !57
   %.not.i52.i = icmp ne i32 %129, 0
   %132 = zext i1 %.not.i52.i to i32
@@ -1087,7 +1086,7 @@ read_ints.exit55.i:                               ; preds = %128
 .lr.ph.i:                                         ; preds = %137, %read_ints.exit61.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %read_ints.exit61.i ], [ 0, %137 ]
   %139 = load ptr, ptr %97, align 8, !tbaa !31
-  %140 = getelementptr inbounds nuw i32, ptr %8, i64 %indvars.iv.i
+  %140 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv.i
   %141 = load i32, ptr %140, align 4, !tbaa !57
   %142 = zext i32 %141 to i64
   %143 = shl nuw nsw i64 %142, 12
@@ -1111,7 +1110,7 @@ read_ints.exit55.i:                               ; preds = %128
   %.078.i57.i = phi i32 [ 0, %146 ], [ %155, %150 ]
   %151 = tail call i32 @avio_rl32(ptr noundef %147) #12
   %152 = zext nneg i32 %.09.i56.i to i64
-  %153 = getelementptr inbounds nuw i32, ptr %149, i64 %152
+  %153 = getelementptr inbounds nuw [4 x i8], ptr %149, i64 %152
   store i32 %151, ptr %153, align 4, !tbaa !57
   %.not.i58.i = icmp ne i32 %151, 0
   %154 = zext i1 %.not.i58.i to i32
@@ -1166,7 +1165,7 @@ read_ints.exit61.i:                               ; preds = %150
   %172 = getelementptr inbounds nuw i8, ptr %104, i64 16
   %173 = load ptr, ptr %172, align 8, !tbaa !62
   %174 = sext i32 %.pre67.i to i64
-  %175 = getelementptr i32, ptr %173, i64 %174
+  %175 = getelementptr [4 x i8], ptr %173, i64 %174
   %176 = getelementptr i8, ptr %175, i64 -4
   %177 = load i32, ptr %176, align 4, !tbaa !57
   %178 = zext i32 %177 to i64
@@ -1619,7 +1618,7 @@ define internal fastcc i32 @parse_chunks(ptr noundef %0, i32 noundef range(i32 0
 
 328:                                              ; preds = %327, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %327 ]
-  %329 = getelementptr inbounds nuw %struct.AVIndexEntry, ptr %326, i64 %indvars.iv.i
+  %329 = getelementptr inbounds nuw [24 x i8], ptr %326, i64 %indvars.iv.i
   %330 = load i64, ptr %329, align 8, !tbaa !45
   %331 = icmp ugt i64 %330, %322
   br i1 %331, label %332, label %327
@@ -1631,7 +1630,7 @@ define internal fastcc i32 @parse_chunks(ptr noundef %0, i32 noundef range(i32 0
 
 recover.exit.thread300:                           ; preds = %332
   %335 = load ptr, ptr %313, align 8, !tbaa !44
-  %336 = getelementptr inbounds nuw %struct.AVIndexEntry, ptr %335, i64 %indvars.iv.i
+  %336 = getelementptr inbounds nuw [24 x i8], ptr %335, i64 %indvars.iv.i
   %337 = getelementptr inbounds nuw i8, ptr %336, i64 8
   %338 = load i64, ptr %337, align 8, !tbaa !49
   store i64 %338, ptr %308, align 8, !tbaa !29
@@ -1696,7 +1695,7 @@ recover.exit:                                     ; preds = %332
 363:                                              ; preds = %360
   %364 = load ptr, ptr %307, align 8, !tbaa !40
   %365 = zext nneg i32 %361 to i64
-  %366 = getelementptr inbounds nuw ptr, ptr %364, i64 %365
+  %366 = getelementptr inbounds nuw [8 x i8], ptr %364, i64 %365
   %367 = load ptr, ptr %366, align 8, !tbaa !41
   %368 = getelementptr inbounds nuw i8, ptr %367, i64 24
   %369 = load ptr, ptr %368, align 8, !tbaa !74
@@ -1723,7 +1722,7 @@ recover.exit:                                     ; preds = %332
 
 .thread270:                                       ; preds = %372
   %379 = load ptr, ptr %307, align 8, !tbaa !40
-  %380 = getelementptr inbounds nuw ptr, ptr %379, i64 %365
+  %380 = getelementptr inbounds nuw [8 x i8], ptr %379, i64 %365
   %381 = load ptr, ptr %380, align 8, !tbaa !41
   %382 = zext nneg i32 %378 to i64
   %383 = call fastcc ptr @parse_media_type(ptr noundef nonnull %0, ptr noundef %381, i32 noundef %343, ptr noundef %9, ptr noundef %10, ptr noundef %11, i64 noundef %382)
@@ -1777,7 +1776,7 @@ recover.exit:                                     ; preds = %332
 395:                                              ; preds = %392
   %396 = load ptr, ptr %307, align 8, !tbaa !40
   %397 = zext nneg i32 %393 to i64
-  %398 = getelementptr inbounds nuw ptr, ptr %396, i64 %397
+  %398 = getelementptr inbounds nuw [8 x i8], ptr %396, i64 %397
   %399 = load ptr, ptr %398, align 8, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(258) %12, i8 0, i64 258, i1 false)
@@ -1832,7 +1831,7 @@ recover.exit:                                     ; preds = %332
 418:                                              ; preds = %415
   %419 = load ptr, ptr %307, align 8, !tbaa !40
   %420 = zext nneg i32 %416 to i64
-  %421 = getelementptr inbounds nuw ptr, ptr %419, i64 %420
+  %421 = getelementptr inbounds nuw [8 x i8], ptr %419, i64 %420
   %422 = load ptr, ptr %421, align 8, !tbaa !41
   %423 = call i64 @avio_skip(ptr noundef %34, i64 noundef 8) #12
   %424 = call i32 @avio_r8(ptr noundef %34) #12
@@ -1888,7 +1887,7 @@ recover.exit:                                     ; preds = %332
 445:                                              ; preds = %442
   %446 = load ptr, ptr %307, align 8, !tbaa !40
   %447 = zext nneg i32 %443 to i64
-  %448 = getelementptr inbounds nuw ptr, ptr %446, i64 %447
+  %448 = getelementptr inbounds nuw [8 x i8], ptr %446, i64 %447
   %449 = load ptr, ptr %448, align 8, !tbaa !41
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %450 = call i64 @avio_skip(ptr noundef %34, i64 noundef 12) #12
@@ -1983,7 +1982,7 @@ recover.exit:                                     ; preds = %332
 488:                                              ; preds = %484
   %489 = load ptr, ptr %307, align 8, !tbaa !40
   %490 = zext nneg i32 %485 to i64
-  %491 = getelementptr inbounds nuw ptr, ptr %489, i64 %490
+  %491 = getelementptr inbounds nuw [8 x i8], ptr %489, i64 %490
   %492 = load ptr, ptr %491, align 8, !tbaa !41
   %493 = getelementptr inbounds nuw i8, ptr %492, i64 24
   %494 = load ptr, ptr %493, align 8, !tbaa !74
@@ -2653,7 +2652,7 @@ define internal i64 @wtvfile_seek(ptr noundef captures(none) %0, i64 noundef %1,
   %24 = load i32, ptr %23, align 8, !tbaa !66
   %25 = zext nneg i32 %24 to i64
   %26 = lshr i64 %.022, %25
-  %27 = getelementptr inbounds nuw i32, ptr %22, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !57
   %29 = zext i32 %28 to i64
   %notmask = shl nsw i32 -1, %24
@@ -3761,10 +3760,10 @@ define internal fastcc void @parse_mpeg1waveformatex(ptr captures(none) initiali
 
 switch.lookup:                                    ; preds = %.split
   %19 = zext nneg i32 %17 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.parse_mpeg1waveformatex, i64 %19
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.parse_mpeg1waveformatex, i64 %19
   %switch.load = load i32, ptr %switch.gep, align 4
   %20 = zext nneg i32 %17 to i64
-  %switch.gep6 = getelementptr inbounds nuw i64, ptr @switch.table.parse_mpeg1waveformatex.4, i64 %20
+  %switch.gep6 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.parse_mpeg1waveformatex.4, i64 %20
   %switch.load7 = load i64, ptr %switch.gep6, align 8
   %21 = getelementptr inbounds nuw i8, ptr %.16.val, i64 128
   store i32 1, ptr %21, align 8, !tbaa !57
@@ -3863,7 +3862,7 @@ define internal fastcc void @get_attachment(ptr noundef %0, ptr noundef nonnull 
   %19 = load i32, ptr %18, align 4, !tbaa !39
   %20 = add i32 %19, -1
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr %17, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !41
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 80
   %25 = call i32 @av_dict_set(ptr noundef nonnull %24, ptr noundef nonnull @.str.41, ptr noundef nonnull %5, i32 noundef 0) #12

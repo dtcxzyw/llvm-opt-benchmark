@@ -718,7 +718,7 @@ proto_item_set_generated.exit120:                 ; preds = %proto_item_set_gene
 switch.lookup:                                    ; preds = %140
   %145 = lshr i16 %25, 8
   %trunc = zext nneg i16 %145 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_ipp, i64 %trunc
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_ipp, i64 %trunc
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %146
 

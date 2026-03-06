@@ -3,18 +3,12 @@ source_filename = "bench/postgres/original/slot.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.ReplicationSlot = type { i8, i8, i32, i8, i8, i32, i32, %struct.ReplicationSlotPersistentData, %struct.LWLock, %struct.ConditionVariable, i32, i64, i64, i64, i64, i64 }
-%struct.ReplicationSlotPersistentData = type { %struct.nameData, i32, i32, i32, i32, i64, i32, i64, i64, i8, %struct.nameData, i8, i8 }
-%struct.nameData = type { [64 x i8] }
-%struct.LWLock = type { i16, %struct.pg_atomic_uint32, %struct.proclist_head }
-%struct.pg_atomic_uint32 = type { i32 }
-%struct.proclist_head = type { i32, i32 }
-%struct.ConditionVariable = type { i8, %struct.proclist_head }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
 %struct.ReplicationSlotOnDisk = type { i32, i32, i32, i32, %struct.ReplicationSlotPersistentData }
+%struct.ReplicationSlotPersistentData = type { %struct.nameData, i32, i32, i32, i32, i64, i32, i64, i64, i8, %struct.nameData, i8, i8 }
+%struct.nameData = type { [64 x i8] }
 %struct.StringInfoData = type { ptr, i32, i32, i32 }
-%union.ListCell = type { ptr }
 
 @.str = private unnamed_addr constant [5 x i8] c"none\00", align 1
 @.str.1 = private unnamed_addr constant [12 x i8] c"wal_removed\00", align 1
@@ -248,7 +242,7 @@ ReplicationSlotsShmemSize.exit24:                 ; preds = %10, %13
 .lr.ph28:                                         ; preds = %.loopexit25, %.lr.ph28
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph28 ], [ 0, %.loopexit25 ]
   %33 = load ptr, ptr @ReplicationSlotCtl, align 8
-  %34 = getelementptr inbounds nuw %struct.ReplicationSlot, ptr %33, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [280 x i8], ptr %33, i64 %indvars.iv
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !6
   store i8 0, ptr %34, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 208
@@ -453,7 +447,7 @@ define dso_local void @ReplicationSlotCreate(ptr noundef %0, i1 noundef zeroext 
 42:                                               ; preds = %.lr.ph, %55
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %55 ]
   %.054 = phi ptr [ null, %.lr.ph ], [ %spec.select, %55 ]
-  %43 = getelementptr inbounds nuw %struct.ReplicationSlot, ptr %41, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [280 x i8], ptr %41, i64 %indvars.iv
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 1
   %45 = load i8, ptr %44, align 1, !range !4, !noundef !5
   %46 = trunc nuw i8 %45 to i1
@@ -663,7 +657,7 @@ define dso_local ptr @SearchNamedReplicationSlot(ptr noundef readonly captures(n
 
 11:                                               ; preds = %.lr.ph, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
-  %12 = getelementptr inbounds nuw %struct.ReplicationSlot, ptr %10, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [280 x i8], ptr %10, i64 %indvars.iv
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %14 = load i8, ptr %13, align 1, !range !4, !noundef !5
   %15 = trunc nuw i8 %14 to i1
@@ -709,7 +703,7 @@ define dso_local i32 @ReplicationSlotIndex(ptr noundef %0) local_unnamed_addr #5
 define dso_local noundef zeroext i1 @ReplicationSlotName(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @ReplicationSlotCtl, align 8
   %4 = sext i32 %0 to i64
-  %5 = getelementptr inbounds %struct.ReplicationSlot, ptr %3, i64 %4
+  %5 = getelementptr inbounds [280 x i8], ptr %3, i64 %4
   %6 = load ptr, ptr @MainLWLockArray, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4736
   %8 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %7, i32 noundef 1) #16
@@ -747,7 +741,7 @@ define dso_local void @ReplicationSlotAcquire(ptr noundef %0, i1 noundef zeroext
 
 11:                                               ; preds = %20, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %20 ]
-  %12 = getelementptr inbounds nuw %struct.ReplicationSlot, ptr %10, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw [280 x i8], ptr %10, i64 %indvars.iv.i
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %14 = load i8, ptr %13, align 1, !range !4, !noundef !5
   %15 = trunc nuw i8 %14 to i1
@@ -793,7 +787,7 @@ SearchNamedReplicationSlot.exit:                  ; preds = %16
   %35 = tail call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.16, ptr noundef nonnull %17) #16
   %36 = load i32, ptr %30, align 8
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw ptr, ptr @SlotInvalidationCauses, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr @SlotInvalidationCauses, i64 %37
   %39 = load ptr, ptr %38, align 8
   %40 = tail call i32 (ptr, ...) @errdetail(ptr noundef nonnull @.str.17, ptr noundef %39) #16
   tail call void @errfinish(ptr noundef nonnull @.str.6, i32 noundef 578, ptr noundef nonnull @__func__.ReplicationSlotAcquire) #16
@@ -1133,7 +1127,7 @@ define dso_local void @ReplicationSlotsComputeRequiredXmin(i1 noundef zeroext %0
   %.02335 = phi i32 [ %.1, %33 ], [ 0, %1 ]
   %.02434 = phi i32 [ %.125, %33 ], [ 0, %1 ]
   %7 = load ptr, ptr @ReplicationSlotCtl, align 8
-  %8 = getelementptr inbounds nuw %struct.ReplicationSlot, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [280 x i8], ptr %7, i64 %indvars.iv
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 1
   %10 = load i8, ptr %9, align 1, !range !4, !noundef !5
   %11 = trunc nuw i8 %10 to i1
@@ -1235,7 +1229,7 @@ define dso_local void @ReplicationSlotCleanup(i1 noundef zeroext %0) local_unnam
   %9 = phi i32 [ %29, %28 ], [ %7, %.lr.ph.us ]
   %10 = phi ptr [ %30, %28 ], [ %.pre32, %.lr.ph.us ]
   %indvars.iv26 = phi i64 [ %indvars.iv.next27, %28 ], [ 0, %.lr.ph.us ]
-  %11 = getelementptr inbounds nuw %struct.ReplicationSlot, ptr %10, i64 %indvars.iv26
+  %11 = getelementptr inbounds nuw [280 x i8], ptr %10, i64 %indvars.iv26
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 1
   %13 = load i8, ptr %12, align 1, !range !4, !noundef !5
   %14 = trunc nuw i8 %13 to i1
@@ -1303,7 +1297,7 @@ define dso_local void @ReplicationSlotCleanup(i1 noundef zeroext %0) local_unnam
   %43 = phi i32 [ %41, %.lr.ph ], [ %68, %67 ]
   %44 = phi ptr [ %.pre29, %.lr.ph ], [ %69, %67 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %67 ]
-  %45 = getelementptr inbounds nuw %struct.ReplicationSlot, ptr %44, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [280 x i8], ptr %44, i64 %indvars.iv
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 1
   %47 = load i8, ptr %46, align 1, !range !4, !noundef !5
   %48 = trunc nuw i8 %47 to i1
@@ -1971,7 +1965,7 @@ define dso_local void @ReplicationSlotsComputeRequiredLSN() local_unnamed_addr #
   %6 = phi ptr [ %.pre23, %.lr.ph.preheader ], [ %24, %23 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %23 ]
   %.01520 = phi i64 [ 0, %.lr.ph.preheader ], [ %.1, %23 ]
-  %7 = getelementptr inbounds nuw %struct.ReplicationSlot, ptr %6, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [280 x i8], ptr %6, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 1
   %9 = load i8, ptr %8, align 1, !range !4, !noundef !5
   %10 = trunc nuw i8 %9 to i1
@@ -2048,7 +2042,7 @@ define dso_local i64 @ReplicationSlotsComputeLogicalRestartLSN() local_unnamed_a
   %9 = phi ptr [ %.pre26, %.lr.ph.preheader ], [ %31, %30 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %30 ]
   %.01724 = phi i64 [ 0, %.lr.ph.preheader ], [ %.1, %30 ]
-  %10 = getelementptr inbounds nuw %struct.ReplicationSlot, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [280 x i8], ptr %9, i64 %indvars.iv
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 1
   %12 = load i8, ptr %11, align 1, !range !4, !noundef !5
   %13 = trunc nuw i8 %12 to i1
@@ -2134,7 +2128,7 @@ define dso_local zeroext i1 @ReplicationSlotsCountDBSlots(i32 noundef %0, ptr no
   %12 = phi i32 [ %10, %.lr.ph.preheader ], [ %35, %34 ]
   %13 = phi ptr [ %.pre23, %.lr.ph.preheader ], [ %36, %34 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %34 ]
-  %14 = getelementptr inbounds nuw %struct.ReplicationSlot, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [280 x i8], ptr %13, i64 %indvars.iv
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 1
   %16 = load i8, ptr %15, align 1, !range !4, !noundef !5
   %17 = trunc nuw i8 %16 to i1
@@ -2222,7 +2216,7 @@ define dso_local void @ReplicationSlotsDropDBSlots(i32 noundef %0) local_unnamed
 
 11:                                               ; preds = %.lr.ph, %42
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
-  %12 = getelementptr inbounds nuw %struct.ReplicationSlot, ptr %10, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [280 x i8], ptr %10, i64 %indvars.iv
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %14 = load i8, ptr %13, align 1, !range !4, !noundef !5
   %15 = trunc nuw i8 %14 to i1
@@ -2461,7 +2455,7 @@ define dso_local noundef zeroext i1 @InvalidateObsoleteReplicationSlots(i32 noun
   %22 = phi i32 [ %20, %.lr.ph ], [ %122, %121 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %121 ]
   %23 = load ptr, ptr @ReplicationSlotCtl, align 8
-  %24 = getelementptr inbounds nuw %struct.ReplicationSlot, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [280 x i8], ptr %23, i64 %indvars.iv
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 1
   %26 = load i8, ptr %25, align 1, !range !4, !noundef !5
   %27 = trunc nuw i8 %26 to i1
@@ -2790,7 +2784,7 @@ define dso_local void @CheckPointReplicationSlots(i1 noundef zeroext %0) local_u
   %12 = phi i32 [ %43, %42 ], [ %10, %.lr.ph ]
   %13 = phi ptr [ %44, %42 ], [ %.pre25, %.lr.ph ]
   %indvars.iv19 = phi i64 [ %indvars.iv.next20, %42 ], [ 0, %.lr.ph ]
-  %14 = getelementptr inbounds nuw %struct.ReplicationSlot, ptr %13, i64 %indvars.iv19
+  %14 = getelementptr inbounds nuw [280 x i8], ptr %13, i64 %indvars.iv19
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 1
   %16 = load i8, ptr %15, align 1, !range !4, !noundef !5
@@ -2859,7 +2853,7 @@ define dso_local void @CheckPointReplicationSlots(i1 noundef zeroext %0) local_u
   %47 = phi i32 [ %57, %56 ], [ %10, %.lr.ph ]
   %48 = phi ptr [ %58, %56 ], [ %.pre25, %.lr.ph ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %56 ], [ 0, %.lr.ph ]
-  %49 = getelementptr inbounds nuw %struct.ReplicationSlot, ptr %48, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [280 x i8], ptr %48, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 1
   %51 = load i8, ptr %50, align 1, !range !4, !noundef !5
@@ -3234,7 +3228,7 @@ ReplicationSlotSetInactiveSince.exit.lr.ph.i:     ; preds = %.preheader.i
 
 ReplicationSlotSetInactiveSince.exit.i:           ; preds = %171, %ReplicationSlotSetInactiveSince.exit.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %ReplicationSlotSetInactiveSince.exit.lr.ph.i ], [ %indvars.iv.next.i, %171 ]
-  %172 = getelementptr inbounds nuw %struct.ReplicationSlot, ptr %165, i64 %indvars.iv.i
+  %172 = getelementptr inbounds nuw [280 x i8], ptr %165, i64 %indvars.iv.i
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 1
   %174 = load i8, ptr %173, align 1, !range !4, !noundef !5
   %175 = trunc nuw i8 %174 to i1
@@ -3325,7 +3319,7 @@ define dso_local range(i32 0, 4) i32 @GetSlotInvalidationCause(ptr noundef reado
 
 2:                                                ; preds = %1, %7
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %7 ]
-  %3 = getelementptr inbounds nuw ptr, ptr @SlotInvalidationCauses, i64 %indvars.iv
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @SlotInvalidationCauses, i64 %indvars.iv
   %4 = load ptr, ptr %3, align 8
   %5 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %0) #17
   %6 = icmp eq i32 %5, 0
@@ -3419,13 +3413,13 @@ validate_sync_standby_slots.exit.thread:          ; preds = %8
 
 .lr.ph.i.us.i:                                    ; preds = %32, %.lr.ph.i.us.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i.us.lr.ph.i ], [ %indvars.iv.next.i, %32 ]
-  %33 = getelementptr inbounds nuw %union.ListCell, ptr %31, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv.i
   %34 = load ptr, ptr %33, align 8
   br label %35
 
 35:                                               ; preds = %44, %.lr.ph.i.us.i
   %indvars.iv.i.us.i = phi i64 [ 0, %.lr.ph.i.us.i ], [ %indvars.iv.next.i.us.i, %44 ]
-  %36 = getelementptr inbounds nuw %struct.ReplicationSlot, ptr %29, i64 %indvars.iv.i.us.i
+  %36 = getelementptr inbounds nuw [280 x i8], ptr %29, i64 %indvars.iv.i.us.i
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 1
   %38 = load i8, ptr %37, align 1, !range !4, !noundef !5
   %39 = trunc nuw i8 %38 to i1
@@ -3493,7 +3487,7 @@ validate_sync_standby_slots.exit:                 ; preds = %14, %.split39.us.i
 64:                                               ; preds = %.critedge.preheader.split.us, %64
   %indvars.iv = phi i64 [ 0, %.critedge.preheader.split.us ], [ %indvars.iv.next, %64 ]
   %.13754.us = phi i32 [ 4, %.critedge.preheader.split.us ], [ %70, %64 ]
-  %65 = getelementptr inbounds nuw %union.ListCell, ptr %63, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %indvars.iv
   %66 = load ptr, ptr %65, align 8
   %67 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %66) #17
   %68 = trunc i64 %67 to i32
@@ -3545,7 +3539,7 @@ list_length.exit:                                 ; preds = %.split, %74
   %indvars.iv75 = phi i64 [ %indvars.iv.next76, %.lr.ph65 ], [ 0, %.lr.ph65.preheader ]
   %.15664 = phi ptr [ %91, %.lr.ph65 ], [ %84, %.lr.ph65.preheader ]
   %85 = load ptr, ptr %81, align 8
-  %86 = getelementptr inbounds nuw %union.ListCell, ptr %85, i64 %indvars.iv75
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %indvars.iv75
   %87 = load ptr, ptr %86, align 8
   %88 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %.15664, ptr noundef nonnull dereferenceable(1) %87) #16
   %89 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %87) #17
@@ -3664,7 +3658,7 @@ define dso_local noundef zeroext i1 @StandbySlotsHaveCaughtup(i64 noundef %0, i3
 
 21:                                               ; preds = %30, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %30 ]
-  %22 = getelementptr inbounds nuw %struct.ReplicationSlot, ptr %20, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [280 x i8], ptr %20, i64 %indvars.iv.i
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 1
   %24 = load i8, ptr %23, align 1, !range !4, !noundef !5
   %25 = trunc nuw i8 %24 to i1

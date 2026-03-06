@@ -65,7 +65,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.anon.42 = type { i8 }
 %class.anon.44 = type { i8 }
 %"class.Catch::BinaryExpr.46" = type { %"struct.Catch::ITransientExpression.base", ptr, %"class.Catch::StringRef", ptr }
-%"struct.std::pair" = type { i64, %"class.std::__cxx11::basic_string" }
 %"class.Catch::ReusableStringStream" = type { %"class.Catch::NonCopyable", i64, ptr }
 %"class.Catch::BinaryExpr.54" = type { %"struct.Catch::ITransientExpression.base", ptr, %"class.Catch::StringRef", ptr }
 %"struct.vcpkg::Path" = type { %"class.std::__cxx11::basic_string" }
@@ -4667,7 +4666,7 @@ define internal void @_ZL20C_A_T_C_H_T_E_S_T_10v() #1 personality ptr @__gxx_per
   %253 = load i8, ptr %252, align 1, !tbaa !21
   %254 = sub nuw nsw i64 2, %.014.i.i.i
   %255 = zext i8 %253 to i64
-  %256 = getelementptr inbounds nuw i64, ptr %52, i64 %255
+  %256 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %255
   store i64 %254, ptr %256, align 8, !tbaa !22
   %257 = add nuw nsw i64 %.014.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %257, 2
@@ -4702,7 +4701,7 @@ define internal void @_ZL20C_A_T_C_H_T_E_S_T_10v() #1 personality ptr @__gxx_per
   %265 = load i8, ptr %264, align 1, !tbaa !21
   %266 = sub nuw nsw i64 2, %.014.i.i.i289
   %267 = zext i8 %265 to i64
-  %268 = getelementptr inbounds nuw i64, ptr %260, i64 %267
+  %268 = getelementptr inbounds nuw [8 x i8], ptr %260, i64 %267
   store i64 %266, ptr %268, align 8, !tbaa !22
   %269 = add nuw nsw i64 %.014.i.i.i289, 1
   %exitcond.not.i.i.i290 = icmp eq i64 %269, 2
@@ -10865,7 +10864,7 @@ define internal void @_ZL20C_A_T_C_H_T_E_S_T_12v() #1 personality ptr @__gxx_per
   %53 = load i8, ptr %52, align 1, !tbaa !21
   %54 = sub nuw nsw i64 2, %.014.i.i.i
   %55 = zext i8 %53 to i64
-  %56 = getelementptr inbounds nuw i64, ptr %10, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %55
   store i64 %54, ptr %56, align 8, !tbaa !22
   %57 = add nuw nsw i64 %.014.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %57, 2
@@ -10900,7 +10899,7 @@ define internal void @_ZL20C_A_T_C_H_T_E_S_T_12v() #1 personality ptr @__gxx_per
   %65 = load i8, ptr %64, align 1, !tbaa !21
   %66 = sub nuw nsw i64 2, %.014.i.i.i71
   %67 = zext i8 %65 to i64
-  %68 = getelementptr inbounds nuw i64, ptr %60, i64 %67
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %67
   store i64 %66, ptr %68, align 8, !tbaa !22
   %69 = add nuw nsw i64 %.014.i.i.i71, 1
   %exitcond.not.i.i.i72 = icmp eq i64 %69, 2
@@ -18534,7 +18533,7 @@ _ZNSt6vectorISt4pairImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7
 _ZNSt12_Vector_baseISt4pairImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE13_M_deallocateEPS7_m.exit: ; preds = %_ZNSt6vectorISt4pairImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit37, %79
   store ptr %22, ptr %0, align 8, !tbaa !24
   store ptr %.0.lcssa.i.i.i36, ptr %6, align 8, !tbaa !8
-  %83 = getelementptr inbounds nuw %"struct.std::pair", ptr %22, i64 %18
+  %83 = getelementptr inbounds nuw [40 x i8], ptr %22, i64 %18
   store ptr %83, ptr %78, align 8, !tbaa !12
   ret void
 
@@ -18781,7 +18780,7 @@ _ZNSt6vectorISt4pairImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7
 _ZNSt12_Vector_baseISt4pairImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE13_M_deallocateEPS7_m.exit: ; preds = %_ZNSt6vectorISt4pairImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit37, %78
   store ptr %22, ptr %0, align 8, !tbaa !24
   store ptr %.0.lcssa.i.i.i36, ptr %6, align 8, !tbaa !8
-  %82 = getelementptr inbounds nuw %"struct.std::pair", ptr %22, i64 %18
+  %82 = getelementptr inbounds nuw [40 x i8], ptr %22, i64 %18
   store ptr %82, ptr %77, align 8, !tbaa !12
   ret void
 
@@ -19006,7 +19005,7 @@ _ZNSt6vectorISt4pairImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7
 _ZNSt12_Vector_baseISt4pairImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE13_M_deallocateEPS7_m.exit: ; preds = %_ZNSt6vectorISt4pairImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit37, %78
   store ptr %22, ptr %0, align 8, !tbaa !24
   store ptr %.0.lcssa.i.i.i36, ptr %6, align 8, !tbaa !8
-  %82 = getelementptr inbounds nuw %"struct.std::pair", ptr %22, i64 %18
+  %82 = getelementptr inbounds nuw [40 x i8], ptr %22, i64 %18
   store ptr %82, ptr %77, align 8, !tbaa !12
   ret void
 

@@ -1186,7 +1186,7 @@ define noundef i32 @_ZNK6icu_7719TransliterationRule15matchAndReplaceERNS_11Repl
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %12 = load ptr, ptr %7, align 8, !tbaa !18
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !37
   tail call void @_ZN6icu_7713StringMatcher10resetMatchEv(ptr noundef nonnull align 8 dereferenceable(108) %14)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

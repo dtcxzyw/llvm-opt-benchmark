@@ -95,7 +95,7 @@ define dso_local noundef i32 @FuzzerTestOneInput(ptr noundef %0, i64 noundef %1)
 
 54:                                               ; preds = %2, %77
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %77 ]
-  %55 = getelementptr inbounds nuw ptr, ptr @item_type, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [8 x i8], ptr @item_type, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %0, ptr %3, align 8, !tbaa !9
   call void @llvm.lifetime.start.p0(ptr nonnull %4)

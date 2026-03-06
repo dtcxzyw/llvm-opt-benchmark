@@ -32,14 +32,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateBase" = type { %"class.llvm::SmallVectorTemplateCommon" }
 %"class.llvm::SmallVectorTemplateCommon" = type { %"class.llvm::SmallVectorBase" }
 %"struct.llvm::SmallVectorStorage" = type { [128 x i8] }
-%"class.llvm::MDOperand" = type { ptr }
-%"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
-%"struct.std::_Tuple_impl" = type { %"struct.std::_Tuple_impl.2", %"struct.std::_Head_base.3" }
-%"struct.std::_Tuple_impl.2" = type { %"struct.std::_Head_base" }
-%"struct.std::_Head_base" = type { i32 }
-%"struct.std::_Head_base.3" = type { i64 }
-%"struct.llvm::detail::DenseMapPair" = type { %"struct.std::pair" }
-%"struct.std::pair" = type { %"class.llvm::StringRef", i64 }
 
 $_ZNK4llvm10DILocation24getSubprogramLinkageNameEv = comdat any
 
@@ -112,7 +104,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i: ; preds = %18
   %30 = lshr i64 %20, 2
   %31 = and i64 %30, 15
   %32 = sub nsw i64 0, %31
-  %33 = getelementptr inbounds %"class.llvm::MDOperand", ptr %19, i64 %32
+  %33 = getelementptr inbounds [8 x i8], ptr %19, i64 %32
   br label %_ZNK4llvm10DILocation12getInlinedAtEv.exit
 
 _ZNK4llvm10DILocation12getInlinedAtEv.exit:       ; preds = %.thread.i.i, %29
@@ -164,7 +156,7 @@ _ZNK4llvm10DILocation12getInlinedAtEv.exit:       ; preds = %.thread.i.i, %29
   %54 = lshr i64 %48, 2
   %55 = and i64 %54, 15
   %56 = sub nsw i64 0, %55
-  %57 = getelementptr inbounds %"class.llvm::MDOperand", ptr %47, i64 %56
+  %57 = getelementptr inbounds [8 x i8], ptr %47, i64 %56
   br label %_ZNK4llvm10DILocation8getScopeEv.exit.i
 
 _ZNK4llvm10DILocation8getScopeEv.exit.i:          ; preds = %53, %50
@@ -200,7 +192,7 @@ _ZNK4llvm10DILocation16getDiscriminatorEv.exit:   ; preds = %_ZNK4llvm10DILocati
 70:                                               ; preds = %_ZNK4llvm10DILocation16getDiscriminatorEv.exit
   %71 = zext i32 %66 to i64
   %72 = load ptr, ptr %8, align 8, !tbaa !3
-  %73 = getelementptr inbounds nuw %"class.std::tuple", ptr %72, i64 %71
+  %73 = getelementptr inbounds nuw [16 x i8], ptr %72, i64 %71
   store i32 %.0.i, ptr %73, align 4, !tbaa !23
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
   %75 = load i64, ptr %42, align 8, !tbaa !14
@@ -235,7 +227,7 @@ _ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i27: ; preds = %_ZN4llvm15Small
   %87 = lshr i64 %77, 2
   %88 = and i64 %87, 15
   %89 = sub nsw i64 0, %88
-  %90 = getelementptr inbounds %"class.llvm::MDOperand", ptr %47, i64 %89
+  %90 = getelementptr inbounds [8 x i8], ptr %47, i64 %89
   br label %_ZNK4llvm10DILocation12getInlinedAtEv.exit33
 
 _ZNK4llvm10DILocation12getInlinedAtEv.exit33.thread: ; preds = %_ZNK4llvm6MDNode14getNumOperandsEv.exit.i.i32, %_ZNK4llvm6MDNode14getNumOperandsEv.exit.thread.i.i27
@@ -275,7 +267,7 @@ _ZNK4llvm10DILocation12getInlinedAtEv.exit33:     ; preds = %.thread.i.i29, %86
   %105 = lshr i64 %99, 2
   %106 = and i64 %105, 15
   %107 = sub nsw i64 0, %106
-  %108 = getelementptr inbounds %"class.llvm::MDOperand", ptr %98, i64 %107
+  %108 = getelementptr inbounds [8 x i8], ptr %98, i64 %107
   br label %_ZNK4llvm10DILocation8getScopeEv.exit.i35
 
 _ZNK4llvm10DILocation8getScopeEv.exit.i35:        ; preds = %104, %101
@@ -358,7 +350,7 @@ _ZN4llvm15SmallVectorImplISt5tupleIJmjEEE7reserveEm.exit.i.i: ; preds = %_ZNK4ll
 .lr.ph.i.i.i.i.preheader.i.i:                     ; preds = %_ZN4llvm15SmallVectorImplISt5tupleIJmjEEE7reserveEm.exit.i.i.thread, %_ZN4llvm15SmallVectorImplISt5tupleIJmjEEE7reserveEm.exit.i.i
   %138 = phi ptr [ %123, %_ZN4llvm15SmallVectorImplISt5tupleIJmjEEE7reserveEm.exit.i.i.thread ], [ %118, %_ZN4llvm15SmallVectorImplISt5tupleIJmjEEE7reserveEm.exit.i.i ]
   %.pre-phi.i.i54 = phi i64 [ %.pre11.i.i, %_ZN4llvm15SmallVectorImplISt5tupleIJmjEEE7reserveEm.exit.i.i.thread ], [ 0, %_ZN4llvm15SmallVectorImplISt5tupleIJmjEEE7reserveEm.exit.i.i ]
-  %139 = getelementptr inbounds nuw %"class.std::tuple", ptr %138, i64 %.pre-phi.i.i54
+  %139 = getelementptr inbounds nuw [16 x i8], ptr %138, i64 %.pre-phi.i.i54
   br label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i.i.i.i, %.lr.ph.i.i.i.i.preheader.i.i
@@ -431,7 +423,7 @@ define linkonce_odr hidden { ptr, i64 } @_ZNK4llvm10DILocation24getSubprogramLin
   %9 = lshr i64 %3, 2
   %10 = and i64 %9, 15
   %11 = sub nsw i64 0, %10
-  %12 = getelementptr inbounds %"class.llvm::MDOperand", ptr %2, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %2, i64 %11
   br label %_ZNK4llvm10DILocation8getScopeEv.exit
 
 _ZNK4llvm10DILocation8getScopeEv.exit:            ; preds = %5, %8
@@ -457,7 +449,7 @@ _ZNK4llvm10DILocation8getScopeEv.exit:            ; preds = %5, %8
   %23 = lshr i64 %17, 2
   %24 = and i64 %23, 15
   %25 = sub nsw i64 0, %24
-  %26 = getelementptr inbounds %"class.llvm::MDOperand", ptr %16, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %16, i64 %25
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i: ; preds = %22, %19
@@ -493,7 +485,7 @@ _ZNK4llvm12DISubprogram14getLinkageNameEv.exit.thread: ; preds = %_ZNK4llvm12DIS
   %39 = lshr i64 %33, 2
   %40 = and i64 %39, 15
   %41 = sub nsw i64 0, %40
-  %42 = getelementptr inbounds %"class.llvm::MDOperand", ptr %16, i64 %41
+  %42 = getelementptr inbounds [8 x i8], ptr %16, i64 %41
   br label %_ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i5
 
 _ZNK4llvm6DINode12getOperandAsINS_8MDStringEEEPT_j.exit.i.i5: ; preds = %38, %35
@@ -625,7 +617,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %.039 = phi ptr [ null, %8 ], [ %spec.select, %25 ]
   %.042 = and i32 %.pn, %10
   %12 = zext i32 %.042 to i64
-  %13 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %4, i64 %12
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %4, i64 %12
   %.sroa.010.0.copyload = load ptr, ptr %1, align 8, !tbaa !16
   %.sroa.211.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !14
   %.sroa.08.0.copyload = load ptr, ptr %13, align 8, !tbaa !16
@@ -847,7 +839,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !9
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %"class.std::tuple", ptr %6, i64 %9
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %9
   %11 = load i64, ptr %2, align 8, !tbaa !14
   %12 = trunc i64 %11 to i32
   store i32 %12, ptr %10, align 4, !tbaa !23
@@ -892,7 +884,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt5tupleIJmjEELb0EE21takeAllocationForGrowEPS2
   %29 = add i32 %28, 1
   store i32 %29, ptr %7, align 8, !tbaa !9
   %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds nuw %"class.std::tuple", ptr %6, i64 %30
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %30
   %32 = getelementptr inbounds i8, ptr %31, i64 -16
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret ptr %32

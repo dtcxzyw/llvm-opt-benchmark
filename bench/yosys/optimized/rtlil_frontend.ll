@@ -277,7 +277,7 @@ define linkonce_odr void @_ZN5Yosys13RTLILFrontend7executeERPSiNSt7__cxx1112basi
   %19 = phi ptr [ %11, %.lr.ph ], [ %.pre17.pre, %51 ]
   %.01115 = phi i64 [ 1, %.lr.ph ], [ %52, %51 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %20 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %19, i64 %.01115
+  %20 = getelementptr inbounds nuw [32 x i8], ptr %19, i64 %.01115
   store ptr %16, ptr %7, align 8, !tbaa !6
   %21 = load ptr, ptr %20, align 8, !tbaa !17
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8

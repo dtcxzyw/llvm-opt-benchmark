@@ -530,7 +530,7 @@ define internal i32 @dissect_sv_Data(i1 noundef zeroext %0, ptr noundef %1, i32 
   br i1 %36, label %37, label %42
 
 37:                                               ; preds = %.lr.ph.split.us.i
-  %38 = getelementptr %struct._sv_phs_meas, ptr getelementptr inbounds nuw (i8, ptr @sv_data, i64 4), i64 %indvars.iv.i
+  %38 = getelementptr [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @sv_data, i64 4), i64 %indvars.iv.i
   store i32 %28, ptr %38, align 4
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
   store i32 %30, ptr %39, align 4

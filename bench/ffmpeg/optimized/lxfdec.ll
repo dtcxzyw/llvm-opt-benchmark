@@ -450,7 +450,7 @@ check_checksum.exit:                              ; preds = %.preheader
 
 switch.lookup:                                    ; preds = %86
   %91 = zext nneg i32 %88 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.get_packet_header, i64 %91
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.get_packet_header, i64 %91
   %switch.load = load i32, ptr %switch.gep, align 4
   %92 = getelementptr inbounds nuw i8, ptr %82, i64 4
   store i32 %switch.load, ptr %92, align 4, !tbaa !41

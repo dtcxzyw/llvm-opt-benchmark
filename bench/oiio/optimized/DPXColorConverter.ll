@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"struct.dpx::ImageElement" = type { i32, i32, float, i32, float, i8, i8, i8, i8, i16, i16, i32, i32, i32, [32 x i8] }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -28,7 +27,7 @@ define hidden noundef i32 @_ZN3dpx18QueryRGBBufferSizeERKNS_6HeaderEiRKNS_5Block
 
 4:                                                ; preds = %3
   %5 = zext nneg i32 %1 to i64
-  %6 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %0, i64 %5
+  %6 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %5
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 800
   %8 = load i8, ptr %7, align 4, !tbaa !3
   br label %_ZNK3dpx13GenericHeader15ImageDescriptorEi.exit
@@ -116,7 +115,7 @@ _ZNK3dpx13GenericHeader12ColorimetricEi.exit.thread: ; preds = %5
 
 _ZNK3dpx13GenericHeader12ColorimetricEi.exit:     ; preds = %5
   %17 = zext nneg i32 %1 to i64
-  %18 = getelementptr inbounds nuw %"struct.dpx::ImageElement", ptr %0, i64 %17
+  %18 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 800
   %20 = load i8, ptr %19, align 4, !tbaa !3
   %21 = tail call noundef i32 @_ZNK3dpx13GenericHeader17ComponentDataSizeEi(ptr noundef nonnull align 4 dereferenceable(1664) %0, i32 noundef %1)
@@ -197,23 +196,23 @@ _ZNK3dpx13GenericHeader12ColorimetricEi.exit:     ; preds = %5
 .lr.ph.i103.i:                                    ; preds = %.lr.ph.i103.i, %.lr.ph.preheader.i101.i
   %indvars.iv.i104.i = phi i64 [ 0, %.lr.ph.preheader.i101.i ], [ %indvars.iv.next.i108.i, %.lr.ph.i103.i ]
   %53 = shl nsw i64 %indvars.iv.i104.i, 2
-  %54 = getelementptr inbounds nuw i16, ptr %2, i64 %53
+  %54 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %53
   %.sroa.0.0.copyload.i105.i = load i16, ptr %54, align 2
   %.sroa.4.0..sroa_idx.i106.i = getelementptr inbounds nuw i8, ptr %54, i64 2
   %.sroa.4.0.copyload.i107.i = load i16, ptr %.sroa.4.0..sroa_idx.i106.i, align 2
   %55 = or disjoint i64 %53, 3
-  %56 = getelementptr inbounds nuw i16, ptr %2, i64 %55
+  %56 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %55
   %57 = load i16, ptr %56, align 2, !tbaa !19
-  %58 = getelementptr inbounds nuw i16, ptr %3, i64 %53
+  %58 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %53
   store i16 %57, ptr %58, align 2, !tbaa !19
   %59 = or disjoint i64 %53, 2
-  %60 = getelementptr inbounds nuw i16, ptr %2, i64 %59
+  %60 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %59
   %61 = load i16, ptr %60, align 2, !tbaa !19
   %62 = getelementptr inbounds nuw i8, ptr %58, i64 2
   store i16 %61, ptr %62, align 2, !tbaa !19
-  %63 = getelementptr inbounds nuw i16, ptr %3, i64 %59
+  %63 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %59
   store i16 %.sroa.4.0.copyload.i107.i, ptr %63, align 2, !tbaa !19
-  %64 = getelementptr inbounds nuw i16, ptr %3, i64 %55
+  %64 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %55
   store i16 %.sroa.0.0.copyload.i105.i, ptr %64, align 2, !tbaa !19
   %indvars.iv.next.i108.i = add nuw nsw i64 %indvars.iv.i104.i, 1
   %exitcond.not.i109.i = icmp eq i64 %indvars.iv.next.i108.i, %wide.trip.count.i102.i
@@ -230,23 +229,23 @@ _ZNK3dpx13GenericHeader12ColorimetricEi.exit:     ; preds = %5
 .lr.ph.i112.i:                                    ; preds = %.lr.ph.i112.i, %.lr.ph.preheader.i110.i
   %indvars.iv.i113.i = phi i64 [ 0, %.lr.ph.preheader.i110.i ], [ %indvars.iv.next.i117.i, %.lr.ph.i112.i ]
   %67 = shl nsw i64 %indvars.iv.i113.i, 2
-  %68 = getelementptr inbounds nuw i32, ptr %2, i64 %67
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %67
   %.sroa.0.0.copyload.i114.i = load i32, ptr %68, align 4
   %.sroa.4.0..sroa_idx.i115.i = getelementptr inbounds nuw i8, ptr %68, i64 4
   %.sroa.4.0.copyload.i116.i = load i32, ptr %.sroa.4.0..sroa_idx.i115.i, align 4
   %69 = or disjoint i64 %67, 3
-  %70 = getelementptr inbounds nuw i32, ptr %2, i64 %69
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %69
   %71 = load i32, ptr %70, align 4, !tbaa !21
-  %72 = getelementptr inbounds nuw i32, ptr %3, i64 %67
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %67
   store i32 %71, ptr %72, align 4, !tbaa !21
   %73 = or disjoint i64 %67, 2
-  %74 = getelementptr inbounds nuw i32, ptr %2, i64 %73
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %73
   %75 = load i32, ptr %74, align 4, !tbaa !21
   %76 = getelementptr inbounds nuw i8, ptr %72, i64 4
   store i32 %75, ptr %76, align 4, !tbaa !21
-  %77 = getelementptr inbounds nuw i32, ptr %3, i64 %73
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %73
   store i32 %.sroa.4.0.copyload.i116.i, ptr %77, align 4, !tbaa !21
-  %78 = getelementptr inbounds nuw i32, ptr %3, i64 %69
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %69
   store i32 %.sroa.0.0.copyload.i114.i, ptr %78, align 4, !tbaa !21
   %indvars.iv.next.i117.i = add nuw nsw i64 %indvars.iv.i113.i, 1
   %exitcond.not.i118.i = icmp eq i64 %indvars.iv.next.i117.i, %wide.trip.count.i111.i
@@ -263,23 +262,23 @@ _ZNK3dpx13GenericHeader12ColorimetricEi.exit:     ; preds = %5
 .lr.ph.i121.i:                                    ; preds = %.lr.ph.i121.i, %.lr.ph.preheader.i119.i
   %indvars.iv.i122.i = phi i64 [ 0, %.lr.ph.preheader.i119.i ], [ %indvars.iv.next.i126.i, %.lr.ph.i121.i ]
   %81 = shl nsw i64 %indvars.iv.i122.i, 2
-  %82 = getelementptr inbounds nuw float, ptr %2, i64 %81
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %81
   %.sroa.0.0.copyload.i123.i = load float, ptr %82, align 4
   %.sroa.4.0..sroa_idx.i124.i = getelementptr inbounds nuw i8, ptr %82, i64 4
   %.sroa.4.0.copyload.i125.i = load float, ptr %.sroa.4.0..sroa_idx.i124.i, align 4
   %83 = or disjoint i64 %81, 3
-  %84 = getelementptr inbounds nuw float, ptr %2, i64 %83
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %83
   %85 = load float, ptr %84, align 4, !tbaa !23
-  %86 = getelementptr inbounds nuw float, ptr %3, i64 %81
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %81
   store float %85, ptr %86, align 4, !tbaa !23
   %87 = or disjoint i64 %81, 2
-  %88 = getelementptr inbounds nuw float, ptr %2, i64 %87
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %87
   %89 = load float, ptr %88, align 4, !tbaa !23
   %90 = getelementptr inbounds nuw i8, ptr %86, i64 4
   store float %89, ptr %90, align 4, !tbaa !23
-  %91 = getelementptr inbounds nuw float, ptr %3, i64 %87
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %87
   store float %.sroa.4.0.copyload.i125.i, ptr %91, align 4, !tbaa !23
-  %92 = getelementptr inbounds nuw float, ptr %3, i64 %83
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %83
   store float %.sroa.0.0.copyload.i123.i, ptr %92, align 4, !tbaa !23
   %indvars.iv.next.i126.i = add nuw nsw i64 %indvars.iv.i122.i, 1
   %exitcond.not.i127.i = icmp eq i64 %indvars.iv.next.i126.i, %wide.trip.count.i120.i
@@ -296,23 +295,23 @@ _ZNK3dpx13GenericHeader12ColorimetricEi.exit:     ; preds = %5
 .lr.ph.i130.i:                                    ; preds = %.lr.ph.i130.i, %.lr.ph.preheader.i128.i
   %indvars.iv.i131.i = phi i64 [ 0, %.lr.ph.preheader.i128.i ], [ %indvars.iv.next.i135.i, %.lr.ph.i130.i ]
   %95 = shl nsw i64 %indvars.iv.i131.i, 2
-  %96 = getelementptr inbounds nuw double, ptr %2, i64 %95
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %95
   %.sroa.0.0.copyload.i132.i = load double, ptr %96, align 8
   %.sroa.4.0..sroa_idx.i133.i = getelementptr inbounds nuw i8, ptr %96, i64 8
   %.sroa.4.0.copyload.i134.i = load double, ptr %.sroa.4.0..sroa_idx.i133.i, align 8
   %97 = or disjoint i64 %95, 3
-  %98 = getelementptr inbounds nuw double, ptr %2, i64 %97
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %97
   %99 = load double, ptr %98, align 8, !tbaa !25
-  %100 = getelementptr inbounds nuw double, ptr %3, i64 %95
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %95
   store double %99, ptr %100, align 8, !tbaa !25
   %101 = or disjoint i64 %95, 2
-  %102 = getelementptr inbounds nuw double, ptr %2, i64 %101
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %101
   %103 = load double, ptr %102, align 8, !tbaa !25
   %104 = getelementptr inbounds nuw i8, ptr %100, i64 8
   store double %103, ptr %104, align 8, !tbaa !25
-  %105 = getelementptr inbounds nuw double, ptr %3, i64 %101
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %101
   store double %.sroa.4.0.copyload.i134.i, ptr %105, align 8, !tbaa !25
-  %106 = getelementptr inbounds nuw double, ptr %3, i64 %97
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %97
   store double %.sroa.0.0.copyload.i132.i, ptr %106, align 8, !tbaa !25
   %indvars.iv.next.i135.i = add nuw nsw i64 %indvars.iv.i131.i, 1
   %exitcond.not.i136.i = icmp eq i64 %indvars.iv.next.i135.i, %wide.trip.count.i129.i
@@ -334,7 +333,7 @@ _ZNK3dpx13GenericHeader12ColorimetricEi.exit:     ; preds = %5
 
 switch.lookup:                                    ; preds = %108
   %110 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3dpx12ConvertToRGBERKNS_6HeaderEiPKvPvRKNS_5BlockE.20, i64 %110
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN3dpx12ConvertToRGBERKNS_6HeaderEiPKvPvRKNS_5BlockE.20, i64 %110
   %switch.load = load ptr, ptr %switch.gep, align 8
   %111 = icmp sgt i32 %35, 0
   br i1 %111, label %.lr.ph.preheader.i137.i, label %_ZN3dpxL20ConvertToRGBInternalENS_10DescriptorENS_8DataSizeENS_14CharacteristicEPKvPvi.exit
@@ -400,7 +399,7 @@ _ZN3dpxL22ConvertPixelYCbCrToRGBIhLj255EEEvPKT_PS1_PKf.exit.i.i: ; preds = %130
 
 switch.lookup78:                                  ; preds = %144
   %146 = zext nneg i8 %switch.tableidx77 to i64
-  %switch.gep79 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3dpx12ConvertToRGBERKNS_6HeaderEiPKvPvRKNS_5BlockE.20, i64 %146
+  %switch.gep79 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN3dpx12ConvertToRGBERKNS_6HeaderEiPKvPvRKNS_5BlockE.20, i64 %146
   %switch.load80 = load ptr, ptr %switch.gep79, align 8
   %147 = icmp sgt i32 %35, 0
   br i1 %147, label %.lr.ph.preheader.i144.i, label %_ZN3dpxL20ConvertToRGBInternalENS_10DescriptorENS_8DataSizeENS_14CharacteristicEPKvPvi.exit
@@ -414,14 +413,14 @@ switch.lookup78:                                  ; preds = %144
   %148 = shl i64 %indvars.iv.i147.i, 33
   %sext.i148.i = ashr exact i64 %148, 32
   %149 = or i64 %sext.i148.i, 2
-  %150 = getelementptr inbounds i16, ptr %2, i64 %149
+  %150 = getelementptr inbounds [2 x i8], ptr %2, i64 %149
   %151 = load i16, ptr %150, align 2, !tbaa !19
   %.idx.i.i = shl nuw i64 %indvars.iv.i147.i, 2
   %152 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i.i
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 2
   %154 = load i16, ptr %153, align 2, !tbaa !19
   %155 = and i64 %sext.i148.i, -4
-  %156 = getelementptr inbounds i16, ptr %2, i64 %155
+  %156 = getelementptr inbounds [2 x i8], ptr %2, i64 %155
   %157 = load i16, ptr %156, align 2, !tbaa !19
   %.idx21.i.i = mul nuw nsw i64 %indvars.iv.i147.i, 6
   %158 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx21.i.i
@@ -448,7 +447,7 @@ switch.lookup78:                                  ; preds = %144
   %.sroa.speculated.i.i152.i = select i1 %174, float 6.553500e+04, float %173
   %175 = fptoui float %.sroa.speculated.i.i152.i to i16
   %176 = sub nuw nsw i64 2, %indvars.iv.i.i150.i
-  %177 = getelementptr inbounds nuw i16, ptr %158, i64 %176
+  %177 = getelementptr inbounds nuw [2 x i8], ptr %158, i64 %176
   store i16 %175, ptr %177, align 2, !tbaa !19
   %indvars.iv.next.i.i153.i = add nuw nsw i64 %indvars.iv.i.i150.i, 1
   %exitcond.not.i.i154.i = icmp eq i64 %indvars.iv.next.i.i153.i, 3
@@ -466,7 +465,7 @@ _ZN3dpxL22ConvertPixelYCbCrToRGBItLj65535EEEvPKT_PS1_PKf.exit.i.i: ; preds = %16
 
 switch.lookup82:                                  ; preds = %178
   %180 = zext nneg i8 %switch.tableidx81 to i64
-  %switch.gep83 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3dpx12ConvertToRGBERKNS_6HeaderEiPKvPvRKNS_5BlockE.20, i64 %180
+  %switch.gep83 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN3dpx12ConvertToRGBERKNS_6HeaderEiPKvPvRKNS_5BlockE.20, i64 %180
   %switch.load84 = load ptr, ptr %switch.gep83, align 8
   %181 = icmp sgt i32 %35, 0
   br i1 %181, label %.lr.ph.preheader.i158.i, label %_ZN3dpxL20ConvertToRGBInternalENS_10DescriptorENS_8DataSizeENS_14CharacteristicEPKvPvi.exit
@@ -480,14 +479,14 @@ switch.lookup82:                                  ; preds = %178
   %182 = shl i64 %indvars.iv.i161.i, 33
   %sext.i162.i = ashr exact i64 %182, 32
   %183 = or i64 %sext.i162.i, 2
-  %184 = getelementptr inbounds i32, ptr %2, i64 %183
+  %184 = getelementptr inbounds [4 x i8], ptr %2, i64 %183
   %185 = load i32, ptr %184, align 4, !tbaa !21
   %.idx.i163.i = shl nuw i64 %indvars.iv.i161.i, 3
   %186 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i163.i
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 4
   %188 = load i32, ptr %187, align 4, !tbaa !21
   %189 = and i64 %sext.i162.i, -4
-  %190 = getelementptr inbounds i32, ptr %2, i64 %189
+  %190 = getelementptr inbounds [4 x i8], ptr %2, i64 %189
   %191 = load i32, ptr %190, align 4, !tbaa !21
   %.idx21.i165.i = mul nuw nsw i64 %indvars.iv.i161.i, 12
   %192 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx21.i165.i
@@ -514,7 +513,7 @@ switch.lookup82:                                  ; preds = %178
   %.sroa.speculated.i.i168.i = select i1 %208, float 0x41F0000000000000, float %207
   %209 = fptoui float %.sroa.speculated.i.i168.i to i32
   %210 = sub nuw nsw i64 2, %indvars.iv.i.i166.i
-  %211 = getelementptr inbounds nuw i32, ptr %192, i64 %210
+  %211 = getelementptr inbounds nuw [4 x i8], ptr %192, i64 %210
   store i32 %209, ptr %211, align 4, !tbaa !21
   %indvars.iv.next.i.i169.i = add nuw nsw i64 %indvars.iv.i.i166.i, 1
   %exitcond.not.i.i170.i = icmp eq i64 %indvars.iv.next.i.i169.i, 3
@@ -532,7 +531,7 @@ _ZN3dpxL22ConvertPixelYCbCrToRGBIjLj4294967295EEEvPKT_PS1_PKf.exit.i.i: ; preds 
 
 switch.lookup86:                                  ; preds = %212
   %214 = zext nneg i8 %switch.tableidx85 to i64
-  %switch.gep87 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3dpx12ConvertToRGBERKNS_6HeaderEiPKvPvRKNS_5BlockE.20, i64 %214
+  %switch.gep87 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN3dpx12ConvertToRGBERKNS_6HeaderEiPKvPvRKNS_5BlockE.20, i64 %214
   %switch.load88 = load ptr, ptr %switch.gep87, align 8
   %215 = icmp sgt i32 %35, 0
   br i1 %215, label %.lr.ph.preheader.i174.i, label %_ZN3dpxL20ConvertToRGBInternalENS_10DescriptorENS_8DataSizeENS_14CharacteristicEPKvPvi.exit
@@ -546,14 +545,14 @@ switch.lookup86:                                  ; preds = %212
   %216 = shl i64 %indvars.iv.i177.i, 33
   %sext.i178.i = ashr exact i64 %216, 32
   %217 = or i64 %sext.i178.i, 2
-  %218 = getelementptr inbounds float, ptr %2, i64 %217
+  %218 = getelementptr inbounds [4 x i8], ptr %2, i64 %217
   %219 = load float, ptr %218, align 4, !tbaa !23
   %.idx.i179.i = shl nuw i64 %indvars.iv.i177.i, 3
   %220 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i179.i
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 4
   %222 = load float, ptr %221, align 4, !tbaa !23
   %223 = and i64 %sext.i178.i, -4
-  %224 = getelementptr inbounds float, ptr %2, i64 %223
+  %224 = getelementptr inbounds [4 x i8], ptr %2, i64 %223
   %225 = load float, ptr %224, align 4, !tbaa !23
   %.idx21.i181.i = mul nuw nsw i64 %indvars.iv.i177.i, 12
   %226 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx21.i181.i
@@ -578,7 +577,7 @@ switch.lookup86:                                  ; preds = %212
   %240 = fcmp ogt float %.sroa.speculated.i.i184.i, 0.000000e+00
   %.sroa.speculated14.i.i.i = select i1 %240, float %.sroa.speculated.i.i184.i, float 0.000000e+00
   %241 = sub nuw nsw i64 2, %indvars.iv.i.i182.i
-  %242 = getelementptr inbounds nuw float, ptr %226, i64 %241
+  %242 = getelementptr inbounds nuw [4 x i8], ptr %226, i64 %241
   store float %.sroa.speculated14.i.i.i, ptr %242, align 4, !tbaa !23
   %indvars.iv.next.i.i185.i = add nuw nsw i64 %indvars.iv.i.i182.i, 1
   %exitcond.not.i.i186.i = icmp eq i64 %indvars.iv.next.i.i185.i, 3
@@ -596,7 +595,7 @@ _ZN3dpxL22ConvertPixelYCbCrToRGBIfLj1EEEvPKT_PS1_PKf.exit.i.i: ; preds = %229
 
 switch.lookup90:                                  ; preds = %243
   %245 = zext nneg i8 %switch.tableidx89 to i64
-  %switch.gep91 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3dpx12ConvertToRGBERKNS_6HeaderEiPKvPvRKNS_5BlockE.20, i64 %245
+  %switch.gep91 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN3dpx12ConvertToRGBERKNS_6HeaderEiPKvPvRKNS_5BlockE.20, i64 %245
   %switch.load92 = load ptr, ptr %switch.gep91, align 8
   %246 = icmp sgt i32 %35, 0
   br i1 %246, label %.lr.ph.preheader.i190.i, label %_ZN3dpxL20ConvertToRGBInternalENS_10DescriptorENS_8DataSizeENS_14CharacteristicEPKvPvi.exit
@@ -610,14 +609,14 @@ switch.lookup90:                                  ; preds = %243
   %247 = shl i64 %indvars.iv.i193.i, 33
   %sext.i194.i = ashr exact i64 %247, 32
   %248 = or i64 %sext.i194.i, 2
-  %249 = getelementptr inbounds double, ptr %2, i64 %248
+  %249 = getelementptr inbounds [8 x i8], ptr %2, i64 %248
   %250 = load double, ptr %249, align 8, !tbaa !25
   %.idx.i195.i = shl nuw i64 %indvars.iv.i193.i, 4
   %251 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i195.i
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 8
   %253 = load double, ptr %252, align 8, !tbaa !25
   %254 = and i64 %sext.i194.i, -4
-  %255 = getelementptr inbounds double, ptr %2, i64 %254
+  %255 = getelementptr inbounds [8 x i8], ptr %2, i64 %254
   %256 = load double, ptr %255, align 8, !tbaa !25
   %.idx21.i197.i = mul nuw nsw i64 %indvars.iv.i193.i, 24
   %257 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx21.i197.i
@@ -650,7 +649,7 @@ switch.lookup90:                                  ; preds = %243
   %279 = fcmp ogt double %278, 0.000000e+00
   %.sroa.speculated14.i.i201.i = select i1 %279, double %278, double 0.000000e+00
   %280 = sub nuw nsw i64 2, %indvars.iv.i.i198.i
-  %281 = getelementptr inbounds nuw double, ptr %257, i64 %280
+  %281 = getelementptr inbounds nuw [8 x i8], ptr %257, i64 %280
   store double %.sroa.speculated14.i.i201.i, ptr %281, align 8, !tbaa !25
   %indvars.iv.next.i.i202.i = add nuw nsw i64 %indvars.iv.i.i198.i, 1
   %exitcond.not.i.i203.i = icmp eq i64 %indvars.iv.next.i.i202.i, 3
@@ -677,7 +676,7 @@ _ZN3dpxL22ConvertPixelYCbCrToRGBIdLj1EEEvPKT_PS1_PKf.exit.i.i: ; preds = %262
 
 switch.lookup94:                                  ; preds = %283
   %285 = zext nneg i8 %switch.tableidx93 to i64
-  %switch.gep95 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3dpx12ConvertToRGBERKNS_6HeaderEiPKvPvRKNS_5BlockE.20, i64 %285
+  %switch.gep95 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN3dpx12ConvertToRGBERKNS_6HeaderEiPKvPvRKNS_5BlockE.20, i64 %285
   %switch.load96 = load ptr, ptr %switch.gep95, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %286 = icmp sgt i32 %35, 0
@@ -743,7 +742,7 @@ _ZN3dpxL22ConvertPixelYCbCrToRGBIhLj255EEEvPKT_PS1_PKf.exit.i216.i: ; preds = %2
 
 switch.lookup98:                                  ; preds = %314
   %316 = zext nneg i8 %switch.tableidx97 to i64
-  %switch.gep99 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3dpx12ConvertToRGBERKNS_6HeaderEiPKvPvRKNS_5BlockE.20, i64 %316
+  %switch.gep99 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN3dpx12ConvertToRGBERKNS_6HeaderEiPKvPvRKNS_5BlockE.20, i64 %316
   %switch.load100 = load ptr, ptr %switch.gep99, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %317 = icmp sgt i32 %35, 0
@@ -760,7 +759,7 @@ switch.lookup98:                                  ; preds = %314
 .lr.ph.i223.i:                                    ; preds = %_ZN3dpxL22ConvertPixelYCbCrToRGBItLj65535EEEvPKT_PS1_PKf.exit.i230.i, %.lr.ph.preheader.i221.i
   %indvars.iv.i224.i = phi i64 [ 0, %.lr.ph.preheader.i221.i ], [ %indvars.iv.next.i231.i, %_ZN3dpxL22ConvertPixelYCbCrToRGBItLj65535EEEvPKT_PS1_PKf.exit.i230.i ]
   %318 = mul nuw nsw i64 %indvars.iv.i224.i, 3
-  %319 = getelementptr inbounds nuw i16, ptr %2, i64 %318
+  %319 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %318
   %320 = getelementptr inbounds nuw i8, ptr %319, i64 2
   %321 = getelementptr inbounds nuw i8, ptr %319, i64 4
   %322 = load i16, ptr %320, align 2, !tbaa !19
@@ -789,14 +788,14 @@ switch.lookup98:                                  ; preds = %314
   %.sroa.speculated.i.i227.i = select i1 %340, float 6.553500e+04, float %339
   %341 = fptoui float %.sroa.speculated.i.i227.i to i16
   %342 = sub nuw nsw i64 2, %indvars.iv.i.i225.i
-  %343 = getelementptr inbounds nuw i16, ptr %14, i64 %342
+  %343 = getelementptr inbounds nuw [2 x i8], ptr %14, i64 %342
   store i16 %341, ptr %343, align 2, !tbaa !19
   %indvars.iv.next.i.i228.i = add nuw nsw i64 %indvars.iv.i.i225.i, 1
   %exitcond.not.i.i229.i = icmp eq i64 %indvars.iv.next.i.i228.i, 3
   br i1 %exitcond.not.i.i229.i, label %_ZN3dpxL22ConvertPixelYCbCrToRGBItLj65535EEEvPKT_PS1_PKf.exit.i230.i, label %330, !llvm.loop !30
 
 _ZN3dpxL22ConvertPixelYCbCrToRGBItLj65535EEEvPKT_PS1_PKf.exit.i230.i: ; preds = %330
-  %344 = getelementptr inbounds nuw i16, ptr %3, i64 %318
+  %344 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %318
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(6) %344, ptr noundef nonnull align 2 dereferenceable(6) %14, i64 6, i1 false)
   %indvars.iv.next.i231.i = add nuw nsw i64 %indvars.iv.i224.i, 1
   %exitcond.not.i232.i = icmp eq i64 %indvars.iv.next.i231.i, %wide.trip.count.i222.i
@@ -809,7 +808,7 @@ _ZN3dpxL22ConvertPixelYCbCrToRGBItLj65535EEEvPKT_PS1_PKf.exit.i230.i: ; preds = 
 
 switch.lookup102:                                 ; preds = %345
   %347 = zext nneg i8 %switch.tableidx101 to i64
-  %switch.gep103 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3dpx12ConvertToRGBERKNS_6HeaderEiPKvPvRKNS_5BlockE.20, i64 %347
+  %switch.gep103 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN3dpx12ConvertToRGBERKNS_6HeaderEiPKvPvRKNS_5BlockE.20, i64 %347
   %switch.load104 = load ptr, ptr %switch.gep103, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   %348 = icmp sgt i32 %35, 0
@@ -826,7 +825,7 @@ switch.lookup102:                                 ; preds = %345
 .lr.ph.i237.i:                                    ; preds = %_ZN3dpxL22ConvertPixelYCbCrToRGBIjLj4294967295EEEvPKT_PS1_PKf.exit.i244.i, %.lr.ph.preheader.i235.i
   %indvars.iv.i238.i = phi i64 [ 0, %.lr.ph.preheader.i235.i ], [ %indvars.iv.next.i245.i, %_ZN3dpxL22ConvertPixelYCbCrToRGBIjLj4294967295EEEvPKT_PS1_PKf.exit.i244.i ]
   %349 = mul nuw nsw i64 %indvars.iv.i238.i, 3
-  %350 = getelementptr inbounds nuw i32, ptr %2, i64 %349
+  %350 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %349
   %351 = getelementptr inbounds nuw i8, ptr %350, i64 4
   %352 = getelementptr inbounds nuw i8, ptr %350, i64 8
   %353 = load i32, ptr %351, align 4, !tbaa !21
@@ -855,14 +854,14 @@ switch.lookup102:                                 ; preds = %345
   %.sroa.speculated.i.i241.i = select i1 %371, float 0x41F0000000000000, float %370
   %372 = fptoui float %.sroa.speculated.i.i241.i to i32
   %373 = sub nuw nsw i64 2, %indvars.iv.i.i239.i
-  %374 = getelementptr inbounds nuw i32, ptr %13, i64 %373
+  %374 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %373
   store i32 %372, ptr %374, align 4, !tbaa !21
   %indvars.iv.next.i.i242.i = add nuw nsw i64 %indvars.iv.i.i239.i, 1
   %exitcond.not.i.i243.i = icmp eq i64 %indvars.iv.next.i.i242.i, 3
   br i1 %exitcond.not.i.i243.i, label %_ZN3dpxL22ConvertPixelYCbCrToRGBIjLj4294967295EEEvPKT_PS1_PKf.exit.i244.i, label %361, !llvm.loop !32
 
 _ZN3dpxL22ConvertPixelYCbCrToRGBIjLj4294967295EEEvPKT_PS1_PKf.exit.i244.i: ; preds = %361
-  %375 = getelementptr inbounds nuw i32, ptr %3, i64 %349
+  %375 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %349
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %375, ptr noundef nonnull align 4 dereferenceable(12) %13, i64 12, i1 false)
   %indvars.iv.next.i245.i = add nuw nsw i64 %indvars.iv.i238.i, 1
   %exitcond.not.i246.i = icmp eq i64 %indvars.iv.next.i245.i, %wide.trip.count.i236.i
@@ -875,7 +874,7 @@ _ZN3dpxL22ConvertPixelYCbCrToRGBIjLj4294967295EEEvPKT_PS1_PKf.exit.i244.i: ; pre
 
 switch.lookup106:                                 ; preds = %376
   %378 = zext nneg i8 %switch.tableidx105 to i64
-  %switch.gep107 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3dpx12ConvertToRGBERKNS_6HeaderEiPKvPvRKNS_5BlockE.20, i64 %378
+  %switch.gep107 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN3dpx12ConvertToRGBERKNS_6HeaderEiPKvPvRKNS_5BlockE.20, i64 %378
   %switch.load108 = load ptr, ptr %switch.gep107, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %379 = icmp sgt i32 %35, 0
@@ -892,7 +891,7 @@ switch.lookup106:                                 ; preds = %376
 .lr.ph.i251.i:                                    ; preds = %_ZN3dpxL22ConvertPixelYCbCrToRGBIfLj1EEEvPKT_PS1_PKf.exit.i259.i, %.lr.ph.preheader.i249.i
   %indvars.iv.i252.i = phi i64 [ 0, %.lr.ph.preheader.i249.i ], [ %indvars.iv.next.i260.i, %_ZN3dpxL22ConvertPixelYCbCrToRGBIfLj1EEEvPKT_PS1_PKf.exit.i259.i ]
   %380 = mul nuw nsw i64 %indvars.iv.i252.i, 3
-  %381 = getelementptr inbounds nuw float, ptr %2, i64 %380
+  %381 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %380
   %382 = getelementptr inbounds nuw i8, ptr %381, i64 4
   %383 = getelementptr inbounds nuw i8, ptr %381, i64 8
   %384 = load float, ptr %382, align 4, !tbaa !23
@@ -919,14 +918,14 @@ switch.lookup106:                                 ; preds = %376
   %400 = fcmp ogt float %.sroa.speculated.i.i255.i, 0.000000e+00
   %.sroa.speculated14.i.i256.i = select i1 %400, float %.sroa.speculated.i.i255.i, float 0.000000e+00
   %401 = sub nuw nsw i64 2, %indvars.iv.i.i253.i
-  %402 = getelementptr inbounds nuw float, ptr %12, i64 %401
+  %402 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %401
   store float %.sroa.speculated14.i.i256.i, ptr %402, align 4, !tbaa !23
   %indvars.iv.next.i.i257.i = add nuw nsw i64 %indvars.iv.i.i253.i, 1
   %exitcond.not.i.i258.i = icmp eq i64 %indvars.iv.next.i.i257.i, 3
   br i1 %exitcond.not.i.i258.i, label %_ZN3dpxL22ConvertPixelYCbCrToRGBIfLj1EEEvPKT_PS1_PKf.exit.i259.i, label %389, !llvm.loop !34
 
 _ZN3dpxL22ConvertPixelYCbCrToRGBIfLj1EEEvPKT_PS1_PKf.exit.i259.i: ; preds = %389
-  %403 = getelementptr inbounds nuw float, ptr %3, i64 %380
+  %403 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %380
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %403, ptr noundef nonnull align 4 dereferenceable(12) %12, i64 12, i1 false)
   %indvars.iv.next.i260.i = add nuw nsw i64 %indvars.iv.i252.i, 1
   %exitcond.not.i261.i = icmp eq i64 %indvars.iv.next.i260.i, %wide.trip.count.i250.i
@@ -939,7 +938,7 @@ _ZN3dpxL22ConvertPixelYCbCrToRGBIfLj1EEEvPKT_PS1_PKf.exit.i259.i: ; preds = %389
 
 switch.lookup110:                                 ; preds = %404
   %406 = zext nneg i8 %switch.tableidx109 to i64
-  %switch.gep111 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3dpx12ConvertToRGBERKNS_6HeaderEiPKvPvRKNS_5BlockE.20, i64 %406
+  %switch.gep111 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN3dpx12ConvertToRGBERKNS_6HeaderEiPKvPvRKNS_5BlockE.20, i64 %406
   %switch.load112 = load ptr, ptr %switch.gep111, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %407 = icmp sgt i32 %35, 0
@@ -956,7 +955,7 @@ switch.lookup110:                                 ; preds = %404
 .lr.ph.i266.i:                                    ; preds = %_ZN3dpxL22ConvertPixelYCbCrToRGBIdLj1EEEvPKT_PS1_PKf.exit.i274.i, %.lr.ph.preheader.i264.i
   %indvars.iv.i267.i = phi i64 [ 0, %.lr.ph.preheader.i264.i ], [ %indvars.iv.next.i275.i, %_ZN3dpxL22ConvertPixelYCbCrToRGBIdLj1EEEvPKT_PS1_PKf.exit.i274.i ]
   %408 = mul nuw nsw i64 %indvars.iv.i267.i, 3
-  %409 = getelementptr inbounds nuw double, ptr %2, i64 %408
+  %409 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %408
   %410 = getelementptr inbounds nuw i8, ptr %409, i64 8
   %411 = getelementptr inbounds nuw i8, ptr %409, i64 16
   %412 = load double, ptr %410, align 8, !tbaa !25
@@ -991,14 +990,14 @@ switch.lookup110:                                 ; preds = %404
   %436 = fcmp ogt double %435, 0.000000e+00
   %.sroa.speculated14.i.i271.i = select i1 %436, double %435, double 0.000000e+00
   %437 = sub nuw nsw i64 2, %indvars.iv.i.i268.i
-  %438 = getelementptr inbounds nuw double, ptr %11, i64 %437
+  %438 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %437
   store double %.sroa.speculated14.i.i271.i, ptr %438, align 8, !tbaa !25
   %indvars.iv.next.i.i272.i = add nuw nsw i64 %indvars.iv.i.i268.i, 1
   %exitcond.not.i.i273.i = icmp eq i64 %indvars.iv.next.i.i272.i, 3
   br i1 %exitcond.not.i.i273.i, label %_ZN3dpxL22ConvertPixelYCbCrToRGBIdLj1EEEvPKT_PS1_PKf.exit.i274.i, label %419, !llvm.loop !36
 
 _ZN3dpxL22ConvertPixelYCbCrToRGBIdLj1EEEvPKT_PS1_PKf.exit.i274.i: ; preds = %419
-  %439 = getelementptr inbounds nuw double, ptr %3, i64 %408
+  %439 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %408
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %439, ptr noundef nonnull align 16 dereferenceable(24) %11, i64 24, i1 false)
   %indvars.iv.next.i275.i = add nuw nsw i64 %indvars.iv.i267.i, 1
   %exitcond.not.i276.i = icmp eq i64 %indvars.iv.next.i275.i, %wide.trip.count.i265.i
@@ -1020,7 +1019,7 @@ _ZN3dpxL22ConvertPixelYCbCrToRGBIdLj1EEEvPKT_PS1_PKf.exit.i274.i: ; preds = %419
 
 switch.lookup114:                                 ; preds = %441
   %443 = zext nneg i8 %switch.tableidx113 to i64
-  %switch.gep115 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3dpx12ConvertToRGBERKNS_6HeaderEiPKvPvRKNS_5BlockE.20, i64 %443
+  %switch.gep115 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN3dpx12ConvertToRGBERKNS_6HeaderEiPKvPvRKNS_5BlockE.20, i64 %443
   %switch.load116 = load ptr, ptr %switch.gep115, align 8
   %444 = icmp sgt i32 %35, 0
   br i1 %444, label %.lr.ph.preheader.i278.i, label %_ZN3dpxL20ConvertToRGBInternalENS_10DescriptorENS_8DataSizeENS_14CharacteristicEPKvPvi.exit
@@ -1092,7 +1091,7 @@ _ZN3dpxL22ConvertPixelYCbCrToRGBIhLj255EEEvPKT_PS1_PKf.exit.i287.i: ; preds = %4
 
 switch.lookup118:                                 ; preds = %483
   %485 = zext nneg i8 %switch.tableidx117 to i64
-  %switch.gep119 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3dpx12ConvertToRGBERKNS_6HeaderEiPKvPvRKNS_5BlockE.20, i64 %485
+  %switch.gep119 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN3dpx12ConvertToRGBERKNS_6HeaderEiPKvPvRKNS_5BlockE.20, i64 %485
   %switch.load120 = load ptr, ptr %switch.gep119, align 8
   %486 = icmp sgt i32 %35, 0
   br i1 %486, label %.lr.ph.preheader.i291.i, label %_ZN3dpxL20ConvertToRGBInternalENS_10DescriptorENS_8DataSizeENS_14CharacteristicEPKvPvi.exit
@@ -1106,7 +1105,7 @@ switch.lookup118:                                 ; preds = %483
   %487 = or i64 %indvars.iv.i294.i, 1
   %488 = mul i64 %487, 3
   %489 = and i64 %488, 4294967295
-  %490 = getelementptr inbounds nuw i16, ptr %2, i64 %489
+  %490 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %489
   %491 = load i16, ptr %490, align 2, !tbaa !19
   %.idx.i295.i = mul nuw nsw i64 %indvars.iv.i294.i, 6
   %492 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i295.i
@@ -1115,7 +1114,7 @@ switch.lookup118:                                 ; preds = %483
   %495 = and i64 %indvars.iv.i294.i, 2147483646
   %496 = mul nuw nsw i64 %495, 3
   %497 = and i64 %496, 4294967294
-  %498 = getelementptr inbounds nuw i16, ptr %2, i64 %497
+  %498 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %497
   %499 = load i16, ptr %498, align 2, !tbaa !19
   %.idx24.i.i = shl nsw i64 %indvars.iv.i294.i, 3
   %500 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx24.i.i
@@ -1142,7 +1141,7 @@ switch.lookup118:                                 ; preds = %483
   %.sroa.speculated.i.i298.i = select i1 %516, float 6.553500e+04, float %515
   %517 = fptoui float %.sroa.speculated.i.i298.i to i16
   %518 = sub nuw nsw i64 2, %indvars.iv.i.i296.i
-  %519 = getelementptr inbounds nuw i16, ptr %500, i64 %518
+  %519 = getelementptr inbounds nuw [2 x i8], ptr %500, i64 %518
   store i16 %517, ptr %519, align 2, !tbaa !19
   %indvars.iv.next.i.i299.i = add nuw nsw i64 %indvars.iv.i.i296.i, 1
   %exitcond.not.i.i300.i = icmp eq i64 %indvars.iv.next.i.i299.i, 3
@@ -1164,7 +1163,7 @@ _ZN3dpxL22ConvertPixelYCbCrToRGBItLj65535EEEvPKT_PS1_PKf.exit.i301.i: ; preds = 
 
 switch.lookup122:                                 ; preds = %523
   %525 = zext nneg i8 %switch.tableidx121 to i64
-  %switch.gep123 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3dpx12ConvertToRGBERKNS_6HeaderEiPKvPvRKNS_5BlockE.20, i64 %525
+  %switch.gep123 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN3dpx12ConvertToRGBERKNS_6HeaderEiPKvPvRKNS_5BlockE.20, i64 %525
   %switch.load124 = load ptr, ptr %switch.gep123, align 8
   %526 = icmp sgt i32 %35, 0
   br i1 %526, label %.lr.ph.preheader.i305.i, label %_ZN3dpxL20ConvertToRGBInternalENS_10DescriptorENS_8DataSizeENS_14CharacteristicEPKvPvi.exit
@@ -1178,7 +1177,7 @@ switch.lookup122:                                 ; preds = %523
   %527 = or i64 %indvars.iv.i308.i, 1
   %528 = mul i64 %527, 3
   %529 = and i64 %528, 4294967295
-  %530 = getelementptr inbounds nuw i32, ptr %2, i64 %529
+  %530 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %529
   %531 = load i32, ptr %530, align 4, !tbaa !21
   %.idx.i309.i = mul nuw nsw i64 %indvars.iv.i308.i, 12
   %532 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i309.i
@@ -1187,7 +1186,7 @@ switch.lookup122:                                 ; preds = %523
   %535 = and i64 %indvars.iv.i308.i, 2147483646
   %536 = mul nuw nsw i64 %535, 3
   %537 = and i64 %536, 4294967294
-  %538 = getelementptr inbounds nuw i32, ptr %2, i64 %537
+  %538 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %537
   %539 = load i32, ptr %538, align 4, !tbaa !21
   %.idx24.i310.i = shl nsw i64 %indvars.iv.i308.i, 4
   %540 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx24.i310.i
@@ -1214,7 +1213,7 @@ switch.lookup122:                                 ; preds = %523
   %.sroa.speculated.i.i313.i = select i1 %556, float 0x41F0000000000000, float %555
   %557 = fptoui float %.sroa.speculated.i.i313.i to i32
   %558 = sub nuw nsw i64 2, %indvars.iv.i.i311.i
-  %559 = getelementptr inbounds nuw i32, ptr %540, i64 %558
+  %559 = getelementptr inbounds nuw [4 x i8], ptr %540, i64 %558
   store i32 %557, ptr %559, align 4, !tbaa !21
   %indvars.iv.next.i.i314.i = add nuw nsw i64 %indvars.iv.i.i311.i, 1
   %exitcond.not.i.i315.i = icmp eq i64 %indvars.iv.next.i.i314.i, 3
@@ -1236,7 +1235,7 @@ _ZN3dpxL22ConvertPixelYCbCrToRGBIjLj4294967295EEEvPKT_PS1_PKf.exit.i316.i: ; pre
 
 switch.lookup126:                                 ; preds = %563
   %565 = zext nneg i8 %switch.tableidx125 to i64
-  %switch.gep127 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3dpx12ConvertToRGBERKNS_6HeaderEiPKvPvRKNS_5BlockE.20, i64 %565
+  %switch.gep127 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN3dpx12ConvertToRGBERKNS_6HeaderEiPKvPvRKNS_5BlockE.20, i64 %565
   %switch.load128 = load ptr, ptr %switch.gep127, align 8
   %566 = icmp sgt i32 %35, 0
   br i1 %566, label %.lr.ph.preheader.i320.i, label %_ZN3dpxL20ConvertToRGBInternalENS_10DescriptorENS_8DataSizeENS_14CharacteristicEPKvPvi.exit
@@ -1250,7 +1249,7 @@ switch.lookup126:                                 ; preds = %563
   %567 = or i64 %indvars.iv.i323.i, 1
   %568 = mul i64 %567, 3
   %569 = and i64 %568, 4294967295
-  %570 = getelementptr inbounds nuw float, ptr %2, i64 %569
+  %570 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %569
   %571 = load float, ptr %570, align 4, !tbaa !23
   %.idx.i324.i = mul nuw nsw i64 %indvars.iv.i323.i, 12
   %572 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i324.i
@@ -1259,7 +1258,7 @@ switch.lookup126:                                 ; preds = %563
   %575 = and i64 %indvars.iv.i323.i, 2147483646
   %576 = mul nuw nsw i64 %575, 3
   %577 = and i64 %576, 4294967294
-  %578 = getelementptr inbounds nuw float, ptr %2, i64 %577
+  %578 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %577
   %579 = load float, ptr %578, align 4, !tbaa !23
   %.idx24.i325.i = shl nsw i64 %indvars.iv.i323.i, 4
   %580 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx24.i325.i
@@ -1284,7 +1283,7 @@ switch.lookup126:                                 ; preds = %563
   %594 = fcmp ogt float %.sroa.speculated.i.i328.i, 0.000000e+00
   %.sroa.speculated14.i.i329.i = select i1 %594, float %.sroa.speculated.i.i328.i, float 0.000000e+00
   %595 = sub nuw nsw i64 2, %indvars.iv.i.i326.i
-  %596 = getelementptr inbounds nuw float, ptr %580, i64 %595
+  %596 = getelementptr inbounds nuw [4 x i8], ptr %580, i64 %595
   store float %.sroa.speculated14.i.i329.i, ptr %596, align 4, !tbaa !23
   %indvars.iv.next.i.i330.i = add nuw nsw i64 %indvars.iv.i.i326.i, 1
   %exitcond.not.i.i331.i = icmp eq i64 %indvars.iv.next.i.i330.i, 3
@@ -1306,7 +1305,7 @@ _ZN3dpxL22ConvertPixelYCbCrToRGBIfLj1EEEvPKT_PS1_PKf.exit.i332.i: ; preds = %583
 
 switch.lookup130:                                 ; preds = %600
   %602 = zext nneg i8 %switch.tableidx129 to i64
-  %switch.gep131 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3dpx12ConvertToRGBERKNS_6HeaderEiPKvPvRKNS_5BlockE.20, i64 %602
+  %switch.gep131 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN3dpx12ConvertToRGBERKNS_6HeaderEiPKvPvRKNS_5BlockE.20, i64 %602
   %switch.load132 = load ptr, ptr %switch.gep131, align 8
   %603 = icmp sgt i32 %35, 0
   br i1 %603, label %.lr.ph.preheader.i336.i, label %_ZN3dpxL20ConvertToRGBInternalENS_10DescriptorENS_8DataSizeENS_14CharacteristicEPKvPvi.exit
@@ -1320,7 +1319,7 @@ switch.lookup130:                                 ; preds = %600
   %604 = or i64 %indvars.iv.i339.i, 1
   %605 = mul i64 %604, 3
   %606 = and i64 %605, 4294967295
-  %607 = getelementptr inbounds nuw double, ptr %2, i64 %606
+  %607 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %606
   %608 = load double, ptr %607, align 8, !tbaa !25
   %.idx.i340.i = mul nuw nsw i64 %indvars.iv.i339.i, 24
   %609 = getelementptr inbounds nuw i8, ptr %2, i64 %.idx.i340.i
@@ -1329,7 +1328,7 @@ switch.lookup130:                                 ; preds = %600
   %612 = and i64 %indvars.iv.i339.i, 2147483646
   %613 = mul nuw nsw i64 %612, 3
   %614 = and i64 %613, 4294967294
-  %615 = getelementptr inbounds nuw double, ptr %2, i64 %614
+  %615 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %614
   %616 = load double, ptr %615, align 8, !tbaa !25
   %.idx24.i341.i = shl nsw i64 %indvars.iv.i339.i, 5
   %617 = getelementptr inbounds nuw i8, ptr %3, i64 %.idx24.i341.i
@@ -1362,7 +1361,7 @@ switch.lookup130:                                 ; preds = %600
   %639 = fcmp ogt double %638, 0.000000e+00
   %.sroa.speculated14.i.i345.i = select i1 %639, double %638, double 0.000000e+00
   %640 = sub nuw nsw i64 2, %indvars.iv.i.i342.i
-  %641 = getelementptr inbounds nuw double, ptr %617, i64 %640
+  %641 = getelementptr inbounds nuw [8 x i8], ptr %617, i64 %640
   store double %.sroa.speculated14.i.i345.i, ptr %641, align 8, !tbaa !25
   %indvars.iv.next.i.i346.i = add nuw nsw i64 %indvars.iv.i.i342.i, 1
   %exitcond.not.i.i347.i = icmp eq i64 %indvars.iv.next.i.i346.i, 3
@@ -1393,7 +1392,7 @@ _ZN3dpxL22ConvertPixelYCbCrToRGBIdLj1EEEvPKT_PS1_PKf.exit.i348.i: ; preds = %622
 
 switch.lookup134:                                 ; preds = %646
   %648 = zext nneg i8 %switch.tableidx133 to i64
-  %switch.gep135 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3dpx12ConvertToRGBERKNS_6HeaderEiPKvPvRKNS_5BlockE.20, i64 %648
+  %switch.gep135 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN3dpx12ConvertToRGBERKNS_6HeaderEiPKvPvRKNS_5BlockE.20, i64 %648
   %switch.load136 = load ptr, ptr %switch.gep135, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %649 = icmp sgt i32 %35, 0
@@ -1464,7 +1463,7 @@ _ZN3dpxL22ConvertPixelYCbCrToRGBIhLj255EEEvPKT_PS1_PKf.exit.i361.i: ; preds = %6
 
 switch.lookup138:                                 ; preds = %682
   %684 = zext nneg i8 %switch.tableidx137 to i64
-  %switch.gep139 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3dpx12ConvertToRGBERKNS_6HeaderEiPKvPvRKNS_5BlockE.20, i64 %684
+  %switch.gep139 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN3dpx12ConvertToRGBERKNS_6HeaderEiPKvPvRKNS_5BlockE.20, i64 %684
   %switch.load140 = load ptr, ptr %switch.gep139, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %685 = icmp sgt i32 %35, 0
@@ -1482,7 +1481,7 @@ switch.lookup138:                                 ; preds = %682
 687:                                              ; preds = %_ZN3dpxL22ConvertPixelYCbCrToRGBItLj65535EEEvPKT_PS1_PKf.exit.i374.i, %.lr.ph.i366.i
   %indvars.iv.i368.i = phi i64 [ 0, %.lr.ph.i366.i ], [ %indvars.iv.next.i375.i, %_ZN3dpxL22ConvertPixelYCbCrToRGBItLj65535EEEvPKT_PS1_PKf.exit.i374.i ]
   %688 = shl nsw i64 %indvars.iv.i368.i, 2
-  %689 = getelementptr inbounds nuw i16, ptr %2, i64 %688
+  %689 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %688
   %690 = getelementptr inbounds nuw i8, ptr %689, i64 2
   %691 = getelementptr inbounds nuw i8, ptr %689, i64 4
   %692 = load i16, ptr %690, align 2, !tbaa !19
@@ -1511,7 +1510,7 @@ switch.lookup138:                                 ; preds = %682
   %.sroa.speculated.i.i371.i = select i1 %710, float 6.553500e+04, float %709
   %711 = fptoui float %.sroa.speculated.i.i371.i to i16
   %712 = sub nuw nsw i64 2, %indvars.iv.i.i369.i
-  %713 = getelementptr inbounds nuw i16, ptr %9, i64 %712
+  %713 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %712
   store i16 %711, ptr %713, align 2, !tbaa !19
   %indvars.iv.next.i.i372.i = add nuw nsw i64 %indvars.iv.i.i369.i, 1
   %exitcond.not.i.i373.i = icmp eq i64 %indvars.iv.next.i.i372.i, 3
@@ -1521,7 +1520,7 @@ _ZN3dpxL22ConvertPixelYCbCrToRGBItLj65535EEEvPKT_PS1_PKf.exit.i374.i: ; preds = 
   %714 = getelementptr inbounds nuw i8, ptr %689, i64 6
   %715 = load i16, ptr %714, align 2, !tbaa !19
   store i16 %715, ptr %686, align 2, !tbaa !19
-  %716 = getelementptr inbounds nuw i16, ptr %3, i64 %688
+  %716 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %688
   %717 = load i64, ptr %9, align 8
   store i64 %717, ptr %716, align 2
   %indvars.iv.next.i375.i = add nuw nsw i64 %indvars.iv.i368.i, 1
@@ -1535,7 +1534,7 @@ _ZN3dpxL22ConvertPixelYCbCrToRGBItLj65535EEEvPKT_PS1_PKf.exit.i374.i: ; preds = 
 
 switch.lookup142:                                 ; preds = %718
   %720 = zext nneg i8 %switch.tableidx141 to i64
-  %switch.gep143 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3dpx12ConvertToRGBERKNS_6HeaderEiPKvPvRKNS_5BlockE.20, i64 %720
+  %switch.gep143 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN3dpx12ConvertToRGBERKNS_6HeaderEiPKvPvRKNS_5BlockE.20, i64 %720
   %switch.load144 = load ptr, ptr %switch.gep143, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %721 = icmp sgt i32 %35, 0
@@ -1553,7 +1552,7 @@ switch.lookup142:                                 ; preds = %718
 723:                                              ; preds = %_ZN3dpxL22ConvertPixelYCbCrToRGBIjLj4294967295EEEvPKT_PS1_PKf.exit.i387.i, %.lr.ph.i379.i
   %indvars.iv.i381.i = phi i64 [ 0, %.lr.ph.i379.i ], [ %indvars.iv.next.i388.i, %_ZN3dpxL22ConvertPixelYCbCrToRGBIjLj4294967295EEEvPKT_PS1_PKf.exit.i387.i ]
   %724 = shl nsw i64 %indvars.iv.i381.i, 2
-  %725 = getelementptr inbounds nuw i32, ptr %2, i64 %724
+  %725 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %724
   %726 = getelementptr inbounds nuw i8, ptr %725, i64 4
   %727 = getelementptr inbounds nuw i8, ptr %725, i64 8
   %728 = load i32, ptr %726, align 4, !tbaa !21
@@ -1582,7 +1581,7 @@ switch.lookup142:                                 ; preds = %718
   %.sroa.speculated.i.i384.i = select i1 %746, float 0x41F0000000000000, float %745
   %747 = fptoui float %.sroa.speculated.i.i384.i to i32
   %748 = sub nuw nsw i64 2, %indvars.iv.i.i382.i
-  %749 = getelementptr inbounds nuw i32, ptr %8, i64 %748
+  %749 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %748
   store i32 %747, ptr %749, align 4, !tbaa !21
   %indvars.iv.next.i.i385.i = add nuw nsw i64 %indvars.iv.i.i382.i, 1
   %exitcond.not.i.i386.i = icmp eq i64 %indvars.iv.next.i.i385.i, 3
@@ -1592,7 +1591,7 @@ _ZN3dpxL22ConvertPixelYCbCrToRGBIjLj4294967295EEEvPKT_PS1_PKf.exit.i387.i: ; pre
   %750 = getelementptr inbounds nuw i8, ptr %725, i64 12
   %751 = load i32, ptr %750, align 4, !tbaa !21
   store i32 %751, ptr %722, align 4, !tbaa !21
-  %752 = getelementptr inbounds nuw i32, ptr %3, i64 %724
+  %752 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %724
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %752, ptr noundef nonnull align 16 dereferenceable(16) %8, i64 16, i1 false)
   %indvars.iv.next.i388.i = add nuw nsw i64 %indvars.iv.i381.i, 1
   %exitcond.not.i389.i = icmp eq i64 %indvars.iv.next.i388.i, %wide.trip.count.i380.i
@@ -1605,7 +1604,7 @@ _ZN3dpxL22ConvertPixelYCbCrToRGBIjLj4294967295EEEvPKT_PS1_PKf.exit.i387.i: ; pre
 
 switch.lookup146:                                 ; preds = %753
   %755 = zext nneg i8 %switch.tableidx145 to i64
-  %switch.gep147 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3dpx12ConvertToRGBERKNS_6HeaderEiPKvPvRKNS_5BlockE.20, i64 %755
+  %switch.gep147 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN3dpx12ConvertToRGBERKNS_6HeaderEiPKvPvRKNS_5BlockE.20, i64 %755
   %switch.load148 = load ptr, ptr %switch.gep147, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %756 = icmp sgt i32 %35, 0
@@ -1623,7 +1622,7 @@ switch.lookup146:                                 ; preds = %753
 758:                                              ; preds = %_ZN3dpxL22ConvertPixelYCbCrToRGBIfLj1EEEvPKT_PS1_PKf.exit.i401.i, %.lr.ph.i392.i
   %indvars.iv.i394.i = phi i64 [ 0, %.lr.ph.i392.i ], [ %indvars.iv.next.i402.i, %_ZN3dpxL22ConvertPixelYCbCrToRGBIfLj1EEEvPKT_PS1_PKf.exit.i401.i ]
   %759 = shl nsw i64 %indvars.iv.i394.i, 2
-  %760 = getelementptr inbounds nuw float, ptr %2, i64 %759
+  %760 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %759
   %761 = getelementptr inbounds nuw i8, ptr %760, i64 4
   %762 = getelementptr inbounds nuw i8, ptr %760, i64 8
   %763 = load float, ptr %761, align 4, !tbaa !23
@@ -1650,7 +1649,7 @@ switch.lookup146:                                 ; preds = %753
   %779 = fcmp ogt float %.sroa.speculated.i.i397.i, 0.000000e+00
   %.sroa.speculated14.i.i398.i = select i1 %779, float %.sroa.speculated.i.i397.i, float 0.000000e+00
   %780 = sub nuw nsw i64 2, %indvars.iv.i.i395.i
-  %781 = getelementptr inbounds nuw float, ptr %7, i64 %780
+  %781 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %780
   store float %.sroa.speculated14.i.i398.i, ptr %781, align 4, !tbaa !23
   %indvars.iv.next.i.i399.i = add nuw nsw i64 %indvars.iv.i.i395.i, 1
   %exitcond.not.i.i400.i = icmp eq i64 %indvars.iv.next.i.i399.i, 3
@@ -1660,7 +1659,7 @@ _ZN3dpxL22ConvertPixelYCbCrToRGBIfLj1EEEvPKT_PS1_PKf.exit.i401.i: ; preds = %768
   %782 = getelementptr inbounds nuw i8, ptr %760, i64 12
   %783 = load float, ptr %782, align 4, !tbaa !23
   store float %783, ptr %757, align 4, !tbaa !23
-  %784 = getelementptr inbounds nuw float, ptr %3, i64 %759
+  %784 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %759
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %784, ptr noundef nonnull align 16 dereferenceable(16) %7, i64 16, i1 false)
   %indvars.iv.next.i402.i = add nuw nsw i64 %indvars.iv.i394.i, 1
   %exitcond.not.i403.i = icmp eq i64 %indvars.iv.next.i402.i, %wide.trip.count.i393.i
@@ -1673,7 +1672,7 @@ _ZN3dpxL22ConvertPixelYCbCrToRGBIfLj1EEEvPKT_PS1_PKf.exit.i401.i: ; preds = %768
 
 switch.lookup150:                                 ; preds = %785
   %787 = zext nneg i8 %switch.tableidx149 to i64
-  %switch.gep151 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN3dpx12ConvertToRGBERKNS_6HeaderEiPKvPvRKNS_5BlockE.20, i64 %787
+  %switch.gep151 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN3dpx12ConvertToRGBERKNS_6HeaderEiPKvPvRKNS_5BlockE.20, i64 %787
   %switch.load152 = load ptr, ptr %switch.gep151, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %788 = icmp sgt i32 %35, 0
@@ -1691,7 +1690,7 @@ switch.lookup150:                                 ; preds = %785
 790:                                              ; preds = %_ZN3dpxL22ConvertPixelYCbCrToRGBIdLj1EEEvPKT_PS1_PKf.exit.i415.i, %.lr.ph.i406.i
   %indvars.iv.i408.i = phi i64 [ 0, %.lr.ph.i406.i ], [ %indvars.iv.next.i416.i, %_ZN3dpxL22ConvertPixelYCbCrToRGBIdLj1EEEvPKT_PS1_PKf.exit.i415.i ]
   %791 = shl nsw i64 %indvars.iv.i408.i, 2
-  %792 = getelementptr inbounds nuw double, ptr %2, i64 %791
+  %792 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %791
   %793 = getelementptr inbounds nuw i8, ptr %792, i64 8
   %794 = getelementptr inbounds nuw i8, ptr %792, i64 16
   %795 = load double, ptr %793, align 8, !tbaa !25
@@ -1726,7 +1725,7 @@ switch.lookup150:                                 ; preds = %785
   %819 = fcmp ogt double %818, 0.000000e+00
   %.sroa.speculated14.i.i412.i = select i1 %819, double %818, double 0.000000e+00
   %820 = sub nuw nsw i64 2, %indvars.iv.i.i409.i
-  %821 = getelementptr inbounds nuw double, ptr %6, i64 %820
+  %821 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %820
   store double %.sroa.speculated14.i.i412.i, ptr %821, align 8, !tbaa !25
   %indvars.iv.next.i.i413.i = add nuw nsw i64 %indvars.iv.i.i409.i, 1
   %exitcond.not.i.i414.i = icmp eq i64 %indvars.iv.next.i.i413.i, 3
@@ -1736,7 +1735,7 @@ _ZN3dpxL22ConvertPixelYCbCrToRGBIdLj1EEEvPKT_PS1_PKf.exit.i415.i: ; preds = %802
   %822 = getelementptr inbounds nuw i8, ptr %792, i64 24
   %823 = load double, ptr %822, align 8, !tbaa !25
   store double %823, ptr %789, align 8, !tbaa !25
-  %824 = getelementptr inbounds nuw double, ptr %3, i64 %791
+  %824 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %791
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %824, ptr noundef nonnull align 16 dereferenceable(32) %6, i64 32, i1 false)
   %indvars.iv.next.i416.i = add nuw nsw i64 %indvars.iv.i408.i, 1
   %exitcond.not.i417.i = icmp eq i64 %indvars.iv.next.i416.i, %wide.trip.count.i407.i

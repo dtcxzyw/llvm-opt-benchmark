@@ -86,12 +86,12 @@ define void @_ZN6LibRaw16adobe_copy_pixelEjjPPt(ptr noundef nonnull readonly ali
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 5504
   %29 = load i16, ptr %.pre31, align 2, !tbaa !77
   %30 = zext i16 %29 to i64
-  %31 = getelementptr inbounds nuw i16, ptr %28, i64 %30
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %28, i64 %30
   %32 = load i16, ptr %31, align 2, !tbaa !77
   %33 = mul nuw i32 %1, %25
   %34 = add nuw i32 %33, %2
   %35 = zext i32 %34 to i64
-  %36 = getelementptr inbounds nuw i16, ptr %16, i64 %35
+  %36 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %35
   store i16 %32, ptr %36, align 2, !tbaa !77
   br label %.loopexit
 
@@ -120,18 +120,18 @@ define void @_ZN6LibRaw16adobe_copy_pixelEjjPPt(ptr noundef nonnull readonly ali
 
 46:                                               ; preds = %.lr.ph, %46
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %46 ]
-  %47 = getelementptr inbounds nuw i16, ptr %.pre33, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [2 x i8], ptr %.pre33, i64 %indvars.iv
   %48 = load i16, ptr %47, align 2, !tbaa !77
   %49 = zext i16 %48 to i64
-  %50 = getelementptr inbounds nuw i16, ptr %44, i64 %49
+  %50 = getelementptr inbounds nuw [2 x i8], ptr %44, i64 %49
   %51 = load i16, ptr %50, align 2, !tbaa !77
   %52 = load i16, ptr %39, align 2, !tbaa !76
   %53 = zext i16 %52 to i32
   %54 = mul nuw i32 %1, %53
   %55 = add nuw i32 %54, %2
   %56 = zext i32 %55 to i64
-  %57 = getelementptr inbounds nuw [4 x i16], ptr %45, i64 %56
-  %58 = getelementptr inbounds nuw i16, ptr %57, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %56
+  %58 = getelementptr inbounds nuw [2 x i8], ptr %57, i64 %indvars.iv
   store i16 %51, ptr %58, align 2, !tbaa !77
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -140,7 +140,7 @@ define void @_ZN6LibRaw16adobe_copy_pixelEjjPPt(ptr noundef nonnull readonly ali
 .loopexit:                                        ; preds = %46, %38, %..loopexit_crit_edge, %22, %27, %._crit_edge
   %.sink = phi ptr [ %.pre31, %22 ], [ %.pre, %._crit_edge ], [ %.pre31, %27 ], [ %.pre32, %..loopexit_crit_edge ], [ %.pre33, %38 ], [ %.pre33, %46 ]
   %59 = zext i32 %6 to i64
-  %60 = getelementptr inbounds nuw i16, ptr %.sink, i64 %59
+  %60 = getelementptr inbounds nuw [2 x i8], ptr %.sink, i64 %59
   store ptr %60, ptr %3, align 8, !tbaa !73
   %61 = load i32, ptr %8, align 4
   %.not24 = icmp eq i32 %61, 0
@@ -167,7 +167,7 @@ define void @_ZN6LibRaw21lossless_dng_load_rawEv(ptr noundef nonnull align 8 der
   %7 = tail call i32 @llvm.smax.i32(i32 %4, i32 0)
   %8 = tail call i32 @llvm.umin.i32(i32 %7, i32 19)
   %9 = zext nneg i32 %8 to i64
-  %10 = getelementptr inbounds nuw i32, ptr %6, i64 %9
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !82
   %12 = and i32 %11, 255
   store i32 %12, ptr %3, align 4, !tbaa !81
@@ -329,25 +329,25 @@ define void @_ZN6LibRaw21lossless_dng_load_rawEv(ptr noundef nonnull align 8 der
 
 .lr.ph.i.us.us.us.us.us:                          ; preds = %78, %.lr.ph.i.us.us.us.us.us
   %indvars.iv.i.us.us.us.us.us = phi i64 [ %indvars.iv.next.i.us.us.us.us.us, %.lr.ph.i.us.us.us.us.us ], [ 0, %78 ]
-  %86 = getelementptr inbounds nuw i16, ptr %.1139184.us.us193.us.us.us, i64 %indvars.iv.i.us.us.us.us.us
+  %86 = getelementptr inbounds nuw [2 x i8], ptr %.1139184.us.us193.us.us.us, i64 %indvars.iv.i.us.us.us.us.us
   %87 = load i16, ptr %86, align 2, !tbaa !77
   %88 = zext i16 %87 to i64
-  %89 = getelementptr inbounds nuw i16, ptr %24, i64 %88
+  %89 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %88
   %90 = load i16, ptr %89, align 2, !tbaa !77
   %91 = load i16, ptr %21, align 2, !tbaa !76
   %92 = zext i16 %91 to i32
   %93 = mul nuw i32 %76, %92
   %94 = add nuw i32 %93, %79
   %95 = zext i32 %94 to i64
-  %96 = getelementptr inbounds nuw [4 x i16], ptr %77, i64 %95
-  %97 = getelementptr inbounds nuw i16, ptr %96, i64 %indvars.iv.i.us.us.us.us.us
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %95
+  %97 = getelementptr inbounds nuw [2 x i8], ptr %96, i64 %indvars.iv.i.us.us.us.us.us
   store i16 %90, ptr %97, align 2, !tbaa !77
   %indvars.iv.next.i.us.us.us.us.us = add nuw nsw i64 %indvars.iv.i.us.us.us.us.us, 1
   %exitcond.not.i.us.us.us.us.us = icmp eq i64 %indvars.iv.next.i.us.us.us.us.us, %74
   br i1 %exitcond.not.i.us.us.us.us.us, label %.loopexit.i.us.us198.us.us.us, label %.lr.ph.i.us.us.us.us.us, !llvm.loop !79
 
 .loopexit.i.us.us198.us.us.us:                    ; preds = %.lr.ph.i.us.us.us.us.us, %78
-  %98 = getelementptr inbounds nuw i16, ptr %.1139184.us.us193.us.us.us, i64 %74
+  %98 = getelementptr inbounds nuw [2 x i8], ptr %.1139184.us.us193.us.us.us, i64 %74
   %99 = add nuw nsw i32 %.060185.us.us192.us.us.us, 1
   %exitcond258.not = icmp eq i32 %99, 8
   br i1 %exitcond258.not, label %.split.us.split.us203.us.split.us.us, label %78, !llvm.loop !93
@@ -385,18 +385,18 @@ define void @_ZN6LibRaw21lossless_dng_load_rawEv(ptr noundef nonnull align 8 der
 
 .lr.ph.i.us.us.us:                                ; preds = %104, %.lr.ph.i.us.us.us
   %indvars.iv.i.us.us.us = phi i64 [ %indvars.iv.next.i.us.us.us, %.lr.ph.i.us.us.us ], [ 0, %104 ]
-  %113 = getelementptr inbounds nuw i16, ptr %spec.select233.sroa.sel.idx.sroa.sel, i64 %indvars.iv.i.us.us.us
+  %113 = getelementptr inbounds nuw [2 x i8], ptr %spec.select233.sroa.sel.idx.sroa.sel, i64 %indvars.iv.i.us.us.us
   %114 = load i16, ptr %113, align 2, !tbaa !77
   %115 = zext i16 %114 to i64
-  %116 = getelementptr inbounds nuw i16, ptr %24, i64 %115
+  %116 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %115
   %117 = load i16, ptr %116, align 2, !tbaa !77
   %118 = load i16, ptr %21, align 2, !tbaa !76
   %119 = zext i16 %118 to i32
   %120 = mul nuw i32 %102, %119
   %121 = add nuw i32 %120, %106
   %122 = zext i32 %121 to i64
-  %123 = getelementptr inbounds nuw [4 x i16], ptr %103, i64 %122
-  %124 = getelementptr inbounds nuw i16, ptr %123, i64 %indvars.iv.i.us.us.us
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %122
+  %124 = getelementptr inbounds nuw [2 x i8], ptr %123, i64 %indvars.iv.i.us.us.us
   store i16 %117, ptr %124, align 2, !tbaa !77
   %indvars.iv.next.i.us.us.us = add nuw nsw i64 %indvars.iv.i.us.us.us, 1
   %exitcond.not.i.us.us.us = icmp eq i64 %indvars.iv.next.i.us.us.us, %74
@@ -409,7 +409,7 @@ define void @_ZN6LibRaw21lossless_dng_load_rawEv(ptr noundef nonnull align 8 der
 .loopexit.i.us.us198.us:                          ; preds = %.loopexit.i.us.us198.us.loopexit, %104
   %.pre277286 = phi i32 [ %.pre278, %.loopexit.i.us.us198.us.loopexit ], [ %.pre277287, %104 ]
   %125 = phi i32 [ %.pre278, %.loopexit.i.us.us198.us.loopexit ], [ %105, %104 ]
-  %126 = getelementptr inbounds nuw i16, ptr %spec.select233.sroa.sel.idx.sroa.sel, i64 %74
+  %126 = getelementptr inbounds nuw [2 x i8], ptr %spec.select233.sroa.sel.idx.sroa.sel, i64 %74
   %.not24.i.us.us199.us = icmp eq i32 %125, 0
   %spec.select144.idx.us.us201.us.sroa.sel.idx.sroa.sel.idx = select i1 %.not24.i.us.us199.us, i64 0, i64 -2
   %spec.select144.idx.us.us201.us.sroa.sel.idx.sroa.sel = getelementptr inbounds i8, ptr %126, i64 %spec.select144.idx.us.us201.us.sroa.sel.idx.sroa.sel.idx
@@ -453,12 +453,12 @@ define void @_ZN6LibRaw21lossless_dng_load_rawEv(ptr noundef nonnull align 8 der
 141:                                              ; preds = %137
   %142 = load i16, ptr %spec.select.idx.sroa.sel.idx.sroa.sel, align 2, !tbaa !77
   %143 = zext i16 %142 to i64
-  %144 = getelementptr inbounds nuw i16, ptr %24, i64 %143
+  %144 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %143
   %145 = load i16, ptr %144, align 2, !tbaa !77
   %146 = mul nuw i32 %130, %139
   %147 = add nuw i32 %146, %133
   %148 = zext i32 %147 to i64
-  %149 = getelementptr inbounds nuw i16, ptr %73, i64 %148
+  %149 = getelementptr inbounds nuw [2 x i8], ptr %73, i64 %148
   store i16 %145, ptr %149, align 2, !tbaa !77
   %.pre276 = load i32, ptr %3, align 4
   br label %.loopexit.i
@@ -466,7 +466,7 @@ define void @_ZN6LibRaw21lossless_dng_load_rawEv(ptr noundef nonnull align 8 der
 .loopexit.i:                                      ; preds = %131, %141, %137
   %.pre275283 = phi i32 [ %.pre275284, %131 ], [ %.pre276, %141 ], [ %.pre275284, %137 ]
   %150 = phi i32 [ %132, %131 ], [ %.pre276, %141 ], [ %132, %137 ]
-  %151 = getelementptr inbounds nuw i16, ptr %spec.select.idx.sroa.sel.idx.sroa.sel, i64 %74
+  %151 = getelementptr inbounds nuw [2 x i8], ptr %spec.select.idx.sroa.sel.idx.sroa.sel, i64 %74
   %.not24.i = icmp eq i32 %150, 0
   %or.cond27.i = select i1 %72, i1 true, i1 %.not24.i
   %spec.select144.idx.sroa.sel.idx.sroa.sel.idx = select i1 %or.cond27.i, i64 0, i64 -2
@@ -582,12 +582,12 @@ define void @_ZN6LibRaw21lossless_dng_load_rawEv(ptr noundef nonnull align 8 der
 .lr.ph.i110.us.preheader:                         ; preds = %.lr.ph175.split.us
   %190 = load i16, ptr %.2140171.us, align 2, !tbaa !77
   %191 = zext i16 %190 to i64
-  %192 = getelementptr inbounds nuw i16, ptr %24, i64 %191
+  %192 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %191
   %193 = load i16, ptr %192, align 2, !tbaa !77
   %194 = mul nuw i32 %183, %188
   %195 = add nuw i32 %194, %184
   %196 = zext i32 %195 to i64
-  %197 = getelementptr inbounds nuw [4 x i16], ptr %180, i64 %196
+  %197 = getelementptr inbounds nuw [8 x i8], ptr %180, i64 %196
   store i16 %193, ptr %197, align 2, !tbaa !77
   %.pre274 = load i16, ptr %21, align 2
   %.pre289 = zext i16 %.pre274 to i32
@@ -629,12 +629,12 @@ define void @_ZN6LibRaw21lossless_dng_load_rawEv(ptr noundef nonnull align 8 der
 212:                                              ; preds = %209
   %213 = load i16, ptr %.2140171, align 2, !tbaa !77
   %214 = zext i16 %213 to i64
-  %215 = getelementptr inbounds nuw i16, ptr %24, i64 %214
+  %215 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %214
   %216 = load i16, ptr %215, align 2, !tbaa !77
   %217 = mul nuw i32 %204, %210
   %218 = add nuw i32 %217, %205
   %219 = zext i32 %218 to i64
-  %220 = getelementptr inbounds nuw i16, ptr %179, i64 %219
+  %220 = getelementptr inbounds nuw [2 x i8], ptr %179, i64 %219
   store i16 %216, ptr %220, align 2, !tbaa !77
   %.pre273 = load i16, ptr %21, align 2
   br label %.loopexit.i101
@@ -695,18 +695,18 @@ define void @_ZN6LibRaw21lossless_dng_load_rawEv(ptr noundef nonnull align 8 der
 
 .lr.ph.i130.us:                                   ; preds = %239, %.lr.ph.i130.us
   %indvars.iv.i132.us = phi i64 [ %indvars.iv.next.i133.us, %.lr.ph.i130.us ], [ 0, %239 ]
-  %242 = getelementptr inbounds nuw i16, ptr %spec.select147.us, i64 %indvars.iv.i132.us
+  %242 = getelementptr inbounds nuw [2 x i8], ptr %spec.select147.us, i64 %indvars.iv.i132.us
   %243 = load i16, ptr %242, align 2, !tbaa !77
   %244 = zext i16 %243 to i64
-  %245 = getelementptr inbounds nuw i16, ptr %24, i64 %244
+  %245 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %244
   %246 = load i16, ptr %245, align 2, !tbaa !77
   %247 = load i16, ptr %21, align 2, !tbaa !76
   %248 = zext i16 %247 to i32
   %249 = mul nuw i32 %234, %248
   %250 = add nuw i32 %249, %235
   %251 = zext i32 %250 to i64
-  %252 = getelementptr inbounds nuw [4 x i16], ptr %231, i64 %251
-  %253 = getelementptr inbounds nuw i16, ptr %252, i64 %indvars.iv.i132.us
+  %252 = getelementptr inbounds nuw [8 x i8], ptr %231, i64 %251
+  %253 = getelementptr inbounds nuw [2 x i8], ptr %252, i64 %indvars.iv.i132.us
   store i16 %246, ptr %253, align 2, !tbaa !77
   %indvars.iv.next.i133.us = add nuw nsw i64 %indvars.iv.i132.us, 1
   %exitcond.not.i134.us = icmp eq i64 %indvars.iv.next.i133.us, %wide.trip.count.i131
@@ -720,7 +720,7 @@ define void @_ZN6LibRaw21lossless_dng_load_rawEv(ptr noundef nonnull align 8 der
 .loopexit.i121.us:                                ; preds = %.loopexit.i121.us.loopexit, %239, %.lr.ph.split.us
   %.pre272281 = phi i16 [ %.pre271, %.loopexit.i121.us.loopexit ], [ %.pre272, %239 ], [ %.pre272, %.lr.ph.split.us ]
   %254 = phi i32 [ %.pre270, %.loopexit.i121.us.loopexit ], [ %233, %239 ], [ %233, %.lr.ph.split.us ]
-  %255 = getelementptr inbounds nuw i16, ptr %spec.select147.us, i64 %wide.trip.count.i131
+  %255 = getelementptr inbounds nuw [2 x i8], ptr %spec.select147.us, i64 %wide.trip.count.i131
   %.not24.i123.us = icmp eq i32 %254, 0
   %or.cond27.i124.us = select i1 %228, i1 true, i1 %.not24.i123.us
   %spec.select148.idx.us = select i1 %or.cond27.i124.us, i64 0, i64 -2
@@ -763,12 +763,12 @@ define void @_ZN6LibRaw21lossless_dng_load_rawEv(ptr noundef nonnull align 8 der
 269:                                              ; preds = %266
   %270 = load i16, ptr %spec.select147, align 2, !tbaa !77
   %271 = zext i16 %270 to i64
-  %272 = getelementptr inbounds nuw i16, ptr %24, i64 %271
+  %272 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %271
   %273 = load i16, ptr %272, align 2, !tbaa !77
   %274 = mul nuw i32 %261, %267
   %275 = add nuw i32 %274, %262
   %276 = zext i32 %275 to i64
-  %277 = getelementptr inbounds nuw i16, ptr %229, i64 %276
+  %277 = getelementptr inbounds nuw [2 x i8], ptr %229, i64 %276
   store i16 %273, ptr %277, align 2, !tbaa !77
   %.pre266 = load i32, ptr %3, align 4
   %.pre267 = load i16, ptr %21, align 2
@@ -777,7 +777,7 @@ define void @_ZN6LibRaw21lossless_dng_load_rawEv(ptr noundef nonnull align 8 der
 .loopexit.i121:                                   ; preds = %.lr.ph.split, %269, %266
   %.pre268279 = phi i16 [ %.pre268, %.lr.ph.split ], [ %.pre267, %269 ], [ %.pre268, %266 ]
   %278 = phi i32 [ %260, %.lr.ph.split ], [ %.pre266, %269 ], [ %260, %266 ]
-  %279 = getelementptr inbounds nuw i16, ptr %spec.select147, i64 %wide.trip.count.i131
+  %279 = getelementptr inbounds nuw [2 x i8], ptr %spec.select147, i64 %wide.trip.count.i131
   %.not24.i123 = icmp eq i32 %278, 0
   %or.cond27.i124 = select i1 %228, i1 true, i1 %.not24.i123
   %spec.select148.idx = select i1 %or.cond27.i124, i64 0, i64 -2
@@ -900,7 +900,7 @@ define void @_ZN6LibRaw19packed_dng_load_rawEv(ptr noundef nonnull align 8 deref
   %10 = tail call i32 @llvm.smax.i32(i32 %8, i32 0)
   %11 = tail call i32 @llvm.umin.i32(i32 %10, i32 19)
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %9, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !82
   %15 = and i32 %14, 255
   store i32 %15, ptr %7, align 4, !tbaa !81
@@ -988,7 +988,7 @@ define void @_ZN6LibRaw19packed_dng_load_rawEv(ptr noundef nonnull align 8 deref
 
 51:                                               ; preds = %.lr.ph
   %52 = trunc i32 %50 to i16
-  %53 = getelementptr inbounds nuw i16, ptr %24, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %indvars.iv
   store i16 %52, ptr %53, align 2, !tbaa !77
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %54 = load i16, ptr %17, align 2, !tbaa !76
@@ -1043,23 +1043,23 @@ define void @_ZN6LibRaw19packed_dng_load_rawEv(ptr noundef nonnull align 8 deref
   br i1 %64, label %.lr.ph.i.us, label %.loopexit.i.thread.us
 
 .loopexit.i.thread.us:                            ; preds = %74
-  %75 = getelementptr inbounds nuw i16, ptr %spec.select.us, i64 %65
+  %75 = getelementptr inbounds nuw [2 x i8], ptr %spec.select.us, i64 %65
   br label %_ZN6LibRaw16adobe_copy_pixelEjjPPt.exit.us
 
 .lr.ph.i.us:                                      ; preds = %74, %.lr.ph.i.us
   %indvars.iv.i.us = phi i64 [ %indvars.iv.next.i.us, %.lr.ph.i.us ], [ 0, %74 ]
-  %76 = getelementptr inbounds nuw i16, ptr %spec.select.us, i64 %indvars.iv.i.us
+  %76 = getelementptr inbounds nuw [2 x i8], ptr %spec.select.us, i64 %indvars.iv.i.us
   %77 = load i16, ptr %76, align 2, !tbaa !77
   %78 = zext i16 %77 to i64
-  %79 = getelementptr inbounds nuw i16, ptr %29, i64 %78
+  %79 = getelementptr inbounds nuw [2 x i8], ptr %29, i64 %78
   %80 = load i16, ptr %79, align 2, !tbaa !77
   %81 = load i16, ptr %17, align 2, !tbaa !76
   %82 = zext i16 %81 to i32
   %83 = mul nuw i32 %.035, %82
   %84 = add nuw i32 %83, %.132.us
   %85 = zext i32 %84 to i64
-  %86 = getelementptr inbounds nuw [4 x i16], ptr %66, i64 %85
-  %87 = getelementptr inbounds nuw i16, ptr %86, i64 %indvars.iv.i.us
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %85
+  %87 = getelementptr inbounds nuw [2 x i8], ptr %86, i64 %indvars.iv.i.us
   store i16 %80, ptr %87, align 2, !tbaa !77
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, %65
@@ -1073,7 +1073,7 @@ define void @_ZN6LibRaw19packed_dng_load_rawEv(ptr noundef nonnull align 8 deref
 .loopexit.i.us:                                   ; preds = %.loopexit.i.us.loopexit, %.lr.ph34.split.us
   %.pre49 = phi i16 [ %.pre49.pre, %.loopexit.i.us.loopexit ], [ %.pre4950, %.lr.ph34.split.us ]
   %88 = phi i32 [ %.pre48, %.loopexit.i.us.loopexit ], [ %69, %.lr.ph34.split.us ]
-  %89 = getelementptr inbounds nuw i16, ptr %spec.select.us, i64 %65
+  %89 = getelementptr inbounds nuw [2 x i8], ptr %spec.select.us, i64 %65
   %.not24.i.us = icmp eq i32 %88, 0
   %or.cond27.i.us = select i1 %62, i1 true, i1 %.not24.i.us
   %spec.select28.idx.us = select i1 %or.cond27.i.us, i64 0, i64 -2
@@ -1109,12 +1109,12 @@ _ZN6LibRaw16adobe_copy_pixelEjjPPt.exit.us:       ; preds = %.loopexit.i.us, %.l
 102:                                              ; preds = %.lr.ph34.split
   %103 = load i16, ptr %spec.select, align 2, !tbaa !77
   %104 = zext i16 %103 to i64
-  %105 = getelementptr inbounds nuw i16, ptr %29, i64 %104
+  %105 = getelementptr inbounds nuw [2 x i8], ptr %29, i64 %104
   %106 = load i16, ptr %105, align 2, !tbaa !77
   %107 = mul nuw i32 %98, %.035
   %108 = add nuw i32 %107, %.132
   %109 = zext i32 %108 to i64
-  %110 = getelementptr inbounds nuw i16, ptr %63, i64 %109
+  %110 = getelementptr inbounds nuw [2 x i8], ptr %63, i64 %109
   store i16 %106, ptr %110, align 2, !tbaa !77
   %.pre45 = load i32, ptr %7, align 4
   %.pre46 = load i16, ptr %17, align 2, !tbaa !76
@@ -1123,7 +1123,7 @@ _ZN6LibRaw16adobe_copy_pixelEjjPPt.exit.us:       ; preds = %.loopexit.i.us, %.l
 .loopexit.i:                                      ; preds = %.lr.ph34.split, %102
   %111 = phi i16 [ %96, %.lr.ph34.split ], [ %.pre46, %102 ]
   %112 = phi i32 [ %97, %.lr.ph34.split ], [ %.pre45, %102 ]
-  %113 = getelementptr inbounds nuw i16, ptr %spec.select, i64 %65
+  %113 = getelementptr inbounds nuw [2 x i8], ptr %spec.select, i64 %65
   %.not24.i = icmp eq i32 %112, 0
   %or.cond27.i = select i1 %62, i1 true, i1 %.not24.i
   %spec.select28.idx = select i1 %or.cond27.i, i64 0, i64 -2
@@ -1269,13 +1269,13 @@ define void @_ZN6LibRaw18lossy_dng_load_rawEv(ptr noundef nonnull align 8 derefe
 
 .preheader95:                                     ; preds = %.preheader97
   %55 = zext nneg i32 %44 to i64
-  %56 = getelementptr inbounds nuw [256 x i16], ptr %3, i64 %55
+  %56 = getelementptr inbounds nuw [512 x i8], ptr %3, i64 %55
   br label %.preheader94
 
 .preheader97:                                     ; preds = %.preheader97.preheader, %.preheader97
   %indvars.iv = phi i64 [ 0, %.preheader97.preheader ], [ %indvars.iv.next, %.preheader97 ]
   %57 = tail call reassoc nsz arcp contract afn noundef double @_ZN6LibRaw7getrealEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef 12)
-  %58 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   store double %57, ptr %58, align 8, !tbaa !109
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1291,7 +1291,7 @@ define void @_ZN6LibRaw18lossy_dng_load_rawEv(ptr noundef nonnull align 8 derefe
 62:                                               ; preds = %.preheader94, %62
   %indvars.iv153 = phi i64 [ 0, %.preheader94 ], [ %indvars.iv.next154, %62 ]
   %.047110 = phi double [ 0.000000e+00, %.preheader94 ], [ %68, %62 ]
-  %63 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv153
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv153
   %64 = load double, ptr %63, align 8, !tbaa !109
   %65 = trunc nuw nsw i64 %indvars.iv153 to i32
   %66 = tail call reassoc nsz arcp contract afn noundef double @llvm.powi.f64.i32(double %61, i32 %65)
@@ -1304,7 +1304,7 @@ define void @_ZN6LibRaw18lossy_dng_load_rawEv(ptr noundef nonnull align 8 derefe
 69:                                               ; preds = %62
   %70 = fmul reassoc nsz arcp contract afn double %68, 6.553500e+04
   %71 = fptoui double %70 to i16
-  %72 = getelementptr inbounds nuw i16, ptr %56, i64 %indvars.iv158
+  %72 = getelementptr inbounds nuw [2 x i8], ptr %56, i64 %indvars.iv158
   store i16 %71, ptr %72, align 2, !tbaa !77
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 1
   %exitcond161.not = icmp eq i64 %indvars.iv.next159, 256
@@ -1321,7 +1321,7 @@ define void @_ZN6LibRaw18lossy_dng_load_rawEv(ptr noundef nonnull align 8 derefe
 
 75:                                               ; preds = %73, %75
   %indvars.iv162 = phi i64 [ 0, %73 ], [ %indvars.iv.next163, %75 ]
-  %76 = getelementptr inbounds nuw [256 x i16], ptr %3, i64 %indvars.iv162
+  %76 = getelementptr inbounds nuw [512 x i8], ptr %3, i64 %indvars.iv162
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %76, ptr noundef nonnull align 8 dereferenceable(512) %74, i64 512, i1 false)
   %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
   %exitcond165.not = icmp eq i64 %indvars.iv.next163, 4
@@ -1524,22 +1524,22 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %136, %138, %126
 
 161:                                              ; preds = %.preheader.us, %161
   %indvars.iv166 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next167, %161 ]
-  %162 = getelementptr inbounds nuw [256 x i16], ptr %3, i64 %indvars.iv166
+  %162 = getelementptr inbounds nuw [512 x i8], ptr %3, i64 %indvars.iv166
   %163 = trunc nuw i64 %indvars.iv166 to i32
   %164 = add i32 %178, %163
   %165 = zext i32 %164 to i64
   %166 = getelementptr inbounds nuw i8, ptr %.sroa.080.3, i64 %165
   %167 = load i8, ptr %166, align 1, !tbaa !145
   %168 = zext i8 %167 to i64
-  %169 = getelementptr inbounds nuw i16, ptr %162, i64 %168
+  %169 = getelementptr inbounds nuw [2 x i8], ptr %162, i64 %168
   %170 = load i16, ptr %169, align 2, !tbaa !77
   %171 = load i16, ptr %87, align 2, !tbaa !144
   %172 = zext i16 %171 to i32
   %173 = mul nuw i32 %147, %172
   %174 = add nuw i32 %157, %173
   %175 = zext i32 %174 to i64
-  %176 = getelementptr inbounds nuw [4 x i16], ptr %156, i64 %175
-  %177 = getelementptr inbounds nuw i16, ptr %176, i64 %indvars.iv166
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %156, i64 %175
+  %177 = getelementptr inbounds nuw [2 x i8], ptr %176, i64 %indvars.iv166
   store i16 %170, ptr %177, align 2, !tbaa !77
   %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
   %exitcond170.not = icmp eq i64 %indvars.iv.next167, %wide.trip.count169

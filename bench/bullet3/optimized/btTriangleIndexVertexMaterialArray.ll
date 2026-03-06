@@ -3,8 +3,6 @@ source_filename = "bench/bullet3/original/btTriangleIndexVertexMaterialArray.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.btMaterialProperties = type { i32, ptr, i32, i32, i32, ptr, i32, i32 }
-
 $_ZN20btAlignedObjectArrayI20btMaterialPropertiesED2Ev = comdat any
 
 $_ZN34btTriangleIndexVertexMaterialArrayD2Ev = comdat any
@@ -60,9 +58,9 @@ define dso_local void @_ZN34btTriangleIndexVertexMaterialArrayC2EiPiiiPfiiPhiS0_
 
 19:                                               ; preds = %19, %.lr.ph.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %19 ]
-  %20 = getelementptr inbounds nuw %struct.btMaterialProperties, ptr %17, i64 %indvars.iv.i.i.i.i
+  %20 = getelementptr inbounds nuw [48 x i8], ptr %17, i64 %indvars.iv.i.i.i.i
   %21 = load ptr, ptr %14, align 8, !tbaa !15
-  %22 = getelementptr inbounds nuw %struct.btMaterialProperties, ptr %21, i64 %indvars.iv.i.i.i.i
+  %22 = getelementptr inbounds nuw [48 x i8], ptr %21, i64 %indvars.iv.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %20, ptr noundef nonnull align 8 dereferenceable(48) %22, i64 48, i1 false), !tbaa.struct !18
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %exitcond.not.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i, %wide.trip.count.i.i.i.i
@@ -86,7 +84,7 @@ _ZN20btAlignedObjectArrayI20btMaterialPropertiesE10deallocateEv.exit.i.i.i: ; pr
   store i32 1, ptr %16, align 8, !tbaa !17
   %.pre2.i.i = load i32, ptr %15, align 4, !tbaa !16
   %27 = sext i32 %.pre2.i.i to i64
-  %28 = getelementptr inbounds %struct.btMaterialProperties, ptr %17, i64 %27
+  %28 = getelementptr inbounds [48 x i8], ptr %17, i64 %27
   store i32 %7, ptr %28, align 8, !tbaa !19
   %.sroa.517.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr %8, ptr %.sroa.517.0..sroa_idx, align 8, !tbaa !20
@@ -106,7 +104,7 @@ _ZN20btAlignedObjectArrayI20btMaterialPropertiesE10deallocateEv.exit.i.i.i: ; pr
   %30 = add nsw i32 %29, 1
   store i32 %30, ptr %15, align 4, !tbaa !16
   %31 = sext i32 %29 to i64
-  %32 = getelementptr inbounds %struct.btMaterialProperties, ptr %17, i64 %31
+  %32 = getelementptr inbounds [48 x i8], ptr %17, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 44
   store i32 2, ptr %33, align 4, !tbaa !27
   ret void
@@ -164,7 +162,7 @@ define dso_local void @_ZN34btTriangleIndexVertexMaterialArray21getLockedMateria
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %12 = load ptr, ptr %11, align 8, !tbaa !15
   %13 = sext i32 %9 to i64
-  %14 = getelementptr inbounds %struct.btMaterialProperties, ptr %12, i64 %13
+  %14 = getelementptr inbounds [48 x i8], ptr %12, i64 %13
   %15 = load i32, ptr %14, align 8, !tbaa !29
   store i32 %15, ptr %2, align 4, !tbaa !19
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -194,7 +192,7 @@ define dso_local void @_ZN34btTriangleIndexVertexMaterialArray29getLockedReadOnl
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %12 = load ptr, ptr %11, align 8, !tbaa !15
   %13 = sext i32 %9 to i64
-  %14 = getelementptr inbounds %struct.btMaterialProperties, ptr %12, i64 %13
+  %14 = getelementptr inbounds [48 x i8], ptr %12, i64 %13
   %15 = load i32, ptr %14, align 8, !tbaa !29
   store i32 %15, ptr %2, align 4, !tbaa !19
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8

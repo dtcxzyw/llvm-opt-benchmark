@@ -51,7 +51,7 @@ define void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17
 16:                                               ; preds = %3
   %17 = extractvalue { ptr, i64 } %14, 0
   %18 = extractvalue { ptr, i64 } %14, 1
-  %19 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %1, i64 %2
+  %19 = getelementptr inbounds [24 x i8], ptr %1, i64 %2
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
   store ptr %1, ptr %5, align 8
   %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -97,7 +97,7 @@ define void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17
   unreachable
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds { [3 x i64] }, ptr %17, i64 %25
+  %34 = getelementptr inbounds [24 x i8], ptr %17, i64 %25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %34, ptr noundef nonnull align 8 dereferenceable(24) %4, i64 24, i1 false)
   %.pr = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %35 = icmp eq i64 %.pr, 0
@@ -129,8 +129,8 @@ define noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..S
 
 5:                                                ; preds = %.preheader.split
   %6 = tail call i64 @"_ZN49_$LT$usize$u20$as$u20$core..iter..range..Step$GT$17forward_unchecked17ha0c0a32dac252f31E"(i64 %.sroa.01.0, i64 1)
-  %7 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %0, i64 %.sroa.01.0
-  %8 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %2, i64 %.sroa.01.0
+  %7 = getelementptr inbounds [24 x i8], ptr %0, i64 %.sroa.01.0
+  %8 = getelementptr inbounds [24 x i8], ptr %2, i64 %.sroa.01.0
   %9 = tail call zeroext i1 @"_ZN62_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$GT$2eq17h2433b711137e09f0E"(ptr align 8 %7, ptr align 8 %8)
   br i1 %9, label %.preheader.split, label %.critedge
 

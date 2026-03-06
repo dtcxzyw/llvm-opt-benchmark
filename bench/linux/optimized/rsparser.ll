@@ -1584,7 +1584,7 @@ define internal fastcc void @pnpacpi_parse_ext_irq_option(ptr noundef %0, i32 no
 
 10:                                               ; preds = %20, %8
   %11 = phi i64 [ 0, %8 ], [ %21, %20 ]
-  %12 = getelementptr i32, ptr %9, i64 %11
+  %12 = getelementptr [4 x i8], ptr %9, i64 %11
   %13 = load i32, ptr %12, align 1
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %20, label %15

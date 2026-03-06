@@ -9,7 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.SpGistTypeDesc = type { i32, i16, i8, i8, i8 }
 %struct.spgxlogVacuumRoot = type { i16, %struct.spgxlogState, [0 x i16] }
 %struct.spgxlogState = type { i32, i8 }
-%struct.ItemIdData = type { i32 }
 %struct.spgxlogVacuumLeaf = type { i16, i16, i16, i16, %struct.spgxlogState, [0 x i16] }
 %struct.spgxlogVacuumRedirect = type { i16, i16, i32, i8, [0 x i16] }
 
@@ -140,7 +139,7 @@ define internal fastcc void @spgvacuumscan(ptr noundef nonnull %0) unnamed_addr 
   %49 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %50 = xor i32 %46, -1
   %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds nuw ptr, ptr %49, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %51
   %53 = load ptr, ptr %52, align 8
   br label %BufferGetPage.exit.i
 
@@ -187,7 +186,7 @@ BufferGetPage.exit.i:                             ; preds = %54, %48
   %76 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %77 = xor i32 %46, -1
   %78 = zext nneg i32 %77 to i64
-  %79 = getelementptr inbounds nuw ptr, ptr %76, i64 %78
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %78
   %80 = load ptr, ptr %79, align 8
   br label %BufferGetPage.exit.i.i
 
@@ -223,7 +222,7 @@ BufferGetPage.exit.i.i:                           ; preds = %81, %75
   %.027.i.i = phi i16 [ 1, %.lr.ph.i.i ], [ %128, %126 ]
   %95 = phi i16 [ 0, %.lr.ph.i.i ], [ %127, %126 ]
   %96 = zext i16 %.027.i.i to i64
-  %97 = getelementptr %struct.ItemIdData, ptr %93, i64 %96
+  %97 = getelementptr [4 x i8], ptr %93, i64 %96
   %.val25.i.i = load i32, ptr %97, align 4
   %98 = and i32 %.val25.i.i, 32767
   %99 = zext nneg i32 %98 to i64
@@ -247,7 +246,7 @@ BufferGetPage.exit.i.i:                           ; preds = %81, %75
   %113 = fadd double %112, 1.000000e+00
   store double %113, ptr %111, align 8
   %114 = zext i16 %95 to i64
-  %115 = getelementptr inbounds nuw i16, ptr %3, i64 %114
+  %115 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %114
   store i16 %.027.i.i, ptr %115, align 2
   %116 = add i16 %95, 1
   store i16 %116, ptr %2, align 4
@@ -425,7 +424,7 @@ spgvacuumpage.exit:                               ; preds = %171, %178, %183
   %203 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %204 = xor i32 %200, -1
   %205 = zext nneg i32 %204 to i64
-  %206 = getelementptr inbounds nuw ptr, ptr %203, i64 %205
+  %206 = getelementptr inbounds nuw [8 x i8], ptr %203, i64 %205
   %207 = load ptr, ptr %206, align 8
   br label %BufferGetPage.exit.i36
 
@@ -535,7 +534,7 @@ BufferGetPage.exit.i36:                           ; preds = %208, %202
   %259 = getelementptr i8, ptr %.1101.i, i64 4
   %.1.val77.i = load i16, ptr %259, align 2
   %260 = zext i16 %.1.val77.i to i64
-  %261 = getelementptr %struct.ItemIdData, ptr %225, i64 %260
+  %261 = getelementptr [4 x i8], ptr %225, i64 %260
   %.val73.i = load i32, ptr %261, align 4
   %262 = and i32 %.val73.i, 32767
   %263 = zext nneg i32 %262 to i64
@@ -815,7 +814,7 @@ define internal fastcc void @vacuumLeafPage(ptr noundef nonnull %0, ptr noundef 
   %16 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %17 = xor i32 %2, -1
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr %16, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %18
   %20 = load ptr, ptr %19, align 8
   br label %BufferGetPage.exit
 
@@ -864,7 +863,7 @@ BufferGetPage.exit:                               ; preds = %15, %21
   %.0133 = phi i32 [ 0, %.lr.ph ], [ %.2, %spgAddPendingTID.exit ]
   %.099132 = phi i16 [ 1, %.lr.ph ], [ %100, %spgAddPendingTID.exit ]
   %40 = zext i16 %.099132 to i64
-  %41 = getelementptr %struct.ItemIdData, ptr %33, i64 %40
+  %41 = getelementptr [4 x i8], ptr %33, i64 %40
   %.val121 = load i32, ptr %41, align 4
   %42 = and i32 %.val121, 32767
   %43 = zext nneg i32 %42 to i64
@@ -919,7 +918,7 @@ BufferGetPage.exit:                               ; preds = %15, %21
 
 71:                                               ; preds = %69
   %72 = zext nneg i16 %68 to i64
-  %73 = getelementptr inbounds nuw i16, ptr %12, i64 %72
+  %73 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %72
   %74 = load i16, ptr %73, align 2
   %.not120 = icmp eq i16 %74, 0
   br i1 %.not120, label %82, label %75
@@ -1002,7 +1001,7 @@ spgAddPendingTID.exit:                            ; preds = %.lr.ph.i, %._crit_e
   %.promoted136165168 = phi i16 [ 0, %.lr.ph173 ], [ %.promoted136161, %.thread ]
   %107 = phi i16 [ 0, %.lr.ph173 ], [ %177, %.thread ]
   %108 = zext i16 %.1100171 to i64
-  %109 = getelementptr %struct.ItemIdData, ptr %105, i64 %108
+  %109 = getelementptr [4 x i8], ptr %105, i64 %108
   %.val122 = load i32, ptr %109, align 4
   %110 = and i32 %.val122, 32767
   %111 = zext nneg i32 %110 to i64
@@ -1013,7 +1012,7 @@ spgAddPendingTID.exit:                            ; preds = %.lr.ph.i, %._crit_e
   br i1 %.not115, label %115, label %.thread
 
 115:                                              ; preds = %106
-  %116 = getelementptr inbounds nuw i16, ptr %12, i64 %108
+  %116 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %108
   %117 = load i16, ptr %116, align 2
   %.not116 = icmp eq i16 %117, 0
   br i1 %.not116, label %118, label %.thread
@@ -1040,7 +1039,7 @@ spgAddPendingTID.exit:                            ; preds = %.lr.ph.i, %._crit_e
   %124 = phi i16 [ %162, %160 ], [ %.promoted135159169, %118 ]
   %125 = phi i16 [ %161, %160 ], [ %.promoted136165168, %118 ]
   %126 = zext nneg i16 %.0106143 to i64
-  %127 = getelementptr %struct.ItemIdData, ptr %105, i64 %126
+  %127 = getelementptr [4 x i8], ptr %105, i64 %126
   %.val123 = load i32, ptr %127, align 4
   %128 = and i32 %.val123, 32767
   %129 = zext nneg i32 %128 to i64
@@ -1066,7 +1065,7 @@ spgAddPendingTID.exit:                            ; preds = %.lr.ph.i, %._crit_e
 
 142:                                              ; preds = %138
   %143 = zext i16 %125 to i64
-  %144 = getelementptr inbounds nuw i16, ptr %7, i64 %143
+  %144 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %143
   store i16 %.0106143, ptr %144, align 2
   %145 = add i16 %125, 1
   store i16 %145, ptr %104, align 2
@@ -1078,9 +1077,9 @@ spgAddPendingTID.exit:                            ; preds = %.lr.ph.i, %._crit_e
 
 148:                                              ; preds = %146
   %149 = zext i16 %124 to i64
-  %150 = getelementptr inbounds nuw i16, ptr %8, i64 %149
+  %150 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %149
   store i16 %.0106143, ptr %150, align 2
-  %151 = getelementptr inbounds nuw i16, ptr %9, i64 %149
+  %151 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %149
   store i16 %.1100171, ptr %151, align 2
   %152 = add i16 %124, 1
   store i16 %152, ptr %103, align 4
@@ -1092,9 +1091,9 @@ spgAddPendingTID.exit:                            ; preds = %.lr.ph.i, %._crit_e
 
 155:                                              ; preds = %153
   %156 = zext i16 %123 to i64
-  %157 = getelementptr inbounds nuw i16, ptr %10, i64 %156
+  %157 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %156
   store i16 %.0104141, ptr %157, align 2
-  %158 = getelementptr inbounds nuw i16, ptr %11, i64 %156
+  %158 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %156
   store i16 %.0106143, ptr %158, align 2
   %159 = add i16 %123, 1
   store i16 %159, ptr %102, align 2
@@ -1128,7 +1127,7 @@ spgAddPendingTID.exit:                            ; preds = %.lr.ph.i, %._crit_e
   %.promoted135158211 = phi i16 [ %.promoted135159169, %._crit_edge146.thread ], [ %.promoted135156, %._crit_edge146 ]
   %.promoted136164209 = phi i16 [ %.promoted136165168, %._crit_edge146.thread ], [ %.promoted136162, %._crit_edge146 ]
   %167 = zext i16 %107 to i64
-  %168 = getelementptr inbounds nuw i16, ptr %6, i64 %167
+  %168 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %167
   store i16 %.1100171, ptr %168, align 2
   %169 = add i16 %107, 1
   store i16 %169, ptr %5, align 8
@@ -1140,9 +1139,9 @@ spgAddPendingTID.exit:                            ; preds = %.lr.ph.i, %._crit_e
 
 172:                                              ; preds = %170
   %173 = zext i16 %.promoted151 to i64
-  %174 = getelementptr inbounds nuw i16, ptr %10, i64 %173
+  %174 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %173
   store i16 %.1105, ptr %174, align 2
-  %175 = getelementptr inbounds nuw i16, ptr %11, i64 %173
+  %175 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %173
   store i16 0, ptr %175, align 2
   %176 = add i16 %.promoted151, 1
   store i16 %176, ptr %102, align 2
@@ -1189,14 +1188,14 @@ spgAddPendingTID.exit:                            ; preds = %.lr.ph.i, %._crit_e
 
 193:                                              ; preds = %.lr.ph177, %193
   %indvars.iv = phi i64 [ 0, %.lr.ph177 ], [ %indvars.iv.next, %193 ]
-  %194 = getelementptr inbounds nuw i16, ptr %8, i64 %indvars.iv
+  %194 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %indvars.iv
   %195 = load i16, ptr %194, align 2
   %196 = zext i16 %195 to i64
-  %197 = getelementptr %struct.ItemIdData, ptr %191, i64 %196
-  %198 = getelementptr inbounds nuw i16, ptr %9, i64 %indvars.iv
+  %197 = getelementptr [4 x i8], ptr %191, i64 %196
+  %198 = getelementptr inbounds nuw [2 x i8], ptr %9, i64 %indvars.iv
   %199 = load i16, ptr %198, align 2
   %200 = zext i16 %199 to i64
-  %201 = getelementptr %struct.ItemIdData, ptr %191, i64 %200
+  %201 = getelementptr [4 x i8], ptr %191, i64 %200
   %.sroa.0.0.copyload = load i32, ptr %197, align 4
   %202 = load i32, ptr %201, align 4
   store i32 %202, ptr %197, align 4
@@ -1222,10 +1221,10 @@ spgAddPendingTID.exit:                            ; preds = %.lr.ph.i, %._crit_e
 
 207:                                              ; preds = %.lr.ph182, %207
   %indvars.iv192 = phi i64 [ 0, %.lr.ph182 ], [ %indvars.iv.next193, %207 ]
-  %208 = getelementptr inbounds nuw i16, ptr %10, i64 %indvars.iv192
+  %208 = getelementptr inbounds nuw [2 x i8], ptr %10, i64 %indvars.iv192
   %209 = load i16, ptr %208, align 2
   %210 = zext i16 %209 to i64
-  %211 = getelementptr %struct.ItemIdData, ptr %205, i64 %210
+  %211 = getelementptr [4 x i8], ptr %205, i64 %210
   %.val124 = load i32, ptr %211, align 4
   %212 = and i32 %.val124, 32767
   %213 = zext nneg i32 %212 to i64
@@ -1233,7 +1232,7 @@ spgAddPendingTID.exit:                            ; preds = %.lr.ph.i, %._crit_e
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 4
   %216 = load i16, ptr %215, align 4
   %217 = and i16 %216, -16384
-  %218 = getelementptr inbounds nuw i16, ptr %11, i64 %indvars.iv192
+  %218 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %indvars.iv192
   %219 = load i16, ptr %218, align 2
   %220 = and i16 %219, 16383
   %221 = or disjoint i16 %220, %217
@@ -1344,7 +1343,7 @@ define internal fastcc void @vacuumRedirectAndPlaceholder(ptr noundef readonly c
   %9 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %10 = xor i32 %2, -1
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %11
   %13 = load ptr, ptr %12, align 8
   br label %BufferGetPage.exit
 
@@ -1444,7 +1443,7 @@ BufferGetPage.exit:                               ; preds = %8, %14
   br i1 %.not74, label %.critedge, label %66
 
 66:                                               ; preds = %61
-  %67 = getelementptr %struct.ItemIdData, ptr %58, i64 %indvars.iv
+  %67 = getelementptr [4 x i8], ptr %58, i64 %indvars.iv
   %.val81 = load i32, ptr %67, align 4
   %68 = and i32 %.val81, 32767
   %69 = zext nneg i32 %68 to i64
@@ -1497,7 +1496,7 @@ BufferGetPage.exit:                               ; preds = %8, %14
   %94 = getelementptr inbounds nuw i8, ptr %70, i64 10
   store i16 0, ptr %94, align 2
   %95 = zext i16 %62 to i64
-  %96 = getelementptr inbounds nuw i16, ptr %4, i64 %95
+  %96 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %95
   %97 = trunc nuw i64 %indvars.iv to i16
   store i16 %97, ptr %96, align 2
   %98 = add i16 %62, 1
@@ -1535,7 +1534,7 @@ BufferGetPage.exit:                               ; preds = %8, %14
   %.195 = phi i16 [ %111, %.lr.ph96 ], [ %.059.lcssa, %.preheader ]
   %108 = zext i16 %.195 to i64
   %109 = sub nsw i64 %108, %107
-  %110 = getelementptr inbounds i16, ptr %5, i64 %109
+  %110 = getelementptr inbounds [2 x i8], ptr %5, i64 %109
   store i16 %.195, ptr %110, align 2
   %111 = add i16 %.195, 1
   %.not76 = icmp ugt i16 %111, %.0.i

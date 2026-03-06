@@ -76,7 +76,7 @@ define range(i32 -32768, 32768) i32 @ff_rv_decode_dc(ptr noundef captures(none) 
 
 19:                                               ; preds = %2
   %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @rv_dc_lum, i64 8), align 8, !tbaa !14
-  %21 = getelementptr inbounds nuw %struct.VLCElem, ptr %20, i64 %18
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %18
   %22 = load i16, ptr %21, align 2, !tbaa !13
   %23 = sext i16 %22 to i32
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 2
@@ -99,7 +99,7 @@ define range(i32 -32768, 32768) i32 @ff_rv_decode_dc(ptr noundef captures(none) 
   %39 = lshr i32 %37, %38
   %40 = add i32 %39, %23
   %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds nuw %struct.VLCElem, ptr %20, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %41
   %43 = load i16, ptr %42, align 2, !tbaa !13
   %44 = sext i16 %43 to i32
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 2
@@ -118,7 +118,7 @@ get_vlc2.exit:                                    ; preds = %19, %28
 
 50:                                               ; preds = %2
   %51 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @rv_dc_chrom, i64 8), align 8, !tbaa !14
-  %52 = getelementptr inbounds nuw %struct.VLCElem, ptr %51, i64 %18
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %18
   %53 = load i16, ptr %52, align 2, !tbaa !13
   %54 = sext i16 %53 to i32
   %55 = getelementptr inbounds nuw i8, ptr %52, i64 2
@@ -141,7 +141,7 @@ get_vlc2.exit:                                    ; preds = %19, %28
   %70 = lshr i32 %68, %69
   %71 = add i32 %70, %54
   %72 = zext i32 %71 to i64
-  %73 = getelementptr inbounds nuw %struct.VLCElem, ptr %51, i64 %72
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %72
   %74 = load i16, ptr %73, align 2, !tbaa !13
   %75 = sext i16 %74 to i32
   %76 = getelementptr inbounds nuw i8, ptr %73, i64 2
@@ -590,7 +590,7 @@ define internal i32 @rv10_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %210 = and i32 %209, 3
   store i32 2, ptr %67, align 8, !tbaa !4
   %211 = zext nneg i32 %210 to i64
-  %212 = getelementptr inbounds nuw i32, ptr @rv20_decode_picture_header.pict_types, i64 %211
+  %212 = getelementptr inbounds nuw [4 x i8], ptr @rv20_decode_picture_header.pict_types, i64 %211
   %213 = load i32, ptr %212, align 4, !tbaa !79
   store i32 %213, ptr %71, align 8, !tbaa !77
   %214 = getelementptr inbounds nuw i8, ptr %55, i64 4104
@@ -1544,10 +1544,10 @@ define internal void @rv10_init_static() #2 {
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %5 ]
   %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @rv_dc_lum, i64 8), align 8, !tbaa !14
   %7 = or disjoint i64 %indvars.iv, 508
-  %8 = getelementptr inbounds nuw %struct.VLCElem, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %7
   store i16 255, ptr %8, align 2, !tbaa !13
   %9 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @rv_dc_lum, i64 8), align 8, !tbaa !14
-  %10 = getelementptr inbounds nuw %struct.VLCElem, ptr %9, i64 %7
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %7
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 2
   store i16 18, ptr %11, align 2, !tbaa !13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1592,7 +1592,7 @@ define internal fastcc void @rv10_build_vlc(ptr noundef %0, ptr noundef readonly
   %14 = add i16 %.0272, -1
   %15 = and i16 %.0272, 255
   %16 = zext i32 %.13 to i64
-  %17 = getelementptr inbounds nuw i16, ptr %4, i64 %16
+  %17 = getelementptr inbounds nuw [2 x i8], ptr %4, i64 %16
   store i16 %15, ptr %17, align 2, !tbaa !125
   %18 = add i32 %.13, 1
   %.not = icmp ugt i32 %18, %11
@@ -1607,7 +1607,7 @@ define internal fastcc void @rv10_build_vlc(ptr noundef %0, ptr noundef readonly
 .preheader:                                       ; preds = %._crit_edge, %._crit_edge9
   %indvars.iv20 = phi i64 [ %indvars.iv.next21, %._crit_edge9 ], [ 0, %._crit_edge ]
   %.02511 = phi i32 [ %.126.lcssa, %._crit_edge9 ], [ 0, %._crit_edge ]
-  %21 = getelementptr inbounds nuw i16, ptr %1, i64 %indvars.iv20
+  %21 = getelementptr inbounds nuw [2 x i8], ptr %1, i64 %indvars.iv20
   %22 = load i16, ptr %21, align 2, !tbaa !125
   %23 = zext i16 %22 to i32
   %24 = add i32 %.02511, %23

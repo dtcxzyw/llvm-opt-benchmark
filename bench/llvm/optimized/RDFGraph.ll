@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %"struct.llvm::rdf::Print.57" = type { ptr, ptr }
 %"struct.llvm::rdf::NodeAddr.62" = type <{ ptr, i32, [4 x i8] }>
-%"struct.llvm::LaneBitmask" = type { i64 }
 %"struct.llvm::rdf::PrintNode" = type { %"struct.llvm::rdf::Print.64" }
 %"struct.llvm::rdf::Print.64" = type { ptr, ptr }
 %"struct.llvm::rdf::NodeAddr.65" = type <{ ptr, i32, [4 x i8] }>
@@ -40,11 +39,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.llvm::rdf::Print.137" = type { ptr, ptr }
 %"struct.llvm::rdf::NodeAddr.138" = type <{ ptr, i32, [4 x i8] }>
 %"struct.llvm::rdf::DataFlowGraph::DefStack::Iterator" = type <{ ptr, i32, [4 x i8] }>
-%"class.llvm::MachineOperand" = type { i32, %union.anon.97, ptr, %"union.llvm::MachineOperand::ContentsUnion" }
-%union.anon.97 = type { i32 }
-%"union.llvm::MachineOperand::ContentsUnion" = type { %"class.llvm::ArrayRef" }
-%"class.llvm::ArrayRef" = type { ptr, i64 }
-%"class.llvm::MCInstrDesc" = type { i16, i16, i8, i8, i16, i8, i8, i16, i16, i64, i64 }
 %"struct.llvm::rdf::RegisterAggr" = type { %"class.llvm::BitVector", ptr }
 %"class.llvm::BitVector" = type <{ %"class.llvm::SmallVector", i32, [4 x i8] }>
 %"class.llvm::SmallVector" = type { %"class.llvm::SmallVectorImpl", %"struct.llvm::SmallVectorStorage" }
@@ -85,15 +79,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorImpl.108" = type { %"class.llvm::SmallVectorTemplateBase.109" }
 %"class.llvm::SmallVectorTemplateBase.109" = type { %"class.llvm::SmallVectorTemplateCommon.110" }
 %"class.llvm::SmallVectorTemplateCommon.110" = type { %"class.llvm::SmallVectorBase" }
-%"struct.llvm::detail::DenseMapPair" = type { %"struct.std::pair.404" }
-%"struct.std::pair.404" = type { ptr, %"class.llvm::SetVector" }
-%"class.llvm::detail::DenseSetPair" = type { ptr }
-%"class.std::unique_ptr.530" = type { %"struct.std::__uniq_ptr_data.531" }
-%"struct.std::__uniq_ptr_data.531" = type { %"class.std::__uniq_ptr_impl.532" }
-%"class.std::__uniq_ptr_impl.532" = type { %"class.std::tuple.533" }
-%"class.std::tuple.533" = type { %"struct.std::_Tuple_impl.534" }
-%"struct.std::_Tuple_impl.534" = type { %"struct.std::_Head_base.537" }
-%"struct.std::_Head_base.537" = type { ptr }
 %"class.llvm::SetVector.415" = type { %"class.llvm::DenseSet.416", %"class.llvm::SmallVector.421" }
 %"class.llvm::DenseSet.416" = type { %"class.llvm::detail::DenseSetImpl.417" }
 %"class.llvm::detail::DenseSetImpl.417" = type { %"class.llvm::DenseMap.418" }
@@ -102,14 +87,13 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorImpl.422" = type { %"class.llvm::SmallVectorTemplateBase.423" }
 %"class.llvm::SmallVectorTemplateBase.423" = type { %"class.llvm::SmallVectorTemplateCommon.424" }
 %"class.llvm::SmallVectorTemplateCommon.424" = type { %"class.llvm::SmallVectorBase" }
-%"class.llvm::detail::DenseSetPair.480" = type { i32 }
 %"struct.llvm::rdf::RegisterRef" = type { i32, %"struct.llvm::LaneBitmask" }
+%"struct.llvm::LaneBitmask" = type { i64 }
 %"class.llvm::SmallVector.439" = type { %"class.llvm::SmallVectorImpl.440", %"struct.llvm::SmallVectorStorage.443" }
 %"class.llvm::SmallVectorImpl.440" = type { %"class.llvm::SmallVectorTemplateBase.441" }
 %"class.llvm::SmallVectorTemplateBase.441" = type { %"class.llvm::SmallVectorTemplateCommon.442" }
 %"class.llvm::SmallVectorTemplateCommon.442" = type { %"class.llvm::SmallVectorBase" }
 %"struct.llvm::SmallVectorStorage.443" = type { [48 x i8] }
-%"struct.std::pair.485" = type { ptr, i64 }
 
 $_ZN4llvm3rdf13DataFlowGraph6ConfigaSERKS2_ = comdat any
 
@@ -257,7 +241,7 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit: ; p
   %30 = getelementptr inbounds nuw i8, ptr %21, i64 304
   %31 = zext i32 %25 to i64
   %32 = load ptr, ptr %30, align 8, !tbaa !45
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %31
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %31
   %34 = load ptr, ptr %33, align 8, !tbaa !46
   %35 = zext i32 %29 to i64
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 %35
@@ -823,7 +807,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %14, %16
   %26 = add nuw nsw i64 %.sroa.2.0.extract.shift.i.i, 4294967295
   %27 = and i64 %26, 4294967295
   %28 = load ptr, ptr %25, align 8, !tbaa !64
-  %29 = getelementptr inbounds nuw %"struct.llvm::LaneBitmask", ptr %28, i64 %27
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %27
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %29, align 8, !tbaa !13
   br label %_ZNK4llvm3rdf13DataFlowGraph6unpackENS0_17PackedRegisterRefE.exit.i
 
@@ -1396,7 +1380,7 @@ _ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.i.i: ; preds 
   %41 = getelementptr inbounds nuw i8, ptr %26, i64 304
   %42 = zext i32 %36 to i64
   %43 = load ptr, ptr %41, align 8, !tbaa !45, !noalias !123
-  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %42
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %42
   %45 = load ptr, ptr %44, align 8, !tbaa !46
   %46 = zext i32 %40 to i64
   %47 = getelementptr inbounds nuw i8, ptr %45, i64 %46
@@ -1422,7 +1406,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_b
   %53 = phi i32 [ %48, %.lr.ph.i.i ], [ %.pre.i.i.i, %50 ]
   %54 = load ptr, ptr %4, align 8, !tbaa !95, !alias.scope !123
   %55 = zext i32 %53 to i64
-  %56 = getelementptr inbounds nuw %"struct.llvm::rdf::NodeAddr.58", ptr %54, i64 %55
+  %56 = getelementptr inbounds nuw [16 x i8], ptr %54, i64 %55
   store ptr %.pn2628.i.i, ptr %56, align 1
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %56, i64 8
   store i32 %.sroa.8.029.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i, align 1
@@ -1443,7 +1427,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_b
   %68 = shl i32 %67, 5
   %69 = zext i32 %65 to i64
   %70 = load ptr, ptr %41, align 8, !tbaa !45, !noalias !123
-  %71 = getelementptr inbounds nuw ptr, ptr %70, i64 %69
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %69
   %72 = load ptr, ptr %71, align 8, !tbaa !46
   %73 = zext i32 %68 to i64
   %74 = getelementptr inbounds nuw i8, ptr %72, i64 %73
@@ -1635,7 +1619,7 @@ _ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.i: ; preds = 
   %18 = getelementptr inbounds nuw i8, ptr %2, i64 304
   %19 = zext i32 %13 to i64
   %20 = load ptr, ptr %18, align 8, !tbaa !45, !noalias !132
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %19
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %19
   %22 = load ptr, ptr %21, align 8, !tbaa !46
   %23 = zext i32 %17 to i64
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 %23
@@ -1661,7 +1645,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_b
   %30 = phi i32 [ %25, %.lr.ph.i ], [ %.pre.i.i, %27 ]
   %31 = load ptr, ptr %0, align 8, !tbaa !95, !alias.scope !132
   %32 = zext i32 %30 to i64
-  %33 = getelementptr inbounds nuw %"struct.llvm::rdf::NodeAddr.58", ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %32
   store ptr %.pn2628.i, ptr %33, align 1
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %33, i64 8
   store i32 %.sroa.8.029.i, ptr %.sroa.2.0..sroa_idx.i.i, align 1
@@ -1682,7 +1666,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_b
   %45 = shl i32 %44, 5
   %46 = zext i32 %42 to i64
   %47 = load ptr, ptr %18, align 8, !tbaa !45, !noalias !132
-  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %46
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %46
   %49 = load ptr, ptr %48, align 8, !tbaa !46
   %50 = zext i32 %45 to i64
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 %50
@@ -1747,7 +1731,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %25, %27
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %36 = load ptr, ptr %35, align 8, !tbaa !235
   %37 = zext i16 %11 to i64
-  %38 = getelementptr inbounds nuw i32, ptr %36, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %37
   %39 = load i32, ptr %38, align 4, !tbaa !11
   %40 = zext i32 %39 to i64
   %41 = getelementptr inbounds nuw i8, ptr %34, i64 %40
@@ -2133,7 +2117,7 @@ _ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.i.i: ; preds 
   %191 = getelementptr inbounds nuw i8, ptr %176, i64 304
   %192 = zext i32 %186 to i64
   %193 = load ptr, ptr %191, align 8, !tbaa !45, !noalias !251
-  %194 = getelementptr inbounds nuw ptr, ptr %193, i64 %192
+  %194 = getelementptr inbounds nuw [8 x i8], ptr %193, i64 %192
   %195 = load ptr, ptr %194, align 8, !tbaa !46
   %196 = zext i32 %190 to i64
   %197 = getelementptr inbounds nuw i8, ptr %195, i64 %196
@@ -2159,7 +2143,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_b
   %203 = phi i32 [ %198, %.lr.ph.i.i ], [ %.pre.i.i.i, %200 ]
   %204 = load ptr, ptr %5, align 8, !tbaa !95, !alias.scope !251
   %205 = zext i32 %203 to i64
-  %206 = getelementptr inbounds nuw %"struct.llvm::rdf::NodeAddr.58", ptr %204, i64 %205
+  %206 = getelementptr inbounds nuw [16 x i8], ptr %204, i64 %205
   store ptr %.pn2628.i.i, ptr %206, align 1
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %206, i64 8
   store i32 %.sroa.8.029.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i, align 1
@@ -2180,7 +2164,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_b
   %218 = shl i32 %217, 5
   %219 = zext i32 %215 to i64
   %220 = load ptr, ptr %191, align 8, !tbaa !45, !noalias !251
-  %221 = getelementptr inbounds nuw ptr, ptr %220, i64 %219
+  %221 = getelementptr inbounds nuw [8 x i8], ptr %220, i64 %219
   %222 = load ptr, ptr %221, align 8, !tbaa !46
   %223 = zext i32 %218 to i64
   %224 = getelementptr inbounds nuw i8, ptr %222, i64 %223
@@ -2641,7 +2625,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i: ; preds = %163, %_Z
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i: ; preds = %164, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i
-  %165 = getelementptr inbounds nuw i32, ptr %160, i64 %158
+  %165 = getelementptr inbounds nuw [4 x i8], ptr %160, i64 %158
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
 
 _ZNSt6vectorIiSaIiEE9push_backEOi.exit:           ; preds = %147, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i
@@ -2770,7 +2754,7 @@ _ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.i.i: ; preds 
   %224 = getelementptr inbounds nuw i8, ptr %209, i64 304
   %225 = zext i32 %219 to i64
   %226 = load ptr, ptr %224, align 8, !tbaa !45, !noalias !321
-  %227 = getelementptr inbounds nuw ptr, ptr %226, i64 %225
+  %227 = getelementptr inbounds nuw [8 x i8], ptr %226, i64 %225
   %228 = load ptr, ptr %227, align 8, !tbaa !46
   %229 = zext i32 %223 to i64
   %230 = getelementptr inbounds nuw i8, ptr %228, i64 %229
@@ -2796,7 +2780,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_b
   %236 = phi i32 [ %231, %.lr.ph.i.i ], [ %.pre.i.i.i, %233 ]
   %237 = load ptr, ptr %5, align 8, !tbaa !95, !alias.scope !321
   %238 = zext i32 %236 to i64
-  %239 = getelementptr inbounds nuw %"struct.llvm::rdf::NodeAddr.58", ptr %237, i64 %238
+  %239 = getelementptr inbounds nuw [16 x i8], ptr %237, i64 %238
   store ptr %.pn2628.i.i, ptr %239, align 1
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %239, i64 8
   store i32 %.sroa.8.029.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i, align 1
@@ -2817,7 +2801,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_b
   %251 = shl i32 %250, 5
   %252 = zext i32 %248 to i64
   %253 = load ptr, ptr %224, align 8, !tbaa !45, !noalias !321
-  %254 = getelementptr inbounds nuw ptr, ptr %253, i64 %252
+  %254 = getelementptr inbounds nuw [8 x i8], ptr %253, i64 %252
   %255 = load ptr, ptr %254, align 8, !tbaa !46
   %256 = zext i32 %251 to i64
   %257 = getelementptr inbounds nuw i8, ptr %255, i64 %256
@@ -2896,7 +2880,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i79: ; preds = %281, %
   br label %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i81
 
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i81: ; preds = %282, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i79
-  %283 = getelementptr inbounds nuw i32, ptr %278, i64 %276
+  %283 = getelementptr inbounds nuw [4 x i8], ptr %278, i64 %276
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit82
 
 _ZNSt6vectorIiSaIiEE9push_backEOi.exit82:         ; preds = %265, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i81
@@ -3117,7 +3101,7 @@ _ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.i.i: ; preds 
   %85 = getelementptr inbounds nuw i8, ptr %70, i64 304
   %86 = zext i32 %80 to i64
   %87 = load ptr, ptr %85, align 8, !tbaa !45, !noalias !334
-  %88 = getelementptr inbounds nuw ptr, ptr %87, i64 %86
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %86
   %89 = load ptr, ptr %88, align 8, !tbaa !46
   %90 = zext i32 %84 to i64
   %91 = getelementptr inbounds nuw i8, ptr %89, i64 %90
@@ -3143,7 +3127,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_b
   %97 = phi i32 [ %92, %.lr.ph.i.i ], [ %.pre.i.i.i, %94 ]
   %98 = load ptr, ptr %4, align 8, !tbaa !95, !alias.scope !334
   %99 = zext i32 %97 to i64
-  %100 = getelementptr inbounds nuw %"struct.llvm::rdf::NodeAddr.58", ptr %98, i64 %99
+  %100 = getelementptr inbounds nuw [16 x i8], ptr %98, i64 %99
   store ptr %.pn2628.i.i, ptr %100, align 1
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %100, i64 8
   store i32 %.sroa.8.029.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i, align 1
@@ -3164,7 +3148,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_b
   %112 = shl i32 %111, 5
   %113 = zext i32 %109 to i64
   %114 = load ptr, ptr %85, align 8, !tbaa !45, !noalias !334
-  %115 = getelementptr inbounds nuw ptr, ptr %114, i64 %113
+  %115 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %113
   %116 = load ptr, ptr %115, align 8, !tbaa !46
   %117 = zext i32 %112 to i64
   %118 = getelementptr inbounds nuw i8, ptr %116, i64 %117
@@ -3394,7 +3378,7 @@ _ZN4llvm11raw_ostreamlsEc.exit24:                 ; preds = %_ZN4llvm11raw_ostre
   %12 = add i32 %.sroa.630.038, -1
   %13 = zext i32 %12 to i64
   %14 = load ptr, ptr %.fca.0.load.i, align 8, !tbaa !347
-  %15 = getelementptr inbounds nuw %"struct.llvm::rdf::NodeAddr.65", ptr %14, i64 %13
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %13
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %8, align 8, !tbaa !349
   store ptr %16, ptr %5, align 8, !tbaa !59
@@ -3420,7 +3404,7 @@ _ZN4llvm11raw_ostreamlsEc.exit24:                 ; preds = %_ZN4llvm11raw_ostre
 _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %23, %25
   %.0.i = phi ptr [ %24, %23 ], [ %18, %25 ]
   %27 = load ptr, ptr %.fca.0.load.i, align 8, !tbaa !347
-  %28 = getelementptr inbounds nuw %"struct.llvm::rdf::NodeAddr.65", ptr %27, i64 %13
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %13
   %29 = load ptr, ptr %28, align 8, !tbaa !54
   %30 = load ptr, ptr %8, align 8, !tbaa !349
   %31 = load i16, ptr %29, align 8, !tbaa !47
@@ -3440,7 +3424,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %23, %25
   %38 = add nuw nsw i64 %.sroa.2.0.extract.shift.i.i, 4294967295
   %39 = and i64 %38, 4294967295
   %40 = load ptr, ptr %37, align 8, !tbaa !64
-  %41 = getelementptr inbounds nuw %"struct.llvm::LaneBitmask", ptr %40, i64 %39
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %39
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %41, align 8, !tbaa !13
   br label %_ZNK4llvm3rdf13DataFlowGraph6unpackENS0_17PackedRegisterRefE.exit.i
 
@@ -3498,7 +3482,7 @@ _ZNK4llvm3rdf13DataFlowGraph8DefStack11isDelimiterERKNS0_8NodeAddrIPNS0_7DefNode
 62:                                               ; preds = %_ZNK4llvm3rdf13DataFlowGraph8DefStack11isDelimiterERKNS0_8NodeAddrIPNS0_7DefNodeEEEj.exit7.i.i
   %63 = add i32 %.0.i.i, -2
   %64 = zext i32 %63 to i64
-  %65 = getelementptr inbounds nuw %"struct.llvm::rdf::NodeAddr.65", ptr %59, i64 %64
+  %65 = getelementptr inbounds nuw [16 x i8], ptr %59, i64 %64
   %66 = load ptr, ptr %65, align 8, !tbaa !54
   %67 = icmp eq ptr %66, null
   br i1 %67, label %_ZNK4llvm3rdf13DataFlowGraph8DefStack11isDelimiterERKNS0_8NodeAddrIPNS0_7DefNodeEEEj.exit7.i.i, label %_ZN4llvm3rdf13DataFlowGraph8DefStack8Iterator4downEv.exit, !llvm.loop !350
@@ -3546,7 +3530,7 @@ define dso_local { i32, i64 } @_ZNK4llvm3rdf7RefNode9getRegRefERKNS0_13DataFlowG
   %10 = add nuw nsw i64 %.sroa.2.0.extract.shift.i, 4294967295
   %11 = and i64 %10, 4294967295
   %12 = load ptr, ptr %9, align 8, !tbaa !64
-  %13 = getelementptr inbounds nuw %"struct.llvm::LaneBitmask", ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %11
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %13, align 8, !tbaa !13
   br label %_ZNK4llvm3rdf13DataFlowGraph6unpackENS0_17PackedRegisterRefE.exit
 
@@ -3663,7 +3647,7 @@ _ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i: ; preds = %47, %
 _ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i: ; preds = %49, %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i
   store ptr %44, ptr %24, align 8, !tbaa !45
   store ptr %48, ptr %25, align 8, !tbaa !355
-  %50 = getelementptr inbounds nuw ptr, ptr %44, i64 %42
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %42
   store ptr %50, ptr %27, align 8, !tbaa !356
   br label %_ZNSt6vectorIPcSaIS0_EE9push_backERKS0_.exit
 
@@ -3746,7 +3730,7 @@ _ZN4llvm3rdf13NodeAllocator12needNewBlockEv.exit.thread: ; preds = %1, %_ZN4llvm
   %26 = add i32 %25, -1
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %28 = zext i32 %26 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %19, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !46
   %31 = ptrtoint ptr %30 to i64
   %32 = sub i64 %.pre-phi, %31
@@ -3786,7 +3770,7 @@ define dso_local noundef i32 @_ZNK4llvm3rdf13NodeAllocator2idEPKNS0_8NodeBaseE(p
   %.not = icmp ne i32 %.017, %12
   tail call void @llvm.assume(i1 %.not)
   %17 = zext i32 %.017 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %7, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !46
   %20 = ptrtoint ptr %19 to i64
   %21 = icmp uge ptr %1, %19
@@ -4110,7 +4094,7 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit:
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %14 = zext i32 %8 to i64
   %15 = load ptr, ptr %13, align 8, !tbaa !45
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %14
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %14
   %17 = load ptr, ptr %16, align 8, !tbaa !46
   %18 = zext i32 %12 to i64
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 %18
@@ -4139,7 +4123,7 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit15: ;
   %29 = and i32 %10, %27
   %30 = shl i32 %29, 5
   %31 = zext i32 %28 to i64
-  %32 = getelementptr inbounds nuw ptr, ptr %15, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !46
   %34 = zext i32 %30 to i64
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 %34
@@ -4194,7 +4178,7 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit: ; p
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %15 = zext i32 %9 to i64
   %16 = load ptr, ptr %14, align 8, !tbaa !45
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %15
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %15
   %18 = load ptr, ptr %17, align 8, !tbaa !46
   %19 = zext i32 %13 to i64
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 %19
@@ -4229,7 +4213,7 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit: ; p
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %15 = zext i32 %9 to i64
   %16 = load ptr, ptr %14, align 8, !tbaa !45
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %15
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %15
   %18 = load ptr, ptr %17, align 8, !tbaa !46
   %19 = zext i32 %13 to i64
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 %19
@@ -4261,7 +4245,7 @@ define dso_local void @_ZN4llvm3rdf8CodeNode9addMemberENS0_8NodeAddrIPNS0_8NodeB
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 304
   %18 = zext i32 %12 to i64
   %19 = load ptr, ptr %17, align 8, !tbaa !45
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %18
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %18
   %21 = load ptr, ptr %20, align 8, !tbaa !46
   %22 = zext i32 %16 to i64
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 %22
@@ -4298,7 +4282,7 @@ define dso_local void @_ZN4llvm3rdf8CodeNode9addMemberENS0_8NodeAddrIPNS0_8NodeB
   %.not.i.i = icmp ne i32 %.017.i.i, %39
   tail call void @llvm.assume(i1 %.not.i.i)
   %44 = zext i32 %.017.i.i to i64
-  %45 = getelementptr inbounds nuw ptr, ptr %34, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %44
   %46 = load ptr, ptr %45, align 8, !tbaa !46
   %47 = ptrtoint ptr %46 to i64
   %48 = icmp uge ptr %0, %46
@@ -4357,7 +4341,7 @@ define dso_local noundef i32 @_ZNK4llvm3rdf13DataFlowGraph2idEPKNS0_8NodeBaseE(p
   %.not.i = icmp ne i32 %.017.i, %15
   tail call void @llvm.assume(i1 %.not.i)
   %20 = zext i32 %.017.i to i64
-  %21 = getelementptr inbounds nuw ptr, ptr %10, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !46
   %23 = ptrtoint ptr %22 to i64
   %24 = icmp uge ptr %1, %22
@@ -4429,7 +4413,7 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i: ;
   %16 = getelementptr inbounds nuw i8, ptr %3, i64 304
   %17 = zext i32 %11 to i64
   %18 = load ptr, ptr %16, align 8, !tbaa !45
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %17
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %17
   %20 = load ptr, ptr %19, align 8, !tbaa !46
   %21 = zext i32 %15 to i64
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 %21
@@ -4499,7 +4483,7 @@ _ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit: ; preds = %4
   %53 = and i32 %30, %51
   %54 = shl i32 %53, 5
   %55 = zext i32 %52 to i64
-  %56 = getelementptr inbounds nuw ptr, ptr %32, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %55
   %57 = load ptr, ptr %56, align 8, !tbaa !46
   %58 = zext i32 %54 to i64
   %59 = getelementptr inbounds nuw i8, ptr %57, i64 %58
@@ -4532,7 +4516,7 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit:
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 304
   %14 = zext i32 %8 to i64
   %15 = load ptr, ptr %13, align 8, !tbaa !45
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %14
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %14
   %17 = load ptr, ptr %16, align 8, !tbaa !46
   %18 = zext i32 %12 to i64
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 %18
@@ -4561,7 +4545,7 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit15: ;
   %29 = and i32 %10, %27
   %30 = shl i32 %29, 5
   %31 = zext i32 %28 to i64
-  %32 = getelementptr inbounds nuw ptr, ptr %15, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !46
   %34 = zext i32 %30 to i64
   %35 = getelementptr inbounds nuw i8, ptr %33, i64 %34
@@ -4598,7 +4582,7 @@ define dso_local void @_ZN4llvm3rdf9BlockNode6addPhiENS0_8NodeAddrIPNS0_7PhiNode
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 304
   %22 = zext i32 %16 to i64
   %23 = load ptr, ptr %21, align 8, !tbaa !45
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %22
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %22
   %25 = load ptr, ptr %24, align 8, !tbaa !46
   %26 = zext i32 %20 to i64
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 %26
@@ -4634,7 +4618,7 @@ define dso_local void @_ZN4llvm3rdf9BlockNode6addPhiENS0_8NodeAddrIPNS0_7PhiNode
   %.not.i.i.i = icmp ne i32 %.017.i.i.i, %42
   tail call void @llvm.assume(i1 %.not.i.i.i)
   %47 = zext i32 %.017.i.i.i to i64
-  %48 = getelementptr inbounds nuw ptr, ptr %37, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %47
   %49 = load ptr, ptr %48, align 8, !tbaa !46
   %50 = ptrtoint ptr %49 to i64
   %51 = icmp uge ptr %0, %49
@@ -4677,7 +4661,7 @@ _ZN4llvm3rdf8CodeNode9addMemberENS0_8NodeAddrIPNS0_8NodeBaseEEERKNS0_13DataFlowG
   %72 = getelementptr inbounds nuw i8, ptr %3, i64 304
   %73 = zext i32 %67 to i64
   %74 = load ptr, ptr %72, align 8, !tbaa !45
-  %75 = getelementptr inbounds nuw ptr, ptr %74, i64 %73
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %73
   %76 = load ptr, ptr %75, align 8, !tbaa !46
   %77 = zext i32 %71 to i64
   %78 = getelementptr inbounds nuw i8, ptr %76, i64 %77
@@ -4704,7 +4688,7 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit: ; p
   %89 = and i32 %69, %87
   %90 = shl i32 %89, 5
   %91 = zext i32 %88 to i64
-  %92 = getelementptr inbounds nuw ptr, ptr %74, i64 %91
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %91
   %93 = load ptr, ptr %92, align 8, !tbaa !46
   %94 = zext i32 %90 to i64
   %95 = getelementptr inbounds nuw i8, ptr %93, i64 %94
@@ -4766,7 +4750,7 @@ _ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.i: ; preds = 
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 304
   %20 = zext i32 %14 to i64
   %21 = load ptr, ptr %19, align 8, !tbaa !45, !noalias !371
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %20
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %20
   %23 = load ptr, ptr %22, align 8, !tbaa !46
   %24 = zext i32 %18 to i64
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 %24
@@ -4798,7 +4782,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_b
   %35 = phi i32 [ %26, %30 ], [ %.pre.i.i, %32 ]
   %36 = load ptr, ptr %4, align 8, !tbaa !95, !alias.scope !371
   %37 = zext i32 %35 to i64
-  %38 = getelementptr inbounds nuw %"struct.llvm::rdf::NodeAddr.58", ptr %36, i64 %37
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %36, i64 %37
   store ptr %.pn2628.i, ptr %38, align 1
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %38, i64 8
   store i32 %.sroa.8.029.i, ptr %.sroa.2.0..sroa_idx.i.i, align 1
@@ -4823,7 +4807,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_b
   %52 = shl i32 %51, 5
   %53 = zext i32 %49 to i64
   %54 = load ptr, ptr %19, align 8, !tbaa !45, !noalias !371
-  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %53
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %53
   %56 = load ptr, ptr %55, align 8, !tbaa !46
   %57 = zext i32 %52 to i64
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 %57
@@ -4890,7 +4874,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm3rdf17TargetOperandInfo12isClobber
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !239
   %6 = zext i32 %2 to i64
-  %7 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [32 x i8], ptr %5, i64 %6
   %8 = load i32, ptr %7, align 8
   %9 = and i32 %8, 255
   %10 = icmp eq i32 %9, 12
@@ -5046,12 +5030,12 @@ _ZNK4llvm12MachineInstr8isBranchENS0_9QueryTypeE.exit: ; preds = %33
   %58 = load ptr, ptr %57, align 8, !tbaa !236
   %59 = load i16, ptr %58, align 8, !tbaa !380
   %60 = zext i16 %59 to i64
-  %61 = getelementptr inbounds nuw %"class.llvm::MCInstrDesc", ptr %58, i64 %60
+  %61 = getelementptr inbounds nuw [32 x i8], ptr %58, i64 %60
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 32
   %63 = getelementptr inbounds nuw i8, ptr %58, i64 10
   %64 = load i16, ptr %63, align 2, !tbaa !381
   %65 = zext i16 %64 to i64
-  %66 = getelementptr inbounds nuw i16, ptr %62, i64 %65
+  %66 = getelementptr inbounds nuw [2 x i8], ptr %62, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %68 = load i8, ptr %67, align 8, !tbaa !382
   %69 = zext i8 %68 to i64
@@ -5067,7 +5051,7 @@ _ZNK4llvm12MachineInstr8isBranchENS0_9QueryTypeE.exit: ; preds = %33
   %75 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %76 = load ptr, ptr %75, align 8, !tbaa !239
   %77 = zext i32 %2 to i64
-  %78 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %76, i64 %77
+  %78 = getelementptr inbounds nuw [32 x i8], ptr %76, i64 %77
   %79 = load i32, ptr %78, align 8
   %80 = and i32 %79, 1048320
   %.not28 = icmp eq i32 %80, 0
@@ -5080,7 +5064,7 @@ _ZNK4llvm12MachineInstr8isBranchENS0_9QueryTypeE.exit: ; preds = %33
   %.not55 = icmp eq i32 %84, 0
   %spec.select = select i1 %.not55, i64 %69, i64 %72
   %spec.select51.idx = select i1 %.not55, i64 0, i64 %69
-  %spec.select51 = getelementptr inbounds nuw i16, ptr %66, i64 %spec.select51.idx
+  %spec.select51 = getelementptr inbounds nuw [2 x i8], ptr %66, i64 %spec.select51.idx
   %.idx4.i = shl nuw nsw i64 %spec.select, 1
   %85 = getelementptr inbounds nuw i8, ptr %spec.select51, i64 %.idx4.i
   %86 = lshr i64 %spec.select, 2
@@ -5508,7 +5492,7 @@ define dso_local void @_ZN4llvm3rdf13DataFlowGraph8DefStack8IteratorC2ERKS2_b(pt
 
 17:                                               ; preds = %16
   %18 = add nsw i64 %indvars.iv, -1
-  %19 = getelementptr inbounds nuw %"struct.llvm::rdf::NodeAddr.65", ptr %9, i64 %18
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !54
   %21 = icmp eq ptr %20, null
   br i1 %21, label %16, label %.critedge.loopexit.split.loop.exit3, !llvm.loop !425
@@ -5567,7 +5551,7 @@ _ZNK4llvm3rdf13DataFlowGraph8DefStack11isDelimiterERKNS0_8NodeAddrIPNS0_7DefNode
 9:                                                ; preds = %_ZNK4llvm3rdf13DataFlowGraph8DefStack11isDelimiterERKNS0_8NodeAddrIPNS0_7DefNodeEEEj.exit7.i.i
   %10 = add i32 %.0.i.i, -2
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw %"struct.llvm::rdf::NodeAddr.65", ptr %4, i64 %11
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !54
   %14 = icmp eq ptr %13, null
   br i1 %14, label %_ZNK4llvm3rdf13DataFlowGraph8DefStack11isDelimiterERKNS0_8NodeAddrIPNS0_7DefNodeEEEj.exit7.i.i, label %_ZN4llvm3rdf13DataFlowGraph8DefStack8Iterator4downEv.exit, !llvm.loop !350
@@ -5598,7 +5582,7 @@ _ZNK4llvm3rdf13DataFlowGraph8DefStack11isDelimiterERKNS0_8NodeAddrIPNS0_7DefNode
 12:                                               ; preds = %_ZNK4llvm3rdf13DataFlowGraph8DefStack11isDelimiterERKNS0_8NodeAddrIPNS0_7DefNodeEEEj.exit7.i
   %13 = add i32 %.0.i, -2
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw %"struct.llvm::rdf::NodeAddr.65", ptr %4, i64 %14
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !54
   %17 = icmp eq ptr %16, null
   br i1 %17, label %_ZNK4llvm3rdf13DataFlowGraph8DefStack11isDelimiterERKNS0_8NodeAddrIPNS0_7DefNodeEEEj.exit7.i, label %_ZNK4llvm3rdf13DataFlowGraph8DefStack8nextDownEj.exit, !llvm.loop !350
@@ -5618,7 +5602,7 @@ _ZNK4llvm3rdf13DataFlowGraph8DefStack8nextDownEj.exit: ; preds = %_ZNK4llvm3rdf1
   br i1 %23, label %24, label %_ZNSt6vectorIN4llvm3rdf8NodeAddrIPNS1_7DefNodeEEESaIS5_EE6resizeEm.exit
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds nuw %"struct.llvm::rdf::NodeAddr.65", ptr %4, i64 %18
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %18
   %.not.i.i = icmp eq ptr %3, %25
   br i1 %.not.i.i, label %_ZNSt6vectorIN4llvm3rdf8NodeAddrIPNS1_7DefNodeEEESaIS5_EE6resizeEm.exit, label %26
 
@@ -5645,7 +5629,7 @@ _ZNK4llvm3rdf13DataFlowGraph8DefStack11isDelimiterERKNS0_8NodeAddrIPNS0_7DefNode
 5:                                                ; preds = %_ZNK4llvm3rdf13DataFlowGraph8DefStack11isDelimiterERKNS0_8NodeAddrIPNS0_7DefNodeEEEj.exit7
   %6 = add i32 %.0, -2
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw %"struct.llvm::rdf::NodeAddr.65", ptr %2, i64 %7
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !54
   %10 = icmp eq ptr %9, null
   br i1 %10, label %_ZNK4llvm3rdf13DataFlowGraph8DefStack11isDelimiterERKNS0_8NodeAddrIPNS0_7DefNodeEEEj.exit7, label %_ZNK4llvm3rdf13DataFlowGraph8DefStack11isDelimiterERKNS0_8NodeAddrIPNS0_7DefNodeEEEj.exit7.thread, !llvm.loop !350
@@ -5723,7 +5707,7 @@ _ZNSt6vectorIN4llvm3rdf8NodeAddrIPNS1_7DefNodeEEESaIS5_EE11_S_relocateEPS5_S8_S8
 _ZNSt6vectorIN4llvm3rdf8NodeAddrIPNS1_7DefNodeEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i: ; preds = %27, %_ZNSt6vectorIN4llvm3rdf8NodeAddrIPNS1_7DefNodeEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i
   store ptr %22, ptr %0, align 8, !tbaa !347
   store ptr %26, ptr %3, align 8, !tbaa !424
-  %28 = getelementptr inbounds nuw %"struct.llvm::rdf::NodeAddr.65", ptr %22, i64 %20
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %20
   store ptr %28, ptr %5, align 8, !tbaa !427
   br label %_ZNSt6vectorIN4llvm3rdf8NodeAddrIPNS1_7DefNodeEEESaIS5_EE9push_backEOS5_.exit
 
@@ -5753,7 +5737,7 @@ define dso_local void @_ZN4llvm3rdf13DataFlowGraph8DefStack11clear_blockEj(ptr n
   %indvars.iv18 = phi i64 [ %indvars.iv.next19, %_ZNK4llvm3rdf13DataFlowGraph8DefStack11isDelimiterERKNS0_8NodeAddrIPNS0_7DefNodeEEEj.exit.backedge.us ], [ %12, %.lr.ph ]
   %indvars.iv.next19 = add nsw i64 %indvars.iv18, -1
   %13 = and i64 %indvars.iv.next19, 4294967295
-  %14 = getelementptr inbounds nuw %"struct.llvm::rdf::NodeAddr.65", ptr %5, i64 %13
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !54
   %16 = icmp eq ptr %15, null
   br i1 %16, label %_ZNK4llvm3rdf13DataFlowGraph8DefStack11isDelimiterERKNS0_8NodeAddrIPNS0_7DefNodeEEEj.exit.thread, label %_ZNK4llvm3rdf13DataFlowGraph8DefStack11isDelimiterERKNS0_8NodeAddrIPNS0_7DefNodeEEEj.exit.backedge.us
@@ -5767,7 +5751,7 @@ _ZNK4llvm3rdf13DataFlowGraph8DefStack11isDelimiterERKNS0_8NodeAddrIPNS0_7DefNode
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK4llvm3rdf13DataFlowGraph8DefStack11isDelimiterERKNS0_8NodeAddrIPNS0_7DefNodeEEEj.exit.backedge ], [ %12, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %18 = and i64 %indvars.iv.next, 4294967295
-  %19 = getelementptr inbounds nuw %"struct.llvm::rdf::NodeAddr.65", ptr %5, i64 %18
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !54
   %21 = icmp eq ptr %20, null
   br i1 %21, label %22, label %_ZNK4llvm3rdf13DataFlowGraph8DefStack11isDelimiterERKNS0_8NodeAddrIPNS0_7DefNodeEEEj.exit.backedge
@@ -5799,7 +5783,7 @@ _ZNK4llvm3rdf13DataFlowGraph8DefStack11isDelimiterERKNS0_8NodeAddrIPNS0_7DefNode
   br i1 %32, label %33, label %_ZNSt6vectorIN4llvm3rdf8NodeAddrIPNS1_7DefNodeEEESaIS5_EE6resizeEm.exit
 
 33:                                               ; preds = %31
-  %34 = getelementptr inbounds nuw %"struct.llvm::rdf::NodeAddr.65", ptr %5, i64 %27
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %27
   %.not.i.i = icmp eq ptr %4, %34
   br i1 %.not.i.i, label %_ZNSt6vectorIN4llvm3rdf8NodeAddrIPNS1_7DefNodeEEESaIS5_EE6resizeEm.exit, label %35
 
@@ -5827,7 +5811,7 @@ define dso_local noundef i32 @_ZNK4llvm3rdf13DataFlowGraph8DefStack6nextUpEj(ptr
   %.0 = phi i32 [ %1, %2 ], [ %12, %11 ]
   %12 = add i32 %.0, 1
   %13 = zext i32 %.0 to i64
-  %14 = getelementptr inbounds nuw %"struct.llvm::rdf::NodeAddr.65", ptr %5, i64 %13
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !54
   %16 = icmp eq ptr %15, null
   %17 = icmp ult i32 %12, %10
@@ -5960,7 +5944,7 @@ define dso_local noundef ptr @_ZNK4llvm3rdf13DataFlowGraph3ptrEj(ptr noundef non
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %14 = zext i32 %8 to i64
   %15 = load ptr, ptr %13, align 8, !tbaa !45
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %14
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %14
   %17 = load ptr, ptr %16, align 8, !tbaa !46
   %18 = zext i32 %12 to i64
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 %18
@@ -6017,7 +6001,7 @@ _ZN4llvm3rdf13NodeAllocator3NewEv.exit:           ; preds = %_ZN4llvm3rdf13NodeA
   %27 = add i32 %26, -1
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %29 = zext i32 %27 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %20, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !46
   %32 = ptrtoint ptr %31 to i64
   %33 = sub i64 %.pre-phi.i, %32
@@ -6083,7 +6067,7 @@ _ZN4llvm3rdf13DataFlowGraph7newNodeEt.exit:       ; preds = %_ZN4llvm3rdf13NodeA
   %28 = add i32 %27, -1
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %30 = zext i32 %28 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %21, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !46
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %34 = load i32, ptr %33, align 4, !tbaa !26
@@ -6172,7 +6156,7 @@ _ZN4llvm3rdf13DataFlowGraph7newNodeEt.exit:       ; preds = %_ZN4llvm3rdf13NodeA
   %31 = add i32 %30, -1
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %33 = zext i32 %31 to i64
-  %34 = getelementptr inbounds nuw ptr, ptr %23, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !46
   %36 = ptrtoint ptr %35 to i64
   %37 = sub i64 %.pre-phi.i.i, %36
@@ -6241,7 +6225,7 @@ _ZN4llvm3rdf13DataFlowGraph7newNodeEt.exit:       ; preds = %_ZN4llvm3rdf13NodeA
   %33 = add i32 %32, -1
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %35 = zext i32 %33 to i64
-  %36 = getelementptr inbounds nuw ptr, ptr %26, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !46
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %39 = load i32, ptr %38, align 4, !tbaa !26
@@ -6328,7 +6312,7 @@ _ZN4llvm3rdf13DataFlowGraph7newNodeEt.exit:       ; preds = %_ZN4llvm3rdf13NodeA
   %31 = add i32 %30, -1
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %33 = zext i32 %31 to i64
-  %34 = getelementptr inbounds nuw ptr, ptr %23, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !46
   %36 = ptrtoint ptr %35 to i64
   %37 = sub i64 %.pre-phi.i.i, %36
@@ -6397,7 +6381,7 @@ _ZN4llvm3rdf13DataFlowGraph7newNodeEt.exit:       ; preds = %_ZN4llvm3rdf13NodeA
   %32 = add i32 %31, -1
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %34 = zext i32 %32 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %25, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !46
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %38 = load i32, ptr %37, align 4, !tbaa !26
@@ -6479,7 +6463,7 @@ _ZN4llvm3rdf13DataFlowGraph7newNodeEt.exit:       ; preds = %_ZN4llvm3rdf13NodeA
   %28 = add i32 %27, -1
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %30 = zext i32 %28 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %21, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !46
   %33 = ptrtoint ptr %32 to i64
   %34 = sub i64 %.pre-phi.i.i, %33
@@ -6546,7 +6530,7 @@ _ZN4llvm3rdf13DataFlowGraph7newNodeEt.exit:       ; preds = %_ZN4llvm3rdf13NodeA
   %29 = add i32 %28, -1
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %31 = zext i32 %29 to i64
-  %32 = getelementptr inbounds nuw ptr, ptr %22, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !46
   %34 = ptrtoint ptr %33 to i64
   %35 = sub i64 %.pre-phi.i.i, %34
@@ -6578,7 +6562,7 @@ _ZN4llvm3rdf13DataFlowGraph7newNodeEt.exit:       ; preds = %_ZN4llvm3rdf13NodeA
   %55 = shl i32 %54, 5
   %56 = zext i32 %51 to i64
   %57 = load ptr, ptr %6, align 8, !tbaa !45
-  %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %56
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %56
   %59 = load ptr, ptr %58, align 8, !tbaa !46
   %60 = zext i32 %55 to i64
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 %60
@@ -6612,7 +6596,7 @@ _ZN4llvm3rdf13DataFlowGraph7newNodeEt.exit:       ; preds = %_ZN4llvm3rdf13NodeA
   %.not.i.i.i = icmp ne i32 %.017.i.i.i, %74
   tail call void @llvm.assume(i1 %.not.i.i.i)
   %79 = zext i32 %.017.i.i.i to i64
-  %80 = getelementptr inbounds nuw ptr, ptr %69, i64 %79
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %79
   %81 = load ptr, ptr %80, align 8, !tbaa !46
   %82 = ptrtoint ptr %81 to i64
   %83 = icmp uge ptr %1, %81
@@ -6691,7 +6675,7 @@ _ZN4llvm3rdf13DataFlowGraph7newNodeEt.exit:       ; preds = %_ZN4llvm3rdf13NodeA
   %29 = add i32 %28, -1
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %31 = zext i32 %29 to i64
-  %32 = getelementptr inbounds nuw ptr, ptr %22, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !46
   %34 = ptrtoint ptr %33 to i64
   %35 = sub i64 %.pre-phi.i.i, %34
@@ -6723,7 +6707,7 @@ _ZN4llvm3rdf13DataFlowGraph7newNodeEt.exit:       ; preds = %_ZN4llvm3rdf13NodeA
   %55 = shl i32 %54, 5
   %56 = zext i32 %51 to i64
   %57 = load ptr, ptr %6, align 8, !tbaa !45
-  %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %56
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %56
   %59 = load ptr, ptr %58, align 8, !tbaa !46
   %60 = zext i32 %55 to i64
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 %60
@@ -6757,7 +6741,7 @@ _ZN4llvm3rdf13DataFlowGraph7newNodeEt.exit:       ; preds = %_ZN4llvm3rdf13NodeA
   %.not.i.i.i = icmp ne i32 %.017.i.i.i, %74
   tail call void @llvm.assume(i1 %.not.i.i.i)
   %79 = zext i32 %.017.i.i.i to i64
-  %80 = getelementptr inbounds nuw ptr, ptr %69, i64 %79
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %79
   %81 = load ptr, ptr %80, align 8, !tbaa !46
   %82 = ptrtoint ptr %81 to i64
   %83 = icmp uge ptr %1, %81
@@ -6836,7 +6820,7 @@ _ZN4llvm3rdf13DataFlowGraph7newNodeEt.exit:       ; preds = %_ZN4llvm3rdf13NodeA
   %27 = add i32 %26, -1
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %29 = zext i32 %27 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %20, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !46
   %32 = ptrtoint ptr %31 to i64
   %33 = sub i64 %.pre-phi.i.i, %32
@@ -6957,7 +6941,7 @@ _ZSt4copyIPKmPmET0_T_S4_S3_.exit31.i.i.i:         ; preds = %59, %58, %56
   %.idx36.i.i.i = shl nuw nsw i64 %.022.i.i.i, 3
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 %.idx36.i.i.i
   %67 = load ptr, ptr %39, align 8, !tbaa !95
-  %68 = getelementptr inbounds nuw i64, ptr %67, i64 %.022.i.i.i
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %.022.i.i.i
   %69 = sub nsw i64 %63, %.022.i.i.i
   %gepdiff.i.i.i = shl nsw i64 %69, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %68, ptr align 8 %66, i64 %gepdiff.i.i.i, i1 false)
@@ -7192,7 +7176,7 @@ _ZNSt3setIjSt4lessIjESaIjEE6insertEOj.exit:       ; preds = %133, %_ZNSt8_Rb_tre
   %158 = lshr i32 %156, 6
   %159 = zext nneg i32 %158 to i64
   %160 = load ptr, ptr %39, align 8, !tbaa !95
-  %161 = getelementptr inbounds nuw i64, ptr %160, i64 %159
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %160, i64 %159
   %162 = and i32 %156, 63
   %163 = load i64, ptr %161, align 8, !tbaa !13
   %164 = zext nneg i32 %162 to i64
@@ -7244,7 +7228,7 @@ _ZNSt3setIjSt4lessIjESaIjEE6insertEOj.exit:       ; preds = %133, %_ZNSt8_Rb_tre
   %186 = lshr i32 %184, 6
   %187 = zext nneg i32 %186 to i64
   %188 = load ptr, ptr %39, align 8, !tbaa !95
-  %189 = getelementptr inbounds nuw i64, ptr %188, i64 %187
+  %189 = getelementptr inbounds nuw [8 x i8], ptr %188, i64 %187
   %190 = and i32 %184, 63
   %191 = load i64, ptr %189, align 8, !tbaa !13
   %192 = zext nneg i32 %190 to i64
@@ -7317,7 +7301,7 @@ _ZN4llvm3rdf13DataFlowGraph7newFuncEPNS_15MachineFunctionE.exit: ; preds = %_ZN4
   %226 = add i32 %225, -1
   %227 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %228 = zext i32 %226 to i64
-  %229 = getelementptr inbounds nuw ptr, ptr %219, i64 %228
+  %229 = getelementptr inbounds nuw [8 x i8], ptr %219, i64 %228
   %230 = load ptr, ptr %229, align 8, !tbaa !46
   %231 = ptrtoint ptr %230 to i64
   %232 = sub i64 %.pre-phi.i.i.i, %231
@@ -7394,7 +7378,7 @@ _ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.i.i: ; preds 
   %270 = shl i32 %269, 5
   %271 = zext i32 %266 to i64
   %272 = load ptr, ptr %203, align 8, !tbaa !45, !noalias !564
-  %273 = getelementptr inbounds nuw ptr, ptr %272, i64 %271
+  %273 = getelementptr inbounds nuw [8 x i8], ptr %272, i64 %271
   %274 = load ptr, ptr %273, align 8, !tbaa !46
   %275 = zext i32 %270 to i64
   %276 = getelementptr inbounds nuw i8, ptr %274, i64 %275
@@ -7420,7 +7404,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_b
   %282 = phi i32 [ %277, %.lr.ph.i.i ], [ %.pre.i.i.i225, %279 ]
   %283 = load ptr, ptr %21, align 8, !tbaa !95, !alias.scope !564
   %284 = zext i32 %282 to i64
-  %285 = getelementptr inbounds nuw %"struct.llvm::rdf::NodeAddr.58", ptr %283, i64 %284
+  %285 = getelementptr inbounds nuw [16 x i8], ptr %283, i64 %284
   store ptr %.pn2628.i.i, ptr %285, align 1
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %285, i64 8
   store i32 %.sroa.8.029.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i, align 1
@@ -7441,7 +7425,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_b
   %297 = shl i32 %296, 5
   %298 = zext i32 %294 to i64
   %299 = load ptr, ptr %203, align 8, !tbaa !45, !noalias !564
-  %300 = getelementptr inbounds nuw ptr, ptr %299, i64 %298
+  %300 = getelementptr inbounds nuw [8 x i8], ptr %299, i64 %298
   %301 = load ptr, ptr %300, align 8, !tbaa !46
   %302 = zext i32 %297 to i64
   %303 = getelementptr inbounds nuw i8, ptr %301, i64 %302
@@ -8104,7 +8088,7 @@ _ZN4llvm3rdf13DataFlowGraph6newPhiENS0_8NodeAddrIPNS0_9BlockNodeEEE.exit: ; pred
   %559 = trunc i64 %558 to i32
   %560 = add i32 %559, -1
   %561 = zext i32 %560 to i64
-  %562 = getelementptr inbounds nuw ptr, ptr %553, i64 %561
+  %562 = getelementptr inbounds nuw [8 x i8], ptr %553, i64 %561
   %563 = load ptr, ptr %562, align 8, !tbaa !46
   %564 = ptrtoint ptr %563 to i64
   %565 = sub i64 %.pre-phi.i.i.i256, %564
@@ -8157,7 +8141,7 @@ _ZN4llvm3rdf13DataFlowGraph7newNodeEt.exit.i:     ; preds = %_ZN4llvm3rdf13NodeA
   %592 = trunc i64 %591 to i32
   %593 = add i32 %592, -1
   %594 = zext i32 %593 to i64
-  %595 = getelementptr inbounds nuw ptr, ptr %586, i64 %594
+  %595 = getelementptr inbounds nuw [8 x i8], ptr %586, i64 %594
   %596 = load ptr, ptr %595, align 8, !tbaa !46
   %597 = load i32, ptr %235, align 4, !tbaa !26
   %598 = getelementptr inbounds nuw i8, ptr %585, i64 32
@@ -8200,7 +8184,7 @@ _ZN4llvm3rdf13DataFlowGraph6newDefENS0_8NodeAddrIPNS0_9InstrNodeEEENS0_11Registe
   %621 = shl i32 %620, 5
   %622 = zext i32 %618 to i64
   %623 = load ptr, ptr %203, align 8, !tbaa !45
-  %624 = getelementptr inbounds nuw ptr, ptr %623, i64 %622
+  %624 = getelementptr inbounds nuw [8 x i8], ptr %623, i64 %622
   %625 = load ptr, ptr %624, align 8, !tbaa !46
   %626 = zext i32 %621 to i64
   %627 = getelementptr inbounds nuw i8, ptr %625, i64 %626
@@ -8234,7 +8218,7 @@ _ZN4llvm3rdf13DataFlowGraph6newDefENS0_8NodeAddrIPNS0_9InstrNodeEEENS0_11Registe
   %.not.i.i.i271 = icmp ne i32 %.017.i.i.i, %640
   call void @llvm.assume(i1 %.not.i.i.i271)
   %645 = zext i32 %.017.i.i.i to i64
-  %646 = getelementptr inbounds nuw ptr, ptr %635, i64 %645
+  %646 = getelementptr inbounds nuw [8 x i8], ptr %635, i64 %645
   %647 = load ptr, ptr %646, align 8, !tbaa !46
   %648 = ptrtoint ptr %647 to i64
   %649 = icmp uge ptr %552, %647
@@ -8677,7 +8661,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_b
   %828 = phi i32 [ %812, %_ZNK4llvm3rdf13DataFlowGraph9findBlockEPNS_17MachineBasicBlockE.exit ], [ %.pre.i, %825 ]
   %829 = load ptr, ptr %26, align 8, !tbaa !95
   %830 = zext i32 %828 to i64
-  %831 = getelementptr inbounds nuw %"struct.llvm::rdf::NodeAddr.58", ptr %829, i64 %830
+  %831 = getelementptr inbounds nuw [16 x i8], ptr %829, i64 %830
   store ptr %.sroa.0.0.copyload.i290, ptr %831, align 1
   %.sroa.2.0..sroa_idx.i293 = getelementptr inbounds nuw i8, ptr %831, i64 8
   store i32 %.sroa.2.0.copyload.i, ptr %.sroa.2.0..sroa_idx.i293, align 1
@@ -8886,7 +8870,7 @@ _ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i: ; preds = %921
 _ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i: ; preds = %923, %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i
   store ptr %918, ptr %203, align 8, !tbaa !45
   store ptr %922, ptr %205, align 8, !tbaa !355
-  %924 = getelementptr inbounds nuw ptr, ptr %918, i64 %916
+  %924 = getelementptr inbounds nuw [8 x i8], ptr %918, i64 %916
   store ptr %924, ptr %735, align 8, !tbaa !356
   br label %_ZN4llvm3rdf13NodeAllocator13startNewBlockEv.exit
 
@@ -8909,7 +8893,7 @@ _ZN4llvm3rdf13DataFlowGraph6newPhiENS0_8NodeAddrIPNS0_9BlockNodeEEE.exit318: ; p
   %932 = trunc i64 %931 to i32
   %933 = add i32 %932, -1
   %934 = zext i32 %933 to i64
-  %935 = getelementptr inbounds nuw ptr, ptr %926, i64 %934
+  %935 = getelementptr inbounds nuw [8 x i8], ptr %926, i64 %934
   %936 = load ptr, ptr %935, align 8, !tbaa !46
   %937 = ptrtoint ptr %936 to i64
   %938 = sub i64 %.pre-phi.i.i.i315, %937
@@ -8941,7 +8925,7 @@ _ZN4llvm3rdf13DataFlowGraph6newPhiENS0_8NodeAddrIPNS0_9BlockNodeEEE.exit318: ; p
   %957 = shl i32 %956, 5
   %958 = zext i32 %954 to i64
   %959 = load ptr, ptr %203, align 8, !tbaa !45
-  %960 = getelementptr inbounds nuw ptr, ptr %959, i64 %958
+  %960 = getelementptr inbounds nuw [8 x i8], ptr %959, i64 %958
   %961 = load ptr, ptr %960, align 8, !tbaa !46
   %962 = zext i32 %957 to i64
   %963 = getelementptr inbounds nuw i8, ptr %961, i64 %962
@@ -8973,7 +8957,7 @@ _ZN4llvm3rdf13DataFlowGraph6newPhiENS0_8NodeAddrIPNS0_9BlockNodeEEE.exit318: ; p
   %.not.i.i.i.i397 = icmp ne i32 %.017.i.i.i.i, %974
   call void @llvm.assume(i1 %.not.i.i.i.i397)
   %979 = zext i32 %.017.i.i.i.i to i64
-  %980 = getelementptr inbounds nuw ptr, ptr %969, i64 %979
+  %980 = getelementptr inbounds nuw [8 x i8], ptr %969, i64 %979
   %981 = load ptr, ptr %980, align 8, !tbaa !46
   %982 = ptrtoint ptr %981 to i64
   %983 = icmp uge ptr %742, %981
@@ -9012,7 +8996,7 @@ _ZN4llvm3rdf8CodeNode9addMemberENS0_8NodeAddrIPNS0_8NodeBaseEEERKNS0_13DataFlowG
   %1000 = shl i32 %999, 5
   %1001 = zext i32 %997 to i64
   %1002 = load ptr, ptr %203, align 8, !tbaa !45
-  %1003 = getelementptr inbounds nuw ptr, ptr %1002, i64 %1001
+  %1003 = getelementptr inbounds nuw [8 x i8], ptr %1002, i64 %1001
   %1004 = load ptr, ptr %1003, align 8, !tbaa !46
   %1005 = zext i32 %1000 to i64
   %1006 = getelementptr inbounds nuw i8, ptr %1004, i64 %1005
@@ -9039,7 +9023,7 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i: ;
   %1017 = and i32 %1015, %998
   %1018 = shl i32 %1017, 5
   %1019 = zext i32 %1016 to i64
-  %1020 = getelementptr inbounds nuw ptr, ptr %1002, i64 %1019
+  %1020 = getelementptr inbounds nuw [8 x i8], ptr %1002, i64 %1019
   %1021 = load ptr, ptr %1020, align 8, !tbaa !46
   %1022 = zext i32 %1018 to i64
   %1023 = getelementptr inbounds nuw i8, ptr %1021, i64 %1022
@@ -9174,7 +9158,7 @@ _ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i408: ; preds = %
 _ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i410: ; preds = %1085, %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i408
   store ptr %1080, ptr %203, align 8, !tbaa !45
   store ptr %1084, ptr %205, align 8, !tbaa !355
-  %1086 = getelementptr inbounds nuw ptr, ptr %1080, i64 %1078
+  %1086 = getelementptr inbounds nuw [8 x i8], ptr %1080, i64 %1078
   store ptr %1086, ptr %735, align 8, !tbaa !356
   br label %_ZN4llvm3rdf13NodeAllocator13startNewBlockEv.exit411
 
@@ -9197,7 +9181,7 @@ _ZN4llvm3rdf13DataFlowGraph7newNodeEt.exit.i327:  ; preds = %_ZN4llvm3rdf13NodeA
   %1094 = trunc i64 %1093 to i32
   %1095 = add i32 %1094, -1
   %1096 = zext i32 %1095 to i64
-  %1097 = getelementptr inbounds nuw ptr, ptr %1088, i64 %1096
+  %1097 = getelementptr inbounds nuw [8 x i8], ptr %1088, i64 %1096
   %1098 = load ptr, ptr %1097, align 8, !tbaa !46
   %1099 = load i32, ptr %235, align 4, !tbaa !26
   %1100 = getelementptr inbounds nuw i8, ptr %1087, i64 32
@@ -9240,7 +9224,7 @@ _ZN4llvm3rdf13DataFlowGraph6newDefENS0_8NodeAddrIPNS0_9InstrNodeEEENS0_11Registe
   %1123 = shl i32 %1122, 5
   %1124 = zext i32 %1120 to i64
   %1125 = load ptr, ptr %203, align 8, !tbaa !45
-  %1126 = getelementptr inbounds nuw ptr, ptr %1125, i64 %1124
+  %1126 = getelementptr inbounds nuw [8 x i8], ptr %1125, i64 %1124
   %1127 = load ptr, ptr %1126, align 8, !tbaa !46
   %1128 = zext i32 %1123 to i64
   %1129 = getelementptr inbounds nuw i8, ptr %1127, i64 %1128
@@ -9274,7 +9258,7 @@ _ZN4llvm3rdf13DataFlowGraph6newDefENS0_8NodeAddrIPNS0_9InstrNodeEEENS0_11Registe
   %.not.i.i.i339 = icmp ne i32 %.017.i.i.i338, %1142
   call void @llvm.assume(i1 %.not.i.i.i339)
   %1147 = zext i32 %.017.i.i.i338 to i64
-  %1148 = getelementptr inbounds nuw ptr, ptr %1137, i64 %1147
+  %1148 = getelementptr inbounds nuw [8 x i8], ptr %1137, i64 %1147
   %1149 = load ptr, ptr %1148, align 8, !tbaa !46
   %1150 = ptrtoint ptr %1149 to i64
   %1151 = icmp uge ptr %925, %1149
@@ -9424,7 +9408,7 @@ _ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i426: ; preds = %
 _ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i428: ; preds = %1222, %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i426
   store ptr %1217, ptr %203, align 8, !tbaa !45
   store ptr %1221, ptr %205, align 8, !tbaa !355
-  %1223 = getelementptr inbounds nuw ptr, ptr %1217, i64 %1215
+  %1223 = getelementptr inbounds nuw [8 x i8], ptr %1217, i64 %1215
   store ptr %1223, ptr %735, align 8, !tbaa !356
   br label %_ZN4llvm3rdf13NodeAllocator13startNewBlockEv.exit429
 
@@ -9447,7 +9431,7 @@ _ZN4llvm3rdf13DataFlowGraph7newNodeEt.exit.i352:  ; preds = %_ZN4llvm3rdf13NodeA
   %1231 = trunc i64 %1230 to i32
   %1232 = add i32 %1231, -1
   %1233 = zext i32 %1232 to i64
-  %1234 = getelementptr inbounds nuw ptr, ptr %1225, i64 %1233
+  %1234 = getelementptr inbounds nuw [8 x i8], ptr %1225, i64 %1233
   %1235 = load ptr, ptr %1234, align 8, !tbaa !46
   %1236 = load i32, ptr %235, align 4, !tbaa !26
   %1237 = getelementptr inbounds nuw i8, ptr %1224, i64 32
@@ -9627,7 +9611,7 @@ _ZNSt6vectorIN4llvm11LaneBitmaskESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i
 _ZNSt6vectorIN4llvm11LaneBitmaskESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %1304, %_ZNSt6vectorIN4llvm11LaneBitmaskESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i
   store ptr %1298, ptr %737, align 8, !tbaa !64
   store ptr %1303, ptr %738, align 8, !tbaa !417
-  %1305 = getelementptr inbounds nuw %"struct.llvm::LaneBitmask", ptr %1298, i64 %1296
+  %1305 = getelementptr inbounds nuw [8 x i8], ptr %1298, i64 %1296
   store ptr %1305, ptr %739, align 8, !tbaa !418
   %.pre.i417 = ptrtoint ptr %1298 to i64
   br label %_ZNSt6vectorIN4llvm11LaneBitmaskESaIS1_EE9push_backERKS1_.exit.i
@@ -9672,7 +9656,7 @@ _ZN4llvm3rdf13DataFlowGraph9newPhiUseENS0_8NodeAddrIPNS0_7PhiNodeEEENS0_11Regist
   %1329 = shl i32 %1328, 5
   %1330 = zext i32 %1326 to i64
   %1331 = load ptr, ptr %203, align 8, !tbaa !45
-  %1332 = getelementptr inbounds nuw ptr, ptr %1331, i64 %1330
+  %1332 = getelementptr inbounds nuw [8 x i8], ptr %1331, i64 %1330
   %1333 = load ptr, ptr %1332, align 8, !tbaa !46
   %1334 = zext i32 %1329 to i64
   %1335 = getelementptr inbounds nuw i8, ptr %1333, i64 %1334
@@ -9704,7 +9688,7 @@ _ZN4llvm3rdf13DataFlowGraph9newPhiUseENS0_8NodeAddrIPNS0_7PhiNodeEEENS0_11Regist
   %.not.i.i.i363 = icmp ne i32 %.017.i.i.i362, %1346
   call void @llvm.assume(i1 %.not.i.i.i363)
   %1351 = zext i32 %.017.i.i.i362 to i64
-  %1352 = getelementptr inbounds nuw ptr, ptr %1341, i64 %1351
+  %1352 = getelementptr inbounds nuw [8 x i8], ptr %1341, i64 %1351
   %1353 = load ptr, ptr %1352, align 8, !tbaa !46
   %1354 = ptrtoint ptr %1353 to i64
   %1355 = icmp uge ptr %925, %1353
@@ -10131,7 +10115,7 @@ _ZSt4copyIPKPKN4llvm19TargetRegisterClassEPS3_ET0_T_S8_S7_.exit31.i.i: ; preds =
   %.idx36.i.i = shl nuw nsw i64 %.022.i.i, 3
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 %.idx36.i.i
   %34 = load ptr, ptr %5, align 8, !tbaa !95
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %.022.i.i
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %.022.i.i
   %36 = sub nsw i64 %30, %.022.i.i
   %gepdiff.i.i = shl nsw i64 %36, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %35, ptr align 8 %33, i64 %gepdiff.i.i, i1 false)
@@ -10537,7 +10521,7 @@ _ZN4llvm9BitVectorC2Ejb.exit150:                  ; preds = %_ZN4llvm9BitVectorC
 121:                                              ; preds = %.lr.ph, %301
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %301 ]
   %122 = load ptr, ptr %76, align 8, !tbaa !239
-  %123 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %122, i64 %indvars.iv
+  %123 = getelementptr inbounds nuw [32 x i8], ptr %122, i64 %indvars.iv
   %124 = load i32, ptr %123, align 8
   %125 = and i32 %124, 50331903
   %or.cond330.not = icmp eq i32 %125, 16777216
@@ -10615,11 +10599,11 @@ _ZNK4llvm3rdf13DataFlowGraph9isTrackedENS0_11RegisterRefE.exit.thread: ; preds =
   %163 = load ptr, ptr %76, align 8, !tbaa !239, !noalias !719
   %164 = call noundef i32 @_ZNK4llvm12MachineInstr18getNumExplicitDefsEv(ptr noundef nonnull align 8 dereferenceable(70) %3) #24, !noalias !719
   %165 = zext i32 %164 to i64
-  %166 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %163, i64 %165
+  %166 = getelementptr inbounds nuw [32 x i8], ptr %163, i64 %165
   %167 = load ptr, ptr %76, align 8, !tbaa !239, !noalias !719
   %168 = load i24, ptr %61, align 8, !noalias !719
   %169 = zext i24 %168 to i64
-  %170 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %167, i64 %169
+  %170 = getelementptr inbounds nuw [32 x i8], ptr %167, i64 %169
   %.not1.i.i.i.i.i.i = icmp eq ptr %166, %170
   br i1 %.not1.i.i.i.i.i.i, label %_ZNK4llvm12MachineInstr8all_usesEv.exit.i, label %.lr.ph.i.i.i.i.i.i
 
@@ -10749,7 +10733,7 @@ _ZN4llvm3rdf13DataFlowGraph6newDefENS0_8NodeAddrIPNS0_9InstrNodeEEERNS_14Machine
   %232 = trunc i64 %231 to i32
   %233 = add i32 %232, -1
   %234 = zext i32 %233 to i64
-  %235 = getelementptr inbounds nuw ptr, ptr %225, i64 %234
+  %235 = getelementptr inbounds nuw [8 x i8], ptr %225, i64 %234
   %236 = load ptr, ptr %235, align 8, !tbaa !46
   %237 = ptrtoint ptr %236 to i64
   %238 = sub i64 %.pre-phi.i.i.i, %237
@@ -10778,7 +10762,7 @@ _ZN4llvm3rdf13DataFlowGraph6newDefENS0_8NodeAddrIPNS0_9InstrNodeEEERNS_14Machine
   %255 = shl i32 %254, 5
   %256 = zext i32 %252 to i64
   %257 = load ptr, ptr %85, align 8, !tbaa !45
-  %258 = getelementptr inbounds nuw ptr, ptr %257, i64 %256
+  %258 = getelementptr inbounds nuw [8 x i8], ptr %257, i64 %256
   %259 = load ptr, ptr %258, align 8, !tbaa !46
   %260 = zext i32 %255 to i64
   %261 = getelementptr inbounds nuw i8, ptr %259, i64 %260
@@ -10810,7 +10794,7 @@ _ZN4llvm3rdf13DataFlowGraph6newDefENS0_8NodeAddrIPNS0_9InstrNodeEEERNS_14Machine
   %.not.i.i.i155 = icmp ne i32 %.017.i.i.i, %272
   call void @llvm.assume(i1 %.not.i.i.i155)
   %277 = zext i32 %.017.i.i.i to i64
-  %278 = getelementptr inbounds nuw ptr, ptr %267, i64 %277
+  %278 = getelementptr inbounds nuw [8 x i8], ptr %267, i64 %277
   %279 = load ptr, ptr %278, align 8, !tbaa !46
   %280 = ptrtoint ptr %279 to i64
   %281 = icmp uge ptr %.fca.0.extract92, %279
@@ -10844,7 +10828,7 @@ _ZN4llvm3rdf8CodeNode9addMemberENS0_8NodeAddrIPNS0_8NodeBaseEEERKNS0_13DataFlowG
   %295 = lshr i32 %128, 6
   %296 = zext nneg i32 %295 to i64
   %297 = load ptr, ptr %9, align 8, !tbaa !95
-  %298 = getelementptr inbounds nuw i64, ptr %297, i64 %296
+  %298 = getelementptr inbounds nuw [8 x i8], ptr %297, i64 %296
   %299 = load i64, ptr %298, align 8, !tbaa !13
   %300 = or i64 %299, %294
   store i64 %300, ptr %298, align 8, !tbaa !13
@@ -10879,7 +10863,7 @@ _ZN4llvm3rdf8CodeNode9addMemberENS0_8NodeAddrIPNS0_8NodeBaseEEERKNS0_13DataFlowG
 319:                                              ; preds = %.lr.ph356, %.loopexit
   %indvars.iv374 = phi i64 [ 0, %.lr.ph356 ], [ %indvars.iv.next375, %.loopexit ]
   %320 = load ptr, ptr %105, align 8, !tbaa !239
-  %321 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %320, i64 %indvars.iv374
+  %321 = getelementptr inbounds nuw [32 x i8], ptr %320, i64 %indvars.iv374
   %322 = load i32, ptr %321, align 8
   %323 = and i32 %322, 255
   %324 = icmp eq i32 %323, 12
@@ -10924,7 +10908,7 @@ _ZN4llvm3rdf13DataFlowGraph6newDefENS0_8NodeAddrIPNS0_9InstrNodeEEERNS_14Machine
   %345 = trunc i64 %344 to i32
   %346 = add i32 %345, -1
   %347 = zext i32 %346 to i64
-  %348 = getelementptr inbounds nuw ptr, ptr %339, i64 %347
+  %348 = getelementptr inbounds nuw [8 x i8], ptr %339, i64 %347
   %349 = load ptr, ptr %348, align 8, !tbaa !46
   %350 = ptrtoint ptr %349 to i64
   %351 = sub i64 %.pre-phi.i.i.i165, %350
@@ -10953,7 +10937,7 @@ _ZN4llvm3rdf13DataFlowGraph6newDefENS0_8NodeAddrIPNS0_9InstrNodeEEERNS_14Machine
   %368 = shl i32 %367, 5
   %369 = zext i32 %365 to i64
   %370 = load ptr, ptr %107, align 8, !tbaa !45
-  %371 = getelementptr inbounds nuw ptr, ptr %370, i64 %369
+  %371 = getelementptr inbounds nuw [8 x i8], ptr %370, i64 %369
   %372 = load ptr, ptr %371, align 8, !tbaa !46
   %373 = zext i32 %368 to i64
   %374 = getelementptr inbounds nuw i8, ptr %372, i64 %373
@@ -10985,7 +10969,7 @@ _ZN4llvm3rdf13DataFlowGraph6newDefENS0_8NodeAddrIPNS0_9InstrNodeEEERNS_14Machine
   %.not.i.i.i173 = icmp ne i32 %.017.i.i.i172, %385
   call void @llvm.assume(i1 %.not.i.i.i173)
   %390 = zext i32 %.017.i.i.i172 to i64
-  %391 = getelementptr inbounds nuw ptr, ptr %380, i64 %390
+  %391 = getelementptr inbounds nuw [8 x i8], ptr %380, i64 %390
   %392 = load ptr, ptr %391, align 8, !tbaa !46
   %393 = ptrtoint ptr %392 to i64
   %394 = icmp uge ptr %.fca.0.extract92, %392
@@ -11077,7 +11061,7 @@ _ZNK4llvm3rdf13DataFlowGraph9isTrackedENS0_11RegisterRefE.exit186.thread: ; pred
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %433 = lshr i32 %.0123352, 5
   %434 = zext nneg i32 %433 to i64
-  %435 = getelementptr inbounds nuw i32, ptr %406, i64 %434
+  %435 = getelementptr inbounds nuw [4 x i8], ptr %406, i64 %434
   %436 = load i32, ptr %435, align 4, !tbaa !11
   %437 = and i32 %.0123352, 31
   %438 = shl nuw i32 1, %437
@@ -11092,7 +11076,7 @@ _ZNK4llvm3rdf13DataFlowGraph9isTrackedENS0_11RegisterRefE.exit186.thread: ; pred
   %444 = lshr i32 %.0123352, 6
   %445 = zext nneg i32 %444 to i64
   %446 = load ptr, ptr %10, align 8, !tbaa !95
-  %447 = getelementptr inbounds nuw i64, ptr %446, i64 %445
+  %447 = getelementptr inbounds nuw [8 x i8], ptr %446, i64 %445
   %448 = load i64, ptr %447, align 8, !tbaa !13
   %449 = or i64 %448, %443
   store i64 %449, ptr %447, align 8, !tbaa !13
@@ -11132,7 +11116,7 @@ _ZNK4llvm3rdf13DataFlowGraph9isTrackedENS0_11RegisterRefE.exit186.thread: ; pred
 469:                                              ; preds = %.lr.ph359, %660
   %indvars.iv379 = phi i64 [ 0, %.lr.ph359 ], [ %indvars.iv.next380, %660 ]
   %470 = load ptr, ptr %302, align 8, !tbaa !239
-  %471 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %470, i64 %indvars.iv379
+  %471 = getelementptr inbounds nuw [32 x i8], ptr %470, i64 %indvars.iv379
   %472 = load i32, ptr %471, align 8
   %473 = and i32 %472, 50331903
   %or.cond336 = icmp eq i32 %473, 50331648
@@ -11201,7 +11185,7 @@ _ZNK4llvm3rdf13DataFlowGraph9isTrackedENS0_11RegisterRefE.exit195.thread: ; pred
   %504 = lshr i32 %476, 6
   %505 = zext nneg i32 %504 to i64
   %506 = load ptr, ptr %9, align 8, !tbaa !95
-  %507 = getelementptr inbounds nuw i64, ptr %506, i64 %505
+  %507 = getelementptr inbounds nuw [8 x i8], ptr %506, i64 %505
   %508 = load i64, ptr %507, align 8, !tbaa !13
   %509 = and i64 %508, %503
   %.not = icmp eq i64 %509, 0
@@ -11223,11 +11207,11 @@ _ZNK4llvm3rdf13DataFlowGraph9isTrackedENS0_11RegisterRefE.exit195.thread: ; pred
   %521 = load ptr, ptr %302, align 8, !tbaa !239, !noalias !729
   %522 = call noundef i32 @_ZNK4llvm12MachineInstr18getNumExplicitDefsEv(ptr noundef nonnull align 8 dereferenceable(70) %3) #24, !noalias !729
   %523 = zext i32 %522 to i64
-  %524 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %521, i64 %523
+  %524 = getelementptr inbounds nuw [32 x i8], ptr %521, i64 %523
   %525 = load ptr, ptr %302, align 8, !tbaa !239, !noalias !729
   %526 = load i24, ptr %61, align 8, !noalias !729
   %527 = zext i24 %526 to i64
-  %528 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %525, i64 %527
+  %528 = getelementptr inbounds nuw [32 x i8], ptr %525, i64 %527
   %.not1.i.i.i.i.i.i196 = icmp eq ptr %524, %528
   br i1 %.not1.i.i.i.i.i.i196, label %_ZNK4llvm12MachineInstr8all_usesEv.exit.i200, label %.lr.ph.i.i.i.i.i.i197
 
@@ -11316,7 +11300,7 @@ _ZN4llvm20filter_iterator_baseIPKNS_14MachineOperandEPFbRS2_ESt26bidirectional_i
 
 568:                                              ; preds = %564
   %569 = load ptr, ptr %10, align 8, !tbaa !95
-  %570 = getelementptr inbounds nuw i64, ptr %569, i64 %505
+  %570 = getelementptr inbounds nuw [8 x i8], ptr %569, i64 %505
   %571 = load i64, ptr %570, align 8, !tbaa !13
   %572 = and i64 %571, %503
   %.not342 = icmp eq i64 %572, 0
@@ -11367,7 +11351,7 @@ _ZN4llvm3rdf13DataFlowGraph6newDefENS0_8NodeAddrIPNS0_9InstrNodeEEERNS_14Machine
   %596 = trunc i64 %595 to i32
   %597 = add i32 %596, -1
   %598 = zext i32 %597 to i64
-  %599 = getelementptr inbounds nuw ptr, ptr %589, i64 %598
+  %599 = getelementptr inbounds nuw [8 x i8], ptr %589, i64 %598
   %600 = load ptr, ptr %599, align 8, !tbaa !46
   %601 = ptrtoint ptr %600 to i64
   %602 = sub i64 %.pre-phi.i.i.i224, %601
@@ -11396,7 +11380,7 @@ _ZN4llvm3rdf13DataFlowGraph6newDefENS0_8NodeAddrIPNS0_9InstrNodeEEERNS_14Machine
   %619 = shl i32 %618, 5
   %620 = zext i32 %616 to i64
   %621 = load ptr, ptr %311, align 8, !tbaa !45
-  %622 = getelementptr inbounds nuw ptr, ptr %621, i64 %620
+  %622 = getelementptr inbounds nuw [8 x i8], ptr %621, i64 %620
   %623 = load ptr, ptr %622, align 8, !tbaa !46
   %624 = zext i32 %619 to i64
   %625 = getelementptr inbounds nuw i8, ptr %623, i64 %624
@@ -11428,7 +11412,7 @@ _ZN4llvm3rdf13DataFlowGraph6newDefENS0_8NodeAddrIPNS0_9InstrNodeEEERNS_14Machine
   %.not.i.i.i232 = icmp ne i32 %.017.i.i.i231, %636
   call void @llvm.assume(i1 %.not.i.i.i232)
   %641 = zext i32 %.017.i.i.i231 to i64
-  %642 = getelementptr inbounds nuw ptr, ptr %631, i64 %641
+  %642 = getelementptr inbounds nuw [8 x i8], ptr %631, i64 %641
   %643 = load ptr, ptr %642, align 8, !tbaa !46
   %644 = ptrtoint ptr %643 to i64
   %645 = icmp uge ptr %.fca.0.extract92, %643
@@ -11457,7 +11441,7 @@ _ZN4llvm3rdf8NodeBase6appendENS0_8NodeAddrIPS1_EE.exit.sink.split.i229: ; preds 
 _ZN4llvm3rdf8CodeNode9addMemberENS0_8NodeAddrIPNS0_8NodeBaseEEERKNS0_13DataFlowGraphE.exit236: ; preds = %613, %_ZN4llvm3rdf8NodeBase6appendENS0_8NodeAddrIPS1_EE.exit.sink.split.i229
   store i32 %608, ptr %315, align 4, !tbaa !50
   %656 = load ptr, ptr %9, align 8, !tbaa !95
-  %657 = getelementptr inbounds nuw i64, ptr %656, i64 %505
+  %657 = getelementptr inbounds nuw [8 x i8], ptr %656, i64 %505
   %658 = load i64, ptr %657, align 8, !tbaa !13
   %659 = or i64 %658, %503
   store i64 %659, ptr %657, align 8, !tbaa !13
@@ -11494,7 +11478,7 @@ _ZN4llvm9BitVectorD2Ev.exit237:                   ; preds = %_ZN4llvm9BitVectorD
 667:                                              ; preds = %.lr.ph362, %789
   %indvars.iv384 = phi i64 [ 0, %.lr.ph362 ], [ %indvars.iv.next385, %789 ]
   %668 = load ptr, ptr %452, align 8, !tbaa !239
-  %669 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %668, i64 %indvars.iv384
+  %669 = getelementptr inbounds nuw [32 x i8], ptr %668, i64 %indvars.iv384
   %670 = load i32, ptr %669, align 8
   %671 = and i32 %670, 16777471
   %or.cond339 = icmp eq i32 %671, 0
@@ -11607,7 +11591,7 @@ _ZN4llvm3rdf13DataFlowGraph6newUseENS0_8NodeAddrIPNS0_9InstrNodeEEERNS_14Machine
   %729 = trunc i64 %728 to i32
   %730 = add i32 %729, -1
   %731 = zext i32 %730 to i64
-  %732 = getelementptr inbounds nuw ptr, ptr %721, i64 %731
+  %732 = getelementptr inbounds nuw [8 x i8], ptr %721, i64 %731
   %733 = load ptr, ptr %732, align 8, !tbaa !46
   %734 = ptrtoint ptr %733 to i64
   %735 = sub i64 %.pre-phi.i.i.i256, %734
@@ -11636,7 +11620,7 @@ _ZN4llvm3rdf13DataFlowGraph6newUseENS0_8NodeAddrIPNS0_9InstrNodeEEERNS_14Machine
   %752 = shl i32 %751, 5
   %753 = zext i32 %749 to i64
   %754 = load ptr, ptr %461, align 8, !tbaa !45
-  %755 = getelementptr inbounds nuw ptr, ptr %754, i64 %753
+  %755 = getelementptr inbounds nuw [8 x i8], ptr %754, i64 %753
   %756 = load ptr, ptr %755, align 8, !tbaa !46
   %757 = zext i32 %752 to i64
   %758 = getelementptr inbounds nuw i8, ptr %756, i64 %757
@@ -11668,7 +11652,7 @@ _ZN4llvm3rdf13DataFlowGraph6newUseENS0_8NodeAddrIPNS0_9InstrNodeEEERNS_14Machine
   %.not.i.i.i263 = icmp ne i32 %.017.i.i.i262, %769
   call void @llvm.assume(i1 %.not.i.i.i263)
   %774 = zext i32 %.017.i.i.i262 to i64
-  %775 = getelementptr inbounds nuw ptr, ptr %764, i64 %774
+  %775 = getelementptr inbounds nuw [8 x i8], ptr %764, i64 %774
   %776 = load ptr, ptr %775, align 8, !tbaa !46
   %777 = ptrtoint ptr %776 to i64
   %778 = icmp uge ptr %.fca.0.extract92, %776
@@ -11790,7 +11774,7 @@ define dso_local void @_ZN4llvm3rdf13DataFlowGraph15recordDefsForDFERNS0_15Regis
   %28 = add i32 %20, -1
   %.01826.i.i.i.i.i = and i32 %28, %27
   %29 = zext nneg i32 %.01826.i.i.i.i.i to i64
-  %30 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %18, i64 %29
+  %30 = getelementptr inbounds nuw [48 x i8], ptr %18, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !271
   %32 = icmp eq ptr %14, %31
   br i1 %32, label %_ZNK4llvm24MachineDominanceFrontier4findEPNS_17MachineBasicBlockE.exit, label %.lr.ph.i.i.i.i.i, !prof !742
@@ -11807,20 +11791,20 @@ define dso_local void @_ZN4llvm3rdf13DataFlowGraph15recordDefsForDFERNS0_15Regis
   %37 = add i32 %.01627.i.i.i.i.i, %.01828.i.i.i.i.i
   %.018.i.i.i.i.i = and i32 %37, %28
   %38 = zext i32 %.018.i.i.i.i.i to i64
-  %39 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %18, i64 %38
+  %39 = getelementptr inbounds nuw [48 x i8], ptr %18, i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !271
   %41 = icmp eq ptr %14, %40
   br i1 %41, label %_ZNK4llvm24MachineDominanceFrontier4findEPNS_17MachineBasicBlockE.exit, label %.lr.ph.i.i.i.i.i, !prof !743, !llvm.loop !744
 
 .loopexit.i.i.i:                                  ; preds = %.lr.ph.i.i.i.i.i, %4
   %42 = zext i32 %20 to i64
-  %43 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %18, i64 %42
+  %43 = getelementptr inbounds nuw [48 x i8], ptr %18, i64 %42
   br label %_ZNK4llvm24MachineDominanceFrontier4findEPNS_17MachineBasicBlockE.exit
 
 _ZNK4llvm24MachineDominanceFrontier4findEPNS_17MachineBasicBlockE.exit: ; preds = %35, %22, %.loopexit.i.i.i
   %.sroa.0.1.i.i.i = phi ptr [ %43, %.loopexit.i.i.i ], [ %30, %22 ], [ %39, %35 ]
   %44 = zext i32 %20 to i64
-  %45 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %18, i64 %44
+  %45 = getelementptr inbounds nuw [48 x i8], ptr %18, i64 %44
   %46 = icmp eq ptr %.sroa.0.1.i.i.i, %45
   br i1 %46, label %.critedge, label %47
 
@@ -11895,7 +11879,7 @@ _ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.i.i: ; preds 
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %80 = zext i32 %74 to i64
   %81 = load ptr, ptr %79, align 8, !tbaa !45, !noalias !751
-  %82 = getelementptr inbounds nuw ptr, ptr %81, i64 %80
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %80
   %83 = load ptr, ptr %82, align 8, !tbaa !46
   %84 = zext i32 %78 to i64
   %85 = getelementptr inbounds nuw i8, ptr %83, i64 %84
@@ -11921,7 +11905,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_b
   %91 = phi i32 [ %86, %.lr.ph.i.i ], [ %.pre.i.i.i, %88 ]
   %92 = load ptr, ptr %10, align 8, !tbaa !95, !alias.scope !751
   %93 = zext i32 %91 to i64
-  %94 = getelementptr inbounds nuw %"struct.llvm::rdf::NodeAddr.58", ptr %92, i64 %93
+  %94 = getelementptr inbounds nuw [16 x i8], ptr %92, i64 %93
   store ptr %.pn2628.i.i, ptr %94, align 1
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %94, i64 8
   store i32 %.sroa.8.029.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i, align 1
@@ -11942,7 +11926,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_b
   %106 = shl i32 %105, 5
   %107 = zext i32 %103 to i64
   %108 = load ptr, ptr %79, align 8, !tbaa !45, !noalias !751
-  %109 = getelementptr inbounds nuw ptr, ptr %108, i64 %107
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %107
   %110 = load ptr, ptr %109, align 8, !tbaa !46
   %111 = zext i32 %106 to i64
   %112 = getelementptr inbounds nuw i8, ptr %110, i64 %111
@@ -12045,7 +12029,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_17MachineBasicBlockELb1EE9push_backES2_.ex
   %153 = phi i32 [ %148, %146 ], [ %.pre.i.i.i.i, %150 ]
   %154 = load ptr, ptr %138, align 8, !tbaa !95
   %155 = zext i32 %153 to i64
-  %156 = getelementptr inbounds nuw ptr, ptr %154, i64 %155
+  %156 = getelementptr inbounds nuw [8 x i8], ptr %154, i64 %155
   %157 = ptrtoint ptr %147 to i64
   store i64 %157, ptr %156, align 1
   %158 = load i32, ptr %140, align 8, !tbaa !94
@@ -12091,7 +12075,7 @@ _ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.i: ; preds = 
   %174 = shl i32 %173, 5
   %175 = zext i32 %171 to i64
   %176 = load ptr, ptr %120, align 8, !tbaa !45, !noalias !757
-  %177 = getelementptr inbounds nuw ptr, ptr %176, i64 %175
+  %177 = getelementptr inbounds nuw [8 x i8], ptr %176, i64 %175
   %178 = load ptr, ptr %177, align 8, !tbaa !46
   %179 = zext i32 %174 to i64
   %180 = getelementptr inbounds nuw i8, ptr %178, i64 %179
@@ -12123,7 +12107,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_b
   %190 = phi i32 [ %181, %185 ], [ %.pre.i.i, %187 ]
   %191 = load ptr, ptr %11, align 8, !tbaa !95, !alias.scope !757
   %192 = zext i32 %190 to i64
-  %193 = getelementptr inbounds nuw %"struct.llvm::rdf::NodeAddr.58", ptr %191, i64 %192
+  %193 = getelementptr inbounds nuw [16 x i8], ptr %191, i64 %192
   store ptr %.pn2729.i, ptr %193, align 1
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %193, i64 8
   store i32 %.sroa.8.030.i, ptr %.sroa.2.0..sroa_idx.i.i, align 1
@@ -12148,7 +12132,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_b
   %207 = shl i32 %206, 5
   %208 = zext i32 %204 to i64
   %209 = load ptr, ptr %120, align 8, !tbaa !45, !noalias !757
-  %210 = getelementptr inbounds nuw ptr, ptr %209, i64 %208
+  %210 = getelementptr inbounds nuw [8 x i8], ptr %209, i64 %208
   %211 = load ptr, ptr %210, align 8, !tbaa !46
   %212 = zext i32 %207 to i64
   %213 = getelementptr inbounds nuw i8, ptr %211, i64 %212
@@ -12205,7 +12189,7 @@ _ZN4llvm11SmallVectorINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELj4EED2Ev.exit45: ; pred
   %227 = add nuw nsw i64 %.sroa.2.0.extract.shift.i.i, 4294967295
   %228 = and i64 %227, 4294967295
   %229 = load ptr, ptr %121, align 8, !tbaa !64
-  %230 = getelementptr inbounds nuw %"struct.llvm::LaneBitmask", ptr %229, i64 %228
+  %230 = getelementptr inbounds nuw [8 x i8], ptr %229, i64 %228
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %230, align 8, !tbaa !13
   br label %_ZNK4llvm3rdf13DataFlowGraph6unpackENS0_17PackedRegisterRefE.exit.i
 
@@ -12450,7 +12434,7 @@ _ZNK4llvm3rdf13DataFlowGraph9isTrackedENS0_11RegisterRefE.exit.thread: ; preds =
   %335 = zext i32 %.037143 to i64
   %336 = load ptr, ptr %15, align 8, !tbaa !737
   %337 = load ptr, ptr %138, align 8, !tbaa !95
-  %338 = getelementptr inbounds nuw ptr, ptr %337, i64 %335
+  %338 = getelementptr inbounds nuw [8 x i8], ptr %337, i64 %335
   %339 = load ptr, ptr %338, align 8, !tbaa !271
   %340 = getelementptr inbounds nuw i8, ptr %336, i64 56
   %341 = load ptr, ptr %340, align 8, !tbaa !738
@@ -12468,7 +12452,7 @@ _ZNK4llvm3rdf13DataFlowGraph9isTrackedENS0_11RegisterRefE.exit.thread: ; preds =
   %351 = add i32 %343, -1
   %.01826.i.i.i.i.i48 = and i32 %350, %351
   %352 = zext nneg i32 %.01826.i.i.i.i.i48 to i64
-  %353 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %341, i64 %352
+  %353 = getelementptr inbounds nuw [48 x i8], ptr %341, i64 %352
   %354 = load ptr, ptr %353, align 8, !tbaa !271
   %355 = icmp eq ptr %339, %354
   br i1 %355, label %_ZNK4llvm24MachineDominanceFrontier4findEPNS_17MachineBasicBlockE.exit60, label %.lr.ph.i.i.i.i.i49, !prof !742
@@ -12485,20 +12469,20 @@ _ZNK4llvm3rdf13DataFlowGraph9isTrackedENS0_11RegisterRefE.exit.thread: ; preds =
   %360 = add i32 %.01627.i.i.i.i.i51, %.01828.i.i.i.i.i50
   %.018.i.i.i.i.i52 = and i32 %360, %351
   %361 = zext i32 %.018.i.i.i.i.i52 to i64
-  %362 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %341, i64 %361
+  %362 = getelementptr inbounds nuw [48 x i8], ptr %341, i64 %361
   %363 = load ptr, ptr %362, align 8, !tbaa !271
   %364 = icmp eq ptr %339, %363
   br i1 %364, label %_ZNK4llvm24MachineDominanceFrontier4findEPNS_17MachineBasicBlockE.exit60, label %.lr.ph.i.i.i.i.i49, !prof !743, !llvm.loop !744
 
 .loopexit.i.i.i59:                                ; preds = %.lr.ph.i.i.i.i.i49, %333
   %365 = zext i32 %343 to i64
-  %366 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %341, i64 %365
+  %366 = getelementptr inbounds nuw [48 x i8], ptr %341, i64 %365
   br label %_ZNK4llvm24MachineDominanceFrontier4findEPNS_17MachineBasicBlockE.exit60
 
 _ZNK4llvm24MachineDominanceFrontier4findEPNS_17MachineBasicBlockE.exit60: ; preds = %358, %345, %.loopexit.i.i.i59
   %.sroa.0.1.i.i.i55 = phi ptr [ %366, %.loopexit.i.i.i59 ], [ %353, %345 ], [ %362, %358 ]
   %367 = zext i32 %343 to i64
-  %368 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %341, i64 %367
+  %368 = getelementptr inbounds nuw [48 x i8], ptr %341, i64 %367
   %.not118 = icmp eq ptr %.sroa.0.1.i.i.i55, %368
   br i1 %.not118, label %_ZN4llvm9SetVectorIPNS_17MachineBasicBlockENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE6insertIPKS2_EEvT_SD_.exit, label %369
 
@@ -12531,7 +12515,7 @@ _ZNK4llvm24MachineDominanceFrontier4findEPNS_17MachineBasicBlockE.exit60: ; pred
   %387 = add i32 %378, -1
   %.02944.i.i = and i32 %386, %387
   %388 = zext nneg i32 %.02944.i.i to i64
-  %389 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %377, i64 %388
+  %389 = getelementptr inbounds nuw [8 x i8], ptr %377, i64 %388
   %390 = load ptr, ptr %389, align 8, !tbaa !271, !noalias !764
   %391 = icmp eq ptr %381, %390
   br i1 %391, label %_ZN4llvm9SetVectorIPNS_17MachineBasicBlockENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE6insertERKS2_.exit.i, label %.lr.ph.i.i82, !prof !742
@@ -12559,7 +12543,7 @@ _ZNK4llvm24MachineDominanceFrontier4findEPNS_17MachineBasicBlockE.exit60: ; pred
   %401 = add i32 %.02746.i.i, %.02947.i.i
   %.029.i.i = and i32 %401, %387
   %402 = zext i32 %.029.i.i to i64
-  %403 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %377, i64 %402
+  %403 = getelementptr inbounds nuw [8 x i8], ptr %377, i64 %402
   %404 = load ptr, ptr %403, align 8, !tbaa !271, !noalias !764
   %405 = icmp eq ptr %381, %404
   br i1 %405, label %_ZN4llvm9SetVectorIPNS_17MachineBasicBlockENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12DenseMapInfoIS2_vEEEELj0EE6insertERKS2_.exit.i, label %.lr.ph.i.i82, !prof !743, !llvm.loop !770
@@ -12604,7 +12588,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockENS_6detail13DenseSet
   %426 = add i32 %417, -1
   %.02944.i = and i32 %425, %426
   %427 = zext nneg i32 %.02944.i to i64
-  %428 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %416, i64 %427
+  %428 = getelementptr inbounds nuw [8 x i8], ptr %416, i64 %427
   %429 = load ptr, ptr %428, align 8, !tbaa !271, !noalias !764
   %430 = icmp eq ptr %420, %429
   br i1 %430, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E15LookupBucketForIS3_EEbRKT_RPS9_.exit, label %.lr.ph.i88, !prof !742
@@ -12632,7 +12616,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockENS_6detail13DenseSet
   %440 = add i32 %.02746.i, %.02947.i
   %.029.i = and i32 %440, %426
   %441 = zext i32 %.029.i to i64
-  %442 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %416, i64 %441
+  %442 = getelementptr inbounds nuw [8 x i8], ptr %416, i64 %441
   %443 = load ptr, ptr %442, align 8, !tbaa !271, !noalias !764
   %444 = icmp eq ptr %420, %443
   br i1 %444, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E15LookupBucketForIS3_EEbRKT_RPS9_.exit, label %.lr.ph.i88, !prof !743, !llvm.loop !770
@@ -12676,7 +12660,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_17MachineBasicBlockELb1EE9push_backES2_.ex
   %461 = phi i32 [ %456, %454 ], [ %.pre.i.i.i66, %458 ]
   %462 = load ptr, ptr %138, align 8, !tbaa !95
   %463 = zext i32 %461 to i64
-  %464 = getelementptr inbounds nuw ptr, ptr %462, i64 %463
+  %464 = getelementptr inbounds nuw [8 x i8], ptr %462, i64 %463
   %465 = ptrtoint ptr %455 to i64
   store i64 %465, ptr %464, align 1
   %466 = load i32, ptr %140, align 8, !tbaa !94
@@ -13389,7 +13373,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_b
   %229 = phi i32 [ %213, %_ZNK4llvm3rdf13DataFlowGraph9findBlockEPNS_17MachineBasicBlockE.exit ], [ %.pre.i, %226 ]
   %230 = load ptr, ptr %12, align 8, !tbaa !95
   %231 = zext i32 %229 to i64
-  %232 = getelementptr inbounds nuw %"struct.llvm::rdf::NodeAddr.58", ptr %230, i64 %231
+  %232 = getelementptr inbounds nuw [16 x i8], ptr %230, i64 %231
   store ptr %.sroa.0.0.copyload.i, ptr %232, align 1
   %.sroa.2.0..sroa_idx.i69 = getelementptr inbounds nuw i8, ptr %232, i64 8
   store i32 %.sroa.2.0.copyload.i, ptr %.sroa.2.0..sroa_idx.i69, align 1
@@ -13476,7 +13460,7 @@ _ZN4llvm3rdf13DataFlowGraph6newPhiENS0_8NodeAddrIPNS0_9BlockNodeEEE.exit: ; pred
   %270 = trunc i64 %269 to i32
   %271 = add i32 %270, -1
   %272 = zext i32 %271 to i64
-  %273 = getelementptr inbounds nuw ptr, ptr %264, i64 %272
+  %273 = getelementptr inbounds nuw [8 x i8], ptr %264, i64 %272
   %274 = load ptr, ptr %273, align 8, !tbaa !46
   %275 = ptrtoint ptr %274 to i64
   %276 = sub i64 %.pre-phi.i.i.i, %275
@@ -13529,7 +13513,7 @@ _ZN4llvm3rdf13DataFlowGraph7newNodeEt.exit.i:     ; preds = %_ZN4llvm3rdf13NodeA
   %303 = trunc i64 %302 to i32
   %304 = add i32 %303, -1
   %305 = zext i32 %304 to i64
-  %306 = getelementptr inbounds nuw ptr, ptr %297, i64 %305
+  %306 = getelementptr inbounds nuw [8 x i8], ptr %297, i64 %305
   %307 = load ptr, ptr %306, align 8, !tbaa !46
   %308 = load i32, ptr %203, align 4, !tbaa !26
   %309 = getelementptr inbounds nuw i8, ptr %296, i64 32
@@ -13572,7 +13556,7 @@ _ZN4llvm3rdf13DataFlowGraph6newDefENS0_8NodeAddrIPNS0_9InstrNodeEEENS0_11Registe
   %332 = shl i32 %331, 5
   %333 = zext i32 %329 to i64
   %334 = load ptr, ptr %200, align 8, !tbaa !45
-  %335 = getelementptr inbounds nuw ptr, ptr %334, i64 %333
+  %335 = getelementptr inbounds nuw [8 x i8], ptr %334, i64 %333
   %336 = load ptr, ptr %335, align 8, !tbaa !46
   %337 = zext i32 %332 to i64
   %338 = getelementptr inbounds nuw i8, ptr %336, i64 %337
@@ -13606,7 +13590,7 @@ _ZN4llvm3rdf13DataFlowGraph6newDefENS0_8NodeAddrIPNS0_9InstrNodeEEENS0_11Registe
   %.not.i.i.i85 = icmp ne i32 %.017.i.i.i, %351
   call void @llvm.assume(i1 %.not.i.i.i85)
   %356 = zext i32 %.017.i.i.i to i64
-  %357 = getelementptr inbounds nuw ptr, ptr %346, i64 %356
+  %357 = getelementptr inbounds nuw [8 x i8], ptr %346, i64 %356
   %358 = load ptr, ptr %357, align 8, !tbaa !46
   %359 = ptrtoint ptr %358 to i64
   %360 = icmp uge ptr %263, %358
@@ -13767,7 +13751,7 @@ _ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i: ; preds = %434
 _ZNSt6vectorIPcSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i: ; preds = %436, %_ZNSt6vectorIPcSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i
   store ptr %431, ptr %200, align 8, !tbaa !45
   store ptr %435, ptr %201, align 8, !tbaa !355
-  %437 = getelementptr inbounds nuw ptr, ptr %431, i64 %429
+  %437 = getelementptr inbounds nuw [8 x i8], ptr %431, i64 %429
   store ptr %437, ptr %209, align 8, !tbaa !356
   br label %_ZN4llvm3rdf13NodeAllocator13startNewBlockEv.exit
 
@@ -13790,7 +13774,7 @@ _ZN4llvm3rdf13DataFlowGraph7newNodeEt.exit.i94:   ; preds = %_ZN4llvm3rdf13NodeA
   %445 = trunc i64 %444 to i32
   %446 = add i32 %445, -1
   %447 = zext i32 %446 to i64
-  %448 = getelementptr inbounds nuw ptr, ptr %439, i64 %447
+  %448 = getelementptr inbounds nuw [8 x i8], ptr %439, i64 %447
   %449 = load ptr, ptr %448, align 8, !tbaa !46
   %450 = load i32, ptr %203, align 4, !tbaa !26
   %451 = getelementptr inbounds nuw i8, ptr %438, i64 32
@@ -13970,7 +13954,7 @@ _ZNSt6vectorIN4llvm11LaneBitmaskESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i
 _ZNSt6vectorIN4llvm11LaneBitmaskESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %518, %_ZNSt6vectorIN4llvm11LaneBitmaskESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i
   store ptr %512, ptr %204, align 8, !tbaa !64
   store ptr %517, ptr %210, align 8, !tbaa !417
-  %519 = getelementptr inbounds nuw %"struct.llvm::LaneBitmask", ptr %512, i64 %510
+  %519 = getelementptr inbounds nuw [8 x i8], ptr %512, i64 %510
   store ptr %519, ptr %211, align 8, !tbaa !418
   %.pre.i114 = ptrtoint ptr %512 to i64
   br label %_ZNSt6vectorIN4llvm11LaneBitmaskESaIS1_EE9push_backERKS1_.exit.i
@@ -14015,7 +13999,7 @@ _ZN4llvm3rdf13DataFlowGraph9newPhiUseENS0_8NodeAddrIPNS0_7PhiNodeEEENS0_11Regist
   %543 = shl i32 %542, 5
   %544 = zext i32 %540 to i64
   %545 = load ptr, ptr %200, align 8, !tbaa !45
-  %546 = getelementptr inbounds nuw ptr, ptr %545, i64 %544
+  %546 = getelementptr inbounds nuw [8 x i8], ptr %545, i64 %544
   %547 = load ptr, ptr %546, align 8, !tbaa !46
   %548 = zext i32 %543 to i64
   %549 = getelementptr inbounds nuw i8, ptr %547, i64 %548
@@ -14047,7 +14031,7 @@ _ZN4llvm3rdf13DataFlowGraph9newPhiUseENS0_8NodeAddrIPNS0_7PhiNodeEEENS0_11Regist
   %.not.i.i.i105 = icmp ne i32 %.017.i.i.i104, %560
   call void @llvm.assume(i1 %.not.i.i.i105)
   %565 = zext i32 %.017.i.i.i104 to i64
-  %566 = getelementptr inbounds nuw ptr, ptr %555, i64 %565
+  %566 = getelementptr inbounds nuw [8 x i8], ptr %555, i64 %565
   %567 = load ptr, ptr %566, align 8, !tbaa !46
   %568 = ptrtoint ptr %567 to i64
   %569 = icmp uge ptr %263, %567
@@ -14118,7 +14102,7 @@ _ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.i.i: ; preds 
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %26 = zext i32 %20 to i64
   %27 = load ptr, ptr %25, align 8, !tbaa !45, !noalias !799
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %26
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %26
   %29 = load ptr, ptr %28, align 8, !tbaa !46
   %30 = zext i32 %24 to i64
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 %30
@@ -14144,7 +14128,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_b
   %37 = phi i32 [ %32, %.lr.ph.i.i ], [ %.pre.i.i.i, %34 ]
   %38 = load ptr, ptr %7, align 8, !tbaa !95, !alias.scope !799
   %39 = zext i32 %37 to i64
-  %40 = getelementptr inbounds nuw %"struct.llvm::rdf::NodeAddr.58", ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %39
   store ptr %.pn2628.i.i, ptr %40, align 1
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %40, i64 8
   store i32 %.sroa.8.029.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i, align 1
@@ -14165,7 +14149,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_b
   %52 = shl i32 %51, 5
   %53 = zext i32 %49 to i64
   %54 = load ptr, ptr %25, align 8, !tbaa !45, !noalias !799
-  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %53
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %53
   %56 = load ptr, ptr %55, align 8, !tbaa !46
   %57 = zext i32 %52 to i64
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 %57
@@ -14239,7 +14223,7 @@ _ZNK4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EE12getNodeIndexEPKS1_.ex
   %89 = zext i32 %.sroa.0.0.extract.trunc10.i to i64
   %90 = getelementptr inbounds nuw i8, ptr %80, i64 24
   %91 = load ptr, ptr %90, align 8, !tbaa !95
-  %92 = getelementptr inbounds nuw %"class.std::unique_ptr.530", ptr %91, i64 %89
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %89
   %93 = load ptr, ptr %92, align 8, !tbaa !801
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 24
   %95 = load ptr, ptr %94, align 8, !tbaa !95
@@ -14287,7 +14271,7 @@ _ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.i.i93: ; pred
   %118 = shl i32 %117, 5
   %119 = zext i32 %115 to i64
   %120 = load ptr, ptr %66, align 8, !tbaa !45, !noalias !803
-  %121 = getelementptr inbounds nuw ptr, ptr %120, i64 %119
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %120, i64 %119
   %122 = load ptr, ptr %121, align 8, !tbaa !46
   %123 = zext i32 %118 to i64
   %124 = getelementptr inbounds nuw i8, ptr %122, i64 %123
@@ -14319,7 +14303,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_b
   %134 = phi i32 [ %125, %129 ], [ %.pre.i.i.i98, %131 ]
   %135 = load ptr, ptr %6, align 8, !tbaa !95, !alias.scope !803
   %136 = zext i32 %134 to i64
-  %137 = getelementptr inbounds nuw %"struct.llvm::rdf::NodeAddr.58", ptr %135, i64 %136
+  %137 = getelementptr inbounds nuw [16 x i8], ptr %135, i64 %136
   store ptr %.sroa.013.0.i.i, ptr %137, align 1
   %.sroa.2.0..sroa_idx.i.i.i100 = getelementptr inbounds nuw i8, ptr %137, i64 8
   store i32 %.sroa.9.0.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i100, align 1
@@ -14344,7 +14328,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_b
   %151 = shl i32 %150, 5
   %152 = zext i32 %148 to i64
   %153 = load ptr, ptr %66, align 8, !tbaa !45, !noalias !803
-  %154 = getelementptr inbounds nuw ptr, ptr %153, i64 %152
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %153, i64 %152
   %155 = load ptr, ptr %154, align 8, !tbaa !46
   %156 = zext i32 %151 to i64
   %157 = getelementptr inbounds nuw i8, ptr %155, i64 %156
@@ -14546,7 +14530,7 @@ _ZNK4llvm3rdf7RefNode9getRegRefERKNS0_13DataFlowGraphE.exit.i: ; preds = %_ZNK4l
   %240 = load i64, ptr %68, align 8, !tbaa !705
   %241 = urem i64 %239, %240
   %242 = load ptr, ptr %1, align 8, !tbaa !698
-  %243 = getelementptr inbounds nuw ptr, ptr %242, i64 %241
+  %243 = getelementptr inbounds nuw [8 x i8], ptr %242, i64 %241
   %244 = load ptr, ptr %243, align 8, !tbaa !808
   %.not.i.i.i.i.i = icmp eq ptr %244, null
   br i1 %.not.i.i.i.i.i, label %_ZNSt13unordered_mapIjN4llvm3rdf13DataFlowGraph8DefStackESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit.thread.i, label %245
@@ -14631,7 +14615,7 @@ _ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.i.i101: ; pre
   %277 = shl i32 %276, 5
   %278 = zext i32 %274 to i64
   %279 = load ptr, ptr %66, align 8, !tbaa !45, !noalias !810
-  %280 = getelementptr inbounds nuw ptr, ptr %279, i64 %278
+  %280 = getelementptr inbounds nuw [8 x i8], ptr %279, i64 %278
   %281 = load ptr, ptr %280, align 8, !tbaa !46
   %282 = zext i32 %277 to i64
   %283 = getelementptr inbounds nuw i8, ptr %281, i64 %282
@@ -14663,7 +14647,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_b
   %293 = phi i32 [ %284, %288 ], [ %.pre.i.i.i139, %290 ]
   %294 = load ptr, ptr %5, align 8, !tbaa !95, !alias.scope !810
   %295 = zext i32 %293 to i64
-  %296 = getelementptr inbounds nuw %"struct.llvm::rdf::NodeAddr.58", ptr %294, i64 %295
+  %296 = getelementptr inbounds nuw [16 x i8], ptr %294, i64 %295
   store ptr %.sroa.013.0.i.i104, ptr %296, align 1
   %.sroa.2.0..sroa_idx.i.i.i141 = getelementptr inbounds nuw i8, ptr %296, i64 8
   store i32 %.sroa.9.0.i.i105, ptr %.sroa.2.0..sroa_idx.i.i.i141, align 1
@@ -14688,7 +14672,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_b
   %310 = shl i32 %309, 5
   %311 = zext i32 %307 to i64
   %312 = load ptr, ptr %66, align 8, !tbaa !45, !noalias !810
-  %313 = getelementptr inbounds nuw ptr, ptr %312, i64 %311
+  %313 = getelementptr inbounds nuw [8 x i8], ptr %312, i64 %311
   %314 = load ptr, ptr %313, align 8, !tbaa !46
   %315 = zext i32 %310 to i64
   %316 = getelementptr inbounds nuw i8, ptr %314, i64 %315
@@ -14890,7 +14874,7 @@ _ZNK4llvm3rdf7RefNode9getRegRefERKNS0_13DataFlowGraphE.exit.i118: ; preds = %_ZN
   %399 = load i64, ptr %68, align 8, !tbaa !705
   %400 = urem i64 %398, %399
   %401 = load ptr, ptr %1, align 8, !tbaa !698
-  %402 = getelementptr inbounds nuw ptr, ptr %401, i64 %400
+  %402 = getelementptr inbounds nuw [8 x i8], ptr %401, i64 %400
   %403 = load ptr, ptr %402, align 8, !tbaa !808
   %.not.i.i.i.i.i121 = icmp eq ptr %403, null
   br i1 %.not.i.i.i.i.i121, label %_ZNSt13unordered_mapIjN4llvm3rdf13DataFlowGraph8DefStackESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit.thread.i127, label %404
@@ -15110,7 +15094,7 @@ _ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.i: ; preds = 
   %493 = shl i32 %492, 5
   %494 = zext i32 %490 to i64
   %495 = load ptr, ptr %439, align 8, !tbaa !45, !noalias !820
-  %496 = getelementptr inbounds nuw ptr, ptr %495, i64 %494
+  %496 = getelementptr inbounds nuw [8 x i8], ptr %495, i64 %494
   %497 = load ptr, ptr %496, align 8, !tbaa !46
   %498 = zext i32 %493 to i64
   %499 = getelementptr inbounds nuw i8, ptr %497, i64 %498
@@ -15142,7 +15126,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_b
   %509 = phi i32 [ %500, %504 ], [ %.pre.i.i, %506 ]
   %510 = load ptr, ptr %9, align 8, !tbaa !95, !alias.scope !820
   %511 = zext i32 %509 to i64
-  %512 = getelementptr inbounds nuw %"struct.llvm::rdf::NodeAddr.58", ptr %510, i64 %511
+  %512 = getelementptr inbounds nuw [16 x i8], ptr %510, i64 %511
   store ptr %.pn2729.i, ptr %512, align 1
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %512, i64 8
   store i32 %.sroa.8.030.i, ptr %.sroa.2.0..sroa_idx.i.i, align 1
@@ -15167,7 +15151,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_b
   %526 = shl i32 %525, 5
   %527 = zext i32 %523 to i64
   %528 = load ptr, ptr %439, align 8, !tbaa !45, !noalias !820
-  %529 = getelementptr inbounds nuw ptr, ptr %528, i64 %527
+  %529 = getelementptr inbounds nuw [8 x i8], ptr %528, i64 %527
   %530 = load ptr, ptr %529, align 8, !tbaa !46
   %531 = zext i32 %526 to i64
   %532 = getelementptr inbounds nuw i8, ptr %530, i64 %531
@@ -15227,7 +15211,7 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i164
   %551 = shl i32 %550, 5
   %552 = zext i32 %548 to i64
   %553 = load ptr, ptr %439, align 8, !tbaa !45
-  %554 = getelementptr inbounds nuw ptr, ptr %553, i64 %552
+  %554 = getelementptr inbounds nuw [8 x i8], ptr %553, i64 %552
   %555 = load ptr, ptr %554, align 8, !tbaa !46
   %556 = zext i32 %551 to i64
   %557 = getelementptr inbounds nuw i8, ptr %555, i64 %556
@@ -15251,7 +15235,7 @@ _ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit: ; preds = %5
   %564 = add nuw nsw i64 %.sroa.2.0.extract.shift.i.i, 4294967295
   %565 = and i64 %564, 4294967295
   %566 = load ptr, ptr %440, align 8, !tbaa !64
-  %567 = getelementptr inbounds nuw %"struct.llvm::LaneBitmask", ptr %566, i64 %565
+  %567 = getelementptr inbounds nuw [8 x i8], ptr %566, i64 %565
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %567, align 8, !tbaa !13
   br label %_ZNK4llvm3rdf13DataFlowGraph6unpackENS0_17PackedRegisterRefE.exit.i
 
@@ -15432,7 +15416,7 @@ _ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.i171: ; preds
   %645 = shl i32 %644, 5
   %646 = zext i32 %642 to i64
   %647 = load ptr, ptr %439, align 8, !tbaa !45, !noalias !823
-  %648 = getelementptr inbounds nuw ptr, ptr %647, i64 %646
+  %648 = getelementptr inbounds nuw [8 x i8], ptr %647, i64 %646
   %649 = load ptr, ptr %648, align 8, !tbaa !46
   %650 = zext i32 %645 to i64
   %651 = getelementptr inbounds nuw i8, ptr %649, i64 %650
@@ -15470,7 +15454,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_b
   %663 = phi i32 [ %652, %658 ], [ %.pre.i.i181, %660 ]
   %664 = load ptr, ptr %10, align 8, !tbaa !95, !alias.scope !823
   %665 = zext i32 %663 to i64
-  %666 = getelementptr inbounds nuw %"struct.llvm::rdf::NodeAddr.58", ptr %664, i64 %665
+  %666 = getelementptr inbounds nuw [16 x i8], ptr %664, i64 %665
   store ptr %.pn2729.i175, ptr %666, align 1
   %.sroa.2.0..sroa_idx.i.i183 = getelementptr inbounds nuw i8, ptr %666, i64 8
   store i32 %.sroa.8.030.i174, ptr %.sroa.2.0..sroa_idx.i.i183, align 1
@@ -15495,7 +15479,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_b
   %679 = shl i32 %678, 5
   %680 = zext i32 %676 to i64
   %681 = load ptr, ptr %439, align 8, !tbaa !45, !noalias !823
-  %682 = getelementptr inbounds nuw ptr, ptr %681, i64 %680
+  %682 = getelementptr inbounds nuw [8 x i8], ptr %681, i64 %680
   %683 = load ptr, ptr %682, align 8, !tbaa !46
   %684 = zext i32 %679 to i64
   %685 = getelementptr inbounds nuw i8, ptr %683, i64 %684
@@ -15683,7 +15667,7 @@ _ZNK4llvm3rdf7RefNode9getRegRefERKNS0_13DataFlowGraphE.exit196: ; preds = %_ZNK4
   %758 = load i64, ptr %447, align 8, !tbaa !705
   %759 = urem i64 %757, %758
   %760 = load ptr, ptr %1, align 8, !tbaa !698
-  %761 = getelementptr inbounds nuw ptr, ptr %760, i64 %759
+  %761 = getelementptr inbounds nuw [8 x i8], ptr %760, i64 %759
   %762 = load ptr, ptr %761, align 8, !tbaa !808
   %.not.i.i.i290 = icmp eq ptr %762, null
   br i1 %.not.i.i.i290, label %.loopexit.i, label %763
@@ -15778,7 +15762,7 @@ _ZNSt10_HashtableIjSt4pairIKjN4llvm3rdf13DataFlowGraph8DefStackEESaIS6_ENSt8__de
   %798 = load i32, ptr %797, align 8, !tbaa !11
   %799 = zext i32 %798 to i64
   %800 = urem i64 %799, %784
-  %801 = getelementptr inbounds nuw ptr, ptr %.0.i.i292, i64 %800
+  %801 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i292, i64 %800
   %802 = load ptr, ptr %801, align 8, !tbaa !808
   %.not27.i = icmp eq ptr %802, null
   br i1 %.not27.i, label %803, label %808
@@ -15793,7 +15777,7 @@ _ZNSt10_HashtableIjSt4pairIKjN4llvm3rdf13DataFlowGraph8DefStackEESaIS6_ENSt8__de
   br i1 %.not28.i297, label %811, label %806
 
 806:                                              ; preds = %803
-  %807 = getelementptr inbounds nuw ptr, ptr %.0.i.i292, i64 %.02530.i
+  %807 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i292, i64 %.02530.i
   store ptr %.031.i, ptr %807, align 8, !tbaa !808
   br label %811
 
@@ -15829,7 +15813,7 @@ _ZNSt10_HashtableIjSt4pairIKjN4llvm3rdf13DataFlowGraph8DefStackEESaIS6_ENSt8__de
 818:                                              ; preds = %.loopexit.i._crit_edge, %_ZNSt10_HashtableIjSt4pairIKjN4llvm3rdf13DataFlowGraph8DefStackEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE13_M_rehash_auxEmSt17integral_constantIbLb1EE.exit
   %819 = phi ptr [ %.0.i.i292, %_ZNSt10_HashtableIjSt4pairIKjN4llvm3rdf13DataFlowGraph8DefStackEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE13_M_rehash_auxEmSt17integral_constantIbLb1EE.exit ], [ %.pre436, %.loopexit.i._crit_edge ]
   %.0.i19.i = phi i64 [ %817, %_ZNSt10_HashtableIjSt4pairIKjN4llvm3rdf13DataFlowGraph8DefStackEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE13_M_rehash_auxEmSt17integral_constantIbLb1EE.exit ], [ %759, %.loopexit.i._crit_edge ]
-  %820 = getelementptr inbounds nuw ptr, ptr %819, i64 %.0.i19.i
+  %820 = getelementptr inbounds nuw [8 x i8], ptr %819, i64 %.0.i19.i
   %821 = load ptr, ptr %820, align 8, !tbaa !808
   %.not.i.i20.i = icmp eq ptr %821, null
   br i1 %.not.i.i20.i, label %824, label %822
@@ -15853,7 +15837,7 @@ _ZNSt10_HashtableIjSt4pairIKjN4llvm3rdf13DataFlowGraph8DefStackEESaIS6_ENSt8__de
   %829 = load i32, ptr %827, align 4, !tbaa !11
   %830 = zext i32 %829 to i64
   %831 = urem i64 %830, %828
-  %832 = getelementptr inbounds nuw ptr, ptr %819, i64 %831
+  %832 = getelementptr inbounds nuw [8 x i8], ptr %819, i64 %831
   store ptr %776, ptr %832, align 8, !tbaa !808
   br label %833
 
@@ -15925,7 +15909,7 @@ _ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.i.i: ; preds 
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %28 = zext i32 %22 to i64
   %29 = load ptr, ptr %27, align 8, !tbaa !45, !noalias !842
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %28
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %28
   %31 = load ptr, ptr %30, align 8, !tbaa !46
   %32 = zext i32 %26 to i64
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 %32
@@ -15951,7 +15935,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_b
   %39 = phi i32 [ %34, %.lr.ph.i.i ], [ %.pre.i.i.i, %36 ]
   %40 = load ptr, ptr %3, align 8, !tbaa !95, !alias.scope !842
   %41 = zext i32 %39 to i64
-  %42 = getelementptr inbounds nuw %"struct.llvm::rdf::NodeAddr.58", ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %40, i64 %41
   store ptr %.pn2628.i.i, ptr %42, align 1
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %42, i64 8
   store i32 %.sroa.8.029.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i, align 1
@@ -15972,7 +15956,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_b
   %54 = shl i32 %53, 5
   %55 = zext i32 %51 to i64
   %56 = load ptr, ptr %27, align 8, !tbaa !45, !noalias !842
-  %57 = getelementptr inbounds nuw ptr, ptr %56, i64 %55
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %55
   %58 = load ptr, ptr %57, align 8, !tbaa !46
   %59 = zext i32 %54 to i64
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 %59
@@ -16057,7 +16041,7 @@ _ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.i: ; preds = 
   %95 = shl i32 %94, 5
   %96 = zext i32 %92 to i64
   %97 = load ptr, ptr %68, align 8, !tbaa !45, !noalias !843
-  %98 = getelementptr inbounds nuw ptr, ptr %97, i64 %96
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %96
   %99 = load ptr, ptr %98, align 8, !tbaa !46
   %100 = zext i32 %95 to i64
   %101 = getelementptr inbounds nuw i8, ptr %99, i64 %100
@@ -16089,7 +16073,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_b
   %111 = phi i32 [ %102, %106 ], [ %.pre.i.i, %108 ]
   %112 = load ptr, ptr %4, align 8, !tbaa !95, !alias.scope !843
   %113 = zext i32 %111 to i64
-  %114 = getelementptr inbounds nuw %"struct.llvm::rdf::NodeAddr.58", ptr %112, i64 %113
+  %114 = getelementptr inbounds nuw [16 x i8], ptr %112, i64 %113
   store ptr %.pn2729.i, ptr %114, align 1
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %114, i64 8
   store i32 %.sroa.8.030.i, ptr %.sroa.2.0..sroa_idx.i.i, align 1
@@ -16114,7 +16098,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_b
   %128 = shl i32 %127, 5
   %129 = zext i32 %125 to i64
   %130 = load ptr, ptr %68, align 8, !tbaa !45, !noalias !843
-  %131 = getelementptr inbounds nuw ptr, ptr %130, i64 %129
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %130, i64 %129
   %132 = load ptr, ptr %131, align 8, !tbaa !46
   %133 = zext i32 %128 to i64
   %134 = getelementptr inbounds nuw i8, ptr %132, i64 %133
@@ -16166,7 +16150,7 @@ _ZN4llvm11SmallVectorINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELj4EED2Ev.exit40: ; pred
   %146 = add i32 %142, -1
   %.02744.i.i = and i32 %146, %145
   %147 = zext i32 %.02744.i.i to i64
-  %148 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.480", ptr %141, i64 %147
+  %148 = getelementptr inbounds nuw [4 x i8], ptr %141, i64 %147
   %149 = load i32, ptr %148, align 4, !tbaa !11, !noalias !849
   %150 = icmp eq i32 %.sroa.3.0.copyload, %149
   br i1 %150, label %_ZN4llvm9SetVectorIjNS_11SmallVectorIjLj0EEENS_8DenseSetIjNS_12DenseMapInfoIjvEEEELj0EE6insertERKj.exit, label %.lr.ph.i.i95, !prof !742
@@ -16194,7 +16178,7 @@ _ZN4llvm11SmallVectorINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELj4EED2Ev.exit40: ; pred
   %160 = add i32 %.02546.i.i, %.02747.i.i
   %.027.i.i = and i32 %160, %146
   %161 = zext i32 %.027.i.i to i64
-  %162 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.480", ptr %141, i64 %161
+  %162 = getelementptr inbounds nuw [4 x i8], ptr %141, i64 %161
   %163 = load i32, ptr %162, align 4, !tbaa !11, !noalias !849
   %164 = icmp eq i32 %.sroa.3.0.copyload, %163
   br i1 %164, label %_ZN4llvm9SetVectorIjNS_11SmallVectorIjLj0EEENS_8DenseSetIjNS_12DenseMapInfoIjvEEEELj0EE6insertERKj.exit, label %.lr.ph.i.i95, !prof !743, !llvm.loop !855
@@ -16234,7 +16218,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfo
   %180 = add i32 %176, -1
   %.02744.i = and i32 %180, %179
   %181 = zext i32 %.02744.i to i64
-  %182 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.480", ptr %175, i64 %181
+  %182 = getelementptr inbounds nuw [4 x i8], ptr %175, i64 %181
   %183 = load i32, ptr %182, align 4, !tbaa !11, !noalias !849
   %184 = icmp eq i32 %.sroa.3.0.copyload, %183
   br i1 %184, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfoIjvEENS2_12DenseSetPairIjEEEEjS3_S5_S7_E15LookupBucketForIjEEbRKT_RPS7_.exit, label %.lr.ph.i124, !prof !742
@@ -16262,7 +16246,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfo
   %194 = add i32 %.02546.i, %.02747.i
   %.027.i = and i32 %194, %180
   %195 = zext i32 %.027.i to i64
-  %196 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.480", ptr %175, i64 %195
+  %196 = getelementptr inbounds nuw [4 x i8], ptr %175, i64 %195
   %197 = load i32, ptr %196, align 4, !tbaa !11, !noalias !849
   %198 = icmp eq i32 %.sroa.3.0.copyload, %197
   br i1 %198, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfoIjvEENS2_12DenseSetPairIjEEEEjS3_S5_S7_E15LookupBucketForIjEEbRKT_RPS7_.exit, label %.lr.ph.i124, !prof !743, !llvm.loop !855
@@ -16305,7 +16289,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i: ; preds = %211, %20
   %214 = phi i32 [ %209, %208 ], [ %.pre.i.i42, %211 ]
   %215 = load ptr, ptr %7, align 8, !tbaa !95
   %216 = zext i32 %214 to i64
-  %217 = getelementptr inbounds nuw i32, ptr %215, i64 %216
+  %217 = getelementptr inbounds nuw [4 x i8], ptr %215, i64 %216
   store i32 %.sroa.3.0.copyload, ptr %217, align 1
   %218 = load i32, ptr %9, align 8, !tbaa !94
   %219 = add i32 %218, 1
@@ -16333,7 +16317,7 @@ _ZN4llvm9SetVectorIjNS_11SmallVectorIjLj0EEENS_8DenseSetIjNS_12DenseMapInfoIjvEE
   %231 = shl i32 %230, 5
   %232 = zext i32 %228 to i64
   %233 = load ptr, ptr %78, align 8, !tbaa !45
-  %234 = getelementptr inbounds nuw ptr, ptr %233, i64 %232
+  %234 = getelementptr inbounds nuw [8 x i8], ptr %233, i64 %232
   %235 = load ptr, ptr %234, align 8, !tbaa !46
   %236 = zext i32 %231 to i64
   %237 = getelementptr inbounds nuw i8, ptr %235, i64 %236
@@ -16365,7 +16349,7 @@ _ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.i.i44: ; pred
   %248 = shl i32 %247, 5
   %249 = zext i32 %245 to i64
   %250 = load ptr, ptr %78, align 8, !tbaa !45, !noalias !864
-  %251 = getelementptr inbounds nuw ptr, ptr %250, i64 %249
+  %251 = getelementptr inbounds nuw [8 x i8], ptr %250, i64 %249
   %252 = load ptr, ptr %251, align 8, !tbaa !46
   %253 = zext i32 %248 to i64
   %254 = getelementptr inbounds nuw i8, ptr %252, i64 %253
@@ -16391,7 +16375,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_b
   %260 = phi i32 [ %255, %.lr.ph.i.i46 ], [ %.pre.i.i.i50, %257 ]
   %261 = load ptr, ptr %6, align 8, !tbaa !95, !alias.scope !864
   %262 = zext i32 %260 to i64
-  %263 = getelementptr inbounds nuw %"struct.llvm::rdf::NodeAddr.58", ptr %261, i64 %262
+  %263 = getelementptr inbounds nuw [16 x i8], ptr %261, i64 %262
   store ptr %.pn2628.i.i48, ptr %263, align 1
   %.sroa.2.0..sroa_idx.i.i.i52 = getelementptr inbounds nuw i8, ptr %263, i64 8
   store i32 %.sroa.8.029.i.i47, ptr %.sroa.2.0..sroa_idx.i.i.i52, align 1
@@ -16412,7 +16396,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_b
   %275 = shl i32 %274, 5
   %276 = zext i32 %272 to i64
   %277 = load ptr, ptr %78, align 8, !tbaa !45, !noalias !864
-  %278 = getelementptr inbounds nuw ptr, ptr %277, i64 %276
+  %278 = getelementptr inbounds nuw [8 x i8], ptr %277, i64 %276
   %279 = load ptr, ptr %278, align 8, !tbaa !46
   %280 = zext i32 %275 to i64
   %281 = getelementptr inbounds nuw i8, ptr %279, i64 %280
@@ -16470,7 +16454,7 @@ select.unfold.i:                                  ; preds = %289, %.lr.ph.i57
   %302 = shl i32 %301, 5
   %303 = zext i32 %299 to i64
   %304 = load ptr, ptr %78, align 8, !tbaa !45
-  %305 = getelementptr inbounds nuw ptr, ptr %304, i64 %303
+  %305 = getelementptr inbounds nuw [8 x i8], ptr %304, i64 %303
   %306 = load ptr, ptr %305, align 8, !tbaa !46
   %307 = zext i32 %302 to i64
   %308 = getelementptr inbounds nuw i8, ptr %306, i64 %307
@@ -16492,7 +16476,7 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit15.i:
   %318 = and i32 %316, %300
   %319 = shl i32 %318, 5
   %320 = zext i32 %317 to i64
-  %321 = getelementptr inbounds nuw ptr, ptr %304, i64 %320
+  %321 = getelementptr inbounds nuw [8 x i8], ptr %304, i64 %320
   %322 = load ptr, ptr %321, align 8, !tbaa !46
   %323 = zext i32 %319 to i64
   %324 = getelementptr inbounds nuw i8, ptr %322, i64 %323
@@ -16517,7 +16501,7 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i.i5
   %335 = and i32 %333, %300
   %336 = shl i32 %335, 5
   %337 = zext i32 %334 to i64
-  %338 = getelementptr inbounds nuw ptr, ptr %304, i64 %337
+  %338 = getelementptr inbounds nuw [8 x i8], ptr %304, i64 %337
   %339 = load ptr, ptr %338, align 8, !tbaa !46
   %340 = zext i32 %336 to i64
   %341 = getelementptr inbounds nuw i8, ptr %339, i64 %340
@@ -16576,7 +16560,7 @@ _ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.i60: ; preds 
   %363 = and i32 %361, %300
   %364 = shl i32 %363, 5
   %365 = zext i32 %362 to i64
-  %366 = getelementptr inbounds nuw ptr, ptr %304, i64 %365
+  %366 = getelementptr inbounds nuw [8 x i8], ptr %304, i64 %365
   %367 = load ptr, ptr %366, align 8, !tbaa !46
   %368 = zext i32 %364 to i64
   %369 = getelementptr inbounds nuw i8, ptr %367, i64 %368
@@ -16606,7 +16590,7 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7DefNodeEEENS0_8NodeAddrIT_EEj.exit: ; pr
   %383 = shl i32 %382, 5
   %384 = zext i32 %380 to i64
   %385 = load ptr, ptr %78, align 8, !tbaa !45
-  %386 = getelementptr inbounds nuw ptr, ptr %385, i64 %384
+  %386 = getelementptr inbounds nuw [8 x i8], ptr %385, i64 %384
   %387 = load ptr, ptr %386, align 8, !tbaa !46
   %388 = zext i32 %383 to i64
   %389 = getelementptr inbounds nuw i8, ptr %387, i64 %388
@@ -16619,7 +16603,7 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7DefNodeEEENS0_8NodeAddrIT_EEj.exit: ; pr
   %395 = and i32 %381, %393
   %396 = shl i32 %395, 5
   %397 = zext i32 %394 to i64
-  %398 = getelementptr inbounds nuw ptr, ptr %385, i64 %397
+  %398 = getelementptr inbounds nuw [8 x i8], ptr %385, i64 %397
   %399 = load ptr, ptr %398, align 8, !tbaa !46
   %400 = zext i32 %396 to i64
   %401 = getelementptr inbounds nuw i8, ptr %399, i64 %400
@@ -16641,7 +16625,7 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit15.i6
   %411 = and i32 %409, %381
   %412 = shl i32 %411, 5
   %413 = zext i32 %410 to i64
-  %414 = getelementptr inbounds nuw ptr, ptr %385, i64 %413
+  %414 = getelementptr inbounds nuw [8 x i8], ptr %385, i64 %413
   %415 = load ptr, ptr %414, align 8, !tbaa !46
   %416 = zext i32 %412 to i64
   %417 = getelementptr inbounds nuw i8, ptr %415, i64 %416
@@ -16670,7 +16654,7 @@ _ZN4llvm3rdf7RefNode8getOwnerERKNS0_13DataFlowGraphE.exit: ; preds = %_ZNK4llvm3
   %431 = add i32 %427, -1
   %.02744.i.i99 = and i32 %431, %430
   %432 = zext i32 %.02744.i.i99 to i64
-  %433 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.480", ptr %426, i64 %432
+  %433 = getelementptr inbounds nuw [4 x i8], ptr %426, i64 %432
   %434 = load i32, ptr %433, align 4, !tbaa !11, !noalias !865
   %435 = icmp eq i32 %.pn16.lcssa.i71, %434
   br i1 %435, label %_ZN4llvm9SetVectorIjNS_11SmallVectorIjLj0EEENS_8DenseSetIjNS_12DenseMapInfoIjvEEEELj0EE6insertERKj.exit77, label %.lr.ph.i.i100, !prof !742
@@ -16698,7 +16682,7 @@ _ZN4llvm3rdf7RefNode8getOwnerERKNS0_13DataFlowGraphE.exit: ; preds = %_ZNK4llvm3
   %445 = add i32 %.02546.i.i102, %.02747.i.i101
   %.027.i.i106 = and i32 %445, %431
   %446 = zext i32 %.027.i.i106 to i64
-  %447 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.480", ptr %426, i64 %446
+  %447 = getelementptr inbounds nuw [4 x i8], ptr %426, i64 %446
   %448 = load i32, ptr %447, align 4, !tbaa !11, !noalias !865
   %449 = icmp eq i32 %.pn16.lcssa.i71, %448
   br i1 %449, label %_ZN4llvm9SetVectorIjNS_11SmallVectorIjLj0EEENS_8DenseSetIjNS_12DenseMapInfoIjvEEEELj0EE6insertERKj.exit77, label %.lr.ph.i.i100, !prof !743, !llvm.loop !855
@@ -16738,7 +16722,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfo
   %465 = add i32 %461, -1
   %.02744.i128 = and i32 %465, %464
   %466 = zext i32 %.02744.i128 to i64
-  %467 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.480", ptr %460, i64 %466
+  %467 = getelementptr inbounds nuw [4 x i8], ptr %460, i64 %466
   %468 = load i32, ptr %467, align 4, !tbaa !11, !noalias !865
   %469 = icmp eq i32 %.pn16.lcssa.i71, %468
   br i1 %469, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfoIjvEENS2_12DenseSetPairIjEEEEjS3_S5_S7_E15LookupBucketForIjEEbRKT_RPS7_.exit140, label %.lr.ph.i129, !prof !742
@@ -16766,7 +16750,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfo
   %479 = add i32 %.02546.i131, %.02747.i130
   %.027.i135 = and i32 %479, %465
   %480 = zext i32 %.027.i135 to i64
-  %481 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.480", ptr %460, i64 %480
+  %481 = getelementptr inbounds nuw [4 x i8], ptr %460, i64 %480
   %482 = load i32, ptr %481, align 4, !tbaa !11, !noalias !865
   %483 = icmp eq i32 %.pn16.lcssa.i71, %482
   br i1 %483, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfoIjvEENS2_12DenseSetPairIjEEEEjS3_S5_S7_E15LookupBucketForIjEEbRKT_RPS7_.exit140, label %.lr.ph.i129, !prof !743, !llvm.loop !855
@@ -16809,7 +16793,7 @@ _ZN4llvm23SmallVectorTemplateBaseIjLb1EE9push_backEj.exit.i76: ; preds = %496, %
   %499 = phi i32 [ %494, %493 ], [ %.pre.i.i75, %496 ]
   %500 = load ptr, ptr %7, align 8, !tbaa !95
   %501 = zext i32 %499 to i64
-  %502 = getelementptr inbounds nuw i32, ptr %500, i64 %501
+  %502 = getelementptr inbounds nuw [4 x i8], ptr %500, i64 %501
   store i32 %.pn16.lcssa.i71, ptr %502, align 1
   %503 = load i32, ptr %9, align 8, !tbaa !94
   %504 = add i32 %503, 1
@@ -16836,7 +16820,7 @@ _ZN4llvm9SetVectorIjNS_11SmallVectorIjLj0EEENS_8DenseSetIjNS_12DenseMapInfoIjvEE
   %517 = shl i32 %516, 5
   %518 = zext i32 %514 to i64
   %519 = load ptr, ptr %78, align 8, !tbaa !45
-  %520 = getelementptr inbounds nuw ptr, ptr %519, i64 %518
+  %520 = getelementptr inbounds nuw [8 x i8], ptr %519, i64 %518
   %521 = load ptr, ptr %520, align 8, !tbaa !46
   %522 = zext i32 %517 to i64
   %523 = getelementptr inbounds nuw i8, ptr %521, i64 %522
@@ -16858,7 +16842,7 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit15.i.
   %533 = and i32 %531, %515
   %534 = shl i32 %533, 5
   %535 = zext i32 %532 to i64
-  %536 = getelementptr inbounds nuw ptr, ptr %519, i64 %535
+  %536 = getelementptr inbounds nuw [8 x i8], ptr %519, i64 %535
   %537 = load ptr, ptr %536, align 8, !tbaa !46
   %538 = zext i32 %534 to i64
   %539 = getelementptr inbounds nuw i8, ptr %537, i64 %538
@@ -16882,7 +16866,7 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i.i.
   %549 = and i32 %547, %515
   %550 = shl i32 %549, 5
   %551 = zext i32 %548 to i64
-  %552 = getelementptr inbounds nuw ptr, ptr %519, i64 %551
+  %552 = getelementptr inbounds nuw [8 x i8], ptr %519, i64 %551
   %553 = load ptr, ptr %552, align 8, !tbaa !46
   %554 = zext i32 %550 to i64
   %555 = getelementptr inbounds nuw i8, ptr %553, i64 %554
@@ -16941,7 +16925,7 @@ _ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.i.i.i: ; pred
   %577 = and i32 %575, %515
   %578 = shl i32 %577, 5
   %579 = zext i32 %576 to i64
-  %580 = getelementptr inbounds nuw ptr, ptr %519, i64 %579
+  %580 = getelementptr inbounds nuw [8 x i8], ptr %519, i64 %579
   %581 = load ptr, ptr %580, align 8, !tbaa !46
   %582 = zext i32 %578 to i64
   %583 = getelementptr inbounds nuw i8, ptr %581, i64 %582
@@ -16968,7 +16952,7 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7DefNodeEEENS0_8NodeAddrIT_EEj.exit.i.i: 
   %597 = shl i32 %596, 5
   %598 = zext i32 %594 to i64
   %599 = load ptr, ptr %78, align 8, !tbaa !45
-  %600 = getelementptr inbounds nuw ptr, ptr %599, i64 %598
+  %600 = getelementptr inbounds nuw [8 x i8], ptr %599, i64 %598
   %601 = load ptr, ptr %600, align 8, !tbaa !46
   %602 = zext i32 %597 to i64
   %603 = getelementptr inbounds nuw i8, ptr %601, i64 %602
@@ -16989,7 +16973,7 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit.threa
   %609 = add i32 %605, -1
   %610 = lshr i32 %609, %593
   %611 = zext i32 %610 to i64
-  %612 = getelementptr inbounds nuw ptr, ptr %599, i64 %611
+  %612 = getelementptr inbounds nuw [8 x i8], ptr %599, i64 %611
   %613 = load ptr, ptr %612, align 8, !tbaa !46
   %614 = and i32 %609, %595
   %615 = shl i32 %614, 5
@@ -17021,7 +17005,7 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit.threa
   %626 = and i32 %624, %595
   %627 = shl i32 %626, 5
   %628 = zext i32 %625 to i64
-  %629 = getelementptr inbounds nuw ptr, ptr %599, i64 %628
+  %629 = getelementptr inbounds nuw [8 x i8], ptr %599, i64 %628
   %630 = load ptr, ptr %629, align 8, !tbaa !46
   %631 = zext i32 %627 to i64
   %632 = getelementptr inbounds nuw i8, ptr %630, i64 %631
@@ -17043,7 +17027,7 @@ _ZN4llvm3rdf13DataFlowGraph11unlinkUseDFENS0_8NodeAddrIPNS0_7UseNodeEEE.exit.i: 
   %643 = shl i32 %642, 5
   %644 = zext i32 %640 to i64
   %645 = load ptr, ptr %78, align 8, !tbaa !45
-  %646 = getelementptr inbounds nuw ptr, ptr %645, i64 %644
+  %646 = getelementptr inbounds nuw [8 x i8], ptr %645, i64 %644
   %647 = load ptr, ptr %646, align 8, !tbaa !46
   %648 = zext i32 %643 to i64
   %649 = getelementptr inbounds nuw i8, ptr %647, i64 %648
@@ -17065,7 +17049,7 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit15.i.
   %659 = and i32 %657, %641
   %660 = shl i32 %659, 5
   %661 = zext i32 %658 to i64
-  %662 = getelementptr inbounds nuw ptr, ptr %645, i64 %661
+  %662 = getelementptr inbounds nuw [8 x i8], ptr %645, i64 %661
   %663 = load ptr, ptr %662, align 8, !tbaa !46
   %664 = zext i32 %660 to i64
   %665 = getelementptr inbounds nuw i8, ptr %663, i64 %664
@@ -17089,7 +17073,7 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i.i.
   %675 = and i32 %673, %641
   %676 = shl i32 %675, 5
   %677 = zext i32 %674 to i64
-  %678 = getelementptr inbounds nuw ptr, ptr %645, i64 %677
+  %678 = getelementptr inbounds nuw [8 x i8], ptr %645, i64 %677
   %679 = load ptr, ptr %678, align 8, !tbaa !46
   %680 = zext i32 %676 to i64
   %681 = getelementptr inbounds nuw i8, ptr %679, i64 %680
@@ -17148,7 +17132,7 @@ _ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.i.i.i85: ; pr
   %703 = and i32 %701, %641
   %704 = shl i32 %703, 5
   %705 = zext i32 %702 to i64
-  %706 = getelementptr inbounds nuw ptr, ptr %645, i64 %705
+  %706 = getelementptr inbounds nuw [8 x i8], ptr %645, i64 %705
   %707 = load ptr, ptr %706, align 8, !tbaa !46
   %708 = zext i32 %704 to i64
   %709 = getelementptr inbounds nuw i8, ptr %707, i64 %708
@@ -17301,7 +17285,7 @@ _ZNSt6vectorIN4llvm3rdf8NodeAddrIPNS1_7DefNodeEEESaIS5_EE11_S_relocateEPS5_S8_S8
 _ZNSt6vectorIN4llvm3rdf8NodeAddrIPNS1_7DefNodeEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i.i: ; preds = %30, %_ZNSt6vectorIN4llvm3rdf8NodeAddrIPNS1_7DefNodeEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i.i
   store ptr %25, ptr %5, align 8, !tbaa !347
   store ptr %29, ptr %6, align 8, !tbaa !424
-  %31 = getelementptr inbounds nuw %"struct.llvm::rdf::NodeAddr.65", ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 %23
   store ptr %31, ptr %8, align 8, !tbaa !427
   br label %_ZN4llvm3rdf13DataFlowGraph8DefStack11start_blockEj.exit
 
@@ -17342,7 +17326,7 @@ define dso_local void @_ZN4llvm3rdf13DataFlowGraph12releaseBlockEjRSt13unordered
   %indvars.iv18.i.us = phi i64 [ %indvars.iv.next19.i.us, %_ZNK4llvm3rdf13DataFlowGraph8DefStack11isDelimiterERKNS0_8NodeAddrIPNS0_7DefNodeEEEj.exit.backedge.us.i.us ], [ %15, %.lr.ph.split.us ]
   %indvars.iv.next19.i.us = add i64 %indvars.iv18.i.us, -1
   %17 = and i64 %indvars.iv.next19.i.us, 4294967295
-  %18 = getelementptr inbounds nuw %"struct.llvm::rdf::NodeAddr.65", ptr %11, i64 %17
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !54
   %20 = icmp eq ptr %19, null
   br i1 %20, label %_ZNK4llvm3rdf13DataFlowGraph8DefStack11isDelimiterERKNS0_8NodeAddrIPNS0_7DefNodeEEEj.exit.thread.i.us, label %_ZNK4llvm3rdf13DataFlowGraph8DefStack11isDelimiterERKNS0_8NodeAddrIPNS0_7DefNodeEEEj.exit.backedge.us.i.us
@@ -17363,7 +17347,7 @@ _ZNK4llvm3rdf13DataFlowGraph8DefStack11isDelimiterERKNS0_8NodeAddrIPNS0_7DefNode
   br i1 %23, label %24, label %_ZN4llvm3rdf13DataFlowGraph8DefStack11clear_blockEj.exit.us
 
 24:                                               ; preds = %_ZNK4llvm3rdf13DataFlowGraph8DefStack11isDelimiterERKNS0_8NodeAddrIPNS0_7DefNodeEEEj.exit.thread.i.us.thread
-  %25 = getelementptr inbounds nuw %"struct.llvm::rdf::NodeAddr.65", ptr %11, i64 %.1.i.us48
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %.1.i.us48
   %.not.i.i.i.us = icmp eq ptr %10, %25
   br i1 %.not.i.i.i.us, label %_ZN4llvm3rdf13DataFlowGraph8DefStack11clear_blockEj.exit.us, label %26
 
@@ -17411,7 +17395,7 @@ _ZN4llvm3rdf13DataFlowGraph8DefStack11clear_blockEj.exit.us: ; preds = %27, %26,
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNK4llvm3rdf13DataFlowGraph8DefStack11isDelimiterERKNS0_8NodeAddrIPNS0_7DefNodeEEEj.exit.backedge.i ], [ %38, %.lr.ph.split ]
   %indvars.iv.next.i = add i64 %indvars.iv.i, -1
   %40 = and i64 %indvars.iv.next.i, 4294967295
-  %41 = getelementptr inbounds nuw %"struct.llvm::rdf::NodeAddr.65", ptr %34, i64 %40
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !54
   %43 = icmp eq ptr %42, null
   br i1 %43, label %44, label %_ZNK4llvm3rdf13DataFlowGraph8DefStack11isDelimiterERKNS0_8NodeAddrIPNS0_7DefNodeEEEj.exit.backedge.i
@@ -17443,7 +17427,7 @@ _ZNK4llvm3rdf13DataFlowGraph8DefStack11isDelimiterERKNS0_8NodeAddrIPNS0_7DefNode
   br i1 %52, label %53, label %_ZN4llvm3rdf13DataFlowGraph8DefStack11clear_blockEj.exit
 
 53:                                               ; preds = %_ZNK4llvm3rdf13DataFlowGraph8DefStack11isDelimiterERKNS0_8NodeAddrIPNS0_7DefNodeEEEj.exit.thread.i.thread
-  %54 = getelementptr inbounds nuw %"struct.llvm::rdf::NodeAddr.65", ptr %34, i64 %.1.i51
+  %54 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %.1.i51
   %.not.i.i.i = icmp eq ptr %33, %54
   br i1 %.not.i.i.i, label %_ZN4llvm3rdf13DataFlowGraph8DefStack11clear_blockEj.exit, label %55
 
@@ -17488,7 +17472,7 @@ _ZNK4llvm3rdf13DataFlowGraph8DefStack5emptyEv.exit.thread: ; preds = %.lr.ph.i.i
   %66 = zext i32 %65 to i64
   %67 = urem i64 %66, %64
   %68 = load ptr, ptr %2, align 8, !tbaa !698
-  %69 = getelementptr inbounds nuw ptr, ptr %68, i64 %67
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %67
   %70 = load ptr, ptr %69, align 8, !tbaa !808
   br label %71
 
@@ -17516,7 +17500,7 @@ _ZNSt10_HashtableIjSt4pairIKjN4llvm3rdf13DataFlowGraph8DefStackEESaIS6_ENSt8__de
   br i1 %.not9.i.i.i.i.i, label %_ZNSt10_HashtableIjSt4pairIKjN4llvm3rdf13DataFlowGraph8DefStackEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE22_M_remove_bucket_beginEmPNS8_10_Hash_nodeIS6_Lb0EEEm.exit.i.i.i.i, label %81
 
 81:                                               ; preds = %76
-  %82 = getelementptr inbounds nuw ptr, ptr %68, i64 %80
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %80
   store ptr %70, ptr %82, align 8, !tbaa !808
   br label %._crit_edge.i.i.i.i.i
 
@@ -17544,7 +17528,7 @@ _ZNSt10_HashtableIjSt4pairIKjN4llvm3rdf13DataFlowGraph8DefStackEESaIS6_ENSt8__de
   br i1 %.not17.i.i.i.i, label %_ZNSt10_HashtableIjSt4pairIKjN4llvm3rdf13DataFlowGraph8DefStackEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE22_M_remove_bucket_beginEmPNS8_10_Hash_nodeIS6_Lb0EEEm.exit.i.i.i.i, label %92
 
 92:                                               ; preds = %87
-  %93 = getelementptr inbounds nuw ptr, ptr %68, i64 %91
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %91
   store ptr %.0.i.i.i.i, ptr %93, align 8, !tbaa !808
   br label %_ZNSt10_HashtableIjSt4pairIKjN4llvm3rdf13DataFlowGraph8DefStackEESaIS6_ENSt8__detail10_Select1stESt8equal_toIjESt4hashIjENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb0ELb0ELb1EEEE22_M_remove_bucket_beginEmPNS8_10_Hash_nodeIS6_Lb0EEEm.exit.i.i.i.i
 
@@ -17640,7 +17624,7 @@ _ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.i: ; preds = 
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %38 = zext i32 %32 to i64
   %39 = load ptr, ptr %37, align 8, !tbaa !45, !noalias !876
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %38
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %38
   %41 = load ptr, ptr %40, align 8, !tbaa !46
   %42 = zext i32 %36 to i64
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 %42
@@ -17672,7 +17656,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_b
   %53 = phi i32 [ %44, %48 ], [ %.pre.i.i, %50 ]
   %54 = load ptr, ptr %8, align 8, !tbaa !95, !alias.scope !876
   %55 = zext i32 %53 to i64
-  %56 = getelementptr inbounds nuw %"struct.llvm::rdf::NodeAddr.58", ptr %54, i64 %55
+  %56 = getelementptr inbounds nuw [16 x i8], ptr %54, i64 %55
   store ptr %.pn2729.i, ptr %56, align 1
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %56, i64 8
   store i32 %.sroa.8.030.i, ptr %.sroa.2.0..sroa_idx.i.i, align 1
@@ -17697,7 +17681,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_b
   %70 = shl i32 %69, 5
   %71 = zext i32 %67 to i64
   %72 = load ptr, ptr %37, align 8, !tbaa !45, !noalias !876
-  %73 = getelementptr inbounds nuw ptr, ptr %72, i64 %71
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %71
   %74 = load ptr, ptr %73, align 8, !tbaa !46
   %75 = zext i32 %70 to i64
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 %75
@@ -17821,7 +17805,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_b
   %117 = phi i32 [ %112, %111 ], [ %.pre.i.i35, %114 ]
   %118 = load ptr, ptr %9, align 8, !tbaa !95, !alias.scope !880
   %119 = zext i32 %117 to i64
-  %120 = getelementptr inbounds nuw %"struct.llvm::rdf::NodeAddr.58", ptr %118, i64 %119
+  %120 = getelementptr inbounds nuw [16 x i8], ptr %118, i64 %119
   store ptr %.sroa.011.0.i, ptr %120, align 1
   %.sroa.2.0..sroa_idx.i.i37 = getelementptr inbounds nuw i8, ptr %120, i64 8
   store i32 %.sroa.4.0.i, ptr %.sroa.2.0..sroa_idx.i.i37, align 1
@@ -17856,7 +17840,7 @@ _ZNK4llvm3rdf13DataFlowGraph14getRelatedRefsENS0_8NodeAddrIPNS0_9InstrNodeEEENS2
   %135 = add nuw nsw i64 %.sroa.2.0.extract.shift.i.i, 4294967295
   %136 = and i64 %135, 4294967295
   %137 = load ptr, ptr %82, align 8, !tbaa !64
-  %138 = getelementptr inbounds nuw %"struct.llvm::LaneBitmask", ptr %137, i64 %136
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %137, i64 %136
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %138, align 8, !tbaa !13
   br label %_ZNK4llvm3rdf13DataFlowGraph6unpackENS0_17PackedRegisterRefE.exit.i
 
@@ -17949,7 +17933,7 @@ _ZNSt6vectorIN4llvm3rdf8NodeAddrIPNS1_7DefNodeEEESaIS5_EE11_S_relocateEPS5_S8_S8
 _ZNSt6vectorIN4llvm3rdf8NodeAddrIPNS1_7DefNodeEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i: ; preds = %171, %_ZNSt6vectorIN4llvm3rdf8NodeAddrIPNS1_7DefNodeEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i
   store ptr %166, ptr %146, align 8, !tbaa !347
   store ptr %170, ptr %147, align 8, !tbaa !424
-  %172 = getelementptr inbounds nuw %"struct.llvm::rdf::NodeAddr.65", ptr %166, i64 %164
+  %172 = getelementptr inbounds nuw [16 x i8], ptr %166, i64 %164
   store ptr %172, ptr %149, align 8, !tbaa !427
   br label %_ZN4llvm3rdf13DataFlowGraph8DefStack4pushENS0_8NodeAddrIPNS0_7DefNodeEEE.exit
 
@@ -18198,7 +18182,7 @@ _ZNSt6vectorIN4llvm3rdf8NodeAddrIPNS1_7DefNodeEEESaIS5_EE11_S_relocateEPS5_S8_S8
 _ZNSt6vectorIN4llvm3rdf8NodeAddrIPNS1_7DefNodeEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i70: ; preds = %259, %_ZNSt6vectorIN4llvm3rdf8NodeAddrIPNS1_7DefNodeEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i67
   store ptr %254, ptr %234, align 8, !tbaa !347
   store ptr %258, ptr %235, align 8, !tbaa !424
-  %260 = getelementptr inbounds nuw %"struct.llvm::rdf::NodeAddr.65", ptr %254, i64 %252
+  %260 = getelementptr inbounds nuw [16 x i8], ptr %254, i64 %252
   store ptr %260, ptr %237, align 8, !tbaa !427
   br label %_ZN4llvm3rdf13DataFlowGraph8DefStack4pushENS0_8NodeAddrIPNS0_7DefNodeEEE.exit71
 
@@ -18343,7 +18327,7 @@ _ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.i: ; preds = 
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %31 = zext i32 %25 to i64
   %32 = load ptr, ptr %30, align 8, !tbaa !45, !noalias !894
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %31
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %31
   %34 = load ptr, ptr %33, align 8, !tbaa !46
   %35 = zext i32 %29 to i64
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 %35
@@ -18375,7 +18359,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_b
   %46 = phi i32 [ %37, %41 ], [ %.pre.i.i, %43 ]
   %47 = load ptr, ptr %7, align 8, !tbaa !95, !alias.scope !894
   %48 = zext i32 %46 to i64
-  %49 = getelementptr inbounds nuw %"struct.llvm::rdf::NodeAddr.58", ptr %47, i64 %48
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %47, i64 %48
   store ptr %.pn2729.i, ptr %49, align 1
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %49, i64 8
   store i32 %.sroa.8.030.i, ptr %.sroa.2.0..sroa_idx.i.i, align 1
@@ -18400,7 +18384,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_b
   %63 = shl i32 %62, 5
   %64 = zext i32 %60 to i64
   %65 = load ptr, ptr %30, align 8, !tbaa !45, !noalias !894
-  %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %64
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %64
   %67 = load ptr, ptr %66, align 8, !tbaa !46
   %68 = zext i32 %63 to i64
   %69 = getelementptr inbounds nuw i8, ptr %67, i64 %68
@@ -18525,7 +18509,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_b
   %113 = phi i32 [ %108, %107 ], [ %.pre.i.i32, %110 ]
   %114 = load ptr, ptr %8, align 8, !tbaa !95, !alias.scope !897
   %115 = zext i32 %113 to i64
-  %116 = getelementptr inbounds nuw %"struct.llvm::rdf::NodeAddr.58", ptr %114, i64 %115
+  %116 = getelementptr inbounds nuw [16 x i8], ptr %114, i64 %115
   store ptr %.sroa.011.0.i, ptr %116, align 1
   %.sroa.2.0..sroa_idx.i.i34 = getelementptr inbounds nuw i8, ptr %116, i64 8
   store i32 %.sroa.4.0.i, ptr %.sroa.2.0..sroa_idx.i.i34, align 1
@@ -18560,7 +18544,7 @@ _ZNK4llvm3rdf13DataFlowGraph14getRelatedRefsENS0_8NodeAddrIPNS0_9InstrNodeEEENS2
   %131 = add nuw nsw i64 %.sroa.2.0.extract.shift.i.i, 4294967295
   %132 = and i64 %131, 4294967295
   %133 = load ptr, ptr %75, align 8, !tbaa !64
-  %134 = getelementptr inbounds nuw %"struct.llvm::LaneBitmask", ptr %133, i64 %132
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %133, i64 %132
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %134, align 8, !tbaa !13
   br label %_ZNK4llvm3rdf13DataFlowGraph6unpackENS0_17PackedRegisterRefE.exit.i
 
@@ -18653,7 +18637,7 @@ _ZNSt6vectorIN4llvm3rdf8NodeAddrIPNS1_7DefNodeEEESaIS5_EE11_S_relocateEPS5_S8_S8
 _ZNSt6vectorIN4llvm3rdf8NodeAddrIPNS1_7DefNodeEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i: ; preds = %167, %_ZNSt6vectorIN4llvm3rdf8NodeAddrIPNS1_7DefNodeEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i
   store ptr %162, ptr %142, align 8, !tbaa !347
   store ptr %166, ptr %143, align 8, !tbaa !424
-  %168 = getelementptr inbounds nuw %"struct.llvm::rdf::NodeAddr.65", ptr %162, i64 %160
+  %168 = getelementptr inbounds nuw [16 x i8], ptr %162, i64 %160
   store ptr %168, ptr %145, align 8, !tbaa !427
   br label %_ZN4llvm3rdf13DataFlowGraph8DefStack4pushENS0_8NodeAddrIPNS0_7DefNodeEEE.exit
 
@@ -18742,7 +18726,7 @@ _ZNK4llvm3rdf13DataFlowGraph9isTrackedENS0_11RegisterRefE.exit: ; preds = %192
   %203 = load i64, ptr %85, align 8, !tbaa !705
   %204 = urem i64 %202, %203
   %205 = load ptr, ptr %3, align 8, !tbaa !698
-  %206 = getelementptr inbounds nuw ptr, ptr %205, i64 %204
+  %206 = getelementptr inbounds nuw [8 x i8], ptr %205, i64 %204
   %207 = load ptr, ptr %206, align 8, !tbaa !808
   %.not.i.i.i58 = icmp eq ptr %207, null
   br i1 %.not.i.i.i58, label %.loopexit.i, label %208
@@ -18797,7 +18781,7 @@ _ZNK4llvm3rdf13DataFlowGraph9isTrackedENS0_11RegisterRefE.exit: ; preds = %192
 232:                                              ; preds = %228, %.loopexit.i
   %.0.i19.i = phi i64 [ %231, %228 ], [ %204, %.loopexit.i ]
   %233 = load ptr, ptr %3, align 8, !tbaa !698
-  %234 = getelementptr inbounds nuw ptr, ptr %233, i64 %.0.i19.i
+  %234 = getelementptr inbounds nuw [8 x i8], ptr %233, i64 %.0.i19.i
   %235 = load ptr, ptr %234, align 8, !tbaa !808
   %.not.i.i20.i = icmp eq ptr %235, null
   br i1 %.not.i.i20.i, label %238, label %236
@@ -18821,7 +18805,7 @@ _ZNK4llvm3rdf13DataFlowGraph9isTrackedENS0_11RegisterRefE.exit: ; preds = %192
   %243 = load i32, ptr %241, align 4, !tbaa !11
   %244 = zext i32 %243 to i64
   %245 = urem i64 %244, %242
-  %246 = getelementptr inbounds nuw ptr, ptr %233, i64 %245
+  %246 = getelementptr inbounds nuw [8 x i8], ptr %233, i64 %245
   store ptr %221, ptr %246, align 8, !tbaa !808
   br label %247
 
@@ -18905,7 +18889,7 @@ _ZNSt6vectorIN4llvm3rdf8NodeAddrIPNS1_7DefNodeEEESaIS5_EE11_S_relocateEPS5_S8_S8
 _ZNSt6vectorIN4llvm3rdf8NodeAddrIPNS1_7DefNodeEEESaIS5_EE17_M_realloc_insertIJRKS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i50: ; preds = %274, %_ZNSt6vectorIN4llvm3rdf8NodeAddrIPNS1_7DefNodeEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i47
   store ptr %269, ptr %.1.i, align 8, !tbaa !347
   store ptr %273, ptr %250, align 8, !tbaa !424
-  %275 = getelementptr inbounds nuw %"struct.llvm::rdf::NodeAddr.65", ptr %269, i64 %267
+  %275 = getelementptr inbounds nuw [16 x i8], ptr %269, i64 %267
   store ptr %275, ptr %252, align 8, !tbaa !427
   br label %_ZN4llvm3rdf13DataFlowGraph8DefStack4pushENS0_8NodeAddrIPNS0_7DefNodeEEE.exit51
 
@@ -19034,7 +19018,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_b
   %16 = phi i32 [ %11, %10 ], [ %.pre.i, %13 ]
   %17 = load ptr, ptr %0, align 8, !tbaa !95
   %18 = zext i32 %16 to i64
-  %19 = getelementptr inbounds nuw %"struct.llvm::rdf::NodeAddr.58", ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %18
   store ptr %.sroa.011.0, ptr %19, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i32 %.sroa.4.0, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -19074,7 +19058,7 @@ define dso_local { ptr, i32 } @_ZNK4llvm3rdf13DataFlowGraph14getNextRelatedENS0_
   %13 = add nuw nsw i64 %.sroa.2.0.extract.shift.i.i, 4294967295
   %14 = and i64 %13, 4294967295
   %15 = load ptr, ptr %12, align 8, !tbaa !64
-  %16 = getelementptr inbounds nuw %"struct.llvm::LaneBitmask", ptr %15, i64 %14
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %14
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %16, align 8, !tbaa !13
   br label %_ZNK4llvm3rdf13DataFlowGraph6unpackENS0_17PackedRegisterRefE.exit.i
 
@@ -19120,7 +19104,7 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i: ;
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %40 = zext i32 %34 to i64
   %41 = load ptr, ptr %39, align 8, !tbaa !45
-  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %40
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %40
   %43 = load ptr, ptr %42, align 8, !tbaa !46
   %44 = zext i32 %38 to i64
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 %44
@@ -19152,7 +19136,7 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.thre
   %57 = add nuw nsw i64 %.sroa.2.0.extract.shift.i.i.i, 4294967295
   %58 = and i64 %57, 4294967295
   %59 = load ptr, ptr %56, align 8, !tbaa !64
-  %60 = getelementptr inbounds nuw %"struct.llvm::LaneBitmask", ptr %59, i64 %58
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %58
   %.sroa.0.0.copyload.i.i.i.i.i = load i64, ptr %60, align 8, !tbaa !13
   br label %_ZNK4llvm3rdf13DataFlowGraph6unpackENS0_17PackedRegisterRefE.exit.i.i
 
@@ -19202,7 +19186,7 @@ _ZNK4llvm3rdf7RefNode9getRegRefERKNS0_13DataFlowGraphE.exit.i: ; preds = %63, %_
   %80 = add nuw nsw i64 %.sroa.2.0.extract.shift.i.i.i.i.i, 4294967295
   %81 = and i64 %80, 4294967295
   %82 = load ptr, ptr %79, align 8, !tbaa !64
-  %83 = getelementptr inbounds nuw %"struct.llvm::LaneBitmask", ptr %82, i64 %81
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %81
   %.sroa.0.0.copyload.i.i.i.i.i.i.i = load i64, ptr %83, align 8, !tbaa !13
   br label %_ZNK4llvm3rdf13DataFlowGraph6unpackENS0_17PackedRegisterRefE.exit.i.i.i.i
 
@@ -19242,7 +19226,7 @@ _ZNK4llvm3rdf7RefNode9getRegRefERKNS0_13DataFlowGraphE.exit.i.i.i: ; preds = %86
   %97 = add nuw nsw i64 %.sroa.2.0.extract.shift.i.i8.i.i.i, 4294967295
   %98 = and i64 %97, 4294967295
   %99 = load ptr, ptr %96, align 8, !tbaa !64
-  %100 = getelementptr inbounds nuw %"struct.llvm::LaneBitmask", ptr %99, i64 %98
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %98
   %.sroa.0.0.copyload.i.i.i.i9.i.i.i = load i64, ptr %100, align 8, !tbaa !13
   br label %_ZNK4llvm3rdf13DataFlowGraph6unpackENS0_17PackedRegisterRefE.exit.i10.i.i.i
 
@@ -19292,7 +19276,7 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.i37:
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %122 = zext i32 %116 to i64
   %123 = load ptr, ptr %121, align 8, !tbaa !45
-  %124 = getelementptr inbounds nuw ptr, ptr %123, i64 %122
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %123, i64 %122
   %125 = load ptr, ptr %124, align 8, !tbaa !46
   %126 = zext i32 %120 to i64
   %127 = getelementptr inbounds nuw i8, ptr %125, i64 %126
@@ -19324,7 +19308,7 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_8NodeBaseEEENS0_8NodeAddrIT_EEj.exit.thre
   %139 = add nuw nsw i64 %.sroa.2.0.extract.shift.i.i.i47, 4294967295
   %140 = and i64 %139, 4294967295
   %141 = load ptr, ptr %138, align 8, !tbaa !64
-  %142 = getelementptr inbounds nuw %"struct.llvm::LaneBitmask", ptr %141, i64 %140
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %141, i64 %140
   %.sroa.0.0.copyload.i.i.i.i.i48 = load i64, ptr %142, align 8, !tbaa !13
   br label %_ZNK4llvm3rdf13DataFlowGraph6unpackENS0_17PackedRegisterRefE.exit.i.i49
 
@@ -19374,7 +19358,7 @@ _ZNK4llvm3rdf7RefNode9getRegRefERKNS0_13DataFlowGraphE.exit.i55: ; preds = %145,
   %162 = add nuw nsw i64 %.sroa.2.0.extract.shift.i.i.i.i.i60, 4294967295
   %163 = and i64 %162, 4294967295
   %164 = load ptr, ptr %161, align 8, !tbaa !64
-  %165 = getelementptr inbounds nuw %"struct.llvm::LaneBitmask", ptr %164, i64 %163
+  %165 = getelementptr inbounds nuw [8 x i8], ptr %164, i64 %163
   %.sroa.0.0.copyload.i.i.i.i.i.i.i61 = load i64, ptr %165, align 8, !tbaa !13
   br label %_ZNK4llvm3rdf13DataFlowGraph6unpackENS0_17PackedRegisterRefE.exit.i.i.i.i62
 
@@ -19414,7 +19398,7 @@ _ZNK4llvm3rdf7RefNode9getRegRefERKNS0_13DataFlowGraphE.exit.i.i.i68: ; preds = %
   %179 = add nuw nsw i64 %.sroa.2.0.extract.shift.i.i8.i.i.i72, 4294967295
   %180 = and i64 %179, 4294967295
   %181 = load ptr, ptr %178, align 8, !tbaa !64
-  %182 = getelementptr inbounds nuw %"struct.llvm::LaneBitmask", ptr %181, i64 %180
+  %182 = getelementptr inbounds nuw [8 x i8], ptr %181, i64 %180
   %.sroa.0.0.copyload.i.i.i.i9.i.i.i73 = load i64, ptr %182, align 8, !tbaa !13
   br label %_ZNK4llvm3rdf13DataFlowGraph6unpackENS0_17PackedRegisterRefE.exit.i10.i.i.i74
 
@@ -19544,7 +19528,7 @@ _ZN4llvm3rdf13DataFlowGraph7newNodeEt.exit.i:     ; preds = %_ZN4llvm3rdf13NodeA
   %45 = add i32 %44, -1
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %47 = zext i32 %45 to i64
-  %48 = getelementptr inbounds nuw ptr, ptr %38, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %47
   %49 = load ptr, ptr %48, align 8, !tbaa !46
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %51 = load i32, ptr %50, align 4, !tbaa !26
@@ -19629,7 +19613,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorIjNS_11SmallVec
   %10 = add i32 %5, -1
   %.01728.i.i.i = and i32 %9, %10
   %11 = zext i32 %.01728.i.i.i to i64
-  %12 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.480", ptr %3, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !11
   %14 = icmp eq i32 %8, %13
   br i1 %14, label %.loopexit, label %.lr.ph.i.i.i, !prof !742
@@ -19646,14 +19630,14 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9SetVectorIjNS_11SmallVec
   %19 = add i32 %.01529.i.i.i, %.01730.i.i.i
   %.017.i.i.i = and i32 %19, %10
   %20 = zext i32 %.017.i.i.i to i64
-  %21 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.480", ptr %3, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !11
   %23 = icmp eq i32 %8, %22
   br i1 %23, label %.loopexit, label %.lr.ph.i.i.i, !prof !743, !llvm.loop !912
 
 .loopexit:                                        ; preds = %17, %7
   %.lcssa.i.i.i = phi i64 [ %11, %7 ], [ %20, %17 ]
-  %24 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.480", ptr %3, i64 %.lcssa.i.i.i
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.lcssa.i.i.i
   store i32 -2, ptr %24, align 4, !tbaa !11
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %26 = load i32, ptr %25, align 8, !tbaa !856
@@ -19778,7 +19762,7 @@ _ZN4llvm4findIRNS_11SmallVectorIjLj0EEEjEEDaOT_RKT0_.exit.loopexit.split.loop.ex
 _ZN4llvm4findIRNS_11SmallVectorIjLj0EEEjEEDaOT_RKT0_.exit: ; preds = %40, %_ZN4llvm4findIRNS_11SmallVectorIjLj0EEEjEEDaOT_RKT0_.exit.loopexit.split.loop.exit, %_ZN4llvm4findIRNS_11SmallVectorIjLj0EEEjEEDaOT_RKT0_.exit.loopexit.split.loop.exit28, %_ZN4llvm4findIRNS_11SmallVectorIjLj0EEEjEEDaOT_RKT0_.exit.loopexit.split.loop.exit30, %60, %66, %72, %76
   %.028.i.i.i.i = phi ptr [ %.1.i.i.i.i, %66 ], [ %36, %76 ], [ %.2.i.i.i.i, %72 ], [ %.029.lcssa.i.i.i.i, %60 ], [ %79, %_ZN4llvm4findIRNS_11SmallVectorIjLj0EEEjEEDaOT_RKT0_.exit.loopexit.split.loop.exit30 ], [ %77, %_ZN4llvm4findIRNS_11SmallVectorIjLj0EEEjEEDaOT_RKT0_.exit.loopexit.split.loop.exit ], [ %78, %_ZN4llvm4findIRNS_11SmallVectorIjLj0EEEjEEDaOT_RKT0_.exit.loopexit.split.loop.exit28 ], [ %.02946.i.i.i.i, %40 ]
   %80 = getelementptr inbounds nuw i8, ptr %.028.i.i.i.i, i64 4
-  %81 = getelementptr inbounds nuw i32, ptr %32, i64 %35
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %35
   %.not.i.i.i.i.i.i = icmp eq ptr %81, %80
   br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplIjE5eraseEPKj.exit, label %82
 
@@ -19829,7 +19813,7 @@ _ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.i: ; preds = 
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %22 = zext i32 %16 to i64
   %23 = load ptr, ptr %21, align 8, !tbaa !45, !noalias !914
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %22
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %22
   %25 = load ptr, ptr %24, align 8, !tbaa !46
   %26 = zext i32 %20 to i64
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 %26
@@ -19859,7 +19843,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_b
   %35 = phi i32 [ %30, %29 ], [ %.pre.i.i, %32 ]
   %36 = load ptr, ptr %6, align 8, !tbaa !95, !alias.scope !914
   %37 = zext i32 %35 to i64
-  %38 = getelementptr inbounds nuw %"struct.llvm::rdf::NodeAddr.58", ptr %36, i64 %37
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %36, i64 %37
   store ptr %.pn2729.i, ptr %38, align 1
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %38, i64 8
   store i32 %.sroa.8.030.i, ptr %.sroa.2.0..sroa_idx.i.i, align 1
@@ -19883,7 +19867,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_b
   %51 = shl i32 %50, 5
   %52 = zext i32 %48 to i64
   %53 = load ptr, ptr %21, align 8, !tbaa !45, !noalias !914
-  %54 = getelementptr inbounds nuw ptr, ptr %53, i64 %52
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %52
   %55 = load ptr, ptr %54, align 8, !tbaa !46
   %56 = zext i32 %51 to i64
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 %56
@@ -19972,7 +19956,7 @@ _ZNK4llvm3rdf7RefNode9getRegRefERKNS0_13DataFlowGraphE.exit: ; preds = %_ZNK4llv
   %85 = load i64, ptr %61, align 8, !tbaa !705
   %86 = urem i64 %84, %85
   %87 = load ptr, ptr %1, align 8, !tbaa !698
-  %88 = getelementptr inbounds nuw ptr, ptr %87, i64 %86
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %86
   %89 = load ptr, ptr %88, align 8, !tbaa !808
   %.not.i.i.i.i = icmp eq ptr %89, null
   br i1 %.not.i.i.i.i, label %_ZNSt13unordered_mapIjN4llvm3rdf13DataFlowGraph8DefStackESt4hashIjESt8equal_toIjESaISt4pairIKjS3_EEE4findERS9_.exit.thread, label %90
@@ -20082,7 +20066,7 @@ _ZNK4llvm3rdf13DataFlowGraph8DefStack5emptyEv.exit: ; preds = %6
   %25 = add nuw nsw i64 %.sroa.2.0.extract.shift.i.i, 4294967295
   %26 = and i64 %25, 4294967295
   %27 = load ptr, ptr %24, align 8, !tbaa !64
-  %28 = getelementptr inbounds nuw %"struct.llvm::LaneBitmask", ptr %27, i64 %26
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %26
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %28, align 8, !tbaa !13
   br label %_ZNK4llvm3rdf13DataFlowGraph6unpackENS0_17PackedRegisterRefE.exit.i
 
@@ -20169,7 +20153,7 @@ _ZN4llvm3rdf12RegisterAggrC2ERKNS0_20PhysicalRegisterInfoE.exit: ; preds = %_ZSt
   %.sroa.673.088 = phi i32 [ %.fca.1.load.i, %.lr.ph ], [ %92, %_ZN4llvm3rdf13DataFlowGraph8DefStack8Iterator4downEv.exit ]
   %53 = add i32 %.sroa.673.088, -1
   %54 = zext i32 %53 to i64
-  %55 = getelementptr inbounds nuw %"struct.llvm::rdf::NodeAddr.65", ptr %52, i64 %54
+  %55 = getelementptr inbounds nuw [16 x i8], ptr %52, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !54
   %57 = load i16, ptr %56, align 8, !tbaa !47
   %58 = and i16 %57, 128
@@ -20187,7 +20171,7 @@ _ZN4llvm3rdf12RegisterAggrC2ERKNS0_20PhysicalRegisterInfoE.exit: ; preds = %_ZSt
   %63 = add nuw nsw i64 %.sroa.2.0.extract.shift.i.i52, 4294967295
   %64 = and i64 %63, 4294967295
   %65 = load ptr, ptr %50, align 8, !tbaa !64
-  %66 = getelementptr inbounds nuw %"struct.llvm::LaneBitmask", ptr %65, i64 %64
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %64
   %.sroa.0.0.copyload.i.i.i.i53 = load i64, ptr %66, align 8, !tbaa !13
   br label %_ZNK4llvm3rdf13DataFlowGraph6unpackENS0_17PackedRegisterRefE.exit.i54
 
@@ -20217,7 +20201,7 @@ _ZNK4llvm3rdf7RefNode9getRegRefERKNS0_13DataFlowGraphE.exit61: ; preds = %_ZNK4l
   %76 = call noundef nonnull align 8 dereferenceable(80) ptr @_ZN4llvm3rdf12RegisterAggr6insertENS0_11RegisterRefE(ptr noundef nonnull align 8 dereferenceable(80) %11, i32 %72, i64 %73) #24
   %77 = call noundef zeroext i1 @_ZNK4llvm3rdf12RegisterAggr10hasCoverOfENS0_11RegisterRefE(ptr noundef nonnull align 8 dereferenceable(80) %76, i32 %34, i64 %35) #24
   %78 = load ptr, ptr %.fca.0.load.i, align 8, !tbaa !347
-  %79 = getelementptr inbounds nuw %"struct.llvm::rdf::NodeAddr.65", ptr %78, i64 %54
+  %79 = getelementptr inbounds nuw [16 x i8], ptr %78, i64 %54
   %.sroa.0.0.copyload.i62 = load ptr, ptr %79, align 8, !tbaa !428
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %79, i64 8
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !11
@@ -20260,7 +20244,7 @@ _ZNK4llvm3rdf13DataFlowGraph8DefStack11isDelimiterERKNS0_8NodeAddrIPNS0_7DefNode
 94:                                               ; preds = %_ZNK4llvm3rdf13DataFlowGraph8DefStack11isDelimiterERKNS0_8NodeAddrIPNS0_7DefNodeEEEj.exit7.i.i
   %95 = add i32 %.0.i.i, -2
   %96 = zext i32 %95 to i64
-  %97 = getelementptr inbounds nuw %"struct.llvm::rdf::NodeAddr.65", ptr %91, i64 %96
+  %97 = getelementptr inbounds nuw [16 x i8], ptr %91, i64 %96
   %98 = load ptr, ptr %97, align 8, !tbaa !54
   %99 = icmp eq ptr %98, null
   br i1 %99, label %_ZNK4llvm3rdf13DataFlowGraph8DefStack11isDelimiterERKNS0_8NodeAddrIPNS0_7DefNodeEEEj.exit7.i.i, label %_ZN4llvm3rdf13DataFlowGraph8DefStack8Iterator4downEv.exit, !llvm.loop !350
@@ -20307,7 +20291,7 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7DefNodeEEENS0_8NodeAddrIT_EEj.exit: ; pr
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %18 = zext i32 %12 to i64
   %19 = load ptr, ptr %17, align 8, !tbaa !45
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %18
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %18
   %21 = load ptr, ptr %20, align 8, !tbaa !46
   %22 = zext i32 %16 to i64
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 %22
@@ -20327,7 +20311,7 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit.threa
   %28 = add i32 %25, -1
   %29 = lshr i32 %28, %11
   %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds nuw ptr, ptr %19, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !46
   %33 = and i32 %14, %28
   %34 = shl i32 %33, 5
@@ -20359,7 +20343,7 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7UseNodeEEENS0_8NodeAddrIT_EEj.exit.threa
   %45 = and i32 %14, %43
   %46 = shl i32 %45, 5
   %47 = zext i32 %44 to i64
-  %48 = getelementptr inbounds nuw ptr, ptr %19, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %47
   %49 = load ptr, ptr %48, align 8, !tbaa !46
   %50 = zext i32 %46 to i64
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 %50
@@ -20408,7 +20392,7 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7RefNodeEEENS0_8NodeAddrIT_EEj.exit.i: ; 
   %22 = shl i32 %21, 5
   %23 = zext i32 %19 to i64
   %24 = load ptr, ptr %15, align 8, !tbaa !45, !noalias !918
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %23
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %23
   %26 = load ptr, ptr %25, align 8, !tbaa !46
   %27 = zext i32 %22 to i64
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 %27
@@ -20427,7 +20411,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_b
   %33 = phi i32 [ %16, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7RefNodeEEENS0_8NodeAddrIT_EEj.exit.i ], [ %.pre.i.i, %30 ]
   %34 = load ptr, ptr %4, align 8, !tbaa !95, !alias.scope !918
   %35 = zext i32 %33 to i64
-  %36 = getelementptr inbounds nuw %"struct.llvm::rdf::NodeAddr.58", ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %35
   store ptr %28, ptr %36, align 1
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %36, i64 8
   store i32 %.04.i, ptr %.sroa.2.0..sroa_idx.i.i, align 1
@@ -20471,7 +20455,7 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7RefNodeEEENS0_8NodeAddrIT_EEj.exit.i72: 
   %55 = shl i32 %54, 5
   %56 = zext i32 %52 to i64
   %57 = load ptr, ptr %48, align 8, !tbaa !45, !noalias !922
-  %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %56
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %56
   %59 = load ptr, ptr %58, align 8, !tbaa !46
   %60 = zext i32 %55 to i64
   %61 = getelementptr inbounds nuw i8, ptr %59, i64 %60
@@ -20490,7 +20474,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_b
   %66 = phi i32 [ %49, %_ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7RefNodeEEENS0_8NodeAddrIT_EEj.exit.i72 ], [ %.pre.i.i75, %63 ]
   %67 = load ptr, ptr %5, align 8, !tbaa !95, !alias.scope !922
   %68 = zext i32 %66 to i64
-  %69 = getelementptr inbounds nuw %"struct.llvm::rdf::NodeAddr.58", ptr %67, i64 %68
+  %69 = getelementptr inbounds nuw [16 x i8], ptr %67, i64 %68
   store ptr %61, ptr %69, align 1
   %.sroa.2.0..sroa_idx.i.i77 = getelementptr inbounds nuw i8, ptr %69, i64 8
   store i32 %.04.i73, ptr %.sroa.2.0..sroa_idx.i.i77, align 1
@@ -20599,7 +20583,7 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7DefNodeEEENS0_8NodeAddrIT_EEj.exit: ; pr
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %110 = zext i32 %104 to i64
   %111 = load ptr, ptr %109, align 8, !tbaa !45
-  %112 = getelementptr inbounds nuw ptr, ptr %111, i64 %110
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %110
   %113 = load ptr, ptr %112, align 8, !tbaa !46
   %114 = zext i32 %108 to i64
   %115 = getelementptr inbounds nuw i8, ptr %113, i64 %114
@@ -20619,7 +20603,7 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7DefNodeEEENS0_8NodeAddrIT_EEj.exit83.thr
   %120 = add i32 %117, -1
   %121 = lshr i32 %120, %103
   %122 = zext i32 %121 to i64
-  %123 = getelementptr inbounds nuw ptr, ptr %111, i64 %122
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %122
   %124 = load ptr, ptr %123, align 8, !tbaa !46
   %125 = and i32 %106, %120
   %126 = shl i32 %125, 5
@@ -20651,7 +20635,7 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7DefNodeEEENS0_8NodeAddrIT_EEj.exit83.thr
   %138 = and i32 %106, %136
   %139 = shl i32 %138, 5
   %140 = zext i32 %137 to i64
-  %141 = getelementptr inbounds nuw ptr, ptr %111, i64 %140
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %140
   %142 = load ptr, ptr %141, align 8, !tbaa !46
   %143 = zext i32 %139 to i64
   %144 = getelementptr inbounds nuw i8, ptr %142, i64 %143
@@ -20667,7 +20651,7 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7DefNodeEEENS0_8NodeAddrIT_EEj.exit83.thr
 
 149:                                              ; preds = %.loopexit
   %150 = zext i32 %148 to i64
-  %151 = getelementptr inbounds nuw %"struct.llvm::rdf::NodeAddr.58", ptr %.pre, i64 %150
+  %151 = getelementptr inbounds nuw [16 x i8], ptr %.pre, i64 %150
   %152 = getelementptr inbounds i8, ptr %151, i64 -16
   %153 = load ptr, ptr %152, align 8, !tbaa !129
   %154 = load i32, ptr %116, align 8, !tbaa !50
@@ -20685,7 +20669,7 @@ _ZNK4llvm3rdf13DataFlowGraph4addrIPNS0_7DefNodeEEENS0_8NodeAddrIT_EEj.exit83.thr
 
 160:                                              ; preds = %158
   %161 = zext i32 %159 to i64
-  %162 = getelementptr inbounds nuw %"struct.llvm::rdf::NodeAddr.58", ptr %90, i64 %161
+  %162 = getelementptr inbounds nuw [16 x i8], ptr %90, i64 %161
   %163 = getelementptr inbounds i8, ptr %162, i64 -16
   %164 = load ptr, ptr %163, align 8, !tbaa !129
   %165 = getelementptr inbounds nuw i8, ptr %115, i64 20
@@ -20758,7 +20742,7 @@ _ZNK4llvm3rdf8CodeNode14getFirstMemberERKNS0_13DataFlowGraphE.exit.i.i: ; preds 
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 304
   %26 = zext i32 %20 to i64
   %27 = load ptr, ptr %25, align 8, !tbaa !45, !noalias !931
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %26
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %26
   %29 = load ptr, ptr %28, align 8, !tbaa !46
   %30 = zext i32 %24 to i64
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 %30
@@ -20784,7 +20768,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_b
   %37 = phi i32 [ %32, %.lr.ph.i.i ], [ %.pre.i.i.i, %34 ]
   %38 = load ptr, ptr %7, align 8, !tbaa !95, !alias.scope !931
   %39 = zext i32 %37 to i64
-  %40 = getelementptr inbounds nuw %"struct.llvm::rdf::NodeAddr.58", ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %39
   store ptr %.pn2628.i.i, ptr %40, align 1
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %40, i64 8
   store i32 %.sroa.8.029.i.i, ptr %.sroa.2.0..sroa_idx.i.i.i, align 1
@@ -20805,7 +20789,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_3rdf8NodeAddrIPNS1_8NodeBaseEEELb1EE9push_b
   %52 = shl i32 %51, 5
   %53 = zext i32 %49 to i64
   %54 = load ptr, ptr %25, align 8, !tbaa !45, !noalias !931
-  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %53
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %53
   %56 = load ptr, ptr %55, align 8, !tbaa !46
   %57 = zext i32 %52 to i64
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 %57
@@ -20856,7 +20840,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_14MachineOperandELb1EE9push_backES2_.exit:
   %78 = phi i32 [ %73, %69 ], [ %.pre.i, %75 ]
   %79 = load ptr, ptr %6, align 8, !tbaa !95
   %80 = zext i32 %78 to i64
-  %81 = getelementptr inbounds nuw ptr, ptr %79, i64 %80
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %80
   %82 = ptrtoint ptr %72 to i64
   store i64 %82, ptr %81, align 1
   %83 = load i32, ptr %9, align 8, !tbaa !94
@@ -20877,7 +20861,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_14MachineOperandELb1EE9push_backES2_.exit:
   %90 = add nuw nsw i64 %.sroa.2.0.extract.shift.i.i, 4294967295
   %91 = and i64 %90, 4294967295
   %92 = load ptr, ptr %61, align 8, !tbaa !64
-  %93 = getelementptr inbounds nuw %"struct.llvm::LaneBitmask", ptr %92, i64 %91
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %92, i64 %91
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %93, align 8, !tbaa !13
   br label %_ZNK4llvm3rdf13DataFlowGraph6unpackENS0_17PackedRegisterRefE.exit.i
 
@@ -20911,7 +20895,7 @@ _ZNK4llvm3rdf7RefNode9getRegRefERKNS0_13DataFlowGraphE.exit: ; preds = %_ZNK4llv
   %106 = lshr i32 %99, 6
   %107 = zext nneg i32 %106 to i64
   %108 = load ptr, ptr %62, align 8, !tbaa !95
-  %109 = getelementptr inbounds nuw i64, ptr %108, i64 %107
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %108, i64 %107
   %110 = load i64, ptr %109, align 8, !tbaa !13
   %111 = and i64 %110, %105
   %.not53 = icmp eq i64 %111, 0
@@ -21395,7 +21379,7 @@ _ZNSt6vectorIN4llvm11LaneBitmaskESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i
 _ZNSt6vectorIN4llvm11LaneBitmaskESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %71, %_ZNSt6vectorIN4llvm11LaneBitmaskESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i
   store ptr %65, ptr %0, align 8, !tbaa !64
   store ptr %70, ptr %4, align 8, !tbaa !417
-  %72 = getelementptr inbounds nuw %"struct.llvm::LaneBitmask", ptr %65, i64 %63
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %63
   store ptr %72, ptr %52, align 8, !tbaa !418
   %.pre = ptrtoint ptr %65 to i64
   br label %_ZNSt6vectorIN4llvm11LaneBitmaskESaIS1_EE9push_backERKS1_.exit
@@ -21840,7 +21824,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds 
   %21 = phi i32 [ %14, %10 ], [ %.pre.i, %17 ]
   %22 = load ptr, ptr %12, align 8, !tbaa !95
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %"struct.std::pair.485", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %23
   store ptr %11, ptr %24, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %8, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -21881,7 +21865,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm65536ELm65536ELm128EE12Sta
   %47 = phi i32 [ %40, %32 ], [ %.pre.i.i, %43 ]
   %48 = load ptr, ptr %33, align 8, !tbaa !95
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   %51 = ptrtoint ptr %39 to i64
   store i64 %51, ptr %50, align 1
   %52 = load i32, ptr %34, align 8, !tbaa !94
@@ -21976,9 +21960,9 @@ _ZNSt6vectorIN4llvm3rdf8NodeAddrIPNS1_7DefNodeEEESaIS5_EE11_S_relocateEPS5_S8_S8
 
 _ZNSt12_Vector_baseIN4llvm3rdf8NodeAddrIPNS1_7DefNodeEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorIN4llvm3rdf8NodeAddrIPNS1_7DefNodeEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %31
   store ptr %26, ptr %0, align 8, !tbaa !347
-  %33 = getelementptr inbounds nuw %"struct.llvm::rdf::NodeAddr.65", ptr %27, i64 %1
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %1
   store ptr %33, ptr %4, align 8, !tbaa !424
-  %34 = getelementptr inbounds nuw %"struct.llvm::rdf::NodeAddr.65", ptr %26, i64 %24
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %24
   store ptr %34, ptr %11, align 8, !tbaa !427
   br label %35
 
@@ -22271,7 +22255,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__det
   %6 = load i64, ptr %5, align 8, !tbaa !705
   %7 = urem i64 %4, %6
   %8 = load ptr, ptr %0, align 8, !tbaa !698
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %7
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %7
   %10 = load ptr, ptr %9, align 8, !tbaa !808
   %.not.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i, label %.loopexit, label %11
@@ -22328,7 +22312,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__det
 37:                                               ; preds = %33, %.loopexit
   %.0.i19 = phi i64 [ %36, %33 ], [ %7, %.loopexit ]
   %38 = load ptr, ptr %0, align 8, !tbaa !698
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.0.i19
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %.0.i19
   %40 = load ptr, ptr %39, align 8, !tbaa !808
   %.not.i.i20 = icmp eq ptr %40, null
   br i1 %.not.i.i20, label %43, label %41
@@ -22353,7 +22337,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt8__det
   %49 = load i32, ptr %47, align 4, !tbaa !11
   %50 = zext i32 %49 to i64
   %51 = urem i64 %50, %48
-  %52 = getelementptr inbounds nuw ptr, ptr %38, i64 %51
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %51
   store ptr %24, ptr %52, align 8, !tbaa !808
   br label %53
 
@@ -22423,7 +22407,7 @@ _ZNSt10_HashtableIjSt4pairIKjN4llvm3rdf13DataFlowGraph8DefStackEESaIS6_ENSt8__de
   %18 = load i32, ptr %17, align 8, !tbaa !11
   %19 = zext i32 %18 to i64
   %20 = urem i64 %19, %1
-  %21 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !808
   %.not27 = icmp eq ptr %22, null
   br i1 %.not27, label %23, label %28
@@ -22438,7 +22422,7 @@ _ZNSt10_HashtableIjSt4pairIKjN4llvm3rdf13DataFlowGraph8DefStackEESaIS6_ENSt8__de
   br i1 %.not28, label %31, label %26
 
 26:                                               ; preds = %23
-  %27 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %27, align 8, !tbaa !808
   br label %31
 
@@ -22515,7 +22499,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17Machi
   %17 = add i32 %8, -1
   %.02944.i = and i32 %16, %17
   %18 = zext nneg i32 %.02944.i to i64
-  %19 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %6, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !271
   %21 = icmp eq ptr %11, %20
   br i1 %21, label %.loopexit, label %.lr.ph.i, !prof !742
@@ -22543,7 +22527,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17Machi
   %31 = add i32 %.02746.i, %.02947.i
   %.029.i = and i32 %31, %17
   %32 = zext i32 %.029.i to i64
-  %33 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %6, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !271
   %35 = icmp eq ptr %11, %34
   br i1 %35, label %.loopexit, label %.lr.ph.i, !prof !743, !llvm.loop !770
@@ -22612,7 +22596,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockENS_6detail13DenseSet
   %.sink29 = phi ptr [ %50, %59 ], [ %19, %10 ], [ %33, %27 ]
   %.sink = phi i8 [ 1, %59 ], [ 0, %10 ], [ 0, %27 ]
   %63 = zext i32 %.sink32 to i64
-  %64 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %.sink30, i64 %63
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %.sink30, i64 %63
   store ptr %.sink29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %64, ptr %.sroa.4.0..sroa_idx, align 8
@@ -22639,7 +22623,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %15 = add i32 %6, -1
   %.02944 = and i32 %14, %15
   %16 = zext nneg i32 %.02944 to i64
-  %17 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %4, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !271
   %19 = icmp eq ptr %9, %18
   br i1 %19, label %.thread, label %.lr.ph, !prof !742
@@ -22667,7 +22651,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %29 = add i32 %.02947, %.02746
   %.029 = and i32 %29, %15
   %30 = zext i32 %.029 to i64
-  %31 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %4, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !271
   %33 = icmp eq ptr %9, %32
   br i1 %33, label %.thread, label %.lr.ph, !prof !743, !llvm.loop !770
@@ -22775,7 +22759,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockENS_6detail13DenseSet
   %46 = xor i32 %44, %45
   %.02944.i.i = and i32 %46, %38
   %47 = zext nneg i32 %.02944.i.i to i64
-  %48 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %21, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %47
   %49 = load ptr, ptr %48, align 8, !tbaa !271
   %50 = icmp eq ptr %41, %49
   br i1 %50, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E15LookupBucketForIS3_EEbRKT_RPS9_.exit.i, label %.lr.ph.i15.i, !prof !742
@@ -22803,7 +22787,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockENS_6detail13DenseSet
   %60 = add i32 %.02746.i.i, %.02947.i.i
   %.029.i.i = and i32 %60, %38
   %61 = zext i32 %.029.i.i to i64
-  %62 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %21, i64 %61
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %61
   %63 = load ptr, ptr %62, align 8, !tbaa !271
   %64 = icmp eq ptr %41, %63
   br i1 %64, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_17MachineBasicBlockENS_6detail13DenseSetEmptyENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E15LookupBucketForIS3_EEbRKT_RPS9_.exit.i, label %.lr.ph.i15.i, !prof !743, !llvm.loop !770
@@ -23226,7 +23210,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfo
   %40 = add i32 %37, -1
   %.02744.i.i = and i32 %40, %39
   %41 = zext i32 %.02744.i.i to i64
-  %42 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.480", ptr %21, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !11
   %44 = icmp eq i32 %35, %43
   br i1 %44, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfoIjvEENS2_12DenseSetPairIjEEEEjS3_S5_S7_E15LookupBucketForIjEEbRKT_RPS7_.exit.i, label %.lr.ph.i.i, !prof !742
@@ -23254,7 +23238,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfo
   %54 = add i32 %.02546.i.i, %.02747.i.i
   %.027.i.i = and i32 %54, %40
   %55 = zext i32 %.027.i.i to i64
-  %56 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.480", ptr %21, i64 %55
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %55
   %57 = load i32, ptr %56, align 4, !tbaa !11
   %58 = icmp eq i32 %35, %57
   br i1 %58, label %_ZN4llvm12DenseMapBaseINS_8DenseMapIjNS_6detail13DenseSetEmptyENS_12DenseMapInfoIjvEENS2_12DenseSetPairIjEEEEjS3_S5_S7_E15LookupBucketForIjEEbRKT_RPS7_.exit.i, label %.lr.ph.i.i, !prof !743, !llvm.loop !855
@@ -23325,7 +23309,7 @@ _ZNK4llvm3rdf13DataFlowGraph8DefStack5emptyEv.exit: ; preds = %6
   %25 = add nuw nsw i64 %.sroa.2.0.extract.shift.i.i, 4294967295
   %26 = and i64 %25, 4294967295
   %27 = load ptr, ptr %24, align 8, !tbaa !64
-  %28 = getelementptr inbounds nuw %"struct.llvm::LaneBitmask", ptr %27, i64 %26
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %26
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %28, align 8, !tbaa !13
   br label %_ZNK4llvm3rdf13DataFlowGraph6unpackENS0_17PackedRegisterRefE.exit.i
 
@@ -23412,7 +23396,7 @@ _ZN4llvm3rdf12RegisterAggrC2ERKNS0_20PhysicalRegisterInfoE.exit: ; preds = %_ZSt
   %.sroa.673.088 = phi i32 [ %.fca.1.load.i, %.lr.ph ], [ %92, %_ZN4llvm3rdf13DataFlowGraph8DefStack8Iterator4downEv.exit ]
   %53 = add i32 %.sroa.673.088, -1
   %54 = zext i32 %53 to i64
-  %55 = getelementptr inbounds nuw %"struct.llvm::rdf::NodeAddr.65", ptr %52, i64 %54
+  %55 = getelementptr inbounds nuw [16 x i8], ptr %52, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !54
   %57 = load i16, ptr %56, align 8, !tbaa !47
   %58 = and i16 %57, 128
@@ -23430,7 +23414,7 @@ _ZN4llvm3rdf12RegisterAggrC2ERKNS0_20PhysicalRegisterInfoE.exit: ; preds = %_ZSt
   %63 = add nuw nsw i64 %.sroa.2.0.extract.shift.i.i52, 4294967295
   %64 = and i64 %63, 4294967295
   %65 = load ptr, ptr %50, align 8, !tbaa !64
-  %66 = getelementptr inbounds nuw %"struct.llvm::LaneBitmask", ptr %65, i64 %64
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %64
   %.sroa.0.0.copyload.i.i.i.i53 = load i64, ptr %66, align 8, !tbaa !13
   br label %_ZNK4llvm3rdf13DataFlowGraph6unpackENS0_17PackedRegisterRefE.exit.i54
 
@@ -23460,7 +23444,7 @@ _ZNK4llvm3rdf7RefNode9getRegRefERKNS0_13DataFlowGraphE.exit61: ; preds = %_ZNK4l
   %76 = call noundef nonnull align 8 dereferenceable(80) ptr @_ZN4llvm3rdf12RegisterAggr6insertENS0_11RegisterRefE(ptr noundef nonnull align 8 dereferenceable(80) %11, i32 %72, i64 %73) #24
   %77 = call noundef zeroext i1 @_ZNK4llvm3rdf12RegisterAggr10hasCoverOfENS0_11RegisterRefE(ptr noundef nonnull align 8 dereferenceable(80) %76, i32 %34, i64 %35) #24
   %78 = load ptr, ptr %.fca.0.load.i, align 8, !tbaa !347
-  %79 = getelementptr inbounds nuw %"struct.llvm::rdf::NodeAddr.65", ptr %78, i64 %54
+  %79 = getelementptr inbounds nuw [16 x i8], ptr %78, i64 %54
   %.sroa.0.0.copyload.i62 = load ptr, ptr %79, align 8, !tbaa !428
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %79, i64 8
   %.sroa.2.0.copyload.i = load i32, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !11
@@ -23503,7 +23487,7 @@ _ZNK4llvm3rdf13DataFlowGraph8DefStack11isDelimiterERKNS0_8NodeAddrIPNS0_7DefNode
 94:                                               ; preds = %_ZNK4llvm3rdf13DataFlowGraph8DefStack11isDelimiterERKNS0_8NodeAddrIPNS0_7DefNodeEEEj.exit7.i.i
   %95 = add i32 %.0.i.i, -2
   %96 = zext i32 %95 to i64
-  %97 = getelementptr inbounds nuw %"struct.llvm::rdf::NodeAddr.65", ptr %91, i64 %96
+  %97 = getelementptr inbounds nuw [16 x i8], ptr %91, i64 %96
   %98 = load ptr, ptr %97, align 8, !tbaa !54
   %99 = icmp eq ptr %98, null
   br i1 %99, label %_ZNK4llvm3rdf13DataFlowGraph8DefStack11isDelimiterERKNS0_8NodeAddrIPNS0_7DefNodeEEEj.exit7.i.i, label %_ZN4llvm3rdf13DataFlowGraph8DefStack8Iterator4downEv.exit, !llvm.loop !350

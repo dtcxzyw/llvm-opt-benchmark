@@ -185,7 +185,7 @@ define noundef range(i64 0, 6) i64 @"_ZN57_$LT$log..Level$u20$as$u20$core..str..
 define noundef zeroext i1 @"_ZN49_$LT$log..Level$u20$as$u20$core..fmt..Display$GT$3fmt17hce49cbb741b85520E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !31)
   %3 = load i64, ptr %0, align 8, !range !34, !alias.scope !31, !noundef !7
-  %4 = getelementptr inbounds nuw { ptr, i64 }, ptr @_ZN3log15LOG_LEVEL_NAMES17h19681b37bc026262E, i64 %3
+  %4 = getelementptr inbounds nuw [16 x i8], ptr @_ZN3log15LOG_LEVEL_NAMES17h19681b37bc026262E, i64 %3
   %5 = load ptr, ptr %4, align 8, !noalias !31, !nonnull !7, !align !8, !noundef !7
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load i64, ptr %6, align 8, !noalias !31, !noundef !7
@@ -205,7 +205,7 @@ switch.lookup:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { ptr, i64 } @_ZN3log5Level6as_str17he412237308c8e922E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #4 {
   %2 = load i64, ptr %0, align 8, !range !34, !noundef !7
-  %3 = getelementptr inbounds nuw { ptr, i64 }, ptr @_ZN3log15LOG_LEVEL_NAMES17h19681b37bc026262E, i64 %2
+  %3 = getelementptr inbounds nuw [16 x i8], ptr @_ZN3log15LOG_LEVEL_NAMES17h19681b37bc026262E, i64 %2
   %4 = load ptr, ptr %3, align 8, !nonnull !7, !align !8, !noundef !7
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !7
@@ -306,7 +306,7 @@ define noundef range(i64 0, 7) i64 @"_ZN63_$LT$log..LevelFilter$u20$as$u20$core.
 define noundef zeroext i1 @"_ZN55_$LT$log..LevelFilter$u20$as$u20$core..fmt..Display$GT$3fmt17h0b5d7d60775a5931E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #2 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !60)
   %3 = load i64, ptr %0, align 8, !range !63, !alias.scope !60, !noundef !7
-  %4 = getelementptr inbounds nuw { ptr, i64 }, ptr @_ZN3log15LOG_LEVEL_NAMES17h19681b37bc026262E, i64 %3
+  %4 = getelementptr inbounds nuw [16 x i8], ptr @_ZN3log15LOG_LEVEL_NAMES17h19681b37bc026262E, i64 %3
   %5 = load ptr, ptr %4, align 8, !noalias !60, !nonnull !7, !align !8, !noundef !7
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load i64, ptr %6, align 8, !noalias !60, !noundef !7
@@ -324,7 +324,7 @@ switch.lookup:
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { ptr, i64 } @_ZN3log11LevelFilter6as_str17hf6f68fae3241b58fE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #4 {
   %2 = load i64, ptr %0, align 8, !range !63, !noundef !7
-  %3 = getelementptr inbounds nuw { ptr, i64 }, ptr @_ZN3log15LOG_LEVEL_NAMES17h19681b37bc026262E, i64 %2
+  %3 = getelementptr inbounds nuw [16 x i8], ptr @_ZN3log15LOG_LEVEL_NAMES17h19681b37bc026262E, i64 %2
   %4 = load ptr, ptr %3, align 8, !nonnull !7, !align !8, !noundef !7
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !7

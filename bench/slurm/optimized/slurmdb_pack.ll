@@ -16430,19 +16430,19 @@ define dso_local void @slurmdb_pack_rollup_stats(ptr noundef readonly captures(n
 
 17:                                               ; preds = %11, %17
   %indvars.iv = phi i64 [ 0, %11 ], [ %indvars.iv.next, %17 ]
-  %18 = getelementptr inbounds nuw i16, ptr %12, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %indvars.iv
   %19 = load i16, ptr %18, align 2
   tail call void @pack16(i16 noundef zeroext %19, ptr noundef %2) #6
-  %20 = getelementptr inbounds nuw i64, ptr %13, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %21 = load i64, ptr %20, align 8
   tail call void @pack_time(i64 noundef %21, ptr noundef %2) #6
-  %22 = getelementptr inbounds nuw i64, ptr %14, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %23 = load i64, ptr %22, align 8
   tail call void @pack64(i64 noundef %23, ptr noundef %2) #6
-  %24 = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %25 = load i64, ptr %24, align 8
   tail call void @pack64(i64 noundef %25, ptr noundef %2) #6
-  %26 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv
   %27 = load i64, ptr %26, align 8
   tail call void @pack64(i64 noundef %27, ptr noundef %2) #6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -16511,31 +16511,31 @@ define dso_local range(i32 -1, 1) i32 @slurmdb_unpack_rollup_stats(ptr noundef w
 
 27:                                               ; preds = %.lr.ph, %23
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
-  %28 = getelementptr inbounds nuw i16, ptr %15, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %indvars.iv
   %29 = call i32 @unpack16(ptr noundef nonnull %28, ptr noundef %2) #6
   %.not32 = icmp eq i32 %29, 0
   br i1 %.not32, label %30, label %.loopexit37
 
 30:                                               ; preds = %27
-  %31 = getelementptr inbounds nuw i64, ptr %16, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv
   %32 = call i32 @unpack_time(ptr noundef nonnull %31, ptr noundef %2) #6
   %.not33 = icmp eq i32 %32, 0
   br i1 %.not33, label %33, label %.loopexit37
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds nuw i64, ptr %17, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv
   %35 = call i32 @unpack64(ptr noundef nonnull %34, ptr noundef %2) #6
   %.not34 = icmp eq i32 %35, 0
   br i1 %.not34, label %36, label %.loopexit37
 
 36:                                               ; preds = %33
-  %37 = getelementptr inbounds nuw i64, ptr %18, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
   %38 = call i32 @unpack64(ptr noundef nonnull %37, ptr noundef %2) #6
   %.not35 = icmp eq i32 %38, 0
   br i1 %.not35, label %39, label %.loopexit37
 
 39:                                               ; preds = %36
-  %40 = getelementptr inbounds nuw i64, ptr %19, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   %41 = call i32 @unpack64(ptr noundef nonnull %40, ptr noundef %2) #6
   %.not36 = icmp eq i32 %41, 0
   br i1 %.not36, label %23, label %.loopexit37

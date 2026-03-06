@@ -3,14 +3,6 @@ source_filename = "bench/libigl/original/writeTGF.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"class.std::vector.4" = type { %"struct.std::_Vector_base.5" }
-%"struct.std::_Vector_base.5" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" }
-%"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl" = type { %"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<double, std::allocator<double>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.14" = type { %"struct.std::_Vector_base.15" }
-%"struct.std::_Vector_base.15" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<std::vector<double>, std::allocator<std::vector<double>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::vector<double>, std::allocator<std::vector<double>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::vector<double>, std::allocator<std::vector<double>>>::_Vector_impl_data" }
@@ -75,7 +67,7 @@ define dso_local noundef zeroext i1 @_ZN3igl8writeTGFENSt7__cxx1112basic_stringI
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %29 = phi ptr [ %40, %.lr.ph ], [ %9, %.preheader ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %30 = getelementptr inbounds nuw %"class.std::vector.4", ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8, !tbaa !20
   %32 = load double, ptr %31, align 8, !tbaa !23
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 8
@@ -103,7 +95,7 @@ define dso_local noundef zeroext i1 @_ZN3igl8writeTGFENSt7__cxx1112basic_stringI
 .lr.ph29:                                         ; preds = %._crit_edge, %.lr.ph29
   %indvars.iv32 = phi i64 [ %indvars.iv.next33, %.lr.ph29 ], [ 0, %._crit_edge ]
   %49 = phi ptr [ %59, %.lr.ph29 ], [ %22, %._crit_edge ]
-  %50 = getelementptr inbounds nuw %"class.std::vector.14", ptr %49, i64 %indvars.iv32
+  %50 = getelementptr inbounds nuw [24 x i8], ptr %49, i64 %indvars.iv32
   %51 = load ptr, ptr %50, align 8, !tbaa !27
   %52 = load i32, ptr %51, align 4, !tbaa !30
   %53 = add nsw i32 %52, 1

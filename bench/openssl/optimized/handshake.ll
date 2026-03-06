@@ -2491,7 +2491,7 @@ define internal range(i32 0, 5) i32 @decrypt_session_ticket_cb(ptr readnone capt
 
 switch.lookup:                                    ; preds = %6
   %8 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.decrypt_session_ticket_cb, i64 %8
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.decrypt_session_ticket_cb, i64 %8
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %9
 

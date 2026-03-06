@@ -189,7 +189,7 @@ _ZN6Assimp17HexOctetToDecimalEPKc.exit:           ; preds = %_ZN6Assimp17HexDigi
   %73 = zext i8 %71 to i64
   %74 = add nuw nsw i64 %73, 4294967264
   %75 = and i64 %74, 4294967295
-  %76 = getelementptr inbounds nuw i16, ptr @_ZL13mac_codetable, i64 %75
+  %76 = getelementptr inbounds nuw [2 x i8], ptr @_ZL13mac_codetable, i64 %75
   %77 = load i16, ptr %76, align 2
   %78 = zext i16 %77 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -427,7 +427,7 @@ _ZN6Assimp17HexDigitToDecimalEc.exit.i209:        ; preds = %165, %163, %155
   %182 = shl nuw i16 %181, 8
   %183 = zext i8 %180 to i16
   %184 = or disjoint i16 %182, %183
-  %185 = getelementptr inbounds nuw i16, ptr %132, i64 %.0157409
+  %185 = getelementptr inbounds nuw [2 x i8], ptr %132, i64 %.0157409
   store i16 %184, ptr %185, align 2
   %186 = add nuw nsw i64 %.0157409, 1
   %187 = getelementptr inbounds nuw i8, ptr %.0156410, i64 4
@@ -435,7 +435,7 @@ _ZN6Assimp17HexDigitToDecimalEc.exit.i209:        ; preds = %165, %163, %155
   br i1 %exitcond477.not, label %._crit_edge413, label %.lr.ph412, !llvm.loop !6
 
 188:                                              ; preds = %._crit_edge413
-  %189 = getelementptr inbounds nuw i16, ptr %132, i64 %130
+  %189 = getelementptr inbounds nuw [2 x i8], ptr %132, i64 %130
   %190 = invoke noundef ptr @_ZN4utf88utf16to8IPKtPhEET0_T_S5_S4_(ptr noundef nonnull %132, ptr noundef nonnull %189, ptr noundef nonnull %135)
           to label %191 unwind label %198
 
@@ -704,7 +704,7 @@ _ZN6Assimp17HexDigitToDecimalEc.exit.i265:        ; preds = %286, %284, %276
   %309 = or disjoint i32 %308, %306
   %310 = zext i8 %301 to i32
   %311 = or disjoint i32 %309, %310
-  %312 = getelementptr inbounds nuw i32, ptr %207, i64 %.0154405
+  %312 = getelementptr inbounds nuw [4 x i8], ptr %207, i64 %.0154405
   store i32 %311, ptr %312, align 4
   %313 = add nuw nsw i64 %.0154405, 1
   %314 = getelementptr inbounds nuw i8, ptr %.0155404, i64 8

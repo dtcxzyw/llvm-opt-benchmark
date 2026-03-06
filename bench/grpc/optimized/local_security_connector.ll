@@ -65,8 +65,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.37" = type { %"struct.std::_Vector_base<absl::lts_20240722::Status, std::allocator<absl::lts_20240722::Status>>::_Vector_impl" }
 %"struct.std::_Vector_base<absl::lts_20240722::Status, std::allocator<absl::lts_20240722::Status>>::_Vector_impl" = type { %"struct.std::_Vector_base<absl::lts_20240722::Status, std::allocator<absl::lts_20240722::Status>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<absl::lts_20240722::Status, std::allocator<absl::lts_20240722::Status>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%struct.tsi_peer_property = type { ptr, %struct.anon }
-%struct.anon = type { ptr, i64 }
 %"class.std::unique_ptr.61" = type { %"struct.std::__uniq_ptr_data.62" }
 %"struct.std::__uniq_ptr_data.62" = type { %"class.std::__uniq_ptr_impl.63" }
 %"class.std::__uniq_ptr_impl.63" = type { %"class.std::tuple.64" }
@@ -82,7 +80,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
-%struct.grpc_auth_property = type { ptr, ptr, i64 }
 %"class.grpc_core::Poll" = type { i8, %union.anon.71 }
 %union.anon.71 = type { %"class.absl::lts_20240722::Status" }
 
@@ -686,7 +683,7 @@ _ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %2
 _ZNSt6vectorIPFvPvESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %25, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !64
   store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !61
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !65
   br label %_ZNSt6vectorIPFvPvESaIS2_EE9push_backERKS2_.exit
 
@@ -1474,8 +1471,8 @@ _ZN4absl12lts_202407226StatusD2Ev.exit77:         ; preds = %102, %105
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.036119 = phi i64 [ %124, %.lr.ph ], [ 0, %.preheader ]
-  %122 = getelementptr inbounds nuw %struct.tsi_peer_property, ptr %.pre, i64 %.036119
-  %123 = getelementptr inbounds nuw %struct.tsi_peer_property, ptr %118, i64 %.036119
+  %122 = getelementptr inbounds nuw [24 x i8], ptr %.pre, i64 %.036119
+  %123 = getelementptr inbounds nuw [24 x i8], ptr %118, i64 %.036119
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %123, ptr noundef nonnull align 8 dereferenceable(24) %122, i64 24, i1 false), !tbaa.struct !98
   %124 = add nuw i64 %.036119, 1
   %exitcond.not = icmp eq i64 %124, %119
@@ -1520,7 +1517,7 @@ _ZN9grpc_core29IsLocalConnectorSecureEnabledEv.exit.thread115.invoke: ; preds = 
 136:                                              ; preds = %_ZN9grpc_core29IsLocalConnectorSecureEnabledEv.exit.thread115.invoke
   %137 = load ptr, ptr %12, align 8, !tbaa !97
   %138 = load i64, ptr %29, align 8, !tbaa !94
-  %139 = getelementptr inbounds nuw %struct.tsi_peer_property, ptr %137, i64 %138
+  %139 = getelementptr inbounds nuw [24 x i8], ptr %137, i64 %138
   %140 = invoke noundef i32 @_Z47tsi_construct_string_peer_property_from_cstringPKcS0_P17tsi_peer_property(ptr noundef nonnull @.str.14, ptr noundef %135, ptr noundef %139)
           to label %141 unwind label %142
 
@@ -2441,7 +2438,7 @@ _ZN9grpc_core13RefCountedPtrI17grpc_auth_contextE5resetERKNS_13DebugLocationEPKc
 .lr.ph:                                           ; preds = %.preheader, %15
   %.06 = phi i64 [ %16, %15 ], [ 0, %.preheader ]
   %13 = load ptr, ptr %8, align 8, !tbaa !147
-  %14 = getelementptr inbounds nuw %struct.grpc_auth_property, ptr %13, i64 %.06
+  %14 = getelementptr inbounds nuw [24 x i8], ptr %13, i64 %.06
   invoke void @_Z24grpc_auth_property_resetP18grpc_auth_property(ptr noundef %14)
           to label %15 unwind label %.loopexit
 

@@ -7,8 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.wrapper_rm_job_args_t = type { i32, ptr, ptr, ptr, ptr, i32 }
 %struct.cr_job_list_args_t = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr }
 %struct.timeval = type { i64, i64 }
-%struct.node_use_record_t = type { i64, ptr, ptr, i16 }
-%struct.part_row_data_t = type { ptr, i32, i32, ptr, i32 }
 %struct.gres_cpus_foreach_args_t = type { i32, i32, ptr }
 %struct.topology_eval = type { ptr, i16, ptr, i16, i8, ptr, i8, i8, ptr, i32, ptr, i32, ptr, i8, i32, i8 }
 
@@ -279,7 +277,7 @@ _get_job_node_req.exit:                           ; preds = %68, %74, %76, %81
 
 switch.lookup:                                    ; preds = %87
   %89 = zext nneg i16 %5 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.job_test, i64 %89
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.job_test, i64 %89
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.fold.split79
 
@@ -2043,7 +2041,7 @@ define internal fastcc i32 @_job_test(ptr noundef %0, ptr noundef %1, i32 nounde
   %82 = sub i64 %79, %81
   %83 = load i32, ptr %17, align 4
   %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds %struct.node_use_record_t, ptr %9, i64 %84
+  %85 = getelementptr inbounds [32 x i8], ptr %9, i64 %84
   %86 = load i64, ptr %85, align 8
   %.090.i = call i64 @llvm.usub.sat.i64(i64 %82, i64 %86)
   %87 = icmp ult i64 %.090.i, %.088.i
@@ -2066,7 +2064,7 @@ define internal fastcc i32 @_job_test(ptr noundef %0, ptr noundef %1, i32 nounde
 95:                                               ; preds = %94
   %96 = load i32, ptr %17, align 4
   %97 = sext i32 %96 to i64
-  %98 = getelementptr inbounds %struct.node_use_record_t, ptr %9, i64 %97
+  %98 = getelementptr inbounds [32 x i8], ptr %9, i64 %97
   %99 = load i64, ptr %98, align 8
   %.not115.i = icmp eq i64 %99, 0
   br i1 %.not115.i, label %110, label %100
@@ -2081,7 +2079,7 @@ define internal fastcc i32 @_job_test(ptr noundef %0, ptr noundef %1, i32 nounde
   %105 = load ptr, ptr %104, align 8
   %106 = load i32, ptr %17, align 4
   %107 = sext i32 %106 to i64
-  %108 = getelementptr inbounds %struct.node_use_record_t, ptr %9, i64 %107
+  %108 = getelementptr inbounds [32 x i8], ptr %9, i64 %107
   %109 = load i64, ptr %108, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.56, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._verify_node_state, ptr noundef %105, i64 noundef %109, ptr noundef %0) #10
   br label %294
@@ -2102,7 +2100,7 @@ define internal fastcc i32 @_job_test(ptr noundef %0, ptr noundef %1, i32 nounde
 117:                                              ; preds = %115
   %118 = load i32, ptr %17, align 4
   %119 = sext i32 %118 to i64
-  %120 = getelementptr inbounds ptr, ptr %116, i64 %119
+  %120 = getelementptr inbounds [8 x i8], ptr %116, i64 %119
   %121 = load ptr, ptr %120, align 8
   %.not118.i = icmp eq ptr %121, null
   br i1 %.not118.i, label %130, label %122
@@ -2126,7 +2124,7 @@ define internal fastcc i32 @_job_test(ptr noundef %0, ptr noundef %1, i32 nounde
 130:                                              ; preds = %122, %117, %115, %110
   %131 = load i32, ptr %17, align 4
   %132 = sext i32 %131 to i64
-  %133 = getelementptr inbounds %struct.node_use_record_t, ptr %9, i64 %132
+  %133 = getelementptr inbounds [32 x i8], ptr %9, i64 %132
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 8
   %135 = load ptr, ptr %134, align 8
   %.not120.i = icmp eq ptr %135, null
@@ -2191,7 +2189,7 @@ define internal fastcc i32 @_job_test(ptr noundef %0, ptr noundef %1, i32 nounde
 .critedge.i:                                      ; preds = %158, %152
   %169 = load i32, ptr %17, align 4
   %170 = sext i32 %169 to i64
-  %171 = getelementptr inbounds %struct.node_use_record_t, ptr %9, i64 %170
+  %171 = getelementptr inbounds [32 x i8], ptr %9, i64 %170
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 24
   %173 = load i16, ptr %172, align 8
   %174 = icmp ugt i16 %173, -1537
@@ -2271,14 +2269,14 @@ define internal fastcc i32 @_job_test(ptr noundef %0, ptr noundef %1, i32 nounde
 208:                                              ; preds = %.preheader.us.us.i.i, %218
   %indvars.iv60.i.i = phi i64 [ 0, %.preheader.us.us.i.i ], [ %indvars.iv.next61.i.i, %218 ]
   %209 = load ptr, ptr %206, align 8
-  %210 = getelementptr inbounds nuw %struct.part_row_data_t, ptr %209, i64 %indvars.iv60.i.i
+  %210 = getelementptr inbounds nuw [32 x i8], ptr %209, i64 %indvars.iv60.i.i
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 16
   %212 = load ptr, ptr %211, align 8
   %.not30.us40.us.i.i = icmp eq ptr %212, null
   br i1 %.not30.us40.us.i.i, label %218, label %213
 
 213:                                              ; preds = %208
-  %214 = getelementptr inbounds nuw ptr, ptr %212, i64 %194
+  %214 = getelementptr inbounds nuw [8 x i8], ptr %212, i64 %194
   %215 = load ptr, ptr %214, align 8
   %.not53.i.i = icmp eq ptr %215, null
   br i1 %.not53.i.i, label %218, label %216
@@ -2344,14 +2342,14 @@ _is_node_busy.exit.i:                             ; preds = %216
 .lr.ph.us.i.i:                                    ; preds = %.lr.ph.us.preheader.i.i, %243
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.us.preheader.i.i ], [ %indvars.iv.next.i.i, %243 ]
   %234 = load ptr, ptr %232, align 8
-  %235 = getelementptr inbounds nuw %struct.part_row_data_t, ptr %234, i64 %indvars.iv.i.i
+  %235 = getelementptr inbounds nuw [32 x i8], ptr %234, i64 %indvars.iv.i.i
   %236 = getelementptr inbounds nuw i8, ptr %235, i64 16
   %237 = load ptr, ptr %236, align 8
   %.not30.us40.i.i = icmp eq ptr %237, null
   br i1 %.not30.us40.i.i, label %243, label %238
 
 238:                                              ; preds = %.lr.ph.us.i.i
-  %239 = getelementptr inbounds nuw ptr, ptr %237, i64 %231
+  %239 = getelementptr inbounds nuw [8 x i8], ptr %237, i64 %231
   %240 = load ptr, ptr %239, align 8
   %.not52.i.i = icmp eq ptr %240, null
   br i1 %.not52.i.i, label %243, label %241
@@ -2440,14 +2438,14 @@ _is_node_busy.exit140.i:                          ; preds = %241
 275:                                              ; preds = %.preheader.us.us.i151.i, %285
   %indvars.iv60.i153.i = phi i64 [ 0, %.preheader.us.us.i151.i ], [ %indvars.iv.next61.i158.i, %285 ]
   %276 = load ptr, ptr %273, align 8
-  %277 = getelementptr inbounds nuw %struct.part_row_data_t, ptr %276, i64 %indvars.iv60.i153.i
+  %277 = getelementptr inbounds nuw [32 x i8], ptr %276, i64 %indvars.iv60.i153.i
   %278 = getelementptr inbounds nuw i8, ptr %277, i64 16
   %279 = load ptr, ptr %278, align 8
   %.not30.us40.us.i154.i = icmp eq ptr %279, null
   br i1 %.not30.us40.us.i154.i, label %285, label %280
 
 280:                                              ; preds = %275
-  %281 = getelementptr inbounds nuw ptr, ptr %279, i64 %261
+  %281 = getelementptr inbounds nuw [8 x i8], ptr %279, i64 %261
   %282 = load ptr, ptr %281, align 8
   %.not53.i155.i = icmp eq ptr %282, null
   br i1 %.not53.i155.i, label %285, label %283
@@ -3161,7 +3159,7 @@ _build_gres_mc_data.exit:                         ; preds = %490, %494, %497
   %storemerge864995 = phi i32 [ 0, %.lr.ph ], [ %627, %625 ]
   %605 = load ptr, ptr %599, align 8
   %606 = sext i32 %storemerge864995 to i64
-  %607 = getelementptr inbounds %struct.part_row_data_t, ptr %605, i64 %606
+  %607 = getelementptr inbounds [32 x i8], ptr %605, i64 %606
   %608 = getelementptr inbounds nuw i8, ptr %607, i64 16
   %609 = load ptr, ptr %608, align 8
   %.not865 = icmp eq ptr %609, null
@@ -3181,7 +3179,7 @@ _build_gres_mc_data.exit:                         ; preds = %490, %494, %497
   %616 = load ptr, ptr %599, align 8
   %617 = load i32, ptr %30, align 4
   %618 = sext i32 %617 to i64
-  %619 = getelementptr inbounds %struct.part_row_data_t, ptr %616, i64 %618
+  %619 = getelementptr inbounds [32 x i8], ptr %616, i64 %618
   %620 = getelementptr inbounds nuw i8, ptr %619, i64 16
   %621 = load ptr, ptr %620, align 8
   br i1 %.not867, label %623, label %622
@@ -3415,7 +3413,7 @@ _build_gres_mc_data.exit:                         ; preds = %490, %494, %497
   %storemerge8001004 = phi i32 [ %737, %734 ], [ 0, %.preheader962 ]
   %727 = load ptr, ptr %722, align 8
   %728 = sext i32 %storemerge8001004 to i64
-  %729 = getelementptr inbounds %struct.part_row_data_t, ptr %727, i64 %728
+  %729 = getelementptr inbounds [32 x i8], ptr %727, i64 %728
   %730 = getelementptr inbounds nuw i8, ptr %729, i64 16
   %731 = load ptr, ptr %730, align 8
   %.not801 = icmp eq ptr %731, null
@@ -3542,7 +3540,7 @@ _build_gres_mc_data.exit:                         ; preds = %490, %494, %497
   %storemerge7951007 = phi i32 [ %799, %796 ], [ 0, %.preheader960 ]
   %789 = load ptr, ptr %784, align 8
   %790 = sext i32 %storemerge7951007 to i64
-  %791 = getelementptr inbounds %struct.part_row_data_t, ptr %789, i64 %790
+  %791 = getelementptr inbounds [32 x i8], ptr %789, i64 %790
   %792 = getelementptr inbounds nuw i8, ptr %791, i64 16
   %793 = load ptr, ptr %792, align 8
   %.not796 = icmp eq ptr %793, null
@@ -3646,7 +3644,7 @@ _build_gres_mc_data.exit:                         ; preds = %490, %494, %497
   %storemerge7861010 = phi i32 [ %850, %847 ], [ 0, %.preheader959 ]
   %840 = load ptr, ptr %835, align 8
   %841 = sext i32 %storemerge7861010 to i64
-  %842 = getelementptr inbounds %struct.part_row_data_t, ptr %840, i64 %841
+  %842 = getelementptr inbounds [32 x i8], ptr %840, i64 %841
   %843 = getelementptr inbounds nuw i8, ptr %842, i64 16
   %844 = load ptr, ptr %843, align 8
   %.not792 = icmp eq ptr %844, null
@@ -3846,7 +3844,7 @@ _build_gres_mc_data.exit:                         ; preds = %490, %494, %497
   %935 = load ptr, ptr %902, align 8
   %936 = add nsw i32 %spec.select883, -1
   %937 = zext i32 %936 to i64
-  %938 = getelementptr inbounds nuw %struct.part_row_data_t, ptr %935, i64 %937
+  %938 = getelementptr inbounds nuw [32 x i8], ptr %935, i64 %937
   %939 = getelementptr inbounds nuw i8, ptr %938, i64 16
   %940 = load ptr, ptr %939, align 8
   %.not771 = icmp eq ptr %940, null
@@ -3855,7 +3853,7 @@ _build_gres_mc_data.exit:                         ; preds = %490, %494, %497
 941:                                              ; preds = %934
   %942 = call ptr @build_core_array() #10
   %943 = load ptr, ptr %902, align 8
-  %944 = getelementptr inbounds nuw %struct.part_row_data_t, ptr %943, i64 %937
+  %944 = getelementptr inbounds nuw [32 x i8], ptr %943, i64 %937
   %945 = getelementptr inbounds nuw i8, ptr %944, i64 16
   store ptr %942, ptr %945, align 8
   br label %946
@@ -3873,10 +3871,10 @@ _build_gres_mc_data.exit:                         ; preds = %490, %494, %497
 .lr.ph1017:                                       ; preds = %946, %.lr.ph1017
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph1017 ], [ 0, %946 ]
   %949 = load ptr, ptr %902, align 8
-  %950 = getelementptr inbounds nuw %struct.part_row_data_t, ptr %949, i64 %937
+  %950 = getelementptr inbounds nuw [32 x i8], ptr %949, i64 %937
   %951 = getelementptr inbounds nuw i8, ptr %950, i64 16
   %952 = load ptr, ptr %951, align 8
-  %953 = getelementptr inbounds nuw %struct.part_row_data_t, ptr %949, i64 %indvars.iv
+  %953 = getelementptr inbounds nuw [32 x i8], ptr %949, i64 %indvars.iv
   %954 = getelementptr inbounds nuw i8, ptr %953, i64 16
   %955 = load ptr, ptr %954, align 8
   call void @core_array_or(ptr noundef %952, ptr noundef %955) #10
@@ -3889,7 +3887,7 @@ _build_gres_mc_data.exit:                         ; preds = %490, %494, %497
   %957 = getelementptr inbounds nuw i8, ptr %956, i64 440
   %958 = load ptr, ptr %957, align 8
   %959 = load ptr, ptr %902, align 8
-  %960 = getelementptr inbounds nuw %struct.part_row_data_t, ptr %959, i64 %937
+  %960 = getelementptr inbounds nuw [32 x i8], ptr %959, i64 %937
   call void @job_res_rm_cores(ptr noundef %958, ptr noundef %960) #10
   %961 = call ptr @list_next(ptr noundef %947) #10
   %.not772 = icmp eq ptr %961, null
@@ -3914,7 +3912,7 @@ _build_gres_mc_data.exit:                         ; preds = %490, %494, %497
   %storemerge1023 = phi i32 [ %1008, %1006 ], [ 0, %962 ]
   %965 = load ptr, ptr %902, align 8
   %966 = sext i32 %storemerge1023 to i64
-  %967 = getelementptr inbounds %struct.part_row_data_t, ptr %965, i64 %966
+  %967 = getelementptr inbounds [32 x i8], ptr %965, i64 %966
   %968 = getelementptr inbounds nuw i8, ptr %967, i64 16
   %969 = load ptr, ptr %968, align 8
   %.not773 = icmp eq ptr %969, null
@@ -3928,7 +3926,7 @@ _build_gres_mc_data.exit:                         ; preds = %490, %494, %497
   %973 = load ptr, ptr %902, align 8
   %974 = load i32, ptr %30, align 4
   %975 = sext i32 %974 to i64
-  %976 = getelementptr inbounds %struct.part_row_data_t, ptr %973, i64 %975
+  %976 = getelementptr inbounds [32 x i8], ptr %973, i64 %975
   %977 = getelementptr inbounds nuw i8, ptr %976, i64 16
   %978 = load ptr, ptr %977, align 8
   call void @core_array_and_not(ptr noundef %972, ptr noundef %978) #10
@@ -4001,7 +3999,7 @@ _build_gres_mc_data.exit:                         ; preds = %490, %494, %497
 1012:                                             ; preds = %.loopexit966
   %1013 = load ptr, ptr %902, align 8
   %1014 = sext i32 %1010 to i64
-  %1015 = getelementptr inbounds %struct.part_row_data_t, ptr %1013, i64 %1014
+  %1015 = getelementptr inbounds [32 x i8], ptr %1013, i64 %1014
   %1016 = getelementptr inbounds nuw i8, ptr %1015, i64 16
   %1017 = load ptr, ptr %1016, align 8
   %.not778 = icmp eq ptr %1017, null
@@ -4223,7 +4221,7 @@ _build_gres_mc_data.exit:                         ; preds = %490, %494, %497
   %.06181028 = phi i32 [ %.1619, %1112 ], [ 0, %1097 ]
   %1103 = load i32, ptr %30, align 4
   %1104 = sext i32 %1103 to i64
-  %1105 = getelementptr inbounds ptr, ptr %.0632912, i64 %1104
+  %1105 = getelementptr inbounds [8 x i8], ptr %.0632912, i64 %1104
   %1106 = load ptr, ptr %1105, align 8
   %.not860 = icmp eq ptr %1106, null
   br i1 %.not860, label %1112, label %1107
@@ -4232,7 +4230,7 @@ _build_gres_mc_data.exit:                         ; preds = %490, %494, %497
   %1108 = load i16, ptr %1106, align 8
   %1109 = add i32 %.06181028, 1
   %1110 = zext i32 %.06181028 to i64
-  %1111 = getelementptr inbounds nuw i16, ptr %1101, i64 %1110
+  %1111 = getelementptr inbounds nuw [2 x i8], ptr %1101, i64 %1110
   store i16 %1108, ptr %1111, align 2
   %.pre1137 = load i32, ptr %30, align 4
   br label %1112
@@ -4437,7 +4435,7 @@ _build_gres_mc_data.exit:                         ; preds = %490, %494, %497
   %1226 = load ptr, ptr %26, align 8
   %1227 = load i32, ptr %30, align 4
   %1228 = sext i32 %1227 to i64
-  %1229 = getelementptr inbounds ptr, ptr %1226, i64 %1228
+  %1229 = getelementptr inbounds [8 x i8], ptr %1226, i64 %1228
   %1230 = load ptr, ptr %1229, align 8
   %.not8591032.not = icmp eq i16 %1225, 0
   br i1 %.not8591032.not, label %._crit_edge1038, label %.lr.ph1037.preheader
@@ -4496,7 +4494,7 @@ _build_gres_mc_data.exit:                         ; preds = %490, %494, %497
   %.pre-phi = phi i64 [ %.pre1149, %._crit_edge1038.loopexit ], [ %1228, %.lr.ph1048 ]
   %.1630.lcssa = phi i32 [ %.2631, %._crit_edge1038.loopexit ], [ %.06291043, %.lr.ph1048 ]
   %.3613.lcssa = phi i32 [ %1246, %._crit_edge1038.loopexit ], [ %.26121045, %.lr.ph1048 ]
-  %1247 = getelementptr inbounds ptr, ptr %.0632912, i64 %.pre-phi
+  %1247 = getelementptr inbounds [8 x i8], ptr %.0632912, i64 %.pre-phi
   %1248 = load ptr, ptr %1247, align 8
   %1249 = getelementptr inbounds nuw i8, ptr %1248, i64 16
   %1250 = load i32, ptr %1249, align 8
@@ -4510,7 +4508,7 @@ _build_gres_mc_data.exit:                         ; preds = %490, %494, %497
 1251:                                             ; preds = %._crit_edge1038
   %1252 = load ptr, ptr %28, align 8
   %1253 = zext i32 %.16271044 to i64
-  %1254 = getelementptr inbounds nuw i32, ptr %1252, i64 %1253
+  %1254 = getelementptr inbounds nuw [4 x i8], ptr %1252, i64 %1253
   store i32 %1250, ptr %1254, align 4
   %1255 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %1256 = and i64 %1255, 1
@@ -4526,18 +4524,18 @@ _build_gres_mc_data.exit:                         ; preds = %490, %494, %497
   %1261 = load ptr, ptr @node_record_table_ptr, align 8
   %1262 = load i32, ptr %30, align 4
   %1263 = sext i32 %1262 to i64
-  %1264 = getelementptr inbounds ptr, ptr %1261, i64 %1263
+  %1264 = getelementptr inbounds [8 x i8], ptr %1261, i64 %1263
   %1265 = load ptr, ptr %1264, align 8
   %1266 = getelementptr inbounds nuw i8, ptr %1265, i64 272
   %1267 = load ptr, ptr %1266, align 8
   %1268 = load ptr, ptr %29, align 8
   %1269 = getelementptr inbounds nuw i8, ptr %1268, i64 40
   %1270 = load ptr, ptr %1269, align 8
-  %1271 = getelementptr inbounds nuw i16, ptr %1270, i64 %1253
+  %1271 = getelementptr inbounds nuw [2 x i8], ptr %1270, i64 %1253
   %1272 = load i16, ptr %1271, align 2
   %1273 = zext i16 %1272 to i32
   %1274 = load ptr, ptr %28, align 8
-  %1275 = getelementptr inbounds nuw i32, ptr %1274, i64 %1253
+  %1275 = getelementptr inbounds nuw [4 x i8], ptr %1274, i64 %1253
   %1276 = load i32, ptr %1275, align 4
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.48, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._job_test, ptr noundef %0, ptr noundef %1267, i32 noundef %1262, i32 noundef %1273, i32 noundef %1262, i32 noundef %1276) #10
   br label %1277
@@ -4546,7 +4544,7 @@ _build_gres_mc_data.exit:                         ; preds = %490, %494, %497
   %.pre-phi1154 = phi i64 [ %.pre1153, %._crit_edge1038._crit_edge ], [ %1253, %1251 ], [ %1253, %1260 ], [ %1253, %1257 ]
   %1278 = load i32, ptr %30, align 4
   %1279 = sext i32 %1278 to i64
-  %1280 = getelementptr inbounds ptr, ptr %.0632912, i64 %1279
+  %1280 = getelementptr inbounds [8 x i8], ptr %.0632912, i64 %1279
   %1281 = load ptr, ptr %1280, align 8
   %1282 = getelementptr inbounds nuw i8, ptr %1281, i64 20
   %1283 = load i32, ptr %1282, align 4
@@ -4555,7 +4553,7 @@ _build_gres_mc_data.exit:                         ; preds = %490, %494, %497
   %1284 = load ptr, ptr %29, align 8
   %1285 = getelementptr inbounds nuw i8, ptr %1284, i64 40
   %1286 = load ptr, ptr %1285, align 8
-  %1287 = getelementptr inbounds nuw i16, ptr %1286, i64 %.pre-phi1154
+  %1287 = getelementptr inbounds nuw [2 x i8], ptr %1286, i64 %.pre-phi1154
   %1288 = load i16, ptr %1287, align 2
   %1289 = zext i16 %1288 to i32
   %1290 = add i32 %.06441042, %1289
@@ -4662,17 +4660,17 @@ _build_gres_mc_data.exit:                         ; preds = %490, %494, %497
 1343:                                             ; preds = %.lr.ph1057
   %1344 = load i32, ptr %30, align 4
   %1345 = sext i32 %1344 to i64
-  %1346 = getelementptr inbounds ptr, ptr %.0632912, i64 %1345
+  %1346 = getelementptr inbounds [8 x i8], ptr %.0632912, i64 %1345
   %1347 = load ptr, ptr %1346, align 8
   %1348 = getelementptr inbounds nuw i8, ptr %1347, i64 32
   %1349 = load ptr, ptr %1348, align 8
   %1350 = call i32 @gres_select_util_get_task_limit(ptr noundef %1349) #10
   %1351 = load ptr, ptr %34, align 8
   %1352 = zext i32 %.36211054 to i64
-  %1353 = getelementptr inbounds nuw i32, ptr %1351, i64 %1352
+  %1353 = getelementptr inbounds nuw [4 x i8], ptr %1351, i64 %1352
   store i32 %1350, ptr %1353, align 4
   %1354 = load ptr, ptr %34, align 8
-  %1355 = getelementptr inbounds nuw i32, ptr %1354, i64 %1352
+  %1355 = getelementptr inbounds nuw [4 x i8], ptr %1354, i64 %1352
   %1356 = load i32, ptr %1355, align 4
   %.not852 = icmp eq i32 %1356, -2
   %spec.select890 = select i1 %.not852, i8 %.05851055, i8 1
@@ -4688,13 +4686,13 @@ _build_gres_mc_data.exit:                         ; preds = %490, %494, %497
 1358:                                             ; preds = %1357
   %1359 = load i32, ptr %30, align 4
   %1360 = sext i32 %1359 to i64
-  %1361 = getelementptr inbounds ptr, ptr %.0632912, i64 %1360
+  %1361 = getelementptr inbounds [8 x i8], ptr %.0632912, i64 %1360
   %1362 = load ptr, ptr %1361, align 8
   %1363 = getelementptr inbounds nuw i8, ptr %1362, i64 20
   %1364 = load i32, ptr %1363, align 4
   %1365 = load ptr, ptr %34, align 8
   %1366 = zext i32 %.36211054 to i64
-  %1367 = getelementptr inbounds nuw i32, ptr %1365, i64 %1366
+  %1367 = getelementptr inbounds nuw [4 x i8], ptr %1365, i64 %1366
   store i32 %1364, ptr %1367, align 4
   br label %1368
 
@@ -4704,16 +4702,16 @@ _build_gres_mc_data.exit:                         ; preds = %490, %494, %497
   %1369 = getelementptr inbounds nuw i8, ptr %1342, i64 200
   %1370 = load ptr, ptr %1369, align 8
   %1371 = load ptr, ptr %32, align 8
-  %1372 = getelementptr inbounds nuw ptr, ptr %1371, i64 %.pre-phi1152
+  %1372 = getelementptr inbounds nuw [8 x i8], ptr %1371, i64 %.pre-phi1152
   store ptr %1370, ptr %1372, align 8
   %1373 = load i32, ptr %30, align 4
   %1374 = sext i32 %1373 to i64
-  %1375 = getelementptr inbounds ptr, ptr %.0632912, i64 %1374
+  %1375 = getelementptr inbounds [8 x i8], ptr %.0632912, i64 %1374
   %1376 = load ptr, ptr %1375, align 8
   %1377 = getelementptr inbounds nuw i8, ptr %1376, i64 32
   %1378 = load ptr, ptr %1377, align 8
   %1379 = load ptr, ptr %33, align 8
-  %1380 = getelementptr inbounds nuw ptr, ptr %1379, i64 %.pre-phi1152
+  %1380 = getelementptr inbounds nuw [8 x i8], ptr %1379, i64 %.pre-phi1152
   store ptr %1378, ptr %1380, align 8
   %1381 = trunc nuw i8 %.1586 to i1
   br i1 %1381, label %1382, label %1394
@@ -4734,7 +4732,7 @@ _build_gres_mc_data.exit:                         ; preds = %490, %494, %497
   %1389 = getelementptr inbounds nuw i8, ptr %1342, i64 272
   %1390 = load ptr, ptr %1389, align 8
   %1391 = load ptr, ptr %34, align 8
-  %1392 = getelementptr inbounds nuw i32, ptr %1391, i64 %.pre-phi1152
+  %1392 = getelementptr inbounds nuw [4 x i8], ptr %1391, i64 %.pre-phi1152
   %1393 = load i32, ptr %1392, align 4
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.50, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._job_test, ptr noundef %0, ptr noundef %1390, i32 noundef %.pre1144, i32 noundef %1393) #10
   %.pre1143 = load i32, ptr %30, align 4
@@ -5022,7 +5020,7 @@ _build_gres_mc_data.exit:                         ; preds = %490, %494, %497
 1530:                                             ; preds = %1529
   %1531 = load i32, ptr %30, align 4
   %1532 = sext i32 %1531 to i64
-  %1533 = getelementptr inbounds %struct.node_use_record_t, ptr %9, i64 %1532
+  %1533 = getelementptr inbounds [32 x i8], ptr %9, i64 %1532
   %1534 = load i64, ptr %1533, align 8
   %.not847 = icmp eq i64 %1534, 0
   br i1 %.not847, label %.thread943, label %1535
@@ -5041,7 +5039,7 @@ _build_gres_mc_data.exit:                         ; preds = %490, %494, %497
 1541:                                             ; preds = %1538
   %1542 = load i32, ptr %30, align 4
   %1543 = sext i32 %1542 to i64
-  %1544 = getelementptr inbounds %struct.node_use_record_t, ptr %9, i64 %1543
+  %1544 = getelementptr inbounds [32 x i8], ptr %9, i64 %1543
   %1545 = load i64, ptr %1544, align 8
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.52, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._job_test, ptr noundef %1517, i64 noundef %1545, ptr noundef %0) #10
   br label %1576
@@ -5050,7 +5048,7 @@ _build_gres_mc_data.exit:                         ; preds = %490, %494, %497
   %.0648.ph = phi i64 [ %1508, %1529 ], [ %1528, %1523 ]
   %1547 = load i32, ptr %30, align 4
   %1548 = sext i32 %1547 to i64
-  %1549 = getelementptr inbounds %struct.node_use_record_t, ptr %9, i64 %1548
+  %1549 = getelementptr inbounds [32 x i8], ptr %9, i64 %1548
   %1550 = load i64, ptr %1549, align 8
   %1551 = icmp ugt i64 %1550, %1522
   br i1 %1551, label %1552, label %1554
@@ -5086,7 +5084,7 @@ _build_gres_mc_data.exit:                         ; preds = %490, %494, %497
   %1566 = getelementptr inbounds nuw i8, ptr %1565, i64 72
   %1567 = load ptr, ptr %1566, align 8
   %1568 = zext i32 %.46221081 to i64
-  %1569 = getelementptr inbounds nuw i64, ptr %1567, i64 %1568
+  %1569 = getelementptr inbounds nuw [8 x i8], ptr %1567, i64 %1568
   store i64 %.0648940948, ptr %1569, align 8
   %1570 = add i32 %.46221081, 1
   %1571 = add nsw i32 %1564, 1
@@ -5348,7 +5346,7 @@ _socks_per_node.exit.i:                           ; preds = %92, %86, %83, %62
   %122 = load ptr, ptr @node_record_table_ptr, align 8
   %123 = trunc nsw i64 %indvars.iv.i to i32
   %124 = and i64 %indvars.iv.i, 4294967295
-  %125 = getelementptr inbounds nuw ptr, ptr %122, i64 %124
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %124
   %126 = load ptr, ptr %125, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
   store ptr null, ptr %21, align 8
@@ -5369,13 +5367,13 @@ _socks_per_node.exit.i:                           ; preds = %92, %86, %83, %62
   br i1 %.not182.i.i, label %138, label %135
 
 135:                                              ; preds = %134
-  %136 = getelementptr inbounds nuw ptr, ptr %10, i64 %124
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %124
   %137 = load ptr, ptr %136, align 8
   br label %138
 
 138:                                              ; preds = %135, %134
   %.0164.i.i = phi ptr [ %137, %135 ], [ null, %134 ]
-  %139 = getelementptr inbounds nuw %struct.node_use_record_t, ptr %6, i64 %124
+  %139 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %124
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 8
   %141 = load ptr, ptr %140, align 8
   %.not183.i.i = icmp eq ptr %141, null
@@ -5393,7 +5391,7 @@ _socks_per_node.exit.i:                           ; preds = %92, %86, %83, %62
   br i1 %.not184.i.i, label %182, label %147
 
 147:                                              ; preds = %145
-  %148 = getelementptr inbounds nuw ptr, ptr %5, i64 %124
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %124
   %149 = load ptr, ptr %148, align 8
   %.not186.i.i = icmp eq ptr %149, null
   br i1 %.not186.i.i, label %150, label %155
@@ -5455,13 +5453,13 @@ _socks_per_node.exit.i:                           ; preds = %92, %86, %83, %62
   %183 = phi ptr [ %.pre246.i.i, %._crit_edge.i.i ], [ null, %145 ]
   %.0163.i.i = phi ptr [ %173, %._crit_edge.i.i ], [ null, %145 ]
   %.0161.i.i = phi i1 [ %166, %._crit_edge.i.i ], [ false, %145 ]
-  %184 = getelementptr inbounds nuw ptr, ptr %5, i64 %124
+  %184 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %124
   %185 = load ptr, ptr %184, align 8
   br i1 %.not.i.i.i, label %186, label %197
 
 186:                                              ; preds = %182
   %187 = load ptr, ptr @node_record_table_ptr, align 8
-  %188 = getelementptr inbounds nuw ptr, ptr %187, i64 %124
+  %188 = getelementptr inbounds nuw [8 x i8], ptr %187, i64 %124
   %189 = load ptr, ptr %188, align 8
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 82
   %191 = load i16, ptr %190, align 2
@@ -5477,7 +5475,7 @@ _socks_per_node.exit.i:                           ; preds = %92, %86, %83, %62
 
 198:                                              ; preds = %197
   %199 = load ptr, ptr @node_record_table_ptr, align 8
-  %200 = getelementptr inbounds nuw ptr, ptr %199, i64 %124
+  %200 = getelementptr inbounds nuw [8 x i8], ptr %199, i64 %124
   %201 = load ptr, ptr %200, align 8
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 528
   %203 = load i16, ptr %202, align 8
@@ -6007,7 +6005,7 @@ _free_avail_res.exit222.i.i:                      ; preds = %261, %257
 
 461:                                              ; preds = %458
   %462 = load ptr, ptr %450, align 8
-  %463 = getelementptr inbounds nuw i16, ptr %462, i64 %indvars.iv.i.i.i
+  %463 = getelementptr inbounds nuw [2 x i8], ptr %462, i64 %indvars.iv.i.i.i
   %464 = load i16, ptr %463, align 2
   %465 = zext i16 %464 to i32
   %466 = load ptr, ptr %16, align 8
@@ -6028,7 +6026,7 @@ _free_avail_res.exit222.i.i:                      ; preds = %261, %257
 
 472:                                              ; preds = %469
   %473 = load ptr, ptr %450, align 8
-  %474 = getelementptr inbounds nuw i16, ptr %473, i64 %indvars.iv.i.i.i
+  %474 = getelementptr inbounds nuw [2 x i8], ptr %473, i64 %indvars.iv.i.i.i
   %475 = load i16, ptr %474, align 2
   %476 = zext i16 %475 to i32
   call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.82, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._avail_res_log, i32 noundef %453, i32 noundef %476) #10
@@ -6049,7 +6047,7 @@ _can_job_run_on_node.exit.i:                      ; preds = %_avail_res_log.exit
   %.0160.i.i = phi ptr [ null, %174 ], [ null, %_free_avail_res.exit222.i.i ], [ %205, %_avail_res_log.exit.i.i ], [ null, %311 ], [ null, %130 ], [ null, %177 ], [ null, %180 ], [ null, %224 ], [ null, %223 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  %481 = getelementptr inbounds ptr, ptr %102, i64 %indvars.iv.i
+  %481 = getelementptr inbounds [8 x i8], ptr %102, i64 %indvars.iv.i
   store ptr %.0160.i.i, ptr %481, align 8
   br label %482
 
@@ -6080,7 +6078,7 @@ _get_res_avail.exit:                              ; preds = %482, %108
 .lr.ph:                                           ; preds = %483, %494
   %487 = load i32, ptr %26, align 4
   %488 = sext i32 %487 to i64
-  %489 = getelementptr inbounds ptr, ptr %102, i64 %488
+  %489 = getelementptr inbounds [8 x i8], ptr %102, i64 %488
   %490 = load ptr, ptr %489, align 8
   %.not58 = icmp eq ptr %490, null
   br i1 %.not58, label %493, label %491
@@ -6155,7 +6153,7 @@ _get_res_avail.exit:                              ; preds = %482, %108
 .lr.ph68:                                         ; preds = %515, %535
   %indvars.iv = phi i64 [ %indvars.iv.next, %535 ], [ 0, %515 ]
   %521 = load ptr, ptr %33, align 8
-  %522 = getelementptr inbounds nuw ptr, ptr %521, i64 %indvars.iv
+  %522 = getelementptr inbounds nuw [8 x i8], ptr %521, i64 %indvars.iv
   %523 = load ptr, ptr %522, align 8
   %.not54 = icmp eq ptr %523, null
   br i1 %.not54, label %527, label %524
@@ -6168,7 +6166,7 @@ _get_res_avail.exit:                              ; preds = %482, %108
 
 527:                                              ; preds = %.lr.ph68, %524
   %528 = load ptr, ptr %25, align 8
-  %529 = getelementptr inbounds nuw ptr, ptr %528, i64 %indvars.iv
+  %529 = getelementptr inbounds nuw [8 x i8], ptr %528, i64 %indvars.iv
   %530 = load ptr, ptr %529, align 8
   %.not56 = icmp eq ptr %530, null
   br i1 %.not56, label %532, label %531
@@ -6180,7 +6178,7 @@ _get_res_avail.exit:                              ; preds = %482, %108
 
 532:                                              ; preds = %531, %527
   %533 = phi ptr [ %.pre73, %531 ], [ %528, %527 ]
-  %534 = getelementptr inbounds nuw ptr, ptr %533, i64 %indvars.iv
+  %534 = getelementptr inbounds nuw [8 x i8], ptr %533, i64 %indvars.iv
   store ptr null, ptr %534, align 8
   br label %535
 
@@ -6236,7 +6234,7 @@ define internal fastcc void @_free_avail_res_array(ptr noundef %0) unnamed_addr 
 .lr.ph:                                           ; preds = %.preheader, %_free_avail_res.exit
   %6 = load i32, ptr %4, align 4
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds ptr, ptr %0, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr %0, i64 %7
   %9 = load ptr, ptr %8, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %9, ptr %2, align 8
@@ -6298,9 +6296,9 @@ define internal fastcc void @_block_whole_nodes(ptr noundef %0, ptr noundef read
   %8 = load i16, ptr %7, align 8
   %9 = load i32, ptr %4, align 4
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds ptr, ptr %1, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %1, i64 %10
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds ptr, ptr %2, i64 %10
+  %13 = getelementptr inbounds [8 x i8], ptr %2, i64 %10
   %14 = load ptr, ptr %13, align 8
   %.not18 = icmp eq i16 %8, 0
   br i1 %.not18, label %.loopexit, label %.lr.ph.preheader
@@ -6395,7 +6393,7 @@ define internal fastcc void @_block_by_topology(ptr noundef readonly captures(no
   %indvars.iv63 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next64, %._crit_edge ]
   %.promoted4051 = phi ptr [ %.promoted405355, %.preheader.lr.ph ], [ %.promoted4048, %._crit_edge ]
   %.promoted4445 = phi ptr [ %.promoted405355, %.preheader.lr.ph ], [ %.promoted41, %._crit_edge ]
-  %21 = getelementptr inbounds nuw %struct.part_row_data_t, ptr %20, i64 %indvars.iv63
+  %21 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %indvars.iv63
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 12
   %23 = load i32, ptr %22, align 4
   %.not61 = icmp eq i32 %23, 0
@@ -6422,7 +6420,7 @@ define internal fastcc void @_block_by_topology(ptr noundef readonly captures(no
   %28 = phi ptr [ %62, %59 ], [ %21, %.preheader ]
   %29 = phi ptr [ %60, %59 ], [ %.promoted4445, %.preheader ]
   %30 = load ptr, ptr %28, align 8
-  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 96
   %34 = load ptr, ptr %33, align 8
@@ -6483,7 +6481,7 @@ define internal fastcc void @_block_by_topology(ptr noundef readonly captures(no
   %60 = phi ptr [ %29, %50 ], [ %58, %57 ], [ %29, %56 ], [ %29, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %61 = load ptr, ptr %14, align 8
-  %62 = getelementptr inbounds nuw %struct.part_row_data_t, ptr %61, i64 %indvars.iv63
+  %62 = getelementptr inbounds nuw [32 x i8], ptr %61, i64 %indvars.iv63
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 12
   %64 = load i32, ptr %63, align 4
   %65 = zext i32 %64 to i64
@@ -6708,7 +6706,7 @@ define internal fastcc ptr @_allocate_sc(ptr noundef readonly captures(none) %0,
   %12 = load i16, ptr %11, align 8
   %13 = load ptr, ptr @node_record_table_ptr, align 8
   %14 = zext i32 %3 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 514
   %18 = load i16, ptr %17, align 2
@@ -6831,7 +6829,7 @@ define internal fastcc ptr @_allocate_sc(ptr noundef readonly captures(none) %0,
   %.0349558 = phi i32 [ 0, %.lr.ph ], [ %115, %112 ]
   %74 = tail call i32 @bit_set_count_range(ptr noundef %1, i32 noundef %.0330561, i32 noundef %.0328562) #10
   %75 = trunc i32 %74 to i16
-  %76 = getelementptr inbounds nuw i16, ptr %24, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %indvars.iv
   store i16 %75, ptr %76, align 2
   br i1 %.not446, label %77, label %79
 
@@ -7002,7 +7000,7 @@ define internal fastcc ptr @_allocate_sc(ptr noundef readonly captures(none) %0,
   %indvars.iv678 = phi i64 [ %indvars.iv.next679, %163 ], [ 0, %155 ]
   %.1337566 = phi i16 [ %.2338, %163 ], [ %.0336.lcssa, %155 ]
   %.0346564 = phi i16 [ %.1347, %163 ], [ 0, %155 ]
-  %156 = getelementptr inbounds nuw i16, ptr %24, i64 %indvars.iv678
+  %156 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %indvars.iv678
   %157 = load i16, ptr %156, align 2
   %158 = icmp ult i16 %157, %.0358
   br i1 %158, label %159, label %161
@@ -7056,7 +7054,7 @@ define internal fastcc ptr @_allocate_sc(ptr noundef readonly captures(none) %0,
   %indvars.iv693 = phi i64 [ %indvars.iv.next694, %.lr.ph576.split.us.split.us ], [ 0, %.lr.ph576.split.us ]
   %.1324575.us.us = phi i16 [ %.3.us.us, %.lr.ph576.split.us.split.us ], [ 0, %.lr.ph576.split.us ]
   %.0517572.us.us = phi i16 [ %177, %.lr.ph576.split.us.split.us ], [ 0, %.lr.ph576.split.us ]
-  %174 = getelementptr inbounds nuw i16, ptr %24, i64 %indvars.iv693
+  %174 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %indvars.iv693
   %175 = load i16, ptr %174, align 2
   %176 = mul i16 %175, %168
   %177 = add i16 %176, %.0517572.us.us
@@ -7069,7 +7067,7 @@ define internal fastcc ptr @_allocate_sc(ptr noundef readonly captures(none) %0,
   %indvars.iv688 = phi i64 [ %indvars.iv.next689, %.lr.ph576.split.us.split ], [ 0, %.lr.ph576.split.us ]
   %.1324575.us = phi i16 [ %.3.us, %.lr.ph576.split.us.split ], [ 0, %.lr.ph576.split.us ]
   %.0517572.us = phi i16 [ %181, %.lr.ph576.split.us.split ], [ 0, %.lr.ph576.split.us ]
-  %178 = getelementptr inbounds nuw i16, ptr %24, i64 %indvars.iv688
+  %178 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %indvars.iv688
   %179 = load i16, ptr %178, align 2
   %180 = mul i16 %179, %168
   %181 = add i16 %180, %.0517572.us
@@ -7084,7 +7082,7 @@ define internal fastcc ptr @_allocate_sc(ptr noundef readonly captures(none) %0,
   %.1324575 = phi i16 [ %.3, %191 ], [ 0, %.lr.ph576 ]
   %.0325574 = phi i16 [ %.1326, %191 ], [ 0, %.lr.ph576 ]
   %.0517572 = phi i16 [ %192, %191 ], [ 0, %.lr.ph576 ]
-  %183 = getelementptr inbounds nuw i16, ptr %24, i64 %indvars.iv683
+  %183 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %indvars.iv683
   %184 = load i16, ptr %183, align 2
   %185 = mul i16 %184, %168
   %186 = call i32 @slurm_bit_test(ptr noundef nonnull %6, i64 noundef %indvars.iv683) #10
@@ -7287,12 +7285,12 @@ define internal fastcc ptr @_allocate_sc(ptr noundef readonly captures(none) %0,
   br i1 %.not435, label %.critedge, label %.preheader553
 
 .preheader553:                                    ; preds = %273
-  %276 = getelementptr inbounds nuw i16, ptr %24, i64 %indvars.iv712
+  %276 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %indvars.iv712
   br i1 %.not641, label %.critedge, label %.lr.ph590
 
 .lr.ph590:                                        ; preds = %.preheader553
   %277 = mul nuw nsw i32 %274, %69
-  %278 = getelementptr inbounds nuw i16, ptr %25, i64 %indvars.iv712
+  %278 = getelementptr inbounds nuw [2 x i8], ptr %25, i64 %indvars.iv712
   %.promoted = load i16, ptr %276, align 2
   %279 = zext nneg i32 %277 to i64
   br i1 %.0332, label %.lr.ph590.split.us, label %.lr.ph590.split
@@ -7466,7 +7464,7 @@ _count_used_cpus.exit:                            ; preds = %306, %309
   %327 = trunc nuw nsw i64 %indvars.iv715 to i32
   %328 = udiv i32 %327, %69
   %329 = zext nneg i32 %328 to i64
-  %330 = getelementptr inbounds nuw i16, ptr %24, i64 %329
+  %330 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %329
   %331 = load i16, ptr %330, align 2
   %332 = icmp ne i16 %331, 0
   %333 = icmp ne i16 %.8625, 0
@@ -7475,7 +7473,7 @@ _count_used_cpus.exit:                            ; preds = %306, %309
 
 334:                                              ; preds = %326
   %335 = zext nneg i32 %328 to i64
-  %336 = getelementptr inbounds nuw i16, ptr %25, i64 %335
+  %336 = getelementptr inbounds nuw [2 x i8], ptr %25, i64 %335
   %337 = load i16, ptr %336, align 2
   %.not.i481 = icmp eq i16 %337, 0
   br i1 %.not.i481, label %341, label %338
@@ -7598,7 +7596,7 @@ _count_used_cpus.exit492:                         ; preds = %348, %343, %_check_
   %383 = call i32 @bit_set_count_range(ptr noundef %1, i32 noundef %.1331633, i32 noundef %.1329634) #10
   %384 = trunc i32 %383 to i16
   %385 = load ptr, ptr %381, align 8
-  %386 = getelementptr inbounds nuw i16, ptr %385, i64 %indvars.iv717
+  %386 = getelementptr inbounds nuw [2 x i8], ptr %385, i64 %indvars.iv717
   store i16 %384, ptr %386, align 2
   %387 = add nuw i32 %.1329634, %382
   %indvars.iv.next718 = add nuw nsw i64 %indvars.iv717, 1

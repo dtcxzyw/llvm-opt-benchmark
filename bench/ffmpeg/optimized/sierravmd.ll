@@ -3,8 +3,6 @@ source_filename = "bench/ffmpeg/original/sierravmd.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.vmd_frame = type { i32, i32, i64, i64, [16 x i8] }
-
 @.str = private unnamed_addr constant [4 x i8] c"vmd\00", align 1
 @.str.1 = private unnamed_addr constant [11 x i8] c"Sierra VMD\00", align 1
 @ff_vmd_demuxer = local_unnamed_addr constant { { ptr, ptr, i32, [4 x i8], ptr, ptr, ptr, ptr }, i32, i32, i32, [4 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr } { { ptr, ptr, i32, [4 x i8], ptr, ptr, ptr, ptr } { ptr @.str, ptr @.str.1, i32 0, [4 x i8] zeroinitializer, ptr null, ptr null, ptr null, ptr null }, i32 0, i32 872, i32 1, [4 x i8] zeroinitializer, ptr @vmd_probe, ptr @vmd_read_header, ptr @vmd_read_packet, ptr @vmd_read_close, ptr null, ptr null, ptr null, ptr null, ptr null, ptr null }, align 8
@@ -373,7 +371,7 @@ define internal range(i32 17, 16) i32 @vmd_read_header(ptr noundef %0) #1 {
 174:                                              ; preds = %173
   %175 = load ptr, ptr %129, align 8, !tbaa !59
   %176 = zext i32 %.1161213.us to i64
-  %177 = getelementptr inbounds nuw %struct.vmd_frame, ptr %175, i64 %176
+  %177 = getelementptr inbounds nuw [40 x i8], ptr %175, i64 %176
   %178 = getelementptr inbounds nuw i8, ptr %177, i64 8
   store i64 %.0164212.us, ptr %178, align 8, !tbaa !63
   %179 = load i32, ptr %7, align 8, !tbaa !39
@@ -383,7 +381,7 @@ define internal range(i32 17, 16) i32 @vmd_read_header(ptr noundef %0) #1 {
   %181 = getelementptr inbounds nuw i8, ptr %177, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %181, ptr noundef nonnull align 16 dereferenceable(16) %3, i64 16, i1 false)
   %182 = load ptr, ptr %129, align 8, !tbaa !59
-  %183 = getelementptr inbounds nuw %struct.vmd_frame, ptr %182, i64 %176
+  %183 = getelementptr inbounds nuw [40 x i8], ptr %182, i64 %176
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 16
   store i64 %indvars.iv, ptr %184, align 8, !tbaa !67
   %185 = add i32 %.1161213.us, 1
@@ -444,7 +442,7 @@ define internal range(i32 17, 16) i32 @vmd_read_header(ptr noundef %0) #1 {
 203:                                              ; preds = %202
   %204 = load ptr, ptr %129, align 8, !tbaa !59
   %205 = zext i32 %.1161213 to i64
-  %206 = getelementptr inbounds nuw %struct.vmd_frame, ptr %204, i64 %205
+  %206 = getelementptr inbounds nuw [40 x i8], ptr %204, i64 %205
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 8
   store i64 %.0164212, ptr %207, align 8, !tbaa !63
   %208 = load i32, ptr %147, align 4, !tbaa !50
@@ -454,7 +452,7 @@ define internal range(i32 17, 16) i32 @vmd_read_header(ptr noundef %0) #1 {
   %210 = getelementptr inbounds nuw i8, ptr %206, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %210, ptr noundef nonnull align 16 dereferenceable(16) %3, i64 16, i1 false)
   %211 = load ptr, ptr %129, align 8, !tbaa !59
-  %212 = getelementptr inbounds nuw %struct.vmd_frame, ptr %211, i64 %205
+  %212 = getelementptr inbounds nuw [40 x i8], ptr %211, i64 %205
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 16
   store i64 %.1158214, ptr %213, align 8, !tbaa !67
   %214 = add i32 %.1161213, 1
@@ -469,7 +467,7 @@ define internal range(i32 17, 16) i32 @vmd_read_header(ptr noundef %0) #1 {
 217:                                              ; preds = %216
   %218 = load ptr, ptr %129, align 8, !tbaa !59
   %219 = zext i32 %.1161213 to i64
-  %220 = getelementptr inbounds nuw %struct.vmd_frame, ptr %218, i64 %219
+  %220 = getelementptr inbounds nuw [40 x i8], ptr %218, i64 %219
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 8
   store i64 %.0164212, ptr %221, align 8, !tbaa !63
   %222 = load i32, ptr %7, align 8, !tbaa !39
@@ -479,7 +477,7 @@ define internal range(i32 17, 16) i32 @vmd_read_header(ptr noundef %0) #1 {
   %224 = getelementptr inbounds nuw i8, ptr %220, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %224, ptr noundef nonnull align 16 dereferenceable(16) %3, i64 16, i1 false)
   %225 = load ptr, ptr %129, align 8, !tbaa !59
-  %226 = getelementptr inbounds nuw %struct.vmd_frame, ptr %225, i64 %219
+  %226 = getelementptr inbounds nuw [40 x i8], ptr %225, i64 %219
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 16
   store i64 %indvars.iv, ptr %227, align 8, !tbaa !67
   %228 = add i32 %.1161213, 1
@@ -549,7 +547,7 @@ define internal i32 @vmd_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %13 = load ptr, ptr %12, align 8, !tbaa !59
   %14 = zext i32 %8 to i64
-  %15 = getelementptr inbounds nuw %struct.vmd_frame, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [40 x i8], ptr %13, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load i64, ptr %16, align 8, !tbaa !63
   %18 = tail call i64 @avio_seek(ptr noundef %6, i64 noundef %17, i32 noundef 0) #5

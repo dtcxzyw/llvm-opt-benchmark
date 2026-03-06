@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._header_field_info = type { ptr, ptr, i32, i32, ptr, i64, ptr, i32, i32, i32, i32, ptr }
 %struct._value_string_ext = type { ptr, i32, i32, ptr, ptr }
 %struct.true_false_string = type { ptr, ptr }
-%struct.mikey_dissector_entry = type { i32, ptr }
 %struct._asn1_ctx_t = type { i32, i32, i8, ptr, ptr, ptr, ptr, ptr, %struct.anon.0, %struct.anon.3, %struct.anon.4, ptr }
 %struct.anon.0 = type { i32, i8, i8, i8, ptr, ptr, i32, i32, ptr, ptr, ptr, %union.anon }
 %union.anon = type { %struct.anon.1 }
@@ -408,7 +407,7 @@ define internal i32 @dissect_mikey(ptr noundef %0, ptr noundef %1, ptr noundef %
 
 .lr.ph.i.i.us:                                    ; preds = %26, %.thread.us
   %indvars.iv.i.us = phi i64 [ %indvars.iv.next.i.us, %26 ], [ 0, %.thread.us ]
-  %23 = getelementptr %struct.mikey_dissector_entry, ptr @payload_map, i64 %indvars.iv.i.us
+  %23 = getelementptr [16 x i8], ptr @payload_map, i64 %indvars.iv.i.us
   %24 = load i32, ptr %23, align 16
   %25 = icmp eq i32 %24, %.065103.us
   br i1 %25, label %mikey_dissector_lookup.exit.i.us, label %26
@@ -453,7 +452,7 @@ dissect_payload.exit.us:                          ; preds = %mikey_dissector_loo
   %40 = icmp eq i32 %.065103, -1
   %spec.store.select = select i1 %40, i32 0, i32 %.065103
   %41 = sext i32 %spec.store.select to i64
-  %42 = getelementptr i32, ptr @hf_mikey_pl, i64 %41
+  %42 = getelementptr [4 x i8], ptr @hf_mikey_pl, i64 %41
   %43 = load i32, ptr %42, align 4
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %.thread86, label %45
@@ -482,7 +481,7 @@ dissect_payload.exit.us:                          ; preds = %mikey_dissector_loo
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i.preheader, %52
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %52 ], [ 0, %.lr.ph.i.i.preheader ]
-  %53 = getelementptr %struct.mikey_dissector_entry, ptr @payload_map, i64 %indvars.iv.i
+  %53 = getelementptr [16 x i8], ptr @payload_map, i64 %indvars.iv.i
   %54 = load i32, ptr %53, align 16
   %55 = icmp eq i32 %54, %.065103
   br i1 %55, label %mikey_dissector_lookup.exit.i, label %52
@@ -789,7 +788,7 @@ define internal range(i32 0, 196) i32 @dissect_payload_dh(ptr readnone captures(
 
 switch.lookup:                                    ; preds = %4
   %7 = zext nneg i8 %5 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissect_payload_dh, i64 %7
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_payload_dh, i64 %7
   %switch.load = load i32, ptr %switch.gep, align 4
   %8 = or disjoint i32 %switch.load, 2
   %9 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %8)
@@ -1035,7 +1034,7 @@ dissect_payload_sp_param.exit:                    ; preds = %.lr.ph, %dissect_pa
   %34 = icmp ult i8 %32, 14
   %or.cond.i = select i1 %cond.i, i1 %34, i1 false
   %35 = zext nneg i8 %32 to i64
-  %36 = getelementptr i32, ptr @hf_mikey_sp_param, i64 %35
+  %36 = getelementptr [4 x i8], ptr @hf_mikey_sp_param, i64 %35
   %.0.in.i = select i1 %or.cond.i, ptr %36, ptr getelementptr inbounds nuw (i8, ptr @hf_mikey, i64 160)
   %.0.i = load i32, ptr %.0.in.i, align 4
   %37 = zext i8 %33 to i32

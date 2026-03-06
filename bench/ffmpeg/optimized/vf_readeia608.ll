@@ -7,9 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { ptr }
 %union.anon.0 = type { ptr }
 %union.anon.2 = type { i64 }
-%struct.ScanItem = type { i32, i32, i32, i32, ptr, [2 x i8], ptr, ptr }
-%struct.LineItem = type { i32, i32, float, float, float, float }
-%struct.CodeItem = type { i8, i32 }
 
 @.str = private unnamed_addr constant [11 x i8] c"readeia608\00", align 1
 @.str.1 = private unnamed_addr constant [85 x i8] c"Read EIA-608 Closed Caption codes from input video and write them to frame metadata.\00", align 1
@@ -61,7 +58,7 @@ define internal void @uninit(ptr noundef readonly captures(none) %0) #0 {
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %10 = load ptr, ptr %7, align 8, !tbaa !24
-  %11 = getelementptr inbounds nuw %struct.ScanItem, ptr %10, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [48 x i8], ptr %10, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   tail call void @av_freep(ptr noundef nonnull %12) #11
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 32
@@ -145,7 +142,7 @@ define internal i32 @filter_frame(ptr noundef readonly captures(none) %0, ptr no
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %47 ]
   %.040 = phi i32 [ 0, %.lr.ph ], [ %.1, %47 ]
   %28 = load ptr, ptr %22, align 8, !tbaa !24
-  %29 = getelementptr inbounds nuw %struct.ScanItem, ptr %28, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [48 x i8], ptr %28, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 4
@@ -258,7 +255,7 @@ define internal noundef i32 @extract_lines(ptr noundef %0, ptr noundef %1, i32 n
 26:                                               ; preds = %.lr.ph, %extract_line.exit
   %indvars.iv = phi i64 [ %25, %.lr.ph ], [ %indvars.iv.next, %extract_line.exit ]
   %27 = load ptr, ptr %23, align 8, !tbaa !24
-  %28 = getelementptr inbounds %struct.ScanItem, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds [48 x i8], ptr %27, i64 %indvars.iv
   %29 = load i32, ptr %24, align 8, !tbaa !56
   %30 = load i32, ptr %10, align 8, !tbaa !27
   %31 = trunc nsw i64 %indvars.iv to i32
@@ -283,7 +280,7 @@ define internal noundef i32 @extract_lines(ptr noundef %0, ptr noundef %1, i32 n
   %44 = load i32, ptr %43, align 4, !tbaa !52
   %45 = icmp sgt i32 %44, 8
   %46 = zext i1 %45 to i64
-  %47 = getelementptr inbounds nuw ptr, ptr %42, i64 %46
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %46
   %48 = load ptr, ptr %47, align 8, !tbaa !54
   %49 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %50 = load i32, ptr %49, align 8, !tbaa !58
@@ -309,10 +306,10 @@ define internal noundef i32 @extract_lines(ptr noundef %0, ptr noundef %1, i32 n
 
 61:                                               ; preds = %61, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 25, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %61 ]
-  %62 = getelementptr inbounds nuw %struct.LineItem, ptr %35, i64 %indvars.iv.i.i
+  %62 = getelementptr inbounds nuw [24 x i8], ptr %35, i64 %indvars.iv.i.i
   %63 = load i32, ptr %62, align 4, !tbaa !60
   %64 = sext i32 %63 to i64
-  %65 = getelementptr inbounds i64, ptr %58, i64 %64
+  %65 = getelementptr inbounds [8 x i8], ptr %58, i64 %64
   %66 = load i64, ptr %65, align 8, !tbaa !62
   %67 = add i64 %66, 1
   store i64 %67, ptr %65, align 8, !tbaa !62
@@ -333,7 +330,7 @@ build_histogram.exit.i:                           ; preds = %61, %26
 
 70:                                               ; preds = %73, %.lr.ph.i107.i
   %indvars.iv.i109.i = phi i64 [ 0, %.lr.ph.i107.i ], [ %indvars.iv.next.i111.i, %73 ]
-  %71 = getelementptr inbounds nuw i64, ptr %68, i64 %indvars.iv.i109.i
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %indvars.iv.i109.i
   %72 = load i64, ptr %71, align 8, !tbaa !62
   %.not52.i.i = icmp eq i64 %72, 0
   br i1 %.not52.i.i, label %73, label %._crit_edge.split.loop.exit40.i.i
@@ -354,7 +351,7 @@ build_histogram.exit.i:                           ; preds = %61, %26
 75:                                               ; preds = %79, %._crit_edge.i.i
   %.0408.i.i = phi i32 [ %.val106.i, %._crit_edge.i.i ], [ %80, %79 ]
   %76 = zext nneg i32 %.0408.i.i to i64
-  %77 = getelementptr inbounds nuw i64, ptr %68, i64 %76
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %76
   %78 = load i64, ptr %77, align 8, !tbaa !62
   %.not53.i.i = icmp eq i64 %78, 0
   br i1 %.not53.i.i, label %79, label %._crit_edge11.i.i
@@ -396,7 +393,7 @@ build_histogram.exit.i:                           ; preds = %61, %26
   %indvars.iv30.i.i = phi i64 [ %86, %.lr.ph20.i.i ], [ %indvars.iv.next31.i.i, %91 ]
   %.04217.i.i = phi i64 [ 0, %.lr.ph20.i.i ], [ %spec.select561.i.i, %91 ]
   %.04516.i.i = phi i32 [ 0, %.lr.ph20.i.i ], [ %spec.select.i.i, %91 ]
-  %92 = getelementptr inbounds nuw i64, ptr %85, i64 %indvars.iv30.i.i
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %indvars.iv30.i.i
   %93 = load i64, ptr %92, align 8, !tbaa !62
   %sext.i.i = shl i64 %.04217.i.i, 32
   %94 = ashr exact i64 %sext.i.i, 32
@@ -412,7 +409,7 @@ build_histogram.exit.i:                           ; preds = %61, %26
   %indvars.iv35.i.i = phi i64 [ %89, %.lr.ph26.i.i ], [ %indvars.iv.next36.i.i, %97 ]
   %.224.i.i = phi i64 [ 0, %.lr.ph26.i.i ], [ %spec.select582.i.i, %97 ]
   %.04323.i.i = phi i32 [ 0, %.lr.ph26.i.i ], [ %spec.select57.i.i, %97 ]
-  %98 = getelementptr inbounds i64, ptr %88, i64 %indvars.iv35.i.i
+  %98 = getelementptr inbounds [8 x i8], ptr %88, i64 %indvars.iv35.i.i
   %99 = load i64, ptr %98, align 8, !tbaa !62
   %sext3.i.i = shl i64 %.224.i.i, 32
   %100 = ashr exact i64 %sext3.i.i, 32
@@ -460,7 +457,7 @@ find_black_and_white.exit.i:                      ; preds = %97, %.preheader.i.i
 .lr.ph.i104.us.i.i:                               ; preds = %.lr.ph.i104.us.i.i, %.lr.ph.preheader.i.us.i.i
   %indvars.iv.i105.us.i.i = phi i64 [ 0, %.lr.ph.preheader.i.us.i.i ], [ %indvars.iv.next.i107.us.i.i, %.lr.ph.i104.us.i.i ]
   %.0810.i106.us.i.i = phi float [ 0.000000e+00, %.lr.ph.preheader.i.us.i.i ], [ %118, %.lr.ph.i104.us.i.i ]
-  %115 = getelementptr inbounds nuw %struct.LineItem, ptr %35, i64 %indvars.iv.i105.us.i.i
+  %115 = getelementptr inbounds nuw [24 x i8], ptr %35, i64 %indvars.iv.i105.us.i.i
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 12
   %117 = load float, ptr %116, align 4, !tbaa !72
   %118 = fadd nsz float %.0810.i106.us.i.i, %117
@@ -470,7 +467,7 @@ find_black_and_white.exit.i:                      ; preds = %97, %.preheader.i.i
 
 meanf.exit109.loopexit.us.i.i:                    ; preds = %.lr.ph.i104.us.i.i
   %119 = fdiv nsz float %118, %114
-  %120 = getelementptr inbounds nuw %struct.LineItem, ptr %35, i64 %indvars.iv152.i.i
+  %120 = getelementptr inbounds nuw [24 x i8], ptr %35, i64 %indvars.iv152.i.i
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
   store float %119, ptr %121, align 4, !tbaa !74
   %122 = getelementptr inbounds nuw i8, ptr %120, i64 12
@@ -488,7 +485,7 @@ meanf.exit109.loopexit.us.i.i:                    ; preds = %.lr.ph.i104.us.i.i
 
 .lr.ph.i117.i:                                    ; preds = %.lr.ph.i117.i, %.lr.ph.preheader.i.i
   %indvars.iv.i118.i = phi i64 [ 25, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i119.i, %.lr.ph.i117.i ]
-  %124 = getelementptr inbounds nuw %struct.LineItem, ptr %35, i64 %indvars.iv.i118.i
+  %124 = getelementptr inbounds nuw [24 x i8], ptr %35, i64 %indvars.iv.i118.i
   %125 = load i32, ptr %124, align 4, !tbaa !60
   %126 = sitofp i32 %125 to float
   %127 = fdiv nsz float %126, 2.550000e+02
@@ -503,7 +500,7 @@ meanf.exit109.loopexit.us.i.i:                    ; preds = %.lr.ph.i104.us.i.i
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i.preheader, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ], [ 0, %.lr.ph.i.i.i.preheader ]
   %.0810.i.i.i = phi float [ %133, %.lr.ph.i.i.i ], [ 0.000000e+00, %.lr.ph.i.i.i.preheader ]
-  %130 = getelementptr inbounds nuw %struct.LineItem, ptr %35, i64 %indvars.iv.i.i.i
+  %130 = getelementptr inbounds nuw [24 x i8], ptr %35, i64 %indvars.iv.i.i.i
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 12
   %132 = load float, ptr %131, align 4, !tbaa !72
   %133 = fadd nsz float %.0810.i.i.i, %132
@@ -520,7 +517,7 @@ meanf.exit.i.i:                                   ; preds = %.lr.ph.i.i.i
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i, %meanf.exit.i.i
   %indvars.iv.i.i.i.i = phi i64 [ 0, %meanf.exit.i.i ], [ %indvars.iv.next.i.i.i.i, %.lr.ph.i.i.i.i ]
   %.0810.i.i.i.i = phi float [ 0.000000e+00, %meanf.exit.i.i ], [ %139, %.lr.ph.i.i.i.i ]
-  %136 = getelementptr inbounds nuw %struct.LineItem, ptr %35, i64 %indvars.iv.i.i.i.i
+  %136 = getelementptr inbounds nuw [24 x i8], ptr %35, i64 %indvars.iv.i.i.i.i
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 12
   %138 = load float, ptr %137, align 4, !tbaa !72
   %139 = fadd nsz float %.0810.i.i.i.i, %138
@@ -535,7 +532,7 @@ meanf.exit.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i
 141:                                              ; preds = %141, %meanf.exit.i.i.i
   %indvars.iv.i101.i.i = phi i64 [ 0, %meanf.exit.i.i.i ], [ %indvars.iv.next.i102.i.i, %141 ]
   %.01315.i.i.i = phi float [ 0.000000e+00, %meanf.exit.i.i.i ], [ %146, %141 ]
-  %142 = getelementptr inbounds nuw %struct.LineItem, ptr %35, i64 %indvars.iv.i101.i.i
+  %142 = getelementptr inbounds nuw [24 x i8], ptr %35, i64 %indvars.iv.i101.i.i
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 12
   %144 = load float, ptr %143, align 4, !tbaa !72
   %145 = fsub nsz float %144, %140
@@ -568,7 +565,7 @@ thresholding.exit.i.thread:                       ; preds = %stddevf.exit.i.i
 
 meanf.exit109.i.i:                                ; preds = %meanf.exit109.i.i, %.preheader.split.i.i
   %indvars.iv148.i.i = phi i64 [ 0, %.preheader.split.i.i ], [ %indvars.iv.next149.i.i, %meanf.exit109.i.i ]
-  %156 = getelementptr inbounds nuw %struct.LineItem, ptr %35, i64 %indvars.iv148.i.i
+  %156 = getelementptr inbounds nuw [24 x i8], ptr %35, i64 %indvars.iv148.i.i
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 8
   store float %123, ptr %157, align 4, !tbaa !74
   %158 = getelementptr inbounds nuw i8, ptr %156, i64 12
@@ -579,7 +576,7 @@ meanf.exit109.i.i:                                ; preds = %meanf.exit109.i.i, 
 
 159:                                              ; preds = %stddevf.exit128.i.i, %.lr.ph139.i.i
   %indvars.iv156.i.i = phi i64 [ 25, %.lr.ph139.i.i ], [ %indvars.iv.next157.i.i, %stddevf.exit128.i.i ]
-  %160 = getelementptr inbounds nuw %struct.LineItem, ptr %35, i64 %indvars.iv156.i.i
+  %160 = getelementptr inbounds nuw [24 x i8], ptr %35, i64 %indvars.iv156.i.i
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 8
   %162 = load float, ptr %161, align 4, !tbaa !74
   %163 = getelementptr i8, ptr %160, i64 -8
@@ -621,7 +618,7 @@ meanf.exit109.i.i:                                ; preds = %meanf.exit109.i.i, 
 .lr.ph.i111.i.i:                                  ; preds = %.lr.ph.i111.i.i, %183
   %indvars.iv.i112.i.i = phi i64 [ 0, %183 ], [ %indvars.iv.next.i114.i.i, %.lr.ph.i111.i.i ]
   %.0810.i113.i.i = phi float [ 0.000000e+00, %183 ], [ %189, %.lr.ph.i111.i.i ]
-  %186 = getelementptr inbounds nuw %struct.LineItem, ptr %185, i64 %indvars.iv.i112.i.i
+  %186 = getelementptr inbounds nuw [24 x i8], ptr %185, i64 %indvars.iv.i112.i.i
   %187 = getelementptr inbounds nuw i8, ptr %186, i64 12
   %188 = load float, ptr %187, align 4, !tbaa !72
   %189 = fadd nsz float %.0810.i113.i.i, %188
@@ -638,7 +635,7 @@ meanf.exit117.i.i:                                ; preds = %.lr.ph.i111.i.i
 .lr.ph.i.i118.i.i:                                ; preds = %.lr.ph.i.i118.i.i, %meanf.exit117.i.i
   %indvars.iv.i.i119.i.i = phi i64 [ 0, %meanf.exit117.i.i ], [ %indvars.iv.next.i.i121.i.i, %.lr.ph.i.i118.i.i ]
   %.0810.i.i120.i.i = phi float [ 0.000000e+00, %meanf.exit117.i.i ], [ %195, %.lr.ph.i.i118.i.i ]
-  %192 = getelementptr inbounds nuw %struct.LineItem, ptr %185, i64 %indvars.iv.i.i119.i.i
+  %192 = getelementptr inbounds nuw [24 x i8], ptr %185, i64 %indvars.iv.i.i119.i.i
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 12
   %194 = load float, ptr %193, align 4, !tbaa !72
   %195 = fadd nsz float %.0810.i.i120.i.i, %194
@@ -653,7 +650,7 @@ meanf.exit.i123.i.i:                              ; preds = %.lr.ph.i.i118.i.i
 197:                                              ; preds = %197, %meanf.exit.i123.i.i
   %indvars.iv.i124.i.i = phi i64 [ 0, %meanf.exit.i123.i.i ], [ %indvars.iv.next.i126.i.i, %197 ]
   %.01315.i125.i.i = phi float [ 0.000000e+00, %meanf.exit.i123.i.i ], [ %202, %197 ]
-  %198 = getelementptr inbounds nuw %struct.LineItem, ptr %185, i64 %indvars.iv.i124.i.i
+  %198 = getelementptr inbounds nuw [24 x i8], ptr %185, i64 %indvars.iv.i124.i.i
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 12
   %200 = load float, ptr %199, align 4, !tbaa !72
   %201 = fsub nsz float %200, %196
@@ -692,7 +689,7 @@ thresholding.exit.i:                              ; preds = %stddevf.exit128.i.i
   %.02735.i.i = phi i32 [ 25, %.lr.ph.preheader.i122.i ], [ %.1.i.i, %223 ]
   %.02834.i.i = phi i32 [ 0, %.lr.ph.preheader.i122.i ], [ %.129.i.i, %223 ]
   %.03033.i.i = phi i32 [ %209, %.lr.ph.preheader.i122.i ], [ %.131.i.i, %223 ]
-  %212 = getelementptr inbounds nuw %struct.LineItem, ptr %35, i64 %indvars.iv.i126.i
+  %212 = getelementptr inbounds nuw [24 x i8], ptr %35, i64 %indvars.iv.i126.i
   %213 = getelementptr inbounds nuw i8, ptr %212, i64 4
   %214 = load i32, ptr %213, align 4, !tbaa !81
   %.not.i127.i = icmp eq i32 %214, %.03033.i.i
@@ -702,7 +699,7 @@ thresholding.exit.i:                              ; preds = %stddevf.exit128.i.i
   %216 = trunc nuw nsw i64 %indvars.iv.i126.i to i32
   %217 = sub nsw i32 %216, %.02735.i.i
   %218 = sext i32 %.02834.i.i to i64
-  %219 = getelementptr inbounds %struct.CodeItem, ptr %207, i64 %218
+  %219 = getelementptr inbounds [8 x i8], ptr %207, i64 %218
   %220 = getelementptr inbounds nuw i8, ptr %219, i64 4
   store i32 %217, ptr %220, align 4, !tbaa !83
   %221 = trunc i32 %.03033.i.i to i8
@@ -726,7 +723,7 @@ periods.exit.i:                                   ; preds = %223, %thresholding.
   %.027.lcssa.i.i = phi i32 [ 25, %thresholding.exit.i ], [ 25, %thresholding.exit.i.thread ], [ %.1.i.i, %223 ]
   %226 = sub nsw i32 %36, %.027.lcssa.i.i
   %227 = sext i32 %.028.lcssa.i.i to i64
-  %228 = getelementptr inbounds %struct.CodeItem, ptr %224, i64 %227
+  %228 = getelementptr inbounds [8 x i8], ptr %224, i64 %227
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 4
   store i32 %226, ptr %229, align 4, !tbaa !83
   %230 = trunc i32 %.030.lcssa.i.i to i8
@@ -747,7 +744,7 @@ dump_code.exit.thread.i:                          ; preds = %periods.exit.i
 233:                                              ; preds = %233, %.lr.ph.i131.i
   %indvars.iv.i133.i = phi i64 [ 0, %.lr.ph.i131.i ], [ %indvars.iv.next.i134.i, %233 ]
   %234 = load ptr, ptr %225, align 8, !tbaa !80
-  %235 = getelementptr inbounds nuw %struct.CodeItem, ptr %234, i64 %indvars.iv.i133.i
+  %235 = getelementptr inbounds nuw [8 x i8], ptr %234, i64 %indvars.iv.i133.i
   %236 = getelementptr inbounds nuw i8, ptr %235, i64 4
   %237 = load i32, ptr %236, align 4, !tbaa !83
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 48, ptr noundef nonnull @.str.7, i32 noundef %237) #11
@@ -780,7 +777,7 @@ dump_code.exit.i:                                 ; preds = %233
 .lr.ph.i:                                         ; preds = %243, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 14, %243 ]
   %.097149.i = phi float [ %254, %.lr.ph.i ], [ 0.000000e+00, %243 ]
-  %250 = getelementptr inbounds nuw %struct.CodeItem, ptr %240, i64 %indvars.iv.i
+  %250 = getelementptr inbounds nuw [8 x i8], ptr %240, i64 %indvars.iv.i
   %251 = getelementptr inbounds nuw i8, ptr %250, i64 4
   %252 = load i32, ptr %251, align 4, !tbaa !83
   %253 = sitofp i32 %252 to float
@@ -800,7 +797,7 @@ dump_code.exit.i:                                 ; preds = %233
 
 257:                                              ; preds = %256, %._crit_edge.i
   %indvars.iv180.i = phi i64 [ 1, %._crit_edge.i ], [ %indvars.iv.next181.i, %256 ]
-  %258 = getelementptr inbounds nuw %struct.CodeItem, ptr %240, i64 %indvars.iv180.i
+  %258 = getelementptr inbounds nuw [8 x i8], ptr %240, i64 %indvars.iv180.i
   %259 = getelementptr inbounds nuw i8, ptr %258, i64 4
   %260 = load i32, ptr %259, align 4, !tbaa !83
   %261 = sitofp i32 %260 to float
@@ -827,7 +824,7 @@ dump_code.exit.i:                                 ; preds = %233
 .lr.ph161.i:                                      ; preds = %265, %._crit_edge156.thread.i
   %indvars.iv187.i = phi i64 [ %indvars.iv.next188.i, %._crit_edge156.thread.i ], [ 14, %265 ]
   %.092159.i = phi i32 [ %.193.lcssa203.i, %._crit_edge156.thread.i ], [ 0, %265 ]
-  %271 = getelementptr inbounds nuw %struct.CodeItem, ptr %240, i64 %indvars.iv187.i
+  %271 = getelementptr inbounds nuw [8 x i8], ptr %240, i64 %indvars.iv187.i
   %272 = getelementptr inbounds nuw i8, ptr %271, i64 4
   %273 = load i32, ptr %272, align 4, !tbaa !83
   %274 = sitofp i32 %273 to float
@@ -1027,7 +1024,7 @@ define internal void @read_byte(ptr noundef readonly captures(none) %0, i32 noun
   %.lhs.trunc = add nuw nsw i16 %62, %56
   %63 = udiv i16 %.lhs.trunc, 7
   %.zext = zext nneg i16 %63 to i32
-  %64 = getelementptr inbounds nuw %struct.LineItem, ptr %2, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [24 x i8], ptr %2, i64 %indvars.iv
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 600
   store i32 %.zext, ptr %65, align 4, !tbaa !60
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1038,7 +1035,7 @@ define internal void @read_byte(ptr noundef readonly captures(none) %0, i32 noun
   %66 = getelementptr inbounds nuw i8, ptr %11, i64 %indvars.iv56
   %67 = load i8, ptr %66, align 1, !tbaa !46
   %68 = zext i8 %67 to i32
-  %69 = getelementptr inbounds nuw %struct.LineItem, ptr %2, i64 %indvars.iv56
+  %69 = getelementptr inbounds nuw [24 x i8], ptr %2, i64 %indvars.iv56
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 600
   store i32 %68, ptr %70, align 4, !tbaa !60
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
@@ -1092,33 +1089,33 @@ define internal void @read_word(ptr noundef readonly captures(none) %0, i32 noun
   %25 = trunc nuw nsw i64 %indvars.iv.next to i32
   %26 = tail call i32 @llvm.smin.i32(i32 %25, i32 %13)
   %27 = zext nneg i32 %16 to i64
-  %28 = getelementptr i16, ptr %11, i64 %27
+  %28 = getelementptr [2 x i8], ptr %11, i64 %27
   %29 = getelementptr i8, ptr %28, i64 -6
   %30 = load i16, ptr %29, align 2, !tbaa !99
   %31 = zext i16 %30 to i32
   %32 = zext nneg i32 %17 to i64
-  %33 = getelementptr i16, ptr %11, i64 %32
+  %33 = getelementptr [2 x i8], ptr %11, i64 %32
   %34 = getelementptr i8, ptr %33, i64 -4
   %35 = load i16, ptr %34, align 2, !tbaa !99
   %36 = zext i16 %35 to i32
   %37 = zext nneg i32 %18 to i64
-  %38 = getelementptr i16, ptr %11, i64 %37
+  %38 = getelementptr [2 x i8], ptr %11, i64 %37
   %39 = getelementptr i8, ptr %38, i64 -2
   %40 = load i16, ptr %39, align 2, !tbaa !99
   %41 = zext i16 %40 to i32
-  %42 = getelementptr inbounds nuw i16, ptr %11, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %indvars.iv
   %43 = load i16, ptr %42, align 2, !tbaa !99
   %44 = zext i16 %43 to i32
   %45 = sext i32 %21 to i64
-  %46 = getelementptr inbounds i16, ptr %11, i64 %45
+  %46 = getelementptr inbounds [2 x i8], ptr %11, i64 %45
   %47 = load i16, ptr %46, align 2, !tbaa !99
   %48 = zext i16 %47 to i32
   %49 = sext i32 %24 to i64
-  %50 = getelementptr inbounds i16, ptr %11, i64 %49
+  %50 = getelementptr inbounds [2 x i8], ptr %11, i64 %49
   %51 = load i16, ptr %50, align 2, !tbaa !99
   %52 = zext i16 %51 to i32
   %53 = sext i32 %26 to i64
-  %54 = getelementptr inbounds i16, ptr %11, i64 %53
+  %54 = getelementptr inbounds [2 x i8], ptr %11, i64 %53
   %55 = load i16, ptr %54, align 2, !tbaa !99
   %56 = zext i16 %55 to i32
   %57 = add nuw nsw i32 %31, 6
@@ -1129,7 +1126,7 @@ define internal void @read_word(ptr noundef readonly captures(none) %0, i32 noun
   %62 = add nuw nsw i32 %61, %52
   %63 = add nuw nsw i32 %62, %56
   %64 = udiv i32 %63, 7
-  %65 = getelementptr inbounds nuw %struct.LineItem, ptr %2, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [24 x i8], ptr %2, i64 %indvars.iv
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 600
   store i32 %64, ptr %66, align 4, !tbaa !60
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1137,10 +1134,10 @@ define internal void @read_word(ptr noundef readonly captures(none) %0, i32 noun
 
 .lr.ph53:                                         ; preds = %.lr.ph53.preheader, %.lr.ph53
   %indvars.iv56 = phi i64 [ 0, %.lr.ph53.preheader ], [ %indvars.iv.next57, %.lr.ph53 ]
-  %67 = getelementptr inbounds nuw i16, ptr %11, i64 %indvars.iv56
+  %67 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %indvars.iv56
   %68 = load i16, ptr %67, align 2, !tbaa !99
   %69 = zext i16 %68 to i32
-  %70 = getelementptr inbounds nuw %struct.LineItem, ptr %2, i64 %indvars.iv56
+  %70 = getelementptr inbounds nuw [24 x i8], ptr %2, i64 %indvars.iv56
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 600
   store i32 %69, ptr %71, align 4, !tbaa !60
   %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
@@ -1202,7 +1199,7 @@ define internal fastcc range(i32 -22, 1) i32 @config_filter(ptr noundef %0, i32 
   %31 = sub nsw i32 %24, %22
   %32 = load i32, ptr %21, align 4, !tbaa !20
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds %struct.ScanItem, ptr %29, i64 %33
+  %34 = getelementptr inbounds [48 x i8], ptr %29, i64 %33
   %35 = sext i32 %31 to i64
   %36 = mul nsw i64 %35, 48
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %34, i8 0, i64 %36, i1 false)
@@ -1230,7 +1227,7 @@ define internal fastcc range(i32 -22, 1) i32 @config_filter(ptr noundef %0, i32 
 45:                                               ; preds = %.lr.ph, %42
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
   %46 = load ptr, ptr %39, align 8, !tbaa !24
-  %47 = getelementptr inbounds nuw %struct.ScanItem, ptr %46, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [48 x i8], ptr %46, i64 %indvars.iv
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load ptr, ptr %48, align 8, !tbaa !59
   %.not65 = icmp eq ptr %49, null

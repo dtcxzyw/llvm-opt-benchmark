@@ -3,10 +3,6 @@ source_filename = "bench/libwebp/original/syntax_enc.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.VP8BitWriter = type { i32, i32, i32, i32, ptr, i64, i64, i32 }
-%struct.VP8SegmentInfo = type { %struct.VP8Matrix, %struct.VP8Matrix, %struct.VP8Matrix, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i64 }
-%struct.VP8Matrix = type { [16 x i16], [16 x i16], [16 x i32], [16 x i32], [16 x i16] }
-
 @__const.PutRIFFHeader.riff = private unnamed_addr constant [12 x i8] c"RIFF\00\00\00\00WEBP", align 1
 @__const.PutVP8XHeader.vp8x = private unnamed_addr constant <{ i8, i8, i8, i8, [14 x i8] }> <{ i8 86, i8 80, i8 56, i8 88, [14 x i8] zeroinitializer }>, align 16
 
@@ -25,7 +21,7 @@ define hidden void @VP8EncFreeBitWriters(ptr noundef %0) local_unnamed_addr #0 {
 
 7:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
-  %8 = getelementptr inbounds nuw %struct.VP8BitWriter, ptr %6, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [48 x i8], ptr %6, i64 %indvars.iv
   tail call void @VP8BitWriterWipeOut(ptr noundef nonnull %8) #4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %9 = load i32, ptr %3, align 4, !tbaa !3
@@ -108,7 +104,7 @@ define hidden i32 @VP8EncWrite(ptr noundef %0) local_unnamed_addr #0 {
 
 54:                                               ; preds = %54, %52
   %indvars.iv.i.i = phi i64 [ 0, %52 ], [ %indvars.iv.next.i.i, %54 ]
-  %55 = getelementptr inbounds nuw %struct.VP8SegmentInfo, ptr %0, i64 %indvars.iv.i.i
+  %55 = getelementptr inbounds nuw [744 x i8], ptr %0, i64 %indvars.iv.i.i
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 1288
   %57 = load i32, ptr %56, align 8, !tbaa !35
   tail call void @VP8PutSignedBits(ptr noundef nonnull %12, i32 noundef %57, i32 noundef 7) #4
@@ -118,7 +114,7 @@ define hidden i32 @VP8EncWrite(ptr noundef %0) local_unnamed_addr #0 {
 
 .preheader29.i.i:                                 ; preds = %54, %.preheader29.i.i
   %indvars.iv35.i.i = phi i64 [ %indvars.iv.next36.i.i, %.preheader29.i.i ], [ 0, %54 ]
-  %58 = getelementptr inbounds nuw %struct.VP8SegmentInfo, ptr %0, i64 %indvars.iv35.i.i
+  %58 = getelementptr inbounds nuw [744 x i8], ptr %0, i64 %indvars.iv35.i.i
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 1292
   %60 = load i32, ptr %59, align 4, !tbaa !39
   tail call void @VP8PutSignedBits(ptr noundef nonnull %12, i32 noundef %60, i32 noundef 6) #4
@@ -300,7 +296,7 @@ GeneratePartition0.exit.thread:                   ; preds = %144, %GenerateParti
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.075110 = phi i64 [ %153, %.lr.ph.preheader ], [ %157, %.lr.ph ]
-  %155 = getelementptr inbounds nuw %struct.VP8BitWriter, ptr %0, i64 %indvars.iv
+  %155 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %indvars.iv
   %156 = getelementptr i8, ptr %155, i64 136
   %.val89 = load i64, ptr %156, align 8, !tbaa !31
   %157 = add i64 %.val89, %.075110
@@ -533,7 +529,7 @@ PutWebPHeaders.exit:                              ; preds = %173, %182, %PutAlph
 
 .lr.ph.i:                                         ; preds = %269, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %269 ]
-  %266 = getelementptr inbounds nuw %struct.VP8BitWriter, ptr %0, i64 %indvars.iv.i
+  %266 = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %indvars.iv.i
   %267 = getelementptr i8, ptr %266, i64 136
   %.val.i97 = load i64, ptr %267, align 8, !tbaa !31
   %268 = icmp ult i64 %.val.i97, 16777216
@@ -591,7 +587,7 @@ EmitPartitionsSize.exit:                          ; preds = %EmitPartitionsSize.
 292:                                              ; preds = %.lr.ph114, %309
   %indvars.iv120 = phi i64 [ 0, %.lr.ph114 ], [ %indvars.iv.next121, %309 ]
   %.074112 = phi i32 [ %287, %.lr.ph114 ], [ %310, %309 ]
-  %293 = getelementptr inbounds nuw %struct.VP8BitWriter, ptr %290, i64 %indvars.iv120
+  %293 = getelementptr inbounds nuw [48 x i8], ptr %290, i64 %indvars.iv120
   %294 = getelementptr i8, ptr %293, i64 16
   %.val94 = load ptr, ptr %294, align 8, !tbaa !63
   %295 = getelementptr i8, ptr %293, i64 24

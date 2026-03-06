@@ -367,7 +367,7 @@ define hidden range(i32 0, 5) i32 @mbedtls_ssl_get_ciphersuite_sig_pk_alg(ptr no
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.mbedtls_ssl_get_ciphersuite_sig_pk_alg, i64 %5
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.mbedtls_ssl_get_ciphersuite_sig_pk_alg, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %6
 
@@ -386,7 +386,7 @@ define hidden range(i32 0, 5) i32 @mbedtls_ssl_get_ciphersuite_sig_alg(ptr nound
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.mbedtls_ssl_get_ciphersuite_sig_alg, i64 %5
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.mbedtls_ssl_get_ciphersuite_sig_alg, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %6
 
@@ -405,7 +405,7 @@ define hidden range(i32 0, 2) i32 @mbedtls_ssl_ciphersuite_uses_ec(ptr noundef r
 
 switch.lookup:                                    ; preds = %1
   %5 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.mbedtls_ssl_ciphersuite_uses_ec, i64 %5
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.mbedtls_ssl_ciphersuite_uses_ec, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %6
 

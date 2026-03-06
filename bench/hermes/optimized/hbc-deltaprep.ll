@@ -65,8 +65,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.llvh::raw_fd_ostream" = type { %"class.llvh::raw_pwrite_stream.base", i32, i8, i8, %"class.std::error_code", i64 }
 %"class.llvh::raw_pwrite_stream.base" = type { %"class.llvh::raw_ostream.base" }
 %"class.llvh::raw_ostream.base" = type <{ ptr, ptr, ptr, ptr, i32 }>
-%"class.llvh::cl::parser<hermes::hbc::BytecodeForm>::OptionInfo" = type { %"class.llvh::cl::generic_parser_base::GenericOptionInfo", %"struct.llvh::cl::OptionValue" }
-%"class.llvh::cl::generic_parser_base::GenericOptionInfo" = type { %"class.llvh::StringRef", %"class.llvh::StringRef" }
 %"class.llvh::cl::ValuesClass" = type { %"class.llvh::SmallVector.0" }
 %"class.llvh::SmallVector.0" = type { %"class.llvh::SmallVectorImpl.1", %"struct.llvh::SmallVectorStorage.4" }
 %"class.llvh::SmallVectorImpl.1" = type { %"class.llvh::SmallVectorTemplateBase.2" }
@@ -845,7 +843,7 @@ _ZN4llvh23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backERKS1_.exit.i: ; 
   %8 = phi i32 [ %.pre.i.i, %if.then.i.i ], [ %6, %for.body.i ]
   %9 = load ptr, ptr %OptionNames, align 8
   %conv.i3.i.i = zext i32 %8 to i64
-  %add.ptr.i.i.i = getelementptr inbounds nuw %"class.llvh::StringRef", ptr %9, i64 %conv.i3.i.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %conv.i3.i.i
   store ptr %4, ptr %add.ptr.i.i.i, align 1
   %ref.tmp.sroa.2.0.add.ptr.i.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i, i64 8
   store i64 %5, ptr %ref.tmp.sroa.2.0.add.ptr.i.i.sroa_idx.i, align 1
@@ -895,7 +893,7 @@ entry:
   %Values = getelementptr inbounds nuw i8, ptr %this, i64 16
   %conv = zext i32 %N to i64
   %0 = load ptr, ptr %Values, align 8
-  %arrayidx.i = getelementptr inbounds nuw %"class.llvh::cl::parser<hermes::hbc::BytecodeForm>::OptionInfo", ptr %0, i64 %conv
+  %arrayidx.i = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %conv
   %retval.sroa.0.0.copyload = load ptr, ptr %arrayidx.i, align 8
   %retval.sroa.2.0.Name.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 8
   %retval.sroa.2.0.copyload = load i64, ptr %retval.sroa.2.0.Name.sroa_idx, align 8
@@ -910,7 +908,7 @@ entry:
   %Values = getelementptr inbounds nuw i8, ptr %this, i64 16
   %conv = zext i32 %N to i64
   %0 = load ptr, ptr %Values, align 8
-  %arrayidx.i = getelementptr inbounds nuw %"class.llvh::cl::parser<hermes::hbc::BytecodeForm>::OptionInfo", ptr %0, i64 %conv
+  %arrayidx.i = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %conv
   %HelpStr = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 16
   %retval.sroa.0.0.copyload = load ptr, ptr %HelpStr, align 8
   %retval.sroa.2.0.HelpStr.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 24
@@ -928,7 +926,7 @@ entry:
   %Values = getelementptr inbounds nuw i8, ptr %this, i64 16
   %conv = zext i32 %N to i64
   %0 = load ptr, ptr %Values, align 8
-  %arrayidx.i = getelementptr inbounds nuw %"class.llvh::cl::parser<hermes::hbc::BytecodeForm>::OptionInfo", ptr %0, i64 %conv
+  %arrayidx.i = getelementptr inbounds nuw [48 x i8], ptr %0, i64 %conv
   %V = getelementptr inbounds nuw i8, ptr %arrayidx.i, i64 32
   ret ptr %V
 }
@@ -969,7 +967,7 @@ for.body.lr.ph:                                   ; preds = %entry
 
 for.body.us:                                      ; preds = %for.body.lr.ph, %for.inc.us
   %i.08.us = phi i64 [ %inc.us, %for.inc.us ], [ 0, %for.body.lr.ph ]
-  %arrayidx.i23.us = getelementptr inbounds nuw %"class.llvh::cl::parser<hermes::hbc::BytecodeForm>::OptionInfo", ptr %4, i64 %i.08.us
+  %arrayidx.i23.us = getelementptr inbounds nuw [48 x i8], ptr %4, i64 %i.08.us
   %agg.tmp.sroa.2.0.Name.sroa_idx.us = getelementptr inbounds nuw i8, ptr %arrayidx.i23.us, i64 8
   %agg.tmp.sroa.2.0.copyload.us = load i64, ptr %agg.tmp.sroa.2.0.Name.sroa_idx.us, align 8
   %cmp.i.us = icmp eq i64 %agg.tmp.sroa.2.0.copyload.us, 0
@@ -982,7 +980,7 @@ for.inc.us:                                       ; preds = %for.body.us
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
   %i.08 = phi i64 [ %inc, %for.inc ], [ 0, %for.body.lr.ph ]
-  %arrayidx.i23 = getelementptr inbounds nuw %"class.llvh::cl::parser<hermes::hbc::BytecodeForm>::OptionInfo", ptr %4, i64 %i.08
+  %arrayidx.i23 = getelementptr inbounds nuw [48 x i8], ptr %4, i64 %i.08
   %agg.tmp.sroa.2.0.Name.sroa_idx = getelementptr inbounds nuw i8, ptr %arrayidx.i23, i64 8
   %agg.tmp.sroa.2.0.copyload = load i64, ptr %agg.tmp.sroa.2.0.Name.sroa_idx, align 8
   %cmp.i = icmp eq i64 %agg.tmp.sroa.2.0.copyload, %agg.tmp5.sroa.2.0.copyload.fr
@@ -996,7 +994,7 @@ land.rhs.i:                                       ; preds = %for.body
 
 if.then7:                                         ; preds = %land.rhs.i, %for.body.us
   %6 = phi i64 [ %i.08.us, %for.body.us ], [ %i.08, %land.rhs.i ]
-  %7 = getelementptr inbounds nuw %"class.llvh::cl::parser<hermes::hbc::BytecodeForm>::OptionInfo", ptr %4, i64 %6
+  %7 = getelementptr inbounds nuw [48 x i8], ptr %4, i64 %6
   %Value.i = getelementptr inbounds nuw i8, ptr %7, i64 40
   %8 = load i32, ptr %Value.i, align 4
   store i32 %8, ptr %V, align 4
@@ -1171,7 +1169,7 @@ _ZN4llvh2cl6parserIN6hermes3hbc12BytecodeFormEE16addLiteralOptionIiEEvNS_9String
   %4 = phi i32 [ %.pre.i.i.i.i.i, %if.then.i.i.i.i.i ], [ %2, %for.body.i.i.i ]
   %5 = load ptr, ptr %Values.i.i.i.i, align 8
   %conv.i3.i.i.i.i.i = zext i32 %4 to i64
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw %"class.llvh::cl::parser<hermes::hbc::BytecodeForm>::OptionInfo", ptr %5, i64 %conv.i3.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw [48 x i8], ptr %5, i64 %conv.i3.i.i.i.i.i
   store ptr %Value.sroa.0.0.copyload.i.i.i, ptr %add.ptr.i.i.i.i.i.i, align 8
   %X.sroa.2.0.add.ptr.i.i.sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i.i, i64 8
   store i64 %Value.sroa.2.0.copyload.i.i.i, ptr %X.sroa.2.0.add.ptr.i.i.sroa_idx.i.i.i.i, align 8

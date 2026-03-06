@@ -633,7 +633,7 @@ for.cond.cleanup21:                               ; preds = %_ZNSt7__cxx1112basi
 for.body22:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit134, %for.cond20.preheader
   %j.0143 = phi i64 [ 0, %for.cond20.preheader ], [ %inc, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit134 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp23)
-  %arrayidx.i = getelementptr inbounds nuw ptr, ptr @_ZZNK3irr5video26COGLESCoreExtensionHandler16getFeatureStringEmE19OGLESFeatureStrings, i64 %j.0143
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK3irr5video26COGLESCoreExtensionHandler16getFeatureStringEmE19OGLESFeatureStrings, i64 %j.0143
   %58 = load ptr, ptr %arrayidx.i, align 8, !tbaa !38
   store ptr %47, ptr %ref.tmp23, align 8, !tbaa !14
   %call.i.i117 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %58) #12
@@ -914,7 +914,7 @@ if.end17:                                         ; preds = %for.inc, %for.inc.u
 
 if.then23:                                        ; preds = %if.end17
   %14 = load ptr, ptr %this, align 8, !tbaa !48
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %14, i64 %rem.i.i.i
+  %arrayidx.i.i = getelementptr inbounds [8 x i8], ptr %14, i64 %rem.i.i.i
   %15 = load ptr, ptr %arrayidx.i.i, align 8, !tbaa !38
   %tobool.not.i.i = icmp eq ptr %15, null
   br i1 %tobool.not.i.i, label %if.end31, label %if.end.i.i
@@ -1004,7 +1004,7 @@ if.end.i:                                         ; preds = %if.then.i, %if.end3
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %call5.i.i.i.i, i64 40
   store i64 %call.i.i.i, ptr %add.ptr.i, align 8, !tbaa !49
   %33 = load ptr, ptr %this, align 8, !tbaa !48
-  %arrayidx.i.i60 = getelementptr inbounds ptr, ptr %33, i64 %__bkt.addr.0.i
+  %arrayidx.i.i60 = getelementptr inbounds [8 x i8], ptr %33, i64 %__bkt.addr.0.i
   %34 = load ptr, ptr %arrayidx.i.i60, align 8, !tbaa !38
   %tobool.not.i.i61 = icmp eq ptr %34, null
   br i1 %tobool.not.i.i61, label %if.else.i.i, label %if.then.i.i
@@ -1029,14 +1029,14 @@ if.then14.i.i:                                    ; preds = %if.else.i.i
   %add.ptr.i.i.i.i63 = getelementptr inbounds nuw i8, ptr %37, i64 40
   %39 = load i64, ptr %add.ptr.i.i.i.i63, align 8, !tbaa !49
   %rem.i.i.i.i.i64 = urem i64 %39, %38
-  %arrayidx17.i.i = getelementptr inbounds ptr, ptr %33, i64 %rem.i.i.i.i.i64
+  %arrayidx17.i.i = getelementptr inbounds [8 x i8], ptr %33, i64 %rem.i.i.i.i.i64
   store ptr %call5.i.i.i.i, ptr %arrayidx17.i.i, align 8, !tbaa !38
   %.pre.i.i65 = load ptr, ptr %this, align 8, !tbaa !48
   br label %if.end.i.i66
 
 if.end.i.i66:                                     ; preds = %if.then14.i.i, %if.else.i.i
   %40 = phi ptr [ %.pre.i.i65, %if.then14.i.i ], [ %33, %if.else.i.i ]
-  %arrayidx20.i.i = getelementptr inbounds ptr, ptr %40, i64 %__bkt.addr.0.i
+  %arrayidx20.i.i = getelementptr inbounds [8 x i8], ptr %40, i64 %__bkt.addr.0.i
   store ptr %_M_before_begin.i.i62, ptr %arrayidx20.i.i, align 8, !tbaa !38
   br label %cleanup41
 
@@ -1129,7 +1129,7 @@ while.body:                                       ; preds = %_ZNSt10_HashtableIN
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %__p.044, i64 40
   %2 = load i64, ptr %add.ptr.i, align 8, !tbaa !49
   %rem.i.i = urem i64 %2, %__bkt_count
-  %arrayidx = getelementptr inbounds ptr, ptr %retval.0.i, i64 %rem.i.i
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %retval.0.i, i64 %rem.i.i
   %3 = load ptr, ptr %arrayidx, align 8, !tbaa !38
   %tobool5.not = icmp eq ptr %3, null
   br i1 %tobool5.not, label %if.then, label %if.else
@@ -1144,7 +1144,7 @@ if.then:                                          ; preds = %while.body
   br i1 %tobool14.not, label %if.end22, label %if.then15
 
 if.then15:                                        ; preds = %if.then
-  %arrayidx16 = getelementptr inbounds ptr, ptr %retval.0.i, i64 %__bbegin_bkt.043
+  %arrayidx16 = getelementptr inbounds [8 x i8], ptr %retval.0.i, i64 %__bbegin_bkt.043
   br label %if.end22.sink.split
 
 if.else:                                          ; preds = %while.body
@@ -1246,7 +1246,7 @@ if.end15:                                         ; preds = %entry
   %9 = load i64, ptr %_M_bucket_count.i, align 8
   %rem.i.i.i = urem i64 %call.i.i.i, %9
   %10 = load ptr, ptr %this, align 8, !tbaa !48
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %10, i64 %rem.i.i.i
+  %arrayidx.i.i = getelementptr inbounds [8 x i8], ptr %10, i64 %rem.i.i.i
   %11 = load ptr, ptr %arrayidx.i.i, align 8, !tbaa !38
   %tobool.not.i.i = icmp eq ptr %11, null
   br i1 %tobool.not.i.i, label %return, label %if.end.i.i

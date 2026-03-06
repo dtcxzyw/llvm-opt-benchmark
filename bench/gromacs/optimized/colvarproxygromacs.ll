@@ -54,7 +54,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Head_base.73" = type { ptr }
 %"class.std::tuple.74" = type { i8 }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::basic_istream<char> *>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::basic_istream<char> *>>, std::less<std::__cxx11::basic_string<char>>>::_Auto_node" = type { ptr, ptr }
-%struct.t_atom = type { float, float, float, float, i16, i16, i32, i32, i32, [4 x i8] }
 
 $_ZNK18colvarproxy_system18get_accelMD_factorEv = comdat any
 
@@ -327,7 +326,7 @@ _ZN3gmx27TabulatedNormalDistributionIfLj14EEclINS_16ThreeFry2x64FastILj64EEEEEfR
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1720
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1728
   %13 = and i64 %10, 16383
-  %14 = getelementptr inbounds nuw float, ptr @_ZN3gmx27TabulatedNormalDistributionIfLj14EE8c_table_E, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr @_ZN3gmx27TabulatedNormalDistributionIfLj14EE8c_table_E, i64 %13
   %15 = load float, ptr %14, align 4, !tbaa !24
   %16 = lshr i64 %10, 14
   store i64 %16, ptr %12, align 8, !tbaa !23
@@ -1763,7 +1762,7 @@ define noundef i32 @_ZN3gmx18ColvarProxyGromacs9init_atomEi(ptr noundef nonnull 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %21
   %.01521 = phi i64 [ %22, %21 ], [ 0, %.lr.ph.preheader ]
-  %12 = getelementptr inbounds nuw i32, ptr %7, i64 %.01521
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.01521
   %13 = load i32, ptr %12, align 4, !tbaa !132
   %14 = icmp eq i32 %13, %3
   br i1 %14, label %.thread, label %21
@@ -1771,7 +1770,7 @@ define noundef i32 @_ZN3gmx18ColvarProxyGromacs9init_atomEi(ptr noundef nonnull 
 .thread:                                          ; preds = %.lr.ph
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %16 = load ptr, ptr %15, align 8, !tbaa !174
-  %17 = getelementptr inbounds nuw i64, ptr %16, i64 %.01521
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.01521
   %18 = load i64, ptr %17, align 8, !tbaa !32
   %19 = add i64 %18, 1
   store i64 %19, ptr %17, align 8, !tbaa !32
@@ -2044,7 +2043,7 @@ define noundef i32 @_ZThn256_N3gmx18ColvarProxyGromacs9init_atomEi(ptr noundef %
 
 .lr.ph.i:                                         ; preds = %22, %.lr.ph.preheader.i
   %.01521.i = phi i64 [ %23, %22 ], [ 0, %.lr.ph.preheader.i ]
-  %13 = getelementptr inbounds nuw i32, ptr %8, i64 %.01521.i
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %.01521.i
   %14 = load i32, ptr %13, align 4, !tbaa !132
   %15 = icmp eq i32 %14, %4
   br i1 %15, label %.thread.i, label %22
@@ -2052,7 +2051,7 @@ define noundef i32 @_ZThn256_N3gmx18ColvarProxyGromacs9init_atomEi(ptr noundef %
 .thread.i:                                        ; preds = %.lr.ph.i
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %17 = load ptr, ptr %16, align 8, !tbaa !174
-  %18 = getelementptr inbounds nuw i64, ptr %17, i64 %.01521.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.01521.i
   %19 = load i64, ptr %18, align 8, !tbaa !32
   %20 = add i64 %19, 1
   store i64 %20, ptr %18, align 8, !tbaa !32
@@ -4500,7 +4499,7 @@ define linkonce_odr noundef i64 @_ZN3gmx19ThreeFry2x64GeneralILj13ELj64EEclEv(pt
 ._crit_edge:                                      ; preds = %1
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.phi.trans.insert1 = zext nneg i32 %3 to i64
-  %.phi.trans.insert2 = getelementptr inbounds nuw i64, ptr %.phi.trans.insert, i64 %.phi.trans.insert1
+  %.phi.trans.insert2 = getelementptr inbounds nuw [8 x i8], ptr %.phi.trans.insert, i64 %.phi.trans.insert1
   %.pre = load i64, ptr %.phi.trans.insert2, align 8, !tbaa !32
   %5 = add nuw nsw i32 %3, 1
   br label %64
@@ -4997,10 +4996,10 @@ define void @_ZN3gmx18ColvarProxyGromacs20updateAtomPropertiesEi(ptr noundef non
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %10 = sext i32 %1 to i64
   %11 = load ptr, ptr %9, align 8, !tbaa !173
-  %12 = getelementptr inbounds nuw i32, ptr %11, i64 %10
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %10
   %13 = load i32, ptr %12, align 4, !tbaa !132
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds %struct.t_atom, ptr %8, i64 %14
+  %15 = getelementptr inbounds [36 x i8], ptr %8, i64 %14
   %16 = load float, ptr %15, align 4, !tbaa !227
   %17 = fpext float %16 to double
   %18 = fcmp ugt double %17, 1.000000e-03
@@ -5147,7 +5146,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24: ; preds = %_ZN
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pre = load ptr, ptr %7, align 8, !tbaa !226
   %.pre34 = load ptr, ptr %9, align 8, !tbaa !173
-  %.phi.trans.insert = getelementptr inbounds nuw i32, ptr %.pre34, i64 %10
+  %.phi.trans.insert = getelementptr inbounds nuw [4 x i8], ptr %.pre34, i64 %10
   %.pre35 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !132
   %.pre36 = sext i32 %.pre35 to i64
   br label %91
@@ -5212,15 +5211,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit33: ; preds = %_ZN
   %92 = phi ptr [ %.pre, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit24 ], [ %8, %2 ]
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %94 = load ptr, ptr %93, align 8, !tbaa !237
-  %95 = getelementptr inbounds nuw double, ptr %94, i64 %10
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %10
   store double %17, ptr %95, align 8, !tbaa !238
-  %96 = getelementptr inbounds %struct.t_atom, ptr %92, i64 %.pre-phi
+  %96 = getelementptr inbounds [36 x i8], ptr %92, i64 %.pre-phi
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 4
   %98 = load float, ptr %97, align 4, !tbaa !239
   %99 = fpext float %98 to double
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 336
   %101 = load ptr, ptr %100, align 8, !tbaa !237
-  %102 = getelementptr inbounds nuw double, ptr %101, i64 %10
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %10
   store double %99, ptr %102, align 8, !tbaa !238
   ret void
 }

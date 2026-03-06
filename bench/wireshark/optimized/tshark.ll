@@ -31,14 +31,11 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.except_t = type { %struct.except_id_t, ptr, ptr }
 %struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
 %struct.__sigset_t = type { [16 x i64] }
-%struct.open_info = type { ptr, i32, ptr, ptr, ptr, ptr }
-%struct.string_elem = type { ptr, ptr }
 %struct.sigaction = type { %union.anon.5, %struct.__sigset_t, i32, ptr }
 %union.anon.5 = type { ptr }
 %struct.wtap_dump_params = type { i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8 }
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
-%struct.col_item_t = type { i32, ptr, ptr, ptr, i32, ptr, ptr, ptr, ptr, i32, i8, i32 }
 
 @main.long_options = internal constant [39 x { ptr, i32, [4 x i8], ptr, i32, [4 x i8] }] [{ ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str, i32 0, [4 x i8] zeroinitializer, ptr null, i32 104, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.1, i32 0, [4 x i8] zeroinitializer, ptr null, i32 118, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.2, i32 1, [4 x i8] zeroinitializer, ptr null, i32 97, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.3, i32 1, [4 x i8] zeroinitializer, ptr null, i32 98, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.4, i32 1, [4 x i8] zeroinitializer, ptr null, i32 66, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.5, i32 0, [4 x i8] zeroinitializer, ptr null, i32 68, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.6, i32 1, [4 x i8] zeroinitializer, ptr null, i32 105, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.7, i32 0, [4 x i8] zeroinitializer, ptr null, i32 73, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.8, i32 0, [4 x i8] zeroinitializer, ptr null, i32 76, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.9, i32 0, [4 x i8] zeroinitializer, ptr null, i32 112, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.10, i32 1, [4 x i8] zeroinitializer, ptr null, i32 115, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.11, i32 1, [4 x i8] zeroinitializer, ptr null, i32 121, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.12, i32 0, [4 x i8] zeroinitializer, ptr null, i32 1001, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.13, i32 1, [4 x i8] zeroinitializer, ptr null, i32 1002, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.14, i32 1, [4 x i8] zeroinitializer, ptr null, i32 1003, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.15, i32 1, [4 x i8] zeroinitializer, ptr null, i32 1004, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.16, i32 1, [4 x i8] zeroinitializer, ptr null, i32 1005, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.17, i32 1, [4 x i8] zeroinitializer, ptr null, i32 2001, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.18, i32 1, [4 x i8] zeroinitializer, ptr null, i32 2002, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.19, i32 1, [4 x i8] zeroinitializer, ptr null, i32 2003, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.20, i32 1, [4 x i8] zeroinitializer, ptr null, i32 2004, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.21, i32 1, [4 x i8] zeroinitializer, ptr null, i32 2005, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.22, i32 0, [4 x i8] zeroinitializer, ptr null, i32 2006, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.23, i32 1, [4 x i8] zeroinitializer, ptr null, i32 82, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.24, i32 1, [4 x i8] zeroinitializer, ptr null, i32 89, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.25, i32 1, [4 x i8] zeroinitializer, ptr null, i32 114, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.26, i32 0, [4 x i8] zeroinitializer, ptr null, i32 80, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.27, i32 1, [4 x i8] zeroinitializer, ptr null, i32 3001, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.28, i32 1, [4 x i8] zeroinitializer, ptr null, i32 3005, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.29, i32 0, [4 x i8] zeroinitializer, ptr null, i32 3002, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.30, i32 0, [4 x i8] zeroinitializer, ptr null, i32 3003, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.31, i32 1, [4 x i8] zeroinitializer, ptr null, i32 3004, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.32, i32 1, [4 x i8] zeroinitializer, ptr null, i32 3006, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.33, i32 1, [4 x i8] zeroinitializer, ptr null, i32 3007, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.34, i32 1, [4 x i8] zeroinitializer, ptr null, i32 3008, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.35, i32 0, [4 x i8] zeroinitializer, ptr null, i32 3009, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.36, i32 0, [4 x i8] zeroinitializer, ptr null, i32 3010, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } { ptr @.str.37, i32 1, [4 x i8] zeroinitializer, ptr null, i32 3011, [4 x i8] zeroinitializer }, { ptr, i32, [4 x i8], ptr, i32, [4 x i8] } zeroinitializer], align 16
 @.str = private unnamed_addr constant [5 x i8] c"help\00", align 1
@@ -1647,7 +1644,7 @@ protocolfilter_add_opt.exit:                      ; preds = %207, %192, %237, %1
 
 switch.lookup:                                    ; preds = %416
   %422 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.main, i64 %422
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.main, i64 %422
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %418, %switch.lookup
@@ -1922,7 +1919,7 @@ sub_0322:                                         ; preds = %447
 .lr.ph442:                                        ; preds = %508, %519
   %indvars.iv = phi i64 [ %indvars.iv.next, %519 ], [ 0, %508 ]
   %512 = load ptr, ptr %509, align 8
-  %513 = getelementptr i32, ptr %512, i64 %indvars.iv
+  %513 = getelementptr [4 x i8], ptr %512, i64 %indvars.iv
   %514 = load i32, ptr %513, align 4
   %515 = call i32 @wtap_file_type_subtype_supports_option(i32 noundef %514, i32 noundef 0, i32 noundef 1)
   %.not261 = icmp eq i32 %515, 0
@@ -2740,7 +2737,7 @@ define internal fastcc void @list_capture_types() unnamed_addr #0 {
 .lr.ph:                                           ; preds = %0, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %0 ]
   %7 = load ptr, ptr %3, align 8
-  %8 = getelementptr i32, ptr %7, i64 %indvars.iv
+  %8 = getelementptr [4 x i8], ptr %7, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4
   %10 = load ptr, ptr @stderr, align 8
   %11 = tail call ptr @wtap_file_type_subtype_name(i32 noundef %9)
@@ -3105,7 +3102,7 @@ define internal fastcc void @list_read_capture_types() unnamed_addr #0 {
   %.03339 = phi i64 [ %3, %.lr.ph ], [ 0, %0 ]
   %3 = add i64 %.03339, 1
   %4 = and i64 %3, 4294967295
-  %5 = getelementptr %struct.open_info, ptr %1, i64 %4
+  %5 = getelementptr [48 x i8], ptr %1, i64 %4
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
@@ -3123,13 +3120,13 @@ define internal fastcc void @list_read_capture_types() unnamed_addr #0 {
   %.142 = phi i32 [ %22, %14 ], [ 0, %._crit_edge ]
   %.03441 = phi ptr [ %21, %14 ], [ null, %._crit_edge ]
   %11 = load ptr, ptr @open_routines, align 8
-  %12 = getelementptr %struct.open_info, ptr %11, i64 %10
+  %12 = getelementptr [48 x i8], ptr %11, i64 %10
   %13 = load ptr, ptr %12, align 8
   %.not37 = icmp eq ptr %13, null
   br i1 %.not37, label %.critedge, label %14
 
 14:                                               ; preds = %.lr.ph44
-  %15 = getelementptr %struct.string_elem, ptr %7, i64 %10
+  %15 = getelementptr [16 x i8], ptr %7, i64 %10
   store ptr %13, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %17 = load i32, ptr %16, align 8
@@ -3647,7 +3644,7 @@ define internal fastcc range(i32 0, 4) i32 @process_cap_file(ptr noundef %0, i32
   %43 = load ptr, ptr %42, align 8
   %44 = load ptr, ptr %43, align 8
   %45 = load ptr, ptr %41, align 8
-  %46 = getelementptr ptr, ptr %45, i64 %indvars.iv
+  %46 = getelementptr [8 x i8], ptr %45, i64 %indvars.iv
   %47 = load ptr, ptr %46, align 8
   %48 = call i32 (ptr, i32, ptr, ...) @wtap_block_add_string_option_format(ptr noundef %44, i32 noundef 1, ptr noundef nonnull @.str.110, ptr noundef %47)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -5381,7 +5378,7 @@ define internal fastcc void @about_folders() unnamed_addr #0 {
   %23 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.293, ptr noundef nonnull @.str.302, ptr noundef %22)
   %24 = add i32 %.036, 1
   %25 = sext i32 %24 to i64
-  %26 = getelementptr ptr, ptr %18, i64 %25
+  %26 = getelementptr [8 x i8], ptr %18, i64 %25
   %27 = load ptr, ptr %26, align 8
   %.not32 = icmp eq ptr %27, null
   br i1 %.not32, label %._crit_edge, label %.lr.ph, !llvm.loop !27
@@ -5402,7 +5399,7 @@ define internal fastcc void @about_folders() unnamed_addr #0 {
   %34 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.293, ptr noundef nonnull @.str.303, ptr noundef %33)
   %35 = add i32 %.138, 1
   %36 = sext i32 %35 to i64
-  %37 = getelementptr ptr, ptr %29, i64 %36
+  %37 = getelementptr [8 x i8], ptr %29, i64 %36
   %38 = load ptr, ptr %37, align 8
   %.not33 = icmp eq ptr %38, null
   br i1 %.not33, label %._crit_edge41, label %.lr.ph40, !llvm.loop !28
@@ -5423,7 +5420,7 @@ define internal fastcc void @about_folders() unnamed_addr #0 {
   %45 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.293, ptr noundef nonnull @.str.304, ptr noundef %44)
   %46 = add i32 %.243, 1
   %47 = sext i32 %46 to i64
-  %48 = getelementptr ptr, ptr %40, i64 %47
+  %48 = getelementptr [8 x i8], ptr %40, i64 %47
   %49 = load ptr, ptr %48, align 8
   %.not34 = icmp eq ptr %49, null
   br i1 %.not34, label %._crit_edge46, label %.lr.ph45, !llvm.loop !29
@@ -5912,7 +5909,7 @@ get_line_buf.exit.i:                              ; preds = %.sink.split.i.i, %2
   %.01213.i = phi ptr [ %.1.i, %276 ], [ %26, %32 ]
   %.01232.i = phi i64 [ %.1124.i, %276 ], [ 0, %32 ]
   %35 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 296), align 8
-  %36 = getelementptr %struct.col_item_t, ptr %35, i64 %indvars.iv.i
+  %36 = getelementptr [88 x i8], ptr %35, i64 %indvars.iv.i
   %37 = trunc nuw nsw i64 %indvars.iv.i to i32
   %38 = call zeroext i1 @get_column_visible(i32 noundef %37)
   br i1 %38, label %39, label %276
@@ -6295,7 +6292,7 @@ get_line_buf.exit161.i:                           ; preds = %.sink.split.i159.i,
 
 174:                                              ; preds = %get_line_buf.exit161.i, %get_line_buf.exit161.i, %get_line_buf.exit161.i
   %175 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 296), align 8
-  %176 = getelementptr %struct.col_item_t, ptr %175, i64 %indvars.iv.i
+  %176 = getelementptr [88 x i8], ptr %175, i64 %indvars.iv.i
   %177 = getelementptr i8, ptr %176, i64 88
   %178 = load i32, ptr %177, align 8
   switch i32 %178, label %184 [
@@ -6325,7 +6322,7 @@ get_line_buf.exit161.i:                           ; preds = %.sink.split.i159.i,
 
 190:                                              ; preds = %get_line_buf.exit161.i, %get_line_buf.exit161.i, %get_line_buf.exit161.i
   %191 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 296), align 8
-  %192 = getelementptr %struct.col_item_t, ptr %191, i64 %indvars.iv.i
+  %192 = getelementptr [88 x i8], ptr %191, i64 %indvars.iv.i
   %193 = getelementptr i8, ptr %192, i64 88
   %194 = load i32, ptr %193, align 8
   switch i32 %194, label %200 [
@@ -6355,7 +6352,7 @@ get_line_buf.exit161.i:                           ; preds = %.sink.split.i159.i,
 
 206:                                              ; preds = %get_line_buf.exit161.i, %get_line_buf.exit161.i, %get_line_buf.exit161.i
   %207 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 296), align 8
-  %208 = getelementptr %struct.col_item_t, ptr %207, i64 %indvars.iv.i
+  %208 = getelementptr [88 x i8], ptr %207, i64 %indvars.iv.i
   %209 = getelementptr i8, ptr %208, i64 88
   %210 = load i32, ptr %209, align 8
   switch i32 %210, label %216 [
@@ -6385,7 +6382,7 @@ get_line_buf.exit161.i:                           ; preds = %.sink.split.i159.i,
 
 222:                                              ; preds = %get_line_buf.exit161.i, %get_line_buf.exit161.i, %get_line_buf.exit161.i
   %223 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 296), align 8
-  %224 = getelementptr %struct.col_item_t, ptr %223, i64 %indvars.iv.i
+  %224 = getelementptr [88 x i8], ptr %223, i64 %indvars.iv.i
   %225 = getelementptr i8, ptr %224, i64 88
   %226 = load i32, ptr %225, align 8
   switch i32 %226, label %232 [
@@ -6415,7 +6412,7 @@ get_line_buf.exit161.i:                           ; preds = %.sink.split.i159.i,
 
 238:                                              ; preds = %get_line_buf.exit161.i, %get_line_buf.exit161.i, %get_line_buf.exit161.i
   %239 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 296), align 8
-  %240 = getelementptr %struct.col_item_t, ptr %239, i64 %indvars.iv.i
+  %240 = getelementptr [88 x i8], ptr %239, i64 %indvars.iv.i
   %241 = getelementptr i8, ptr %240, i64 88
   %242 = load i32, ptr %241, align 8
   switch i32 %242, label %248 [
@@ -6445,7 +6442,7 @@ get_line_buf.exit161.i:                           ; preds = %.sink.split.i159.i,
 
 254:                                              ; preds = %get_line_buf.exit161.i, %get_line_buf.exit161.i, %get_line_buf.exit161.i
   %255 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @cfile, i64 296), align 8
-  %256 = getelementptr %struct.col_item_t, ptr %255, i64 %indvars.iv.i
+  %256 = getelementptr [88 x i8], ptr %255, i64 %indvars.iv.i
   %257 = getelementptr i8, ptr %256, i64 88
   %258 = load i32, ptr %257, align 8
   switch i32 %258, label %264 [

@@ -443,7 +443,7 @@ define hidden { ptr, ptr } @_ZN5uu_od11output_info10OutputInfo22spaced_formatter
   %3 = load ptr, ptr %2, align 8, !nonnull !4, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !4
-  %6 = getelementptr inbounds { { { i64, [1 x i64] }, i64, i64 }, [8 x i64], i8, [7 x i8] }, ptr %3, i64 %5
+  %6 = getelementptr inbounds [104 x i8], ptr %3, i64 %5
   %7 = insertvalue { ptr, ptr } poison, ptr %3, 0
   %8 = insertvalue { ptr, ptr } %7, ptr %6, 1
   ret { ptr, ptr } %8
@@ -461,7 +461,7 @@ define void @_ZN5uu_od11output_info10OutputInfo3new17habce696888535766E(ptr noal
 .preheader17:                                     ; preds = %5, %.preheader17
   %.017.i = phi i64 [ %.0.sroa.speculated.i.i.i, %.preheader17 ], [ 1, %5 ]
   %.016.i = phi i64 [ %13, %.preheader17 ], [ 0, %5 ]
-  %11 = getelementptr inbounds { { { i64, [1 x i64] }, i64, i64 }, i8, [7 x i8] }, ptr %2, i64 %.016.i
+  %11 = getelementptr inbounds [40 x i8], ptr %2, i64 %.016.i
   %12 = getelementptr i8, ptr %11, i64 16
   %.val.i = load i64, ptr %12, align 8, !noundef !4
   %.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umax.i64(i64 %.017.i, i64 %.val.i)
@@ -472,7 +472,7 @@ define void @_ZN5uu_od11output_info10OutputInfo3new17habce696888535766E(ptr noal
 .preheader:                                       ; preds = %.preheader17, %"_ZN5uu_od11output_info10OutputInfo3new28_$u7b$$u7b$closure$u7d$$u7d$17h1fb95ff31057592eE.exit.i"
   %.017.i5 = phi i64 [ %.0.sroa.speculated.i.i.i7, %"_ZN5uu_od11output_info10OutputInfo3new28_$u7b$$u7b$closure$u7d$$u7d$17h1fb95ff31057592eE.exit.i" ], [ 1, %.preheader17 ]
   %.016.i6 = phi i64 [ %22, %"_ZN5uu_od11output_info10OutputInfo3new28_$u7b$$u7b$closure$u7d$$u7d$17h1fb95ff31057592eE.exit.i" ], [ 0, %.preheader17 ]
-  %15 = getelementptr inbounds { { { i64, [1 x i64] }, i64, i64 }, i8, [7 x i8] }, ptr %2, i64 %.016.i6
+  %15 = getelementptr inbounds [40 x i8], ptr %2, i64 %.016.i6
   %16 = getelementptr i8, ptr %15, i64 16
   %.val21.i = load i64, ptr %16, align 8, !noalias !38, !noundef !4
   %17 = icmp eq i64 %.val21.i, 0
@@ -614,7 +614,7 @@ define hidden void @_ZN5uu_od11output_info10OutputInfo19calculate_alignment17hb7
 
 39:                                               ; preds = %36
   %40 = add nuw i64 %.sroa.013.027, 1
-  %41 = getelementptr inbounds nuw i64, ptr %0, i64 %37
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %37
   %42 = load i64, ptr %41, align 8, !noundef !4
   %43 = add i64 %42, %32
   store i64 %43, ptr %41, align 8

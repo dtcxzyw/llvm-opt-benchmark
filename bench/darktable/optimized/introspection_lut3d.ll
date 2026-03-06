@@ -16,9 +16,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.dt_introspection_t = type { i32, i32, ptr, i64, ptr, i64, i64, ptr }
 %struct.dt_imageio_png_t = type { i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr }
 %struct._GtkTreeIter = type { i32, ptr, ptr, ptr }
-%union.dt_introspection_field_t = type { %struct.dt_introspection_type_double_t }
-%struct.dt_introspection_type_double_t = type { %struct.dt_introspection_type_header_t, double, double, double }
-%struct.dt_introspection_type_header_t = type { i32, ptr, ptr, ptr, ptr, i64, i64, ptr }
 
 @invalid_filepath_prefix = hidden constant [12 x i8] c"INVALID >> \00", align 1
 @.str = private unnamed_addr constant [7 x i8] c"LUT 3D\00", align 1
@@ -294,12 +291,12 @@ define hidden void @correct_pixel_trilinear(ptr noundef readonly captures(none) 
 
 15:                                               ; preds = %.lr.ph, %17
   %.0126 = phi i64 [ 0, %.lr.ph ], [ %192, %17 ]
-  %16 = getelementptr inbounds nuw float, ptr %0, i64 %.0126
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.0126
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %194
 
 17:                                               ; preds = %202
-  %18 = getelementptr inbounds nuw float, ptr %1, i64 %.0126
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.0126
   %19 = load float, ptr %6, align 16, !tbaa !18
   %20 = fptosi float %19 to i32
   %21 = icmp slt i32 %12, %20
@@ -328,12 +325,12 @@ define hidden void @correct_pixel_trilinear(ptr noundef readonly captures(none) 
   %42 = mul nsw i32 %41, 3
   %43 = add i32 %42, 3
   %44 = sext i32 %42 to i64
-  %45 = getelementptr inbounds float, ptr %3, i64 %44
+  %45 = getelementptr inbounds [4 x i8], ptr %3, i64 %44
   %46 = load float, ptr %45, align 4, !tbaa !18
   %47 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %35
   %48 = fmul reassoc nsz arcp contract afn float %46, %47
   %49 = sext i32 %43 to i64
-  %50 = getelementptr inbounds float, ptr %3, i64 %49
+  %50 = getelementptr inbounds [4 x i8], ptr %3, i64 %49
   %51 = load float, ptr %50, align 4, !tbaa !18
   %52 = fmul reassoc nsz arcp contract afn float %51, %35
   %53 = fadd reassoc nsz arcp contract afn float %52, %48
@@ -342,7 +339,7 @@ define hidden void @correct_pixel_trilinear(ptr noundef readonly captures(none) 
   %56 = fmul reassoc nsz arcp contract afn float %55, %47
   %57 = add i32 %42, 4
   %58 = sext i32 %57 to i64
-  %59 = getelementptr inbounds float, ptr %3, i64 %58
+  %59 = getelementptr inbounds [4 x i8], ptr %3, i64 %58
   %60 = load float, ptr %59, align 4, !tbaa !18
   %61 = fmul reassoc nsz arcp contract afn float %60, %35
   %62 = fadd reassoc nsz arcp contract afn float %61, %56
@@ -351,7 +348,7 @@ define hidden void @correct_pixel_trilinear(ptr noundef readonly captures(none) 
   %65 = fmul reassoc nsz arcp contract afn float %64, %47
   %66 = add i32 %42, 5
   %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds float, ptr %3, i64 %67
+  %68 = getelementptr inbounds [4 x i8], ptr %3, i64 %67
   %69 = load float, ptr %68, align 4, !tbaa !18
   %70 = fmul reassoc nsz arcp contract afn float %69, %35
   %71 = fadd reassoc nsz arcp contract afn float %70, %65
@@ -359,11 +356,11 @@ define hidden void @correct_pixel_trilinear(ptr noundef readonly captures(none) 
   %73 = mul nsw i32 %72, 3
   %74 = add i32 %73, 3
   %75 = sext i32 %73 to i64
-  %76 = getelementptr inbounds float, ptr %3, i64 %75
+  %76 = getelementptr inbounds [4 x i8], ptr %3, i64 %75
   %77 = load float, ptr %76, align 4, !tbaa !18
   %78 = fmul reassoc nsz arcp contract afn float %77, %47
   %79 = sext i32 %74 to i64
-  %80 = getelementptr inbounds float, ptr %3, i64 %79
+  %80 = getelementptr inbounds [4 x i8], ptr %3, i64 %79
   %81 = load float, ptr %80, align 4, !tbaa !18
   %82 = fmul reassoc nsz arcp contract afn float %81, %35
   %83 = getelementptr i8, ptr %76, i64 4
@@ -371,7 +368,7 @@ define hidden void @correct_pixel_trilinear(ptr noundef readonly captures(none) 
   %85 = fmul reassoc nsz arcp contract afn float %84, %47
   %86 = add i32 %73, 4
   %87 = sext i32 %86 to i64
-  %88 = getelementptr inbounds float, ptr %3, i64 %87
+  %88 = getelementptr inbounds [4 x i8], ptr %3, i64 %87
   %89 = load float, ptr %88, align 4, !tbaa !18
   %90 = fmul reassoc nsz arcp contract afn float %89, %35
   %91 = getelementptr i8, ptr %76, i64 8
@@ -379,7 +376,7 @@ define hidden void @correct_pixel_trilinear(ptr noundef readonly captures(none) 
   %93 = fmul reassoc nsz arcp contract afn float %92, %47
   %94 = add i32 %73, 5
   %95 = sext i32 %94 to i64
-  %96 = getelementptr inbounds float, ptr %3, i64 %95
+  %96 = getelementptr inbounds [4 x i8], ptr %3, i64 %95
   %97 = load float, ptr %96, align 4, !tbaa !18
   %98 = fmul reassoc nsz arcp contract afn float %97, %35
   %99 = fsub reassoc nsz arcp contract afn float %78, %53
@@ -400,11 +397,11 @@ define hidden void @correct_pixel_trilinear(ptr noundef readonly captures(none) 
   %114 = mul nsw i32 %113, 3
   %115 = add i32 %114, 3
   %116 = sext i32 %114 to i64
-  %117 = getelementptr inbounds float, ptr %3, i64 %116
+  %117 = getelementptr inbounds [4 x i8], ptr %3, i64 %116
   %118 = load float, ptr %117, align 4, !tbaa !18
   %119 = fmul reassoc nsz arcp contract afn float %118, %47
   %120 = sext i32 %115 to i64
-  %121 = getelementptr inbounds float, ptr %3, i64 %120
+  %121 = getelementptr inbounds [4 x i8], ptr %3, i64 %120
   %122 = load float, ptr %121, align 4, !tbaa !18
   %123 = fmul reassoc nsz arcp contract afn float %122, %35
   %124 = fadd reassoc nsz arcp contract afn float %123, %119
@@ -413,7 +410,7 @@ define hidden void @correct_pixel_trilinear(ptr noundef readonly captures(none) 
   %127 = fmul reassoc nsz arcp contract afn float %126, %47
   %128 = add i32 %114, 4
   %129 = sext i32 %128 to i64
-  %130 = getelementptr inbounds float, ptr %3, i64 %129
+  %130 = getelementptr inbounds [4 x i8], ptr %3, i64 %129
   %131 = load float, ptr %130, align 4, !tbaa !18
   %132 = fmul reassoc nsz arcp contract afn float %131, %35
   %133 = fadd reassoc nsz arcp contract afn float %132, %127
@@ -422,7 +419,7 @@ define hidden void @correct_pixel_trilinear(ptr noundef readonly captures(none) 
   %136 = fmul reassoc nsz arcp contract afn float %135, %47
   %137 = add i32 %114, 5
   %138 = sext i32 %137 to i64
-  %139 = getelementptr inbounds float, ptr %3, i64 %138
+  %139 = getelementptr inbounds [4 x i8], ptr %3, i64 %138
   %140 = load float, ptr %139, align 4, !tbaa !18
   %141 = fmul reassoc nsz arcp contract afn float %140, %35
   %142 = fadd reassoc nsz arcp contract afn float %141, %136
@@ -430,11 +427,11 @@ define hidden void @correct_pixel_trilinear(ptr noundef readonly captures(none) 
   %144 = mul nsw i32 %143, 3
   %145 = add i32 %144, 3
   %146 = sext i32 %144 to i64
-  %147 = getelementptr inbounds float, ptr %3, i64 %146
+  %147 = getelementptr inbounds [4 x i8], ptr %3, i64 %146
   %148 = load float, ptr %147, align 4, !tbaa !18
   %149 = fmul reassoc nsz arcp contract afn float %148, %47
   %150 = sext i32 %145 to i64
-  %151 = getelementptr inbounds float, ptr %3, i64 %150
+  %151 = getelementptr inbounds [4 x i8], ptr %3, i64 %150
   %152 = load float, ptr %151, align 4, !tbaa !18
   %153 = fmul reassoc nsz arcp contract afn float %152, %35
   %154 = fadd reassoc nsz arcp contract afn float %153, %149
@@ -443,7 +440,7 @@ define hidden void @correct_pixel_trilinear(ptr noundef readonly captures(none) 
   %157 = fmul reassoc nsz arcp contract afn float %156, %47
   %158 = add i32 %144, 4
   %159 = sext i32 %158 to i64
-  %160 = getelementptr inbounds float, ptr %3, i64 %159
+  %160 = getelementptr inbounds [4 x i8], ptr %3, i64 %159
   %161 = load float, ptr %160, align 4, !tbaa !18
   %162 = fmul reassoc nsz arcp contract afn float %161, %35
   %163 = fadd reassoc nsz arcp contract afn float %162, %157
@@ -452,7 +449,7 @@ define hidden void @correct_pixel_trilinear(ptr noundef readonly captures(none) 
   %166 = fmul reassoc nsz arcp contract afn float %165, %47
   %167 = add i32 %144, 5
   %168 = sext i32 %167 to i64
-  %169 = getelementptr inbounds float, ptr %3, i64 %168
+  %169 = getelementptr inbounds [4 x i8], ptr %3, i64 %168
   %170 = load float, ptr %169, align 4, !tbaa !18
   %171 = fmul reassoc nsz arcp contract afn float %170, %35
   %172 = fadd reassoc nsz arcp contract afn float %171, %166
@@ -485,7 +482,7 @@ define hidden void @correct_pixel_trilinear(ptr noundef readonly captures(none) 
 
 194:                                              ; preds = %15, %202
   %.0114125 = phi i64 [ 0, %15 ], [ %205, %202 ]
-  %195 = getelementptr inbounds nuw float, ptr %16, i64 %.0114125
+  %195 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.0114125
   %196 = load float, ptr %195, align 4, !tbaa !18
   %197 = fcmp reassoc nsz arcp contract afn ult float %196, 0.000000e+00
   br i1 %197, label %202, label %198
@@ -500,7 +497,7 @@ define hidden void @correct_pixel_trilinear(ptr noundef readonly captures(none) 
 
 202:                                              ; preds = %194, %200, %198
   %203 = phi float [ %11, %198 ], [ %201, %200 ], [ 0.000000e+00, %194 ]
-  %204 = getelementptr inbounds nuw float, ptr %6, i64 %.0114125
+  %204 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.0114125
   store float %203, ptr %204, align 4, !tbaa !18
   %205 = add nuw nsw i64 %.0114125, 1
   %exitcond.not = icmp eq i64 %205, 4
@@ -529,12 +526,12 @@ define hidden void @correct_pixel_tetrahedral(ptr noundef readonly captures(none
 
 15:                                               ; preds = %.lr.ph, %359
   %.0216 = phi i64 [ 0, %.lr.ph ], [ %365, %359 ]
-  %16 = getelementptr inbounds nuw float, ptr %0, i64 %.0216
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.0216
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %53
 
 17:                                               ; preds = %61
-  %18 = getelementptr inbounds nuw float, ptr %1, i64 %.0216
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.0216
   %19 = load float, ptr %6, align 16, !tbaa !18
   %20 = fptosi float %19 to i32
   %21 = icmp slt i32 %12, %20
@@ -575,7 +572,7 @@ define hidden void @correct_pixel_tetrahedral(ptr noundef readonly captures(none
 
 53:                                               ; preds = %15, %61
   %.0204215 = phi i64 [ 0, %15 ], [ %64, %61 ]
-  %54 = getelementptr inbounds nuw float, ptr %16, i64 %.0204215
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.0204215
   %55 = load float, ptr %54, align 4, !tbaa !18
   %56 = fcmp reassoc nsz arcp contract afn ult float %55, 0.000000e+00
   br i1 %56, label %61, label %57
@@ -590,7 +587,7 @@ define hidden void @correct_pixel_tetrahedral(ptr noundef readonly captures(none
 
 61:                                               ; preds = %53, %59, %57
   %62 = phi float [ %11, %57 ], [ %60, %59 ], [ 0.000000e+00, %53 ]
-  %63 = getelementptr inbounds nuw float, ptr %6, i64 %.0204215
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.0204215
   store float %62, ptr %63, align 4, !tbaa !18
   %64 = add nuw nsw i64 %.0204215, 1
   %exitcond.not = icmp eq i64 %64, 4
@@ -599,7 +596,7 @@ define hidden void @correct_pixel_tetrahedral(ptr noundef readonly captures(none
 65:                                               ; preds = %17
   %66 = fcmp reassoc nsz arcp contract afn ogt float %37, %39
   %67 = sext i32 %42 to i64
-  %68 = getelementptr inbounds float, ptr %3, i64 %67
+  %68 = getelementptr inbounds [4 x i8], ptr %3, i64 %67
   %69 = load float, ptr %68, align 4, !tbaa !18
   br i1 %66, label %70, label %121
 
@@ -608,18 +605,18 @@ define hidden void @correct_pixel_tetrahedral(ptr noundef readonly captures(none
   %72 = fmul reassoc nsz arcp contract afn float %69, %71
   %73 = fsub reassoc nsz arcp contract afn float %35, %37
   %74 = sext i32 %43 to i64
-  %75 = getelementptr inbounds float, ptr %3, i64 %74
+  %75 = getelementptr inbounds [4 x i8], ptr %3, i64 %74
   %76 = load float, ptr %75, align 4, !tbaa !18
   %77 = fmul reassoc nsz arcp contract afn float %76, %73
   %78 = fadd reassoc nsz arcp contract afn float %77, %72
   %79 = fsub reassoc nsz arcp contract afn float %37, %39
   %80 = sext i32 %46 to i64
-  %81 = getelementptr inbounds float, ptr %3, i64 %80
+  %81 = getelementptr inbounds [4 x i8], ptr %3, i64 %80
   %82 = load float, ptr %81, align 4, !tbaa !18
   %83 = fmul reassoc nsz arcp contract afn float %82, %79
   %84 = fadd reassoc nsz arcp contract afn float %78, %83
   %85 = sext i32 %51 to i64
-  %86 = getelementptr inbounds float, ptr %3, i64 %85
+  %86 = getelementptr inbounds [4 x i8], ptr %3, i64 %85
   %87 = load float, ptr %86, align 4, !tbaa !18
   %88 = fmul reassoc nsz arcp contract afn float %87, %39
   %89 = fadd reassoc nsz arcp contract afn float %84, %88
@@ -632,13 +629,13 @@ define hidden void @correct_pixel_tetrahedral(ptr noundef readonly captures(none
   %95 = fmul reassoc nsz arcp contract afn float %94, %73
   %96 = fadd reassoc nsz arcp contract afn float %95, %92
   %97 = sext i32 %45 to i64
-  %98 = getelementptr float, ptr %3, i64 %97
+  %98 = getelementptr [4 x i8], ptr %3, i64 %97
   %99 = getelementptr i8, ptr %98, i64 16
   %100 = load float, ptr %99, align 4, !tbaa !18
   %101 = fmul reassoc nsz arcp contract afn float %100, %79
   %102 = fadd reassoc nsz arcp contract afn float %96, %101
   %103 = sext i32 %50 to i64
-  %104 = getelementptr float, ptr %3, i64 %103
+  %104 = getelementptr [4 x i8], ptr %3, i64 %103
   %105 = getelementptr i8, ptr %104, i64 16
   %106 = load float, ptr %105, align 4, !tbaa !18
   %107 = fmul reassoc nsz arcp contract afn float %106, %39
@@ -661,11 +658,11 @@ define hidden void @correct_pixel_tetrahedral(ptr noundef readonly captures(none
 121:                                              ; preds = %65
   %122 = fcmp reassoc nsz arcp contract afn ogt float %35, %39
   %123 = sext i32 %48 to i64
-  %124 = getelementptr float, ptr %3, i64 %123
+  %124 = getelementptr [4 x i8], ptr %3, i64 %123
   %125 = getelementptr i8, ptr %124, i64 12
   %126 = load float, ptr %125, align 4, !tbaa !18
   %127 = sext i32 %51 to i64
-  %128 = getelementptr inbounds float, ptr %3, i64 %127
+  %128 = getelementptr inbounds [4 x i8], ptr %3, i64 %127
   %129 = load float, ptr %128, align 4, !tbaa !18
   %130 = fmul reassoc nsz arcp contract afn float %129, %37
   %131 = getelementptr i8, ptr %68, i64 4
@@ -676,7 +673,7 @@ define hidden void @correct_pixel_tetrahedral(ptr noundef readonly captures(none
   %134 = fmul reassoc nsz arcp contract afn float %69, %133
   %135 = fsub reassoc nsz arcp contract afn float %35, %39
   %136 = sext i32 %43 to i64
-  %137 = getelementptr inbounds float, ptr %3, i64 %136
+  %137 = getelementptr inbounds [4 x i8], ptr %3, i64 %136
   %138 = load float, ptr %137, align 4, !tbaa !18
   %139 = fmul reassoc nsz arcp contract afn float %138, %135
   %140 = fadd reassoc nsz arcp contract afn float %139, %134
@@ -692,13 +689,13 @@ define hidden void @correct_pixel_tetrahedral(ptr noundef readonly captures(none
   %149 = fmul reassoc nsz arcp contract afn float %148, %135
   %150 = fadd reassoc nsz arcp contract afn float %149, %146
   %151 = sext i32 %48 to i64
-  %152 = getelementptr float, ptr %3, i64 %151
+  %152 = getelementptr [4 x i8], ptr %3, i64 %151
   %153 = getelementptr i8, ptr %152, i64 16
   %154 = load float, ptr %153, align 4, !tbaa !18
   %155 = fmul reassoc nsz arcp contract afn float %154, %141
   %156 = fadd reassoc nsz arcp contract afn float %150, %155
   %157 = sext i32 %50 to i64
-  %158 = getelementptr float, ptr %3, i64 %157
+  %158 = getelementptr [4 x i8], ptr %3, i64 %157
   %159 = getelementptr i8, ptr %158, i64 16
   %160 = load float, ptr %159, align 4, !tbaa !18
   %161 = fmul reassoc nsz arcp contract afn float %160, %37
@@ -723,7 +720,7 @@ define hidden void @correct_pixel_tetrahedral(ptr noundef readonly captures(none
   %177 = fmul reassoc nsz arcp contract afn float %69, %176
   %178 = fsub reassoc nsz arcp contract afn float %39, %35
   %179 = sext i32 %48 to i64
-  %180 = getelementptr inbounds float, ptr %3, i64 %179
+  %180 = getelementptr inbounds [4 x i8], ptr %3, i64 %179
   %181 = load float, ptr %180, align 4, !tbaa !18
   %182 = fmul reassoc nsz arcp contract afn float %181, %178
   %183 = fadd reassoc nsz arcp contract afn float %182, %177
@@ -743,7 +740,7 @@ define hidden void @correct_pixel_tetrahedral(ptr noundef readonly captures(none
   %196 = fmul reassoc nsz arcp contract afn float %195, %184
   %197 = fadd reassoc nsz arcp contract afn float %193, %196
   %198 = sext i32 %50 to i64
-  %199 = getelementptr float, ptr %3, i64 %198
+  %199 = getelementptr [4 x i8], ptr %3, i64 %198
   %200 = getelementptr i8, ptr %199, i64 16
   %201 = load float, ptr %200, align 4, !tbaa !18
   %202 = fmul reassoc nsz arcp contract afn float %201, %37
@@ -770,23 +767,23 @@ define hidden void @correct_pixel_tetrahedral(ptr noundef readonly captures(none
 218:                                              ; preds = %216
   %219 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %39
   %220 = sext i32 %42 to i64
-  %221 = getelementptr inbounds float, ptr %3, i64 %220
+  %221 = getelementptr inbounds [4 x i8], ptr %3, i64 %220
   %222 = load float, ptr %221, align 4, !tbaa !18
   %223 = fmul reassoc nsz arcp contract afn float %222, %219
   %224 = fsub reassoc nsz arcp contract afn float %39, %37
   %225 = sext i32 %48 to i64
-  %226 = getelementptr inbounds float, ptr %3, i64 %225
+  %226 = getelementptr inbounds [4 x i8], ptr %3, i64 %225
   %227 = load float, ptr %226, align 4, !tbaa !18
   %228 = fmul reassoc nsz arcp contract afn float %227, %224
   %229 = fadd reassoc nsz arcp contract afn float %228, %223
   %230 = fsub reassoc nsz arcp contract afn float %37, %35
   %231 = sext i32 %50 to i64
-  %232 = getelementptr inbounds float, ptr %3, i64 %231
+  %232 = getelementptr inbounds [4 x i8], ptr %3, i64 %231
   %233 = load float, ptr %232, align 4, !tbaa !18
   %234 = fmul reassoc nsz arcp contract afn float %233, %230
   %235 = fadd reassoc nsz arcp contract afn float %229, %234
   %236 = sext i32 %51 to i64
-  %237 = getelementptr inbounds float, ptr %3, i64 %236
+  %237 = getelementptr inbounds [4 x i8], ptr %3, i64 %236
   %238 = load float, ptr %237, align 4, !tbaa !18
   %239 = fmul reassoc nsz arcp contract afn float %238, %35
   %240 = fadd reassoc nsz arcp contract afn float %235, %239
@@ -825,14 +822,14 @@ define hidden void @correct_pixel_tetrahedral(ptr noundef readonly captures(none
   %269 = fcmp reassoc nsz arcp contract afn ogt float %39, %35
   %270 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %37
   %271 = sext i32 %42 to i64
-  %272 = getelementptr inbounds float, ptr %3, i64 %271
+  %272 = getelementptr inbounds [4 x i8], ptr %3, i64 %271
   %273 = load float, ptr %272, align 4, !tbaa !18
   %274 = fmul reassoc nsz arcp contract afn float %273, %270
   %275 = sext i32 %45 to i64
-  %276 = getelementptr inbounds float, ptr %3, i64 %275
+  %276 = getelementptr inbounds [4 x i8], ptr %3, i64 %275
   %277 = load float, ptr %276, align 4, !tbaa !18
   %278 = sext i32 %51 to i64
-  %279 = getelementptr inbounds float, ptr %3, i64 %278
+  %279 = getelementptr inbounds [4 x i8], ptr %3, i64 %278
   %280 = load float, ptr %279, align 4, !tbaa !18
   %281 = getelementptr i8, ptr %272, i64 4
   %282 = getelementptr i8, ptr %276, i64 4
@@ -844,7 +841,7 @@ define hidden void @correct_pixel_tetrahedral(ptr noundef readonly captures(none
   %286 = fadd reassoc nsz arcp contract afn float %285, %274
   %287 = fsub reassoc nsz arcp contract afn float %39, %35
   %288 = sext i32 %50 to i64
-  %289 = getelementptr inbounds float, ptr %3, i64 %288
+  %289 = getelementptr inbounds [4 x i8], ptr %3, i64 %288
   %290 = load float, ptr %289, align 4, !tbaa !18
   %291 = fmul reassoc nsz arcp contract afn float %290, %287
   %292 = fadd reassoc nsz arcp contract afn float %286, %291
@@ -885,7 +882,7 @@ define hidden void @correct_pixel_tetrahedral(ptr noundef readonly captures(none
   %323 = fadd reassoc nsz arcp contract afn float %322, %274
   %324 = fsub reassoc nsz arcp contract afn float %35, %39
   %325 = sext i32 %46 to i64
-  %326 = getelementptr inbounds float, ptr %3, i64 %325
+  %326 = getelementptr inbounds [4 x i8], ptr %3, i64 %325
   %327 = load float, ptr %326, align 4, !tbaa !18
   %328 = fmul reassoc nsz arcp contract afn float %327, %324
   %329 = fadd reassoc nsz arcp contract afn float %323, %328
@@ -902,7 +899,7 @@ define hidden void @correct_pixel_tetrahedral(ptr noundef readonly captures(none
   %339 = fmul reassoc nsz arcp contract afn float %338, %324
   %340 = fadd reassoc nsz arcp contract afn float %336, %339
   %341 = sext i32 %50 to i64
-  %342 = getelementptr float, ptr %3, i64 %341
+  %342 = getelementptr [4 x i8], ptr %3, i64 %341
   %343 = getelementptr i8, ptr %342, i64 16
   %344 = load float, ptr %343, align 4, !tbaa !18
   %345 = fmul reassoc nsz arcp contract afn float %344, %39
@@ -960,12 +957,12 @@ define hidden void @correct_pixel_pyramid(ptr noundef readonly captures(none) %0
 
 15:                                               ; preds = %.lr.ph, %274
   %.0307 = phi i64 [ 0, %.lr.ph ], [ %276, %274 ]
-  %16 = getelementptr inbounds nuw float, ptr %0, i64 %.0307
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.0307
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   br label %52
 
 17:                                               ; preds = %60
-  %18 = getelementptr inbounds nuw float, ptr %1, i64 %.0307
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.0307
   %19 = load float, ptr %6, align 16, !tbaa !18
   %20 = fptosi float %19 to i32
   %21 = icmp slt i32 %12, %20
@@ -1006,7 +1003,7 @@ define hidden void @correct_pixel_pyramid(ptr noundef readonly captures(none) %0
 
 52:                                               ; preds = %15, %60
   %.0249306 = phi i64 [ 0, %15 ], [ %63, %60 ]
-  %53 = getelementptr inbounds nuw float, ptr %16, i64 %.0249306
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.0249306
   %54 = load float, ptr %53, align 4, !tbaa !18
   %55 = fcmp reassoc nsz arcp contract afn ult float %54, 0.000000e+00
   br i1 %55, label %60, label %56
@@ -1021,7 +1018,7 @@ define hidden void @correct_pixel_pyramid(ptr noundef readonly captures(none) %0
 
 60:                                               ; preds = %52, %58, %56
   %61 = phi float [ %11, %56 ], [ %59, %58 ], [ 0.000000e+00, %52 ]
-  %62 = getelementptr inbounds nuw float, ptr %6, i64 %.0249306
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.0249306
   store float %61, ptr %62, align 4, !tbaa !18
   %63 = add nuw nsw i64 %.0249306, 1
   %exitcond.not = icmp eq i64 %63, 4
@@ -1029,23 +1026,23 @@ define hidden void @correct_pixel_pyramid(ptr noundef readonly captures(none) %0
 
 64:                                               ; preds = %17
   %65 = sext i32 %42 to i64
-  %66 = getelementptr inbounds float, ptr %3, i64 %65
+  %66 = getelementptr inbounds [4 x i8], ptr %3, i64 %65
   %67 = load float, ptr %66, align 4, !tbaa !18
   %68 = sext i32 %49 to i64
-  %69 = getelementptr inbounds float, ptr %3, i64 %68
+  %69 = getelementptr inbounds [4 x i8], ptr %3, i64 %68
   %70 = load float, ptr %69, align 4, !tbaa !18
   %71 = sext i32 %48 to i64
-  %72 = getelementptr inbounds float, ptr %3, i64 %71
+  %72 = getelementptr inbounds [4 x i8], ptr %3, i64 %71
   %73 = load float, ptr %72, align 4, !tbaa !18
   %74 = fsub reassoc nsz arcp contract afn float %70, %73
   %75 = fmul reassoc nsz arcp contract afn float %74, %35
   %76 = sext i32 %44 to i64
-  %77 = getelementptr inbounds float, ptr %3, i64 %76
+  %77 = getelementptr inbounds [4 x i8], ptr %3, i64 %76
   %78 = load float, ptr %77, align 4, !tbaa !18
   %79 = fsub reassoc nsz arcp contract afn float %78, %67
   %80 = fmul reassoc nsz arcp contract afn float %79, %37
   %81 = sext i32 %46 to i64
-  %82 = getelementptr inbounds float, ptr %3, i64 %81
+  %82 = getelementptr inbounds [4 x i8], ptr %3, i64 %81
   %83 = load float, ptr %82, align 4, !tbaa !18
   %84 = fsub reassoc nsz arcp contract afn float %83, %67
   %.neg293 = fadd reassoc nsz arcp contract afn float %73, %67
@@ -1115,10 +1112,10 @@ define hidden void @correct_pixel_pyramid(ptr noundef readonly captures(none) %0
   %136 = fcmp reassoc nsz arcp contract afn ogt float %39, %37
   %or.cond261 = select i1 %135, i1 %136, i1 false
   %137 = sext i32 %42 to i64
-  %138 = getelementptr inbounds float, ptr %3, i64 %137
+  %138 = getelementptr inbounds [4 x i8], ptr %3, i64 %137
   %139 = load float, ptr %138, align 4, !tbaa !18
   %140 = sext i32 %42 to i64
-  %141 = getelementptr float, ptr %3, i64 %140
+  %141 = getelementptr [4 x i8], ptr %3, i64 %140
   %142 = getelementptr i8, ptr %141, i64 12
   %143 = load float, ptr %142, align 4, !tbaa !18
   %144 = fsub reassoc nsz arcp contract afn float %143, %139
@@ -1129,10 +1126,10 @@ define hidden void @correct_pixel_pyramid(ptr noundef readonly captures(none) %0
 
 148:                                              ; preds = %134
   %149 = sext i32 %49 to i64
-  %150 = getelementptr inbounds float, ptr %3, i64 %149
+  %150 = getelementptr inbounds [4 x i8], ptr %3, i64 %149
   %151 = load float, ptr %150, align 4, !tbaa !18
   %152 = sext i32 %46 to i64
-  %153 = getelementptr float, ptr %3, i64 %152
+  %153 = getelementptr [4 x i8], ptr %3, i64 %152
   %154 = getelementptr i8, ptr %153, i64 12
   %155 = load float, ptr %154, align 4, !tbaa !18
   %156 = fsub reassoc nsz arcp contract afn float %151, %155
@@ -1154,7 +1151,7 @@ define hidden void @correct_pixel_pyramid(ptr noundef readonly captures(none) %0
   %169 = fsub reassoc nsz arcp contract afn float %168, %166
   %170 = fmul reassoc nsz arcp contract afn float %169, %35
   %171 = sext i32 %48 to i64
-  %172 = getelementptr float, ptr %3, i64 %171
+  %172 = getelementptr [4 x i8], ptr %3, i64 %171
   %173 = getelementptr i8, ptr %172, i64 16
   %174 = load float, ptr %173, align 4, !tbaa !18
   %175 = getelementptr i8, ptr %153, i64 16
@@ -1201,11 +1198,11 @@ define hidden void @correct_pixel_pyramid(ptr noundef readonly captures(none) %0
 
 210:                                              ; preds = %134
   %211 = sext i32 %44 to i64
-  %212 = getelementptr float, ptr %3, i64 %211
+  %212 = getelementptr [4 x i8], ptr %3, i64 %211
   %213 = load float, ptr %212, align 4, !tbaa !18
   %214 = fsub reassoc nsz arcp contract afn float %213, %139
   %215 = sext i32 %49 to i64
-  %216 = getelementptr inbounds float, ptr %3, i64 %215
+  %216 = getelementptr inbounds [4 x i8], ptr %3, i64 %215
   %217 = load float, ptr %216, align 4, !tbaa !18
   %218 = getelementptr i8, ptr %212, i64 12
   %219 = load float, ptr %218, align 4, !tbaa !18
@@ -1229,7 +1226,7 @@ define hidden void @correct_pixel_pyramid(ptr noundef readonly captures(none) %0
   %234 = load float, ptr %233, align 4, !tbaa !18
   %235 = fsub reassoc nsz arcp contract afn float %234, %228
   %236 = sext i32 %48 to i64
-  %237 = getelementptr float, ptr %3, i64 %236
+  %237 = getelementptr [4 x i8], ptr %3, i64 %236
   %238 = getelementptr i8, ptr %237, i64 16
   %239 = load float, ptr %238, align 4, !tbaa !18
   %240 = getelementptr i8, ptr %212, i64 16
@@ -1560,7 +1557,7 @@ define hidden zeroext i16 @calculate_clut_haldclut(ptr readnone captures(none) %
   %103 = load i8, ptr %102, align 1, !tbaa !73
   %104 = uitofp i8 %103 to float
   %105 = fmul reassoc nsz arcp contract afn float %100, %104
-  %106 = getelementptr inbounds nuw float, ptr %94, i64 %.05377
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %.05377
   store float %105, ptr %106, align 4, !tbaa !18
   %107 = add nuw i64 %.05377, 1
   %exitcond85.not = icmp eq i64 %107, %88
@@ -1578,7 +1575,7 @@ define hidden zeroext i16 @calculate_clut_haldclut(ptr readnone captures(none) %
   %115 = uitofp i8 %114 to float
   %116 = fadd reassoc nnan nsz arcp contract afn float %112, %115
   %117 = fmul reassoc nsz arcp contract afn float %116, %100
-  %118 = getelementptr inbounds nuw float, ptr %94, i64 %.076
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %.076
   store float %117, ptr %118, align 4, !tbaa !18
   %119 = add nuw i64 %.076, 1
   %exitcond.not = icmp eq i64 %119, %88
@@ -2156,7 +2153,7 @@ parse_cube_line.exit:                             ; preds = %22, %37, %39
   %103 = trunc nuw nsw i64 %indvars.iv to i32
   %104 = add i32 %.079170, %103
   %105 = zext i32 %104 to i64
-  %106 = getelementptr inbounds nuw float, ptr %.082169, i64 %105
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %.082169, i64 %105
   store float %102, ptr %106, align 4, !tbaa !18
   %107 = fcmp ord float %102, 0.000000e+00
   br i1 %107, label %108, label %.thread113
@@ -2477,7 +2474,7 @@ parse_cube_line.exit:                             ; preds = %23, %38, %40
   %95 = trunc nuw nsw i64 %indvars.iv to i32
   %96 = add i32 %85, %95
   %97 = zext i32 %96 to i64
-  %98 = getelementptr inbounds nuw float, ptr %.099.ph.ph, i64 %97
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %.099.ph.ph, i64 %97
   store float %94, ptr %98, align 4, !tbaa !18
   %spec.select = call i32 @llvm.umax.i32(i32 %.4109159, i32 %93)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2548,7 +2545,7 @@ parse_cube_line.exit:                             ; preds = %23, %38, %40
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %129
   %indvars.iv171 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next172, %129 ]
-  %122 = getelementptr inbounds nuw float, ptr %.099.ph.ph, i64 %indvars.iv171
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %.099.ph.ph, i64 %indvars.iv171
   %123 = load float, ptr %122, align 4, !tbaa !18
   %124 = fmul reassoc nsz arcp contract afn float %123, %121
   %125 = fcmp reassoc nsz arcp contract afn ogt float %124, 1.000000e+00
@@ -2603,7 +2600,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 
 switch.lookup:                                    ; preds = %6
   %24 = zext nneg i32 %22 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.process, i64 %24
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.process, i64 %24
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %25
 
@@ -3141,7 +3138,7 @@ sub_0.lr.ph:                                      ; preds = %11
 sub_0:                                            ; preds = %sub_0.lr.ph, %filepath_set_unix_separator.exit
   %indvars.iv = phi i64 [ 0, %sub_0.lr.ph ], [ %indvars.iv.next, %filepath_set_unix_separator.exit ]
   %18 = load ptr, ptr %4, align 8, !tbaa !144
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !146
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 19
   %22 = load i8, ptr %12, align 1
@@ -3193,7 +3190,7 @@ filepath_set_unix_separator.exit:                 ; preds = %37, %28
   call void @dt_bauhaus_combobox_add_aligned(ptr noundef %38, ptr noundef nonnull %29, i32 noundef 0) #25
   call void @g_free(ptr noundef nonnull %29) #25
   %39 = load ptr, ptr %4, align 8, !tbaa !144
-  %40 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv
   %41 = load ptr, ptr %40, align 8, !tbaa !146
   call void @free(ptr noundef %41) #25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4068,7 +4065,7 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
 
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw %union.dt_introspection_field_t, ptr @introspection_linear, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [88 x i8], ptr @introspection_linear, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store ptr %0, ptr %8, align 8, !tbaa !73
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

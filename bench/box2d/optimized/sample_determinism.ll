@@ -302,7 +302,7 @@ _Z9b2MakeRotf.exit:                               ; preds = %69
           to label %91 unwind label %85
 
 91:                                               ; preds = %89
-  %92 = getelementptr inbounds %struct.b2BodyId, ptr %24, i64 %indvars.iv
+  %92 = getelementptr inbounds [8 x i8], ptr %24, i64 %indvars.iv
   store i64 %77, ptr %92, align 8
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -405,7 +405,7 @@ define linkonce_odr dso_local void @_ZN13FallingHinges4StepER8Settings(ptr nound
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %20 ]
   %.011 = phi i32 [ 5381, %.preheader ], [ %25, %20 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %21 = getelementptr inbounds nuw %struct.b2BodyId, ptr %12, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %.sroa.0.0.copyload = load i64, ptr %21, align 8
   %22 = call { <2 x float>, <2 x float> } @b2Body_GetTransform(i64 %.sroa.0.0.copyload)
   %23 = extractvalue { <2 x float>, <2 x float> } %22, 0

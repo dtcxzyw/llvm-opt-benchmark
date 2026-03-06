@@ -1491,7 +1491,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %59 = phi ptr [ %56, %.lr.ph151 ], [ %65, %105 ]
   %60 = phi i64 [ 0, %.lr.ph151 ], [ %107, %105 ]
   %.063148 = phi i32 [ 0, %.lr.ph151 ], [ %106, %105 ]
-  %61 = getelementptr inbounds nuw ptr, ptr %2, i64 %60
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %60
   %62 = load ptr, ptr %61, align 8
   %63 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %62) #32
   store i64 0, ptr %57, align 8

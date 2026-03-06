@@ -1095,10 +1095,10 @@ define linkonce_odr hidden noundef i32 @_ZN5boost4wave8cpplexer7re2clex5lexerIN9
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %6)
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = sext i32 %1 to i64
-  %12 = getelementptr inbounds i32, ptr @_ZZN5boost4wave8cpplexer16lexing_exception14severity_levelEiE29preprocess_exception_severity, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr @_ZZN5boost4wave8cpplexer16lexing_exception14severity_levelEiE29preprocess_exception_severity, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !68
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr @_ZZN5boost4wave8cpplexer4util12get_severityENS2_8severityEE13severity_text, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN5boost4wave8cpplexer4util12get_severityENS2_8severityEE13severity_text, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !24
   %.not.i = icmp eq ptr %16, null
   br i1 %.not.i, label %17, label %25
@@ -1124,7 +1124,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %17, %25
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit15 unwind label %47
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit15: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
-  %29 = getelementptr inbounds ptr, ptr @_ZZN5boost4wave8cpplexer16lexing_exception10error_textEiE27preprocess_exception_errors, i64 %11
+  %29 = getelementptr inbounds [8 x i8], ptr @_ZZN5boost4wave8cpplexer16lexing_exception10error_textEiE27preprocess_exception_errors, i64 %11
   %30 = load ptr, ptr %29, align 8, !tbaa !24
   %.not.i16 = icmp eq ptr %30, null
   br i1 %.not.i16, label %31, label %39
@@ -1987,7 +1987,7 @@ _ZNSt12_Vector_baseIN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS2_9
   store ptr %8, ptr %0, align 8, !tbaa !91
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %8, ptr %9, align 8, !tbaa !92
-  %10 = getelementptr inbounds nuw %"class.boost::wave::util::flex_string", ptr %8, i64 %1
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %10, ptr %11, align 8, !tbaa !93
   br label %.lr.ph.i.i.i.i
@@ -2570,7 +2570,7 @@ _ZN5boost4wave8cpplexer18cpplexer_exceptionC2EmmPKc.exit: ; preds = %10, %12
   store ptr getelementptr inbounds nuw inrange(-16, 56) (i8, ptr @_ZTVN5boost4wave8cpplexer16lexing_exceptionE, i64 16), ptr %0, align 8, !tbaa !3
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 1048
   %17 = sext i32 %2 to i64
-  %18 = getelementptr inbounds i32, ptr @_ZZN5boost4wave8cpplexer16lexing_exception14severity_levelEiE29preprocess_exception_severity, i64 %17
+  %18 = getelementptr inbounds [4 x i8], ptr @_ZZN5boost4wave8cpplexer16lexing_exception14severity_levelEiE29preprocess_exception_severity, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !68
   store i32 %19, ptr %16, align 8, !tbaa !102
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 1052
@@ -4116,7 +4116,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   %316 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %317 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost4wave8cpplexer16lexing_exception14severity_levelEiE29preprocess_exception_severity, i64 16), align 16, !tbaa !68
   %318 = zext i32 %317 to i64
-  %319 = getelementptr inbounds nuw ptr, ptr @_ZZN5boost4wave8cpplexer4util12get_severityENS2_8severityEE13severity_text, i64 %318
+  %319 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN5boost4wave8cpplexer4util12get_severityENS2_8severityEE13severity_text, i64 %318
   %320 = load ptr, ptr %319, align 8, !tbaa !24
   %321 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %316, ptr noundef %320)
           to label %322 unwind label %354
@@ -4438,7 +4438,7 @@ _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit1
   %457 = and i32 %60, -2147221505
   %458 = load ptr, ptr %456, align 8, !tbaa !91
   %459 = zext nneg i32 %457 to i64
-  %460 = getelementptr %"class.boost::wave::util::flex_string", ptr %458, i64 %459
+  %460 = getelementptr [8 x i8], ptr %458, i64 %459
   %461 = getelementptr i8, ptr %460, i64 -2048
   %462 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %463 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEaSERKSB_(ptr noundef nonnull align 8 dereferenceable(8) %462, ptr noundef nonnull align 8 dereferenceable(8) %461)
@@ -4759,7 +4759,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   %593 = add i32 %592, -256
   %594 = zext i32 %593 to i64
   %595 = load ptr, ptr %591, align 8, !tbaa !91
-  %596 = getelementptr inbounds nuw %"class.boost::wave::util::flex_string", ptr %595, i64 %594
+  %596 = getelementptr inbounds nuw [8 x i8], ptr %595, i64 %594
   %597 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %598 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEaSERKSB_(ptr noundef nonnull align 8 dereferenceable(8) %597, ptr noundef nonnull align 8 dereferenceable(8) %596)
   br label %_ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE7compareEmmPKcm.exit.thread264
@@ -5916,7 +5916,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %408 = getelementptr inbounds nuw i8, ptr %404, i64 32
   %409 = load ptr, ptr %408, align 8, !tbaa !134
   %410 = load i64, ptr %404, align 8, !tbaa !135
-  %411 = getelementptr inbounds nuw i64, ptr %409, i64 %410
+  %411 = getelementptr inbounds nuw [8 x i8], ptr %409, i64 %410
   %412 = load i64, ptr %411, align 8, !tbaa !128
   %413 = icmp ule i64 %412, %402
   %414 = icmp ne i64 %412, 4294967295
@@ -5941,7 +5941,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %423 = getelementptr inbounds nuw i8, ptr %419, i64 32
   %424 = load ptr, ptr %423, align 8, !tbaa !134
   %425 = load i64, ptr %419, align 8, !tbaa !135
-  %426 = getelementptr inbounds nuw i64, ptr %424, i64 %425
+  %426 = getelementptr inbounds nuw [8 x i8], ptr %424, i64 %425
   %427 = load i64, ptr %426, align 8, !tbaa !128
   %428 = icmp ule i64 %427, %402
   %429 = icmp ne i64 %427, 4294967295
@@ -6102,7 +6102,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %499 = getelementptr inbounds nuw i8, ptr %495, i64 32
   %500 = load ptr, ptr %499, align 8, !tbaa !134
   %501 = load i64, ptr %495, align 8, !tbaa !135
-  %502 = getelementptr inbounds nuw i64, ptr %500, i64 %501
+  %502 = getelementptr inbounds nuw [8 x i8], ptr %500, i64 %501
   %503 = load i64, ptr %502, align 8, !tbaa !128
   %504 = icmp ule i64 %503, %493
   %505 = icmp ne i64 %503, 4294967295
@@ -6127,7 +6127,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %514 = getelementptr inbounds nuw i8, ptr %510, i64 32
   %515 = load ptr, ptr %514, align 8, !tbaa !134
   %516 = load i64, ptr %510, align 8, !tbaa !135
-  %517 = getelementptr inbounds nuw i64, ptr %515, i64 %516
+  %517 = getelementptr inbounds nuw [8 x i8], ptr %515, i64 %516
   %518 = load i64, ptr %517, align 8, !tbaa !128
   %519 = icmp ule i64 %518, %493
   %520 = icmp ne i64 %518, 4294967295
@@ -30289,7 +30289,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %11709 = getelementptr inbounds nuw i8, ptr %11705, i64 32
   %11710 = load ptr, ptr %11709, align 8, !tbaa !134
   %11711 = load i64, ptr %11705, align 8, !tbaa !135
-  %11712 = getelementptr inbounds nuw i64, ptr %11710, i64 %11711
+  %11712 = getelementptr inbounds nuw [8 x i8], ptr %11710, i64 %11711
   %11713 = load i64, ptr %11712, align 8, !tbaa !128
   %11714 = icmp ule i64 %11713, %11704
   %11715 = icmp ne i64 %11713, 4294967295
@@ -30314,7 +30314,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %11724 = getelementptr inbounds nuw i8, ptr %11720, i64 32
   %11725 = load ptr, ptr %11724, align 8, !tbaa !134
   %11726 = load i64, ptr %11720, align 8, !tbaa !135
-  %11727 = getelementptr inbounds nuw i64, ptr %11725, i64 %11726
+  %11727 = getelementptr inbounds nuw [8 x i8], ptr %11725, i64 %11726
   %11728 = load i64, ptr %11727, align 8, !tbaa !128
   %11729 = icmp ule i64 %11728, %11704
   %11730 = icmp ne i64 %11728, 4294967295
@@ -30368,7 +30368,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %11754 = getelementptr inbounds nuw i8, ptr %11750, i64 32
   %11755 = load ptr, ptr %11754, align 8, !tbaa !134
   %11756 = load i64, ptr %11750, align 8, !tbaa !135
-  %11757 = getelementptr inbounds nuw i64, ptr %11755, i64 %11756
+  %11757 = getelementptr inbounds nuw [8 x i8], ptr %11755, i64 %11756
   %11758 = load i64, ptr %11757, align 8, !tbaa !128
   %11759 = icmp ule i64 %11758, %11749
   %11760 = icmp ne i64 %11758, 4294967295
@@ -30393,7 +30393,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %11769 = getelementptr inbounds nuw i8, ptr %11765, i64 32
   %11770 = load ptr, ptr %11769, align 8, !tbaa !134
   %11771 = load i64, ptr %11765, align 8, !tbaa !135
-  %11772 = getelementptr inbounds nuw i64, ptr %11770, i64 %11771
+  %11772 = getelementptr inbounds nuw [8 x i8], ptr %11770, i64 %11771
   %11773 = load i64, ptr %11772, align 8, !tbaa !128
   %11774 = icmp ule i64 %11773, %11749
   %11775 = icmp ne i64 %11773, 4294967295
@@ -30456,7 +30456,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %11803 = getelementptr inbounds nuw i8, ptr %11799, i64 32
   %11804 = load ptr, ptr %11803, align 8, !tbaa !134
   %11805 = load i64, ptr %11799, align 8, !tbaa !135
-  %11806 = getelementptr inbounds nuw i64, ptr %11804, i64 %11805
+  %11806 = getelementptr inbounds nuw [8 x i8], ptr %11804, i64 %11805
   %11807 = load i64, ptr %11806, align 8, !tbaa !128
   %11808 = icmp ule i64 %11807, %11798
   %11809 = icmp ne i64 %11807, 4294967295
@@ -30481,7 +30481,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %11818 = getelementptr inbounds nuw i8, ptr %11814, i64 32
   %11819 = load ptr, ptr %11818, align 8, !tbaa !134
   %11820 = load i64, ptr %11814, align 8, !tbaa !135
-  %11821 = getelementptr inbounds nuw i64, ptr %11819, i64 %11820
+  %11821 = getelementptr inbounds nuw [8 x i8], ptr %11819, i64 %11820
   %11822 = load i64, ptr %11821, align 8, !tbaa !128
   %11823 = icmp ule i64 %11822, %11798
   %11824 = icmp ne i64 %11822, 4294967295
@@ -30557,7 +30557,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %11858 = getelementptr inbounds nuw i8, ptr %11854, i64 32
   %11859 = load ptr, ptr %11858, align 8, !tbaa !134
   %11860 = load i64, ptr %11854, align 8, !tbaa !135
-  %11861 = getelementptr inbounds nuw i64, ptr %11859, i64 %11860
+  %11861 = getelementptr inbounds nuw [8 x i8], ptr %11859, i64 %11860
   %11862 = load i64, ptr %11861, align 8, !tbaa !128
   %11863 = icmp ule i64 %11862, %11853
   %11864 = icmp ne i64 %11862, 4294967295
@@ -30582,7 +30582,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %11873 = getelementptr inbounds nuw i8, ptr %11869, i64 32
   %11874 = load ptr, ptr %11873, align 8, !tbaa !134
   %11875 = load i64, ptr %11869, align 8, !tbaa !135
-  %11876 = getelementptr inbounds nuw i64, ptr %11874, i64 %11875
+  %11876 = getelementptr inbounds nuw [8 x i8], ptr %11874, i64 %11875
   %11877 = load i64, ptr %11876, align 8, !tbaa !128
   %11878 = icmp ule i64 %11877, %11853
   %11879 = icmp ne i64 %11877, 4294967295
@@ -30649,7 +30649,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %11909 = getelementptr inbounds nuw i8, ptr %11905, i64 32
   %11910 = load ptr, ptr %11909, align 8, !tbaa !134
   %11911 = load i64, ptr %11905, align 8, !tbaa !135
-  %11912 = getelementptr inbounds nuw i64, ptr %11910, i64 %11911
+  %11912 = getelementptr inbounds nuw [8 x i8], ptr %11910, i64 %11911
   %11913 = load i64, ptr %11912, align 8, !tbaa !128
   %11914 = icmp ule i64 %11913, %11904
   %11915 = icmp ne i64 %11913, 4294967295
@@ -30674,7 +30674,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %11924 = getelementptr inbounds nuw i8, ptr %11920, i64 32
   %11925 = load ptr, ptr %11924, align 8, !tbaa !134
   %11926 = load i64, ptr %11920, align 8, !tbaa !135
-  %11927 = getelementptr inbounds nuw i64, ptr %11925, i64 %11926
+  %11927 = getelementptr inbounds nuw [8 x i8], ptr %11925, i64 %11926
   %11928 = load i64, ptr %11927, align 8, !tbaa !128
   %11929 = icmp ule i64 %11928, %11904
   %11930 = icmp ne i64 %11928, 4294967295
@@ -30888,7 +30888,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %12004 = getelementptr inbounds nuw i8, ptr %12000, i64 32
   %12005 = load ptr, ptr %12004, align 8, !tbaa !134
   %12006 = load i64, ptr %12000, align 8, !tbaa !135
-  %12007 = getelementptr inbounds nuw i64, ptr %12005, i64 %12006
+  %12007 = getelementptr inbounds nuw [8 x i8], ptr %12005, i64 %12006
   %12008 = load i64, ptr %12007, align 8, !tbaa !128
   %12009 = icmp ule i64 %12008, %11999
   %12010 = icmp ne i64 %12008, 4294967295
@@ -30913,7 +30913,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %12019 = getelementptr inbounds nuw i8, ptr %12015, i64 32
   %12020 = load ptr, ptr %12019, align 8, !tbaa !134
   %12021 = load i64, ptr %12015, align 8, !tbaa !135
-  %12022 = getelementptr inbounds nuw i64, ptr %12020, i64 %12021
+  %12022 = getelementptr inbounds nuw [8 x i8], ptr %12020, i64 %12021
   %12023 = load i64, ptr %12022, align 8, !tbaa !128
   %12024 = icmp ule i64 %12023, %11999
   %12025 = icmp ne i64 %12023, 4294967295
@@ -30979,7 +30979,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %12056 = getelementptr inbounds nuw i8, ptr %12052, i64 32
   %12057 = load ptr, ptr %12056, align 8, !tbaa !134
   %12058 = load i64, ptr %12052, align 8, !tbaa !135
-  %12059 = getelementptr inbounds nuw i64, ptr %12057, i64 %12058
+  %12059 = getelementptr inbounds nuw [8 x i8], ptr %12057, i64 %12058
   %12060 = load i64, ptr %12059, align 8, !tbaa !128
   %12061 = icmp ule i64 %12060, %12051
   %12062 = icmp ne i64 %12060, 4294967295
@@ -31004,7 +31004,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %12071 = getelementptr inbounds nuw i8, ptr %12067, i64 32
   %12072 = load ptr, ptr %12071, align 8, !tbaa !134
   %12073 = load i64, ptr %12067, align 8, !tbaa !135
-  %12074 = getelementptr inbounds nuw i64, ptr %12072, i64 %12073
+  %12074 = getelementptr inbounds nuw [8 x i8], ptr %12072, i64 %12073
   %12075 = load i64, ptr %12074, align 8, !tbaa !128
   %12076 = icmp ule i64 %12075, %12051
   %12077 = icmp ne i64 %12075, 4294967295
@@ -31060,7 +31060,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %12102 = getelementptr inbounds nuw i8, ptr %12098, i64 32
   %12103 = load ptr, ptr %12102, align 8, !tbaa !134
   %12104 = load i64, ptr %12098, align 8, !tbaa !135
-  %12105 = getelementptr inbounds nuw i64, ptr %12103, i64 %12104
+  %12105 = getelementptr inbounds nuw [8 x i8], ptr %12103, i64 %12104
   %12106 = load i64, ptr %12105, align 8, !tbaa !128
   %12107 = icmp ule i64 %12106, %12097
   %12108 = icmp ne i64 %12106, 4294967295
@@ -31085,7 +31085,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %12117 = getelementptr inbounds nuw i8, ptr %12113, i64 32
   %12118 = load ptr, ptr %12117, align 8, !tbaa !134
   %12119 = load i64, ptr %12113, align 8, !tbaa !135
-  %12120 = getelementptr inbounds nuw i64, ptr %12118, i64 %12119
+  %12120 = getelementptr inbounds nuw [8 x i8], ptr %12118, i64 %12119
   %12121 = load i64, ptr %12120, align 8, !tbaa !128
   %12122 = icmp ule i64 %12121, %12097
   %12123 = icmp ne i64 %12121, 4294967295
@@ -31147,7 +31147,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %12151 = getelementptr inbounds nuw i8, ptr %12147, i64 32
   %12152 = load ptr, ptr %12151, align 8, !tbaa !134
   %12153 = load i64, ptr %12147, align 8, !tbaa !135
-  %12154 = getelementptr inbounds nuw i64, ptr %12152, i64 %12153
+  %12154 = getelementptr inbounds nuw [8 x i8], ptr %12152, i64 %12153
   %12155 = load i64, ptr %12154, align 8, !tbaa !128
   %12156 = icmp ule i64 %12155, %12146
   %12157 = icmp ne i64 %12155, 4294967295
@@ -31172,7 +31172,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %12166 = getelementptr inbounds nuw i8, ptr %12162, i64 32
   %12167 = load ptr, ptr %12166, align 8, !tbaa !134
   %12168 = load i64, ptr %12162, align 8, !tbaa !135
-  %12169 = getelementptr inbounds nuw i64, ptr %12167, i64 %12168
+  %12169 = getelementptr inbounds nuw [8 x i8], ptr %12167, i64 %12168
   %12170 = load i64, ptr %12169, align 8, !tbaa !128
   %12171 = icmp ule i64 %12170, %12146
   %12172 = icmp ne i64 %12170, 4294967295
@@ -31249,7 +31249,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %12207 = getelementptr inbounds nuw i8, ptr %12203, i64 32
   %12208 = load ptr, ptr %12207, align 8, !tbaa !134
   %12209 = load i64, ptr %12203, align 8, !tbaa !135
-  %12210 = getelementptr inbounds nuw i64, ptr %12208, i64 %12209
+  %12210 = getelementptr inbounds nuw [8 x i8], ptr %12208, i64 %12209
   %12211 = load i64, ptr %12210, align 8, !tbaa !128
   %12212 = icmp ule i64 %12211, %12202
   %12213 = icmp ne i64 %12211, 4294967295
@@ -31274,7 +31274,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %12222 = getelementptr inbounds nuw i8, ptr %12218, i64 32
   %12223 = load ptr, ptr %12222, align 8, !tbaa !134
   %12224 = load i64, ptr %12218, align 8, !tbaa !135
-  %12225 = getelementptr inbounds nuw i64, ptr %12223, i64 %12224
+  %12225 = getelementptr inbounds nuw [8 x i8], ptr %12223, i64 %12224
   %12226 = load i64, ptr %12225, align 8, !tbaa !128
   %12227 = icmp ule i64 %12226, %12202
   %12228 = icmp ne i64 %12226, 4294967295
@@ -31644,7 +31644,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %12360 = getelementptr inbounds nuw i8, ptr %12356, i64 32
   %12361 = load ptr, ptr %12360, align 8, !tbaa !134
   %12362 = load i64, ptr %12356, align 8, !tbaa !135
-  %12363 = getelementptr inbounds nuw i64, ptr %12361, i64 %12362
+  %12363 = getelementptr inbounds nuw [8 x i8], ptr %12361, i64 %12362
   %12364 = load i64, ptr %12363, align 8, !tbaa !128
   %12365 = icmp ule i64 %12364, %12354
   %12366 = icmp ne i64 %12364, 4294967295
@@ -31669,7 +31669,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %12375 = getelementptr inbounds nuw i8, ptr %12371, i64 32
   %12376 = load ptr, ptr %12375, align 8, !tbaa !134
   %12377 = load i64, ptr %12371, align 8, !tbaa !135
-  %12378 = getelementptr inbounds nuw i64, ptr %12376, i64 %12377
+  %12378 = getelementptr inbounds nuw [8 x i8], ptr %12376, i64 %12377
   %12379 = load i64, ptr %12378, align 8, !tbaa !128
   %12380 = icmp ule i64 %12379, %12354
   %12381 = icmp ne i64 %12379, 4294967295
@@ -33263,7 +33263,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %12961 = getelementptr inbounds nuw i8, ptr %12957, i64 32
   %12962 = load ptr, ptr %12961, align 8, !tbaa !134
   %12963 = load i64, ptr %12957, align 8, !tbaa !135
-  %12964 = getelementptr inbounds nuw i64, ptr %12962, i64 %12963
+  %12964 = getelementptr inbounds nuw [8 x i8], ptr %12962, i64 %12963
   %12965 = load i64, ptr %12964, align 8, !tbaa !128
   %12966 = icmp ule i64 %12965, %12955
   %12967 = icmp ne i64 %12965, 4294967295
@@ -33288,7 +33288,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %12976 = getelementptr inbounds nuw i8, ptr %12972, i64 32
   %12977 = load ptr, ptr %12976, align 8, !tbaa !134
   %12978 = load i64, ptr %12972, align 8, !tbaa !135
-  %12979 = getelementptr inbounds nuw i64, ptr %12977, i64 %12978
+  %12979 = getelementptr inbounds nuw [8 x i8], ptr %12977, i64 %12978
   %12980 = load i64, ptr %12979, align 8, !tbaa !128
   %12981 = icmp ule i64 %12980, %12955
   %12982 = icmp ne i64 %12980, 4294967295
@@ -34611,7 +34611,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %13533 = getelementptr inbounds nuw i8, ptr %13529, i64 32
   %13534 = load ptr, ptr %13533, align 8, !tbaa !134
   %13535 = load i64, ptr %13529, align 8, !tbaa !135
-  %13536 = getelementptr inbounds nuw i64, ptr %13534, i64 %13535
+  %13536 = getelementptr inbounds nuw [8 x i8], ptr %13534, i64 %13535
   %13537 = load i64, ptr %13536, align 8, !tbaa !128
   %13538 = icmp ule i64 %13537, %13527
   %13539 = icmp ne i64 %13537, 4294967295
@@ -34636,7 +34636,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %13548 = getelementptr inbounds nuw i8, ptr %13544, i64 32
   %13549 = load ptr, ptr %13548, align 8, !tbaa !134
   %13550 = load i64, ptr %13544, align 8, !tbaa !135
-  %13551 = getelementptr inbounds nuw i64, ptr %13549, i64 %13550
+  %13551 = getelementptr inbounds nuw [8 x i8], ptr %13549, i64 %13550
   %13552 = load i64, ptr %13551, align 8, !tbaa !128
   %13553 = icmp ule i64 %13552, %13527
   %13554 = icmp ne i64 %13552, 4294967295
@@ -34812,7 +34812,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %13631 = getelementptr inbounds nuw i8, ptr %13627, i64 32
   %13632 = load ptr, ptr %13631, align 8, !tbaa !134
   %13633 = load i64, ptr %13627, align 8, !tbaa !135
-  %13634 = getelementptr inbounds nuw i64, ptr %13632, i64 %13633
+  %13634 = getelementptr inbounds nuw [8 x i8], ptr %13632, i64 %13633
   %13635 = load i64, ptr %13634, align 8, !tbaa !128
   %13636 = icmp ule i64 %13635, %13625
   %13637 = icmp ne i64 %13635, 4294967295
@@ -34837,7 +34837,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %13646 = getelementptr inbounds nuw i8, ptr %13642, i64 32
   %13647 = load ptr, ptr %13646, align 8, !tbaa !134
   %13648 = load i64, ptr %13642, align 8, !tbaa !135
-  %13649 = getelementptr inbounds nuw i64, ptr %13647, i64 %13648
+  %13649 = getelementptr inbounds nuw [8 x i8], ptr %13647, i64 %13648
   %13650 = load i64, ptr %13649, align 8, !tbaa !128
   %13651 = icmp ule i64 %13650, %13625
   %13652 = icmp ne i64 %13650, 4294967295
@@ -35536,7 +35536,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %13942 = getelementptr inbounds nuw i8, ptr %13938, i64 32
   %13943 = load ptr, ptr %13942, align 8, !tbaa !134
   %13944 = load i64, ptr %13938, align 8, !tbaa !135
-  %13945 = getelementptr inbounds nuw i64, ptr %13943, i64 %13944
+  %13945 = getelementptr inbounds nuw [8 x i8], ptr %13943, i64 %13944
   %13946 = load i64, ptr %13945, align 8, !tbaa !128
   %13947 = icmp ule i64 %13946, %13936
   %13948 = icmp ne i64 %13946, 4294967295
@@ -35561,7 +35561,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %13957 = getelementptr inbounds nuw i8, ptr %13953, i64 32
   %13958 = load ptr, ptr %13957, align 8, !tbaa !134
   %13959 = load i64, ptr %13953, align 8, !tbaa !135
-  %13960 = getelementptr inbounds nuw i64, ptr %13958, i64 %13959
+  %13960 = getelementptr inbounds nuw [8 x i8], ptr %13958, i64 %13959
   %13961 = load i64, ptr %13960, align 8, !tbaa !128
   %13962 = icmp ule i64 %13961, %13936
   %13963 = icmp ne i64 %13961, 4294967295
@@ -35637,7 +35637,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %14002 = getelementptr inbounds nuw i8, ptr %13998, i64 32
   %14003 = load ptr, ptr %14002, align 8, !tbaa !134
   %14004 = load i64, ptr %13998, align 8, !tbaa !135
-  %14005 = getelementptr inbounds nuw i64, ptr %14003, i64 %14004
+  %14005 = getelementptr inbounds nuw [8 x i8], ptr %14003, i64 %14004
   %14006 = load i64, ptr %14005, align 8, !tbaa !128
   %14007 = icmp ule i64 %14006, %13996
   %14008 = icmp ne i64 %14006, 4294967295
@@ -35662,7 +35662,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %14017 = getelementptr inbounds nuw i8, ptr %14013, i64 32
   %14018 = load ptr, ptr %14017, align 8, !tbaa !134
   %14019 = load i64, ptr %14013, align 8, !tbaa !135
-  %14020 = getelementptr inbounds nuw i64, ptr %14018, i64 %14019
+  %14020 = getelementptr inbounds nuw [8 x i8], ptr %14018, i64 %14019
   %14021 = load i64, ptr %14020, align 8, !tbaa !128
   %14022 = icmp ule i64 %14021, %13996
   %14023 = icmp ne i64 %14021, 4294967295
@@ -37714,7 +37714,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %14802 = getelementptr inbounds nuw i8, ptr %14798, i64 32
   %14803 = load ptr, ptr %14802, align 8, !tbaa !134
   %14804 = load i64, ptr %14798, align 8, !tbaa !135
-  %14805 = getelementptr inbounds nuw i64, ptr %14803, i64 %14804
+  %14805 = getelementptr inbounds nuw [8 x i8], ptr %14803, i64 %14804
   %14806 = load i64, ptr %14805, align 8, !tbaa !128
   %14807 = icmp ule i64 %14806, %14797
   %14808 = icmp ne i64 %14806, 4294967295
@@ -37739,7 +37739,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %14817 = getelementptr inbounds nuw i8, ptr %14813, i64 32
   %14818 = load ptr, ptr %14817, align 8, !tbaa !134
   %14819 = load i64, ptr %14813, align 8, !tbaa !135
-  %14820 = getelementptr inbounds nuw i64, ptr %14818, i64 %14819
+  %14820 = getelementptr inbounds nuw [8 x i8], ptr %14818, i64 %14819
   %14821 = load i64, ptr %14820, align 8, !tbaa !128
   %14822 = icmp ule i64 %14821, %14797
   %14823 = icmp ne i64 %14821, 4294967295
@@ -37889,7 +37889,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %14895 = getelementptr inbounds nuw i8, ptr %14891, i64 32
   %14896 = load ptr, ptr %14895, align 8, !tbaa !134
   %14897 = load i64, ptr %14891, align 8, !tbaa !135
-  %14898 = getelementptr inbounds nuw i64, ptr %14896, i64 %14897
+  %14898 = getelementptr inbounds nuw [8 x i8], ptr %14896, i64 %14897
   %14899 = load i64, ptr %14898, align 8, !tbaa !128
   %14900 = icmp ule i64 %14899, %14890
   %14901 = icmp ne i64 %14899, 4294967295
@@ -37914,7 +37914,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %14910 = getelementptr inbounds nuw i8, ptr %14906, i64 32
   %14911 = load ptr, ptr %14910, align 8, !tbaa !134
   %14912 = load i64, ptr %14906, align 8, !tbaa !135
-  %14913 = getelementptr inbounds nuw i64, ptr %14911, i64 %14912
+  %14913 = getelementptr inbounds nuw [8 x i8], ptr %14911, i64 %14912
   %14914 = load i64, ptr %14913, align 8, !tbaa !128
   %14915 = icmp ule i64 %14914, %14890
   %14916 = icmp ne i64 %14914, 4294967295
@@ -38677,7 +38677,7 @@ _ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22A
   %75 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %76 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost4wave8cpplexer16lexing_exception14severity_levelEiE29preprocess_exception_severity, i64 4), align 4, !tbaa !68
   %77 = zext i32 %76 to i64
-  %78 = getelementptr inbounds nuw ptr, ptr @_ZZN5boost4wave8cpplexer4util12get_severityENS2_8severityEE13severity_text, i64 %77
+  %78 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN5boost4wave8cpplexer4util12get_severityENS2_8severityEE13severity_text, i64 %77
   %79 = load ptr, ptr %78, align 8, !tbaa !24
   %80 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %75, ptr noundef %79)
           to label %81 unwind label %98
@@ -38808,7 +38808,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %116, 
   %127 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %128 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost4wave8cpplexer16lexing_exception14severity_levelEiE29preprocess_exception_severity, i64 8), align 8, !tbaa !68
   %129 = zext i32 %128 to i64
-  %130 = getelementptr inbounds nuw ptr, ptr @_ZZN5boost4wave8cpplexer4util12get_severityENS2_8severityEE13severity_text, i64 %129
+  %130 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN5boost4wave8cpplexer4util12get_severityENS2_8severityEE13severity_text, i64 %129
   %131 = load ptr, ptr %130, align 8, !tbaa !24
   %132 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %127, ptr noundef %131)
           to label %133 unwind label %146
@@ -38929,7 +38929,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit75: ; preds = %164
   %175 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %176 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost4wave8cpplexer16lexing_exception14severity_levelEiE29preprocess_exception_severity, i64 12), align 4, !tbaa !68
   %177 = zext i32 %176 to i64
-  %178 = getelementptr inbounds nuw ptr, ptr @_ZZN5boost4wave8cpplexer4util12get_severityENS2_8severityEE13severity_text, i64 %177
+  %178 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN5boost4wave8cpplexer4util12get_severityENS2_8severityEE13severity_text, i64 %177
   %179 = load ptr, ptr %178, align 8, !tbaa !24
   %180 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %175, ptr noundef %179)
           to label %181 unwind label %194
@@ -39730,7 +39730,7 @@ _ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22A
   %74 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %75 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost4wave8cpplexer16lexing_exception14severity_levelEiE29preprocess_exception_severity, i64 4), align 4, !tbaa !68
   %76 = zext i32 %75 to i64
-  %77 = getelementptr inbounds nuw ptr, ptr @_ZZN5boost4wave8cpplexer4util12get_severityENS2_8severityEE13severity_text, i64 %76
+  %77 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN5boost4wave8cpplexer4util12get_severityENS2_8severityEE13severity_text, i64 %76
   %78 = load ptr, ptr %77, align 8, !tbaa !24
   %79 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %74, ptr noundef %78)
           to label %80 unwind label %97
@@ -39861,7 +39861,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %115, 
   %126 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %127 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost4wave8cpplexer16lexing_exception14severity_levelEiE29preprocess_exception_severity, i64 8), align 8, !tbaa !68
   %128 = zext i32 %127 to i64
-  %129 = getelementptr inbounds nuw ptr, ptr @_ZZN5boost4wave8cpplexer4util12get_severityENS2_8severityEE13severity_text, i64 %128
+  %129 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN5boost4wave8cpplexer4util12get_severityENS2_8severityEE13severity_text, i64 %128
   %130 = load ptr, ptr %129, align 8, !tbaa !24
   %131 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %126, ptr noundef %130)
           to label %132 unwind label %145
@@ -40557,7 +40557,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4wave8cpplexer7re2clex4fillIN9_
 
 50:                                               ; preds = %50, %.lr.ph.i
   %.031.i = phi i64 [ %46, %.lr.ph.i ], [ %spec.store.select.i, %50 ]
-  %51 = getelementptr inbounds nuw i64, ptr %.pre.i, i64 %.031.i
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i, i64 %.031.i
   %52 = load i64, ptr %51, align 8, !tbaa !128
   %storemerge29.i = tail call i64 @llvm.usub.sat.i64(i64 %52, i64 %13)
   store i64 %storemerge29.i, ptr %51, align 8, !tbaa !128
@@ -40571,7 +40571,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4wave8cpplexer7re2clex4fillIN9_
 
 ._crit_edge.i:                                    ; preds = %50, %45
   %.0.lcssa.i = phi i64 [ %46, %45 ], [ %spec.store.select.i, %50 ]
-  %57 = getelementptr inbounds nuw i64, ptr %.pre.i, i64 %.0.lcssa.i
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i, i64 %.0.lcssa.i
   %58 = load i64, ptr %57, align 8, !tbaa !128
   %storemerge.i = tail call i64 @llvm.usub.sat.i64(i64 %58, i64 %13)
   store i64 %storemerge.i, ptr %57, align 8, !tbaa !128
@@ -40937,7 +40937,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %14 = load ptr, ptr %13, align 8, !tbaa !134
   %15 = load i64, ptr %9, align 8, !tbaa !135
-  %16 = getelementptr inbounds nuw i64, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %15
   %17 = load i64, ptr %16, align 8, !tbaa !128
   %18 = icmp ule i64 %17, %7
   %19 = icmp ne i64 %17, 4294967295
@@ -40959,7 +40959,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %29 = load ptr, ptr %28, align 8, !tbaa !134
   %30 = load i64, ptr %24, align 8, !tbaa !135
-  %31 = getelementptr inbounds nuw i64, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %30
   %32 = load i64, ptr %31, align 8, !tbaa !128
   %33 = icmp ule i64 %32, %7
   %34 = icmp ne i64 %32, 4294967295
@@ -45581,10 +45581,10 @@ define linkonce_odr hidden noundef i32 @_ZN5boost4wave8cpplexer7re2clex5lexerIN9
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(128) %6)
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %11 = sext i32 %1 to i64
-  %12 = getelementptr inbounds i32, ptr @_ZZN5boost4wave8cpplexer16lexing_exception14severity_levelEiE29preprocess_exception_severity, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr @_ZZN5boost4wave8cpplexer16lexing_exception14severity_levelEiE29preprocess_exception_severity, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !68
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr @_ZZN5boost4wave8cpplexer4util12get_severityENS2_8severityEE13severity_text, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN5boost4wave8cpplexer4util12get_severityENS2_8severityEE13severity_text, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !24
   %.not.i = icmp eq ptr %16, null
   br i1 %.not.i, label %17, label %25
@@ -45610,7 +45610,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %17, %25
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit15 unwind label %47
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit15: ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
-  %29 = getelementptr inbounds ptr, ptr @_ZZN5boost4wave8cpplexer16lexing_exception10error_textEiE27preprocess_exception_errors, i64 %11
+  %29 = getelementptr inbounds [8 x i8], ptr @_ZZN5boost4wave8cpplexer16lexing_exception10error_textEiE27preprocess_exception_errors, i64 %11
   %30 = load ptr, ptr %29, align 8, !tbaa !24
   %.not.i16 = icmp eq ptr %30, null
   br i1 %.not.i16, label %31, label %39
@@ -46652,7 +46652,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   %316 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %317 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost4wave8cpplexer16lexing_exception14severity_levelEiE29preprocess_exception_severity, i64 16), align 16, !tbaa !68
   %318 = zext i32 %317 to i64
-  %319 = getelementptr inbounds nuw ptr, ptr @_ZZN5boost4wave8cpplexer4util12get_severityENS2_8severityEE13severity_text, i64 %318
+  %319 = getelementptr inbounds nuw [8 x i8], ptr @_ZZN5boost4wave8cpplexer4util12get_severityENS2_8severityEE13severity_text, i64 %318
   %320 = load ptr, ptr %319, align 8, !tbaa !24
   %321 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %316, ptr noundef %320)
           to label %322 unwind label %354
@@ -46974,7 +46974,7 @@ _ZN5boost4wave4util9CowStringINS1_22AllocatorStringStorageIcSaIcEEEPcED2Ev.exit1
   %457 = and i32 %60, -2147221505
   %458 = load ptr, ptr %456, align 8, !tbaa !91
   %459 = zext nneg i32 %457 to i64
-  %460 = getelementptr %"class.boost::wave::util::flex_string", ptr %458, i64 %459
+  %460 = getelementptr [8 x i8], ptr %458, i64 %459
   %461 = getelementptr i8, ptr %460, i64 -2048
   %462 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %463 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEaSERKSB_(ptr noundef nonnull align 8 dereferenceable(8) %462, ptr noundef nonnull align 8 dereferenceable(8) %461)
@@ -47295,7 +47295,7 @@ _ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22Al
   %593 = add i32 %592, -256
   %594 = zext i32 %593 to i64
   %595 = load ptr, ptr %591, align 8, !tbaa !91
-  %596 = getelementptr inbounds nuw %"class.boost::wave::util::flex_string", ptr %595, i64 %594
+  %596 = getelementptr inbounds nuw [8 x i8], ptr %595, i64 %594
   %597 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %598 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEEaSERKSB_(ptr noundef nonnull align 8 dereferenceable(8) %597, ptr noundef nonnull align 8 dereferenceable(8) %596)
   br label %_ZNK5boost4wave4util11flex_stringIcSt11char_traitsIcESaIcENS1_9CowStringINS1_22AllocatorStringStorageIcS5_EEPcEEE7compareEmmPKcm.exit.thread264
@@ -48312,7 +48312,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %408 = getelementptr inbounds nuw i8, ptr %404, i64 32
   %409 = load ptr, ptr %408, align 8, !tbaa !134
   %410 = load i64, ptr %404, align 8, !tbaa !135
-  %411 = getelementptr inbounds nuw i64, ptr %409, i64 %410
+  %411 = getelementptr inbounds nuw [8 x i8], ptr %409, i64 %410
   %412 = load i64, ptr %411, align 8, !tbaa !128
   %413 = icmp ule i64 %412, %402
   %414 = icmp ne i64 %412, 4294967295
@@ -48337,7 +48337,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %423 = getelementptr inbounds nuw i8, ptr %419, i64 32
   %424 = load ptr, ptr %423, align 8, !tbaa !134
   %425 = load i64, ptr %419, align 8, !tbaa !135
-  %426 = getelementptr inbounds nuw i64, ptr %424, i64 %425
+  %426 = getelementptr inbounds nuw [8 x i8], ptr %424, i64 %425
   %427 = load i64, ptr %426, align 8, !tbaa !128
   %428 = icmp ule i64 %427, %402
   %429 = icmp ne i64 %427, 4294967295
@@ -48498,7 +48498,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %499 = getelementptr inbounds nuw i8, ptr %495, i64 32
   %500 = load ptr, ptr %499, align 8, !tbaa !134
   %501 = load i64, ptr %495, align 8, !tbaa !135
-  %502 = getelementptr inbounds nuw i64, ptr %500, i64 %501
+  %502 = getelementptr inbounds nuw [8 x i8], ptr %500, i64 %501
   %503 = load i64, ptr %502, align 8, !tbaa !128
   %504 = icmp ule i64 %503, %493
   %505 = icmp ne i64 %503, 4294967295
@@ -48523,7 +48523,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %514 = getelementptr inbounds nuw i8, ptr %510, i64 32
   %515 = load ptr, ptr %514, align 8, !tbaa !134
   %516 = load i64, ptr %510, align 8, !tbaa !135
-  %517 = getelementptr inbounds nuw i64, ptr %515, i64 %516
+  %517 = getelementptr inbounds nuw [8 x i8], ptr %515, i64 %516
   %518 = load i64, ptr %517, align 8, !tbaa !128
   %519 = icmp ule i64 %518, %493
   %520 = icmp ne i64 %518, 4294967295
@@ -72685,7 +72685,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %11709 = getelementptr inbounds nuw i8, ptr %11705, i64 32
   %11710 = load ptr, ptr %11709, align 8, !tbaa !134
   %11711 = load i64, ptr %11705, align 8, !tbaa !135
-  %11712 = getelementptr inbounds nuw i64, ptr %11710, i64 %11711
+  %11712 = getelementptr inbounds nuw [8 x i8], ptr %11710, i64 %11711
   %11713 = load i64, ptr %11712, align 8, !tbaa !128
   %11714 = icmp ule i64 %11713, %11704
   %11715 = icmp ne i64 %11713, 4294967295
@@ -72710,7 +72710,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %11724 = getelementptr inbounds nuw i8, ptr %11720, i64 32
   %11725 = load ptr, ptr %11724, align 8, !tbaa !134
   %11726 = load i64, ptr %11720, align 8, !tbaa !135
-  %11727 = getelementptr inbounds nuw i64, ptr %11725, i64 %11726
+  %11727 = getelementptr inbounds nuw [8 x i8], ptr %11725, i64 %11726
   %11728 = load i64, ptr %11727, align 8, !tbaa !128
   %11729 = icmp ule i64 %11728, %11704
   %11730 = icmp ne i64 %11728, 4294967295
@@ -72764,7 +72764,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %11754 = getelementptr inbounds nuw i8, ptr %11750, i64 32
   %11755 = load ptr, ptr %11754, align 8, !tbaa !134
   %11756 = load i64, ptr %11750, align 8, !tbaa !135
-  %11757 = getelementptr inbounds nuw i64, ptr %11755, i64 %11756
+  %11757 = getelementptr inbounds nuw [8 x i8], ptr %11755, i64 %11756
   %11758 = load i64, ptr %11757, align 8, !tbaa !128
   %11759 = icmp ule i64 %11758, %11749
   %11760 = icmp ne i64 %11758, 4294967295
@@ -72789,7 +72789,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %11769 = getelementptr inbounds nuw i8, ptr %11765, i64 32
   %11770 = load ptr, ptr %11769, align 8, !tbaa !134
   %11771 = load i64, ptr %11765, align 8, !tbaa !135
-  %11772 = getelementptr inbounds nuw i64, ptr %11770, i64 %11771
+  %11772 = getelementptr inbounds nuw [8 x i8], ptr %11770, i64 %11771
   %11773 = load i64, ptr %11772, align 8, !tbaa !128
   %11774 = icmp ule i64 %11773, %11749
   %11775 = icmp ne i64 %11773, 4294967295
@@ -72852,7 +72852,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %11803 = getelementptr inbounds nuw i8, ptr %11799, i64 32
   %11804 = load ptr, ptr %11803, align 8, !tbaa !134
   %11805 = load i64, ptr %11799, align 8, !tbaa !135
-  %11806 = getelementptr inbounds nuw i64, ptr %11804, i64 %11805
+  %11806 = getelementptr inbounds nuw [8 x i8], ptr %11804, i64 %11805
   %11807 = load i64, ptr %11806, align 8, !tbaa !128
   %11808 = icmp ule i64 %11807, %11798
   %11809 = icmp ne i64 %11807, 4294967295
@@ -72877,7 +72877,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %11818 = getelementptr inbounds nuw i8, ptr %11814, i64 32
   %11819 = load ptr, ptr %11818, align 8, !tbaa !134
   %11820 = load i64, ptr %11814, align 8, !tbaa !135
-  %11821 = getelementptr inbounds nuw i64, ptr %11819, i64 %11820
+  %11821 = getelementptr inbounds nuw [8 x i8], ptr %11819, i64 %11820
   %11822 = load i64, ptr %11821, align 8, !tbaa !128
   %11823 = icmp ule i64 %11822, %11798
   %11824 = icmp ne i64 %11822, 4294967295
@@ -72953,7 +72953,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %11858 = getelementptr inbounds nuw i8, ptr %11854, i64 32
   %11859 = load ptr, ptr %11858, align 8, !tbaa !134
   %11860 = load i64, ptr %11854, align 8, !tbaa !135
-  %11861 = getelementptr inbounds nuw i64, ptr %11859, i64 %11860
+  %11861 = getelementptr inbounds nuw [8 x i8], ptr %11859, i64 %11860
   %11862 = load i64, ptr %11861, align 8, !tbaa !128
   %11863 = icmp ule i64 %11862, %11853
   %11864 = icmp ne i64 %11862, 4294967295
@@ -72978,7 +72978,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %11873 = getelementptr inbounds nuw i8, ptr %11869, i64 32
   %11874 = load ptr, ptr %11873, align 8, !tbaa !134
   %11875 = load i64, ptr %11869, align 8, !tbaa !135
-  %11876 = getelementptr inbounds nuw i64, ptr %11874, i64 %11875
+  %11876 = getelementptr inbounds nuw [8 x i8], ptr %11874, i64 %11875
   %11877 = load i64, ptr %11876, align 8, !tbaa !128
   %11878 = icmp ule i64 %11877, %11853
   %11879 = icmp ne i64 %11877, 4294967295
@@ -73045,7 +73045,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %11909 = getelementptr inbounds nuw i8, ptr %11905, i64 32
   %11910 = load ptr, ptr %11909, align 8, !tbaa !134
   %11911 = load i64, ptr %11905, align 8, !tbaa !135
-  %11912 = getelementptr inbounds nuw i64, ptr %11910, i64 %11911
+  %11912 = getelementptr inbounds nuw [8 x i8], ptr %11910, i64 %11911
   %11913 = load i64, ptr %11912, align 8, !tbaa !128
   %11914 = icmp ule i64 %11913, %11904
   %11915 = icmp ne i64 %11913, 4294967295
@@ -73070,7 +73070,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %11924 = getelementptr inbounds nuw i8, ptr %11920, i64 32
   %11925 = load ptr, ptr %11924, align 8, !tbaa !134
   %11926 = load i64, ptr %11920, align 8, !tbaa !135
-  %11927 = getelementptr inbounds nuw i64, ptr %11925, i64 %11926
+  %11927 = getelementptr inbounds nuw [8 x i8], ptr %11925, i64 %11926
   %11928 = load i64, ptr %11927, align 8, !tbaa !128
   %11929 = icmp ule i64 %11928, %11904
   %11930 = icmp ne i64 %11928, 4294967295
@@ -73284,7 +73284,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %12004 = getelementptr inbounds nuw i8, ptr %12000, i64 32
   %12005 = load ptr, ptr %12004, align 8, !tbaa !134
   %12006 = load i64, ptr %12000, align 8, !tbaa !135
-  %12007 = getelementptr inbounds nuw i64, ptr %12005, i64 %12006
+  %12007 = getelementptr inbounds nuw [8 x i8], ptr %12005, i64 %12006
   %12008 = load i64, ptr %12007, align 8, !tbaa !128
   %12009 = icmp ule i64 %12008, %11999
   %12010 = icmp ne i64 %12008, 4294967295
@@ -73309,7 +73309,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %12019 = getelementptr inbounds nuw i8, ptr %12015, i64 32
   %12020 = load ptr, ptr %12019, align 8, !tbaa !134
   %12021 = load i64, ptr %12015, align 8, !tbaa !135
-  %12022 = getelementptr inbounds nuw i64, ptr %12020, i64 %12021
+  %12022 = getelementptr inbounds nuw [8 x i8], ptr %12020, i64 %12021
   %12023 = load i64, ptr %12022, align 8, !tbaa !128
   %12024 = icmp ule i64 %12023, %11999
   %12025 = icmp ne i64 %12023, 4294967295
@@ -73375,7 +73375,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %12056 = getelementptr inbounds nuw i8, ptr %12052, i64 32
   %12057 = load ptr, ptr %12056, align 8, !tbaa !134
   %12058 = load i64, ptr %12052, align 8, !tbaa !135
-  %12059 = getelementptr inbounds nuw i64, ptr %12057, i64 %12058
+  %12059 = getelementptr inbounds nuw [8 x i8], ptr %12057, i64 %12058
   %12060 = load i64, ptr %12059, align 8, !tbaa !128
   %12061 = icmp ule i64 %12060, %12051
   %12062 = icmp ne i64 %12060, 4294967295
@@ -73400,7 +73400,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %12071 = getelementptr inbounds nuw i8, ptr %12067, i64 32
   %12072 = load ptr, ptr %12071, align 8, !tbaa !134
   %12073 = load i64, ptr %12067, align 8, !tbaa !135
-  %12074 = getelementptr inbounds nuw i64, ptr %12072, i64 %12073
+  %12074 = getelementptr inbounds nuw [8 x i8], ptr %12072, i64 %12073
   %12075 = load i64, ptr %12074, align 8, !tbaa !128
   %12076 = icmp ule i64 %12075, %12051
   %12077 = icmp ne i64 %12075, 4294967295
@@ -73456,7 +73456,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %12102 = getelementptr inbounds nuw i8, ptr %12098, i64 32
   %12103 = load ptr, ptr %12102, align 8, !tbaa !134
   %12104 = load i64, ptr %12098, align 8, !tbaa !135
-  %12105 = getelementptr inbounds nuw i64, ptr %12103, i64 %12104
+  %12105 = getelementptr inbounds nuw [8 x i8], ptr %12103, i64 %12104
   %12106 = load i64, ptr %12105, align 8, !tbaa !128
   %12107 = icmp ule i64 %12106, %12097
   %12108 = icmp ne i64 %12106, 4294967295
@@ -73481,7 +73481,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %12117 = getelementptr inbounds nuw i8, ptr %12113, i64 32
   %12118 = load ptr, ptr %12117, align 8, !tbaa !134
   %12119 = load i64, ptr %12113, align 8, !tbaa !135
-  %12120 = getelementptr inbounds nuw i64, ptr %12118, i64 %12119
+  %12120 = getelementptr inbounds nuw [8 x i8], ptr %12118, i64 %12119
   %12121 = load i64, ptr %12120, align 8, !tbaa !128
   %12122 = icmp ule i64 %12121, %12097
   %12123 = icmp ne i64 %12121, 4294967295
@@ -73543,7 +73543,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %12151 = getelementptr inbounds nuw i8, ptr %12147, i64 32
   %12152 = load ptr, ptr %12151, align 8, !tbaa !134
   %12153 = load i64, ptr %12147, align 8, !tbaa !135
-  %12154 = getelementptr inbounds nuw i64, ptr %12152, i64 %12153
+  %12154 = getelementptr inbounds nuw [8 x i8], ptr %12152, i64 %12153
   %12155 = load i64, ptr %12154, align 8, !tbaa !128
   %12156 = icmp ule i64 %12155, %12146
   %12157 = icmp ne i64 %12155, 4294967295
@@ -73568,7 +73568,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %12166 = getelementptr inbounds nuw i8, ptr %12162, i64 32
   %12167 = load ptr, ptr %12166, align 8, !tbaa !134
   %12168 = load i64, ptr %12162, align 8, !tbaa !135
-  %12169 = getelementptr inbounds nuw i64, ptr %12167, i64 %12168
+  %12169 = getelementptr inbounds nuw [8 x i8], ptr %12167, i64 %12168
   %12170 = load i64, ptr %12169, align 8, !tbaa !128
   %12171 = icmp ule i64 %12170, %12146
   %12172 = icmp ne i64 %12170, 4294967295
@@ -73645,7 +73645,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %12207 = getelementptr inbounds nuw i8, ptr %12203, i64 32
   %12208 = load ptr, ptr %12207, align 8, !tbaa !134
   %12209 = load i64, ptr %12203, align 8, !tbaa !135
-  %12210 = getelementptr inbounds nuw i64, ptr %12208, i64 %12209
+  %12210 = getelementptr inbounds nuw [8 x i8], ptr %12208, i64 %12209
   %12211 = load i64, ptr %12210, align 8, !tbaa !128
   %12212 = icmp ule i64 %12211, %12202
   %12213 = icmp ne i64 %12211, 4294967295
@@ -73670,7 +73670,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %12222 = getelementptr inbounds nuw i8, ptr %12218, i64 32
   %12223 = load ptr, ptr %12222, align 8, !tbaa !134
   %12224 = load i64, ptr %12218, align 8, !tbaa !135
-  %12225 = getelementptr inbounds nuw i64, ptr %12223, i64 %12224
+  %12225 = getelementptr inbounds nuw [8 x i8], ptr %12223, i64 %12224
   %12226 = load i64, ptr %12225, align 8, !tbaa !128
   %12227 = icmp ule i64 %12226, %12202
   %12228 = icmp ne i64 %12226, 4294967295
@@ -74040,7 +74040,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %12360 = getelementptr inbounds nuw i8, ptr %12356, i64 32
   %12361 = load ptr, ptr %12360, align 8, !tbaa !134
   %12362 = load i64, ptr %12356, align 8, !tbaa !135
-  %12363 = getelementptr inbounds nuw i64, ptr %12361, i64 %12362
+  %12363 = getelementptr inbounds nuw [8 x i8], ptr %12361, i64 %12362
   %12364 = load i64, ptr %12363, align 8, !tbaa !128
   %12365 = icmp ule i64 %12364, %12354
   %12366 = icmp ne i64 %12364, 4294967295
@@ -74065,7 +74065,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %12375 = getelementptr inbounds nuw i8, ptr %12371, i64 32
   %12376 = load ptr, ptr %12375, align 8, !tbaa !134
   %12377 = load i64, ptr %12371, align 8, !tbaa !135
-  %12378 = getelementptr inbounds nuw i64, ptr %12376, i64 %12377
+  %12378 = getelementptr inbounds nuw [8 x i8], ptr %12376, i64 %12377
   %12379 = load i64, ptr %12378, align 8, !tbaa !128
   %12380 = icmp ule i64 %12379, %12354
   %12381 = icmp ne i64 %12379, 4294967295
@@ -75659,7 +75659,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %12961 = getelementptr inbounds nuw i8, ptr %12957, i64 32
   %12962 = load ptr, ptr %12961, align 8, !tbaa !134
   %12963 = load i64, ptr %12957, align 8, !tbaa !135
-  %12964 = getelementptr inbounds nuw i64, ptr %12962, i64 %12963
+  %12964 = getelementptr inbounds nuw [8 x i8], ptr %12962, i64 %12963
   %12965 = load i64, ptr %12964, align 8, !tbaa !128
   %12966 = icmp ule i64 %12965, %12955
   %12967 = icmp ne i64 %12965, 4294967295
@@ -75684,7 +75684,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %12976 = getelementptr inbounds nuw i8, ptr %12972, i64 32
   %12977 = load ptr, ptr %12976, align 8, !tbaa !134
   %12978 = load i64, ptr %12972, align 8, !tbaa !135
-  %12979 = getelementptr inbounds nuw i64, ptr %12977, i64 %12978
+  %12979 = getelementptr inbounds nuw [8 x i8], ptr %12977, i64 %12978
   %12980 = load i64, ptr %12979, align 8, !tbaa !128
   %12981 = icmp ule i64 %12980, %12955
   %12982 = icmp ne i64 %12980, 4294967295
@@ -77007,7 +77007,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %13533 = getelementptr inbounds nuw i8, ptr %13529, i64 32
   %13534 = load ptr, ptr %13533, align 8, !tbaa !134
   %13535 = load i64, ptr %13529, align 8, !tbaa !135
-  %13536 = getelementptr inbounds nuw i64, ptr %13534, i64 %13535
+  %13536 = getelementptr inbounds nuw [8 x i8], ptr %13534, i64 %13535
   %13537 = load i64, ptr %13536, align 8, !tbaa !128
   %13538 = icmp ule i64 %13537, %13527
   %13539 = icmp ne i64 %13537, 4294967295
@@ -77032,7 +77032,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %13548 = getelementptr inbounds nuw i8, ptr %13544, i64 32
   %13549 = load ptr, ptr %13548, align 8, !tbaa !134
   %13550 = load i64, ptr %13544, align 8, !tbaa !135
-  %13551 = getelementptr inbounds nuw i64, ptr %13549, i64 %13550
+  %13551 = getelementptr inbounds nuw [8 x i8], ptr %13549, i64 %13550
   %13552 = load i64, ptr %13551, align 8, !tbaa !128
   %13553 = icmp ule i64 %13552, %13527
   %13554 = icmp ne i64 %13552, 4294967295
@@ -77208,7 +77208,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %13631 = getelementptr inbounds nuw i8, ptr %13627, i64 32
   %13632 = load ptr, ptr %13631, align 8, !tbaa !134
   %13633 = load i64, ptr %13627, align 8, !tbaa !135
-  %13634 = getelementptr inbounds nuw i64, ptr %13632, i64 %13633
+  %13634 = getelementptr inbounds nuw [8 x i8], ptr %13632, i64 %13633
   %13635 = load i64, ptr %13634, align 8, !tbaa !128
   %13636 = icmp ule i64 %13635, %13625
   %13637 = icmp ne i64 %13635, 4294967295
@@ -77233,7 +77233,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %13646 = getelementptr inbounds nuw i8, ptr %13642, i64 32
   %13647 = load ptr, ptr %13646, align 8, !tbaa !134
   %13648 = load i64, ptr %13642, align 8, !tbaa !135
-  %13649 = getelementptr inbounds nuw i64, ptr %13647, i64 %13648
+  %13649 = getelementptr inbounds nuw [8 x i8], ptr %13647, i64 %13648
   %13650 = load i64, ptr %13649, align 8, !tbaa !128
   %13651 = icmp ule i64 %13650, %13625
   %13652 = icmp ne i64 %13650, 4294967295
@@ -77932,7 +77932,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %13942 = getelementptr inbounds nuw i8, ptr %13938, i64 32
   %13943 = load ptr, ptr %13942, align 8, !tbaa !134
   %13944 = load i64, ptr %13938, align 8, !tbaa !135
-  %13945 = getelementptr inbounds nuw i64, ptr %13943, i64 %13944
+  %13945 = getelementptr inbounds nuw [8 x i8], ptr %13943, i64 %13944
   %13946 = load i64, ptr %13945, align 8, !tbaa !128
   %13947 = icmp ule i64 %13946, %13936
   %13948 = icmp ne i64 %13946, 4294967295
@@ -77957,7 +77957,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %13957 = getelementptr inbounds nuw i8, ptr %13953, i64 32
   %13958 = load ptr, ptr %13957, align 8, !tbaa !134
   %13959 = load i64, ptr %13953, align 8, !tbaa !135
-  %13960 = getelementptr inbounds nuw i64, ptr %13958, i64 %13959
+  %13960 = getelementptr inbounds nuw [8 x i8], ptr %13958, i64 %13959
   %13961 = load i64, ptr %13960, align 8, !tbaa !128
   %13962 = icmp ule i64 %13961, %13936
   %13963 = icmp ne i64 %13961, 4294967295
@@ -78033,7 +78033,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %14002 = getelementptr inbounds nuw i8, ptr %13998, i64 32
   %14003 = load ptr, ptr %14002, align 8, !tbaa !134
   %14004 = load i64, ptr %13998, align 8, !tbaa !135
-  %14005 = getelementptr inbounds nuw i64, ptr %14003, i64 %14004
+  %14005 = getelementptr inbounds nuw [8 x i8], ptr %14003, i64 %14004
   %14006 = load i64, ptr %14005, align 8, !tbaa !128
   %14007 = icmp ule i64 %14006, %13996
   %14008 = icmp ne i64 %14006, 4294967295
@@ -78058,7 +78058,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %14017 = getelementptr inbounds nuw i8, ptr %14013, i64 32
   %14018 = load ptr, ptr %14017, align 8, !tbaa !134
   %14019 = load i64, ptr %14013, align 8, !tbaa !135
-  %14020 = getelementptr inbounds nuw i64, ptr %14018, i64 %14019
+  %14020 = getelementptr inbounds nuw [8 x i8], ptr %14018, i64 %14019
   %14021 = load i64, ptr %14020, align 8, !tbaa !128
   %14022 = icmp ule i64 %14021, %13996
   %14023 = icmp ne i64 %14021, 4294967295
@@ -80110,7 +80110,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %14802 = getelementptr inbounds nuw i8, ptr %14798, i64 32
   %14803 = load ptr, ptr %14802, align 8, !tbaa !134
   %14804 = load i64, ptr %14798, align 8, !tbaa !135
-  %14805 = getelementptr inbounds nuw i64, ptr %14803, i64 %14804
+  %14805 = getelementptr inbounds nuw [8 x i8], ptr %14803, i64 %14804
   %14806 = load i64, ptr %14805, align 8, !tbaa !128
   %14807 = icmp ule i64 %14806, %14797
   %14808 = icmp ne i64 %14806, 4294967295
@@ -80135,7 +80135,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %14817 = getelementptr inbounds nuw i8, ptr %14813, i64 32
   %14818 = load ptr, ptr %14817, align 8, !tbaa !134
   %14819 = load i64, ptr %14813, align 8, !tbaa !135
-  %14820 = getelementptr inbounds nuw i64, ptr %14818, i64 %14819
+  %14820 = getelementptr inbounds nuw [8 x i8], ptr %14818, i64 %14819
   %14821 = load i64, ptr %14820, align 8, !tbaa !128
   %14822 = icmp ule i64 %14821, %14797
   %14823 = icmp ne i64 %14821, 4294967295
@@ -80285,7 +80285,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %14895 = getelementptr inbounds nuw i8, ptr %14891, i64 32
   %14896 = load ptr, ptr %14895, align 8, !tbaa !134
   %14897 = load i64, ptr %14891, align 8, !tbaa !135
-  %14898 = getelementptr inbounds nuw i64, ptr %14896, i64 %14897
+  %14898 = getelementptr inbounds nuw [8 x i8], ptr %14896, i64 %14897
   %14899 = load i64, ptr %14898, align 8, !tbaa !128
   %14900 = icmp ule i64 %14899, %14890
   %14901 = icmp ne i64 %14899, 4294967295
@@ -80310,7 +80310,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %14910 = getelementptr inbounds nuw i8, ptr %14906, i64 32
   %14911 = load ptr, ptr %14910, align 8, !tbaa !134
   %14912 = load i64, ptr %14906, align 8, !tbaa !135
-  %14913 = getelementptr inbounds nuw i64, ptr %14911, i64 %14912
+  %14913 = getelementptr inbounds nuw [8 x i8], ptr %14911, i64 %14912
   %14914 = load i64, ptr %14913, align 8, !tbaa !128
   %14915 = icmp ule i64 %14914, %14890
   %14916 = icmp ne i64 %14914, 4294967295
@@ -81039,7 +81039,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4wave8cpplexer7re2clex4fillIN9_
 
 50:                                               ; preds = %50, %.lr.ph.i
   %.031.i = phi i64 [ %46, %.lr.ph.i ], [ %spec.store.select.i, %50 ]
-  %51 = getelementptr inbounds nuw i64, ptr %.pre.i, i64 %.031.i
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i, i64 %.031.i
   %52 = load i64, ptr %51, align 8, !tbaa !128
   %storemerge29.i = tail call i64 @llvm.usub.sat.i64(i64 %52, i64 %13)
   store i64 %storemerge29.i, ptr %51, align 8, !tbaa !128
@@ -81053,7 +81053,7 @@ define linkonce_odr hidden noundef ptr @_ZN5boost4wave8cpplexer7re2clex4fillIN9_
 
 ._crit_edge.i:                                    ; preds = %50, %45
   %.0.lcssa.i = phi i64 [ %46, %45 ], [ %spec.store.select.i, %50 ]
-  %57 = getelementptr inbounds nuw i64, ptr %.pre.i, i64 %.0.lcssa.i
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i, i64 %.0.lcssa.i
   %58 = load i64, ptr %57, align 8, !tbaa !128
   %storemerge.i = tail call i64 @llvm.usub.sat.i64(i64 %58, i64 %13)
   store i64 %storemerge.i, ptr %57, align 8, !tbaa !128
@@ -81415,7 +81415,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 32
   %14 = load ptr, ptr %13, align 8, !tbaa !134
   %15 = load i64, ptr %9, align 8, !tbaa !135
-  %16 = getelementptr inbounds nuw i64, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %15
   %17 = load i64, ptr %16, align 8, !tbaa !128
   %18 = icmp ule i64 %17, %7
   %19 = icmp ne i64 %17, 4294967295
@@ -81437,7 +81437,7 @@ _ZN5boost4wave8cpplexer7re2clex20get_first_eol_offsetIN9__gnu_cxx17__normal_iter
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %29 = load ptr, ptr %28, align 8, !tbaa !134
   %30 = load i64, ptr %24, align 8, !tbaa !135
-  %31 = getelementptr inbounds nuw i64, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %30
   %32 = load i64, ptr %31, align 8, !tbaa !128
   %33 = icmp ule i64 %32, %7
   %34 = icmp ne i64 %32, 4294967295

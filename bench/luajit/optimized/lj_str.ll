@@ -3,8 +3,6 @@ source_filename = "bench/luajit/original/lj_str.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.GCRef = type { i64 }
-
 @lj_char_bits = external hidden local_unnamed_addr constant [257 x i8], align 16
 @.str = private unnamed_addr constant [11 x i8] c"^$*+?.([%-\00", align 1
 
@@ -203,7 +201,7 @@ define hidden void @lj_str_resize(ptr noundef %0, i32 noundef %1) local_unnamed_
 
 23:                                               ; preds = %.lr.ph122, %._crit_edge
   %indvars.iv = phi i64 [ %21, %.lr.ph122 ], [ %indvars.iv.next, %._crit_edge ]
-  %24 = getelementptr inbounds nuw %struct.GCRef, ptr %7, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %25 = load i64, ptr %24, align 8, !tbaa !34
   %26 = and i64 %25, -2
   %.not110117 = icmp eq i64 %26, 0
@@ -293,7 +291,7 @@ hash_sparse.exit:                                 ; preds = %37, %58
   %88 = phi i32 [ %83, %hash_sparse.exit ], [ %86, %84 ]
   %89 = and i32 %88, %1
   %90 = zext nneg i32 %89 to i64
-  %91 = getelementptr inbounds nuw %struct.GCRef, ptr %16, i64 %90
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %90
   %92 = load i64, ptr %91, align 8, !tbaa !34
   %93 = add i64 %92, 1
   store i64 %93, ptr %91, align 8, !tbaa !34
@@ -309,7 +307,7 @@ hash_sparse.exit:                                 ; preds = %37, %58
 .lr.ph126:                                        ; preds = %.lr.ph126.preheader, %.lr.ph126
   %indvars.iv141 = phi i64 [ %22, %.lr.ph126.preheader ], [ %indvars.iv.next142, %.lr.ph126 ]
   %.099124 = phi i8 [ 0, %.lr.ph126.preheader ], [ %99, %.lr.ph126 ]
-  %95 = getelementptr inbounds nuw %struct.GCRef, ptr %16, i64 %indvars.iv141
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv141
   %96 = load i64, ptr %95, align 8, !tbaa !34
   %97 = icmp ugt i64 %96, 32
   %98 = zext i1 %97 to i8
@@ -336,7 +334,7 @@ hash_sparse.exit:                                 ; preds = %37, %58
 
 104:                                              ; preds = %.lr.ph138, %._crit_edge134
   %indvars.iv143 = phi i64 [ %103, %.lr.ph138 ], [ %indvars.iv.next144, %._crit_edge134 ]
-  %105 = getelementptr inbounds nuw %struct.GCRef, ptr %7, i64 %indvars.iv143
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv143
   %106 = load i64, ptr %105, align 8, !tbaa !34
   %107 = and i64 %106, -2
   %.not106129 = icmp eq i64 %107, 0
@@ -356,7 +354,7 @@ hash_sparse.exit:                                 ; preds = %37, %58
 113:                                              ; preds = %.lr.ph133
   %114 = and i32 %110, %1
   %115 = zext nneg i32 %114 to i64
-  %116 = getelementptr inbounds nuw %struct.GCRef, ptr %16, i64 %115
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %115
   %117 = load i64, ptr %116, align 8, !tbaa !34
   %118 = and i64 %117, 1
   %.not109 = icmp eq i64 %118, 0
@@ -372,7 +370,7 @@ hash_sparse.exit:                                 ; preds = %37, %58
   store i8 1, ptr %111, align 1, !tbaa !35
   %125 = and i32 %124, %1
   %126 = zext nneg i32 %125 to i64
-  %127 = getelementptr inbounds nuw %struct.GCRef, ptr %16, i64 %126
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %126
   %128 = load i64, ptr %127, align 8, !tbaa !34
   br label %195
 
@@ -443,7 +441,7 @@ hash_sparse.exit115:                              ; preds = %137, %158
   %183 = sub i32 %181, %182
   %184 = and i32 %183, %1
   %185 = zext nneg i32 %184 to i64
-  %186 = getelementptr inbounds nuw %struct.GCRef, ptr %16, i64 %185
+  %186 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %185
   %187 = load i64, ptr %186, align 8, !tbaa !34
   %188 = and i64 %187, 1
   %.not108 = icmp eq i64 %188, 0
@@ -452,7 +450,7 @@ hash_sparse.exit115:                              ; preds = %137, %158
 189:                                              ; preds = %hash_sparse.exit115
   %190 = and i32 %110, %1
   %191 = zext nneg i32 %190 to i64
-  %192 = getelementptr inbounds nuw %struct.GCRef, ptr %16, i64 %191
+  %192 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %191
   %193 = load i64, ptr %192, align 8, !tbaa !34
   br label %195
 
@@ -468,7 +466,7 @@ hash_sparse.exit115:                              ; preds = %137, %158
   store i64 %196, ptr %.0100131, align 8, !tbaa !14
   %197 = and i64 %.095, 1
   %198 = or i64 %197, %.0100.in130
-  %199 = getelementptr inbounds nuw %struct.GCRef, ptr %16, i64 %.pre-phi
+  %199 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.pre-phi
   store i64 %198, ptr %199, align 8, !tbaa !34
   %.not106 = icmp eq i64 %108, 0
   br i1 %.not106, label %._crit_edge134, label %.lr.ph133, !llvm.loop !42
@@ -644,7 +642,7 @@ hash_sparse.exit:                                 ; preds = %17, %35
   %61 = load i32, ptr %60, align 8, !tbaa !33
   %62 = and i32 %58, %61
   %63 = zext i32 %62 to i64
-  %64 = getelementptr inbounds nuw %struct.GCRef, ptr %59, i64 %63
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %63
   %65 = load i64, ptr %64, align 8, !tbaa !34
   %66 = and i64 %65, 1
   %.not59 = icmp eq i64 %66, 0
@@ -654,7 +652,7 @@ hash_sparse.exit:                                 ; preds = %17, %35
   %68 = tail call fastcc i32 @hash_dense(i64 noundef %13, i32 noundef %58, ptr noundef nonnull %1, i32 noundef %10)
   %69 = and i32 %68, %61
   %70 = zext i32 %69 to i64
-  %71 = getelementptr inbounds nuw %struct.GCRef, ptr %59, i64 %70
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %70
   %72 = load i64, ptr %71, align 8, !tbaa !34
   %73 = and i64 %72, -2
   br label %74
@@ -775,7 +773,7 @@ define internal fastcc ptr @lj_str_rehash_chain(ptr noundef %0, i32 noundef %1, 
   %21 = load i32, ptr %20, align 8, !tbaa !33
   %22 = and i32 %21, %1
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw %struct.GCRef, ptr %19, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %23
   %25 = load i64, ptr %24, align 8, !tbaa !34
   store i64 1, ptr %24, align 8, !tbaa !34
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 173
@@ -818,7 +816,7 @@ define internal fastcc ptr @lj_str_rehash_chain(ptr noundef %0, i32 noundef %1, 
   %.0.us = phi i32 [ %34, %.lr.ph.split.us ], [ %42, %37 ]
   %44 = and i32 %.0.us, %21
   %45 = zext i32 %44 to i64
-  %46 = getelementptr inbounds nuw %struct.GCRef, ptr %19, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %45
   %47 = load i64, ptr %46, align 8, !tbaa !34
   %48 = and i64 %47, -2
   store i64 %48, ptr %.04654.us, align 8, !tbaa !14
@@ -886,7 +884,7 @@ define internal fastcc ptr @lj_str_rehash_chain(ptr noundef %0, i32 noundef %1, 
   %.0 = phi i32 [ %63, %57 ], [ %85, %80 ]
   %87 = and i32 %.0, %21
   %88 = zext i32 %87 to i64
-  %89 = getelementptr inbounds nuw %struct.GCRef, ptr %19, i64 %88
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %88
   %90 = load i64, ptr %89, align 8, !tbaa !34
   %91 = and i64 %90, -2
   store i64 %91, ptr %.04654, align 8, !tbaa !14
@@ -972,7 +970,7 @@ define internal fastcc ptr @lj_str_alloc(ptr noundef %0, ptr noundef readonly ca
   %45 = and i32 %44, %3
   %46 = load ptr, ptr %21, align 8, !tbaa !21
   %47 = zext i32 %45 to i64
-  %48 = getelementptr inbounds nuw %struct.GCRef, ptr %46, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %47
   %49 = load i64, ptr %48, align 8, !tbaa !34
   %50 = and i64 %49, -2
   store i64 %50, ptr %10, align 8, !tbaa !58

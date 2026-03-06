@@ -86,7 +86,7 @@ define internal i32 @activate(ptr noundef readonly captures(none) %0) #1 {
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %35 = load ptr, ptr %7, align 8, !tbaa !20
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8, !tbaa !21
   tail call void @ff_inlink_set_status(ptr noundef %37, i32 noundef %32) #4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

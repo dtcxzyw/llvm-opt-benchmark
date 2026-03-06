@@ -8681,7 +8681,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit190: ; preds = %_Z
   call void @llvm.experimental.noalias.scope.decl(metadata !363)
   %.pre.i = load i32, ptr %188, align 8, !tbaa !366, !noalias !363
   %189 = sext i32 %.pre.i to i64
-  %190 = getelementptr inbounds ptr, ptr @_ZZNK11flatbuffers5swift14SwiftGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEbE10swift_type, i64 %189
+  %190 = getelementptr inbounds [8 x i8], ptr @_ZZNK11flatbuffers5swift14SwiftGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEbE10swift_type, i64 %189
   %191 = load ptr, ptr %190, align 8, !tbaa !367, !noalias !363
   %192 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store ptr %192, ptr %30, align 8, !tbaa !4, !alias.scope !363
@@ -11213,7 +11213,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
   call void @llvm.experimental.noalias.scope.decl(metadata !401)
   %379 = zext nneg i32 %375 to i64
-  %380 = getelementptr inbounds nuw ptr, ptr @_ZZNK11flatbuffers5swift14SwiftGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEbE10swift_type, i64 %379
+  %380 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK11flatbuffers5swift14SwiftGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEbE10swift_type, i64 %379
   %381 = load ptr, ptr %380, align 8, !tbaa !367, !noalias !401
   store ptr %283, ptr %34, align 8, !tbaa !4, !alias.scope !401
   %382 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %381) #24
@@ -13945,7 +13945,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.experimental.noalias.scope.decl(metadata !455)
   %182 = zext nneg i32 %178 to i64
-  %183 = getelementptr inbounds nuw ptr, ptr @_ZZNK11flatbuffers5swift14SwiftGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEbE10swift_type, i64 %182
+  %183 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK11flatbuffers5swift14SwiftGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEbE10swift_type, i64 %182
   %184 = load ptr, ptr %183, align 8, !tbaa !367, !noalias !455
   store ptr %64, ptr %13, align 8, !tbaa !4, !alias.scope !455
   %185 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %184) #24
@@ -14690,7 +14690,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit258: ; preds = %_Z
   call void @llvm.lifetime.start.p0(ptr nonnull %25)
   call void @llvm.experimental.noalias.scope.decl(metadata !468)
   %413 = zext nneg i32 %242 to i64
-  %414 = getelementptr inbounds nuw ptr, ptr @_ZZNK11flatbuffers5swift14SwiftGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEbE10swift_type, i64 %413
+  %414 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK11flatbuffers5swift14SwiftGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEbE10swift_type, i64 %413
   %415 = load ptr, ptr %414, align 8, !tbaa !367, !noalias !468
   store ptr %109, ptr %25, align 8, !tbaa !4, !alias.scope !468
   %416 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %415) #24
@@ -18389,7 +18389,7 @@ _ZNK11flatbuffers8IdlNamer14NamespacedTypeB5cxx11ERKNS_10DefinitionE.exit: ; pre
 36:                                               ; preds = %._crit_edge, %30
   %37 = phi i32 [ %.pre, %._crit_edge ], [ %31, %30 ]
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds ptr, ptr @_ZZNK11flatbuffers5swift14SwiftGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEbE10swift_type, i64 %38
+  %39 = getelementptr inbounds [8 x i8], ptr @_ZZNK11flatbuffers5swift14SwiftGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEbE10swift_type, i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !367
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %41, ptr %0, align 8, !tbaa !4
@@ -22841,7 +22841,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit102: ; preds = %_Z
   call void @llvm.experimental.noalias.scope.decl(metadata !621)
   %.pre.i = load i32, ptr %96, align 8, !tbaa !366, !noalias !621
   %138 = sext i32 %.pre.i to i64
-  %139 = getelementptr inbounds ptr, ptr @_ZZNK11flatbuffers5swift14SwiftGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEbE10swift_type, i64 %138
+  %139 = getelementptr inbounds [8 x i8], ptr @_ZZNK11flatbuffers5swift14SwiftGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEbE10swift_type, i64 %138
   %140 = load ptr, ptr %139, align 8, !tbaa !367, !noalias !621
   store ptr %64, ptr %17, align 8, !tbaa !4, !alias.scope !621
   %141 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %140) #24
@@ -24612,7 +24612,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !449
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !420
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !421
   ret void
 }
@@ -33698,7 +33698,7 @@ _ZNK11flatbuffers5Namer6MethodINS_8FieldDefEEENSt7__cxx1112basic_stringIcSt11cha
 
 switch.lookup:                                    ; preds = %257
   %260 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11flatbuffers5swift14SwiftGenerator20GenTableWriterFieldsERKNS_8FieldDefEPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EESE_, i64 %260
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN11flatbuffers5swift14SwiftGenerator20GenTableWriterFieldsERKNS_8FieldDefEPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EESE_, i64 %260
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %switch.edge
 
@@ -41636,7 +41636,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i76
   call void @llvm.lifetime.start.p0(ptr nonnull %68)
   call void @llvm.experimental.noalias.scope.decl(metadata !967)
   %1040 = sext i32 %.pre.i777 to i64
-  %1041 = getelementptr inbounds ptr, ptr @_ZZNK11flatbuffers5swift14SwiftGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEbE10swift_type, i64 %1040
+  %1041 = getelementptr inbounds [8 x i8], ptr @_ZZNK11flatbuffers5swift14SwiftGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEbE10swift_type, i64 %1040
   %1042 = load ptr, ptr %1041, align 8, !tbaa !367, !noalias !967
   %1043 = getelementptr inbounds nuw i8, ptr %68, i64 16
   store ptr %1043, ptr %68, align 8, !tbaa !4, !alias.scope !967
@@ -50152,7 +50152,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i62
   call void @llvm.lifetime.start.p0(ptr nonnull %68)
   call void @llvm.experimental.noalias.scope.decl(metadata !1148)
   %1154 = zext nneg i32 %.pre.i6341049 to i64
-  %1155 = getelementptr inbounds nuw ptr, ptr @_ZZNK11flatbuffers5swift14SwiftGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEbE10swift_type, i64 %1154
+  %1155 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK11flatbuffers5swift14SwiftGenerator12GenTypeBasicB5cxx11ERKNS_4TypeEbE10swift_type, i64 %1154
   %1156 = load ptr, ptr %1155, align 8, !tbaa !367, !noalias !1148
   %1157 = getelementptr inbounds nuw i8, ptr %68, i64 16
   store ptr %1157, ptr %68, align 8, !tbaa !4, !alias.scope !1148
@@ -51932,7 +51932,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 
 switch.lookup:                                    ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i348
   %213 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11flatbuffers5swift14SwiftGenerator20GenTableWriterFieldsERKNS_8FieldDefEPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EESE_, i64 %213
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN11flatbuffers5swift14SwiftGenerator20GenTableWriterFieldsERKNS_8FieldDefEPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EESE_, i64 %213
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %switch.edge
 
@@ -55367,7 +55367,7 @@ _ZN11flatbuffers8IsStructERKNS_4TypeE.exit.thread: ; preds = %1232, %_ZN11flatbu
 
 switch.lookup1651:                                ; preds = %1460
   %1463 = zext nneg i32 %switch.tableidx1650 to i64
-  %switch.gep1652 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN11flatbuffers5swift14SwiftGenerator20GenTableWriterFieldsERKNS_8FieldDefEPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EESE_.11, i64 %1463
+  %switch.gep1652 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN11flatbuffers5swift14SwiftGenerator20GenTableWriterFieldsERKNS_8FieldDefEPSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISB_EESE_.11, i64 %1463
   %switch.load1653 = load ptr, ptr %switch.gep1652, align 8
   br label %switch.edge1192
 

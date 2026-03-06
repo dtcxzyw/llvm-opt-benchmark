@@ -188,7 +188,7 @@ define internal range(i32 49, 0) i32 @ir2_decode_frame(ptr noundef %0, ptr nound
   %96 = lshr i32 %94, %95
   %97 = and i32 %96, 16383
   %98 = zext nneg i32 %97 to i64
-  %99 = getelementptr inbounds nuw %struct.VLCElem, ptr @ir2_vlc, i64 %98
+  %99 = getelementptr inbounds nuw [4 x i8], ptr @ir2_vlc, i64 %98
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 2
   %101 = load i16, ptr %100, align 2, !tbaa !37
   %102 = sext i16 %101 to i32
@@ -313,7 +313,7 @@ ir2_decode_plane_inter.exit:                      ; preds = %ir2_decode_plane_in
   %172 = lshr i32 %170, %171
   %173 = and i32 %172, 16383
   %174 = zext nneg i32 %173 to i64
-  %175 = getelementptr inbounds nuw %struct.VLCElem, ptr @ir2_vlc, i64 %174
+  %175 = getelementptr inbounds nuw [4 x i8], ptr @ir2_vlc, i64 %174
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 2
   %177 = load i16, ptr %176, align 2, !tbaa !37
   %178 = sext i16 %177 to i32
@@ -482,7 +482,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @ir2_decode_plane(ptr nound
   %26 = lshr i32 %24, %25
   %27 = and i32 %26, 16383
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr inbounds nuw %struct.VLCElem, ptr @ir2_vlc, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr @ir2_vlc, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 2
   %31 = load i16, ptr %30, align 2, !tbaa !37
   %32 = sext i16 %31 to i32
@@ -568,7 +568,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @ir2_decode_plane(ptr nound
   %74 = lshr i32 %72, %73
   %75 = and i32 %74, 16383
   %76 = zext nneg i32 %75 to i64
-  %77 = getelementptr inbounds nuw %struct.VLCElem, ptr @ir2_vlc, i64 %76
+  %77 = getelementptr inbounds nuw [4 x i8], ptr @ir2_vlc, i64 %76
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 2
   %79 = load i16, ptr %78, align 2, !tbaa !37
   %80 = sext i16 %79 to i32
@@ -711,7 +711,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @ir2_decode_plane_inter(ptr
   %23 = lshr i32 %21, %22
   %24 = and i32 %23, 16383
   %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw %struct.VLCElem, ptr @ir2_vlc, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr @ir2_vlc, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 2
   %28 = load i16, ptr %27, align 2, !tbaa !37
   %29 = sext i16 %28 to i32

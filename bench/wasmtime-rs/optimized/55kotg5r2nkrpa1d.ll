@@ -52,7 +52,7 @@ define void @_ZN14cranelift_isle5lexer3Pos17pretty_print_line17h0b46594b4fafa57f
   br i1 %8, label %9, label %15, !prof !4
 
 9:                                                ; preds = %4
-  %10 = getelementptr inbounds { { { ptr, i64 } }, {}, {} }, ptr %2, i64 %7
+  %10 = getelementptr inbounds [16 x i8], ptr %2, i64 %7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 16
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %2) ]
   store ptr %10, ptr %5, align 8
@@ -252,7 +252,7 @@ define void @_ZN14cranelift_isle5lexer5Lexer18from_file_contents17h206576ed49057
   %18 = load ptr, ptr %17, align 8, !nonnull !3, !noundef !3
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %20 = load i64, ptr %19, align 8, !noundef !3
-  %21 = getelementptr inbounds { { { { { { i64, ptr, {} }, i64 } } } }, { { { i64, ptr, {} }, i64 } } }, ptr %18, i64 %20
+  %21 = getelementptr inbounds [48 x i8], ptr %18, i64 %20
   store ptr %18, ptr %10, align 8
   %22 = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %21, ptr %22, align 8
@@ -490,7 +490,7 @@ define void @_ZN14cranelift_isle5lexer5Lexer3pos17h65d46e30f551b431E(ptr writeon
   %10 = load ptr, ptr %9, align 8, !nonnull !3, !noundef !3
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %12 = load i64, ptr %11, align 8, !noundef !3
-  %13 = getelementptr inbounds i64, ptr %10, i64 %4
+  %13 = getelementptr inbounds [8 x i8], ptr %10, i64 %4
   %14 = load i64, ptr %13, align 8, !noundef !3
   %15 = sub i64 %12, %14
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -561,7 +561,7 @@ define internal fastcc void @_ZN14cranelift_isle5lexer5Lexer11advance_pos17he84d
 30:                                               ; preds = %22
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %32 = load ptr, ptr %31, align 8, !nonnull !3, !noundef !3
-  %33 = getelementptr inbounds i64, ptr %32, i64 %25
+  %33 = getelementptr inbounds [8 x i8], ptr %32, i64 %25
   %34 = load i64, ptr %33, align 8, !noundef !3
   %.not = icmp ult i64 %23, %34
   br i1 %.not, label %29, label %35
@@ -768,7 +768,7 @@ define internal fastcc void @_ZN14cranelift_isle5lexer5Lexer6reload17h8e40afbdc5
 
 75:                                               ; preds = %69
   %76 = load ptr, ptr %39, align 8, !noalias !7, !nonnull !3, !noundef !3
-  %77 = getelementptr inbounds i64, ptr %76, i64 %72
+  %77 = getelementptr inbounds [8 x i8], ptr %76, i64 %72
   %78 = load i64, ptr %77, align 8, !noalias !7, !noundef !3
   %.not.i.i = icmp ult i64 %70, %78
   br i1 %.not.i.i, label %.backedge.i, label %79
@@ -874,7 +874,7 @@ define internal fastcc void @_ZN14cranelift_isle5lexer5Lexer6reload17h8e40afbdc5
 
 133:                                              ; preds = %127
   %134 = load ptr, ptr %39, align 8, !noalias !7, !nonnull !3, !noundef !3
-  %135 = getelementptr inbounds i64, ptr %134, i64 %130
+  %135 = getelementptr inbounds [8 x i8], ptr %134, i64 %130
   %136 = load i64, ptr %135, align 8, !noalias !7, !noundef !3
   %.not.i175.i = icmp ult i64 %128, %136
   br i1 %.not.i175.i, label %_ZN14cranelift_isle5lexer5Lexer11advance_pos17he84d0636f0e6e787E.exit176.i, label %137
@@ -913,7 +913,7 @@ _ZN14cranelift_isle5lexer5Lexer3pos17h65d46e30f551b431E.exit.i: ; preds = %144
   %150 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %151 = load ptr, ptr %150, align 8, !noalias !7, !nonnull !3, !noundef !3
   %152 = load i64, ptr %24, align 8, !noalias !7, !noundef !3
-  %153 = getelementptr inbounds i64, ptr %151, i64 %145
+  %153 = getelementptr inbounds [8 x i8], ptr %151, i64 %145
   %154 = load i64, ptr %153, align 8, !noalias !7, !noundef !3
   %155 = sub i64 %152, %154
   %156 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -997,7 +997,7 @@ _ZN14cranelift_isle5lexer5Lexer3pos17h65d46e30f551b431E.exit.i: ; preds = %144
 
 194:                                              ; preds = %188
   %195 = load ptr, ptr %150, align 8, !noalias !7, !nonnull !3, !noundef !3
-  %196 = getelementptr inbounds i64, ptr %195, i64 %191
+  %196 = getelementptr inbounds [8 x i8], ptr %195, i64 %191
   %197 = load i64, ptr %196, align 8, !noalias !7, !noundef !3
   %.not.i177.i = icmp ult i64 %189, %197
   br i1 %.not.i177.i, label %534, label %198
@@ -1054,7 +1054,7 @@ _ZN14cranelift_isle5lexer5Lexer3pos17h65d46e30f551b431E.exit.i: ; preds = %144
 
 224:                                              ; preds = %218
   %225 = load ptr, ptr %150, align 8, !noalias !7, !nonnull !3, !noundef !3
-  %226 = getelementptr inbounds i64, ptr %225, i64 %221
+  %226 = getelementptr inbounds [8 x i8], ptr %225, i64 %221
   %227 = load i64, ptr %226, align 8, !noalias !7, !noundef !3
   %.not.i179.i = icmp ult i64 %219, %227
   br i1 %.not.i179.i, label %534, label %228
@@ -1111,7 +1111,7 @@ _ZN14cranelift_isle5lexer5Lexer3pos17h65d46e30f551b431E.exit.i: ; preds = %144
 
 254:                                              ; preds = %248
   %255 = load ptr, ptr %150, align 8, !noalias !7, !nonnull !3, !noundef !3
-  %256 = getelementptr inbounds i64, ptr %255, i64 %251
+  %256 = getelementptr inbounds [8 x i8], ptr %255, i64 %251
   %257 = load i64, ptr %256, align 8, !noalias !7, !noundef !3
   %.not.i181.i = icmp ult i64 %249, %257
   br i1 %.not.i181.i, label %534, label %258
@@ -1148,7 +1148,7 @@ _ZN14cranelift_isle5lexer5Lexer10next_token17is_sym_first_char17h9f7160da5eee508
 
 _ZN14cranelift_isle5lexer5Lexer3pos17h65d46e30f551b431E.exit183.i: ; preds = %_ZN14cranelift_isle5lexer5Lexer10next_token17is_sym_first_char17h9f7160da5eee5084E.exit.i
   %269 = load ptr, ptr %150, align 8, !noalias !7, !nonnull !3, !noundef !3
-  %270 = getelementptr inbounds i64, ptr %269, i64 %265
+  %270 = getelementptr inbounds [8 x i8], ptr %269, i64 %265
   %271 = load i64, ptr %270, align 8, !noalias !7, !noundef !3
   %272 = sub i64 %162, %271
   %273 = load i64, ptr %156, align 16, !noalias !7, !noundef !3
@@ -1200,7 +1200,7 @@ _ZN14cranelift_isle5lexer5Lexer3pos17h65d46e30f551b431E.exit183.i: ; preds = %_Z
 
 _ZN14cranelift_isle5lexer5Lexer3pos17h65d46e30f551b431E.exit184.i: ; preds = %.thread.i
   %283 = load ptr, ptr %150, align 8, !noalias !7, !nonnull !3, !noundef !3
-  %284 = getelementptr inbounds i64, ptr %283, i64 %279
+  %284 = getelementptr inbounds [8 x i8], ptr %283, i64 %279
   %285 = load i64, ptr %284, align 8, !noalias !7, !noundef !3
   %286 = sub i64 %162, %285
   %287 = load i64, ptr %156, align 16, !noalias !7, !noundef !3
@@ -1252,7 +1252,7 @@ _ZN14cranelift_isle5lexer5Lexer3pos17h65d46e30f551b431E.exit184.i: ; preds = %.t
 
 313:                                              ; preds = %307
   %314 = load ptr, ptr %150, align 8, !noalias !7, !nonnull !3, !noundef !3
-  %315 = getelementptr inbounds i64, ptr %314, i64 %310
+  %315 = getelementptr inbounds [8 x i8], ptr %314, i64 %310
   %316 = load i64, ptr %315, align 8, !noalias !7, !noundef !3
   %.not.i185.i = icmp ult i64 %308, %316
   br i1 %.not.i185.i, label %_ZN14cranelift_isle5lexer5Lexer11advance_pos17he84d0636f0e6e787E.exit186.i, label %317
@@ -1615,7 +1615,7 @@ _ZN14cranelift_isle5lexer5Lexer11advance_pos17he84d0636f0e6e787E.exit191.i: ; pr
 
 458:                                              ; preds = %452
   %459 = load ptr, ptr %150, align 8, !noalias !7, !nonnull !3, !noundef !3
-  %460 = getelementptr inbounds i64, ptr %459, i64 %455
+  %460 = getelementptr inbounds [8 x i8], ptr %459, i64 %455
   %461 = load i64, ptr %460, align 8, !noalias !7, !noundef !3
   %.not.i187.i = icmp ult i64 %453, %461
   br i1 %.not.i187.i, label %_ZN14cranelift_isle5lexer5Lexer11advance_pos17he84d0636f0e6e787E.exit191.i.backedge, label %462
@@ -1753,7 +1753,7 @@ _ZN14cranelift_isle5lexer5Lexer10next_token17is_sym_other_char17h7b74b9fd88961a6
 
 523:                                              ; preds = %517
   %524 = load ptr, ptr %150, align 8, !noalias !7, !nonnull !3, !noundef !3
-  %525 = getelementptr inbounds i64, ptr %524, i64 %520
+  %525 = getelementptr inbounds [8 x i8], ptr %524, i64 %520
   %526 = load i64, ptr %525, align 8, !noalias !7, !noundef !3
   %.not.i192.i = icmp ult i64 %518, %526
   br i1 %.not.i192.i, label %_ZN14cranelift_isle5lexer5Lexer11advance_pos17he84d0636f0e6e787E.exit193.i, label %527

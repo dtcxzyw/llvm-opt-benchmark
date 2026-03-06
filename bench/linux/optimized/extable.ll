@@ -3,12 +3,6 @@ source_filename = "bench/linux/original/extable.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-%struct.module_memory = type { ptr, i32, %struct.mod_tree_node }
-%struct.mod_tree_node = type { ptr, %struct.latch_tree_node }
-%struct.latch_tree_node = type { [2 x %struct.rb_node] }
-%struct.rb_node = type { i64, ptr, ptr }
-%struct.exception_table_entry = type { i32, i32, i32 }
-
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @sort_extable(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = ptrtoint ptr %1 to i64
@@ -97,7 +91,7 @@ define dso_local void @trim_init_extable(ptr noundef captures(none) %0) local_un
   br i1 %21, label %22, label %31
 
 22:                                               ; preds = %15
-  %23 = getelementptr %struct.module_memory, ptr %7, i64 %16
+  %23 = getelementptr [72 x i8], ptr %7, i64 %16
   %24 = load ptr, ptr %23, align 8
   %25 = ptrtoint ptr %24 to i64
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -134,7 +128,7 @@ define dso_local void @trim_init_extable(ptr noundef captures(none) %0) local_un
   %45 = add nsw i64 %44, -1
   %46 = trunc i64 %45 to i32
   %47 = and i64 %45, 4294967295
-  %48 = getelementptr %struct.exception_table_entry, ptr %10, i64 %47
+  %48 = getelementptr [12 x i8], ptr %10, i64 %47
   %49 = ptrtoint ptr %48 to i64
   %50 = load i32, ptr %48, align 4
   %51 = sext i32 %50 to i64
@@ -151,7 +145,7 @@ define dso_local void @trim_init_extable(ptr noundef captures(none) %0) local_un
   br i1 %59, label %60, label %69
 
 60:                                               ; preds = %53
-  %61 = getelementptr %struct.module_memory, ptr %7, i64 %54
+  %61 = getelementptr [72 x i8], ptr %7, i64 %54
   %62 = load ptr, ptr %61, align 8
   %63 = ptrtoint ptr %62 to i64
   %64 = getelementptr inbounds nuw i8, ptr %61, i64 8

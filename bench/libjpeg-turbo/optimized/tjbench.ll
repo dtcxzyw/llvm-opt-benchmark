@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.tjregion = type { i32, i32, i32, i32 }
 %struct.tjscalingfactor = type { i32, i32 }
-%struct.tjtransform = type { %struct.tjregion, i32, i32, ptr, ptr }
 
 @nsf = internal global i32 0, align 4
 @scalingFactors = internal unnamed_addr global ptr null, align 8
@@ -495,7 +494,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   %.07901236 = phi i32 [ %.0795, %.preheader1214 ], [ %486, %485 ]
   %.18041235 = phi i32 [ -1, %.preheader1214 ], [ %.2805, %485 ]
   %63 = sext i32 %.07901236 to i64
-  %64 = getelementptr inbounds ptr, ptr %1, i64 %63
+  %64 = getelementptr inbounds [8 x i8], ptr %1, i64 %63
   %65 = load ptr, ptr %64, align 8, !tbaa !10
   %66 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %65) #24
   %spec.select = call i64 @llvm.umax.i64(i64 %66, i64 3)
@@ -531,7 +530,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
 77:                                               ; preds = %74
   %78 = add nsw i32 %.07901236, 1
   %79 = sext i32 %78 to i64
-  %80 = getelementptr inbounds ptr, ptr %1, i64 %79
+  %80 = getelementptr inbounds [8 x i8], ptr %1, i64 %79
   %81 = load ptr, ptr %80, align 8, !tbaa !10
   %82 = call double @strtod(ptr noundef nonnull captures(none) %81, ptr noundef null) #23
   %83 = fcmp ogt double %82, 0.000000e+00
@@ -631,7 +630,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %113 = add nsw i32 %.07901236, 1
   %114 = sext i32 %113 to i64
-  %115 = getelementptr inbounds ptr, ptr %1, i64 %114
+  %115 = getelementptr inbounds [8 x i8], ptr %1, i64 %114
   %116 = load ptr, ptr %115, align 8, !tbaa !10
   %117 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %116, ptr noundef nonnull @.str.20, ptr noundef nonnull %6, ptr noundef nonnull %10, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #23
   %118 = icmp eq i32 %117, 5
@@ -689,7 +688,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
 138:                                              ; preds = %136
   %139 = add nsw i32 %.07901236, 1
   %140 = sext i32 %139 to i64
-  %141 = getelementptr inbounds ptr, ptr %1, i64 %140
+  %141 = getelementptr inbounds [8 x i8], ptr %1, i64 %140
   %142 = load ptr, ptr %141, align 8, !tbaa !10
   %143 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %142) #24
   %spec.select1091 = call i64 @llvm.umax.i64(i64 %143, i64 1)
@@ -722,7 +721,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
 154:                                              ; preds = %152
   %155 = add nsw i32 %.07901236, 1
   %156 = sext i32 %155 to i64
-  %157 = getelementptr inbounds ptr, ptr %1, i64 %156
+  %157 = getelementptr inbounds [8 x i8], ptr %1, i64 %156
   %158 = load ptr, ptr %157, align 8, !tbaa !10
   %159 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %158) #24
   %spec.select1096 = call i64 @llvm.umax.i64(i64 %159, i64 1)
@@ -774,7 +773,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
 174:                                              ; preds = %172
   %175 = add nsw i32 %.07901236, 1
   %176 = sext i32 %175 to i64
-  %177 = getelementptr inbounds ptr, ptr %1, i64 %176
+  %177 = getelementptr inbounds [8 x i8], ptr %1, i64 %176
   %178 = load ptr, ptr %177, align 8, !tbaa !10
   %179 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %178) #24
   %spec.select1103 = call i64 @llvm.umax.i64(i64 %179, i64 1)
@@ -853,7 +852,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
 205:                                              ; preds = %203
   %206 = add nsw i32 %.07901236, 1
   %207 = sext i32 %206 to i64
-  %208 = getelementptr inbounds ptr, ptr %1, i64 %207
+  %208 = getelementptr inbounds [8 x i8], ptr %1, i64 %207
   %209 = load ptr, ptr %208, align 8, !tbaa !10
   %210 = call i64 @strtol(ptr noundef nonnull captures(none) %209, ptr noundef null, i32 noundef 10) #23
   %211 = trunc i64 %210 to i32
@@ -878,7 +877,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
 218:                                              ; preds = %216
   %219 = add nsw i32 %.07901236, 1
   %220 = sext i32 %219 to i64
-  %221 = getelementptr inbounds ptr, ptr %1, i64 %220
+  %221 = getelementptr inbounds [8 x i8], ptr %1, i64 %220
   %222 = load ptr, ptr %221, align 8, !tbaa !10
   %223 = call i64 @strtol(ptr noundef nonnull captures(none) %222, ptr noundef null, i32 noundef 10) #23
   %224 = trunc i64 %223 to i32
@@ -903,7 +902,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
 231:                                              ; preds = %229
   %232 = add nsw i32 %.07901236, 1
   %233 = sext i32 %232 to i64
-  %234 = getelementptr inbounds ptr, ptr %1, i64 %233
+  %234 = getelementptr inbounds [8 x i8], ptr %1, i64 %233
   %235 = load ptr, ptr %234, align 8, !tbaa !10
   %236 = call i64 @strtol(ptr noundef nonnull captures(none) %235, ptr noundef null, i32 noundef 10) #23
   %237 = trunc i64 %236 to i32
@@ -975,7 +974,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
 262:                                              ; preds = %260
   %263 = add nsw i32 %.07901236, 1
   %264 = sext i32 %263 to i64
-  %265 = getelementptr inbounds ptr, ptr %1, i64 %264
+  %265 = getelementptr inbounds [8 x i8], ptr %1, i64 %264
   %266 = load ptr, ptr %265, align 8, !tbaa !10
   %267 = call i32 @strcasecmp(ptr noundef %266, ptr noundef nonnull @.str.49) #24
   %.not1027 = icmp eq i32 %267, 0
@@ -1069,7 +1068,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
 297:                                              ; preds = %295
   %298 = add nsw i32 %.07901236, 1
   %299 = sext i32 %298 to i64
-  %300 = getelementptr inbounds ptr, ptr %1, i64 %299
+  %300 = getelementptr inbounds [8 x i8], ptr %1, i64 %299
   %301 = load ptr, ptr %300, align 8, !tbaa !10
   %302 = call i64 @strtol(ptr noundef nonnull captures(none) %301, ptr noundef null, i32 noundef 10) #23
   %303 = trunc i64 %302 to i32
@@ -1171,7 +1170,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
 336:                                              ; preds = %334
   %337 = add nsw i32 %.07901236, 1
   %338 = sext i32 %337 to i64
-  %339 = getelementptr inbounds ptr, ptr %1, i64 %338
+  %339 = getelementptr inbounds [8 x i8], ptr %1, i64 %338
   %340 = load ptr, ptr %339, align 8, !tbaa !10
   %341 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %340) #24
   %spec.select1138 = call i64 @llvm.umax.i64(i64 %341, i64 2)
@@ -1220,7 +1219,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   store i8 0, ptr %12, align 1, !tbaa !14
   %355 = add nsw i32 %.07901236, 1
   %356 = sext i32 %355 to i64
-  %357 = getelementptr inbounds ptr, ptr %1, i64 %356
+  %357 = getelementptr inbounds [8 x i8], ptr %1, i64 %356
   %358 = load ptr, ptr %357, align 8, !tbaa !10
   %359 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %358, ptr noundef nonnull @.str.73, ptr noundef nonnull %11, ptr noundef nonnull %12) #23
   %360 = icmp slt i32 %359, 1
@@ -1273,7 +1272,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
 378:                                              ; preds = %376
   %379 = add nsw i32 %.07901236, 1
   %380 = sext i32 %379 to i64
-  %381 = getelementptr inbounds ptr, ptr %1, i64 %380
+  %381 = getelementptr inbounds [8 x i8], ptr %1, i64 %380
   %382 = load ptr, ptr %381, align 8, !tbaa !10
   %383 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %382) #24
   %spec.select1149 = call i64 @llvm.umax.i64(i64 %383, i64 1)
@@ -1335,7 +1334,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
   store i32 0, ptr %14, align 4, !tbaa !4
   %404 = add nsw i32 %.07901236, 1
   %405 = sext i32 %404 to i64
-  %406 = getelementptr inbounds ptr, ptr %1, i64 %405
+  %406 = getelementptr inbounds [8 x i8], ptr %1, i64 %405
   %407 = load ptr, ptr %406, align 8, !tbaa !10
   %408 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %407, ptr noundef nonnull @.str.84, ptr noundef nonnull %13, ptr noundef nonnull %14) #23
   %409 = icmp eq i32 %408, 2
@@ -1363,7 +1362,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
 
 418:                                              ; preds = %.lr.ph, %417
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %417 ]
-  %419 = getelementptr inbounds nuw %struct.tjscalingfactor, ptr %416, i64 %indvars.iv
+  %419 = getelementptr inbounds nuw [8 x i8], ptr %416, i64 %indvars.iv
   %420 = load i32, ptr %419, align 4, !tbaa !22
   %421 = sitofp i32 %420 to double
   %422 = getelementptr inbounds nuw i8, ptr %419, i64 4
@@ -1439,7 +1438,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
 448:                                              ; preds = %446
   %449 = add nsw i32 %.07901236, 1
   %450 = sext i32 %449 to i64
-  %451 = getelementptr inbounds ptr, ptr %1, i64 %450
+  %451 = getelementptr inbounds [8 x i8], ptr %1, i64 %450
   %452 = load ptr, ptr %451, align 8, !tbaa !10
   %453 = call double @strtod(ptr noundef nonnull captures(none) %452, ptr noundef null) #23
   %454 = fcmp ult double %453, 0.000000e+00
@@ -1492,7 +1491,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readonly
 470:                                              ; preds = %468
   %471 = add nsw i32 %.07901236, 1
   %472 = sext i32 %471 to i64
-  %473 = getelementptr inbounds ptr, ptr %1, i64 %472
+  %473 = getelementptr inbounds [8 x i8], ptr %1, i64 %472
   %474 = load ptr, ptr %473, align 8, !tbaa !10
   %475 = call i64 @strtol(ptr noundef nonnull captures(none) %474, ptr noundef null, i32 noundef 10) #23
   %476 = trunc i64 %475 to i32
@@ -2308,7 +2307,7 @@ define internal fastcc void @usage(ptr noundef %0) unnamed_addr #3 {
 .lr.ph:                                           ; preds = %1, %35
   %indvars.iv = phi i64 [ %indvars.iv.next, %35 ], [ 0, %1 ]
   %7 = load ptr, ptr @scalingFactors, align 8, !tbaa !8
-  %8 = getelementptr inbounds nuw %struct.tjscalingfactor, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !22
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %11 = load i32, ptr %10, align 4, !tbaa !24
@@ -2416,7 +2415,7 @@ define internal noundef i32 @dummyDCTFilter(ptr noundef captures(none) %0, i64 %
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %11 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   %12 = load i16, ptr %11, align 2, !tbaa !32
   %13 = sub i16 0, %12
   store i16 %13, ptr %11, align 2, !tbaa !32
@@ -2465,7 +2464,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %6 = load i32, ptr @pf, align 4, !tbaa !4
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds i32, ptr @tjPixelSize, i64 %7
+  %8 = getelementptr inbounds [4 x i8], ptr @tjPixelSize, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -3275,7 +3274,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
   %410 = call fastcc ptr @formatName(i32 noundef %.fr, i32 noundef %344, ptr noundef %4)
   %411 = load i32, ptr @pf, align 4, !tbaa !4
   %412 = sext i32 %411 to i64
-  %413 = getelementptr inbounds ptr, ptr @pixFormatStr, i64 %412
+  %413 = getelementptr inbounds [8 x i8], ptr @pixFormatStr, i64 %412
   %414 = load ptr, ptr %413, align 8, !tbaa !10
   %.b736 = load i1, ptr @bottomUp, align 4
   %415 = select i1 %.b736, ptr @.str.254, ptr @.str.255
@@ -3296,9 +3295,9 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
 
 422:                                              ; preds = %418
   %423 = sext i32 %.fr to i64
-  %424 = getelementptr inbounds i32, ptr @tjMCUWidth, i64 %423
+  %424 = getelementptr inbounds [4 x i8], ptr @tjMCUWidth, i64 %423
   %425 = load i32, ptr %424, align 4, !tbaa !4
-  %426 = getelementptr inbounds i32, ptr @tjMCUHeight, i64 %423
+  %426 = getelementptr inbounds [4 x i8], ptr @tjMCUHeight, i64 %423
   %427 = load i32, ptr %426, align 4, !tbaa !4
   %. = call i32 @llvm.smax.i32(i32 %425, i32 %427)
   br label %428
@@ -3377,7 +3376,7 @@ define internal fastcc void @decompTest(ptr noundef %0) unnamed_addr #0 {
 
 switch.lookup:                                    ; preds = %466
   %468 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.decompTest, i64 %468
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.decompTest, i64 %468
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %469
 
@@ -3483,7 +3482,7 @@ switch.lookup:                                    ; preds = %466
 523:                                              ; preds = %478
   %524 = load i32, ptr @pf, align 4, !tbaa !4
   %525 = sext i32 %524 to i64
-  %526 = getelementptr inbounds ptr, ptr @pixFormatStr, i64 %525
+  %526 = getelementptr inbounds [8 x i8], ptr @pixFormatStr, i64 %525
   %527 = load ptr, ptr %526, align 8, !tbaa !10
   %.b735 = load i1, ptr @bottomUp, align 4
   %528 = select i1 %.b735, ptr @.str.265, ptr @.str.266
@@ -3603,7 +3602,7 @@ switch.early.test:                                ; preds = %585
 
 589:                                              ; preds = %588, %588, %588, %588
   %590 = sext i32 %.0664 to i64
-  %591 = getelementptr inbounds i32, ptr @tjMCUWidth, i64 %590
+  %591 = getelementptr inbounds [4 x i8], ptr @tjMCUWidth, i64 %590
   %592 = load i32, ptr %591, align 4, !tbaa !4
   %593 = srem i32 %.0652, %592
   %594 = sub nsw i32 %.0652, %593
@@ -3620,7 +3619,7 @@ switch.early.test:                                ; preds = %585
 
 596:                                              ; preds = %595, %595, %595, %595
   %597 = sext i32 %.0664 to i64
-  %598 = getelementptr inbounds i32, ptr @tjMCUHeight, i64 %597
+  %598 = getelementptr inbounds [4 x i8], ptr @tjMCUHeight, i64 %597
   %599 = load i32, ptr %598, align 4, !tbaa !4
   %600 = srem i32 %.0655, %599
   %601 = sub nsw i32 %.0655, %600
@@ -3673,7 +3672,7 @@ switch.early.test:                                ; preds = %585
   %619 = mul nsw i32 %.06331037.us, %.0658
   %620 = sub nsw i32 %.1653, %619
   %.0658..us = call i32 @llvm.smin.i32(i32 %.0658, i32 %620)
-  %621 = getelementptr inbounds %struct.tjtransform, ptr %575, i64 %indvars.iv
+  %621 = getelementptr inbounds [40 x i8], ptr %575, i64 %indvars.iv
   %622 = getelementptr inbounds nuw i8, ptr %621, i64 8
   store i32 %.0658..us, ptr %622, align 8, !tbaa !37
   %623 = getelementptr inbounds nuw i8, ptr %621, i64 12
@@ -3729,7 +3728,7 @@ switch.early.test:                                ; preds = %585
 
 .thread916.us:                                    ; preds = %645, %642, %631
   %648 = call ptr @tj3Alloc(i64 noundef %632) #23
-  %649 = getelementptr inbounds ptr, ptr %calloc1189, i64 %indvars.iv
+  %649 = getelementptr inbounds [8 x i8], ptr %calloc1189, i64 %indvars.iv
   store ptr %648, ptr %649, align 8, !tbaa !10
   %650 = icmp eq ptr %648, null
   br i1 %650, label %.split1049.us, label %651
@@ -3739,7 +3738,7 @@ switch.early.test:                                ; preds = %585
   %.pre1150 = load ptr, ptr @customFilter, align 8, !tbaa !8
   %.pre1148 = load i32, ptr @xformOpt, align 4, !tbaa !4
   %.pre1146 = load i32, ptr @xformOp, align 4, !tbaa !4
-  %652 = getelementptr inbounds i64, ptr %.2, i64 %indvars.iv
+  %652 = getelementptr inbounds [8 x i8], ptr %.2, i64 %indvars.iv
   store i64 %632, ptr %652, align 8, !tbaa !35
   br label %653
 
@@ -3883,7 +3882,7 @@ switch.early.test:                                ; preds = %585
 .lr.ph1059:                                       ; preds = %710, %.lr.ph1059
   %indvars.iv1131 = phi i64 [ %indvars.iv.next1132, %.lr.ph1059 ], [ 0, %710 ]
   %.06221058 = phi i64 [ %714, %.lr.ph1059 ], [ 0, %710 ]
-  %712 = getelementptr inbounds nuw i64, ptr %calloc, i64 %indvars.iv1131
+  %712 = getelementptr inbounds nuw [8 x i8], ptr %calloc, i64 %indvars.iv1131
   %713 = load i64, ptr %712, align 8, !tbaa !35
   %714 = add i64 %713, %.06221058
   %indvars.iv.next1132 = add nuw nsw i64 %indvars.iv1131, 1
@@ -3984,7 +3983,7 @@ switch.early.test:                                ; preds = %585
 
 .lr.ph1062:                                       ; preds = %.lr.ph1062.preheader, %.lr.ph1062
   %indvars.iv1135 = phi i64 [ 0, %.lr.ph1062.preheader ], [ %indvars.iv.next1136, %.lr.ph1062 ]
-  %764 = getelementptr inbounds nuw ptr, ptr %calloc1189, i64 %indvars.iv1135
+  %764 = getelementptr inbounds nuw [8 x i8], ptr %calloc1189, i64 %indvars.iv1135
   %765 = load ptr, ptr %764, align 8, !tbaa !10
   call void @tj3Free(ptr noundef %765) #23
   store ptr null, ptr %764, align 8, !tbaa !10
@@ -4021,7 +4020,7 @@ switch.early.test:                                ; preds = %585
 
 .lr.ph1065:                                       ; preds = %.lr.ph1065.preheader, %.lr.ph1065
   %indvars.iv1140 = phi i64 [ 0, %.lr.ph1065.preheader ], [ %indvars.iv.next1141, %.lr.ph1065 ]
-  %772 = getelementptr inbounds nuw ptr, ptr %calloc1189, i64 %indvars.iv1140
+  %772 = getelementptr inbounds nuw [8 x i8], ptr %calloc1189, i64 %indvars.iv1140
   %773 = load ptr, ptr %772, align 8, !tbaa !10
   call void @tj3Free(ptr noundef %773) #23
   %indvars.iv.next1141 = add nuw nsw i64 %indvars.iv1140, 1
@@ -4065,10 +4064,10 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %13 = load i32, ptr @pf, align 4, !tbaa !4
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds i32, ptr @tjPixelSize, i64 %14
+  %15 = getelementptr inbounds [4 x i8], ptr @tjPixelSize, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !4
   %17 = mul nsw i32 %16, %2
-  %18 = getelementptr inbounds ptr, ptr @pixFormatStr, i64 %14
+  %18 = getelementptr inbounds [8 x i8], ptr @pixFormatStr, i64 %14
   %19 = load ptr, ptr %18, align 8, !tbaa !10
   %20 = sext i32 %17 to i64
   %21 = sext i32 %3 to i64
@@ -4102,7 +4101,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
 
 39:                                               ; preds = %35
   %40 = sext i32 %4 to i64
-  %41 = getelementptr inbounds ptr, ptr @subNameLong, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr @subNameLong, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !10
   br label %43
 
@@ -4119,14 +4118,14 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   %50 = add i32 %2, -1
   %51 = add i32 %3, -1
   %52 = sext i32 %4 to i64
-  %53 = getelementptr inbounds ptr, ptr @subNameLong, i64 %52
+  %53 = getelementptr inbounds [8 x i8], ptr @subNameLong, i64 %52
   %54 = icmp sgt i32 %3, 0
   %55 = mul nsw i32 %3, %2
   %56 = sitofp i32 %55 to double
   %57 = fdiv nnan double %56, 1.000000e+06
   %58 = mul nsw i32 %16, %55
   %59 = sitofp i32 %58 to double
-  %60 = getelementptr inbounds ptr, ptr @subName, i64 %52
+  %60 = getelementptr inbounds [8 x i8], ptr @subName, i64 %52
   %wide.trip.count1459 = zext nneg i32 %3 to i64
   %wide.trip.count1464 = zext nneg i32 %3 to i64
   br label %61
@@ -4207,7 +4206,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
 
 99:                                               ; preds = %.lr.ph
   %100 = call ptr @tj3Alloc(i64 noundef %94) #23
-  %101 = getelementptr inbounds nuw ptr, ptr %calloc1512, i64 %indvars.iv
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %calloc1512, i64 %indvars.iv
   store ptr %100, ptr %101, align 8, !tbaa !10
   %102 = icmp eq ptr %100, null
   br i1 %102, label %103, label %108
@@ -4220,7 +4219,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   br label %.thread890
 
 108:                                              ; preds = %99
-  %109 = getelementptr inbounds nuw i64, ptr %85, i64 %indvars.iv
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %indvars.iv
   store i64 %94, ptr %109, align 8, !tbaa !35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -4279,8 +4278,8 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
 130:                                              ; preds = %.lr.ph1172, %130
   %indvars.iv1456 = phi i64 [ 0, %.lr.ph1172 ], [ %indvars.iv.next1457, %130 ]
   %131 = mul nsw i64 %indvars.iv1456, %20
-  %132 = getelementptr inbounds i16, ptr %26, i64 %131
-  %133 = getelementptr inbounds i16, ptr %1, i64 %131
+  %132 = getelementptr inbounds [2 x i8], ptr %26, i64 %131
+  %133 = getelementptr inbounds [2 x i8], ptr %1, i64 %131
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %132, ptr align 2 %133, i64 %126, i1 false)
   %indvars.iv.next1457 = add nuw nsw i64 %indvars.iv1456, 1
   %exitcond1460.not = icmp eq i64 %indvars.iv.next1457, %wide.trip.count1459
@@ -4857,9 +4856,9 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
   br i1 %.b.us, label %409, label %405
 
 405:                                              ; preds = %402
-  %406 = getelementptr inbounds i64, ptr %.2615, i64 %indvars.iv1466
+  %406 = getelementptr inbounds [8 x i8], ptr %.2615, i64 %indvars.iv1466
   %407 = load i64, ptr %406, align 8, !tbaa !35
-  %408 = getelementptr inbounds i64, ptr %calloc, i64 %indvars.iv1466
+  %408 = getelementptr inbounds [8 x i8], ptr %calloc, i64 %indvars.iv1466
   store i64 %407, ptr %408, align 8, !tbaa !35
   br label %409
 
@@ -4875,8 +4874,8 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
 413:                                              ; preds = %410
   %414 = icmp samesign ult i32 %411, 13
   %415 = load i32, ptr @pf, align 4, !tbaa !4
-  %416 = getelementptr inbounds ptr, ptr %calloc1512, i64 %indvars.iv1466
-  %417 = getelementptr inbounds i64, ptr %calloc, i64 %indvars.iv1466
+  %416 = getelementptr inbounds [8 x i8], ptr %calloc1512, i64 %indvars.iv1466
+  %417 = getelementptr inbounds [8 x i8], ptr %calloc, i64 %indvars.iv1466
   br i1 %414, label %435, label %418
 
 418:                                              ; preds = %413
@@ -4949,8 +4948,8 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
 
 452:                                              ; preds = %410
   %453 = load i32, ptr @pf, align 4, !tbaa !4
-  %454 = getelementptr inbounds ptr, ptr %calloc1512, i64 %indvars.iv1466
-  %455 = getelementptr inbounds i64, ptr %calloc, i64 %indvars.iv1466
+  %454 = getelementptr inbounds [8 x i8], ptr %calloc1512, i64 %indvars.iv1466
+  %455 = getelementptr inbounds [8 x i8], ptr %calloc, i64 %indvars.iv1466
   %456 = call i32 @tj3Compress8(ptr noundef %0, ptr noundef %.05751179.us, i32 noundef %spec.select..us, i32 noundef %17, i32 noundef %400, i32 noundef %453, ptr noundef nonnull %454, ptr noundef nonnull %455) #23
   %457 = icmp eq i32 %456, -1
   br i1 %457, label %458, label %.thread848.us
@@ -5033,8 +5032,8 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
 496:                                              ; preds = %492, %.thread844.us
   %.4.us = phi double [ %495, %492 ], [ %.25821178.us, %.thread844.us ]
   %497 = load i32, ptr @yuvAlign, align 4, !tbaa !4
-  %498 = getelementptr inbounds ptr, ptr %calloc1512, i64 %indvars.iv1466
-  %499 = getelementptr inbounds i64, ptr %calloc, i64 %indvars.iv1466
+  %498 = getelementptr inbounds [8 x i8], ptr %calloc1512, i64 %indvars.iv1466
+  %499 = getelementptr inbounds [8 x i8], ptr %calloc, i64 %indvars.iv1466
   %500 = call i32 @tj3CompressFromYUV8(ptr noundef %0, ptr noundef %.2573, i32 noundef %spec.select..us, i32 noundef %497, i32 noundef %400, ptr noundef nonnull %498, ptr noundef nonnull %499) #23
   %501 = icmp eq i32 %500, -1
   br i1 %501, label %502, label %.thread848.us
@@ -5070,7 +5069,7 @@ define internal fastcc void @fullTest(ptr noundef %0, ptr noundef %1, i32 nounde
 
 .thread848.us:                                    ; preds = %513, %510, %496, %469, %466, %452, %449, %446, %435, %432, %429, %418
   %.6.us = phi double [ %.4.us, %513 ], [ %.4.us, %510 ], [ %.25821178.us, %452 ], [ %.25821178.us, %469 ], [ %.25821178.us, %435 ], [ %.25821178.us, %449 ], [ %.25821178.us, %418 ], [ %.4.us, %496 ], [ %.25821178.us, %466 ], [ %.25821178.us, %446 ], [ %.25821178.us, %429 ], [ %.25821178.us, %432 ]
-  %516 = getelementptr inbounds i64, ptr %calloc, i64 %indvars.iv1466
+  %516 = getelementptr inbounds [8 x i8], ptr %calloc, i64 %indvars.iv1466
   %517 = load i64, ptr %516, align 8, !tbaa !35
   %518 = add i64 %517, %.16101175.us
   %519 = add nuw nsw i32 %.05851177.us, 1
@@ -5375,7 +5374,7 @@ sigfig.exit792:                                   ; preds = %598, %600
 
 .lr.ph1239:                                       ; preds = %.lr.ph1239.preheader, %.lr.ph1239
   %indvars.iv1471 = phi i64 [ 0, %.lr.ph1239.preheader ], [ %indvars.iv.next1472, %.lr.ph1239 ]
-  %681 = getelementptr inbounds nuw ptr, ptr %calloc1512, i64 %indvars.iv1471
+  %681 = getelementptr inbounds nuw [8 x i8], ptr %calloc1512, i64 %indvars.iv1471
   %682 = load ptr, ptr %681, align 8, !tbaa !10
   call void @tj3Free(ptr noundef %682) #23
   store ptr null, ptr %681, align 8, !tbaa !10
@@ -5426,7 +5425,7 @@ sigfig.exit792:                                   ; preds = %598, %600
 
 .lr.ph1241:                                       ; preds = %.lr.ph1241.preheader, %.lr.ph1241
   %indvars.iv1476 = phi i64 [ 0, %.lr.ph1241.preheader ], [ %indvars.iv.next1477, %.lr.ph1241 ]
-  %697 = getelementptr inbounds nuw ptr, ptr %calloc1512, i64 %indvars.iv1476
+  %697 = getelementptr inbounds nuw [8 x i8], ptr %calloc1512, i64 %indvars.iv1476
   %698 = load ptr, ptr %697, align 8, !tbaa !10
   call void @tj3Free(ptr noundef %698) #23
   %indvars.iv.next1477 = add nuw nsw i64 %indvars.iv1476, 1
@@ -5508,7 +5507,7 @@ define internal fastcc ptr @formatName(i32 noundef %0, i32 noundef %1, ptr nound
   %12 = icmp eq i32 %0, -1
   %13 = load i32, ptr @precision, align 4, !tbaa !4
   %14 = sext i32 %1 to i64
-  %15 = getelementptr inbounds ptr, ptr @csName, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr @csName, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !10
   br i1 %12, label %17, label %19
 
@@ -5518,7 +5517,7 @@ define internal fastcc ptr @formatName(i32 noundef %0, i32 noundef %1, ptr nound
 
 19:                                               ; preds = %11
   %20 = sext i32 %0 to i64
-  %21 = getelementptr inbounds ptr, ptr @subNameLong, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr @subNameLong, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !10
   %23 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 80, ptr noundef nonnull @.str.281, i32 noundef %13, ptr noundef %16, ptr noundef %22) #23
   br label %35
@@ -5529,13 +5528,13 @@ define internal fastcc ptr @formatName(i32 noundef %0, i32 noundef %1, ptr nound
 25:                                               ; preds = %24
   %26 = icmp eq i32 %0, -1
   %27 = sext i32 %1 to i64
-  %28 = getelementptr inbounds ptr, ptr @csName, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr @csName, i64 %27
   %29 = load ptr, ptr %28, align 8, !tbaa !10
   br i1 %26, label %35, label %30
 
 30:                                               ; preds = %25
   %31 = sext i32 %0 to i64
-  %32 = getelementptr inbounds ptr, ptr @subNameLong, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr @subNameLong, i64 %31
   %33 = load ptr, ptr %32, align 8, !tbaa !10
   %34 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %2, i64 noundef 80, ptr noundef nonnull @.str.283, ptr noundef %29, ptr noundef %33) #23
   br label %35
@@ -5598,7 +5597,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %13, i8 0, i64 16, i1 false)
   %14 = load i32, ptr @pf, align 4, !tbaa !4
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds i32, ptr @tjPixelSize, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr @tjPixelSize, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !4
   %18 = add i32 %3, -1
   %19 = add i32 %18, %8
@@ -6144,7 +6143,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
 
 .lr.ph820:                                        ; preds = %.lr.ph820.preheader, %.lr.ph820
   %indvars.iv904 = phi i64 [ 0, %.lr.ph820.preheader ], [ %indvars.iv.next905, %.lr.ph820 ]
-  %297 = getelementptr inbounds nuw i16, ptr %.1, i64 %indvars.iv904
+  %297 = getelementptr inbounds nuw [2 x i8], ptr %.1, i64 %indvars.iv904
   store i16 2047, ptr %297, align 2, !tbaa !32
   %indvars.iv.next905 = add nuw nsw i64 %indvars.iv904, 1
   %exitcond908.not = icmp eq i64 %indvars.iv.next905, %wide.trip.count907
@@ -6152,7 +6151,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %298 = getelementptr inbounds nuw i16, ptr %.1, i64 %indvars.iv
+  %298 = getelementptr inbounds nuw [2 x i8], ptr %.1, i64 %indvars.iv
   store i16 32767, ptr %298, align 2, !tbaa !32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -6268,9 +6267,9 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
 
 344:                                              ; preds = %341
   %345 = icmp samesign ult i32 %342, 13
-  %346 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv909
+  %346 = getelementptr inbounds [8 x i8], ptr %0, i64 %indvars.iv909
   %347 = load ptr, ptr %346, align 8, !tbaa !10
-  %348 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv909
+  %348 = getelementptr inbounds [8 x i8], ptr %1, i64 %indvars.iv909
   %349 = load i64, ptr %348, align 8, !tbaa !35
   %350 = load i32, ptr @pf, align 4, !tbaa !4
   br i1 %345, label %368, label %351
@@ -6344,9 +6343,9 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
   br label %.thread737.us.us.us
 
 385:                                              ; preds = %341
-  %386 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv909
+  %386 = getelementptr inbounds [8 x i8], ptr %0, i64 %indvars.iv909
   %387 = load ptr, ptr %386, align 8, !tbaa !10
-  %388 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv909
+  %388 = getelementptr inbounds [8 x i8], ptr %1, i64 %indvars.iv909
   %389 = load i64, ptr %388, align 8, !tbaa !35
   %390 = load i32, ptr @pf, align 4, !tbaa !4
   %391 = tail call i32 @tj3Decompress8(ptr noundef nonnull %42, ptr noundef %387, i64 noundef %389, ptr noundef %.0519822.us.us.us, i32 noundef %271, i32 noundef %390) #23
@@ -6383,9 +6382,9 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
   br label %.thread737.us.us.us
 
 407:                                              ; preds = %336
-  %408 = getelementptr inbounds ptr, ptr %0, i64 %indvars.iv909
+  %408 = getelementptr inbounds [8 x i8], ptr %0, i64 %indvars.iv909
   %409 = load ptr, ptr %408, align 8, !tbaa !10
-  %410 = getelementptr inbounds i64, ptr %1, i64 %indvars.iv909
+  %410 = getelementptr inbounds [8 x i8], ptr %1, i64 %indvars.iv909
   %411 = load i64, ptr %410, align 8, !tbaa !35
   %412 = load i32, ptr @yuvAlign, align 4, !tbaa !4
   %413 = tail call i32 @tj3DecompressToYUV8(ptr noundef nonnull %42, ptr noundef %409, i64 noundef %411, ptr noundef %.1521, i32 noundef %412) #23
@@ -6685,7 +6684,7 @@ define internal fastcc range(i32 -1, 1) i32 @decomp(ptr noundef nonnull readonly
 
 552:                                              ; preds = %550
   %553 = sext i32 %5 to i64
-  %554 = getelementptr inbounds ptr, ptr @subName, i64 %553
+  %554 = getelementptr inbounds [8 x i8], ptr @subName, i64 %553
   %555 = load ptr, ptr %554, align 8, !tbaa !10
   br label %556
 

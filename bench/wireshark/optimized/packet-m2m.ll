@@ -360,7 +360,7 @@ define internal i32 @dissect_m2m(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 switch.lookup:                                    ; preds = %53
   %55 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_m2m, i64 %55
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_m2m, i64 %55
   %switch.load = load ptr, ptr %switch.gep, align 8
   %56 = load ptr, ptr %6, align 8
   call void (ptr, i32, ptr, ptr, ...) @col_append_sep_fstr(ptr noundef %56, i32 noundef 25, ptr noundef null, ptr noundef nonnull %switch.load, i32 noundef range(i32 0, 256) %.0155183)

@@ -20,24 +20,12 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ip_valid_fib
 %struct.pcpu_hot = type { %union.anon.98 }
 %union.anon.98 = type { %struct.anon.99, [16 x i8] }
 %struct.anon.99 = type { ptr, i32, i32, i64, i64, ptr, i16, i8 }
-%struct.hlist_head = type { ptr }
 %struct.flowi4 = type { %struct.flowi_common, i32, i32, %union.flowi_uli }
 %struct.flowi_common = type { i32, i32, i32, i32, i8, i8, i8, i8, i32, %struct.kuid_t, i32, %struct.flowi_tunnel }
 %struct.kuid_t = type { i32 }
 %struct.flowi_tunnel = type { i64 }
 %union.flowi_uli = type { i32 }
 %struct.fib_result = type { i32, i8, i8, i8, i8, i32, ptr, ptr, ptr, ptr }
-%struct.fib_nh = type { %struct.fib_nh_common, %struct.hlist_node, ptr, i32, i32 }
-%struct.fib_nh_common = type { ptr, %struct.netdevice_tracker, i32, i8, i8, i8, i8, ptr, %union.anon.39, i32, %struct.atomic_t, ptr, ptr, ptr }
-%struct.netdevice_tracker = type {}
-%union.anon.39 = type { %struct.in6_addr }
-%struct.in6_addr = type { %union.anon.32 }
-%union.anon.32 = type { [4 x i32] }
-%struct.atomic_t = type { i32 }
-%struct.hlist_node = type { ptr, ptr }
-%struct.nh_grp_entry = type { ptr, i8, %union.anon.70, %struct.list_head, ptr }
-%union.anon.70 = type { %struct.anon.72 }
-%struct.anon.72 = type { %struct.list_head, i16, i16 }
 %struct.flow_keys = type { %struct.flow_dissector_key_control, %struct.flow_dissector_key_basic, %struct.flow_dissector_key_tags, %struct.flow_dissector_key_vlan, %struct.flow_dissector_key_vlan, %struct.flow_dissector_key_keyid, %struct.flow_dissector_key_ports, %struct.flow_dissector_key_icmp, %struct.flow_dissector_key_addrs, [4 x i8] }
 %struct.flow_dissector_key_control = type { i16, i16, i32 }
 %struct.flow_dissector_key_basic = type { i16, i8, i8 }
@@ -53,6 +41,8 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_ip_valid_fib
 %struct.flow_dissector_key_addrs = type { %union.anon.79 }
 %union.anon.79 = type { %struct.flow_dissector_key_ipv6_addrs }
 %struct.flow_dissector_key_ipv6_addrs = type { %struct.in6_addr, %struct.in6_addr }
+%struct.in6_addr = type { %union.anon.32 }
+%union.anon.32 = type { [4 x i32] }
 %struct.fib_config = type { i8, i8, i8, i8, i8, i8, i32, i32, %union.anon.65, i32, i32, i32, i32, i32, ptr, ptr, i32, i32, i32, i32, %struct.nl_info, ptr, i16 }
 %union.anon.65 = type { %struct.in6_addr }
 %struct.nl_info = type { ptr, ptr, i32, i8 }
@@ -108,7 +98,7 @@ define dso_local ptr @fib_new_table(ptr noundef %0, i32 noundef %1) #0 align 16 
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   %7 = load ptr, ptr %6, align 8
   %8 = zext nneg i32 %5 to i64
-  %9 = getelementptr %struct.hlist_head, ptr %7, i64 %8
+  %9 = getelementptr [8 x i8], ptr %7, i64 %8
   br label %10
 
 10:                                               ; preds = %14, %2
@@ -163,7 +153,7 @@ define dso_local ptr @fib_new_table(ptr noundef %0, i32 noundef %1) #0 align 16 
 
 35:                                               ; preds = %33, %31, %30
   %36 = load ptr, ptr %6, align 8
-  %37 = getelementptr %struct.hlist_head, ptr %36, i64 %8
+  %37 = getelementptr [8 x i8], ptr %36, i64 %8
   %38 = load ptr, ptr %37, align 8
   store ptr %38, ptr %28, align 8
   %39 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -191,7 +181,7 @@ define dso_local ptr @fib_get_table(ptr noundef readonly captures(none) %0, i32 
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   %7 = load ptr, ptr %6, align 8
   %8 = zext nneg i32 %5 to i64
-  %9 = getelementptr %struct.hlist_head, ptr %7, i64 %8
+  %9 = getelementptr [8 x i8], ptr %7, i64 %8
   br label %10
 
 10:                                               ; preds = %14, %2
@@ -326,7 +316,7 @@ define dso_local void @fib_flush(ptr noundef %0) local_unnamed_addr #0 align 16 
   %4 = phi i64 [ 0, %1 ], [ %17, %.loopexit ]
   %5 = phi i32 [ 0, %1 ], [ %16, %.loopexit ]
   %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr %struct.hlist_head, ptr %6, i64 %4
+  %7 = getelementptr [8 x i8], ptr %6, i64 %4
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %.loopexit, label %.preheader
@@ -391,7 +381,7 @@ define dso_local range(i32 0, 256) i32 @inet_addr_type_table(ptr noundef readonl
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   %15 = load ptr, ptr %14, align 8
   %16 = zext nneg i32 %13 to i64
-  %17 = getelementptr %struct.hlist_head, ptr %15, i64 %16
+  %17 = getelementptr [8 x i8], ptr %15, i64 %16
   br label %18
 
 18:                                               ; preds = %22, %10
@@ -1010,7 +1000,7 @@ define dso_local noundef zeroext i1 @fib_info_nh_uses_dev(ptr noundef readonly c
 .lr.ph:                                           ; preds = %6, %13
   %15 = phi i32 [ %14, %13 ], [ 0, %6 ]
   %16 = sext i32 %15 to i64
-  %17 = getelementptr %struct.fib_nh, ptr %8, i64 %16
+  %17 = getelementptr [104 x i8], ptr %8, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, %1
   br i1 %19, label %.thread2, label %20
@@ -1053,7 +1043,7 @@ define internal fastcc noundef zeroext i1 @nexthop_uses_dev(ptr noundef nonnull 
 
 19:                                               ; preds = %16, %12
   %20 = phi i64 [ 0, %12 ], [ %17, %16 ]
-  %21 = getelementptr %struct.nh_grp_entry, ptr %13, i64 %20
+  %21 = getelementptr [64 x i8], ptr %13, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 128
   %24 = load volatile ptr, ptr %23, align 8
@@ -1368,7 +1358,7 @@ define dso_local range(i32 -22, 2) i32 @fib_validate_source(ptr noundef %0, i32 
 .lr.ph:                                           ; preds = %167, %175
   %178 = phi i32 [ %176, %175 ], [ 0, %167 ]
   %179 = sext i32 %178 to i64
-  %180 = getelementptr %struct.fib_nh, ptr %169, i64 %179
+  %180 = getelementptr [104 x i8], ptr %169, i64 %179
   %181 = load ptr, ptr %180, align 8
   %182 = icmp eq ptr %181, %5
   br i1 %182, label %.thread13, label %183
@@ -1835,7 +1825,7 @@ define dso_local i32 @ip_rt_ioctl(ptr noundef %0, i32 noundef %1, ptr noundef re
   %200 = getelementptr inbounds nuw i8, ptr %0, i64 1032
   %201 = load ptr, ptr %200, align 8
   %202 = zext nneg i32 %199 to i64
-  %203 = getelementptr %struct.hlist_head, ptr %201, i64 %202
+  %203 = getelementptr [8 x i8], ptr %201, i64 %202
   br label %204
 
 204:                                              ; preds = %208, %.thread22
@@ -2117,7 +2107,7 @@ define dso_local range(i32 -2147483648, 1) i32 @ip_valid_fib_dump_req(ptr nounde
 
 70:                                               ; preds = %87, %67
   %71 = phi i64 [ 0, %67 ], [ %88, %87 ]
-  %72 = getelementptr ptr, ptr %5, i64 %71
+  %72 = getelementptr [8 x i8], ptr %5, i64 %71
   %73 = load ptr, ptr %72, align 8
   %74 = icmp eq ptr %73, null
   br i1 %74, label %87, label %75
@@ -3213,7 +3203,7 @@ define dso_local void @fib_del_ifaddr(ptr noundef readonly captures(address) %0,
   %372 = phi i64 [ 0, %368 ], [ %385, %.loopexit ]
   %373 = phi i32 [ 0, %368 ], [ %384, %.loopexit ]
   %374 = load ptr, ptr %370, align 8
-  %375 = getelementptr %struct.hlist_head, ptr %374, i64 %372
+  %375 = getelementptr [8 x i8], ptr %374, i64 %372
   %376 = load ptr, ptr %375, align 8
   %377 = icmp eq ptr %376, null
   br i1 %377, label %.loopexit, label %.preheader
@@ -3357,7 +3347,7 @@ define internal i32 @inet_rtm_delroute(ptr noundef readonly captures(none) %0, p
   %27 = getelementptr inbounds nuw i8, ptr %8, i64 1032
   %28 = load ptr, ptr %27, align 8
   %29 = zext nneg i32 %26 to i64
-  %30 = getelementptr %struct.hlist_head, ptr %28, i64 %29
+  %30 = getelementptr [8 x i8], ptr %28, i64 %29
   br label %31
 
 31:                                               ; preds = %35, %21
@@ -3459,7 +3449,7 @@ define internal i32 @inet_dump_fib(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %40 = getelementptr inbounds nuw i8, ptr %14, i64 1032
   %41 = load ptr, ptr %40, align 8
   %42 = zext nneg i32 %39 to i64
-  %43 = getelementptr %struct.hlist_head, ptr %41, i64 %42
+  %43 = getelementptr [8 x i8], ptr %41, i64 %42
   br label %44
 
 44:                                               ; preds = %48, %38
@@ -3534,7 +3524,7 @@ define internal i32 @inet_dump_fib(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %88 = phi i32 [ %82, %81 ], [ 0, %.loopexit ]
   %89 = phi i32 [ 0, %81 ], [ %113, %.loopexit ]
   %90 = load ptr, ptr %83, align 8
-  %91 = getelementptr %struct.hlist_head, ptr %90, i64 %87
+  %91 = getelementptr [8 x i8], ptr %90, i64 %87
   %92 = load volatile ptr, ptr %91, align 8
   %93 = icmp eq ptr %92, null
   br i1 %93, label %.loopexit, label %.preheader
@@ -3781,7 +3771,7 @@ define internal fastcc void @ip_fib_net_exit(ptr noundef %0) unnamed_addr #0 ali
 11:                                               ; preds = %31, %7
   %12 = phi i64 [ 255, %7 ], [ %32, %31 ]
   %13 = load ptr, ptr %10, align 8
-  %14 = getelementptr %struct.hlist_head, ptr %13, i64 %12
+  %14 = getelementptr [8 x i8], ptr %13, i64 %12
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %31, label %.preheader
@@ -3915,7 +3905,7 @@ define internal void @nl_fib_input(ptr noundef %0) #0 align 16 {
   %50 = getelementptr inbounds nuw i8, ptr %7, i64 1032
   %51 = load ptr, ptr %50, align 8
   %52 = zext i8 %48 to i64
-  %53 = getelementptr %struct.hlist_head, ptr %51, i64 %52
+  %53 = getelementptr [8 x i8], ptr %51, i64 %52
   br label %54
 
 54:                                               ; preds = %59, %30
@@ -4038,7 +4028,7 @@ define internal noundef i32 @fib_netdev_event(ptr readnone captures(none) %0, i6
   %15 = phi i64 [ 0, %12 ], [ %28, %.loopexit.i ]
   %16 = phi i32 [ 0, %12 ], [ %27, %.loopexit.i ]
   %17 = load ptr, ptr %13, align 8
-  %18 = getelementptr %struct.hlist_head, ptr %17, i64 %15
+  %18 = getelementptr [8 x i8], ptr %17, i64 %15
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %.loopexit.i, label %.preheader.i
@@ -4121,7 +4111,7 @@ fib_disable_ip.exit:                              ; preds = %30, %32
   %55 = phi i64 [ 0, %52 ], [ %68, %.loopexit.i5 ]
   %56 = phi i32 [ 0, %52 ], [ %67, %.loopexit.i5 ]
   %57 = load ptr, ptr %53, align 8
-  %58 = getelementptr %struct.hlist_head, ptr %57, i64 %55
+  %58 = getelementptr [8 x i8], ptr %57, i64 %55
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %59, null
   br i1 %60, label %.loopexit.i5, label %.preheader.i4
@@ -4214,7 +4204,7 @@ define internal fastcc void @fib_disable_ip(ptr noundef %0, i64 noundef %1, i1 n
   %11 = phi i64 [ 0, %8 ], [ %24, %.loopexit ]
   %12 = phi i32 [ 0, %8 ], [ %23, %.loopexit ]
   %13 = load ptr, ptr %9, align 8
-  %14 = getelementptr %struct.hlist_head, ptr %13, i64 %11
+  %14 = getelementptr [8 x i8], ptr %13, i64 %11
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   br i1 %16, label %.loopexit, label %.preheader
@@ -4310,7 +4300,7 @@ define internal noundef i32 @fib_inetaddr_event(ptr readnone captures(none) %0, 
   %26 = phi i64 [ 0, %23 ], [ %39, %.loopexit.i ]
   %27 = phi i32 [ 0, %23 ], [ %38, %.loopexit.i ]
   %28 = load ptr, ptr %24, align 8
-  %29 = getelementptr %struct.hlist_head, ptr %28, i64 %26
+  %29 = getelementptr [8 x i8], ptr %28, i64 %26
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %.loopexit.i, label %.preheader.i

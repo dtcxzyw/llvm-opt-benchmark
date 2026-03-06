@@ -420,7 +420,7 @@ define void @_ZN6statrs12distribution9empirical9Empirical8from_vec17he70968d9300
   %.sroa.0.0.copyload.i.i = load ptr, ptr %12, align 8, !alias.scope !154, !noalias !151, !nonnull !4, !noundef !4
   %.sroa.27.0.copyload.i.i = load i64, ptr %.sroa.27.0..sroa_idx.i.i, align 8, !alias.scope !154, !noalias !151
   %44 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 96
-  %45 = getelementptr inbounds i64, ptr %44, i64 %.sroa.27.0.copyload.i.i
+  %45 = getelementptr inbounds [8 x i8], ptr %44, i64 %.sroa.27.0.copyload.i.i
   br label %"_ZN5alloc11collections5btree3map5entry22Entry$LT$K$C$V$C$A$GT$9or_insert17h0699fda3b7f0ee56E.exit.i"
 
 "_ZN5alloc11collections5btree3map5entry22Entry$LT$K$C$V$C$A$GT$9or_insert17h0699fda3b7f0ee56E.exit.i": ; preds = %41, %43
@@ -522,7 +522,7 @@ define void @_ZN6statrs12distribution9empirical9Empirical3add17h3a4e38c3843363f8
   %.sroa.27.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 24
   %.sroa.27.0.copyload.i = load i64, ptr %.sroa.27.0..sroa_idx.i, align 8, !alias.scope !159
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 96
-  %35 = getelementptr inbounds i64, ptr %34, i64 %.sroa.27.0.copyload.i
+  %35 = getelementptr inbounds [8 x i8], ptr %34, i64 %.sroa.27.0.copyload.i
   br label %"_ZN5alloc11collections5btree3map5entry22Entry$LT$K$C$V$C$A$GT$9or_insert17h0699fda3b7f0ee56E.exit"
 
 "_ZN5alloc11collections5btree3map5entry22Entry$LT$K$C$V$C$A$GT$9or_insert17h0699fda3b7f0ee56E.exit": ; preds = %30, %32
@@ -1529,7 +1529,7 @@ _ZN5alloc5alloc15exchange_malloc17hf45cfb43b91670a0E.exit: ; preds = %23
 34:                                               ; preds = %9
   %35 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %.val = load ptr, ptr %35, align 8, !nonnull !4, !noundef !4
-  %36 = getelementptr inbounds double, ptr %.val, i64 %11
+  %36 = getelementptr inbounds [8 x i8], ptr %.val, i64 %11
   %37 = call double @llvm.pow.f64(double 1.000000e+01, double %3)
   store double %37, ptr %36, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %6, i64 24, i1 false)

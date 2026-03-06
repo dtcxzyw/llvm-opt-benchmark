@@ -1690,10 +1690,10 @@ define internal noundef zeroext i1 @"_ZN79_$LT$parser..syntax_kind..generated..S
 switch.lookup:
   %2 = load i16, ptr %0, align 2, !range !130, !noundef !4
   %3 = zext nneg i16 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN79_$LT$parser..syntax_kind..generated..SyntaxKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h1e2ce1c12b6b74d7E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN79_$LT$parser..syntax_kind..generated..SyntaxKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h1e2ce1c12b6b74d7E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i16 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN79_$LT$parser..syntax_kind..generated..SyntaxKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h1e2ce1c12b6b74d7E.70", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN79_$LT$parser..syntax_kind..generated..SyntaxKind$u20$as$u20$core..fmt..Debug$GT$3fmt17h1e2ce1c12b6b74d7E.70", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17h1ee02ebd428ca6deE(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -2723,7 +2723,7 @@ _ZN7ide_ssr8matching7Matcher24get_placeholder_for_node17h87813144b04db35eE.exit:
   %127 = add i64 %.sroa.01.0.i.i.i.i, %124
   %128 = and i64 %127, %.val5.i
   %129 = sub nsw i64 0, %128
-  %130 = getelementptr inbounds { ptr, { ptr, { ptr, [1 x i64] }, i32, [1 x i32] } }, ptr %.val.i, i64 %129
+  %130 = getelementptr inbounds [40 x i8], ptr %.val.i, i64 %129
   %131 = getelementptr inbounds i8, ptr %130, i64 -40
   %.val4.i.i.i.i = load ptr, ptr %131, align 8, !noalias !322
   %132 = tail call { ptr, i32 } @_ZN5rowan6cursor8NodeData3key17hac391177412f5ff8E.llvm.4613852783100018038(ptr noundef nonnull align 8 %.val93), !noalias !325
@@ -5267,7 +5267,7 @@ _ZN7ide_ssr8matching7Matcher31attempt_match_record_field_list17hec34a94bb03eb523
   %951 = add i64 %.sroa.01.0.i.i.i.i340, %948
   %952 = and i64 %951, %.val5.i335
   %953 = sub nsw i64 0, %952
-  %954 = getelementptr inbounds { ptr, { { i8, [15 x i8] }, i32 }, [1 x i32] }, ptr %.val.i334, i64 %953
+  %954 = getelementptr inbounds [32 x i8], ptr %.val.i334, i64 %953
   %955 = getelementptr inbounds i8, ptr %954, i64 -32
   %.val4.i.i.i.i344 = load ptr, ptr %955, align 8, !noalias !1069
   %956 = tail call { ptr, i32 } @_ZN5rowan6cursor8NodeData3key17hac391177412f5ff8E.llvm.4613852783100018038(ptr noundef nonnull align 8 %.val93), !noalias !1072
@@ -6480,7 +6480,7 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.exit.i: ; preds = %60
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h1cd06fc26147a919E.exit.i": ; preds = %._crit_edge.i.i, %68
   %82 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %69, %68 ]
   %83 = load ptr, ptr %37, align 8, !alias.scope !1455, !nonnull !4, !noundef !4
-  %84 = getelementptr inbounds ptr, ptr %83, i64 %82
+  %84 = getelementptr inbounds [8 x i8], ptr %83, i64 %82
   store ptr %67, ptr %84, align 8
   %85 = load i64, ptr %36, align 8, !alias.scope !1455, !noundef !4
   %86 = add i64 %85, 1
@@ -11048,7 +11048,7 @@ _ZN5rowan6cursor8NodeData6inc_rc17h79dd31861126988eE.exit: ; preds = %5
   %29 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %16, %14 ]
   %30 = getelementptr inbounds nuw i8, ptr %.0.val, i64 8
   %31 = load ptr, ptr %30, align 8, !alias.scope !2530, !nonnull !4, !noundef !4
-  %32 = getelementptr inbounds ptr, ptr %31, i64 %29
+  %32 = getelementptr inbounds [8 x i8], ptr %31, i64 %29
   store ptr %12, ptr %32, align 8
   %33 = load i64, ptr %15, align 8, !alias.scope !2530, !noundef !4
   %34 = add i64 %33, 1

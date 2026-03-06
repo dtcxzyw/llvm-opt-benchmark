@@ -216,14 +216,14 @@ _ZN4absl13base_internal12_GLOBAL__N_118RandomizeBlockDescEPNS1_9BlockDescE.exit:
   %69 = zext nneg i16 %68 to i64
   %70 = add i64 %.sroa.6.0.i.i, %69
   %71 = and i64 %70, %.val.i
-  %72 = getelementptr inbounds nuw ptr, ptr %.val17.i.i, i64 %71
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %.val17.i.i, i64 %71
   %.val.i9.i = load ptr, ptr %72, align 8, !tbaa !17
   %.val14.i.i = load i32, ptr %.val.i9.i, align 4, !tbaa !19
   %73 = icmp eq i32 %.val14.i.i, %44
   br i1 %73, label %.thread36.i.i, label %76, !prof !21
 
 .thread36.i.i:                                    ; preds = %.lr.ph.i.i
-  %74 = getelementptr inbounds nuw ptr, ptr %.val17.i.i, i64 %71
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %.val17.i.i, i64 %71
   %75 = getelementptr inbounds nuw i8, ptr %.val7.i, i64 %71
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %75) ]
   br label %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiNS_13base_internal12_GLOBAL__N_19BlockDescEEENS_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS5_EEE12find_non_sooIiEENSG_8iteratorERSD_m.exit.i
@@ -340,7 +340,7 @@ _ZN4absl13base_internal12_GLOBAL__N_114CheckBlockDescERKNS1_9BlockDescE.exit: ; 
 
 .noexc64:                                         ; preds = %.noexc
   %.val8.i.i.i.i.i = load ptr, ptr %14, align 8, !tbaa !14, !noalias !32
-  %117 = getelementptr inbounds nuw ptr, ptr %.val8.i.i.i.i.i, i64 %116
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %.val8.i.i.i.i.i, i64 %116
   br label %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiNS_13base_internal12_GLOBAL__N_19BlockDescEEENS_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS5_EEE22find_or_prepare_insertIiEESC_INSG_8iteratorEbERKT_.exit.thread.i.i.i
 
 118:                                              ; preds = %106
@@ -378,7 +378,7 @@ _ZN4absl13base_internal12_GLOBAL__N_114CheckBlockDescERKNS1_9BlockDescE.exit: ; 
   %137 = zext nneg i16 %136 to i64
   %138 = add i64 %.sroa.7.0.i.i.i.i.i, %137
   %139 = and i64 %138, %.val.i
-  %140 = getelementptr inbounds nuw ptr, ptr %.val28.i.i.i.i.i, i64 %139
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %.val28.i.i.i.i.i, i64 %139
   %.val22.i.i.i.i.i = load ptr, ptr %140, align 8, !tbaa !17, !noalias !41
   %.val24.i.i.i.i.i = load i32, ptr %.val22.i.i.i.i.i, align 4, !tbaa !19, !noalias !41
   %141 = icmp eq i32 %.val24.i.i.i.i.i, %44
@@ -406,7 +406,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiNS_13base_in
 
 .noexc65:                                         ; preds = %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiNS_13base_internal12_GLOBAL__N_19BlockDescEEENS_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS5_EEE22find_or_prepare_insertIiEESC_INSG_8iteratorEbERKT_.exit.thread14.i.i.i
   %.val30.i.i.i.i.i = load ptr, ptr %14, align 8, !tbaa !14, !noalias !41
-  %151 = getelementptr inbounds nuw ptr, ptr %.val30.i.i.i.i.i, i64 %150
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %.val30.i.i.i.i.i, i64 %150
   br label %_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiNS_13base_internal12_GLOBAL__N_19BlockDescEEENS_13hash_internal4HashIiEESt8equal_toIiESaISt4pairIKiS5_EEE22find_or_prepare_insertIiEESC_INSG_8iteratorEbERKT_.exit.thread.i.i.i
 
 152:                                              ; preds = %.critedge19.i.i.i.i.i
@@ -466,7 +466,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiNS_13base_in
   %172 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %171, i1 true)
   %173 = zext nneg i32 %172 to i64
   %174 = getelementptr inbounds nuw i8, ptr %166, i64 %173
-  %175 = getelementptr inbounds nuw ptr, ptr %165, i64 %173
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %165, i64 %173
   %176 = load i8, ptr %174, align 1, !tbaa !47
   %177 = icmp slt i8 %176, -1
   br i1 %177, label %.lr.ph.i.i68, label %.loopexit132, !llvm.loop !49
@@ -560,7 +560,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_17NodeHashMapPolicyIiNS_13base_in
   %214 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %213, i1 true)
   %215 = zext nneg i32 %214 to i64
   %216 = getelementptr inbounds nuw i8, ptr %208, i64 %215
-  %217 = getelementptr inbounds nuw ptr, ptr %207, i64 %215
+  %217 = getelementptr inbounds nuw [8 x i8], ptr %207, i64 %215
   %218 = load i8, ptr %216, align 1, !tbaa !47
   %219 = icmp slt i8 %218, -1
   br i1 %219, label %.lr.ph.i.i87, label %.loopexit, !llvm.loop !49
@@ -904,7 +904,7 @@ define internal void @_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashM
   br i1 %42, label %43, label %81
 
 43:                                               ; preds = %38
-  %44 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.copyload.i.i, i64 %.045
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i.i, i64 %.045
   %.val35 = load ptr, ptr %44, align 8, !tbaa !17
   %.val5.i = load i32, ptr %.val35, align 4, !tbaa !19
   %45 = zext i32 %.val5.i to i64
@@ -962,7 +962,7 @@ define internal void @_ZN4absl18container_internal12raw_hash_setINS0_17NodeHashM
   %78 = getelementptr i8, ptr %49, i64 %77
   %79 = getelementptr i8, ptr %78, i64 %37
   store i8 %74, ptr %79, align 1, !tbaa !47
-  %80 = getelementptr inbounds nuw ptr, ptr %.val33, i64 %.sroa.011.0.i.i
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %.val33, i64 %.sroa.011.0.i.i
   store ptr %.val35, ptr %80, align 8, !tbaa !17
   br label %81
 

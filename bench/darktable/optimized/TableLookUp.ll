@@ -159,7 +159,7 @@ define hidden void @_ZN8rawspeed11TableLookUp8setTableEiRKSt6vectorItSaItEE(ptr 
   tail call void @llvm.assume(i1 %23)
   %24 = shl nuw nsw i32 %1, 17
   %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr inbounds nuw i16, ptr %20, i64 %25
+  %26 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %28 = load i8, ptr %27, align 8, !tbaa !18, !range !24, !noundef !25
   %29 = trunc nuw i8 %28 to i1
@@ -187,9 +187,9 @@ define hidden void @_ZN8rawspeed11TableLookUp8setTableEiRKSt6vectorItSaItEE(ptr 
   %indvars.iv = phi i64 [ 0, %.preheader84 ], [ %indvars.iv.next, %36 ]
   %37 = icmp slt i64 %indvars.iv, %32
   %.in.v = select i1 %37, i64 %indvars.iv, i64 %31
-  %.in = getelementptr inbounds nuw i16, ptr %6, i64 %.in.v
+  %.in = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %.in.v
   %38 = load i16, ptr %.in, align 2, !tbaa !19
-  %39 = getelementptr inbounds nuw i16, ptr %26, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [2 x i8], ptr %26, i64 %indvars.iv
   store i16 %38, ptr %39, align 2, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 65536
@@ -203,12 +203,12 @@ define hidden void @_ZN8rawspeed11TableLookUp8setTableEiRKSt6vectorItSaItEE(ptr 
   %40 = shl i64 %9, 31
   %sext82 = add i64 %40, -4294967296
   %41 = ashr i64 %sext82, 32
-  %42 = getelementptr inbounds nuw i16, ptr %6, i64 %41
+  %42 = getelementptr inbounds nuw [2 x i8], ptr %6, i64 %41
   br label %70
 
 43:                                               ; preds = %.lr.ph, %59
   %indvars.iv93 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next94, %59 ]
-  %44 = getelementptr i16, ptr %6, i64 %indvars.iv93
+  %44 = getelementptr [2 x i8], ptr %6, i64 %indvars.iv93
   %45 = load i16, ptr %44, align 2, !tbaa !19
   %46 = zext i16 %45 to i32
   %.not = icmp eq i64 %indvars.iv93, 0
@@ -262,7 +262,7 @@ define hidden void @_ZN8rawspeed11TableLookUp8setTableEiRKSt6vectorItSaItEE(ptr 
   %73 = icmp samesign ult i32 %72, 131072
   tail call void @llvm.assume(i1 %73)
   %74 = zext nneg i32 %72 to i64
-  %75 = getelementptr inbounds nuw i16, ptr %26, i64 %74
+  %75 = getelementptr inbounds nuw [2 x i8], ptr %26, i64 %74
   store i16 %71, ptr %75, align 2, !tbaa !19
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 2
   store i16 0, ptr %76, align 2, !tbaa !19
@@ -298,7 +298,7 @@ define hidden { ptr, i32 } @_ZN8rawspeed11TableLookUp8getTableEi(ptr noundef non
   tail call void @llvm.assume(i1 %11)
   %12 = shl nuw nsw i32 %1, 17
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw i16, ptr %8, i64 %13
+  %14 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %13
   %.fca.0.insert.i.i = insertvalue { ptr, i32 } poison, ptr %14, 0
   %.fca.1.insert.i.i = insertvalue { ptr, i32 } %.fca.0.insert.i.i, i32 131072, 1
   ret { ptr, i32 } %.fca.1.insert.i.i
@@ -344,7 +344,7 @@ define linkonce_odr hidden void @_ZNSt6vectorItSaItEE14_M_fill_insertEN9__gnu_cx
 
 _ZSt22__uninitialized_move_aIPtS0_SaItEET0_T_S3_S2_RT1_.exit: ; preds = %23, %20
   %24 = phi ptr [ %.pre, %23 ], [ %9, %20 ]
-  %25 = getelementptr inbounds nuw i16, ptr %24, i64 %2
+  %25 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %2
   store ptr %25, ptr %8, align 8, !tbaa !23
   %.not.i.i.i.i.i = icmp eq ptr %21, %1
   br i1 %.not.i.i.i.i.i, label %_ZSt13move_backwardIPtS0_ET0_T_S2_S1_.exit, label %26
@@ -353,7 +353,7 @@ _ZSt22__uninitialized_move_aIPtS0_SaItEET0_T_S3_S2_RT1_.exit: ; preds = %23, %20
   %27 = sub i64 %22, %16
   %28 = ashr exact i64 %27, 1
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds i16, ptr %9, i64 %29
+  %30 = getelementptr inbounds [2 x i8], ptr %9, i64 %29
   tail call void @llvm.memmove.p0.p0.i64(ptr align 2 %30, ptr align 2 %1, i64 %27, i1 false)
   br label %_ZSt13move_backwardIPtS0_ET0_T_S2_S1_.exit
 
@@ -464,7 +464,7 @@ _ZSt24__uninitialized_fill_n_aIPtmttET_S1_T0_RKT1_RSaIT2_E.exit80: ; preds = %.l
   br label %_ZSt34__uninitialized_move_if_noexcept_aIPtS0_SaItEET0_T_S3_S2_RT1_.exit
 
 _ZSt34__uninitialized_move_if_noexcept_aIPtS0_SaItEET0_T_S3_S2_RT1_.exit: ; preds = %67, %_ZSt24__uninitialized_fill_n_aIPtmttET_S1_T0_RKT1_RSaIT2_E.exit80
-  %68 = getelementptr inbounds nuw i16, ptr %63, i64 %2
+  %68 = getelementptr inbounds nuw [2 x i8], ptr %63, i64 %2
   %69 = sub i64 %11, %56
   %.not.i.i.i.i.i.i.i.i.i82 = icmp eq ptr %9, %1
   br i1 %.not.i.i.i.i.i.i.i.i.i82, label %71, label %70
@@ -486,7 +486,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPtS0_SaItEET0_T_S3_S2_RT1_.exit: ; pred
 _ZNSt12_Vector_baseItSaItEE13_M_deallocateEPtm.exit: ; preds = %71, %73
   store ptr %62, ptr %0, align 8, !tbaa !21
   store ptr %72, ptr %8, align 8, !tbaa !23
-  %75 = getelementptr inbounds nuw i16, ptr %62, i64 %55
+  %75 = getelementptr inbounds nuw [2 x i8], ptr %62, i64 %55
   store ptr %75, ptr %6, align 8, !tbaa !22
   br label %_ZSt4fillIPttEvT_S1_RKT0_.exit
 

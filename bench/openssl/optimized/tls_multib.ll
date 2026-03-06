@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.EVP_CTRL_TLS1_1_MULTIBLOCK_PARAM = type { ptr, ptr, i64, i32 }
-%struct.ossl_record_template_st = type { i8, i32, ptr, i64 }
 
 @.str = private unnamed_addr constant [43 x i8] c"../openssl/ssl/record/methods/tls_multib.c\00", align 1
 @__func__.tls_write_records_multiblock_int = private unnamed_addr constant [33 x i8] c"tls_write_records_multiblock_int\00", align 1
@@ -106,7 +105,7 @@ define range(i32 0, 2) i32 @tls_write_records_multiblock(ptr noundef %0, ptr nou
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %6
   %.06373.i = phi i64 [ %7, %6 ], [ 1, %.lr.ph.i.preheader ]
-  %8 = getelementptr %struct.ossl_record_template_st, ptr %1, i64 %.06373.i
+  %8 = getelementptr [24 x i8], ptr %1, i64 %.06373.i
   %9 = getelementptr i8, ptr %8, i64 -24
   %10 = load i8, ptr %9, align 8, !tbaa !30
   %11 = load i8, ptr %8, align 8, !tbaa !30

@@ -1317,7 +1317,7 @@ define internal fastcc range(i32 -110, 21) i32 @intel_dp_aux_xfer(ptr noundef %0
 
 19:                                               ; preds = %19, %6
   %20 = phi i64 [ 0, %6 ], [ %25, %19 ]
-  %21 = getelementptr %struct.i915_reg_t, ptr %8, i64 %20
+  %21 = getelementptr [4 x i8], ptr %8, i64 %20
   %22 = load ptr, ptr %18, align 8
   %23 = trunc i64 %20 to i32
   %24 = tail call i32 %22(ptr noundef %0, i32 noundef %23) #15
@@ -1479,7 +1479,7 @@ define internal fastcc range(i32 -110, 21) i32 @intel_dp_aux_xfer(ptr noundef %0
   %114 = trunc nuw nsw i64 %indvars.iv to i32
   %115 = ashr exact i32 %114, 2
   %116 = sext i32 %115 to i64
-  %117 = getelementptr %struct.i915_reg_t, ptr %8, i64 %116
+  %117 = getelementptr [4 x i8], ptr %8, i64 %116
   %118 = getelementptr i8, ptr %1, i64 %indvars.iv
   %119 = sub nsw i64 %100, %indvars.iv
   %120 = icmp sgt i64 %119, 0

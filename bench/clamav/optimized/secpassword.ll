@@ -289,7 +289,7 @@ define void @_ZN11SecPassword3GetEPwm(ptr noundef nonnull readonly align 8 captu
   br i1 %exitcond.not.i.i, label %_ZN11SecPassword7ProcessEPKwmPwmb.exit, label %20, !llvm.loop !22
 
 _ZN11SecPassword7ProcessEPKwmPwmb.exit:           ; preds = %20, %7
-  %28 = getelementptr i32, ptr %1, i64 %2
+  %28 = getelementptr [4 x i8], ptr %1, i64 %2
   %29 = getelementptr i8, ptr %28, i64 -4
   store i32 0, ptr %29, align 4, !tbaa !20
   br label %31

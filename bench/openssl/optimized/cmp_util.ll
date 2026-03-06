@@ -222,7 +222,7 @@ define range(i32 0, 2) i32 @OSSL_CMP_print_to_bio(ptr noundef %0, ptr noundef re
 
 switch.lookup:                                    ; preds = %6
   %13 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.OSSL_CMP_print_to_bio, i64 %13
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.OSSL_CMP_print_to_bio, i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %14
 

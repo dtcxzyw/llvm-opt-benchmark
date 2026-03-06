@@ -75,7 +75,7 @@ define dso_local i32 @set_gssp_clnt(ptr noundef %0) local_unnamed_addr #0 align 
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 2536
   %5 = load volatile ptr, ptr %4, align 8
   %6 = zext i32 %3 to i64
-  %7 = getelementptr ptr, ptr %5, i64 %6
+  %7 = getelementptr [8 x i8], ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8
   tail call void @__rcu_read_unlock() #7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 144
@@ -243,10 +243,10 @@ define dso_local i32 @gssp_accept_sec_context_upcall(ptr noundef %0, ptr noundef
   %38 = phi i64 [ %34, %33 ], [ 0, %30 ]
   %39 = call ptr @alloc_pages(i32 noundef 3264, i32 noundef 0) #7
   %40 = load ptr, ptr %28, align 8
-  %41 = getelementptr ptr, ptr %40, i64 %38
+  %41 = getelementptr [8 x i8], ptr %40, i64 %38
   store ptr %39, ptr %41, align 8
   %42 = load ptr, ptr %28, align 8
-  %43 = getelementptr ptr, ptr %42, i64 %38
+  %43 = getelementptr [8 x i8], ptr %42, i64 %38
   %44 = load ptr, ptr %43, align 8
   %45 = icmp eq ptr %44, null
   br i1 %45, label %46, label %33
@@ -259,7 +259,7 @@ define dso_local i32 @gssp_accept_sec_context_upcall(ptr noundef %0, ptr noundef
 .preheader17:                                     ; preds = %46, %54
   %49 = phi i64 [ %55, %54 ], [ 0, %46 ]
   %50 = load ptr, ptr %28, align 8
-  %51 = getelementptr ptr, ptr %50, i64 %49
+  %51 = getelementptr [8 x i8], ptr %50, i64 %49
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %52, null
   br i1 %53, label %.sink.split, label %54
@@ -282,7 +282,7 @@ define dso_local i32 @gssp_accept_sec_context_upcall(ptr noundef %0, ptr noundef
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 2536
   %61 = load volatile ptr, ptr %60, align 8
   %62 = zext i32 %59 to i64
-  %63 = getelementptr ptr, ptr %61, i64 %62
+  %63 = getelementptr [8 x i8], ptr %61, i64 %62
   %64 = load ptr, ptr %63, align 8
   call void @__rcu_read_unlock() #7
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 144
@@ -362,7 +362,7 @@ define dso_local i32 @gssp_accept_sec_context_upcall(ptr noundef %0, ptr noundef
 .preheader:                                       ; preds = %98, %107
   %102 = phi i64 [ %108, %107 ], [ 0, %98 ]
   %103 = load ptr, ptr %28, align 8
-  %104 = getelementptr ptr, ptr %103, i64 %102
+  %104 = getelementptr [8 x i8], ptr %103, i64 %102
   %105 = load ptr, ptr %104, align 8
   %106 = icmp eq ptr %105, null
   br i1 %106, label %.loopexit, label %107

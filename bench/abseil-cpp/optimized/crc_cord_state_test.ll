@@ -2032,7 +2032,7 @@ _ZNSt11_Deque_baseIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE15_M_all
   store ptr %7, ptr %0, align 8, !tbaa !97
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %9
   %.idx = shl nuw nsw i64 %3, 3
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
@@ -2126,7 +2126,7 @@ _ZNSt11_Deque_baseIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE15_M_cre
   store ptr %48, ptr %49, align 8, !tbaa !107
   store ptr %39, ptr %37, align 8, !tbaa !108
   %50 = and i64 %1, 31
-  %51 = getelementptr inbounds nuw %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %46, i64 %50
+  %51 = getelementptr inbounds nuw [16 x i8], ptr %46, i64 %50
   store ptr %51, ptr %43, align 8, !tbaa !82
   ret void
 
@@ -2298,7 +2298,7 @@ _ZNSt5dequeIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE15_M_erase_at_e
   br i1 %107, label %108, label %110
 
 108:                                              ; preds = %106
-  %109 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %67, i64 %43
+  %109 = getelementptr inbounds [16 x i8], ptr %67, i64 %43
   br label %_ZStplRKSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERKS3_PS4_El.exit
 
 110:                                              ; preds = %106
@@ -2311,12 +2311,12 @@ _ZNSt5dequeIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE15_M_erase_at_e
 
 114:                                              ; preds = %112, %110
   %115 = phi i64 [ %111, %110 ], [ %113, %112 ]
-  %116 = getelementptr inbounds ptr, ptr %49, i64 %115
+  %116 = getelementptr inbounds [8 x i8], ptr %49, i64 %115
   %117 = load ptr, ptr %116, align 8, !tbaa !100, !noalias !131
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 512
   %119 = shl nsw i64 %115, 5
   %120 = sub nsw i64 %104, %119
-  %121 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %117, i64 %120
+  %121 = getelementptr inbounds [16 x i8], ptr %117, i64 %120
   br label %_ZStplRKSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERKS3_PS4_El.exit
 
 _ZStplRKSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERKS3_PS4_El.exit: ; preds = %108, %114
@@ -2475,7 +2475,7 @@ define linkonce_odr dso_local void @_ZNSt5dequeIN4absl12crc_internal12CrcCordSta
   br i1 %62, label %63, label %65
 
 63:                                               ; preds = %61
-  %64 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %53, i64 %58
+  %64 = getelementptr inbounds [16 x i8], ptr %53, i64 %58
   br label %_ZNSt5dequeIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE28_M_reserve_elements_at_frontEm.exit
 
 65:                                               ; preds = %61
@@ -2488,12 +2488,12 @@ define linkonce_odr dso_local void @_ZNSt5dequeIN4absl12crc_internal12CrcCordSta
 
 69:                                               ; preds = %67, %65
   %70 = phi i64 [ %66, %65 ], [ %68, %67 ]
-  %71 = getelementptr inbounds ptr, ptr %57, i64 %70
+  %71 = getelementptr inbounds [8 x i8], ptr %57, i64 %70
   %72 = load ptr, ptr %71, align 8, !tbaa !100, !noalias !150
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 512
   %74 = shl nsw i64 %70, 5
   %75 = sub nsw i64 %59, %74
-  %76 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %72, i64 %75
+  %76 = getelementptr inbounds [16 x i8], ptr %72, i64 %75
   br label %_ZNSt5dequeIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE28_M_reserve_elements_at_frontEm.exit
 
 _ZNSt5dequeIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE28_M_reserve_elements_at_frontEm.exit: ; preds = %63, %69
@@ -2602,7 +2602,7 @@ _ZSt22__uninitialized_copy_aISt15_Deque_iteratorIN4absl12crc_internal12CrcCordSt
   br i1 %127, label %128, label %130
 
 128:                                              ; preds = %126
-  %129 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %116, i64 %36
+  %129 = getelementptr inbounds [16 x i8], ptr %116, i64 %36
   br label %_ZNSt5dequeIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE27_M_reserve_elements_at_backEm.exit
 
 130:                                              ; preds = %126
@@ -2615,12 +2615,12 @@ _ZSt22__uninitialized_copy_aISt15_Deque_iteratorIN4absl12crc_internal12CrcCordSt
 
 134:                                              ; preds = %132, %130
   %135 = phi i64 [ %131, %130 ], [ %133, %132 ]
-  %136 = getelementptr inbounds ptr, ptr %120, i64 %135
+  %136 = getelementptr inbounds [8 x i8], ptr %120, i64 %135
   %137 = load ptr, ptr %136, align 8, !tbaa !100, !noalias !166
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 512
   %139 = shl nsw i64 %135, 5
   %140 = sub nsw i64 %124, %139
-  %141 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %137, i64 %140
+  %141 = getelementptr inbounds [16 x i8], ptr %137, i64 %140
   br label %_ZNSt5dequeIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE27_M_reserve_elements_at_backEm.exit
 
 _ZNSt5dequeIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE27_M_reserve_elements_at_backEm.exit: ; preds = %128, %134
@@ -2782,7 +2782,7 @@ _ZSt14__copy_move_a1ILb0EPN4absl12crc_internal12CrcCordState9PrefixCrcES4_ET1_T0
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %36
-  %39 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %.sroa.070.0, i64 %.sroa.speculated.i
+  %39 = getelementptr inbounds [16 x i8], ptr %.sroa.070.0, i64 %.sroa.speculated.i
   br label %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EpLEl.exit.i
 
 40:                                               ; preds = %36
@@ -2795,12 +2795,12 @@ _ZSt14__copy_move_a1ILb0EPN4absl12crc_internal12CrcCordState9PrefixCrcES4_ET1_T0
 
 44:                                               ; preds = %42, %40
   %45 = phi i64 [ %41, %40 ], [ %43, %42 ]
-  %46 = getelementptr inbounds ptr, ptr %.sroa.1274.0, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr %.sroa.1274.0, i64 %45
   %47 = load ptr, ptr %46, align 8, !tbaa !100, !noalias !178
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 512
   %49 = shl nsw i64 %45, 5
   %50 = sub nsw i64 %34, %49
-  %51 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %47, i64 %50
+  %51 = getelementptr inbounds [16 x i8], ptr %47, i64 %50
   br label %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EpLEl.exit.i
 
 _ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EpLEl.exit.i: ; preds = %44, %38
@@ -2876,7 +2876,7 @@ _ZSt14__copy_move_a1ILb0EPN4absl12crc_internal12CrcCordState9PrefixCrcES4_ET1_T0
   br i1 %82, label %83, label %85
 
 83:                                               ; preds = %81
-  %84 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %.sroa.058.0, i64 %.sroa.speculated.i12
+  %84 = getelementptr inbounds [16 x i8], ptr %.sroa.058.0, i64 %.sroa.speculated.i12
   br label %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EpLEl.exit.i19
 
 85:                                               ; preds = %81
@@ -2889,12 +2889,12 @@ _ZSt14__copy_move_a1ILb0EPN4absl12crc_internal12CrcCordState9PrefixCrcES4_ET1_T0
 
 89:                                               ; preds = %87, %85
   %90 = phi i64 [ %86, %85 ], [ %88, %87 ]
-  %91 = getelementptr inbounds ptr, ptr %.sroa.1262.0, i64 %90
+  %91 = getelementptr inbounds [8 x i8], ptr %.sroa.1262.0, i64 %90
   %92 = load ptr, ptr %91, align 8, !tbaa !100, !noalias !182
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 512
   %94 = shl nsw i64 %90, 5
   %95 = sub nsw i64 %79, %94
-  %96 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %92, i64 %95
+  %96 = getelementptr inbounds [16 x i8], ptr %92, i64 %95
   br label %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EpLEl.exit.i19
 
 _ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EpLEl.exit.i19: ; preds = %89, %83
@@ -2949,7 +2949,7 @@ _ZSt14__copy_move_a1ILb0EPN4absl12crc_internal12CrcCordState9PrefixCrcES4_ET1_T0
   br i1 %117, label %118, label %120
 
 118:                                              ; preds = %116
-  %119 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %.sroa.064.0, i64 %.sroa.speculated.i29
+  %119 = getelementptr inbounds [16 x i8], ptr %.sroa.064.0, i64 %.sroa.speculated.i29
   br label %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EpLEl.exit.i36
 
 120:                                              ; preds = %116
@@ -2962,12 +2962,12 @@ _ZSt14__copy_move_a1ILb0EPN4absl12crc_internal12CrcCordState9PrefixCrcES4_ET1_T0
 
 124:                                              ; preds = %122, %120
   %125 = phi i64 [ %121, %120 ], [ %123, %122 ]
-  %126 = getelementptr inbounds ptr, ptr %.sroa.11.0, i64 %125
+  %126 = getelementptr inbounds [8 x i8], ptr %.sroa.11.0, i64 %125
   %127 = load ptr, ptr %126, align 8, !tbaa !100, !noalias !185
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 512
   %129 = shl nsw i64 %125, 5
   %130 = sub nsw i64 %114, %129
-  %131 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %127, i64 %130
+  %131 = getelementptr inbounds [16 x i8], ptr %127, i64 %130
   br label %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EpLEl.exit.i36
 
 _ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EpLEl.exit.i36: ; preds = %124, %118
@@ -3038,7 +3038,7 @@ _ZSt14__copy_move_a1ILb0EPN4absl12crc_internal12CrcCordState9PrefixCrcES4_ET1_T0
   br i1 %160, label %161, label %163
 
 161:                                              ; preds = %159
-  %162 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %.sroa.0.0, i64 %.sroa.speculated.i46
+  %162 = getelementptr inbounds [16 x i8], ptr %.sroa.0.0, i64 %.sroa.speculated.i46
   br label %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EpLEl.exit.i53
 
 163:                                              ; preds = %159
@@ -3051,12 +3051,12 @@ _ZSt14__copy_move_a1ILb0EPN4absl12crc_internal12CrcCordState9PrefixCrcES4_ET1_T0
 
 167:                                              ; preds = %165, %163
   %168 = phi i64 [ %164, %163 ], [ %166, %165 ]
-  %169 = getelementptr inbounds ptr, ptr %.sroa.12.0, i64 %168
+  %169 = getelementptr inbounds [8 x i8], ptr %.sroa.12.0, i64 %168
   %170 = load ptr, ptr %169, align 8, !tbaa !100, !noalias !189
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 512
   %172 = shl nsw i64 %168, 5
   %173 = sub nsw i64 %157, %172
-  %174 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %170, i64 %173
+  %174 = getelementptr inbounds [16 x i8], ptr %170, i64 %173
   br label %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EpLEl.exit.i53
 
 _ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EpLEl.exit.i53: ; preds = %167, %161
@@ -3202,7 +3202,7 @@ define linkonce_odr dso_local void @_ZNSt5dequeIN4absl12crc_internal12CrcCordSta
   br i1 %96, label %97, label %99
 
 97:                                               ; preds = %95
-  %98 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %91, i64 %92
+  %98 = getelementptr inbounds [16 x i8], ptr %91, i64 %92
   br label %_ZNSt5dequeIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE28_M_reserve_elements_at_frontEm.exit
 
 99:                                               ; preds = %95
@@ -3215,12 +3215,12 @@ define linkonce_odr dso_local void @_ZNSt5dequeIN4absl12crc_internal12CrcCordSta
 
 103:                                              ; preds = %101, %99
   %104 = phi i64 [ %100, %99 ], [ %102, %101 ]
-  %105 = getelementptr inbounds ptr, ptr %88, i64 %104
+  %105 = getelementptr inbounds [8 x i8], ptr %88, i64 %104
   %106 = load ptr, ptr %105, align 8, !tbaa !100, !noalias !195
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 512
   %108 = shl nsw i64 %104, 5
   %109 = sub nsw i64 %93, %108
-  %110 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %106, i64 %109
+  %110 = getelementptr inbounds [16 x i8], ptr %106, i64 %109
   br label %_ZNSt5dequeIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE28_M_reserve_elements_at_frontEm.exit
 
 _ZNSt5dequeIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE28_M_reserve_elements_at_frontEm.exit: ; preds = %97, %103
@@ -3241,7 +3241,7 @@ _ZNSt5dequeIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE28_M_reserve_el
   br i1 %118, label %119, label %121
 
 119:                                              ; preds = %117
-  %120 = getelementptr inbounds nuw %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %91, i64 %57
+  %120 = getelementptr inbounds nuw [16 x i8], ptr %91, i64 %57
   br label %_ZStplRKSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_El.exit
 
 121:                                              ; preds = %117
@@ -3254,12 +3254,12 @@ _ZNSt5dequeIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE28_M_reserve_el
 
 125:                                              ; preds = %123, %121
   %126 = phi i64 [ %122, %121 ], [ %124, %123 ]
-  %127 = getelementptr inbounds ptr, ptr %88, i64 %126
+  %127 = getelementptr inbounds [8 x i8], ptr %88, i64 %126
   %128 = load ptr, ptr %127, align 8, !tbaa !100, !noalias !198
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 512
   %130 = shl nsw i64 %126, 5
   %131 = sub nsw i64 %115, %130
-  %132 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %128, i64 %131
+  %132 = getelementptr inbounds [16 x i8], ptr %128, i64 %131
   br label %_ZStplRKSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_El.exit
 
 _ZStplRKSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_El.exit: ; preds = %119, %125
@@ -3293,7 +3293,7 @@ _ZStplRKSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3
   br i1 %145, label %146, label %148
 
 146:                                              ; preds = %144
-  %147 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %134, i64 %4
+  %147 = getelementptr inbounds [16 x i8], ptr %134, i64 %4
   br label %_ZStplRKSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_El.exit35
 
 148:                                              ; preds = %144
@@ -3306,12 +3306,12 @@ _ZStplRKSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3
 
 152:                                              ; preds = %150, %148
   %153 = phi i64 [ %149, %148 ], [ %151, %150 ]
-  %154 = getelementptr inbounds ptr, ptr %137, i64 %153
+  %154 = getelementptr inbounds [8 x i8], ptr %137, i64 %153
   %155 = load ptr, ptr %154, align 8, !tbaa !100, !noalias !201
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 512
   %157 = shl nsw i64 %153, 5
   %158 = sub nsw i64 %142, %157
-  %159 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %155, i64 %158
+  %159 = getelementptr inbounds [16 x i8], ptr %155, i64 %158
   br label %_ZStplRKSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_El.exit35
 
 _ZStplRKSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_El.exit35: ; preds = %146, %152
@@ -3434,7 +3434,7 @@ _ZSt22__uninitialized_move_aISt15_Deque_iteratorIN4absl12crc_internal12CrcCordSt
   br i1 %217, label %218, label %220
 
 218:                                              ; preds = %216
-  %219 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %206, i64 %92
+  %219 = getelementptr inbounds [16 x i8], ptr %206, i64 %92
   br label %_ZStmiRKSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_El.exit
 
 220:                                              ; preds = %216
@@ -3447,12 +3447,12 @@ _ZSt22__uninitialized_move_aISt15_Deque_iteratorIN4absl12crc_internal12CrcCordSt
 
 224:                                              ; preds = %222, %220
   %225 = phi i64 [ %221, %220 ], [ %223, %222 ]
-  %226 = getelementptr inbounds ptr, ptr %209, i64 %225
+  %226 = getelementptr inbounds [8 x i8], ptr %209, i64 %225
   %227 = load ptr, ptr %226, align 8, !tbaa !100, !noalias !225
   %228 = getelementptr inbounds nuw i8, ptr %227, i64 512
   %229 = shl nsw i64 %225, 5
   %230 = sub nsw i64 %214, %229
-  %231 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %227, i64 %230
+  %231 = getelementptr inbounds [16 x i8], ptr %227, i64 %230
   br label %_ZStmiRKSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_El.exit
 
 _ZStmiRKSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_El.exit: ; preds = %218, %224
@@ -3527,7 +3527,7 @@ _ZStmiRKSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3
   br i1 %262, label %263, label %265
 
 263:                                              ; preds = %261
-  %264 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %247, i64 %254
+  %264 = getelementptr inbounds [16 x i8], ptr %247, i64 %254
   br label %_ZSt7advanceISt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERKS4_PS5_ElEvRT_T0_.exit
 
 265:                                              ; preds = %261
@@ -3540,12 +3540,12 @@ _ZStmiRKSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3
 
 269:                                              ; preds = %267, %265
   %270 = phi i64 [ %266, %265 ], [ %268, %267 ]
-  %271 = getelementptr inbounds ptr, ptr %253, i64 %270
+  %271 = getelementptr inbounds [8 x i8], ptr %253, i64 %270
   %272 = load ptr, ptr %271, align 8, !tbaa !100
   %273 = getelementptr inbounds nuw i8, ptr %272, i64 512
   %274 = shl nsw i64 %270, 5
   %275 = sub nsw i64 %259, %274
-  %276 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %272, i64 %275
+  %276 = getelementptr inbounds [16 x i8], ptr %272, i64 %275
   br label %_ZSt7advanceISt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERKS4_PS5_ElEvRT_T0_.exit
 
 _ZSt7advanceISt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERKS4_PS5_ElEvRT_T0_.exit: ; preds = %269, %263
@@ -3764,7 +3764,7 @@ _ZNSt11_Deque_baseIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE16_M_des
   br i1 %362, label %363, label %365
 
 363:                                              ; preds = %361
-  %364 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %358, i64 %4
+  %364 = getelementptr inbounds [16 x i8], ptr %358, i64 %4
   br label %_ZNSt5dequeIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE27_M_reserve_elements_at_backEm.exit
 
 365:                                              ; preds = %361
@@ -3777,12 +3777,12 @@ _ZNSt11_Deque_baseIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE16_M_des
 
 369:                                              ; preds = %367, %365
   %370 = phi i64 [ %366, %365 ], [ %368, %367 ]
-  %371 = getelementptr inbounds ptr, ptr %355, i64 %370
+  %371 = getelementptr inbounds [8 x i8], ptr %355, i64 %370
   %372 = load ptr, ptr %371, align 8, !tbaa !100, !noalias !271
   %373 = getelementptr inbounds nuw i8, ptr %372, i64 512
   %374 = shl nsw i64 %370, 5
   %375 = sub nsw i64 %359, %374
-  %376 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %372, i64 %375
+  %376 = getelementptr inbounds [16 x i8], ptr %372, i64 %375
   br label %_ZNSt5dequeIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE27_M_reserve_elements_at_backEm.exit
 
 _ZNSt5dequeIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE27_M_reserve_elements_at_backEm.exit: ; preds = %363, %369
@@ -3804,7 +3804,7 @@ _ZNSt5dequeIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE27_M_reserve_el
   br i1 %385, label %386, label %388
 
 386:                                              ; preds = %384
-  %387 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %358, i64 %378
+  %387 = getelementptr inbounds [16 x i8], ptr %358, i64 %378
   br label %_ZStmiRKSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_El.exit52
 
 388:                                              ; preds = %384
@@ -3817,12 +3817,12 @@ _ZNSt5dequeIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE27_M_reserve_el
 
 392:                                              ; preds = %390, %388
   %393 = phi i64 [ %389, %388 ], [ %391, %390 ]
-  %394 = getelementptr inbounds ptr, ptr %355, i64 %393
+  %394 = getelementptr inbounds [8 x i8], ptr %355, i64 %393
   %395 = load ptr, ptr %394, align 8, !tbaa !100, !noalias !274
   %396 = getelementptr inbounds nuw i8, ptr %395, i64 512
   %397 = shl nsw i64 %393, 5
   %398 = sub nsw i64 %382, %397
-  %399 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %395, i64 %398
+  %399 = getelementptr inbounds [16 x i8], ptr %395, i64 %398
   br label %_ZStmiRKSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_El.exit52
 
 _ZStmiRKSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_El.exit52: ; preds = %386, %392
@@ -3857,7 +3857,7 @@ _ZStmiRKSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3
   br i1 %414, label %415, label %417
 
 415:                                              ; preds = %413
-  %416 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %402, i64 %406
+  %416 = getelementptr inbounds [16 x i8], ptr %402, i64 %406
   br label %_ZStmiRKSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_El.exit54
 
 417:                                              ; preds = %413
@@ -3870,12 +3870,12 @@ _ZStmiRKSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3
 
 421:                                              ; preds = %419, %417
   %422 = phi i64 [ %418, %417 ], [ %420, %419 ]
-  %423 = getelementptr inbounds ptr, ptr %405, i64 %422
+  %423 = getelementptr inbounds [8 x i8], ptr %405, i64 %422
   %424 = load ptr, ptr %423, align 8, !tbaa !100, !noalias !277
   %425 = getelementptr inbounds nuw i8, ptr %424, i64 512
   %426 = shl nsw i64 %422, 5
   %427 = sub nsw i64 %411, %426
-  %428 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %424, i64 %427
+  %428 = getelementptr inbounds [16 x i8], ptr %424, i64 %427
   br label %_ZStmiRKSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_El.exit54
 
 _ZStmiRKSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_El.exit54: ; preds = %415, %421
@@ -4051,7 +4051,7 @@ _ZSt22__uninitialized_move_aISt15_Deque_iteratorIN4absl12crc_internal12CrcCordSt
   br i1 %508, label %509, label %511
 
 509:                                              ; preds = %507
-  %510 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %494, i64 %377
+  %510 = getelementptr inbounds [16 x i8], ptr %494, i64 %377
   br label %_ZSt7advanceISt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERKS4_PS5_ElEvRT_T0_.exit77
 
 511:                                              ; preds = %507
@@ -4064,12 +4064,12 @@ _ZSt22__uninitialized_move_aISt15_Deque_iteratorIN4absl12crc_internal12CrcCordSt
 
 515:                                              ; preds = %513, %511
   %516 = phi i64 [ %512, %511 ], [ %514, %513 ]
-  %517 = getelementptr inbounds ptr, ptr %500, i64 %516
+  %517 = getelementptr inbounds [8 x i8], ptr %500, i64 %516
   %518 = load ptr, ptr %517, align 8, !tbaa !100
   %519 = getelementptr inbounds nuw i8, ptr %518, i64 512
   %520 = shl nsw i64 %516, 5
   %521 = sub nsw i64 %505, %520
-  %522 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %518, i64 %521
+  %522 = getelementptr inbounds [16 x i8], ptr %518, i64 %521
   br label %_ZSt7advanceISt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERKS4_PS5_ElEvRT_T0_.exit77
 
 _ZSt7advanceISt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERKS4_PS5_ElEvRT_T0_.exit77: ; preds = %515, %509
@@ -4335,7 +4335,7 @@ _ZNSt5dequeIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE23_M_reserve_ma
 
 _ZNSt11_Deque_baseIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE16_M_allocate_nodeEv.exit: ; preds = %42
   %44 = sub nsw i64 0, %.01422
-  %45 = getelementptr inbounds ptr, ptr %41, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %41, i64 %44
   store ptr %43, ptr %45, align 8, !tbaa !100
   %46 = add nuw nsw i64 %.01422, 1
   %exitcond = icmp eq i64 %.01422, %35
@@ -4357,7 +4357,7 @@ _ZNSt11_Deque_baseIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE16_M_all
   %.023 = phi i64 [ %56, %.lr.ph25 ], [ 1, %47 ]
   %52 = load ptr, ptr %7, align 8, !tbaa !98
   %53 = sub nsw i64 0, %.023
-  %54 = getelementptr inbounds ptr, ptr %52, i64 %53
+  %54 = getelementptr inbounds [8 x i8], ptr %52, i64 %53
   %55 = load ptr, ptr %54, align 8, !tbaa !100
   tail call void @_ZdlPvm(ptr noundef %55, i64 noundef 512) #21
   %56 = add nuw nsw i64 %.023, 1
@@ -4412,9 +4412,9 @@ define linkonce_odr dso_local void @_ZNSt5dequeIN4absl12crc_internal12CrcCordSta
   %19 = load ptr, ptr %0, align 8, !tbaa !97
   %20 = sub i64 %15, %13
   %21 = lshr i64 %20, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = select i1 %2, i64 %1, i64 0
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = icmp ult ptr %24, %7
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %26, %7
@@ -4433,12 +4433,12 @@ define linkonce_odr dso_local void @_ZNSt5dequeIN4absl12crc_internal12CrcCordSta
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPPN4absl12crc_internal12CrcCordState9PrefixCrcES5_ET0_T_S7_S6_.exit, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw ptr, ptr %24, i64 %12
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %12
   %34 = ptrtoint ptr %26 to i64
   %35 = sub i64 %34, %9
   %36 = ashr exact i64 %35, 3
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds ptr, ptr %33, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %33, i64 %37
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %38, ptr align 8 %7, i64 %35, i1 false)
   br label %_ZSt4copyIPPN4absl12crc_internal12CrcCordState9PrefixCrcES5_ET0_T_S7_S6_.exit
 
@@ -4466,9 +4466,9 @@ _ZNSt11_Deque_baseIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE15_M_all
   %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #22
   %47 = sub i64 %41, %13
   %48 = lshr i64 %47, 1
-  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %48
   %50 = select i1 %2, i64 %1, i64 0
-  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i25 = icmp eq ptr %52, %7
   br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPPN4absl12crc_internal12CrcCordState9PrefixCrcES5_ET0_T_S7_S6_.exit26, label %53
@@ -4496,7 +4496,7 @@ _ZSt4copyIPPN4absl12crc_internal12CrcCordState9PrefixCrcES5_ET0_T_S7_S6_.exit: ;
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 512
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %60, ptr %61, align 8, !tbaa !107
-  %62 = getelementptr inbounds nuw ptr, ptr %.0, i64 %12
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %12
   %63 = getelementptr inbounds i8, ptr %62, i64 -8
   store ptr %63, ptr %4, align 8, !tbaa !105
   %64 = load ptr, ptr %63, align 8, !tbaa !100
@@ -4579,7 +4579,7 @@ _ZNSt5dequeIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE22_M_reserve_ma
           to label %_ZNSt11_Deque_baseIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE16_M_allocate_nodeEv.exit unwind label %49
 
 _ZNSt11_Deque_baseIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE16_M_allocate_nodeEv.exit: ; preds = %45
-  %47 = getelementptr inbounds nuw ptr, ptr %44, i64 %.01423
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %.01423
   store ptr %46, ptr %47, align 8, !tbaa !100
   %48 = add nuw nsw i64 %.01423, 1
   %exitcond = icmp eq i64 %.01423, %35
@@ -4600,7 +4600,7 @@ _ZNSt11_Deque_baseIN4absl12crc_internal12CrcCordState9PrefixCrcESaIS3_EE16_M_all
 .lr.ph26:                                         ; preds = %49, %.lr.ph26
   %.024 = phi i64 [ %57, %.lr.ph26 ], [ 1, %49 ]
   %54 = load ptr, ptr %5, align 8, !tbaa !99
-  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %.024
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %.024
   %56 = load ptr, ptr %55, align 8, !tbaa !100
   tail call void @_ZdlPvm(ptr noundef %56, i64 noundef 512) #21
   %57 = add nuw nsw i64 %.024, 1
@@ -4691,7 +4691,7 @@ _ZSt14__copy_move_a1ILb1EPN4absl12crc_internal12CrcCordState9PrefixCrcES4_ET1_T0
   br i1 %37, label %38, label %40
 
 38:                                               ; preds = %36
-  %39 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %.sroa.070.0, i64 %.sroa.speculated.i
+  %39 = getelementptr inbounds [16 x i8], ptr %.sroa.070.0, i64 %.sroa.speculated.i
   br label %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EpLEl.exit.i
 
 40:                                               ; preds = %36
@@ -4704,12 +4704,12 @@ _ZSt14__copy_move_a1ILb1EPN4absl12crc_internal12CrcCordState9PrefixCrcES4_ET1_T0
 
 44:                                               ; preds = %42, %40
   %45 = phi i64 [ %41, %40 ], [ %43, %42 ]
-  %46 = getelementptr inbounds ptr, ptr %.sroa.1274.0, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr %.sroa.1274.0, i64 %45
   %47 = load ptr, ptr %46, align 8, !tbaa !100, !noalias !345
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 512
   %49 = shl nsw i64 %45, 5
   %50 = sub nsw i64 %34, %49
-  %51 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %47, i64 %50
+  %51 = getelementptr inbounds [16 x i8], ptr %47, i64 %50
   br label %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EpLEl.exit.i
 
 _ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EpLEl.exit.i: ; preds = %44, %38
@@ -4785,7 +4785,7 @@ _ZSt14__copy_move_a1ILb1EPN4absl12crc_internal12CrcCordState9PrefixCrcES4_ET1_T0
   br i1 %82, label %83, label %85
 
 83:                                               ; preds = %81
-  %84 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %.sroa.058.0, i64 %.sroa.speculated.i12
+  %84 = getelementptr inbounds [16 x i8], ptr %.sroa.058.0, i64 %.sroa.speculated.i12
   br label %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EpLEl.exit.i19
 
 85:                                               ; preds = %81
@@ -4798,12 +4798,12 @@ _ZSt14__copy_move_a1ILb1EPN4absl12crc_internal12CrcCordState9PrefixCrcES4_ET1_T0
 
 89:                                               ; preds = %87, %85
   %90 = phi i64 [ %86, %85 ], [ %88, %87 ]
-  %91 = getelementptr inbounds ptr, ptr %.sroa.1262.0, i64 %90
+  %91 = getelementptr inbounds [8 x i8], ptr %.sroa.1262.0, i64 %90
   %92 = load ptr, ptr %91, align 8, !tbaa !100, !noalias !349
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 512
   %94 = shl nsw i64 %90, 5
   %95 = sub nsw i64 %79, %94
-  %96 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %92, i64 %95
+  %96 = getelementptr inbounds [16 x i8], ptr %92, i64 %95
   br label %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EpLEl.exit.i19
 
 _ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EpLEl.exit.i19: ; preds = %89, %83
@@ -4858,7 +4858,7 @@ _ZSt14__copy_move_a1ILb1EPN4absl12crc_internal12CrcCordState9PrefixCrcES4_ET1_T0
   br i1 %117, label %118, label %120
 
 118:                                              ; preds = %116
-  %119 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %.sroa.064.0, i64 %.sroa.speculated.i29
+  %119 = getelementptr inbounds [16 x i8], ptr %.sroa.064.0, i64 %.sroa.speculated.i29
   br label %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EpLEl.exit.i36
 
 120:                                              ; preds = %116
@@ -4871,12 +4871,12 @@ _ZSt14__copy_move_a1ILb1EPN4absl12crc_internal12CrcCordState9PrefixCrcES4_ET1_T0
 
 124:                                              ; preds = %122, %120
   %125 = phi i64 [ %121, %120 ], [ %123, %122 ]
-  %126 = getelementptr inbounds ptr, ptr %.sroa.11.0, i64 %125
+  %126 = getelementptr inbounds [8 x i8], ptr %.sroa.11.0, i64 %125
   %127 = load ptr, ptr %126, align 8, !tbaa !100, !noalias !352
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 512
   %129 = shl nsw i64 %125, 5
   %130 = sub nsw i64 %114, %129
-  %131 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %127, i64 %130
+  %131 = getelementptr inbounds [16 x i8], ptr %127, i64 %130
   br label %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EpLEl.exit.i36
 
 _ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EpLEl.exit.i36: ; preds = %124, %118
@@ -4947,7 +4947,7 @@ _ZSt14__copy_move_a1ILb1EPN4absl12crc_internal12CrcCordState9PrefixCrcES4_ET1_T0
   br i1 %160, label %161, label %163
 
 161:                                              ; preds = %159
-  %162 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %.sroa.0.0, i64 %.sroa.speculated.i46
+  %162 = getelementptr inbounds [16 x i8], ptr %.sroa.0.0, i64 %.sroa.speculated.i46
   br label %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EpLEl.exit.i53
 
 163:                                              ; preds = %159
@@ -4960,12 +4960,12 @@ _ZSt14__copy_move_a1ILb1EPN4absl12crc_internal12CrcCordState9PrefixCrcES4_ET1_T0
 
 167:                                              ; preds = %165, %163
   %168 = phi i64 [ %164, %163 ], [ %166, %165 ]
-  %169 = getelementptr inbounds ptr, ptr %.sroa.12.0, i64 %168
+  %169 = getelementptr inbounds [8 x i8], ptr %.sroa.12.0, i64 %168
   %170 = load ptr, ptr %169, align 8, !tbaa !100, !noalias !356
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 512
   %172 = shl nsw i64 %168, 5
   %173 = sub nsw i64 %157, %172
-  %174 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %170, i64 %173
+  %174 = getelementptr inbounds [16 x i8], ptr %170, i64 %173
   br label %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EpLEl.exit.i53
 
 _ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EpLEl.exit.i53: ; preds = %167, %161
@@ -5058,7 +5058,7 @@ define linkonce_odr dso_local void @_ZSt24__copy_move_backward_ditILb1EN4absl12c
   %gepdiff.i = sub nsw i64 0, %.idx41.i
   %38 = ashr exact i64 %gepdiff.i, 4
   %39 = sub nsw i64 0, %38
-  %40 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %.0938.i, i64 %39
+  %40 = getelementptr inbounds [16 x i8], ptr %.0938.i, i64 %39
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %40, ptr nonnull align 8 %37, i64 %gepdiff.i, i1 false), !noalias !359
   %41 = sub nsw i64 %.pre28.i.pre-phi, %.sroa.speculated39.i
   %42 = icmp sgt i64 %41, -1
@@ -5069,7 +5069,7 @@ define linkonce_odr dso_local void @_ZSt24__copy_move_backward_ditILb1EN4absl12c
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %43
-  %46 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %.sroa.088.0, i64 %36
+  %46 = getelementptr inbounds [16 x i8], ptr %.sroa.088.0, i64 %36
   br label %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EmIEl.exit.i
 
 47:                                               ; preds = %43
@@ -5082,12 +5082,12 @@ define linkonce_odr dso_local void @_ZSt24__copy_move_backward_ditILb1EN4absl12c
 
 51:                                               ; preds = %49, %47
   %52 = phi i64 [ %48, %47 ], [ %50, %49 ]
-  %53 = getelementptr inbounds ptr, ptr %.sroa.1291.0, i64 %52
+  %53 = getelementptr inbounds [8 x i8], ptr %.sroa.1291.0, i64 %52
   %54 = load ptr, ptr %53, align 8, !tbaa !100, !noalias !359
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 512
   %56 = shl nsw i64 %52, 5
   %57 = sub nsw i64 %41, %56
-  %58 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %54, i64 %57
+  %58 = getelementptr inbounds [16 x i8], ptr %54, i64 %57
   br label %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EmIEl.exit.i
 
 _ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EmIEl.exit.i: ; preds = %51, %45
@@ -5168,7 +5168,7 @@ _ZSt23__copy_move_backward_a1ILb1EPN4absl12crc_internal12CrcCordState9PrefixCrcE
   %gepdiff.i17 = sub nsw i64 0, %.idx41.i16
   %90 = ashr exact i64 %gepdiff.i17, 4
   %91 = sub nsw i64 0, %90
-  %92 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %.0938.i15, i64 %91
+  %92 = getelementptr inbounds [16 x i8], ptr %.0938.i15, i64 %91
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %92, ptr nonnull align 8 %89, i64 %gepdiff.i17, i1 false), !noalias !363
   %93 = sub nsw i64 %.pre28.i23.pre-phi, %.sroa.speculated39.i14
   %94 = icmp sgt i64 %93, -1
@@ -5179,7 +5179,7 @@ _ZSt23__copy_move_backward_a1ILb1EPN4absl12crc_internal12CrcCordState9PrefixCrcE
   br i1 %96, label %97, label %99
 
 97:                                               ; preds = %95
-  %98 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %.sroa.076.0, i64 %88
+  %98 = getelementptr inbounds [16 x i8], ptr %.sroa.076.0, i64 %88
   br label %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EmIEl.exit.i24
 
 99:                                               ; preds = %95
@@ -5192,12 +5192,12 @@ _ZSt23__copy_move_backward_a1ILb1EPN4absl12crc_internal12CrcCordState9PrefixCrcE
 
 103:                                              ; preds = %101, %99
   %104 = phi i64 [ %100, %99 ], [ %102, %101 ]
-  %105 = getelementptr inbounds ptr, ptr %.sroa.1279.0, i64 %104
+  %105 = getelementptr inbounds [8 x i8], ptr %.sroa.1279.0, i64 %104
   %106 = load ptr, ptr %105, align 8, !tbaa !100, !noalias !363
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 512
   %108 = shl nsw i64 %104, 5
   %109 = sub nsw i64 %93, %108
-  %110 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %106, i64 %109
+  %110 = getelementptr inbounds [16 x i8], ptr %106, i64 %109
   br label %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EmIEl.exit.i24
 
 _ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EmIEl.exit.i24: ; preds = %103, %97
@@ -5258,7 +5258,7 @@ _ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EmIE
   %gepdiff.i40 = sub nsw i64 0, %.idx41.i39
   %133 = ashr exact i64 %gepdiff.i40, 4
   %134 = sub nsw i64 0, %133
-  %135 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %.0938.i38, i64 %134
+  %135 = getelementptr inbounds [16 x i8], ptr %.0938.i38, i64 %134
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %135, ptr nonnull align 8 %132, i64 %gepdiff.i40, i1 false), !noalias !366
   %136 = sub nsw i64 %.pre28.i46.pre-phi, %.sroa.speculated39.i37
   %137 = icmp sgt i64 %136, -1
@@ -5269,7 +5269,7 @@ _ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EmIE
   br i1 %139, label %140, label %142
 
 140:                                              ; preds = %138
-  %141 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %.sroa.082.0, i64 %131
+  %141 = getelementptr inbounds [16 x i8], ptr %.sroa.082.0, i64 %131
   br label %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EmIEl.exit.i47
 
 142:                                              ; preds = %138
@@ -5282,12 +5282,12 @@ _ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EmIE
 
 146:                                              ; preds = %144, %142
   %147 = phi i64 [ %143, %142 ], [ %145, %144 ]
-  %148 = getelementptr inbounds ptr, ptr %.sroa.11.0, i64 %147
+  %148 = getelementptr inbounds [8 x i8], ptr %.sroa.11.0, i64 %147
   %149 = load ptr, ptr %148, align 8, !tbaa !100, !noalias !366
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 512
   %151 = shl nsw i64 %147, 5
   %152 = sub nsw i64 %136, %151
-  %153 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %149, i64 %152
+  %153 = getelementptr inbounds [16 x i8], ptr %149, i64 %152
   br label %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EmIEl.exit.i47
 
 _ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EmIEl.exit.i47: ; preds = %146, %140
@@ -5365,7 +5365,7 @@ _ZSt23__copy_move_backward_a1ILb1EPN4absl12crc_internal12CrcCordState9PrefixCrcE
   %gepdiff.i63 = sub nsw i64 0, %.idx41.i62
   %185 = ashr exact i64 %gepdiff.i63, 4
   %186 = sub nsw i64 0, %185
-  %187 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %.0938.i61, i64 %186
+  %187 = getelementptr inbounds [16 x i8], ptr %.0938.i61, i64 %186
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %187, ptr nonnull align 8 %184, i64 %gepdiff.i63, i1 false), !noalias !370
   %188 = sub nsw i64 %.pre28.i69.pre-phi, %.sroa.speculated39.i60
   %189 = icmp sgt i64 %188, -1
@@ -5376,7 +5376,7 @@ _ZSt23__copy_move_backward_a1ILb1EPN4absl12crc_internal12CrcCordState9PrefixCrcE
   br i1 %191, label %192, label %194
 
 192:                                              ; preds = %190
-  %193 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %.sroa.0.0, i64 %183
+  %193 = getelementptr inbounds [16 x i8], ptr %.sroa.0.0, i64 %183
   br label %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EmIEl.exit.i70
 
 194:                                              ; preds = %190
@@ -5389,12 +5389,12 @@ _ZSt23__copy_move_backward_a1ILb1EPN4absl12crc_internal12CrcCordState9PrefixCrcE
 
 198:                                              ; preds = %196, %194
   %199 = phi i64 [ %195, %194 ], [ %197, %196 ]
-  %200 = getelementptr inbounds ptr, ptr %.sroa.12.0, i64 %199
+  %200 = getelementptr inbounds [8 x i8], ptr %.sroa.12.0, i64 %199
   %201 = load ptr, ptr %200, align 8, !tbaa !100, !noalias !370
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 512
   %203 = shl nsw i64 %199, 5
   %204 = sub nsw i64 %188, %203
-  %205 = getelementptr inbounds %"struct.absl::crc_internal::CrcCordState::PrefixCrc", ptr %201, i64 %204
+  %205 = getelementptr inbounds [16 x i8], ptr %201, i64 %204
   br label %_ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EmIEl.exit.i70
 
 _ZNSt15_Deque_iteratorIN4absl12crc_internal12CrcCordState9PrefixCrcERS3_PS3_EmIEl.exit.i70: ; preds = %198, %192

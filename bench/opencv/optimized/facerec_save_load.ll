@@ -716,7 +716,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i.i: ; preds = %281, %
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i: ; preds = %283, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i.i
   store ptr %278, ptr %21, align 8, !tbaa !51
   store ptr %282, ptr %188, align 8, !tbaa !47
-  %284 = getelementptr inbounds nuw i32, ptr %278, i64 %276
+  %284 = getelementptr inbounds nuw [4 x i8], ptr %278, i64 %276
   store ptr %284, ptr %189, align 8, !tbaa !49
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit.i
 
@@ -1666,7 +1666,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit252: ; preds = %55
 
 628:                                              ; preds = %624, %621
   %629 = load ptr, ptr %567, align 8, !tbaa !77
-  %630 = getelementptr inbounds nuw double, ptr %629, i64 %indvars.iv
+  %630 = getelementptr inbounds nuw [8 x i8], ptr %629, i64 %indvars.iv
   br label %_ZN2cv3Mat2atIdEERT_i.exit
 
 631:                                              ; preds = %624
@@ -1696,7 +1696,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit252: ; preds = %55
   %650 = mul i64 %648, %649
   %651 = getelementptr inbounds nuw i8, ptr %646, i64 %650
   %652 = sext i32 %.recomposed to i64
-  %653 = getelementptr inbounds double, ptr %651, i64 %652
+  %653 = getelementptr inbounds [8 x i8], ptr %651, i64 %652
   br label %_ZN2cv3Mat2atIdEERT_i.exit
 
 _ZN2cv3Mat2atIdEERT_i.exit:                       ; preds = %641, %635, %628
@@ -3356,7 +3356,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNS
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !56
   store ptr %.0.lcssa.i.i.i.i21, ptr %4, align 8, !tbaa !43
-  %29 = getelementptr inbounds nuw %"class.cv::Mat", ptr %20, i64 %16
+  %29 = getelementptr inbounds nuw [96 x i8], ptr %20, i64 %16
   store ptr %29, ptr %28, align 8, !tbaa !46
   ret void
 }

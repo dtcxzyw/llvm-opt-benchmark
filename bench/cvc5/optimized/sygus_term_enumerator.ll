@@ -408,7 +408,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit50: ; preds = %133, %139, %145
   %167 = getelementptr inbounds nuw i8, ptr %161, i64 200
   %168 = load ptr, ptr %167, align 8, !tbaa !56
   %169 = sext i32 %162 to i64
-  %170 = getelementptr inbounds %"struct.std::ios_base::_Words", ptr %168, i64 %169
+  %170 = getelementptr inbounds [16 x i8], ptr %168, i64 %169
   br label %_ZNSt8ios_base5iwordEi.exit.i
 
 171:                                              ; preds = %157
@@ -727,7 +727,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4
   %19 = getelementptr inbounds nuw i8, ptr %13, i64 200
   %20 = load ptr, ptr %19, align 8, !tbaa !56
   %21 = sext i32 %14 to i64
-  %22 = getelementptr inbounds %"struct.std::ios_base::_Words", ptr %20, i64 %21
+  %22 = getelementptr inbounds [16 x i8], ptr %20, i64 %21
   br label %_ZNSt8ios_base5iwordEi.exit
 
 23:                                               ; preds = %9
@@ -818,7 +818,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4
   %18 = getelementptr inbounds nuw i8, ptr %12, i64 200
   %19 = load ptr, ptr %18, align 8, !tbaa !56
   %20 = sext i32 %13 to i64
-  %21 = getelementptr inbounds %"struct.std::ios_base::_Words", ptr %19, i64 %20
+  %21 = getelementptr inbounds [16 x i8], ptr %19, i64 %20
   br label %_ZNSt8ios_base5iwordEi.exit
 
 22:                                               ; preds = %8

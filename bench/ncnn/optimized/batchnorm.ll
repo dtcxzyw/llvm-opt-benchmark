@@ -1171,27 +1171,27 @@ _ZNK4ncnn3Mat5emptyEv.exit105:                    ; preds = %419
 
 439:                                              ; preds = %.lr.ph, %439
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %439 ]
-  %440 = getelementptr inbounds nuw float, ptr %433, i64 %indvars.iv
+  %440 = getelementptr inbounds nuw [4 x i8], ptr %433, i64 %indvars.iv
   %441 = load float, ptr %440, align 4, !tbaa !43
   %442 = load float, ptr %434, align 4, !tbaa !35
   %443 = fadd fast float %442, %441
   %444 = call fast float @llvm.sqrt.f32(float %443)
   %445 = fcmp fast oeq float %443, 0.000000e+00
   %.0 = select nsz i1 %445, float 0x3F1A36E2E0000000, float %444
-  %446 = getelementptr inbounds nuw float, ptr %435, i64 %indvars.iv
+  %446 = getelementptr inbounds nuw [4 x i8], ptr %435, i64 %indvars.iv
   %447 = load float, ptr %446, align 4, !tbaa !43
-  %448 = getelementptr inbounds nuw float, ptr %436, i64 %indvars.iv
+  %448 = getelementptr inbounds nuw [4 x i8], ptr %436, i64 %indvars.iv
   %449 = load float, ptr %448, align 4, !tbaa !43
-  %450 = getelementptr inbounds nuw float, ptr %437, i64 %indvars.iv
+  %450 = getelementptr inbounds nuw [4 x i8], ptr %437, i64 %indvars.iv
   %451 = load float, ptr %450, align 4, !tbaa !43
   %452 = fmul fast float %451, %449
   %453 = fdiv fast float %452, %.0
   %454 = fsub fast float %447, %453
-  %455 = getelementptr inbounds nuw float, ptr %438, i64 %indvars.iv
+  %455 = getelementptr inbounds nuw [4 x i8], ptr %438, i64 %indvars.iv
   store float %454, ptr %455, align 4, !tbaa !43
   %456 = load float, ptr %448, align 4, !tbaa !43
   %457 = fdiv fast float %456, %.0
-  %458 = getelementptr inbounds nuw float, ptr %422, i64 %indvars.iv
+  %458 = getelementptr inbounds nuw [4 x i8], ptr %422, i64 %indvars.iv
   store float %457, ptr %458, align 4, !tbaa !43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1406,12 +1406,12 @@ define internal void @_ZNK4ncnn9BatchNorm15forward_inplaceERNS_3MatERKNS_6Option
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ %23, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv
   %27 = load float, ptr %26, align 4, !tbaa !43
-  %28 = getelementptr inbounds float, ptr %20, i64 %indvars.iv
+  %28 = getelementptr inbounds [4 x i8], ptr %20, i64 %indvars.iv
   %29 = load float, ptr %28, align 4, !tbaa !43
   %30 = fmul fast float %29, %27
-  %31 = getelementptr inbounds nuw float, ptr %22, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv
   %32 = load float, ptr %31, align 4, !tbaa !43
   %33 = fadd fast float %32, %30
   store float %33, ptr %28, align 4, !tbaa !43
@@ -1502,15 +1502,15 @@ define internal void @_ZNK4ncnn9BatchNorm15forward_inplaceERNS_3MatERKNS_6Option
   %indvars.iv34 = phi i64 [ %31, %.lr.ph.us.preheader ], [ %indvars.iv.next35, %._crit_edge.us ]
   %.reass.us = mul i64 %factor.op.mul, %indvars.iv34
   %33 = getelementptr inbounds nuw i8, ptr %19, i64 %.reass.us
-  %34 = getelementptr inbounds nuw float, ptr %26, i64 %indvars.iv34
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv34
   %35 = load float, ptr %34, align 4, !tbaa !43
-  %36 = getelementptr inbounds nuw float, ptr %28, i64 %indvars.iv34
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv34
   %37 = load float, ptr %36, align 4, !tbaa !43
   br label %38
 
 38:                                               ; preds = %.lr.ph.us, %38
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %38 ]
-  %39 = getelementptr inbounds nuw float, ptr %33, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %indvars.iv
   %40 = load float, ptr %39, align 4, !tbaa !43
   %41 = fmul fast float %40, %37
   %42 = fadd fast float %41, %35
@@ -1591,15 +1591,15 @@ define internal void @_ZNK4ncnn9BatchNorm15forward_inplaceERNS_3MatERKNS_6Option
   %indvars.iv39 = phi i64 [ %30, %.noexc27.us.preheader ], [ %indvars.iv.next40, %._crit_edge.us ]
   %.reass.us = mul i64 %factor.op.mul, %indvars.iv39
   %32 = getelementptr inbounds nuw i8, ptr %19, i64 %.reass.us
-  %33 = getelementptr inbounds nuw float, ptr %25, i64 %indvars.iv39
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv39
   %34 = load float, ptr %33, align 4, !tbaa !43
-  %35 = getelementptr inbounds nuw float, ptr %27, i64 %indvars.iv39
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv39
   %36 = load float, ptr %35, align 4, !tbaa !43
   br label %37
 
 37:                                               ; preds = %.noexc27.us, %37
   %indvars.iv = phi i64 [ 0, %.noexc27.us ], [ %indvars.iv.next, %37 ]
-  %38 = getelementptr inbounds nuw float, ptr %32, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %indvars.iv
   %39 = load float, ptr %38, align 4, !tbaa !43
   %40 = fmul fast float %39, %36
   %41 = fadd fast float %40, %34

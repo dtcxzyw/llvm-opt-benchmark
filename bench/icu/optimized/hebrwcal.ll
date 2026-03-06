@@ -399,9 +399,9 @@ define void @_ZN6icu_7714HebrewCalendar4rollENS_8Calendar11EDateFieldsEiR10UErro
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef i32 @_ZNK6icu_7714HebrewCalendar14handleGetLimitE19UCalendarDateFieldsNS_8Calendar10ELimitTypeE(ptr nonnull readnone align 8 captures(none) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #4 align 2 {
   %4 = zext i32 %1 to i64
-  %5 = getelementptr inbounds nuw [4 x i32], ptr @_ZL6LIMITS, i64 %4
+  %5 = getelementptr inbounds nuw [16 x i8], ptr @_ZL6LIMITS, i64 %4
   %6 = zext i32 %2 to i64
-  %7 = getelementptr inbounds nuw i32, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !9
   ret i32 %8
 }
@@ -666,12 +666,12 @@ _ZN6icu_7712_GLOBAL__N_110daysInYearEiR10UErrorCode.exit.i: ; preds = %.preheade
   %40 = select i1 %39, i64 -7, i64 12
   %.not = icmp slt i64 %38, %40
   %.in.v.v = select i1 %.not, ptr @_ZL11MONTH_START, ptr @_ZL16LEAP_MONTH_START
-  %invariant.gep = getelementptr i16, ptr %.in.v.v, i64 %switch.select14.i
+  %invariant.gep = getelementptr [2 x i8], ptr %.in.v.v, i64 %switch.select14.i
   br label %41
 
 41:                                               ; preds = %31, %45
   %indvars.iv = phi i64 [ 0, %31 ], [ %indvars.iv.next, %45 ]
-  %gep = getelementptr [3 x i16], ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [6 x i8], ptr %invariant.gep, i64 %indvars.iv
   %42 = load i16, ptr %gep, align 2, !tbaa !18
   %43 = sext i16 %42 to i32
   %44 = icmp sgt i32 %.062, %43
@@ -694,8 +694,8 @@ _ZN6icu_7712_GLOBAL__N_110daysInYearEiR10UErrorCode.exit.i: ; preds = %.preheade
 47:                                               ; preds = %.critedge
   %48 = add nsw i32 %46, -1
   %49 = zext nneg i32 %48 to i64
-  %.in71.v = getelementptr inbounds nuw [3 x i16], ptr %.in.v.v, i64 %49
-  %.in71 = getelementptr inbounds nuw i16, ptr %.in71.v, i64 %switch.select14.i
+  %.in71.v = getelementptr inbounds nuw [6 x i8], ptr %.in.v.v, i64 %49
+  %.in71 = getelementptr inbounds nuw [2 x i8], ptr %.in71.v, i64 %switch.select14.i
   %50 = load i16, ptr %.in71, align 2, !tbaa !18
   %51 = sext i16 %50 to i32
   %52 = sub nsw i32 %.062, %51
@@ -1042,8 +1042,8 @@ thread-pre-split:                                 ; preds = %48
   %73 = sext i32 %72 to i64
   %74 = zext nneg i32 %61 to i64
   %.pn.in.in.v.v = select i1 %.not, ptr @_ZL11MONTH_START, ptr @_ZL16LEAP_MONTH_START
-  %.pn.in.in.v = getelementptr inbounds [3 x i16], ptr %.pn.in.in.v.v, i64 %73
-  %.pn.in.in = getelementptr inbounds nuw i16, ptr %.pn.in.in.v, i64 %74
+  %.pn.in.in.v = getelementptr inbounds [6 x i8], ptr %.pn.in.in.v.v, i64 %73
+  %.pn.in.in = getelementptr inbounds nuw [2 x i8], ptr %.pn.in.in.v, i64 %74
   %.pn.in = load i16, ptr %.pn.in.in, align 2, !tbaa !18
   %.pn = sext i16 %.pn.in to i64
   %.218 = add nsw i64 %.pn, %54
@@ -1235,7 +1235,7 @@ define noundef ptr @_ZNK6icu_7714HebrewCalendar20getTemporalMonthCodeER10UErrorC
 
 6:                                                ; preds = %2
   %7 = sext i32 %3 to i64
-  %8 = getelementptr inbounds ptr, ptr @_ZN6icu_77L28gTemporalMonthCodesForHebrewE, i64 %7
+  %8 = getelementptr inbounds [8 x i8], ptr @_ZN6icu_77L28gTemporalMonthCodesForHebrewE, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !25
   br label %10
 
@@ -1259,7 +1259,7 @@ define void @_ZN6icu_7714HebrewCalendar20setTemporalMonthCodeEPKcR10UErrorCode(p
 
 .preheader:                                       ; preds = %6, %16
   %indvars.iv = phi i64 [ %indvars.iv.next, %16 ], [ 0, %6 ]
-  %10 = getelementptr inbounds nuw ptr, ptr @_ZN6icu_77L28gTemporalMonthCodesForHebrewE, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6icu_77L28gTemporalMonthCodesForHebrewE, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !25
   %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %11) #9
   %13 = icmp eq i32 %12, 0

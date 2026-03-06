@@ -3,8 +3,6 @@ source_filename = "bench/gromacs/original/pme_spline_work.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"class.gmx::Simd4FBool" = type { <4 x float> }
-
 @_ZN15pme_spline_workC1Ei = unnamed_addr alias void (ptr, i32), ptr @_ZN15pme_spline_workC2Ei
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
@@ -35,7 +33,7 @@ define void @_ZN15pme_spline_workC2Ei(ptr noundef nonnull writeonly align 16 cap
   %9 = icmp sge i64 %indvars.iv, %7
   %10 = select i1 %.not, i1 true, i1 %9
   %11 = select i1 %10, float 1.000000e+00, float -1.000000e+00
-  %12 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   store float %11, ptr %12, align 4, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 8
@@ -46,11 +44,11 @@ define void @_ZN15pme_spline_workC2Ei(ptr noundef nonnull writeonly align 16 cap
   %.val29 = load <4 x float>, ptr %5, align 16, !tbaa !10
   %14 = fcmp olt <4 x float> %.val, zeroinitializer
   %15 = sext <4 x i1> %14 to <4 x i32>
-  %16 = getelementptr inbounds nuw %"class.gmx::Simd4FBool", ptr %0, i64 %indvars.iv38
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %indvars.iv38
   store <4 x i32> %15, ptr %16, align 16, !tbaa !10
   %17 = fcmp olt <4 x float> %.val29, zeroinitializer
   %18 = sext <4 x i1> %17 to <4 x i32>
-  %19 = getelementptr inbounds nuw %"class.gmx::Simd4FBool", ptr %.ptr28, i64 %indvars.iv38
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %.ptr28, i64 %indvars.iv38
   store <4 x i32> %18, ptr %19, align 16, !tbaa !10
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
   %exitcond41.not = icmp eq i64 %indvars.iv.next39, %wide.trip.count

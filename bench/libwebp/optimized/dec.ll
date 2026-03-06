@@ -140,36 +140,36 @@ define internal void @TransformWHT_C(ptr noalias noundef readonly captures(none)
 
 4:                                                ; preds = %2, %4
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv
   %6 = load i16, ptr %5, align 2, !tbaa !7
   %7 = sext i16 %6 to i32
   %8 = or disjoint i64 %indvars.iv, 12
-  %9 = getelementptr inbounds nuw i16, ptr %0, i64 %8
+  %9 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %8
   %10 = load i16, ptr %9, align 2, !tbaa !7
   %11 = sext i16 %10 to i32
   %12 = add nsw i32 %11, %7
   %13 = or disjoint i64 %indvars.iv, 4
-  %14 = getelementptr inbounds nuw i16, ptr %0, i64 %13
+  %14 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %13
   %15 = load i16, ptr %14, align 2, !tbaa !7
   %16 = sext i16 %15 to i32
   %17 = or disjoint i64 %indvars.iv, 8
-  %18 = getelementptr inbounds nuw i16, ptr %0, i64 %17
+  %18 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %17
   %19 = load i16, ptr %18, align 2, !tbaa !7
   %20 = sext i16 %19 to i32
   %21 = add nsw i32 %20, %16
   %22 = sub nsw i32 %16, %20
   %23 = sub nsw i32 %7, %11
   %24 = add nsw i32 %21, %12
-  %25 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   store i32 %24, ptr %25, align 4, !tbaa !9
   %26 = sub nsw i32 %12, %21
-  %27 = getelementptr inbounds nuw i32, ptr %3, i64 %17
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %17
   store i32 %26, ptr %27, align 4, !tbaa !9
   %28 = add nsw i32 %22, %23
-  %29 = getelementptr inbounds nuw i32, ptr %3, i64 %13
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %13
   store i32 %28, ptr %29, align 4, !tbaa !9
   %30 = sub nsw i32 %23, %22
-  %31 = getelementptr inbounds nuw i32, ptr %3, i64 %8
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %8
   store i32 %30, ptr %31, align 4, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4

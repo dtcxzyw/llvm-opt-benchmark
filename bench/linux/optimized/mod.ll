@@ -210,7 +210,7 @@ define dso_local ptr @v9fs_get_default_trans() #0 align 16 {
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %24 = phi i64 [ %28, %.preheader ], [ 0, %.preheader.preheader ]
-  %25 = getelementptr ptr, ptr @v9fs_default_transports, i64 %24
+  %25 = getelementptr [8 x i8], ptr @v9fs_default_transports, i64 %24
   %26 = load ptr, ptr %25, align 8
   %27 = tail call ptr @v9fs_get_trans_by_name(ptr noundef %26)
   %28 = add nuw nsw i64 %24, 1

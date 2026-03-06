@@ -199,7 +199,7 @@ define noundef i32 @_Z9gmx_wheeliPPc(i32 noundef %0, ptr noundef %1) local_unnam
 .lr.ph:                                           ; preds = %.preheader, %118
   %.02675 = phi i32 [ %119, %118 ], [ 1, %.preheader ]
   %61 = sext i32 %.02675 to i64
-  %62 = getelementptr inbounds ptr, ptr %1, i64 %61
+  %62 = getelementptr inbounds [8 x i8], ptr %1, i64 %61
   %63 = load ptr, ptr %62, align 8, !tbaa !12
   %64 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %63, ptr noundef nonnull dereferenceable(4) @.str.3) #15
   %65 = icmp eq i32 %64, 0
@@ -208,7 +208,7 @@ define noundef i32 @_Z9gmx_wheeliPPc(i32 noundef %0, ptr noundef %1) local_unnam
 66:                                               ; preds = %.lr.ph
   %67 = add nsw i32 %.02675, 1
   %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds ptr, ptr %1, i64 %68
+  %69 = getelementptr inbounds [8 x i8], ptr %1, i64 %68
   %70 = load ptr, ptr %69, align 8, !tbaa !12
   %71 = call i64 @strtol(ptr noundef captures(none) %70, ptr noundef null, i32 noundef 10) #16
   %72 = trunc i64 %71 to i32
@@ -225,7 +225,7 @@ define noundef i32 @_Z9gmx_wheeliPPc(i32 noundef %0, ptr noundef %1) local_unnam
 78:                                               ; preds = %75
   %79 = add nsw i32 %.02675, 1
   %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds ptr, ptr %1, i64 %80
+  %81 = getelementptr inbounds [8 x i8], ptr %1, i64 %80
   %82 = load ptr, ptr %81, align 8, !tbaa !12
   %83 = call double @strtod(ptr noundef captures(none) %82, ptr noundef null) #16
   %84 = fptrunc double %83 to float
@@ -255,7 +255,7 @@ sub_1:                                            ; preds = %sub_0
 94:                                               ; preds = %.tail
   %95 = add nsw i32 %.02675, 1
   %96 = sext i32 %95 to i64
-  %97 = getelementptr inbounds ptr, ptr %1, i64 %96
+  %97 = getelementptr inbounds [8 x i8], ptr %1, i64 %96
   %98 = load ptr, ptr %97, align 8, !tbaa !12
   %99 = invoke noundef ptr @_Z10gmx_strdupPKc(ptr noundef %98)
           to label %100 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
@@ -283,7 +283,7 @@ sub_1:                                            ; preds = %sub_0
           to label %109 unwind label %113
 
 109:                                              ; preds = %108
-  %110 = getelementptr inbounds ptr, ptr %1, i64 %61
+  %110 = getelementptr inbounds [8 x i8], ptr %1, i64 %61
   %111 = load ptr, ptr %110, align 8, !tbaa !12
   invoke void (i32, ptr, i32, ptr, ...) @_Z9gmx_fataliRKNSt10filesystem7__cxx114pathEiPKcz(i32 noundef 0, ptr noundef nonnull align 8 dereferenceable(40) %28, i32 noundef 278, ptr noundef nonnull @.str.18, ptr noundef %111) #19
           to label %112 unwind label %115
@@ -353,13 +353,13 @@ sub_1:                                            ; preds = %sub_0
 .lr.ph.i:                                         ; preds = %162, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %162 ]
   %.0121.i = phi i32 [ 0, %.lr.ph.preheader.i ], [ %.sroa.speculated.i, %162 ]
-  %138 = getelementptr inbounds nuw ptr, ptr %136, i64 %indvars.iv.i
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %136, i64 %indvars.iv.i
   %139 = invoke noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef nonnull @.str.21, ptr noundef nonnull @.str.17, i32 noundef 100, i64 noundef 256, i64 noundef 1)
           to label %.noexc31 unwind label %.loopexit.split-lp.loopexit
 
 .noexc31:                                         ; preds = %.lr.ph.i
   store ptr %139, ptr %138, align 8, !tbaa !12
-  %140 = getelementptr inbounds nuw ptr, ptr %131, i64 %indvars.iv.i
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %131, i64 %indvars.iv.i
   %141 = load ptr, ptr %140, align 8, !tbaa !12
   %142 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %141) #15
   %143 = shl i64 %142, 32
@@ -444,7 +444,7 @@ sub_1:                                            ; preds = %sub_0
 .lr.ph.i.i:                                       ; preds = %183, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %183 ]
   %177 = load ptr, ptr %12, align 8, !tbaa !38
-  %178 = getelementptr inbounds nuw ptr, ptr %131, i64 %indvars.iv.i.i
+  %178 = getelementptr inbounds nuw [8 x i8], ptr %131, i64 %indvars.iv.i.i
   %179 = load ptr, ptr %178, align 8, !tbaa !12
   %180 = invoke noundef i32 @_Z10search_striPPcS_(i32 noundef %175, ptr noundef %177, ptr noundef %179)
           to label %.noexc34 unwind label %.loopexit
@@ -657,7 +657,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit89.i: ; preds = %2
 
 238:                                              ; preds = %237
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  %239 = getelementptr inbounds nuw ptr, ptr %136, i64 %indvars.iv129.i
+  %239 = getelementptr inbounds nuw [8 x i8], ptr %136, i64 %indvars.iv129.i
   %240 = load ptr, ptr %239, align 8, !tbaa !12
   store ptr %228, ptr %17, align 8, !tbaa !48
   %241 = icmp eq ptr %240, null
@@ -834,7 +834,7 @@ _ZL5wheelPKciPPcifS0_.exit:                       ; preds = %273, %276
 .lr.ph.i58:                                       ; preds = %.lr.ph.i58, %.lr.ph.preheader.i56
   %indvars.iv.i59 = phi i64 [ 0, %.lr.ph.preheader.i56 ], [ %indvars.iv.next.i61, %.lr.ph.i58 ]
   %.083.i = phi i32 [ 0, %.lr.ph.preheader.i56 ], [ %.sroa.speculated.i60, %.lr.ph.i58 ]
-  %298 = getelementptr inbounds nuw ptr, ptr %294, i64 %indvars.iv.i59
+  %298 = getelementptr inbounds nuw [8 x i8], ptr %294, i64 %indvars.iv.i59
   %299 = load ptr, ptr %298, align 8, !tbaa !12
   %300 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %299) #15
   %301 = trunc i64 %300 to i32
@@ -1050,7 +1050,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit55.i: ; preds = %3
 
 366:                                              ; preds = %365
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %367 = getelementptr inbounds nuw ptr, ptr %294, i64 %indvars.iv91.i
+  %367 = getelementptr inbounds nuw [8 x i8], ptr %294, i64 %indvars.iv91.i
   %368 = load ptr, ptr %367, align 8, !tbaa !12
   store ptr %356, ptr %9, align 8, !tbaa !48
   %369 = icmp eq ptr %368, null

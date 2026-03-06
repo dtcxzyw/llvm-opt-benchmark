@@ -1017,10 +1017,10 @@ define internal fastcc i32 @decode_header_body_credential(ptr noundef %0, ptr no
 
 switch.lookup:                                    ; preds = %51
   %56 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.decode_header_body_credential, i64 %56
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.decode_header_body_credential, i64 %56
   %switch.load = load i32, ptr %switch.gep, align 4
   %57 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep652 = getelementptr inbounds nuw i32, ptr @switch.table.decode_header_body_credential.1, i64 %57
+  %switch.gep652 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.decode_header_body_credential.1, i64 %57
   %switch.load653 = load i32, ptr %switch.gep652, align 4
   %58 = load i32, ptr @hf_do_irp_digest, align 4
   %59 = tail call ptr @proto_tree_add_item(ptr noundef %47, i32 noundef %58, ptr noundef %0, i32 noundef 25, i32 noundef %switch.load, i32 noundef 0)

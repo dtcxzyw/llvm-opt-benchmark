@@ -170,7 +170,7 @@ define dso_local noundef i32 @cmd_patch_id(i32 noundef %0, ptr noundef %1, ptr n
 
 68:                                               ; preds = %70, %57
   %.0811.i.i.i = phi i64 [ 0, %57 ], [ %71, %70 ]
-  %69 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i.i
+  %69 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i.i
   %.not.i.i.i = icmp eq ptr %58, %69
   br i1 %.not.i.i.i, label %.split.loop.exit9.i.i.i, label %70
 
@@ -218,7 +218,7 @@ oidclr.exit.i:                                    ; preds = %70, %.split.loop.ex
 
 88:                                               ; preds = %90, %79
   %.0811.i.i.i.i = phi i64 [ 0, %79 ], [ %91, %90 ]
-  %89 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i.i.i
+  %89 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i.i.i
   %.not.i.i.i.i = icmp eq ptr %87, %89
   br i1 %.not.i.i.i.i, label %.split.loop.exit9.i.i.i.i, label %90
 
@@ -606,7 +606,7 @@ scan_hunk_header.exit.thread.i.i:                 ; preds = %scan_hunk_header.ex
 
 249:                                              ; preds = %251, %scan_hunk_header.exit.thread.i.i
   %.0811.i.i100.i.i = phi i64 [ 0, %scan_hunk_header.exit.thread.i.i ], [ %252, %251 ]
-  %250 = getelementptr inbounds nuw %struct.git_hash_algo, ptr @hash_algos, i64 %.0811.i.i100.i.i
+  %250 = getelementptr inbounds nuw [112 x i8], ptr @hash_algos, i64 %.0811.i.i100.i.i
   %.not.i.i101.i.i = icmp eq ptr %248, %250
   br i1 %.not.i.i101.i.i, label %.split.loop.exit9.i.i104.i.i, label %251
 

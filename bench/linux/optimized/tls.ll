@@ -73,7 +73,7 @@ define dso_local range(i32 -22, 1) i32 @do_set_thread_area(ptr noundef captures(
 
 32:                                               ; preds = %40, %28
   %33 = phi i64 [ 0, %28 ], [ %41, %40 ]
-  %34 = getelementptr %struct.desc_struct, ptr %31, i64 %33
+  %34 = getelementptr [8 x i8], ptr %31, i64 %33
   %35 = load i32, ptr %34, align 4
   %36 = getelementptr i8, ptr %34, i64 4
   %37 = load i32, ptr %36, align 4
@@ -204,7 +204,7 @@ define internal fastcc void @set_tls_desc(ptr noundef captures(address) %0, i32 
 
 7:                                                ; preds = %4
   %8 = sext i32 %1 to i64
-  %9 = getelementptr %struct.desc_struct, ptr %5, i64 %8
+  %9 = getelementptr [8 x i8], ptr %5, i64 %8
   %10 = getelementptr i8, ptr %9, i64 -96
   br label %11
 
@@ -331,7 +331,7 @@ define internal fastcc void @set_tls_desc(ptr noundef captures(address) %0, i32 
 
 102:                                              ; preds = %.loopexit1
   %103 = zext i32 %6 to i64
-  %104 = getelementptr i64, ptr @__per_cpu_offset, i64 %103
+  %104 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %103
   %105 = load i64, ptr %104, align 8
   %106 = add i64 %105, ptrtoint (ptr @gdt_page to i64)
   %107 = inttoptr i64 %106 to ptr
@@ -339,9 +339,9 @@ define internal fastcc void @set_tls_desc(ptr noundef captures(address) %0, i32 
 
 108:                                              ; preds = %108, %102
   %109 = phi i64 [ 0, %102 ], [ %114, %108 ]
-  %110 = getelementptr %struct.desc_struct, ptr %107, i64 %109
+  %110 = getelementptr [8 x i8], ptr %107, i64 %109
   %111 = getelementptr i8, ptr %110, i64 96
-  %112 = getelementptr %struct.desc_struct, ptr %5, i64 %109
+  %112 = getelementptr [8 x i8], ptr %5, i64 %109
   %113 = load i64, ptr %112, align 8
   store i64 %113, ptr %111, align 1
   %114 = add nuw nsw i64 %109, 1
@@ -456,7 +456,7 @@ define dso_local range(i32 -22, 1) i32 @do_get_thread_area(ptr noundef readonly 
   %24 = and i32 %20, %23
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 2816
   %26 = zext nneg i32 %24 to i64
-  %27 = getelementptr %struct.desc_struct, ptr %25, i64 %26
+  %27 = getelementptr [8 x i8], ptr %25, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 12
   store i32 0, ptr %28, align 4
   store i32 %16, ptr %4, align 4
@@ -552,7 +552,7 @@ define dso_local i32 @regset_tls_active(ptr noundef readonly captures(none) %0, 
 
 7:                                                ; preds = %4
   %8 = add nsw i64 %5, -1
-  %9 = getelementptr %struct.desc_struct, ptr %3, i64 %8
+  %9 = getelementptr [8 x i8], ptr %3, i64 %8
   %10 = load i32, ptr %9, align 4
   %11 = getelementptr i8, ptr %9, i64 4
   %12 = load i32, ptr %11, align 4
@@ -688,7 +688,7 @@ define dso_local noundef range(i32 -22, 1) i32 @regset_tls_set(ptr noundef captu
 .preheader:                                       ; preds = %24, %47
   %28 = phi i64 [ %49, %47 ], [ 0, %24 ]
   %29 = phi i32 [ %48, %47 ], [ 0, %24 ]
-  %30 = getelementptr %struct.user_desc, ptr %25, i64 %28
+  %30 = getelementptr [16 x i8], ptr %25, i64 %28
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %32 = load i32, ptr %31, align 4
   %33 = icmp eq i32 %32, 0

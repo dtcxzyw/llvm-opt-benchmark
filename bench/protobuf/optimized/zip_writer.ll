@@ -126,7 +126,7 @@ for.body.i:                                       ; preds = %invoke.cont3, %for.
   %x.0.tr.i = trunc i32 %x.09.i to i8
   %xor.narrow.i = xor i8 %2, %x.0.tr.i
   %idxprom.i = zext i8 %xor.narrow.i to i64
-  %arrayidx.i = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf8compilerL11kCRC32TableE, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf8compilerL11kCRC32TableE, i64 %idxprom.i
   %3 = load i32, ptr %arrayidx.i, align 4
   %shr.i = lshr i32 %x.09.i, 8
   %xor4.i = xor i32 %3, %shr.i
@@ -640,11 +640,11 @@ for.body.preheader:                               ; preds = %_ZN6google8protobuf
 for.body:                                         ; preds = %for.body.preheader, %for.inc
   %indvars.iv = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next, %for.inc ]
   %11 = load ptr, ptr %files_, align 8
-  %add.ptr.i = getelementptr inbounds nuw %"struct.google::protobuf::compiler::ZipWriter::FileInfo", ptr %11, i64 %indvars.iv
+  %add.ptr.i = getelementptr inbounds nuw [48 x i8], ptr %11, i64 %indvars.iv
   %call9 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr.i) #16
   %conv10 = trunc i64 %call9 to i16
   %12 = load ptr, ptr %files_, align 8
-  %add.ptr.i10 = getelementptr inbounds nuw %"struct.google::protobuf::compiler::ZipWriter::FileInfo", ptr %12, i64 %indvars.iv
+  %add.ptr.i10 = getelementptr inbounds nuw [48 x i8], ptr %12, i64 %indvars.iv
   %crc3214 = getelementptr inbounds nuw i8, ptr %add.ptr.i10, i64 40
   %13 = load i32, ptr %crc3214, align 8
   %size18 = getelementptr inbounds nuw i8, ptr %add.ptr.i10, i64 36
@@ -1316,7 +1316,7 @@ _ZNSt12_Vector_baseIN6google8protobuf8compiler9ZipWriter8FileInfoESaIS4_EE13_M_d
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %cond.i17, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i27, ptr %_M_finish.i.i, align 8
-  %add.ptr26 = getelementptr inbounds nuw %"struct.google::protobuf::compiler::ZipWriter::FileInfo", ptr %cond.i17, i64 %cond.i
+  %add.ptr26 = getelementptr inbounds nuw [48 x i8], ptr %cond.i17, i64 %cond.i
   store ptr %add.ptr26, ptr %_M_end_of_storage, align 8
   ret void
 

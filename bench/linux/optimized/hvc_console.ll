@@ -87,7 +87,7 @@ define dso_local noundef range(i32 -1, 1) i32 @hvc_instantiate(i32 noundef %0, i
 
 5:                                                ; preds = %3
   %6 = zext nneg i32 %1 to i64
-  %7 = getelementptr i32, ptr @vtermnos, i64 %6
+  %7 = getelementptr [4 x i8], ptr @vtermnos, i64 %6
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, -1
   br i1 %9, label %10, label %23
@@ -103,7 +103,7 @@ define dso_local noundef range(i32 -1, 1) i32 @hvc_instantiate(i32 noundef %0, i
 
 14:                                               ; preds = %10
   store i32 %0, ptr %7, align 4
-  %15 = getelementptr ptr, ptr @cons_ops, i64 %6
+  %15 = getelementptr [8 x i8], ptr @cons_ops, i64 %6
   store ptr %2, ptr %15, align 8
   tail call void @console_list_lock() #12
   %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hvc_console, i64 120), align 8
@@ -630,13 +630,13 @@ define dso_local ptr @hvc_alloc(i32 noundef %0, i32 noundef %1, ptr noundef %2, 
 
 68:                                               ; preds = %78, %56
   %69 = phi i64 [ 0, %56 ], [ %79, %78 ]
-  %70 = getelementptr i32, ptr @vtermnos, i64 %69
+  %70 = getelementptr [4 x i8], ptr @vtermnos, i64 %69
   %71 = load i32, ptr %70, align 4
   %72 = icmp eq i32 %71, %67
   br i1 %72, label %73, label %78
 
 73:                                               ; preds = %68
-  %74 = getelementptr ptr, ptr @cons_ops, i64 %69
+  %74 = getelementptr [8 x i8], ptr @cons_ops, i64 %69
   %75 = load ptr, ptr %74, align 8
   %76 = load ptr, ptr %59, align 8
   %77 = icmp eq ptr %75, %76
@@ -662,7 +662,7 @@ define dso_local ptr @hvc_alloc(i32 noundef %0, i32 noundef %1, ptr noundef %2, 
 
 .preheader:                                       ; preds = %.preheader.preheader, %88
   %84 = phi i64 [ %89, %88 ], [ 0, %.preheader.preheader ]
-  %85 = getelementptr i32, ptr @vtermnos, i64 %84
+  %85 = getelementptr [4 x i8], ptr @vtermnos, i64 %84
   %86 = load i32, ptr %85, align 4
   %87 = icmp eq i32 %86, -1
   br i1 %87, label %91, label %88
@@ -694,9 +694,9 @@ define dso_local ptr @hvc_alloc(i32 noundef %0, i32 noundef %1, ptr noundef %2, 
 101:                                              ; preds = %.thread15, %97
   %102 = phi i32 [ %81, %.thread15 ], [ %98, %97 ]
   %103 = sext i32 %102 to i64
-  %104 = getelementptr ptr, ptr @cons_ops, i64 %103
+  %104 = getelementptr [8 x i8], ptr @cons_ops, i64 %103
   store ptr %2, ptr %104, align 8
-  %105 = getelementptr i32, ptr @vtermnos, i64 %103
+  %105 = getelementptr [4 x i8], ptr @vtermnos, i64 %103
   store i32 %0, ptr %105, align 4
   br label %106
 
@@ -776,9 +776,9 @@ define dso_local void @hvc_remove(ptr noundef %0) #1 align 16 {
 
 8:                                                ; preds = %1
   %9 = sext i32 %6 to i64
-  %10 = getelementptr i32, ptr @vtermnos, i64 %9
+  %10 = getelementptr [4 x i8], ptr @vtermnos, i64 %9
   store i32 -1, ptr %10, align 4
-  %11 = getelementptr ptr, ptr @cons_ops, i64 %9
+  %11 = getelementptr [8 x i8], ptr @cons_ops, i64 %9
   store ptr null, ptr %11, align 8
   br label %12
 
@@ -830,7 +830,7 @@ define internal void @hvc_console_print(ptr noundef readonly captures(none) %0, 
 
 8:                                                ; preds = %3
   %9 = sext i16 %6 to i64
-  %10 = getelementptr i32, ptr @vtermnos, i64 %9
+  %10 = getelementptr [4 x i8], ptr @vtermnos, i64 %9
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, -1
   br i1 %12, label %81, label %13
@@ -841,7 +841,7 @@ define internal void @hvc_console_print(ptr noundef readonly captures(none) %0, 
   br i1 %.not, label %.loopexit, label %14
 
 14:                                               ; preds = %13
-  %15 = getelementptr ptr, ptr @cons_ops, i64 %9
+  %15 = getelementptr [8 x i8], ptr @cons_ops, i64 %9
   br label %16
 
 16:                                               ; preds = %65, %14
@@ -927,7 +927,7 @@ define internal void @hvc_console_print(ptr noundef readonly captures(none) %0, 
   br i1 %72, label %16, label %.loopexit, !llvm.loop !23
 
 .loopexit:                                        ; preds = %65, %13
-  %73 = getelementptr ptr, ptr @cons_ops, i64 %9
+  %73 = getelementptr [8 x i8], ptr @cons_ops, i64 %9
   %74 = load ptr, ptr %73, align 8
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 16
   %76 = load ptr, ptr %75, align 8
@@ -949,7 +949,7 @@ define internal ptr @hvc_console_device(ptr noundef readonly captures(none) %0, 
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 74
   %4 = load i16, ptr %3, align 2
   %5 = sext i16 %4 to i64
-  %6 = getelementptr i32, ptr @vtermnos, i64 %5
+  %6 = getelementptr [4 x i8], ptr @vtermnos, i64 %5
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, -1
   br i1 %8, label %12, label %9
@@ -974,7 +974,7 @@ define internal range(i32 -19, 1) i32 @hvc_console_setup(ptr noundef readonly ca
 
 6:                                                ; preds = %2
   %7 = zext nneg i16 %4 to i64
-  %8 = getelementptr i32, ptr @vtermnos, i64 %7
+  %8 = getelementptr [4 x i8], ptr @vtermnos, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, -1
   %11 = select i1 %10, i32 -19, i32 0

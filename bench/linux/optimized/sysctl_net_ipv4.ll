@@ -369,7 +369,7 @@ define internal noundef range(i32 -12, 1) i32 @ipv4_sysctl_init_net(ptr noundef 
 
 9:                                                ; preds = %21, %6
   %10 = phi i64 [ 0, %6 ], [ %22, %21 ]
-  %11 = getelementptr %struct.ctl_table, ptr %4, i64 %10
+  %11 = getelementptr [64 x i8], ptr %4, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
@@ -834,7 +834,7 @@ define internal i32 @proc_tcp_fastopen_key(ptr noundef readonly captures(none) %
   %44 = trunc i64 %38 to i32
   %45 = shl i32 %44, 2
   %46 = sext i32 %45 to i64
-  %47 = getelementptr i32, ptr %9, i64 %46
+  %47 = getelementptr [4 x i8], ptr %9, i64 %46
   %48 = load i32, ptr %47, align 16
   %49 = getelementptr i8, ptr %47, i64 4
   %50 = load i32, ptr %49, align 4

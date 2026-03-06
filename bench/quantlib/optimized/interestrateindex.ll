@@ -904,7 +904,7 @@ lpad18:                                           ; preds = %lor.rhs.i, %invoke.
 
 switch.lookup:                                    ; preds = %if.then23
   %26 = zext nneg i32 %21 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN8QuantLib17InterestRateIndexC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_6PeriodEjNS_8CurrencyENS_8CalendarENS_10DayCounterE, i64 %26
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN8QuantLib17InterestRateIndexC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS_6PeriodEjNS_8CurrencyENS_8CalendarENS_10DayCounterE, i64 %26
   %switch.load = load ptr, ptr %switch.gep, align 8
   %27 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull %switch.load, i64 noundef 2)
           to label %if.end60 unwind label %lpad13

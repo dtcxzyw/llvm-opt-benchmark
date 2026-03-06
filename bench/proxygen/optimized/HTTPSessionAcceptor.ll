@@ -68,7 +68,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::_Rb_tree<folly::SocketOptionKey, std::pair<const folly::SocketOptionKey, int>, std::_Select1st<std::pair<const folly::SocketOptionKey, int>>, std::less<folly::SocketOptionKey>>::_Alloc_node" = type { ptr }
 %"struct.std::__detail::_AllocNode" = type { ptr }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::_Identity<std::__cxx11::basic_string<char>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node" = type { ptr }
-%"struct.wangle::SSLContextConfig::CertificateInfo" = type <{ %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string", i8, [7 x i8] }>
 %"class.std::allocator" = type { i8 }
 %struct._Guard = type { ptr }
 
@@ -6592,7 +6591,7 @@ _ZNSt12_Vector_baseIN6wangle16SSLContextConfig15CertificateInfoESaIS2_EE13_M_dea
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %cond.i17, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i32, ptr %_M_finish.i.i, align 8
-  %add.ptr30 = getelementptr inbounds nuw %"struct.wangle::SSLContextConfig::CertificateInfo", ptr %cond.i17, i64 %cond.i
+  %add.ptr30 = getelementptr inbounds nuw [104 x i8], ptr %cond.i17, i64 %cond.i
   store ptr %add.ptr30, ptr %_M_end_of_storage, align 8
   ret void
 
@@ -6985,7 +6984,7 @@ invoke.cont14:                                    ; preds = %if.end5
   %6 = load i64, ptr %_M_bucket_count.i.i.i, align 8
   %7 = load i64, ptr %add.ptr11, align 8
   %rem.i.i.i.i.i = urem i64 %7, %6
-  %arrayidx.i.i = getelementptr inbounds ptr, ptr %5, i64 %rem.i.i.i.i.i
+  %arrayidx.i.i = getelementptr inbounds [8 x i8], ptr %5, i64 %rem.i.i.i.i.i
   store ptr %_M_before_begin.i18, ptr %arrayidx.i.i, align 8
   %__ht_n.023 = load ptr, ptr %2, align 8
   %tobool16.not24 = icmp eq ptr %__ht_n.023, null
@@ -7008,7 +7007,7 @@ invoke.cont20:                                    ; preds = %for.body
   %10 = load i64, ptr %_M_bucket_count.i.i.i, align 8
   %rem.i.i.i = urem i64 %9, %10
   %11 = load ptr, ptr %this, align 8
-  %arrayidx = getelementptr inbounds ptr, ptr %11, i64 %rem.i.i.i
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %11, i64 %rem.i.i.i
   %12 = load ptr, ptr %arrayidx, align 8
   %tobool29.not = icmp eq ptr %12, null
   br i1 %tobool29.not, label %if.then30, label %if.end33

@@ -210,7 +210,7 @@ define noundef range(i32 -1, 2) i32 @_Z7usage_cv() local_unnamed_addr #0 {
   %45 = load i64, ptr %.057, align 8, !tbaa !3
   %46 = getelementptr inbounds nuw i8, ptr %.057, i64 16
   %47 = load i64, ptr %44, align 8, !tbaa !3
-  %48 = getelementptr inbounds i64, ptr %46, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %46, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %50 = load i64, ptr %48, align 8, !tbaa !3
   %51 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, i64 noundef %45, i64 noundef %47, i64 noundef %50)
@@ -231,7 +231,7 @@ define noundef range(i32 -1, 2) i32 @_Z7usage_cv() local_unnamed_addr #0 {
   %55 = phi i64 [ %54, %.loopexit ], [ %.pre, %.lr.ph76.preheader ]
   %.05875 = phi i64 [ %56, %.loopexit ], [ 0, %.lr.ph76.preheader ]
   %56 = add nuw nsw i64 %.05875, 1
-  %57 = getelementptr inbounds nuw i64, ptr %46, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %56
   %58 = load i64, ptr %57, align 8, !tbaa !3
   %59 = icmp slt i64 %55, %58
   br i1 %59, label %.lr.ph, label %.loopexit
@@ -246,7 +246,7 @@ define noundef range(i32 -1, 2) i32 @_Z7usage_cv() local_unnamed_addr #0 {
   br label %62
 
 62:                                               ; preds = %60, %.lr.ph
-  %63 = getelementptr inbounds i64, ptr %49, i64 %.05974
+  %63 = getelementptr inbounds [8 x i8], ptr %49, i64 %.05974
   %64 = load i64, ptr %63, align 8, !tbaa !3
   %65 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.18, i64 noundef %64, i64 noundef %.05875)
   %66 = add nsw i64 %.05974, 1

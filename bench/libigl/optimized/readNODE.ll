@@ -144,7 +144,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
 56:                                               ; preds = %52
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %57 = load ptr, ptr %2, align 8, !tbaa !19
-  %58 = getelementptr inbounds nuw i32, ptr %57, i64 %indvars.iv99
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %indvars.iv99
   %59 = call i32 (ptr, ptr, ...) @__isoc23_sscanf(ptr noundef nonnull %4, ptr noundef nonnull @.str.7, ptr noundef nonnull %58, ptr noundef nonnull %9) #8
   %.not60 = icmp eq i32 %59, 1
   br i1 %.not60, label %60, label %.critedge67
@@ -169,8 +169,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %66 = load ptr, ptr %1, align 8, !tbaa !22
   %67 = load i64, ptr %51, align 8, !tbaa !25
   %68 = mul nsw i64 %67, %indvars.iv
-  %69 = getelementptr double, ptr %66, i64 %indvars.iv99
-  %70 = getelementptr double, ptr %69, i64 %68
+  %69 = getelementptr [8 x i8], ptr %66, i64 %indvars.iv99
+  %70 = getelementptr [8 x i8], ptr %69, i64 %68
   %71 = call i32 (ptr, ptr, ...) @__isoc23_sscanf(ptr noundef %.04480, ptr noundef nonnull @.str.9, ptr noundef nonnull %70, ptr noundef nonnull %9) #8
   %.not61 = icmp eq i32 %71, 1
   br i1 %.not61, label %72, label %.critedge67

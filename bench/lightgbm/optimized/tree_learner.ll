@@ -33,14 +33,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.pthread_mutex_t = type { %struct.__pthread_mutex_s }
 %struct.__pthread_mutex_s = type { i32, i32, i32, i32, i32, i16, i16, %struct.__pthread_internal_list }
 %struct.__pthread_internal_list = type { ptr, ptr }
-%"class.std::vector.175" = type { %"struct.std::_Vector_base.176" }
-%"struct.std::_Vector_base.176" = type { %"struct.std::_Vector_base<const float *, std::allocator<const float *>>::_Vector_impl" }
-%"struct.std::_Vector_base<const float *, std::allocator<const float *>>::_Vector_impl" = type { %"struct.std::_Vector_base<const float *, std::allocator<const float *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<const float *, std::allocator<const float *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.153" = type { %"struct.std::_Vector_base.154" }
-%"struct.std::_Vector_base.154" = type { %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl" }
-%"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl" = type { %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 $_ZN8LightGBM3Log5FatalEPKcz = comdat any
 
@@ -1175,10 +1167,10 @@ define linkonce_odr void @_ZNK8LightGBM17LinearTreeLearnerINS_17SerialTreeLearne
 
 27:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
-  %28 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4, !tbaa !206
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds nuw i32, ptr %24, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !206
   %33 = sext i32 %32 to i64
   %34 = getelementptr inbounds nuw i8, ptr %25, i64 %33
@@ -1231,7 +1223,7 @@ define linkonce_odr noundef i32 @_ZNK8LightGBM17SerialTreeLearner24GetGlobalData
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %8 = zext nneg i32 %1 to i64
   %9 = load ptr, ptr %7, align 8, !tbaa !68
-  %10 = getelementptr inbounds nuw i32, ptr %9, i64 %8
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %8
   %11 = load i32, ptr %10, align 4, !tbaa !206
   br label %12
 
@@ -1314,7 +1306,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %3
   %18 = shl nuw nsw i64 %16, 3
   %19 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #28
   store ptr %19, ptr %6, align 8, !tbaa !64
-  %20 = getelementptr inbounds nuw double, ptr %19, i64 %16
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %16
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %20, ptr %21, align 8, !tbaa !208
   store double 0.000000e+00, ptr %19, align 8, !tbaa !209
@@ -1340,7 +1332,7 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc45
 
 .lr.ph.preheader.i.i.i.i.i50:                     ; preds = %.lr.ph.preheader.i.i.i.i.i
   store ptr %28, ptr %7, align 8, !tbaa !62
-  %29 = getelementptr inbounds nuw %"class.std::vector.8", ptr %28, i64 %16
+  %29 = getelementptr inbounds nuw [24 x i8], ptr %28, i64 %16
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %28, i8 0, i64 %27, i1 false)
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %28, i64 %27
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1353,7 +1345,7 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc45
 
 33:                                               ; preds = %.lr.ph.preheader.i.i.i.i.i50
   store ptr %32, ptr %8, align 8, !tbaa !212
-  %34 = getelementptr inbounds nuw %"class.std::vector.175", ptr %32, i64 %16
+  %34 = getelementptr inbounds nuw [24 x i8], ptr %32, i64 %16
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %32, i8 0, i64 %27, i1 false)
   %scevgep.i.i.i.i.i51 = getelementptr i8, ptr %32, i64 %27
   %35 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -1366,7 +1358,7 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc45
 
 .noexc63:                                         ; preds = %33
   store ptr %37, ptr %9, align 8, !tbaa !64
-  %38 = getelementptr inbounds nuw double, ptr %37, i64 %16
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %16
   %39 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %38, ptr %39, align 8, !tbaa !208
   store double 0.000000e+00, ptr %37, align 8, !tbaa !209
@@ -1390,7 +1382,7 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i58: ; preds = %.noexc63
 
 .noexc69:                                         ; preds = %42
   store ptr %45, ptr %10, align 8, !tbaa !68
-  %46 = getelementptr inbounds nuw i32, ptr %45, i64 %16
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %16
   %47 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %46, ptr %47, align 8, !tbaa !217
   store i32 0, ptr %45, align 4, !tbaa !206
@@ -1461,12 +1453,12 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc69
 69:                                               ; preds = %.lr.ph144, %_ZNSt6vectorIiSaIiEED2Ev.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph144 ], [ %indvars.iv.next, %_ZNSt6vectorIiSaIiEED2Ev.exit ]
   %70 = load ptr, ptr %54, align 8, !tbaa !64
-  %71 = getelementptr inbounds nuw double, ptr %70, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %indvars.iv
   %72 = load double, ptr %71, align 8, !tbaa !209
-  %73 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   store double %72, ptr %73, align 8, !tbaa !209
   %74 = load ptr, ptr %55, align 8, !tbaa !62, !noalias !219
-  %75 = getelementptr inbounds nuw %"class.std::vector.8", ptr %74, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [24 x i8], ptr %74, i64 %indvars.iv
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %77 = load ptr, ptr %76, align 8, !tbaa !210, !noalias !219
   %78 = load ptr, ptr %75, align 8, !tbaa !64, !noalias !219
@@ -1503,7 +1495,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc69
 _ZNK8LightGBM4Tree10LeafCoeffsEi.exit:            ; preds = %.noexc71, %.thread.i
   %.sroa.11116.0 = phi ptr [ %82, %.thread.i ], [ %87, %.noexc71 ]
   %.sroa.0113.0 = phi ptr [ null, %.thread.i ], [ %86, %.noexc71 ]
-  %88 = getelementptr inbounds nuw %"class.std::vector.8", ptr %28, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw [24 x i8], ptr %28, i64 %indvars.iv
   %89 = load ptr, ptr %88, align 8, !tbaa !64
   %90 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %91 = getelementptr inbounds nuw i8, ptr %88, i64 16
@@ -1519,12 +1511,12 @@ _ZNK8LightGBM4Tree10LeafCoeffsEi.exit:            ; preds = %.noexc71, %.thread.
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %92, %_ZNK8LightGBM4Tree10LeafCoeffsEi.exit
   %93 = load ptr, ptr %56, align 8, !tbaa !64
-  %94 = getelementptr inbounds nuw double, ptr %93, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %indvars.iv
   %95 = load double, ptr %94, align 8, !tbaa !209
-  %96 = getelementptr inbounds nuw double, ptr %37, i64 %indvars.iv
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   store double %95, ptr %96, align 8, !tbaa !209
   %97 = load ptr, ptr %57, align 8, !tbaa !223, !noalias !224
-  %98 = getelementptr inbounds nuw %"class.std::vector.13", ptr %97, i64 %indvars.iv
+  %98 = getelementptr inbounds nuw [24 x i8], ptr %97, i64 %indvars.iv
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %100 = load ptr, ptr %99, align 8, !tbaa !218, !noalias !224
   %101 = load ptr, ptr %98, align 8, !tbaa !68, !noalias !224
@@ -1565,7 +1557,7 @@ _ZNK8LightGBM4Tree17LeafFeaturesInnerEi.exit:     ; preds = %.noexc77, %.thread.
   br i1 %.not140, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK8LightGBM4Tree17LeafFeaturesInnerEi.exit
-  %112 = getelementptr inbounds nuw %"class.std::vector.175", ptr %32, i64 %indvars.iv
+  %112 = getelementptr inbounds nuw [24 x i8], ptr %32, i64 %indvars.iv
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %114 = getelementptr inbounds nuw i8, ptr %112, i64 16
   %.pre = load ptr, ptr %113, align 8, !tbaa !227
@@ -1581,7 +1573,7 @@ _ZNK8LightGBM4Tree17LeafFeaturesInnerEi.exit:     ; preds = %.noexc77, %.thread.
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge, %115
-  %116 = getelementptr inbounds nuw %"class.std::vector.175", ptr %32, i64 %indvars.iv
+  %116 = getelementptr inbounds nuw [24 x i8], ptr %32, i64 %indvars.iv
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
   %118 = load ptr, ptr %117, align 8, !tbaa !227
   %119 = load ptr, ptr %116, align 8, !tbaa !232
@@ -1590,7 +1582,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge, %115
   %122 = sub i64 %120, %121
   %123 = lshr exact i64 %122, 3
   %124 = trunc i64 %123 to i32
-  %125 = getelementptr inbounds nuw i32, ptr %45, i64 %indvars.iv
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %indvars.iv
   store i32 %124, ptr %125, align 4, !tbaa !206
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1626,11 +1618,11 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge, %115
   %132 = getelementptr inbounds nuw i8, ptr %130, i64 720
   %133 = sext i32 %129 to i64
   %134 = load ptr, ptr %132, align 8, !tbaa !68
-  %135 = getelementptr inbounds nuw i32, ptr %134, i64 %133
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %134, i64 %133
   %136 = load i32, ptr %135, align 4, !tbaa !206
   %137 = sext i32 %136 to i64
   %138 = load ptr, ptr %131, align 8, !tbaa !234
-  %139 = getelementptr inbounds nuw %"class.std::vector.153", ptr %138, i64 %137
+  %139 = getelementptr inbounds nuw [24 x i8], ptr %138, i64 %137
   %140 = load ptr, ptr %139, align 8, !tbaa !237
   %.not.i.i = icmp eq ptr %128, %127
   br i1 %.not.i.i, label %143, label %141
@@ -1691,7 +1683,7 @@ _ZNSt6vectorIPKfSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = %15
 _ZNSt6vectorIPKfSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %161, %_ZNSt6vectorIPKfSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
   store ptr %156, ptr %112, align 8, !tbaa !232
   store ptr %160, ptr %113, align 8, !tbaa !227
-  %162 = getelementptr inbounds nuw ptr, ptr %156, i64 %154
+  %162 = getelementptr inbounds nuw [8 x i8], ptr %156, i64 %154
   store ptr %162, ptr %114, align 8, !tbaa !231
   br label %_ZNSt6vectorIPKfSaIS1_EE9push_backEOS1_.exit
 
@@ -1961,7 +1953,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %3
   %18 = shl nuw nsw i64 %16, 3
   %19 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #28
   store ptr %19, ptr %6, align 8, !tbaa !64
-  %20 = getelementptr inbounds nuw double, ptr %19, i64 %16
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %16
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %20, ptr %21, align 8, !tbaa !208
   store double 0.000000e+00, ptr %19, align 8, !tbaa !209
@@ -1987,7 +1979,7 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc45
 
 .lr.ph.preheader.i.i.i.i.i50:                     ; preds = %.lr.ph.preheader.i.i.i.i.i
   store ptr %28, ptr %7, align 8, !tbaa !62
-  %29 = getelementptr inbounds nuw %"class.std::vector.8", ptr %28, i64 %16
+  %29 = getelementptr inbounds nuw [24 x i8], ptr %28, i64 %16
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %28, i8 0, i64 %27, i1 false)
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %28, i64 %27
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -2000,7 +1992,7 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc45
 
 33:                                               ; preds = %.lr.ph.preheader.i.i.i.i.i50
   store ptr %32, ptr %8, align 8, !tbaa !212
-  %34 = getelementptr inbounds nuw %"class.std::vector.175", ptr %32, i64 %16
+  %34 = getelementptr inbounds nuw [24 x i8], ptr %32, i64 %16
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %32, i8 0, i64 %27, i1 false)
   %scevgep.i.i.i.i.i51 = getelementptr i8, ptr %32, i64 %27
   %35 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -2013,7 +2005,7 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc45
 
 .noexc63:                                         ; preds = %33
   store ptr %37, ptr %9, align 8, !tbaa !64
-  %38 = getelementptr inbounds nuw double, ptr %37, i64 %16
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %16
   %39 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %38, ptr %39, align 8, !tbaa !208
   store double 0.000000e+00, ptr %37, align 8, !tbaa !209
@@ -2037,7 +2029,7 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i58: ; preds = %.noexc63
 
 .noexc69:                                         ; preds = %42
   store ptr %45, ptr %10, align 8, !tbaa !68
-  %46 = getelementptr inbounds nuw i32, ptr %45, i64 %16
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %16
   %47 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %46, ptr %47, align 8, !tbaa !217
   store i32 0, ptr %45, align 4, !tbaa !206
@@ -2108,12 +2100,12 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc69
 69:                                               ; preds = %.lr.ph144, %_ZNSt6vectorIiSaIiEED2Ev.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph144 ], [ %indvars.iv.next, %_ZNSt6vectorIiSaIiEED2Ev.exit ]
   %70 = load ptr, ptr %54, align 8, !tbaa !64
-  %71 = getelementptr inbounds nuw double, ptr %70, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %indvars.iv
   %72 = load double, ptr %71, align 8, !tbaa !209
-  %73 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   store double %72, ptr %73, align 8, !tbaa !209
   %74 = load ptr, ptr %55, align 8, !tbaa !62, !noalias !243
-  %75 = getelementptr inbounds nuw %"class.std::vector.8", ptr %74, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [24 x i8], ptr %74, i64 %indvars.iv
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %77 = load ptr, ptr %76, align 8, !tbaa !210, !noalias !243
   %78 = load ptr, ptr %75, align 8, !tbaa !64, !noalias !243
@@ -2150,7 +2142,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc69
 _ZNK8LightGBM4Tree10LeafCoeffsEi.exit:            ; preds = %.noexc71, %.thread.i
   %.sroa.11116.0 = phi ptr [ %82, %.thread.i ], [ %87, %.noexc71 ]
   %.sroa.0113.0 = phi ptr [ null, %.thread.i ], [ %86, %.noexc71 ]
-  %88 = getelementptr inbounds nuw %"class.std::vector.8", ptr %28, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw [24 x i8], ptr %28, i64 %indvars.iv
   %89 = load ptr, ptr %88, align 8, !tbaa !64
   %90 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %91 = getelementptr inbounds nuw i8, ptr %88, i64 16
@@ -2166,12 +2158,12 @@ _ZNK8LightGBM4Tree10LeafCoeffsEi.exit:            ; preds = %.noexc71, %.thread.
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %92, %_ZNK8LightGBM4Tree10LeafCoeffsEi.exit
   %93 = load ptr, ptr %56, align 8, !tbaa !64
-  %94 = getelementptr inbounds nuw double, ptr %93, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %indvars.iv
   %95 = load double, ptr %94, align 8, !tbaa !209
-  %96 = getelementptr inbounds nuw double, ptr %37, i64 %indvars.iv
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   store double %95, ptr %96, align 8, !tbaa !209
   %97 = load ptr, ptr %57, align 8, !tbaa !223, !noalias !246
-  %98 = getelementptr inbounds nuw %"class.std::vector.13", ptr %97, i64 %indvars.iv
+  %98 = getelementptr inbounds nuw [24 x i8], ptr %97, i64 %indvars.iv
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %100 = load ptr, ptr %99, align 8, !tbaa !218, !noalias !246
   %101 = load ptr, ptr %98, align 8, !tbaa !68, !noalias !246
@@ -2212,7 +2204,7 @@ _ZNK8LightGBM4Tree17LeafFeaturesInnerEi.exit:     ; preds = %.noexc77, %.thread.
   br i1 %.not140, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK8LightGBM4Tree17LeafFeaturesInnerEi.exit
-  %112 = getelementptr inbounds nuw %"class.std::vector.175", ptr %32, i64 %indvars.iv
+  %112 = getelementptr inbounds nuw [24 x i8], ptr %32, i64 %indvars.iv
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %114 = getelementptr inbounds nuw i8, ptr %112, i64 16
   %.pre = load ptr, ptr %113, align 8, !tbaa !227
@@ -2228,7 +2220,7 @@ _ZNK8LightGBM4Tree17LeafFeaturesInnerEi.exit:     ; preds = %.noexc77, %.thread.
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge, %115
-  %116 = getelementptr inbounds nuw %"class.std::vector.175", ptr %32, i64 %indvars.iv
+  %116 = getelementptr inbounds nuw [24 x i8], ptr %32, i64 %indvars.iv
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
   %118 = load ptr, ptr %117, align 8, !tbaa !227
   %119 = load ptr, ptr %116, align 8, !tbaa !232
@@ -2237,7 +2229,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge, %115
   %122 = sub i64 %120, %121
   %123 = lshr exact i64 %122, 3
   %124 = trunc i64 %123 to i32
-  %125 = getelementptr inbounds nuw i32, ptr %45, i64 %indvars.iv
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %indvars.iv
   store i32 %124, ptr %125, align 4, !tbaa !206
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -2273,11 +2265,11 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge, %115
   %132 = getelementptr inbounds nuw i8, ptr %130, i64 720
   %133 = sext i32 %129 to i64
   %134 = load ptr, ptr %132, align 8, !tbaa !68
-  %135 = getelementptr inbounds nuw i32, ptr %134, i64 %133
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %134, i64 %133
   %136 = load i32, ptr %135, align 4, !tbaa !206
   %137 = sext i32 %136 to i64
   %138 = load ptr, ptr %131, align 8, !tbaa !234
-  %139 = getelementptr inbounds nuw %"class.std::vector.153", ptr %138, i64 %137
+  %139 = getelementptr inbounds nuw [24 x i8], ptr %138, i64 %137
   %140 = load ptr, ptr %139, align 8, !tbaa !237
   %.not.i.i = icmp eq ptr %128, %127
   br i1 %.not.i.i, label %143, label %141
@@ -2338,7 +2330,7 @@ _ZNSt6vectorIPKfSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = %15
 _ZNSt6vectorIPKfSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %161, %_ZNSt6vectorIPKfSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
   store ptr %156, ptr %112, align 8, !tbaa !232
   store ptr %160, ptr %113, align 8, !tbaa !227
-  %162 = getelementptr inbounds nuw ptr, ptr %156, i64 %154
+  %162 = getelementptr inbounds nuw [8 x i8], ptr %156, i64 %154
   store ptr %162, ptr %114, align 8, !tbaa !231
   br label %_ZNSt6vectorIPKfSaIS1_EE9push_backEOS1_.exit
 
@@ -2620,34 +2612,34 @@ define internal void @_ZNK8LightGBM17LinearTreeLearnerINS_17SerialTreeLearnerEE2
 
 33:                                               ; preds = %.lr.ph56, %65
   %indvars.iv59 = phi i64 [ %31, %.lr.ph56 ], [ %indvars.iv.next60, %65 ]
-  %34 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv59
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv59
   %35 = load i32, ptr %34, align 4, !tbaa !206
   %36 = icmp slt i32 %35, 0
   br i1 %36, label %65, label %37
 
 37:                                               ; preds = %33
   %38 = zext nneg i32 %35 to i64
-  %39 = getelementptr inbounds nuw double, ptr %26, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %38
   %40 = load double, ptr %39, align 8, !tbaa !209
-  %41 = getelementptr inbounds nuw i32, ptr %27, i64 %38
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %38
   %42 = load i32, ptr %41, align 4, !tbaa !206
   %43 = icmp sgt i32 %42, 0
   br i1 %43, label %.lr.ph, label %.sink.split
 
 .lr.ph:                                           ; preds = %37
-  %44 = getelementptr inbounds nuw %"class.std::vector.175", ptr %28, i64 %38
+  %44 = getelementptr inbounds nuw [24 x i8], ptr %28, i64 %38
   %45 = load ptr, ptr %44, align 8, !tbaa !232
   %46 = load ptr, ptr %6, align 8
-  %47 = getelementptr inbounds nuw %"class.std::vector.8", ptr %46, i64 %38
+  %47 = getelementptr inbounds nuw [24 x i8], ptr %46, i64 %38
   %wide.trip.count = zext nneg i32 %42 to i64
   br label %48
 
 48:                                               ; preds = %.lr.ph, %54
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %54 ]
   %.04151 = phi double [ %40, %.lr.ph ], [ %59, %54 ]
-  %49 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv
   %50 = load ptr, ptr %49, align 8, !tbaa !238
-  %51 = getelementptr inbounds float, ptr %50, i64 %indvars.iv59
+  %51 = getelementptr inbounds [4 x i8], ptr %50, i64 %indvars.iv59
   %52 = load float, ptr %51, align 4, !tbaa !250
   %53 = fcmp uno float %52, 0.000000e+00
   br i1 %53, label %.thread47, label %54
@@ -2655,7 +2647,7 @@ define internal void @_ZNK8LightGBM17LinearTreeLearnerINS_17SerialTreeLearnerEE2
 54:                                               ; preds = %48
   %55 = fpext float %52 to double
   %56 = load ptr, ptr %47, align 8, !tbaa !64
-  %57 = getelementptr inbounds nuw double, ptr %56, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv
   %58 = load double, ptr %57, align 8, !tbaa !209
   %59 = call double @llvm.fmuladd.f64(double %55, double %58, double %.04151)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2663,13 +2655,13 @@ define internal void @_ZNK8LightGBM17LinearTreeLearnerINS_17SerialTreeLearnerEE2
   br i1 %exitcond.not, label %.sink.split, label %48, !llvm.loop !252
 
 .thread47:                                        ; preds = %48
-  %60 = getelementptr inbounds nuw double, ptr %30, i64 %38
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %38
   %61 = load double, ptr %60, align 8, !tbaa !209
   br label %.sink.split
 
 .sink.split:                                      ; preds = %54, %37, %.thread47
   %.sink69 = phi double [ %61, %.thread47 ], [ %40, %37 ], [ %59, %54 ]
-  %62 = getelementptr inbounds double, ptr %29, i64 %indvars.iv59
+  %62 = getelementptr inbounds [8 x i8], ptr %29, i64 %indvars.iv59
   %63 = load double, ptr %62, align 8, !tbaa !209
   %64 = fadd double %.sink69, %63
   store double %64, ptr %62, align 8, !tbaa !209
@@ -2874,31 +2866,31 @@ define internal void @_ZNK8LightGBM17LinearTreeLearnerINS_17SerialTreeLearnerEE2
 
 33:                                               ; preds = %.lr.ph38, %60
   %indvars.iv41 = phi i64 [ %31, %.lr.ph38 ], [ %indvars.iv.next42, %60 ]
-  %34 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv41
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv41
   %35 = load i32, ptr %34, align 4, !tbaa !206
   %36 = icmp slt i32 %35, 0
   br i1 %36, label %60, label %37
 
 37:                                               ; preds = %33
   %38 = zext nneg i32 %35 to i64
-  %39 = getelementptr inbounds nuw double, ptr %26, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %38
   %40 = load double, ptr %39, align 8, !tbaa !209
-  %41 = getelementptr inbounds nuw i32, ptr %27, i64 %38
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %38
   %42 = load i32, ptr %41, align 4, !tbaa !206
   %43 = icmp sgt i32 %42, 0
   br i1 %43, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %37
-  %44 = getelementptr inbounds nuw %"class.std::vector.175", ptr %28, i64 %38
+  %44 = getelementptr inbounds nuw [24 x i8], ptr %28, i64 %38
   %45 = load ptr, ptr %44, align 8, !tbaa !232
-  %46 = getelementptr inbounds nuw %"class.std::vector.8", ptr %29, i64 %38
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %38
   %47 = load ptr, ptr %46, align 8, !tbaa !64
   %wide.trip.count = zext nneg i32 %42 to i64
   br label %51
 
 ._crit_edge:                                      ; preds = %51, %37
   %.031.lcssa = phi double [ %40, %37 ], [ %59, %51 ]
-  %48 = getelementptr inbounds double, ptr %30, i64 %indvars.iv41
+  %48 = getelementptr inbounds [8 x i8], ptr %30, i64 %indvars.iv41
   %49 = load double, ptr %48, align 8, !tbaa !209
   %50 = fadd double %.031.lcssa, %49
   store double %50, ptr %48, align 8, !tbaa !209
@@ -2907,12 +2899,12 @@ define internal void @_ZNK8LightGBM17LinearTreeLearnerINS_17SerialTreeLearnerEE2
 51:                                               ; preds = %.lr.ph, %51
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %51 ]
   %.03133 = phi double [ %40, %.lr.ph ], [ %59, %51 ]
-  %52 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv
   %53 = load ptr, ptr %52, align 8, !tbaa !238
-  %54 = getelementptr inbounds float, ptr %53, i64 %indvars.iv41
+  %54 = getelementptr inbounds [4 x i8], ptr %53, i64 %indvars.iv41
   %55 = load float, ptr %54, align 4, !tbaa !250
   %56 = fpext float %55 to double
-  %57 = getelementptr inbounds nuw double, ptr %47, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv
   %58 = load double, ptr %57, align 8, !tbaa !209
   %59 = call double @llvm.fmuladd.f64(double %56, double %58, double %.03133)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3225,10 +3217,10 @@ define linkonce_odr void @_ZNK8LightGBM17LinearTreeLearnerINS_14GPUTreeLearnerEE
 
 27:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
-  %28 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4, !tbaa !206
   %30 = sext i32 %29 to i64
-  %31 = getelementptr inbounds nuw i32, ptr %24, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !206
   %33 = sext i32 %32 to i64
   %34 = getelementptr inbounds nuw i8, ptr %25, i64 %33
@@ -3361,14 +3353,14 @@ define internal void @_ZNK8LightGBM17SerialTreeLearner20AddPredictionToScoreEPKN
 
 35:                                               ; preds = %.preheader, %._crit_edge
   %indvars.iv31 = phi i64 [ %indvars.iv29, %.preheader ], [ %indvars.iv.next32, %._crit_edge ]
-  %36 = getelementptr inbounds nuw double, ptr %20, i64 %indvars.iv31
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv31
   %37 = load double, ptr %36, align 8, !tbaa !209
-  %38 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv31
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv31
   %39 = load i32, ptr %38, align 4, !tbaa !206
-  %40 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv31
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv31
   %41 = load i32, ptr %40, align 4, !tbaa !206
   %42 = sext i32 %39 to i64
-  %43 = getelementptr inbounds i32, ptr %28, i64 %42
+  %43 = getelementptr inbounds [4 x i8], ptr %28, i64 %42
   %44 = icmp sgt i32 %41, 0
   br i1 %44, label %.lr.ph.preheader, label %._crit_edge
 
@@ -3383,10 +3375,10 @@ define internal void @_ZNK8LightGBM17SerialTreeLearner20AddPredictionToScoreEPKN
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %45 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv
   %46 = load i32, ptr %45, align 4, !tbaa !206
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds double, ptr %33, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %33, i64 %47
   %49 = load double, ptr %48, align 8, !tbaa !209
   %50 = fadd double %37, %49
   store double %50, ptr %48, align 8, !tbaa !209
@@ -3448,7 +3440,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %3
   %18 = shl nuw nsw i64 %16, 3
   %19 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #28
   store ptr %19, ptr %6, align 8, !tbaa !64
-  %20 = getelementptr inbounds nuw double, ptr %19, i64 %16
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %16
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %20, ptr %21, align 8, !tbaa !208
   store double 0.000000e+00, ptr %19, align 8, !tbaa !209
@@ -3474,7 +3466,7 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc45
 
 .lr.ph.preheader.i.i.i.i.i50:                     ; preds = %.lr.ph.preheader.i.i.i.i.i
   store ptr %28, ptr %7, align 8, !tbaa !62
-  %29 = getelementptr inbounds nuw %"class.std::vector.8", ptr %28, i64 %16
+  %29 = getelementptr inbounds nuw [24 x i8], ptr %28, i64 %16
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %28, i8 0, i64 %27, i1 false)
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %28, i64 %27
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -3487,7 +3479,7 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc45
 
 33:                                               ; preds = %.lr.ph.preheader.i.i.i.i.i50
   store ptr %32, ptr %8, align 8, !tbaa !212
-  %34 = getelementptr inbounds nuw %"class.std::vector.175", ptr %32, i64 %16
+  %34 = getelementptr inbounds nuw [24 x i8], ptr %32, i64 %16
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %32, i8 0, i64 %27, i1 false)
   %scevgep.i.i.i.i.i51 = getelementptr i8, ptr %32, i64 %27
   %35 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -3500,7 +3492,7 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc45
 
 .noexc63:                                         ; preds = %33
   store ptr %37, ptr %9, align 8, !tbaa !64
-  %38 = getelementptr inbounds nuw double, ptr %37, i64 %16
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %16
   %39 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %38, ptr %39, align 8, !tbaa !208
   store double 0.000000e+00, ptr %37, align 8, !tbaa !209
@@ -3524,7 +3516,7 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i58: ; preds = %.noexc63
 
 .noexc69:                                         ; preds = %42
   store ptr %45, ptr %10, align 8, !tbaa !68
-  %46 = getelementptr inbounds nuw i32, ptr %45, i64 %16
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %16
   %47 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %46, ptr %47, align 8, !tbaa !217
   store i32 0, ptr %45, align 4, !tbaa !206
@@ -3595,12 +3587,12 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc69
 69:                                               ; preds = %.lr.ph144, %_ZNSt6vectorIiSaIiEED2Ev.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph144 ], [ %indvars.iv.next, %_ZNSt6vectorIiSaIiEED2Ev.exit ]
   %70 = load ptr, ptr %54, align 8, !tbaa !64
-  %71 = getelementptr inbounds nuw double, ptr %70, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %indvars.iv
   %72 = load double, ptr %71, align 8, !tbaa !209
-  %73 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   store double %72, ptr %73, align 8, !tbaa !209
   %74 = load ptr, ptr %55, align 8, !tbaa !62, !noalias !264
-  %75 = getelementptr inbounds nuw %"class.std::vector.8", ptr %74, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [24 x i8], ptr %74, i64 %indvars.iv
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %77 = load ptr, ptr %76, align 8, !tbaa !210, !noalias !264
   %78 = load ptr, ptr %75, align 8, !tbaa !64, !noalias !264
@@ -3637,7 +3629,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc69
 _ZNK8LightGBM4Tree10LeafCoeffsEi.exit:            ; preds = %.noexc71, %.thread.i
   %.sroa.11116.0 = phi ptr [ %82, %.thread.i ], [ %87, %.noexc71 ]
   %.sroa.0113.0 = phi ptr [ null, %.thread.i ], [ %86, %.noexc71 ]
-  %88 = getelementptr inbounds nuw %"class.std::vector.8", ptr %28, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw [24 x i8], ptr %28, i64 %indvars.iv
   %89 = load ptr, ptr %88, align 8, !tbaa !64
   %90 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %91 = getelementptr inbounds nuw i8, ptr %88, i64 16
@@ -3653,12 +3645,12 @@ _ZNK8LightGBM4Tree10LeafCoeffsEi.exit:            ; preds = %.noexc71, %.thread.
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %92, %_ZNK8LightGBM4Tree10LeafCoeffsEi.exit
   %93 = load ptr, ptr %56, align 8, !tbaa !64
-  %94 = getelementptr inbounds nuw double, ptr %93, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %indvars.iv
   %95 = load double, ptr %94, align 8, !tbaa !209
-  %96 = getelementptr inbounds nuw double, ptr %37, i64 %indvars.iv
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   store double %95, ptr %96, align 8, !tbaa !209
   %97 = load ptr, ptr %57, align 8, !tbaa !223, !noalias !267
-  %98 = getelementptr inbounds nuw %"class.std::vector.13", ptr %97, i64 %indvars.iv
+  %98 = getelementptr inbounds nuw [24 x i8], ptr %97, i64 %indvars.iv
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %100 = load ptr, ptr %99, align 8, !tbaa !218, !noalias !267
   %101 = load ptr, ptr %98, align 8, !tbaa !68, !noalias !267
@@ -3699,7 +3691,7 @@ _ZNK8LightGBM4Tree17LeafFeaturesInnerEi.exit:     ; preds = %.noexc77, %.thread.
   br i1 %.not140, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK8LightGBM4Tree17LeafFeaturesInnerEi.exit
-  %112 = getelementptr inbounds nuw %"class.std::vector.175", ptr %32, i64 %indvars.iv
+  %112 = getelementptr inbounds nuw [24 x i8], ptr %32, i64 %indvars.iv
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %114 = getelementptr inbounds nuw i8, ptr %112, i64 16
   %.pre = load ptr, ptr %113, align 8, !tbaa !227
@@ -3715,7 +3707,7 @@ _ZNK8LightGBM4Tree17LeafFeaturesInnerEi.exit:     ; preds = %.noexc77, %.thread.
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge, %115
-  %116 = getelementptr inbounds nuw %"class.std::vector.175", ptr %32, i64 %indvars.iv
+  %116 = getelementptr inbounds nuw [24 x i8], ptr %32, i64 %indvars.iv
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
   %118 = load ptr, ptr %117, align 8, !tbaa !227
   %119 = load ptr, ptr %116, align 8, !tbaa !232
@@ -3724,7 +3716,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge, %115
   %122 = sub i64 %120, %121
   %123 = lshr exact i64 %122, 3
   %124 = trunc i64 %123 to i32
-  %125 = getelementptr inbounds nuw i32, ptr %45, i64 %indvars.iv
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %indvars.iv
   store i32 %124, ptr %125, align 4, !tbaa !206
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3760,11 +3752,11 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge, %115
   %132 = getelementptr inbounds nuw i8, ptr %130, i64 720
   %133 = sext i32 %129 to i64
   %134 = load ptr, ptr %132, align 8, !tbaa !68
-  %135 = getelementptr inbounds nuw i32, ptr %134, i64 %133
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %134, i64 %133
   %136 = load i32, ptr %135, align 4, !tbaa !206
   %137 = sext i32 %136 to i64
   %138 = load ptr, ptr %131, align 8, !tbaa !234
-  %139 = getelementptr inbounds nuw %"class.std::vector.153", ptr %138, i64 %137
+  %139 = getelementptr inbounds nuw [24 x i8], ptr %138, i64 %137
   %140 = load ptr, ptr %139, align 8, !tbaa !237
   %.not.i.i = icmp eq ptr %128, %127
   br i1 %.not.i.i, label %143, label %141
@@ -3825,7 +3817,7 @@ _ZNSt6vectorIPKfSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = %15
 _ZNSt6vectorIPKfSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %161, %_ZNSt6vectorIPKfSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
   store ptr %156, ptr %112, align 8, !tbaa !232
   store ptr %160, ptr %113, align 8, !tbaa !227
-  %162 = getelementptr inbounds nuw ptr, ptr %156, i64 %154
+  %162 = getelementptr inbounds nuw [8 x i8], ptr %156, i64 %154
   store ptr %162, ptr %114, align 8, !tbaa !231
   br label %_ZNSt6vectorIPKfSaIS1_EE9push_backEOS1_.exit
 
@@ -4095,7 +4087,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %3
   %18 = shl nuw nsw i64 %16, 3
   %19 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %18) #28
   store ptr %19, ptr %6, align 8, !tbaa !64
-  %20 = getelementptr inbounds nuw double, ptr %19, i64 %16
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %16
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %20, ptr %21, align 8, !tbaa !208
   store double 0.000000e+00, ptr %19, align 8, !tbaa !209
@@ -4121,7 +4113,7 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc45
 
 .lr.ph.preheader.i.i.i.i.i50:                     ; preds = %.lr.ph.preheader.i.i.i.i.i
   store ptr %28, ptr %7, align 8, !tbaa !62
-  %29 = getelementptr inbounds nuw %"class.std::vector.8", ptr %28, i64 %16
+  %29 = getelementptr inbounds nuw [24 x i8], ptr %28, i64 %16
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %28, i8 0, i64 %27, i1 false)
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %28, i64 %27
   %30 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -4134,7 +4126,7 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc45
 
 33:                                               ; preds = %.lr.ph.preheader.i.i.i.i.i50
   store ptr %32, ptr %8, align 8, !tbaa !212
-  %34 = getelementptr inbounds nuw %"class.std::vector.175", ptr %32, i64 %16
+  %34 = getelementptr inbounds nuw [24 x i8], ptr %32, i64 %16
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %32, i8 0, i64 %27, i1 false)
   %scevgep.i.i.i.i.i51 = getelementptr i8, ptr %32, i64 %27
   %35 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -4147,7 +4139,7 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc45
 
 .noexc63:                                         ; preds = %33
   store ptr %37, ptr %9, align 8, !tbaa !64
-  %38 = getelementptr inbounds nuw double, ptr %37, i64 %16
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %16
   %39 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %38, ptr %39, align 8, !tbaa !208
   store double 0.000000e+00, ptr %37, align 8, !tbaa !209
@@ -4171,7 +4163,7 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i58: ; preds = %.noexc63
 
 .noexc69:                                         ; preds = %42
   store ptr %45, ptr %10, align 8, !tbaa !68
-  %46 = getelementptr inbounds nuw i32, ptr %45, i64 %16
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %16
   %47 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %46, ptr %47, align 8, !tbaa !217
   store i32 0, ptr %45, align 4, !tbaa !206
@@ -4242,12 +4234,12 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc69
 69:                                               ; preds = %.lr.ph144, %_ZNSt6vectorIiSaIiEED2Ev.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph144 ], [ %indvars.iv.next, %_ZNSt6vectorIiSaIiEED2Ev.exit ]
   %70 = load ptr, ptr %54, align 8, !tbaa !64
-  %71 = getelementptr inbounds nuw double, ptr %70, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %indvars.iv
   %72 = load double, ptr %71, align 8, !tbaa !209
-  %73 = getelementptr inbounds nuw double, ptr %19, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   store double %72, ptr %73, align 8, !tbaa !209
   %74 = load ptr, ptr %55, align 8, !tbaa !62, !noalias !271
-  %75 = getelementptr inbounds nuw %"class.std::vector.8", ptr %74, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [24 x i8], ptr %74, i64 %indvars.iv
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %77 = load ptr, ptr %76, align 8, !tbaa !210, !noalias !271
   %78 = load ptr, ptr %75, align 8, !tbaa !64, !noalias !271
@@ -4284,7 +4276,7 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc69
 _ZNK8LightGBM4Tree10LeafCoeffsEi.exit:            ; preds = %.noexc71, %.thread.i
   %.sroa.11116.0 = phi ptr [ %82, %.thread.i ], [ %87, %.noexc71 ]
   %.sroa.0113.0 = phi ptr [ null, %.thread.i ], [ %86, %.noexc71 ]
-  %88 = getelementptr inbounds nuw %"class.std::vector.8", ptr %28, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw [24 x i8], ptr %28, i64 %indvars.iv
   %89 = load ptr, ptr %88, align 8, !tbaa !64
   %90 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %91 = getelementptr inbounds nuw i8, ptr %88, i64 16
@@ -4300,12 +4292,12 @@ _ZNK8LightGBM4Tree10LeafCoeffsEi.exit:            ; preds = %.noexc71, %.thread.
 
 _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %92, %_ZNK8LightGBM4Tree10LeafCoeffsEi.exit
   %93 = load ptr, ptr %56, align 8, !tbaa !64
-  %94 = getelementptr inbounds nuw double, ptr %93, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %indvars.iv
   %95 = load double, ptr %94, align 8, !tbaa !209
-  %96 = getelementptr inbounds nuw double, ptr %37, i64 %indvars.iv
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv
   store double %95, ptr %96, align 8, !tbaa !209
   %97 = load ptr, ptr %57, align 8, !tbaa !223, !noalias !274
-  %98 = getelementptr inbounds nuw %"class.std::vector.13", ptr %97, i64 %indvars.iv
+  %98 = getelementptr inbounds nuw [24 x i8], ptr %97, i64 %indvars.iv
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %100 = load ptr, ptr %99, align 8, !tbaa !218, !noalias !274
   %101 = load ptr, ptr %98, align 8, !tbaa !68, !noalias !274
@@ -4346,7 +4338,7 @@ _ZNK8LightGBM4Tree17LeafFeaturesInnerEi.exit:     ; preds = %.noexc77, %.thread.
   br i1 %.not140, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK8LightGBM4Tree17LeafFeaturesInnerEi.exit
-  %112 = getelementptr inbounds nuw %"class.std::vector.175", ptr %32, i64 %indvars.iv
+  %112 = getelementptr inbounds nuw [24 x i8], ptr %32, i64 %indvars.iv
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %114 = getelementptr inbounds nuw i8, ptr %112, i64 16
   %.pre = load ptr, ptr %113, align 8, !tbaa !227
@@ -4362,7 +4354,7 @@ _ZNK8LightGBM4Tree17LeafFeaturesInnerEi.exit:     ; preds = %.noexc77, %.thread.
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge, %115
-  %116 = getelementptr inbounds nuw %"class.std::vector.175", ptr %32, i64 %indvars.iv
+  %116 = getelementptr inbounds nuw [24 x i8], ptr %32, i64 %indvars.iv
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
   %118 = load ptr, ptr %117, align 8, !tbaa !227
   %119 = load ptr, ptr %116, align 8, !tbaa !232
@@ -4371,7 +4363,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge, %115
   %122 = sub i64 %120, %121
   %123 = lshr exact i64 %122, 3
   %124 = trunc i64 %123 to i32
-  %125 = getelementptr inbounds nuw i32, ptr %45, i64 %indvars.iv
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %indvars.iv
   store i32 %124, ptr %125, align 4, !tbaa !206
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -4407,11 +4399,11 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %._crit_edge, %115
   %132 = getelementptr inbounds nuw i8, ptr %130, i64 720
   %133 = sext i32 %129 to i64
   %134 = load ptr, ptr %132, align 8, !tbaa !68
-  %135 = getelementptr inbounds nuw i32, ptr %134, i64 %133
+  %135 = getelementptr inbounds nuw [4 x i8], ptr %134, i64 %133
   %136 = load i32, ptr %135, align 4, !tbaa !206
   %137 = sext i32 %136 to i64
   %138 = load ptr, ptr %131, align 8, !tbaa !234
-  %139 = getelementptr inbounds nuw %"class.std::vector.153", ptr %138, i64 %137
+  %139 = getelementptr inbounds nuw [24 x i8], ptr %138, i64 %137
   %140 = load ptr, ptr %139, align 8, !tbaa !237
   %.not.i.i = icmp eq ptr %128, %127
   br i1 %.not.i.i, label %143, label %141
@@ -4472,7 +4464,7 @@ _ZNSt6vectorIPKfSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds = %15
 _ZNSt6vectorIPKfSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %161, %_ZNSt6vectorIPKfSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
   store ptr %156, ptr %112, align 8, !tbaa !232
   store ptr %160, ptr %113, align 8, !tbaa !227
-  %162 = getelementptr inbounds nuw ptr, ptr %156, i64 %154
+  %162 = getelementptr inbounds nuw [8 x i8], ptr %156, i64 %154
   store ptr %162, ptr %114, align 8, !tbaa !231
   br label %_ZNSt6vectorIPKfSaIS1_EE9push_backEOS1_.exit
 
@@ -4754,34 +4746,34 @@ define internal void @_ZNK8LightGBM17LinearTreeLearnerINS_14GPUTreeLearnerEE25Ad
 
 33:                                               ; preds = %.lr.ph55, %65
   %indvars.iv58 = phi i64 [ %31, %.lr.ph55 ], [ %indvars.iv.next59, %65 ]
-  %34 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv58
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv58
   %35 = load i32, ptr %34, align 4, !tbaa !206
   %36 = icmp slt i32 %35, 0
   br i1 %36, label %65, label %37
 
 37:                                               ; preds = %33
   %38 = zext nneg i32 %35 to i64
-  %39 = getelementptr inbounds nuw double, ptr %26, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %38
   %40 = load double, ptr %39, align 8, !tbaa !209
-  %41 = getelementptr inbounds nuw i32, ptr %27, i64 %38
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %38
   %42 = load i32, ptr %41, align 4, !tbaa !206
   %43 = icmp sgt i32 %42, 0
   br i1 %43, label %.lr.ph, label %.sink.split
 
 .lr.ph:                                           ; preds = %37
-  %44 = getelementptr inbounds nuw %"class.std::vector.175", ptr %28, i64 %38
+  %44 = getelementptr inbounds nuw [24 x i8], ptr %28, i64 %38
   %45 = load ptr, ptr %44, align 8, !tbaa !232
   %46 = load ptr, ptr %6, align 8
-  %47 = getelementptr inbounds nuw %"class.std::vector.8", ptr %46, i64 %38
+  %47 = getelementptr inbounds nuw [24 x i8], ptr %46, i64 %38
   %wide.trip.count = zext nneg i32 %42 to i64
   br label %48
 
 48:                                               ; preds = %.lr.ph, %54
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %54 ]
   %.04050 = phi double [ %40, %.lr.ph ], [ %59, %54 ]
-  %49 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv
   %50 = load ptr, ptr %49, align 8, !tbaa !238
-  %51 = getelementptr inbounds float, ptr %50, i64 %indvars.iv58
+  %51 = getelementptr inbounds [4 x i8], ptr %50, i64 %indvars.iv58
   %52 = load float, ptr %51, align 4, !tbaa !250
   %53 = fcmp uno float %52, 0.000000e+00
   br i1 %53, label %.thread46, label %54
@@ -4789,7 +4781,7 @@ define internal void @_ZNK8LightGBM17LinearTreeLearnerINS_14GPUTreeLearnerEE25Ad
 54:                                               ; preds = %48
   %55 = fpext float %52 to double
   %56 = load ptr, ptr %47, align 8, !tbaa !64
-  %57 = getelementptr inbounds nuw double, ptr %56, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv
   %58 = load double, ptr %57, align 8, !tbaa !209
   %59 = call double @llvm.fmuladd.f64(double %55, double %58, double %.04050)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4797,13 +4789,13 @@ define internal void @_ZNK8LightGBM17LinearTreeLearnerINS_14GPUTreeLearnerEE25Ad
   br i1 %exitcond.not, label %.sink.split, label %48, !llvm.loop !278
 
 .thread46:                                        ; preds = %48
-  %60 = getelementptr inbounds nuw double, ptr %30, i64 %38
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %38
   %61 = load double, ptr %60, align 8, !tbaa !209
   br label %.sink.split
 
 .sink.split:                                      ; preds = %54, %37, %.thread46
   %.sink68 = phi double [ %61, %.thread46 ], [ %40, %37 ], [ %59, %54 ]
-  %62 = getelementptr inbounds double, ptr %29, i64 %indvars.iv58
+  %62 = getelementptr inbounds [8 x i8], ptr %29, i64 %indvars.iv58
   %63 = load double, ptr %62, align 8, !tbaa !209
   %64 = fadd double %.sink68, %63
   store double %64, ptr %62, align 8, !tbaa !209
@@ -4871,31 +4863,31 @@ define internal void @_ZNK8LightGBM17LinearTreeLearnerINS_14GPUTreeLearnerEE25Ad
 
 33:                                               ; preds = %.lr.ph38, %60
   %indvars.iv41 = phi i64 [ %31, %.lr.ph38 ], [ %indvars.iv.next42, %60 ]
-  %34 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv41
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv41
   %35 = load i32, ptr %34, align 4, !tbaa !206
   %36 = icmp slt i32 %35, 0
   br i1 %36, label %60, label %37
 
 37:                                               ; preds = %33
   %38 = zext nneg i32 %35 to i64
-  %39 = getelementptr inbounds nuw double, ptr %26, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %38
   %40 = load double, ptr %39, align 8, !tbaa !209
-  %41 = getelementptr inbounds nuw i32, ptr %27, i64 %38
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %38
   %42 = load i32, ptr %41, align 4, !tbaa !206
   %43 = icmp sgt i32 %42, 0
   br i1 %43, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %37
-  %44 = getelementptr inbounds nuw %"class.std::vector.175", ptr %28, i64 %38
+  %44 = getelementptr inbounds nuw [24 x i8], ptr %28, i64 %38
   %45 = load ptr, ptr %44, align 8, !tbaa !232
-  %46 = getelementptr inbounds nuw %"class.std::vector.8", ptr %29, i64 %38
+  %46 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %38
   %47 = load ptr, ptr %46, align 8, !tbaa !64
   %wide.trip.count = zext nneg i32 %42 to i64
   br label %51
 
 ._crit_edge:                                      ; preds = %51, %37
   %.031.lcssa = phi double [ %40, %37 ], [ %59, %51 ]
-  %48 = getelementptr inbounds double, ptr %30, i64 %indvars.iv41
+  %48 = getelementptr inbounds [8 x i8], ptr %30, i64 %indvars.iv41
   %49 = load double, ptr %48, align 8, !tbaa !209
   %50 = fadd double %.031.lcssa, %49
   store double %50, ptr %48, align 8, !tbaa !209
@@ -4904,12 +4896,12 @@ define internal void @_ZNK8LightGBM17LinearTreeLearnerINS_14GPUTreeLearnerEE25Ad
 51:                                               ; preds = %.lr.ph, %51
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %51 ]
   %.03133 = phi double [ %40, %.lr.ph ], [ %59, %51 ]
-  %52 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv
   %53 = load ptr, ptr %52, align 8, !tbaa !238
-  %54 = getelementptr inbounds float, ptr %53, i64 %indvars.iv41
+  %54 = getelementptr inbounds [4 x i8], ptr %53, i64 %indvars.iv41
   %55 = load float, ptr %54, align 4, !tbaa !250
   %56 = fpext float %55 to double
-  %57 = getelementptr inbounds nuw double, ptr %47, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv
   %58 = load double, ptr %57, align 8, !tbaa !209
   %59 = call double @llvm.fmuladd.f64(double %56, double %58, double %.03133)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

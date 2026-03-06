@@ -284,7 +284,7 @@ define dso_local void @sq_quote_argv(ptr noundef %0, ptr noundef readonly captur
 
 6:                                                ; preds = %.lr.ph, %strbuf_addch.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %strbuf_addch.exit ]
-  %7 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %8 = load i64, ptr %0, align 8, !tbaa !11
   %.not.i.i = icmp eq i64 %8, 0
   br i1 %.not.i.i, label %strbuf_avail.exit.thread.i, label %strbuf_avail.exit.i
@@ -315,7 +315,7 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
   %16 = load ptr, ptr %7, align 8, !tbaa !17
   tail call void @sq_quote_buf(ptr noundef nonnull %0, ptr noundef %16)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %17 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.next
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.next
   %18 = load ptr, ptr %17, align 8, !tbaa !17
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %._crit_edge, label %6, !llvm.loop !18
@@ -385,7 +385,7 @@ define dso_local void @sq_append_quote_argv_pretty(ptr noundef %0, ptr noundef r
 6:                                                ; preds = %.lr.ph, %sq_quote_buf_pretty.exit
   %7 = phi ptr [ %3, %.lr.ph ], [ %35, %sq_quote_buf_pretty.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %sq_quote_buf_pretty.exit ]
-  %8 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %.not7 = icmp eq i64 %indvars.iv, 0
   br i1 %.not7, label %18, label %9
 
@@ -463,7 +463,7 @@ strbuf_addch.exit:                                ; preds = %strbuf_avail.exit.i
 
 sq_quote_buf_pretty.exit:                         ; preds = %21, %29, %32
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %34 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.next
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.next
   %35 = load ptr, ptr %34, align 8, !tbaa !17
   %.not = icmp eq ptr %35, null
   br i1 %.not, label %._crit_edge, label %6, !llvm.loop !19
@@ -873,7 +873,7 @@ st_mult.exit:                                     ; preds = %82
   %96 = add nsw i32 %94, 1
   store i32 %96, ptr %2, align 4, !tbaa !21
   %97 = sext i32 %94 to i64
-  %98 = getelementptr inbounds ptr, ptr %95, i64 %97
+  %98 = getelementptr inbounds [8 x i8], ptr %95, i64 %97
   store ptr %.04767, ptr %98, align 8, !tbaa !17
   br i1 %.not41, label %.critedge43, label %99
 

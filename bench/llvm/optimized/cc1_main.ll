@@ -602,7 +602,7 @@ _ZN4llvm18IntrusiveRefCntPtrIN5clang13DiagnosticIDsEED2Ev.exit: ; preds = %_ZN4l
   store ptr @.str, ptr %34, align 8, !tbaa !80
   %147 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store i64 21, ptr %147, align 8, !tbaa !82
-  %148 = getelementptr inbounds nuw ptr, ptr %0, i64 %1
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %1
   %149 = call noundef ptr @_ZSt9__find_ifIPKPKcN9__gnu_cxx5__ops16_Iter_equals_valIKN4llvm9StringRefEEEET_SB_SB_T0_St26random_access_iterator_tag(ptr noundef %0, ptr noundef %148, ptr nonnull align 8 dereferenceable(16) %34)
   %.not = icmp eq ptr %149, %148
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
@@ -1174,10 +1174,10 @@ _ZNSt4pairIN4llvm9StringRefES1_EC2IRKPKcS7_TnNSt9enable_ifIXaaclsr5_PCCPE22_Move
   %395 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %396 = load i32, ptr %395, align 8, !tbaa !198
   %397 = zext i32 %396 to i64
-  %398 = getelementptr inbounds nuw ptr, ptr %394, i64 %397
+  %398 = getelementptr inbounds nuw [8 x i8], ptr %394, i64 %397
   %399 = getelementptr inbounds nuw i8, ptr %398, i64 8
   %400 = load ptr, ptr %20, align 8, !tbaa !199
-  %401 = getelementptr inbounds nuw ptr, ptr %400, i64 %397
+  %401 = getelementptr inbounds nuw [8 x i8], ptr %400, i64 %397
   %402 = getelementptr inbounds nuw i8, ptr %401, i64 8
   %403 = load i32, ptr %388, align 4, !tbaa !197
   %404 = getelementptr inbounds nuw i8, ptr %21, i64 12
@@ -1193,7 +1193,7 @@ _ZNSt4pairIN4llvm9StringRefES1_EC2IRKPKcS7_TnNSt9enable_ifIXaaclsr5_PCCPE22_Move
   %408 = phi ptr [ %430, %429 ], [ %394, %391 ]
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %429 ], [ 0, %391 ]
   %409 = load ptr, ptr %20, align 8, !tbaa !199
-  %410 = getelementptr inbounds nuw ptr, ptr %409, i64 %indvars.iv.i.i
+  %410 = getelementptr inbounds nuw [8 x i8], ptr %409, i64 %indvars.iv.i.i
   %411 = load ptr, ptr %410, align 8, !tbaa !56
   %magicptr.i.i = ptrtoint ptr %411 to i64
   switch i64 %magicptr.i.i, label %414 [
@@ -1202,7 +1202,7 @@ _ZNSt4pairIN4llvm9StringRefES1_EC2IRKPKcS7_TnNSt9enable_ifIXaaclsr5_PCCPE22_Move
   ]
 
 412:                                              ; preds = %.lr.ph.i.i, %.lr.ph.i.i
-  %413 = getelementptr inbounds nuw ptr, ptr %408, i64 %indvars.iv.i.i
+  %413 = getelementptr inbounds nuw [8 x i8], ptr %408, i64 %indvars.iv.i.i
   store ptr %411, ptr %413, align 8, !tbaa !56
   br label %429
 
@@ -1227,11 +1227,11 @@ _ZN4llvm14StringMapEntryINS_9StringRefEE6createINS_15MallocAllocatorEJRS1_EEEPS2
   %423 = getelementptr inbounds nuw i8, ptr %418, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %423, ptr noundef nonnull align 8 dereferenceable(16) %416, i64 16, i1 false), !tbaa.struct !203
   %424 = load ptr, ptr %21, align 8, !tbaa !199
-  %425 = getelementptr inbounds nuw ptr, ptr %424, i64 %indvars.iv.i.i
+  %425 = getelementptr inbounds nuw [8 x i8], ptr %424, i64 %indvars.iv.i.i
   store ptr %418, ptr %425, align 8, !tbaa !56
-  %426 = getelementptr inbounds nuw i32, ptr %402, i64 %indvars.iv.i.i
+  %426 = getelementptr inbounds nuw [4 x i8], ptr %402, i64 %indvars.iv.i.i
   %427 = load i32, ptr %426, align 4, !tbaa !44
-  %428 = getelementptr inbounds nuw i32, ptr %399, i64 %indvars.iv.i.i
+  %428 = getelementptr inbounds nuw [4 x i8], ptr %399, i64 %indvars.iv.i.i
   store i32 %427, ptr %428, align 4, !tbaa !44
   br label %429
 
@@ -1261,7 +1261,7 @@ _ZN4llvm9StringMapINS_9StringRefENS_15MallocAllocatorEEC2ERKS3_.exit.i: ; preds 
 .lr.ph.i21.i:                                     ; preds = %444, %.lr.ph.preheader.i.i
   %indvars.iv.i22.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i24.i, %444 ]
   %438 = load ptr, ptr %21, align 8, !tbaa !199
-  %439 = getelementptr inbounds nuw ptr, ptr %438, i64 %indvars.iv.i22.i
+  %439 = getelementptr inbounds nuw [8 x i8], ptr %438, i64 %indvars.iv.i22.i
   %440 = load ptr, ptr %439, align 8, !tbaa !56
   %magicptr.i23.i = ptrtoint ptr %440 to i64
   switch i64 %magicptr.i23.i, label %441 [
@@ -1305,7 +1305,7 @@ _ZN4llvm9StringMapINS_9StringRefENS_15MallocAllocatorEED2Ev.exit.i: ; preds = %4
 .lr.ph.i28.i:                                     ; preds = %460, %.lr.ph.preheader.i27.i
   %indvars.iv.i29.i = phi i64 [ 0, %.lr.ph.preheader.i27.i ], [ %indvars.iv.next.i31.i, %460 ]
   %454 = load ptr, ptr %20, align 8, !tbaa !199
-  %455 = getelementptr inbounds nuw ptr, ptr %454, i64 %indvars.iv.i29.i
+  %455 = getelementptr inbounds nuw [8 x i8], ptr %454, i64 %indvars.iv.i29.i
   %456 = load ptr, ptr %455, align 8, !tbaa !56
   %magicptr.i30.i = ptrtoint ptr %456 to i64
   switch i64 %magicptr.i30.i, label %457 [
@@ -1673,7 +1673,7 @@ _ZN4llvm9StringRefC2EPKc.exit.i:                  ; preds = %589, %587
 .lr.ph.i.i100:                                    ; preds = %615, %.lr.ph.preheader.i.i99
   %indvars.iv.i.i101 = phi i64 [ 0, %.lr.ph.preheader.i.i99 ], [ %indvars.iv.next.i.i103, %615 ]
   %609 = load ptr, ptr %14, align 8, !tbaa !199
-  %610 = getelementptr inbounds nuw ptr, ptr %609, i64 %indvars.iv.i.i101
+  %610 = getelementptr inbounds nuw [8 x i8], ptr %609, i64 %indvars.iv.i.i101
   %611 = load ptr, ptr %610, align 8, !tbaa !56
   %magicptr.i.i102 = ptrtoint ptr %611 to i64
   switch i64 %magicptr.i.i102, label %612 [
@@ -2302,7 +2302,7 @@ define linkonce_odr hidden void @_ZN5clang22PCHContainerOperations14registerRead
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang18PCHContainerReaderESt14default_deleteIS3_EELb0EE9push_backEOS6_.exit, label %19, !prof !282
 
 19:                                               ; preds = %._crit_edge
-  %20 = getelementptr inbounds nuw %"class.std::unique_ptr.122", ptr %.pre3.i, i64 %15
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %.pre3.i, i64 %15
   %21 = icmp uge ptr %1, %.pre3.i
   %22 = icmp ult ptr %1, %20
   %spec.select.i.i.i.i.i = and i1 %21, %22
@@ -2327,7 +2327,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang18PCHContainerReaderESt1
   %.016.i.i.i = phi ptr [ %1, %._crit_edge ], [ %28, %23 ], [ %1, %.critedge.i.i.i ]
   %30 = load i32, ptr %13, align 8, !tbaa !279
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw %"class.std::unique_ptr.122", ptr %29, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %31
   %33 = load i64, ptr %.016.i.i.i, align 8, !tbaa !66
   store i64 %33, ptr %32, align 8, !tbaa !66
   store ptr null, ptr %.016.i.i.i, align 8, !tbaa !66
@@ -2745,7 +2745,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapISt10unique_ptrIN5clan
   %5 = tail call noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, i32 noundef %3) #23
   %6 = load ptr, ptr %0, align 8, !tbaa !199
   %7 = zext i32 %5 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !56
   %magicptr = ptrtoint ptr %9 to i64
   switch i64 %magicptr, label %.preheader.i.i [
@@ -2799,7 +2799,7 @@ _ZN4llvm14StringMapEntryISt10unique_ptrIN5clang18PCHContainerWriterESt14default_
   %26 = tail call noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %5) #23
   %27 = load ptr, ptr %0, align 8, !tbaa !199
   %28 = zext i32 %26 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   br label %.preheader.i.i23
 
 .preheader.i.i23:                                 ; preds = %.critedge.i.i.i25, %_ZN4llvm14StringMapEntryISt10unique_ptrIN5clang18PCHContainerWriterESt14default_deleteIS3_EEE6createINS_15MallocAllocatorEJEEEPS7_NS_9StringRefERT_DpOT0_.exit
@@ -2834,7 +2834,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapIPN5clang18PCHContaine
   %5 = tail call noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, i32 noundef %3) #23
   %6 = load ptr, ptr %0, align 8, !tbaa !199
   %7 = zext i32 %5 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !56
   %magicptr = ptrtoint ptr %9 to i64
   switch i64 %magicptr, label %.preheader.i.i [
@@ -2888,7 +2888,7 @@ _ZN4llvm14StringMapEntryIPN5clang18PCHContainerReaderEE6createINS_15MallocAlloca
   %26 = tail call noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %5) #23
   %27 = load ptr, ptr %0, align 8, !tbaa !199
   %28 = zext i32 %26 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   br label %.preheader.i.i23
 
 .preheader.i.i23:                                 ; preds = %.critedge.i.i.i25, %_ZN4llvm14StringMapEntryIPN5clang18PCHContainerReaderEE6createINS_15MallocAllocatorEJEEEPS4_NS_9StringRefERT_DpOT0_.exit
@@ -3436,7 +3436,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapINS_9StringRefENS_15Ma
   %6 = tail call noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, i32 noundef %3) #23
   %7 = load ptr, ptr %0, align 8, !tbaa !199
   %8 = zext i32 %6 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !56
   %magicptr = ptrtoint ptr %10 to i64
   switch i64 %magicptr, label %.preheader.i.i [
@@ -3490,7 +3490,7 @@ _ZN4llvm14StringMapEntryINS_9StringRefEE6createINS_15MallocAllocatorEJS1_EEEPS2_
   %27 = tail call noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %6) #23
   %28 = load ptr, ptr %0, align 8, !tbaa !199
   %29 = zext i32 %27 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %29
   br label %.preheader.i.i24
 
 .preheader.i.i24:                                 ; preds = %.critedge.i.i.i26, %_ZN4llvm14StringMapEntryINS_9StringRefEE6createINS_15MallocAllocatorEJS1_EEEPS2_S1_RT_DpOT0_.exit
@@ -3949,7 +3949,7 @@ _ZN5clang17DiagnosticStorageC2Ev.exit.i.i:        ; preds = %13
   %27 = add i32 %9, -1
   store i32 %27, ptr %8, align 8, !tbaa !328
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %26, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %28
   %30 = load ptr, ptr %29, align 8, !tbaa !341
   store i8 0, ptr %30, align 8, !tbaa !329
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 424
@@ -4009,7 +4009,7 @@ _ZNK5clang19StreamingDiagnostic10getStorageEv.exit: ; preds = %_ZN5clang17Diagno
   %55 = add i8 %54, 1
   store i8 %55, ptr %52, align 8, !tbaa !329
   %56 = zext i8 %54 to i64
-  %57 = getelementptr inbounds nuw i64, ptr %53, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %56
   store i64 %1, ptr %57, align 8, !tbaa !135
   ret void
 }
@@ -4030,7 +4030,7 @@ define linkonce_odr hidden void @_ZN5clang20DiagStorageAllocator10DeallocateEPNS
   %9 = add i32 %8, 1
   store i32 %9, ptr %7, align 8, !tbaa !328
   %10 = zext i32 %8 to i64
-  %11 = getelementptr inbounds nuw ptr, ptr %4, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %10
   store ptr %1, ptr %11, align 8, !tbaa !341
   br label %43
 
@@ -4511,7 +4511,7 @@ _ZN4llvm11SmallVectorISt10unique_ptrIN5clang18PCHContainerReaderESt14default_del
 .lr.ph.i:                                         ; preds = %31, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %31 ]
   %25 = load ptr, ptr %17, align 8, !tbaa !199
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv.i
   %27 = load ptr, ptr %26, align 8, !tbaa !56
   %magicptr.i = ptrtoint ptr %27 to i64
   switch i64 %magicptr.i, label %28 [
@@ -4551,7 +4551,7 @@ _ZN4llvm9StringMapIPN5clang18PCHContainerReaderENS_15MallocAllocatorEED2Ev.exit:
 .lr.ph.i3:                                        ; preds = %51, %.lr.ph.preheader.i2
   %indvars.iv.i4 = phi i64 [ 0, %.lr.ph.preheader.i2 ], [ %indvars.iv.next.i6, %51 ]
   %40 = load ptr, ptr %0, align 8, !tbaa !199
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv.i4
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv.i4
   %42 = load ptr, ptr %41, align 8, !tbaa !56
   %magicptr.i5 = ptrtoint ptr %42 to i64
   switch i64 %magicptr.i5, label %43 [

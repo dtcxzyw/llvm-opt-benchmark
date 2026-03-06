@@ -723,17 +723,17 @@ define internal void @lv_ime_pinyin_constructor(ptr readnone captures(none) %0, 
   ]
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds nuw ptr, ptr @lv_btnm_def_pinyin_sel_map, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @lv_btnm_def_pinyin_sel_map, i64 %indvars.iv
   store ptr @.str.20, ptr %6, align 8, !tbaa !3
   br label %16
 
 7:                                                ; preds = %3
-  %8 = getelementptr inbounds nuw ptr, ptr @lv_btnm_def_pinyin_sel_map, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr @lv_btnm_def_pinyin_sel_map, i64 %indvars.iv
   store ptr @.str.21, ptr %8, align 8, !tbaa !3
   br label %16
 
 9:                                                ; preds = %3
-  %10 = getelementptr inbounds nuw ptr, ptr @lv_btnm_def_pinyin_sel_map, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr @lv_btnm_def_pinyin_sel_map, i64 %indvars.iv
   store ptr @.str.22, ptr %10, align 8, !tbaa !3
   br label %16
 
@@ -741,7 +741,7 @@ define internal void @lv_ime_pinyin_constructor(ptr readnone captures(none) %0, 
   %12 = zext i16 %.056 to i64
   %13 = getelementptr inbounds nuw [4 x i8], ptr @lv_pinyin_cand_str, i64 %12
   store i8 32, ptr %13, align 4, !tbaa !8
-  %14 = getelementptr inbounds nuw ptr, ptr @lv_btnm_def_pinyin_sel_map, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr @lv_btnm_def_pinyin_sel_map, i64 %indvars.iv
   store ptr %13, ptr %14, align 8, !tbaa !3
   %15 = add i16 %.056, 1
   br label %16
@@ -790,12 +790,12 @@ define internal void @lv_ime_pinyin_constructor(ptr readnone captures(none) %0, 
 32:                                               ; preds = %26
   %33 = sext i8 %28 to i16
   %34 = zext i16 %.02840.i to i64
-  %35 = getelementptr inbounds nuw i16, ptr %23, i64 %34
+  %35 = getelementptr inbounds nuw [2 x i8], ptr %23, i64 %34
   store i16 %.02939.i, ptr %35, align 2, !tbaa !26
   %36 = add nsw i16 %33, -97
   %37 = add i16 %.03138.i, %.02939.i
   %38 = zext i16 %36 to i64
-  %39 = getelementptr inbounds nuw i16, ptr %24, i64 %38
+  %39 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %38
   store i16 %37, ptr %39, align 2, !tbaa !26
   br label %40
 
@@ -805,7 +805,7 @@ define internal void @lv_ime_pinyin_constructor(ptr readnone captures(none) %0, 
   %.130.i = phi i16 [ %31, %30 ], [ 1, %32 ]
   %.1.i = phi i16 [ %.02840.i, %30 ], [ %36, %32 ]
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
-  %41 = getelementptr inbounds nuw %struct.lv_pinyin_dict_t, ptr @lv_ime_pinyin_def_dict, i64 %indvars.iv.next59
+  %41 = getelementptr inbounds nuw [16 x i8], ptr @lv_ime_pinyin_def_dict, i64 %indvars.iv.next59
   %42 = load ptr, ptr %41, align 16, !tbaa !27
   %43 = icmp eq i64 %indvars.iv.next59, 321
   br i1 %43, label %init_pinyin_dict.exit, label %26
@@ -881,7 +881,7 @@ init_pinyin_dict.exit:                            ; preds = %40
   %switch.selectcmp8.i = icmp eq i64 %indvars.iv3.i, 3
   %switch.select9.i = select i1 %switch.selectcmp8.i, ptr @.str.660, ptr %switch.select.i
   %76 = tail call ptr @lv_strcpy(ptr noundef nonnull %75, ptr noundef nonnull %switch.select9.i) #6
-  %77 = getelementptr inbounds nuw ptr, ptr @lv_btnm_def_pinyin_k9_map, i64 %indvars.iv.i
+  %77 = getelementptr inbounds nuw [8 x i8], ptr @lv_btnm_def_pinyin_k9_map, i64 %indvars.iv.i
   store ptr %75, ptr %77, align 8, !tbaa !3
   %indvars.iv.next4.i = add nuw nsw i64 %indvars.iv3.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1261,7 +1261,7 @@ lv_ime_pinyin_set_mode.exit149:                   ; preds = %113
 
 .preheader151:                                    ; preds = %132, %163
   %indvars.iv = phi i64 [ %indvars.iv.next, %163 ], [ 0, %132 ]
-  %135 = getelementptr inbounds nuw ptr, ptr @lv_ime_pinyin_kb_event.k9_py_map, i64 %indvars.iv
+  %135 = getelementptr inbounds nuw [8 x i8], ptr @lv_ime_pinyin_kb_event.k9_py_map, i64 %indvars.iv
   %136 = load ptr, ptr %135, align 8, !tbaa !3
   %137 = tail call i32 @lv_strcmp(ptr noundef nonnull %12, ptr noundef %136) #6
   %138 = icmp eq i32 %137, 0
@@ -1273,7 +1273,7 @@ lv_ime_pinyin_set_mode.exit149:                   ; preds = %113
   br i1 %141, label %142, label %163
 
 142:                                              ; preds = %139, %.preheader151
-  %143 = getelementptr inbounds nuw ptr, ptr @lv_ime_pinyin_kb_event.k9_py_map, i64 %indvars.iv
+  %143 = getelementptr inbounds nuw [8 x i8], ptr @lv_ime_pinyin_kb_event.k9_py_map, i64 %indvars.iv
   %144 = tail call i32 @lv_strcmp(ptr noundef nonnull %12, ptr noundef nonnull @.str.678) #6
   %145 = icmp eq i32 %144, 0
   %146 = load ptr, ptr %143, align 8, !tbaa !3
@@ -1381,12 +1381,12 @@ define void @lv_ime_pinyin_set_dict(ptr noundef writeonly captures(address_is_nu
 20:                                               ; preds = %15
   %21 = sext i8 %16 to i16
   %22 = zext i16 %.02840.i to i64
-  %23 = getelementptr inbounds nuw i16, ptr %7, i64 %22
+  %23 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %22
   store i16 %.02939.i, ptr %23, align 2, !tbaa !26
   %24 = add nsw i16 %21, -97
   %25 = add i16 %.03138.i, %.02939.i
   %26 = zext i16 %24 to i64
-  %27 = getelementptr inbounds nuw i16, ptr %8, i64 %26
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %8, i64 %26
   store i16 %25, ptr %27, align 2, !tbaa !26
   br label %28
 
@@ -1397,7 +1397,7 @@ define void @lv_ime_pinyin_set_dict(ptr noundef writeonly captures(address_is_nu
   %.1.i = phi i16 [ %.02840.i, %18 ], [ %24, %20 ]
   %29 = add i16 %.041.i, 1
   %30 = zext i16 %29 to i64
-  %31 = getelementptr inbounds nuw %struct.lv_pinyin_dict_t, ptr %1, i64 %30
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !27
   %33 = icmp eq ptr %32, null
   br i1 %33, label %init_pinyin_dict.exit, label %9
@@ -1412,7 +1412,7 @@ init_pinyin_dict.exit:                            ; preds = %9, %28, %3
   %38 = add nsw i64 %37, 65439
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %40 = and i64 %38, 65535
-  %41 = getelementptr inbounds nuw i16, ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [2 x i8], ptr %39, i64 %40
   store i16 %.029.lcssa.i, ptr %41, align 2, !tbaa !26
   ret void
 }
@@ -1449,7 +1449,7 @@ define void @lv_ime_pinyin_set_mode(ptr noundef captures(address_is_null) %0, i3
   %switch.selectcmp8.i = icmp eq i64 %indvars.iv3.i, 3
   %switch.select9.i = select i1 %switch.selectcmp8.i, ptr @.str.660, ptr %switch.select.i
   %10 = tail call ptr @lv_strcpy(ptr noundef nonnull %9, ptr noundef nonnull %switch.select9.i) #6
-  %11 = getelementptr inbounds nuw ptr, ptr @lv_btnm_def_pinyin_k9_map, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @lv_btnm_def_pinyin_k9_map, i64 %indvars.iv.i
   store ptr %9, ptr %11, align 8, !tbaa !3
   %indvars.iv.next4.i = add nuw nsw i64 %indvars.iv3.i, 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1882,12 +1882,12 @@ define internal fastcc void @pinyin_input_proc(ptr noundef %0) unnamed_addr #0 {
   %10 = load ptr, ptr %9, align 8, !tbaa !25
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %12 = zext i8 %7 to i64
-  %13 = getelementptr inbounds nuw i16, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %12
   %14 = load i16, ptr %13, align 2, !tbaa !26
   %15 = zext i16 %14 to i64
-  %16 = getelementptr inbounds nuw %struct.lv_pinyin_dict_t, ptr %10, i64 %15
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 156
-  %18 = getelementptr inbounds nuw i16, ptr %17, i64 %12
+  %18 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %12
   %19 = load i16, ptr %18, align 2, !tbaa !26
   %20 = trunc i16 %19 to i8
   store volatile i8 %20, ptr %2, align 1, !tbaa !8
@@ -2076,11 +2076,11 @@ define internal fastcc void @pinyin_k9_get_legal_py(ptr noundef %0, ptr noundef 
   %24 = call i64 @lv_strlen(ptr noundef nonnull %4) #6
   %25 = load ptr, ptr %14, align 8, !tbaa !25
   %26 = zext i8 %23 to i64
-  %27 = getelementptr inbounds nuw i16, ptr %15, i64 %26
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %26
   %28 = load i16, ptr %27, align 2, !tbaa !26
   %29 = zext i16 %28 to i64
-  %30 = getelementptr inbounds nuw %struct.lv_pinyin_dict_t, ptr %25, i64 %29
-  %31 = getelementptr inbounds nuw i16, ptr %16, i64 %26
+  %30 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 %29
+  %31 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %26
   %32 = load i16, ptr %31, align 2, !tbaa !26
   %33 = trunc i16 %32 to i8
   store volatile i8 %33, ptr %3, align 1, !tbaa !8
@@ -2168,13 +2168,13 @@ pinyin_k9_is_valid_py.exit:                       ; preds = %._crit_edge.us.thre
 
 60:                                               ; preds = %18
   %61 = sext i32 %.0472 to i64
-  %62 = getelementptr inbounds i32, ptr %5, i64 %61
+  %62 = getelementptr inbounds [4 x i8], ptr %5, i64 %61
   %63 = load i32, ptr %62, align 4, !tbaa !34
   %64 = sext i32 %63 to i64
   %65 = getelementptr inbounds i8, ptr %1, i64 %61
   %66 = load i8, ptr %65, align 1, !tbaa !8
   %67 = sext i8 %66 to i64
-  %68 = getelementptr ptr, ptr @lv_ime_pinyin_kb_event.k9_py_map, i64 %67
+  %68 = getelementptr [8 x i8], ptr @lv_ime_pinyin_kb_event.k9_py_map, i64 %67
   %69 = getelementptr i8, ptr %68, i64 -400
   %70 = load ptr, ptr %69, align 8, !tbaa !3
   %71 = call i64 @lv_strlen(ptr noundef %70) #6
@@ -2184,7 +2184,7 @@ pinyin_k9_is_valid_py.exit:                       ; preds = %._crit_edge.us.thre
 73:                                               ; preds = %60
   %74 = load i8, ptr %65, align 1, !tbaa !8
   %75 = sext i8 %74 to i64
-  %76 = getelementptr ptr, ptr @lv_ime_pinyin_kb_event.k9_py_map, i64 %75
+  %76 = getelementptr [8 x i8], ptr @lv_ime_pinyin_kb_event.k9_py_map, i64 %75
   %77 = getelementptr i8, ptr %76, i64 -400
   %78 = load ptr, ptr %77, align 8, !tbaa !3
   %79 = getelementptr inbounds i8, ptr %78, i64 %64

@@ -153,7 +153,7 @@ define dso_local void @cmsysMD5_Finalize(ptr noundef %0, ptr noundef writeonly c
   %indvars.iv.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i, %4 ]
   %5 = lshr i64 %indvars.iv.i, 2
   %6 = and i64 %5, 1073741823
-  %7 = getelementptr inbounds nuw i32, ptr %0, i64 %6
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !4
   %indvars.iv.tr.i = trunc i64 %indvars.iv.i to i32
   %9 = shl i32 %indvars.iv.tr.i, 3
@@ -304,7 +304,7 @@ md5_append.exit25.i:                              ; preds = %._crit_edge.i18.thr
   %indvars.iv42.i = phi i64 [ 0, %md5_append.exit25.i ], [ %indvars.iv.next43.i, %77 ]
   %78 = lshr i64 %indvars.iv42.i, 2
   %79 = and i64 %78, 1073741823
-  %80 = getelementptr inbounds nuw i32, ptr %76, i64 %79
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %79
   %81 = load i32, ptr %80, align 4, !tbaa !4
   %indvars.iv42.tr.i = trunc i64 %indvars.iv42.i to i32
   %82 = shl i32 %indvars.iv42.tr.i, 3

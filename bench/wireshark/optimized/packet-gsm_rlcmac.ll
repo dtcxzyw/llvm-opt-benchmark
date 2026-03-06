@@ -5387,7 +5387,7 @@ dissect_ul_pacch_access_burst.exit:               ; preds = %49, %55, %60, %66, 
 
 switch.lookup:                                    ; preds = %148
   %166 = zext nneg i8 %164 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_gsm_rlcmac_uplink, i64 %166
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_gsm_rlcmac_uplink, i64 %166
   %switch.load = load ptr, ptr %switch.gep, align 8
   %167 = load i32, ptr @ett_gsm_rlcmac, align 4
   %168 = call signext i16 @csnStreamDissector(ptr noundef %159, ptr noundef nonnull %8, ptr noundef nonnull %switch.load, ptr noundef %0, ptr noundef %18, i32 noundef %167)
@@ -5966,7 +5966,7 @@ switch.hole_check:                                ; preds = %184
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %199 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_gsm_rlcmac_downlink, i64 %199
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_gsm_rlcmac_downlink, i64 %199
   %switch.load = load ptr, ptr %switch.gep, align 8
   %200 = load i32, ptr @ett_gsm_rlcmac, align 4
   %201 = call signext i16 @csnStreamDissector(ptr noundef %194, ptr noundef nonnull %9, ptr noundef nonnull %switch.load, ptr noundef %0, ptr noundef %18, i32 noundef %200)
@@ -6196,7 +6196,7 @@ switch.hole_check55:                              ; preds = %330
 
 switch.lookup56:                                  ; preds = %switch.hole_check55
   %333 = zext nneg i8 %switch.tableidx53 to i64
-  %switch.gep60 = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_gsm_rlcmac_downlink.3, i64 %333
+  %switch.gep60 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_gsm_rlcmac_downlink.3, i64 %333
   %switch.load61 = load ptr, ptr %switch.gep60, align 8
   %334 = load i32, ptr @ett_gsm_rlcmac, align 4
   %335 = call signext i16 @csnStreamDissector(ptr noundef %301, ptr noundef nonnull %6, ptr noundef nonnull %switch.load61, ptr noundef %0, ptr noundef %18, i32 noundef %334)
@@ -6375,7 +6375,7 @@ define internal fastcc void @dissect_egprs_ul_data_block(ptr noundef %0, ptr nou
 
 28:                                               ; preds = %.lr.ph.i
   %29 = zext nneg i8 %.05 to i64
-  %30 = getelementptr %struct.length_indicator_t, ptr %5, i64 %29
+  %30 = getelementptr [8 x i8], ptr %5, i64 %29
   store i32 %.025.i, ptr %30, align 8
   %31 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.025.i)
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 4
@@ -6506,12 +6506,12 @@ define internal fastcc i32 @construct_gprs_data_segment_li_array(ptr noundef %0,
   %18 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.028)
   %19 = load i8, ptr %4, align 1
   %20 = zext i8 %19 to i64
-  %21 = getelementptr %struct.length_indicator_t, ptr %5, i64 %20
+  %21 = getelementptr [8 x i8], ptr %5, i64 %20
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 4
   store i8 %18, ptr %22, align 4
   %23 = load i8, ptr %4, align 1
   %24 = zext i8 %23 to i64
-  %25 = getelementptr %struct.length_indicator_t, ptr %5, i64 %24
+  %25 = getelementptr [8 x i8], ptr %5, i64 %24
   store i32 %.028, ptr %25, align 4
   %26 = load i8, ptr %4, align 1
   %27 = add i8 %26, 1
@@ -6567,7 +6567,7 @@ define internal fastcc noundef zeroext i8 @dissect_gprs_data_segments(ptr nounde
   %17 = phi i32 [ 0, %.lr.ph ], [ %50, %49 ]
   %.0115 = phi i8 [ %3, %.lr.ph ], [ %.1, %49 ]
   %.0103114 = phi ptr [ @.str.2728, %.lr.ph ], [ @.str.2729, %49 ]
-  %18 = getelementptr %struct.length_indicator_t, ptr %8, i64 %indvars.iv
+  %18 = getelementptr [8 x i8], ptr %8, i64 %indvars.iv
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   %20 = load i8, ptr %19, align 4
   %21 = lshr i8 %20, 2
@@ -6730,7 +6730,7 @@ define internal fastcc void @dissect_egprs_data_segments(ptr noundef %0, ptr nou
   %10 = phi i32 [ 0, %.lr.ph ], [ %63, %62 ]
   %.0125 = phi i32 [ %3, %.lr.ph ], [ %.1, %62 ]
   %.0115124 = phi i1 [ true, %.lr.ph ], [ false, %62 ]
-  %11 = getelementptr %struct.length_indicator_t, ptr %6, i64 %indvars.iv
+  %11 = getelementptr [8 x i8], ptr %6, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = load i8, ptr %12, align 4
   %14 = zext i8 %13 to i32
@@ -6892,7 +6892,7 @@ define internal fastcc void @dissect_egprs_dl_data_block(ptr noundef %0, ptr nou
 
 28:                                               ; preds = %.lr.ph.i
   %29 = zext nneg i8 %.0 to i64
-  %30 = getelementptr %struct.length_indicator_t, ptr %5, i64 %29
+  %30 = getelementptr [8 x i8], ptr %5, i64 %29
   store i32 %.025.i, ptr %30, align 8
   %31 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %.025.i)
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 4
@@ -7003,7 +7003,7 @@ define internal signext i16 @callback_UTRAN_TDD_compute_TDD_CELL_INFORMATION(ptr
   %.06378 = phi i32 [ %.164, %30 ], [ 1, %.preheader ]
   %25 = tail call i32 @tvb_get_bits(ptr noundef %1, i32 noundef %.15682, i32 noundef %.05781, i32 noundef 0)
   %26 = sext i32 %.05980 to i64
-  %27 = getelementptr i32, ptr %8, i64 %26
+  %27 = getelementptr [4 x i8], ptr %8, i64 %26
   store i32 %25, ptr %27, align 4
   %28 = add i32 %.15682, %.05781
   %29 = icmp eq i32 %25, 0

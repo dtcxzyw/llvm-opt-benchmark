@@ -77,7 +77,7 @@ define dso_local noundef ptr @write_idx_file(ptr noundef readonly captures(none)
 
 14:                                               ; preds = %6
   %15 = sext i32 %3 to i64
-  %16 = getelementptr inbounds ptr, ptr %2, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %2, i64 %15
   %17 = icmp sgt i32 %3, 0
   br i1 %17, label %.lr.ph.preheader, label %._crit_edge.thread
 
@@ -88,7 +88,7 @@ define dso_local noundef ptr @write_idx_file(ptr noundef readonly captures(none)
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.0101173 = phi i64 [ 0, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
-  %18 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8, !tbaa !14
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 40
   %21 = load i64, ptr %20, align 8, !tbaa !16
@@ -536,7 +536,7 @@ define dso_local ptr @write_rev_file(ptr noundef %0, ptr noundef %1, ptr noundef
 
 .lr.ph:                                           ; preds = %8, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %8 ]
-  %12 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %13 = trunc nuw i64 %indvars.iv to i32
   store i32 %13, ptr %12, align 4, !tbaa !24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -570,13 +570,13 @@ declare i32 @git_qsort_s(ptr noundef, i64 noundef, i64 noundef, ptr noundef, ptr
 define internal range(i32 -1, 2) i32 @pack_order_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2) #8 {
   %4 = load i32, ptr %0, align 4, !tbaa !24
   %5 = zext i32 %4 to i64
-  %6 = getelementptr inbounds nuw ptr, ptr %2, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
   %9 = load i64, ptr %8, align 8, !tbaa !16
   %10 = load i32, ptr %1, align 4, !tbaa !24
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr %2, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !14
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
   %15 = load i64, ptr %14, align 8, !tbaa !16
@@ -692,7 +692,7 @@ write_rev_header.exit:                            ; preds = %.thread, %27
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %44 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.i
   %45 = load i32, ptr %44, align 4, !tbaa !24
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %46 = call i32 asm "bswap $0", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 %45) #20, !srcloc !28
@@ -1188,7 +1188,7 @@ define dso_local void @stage_tmp_packfiles(ptr noundef %0, ptr noundef %1, ptr n
 
 .lr.ph.i:                                         ; preds = %24, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %24 ]
-  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv.i
   %29 = trunc nuw i64 %indvars.iv.i to i32
   store i32 %29, ptr %28, align 4, !tbaa !24
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1262,7 +1262,7 @@ write_mtimes_header.exit.i:                       ; preds = %36
   br i1 %.not.i.i.i, label %oe_cruft_mtime.exit.i.i, label %48
 
 48:                                               ; preds = %46
-  %49 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i.i
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i.i
   %50 = load ptr, ptr %49, align 8, !tbaa !14
   %51 = load ptr, ptr %45, align 8, !tbaa !84
   %52 = ptrtoint ptr %50 to i64
@@ -1434,7 +1434,7 @@ define dso_local void @write_promisor_file(ptr noundef %0, ptr noundef readonly 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8, !tbaa !86
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = tail call ptr @oid_to_hex(ptr noundef nonnull %8) #19

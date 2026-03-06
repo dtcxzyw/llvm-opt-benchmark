@@ -15,14 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::pair.165" = type { %"struct.std::pair.167", %"struct.std::pair.167" }
 %"struct.std::pair.167" = type <{ ptr, i32, [4 x i8] }>
 %"class.std::error_code" = type { i32, ptr }
-%"struct.llvm::SourceMgr::SrcBuffer" = type { %"class.std::unique_ptr.187", ptr, %"class.llvm::SMLoc" }
-%"class.std::unique_ptr.187" = type { %"struct.std::__uniq_ptr_data.188" }
-%"struct.std::__uniq_ptr_data.188" = type { %"class.std::__uniq_ptr_impl.189" }
-%"class.std::__uniq_ptr_impl.189" = type { %"class.std::tuple.190" }
-%"class.std::tuple.190" = type { %"struct.std::_Tuple_impl.191" }
-%"struct.std::_Tuple_impl.191" = type { %"struct.std::_Head_base.194" }
-%"struct.std::_Head_base.194" = type { ptr }
-%"class.llvm::SMLoc" = type { ptr }
 %"class.llvm::SmallVector.206" = type { %"class.llvm::SmallVectorImpl.207", %"struct.llvm::SmallVectorStorage.210" }
 %"class.llvm::SmallVectorImpl.207" = type { %"class.llvm::SmallVectorTemplateBase.208" }
 %"class.llvm::SmallVectorTemplateBase.208" = type { %"class.llvm::SmallVectorTemplateCommon.209" }
@@ -2057,7 +2049,7 @@ define internal noundef zeroext i1 @_ZN4llvm20MCAsmParserExtension15HandleDirect
 
 15:                                               ; preds = %4
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw %"struct.std::pair.165", ptr %.pre3.i.pre.i.i, i64 %16
+  %17 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i.pre.i.i, i64 %16
   %18 = getelementptr inbounds i8, ptr %17, i64 -32
   %.sroa.0.0.copyload.i.i.i = load ptr, ptr %18, align 8
   %.sroa.3.0..sroa_idx.i.i.i = getelementptr inbounds i8, ptr %17, i64 -24
@@ -2088,7 +2080,7 @@ _ZNK4llvm10MCStreamer18getPreviousSectionEv.exit.i.i: ; preds = %15, %4
   br i1 %.not.i.i.not.i.i.i, label %_ZN4llvm10MCStreamer11pushSectionEv.exit.i, label %24, !prof !123
 
 24:                                               ; preds = %_ZNK4llvm10MCStreamer18getPreviousSectionEv.exit.i.i
-  %25 = getelementptr inbounds nuw %"struct.std::pair.165", ptr %.pre3.i.pre.i.i, i64 %.pre-phi.i.i
+  %25 = getelementptr inbounds nuw [32 x i8], ptr %.pre3.i.pre.i.i, i64 %.pre-phi.i.i
   %26 = icmp uge ptr %5, %.pre3.i.pre.i.i
   %27 = icmp ult ptr %5, %25
   %spec.select.i.i.i.i.i.i.i = and i1 %26, %27
@@ -2115,7 +2107,7 @@ _ZN4llvm10MCStreamer11pushSectionEv.exit.i:       ; preds = %.critedge.i.i.i.i.i
   %.016.i.i.i.i.i = phi ptr [ %5, %_ZNK4llvm10MCStreamer18getPreviousSectionEv.exit.i.i ], [ %34, %28 ], [ %5, %.critedge.i.i.i.i.i ]
   %37 = load i32, ptr %13, align 8, !tbaa !121
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw %"struct.std::pair.165", ptr %36, i64 %38
+  %39 = getelementptr inbounds nuw [32 x i8], ptr %36, i64 %38
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %39, ptr noundef nonnull align 8 dereferenceable(32) %.016.i.i.i.i.i, i64 32, i1 false)
   %40 = load i32, ptr %13, align 8, !tbaa !121
   %41 = add i32 %40, 1
@@ -2192,7 +2184,7 @@ _ZNK4llvm10MCStreamer18getPreviousSectionEv.exit.i: ; preds = %4
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 120
   %15 = load ptr, ptr %14, align 8, !tbaa !29
   %16 = zext i32 %13 to i64
-  %17 = getelementptr inbounds nuw %"struct.std::pair.165", ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 %16
   %18 = getelementptr inbounds i8, ptr %17, i64 -16
   %.sroa.0.0.copyload.i.i = load ptr, ptr %18, align 8
   %.not.i = icmp eq ptr %.sroa.0.0.copyload.i.i, null
@@ -2449,7 +2441,7 @@ _ZNSt10unique_ptrIN4llvm14raw_fd_ostreamESt14default_deleteIS1_EED2Ev.exit65.i: 
   %128 = add i32 %122, -1
   %129 = zext i32 %128 to i64
   %130 = load ptr, ptr %127, align 8, !tbaa !302
-  %131 = getelementptr inbounds nuw %"struct.llvm::SourceMgr::SrcBuffer", ptr %130, i64 %129
+  %131 = getelementptr inbounds nuw [24 x i8], ptr %130, i64 %129
   %132 = load ptr, ptr %131, align 8, !tbaa !305
   %133 = load ptr, ptr %132, align 8, !tbaa !3
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 16
@@ -4325,7 +4317,7 @@ define linkonce_odr hidden void @_ZN4llvm23SmallVectorTemplateBaseINSt7__cxx1112
   br i1 %.not.i.i.not, label %_ZN4llvm23SmallVectorTemplateBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EE28reserveForParamAndGetAddressERKS6_m.exit, label %10, !prof !123
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre3, i64 %6
+  %11 = getelementptr inbounds nuw [32 x i8], ptr %.pre3, i64 %6
   %12 = icmp uge ptr %1, %.pre3
   %13 = icmp ult ptr %1, %11
   %spec.select.i.i.i.i = and i1 %12, %13
@@ -4350,7 +4342,7 @@ _ZN4llvm23SmallVectorTemplateBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %.016.i.i = phi ptr [ %1, %2 ], [ %19, %14 ], [ %1, %.critedge.i.i ]
   %21 = load i32, ptr %4, align 8, !tbaa !121
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %20, i64 %22
+  %23 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store ptr %24, ptr %23, align 8, !tbaa !93
   %25 = load ptr, ptr %.016.i.i, align 8, !tbaa !95
@@ -6090,7 +6082,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit21:                ; preds = %_ZL17isSDKVersionTo
 
 switch.lookup:                                    ; preds = %_ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit.thread
   %69 = zext nneg i32 %4 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN12_GLOBAL__N_115DarwinAsmParser15parseVersionMinEN4llvm9StringRefENS1_5SMLocENS1_16MCVersionMinTypeE, i64 %69
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN12_GLOBAL__N_115DarwinAsmParser15parseVersionMinEN4llvm9StringRefENS1_5SMLocENS1_16MCVersionMinTypeE, i64 %69
   %switch.load = load i32, ptr %switch.gep, align 4
   tail call fastcc void @_ZN12_GLOBAL__N_115DarwinAsmParser12checkVersionEN4llvm9StringRefES2_NS1_5SMLocENS1_6Triple6OSTypeE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr %1, i64 %2, ptr null, i64 0, ptr %3, i32 noundef %switch.load)
   %70 = load ptr, ptr %17, align 8, !tbaa !11
@@ -7035,7 +7027,7 @@ _ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit.thread.i: ; preds = %_ZL17isSDKVer
 switch.lookup:                                    ; preds = %_ZL17isSDKVersionTokenRKN4llvm8AsmTokenE.exit.thread.i
   %switch.tableidx = add nuw nsw i64 %.sroa.30.12.i, 4294967295
   %121 = and i64 %switch.tableidx, 4294967295
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_17parseBuildVersionES5_S6_EEEEbPS0_S5_S6_, i64 %121
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN4llvm20MCAsmParserExtension15HandleDirectiveIN12_GLOBAL__N_115DarwinAsmParserETnMT_FbNS_9StringRefENS_5SMLocEEXadL_ZNS3_17parseBuildVersionES5_S6_EEEEbPS0_S5_S6_, i64 %121
   %switch.load = load i32, ptr %switch.gep, align 4
   %.sroa.01.0.copyload.i = load ptr, ptr %8, align 8, !tbaa !15
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.26.0..sroa_idx.i, align 8, !tbaa !35

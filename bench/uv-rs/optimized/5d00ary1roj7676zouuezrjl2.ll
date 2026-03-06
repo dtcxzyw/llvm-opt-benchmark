@@ -1707,10 +1707,10 @@ define noundef zeroext i1 @"_ZN78_$LT$uv_pep508..marker..tree..MarkerOperator$u2
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !295, !noundef !4
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN78_$LT$uv_pep508..marker..tree..MarkerOperator$u20$as$u20$core..fmt..Display$GT$3fmt17heacdc9b7f4527646E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN78_$LT$uv_pep508..marker..tree..MarkerOperator$u20$as$u20$core..fmt..Display$GT$3fmt17heacdc9b7f4527646E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN78_$LT$uv_pep508..marker..tree..MarkerOperator$u20$as$u20$core..fmt..Display$GT$3fmt17heacdc9b7f4527646E.31", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN78_$LT$uv_pep508..marker..tree..MarkerOperator$u20$as$u20$core..fmt..Display$GT$3fmt17heacdc9b7f4527646E.31", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -2101,7 +2101,7 @@ default.unreachable137:                           ; preds = %2
   %44 = load ptr, ptr %43, align 8, !nonnull !4, !noundef !4
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %46 = load i64, ptr %45, align 8, !noundef !4
-  %47 = getelementptr inbounds { { [9 x i8], i8, [6 x i8] } }, ptr %44, i64 %46
+  %47 = getelementptr inbounds [16 x i8], ptr %44, i64 %46
   store ptr %44, ptr %20, align 8
   %48 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store ptr %47, ptr %48, align 8
@@ -2922,7 +2922,7 @@ _ZN3std4sync6poison4once4Once9call_once17h4858b711c7e4212fE.llvm.369504610280346
   %15 = load i64, ptr %3, align 8, !noundef !4
   %16 = icmp ult i64 %15, 59
   call void @llvm.assume(i1 %16)
-  %17 = getelementptr inbounds nuw { { ptr } }, ptr getelementptr inbounds nuw (i8, ptr @_ZN9uv_pep5086marker7algebra8INTERNER17hc917327be62aa151E, i64 8), i64 %15
+  %17 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN9uv_pep5086marker7algebra8INTERNER17hc917327be62aa151E, i64 8), i64 %15
   %18 = call noundef ptr @_ZN4core4sync6atomic11atomic_load17hd91f7818ae9764c5E.llvm.7299562655320913624(ptr noundef nonnull %17, i8 noundef 2)
   %19 = icmp eq ptr %18, null
   br i1 %19, label %select.unfold.i.i, label %20
@@ -2930,7 +2930,7 @@ _ZN3std4sync6poison4once4Once9call_once17h4858b711c7e4212fE.llvm.369504610280346
 20:                                               ; preds = %_ZN3std4sync6poison4once4Once9call_once17h4858b711c7e4212fE.llvm.3695046102803460001.exit
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %22 = load i64, ptr %21, align 8, !noundef !4
-  %23 = getelementptr inbounds { { { { [44 x i64] } } }, { i8 }, [7 x i8] }, ptr %18, i64 %22
+  %23 = getelementptr inbounds [360 x i8], ptr %18, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 352
   %25 = call noundef i8 @_ZN4core4sync6atomic11atomic_load17h854073dd7144b737E.llvm.7299562655320913624(ptr noundef nonnull %24, i8 noundef 2)
   %26 = icmp eq i8 %25, 0
@@ -3190,7 +3190,7 @@ define noundef zeroext i1 @_ZN9uv_pep5086marker4tree10MarkerTree15evaluate_extra
   %.sroa.4.0.copyload53 = load i64, ptr %.sroa.4.0..sroa_idx52, align 8
   %.sroa.5.0..sroa_idx54 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.sroa.5.0.copyload55 = load i64, ptr %.sroa.5.0..sroa_idx54, align 8
-  %14 = getelementptr inbounds { { { { [6 x i64] }, i64 } }, i64 }, ptr %.sroa.0.0.copyload51, i64 %.sroa.4.0.copyload53
+  %14 = getelementptr inbounds [64 x i8], ptr %.sroa.0.0.copyload51, i64 %.sroa.4.0.copyload53
   %15 = and i64 %.sroa.5.0.copyload55, 1
   br label %16
 
@@ -3213,7 +3213,7 @@ define noundef zeroext i1 @_ZN9uv_pep5086marker4tree10MarkerTree15evaluate_extra
   %.sroa.457.0.copyload = load i64, ptr %.sroa.457.0..sroa_idx, align 8
   %.sroa.558.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.sroa.558.0.copyload = load i64, ptr %.sroa.558.0..sroa_idx, align 8
-  %22 = getelementptr inbounds { { { { [4 x i64] }, i64 } }, i64 }, ptr %.sroa.056.0.copyload, i64 %.sroa.457.0.copyload
+  %22 = getelementptr inbounds [48 x i8], ptr %.sroa.056.0.copyload, i64 %.sroa.457.0.copyload
   %23 = and i64 %.sroa.558.0.copyload, 1
   br label %24
 
@@ -3247,7 +3247,7 @@ define noundef zeroext i1 @_ZN9uv_pep5086marker4tree10MarkerTree15evaluate_extra
 .noexc7:                                          ; preds = %.noexc7, %29
   %31 = phi i64 [ 0, %29 ], [ %32, %.noexc7 ]
   %32 = add nuw nsw i64 %31, 1
-  %33 = getelementptr inbounds nuw { [2 x i64] }, ptr %5, i64 %31
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %31
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load i64, ptr %34, align 8, !alias.scope !493, !noundef !4
   %36 = tail call noundef zeroext i1 @_ZN9uv_pep5086marker4tree10MarkerTree15evaluate_extras17hff280f9fbd366cfeE(i64 noundef %35, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2)
@@ -3272,7 +3272,7 @@ define noundef zeroext i1 @_ZN9uv_pep5086marker4tree10MarkerTree15evaluate_extra
 .noexc12:                                         ; preds = %.noexc12, %37
   %39 = phi i64 [ 0, %37 ], [ %40, %.noexc12 ]
   %40 = add nuw nsw i64 %39, 1
-  %41 = getelementptr inbounds nuw { [2 x i64] }, ptr %4, i64 %39
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %4, i64 %39
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load i64, ptr %42, align 8, !alias.scope !501, !noundef !4
   %44 = tail call noundef zeroext i1 @_ZN9uv_pep5086marker4tree10MarkerTree15evaluate_extras17hff280f9fbd366cfeE(i64 noundef %43, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2)
@@ -3286,7 +3286,7 @@ define noundef zeroext i1 @_ZN9uv_pep5086marker4tree10MarkerTree15evaluate_extra
   %.sroa.433.0.copyload = load i64, ptr %.sroa.433.0..sroa_idx, align 8
   %.sroa.534.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.sroa.534.0.copyload = load i64, ptr %.sroa.534.0..sroa_idx, align 8
-  %46 = getelementptr inbounds ptr, ptr %1, i64 %2
+  %46 = getelementptr inbounds [8 x i8], ptr %1, i64 %2
   br label %47
 
 47:                                               ; preds = %49, %45
@@ -4311,7 +4311,7 @@ define internal fastcc noundef zeroext i1 @_ZN9uv_pep5086marker4tree10MarkerTree
   %68 = load ptr, ptr %48, align 8, !alias.scope !668, !noalias !665, !nonnull !4, !align !5, !noundef !4
   %69 = getelementptr inbounds nuw i8, ptr %48, i64 8
   %70 = load i64, ptr %69, align 8, !alias.scope !668, !noalias !665, !noundef !4
-  %71 = getelementptr inbounds { { { { [6 x i64] }, i64 } }, i64 }, ptr %68, i64 %70
+  %71 = getelementptr inbounds [64 x i8], ptr %68, i64 %70
   store ptr %68, ptr %46, align 8, !alias.scope !665, !noalias !668
   %72 = getelementptr inbounds nuw i8, ptr %46, i64 8
   store ptr %71, ptr %72, align 8, !alias.scope !665, !noalias !668
@@ -4400,7 +4400,7 @@ define internal fastcc noundef zeroext i1 @_ZN9uv_pep5086marker4tree10MarkerTree
   %97 = load ptr, ptr %41, align 8, !alias.scope !688, !noalias !685, !nonnull !4, !align !5, !noundef !4
   %98 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %99 = load i64, ptr %98, align 8, !alias.scope !688, !noalias !685, !noundef !4
-  %100 = getelementptr inbounds { { { { [4 x i64] }, i64 } }, i64 }, ptr %97, i64 %99
+  %100 = getelementptr inbounds [48 x i8], ptr %97, i64 %99
   store ptr %97, ptr %39, align 8, !alias.scope !685, !noalias !688
   %101 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr %100, ptr %101, align 8, !alias.scope !685, !noalias !688
@@ -5293,7 +5293,7 @@ _ZN3std4sync6poison4once4Once9call_once17h4858b711c7e4212fE.llvm.369504610280346
   %17 = load i64, ptr %3, align 8, !noundef !4
   %18 = icmp ult i64 %17, 59
   call void @llvm.assume(i1 %18)
-  %19 = getelementptr inbounds nuw { { ptr } }, ptr getelementptr inbounds nuw (i8, ptr @_ZN9uv_pep5086marker7algebra8INTERNER17hc917327be62aa151E, i64 8), i64 %17
+  %19 = getelementptr inbounds nuw [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @_ZN9uv_pep5086marker7algebra8INTERNER17hc917327be62aa151E, i64 8), i64 %17
   %20 = call noundef ptr @_ZN4core4sync6atomic11atomic_load17hd91f7818ae9764c5E.llvm.7299562655320913624(ptr noundef nonnull %19, i8 noundef 2)
   %21 = icmp eq ptr %20, null
   br i1 %21, label %select.unfold.i.i, label %22
@@ -5301,7 +5301,7 @@ _ZN3std4sync6poison4once4Once9call_once17h4858b711c7e4212fE.llvm.369504610280346
 22:                                               ; preds = %_ZN3std4sync6poison4once4Once9call_once17h4858b711c7e4212fE.llvm.3695046102803460001.exit
   %23 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %24 = load i64, ptr %23, align 8, !noundef !4
-  %25 = getelementptr inbounds { { { { [44 x i64] } } }, { i8 }, [7 x i8] }, ptr %20, i64 %24
+  %25 = getelementptr inbounds [360 x i8], ptr %20, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 352
   %27 = call noundef i8 @_ZN4core4sync6atomic11atomic_load17h854073dd7144b737E.llvm.7299562655320913624(ptr noundef nonnull %26, i8 noundef 2)
   %28 = icmp eq i8 %27, 0
@@ -5350,7 +5350,7 @@ define void @_ZN9uv_pep5086marker4tree17VersionMarkerTree5edges17h1c1b7dcfba2239
   %3 = load ptr, ptr %1, align 8, !nonnull !4, !align !5, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !4
-  %6 = getelementptr inbounds { { { { [6 x i64] }, i64 } }, i64 }, ptr %3, i64 %5
+  %6 = getelementptr inbounds [64 x i8], ptr %3, i64 %5
   store ptr %3, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %6, ptr %7, align 8
@@ -5384,11 +5384,11 @@ define noundef range(i8 -1, 3) i8 @"_ZN84_$LT$uv_pep508..marker..tree..VersionMa
   %17 = load ptr, ptr %0, align 8, !alias.scope !838, !noalias !841, !nonnull !4, !align !5, !noundef !4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load i64, ptr %18, align 8, !alias.scope !838, !noalias !841, !noundef !4
-  %20 = getelementptr inbounds { { { { [6 x i64] }, i64 } }, i64 }, ptr %17, i64 %19
+  %20 = getelementptr inbounds [64 x i8], ptr %17, i64 %19
   %21 = load ptr, ptr %1, align 8, !alias.scope !843, !noalias !846, !nonnull !4, !align !5, !noundef !4
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load i64, ptr %22, align 8, !alias.scope !843, !noalias !846, !noundef !4
-  %24 = getelementptr inbounds { { { { [6 x i64] }, i64 } }, i64 }, ptr %21, i64 %23
+  %24 = getelementptr inbounds [64 x i8], ptr %21, i64 %23
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !848
   store ptr %17, ptr %4, align 8, !noalias !852
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -5435,11 +5435,11 @@ define noundef range(i8 -1, 2) i8 @"_ZN77_$LT$uv_pep508..marker..tree..VersionMa
   %17 = load ptr, ptr %0, align 8, !alias.scope !870, !noalias !873, !nonnull !4, !align !5, !noundef !4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load i64, ptr %18, align 8, !alias.scope !870, !noalias !873, !noundef !4
-  %20 = getelementptr inbounds { { { { [6 x i64] }, i64 } }, i64 }, ptr %17, i64 %19
+  %20 = getelementptr inbounds [64 x i8], ptr %17, i64 %19
   %21 = load ptr, ptr %1, align 8, !alias.scope !875, !noalias !878, !nonnull !4, !align !5, !noundef !4
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %23 = load i64, ptr %22, align 8, !alias.scope !875, !noalias !878, !noundef !4
-  %24 = getelementptr inbounds { { { { [6 x i64] }, i64 } }, i64 }, ptr %21, i64 %23
+  %24 = getelementptr inbounds [64 x i8], ptr %21, i64 %23
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !880
   store ptr %17, ptr %4, align 8, !noalias !884
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -5475,7 +5475,7 @@ define void @_ZN9uv_pep5086marker4tree16StringMarkerTree8children17hd6245ee3b06a
   %3 = load ptr, ptr %1, align 8, !nonnull !4, !align !5, !noundef !4
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !4
-  %6 = getelementptr inbounds { { { { [4 x i64] }, i64 } }, i64 }, ptr %3, i64 %5
+  %6 = getelementptr inbounds [48 x i8], ptr %3, i64 %5
   store ptr %3, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %6, ptr %7, align 8
@@ -5504,11 +5504,11 @@ define noundef range(i8 -1, 3) i8 @"_ZN83_$LT$uv_pep508..marker..tree..StringMar
   %12 = load ptr, ptr %0, align 8, !alias.scope !907, !noalias !910, !nonnull !4, !align !5, !noundef !4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i64, ptr %13, align 8, !alias.scope !907, !noalias !910, !noundef !4
-  %15 = getelementptr inbounds { { { { [4 x i64] }, i64 } }, i64 }, ptr %12, i64 %14
+  %15 = getelementptr inbounds [48 x i8], ptr %12, i64 %14
   %16 = load ptr, ptr %1, align 8, !alias.scope !912, !noalias !915, !nonnull !4, !align !5, !noundef !4
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load i64, ptr %17, align 8, !alias.scope !912, !noalias !915, !noundef !4
-  %19 = getelementptr inbounds { { { { [4 x i64] }, i64 } }, i64 }, ptr %16, i64 %18
+  %19 = getelementptr inbounds [48 x i8], ptr %16, i64 %18
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !917
   store ptr %12, ptr %4, align 8, !noalias !921
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -5550,11 +5550,11 @@ define noundef range(i8 -1, 2) i8 @"_ZN76_$LT$uv_pep508..marker..tree..StringMar
   %12 = load ptr, ptr %0, align 8, !alias.scope !939, !noalias !942, !nonnull !4, !align !5, !noundef !4
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load i64, ptr %13, align 8, !alias.scope !939, !noalias !942, !noundef !4
-  %15 = getelementptr inbounds { { { { [4 x i64] }, i64 } }, i64 }, ptr %12, i64 %14
+  %15 = getelementptr inbounds [48 x i8], ptr %12, i64 %14
   %16 = load ptr, ptr %1, align 8, !alias.scope !944, !noalias !947, !nonnull !4, !align !5, !noundef !4
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %18 = load i64, ptr %17, align 8, !alias.scope !944, !noalias !947, !noundef !4
-  %19 = getelementptr inbounds { { { { [4 x i64] }, i64 } }, i64 }, ptr %16, i64 %18
+  %19 = getelementptr inbounds [48 x i8], ptr %16, i64 %18
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !949
   store ptr %12, ptr %4, align 8, !noalias !953
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -6215,7 +6215,7 @@ define noundef zeroext i1 @"_ZN82_$LT$uv_pep508..marker..tree..MarkerTreeContent
   %28 = getelementptr i8, ptr %26, i64 16
   %.val5 = load i64, ptr %28, align 8, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !1186
-  %29 = getelementptr inbounds { i8, [31 x i8] }, ptr %.val4, i64 %.val5
+  %29 = getelementptr inbounds [32 x i8], ptr %.val4, i64 %.val5
   invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h41f8089dd1e8f7c4E.llvm.8488369856913705139"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %6, ptr noundef nonnull %.val4, ptr noundef nonnull %29, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.672ee2e8c240d509758cbc3d7186afd6.118)
           to label %.noexc unwind label %44
 
@@ -6253,7 +6253,7 @@ define noundef zeroext i1 @"_ZN82_$LT$uv_pep508..marker..tree..MarkerTreeContent
 39:                                               ; preds = %14
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %40 = load ptr, ptr %15, align 8, !nonnull !4, !noundef !4
-  %41 = getelementptr inbounds { { { i64, ptr, {} }, {} }, i64 }, ptr %40, i64 %17
+  %41 = getelementptr inbounds [24 x i8], ptr %40, i64 %17
   store ptr %40, ptr %8, align 8
   %42 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %41, ptr %42, align 8
@@ -6627,10 +6627,10 @@ define internal noundef zeroext i1 @"_ZN92_$LT$uv_pep508..marker..lowering..Cano
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !452, !noundef !4
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN92_$LT$uv_pep508..marker..lowering..CanonicalMarkerValueString$u20$as$u20$core..fmt..Debug$GT$3fmt17h1290da810f9f0ffbE", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN92_$LT$uv_pep508..marker..lowering..CanonicalMarkerValueString$u20$as$u20$core..fmt..Debug$GT$3fmt17h1290da810f9f0ffbE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN92_$LT$uv_pep508..marker..lowering..CanonicalMarkerValueString$u20$as$u20$core..fmt..Debug$GT$3fmt17h1290da810f9f0ffbE.32", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN92_$LT$uv_pep508..marker..lowering..CanonicalMarkerValueString$u20$as$u20$core..fmt..Debug$GT$3fmt17h1290da810f9f0ffbE.32", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -6697,11 +6697,11 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN74_$LT$uv_pep508..marker..tree..Ma
   %37 = load ptr, ptr %0, align 8, !alias.scope !1234, !noalias !1237, !nonnull !4, !align !5, !noundef !4
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %39 = load i64, ptr %38, align 8, !alias.scope !1234, !noalias !1237, !noundef !4
-  %40 = getelementptr inbounds { { { { [6 x i64] }, i64 } }, i64 }, ptr %37, i64 %39
+  %40 = getelementptr inbounds [64 x i8], ptr %37, i64 %39
   %41 = load ptr, ptr %1, align 8, !alias.scope !1239, !noalias !1242, !nonnull !4, !align !5, !noundef !4
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %43 = load i64, ptr %42, align 8, !alias.scope !1239, !noalias !1242, !noundef !4
-  %44 = getelementptr inbounds { { { { [6 x i64] }, i64 } }, i64 }, ptr %41, i64 %43
+  %44 = getelementptr inbounds [64 x i8], ptr %41, i64 %43
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !1244
   store ptr %37, ptr %12, align 8, !noalias !1248
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
@@ -6737,11 +6737,11 @@ define hidden noundef range(i8 -1, 2) i8 @"_ZN74_$LT$uv_pep508..marker..tree..Ma
   %55 = load ptr, ptr %0, align 8, !alias.scope !1271, !noalias !1274, !nonnull !4, !align !5, !noundef !4
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %57 = load i64, ptr %56, align 8, !alias.scope !1271, !noalias !1274, !noundef !4
-  %58 = getelementptr inbounds { { { { [4 x i64] }, i64 } }, i64 }, ptr %55, i64 %57
+  %58 = getelementptr inbounds [48 x i8], ptr %55, i64 %57
   %59 = load ptr, ptr %1, align 8, !alias.scope !1276, !noalias !1279, !nonnull !4, !align !5, !noundef !4
   %60 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %61 = load i64, ptr %60, align 8, !alias.scope !1276, !noalias !1279, !noundef !4
-  %62 = getelementptr inbounds { { { { [4 x i64] }, i64 } }, i64 }, ptr %59, i64 %61
+  %62 = getelementptr inbounds [48 x i8], ptr %59, i64 %61
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !1281
   store ptr %55, ptr %10, align 8, !noalias !1285
   %.sroa.4.0..sroa_idx.i.i4 = getelementptr inbounds nuw i8, ptr %10, i64 8

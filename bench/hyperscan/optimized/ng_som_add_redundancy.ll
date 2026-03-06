@@ -21,9 +21,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::set" = type { %"class.std::_Rb_tree" }
 %"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>>, ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>>, std::_Identity<ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>>>, std::less<ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>>>>::_Rb_tree_impl" }
 %"struct.std::_Rb_tree<ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>>, ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>>, std::_Identity<ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>>>, std::less<ue2::graph_detail::vertex_descriptor<ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>>>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
-%"struct.ue2::DepthMinMax" = type { %"class.ue2::depth", %"class.ue2::depth" }
-%"class.ue2::depth" = type { i32 }
-%"class.ue2::graph_detail::edge_descriptor" = type { ptr, i64 }
 %"struct.std::_Rb_tree<ue2::depth, std::pair<const ue2::depth, std::vector<ue2::graph_detail::edge_descriptor<ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>>>>, std::_Select1st<std::pair<const ue2::depth, std::vector<ue2::graph_detail::edge_descriptor<ue2::ue2_graph<ue2::NGHolder, ue2::NFAGraphVertexProps, ue2::NFAGraphEdgeProps>>>>>, std::less<ue2::depth>>::_Auto_node" = type { ptr, ptr }
 
 $_ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESt4lessIS8_ESaIS8_EED2Ev = comdat any
@@ -141,7 +138,7 @@ define hidden noundef zeroext i1 @_ZN3ue216addSomRedundancyERNS_8NGHolderERSt6ve
   br i1 %.not.i.i.i, label %42, label %.invoke
 
 42:                                               ; preds = %37
-  %43 = getelementptr inbounds nuw %"struct.ue2::DepthMinMax", ptr %.val, i64 %32
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %32
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 4
   %45 = load i32, ptr %43, align 4
   %46 = load i32, ptr %44, align 4
@@ -182,7 +179,7 @@ define hidden noundef zeroext i1 @_ZN3ue216addSomRedundancyERNS_8NGHolderERSt6ve
   unreachable
 
 _ZN3ue2L8getDepthENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_8NGHolderENS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEERKS3_RKSt6vectorINS_11DepthMinMaxESaISB_EE.exit.i: ; preds = %54
-  %59 = getelementptr inbounds nuw %"struct.ue2::DepthMinMax", ptr %.val, i64 %.val.i
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %.val, i64 %.val.i
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %61 = load i32, ptr %59, align 4
   %62 = load i32, ptr %60, align 4
@@ -239,7 +236,7 @@ _ZN3ue2L15hasFloatingPredENS_12graph_detail17vertex_descriptorINS_9ue2_graphINS_
   unreachable
 
 77:                                               ; preds = %.lr.ph.i
-  %78 = getelementptr inbounds nuw %"struct.ue2::DepthMinMax", ptr %.val102.i, i64 %.val.i43
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %.val102.i, i64 %.val.i43
   %79 = load ptr, ptr %20, align 8
   %.not10.i.i.i.i.i = icmp eq ptr %79, null
   br i1 %.not10.i.i.i.i.i, label %.critedge.i.i, label %.lr.ph.i.i.i.i.i
@@ -362,7 +359,7 @@ _ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_8NGHolderEN
 _ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE17_M_realloc_insertIJRKS8_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i: ; preds = %117, %_ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit22.i.i.i
   store ptr %112, ptr %91, align 8
   store ptr %116, ptr %92, align 8
-  %118 = getelementptr inbounds nuw %"class.ue2::graph_detail::edge_descriptor", ptr %112, i64 %110
+  %118 = getelementptr inbounds nuw [16 x i8], ptr %112, i64 %110
   store ptr %118, ptr %94, align 8
   br label %_ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEESaIS8_EE9push_backERKS8_.exit.i
 
@@ -423,7 +420,7 @@ _ZNSt6vectorIN3ue212graph_detail15edge_descriptorINS0_9ue2_graphINS0_8NGHolderEN
   %140 = getelementptr inbounds nuw i8, ptr %135, i64 48
   %141 = load ptr, ptr %122, align 8
   %142 = load i64, ptr %123, align 8
-  %143 = getelementptr inbounds nuw i32, ptr %141, i64 %142
+  %143 = getelementptr inbounds nuw [4 x i8], ptr %141, i64 %142
   invoke void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE6assignIPjEEvT_S8_PNS_11move_detail13disable_if_orIvNS9_7is_sameINS9_17integral_constantIjLj1EEENSC_IjLj0EEEEENS9_14is_convertibleIS8_mEENS0_3dtl17is_input_iteratorIS8_Xsr21has_iterator_categoryIS8_EE5valueEEENS9_5bool_ILb0EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(32) %140, ptr noundef %141, ptr noundef %143, ptr noundef null)
           to label %144 unwind label %188
 
@@ -527,7 +524,7 @@ _ZNSt6vectorIN3ue211DepthMinMaxESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.
 _ZNSt6vectorIN3ue211DepthMinMaxESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i.i: ; preds = %176, %_ZNSt6vectorIN3ue211DepthMinMaxESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i.i
   store ptr %170, ptr %1, align 8
   store ptr %175, ptr %17, align 8
-  %177 = getelementptr inbounds nuw %"struct.ue2::DepthMinMax", ptr %170, i64 %168
+  %177 = getelementptr inbounds nuw [8 x i8], ptr %170, i64 %168
   store ptr %177, ptr %25, align 8
   br label %178
 
@@ -742,8 +739,8 @@ _ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEm
 261:                                              ; preds = %260
   %262 = shl i64 %258, 2
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %257, ptr align 4 %235, i64 %262, i1 false)
-  %263 = getelementptr inbounds nuw i32, ptr %235, i64 %258
-  %264 = getelementptr inbounds nuw i32, ptr %257, i64 %258
+  %263 = getelementptr inbounds nuw [4 x i8], ptr %235, i64 %258
+  %264 = getelementptr inbounds nuw [4 x i8], ptr %257, i64 %258
   br label %_ZN5boost9container18copy_n_source_destIPjmS2_EENS0_3dtl37enable_if_memtransfer_copy_assignableIT_T1_S5_E4typeES5_T0_RS6_.exit.i.i.i
 
 _ZN5boost9container18copy_n_source_destIPjmS2_EENS0_3dtl37enable_if_memtransfer_copy_assignableIT_T1_S5_E4typeES5_T0_RS6_.exit.i.i.i: ; preds = %261, %260
@@ -959,8 +956,8 @@ _ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEm
 342:                                              ; preds = %341
   %343 = shl i64 %339, 2
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %338, ptr align 4 %316, i64 %343, i1 false)
-  %344 = getelementptr inbounds nuw i32, ptr %316, i64 %339
-  %345 = getelementptr inbounds nuw i32, ptr %338, i64 %339
+  %344 = getelementptr inbounds nuw [4 x i8], ptr %316, i64 %339
+  %345 = getelementptr inbounds nuw [4 x i8], ptr %338, i64 %339
   br label %_ZN5boost9container18copy_n_source_destIPjmS2_EENS0_3dtl37enable_if_memtransfer_copy_assignableIT_T1_S5_E4typeES5_T0_RS6_.exit.i.i139.i
 
 _ZN5boost9container18copy_n_source_destIPjmS2_EENS0_3dtl37enable_if_memtransfer_copy_assignableIT_T1_S5_E4typeES5_T0_RS6_.exit.i.i139.i: ; preds = %342, %341
@@ -1796,8 +1793,8 @@ _ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorIjSaIvEvEEm
 39:                                               ; preds = %38
   %40 = shl i64 %36, 2
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %34, ptr align 4 %1, i64 %40, i1 false)
-  %41 = getelementptr inbounds nuw i32, ptr %1, i64 %36
-  %42 = getelementptr inbounds nuw i32, ptr %34, i64 %36
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %36
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %36
   br label %_ZN5boost9container18copy_n_source_destIPjmS2_EENS0_3dtl37enable_if_memtransfer_copy_assignableIT_T1_S5_E4typeES5_T0_RS6_.exit.i
 
 _ZN5boost9container18copy_n_source_destIPjmS2_EENS0_3dtl37enable_if_memtransfer_copy_assignableIT_T1_S5_E4typeES5_T0_RS6_.exit.i: ; preds = %39, %38

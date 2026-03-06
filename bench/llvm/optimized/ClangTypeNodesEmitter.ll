@@ -836,7 +836,7 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i:
 _ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %174, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i
   store ptr %169, ptr %149, align 8, !tbaa !24
   store ptr %173, ptr %150, align 8, !tbaa !27
-  %175 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %169, i64 %167
+  %175 = getelementptr inbounds nuw [16 x i8], ptr %169, i64 %167
   store ptr %175, ptr %152, align 8, !tbaa !28
   br label %_ZN12_GLOBAL__N_115TypeNodeEmitter15addMacroToUndefEN4llvm9StringRefE.exit
 

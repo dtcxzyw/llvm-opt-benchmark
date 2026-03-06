@@ -128,7 +128,7 @@ define dso_local void @InitializeLatchWaitSet() local_unnamed_addr #0 {
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %12 = load i32, ptr %11, align 8
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds %struct.WaitEvent, ptr %10, i64 %13
+  %14 = getelementptr inbounds [24 x i8], ptr %10, i64 %13
   %15 = add i32 %12, 1
   store i32 %15, ptr %11, align 8
   store i32 %12, ptr %14, align 8
@@ -295,7 +295,7 @@ define dso_local i32 @AddWaitEventToSet(ptr noundef captures(none) %0, i32 nound
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %43 = load i32, ptr %42, align 8
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds %struct.WaitEvent, ptr %41, i64 %44
+  %45 = getelementptr inbounds [24 x i8], ptr %41, i64 %44
   %46 = add i32 %43, 1
   store i32 %46, ptr %42, align 8
   store i32 %43, ptr %45, align 8
@@ -467,7 +467,7 @@ define dso_local void @ModifyWaitEvent(ptr noundef captures(none) %0, i32 nounde
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = sext i32 %1 to i64
-  %8 = getelementptr inbounds %struct.WaitEvent, ptr %6, i64 %7
+  %8 = getelementptr inbounds [24 x i8], ptr %6, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %2, %10
@@ -610,7 +610,7 @@ define dso_local i32 @WaitEventSetWait(ptr noundef readonly captures(none) %0, i
   store i32 %34, ptr %.04382, align 8
   %35 = load ptr, ptr %19, align 8
   %36 = sext i32 %34 to i64
-  %37 = getelementptr inbounds %struct.WaitEvent, ptr %35, i64 %36
+  %37 = getelementptr inbounds [24 x i8], ptr %35, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %.04382, i64 16
@@ -865,7 +865,7 @@ drain.exit.i:                                     ; preds = %94, %83
   %.1.i = phi ptr [ %105, %103 ], [ %.05583.i, %101 ], [ %.05583.i, %98 ], [ %.05583.i, %drain.exit.i ], [ %.05583.i, %110 ], [ %118, %116 ], [ %149, %145 ], [ %.05583.i, %144 ], [ %.05583.i, %120 ], [ %.05583.i, %107 ], [ %.05583.i, %75 ]
   %151 = getelementptr inbounds nuw i8, ptr %.084.i, i64 12
   %152 = load ptr, ptr %22, align 8
-  %153 = getelementptr inbounds nuw %struct.epoll_event, ptr %152, i64 %62
+  %153 = getelementptr inbounds nuw [12 x i8], ptr %152, i64 %62
   %154 = icmp ult ptr %151, %153
   %155 = icmp slt i32 %.157.i, %46
   %156 = select i1 %154, i1 %155, i1 false
@@ -958,7 +958,7 @@ define dso_local range(i32 0, 152) i32 @WaitLatchOrSocket(ptr noundef %0, i32 no
   %21 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %22 = load i32, ptr %21, align 8
   %23 = sext i32 %22 to i64
-  %24 = getelementptr inbounds %struct.WaitEvent, ptr %20, i64 %23
+  %24 = getelementptr inbounds [24 x i8], ptr %20, i64 %23
   %25 = add i32 %22, 1
   store i32 %25, ptr %21, align 8
   store i32 %22, ptr %24, align 8
@@ -990,7 +990,7 @@ define dso_local range(i32 0, 152) i32 @WaitLatchOrSocket(ptr noundef %0, i32 no
   %39 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %40 = load i32, ptr %39, align 8
   %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds %struct.WaitEvent, ptr %38, i64 %41
+  %42 = getelementptr inbounds [24 x i8], ptr %38, i64 %41
   %43 = add i32 %40, 1
   store i32 %43, ptr %39, align 8
   store i32 %40, ptr %42, align 8

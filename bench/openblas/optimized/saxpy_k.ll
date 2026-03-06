@@ -37,30 +37,30 @@ define noundef i32 @saxpy_k(i64 noundef %0, i64 noundef %1, i64 noundef %2, floa
 
 .lr.ph.i:                                         ; preds = %17, %.lr.ph.i
   %.01.i = phi i64 [ %46, %.lr.ph.i ], [ 0, %17 ]
-  %23 = getelementptr inbounds nuw float, ptr %6, i64 %.01.i
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.01.i
   %24 = load <16 x float>, ptr %23, align 1, !tbaa !3
-  %25 = getelementptr inbounds nuw float, ptr %4, i64 %.01.i
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.01.i
   %26 = load <16 x float>, ptr %25, align 1, !tbaa !3
   %27 = tail call <16 x float> @llvm.fmuladd.v16f32(<16 x float> %20, <16 x float> %26, <16 x float> %24)
   store <16 x float> %27, ptr %23, align 1, !tbaa !3
   %28 = or disjoint i64 %.01.i, 16
-  %29 = getelementptr inbounds nuw float, ptr %6, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %28
   %30 = load <16 x float>, ptr %29, align 1, !tbaa !3
-  %31 = getelementptr inbounds nuw float, ptr %4, i64 %28
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %28
   %32 = load <16 x float>, ptr %31, align 1, !tbaa !3
   %33 = tail call <16 x float> @llvm.fmuladd.v16f32(<16 x float> %20, <16 x float> %32, <16 x float> %30)
   store <16 x float> %33, ptr %29, align 1, !tbaa !3
   %34 = or disjoint i64 %.01.i, 32
-  %35 = getelementptr inbounds nuw float, ptr %6, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %34
   %36 = load <16 x float>, ptr %35, align 1, !tbaa !3
-  %37 = getelementptr inbounds nuw float, ptr %4, i64 %34
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %34
   %38 = load <16 x float>, ptr %37, align 1, !tbaa !3
   %39 = tail call <16 x float> @llvm.fmuladd.v16f32(<16 x float> %20, <16 x float> %38, <16 x float> %36)
   store <16 x float> %39, ptr %35, align 1, !tbaa !3
   %40 = or disjoint i64 %.01.i, 48
-  %41 = getelementptr inbounds nuw float, ptr %6, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %40
   %42 = load <16 x float>, ptr %41, align 1, !tbaa !3
-  %43 = getelementptr inbounds nuw float, ptr %4, i64 %40
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %40
   %44 = load <16 x float>, ptr %43, align 1, !tbaa !3
   %45 = tail call <16 x float> @llvm.fmuladd.v16f32(<16 x float> %20, <16 x float> %44, <16 x float> %42)
   store <16 x float> %45, ptr %41, align 1, !tbaa !3
@@ -70,30 +70,30 @@ define noundef i32 @saxpy_k(i64 noundef %0, i64 noundef %1, i64 noundef %2, floa
 
 .lr.ph3.i:                                        ; preds = %.lr.ph3.i.preheader, %.lr.ph3.i
   %.12.i = phi i64 [ %71, %.lr.ph3.i ], [ %.12.i.ph, %.lr.ph3.i.preheader ]
-  %48 = getelementptr inbounds nuw float, ptr %6, i64 %.12.i
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.12.i
   %49 = load <8 x float>, ptr %48, align 1, !tbaa !3
-  %50 = getelementptr inbounds nuw float, ptr %4, i64 %.12.i
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.12.i
   %51 = load <8 x float>, ptr %50, align 1, !tbaa !3
   %52 = tail call <8 x float> @llvm.fmuladd.v8f32(<8 x float> %19, <8 x float> %51, <8 x float> %49)
   store <8 x float> %52, ptr %48, align 1, !tbaa !3
   %53 = or disjoint i64 %.12.i, 8
-  %54 = getelementptr inbounds nuw float, ptr %6, i64 %53
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %53
   %55 = load <8 x float>, ptr %54, align 1, !tbaa !3
-  %56 = getelementptr inbounds nuw float, ptr %4, i64 %53
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %53
   %57 = load <8 x float>, ptr %56, align 1, !tbaa !3
   %58 = tail call <8 x float> @llvm.fmuladd.v8f32(<8 x float> %19, <8 x float> %57, <8 x float> %55)
   store <8 x float> %58, ptr %54, align 1, !tbaa !3
   %59 = or disjoint i64 %.12.i, 16
-  %60 = getelementptr inbounds nuw float, ptr %6, i64 %59
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %59
   %61 = load <8 x float>, ptr %60, align 1, !tbaa !3
-  %62 = getelementptr inbounds nuw float, ptr %4, i64 %59
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %59
   %63 = load <8 x float>, ptr %62, align 1, !tbaa !3
   %64 = tail call <8 x float> @llvm.fmuladd.v8f32(<8 x float> %19, <8 x float> %63, <8 x float> %61)
   store <8 x float> %64, ptr %60, align 1, !tbaa !3
   %65 = or disjoint i64 %.12.i, 24
-  %66 = getelementptr inbounds nuw float, ptr %6, i64 %65
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %65
   %67 = load <8 x float>, ptr %66, align 1, !tbaa !3
-  %68 = getelementptr inbounds nuw float, ptr %4, i64 %65
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %65
   %69 = load <8 x float>, ptr %68, align 1, !tbaa !3
   %70 = tail call <8 x float> @llvm.fmuladd.v8f32(<8 x float> %19, <8 x float> %69, <8 x float> %67)
   store <8 x float> %70, ptr %66, align 1, !tbaa !3
@@ -107,9 +107,9 @@ saxpy_kernel_16.exit:                             ; preds = %.lr.ph3.i, %.prehea
 
 .lr.ph84:                                         ; preds = %saxpy_kernel_16.exit, %.lr.ph84
   %.06283 = phi i64 [ %78, %.lr.ph84 ], [ %16, %saxpy_kernel_16.exit ]
-  %73 = getelementptr inbounds nuw float, ptr %4, i64 %.06283
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %.06283
   %74 = load float, ptr %73, align 4, !tbaa !9
-  %75 = getelementptr inbounds nuw float, ptr %6, i64 %.06283
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.06283
   %76 = load float, ptr %75, align 4, !tbaa !9
   %77 = tail call float @llvm.fmuladd.f32(float %3, float %74, float %76)
   store float %77, ptr %75, align 4, !tbaa !9
@@ -146,10 +146,10 @@ saxpy_kernel_16.exit:                             ; preds = %.lr.ph3.i, %.prehea
   %.176 = phi i64 [ 0, %.lr.ph ], [ %113, %86 ]
   %.06375 = phi i64 [ 0, %.lr.ph ], [ %111, %86 ]
   %.06574 = phi i64 [ 0, %.lr.ph ], [ %112, %86 ]
-  %87 = getelementptr inbounds float, ptr %4, i64 %.06375
+  %87 = getelementptr inbounds [4 x i8], ptr %4, i64 %.06375
   %88 = load float, ptr %87, align 4, !tbaa !9
   %89 = fmul float %3, %88
-  %90 = getelementptr float, ptr %87, i64 %5
+  %90 = getelementptr [4 x i8], ptr %87, i64 %5
   %91 = load float, ptr %90, align 4, !tbaa !9
   %92 = fmul float %3, %91
   %93 = getelementptr i8, ptr %87, i64 %.idx
@@ -158,11 +158,11 @@ saxpy_kernel_16.exit:                             ; preds = %.lr.ph3.i, %.prehea
   %96 = getelementptr i8, ptr %87, i64 %.idx68
   %97 = load float, ptr %96, align 4, !tbaa !9
   %98 = fmul float %3, %97
-  %99 = getelementptr inbounds float, ptr %6, i64 %.06574
+  %99 = getelementptr inbounds [4 x i8], ptr %6, i64 %.06574
   %100 = load float, ptr %99, align 4, !tbaa !9
   %101 = fadd float %89, %100
   store float %101, ptr %99, align 4, !tbaa !9
-  %102 = getelementptr float, ptr %99, i64 %7
+  %102 = getelementptr [4 x i8], ptr %99, i64 %7
   %103 = load float, ptr %102, align 4, !tbaa !9
   %104 = fadd float %92, %103
   store float %104, ptr %102, align 4, !tbaa !9
@@ -184,9 +184,9 @@ saxpy_kernel_16.exit:                             ; preds = %.lr.ph3.i, %.prehea
   %.281 = phi i64 [ %122, %.lr.ph82 ], [ %.1.lcssa, %.preheader ]
   %.16480 = phi i64 [ %120, %.lr.ph82 ], [ %.063.lcssa, %.preheader ]
   %.16679 = phi i64 [ %121, %.lr.ph82 ], [ %.065.lcssa, %.preheader ]
-  %115 = getelementptr inbounds float, ptr %4, i64 %.16480
+  %115 = getelementptr inbounds [4 x i8], ptr %4, i64 %.16480
   %116 = load float, ptr %115, align 4, !tbaa !9
-  %117 = getelementptr inbounds float, ptr %6, i64 %.16679
+  %117 = getelementptr inbounds [4 x i8], ptr %6, i64 %.16679
   %118 = load float, ptr %117, align 4, !tbaa !9
   %119 = tail call float @llvm.fmuladd.f32(float %3, float %116, float %118)
   store float %119, ptr %117, align 4, !tbaa !9

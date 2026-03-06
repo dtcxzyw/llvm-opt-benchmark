@@ -13,12 +13,12 @@ define void @ff_tta_rice_init(ptr noundef writeonly captures(none) initializes((
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 %2, ptr %4, align 4, !tbaa !9
   %5 = zext i32 %1 to i64
-  %6 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tta_shift_1, i64 16), i64 %5
+  %6 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @ff_tta_shift_1, i64 16), i64 %5
   %7 = load i32, ptr %6, align 4, !tbaa !10
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %7, ptr %8, align 4, !tbaa !11
   %9 = zext i32 %2 to i64
-  %10 = getelementptr inbounds nuw i32, ptr getelementptr inbounds nuw (i8, ptr @ff_tta_shift_1, i64 16), i64 %9
+  %10 = getelementptr inbounds nuw [4 x i8], ptr getelementptr inbounds nuw (i8, ptr @ff_tta_shift_1, i64 16), i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
   store i32 %11, ptr %12, align 4, !tbaa !12
@@ -31,7 +31,7 @@ define void @ff_tta_filter_init(ptr noundef writeonly captures(none) initializes
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(196) %3, i8 0, i64 196, i1 false)
   store i32 %1, ptr %0, align 4, !tbaa !13
   %4 = sext i32 %1 to i64
-  %5 = getelementptr i32, ptr @ff_tta_shift_1, i64 %4
+  %5 = getelementptr [4 x i8], ptr @ff_tta_shift_1, i64 %4
   %6 = getelementptr i8, ptr %5, i64 -4
   %7 = load i32, ptr %6, align 4, !tbaa !10
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4

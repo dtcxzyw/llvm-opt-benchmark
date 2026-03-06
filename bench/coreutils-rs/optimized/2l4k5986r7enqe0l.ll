@@ -1622,7 +1622,7 @@ define void @_ZN6uu_tee6uu_app17hbc5656ba8a48ca0eE(ptr noalias noundef writeonly
   %298 = phi i64 [ %.pre.i.i, %.noexc.i195 ], [ %289, %286 ]
   %299 = getelementptr inbounds nuw i8, ptr %34, i64 112
   %300 = load ptr, ptr %299, align 8, !alias.scope !407, !noalias !412, !nonnull !5, !noundef !5
-  %301 = getelementptr inbounds { { { { ptr, i64 } } } }, ptr %300, i64 %298
+  %301 = getelementptr inbounds [16 x i8], ptr %300, i64 %298
   store ptr @anon.97cb07fb6d50a1056163dfad41679cfa.21, ptr %301, align 8, !noalias !412
   %302 = getelementptr inbounds nuw i8, ptr %301, i64 8
   store i64 18, ptr %302, align 8, !noalias !417
@@ -1747,7 +1747,7 @@ define noundef ptr @_ZN6uu_tee3tee17h336c40154d78a06fE(ptr noalias noundef reado
   %32 = load ptr, ptr %31, align 8, !nonnull !5, !noundef !5
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = load i64, ptr %33, align 8, !noundef !5
-  %35 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %32, i64 %34
+  %35 = getelementptr inbounds [24 x i8], ptr %32, i64 %34
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !429
   store ptr null, ptr %11, align 8, !noalias !429
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !433

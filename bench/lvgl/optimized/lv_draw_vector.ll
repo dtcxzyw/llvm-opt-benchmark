@@ -58,7 +58,7 @@ define void @lv_matrix_transform_path(ptr noundef readonly captures(none) %0, pt
 
 11:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
-  %12 = getelementptr inbounds nuw %struct._lv_fpoint_t, ptr %4, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %13 = load float, ptr %12, align 4, !tbaa !3
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %15 = load float, ptr %14, align 4, !tbaa !8
@@ -456,7 +456,7 @@ define void @lv_vector_path_get_bounding(ptr noundef %0, ptr noundef %1) local_u
   %.04158 = phi float [ %13, %.lr.ph.preheader ], [ %.142, %.lr.ph ]
   %.04357 = phi float [ %11, %.lr.ph.preheader ], [ %.144, %.lr.ph ]
   %.04556 = phi float [ %11, %.lr.ph.preheader ], [ %.146, %.lr.ph ]
-  %25 = getelementptr inbounds nuw %struct._lv_fpoint_t, ptr %10, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %26 = load float, ptr %25, align 4, !tbaa !3
   %27 = fcmp olt float %26, %.04556
   %.146 = select i1 %27, float %26, float %.04556
@@ -1177,7 +1177,7 @@ define void @lv_vector_dsc_set_stroke_dash(ptr noundef %0, ptr noundef %1, i16 n
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %13 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %14 = tail call i32 @lv_array_push_back(ptr noundef nonnull %4, ptr noundef nonnull %13) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

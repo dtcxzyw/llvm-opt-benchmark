@@ -44,12 +44,6 @@ module asm ".previous\09\09\09\09\09"
 %union.anon.25 = type { %struct.iovec }
 %struct.iovec = type { ptr, i64 }
 %union.anon.28 = type { i64 }
-%struct.page = type { i64, %union.anon.30, %union.anon.38, %struct.atomic_t, [8 x i8] }
-%union.anon.30 = type { %struct.anon.31 }
-%struct.anon.31 = type { %union.anon.32, ptr, %union.anon.34, i64 }
-%union.anon.32 = type { %struct.list_head }
-%union.anon.34 = type { i64 }
-%union.anon.38 = type { %struct.atomic_t }
 %struct.loop_info64 = type { i64, i64, i64, i64, i64, i32, i32, i32, i32, [64 x i8], [64 x i8], [32 x i8], [2 x i64] }
 %struct.loop_info = type { i32, i64, i64, i64, i32, i32, i32, i32, [64 x i8], [32 x i8], [2 x i64], [4 x i8] }
 %struct.loop_config = type { i32, i32, %struct.loop_info64, [8 x i64] }
@@ -1444,14 +1438,14 @@ define internal fastcc void @loop_process_work(ptr noundef %0, ptr noundef %1, p
   %142 = phi i32 [ %130, %132 ], [ %196, %193 ]
   %143 = load ptr, ptr %137, align 8
   %144 = zext i32 %141 to i64
-  %145 = getelementptr %struct.bio_vec, ptr %143, i64 %144
+  %145 = getelementptr [16 x i8], ptr %143, i64 %144
   %146 = load ptr, ptr %145, align 8
   %147 = getelementptr inbounds nuw i8, ptr %145, i64 12
   %148 = load i32, ptr %147, align 4
   %149 = add i32 %148, %140
   %150 = lshr i32 %149, 12
   %151 = zext nneg i32 %150 to i64
-  %152 = getelementptr %struct.page, ptr %146, i64 %151
+  %152 = getelementptr [64 x i8], ptr %146, i64 %151
   %153 = getelementptr inbounds nuw i8, ptr %145, i64 8
   %154 = load i32, ptr %153, align 8
   %155 = sub i32 %154, %140
@@ -1517,7 +1511,7 @@ define internal fastcc void @loop_process_work(ptr noundef %0, ptr noundef %1, p
 184:                                              ; preds = %178
   %185 = load ptr, ptr %137, align 8
   %186 = add i32 %181, %140
-  %.split19 = getelementptr %struct.bio_vec, ptr %185, i64 %144
+  %.split19 = getelementptr [16 x i8], ptr %185, i64 %144
   %187 = getelementptr i8, ptr %.split19, i64 8
   %188 = load i32, ptr %187, align 8
   %189 = icmp eq i32 %186, %188
@@ -1594,14 +1588,14 @@ define internal fastcc void @loop_process_work(ptr noundef %0, ptr noundef %1, p
   %229 = phi i32 [ %217, %219 ], [ %281, %278 ]
   %230 = load ptr, ptr %224, align 8
   %231 = zext i32 %228 to i64
-  %232 = getelementptr %struct.bio_vec, ptr %230, i64 %231
+  %232 = getelementptr [16 x i8], ptr %230, i64 %231
   %233 = load ptr, ptr %232, align 8
   %234 = getelementptr inbounds nuw i8, ptr %232, i64 12
   %235 = load i32, ptr %234, align 4
   %236 = add i32 %235, %227
   %237 = lshr i32 %236, 12
   %238 = zext nneg i32 %237 to i64
-  %239 = getelementptr %struct.page, ptr %233, i64 %238
+  %239 = getelementptr [64 x i8], ptr %233, i64 %238
   %240 = getelementptr inbounds nuw i8, ptr %232, i64 8
   %241 = load i32, ptr %240, align 8
   %242 = sub i32 %241, %227
@@ -1656,7 +1650,7 @@ define internal fastcc void @loop_process_work(ptr noundef %0, ptr noundef %1, p
 269:                                              ; preds = %264
   %270 = load ptr, ptr %224, align 8
   %271 = add i32 %266, %227
-  %.split = getelementptr %struct.bio_vec, ptr %270, i64 %231
+  %.split = getelementptr [16 x i8], ptr %270, i64 %231
   %272 = getelementptr i8, ptr %.split, i64 8
   %273 = load i32, ptr %272, align 8
   %274 = icmp eq i32 %271, %273
@@ -1846,7 +1840,7 @@ define internal fastcc noundef range(i32 -5, 1) i32 @lo_rw_aio(ptr %.96.val, ptr
 
 .split8.us:                                       ; preds = %14, %14, %14
   %24 = zext i32 %18 to i64
-  %.split.us = getelementptr %struct.bio_vec, ptr %20, i64 %24
+  %.split.us = getelementptr [16 x i8], ptr %20, i64 %24
   %25 = getelementptr i8, ptr %.split.us, i64 8
   %26 = load i32, ptr %25, align 8
   %27 = sub i32 %26, %16
@@ -1866,7 +1860,7 @@ define internal fastcc noundef range(i32 -5, 1) i32 @lo_rw_aio(ptr %.96.val, ptr
   %35 = phi i32 [ %46, %.split8 ], [ %18, %14 ]
   %36 = phi i32 [ %48, %.split8 ], [ %12, %14 ]
   %37 = zext i32 %35 to i64
-  %.split = getelementptr %struct.bio_vec, ptr %20, i64 %37
+  %.split = getelementptr [16 x i8], ptr %20, i64 %37
   %38 = getelementptr i8, ptr %.split, i64 8
   %39 = load i32, ptr %38, align 8
   %40 = sub i32 %39, %34
@@ -1942,7 +1936,7 @@ define internal fastcc noundef range(i32 -5, 1) i32 @lo_rw_aio(ptr %.96.val, ptr
   %87 = phi i32 [ %74, %76 ], [ %116, %113 ]
   %88 = load ptr, ptr %81, align 8
   %89 = zext i32 %86 to i64
-  %90 = getelementptr %struct.bio_vec, ptr %88, i64 %89
+  %90 = getelementptr [16 x i8], ptr %88, i64 %89
   %91 = load ptr, ptr %90, align 8
   %92 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %93 = load i32, ptr %92, align 8
@@ -1968,7 +1962,7 @@ define internal fastcc noundef range(i32 -5, 1) i32 @lo_rw_aio(ptr %.96.val, ptr
 104:                                              ; preds = %83
   %105 = load ptr, ptr %81, align 8
   %106 = add i32 %95, %85
-  %.split10 = getelementptr %struct.bio_vec, ptr %105, i64 %89
+  %.split10 = getelementptr [16 x i8], ptr %105, i64 %89
   %107 = getelementptr i8, ptr %.split10, i64 8
   %108 = load i32, ptr %107, align 8
   %109 = icmp eq i32 %106, %108
@@ -2003,7 +1997,7 @@ define internal fastcc noundef range(i32 -5, 1) i32 @lo_rw_aio(ptr %.96.val, ptr
   %127 = getelementptr inbounds nuw i8, ptr %7, i64 44
   %128 = load i32, ptr %127, align 4
   %129 = zext i32 %128 to i64
-  %130 = getelementptr %struct.bio_vec, ptr %126, i64 %129
+  %130 = getelementptr [16 x i8], ptr %126, i64 %129
   %131 = zext i32 %124 to i64
   br label %.loopexit3
 

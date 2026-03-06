@@ -178,7 +178,7 @@ define noundef i32 @AnalysePlayBin(ptr noundef byval(%struct.deal) align 8 %0, p
   %56 = sext i32 %54 to i64
   %57 = add nuw nsw i32 %50, 1
   %wide.trip.count = zext nneg i32 %57 to i64
-  %invariant.gep = getelementptr i32, ptr %31, i64 %56
+  %invariant.gep = getelementptr [4 x i8], ptr %31, i64 %56
   br label %58
 
 58:                                               ; preds = %.lr.ph, %132
@@ -196,19 +196,19 @@ define noundef i32 @AnalysePlayBin(ptr noundef byval(%struct.deal) align 8 %0, p
   %61 = icmp sle i64 %indvars.iv, %43
   %62 = and i1 %52, %61
   %63 = add nsw i64 %indvars.iv, -1
-  %64 = getelementptr inbounds i32, ptr %38, i64 %63
-  %65 = getelementptr inbounds i32, ptr %39, i64 %63
+  %64 = getelementptr inbounds [4 x i8], ptr %38, i64 %63
+  %65 = getelementptr inbounds [4 x i8], ptr %39, i64 %63
   %66 = trunc nuw nsw i64 %indvars.iv to i32
   %67 = add i32 %55, %66
   %68 = sext i32 %67 to i64
-  %69 = getelementptr inbounds i32, ptr %36, i64 %68
-  %70 = getelementptr inbounds i32, ptr %37, i64 %68
+  %69 = getelementptr inbounds [4 x i8], ptr %36, i64 %68
+  %70 = getelementptr inbounds [4 x i8], ptr %37, i64 %68
   %.0101.in = select i1 %62, ptr %64, ptr %69
   %.0100.in = select i1 %62, ptr %65, ptr %70
   %.0100 = load i32, ptr %.0100.in, align 4
   %.0101 = load i32, ptr %.0101.in, align 4
   %71 = sext i32 %.0100 to i64
-  %72 = getelementptr inbounds i16, ptr @bitMapRank, i64 %71
+  %72 = getelementptr inbounds [2 x i8], ptr @bitMapRank, i64 %71
   %73 = load i16, ptr %72, align 2
   %74 = zext i16 %73 to i32
   %75 = shl nuw nsw i32 %74, 2
@@ -256,9 +256,9 @@ define noundef i32 @AnalysePlayBin(ptr noundef byval(%struct.deal) align 8 %0, p
   %.1110 = phi i32 [ %78, %77 ], [ %.1122148, %87 ], [ %.0109153, %85 ], [ %.0109153, %88 ], [ %spec.select140, %89 ]
   %.1108 = phi i32 [ %81, %77 ], [ 1, %87 ], [ 1, %85 ], [ 1, %88 ], [ 0, %89 ]
   %93 = sext i32 %.1122148 to i64
-  %94 = getelementptr inbounds [4 x i32], ptr %42, i64 %93
+  %94 = getelementptr inbounds [16 x i8], ptr %42, i64 %93
   %95 = sext i32 %.0101 to i64
-  %96 = getelementptr inbounds i32, ptr %94, i64 %95
+  %96 = getelementptr inbounds [4 x i8], ptr %94, i64 %95
   %97 = load i32, ptr %96, align 4
   %98 = and i32 %97, %75
   %99 = icmp eq i32 %98, 0
@@ -323,7 +323,7 @@ define noundef i32 @AnalysePlayBin(ptr noundef byval(%struct.deal) align 8 %0, p
   %129 = sub nsw i32 %.2, %128
   %130 = select i1 %.not136, i32 %128, i32 %129
   %131 = add nsw i32 %130, %.2126
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   store i32 %131, ptr %gep, align 4
   br label %132
 
@@ -417,11 +417,11 @@ define void @_Z16PlaySingleCommonii(i32 noundef %0, i32 noundef %1) local_unname
   %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @playparam, i64 8), align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds %struct.deal, ptr %7, i64 %8
+  %9 = getelementptr inbounds [96 x i8], ptr %7, i64 %8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %4, ptr noundef nonnull align 4 dereferenceable(96) %9, i64 96, i1 false)
   %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @traceparam, i64 8), align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
-  %12 = getelementptr inbounds %struct.playTraceBin, ptr %11, i64 %8
+  %12 = getelementptr inbounds [420 x i8], ptr %11, i64 %8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(420) %5, ptr noundef nonnull align 4 dereferenceable(420) %12, i64 420, i1 false)
   %13 = call i32 @AnalysePlayBin(ptr noundef nonnull byval(%struct.deal) align 8 %4, ptr noundef nonnull byval(%struct.playTraceBin) align 8 %5, ptr noundef nonnull %3, i32 noundef %0)
   %14 = icmp eq i32 %13, 1
@@ -430,7 +430,7 @@ define void @_Z16PlaySingleCommonii(i32 noundef %0, i32 noundef %1) local_unname
 15:                                               ; preds = %2
   %16 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @traceparam, i64 16), align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  %18 = getelementptr inbounds %struct.solvedPlay, ptr %17, i64 %8
+  %18 = getelementptr inbounds [216 x i8], ptr %17, i64 %8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(216) %18, ptr noundef nonnull align 4 dereferenceable(216) %3, i64 216, i1 false)
   br label %20
 
@@ -461,11 +461,11 @@ define void @_Z15PlayChunkCommoni(i32 noundef %0) local_unnamed_addr #3 {
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %sext = shl i64 %8, 32
   %11 = ashr exact i64 %sext, 32
-  %12 = getelementptr inbounds %struct.deal, ptr %10, i64 %11
+  %12 = getelementptr inbounds [96 x i8], ptr %10, i64 %11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef nonnull align 4 dereferenceable(96) %12, i64 96, i1 false)
   %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @traceparam, i64 8), align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %15 = getelementptr inbounds %struct.playTraceBin, ptr %14, i64 %11
+  %15 = getelementptr inbounds [420 x i8], ptr %14, i64 %11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(420) %4, ptr noundef nonnull align 4 dereferenceable(420) %15, i64 420, i1 false)
   %16 = call i32 @AnalysePlayBin(ptr noundef nonnull byval(%struct.deal) align 8 %3, ptr noundef nonnull byval(%struct.playTraceBin) align 8 %4, ptr noundef nonnull %2, i32 noundef %0)
   %17 = icmp eq i32 %16, 1
@@ -474,7 +474,7 @@ define void @_Z15PlayChunkCommoni(i32 noundef %0) local_unnamed_addr #3 {
 18:                                               ; preds = %.lr.ph
   %19 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @traceparam, i64 16), align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
-  %21 = getelementptr inbounds %struct.solvedPlay, ptr %20, i64 %11
+  %21 = getelementptr inbounds [216 x i8], ptr %20, i64 %11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(216) %21, ptr noundef nonnull align 4 dereferenceable(216) %2, i64 216, i1 false)
   br label %_Z16PlaySingleCommonii.exit
 
@@ -560,8 +560,8 @@ define i32 @AnalyseAllPlaysPBN(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
 
 12:                                               ; preds = %.lr.ph, %34
   %indvars.iv45 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next46, %34 ]
-  %13 = getelementptr inbounds nuw %struct.deal, ptr %10, i64 %indvars.iv45
-  %14 = getelementptr inbounds nuw %struct.dealPBN, ptr %11, i64 %indvars.iv45
+  %13 = getelementptr inbounds nuw [96 x i8], ptr %10, i64 %indvars.iv45
+  %14 = getelementptr inbounds nuw [112 x i8], ptr %11, i64 %indvars.iv45
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %17 = call noundef i32 @_Z14ConvertFromPBNPKcPA4_j(ptr noundef nonnull %15, ptr noundef nonnull %16)
@@ -583,13 +583,13 @@ define i32 @AnalyseAllPlaysPBN(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
 
 27:                                               ; preds = %18, %27
   %indvars.iv = phi i64 [ 0, %18 ], [ %indvars.iv.next, %27 ]
-  %28 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4
-  %30 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv
   store i32 %29, ptr %30, align 4
-  %31 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4
-  %33 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv
   store i32 %32, ptr %33, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -622,8 +622,8 @@ define i32 @AnalyseAllPlaysPBN(ptr noundef %0, ptr noundef %1, ptr noundef %2, i
 
 46:                                               ; preds = %.lr.ph41, %42
   %indvars.iv48 = phi i64 [ 0, %.lr.ph41 ], [ %indvars.iv.next49, %42 ]
-  %47 = getelementptr inbounds nuw %struct.playTracePBN, ptr %40, i64 %indvars.iv48
-  %48 = getelementptr inbounds nuw %struct.playTraceBin, ptr %41, i64 %indvars.iv48
+  %47 = getelementptr inbounds nuw [112 x i8], ptr %40, i64 %indvars.iv48
+  %48 = getelementptr inbounds nuw [420 x i8], ptr %41, i64 %indvars.iv48
   %49 = call noundef i32 @_Z18ConvertPlayFromPBNRK12playTracePBNR12playTraceBin(ptr noundef nonnull align 4 dereferenceable(112) %47, ptr noundef nonnull align 4 dereferenceable(420) %48)
   %.not = icmp eq i32 %49, 1
   br i1 %.not, label %42, label %AnalyseAllPlaysBin.exit
@@ -687,7 +687,7 @@ define void @_Z20DetectPlayDuplicatesRK6boardsRSt6vectorIiSaIiEES5_(ptr noundef 
   br i1 %17, label %18, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds nuw i32, ptr %8, i64 %5
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %5
   %.not.i.i = icmp eq ptr %7, %19
   br i1 %.not.i.i, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit, label %20
 
@@ -718,7 +718,7 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit:               ; preds = %14, %16, %18, %20
   br i1 %34, label %35, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit13
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds nuw i32, ptr %25, i64 %22
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %22
   %.not.i.i12 = icmp eq ptr %24, %36
   br i1 %.not.i.i12, label %_ZNSt6vectorIiSaIiEE6resizeEm.exit13, label %37
 
@@ -736,10 +736,10 @@ _ZNSt6vectorIiSaIiEE6resizeEm.exit13:             ; preds = %31, %33, %35, %37
   %40 = phi ptr [ %48, %.lr.ph ], [ %39, %_ZNSt6vectorIiSaIiEE6resizeEm.exit13 ]
   %41 = phi i64 [ %46, %.lr.ph ], [ 0, %_ZNSt6vectorIiSaIiEE6resizeEm.exit13 ]
   %.014 = phi i32 [ %45, %.lr.ph ], [ 0, %_ZNSt6vectorIiSaIiEE6resizeEm.exit13 ]
-  %42 = getelementptr inbounds nuw i32, ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %41
   store i32 %.014, ptr %42, align 4
   %43 = load ptr, ptr %2, align 8
-  %44 = getelementptr inbounds nuw i32, ptr %43, i64 %41
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %41
   store i32 -1, ptr %44, align 4
   %45 = add i32 %.014, 1
   %46 = zext i32 %45 to i64
@@ -850,9 +850,9 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36: ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8
-  %39 = getelementptr inbounds nuw i32, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8
-  %40 = getelementptr inbounds nuw i32, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8
   br label %41
 

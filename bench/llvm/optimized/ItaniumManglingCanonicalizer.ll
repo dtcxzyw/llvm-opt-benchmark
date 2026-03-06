@@ -17,14 +17,12 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorBase" = type { ptr, i32, i32 }
 %"struct.llvm::SmallVectorStorage.19" = type { [128 x i8] }
 %"class.std::basic_string_view" = type { i64, ptr }
-%"struct.llvm::detail::DenseMapPair" = type { %"struct.std::pair.11" }
 %"class.llvm::itanium_demangle::AbstractManglingParser<llvm::itanium_demangle::ManglingParser<(anonymous namespace)::CanonicalizerAllocator>, (anonymous namespace)::CanonicalizerAllocator>::SaveTemplateParams" = type { ptr, %"class.llvm::itanium_demangle::PODSmallVector.1", %"class.llvm::itanium_demangle::PODSmallVector.0" }
 %"class.llvm::itanium_demangle::PODSmallVector.1" = type { ptr, ptr, ptr, [4 x ptr] }
 %"class.llvm::itanium_demangle::PODSmallVector.0" = type { ptr, ptr, ptr, [8 x ptr] }
 %"struct.llvm::itanium_demangle::AbstractManglingParser<llvm::itanium_demangle::ManglingParser<(anonymous namespace)::CanonicalizerAllocator>, (anonymous namespace)::CanonicalizerAllocator>::NameState" = type <{ i8, i8, [2 x i8], i32, i8, [7 x i8], i64, i8, [7 x i8] }>
 %"class.llvm::itanium_demangle::NodeArray" = type { ptr, i64 }
 %"struct.(anonymous namespace)::FoldingSetNodeIDBuilder" = type { ptr }
-%"struct.std::pair.13" = type { ptr, i64 }
 %"class.llvm::itanium_demangle::AbstractManglingParser<llvm::itanium_demangle::ManglingParser<(anonymous namespace)::CanonicalizerAllocator>, (anonymous namespace)::CanonicalizerAllocator>::ScopedTemplateParamList" = type { ptr, i64, %"class.llvm::itanium_demangle::PODSmallVector.0" }
 %union.anon = type { float }
 %union.anon.135 = type { double }
@@ -1674,7 +1672,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %105 = add i32 %97, -1
   %.01826.i.i.i.i.i.i.i.i = and i32 %105, %104
   %106 = zext nneg i32 %.01826.i.i.i.i.i.i.i.i to i64
-  %107 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %94, i64 %106
+  %107 = getelementptr inbounds nuw [16 x i8], ptr %94, i64 %106
   %108 = load ptr, ptr %107, align 8, !tbaa !11
   %109 = icmp eq ptr %.sroa.0.0.i.i.i.i.i.i, %108
   br i1 %109, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !prof !110
@@ -1691,14 +1689,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %114 = add i32 %.01627.i.i.i.i.i.i.i.i, %.01828.i.i.i.i.i.i.i.i
   %.018.i.i.i.i.i.i.i.i = and i32 %114, %105
   %115 = zext i32 %.018.i.i.i.i.i.i.i.i to i64
-  %116 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %94, i64 %115
+  %116 = getelementptr inbounds nuw [16 x i8], ptr %94, i64 %115
   %117 = load ptr, ptr %116, align 8, !tbaa !11
   %118 = icmp eq ptr %.sroa.0.0.i.i.i.i.i.i, %117
   br i1 %118, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i.i: ; preds = %112, %99
   %119 = phi i64 [ %106, %99 ], [ %115, %112 ]
-  %120 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %94, i64 %119
+  %120 = getelementptr inbounds nuw [16 x i8], ptr %94, i64 %119
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
   %122 = load ptr, ptr %121, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i.i
@@ -2080,7 +2078,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %68 = add i32 %60, -1
   %.01826.i.i.i.i.i.i = and i32 %68, %67
   %69 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %70 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %69
+  %70 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %69
   %71 = load ptr, ptr %70, align 8, !tbaa !11
   %72 = icmp eq ptr %.sroa.013.0.i.i.i.i, %71
   br i1 %72, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -2097,14 +2095,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %77 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %77, %68
   %78 = zext i32 %.018.i.i.i.i.i.i to i64
-  %79 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %78
+  %79 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !11
   %81 = icmp eq ptr %.sroa.013.0.i.i.i.i, %80
   br i1 %81, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %75, %62
   %82 = phi i64 [ %69, %62 ], [ %78, %75 ]
-  %83 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %82
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %82
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %85 = load ptr, ptr %84, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -2467,7 +2465,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %141 = add i32 %133, -1
   %.01826.i.i.i.i.i.i.i = and i32 %141, %140
   %142 = zext nneg i32 %.01826.i.i.i.i.i.i.i to i64
-  %143 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %130, i64 %142
+  %143 = getelementptr inbounds nuw [16 x i8], ptr %130, i64 %142
   %144 = load ptr, ptr %143, align 8, !tbaa !11
   %145 = icmp eq ptr %.sroa.04.0.i.i.i.i.i, %144
   br i1 %145, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !prof !110
@@ -2484,14 +2482,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %150 = add i32 %.01627.i.i.i.i.i.i.i, %.01828.i.i.i.i.i.i.i
   %.018.i.i.i.i.i.i.i = and i32 %150, %141
   %151 = zext i32 %.018.i.i.i.i.i.i.i to i64
-  %152 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %130, i64 %151
+  %152 = getelementptr inbounds nuw [16 x i8], ptr %130, i64 %151
   %153 = load ptr, ptr %152, align 8, !tbaa !11
   %154 = icmp eq ptr %.sroa.04.0.i.i.i.i.i, %153
   br i1 %154, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i: ; preds = %148, %135
   %155 = phi i64 [ %142, %135 ], [ %151, %148 ]
-  %156 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %130, i64 %155
+  %156 = getelementptr inbounds nuw [16 x i8], ptr %130, i64 %155
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 8
   %158 = load ptr, ptr %157, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i
@@ -3479,7 +3477,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i: ;
   %.pre356 = phi ptr [ %.pre356.pre, %._ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i_crit_edge ], [ %512, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i ]
   %538 = phi ptr [ %535, %._ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i_crit_edge ], [ %529, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i ]
   %539 = getelementptr inbounds nuw i8, ptr %538, i64 %523
-  %540 = getelementptr inbounds nuw ptr, ptr %538, i64 %524
+  %540 = getelementptr inbounds nuw [8 x i8], ptr %538, i64 %524
   store ptr %540, ptr %516, align 8, !tbaa !10
   br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit
 
@@ -3823,7 +3821,7 @@ _ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i34: ; preds = 
 _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i32: ; preds = %118, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i34
   %122 = phi ptr [ %119, %118 ], [ %113, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i34 ]
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 %108
-  %124 = getelementptr inbounds nuw ptr, ptr %122, i64 %109
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %109
   store ptr %124, ptr %47, align 8, !tbaa !10
   br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit35
 
@@ -4107,7 +4105,7 @@ _ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i: ; preds = %2
 _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i: ; preds = %236, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i
   %240 = phi ptr [ %237, %236 ], [ %231, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i ]
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 %225
-  %242 = getelementptr inbounds nuw ptr, ptr %240, i64 %226
+  %242 = getelementptr inbounds nuw [8 x i8], ptr %240, i64 %226
   store ptr %242, ptr %218, align 8, !tbaa !10
   br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit
 
@@ -4513,7 +4511,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %177 = add i32 %169, -1
   %.01826.i.i.i.i.i.i.i104 = and i32 %177, %176
   %178 = zext nneg i32 %.01826.i.i.i.i.i.i.i104 to i64
-  %179 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %166, i64 %178
+  %179 = getelementptr inbounds nuw [16 x i8], ptr %166, i64 %178
   %180 = load ptr, ptr %179, align 8, !tbaa !11
   %181 = icmp eq ptr %.sroa.04.0.i.i.i.i.i101, %180
   br i1 %181, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i109, label %.lr.ph.i.i.i.i.i.i.i105, !prof !110
@@ -4530,14 +4528,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %186 = add i32 %.01627.i.i.i.i.i.i.i107, %.01828.i.i.i.i.i.i.i106
   %.018.i.i.i.i.i.i.i108 = and i32 %186, %177
   %187 = zext i32 %.018.i.i.i.i.i.i.i108 to i64
-  %188 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %166, i64 %187
+  %188 = getelementptr inbounds nuw [16 x i8], ptr %166, i64 %187
   %189 = load ptr, ptr %188, align 8, !tbaa !11
   %190 = icmp eq ptr %.sroa.04.0.i.i.i.i.i101, %189
   br i1 %190, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i109, label %.lr.ph.i.i.i.i.i.i.i105, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i109: ; preds = %184, %171
   %191 = phi i64 [ %178, %171 ], [ %187, %184 ]
-  %192 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %166, i64 %191
+  %192 = getelementptr inbounds nuw [16 x i8], ptr %166, i64 %191
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 8
   %194 = load ptr, ptr %193, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i110
@@ -4668,7 +4666,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %24
   %243 = phi i32 [ %238, %227 ], [ %.pre.i.i.i.i.i.i.i.i.i.i.i.i, %240 ]
   %244 = load ptr, ptr %4, align 8, !tbaa !59
   %245 = zext i32 %243 to i64
-  %246 = getelementptr inbounds nuw i32, ptr %244, i64 %245
+  %246 = getelementptr inbounds nuw [4 x i8], ptr %244, i64 %245
   store i32 %237, ptr %246, align 1
   %247 = load i32, ptr %233, align 8, !tbaa !60
   %248 = add i32 %247, 1
@@ -4690,7 +4688,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPKcPN4llvm16itanium_demangle10ModuleNameEEEEvRNS
   %255 = trunc nuw i64 %254 to i32
   %256 = load ptr, ptr %4, align 8, !tbaa !59
   %257 = zext i32 %253 to i64
-  %258 = getelementptr inbounds nuw i32, ptr %256, i64 %257
+  %258 = getelementptr inbounds nuw [4 x i8], ptr %256, i64 %257
   store i32 %255, ptr %258, align 1
   %259 = load i32, ptr %233, align 8, !tbaa !60
   %260 = add i32 %259, 1
@@ -4805,7 +4803,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %317 = add i32 %309, -1
   %.01826.i.i.i.i.i.i.i81 = and i32 %317, %316
   %318 = zext nneg i32 %.01826.i.i.i.i.i.i.i81 to i64
-  %319 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %306, i64 %318
+  %319 = getelementptr inbounds nuw [16 x i8], ptr %306, i64 %318
   %320 = load ptr, ptr %319, align 8, !tbaa !11
   %321 = icmp eq ptr %.sroa.04.0.i.i.i.i.i, %320
   br i1 %321, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i86, label %.lr.ph.i.i.i.i.i.i.i82, !prof !110
@@ -4822,14 +4820,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %326 = add i32 %.01627.i.i.i.i.i.i.i84, %.01828.i.i.i.i.i.i.i83
   %.018.i.i.i.i.i.i.i85 = and i32 %326, %317
   %327 = zext i32 %.018.i.i.i.i.i.i.i85 to i64
-  %328 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %306, i64 %327
+  %328 = getelementptr inbounds nuw [16 x i8], ptr %306, i64 %327
   %329 = load ptr, ptr %328, align 8, !tbaa !11
   %330 = icmp eq ptr %.sroa.04.0.i.i.i.i.i, %329
   br i1 %330, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i86, label %.lr.ph.i.i.i.i.i.i.i82, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i86: ; preds = %324, %311
   %331 = phi i64 [ %318, %311 ], [ %327, %324 ]
-  %332 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %306, i64 %331
+  %332 = getelementptr inbounds nuw [16 x i8], ptr %306, i64 %331
   %333 = getelementptr inbounds nuw i8, ptr %332, i64 8
   %334 = load ptr, ptr %333, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i87
@@ -4903,7 +4901,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br i1 %.not.i57, label %.critedge29, label %.lr.ph4.i
 
 .lr.ph4.i:                                        ; preds = %.lr.ph.split.i
-  %368 = getelementptr inbounds nuw ptr, ptr %356, i64 %.val42
+  %368 = getelementptr inbounds nuw [8 x i8], ptr %356, i64 %.val42
   %369 = load ptr, ptr %368, align 8, !tbaa !29
   %370 = getelementptr inbounds nuw i8, ptr %369, i64 16
   %371 = load i64, ptr %370, align 8, !tbaa !137
@@ -4923,7 +4921,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
 
 380:                                              ; preds = %.critedge.i58
   %381 = add nuw i64 %.0122313.i, 1
-  %382 = getelementptr inbounds nuw ptr, ptr %356, i64 %381
+  %382 = getelementptr inbounds nuw [8 x i8], ptr %356, i64 %381
   %383 = load ptr, ptr %382, align 8, !tbaa !29
   %384 = getelementptr inbounds nuw i8, ptr %383, i64 16
   %385 = load i64, ptr %384, align 8, !tbaa !137
@@ -4934,7 +4932,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %.0122313.i = phi i64 [ %381, %380 ], [ %.val42, %.critedge.preheader.i ]
   %386 = phi ptr [ %383, %380 ], [ %369, %.critedge.preheader.i ]
   %387 = phi i64 [ %385, %380 ], [ %371, %.critedge.preheader.i ]
-  %388 = getelementptr inbounds nuw ptr, ptr %374, i64 %387
+  %388 = getelementptr inbounds nuw [8 x i8], ptr %374, i64 %387
   %389 = load ptr, ptr %388, align 8, !tbaa !11
   %390 = getelementptr inbounds nuw i8, ptr %386, i64 24
   store ptr %389, ptr %390, align 8, !tbaa !139
@@ -4942,7 +4940,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br i1 %exitcond.not.i, label %.loopexit, label %380, !llvm.loop !140
 
 .loopexit:                                        ; preds = %.critedge.i58, %354
-  %391 = getelementptr inbounds nuw ptr, ptr %356, i64 %.val42
+  %391 = getelementptr inbounds nuw [8 x i8], ptr %356, i64 %.val42
   store ptr %391, ptr %342, align 8, !tbaa !27
   %.val43.val = load ptr, ptr %0, align 8, !tbaa !86
   %.val43.val46 = load ptr, ptr %13, align 8, !tbaa !87
@@ -5050,7 +5048,7 @@ _ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i: ; preds = %4
 _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i: ; preds = %437, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i
   %441 = phi ptr [ %438, %437 ], [ %432, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i ]
   %442 = getelementptr inbounds nuw i8, ptr %441, i64 %427
-  %443 = getelementptr inbounds nuw ptr, ptr %441, i64 %428
+  %443 = getelementptr inbounds nuw [8 x i8], ptr %441, i64 %428
   store ptr %443, ptr %409, align 8, !tbaa !10
   br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit
 
@@ -5258,7 +5256,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %554 = add i32 %546, -1
   %.01826.i.i.i.i.i.i.i = and i32 %554, %553
   %555 = zext nneg i32 %.01826.i.i.i.i.i.i.i to i64
-  %556 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %544, i64 %555
+  %556 = getelementptr inbounds nuw [16 x i8], ptr %544, i64 %555
   %557 = load ptr, ptr %556, align 8, !tbaa !11
   %558 = icmp eq ptr %.sroa.0.0.i.i.i.i.i, %557
   br i1 %558, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !prof !110
@@ -5275,14 +5273,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %563 = add i32 %.01627.i.i.i.i.i.i.i, %.01828.i.i.i.i.i.i.i
   %.018.i.i.i.i.i.i.i = and i32 %563, %554
   %564 = zext i32 %.018.i.i.i.i.i.i.i to i64
-  %565 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %544, i64 %564
+  %565 = getelementptr inbounds nuw [16 x i8], ptr %544, i64 %564
   %566 = load ptr, ptr %565, align 8, !tbaa !11
   %567 = icmp eq ptr %.sroa.0.0.i.i.i.i.i, %566
   br i1 %567, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i: ; preds = %561, %548
   %568 = phi i64 [ %555, %548 ], [ %564, %561 ]
-  %569 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %544, i64 %568
+  %569 = getelementptr inbounds nuw [16 x i8], ptr %544, i64 %568
   %570 = getelementptr inbounds nuw i8, ptr %569, i64 8
   %571 = load ptr, ptr %570, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i
@@ -5359,7 +5357,7 @@ _ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i67: ; preds = 
 _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i65: ; preds = %593, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i67
   %597 = phi ptr [ %594, %593 ], [ %588, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i67 ]
   %598 = getelementptr inbounds nuw i8, ptr %597, i64 %583
-  %599 = getelementptr inbounds nuw ptr, ptr %597, i64 %584
+  %599 = getelementptr inbounds nuw [8 x i8], ptr %597, i64 %584
   store ptr %599, ptr %491, align 8, !tbaa !10
   br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit68
 
@@ -5461,7 +5459,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i: ; preds = %7, %2
   %11 = phi i32 [ %4, %2 ], [ %.pre.i.i.i.i, %7 ]
   %12 = load ptr, ptr %0, align 8, !tbaa !59
   %13 = zext i32 %11 to i64
-  %14 = getelementptr inbounds nuw i32, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %13
   store i32 8, ptr %14, align 1
   %15 = load i32, ptr %3, align 8, !tbaa !60
   %16 = add i32 %15, 1
@@ -5482,7 +5480,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindE
   %22 = phi i32 [ %16, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i ], [ %.pre.i.i3.i.i, %18 ]
   %23 = load ptr, ptr %0, align 8, !tbaa !59
   %24 = zext i32 %22 to i64
-  %25 = getelementptr inbounds nuw i32, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %24
   store i32 0, ptr %25, align 1
   %26 = load i32, ptr %3, align 8, !tbaa !60
   %27 = add i32 %26, 1
@@ -5532,7 +5530,7 @@ define internal noundef i32 @_ZN4llvm10FoldingSetIN12_GLOBAL__N_120FoldingNodeAl
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %6 = load i32, ptr %5, align 8, !tbaa !60
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw i32, ptr %4, i64 %7
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %7
   %9 = tail call i64 @_ZN4llvm7hashing6detail23hash_combine_range_implIKjEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS5_S9_(ptr noundef %4, ptr noundef %8)
   %10 = trunc i64 %9 to i32
   ret i32 %10
@@ -6238,7 +6236,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i: ; preds = %6, %0
   %10 = phi i32 [ %3, %0 ], [ %.pre.i.i.i.i.i.i.i, %6 ]
   %11 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %12 = zext i32 %10 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %12
   store i32 0, ptr %13, align 1
   %14 = load i32, ptr %2, align 8, !tbaa !60
   %15 = add i32 %14, 1
@@ -6259,7 +6257,7 @@ _ZNK4llvm16itanium_demangle13NodeArrayNode5matchIN12_GLOBAL__N_119ProfileSpecifi
   %21 = phi i32 [ %15, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i ], [ %.pre.i.i3.i.i.i.i.i, %17 ]
   %22 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw i32, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %23
   store i32 0, ptr %24, align 1
   %25 = load i32, ptr %2, align 8, !tbaa !60
   %26 = add i32 %25, 1
@@ -6298,7 +6296,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i: ; preds = %11, %1
   %15 = phi i32 [ %8, %1 ], [ %.pre.i.i.i.i.i.i.i, %11 ]
   %16 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %17 = zext i32 %15 to i64
-  %18 = getelementptr inbounds nuw i32, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %17
   store i32 2, ptr %18, align 1
   %19 = load i32, ptr %7, align 8, !tbaa !60
   %20 = add i32 %19, 1
@@ -6319,7 +6317,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindE
   %26 = phi i32 [ %20, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i ], [ %.pre.i.i3.i.i.i.i.i, %22 ]
   %27 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %28 = zext i32 %26 to i64
-  %29 = getelementptr inbounds nuw i32, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %28
   store i32 0, ptr %29, align 1
   %30 = load i32, ptr %7, align 8, !tbaa !60
   %31 = add i32 %30, 1
@@ -6342,7 +6340,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i.i: ; preds = %35, %_ZN
   %39 = phi i32 [ %31, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindEEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS7_EEvE4typeES7_.exit.i.i.i ], [ %.pre.i.i.i.i.i.i.i.i.i, %35 ]
   %40 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %41 = zext i32 %39 to i64
-  %42 = getelementptr inbounds nuw i32, ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %41
   store i32 %33, ptr %42, align 1
   %43 = load i32, ptr %7, align 8, !tbaa !60
   %44 = add i32 %43, 1
@@ -6365,7 +6363,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %52 = trunc nuw i64 %51 to i32
   %53 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %54 = zext i32 %50 to i64
-  %55 = getelementptr inbounds nuw i32, ptr %53, i64 %54
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %54
   store i32 %52, ptr %55, align 1
   %56 = load i32, ptr %7, align 8, !tbaa !60
   %57 = add i32 %56, 1
@@ -6401,7 +6399,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i11.i.i.i: ; preds = %65, %_
   %69 = phi i32 [ %63, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclESt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i.i ], [ %.pre.i.i.i.i.i.i10.i.i.i, %65 ]
   %70 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %71 = zext i32 %69 to i64
-  %72 = getelementptr inbounds nuw i32, ptr %70, i64 %71
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %71
   store i32 %62, ptr %72, align 1
   %73 = load i32, ptr %7, align 8, !tbaa !60
   %74 = add i32 %73, 1
@@ -6424,7 +6422,7 @@ _ZNK4llvm16itanium_demangle17VendorExtQualType5matchIN12_GLOBAL__N_119ProfileSpe
   %82 = trunc nuw i64 %81 to i32
   %83 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %84 = zext i32 %80 to i64
-  %85 = getelementptr inbounds nuw i32, ptr %83, i64 %84
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %83, i64 %84
   store i32 %82, ptr %85, align 1
   %86 = load i32, ptr %7, align 8, !tbaa !60
   %87 = add i32 %86, 1
@@ -6453,7 +6451,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i: ; preds = %5, %0
   %9 = phi i32 [ %2, %0 ], [ %.pre.i.i.i.i.i.i.i, %5 ]
   %10 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %11 = zext i32 %9 to i64
-  %12 = getelementptr inbounds nuw i32, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %11
   store i32 3, ptr %12, align 1
   %13 = load i32, ptr %1, align 8, !tbaa !60
   %14 = add i32 %13, 1
@@ -6474,7 +6472,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindE
   %20 = phi i32 [ %14, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i ], [ %.pre.i.i3.i.i.i.i.i, %16 ]
   %21 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %22 = zext i32 %20 to i64
-  %23 = getelementptr inbounds nuw i32, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %22
   store i32 0, ptr %23, align 1
   %24 = load i32, ptr %1, align 8, !tbaa !60
   %25 = add i32 %24, 1
@@ -6497,7 +6495,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i.i: ; preds = %29, %_ZN
   %33 = phi i32 [ %25, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindEEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS7_EEvE4typeES7_.exit.i.i.i ], [ %.pre.i.i.i.i.i.i.i.i.i, %29 ]
   %34 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %35 = zext i32 %33 to i64
-  %36 = getelementptr inbounds nuw i32, ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %35
   store i32 %27, ptr %36, align 1
   %37 = load i32, ptr %1, align 8, !tbaa !60
   %38 = add i32 %37, 1
@@ -6520,7 +6518,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %46 = trunc nuw i64 %45 to i32
   %47 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %48 = zext i32 %44 to i64
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %48
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %48
   store i32 %46, ptr %49, align 1
   %50 = load i32, ptr %1, align 8, !tbaa !60
   %51 = add i32 %50, 1
@@ -6541,7 +6539,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i7.i.i.i: ; preds = %53, %_ZN12_
   %57 = phi i32 [ %51, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.exit.i.i.i ], [ %.pre.i.i.i.i6.i.i.i, %53 ]
   %58 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %59 = zext i32 %57 to i64
-  %60 = getelementptr inbounds nuw i32, ptr %58, i64 %59
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %59
   store i32 %.12.val, ptr %60, align 1
   %61 = load i32, ptr %1, align 8, !tbaa !60
   %62 = add i32 %61, 1
@@ -6562,7 +6560,7 @@ _ZNK4llvm16itanium_demangle8QualType5matchIN12_GLOBAL__N_119ProfileSpecificNodeI
   %68 = phi i32 [ %62, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i7.i.i.i ], [ %.pre.i.i3.i.i9.i.i.i, %64 ]
   %69 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %70 = zext i32 %68 to i64
-  %71 = getelementptr inbounds nuw i32, ptr %69, i64 %70
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %70
   store i32 0, ptr %71, align 1
   %72 = load i32, ptr %1, align 8, !tbaa !60
   %73 = add i32 %72, 1
@@ -6594,7 +6592,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i: ; preds = %6, %0
   %10 = phi i32 [ %3, %0 ], [ %.pre.i.i.i.i.i.i.i, %6 ]
   %11 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %12 = zext i32 %10 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %12
   store i32 10, ptr %13, align 1
   %14 = load i32, ptr %2, align 8, !tbaa !60
   %15 = add i32 %14, 1
@@ -6615,7 +6613,7 @@ _ZNK4llvm16itanium_demangle12EnableIfAttr5matchIN12_GLOBAL__N_119ProfileSpecific
   %21 = phi i32 [ %15, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i ], [ %.pre.i.i3.i.i.i.i.i, %17 ]
   %22 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw i32, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %23
   store i32 0, ptr %24, align 1
   %25 = load i32, ptr %2, align 8, !tbaa !60
   %26 = add i32 %25, 1
@@ -6646,7 +6644,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i: ; preds = %5, %0
   %9 = phi i32 [ %2, %0 ], [ %.pre.i.i.i.i.i.i.i, %5 ]
   %10 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %11 = zext i32 %9 to i64
-  %12 = getelementptr inbounds nuw i32, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %11
   store i32 13, ptr %12, align 1
   %13 = load i32, ptr %1, align 8, !tbaa !60
   %14 = add i32 %13, 1
@@ -6667,7 +6665,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindE
   %20 = phi i32 [ %14, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i ], [ %.pre.i.i3.i.i.i.i.i, %16 ]
   %21 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %22 = zext i32 %20 to i64
-  %23 = getelementptr inbounds nuw i32, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %22
   store i32 0, ptr %23, align 1
   %24 = load i32, ptr %1, align 8, !tbaa !60
   %25 = add i32 %24, 1
@@ -6690,7 +6688,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i.i: ; preds = %29, %_ZN
   %33 = phi i32 [ %25, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindEEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS7_EEvE4typeES7_.exit.i.i.i ], [ %.pre.i.i.i.i.i.i.i.i.i, %29 ]
   %34 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %35 = zext i32 %33 to i64
-  %36 = getelementptr inbounds nuw i32, ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %35
   store i32 %27, ptr %36, align 1
   %37 = load i32, ptr %1, align 8, !tbaa !60
   %38 = add i32 %37, 1
@@ -6713,7 +6711,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %46 = trunc nuw i64 %45 to i32
   %47 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %48 = zext i32 %44 to i64
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %48
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %48
   store i32 %46, ptr %49, align 1
   %50 = load i32, ptr %1, align 8, !tbaa !60
   %51 = add i32 %50, 1
@@ -6734,7 +6732,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i7.i.i.i: ; preds = %53, %_ZN12_
   %57 = phi i32 [ %51, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.exit.i.i.i ], [ %.pre.i.i.i.i6.i.i.i, %53 ]
   %58 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %59 = zext i32 %57 to i64
-  %60 = getelementptr inbounds nuw i32, ptr %58, i64 %59
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %59
   store i32 %.24.val, ptr %60, align 1
   %61 = load i32, ptr %1, align 8, !tbaa !60
   %62 = add i32 %61, 1
@@ -6756,7 +6754,7 @@ _ZNK4llvm16itanium_demangle13ReferenceType5matchIN12_GLOBAL__N_119ProfileSpecifi
   %69 = ashr i32 %.24.val, 31
   %70 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %71 = zext i32 %68 to i64
-  %72 = getelementptr inbounds nuw i32, ptr %70, i64 %71
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %71
   store i32 %69, ptr %72, align 1
   %73 = load i32, ptr %1, align 8, !tbaa !60
   %74 = add i32 %73, 1
@@ -6785,7 +6783,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i: ; preds = %5, %0
   %9 = phi i32 [ %2, %0 ], [ %.pre.i.i.i.i.i.i.i, %5 ]
   %10 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %11 = zext i32 %9 to i64
-  %12 = getelementptr inbounds nuw i32, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %11
   store i32 15, ptr %12, align 1
   %13 = load i32, ptr %1, align 8, !tbaa !60
   %14 = add i32 %13, 1
@@ -6806,7 +6804,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindE
   %20 = phi i32 [ %14, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i ], [ %.pre.i.i3.i.i.i.i.i, %16 ]
   %21 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %22 = zext i32 %20 to i64
-  %23 = getelementptr inbounds nuw i32, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %22
   store i32 0, ptr %23, align 1
   %24 = load i32, ptr %1, align 8, !tbaa !60
   %25 = add i32 %24, 1
@@ -6829,7 +6827,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i.i: ; preds = %29, %_ZN
   %33 = phi i32 [ %25, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindEEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS7_EEvE4typeES7_.exit.i.i.i ], [ %.pre.i.i.i.i.i.i.i.i.i, %29 ]
   %34 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %35 = zext i32 %33 to i64
-  %36 = getelementptr inbounds nuw i32, ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %35
   store i32 %27, ptr %36, align 1
   %37 = load i32, ptr %1, align 8, !tbaa !60
   %38 = add i32 %37, 1
@@ -6852,7 +6850,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %46 = trunc nuw i64 %45 to i32
   %47 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %48 = zext i32 %44 to i64
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %48
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %48
   store i32 %46, ptr %49, align 1
   %50 = load i32, ptr %1, align 8, !tbaa !60
   %51 = add i32 %50, 1
@@ -6875,7 +6873,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i7.i.i.i: ; preds = %55, %_Z
   %59 = phi i32 [ %51, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.exit.i.i.i ], [ %.pre.i.i.i.i.i.i6.i.i.i, %55 ]
   %60 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %61 = zext i32 %59 to i64
-  %62 = getelementptr inbounds nuw i32, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %61
   store i32 %53, ptr %62, align 1
   %63 = load i32, ptr %1, align 8, !tbaa !60
   %64 = add i32 %63, 1
@@ -6898,7 +6896,7 @@ _ZNK4llvm16itanium_demangle9ArrayType5matchIN12_GLOBAL__N_119ProfileSpecificNode
   %72 = trunc nuw i64 %71 to i32
   %73 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %74 = zext i32 %70 to i64
-  %75 = getelementptr inbounds nuw i32, ptr %73, i64 %74
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %74
   store i32 %72, ptr %75, align 1
   %76 = load i32, ptr %1, align 8, !tbaa !60
   %77 = add i32 %76, 1
@@ -6942,7 +6940,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i: ; preds = %16, %1
   %20 = phi i32 [ %13, %1 ], [ %.pre.i.i.i.i.i.i.i, %16 ]
   %21 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %22 = zext i32 %20 to i64
-  %23 = getelementptr inbounds nuw i32, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %22
   store i32 16, ptr %23, align 1
   %24 = load i32, ptr %12, align 8, !tbaa !60
   %25 = add i32 %24, 1
@@ -6963,7 +6961,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindE
   %31 = phi i32 [ %25, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i ], [ %.pre.i.i3.i.i.i.i.i, %27 ]
   %32 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %33 = zext i32 %31 to i64
-  %34 = getelementptr inbounds nuw i32, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %33
   store i32 0, ptr %34, align 1
   %35 = load i32, ptr %12, align 8, !tbaa !60
   %36 = add i32 %35, 1
@@ -6986,7 +6984,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i.i: ; preds = %40, %_ZN
   %44 = phi i32 [ %36, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindEEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS7_EEvE4typeES7_.exit.i.i.i ], [ %.pre.i.i.i.i.i.i.i.i.i, %40 ]
   %45 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %46 = zext i32 %44 to i64
-  %47 = getelementptr inbounds nuw i32, ptr %45, i64 %46
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %46
   store i32 %38, ptr %47, align 1
   %48 = load i32, ptr %12, align 8, !tbaa !60
   %49 = add i32 %48, 1
@@ -7009,7 +7007,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %57 = trunc nuw i64 %56 to i32
   %58 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %59 = zext i32 %55 to i64
-  %60 = getelementptr inbounds nuw i32, ptr %58, i64 %59
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %59
   store i32 %57, ptr %60, align 1
   %61 = load i32, ptr %12, align 8, !tbaa !60
   %62 = add i32 %61, 1
@@ -7032,7 +7030,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i14.i.i.i: ; preds = %65, %_ZN12
   %69 = phi i32 [ %63, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.exit.i.i.i ], [ %.pre.i.i.i.i13.i.i.i, %65 ]
   %70 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %71 = zext i32 %69 to i64
-  %72 = getelementptr inbounds nuw i32, ptr %70, i64 %71
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %71
   store i32 %7, ptr %72, align 1
   %73 = load i32, ptr %12, align 8, !tbaa !60
   %74 = add i32 %73, 1
@@ -7053,7 +7051,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle10Qualifier
   %80 = phi i32 [ %74, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i14.i.i.i ], [ %.pre.i.i3.i.i16.i.i.i, %76 ]
   %81 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %82 = zext i32 %80 to i64
-  %83 = getelementptr inbounds nuw i32, ptr %81, i64 %82
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %81, i64 %82
   store i32 0, ptr %83, align 1
   %84 = load i32, ptr %12, align 8, !tbaa !60
   %85 = add i32 %84, 1
@@ -7075,7 +7073,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i19.i.i.i: ; preds = %88, %_ZN12
   %92 = phi i32 [ %85, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle10QualifiersEEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS6_EEvE4typeES6_.exit.i.i.i ], [ %.pre.i.i.i.i18.i.i.i, %88 ]
   %93 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %94 = zext i32 %92 to i64
-  %95 = getelementptr inbounds nuw i32, ptr %93, i64 %94
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %94
   store i32 %86, ptr %95, align 1
   %96 = load i32, ptr %12, align 8, !tbaa !60
   %97 = add i32 %96, 1
@@ -7096,7 +7094,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle15FunctionR
   %103 = phi i32 [ %97, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i19.i.i.i ], [ %.pre.i.i3.i.i21.i.i.i, %99 ]
   %104 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %105 = zext i32 %103 to i64
-  %106 = getelementptr inbounds nuw i32, ptr %104, i64 %105
+  %106 = getelementptr inbounds nuw [4 x i8], ptr %104, i64 %105
   store i32 0, ptr %106, align 1
   %107 = load i32, ptr %12, align 8, !tbaa !60
   %108 = add i32 %107, 1
@@ -7119,7 +7117,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i24.i.i.i: ; preds = %112, %
   %116 = phi i32 [ %108, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle15FunctionRefQualEEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS6_EEvE4typeES6_.exit.i.i.i ], [ %.pre.i.i.i.i.i.i23.i.i.i, %112 ]
   %117 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %118 = zext i32 %116 to i64
-  %119 = getelementptr inbounds nuw i32, ptr %117, i64 %118
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %117, i64 %118
   store i32 %110, ptr %119, align 1
   %120 = load i32, ptr %12, align 8, !tbaa !60
   %121 = add i32 %120, 1
@@ -7142,7 +7140,7 @@ _ZNK4llvm16itanium_demangle12FunctionType5matchIN12_GLOBAL__N_119ProfileSpecific
   %129 = trunc nuw i64 %128 to i32
   %130 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %131 = zext i32 %127 to i64
-  %132 = getelementptr inbounds nuw i32, ptr %130, i64 %131
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %130, i64 %131
   store i32 %129, ptr %132, align 1
   %133 = load i32, ptr %12, align 8, !tbaa !60
   %134 = add i32 %133, 1
@@ -7175,7 +7173,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i: ; preds = %6, %0
   %10 = phi i32 [ %3, %0 ], [ %.pre.i.i.i.i.i.i.i, %6 ]
   %11 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %12 = zext i32 %10 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %12
   store i32 18, ptr %13, align 1
   %14 = load i32, ptr %2, align 8, !tbaa !60
   %15 = add i32 %14, 1
@@ -7196,7 +7194,7 @@ _ZNK4llvm16itanium_demangle20DynamicExceptionSpec5matchIN12_GLOBAL__N_119Profile
   %21 = phi i32 [ %15, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i ], [ %.pre.i.i3.i.i.i.i.i, %17 ]
   %22 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw i32, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %23
   store i32 0, ptr %24, align 1
   %25 = load i32, ptr %2, align 8, !tbaa !60
   %26 = add i32 %25, 1
@@ -7246,7 +7244,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i: ; preds = %20, %1
   %24 = phi i32 [ %17, %1 ], [ %.pre.i.i.i.i.i.i.i, %20 ]
   %25 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %26 = zext i32 %24 to i64
-  %27 = getelementptr inbounds nuw i32, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %26
   store i32 19, ptr %27, align 1
   %28 = load i32, ptr %16, align 8, !tbaa !60
   %29 = add i32 %28, 1
@@ -7267,7 +7265,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindE
   %35 = phi i32 [ %29, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i ], [ %.pre.i.i3.i.i.i.i.i, %31 ]
   %36 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %37 = zext i32 %35 to i64
-  %38 = getelementptr inbounds nuw i32, ptr %36, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %37
   store i32 0, ptr %38, align 1
   %39 = load i32, ptr %16, align 8, !tbaa !60
   %40 = add i32 %39, 1
@@ -7290,7 +7288,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i.i: ; preds = %44, %_ZN
   %48 = phi i32 [ %40, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindEEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS7_EEvE4typeES7_.exit.i.i.i ], [ %.pre.i.i.i.i.i.i.i.i.i, %44 ]
   %49 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %50 = zext i32 %48 to i64
-  %51 = getelementptr inbounds nuw i32, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %50
   store i32 %42, ptr %51, align 1
   %52 = load i32, ptr %16, align 8, !tbaa !60
   %53 = add i32 %52, 1
@@ -7313,7 +7311,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %61 = trunc nuw i64 %60 to i32
   %62 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %63 = zext i32 %59 to i64
-  %64 = getelementptr inbounds nuw i32, ptr %62, i64 %63
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %63
   store i32 %61, ptr %64, align 1
   %65 = load i32, ptr %16, align 8, !tbaa !60
   %66 = add i32 %65, 1
@@ -7336,7 +7334,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i18.i.i.i: ; preds = %70, %_
   %74 = phi i32 [ %66, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.exit.i.i.i ], [ %.pre.i.i.i.i.i.i17.i.i.i, %70 ]
   %75 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %76 = zext i32 %74 to i64
-  %77 = getelementptr inbounds nuw i32, ptr %75, i64 %76
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %76
   store i32 %68, ptr %77, align 1
   %78 = load i32, ptr %16, align 8, !tbaa !60
   %79 = add i32 %78, 1
@@ -7359,7 +7357,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %87 = trunc nuw i64 %86 to i32
   %88 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %89 = zext i32 %85 to i64
-  %90 = getelementptr inbounds nuw i32, ptr %88, i64 %89
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %89
   store i32 %87, ptr %90, align 1
   %91 = load i32, ptr %16, align 8, !tbaa !60
   %92 = add i32 %91, 1
@@ -7384,7 +7382,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i24.i.i.i: ; preds = %97, %_
   %101 = phi i32 [ %95, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.exit21.i.i.i ], [ %.pre.i.i.i.i.i.i23.i.i.i, %97 ]
   %102 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %103 = zext i32 %101 to i64
-  %104 = getelementptr inbounds nuw i32, ptr %102, i64 %103
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %102, i64 %103
   store i32 %94, ptr %104, align 1
   %105 = load i32, ptr %16, align 8, !tbaa !60
   %106 = add i32 %105, 1
@@ -7407,7 +7405,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %114 = trunc nuw i64 %113 to i32
   %115 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %116 = zext i32 %112 to i64
-  %117 = getelementptr inbounds nuw i32, ptr %115, i64 %116
+  %117 = getelementptr inbounds nuw [4 x i8], ptr %115, i64 %116
   store i32 %114, ptr %117, align 1
   %118 = load i32, ptr %16, align 8, !tbaa !60
   %119 = add i32 %118, 1
@@ -7430,7 +7428,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i30.i.i.i: ; preds = %123, %
   %127 = phi i32 [ %119, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.exit27.i.i.i ], [ %.pre.i.i.i.i.i.i29.i.i.i, %123 ]
   %128 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %129 = zext i32 %127 to i64
-  %130 = getelementptr inbounds nuw i32, ptr %128, i64 %129
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %128, i64 %129
   store i32 %121, ptr %130, align 1
   %131 = load i32, ptr %16, align 8, !tbaa !60
   %132 = add i32 %131, 1
@@ -7453,7 +7451,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %140 = trunc nuw i64 %139 to i32
   %141 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %142 = zext i32 %138 to i64
-  %143 = getelementptr inbounds nuw i32, ptr %141, i64 %142
+  %143 = getelementptr inbounds nuw [4 x i8], ptr %141, i64 %142
   store i32 %140, ptr %143, align 1
   %144 = load i32, ptr %16, align 8, !tbaa !60
   %145 = add i32 %144, 1
@@ -7474,7 +7472,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i36.i.i.i: ; preds = %147, %_ZN1
   %151 = phi i32 [ %145, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.exit33.i.i.i ], [ %.pre.i.i.i.i35.i.i.i, %147 ]
   %152 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %153 = zext i32 %151 to i64
-  %154 = getelementptr inbounds nuw i32, ptr %152, i64 %153
+  %154 = getelementptr inbounds nuw [4 x i8], ptr %152, i64 %153
   store i32 %13, ptr %154, align 1
   %155 = load i32, ptr %16, align 8, !tbaa !60
   %156 = add i32 %155, 1
@@ -7495,7 +7493,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle10Qualifier
   %162 = phi i32 [ %156, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i36.i.i.i ], [ %.pre.i.i3.i.i38.i.i.i, %158 ]
   %163 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %164 = zext i32 %162 to i64
-  %165 = getelementptr inbounds nuw i32, ptr %163, i64 %164
+  %165 = getelementptr inbounds nuw [4 x i8], ptr %163, i64 %164
   store i32 0, ptr %165, align 1
   %166 = load i32, ptr %16, align 8, !tbaa !60
   %167 = add i32 %166, 1
@@ -7517,7 +7515,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i41.i.i.i: ; preds = %170, %_ZN1
   %174 = phi i32 [ %167, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle10QualifiersEEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS6_EEvE4typeES6_.exit.i.i.i ], [ %.pre.i.i.i.i40.i.i.i, %170 ]
   %175 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %176 = zext i32 %174 to i64
-  %177 = getelementptr inbounds nuw i32, ptr %175, i64 %176
+  %177 = getelementptr inbounds nuw [4 x i8], ptr %175, i64 %176
   store i32 %168, ptr %177, align 1
   %178 = load i32, ptr %16, align 8, !tbaa !60
   %179 = add i32 %178, 1
@@ -7538,7 +7536,7 @@ _ZNK4llvm16itanium_demangle16FunctionEncoding5matchIN12_GLOBAL__N_119ProfileSpec
   %185 = phi i32 [ %179, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i41.i.i.i ], [ %.pre.i.i3.i.i43.i.i.i, %181 ]
   %186 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %187 = zext i32 %185 to i64
-  %188 = getelementptr inbounds nuw i32, ptr %186, i64 %187
+  %188 = getelementptr inbounds nuw [4 x i8], ptr %186, i64 %187
   store i32 0, ptr %188, align 1
   %189 = load i32, ptr %16, align 8, !tbaa !60
   %190 = add i32 %189, 1
@@ -7574,7 +7572,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i: ; preds = %9, %1
   %13 = phi i32 [ %6, %1 ], [ %.pre.i.i.i.i.i.i.i, %9 ]
   %14 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %15 = zext i32 %13 to i64
-  %16 = getelementptr inbounds nuw i32, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %15
   store i32 21, ptr %16, align 1
   %17 = load i32, ptr %5, align 8, !tbaa !60
   %18 = add i32 %17, 1
@@ -7595,7 +7593,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindE
   %24 = phi i32 [ %18, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i ], [ %.pre.i.i3.i.i.i.i.i, %20 ]
   %25 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %26 = zext i32 %24 to i64
-  %27 = getelementptr inbounds nuw i32, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %26
   store i32 0, ptr %27, align 1
   %28 = load i32, ptr %5, align 8, !tbaa !60
   %29 = add i32 %28, 1
@@ -7631,7 +7629,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i.i: ; preds = %37, %_ZN
   %41 = phi i32 [ %35, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclESt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i.i ], [ %.pre.i.i.i.i.i.i.i.i.i, %37 ]
   %42 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %43 = zext i32 %41 to i64
-  %44 = getelementptr inbounds nuw i32, ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %43
   store i32 %34, ptr %44, align 1
   %45 = load i32, ptr %5, align 8, !tbaa !60
   %46 = add i32 %45, 1
@@ -7654,7 +7652,7 @@ _ZNK4llvm16itanium_demangle11SpecialName5matchIN12_GLOBAL__N_119ProfileSpecificN
   %54 = trunc nuw i64 %53 to i32
   %55 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %56 = zext i32 %52 to i64
-  %57 = getelementptr inbounds nuw i32, ptr %55, i64 %56
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %56
   store i32 %54, ptr %57, align 1
   %58 = load i32, ptr %5, align 8, !tbaa !60
   %59 = add i32 %58, 1
@@ -7683,7 +7681,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i: ; preds = %5, %0
   %9 = phi i32 [ %2, %0 ], [ %.pre.i.i.i.i.i.i.i, %5 ]
   %10 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %11 = zext i32 %9 to i64
-  %12 = getelementptr inbounds nuw i32, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %11
   store i32 32, ptr %12, align 1
   %13 = load i32, ptr %1, align 8, !tbaa !60
   %14 = add i32 %13, 1
@@ -7704,7 +7702,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindE
   %20 = phi i32 [ %14, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i ], [ %.pre.i.i3.i.i.i.i.i, %16 ]
   %21 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %22 = zext i32 %20 to i64
-  %23 = getelementptr inbounds nuw i32, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %22
   store i32 0, ptr %23, align 1
   %24 = load i32, ptr %1, align 8, !tbaa !60
   %25 = add i32 %24, 1
@@ -7727,7 +7725,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i.i: ; preds = %29, %_ZN
   %33 = phi i32 [ %25, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindEEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS7_EEvE4typeES7_.exit.i.i.i ], [ %.pre.i.i.i.i.i.i.i.i.i, %29 ]
   %34 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %35 = zext i32 %33 to i64
-  %36 = getelementptr inbounds nuw i32, ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %35
   store i32 %27, ptr %36, align 1
   %37 = load i32, ptr %1, align 8, !tbaa !60
   %38 = add i32 %37, 1
@@ -7750,7 +7748,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %46 = trunc nuw i64 %45 to i32
   %47 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %48 = zext i32 %44 to i64
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %48
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %48
   store i32 %46, ptr %49, align 1
   %50 = load i32, ptr %1, align 8, !tbaa !60
   %51 = add i32 %50, 1
@@ -7773,7 +7771,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i7.i.i.i: ; preds = %55, %_ZN12_
   %59 = phi i32 [ %51, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.exit.i.i.i ], [ %.pre.i.i.i.i6.i.i.i, %55 ]
   %60 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %61 = zext i32 %59 to i64
-  %62 = getelementptr inbounds nuw i32, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %61
   store i32 %53, ptr %62, align 1
   %63 = load i32, ptr %1, align 8, !tbaa !60
   %64 = add i32 %63, 1
@@ -7794,7 +7792,7 @@ _ZNK4llvm16itanium_demangle10BitIntType5matchIN12_GLOBAL__N_119ProfileSpecificNo
   %70 = phi i32 [ %64, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i7.i.i.i ], [ %.pre.i.i3.i.i9.i.i.i, %66 ]
   %71 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %72 = zext i32 %70 to i64
-  %73 = getelementptr inbounds nuw i32, ptr %71, i64 %72
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %72
   store i32 0, ptr %73, align 1
   %74 = load i32, ptr %1, align 8, !tbaa !60
   %75 = add i32 %74, 1
@@ -7826,7 +7824,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i: ; preds = %6, %0
   %10 = phi i32 [ %3, %0 ], [ %.pre.i.i.i.i.i.i.i, %6 ]
   %11 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %12 = zext i32 %10 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %12
   store i32 40, ptr %13, align 1
   %14 = load i32, ptr %2, align 8, !tbaa !60
   %15 = add i32 %14, 1
@@ -7847,7 +7845,7 @@ _ZNK4llvm16itanium_demangle13ParameterPack5matchIN12_GLOBAL__N_119ProfileSpecifi
   %21 = phi i32 [ %15, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i ], [ %.pre.i.i3.i.i.i.i.i, %17 ]
   %22 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw i32, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %23
   store i32 0, ptr %24, align 1
   %25 = load i32, ptr %2, align 8, !tbaa !60
   %26 = add i32 %25, 1
@@ -7881,7 +7879,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i: ; preds = %6, %0
   %10 = phi i32 [ %3, %0 ], [ %.pre.i.i.i.i.i.i.i, %6 ]
   %11 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %12 = zext i32 %10 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %12
   store i32 41, ptr %13, align 1
   %14 = load i32, ptr %2, align 8, !tbaa !60
   %15 = add i32 %14, 1
@@ -7902,7 +7900,7 @@ _ZNK4llvm16itanium_demangle20TemplateArgumentPack5matchIN12_GLOBAL__N_119Profile
   %21 = phi i32 [ %15, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i ], [ %.pre.i.i3.i.i.i.i.i, %17 ]
   %22 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw i32, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %23
   store i32 0, ptr %24, align 1
   %25 = load i32, ptr %2, align 8, !tbaa !60
   %26 = add i32 %25, 1
@@ -7940,7 +7938,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i: ; preds = %13, %1
   %17 = phi i32 [ %10, %1 ], [ %.pre.i.i.i.i.i.i.i, %13 ]
   %18 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %19 = zext i32 %17 to i64
-  %20 = getelementptr inbounds nuw i32, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %19
   store i32 49, ptr %20, align 1
   %21 = load i32, ptr %9, align 8, !tbaa !60
   %22 = add i32 %21, 1
@@ -7961,7 +7959,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindE
   %28 = phi i32 [ %22, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i ], [ %.pre.i.i3.i.i.i.i.i, %24 ]
   %29 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %30 = zext i32 %28 to i64
-  %31 = getelementptr inbounds nuw i32, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %30
   store i32 0, ptr %31, align 1
   %32 = load i32, ptr %9, align 8, !tbaa !60
   %33 = add i32 %32, 1
@@ -7984,7 +7982,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i.i: ; preds = %37, %_ZN
   %41 = phi i32 [ %33, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindEEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS7_EEvE4typeES7_.exit.i.i.i ], [ %.pre.i.i.i.i.i.i.i.i.i, %37 ]
   %42 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %43 = zext i32 %41 to i64
-  %44 = getelementptr inbounds nuw i32, ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %43
   store i32 %35, ptr %44, align 1
   %45 = load i32, ptr %9, align 8, !tbaa !60
   %46 = add i32 %45, 1
@@ -8007,7 +8005,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %54 = trunc nuw i64 %53 to i32
   %55 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %56 = zext i32 %52 to i64
-  %57 = getelementptr inbounds nuw i32, ptr %55, i64 %56
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %56
   store i32 %54, ptr %57, align 1
   %58 = load i32, ptr %9, align 8, !tbaa !60
   %59 = add i32 %58, 1
@@ -8028,7 +8026,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i9.i.i.i: ; preds = %61, %_ZN12_
   %65 = phi i32 [ %59, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.exit.i.i.i ], [ %.pre.i.i.i.i8.i.i.i, %61 ]
   %66 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %67 = zext i32 %65 to i64
-  %68 = getelementptr inbounds nuw i32, ptr %66, i64 %67
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %67
   store i32 %6, ptr %68, align 1
   %69 = load i32, ptr %9, align 8, !tbaa !60
   %70 = add i32 %69, 1
@@ -8049,7 +8047,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIbEENSt9enable_ifIXoosr3stdE13is_int
   %76 = phi i32 [ %70, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i9.i.i.i ], [ %.pre.i.i3.i.i11.i.i.i, %72 ]
   %77 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %78 = zext i32 %76 to i64
-  %79 = getelementptr inbounds nuw i32, ptr %77, i64 %78
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %78
   store i32 0, ptr %79, align 1
   %80 = load i32, ptr %9, align 8, !tbaa !60
   %81 = add i32 %80, 1
@@ -8070,7 +8068,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i14.i.i.i: ; preds = %83, %_ZN12
   %87 = phi i32 [ %81, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIbEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS3_EEvE4typeES3_.exit.i.i.i ], [ %.pre.i.i.i.i13.i.i.i, %83 ]
   %88 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %89 = zext i32 %87 to i64
-  %90 = getelementptr inbounds nuw i32, ptr %88, i64 %89
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %89
   store i32 %8, ptr %90, align 1
   %91 = load i32, ptr %9, align 8, !tbaa !60
   %92 = add i32 %91, 1
@@ -8092,7 +8090,7 @@ _ZNK4llvm16itanium_demangle12CtorDtorName5matchIN12_GLOBAL__N_119ProfileSpecific
   %99 = ashr i32 %8, 31
   %100 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %101 = zext i32 %98 to i64
-  %102 = getelementptr inbounds nuw i32, ptr %100, i64 %101
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %100, i64 %101
   store i32 %99, ptr %102, align 1
   %103 = load i32, ptr %9, align 8, !tbaa !60
   %104 = add i32 %103, 1
@@ -8140,7 +8138,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i: ; preds = %14, %1
   %18 = phi i32 [ %11, %1 ], [ %.pre.i.i.i.i.i.i.i, %14 ]
   %19 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %20 = zext i32 %18 to i64
-  %21 = getelementptr inbounds nuw i32, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %20
   store i32 52, ptr %21, align 1
   %22 = load i32, ptr %10, align 8, !tbaa !60
   %23 = add i32 %22, 1
@@ -8161,7 +8159,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindE
   %29 = phi i32 [ %23, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i ], [ %.pre.i.i3.i.i.i.i.i, %25 ]
   %30 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %31 = zext i32 %29 to i64
-  %32 = getelementptr inbounds nuw i32, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %31
   store i32 0, ptr %32, align 1
   %33 = load i32, ptr %10, align 8, !tbaa !60
   %34 = add i32 %33, 1
@@ -8186,7 +8184,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i.i: ; preds = %39, %_ZN
   %43 = phi i32 [ %37, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindEEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS7_EEvE4typeES7_.exit.i.i.i ], [ %.pre.i.i.i.i.i.i.i.i.i, %39 ]
   %44 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %45 = zext i32 %43 to i64
-  %46 = getelementptr inbounds nuw i32, ptr %44, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %45
   store i32 %36, ptr %46, align 1
   %47 = load i32, ptr %10, align 8, !tbaa !60
   %48 = add i32 %47, 1
@@ -8209,7 +8207,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %56 = trunc nuw i64 %55 to i32
   %57 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %58 = zext i32 %54 to i64
-  %59 = getelementptr inbounds nuw i32, ptr %57, i64 %58
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %58
   store i32 %56, ptr %59, align 1
   %60 = load i32, ptr %10, align 8, !tbaa !60
   %61 = add i32 %60, 1
@@ -8234,7 +8232,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i15.i.i.i: ; preds = %66, %_
   %70 = phi i32 [ %64, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.exit.i.i.i ], [ %.pre.i.i.i.i.i.i14.i.i.i, %66 ]
   %71 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %72 = zext i32 %70 to i64
-  %73 = getelementptr inbounds nuw i32, ptr %71, i64 %72
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %72
   store i32 %63, ptr %73, align 1
   %74 = load i32, ptr %10, align 8, !tbaa !60
   %75 = add i32 %74, 1
@@ -8257,7 +8255,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %83 = trunc nuw i64 %82 to i32
   %84 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %85 = zext i32 %81 to i64
-  %86 = getelementptr inbounds nuw i32, ptr %84, i64 %85
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %85
   store i32 %83, ptr %86, align 1
   %87 = load i32, ptr %10, align 8, !tbaa !60
   %88 = add i32 %87, 1
@@ -8302,7 +8300,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i: ; preds = %6, %0
   %10 = phi i32 [ %3, %0 ], [ %.pre.i.i.i.i.i.i.i, %6 ]
   %11 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %12 = zext i32 %10 to i64
-  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %12
   store i32 53, ptr %13, align 1
   %14 = load i32, ptr %2, align 8, !tbaa !60
   %15 = add i32 %14, 1
@@ -8323,7 +8321,7 @@ _ZNK4llvm16itanium_demangle21StructuredBindingName5matchIN12_GLOBAL__N_119Profil
   %21 = phi i32 [ %15, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i ], [ %.pre.i.i3.i.i.i.i.i, %17 ]
   %22 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw i32, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %23
   store i32 0, ptr %24, align 1
   %25 = load i32, ptr %2, align 8, !tbaa !60
   %26 = add i32 %25, 1
@@ -8382,7 +8380,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i: ; preds = %15, %1
   %19 = phi i32 [ %12, %1 ], [ %.pre.i.i.i.i.i.i.i, %15 ]
   %20 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %21 = zext i32 %19 to i64
-  %22 = getelementptr inbounds nuw i32, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %21
   store i32 55, ptr %22, align 1
   %23 = load i32, ptr %11, align 8, !tbaa !60
   %24 = add i32 %23, 1
@@ -8403,7 +8401,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindE
   %30 = phi i32 [ %24, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i ], [ %.pre.i.i3.i.i.i.i.i, %26 ]
   %31 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %32 = zext i32 %30 to i64
-  %33 = getelementptr inbounds nuw i32, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %32
   store i32 0, ptr %33, align 1
   %34 = load i32, ptr %11, align 8, !tbaa !60
   %35 = add i32 %34, 1
@@ -8426,7 +8424,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i.i: ; preds = %39, %_ZN
   %43 = phi i32 [ %35, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindEEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS7_EEvE4typeES7_.exit.i.i.i ], [ %.pre.i.i.i.i.i.i.i.i.i, %39 ]
   %44 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %45 = zext i32 %43 to i64
-  %46 = getelementptr inbounds nuw i32, ptr %44, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %45
   store i32 %37, ptr %46, align 1
   %47 = load i32, ptr %11, align 8, !tbaa !60
   %48 = add i32 %47, 1
@@ -8449,7 +8447,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %56 = trunc nuw i64 %55 to i32
   %57 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %58 = zext i32 %54 to i64
-  %59 = getelementptr inbounds nuw i32, ptr %57, i64 %58
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %58
   store i32 %56, ptr %59, align 1
   %60 = load i32, ptr %11, align 8, !tbaa !60
   %61 = add i32 %60, 1
@@ -8472,7 +8470,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i9.i.i.i: ; preds = %65, %_Z
   %69 = phi i32 [ %61, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.exit.i.i.i ], [ %.pre.i.i.i.i.i.i8.i.i.i, %65 ]
   %70 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %71 = zext i32 %69 to i64
-  %72 = getelementptr inbounds nuw i32, ptr %70, i64 %71
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %71
   store i32 %63, ptr %72, align 1
   %73 = load i32, ptr %11, align 8, !tbaa !60
   %74 = add i32 %73, 1
@@ -8495,7 +8493,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %82 = trunc nuw i64 %81 to i32
   %83 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %84 = zext i32 %80 to i64
-  %85 = getelementptr inbounds nuw i32, ptr %83, i64 %84
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %83, i64 %84
   store i32 %82, ptr %85, align 1
   %86 = load i32, ptr %11, align 8, !tbaa !60
   %87 = add i32 %86, 1
@@ -8516,7 +8514,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i15.i.i.i: ; preds = %89, %_ZN12
   %93 = phi i32 [ %87, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.exit12.i.i.i ], [ %.pre.i.i.i.i14.i.i.i, %89 ]
   %94 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %95 = zext i32 %93 to i64
-  %96 = getelementptr inbounds nuw i32, ptr %94, i64 %95
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %95
   store i32 %10, ptr %96, align 1
   %97 = load i32, ptr %11, align 8, !tbaa !60
   %98 = add i32 %97, 1
@@ -8538,7 +8536,7 @@ _ZNK4llvm16itanium_demangle18ArraySubscriptExpr5matchIN12_GLOBAL__N_119ProfileSp
   %105 = ashr i32 %10, 31
   %106 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %107 = zext i32 %104 to i64
-  %108 = getelementptr inbounds nuw i32, ptr %106, i64 %107
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %106, i64 %107
   store i32 %105, ptr %108, align 1
   %109 = load i32, ptr %11, align 8, !tbaa !60
   %110 = add i32 %109, 1
@@ -8578,7 +8576,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i: ; preds = %14, %1
   %18 = phi i32 [ %11, %1 ], [ %.pre.i.i.i.i.i.i.i, %14 ]
   %19 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %20 = zext i32 %18 to i64
-  %21 = getelementptr inbounds nuw i32, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %20
   store i32 56, ptr %21, align 1
   %22 = load i32, ptr %10, align 8, !tbaa !60
   %23 = add i32 %22, 1
@@ -8599,7 +8597,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindE
   %29 = phi i32 [ %23, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i ], [ %.pre.i.i3.i.i.i.i.i, %25 ]
   %30 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %31 = zext i32 %29 to i64
-  %32 = getelementptr inbounds nuw i32, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %31
   store i32 0, ptr %32, align 1
   %33 = load i32, ptr %10, align 8, !tbaa !60
   %34 = add i32 %33, 1
@@ -8622,7 +8620,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i.i: ; preds = %38, %_ZN
   %42 = phi i32 [ %34, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindEEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS7_EEvE4typeES7_.exit.i.i.i ], [ %.pre.i.i.i.i.i.i.i.i.i, %38 ]
   %43 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %44 = zext i32 %42 to i64
-  %45 = getelementptr inbounds nuw i32, ptr %43, i64 %44
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %44
   store i32 %36, ptr %45, align 1
   %46 = load i32, ptr %10, align 8, !tbaa !60
   %47 = add i32 %46, 1
@@ -8645,7 +8643,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %55 = trunc nuw i64 %54 to i32
   %56 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %57 = zext i32 %53 to i64
-  %58 = getelementptr inbounds nuw i32, ptr %56, i64 %57
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %57
   store i32 %55, ptr %58, align 1
   %59 = load i32, ptr %10, align 8, !tbaa !60
   %60 = add i32 %59, 1
@@ -8679,7 +8677,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i11.i.i.i: ; preds = %66, %_ZN12
   %70 = phi i32 [ %64, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclESt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i.i ], [ %.pre.i.i.i.i10.i.i.i, %66 ]
   %71 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %72 = zext i32 %70 to i64
-  %73 = getelementptr inbounds nuw i32, ptr %71, i64 %72
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %72
   store i32 %9, ptr %73, align 1
   %74 = load i32, ptr %10, align 8, !tbaa !60
   %75 = add i32 %74, 1
@@ -8701,7 +8699,7 @@ _ZNK4llvm16itanium_demangle11PostfixExpr5matchIN12_GLOBAL__N_119ProfileSpecificN
   %82 = ashr i32 %9, 31
   %83 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %84 = zext i32 %81 to i64
-  %85 = getelementptr inbounds nuw i32, ptr %83, i64 %84
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %83, i64 %84
   store i32 %82, ptr %85, align 1
   %86 = load i32, ptr %10, align 8, !tbaa !60
   %87 = add i32 %86, 1
@@ -8741,7 +8739,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i: ; preds = %17, %1
   %21 = phi i32 [ %14, %1 ], [ %.pre.i.i.i.i.i.i.i, %17 ]
   %22 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw i32, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %23
   store i32 57, ptr %24, align 1
   %25 = load i32, ptr %13, align 8, !tbaa !60
   %26 = add i32 %25, 1
@@ -8762,7 +8760,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindE
   %32 = phi i32 [ %26, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i ], [ %.pre.i.i3.i.i.i.i.i, %28 ]
   %33 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %34 = zext i32 %32 to i64
-  %35 = getelementptr inbounds nuw i32, ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %34
   store i32 0, ptr %35, align 1
   %36 = load i32, ptr %13, align 8, !tbaa !60
   %37 = add i32 %36, 1
@@ -8785,7 +8783,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i.i: ; preds = %41, %_ZN
   %45 = phi i32 [ %37, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindEEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS7_EEvE4typeES7_.exit.i.i.i ], [ %.pre.i.i.i.i.i.i.i.i.i, %41 ]
   %46 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %47 = zext i32 %45 to i64
-  %48 = getelementptr inbounds nuw i32, ptr %46, i64 %47
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %47
   store i32 %39, ptr %48, align 1
   %49 = load i32, ptr %13, align 8, !tbaa !60
   %50 = add i32 %49, 1
@@ -8808,7 +8806,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %58 = trunc nuw i64 %57 to i32
   %59 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %60 = zext i32 %56 to i64
-  %61 = getelementptr inbounds nuw i32, ptr %59, i64 %60
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %60
   store i32 %58, ptr %61, align 1
   %62 = load i32, ptr %13, align 8, !tbaa !60
   %63 = add i32 %62, 1
@@ -8831,7 +8829,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i11.i.i.i: ; preds = %67, %_
   %71 = phi i32 [ %63, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.exit.i.i.i ], [ %.pre.i.i.i.i.i.i10.i.i.i, %67 ]
   %72 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %73 = zext i32 %71 to i64
-  %74 = getelementptr inbounds nuw i32, ptr %72, i64 %73
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %73
   store i32 %65, ptr %74, align 1
   %75 = load i32, ptr %13, align 8, !tbaa !60
   %76 = add i32 %75, 1
@@ -8854,7 +8852,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %84 = trunc nuw i64 %83 to i32
   %85 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %86 = zext i32 %82 to i64
-  %87 = getelementptr inbounds nuw i32, ptr %85, i64 %86
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %85, i64 %86
   store i32 %84, ptr %87, align 1
   %88 = load i32, ptr %13, align 8, !tbaa !60
   %89 = add i32 %88, 1
@@ -8877,7 +8875,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i17.i.i.i: ; preds = %93, %_
   %97 = phi i32 [ %89, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.exit14.i.i.i ], [ %.pre.i.i.i.i.i.i16.i.i.i, %93 ]
   %98 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %99 = zext i32 %97 to i64
-  %100 = getelementptr inbounds nuw i32, ptr %98, i64 %99
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %98, i64 %99
   store i32 %91, ptr %100, align 1
   %101 = load i32, ptr %13, align 8, !tbaa !60
   %102 = add i32 %101, 1
@@ -8900,7 +8898,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %110 = trunc nuw i64 %109 to i32
   %111 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %112 = zext i32 %108 to i64
-  %113 = getelementptr inbounds nuw i32, ptr %111, i64 %112
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %111, i64 %112
   store i32 %110, ptr %113, align 1
   %114 = load i32, ptr %13, align 8, !tbaa !60
   %115 = add i32 %114, 1
@@ -8921,7 +8919,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i23.i.i.i: ; preds = %117, %_ZN1
   %121 = phi i32 [ %115, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.exit20.i.i.i ], [ %.pre.i.i.i.i22.i.i.i, %117 ]
   %122 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %123 = zext i32 %121 to i64
-  %124 = getelementptr inbounds nuw i32, ptr %122, i64 %123
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %122, i64 %123
   store i32 %12, ptr %124, align 1
   %125 = load i32, ptr %13, align 8, !tbaa !60
   %126 = add i32 %125, 1
@@ -8943,7 +8941,7 @@ _ZNK4llvm16itanium_demangle15ConditionalExpr5matchIN12_GLOBAL__N_119ProfileSpeci
   %133 = ashr i32 %12, 31
   %134 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %135 = zext i32 %132 to i64
-  %136 = getelementptr inbounds nuw i32, ptr %134, i64 %135
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %134, i64 %135
   store i32 %133, ptr %136, align 1
   %137 = load i32, ptr %13, align 8, !tbaa !60
   %138 = add i32 %137, 1
@@ -9009,7 +9007,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i: ; preds = %16, %1
   %20 = phi i32 [ %13, %1 ], [ %.pre.i.i.i.i.i.i.i, %16 ]
   %21 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %22 = zext i32 %20 to i64
-  %23 = getelementptr inbounds nuw i32, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %22
   store i32 59, ptr %23, align 1
   %24 = load i32, ptr %12, align 8, !tbaa !60
   %25 = add i32 %24, 1
@@ -9030,7 +9028,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindE
   %31 = phi i32 [ %25, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i ], [ %.pre.i.i3.i.i.i.i.i, %27 ]
   %32 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %33 = zext i32 %31 to i64
-  %34 = getelementptr inbounds nuw i32, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %33
   store i32 0, ptr %34, align 1
   %35 = load i32, ptr %12, align 8, !tbaa !60
   %36 = add i32 %35, 1
@@ -9053,7 +9051,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i.i: ; preds = %40, %_ZN
   %44 = phi i32 [ %36, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindEEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS7_EEvE4typeES7_.exit.i.i.i ], [ %.pre.i.i.i.i.i.i.i.i.i, %40 ]
   %45 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %46 = zext i32 %44 to i64
-  %47 = getelementptr inbounds nuw i32, ptr %45, i64 %46
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %46
   store i32 %38, ptr %47, align 1
   %48 = load i32, ptr %12, align 8, !tbaa !60
   %49 = add i32 %48, 1
@@ -9076,7 +9074,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %57 = trunc nuw i64 %56 to i32
   %58 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %59 = zext i32 %55 to i64
-  %60 = getelementptr inbounds nuw i32, ptr %58, i64 %59
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %59
   store i32 %57, ptr %60, align 1
   %61 = load i32, ptr %12, align 8, !tbaa !60
   %62 = add i32 %61, 1
@@ -9099,7 +9097,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i15.i.i.i: ; preds = %66, %_
   %70 = phi i32 [ %62, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.exit.i.i.i ], [ %.pre.i.i.i.i.i.i14.i.i.i, %66 ]
   %71 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %72 = zext i32 %70 to i64
-  %73 = getelementptr inbounds nuw i32, ptr %71, i64 %72
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %72
   store i32 %64, ptr %73, align 1
   %74 = load i32, ptr %12, align 8, !tbaa !60
   %75 = add i32 %74, 1
@@ -9122,7 +9120,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %83 = trunc nuw i64 %82 to i32
   %84 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %85 = zext i32 %81 to i64
-  %86 = getelementptr inbounds nuw i32, ptr %84, i64 %85
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %85
   store i32 %83, ptr %86, align 1
   %87 = load i32, ptr %12, align 8, !tbaa !60
   %88 = add i32 %87, 1
@@ -9157,7 +9155,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i21.i.i.i: ; preds = %94, %_ZN12
   %98 = phi i32 [ %92, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclESt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i.i ], [ %.pre.i.i.i.i20.i.i.i, %94 ]
   %99 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %100 = zext i32 %98 to i64
-  %101 = getelementptr inbounds nuw i32, ptr %99, i64 %100
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %99, i64 %100
   store i32 %11, ptr %101, align 1
   %102 = load i32, ptr %12, align 8, !tbaa !60
   %103 = add i32 %102, 1
@@ -9178,7 +9176,7 @@ _ZNK4llvm16itanium_demangle13SubobjectExpr5matchIN12_GLOBAL__N_119ProfileSpecifi
   %109 = phi i32 [ %103, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i21.i.i.i ], [ %.pre.i.i3.i.i23.i.i.i, %105 ]
   %110 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %111 = zext i32 %109 to i64
-  %112 = getelementptr inbounds nuw i32, ptr %110, i64 %111
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %110, i64 %111
   store i32 0, ptr %112, align 1
   %113 = load i32, ptr %12, align 8, !tbaa !60
   %114 = add i32 %113, 1
@@ -9219,7 +9217,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i: ; preds = %14, %1
   %18 = phi i32 [ %11, %1 ], [ %.pre.i.i.i.i.i.i.i, %14 ]
   %19 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %20 = zext i32 %18 to i64
-  %21 = getelementptr inbounds nuw i32, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %20
   store i32 60, ptr %21, align 1
   %22 = load i32, ptr %10, align 8, !tbaa !60
   %23 = add i32 %22, 1
@@ -9240,7 +9238,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindE
   %29 = phi i32 [ %23, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i ], [ %.pre.i.i3.i.i.i.i.i, %25 ]
   %30 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %31 = zext i32 %29 to i64
-  %32 = getelementptr inbounds nuw i32, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %31
   store i32 0, ptr %32, align 1
   %33 = load i32, ptr %10, align 8, !tbaa !60
   %34 = add i32 %33, 1
@@ -9276,7 +9274,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i.i: ; preds = %42, %_ZN
   %46 = phi i32 [ %40, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclESt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i.i ], [ %.pre.i.i.i.i.i.i.i.i.i, %42 ]
   %47 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %48 = zext i32 %46 to i64
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %48
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %48
   store i32 %39, ptr %49, align 1
   %50 = load i32, ptr %10, align 8, !tbaa !60
   %51 = add i32 %50, 1
@@ -9299,7 +9297,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %59 = trunc nuw i64 %58 to i32
   %60 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %61 = zext i32 %57 to i64
-  %62 = getelementptr inbounds nuw i32, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %61
   store i32 %59, ptr %62, align 1
   %63 = load i32, ptr %10, align 8, !tbaa !60
   %64 = add i32 %63, 1
@@ -9320,7 +9318,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i11.i.i.i: ; preds = %66, %_ZN12
   %70 = phi i32 [ %64, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.exit.i.i.i ], [ %.pre.i.i.i.i10.i.i.i, %66 ]
   %71 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %72 = zext i32 %70 to i64
-  %73 = getelementptr inbounds nuw i32, ptr %71, i64 %72
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %72
   store i32 %9, ptr %73, align 1
   %74 = load i32, ptr %10, align 8, !tbaa !60
   %75 = add i32 %74, 1
@@ -9342,7 +9340,7 @@ _ZNK4llvm16itanium_demangle13EnclosingExpr5matchIN12_GLOBAL__N_119ProfileSpecifi
   %82 = ashr i32 %9, 31
   %83 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %84 = zext i32 %81 to i64
-  %85 = getelementptr inbounds nuw i32, ptr %83, i64 %84
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %83, i64 %84
   store i32 %82, ptr %85, align 1
   %86 = load i32, ptr %10, align 8, !tbaa !60
   %87 = add i32 %86, 1
@@ -9384,7 +9382,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i: ; preds = %16, %1
   %20 = phi i32 [ %13, %1 ], [ %.pre.i.i.i.i.i.i.i, %16 ]
   %21 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %22 = zext i32 %20 to i64
-  %23 = getelementptr inbounds nuw i32, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %22
   store i32 61, ptr %23, align 1
   %24 = load i32, ptr %12, align 8, !tbaa !60
   %25 = add i32 %24, 1
@@ -9405,7 +9403,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindE
   %31 = phi i32 [ %25, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i ], [ %.pre.i.i3.i.i.i.i.i, %27 ]
   %32 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %33 = zext i32 %31 to i64
-  %34 = getelementptr inbounds nuw i32, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %33
   store i32 0, ptr %34, align 1
   %35 = load i32, ptr %12, align 8, !tbaa !60
   %36 = add i32 %35, 1
@@ -9441,7 +9439,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i.i: ; preds = %44, %_ZN
   %48 = phi i32 [ %42, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclESt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i.i ], [ %.pre.i.i.i.i.i.i.i.i.i, %44 ]
   %49 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %50 = zext i32 %48 to i64
-  %51 = getelementptr inbounds nuw i32, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %50
   store i32 %41, ptr %51, align 1
   %52 = load i32, ptr %12, align 8, !tbaa !60
   %53 = add i32 %52, 1
@@ -9464,7 +9462,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %61 = trunc nuw i64 %60 to i32
   %62 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %63 = zext i32 %59 to i64
-  %64 = getelementptr inbounds nuw i32, ptr %62, i64 %63
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %63
   store i32 %61, ptr %64, align 1
   %65 = load i32, ptr %12, align 8, !tbaa !60
   %66 = add i32 %65, 1
@@ -9487,7 +9485,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i13.i.i.i: ; preds = %70, %_
   %74 = phi i32 [ %66, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.exit.i.i.i ], [ %.pre.i.i.i.i.i.i12.i.i.i, %70 ]
   %75 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %76 = zext i32 %74 to i64
-  %77 = getelementptr inbounds nuw i32, ptr %75, i64 %76
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %76
   store i32 %68, ptr %77, align 1
   %78 = load i32, ptr %12, align 8, !tbaa !60
   %79 = add i32 %78, 1
@@ -9510,7 +9508,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %87 = trunc nuw i64 %86 to i32
   %88 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %89 = zext i32 %85 to i64
-  %90 = getelementptr inbounds nuw i32, ptr %88, i64 %89
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %89
   store i32 %87, ptr %90, align 1
   %91 = load i32, ptr %12, align 8, !tbaa !60
   %92 = add i32 %91, 1
@@ -9531,7 +9529,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i19.i.i.i: ; preds = %94, %_ZN12
   %98 = phi i32 [ %92, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.exit16.i.i.i ], [ %.pre.i.i.i.i18.i.i.i, %94 ]
   %99 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %100 = zext i32 %98 to i64
-  %101 = getelementptr inbounds nuw i32, ptr %99, i64 %100
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %99, i64 %100
   store i32 %11, ptr %101, align 1
   %102 = load i32, ptr %12, align 8, !tbaa !60
   %103 = add i32 %102, 1
@@ -9553,7 +9551,7 @@ _ZNK4llvm16itanium_demangle8CastExpr5matchIN12_GLOBAL__N_119ProfileSpecificNodeI
   %110 = ashr i32 %11, 31
   %111 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %112 = zext i32 %109 to i64
-  %113 = getelementptr inbounds nuw i32, ptr %111, i64 %112
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %111, i64 %112
   store i32 %110, ptr %113, align 1
   %114 = load i32, ptr %12, align 8, !tbaa !60
   %115 = add i32 %114, 1
@@ -9599,7 +9597,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i: ; preds = %18, %1
   %22 = phi i32 [ %15, %1 ], [ %.pre.i.i.i.i.i.i.i, %18 ]
   %23 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %24 = zext i32 %22 to i64
-  %25 = getelementptr inbounds nuw i32, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %24
   store i32 63, ptr %25, align 1
   %26 = load i32, ptr %14, align 8, !tbaa !60
   %27 = add i32 %26, 1
@@ -9620,7 +9618,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindE
   %33 = phi i32 [ %27, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i ], [ %.pre.i.i3.i.i.i.i.i, %29 ]
   %34 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %35 = zext i32 %33 to i64
-  %36 = getelementptr inbounds nuw i32, ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %35
   store i32 0, ptr %36, align 1
   %37 = load i32, ptr %14, align 8, !tbaa !60
   %38 = add i32 %37, 1
@@ -9643,7 +9641,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i.i: ; preds = %42, %_ZN
   %46 = phi i32 [ %38, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindEEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS7_EEvE4typeES7_.exit.i.i.i ], [ %.pre.i.i.i.i.i.i.i.i.i, %42 ]
   %47 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %48 = zext i32 %46 to i64
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %48
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %48
   store i32 %40, ptr %49, align 1
   %50 = load i32, ptr %14, align 8, !tbaa !60
   %51 = add i32 %50, 1
@@ -9666,7 +9664,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %59 = trunc nuw i64 %58 to i32
   %60 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %61 = zext i32 %57 to i64
-  %62 = getelementptr inbounds nuw i32, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %61
   store i32 %59, ptr %62, align 1
   %63 = load i32, ptr %14, align 8, !tbaa !60
   %64 = add i32 %63, 1
@@ -9689,7 +9687,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i12.i.i.i: ; preds = %67, %_ZN12
   %71 = phi i32 [ %65, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.exit.i.i.i ], [ %.pre.i.i.i.i11.i.i.i, %67 ]
   %72 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %73 = zext i32 %71 to i64
-  %74 = getelementptr inbounds nuw i32, ptr %72, i64 %73
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %73
   store i32 %8, ptr %74, align 1
   %75 = load i32, ptr %14, align 8, !tbaa !60
   %76 = add i32 %75, 1
@@ -9710,7 +9708,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIbEENSt9enable_ifIXoosr3stdE13is_int
   %82 = phi i32 [ %76, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i12.i.i.i ], [ %.pre.i.i3.i.i14.i.i.i, %78 ]
   %83 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %84 = zext i32 %82 to i64
-  %85 = getelementptr inbounds nuw i32, ptr %83, i64 %84
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %83, i64 %84
   store i32 0, ptr %85, align 1
   %86 = load i32, ptr %14, align 8, !tbaa !60
   %87 = add i32 %86, 1
@@ -9731,7 +9729,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i17.i.i.i: ; preds = %89, %_ZN12
   %93 = phi i32 [ %87, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIbEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS3_EEvE4typeES3_.exit.i.i.i ], [ %.pre.i.i.i.i16.i.i.i, %89 ]
   %94 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %95 = zext i32 %93 to i64
-  %96 = getelementptr inbounds nuw i32, ptr %94, i64 %95
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %95
   store i32 %13, ptr %96, align 1
   %97 = load i32, ptr %14, align 8, !tbaa !60
   %98 = add i32 %97, 1
@@ -9753,7 +9751,7 @@ _ZNK4llvm16itanium_demangle8CallExpr5matchIN12_GLOBAL__N_119ProfileSpecificNodeI
   %105 = ashr i32 %13, 31
   %106 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %107 = zext i32 %104 to i64
-  %108 = getelementptr inbounds nuw i32, ptr %106, i64 %107
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %106, i64 %107
   store i32 %105, ptr %108, align 1
   %109 = load i32, ptr %14, align 8, !tbaa !60
   %110 = add i32 %109, 1
@@ -9860,7 +9858,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i: ; preds = %15, %1
   %19 = phi i32 [ %12, %1 ], [ %.pre.i.i.i.i.i.i.i, %15 ]
   %20 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %21 = zext i32 %19 to i64
-  %22 = getelementptr inbounds nuw i32, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %21
   store i32 68, ptr %22, align 1
   %23 = load i32, ptr %11, align 8, !tbaa !60
   %24 = add i32 %23, 1
@@ -9881,7 +9879,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindE
   %30 = phi i32 [ %24, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i ], [ %.pre.i.i3.i.i.i.i.i, %26 ]
   %31 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %32 = zext i32 %30 to i64
-  %33 = getelementptr inbounds nuw i32, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %32
   store i32 0, ptr %33, align 1
   %34 = load i32, ptr %11, align 8, !tbaa !60
   %35 = add i32 %34, 1
@@ -9904,7 +9902,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i.i: ; preds = %39, %_ZN
   %43 = phi i32 [ %35, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindEEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS7_EEvE4typeES7_.exit.i.i.i ], [ %.pre.i.i.i.i.i.i.i.i.i, %39 ]
   %44 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %45 = zext i32 %43 to i64
-  %46 = getelementptr inbounds nuw i32, ptr %44, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %45
   store i32 %37, ptr %46, align 1
   %47 = load i32, ptr %11, align 8, !tbaa !60
   %48 = add i32 %47, 1
@@ -9927,7 +9925,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %56 = trunc nuw i64 %55 to i32
   %57 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %58 = zext i32 %54 to i64
-  %59 = getelementptr inbounds nuw i32, ptr %57, i64 %58
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %58
   store i32 %56, ptr %59, align 1
   %60 = load i32, ptr %11, align 8, !tbaa !60
   %61 = add i32 %60, 1
@@ -9950,7 +9948,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i10.i.i.i: ; preds = %64, %_ZN12
   %68 = phi i32 [ %62, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.exit.i.i.i ], [ %.pre.i.i.i.i9.i.i.i, %64 ]
   %69 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %70 = zext i32 %68 to i64
-  %71 = getelementptr inbounds nuw i32, ptr %69, i64 %70
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %70
   store i32 %10, ptr %71, align 1
   %72 = load i32, ptr %11, align 8, !tbaa !60
   %73 = add i32 %72, 1
@@ -9972,7 +9970,7 @@ _ZNK4llvm16itanium_demangle14ConversionExpr5matchIN12_GLOBAL__N_119ProfileSpecif
   %80 = ashr i32 %10, 31
   %81 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %82 = zext i32 %79 to i64
-  %83 = getelementptr inbounds nuw i32, ptr %81, i64 %82
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %81, i64 %82
   store i32 %80, ptr %83, align 1
   %84 = load i32, ptr %11, align 8, !tbaa !60
   %85 = add i32 %84, 1
@@ -10015,7 +10013,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i: ; preds = %16, %1
   %20 = phi i32 [ %13, %1 ], [ %.pre.i.i.i.i.i.i.i, %16 ]
   %21 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %22 = zext i32 %20 to i64
-  %23 = getelementptr inbounds nuw i32, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %22
   store i32 69, ptr %23, align 1
   %24 = load i32, ptr %12, align 8, !tbaa !60
   %25 = add i32 %24, 1
@@ -10036,7 +10034,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindE
   %31 = phi i32 [ %25, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i ], [ %.pre.i.i3.i.i.i.i.i, %27 ]
   %32 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %33 = zext i32 %31 to i64
-  %34 = getelementptr inbounds nuw i32, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %33
   store i32 0, ptr %34, align 1
   %35 = load i32, ptr %12, align 8, !tbaa !60
   %36 = add i32 %35, 1
@@ -10059,7 +10057,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i.i: ; preds = %40, %_ZN
   %44 = phi i32 [ %36, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindEEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS7_EEvE4typeES7_.exit.i.i.i ], [ %.pre.i.i.i.i.i.i.i.i.i, %40 ]
   %45 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %46 = zext i32 %44 to i64
-  %47 = getelementptr inbounds nuw i32, ptr %45, i64 %46
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %46
   store i32 %38, ptr %47, align 1
   %48 = load i32, ptr %12, align 8, !tbaa !60
   %49 = add i32 %48, 1
@@ -10082,7 +10080,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %57 = trunc nuw i64 %56 to i32
   %58 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %59 = zext i32 %55 to i64
-  %60 = getelementptr inbounds nuw i32, ptr %58, i64 %59
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %59
   store i32 %57, ptr %60, align 1
   %61 = load i32, ptr %12, align 8, !tbaa !60
   %62 = add i32 %61, 1
@@ -10105,7 +10103,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i13.i.i.i: ; preds = %66, %_
   %70 = phi i32 [ %62, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.exit.i.i.i ], [ %.pre.i.i.i.i.i.i12.i.i.i, %66 ]
   %71 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %72 = zext i32 %70 to i64
-  %73 = getelementptr inbounds nuw i32, ptr %71, i64 %72
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %72
   store i32 %64, ptr %73, align 1
   %74 = load i32, ptr %12, align 8, !tbaa !60
   %75 = add i32 %74, 1
@@ -10128,7 +10126,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %83 = trunc nuw i64 %82 to i32
   %84 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %85 = zext i32 %81 to i64
-  %86 = getelementptr inbounds nuw i32, ptr %84, i64 %85
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %85
   store i32 %83, ptr %86, align 1
   %87 = load i32, ptr %12, align 8, !tbaa !60
   %88 = add i32 %87, 1
@@ -10162,7 +10160,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i19.i.i.i: ; preds = %94, %_ZN12
   %98 = phi i32 [ %92, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclESt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i.i ], [ %.pre.i.i.i.i18.i.i.i, %94 ]
   %99 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %100 = zext i32 %98 to i64
-  %101 = getelementptr inbounds nuw i32, ptr %99, i64 %100
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %99, i64 %100
   store i32 %11, ptr %101, align 1
   %102 = load i32, ptr %12, align 8, !tbaa !60
   %103 = add i32 %102, 1
@@ -10184,7 +10182,7 @@ _ZNK4llvm16itanium_demangle29PointerToMemberConversionExpr5matchIN12_GLOBAL__N_1
   %110 = ashr i32 %11, 31
   %111 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %112 = zext i32 %109 to i64
-  %113 = getelementptr inbounds nuw i32, ptr %111, i64 %112
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %111, i64 %112
   store i32 %110, ptr %113, align 1
   %114 = load i32, ptr %12, align 8, !tbaa !60
   %115 = add i32 %114, 1
@@ -10222,7 +10220,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i: ; preds = %10, %1
   %14 = phi i32 [ %7, %1 ], [ %.pre.i.i.i.i.i.i.i, %10 ]
   %15 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw i32, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %16
   store i32 70, ptr %17, align 1
   %18 = load i32, ptr %6, align 8, !tbaa !60
   %19 = add i32 %18, 1
@@ -10243,7 +10241,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindE
   %25 = phi i32 [ %19, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i ], [ %.pre.i.i3.i.i.i.i.i, %21 ]
   %26 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %27 = zext i32 %25 to i64
-  %28 = getelementptr inbounds nuw i32, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %27
   store i32 0, ptr %28, align 1
   %29 = load i32, ptr %6, align 8, !tbaa !60
   %30 = add i32 %29, 1
@@ -10266,7 +10264,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i.i: ; preds = %34, %_ZN
   %38 = phi i32 [ %30, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindEEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS7_EEvE4typeES7_.exit.i.i.i ], [ %.pre.i.i.i.i.i.i.i.i.i, %34 ]
   %39 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %40 = zext i32 %38 to i64
-  %41 = getelementptr inbounds nuw i32, ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %40
   store i32 %32, ptr %41, align 1
   %42 = load i32, ptr %6, align 8, !tbaa !60
   %43 = add i32 %42, 1
@@ -10289,7 +10287,7 @@ _ZNK4llvm16itanium_demangle12InitListExpr5matchIN12_GLOBAL__N_119ProfileSpecific
   %51 = trunc nuw i64 %50 to i32
   %52 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %53 = zext i32 %49 to i64
-  %54 = getelementptr inbounds nuw i32, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %53
   store i32 %51, ptr %54, align 1
   %55 = load i32, ptr %6, align 8, !tbaa !60
   %56 = add i32 %55, 1
@@ -10331,7 +10329,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i: ; preds = %14, %1
   %18 = phi i32 [ %11, %1 ], [ %.pre.i.i.i.i.i.i.i, %14 ]
   %19 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %20 = zext i32 %18 to i64
-  %21 = getelementptr inbounds nuw i32, ptr %19, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %20
   store i32 71, ptr %21, align 1
   %22 = load i32, ptr %10, align 8, !tbaa !60
   %23 = add i32 %22, 1
@@ -10352,7 +10350,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindE
   %29 = phi i32 [ %23, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i ], [ %.pre.i.i3.i.i.i.i.i, %25 ]
   %30 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %31 = zext i32 %29 to i64
-  %32 = getelementptr inbounds nuw i32, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %31
   store i32 0, ptr %32, align 1
   %33 = load i32, ptr %10, align 8, !tbaa !60
   %34 = add i32 %33, 1
@@ -10373,7 +10371,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i13.i.i.i: ; preds = %36, %_ZN12
   %40 = phi i32 [ %34, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindEEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS7_EEvE4typeES7_.exit.i.i.i ], [ %.pre.i.i.i.i12.i.i.i, %36 ]
   %41 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %42 = zext i32 %40 to i64
-  %43 = getelementptr inbounds nuw i32, ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %42
   store i32 %4, ptr %43, align 1
   %44 = load i32, ptr %10, align 8, !tbaa !60
   %45 = add i32 %44, 1
@@ -10394,7 +10392,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIbEENSt9enable_ifIXoosr3stdE13is_int
   %51 = phi i32 [ %45, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i13.i.i.i ], [ %.pre.i.i3.i.i15.i.i.i, %47 ]
   %52 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %53 = zext i32 %51 to i64
-  %54 = getelementptr inbounds nuw i32, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %53
   store i32 0, ptr %54, align 1
   %55 = load i32, ptr %10, align 8, !tbaa !60
   %56 = add i32 %55, 1
@@ -10430,7 +10428,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i.i: ; preds = %64, %_ZN
   %68 = phi i32 [ %62, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclESt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i.i ], [ %.pre.i.i.i.i.i.i.i.i.i, %64 ]
   %69 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %70 = zext i32 %68 to i64
-  %71 = getelementptr inbounds nuw i32, ptr %69, i64 %70
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %70
   store i32 %61, ptr %71, align 1
   %72 = load i32, ptr %10, align 8, !tbaa !60
   %73 = add i32 %72, 1
@@ -10453,7 +10451,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %81 = trunc nuw i64 %80 to i32
   %82 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %83 = zext i32 %79 to i64
-  %84 = getelementptr inbounds nuw i32, ptr %82, i64 %83
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %82, i64 %83
   store i32 %81, ptr %84, align 1
   %85 = load i32, ptr %10, align 8, !tbaa !60
   %86 = add i32 %85, 1
@@ -10476,7 +10474,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i18.i.i.i: ; preds = %90, %_
   %94 = phi i32 [ %86, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.exit.i.i.i ], [ %.pre.i.i.i.i.i.i17.i.i.i, %90 ]
   %95 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %96 = zext i32 %94 to i64
-  %97 = getelementptr inbounds nuw i32, ptr %95, i64 %96
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %95, i64 %96
   store i32 %88, ptr %97, align 1
   %98 = load i32, ptr %10, align 8, !tbaa !60
   %99 = add i32 %98, 1
@@ -10499,7 +10497,7 @@ _ZNK4llvm16itanium_demangle8FoldExpr5matchIN12_GLOBAL__N_119ProfileSpecificNodeI
   %107 = trunc nuw i64 %106 to i32
   %108 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %109 = zext i32 %105 to i64
-  %110 = getelementptr inbounds nuw i32, ptr %108, i64 %109
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %108, i64 %109
   store i32 %107, ptr %110, align 1
   %111 = load i32, ptr %10, align 8, !tbaa !60
   %112 = add i32 %111, 1
@@ -10528,7 +10526,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i: ; preds = %5, %0
   %9 = phi i32 [ %2, %0 ], [ %.pre.i.i.i.i.i.i.i, %5 ]
   %10 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %11 = zext i32 %9 to i64
-  %12 = getelementptr inbounds nuw i32, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %11
   store i32 73, ptr %12, align 1
   %13 = load i32, ptr %1, align 8, !tbaa !60
   %14 = add i32 %13, 1
@@ -10549,7 +10547,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindE
   %20 = phi i32 [ %14, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i ], [ %.pre.i.i3.i.i.i.i.i, %16 ]
   %21 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %22 = zext i32 %20 to i64
-  %23 = getelementptr inbounds nuw i32, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %22
   store i32 0, ptr %23, align 1
   %24 = load i32, ptr %1, align 8, !tbaa !60
   %25 = add i32 %24, 1
@@ -10572,7 +10570,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i5.i.i.i: ; preds = %29, %_ZN12_
   %33 = phi i32 [ %25, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindEEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS7_EEvE4typeES7_.exit.i.i.i ], [ %.pre.i.i.i.i4.i.i.i, %29 ]
   %34 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %35 = zext i32 %33 to i64
-  %36 = getelementptr inbounds nuw i32, ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %35
   store i32 %27, ptr %36, align 1
   %37 = load i32, ptr %1, align 8, !tbaa !60
   %38 = add i32 %37, 1
@@ -10593,7 +10591,7 @@ _ZNK4llvm16itanium_demangle8BoolExpr5matchIN12_GLOBAL__N_119ProfileSpecificNodeI
   %44 = phi i32 [ %38, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i5.i.i.i ], [ %.pre.i.i3.i.i7.i.i.i, %40 ]
   %45 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %46 = zext i32 %44 to i64
-  %47 = getelementptr inbounds nuw i32, ptr %45, i64 %46
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %46
   store i32 0, ptr %47, align 1
   %48 = load i32, ptr %1, align 8, !tbaa !60
   %49 = add i32 %48, 1
@@ -10629,7 +10627,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i: ; preds = %13, %1
   %17 = phi i32 [ %10, %1 ], [ %.pre.i.i.i.i.i.i.i, %13 ]
   %18 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %19 = zext i32 %17 to i64
-  %20 = getelementptr inbounds nuw i32, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %19
   store i32 81, ptr %20, align 1
   %21 = load i32, ptr %9, align 8, !tbaa !60
   %22 = add i32 %21, 1
@@ -10650,7 +10648,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindE
   %28 = phi i32 [ %22, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i ], [ %.pre.i.i3.i.i.i.i.i, %24 ]
   %29 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %30 = zext i32 %28 to i64
-  %31 = getelementptr inbounds nuw i32, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %30
   store i32 0, ptr %31, align 1
   %32 = load i32, ptr %9, align 8, !tbaa !60
   %33 = add i32 %32, 1
@@ -10673,7 +10671,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i.i: ; preds = %37, %_ZN
   %41 = phi i32 [ %33, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindEEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS7_EEvE4typeES7_.exit.i.i.i ], [ %.pre.i.i.i.i.i.i.i.i.i, %37 ]
   %42 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %43 = zext i32 %41 to i64
-  %44 = getelementptr inbounds nuw i32, ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %43
   store i32 %35, ptr %44, align 1
   %45 = load i32, ptr %9, align 8, !tbaa !60
   %46 = add i32 %45, 1
@@ -10696,7 +10694,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %54 = trunc nuw i64 %53 to i32
   %55 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %56 = zext i32 %52 to i64
-  %57 = getelementptr inbounds nuw i32, ptr %55, i64 %56
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %56
   store i32 %54, ptr %57, align 1
   %58 = load i32, ptr %9, align 8, !tbaa !60
   %59 = add i32 %58, 1
@@ -10719,7 +10717,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i9.i.i.i: ; preds = %63, %_Z
   %67 = phi i32 [ %59, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.exit.i.i.i ], [ %.pre.i.i.i.i.i.i8.i.i.i, %63 ]
   %68 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %69 = zext i32 %67 to i64
-  %70 = getelementptr inbounds nuw i32, ptr %68, i64 %69
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %69
   store i32 %61, ptr %70, align 1
   %71 = load i32, ptr %9, align 8, !tbaa !60
   %72 = add i32 %71, 1
@@ -10742,7 +10740,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %80 = trunc nuw i64 %79 to i32
   %81 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %82 = zext i32 %78 to i64
-  %83 = getelementptr inbounds nuw i32, ptr %81, i64 %82
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %81, i64 %82
   store i32 %80, ptr %83, align 1
   %84 = load i32, ptr %9, align 8, !tbaa !60
   %85 = add i32 %84, 1
@@ -10763,7 +10761,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i15.i.i.i: ; preds = %87, %_ZN12
   %91 = phi i32 [ %85, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.exit12.i.i.i ], [ %.pre.i.i.i.i14.i.i.i, %87 ]
   %92 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %93 = zext i32 %91 to i64
-  %94 = getelementptr inbounds nuw i32, ptr %92, i64 %93
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %93
   store i32 %8, ptr %94, align 1
   %95 = load i32, ptr %9, align 8, !tbaa !60
   %96 = add i32 %95, 1
@@ -10784,7 +10782,7 @@ _ZNK4llvm16itanium_demangle10BracedExpr5matchIN12_GLOBAL__N_119ProfileSpecificNo
   %102 = phi i32 [ %96, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i15.i.i.i ], [ %.pre.i.i3.i.i17.i.i.i, %98 ]
   %103 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %104 = zext i32 %102 to i64
-  %105 = getelementptr inbounds nuw i32, ptr %103, i64 %104
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %103, i64 %104
   store i32 0, ptr %105, align 1
   %106 = load i32, ptr %9, align 8, !tbaa !60
   %107 = add i32 %106, 1
@@ -10819,7 +10817,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i: ; preds = %12, %1
   %16 = phi i32 [ %9, %1 ], [ %.pre.i.i.i.i.i.i.i, %12 ]
   %17 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %18 = zext i32 %16 to i64
-  %19 = getelementptr inbounds nuw i32, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %18
   store i32 82, ptr %19, align 1
   %20 = load i32, ptr %8, align 8, !tbaa !60
   %21 = add i32 %20, 1
@@ -10840,7 +10838,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindE
   %27 = phi i32 [ %21, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i ], [ %.pre.i.i3.i.i.i.i.i, %23 ]
   %28 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %29 = zext i32 %27 to i64
-  %30 = getelementptr inbounds nuw i32, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %29
   store i32 0, ptr %30, align 1
   %31 = load i32, ptr %8, align 8, !tbaa !60
   %32 = add i32 %31, 1
@@ -10863,7 +10861,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i.i: ; preds = %36, %_ZN
   %40 = phi i32 [ %32, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindEEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS7_EEvE4typeES7_.exit.i.i.i ], [ %.pre.i.i.i.i.i.i.i.i.i, %36 ]
   %41 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %42 = zext i32 %40 to i64
-  %43 = getelementptr inbounds nuw i32, ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %42
   store i32 %34, ptr %43, align 1
   %44 = load i32, ptr %8, align 8, !tbaa !60
   %45 = add i32 %44, 1
@@ -10886,7 +10884,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %53 = trunc nuw i64 %52 to i32
   %54 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %55 = zext i32 %51 to i64
-  %56 = getelementptr inbounds nuw i32, ptr %54, i64 %55
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %55
   store i32 %53, ptr %56, align 1
   %57 = load i32, ptr %8, align 8, !tbaa !60
   %58 = add i32 %57, 1
@@ -10909,7 +10907,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i9.i.i.i: ; preds = %62, %_Z
   %66 = phi i32 [ %58, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.exit.i.i.i ], [ %.pre.i.i.i.i.i.i8.i.i.i, %62 ]
   %67 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %68 = zext i32 %66 to i64
-  %69 = getelementptr inbounds nuw i32, ptr %67, i64 %68
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %68
   store i32 %60, ptr %69, align 1
   %70 = load i32, ptr %8, align 8, !tbaa !60
   %71 = add i32 %70, 1
@@ -10932,7 +10930,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %79 = trunc nuw i64 %78 to i32
   %80 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %81 = zext i32 %77 to i64
-  %82 = getelementptr inbounds nuw i32, ptr %80, i64 %81
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %81
   store i32 %79, ptr %82, align 1
   %83 = load i32, ptr %8, align 8, !tbaa !60
   %84 = add i32 %83, 1
@@ -10955,7 +10953,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i15.i.i.i: ; preds = %88, %_
   %92 = phi i32 [ %84, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.exit12.i.i.i ], [ %.pre.i.i.i.i.i.i14.i.i.i, %88 ]
   %93 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %94 = zext i32 %92 to i64
-  %95 = getelementptr inbounds nuw i32, ptr %93, i64 %94
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %93, i64 %94
   store i32 %86, ptr %95, align 1
   %96 = load i32, ptr %8, align 8, !tbaa !60
   %97 = add i32 %96, 1
@@ -10978,7 +10976,7 @@ _ZNK4llvm16itanium_demangle15BracedRangeExpr5matchIN12_GLOBAL__N_119ProfileSpeci
   %105 = trunc nuw i64 %104 to i32
   %106 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %107 = zext i32 %103 to i64
-  %108 = getelementptr inbounds nuw i32, ptr %106, i64 %107
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %106, i64 %107
   store i32 %105, ptr %108, align 1
   %109 = load i32, ptr %8, align 8, !tbaa !60
   %110 = add i32 %109, 1
@@ -11018,7 +11016,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i: ; preds = %9, %1
   %13 = phi i32 [ %6, %1 ], [ %.pre.i.i.i.i.i.i.i, %9 ]
   %14 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %15 = zext i32 %13 to i64
-  %16 = getelementptr inbounds nuw i32, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %15
   store i32 83, ptr %16, align 1
   %17 = load i32, ptr %5, align 8, !tbaa !60
   %18 = add i32 %17, 1
@@ -11039,7 +11037,7 @@ _ZNK4llvm16itanium_demangle12RequiresExpr5matchIN12_GLOBAL__N_119ProfileSpecific
   %24 = phi i32 [ %18, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i ], [ %.pre.i.i3.i.i.i.i.i, %20 ]
   %25 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %26 = zext i32 %24 to i64
-  %27 = getelementptr inbounds nuw i32, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %26
   store i32 0, ptr %27, align 1
   %28 = load i32, ptr %5, align 8, !tbaa !60
   %29 = add i32 %28, 1
@@ -11078,7 +11076,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i: ; preds = %13, %1
   %17 = phi i32 [ %10, %1 ], [ %.pre.i.i.i.i.i.i.i, %13 ]
   %18 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %19 = zext i32 %17 to i64
-  %20 = getelementptr inbounds nuw i32, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %19
   store i32 84, ptr %20, align 1
   %21 = load i32, ptr %9, align 8, !tbaa !60
   %22 = add i32 %21, 1
@@ -11099,7 +11097,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindE
   %28 = phi i32 [ %22, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i ], [ %.pre.i.i3.i.i.i.i.i, %24 ]
   %29 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %30 = zext i32 %28 to i64
-  %31 = getelementptr inbounds nuw i32, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %30
   store i32 0, ptr %31, align 1
   %32 = load i32, ptr %9, align 8, !tbaa !60
   %33 = add i32 %32, 1
@@ -11122,7 +11120,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i.i: ; preds = %37, %_ZN
   %41 = phi i32 [ %33, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindEEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS7_EEvE4typeES7_.exit.i.i.i ], [ %.pre.i.i.i.i.i.i.i.i.i, %37 ]
   %42 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %43 = zext i32 %41 to i64
-  %44 = getelementptr inbounds nuw i32, ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %43
   store i32 %35, ptr %44, align 1
   %45 = load i32, ptr %9, align 8, !tbaa !60
   %46 = add i32 %45, 1
@@ -11145,7 +11143,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %54 = trunc nuw i64 %53 to i32
   %55 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %56 = zext i32 %52 to i64
-  %57 = getelementptr inbounds nuw i32, ptr %55, i64 %56
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %56
   store i32 %54, ptr %57, align 1
   %58 = load i32, ptr %9, align 8, !tbaa !60
   %59 = add i32 %58, 1
@@ -11166,7 +11164,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i9.i.i.i: ; preds = %61, %_ZN12_
   %65 = phi i32 [ %59, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.exit.i.i.i ], [ %.pre.i.i.i.i8.i.i.i, %61 ]
   %66 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %67 = zext i32 %65 to i64
-  %68 = getelementptr inbounds nuw i32, ptr %66, i64 %67
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %67
   store i32 %6, ptr %68, align 1
   %69 = load i32, ptr %9, align 8, !tbaa !60
   %70 = add i32 %69, 1
@@ -11187,7 +11185,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIbEENSt9enable_ifIXoosr3stdE13is_int
   %76 = phi i32 [ %70, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i9.i.i.i ], [ %.pre.i.i3.i.i11.i.i.i, %72 ]
   %77 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %78 = zext i32 %76 to i64
-  %79 = getelementptr inbounds nuw i32, ptr %77, i64 %78
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %78
   store i32 0, ptr %79, align 1
   %80 = load i32, ptr %9, align 8, !tbaa !60
   %81 = add i32 %80, 1
@@ -11210,7 +11208,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i14.i.i.i: ; preds = %85, %_
   %89 = phi i32 [ %81, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIbEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS3_EEvE4typeES3_.exit.i.i.i ], [ %.pre.i.i.i.i.i.i13.i.i.i, %85 ]
   %90 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %91 = zext i32 %89 to i64
-  %92 = getelementptr inbounds nuw i32, ptr %90, i64 %91
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %91
   store i32 %83, ptr %92, align 1
   %93 = load i32, ptr %9, align 8, !tbaa !60
   %94 = add i32 %93, 1
@@ -11233,7 +11231,7 @@ _ZNK4llvm16itanium_demangle15ExprRequirement5matchIN12_GLOBAL__N_119ProfileSpeci
   %102 = trunc nuw i64 %101 to i32
   %103 = load ptr, ptr %.0.val, align 8, !tbaa !59
   %104 = zext i32 %100 to i64
-  %105 = getelementptr inbounds nuw i32, ptr %103, i64 %104
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %103, i64 %104
   store i32 %102, ptr %105, align 1
   %106 = load i32, ptr %9, align 8, !tbaa !60
   %107 = add i32 %106, 1
@@ -11264,7 +11262,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i: ; preds = %10, %3
   %14 = phi i32 [ %7, %3 ], [ %.pre.i.i.i.i, %10 ]
   %15 = load ptr, ptr %4, align 8, !tbaa !59
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw i32, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %16
   store i32 %5, ptr %17, align 1
   %18 = load i32, ptr %6, align 8, !tbaa !60
   %19 = add i32 %18, 1
@@ -11287,7 +11285,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEm.exit:    ; preds = %_ZN4llvm16FoldingSe
   %27 = trunc nuw i64 %26 to i32
   %28 = load ptr, ptr %4, align 8, !tbaa !59
   %29 = zext i32 %25 to i64
-  %30 = getelementptr inbounds nuw i32, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %29
   store i32 %27, ptr %30, align 1
   %31 = load i32, ptr %6, align 8, !tbaa !60
   %32 = add i32 %31, 1
@@ -11325,7 +11323,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i: ; preds = %41, %.lr.ph
   %45 = phi i32 [ %38, %.lr.ph ], [ %.pre.i.i.i.i.i.i, %41 ]
   %46 = load ptr, ptr %.val, align 8, !tbaa !59
   %47 = zext i32 %45 to i64
-  %48 = getelementptr inbounds nuw i32, ptr %46, i64 %47
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %47
   store i32 %36, ptr %48, align 1
   %49 = load i32, ptr %37, align 8, !tbaa !60
   %50 = add i32 %49, 1
@@ -11348,7 +11346,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %58 = trunc nuw i64 %57 to i32
   %59 = load ptr, ptr %.val, align 8, !tbaa !59
   %60 = zext i32 %56 to i64
-  %61 = getelementptr inbounds nuw i32, ptr %59, i64 %60
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %60
   store i32 %58, ptr %61, align 1
   %62 = load i32, ptr %37, align 8, !tbaa !60
   %63 = add i32 %62, 1
@@ -11380,7 +11378,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i: ; preds = %11, %5
   %15 = phi i32 [ %8, %5 ], [ %.pre.i.i.i.i, %11 ]
   %16 = load ptr, ptr %0, align 8, !tbaa !59
   %17 = zext i32 %15 to i64
-  %18 = getelementptr inbounds nuw i32, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %17
   store i32 %6, ptr %18, align 1
   %19 = load i32, ptr %7, align 8, !tbaa !60
   %20 = add i32 %19, 1
@@ -11401,7 +11399,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindE
   %26 = phi i32 [ %20, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i ], [ %.pre.i.i3.i.i, %22 ]
   %27 = load ptr, ptr %0, align 8, !tbaa !59
   %28 = zext i32 %26 to i64
-  %29 = getelementptr inbounds nuw i32, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %28
   store i32 0, ptr %29, align 1
   %30 = load i32, ptr %7, align 8, !tbaa !60
   %31 = add i32 %30, 1
@@ -11424,7 +11422,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i: ; preds = %35, %_ZN12_GLO
   %39 = phi i32 [ %31, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindEEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS7_EEvE4typeES7_.exit ], [ %.pre.i.i.i.i.i.i, %35 ]
   %40 = load ptr, ptr %0, align 8, !tbaa !59
   %41 = zext i32 %39 to i64
-  %42 = getelementptr inbounds nuw i32, ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %41
   store i32 %33, ptr %42, align 1
   %43 = load i32, ptr %7, align 8, !tbaa !60
   %44 = add i32 %43, 1
@@ -11447,7 +11445,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %52 = trunc nuw i64 %51 to i32
   %53 = load ptr, ptr %0, align 8, !tbaa !59
   %54 = zext i32 %50 to i64
-  %55 = getelementptr inbounds nuw i32, ptr %53, i64 %54
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %54
   store i32 %52, ptr %55, align 1
   %56 = load i32, ptr %7, align 8, !tbaa !60
   %57 = add i32 %56, 1
@@ -11489,7 +11487,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i: ; preds = %9, %3
   %13 = phi i32 [ %6, %3 ], [ %.pre.i.i.i.i, %9 ]
   %14 = load ptr, ptr %0, align 8, !tbaa !59
   %15 = zext i32 %13 to i64
-  %16 = getelementptr inbounds nuw i32, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %15
   store i32 %4, ptr %16, align 1
   %17 = load i32, ptr %5, align 8, !tbaa !60
   %18 = add i32 %17, 1
@@ -11510,7 +11508,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindE
   %24 = phi i32 [ %18, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i ], [ %.pre.i.i3.i.i, %20 ]
   %25 = load ptr, ptr %0, align 8, !tbaa !59
   %26 = zext i32 %24 to i64
-  %27 = getelementptr inbounds nuw i32, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %26
   store i32 0, ptr %27, align 1
   %28 = load i32, ptr %5, align 8, !tbaa !60
   %29 = add i32 %28, 1
@@ -11533,7 +11531,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i: ; preds = %33, %_ZN12_GLO
   %37 = phi i32 [ %29, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindEEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS7_EEvE4typeES7_.exit ], [ %.pre.i.i.i.i.i.i, %33 ]
   %38 = load ptr, ptr %0, align 8, !tbaa !59
   %39 = zext i32 %37 to i64
-  %40 = getelementptr inbounds nuw i32, ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %39
   store i32 %31, ptr %40, align 1
   %41 = load i32, ptr %5, align 8, !tbaa !60
   %42 = add i32 %41, 1
@@ -11556,7 +11554,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %50 = trunc nuw i64 %49 to i32
   %51 = load ptr, ptr %0, align 8, !tbaa !59
   %52 = zext i32 %48 to i64
-  %53 = getelementptr inbounds nuw i32, ptr %51, i64 %52
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %52
   store i32 %50, ptr %53, align 1
   %54 = load i32, ptr %5, align 8, !tbaa !60
   %55 = add i32 %54, 1
@@ -11586,7 +11584,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i: ; preds = %11, %5
   %15 = phi i32 [ %8, %5 ], [ %.pre.i.i.i.i, %11 ]
   %16 = load ptr, ptr %0, align 8, !tbaa !59
   %17 = zext i32 %15 to i64
-  %18 = getelementptr inbounds nuw i32, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %17
   store i32 %6, ptr %18, align 1
   %19 = load i32, ptr %7, align 8, !tbaa !60
   %20 = add i32 %19, 1
@@ -11607,7 +11605,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindE
   %26 = phi i32 [ %20, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i ], [ %.pre.i.i3.i.i, %22 ]
   %27 = load ptr, ptr %0, align 8, !tbaa !59
   %28 = zext i32 %26 to i64
-  %29 = getelementptr inbounds nuw i32, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %28
   store i32 0, ptr %29, align 1
   %30 = load i32, ptr %7, align 8, !tbaa !60
   %31 = add i32 %30, 1
@@ -11643,7 +11641,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i: ; preds = %39, %_ZN12_GLO
   %43 = phi i32 [ %37, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclESt17basic_string_viewIcSt11char_traitsIcEE.exit ], [ %.pre.i.i.i.i.i.i, %39 ]
   %44 = load ptr, ptr %0, align 8, !tbaa !59
   %45 = zext i32 %43 to i64
-  %46 = getelementptr inbounds nuw i32, ptr %44, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %45
   store i32 %36, ptr %46, align 1
   %47 = load i32, ptr %7, align 8, !tbaa !60
   %48 = add i32 %47, 1
@@ -11666,7 +11664,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %56 = trunc nuw i64 %55 to i32
   %57 = load ptr, ptr %0, align 8, !tbaa !59
   %58 = zext i32 %54 to i64
-  %59 = getelementptr inbounds nuw i32, ptr %57, i64 %58
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %58
   store i32 %56, ptr %59, align 1
   %60 = load i32, ptr %7, align 8, !tbaa !60
   %61 = add i32 %60, 1
@@ -11696,7 +11694,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i: ; preds = %10, %4
   %14 = phi i32 [ %7, %4 ], [ %.pre.i.i.i.i, %10 ]
   %15 = load ptr, ptr %0, align 8, !tbaa !59
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw i32, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %16
   store i32 %5, ptr %17, align 1
   %18 = load i32, ptr %6, align 8, !tbaa !60
   %19 = add i32 %18, 1
@@ -11717,7 +11715,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindE
   %25 = phi i32 [ %19, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i ], [ %.pre.i.i3.i.i, %21 ]
   %26 = load ptr, ptr %0, align 8, !tbaa !59
   %27 = zext i32 %25 to i64
-  %28 = getelementptr inbounds nuw i32, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %27
   store i32 0, ptr %28, align 1
   %29 = load i32, ptr %6, align 8, !tbaa !60
   %30 = add i32 %29, 1
@@ -11759,7 +11757,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i: ; preds = %11, %5
   %15 = phi i32 [ %8, %5 ], [ %.pre.i.i.i.i, %11 ]
   %16 = load ptr, ptr %0, align 8, !tbaa !59
   %17 = zext i32 %15 to i64
-  %18 = getelementptr inbounds nuw i32, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %17
   store i32 %6, ptr %18, align 1
   %19 = load i32, ptr %7, align 8, !tbaa !60
   %20 = add i32 %19, 1
@@ -11780,7 +11778,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindE
   %26 = phi i32 [ %20, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i ], [ %.pre.i.i3.i.i, %22 ]
   %27 = load ptr, ptr %0, align 8, !tbaa !59
   %28 = zext i32 %26 to i64
-  %29 = getelementptr inbounds nuw i32, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %28
   store i32 0, ptr %29, align 1
   %30 = load i32, ptr %7, align 8, !tbaa !60
   %31 = add i32 %30, 1
@@ -11803,7 +11801,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i: ; preds = %35, %_ZN12_GLO
   %39 = phi i32 [ %31, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindEEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS7_EEvE4typeES7_.exit ], [ %.pre.i.i.i.i.i.i, %35 ]
   %40 = load ptr, ptr %0, align 8, !tbaa !59
   %41 = zext i32 %39 to i64
-  %42 = getelementptr inbounds nuw i32, ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %41
   store i32 %33, ptr %42, align 1
   %43 = load i32, ptr %7, align 8, !tbaa !60
   %44 = add i32 %43, 1
@@ -11826,7 +11824,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %52 = trunc nuw i64 %51 to i32
   %53 = load ptr, ptr %0, align 8, !tbaa !59
   %54 = zext i32 %50 to i64
-  %55 = getelementptr inbounds nuw i32, ptr %53, i64 %54
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %54
   store i32 %52, ptr %55, align 1
   %56 = load i32, ptr %7, align 8, !tbaa !60
   %57 = add i32 %56, 1
@@ -11868,7 +11866,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i: ; preds = %10, %4
   %14 = phi i32 [ %7, %4 ], [ %.pre.i.i.i.i, %10 ]
   %15 = load ptr, ptr %0, align 8, !tbaa !59
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw i32, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %16
   store i32 %5, ptr %17, align 1
   %18 = load i32, ptr %6, align 8, !tbaa !60
   %19 = add i32 %18, 1
@@ -11889,7 +11887,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindE
   %25 = phi i32 [ %19, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i ], [ %.pre.i.i3.i.i, %21 ]
   %26 = load ptr, ptr %0, align 8, !tbaa !59
   %27 = zext i32 %25 to i64
-  %28 = getelementptr inbounds nuw i32, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %27
   store i32 0, ptr %28, align 1
   %29 = load i32, ptr %6, align 8, !tbaa !60
   %30 = add i32 %29, 1
@@ -11912,7 +11910,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i: ; preds = %34, %_ZN12_GLO
   %38 = phi i32 [ %30, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindEEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS7_EEvE4typeES7_.exit ], [ %.pre.i.i.i.i.i.i, %34 ]
   %39 = load ptr, ptr %0, align 8, !tbaa !59
   %40 = zext i32 %38 to i64
-  %41 = getelementptr inbounds nuw i32, ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %40
   store i32 %32, ptr %41, align 1
   %42 = load i32, ptr %6, align 8, !tbaa !60
   %43 = add i32 %42, 1
@@ -11935,7 +11933,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %51 = trunc nuw i64 %50 to i32
   %52 = load ptr, ptr %0, align 8, !tbaa !59
   %53 = zext i32 %49 to i64
-  %54 = getelementptr inbounds nuw i32, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %53
   store i32 %51, ptr %54, align 1
   %55 = load i32, ptr %6, align 8, !tbaa !60
   %56 = add i32 %55, 1
@@ -11958,7 +11956,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i7: ; preds = %60, %_ZN12_GL
   %64 = phi i32 [ %56, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.exit ], [ %.pre.i.i.i.i.i.i6, %60 ]
   %65 = load ptr, ptr %0, align 8, !tbaa !59
   %66 = zext i32 %64 to i64
-  %67 = getelementptr inbounds nuw i32, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %66
   store i32 %58, ptr %67, align 1
   %68 = load i32, ptr %6, align 8, !tbaa !60
   %69 = add i32 %68, 1
@@ -11981,7 +11979,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %77 = trunc nuw i64 %76 to i32
   %78 = load ptr, ptr %0, align 8, !tbaa !59
   %79 = zext i32 %75 to i64
-  %80 = getelementptr inbounds nuw i32, ptr %78, i64 %79
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %78, i64 %79
   store i32 %77, ptr %80, align 1
   %81 = load i32, ptr %6, align 8, !tbaa !60
   %82 = add i32 %81, 1
@@ -12011,7 +12009,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i: ; preds = %10, %4
   %14 = phi i32 [ %7, %4 ], [ %.pre.i.i.i.i, %10 ]
   %15 = load ptr, ptr %0, align 8, !tbaa !59
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw i32, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %16
   store i32 %5, ptr %17, align 1
   %18 = load i32, ptr %6, align 8, !tbaa !60
   %19 = add i32 %18, 1
@@ -12032,7 +12030,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindE
   %25 = phi i32 [ %19, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i ], [ %.pre.i.i3.i.i, %21 ]
   %26 = load ptr, ptr %0, align 8, !tbaa !59
   %27 = zext i32 %25 to i64
-  %28 = getelementptr inbounds nuw i32, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %27
   store i32 0, ptr %28, align 1
   %29 = load i32, ptr %6, align 8, !tbaa !60
   %30 = add i32 %29, 1
@@ -12055,7 +12053,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i: ; preds = %34, %_ZN12_GLO
   %38 = phi i32 [ %30, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindEEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS7_EEvE4typeES7_.exit ], [ %.pre.i.i.i.i.i.i, %34 ]
   %39 = load ptr, ptr %0, align 8, !tbaa !59
   %40 = zext i32 %38 to i64
-  %41 = getelementptr inbounds nuw i32, ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %40
   store i32 %32, ptr %41, align 1
   %42 = load i32, ptr %6, align 8, !tbaa !60
   %43 = add i32 %42, 1
@@ -12078,7 +12076,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %51 = trunc nuw i64 %50 to i32
   %52 = load ptr, ptr %0, align 8, !tbaa !59
   %53 = zext i32 %49 to i64
-  %54 = getelementptr inbounds nuw i32, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %53
   store i32 %51, ptr %54, align 1
   %55 = load i32, ptr %6, align 8, !tbaa !60
   %56 = add i32 %55, 1
@@ -12101,7 +12099,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i7: ; preds = %60, %_ZN12_GL
   %64 = phi i32 [ %56, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.exit ], [ %.pre.i.i.i.i.i.i6, %60 ]
   %65 = load ptr, ptr %0, align 8, !tbaa !59
   %66 = zext i32 %64 to i64
-  %67 = getelementptr inbounds nuw i32, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %66
   store i32 %58, ptr %67, align 1
   %68 = load i32, ptr %6, align 8, !tbaa !60
   %69 = add i32 %68, 1
@@ -12124,7 +12122,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %77 = trunc nuw i64 %76 to i32
   %78 = load ptr, ptr %0, align 8, !tbaa !59
   %79 = zext i32 %75 to i64
-  %80 = getelementptr inbounds nuw i32, ptr %78, i64 %79
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %78, i64 %79
   store i32 %77, ptr %80, align 1
   %81 = load i32, ptr %6, align 8, !tbaa !60
   %82 = add i32 %81, 1
@@ -12153,7 +12151,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i: ; preds = %9, %4
   %13 = phi i32 [ %6, %4 ], [ %.pre.i.i.i.i, %9 ]
   %14 = load ptr, ptr %0, align 8, !tbaa !59
   %15 = zext i32 %13 to i64
-  %16 = getelementptr inbounds nuw i32, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %15
   store i32 27, ptr %16, align 1
   %17 = load i32, ptr %5, align 8, !tbaa !60
   %18 = add i32 %17, 1
@@ -12174,7 +12172,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindE
   %24 = phi i32 [ %18, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i ], [ %.pre.i.i3.i.i, %20 ]
   %25 = load ptr, ptr %0, align 8, !tbaa !59
   %26 = zext i32 %24 to i64
-  %27 = getelementptr inbounds nuw i32, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %26
   store i32 0, ptr %27, align 1
   %28 = load i32, ptr %5, align 8, !tbaa !60
   %29 = add i32 %28, 1
@@ -12197,7 +12195,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i: ; preds = %33, %_ZN12_GLO
   %37 = phi i32 [ %29, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindEEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS7_EEvE4typeES7_.exit ], [ %.pre.i.i.i.i.i.i, %33 ]
   %38 = load ptr, ptr %0, align 8, !tbaa !59
   %39 = zext i32 %37 to i64
-  %40 = getelementptr inbounds nuw i32, ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %39
   store i32 %31, ptr %40, align 1
   %41 = load i32, ptr %5, align 8, !tbaa !60
   %42 = add i32 %41, 1
@@ -12220,7 +12218,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %50 = trunc nuw i64 %49 to i32
   %51 = load ptr, ptr %0, align 8, !tbaa !59
   %52 = zext i32 %48 to i64
-  %53 = getelementptr inbounds nuw i32, ptr %51, i64 %52
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %52
   store i32 %50, ptr %53, align 1
   %54 = load i32, ptr %5, align 8, !tbaa !60
   %55 = add i32 %54, 1
@@ -12243,7 +12241,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i9: ; preds = %59, %_ZN12_GL
   %63 = phi i32 [ %55, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.exit ], [ %.pre.i.i.i.i.i.i8, %59 ]
   %64 = load ptr, ptr %0, align 8, !tbaa !59
   %65 = zext i32 %63 to i64
-  %66 = getelementptr inbounds nuw i32, ptr %64, i64 %65
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %65
   store i32 %57, ptr %66, align 1
   %67 = load i32, ptr %5, align 8, !tbaa !60
   %68 = add i32 %67, 1
@@ -12266,7 +12264,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %76 = trunc nuw i64 %75 to i32
   %77 = load ptr, ptr %0, align 8, !tbaa !59
   %78 = zext i32 %74 to i64
-  %79 = getelementptr inbounds nuw i32, ptr %77, i64 %78
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %78
   store i32 %76, ptr %79, align 1
   %80 = load i32, ptr %5, align 8, !tbaa !60
   %81 = add i32 %80, 1
@@ -12288,7 +12286,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i15: ; preds = %84, %_ZN12_GLOBA
   %88 = phi i32 [ %81, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.exit12 ], [ %.pre.i.i.i.i14, %84 ]
   %89 = load ptr, ptr %0, align 8, !tbaa !59
   %90 = zext i32 %88 to i64
-  %91 = getelementptr inbounds nuw i32, ptr %89, i64 %90
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %90
   store i32 %82, ptr %91, align 1
   %92 = load i32, ptr %5, align 8, !tbaa !60
   %93 = add i32 %92, 1
@@ -12309,7 +12307,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIbEENSt9enable_ifIXoosr3stdE13is_int
   %99 = phi i32 [ %93, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i15 ], [ %.pre.i.i3.i.i17, %95 ]
   %100 = load ptr, ptr %0, align 8, !tbaa !59
   %101 = zext i32 %99 to i64
-  %102 = getelementptr inbounds nuw i32, ptr %100, i64 %101
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %100, i64 %101
   store i32 0, ptr %102, align 1
   %103 = load i32, ptr %5, align 8, !tbaa !60
   %104 = add i32 %103, 1
@@ -12338,7 +12336,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i: ; preds = %8, %3
   %12 = phi i32 [ %5, %3 ], [ %.pre.i.i.i.i, %8 ]
   %13 = load ptr, ptr %0, align 8, !tbaa !59
   %14 = zext i32 %12 to i64
-  %15 = getelementptr inbounds nuw i32, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %14
   store i32 28, ptr %15, align 1
   %16 = load i32, ptr %4, align 8, !tbaa !60
   %17 = add i32 %16, 1
@@ -12359,7 +12357,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindE
   %23 = phi i32 [ %17, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i ], [ %.pre.i.i3.i.i, %19 ]
   %24 = load ptr, ptr %0, align 8, !tbaa !59
   %25 = zext i32 %23 to i64
-  %26 = getelementptr inbounds nuw i32, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %25
   store i32 0, ptr %26, align 1
   %27 = load i32, ptr %4, align 8, !tbaa !60
   %28 = add i32 %27, 1
@@ -12382,7 +12380,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i: ; preds = %32, %_ZN12_GLO
   %36 = phi i32 [ %28, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindEEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS7_EEvE4typeES7_.exit ], [ %.pre.i.i.i.i.i.i, %32 ]
   %37 = load ptr, ptr %0, align 8, !tbaa !59
   %38 = zext i32 %36 to i64
-  %39 = getelementptr inbounds nuw i32, ptr %37, i64 %38
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %38
   store i32 %30, ptr %39, align 1
   %40 = load i32, ptr %4, align 8, !tbaa !60
   %41 = add i32 %40, 1
@@ -12405,7 +12403,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %49 = trunc nuw i64 %48 to i32
   %50 = load ptr, ptr %0, align 8, !tbaa !59
   %51 = zext i32 %47 to i64
-  %52 = getelementptr inbounds nuw i32, ptr %50, i64 %51
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %51
   store i32 %49, ptr %52, align 1
   %53 = load i32, ptr %4, align 8, !tbaa !60
   %54 = add i32 %53, 1
@@ -12428,7 +12426,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i7: ; preds = %58, %_ZN12_GL
   %62 = phi i32 [ %54, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.exit ], [ %.pre.i.i.i.i.i.i6, %58 ]
   %63 = load ptr, ptr %0, align 8, !tbaa !59
   %64 = zext i32 %62 to i64
-  %65 = getelementptr inbounds nuw i32, ptr %63, i64 %64
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %64
   store i32 %56, ptr %65, align 1
   %66 = load i32, ptr %4, align 8, !tbaa !60
   %67 = add i32 %66, 1
@@ -12451,7 +12449,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %75 = trunc nuw i64 %74 to i32
   %76 = load ptr, ptr %0, align 8, !tbaa !59
   %77 = zext i32 %73 to i64
-  %78 = getelementptr inbounds nuw i32, ptr %76, i64 %77
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %77
   store i32 %75, ptr %78, align 1
   %79 = load i32, ptr %4, align 8, !tbaa !60
   %80 = add i32 %79, 1
@@ -12480,7 +12478,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i: ; preds = %8, %3
   %12 = phi i32 [ %5, %3 ], [ %.pre.i.i.i.i, %8 ]
   %13 = load ptr, ptr %0, align 8, !tbaa !59
   %14 = zext i32 %12 to i64
-  %15 = getelementptr inbounds nuw i32, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %14
   store i32 33, ptr %15, align 1
   %16 = load i32, ptr %4, align 8, !tbaa !60
   %17 = add i32 %16, 1
@@ -12501,7 +12499,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindE
   %23 = phi i32 [ %17, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i ], [ %.pre.i.i3.i.i, %19 ]
   %24 = load ptr, ptr %0, align 8, !tbaa !59
   %25 = zext i32 %23 to i64
-  %26 = getelementptr inbounds nuw i32, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %25
   store i32 0, ptr %26, align 1
   %27 = load i32, ptr %4, align 8, !tbaa !60
   %28 = add i32 %27, 1
@@ -12522,7 +12520,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i7: ; preds = %30, %_ZN12_GLOBAL
   %34 = phi i32 [ %28, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindEEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS7_EEvE4typeES7_.exit ], [ %.pre.i.i.i.i6, %30 ]
   %35 = load ptr, ptr %0, align 8, !tbaa !59
   %36 = zext i32 %34 to i64
-  %37 = getelementptr inbounds nuw i32, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %36
   store i32 %1, ptr %37, align 1
   %38 = load i32, ptr %4, align 8, !tbaa !60
   %39 = add i32 %38, 1
@@ -12544,7 +12542,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle17TemplateP
   %46 = ashr i32 %1, 31
   %47 = load ptr, ptr %0, align 8, !tbaa !59
   %48 = zext i32 %45 to i64
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %48
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %48
   store i32 %46, ptr %49, align 1
   %50 = load i32, ptr %4, align 8, !tbaa !60
   %51 = add i32 %50, 1
@@ -12565,7 +12563,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i12: ; preds = %53, %_ZN12_GLOBA
   %57 = phi i32 [ %51, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle17TemplateParamKindEEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS6_EEvE4typeES6_.exit ], [ %.pre.i.i.i.i11, %53 ]
   %58 = load ptr, ptr %0, align 8, !tbaa !59
   %59 = zext i32 %57 to i64
-  %60 = getelementptr inbounds nuw i32, ptr %58, i64 %59
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %59
   store i32 %2, ptr %60, align 1
   %61 = load i32, ptr %4, align 8, !tbaa !60
   %62 = add i32 %61, 1
@@ -12586,7 +12584,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIjEENSt9enable_ifIXoosr3stdE13is_int
   %68 = phi i32 [ %62, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i12 ], [ %.pre.i.i3.i.i14, %64 ]
   %69 = load ptr, ptr %0, align 8, !tbaa !59
   %70 = zext i32 %68 to i64
-  %71 = getelementptr inbounds nuw i32, ptr %69, i64 %70
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %70
   store i32 0, ptr %71, align 1
   %72 = load i32, ptr %4, align 8, !tbaa !60
   %73 = add i32 %72, 1
@@ -12616,7 +12614,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i: ; preds = %9, %3
   %13 = phi i32 [ %6, %3 ], [ %.pre.i.i.i.i, %9 ]
   %14 = load ptr, ptr %0, align 8, !tbaa !59
   %15 = zext i32 %13 to i64
-  %16 = getelementptr inbounds nuw i32, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %15
   store i32 %4, ptr %16, align 1
   %17 = load i32, ptr %5, align 8, !tbaa !60
   %18 = add i32 %17, 1
@@ -12637,7 +12635,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindE
   %24 = phi i32 [ %18, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i ], [ %.pre.i.i3.i.i, %20 ]
   %25 = load ptr, ptr %0, align 8, !tbaa !59
   %26 = zext i32 %24 to i64
-  %27 = getelementptr inbounds nuw i32, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %26
   store i32 0, ptr %27, align 1
   %28 = load i32, ptr %5, align 8, !tbaa !60
   %29 = add i32 %28, 1
@@ -12660,7 +12658,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i: ; preds = %33, %_ZN12_GLO
   %37 = phi i32 [ %29, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindEEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS7_EEvE4typeES7_.exit ], [ %.pre.i.i.i.i.i.i, %33 ]
   %38 = load ptr, ptr %0, align 8, !tbaa !59
   %39 = zext i32 %37 to i64
-  %40 = getelementptr inbounds nuw i32, ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %39
   store i32 %31, ptr %40, align 1
   %41 = load i32, ptr %5, align 8, !tbaa !60
   %42 = add i32 %41, 1
@@ -12683,7 +12681,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %50 = trunc nuw i64 %49 to i32
   %51 = load ptr, ptr %0, align 8, !tbaa !59
   %52 = zext i32 %48 to i64
-  %53 = getelementptr inbounds nuw i32, ptr %51, i64 %52
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %52
   store i32 %50, ptr %53, align 1
   %54 = load i32, ptr %5, align 8, !tbaa !60
   %55 = add i32 %54, 1
@@ -12715,7 +12713,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i: ; preds = %11, %5
   %15 = phi i32 [ %8, %5 ], [ %.pre.i.i.i.i, %11 ]
   %16 = load ptr, ptr %0, align 8, !tbaa !59
   %17 = zext i32 %15 to i64
-  %18 = getelementptr inbounds nuw i32, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %17
   store i32 38, ptr %18, align 1
   %19 = load i32, ptr %7, align 8, !tbaa !60
   %20 = add i32 %19, 1
@@ -12736,7 +12734,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindE
   %26 = phi i32 [ %20, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i ], [ %.pre.i.i3.i.i, %22 ]
   %27 = load ptr, ptr %0, align 8, !tbaa !59
   %28 = zext i32 %26 to i64
-  %29 = getelementptr inbounds nuw i32, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %28
   store i32 0, ptr %29, align 1
   %30 = load i32, ptr %7, align 8, !tbaa !60
   %31 = add i32 %30, 1
@@ -12759,7 +12757,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i: ; preds = %35, %_ZN12_GLO
   %39 = phi i32 [ %31, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindEEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS7_EEvE4typeES7_.exit ], [ %.pre.i.i.i.i.i.i, %35 ]
   %40 = load ptr, ptr %0, align 8, !tbaa !59
   %41 = zext i32 %39 to i64
-  %42 = getelementptr inbounds nuw i32, ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %41
   store i32 %33, ptr %42, align 1
   %43 = load i32, ptr %7, align 8, !tbaa !60
   %44 = add i32 %43, 1
@@ -12782,7 +12780,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %52 = trunc nuw i64 %51 to i32
   %53 = load ptr, ptr %0, align 8, !tbaa !59
   %54 = zext i32 %50 to i64
-  %55 = getelementptr inbounds nuw i32, ptr %53, i64 %54
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %54
   store i32 %52, ptr %55, align 1
   %56 = load i32, ptr %7, align 8, !tbaa !60
   %57 = add i32 %56, 1
@@ -12807,7 +12805,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i10: ; preds = %62, %_ZN12_G
   %66 = phi i32 [ %60, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.exit ], [ %.pre.i.i.i.i.i.i9, %62 ]
   %67 = load ptr, ptr %0, align 8, !tbaa !59
   %68 = zext i32 %66 to i64
-  %69 = getelementptr inbounds nuw i32, ptr %67, i64 %68
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %68
   store i32 %59, ptr %69, align 1
   %70 = load i32, ptr %7, align 8, !tbaa !60
   %71 = add i32 %70, 1
@@ -12830,7 +12828,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %79 = trunc nuw i64 %78 to i32
   %80 = load ptr, ptr %0, align 8, !tbaa !59
   %81 = zext i32 %77 to i64
-  %82 = getelementptr inbounds nuw i32, ptr %80, i64 %81
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %81
   store i32 %79, ptr %82, align 1
   %83 = load i32, ptr %7, align 8, !tbaa !60
   %84 = add i32 %83, 1
@@ -12863,7 +12861,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i: ; preds = %10, %4
   %14 = phi i32 [ %7, %4 ], [ %.pre.i.i.i.i, %10 ]
   %15 = load ptr, ptr %0, align 8, !tbaa !59
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw i32, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %16
   store i32 43, ptr %17, align 1
   %18 = load i32, ptr %6, align 8, !tbaa !60
   %19 = add i32 %18, 1
@@ -12884,7 +12882,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindE
   %25 = phi i32 [ %19, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i ], [ %.pre.i.i3.i.i, %21 ]
   %26 = load ptr, ptr %0, align 8, !tbaa !59
   %27 = zext i32 %25 to i64
-  %28 = getelementptr inbounds nuw i32, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %27
   store i32 0, ptr %28, align 1
   %29 = load i32, ptr %6, align 8, !tbaa !60
   %30 = add i32 %29, 1
@@ -12909,7 +12907,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i: ; preds = %35, %_ZN12_GLO
   %39 = phi i32 [ %33, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindEEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS7_EEvE4typeES7_.exit ], [ %.pre.i.i.i.i.i.i, %35 ]
   %40 = load ptr, ptr %0, align 8, !tbaa !59
   %41 = zext i32 %39 to i64
-  %42 = getelementptr inbounds nuw i32, ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %41
   store i32 %32, ptr %42, align 1
   %43 = load i32, ptr %6, align 8, !tbaa !60
   %44 = add i32 %43, 1
@@ -12932,7 +12930,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %52 = trunc nuw i64 %51 to i32
   %53 = load ptr, ptr %0, align 8, !tbaa !59
   %54 = zext i32 %50 to i64
-  %55 = getelementptr inbounds nuw i32, ptr %53, i64 %54
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %54
   store i32 %52, ptr %55, align 1
   %56 = load i32, ptr %6, align 8, !tbaa !60
   %57 = add i32 %56, 1
@@ -12963,7 +12961,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i: ; preds = %9, %3
   %13 = phi i32 [ %6, %3 ], [ %.pre.i.i.i.i, %9 ]
   %14 = load ptr, ptr %0, align 8, !tbaa !59
   %15 = zext i32 %13 to i64
-  %16 = getelementptr inbounds nuw i32, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %15
   store i32 %4, ptr %16, align 1
   %17 = load i32, ptr %5, align 8, !tbaa !60
   %18 = add i32 %17, 1
@@ -12984,7 +12982,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindE
   %24 = phi i32 [ %18, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i ], [ %.pre.i.i3.i.i, %20 ]
   %25 = load ptr, ptr %0, align 8, !tbaa !59
   %26 = zext i32 %24 to i64
-  %27 = getelementptr inbounds nuw i32, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %26
   store i32 0, ptr %27, align 1
   %28 = load i32, ptr %5, align 8, !tbaa !60
   %29 = add i32 %28, 1
@@ -13005,7 +13003,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i5: ; preds = %31, %_ZN12_GLOBAL
   %35 = phi i32 [ %29, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindEEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS7_EEvE4typeES7_.exit ], [ %.pre.i.i.i.i4, %31 ]
   %36 = load ptr, ptr %0, align 8, !tbaa !59
   %37 = zext i32 %35 to i64
-  %38 = getelementptr inbounds nuw i32, ptr %36, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %37
   store i32 %2, ptr %38, align 1
   %39 = load i32, ptr %5, align 8, !tbaa !60
   %40 = add i32 %39, 1
@@ -13027,7 +13025,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle14SpecialSu
   %47 = ashr i32 %2, 31
   %48 = load ptr, ptr %0, align 8, !tbaa !59
   %49 = zext i32 %46 to i64
-  %50 = getelementptr inbounds nuw i32, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %49
   store i32 %47, ptr %50, align 1
   %51 = load i32, ptr %5, align 8, !tbaa !60
   %52 = add i32 %51, 1
@@ -13057,7 +13055,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i: ; preds = %13, %7
   %17 = phi i32 [ %10, %7 ], [ %.pre.i.i.i.i, %13 ]
   %18 = load ptr, ptr %0, align 8, !tbaa !59
   %19 = zext i32 %17 to i64
-  %20 = getelementptr inbounds nuw i32, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %19
   store i32 %8, ptr %20, align 1
   %21 = load i32, ptr %9, align 8, !tbaa !60
   %22 = add i32 %21, 1
@@ -13078,7 +13076,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindE
   %28 = phi i32 [ %22, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i ], [ %.pre.i.i3.i.i, %24 ]
   %29 = load ptr, ptr %0, align 8, !tbaa !59
   %30 = zext i32 %28 to i64
-  %31 = getelementptr inbounds nuw i32, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %30
   store i32 0, ptr %31, align 1
   %32 = load i32, ptr %9, align 8, !tbaa !60
   %33 = add i32 %32, 1
@@ -13101,7 +13099,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i: ; preds = %37, %_ZN12_GLO
   %41 = phi i32 [ %33, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindEEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS7_EEvE4typeES7_.exit ], [ %.pre.i.i.i.i.i.i, %37 ]
   %42 = load ptr, ptr %0, align 8, !tbaa !59
   %43 = zext i32 %41 to i64
-  %44 = getelementptr inbounds nuw i32, ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %43
   store i32 %35, ptr %44, align 1
   %45 = load i32, ptr %9, align 8, !tbaa !60
   %46 = add i32 %45, 1
@@ -13124,7 +13122,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %54 = trunc nuw i64 %53 to i32
   %55 = load ptr, ptr %0, align 8, !tbaa !59
   %56 = zext i32 %52 to i64
-  %57 = getelementptr inbounds nuw i32, ptr %55, i64 %56
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %56
   store i32 %54, ptr %57, align 1
   %58 = load i32, ptr %9, align 8, !tbaa !60
   %59 = add i32 %58, 1
@@ -13160,7 +13158,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i13: ; preds = %67, %_ZN12_G
   %71 = phi i32 [ %65, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclESt17basic_string_viewIcSt11char_traitsIcEE.exit ], [ %.pre.i.i.i.i.i.i12, %67 ]
   %72 = load ptr, ptr %0, align 8, !tbaa !59
   %73 = zext i32 %71 to i64
-  %74 = getelementptr inbounds nuw i32, ptr %72, i64 %73
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %73
   store i32 %64, ptr %74, align 1
   %75 = load i32, ptr %9, align 8, !tbaa !60
   %76 = add i32 %75, 1
@@ -13183,7 +13181,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %84 = trunc nuw i64 %83 to i32
   %85 = load ptr, ptr %0, align 8, !tbaa !59
   %86 = zext i32 %82 to i64
-  %87 = getelementptr inbounds nuw i32, ptr %85, i64 %86
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %85, i64 %86
   store i32 %84, ptr %87, align 1
   %88 = load i32, ptr %9, align 8, !tbaa !60
   %89 = add i32 %88, 1
@@ -13204,7 +13202,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i19: ; preds = %91, %_ZN12_GLOBA
   %95 = phi i32 [ %89, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.exit16 ], [ %.pre.i.i.i.i18, %91 ]
   %96 = load ptr, ptr %0, align 8, !tbaa !59
   %97 = zext i32 %95 to i64
-  %98 = getelementptr inbounds nuw i32, ptr %96, i64 %97
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %96, i64 %97
   store i32 %6, ptr %98, align 1
   %99 = load i32, ptr %9, align 8, !tbaa !60
   %100 = add i32 %99, 1
@@ -13226,7 +13224,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4PrecE
   %107 = ashr i32 %6, 31
   %108 = load ptr, ptr %0, align 8, !tbaa !59
   %109 = zext i32 %106 to i64
-  %110 = getelementptr inbounds nuw i32, ptr %108, i64 %109
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %108, i64 %109
   store i32 %107, ptr %110, align 1
   %111 = load i32, ptr %9, align 8, !tbaa !60
   %112 = add i32 %111, 1
@@ -13258,7 +13256,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i: ; preds = %13, %7
   %17 = phi i32 [ %10, %7 ], [ %.pre.i.i.i.i, %13 ]
   %18 = load ptr, ptr %0, align 8, !tbaa !59
   %19 = zext i32 %17 to i64
-  %20 = getelementptr inbounds nuw i32, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %19
   store i32 64, ptr %20, align 1
   %21 = load i32, ptr %9, align 8, !tbaa !60
   %22 = add i32 %21, 1
@@ -13279,7 +13277,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindE
   %28 = phi i32 [ %22, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i ], [ %.pre.i.i3.i.i, %24 ]
   %29 = load ptr, ptr %0, align 8, !tbaa !59
   %30 = zext i32 %28 to i64
-  %31 = getelementptr inbounds nuw i32, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %30
   store i32 0, ptr %31, align 1
   %32 = load i32, ptr %9, align 8, !tbaa !60
   %33 = add i32 %32, 1
@@ -13304,7 +13302,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i: ; preds = %38, %_ZN12_GLO
   %42 = phi i32 [ %36, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindEEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS7_EEvE4typeES7_.exit ], [ %.pre.i.i.i.i.i.i, %38 ]
   %43 = load ptr, ptr %0, align 8, !tbaa !59
   %44 = zext i32 %42 to i64
-  %45 = getelementptr inbounds nuw i32, ptr %43, i64 %44
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %44
   store i32 %35, ptr %45, align 1
   %46 = load i32, ptr %9, align 8, !tbaa !60
   %47 = add i32 %46, 1
@@ -13327,7 +13325,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %55 = trunc nuw i64 %54 to i32
   %56 = load ptr, ptr %0, align 8, !tbaa !59
   %57 = zext i32 %53 to i64
-  %58 = getelementptr inbounds nuw i32, ptr %56, i64 %57
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %57
   store i32 %55, ptr %58, align 1
   %59 = load i32, ptr %9, align 8, !tbaa !60
   %60 = add i32 %59, 1
@@ -13351,7 +13349,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i16: ; preds = %64, %_ZN12_GLOBA
   %68 = phi i32 [ %62, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.exit ], [ %.pre.i.i.i.i15, %64 ]
   %69 = load ptr, ptr %0, align 8, !tbaa !59
   %70 = zext i32 %68 to i64
-  %71 = getelementptr inbounds nuw i32, ptr %69, i64 %70
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %70
   store i32 %61, ptr %71, align 1
   %72 = load i32, ptr %9, align 8, !tbaa !60
   %73 = add i32 %72, 1
@@ -13372,7 +13370,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIbEENSt9enable_ifIXoosr3stdE13is_int
   %79 = phi i32 [ %73, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i16 ], [ %.pre.i.i3.i.i18, %75 ]
   %80 = load ptr, ptr %0, align 8, !tbaa !59
   %81 = zext i32 %79 to i64
-  %82 = getelementptr inbounds nuw i32, ptr %80, i64 %81
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %81
   store i32 0, ptr %82, align 1
   %83 = load i32, ptr %9, align 8, !tbaa !60
   %84 = add i32 %83, 1
@@ -13394,7 +13392,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i21: ; preds = %87, %_ZN12_GLOBA
   %91 = phi i32 [ %84, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIbEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS3_EEvE4typeES3_.exit ], [ %.pre.i.i.i.i20, %87 ]
   %92 = load ptr, ptr %0, align 8, !tbaa !59
   %93 = zext i32 %91 to i64
-  %94 = getelementptr inbounds nuw i32, ptr %92, i64 %93
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %93
   store i32 %85, ptr %94, align 1
   %95 = load i32, ptr %9, align 8, !tbaa !60
   %96 = add i32 %95, 1
@@ -13415,7 +13413,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIbEENSt9enable_ifIXoosr3stdE13is_int
   %102 = phi i32 [ %96, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i21 ], [ %.pre.i.i3.i.i23, %98 ]
   %103 = load ptr, ptr %0, align 8, !tbaa !59
   %104 = zext i32 %102 to i64
-  %105 = getelementptr inbounds nuw i32, ptr %103, i64 %104
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %103, i64 %104
   store i32 0, ptr %105, align 1
   %106 = load i32, ptr %9, align 8, !tbaa !60
   %107 = add i32 %106, 1
@@ -13436,7 +13434,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i27: ; preds = %109, %_ZN12_GLOB
   %113 = phi i32 [ %107, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIbEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS3_EEvE4typeES3_.exit24 ], [ %.pre.i.i.i.i26, %109 ]
   %114 = load ptr, ptr %0, align 8, !tbaa !59
   %115 = zext i32 %113 to i64
-  %116 = getelementptr inbounds nuw i32, ptr %114, i64 %115
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %115
   store i32 %6, ptr %116, align 1
   %117 = load i32, ptr %9, align 8, !tbaa !60
   %118 = add i32 %117, 1
@@ -13458,7 +13456,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4PrecE
   %125 = ashr i32 %6, 31
   %126 = load ptr, ptr %0, align 8, !tbaa !59
   %127 = zext i32 %124 to i64
-  %128 = getelementptr inbounds nuw i32, ptr %126, i64 %127
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %126, i64 %127
   store i32 %125, ptr %128, align 1
   %129 = load i32, ptr %9, align 8, !tbaa !60
   %130 = add i32 %129, 1
@@ -13488,7 +13486,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i: ; preds = %10, %5
   %14 = phi i32 [ %7, %5 ], [ %.pre.i.i.i.i, %10 ]
   %15 = load ptr, ptr %0, align 8, !tbaa !59
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw i32, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %16
   store i32 65, ptr %17, align 1
   %18 = load i32, ptr %6, align 8, !tbaa !60
   %19 = add i32 %18, 1
@@ -13509,7 +13507,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindE
   %25 = phi i32 [ %19, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i ], [ %.pre.i.i3.i.i, %21 ]
   %26 = load ptr, ptr %0, align 8, !tbaa !59
   %27 = zext i32 %25 to i64
-  %28 = getelementptr inbounds nuw i32, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %27
   store i32 0, ptr %28, align 1
   %29 = load i32, ptr %6, align 8, !tbaa !60
   %30 = add i32 %29, 1
@@ -13532,7 +13530,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i: ; preds = %34, %_ZN12_GLO
   %38 = phi i32 [ %30, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindEEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS7_EEvE4typeES7_.exit ], [ %.pre.i.i.i.i.i.i, %34 ]
   %39 = load ptr, ptr %0, align 8, !tbaa !59
   %40 = zext i32 %38 to i64
-  %41 = getelementptr inbounds nuw i32, ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %40
   store i32 %32, ptr %41, align 1
   %42 = load i32, ptr %6, align 8, !tbaa !60
   %43 = add i32 %42, 1
@@ -13555,7 +13553,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %51 = trunc nuw i64 %50 to i32
   %52 = load ptr, ptr %0, align 8, !tbaa !59
   %53 = zext i32 %49 to i64
-  %54 = getelementptr inbounds nuw i32, ptr %52, i64 %53
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %53
   store i32 %51, ptr %54, align 1
   %55 = load i32, ptr %6, align 8, !tbaa !60
   %56 = add i32 %55, 1
@@ -13577,7 +13575,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i11: ; preds = %59, %_ZN12_GLOBA
   %63 = phi i32 [ %56, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.exit ], [ %.pre.i.i.i.i10, %59 ]
   %64 = load ptr, ptr %0, align 8, !tbaa !59
   %65 = zext i32 %63 to i64
-  %66 = getelementptr inbounds nuw i32, ptr %64, i64 %65
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %65
   store i32 %57, ptr %66, align 1
   %67 = load i32, ptr %6, align 8, !tbaa !60
   %68 = add i32 %67, 1
@@ -13598,7 +13596,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIbEENSt9enable_ifIXoosr3stdE13is_int
   %74 = phi i32 [ %68, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i11 ], [ %.pre.i.i3.i.i13, %70 ]
   %75 = load ptr, ptr %0, align 8, !tbaa !59
   %76 = zext i32 %74 to i64
-  %77 = getelementptr inbounds nuw i32, ptr %75, i64 %76
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %76
   store i32 0, ptr %77, align 1
   %78 = load i32, ptr %6, align 8, !tbaa !60
   %79 = add i32 %78, 1
@@ -13620,7 +13618,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i16: ; preds = %82, %_ZN12_GLOBA
   %86 = phi i32 [ %79, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIbEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS3_EEvE4typeES3_.exit ], [ %.pre.i.i.i.i15, %82 ]
   %87 = load ptr, ptr %0, align 8, !tbaa !59
   %88 = zext i32 %86 to i64
-  %89 = getelementptr inbounds nuw i32, ptr %87, i64 %88
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %88
   store i32 %80, ptr %89, align 1
   %90 = load i32, ptr %6, align 8, !tbaa !60
   %91 = add i32 %90, 1
@@ -13641,7 +13639,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIbEENSt9enable_ifIXoosr3stdE13is_int
   %97 = phi i32 [ %91, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i16 ], [ %.pre.i.i3.i.i18, %93 ]
   %98 = load ptr, ptr %0, align 8, !tbaa !59
   %99 = zext i32 %97 to i64
-  %100 = getelementptr inbounds nuw i32, ptr %98, i64 %99
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %98, i64 %99
   store i32 0, ptr %100, align 1
   %101 = load i32, ptr %6, align 8, !tbaa !60
   %102 = add i32 %101, 1
@@ -13662,7 +13660,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i22: ; preds = %104, %_ZN12_GLOB
   %108 = phi i32 [ %102, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIbEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS3_EEvE4typeES3_.exit19 ], [ %.pre.i.i.i.i21, %104 ]
   %109 = load ptr, ptr %0, align 8, !tbaa !59
   %110 = zext i32 %108 to i64
-  %111 = getelementptr inbounds nuw i32, ptr %109, i64 %110
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %109, i64 %110
   store i32 %4, ptr %111, align 1
   %112 = load i32, ptr %6, align 8, !tbaa !60
   %113 = add i32 %112, 1
@@ -13684,7 +13682,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4PrecE
   %120 = ashr i32 %4, 31
   %121 = load ptr, ptr %0, align 8, !tbaa !59
   %122 = zext i32 %119 to i64
-  %123 = getelementptr inbounds nuw i32, ptr %121, i64 %122
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %121, i64 %122
   store i32 %120, ptr %123, align 1
   %124 = load i32, ptr %6, align 8, !tbaa !60
   %125 = add i32 %124, 1
@@ -13714,7 +13712,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i: ; preds = %12, %6
   %16 = phi i32 [ %9, %6 ], [ %.pre.i.i.i.i, %12 ]
   %17 = load ptr, ptr %0, align 8, !tbaa !59
   %18 = zext i32 %16 to i64
-  %19 = getelementptr inbounds nuw i32, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %18
   store i32 %7, ptr %19, align 1
   %20 = load i32, ptr %8, align 8, !tbaa !60
   %21 = add i32 %20, 1
@@ -13735,7 +13733,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindE
   %27 = phi i32 [ %21, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i ], [ %.pre.i.i3.i.i, %23 ]
   %28 = load ptr, ptr %0, align 8, !tbaa !59
   %29 = zext i32 %27 to i64
-  %30 = getelementptr inbounds nuw i32, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %29
   store i32 0, ptr %30, align 1
   %31 = load i32, ptr %8, align 8, !tbaa !60
   %32 = add i32 %31, 1
@@ -13771,7 +13769,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i: ; preds = %40, %_ZN12_GLO
   %44 = phi i32 [ %38, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclESt17basic_string_viewIcSt11char_traitsIcEE.exit ], [ %.pre.i.i.i.i.i.i, %40 ]
   %45 = load ptr, ptr %0, align 8, !tbaa !59
   %46 = zext i32 %44 to i64
-  %47 = getelementptr inbounds nuw i32, ptr %45, i64 %46
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %46
   store i32 %37, ptr %47, align 1
   %48 = load i32, ptr %8, align 8, !tbaa !60
   %49 = add i32 %48, 1
@@ -13794,7 +13792,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %57 = trunc nuw i64 %56 to i32
   %58 = load ptr, ptr %0, align 8, !tbaa !59
   %59 = zext i32 %55 to i64
-  %60 = getelementptr inbounds nuw i32, ptr %58, i64 %59
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %59
   store i32 %57, ptr %60, align 1
   %61 = load i32, ptr %8, align 8, !tbaa !60
   %62 = add i32 %61, 1
@@ -13815,7 +13813,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i11: ; preds = %64, %_ZN12_GLOBA
   %68 = phi i32 [ %62, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.exit ], [ %.pre.i.i.i.i10, %64 ]
   %69 = load ptr, ptr %0, align 8, !tbaa !59
   %70 = zext i32 %68 to i64
-  %71 = getelementptr inbounds nuw i32, ptr %69, i64 %70
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %70
   store i32 %5, ptr %71, align 1
   %72 = load i32, ptr %8, align 8, !tbaa !60
   %73 = add i32 %72, 1
@@ -13837,7 +13835,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4PrecE
   %80 = ashr i32 %5, 31
   %81 = load ptr, ptr %0, align 8, !tbaa !59
   %82 = zext i32 %79 to i64
-  %83 = getelementptr inbounds nuw i32, ptr %81, i64 %82
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %81, i64 %82
   store i32 %80, ptr %83, align 1
   %84 = load i32, ptr %8, align 8, !tbaa !60
   %85 = add i32 %84, 1
@@ -13866,7 +13864,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i: ; preds = %10, %5
   %14 = phi i32 [ %7, %5 ], [ %.pre.i.i.i.i, %10 ]
   %15 = load ptr, ptr %0, align 8, !tbaa !59
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw i32, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %16
   store i32 77, ptr %17, align 1
   %18 = load i32, ptr %6, align 8, !tbaa !60
   %19 = add i32 %18, 1
@@ -13887,7 +13885,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindE
   %25 = phi i32 [ %19, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i ], [ %.pre.i.i3.i.i, %21 ]
   %26 = load ptr, ptr %0, align 8, !tbaa !59
   %27 = zext i32 %25 to i64
-  %28 = getelementptr inbounds nuw i32, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %27
   store i32 0, ptr %28, align 1
   %29 = load i32, ptr %6, align 8, !tbaa !60
   %30 = add i32 %29, 1
@@ -14401,7 +14399,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds 
   %21 = phi i32 [ %14, %10 ], [ %.pre.i, %17 ]
   %22 = load ptr, ptr %12, align 8, !tbaa !59
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %"struct.std::pair.13", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %23
   store ptr %11, ptr %24, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %8, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -14442,7 +14440,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Start
   %47 = phi i32 [ %40, %32 ], [ %.pre.i.i, %43 ]
   %48 = load ptr, ptr %33, align 8, !tbaa !59
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   %51 = ptrtoint ptr %39 to i64
   store i64 %51, ptr %50, align 1
   %52 = load i32, ptr %34, align 8, !tbaa !60
@@ -14800,7 +14798,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %116 = add i32 %108, -1
   %.01826.i.i.i.i.i.i.i = and i32 %116, %115
   %117 = zext nneg i32 %.01826.i.i.i.i.i.i.i to i64
-  %118 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %105, i64 %117
+  %118 = getelementptr inbounds nuw [16 x i8], ptr %105, i64 %117
   %119 = load ptr, ptr %118, align 8, !tbaa !11
   %120 = icmp eq ptr %.sroa.0.0.i.i.i.i.i, %119
   br i1 %120, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !prof !110
@@ -14817,14 +14815,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %125 = add i32 %.01627.i.i.i.i.i.i.i, %.01828.i.i.i.i.i.i.i
   %.018.i.i.i.i.i.i.i = and i32 %125, %116
   %126 = zext i32 %.018.i.i.i.i.i.i.i to i64
-  %127 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %105, i64 %126
+  %127 = getelementptr inbounds nuw [16 x i8], ptr %105, i64 %126
   %128 = load ptr, ptr %127, align 8, !tbaa !11
   %129 = icmp eq ptr %.sroa.0.0.i.i.i.i.i, %128
   br i1 %129, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i: ; preds = %123, %110
   %130 = phi i64 [ %117, %110 ], [ %126, %123 ]
-  %131 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %105, i64 %130
+  %131 = getelementptr inbounds nuw [16 x i8], ptr %105, i64 %130
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 8
   %133 = load ptr, ptr %132, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i
@@ -14934,7 +14932,7 @@ _ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i: ; preds = %1
 _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i: ; preds = %179, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i
   %183 = phi ptr [ %180, %179 ], [ %174, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i ]
   %184 = getelementptr inbounds nuw i8, ptr %183, i64 %169
-  %185 = getelementptr inbounds nuw ptr, ptr %183, i64 %170
+  %185 = getelementptr inbounds nuw [8 x i8], ptr %183, i64 %170
   store ptr %185, ptr %150, align 8, !tbaa !10
   br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit
 
@@ -15120,7 +15118,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %278 = add i32 %270, -1
   %.01826.i.i.i.i.i.i.i54 = and i32 %278, %277
   %279 = zext nneg i32 %.01826.i.i.i.i.i.i.i54 to i64
-  %280 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %267, i64 %279
+  %280 = getelementptr inbounds nuw [16 x i8], ptr %267, i64 %279
   %281 = load ptr, ptr %280, align 8, !tbaa !11
   %282 = icmp eq ptr %.sroa.0.0.i.i.i.i.i51, %281
   br i1 %282, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i59, label %.lr.ph.i.i.i.i.i.i.i55, !prof !110
@@ -15137,14 +15135,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %287 = add i32 %.01627.i.i.i.i.i.i.i57, %.01828.i.i.i.i.i.i.i56
   %.018.i.i.i.i.i.i.i58 = and i32 %287, %278
   %288 = zext i32 %.018.i.i.i.i.i.i.i58 to i64
-  %289 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %267, i64 %288
+  %289 = getelementptr inbounds nuw [16 x i8], ptr %267, i64 %288
   %290 = load ptr, ptr %289, align 8, !tbaa !11
   %291 = icmp eq ptr %.sroa.0.0.i.i.i.i.i51, %290
   br i1 %291, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i59, label %.lr.ph.i.i.i.i.i.i.i55, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i59: ; preds = %285, %272
   %292 = phi i64 [ %279, %272 ], [ %288, %285 ]
-  %293 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %267, i64 %292
+  %293 = getelementptr inbounds nuw [16 x i8], ptr %267, i64 %292
   %294 = getelementptr inbounds nuw i8, ptr %293, i64 8
   %295 = load ptr, ptr %294, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i60
@@ -15329,7 +15327,7 @@ _ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i97: ; preds = 
 _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i95: ; preds = %367, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i97
   %371 = phi ptr [ %368, %367 ], [ %362, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i97 ]
   %372 = getelementptr inbounds nuw i8, ptr %371, i64 %357
-  %373 = getelementptr inbounds nuw ptr, ptr %371, i64 %358
+  %373 = getelementptr inbounds nuw [8 x i8], ptr %371, i64 %358
   store ptr %373, ptr %331, align 8, !tbaa !10
   br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit98
 
@@ -15427,7 +15425,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i14.i.i.i.i.i.i: ; preds = %416,
   %419 = phi i32 [ %414, %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20popTrailingNodeArrayEm.exit105 ], [ %.pre.i.i.i.i13.i.i.i.i.i.i, %416 ]
   %420 = load ptr, ptr %3, align 8, !tbaa !59
   %421 = zext i32 %419 to i64
-  %422 = getelementptr inbounds nuw i32, ptr %420, i64 %421
+  %422 = getelementptr inbounds nuw [4 x i8], ptr %420, i64 %421
   store i32 %.2.i, ptr %422, align 1
   %423 = load i32, ptr %409, align 8, !tbaa !60
   %424 = add i32 %423, 1
@@ -15447,7 +15445,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle10Qualifier
   %429 = phi i32 [ %424, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i14.i.i.i.i.i.i ], [ %.pre.i.i3.i.i16.i.i.i.i.i.i, %426 ]
   %430 = load ptr, ptr %3, align 8, !tbaa !59
   %431 = zext i32 %429 to i64
-  %432 = getelementptr inbounds nuw i32, ptr %430, i64 %431
+  %432 = getelementptr inbounds nuw [4 x i8], ptr %430, i64 %431
   store i32 0, ptr %432, align 1
   %433 = load i32, ptr %409, align 8, !tbaa !60
   %434 = add i32 %433, 1
@@ -15468,7 +15466,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i19.i.i.i.i.i.i: ; preds = %437,
   %440 = phi i32 [ %434, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle10QualifiersEEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS6_EEvE4typeES6_.exit.i.i.i.i.i.i ], [ %.pre.i.i.i.i18.i.i.i.i.i.i, %437 ]
   %441 = load ptr, ptr %3, align 8, !tbaa !59
   %442 = zext i32 %440 to i64
-  %443 = getelementptr inbounds nuw i32, ptr %441, i64 %442
+  %443 = getelementptr inbounds nuw [4 x i8], ptr %441, i64 %442
   store i32 %435, ptr %443, align 1
   %444 = load i32, ptr %409, align 8, !tbaa !60
   %445 = add i32 %444, 1
@@ -15488,7 +15486,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle15FunctionR
   %450 = phi i32 [ %445, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i19.i.i.i.i.i.i ], [ %.pre.i.i3.i.i21.i.i.i.i.i.i, %447 ]
   %451 = load ptr, ptr %3, align 8, !tbaa !59
   %452 = zext i32 %450 to i64
-  %453 = getelementptr inbounds nuw i32, ptr %451, i64 %452
+  %453 = getelementptr inbounds nuw [4 x i8], ptr %451, i64 %452
   store i32 0, ptr %453, align 1
   %454 = load i32, ptr %409, align 8, !tbaa !60
   %455 = add i32 %454, 1
@@ -15510,7 +15508,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i24.i.i.i.i.i.i: ; preds = %
   %462 = phi i32 [ %455, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle15FunctionRefQualEEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS6_EEvE4typeES6_.exit.i.i.i.i.i.i ], [ %.pre.i.i.i.i.i.i23.i.i.i.i.i.i, %459 ]
   %463 = load ptr, ptr %3, align 8, !tbaa !59
   %464 = zext i32 %462 to i64
-  %465 = getelementptr inbounds nuw i32, ptr %463, i64 %464
+  %465 = getelementptr inbounds nuw [4 x i8], ptr %463, i64 %464
   store i32 %457, ptr %465, align 1
   %466 = load i32, ptr %409, align 8, !tbaa !60
   %467 = add i32 %466, 1
@@ -15532,7 +15530,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeENS2_9NodeArrayENS
   %474 = trunc nuw i64 %473 to i32
   %475 = load ptr, ptr %3, align 8, !tbaa !59
   %476 = zext i32 %472 to i64
-  %477 = getelementptr inbounds nuw i32, ptr %475, i64 %476
+  %477 = getelementptr inbounds nuw [4 x i8], ptr %475, i64 %476
   store i32 %474, ptr %477, align 1
   %478 = load i32, ptr %409, align 8, !tbaa !60
   %479 = add i32 %478, 1
@@ -15652,7 +15650,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %537 = add i32 %529, -1
   %.01826.i.i.i.i.i.i.i110 = and i32 %537, %536
   %538 = zext nneg i32 %.01826.i.i.i.i.i.i.i110 to i64
-  %539 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %526, i64 %538
+  %539 = getelementptr inbounds nuw [16 x i8], ptr %526, i64 %538
   %540 = load ptr, ptr %539, align 8, !tbaa !11
   %541 = icmp eq ptr %.sroa.0.0.i.i.i.i.i107, %540
   br i1 %541, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i115, label %.lr.ph.i.i.i.i.i.i.i111, !prof !110
@@ -15669,14 +15667,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %546 = add i32 %.01627.i.i.i.i.i.i.i113, %.01828.i.i.i.i.i.i.i112
   %.018.i.i.i.i.i.i.i114 = and i32 %546, %537
   %547 = zext i32 %.018.i.i.i.i.i.i.i114 to i64
-  %548 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %526, i64 %547
+  %548 = getelementptr inbounds nuw [16 x i8], ptr %526, i64 %547
   %549 = load ptr, ptr %548, align 8, !tbaa !11
   %550 = icmp eq ptr %.sroa.0.0.i.i.i.i.i107, %549
   br i1 %550, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i115, label %.lr.ph.i.i.i.i.i.i.i111, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i115: ; preds = %544, %531
   %551 = phi i64 [ %538, %531 ], [ %547, %544 ]
-  %552 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %526, i64 %551
+  %552 = getelementptr inbounds nuw [16 x i8], ptr %526, i64 %551
   %553 = getelementptr inbounds nuw i8, ptr %552, i64 8
   %554 = load ptr, ptr %553, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i116
@@ -15959,7 +15957,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %121 = add i32 %113, -1
   %.01826.i.i.i.i.i.i.i = and i32 %121, %120
   %122 = zext nneg i32 %.01826.i.i.i.i.i.i.i to i64
-  %123 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %110, i64 %122
+  %123 = getelementptr inbounds nuw [16 x i8], ptr %110, i64 %122
   %124 = load ptr, ptr %123, align 8, !tbaa !11
   %125 = icmp eq ptr %.sroa.0.0.i.i.i.i.i, %124
   br i1 %125, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !prof !110
@@ -15976,14 +15974,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %130 = add i32 %.01627.i.i.i.i.i.i.i, %.01828.i.i.i.i.i.i.i
   %.018.i.i.i.i.i.i.i = and i32 %130, %121
   %131 = zext i32 %.018.i.i.i.i.i.i.i to i64
-  %132 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %110, i64 %131
+  %132 = getelementptr inbounds nuw [16 x i8], ptr %110, i64 %131
   %133 = load ptr, ptr %132, align 8, !tbaa !11
   %134 = icmp eq ptr %.sroa.0.0.i.i.i.i.i, %133
   br i1 %134, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i: ; preds = %128, %115
   %135 = phi i64 [ %122, %115 ], [ %131, %128 ]
-  %136 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %110, i64 %135
+  %136 = getelementptr inbounds nuw [16 x i8], ptr %110, i64 %135
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 8
   %138 = load ptr, ptr %137, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i
@@ -16059,7 +16057,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i11.i.i.i.i.i.i: ; preds = %
   %170 = phi i32 [ %165, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclESt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i.i.i.i.i ], [ %.pre.i.i.i.i.i.i10.i.i.i.i.i.i, %167 ]
   %171 = load ptr, ptr %4, align 8, !tbaa !59
   %172 = zext i32 %170 to i64
-  %173 = getelementptr inbounds nuw i32, ptr %171, i64 %172
+  %173 = getelementptr inbounds nuw [4 x i8], ptr %171, i64 %172
   store i32 %164, ptr %173, align 1
   %174 = load i32, ptr %158, align 8, !tbaa !60
   %175 = add i32 %174, 1
@@ -16081,7 +16079,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeESt17basic_string_
   %182 = trunc nuw i64 %181 to i32
   %183 = load ptr, ptr %4, align 8, !tbaa !59
   %184 = zext i32 %180 to i64
-  %185 = getelementptr inbounds nuw i32, ptr %183, i64 %184
+  %185 = getelementptr inbounds nuw [4 x i8], ptr %183, i64 %184
   store i32 %182, ptr %185, align 1
   %186 = load i32, ptr %158, align 8, !tbaa !60
   %187 = add i32 %186, 1
@@ -16198,7 +16196,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %245 = add i32 %237, -1
   %.01826.i.i.i.i.i.i.i37 = and i32 %245, %244
   %246 = zext nneg i32 %.01826.i.i.i.i.i.i.i37 to i64
-  %247 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %234, i64 %246
+  %247 = getelementptr inbounds nuw [16 x i8], ptr %234, i64 %246
   %248 = load ptr, ptr %247, align 8, !tbaa !11
   %249 = icmp eq ptr %.sroa.0.0.i.i.i.i.i34, %248
   br i1 %249, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i42, label %.lr.ph.i.i.i.i.i.i.i38, !prof !110
@@ -16215,14 +16213,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %254 = add i32 %.01627.i.i.i.i.i.i.i40, %.01828.i.i.i.i.i.i.i39
   %.018.i.i.i.i.i.i.i41 = and i32 %254, %245
   %255 = zext i32 %.018.i.i.i.i.i.i.i41 to i64
-  %256 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %234, i64 %255
+  %256 = getelementptr inbounds nuw [16 x i8], ptr %234, i64 %255
   %257 = load ptr, ptr %256, align 8, !tbaa !11
   %258 = icmp eq ptr %.sroa.0.0.i.i.i.i.i34, %257
   br i1 %258, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i42, label %.lr.ph.i.i.i.i.i.i.i38, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i42: ; preds = %252, %239
   %259 = phi i64 [ %246, %239 ], [ %255, %252 ]
-  %260 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %234, i64 %259
+  %260 = getelementptr inbounds nuw [16 x i8], ptr %234, i64 %259
   %261 = getelementptr inbounds nuw i8, ptr %260, i64 8
   %262 = load ptr, ptr %261, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i43
@@ -16428,7 +16426,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %363 = add i32 %355, -1
   %.01826.i.i.i.i.i.i.i58 = and i32 %363, %362
   %364 = zext nneg i32 %.01826.i.i.i.i.i.i.i58 to i64
-  %365 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %352, i64 %364
+  %365 = getelementptr inbounds nuw [16 x i8], ptr %352, i64 %364
   %366 = load ptr, ptr %365, align 8, !tbaa !11
   %367 = icmp eq ptr %.sroa.0.0.i.i.i.i.i55, %366
   br i1 %367, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i63, label %.lr.ph.i.i.i.i.i.i.i59, !prof !110
@@ -16445,14 +16443,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %372 = add i32 %.01627.i.i.i.i.i.i.i61, %.01828.i.i.i.i.i.i.i60
   %.018.i.i.i.i.i.i.i62 = and i32 %372, %363
   %373 = zext i32 %.018.i.i.i.i.i.i.i62 to i64
-  %374 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %352, i64 %373
+  %374 = getelementptr inbounds nuw [16 x i8], ptr %352, i64 %373
   %375 = load ptr, ptr %374, align 8, !tbaa !11
   %376 = icmp eq ptr %.sroa.0.0.i.i.i.i.i55, %375
   br i1 %376, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i63, label %.lr.ph.i.i.i.i.i.i.i59, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i63: ; preds = %370, %357
   %377 = phi i64 [ %364, %357 ], [ %373, %370 ]
-  %378 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %352, i64 %377
+  %378 = getelementptr inbounds nuw [16 x i8], ptr %352, i64 %377
   %379 = getelementptr inbounds nuw i8, ptr %378, i64 8
   %380 = load ptr, ptr %379, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i64
@@ -16601,7 +16599,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %68 = add i32 %60, -1
   %.01826.i.i.i.i.i.i = and i32 %68, %67
   %69 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %70 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %69
+  %70 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %69
   %71 = load ptr, ptr %70, align 8, !tbaa !11
   %72 = icmp eq ptr %.sroa.013.0.i.i.i.i, %71
   br i1 %72, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -16618,14 +16616,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %77 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %77, %68
   %78 = zext i32 %.018.i.i.i.i.i.i to i64
-  %79 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %78
+  %79 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !11
   %81 = icmp eq ptr %.sroa.013.0.i.i.i.i, %80
   br i1 %81, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %75, %62
   %82 = phi i64 [ %69, %62 ], [ %78, %75 ]
-  %83 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %82
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %82
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %85 = load ptr, ptr %84, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -16774,7 +16772,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %68 = add i32 %60, -1
   %.01826.i.i.i.i.i.i = and i32 %68, %67
   %69 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %70 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %69
+  %70 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %69
   %71 = load ptr, ptr %70, align 8, !tbaa !11
   %72 = icmp eq ptr %.sroa.013.0.i.i.i.i, %71
   br i1 %72, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -16791,14 +16789,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %77 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %77, %68
   %78 = zext i32 %.018.i.i.i.i.i.i to i64
-  %79 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %78
+  %79 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !11
   %81 = icmp eq ptr %.sroa.013.0.i.i.i.i, %80
   br i1 %81, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %75, %62
   %82 = phi i64 [ %69, %62 ], [ %78, %75 ]
-  %83 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %82
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %82
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %85 = load ptr, ptr %84, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -16947,7 +16945,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %68 = add i32 %60, -1
   %.01826.i.i.i.i.i.i = and i32 %68, %67
   %69 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %70 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %69
+  %70 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %69
   %71 = load ptr, ptr %70, align 8, !tbaa !11
   %72 = icmp eq ptr %.sroa.013.0.i.i.i.i, %71
   br i1 %72, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -16964,14 +16962,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %77 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %77, %68
   %78 = zext i32 %.018.i.i.i.i.i.i to i64
-  %79 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %78
+  %79 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !11
   %81 = icmp eq ptr %.sroa.013.0.i.i.i.i, %80
   br i1 %81, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %75, %62
   %82 = phi i64 [ %69, %62 ], [ %78, %75 ]
-  %83 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %82
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %82
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %85 = load ptr, ptr %84, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -17120,7 +17118,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %68 = add i32 %60, -1
   %.01826.i.i.i.i.i.i = and i32 %68, %67
   %69 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %70 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %69
+  %70 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %69
   %71 = load ptr, ptr %70, align 8, !tbaa !11
   %72 = icmp eq ptr %.sroa.013.0.i.i.i.i, %71
   br i1 %72, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -17137,14 +17135,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %77 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %77, %68
   %78 = zext i32 %.018.i.i.i.i.i.i to i64
-  %79 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %78
+  %79 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !11
   %81 = icmp eq ptr %.sroa.013.0.i.i.i.i, %80
   br i1 %81, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %75, %62
   %82 = phi i64 [ %69, %62 ], [ %78, %75 ]
-  %83 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %82
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %82
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %85 = load ptr, ptr %84, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -17293,7 +17291,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %68 = add i32 %60, -1
   %.01826.i.i.i.i.i.i = and i32 %68, %67
   %69 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %70 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %69
+  %70 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %69
   %71 = load ptr, ptr %70, align 8, !tbaa !11
   %72 = icmp eq ptr %.sroa.013.0.i.i.i.i, %71
   br i1 %72, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -17310,14 +17308,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %77 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %77, %68
   %78 = zext i32 %.018.i.i.i.i.i.i to i64
-  %79 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %78
+  %79 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !11
   %81 = icmp eq ptr %.sroa.013.0.i.i.i.i, %80
   br i1 %81, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %75, %62
   %82 = phi i64 [ %69, %62 ], [ %78, %75 ]
-  %83 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %82
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %82
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %85 = load ptr, ptr %84, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -17466,7 +17464,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %68 = add i32 %60, -1
   %.01826.i.i.i.i.i.i = and i32 %68, %67
   %69 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %70 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %69
+  %70 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %69
   %71 = load ptr, ptr %70, align 8, !tbaa !11
   %72 = icmp eq ptr %.sroa.013.0.i.i.i.i, %71
   br i1 %72, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -17483,14 +17481,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %77 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %77, %68
   %78 = zext i32 %.018.i.i.i.i.i.i to i64
-  %79 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %78
+  %79 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !11
   %81 = icmp eq ptr %.sroa.013.0.i.i.i.i, %80
   br i1 %81, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %75, %62
   %82 = phi i64 [ %69, %62 ], [ %78, %75 ]
-  %83 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %82
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %82
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %85 = load ptr, ptr %84, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -17639,7 +17637,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %68 = add i32 %60, -1
   %.01826.i.i.i.i.i.i = and i32 %68, %67
   %69 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %70 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %69
+  %70 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %69
   %71 = load ptr, ptr %70, align 8, !tbaa !11
   %72 = icmp eq ptr %.sroa.013.0.i.i.i.i, %71
   br i1 %72, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -17656,14 +17654,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %77 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %77, %68
   %78 = zext i32 %.018.i.i.i.i.i.i to i64
-  %79 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %78
+  %79 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !11
   %81 = icmp eq ptr %.sroa.013.0.i.i.i.i, %80
   br i1 %81, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %75, %62
   %82 = phi i64 [ %69, %62 ], [ %78, %75 ]
-  %83 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %82
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %82
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %85 = load ptr, ptr %84, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -17812,7 +17810,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %68 = add i32 %60, -1
   %.01826.i.i.i.i.i.i = and i32 %68, %67
   %69 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %70 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %69
+  %70 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %69
   %71 = load ptr, ptr %70, align 8, !tbaa !11
   %72 = icmp eq ptr %.sroa.013.0.i.i.i.i, %71
   br i1 %72, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -17829,14 +17827,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %77 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %77, %68
   %78 = zext i32 %.018.i.i.i.i.i.i to i64
-  %79 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %78
+  %79 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !11
   %81 = icmp eq ptr %.sroa.013.0.i.i.i.i, %80
   br i1 %81, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %75, %62
   %82 = phi i64 [ %69, %62 ], [ %78, %75 ]
-  %83 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %82
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %82
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %85 = load ptr, ptr %84, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -17985,7 +17983,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %68 = add i32 %60, -1
   %.01826.i.i.i.i.i.i = and i32 %68, %67
   %69 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %70 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %69
+  %70 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %69
   %71 = load ptr, ptr %70, align 8, !tbaa !11
   %72 = icmp eq ptr %.sroa.013.0.i.i.i.i, %71
   br i1 %72, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -18002,14 +18000,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %77 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %77, %68
   %78 = zext i32 %.018.i.i.i.i.i.i to i64
-  %79 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %78
+  %79 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !11
   %81 = icmp eq ptr %.sroa.013.0.i.i.i.i, %80
   br i1 %81, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %75, %62
   %82 = phi i64 [ %69, %62 ], [ %78, %75 ]
-  %83 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %82
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %82
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %85 = load ptr, ptr %84, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -18158,7 +18156,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %68 = add i32 %60, -1
   %.01826.i.i.i.i.i.i = and i32 %68, %67
   %69 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %70 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %69
+  %70 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %69
   %71 = load ptr, ptr %70, align 8, !tbaa !11
   %72 = icmp eq ptr %.sroa.013.0.i.i.i.i, %71
   br i1 %72, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -18175,14 +18173,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %77 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %77, %68
   %78 = zext i32 %.018.i.i.i.i.i.i to i64
-  %79 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %78
+  %79 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !11
   %81 = icmp eq ptr %.sroa.013.0.i.i.i.i, %80
   br i1 %81, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %75, %62
   %82 = phi i64 [ %69, %62 ], [ %78, %75 ]
-  %83 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %82
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %82
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %85 = load ptr, ptr %84, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -18331,7 +18329,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %68 = add i32 %60, -1
   %.01826.i.i.i.i.i.i = and i32 %68, %67
   %69 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %70 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %69
+  %70 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %69
   %71 = load ptr, ptr %70, align 8, !tbaa !11
   %72 = icmp eq ptr %.sroa.013.0.i.i.i.i, %71
   br i1 %72, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -18348,14 +18346,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %77 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %77, %68
   %78 = zext i32 %.018.i.i.i.i.i.i to i64
-  %79 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %78
+  %79 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !11
   %81 = icmp eq ptr %.sroa.013.0.i.i.i.i, %80
   br i1 %81, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %75, %62
   %82 = phi i64 [ %69, %62 ], [ %78, %75 ]
-  %83 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %82
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %82
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %85 = load ptr, ptr %84, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -18504,7 +18502,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %68 = add i32 %60, -1
   %.01826.i.i.i.i.i.i = and i32 %68, %67
   %69 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %70 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %69
+  %70 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %69
   %71 = load ptr, ptr %70, align 8, !tbaa !11
   %72 = icmp eq ptr %.sroa.013.0.i.i.i.i, %71
   br i1 %72, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -18521,14 +18519,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %77 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %77, %68
   %78 = zext i32 %.018.i.i.i.i.i.i to i64
-  %79 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %78
+  %79 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !11
   %81 = icmp eq ptr %.sroa.013.0.i.i.i.i, %80
   br i1 %81, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %75, %62
   %82 = phi i64 [ %69, %62 ], [ %78, %75 ]
-  %83 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %82
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %82
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %85 = load ptr, ptr %84, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -18683,7 +18681,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %68 = add i32 %60, -1
   %.01826.i.i.i.i.i.i = and i32 %68, %67
   %69 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %70 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %69
+  %70 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %69
   %71 = load ptr, ptr %70, align 8, !tbaa !11
   %72 = icmp eq ptr %.sroa.0.0.i.i.i.i, %71
   br i1 %72, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -18700,14 +18698,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %77 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %77, %68
   %78 = zext i32 %.018.i.i.i.i.i.i to i64
-  %79 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %78
+  %79 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !11
   %81 = icmp eq ptr %.sroa.0.0.i.i.i.i, %80
   br i1 %81, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %75, %62
   %82 = phi i64 [ %69, %62 ], [ %78, %75 ]
-  %83 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %82
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %82
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %85 = load ptr, ptr %84, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -18860,7 +18858,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %67 = add i32 %59, -1
   %.01826.i.i.i.i.i.i = and i32 %67, %66
   %68 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %69 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %56, i64 %68
+  %69 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %68
   %70 = load ptr, ptr %69, align 8, !tbaa !11
   %71 = icmp eq ptr %.sroa.0.0.i.i.i.i, %70
   br i1 %71, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -18877,14 +18875,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %76 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %76, %67
   %77 = zext i32 %.018.i.i.i.i.i.i to i64
-  %78 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %56, i64 %77
+  %78 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %77
   %79 = load ptr, ptr %78, align 8, !tbaa !11
   %80 = icmp eq ptr %.sroa.0.0.i.i.i.i, %79
   br i1 %80, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %74, %61
   %81 = phi i64 [ %68, %61 ], [ %77, %74 ]
-  %82 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %56, i64 %81
+  %82 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %81
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load ptr, ptr %83, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -19033,7 +19031,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %68 = add i32 %60, -1
   %.01826.i.i.i.i.i.i = and i32 %68, %67
   %69 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %70 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %69
+  %70 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %69
   %71 = load ptr, ptr %70, align 8, !tbaa !11
   %72 = icmp eq ptr %.sroa.013.0.i.i.i.i, %71
   br i1 %72, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -19050,14 +19048,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %77 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %77, %68
   %78 = zext i32 %.018.i.i.i.i.i.i to i64
-  %79 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %78
+  %79 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !11
   %81 = icmp eq ptr %.sroa.013.0.i.i.i.i, %80
   br i1 %81, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %75, %62
   %82 = phi i64 [ %69, %62 ], [ %78, %75 ]
-  %83 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %82
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %82
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %85 = load ptr, ptr %84, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -19210,7 +19208,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %67 = add i32 %59, -1
   %.01826.i.i.i.i.i.i = and i32 %67, %66
   %68 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %69 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %56, i64 %68
+  %69 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %68
   %70 = load ptr, ptr %69, align 8, !tbaa !11
   %71 = icmp eq ptr %.sroa.0.0.i.i.i.i, %70
   br i1 %71, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -19227,14 +19225,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %76 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %76, %67
   %77 = zext i32 %.018.i.i.i.i.i.i to i64
-  %78 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %56, i64 %77
+  %78 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %77
   %79 = load ptr, ptr %78, align 8, !tbaa !11
   %80 = icmp eq ptr %.sroa.0.0.i.i.i.i, %79
   br i1 %80, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %74, %61
   %81 = phi i64 [ %68, %61 ], [ %77, %74 ]
-  %82 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %56, i64 %81
+  %82 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %81
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load ptr, ptr %83, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -19440,7 +19438,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %66 = add i32 %58, -1
   %.01826.i.i.i.i.i.i = and i32 %66, %65
   %67 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %68 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %55, i64 %67
+  %68 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %67
   %69 = load ptr, ptr %68, align 8, !tbaa !11
   %70 = icmp eq ptr %.sroa.0.0.i.i.i.i, %69
   br i1 %70, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -19457,14 +19455,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %75 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %75, %66
   %76 = zext i32 %.018.i.i.i.i.i.i to i64
-  %77 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %55, i64 %76
+  %77 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %76
   %78 = load ptr, ptr %77, align 8, !tbaa !11
   %79 = icmp eq ptr %.sroa.0.0.i.i.i.i, %78
   br i1 %79, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %73, %60
   %80 = phi i64 [ %67, %60 ], [ %76, %73 ]
-  %81 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %55, i64 %80
+  %81 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %80
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %83 = load ptr, ptr %82, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -19613,7 +19611,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %68 = add i32 %60, -1
   %.01826.i.i.i.i.i.i = and i32 %68, %67
   %69 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %70 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %69
+  %70 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %69
   %71 = load ptr, ptr %70, align 8, !tbaa !11
   %72 = icmp eq ptr %.sroa.013.0.i.i.i.i, %71
   br i1 %72, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -19630,14 +19628,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %77 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %77, %68
   %78 = zext i32 %.018.i.i.i.i.i.i to i64
-  %79 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %78
+  %79 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !11
   %81 = icmp eq ptr %.sroa.013.0.i.i.i.i, %80
   br i1 %81, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %75, %62
   %82 = phi i64 [ %69, %62 ], [ %78, %75 ]
-  %83 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %82
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %82
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %85 = load ptr, ptr %84, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -19786,7 +19784,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %68 = add i32 %60, -1
   %.01826.i.i.i.i.i.i = and i32 %68, %67
   %69 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %70 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %69
+  %70 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %69
   %71 = load ptr, ptr %70, align 8, !tbaa !11
   %72 = icmp eq ptr %.sroa.013.0.i.i.i.i, %71
   br i1 %72, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -19803,14 +19801,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %77 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %77, %68
   %78 = zext i32 %.018.i.i.i.i.i.i to i64
-  %79 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %78
+  %79 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !11
   %81 = icmp eq ptr %.sroa.013.0.i.i.i.i, %80
   br i1 %81, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %75, %62
   %82 = phi i64 [ %69, %62 ], [ %78, %75 ]
-  %83 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %82
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %82
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %85 = load ptr, ptr %84, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -19959,7 +19957,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %68 = add i32 %60, -1
   %.01826.i.i.i.i.i.i = and i32 %68, %67
   %69 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %70 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %69
+  %70 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %69
   %71 = load ptr, ptr %70, align 8, !tbaa !11
   %72 = icmp eq ptr %.sroa.013.0.i.i.i.i, %71
   br i1 %72, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -19976,14 +19974,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %77 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %77, %68
   %78 = zext i32 %.018.i.i.i.i.i.i to i64
-  %79 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %78
+  %79 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !11
   %81 = icmp eq ptr %.sroa.013.0.i.i.i.i, %80
   br i1 %81, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %75, %62
   %82 = phi i64 [ %69, %62 ], [ %78, %75 ]
-  %83 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %82
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %82
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %85 = load ptr, ptr %84, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -20132,7 +20130,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %68 = add i32 %60, -1
   %.01826.i.i.i.i.i.i = and i32 %68, %67
   %69 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %70 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %69
+  %70 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %69
   %71 = load ptr, ptr %70, align 8, !tbaa !11
   %72 = icmp eq ptr %.sroa.013.0.i.i.i.i, %71
   br i1 %72, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -20149,14 +20147,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %77 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %77, %68
   %78 = zext i32 %.018.i.i.i.i.i.i to i64
-  %79 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %78
+  %79 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !11
   %81 = icmp eq ptr %.sroa.013.0.i.i.i.i, %80
   br i1 %81, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %75, %62
   %82 = phi i64 [ %69, %62 ], [ %78, %75 ]
-  %83 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %82
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %82
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %85 = load ptr, ptr %84, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -20305,7 +20303,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %68 = add i32 %60, -1
   %.01826.i.i.i.i.i.i = and i32 %68, %67
   %69 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %70 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %69
+  %70 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %69
   %71 = load ptr, ptr %70, align 8, !tbaa !11
   %72 = icmp eq ptr %.sroa.013.0.i.i.i.i, %71
   br i1 %72, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -20322,14 +20320,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %77 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %77, %68
   %78 = zext i32 %.018.i.i.i.i.i.i to i64
-  %79 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %78
+  %79 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !11
   %81 = icmp eq ptr %.sroa.013.0.i.i.i.i, %80
   br i1 %81, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %75, %62
   %82 = phi i64 [ %69, %62 ], [ %78, %75 ]
-  %83 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %82
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %82
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %85 = load ptr, ptr %84, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -20408,7 +20406,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %.01229.i = phi i64 [ 0, %.preheader.i ], [ %40, %.thread24.i ]
   %29 = add i64 %.01229.i, %.01030.i
   %30 = lshr i64 %29, 1
-  %31 = getelementptr inbounds nuw %"struct.llvm::itanium_demangle::AbstractManglingParser<llvm::itanium_demangle::ManglingParser<(anonymous namespace)::CanonicalizerAllocator>, (anonymous namespace)::CanonicalizerAllocator>::OperatorInfo", ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E3OpsE, i64 %30
+  %31 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E3OpsE, i64 %30
   %.val15.i = load i8, ptr %31, align 16, !tbaa !91
   %32 = getelementptr i8, ptr %31, i64 1
   %.val16.i = load i8, ptr %32, align 1
@@ -20439,7 +20437,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br i1 %.not.i, label %42, label %28, !llvm.loop !355
 
 42:                                               ; preds = %.thread24.i
-  %43 = getelementptr inbounds nuw %"struct.llvm::itanium_demangle::AbstractManglingParser<llvm::itanium_demangle::ManglingParser<(anonymous namespace)::CanonicalizerAllocator>, (anonymous namespace)::CanonicalizerAllocator>::OperatorInfo", ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E3OpsE, i64 %40
+  %43 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E3OpsE, i64 %40
   %.val17.i = load i8, ptr %43, align 16, !tbaa !91
   %44 = icmp eq i8 %.val17.i, %26
   br i1 %44, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E12OperatorInfoneEPKc.exit.i, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E4lookEj.exit
@@ -20687,7 +20685,7 @@ _ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i: ; preds = %1
 _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i: ; preds = %164, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i
   %168 = phi ptr [ %165, %164 ], [ %159, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i ]
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 %154
-  %170 = getelementptr inbounds nuw ptr, ptr %168, i64 %155
+  %170 = getelementptr inbounds nuw [8 x i8], ptr %168, i64 %155
   store ptr %170, ptr %135, align 8, !tbaa !10
   br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit
 
@@ -20836,7 +20834,7 @@ _ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i211.us: ; pred
 _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i209.us: ; preds = %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i211.us, %239
   %247 = phi ptr [ %240, %239 ], [ %243, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i211.us ]
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 %235
-  %249 = getelementptr inbounds nuw ptr, ptr %247, i64 %236
+  %249 = getelementptr inbounds nuw [8 x i8], ptr %247, i64 %236
   store ptr %249, ptr %135, align 8, !tbaa !10
   br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit212.us
 
@@ -21025,7 +21023,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %346 = add i32 %338, -1
   %.01826.i.i.i.i.i.i.i = and i32 %346, %345
   %347 = zext nneg i32 %.01826.i.i.i.i.i.i.i to i64
-  %348 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %335, i64 %347
+  %348 = getelementptr inbounds nuw [16 x i8], ptr %335, i64 %347
   %349 = load ptr, ptr %348, align 8, !tbaa !11
   %350 = icmp eq ptr %.sroa.0.0.i.i.i.i.i, %349
   br i1 %350, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !prof !110
@@ -21042,14 +21040,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %355 = add i32 %.01627.i.i.i.i.i.i.i, %.01828.i.i.i.i.i.i.i
   %.018.i.i.i.i.i.i.i = and i32 %355, %346
   %356 = zext i32 %.018.i.i.i.i.i.i.i to i64
-  %357 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %335, i64 %356
+  %357 = getelementptr inbounds nuw [16 x i8], ptr %335, i64 %356
   %358 = load ptr, ptr %357, align 8, !tbaa !11
   %359 = icmp eq ptr %.sroa.0.0.i.i.i.i.i, %358
   br i1 %359, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i: ; preds = %353, %340
   %360 = phi i64 [ %347, %340 ], [ %356, %353 ]
-  %361 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %335, i64 %360
+  %361 = getelementptr inbounds nuw [16 x i8], ptr %335, i64 %360
   %362 = getelementptr inbounds nuw i8, ptr %361, i64 8
   %363 = load ptr, ptr %362, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i
@@ -21152,7 +21150,7 @@ _ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i220: ; preds =
 _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i218: ; preds = %410, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i220
   %414 = phi ptr [ %411, %410 ], [ %405, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i220 ]
   %415 = getelementptr inbounds nuw i8, ptr %414, i64 %400
-  %416 = getelementptr inbounds nuw ptr, ptr %414, i64 %401
+  %416 = getelementptr inbounds nuw [8 x i8], ptr %414, i64 %401
   store ptr %416, ptr %382, align 8, !tbaa !10
   br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit221
 
@@ -21270,7 +21268,7 @@ _ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i230.us: ; pred
 _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i228.us: ; preds = %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i230.us, %471
   %479 = phi ptr [ %472, %471 ], [ %475, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i230.us ]
   %480 = getelementptr inbounds nuw i8, ptr %479, i64 %467
-  %481 = getelementptr inbounds nuw ptr, ptr %479, i64 %468
+  %481 = getelementptr inbounds nuw [8 x i8], ptr %479, i64 %468
   store ptr %481, ptr %448, align 8, !tbaa !10
   br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit231.us
 
@@ -21351,7 +21349,7 @@ _ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i230: ; preds =
 _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i228: ; preds = %509, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i230
   %512 = phi ptr [ %510, %509 ], [ %505, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i230 ]
   %513 = getelementptr inbounds nuw i8, ptr %512, i64 %500
-  %514 = getelementptr inbounds nuw ptr, ptr %512, i64 %501
+  %514 = getelementptr inbounds nuw [8 x i8], ptr %512, i64 %501
   store ptr %514, ptr %488, align 8, !tbaa !10
   br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit231
 
@@ -21623,7 +21621,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %657 = add i32 %649, -1
   %.01826.i.i.i.i.i.i.i243 = and i32 %657, %656
   %658 = zext nneg i32 %.01826.i.i.i.i.i.i.i243 to i64
-  %659 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %646, i64 %658
+  %659 = getelementptr inbounds nuw [16 x i8], ptr %646, i64 %658
   %660 = load ptr, ptr %659, align 8, !tbaa !11
   %661 = icmp eq ptr %.sroa.0.0.i.i.i.i.i240, %660
   br i1 %661, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i248, label %.lr.ph.i.i.i.i.i.i.i244, !prof !110
@@ -21640,14 +21638,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %666 = add i32 %.01627.i.i.i.i.i.i.i246, %.01828.i.i.i.i.i.i.i245
   %.018.i.i.i.i.i.i.i247 = and i32 %666, %657
   %667 = zext i32 %.018.i.i.i.i.i.i.i247 to i64
-  %668 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %646, i64 %667
+  %668 = getelementptr inbounds nuw [16 x i8], ptr %646, i64 %667
   %669 = load ptr, ptr %668, align 8, !tbaa !11
   %670 = icmp eq ptr %.sroa.0.0.i.i.i.i.i240, %669
   br i1 %670, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i248, label %.lr.ph.i.i.i.i.i.i.i244, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i248: ; preds = %664, %651
   %671 = phi i64 [ %658, %651 ], [ %667, %664 ]
-  %672 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %646, i64 %671
+  %672 = getelementptr inbounds nuw [16 x i8], ptr %646, i64 %671
   %673 = getelementptr inbounds nuw i8, ptr %672, i64 8
   %674 = load ptr, ptr %673, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i249
@@ -21759,7 +21757,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   %.01229.i.i = phi i64 [ 0, %.preheader.i.i ], [ %718, %.thread24.i.i ]
   %707 = add i64 %.01229.i.i, %.01030.i.i
   %708 = lshr i64 %707, 1
-  %709 = getelementptr inbounds nuw %"struct.llvm::itanium_demangle::AbstractManglingParser<llvm::itanium_demangle::ManglingParser<(anonymous namespace)::CanonicalizerAllocator>, (anonymous namespace)::CanonicalizerAllocator>::OperatorInfo", ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E3OpsE, i64 %708
+  %709 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E3OpsE, i64 %708
   %.val15.i.i = load i8, ptr %709, align 16, !tbaa !91
   %710 = getelementptr i8, ptr %709, i64 1
   %.val16.i.i = load i8, ptr %710, align 1
@@ -21790,7 +21788,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br i1 %.not.i23.i, label %720, label %706, !llvm.loop !355
 
 720:                                              ; preds = %.thread24.i.i
-  %721 = getelementptr inbounds nuw %"struct.llvm::itanium_demangle::AbstractManglingParser<llvm::itanium_demangle::ManglingParser<(anonymous namespace)::CanonicalizerAllocator>, (anonymous namespace)::CanonicalizerAllocator>::OperatorInfo", ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E3OpsE, i64 %718
+  %721 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E3OpsE, i64 %718
   %.val17.i.i = load i8, ptr %721, align 16, !tbaa !91
   %722 = icmp eq i8 %.val17.i.i, %704
   br i1 %722, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E12OperatorInfoneEPKc.exit.i.i, label %.critedge83
@@ -21921,7 +21919,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i.i.i.i.i.i: ; preds = %
   %777 = phi i32 [ %772, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclESt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i.i.i.i.i.i.i.i.i.i, %774 ]
   %778 = load ptr, ptr %2, align 8, !tbaa !59
   %779 = zext i32 %777 to i64
-  %780 = getelementptr inbounds nuw i32, ptr %778, i64 %779
+  %780 = getelementptr inbounds nuw [4 x i8], ptr %778, i64 %779
   store i32 %771, ptr %780, align 1
   %781 = load i32, ptr %761, align 8, !tbaa !60
   %782 = add i32 %781, 1
@@ -21943,7 +21941,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %789 = trunc nuw i64 %788 to i32
   %790 = load ptr, ptr %2, align 8, !tbaa !59
   %791 = zext i32 %787 to i64
-  %792 = getelementptr inbounds nuw i32, ptr %790, i64 %791
+  %792 = getelementptr inbounds nuw [4 x i8], ptr %790, i64 %791
   store i32 %789, ptr %792, align 1
   %793 = load i32, ptr %761, align 8, !tbaa !60
   %794 = add i32 %793, 1
@@ -21965,7 +21963,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i18.i.i.i.i.i.i.i: ; preds =
   %801 = phi i32 [ %794, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.exit.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i.i.i17.i.i.i.i.i.i.i, %798 ]
   %802 = load ptr, ptr %2, align 8, !tbaa !59
   %803 = zext i32 %801 to i64
-  %804 = getelementptr inbounds nuw i32, ptr %802, i64 %803
+  %804 = getelementptr inbounds nuw [4 x i8], ptr %802, i64 %803
   store i32 %796, ptr %804, align 1
   %805 = load i32, ptr %761, align 8, !tbaa !60
   %806 = add i32 %805, 1
@@ -21987,7 +21985,7 @@ _ZN12_GLOBAL__N_111profileCtorIJbSt17basic_string_viewIcSt11char_traitsIcEEPN4ll
   %813 = trunc nuw i64 %812 to i32
   %814 = load ptr, ptr %2, align 8, !tbaa !59
   %815 = zext i32 %811 to i64
-  %816 = getelementptr inbounds nuw i32, ptr %814, i64 %815
+  %816 = getelementptr inbounds nuw [4 x i8], ptr %814, i64 %815
   store i32 %813, ptr %816, align 1
   %817 = load i32, ptr %761, align 8, !tbaa !60
   %818 = add i32 %817, 1
@@ -22106,7 +22104,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %877 = add i32 %869, -1
   %.01826.i.i.i.i.i.i.i.i = and i32 %877, %876
   %878 = zext nneg i32 %.01826.i.i.i.i.i.i.i.i to i64
-  %879 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %866, i64 %878
+  %879 = getelementptr inbounds nuw [16 x i8], ptr %866, i64 %878
   %880 = load ptr, ptr %879, align 8, !tbaa !11
   %881 = icmp eq ptr %.sroa.0.0.i.i.i.i.i.i, %880
   br i1 %881, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !prof !110
@@ -22123,14 +22121,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %886 = add i32 %.01627.i.i.i.i.i.i.i.i, %.01828.i.i.i.i.i.i.i.i
   %.018.i.i.i.i.i.i.i.i = and i32 %886, %877
   %887 = zext i32 %.018.i.i.i.i.i.i.i.i to i64
-  %888 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %866, i64 %887
+  %888 = getelementptr inbounds nuw [16 x i8], ptr %866, i64 %887
   %889 = load ptr, ptr %888, align 8, !tbaa !11
   %890 = icmp eq ptr %.sroa.0.0.i.i.i.i.i.i, %889
   br i1 %890, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i.i: ; preds = %884, %871
   %891 = phi i64 [ %878, %871 ], [ %887, %884 ]
-  %892 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %866, i64 %891
+  %892 = getelementptr inbounds nuw [16 x i8], ptr %866, i64 %891
   %893 = getelementptr inbounds nuw i8, ptr %892, i64 8
   %894 = load ptr, ptr %893, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i.i
@@ -22235,7 +22233,7 @@ _ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i283: ; preds =
 _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i281: ; preds = %940, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i283
   %944 = phi ptr [ %941, %940 ], [ %935, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i283 ]
   %945 = getelementptr inbounds nuw i8, ptr %944, i64 %930
-  %946 = getelementptr inbounds nuw ptr, ptr %944, i64 %931
+  %946 = getelementptr inbounds nuw [8 x i8], ptr %944, i64 %931
   store ptr %946, ptr %912, align 8, !tbaa !10
   br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit284
 
@@ -22674,7 +22672,7 @@ _ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i981: ; preds =
 _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i979: ; preds = %1143, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i981
   %1147 = phi ptr [ %1144, %1143 ], [ %1138, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i981 ]
   %1148 = getelementptr inbounds nuw i8, ptr %1147, i64 %1133
-  %1149 = getelementptr inbounds nuw ptr, ptr %1147, i64 %1134
+  %1149 = getelementptr inbounds nuw [8 x i8], ptr %1147, i64 %1134
   store ptr %1149, ptr %1104, align 8, !tbaa !10
   br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit982
 
@@ -22843,7 +22841,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %73 = add i32 %65, -1
   %.01826.i.i.i.i.i.i = and i32 %73, %72
   %74 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %75 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %62, i64 %74
+  %75 = getelementptr inbounds nuw [16 x i8], ptr %62, i64 %74
   %76 = load ptr, ptr %75, align 8, !tbaa !11
   %77 = icmp eq ptr %.sroa.0.0.i.i.i.i, %76
   br i1 %77, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -22860,14 +22858,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %82 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %82, %73
   %83 = zext i32 %.018.i.i.i.i.i.i to i64
-  %84 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %62, i64 %83
+  %84 = getelementptr inbounds nuw [16 x i8], ptr %62, i64 %83
   %85 = load ptr, ptr %84, align 8, !tbaa !11
   %86 = icmp eq ptr %.sroa.0.0.i.i.i.i, %85
   br i1 %86, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %80, %67
   %87 = phi i64 [ %74, %67 ], [ %83, %80 ]
-  %88 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %62, i64 %87
+  %88 = getelementptr inbounds nuw [16 x i8], ptr %62, i64 %87
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %90 = load ptr, ptr %89, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -23022,7 +23020,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %68 = add i32 %60, -1
   %.01826.i.i.i.i.i.i = and i32 %68, %67
   %69 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %70 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %69
+  %70 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %69
   %71 = load ptr, ptr %70, align 8, !tbaa !11
   %72 = icmp eq ptr %.sroa.0.0.i.i.i.i, %71
   br i1 %72, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -23039,14 +23037,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %77 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %77, %68
   %78 = zext i32 %.018.i.i.i.i.i.i to i64
-  %79 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %78
+  %79 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !11
   %81 = icmp eq ptr %.sroa.0.0.i.i.i.i, %80
   br i1 %81, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %75, %62
   %82 = phi i64 [ %69, %62 ], [ %78, %75 ]
-  %83 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %82
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %82
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %85 = load ptr, ptr %84, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -23246,7 +23244,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %92 = add i32 %84, -1
   %.01826.i.i.i.i.i.i.i = and i32 %92, %91
   %93 = zext nneg i32 %.01826.i.i.i.i.i.i.i to i64
-  %94 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %81, i64 %93
+  %94 = getelementptr inbounds nuw [16 x i8], ptr %81, i64 %93
   %95 = load ptr, ptr %94, align 8, !tbaa !11
   %96 = icmp eq ptr %.sroa.04.0.i.i.i.i.i, %95
   br i1 %96, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !prof !110
@@ -23263,14 +23261,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %101 = add i32 %.01627.i.i.i.i.i.i.i, %.01828.i.i.i.i.i.i.i
   %.018.i.i.i.i.i.i.i = and i32 %101, %92
   %102 = zext i32 %.018.i.i.i.i.i.i.i to i64
-  %103 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %81, i64 %102
+  %103 = getelementptr inbounds nuw [16 x i8], ptr %81, i64 %102
   %104 = load ptr, ptr %103, align 8, !tbaa !11
   %105 = icmp eq ptr %.sroa.04.0.i.i.i.i.i, %104
   br i1 %105, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i: ; preds = %99, %86
   %106 = phi i64 [ %93, %86 ], [ %102, %99 ]
-  %107 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %81, i64 %106
+  %107 = getelementptr inbounds nuw [16 x i8], ptr %81, i64 %106
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %109 = load ptr, ptr %108, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i
@@ -23575,7 +23573,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %132 = add i32 %124, -1
   %.01826.i.i.i.i.i.i.i = and i32 %132, %131
   %133 = zext nneg i32 %.01826.i.i.i.i.i.i.i to i64
-  %134 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %121, i64 %133
+  %134 = getelementptr inbounds nuw [16 x i8], ptr %121, i64 %133
   %135 = load ptr, ptr %134, align 8, !tbaa !11
   %136 = icmp eq ptr %.sroa.0.0.i.i.i.i.i, %135
   br i1 %136, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !prof !110
@@ -23592,14 +23590,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %141 = add i32 %.01627.i.i.i.i.i.i.i, %.01828.i.i.i.i.i.i.i
   %.018.i.i.i.i.i.i.i = and i32 %141, %132
   %142 = zext i32 %.018.i.i.i.i.i.i.i to i64
-  %143 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %121, i64 %142
+  %143 = getelementptr inbounds nuw [16 x i8], ptr %121, i64 %142
   %144 = load ptr, ptr %143, align 8, !tbaa !11
   %145 = icmp eq ptr %.sroa.0.0.i.i.i.i.i, %144
   br i1 %145, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i: ; preds = %139, %126
   %146 = phi i64 [ %133, %126 ], [ %142, %139 ]
-  %147 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %121, i64 %146
+  %147 = getelementptr inbounds nuw [16 x i8], ptr %121, i64 %146
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 8
   %149 = load ptr, ptr %148, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i
@@ -23745,7 +23743,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %66 = add i32 %58, -1
   %.01826.i.i.i.i.i.i = and i32 %66, %65
   %67 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %68 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %55, i64 %67
+  %68 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %67
   %69 = load ptr, ptr %68, align 8, !tbaa !11
   %70 = icmp eq ptr %.sroa.0.0.i.i.i.i, %69
   br i1 %70, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -23762,14 +23760,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %75 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %75, %66
   %76 = zext i32 %.018.i.i.i.i.i.i to i64
-  %77 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %55, i64 %76
+  %77 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %76
   %78 = load ptr, ptr %77, align 8, !tbaa !11
   %79 = icmp eq ptr %.sroa.0.0.i.i.i.i, %78
   br i1 %79, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %73, %60
   %80 = phi i64 [ %67, %60 ], [ %76, %73 ]
-  %81 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %55, i64 %80
+  %81 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %80
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %83 = load ptr, ptr %82, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -23957,7 +23955,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %83 = add i32 %75, -1
   %.01826.i.i.i.i.i.i.i = and i32 %83, %82
   %84 = zext nneg i32 %.01826.i.i.i.i.i.i.i to i64
-  %85 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %72, i64 %84
+  %85 = getelementptr inbounds nuw [16 x i8], ptr %72, i64 %84
   %86 = load ptr, ptr %85, align 8, !tbaa !11
   %87 = icmp eq ptr %.sroa.0.0.i.i.i.i.i, %86
   br i1 %87, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !prof !110
@@ -23974,14 +23972,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %92 = add i32 %.01627.i.i.i.i.i.i.i, %.01828.i.i.i.i.i.i.i
   %.018.i.i.i.i.i.i.i = and i32 %92, %83
   %93 = zext i32 %.018.i.i.i.i.i.i.i to i64
-  %94 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %72, i64 %93
+  %94 = getelementptr inbounds nuw [16 x i8], ptr %72, i64 %93
   %95 = load ptr, ptr %94, align 8, !tbaa !11
   %96 = icmp eq ptr %.sroa.0.0.i.i.i.i.i, %95
   br i1 %96, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i: ; preds = %90, %77
   %97 = phi i64 [ %84, %77 ], [ %93, %90 ]
-  %98 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %72, i64 %97
+  %98 = getelementptr inbounds nuw [16 x i8], ptr %72, i64 %97
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %100 = load ptr, ptr %99, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i
@@ -24259,7 +24257,7 @@ _ZSt4copyIPPN4llvm16itanium_demangle24ForwardTemplateReferenceES4_ET0_T_S6_S5_.e
 _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_24ForwardTemplateReferenceELm4EE7reserveEm.exit.i: ; preds = %114, %_ZSt4copyIPPN4llvm16itanium_demangle24ForwardTemplateReferenceES4_ET0_T_S6_S5_.exit.i.i
   %118 = phi ptr [ %115, %114 ], [ %109, %_ZSt4copyIPPN4llvm16itanium_demangle24ForwardTemplateReferenceES4_ET0_T_S6_S5_.exit.i.i ]
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 %103
-  %120 = getelementptr inbounds nuw ptr, ptr %118, i64 %104
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %118, i64 %104
   store ptr %120, ptr %96, align 8, !tbaa !28
   br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_24ForwardTemplateReferenceELm4EE9push_backERKS3_.exit
 
@@ -24283,7 +24281,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_24ForwardTemplateReferenceELm4EE
   br i1 %.not, label %132, label %143
 
 132:                                              ; preds = %123
-  %133 = getelementptr inbounds nuw ptr, ptr %127, i64 %.051
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %127, i64 %.051
   %134 = load ptr, ptr %133, align 8, !tbaa !22
   %.not10 = icmp eq ptr %134, null
   br i1 %.not10, label %143, label %135
@@ -24323,7 +24321,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_24ForwardTemplateReferenceELm4EE
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit.thread
 
 152:                                              ; preds = %135
-  %153 = getelementptr inbounds nuw ptr, ptr %138, i64 %.054
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %138, i64 %.054
   %154 = load ptr, ptr %153, align 8, !tbaa !11
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit.thread
 
@@ -24386,7 +24384,7 @@ _ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i: ; preds = %22,
 _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit: ; preds = %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i, %23
   %27 = phi ptr [ %24, %23 ], [ %18, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i ]
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 %12
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %13
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %13
   store ptr %29, ptr %5, align 8, !tbaa !10
   br label %30
 
@@ -24590,7 +24588,7 @@ _ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i.us: ; preds =
 _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i.us: ; preds = %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i.us, %109
   %117 = phi ptr [ %110, %109 ], [ %113, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i.us ]
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 %105
-  %119 = getelementptr inbounds nuw ptr, ptr %117, i64 %106
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %106
   store ptr %119, ptr %68, align 8, !tbaa !10
   br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit.us
 
@@ -24709,7 +24707,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %169 = add i32 %161, -1
   %.01826.i.i.i.i.i.i.i.us = and i32 %169, %168
   %170 = zext nneg i32 %.01826.i.i.i.i.i.i.i.us to i64
-  %171 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %159, i64 %170
+  %171 = getelementptr inbounds nuw [16 x i8], ptr %159, i64 %170
   %172 = load ptr, ptr %171, align 8, !tbaa !11
   %173 = icmp eq ptr %.sroa.0.0.i.i.i.i.i.us, %172
   br i1 %173, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i.us, label %.lr.ph.i.i.i.i.i.i.i.us, !prof !110
@@ -24726,14 +24724,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %178 = add i32 %.01627.i.i.i.i.i.i.i.us, %.01828.i.i.i.i.i.i.i.us
   %.018.i.i.i.i.i.i.i.us = and i32 %178, %169
   %179 = zext i32 %.018.i.i.i.i.i.i.i.us to i64
-  %180 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %159, i64 %179
+  %180 = getelementptr inbounds nuw [16 x i8], ptr %159, i64 %179
   %181 = load ptr, ptr %180, align 8, !tbaa !11
   %182 = icmp eq ptr %.sroa.0.0.i.i.i.i.i.us, %181
   br i1 %182, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i.us, label %.lr.ph.i.i.i.i.i.i.i.us, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i.us: ; preds = %176, %163
   %183 = phi i64 [ %170, %163 ], [ %179, %176 ]
-  %184 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %159, i64 %183
+  %184 = getelementptr inbounds nuw [16 x i8], ptr %159, i64 %183
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 8
   %186 = load ptr, ptr %185, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i.us
@@ -24807,7 +24805,7 @@ _ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i26.us: ; preds
 _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EE7reserveEm.exit.i.us: ; preds = %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i26.us, %205
   %213 = phi ptr [ %206, %205 ], [ %209, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i26.us ]
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 %201
-  %215 = getelementptr inbounds nuw ptr, ptr %213, i64 %202
+  %215 = getelementptr inbounds nuw [8 x i8], ptr %213, i64 %202
   store ptr %215, ptr %87, align 8, !tbaa !16
   br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EE9push_backERKS3_.exit.us
 
@@ -24910,7 +24908,7 @@ _ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i29: ; preds = 
 _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i27: ; preds = %247, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i29
   %251 = phi ptr [ %248, %247 ], [ %242, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i29 ]
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 %237
-  %253 = getelementptr inbounds nuw ptr, ptr %251, i64 %238
+  %253 = getelementptr inbounds nuw [8 x i8], ptr %251, i64 %238
   store ptr %253, ptr %43, align 8, !tbaa !10
   br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit30
 
@@ -25146,7 +25144,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %379 = add i32 %371, -1
   %.01826.i.i.i.i.i.i.i43 = and i32 %379, %378
   %380 = zext nneg i32 %.01826.i.i.i.i.i.i.i43 to i64
-  %381 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %369, i64 %380
+  %381 = getelementptr inbounds nuw [16 x i8], ptr %369, i64 %380
   %382 = load ptr, ptr %381, align 8, !tbaa !11
   %383 = icmp eq ptr %.sroa.0.0.i.i.i.i.i40, %382
   br i1 %383, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i48, label %.lr.ph.i.i.i.i.i.i.i44, !prof !110
@@ -25163,14 +25161,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %388 = add i32 %.01627.i.i.i.i.i.i.i46, %.01828.i.i.i.i.i.i.i45
   %.018.i.i.i.i.i.i.i47 = and i32 %388, %379
   %389 = zext i32 %.018.i.i.i.i.i.i.i47 to i64
-  %390 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %369, i64 %389
+  %390 = getelementptr inbounds nuw [16 x i8], ptr %369, i64 %389
   %391 = load ptr, ptr %390, align 8, !tbaa !11
   %392 = icmp eq ptr %.sroa.0.0.i.i.i.i.i40, %391
   br i1 %392, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i48, label %.lr.ph.i.i.i.i.i.i.i44, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i48: ; preds = %386, %373
   %393 = phi i64 [ %380, %373 ], [ %389, %386 ]
-  %394 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %369, i64 %393
+  %394 = getelementptr inbounds nuw [16 x i8], ptr %369, i64 %393
   %395 = getelementptr inbounds nuw i8, ptr %394, i64 8
   %396 = load ptr, ptr %395, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i49
@@ -25318,7 +25316,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %70 = add i32 %62, -1
   %.01826.i.i.i.i.i.i = and i32 %70, %69
   %71 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %72 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %59, i64 %71
+  %72 = getelementptr inbounds nuw [16 x i8], ptr %59, i64 %71
   %73 = load ptr, ptr %72, align 8, !tbaa !11
   %74 = icmp eq ptr %.sroa.0.0.i.i.i.i, %73
   br i1 %74, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -25335,14 +25333,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %79 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %79, %70
   %80 = zext i32 %.018.i.i.i.i.i.i to i64
-  %81 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %59, i64 %80
+  %81 = getelementptr inbounds nuw [16 x i8], ptr %59, i64 %80
   %82 = load ptr, ptr %81, align 8, !tbaa !11
   %83 = icmp eq ptr %.sroa.0.0.i.i.i.i, %82
   br i1 %83, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %77, %64
   %84 = phi i64 [ %71, %64 ], [ %80, %77 ]
-  %85 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %59, i64 %84
+  %85 = getelementptr inbounds nuw [16 x i8], ptr %59, i64 %84
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %87 = load ptr, ptr %86, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -25492,7 +25490,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %70 = add i32 %62, -1
   %.01826.i.i.i.i.i.i = and i32 %70, %69
   %71 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %72 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %59, i64 %71
+  %72 = getelementptr inbounds nuw [16 x i8], ptr %59, i64 %71
   %73 = load ptr, ptr %72, align 8, !tbaa !11
   %74 = icmp eq ptr %.sroa.0.0.i.i.i.i, %73
   br i1 %74, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -25509,14 +25507,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %79 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %79, %70
   %80 = zext i32 %.018.i.i.i.i.i.i to i64
-  %81 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %59, i64 %80
+  %81 = getelementptr inbounds nuw [16 x i8], ptr %59, i64 %80
   %82 = load ptr, ptr %81, align 8, !tbaa !11
   %83 = icmp eq ptr %.sroa.0.0.i.i.i.i, %82
   br i1 %83, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %77, %64
   %84 = phi i64 [ %71, %64 ], [ %80, %77 ]
-  %85 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %59, i64 %84
+  %85 = getelementptr inbounds nuw [16 x i8], ptr %59, i64 %84
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %87 = load ptr, ptr %86, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -25680,7 +25678,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %78 = add i32 %70, -1
   %.01826.i.i.i.i.i.i = and i32 %78, %77
   %79 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %80 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %67, i64 %79
+  %80 = getelementptr inbounds nuw [16 x i8], ptr %67, i64 %79
   %81 = load ptr, ptr %80, align 8, !tbaa !11
   %82 = icmp eq ptr %.sroa.0.0.i.i.i.i, %81
   br i1 %82, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -25697,14 +25695,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %87 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %87, %78
   %88 = zext i32 %.018.i.i.i.i.i.i to i64
-  %89 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %67, i64 %88
+  %89 = getelementptr inbounds nuw [16 x i8], ptr %67, i64 %88
   %90 = load ptr, ptr %89, align 8, !tbaa !11
   %91 = icmp eq ptr %.sroa.0.0.i.i.i.i, %90
   br i1 %91, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %85, %72
   %92 = phi i64 [ %79, %72 ], [ %88, %85 ]
-  %93 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %67, i64 %92
+  %93 = getelementptr inbounds nuw [16 x i8], ptr %67, i64 %92
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %95 = load ptr, ptr %94, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -25854,7 +25852,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %67 = add i32 %59, -1
   %.01826.i.i.i.i.i.i = and i32 %67, %66
   %68 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %69 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %56, i64 %68
+  %69 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %68
   %70 = load ptr, ptr %69, align 8, !tbaa !11
   %71 = icmp eq ptr %.sroa.04.0.i.i.i.i, %70
   br i1 %71, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -25871,14 +25869,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %76 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %76, %67
   %77 = zext i32 %.018.i.i.i.i.i.i to i64
-  %78 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %56, i64 %77
+  %78 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %77
   %79 = load ptr, ptr %78, align 8, !tbaa !11
   %80 = icmp eq ptr %.sroa.04.0.i.i.i.i, %79
   br i1 %80, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %74, %61
   %81 = phi i64 [ %68, %61 ], [ %77, %74 ]
-  %82 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %56, i64 %81
+  %82 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %81
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load ptr, ptr %83, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -26028,7 +26026,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %67 = add i32 %59, -1
   %.01826.i.i.i.i.i.i = and i32 %67, %66
   %68 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %69 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %56, i64 %68
+  %69 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %68
   %70 = load ptr, ptr %69, align 8, !tbaa !11
   %71 = icmp eq ptr %.sroa.04.0.i.i.i.i, %70
   br i1 %71, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -26045,14 +26043,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %76 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %76, %67
   %77 = zext i32 %.018.i.i.i.i.i.i to i64
-  %78 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %56, i64 %77
+  %78 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %77
   %79 = load ptr, ptr %78, align 8, !tbaa !11
   %80 = icmp eq ptr %.sroa.04.0.i.i.i.i, %79
   br i1 %80, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %74, %61
   %81 = phi i64 [ %68, %61 ], [ %77, %74 ]
-  %82 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %56, i64 %81
+  %82 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %81
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load ptr, ptr %83, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -26149,7 +26147,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
 define internal fastcc { ptr, i64 } @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E20popTrailingNodeArrayEm(ptr noundef nonnull align 8 dereferenceable(1464) %0, i64 noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !3
-  %5 = getelementptr inbounds ptr, ptr %4, i64 %1
+  %5 = getelementptr inbounds [8 x i8], ptr %4, i64 %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !9
   %8 = ptrtoint ptr %7 to i64
@@ -26197,7 +26195,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %.fca.0.insert.i = insertvalue { ptr, i64 } poison, ptr %.0.i.i.i.i, 0
   %.fca.1.insert.i = insertvalue { ptr, i64 } %.fca.0.insert.i, i64 %31, 1
   %32 = load ptr, ptr %3, align 8, !tbaa !3
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %1
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %1
   store ptr %33, ptr %6, align 8, !tbaa !9
   ret { ptr, i64 } %.fca.1.insert.i
 }
@@ -26575,7 +26573,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16
 _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i, %.lr.ph.i
   %54 = phi i64 [ %53, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i ], [ %38, %.lr.ph.i ]
   %55 = load ptr, ptr %35, align 8, !tbaa !371
-  %56 = getelementptr inbounds nuw ptr, ptr %55, i64 %.01214.i
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %.01214.i
   %57 = load ptr, ptr %56, align 8, !tbaa !11
   tail call void @_ZNK4llvm16itanium_demangle4Node14printAsOperandERNS0_12OutputBufferENS1_4PrecEb(ptr noundef nonnull align 8 dereferenceable(11) %57, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 18, i1 noundef zeroext false)
   %58 = load i64, ptr %3, align 8, !tbaa !349
@@ -26791,7 +26789,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16
 _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i, %.lr.ph.i
   %40 = phi i64 [ %39, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i ], [ %24, %.lr.ph.i ]
   %41 = load ptr, ptr %21, align 8, !tbaa !371
-  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %.01214.i
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %.01214.i
   %43 = load ptr, ptr %42, align 8, !tbaa !11
   tail call void @_ZNK4llvm16itanium_demangle4Node14printAsOperandERNS0_12OutputBufferENS1_4PrecEb(ptr noundef nonnull align 8 dereferenceable(11) %43, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 18, i1 noundef zeroext false)
   %44 = load i64, ptr %6, align 8, !tbaa !349
@@ -27919,7 +27917,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i11.i.i.i.i.i: ; preds = %20, %_
   %23 = phi i32 [ %18, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclESt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i.i.i.i ], [ %.pre.i.i.i.i10.i.i.i.i.i, %20 ]
   %24 = load ptr, ptr %3, align 8, !tbaa !59
   %25 = zext i32 %23 to i64
-  %26 = getelementptr inbounds nuw i32, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %25
   store i32 %.0.val1, ptr %26, align 1
   %27 = load i32, ptr %10, align 8, !tbaa !60
   %28 = add i32 %27, 1
@@ -27940,7 +27938,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeESt17basic_string_
   %34 = ashr i32 %.0.val1, 31
   %35 = load ptr, ptr %3, align 8, !tbaa !59
   %36 = zext i32 %33 to i64
-  %37 = getelementptr inbounds nuw i32, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %36
   store i32 %34, ptr %37, align 1
   %38 = load i32, ptr %10, align 8, !tbaa !60
   %39 = add i32 %38, 1
@@ -28060,7 +28058,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %99 = add i32 %91, -1
   %.01826.i.i.i.i.i.i = and i32 %99, %98
   %100 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %101 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %88, i64 %100
+  %101 = getelementptr inbounds nuw [16 x i8], ptr %88, i64 %100
   %102 = load ptr, ptr %101, align 8, !tbaa !11
   %103 = icmp eq ptr %.sroa.0.0.i.i.i.i, %102
   br i1 %103, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -28077,14 +28075,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %108 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %108, %99
   %109 = zext i32 %.018.i.i.i.i.i.i to i64
-  %110 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %88, i64 %109
+  %110 = getelementptr inbounds nuw [16 x i8], ptr %88, i64 %109
   %111 = load ptr, ptr %110, align 8, !tbaa !11
   %112 = icmp eq ptr %.sroa.0.0.i.i.i.i, %111
   br i1 %112, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %106, %93
   %113 = phi i64 [ %100, %93 ], [ %109, %106 ]
-  %114 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %88, i64 %113
+  %114 = getelementptr inbounds nuw [16 x i8], ptr %88, i64 %113
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %116 = load ptr, ptr %115, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -28248,7 +28246,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %78 = add i32 %70, -1
   %.01826.i.i.i.i.i.i = and i32 %78, %77
   %79 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %80 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %67, i64 %79
+  %80 = getelementptr inbounds nuw [16 x i8], ptr %67, i64 %79
   %81 = load ptr, ptr %80, align 8, !tbaa !11
   %82 = icmp eq ptr %.sroa.0.0.i.i.i.i, %81
   br i1 %82, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -28265,14 +28263,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %87 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %87, %78
   %88 = zext i32 %.018.i.i.i.i.i.i to i64
-  %89 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %67, i64 %88
+  %89 = getelementptr inbounds nuw [16 x i8], ptr %67, i64 %88
   %90 = load ptr, ptr %89, align 8, !tbaa !11
   %91 = icmp eq ptr %.sroa.0.0.i.i.i.i, %90
   br i1 %91, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %85, %72
   %92 = phi i64 [ %79, %72 ], [ %88, %85 ]
-  %93 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %67, i64 %92
+  %93 = getelementptr inbounds nuw [16 x i8], ptr %67, i64 %92
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %95 = load ptr, ptr %94, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -28432,7 +28430,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %72 = add i32 %64, -1
   %.01826.i.i.i.i.i.i = and i32 %72, %71
   %73 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %74 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %61, i64 %73
+  %74 = getelementptr inbounds nuw [16 x i8], ptr %61, i64 %73
   %75 = load ptr, ptr %74, align 8, !tbaa !11
   %76 = icmp eq ptr %.sroa.0.0.i.i.i.i, %75
   br i1 %76, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -28449,14 +28447,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %81 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %81, %72
   %82 = zext i32 %.018.i.i.i.i.i.i to i64
-  %83 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %61, i64 %82
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %61, i64 %82
   %84 = load ptr, ptr %83, align 8, !tbaa !11
   %85 = icmp eq ptr %.sroa.0.0.i.i.i.i, %84
   br i1 %85, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %79, %66
   %86 = phi i64 [ %73, %66 ], [ %82, %79 ]
-  %87 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %61, i64 %86
+  %87 = getelementptr inbounds nuw [16 x i8], ptr %61, i64 %86
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %89 = load ptr, ptr %88, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -28621,7 +28619,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %78 = add i32 %70, -1
   %.01826.i.i.i.i.i.i = and i32 %78, %77
   %79 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %80 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %67, i64 %79
+  %80 = getelementptr inbounds nuw [16 x i8], ptr %67, i64 %79
   %81 = load ptr, ptr %80, align 8, !tbaa !11
   %82 = icmp eq ptr %.sroa.031.0.i.i.i.i, %81
   br i1 %82, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -28638,14 +28636,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %87 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %87, %78
   %88 = zext i32 %.018.i.i.i.i.i.i to i64
-  %89 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %67, i64 %88
+  %89 = getelementptr inbounds nuw [16 x i8], ptr %67, i64 %88
   %90 = load ptr, ptr %89, align 8, !tbaa !11
   %91 = icmp eq ptr %.sroa.031.0.i.i.i.i, %90
   br i1 %91, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %85, %72
   %92 = phi i64 [ %79, %72 ], [ %88, %85 ]
-  %93 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %67, i64 %92
+  %93 = getelementptr inbounds nuw [16 x i8], ptr %67, i64 %92
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 8
   %95 = load ptr, ptr %94, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -28711,7 +28709,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i12.i.i.i.i.i: ; preds = %18, %1
   %21 = phi i32 [ %16, %1 ], [ %.pre.i.i.i.i11.i.i.i.i.i, %18 ]
   %22 = load ptr, ptr %3, align 8, !tbaa !59
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw i32, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %23
   store i32 %12, ptr %24, align 1
   %25 = load i32, ptr %10, align 8, !tbaa !60
   %26 = add i32 %25, 1
@@ -28731,7 +28729,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIbEENSt9enable_ifIXoosr3stdE13is_int
   %31 = phi i32 [ %26, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i12.i.i.i.i.i ], [ %.pre.i.i3.i.i14.i.i.i.i.i, %28 ]
   %32 = load ptr, ptr %3, align 8, !tbaa !59
   %33 = zext i32 %31 to i64
-  %34 = getelementptr inbounds nuw i32, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %33
   store i32 0, ptr %34, align 1
   %35 = load i32, ptr %10, align 8, !tbaa !60
   %36 = add i32 %35, 1
@@ -28751,7 +28749,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i17.i.i.i.i.i: ; preds = %38, %_
   %41 = phi i32 [ %36, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIbEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS3_EEvE4typeES3_.exit.i.i.i.i.i ], [ %.pre.i.i.i.i16.i.i.i.i.i, %38 ]
   %42 = load ptr, ptr %3, align 8, !tbaa !59
   %43 = zext i32 %41 to i64
-  %44 = getelementptr inbounds nuw i32, ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %43
   store i32 %.0.val5, ptr %44, align 1
   %45 = load i32, ptr %10, align 8, !tbaa !60
   %46 = add i32 %45, 1
@@ -28772,7 +28770,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeENS2_9NodeArrayEbN
   %52 = ashr i32 %.0.val5, 31
   %53 = load ptr, ptr %3, align 8, !tbaa !59
   %54 = zext i32 %51 to i64
-  %55 = getelementptr inbounds nuw i32, ptr %53, i64 %54
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %54
   store i32 %52, ptr %55, align 1
   %56 = load i32, ptr %10, align 8, !tbaa !60
   %57 = add i32 %56, 1
@@ -28893,7 +28891,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %118 = add i32 %110, -1
   %.01826.i.i.i.i.i.i = and i32 %118, %117
   %119 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %120 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %107, i64 %119
+  %120 = getelementptr inbounds nuw [16 x i8], ptr %107, i64 %119
   %121 = load ptr, ptr %120, align 8, !tbaa !11
   %122 = icmp eq ptr %.sroa.0.0.i.i.i.i, %121
   br i1 %122, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -28910,14 +28908,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %127 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %127, %118
   %128 = zext i32 %.018.i.i.i.i.i.i to i64
-  %129 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %107, i64 %128
+  %129 = getelementptr inbounds nuw [16 x i8], ptr %107, i64 %128
   %130 = load ptr, ptr %129, align 8, !tbaa !11
   %131 = icmp eq ptr %.sroa.0.0.i.i.i.i, %130
   br i1 %131, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %125, %112
   %132 = phi i64 [ %119, %112 ], [ %128, %125 ]
-  %133 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %107, i64 %132
+  %133 = getelementptr inbounds nuw [16 x i8], ptr %107, i64 %132
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 8
   %135 = load ptr, ptr %134, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -28985,7 +28983,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i10.i.i.i.i.i: ; preds = %18, %2
   %21 = phi i32 [ %16, %2 ], [ %.pre.i.i.i.i9.i.i.i.i.i, %18 ]
   %22 = load ptr, ptr %4, align 8, !tbaa !59
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw i32, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %23
   store i32 %.0.val1, ptr %24, align 1
   %25 = load i32, ptr %11, align 8, !tbaa !60
   %26 = add i32 %25, 1
@@ -29006,7 +29004,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeENS2_9NodeArrayENS
   %32 = ashr i32 %.0.val1, 31
   %33 = load ptr, ptr %4, align 8, !tbaa !59
   %34 = zext i32 %31 to i64
-  %35 = getelementptr inbounds nuw i32, ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %34
   store i32 %32, ptr %35, align 1
   %36 = load i32, ptr %11, align 8, !tbaa !60
   %37 = add i32 %36, 1
@@ -29127,7 +29125,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %97 = add i32 %89, -1
   %.01826.i.i.i.i.i.i = and i32 %97, %96
   %98 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %99 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %86, i64 %98
+  %99 = getelementptr inbounds nuw [16 x i8], ptr %86, i64 %98
   %100 = load ptr, ptr %99, align 8, !tbaa !11
   %101 = icmp eq ptr %.sroa.0.0.i.i.i.i, %100
   br i1 %101, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -29144,14 +29142,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %106 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %106, %97
   %107 = zext i32 %.018.i.i.i.i.i.i to i64
-  %108 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %86, i64 %107
+  %108 = getelementptr inbounds nuw [16 x i8], ptr %86, i64 %107
   %109 = load ptr, ptr %108, align 8, !tbaa !11
   %110 = icmp eq ptr %.sroa.0.0.i.i.i.i, %109
   br i1 %110, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %104, %91
   %111 = phi i64 [ %98, %91 ], [ %107, %104 ]
-  %112 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %86, i64 %111
+  %112 = getelementptr inbounds nuw [16 x i8], ptr %86, i64 %111
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %114 = load ptr, ptr %113, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -29320,7 +29318,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %81 = add i32 %73, -1
   %.01826.i.i.i.i.i.i = and i32 %81, %80
   %82 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %83 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %70, i64 %82
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %70, i64 %82
   %84 = load ptr, ptr %83, align 8, !tbaa !11
   %85 = icmp eq ptr %.sroa.0.0.i.i.i.i, %84
   br i1 %85, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -29337,14 +29335,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %90 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %90, %81
   %91 = zext i32 %.018.i.i.i.i.i.i to i64
-  %92 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %70, i64 %91
+  %92 = getelementptr inbounds nuw [16 x i8], ptr %70, i64 %91
   %93 = load ptr, ptr %92, align 8, !tbaa !11
   %94 = icmp eq ptr %.sroa.0.0.i.i.i.i, %93
   br i1 %94, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %88, %75
   %95 = phi i64 [ %82, %75 ], [ %91, %88 ]
-  %96 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %70, i64 %95
+  %96 = getelementptr inbounds nuw [16 x i8], ptr %70, i64 %95
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
   %98 = load ptr, ptr %97, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -29419,7 +29417,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i.i.i.i: ; preds = %20, 
   %23 = phi i32 [ %18, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclESt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i.i.i.i ], [ %.pre.i.i.i.i.i.i.i.i.i.i.i, %20 ]
   %24 = load ptr, ptr %3, align 8, !tbaa !59
   %25 = zext i32 %23 to i64
-  %26 = getelementptr inbounds nuw i32, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %25
   store i32 %17, ptr %26, align 1
   %27 = load i32, ptr %10, align 8, !tbaa !60
   %28 = add i32 %27, 1
@@ -29441,7 +29439,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %35 = trunc nuw i64 %34 to i32
   %36 = load ptr, ptr %3, align 8, !tbaa !59
   %37 = zext i32 %33 to i64
-  %38 = getelementptr inbounds nuw i32, ptr %36, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %37
   store i32 %35, ptr %38, align 1
   %39 = load i32, ptr %10, align 8, !tbaa !60
   %40 = add i32 %39, 1
@@ -29463,7 +29461,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i13.i.i.i.i.i: ; preds = %44
   %47 = phi i32 [ %40, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.exit.i.i.i.i.i ], [ %.pre.i.i.i.i.i.i12.i.i.i.i.i, %44 ]
   %48 = load ptr, ptr %3, align 8, !tbaa !59
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw i32, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %49
   store i32 %42, ptr %50, align 1
   %51 = load i32, ptr %10, align 8, !tbaa !60
   %52 = add i32 %51, 1
@@ -29485,7 +29483,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %59 = trunc nuw i64 %58 to i32
   %60 = load ptr, ptr %3, align 8, !tbaa !59
   %61 = zext i32 %57 to i64
-  %62 = getelementptr inbounds nuw i32, ptr %60, i64 %61
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %61
   store i32 %59, ptr %62, align 1
   %63 = load i32, ptr %10, align 8, !tbaa !60
   %64 = add i32 %63, 1
@@ -29505,7 +29503,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i19.i.i.i.i.i: ; preds = %66, %_
   %69 = phi i32 [ %64, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.exit16.i.i.i.i.i ], [ %.pre.i.i.i.i18.i.i.i.i.i, %66 ]
   %70 = load ptr, ptr %3, align 8, !tbaa !59
   %71 = zext i32 %69 to i64
-  %72 = getelementptr inbounds nuw i32, ptr %70, i64 %71
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %71
   store i32 %.0.val3, ptr %72, align 1
   %73 = load i32, ptr %10, align 8, !tbaa !60
   %74 = add i32 %73, 1
@@ -29526,7 +29524,7 @@ _ZN12_GLOBAL__N_111profileCtorIJSt17basic_string_viewIcSt11char_traitsIcEEPN4llv
   %80 = ashr i32 %.0.val3, 31
   %81 = load ptr, ptr %3, align 8, !tbaa !59
   %82 = zext i32 %79 to i64
-  %83 = getelementptr inbounds nuw i32, ptr %81, i64 %82
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %81, i64 %82
   store i32 %80, ptr %83, align 1
   %84 = load i32, ptr %10, align 8, !tbaa !60
   %85 = add i32 %84, 1
@@ -29648,7 +29646,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %146 = add i32 %138, -1
   %.01826.i.i.i.i.i.i = and i32 %146, %145
   %147 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %148 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %135, i64 %147
+  %148 = getelementptr inbounds nuw [16 x i8], ptr %135, i64 %147
   %149 = load ptr, ptr %148, align 8, !tbaa !11
   %150 = icmp eq ptr %.sroa.0.0.i.i.i.i, %149
   br i1 %150, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -29665,14 +29663,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %155 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %155, %146
   %156 = zext i32 %.018.i.i.i.i.i.i to i64
-  %157 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %135, i64 %156
+  %157 = getelementptr inbounds nuw [16 x i8], ptr %135, i64 %156
   %158 = load ptr, ptr %157, align 8, !tbaa !11
   %159 = icmp eq ptr %.sroa.0.0.i.i.i.i, %158
   br i1 %159, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %153, %140
   %160 = phi i64 [ %147, %140 ], [ %156, %153 ]
-  %161 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %135, i64 %160
+  %161 = getelementptr inbounds nuw [16 x i8], ptr %135, i64 %160
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 8
   %163 = load ptr, ptr %162, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -30024,7 +30022,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %152 = add i32 %144, -1
   %.01826.i.i.i.i.i.i.i.i = and i32 %152, %151
   %153 = zext nneg i32 %.01826.i.i.i.i.i.i.i.i to i64
-  %154 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %141, i64 %153
+  %154 = getelementptr inbounds nuw [16 x i8], ptr %141, i64 %153
   %155 = load ptr, ptr %154, align 8, !tbaa !11
   %156 = icmp eq ptr %.sroa.0.0.i.i.i.i.i.i, %155
   br i1 %156, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !prof !110
@@ -30041,14 +30039,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %161 = add i32 %.01627.i.i.i.i.i.i.i.i, %.01828.i.i.i.i.i.i.i.i
   %.018.i.i.i.i.i.i.i.i = and i32 %161, %152
   %162 = zext i32 %.018.i.i.i.i.i.i.i.i to i64
-  %163 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %141, i64 %162
+  %163 = getelementptr inbounds nuw [16 x i8], ptr %141, i64 %162
   %164 = load ptr, ptr %163, align 8, !tbaa !11
   %165 = icmp eq ptr %.sroa.0.0.i.i.i.i.i.i, %164
   br i1 %165, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i.i: ; preds = %159, %146
   %166 = phi i64 [ %153, %146 ], [ %162, %159 ]
-  %167 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %141, i64 %166
+  %167 = getelementptr inbounds nuw [16 x i8], ptr %141, i64 %166
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 8
   %169 = load ptr, ptr %168, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i.i
@@ -30228,7 +30226,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %254 = add i32 %246, -1
   %.01826.i.i.i.i.i.i.i.i36 = and i32 %254, %253
   %255 = zext nneg i32 %.01826.i.i.i.i.i.i.i.i36 to i64
-  %256 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %243, i64 %255
+  %256 = getelementptr inbounds nuw [16 x i8], ptr %243, i64 %255
   %257 = load ptr, ptr %256, align 8, !tbaa !11
   %258 = icmp eq ptr %.sroa.0.0.i.i.i.i.i.i33, %257
   br i1 %258, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i.i41, label %.lr.ph.i.i.i.i.i.i.i.i37, !prof !110
@@ -30245,14 +30243,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %263 = add i32 %.01627.i.i.i.i.i.i.i.i39, %.01828.i.i.i.i.i.i.i.i38
   %.018.i.i.i.i.i.i.i.i40 = and i32 %263, %254
   %264 = zext i32 %.018.i.i.i.i.i.i.i.i40 to i64
-  %265 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %243, i64 %264
+  %265 = getelementptr inbounds nuw [16 x i8], ptr %243, i64 %264
   %266 = load ptr, ptr %265, align 8, !tbaa !11
   %267 = icmp eq ptr %.sroa.0.0.i.i.i.i.i.i33, %266
   br i1 %267, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i.i41, label %.lr.ph.i.i.i.i.i.i.i.i37, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i.i41: ; preds = %261, %248
   %268 = phi i64 [ %255, %248 ], [ %264, %261 ]
-  %269 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %243, i64 %268
+  %269 = getelementptr inbounds nuw [16 x i8], ptr %243, i64 %268
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 8
   %271 = load ptr, ptr %270, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i.i42
@@ -30432,7 +30430,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %356 = add i32 %348, -1
   %.01826.i.i.i.i.i.i.i.i67 = and i32 %356, %355
   %357 = zext nneg i32 %.01826.i.i.i.i.i.i.i.i67 to i64
-  %358 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %345, i64 %357
+  %358 = getelementptr inbounds nuw [16 x i8], ptr %345, i64 %357
   %359 = load ptr, ptr %358, align 8, !tbaa !11
   %360 = icmp eq ptr %.sroa.0.0.i.i.i.i.i.i64, %359
   br i1 %360, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i.i72, label %.lr.ph.i.i.i.i.i.i.i.i68, !prof !110
@@ -30449,14 +30447,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %365 = add i32 %.01627.i.i.i.i.i.i.i.i70, %.01828.i.i.i.i.i.i.i.i69
   %.018.i.i.i.i.i.i.i.i71 = and i32 %365, %356
   %366 = zext i32 %.018.i.i.i.i.i.i.i.i71 to i64
-  %367 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %345, i64 %366
+  %367 = getelementptr inbounds nuw [16 x i8], ptr %345, i64 %366
   %368 = load ptr, ptr %367, align 8, !tbaa !11
   %369 = icmp eq ptr %.sroa.0.0.i.i.i.i.i.i64, %368
   br i1 %369, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i.i72, label %.lr.ph.i.i.i.i.i.i.i.i68, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i.i72: ; preds = %363, %350
   %370 = phi i64 [ %357, %350 ], [ %366, %363 ]
-  %371 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %345, i64 %370
+  %371 = getelementptr inbounds nuw [16 x i8], ptr %345, i64 %370
   %372 = getelementptr inbounds nuw i8, ptr %371, i64 8
   %373 = load ptr, ptr %372, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i.i73
@@ -31244,7 +31242,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %133 = add i32 %125, -1
   %.01826.i.i.i.i.i.i.i = and i32 %133, %132
   %134 = zext nneg i32 %.01826.i.i.i.i.i.i.i to i64
-  %135 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %122, i64 %134
+  %135 = getelementptr inbounds nuw [16 x i8], ptr %122, i64 %134
   %136 = load ptr, ptr %135, align 8, !tbaa !11
   %137 = icmp eq ptr %.sroa.0.0.i.i.i.i.i, %136
   br i1 %137, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !prof !110
@@ -31261,14 +31259,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %142 = add i32 %.01627.i.i.i.i.i.i.i, %.01828.i.i.i.i.i.i.i
   %.018.i.i.i.i.i.i.i = and i32 %142, %133
   %143 = zext i32 %.018.i.i.i.i.i.i.i to i64
-  %144 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %122, i64 %143
+  %144 = getelementptr inbounds nuw [16 x i8], ptr %122, i64 %143
   %145 = load ptr, ptr %144, align 8, !tbaa !11
   %146 = icmp eq ptr %.sroa.0.0.i.i.i.i.i, %145
   br i1 %146, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i: ; preds = %140, %127
   %147 = phi i64 [ %134, %127 ], [ %143, %140 ]
-  %148 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %122, i64 %147
+  %148 = getelementptr inbounds nuw [16 x i8], ptr %122, i64 %147
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 8
   %150 = load ptr, ptr %149, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i
@@ -31433,7 +31431,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %71 = add i32 %63, -1
   %.01826.i.i.i.i.i.i = and i32 %71, %70
   %72 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %73 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %60, i64 %72
+  %73 = getelementptr inbounds nuw [16 x i8], ptr %60, i64 %72
   %74 = load ptr, ptr %73, align 8, !tbaa !11
   %75 = icmp eq ptr %.sroa.0.0.i.i.i.i, %74
   br i1 %75, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -31450,14 +31448,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %80 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %80, %71
   %81 = zext i32 %.018.i.i.i.i.i.i to i64
-  %82 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %60, i64 %81
+  %82 = getelementptr inbounds nuw [16 x i8], ptr %60, i64 %81
   %83 = load ptr, ptr %82, align 8, !tbaa !11
   %84 = icmp eq ptr %.sroa.0.0.i.i.i.i, %83
   br i1 %84, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %78, %65
   %85 = phi i64 [ %72, %65 ], [ %81, %78 ]
-  %86 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %60, i64 %85
+  %86 = getelementptr inbounds nuw [16 x i8], ptr %60, i64 %85
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %88 = load ptr, ptr %87, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -31608,7 +31606,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i19.i.i.i.i.i.i: ; preds = %51, 
   %54 = phi i32 [ %49, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclESt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i.i.i.i.i ], [ %.pre.i.i.i.i18.i.i.i.i.i.i, %51 ]
   %55 = load ptr, ptr %2, align 8, !tbaa !59
   %56 = zext i32 %54 to i64
-  %57 = getelementptr inbounds nuw i32, ptr %55, i64 %56
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %56
   store i32 2, ptr %57, align 1
   %58 = load i32, ptr %39, align 8, !tbaa !60
   %59 = add i32 %58, 1
@@ -31628,7 +31626,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeES4_St17basic_stri
   %64 = phi i32 [ %59, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i19.i.i.i.i.i.i ], [ %.pre.i.i3.i.i21.i.i.i.i.i.i, %61 ]
   %65 = load ptr, ptr %2, align 8, !tbaa !59
   %66 = zext i32 %64 to i64
-  %67 = getelementptr inbounds nuw i32, ptr %65, i64 %66
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %66
   store i32 0, ptr %67, align 1
   %68 = load i32, ptr %39, align 8, !tbaa !60
   %69 = add i32 %68, 1
@@ -31745,7 +31743,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %127 = add i32 %119, -1
   %.01826.i.i.i.i.i.i.i = and i32 %127, %126
   %128 = zext nneg i32 %.01826.i.i.i.i.i.i.i to i64
-  %129 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %116, i64 %128
+  %129 = getelementptr inbounds nuw [16 x i8], ptr %116, i64 %128
   %130 = load ptr, ptr %129, align 8, !tbaa !11
   %131 = icmp eq ptr %.sroa.0.0.i.i.i.i.i, %130
   br i1 %131, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !prof !110
@@ -31762,14 +31760,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %136 = add i32 %.01627.i.i.i.i.i.i.i, %.01828.i.i.i.i.i.i.i
   %.018.i.i.i.i.i.i.i = and i32 %136, %127
   %137 = zext i32 %.018.i.i.i.i.i.i.i to i64
-  %138 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %116, i64 %137
+  %138 = getelementptr inbounds nuw [16 x i8], ptr %116, i64 %137
   %139 = load ptr, ptr %138, align 8, !tbaa !11
   %140 = icmp eq ptr %.sroa.0.0.i.i.i.i.i, %139
   br i1 %140, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i: ; preds = %134, %121
   %141 = phi i64 [ %128, %121 ], [ %137, %134 ]
-  %142 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %116, i64 %141
+  %142 = getelementptr inbounds nuw [16 x i8], ptr %116, i64 %141
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 8
   %144 = load ptr, ptr %143, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i
@@ -31830,7 +31828,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i.i.i.i: ; preds = %16, 
   %19 = phi i32 [ %14, %1 ], [ %.pre.i.i.i.i.i.i.i.i.i.i.i, %16 ]
   %20 = load ptr, ptr %2, align 8, !tbaa !59
   %21 = zext i32 %19 to i64
-  %22 = getelementptr inbounds nuw i32, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %21
   store i32 %13, ptr %22, align 1
   %23 = load i32, ptr %9, align 8, !tbaa !60
   %24 = add i32 %23, 1
@@ -31852,7 +31850,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %31 = trunc nuw i64 %30 to i32
   %32 = load ptr, ptr %2, align 8, !tbaa !59
   %33 = zext i32 %29 to i64
-  %34 = getelementptr inbounds nuw i32, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %33
   store i32 %31, ptr %34, align 1
   %35 = load i32, ptr %9, align 8, !tbaa !60
   %36 = add i32 %35, 1
@@ -31872,7 +31870,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i9.i.i.i.i.i: ; preds = %38, %_Z
   %41 = phi i32 [ %36, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.exit.i.i.i.i.i ], [ %.pre.i.i.i.i8.i.i.i.i.i, %38 ]
   %42 = load ptr, ptr %2, align 8, !tbaa !59
   %43 = zext i32 %41 to i64
-  %44 = getelementptr inbounds nuw i32, ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %43
   store i32 %.0.val1, ptr %44, align 1
   %45 = load i32, ptr %9, align 8, !tbaa !60
   %46 = add i32 %45, 1
@@ -31893,7 +31891,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPKcPN4llvm16itanium_demangle4NodeENS5_4PrecEEEEv
   %52 = ashr i32 %.0.val1, 31
   %53 = load ptr, ptr %2, align 8, !tbaa !59
   %54 = zext i32 %51 to i64
-  %55 = getelementptr inbounds nuw i32, ptr %53, i64 %54
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %54
   store i32 %52, ptr %55, align 1
   %56 = load i32, ptr %9, align 8, !tbaa !60
   %57 = add i32 %56, 1
@@ -32013,7 +32011,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %118 = add i32 %110, -1
   %.01826.i.i.i.i.i.i = and i32 %118, %117
   %119 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %120 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %107, i64 %119
+  %120 = getelementptr inbounds nuw [16 x i8], ptr %107, i64 %119
   %121 = load ptr, ptr %120, align 8, !tbaa !11
   %122 = icmp eq ptr %.sroa.04.0.i.i.i.i, %121
   br i1 %122, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -32030,14 +32028,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %127 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %127, %118
   %128 = zext i32 %.018.i.i.i.i.i.i to i64
-  %129 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %107, i64 %128
+  %129 = getelementptr inbounds nuw [16 x i8], ptr %107, i64 %128
   %130 = load ptr, ptr %129, align 8, !tbaa !11
   %131 = icmp eq ptr %.sroa.04.0.i.i.i.i, %130
   br i1 %131, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %125, %112
   %132 = phi i64 [ %119, %112 ], [ %128, %125 ]
-  %133 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %107, i64 %132
+  %133 = getelementptr inbounds nuw [16 x i8], ptr %107, i64 %132
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 8
   %135 = load ptr, ptr %134, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -32167,7 +32165,7 @@ _ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i: ; preds = %5
 _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i: ; preds = %57, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i
   %61 = phi ptr [ %58, %57 ], [ %52, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i ]
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 %47
-  %63 = getelementptr inbounds nuw ptr, ptr %61, i64 %48
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %48
   store ptr %63, ptr %28, align 8, !tbaa !10
   br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit
 
@@ -32457,7 +32455,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %211 = add i32 %203, -1
   %.01826.i.i.i.i.i.i.i = and i32 %211, %210
   %212 = zext nneg i32 %.01826.i.i.i.i.i.i.i to i64
-  %213 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %201, i64 %212
+  %213 = getelementptr inbounds nuw [16 x i8], ptr %201, i64 %212
   %214 = load ptr, ptr %213, align 8, !tbaa !11
   %215 = icmp eq ptr %.sroa.0.0.i.i.i.i.i, %214
   br i1 %215, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !prof !110
@@ -32474,14 +32472,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %220 = add i32 %.01627.i.i.i.i.i.i.i, %.01828.i.i.i.i.i.i.i
   %.018.i.i.i.i.i.i.i = and i32 %220, %211
   %221 = zext i32 %.018.i.i.i.i.i.i.i to i64
-  %222 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %201, i64 %221
+  %222 = getelementptr inbounds nuw [16 x i8], ptr %201, i64 %221
   %223 = load ptr, ptr %222, align 8, !tbaa !11
   %224 = icmp eq ptr %.sroa.0.0.i.i.i.i.i, %223
   br i1 %224, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i: ; preds = %218, %205
   %225 = phi i64 [ %212, %205 ], [ %221, %218 ]
-  %226 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %201, i64 %225
+  %226 = getelementptr inbounds nuw [16 x i8], ptr %201, i64 %225
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 8
   %228 = load ptr, ptr %227, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i
@@ -32617,7 +32615,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %290 = add i32 %282, -1
   %.01826.i.i.i.i.i.i.i63 = and i32 %290, %289
   %291 = zext nneg i32 %.01826.i.i.i.i.i.i.i63 to i64
-  %292 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %280, i64 %291
+  %292 = getelementptr inbounds nuw [16 x i8], ptr %280, i64 %291
   %293 = load ptr, ptr %292, align 8, !tbaa !11
   %294 = icmp eq ptr %.sroa.0.0.i.i.i.i.i60, %293
   br i1 %294, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i68, label %.lr.ph.i.i.i.i.i.i.i64, !prof !110
@@ -32634,14 +32632,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %299 = add i32 %.01627.i.i.i.i.i.i.i66, %.01828.i.i.i.i.i.i.i65
   %.018.i.i.i.i.i.i.i67 = and i32 %299, %290
   %300 = zext i32 %.018.i.i.i.i.i.i.i67 to i64
-  %301 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %280, i64 %300
+  %301 = getelementptr inbounds nuw [16 x i8], ptr %280, i64 %300
   %302 = load ptr, ptr %301, align 8, !tbaa !11
   %303 = icmp eq ptr %.sroa.0.0.i.i.i.i.i60, %302
   br i1 %303, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i68, label %.lr.ph.i.i.i.i.i.i.i64, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i68: ; preds = %297, %284
   %304 = phi i64 [ %291, %284 ], [ %300, %297 ]
-  %305 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %280, i64 %304
+  %305 = getelementptr inbounds nuw [16 x i8], ptr %280, i64 %304
   %306 = getelementptr inbounds nuw i8, ptr %305, i64 8
   %307 = load ptr, ptr %306, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i69
@@ -32777,7 +32775,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %369 = add i32 %361, -1
   %.01826.i.i.i.i.i.i.i83 = and i32 %369, %368
   %370 = zext nneg i32 %.01826.i.i.i.i.i.i.i83 to i64
-  %371 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %359, i64 %370
+  %371 = getelementptr inbounds nuw [16 x i8], ptr %359, i64 %370
   %372 = load ptr, ptr %371, align 8, !tbaa !11
   %373 = icmp eq ptr %.sroa.0.0.i.i.i.i.i80, %372
   br i1 %373, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i88, label %.lr.ph.i.i.i.i.i.i.i84, !prof !110
@@ -32794,14 +32792,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %378 = add i32 %.01627.i.i.i.i.i.i.i86, %.01828.i.i.i.i.i.i.i85
   %.018.i.i.i.i.i.i.i87 = and i32 %378, %369
   %379 = zext i32 %.018.i.i.i.i.i.i.i87 to i64
-  %380 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %359, i64 %379
+  %380 = getelementptr inbounds nuw [16 x i8], ptr %359, i64 %379
   %381 = load ptr, ptr %380, align 8, !tbaa !11
   %382 = icmp eq ptr %.sroa.0.0.i.i.i.i.i80, %381
   br i1 %382, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i88, label %.lr.ph.i.i.i.i.i.i.i84, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i88: ; preds = %376, %363
   %383 = phi i64 [ %370, %363 ], [ %379, %376 ]
-  %384 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %359, i64 %383
+  %384 = getelementptr inbounds nuw [16 x i8], ptr %359, i64 %383
   %385 = getelementptr inbounds nuw i8, ptr %384, i64 8
   %386 = load ptr, ptr %385, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i89
@@ -32873,7 +32871,7 @@ _ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i99: ; preds = 
 _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i97: ; preds = %410, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i99
   %414 = phi ptr [ %411, %410 ], [ %405, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i99 ]
   %415 = getelementptr inbounds nuw i8, ptr %414, i64 %400
-  %416 = getelementptr inbounds nuw ptr, ptr %414, i64 %401
+  %416 = getelementptr inbounds nuw [8 x i8], ptr %414, i64 %401
   store ptr %416, ptr %131, align 8, !tbaa !10
   br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit100
 
@@ -33066,7 +33064,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %507 = add i32 %499, -1
   %.01826.i.i.i.i.i.i.i115 = and i32 %507, %506
   %508 = zext nneg i32 %.01826.i.i.i.i.i.i.i115 to i64
-  %509 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %497, i64 %508
+  %509 = getelementptr inbounds nuw [16 x i8], ptr %497, i64 %508
   %510 = load ptr, ptr %509, align 8, !tbaa !11
   %511 = icmp eq ptr %.sroa.0.0.i.i.i.i.i112, %510
   br i1 %511, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i120, label %.lr.ph.i.i.i.i.i.i.i116, !prof !110
@@ -33083,14 +33081,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %516 = add i32 %.01627.i.i.i.i.i.i.i118, %.01828.i.i.i.i.i.i.i117
   %.018.i.i.i.i.i.i.i119 = and i32 %516, %507
   %517 = zext i32 %.018.i.i.i.i.i.i.i119 to i64
-  %518 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %497, i64 %517
+  %518 = getelementptr inbounds nuw [16 x i8], ptr %497, i64 %517
   %519 = load ptr, ptr %518, align 8, !tbaa !11
   %520 = icmp eq ptr %.sroa.0.0.i.i.i.i.i112, %519
   br i1 %520, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i120, label %.lr.ph.i.i.i.i.i.i.i116, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i120: ; preds = %514, %501
   %521 = phi i64 [ %508, %501 ], [ %517, %514 ]
-  %522 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %497, i64 %521
+  %522 = getelementptr inbounds nuw [16 x i8], ptr %497, i64 %521
   %523 = getelementptr inbounds nuw i8, ptr %522, i64 8
   %524 = load ptr, ptr %523, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i121
@@ -33302,7 +33300,7 @@ _ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i: ; preds = %7
 _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i: ; preds = %79, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i
   %83 = phi ptr [ %80, %79 ], [ %74, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i ]
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 %69
-  %85 = getelementptr inbounds nuw ptr, ptr %83, i64 %70
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %70
   store ptr %85, ptr %39, align 8, !tbaa !10
   br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit
 
@@ -33449,7 +33447,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i21.i.i.i.i.i.i: ; preds = %149,
   %152 = phi i32 [ %147, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclESt17basic_string_viewIcSt11char_traitsIcEE.exit.i.i.i.i.i.i ], [ %.pre.i.i.i.i20.i.i.i.i.i.i, %149 ]
   %153 = load ptr, ptr %3, align 8, !tbaa !59
   %154 = zext i32 %152 to i64
-  %155 = getelementptr inbounds nuw i32, ptr %153, i64 %154
+  %155 = getelementptr inbounds nuw [4 x i8], ptr %153, i64 %154
   store i32 %138, ptr %155, align 1
   %156 = load i32, ptr %136, align 8, !tbaa !60
   %157 = add i32 %156, 1
@@ -33469,7 +33467,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeES4_St17basic_stri
   %162 = phi i32 [ %157, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i21.i.i.i.i.i.i ], [ %.pre.i.i3.i.i23.i.i.i.i.i.i, %159 ]
   %163 = load ptr, ptr %3, align 8, !tbaa !59
   %164 = zext i32 %162 to i64
-  %165 = getelementptr inbounds nuw i32, ptr %163, i64 %164
+  %165 = getelementptr inbounds nuw [4 x i8], ptr %163, i64 %164
   store i32 0, ptr %165, align 1
   %166 = load i32, ptr %136, align 8, !tbaa !60
   %167 = add i32 %166, 1
@@ -33591,7 +33589,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %225 = add i32 %217, -1
   %.01826.i.i.i.i.i.i.i = and i32 %225, %224
   %226 = zext nneg i32 %.01826.i.i.i.i.i.i.i to i64
-  %227 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %214, i64 %226
+  %227 = getelementptr inbounds nuw [16 x i8], ptr %214, i64 %226
   %228 = load ptr, ptr %227, align 8, !tbaa !11
   %229 = icmp eq ptr %.sroa.026.0.i.i.i.i.i, %228
   br i1 %229, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !prof !110
@@ -33608,14 +33606,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %234 = add i32 %.01627.i.i.i.i.i.i.i, %.01828.i.i.i.i.i.i.i
   %.018.i.i.i.i.i.i.i = and i32 %234, %225
   %235 = zext i32 %.018.i.i.i.i.i.i.i to i64
-  %236 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %214, i64 %235
+  %236 = getelementptr inbounds nuw [16 x i8], ptr %214, i64 %235
   %237 = load ptr, ptr %236, align 8, !tbaa !11
   %238 = icmp eq ptr %.sroa.026.0.i.i.i.i.i, %237
   br i1 %238, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i: ; preds = %232, %219
   %239 = phi i64 [ %226, %219 ], [ %235, %232 ]
-  %240 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %214, i64 %239
+  %240 = getelementptr inbounds nuw [16 x i8], ptr %214, i64 %239
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 8
   %242 = load ptr, ptr %241, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i
@@ -33761,7 +33759,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %66 = add i32 %58, -1
   %.01826.i.i.i.i.i.i = and i32 %66, %65
   %67 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %68 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %55, i64 %67
+  %68 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %67
   %69 = load ptr, ptr %68, align 8, !tbaa !11
   %70 = icmp eq ptr %.sroa.0.0.i.i.i.i, %69
   br i1 %70, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -33778,14 +33776,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %75 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %75, %66
   %76 = zext i32 %.018.i.i.i.i.i.i to i64
-  %77 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %55, i64 %76
+  %77 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %76
   %78 = load ptr, ptr %77, align 8, !tbaa !11
   %79 = icmp eq ptr %.sroa.0.0.i.i.i.i, %78
   br i1 %79, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %73, %60
   %80 = phi i64 [ %67, %60 ], [ %76, %73 ]
-  %81 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %55, i64 %80
+  %81 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %80
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %83 = load ptr, ptr %82, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -33937,7 +33935,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %68 = add i32 %60, -1
   %.01826.i.i.i.i.i.i = and i32 %68, %67
   %69 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %70 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %69
+  %70 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %69
   %71 = load ptr, ptr %70, align 8, !tbaa !11
   %72 = icmp eq ptr %.sroa.04.0.i.i.i.i, %71
   br i1 %72, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -33954,14 +33952,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %77 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %77, %68
   %78 = zext i32 %.018.i.i.i.i.i.i to i64
-  %79 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %78
+  %79 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !11
   %81 = icmp eq ptr %.sroa.04.0.i.i.i.i, %80
   br i1 %81, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %75, %62
   %82 = phi i64 [ %69, %62 ], [ %78, %75 ]
-  %83 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %82
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %82
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %85 = load ptr, ptr %84, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -34117,7 +34115,7 @@ _ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i: ; preds = %6
 _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i: ; preds = %65, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i
   %69 = phi ptr [ %66, %65 ], [ %60, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i ]
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 %55
-  %71 = getelementptr inbounds nuw ptr, ptr %69, i64 %56
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %56
   store ptr %71, ptr %36, align 8, !tbaa !10
   br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit
 
@@ -34303,7 +34301,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %164 = add i32 %156, -1
   %.01826.i.i.i.i.i.i.i = and i32 %164, %163
   %165 = zext nneg i32 %.01826.i.i.i.i.i.i.i to i64
-  %166 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %153, i64 %165
+  %166 = getelementptr inbounds nuw [16 x i8], ptr %153, i64 %165
   %167 = load ptr, ptr %166, align 8, !tbaa !11
   %168 = icmp eq ptr %.sroa.0.0.i.i.i.i.i, %167
   br i1 %168, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !prof !110
@@ -34320,14 +34318,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %173 = add i32 %.01627.i.i.i.i.i.i.i, %.01828.i.i.i.i.i.i.i
   %.018.i.i.i.i.i.i.i = and i32 %173, %164
   %174 = zext i32 %.018.i.i.i.i.i.i.i to i64
-  %175 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %153, i64 %174
+  %175 = getelementptr inbounds nuw [16 x i8], ptr %153, i64 %174
   %176 = load ptr, ptr %175, align 8, !tbaa !11
   %177 = icmp eq ptr %.sroa.0.0.i.i.i.i.i, %176
   br i1 %177, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i: ; preds = %171, %158
   %178 = phi i64 [ %165, %158 ], [ %174, %171 ]
-  %179 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %153, i64 %178
+  %179 = getelementptr inbounds nuw [16 x i8], ptr %153, i64 %178
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 8
   %181 = load ptr, ptr %180, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i
@@ -34543,7 +34541,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %286 = add i32 %278, -1
   %.01826.i.i.i.i.i.i.i40 = and i32 %286, %285
   %287 = zext nneg i32 %.01826.i.i.i.i.i.i.i40 to i64
-  %288 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %275, i64 %287
+  %288 = getelementptr inbounds nuw [16 x i8], ptr %275, i64 %287
   %289 = load ptr, ptr %288, align 8, !tbaa !11
   %290 = icmp eq ptr %.sroa.0.0.i.i.i.i.i37, %289
   br i1 %290, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i45, label %.lr.ph.i.i.i.i.i.i.i41, !prof !110
@@ -34560,14 +34558,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %295 = add i32 %.01627.i.i.i.i.i.i.i43, %.01828.i.i.i.i.i.i.i42
   %.018.i.i.i.i.i.i.i44 = and i32 %295, %286
   %296 = zext i32 %.018.i.i.i.i.i.i.i44 to i64
-  %297 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %275, i64 %296
+  %297 = getelementptr inbounds nuw [16 x i8], ptr %275, i64 %296
   %298 = load ptr, ptr %297, align 8, !tbaa !11
   %299 = icmp eq ptr %.sroa.0.0.i.i.i.i.i37, %298
   br i1 %299, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i45, label %.lr.ph.i.i.i.i.i.i.i41, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i45: ; preds = %293, %280
   %300 = phi i64 [ %287, %280 ], [ %296, %293 ]
-  %301 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %275, i64 %300
+  %301 = getelementptr inbounds nuw [16 x i8], ptr %275, i64 %300
   %302 = getelementptr inbounds nuw i8, ptr %301, i64 8
   %303 = load ptr, ptr %302, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i46
@@ -34726,7 +34724,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %68 = add i32 %60, -1
   %.01826.i.i.i.i.i.i = and i32 %68, %67
   %69 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %70 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %69
+  %70 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %69
   %71 = load ptr, ptr %70, align 8, !tbaa !11
   %72 = icmp eq ptr %.sroa.0.0.i.i.i.i, %71
   br i1 %72, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -34743,14 +34741,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %77 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %77, %68
   %78 = zext i32 %.018.i.i.i.i.i.i to i64
-  %79 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %78
+  %79 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !11
   %81 = icmp eq ptr %.sroa.0.0.i.i.i.i, %80
   br i1 %81, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %75, %62
   %82 = phi i64 [ %69, %62 ], [ %78, %75 ]
-  %83 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %82
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %82
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %85 = load ptr, ptr %84, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -34910,7 +34908,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %71 = add i32 %63, -1
   %.01826.i.i.i.i.i.i = and i32 %71, %70
   %72 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %73 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %60, i64 %72
+  %73 = getelementptr inbounds nuw [16 x i8], ptr %60, i64 %72
   %74 = load ptr, ptr %73, align 8, !tbaa !11
   %75 = icmp eq ptr %.sroa.0.0.i.i.i.i, %74
   br i1 %75, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -34927,14 +34925,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %80 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %80, %71
   %81 = zext i32 %.018.i.i.i.i.i.i to i64
-  %82 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %60, i64 %81
+  %82 = getelementptr inbounds nuw [16 x i8], ptr %60, i64 %81
   %83 = load ptr, ptr %82, align 8, !tbaa !11
   %84 = icmp eq ptr %.sroa.0.0.i.i.i.i, %83
   br i1 %84, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %78, %65
   %85 = phi i64 [ %72, %65 ], [ %81, %78 ]
-  %86 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %60, i64 %85
+  %86 = getelementptr inbounds nuw [16 x i8], ptr %60, i64 %85
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %88 = load ptr, ptr %87, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -35080,7 +35078,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %66 = add i32 %58, -1
   %.01826.i.i.i.i.i.i = and i32 %66, %65
   %67 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %68 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %55, i64 %67
+  %68 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %67
   %69 = load ptr, ptr %68, align 8, !tbaa !11
   %70 = icmp eq ptr %.sroa.0.0.i.i.i.i, %69
   br i1 %70, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -35097,14 +35095,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %75 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %75, %66
   %76 = zext i32 %.018.i.i.i.i.i.i to i64
-  %77 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %55, i64 %76
+  %77 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %76
   %78 = load ptr, ptr %77, align 8, !tbaa !11
   %79 = icmp eq ptr %.sroa.0.0.i.i.i.i, %78
   br i1 %79, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %73, %60
   %80 = phi i64 [ %67, %60 ], [ %76, %73 ]
-  %81 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %55, i64 %80
+  %81 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %80
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %83 = load ptr, ptr %82, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -35612,7 +35610,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %71 = add i32 %63, -1
   %.01826.i.i.i.i.i.i = and i32 %71, %70
   %72 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %73 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %60, i64 %72
+  %73 = getelementptr inbounds nuw [16 x i8], ptr %60, i64 %72
   %74 = load ptr, ptr %73, align 8, !tbaa !11
   %75 = icmp eq ptr %.sroa.0.0.i.i.i.i, %74
   br i1 %75, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -35629,14 +35627,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %80 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %80, %71
   %81 = zext i32 %.018.i.i.i.i.i.i to i64
-  %82 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %60, i64 %81
+  %82 = getelementptr inbounds nuw [16 x i8], ptr %60, i64 %81
   %83 = load ptr, ptr %82, align 8, !tbaa !11
   %84 = icmp eq ptr %.sroa.0.0.i.i.i.i, %83
   br i1 %84, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %78, %65
   %85 = phi i64 [ %72, %65 ], [ %81, %78 ]
-  %86 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %60, i64 %85
+  %86 = getelementptr inbounds nuw [16 x i8], ptr %60, i64 %85
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %88 = load ptr, ptr %87, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -35682,7 +35680,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i: ; preds = %13, %7
   %17 = phi i32 [ %10, %7 ], [ %.pre.i.i.i.i, %13 ]
   %18 = load ptr, ptr %0, align 8, !tbaa !59
   %19 = zext i32 %17 to i64
-  %20 = getelementptr inbounds nuw i32, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %19
   store i32 %8, ptr %20, align 1
   %21 = load i32, ptr %9, align 8, !tbaa !60
   %22 = add i32 %21, 1
@@ -35703,7 +35701,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindE
   %28 = phi i32 [ %22, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i ], [ %.pre.i.i3.i.i, %24 ]
   %29 = load ptr, ptr %0, align 8, !tbaa !59
   %30 = zext i32 %28 to i64
-  %31 = getelementptr inbounds nuw i32, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %30
   store i32 0, ptr %31, align 1
   %32 = load i32, ptr %9, align 8, !tbaa !60
   %33 = add i32 %32, 1
@@ -35726,7 +35724,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i: ; preds = %37, %_ZN12_GLO
   %41 = phi i32 [ %33, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindEEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS7_EEvE4typeES7_.exit ], [ %.pre.i.i.i.i.i.i, %37 ]
   %42 = load ptr, ptr %0, align 8, !tbaa !59
   %43 = zext i32 %41 to i64
-  %44 = getelementptr inbounds nuw i32, ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %43
   store i32 %35, ptr %44, align 1
   %45 = load i32, ptr %9, align 8, !tbaa !60
   %46 = add i32 %45, 1
@@ -35749,7 +35747,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %54 = trunc nuw i64 %53 to i32
   %55 = load ptr, ptr %0, align 8, !tbaa !59
   %56 = zext i32 %52 to i64
-  %57 = getelementptr inbounds nuw i32, ptr %55, i64 %56
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %56
   store i32 %54, ptr %57, align 1
   %58 = load i32, ptr %9, align 8, !tbaa !60
   %59 = add i32 %58, 1
@@ -35785,7 +35783,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i13: ; preds = %67, %_ZN12_G
   %71 = phi i32 [ %65, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclESt17basic_string_viewIcSt11char_traitsIcEE.exit ], [ %.pre.i.i.i.i.i.i12, %67 ]
   %72 = load ptr, ptr %0, align 8, !tbaa !59
   %73 = zext i32 %71 to i64
-  %74 = getelementptr inbounds nuw i32, ptr %72, i64 %73
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %73
   store i32 %64, ptr %74, align 1
   %75 = load i32, ptr %9, align 8, !tbaa !60
   %76 = add i32 %75, 1
@@ -35808,7 +35806,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %84 = trunc nuw i64 %83 to i32
   %85 = load ptr, ptr %0, align 8, !tbaa !59
   %86 = zext i32 %82 to i64
-  %87 = getelementptr inbounds nuw i32, ptr %85, i64 %86
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %85, i64 %86
   store i32 %84, ptr %87, align 1
   %88 = load i32, ptr %9, align 8, !tbaa !60
   %89 = add i32 %88, 1
@@ -35829,7 +35827,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i19: ; preds = %91, %_ZN12_GLOBA
   %95 = phi i32 [ %89, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.exit16 ], [ %.pre.i.i.i.i18, %91 ]
   %96 = load ptr, ptr %0, align 8, !tbaa !59
   %97 = zext i32 %95 to i64
-  %98 = getelementptr inbounds nuw i32, ptr %96, i64 %97
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %96, i64 %97
   store i32 %6, ptr %98, align 1
   %99 = load i32, ptr %9, align 8, !tbaa !60
   %100 = add i32 %99, 1
@@ -35851,7 +35849,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4PrecE
   %107 = ashr i32 %6, 31
   %108 = load ptr, ptr %0, align 8, !tbaa !59
   %109 = zext i32 %106 to i64
-  %110 = getelementptr inbounds nuw i32, ptr %108, i64 %109
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %108, i64 %109
   store i32 %107, ptr %110, align 1
   %111 = load i32, ptr %9, align 8, !tbaa !60
   %112 = add i32 %111, 1
@@ -36259,7 +36257,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %70 = add i32 %62, -1
   %.01826.i.i.i.i.i.i = and i32 %70, %69
   %71 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %72 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %59, i64 %71
+  %72 = getelementptr inbounds nuw [16 x i8], ptr %59, i64 %71
   %73 = load ptr, ptr %72, align 8, !tbaa !11
   %74 = icmp eq ptr %.sroa.0.0.i.i.i.i, %73
   br i1 %74, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -36276,14 +36274,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %79 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %79, %70
   %80 = zext i32 %.018.i.i.i.i.i.i to i64
-  %81 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %59, i64 %80
+  %81 = getelementptr inbounds nuw [16 x i8], ptr %59, i64 %80
   %82 = load ptr, ptr %81, align 8, !tbaa !11
   %83 = icmp eq ptr %.sroa.0.0.i.i.i.i, %82
   br i1 %83, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %77, %64
   %84 = phi i64 [ %71, %64 ], [ %80, %77 ]
-  %85 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %59, i64 %84
+  %85 = getelementptr inbounds nuw [16 x i8], ptr %59, i64 %84
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %87 = load ptr, ptr %86, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -36821,7 +36819,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16
 _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i, %.lr.ph.i
   %97 = phi i64 [ %96, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i ], [ %81, %.lr.ph.i ]
   %98 = load ptr, ptr %60, align 8, !tbaa !371
-  %99 = getelementptr inbounds nuw ptr, ptr %98, i64 %.01214.i
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %.01214.i
   %100 = load ptr, ptr %99, align 8, !tbaa !11
   tail call void @_ZNK4llvm16itanium_demangle4Node14printAsOperandERNS0_12OutputBufferENS1_4PrecEb(ptr noundef nonnull align 8 dereferenceable(11) %100, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 18, i1 noundef zeroext false)
   %101 = load i64, ptr %25, align 8, !tbaa !349
@@ -37027,7 +37025,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i58: ; preds = %._ZN4llvm
 _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i59: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i58, %.lr.ph.i53
   %188 = phi i64 [ %187, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i58 ], [ %172, %.lr.ph.i53 ]
   %189 = load ptr, ptr %150, align 8, !tbaa !371
-  %190 = getelementptr inbounds nuw ptr, ptr %189, i64 %.01214.i56
+  %190 = getelementptr inbounds nuw [8 x i8], ptr %189, i64 %.01214.i56
   %191 = load ptr, ptr %190, align 8, !tbaa !11
   tail call void @_ZNK4llvm16itanium_demangle4Node14printAsOperandERNS0_12OutputBufferENS1_4PrecEb(ptr noundef nonnull align 8 dereferenceable(11) %191, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 18, i1 noundef zeroext false)
   %192 = load i64, ptr %25, align 8, !tbaa !349
@@ -37486,7 +37484,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16
 _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i, %.lr.ph.i
   %96 = phi i64 [ %95, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i ], [ %80, %.lr.ph.i ]
   %97 = load ptr, ptr %77, align 8, !tbaa !371
-  %98 = getelementptr inbounds nuw ptr, ptr %97, i64 %.01214.i
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %.01214.i
   %99 = load ptr, ptr %98, align 8, !tbaa !11
   tail call void @_ZNK4llvm16itanium_demangle4Node14printAsOperandERNS0_12OutputBufferENS1_4PrecEb(ptr noundef nonnull align 8 dereferenceable(11) %99, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 18, i1 noundef zeroext false)
   %100 = load i64, ptr %62, align 8, !tbaa !349
@@ -37735,7 +37733,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16
 _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i, %.lr.ph.i
   %81 = phi i64 [ %80, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i ], [ %65, %.lr.ph.i ]
   %82 = load ptr, ptr %62, align 8, !tbaa !371
-  %83 = getelementptr inbounds nuw ptr, ptr %82, i64 %.01214.i
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %.01214.i
   %84 = load ptr, ptr %83, align 8, !tbaa !11
   tail call void @_ZNK4llvm16itanium_demangle4Node14printAsOperandERNS0_12OutputBufferENS1_4PrecEb(ptr noundef nonnull align 8 dereferenceable(11) %84, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 18, i1 noundef zeroext false)
   %85 = load i64, ptr %6, align 8, !tbaa !349
@@ -38485,7 +38483,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %95 = add i32 %87, -1
   %.01826.i.i.i.i.i.i.i = and i32 %95, %94
   %96 = zext nneg i32 %.01826.i.i.i.i.i.i.i to i64
-  %97 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %84, i64 %96
+  %97 = getelementptr inbounds nuw [16 x i8], ptr %84, i64 %96
   %98 = load ptr, ptr %97, align 8, !tbaa !11
   %99 = icmp eq ptr %.sroa.0.0.i.i.i.i.i, %98
   br i1 %99, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !prof !110
@@ -38502,14 +38500,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %104 = add i32 %.01627.i.i.i.i.i.i.i, %.01828.i.i.i.i.i.i.i
   %.018.i.i.i.i.i.i.i = and i32 %104, %95
   %105 = zext i32 %.018.i.i.i.i.i.i.i to i64
-  %106 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %84, i64 %105
+  %106 = getelementptr inbounds nuw [16 x i8], ptr %84, i64 %105
   %107 = load ptr, ptr %106, align 8, !tbaa !11
   %108 = icmp eq ptr %.sroa.0.0.i.i.i.i.i, %107
   br i1 %108, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i: ; preds = %102, %89
   %109 = phi i64 [ %96, %89 ], [ %105, %102 ]
-  %110 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %84, i64 %109
+  %110 = getelementptr inbounds nuw [16 x i8], ptr %84, i64 %109
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %112 = load ptr, ptr %111, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i
@@ -38664,7 +38662,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %72 = add i32 %64, -1
   %.01826.i.i.i.i.i.i = and i32 %72, %71
   %73 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %74 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %61, i64 %73
+  %74 = getelementptr inbounds nuw [16 x i8], ptr %61, i64 %73
   %75 = load ptr, ptr %74, align 8, !tbaa !11
   %76 = icmp eq ptr %.sroa.0.0.i.i.i.i, %75
   br i1 %76, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -38681,14 +38679,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %81 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %81, %72
   %82 = zext i32 %.018.i.i.i.i.i.i to i64
-  %83 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %61, i64 %82
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %61, i64 %82
   %84 = load ptr, ptr %83, align 8, !tbaa !11
   %85 = icmp eq ptr %.sroa.0.0.i.i.i.i, %84
   br i1 %85, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %79, %66
   %86 = phi i64 [ %73, %66 ], [ %82, %79 ]
-  %87 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %61, i64 %86
+  %87 = getelementptr inbounds nuw [16 x i8], ptr %61, i64 %86
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %89 = load ptr, ptr %88, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -38834,7 +38832,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %66 = add i32 %58, -1
   %.01826.i.i.i.i.i.i = and i32 %66, %65
   %67 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %68 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %55, i64 %67
+  %68 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %67
   %69 = load ptr, ptr %68, align 8, !tbaa !11
   %70 = icmp eq ptr %.sroa.0.0.i.i.i.i, %69
   br i1 %70, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -38851,14 +38849,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %75 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %75, %66
   %76 = zext i32 %.018.i.i.i.i.i.i to i64
-  %77 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %55, i64 %76
+  %77 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %76
   %78 = load ptr, ptr %77, align 8, !tbaa !11
   %79 = icmp eq ptr %.sroa.0.0.i.i.i.i, %78
   br i1 %79, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %73, %60
   %80 = phi i64 [ %67, %60 ], [ %76, %73 ]
-  %81 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %55, i64 %80
+  %81 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %80
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %83 = load ptr, ptr %82, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -39087,7 +39085,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %102 = add i32 %94, -1
   %.01826.i.i.i.i.i.i.i = and i32 %102, %101
   %103 = zext nneg i32 %.01826.i.i.i.i.i.i.i to i64
-  %104 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %91, i64 %103
+  %104 = getelementptr inbounds nuw [16 x i8], ptr %91, i64 %103
   %105 = load ptr, ptr %104, align 8, !tbaa !11
   %106 = icmp eq ptr %.sroa.0.0.i.i.i.i.i, %105
   br i1 %106, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !prof !110
@@ -39104,14 +39102,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %111 = add i32 %.01627.i.i.i.i.i.i.i, %.01828.i.i.i.i.i.i.i
   %.018.i.i.i.i.i.i.i = and i32 %111, %102
   %112 = zext i32 %.018.i.i.i.i.i.i.i to i64
-  %113 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %91, i64 %112
+  %113 = getelementptr inbounds nuw [16 x i8], ptr %91, i64 %112
   %114 = load ptr, ptr %113, align 8, !tbaa !11
   %115 = icmp eq ptr %.sroa.0.0.i.i.i.i.i, %114
   br i1 %115, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i: ; preds = %109, %96
   %116 = phi i64 [ %103, %96 ], [ %112, %109 ]
-  %117 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %91, i64 %116
+  %117 = getelementptr inbounds nuw [16 x i8], ptr %91, i64 %116
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %119 = load ptr, ptr %118, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i
@@ -39215,7 +39213,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPNS1_IPNS0_4NodeELm8EEELm4EE7reserveE
   %.val20141.pre = phi ptr [ %.val20141.pre.pre, %._ZN4llvm16itanium_demangle14PODSmallVectorIPNS1_IPNS0_4NodeELm8EEELm4EE7reserveEm.exit.i.i_crit_edge ], [ %128, %_ZSt4copyIPPN4llvm16itanium_demangle14PODSmallVectorIPNS1_4NodeELm8EEES7_ET0_T_S9_S8_.exit.i.i.i ]
   %162 = phi ptr [ %159, %._ZN4llvm16itanium_demangle14PODSmallVectorIPNS1_IPNS0_4NodeELm8EEELm4EE7reserveEm.exit.i.i_crit_edge ], [ %153, %_ZSt4copyIPPN4llvm16itanium_demangle14PODSmallVectorIPNS1_4NodeELm8EEES7_ET0_T_S9_S8_.exit.i.i.i ]
   %163 = getelementptr inbounds nuw i8, ptr %162, i64 %136
-  %164 = getelementptr inbounds nuw ptr, ptr %162, i64 %148
+  %164 = getelementptr inbounds nuw [8 x i8], ptr %162, i64 %148
   store ptr %164, ptr %144, align 8, !tbaa !21
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E23ScopedTemplateParamListC2EPS6_.exit
 
@@ -39335,7 +39333,7 @@ _ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i: ; preds = %2
 _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i: ; preds = %218, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i
   %222 = phi ptr [ %219, %218 ], [ %213, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i ]
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 %208
-  %224 = getelementptr inbounds nuw ptr, ptr %222, i64 %209
+  %224 = getelementptr inbounds nuw [8 x i8], ptr %222, i64 %209
   store ptr %224, ptr %174, align 8, !tbaa !10
   br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit
 
@@ -39530,7 +39528,7 @@ _ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i48: ; preds = 
 _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i46: ; preds = %301, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i48
   %305 = phi ptr [ %302, %301 ], [ %296, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i48 ]
   %306 = getelementptr inbounds nuw i8, ptr %305, i64 %291
-  %307 = getelementptr inbounds nuw ptr, ptr %305, i64 %292
+  %307 = getelementptr inbounds nuw [8 x i8], ptr %305, i64 %292
   store ptr %307, ptr %280, align 8, !tbaa !10
   br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit49
 
@@ -39718,7 +39716,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %378 = getelementptr inbounds nuw i8, ptr %377, i64 664
   %379 = load i64, ptr %139, align 8, !tbaa !382
   %380 = load ptr, ptr %378, align 8, !tbaa !17
-  %381 = getelementptr inbounds nuw ptr, ptr %380, i64 %379
+  %381 = getelementptr inbounds nuw [8 x i8], ptr %380, i64 %379
   %382 = getelementptr inbounds nuw i8, ptr %377, i64 672
   store ptr %381, ptr %382, align 8, !tbaa !20
   %383 = load ptr, ptr %140, align 8, !tbaa !13
@@ -39909,7 +39907,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %66 = add i32 %58, -1
   %.01826.i.i.i.i.i.i = and i32 %66, %65
   %67 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %68 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %55, i64 %67
+  %68 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %67
   %69 = load ptr, ptr %68, align 8, !tbaa !11
   %70 = icmp eq ptr %.sroa.0.0.i.i.i.i, %69
   br i1 %70, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -39926,14 +39924,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %75 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %75, %66
   %76 = zext i32 %.018.i.i.i.i.i.i to i64
-  %77 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %55, i64 %76
+  %77 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %76
   %78 = load ptr, ptr %77, align 8, !tbaa !11
   %79 = icmp eq ptr %.sroa.0.0.i.i.i.i, %78
   br i1 %79, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %73, %60
   %80 = phi i64 [ %67, %60 ], [ %76, %73 ]
-  %81 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %55, i64 %80
+  %81 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %80
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %83 = load ptr, ptr %82, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -40088,7 +40086,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %68 = add i32 %60, -1
   %.01826.i.i.i.i.i.i = and i32 %68, %67
   %69 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %70 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %69
+  %70 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %69
   %71 = load ptr, ptr %70, align 8, !tbaa !11
   %72 = icmp eq ptr %.sroa.0.0.i.i.i.i, %71
   br i1 %72, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -40105,14 +40103,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %77 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %77, %68
   %78 = zext i32 %.018.i.i.i.i.i.i to i64
-  %79 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %78
+  %79 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !11
   %81 = icmp eq ptr %.sroa.0.0.i.i.i.i, %80
   br i1 %81, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %75, %62
   %82 = phi i64 [ %69, %62 ], [ %78, %75 ]
-  %83 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %82
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %82
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %85 = load ptr, ptr %84, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -41117,7 +41115,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %87 = add i32 %79, -1
   %.01826.i.i.i.i.i.i.i = and i32 %87, %86
   %88 = zext nneg i32 %.01826.i.i.i.i.i.i.i to i64
-  %89 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %76, i64 %88
+  %89 = getelementptr inbounds nuw [16 x i8], ptr %76, i64 %88
   %90 = load ptr, ptr %89, align 8, !tbaa !11
   %91 = icmp eq ptr %.sroa.0.0.i.i.i.i.i, %90
   br i1 %91, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !prof !110
@@ -41134,14 +41132,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %96 = add i32 %.01627.i.i.i.i.i.i.i, %.01828.i.i.i.i.i.i.i
   %.018.i.i.i.i.i.i.i = and i32 %96, %87
   %97 = zext i32 %.018.i.i.i.i.i.i.i to i64
-  %98 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %76, i64 %97
+  %98 = getelementptr inbounds nuw [16 x i8], ptr %76, i64 %97
   %99 = load ptr, ptr %98, align 8, !tbaa !11
   %100 = icmp eq ptr %.sroa.0.0.i.i.i.i.i, %99
   br i1 %100, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i: ; preds = %94, %81
   %101 = phi i64 [ %88, %81 ], [ %97, %94 ]
-  %102 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %76, i64 %101
+  %102 = getelementptr inbounds nuw [16 x i8], ptr %76, i64 %101
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
   %104 = load ptr, ptr %103, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i
@@ -41301,7 +41299,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %183 = add i32 %175, -1
   %.01826.i.i.i.i.i.i.i37 = and i32 %183, %182
   %184 = zext nneg i32 %.01826.i.i.i.i.i.i.i37 to i64
-  %185 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %172, i64 %184
+  %185 = getelementptr inbounds nuw [16 x i8], ptr %172, i64 %184
   %186 = load ptr, ptr %185, align 8, !tbaa !11
   %187 = icmp eq ptr %.sroa.0.0.i.i.i.i.i34, %186
   br i1 %187, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i42, label %.lr.ph.i.i.i.i.i.i.i38, !prof !110
@@ -41318,14 +41316,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %192 = add i32 %.01627.i.i.i.i.i.i.i40, %.01828.i.i.i.i.i.i.i39
   %.018.i.i.i.i.i.i.i41 = and i32 %192, %183
   %193 = zext i32 %.018.i.i.i.i.i.i.i41 to i64
-  %194 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %172, i64 %193
+  %194 = getelementptr inbounds nuw [16 x i8], ptr %172, i64 %193
   %195 = load ptr, ptr %194, align 8, !tbaa !11
   %196 = icmp eq ptr %.sroa.0.0.i.i.i.i.i34, %195
   br i1 %196, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i42, label %.lr.ph.i.i.i.i.i.i.i38, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i42: ; preds = %190, %177
   %197 = phi i64 [ %184, %177 ], [ %193, %190 ]
-  %198 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %172, i64 %197
+  %198 = getelementptr inbounds nuw [16 x i8], ptr %172, i64 %197
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 8
   %200 = load ptr, ptr %199, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i43
@@ -41487,7 +41485,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %277 = add i32 %269, -1
   %.01826.i.i.i.i.i.i.i59 = and i32 %277, %276
   %278 = zext nneg i32 %.01826.i.i.i.i.i.i.i59 to i64
-  %279 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %266, i64 %278
+  %279 = getelementptr inbounds nuw [16 x i8], ptr %266, i64 %278
   %280 = load ptr, ptr %279, align 8, !tbaa !11
   %281 = icmp eq ptr %.sroa.0.0.i.i.i.i.i56, %280
   br i1 %281, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i64, label %.lr.ph.i.i.i.i.i.i.i60, !prof !110
@@ -41504,14 +41502,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %286 = add i32 %.01627.i.i.i.i.i.i.i62, %.01828.i.i.i.i.i.i.i61
   %.018.i.i.i.i.i.i.i63 = and i32 %286, %277
   %287 = zext i32 %.018.i.i.i.i.i.i.i63 to i64
-  %288 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %266, i64 %287
+  %288 = getelementptr inbounds nuw [16 x i8], ptr %266, i64 %287
   %289 = load ptr, ptr %288, align 8, !tbaa !11
   %290 = icmp eq ptr %.sroa.0.0.i.i.i.i.i56, %289
   br i1 %290, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i64, label %.lr.ph.i.i.i.i.i.i.i60, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i64: ; preds = %284, %271
   %291 = phi i64 [ %278, %271 ], [ %287, %284 ]
-  %292 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %266, i64 %291
+  %292 = getelementptr inbounds nuw [16 x i8], ptr %266, i64 %291
   %293 = getelementptr inbounds nuw i8, ptr %292, i64 8
   %294 = load ptr, ptr %293, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i65
@@ -41617,7 +41615,7 @@ _ZSt4copyIPPN4llvm16itanium_demangle14PODSmallVectorIPNS1_4NodeELm8EEES7_ET0_T_S
 _ZN4llvm16itanium_demangle14PODSmallVectorIPNS1_IPNS0_4NodeELm8EEELm4EE7reserveEm.exit.i.i: ; preds = %340, %_ZSt4copyIPPN4llvm16itanium_demangle14PODSmallVectorIPNS1_4NodeELm8EEES7_ET0_T_S9_S8_.exit.i.i.i
   %344 = phi ptr [ %341, %340 ], [ %335, %_ZSt4copyIPPN4llvm16itanium_demangle14PODSmallVectorIPNS1_4NodeELm8EEES7_ET0_T_S9_S8_.exit.i.i.i ]
   %345 = getelementptr inbounds nuw i8, ptr %344, i64 %320
-  %346 = getelementptr inbounds nuw ptr, ptr %344, i64 %330
+  %346 = getelementptr inbounds nuw [8 x i8], ptr %344, i64 %330
   store ptr %346, ptr %326, align 8, !tbaa !21
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E23ScopedTemplateParamListC2EPS6_.exit
 
@@ -41698,7 +41696,7 @@ _ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i: ; preds = %3
 _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i: ; preds = %377, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i
   %381 = phi ptr [ %378, %377 ], [ %372, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i ]
   %382 = getelementptr inbounds nuw i8, ptr %381, i64 %367
-  %383 = getelementptr inbounds nuw ptr, ptr %381, i64 %368
+  %383 = getelementptr inbounds nuw [8 x i8], ptr %381, i64 %368
   store ptr %383, ptr %349, align 8, !tbaa !10
   br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit
 
@@ -41916,7 +41914,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %493 = add i32 %485, -1
   %.01826.i.i.i.i.i.i.i91 = and i32 %493, %492
   %494 = zext nneg i32 %.01826.i.i.i.i.i.i.i91 to i64
-  %495 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %482, i64 %494
+  %495 = getelementptr inbounds nuw [16 x i8], ptr %482, i64 %494
   %496 = load ptr, ptr %495, align 8, !tbaa !11
   %497 = icmp eq ptr %.sroa.0.0.i.i.i.i.i88, %496
   br i1 %497, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i96, label %.lr.ph.i.i.i.i.i.i.i92, !prof !110
@@ -41933,14 +41931,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %502 = add i32 %.01627.i.i.i.i.i.i.i94, %.01828.i.i.i.i.i.i.i93
   %.018.i.i.i.i.i.i.i95 = and i32 %502, %493
   %503 = zext i32 %.018.i.i.i.i.i.i.i95 to i64
-  %504 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %482, i64 %503
+  %504 = getelementptr inbounds nuw [16 x i8], ptr %482, i64 %503
   %505 = load ptr, ptr %504, align 8, !tbaa !11
   %506 = icmp eq ptr %.sroa.0.0.i.i.i.i.i88, %505
   br i1 %506, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i96, label %.lr.ph.i.i.i.i.i.i.i92, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i96: ; preds = %500, %487
   %507 = phi i64 [ %494, %487 ], [ %503, %500 ]
-  %508 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %482, i64 %507
+  %508 = getelementptr inbounds nuw [16 x i8], ptr %482, i64 %507
   %509 = getelementptr inbounds nuw i8, ptr %508, i64 8
   %510 = load ptr, ptr %509, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i97
@@ -41965,7 +41963,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   %518 = getelementptr inbounds nuw i8, ptr %517, i64 664
   %519 = load i64, ptr %313, align 8, !tbaa !382
   %520 = load ptr, ptr %518, align 8, !tbaa !17
-  %521 = getelementptr inbounds nuw ptr, ptr %520, i64 %519
+  %521 = getelementptr inbounds nuw [8 x i8], ptr %520, i64 %519
   %522 = getelementptr inbounds nuw i8, ptr %517, i64 672
   store ptr %521, ptr %522, align 8, !tbaa !20
   %523 = load ptr, ptr %322, align 8, !tbaa !13
@@ -42048,7 +42046,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i.i.i.i.i.i: ; preds = %20, 
   %23 = phi i32 [ %18, %3 ], [ %.pre.i.i.i.i.i.i.i.i.i.i.i, %20 ]
   %24 = load ptr, ptr %6, align 8, !tbaa !59
   %25 = zext i32 %23 to i64
-  %26 = getelementptr inbounds nuw i32, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %25
   store i32 %17, ptr %26, align 1
   %27 = load i32, ptr %13, align 8, !tbaa !60
   %28 = add i32 %27, 1
@@ -42070,7 +42068,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %35 = trunc nuw i64 %34 to i32
   %36 = load ptr, ptr %6, align 8, !tbaa !59
   %37 = zext i32 %33 to i64
-  %38 = getelementptr inbounds nuw i32, ptr %36, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %37
   store i32 %35, ptr %38, align 1
   %39 = load i32, ptr %13, align 8, !tbaa !60
   %40 = add i32 %39, 1
@@ -42094,7 +42092,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i15.i.i.i.i.i: ; preds = %45
   %48 = phi i32 [ %43, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.exit.i.i.i.i.i ], [ %.pre.i.i.i.i.i.i14.i.i.i.i.i, %45 ]
   %49 = load ptr, ptr %6, align 8, !tbaa !59
   %50 = zext i32 %48 to i64
-  %51 = getelementptr inbounds nuw i32, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %50
   store i32 %42, ptr %51, align 1
   %52 = load i32, ptr %13, align 8, !tbaa !60
   %53 = add i32 %52, 1
@@ -42116,7 +42114,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %60 = trunc nuw i64 %59 to i32
   %61 = load ptr, ptr %6, align 8, !tbaa !59
   %62 = zext i32 %58 to i64
-  %63 = getelementptr inbounds nuw i32, ptr %61, i64 %62
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %62
   store i32 %60, ptr %63, align 1
   %64 = load i32, ptr %13, align 8, !tbaa !60
   %65 = add i32 %64, 1
@@ -42257,7 +42255,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %128 = add i32 %120, -1
   %.01826.i.i.i.i.i.i = and i32 %128, %127
   %129 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %130 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %117, i64 %129
+  %130 = getelementptr inbounds nuw [16 x i8], ptr %117, i64 %129
   %131 = load ptr, ptr %130, align 8, !tbaa !11
   %132 = icmp eq ptr %.sroa.033.0.i.i.i.i, %131
   br i1 %132, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -42274,14 +42272,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %137 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %137, %128
   %138 = zext i32 %.018.i.i.i.i.i.i to i64
-  %139 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %117, i64 %138
+  %139 = getelementptr inbounds nuw [16 x i8], ptr %117, i64 %138
   %140 = load ptr, ptr %139, align 8, !tbaa !11
   %141 = icmp eq ptr %.sroa.033.0.i.i.i.i, %140
   br i1 %141, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %135, %122
   %142 = phi i64 [ %129, %122 ], [ %138, %135 ]
-  %143 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %117, i64 %142
+  %143 = getelementptr inbounds nuw [16 x i8], ptr %117, i64 %142
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
   %145 = load ptr, ptr %144, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -42481,7 +42479,7 @@ _ZSt4copyIPPN4llvm16itanium_demangle14PODSmallVectorIPNS1_4NodeELm8EEES7_ET0_T_S
 _ZN4llvm16itanium_demangle14PODSmallVectorIPNS1_IPNS0_4NodeELm8EEELm4EE7reserveEm.exit: ; preds = %_ZSt4copyIPPN4llvm16itanium_demangle14PODSmallVectorIPNS1_4NodeELm8EEES7_ET0_T_S9_S8_.exit.i, %23
   %27 = phi ptr [ %24, %23 ], [ %18, %_ZSt4copyIPPN4llvm16itanium_demangle14PODSmallVectorIPNS1_4NodeELm8EEES7_ET0_T_S9_S8_.exit.i ]
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 %12
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %13
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %13
   store ptr %29, ptr %5, align 8, !tbaa !21
   br label %30
 
@@ -42506,7 +42504,7 @@ define internal fastcc noundef ptr @_ZZN4llvm16itanium_demangle22AbstractManglin
   %3 = alloca ptr, align 8
   %4 = getelementptr inbounds nuw i8, ptr %.0.val, i64 792
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr inbounds nuw i32, ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %5
   %7 = load i32, ptr %6, align 4, !tbaa !58
   %8 = add i32 %7, 1
   store i32 %8, ptr %6, align 4, !tbaa !58
@@ -42630,7 +42628,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %72 = add i32 %64, -1
   %.01826.i.i.i.i.i.i.i = and i32 %72, %71
   %73 = zext nneg i32 %.01826.i.i.i.i.i.i.i to i64
-  %74 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %61, i64 %73
+  %74 = getelementptr inbounds nuw [16 x i8], ptr %61, i64 %73
   %75 = load ptr, ptr %74, align 8, !tbaa !11
   %76 = icmp eq ptr %.sroa.0.0.i.i.i.i.i, %75
   br i1 %76, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !prof !110
@@ -42647,14 +42645,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %81 = add i32 %.01627.i.i.i.i.i.i.i, %.01828.i.i.i.i.i.i.i
   %.018.i.i.i.i.i.i.i = and i32 %81, %72
   %82 = zext i32 %.018.i.i.i.i.i.i.i to i64
-  %83 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %61, i64 %82
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %61, i64 %82
   %84 = load ptr, ptr %83, align 8, !tbaa !11
   %85 = icmp eq ptr %.sroa.0.0.i.i.i.i.i, %84
   br i1 %85, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i: ; preds = %79, %66
   %86 = phi i64 [ %73, %66 ], [ %82, %79 ]
-  %87 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %61, i64 %86
+  %87 = getelementptr inbounds nuw [16 x i8], ptr %61, i64 %86
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %89 = load ptr, ptr %88, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i
@@ -42736,7 +42734,7 @@ _ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i: ; preds = %1
 _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EE7reserveEm.exit.i: ; preds = %119, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i
   %123 = phi ptr [ %120, %119 ], [ %114, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i ]
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 %108
-  %125 = getelementptr inbounds nuw ptr, ptr %123, i64 %109
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %123, i64 %109
   store ptr %125, ptr %101, align 8, !tbaa !16
   br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm8EE9push_backERKS3_.exit
 
@@ -42874,7 +42872,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %66 = add i32 %58, -1
   %.01826.i.i.i.i.i.i = and i32 %66, %65
   %67 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %68 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %55, i64 %67
+  %68 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %67
   %69 = load ptr, ptr %68, align 8, !tbaa !11
   %70 = icmp eq ptr %.sroa.0.0.i.i.i.i, %69
   br i1 %70, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -42891,14 +42889,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %75 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %75, %66
   %76 = zext i32 %.018.i.i.i.i.i.i to i64
-  %77 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %55, i64 %76
+  %77 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %76
   %78 = load ptr, ptr %77, align 8, !tbaa !11
   %79 = icmp eq ptr %.sroa.0.0.i.i.i.i, %78
   br i1 %79, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %73, %60
   %80 = phi i64 [ %67, %60 ], [ %76, %73 ]
-  %81 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %55, i64 %80
+  %81 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %80
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %83 = load ptr, ptr %82, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -43485,7 +43483,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16
 _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i, %.lr.ph.i
   %41 = phi i64 [ %40, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i ], [ %25, %.lr.ph.i ]
   %42 = load ptr, ptr %22, align 8, !tbaa !371
-  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %.01214.i
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %.01214.i
   %44 = load ptr, ptr %43, align 8, !tbaa !11
   tail call void @_ZNK4llvm16itanium_demangle4Node14printAsOperandERNS0_12OutputBufferENS1_4PrecEb(ptr noundef nonnull align 8 dereferenceable(11) %44, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 18, i1 noundef zeroext false)
   %45 = load i64, ptr %5, align 8, !tbaa !349
@@ -43914,7 +43912,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16
 _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i, %.lr.ph.i
   %44 = phi i64 [ %43, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i ], [ %28, %.lr.ph.i ]
   %45 = load ptr, ptr %3, align 8, !tbaa !371
-  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %.01214.i
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %.01214.i
   %47 = load ptr, ptr %46, align 8, !tbaa !11
   tail call void @_ZNK4llvm16itanium_demangle4Node14printAsOperandERNS0_12OutputBufferENS1_4PrecEb(ptr noundef nonnull align 8 dereferenceable(11) %47, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 18, i1 noundef zeroext false)
   %48 = load i64, ptr %10, align 8, !tbaa !349
@@ -44157,7 +44155,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i47: ; preds = %._ZN4llvm
 _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i48: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i47, %.lr.ph.i42
   %151 = phi i64 [ %150, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i47 ], [ %135, %.lr.ph.i42 ]
   %152 = load ptr, ptr %132, align 8, !tbaa !371
-  %153 = getelementptr inbounds nuw ptr, ptr %152, i64 %.01214.i45
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %152, i64 %.01214.i45
   %154 = load ptr, ptr %153, align 8, !tbaa !11
   tail call void @_ZNK4llvm16itanium_demangle4Node14printAsOperandERNS0_12OutputBufferENS1_4PrecEb(ptr noundef nonnull align 8 dereferenceable(11) %154, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 18, i1 noundef zeroext false)
   %155 = load i64, ptr %118, align 8, !tbaa !349
@@ -44723,7 +44721,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %66 = add i32 %58, -1
   %.01826.i.i.i.i.i.i = and i32 %66, %65
   %67 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %68 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %55, i64 %67
+  %68 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %67
   %69 = load ptr, ptr %68, align 8, !tbaa !11
   %70 = icmp eq ptr %.sroa.0.0.i.i.i.i, %69
   br i1 %70, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -44740,14 +44738,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %75 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %75, %66
   %76 = zext i32 %.018.i.i.i.i.i.i to i64
-  %77 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %55, i64 %76
+  %77 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %76
   %78 = load ptr, ptr %77, align 8, !tbaa !11
   %79 = icmp eq ptr %.sroa.0.0.i.i.i.i, %78
   br i1 %79, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %73, %60
   %80 = phi i64 [ %67, %60 ], [ %76, %73 ]
-  %81 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %55, i64 %80
+  %81 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %80
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %83 = load ptr, ptr %82, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -45661,7 +45659,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %76 = add i32 %68, -1
   %.01826.i.i.i.i.i.i = and i32 %76, %75
   %77 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %78 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %65, i64 %77
+  %78 = getelementptr inbounds nuw [16 x i8], ptr %65, i64 %77
   %79 = load ptr, ptr %78, align 8, !tbaa !11
   %80 = icmp eq ptr %.sroa.0.0.i.i.i.i, %79
   br i1 %80, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -45678,14 +45676,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %85 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %85, %76
   %86 = zext i32 %.018.i.i.i.i.i.i to i64
-  %87 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %65, i64 %86
+  %87 = getelementptr inbounds nuw [16 x i8], ptr %65, i64 %86
   %88 = load ptr, ptr %87, align 8, !tbaa !11
   %89 = icmp eq ptr %.sroa.0.0.i.i.i.i, %88
   br i1 %89, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %83, %70
   %90 = phi i64 [ %77, %70 ], [ %86, %83 ]
-  %91 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %65, i64 %90
+  %91 = getelementptr inbounds nuw [16 x i8], ptr %65, i64 %90
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %93 = load ptr, ptr %92, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -46270,7 +46268,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16
 _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i, %.lr.ph.i
   %56 = phi i64 [ %55, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i ], [ %40, %.lr.ph.i ]
   %57 = load ptr, ptr %37, align 8, !tbaa !371
-  %58 = getelementptr inbounds nuw ptr, ptr %57, i64 %.01214.i
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %.01214.i
   %59 = load ptr, ptr %58, align 8, !tbaa !11
   tail call void @_ZNK4llvm16itanium_demangle4Node14printAsOperandERNS0_12OutputBufferENS1_4PrecEb(ptr noundef nonnull align 8 dereferenceable(11) %59, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 18, i1 noundef zeroext false)
   %60 = load i64, ptr %22, align 8, !tbaa !349
@@ -47184,7 +47182,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16
 _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i, %.lr.ph.i
   %70 = phi i64 [ %69, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i ], [ %54, %.lr.ph.i ]
   %71 = load ptr, ptr %20, align 8, !tbaa !371
-  %72 = getelementptr inbounds nuw ptr, ptr %71, i64 %.01214.i
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %.01214.i
   %73 = load ptr, ptr %72, align 8, !tbaa !11
   tail call void @_ZNK4llvm16itanium_demangle4Node14printAsOperandERNS0_12OutputBufferENS1_4PrecEb(ptr noundef nonnull align 8 dereferenceable(11) %73, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 18, i1 noundef zeroext false)
   %74 = load i64, ptr %3, align 8, !tbaa !349
@@ -47886,7 +47884,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i: ; preds = %10, %4
   %14 = phi i32 [ %7, %4 ], [ %.pre.i.i.i.i, %10 ]
   %15 = load ptr, ptr %0, align 8, !tbaa !59
   %16 = zext i32 %14 to i64
-  %17 = getelementptr inbounds nuw i32, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %16
   store i32 %5, ptr %17, align 1
   %18 = load i32, ptr %6, align 8, !tbaa !60
   %19 = add i32 %18, 1
@@ -47907,7 +47905,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindE
   %25 = phi i32 [ %19, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i ], [ %.pre.i.i3.i.i, %21 ]
   %26 = load ptr, ptr %0, align 8, !tbaa !59
   %27 = zext i32 %25 to i64
-  %28 = getelementptr inbounds nuw i32, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %27
   store i32 0, ptr %28, align 1
   %29 = load i32, ptr %6, align 8, !tbaa !60
   %30 = add i32 %29, 1
@@ -47944,7 +47942,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i: ; preds = %39, %_ZN12_GLO
   %43 = phi i32 [ %37, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclESt17basic_string_viewIcSt11char_traitsIcEE.exit ], [ %.pre.i.i.i.i.i.i, %39 ]
   %44 = load ptr, ptr %0, align 8, !tbaa !59
   %45 = zext i32 %43 to i64
-  %46 = getelementptr inbounds nuw i32, ptr %44, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %45
   store i32 %36, ptr %46, align 1
   %47 = load i32, ptr %6, align 8, !tbaa !60
   %48 = add i32 %47, 1
@@ -47967,7 +47965,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %56 = trunc nuw i64 %55 to i32
   %57 = load ptr, ptr %0, align 8, !tbaa !59
   %58 = zext i32 %54 to i64
-  %59 = getelementptr inbounds nuw i32, ptr %57, i64 %58
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %58
   store i32 %56, ptr %59, align 1
   %60 = load i32, ptr %6, align 8, !tbaa !60
   %61 = add i32 %60, 1
@@ -48033,7 +48031,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16
 _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i, %8
   %25 = phi i64 [ %24, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i ], [ %9, %8 ]
   %26 = load ptr, ptr %3, align 8, !tbaa !371
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %.01214.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %.01214.i
   %28 = load ptr, ptr %27, align 8, !tbaa !11
   tail call void @_ZNK4llvm16itanium_demangle4Node14printAsOperandERNS0_12OutputBufferENS1_4PrecEb(ptr noundef nonnull align 8 dereferenceable(11) %28, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 18, i1 noundef zeroext false)
   %29 = load i64, ptr %6, align 8, !tbaa !349
@@ -48151,7 +48149,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16
 _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i, %8
   %25 = phi i64 [ %24, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i ], [ %9, %8 ]
   %26 = load ptr, ptr %3, align 8, !tbaa !371
-  %27 = getelementptr inbounds nuw ptr, ptr %26, i64 %.01214.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %.01214.i
   %28 = load ptr, ptr %27, align 8, !tbaa !11
   tail call void @_ZNK4llvm16itanium_demangle4Node14printAsOperandERNS0_12OutputBufferENS1_4PrecEb(ptr noundef nonnull align 8 dereferenceable(11) %28, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 18, i1 noundef zeroext false)
   %29 = load i64, ptr %6, align 8, !tbaa !349
@@ -48320,7 +48318,7 @@ _ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i: ; preds = %2
 _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i: ; preds = %29, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i
   %33 = phi ptr [ %30, %29 ], [ %24, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i ]
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 %18
-  %35 = getelementptr inbounds nuw ptr, ptr %33, i64 %19
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %19
   store ptr %35, ptr %11, align 8, !tbaa !10
   br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit
 
@@ -48390,7 +48388,7 @@ _ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i10: ; preds = 
 _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i8: ; preds = %63, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i10
   %67 = phi ptr [ %64, %63 ], [ %58, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i10 ]
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 %52
-  %69 = getelementptr inbounds nuw ptr, ptr %67, i64 %53
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %53
   store ptr %69, ptr %45, align 8, !tbaa !10
   br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit11
 
@@ -48641,7 +48639,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %73 = add i32 %65, -1
   %.01826.i.i.i.i.i.i = and i32 %73, %72
   %74 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %75 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %62, i64 %74
+  %75 = getelementptr inbounds nuw [16 x i8], ptr %62, i64 %74
   %76 = load ptr, ptr %75, align 8, !tbaa !11
   %77 = icmp eq ptr %.sroa.0.0.i.i.i.i, %76
   br i1 %77, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -48658,14 +48656,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %82 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %82, %73
   %83 = zext i32 %.018.i.i.i.i.i.i to i64
-  %84 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %62, i64 %83
+  %84 = getelementptr inbounds nuw [16 x i8], ptr %62, i64 %83
   %85 = load ptr, ptr %84, align 8, !tbaa !11
   %86 = icmp eq ptr %.sroa.0.0.i.i.i.i, %85
   br i1 %86, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %80, %67
   %87 = phi i64 [ %74, %67 ], [ %83, %80 ]
-  %88 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %62, i64 %87
+  %88 = getelementptr inbounds nuw [16 x i8], ptr %62, i64 %87
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %90 = load ptr, ptr %89, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -48868,7 +48866,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %87 = add i32 %79, -1
   %.01826.i.i.i.i.i.i.i = and i32 %87, %86
   %88 = zext nneg i32 %.01826.i.i.i.i.i.i.i to i64
-  %89 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %76, i64 %88
+  %89 = getelementptr inbounds nuw [16 x i8], ptr %76, i64 %88
   %90 = load ptr, ptr %89, align 8, !tbaa !11
   %91 = icmp eq ptr %.sroa.0.0.i.i.i.i.i, %90
   br i1 %91, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !prof !110
@@ -48885,14 +48883,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %96 = add i32 %.01627.i.i.i.i.i.i.i, %.01828.i.i.i.i.i.i.i
   %.018.i.i.i.i.i.i.i = and i32 %96, %87
   %97 = zext i32 %.018.i.i.i.i.i.i.i to i64
-  %98 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %76, i64 %97
+  %98 = getelementptr inbounds nuw [16 x i8], ptr %76, i64 %97
   %99 = load ptr, ptr %98, align 8, !tbaa !11
   %100 = icmp eq ptr %.sroa.0.0.i.i.i.i.i, %99
   br i1 %100, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i: ; preds = %94, %81
   %101 = phi i64 [ %88, %81 ], [ %97, %94 ]
-  %102 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %76, i64 %101
+  %102 = getelementptr inbounds nuw [16 x i8], ptr %76, i64 %101
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 8
   %104 = load ptr, ptr %103, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i
@@ -49080,7 +49078,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %66 = add i32 %58, -1
   %.01826.i.i.i.i.i.i = and i32 %66, %65
   %67 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %68 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %55, i64 %67
+  %68 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %67
   %69 = load ptr, ptr %68, align 8, !tbaa !11
   %70 = icmp eq ptr %.sroa.0.0.i.i.i.i, %69
   br i1 %70, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -49097,14 +49095,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %75 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %75, %66
   %76 = zext i32 %.018.i.i.i.i.i.i to i64
-  %77 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %55, i64 %76
+  %77 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %76
   %78 = load ptr, ptr %77, align 8, !tbaa !11
   %79 = icmp eq ptr %.sroa.0.0.i.i.i.i, %78
   br i1 %79, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %73, %60
   %80 = phi i64 [ %67, %60 ], [ %76, %73 ]
-  %81 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %55, i64 %80
+  %81 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %80
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %83 = load ptr, ptr %82, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -49305,7 +49303,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %84 = add i32 %76, -1
   %.01826.i.i.i.i.i.i.i = and i32 %84, %83
   %85 = zext nneg i32 %.01826.i.i.i.i.i.i.i to i64
-  %86 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %73, i64 %85
+  %86 = getelementptr inbounds nuw [16 x i8], ptr %73, i64 %85
   %87 = load ptr, ptr %86, align 8, !tbaa !11
   %88 = icmp eq ptr %.sroa.0.0.i.i.i.i.i, %87
   br i1 %88, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !prof !110
@@ -49322,14 +49320,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %93 = add i32 %.01627.i.i.i.i.i.i.i, %.01828.i.i.i.i.i.i.i
   %.018.i.i.i.i.i.i.i = and i32 %93, %84
   %94 = zext i32 %.018.i.i.i.i.i.i.i to i64
-  %95 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %73, i64 %94
+  %95 = getelementptr inbounds nuw [16 x i8], ptr %73, i64 %94
   %96 = load ptr, ptr %95, align 8, !tbaa !11
   %97 = icmp eq ptr %.sroa.0.0.i.i.i.i.i, %96
   br i1 %97, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i: ; preds = %91, %78
   %98 = phi i64 [ %85, %78 ], [ %94, %91 ]
-  %99 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %73, i64 %98
+  %99 = getelementptr inbounds nuw [16 x i8], ptr %73, i64 %98
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
   %101 = load ptr, ptr %100, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i
@@ -49412,7 +49410,7 @@ _ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i: ; preds = %1
 _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i: ; preds = %132, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i
   %136 = phi ptr [ %133, %132 ], [ %127, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i ]
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 %121
-  %138 = getelementptr inbounds nuw ptr, ptr %136, i64 %122
+  %138 = getelementptr inbounds nuw [8 x i8], ptr %136, i64 %122
   store ptr %138, ptr %114, align 8, !tbaa !10
   br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit
 
@@ -49506,7 +49504,7 @@ _ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOB
   br i1 %.not, label %179, label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit.thread
 
 179:                                              ; preds = %169
-  %180 = getelementptr inbounds nuw ptr, ptr %174, i64 %165
+  %180 = getelementptr inbounds nuw [8 x i8], ptr %174, i64 %165
   %181 = load ptr, ptr %180, align 8, !tbaa !11
   br label %_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E9consumeIfEc.exit.thread
 
@@ -49709,7 +49707,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %99 = add i32 %91, -1
   %.01826.i.i.i.i.i.i.i = and i32 %99, %98
   %100 = zext nneg i32 %.01826.i.i.i.i.i.i.i to i64
-  %101 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %89, i64 %100
+  %101 = getelementptr inbounds nuw [16 x i8], ptr %89, i64 %100
   %102 = load ptr, ptr %101, align 8, !tbaa !11
   %103 = icmp eq ptr %.sroa.0.0.i.i.i.i.i, %102
   br i1 %103, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !prof !110
@@ -49726,14 +49724,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %108 = add i32 %.01627.i.i.i.i.i.i.i, %.01828.i.i.i.i.i.i.i
   %.018.i.i.i.i.i.i.i = and i32 %108, %99
   %109 = zext i32 %.018.i.i.i.i.i.i.i to i64
-  %110 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %89, i64 %109
+  %110 = getelementptr inbounds nuw [16 x i8], ptr %89, i64 %109
   %111 = load ptr, ptr %110, align 8, !tbaa !11
   %112 = icmp eq ptr %.sroa.0.0.i.i.i.i.i, %111
   br i1 %112, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i: ; preds = %106, %93
   %113 = phi i64 [ %100, %93 ], [ %109, %106 ]
-  %114 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %89, i64 %113
+  %114 = getelementptr inbounds nuw [16 x i8], ptr %89, i64 %113
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
   %116 = load ptr, ptr %115, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i
@@ -50118,10 +50116,10 @@ switch.lookup:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %2 = load i32, ptr %1, align 4, !tbaa !238
   %3 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK4llvm16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK4llvm16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %2 to i64
-  %switch.gep1 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK4llvm16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv.556, i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK4llvm16itanium_demangle27ExpandedSpecialSubstitution11getBaseNameEv.556, i64 %4
   %switch.load2 = load i64, ptr %switch.gep1, align 8
   %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %switch.load2, 0
   %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %switch.load, 1
@@ -50396,7 +50394,7 @@ define internal fastcc noundef ptr @_ZN4llvm16itanium_demangle22AbstractMangling
   %.01229.i = phi i64 [ 0, %.preheader.i ], [ %27, %.thread24.i ]
   %16 = add i64 %.01229.i, %.01030.i
   %17 = lshr i64 %16, 1
-  %18 = getelementptr inbounds nuw %"struct.llvm::itanium_demangle::AbstractManglingParser<llvm::itanium_demangle::ManglingParser<(anonymous namespace)::CanonicalizerAllocator>, (anonymous namespace)::CanonicalizerAllocator>::OperatorInfo", ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E3OpsE, i64 %17
+  %18 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E3OpsE, i64 %17
   %.val15.i = load i8, ptr %18, align 16, !tbaa !91
   %19 = getelementptr i8, ptr %18, i64 1
   %.val16.i = load i8, ptr %19, align 1
@@ -50427,7 +50425,7 @@ _ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLO
   br i1 %.not.i, label %29, label %15, !llvm.loop !355
 
 29:                                               ; preds = %.thread24.i
-  %30 = getelementptr inbounds nuw %"struct.llvm::itanium_demangle::AbstractManglingParser<llvm::itanium_demangle::ManglingParser<(anonymous namespace)::CanonicalizerAllocator>, (anonymous namespace)::CanonicalizerAllocator>::OperatorInfo", ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E3OpsE, i64 %27
+  %30 = getelementptr inbounds nuw [16 x i8], ptr @_ZN4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E3OpsE, i64 %27
   %.val17.i = load i8, ptr %30, align 16, !tbaa !91
   %31 = icmp eq i8 %.val17.i, %13
   br i1 %31, label %_ZNK4llvm16itanium_demangle22AbstractManglingParserINS0_14ManglingParserIN12_GLOBAL__N_122CanonicalizerAllocatorEEES4_E12OperatorInfoneEPKc.exit.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
@@ -50701,7 +50699,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %155 = add i32 %147, -1
   %.01826.i.i.i.i.i.i.i = and i32 %155, %154
   %156 = zext nneg i32 %.01826.i.i.i.i.i.i.i to i64
-  %157 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %144, i64 %156
+  %157 = getelementptr inbounds nuw [16 x i8], ptr %144, i64 %156
   %158 = load ptr, ptr %157, align 8, !tbaa !11
   %159 = icmp eq ptr %.sroa.0.0.i.i.i.i.i, %158
   br i1 %159, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !prof !110
@@ -50718,14 +50716,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %164 = add i32 %.01627.i.i.i.i.i.i.i, %.01828.i.i.i.i.i.i.i
   %.018.i.i.i.i.i.i.i = and i32 %164, %155
   %165 = zext i32 %.018.i.i.i.i.i.i.i to i64
-  %166 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %144, i64 %165
+  %166 = getelementptr inbounds nuw [16 x i8], ptr %144, i64 %165
   %167 = load ptr, ptr %166, align 8, !tbaa !11
   %168 = icmp eq ptr %.sroa.0.0.i.i.i.i.i, %167
   br i1 %168, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i: ; preds = %162, %149
   %169 = phi i64 [ %156, %149 ], [ %165, %162 ]
-  %170 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %144, i64 %169
+  %170 = getelementptr inbounds nuw [16 x i8], ptr %144, i64 %169
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 8
   %172 = load ptr, ptr %171, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i
@@ -51018,7 +51016,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %66 = add i32 %58, -1
   %.01826.i.i.i.i.i.i = and i32 %66, %65
   %67 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %68 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %55, i64 %67
+  %68 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %67
   %69 = load ptr, ptr %68, align 8, !tbaa !11
   %70 = icmp eq ptr %.sroa.0.0.i.i.i.i, %69
   br i1 %70, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -51035,14 +51033,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %75 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %75, %66
   %76 = zext i32 %.018.i.i.i.i.i.i to i64
-  %77 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %55, i64 %76
+  %77 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %76
   %78 = load ptr, ptr %77, align 8, !tbaa !11
   %79 = icmp eq ptr %.sroa.0.0.i.i.i.i, %78
   br i1 %79, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %73, %60
   %80 = phi i64 [ %67, %60 ], [ %76, %73 ]
-  %81 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %55, i64 %80
+  %81 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %80
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %83 = load ptr, ptr %82, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -51627,7 +51625,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %69 = add i32 %61, -1
   %.01826.i.i.i.i.i.i = and i32 %69, %68
   %70 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %71 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %58, i64 %70
+  %71 = getelementptr inbounds nuw [16 x i8], ptr %58, i64 %70
   %72 = load ptr, ptr %71, align 8, !tbaa !11
   %73 = icmp eq ptr %.sroa.0.0.i.i.i.i, %72
   br i1 %73, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -51644,14 +51642,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %78 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %78, %69
   %79 = zext i32 %.018.i.i.i.i.i.i to i64
-  %80 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %58, i64 %79
+  %80 = getelementptr inbounds nuw [16 x i8], ptr %58, i64 %79
   %81 = load ptr, ptr %80, align 8, !tbaa !11
   %82 = icmp eq ptr %.sroa.0.0.i.i.i.i, %81
   br i1 %82, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %76, %63
   %83 = phi i64 [ %70, %63 ], [ %79, %76 ]
-  %84 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %58, i64 %83
+  %84 = getelementptr inbounds nuw [16 x i8], ptr %58, i64 %83
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %86 = load ptr, ptr %85, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -51799,7 +51797,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %67 = add i32 %59, -1
   %.01826.i.i.i.i.i.i = and i32 %67, %66
   %68 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %69 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %56, i64 %68
+  %69 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %68
   %70 = load ptr, ptr %69, align 8, !tbaa !11
   %71 = icmp eq ptr %.sroa.0.0.i.i.i.i, %70
   br i1 %71, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -51816,14 +51814,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %76 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %76, %67
   %77 = zext i32 %.018.i.i.i.i.i.i to i64
-  %78 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %56, i64 %77
+  %78 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %77
   %79 = load ptr, ptr %78, align 8, !tbaa !11
   %80 = icmp eq ptr %.sroa.0.0.i.i.i.i, %79
   br i1 %80, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %74, %61
   %81 = phi i64 [ %68, %61 ], [ %77, %74 ]
-  %82 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %56, i64 %81
+  %82 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %81
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load ptr, ptr %83, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -52193,7 +52191,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %67 = add i32 %59, -1
   %.01826.i.i.i.i.i.i = and i32 %67, %66
   %68 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %69 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %56, i64 %68
+  %69 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %68
   %70 = load ptr, ptr %69, align 8, !tbaa !11
   %71 = icmp eq ptr %.sroa.0.0.i.i.i.i, %70
   br i1 %71, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -52210,14 +52208,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %76 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %76, %67
   %77 = zext i32 %.018.i.i.i.i.i.i to i64
-  %78 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %56, i64 %77
+  %78 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %77
   %79 = load ptr, ptr %78, align 8, !tbaa !11
   %80 = icmp eq ptr %.sroa.0.0.i.i.i.i, %79
   br i1 %80, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %74, %61
   %81 = phi i64 [ %68, %61 ], [ %77, %74 ]
-  %82 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %56, i64 %81
+  %82 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %81
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load ptr, ptr %83, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -53321,7 +53319,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %71 = add i32 %63, -1
   %.01826.i.i.i.i.i.i = and i32 %71, %70
   %72 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %73 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %60, i64 %72
+  %73 = getelementptr inbounds nuw [16 x i8], ptr %60, i64 %72
   %74 = load ptr, ptr %73, align 8, !tbaa !11
   %75 = icmp eq ptr %.sroa.0.0.i.i.i.i, %74
   br i1 %75, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -53338,14 +53336,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %80 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %80, %71
   %81 = zext i32 %.018.i.i.i.i.i.i to i64
-  %82 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %60, i64 %81
+  %82 = getelementptr inbounds nuw [16 x i8], ptr %60, i64 %81
   %83 = load ptr, ptr %82, align 8, !tbaa !11
   %84 = icmp eq ptr %.sroa.0.0.i.i.i.i, %83
   br i1 %84, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %78, %65
   %85 = phi i64 [ %72, %65 ], [ %81, %78 ]
-  %86 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %60, i64 %85
+  %86 = getelementptr inbounds nuw [16 x i8], ptr %60, i64 %85
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %88 = load ptr, ptr %87, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -54399,7 +54397,7 @@ _ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12Outpu
 15:                                               ; preds = %_ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12OutputBufferE.exit
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !371
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %13
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %13
   %19 = load ptr, ptr %18, align 8, !tbaa !11
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 9
   %21 = load i16, ptr %20, align 1
@@ -54456,7 +54454,7 @@ _ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12Outpu
 15:                                               ; preds = %_ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12OutputBufferE.exit
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !371
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %13
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %13
   %19 = load ptr, ptr %18, align 8, !tbaa !11
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 9
   %21 = load i16, ptr %20, align 1
@@ -54515,7 +54513,7 @@ _ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12Outpu
 15:                                               ; preds = %_ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12OutputBufferE.exit
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !371
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %13
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %13
   %19 = load ptr, ptr %18, align 8, !tbaa !11
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 9
   %21 = load i16, ptr %20, align 1
@@ -54574,7 +54572,7 @@ _ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12Outpu
 15:                                               ; preds = %_ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12OutputBufferE.exit
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !371
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %13
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %13
   %19 = load ptr, ptr %18, align 8, !tbaa !11
   %20 = load ptr, ptr %19, align 8, !tbaa !103
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
@@ -54620,7 +54618,7 @@ _ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12Outpu
 15:                                               ; preds = %_ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12OutputBufferE.exit
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !371
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %13
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %13
   %19 = load ptr, ptr %18, align 8, !tbaa !11
   %20 = load ptr, ptr %19, align 8, !tbaa !103
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 32
@@ -54665,7 +54663,7 @@ _ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12Outpu
 15:                                               ; preds = %_ZNK4llvm16itanium_demangle13ParameterPack23initializePackExpansionERNS0_12OutputBufferE.exit
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !371
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %13
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %13
   %19 = load ptr, ptr %18, align 8, !tbaa !11
   %20 = load ptr, ptr %19, align 8, !tbaa !103
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 40
@@ -54773,7 +54771,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16
 _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i, %.lr.ph.i
   %41 = phi i64 [ %40, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i ], [ %25, %.lr.ph.i ]
   %42 = load ptr, ptr %22, align 8, !tbaa !371
-  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %.01214.i
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %.01214.i
   %44 = load ptr, ptr %43, align 8, !tbaa !11
   tail call void @_ZNK4llvm16itanium_demangle4Node14printAsOperandERNS0_12OutputBufferENS1_4PrecEb(ptr noundef nonnull align 8 dereferenceable(11) %44, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 18, i1 noundef zeroext false)
   %45 = load i64, ptr %5, align 8, !tbaa !349
@@ -55800,7 +55798,7 @@ _ZSt4copyIPPKN4llvm16itanium_demangle4NodeES5_ET0_T_S7_S6_.exit.i.i: ; preds = %
 _ZN4llvm16itanium_demangle14PODSmallVectorIPKNS0_4NodeELm8EE7reserveEm.exit.i: ; preds = %38, %_ZSt4copyIPPKN4llvm16itanium_demangle4NodeES5_ET0_T_S7_S6_.exit.i.i
   %42 = phi ptr [ %39, %38 ], [ %33, %_ZSt4copyIPPKN4llvm16itanium_demangle4NodeES5_ET0_T_S7_S6_.exit.i.i ]
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 %28
-  %44 = getelementptr inbounds nuw ptr, ptr %42, i64 %29
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %29
   store ptr %44, ptr %9, align 8, !tbaa !407
   br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPKNS0_4NodeELm8EE9push_backERKS4_.exit
 
@@ -55820,7 +55818,7 @@ _ZN4llvm16itanium_demangle14PODSmallVectorIPKNS0_4NodeELm8EE9push_backERKS4_.exi
 53:                                               ; preds = %_ZN4llvm16itanium_demangle14PODSmallVectorIPKNS0_4NodeELm8EE9push_backERKS4_.exit
   %54 = add nsw i64 %51, -1
   %55 = lshr i64 %54, 1
-  %56 = getelementptr inbounds nuw ptr, ptr %45, i64 %55
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %55
   %57 = load ptr, ptr %56, align 8, !tbaa !11
   %58 = icmp eq ptr %19, %57
   br i1 %58, label %._crit_edge, label %59
@@ -55874,7 +55872,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i: ; preds = %8, %3
   %12 = phi i32 [ %5, %3 ], [ %.pre.i.i.i.i, %8 ]
   %13 = load ptr, ptr %0, align 8, !tbaa !59
   %14 = zext i32 %12 to i64
-  %15 = getelementptr inbounds nuw i32, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %14
   store i32 5, ptr %15, align 1
   %16 = load i32, ptr %4, align 8, !tbaa !60
   %17 = add i32 %16, 1
@@ -55895,7 +55893,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindE
   %23 = phi i32 [ %17, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i ], [ %.pre.i.i3.i.i, %19 ]
   %24 = load ptr, ptr %0, align 8, !tbaa !59
   %25 = zext i32 %23 to i64
-  %26 = getelementptr inbounds nuw i32, ptr %24, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %25
   store i32 0, ptr %26, align 1
   %27 = load i32, ptr %4, align 8, !tbaa !60
   %28 = add i32 %27, 1
@@ -55918,7 +55916,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i: ; preds = %32, %_ZN12_GLO
   %36 = phi i32 [ %28, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle4Node4KindEEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS7_EEvE4typeES7_.exit ], [ %.pre.i.i.i.i.i.i, %32 ]
   %37 = load ptr, ptr %0, align 8, !tbaa !59
   %38 = zext i32 %36 to i64
-  %39 = getelementptr inbounds nuw i32, ptr %37, i64 %38
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %38
   store i32 %30, ptr %39, align 1
   %40 = load i32, ptr %4, align 8, !tbaa !60
   %41 = add i32 %40, 1
@@ -55941,7 +55939,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %49 = trunc nuw i64 %48 to i32
   %50 = load ptr, ptr %0, align 8, !tbaa !59
   %51 = zext i32 %47 to i64
-  %52 = getelementptr inbounds nuw i32, ptr %50, i64 %51
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %51
   store i32 %49, ptr %52, align 1
   %53 = load i32, ptr %4, align 8, !tbaa !60
   %54 = add i32 %53, 1
@@ -56246,7 +56244,7 @@ _ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i: ; preds = %1
 _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i: ; preds = %116, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i
   %120 = phi ptr [ %117, %116 ], [ %111, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i ]
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 %106
-  %122 = getelementptr inbounds nuw ptr, ptr %120, i64 %107
+  %122 = getelementptr inbounds nuw [8 x i8], ptr %120, i64 %107
   store ptr %122, ptr %75, align 8, !tbaa !10
   br label %_ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE9push_backERKS3_.exit
 
@@ -56439,7 +56437,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %221 = add i32 %213, -1
   %.01826.i.i.i.i.i.i.i = and i32 %221, %220
   %222 = zext nneg i32 %.01826.i.i.i.i.i.i.i to i64
-  %223 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %210, i64 %222
+  %223 = getelementptr inbounds nuw [16 x i8], ptr %210, i64 %222
   %224 = load ptr, ptr %223, align 8, !tbaa !11
   %225 = icmp eq ptr %.sroa.0.0.i.i.i.i.i, %224
   br i1 %225, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !prof !110
@@ -56456,14 +56454,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %230 = add i32 %.01627.i.i.i.i.i.i.i, %.01828.i.i.i.i.i.i.i
   %.018.i.i.i.i.i.i.i = and i32 %230, %221
   %231 = zext i32 %.018.i.i.i.i.i.i.i to i64
-  %232 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %210, i64 %231
+  %232 = getelementptr inbounds nuw [16 x i8], ptr %210, i64 %231
   %233 = load ptr, ptr %232, align 8, !tbaa !11
   %234 = icmp eq ptr %.sroa.0.0.i.i.i.i.i, %233
   br i1 %234, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i: ; preds = %228, %215
   %235 = phi i64 [ %222, %215 ], [ %231, %228 ]
-  %236 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %210, i64 %235
+  %236 = getelementptr inbounds nuw [16 x i8], ptr %210, i64 %235
   %237 = getelementptr inbounds nuw i8, ptr %236, i64 8
   %238 = load ptr, ptr %237, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i
@@ -56759,7 +56757,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %367 = add i32 %359, -1
   %.01826.i.i.i.i.i.i.i90 = and i32 %367, %366
   %368 = zext nneg i32 %.01826.i.i.i.i.i.i.i90 to i64
-  %369 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %356, i64 %368
+  %369 = getelementptr inbounds nuw [16 x i8], ptr %356, i64 %368
   %370 = load ptr, ptr %369, align 8, !tbaa !11
   %371 = icmp eq ptr %.sroa.0.0.i.i.i.i.i87, %370
   br i1 %371, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i95, label %.lr.ph.i.i.i.i.i.i.i91, !prof !110
@@ -56776,14 +56774,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %376 = add i32 %.01627.i.i.i.i.i.i.i93, %.01828.i.i.i.i.i.i.i92
   %.018.i.i.i.i.i.i.i94 = and i32 %376, %367
   %377 = zext i32 %.018.i.i.i.i.i.i.i94 to i64
-  %378 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %356, i64 %377
+  %378 = getelementptr inbounds nuw [16 x i8], ptr %356, i64 %377
   %379 = load ptr, ptr %378, align 8, !tbaa !11
   %380 = icmp eq ptr %.sroa.0.0.i.i.i.i.i87, %379
   br i1 %380, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i95, label %.lr.ph.i.i.i.i.i.i.i91, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i95: ; preds = %374, %361
   %381 = phi i64 [ %368, %361 ], [ %377, %374 ]
-  %382 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %356, i64 %381
+  %382 = getelementptr inbounds nuw [16 x i8], ptr %356, i64 %381
   %383 = getelementptr inbounds nuw i8, ptr %382, i64 8
   %384 = load ptr, ptr %383, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i96
@@ -56934,7 +56932,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %458 = add i32 %450, -1
   %.01826.i.i.i.i.i.i.i107 = and i32 %458, %457
   %459 = zext nneg i32 %.01826.i.i.i.i.i.i.i107 to i64
-  %460 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %447, i64 %459
+  %460 = getelementptr inbounds nuw [16 x i8], ptr %447, i64 %459
   %461 = load ptr, ptr %460, align 8, !tbaa !11
   %462 = icmp eq ptr %.sroa.0.0.i.i.i.i.i104, %461
   br i1 %462, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i112, label %.lr.ph.i.i.i.i.i.i.i108, !prof !110
@@ -56951,14 +56949,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %467 = add i32 %.01627.i.i.i.i.i.i.i110, %.01828.i.i.i.i.i.i.i109
   %.018.i.i.i.i.i.i.i111 = and i32 %467, %458
   %468 = zext i32 %.018.i.i.i.i.i.i.i111 to i64
-  %469 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %447, i64 %468
+  %469 = getelementptr inbounds nuw [16 x i8], ptr %447, i64 %468
   %470 = load ptr, ptr %469, align 8, !tbaa !11
   %471 = icmp eq ptr %.sroa.0.0.i.i.i.i.i104, %470
   br i1 %471, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i112, label %.lr.ph.i.i.i.i.i.i.i108, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i112: ; preds = %465, %452
   %472 = phi i64 [ %459, %452 ], [ %468, %465 ]
-  %473 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %447, i64 %472
+  %473 = getelementptr inbounds nuw [16 x i8], ptr %447, i64 %472
   %474 = getelementptr inbounds nuw i8, ptr %473, i64 8
   %475 = load ptr, ptr %474, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i113
@@ -57103,7 +57101,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %547 = add i32 %539, -1
   %.01826.i.i.i.i.i.i.i125 = and i32 %547, %546
   %548 = zext nneg i32 %.01826.i.i.i.i.i.i.i125 to i64
-  %549 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %536, i64 %548
+  %549 = getelementptr inbounds nuw [16 x i8], ptr %536, i64 %548
   %550 = load ptr, ptr %549, align 8, !tbaa !11
   %551 = icmp eq ptr %.sroa.0.0.i.i.i.i.i122, %550
   br i1 %551, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i130, label %.lr.ph.i.i.i.i.i.i.i126, !prof !110
@@ -57120,14 +57118,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %556 = add i32 %.01627.i.i.i.i.i.i.i128, %.01828.i.i.i.i.i.i.i127
   %.018.i.i.i.i.i.i.i129 = and i32 %556, %547
   %557 = zext i32 %.018.i.i.i.i.i.i.i129 to i64
-  %558 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %536, i64 %557
+  %558 = getelementptr inbounds nuw [16 x i8], ptr %536, i64 %557
   %559 = load ptr, ptr %558, align 8, !tbaa !11
   %560 = icmp eq ptr %.sroa.0.0.i.i.i.i.i122, %559
   br i1 %560, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i130, label %.lr.ph.i.i.i.i.i.i.i126, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i130: ; preds = %554, %541
   %561 = phi i64 [ %548, %541 ], [ %557, %554 ]
-  %562 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %536, i64 %561
+  %562 = getelementptr inbounds nuw [16 x i8], ptr %536, i64 %561
   %563 = getelementptr inbounds nuw i8, ptr %562, i64 8
   %564 = load ptr, ptr %563, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i131
@@ -57391,7 +57389,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %117 = add i32 %109, -1
   %.01826.i.i.i.i.i.i.i = and i32 %117, %116
   %118 = zext nneg i32 %.01826.i.i.i.i.i.i.i to i64
-  %119 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %107, i64 %118
+  %119 = getelementptr inbounds nuw [16 x i8], ptr %107, i64 %118
   %120 = load ptr, ptr %119, align 8, !tbaa !11
   %121 = icmp eq ptr %.sroa.0.0.i.i.i.i.i, %120
   br i1 %121, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !prof !110
@@ -57408,14 +57406,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %126 = add i32 %.01627.i.i.i.i.i.i.i, %.01828.i.i.i.i.i.i.i
   %.018.i.i.i.i.i.i.i = and i32 %126, %117
   %127 = zext i32 %.018.i.i.i.i.i.i.i to i64
-  %128 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %107, i64 %127
+  %128 = getelementptr inbounds nuw [16 x i8], ptr %107, i64 %127
   %129 = load ptr, ptr %128, align 8, !tbaa !11
   %130 = icmp eq ptr %.sroa.0.0.i.i.i.i.i, %129
   br i1 %130, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i.i: ; preds = %124, %111
   %131 = phi i64 [ %118, %111 ], [ %127, %124 ]
-  %132 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %107, i64 %131
+  %132 = getelementptr inbounds nuw [16 x i8], ptr %107, i64 %131
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
   %134 = load ptr, ptr %133, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i.i
@@ -57484,7 +57482,7 @@ _ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i: ; preds = %1
 _ZN4llvm16itanium_demangle14PODSmallVectorIPNS0_4NodeELm32EE7reserveEm.exit.i: ; preds = %156, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i
   %160 = phi ptr [ %157, %156 ], [ %151, %_ZSt4copyIPPN4llvm16itanium_demangle4NodeES4_ET0_T_S6_S5_.exit.i.i ]
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 %146
-  %162 = getelementptr inbounds nuw ptr, ptr %160, i64 %147
+  %162 = getelementptr inbounds nuw [8 x i8], ptr %160, i64 %147
   store ptr %162, ptr %26, align 8, !tbaa !10
   br label %163
 
@@ -57698,7 +57696,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16
 _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i, %.lr.ph.i
   %40 = phi i64 [ %39, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i ], [ %24, %.lr.ph.i ]
   %41 = load ptr, ptr %21, align 8, !tbaa !371
-  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %.01214.i
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %.01214.i
   %43 = load ptr, ptr %42, align 8, !tbaa !11
   tail call void @_ZNK4llvm16itanium_demangle4Node14printAsOperandERNS0_12OutputBufferENS1_4PrecEb(ptr noundef nonnull align 8 dereferenceable(11) %43, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 18, i1 noundef zeroext false)
   %44 = load i64, ptr %6, align 8, !tbaa !349
@@ -57892,7 +57890,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %71 = add i32 %63, -1
   %.01826.i.i.i.i.i.i = and i32 %71, %70
   %72 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %73 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %60, i64 %72
+  %73 = getelementptr inbounds nuw [16 x i8], ptr %60, i64 %72
   %74 = load ptr, ptr %73, align 8, !tbaa !11
   %75 = icmp eq ptr %.sroa.0.0.i.i.i.i, %74
   br i1 %75, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -57909,14 +57907,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %80 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %80, %71
   %81 = zext i32 %.018.i.i.i.i.i.i to i64
-  %82 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %60, i64 %81
+  %82 = getelementptr inbounds nuw [16 x i8], ptr %60, i64 %81
   %83 = load ptr, ptr %82, align 8, !tbaa !11
   %84 = icmp eq ptr %.sroa.0.0.i.i.i.i, %83
   br i1 %84, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %78, %65
   %85 = phi i64 [ %72, %65 ], [ %81, %78 ]
-  %86 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %60, i64 %85
+  %86 = getelementptr inbounds nuw [16 x i8], ptr %60, i64 %85
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %88 = load ptr, ptr %87, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -58083,7 +58081,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %80 = add i32 %72, -1
   %.01826.i.i.i.i.i.i = and i32 %80, %79
   %81 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %82 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %69, i64 %81
+  %82 = getelementptr inbounds nuw [16 x i8], ptr %69, i64 %81
   %83 = load ptr, ptr %82, align 8, !tbaa !11
   %84 = icmp eq ptr %.sroa.0.0.i.i.i.i, %83
   br i1 %84, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -58100,14 +58098,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %89 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %89, %80
   %90 = zext i32 %.018.i.i.i.i.i.i to i64
-  %91 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %69, i64 %90
+  %91 = getelementptr inbounds nuw [16 x i8], ptr %69, i64 %90
   %92 = load ptr, ptr %91, align 8, !tbaa !11
   %93 = icmp eq ptr %.sroa.0.0.i.i.i.i, %92
   br i1 %93, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %87, %74
   %94 = phi i64 [ %81, %74 ], [ %90, %87 ]
-  %95 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %69, i64 %94
+  %95 = getelementptr inbounds nuw [16 x i8], ptr %69, i64 %94
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
   %97 = load ptr, ptr %96, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -58653,7 +58651,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %67 = add i32 %59, -1
   %.01826.i.i.i.i.i.i = and i32 %67, %66
   %68 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %69 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %56, i64 %68
+  %69 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %68
   %70 = load ptr, ptr %69, align 8, !tbaa !11
   %71 = icmp eq ptr %.sroa.0.0.i.i.i.i, %70
   br i1 %71, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -58670,14 +58668,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %76 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %76, %67
   %77 = zext i32 %.018.i.i.i.i.i.i to i64
-  %78 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %56, i64 %77
+  %78 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %77
   %79 = load ptr, ptr %78, align 8, !tbaa !11
   %80 = icmp eq ptr %.sroa.0.0.i.i.i.i, %79
   br i1 %80, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %74, %61
   %81 = phi i64 [ %68, %61 ], [ %77, %74 ]
-  %82 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %56, i64 %81
+  %82 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %81
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load ptr, ptr %83, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -59297,7 +59295,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %68 = add i32 %60, -1
   %.01826.i.i.i.i.i.i = and i32 %68, %67
   %69 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %70 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %69
+  %70 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %69
   %71 = load ptr, ptr %70, align 8, !tbaa !11
   %72 = icmp eq ptr %.sroa.0.0.i.i.i.i, %71
   br i1 %72, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -59314,14 +59312,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %77 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %77, %68
   %78 = zext i32 %.018.i.i.i.i.i.i to i64
-  %79 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %78
+  %79 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !11
   %81 = icmp eq ptr %.sroa.0.0.i.i.i.i, %80
   br i1 %81, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %75, %62
   %82 = phi i64 [ %69, %62 ], [ %78, %75 ]
-  %83 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %57, i64 %82
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %82
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 8
   %85 = load ptr, ptr %84, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -59396,7 +59394,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i24.i.i.i.i.i: ; preds = %26
   %29 = phi i32 [ %24, %4 ], [ %.pre.i.i.i.i.i.i23.i.i.i.i.i, %26 ]
   %30 = load ptr, ptr %6, align 8, !tbaa !59
   %31 = zext i32 %29 to i64
-  %32 = getelementptr inbounds nuw i32, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %31
   store i32 %23, ptr %32, align 1
   %33 = load i32, ptr %13, align 8, !tbaa !60
   %34 = add i32 %33, 1
@@ -59418,7 +59416,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %41 = trunc nuw i64 %40 to i32
   %42 = load ptr, ptr %6, align 8, !tbaa !59
   %43 = zext i32 %39 to i64
-  %44 = getelementptr inbounds nuw i32, ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %43
   store i32 %41, ptr %44, align 1
   %45 = load i32, ptr %13, align 8, !tbaa !60
   %46 = add i32 %45, 1
@@ -59440,7 +59438,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i.i.i30.i.i.i.i.i: ; preds = %50
   %53 = phi i32 [ %46, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.exit27.i.i.i.i.i ], [ %.pre.i.i.i.i.i.i29.i.i.i.i.i, %50 ]
   %54 = load ptr, ptr %6, align 8, !tbaa !59
   %55 = zext i32 %53 to i64
-  %56 = getelementptr inbounds nuw i32, ptr %54, i64 %55
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %55
   store i32 %48, ptr %56, align 1
   %57 = load i32, ptr %13, align 8, !tbaa !60
   %58 = add i32 %57, 1
@@ -59462,7 +59460,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.ex
   %65 = trunc nuw i64 %64 to i32
   %66 = load ptr, ptr %6, align 8, !tbaa !59
   %67 = zext i32 %63 to i64
-  %68 = getelementptr inbounds nuw i32, ptr %66, i64 %67
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %67
   store i32 %65, ptr %68, align 1
   %69 = load i32, ptr %13, align 8, !tbaa !60
   %70 = add i32 %69, 1
@@ -59482,7 +59480,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i36.i.i.i.i.i: ; preds = %72, %_
   %75 = phi i32 [ %70, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclEPKN4llvm16itanium_demangle4NodeE.exit33.i.i.i.i.i ], [ %.pre.i.i.i.i35.i.i.i.i.i, %72 ]
   %76 = load ptr, ptr %6, align 8, !tbaa !59
   %77 = zext i32 %75 to i64
-  %78 = getelementptr inbounds nuw i32, ptr %76, i64 %77
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %77
   store i32 %15, ptr %78, align 1
   %79 = load i32, ptr %13, align 8, !tbaa !60
   %80 = add i32 %79, 1
@@ -59502,7 +59500,7 @@ _ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle10Qualifier
   %85 = phi i32 [ %80, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i36.i.i.i.i.i ], [ %.pre.i.i3.i.i38.i.i.i.i.i, %82 ]
   %86 = load ptr, ptr %6, align 8, !tbaa !59
   %87 = zext i32 %85 to i64
-  %88 = getelementptr inbounds nuw i32, ptr %86, i64 %87
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %87
   store i32 0, ptr %88, align 1
   %89 = load i32, ptr %13, align 8, !tbaa !60
   %90 = add i32 %89, 1
@@ -59523,7 +59521,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i41.i.i.i.i.i: ; preds = %93, %_
   %96 = phi i32 [ %90, %_ZN12_GLOBAL__N_123FoldingSetNodeIDBuilderclIN4llvm16itanium_demangle10QualifiersEEENSt9enable_ifIXoosr3stdE13is_integral_vIT_Esr3stdE9is_enum_vIS6_EEvE4typeES6_.exit.i.i.i.i.i ], [ %.pre.i.i.i.i40.i.i.i.i.i, %93 ]
   %97 = load ptr, ptr %6, align 8, !tbaa !59
   %98 = zext i32 %96 to i64
-  %99 = getelementptr inbounds nuw i32, ptr %97, i64 %98
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %97, i64 %98
   store i32 %91, ptr %99, align 1
   %100 = load i32, ptr %13, align 8, !tbaa !60
   %101 = add i32 %100, 1
@@ -59543,7 +59541,7 @@ _ZN12_GLOBAL__N_111profileCtorIJPN4llvm16itanium_demangle4NodeES4_NS2_9NodeArray
   %106 = phi i32 [ %101, %_ZN4llvm16FoldingSetNodeID10AddIntegerEj.exit.i.i41.i.i.i.i.i ], [ %.pre.i.i3.i.i43.i.i.i.i.i, %103 ]
   %107 = load ptr, ptr %6, align 8, !tbaa !59
   %108 = zext i32 %106 to i64
-  %109 = getelementptr inbounds nuw i32, ptr %107, i64 %108
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %107, i64 %108
   store i32 0, ptr %109, align 1
   %110 = load i32, ptr %13, align 8, !tbaa !60
   %111 = add i32 %110, 1
@@ -59673,7 +59671,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %175 = add i32 %167, -1
   %.01826.i.i.i.i.i.i = and i32 %175, %174
   %176 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %177 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %164, i64 %176
+  %177 = getelementptr inbounds nuw [16 x i8], ptr %164, i64 %176
   %178 = load ptr, ptr %177, align 8, !tbaa !11
   %179 = icmp eq ptr %.sroa.0.0.i.i.i.i, %178
   br i1 %179, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -59690,14 +59688,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %184 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %184, %175
   %185 = zext i32 %.018.i.i.i.i.i.i to i64
-  %186 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %164, i64 %185
+  %186 = getelementptr inbounds nuw [16 x i8], ptr %164, i64 %185
   %187 = load ptr, ptr %186, align 8, !tbaa !11
   %188 = icmp eq ptr %.sroa.0.0.i.i.i.i, %187
   br i1 %188, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %182, %169
   %189 = phi i64 [ %176, %169 ], [ %185, %182 ]
-  %190 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %164, i64 %189
+  %190 = getelementptr inbounds nuw [16 x i8], ptr %164, i64 %189
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 8
   %192 = load ptr, ptr %191, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -59847,7 +59845,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %67 = add i32 %59, -1
   %.01826.i.i.i.i.i.i = and i32 %67, %66
   %68 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %69 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %56, i64 %68
+  %69 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %68
   %70 = load ptr, ptr %69, align 8, !tbaa !11
   %71 = icmp eq ptr %.sroa.04.0.i.i.i.i, %70
   br i1 %71, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -59864,14 +59862,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %76 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %76, %67
   %77 = zext i32 %.018.i.i.i.i.i.i to i64
-  %78 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %56, i64 %77
+  %78 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %77
   %79 = load ptr, ptr %78, align 8, !tbaa !11
   %80 = icmp eq ptr %.sroa.04.0.i.i.i.i, %79
   br i1 %80, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %74, %61
   %81 = phi i64 [ %68, %61 ], [ %77, %74 ]
-  %82 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %56, i64 %81
+  %82 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %81
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load ptr, ptr %83, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -60021,7 +60019,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %67 = add i32 %59, -1
   %.01826.i.i.i.i.i.i = and i32 %67, %66
   %68 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %69 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %56, i64 %68
+  %69 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %68
   %70 = load ptr, ptr %69, align 8, !tbaa !11
   %71 = icmp eq ptr %.sroa.04.0.i.i.i.i, %70
   br i1 %71, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -60038,14 +60036,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %76 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %76, %67
   %77 = zext i32 %.018.i.i.i.i.i.i to i64
-  %78 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %56, i64 %77
+  %78 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %77
   %79 = load ptr, ptr %78, align 8, !tbaa !11
   %80 = icmp eq ptr %.sroa.04.0.i.i.i.i, %79
   br i1 %80, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %74, %61
   %81 = phi i64 [ %68, %61 ], [ %77, %74 ]
-  %82 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %56, i64 %81
+  %82 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %81
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load ptr, ptr %83, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -60195,7 +60193,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %67 = add i32 %59, -1
   %.01826.i.i.i.i.i.i = and i32 %67, %66
   %68 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %69 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %56, i64 %68
+  %69 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %68
   %70 = load ptr, ptr %69, align 8, !tbaa !11
   %71 = icmp eq ptr %.sroa.04.0.i.i.i.i, %70
   br i1 %71, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -60212,14 +60210,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %76 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %76, %67
   %77 = zext i32 %.018.i.i.i.i.i.i to i64
-  %78 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %56, i64 %77
+  %78 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %77
   %79 = load ptr, ptr %78, align 8, !tbaa !11
   %80 = icmp eq ptr %.sroa.04.0.i.i.i.i, %79
   br i1 %80, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %74, %61
   %81 = phi i64 [ %68, %61 ], [ %77, %74 ]
-  %82 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %56, i64 %81
+  %82 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %81
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load ptr, ptr %83, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -60369,7 +60367,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %67 = add i32 %59, -1
   %.01826.i.i.i.i.i.i = and i32 %67, %66
   %68 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %69 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %56, i64 %68
+  %69 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %68
   %70 = load ptr, ptr %69, align 8, !tbaa !11
   %71 = icmp eq ptr %.sroa.04.0.i.i.i.i, %70
   br i1 %71, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -60386,14 +60384,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %76 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %76, %67
   %77 = zext i32 %.018.i.i.i.i.i.i to i64
-  %78 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %56, i64 %77
+  %78 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %77
   %79 = load ptr, ptr %78, align 8, !tbaa !11
   %80 = icmp eq ptr %.sroa.04.0.i.i.i.i, %79
   br i1 %80, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %74, %61
   %81 = phi i64 [ %68, %61 ], [ %77, %74 ]
-  %82 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %56, i64 %81
+  %82 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %81
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load ptr, ptr %83, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -60543,7 +60541,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %67 = add i32 %59, -1
   %.01826.i.i.i.i.i.i = and i32 %67, %66
   %68 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %69 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %56, i64 %68
+  %69 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %68
   %70 = load ptr, ptr %69, align 8, !tbaa !11
   %71 = icmp eq ptr %.sroa.04.0.i.i.i.i, %70
   br i1 %71, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -60560,14 +60558,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %76 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %76, %67
   %77 = zext i32 %.018.i.i.i.i.i.i to i64
-  %78 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %56, i64 %77
+  %78 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %77
   %79 = load ptr, ptr %78, align 8, !tbaa !11
   %80 = icmp eq ptr %.sroa.04.0.i.i.i.i, %79
   br i1 %80, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %74, %61
   %81 = phi i64 [ %68, %61 ], [ %77, %74 ]
-  %82 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %56, i64 %81
+  %82 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %81
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load ptr, ptr %83, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -60911,7 +60909,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %67 = add i32 %59, -1
   %.01826.i.i.i.i.i.i = and i32 %67, %66
   %68 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %69 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %56, i64 %68
+  %69 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %68
   %70 = load ptr, ptr %69, align 8, !tbaa !11
   %71 = icmp eq ptr %.sroa.04.0.i.i.i.i, %70
   br i1 %71, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -60928,14 +60926,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %76 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %76, %67
   %77 = zext i32 %.018.i.i.i.i.i.i to i64
-  %78 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %56, i64 %77
+  %78 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %77
   %79 = load ptr, ptr %78, align 8, !tbaa !11
   %80 = icmp eq ptr %.sroa.04.0.i.i.i.i, %79
   br i1 %80, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %74, %61
   %81 = phi i64 [ %68, %61 ], [ %77, %74 ]
-  %82 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %56, i64 %81
+  %82 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %81
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load ptr, ptr %83, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -61083,7 +61081,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %67 = add i32 %59, -1
   %.01826.i.i.i.i.i.i = and i32 %67, %66
   %68 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %69 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %56, i64 %68
+  %69 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %68
   %70 = load ptr, ptr %69, align 8, !tbaa !11
   %71 = icmp eq ptr %.sroa.0.0.i.i.i.i, %70
   br i1 %71, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -61100,14 +61098,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %76 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %76, %67
   %77 = zext i32 %.018.i.i.i.i.i.i to i64
-  %78 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %56, i64 %77
+  %78 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %77
   %79 = load ptr, ptr %78, align 8, !tbaa !11
   %80 = icmp eq ptr %.sroa.0.0.i.i.i.i, %79
   br i1 %80, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %74, %61
   %81 = phi i64 [ %68, %61 ], [ %77, %74 ]
-  %82 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %56, i64 %81
+  %82 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %81
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load ptr, ptr %83, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -61258,7 +61256,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %69 = add i32 %61, -1
   %.01826.i.i.i.i.i.i = and i32 %69, %68
   %70 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %71 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %58, i64 %70
+  %71 = getelementptr inbounds nuw [16 x i8], ptr %58, i64 %70
   %72 = load ptr, ptr %71, align 8, !tbaa !11
   %73 = icmp eq ptr %.sroa.015.0.i.i.i.i, %72
   br i1 %73, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -61275,14 +61273,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %78 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %78, %69
   %79 = zext i32 %.018.i.i.i.i.i.i to i64
-  %80 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %58, i64 %79
+  %80 = getelementptr inbounds nuw [16 x i8], ptr %58, i64 %79
   %81 = load ptr, ptr %80, align 8, !tbaa !11
   %82 = icmp eq ptr %.sroa.015.0.i.i.i.i, %81
   br i1 %82, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %76, %63
   %83 = phi i64 [ %70, %63 ], [ %79, %76 ]
-  %84 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %58, i64 %83
+  %84 = getelementptr inbounds nuw [16 x i8], ptr %58, i64 %83
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %86 = load ptr, ptr %85, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -61432,7 +61430,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %67 = add i32 %59, -1
   %.01826.i.i.i.i.i.i = and i32 %67, %66
   %68 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %69 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %56, i64 %68
+  %69 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %68
   %70 = load ptr, ptr %69, align 8, !tbaa !11
   %71 = icmp eq ptr %.sroa.04.0.i.i.i.i, %70
   br i1 %71, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -61449,14 +61447,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %76 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %76, %67
   %77 = zext i32 %.018.i.i.i.i.i.i to i64
-  %78 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %56, i64 %77
+  %78 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %77
   %79 = load ptr, ptr %78, align 8, !tbaa !11
   %80 = icmp eq ptr %.sroa.04.0.i.i.i.i, %79
   br i1 %80, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %74, %61
   %81 = phi i64 [ %68, %61 ], [ %77, %74 ]
-  %82 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %56, i64 %81
+  %82 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %81
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load ptr, ptr %83, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -61608,7 +61606,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %70 = add i32 %62, -1
   %.01826.i.i.i.i.i.i = and i32 %70, %69
   %71 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %72 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %59, i64 %71
+  %72 = getelementptr inbounds nuw [16 x i8], ptr %59, i64 %71
   %73 = load ptr, ptr %72, align 8, !tbaa !11
   %74 = icmp eq ptr %.sroa.04.0.i.i.i.i, %73
   br i1 %74, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -61625,14 +61623,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %79 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %79, %70
   %80 = zext i32 %.018.i.i.i.i.i.i to i64
-  %81 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %59, i64 %80
+  %81 = getelementptr inbounds nuw [16 x i8], ptr %59, i64 %80
   %82 = load ptr, ptr %81, align 8, !tbaa !11
   %83 = icmp eq ptr %.sroa.04.0.i.i.i.i, %82
   br i1 %83, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %77, %64
   %84 = phi i64 [ %71, %64 ], [ %80, %77 ]
-  %85 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %59, i64 %84
+  %85 = getelementptr inbounds nuw [16 x i8], ptr %59, i64 %84
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
   %87 = load ptr, ptr %86, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -61782,7 +61780,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %67 = add i32 %59, -1
   %.01826.i.i.i.i.i.i = and i32 %67, %66
   %68 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %69 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %56, i64 %68
+  %69 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %68
   %70 = load ptr, ptr %69, align 8, !tbaa !11
   %71 = icmp eq ptr %.sroa.04.0.i.i.i.i, %70
   br i1 %71, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -61799,14 +61797,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %76 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %76, %67
   %77 = zext i32 %.018.i.i.i.i.i.i to i64
-  %78 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %56, i64 %77
+  %78 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %77
   %79 = load ptr, ptr %78, align 8, !tbaa !11
   %80 = icmp eq ptr %.sroa.04.0.i.i.i.i, %79
   br i1 %80, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %74, %61
   %81 = phi i64 [ %68, %61 ], [ %77, %74 ]
-  %82 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %56, i64 %81
+  %82 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %81
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load ptr, ptr %83, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -61956,7 +61954,7 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %67 = add i32 %59, -1
   %.01826.i.i.i.i.i.i = and i32 %67, %66
   %68 = zext nneg i32 %.01826.i.i.i.i.i.i to i64
-  %69 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %56, i64 %68
+  %69 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %68
   %70 = load ptr, ptr %69, align 8, !tbaa !11
   %71 = icmp eq ptr %.sroa.04.0.i.i.i.i, %70
   br i1 %71, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !110
@@ -61973,14 +61971,14 @@ _ZN12_GLOBAL__N_120FoldingNodeAllocator15getOrCreateNodeIN4llvm16itanium_demangl
   %76 = add i32 %.01627.i.i.i.i.i.i, %.01828.i.i.i.i.i.i
   %.018.i.i.i.i.i.i = and i32 %76, %67
   %77 = zext i32 %.018.i.i.i.i.i.i to i64
-  %78 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %56, i64 %77
+  %78 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %77
   %79 = load ptr, ptr %78, align 8, !tbaa !11
   %80 = icmp eq ptr %.sroa.04.0.i.i.i.i, %79
   br i1 %80, label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i, label %.lr.ph.i.i.i.i.i.i, !prof !111, !llvm.loop !112
 
 _ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6doFindIPKS3_EEPKS9_RKT_.exit.i.i.i.i: ; preds = %74, %61
   %81 = phi i64 [ %68, %61 ], [ %77, %74 ]
-  %82 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %56, i64 %81
+  %82 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %81
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load ptr, ptr %83, align 8, !tbaa !11
   br label %_ZNK4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E6lookupEPKS3_.exit.i.i.i
@@ -62287,7 +62285,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16
 _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i, %.lr.ph.i
   %39 = phi i64 [ %38, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i ], [ %23, %.lr.ph.i ]
   %40 = load ptr, ptr %20, align 8, !tbaa !371
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %.01214.i
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %.01214.i
   %42 = load ptr, ptr %41, align 8, !tbaa !11
   tail call void @_ZNK4llvm16itanium_demangle4Node14printAsOperandERNS0_12OutputBufferENS1_4PrecEb(ptr noundef nonnull align 8 dereferenceable(11) %42, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 18, i1 noundef zeroext false)
   %43 = load i64, ptr %3, align 8, !tbaa !349
@@ -62607,7 +62605,7 @@ _ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i: ; preds = %._ZN4llvm16
 _ZN4llvm16itanium_demangle12OutputBufferpLESt17basic_string_viewIcSt11char_traitsIcEE.exit.i: ; preds = %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i, %.lr.ph.i
   %40 = phi i64 [ %39, %_ZN4llvm16itanium_demangle12OutputBuffer4growEm.exit.i.i ], [ %24, %.lr.ph.i ]
   %41 = load ptr, ptr %21, align 8, !tbaa !371
-  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %.01214.i
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %.01214.i
   %43 = load ptr, ptr %42, align 8, !tbaa !11
   tail call void @_ZNK4llvm16itanium_demangle4Node14printAsOperandERNS0_12OutputBufferENS1_4PrecEb(ptr noundef nonnull align 8 dereferenceable(11) %43, ptr noundef nonnull align 8 dereferenceable(36) %1, i32 noundef 18, i1 noundef zeroext false)
   %44 = load i64, ptr %6, align 8, !tbaa !349
@@ -63002,7 +63000,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_1
   %22 = add i32 %13, -1
   %.02944.i = and i32 %21, %22
   %23 = zext nneg i32 %.02944.i to i64
-  %24 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %10, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !11
   %26 = icmp eq ptr %16, %25
   br i1 %26, label %.loopexit, label %.lr.ph.i, !prof !110
@@ -63030,7 +63028,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_1
   %36 = add i32 %.02746.i, %.02947.i
   %.029.i = and i32 %36, %22
   %37 = zext i32 %.029.i to i64
-  %38 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %10, i64 %37
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !11
   %40 = icmp eq ptr %16, %39
   br i1 %40, label %.loopexit, label %.lr.ph.i, !prof !111, !llvm.loop !413
@@ -63110,7 +63108,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS
   %.sink33 = phi ptr [ %54, %65 ], [ %24, %15 ], [ %38, %32 ]
   %.sink = phi i8 [ 1, %65 ], [ 0, %15 ], [ 0, %32 ]
   %75 = zext i32 %.sink36 to i64
-  %76 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.sink34, i64 %75
+  %76 = getelementptr inbounds nuw [16 x i8], ptr %.sink34, i64 %75
   store ptr %.sink33, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %76, ptr %.sroa.4.0..sroa_idx, align 8
@@ -63143,7 +63141,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_13Small
   %20 = add i32 %11, -1
   %.02944 = and i32 %19, %20
   %21 = zext nneg i32 %.02944 to i64
-  %22 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %8, i64 %21
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !11
   %24 = icmp eq ptr %14, %23
   br i1 %24, label %.thread, label %.lr.ph, !prof !110
@@ -63171,7 +63169,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_13Small
   %34 = add i32 %.02947, %.02746
   %.029 = and i32 %34, %20
   %35 = zext i32 %.029 to i64
-  %36 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %8, i64 %35
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !11
   %38 = icmp eq ptr %14, %37
   br i1 %38, label %.thread, label %.lr.ph, !prof !111, !llvm.loop !413
@@ -63289,7 +63287,7 @@ define linkonce_odr hidden void @_ZN4llvm13SmallDenseMapIPNS_16itanium_demangle4
 
 52:                                               ; preds = %48, %46
   %53 = zext i32 %.sroa.6.0.copyload to i64
-  %54 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %.sroa.0.0.copyload, i64 %53
+  %54 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0.copyload, i64 %53
   tail call void @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E18moveFromOldBucketsEPS9_SC_(ptr noundef nonnull align 1 dereferenceable(1) %0, ptr noundef %.sroa.0.0.copyload, ptr noundef %54)
   %55 = shl nuw nsw i64 %53, 4
   tail call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef %.sroa.0.0.copyload, i64 noundef %55, i64 noundef 8) #22
@@ -63359,7 +63357,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS
   %29 = add i32 %23, -1
   %.02944.i = and i32 %29, %28
   %30 = zext nneg i32 %.02944.i to i64
-  %31 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %21, i64 %30
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %30
   %32 = load ptr, ptr %31, align 8, !tbaa !11
   %33 = icmp eq ptr %16, %32
   br i1 %33, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit, label %.lr.ph.i16, !prof !110
@@ -63387,7 +63385,7 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS
   %43 = add i32 %.02746.i, %.02947.i
   %.029.i = and i32 %43, %29
   %44 = zext i32 %.029.i to i64
-  %45 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair", ptr %21, i64 %44
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %44
   %46 = load ptr, ptr %45, align 8, !tbaa !11
   %47 = icmp eq ptr %16, %46
   br i1 %47, label %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIPNS_16itanium_demangle4NodeES4_Lj32ENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S4_EEEES4_S4_S6_S9_E15LookupBucketForIS4_EEbRKT_RPS9_.exit, label %.lr.ph.i16, !prof !111, !llvm.loop !413

@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.colvarmodule::rvector" = type { double, double, double }
 %"class.std::__cxx11::list" = type { %"class.std::__cxx11::_List_base" }
 %"class.std::__cxx11::_List_base" = type { %"struct.std::__cxx11::_List_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_List_impl" }
 %"struct.std::__cxx11::_List_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
@@ -2617,7 +2616,7 @@ define range(i32 -1, 1) i32 @cvscript_cv_resetatomappliedforces(ptr noundef read
 .lr.ph:                                           ; preds = %10, %.lr.ph
   %16 = phi ptr [ %20, %.lr.ph ], [ %15, %10 ]
   %.01242 = phi i64 [ %18, %.lr.ph ], [ 0, %10 ]
-  %17 = getelementptr inbounds nuw %"class.colvarmodule::rvector", ptr %16, i64 %.01242
+  %17 = getelementptr inbounds nuw [24 x i8], ptr %16, i64 %.01242
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %17, i8 0, i64 24, i1 false)
   %18 = add nuw i64 %.01242, 1
   %19 = load ptr, ptr %13, align 8, !tbaa !169
@@ -3943,7 +3942,7 @@ define range(i32 -1, 1) i32 @cvscript_cv_listcommands(ptr noundef readnone captu
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc.exit: ; preds = %27, %26
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %32 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8, !tbaa !50
   store ptr %22, ptr %6, align 8, !tbaa !87
   %34 = icmp eq ptr %33, null
@@ -4181,7 +4180,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEmc.exit: ; preds = 
   %30 = load ptr, ptr %12, align 8, !tbaa !158
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 384
   %32 = load ptr, ptr %31, align 8, !tbaa !187
-  %33 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %32, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [32 x i8], ptr %32, i64 %indvars.iv
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load i64, ptr %34, align 8, !tbaa !92
   %36 = sub i64 4611686018427387903, %29

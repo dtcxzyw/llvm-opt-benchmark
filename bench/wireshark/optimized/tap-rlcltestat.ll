@@ -408,7 +408,7 @@ define internal void @rlc_lte_stat_draw(ptr noundef readonly captures(none) %0) 
 
 21:                                               ; preds = %._crit_edge, %21
   %indvars.iv = phi i64 [ 0, %._crit_edge ], [ %indvars.iv.next, %21 ]
-  %22 = getelementptr ptr, ptr @ue_titles, i64 %indvars.iv
+  %22 = getelementptr [8 x i8], ptr @ue_titles, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8
   %24 = tail call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.9, ptr noundef %23)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

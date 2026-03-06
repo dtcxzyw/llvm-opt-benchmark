@@ -959,7 +959,7 @@ define internal fastcc void @__blk_add_trace(ptr noundef nonnull readonly captur
 20:                                               ; preds = %9
   %21 = and i32 %3, 1
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr i32, ptr @ddir_act, i64 %22
+  %23 = getelementptr [4 x i8], ptr @ddir_act, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = shl i32 %3, 8
   %26 = and i32 %25, 134742016
@@ -1128,7 +1128,7 @@ define internal fastcc void @__blk_add_trace(ptr noundef nonnull readonly captur
   %131 = load ptr, ptr %130, align 8
   %132 = ptrtoint ptr %131 to i64
   %133 = sext i32 %72 to i64
-  %134 = getelementptr i64, ptr @__per_cpu_offset, i64 %133
+  %134 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %133
   %135 = load i64, ptr %134, align 8
   %136 = add i64 %135, %132
   %137 = inttoptr i64 %136 to ptr
@@ -2913,10 +2913,10 @@ define internal fastcc i32 @print_one_line(ptr noundef %0, i1 noundef zeroext %1
 
 35:                                               ; preds = %30
   %36 = zext nneg i32 %31 to i64
-  %37 = getelementptr %struct.anon.27, ptr @what2act, i64 %36
+  %37 = getelementptr [24 x i8], ptr @what2act, i64 %36
   %38 = lshr exact i32 %11, 3
   %39 = zext nneg i32 %38 to i64
-  %40 = getelementptr ptr, ptr %37, i64 %39
+  %40 = getelementptr [8 x i8], ptr %37, i64 %39
   %41 = load ptr, ptr %40, align 8
   tail call void %12(ptr noundef %0, ptr noundef %41, i1 noundef zeroext %14) #21, !callees !76
   %42 = getelementptr inbounds nuw i8, ptr %37, i64 16
@@ -3631,7 +3631,7 @@ define internal i64 @sysfs_blk_trace_attr_show(ptr noundef readonly captures(non
 24:                                               ; preds = %39, %20
   %25 = phi i64 [ 0, %20 ], [ %41, %39 ]
   %26 = phi ptr [ %2, %20 ], [ %40, %39 ]
-  %27 = getelementptr %struct.anon.28, ptr @mask_maps, i64 %25
+  %27 = getelementptr [16 x i8], ptr @mask_maps, i64 %25
   %28 = load i32, ptr %27, align 16
   %29 = and i32 %28, %23
   %30 = icmp eq i32 %29, 0
@@ -3760,7 +3760,7 @@ define internal i64 @sysfs_blk_trace_attr_store(ptr noundef readonly captures(ad
 
 .preheader:                                       ; preds = %29, %43
   %32 = phi i64 [ %44, %43 ], [ 0, %29 ]
-  %33 = getelementptr %struct.anon.28, ptr @mask_maps, i64 %32
+  %33 = getelementptr [16 x i8], ptr @mask_maps, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load ptr, ptr %34, align 8
   %36 = call i32 @strcasecmp(ptr noundef nonnull %27, ptr noundef %35)

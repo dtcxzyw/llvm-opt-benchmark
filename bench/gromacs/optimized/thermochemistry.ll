@@ -99,7 +99,7 @@ define noundef double @_Z29calcVibrationalInternalEnergyN3gmx8ArrayRefIKfEEfbf(p
 17:                                               ; preds = %.lr.ph, %40
   %.028 = phi double [ 0.000000e+00, %.lr.ph ], [ %.2, %40 ]
   %.02126 = phi i64 [ %6, %.lr.ph ], [ %41, %40 ]
-  %18 = getelementptr inbounds nuw float, ptr %0, i64 %.02126
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.02126
   %19 = load float, ptr %18, align 4, !tbaa !4
   %20 = fcmp ogt float %19, 0.000000e+00
   br i1 %20, label %21, label %40
@@ -173,7 +173,7 @@ define noundef double @_Z27calcVibrationalHeatCapacityN3gmx8ArrayRefIKfEEfbf(ptr
 16:                                               ; preds = %.lr.ph, %40
   %.028 = phi double [ 0.000000e+00, %.lr.ph ], [ %.2, %40 ]
   %.02126 = phi i64 [ %6, %.lr.ph ], [ %41, %40 ]
-  %17 = getelementptr inbounds nuw float, ptr %0, i64 %.02126
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.02126
   %18 = load float, ptr %17, align 4, !tbaa !4
   %19 = fcmp ogt float %18, 0.000000e+00
   br i1 %19, label %20, label %40
@@ -375,7 +375,7 @@ define noundef double @_Z24calcQuasiHarmonicEntropyN3gmx8ArrayRefIKfEEfbf(ptr %0
 16:                                               ; preds = %.lr.ph, %46
   %.030 = phi double [ 0.000000e+00, %.lr.ph ], [ %.1, %46 ]
   %.02229 = phi i64 [ %6, %.lr.ph ], [ %47, %46 ]
-  %17 = getelementptr inbounds nuw float, ptr %0, i64 %.02229
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.02229
   %18 = load float, ptr %17, align 4, !tbaa !4
   %19 = fcmp ogt float %18, 0.000000e+00
   br i1 %19, label %20, label %39
@@ -461,7 +461,7 @@ define noundef double @_Z20calcSchlitterEntropyN3gmx8ArrayRefIKfEEfb(ptr %0, ptr
 .lr.ph:                                           ; preds = %._crit_edge21, %.lr.ph
   %.020 = phi double [ %21, %.lr.ph ], [ 0.000000e+00, %._crit_edge21 ]
   %.01519 = phi i64 [ %22, %.lr.ph ], [ %5, %._crit_edge21 ]
-  %15 = getelementptr inbounds nuw float, ptr %0, i64 %.01519
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.01519
   %16 = load float, ptr %15, align 4, !tbaa !4
   %17 = fpext float %16 to double
   %18 = fmul double %9, %17

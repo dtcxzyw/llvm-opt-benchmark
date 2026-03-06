@@ -98,7 +98,7 @@ define hidden void @_ZN7VMError32install_secondary_signal_handlerEv() local_unna
 
 3:                                                ; preds = %0, %3
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %3 ]
-  %4 = getelementptr inbounds nuw i32, ptr @_ZZN7VMError32install_secondary_signal_handlerEvE17signals_to_handle, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN7VMError32install_secondary_signal_handlerEvE17signals_to_handle, i64 %indvars.iv
   %5 = load i32, ptr %4, align 4
   %6 = call noundef i32 @_ZN12PosixSignals32install_sigaction_signal_handlerEP9sigactionS1_iPFviP9siginfo_tPvE(ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %5, ptr noundef nonnull @_ZL13crash_handleriP9siginfo_tPv) #7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

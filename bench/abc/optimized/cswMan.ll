@@ -111,7 +111,7 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %39
   %50 = getelementptr i8, ptr %.val66, i64 36
   %.val69 = load i32, ptr %50, align 4, !tbaa !42
   %51 = sext i32 %.val69 to i64
-  %52 = getelementptr inbounds ptr, ptr %16, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %16, i64 %51
   store ptr %.val67, ptr %52, align 8, !tbaa !43
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %54 = load ptr, ptr %53, align 8, !tbaa !44
@@ -132,14 +132,14 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %39
 
 60:                                               ; preds = %.lr.ph, %60
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %60 ]
-  %61 = getelementptr inbounds nuw ptr, ptr %.val72, i64 %indvars.iv
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %.val72, i64 %indvars.iv
   %62 = load ptr, ptr %61, align 8, !tbaa !46
-  %63 = getelementptr inbounds nuw ptr, ptr %.val73.val, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %.val73.val, i64 %indvars.iv
   %64 = load ptr, ptr %63, align 8, !tbaa !46
   %65 = getelementptr i8, ptr %62, i64 36
   %.val71 = load i32, ptr %65, align 4, !tbaa !42
   %66 = sext i32 %.val71 to i64
-  %67 = getelementptr inbounds ptr, ptr %16, i64 %66
+  %67 = getelementptr inbounds [8 x i8], ptr %16, i64 %66
   store ptr %64, ptr %67, align 8, !tbaa !43
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -153,13 +153,13 @@ Abc_PrimeCudd.exit:                               ; preds = %.preheader.i, %39
   %72 = getelementptr inbounds nuw i8, ptr %calloc80, i64 80
   store ptr %71, ptr %72, align 8, !tbaa !48
   %73 = sext i32 %22 to i64
-  %74 = getelementptr inbounds i32, ptr %71, i64 %73
+  %74 = getelementptr inbounds [4 x i8], ptr %71, i64 %73
   %75 = getelementptr inbounds nuw i8, ptr %calloc80, i64 88
   store ptr %74, ptr %75, align 8, !tbaa !48
-  %76 = getelementptr inbounds i32, ptr %74, i64 %73
+  %76 = getelementptr inbounds [4 x i8], ptr %74, i64 %73
   %77 = getelementptr inbounds nuw i8, ptr %calloc80, i64 96
   store ptr %76, ptr %77, align 8, !tbaa !48
-  %78 = getelementptr inbounds i32, ptr %76, i64 %73
+  %78 = getelementptr inbounds [4 x i8], ptr %76, i64 %73
   %79 = getelementptr inbounds nuw i8, ptr %calloc80, i64 104
   store ptr %78, ptr %79, align 8, !tbaa !48
   ret ptr %calloc80

@@ -221,9 +221,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %27, %
 
 .preheader:                                       ; preds = %32, %.preheader
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader ], [ 0, %32 ]
-  %34 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i
   %35 = load double, ptr %34, align 8, !tbaa !6
-  %36 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i
   store double %35, ptr %36, align 8, !tbaa !6
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 9
@@ -406,13 +406,13 @@ define void @_ZNK2cv3reg9MapProjec11inverseWarpERKNS_11_InputArrayERKNS_12_Outpu
   %77 = fadd double %45, %76
   %78 = fdiv double %77, %75
   %79 = fptrunc double %78 to float
-  %80 = getelementptr inbounds nuw float, ptr %67, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %indvars.iv
   store float %79, ptr %80, align 4, !tbaa !46
   %81 = call double @llvm.fmuladd.f64(double %73, double %49, double %68)
   %82 = fadd double %53, %81
   %83 = fdiv double %82, %75
   %84 = fptrunc double %83 to float
-  %85 = getelementptr inbounds nuw float, ptr %70, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %indvars.iv
   store float %84, ptr %85, align 4, !tbaa !46
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -624,13 +624,13 @@ define void @_ZN2cv3reg9MapProjec7composeENS_3PtrINS0_3MapEEE(ptr noundef nonnul
 .preheader19.i.i:                                 ; preds = %8, %2
   %indvars.iv29.i.i = phi i64 [ 0, %2 ], [ %indvars.iv.next30.i.i, %8 ]
   %7 = mul nuw nsw i64 %indvars.iv29.i.i, 3
-  %invariant.gep.i.i = getelementptr inbounds nuw double, ptr %5, i64 %7
-  %invariant.gep35.i.i = getelementptr inbounds nuw double, ptr %3, i64 %7
+  %invariant.gep.i.i = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %7
+  %invariant.gep35.i.i = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %7
   br label %.preheader.i.i
 
 .preheader.i.i:                                   ; preds = %9, %.preheader19.i.i
   %indvars.iv25.i.i = phi i64 [ 0, %.preheader19.i.i ], [ %indvars.iv.next26.i.i, %9 ]
-  %invariant.gep33.i.i = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv25.i.i
+  %invariant.gep33.i.i = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv25.i.i
   br label %10
 
 8:                                                ; preds = %9
@@ -639,7 +639,7 @@ define void @_ZN2cv3reg9MapProjec7composeENS_3PtrINS0_3MapEEE(ptr noundef nonnul
   br i1 %exitcond32.not.i.i, label %_ZN2cvmlIdLi3ELi3ELi3EEENS_4MatxIT_XT0_EXT1_EEERKNS1_IS2_XT0_EXT2_EEERKNS1_IS2_XT2_EXT1_EEE.exit, label %.preheader19.i.i, !llvm.loop !75
 
 9:                                                ; preds = %10
-  %gep36.i.i = getelementptr inbounds nuw double, ptr %invariant.gep35.i.i, i64 %indvars.iv25.i.i
+  %gep36.i.i = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep35.i.i, i64 %indvars.iv25.i.i
   store double %13, ptr %gep36.i.i, align 8, !tbaa !6, !alias.scope !72
   %indvars.iv.next26.i.i = add nuw nsw i64 %indvars.iv25.i.i, 1
   %exitcond28.not.i.i = icmp eq i64 %indvars.iv.next26.i.i, 3
@@ -648,7 +648,7 @@ define void @_ZN2cv3reg9MapProjec7composeENS_3PtrINS0_3MapEEE(ptr noundef nonnul
 10:                                               ; preds = %10, %.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %10 ]
   %.01620.i.i = phi double [ 0.000000e+00, %.preheader.i.i ], [ %13, %10 ]
-  %gep.i.i = getelementptr inbounds nuw double, ptr %invariant.gep.i.i, i64 %indvars.iv.i.i
+  %gep.i.i = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep.i.i, i64 %indvars.iv.i.i
   %11 = load double, ptr %gep.i.i, align 8, !tbaa !6, !noalias !72
   %.idx.i.i = mul nuw nsw i64 %indvars.iv.i.i, 24
   %gep34.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep33.i.i, i64 %.idx.i.i

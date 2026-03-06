@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.option = type { ptr, i32, ptr, i32 }
 %struct.regex_t = type { i32, i64, ptr, ptr }
-%struct.clam_option = type { ptr, ptr, i8, i32, ptr, i64, ptr, i32, i32, ptr, ptr }
 
 @.str = private unnamed_addr constant [5 x i8] c"help\00", align 1
 @.str.1 = private unnamed_addr constant [26 x i8] c"^(yes|true|1|no|false|0)$\00", align 1
@@ -821,7 +820,7 @@ define void @optfree(ptr noundef captures(address_is_null) %0) local_unnamed_add
   tail call void @free(ptr noundef nonnull %6) #19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %7 = load ptr, ptr %3, align 8, !tbaa !15
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv.next
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv.next
   %9 = load ptr, ptr %8, align 8, !tbaa !16
   %.not29 = icmp eq ptr %9, null
   br i1 %.not29, label %._crit_edge, label %.lr.ph
@@ -936,7 +935,7 @@ define ptr @optparse(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef
   %indvars.iv574 = phi i64 [ 0, %.split.us.preheader ], [ %indvars.iv.next575, %94 ]
   %.0272.us = phi i32 [ 0, %.split.us.preheader ], [ %.2274.us, %94 ]
   %.0270.us = phi i32 [ 1, %.split.us.preheader ], [ %.1271.us, %94 ]
-  %18 = getelementptr inbounds nuw %struct.clam_option, ptr %17, i64 %indvars.iv574
+  %18 = getelementptr inbounds nuw [72 x i8], ptr %17, i64 %indvars.iv574
   %19 = load ptr, ptr %18, align 8, !tbaa !23
   %.not322.us = icmp eq ptr %19, null
   br i1 %.not322.us, label %20, label %23
@@ -997,7 +996,7 @@ define ptr @optparse(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef
 
 48:                                               ; preds = %46
   %49 = sext i32 %.0272.us to i64
-  %50 = getelementptr inbounds %struct.option, ptr %13, i64 %49
+  %50 = getelementptr inbounds [32 x i8], ptr %13, i64 %49
   store ptr %45, ptr %50, align 16, !tbaa !31
   %51 = getelementptr inbounds nuw i8, ptr %18, i64 48
   %52 = load i32, ptr %51, align 8, !tbaa !29
@@ -1092,7 +1091,7 @@ define ptr @optparse(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef
 .split.split.us:                                  ; preds = %.split.split.us.preheader, %120
   %96 = phi ptr [ %.pre598, %.split.split.us.preheader ], [ %121, %120 ]
   %indvars.iv571 = phi i64 [ 0, %.split.split.us.preheader ], [ %indvars.iv.next572, %120 ]
-  %97 = getelementptr inbounds nuw %struct.clam_option, ptr %96, i64 %indvars.iv571
+  %97 = getelementptr inbounds nuw [72 x i8], ptr %96, i64 %indvars.iv571
   %98 = load ptr, ptr %97, align 8, !tbaa !23
   %.not322.us489 = icmp eq ptr %98, null
   br i1 %.not322.us489, label %99, label %102
@@ -1143,7 +1142,7 @@ define ptr @optparse(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef
 
 123:                                              ; preds = %129, %.split.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %129 ], [ 0, %.split.split ]
-  %124 = getelementptr inbounds nuw %struct.clam_option, ptr %122, i64 %indvars.iv
+  %124 = getelementptr inbounds nuw [72 x i8], ptr %122, i64 %indvars.iv
   %125 = load ptr, ptr %124, align 8, !tbaa !23
   %.not322 = icmp eq ptr %125, null
   br i1 %.not322, label %126, label %129
@@ -1213,7 +1212,7 @@ define ptr @optparse(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef
   %153 = getelementptr inbounds i8, ptr %14, i64 %152
   store i8 0, ptr %153, align 1, !tbaa !20
   %154 = sext i32 %.us-phi to i64
-  %155 = getelementptr inbounds %struct.option, ptr %13, i64 %154
+  %155 = getelementptr inbounds [32 x i8], ptr %13, i64 %154
   store ptr null, ptr %155, align 16, !tbaa !31
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 16
   store ptr null, ptr %156, align 16, !tbaa !36
@@ -1467,7 +1466,7 @@ define ptr @optparse(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef
 
 .lr.ph:                                           ; preds = %.preheader422, %238
   %indvars.iv577 = phi i64 [ %indvars.iv.next578, %238 ], [ 0, %.preheader422 ]
-  %239 = getelementptr inbounds nuw %struct.option, ptr %13, i64 %indvars.iv577
+  %239 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 %indvars.iv577
   %240 = getelementptr inbounds nuw i8, ptr %239, i64 24
   %241 = load i32, ptr %240, align 8, !tbaa !37
   %242 = icmp eq i32 %232, %241
@@ -1476,7 +1475,7 @@ define ptr @optparse(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef
 .critedge387:                                     ; preds = %231
   %243 = load i32, ptr %8, align 4, !tbaa !40
   %244 = sext i32 %243 to i64
-  %245 = getelementptr inbounds %struct.option, ptr %13, i64 %244
+  %245 = getelementptr inbounds [32 x i8], ptr %13, i64 %244
   br label %.loopexit423
 
 .loopexit423:                                     ; preds = %.lr.ph, %.critedge387
@@ -1550,7 +1549,7 @@ optget_i.exit:                                    ; preds = %261, %256
   %271 = getelementptr inbounds nuw i8, ptr %.01018.i, i64 44
   %272 = load i32, ptr %271, align 4, !tbaa !41
   %273 = sext i32 %272 to i64
-  %274 = getelementptr inbounds %struct.clam_option, ptr %270, i64 %273
+  %274 = getelementptr inbounds [72 x i8], ptr %270, i64 %273
   %.phi.trans.insert604 = getelementptr inbounds nuw i8, ptr %274, i64 52
   %.pre605 = load i32, ptr %.phi.trans.insert604, align 4, !tbaa !26
   br i1 %.not340, label %optget_i.exit._crit_edge, label %275
@@ -2009,11 +2008,11 @@ sub_0:                                            ; preds = %434
 
 .lr.ph512:                                        ; preds = %.lr.ph512.preheader, %477
   %indvars.iv593 = phi i64 [ %473, %.lr.ph512.preheader ], [ %indvars.iv.next594, %477 ]
-  %478 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv593
+  %478 = getelementptr inbounds [8 x i8], ptr %2, i64 %indvars.iv593
   %479 = load ptr, ptr %478, align 8, !tbaa !16
   %480 = call noalias ptr @strdup(ptr noundef %479) #19
   %481 = sub nsw i64 %indvars.iv593, %473
-  %482 = getelementptr inbounds ptr, ptr %471, i64 %481
+  %482 = getelementptr inbounds [8 x i8], ptr %471, i64 %481
   store ptr %480, ptr %482, align 8, !tbaa !16
   %.not373 = icmp eq ptr %480, null
   br i1 %.not373, label %483, label %477
@@ -2409,7 +2408,7 @@ define ptr @optadditem(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nound
 
 .split.us.split.us:                               ; preds = %.thread, %18
   %indvars.iv175 = phi i64 [ %indvars.iv.next176, %18 ], [ 0, %.thread ]
-  %13 = getelementptr inbounds nuw %struct.clam_option, ptr %12, i64 %indvars.iv175
+  %13 = getelementptr inbounds nuw [72 x i8], ptr %12, i64 %indvars.iv175
   %14 = load ptr, ptr %13, align 8, !tbaa !23
   %.not.us.us = icmp eq ptr %14, null
   br i1 %.not.us.us, label %15, label %18
@@ -2427,7 +2426,7 @@ define ptr @optadditem(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nound
 .split.us.split:                                  ; preds = %11, %41
   %19 = phi ptr [ %42, %41 ], [ %.pre183, %11 ]
   %indvars.iv178 = phi i64 [ %indvars.iv.next179, %41 ], [ 0, %11 ]
-  %20 = getelementptr inbounds nuw %struct.clam_option, ptr %19, i64 %indvars.iv178
+  %20 = getelementptr inbounds nuw [72 x i8], ptr %19, i64 %indvars.iv178
   %21 = load ptr, ptr %20, align 8, !tbaa !23
   %.not.us = icmp eq ptr %21, null
   br i1 %.not.us, label %22, label %25
@@ -2469,7 +2468,7 @@ define ptr @optadditem(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nound
 
 .split.split.us.split:                            ; preds = %.thread, %48
   %indvars.iv = phi i64 [ %indvars.iv.next, %48 ], [ 0, %.thread ]
-  %43 = getelementptr inbounds nuw %struct.clam_option, ptr %12, i64 %indvars.iv
+  %43 = getelementptr inbounds nuw [72 x i8], ptr %12, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8, !tbaa !23
   %.not.us160 = icmp eq ptr %44, null
   br i1 %.not.us160, label %45, label %48
@@ -2487,7 +2486,7 @@ define ptr @optadditem(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 nound
 .split.split:                                     ; preds = %11, %78
   %49 = phi ptr [ %79, %78 ], [ %.pre183, %11 ]
   %indvars.iv172 = phi i64 [ %indvars.iv.next173, %78 ], [ 0, %11 ]
-  %50 = getelementptr inbounds nuw %struct.clam_option, ptr %49, i64 %indvars.iv172
+  %50 = getelementptr inbounds nuw [72 x i8], ptr %49, i64 %indvars.iv172
   %51 = load ptr, ptr %50, align 8, !tbaa !23
   %.not = icmp eq ptr %51, null
   br i1 %.not, label %52, label %56
@@ -2602,7 +2601,7 @@ optget_i.exit:                                    ; preds = %88, %83
   %97 = getelementptr inbounds nuw i8, ptr %.01018.i, i64 44
   %98 = load i32, ptr %97, align 4, !tbaa !41
   %99 = sext i32 %98 to i64
-  %100 = getelementptr inbounds %struct.clam_option, ptr %96, i64 %99
+  %100 = getelementptr inbounds [72 x i8], ptr %96, i64 %99
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %100, i64 52
   %.pre184 = load i32, ptr %.phi.trans.insert, align 4, !tbaa !26
   br i1 %.not133199, label %optget_i.exit._crit_edge, label %101

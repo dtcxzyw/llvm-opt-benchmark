@@ -141,7 +141,7 @@ _ZL14NextStackFrameILb1ELb0EEPPvS1_PKvmm.exit:    ; preds = %16, %25, %28
 
 33:                                               ; preds = %_ZL14NextStackFrameILb1ELb0EEPPvS1_PKvmm.exit
   %34 = sext i32 %.03145 to i64
-  %35 = getelementptr inbounds ptr, ptr %0, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %0, i64 %34
   store ptr %14, ptr %35, align 8, !tbaa !10
   %36 = add nsw i32 %.03145, 1
   br label %37
@@ -276,7 +276,7 @@ _ZL14NextStackFrameILb1ELb1EEPPvS1_PKvmm.exit.us: ; preds = %31, %28, %19
 
 34:                                               ; preds = %_ZL14NextStackFrameILb1ELb1EEPPvS1_PKvmm.exit.us
   %35 = sext i32 %.03152.us to i64
-  %36 = getelementptr inbounds ptr, ptr %0, i64 %35
+  %36 = getelementptr inbounds [8 x i8], ptr %0, i64 %35
   store ptr %17, ptr %36, align 8, !tbaa !10
   %37 = add nsw i32 %.03152.us, 1
   br label %40
@@ -358,7 +358,7 @@ _ZL14NextStackFrameILb1ELb1EEPPvS1_PKvmm.exit:    ; preds = %53, %59, %62, %65
 
 70:                                               ; preds = %_ZL14NextStackFrameILb1ELb1EEPPvS1_PKvmm.exit
   %71 = sext i32 %.03152 to i64
-  %72 = getelementptr inbounds ptr, ptr %0, i64 %71
+  %72 = getelementptr inbounds [8 x i8], ptr %0, i64 %71
   store ptr %45, ptr %72, align 8, !tbaa !10
   %73 = add nsw i32 %.03152, 1
   br label %74
@@ -546,7 +546,7 @@ _ZL14NextStackFrameILb0ELb0EEPPvS1_PKvmm.exit:    ; preds = %14, %20
 25:                                               ; preds = %_ZL14NextStackFrameILb0ELb0EEPPvS1_PKvmm.exit
   %26 = load ptr, ptr %11, align 8, !tbaa !10
   %27 = sext i32 %.03952 to i64
-  %28 = getelementptr inbounds ptr, ptr %0, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %0, i64 %27
   store ptr %26, ptr %28, align 8, !tbaa !10
   %29 = icmp ugt ptr %.0.i, %.04151
   %30 = ptrtoint ptr %.0.i to i64
@@ -554,7 +554,7 @@ _ZL14NextStackFrameILb0ELb0EEPPvS1_PKvmm.exit:    ; preds = %14, %20
   %32 = sub i64 %30, %31
   %33 = trunc i64 %32 to i32
   %.sink = select i1 %29, i32 %33, i32 0
-  %34 = getelementptr inbounds i32, ptr %1, i64 %27
+  %34 = getelementptr inbounds [4 x i8], ptr %1, i64 %27
   store i32 %.sink, ptr %34, align 4, !tbaa !5
   %35 = add nsw i32 %.03952, 1
   br label %36
@@ -660,7 +660,7 @@ _ZL14NextStackFrameILb0ELb1EEPPvS1_PKvmm.exit:    ; preds = %14, %20
 25:                                               ; preds = %_ZL14NextStackFrameILb0ELb1EEPPvS1_PKvmm.exit
   %26 = load ptr, ptr %11, align 8, !tbaa !10
   %27 = sext i32 %.03952 to i64
-  %28 = getelementptr inbounds ptr, ptr %0, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %0, i64 %27
   store ptr %26, ptr %28, align 8, !tbaa !10
   %29 = icmp ugt ptr %.0.i, %.04151
   %30 = ptrtoint ptr %.0.i to i64
@@ -668,7 +668,7 @@ _ZL14NextStackFrameILb0ELb1EEPPvS1_PKvmm.exit:    ; preds = %14, %20
   %32 = sub i64 %30, %31
   %33 = trunc i64 %32 to i32
   %.sink = select i1 %29, i32 %33, i32 0
-  %34 = getelementptr inbounds i32, ptr %1, i64 %27
+  %34 = getelementptr inbounds [4 x i8], ptr %1, i64 %27
   store i32 %.sink, ptr %34, align 4, !tbaa !5
   %35 = add nsw i32 %.03952, 1
   br label %36

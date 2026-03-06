@@ -5,8 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.exr_attr_box2i_t = type { %struct.exr_attr_v2i_t, %struct.exr_attr_v2i_t }
 %struct.exr_attr_v2i_t = type { i32, i32 }
-%struct.exr_attr_chlist_entry_t = type { %struct.exr_attr_string_t, i32, i8, [3 x i8], i32, i32 }
-%struct.exr_attr_string_t = type { i32, i32, ptr }
 
 @.str = private unnamed_addr constant [14 x i8] c"displayWindow\00", align 1
 @.str.1 = private unnamed_addr constant [17 x i8] c"pixelAspectRatio\00", align 1
@@ -801,7 +799,7 @@ define internal fastcc i32 @validate_channels(ptr noundef %0, ptr noundef readon
 
 44:                                               ; preds = %.lr.ph, %43
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %43 ]
-  %45 = getelementptr inbounds nuw %struct.exr_attr_chlist_entry_t, ptr %42, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [32 x i8], ptr %42, i64 %indvars.iv
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
   %47 = load i32, ptr %46, align 8, !tbaa !53
   %48 = getelementptr inbounds nuw i8, ptr %45, i64 28
@@ -946,7 +944,7 @@ define internal fastcc i32 @validate_part_type(ptr noundef %0, ptr noundef captu
 
 switch.lookup:                                    ; preds = %29
   %31 = zext nneg i32 %.pre to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.validate_part_type, i64 %31
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.validate_part_type, i64 %31
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.thread
 
@@ -1135,7 +1133,7 @@ define internal fastcc i32 @validate_tile_data(ptr noundef %0, ptr noundef reado
 
 74:                                               ; preds = %.lr.ph, %73
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %73 ]
-  %75 = getelementptr inbounds nuw %struct.exr_attr_chlist_entry_t, ptr %68, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [32 x i8], ptr %68, i64 %indvars.iv
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 24
   %77 = load i32, ptr %76, align 8, !tbaa !53
   %.not85 = icmp eq i32 %77, 1
@@ -1210,7 +1208,7 @@ define internal fastcc i32 @validate_deep_data(ptr noundef %0, ptr noundef reado
 
 21:                                               ; preds = %.lr.ph, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
-  %22 = getelementptr inbounds nuw %struct.exr_attr_chlist_entry_t, ptr %15, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 %indvars.iv
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = load i32, ptr %23, align 8, !tbaa !53
   %.not38 = icmp eq i32 %24, 1
@@ -1326,7 +1324,7 @@ define hidden range(i32 0, 17) i32 @internal_exr_validate_shared_attrs(ptr nound
 .critedge86:                                      ; preds = %38, %32, %31, %35, %41
   %42 = add nuw nsw i32 %.0, 1
   %43 = zext nneg i32 %.0 to i64
-  %44 = getelementptr inbounds nuw ptr, ptr %4, i64 %43
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %43
   store ptr @.str.1, ptr %44, align 8, !tbaa !71
   br label %45
 
@@ -1368,7 +1366,7 @@ define hidden range(i32 0, 17) i32 @internal_exr_validate_shared_attrs(ptr nound
 .critedge89:                                      ; preds = %58, %54, %50, %59
   %64 = add nuw nsw i32 %.1, 1
   %65 = zext nneg i32 %.1 to i64
-  %66 = getelementptr inbounds nuw ptr, ptr %4, i64 %65
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %65
   store ptr @.str.2, ptr %66, align 8, !tbaa !71
   br label %67
 
@@ -1410,7 +1408,7 @@ define hidden range(i32 0, 17) i32 @internal_exr_validate_shared_attrs(ptr nound
 .critedge94:                                      ; preds = %80, %76, %72, %81
   %86 = add nuw nsw i32 %.2, 1
   %87 = zext nneg i32 %.2 to i64
-  %88 = getelementptr inbounds nuw ptr, ptr %4, i64 %87
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %87
   store ptr @.str.3, ptr %88, align 8, !tbaa !71
   br label %89
 

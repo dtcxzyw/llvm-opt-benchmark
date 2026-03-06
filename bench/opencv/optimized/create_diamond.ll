@@ -1119,11 +1119,11 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
 339:                                              ; preds = %329, %339
   %indvars.iv = phi i64 [ 0, %329 ], [ %indvars.iv.next, %339 ]
   %340 = load ptr, ptr %34, align 8, !tbaa !62
-  %341 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %340, i64 %indvars.iv
+  %341 = getelementptr inbounds nuw [32 x i8], ptr %340, i64 %indvars.iv
   %342 = load ptr, ptr %341, align 8, !tbaa !12
   %343 = call i64 @strtol(ptr noundef nonnull captures(none) %342, ptr noundef null, i32 noundef 10) #23
   %344 = trunc i64 %343 to i32
-  %345 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv
+  %345 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %indvars.iv
   store i32 %344, ptr %345, align 4, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -2012,7 +2012,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8, !tbaa !62
   store ptr %.0.lcssa.i.i.i.i35, ptr %5, align 8, !tbaa !58
-  %74 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %74 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %74, ptr %73, align 8, !tbaa !61
   ret void
 

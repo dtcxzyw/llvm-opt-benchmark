@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %union.anon = type { ptr }
 %union.anon.0 = type { i64 }
-%struct.AVComponentDescriptor = type { i32, i32, i32, i32, i32 }
 
 @.str = private unnamed_addr constant [5 x i8] c"tiff\00", align 1
 @.str.1 = private unnamed_addr constant [11 x i8] c"TIFF image\00", align 1
@@ -195,11 +194,11 @@ define internal range(i32 -2147483648, 1) i32 @encode_frame(ptr noundef %0, ptr 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %75 = getelementptr inbounds nuw %struct.AVComponentDescriptor, ptr %23, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [20 x i8], ptr %23, i64 %indvars.iv
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 40
   %77 = load i32, ptr %76, align 4, !tbaa !47
   %78 = trunc i32 %77 to i16
-  %79 = getelementptr inbounds nuw i16, ptr %17, i64 %indvars.iv
+  %79 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %indvars.iv
   store i16 %78, ptr %79, align 2, !tbaa !39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -496,7 +495,7 @@ check_size.exit:                                  ; preds = %126
   %245 = load i32, ptr %100, align 4, !tbaa !52
   %246 = sdiv i32 %.1353, %245
   %247 = sext i32 %246 to i64
-  %248 = getelementptr inbounds i32, ptr %244, i64 %247
+  %248 = getelementptr inbounds [4 x i8], ptr %244, i64 %247
   %249 = load i32, ptr %248, align 4, !tbaa !34
   %250 = icmp eq i32 %249, 0
   br i1 %250, label %251, label %273
@@ -534,7 +533,7 @@ check_size.exit:                                  ; preds = %126
   %269 = sub i64 %267, %268
   %270 = trunc i64 %269 to i32
   %271 = load ptr, ptr %153, align 8, !tbaa !62
-  %272 = getelementptr inbounds i32, ptr %271, i64 %.pre-phi384
+  %272 = getelementptr inbounds [4 x i8], ptr %271, i64 %.pre-phi384
   store i32 %270, ptr %272, align 4, !tbaa !34
   br label %273
 
@@ -582,7 +581,7 @@ check_size.exit:                                  ; preds = %126
   %300 = load i32, ptr %100, align 4, !tbaa !52
   %301 = sdiv i32 %.2, %300
   %302 = sext i32 %301 to i64
-  %303 = getelementptr inbounds i32, ptr %299, i64 %302
+  %303 = getelementptr inbounds [4 x i8], ptr %299, i64 %302
   %304 = load i32, ptr %303, align 4, !tbaa !34
   %305 = add i32 %304, %.2273
   store i32 %305, ptr %303, align 4, !tbaa !34
@@ -614,7 +613,7 @@ check_size.exit:                                  ; preds = %126
   %323 = load i32, ptr %100, align 4, !tbaa !52
   %324 = sdiv i32 %.2, %323
   %325 = sext i32 %324 to i64
-  %326 = getelementptr inbounds i32, ptr %322, i64 %325
+  %326 = getelementptr inbounds [4 x i8], ptr %322, i64 %325
   %327 = load i32, ptr %326, align 4, !tbaa !34
   %328 = add i32 %327, %321
   store i32 %328, ptr %326, align 4, !tbaa !34
@@ -807,7 +806,7 @@ check_size.exit:                                  ; preds = %126
   %426 = trunc nuw i32 %425 to i16
   %427 = and i16 %426, 255
   %428 = mul nuw i16 %427, 257
-  %429 = getelementptr inbounds nuw i16, ptr %20, i64 %indvars.iv367
+  %429 = getelementptr inbounds nuw [2 x i8], ptr %20, i64 %indvars.iv367
   store i16 %428, ptr %429, align 2, !tbaa !39
   %430 = trunc i32 %424 to i16
   %431 = lshr i16 %430, 8

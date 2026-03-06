@@ -8448,7 +8448,7 @@ define internal i32 @cnf_dissect_sec_desc_buf_(ptr noundef %0, i32 noundef %1, p
 
 switch.lookup:                                    ; preds = %.thread
   %26 = zext nneg i32 %24 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.cnf_dissect_sec_desc_buf_, i64 %26
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.cnf_dissect_sec_desc_buf_, i64 %26
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %.thread.thread
 

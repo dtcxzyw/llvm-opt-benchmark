@@ -116,7 +116,7 @@ _ZN8smallvec10infallible17hbf40cfe6aa4791f9E.exit: ; preds = %"_ZN8smallvec17Sma
   %39 = phi i64 [ %.pre.i, %37 ], [ %35, %.lr.ph52 ]
   %.sroa.01.0.i = phi ptr [ %7, %37 ], [ %.sink9.i.i, %.lr.ph52 ]
   %.sroa.0.0.i20 = phi ptr [ %38, %37 ], [ %.sink10.i.i, %.lr.ph52 ]
-  %40 = getelementptr inbounds i32, ptr %.sroa.0.0.i20, i64 %39
+  %40 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0.i20, i64 %39
   store i32 %2, ptr %40, align 4
   %41 = load i64, ptr %.sroa.01.0.i, align 8, !alias.scope !25, !noundef !11
   %42 = add i64 %41, 1
@@ -129,7 +129,7 @@ _ZN8smallvec10infallible17hbf40cfe6aa4791f9E.exit: ; preds = %"_ZN8smallvec17Sma
 
 44:                                               ; preds = %.lr.ph
   %45 = add i64 %.sroa.0.047, -1
-  %46 = getelementptr inbounds i32, ptr %.sink10.i, i64 %storemerge48
+  %46 = getelementptr inbounds [4 x i8], ptr %.sink10.i, i64 %storemerge48
   store i32 %2, ptr %46, align 4
   %47 = add i64 %storemerge48, 1
   %exitcond.not = icmp eq i64 %47, %.sink.i.pre-phi
@@ -169,7 +169,7 @@ define hidden noundef nonnull align 4 dereferenceable(4) ptr @"_ZN75_$LT$usize$u
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds i32, ptr %1, i64 %0
+  %7 = getelementptr inbounds [4 x i8], ptr %1, i64 %0
   ret ptr %7
 
 8:                                                ; preds = %4
@@ -195,7 +195,7 @@ define hidden noundef nonnull align 4 dereferenceable(4) ptr @"_ZN83_$LT$smallve
 "_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hf24076c036132d48E.llvm.584326724020257929.exit": ; preds = %3
   %11 = load ptr, ptr %0, align 8, !alias.scope !27, !noalias !30, !nonnull !11
   %.sink10.i = select i1 %6, ptr %11, ptr %0
-  %12 = getelementptr inbounds i32, ptr %.sink10.i, i64 %1
+  %12 = getelementptr inbounds [4 x i8], ptr %.sink10.i, i64 %1
   ret ptr %12
 }
 
@@ -439,7 +439,7 @@ define hidden { ptr, ptr } @"_ZN93_$LT$$RF$smallvec..SmallVec$LT$A$GT$$u20$as$u2
   %7 = load i64, ptr %6, align 8, !alias.scope !61, !noalias !64
   %.sink12.i = select i1 %4, ptr %5, ptr %0
   %.sink11.i = select i1 %4, i64 %7, i64 %3
-  %8 = getelementptr inbounds i32, ptr %.sink12.i, i64 %.sink11.i
+  %8 = getelementptr inbounds [4 x i8], ptr %.sink12.i, i64 %.sink11.i
   %9 = insertvalue { ptr, ptr } poison, ptr %.sink12.i, 0
   %10 = insertvalue { ptr, ptr } %9, ptr %8, 1
   ret { ptr, ptr } %10

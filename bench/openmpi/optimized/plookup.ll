@@ -20,10 +20,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.__pthread_cond_s = type { %union.__atomic_wide_counter, %union.__atomic_wide_counter, [2 x i32], [2 x i32], i32, i32, [2 x i32] }
 %union.__atomic_wide_counter = type { i64 }
 %struct.pmix_cli_result_t = type { %struct.pmix_object_t, %struct.pmix_list_t, ptr }
-%struct.pmix_pdata = type { %struct.pmix_proc, [512 x i8], %struct.pmix_value }
-%struct.pmix_value = type { i16, %union.anon }
-%union.anon = type { %struct.pmix_envar_t }
-%struct.pmix_envar_t = type { ptr, ptr, i8 }
 
 @.str = private unnamed_addr constant [8 x i8] c"plookup\00", align 1
 @pmix_tool_basename = external local_unnamed_addr global ptr, align 8
@@ -196,7 +192,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %33
   call void @pmix_expose_param(ptr noundef nonnull %61) #11
   %62 = add i64 %.070137, 1
   %63 = load ptr, ptr %58, align 8, !tbaa !33
-  %64 = getelementptr inbounds nuw ptr, ptr %63, i64 %62
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %62
   %65 = load ptr, ptr %64, align 8, !tbaa !4
   %.not96 = icmp eq ptr %65, null
   br i1 %.not96, label %.loopexit, label %.lr.ph, !llvm.loop !34
@@ -430,10 +426,10 @@ pmix_cmd_line_get_param.exit:                     ; preds = %.lr.ph.i122, %153
 
 172:                                              ; preds = %170, %pmix_strncpy.exit
   %.1146 = phi i64 [ 0, %170 ], [ %185, %pmix_strncpy.exit ]
-  %173 = getelementptr inbounds nuw %struct.pmix_pdata, ptr %171, i64 %.1146
+  %173 = getelementptr inbounds nuw [808 x i8], ptr %171, i64 %.1146
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 260
   %175 = load ptr, ptr %86, align 8, !tbaa !38
-  %176 = getelementptr inbounds nuw ptr, ptr %175, i64 %.1146
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %175, i64 %.1146
   %177 = load ptr, ptr %176, align 8, !tbaa !4
   br label %178
 
@@ -474,7 +470,7 @@ pmix_strncpy.exit:                                ; preds = %178, %181
 .preheader:                                       ; preds = %186, %.preheader
   %.2147 = phi i64 [ %200, %.preheader ], [ 0, %186 ]
   %192 = load ptr, ptr @stderr, align 8, !tbaa !9
-  %193 = getelementptr inbounds nuw %struct.pmix_pdata, ptr %171, i64 %.2147
+  %193 = getelementptr inbounds nuw [808 x i8], ptr %171, i64 %.2147
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 260
   %195 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %192, ptr noundef nonnull @.str.19, ptr noundef nonnull %194) #12
   %196 = getelementptr inbounds nuw i8, ptr %193, i64 776

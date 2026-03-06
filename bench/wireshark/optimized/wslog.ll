@@ -118,7 +118,7 @@ define noundef nonnull ptr @ws_log_level_to_string(i32 noundef %0) local_unnamed
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.ws_log_level_to_string, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ws_log_level_to_string, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -1086,7 +1086,7 @@ ws_log_set_domain_filter.exit:                    ; preds = %ws_log_set_level_st
   %.080214 = phi i32 [ %.080, %ws_log_set_level_str.exit.thread ], [ %.080, %ws_log_set_level_str.exit ], [ %.080, %ws_log_add_custom_file.exit ], [ %.080, %123 ], [ %.080, %153 ], [ %.080, %193 ], [ %.080, %ws_log_set_fatal_level_str.exit.thread ], [ %.080, %ws_log_set_fatal_level_str.exit ], [ %.080, %143 ], [ 0, %.thread263 ], [ %.080, %158 ], [ %.080, %free_log_filter.exit.i ], [ %.080, %118 ], [ %.080, %free_log_filter.exit.i183 ], [ %.080, %138 ], [ %.080, %free_log_filter.exit.i190 ], [ %.080, %182 ], [ %.080, %187 ], [ %.080, %free_log_filter.exit.i194 ], [ %.080, %202 ], [ %.080, %207 ]
   %.2 = phi i32 [ %108, %ws_log_set_level_str.exit.thread ], [ %.084320, %ws_log_set_level_str.exit ], [ %.084320, %ws_log_add_custom_file.exit ], [ %.084320, %123 ], [ %154, %153 ], [ %.084320, %193 ], [ %172, %ws_log_set_fatal_level_str.exit.thread ], [ %.084320, %ws_log_set_fatal_level_str.exit ], [ %.084320, %143 ], [ %101, %.thread263 ], [ %162, %158 ], [ %.084320, %free_log_filter.exit.i ], [ %.084320, %118 ], [ %.084320, %free_log_filter.exit.i183 ], [ %.084320, %138 ], [ %.084320, %free_log_filter.exit.i190 ], [ %.084320, %182 ], [ %.084320, %187 ], [ %.084320, %free_log_filter.exit.i194 ], [ %.084320, %202 ], [ %.084320, %207 ]
   %213 = zext nneg i32 %.080214 to i64
-  %214 = getelementptr ptr, ptr %10, i64 %213
+  %214 = getelementptr [8 x i8], ptr %10, i64 %213
   %215 = sub i32 %.086319, %.080214
   %216 = sext i32 %215 to i64
   %217 = shl nsw i64 %216, 3

@@ -780,7 +780,7 @@ add_telnet_data_bytes_str.exit:                   ; preds = %37, %41, %43, %45
   %67 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %64)
   %68 = icmp ult i8 %67, 50
   %69 = zext nneg i8 %67 to i64
-  %70 = getelementptr %struct.tn_opt, ptr @options, i64 %69
+  %70 = getelementptr [32 x i8], ptr @options, i64 %69
   %71 = icmp eq i8 %67, -24
   %telnet_opt_vmware.telnet_opt_unknown.i.i.i = select i1 %71, ptr @telnet_opt_vmware, ptr @telnet_opt_unknown
   %.0.i.i.i = select i1 %68, ptr %70, ptr %telnet_opt_vmware.telnet_opt_unknown.i.i.i
@@ -794,7 +794,7 @@ add_telnet_data_bytes_str.exit:                   ; preds = %37, %41, %43, %45
   %76 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %64)
   %77 = icmp ult i8 %76, 50
   %78 = zext nneg i8 %76 to i64
-  %79 = getelementptr %struct.tn_opt, ptr @options, i64 %78
+  %79 = getelementptr [32 x i8], ptr @options, i64 %78
   %80 = icmp eq i8 %76, -24
   %telnet_opt_vmware.telnet_opt_unknown.i.i31.i = select i1 %80, ptr @telnet_opt_vmware, ptr @telnet_opt_unknown
   %.0.i.i32.i = select i1 %77, ptr %79, ptr %telnet_opt_vmware.telnet_opt_unknown.i.i31.i
@@ -808,7 +808,7 @@ add_telnet_data_bytes_str.exit:                   ; preds = %37, %41, %43, %45
   %85 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %64)
   %86 = icmp ult i8 %85, 50
   %87 = zext nneg i8 %85 to i64
-  %88 = getelementptr %struct.tn_opt, ptr @options, i64 %87
+  %88 = getelementptr [32 x i8], ptr @options, i64 %87
   %89 = icmp eq i8 %85, -24
   %telnet_opt_vmware.telnet_opt_unknown.i.i36.i = select i1 %89, ptr @telnet_opt_vmware, ptr @telnet_opt_unknown
   %.0.i.i37.i = select i1 %86, ptr %88, ptr %telnet_opt_vmware.telnet_opt_unknown.i.i36.i
@@ -822,7 +822,7 @@ add_telnet_data_bytes_str.exit:                   ; preds = %37, %41, %43, %45
   %94 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %64)
   %95 = icmp ult i8 %94, 50
   %96 = zext nneg i8 %94 to i64
-  %97 = getelementptr %struct.tn_opt, ptr @options, i64 %96
+  %97 = getelementptr [32 x i8], ptr @options, i64 %96
   %98 = icmp eq i8 %94, -24
   %telnet_opt_vmware.telnet_opt_unknown.i.i41.i = select i1 %98, ptr @telnet_opt_vmware, ptr @telnet_opt_unknown
   %.0.i.i42.i = select i1 %95, ptr %97, ptr %telnet_opt_vmware.telnet_opt_unknown.i.i41.i
@@ -836,7 +836,7 @@ add_telnet_data_bytes_str.exit:                   ; preds = %37, %41, %43, %45
   %103 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %64)
   %104 = icmp ult i8 %103, 50
   %105 = zext nneg i8 %103 to i64
-  %106 = getelementptr %struct.tn_opt, ptr @options, i64 %105
+  %106 = getelementptr [32 x i8], ptr @options, i64 %105
   %107 = icmp eq i8 %103, -24
   %telnet_opt_vmware.telnet_opt_unknown.i.i46.i = select i1 %107, ptr @telnet_opt_vmware, ptr @telnet_opt_unknown
   %.0.i.i47.i = select i1 %104, ptr %106, ptr %telnet_opt_vmware.telnet_opt_unknown.i.i46.i
@@ -918,7 +918,7 @@ add_telnet_info_str.exit.i:                       ; preds = %133, %131, %129, %1
   %138 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %64)
   %139 = icmp ult i8 %138, 50
   %140 = zext nneg i8 %138 to i64
-  %141 = getelementptr %struct.tn_opt, ptr @options, i64 %140
+  %141 = getelementptr [32 x i8], ptr @options, i64 %140
   %142 = icmp eq i8 %138, -24
   %telnet_opt_vmware.telnet_opt_unknown.i.i51.i = select i1 %142, ptr @telnet_opt_vmware, ptr @telnet_opt_unknown
   %.0.i.i52.i = select i1 %139, ptr %141, ptr %telnet_opt_vmware.telnet_opt_unknown.i.i51.i
@@ -2065,7 +2065,7 @@ define internal void @dissect_comport_subopt(ptr noundef %0, ptr noundef %1, ptr
 
 50:                                               ; preds = %45
   %51 = zext nneg i8 %47 to i64
-  %52 = getelementptr ptr, ptr @dissect_comport_subopt.datasizes, i64 %51
+  %52 = getelementptr [8 x i8], ptr @dissect_comport_subopt.datasizes, i64 %51
   %53 = load ptr, ptr %52, align 8
   br label %54
 
@@ -2093,7 +2093,7 @@ define internal void @dissect_comport_subopt(ptr noundef %0, ptr noundef %1, ptr
 
 68:                                               ; preds = %63
   %69 = zext nneg i8 %65 to i64
-  %70 = getelementptr ptr, ptr @dissect_comport_subopt.parities, i64 %69
+  %70 = getelementptr [8 x i8], ptr @dissect_comport_subopt.parities, i64 %69
   %71 = load ptr, ptr %70, align 8
   br label %72
 
@@ -2121,7 +2121,7 @@ define internal void @dissect_comport_subopt(ptr noundef %0, ptr noundef %1, ptr
 
 86:                                               ; preds = %81
   %87 = zext nneg i8 %83 to i64
-  %88 = getelementptr ptr, ptr @dissect_comport_subopt.stops, i64 %87
+  %88 = getelementptr [8 x i8], ptr @dissect_comport_subopt.stops, i64 %87
   %89 = load ptr, ptr %88, align 8
   br label %90
 
@@ -2149,7 +2149,7 @@ define internal void @dissect_comport_subopt(ptr noundef %0, ptr noundef %1, ptr
 
 104:                                              ; preds = %99
   %105 = zext nneg i8 %101 to i64
-  %106 = getelementptr ptr, ptr @dissect_comport_subopt.control, i64 %105
+  %106 = getelementptr [8 x i8], ptr @dissect_comport_subopt.control, i64 %105
   %107 = load ptr, ptr %106, align 8
   br label %108
 
@@ -2194,7 +2194,7 @@ define internal void @dissect_comport_subopt(ptr noundef %0, ptr noundef %1, ptr
   br label %127
 
 127:                                              ; preds = %125, %124
-  %128 = getelementptr ptr, ptr @dissect_comport_subopt.linestate_bits, i64 %indvars.iv206
+  %128 = getelementptr [8 x i8], ptr @dissect_comport_subopt.linestate_bits, i64 %indvars.iv206
   %129 = load ptr, ptr %128, align 8
   %130 = call i64 @g_strlcat(ptr noundef nonnull %8, ptr noundef %129, i64 noundef 512)
   %131 = add i32 %.0191204, 1
@@ -2252,7 +2252,7 @@ define internal void @dissect_comport_subopt(ptr noundef %0, ptr noundef %1, ptr
   br label %156
 
 156:                                              ; preds = %154, %153
-  %157 = getelementptr ptr, ptr @dissect_comport_subopt.modemstate_bits, i64 %indvars.iv
+  %157 = getelementptr [8 x i8], ptr @dissect_comport_subopt.modemstate_bits, i64 %indvars.iv
   %158 = load ptr, ptr %157, align 8
   %159 = call i64 @g_strlcat(ptr noundef nonnull %9, ptr noundef %158, i64 noundef 256)
   %160 = add i32 %.0189201, 1
@@ -2303,7 +2303,7 @@ define internal void @dissect_comport_subopt(ptr noundef %0, ptr noundef %1, ptr
 
 186:                                              ; preds = %181
   %187 = zext nneg i8 %183 to i64
-  %188 = getelementptr ptr, ptr @dissect_comport_subopt.purges, i64 %187
+  %188 = getelementptr [8 x i8], ptr @dissect_comport_subopt.purges, i64 %187
   %189 = load ptr, ptr %188, align 8
   br label %190
 

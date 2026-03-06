@@ -58,7 +58,7 @@ _ZN5Eigen12DenseStorageIiLin1ELin1ELin1ELi0EE6resizeElll.exit: ; preds = %8, %14
   %19 = load i64, ptr %5, align 8, !tbaa !4
   %20 = srem i64 %18, %19
   %21 = load ptr, ptr %0, align 8, !tbaa !15
-  %22 = getelementptr i32, ptr %21, i64 %20
+  %22 = getelementptr [4 x i8], ptr %21, i64 %20
   %23 = load i32, ptr %22, align 4, !tbaa !16
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
@@ -80,13 +80,13 @@ _ZN5Eigen12DenseStorageIiLin1ELin1ELin1ELi0EE6resizeElll.exit: ; preds = %8, %14
   %31 = phi i64 [ %19, %.lr.ph ], [ %76, %75 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %75 ]
   %32 = load ptr, ptr %0, align 8, !tbaa !15
-  %33 = getelementptr i32, ptr %32, i64 %indvars.iv
+  %33 = getelementptr [4 x i8], ptr %32, i64 %indvars.iv
   %34 = load i32, ptr %33, align 4, !tbaa !16
   %35 = icmp eq i32 %34, %23
   br i1 %35, label %75, label %36
 
 36:                                               ; preds = %30
-  %37 = getelementptr i32, ptr %33, i64 %31
+  %37 = getelementptr [4 x i8], ptr %33, i64 %31
   %38 = load i32, ptr %37, align 4, !tbaa !16
   %39 = icmp eq i32 %38, %23
   br i1 %39, label %75, label %40
@@ -516,7 +516,7 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33: ; preds = %.
 _ZNSt12_Vector_baseISt6vectorIiSaIiEESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIS_IiSaIiEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33, %66
   store ptr %20, ptr %0, align 8, !tbaa !30
   store ptr %.0.lcssa.i.i.i32, ptr %4, align 8, !tbaa !22
-  %70 = getelementptr inbounds nuw %"class.std::vector.9", ptr %20, i64 %16
+  %70 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %70, ptr %65, align 8, !tbaa !25
   ret void
 

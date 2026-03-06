@@ -396,7 +396,7 @@ define internal i32 @dissect_zrtp(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 53:                                               ; preds = %52, %40
   %indvars.iv.i.i = phi i64 [ 0, %40 ], [ %indvars.iv.next.i.i, %52 ]
-  %54 = getelementptr %struct._value_zrtp_versions, ptr @valid_zrtp_versions, i64 %indvars.iv.i.i
+  %54 = getelementptr [8 x i8], ptr @valid_zrtp_versions, i64 %indvars.iv.i.i
   %55 = load ptr, ptr %54, align 8
   %56 = call i32 @strncmp(ptr noundef %55, ptr noundef readonly %48, i64 noundef %51) #6
   %.not9.i.i = icmp eq i32 %56, 0
@@ -464,7 +464,7 @@ check_valid_version.exit.thread.i:                ; preds = %52, %check_valid_ve
   br i1 %.not.i140.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !8
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i
-  %96 = getelementptr %struct._value_string_keyval, ptr @zrtp_hash_type_vals, i64 %indvars.iv.next.i
+  %96 = getelementptr [16 x i8], ptr @zrtp_hash_type_vals, i64 %indvars.iv.next.i
   %97 = load ptr, ptr %96, align 16
   %98 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %97, ptr noundef %93, i64 noundef 4) #6
   %.not13.i.i = icmp eq i32 %98, 0
@@ -515,7 +515,7 @@ key_to_val.exit.i:                                ; preds = %._crit_edge.i.i, %.
   br i1 %.not.i144.i, label %._crit_edge.i145.i, label %.lr.ph.i141.i, !llvm.loop !8
 
 .lr.ph.i141.i:                                    ; preds = %.lr.ph189.i
-  %114 = getelementptr %struct._value_string_keyval, ptr @zrtp_cipher_type_vals, i64 %indvars.iv.next247.i
+  %114 = getelementptr [16 x i8], ptr @zrtp_cipher_type_vals, i64 %indvars.iv.next247.i
   %115 = load ptr, ptr %114, align 16
   %116 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %115, ptr noundef %111, i64 noundef 4) #6
   %.not13.i143.i = icmp eq i32 %116, 0
@@ -566,7 +566,7 @@ key_to_val.exit147.i:                             ; preds = %._crit_edge.i145.i,
   br i1 %.not.i151.i, label %._crit_edge.i152.i, label %.lr.ph.i148.i, !llvm.loop !8
 
 .lr.ph.i148.i:                                    ; preds = %.lr.ph200.i
-  %132 = getelementptr %struct._value_string_keyval, ptr @zrtp_auth_tag_vals, i64 %indvars.iv.next251.i
+  %132 = getelementptr [16 x i8], ptr @zrtp_auth_tag_vals, i64 %indvars.iv.next251.i
   %133 = load ptr, ptr %132, align 16
   %134 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %133, ptr noundef %129, i64 noundef 4) #6
   %.not13.i150.i = icmp eq i32 %134, 0
@@ -617,7 +617,7 @@ key_to_val.exit154.i:                             ; preds = %._crit_edge.i152.i,
   br i1 %.not.i158.i, label %._crit_edge.i159.i, label %.lr.ph.i155.i, !llvm.loop !8
 
 .lr.ph.i155.i:                                    ; preds = %.lr.ph211.i
-  %150 = getelementptr %struct._value_string_keyval, ptr @zrtp_key_agreement_vals, i64 %indvars.iv.next255.i
+  %150 = getelementptr [16 x i8], ptr @zrtp_key_agreement_vals, i64 %indvars.iv.next255.i
   %151 = load ptr, ptr %150, align 16
   %152 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %151, ptr noundef %147, i64 noundef 4) #6
   %.not13.i157.i = icmp eq i32 %152, 0
@@ -732,7 +732,7 @@ dissect_Hello.exit:                               ; preds = %key_to_val.exit168.
   br i1 %.not.i.i192, label %._crit_edge.i.i200, label %.lr.ph.i.i193, !llvm.loop !8
 
 .lr.ph.i.i193:                                    ; preds = %.lr.ph.i189
-  %195 = getelementptr %struct._value_string_keyval, ptr @zrtp_hash_type_vals, i64 %indvars.iv.next.i191
+  %195 = getelementptr [16 x i8], ptr @zrtp_hash_type_vals, i64 %indvars.iv.next.i191
   %196 = load ptr, ptr %195, align 16
   %197 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %196, ptr noundef %192, i64 noundef 4) #6
   %.not13.i.i194 = icmp eq i32 %197, 0
@@ -766,7 +766,7 @@ key_to_val.exit.i196:                             ; preds = %._crit_edge.i.i200,
   br i1 %.not.i65.i, label %._crit_edge.i66.i, label %.lr.ph.i62.i, !llvm.loop !8
 
 .lr.ph.i62.i:                                     ; preds = %.lr.ph14.i
-  %207 = getelementptr %struct._value_string_keyval, ptr @zrtp_cipher_type_vals, i64 %indvars.iv.next35.i
+  %207 = getelementptr [16 x i8], ptr @zrtp_cipher_type_vals, i64 %indvars.iv.next35.i
   %208 = load ptr, ptr %207, align 16
   %209 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %208, ptr noundef %204, i64 noundef 4) #6
   %.not13.i64.i = icmp eq i32 %209, 0
@@ -800,7 +800,7 @@ key_to_val.exit68.i:                              ; preds = %._crit_edge.i66.i, 
   br i1 %.not.i72.i, label %._crit_edge.i73.i, label %.lr.ph.i69.i, !llvm.loop !8
 
 .lr.ph.i69.i:                                     ; preds = %.lr.ph18.i
-  %219 = getelementptr %struct._value_string_keyval, ptr @zrtp_auth_tag_vals, i64 %indvars.iv.next38.i
+  %219 = getelementptr [16 x i8], ptr @zrtp_auth_tag_vals, i64 %indvars.iv.next38.i
   %220 = load ptr, ptr %219, align 16
   %221 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %220, ptr noundef %216, i64 noundef 4) #6
   %.not13.i71.i = icmp eq i32 %221, 0
@@ -834,7 +834,7 @@ key_to_val.exit75.i:                              ; preds = %._crit_edge.i73.i, 
   br i1 %.not.i79.i, label %._crit_edge.i80.i, label %.lr.ph.i76.i, !llvm.loop !8
 
 .lr.ph.i76.i:                                     ; preds = %.lr.ph22.i
-  %231 = getelementptr %struct._value_string_keyval, ptr @zrtp_key_agreement_vals, i64 %indvars.iv.next41.i
+  %231 = getelementptr [16 x i8], ptr @zrtp_key_agreement_vals, i64 %indvars.iv.next41.i
   %232 = load ptr, ptr %231, align 16
   %233 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %232, ptr noundef %228, i64 noundef 4) #6
   %.not13.i78.i = icmp eq i32 %233, 0

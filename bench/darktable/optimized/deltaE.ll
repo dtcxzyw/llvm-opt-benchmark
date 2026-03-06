@@ -14,9 +14,9 @@ define dso_local float @dt_colorspaces_deltaE_1976(ptr noundef readonly captures
 5:                                                ; preds = %2, %5
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %5 ]
   %.011 = phi float [ 0.000000e+00, %2 ], [ %12, %5 ]
-  %6 = getelementptr inbounds nuw float, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   %7 = load float, ptr %6, align 4, !tbaa !7
-  %8 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %9 = load float, ptr %8, align 4, !tbaa !7
   %10 = fsub reassoc nsz arcp contract afn float %7, %9
   %11 = fmul reassoc nsz arcp contract afn float %10, %10

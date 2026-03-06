@@ -1465,7 +1465,7 @@ define internal fastcc void @"_ZN4core3ptr86drop_in_place$LT$$u5b$quinn_proto..c
   br i1 %3, label %7, label %4
 
 4:                                                ; preds = %2
-  %5 = getelementptr inbounds nuw { { { { i64, [5 x i64] } }, { i64, [1 x i64] }, { i64, [1 x i64] }, { [2 x i32], i32, [1 x i32] }, { [4 x i32], i32, [1 x i32] }, i64, i64, i64, i64, i8, [7 x i8] }, { i64, [1 x i64] }, { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { { { ptr, i64, i64, i64 }, {}, {} }, {} } } }, [2 x i8], i8, i8, i8, [3 x i8] }, { { { i64, i32, [1 x i32] } } }, { [2 x i32], i32, [1 x i32] }, { [2 x i32], i32, [1 x i32] }, { ptr, [7 x i64] }, { i128, i64, [1 x i64] }, { { i64, [3 x i64] }, { { { { i64, ptr, {} }, {} }, i64 } }, i64, i64, i64, i64 }, i64, i64, i64, i64, { { ptr, [1 x i64] }, i64, { {} }, {} }, { i64, i64, i64 }, { i64, i64, i64 }, i64, i64, i64, i32, i8, i8, [2 x i8] }, ptr %0, i64 %.sroa.0.0
+  %5 = getelementptr inbounds nuw [736 x i8], ptr %0, i64 %.sroa.0.0
   %6 = add nuw nsw i64 %.sroa.0.0, 1
   invoke void @"_ZN4core3ptr65drop_in_place$LT$quinn_proto..connection..spaces..PacketSpace$GT$17h6c2cf39c0f40d2c4E"(ptr noalias noundef nonnull align 16 dereferenceable(736) %5)
           to label %2 unwind label %10
@@ -1484,7 +1484,7 @@ define internal fastcc void @"_ZN4core3ptr86drop_in_place$LT$$u5b$quinn_proto..c
   br label %8
 
 12:                                               ; preds = %8
-  %13 = getelementptr inbounds nuw { { { { i64, [5 x i64] } }, { i64, [1 x i64] }, { i64, [1 x i64] }, { [2 x i32], i32, [1 x i32] }, { [4 x i32], i32, [1 x i32] }, i64, i64, i64, i64, i8, [7 x i8] }, { i64, [1 x i64] }, { { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { { { ptr, i64, i64, i64 }, {}, {} }, {} } } }, [2 x i8], i8, i8, i8, [3 x i8] }, { { { i64, i32, [1 x i32] } } }, { [2 x i32], i32, [1 x i32] }, { [2 x i32], i32, [1 x i32] }, { ptr, [7 x i64] }, { i128, i64, [1 x i64] }, { { i64, [3 x i64] }, { { { { i64, ptr, {} }, {} }, i64 } }, i64, i64, i64, i64 }, i64, i64, i64, i64, { { ptr, [1 x i64] }, i64, { {} }, {} }, { i64, i64, i64 }, { i64, i64, i64 }, i64, i64, i64, i32, i8, i8, [2 x i8] }, ptr %0, i64 %.sroa.0.1
+  %13 = getelementptr inbounds nuw [736 x i8], ptr %0, i64 %.sroa.0.1
   %14 = add i64 %.sroa.0.1, 1
   invoke void @"_ZN4core3ptr65drop_in_place$LT$quinn_proto..connection..spaces..PacketSpace$GT$17h6c2cf39c0f40d2c4E"(ptr noalias noundef nonnull align 16 dereferenceable(736) %13) #25
           to label %8 unwind label %16
@@ -2888,7 +2888,7 @@ _ZN11quinn_proto10connection10Connection17on_path_validated17h2bce5d941937e698E.
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hde833229af289917E.exit.i": ; preds = %372, %367
   %373 = load ptr, ptr %366, align 8, !alias.scope !129, !noalias !132, !nonnull !3, !noundef !3
-  %374 = getelementptr inbounds nuw { i16, [15 x i16] }, ptr %373, i64 %368
+  %374 = getelementptr inbounds nuw [32 x i8], ptr %373, i64 %368
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %374, ptr noundef nonnull readonly align 4 dereferenceable(32) %19, i64 32, i1 false)
   store i64 %369, ptr %360, align 16, !alias.scope !129, !noalias !132
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
@@ -4585,7 +4585,7 @@ _ZN11quinn_proto10connection10Connection19send_path_challenge17h532993fdca1b7f20
   %731 = select i1 %.not6.i.i, i64 0, i64 %730
   %.sroa.01.0.i.i = sub nuw i64 %729, %731
   %732 = load ptr, ptr %470, align 8, !alias.scope !182, !nonnull !3, !noundef !3
-  %733 = getelementptr inbounds nuw { { ptr, ptr, i64, { ptr } } }, ptr %732, i64 %.sroa.01.0.i.i
+  %733 = getelementptr inbounds nuw [32 x i8], ptr %732, i64 %.sroa.01.0.i.i
   %734 = invoke noundef i64 @_ZN11quinn_proto5frame8Datagram4size17h2af7218401bc2c01E(ptr noundef nonnull align 8 %733, i1 noundef zeroext true)
           to label %.noexc783 unwind label %.loopexit1004.loopexit
 
@@ -7887,7 +7887,7 @@ _ZN11quinn_proto10connection10Connection13can_send_1rtt17h8e433a7c69863eb0E.exit
   %1821 = load ptr, ptr %1813, align 8, !noalias !210, !nonnull !3, !noundef !3
   %1822 = icmp samesign ult i64 %1817, 288230376151711745
   call void @llvm.assume(i1 %1822)
-  %1823 = getelementptr inbounds nuw { i16, [15 x i16] }, ptr %1821, i64 %1818
+  %1823 = getelementptr inbounds nuw [32 x i8], ptr %1821, i64 %1818
   %.sroa.0595.0.copyload.i = load i16, ptr %1823, align 4, !noalias !210
   %.sroa.4596.sroa.4.0..sroa.4596.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %1823, i64 20
   %.sroa.4596.sroa.4.0.copyload.i = load i32, ptr %.sroa.4596.sroa.4.0..sroa.4596.0..sroa_idx.sroa_idx.i, align 4, !noalias !210
@@ -8037,7 +8037,7 @@ _ZN11quinn_proto10connection10Connection13can_send_1rtt17h8e433a7c69863eb0E.exit
 "_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u6417h9b7ce490156d28cfE.exit.i": ; preds = %1871
   %1886 = add nuw nsw i64 %1874, 2
   store i64 %1886, ptr %632, align 16, !alias.scope !234, !noalias !211
-  %1887 = getelementptr inbounds nuw i32, ptr %631, i64 %1874
+  %1887 = getelementptr inbounds nuw [4 x i8], ptr %631, i64 %1874
   %1888 = load i64, ptr %1887, align 4, !alias.scope !246, !noalias !211
   %1889 = icmp samesign ult i64 %1874, 61
   br i1 %1889, label %1891, label %1890
@@ -8051,7 +8051,7 @@ _ZN11quinn_proto10connection10Connection13can_send_1rtt17h8e433a7c69863eb0E.exit
   %1892 = phi i64 [ 2, %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u6417h9b7ce490156d28cfE.exit.thread.i" ], [ %1886, %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u6417h9b7ce490156d28cfE.exit.i" ], [ 1, %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u6417h9b7ce490156d28cfE.exit.thread1147.i" ]
   %1893 = add nuw nsw i64 %1892, 2
   store i64 %1893, ptr %632, align 16, !alias.scope !249, !noalias !211
-  %1894 = getelementptr inbounds nuw i32, ptr %631, i64 %1892
+  %1894 = getelementptr inbounds nuw [4 x i8], ptr %631, i64 %1892
   %1895 = load i64, ptr %1894, align 4, !alias.scope !252, !noalias !211
   br label %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u6417h9b7ce490156d28cfE.exit788.i"
 
@@ -8177,7 +8177,7 @@ _ZN11quinn_proto10connection10Connection13can_send_1rtt17h8e433a7c69863eb0E.exit
 1943:                                             ; preds = %1942, %1936
   %1944 = getelementptr inbounds nuw i8, ptr %1935, i64 136
   %1945 = load ptr, ptr %1944, align 8, !alias.scope !270, !noalias !273, !nonnull !3, !noundef !3
-  %1946 = getelementptr inbounds nuw { i16, [15 x i16] }, ptr %1945, i64 %1939
+  %1946 = getelementptr inbounds nuw [32 x i8], ptr %1945, i64 %1939
   store i16 %.sroa.0595.0.copyload.i, ptr %1946, align 4, !noalias !210
   %.sroa.4838.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1946, i64 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(18) %.sroa.4838.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(18) %.sroa.5818.i, i64 18, i1 false), !noalias !210
@@ -8205,7 +8205,7 @@ _ZN11quinn_proto10connection10Connection13can_send_1rtt17h8e433a7c69863eb0E.exit
 
 1951:                                             ; preds = %1933, %1929
   %1952 = load ptr, ptr %1813, align 8, !alias.scope !264, !noalias !267, !nonnull !3, !noundef !3
-  %1953 = getelementptr inbounds nuw { i16, [15 x i16] }, ptr %1952, i64 %1930
+  %1953 = getelementptr inbounds nuw [32 x i8], ptr %1952, i64 %1930
   store i16 %.sroa.0595.0.copyload.i, ptr %1953, align 4, !noalias !210
   %.sroa.4844.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1953, i64 2
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(18) %.sroa.4844.0..sroa_idx.i, ptr noundef nonnull align 4 dereferenceable(18) %.sroa.5818.i, i64 18, i1 false), !noalias !210
@@ -8286,7 +8286,7 @@ _ZN11quinn_proto10connection10Connection13can_send_1rtt17h8e433a7c69863eb0E.exit
   %1981 = load ptr, ptr %1792, align 16, !noalias !210, !nonnull !3, !noundef !3
   %1982 = icmp samesign ult i64 %1977, 1152921504606846977
   call void @llvm.assume(i1 %1982)
-  %1983 = getelementptr inbounds nuw i64, ptr %1981, i64 %1978
+  %1983 = getelementptr inbounds nuw [8 x i8], ptr %1981, i64 %1978
   %1984 = load i64, ptr %1983, align 8, !noalias !210, !noundef !3
   store i64 %1984, ptr %56, align 8, !noalias !202
   %1985 = load atomic i64, ptr @_ZN12tracing_core8metadata9MAX_LEVEL17h9e420ea5df983dc6E monotonic, align 8, !noalias !202
@@ -8548,7 +8548,7 @@ _ZN11quinn_proto10connection10Connection13can_send_1rtt17h8e433a7c69863eb0E.exit
 2074:                                             ; preds = %2073, %2067
   %2075 = getelementptr inbounds nuw i8, ptr %2066, i64 112
   %2076 = load ptr, ptr %2075, align 8, !alias.scope !282, !noalias !285, !nonnull !3, !noundef !3
-  %2077 = getelementptr inbounds nuw i64, ptr %2076, i64 %2070
+  %2077 = getelementptr inbounds nuw [8 x i8], ptr %2076, i64 %2070
   store i64 %1984, ptr %2077, align 8, !noalias !210
   %2078 = add i64 %2070, 1
   store i64 %2078, ptr %2069, align 8, !alias.scope !282, !noalias !285
@@ -8573,7 +8573,7 @@ _ZN11quinn_proto10connection10Connection13can_send_1rtt17h8e433a7c69863eb0E.exit
   %2089 = load ptr, ptr %1783, align 8, !noalias !210, !nonnull !3, !noundef !3
   %2090 = icmp samesign ult i64 %2085, 192153584101141164
   call void @llvm.assume(i1 %2090)
-  %2091 = getelementptr inbounds nuw { { [16 x i8] }, i64, { [20 x i8], i8 }, [3 x i8] }, ptr %2089, i64 %2086
+  %2091 = getelementptr inbounds nuw [48 x i8], ptr %2089, i64 %2086
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i, ptr noundef nonnull align 8 dereferenceable(16) %2091, i64 16, i1 false), !noalias !210
   %.sroa.4834.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2091, i64 16
   %.sroa.4834.0.copyload.i = load i64, ptr %.sroa.4834.0..sroa_idx.i, align 8, !noalias !210
@@ -8884,7 +8884,7 @@ _ZN11quinn_proto10connection10Connection13can_send_1rtt17h8e433a7c69863eb0E.exit
 2186:                                             ; preds = %2185, %2179
   %2187 = getelementptr inbounds nuw i8, ptr %2178, i64 88
   %2188 = load ptr, ptr %2187, align 8, !alias.scope !290, !noalias !293, !nonnull !3, !noundef !3
-  %2189 = getelementptr inbounds nuw { { [16 x i8] }, i64, { [20 x i8], i8 }, [3 x i8] }, ptr %2188, i64 %2182
+  %2189 = getelementptr inbounds nuw [48 x i8], ptr %2188, i64 %2182
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2189, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.0.i, i64 16, i1 false), !noalias !210
   %.sroa.4.0..sroa_idx810.i = getelementptr inbounds nuw i8, ptr %2189, i64 16
   store i64 %.sroa.4834.0.copyload.i, ptr %.sroa.4.0..sroa_idx810.i, align 8, !noalias !210
@@ -10420,7 +10420,7 @@ define internal fastcc { i1, i1 } @_ZN11quinn_proto10connection10Connection14spa
   %.sroa.01.0.i.i = sub nuw i64 %46, %48
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 5096
   %50 = load ptr, ptr %49, align 8, !alias.scope !316, !nonnull !3, !noundef !3
-  %51 = getelementptr inbounds nuw { { ptr, ptr, i64, { ptr } } }, ptr %50, i64 %.sroa.01.0.i.i
+  %51 = getelementptr inbounds nuw [32 x i8], ptr %50, i64 %.sroa.01.0.i.i
   %52 = tail call noundef i64 @_ZN11quinn_proto5frame8Datagram4size17h2af7218401bc2c01E(ptr noundef nonnull align 8 %51, i1 noundef zeroext true)
   %53 = icmp ule i64 %52, %2
   %54 = or i1 %12, %53
@@ -10946,7 +10946,7 @@ _ZN11quinn_proto10connection14ConnectionSide18remote_may_migrate17h8932ea4393aba
 219:                                              ; preds = %218, %.noexc.i
   %220 = getelementptr inbounds nuw i8, ptr %212, i64 264
   %221 = load ptr, ptr %220, align 8, !alias.scope !342, !noalias !345, !nonnull !3, !noundef !3
-  %222 = getelementptr inbounds nuw { { [16 x i8] }, i64, { [20 x i8], i8 }, [3 x i8] }, ptr %221, i64 %215
+  %222 = getelementptr inbounds nuw [48 x i8], ptr %221, i64 %215
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %222, ptr noundef nonnull readonly align 8 dereferenceable(48) %3, i64 48, i1 false), !noalias !333
   %223 = add i64 %215, 1
   store i64 %223, ptr %214, align 16, !alias.scope !342, !noalias !345
@@ -14954,7 +14954,7 @@ define internal fastcc void @_ZN11quinn_proto10connection10Connection15on_packet
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.56.sroa.4.0.copyload) ]
   %57 = icmp ult i64 %.sroa.56.sroa.6.0.copyload, 288230376151711744
   tail call void @llvm.assume(i1 %57)
-  %58 = getelementptr inbounds nuw { i64, { i64, i64 }, i8, [7 x i8] }, ptr %.sroa.56.sroa.4.0.copyload, i64 %.sroa.56.sroa.6.0.copyload
+  %58 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.56.sroa.4.0.copyload, i64 %.sroa.56.sroa.6.0.copyload
   %59 = icmp sgt i64 %.sroa.036.sroa.4.0.insert.shift, -1
   tail call void @llvm.assume(i1 %59)
   %60 = ptrtoint ptr %58 to i64
@@ -15038,7 +15038,7 @@ define internal fastcc void @_ZN11quinn_proto10connection10Connection15on_packet
           to label %.noexc22 unwind label %.loopexit
 
 .noexc22:                                         ; preds = %81
-  %83 = getelementptr inbounds nuw { i64, { i64, i64 }, i8, [7 x i8] }, ptr %.sroa.5.0..sroa_idx, i64 %72
+  %83 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.5.0..sroa_idx, i64 %72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %83, i64 24, i1 false), !alias.scope !488
   %.sroa.6.0..sroa_idx32 = getelementptr inbounds nuw i8, ptr %83, i64 24
   %.sroa.6.0.copyload33 = load i8, ptr %.sroa.6.0..sroa_idx32, align 8, !alias.scope !488
@@ -15581,7 +15581,7 @@ _ZN4core4time8Duration11checked_add17h757bdf52c7b42d91E.exit.thread.i.cont: ; pr
   %197 = load i64, ptr %39, align 8, !noundef !3
   %.not153 = icmp eq i64 %197, 0
   %198 = load ptr, ptr %38, align 8, !nonnull !3
-  %199 = getelementptr i64, ptr %198, i64 %197
+  %199 = getelementptr [8 x i8], ptr %198, i64 %197
   %200 = getelementptr i8, ptr %199, i64 -8
   %.not154.not275 = icmp eq ptr %200, null
   %.not154.not = select i1 %.not153, i1 true, i1 %.not154.not275
@@ -16057,7 +16057,7 @@ _ZN4core4time8Duration11checked_add17h757bdf52c7b42d91E.exit.thread.i.cont: ; pr
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.579.sroa.4.0.copyload) ]
   %370 = icmp ult i64 %.sroa.579.sroa.6.0.copyload, 288230376151711744
   call void @llvm.assume(i1 %370)
-  %371 = getelementptr inbounds nuw { i64, { i64, i64 }, i8, [7 x i8] }, ptr %.sroa.579.sroa.4.0.copyload, i64 %.sroa.579.sroa.6.0.copyload
+  %371 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.579.sroa.4.0.copyload, i64 %.sroa.579.sroa.6.0.copyload
   %372 = icmp sgt i64 %.sroa.0202.sroa.4.0.insert.shift, -1
   call void @llvm.assume(i1 %372)
   %373 = ptrtoint ptr %371 to i64
@@ -16141,7 +16141,7 @@ _ZN4core4time8Duration11checked_add17h757bdf52c7b42d91E.exit.thread.i.cont: ; pr
           to label %.noexc186 unwind label %.loopexit
 
 .noexc186:                                        ; preds = %394
-  %396 = getelementptr inbounds nuw { i64, { i64, i64 }, i8, [7 x i8] }, ptr %.sroa.576.0..sroa_idx, i64 %385
+  %396 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.576.0..sroa_idx, i64 %385
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0195, ptr noundef nonnull align 8 dereferenceable(24) %396, i64 24, i1 false), !alias.scope !509
   %.sroa.6.0..sroa_idx198 = getelementptr inbounds nuw i8, ptr %396, i64 24
   %.sroa.6.0.copyload199 = load i8, ptr %.sroa.6.0..sroa_idx198, align 8, !alias.scope !509
@@ -16363,7 +16363,7 @@ _ZN4core4time8Duration11checked_add17h757bdf52c7b42d91E.exit.thread.i.cont: ; pr
 
 462:                                              ; preds = %457, %461
   %463 = load ptr, ptr %38, align 8, !alias.scope !516, !noalias !519, !nonnull !3, !noundef !3
-  %464 = getelementptr inbounds nuw i64, ptr %463, i64 %458
+  %464 = getelementptr inbounds nuw [8 x i8], ptr %463, i64 %458
   store i64 %189, ptr %464, align 8
   %465 = add i64 %458, 1
   store i64 %465, ptr %39, align 8, !alias.scope !516, !noalias !519
@@ -32116,7 +32116,7 @@ define internal fastcc void @_ZN11quinn_proto10connection10Connection15process_p
 804:                                              ; preds = %798
   %805 = add nuw nsw i64 %801, 2
   store i64 %805, ptr %800, align 16, !alias.scope !1003, !noalias !997
-  %806 = getelementptr inbounds nuw i32, ptr %799, i64 %801
+  %806 = getelementptr inbounds nuw [4 x i8], ptr %799, i64 %801
   %807 = load i64, ptr %806, align 4, !alias.scope !1006, !noalias !997
   br label %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u6417h9b7ce490156d28cfE.exit.i"
 
@@ -32248,7 +32248,7 @@ _ZN4core4time8Duration11checked_add17h757bdf52c7b42d91E.exit.i127.i: ; preds = %
 862:                                              ; preds = %858
   %863 = add nuw nsw i64 %859, 2
   store i64 %863, ptr %800, align 16, !alias.scope !1018, !noalias !997
-  %864 = getelementptr inbounds nuw i32, ptr %799, i64 %859
+  %864 = getelementptr inbounds nuw [4 x i8], ptr %799, i64 %859
   %865 = load i64, ptr %864, align 4, !alias.scope !1021, !noalias !997
   br label %"_ZN74_$LT$rand_core..block..BlockRng$LT$R$GT$$u20$as$u20$rand_core..RngCore$GT$8next_u6417h9b7ce490156d28cfE.exit138.i"
 
@@ -36364,7 +36364,7 @@ _ZN11quinn_proto10connection10Connection15set_reset_token17haf4eacdd7d15ef47E.ex
 2106:                                             ; preds = %2099, %2105
   %2107 = getelementptr inbounds nuw i8, ptr %2095, i64 288
   %2108 = load ptr, ptr %2107, align 16, !alias.scope !1117, !noalias !1120, !nonnull !3, !noundef !3
-  %2109 = getelementptr inbounds nuw i64, ptr %2108, i64 %2102
+  %2109 = getelementptr inbounds nuw [8 x i8], ptr %2108, i64 %2102
   store i64 %2014, ptr %2109, align 8
   %2110 = add i64 %2102, 1
   store i64 %2110, ptr %2101, align 8, !alias.scope !1117, !noalias !1120
@@ -39140,7 +39140,7 @@ define internal fastcc void @_ZN11quinn_proto10connection10Connection17on_path_v
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hde833229af289917E.exit": ; preds = %16, %21
   %22 = load ptr, ptr %15, align 8, !alias.scope !1251, !noalias !1254, !nonnull !3, !noundef !3
-  %23 = getelementptr inbounds nuw { i16, [15 x i16] }, ptr %22, i64 %17
+  %23 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %23, ptr noundef nonnull readonly align 4 dereferenceable(32) %2, i64 32, i1 false)
   %24 = add i64 %17, 1
   store i64 %24, ptr %9, align 16, !alias.scope !1251, !noalias !1254
@@ -41534,10 +41534,10 @@ define internal noundef zeroext i1 @"_ZN65_$LT$quinn_proto..packet..SpaceId$u20$
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !181, !noundef !3
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN65_$LT$quinn_proto..packet..SpaceId$u20$as$u20$core..fmt..Debug$GT$3fmt17h9bc4e640efb4e303E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN65_$LT$quinn_proto..packet..SpaceId$u20$as$u20$core..fmt..Debug$GT$3fmt17h9bc4e640efb4e303E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN65_$LT$quinn_proto..packet..SpaceId$u20$as$u20$core..fmt..Debug$GT$3fmt17h9bc4e640efb4e303E.132", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN65_$LT$quinn_proto..packet..SpaceId$u20$as$u20$core..fmt..Debug$GT$3fmt17h9bc4e640efb4e303E.132", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5

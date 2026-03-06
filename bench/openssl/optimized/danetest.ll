@@ -243,7 +243,7 @@ define internal range(i32 0, 2) i32 @run_tlsatest() #1 {
   %52 = load ptr, ptr %51, align 8, !tbaa !14
   %53 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 1
   %54 = zext i8 %49 to i64
-  %55 = getelementptr inbounds nuw i16, ptr %52, i64 %54
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %52, i64 %54
   %56 = load i16, ptr %55, align 2, !tbaa !16
   %57 = and i16 %56, 8192
   %.not4.i.i = icmp eq i16 %57, 0
@@ -716,7 +716,7 @@ define internal fastcc noundef ptr @read_to_eol(ptr noundef %0) unnamed_addr #1 
   %21 = getelementptr i8, ptr %20, i64 -1
   %22 = load i8, ptr %21, align 1, !tbaa !9
   %23 = zext i8 %22 to i64
-  %24 = getelementptr inbounds nuw i16, ptr %18, i64 %23
+  %24 = getelementptr inbounds nuw [2 x i8], ptr %18, i64 %23
   %25 = load i16, ptr %24, align 2, !tbaa !16
   %26 = and i16 %25, 8192
   %.not7 = icmp eq i16 %26, 0
@@ -801,7 +801,7 @@ define internal noundef i64 @checked_uint8(ptr noundef %0, ptr noundef writeonly
   %16 = load ptr, ptr %15, align 8, !tbaa !14
   %17 = load i8, ptr %12, align 1, !tbaa !9
   %18 = zext i8 %17 to i64
-  %19 = getelementptr inbounds nuw i16, ptr %16, i64 %18
+  %19 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %18
   %20 = load i16, ptr %19, align 2, !tbaa !16
   %21 = and i16 %20, 8192
   %.not = icmp eq i16 %21, 0
@@ -821,7 +821,7 @@ define internal noundef i64 @checked_uint8(ptr noundef %0, ptr noundef writeonly
   %.017 = phi ptr [ %31, %25 ], [ %12, %.preheader ]
   %26 = load i8, ptr %.017, align 1, !tbaa !9
   %27 = zext i8 %26 to i64
-  %28 = getelementptr inbounds nuw i16, ptr %24, i64 %27
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %24, i64 %27
   %29 = load i16, ptr %28, align 2, !tbaa !16
   %30 = and i16 %29, 8192
   %.not21 = icmp eq i16 %30, 0
@@ -873,7 +873,7 @@ define internal i64 @hexdecode(ptr noundef readonly captures(none) %0, ptr nound
   %.03046 = phi ptr [ %29, %.thread ], [ %.03046.ph, %.outer ]
   %11 = load ptr, ptr %8, align 8, !tbaa !14
   %12 = zext i8 %10 to i64
-  %13 = getelementptr inbounds nuw i16, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %12
   %14 = load i16, ptr %13, align 2, !tbaa !16
   %15 = and i16 %14, 8192
   %.not35 = icmp eq i16 %15, 0

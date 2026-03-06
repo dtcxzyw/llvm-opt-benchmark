@@ -121,7 +121,7 @@ define noundef nonnull ptr @curl_version() local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %45 ]
   %.02437 = phi ptr [ @curl_version.out, %0 ], [ %47, %45 ]
   %.02635 = phi i64 [ 300, %0 ], [ %48, %45 ]
-  %37 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %38 = load ptr, ptr %37, align 8, !tbaa !3
   %39 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %38) #8
   %40 = add i64 %39, 2
@@ -225,7 +225,7 @@ define noundef nonnull ptr @curl_version_info(i32 noundef %0) local_unnamed_addr
   %26 = load i32, ptr %25, align 8, !tbaa !24
   %27 = or i32 %26, %.017
   %28 = add i64 %.01015, 1
-  %29 = getelementptr inbounds nuw ptr, ptr @feature_names, i64 %.01015
+  %29 = getelementptr inbounds nuw [8 x i8], ptr @feature_names, i64 %.01015
   store ptr %19, ptr %29, align 8, !tbaa !3
   br label %30
 
@@ -238,7 +238,7 @@ define noundef nonnull ptr @curl_version_info(i32 noundef %0) local_unnamed_addr
   br i1 %.not, label %33, label %18, !llvm.loop !26
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds nuw ptr, ptr @feature_names, i64 %.111
+  %34 = getelementptr inbounds nuw [8 x i8], ptr @feature_names, i64 %.111
   store ptr null, ptr %34, align 8, !tbaa !3
   store i32 %.1, ptr getelementptr inbounds nuw (i8, ptr @version_info, i64 32), align 8, !tbaa !27
   ret ptr @version_info

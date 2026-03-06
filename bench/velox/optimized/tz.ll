@@ -47,7 +47,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple.41" = type { %"struct.std::_Tuple_impl.42" }
 %"struct.std::_Tuple_impl.42" = type { %"struct.std::_Head_base.45" }
 %"struct.std::_Head_base.45" = type { ptr }
-%"struct.date::detail::transition" = type { %"class.std::chrono::time_point", ptr }
 %"class.std::vector.56" = type { %"struct.std::_Vector_base.57" }
 %"struct.std::_Vector_base.57" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" }
 %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" }
@@ -69,6 +68,12 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.date::year" = type { i32 }
 %"class.date::month" = type { i8 }
 %"class.std::basic_string_view" = type { i64, ptr }
+%"struct.std::__cxx11::basic_string<char>::__sv_wrapper" = type { %"class.std::basic_string_view" }
+%"class.std::vector" = type { %"struct.std::_Vector_base" }
+%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<date::time_zone, std::allocator<date::time_zone>>::_Vector_impl" }
+%"struct.std::_Vector_base<date::time_zone, std::allocator<date::time_zone>>::_Vector_impl" = type { %"struct.std::_Vector_base<date::time_zone, std::allocator<date::time_zone>>::_Vector_impl_data" }
+%"struct.std::_Vector_base<date::time_zone, std::allocator<date::time_zone>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"struct.__gnu_cxx::__ops::_Iter_less_iter" = type { i8 }
 %"class.date::time_zone" = type { %"class.std::__cxx11::basic_string", %"class.std::vector.8", %"class.std::vector.13", %"class.std::unique_ptr" }
 %"class.std::vector.8" = type { %"struct.std::_Vector_base.9" }
 %"struct.std::_Vector_base.9" = type { %"struct.std::_Vector_base<date::detail::transition, std::allocator<date::detail::transition>>::_Vector_impl" }
@@ -84,13 +89,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.19" }
 %"struct.std::_Head_base.19" = type { ptr }
-%"struct.std::__cxx11::basic_string<char>::__sv_wrapper" = type { %"class.std::basic_string_view" }
-%"class.std::vector" = type { %"struct.std::_Vector_base" }
-%"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<date::time_zone, std::allocator<date::time_zone>>::_Vector_impl" }
-%"struct.std::_Vector_base<date::time_zone, std::allocator<date::time_zone>>::_Vector_impl" = type { %"struct.std::_Vector_base<date::time_zone, std::allocator<date::time_zone>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<date::time_zone, std::allocator<date::time_zone>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.__gnu_cxx::__ops::_Iter_less_iter" = type { i8 }
-%"class.date::leap_second" = type { %"class.std::chrono::time_point" }
 %"class.date::detail::save_ostream" = type { %"class.date::detail::save_istream" }
 %"class.date::detail::save_istream" = type { ptr, i8, i32, i64, ptr, %"class.std::locale" }
 %struct._Guard = type { ptr }
@@ -1655,7 +1653,7 @@ while.body.i.i:                                   ; preds = %invoke.cont37, %whi
   %__len.04.i.i = phi i64 [ %__len.1.i.i, %while.body.i.i ], [ %sub.ptr.div.i.i.i.i.i, %invoke.cont37 ]
   %__first.sroa.0.03.i.i = phi ptr [ %__first.sroa.0.1.i.i, %while.body.i.i ], [ %41, %invoke.cont37 ]
   %shr.i.i = lshr i64 %__len.04.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw %"struct.date::detail::transition", ptr %__first.sroa.0.03.i.i, i64 %shr.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %__first.sroa.0.03.i.i, i64 %shr.i.i
   %call.val.i.i.i = load i64, ptr %add.ptr.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp slt i64 %retval.sroa.0.0.copyload.i, %call.val.i.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i, i64 16
@@ -1928,7 +1926,7 @@ _ZNSt12_Vector_baseIN4date6detail10transitionESaIS2_EE11_M_allocateEm.exit.i.i: 
           to label %_ZNSt6vectorIN4date6detail10transitionESaIS2_EE7reserveEm.exit.i unwind label %lpad.loopexit.split-lp.i, !noalias !18
 
 _ZNSt6vectorIN4date6detail10transitionESaIS2_EE7reserveEm.exit.i: ; preds = %_ZNSt12_Vector_baseIN4date6detail10transitionESaIS2_EE11_M_allocateEm.exit.i.i
-  %add.ptr21.i.i = getelementptr inbounds nuw %"struct.date::detail::transition", ptr %call5.i.i.i.i3.i, i64 %conv.i
+  %add.ptr21.i.i = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i3.i, i64 %conv.i
   %cmp14.i = icmp sgt i32 %tzh_timecnt, 0
   br i1 %cmp14.i, label %for.body.i, label %_ZN4dateL16load_transitionsIiEESt6vectorINS_6detail10transitionESaIS3_EERSii.exit
 
@@ -2002,7 +2000,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %call5.i.i.i.i.i.noe
 invoke.cont9.i:                                   ; preds = %for.body.i.i.i.i.i.i, %call5.i.i.i.i.i.noexc.i
   %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ %call5.i.i.i.i.i4.i, %call5.i.i.i.i.i.noexc.i ], [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
   call void @_ZdlPv(ptr noundef nonnull %ref.tmp.sroa.0.0) #27, !noalias !18
-  %add.ptr26.i.i.i = getelementptr inbounds nuw %"struct.date::detail::transition", ptr %call5.i.i.i.i.i4.i, i64 %cond.i.i.i.i
+  %add.ptr26.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i.i4.i, i64 %cond.i.i.i.i
   %retval.sroa.0.0.copyload.i.i.i.pre = load i64, ptr %__cur.0.lcssa.i.i.i.i.i.i, align 8, !noalias !18
   %3 = icmp slt i64 %retval.sroa.0.0.copyload.i.i.i.pre, -1096193779200
   %ref.tmp.sroa.8.0 = getelementptr inbounds nuw i8, ptr %__cur.0.lcssa.i.i.i.i.i.i, i64 16
@@ -2462,8 +2460,8 @@ for.body85:                                       ; preds = %for.body85.lr.ph, %
   %add.ptr.i69 = getelementptr inbounds nuw i8, ptr %56, i64 %conv88
   %59 = load i8, ptr %add.ptr.i69, align 1
   %idx.ext91 = zext i8 %59 to i64
-  %add.ptr92 = getelementptr inbounds nuw %"struct.date::detail::expanded_ttinfo", ptr %58, i64 %idx.ext91
-  %add.ptr.i70 = getelementptr inbounds nuw %"struct.date::detail::transition", ptr %57, i64 %conv81113
+  %add.ptr92 = getelementptr inbounds nuw [48 x i8], ptr %58, i64 %idx.ext91
+  %add.ptr.i70 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %conv81113
   %info96 = getelementptr inbounds nuw i8, ptr %add.ptr.i70, i64 8
   store ptr %add.ptr92, ptr %info96, align 8
   %inc98 = add i32 %i.1111, 1
@@ -2540,7 +2538,7 @@ _ZNSt12_Vector_baseIN4date6detail10transitionESaIS2_EE11_M_allocateEm.exit.i.i: 
           to label %_ZNSt6vectorIN4date6detail10transitionESaIS2_EE7reserveEm.exit.i unwind label %lpad.loopexit.split-lp.i, !noalias !29
 
 _ZNSt6vectorIN4date6detail10transitionESaIS2_EE7reserveEm.exit.i: ; preds = %_ZNSt12_Vector_baseIN4date6detail10transitionESaIS2_EE11_M_allocateEm.exit.i.i
-  %add.ptr21.i.i = getelementptr inbounds nuw %"struct.date::detail::transition", ptr %call5.i.i.i.i3.i, i64 %conv.i
+  %add.ptr21.i.i = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i3.i, i64 %conv.i
   %cmp14.i = icmp sgt i32 %tzh_timecnt, 0
   br i1 %cmp14.i, label %for.body.i, label %_ZN4dateL16load_transitionsIlEESt6vectorINS_6detail10transitionESaIS3_EERSii.exit
 
@@ -2612,7 +2610,7 @@ for.body.i.i.i.i.i.i:                             ; preds = %call5.i.i.i.i.i.noe
 _ZNSt6vectorIN4date6detail10transitionESaIS2_EE17_M_realloc_insertIJNSt6chrono10time_pointINS6_3_V212system_clockENS6_8durationIlSt5ratioILl1ELl1EEEEEEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %for.body.i.i.i.i.i.i, %call5.i.i.i.i.i.noexc.i
   %__cur.0.lcssa.i.i.i.i.i.i = phi ptr [ %call5.i.i.i.i.i4.i, %call5.i.i.i.i.i.noexc.i ], [ %incdec.ptr1.i.i.i.i.i.i, %for.body.i.i.i.i.i.i ]
   call void @_ZdlPv(ptr noundef nonnull %ref.tmp.sroa.0.0) #27, !noalias !29
-  %add.ptr26.i.i.i = getelementptr inbounds nuw %"struct.date::detail::transition", ptr %call5.i.i.i.i.i4.i, i64 %cond.i.i.i.i
+  %add.ptr26.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i.i4.i, i64 %cond.i.i.i.i
   %retval.sroa.0.0.copyload.i.i.i.pre = load i64, ptr %__cur.0.lcssa.i.i.i.i.i.i, align 8, !noalias !29
   br label %invoke.cont9.i
 
@@ -3076,8 +3074,8 @@ for.body85:                                       ; preds = %for.body85.lr.ph, %
   %add.ptr.i69 = getelementptr inbounds nuw i8, ptr %55, i64 %conv88
   %58 = load i8, ptr %add.ptr.i69, align 1
   %idx.ext91 = zext i8 %58 to i64
-  %add.ptr92 = getelementptr inbounds nuw %"struct.date::detail::expanded_ttinfo", ptr %57, i64 %idx.ext91
-  %add.ptr.i70 = getelementptr inbounds nuw %"struct.date::detail::transition", ptr %56, i64 %conv81113
+  %add.ptr92 = getelementptr inbounds nuw [48 x i8], ptr %57, i64 %idx.ext91
+  %add.ptr.i70 = getelementptr inbounds nuw [16 x i8], ptr %56, i64 %conv81113
   %info96 = getelementptr inbounds nuw i8, ptr %add.ptr.i70, i64 8
   store ptr %add.ptr92, ptr %info96, align 8
   %inc98 = add i32 %i.1111, 1
@@ -3285,7 +3283,7 @@ while.body.i.i:                                   ; preds = %_ZNK4date9time_zone
   %__len.04.i.i = phi i64 [ %__len.1.i.i, %while.body.i.i ], [ %sub.ptr.div.i.i.i.i.i, %_ZNK4date9time_zone4initEv.exit ]
   %__first.sroa.0.03.i.i = phi ptr [ %__first.sroa.0.1.i.i, %while.body.i.i ], [ %4, %_ZNK4date9time_zone4initEv.exit ]
   %shr.i.i = lshr i64 %__len.04.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw %"struct.date::detail::transition", ptr %__first.sroa.0.03.i.i, i64 %shr.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %__first.sroa.0.03.i.i, i64 %shr.i.i
   %call.val.i.i.i = load i64, ptr %add.ptr.i.i.i.i.i, align 8
   %cmp.i.i.i.i.i.i = icmp slt i64 %tp.coerce, %call.val.i.i.i
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i.i.i.i, i64 16
@@ -3417,7 +3415,7 @@ while.body.i.i:                                   ; preds = %_ZNK4date9time_zone
   %__len.04.i.i = phi i64 [ %__len.1.i.i, %while.body.i.i ], [ %sub.ptr.div.i.i.i.i.i, %_ZNK4date9time_zone4initEv.exit ]
   %__first.sroa.0.03.i.i = phi ptr [ %__first.sroa.0.1.i.i, %while.body.i.i ], [ %4, %_ZNK4date9time_zone4initEv.exit ]
   %shr.i.i = lshr i64 %__len.04.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw %"struct.date::detail::transition", ptr %__first.sroa.0.03.i.i, i64 %shr.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw [16 x i8], ptr %__first.sroa.0.03.i.i, i64 %shr.i.i
   %call.val.i.i.i = load i64, ptr %add.ptr.i.i.i.i.i, align 8
   %6 = getelementptr i8, ptr %add.ptr.i.i.i.i.i, i64 8
   %call.val1.i.i.i = load ptr, ptr %6, align 8
@@ -4076,7 +4074,7 @@ while.body.i.i:                                   ; preds = %"_ZN9__gnu_cxx5__op
   %__len.08.i.i = phi i64 [ %sub.ptr.div.i.i.i.i.i, %while.body.lr.ph.i.i ], [ %__len.1.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4date4tzdb11locate_zoneESt17basic_string_viewIcSt11char_traitsIcEEE3$_0EclINS_17__normal_iteratorIPKNS2_9time_zoneESt6vectorISC_SaISC_EEEEKS7_EEbT_RT0_.exit.i.i" ]
   %__first.sroa.0.07.i.i = phi ptr [ %1, %while.body.lr.ph.i.i ], [ %__first.sroa.0.1.i.i, %"_ZN9__gnu_cxx5__ops14_Iter_comp_valIZNK4date4tzdb11locate_zoneESt17basic_string_viewIcSt11char_traitsIcEEE3$_0EclINS_17__normal_iteratorIPKNS2_9time_zoneESt6vectorISC_SaISC_EEEEKS7_EEbT_RT0_.exit.i.i" ]
   %shr.i.i = lshr i64 %__len.08.i.i, 1
-  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw %"class.date::time_zone", ptr %__first.sroa.0.07.i.i, i64 %shr.i.i
+  %add.ptr.i.i.i.i.i = getelementptr inbounds nuw [88 x i8], ptr %__first.sroa.0.07.i.i, i64 %shr.i.i
   %call2.i.i.i.i = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(88) %add.ptr.i.i.i.i.i) #28
   %3 = extractvalue { i64, ptr } %call2.i.i.i.i, 0
   %.sroa.speculated.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %tz_name.coerce0, i64 %3)
@@ -5390,7 +5388,7 @@ _ZNSt11_Deque_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE1
   store ptr %call5.i.i2.i, ptr %this, align 8
   %sub = sub nsw i64 %.sroa.speculated, %add
   %div137 = lshr i64 %sub, 1
-  %add.ptr = getelementptr inbounds nuw ptr, ptr %call5.i.i2.i, i64 %div137
+  %add.ptr = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i2.i, i64 %div137
   %add.ptr14.idx = shl nuw nsw i64 %add, 3
   %add.ptr14 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 %add.ptr14.idx
   br label %for.body.i
@@ -5479,7 +5477,7 @@ try.cont:                                         ; preds = %invoke.cont.i
   store ptr %add.ptr.i12, ptr %_M_last.i13, align 8
   store ptr %12, ptr %_M_start, align 8
   %rem = and i64 %__num_elements, 15
-  %add.ptr36 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %13, i64 %rem
+  %add.ptr36 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 %rem
   store ptr %add.ptr36, ptr %_M_finish, align 8
   ret void
 
@@ -5642,9 +5640,9 @@ if.then:                                          ; preds = %entry
   %3 = load ptr, ptr %this, align 8
   %sub = sub i64 %2, %add4
   %div17 = lshr i64 %sub, 1
-  %add.ptr = getelementptr inbounds nuw ptr, ptr %3, i64 %div17
+  %add.ptr = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %div17
   %cond = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
-  %add.ptr9 = getelementptr inbounds ptr, ptr %add.ptr, i64 %cond
+  %add.ptr9 = getelementptr inbounds [8 x i8], ptr %add.ptr, i64 %cond
   %cmp13 = icmp ult ptr %add.ptr9, %1
   %add.ptr21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %tobool.not.i.i.i.i.i = icmp eq ptr %add.ptr21, %1
@@ -5663,12 +5661,12 @@ if.else:                                          ; preds = %if.then
   br i1 %tobool.not.i.i.i.i.i, label %if.end65, label %if.then.i.i.i.i.i19
 
 if.then.i.i.i.i.i19:                              ; preds = %if.else
-  %add.ptr29 = getelementptr inbounds ptr, ptr %add.ptr9, i64 %add
+  %add.ptr29 = getelementptr inbounds [8 x i8], ptr %add.ptr9, i64 %add
   %sub.ptr.lhs.cast.i.i.i.i.i20 = ptrtoint ptr %add.ptr21 to i64
   %sub.ptr.sub.i.i.i.i.i22 = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i20, %sub.ptr.rhs.cast
   %sub.ptr.div.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i22, 3
   %idx.neg.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i
-  %add.ptr.i.i.i.i.i23 = getelementptr inbounds ptr, ptr %add.ptr29, i64 %idx.neg.i.i.i.i.i
+  %add.ptr.i.i.i.i.i23 = getelementptr inbounds [8 x i8], ptr %add.ptr29, i64 %idx.neg.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %add.ptr.i.i.i.i.i23, ptr align 8 %1, i64 %sub.ptr.sub.i.i.i.i.i22, i1 false)
   br label %if.end65
 
@@ -5696,9 +5694,9 @@ _ZNSt11_Deque_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE1
   %call5.i.i2.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i) #29
   %sub40 = sub i64 %add38, %add4
   %div4116 = lshr i64 %sub40, 1
-  %add.ptr42 = getelementptr inbounds nuw ptr, ptr %call5.i.i2.i, i64 %div4116
+  %add.ptr42 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i2.i, i64 %div4116
   %cond47 = select i1 %__add_at_front, i64 %__nodes_to_add, i64 0
-  %add.ptr48 = getelementptr inbounds ptr, ptr %add.ptr42, i64 %cond47
+  %add.ptr48 = getelementptr inbounds [8 x i8], ptr %add.ptr42, i64 %cond47
   %add.ptr55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %tobool.not.i.i.i.i.i27 = icmp eq ptr %add.ptr55, %1
   br i1 %tobool.not.i.i.i.i.i27, label %_ZSt4copyIPPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES7_ET0_T_S9_S8_.exit30, label %if.then.i.i.i.i.i28
@@ -5725,7 +5723,7 @@ if.end65:                                         ; preds = %if.then.i.i.i.i.i19
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %5, i64 512
   %_M_last.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   store ptr %add.ptr.i, ptr %_M_last.i, align 8
-  %add.ptr70 = getelementptr inbounds ptr, ptr %__new_nstart.0, i64 %add
+  %add.ptr70 = getelementptr inbounds [8 x i8], ptr %__new_nstart.0, i64 %add
   %add.ptr71 = getelementptr inbounds i8, ptr %add.ptr70, i64 -8
   store ptr %add.ptr71, ptr %_M_node, align 8
   %6 = load ptr, ptr %add.ptr71, align 8
@@ -5884,7 +5882,7 @@ _ZNSt12_Vector_baseIN4date9time_zoneESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i39, ptr %_M_finish.i.i, align 8
-  %add.ptr28 = getelementptr inbounds nuw %"class.date::time_zone", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr28 = getelementptr inbounds nuw [88 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr28, ptr %_M_end_of_storage, align 8
   ret void
 
@@ -6095,7 +6093,7 @@ entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %__first.coerce to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %div = sdiv i64 %sub.ptr.sub.i, 176
-  %add.ptr.i = getelementptr inbounds %"class.date::time_zone", ptr %__first.coerce, i64 %div
+  %add.ptr.i = getelementptr inbounds [88 x i8], ptr %__first.coerce, i64 %div
   %add.ptr.i1 = getelementptr inbounds nuw i8, ptr %__first.coerce, i64 88
   %add.ptr.i2 = getelementptr inbounds i8, ptr %__last.coerce, i64 -88
   tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN4date9time_zoneESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_SB_T0_(ptr %__first.coerce, ptr nonnull %add.ptr.i1, ptr %add.ptr.i, ptr nonnull %add.ptr.i2)
@@ -6189,7 +6187,7 @@ if.end:                                           ; preds = %entry
 
 while.body:                                       ; preds = %_ZN4date9time_zoneD2Ev.exit47, %if.end
   %__parent.0 = phi i64 [ %div5152, %if.end ], [ %dec, %_ZN4date9time_zoneD2Ev.exit47 ]
-  %add.ptr.i = getelementptr inbounds %"class.date::time_zone", ptr %__first.coerce, i64 %__parent.0
+  %add.ptr.i = getelementptr inbounds [88 x i8], ptr %__first.coerce, i64 %__parent.0
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1EOS4_(ptr noundef nonnull align 8 dereferenceable(88) %__value, ptr noundef nonnull align 8 dereferenceable(88) %add.ptr.i) #28
   %transitions_3.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 32
   %0 = load ptr, ptr %transitions_3.i, align 8
@@ -6534,9 +6532,9 @@ while.body:                                       ; preds = %entry, %_ZNK9__gnu_
   %__holeIndex.addr.032 = phi i64 [ %spec.select, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN4date9time_zoneESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit ], [ %__holeIndex, %entry ]
   %add = shl i64 %__holeIndex.addr.032, 1
   %mul = add i64 %add, 2
-  %add.ptr.i = getelementptr inbounds %"class.date::time_zone", ptr %__first.coerce, i64 %mul
+  %add.ptr.i = getelementptr inbounds [88 x i8], ptr %__first.coerce, i64 %mul
   %sub3 = or disjoint i64 %add, 1
-  %add.ptr.i17 = getelementptr inbounds %"class.date::time_zone", ptr %__first.coerce, i64 %sub3
+  %add.ptr.i17 = getelementptr inbounds [88 x i8], ptr %__first.coerce, i64 %sub3
   %call.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(88) %add.ptr.i, ptr noundef nonnull align 8 dereferenceable(88) %add.ptr.i17)
           to label %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN4date9time_zoneESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit unwind label %terminate.lpad.i.i.i
 
@@ -6550,8 +6548,8 @@ terminate.lpad.i.i.i:                             ; preds = %while.body
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN4date9time_zoneESt6vectorIS5_SaIS5_EEEESA_EEbT_T0_.exit: ; preds = %while.body
   %cmp.i.i.i = icmp slt i32 %call.i.i.i, 0
   %spec.select = select i1 %cmp.i.i.i, i64 %sub3, i64 %mul
-  %add.ptr.i18 = getelementptr inbounds %"class.date::time_zone", ptr %__first.coerce, i64 %spec.select
-  %add.ptr.i19 = getelementptr inbounds %"class.date::time_zone", ptr %__first.coerce, i64 %__holeIndex.addr.032
+  %add.ptr.i18 = getelementptr inbounds [88 x i8], ptr %__first.coerce, i64 %spec.select
+  %add.ptr.i19 = getelementptr inbounds [88 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.032
   %call16 = tail call noundef nonnull align 8 dereferenceable(88) ptr @_ZN4date9time_zoneaSEOS0_(ptr noundef nonnull align 8 dereferenceable(88) %add.ptr.i19, ptr noundef nonnull align 8 dereferenceable(88) %add.ptr.i18) #28
   %cmp = icmp slt i64 %spec.select, %div
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !92
@@ -6571,8 +6569,8 @@ land.lhs.true:                                    ; preds = %while.end
 if.then21:                                        ; preds = %land.lhs.true
   %add22 = shl nsw i64 %__holeIndex.addr.0.lcssa, 1
   %sub25 = or disjoint i64 %add22, 1
-  %add.ptr.i20 = getelementptr inbounds %"class.date::time_zone", ptr %__first.coerce, i64 %sub25
-  %add.ptr.i21 = getelementptr inbounds %"class.date::time_zone", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
+  %add.ptr.i20 = getelementptr inbounds [88 x i8], ptr %__first.coerce, i64 %sub25
+  %add.ptr.i21 = getelementptr inbounds [88 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa
   %call33 = tail call noundef nonnull align 8 dereferenceable(88) ptr @_ZN4date9time_zoneaSEOS0_(ptr noundef nonnull align 8 dereferenceable(88) %add.ptr.i21, ptr noundef nonnull align 8 dereferenceable(88) %add.ptr.i20) #28
   br label %if.end35
 
@@ -6617,7 +6615,7 @@ land.rhs.i:                                       ; preds = %if.end35, %while.bo
   %__holeIndex.addr.017.i = phi i64 [ %__parent.018.i, %while.body.i ], [ %__holeIndex.addr.1, %if.end35 ]
   %__parent.018.in.i = add nsw i64 %__holeIndex.addr.017.i, -1
   %__parent.018.i = sdiv i64 %__parent.018.in.i, 2
-  %add.ptr.i.i = getelementptr inbounds %"class.date::time_zone", ptr %__first.coerce, i64 %__parent.018.i
+  %add.ptr.i.i = getelementptr inbounds [88 x i8], ptr %__first.coerce, i64 %__parent.018.i
   %call.i.i.i.i = invoke noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareERKS4_(ptr noundef nonnull align 8 dereferenceable(88) %add.ptr.i.i, ptr noundef nonnull align 8 dereferenceable(88) %agg.tmp38)
           to label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN4date9time_zoneESt6vectorIS5_SaIS5_EEEES5_EEbT_RT0_.exit.i unwind label %terminate.lpad.i.i.i.i
 
@@ -6633,14 +6631,14 @@ _ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN4date9time_zoneE
   br i1 %cmp.i.i.i.i, label %while.body.i, label %invoke.cont
 
 while.body.i:                                     ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN4date9time_zoneESt6vectorIS5_SaIS5_EEEES5_EEbT_RT0_.exit.i
-  %add.ptr.i8.i = getelementptr inbounds %"class.date::time_zone", ptr %__first.coerce, i64 %__holeIndex.addr.017.i
+  %add.ptr.i8.i = getelementptr inbounds [88 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.017.i
   %call11.i = call noundef nonnull align 8 dereferenceable(88) ptr @_ZN4date9time_zoneaSEOS0_(ptr noundef nonnull align 8 dereferenceable(88) %add.ptr.i8.i, ptr noundef nonnull align 8 dereferenceable(88) %add.ptr.i.i) #28
   %cmp.i = icmp sgt i64 %__parent.018.i, %__holeIndex
   br i1 %cmp.i, label %land.rhs.i, label %invoke.cont, !llvm.loop !93
 
 invoke.cont:                                      ; preds = %while.body.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN4date9time_zoneESt6vectorIS5_SaIS5_EEEES5_EEbT_RT0_.exit.i, %if.end35
   %__holeIndex.addr.0.lcssa.i = phi i64 [ %__holeIndex.addr.1, %if.end35 ], [ %__holeIndex.addr.017.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN4date9time_zoneESt6vectorIS5_SaIS5_EEEES5_EEbT_RT0_.exit.i ], [ %__parent.018.i, %while.body.i ]
-  %add.ptr.i9.i = getelementptr inbounds %"class.date::time_zone", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i
+  %add.ptr.i9.i = getelementptr inbounds [88 x i8], ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i
   %call18.i = call noundef nonnull align 8 dereferenceable(88) ptr @_ZN4date9time_zoneaSEOS0_(ptr noundef nonnull align 8 dereferenceable(88) %add.ptr.i9.i, ptr noundef nonnull align 8 dereferenceable(88) %agg.tmp38) #28
   %11 = load ptr, ptr %adjusted_.i, align 8
   %cmp.not.i.i = icmp eq ptr %11, null
@@ -7317,7 +7315,7 @@ _ZNSt12_Vector_baseIN4date11leap_secondESaIS1_EE11_M_allocateEm.exit.i: ; preds 
   %call5.i.i.i.i4 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #29
   store ptr %call5.i.i.i.i4, ptr %agg.result, align 8
   store ptr %call5.i.i.i.i4, ptr %_M_finish.i.i, align 8
-  %add.ptr21.i = getelementptr inbounds nuw %"class.date::leap_second", ptr %call5.i.i.i.i4, i64 %conv
+  %add.ptr21.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i4, i64 %conv
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   br label %for.body
@@ -7466,7 +7464,7 @@ _ZNSt12_Vector_baseIN4date11leap_secondESaIS1_EE13_M_deallocateEPS1_m.exit: ; pr
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i25, ptr %_M_finish.i.i, align 8
-  %add.ptr28 = getelementptr inbounds nuw %"class.date::leap_second", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr28 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr28, ptr %_M_end_of_storage, align 8
   ret void
 
@@ -7526,7 +7524,7 @@ _ZNSt12_Vector_baseIN4date11leap_secondESaIS1_EE11_M_allocateEm.exit.i: ; preds 
   %call5.i.i.i.i4 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i) #29
   store ptr %call5.i.i.i.i4, ptr %agg.result, align 8
   store ptr %call5.i.i.i.i4, ptr %_M_finish.i.i, align 8
-  %add.ptr21.i = getelementptr inbounds nuw %"class.date::leap_second", ptr %call5.i.i.i.i4, i64 %conv
+  %add.ptr21.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i4, i64 %conv
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8
   %_M_finish.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   br label %for.body
@@ -8032,7 +8030,7 @@ land.rhs.i.i.i:                                   ; preds = %land.rhs.i
 cond.true.i.i:                                    ; preds = %land.rhs.i.i.i, %land.rhs.i
   %sub.i.i = add nuw nsw i64 %retval.sroa.2.0.insert.ext.i.i, 4294967295
   %idxprom.i.i = and i64 %sub.i.i, 4294967295
-  %arrayidx.i.i = getelementptr inbounds nuw %"class.date::day", ptr @__const._ZNK4date19year_month_day_last3dayEv.d, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr @__const._ZNK4date19year_month_day_last3dayEv.d, i64 %idxprom.i.i
   %9 = load i8, ptr %arrayidx.i.i, align 1
   br label %_ZNK4date14year_month_day2okEv.exit
 
@@ -8862,7 +8860,7 @@ _ZNSt6vectorIN4date6detail6ttinfoESaIS2_EE7reserveEm.exit: ; preds = %_ZNSt12_Ve
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store ptr %call5.i.i.i.i3, ptr %agg.result, align 8
   store ptr %call5.i.i.i.i3, ptr %_M_finish.i.i, align 8
-  %add.ptr21.i = getelementptr inbounds nuw %"struct.date::detail::ttinfo", ptr %call5.i.i.i.i3, i64 %conv
+  %add.ptr21.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i3, i64 %conv
   store ptr %add.ptr21.i, ptr %_M_end_of_storage.i.i, align 8
   %cmp9 = icmp sgt i32 %tzh_typecnt, 0
   br i1 %cmp9, label %for.body.lr.ph, label %nrvo.skipdtor
@@ -8943,7 +8941,7 @@ if.then.i18.i.i:                                  ; preds = %_ZNSt6vectorIN4date
 _ZNSt6vectorIN4date6detail6ttinfoESaIS2_EE17_M_realloc_insertIJRS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %if.then.i18.i.i, %_ZNSt6vectorIN4date6detail6ttinfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit17.i.i
   store ptr %call5.i.i.i.i.i4, ptr %agg.result, align 8
   store ptr %incdec.ptr.i.i, ptr %_M_finish.i, align 8
-  %add.ptr19.i.i = getelementptr inbounds nuw %"struct.date::detail::ttinfo", ptr %call5.i.i.i.i.i4, i64 %cond.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i4, i64 %cond.i.i.i
   store ptr %add.ptr19.i.i, ptr %_M_end_of_storage.i.i, align 8
   br label %for.inc
 
@@ -9051,7 +9049,7 @@ _ZNSt12_Vector_baseIN4date6detail15expanded_ttinfoESaIS2_EE13_M_deallocateEPS2_m
   store ptr %call5.i.i.i, ptr %this, align 8
   %add.ptr = getelementptr inbounds i8, ptr %call5.i.i.i, i64 %sub.ptr.sub.i8
   store ptr %add.ptr, ptr %_M_finish.i, align 8
-  %add.ptr21 = getelementptr inbounds nuw %"struct.date::detail::expanded_ttinfo", ptr %call5.i.i.i, i64 %__n
+  %add.ptr21 = getelementptr inbounds nuw [48 x i8], ptr %call5.i.i.i, i64 %__n
   store ptr %add.ptr21, ptr %_M_end_of_storage.i, align 8
   br label %if.end24
 
@@ -9167,7 +9165,7 @@ _ZNSt12_Vector_baseIN4date6detail15expanded_ttinfoESaIS2_EE13_M_deallocateEPS2_m
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i23, ptr %_M_finish.i.i, align 8
-  %add.ptr19 = getelementptr inbounds nuw %"struct.date::detail::expanded_ttinfo", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr19 = getelementptr inbounds nuw [48 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr19, ptr %_M_end_of_storage, align 8
   ret void
 }
@@ -9216,7 +9214,7 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.else
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.lhs.cast.i
   %sub.ptr.div.i.i.i.i.i.i = ashr exact i64 %sub.ptr.sub.i.i.i.i.i.i, 4
   %idx.neg.i.i.i.i.i.i = sub nsw i64 0, %sub.ptr.div.i.i.i.i.i.i
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds %"struct.date::detail::transition", ptr %4, i64 %idx.neg.i.i.i.i.i.i
+  %add.ptr.i.i.i.i.i.i = getelementptr inbounds [16 x i8], ptr %4, i64 %idx.neg.i.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %add.ptr.i.i.i.i.i.i, ptr align 8 %add.ptr.i, i64 %sub.ptr.sub.i.i.i.i.i.i, i1 false)
   br label %invoke.cont
 
@@ -9292,7 +9290,7 @@ if.then.i27.i:                                    ; preds = %_ZNSt6vectorIN4date
 _ZNSt6vectorIN4date6detail10transitionESaIS2_EE17_M_realloc_insertIJRKNSt6chrono10time_pointINS6_3_V212system_clockENS6_8durationIlSt5ratioILl1ELl1EEEEEEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN4date6detail10transitionESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i, %if.then.i27.i
   store ptr %call5.i.i.i.i, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i25.i, ptr %_M_finish, align 8
-  %add.ptr26.i = getelementptr inbounds nuw %"struct.date::detail::transition", ptr %call5.i.i.i.i, i64 %cond.i.i
+  %add.ptr26.i = getelementptr inbounds nuw [16 x i8], ptr %call5.i.i.i.i, i64 %cond.i.i
   store ptr %add.ptr26.i, ptr %_M_end_of_storage, align 8
   br label %if.end30
 

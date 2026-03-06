@@ -73,7 +73,7 @@ define internal range(i32 -2147483648, 1) i32 @decode_init(ptr noundef %0) #0 {
   %indvars.iv.i = phi i64 [ 0, %.preheader17.i ], [ %indvars.iv.next.i, %25 ]
   %.01518.i = phi ptr [ %21, %.preheader17.i ], [ %28, %25 ]
   %26 = load i32, ptr %.01518.i, align 1, !tbaa !41
-  %27 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv.i
   store i32 %26, ptr %27, align 4, !tbaa !42
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %28 = getelementptr inbounds nuw i8, ptr %.01518.i, i64 4
@@ -84,7 +84,7 @@ define internal range(i32 -2147483648, 1) i32 @decode_init(ptr noundef %0) #0 {
   %indvars.iv23.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next24.i, %29 ]
   %.11620.i = phi ptr [ %28, %.preheader.i ], [ %32, %29 ]
   %30 = load i32, ptr %.11620.i, align 1, !tbaa !41
-  %31 = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv23.i
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv23.i
   store i32 %30, ptr %31, align 4, !tbaa !42
   %indvars.iv.next24.i = add nuw nsw i64 %indvars.iv23.i, 1
   %32 = getelementptr inbounds nuw i8, ptr %.11620.i, i64 4
@@ -161,7 +161,7 @@ get_quant.exit.thread:                            ; preds = %23
   %indvars.iv.i = phi i64 [ 0, %.preheader17.i ], [ %indvars.iv.next.i, %28 ]
   %.01518.i = phi ptr [ %25, %.preheader17.i ], [ %31, %28 ]
   %29 = load i32, ptr %.01518.i, align 1, !tbaa !41
-  %30 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv.i
   store i32 %29, ptr %30, align 4, !tbaa !42
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %31 = getelementptr inbounds nuw i8, ptr %.01518.i, i64 4
@@ -172,7 +172,7 @@ get_quant.exit.thread:                            ; preds = %23
   %indvars.iv23.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next24.i, %32 ]
   %.11620.i = phi ptr [ %31, %.preheader.i ], [ %35, %32 ]
   %33 = load i32, ptr %.11620.i, align 1, !tbaa !41
-  %34 = getelementptr inbounds nuw i32, ptr %27, i64 %indvars.iv23.i
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv23.i
   store i32 %33, ptr %34, align 4, !tbaa !42
   %indvars.iv.next24.i = add nuw nsw i64 %indvars.iv23.i, 1
   %35 = getelementptr inbounds nuw i8, ptr %.11620.i, i64 4
@@ -621,7 +621,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @codec_reinit(ptr noundef %
   %.lhs.trunc.i = shl nuw nsw i16 %19, 7
   %20 = udiv i16 %.lhs.trunc.i, %.rhs.trunc.i
   %.zext.i = zext nneg i16 %20 to i32
-  %21 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv.i
   store i32 %.zext.i, ptr %21, align 4, !tbaa !42
   %22 = getelementptr inbounds nuw i8, ptr @ff_mjpeg_std_chrominance_quant_tbl, i64 %indvars.iv.i
   %23 = load i8, ptr %22, align 1, !tbaa !41
@@ -629,7 +629,7 @@ define internal fastcc range(i32 -2147483648, 2) i32 @codec_reinit(ptr noundef %
   %.lhs.trunc13.i = shl nuw nsw i16 %24, 7
   %25 = udiv i16 %.lhs.trunc13.i, %.rhs.trunc.i
   %.zext15.i = zext nneg i16 %25 to i32
-  %26 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv.i
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv.i
   store i32 %.zext15.i, ptr %26, align 4, !tbaa !42
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 64

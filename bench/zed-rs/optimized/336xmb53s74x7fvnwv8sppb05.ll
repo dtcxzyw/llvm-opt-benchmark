@@ -138,7 +138,7 @@ define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !21
   tail call void @llvm.experimental.noalias.scope.decl(metadata !43)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !46)
-  %19 = getelementptr inbounds { i64, [8 x i64] }, ptr %9, i64 %12
+  %19 = getelementptr inbounds [72 x i8], ptr %9, i64 %12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %19, ptr noundef nonnull readonly align 8 dereferenceable(72) %4, i64 72, i1 false), !noalias !49
   %20 = add i64 %12, 1
   store i64 %20, ptr %10, align 8, !alias.scope !50, !noalias !51
@@ -414,7 +414,7 @@ define hidden void @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden { ptr, i64 } @"_ZN104_$LT$core..ops..index_range..IndexRange$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$17get_unchecked_mut17h2abec428f69e0412E.llvm.2471798985521550805"(i64 noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #4 {
   %5 = sub nuw i64 %1, %0
-  %6 = getelementptr inbounds { [2 x i64] }, ptr %2, i64 %0
+  %6 = getelementptr inbounds [16 x i8], ptr %2, i64 %0
   %7 = insertvalue { ptr, i64 } poison, ptr %6, 0
   %8 = insertvalue { ptr, i64 } %7, i64 %5, 1
   ret { ptr, i64 } %8
@@ -423,7 +423,7 @@ define hidden { ptr, i64 } @"_ZN104_$LT$core..ops..index_range..IndexRange$u20$a
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden { ptr, i64 } @"_ZN104_$LT$core..ops..index_range..IndexRange$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$17get_unchecked_mut17h53bda6ef3571075aE.llvm.2471798985521550805"(i64 noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #4 {
   %5 = sub nuw i64 %1, %0
-  %6 = getelementptr inbounds { [9 x i64] }, ptr %2, i64 %0
+  %6 = getelementptr inbounds [72 x i8], ptr %2, i64 %0
   %7 = insertvalue { ptr, i64 } poison, ptr %6, 0
   %8 = insertvalue { ptr, i64 } %7, i64 %5, 1
   ret { ptr, i64 } %8
@@ -432,7 +432,7 @@ define hidden { ptr, i64 } @"_ZN104_$LT$core..ops..index_range..IndexRange$u20$a
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden { ptr, i64 } @"_ZN104_$LT$core..ops..index_range..IndexRange$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$17get_unchecked_mut17h9727adf86e22fbdcE.llvm.2471798985521550805"(i64 noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #4 {
   %5 = sub nuw i64 %1, %0
-  %6 = getelementptr inbounds { [33 x i64] }, ptr %2, i64 %0
+  %6 = getelementptr inbounds [264 x i8], ptr %2, i64 %0
   %7 = insertvalue { ptr, i64 } poison, ptr %6, 0
   %8 = insertvalue { ptr, i64 } %7, i64 %5, 1
   ret { ptr, i64 } %8
@@ -441,7 +441,7 @@ define hidden { ptr, i64 } @"_ZN104_$LT$core..ops..index_range..IndexRange$u20$a
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden { ptr, i64 } @"_ZN104_$LT$core..ops..index_range..IndexRange$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$17get_unchecked_mut17hbf1e8342bbb616daE.llvm.2471798985521550805"(i64 noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #4 {
   %5 = sub nuw i64 %1, %0
-  %6 = getelementptr inbounds { [507 x i64] }, ptr %2, i64 %0
+  %6 = getelementptr inbounds [4056 x i8], ptr %2, i64 %0
   %7 = insertvalue { ptr, i64 } poison, ptr %6, 0
   %8 = insertvalue { ptr, i64 } %7, i64 %5, 1
   ret { ptr, i64 } %8
@@ -873,7 +873,7 @@ define internal fastcc void @"_ZN174_$LT$$LT$alloc..collections..btree..map..Int
   %7 = phi ptr [ %4, %.lr.ph ], [ %18, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h1e9da935add9610cE.llvm.2471798985521550805.exit" ]
   %.sroa.21.0.copyload = load i64, ptr %.sroa.21.0..sroa_idx, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 2648
-  %9 = getelementptr inbounds { [3 x i64] }, ptr %8, i64 %.sroa.21.0.copyload
+  %9 = getelementptr inbounds [24 x i8], ptr %8, i64 %.sroa.21.0.copyload
   tail call void @llvm.experimental.noalias.scope.decl(metadata !133)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !136), !noalias !139
   tail call void @llvm.experimental.noalias.scope.decl(metadata !142), !noalias !139
@@ -889,7 +889,7 @@ define internal fastcc void @"_ZN174_$LT$$LT$alloc..collections..btree..map..Int
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6b6e2bd102696678E.exit"
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6b6e2bd102696678E.exit": ; preds = %6, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.2471798985521550805.exit.i.i1.i.i"
-  %14 = getelementptr inbounds { [30 x i64] }, ptr %7, i64 %.sroa.21.0.copyload
+  %14 = getelementptr inbounds [240 x i8], ptr %7, i64 %.sroa.21.0.copyload
   %15 = load i64, ptr %14, align 8, !range !154, !alias.scope !155, !noalias !139, !noundef !9
   %16 = icmp eq i64 %15, -9223372036854775807
   br i1 %16, label %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h1e9da935add9610cE.llvm.2471798985521550805.exit", label %17
@@ -1287,7 +1287,7 @@ define internal fastcc void @"_ZN4core3ptr100drop_in_place$LT$alloc..vec..in_pla
 
 .lr.ph.i.i:                                       ; preds = %0, %"_ZN4core3ptr54drop_in_place$LT$gpui..shared_string..SharedString$GT$17hecf3af87ac8b908eE.exit.i.i"
   %.sroa.0.09.i.i = phi i64 [ %7, %"_ZN4core3ptr54drop_in_place$LT$gpui..shared_string..SharedString$GT$17hecf3af87ac8b908eE.exit.i.i" ], [ 0, %0 ]
-  %6 = getelementptr inbounds { { i64, [2 x i64] } }, ptr %.0.val, i64 %.sroa.0.09.i.i
+  %6 = getelementptr inbounds [24 x i8], ptr %.0.val, i64 %.sroa.0.09.i.i
   %7 = add nuw i64 %.sroa.0.09.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !222)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !225)
@@ -1321,7 +1321,7 @@ define internal fastcc void @"_ZN4core3ptr100drop_in_place$LT$alloc..vec..in_pla
 
 .lr.ph12.i.i:                                     ; preds = %17, %"_ZN4core3ptr54drop_in_place$LT$gpui..shared_string..SharedString$GT$17hecf3af87ac8b908eE.exit8.i.i"
   %.sroa.0.110.i.i = phi i64 [ %21, %"_ZN4core3ptr54drop_in_place$LT$gpui..shared_string..SharedString$GT$17hecf3af87ac8b908eE.exit8.i.i" ], [ %7, %17 ]
-  %20 = getelementptr inbounds { { i64, [2 x i64] } }, ptr %.0.val, i64 %.sroa.0.110.i.i
+  %20 = getelementptr inbounds [24 x i8], ptr %.0.val, i64 %.sroa.0.110.i.i
   %21 = add i64 %.sroa.0.110.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !240)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !243)
@@ -1581,7 +1581,7 @@ define hidden void @"_ZN4core3ptr103drop_in_place$LT$$u5b$indexmap..Bucket$LT$al
   br i1 %3, label %12, label %4
 
 4:                                                ; preds = %"_ZN4core3ptr93drop_in_place$LT$indexmap..Bucket$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$17h0ae2fa0f78ac5420E.exit"
-  %5 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %0, i64 %.sroa.0.0
+  %5 = getelementptr inbounds [104 x i8], ptr %0, i64 %.sroa.0.0
   %6 = add i64 %.sroa.0.0, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !319)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !322)
@@ -1616,7 +1616,7 @@ define hidden void @"_ZN4core3ptr103drop_in_place$LT$$u5b$indexmap..Bucket$LT$al
   br label %13
 
 16:                                               ; preds = %13
-  %17 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %0, i64 %.sroa.0.1
+  %17 = getelementptr inbounds [104 x i8], ptr %0, i64 %.sroa.0.1
   %18 = add i64 %.sroa.0.1, 1
   invoke void @"_ZN4core3ptr93drop_in_place$LT$indexmap..Bucket$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$17h0ae2fa0f78ac5420E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %17) #44
           to label %13 unwind label %20
@@ -1683,7 +1683,7 @@ define hidden void @"_ZN4core3ptr103drop_in_place$LT$alloc..vec..Vec$LT$$LP$allo
 
 .lr.ph.i.i:                                       ; preds = %1, %"_ZN4core3ptr80drop_in_place$LT$$LP$alloc..string..String$C$gpui..style..HighlightStyle$RP$$GT$17hd3ebd9e48efffd77E.llvm.2471798985521550805.exit.i.i"
   %.sroa.0.09.i.i = phi i64 [ %8, %"_ZN4core3ptr80drop_in_place$LT$$LP$alloc..string..String$C$gpui..style..HighlightStyle$RP$$GT$17hd3ebd9e48efffd77E.llvm.2471798985521550805.exit.i.i" ], [ 0, %1 ]
-  %7 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i32, [4 x i32] }, { i32, [1 x i32] }, { i32, [4 x i32] }, { i32, [1 x i32] }, { i32, [6 x i32] }, { i32, [5 x i32] }, i8, [3 x i8] } }, ptr %3, i64 %.sroa.0.09.i.i
+  %7 = getelementptr inbounds [136 x i8], ptr %3, i64 %.sroa.0.09.i.i
   %8 = add nuw i64 %.sroa.0.09.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !349)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !352)
@@ -1933,7 +1933,7 @@ define hidden void @"_ZN4core3ptr108drop_in_place$LT$alloc..sync..ArcInner$LT$al
 
 .lr.ph.i.i.i:                                     ; preds = %1, %"_ZN4core3ptr56drop_in_place$LT$$LP$alloc..string..String$C$u32$RP$$GT$17h52abc9dbc79bb307E.llvm.2471798985521550805.exit.i.i.i"
   %.sroa.0.09.i.i.i = phi i64 [ %9, %"_ZN4core3ptr56drop_in_place$LT$$LP$alloc..string..String$C$u32$RP$$GT$17h52abc9dbc79bb307E.llvm.2471798985521550805.exit.i.i.i" ], [ 0, %1 ]
-  %8 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, i32, [1 x i32] }, ptr %4, i64 %.sroa.0.09.i.i.i
+  %8 = getelementptr inbounds [32 x i8], ptr %4, i64 %.sroa.0.09.i.i.i
   %9 = add nuw i64 %.sroa.0.09.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !510)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !513)
@@ -2405,7 +2405,7 @@ define hidden void @"_ZN4core3ptr115drop_in_place$LT$$u5b$indexmap..Bucket$LT$al
 
 .lr.ph:                                           ; preds = %2, %"_ZN4core3ptr105drop_in_place$LT$indexmap..Bucket$LT$alloc..string..String$C$theme..schema..HighlightStyleContent$GT$$GT$17h2c8a945f7482459eE.exit"
   %.sroa.0.07 = phi i64 [ %5, %"_ZN4core3ptr105drop_in_place$LT$indexmap..Bucket$LT$alloc..string..String$C$theme..schema..HighlightStyleContent$GT$$GT$17h2c8a945f7482459eE.exit" ], [ 0, %2 ]
-  %4 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i64, [2 x i64] }, { i64, [2 x i64] }, i16, i8, [5 x i8] }, i64 }, ptr %0, i64 %.sroa.0.07
+  %4 = getelementptr inbounds [88 x i8], ptr %0, i64 %.sroa.0.07
   %5 = add nuw i64 %.sroa.0.07, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !722)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !725)
@@ -2487,7 +2487,7 @@ define hidden void @"_ZN4core3ptr116drop_in_place$LT$alloc..vec..Vec$LT$indexmap
   br i1 %6, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc33e3fcfd526984fE.llvm.2471798985521550805.exit", label %7
 
 7:                                                ; preds = %"_ZN4core3ptr93drop_in_place$LT$indexmap..Bucket$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$17h0ae2fa0f78ac5420E.exit.i"
-  %8 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %3, i64 %.sroa.0.0.i
+  %8 = getelementptr inbounds [104 x i8], ptr %3, i64 %.sroa.0.0.i
   %9 = add i64 %.sroa.0.0.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !793)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !796)
@@ -2519,7 +2519,7 @@ define hidden void @"_ZN4core3ptr116drop_in_place$LT$alloc..vec..Vec$LT$indexmap
   br label %15
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %3, i64 %.sroa.0.1.i
+  %19 = getelementptr inbounds [104 x i8], ptr %3, i64 %.sroa.0.1.i
   %20 = add i64 %.sroa.0.1.i, 1
   invoke void @"_ZN4core3ptr93drop_in_place$LT$indexmap..Bucket$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$17h0ae2fa0f78ac5420E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %19) #44
           to label %15 unwind label %21
@@ -2652,7 +2652,7 @@ define hidden void @"_ZN4core3ptr118drop_in_place$LT$$u5b$$LP$serde..__private..
   br i1 %3, label %14, label %4
 
 4:                                                ; preds = %"_ZN4core3ptr108drop_in_place$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$17h7c0108e0b4101262E.llvm.2471798985521550805.exit"
-  %5 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %0, i64 %.sroa.0.0
+  %5 = getelementptr inbounds [64 x i8], ptr %0, i64 %.sroa.0.0
   %6 = add i64 %.sroa.0.0, 1
   invoke void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17hc16b5faa1b4cae6dE.llvm.2471798985521550805"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %5) #48
           to label %10 unwind label %7
@@ -2693,7 +2693,7 @@ define hidden void @"_ZN4core3ptr118drop_in_place$LT$$u5b$$LP$serde..__private..
   br label %15
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %0, i64 %.sroa.0.1
+  %20 = getelementptr inbounds [64 x i8], ptr %0, i64 %.sroa.0.1
   %21 = add i64 %.sroa.0.1, 1
   invoke void @"_ZN4core3ptr108drop_in_place$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$17h7c0108e0b4101262E.llvm.2471798985521550805"(ptr noalias noundef nonnull align 8 dereferenceable(64) %20) #44
           to label %15 unwind label %23
@@ -2725,7 +2725,7 @@ define hidden void @"_ZN4core3ptr119drop_in_place$LT$alloc..vec..into_iter..Into
 
 .lr.ph.i.i:                                       ; preds = %1, %"_ZN4core3ptr80drop_in_place$LT$$LP$alloc..string..String$C$gpui..style..HighlightStyle$RP$$GT$17hd3ebd9e48efffd77E.llvm.2471798985521550805.exit.i.i"
   %.sroa.0.09.i.i = phi i64 [ %12, %"_ZN4core3ptr80drop_in_place$LT$$LP$alloc..string..String$C$gpui..style..HighlightStyle$RP$$GT$17hd3ebd9e48efffd77E.llvm.2471798985521550805.exit.i.i" ], [ 0, %1 ]
-  %11 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i32, [4 x i32] }, { i32, [1 x i32] }, { i32, [4 x i32] }, { i32, [1 x i32] }, { i32, [6 x i32] }, { i32, [5 x i32] }, i8, [3 x i8] } }, ptr %3, i64 %.sroa.0.09.i.i
+  %11 = getelementptr inbounds [136 x i8], ptr %3, i64 %.sroa.0.09.i.i
   %12 = add nuw i64 %.sroa.0.09.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !862)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !865)
@@ -2820,14 +2820,14 @@ define hidden void @"_ZN4core3ptr122drop_in_place$LT$core..array..iter..IntoIter
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !alias.scope !909, !noundef !9
   %6 = sub nuw i64 %5, %3
-  %7 = getelementptr inbounds { [33 x i64] }, ptr %2, i64 %3
+  %7 = getelementptr inbounds [264 x i8], ptr %2, i64 %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !912)
   %8 = icmp eq i64 %5, %3
   br i1 %8, label %"_ZN82_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8b50512983992b52E.llvm.2471798985521550805.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %1, %"_ZN4core3ptr77drop_in_place$LT$$LP$alloc..string..String$C$schemars..schema..Schema$RP$$GT$17h779dec9500cb0a00E.llvm.2471798985521550805.exit.i.i"
   %.sroa.0.07.i.i = phi i64 [ %10, %"_ZN4core3ptr77drop_in_place$LT$$LP$alloc..string..String$C$schemars..schema..Schema$RP$$GT$17h779dec9500cb0a00E.llvm.2471798985521550805.exit.i.i" ], [ 0, %1 ]
-  %9 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [29 x i64] } }, ptr %7, i64 %.sroa.0.07.i.i
+  %9 = getelementptr inbounds [264 x i8], ptr %7, i64 %.sroa.0.07.i.i
   %10 = add nuw i64 %.sroa.0.07.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !915)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !918)
@@ -2869,7 +2869,7 @@ define hidden void @"_ZN4core3ptr122drop_in_place$LT$core..array..iter..IntoIter
   br label %20
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [29 x i64] } }, ptr %7, i64 %.sroa.0.1.i.i
+  %25 = getelementptr inbounds [264 x i8], ptr %7, i64 %.sroa.0.1.i.i
   %26 = add i64 %.sroa.0.1.i.i, 1
   invoke void @"_ZN4core3ptr77drop_in_place$LT$$LP$alloc..string..String$C$schemars..schema..Schema$RP$$GT$17h779dec9500cb0a00E.llvm.2471798985521550805"(ptr noalias noundef nonnull readonly align 8 dereferenceable(264) %25) #44
           to label %20 unwind label %28
@@ -3100,7 +3100,7 @@ define hidden void @"_ZN4core3ptr128drop_in_place$LT$alloc..vec..Vec$LT$indexmap
 
 .lr.ph.i.i:                                       ; preds = %1, %"_ZN4core3ptr105drop_in_place$LT$indexmap..Bucket$LT$alloc..string..String$C$theme..schema..HighlightStyleContent$GT$$GT$17h2c8a945f7482459eE.exit.i.i"
   %.sroa.0.07.i.i = phi i64 [ %8, %"_ZN4core3ptr105drop_in_place$LT$indexmap..Bucket$LT$alloc..string..String$C$theme..schema..HighlightStyleContent$GT$$GT$17h2c8a945f7482459eE.exit.i.i" ], [ 0, %1 ]
-  %7 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i64, [2 x i64] }, { i64, [2 x i64] }, i16, i8, [5 x i8] }, i64 }, ptr %3, i64 %.sroa.0.07.i.i
+  %7 = getelementptr inbounds [88 x i8], ptr %3, i64 %.sroa.0.07.i.i
   %8 = add nuw i64 %.sroa.0.07.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1013)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1016)
@@ -3268,7 +3268,7 @@ define hidden void @"_ZN4core3ptr131drop_in_place$LT$alloc..vec..Vec$LT$$LP$serd
   br i1 %6, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8d982528b353d6f9E.llvm.2471798985521550805.exit", label %7
 
 7:                                                ; preds = %"_ZN4core3ptr108drop_in_place$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$17h7c0108e0b4101262E.llvm.2471798985521550805.exit.i"
-  %8 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %3, i64 %.sroa.0.0.i.i
+  %8 = getelementptr inbounds [64 x i8], ptr %3, i64 %.sroa.0.0.i.i
   %9 = add i64 %.sroa.0.0.i.i, 1
   invoke void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17hc16b5faa1b4cae6dE.llvm.2471798985521550805"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %8) #48
           to label %13 unwind label %10, !noalias !1102
@@ -3306,7 +3306,7 @@ define hidden void @"_ZN4core3ptr131drop_in_place$LT$alloc..vec..Vec$LT$$LP$serd
   br label %17
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %3, i64 %.sroa.0.1.i.i
+  %22 = getelementptr inbounds [64 x i8], ptr %3, i64 %.sroa.0.1.i.i
   %23 = add i64 %.sroa.0.1.i.i, 1
   invoke void @"_ZN4core3ptr108drop_in_place$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$17h7c0108e0b4101262E.llvm.2471798985521550805"(ptr noalias noundef nonnull align 8 dereferenceable(64) %22) #44
           to label %17 unwind label %24, !noalias !1102
@@ -3402,7 +3402,7 @@ define hidden void @"_ZN4core3ptr134drop_in_place$LT$$u5b$$LP$settings..Worktree
   br i1 %3, label %17, label %4
 
 4:                                                ; preds = %"_ZN4core3ptr124drop_in_place$LT$$LP$settings..WorktreeId$C$alloc..sync..Arc$LT$std..path..Path$GT$$C$theme..settings..ThemeSettings$RP$$GT$17hd58c487bb2e2b947E.exit"
-  %5 = getelementptr inbounds { { { { ptr, i64 } }, {}, {} }, i64, { { { { i64, [2 x i64] } }, ptr, ptr, float, i8, [3 x i8] }, { { { i64, [2 x i64] } }, ptr, ptr, float, i8, [3 x i8] }, { i64, [423 x i64] }, { [3 x i64], i64, [3 x i64] }, { i32, [1 x i32] }, ptr, float, float, float, i8, [3 x i8] } }, ptr %0, i64 %.sroa.0.0
+  %5 = getelementptr inbounds [3600 x i8], ptr %0, i64 %.sroa.0.0
   %6 = add i64 %.sroa.0.0, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1139)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1142)
@@ -3453,7 +3453,7 @@ define hidden void @"_ZN4core3ptr134drop_in_place$LT$$u5b$$LP$settings..Worktree
   br label %18
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds { { { { ptr, i64 } }, {}, {} }, i64, { { { { i64, [2 x i64] } }, ptr, ptr, float, i8, [3 x i8] }, { { { i64, [2 x i64] } }, ptr, ptr, float, i8, [3 x i8] }, { i64, [423 x i64] }, { [3 x i64], i64, [3 x i64] }, { i32, [1 x i32] }, ptr, float, float, float, i8, [3 x i8] } }, ptr %0, i64 %.sroa.0.1
+  %23 = getelementptr inbounds [3600 x i8], ptr %0, i64 %.sroa.0.1
   %24 = add i64 %.sroa.0.1, 1
   invoke fastcc void @"_ZN4core3ptr124drop_in_place$LT$$LP$settings..WorktreeId$C$alloc..sync..Arc$LT$std..path..Path$GT$$C$theme..settings..ThemeSettings$RP$$GT$17hd58c487bb2e2b947E"(ptr noalias noundef align 8 dereferenceable(3600) %23) #44
           to label %18 unwind label %26
@@ -3650,7 +3650,7 @@ define hidden void @"_ZN4core3ptr138drop_in_place$LT$alloc..collections..btree..
   %11 = phi ptr [ %8, %.lr.ph.i.i.i ], [ %18, %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17h6f48ca2d36c739aeE.exit.i.i.i" ]
   %.sroa.23.0.copyload.i.i.i = load i64, ptr %.sroa.23.0..sroa_idx.i.i.i, align 8, !noalias !1185
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %13 = getelementptr inbounds { [3 x i64] }, ptr %12, i64 %.sroa.23.0.copyload.i.i.i
+  %13 = getelementptr inbounds [24 x i8], ptr %12, i64 %.sroa.23.0.copyload.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !1190)
   call void @llvm.experimental.noalias.scope.decl(metadata !1193)
   call void @llvm.experimental.noalias.scope.decl(metadata !1196)
@@ -3696,7 +3696,7 @@ define hidden void @"_ZN4core3ptr138drop_in_place$LT$alloc..collections..btree..
   %6 = phi ptr [ %3, %.lr.ph.i ], [ %13, %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17h6f48ca2d36c739aeE.exit.i" ]
   %.sroa.23.0.copyload.i = load i64, ptr %.sroa.23.0..sroa_idx.i, align 8, !noalias !1208
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = getelementptr inbounds { [3 x i64] }, ptr %7, i64 %.sroa.23.0.copyload.i
+  %8 = getelementptr inbounds [24 x i8], ptr %7, i64 %.sroa.23.0.copyload.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1211)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1214)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1217)
@@ -3749,7 +3749,7 @@ define hidden void @"_ZN4core3ptr146drop_in_place$LT$$u5b$core..option..Option$L
 
 .lr.ph:                                           ; preds = %2, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17h08563adde66cd724E.llvm.2471798985521550805.exit"
   %.sroa.0.010 = phi i64 [ %5, %"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17h08563adde66cd724E.llvm.2471798985521550805.exit" ], [ 0, %2 ]
-  %4 = getelementptr inbounds { i8, [63 x i8] }, ptr %0, i64 %.sroa.0.010
+  %4 = getelementptr inbounds [64 x i8], ptr %0, i64 %.sroa.0.010
   %5 = add nuw i64 %.sroa.0.010, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1237)
   %6 = load i8, ptr %4, align 8, !range !1173, !alias.scope !1237, !noundef !9
@@ -3800,7 +3800,7 @@ define hidden void @"_ZN4core3ptr146drop_in_place$LT$$u5b$core..option..Option$L
   br label %16
 
 20:                                               ; preds = %16
-  %21 = getelementptr inbounds { i8, [63 x i8] }, ptr %0, i64 %.sroa.0.1
+  %21 = getelementptr inbounds [64 x i8], ptr %0, i64 %.sroa.0.1
   %22 = add i64 %.sroa.0.1, 1
   invoke void @"_ZN4core3ptr136drop_in_place$LT$core..option..Option$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17h08563adde66cd724E.llvm.2471798985521550805"(ptr noalias noundef nonnull align 8 dereferenceable(64) %21) #44
           to label %16 unwind label %24
@@ -4977,7 +4977,7 @@ define internal fastcc void @"_ZN4core3ptr215drop_in_place$LT$$LT$alloc..collect
   %5 = phi ptr [ %2, %.lr.ph.i ], [ %14, %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17h678133583592ee9fE.exit.i" ]
   %.sroa.21.0.copyload.i = load i64, ptr %.sroa.21.0..sroa_idx.i, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %7 = getelementptr inbounds { [3 x i64] }, ptr %6, i64 %.sroa.21.0.copyload.i
+  %7 = getelementptr inbounds [24 x i8], ptr %6, i64 %.sroa.21.0.copyload.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1750)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1753)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1756)
@@ -4994,7 +4994,7 @@ define internal fastcc void @"_ZN4core3ptr215drop_in_place$LT$$LT$alloc..collect
 
 "_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17h678133583592ee9fE.exit.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.2471798985521550805.exit.i.i1.i.i.i.i", %4
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 272
-  %13 = getelementptr inbounds { [9 x i64] }, ptr %12, i64 %.sroa.21.0.copyload.i
+  %13 = getelementptr inbounds [72 x i8], ptr %12, i64 %.sroa.21.0.copyload.i
   tail call void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17h0d5944642bc4456eE.llvm.2471798985521550805"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %1)
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
@@ -5225,7 +5225,7 @@ define hidden void @"_ZN4core3ptr229drop_in_place$LT$core..iter..adapters..map..
 
 .lr.ph.i.i.i:                                     ; preds = %1, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6b6e2bd102696678E.exit.i.i.i"
   %.sroa.0.09.i.i.i = phi i64 [ %12, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6b6e2bd102696678E.exit.i.i.i" ], [ 0, %1 ]
-  %11 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %3, i64 %.sroa.0.09.i.i.i
+  %11 = getelementptr inbounds [24 x i8], ptr %3, i64 %.sroa.0.09.i.i.i
   %12 = add nuw i64 %.sroa.0.09.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1838)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1841)
@@ -5797,7 +5797,7 @@ define internal fastcc void @"_ZN4core3ptr354drop_in_place$LT$$LT$alloc..collect
   %5 = phi ptr [ %2, %.lr.ph.i ], [ %38, %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hebf3fa642efef87eE.exit.i" ]
   %.sroa.21.0.copyload.i = load i64, ptr %.sroa.21.0..sroa_idx.i, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  %7 = getelementptr inbounds { [3 x i64] }, ptr %6, i64 %.sroa.21.0.copyload.i
+  %7 = getelementptr inbounds [24 x i8], ptr %6, i64 %.sroa.21.0.copyload.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2038)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2041)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2044)
@@ -6208,7 +6208,7 @@ define hidden void @"_ZN4core3ptr43drop_in_place$LT$$u5b$theme..Theme$u5d$$GT$17
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, ptr, { { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float } }, { { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float } }, { { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float } }, i8, [7 x i8] }, i8, [7 x i8] }, ptr %0, i64 %.sroa.0.0
+  %6 = getelementptr inbounds [2344 x i8], ptr %0, i64 %.sroa.0.0
   %7 = add i64 %.sroa.0.0, 1
   invoke void @"_ZN4core3ptr33drop_in_place$LT$theme..Theme$GT$17h24fdb908a9c2ce76E"(ptr noalias noundef nonnull align 8 dereferenceable(2344) %6)
           to label %3 unwind label %11
@@ -6227,7 +6227,7 @@ define hidden void @"_ZN4core3ptr43drop_in_place$LT$$u5b$theme..Theme$u5d$$GT$17
   br label %9
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, ptr, { { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float } }, { { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float } }, { { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float } }, i8, [7 x i8] }, i8, [7 x i8] }, ptr %0, i64 %.sroa.0.1
+  %14 = getelementptr inbounds [2344 x i8], ptr %0, i64 %.sroa.0.1
   %15 = add i64 %.sroa.0.1, 1
   invoke void @"_ZN4core3ptr33drop_in_place$LT$theme..Theme$GT$17h24fdb908a9c2ce76E"(ptr noalias noundef nonnull align 8 dereferenceable(2344) %14) #44
           to label %9 unwind label %17
@@ -6361,7 +6361,7 @@ define internal fastcc void @"_ZN4core3ptr44drop_in_place$LT$std..backtrace..Cap
 
 .lr.ph.i.i.i:                                     ; preds = %1, %"_ZN4core3ptr51drop_in_place$LT$std..backtrace..BacktraceFrame$GT$17h53f13fd33222449cE.exit.i.i"
   %.sroa.0.07.i.i.i = phi i64 [ %6, %"_ZN4core3ptr51drop_in_place$LT$std..backtrace..BacktraceFrame$GT$17h53f13fd33222449cE.exit.i.i" ], [ 0, %1 ]
-  %5 = getelementptr inbounds { { { { i64, [3 x i64] } } }, { { i64, ptr, {} }, i64 } }, ptr %.val.i, i64 %.sroa.0.07.i.i.i
+  %5 = getelementptr inbounds [56 x i8], ptr %.val.i, i64 %.sroa.0.07.i.i.i
   %6 = add nuw i64 %.sroa.0.07.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2244)
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 32
@@ -6376,7 +6376,7 @@ define internal fastcc void @"_ZN4core3ptr44drop_in_place$LT$std..backtrace..Cap
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.lr.ph.i.i.i, %"_ZN4core3ptr52drop_in_place$LT$std..backtrace..BacktraceSymbol$GT$17h6cfa20a84a3657bdE.exit.i.i.i.i.i.i"
   %.sroa.0.07.i.i.i.i.i.i = phi i64 [ %12, %"_ZN4core3ptr52drop_in_place$LT$std..backtrace..BacktraceSymbol$GT$17h6cfa20a84a3657bdE.exit.i.i.i.i.i.i" ], [ 0, %.lr.ph.i.i.i ]
-  %11 = getelementptr inbounds { { i64, [3 x i64] }, { i64, [2 x i64] }, { i32, [1 x i32] }, { i32, [1 x i32] } }, ptr %.val.i.i.i.i, i64 %.sroa.0.07.i.i.i.i.i.i
+  %11 = getelementptr inbounds [72 x i8], ptr %.val.i.i.i.i, i64 %.sroa.0.07.i.i.i.i.i.i
   %12 = add nuw i64 %.sroa.0.07.i.i.i.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2254)
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 32
@@ -6485,7 +6485,7 @@ define internal fastcc void @"_ZN4core3ptr450drop_in_place$LT$$LT$alloc..collect
 7:                                                ; preds = %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf3f50a5f6c4f58a2E.exit.i", %.lr.ph.i
   %8 = phi ptr [ %3, %.lr.ph.i ], [ %16, %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf3f50a5f6c4f58a2E.exit.i" ]
   %.sroa.21.0.copyload.i = load i64, ptr %.sroa.21.0..sroa_idx.i, align 8
-  %9 = getelementptr inbounds { [4 x i64] }, ptr %8, i64 %.sroa.21.0.copyload.i
+  %9 = getelementptr inbounds [32 x i8], ptr %8, i64 %.sroa.21.0.copyload.i
   call void @llvm.experimental.noalias.scope.decl(metadata !2300)
   %10 = load i64, ptr %9, align 8, !range !228, !alias.scope !2300, !noundef !9
   %11 = icmp eq i64 %10, 0
@@ -7383,7 +7383,7 @@ define hidden void @"_ZN4core3ptr47drop_in_place$LT$schemars..schema..Metadata$G
   br i1 %34, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8e7292f2ee640e21E.llvm.2471798985521550805.exit.i", label %35
 
 35:                                               ; preds = %33
-  %36 = getelementptr inbounds { i64, [8 x i64] }, ptr %30, i64 %.sroa.0.0.i
+  %36 = getelementptr inbounds [72 x i8], ptr %30, i64 %.sroa.0.0.i
   %37 = add i64 %.sroa.0.0.i, 1
   invoke void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17h0d5944642bc4456eE.llvm.2471798985521550805"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %36) #50
           to label %33 unwind label %40, !noalias !2496
@@ -7399,7 +7399,7 @@ define hidden void @"_ZN4core3ptr47drop_in_place$LT$schemars..schema..Metadata$G
   br label %38
 
 42:                                               ; preds = %38
-  %43 = getelementptr inbounds { i64, [8 x i64] }, ptr %30, i64 %.sroa.0.1.i
+  %43 = getelementptr inbounds [72 x i8], ptr %30, i64 %.sroa.0.1.i
   %44 = add i64 %.sroa.0.1.i, 1
   invoke void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17h0d5944642bc4456eE.llvm.2471798985521550805"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %43) #51
           to label %38 unwind label %45, !noalias !2496
@@ -7690,7 +7690,7 @@ define hidden void @"_ZN4core3ptr49drop_in_place$LT$$u5b$theme..ThemeFamily$u5d$
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds { { { i64, [2 x i64] } }, { { i64, [2 x i64] } }, { { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } } }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 } }, ptr %0, i64 %.sroa.0.0
+  %6 = getelementptr inbounds [4056 x i8], ptr %0, i64 %.sroa.0.0
   %7 = add i64 %.sroa.0.0, 1
   invoke void @"_ZN4core3ptr39drop_in_place$LT$theme..ThemeFamily$GT$17hf961ab392a7cc92aE.llvm.2471798985521550805"(ptr noalias noundef nonnull align 8 dereferenceable(4056) %6)
           to label %3 unwind label %11
@@ -7709,7 +7709,7 @@ define hidden void @"_ZN4core3ptr49drop_in_place$LT$$u5b$theme..ThemeFamily$u5d$
   br label %9
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds { { { i64, [2 x i64] } }, { { i64, [2 x i64] } }, { { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } } }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 } }, ptr %0, i64 %.sroa.0.1
+  %14 = getelementptr inbounds [4056 x i8], ptr %0, i64 %.sroa.0.1
   %15 = add i64 %.sroa.0.1, 1
   invoke void @"_ZN4core3ptr39drop_in_place$LT$theme..ThemeFamily$GT$17hf961ab392a7cc92aE.llvm.2471798985521550805"(ptr noalias noundef nonnull align 8 dereferenceable(4056) %14) #44
           to label %9 unwind label %17
@@ -8536,7 +8536,7 @@ define hidden void @"_ZN4core3ptr52drop_in_place$LT$$u5b$alloc..string..String$u
 
 .lr.ph:                                           ; preds = %2, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6b6e2bd102696678E.exit"
   %.sroa.0.09 = phi i64 [ %5, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6b6e2bd102696678E.exit" ], [ 0, %2 ]
-  %4 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %0, i64 %.sroa.0.09
+  %4 = getelementptr inbounds [24 x i8], ptr %0, i64 %.sroa.0.09
   %5 = add nuw i64 %.sroa.0.09, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3046)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3049)
@@ -8708,7 +8708,7 @@ define hidden void @"_ZN4core3ptr53drop_in_place$LT$theme..schema..ThemeStyleCon
 
 .lr.ph.i.i.i:                                     ; preds = %1, %"_ZN4core3ptr49drop_in_place$LT$theme..schema..AccentContent$GT$17h24c2216921977b5cE.exit.i.i.i"
   %.sroa.0.09.i.i.i = phi i64 [ %9, %"_ZN4core3ptr49drop_in_place$LT$theme..schema..AccentContent$GT$17h24c2216921977b5cE.exit.i.i.i" ], [ 0, %1 ]
-  %8 = getelementptr inbounds { { i64, [2 x i64] } }, ptr %4, i64 %.sroa.0.09.i.i.i
+  %8 = getelementptr inbounds [24 x i8], ptr %4, i64 %.sroa.0.09.i.i.i
   %9 = add nuw i64 %.sroa.0.09.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3126)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3129)
@@ -11021,7 +11021,7 @@ define hidden void @"_ZN4core3ptr55drop_in_place$LT$$u5b$schemars..schema..Schem
 
 .lr.ph:                                           ; preds = %2, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h1e9da935add9610cE.llvm.2471798985521550805.exit"
   %.sroa.0.09 = phi i64 [ %5, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h1e9da935add9610cE.llvm.2471798985521550805.exit" ], [ 0, %2 ]
-  %4 = getelementptr inbounds { i64, [29 x i64] }, ptr %0, i64 %.sroa.0.09
+  %4 = getelementptr inbounds [240 x i8], ptr %0, i64 %.sroa.0.09
   %5 = add nuw i64 %.sroa.0.09, 1
   %6 = load i64, ptr %4, align 8, !range !154, !alias.scope !5304, !noundef !9
   %7 = icmp eq i64 %6, -9223372036854775807
@@ -11046,7 +11046,7 @@ define hidden void @"_ZN4core3ptr55drop_in_place$LT$$u5b$schemars..schema..Schem
 
 .lr.ph12:                                         ; preds = %10, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h1e9da935add9610cE.llvm.2471798985521550805.exit8"
   %.sroa.0.110 = phi i64 [ %14, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h1e9da935add9610cE.llvm.2471798985521550805.exit8" ], [ %5, %10 ]
-  %13 = getelementptr inbounds { i64, [29 x i64] }, ptr %0, i64 %.sroa.0.110
+  %13 = getelementptr inbounds [240 x i8], ptr %0, i64 %.sroa.0.110
   %14 = add i64 %.sroa.0.110, 1
   %15 = load i64, ptr %13, align 8, !range !154, !alias.scope !5307, !noundef !9
   %16 = icmp eq i64 %15, -9223372036854775807
@@ -11080,7 +11080,7 @@ define hidden void @"_ZN4core3ptr55drop_in_place$LT$$u5b$serde_json..value..Valu
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds { i64, [8 x i64] }, ptr %0, i64 %.sroa.0.0
+  %6 = getelementptr inbounds [72 x i8], ptr %0, i64 %.sroa.0.0
   %7 = add i64 %.sroa.0.0, 1
   invoke void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17h0d5944642bc4456eE.llvm.2471798985521550805"(ptr noalias noundef nonnull align 8 dereferenceable(72) %6)
           to label %3 unwind label %11
@@ -11099,7 +11099,7 @@ define hidden void @"_ZN4core3ptr55drop_in_place$LT$$u5b$serde_json..value..Valu
   br label %9
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds { i64, [8 x i64] }, ptr %0, i64 %.sroa.0.1
+  %14 = getelementptr inbounds [72 x i8], ptr %0, i64 %.sroa.0.1
   %15 = add i64 %.sroa.0.1, 1
   invoke void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17h0d5944642bc4456eE.llvm.2471798985521550805"(ptr noalias noundef nonnull align 8 dereferenceable(72) %14) #44
           to label %9 unwind label %17
@@ -11173,7 +11173,7 @@ define hidden void @"_ZN4core3ptr55drop_in_place$LT$schemars..schema..ObjectVali
   %14 = phi ptr [ %11, %.lr.ph.i.i.i.i.i ], [ %21, %.noexc6 ]
   %.sroa.23.0.copyload.i.i.i.i.i = load i64, ptr %.sroa.23.0..sroa_idx.i.i.i.i.i, align 8, !noalias !5325
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %16 = getelementptr inbounds { [3 x i64] }, ptr %15, i64 %.sroa.23.0.copyload.i.i.i.i.i
+  %16 = getelementptr inbounds [24 x i8], ptr %15, i64 %.sroa.23.0.copyload.i.i.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !5330)
   call void @llvm.experimental.noalias.scope.decl(metadata !5333)
   call void @llvm.experimental.noalias.scope.decl(metadata !5336)
@@ -12372,7 +12372,7 @@ define hidden void @"_ZN4core3ptr55drop_in_place$LT$theme..styles..syntax..Synta
 
 .lr.ph.i.i.i:                                     ; preds = %1, %"_ZN4core3ptr80drop_in_place$LT$$LP$alloc..string..String$C$gpui..style..HighlightStyle$RP$$GT$17hd3ebd9e48efffd77E.llvm.2471798985521550805.exit.i.i.i"
   %.sroa.0.09.i.i.i = phi i64 [ %8, %"_ZN4core3ptr80drop_in_place$LT$$LP$alloc..string..String$C$gpui..style..HighlightStyle$RP$$GT$17hd3ebd9e48efffd77E.llvm.2471798985521550805.exit.i.i.i" ], [ 0, %1 ]
-  %7 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i32, [4 x i32] }, { i32, [1 x i32] }, { i32, [4 x i32] }, { i32, [1 x i32] }, { i32, [6 x i32] }, { i32, [5 x i32] }, i8, [3 x i8] } }, ptr %3, i64 %.sroa.0.09.i.i.i
+  %7 = getelementptr inbounds [136 x i8], ptr %3, i64 %.sroa.0.09.i.i.i
   %8 = add nuw i64 %.sroa.0.09.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6356)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6359)
@@ -12444,7 +12444,7 @@ define hidden void @"_ZN4core3ptr56drop_in_place$LT$alloc..vec..Vec$LT$theme..Th
   br i1 %7, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h954de45a4b4e7656E.llvm.2471798985521550805.exit", label %8
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, ptr, { { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float } }, { { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float } }, { { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float } }, i8, [7 x i8] }, i8, [7 x i8] }, ptr %3, i64 %.sroa.0.0.i.i
+  %9 = getelementptr inbounds [2344 x i8], ptr %3, i64 %.sroa.0.0.i.i
   %10 = add i64 %.sroa.0.0.i.i, 1
   invoke void @"_ZN4core3ptr33drop_in_place$LT$theme..Theme$GT$17h24fdb908a9c2ce76E"(ptr noalias noundef nonnull align 8 dereferenceable(2344) %9)
           to label %6 unwind label %13, !noalias !6407
@@ -12460,7 +12460,7 @@ define hidden void @"_ZN4core3ptr56drop_in_place$LT$alloc..vec..Vec$LT$theme..Th
   br label %11
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, ptr, { { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float } }, { { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float } }, { { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float } }, i8, [7 x i8] }, i8, [7 x i8] }, ptr %3, i64 %.sroa.0.1.i.i
+  %16 = getelementptr inbounds [2344 x i8], ptr %3, i64 %.sroa.0.1.i.i
   %17 = add i64 %.sroa.0.1.i.i, 1
   invoke void @"_ZN4core3ptr33drop_in_place$LT$theme..Theme$GT$17h24fdb908a9c2ce76E"(ptr noalias noundef nonnull align 8 dereferenceable(2344) %16) #44
           to label %11 unwind label %18, !noalias !6407
@@ -12550,7 +12550,7 @@ define hidden void @"_ZN4core3ptr57drop_in_place$LT$$u5b$theme..registry..ThemeM
 
 .lr.ph:                                           ; preds = %2, %"_ZN4core3ptr47drop_in_place$LT$theme..registry..ThemeMeta$GT$17hdee9a4ecbdd8d3fcE.exit"
   %.sroa.0.09 = phi i64 [ %5, %"_ZN4core3ptr47drop_in_place$LT$theme..registry..ThemeMeta$GT$17hdee9a4ecbdd8d3fcE.exit" ], [ 0, %2 ]
-  %4 = getelementptr inbounds { { { i64, [2 x i64] } }, i8, [7 x i8] }, ptr %0, i64 %.sroa.0.09
+  %4 = getelementptr inbounds [32 x i8], ptr %0, i64 %.sroa.0.09
   %5 = add nuw i64 %.sroa.0.09, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6450)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6453)
@@ -12588,7 +12588,7 @@ define hidden void @"_ZN4core3ptr57drop_in_place$LT$$u5b$theme..registry..ThemeM
 
 .lr.ph12:                                         ; preds = %15, %"_ZN4core3ptr47drop_in_place$LT$theme..registry..ThemeMeta$GT$17hdee9a4ecbdd8d3fcE.exit8"
   %.sroa.0.110 = phi i64 [ %19, %"_ZN4core3ptr47drop_in_place$LT$theme..registry..ThemeMeta$GT$17hdee9a4ecbdd8d3fcE.exit8" ], [ %5, %15 ]
-  %18 = getelementptr inbounds { { { i64, [2 x i64] } }, i8, [7 x i8] }, ptr %0, i64 %.sroa.0.110
+  %18 = getelementptr inbounds [32 x i8], ptr %0, i64 %.sroa.0.110
   %19 = add i64 %.sroa.0.110, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6467)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6470)
@@ -12657,7 +12657,7 @@ define hidden void @"_ZN4core3ptr57drop_in_place$LT$serde_json..value..ser..Seri
   br i1 %7, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8e7292f2ee640e21E.llvm.2471798985521550805.exit.i", label %8
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds { i64, [8 x i64] }, ptr %3, i64 %.sroa.0.0.i
+  %9 = getelementptr inbounds [72 x i8], ptr %3, i64 %.sroa.0.0.i
   %10 = add i64 %.sroa.0.0.i, 1
   invoke void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17h0d5944642bc4456eE.llvm.2471798985521550805"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %9) #50
           to label %6 unwind label %13, !noalias !6487
@@ -12673,7 +12673,7 @@ define hidden void @"_ZN4core3ptr57drop_in_place$LT$serde_json..value..ser..Seri
   br label %11
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds { i64, [8 x i64] }, ptr %3, i64 %.sroa.0.1.i
+  %16 = getelementptr inbounds [72 x i8], ptr %3, i64 %.sroa.0.1.i
   %17 = add i64 %.sroa.0.1.i, 1
   invoke void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17h0d5944642bc4456eE.llvm.2471798985521550805"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %16) #51
           to label %11 unwind label %18, !noalias !6487
@@ -12907,7 +12907,7 @@ define hidden void @"_ZN4core3ptr58drop_in_place$LT$$u5b$theme..schema..ThemeCon
   br i1 %3, label %12, label %4
 
 4:                                                ; preds = %"_ZN4core3ptr48drop_in_place$LT$theme..schema..ThemeContent$GT$17h24d118366eaf0407E.exit"
-  %5 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { { i64, ptr, {} }, i64 }, { { ptr, i64, i64, i64, {} }, {} } }, { i64, i64 } }, { { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] } }, { { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] } }, i8, [7 x i8] }, i8, [7 x i8] }, ptr %0, i64 %.sroa.0.0
+  %5 = getelementptr inbounds [3424 x i8], ptr %0, i64 %.sroa.0.0
   %6 = add i64 %.sroa.0.0, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6607)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6610)
@@ -12943,7 +12943,7 @@ define hidden void @"_ZN4core3ptr58drop_in_place$LT$$u5b$theme..schema..ThemeCon
   br label %13
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { { i64, ptr, {} }, i64 }, { { ptr, i64, i64, i64, {} }, {} } }, { i64, i64 } }, { { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] } }, { { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] } }, i8, [7 x i8] }, i8, [7 x i8] }, ptr %0, i64 %.sroa.0.1
+  %18 = getelementptr inbounds [3424 x i8], ptr %0, i64 %.sroa.0.1
   %19 = add i64 %.sroa.0.1, 1
   invoke void @"_ZN4core3ptr48drop_in_place$LT$theme..schema..ThemeContent$GT$17h24d118366eaf0407E"(ptr noalias noundef nonnull align 8 dereferenceable(3424) %18) #44
           to label %13 unwind label %21
@@ -13308,7 +13308,7 @@ define hidden void @"_ZN4core3ptr58drop_in_place$LT$theme..settings..ThemeSettin
 
 .lr.ph.i.i.i.i:                                   ; preds = %11, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6b6e2bd102696678E.exit.i.i.i.i"
   %.sroa.0.09.i.i.i.i = phi i64 [ %18, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6b6e2bd102696678E.exit.i.i.i.i" ], [ 0, %11 ]
-  %17 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %13, i64 %.sroa.0.09.i.i.i.i
+  %17 = getelementptr inbounds [24 x i8], ptr %13, i64 %.sroa.0.09.i.i.i.i
   %18 = add nuw i64 %.sroa.0.09.i.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6818)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6821)
@@ -13427,7 +13427,7 @@ define hidden void @"_ZN4core3ptr58drop_in_place$LT$theme..settings..ThemeSettin
 
 .lr.ph.i.i.i.i18:                                 ; preds = %57, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6b6e2bd102696678E.exit.i.i.i.i21"
   %.sroa.0.09.i.i.i.i19 = phi i64 [ %64, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6b6e2bd102696678E.exit.i.i.i.i21" ], [ 0, %57 ]
-  %63 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %59, i64 %.sroa.0.09.i.i.i.i19
+  %63 = getelementptr inbounds [24 x i8], ptr %59, i64 %.sroa.0.09.i.i.i.i19
   %64 = add nuw i64 %.sroa.0.09.i.i.i.i19, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6909)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6912)
@@ -13576,7 +13576,7 @@ define hidden void @"_ZN4core3ptr59drop_in_place$LT$$u5b$theme..schema..AccentCo
 
 .lr.ph:                                           ; preds = %2, %"_ZN4core3ptr49drop_in_place$LT$theme..schema..AccentContent$GT$17h24c2216921977b5cE.exit"
   %.sroa.0.09 = phi i64 [ %5, %"_ZN4core3ptr49drop_in_place$LT$theme..schema..AccentContent$GT$17h24c2216921977b5cE.exit" ], [ 0, %2 ]
-  %4 = getelementptr inbounds { { i64, [2 x i64] } }, ptr %0, i64 %.sroa.0.09
+  %4 = getelementptr inbounds [24 x i8], ptr %0, i64 %.sroa.0.09
   %5 = add nuw i64 %.sroa.0.09, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6993)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6996)
@@ -13648,7 +13648,7 @@ define hidden void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..conten
   br i1 %9, label %"_ZN4core3ptr131drop_in_place$LT$alloc..vec..Vec$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$$GT$17h541bd87db15dbc68E.exit", label %10
 
 10:                                               ; preds = %"_ZN4core3ptr108drop_in_place$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$17h7c0108e0b4101262E.llvm.2471798985521550805.exit"
-  %11 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %6, i64 %.sroa.0.0.i.i
+  %11 = getelementptr inbounds [64 x i8], ptr %6, i64 %.sroa.0.0.i.i
   %12 = add i64 %.sroa.0.0.i.i, 1
   invoke void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17hc16b5faa1b4cae6dE.llvm.2471798985521550805"(ptr noalias noundef nonnull align 8 dereferenceable(64) %11)
           to label %16 unwind label %13, !noalias !7019
@@ -13686,7 +13686,7 @@ define hidden void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..conten
   br label %20
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %6, i64 %.sroa.0.1.i.i
+  %25 = getelementptr inbounds [64 x i8], ptr %6, i64 %.sroa.0.1.i.i
   %26 = add i64 %.sroa.0.1.i.i, 1
   invoke void @"_ZN4core3ptr108drop_in_place$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$17h7c0108e0b4101262E.llvm.2471798985521550805"(ptr noalias noundef nonnull align 8 dereferenceable(64) %25) #44
           to label %20 unwind label %27, !noalias !7019
@@ -13808,7 +13808,7 @@ common.resume:                                    ; preds = %.body6, %81, %.body
   br i1 %66, label %"_ZN4core3ptr82drop_in_place$LT$alloc..vec..Vec$LT$serde..__private..de..content..Content$GT$$GT$17h6185177c81171aabE.exit", label %67
 
 67:                                               ; preds = %65
-  %68 = getelementptr inbounds { i8, [31 x i8] }, ptr %62, i64 %.sroa.0.0.i.i4
+  %68 = getelementptr inbounds [32 x i8], ptr %62, i64 %.sroa.0.0.i.i4
   %69 = add i64 %.sroa.0.0.i.i4, 1
   invoke void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17hc16b5faa1b4cae6dE.llvm.2471798985521550805"(ptr noalias noundef nonnull align 8 dereferenceable(32) %68)
           to label %65 unwind label %72, !noalias !7097
@@ -13824,7 +13824,7 @@ common.resume:                                    ; preds = %.body6, %81, %.body
   br label %70
 
 74:                                               ; preds = %70
-  %75 = getelementptr inbounds { i8, [31 x i8] }, ptr %62, i64 %.sroa.0.1.i.i5
+  %75 = getelementptr inbounds [32 x i8], ptr %62, i64 %.sroa.0.1.i.i5
   %76 = add i64 %.sroa.0.1.i.i5, 1
   invoke void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17hc16b5faa1b4cae6dE.llvm.2471798985521550805"(ptr noalias noundef nonnull align 8 dereferenceable(32) %75) #44
           to label %70 unwind label %77, !noalias !7097
@@ -13942,7 +13942,7 @@ define hidden void @"_ZN4core3ptr64drop_in_place$LT$$u5b$gpui..shared_string..Sh
 
 .lr.ph:                                           ; preds = %2, %"_ZN4core3ptr54drop_in_place$LT$gpui..shared_string..SharedString$GT$17hecf3af87ac8b908eE.exit"
   %.sroa.0.09 = phi i64 [ %5, %"_ZN4core3ptr54drop_in_place$LT$gpui..shared_string..SharedString$GT$17hecf3af87ac8b908eE.exit" ], [ 0, %2 ]
-  %4 = getelementptr inbounds { { i64, [2 x i64] } }, ptr %0, i64 %.sroa.0.09
+  %4 = getelementptr inbounds [24 x i8], ptr %0, i64 %.sroa.0.09
   %5 = add nuw i64 %.sroa.0.09, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7150)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7153)
@@ -13979,7 +13979,7 @@ define hidden void @"_ZN4core3ptr64drop_in_place$LT$$u5b$gpui..shared_string..Sh
 
 .lr.ph12:                                         ; preds = %15, %"_ZN4core3ptr54drop_in_place$LT$gpui..shared_string..SharedString$GT$17hecf3af87ac8b908eE.exit8"
   %.sroa.0.110 = phi i64 [ %19, %"_ZN4core3ptr54drop_in_place$LT$gpui..shared_string..SharedString$GT$17hecf3af87ac8b908eE.exit8" ], [ %5, %15 ]
-  %18 = getelementptr inbounds { { i64, [2 x i64] } }, ptr %0, i64 %.sroa.0.110
+  %18 = getelementptr inbounds [24 x i8], ptr %0, i64 %.sroa.0.110
   %19 = add i64 %.sroa.0.110, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7164)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7167)
@@ -14022,7 +14022,7 @@ define hidden void @"_ZN4core3ptr64drop_in_place$LT$$u5b$theme..schema..PlayerCo
 
 .lr.ph:                                           ; preds = %2, %"_ZN4core3ptr54drop_in_place$LT$theme..schema..PlayerColorContent$GT$17ha1b15379de59f01dE.exit"
   %.sroa.0.07 = phi i64 [ %5, %"_ZN4core3ptr54drop_in_place$LT$theme..schema..PlayerColorContent$GT$17ha1b15379de59f01dE.exit" ], [ 0, %2 ]
-  %4 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] } }, ptr %0, i64 %.sroa.0.07
+  %4 = getelementptr inbounds [72 x i8], ptr %0, i64 %.sroa.0.07
   %5 = add nuw i64 %.sroa.0.07, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7178)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7181)
@@ -14104,7 +14104,7 @@ define hidden void @"_ZN4core3ptr64drop_in_place$LT$$u5b$theme..schema..ThemeFam
   br i1 %3, label %17, label %4
 
 4:                                                ; preds = %"_ZN4core3ptr54drop_in_place$LT$theme..schema..ThemeFamilyContent$GT$17h324afd205f73733dE.exit"
-  %5 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 } }, ptr %0, i64 %.sroa.0.0
+  %5 = getelementptr inbounds [72 x i8], ptr %0, i64 %.sroa.0.0
   %6 = add i64 %.sroa.0.0, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7247)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7250)
@@ -14156,7 +14156,7 @@ define hidden void @"_ZN4core3ptr64drop_in_place$LT$$u5b$theme..schema..ThemeFam
   br label %18
 
 22:                                               ; preds = %18
-  %23 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 } }, ptr %0, i64 %.sroa.0.1
+  %23 = getelementptr inbounds [72 x i8], ptr %0, i64 %.sroa.0.1
   %24 = add i64 %.sroa.0.1, 1
   invoke void @"_ZN4core3ptr54drop_in_place$LT$theme..schema..ThemeFamilyContent$GT$17h324afd205f73733dE"(ptr noalias noundef nonnull align 8 dereferenceable(72) %23) #44
           to label %18 unwind label %26
@@ -14184,7 +14184,7 @@ define hidden void @"_ZN4core3ptr65drop_in_place$LT$alloc..vec..Vec$LT$alloc..st
 
 .lr.ph.i.i:                                       ; preds = %1, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6b6e2bd102696678E.exit.i.i"
   %.sroa.0.09.i.i = phi i64 [ %8, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6b6e2bd102696678E.exit.i.i" ], [ 0, %1 ]
-  %7 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %3, i64 %.sroa.0.09.i.i
+  %7 = getelementptr inbounds [24 x i8], ptr %3, i64 %.sroa.0.09.i.i
   %8 = add nuw i64 %.sroa.0.09.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7292)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7295)
@@ -14292,7 +14292,7 @@ define hidden void @"_ZN4core3ptr66drop_in_place$LT$$u5b$$LP$alloc..string..Stri
 
 .lr.ph:                                           ; preds = %2, %"_ZN4core3ptr56drop_in_place$LT$$LP$alloc..string..String$C$u32$RP$$GT$17h52abc9dbc79bb307E.llvm.2471798985521550805.exit"
   %.sroa.0.09 = phi i64 [ %5, %"_ZN4core3ptr56drop_in_place$LT$$LP$alloc..string..String$C$u32$RP$$GT$17h52abc9dbc79bb307E.llvm.2471798985521550805.exit" ], [ 0, %2 ]
-  %4 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, i32, [1 x i32] }, ptr %0, i64 %.sroa.0.09
+  %4 = getelementptr inbounds [32 x i8], ptr %0, i64 %.sroa.0.09
   %5 = add nuw i64 %.sroa.0.09, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7339)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7342)
@@ -14528,7 +14528,7 @@ define hidden void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$schemars.
 
 .lr.ph:                                           ; preds = %1, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h1e9da935add9610cE.llvm.2471798985521550805.exit.i"
   %.sroa.0.0.i2 = phi i64 [ %8, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h1e9da935add9610cE.llvm.2471798985521550805.exit.i" ], [ 0, %1 ]
-  %7 = getelementptr inbounds { i64, [29 x i64] }, ptr %3, i64 %.sroa.0.0.i2
+  %7 = getelementptr inbounds [240 x i8], ptr %3, i64 %.sroa.0.0.i2
   %8 = add nuw i64 %.sroa.0.0.i2, 1
   %9 = load i64, ptr %7, align 8, !range !154, !alias.scope !7394, !noundef !9
   %10 = icmp eq i64 %9, -9223372036854775807
@@ -14550,7 +14550,7 @@ define hidden void @"_ZN4core3ptr68drop_in_place$LT$alloc..vec..Vec$LT$schemars.
 
 .lr.ph4:                                          ; preds = %13, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h1e9da935add9610cE.llvm.2471798985521550805.exit8.i"
   %.sroa.0.1.i3 = phi i64 [ %17, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h1e9da935add9610cE.llvm.2471798985521550805.exit8.i" ], [ %8, %13 ]
-  %16 = getelementptr inbounds { i64, [29 x i64] }, ptr %3, i64 %.sroa.0.1.i3
+  %16 = getelementptr inbounds [240 x i8], ptr %3, i64 %.sroa.0.1.i3
   %17 = add i64 %.sroa.0.1.i3, 1
   %18 = load i64, ptr %16, align 8, !range !154, !alias.scope !7399, !noundef !9
   %19 = icmp eq i64 %18, -9223372036854775807
@@ -14671,7 +14671,7 @@ define hidden void @"_ZN4core3ptr69drop_in_place$LT$$u5b$serde..__private..de..c
   br i1 %4, label %8, label %5
 
 5:                                                ; preds = %3
-  %6 = getelementptr inbounds { i8, [31 x i8] }, ptr %0, i64 %.sroa.0.0
+  %6 = getelementptr inbounds [32 x i8], ptr %0, i64 %.sroa.0.0
   %7 = add i64 %.sroa.0.0, 1
   invoke void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17hc16b5faa1b4cae6dE.llvm.2471798985521550805"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6)
           to label %3 unwind label %11
@@ -14690,7 +14690,7 @@ define hidden void @"_ZN4core3ptr69drop_in_place$LT$$u5b$serde..__private..de..c
   br label %9
 
 13:                                               ; preds = %9
-  %14 = getelementptr inbounds { i8, [31 x i8] }, ptr %0, i64 %.sroa.0.1
+  %14 = getelementptr inbounds [32 x i8], ptr %0, i64 %.sroa.0.1
   %15 = add i64 %.sroa.0.1, 1
   invoke void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17hc16b5faa1b4cae6dE.llvm.2471798985521550805"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14) #44
           to label %9 unwind label %17
@@ -14783,7 +14783,7 @@ define hidden void @"_ZN4core3ptr70drop_in_place$LT$alloc..vec..Vec$LT$theme..re
 
 .lr.ph.i.i:                                       ; preds = %1, %"_ZN4core3ptr47drop_in_place$LT$theme..registry..ThemeMeta$GT$17hdee9a4ecbdd8d3fcE.exit.i.i"
   %.sroa.0.09.i.i = phi i64 [ %8, %"_ZN4core3ptr47drop_in_place$LT$theme..registry..ThemeMeta$GT$17hdee9a4ecbdd8d3fcE.exit.i.i" ], [ 0, %1 ]
-  %7 = getelementptr inbounds { { { i64, [2 x i64] } }, i8, [7 x i8] }, ptr %3, i64 %.sroa.0.09.i.i
+  %7 = getelementptr inbounds [32 x i8], ptr %3, i64 %.sroa.0.09.i.i
   %8 = add nuw i64 %.sroa.0.09.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7482)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7485)
@@ -14818,7 +14818,7 @@ define hidden void @"_ZN4core3ptr70drop_in_place$LT$alloc..vec..Vec$LT$theme..re
 
 .lr.ph12.i.i:                                     ; preds = %18, %"_ZN4core3ptr47drop_in_place$LT$theme..registry..ThemeMeta$GT$17hdee9a4ecbdd8d3fcE.exit8.i.i"
   %.sroa.0.110.i.i = phi i64 [ %22, %"_ZN4core3ptr47drop_in_place$LT$theme..registry..ThemeMeta$GT$17hdee9a4ecbdd8d3fcE.exit8.i.i" ], [ %8, %18 ]
-  %21 = getelementptr inbounds { { { i64, [2 x i64] } }, i8, [7 x i8] }, ptr %3, i64 %.sroa.0.110.i.i
+  %21 = getelementptr inbounds [32 x i8], ptr %3, i64 %.sroa.0.110.i.i
   %22 = add i64 %.sroa.0.110.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7502)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7505)
@@ -14921,7 +14921,7 @@ define hidden void @"_ZN4core3ptr71drop_in_place$LT$alloc..vec..Vec$LT$theme..sc
   br i1 %6, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb2657e7579ae8315E.llvm.2471798985521550805.exit", label %7
 
 7:                                                ; preds = %"_ZN4core3ptr48drop_in_place$LT$theme..schema..ThemeContent$GT$17h24d118366eaf0407E.exit.i.i"
-  %8 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { { i64, ptr, {} }, i64 }, { { ptr, i64, i64, i64, {} }, {} } }, { i64, i64 } }, { { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] } }, { { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] } }, i8, [7 x i8] }, i8, [7 x i8] }, ptr %3, i64 %.sroa.0.0.i.i
+  %8 = getelementptr inbounds [3424 x i8], ptr %3, i64 %.sroa.0.0.i.i
   %9 = add i64 %.sroa.0.0.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7565)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7568)
@@ -14954,7 +14954,7 @@ define hidden void @"_ZN4core3ptr71drop_in_place$LT$alloc..vec..Vec$LT$theme..sc
   br label %15
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { { i64, ptr, {} }, i64 }, { { ptr, i64, i64, i64, {} }, {} } }, { i64, i64 } }, { { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] } }, { { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] } }, i8, [7 x i8] }, i8, [7 x i8] }, ptr %3, i64 %.sroa.0.1.i.i
+  %20 = getelementptr inbounds [3424 x i8], ptr %3, i64 %.sroa.0.1.i.i
   %21 = add i64 %.sroa.0.1.i.i, 1
   invoke void @"_ZN4core3ptr48drop_in_place$LT$theme..schema..ThemeContent$GT$17h24d118366eaf0407E"(ptr noalias noundef nonnull align 8 dereferenceable(3424) %20) #44
           to label %15 unwind label %22, !noalias !7562
@@ -15033,7 +15033,7 @@ define hidden void @"_ZN4core3ptr72drop_in_place$LT$alloc..vec..Vec$LT$theme..sc
 
 .lr.ph.i.i:                                       ; preds = %1, %"_ZN4core3ptr49drop_in_place$LT$theme..schema..AccentContent$GT$17h24c2216921977b5cE.exit.i.i"
   %.sroa.0.09.i.i = phi i64 [ %8, %"_ZN4core3ptr49drop_in_place$LT$theme..schema..AccentContent$GT$17h24c2216921977b5cE.exit.i.i" ], [ 0, %1 ]
-  %7 = getelementptr inbounds { { i64, [2 x i64] } }, ptr %3, i64 %.sroa.0.09.i.i
+  %7 = getelementptr inbounds [24 x i8], ptr %3, i64 %.sroa.0.09.i.i
   %8 = add nuw i64 %.sroa.0.09.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7626)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7629)
@@ -15385,7 +15385,7 @@ define hidden void @"_ZN4core3ptr77drop_in_place$LT$alloc..vec..Vec$LT$gpui..sha
 
 .lr.ph.i.i:                                       ; preds = %1, %"_ZN4core3ptr54drop_in_place$LT$gpui..shared_string..SharedString$GT$17hecf3af87ac8b908eE.exit.i.i"
   %.sroa.0.09.i.i = phi i64 [ %8, %"_ZN4core3ptr54drop_in_place$LT$gpui..shared_string..SharedString$GT$17hecf3af87ac8b908eE.exit.i.i" ], [ 0, %1 ]
-  %7 = getelementptr inbounds { { i64, [2 x i64] } }, ptr %3, i64 %.sroa.0.09.i.i
+  %7 = getelementptr inbounds [24 x i8], ptr %3, i64 %.sroa.0.09.i.i
   %8 = add nuw i64 %.sroa.0.09.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7793)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7796)
@@ -15419,7 +15419,7 @@ define hidden void @"_ZN4core3ptr77drop_in_place$LT$alloc..vec..Vec$LT$gpui..sha
 
 .lr.ph12.i.i:                                     ; preds = %18, %"_ZN4core3ptr54drop_in_place$LT$gpui..shared_string..SharedString$GT$17hecf3af87ac8b908eE.exit8.i.i"
   %.sroa.0.110.i.i = phi i64 [ %22, %"_ZN4core3ptr54drop_in_place$LT$gpui..shared_string..SharedString$GT$17hecf3af87ac8b908eE.exit8.i.i" ], [ %8, %18 ]
-  %21 = getelementptr inbounds { { i64, [2 x i64] } }, ptr %3, i64 %.sroa.0.110.i.i
+  %21 = getelementptr inbounds [24 x i8], ptr %3, i64 %.sroa.0.110.i.i
   %22 = add i64 %.sroa.0.110.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7810)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7813)
@@ -15495,7 +15495,7 @@ define hidden void @"_ZN4core3ptr77drop_in_place$LT$alloc..vec..Vec$LT$theme..sc
 
 .lr.ph.i.i:                                       ; preds = %1, %"_ZN4core3ptr54drop_in_place$LT$theme..schema..PlayerColorContent$GT$17ha1b15379de59f01dE.exit.i.i"
   %.sroa.0.07.i.i = phi i64 [ %8, %"_ZN4core3ptr54drop_in_place$LT$theme..schema..PlayerColorContent$GT$17ha1b15379de59f01dE.exit.i.i" ], [ 0, %1 ]
-  %7 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] } }, ptr %3, i64 %.sroa.0.07.i.i
+  %7 = getelementptr inbounds [72 x i8], ptr %3, i64 %.sroa.0.07.i.i
   %8 = add nuw i64 %.sroa.0.07.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7855)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7858)
@@ -15911,7 +15911,7 @@ define hidden void @"_ZN4core3ptr79drop_in_place$LT$alloc..vec..Vec$LT$$LP$alloc
 
 .lr.ph.i.i:                                       ; preds = %1, %"_ZN4core3ptr56drop_in_place$LT$$LP$alloc..string..String$C$u32$RP$$GT$17h52abc9dbc79bb307E.llvm.2471798985521550805.exit.i.i"
   %.sroa.0.09.i.i = phi i64 [ %8, %"_ZN4core3ptr56drop_in_place$LT$$LP$alloc..string..String$C$u32$RP$$GT$17h52abc9dbc79bb307E.llvm.2471798985521550805.exit.i.i" ], [ 0, %1 ]
-  %7 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, i32, [1 x i32] }, ptr %3, i64 %.sroa.0.09.i.i
+  %7 = getelementptr inbounds [32 x i8], ptr %3, i64 %.sroa.0.09.i.i
   %8 = add nuw i64 %.sroa.0.09.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8054)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8057)
@@ -16135,7 +16135,7 @@ define hidden void @"_ZN4core3ptr81drop_in_place$LT$alloc..vec..into_iter..IntoI
 
 .lr.ph.i.i:                                       ; preds = %1, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6b6e2bd102696678E.exit.i.i"
   %.sroa.0.09.i.i = phi i64 [ %12, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6b6e2bd102696678E.exit.i.i" ], [ 0, %1 ]
-  %11 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %3, i64 %.sroa.0.09.i.i
+  %11 = getelementptr inbounds [24 x i8], ptr %3, i64 %.sroa.0.09.i.i
   %12 = add nuw i64 %.sroa.0.09.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8190)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8193)
@@ -16200,7 +16200,7 @@ define hidden void @"_ZN4core3ptr82drop_in_place$LT$alloc..vec..Vec$LT$serde..__
   br i1 %7, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5dd89226ab069f0fE.llvm.2471798985521550805.exit", label %8
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds { i8, [31 x i8] }, ptr %3, i64 %.sroa.0.0.i.i
+  %9 = getelementptr inbounds [32 x i8], ptr %3, i64 %.sroa.0.0.i.i
   %10 = add i64 %.sroa.0.0.i.i, 1
   invoke void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17hc16b5faa1b4cae6dE.llvm.2471798985521550805"(ptr noalias noundef nonnull align 8 dereferenceable(32) %9)
           to label %6 unwind label %13, !noalias !8218
@@ -16216,7 +16216,7 @@ define hidden void @"_ZN4core3ptr82drop_in_place$LT$alloc..vec..Vec$LT$serde..__
   br label %11
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds { i8, [31 x i8] }, ptr %3, i64 %.sroa.0.1.i.i
+  %16 = getelementptr inbounds [32 x i8], ptr %3, i64 %.sroa.0.1.i.i
   %17 = add i64 %.sroa.0.1.i.i, 1
   invoke void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17hc16b5faa1b4cae6dE.llvm.2471798985521550805"(ptr noalias noundef nonnull align 8 dereferenceable(32) %16) #44
           to label %11 unwind label %18, !noalias !8218
@@ -16400,7 +16400,7 @@ define hidden void @"_ZN4core3ptr84drop_in_place$LT$alloc..sync..ArcInner$LT$the
 
 .lr.ph.i.i.i.i:                                   ; preds = %1, %"_ZN4core3ptr80drop_in_place$LT$$LP$alloc..string..String$C$gpui..style..HighlightStyle$RP$$GT$17hd3ebd9e48efffd77E.llvm.2471798985521550805.exit.i.i.i.i"
   %.sroa.0.09.i.i.i.i = phi i64 [ %9, %"_ZN4core3ptr80drop_in_place$LT$$LP$alloc..string..String$C$gpui..style..HighlightStyle$RP$$GT$17hd3ebd9e48efffd77E.llvm.2471798985521550805.exit.i.i.i.i" ], [ 0, %1 ]
-  %8 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i32, [4 x i32] }, { i32, [1 x i32] }, { i32, [4 x i32] }, { i32, [1 x i32] }, { i32, [6 x i32] }, { i32, [5 x i32] }, i8, [3 x i8] } }, ptr %4, i64 %.sroa.0.09.i.i.i.i
+  %8 = getelementptr inbounds [136 x i8], ptr %4, i64 %.sroa.0.09.i.i.i.i
   %9 = add nuw i64 %.sroa.0.09.i.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8307)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8310)
@@ -16444,7 +16444,7 @@ define hidden void @"_ZN4core3ptr84drop_in_place$LT$core..array..iter..IntoIter$
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !alias.scope !8340, !noundef !9
   %6 = sub nuw i64 %5, %3
-  %7 = getelementptr inbounds { [507 x i64] }, ptr %2, i64 %3
+  %7 = getelementptr inbounds [4056 x i8], ptr %2, i64 %3
   br label %8
 
 8:                                                ; preds = %10, %1
@@ -16453,7 +16453,7 @@ define hidden void @"_ZN4core3ptr84drop_in_place$LT$core..array..iter..IntoIter$
   br i1 %9, label %"_ZN82_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h53952ee725fdfad3E.llvm.2471798985521550805.exit", label %10
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds { { { i64, [2 x i64] } }, { { i64, [2 x i64] } }, { { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } } }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 } }, ptr %7, i64 %.sroa.0.0.i.i
+  %11 = getelementptr inbounds [4056 x i8], ptr %7, i64 %.sroa.0.0.i.i
   %12 = add i64 %.sroa.0.0.i.i, 1
   invoke void @"_ZN4core3ptr39drop_in_place$LT$theme..ThemeFamily$GT$17hf961ab392a7cc92aE.llvm.2471798985521550805"(ptr noalias noundef nonnull align 8 dereferenceable(4056) %11)
           to label %8 unwind label %15
@@ -16469,7 +16469,7 @@ define hidden void @"_ZN4core3ptr84drop_in_place$LT$core..array..iter..IntoIter$
   br label %13
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds { { { i64, [2 x i64] } }, { { i64, [2 x i64] } }, { { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } } }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 } }, ptr %7, i64 %.sroa.0.1.i.i
+  %18 = getelementptr inbounds [4056 x i8], ptr %7, i64 %.sroa.0.1.i.i
   %19 = add i64 %.sroa.0.1.i.i, 1
   invoke void @"_ZN4core3ptr39drop_in_place$LT$theme..ThemeFamily$GT$17hf961ab392a7cc92aE.llvm.2471798985521550805"(ptr noalias noundef nonnull align 8 dereferenceable(4056) %18) #44
           to label %13 unwind label %21
@@ -16649,7 +16649,7 @@ define hidden void @"_ZN4core3ptr87drop_in_place$LT$$u5b$$LP$alloc..string..Stri
 
 .lr.ph:                                           ; preds = %2, %"_ZN4core3ptr77drop_in_place$LT$$LP$alloc..string..String$C$schemars..schema..Schema$RP$$GT$17h779dec9500cb0a00E.llvm.2471798985521550805.exit"
   %.sroa.0.07 = phi i64 [ %5, %"_ZN4core3ptr77drop_in_place$LT$$LP$alloc..string..String$C$schemars..schema..Schema$RP$$GT$17h779dec9500cb0a00E.llvm.2471798985521550805.exit" ], [ 0, %2 ]
-  %4 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [29 x i64] } }, ptr %0, i64 %.sroa.0.07
+  %4 = getelementptr inbounds [264 x i8], ptr %0, i64 %.sroa.0.07
   %5 = add nuw i64 %.sroa.0.07, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8411)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8414)
@@ -16694,7 +16694,7 @@ define hidden void @"_ZN4core3ptr87drop_in_place$LT$$u5b$$LP$alloc..string..Stri
   br label %15
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [29 x i64] } }, ptr %0, i64 %.sroa.0.1
+  %20 = getelementptr inbounds [264 x i8], ptr %0, i64 %.sroa.0.1
   %21 = add i64 %.sroa.0.1, 1
   invoke void @"_ZN4core3ptr77drop_in_place$LT$$LP$alloc..string..String$C$schemars..schema..Schema$RP$$GT$17h779dec9500cb0a00E.llvm.2471798985521550805"(ptr noalias noundef nonnull align 8 dereferenceable(264) %20) #44
           to label %15 unwind label %23
@@ -16801,7 +16801,7 @@ define hidden void @"_ZN4core3ptr90drop_in_place$LT$$u5b$$LP$alloc..string..Stri
 
 .lr.ph:                                           ; preds = %2, %"_ZN4core3ptr80drop_in_place$LT$$LP$alloc..string..String$C$gpui..style..HighlightStyle$RP$$GT$17hd3ebd9e48efffd77E.llvm.2471798985521550805.exit"
   %.sroa.0.09 = phi i64 [ %5, %"_ZN4core3ptr80drop_in_place$LT$$LP$alloc..string..String$C$gpui..style..HighlightStyle$RP$$GT$17hd3ebd9e48efffd77E.llvm.2471798985521550805.exit" ], [ 0, %2 ]
-  %4 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i32, [4 x i32] }, { i32, [1 x i32] }, { i32, [4 x i32] }, { i32, [1 x i32] }, { i32, [6 x i32] }, { i32, [5 x i32] }, i8, [3 x i8] } }, ptr %0, i64 %.sroa.0.09
+  %4 = getelementptr inbounds [136 x i8], ptr %0, i64 %.sroa.0.09
   %5 = add nuw i64 %.sroa.0.09, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8449)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8452)
@@ -16878,7 +16878,7 @@ define hidden void @"_ZN4core3ptr90drop_in_place$LT$alloc..collections..btree..s
   %11 = phi ptr [ %8, %.lr.ph.i.i.i.i ], [ %18, %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17h6f48ca2d36c739aeE.exit.i.i.i.i" ]
   %.sroa.23.0.copyload.i.i.i.i = load i64, ptr %.sroa.23.0..sroa_idx.i.i.i.i, align 8, !noalias !8482
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %13 = getelementptr inbounds { [3 x i64] }, ptr %12, i64 %.sroa.23.0.copyload.i.i.i.i
+  %13 = getelementptr inbounds [24 x i8], ptr %12, i64 %.sroa.23.0.copyload.i.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !8487)
   call void @llvm.experimental.noalias.scope.decl(metadata !8490)
   call void @llvm.experimental.noalias.scope.decl(metadata !8493)
@@ -17026,7 +17026,7 @@ define hidden void @"_ZN4core3ptr93drop_in_place$LT$core..option..Option$LT$allo
 
 .lr.ph.i.i.i:                                     ; preds = %4, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6b6e2bd102696678E.exit.i.i.i"
   %.sroa.0.09.i.i.i = phi i64 [ %11, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6b6e2bd102696678E.exit.i.i.i" ], [ 0, %4 ]
-  %10 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %6, i64 %.sroa.0.09.i.i.i
+  %10 = getelementptr inbounds [24 x i8], ptr %6, i64 %.sroa.0.09.i.i.i
   %11 = add nuw i64 %.sroa.0.09.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8536)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8539)
@@ -17183,7 +17183,7 @@ define hidden void @"_ZN4core3ptr94drop_in_place$LT$alloc..sync..ArcInner$LT$all
 
 .lr.ph.i.i.i:                                     ; preds = %1, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6b6e2bd102696678E.exit.i.i.i"
   %.sroa.0.09.i.i.i = phi i64 [ %9, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6b6e2bd102696678E.exit.i.i.i" ], [ 0, %1 ]
-  %8 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %4, i64 %.sroa.0.09.i.i.i
+  %8 = getelementptr inbounds [24 x i8], ptr %4, i64 %.sroa.0.09.i.i.i
   %9 = add nuw i64 %.sroa.0.09.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8650)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8653)
@@ -17276,7 +17276,7 @@ define internal fastcc void @"_ZN4core3ptr96drop_in_place$LT$core..option..Optio
   br i1 %10, label %"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h8e7292f2ee640e21E.llvm.2471798985521550805.exit.i", label %11
 
 11:                                               ; preds = %9
-  %12 = getelementptr inbounds { i64, [8 x i64] }, ptr %6, i64 %.sroa.0.0.i
+  %12 = getelementptr inbounds [72 x i8], ptr %6, i64 %.sroa.0.0.i
   %13 = add i64 %.sroa.0.0.i, 1
   invoke void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17h0d5944642bc4456eE.llvm.2471798985521550805"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %12) #50
           to label %9 unwind label %16, !noalias !8687
@@ -17292,7 +17292,7 @@ define internal fastcc void @"_ZN4core3ptr96drop_in_place$LT$core..option..Optio
   br label %14
 
 18:                                               ; preds = %14
-  %19 = getelementptr inbounds { i64, [8 x i64] }, ptr %6, i64 %.sroa.0.1.i
+  %19 = getelementptr inbounds [72 x i8], ptr %6, i64 %.sroa.0.1.i
   %20 = add i64 %.sroa.0.1.i, 1
   invoke void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17h0d5944642bc4456eE.llvm.2471798985521550805"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %19) #51
           to label %14 unwind label %21, !noalias !8687
@@ -18054,7 +18054,7 @@ define hidden void @"_ZN4core4iter6traits8iterator8Iterator8for_each4call28_$u7b
   %4 = load ptr, ptr %3, align 8, !alias.scope !8938, !noalias !8941, !noundef !9
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !alias.scope !8938, !noalias !8941, !noundef !9
-  %7 = getelementptr inbounds { i64, [8 x i64] }, ptr %4, i64 %6
+  %7 = getelementptr inbounds [72 x i8], ptr %4, i64 %6
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull readonly align 8 dereferenceable(72) %1, i64 72, i1 false), !noalias !8938
   %8 = add i64 %6, 1
   store i64 %8, ptr %5, align 8, !alias.scope !8938, !noalias !8941
@@ -18076,7 +18076,7 @@ define hidden void @"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d
   %6 = load ptr, ptr %5, align 8, !alias.scope !8949, !noalias !8950, !noundef !9
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i64, ptr %7, align 8, !alias.scope !8949, !noalias !8950, !noundef !9
-  %9 = getelementptr inbounds { i64, [8 x i64] }, ptr %6, i64 %8
+  %9 = getelementptr inbounds [72 x i8], ptr %6, i64 %8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %9, ptr noundef nonnull readonly align 8 dereferenceable(72) %4, i64 72, i1 false), !noalias !8949
   %10 = add i64 %8, 1
   store i64 %10, ptr %7, align 8, !alias.scope !8949, !noalias !8950
@@ -18113,15 +18113,15 @@ define internal fastcc noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot11me
 6:                                                ; preds = %4
   %7 = lshr i64 %3, 3
   %8 = shl nuw nsw i64 %7, 2
-  %9 = getelementptr inbounds nuw { { i64, [2 x i64] } }, ptr %0, i64 %8
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %8
   %10 = mul nuw nsw i64 %7, 7
-  %11 = getelementptr inbounds nuw { { i64, [2 x i64] } }, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %10
   %12 = tail call fastcc noundef ptr @_ZN4core5slice4sort6shared5pivot11median3_rec17h0bf90854d7ae3243E(ptr noundef %0, ptr noundef %9, ptr noundef %11, i64 noundef %7)
-  %13 = getelementptr inbounds nuw { { i64, [2 x i64] } }, ptr %1, i64 %8
-  %14 = getelementptr inbounds nuw { { i64, [2 x i64] } }, ptr %1, i64 %10
+  %13 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %8
+  %14 = getelementptr inbounds nuw [24 x i8], ptr %1, i64 %10
   %15 = tail call fastcc noundef ptr @_ZN4core5slice4sort6shared5pivot11median3_rec17h0bf90854d7ae3243E(ptr noundef %1, ptr noundef %13, ptr noundef %14, i64 noundef %7)
-  %16 = getelementptr inbounds nuw { { i64, [2 x i64] } }, ptr %2, i64 %8
-  %17 = getelementptr inbounds nuw { { i64, [2 x i64] } }, ptr %2, i64 %10
+  %16 = getelementptr inbounds nuw [24 x i8], ptr %2, i64 %8
+  %17 = getelementptr inbounds nuw [24 x i8], ptr %2, i64 %10
   %18 = tail call fastcc noundef ptr @_ZN4core5slice4sort6shared5pivot11median3_rec17h0bf90854d7ae3243E(ptr noundef %2, ptr noundef %16, ptr noundef %17, i64 noundef %7)
   br label %19
 
@@ -18334,13 +18334,13 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable1
   %spec.store.select.i.i.i.i.i.i30 = select i1 %26, i64 %23, i64 %25
   %27 = icmp slt i64 %spec.store.select.i.i.i.i.i.i30, 0
   %spec.store.select.i.i.i.i.i.i.lobit = lshr i64 %spec.store.select.i.i.i.i.i.i, 63
-  %28 = getelementptr inbounds nuw { { i64, [2 x i64] } }, ptr %0, i64 %spec.store.select.i.i.i.i.i.i.lobit
+  %28 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %spec.store.select.i.i.i.i.i.i.lobit
   %29 = zext i1 %14 to i64
-  %30 = getelementptr inbounds nuw { { i64, [2 x i64] } }, ptr %0, i64 %29
+  %30 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %29
   %31 = select i1 %27, i64 3, i64 2
-  %32 = getelementptr inbounds nuw { { i64, [2 x i64] } }, ptr %0, i64 %31
+  %32 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %31
   %33 = select i1 %27, i64 2, i64 3
-  %34 = getelementptr inbounds nuw { { i64, [2 x i64] } }, ptr %0, i64 %33
+  %34 = getelementptr inbounds nuw [24 x i8], ptr %0, i64 %33
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9150)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9153)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9155)
@@ -18457,12 +18457,12 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort25insertion_sort_shift_l
   unreachable
 
 7:                                                ; preds = %4
-  %8 = getelementptr inbounds { { i64, [2 x i64] } }, ptr %0, i64 %1
+  %8 = getelementptr inbounds [24 x i8], ptr %0, i64 %1
   %.not4 = icmp eq i64 %2, %1
   br i1 %.not4, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %7
-  %9 = getelementptr inbounds { { i64, [2 x i64] } }, ptr %0, i64 %2
+  %9 = getelementptr inbounds [24 x i8], ptr %0, i64 %2
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN4core5slice4sort6shared9smallsort11insert_tail17h1832bb56d860a1ebE.llvm.2471798985521550805.exit, %7
@@ -18588,8 +18588,8 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h31d109b7f2a
 21:                                               ; preds = %18
   %22 = lshr i64 %.sroa.12.0.lcssa, 1
   %23 = icmp samesign ugt i64 %.sroa.12.0.lcssa, 7
-  %24 = getelementptr inbounds nuw { { i64, [2 x i64] } }, ptr %.sroa.0.0.ph.lcssa107, i64 %22
-  %25 = getelementptr { { i64, [2 x i64] } }, ptr %2, i64 %22
+  %24 = getelementptr inbounds nuw [24 x i8], ptr %.sroa.0.0.ph.lcssa107, i64 %22
+  %25 = getelementptr [24 x i8], ptr %2, i64 %22
   br i1 %23, label %27, label %28
 
 26:                                               ; preds = %18
@@ -18617,8 +18617,8 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h31d109b7f2a
 31:                                               ; preds = %.loopexit.i, %29
   %.not.i.i.i = phi i1 [ false, %29 ], [ true, %.loopexit.i ]
   %.sroa.phi.sroa.speculated = phi i64 [ 0, %29 ], [ %22, %.loopexit.i ]
-  %32 = getelementptr inbounds nuw { { i64, [2 x i64] } }, ptr %.sroa.0.0.ph.lcssa107, i64 %.sroa.phi.sroa.speculated
-  %33 = getelementptr inbounds nuw { { i64, [2 x i64] } }, ptr %2, i64 %.sroa.phi.sroa.speculated
+  %32 = getelementptr inbounds nuw [24 x i8], ptr %.sroa.0.0.ph.lcssa107, i64 %.sroa.phi.sroa.speculated
+  %33 = getelementptr inbounds nuw [24 x i8], ptr %2, i64 %.sroa.phi.sroa.speculated
   %34 = icmp eq i64 %.sroa.phi.sroa.speculated, 0
   %.sroa.013.0.i = select i1 %34, i64 %22, i64 %30
   %35 = icmp ult i64 %.sroa.0.0.i, %.sroa.013.0.i
@@ -18627,8 +18627,8 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h31d109b7f2a
 .critedge.i:                                      ; preds = %.loopexit.i
   call void @llvm.experimental.noalias.scope.decl(metadata !9307)
   %36 = add nsw i64 %.sroa.12.0.lcssa, -1
-  %37 = getelementptr inbounds nuw { { i64, [2 x i64] } }, ptr %.sroa.0.0.ph.lcssa107, i64 %36
-  %38 = getelementptr inbounds nuw { { i64, [2 x i64] } }, ptr %2, i64 %36
+  %37 = getelementptr inbounds nuw [24 x i8], ptr %.sroa.0.0.ph.lcssa107, i64 %36
+  %38 = getelementptr inbounds nuw [24 x i8], ptr %2, i64 %36
   %39 = getelementptr i8, ptr %25, i64 -24
   br label %.lr.ph.i.i
 
@@ -18680,9 +18680,9 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h31d109b7f2a
   %..i23.i.i = select i1 %55, ptr %.sroa.0.010.i.i, ptr %.sroa.06.09.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.010.08.i.i, ptr noundef nonnull align 8 dereferenceable(24) %..i23.i.i, i64 24, i1 false), !alias.scope !9306, !noalias !9342
   %spec.store.select.i.i.i.i.i.i.lobit.i.i = lshr i64 %spec.store.select.i.i.i.i.i.i.i.i, 63
-  %56 = getelementptr inbounds nuw { { i64, [2 x i64] } }, ptr %.sroa.06.09.i.i, i64 %spec.store.select.i.i.i.i.i.i.lobit.i.i
+  %56 = getelementptr inbounds nuw [24 x i8], ptr %.sroa.06.09.i.i, i64 %spec.store.select.i.i.i.i.i.i.lobit.i.i
   %57 = zext i1 %55 to i64
-  %58 = getelementptr inbounds nuw { { i64, [2 x i64] } }, ptr %.sroa.0.010.i.i, i64 %57
+  %58 = getelementptr inbounds nuw [24 x i8], ptr %.sroa.0.010.i.i, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %.sroa.010.08.i.i, i64 24
   call void @llvm.experimental.noalias.scope.decl(metadata !9346)
   call void @llvm.experimental.noalias.scope.decl(metadata !9349)
@@ -18716,9 +18716,9 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h31d109b7f2a
   %..i.i.i = select i1 %70, ptr %.sroa.015.06.i.i, ptr %.sroa.013.07.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.017.05.i.i, ptr noundef nonnull align 8 dereferenceable(24) %..i.i.i, i64 24, i1 false), !alias.scope !9306, !noalias !9378
   %.neg.i.i.i = sext i1 %70 to i64
-  %71 = getelementptr { { i64, [2 x i64] } }, ptr %.sroa.015.06.i.i, i64 %.neg.i.i.i
+  %71 = getelementptr [24 x i8], ptr %.sroa.015.06.i.i, i64 %.neg.i.i.i
   %spec.store.select.i.i.i.i.i.i33.lobit.i.i = ashr i64 %spec.store.select.i.i.i.i.i.i33.i.i, 63
-  %72 = getelementptr { { i64, [2 x i64] } }, ptr %.sroa.013.07.i.i, i64 %spec.store.select.i.i.i.i.i.i33.lobit.i.i
+  %72 = getelementptr [24 x i8], ptr %.sroa.013.07.i.i, i64 %spec.store.select.i.i.i.i.i.i33.lobit.i.i
   %73 = getelementptr inbounds i8, ptr %.sroa.017.05.i.i, i64 -24
   %exitcond.not.i.i = icmp eq i64 %44, %22
   br i1 %exitcond.not.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i
@@ -18728,10 +18728,10 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h31d109b7f2a
   %.sroa.0.0..sroa.06.0.i.i = select i1 %75, ptr %58, ptr %56
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %59, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.0..sroa.06.0.i.i, i64 24, i1 false), !alias.scope !9306
   %76 = zext i1 %75 to i64
-  %77 = getelementptr inbounds nuw { { i64, [2 x i64] } }, ptr %58, i64 %76
+  %77 = getelementptr inbounds nuw [24 x i8], ptr %58, i64 %76
   %78 = xor i1 %75, true
   %79 = zext i1 %78 to i64
-  %80 = getelementptr inbounds nuw { { i64, [2 x i64] } }, ptr %56, i64 %79
+  %80 = getelementptr inbounds nuw [24 x i8], ptr %56, i64 %79
   br label %81
 
 81:                                               ; preds = %74, %._crit_edge.i.i
@@ -18759,8 +18759,8 @@ define hidden void @_ZN4core5slice4sort6stable9quicksort9quicksort17h31d109b7f2a
 .lr.ph.i:                                         ; preds = %31, %_ZN4core5slice4sort6shared9smallsort11insert_tail17h1832bb56d860a1ebE.llvm.2471798985521550805.exit.i
   %.sroa.014.07.i = phi i64 [ %88, %_ZN4core5slice4sort6shared9smallsort11insert_tail17h1832bb56d860a1ebE.llvm.2471798985521550805.exit.i ], [ %.sroa.0.0.i, %31 ]
   %88 = add nuw i64 %.sroa.014.07.i, 1
-  %89 = getelementptr inbounds { { i64, [2 x i64] } }, ptr %32, i64 %.sroa.014.07.i
-  %90 = getelementptr inbounds { { i64, [2 x i64] } }, ptr %33, i64 %.sroa.014.07.i
+  %89 = getelementptr inbounds [24 x i8], ptr %32, i64 %.sroa.014.07.i
+  %90 = getelementptr inbounds [24 x i8], ptr %33, i64 %.sroa.014.07.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %90, ptr noundef nonnull align 8 dereferenceable(24) %89, i64 24, i1 false), !alias.scope !9306
   %91 = getelementptr inbounds i8, ptr %90, i64 -24
   call void @llvm.experimental.noalias.scope.decl(metadata !9387)
@@ -18967,7 +18967,7 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h1ad8f559
   br i1 %165, label %169, label %166
 
 166:                                              ; preds = %.thread
-  %167 = getelementptr { { i64, [2 x i64] } }, ptr %2, i64 %.sroa.12.0109
+  %167 = getelementptr [24 x i8], ptr %2, i64 %.sroa.12.0109
   %168 = getelementptr inbounds nuw i8, ptr %153, i64 8
   %.sroa.32.0.in.i.i.i.i.i31 = getelementptr inbounds nuw i8, ptr %153, i64 16
   br label %170
@@ -18981,7 +18981,7 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h1ad8f559
   %.sroa.5.0.i = phi ptr [ %.sroa.0.0.ph116, %166 ], [ %192, %189 ]
   %.sroa.19.0.i = phi ptr [ %167, %166 ], [ %190, %189 ]
   %.sroa.02.0.i = phi i64 [ %.sroa.0.0.i29, %166 ], [ %.sroa.12.0109, %189 ]
-  %171 = getelementptr inbounds { { i64, [2 x i64] } }, ptr %.sroa.0.0.ph116, i64 %.sroa.02.0.i
+  %171 = getelementptr inbounds [24 x i8], ptr %.sroa.0.0.ph116, i64 %.sroa.02.0.i
   %172 = icmp ult ptr %.sroa.5.0.i, %171
   br i1 %172, label %.lr.ph.i33, label %._crit_edge.i
 
@@ -19025,7 +19025,7 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h1ad8f559
   %183 = icmp slt i64 %spec.store.select.i.i.i.i.i.i.i42, 0
   %184 = getelementptr inbounds i8, ptr %.sroa.19.112.i, i64 -24
   %.sroa.01.0.i.i = select i1 %183, ptr %2, ptr %184
-  %185 = getelementptr inbounds { { i64, [2 x i64] } }, ptr %.sroa.01.0.i.i, i64 %.sroa.11.110.i
+  %185 = getelementptr inbounds [24 x i8], ptr %.sroa.01.0.i.i, i64 %.sroa.11.110.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %185, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.111.i, i64 24, i1 false), !alias.scope !9598, !noalias !9599
   %spec.store.select.i.i.i.i.i.i.lobit.i = lshr i64 %spec.store.select.i.i.i.i.i.i.i42, 63
   %186 = add i64 %spec.store.select.i.i.i.i.i.i.lobit.i, %.sroa.11.110.i
@@ -19035,7 +19035,7 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h1ad8f559
 
 189:                                              ; preds = %._crit_edge.i
   %190 = getelementptr inbounds i8, ptr %.sroa.19.1.lcssa.i, i64 -24
-  %191 = getelementptr inbounds { { i64, [2 x i64] } }, ptr %190, i64 %.sroa.11.1.lcssa.i
+  %191 = getelementptr inbounds [24 x i8], ptr %190, i64 %.sroa.11.1.lcssa.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %191, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.1.lcssa.i, i64 24, i1 false), !alias.scope !9598, !noalias !9602
   %192 = getelementptr inbounds nuw i8, ptr %.sroa.5.1.lcssa.i, i64 24
   br label %170
@@ -19048,15 +19048,15 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h1ad8f559
   br i1 %.not.i, label %.loopexit, label %.lr.ph17.i
 
 .lr.ph17.i:                                       ; preds = %193
-  %196 = getelementptr { { i64, [2 x i64] } }, ptr %.sroa.0.0.ph116, i64 %.sroa.11.1.lcssa.i
+  %196 = getelementptr [24 x i8], ptr %.sroa.0.0.ph116, i64 %.sroa.11.1.lcssa.i
   br label %197
 
 197:                                              ; preds = %197, %.lr.ph17.i
   %.sroa.04.015.i = phi i64 [ 0, %.lr.ph17.i ], [ %198, %197 ]
   %198 = add nuw i64 %.sroa.04.015.i, 1
   %199 = xor i64 %.sroa.04.015.i, -1
-  %200 = getelementptr { { i64, [2 x i64] } }, ptr %167, i64 %199
-  %201 = getelementptr { { i64, [2 x i64] } }, ptr %196, i64 %.sroa.04.015.i
+  %200 = getelementptr [24 x i8], ptr %167, i64 %199
+  %201 = getelementptr [24 x i8], ptr %196, i64 %.sroa.04.015.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %201, ptr noundef nonnull align 8 dereferenceable(24) %200, i64 24, i1 false), !alias.scope !9598
   %exitcond.not.i32 = icmp eq i64 %198, %195
   br i1 %exitcond.not.i32, label %.loopexit, label %197
@@ -19076,7 +19076,7 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h1ad8f559
   br i1 %204, label %208, label %205
 
 205:                                              ; preds = %.thread77
-  %206 = getelementptr { { i64, [2 x i64] } }, ptr %2, i64 %.sroa.12.0109
+  %206 = getelementptr [24 x i8], ptr %2, i64 %.sroa.12.0109
   %207 = getelementptr inbounds nuw i8, ptr %153, i64 8
   %.sroa.3.0.in.i.i.i.i.i.i44 = getelementptr inbounds nuw i8, ptr %153, i64 16
   br label %209
@@ -19090,7 +19090,7 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h1ad8f559
   %.sroa.5.0.i46 = phi ptr [ %.sroa.0.0.ph116, %205 ], [ %233, %229 ]
   %.sroa.19.0.i47 = phi ptr [ %206, %205 ], [ %230, %229 ]
   %.sroa.02.0.i48 = phi i64 [ %.sroa.0.0.i29, %205 ], [ %.sroa.12.0109, %229 ]
-  %210 = getelementptr inbounds { { i64, [2 x i64] } }, ptr %.sroa.0.0.ph116, i64 %.sroa.02.0.i48
+  %210 = getelementptr inbounds [24 x i8], ptr %.sroa.0.0.ph116, i64 %.sroa.02.0.i48
   %211 = icmp ult ptr %.sroa.5.0.i46, %210
   br i1 %211, label %.lr.ph.i57, label %._crit_edge.i49
 
@@ -19136,7 +19136,7 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h1ad8f559
   %222 = icmp sgt i64 %spec.store.select.i.i.i.i.i.i.i.i69, -1
   %223 = getelementptr inbounds i8, ptr %.sroa.19.112.i58, i64 -24
   %.sroa.01.0.i.i70 = select i1 %222, ptr %2, ptr %223
-  %224 = getelementptr inbounds { { i64, [2 x i64] } }, ptr %.sroa.01.0.i.i70, i64 %.sroa.11.110.i60
+  %224 = getelementptr inbounds [24 x i8], ptr %.sroa.01.0.i.i70, i64 %.sroa.11.110.i60
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %224, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.111.i59, i64 24, i1 false), !alias.scope !9647, !noalias !9648
   %225 = zext i1 %222 to i64
   %226 = add i64 %.sroa.11.110.i60, %225
@@ -19146,7 +19146,7 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h1ad8f559
 
 229:                                              ; preds = %._crit_edge.i49
   %230 = getelementptr inbounds i8, ptr %.sroa.19.1.lcssa.i52, i64 -24
-  %231 = getelementptr inbounds { { i64, [2 x i64] } }, ptr %2, i64 %.sroa.11.1.lcssa.i50
+  %231 = getelementptr inbounds [24 x i8], ptr %2, i64 %.sroa.11.1.lcssa.i50
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %231, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.5.1.lcssa.i51, i64 24, i1 false), !alias.scope !9647, !noalias !9651
   %232 = add i64 %.sroa.11.1.lcssa.i50, 1
   %233 = getelementptr inbounds nuw i8, ptr %.sroa.5.1.lcssa.i51, i64 24
@@ -19160,15 +19160,15 @@ _ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h1ad8f559
   br i1 %.not.i53, label %.outer._crit_edge.thread, label %.lr.ph17.i54
 
 .lr.ph17.i54:                                     ; preds = %234
-  %237 = getelementptr { { i64, [2 x i64] } }, ptr %.sroa.0.0.ph116, i64 %.sroa.11.1.lcssa.i50
+  %237 = getelementptr [24 x i8], ptr %.sroa.0.0.ph116, i64 %.sroa.11.1.lcssa.i50
   br label %238
 
 238:                                              ; preds = %238, %.lr.ph17.i54
   %.sroa.04.015.i55 = phi i64 [ 0, %.lr.ph17.i54 ], [ %239, %238 ]
   %239 = add nuw i64 %.sroa.04.015.i55, 1
   %240 = xor i64 %.sroa.04.015.i55, -1
-  %241 = getelementptr { { i64, [2 x i64] } }, ptr %206, i64 %240
-  %242 = getelementptr { { i64, [2 x i64] } }, ptr %237, i64 %.sroa.04.015.i55
+  %241 = getelementptr [24 x i8], ptr %206, i64 %240
+  %242 = getelementptr [24 x i8], ptr %237, i64 %.sroa.04.015.i55
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %242, ptr noundef nonnull align 8 dereferenceable(24) %241, i64 24, i1 false), !alias.scope !9647
   %exitcond.not.i56 = icmp eq i64 %239, %236
   br i1 %exitcond.not.i56, label %_ZN4core5slice4sort6stable9quicksort16stable_partition17h35fc39b8edbe3f32E.exit, label %238
@@ -19186,7 +19186,7 @@ _ZN4core5slice4sort6stable9quicksort16stable_partition17h35fc39b8edbe3f32E.exit:
   unreachable
 
 "_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h023936669d39e26fE.exit": ; preds = %_ZN4core5slice4sort6stable9quicksort16stable_partition17h35fc39b8edbe3f32E.exit
-  %245 = getelementptr inbounds { { i64, [2 x i64] } }, ptr %.sroa.0.0.ph116, i64 %.sroa.11.1.lcssa.i50
+  %245 = getelementptr inbounds [24 x i8], ptr %.sroa.0.0.ph116, i64 %.sroa.11.1.lcssa.i50
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %246 = icmp ult i64 %236, 33
   br i1 %246, label %.outer._crit_edge, label %.lr.ph
@@ -19206,7 +19206,7 @@ _ZN4core5slice4sort6stable9quicksort16stable_partition17h35fc39b8edbe3f32E.exit:
   unreachable
 
 252:                                              ; preds = %203
-  %253 = getelementptr inbounds { { i64, [2 x i64] } }, ptr %.sroa.0.0.ph116, i64 %.sroa.11.1.lcssa.i
+  %253 = getelementptr inbounds [24 x i8], ptr %.sroa.0.0.ph116, i64 %.sroa.11.1.lcssa.i
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.0.0.ph116) ]
   call void @_ZN4core5slice4sort6stable9quicksort9quicksort17h31d109b7f2a296c5E(ptr noalias noundef nonnull align 8 %253, i64 noundef %195, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i32 noundef %117, ptr noalias noundef nonnull readonly align 8 dereferenceable_or_null(24) %9, ptr noalias noundef nonnull align 1 %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -19918,7 +19918,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted28_$u7b$$u7b
   %4 = load ptr, ptr %3, align 8, !noundef !9
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !9
-  %7 = getelementptr inbounds { i64, [8 x i64] }, ptr %4, i64 %6
+  %7 = getelementptr inbounds [72 x i8], ptr %4, i64 %6
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %7, ptr noundef nonnull align 8 dereferenceable(72) %1, i64 72, i1 false)
   %8 = add i64 %6, 1
   store i64 %8, ptr %5, align 8
@@ -19947,7 +19947,7 @@ define hidden void @"_ZN5alloc3vec9into_iter21IntoIter$LT$T$C$A$GT$32forget_allo
 
 .lr.ph.i:                                         ; preds = %"_ZN4core3ptr72drop_in_place$LT$alloc..raw_vec..RawVec$LT$alloc..string..String$GT$$GT$17h16326fac5c773179E.exit", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6b6e2bd102696678E.exit.i"
   %.sroa.0.09.i = phi i64 [ %12, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6b6e2bd102696678E.exit.i" ], [ 0, %"_ZN4core3ptr72drop_in_place$LT$alloc..raw_vec..RawVec$LT$alloc..string..String$GT$$GT$17h16326fac5c773179E.exit" ]
-  %11 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %2, i64 %.sroa.0.09.i
+  %11 = getelementptr inbounds [24 x i8], ptr %2, i64 %.sroa.0.09.i
   %12 = add nuw i64 %.sroa.0.09.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9788)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9791)
@@ -20603,7 +20603,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
 
 .lr.ph.i:                                         ; preds = %1, %"_ZN4core3ptr80drop_in_place$LT$$LP$alloc..string..String$C$gpui..style..HighlightStyle$RP$$GT$17hd3ebd9e48efffd77E.llvm.2471798985521550805.exit.i"
   %.sroa.0.09.i = phi i64 [ %8, %"_ZN4core3ptr80drop_in_place$LT$$LP$alloc..string..String$C$gpui..style..HighlightStyle$RP$$GT$17hd3ebd9e48efffd77E.llvm.2471798985521550805.exit.i" ], [ 0, %1 ]
-  %7 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i32, [4 x i32] }, { i32, [1 x i32] }, { i32, [4 x i32] }, { i32, [1 x i32] }, { i32, [6 x i32] }, { i32, [5 x i32] }, i8, [3 x i8] } }, ptr %3, i64 %.sroa.0.09.i
+  %7 = getelementptr inbounds [136 x i8], ptr %3, i64 %.sroa.0.09.i
   %8 = add nuw i64 %.sroa.0.09.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9968)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9971)
@@ -20640,7 +20640,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
 
 .lr.ph.i:                                         ; preds = %1, %"_ZN4core3ptr49drop_in_place$LT$theme..schema..AccentContent$GT$17h24c2216921977b5cE.exit.i"
   %.sroa.0.09.i = phi i64 [ %8, %"_ZN4core3ptr49drop_in_place$LT$theme..schema..AccentContent$GT$17h24c2216921977b5cE.exit.i" ], [ 0, %1 ]
-  %7 = getelementptr inbounds { { i64, [2 x i64] } }, ptr %3, i64 %.sroa.0.09.i
+  %7 = getelementptr inbounds [24 x i8], ptr %3, i64 %.sroa.0.09.i
   %8 = add nuw i64 %.sroa.0.09.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9992)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !9995)
@@ -20699,7 +20699,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
   br i1 %7, label %"_ZN4core3ptr69drop_in_place$LT$$u5b$serde..__private..de..content..Content$u5d$$GT$17h25c73757db253c23E.llvm.2471798985521550805.exit", label %8
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds { i8, [31 x i8] }, ptr %3, i64 %.sroa.0.0.i
+  %9 = getelementptr inbounds [32 x i8], ptr %3, i64 %.sroa.0.0.i
   %10 = add i64 %.sroa.0.0.i, 1
   invoke void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17hc16b5faa1b4cae6dE.llvm.2471798985521550805"(ptr noalias noundef nonnull align 8 dereferenceable(32) %9)
           to label %6 unwind label %13
@@ -20715,7 +20715,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
   br label %11
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds { i8, [31 x i8] }, ptr %3, i64 %.sroa.0.1.i
+  %16 = getelementptr inbounds [32 x i8], ptr %3, i64 %.sroa.0.1.i
   %17 = add i64 %.sroa.0.1.i, 1
   invoke void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17hc16b5faa1b4cae6dE.llvm.2471798985521550805"(ptr noalias noundef nonnull align 8 dereferenceable(32) %16) #44
           to label %11 unwind label %19
@@ -20752,7 +20752,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
   br i1 %6, label %"_ZN4core3ptr118drop_in_place$LT$$u5b$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$u5d$$GT$17h76a6c6bf8f1c9ae4E.llvm.2471798985521550805.exit", label %7
 
 7:                                                ; preds = %"_ZN4core3ptr108drop_in_place$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$17h7c0108e0b4101262E.llvm.2471798985521550805.exit"
-  %8 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %3, i64 %.sroa.0.0.i
+  %8 = getelementptr inbounds [64 x i8], ptr %3, i64 %.sroa.0.0.i
   %9 = add i64 %.sroa.0.0.i, 1
   invoke void @"_ZN4core3ptr59drop_in_place$LT$serde..__private..de..content..Content$GT$17hc16b5faa1b4cae6dE.llvm.2471798985521550805"(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %8) #48
           to label %13 unwind label %10
@@ -20790,7 +20790,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
   br label %17
 
 21:                                               ; preds = %17
-  %22 = getelementptr inbounds { { i8, [31 x i8] }, { i8, [31 x i8] } }, ptr %3, i64 %.sroa.0.1.i
+  %22 = getelementptr inbounds [64 x i8], ptr %3, i64 %.sroa.0.1.i
   %23 = add i64 %.sroa.0.1.i, 1
   invoke void @"_ZN4core3ptr108drop_in_place$LT$$LP$serde..__private..de..content..Content$C$serde..__private..de..content..Content$RP$$GT$17h7c0108e0b4101262E.llvm.2471798985521550805"(ptr noalias noundef nonnull align 8 dereferenceable(64) %22) #44
           to label %17 unwind label %25
@@ -20822,7 +20822,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
   br i1 %7, label %"_ZN4core3ptr55drop_in_place$LT$$u5b$serde_json..value..Value$u5d$$GT$17h6eb36321ad487cc1E.llvm.2471798985521550805.exit", label %8
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds { i64, [8 x i64] }, ptr %3, i64 %.sroa.0.0.i
+  %9 = getelementptr inbounds [72 x i8], ptr %3, i64 %.sroa.0.0.i
   %10 = add i64 %.sroa.0.0.i, 1
   invoke void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17h0d5944642bc4456eE.llvm.2471798985521550805"(ptr noalias noundef nonnull align 8 dereferenceable(72) %9)
           to label %6 unwind label %13
@@ -20838,7 +20838,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
   br label %11
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds { i64, [8 x i64] }, ptr %3, i64 %.sroa.0.1.i
+  %16 = getelementptr inbounds [72 x i8], ptr %3, i64 %.sroa.0.1.i
   %17 = add i64 %.sroa.0.1.i, 1
   invoke void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17h0d5944642bc4456eE.llvm.2471798985521550805"(ptr noalias noundef nonnull align 8 dereferenceable(72) %16) #44
           to label %11 unwind label %19
@@ -20870,7 +20870,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
   br i1 %7, label %"_ZN4core3ptr43drop_in_place$LT$$u5b$theme..Theme$u5d$$GT$17hf4cf0f8f8a895ac8E.llvm.2471798985521550805.exit", label %8
 
 8:                                                ; preds = %6
-  %9 = getelementptr inbounds { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, ptr, { { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float } }, { { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float } }, { { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float } }, i8, [7 x i8] }, i8, [7 x i8] }, ptr %3, i64 %.sroa.0.0.i
+  %9 = getelementptr inbounds [2344 x i8], ptr %3, i64 %.sroa.0.0.i
   %10 = add i64 %.sroa.0.0.i, 1
   invoke void @"_ZN4core3ptr33drop_in_place$LT$theme..Theme$GT$17h24fdb908a9c2ce76E"(ptr noalias noundef nonnull align 8 dereferenceable(2344) %9)
           to label %6 unwind label %13
@@ -20886,7 +20886,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
   br label %11
 
 15:                                               ; preds = %11
-  %16 = getelementptr inbounds { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, ptr, { { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float } }, { { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float } }, { { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float } }, i8, [7 x i8] }, i8, [7 x i8] }, ptr %3, i64 %.sroa.0.1.i
+  %16 = getelementptr inbounds [2344 x i8], ptr %3, i64 %.sroa.0.1.i
   %17 = add i64 %.sroa.0.1.i, 1
   invoke void @"_ZN4core3ptr33drop_in_place$LT$theme..Theme$GT$17h24fdb908a9c2ce76E"(ptr noalias noundef nonnull align 8 dereferenceable(2344) %16) #44
           to label %11 unwind label %19
@@ -20915,7 +20915,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
 
 .lr.ph.i:                                         ; preds = %1, %"_ZN4core3ptr54drop_in_place$LT$gpui..shared_string..SharedString$GT$17hecf3af87ac8b908eE.exit.i"
   %.sroa.0.09.i = phi i64 [ %8, %"_ZN4core3ptr54drop_in_place$LT$gpui..shared_string..SharedString$GT$17hecf3af87ac8b908eE.exit.i" ], [ 0, %1 ]
-  %7 = getelementptr inbounds { { i64, [2 x i64] } }, ptr %3, i64 %.sroa.0.09.i
+  %7 = getelementptr inbounds [24 x i8], ptr %3, i64 %.sroa.0.09.i
   %8 = add nuw i64 %.sroa.0.09.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10020)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10023)
@@ -20949,7 +20949,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
 
 .lr.ph12.i:                                       ; preds = %18, %"_ZN4core3ptr54drop_in_place$LT$gpui..shared_string..SharedString$GT$17hecf3af87ac8b908eE.exit8.i"
   %.sroa.0.110.i = phi i64 [ %22, %"_ZN4core3ptr54drop_in_place$LT$gpui..shared_string..SharedString$GT$17hecf3af87ac8b908eE.exit8.i" ], [ %8, %18 ]
-  %21 = getelementptr inbounds { { i64, [2 x i64] } }, ptr %3, i64 %.sroa.0.110.i
+  %21 = getelementptr inbounds [24 x i8], ptr %3, i64 %.sroa.0.110.i
   %22 = add i64 %.sroa.0.110.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10037)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10040)
@@ -21000,7 +21000,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
 
 .lr.ph.i:                                         ; preds = %1, %"_ZN4core3ptr56drop_in_place$LT$$LP$alloc..string..String$C$u32$RP$$GT$17h52abc9dbc79bb307E.llvm.2471798985521550805.exit.i"
   %.sroa.0.09.i = phi i64 [ %8, %"_ZN4core3ptr56drop_in_place$LT$$LP$alloc..string..String$C$u32$RP$$GT$17h52abc9dbc79bb307E.llvm.2471798985521550805.exit.i" ], [ 0, %1 ]
-  %7 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, i32, [1 x i32] }, ptr %3, i64 %.sroa.0.09.i
+  %7 = getelementptr inbounds [32 x i8], ptr %3, i64 %.sroa.0.09.i
   %8 = add nuw i64 %.sroa.0.09.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10055)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10058)
@@ -21037,7 +21037,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
 
 .lr.ph.i:                                         ; preds = %1, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6b6e2bd102696678E.exit.i"
   %.sroa.0.09.i = phi i64 [ %8, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6b6e2bd102696678E.exit.i" ], [ 0, %1 ]
-  %7 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %3, i64 %.sroa.0.09.i
+  %7 = getelementptr inbounds [24 x i8], ptr %3, i64 %.sroa.0.09.i
   %8 = add nuw i64 %.sroa.0.09.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10079)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10082)
@@ -21075,7 +21075,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
   br i1 %6, label %"_ZN4core3ptr58drop_in_place$LT$$u5b$theme..schema..ThemeContent$u5d$$GT$17ha0e136a0ddc68371E.llvm.2471798985521550805.exit", label %7
 
 7:                                                ; preds = %"_ZN4core3ptr48drop_in_place$LT$theme..schema..ThemeContent$GT$17h24d118366eaf0407E.exit.i"
-  %8 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { { i64, ptr, {} }, i64 }, { { ptr, i64, i64, i64, {} }, {} } }, { i64, i64 } }, { { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] } }, { { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] } }, i8, [7 x i8] }, i8, [7 x i8] }, ptr %3, i64 %.sroa.0.0.i
+  %8 = getelementptr inbounds [3424 x i8], ptr %3, i64 %.sroa.0.0.i
   %9 = add i64 %.sroa.0.0.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10097)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10100)
@@ -21108,7 +21108,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
   br label %15
 
 19:                                               ; preds = %15
-  %20 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { { i64, ptr, {} }, i64 }, { { ptr, i64, i64, i64, {} }, {} } }, { i64, i64 } }, { { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] } }, { { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] } }, i8, [7 x i8] }, i8, [7 x i8] }, ptr %3, i64 %.sroa.0.1.i
+  %20 = getelementptr inbounds [3424 x i8], ptr %3, i64 %.sroa.0.1.i
   %21 = add i64 %.sroa.0.1.i, 1
   invoke void @"_ZN4core3ptr48drop_in_place$LT$theme..schema..ThemeContent$GT$17h24d118366eaf0407E"(ptr noalias noundef nonnull align 8 dereferenceable(3424) %20) #44
           to label %15 unwind label %23
@@ -21141,7 +21141,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
   br i1 %6, label %"_ZN4core3ptr103drop_in_place$LT$$u5b$indexmap..Bucket$LT$alloc..string..String$C$serde_json..value..Value$GT$$u5d$$GT$17hf0c57b0e4e425834E.llvm.2471798985521550805.exit", label %7
 
 7:                                                ; preds = %"_ZN4core3ptr93drop_in_place$LT$indexmap..Bucket$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$17h0ae2fa0f78ac5420E.exit.i"
-  %8 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %3, i64 %.sroa.0.0.i
+  %8 = getelementptr inbounds [104 x i8], ptr %3, i64 %.sroa.0.0.i
   %9 = add i64 %.sroa.0.0.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10123)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10126)
@@ -21173,7 +21173,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
   br label %15
 
 18:                                               ; preds = %15
-  %19 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %3, i64 %.sroa.0.1.i
+  %19 = getelementptr inbounds [104 x i8], ptr %3, i64 %.sroa.0.1.i
   %20 = add i64 %.sroa.0.1.i, 1
   invoke void @"_ZN4core3ptr93drop_in_place$LT$indexmap..Bucket$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$17h0ae2fa0f78ac5420E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %19) #49
           to label %15 unwind label %22
@@ -21203,7 +21203,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
 
 .lr.ph.i:                                         ; preds = %1, %"_ZN4core3ptr54drop_in_place$LT$theme..schema..PlayerColorContent$GT$17ha1b15379de59f01dE.exit.i"
   %.sroa.0.07.i = phi i64 [ %8, %"_ZN4core3ptr54drop_in_place$LT$theme..schema..PlayerColorContent$GT$17ha1b15379de59f01dE.exit.i" ], [ 0, %1 ]
-  %7 = getelementptr inbounds { { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] } }, ptr %3, i64 %.sroa.0.07.i
+  %7 = getelementptr inbounds [72 x i8], ptr %3, i64 %.sroa.0.07.i
   %8 = add nuw i64 %.sroa.0.07.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10144)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10147)
@@ -21287,7 +21287,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
 
 .lr.ph.i:                                         ; preds = %1, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h1e9da935add9610cE.llvm.2471798985521550805.exit.i"
   %.sroa.0.09.i = phi i64 [ %8, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h1e9da935add9610cE.llvm.2471798985521550805.exit.i" ], [ 0, %1 ]
-  %7 = getelementptr inbounds { i64, [29 x i64] }, ptr %3, i64 %.sroa.0.09.i
+  %7 = getelementptr inbounds [240 x i8], ptr %3, i64 %.sroa.0.09.i
   %8 = add nuw i64 %.sroa.0.09.i, 1
   %9 = load i64, ptr %7, align 8, !range !154, !alias.scope !10216, !noundef !9
   %10 = icmp eq i64 %9, -9223372036854775807
@@ -21309,7 +21309,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
 
 .lr.ph12.i:                                       ; preds = %13, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h1e9da935add9610cE.llvm.2471798985521550805.exit8.i"
   %.sroa.0.110.i = phi i64 [ %17, %"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h1e9da935add9610cE.llvm.2471798985521550805.exit8.i" ], [ %8, %13 ]
-  %16 = getelementptr inbounds { i64, [29 x i64] }, ptr %3, i64 %.sroa.0.110.i
+  %16 = getelementptr inbounds [240 x i8], ptr %3, i64 %.sroa.0.110.i
   %17 = add i64 %.sroa.0.110.i, 1
   %18 = load i64, ptr %16, align 8, !range !154, !alias.scope !10219, !noundef !9
   %19 = icmp eq i64 %18, -9223372036854775807
@@ -21367,7 +21367,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
 
 .lr.ph.i:                                         ; preds = %1, %"_ZN4core3ptr47drop_in_place$LT$theme..registry..ThemeMeta$GT$17hdee9a4ecbdd8d3fcE.exit.i"
   %.sroa.0.09.i = phi i64 [ %8, %"_ZN4core3ptr47drop_in_place$LT$theme..registry..ThemeMeta$GT$17hdee9a4ecbdd8d3fcE.exit.i" ], [ 0, %1 ]
-  %7 = getelementptr inbounds { { { i64, [2 x i64] } }, i8, [7 x i8] }, ptr %3, i64 %.sroa.0.09.i
+  %7 = getelementptr inbounds [32 x i8], ptr %3, i64 %.sroa.0.09.i
   %8 = add nuw i64 %.sroa.0.09.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10222)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10225)
@@ -21402,7 +21402,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
 
 .lr.ph12.i:                                       ; preds = %18, %"_ZN4core3ptr47drop_in_place$LT$theme..registry..ThemeMeta$GT$17hdee9a4ecbdd8d3fcE.exit8.i"
   %.sroa.0.110.i = phi i64 [ %22, %"_ZN4core3ptr47drop_in_place$LT$theme..registry..ThemeMeta$GT$17hdee9a4ecbdd8d3fcE.exit8.i" ], [ %8, %18 ]
-  %21 = getelementptr inbounds { { { i64, [2 x i64] } }, i8, [7 x i8] }, ptr %3, i64 %.sroa.0.110.i
+  %21 = getelementptr inbounds [32 x i8], ptr %3, i64 %.sroa.0.110.i
   %22 = add i64 %.sroa.0.110.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10242)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10245)
@@ -21459,7 +21459,7 @@ define hidden void @"_ZN70_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops
 
 .lr.ph.i:                                         ; preds = %1, %"_ZN4core3ptr105drop_in_place$LT$indexmap..Bucket$LT$alloc..string..String$C$theme..schema..HighlightStyleContent$GT$$GT$17h2c8a945f7482459eE.exit.i"
   %.sroa.0.07.i = phi i64 [ %8, %"_ZN4core3ptr105drop_in_place$LT$indexmap..Bucket$LT$alloc..string..String$C$theme..schema..HighlightStyleContent$GT$$GT$17h2c8a945f7482459eE.exit.i" ], [ 0, %1 ]
-  %7 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i64, [2 x i64] }, { i64, [2 x i64] }, i16, i8, [5 x i8] }, i64 }, ptr %3, i64 %.sroa.0.07.i
+  %7 = getelementptr inbounds [88 x i8], ptr %3, i64 %.sroa.0.07.i
   %8 = add nuw i64 %.sroa.0.07.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10263)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10266)
@@ -22487,7 +22487,7 @@ define hidden void @"_ZN82_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !9
   %6 = sub nuw i64 %5, %3
-  %7 = getelementptr inbounds { [507 x i64] }, ptr %2, i64 %3
+  %7 = getelementptr inbounds [4056 x i8], ptr %2, i64 %3
   br label %8
 
 8:                                                ; preds = %10, %1
@@ -22496,7 +22496,7 @@ define hidden void @"_ZN82_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u
   br i1 %9, label %"_ZN4core3ptr49drop_in_place$LT$$u5b$theme..ThemeFamily$u5d$$GT$17h0bcc4d96b87571f3E.llvm.2471798985521550805.exit", label %10
 
 10:                                               ; preds = %8
-  %11 = getelementptr inbounds { { { i64, [2 x i64] } }, { { i64, [2 x i64] } }, { { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } } }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 } }, ptr %7, i64 %.sroa.0.0.i
+  %11 = getelementptr inbounds [4056 x i8], ptr %7, i64 %.sroa.0.0.i
   %12 = add i64 %.sroa.0.0.i, 1
   invoke void @"_ZN4core3ptr39drop_in_place$LT$theme..ThemeFamily$GT$17hf961ab392a7cc92aE.llvm.2471798985521550805"(ptr noalias noundef nonnull align 8 dereferenceable(4056) %11)
           to label %8 unwind label %15
@@ -22512,7 +22512,7 @@ define hidden void @"_ZN82_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u
   br label %13
 
 17:                                               ; preds = %13
-  %18 = getelementptr inbounds { { { i64, [2 x i64] } }, { { i64, [2 x i64] } }, { { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } } }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 } }, ptr %7, i64 %.sroa.0.1.i
+  %18 = getelementptr inbounds [4056 x i8], ptr %7, i64 %.sroa.0.1.i
   %19 = add i64 %.sroa.0.1.i, 1
   invoke void @"_ZN4core3ptr39drop_in_place$LT$theme..ThemeFamily$GT$17hf961ab392a7cc92aE.llvm.2471798985521550805"(ptr noalias noundef nonnull align 8 dereferenceable(4056) %18) #44
           to label %13 unwind label %21
@@ -22537,7 +22537,7 @@ define hidden void @"_ZN82_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !9
   %6 = sub nuw i64 %5, %3
-  %7 = getelementptr inbounds { [9 x i64] }, ptr %2, i64 %3
+  %7 = getelementptr inbounds [72 x i8], ptr %2, i64 %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10454)
   br label %"_ZN4core3ptr54drop_in_place$LT$theme..schema..ThemeFamilyContent$GT$17h324afd205f73733dE.exit.i"
 
@@ -22547,7 +22547,7 @@ define hidden void @"_ZN82_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u
   br i1 %8, label %"_ZN4core3ptr64drop_in_place$LT$$u5b$theme..schema..ThemeFamilyContent$u5d$$GT$17h7bc7e439252610f5E.llvm.2471798985521550805.exit", label %9
 
 9:                                                ; preds = %"_ZN4core3ptr54drop_in_place$LT$theme..schema..ThemeFamilyContent$GT$17h324afd205f73733dE.exit.i"
-  %10 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 } }, ptr %7, i64 %.sroa.0.0.i
+  %10 = getelementptr inbounds [72 x i8], ptr %7, i64 %.sroa.0.0.i
   %11 = add i64 %.sroa.0.0.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10457)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10460)
@@ -22596,7 +22596,7 @@ define hidden void @"_ZN82_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u
   br label %22
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 } }, ptr %7, i64 %.sroa.0.1.i
+  %27 = getelementptr inbounds [72 x i8], ptr %7, i64 %.sroa.0.1.i
   %28 = add i64 %.sroa.0.1.i, 1
   invoke void @"_ZN4core3ptr54drop_in_place$LT$theme..schema..ThemeFamilyContent$GT$17h324afd205f73733dE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %27) #44
           to label %22 unwind label %30
@@ -22621,14 +22621,14 @@ define hidden void @"_ZN82_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !noundef !9
   %6 = sub nuw i64 %5, %3
-  %7 = getelementptr inbounds { [33 x i64] }, ptr %2, i64 %3
+  %7 = getelementptr inbounds [264 x i8], ptr %2, i64 %3
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10496)
   %8 = icmp eq i64 %5, %3
   br i1 %8, label %"_ZN4core3ptr87drop_in_place$LT$$u5b$$LP$alloc..string..String$C$schemars..schema..Schema$RP$$u5d$$GT$17hf772fd7b7bb62d1eE.llvm.2471798985521550805.exit", label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %1, %"_ZN4core3ptr77drop_in_place$LT$$LP$alloc..string..String$C$schemars..schema..Schema$RP$$GT$17h779dec9500cb0a00E.llvm.2471798985521550805.exit.i"
   %.sroa.0.07.i = phi i64 [ %10, %"_ZN4core3ptr77drop_in_place$LT$$LP$alloc..string..String$C$schemars..schema..Schema$RP$$GT$17h779dec9500cb0a00E.llvm.2471798985521550805.exit.i" ], [ 0, %1 ]
-  %9 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [29 x i64] } }, ptr %7, i64 %.sroa.0.07.i
+  %9 = getelementptr inbounds [264 x i8], ptr %7, i64 %.sroa.0.07.i
   %10 = add nuw i64 %.sroa.0.07.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10499)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10502)
@@ -22670,7 +22670,7 @@ define hidden void @"_ZN82_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$u20$as$u
   br label %20
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [29 x i64] } }, ptr %7, i64 %.sroa.0.1.i
+  %25 = getelementptr inbounds [264 x i8], ptr %7, i64 %.sroa.0.1.i
   %26 = add i64 %.sroa.0.1.i, 1
   invoke void @"_ZN4core3ptr77drop_in_place$LT$$LP$alloc..string..String$C$schemars..schema..Schema$RP$$GT$17h779dec9500cb0a00E.llvm.2471798985521550805"(ptr noalias noundef nonnull readonly align 8 dereferenceable(264) %25) #44
           to label %20 unwind label %28
@@ -22769,7 +22769,7 @@ define hidden void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$
 
 .lr.ph.i:                                         ; preds = %1, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6b6e2bd102696678E.exit.i"
   %.sroa.0.09.i = phi i64 [ %12, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6b6e2bd102696678E.exit.i" ], [ 0, %1 ]
-  %11 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %3, i64 %.sroa.0.09.i
+  %11 = getelementptr inbounds [24 x i8], ptr %3, i64 %.sroa.0.09.i
   %12 = add nuw i64 %.sroa.0.09.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10543)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10546)
@@ -22835,7 +22835,7 @@ define hidden void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$
   br i1 %17, label %"_ZN4core3ptr43drop_in_place$LT$$u5b$theme..Theme$u5d$$GT$17hf4cf0f8f8a895ac8E.llvm.2471798985521550805.exit", label %18
 
 18:                                               ; preds = %16
-  %19 = getelementptr inbounds nuw { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, ptr, { { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float } }, { { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float } }, { { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float } }, i8, [7 x i8] }, i8, [7 x i8] }, ptr %3, i64 %.sroa.0.0.i
+  %19 = getelementptr inbounds nuw [2344 x i8], ptr %3, i64 %.sroa.0.0.i
   %20 = add nuw nsw i64 %.sroa.0.0.i, 1
   invoke void @"_ZN4core3ptr33drop_in_place$LT$theme..Theme$GT$17h24fdb908a9c2ce76E"(ptr noalias noundef nonnull align 8 dereferenceable(2344) %19)
           to label %16 unwind label %23
@@ -22851,7 +22851,7 @@ define hidden void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$
   br label %21
 
 25:                                               ; preds = %21
-  %26 = getelementptr inbounds { { { i64, [2 x i64] } }, { { { i64, ptr, {} }, i64 } }, { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, ptr, { { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float } }, { { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float } }, { { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float }, { float, float, float, float } }, i8, [7 x i8] }, i8, [7 x i8] }, ptr %3, i64 %.sroa.0.1.i
+  %26 = getelementptr inbounds [2344 x i8], ptr %3, i64 %.sroa.0.1.i
   %27 = add i64 %.sroa.0.1.i, 1
   invoke void @"_ZN4core3ptr33drop_in_place$LT$theme..Theme$GT$17h24fdb908a9c2ce76E"(ptr noalias noundef nonnull align 8 dereferenceable(2344) %26) #44
           to label %21 unwind label %28
@@ -22912,7 +22912,7 @@ define hidden void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$
   br i1 %15, label %"_ZN4core3ptr103drop_in_place$LT$$u5b$indexmap..Bucket$LT$alloc..string..String$C$serde_json..value..Value$GT$$u5d$$GT$17hf0c57b0e4e425834E.llvm.2471798985521550805.exit", label %16
 
 16:                                               ; preds = %"_ZN4core3ptr93drop_in_place$LT$indexmap..Bucket$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$17h0ae2fa0f78ac5420E.exit.i"
-  %17 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %3, i64 %.sroa.0.0.i
+  %17 = getelementptr inbounds nuw [104 x i8], ptr %3, i64 %.sroa.0.0.i
   %18 = add nuw nsw i64 %.sroa.0.0.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10606)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10609)
@@ -22944,7 +22944,7 @@ define hidden void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$
   br label %24
 
 27:                                               ; preds = %24
-  %28 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i64, [8 x i64] }, i64 }, ptr %3, i64 %.sroa.0.1.i
+  %28 = getelementptr inbounds [104 x i8], ptr %3, i64 %.sroa.0.1.i
   %29 = add i64 %.sroa.0.1.i, 1
   invoke void @"_ZN4core3ptr93drop_in_place$LT$indexmap..Bucket$LT$alloc..string..String$C$serde_json..value..Value$GT$$GT$17h0ae2fa0f78ac5420E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(104) %28) #49
           to label %24 unwind label %30
@@ -23004,7 +23004,7 @@ define hidden void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$
   br i1 %15, label %"_ZN4core3ptr58drop_in_place$LT$$u5b$theme..schema..ThemeContent$u5d$$GT$17ha0e136a0ddc68371E.llvm.2471798985521550805.exit", label %16
 
 16:                                               ; preds = %"_ZN4core3ptr48drop_in_place$LT$theme..schema..ThemeContent$GT$17h24d118366eaf0407E.exit.i"
-  %17 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { { i64, ptr, {} }, i64 }, { { ptr, i64, i64, i64, {} }, {} } }, { i64, i64 } }, { { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] } }, { { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] } }, i8, [7 x i8] }, i8, [7 x i8] }, ptr %3, i64 %.sroa.0.0.i
+  %17 = getelementptr inbounds nuw [3424 x i8], ptr %3, i64 %.sroa.0.0.i
   %18 = add nuw nsw i64 %.sroa.0.0.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10642)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10645)
@@ -23037,7 +23037,7 @@ define hidden void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$
   br label %24
 
 28:                                               ; preds = %24
-  %29 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { { { { i64, ptr, {} }, i64 }, { { ptr, i64, i64, i64, {} }, {} } }, { i64, i64 } }, { { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] } }, { { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] } }, i8, [7 x i8] }, i8, [7 x i8] }, ptr %3, i64 %.sroa.0.1.i
+  %29 = getelementptr inbounds [3424 x i8], ptr %3, i64 %.sroa.0.1.i
   %30 = add i64 %.sroa.0.1.i, 1
   invoke void @"_ZN4core3ptr48drop_in_place$LT$theme..schema..ThemeContent$GT$17h24d118366eaf0407E"(ptr noalias noundef nonnull align 8 dereferenceable(3424) %29) #44
           to label %24 unwind label %31
@@ -23094,7 +23094,7 @@ define hidden void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$
 
 .lr.ph.i:                                         ; preds = %1, %"_ZN4core3ptr54drop_in_place$LT$gpui..shared_string..SharedString$GT$17hecf3af87ac8b908eE.exit.i"
   %.sroa.0.09.i = phi i64 [ %17, %"_ZN4core3ptr54drop_in_place$LT$gpui..shared_string..SharedString$GT$17hecf3af87ac8b908eE.exit.i" ], [ 0, %1 ]
-  %16 = getelementptr inbounds { { i64, [2 x i64] } }, ptr %3, i64 %.sroa.0.09.i
+  %16 = getelementptr inbounds [24 x i8], ptr %3, i64 %.sroa.0.09.i
   %17 = add nuw i64 %.sroa.0.09.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10688)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10691)
@@ -23128,7 +23128,7 @@ define hidden void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$
 
 .lr.ph12.i:                                       ; preds = %27, %"_ZN4core3ptr54drop_in_place$LT$gpui..shared_string..SharedString$GT$17hecf3af87ac8b908eE.exit8.i"
   %.sroa.0.110.i = phi i64 [ %31, %"_ZN4core3ptr54drop_in_place$LT$gpui..shared_string..SharedString$GT$17hecf3af87ac8b908eE.exit8.i" ], [ %17, %27 ]
-  %30 = getelementptr inbounds { { i64, [2 x i64] } }, ptr %3, i64 %.sroa.0.110.i
+  %30 = getelementptr inbounds [24 x i8], ptr %3, i64 %.sroa.0.110.i
   %31 = add i64 %.sroa.0.110.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10705)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10708)
@@ -23195,7 +23195,7 @@ define hidden void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$
 
 .lr.ph.i:                                         ; preds = %1, %"_ZN4core3ptr80drop_in_place$LT$$LP$alloc..string..String$C$gpui..style..HighlightStyle$RP$$GT$17hd3ebd9e48efffd77E.llvm.2471798985521550805.exit.i"
   %.sroa.0.09.i = phi i64 [ %12, %"_ZN4core3ptr80drop_in_place$LT$$LP$alloc..string..String$C$gpui..style..HighlightStyle$RP$$GT$17hd3ebd9e48efffd77E.llvm.2471798985521550805.exit.i" ], [ 0, %1 ]
-  %11 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { i32, [4 x i32] }, { i32, [1 x i32] }, { i32, [4 x i32] }, { i32, [1 x i32] }, { i32, [6 x i32] }, { i32, [5 x i32] }, i8, [3 x i8] } }, ptr %3, i64 %.sroa.0.09.i
+  %11 = getelementptr inbounds [136 x i8], ptr %3, i64 %.sroa.0.09.i
   %12 = add nuw i64 %.sroa.0.09.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10740)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10743)
@@ -23536,7 +23536,7 @@ define hidden void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
   %11 = phi ptr [ %8, %.lr.ph.i.i ], [ %18, %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17h6f48ca2d36c739aeE.exit.i.i" ]
   %.sroa.23.0.copyload.i.i = load i64, ptr %.sroa.23.0..sroa_idx.i.i, align 8, !noalias !10804
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %13 = getelementptr inbounds { [3 x i64] }, ptr %12, i64 %.sroa.23.0.copyload.i.i
+  %13 = getelementptr inbounds [24 x i8], ptr %12, i64 %.sroa.23.0.copyload.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !10809)
   call void @llvm.experimental.noalias.scope.decl(metadata !10812)
   call void @llvm.experimental.noalias.scope.decl(metadata !10815)
@@ -23618,7 +23618,7 @@ define hidden void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
   call void @llvm.lifetime.start.p0(ptr nonnull %2), !noalias !10832
   store ptr %4, ptr %2, align 8, !noalias !10832
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 2648
-  %14 = getelementptr inbounds { [3 x i64] }, ptr %13, i64 %.sroa.43.0.copyload
+  %14 = getelementptr inbounds [24 x i8], ptr %13, i64 %.sroa.43.0.copyload
   call void @llvm.experimental.noalias.scope.decl(metadata !10835)
   call void @llvm.experimental.noalias.scope.decl(metadata !10838), !noalias !10841
   call void @llvm.experimental.noalias.scope.decl(metadata !10844), !noalias !10841
@@ -23634,7 +23634,7 @@ define hidden void @"_ZN99_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6b6e2bd102696678E.exit"
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6b6e2bd102696678E.exit": ; preds = %11, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.2471798985521550805.exit.i.i1.i.i"
-  %19 = getelementptr inbounds { [30 x i64] }, ptr %12, i64 %.sroa.43.0.copyload
+  %19 = getelementptr inbounds [240 x i8], ptr %12, i64 %.sroa.43.0.copyload
   invoke void @"_ZN4core3ptr45drop_in_place$LT$schemars..schema..Schema$GT$17h1e9da935add9610cE.llvm.2471798985521550805"(ptr noalias noundef nonnull align 8 dereferenceable(240) %19)
           to label %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hd27a4d11d00f1d89E.exit.i" unwind label %22
 
@@ -23765,7 +23765,7 @@ define hidden void @"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V
   %6 = phi ptr [ %3, %.lr.ph ], [ %39, %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hebf3fa642efef87eE.exit" ]
   %.sroa.23.0.copyload = load i64, ptr %.sroa.23.0..sroa_idx, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 96
-  %8 = getelementptr inbounds { [3 x i64] }, ptr %7, i64 %.sroa.23.0.copyload
+  %8 = getelementptr inbounds [24 x i8], ptr %7, i64 %.sroa.23.0.copyload
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10866)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10869)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10872)
@@ -23879,7 +23879,7 @@ define hidden void @"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %0, ptr %2, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 2648
-  %9 = getelementptr inbounds { [3 x i64] }, ptr %8, i64 %.sroa.21.0.copyload
+  %9 = getelementptr inbounds [24 x i8], ptr %8, i64 %.sroa.21.0.copyload
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10887)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10890), !noalias !10893
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10896), !noalias !10893
@@ -23895,7 +23895,7 @@ define hidden void @"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6b6e2bd102696678E.exit"
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6b6e2bd102696678E.exit": ; preds = %6, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.2471798985521550805.exit.i.i1.i.i"
-  %14 = getelementptr inbounds { [30 x i64] }, ptr %7, i64 %.sroa.21.0.copyload
+  %14 = getelementptr inbounds [240 x i8], ptr %7, i64 %.sroa.21.0.copyload
   %15 = load i64, ptr %14, align 8, !range !154, !alias.scope !10908, !noundef !9
   %16 = icmp eq i64 %15, -9223372036854775807
   br i1 %16, label %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hd27a4d11d00f1d89E.exit", label %17
@@ -23950,7 +23950,7 @@ define hidden void @"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V
   %6 = phi ptr [ %3, %.lr.ph ], [ %17, %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17h678133583592ee9fE.exit" ]
   %.sroa.23.0.copyload = load i64, ptr %.sroa.23.0..sroa_idx, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = getelementptr inbounds { [3 x i64] }, ptr %7, i64 %.sroa.23.0.copyload
+  %8 = getelementptr inbounds [24 x i8], ptr %7, i64 %.sroa.23.0.copyload
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10911)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10914)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10917)
@@ -23967,7 +23967,7 @@ define hidden void @"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h6b6e2bd102696678E.exit.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.2471798985521550805.exit.i.i1.i.i.i", %5
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 272
-  %14 = getelementptr inbounds { [9 x i64] }, ptr %13, i64 %.sroa.23.0.copyload
+  %14 = getelementptr inbounds [72 x i8], ptr %13, i64 %.sroa.23.0.copyload
   invoke void @"_ZN4core3ptr45drop_in_place$LT$serde_json..value..Value$GT$17h0d5944642bc4456eE.llvm.2471798985521550805"(ptr noalias noundef nonnull readonly align 8 dereferenceable(72) %14)
           to label %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17h678133583592ee9fE.exit" unwind label %15
 
@@ -24024,7 +24024,7 @@ define hidden void @"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V
 8:                                                ; preds = %.lr.ph, %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf3f50a5f6c4f58a2E.exit"
   %9 = phi ptr [ %4, %.lr.ph ], [ %19, %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17hf3f50a5f6c4f58a2E.exit" ]
   %.sroa.23.0.copyload = load i64, ptr %.sroa.23.0..sroa_idx, align 8
-  %10 = getelementptr inbounds { [4 x i64] }, ptr %9, i64 %.sroa.23.0.copyload
+  %10 = getelementptr inbounds [32 x i8], ptr %9, i64 %.sroa.23.0.copyload
   call void @llvm.experimental.noalias.scope.decl(metadata !10929)
   %11 = load i64, ptr %10, align 8, !range !228, !alias.scope !10929, !noundef !9
   %12 = icmp eq i64 %11, 0
@@ -24110,7 +24110,7 @@ define hidden void @"_ZN99_$LT$alloc..collections..btree..map..IntoIter$LT$K$C$V
   %6 = phi ptr [ %3, %.lr.ph ], [ %13, %"_ZN5alloc11collections5btree4node173Handle$LT$alloc..collections..btree..node..NodeRef$LT$alloc..collections..btree..node..marker..Dying$C$K$C$V$C$NodeType$GT$$C$alloc..collections..btree..node..marker..KV$GT$12drop_key_val17h6f48ca2d36c739aeE.exit" ]
   %.sroa.23.0.copyload = load i64, ptr %.sroa.23.0..sroa_idx, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = getelementptr inbounds { [3 x i64] }, ptr %7, i64 %.sroa.23.0.copyload
+  %8 = getelementptr inbounds [24 x i8], ptr %7, i64 %.sroa.23.0.copyload
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10944)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10947)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !10950)

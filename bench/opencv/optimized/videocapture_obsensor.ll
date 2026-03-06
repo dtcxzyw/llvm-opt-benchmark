@@ -26,8 +26,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.cv::Vec" = type { %"class.cv::Matx" }
-%"class.cv::Matx" = type { [3 x i8] }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -548,7 +546,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit99: ; preds = %142
   %186 = load i64, ptr %185, align 8, !tbaa !59
   %187 = mul i64 %186, %indvars.iv127
   %188 = getelementptr inbounds nuw i8, ptr %184, i64 %187
-  %189 = getelementptr inbounds nuw %"class.cv::Vec", ptr %188, i64 %indvars.iv
+  %189 = getelementptr inbounds nuw [3 x i8], ptr %188, i64 %indvars.iv
   %190 = xor i8 %181, -1
   %191 = load i8, ptr %189, align 1, !tbaa !33
   %192 = uitofp i8 %191 to float

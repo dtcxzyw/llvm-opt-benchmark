@@ -16,9 +16,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._GdkRGBA = type { double, double, double, double }
 %struct.dt_introspection_t = type { i32, i32, ptr, i64, ptr, i64, i64, ptr }
 %struct.dt_iop_relight_params_t = type { float, float, float }
-%union.dt_introspection_field_t = type { %struct.dt_introspection_type_double_t }
-%struct.dt_introspection_type_double_t = type { %struct.dt_introspection_type_header_t, double, double, double }
-%struct.dt_introspection_type_header_t = type { i32, ptr, ptr, ptr, ptr, i64, i64, ptr }
 
 @darktable = external local_unnamed_addr global %struct.darktable_t, align 8
 @.str = private unnamed_addr constant [31 x i8] c"fill-light 0.25EV with 4 zones\00", align 1
@@ -161,8 +158,8 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 29:                                               ; preds = %.lr.ph, %29
   %.040 = phi i64 [ 0, %.lr.ph ], [ %52, %29 ]
   %30 = shl i64 %.040, 2
-  %31 = getelementptr inbounds nuw float, ptr %2, i64 %30
-  %32 = getelementptr inbounds nuw float, ptr %3, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %30
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %30
   %.sroa.0.0.copyload = load <4 x float>, ptr %31, align 4, !tbaa !78, !alias.scope !79
   %.sroa.0.0.vec.extract = extractelement <4 x float> %.sroa.0.0.copyload, i64 0
   %33 = fmul reassoc nsz arcp contract afn float %.sroa.0.0.vec.extract, 0x3F847AE140000000
@@ -452,7 +449,7 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
 
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw %union.dt_introspection_field_t, ptr @introspection_linear, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [88 x i8], ptr @introspection_linear, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store ptr %0, ptr %8, align 8, !tbaa !83
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

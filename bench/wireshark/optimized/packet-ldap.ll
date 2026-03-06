@@ -10,7 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.anon.0 = type { ptr, ptr, ptr }
 %struct.expert_field = type { i32, i32 }
 %struct.access_mask_info = type { ptr, ptr, ptr, ptr }
-%struct._attribute_type_t = type { ptr, ptr }
 %struct._e_guid_t = type { i32, i16, i16, [8 x i8] }
 %struct._asn1_ctx_t = type { i32, i32, i8, ptr, ptr, ptr, ptr, ptr, %struct.anon.2, %struct.anon.5, %struct.anon.6, ptr }
 %struct.anon.2 = type { i32, i8, i8, i8, ptr, ptr, i32, i32, ptr, ptr, ptr, %union.anon }
@@ -23,8 +22,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._gssapi_encrypt_info = type { i16, ptr, ptr, ptr, ptr, ptr, i8 }
 %struct.ldap_call_response = type { i8, i32, %struct.nstime_t, i32, i32, i32 }
 %struct.nstime_t = type { i64, i32 }
-%struct._value_string = type { i32, ptr }
-%struct._ber_choice_t = type { i32, ptr, i8, i32, i32, ptr }
 
 @.str = private unnamed_addr constant [5 x i8] c"Bind\00", align 1
 @.str.1 = private unnamed_addr constant [7 x i8] c"Search\00", align 1
@@ -1711,12 +1708,12 @@ define internal void @attribute_types_post_update_cb() #0 {
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.preheader.i ]
   %4 = load i32, ptr @proto_ldap, align 4
   %5 = load ptr, ptr @dynamic_hf, align 8
-  %6 = getelementptr %struct.hf_register_info, ptr %5, i64 %indvars.iv.i
+  %6 = getelementptr [80 x i8], ptr %5, i64 %indvars.iv.i
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr %7, align 4
   tail call void @proto_deregister_field(i32 noundef %4, i32 noundef %8)
   %9 = load ptr, ptr @dynamic_hf, align 8
-  %10 = getelementptr %struct.hf_register_info, ptr %9, i64 %indvars.iv.i
+  %10 = getelementptr [80 x i8], ptr %9, i64 %indvars.iv.i
   %11 = load ptr, ptr %10, align 8
   tail call void @g_free(ptr noundef %11)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1768,17 +1765,17 @@ deregister_attribute_types.exit:                  ; preds = %15, %17
   %27 = tail call noalias dereferenceable_or_null(4) ptr @g_malloc(i64 noundef 4) #16
   store i32 -1, ptr %27, align 4
   %28 = load ptr, ptr @attribute_types, align 8
-  %29 = getelementptr %struct._attribute_type_t, ptr %28, i64 %indvars.iv
+  %29 = getelementptr [16 x i8], ptr %28, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8
   %31 = tail call noalias ptr @g_strdup(ptr noundef %30)
   %32 = load ptr, ptr @dynamic_hf, align 8
-  %33 = getelementptr %struct.hf_register_info, ptr %32, i64 %indvars.iv
+  %33 = getelementptr [80 x i8], ptr %32, i64 %indvars.iv
   store ptr %27, ptr %33, align 8
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr %31, ptr %34, align 8
   %35 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.951, ptr noundef %31)
   %36 = load ptr, ptr @dynamic_hf, align 8
-  %37 = getelementptr %struct.hf_register_info, ptr %36, i64 %indvars.iv
+  %37 = getelementptr [80 x i8], ptr %36, i64 %indvars.iv
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   store ptr %35, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 24
@@ -1786,12 +1783,12 @@ deregister_attribute_types.exit:                  ; preds = %15, %17
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 28
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %40, i8 0, i64 20, i1 false)
   %41 = load ptr, ptr @attribute_types, align 8
-  %42 = getelementptr %struct._attribute_type_t, ptr %41, i64 %indvars.iv
+  %42 = getelementptr [16 x i8], ptr %41, i64 %indvars.iv
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
   %44 = load ptr, ptr %43, align 8
   %45 = tail call noalias ptr @g_strdup(ptr noundef %44)
   %46 = load ptr, ptr @dynamic_hf, align 8
-  %47 = getelementptr %struct.hf_register_info, ptr %46, i64 %indvars.iv
+  %47 = getelementptr [80 x i8], ptr %46, i64 %indvars.iv
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 48
   store ptr %45, ptr %48, align 8
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 56
@@ -1842,12 +1839,12 @@ define internal void @attribute_types_reset_cb() #0 {
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.preheader.i ]
   %4 = load i32, ptr @proto_ldap, align 4
   %5 = load ptr, ptr @dynamic_hf, align 8
-  %6 = getelementptr %struct.hf_register_info, ptr %5, i64 %indvars.iv.i
+  %6 = getelementptr [80 x i8], ptr %5, i64 %indvars.iv.i
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr %7, align 4
   tail call void @proto_deregister_field(i32 noundef %4, i32 noundef %8)
   %9 = load ptr, ptr @dynamic_hf, align 8
-  %10 = getelementptr %struct.hf_register_info, ptr %9, i64 %indvars.iv.i
+  %10 = getelementptr [80 x i8], ptr %9, i64 %indvars.iv.i
   %11 = load ptr, ptr %10, align 8
   tail call void @g_free(ptr noundef %11)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -3248,7 +3245,7 @@ define internal i32 @dissect_ldap_ProtocolOp(i1 zeroext %0, ptr noundef %1, i32 
 
 15:                                               ; preds = %6
   %16 = sext i32 %13 to i64
-  %17 = getelementptr %struct._value_string, ptr @ldap_ProtocolOp_vals, i64 %16
+  %17 = getelementptr [16 x i8], ptr @ldap_ProtocolOp_vals, i64 %16
   %18 = load i32, ptr %17, align 16
   store i32 %18, ptr @ProtocolOp, align 4
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -3824,7 +3821,7 @@ ldap_do_protocolop.exit:                          ; preds = %6, %21
 
 24:                                               ; preds = %ldap_do_protocolop.exit
   %25 = zext nneg i32 %22 to i64
-  %26 = getelementptr %struct._ber_choice_t, ptr @AuthenticationChoice_choice, i64 %25
+  %26 = getelementptr [40 x i8], ptr @AuthenticationChoice_choice, i64 %25
   %27 = load i32, ptr %26, align 8
   %28 = call ptr @val_to_str(i32 noundef %27, ptr noundef nonnull @ldap_AuthenticationChoice_vals, ptr noundef nonnull @.str.878)
   %29 = add i32 %27, -12

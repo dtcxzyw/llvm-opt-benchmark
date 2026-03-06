@@ -125,7 +125,7 @@ _ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIfLi2ELi2ELi0ELi2ELi2EEELin1ELi1ELb0EEEE
   %.idx.i.i.i.i.i.i = shl nuw nsw i64 %.048.i.i, 3
   %43 = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i.i.i.i.i.i
   %44 = sub nuw nsw i64 2, %.048.i.i
-  %45 = getelementptr inbounds nuw float, ptr %43, i64 %.048.i.i
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %.048.i.i
   %46 = load float, ptr %45, align 4, !tbaa !19
   %47 = call noundef float @llvm.fabs.f32(float %46)
   br i1 %41, label %.lr.ph90.i.i.i.i.i.i.i, label %_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIfLi2ELi2ELi0ELi2ELi2EEELi2ELi1ELb1EEELin1ELi1ELb0EEEE6lpNormILi1EEEfv.exit.i.i
@@ -133,7 +133,7 @@ _ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIfLi2ELi2ELi0ELi2ELi2EEELin1ELi1ELb0EEEE
 .lr.ph90.i.i.i.i.i.i.i:                           ; preds = %40, %.lr.ph90.i.i.i.i.i.i.i
   %.088.i.i.i.i.i.i.i = phi i64 [ %52, %.lr.ph90.i.i.i.i.i.i.i ], [ 1, %40 ]
   %.387.i.i.i.i.i.i.i = phi float [ %51, %.lr.ph90.i.i.i.i.i.i.i ], [ %47, %40 ]
-  %48 = getelementptr inbounds nuw float, ptr %45, i64 %.088.i.i.i.i.i.i.i
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %.088.i.i.i.i.i.i.i
   %49 = load float, ptr %48, align 4, !tbaa !19
   %50 = call noundef float @llvm.fabs.f32(float %49)
   %51 = fadd float %.387.i.i.i.i.i.i.i, %50
@@ -204,17 +204,17 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIfLi2ELi2ELi0ELi2ELi2EEELi1ELi2E
   %85 = load i64, ptr %4, align 4, !tbaa !10
   store i64 %85, ptr %0, align 4, !tbaa !10
   %86 = sext i32 %.0169 to i64
-  %87 = getelementptr inbounds float, ptr %2, i64 %86
+  %87 = getelementptr inbounds [4 x i8], ptr %2, i64 %86
   %88 = load float, ptr %87, align 4, !tbaa !19
   %89 = fneg float %88
-  %90 = getelementptr inbounds float, ptr %0, i64 %86
+  %90 = getelementptr inbounds [4 x i8], ptr %0, i64 %86
   %.idx.i.i.i256 = shl nsw i64 %86, 3
   %invariant.gep = getelementptr i8, ptr %1, i64 %.idx.i.i.i256
   %91 = zext i32 %.0169 to i64
   br label %97
 
 92:                                               ; preds = %106
-  %93 = getelementptr float, ptr %1, i64 %86
+  %93 = getelementptr [4 x i8], ptr %1, i64 %86
   %94 = getelementptr i8, ptr %93, i64 %.idx.i.i.i256
   %95 = load float, ptr %94, align 4, !tbaa !19
   %96 = fdiv float %107, %95
@@ -229,9 +229,9 @@ _ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIfLi2ELi2ELi0ELi2ELi2EEELi1ELi2E
   br i1 %.not, label %106, label %100
 
 100:                                              ; preds = %97
-  %101 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv264
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv264
   %102 = load float, ptr %101, align 4, !tbaa !19
-  %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv264
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv264
   %103 = load float, ptr %gep, align 4, !tbaa !19
   %104 = fneg float %102
   %105 = tail call float @llvm.fmuladd.f32(float %104, float %103, float %98)

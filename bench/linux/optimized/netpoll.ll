@@ -68,12 +68,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_netpoll_clea
 %struct.__call_single_node = type { %struct.llist_node, %union.anon.64, i16, i16 }
 %struct.llist_node = type { ptr }
 %union.anon.64 = type { i32 }
-%struct.netdev_queue = type { ptr, %struct.netdevice_tracker, ptr, ptr, %struct.kobject, i32, i64, %struct.atomic64_t, ptr, ptr, %struct.spinlock, i32, i64, i64, [40 x i8], %struct.dql }
-%struct.netdevice_tracker = type {}
-%struct.kobject = type { ptr, %struct.list_head, ptr, ptr, ptr, ptr, %struct.kref, i8 }
-%struct.kref = type { %struct.refcount_struct }
-%struct.refcount_struct = type { %struct.atomic_t }
-%struct.dql = type { i32, i32, i32, [52 x i8], i32, i32, i32, i32, i32, i32, i64, i32, i32, i32, [20 x i8] }
 
 @__param_str_carrier_timeout = internal constant [24 x i8] c"netpoll.carrier_timeout\00", align 16
 @param_ops_uint = external dso_local constant %struct.kernel_param_ops, align 8
@@ -183,7 +177,7 @@ define dso_local void @netpoll_poll_dev(ptr noundef %0) #0 align 16 {
 
 25:                                               ; preds = %22, %18
   %26 = phi i64 [ %23, %22 ], [ 0, %18 ]
-  %.split = getelementptr %struct.netdev_queue, ptr %20, i64 %26
+  %.split = getelementptr [320 x i8], ptr %20, i64 %26
   %27 = getelementptr i8, ptr %.split, i64 132
   %28 = load volatile i32, ptr %27, align 4
   %29 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #15, !srcloc !9
@@ -1376,7 +1370,7 @@ define internal void @queue_process(ptr noundef %0) #0 align 16 {
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %31 = load ptr, ptr %30, align 8
   %32 = zext nneg i32 %29 to i64
-  %33 = getelementptr %struct.netdev_queue, ptr %31, i64 %32
+  %33 = getelementptr [320 x i8], ptr %31, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 176
   %35 = load i64, ptr %34, align 8
   %36 = and i64 %35, 4096

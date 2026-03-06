@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.InfoItem = type { ptr, ptr }
-%struct.ConfigData = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [13 x i8] c"pg_config-18\00", align 1
 @progname = internal unnamed_addr global ptr null, align 8
@@ -122,7 +121,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef readonly captures
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.tail.thread
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %.tail.thread ]
-  %9 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8
   %11 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %10, ptr noundef nonnull dereferenceable(7) @.str.1) #6
   %12 = icmp eq i32 %11, 0
@@ -180,7 +179,7 @@ sub_1:                                            ; preds = %sub_0
 .lr.ph41:                                         ; preds = %.preheader, %.lr.ph41
   %31 = phi i64 [ %38, %.lr.ph41 ], [ 0, %.preheader ]
   %.140 = phi i32 [ %37, %.lr.ph41 ], [ 0, %.preheader ]
-  %32 = getelementptr inbounds %struct.ConfigData, ptr %28, i64 %31
+  %32 = getelementptr inbounds [16 x i8], ptr %28, i64 %31
   %33 = load ptr, ptr %32, align 8
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %35 = load ptr, ptr %34, align 8
@@ -197,7 +196,7 @@ sub_1:                                            ; preds = %sub_0
 
 .preheader33:                                     ; preds = %.preheader33.preheader, %show_item.exit
   %indvars.iv51 = phi i64 [ 1, %.preheader33.preheader ], [ %indvars.iv.next52, %show_item.exit ]
-  %41 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv51
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv51
   %42 = load ptr, ptr %41, align 8
   br label %44
 
@@ -208,7 +207,7 @@ sub_1:                                            ; preds = %sub_0
 
 44:                                               ; preds = %.preheader33, %43
   %indvars.iv48 = phi i64 [ 0, %.preheader33 ], [ %indvars.iv.next49, %43 ]
-  %45 = getelementptr inbounds nuw %struct.InfoItem, ptr @info_items, i64 %indvars.iv48
+  %45 = getelementptr inbounds nuw [16 x i8], ptr @info_items, i64 %indvars.iv48
   %46 = load ptr, ptr %45, align 16
   %47 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %42, ptr noundef nonnull dereferenceable(1) %46) #6
   %48 = icmp eq i32 %47, 0
@@ -224,7 +223,7 @@ sub_1:                                            ; preds = %sub_0
 .lr.ph.i:                                         ; preds = %49, %62
   %53 = phi i64 [ %64, %62 ], [ 0, %49 ]
   %.08.i = phi i32 [ %63, %62 ], [ 0, %49 ]
-  %54 = getelementptr inbounds %struct.ConfigData, ptr %28, i64 %53
+  %54 = getelementptr inbounds [16 x i8], ptr %28, i64 %53
   %55 = load ptr, ptr %54, align 8
   %56 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %51, ptr noundef nonnull dereferenceable(1) %55) #6
   %57 = icmp eq i32 %56, 0
@@ -246,7 +245,7 @@ sub_1:                                            ; preds = %sub_0
   %67 = load ptr, ptr @stderr, align 8
   %68 = load ptr, ptr @progname, align 8
   %69 = and i64 %indvars.iv51, 4294967295
-  %70 = getelementptr inbounds nuw ptr, ptr %1, i64 %69
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %69
   %71 = load ptr, ptr %70, align 8
   %72 = call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %67, ptr noundef nonnull @.str.5, ptr noundef %68, ptr noundef %71) #5
   call fastcc void @advice()

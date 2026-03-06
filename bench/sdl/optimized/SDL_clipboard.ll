@@ -38,7 +38,7 @@ define hidden void @SDL_FreeClipboardMimeTypes(ptr noundef captures(none) %0) lo
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.08 = phi i64 [ %10, %.lr.ph ], [ 0, %.preheader ]
   %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.08
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.08
   %9 = load ptr, ptr %8, align 8
   tail call void @SDL_free_REAL(ptr noundef %9) #6
   %10 = add nuw i64 %.08, 1
@@ -101,7 +101,7 @@ define hidden void @SDL_CancelClipboardData(i32 noundef %0) local_unnamed_addr #
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %.08.i = phi i64 [ %21, %.lr.ph.i ], [ 0, %.preheader.i ]
   %18 = load ptr, ptr %13, align 8
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %.08.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.08.i
   %20 = load ptr, ptr %19, align 8
   tail call void @SDL_free_REAL(ptr noundef %20) #6
   %21 = add nuw i64 %.08.i, 1
@@ -147,7 +147,7 @@ define hidden noundef zeroext i1 @SDL_SaveClipboardMimeTypes(ptr noundef readonl
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %.08.i = phi i64 [ %12, %.lr.ph.i ], [ 0, %.preheader.i ]
   %9 = load ptr, ptr %4, align 8
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %.08.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.08.i
   %11 = load ptr, ptr %10, align 8
   tail call void @SDL_free_REAL(ptr noundef %11) #6
   %12 = add nuw i64 %.08.i, 1
@@ -171,14 +171,14 @@ SDL_FreeClipboardMimeTypes.exit:                  ; preds = %2, %._crit_edge.i
 .preheader:                                       ; preds = %17, %.preheader
   %.02348 = phi i64 [ %29, %.preheader ], [ 0, %17 ]
   %.147 = phi i64 [ %spec.select, %.preheader ], [ 0, %17 ]
-  %20 = getelementptr inbounds nuw ptr, ptr %0, i64 %.02348
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.02348
   %21 = load ptr, ptr %20, align 8
   %22 = tail call noalias ptr @SDL_strdup_REAL(ptr noundef %21) #6
   %23 = load ptr, ptr %4, align 8
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %.02348
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.02348
   store ptr %22, ptr %24, align 8
   %25 = load ptr, ptr %4, align 8
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %.02348
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.02348
   %27 = load ptr, ptr %26, align 8
   %.not29 = icmp ne ptr %27, null
   %28 = zext i1 %.not29 to i64
@@ -210,7 +210,7 @@ SDL_FreeClipboardMimeTypes.exit:                  ; preds = %2, %._crit_edge.i
 .lr.ph.i33:                                       ; preds = %.preheader.i31, %.lr.ph.i33
   %.08.i34 = phi i64 [ %38, %.lr.ph.i33 ], [ 0, %.preheader.i31 ]
   %35 = load ptr, ptr %4, align 8
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %.08.i34
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.08.i34
   %37 = load ptr, ptr %36, align 8
   tail call void @SDL_free_REAL(ptr noundef %37) #6
   %38 = add nuw i64 %.08.i34, 1
@@ -301,7 +301,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse, %5
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i, %.lr.ph.i.i
   %.08.i.i = phi i64 [ %33, %.lr.ph.i.i ], [ 0, %.preheader.i.i ]
   %30 = load ptr, ptr %25, align 8
-  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %.08.i.i
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.08.i.i
   %32 = load ptr, ptr %31, align 8
   tail call void @SDL_free_REAL(ptr noundef %32) #6
   %33 = add nuw i64 %.08.i.i, 1
@@ -361,7 +361,7 @@ tailrecurse:                                      ; preds = %SDL_CancelClipboard
 57:                                               ; preds = %.lr.ph150, %.thread
   %.071149 = phi i64 [ 0, %.lr.ph150 ], [ %75, %.thread ]
   %58 = load ptr, ptr %56, align 8
-  %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %.071149
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %.071149
   %60 = load ptr, ptr %59, align 8
   %61 = call i32 @SDL_strncmp_REAL(ptr noundef %60, ptr noundef nonnull @.str.5, i64 noundef 4) #6
   %62 = icmp eq i32 %61, 0
@@ -430,7 +430,7 @@ SDL_CopyClipboardMimeTypes.exit.thread102:        ; preds = %._crit_edge.i
 .lr.ph.i:                                         ; preds = %79, %.lr.ph.i
   %.02935.i = phi i64 [ %86, %.lr.ph.i ], [ 8, %79 ]
   %.03134.i = phi i64 [ %87, %.lr.ph.i ], [ 0, %79 ]
-  %82 = getelementptr inbounds nuw ptr, ptr %.tr118144, i64 %.03134.i
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %.tr118144, i64 %.03134.i
   %83 = load ptr, ptr %82, align 8
   %84 = call i64 @SDL_strlen_REAL(ptr noundef %83) #6
   %85 = add i64 %.02935.i, 9
@@ -448,9 +448,9 @@ SDL_CopyClipboardMimeTypes.exit.thread102:        ; preds = %._crit_edge.i
 .lr.ph39.i:                                       ; preds = %98, %.lr.ph39.preheader.i
   %.02837.i = phi i64 [ %99, %98 ], [ 0, %.lr.ph39.preheader.i ]
   %.136.i = phi ptr [ %97, %98 ], [ %90, %.lr.ph39.preheader.i ]
-  %91 = getelementptr inbounds nuw ptr, ptr %81, i64 %.02837.i
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %.02837.i
   store ptr %.136.i, ptr %91, align 8
-  %92 = getelementptr inbounds nuw ptr, ptr %.tr118144, i64 %.02837.i
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %.tr118144, i64 %.02837.i
   %93 = load ptr, ptr %92, align 8
   br label %94
 
@@ -470,7 +470,7 @@ SDL_CopyClipboardMimeTypes.exit.thread102:        ; preds = %._crit_edge.i
   br i1 %exitcond44.not.i, label %SDL_CopyClipboardMimeTypes.exit, label %.lr.ph39.i, !llvm.loop !9
 
 SDL_CopyClipboardMimeTypes.exit:                  ; preds = %98
-  %100 = getelementptr inbounds nuw ptr, ptr %81, i64 %.tr119145
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %.tr119145
   store ptr null, ptr %100, align 8
   br label %102
 
@@ -523,7 +523,7 @@ define hidden ptr @SDL_CopyClipboardMimeTypes(ptr noundef readonly captures(none
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.02935 = phi i64 [ %8, %.lr.ph ], [ 8, %3 ]
   %.03134 = phi i64 [ %9, %.lr.ph ], [ 0, %3 ]
-  %4 = getelementptr inbounds nuw ptr, ptr %0, i64 %.03134
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.03134
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 @SDL_strlen_REAL(ptr noundef %5) #6
   %7 = add i64 %.02935, 9
@@ -555,16 +555,16 @@ define hidden ptr @SDL_CopyClipboardMimeTypes(ptr noundef readonly captures(none
   br label %.lr.ph39
 
 ._crit_edge40:                                    ; preds = %27, %15
-  %19 = getelementptr inbounds nuw ptr, ptr %.030, i64 %1
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.030, i64 %1
   store ptr null, ptr %19, align 8
   br label %29
 
 .lr.ph39:                                         ; preds = %.lr.ph39.preheader, %27
   %.02837 = phi i64 [ %28, %27 ], [ 0, %.lr.ph39.preheader ]
   %.136 = phi ptr [ %26, %27 ], [ %18, %.lr.ph39.preheader ]
-  %20 = getelementptr inbounds nuw ptr, ptr %.030, i64 %.02837
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %.030, i64 %.02837
   store ptr %.136, ptr %20, align 8
-  %21 = getelementptr inbounds nuw ptr, ptr %0, i64 %.02837
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.02837
   %22 = load ptr, ptr %21, align 8
   br label %23
 
@@ -741,7 +741,7 @@ define hidden noundef zeroext i1 @SDL_HasInternalClipboardData(ptr noundef reado
 .lr.ph:                                           ; preds = %2, %6
   %.07 = phi i64 [ %7, %6 ], [ 0, %2 ]
   %10 = load ptr, ptr %3, align 8
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %.07
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.07
   %12 = load ptr, ptr %11, align 8
   %13 = tail call i32 @SDL_strcmp_REAL(ptr noundef %1, ptr noundef %12) #6
   %14 = icmp eq i32 %13, 0
@@ -814,7 +814,7 @@ define hidden zeroext i1 @SDL_HasClipboardData_REAL(ptr noundef %0) local_unname
 .lr.ph.i:                                         ; preds = %22, %26
   %.07.i = phi i64 [ %27, %26 ], [ 0, %22 ]
   %30 = load ptr, ptr %23, align 8
-  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %.07.i
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.07.i
   %32 = load ptr, ptr %31, align 8
   %33 = tail call i32 @SDL_strcmp_REAL(ptr noundef nonnull %0, ptr noundef %32) #6
   %34 = icmp eq i32 %33, 0
@@ -877,7 +877,7 @@ define hidden ptr @SDL_GetClipboardMimeTypes_REAL(ptr noundef writeonly captures
 .lr.ph.i:                                         ; preds = %9, %.lr.ph.i
   %.02935.i = phi i64 [ %19, %.lr.ph.i ], [ 8, %9 ]
   %.03134.i = phi i64 [ %20, %.lr.ph.i ], [ 0, %9 ]
-  %15 = getelementptr inbounds nuw ptr, ptr %12, i64 %.03134.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.03134.i
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i64 @SDL_strlen_REAL(ptr noundef %16) #6
   %18 = add i64 %.02935.i, 9
@@ -894,16 +894,16 @@ define hidden ptr @SDL_GetClipboardMimeTypes_REAL(ptr noundef writeonly captures
 
 ._crit_edge40.i:                                  ; preds = %33, %._crit_edge.i
   %24 = phi ptr [ %13, %._crit_edge.i ], [ %14, %33 ]
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %10
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %10
   store ptr null, ptr %25, align 8
   br label %SDL_CopyClipboardMimeTypes.exit
 
 .lr.ph39.i:                                       ; preds = %33, %.lr.ph39.preheader.i
   %.02837.i = phi i64 [ %34, %33 ], [ 0, %.lr.ph39.preheader.i ]
   %.136.i = phi ptr [ %32, %33 ], [ %23, %.lr.ph39.preheader.i ]
-  %26 = getelementptr inbounds nuw ptr, ptr %14, i64 %.02837.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.02837.i
   store ptr %.136.i, ptr %26, align 8
-  %27 = getelementptr inbounds nuw ptr, ptr %12, i64 %.02837.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.02837.i
   %28 = load ptr, ptr %27, align 8
   br label %29
 
@@ -1039,7 +1039,7 @@ SDL_GetTextMimeTypes.exit:                        ; preds = %7
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %12
   %.01318 = phi i64 [ %13, %12 ], [ 0, %.lr.ph.preheader ]
-  %16 = getelementptr inbounds nuw ptr, ptr %.0.i28, i64 %.01318
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %.0.i28, i64 %.01318
   %17 = load ptr, ptr %16, align 8
   %18 = call ptr @SDL_GetClipboardData_REAL(ptr noundef %17, ptr noundef nonnull %2)
   %.not16 = icmp eq ptr %18, null
@@ -1096,7 +1096,7 @@ SDL_GetTextMimeTypes.exit:                        ; preds = %5
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %10
   %.068 = phi i64 [ %11, %10 ], [ 0, %.lr.ph.preheader ]
-  %14 = getelementptr inbounds nuw ptr, ptr %.0.i17, i64 %.068
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %.0.i17, i64 %.068
   %15 = load ptr, ptr %14, align 8
   %16 = call zeroext i1 @SDL_HasClipboardData_REAL(ptr noundef %15)
   br i1 %16, label %.loopexit, label %10
@@ -1162,7 +1162,7 @@ SDL_CopyClipboardMimeTypes.exit.thread29:         ; preds = %._crit_edge.i
 .lr.ph.i:                                         ; preds = %14, %.lr.ph.i
   %.02935.i = phi i64 [ %25, %.lr.ph.i ], [ 8, %14 ]
   %.03134.i = phi i64 [ %26, %.lr.ph.i ], [ 0, %14 ]
-  %21 = getelementptr inbounds nuw ptr, ptr %16, i64 %.03134.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.03134.i
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i64 @SDL_strlen_REAL(ptr noundef %22) #6
   %24 = add i64 %.02935.i, 9
@@ -1180,9 +1180,9 @@ SDL_CopyClipboardMimeTypes.exit.thread29:         ; preds = %._crit_edge.i
 .lr.ph39.i:                                       ; preds = %37, %.lr.ph39.preheader.i
   %.02837.i = phi i64 [ %38, %37 ], [ 0, %.lr.ph39.preheader.i ]
   %.136.i = phi ptr [ %36, %37 ], [ %29, %.lr.ph39.preheader.i ]
-  %30 = getelementptr inbounds nuw ptr, ptr %20, i64 %.02837.i
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.02837.i
   store ptr %.136.i, ptr %30, align 8
-  %31 = getelementptr inbounds nuw ptr, ptr %16, i64 %.02837.i
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.02837.i
   %32 = load ptr, ptr %31, align 8
   br label %33
 
@@ -1202,7 +1202,7 @@ SDL_CopyClipboardMimeTypes.exit.thread29:         ; preds = %._crit_edge.i
   br i1 %exitcond44.not.i, label %SDL_CopyClipboardMimeTypes.exit, label %.lr.ph39.i, !llvm.loop !9
 
 SDL_CopyClipboardMimeTypes.exit:                  ; preds = %37
-  %39 = getelementptr inbounds nuw ptr, ptr %20, i64 %18
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %18
   store ptr null, ptr %39, align 8
   br label %41
 

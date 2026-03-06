@@ -389,7 +389,7 @@ _ZNK8rawspeed6Buffer10getSubViewEj.exit:          ; preds = %2
 
 .lr.ph.i.i:                                       ; preds = %.noexc.i.i
   store ptr %60, ptr %6, align 8, !tbaa !74, !alias.scope !77
-  %61 = getelementptr inbounds nuw i16, ptr %60, i64 %58
+  %61 = getelementptr inbounds nuw [2 x i8], ptr %60, i64 %58
   %62 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %61, ptr %62, align 8, !tbaa !78, !alias.scope !77
   store i16 0, ptr %60, align 2, !tbaa !79, !noalias !77
@@ -408,7 +408,7 @@ _ZNK8rawspeed6Buffer10getSubViewEj.exit:          ; preds = %2
           to label %69 unwind label %_ZNSt6vectorItSaItEED2Ev.exit.i.i, !noalias !77
 
 69:                                               ; preds = %66
-  %70 = getelementptr inbounds nuw i16, ptr %60, i64 %indvars.iv.i.i
+  %70 = getelementptr inbounds nuw [2 x i8], ptr %60, i64 %indvars.iv.i.i
   store i16 %68, ptr %70, align 2, !tbaa !79, !noalias !77
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %58
@@ -492,7 +492,7 @@ _ZN8rawspeed18RawImageCurveGuardC2EPKNS_8RawImageERKSt6vectorItSaItEEb.exit: ; p
   %98 = fdiv float 2.048000e+03, %97
   %99 = load ptr, ptr %72, align 8, !tbaa !93
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 256
-  %101 = getelementptr inbounds nuw float, ptr %100, i64 %indvars.iv
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %100, i64 %indvars.iv
   store float %98, ptr %101, align 4, !tbaa !94
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3

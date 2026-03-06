@@ -974,7 +974,7 @@ define hidden void @_Z11luaV_concatP9lua_Stateii(ptr noundef %0, i32 noundef %1,
   %.0 = phi i32 [ %1, %3 ], [ %127, %_Z13luaV_tostringP9lua_StateP10lua_TValue.exit84 ]
   %16 = load ptr, ptr %8, align 8, !tbaa !48
   %17 = sext i32 %.070 to i64
-  %18 = getelementptr inbounds %struct.lua_TValue, ptr %16, i64 %17
+  %18 = getelementptr inbounds [16 x i8], ptr %16, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = getelementptr inbounds i8, ptr %18, i64 -16
   %21 = getelementptr inbounds i8, ptr %18, i64 -4
@@ -1099,7 +1099,7 @@ _ZL10call_binTMP9lua_StatePK10lua_TValueS3_PS1_3TMS.exit: ; preds = %.thread.i, 
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %95 ]
   %.073100 = phi i64 [ %75, %.lr.ph.preheader ], [ %96, %95 ]
   %78 = sub nsw i64 0, %indvars.iv
-  %79 = getelementptr inbounds %struct.lua_TValue, ptr %19, i64 %78
+  %79 = getelementptr inbounds [16 x i8], ptr %19, i64 %78
   %80 = getelementptr inbounds i8, ptr %79, i64 -16
   %81 = getelementptr inbounds i8, ptr %79, i64 -4
   %82 = load i32, ptr %81, align 4, !tbaa !4
@@ -1165,7 +1165,7 @@ _Z13luaV_tostringP9lua_StateP10lua_TValue.exit86: ; preds = %.lr.ph
   %indvars.iv115 = phi i64 [ %103, %102 ], [ %indvars.iv.next116, %104 ]
   %.174107 = phi i64 [ 0, %102 ], [ %113, %104 ]
   %105 = sub nsw i64 0, %indvars.iv115
-  %106 = getelementptr inbounds %struct.lua_TValue, ptr %19, i64 %105
+  %106 = getelementptr inbounds [16 x i8], ptr %19, i64 %105
   %107 = load ptr, ptr %106, align 8, !tbaa !9
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 20
   %109 = load i32, ptr %108, align 4, !tbaa !40
@@ -1182,7 +1182,7 @@ _Z13luaV_tostringP9lua_StateP10lua_TValue.exit86: ; preds = %.lr.ph
 116:                                              ; preds = %104
   %117 = icmp ult i64 %113, 512
   %118 = sub nsw i64 0, %103
-  %119 = getelementptr inbounds %struct.lua_TValue, ptr %19, i64 %118
+  %119 = getelementptr inbounds [16 x i8], ptr %19, i64 %118
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 12
   br i1 %117, label %121, label %123
 
@@ -3347,7 +3347,7 @@ define hidden void @_Z11luaV_callTMP9lua_Stateii(ptr noundef %0, i32 noundef %1,
   %20 = phi ptr [ %13, %9 ], [ %.pre, %18 ]
   %21 = sext i32 %1 to i64
   %22 = sub nsw i64 0, %21
-  %23 = getelementptr inbounds %struct.lua_TValue, ptr %20, i64 %22
+  %23 = getelementptr inbounds [16 x i8], ptr %20, i64 %22
   %24 = getelementptr inbounds i8, ptr %23, i64 -16
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %26 = load ptr, ptr %25, align 8, !tbaa !53
@@ -3399,17 +3399,17 @@ define hidden void @_Z11luaV_callTMP9lua_Stateii(ptr noundef %0, i32 noundef %1,
   %54 = load ptr, ptr %12, align 8, !tbaa !36
   %55 = zext nneg i32 %48 to i64
   %56 = sub nsw i64 0, %55
-  %57 = getelementptr inbounds %struct.lua_TValue, ptr %54, i64 %56
+  %57 = getelementptr inbounds [16 x i8], ptr %54, i64 %56
   %58 = load ptr, ptr %50, align 8, !tbaa !58
   %59 = zext nneg i32 %2 to i64
-  %60 = getelementptr inbounds nuw %struct.lua_TValue, ptr %58, i64 %59
+  %60 = getelementptr inbounds nuw [16 x i8], ptr %58, i64 %59
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %60, ptr noundef nonnull align 8 dereferenceable(16) %57, i64 16, i1 false), !tbaa.struct !33
   br label %66
 
 61:                                               ; preds = %51
   %62 = load ptr, ptr %50, align 8, !tbaa !58
   %63 = zext nneg i32 %2 to i64
-  %64 = getelementptr inbounds nuw %struct.lua_TValue, ptr %62, i64 %63
+  %64 = getelementptr inbounds nuw [16 x i8], ptr %62, i64 %63
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 12
   store i32 0, ptr %65, align 4, !tbaa !4
   br label %66

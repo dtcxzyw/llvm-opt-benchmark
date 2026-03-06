@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.gmx::EnergyAnalysisFrame" = type { double, i64, double, i32, double, double }
 %"class.std::vector.3" = type { %"struct.std::_Vector_base.4" }
 %"struct.std::_Vector_base.4" = type { %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl" }
 %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl" = type { %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" }
@@ -153,7 +152,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
 
 57:                                               ; preds = %54
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %58 = getelementptr inbounds nuw %struct.t_interaction_function, ptr @interaction_function, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [32 x i8], ptr @interaction_function, i64 %indvars.iv
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %60 = load ptr, ptr %59, align 8, !tbaa !29
   store ptr %49, ptr %9, align 8, !tbaa !3
@@ -424,7 +423,7 @@ _ZNSt6vectorIN3gmx19EnergyAnalysisFrameESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exi
 _ZNSt6vectorIN3gmx19EnergyAnalysisFrameESaIS1_EE17_M_realloc_insertIJRdRlS5_RiS5_S5_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit: ; preds = %_ZNSt6vectorIN3gmx19EnergyAnalysisFrameESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit37.i, %60
   store ptr %50, ptr %25, align 8, !tbaa !33
   store ptr %59, ptr %26, align 8, !tbaa !40
-  %61 = getelementptr inbounds nuw %"class.gmx::EnergyAnalysisFrame", ptr %50, i64 %48
+  %61 = getelementptr inbounds nuw [48 x i8], ptr %50, i64 %48
   store ptr %61, ptr %28, align 8, !tbaa !34
   br label %_ZNSt6vectorIN3gmx19EnergyAnalysisFrameESaIS1_EE12emplace_backIJRdRlS5_RiS5_S5_EEERS1_DpOT_.exit
 
@@ -519,7 +518,7 @@ define ptr @_ZNK3gmx10EnergyTerm9findFrameEl(ptr noundef nonnull readonly align 
   br i1 %or.cond, label %19, label %21
 
 19:                                               ; preds = %8
-  %20 = getelementptr inbounds nuw %"class.gmx::EnergyAnalysisFrame", ptr %12, i64 %1
+  %20 = getelementptr inbounds nuw [48 x i8], ptr %12, i64 %1
   br label %39
 
 21:                                               ; preds = %8
@@ -660,12 +659,12 @@ _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit18:          ; preds = %_ZNSt6vectorIfSaIfE
   %.sroa.027.032 = phi ptr [ %28, %.lr.ph ], [ %50, %42 ]
   %43 = load double, ptr %.sroa.027.032, align 8, !tbaa !41
   %44 = fptrunc double %43 to float
-  %45 = getelementptr inbounds nuw float, ptr %29, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv
   store float %44, ptr %45, align 4, !tbaa !64
   %46 = getelementptr inbounds nuw i8, ptr %.sroa.027.032, i64 16
   %47 = load double, ptr %46, align 8, !tbaa !44
   %48 = fptrunc double %47 to float
-  %49 = getelementptr inbounds nuw float, ptr %30, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv
   store float %48, ptr %49, align 4, !tbaa !64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %50 = getelementptr inbounds nuw i8, ptr %.sroa.027.032, i64 48
@@ -933,7 +932,7 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE14_M_fill_insertEN9__gnu_cxx17__no
 
 _ZSt22__uninitialized_move_aIPfS0_SaIfEET0_T_S3_S2_RT1_.exit: ; preds = %23, %20
   %24 = phi ptr [ %.pre, %23 ], [ %9, %20 ]
-  %25 = getelementptr inbounds nuw float, ptr %24, i64 %2
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %2
   store ptr %25, ptr %8, align 8, !tbaa !72
   %.not.i.i.i.i.i = icmp eq ptr %21, %1
   br i1 %.not.i.i.i.i.i, label %_ZSt13move_backwardIPfS0_ET0_T_S2_S1_.exit, label %26
@@ -942,7 +941,7 @@ _ZSt22__uninitialized_move_aIPfS0_SaIfEET0_T_S3_S2_RT1_.exit: ; preds = %23, %20
   %27 = sub i64 %22, %16
   %28 = ashr exact i64 %27, 2
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds float, ptr %9, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %9, i64 %29
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %30, ptr align 4 %1, i64 %27, i1 false)
   br label %_ZSt13move_backwardIPfS0_ET0_T_S2_S1_.exit
 
@@ -1053,7 +1052,7 @@ _ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit80: ; preds = %.l
   br label %_ZSt34__uninitialized_move_if_noexcept_aIPfS0_SaIfEET0_T_S3_S2_RT1_.exit
 
 _ZSt34__uninitialized_move_if_noexcept_aIPfS0_SaIfEET0_T_S3_S2_RT1_.exit: ; preds = %67, %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit80
-  %68 = getelementptr inbounds nuw float, ptr %63, i64 %2
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %2
   %69 = sub i64 %11, %56
   %.not.i.i.i.i.i.i.i.i.i82 = icmp eq ptr %9, %1
   br i1 %.not.i.i.i.i.i.i.i.i.i82, label %71, label %70
@@ -1075,7 +1074,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPfS0_SaIfEET0_T_S3_S2_RT1_.exit: ; pred
 _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit: ; preds = %71, %73
   store ptr %62, ptr %0, align 8, !tbaa !66
   store ptr %72, ptr %8, align 8, !tbaa !72
-  %75 = getelementptr inbounds nuw float, ptr %62, i64 %55
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %55
   store ptr %75, ptr %6, align 8, !tbaa !69
   br label %_ZSt4fillIPffEvT_S1_RKT0_.exit
 

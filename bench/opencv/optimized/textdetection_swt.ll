@@ -37,7 +37,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::Scalar_" = type { %"class.cv::Vec" }
 %"class.cv::Vec" = type { %"class.cv::Matx" }
 %"class.cv::Matx" = type { [4 x double] }
-%"class.cv::Rect_" = type { i32, i32, i32, i32 }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -853,7 +852,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit182: ; preds = %25
   store i64 0, ptr %245, align 8
   store i32 50397184, ptr %32, align 8, !tbaa !53
   store ptr %31, ptr %244, align 8, !tbaa !55
-  %266 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %264, i64 %265
+  %266 = getelementptr inbounds nuw [16 x i8], ptr %264, i64 %265
   %.sroa.0.0.copyload = load i64, ptr %266, align 4
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %266, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 4

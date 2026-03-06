@@ -3,10 +3,8 @@ source_filename = "bench/redis/original/ae.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.aeFileEvent = type { i32, ptr, ptr, ptr }
 %struct.epoll_event = type <{ i32, %union.epoll_data }>
 %union.epoll_data = type { ptr }
-%struct.aeFiredEvent = type { i32, i32 }
 %struct.pollfd = type { i32, i16, i16 }
 
 @getMonotonicUs = external local_unnamed_addr global ptr, align 8
@@ -90,7 +88,7 @@ aeApiCreate.exit:                                 ; preds = %29
 
 37:                                               ; preds = %.lr.ph, %37
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %37 ]
-  %38 = getelementptr inbounds nuw %struct.aeFileEvent, ptr %9, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 %indvars.iv
   store i32 0, ptr %38, align 8, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -292,7 +290,7 @@ define dso_local range(i32 -1, 1) i32 @aeCreateFileEvent(ptr noundef captures(no
 
 31:                                               ; preds = %.lr.ph, %31
   %indvars.iv = phi i64 [ %30, %.lr.ph ], [ %indvars.iv.next, %31 ]
-  %32 = getelementptr inbounds %struct.aeFileEvent, ptr %29, i64 %indvars.iv
+  %32 = getelementptr inbounds [32 x i8], ptr %29, i64 %indvars.iv
   store i32 0, ptr %32, align 8, !tbaa !27
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %20
@@ -302,7 +300,7 @@ define dso_local range(i32 -1, 1) i32 @aeCreateFileEvent(ptr noundef captures(no
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %35 = load ptr, ptr %34, align 8, !tbaa !15
   %36 = sext i32 %1 to i64
-  %37 = getelementptr inbounds %struct.aeFileEvent, ptr %35, i64 %36
+  %37 = getelementptr inbounds [32 x i8], ptr %35, i64 %36
   %38 = getelementptr i8, ptr %0, i64 56
   %.val55 = load ptr, ptr %38, align 8, !tbaa !26
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -379,7 +377,7 @@ define dso_local void @aeDeleteFileEvent(ptr noundef captures(none) %0, i32 noun
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8, !tbaa !15
   %10 = sext i32 %1 to i64
-  %11 = getelementptr inbounds %struct.aeFileEvent, ptr %9, i64 %10
+  %11 = getelementptr inbounds [32 x i8], ptr %9, i64 %10
   %12 = load i32, ptr %11, align 8, !tbaa !27
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %40, label %14
@@ -442,7 +440,7 @@ aeApiDelEvent.exit:                               ; preds = %.thread.i, %23
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %36 = load ptr, ptr %8, align 8, !tbaa !15
   %37 = and i64 %indvars.iv.next, 4294967295
-  %38 = getelementptr inbounds nuw %struct.aeFileEvent, ptr %36, i64 %37
+  %38 = getelementptr inbounds nuw [32 x i8], ptr %36, i64 %37
   %39 = load i32, ptr %38, align 8, !tbaa !27
   %.not26 = icmp eq i32 %39, 0
   br i1 %.not26, label %.preheader, label %.split.loop.exit, !llvm.loop !47
@@ -471,7 +469,7 @@ define dso_local ptr @aeGetFileClientData(ptr noundef readonly captures(none) %0
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !15
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds %struct.aeFileEvent, ptr %7, i64 %8
+  %9 = getelementptr inbounds [32 x i8], ptr %7, i64 %8
   %10 = load i32, ptr %9, align 8, !tbaa !27
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %15, label %12
@@ -497,7 +495,7 @@ define dso_local i32 @aeGetFileEvents(ptr noundef readonly captures(none) %0, i3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !15
   %8 = sext i32 %1 to i64
-  %9 = getelementptr inbounds %struct.aeFileEvent, ptr %7, i64 %8
+  %9 = getelementptr inbounds [32 x i8], ptr %7, i64 %8
   %10 = load i32, ptr %9, align 8, !tbaa !27
   br label %11
 
@@ -702,7 +700,7 @@ usUntilEarliestTimer.exit:                        ; preds = %30
 
 56:                                               ; preds = %56, %.preheader.i106
   %indvars.iv.i = phi i64 [ 0, %.preheader.i106 ], [ %indvars.iv.next.i, %56 ]
-  %57 = getelementptr inbounds nuw %struct.epoll_event, ptr %53, i64 %indvars.iv.i
+  %57 = getelementptr inbounds nuw [12 x i8], ptr %53, i64 %indvars.iv.i
   %58 = load i32, ptr %57, align 1, !tbaa !45
   %spec.select.i107 = and i32 %58, 1
   %59 = lshr i32 %58, 1
@@ -713,7 +711,7 @@ usUntilEarliestTimer.exit:                        ; preds = %30
   %.3.i = select i1 %62, i32 %.1.i108, i32 3
   %63 = getelementptr inbounds nuw i8, ptr %57, i64 4
   %64 = load i32, ptr %63, align 1, !tbaa !41
-  %65 = getelementptr inbounds nuw %struct.aeFiredEvent, ptr %55, i64 %indvars.iv.i
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv.i
   store i32 %64, ptr %65, align 4, !tbaa !58
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 4
   store i32 %.3.i, ptr %66, align 4, !tbaa !60
@@ -766,11 +764,11 @@ aeApiPoll.exit:                                   ; preds = %56, %67, %69
 84:                                               ; preds = %.lr.ph, %.thread130
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread130 ]
   %85 = load ptr, ptr %81, align 8, !tbaa !16
-  %86 = getelementptr inbounds nuw %struct.aeFiredEvent, ptr %85, i64 %indvars.iv
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %indvars.iv
   %87 = load i32, ptr %86, align 4, !tbaa !58
   %88 = load ptr, ptr %82, align 8, !tbaa !15
   %89 = sext i32 %87 to i64
-  %90 = getelementptr inbounds %struct.aeFileEvent, ptr %88, i64 %89
+  %90 = getelementptr inbounds [32 x i8], ptr %88, i64 %89
   %91 = getelementptr inbounds nuw i8, ptr %86, i64 4
   %92 = load i32, ptr %91, align 4, !tbaa !60
   %93 = load i32, ptr %90, align 8, !tbaa !27
@@ -802,7 +800,7 @@ aeApiPoll.exit:                                   ; preds = %56, %67, %69
   %104 = load ptr, ptr %103, align 8, !tbaa !44
   tail call void %102(ptr noundef nonnull %0, i32 noundef %87, ptr noundef %104, i32 noundef %92) #16
   %105 = load ptr, ptr %82, align 8, !tbaa !15
-  %106 = getelementptr inbounds %struct.aeFileEvent, ptr %105, i64 %89
+  %106 = getelementptr inbounds [32 x i8], ptr %105, i64 %89
   %107 = load i32, ptr %106, align 8, !tbaa !27
   %108 = and i32 %92, 2
   %109 = and i32 %108, %107
@@ -820,7 +818,7 @@ aeApiPoll.exit:                                   ; preds = %56, %67, %69
 115:                                              ; preds = %._crit_edge140, %110
   %116 = phi ptr [ %112, %110 ], [ %.pre, %._crit_edge140 ]
   %117 = phi ptr [ %105, %110 ], [ %88, %._crit_edge140 ]
-  %118 = getelementptr inbounds %struct.aeFileEvent, ptr %117, i64 %89
+  %118 = getelementptr inbounds [32 x i8], ptr %117, i64 %89
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 24
   %120 = load ptr, ptr %119, align 8, !tbaa !44
   tail call void %116(ptr noundef nonnull %0, i32 noundef %87, ptr noundef %120, i32 noundef %92) #16
@@ -832,7 +830,7 @@ aeApiPoll.exit:                                   ; preds = %56, %67, %69
 
 122:                                              ; preds = %121
   %123 = load ptr, ptr %82, align 8, !tbaa !15
-  %124 = getelementptr inbounds %struct.aeFileEvent, ptr %123, i64 %89
+  %124 = getelementptr inbounds [32 x i8], ptr %123, i64 %89
   %125 = load i32, ptr %124, align 8, !tbaa !27
   %126 = and i32 %92, 1
   %127 = and i32 %126, %125

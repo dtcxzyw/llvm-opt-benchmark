@@ -1009,7 +1009,7 @@ define dso_local i32 @i915_ggtt_probe_hw(ptr noundef %0) local_unnamed_addr #0 a
 5:                                                ; preds = %14, %1
   %6 = phi i1 [ true, %1 ], [ false, %14 ]
   %7 = phi i64 [ 0, %1 ], [ 1, %14 ]
-  %8 = getelementptr ptr, ptr %4, i64 %7
+  %8 = getelementptr [8 x i8], ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, null
   br i1 %10, label %14, label %11
@@ -1939,7 +1939,7 @@ define internal void @gen8_ggtt_insert_page(ptr noundef %0, i64 noundef %1, i64 
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %7 = load ptr, ptr %6, align 8
   %8 = lshr i64 %2, 12
-  %9 = getelementptr i64, ptr %7, i64 %8
+  %9 = getelementptr [8 x i8], ptr %7, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i64 %11(i64 noundef %1, i32 noundef %3, i32 noundef %4) #10
@@ -1967,7 +1967,7 @@ define internal void @gen8_ggtt_clear_range(ptr noundef readonly captures(none) 
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %12 = load ptr, ptr %11, align 8
   %13 = and i64 %4, 4294967295
-  %14 = getelementptr i64, ptr %12, i64 %13
+  %14 = getelementptr [8 x i8], ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %16 = load i64, ptr %15, align 8
   %17 = lshr i64 %16, 12
@@ -1994,7 +1994,7 @@ define internal void @gen8_ggtt_clear_range(ptr noundef readonly captures(none) 
 .preheader:                                       ; preds = %23, %.preheader
   %26 = phi i32 [ %29, %.preheader ], [ 0, %23 ]
   %27 = sext i32 %26 to i64
-  %28 = getelementptr i64, ptr %14, i64 %27
+  %28 = getelementptr [8 x i8], ptr %14, i64 %27
   tail call void asm sideeffect "movq $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %10, ptr elementtype(i64) %28) #10, !srcloc !51
   %29 = add nuw i32 %26, 1
   %30 = icmp eq i32 %29, %24
@@ -2018,9 +2018,9 @@ define internal void @gen8_ggtt_insert_entries(ptr noundef %0, ptr noundef reado
   %14 = zext i32 %13 to i64
   %15 = sub i64 %11, %14
   %16 = lshr i64 %15, 12
-  %17 = getelementptr i64, ptr %9, i64 %16
+  %17 = getelementptr [8 x i8], ptr %9, i64 %16
   %18 = lshr i64 %14, 12
-  %19 = getelementptr i64, ptr %17, i64 %18
+  %19 = getelementptr [8 x i8], ptr %17, i64 %18
   %20 = icmp ult ptr %17, %19
   br i1 %20, label %21, label %.loopexit18
 
@@ -2050,7 +2050,7 @@ define internal void @gen8_ggtt_insert_entries(ptr noundef %0, ptr noundef reado
   %32 = load i64, ptr %31, align 8
   %33 = add i64 %32, %.pre-phi
   %34 = lshr i64 %33, 12
-  %35 = getelementptr i64, ptr %19, i64 %34
+  %35 = getelementptr [8 x i8], ptr %19, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %37 = load ptr, ptr %36, align 8
   %38 = load ptr, ptr %37, align 8
@@ -2232,7 +2232,7 @@ define internal void @gen8_ggtt_scratch_range_bind(ptr noundef %0, i64 noundef %
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %34 = load ptr, ptr %33, align 8
   %35 = and i64 %4, 4294967295
-  %36 = getelementptr i64, ptr %34, i64 %35
+  %36 = getelementptr [8 x i8], ptr %34, i64 %35
   %37 = load i64, ptr %12, align 8
   %38 = lshr i64 %37, 12
   %39 = sub nsw i64 %38, %4
@@ -2257,7 +2257,7 @@ define internal void @gen8_ggtt_scratch_range_bind(ptr noundef %0, i64 noundef %
 .preheader:                                       ; preds = %43, %.preheader
   %46 = phi i32 [ %49, %.preheader ], [ 0, %43 ]
   %47 = sext i32 %46 to i64
-  %48 = getelementptr i64, ptr %36, i64 %47
+  %48 = getelementptr [8 x i8], ptr %36, i64 %47
   tail call void asm sideeffect "movq $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %32, ptr elementtype(i64) %48) #10, !srcloc !51
   %49 = add nuw i32 %46, 1
   %50 = icmp eq i32 %49, %44
@@ -2286,7 +2286,7 @@ define internal void @gen8_ggtt_insert_page_bind(ptr noundef %0, i64 noundef %1,
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %17 = load ptr, ptr %16, align 8
   %18 = lshr i64 %2, 12
-  %19 = getelementptr i64, ptr %17, i64 %18
+  %19 = getelementptr [8 x i8], ptr %17, i64 %18
   %20 = load ptr, ptr %6, align 8
   %21 = tail call i64 %20(i64 noundef %1, i32 noundef %3, i32 noundef %4) #10
   tail call void asm sideeffect "movq $0,$1", "r,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %21, ptr elementtype(i64) %19) #10, !srcloc !51
@@ -2658,7 +2658,7 @@ define internal noundef i32 @bxt_vtd_ggtt_insert_page__cb(ptr noundef readonly c
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 784
   %10 = load ptr, ptr %9, align 8
   %11 = lshr i64 %6, 12
-  %12 = getelementptr i64, ptr %10, i64 %11
+  %12 = getelementptr [8 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 584
   %14 = load ptr, ptr %13, align 8
   %15 = tail call i64 %14(i64 noundef %4, i32 noundef %8, i32 noundef 0) #10
@@ -3229,7 +3229,7 @@ define internal void @gen6_ggtt_clear_range(ptr noundef readonly captures(none) 
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %8 = load ptr, ptr %7, align 8
   %9 = and i64 %4, 4294967295
-  %10 = getelementptr i32, ptr %8, i64 %9
+  %10 = getelementptr [4 x i8], ptr %8, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %12 = load i64, ptr %11, align 8
   %13 = lshr i64 %12, 12
@@ -3261,7 +3261,7 @@ define internal void @gen6_ggtt_clear_range(ptr noundef readonly captures(none) 
 .preheader:                                       ; preds = %19, %.preheader
   %27 = phi i32 [ %30, %.preheader ], [ 0, %19 ]
   %28 = sext i32 %27 to i64
-  %29 = getelementptr i32, ptr %10, i64 %28
+  %29 = getelementptr [4 x i8], ptr %10, i64 %28
   tail call void @iowrite32(i32 noundef %25, ptr noundef %29) #10
   %30 = add nuw i32 %27, 1
   %31 = icmp eq i32 %30, %20
@@ -3276,7 +3276,7 @@ define internal void @gen6_ggtt_insert_page(ptr noundef %0, i64 noundef %1, i64 
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 784
   %7 = load ptr, ptr %6, align 8
   %8 = lshr i64 %2, 12
-  %9 = getelementptr i32, ptr %7, i64 %8
+  %9 = getelementptr [4 x i8], ptr %7, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 584
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i64 %11(i64 noundef %1, i32 noundef %3, i32 noundef %4) #10
@@ -3299,9 +3299,9 @@ define internal void @gen6_ggtt_insert_entries(ptr noundef %0, ptr noundef reado
   %11 = zext i32 %10 to i64
   %12 = sub i64 %8, %11
   %13 = lshr i64 %12, 12
-  %14 = getelementptr i32, ptr %6, i64 %13
+  %14 = getelementptr [4 x i8], ptr %6, i64 %13
   %15 = lshr i64 %11, 12
-  %16 = getelementptr i32, ptr %14, i64 %15
+  %16 = getelementptr [4 x i8], ptr %14, i64 %15
   %17 = icmp ult ptr %14, %16
   br i1 %17, label %18, label %.loopexit18
 
@@ -3332,7 +3332,7 @@ define internal void @gen6_ggtt_insert_entries(ptr noundef %0, ptr noundef reado
   %30 = load i64, ptr %29, align 8
   %31 = add i64 %30, %.pre-phi
   %32 = lshr i64 %31, 12
-  %33 = getelementptr i32, ptr %16, i64 %32
+  %33 = getelementptr [4 x i8], ptr %16, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %35 = load ptr, ptr %34, align 8
   %36 = load ptr, ptr %35, align 8

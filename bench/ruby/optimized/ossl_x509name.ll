@@ -258,7 +258,7 @@ define internal noundef i64 @ossl_x509name_initialize(i32 noundef %0, ptr nounde
 
 15:                                               ; preds = %.preheader
   %16 = sext i32 %.185.i23 to i64
-  %17 = getelementptr inbounds i64, ptr %1, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %1, i64 %16
   %18 = load i64, ptr %17, align 8, !tbaa !6
   store i64 %18, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8, !tbaa !6
   %19 = add nsw i32 %.185.i23, 1
@@ -475,7 +475,7 @@ rb_scan_args_n_opt.exit:                          ; preds = %8, %3
 
 12:                                               ; preds = %rb_scan_args_n_opt.exit
   %13 = zext nneg i32 %0 to i64
-  %14 = getelementptr i64, ptr %1, i64 %13
+  %14 = getelementptr [8 x i8], ptr %1, i64 %13
   %15 = getelementptr i8, ptr %14, i64 -8
   %16 = load i64, ptr %15, align 8, !tbaa !6
   %17 = tail call i32 @rb_keyword_given_p() #8
@@ -497,7 +497,7 @@ rb_scan_args_n_opt.exit:                          ; preds = %8, %3
   %exitcond.not = phi i1 [ true, %.preheader28 ], [ false, %21 ]
   %indvars.iv.sroa.phi.sroa.speculated = phi ptr [ %5, %.preheader28 ], [ %4, %21 ]
   %indvars.iv = phi i64 [ 1, %.preheader28 ], [ 0, %21 ]
-  %23 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %24 = load i64, ptr %23, align 8, !tbaa !6
   store i64 %24, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8, !tbaa !6
   br i1 %exitcond.not, label %.preheader, label %.preheader28, !llvm.loop !33

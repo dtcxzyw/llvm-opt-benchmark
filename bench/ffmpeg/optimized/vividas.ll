@@ -5,9 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.FFIOContext = type { %struct.AVIOContext, ptr, i32, i32, i64, i64, i64, i64, i32, i32, i32, i64 }
 %struct.AVIOContext = type { ptr, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, i64, i32, i32, i32, i32, i32, i64, ptr, ptr, ptr, ptr, i32, i32, ptr, ptr, ptr, i32, ptr, i64, i64 }
-%struct.VIV_SB_block = type { i32, i32, i64, i64 }
-%struct.VIV_AudioSubpacket = type { i32, i32 }
-%struct.VIV_SB_entry = type { i32, i32 }
 
 @.str = private unnamed_addr constant [8 x i8] c"vividas\00", align 1
 @.str.1 = private unnamed_addr constant [12 x i8] c"Vividas VIV\00", align 1
@@ -362,7 +359,7 @@ decode_key.exit91:                                ; preds = %52
 
 181:                                              ; preds = %177
   %182 = trunc nuw nsw i64 %175 to i32
-  %183 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv.i92
+  %183 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i92
   store i32 %182, ptr %183, align 4, !tbaa !27
   %184 = udiv i32 %182, 255
   %185 = add i32 %.0170234.i, 1
@@ -405,7 +402,7 @@ decode_key.exit91:                                ; preds = %52
   %.0166239.i = phi i32 [ 1, %.lr.ph242.preheader.i ], [ %205, %204 ]
   %197 = sext i32 %.0166239.i to i64
   %198 = getelementptr inbounds i8, ptr %194, i64 %197
-  %199 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv271.i
+  %199 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv271.i
   %200 = load i32, ptr %199, align 4, !tbaa !27
   %201 = call i32 @av_xiphlacing(ptr noundef nonnull %198, i32 noundef %200) #9
   %202 = sub nsw i32 %.0170.lcssa.i, %.0166239.i
@@ -428,7 +425,7 @@ decode_key.exit91:                                ; preds = %52
   %.1167244.i = phi i32 [ %.0166.lcssa.i, %.lr.ph246.preheader.i ], [ %220, %219 ]
   %206 = sext i32 %.1167244.i to i64
   %207 = getelementptr inbounds i8, ptr %194, i64 %206
-  %208 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv276.i
+  %208 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv276.i
   %209 = load i32, ptr %208, align 4, !tbaa !27
   %210 = call i32 @avio_read(ptr noundef nonnull %3, ptr noundef nonnull %207, i32 noundef %209) #9
   %211 = icmp slt i32 %210, %209
@@ -538,7 +535,7 @@ track_header.exit.thread:                         ; preds = %.lr.ph232.i, %.lr.p
 
 247:                                              ; preds = %.lr.ph.i96
   %248 = load ptr, ptr %240, align 8, !tbaa !61
-  %249 = getelementptr inbounds nuw %struct.VIV_SB_block, ptr %248, i64 %indvars.iv.i97
+  %249 = getelementptr inbounds nuw [24 x i8], ptr %248, i64 %indvars.iv.i97
   %250 = getelementptr inbounds nuw i8, ptr %249, i64 8
   store i64 %.0516.i, ptr %250, align 8, !tbaa !63
   %251 = getelementptr inbounds nuw i8, ptr %249, i64 16
@@ -637,7 +634,7 @@ define internal range(i32 -2147483648, 1) i32 @viv_read_packet(ptr noundef reado
 15:                                               ; preds = %9
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %17 = sext i32 %11 to i64
-  %18 = getelementptr %struct.VIV_AudioSubpacket, ptr %16, i64 %17
+  %18 = getelementptr [8 x i8], ptr %16, i64 %17
   %19 = getelementptr i8, ptr %18, i64 8
   %20 = load i32, ptr %19, align 8, !tbaa !75
   %21 = load i32, ptr %18, align 8, !tbaa !75
@@ -655,7 +652,7 @@ define internal range(i32 -2147483648, 1) i32 @viv_read_packet(ptr noundef reado
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %32 = load i32, ptr %31, align 8, !tbaa !71
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds %struct.VIV_SB_block, ptr %30, i64 %33
+  %34 = getelementptr inbounds [24 x i8], ptr %30, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load i64, ptr %35, align 8, !tbaa !63
   %37 = add nsw i64 %36, %28
@@ -685,7 +682,7 @@ define internal range(i32 -2147483648, 1) i32 @viv_read_packet(ptr noundef reado
   store i64 %54, ptr %55, align 8, !tbaa !83
   %56 = load i32, ptr %10, align 4, !tbaa !73
   %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds %struct.VIV_AudioSubpacket, ptr %16, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %16, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 4
   %60 = load i32, ptr %59, align 4, !tbaa !84
   %61 = sdiv i32 %60, 2
@@ -741,7 +738,7 @@ define internal range(i32 -2147483648, 1) i32 @viv_read_packet(ptr noundef reado
   %89 = getelementptr inbounds nuw i8, ptr %4, i64 64
   %90 = load ptr, ptr %89, align 8, !tbaa !69
   %91 = sext i32 %86 to i64
-  %92 = getelementptr inbounds %struct.VIV_SB_entry, ptr %90, i64 %91
+  %92 = getelementptr inbounds [8 x i8], ptr %90, i64 %91
   %93 = load i32, ptr %92, align 4, !tbaa !88
   %94 = zext i32 %93 to i64
   %95 = add i64 %85, %94
@@ -777,7 +774,7 @@ define internal range(i32 -2147483648, 1) i32 @viv_read_packet(ptr noundef reado
   %115 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %116 = load i32, ptr %115, align 8, !tbaa !71
   %117 = sext i32 %116 to i64
-  %118 = getelementptr inbounds %struct.VIV_SB_block, ptr %114, i64 %117
+  %118 = getelementptr inbounds [24 x i8], ptr %114, i64 %117
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 8
   %120 = load i64, ptr %119, align 8, !tbaa !63
   %121 = add nsw i64 %120, %112
@@ -826,7 +823,7 @@ define internal range(i32 -2147483648, 1) i32 @viv_read_packet(ptr noundef reado
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %150 = trunc nuw nsw i64 %indvars.iv.next to i32
   store i32 %150, ptr %12, align 8, !tbaa !74
-  %151 = getelementptr inbounds nuw %struct.VIV_AudioSubpacket, ptr %139, i64 %indvars.iv
+  %151 = getelementptr inbounds nuw [8 x i8], ptr %139, i64 %indvars.iv
   store i32 %142, ptr %151, align 8, !tbaa !75
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 4
   store i32 %144, ptr %152, align 4, !tbaa !84
@@ -840,7 +837,7 @@ define internal range(i32 -2147483648, 1) i32 @viv_read_packet(ptr noundef reado
   %155 = trunc i64 %154 to i32
   %156 = load i32, ptr %12, align 8, !tbaa !74
   %157 = sext i32 %156 to i64
-  %158 = getelementptr inbounds %struct.VIV_AudioSubpacket, ptr %139, i64 %157
+  %158 = getelementptr inbounds [8 x i8], ptr %139, i64 %157
   store i32 %155, ptr %158, align 8, !tbaa !75
   %159 = icmp sgt i32 %.0127.lcssa, %155
   br i1 %159, label %.thread163, label %160
@@ -869,7 +866,7 @@ define internal range(i32 -2147483648, 1) i32 @viv_read_packet(ptr noundef reado
   %172 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %173 = load i32, ptr %172, align 8, !tbaa !71
   %174 = sext i32 %173 to i64
-  %175 = getelementptr inbounds %struct.VIV_SB_block, ptr %171, i64 %174
+  %175 = getelementptr inbounds [24 x i8], ptr %171, i64 %174
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 8
   %177 = load i64, ptr %176, align 8, !tbaa !63
   %178 = add nsw i64 %177, %169
@@ -936,7 +933,7 @@ define internal range(i32 0, 2) i32 @viv_read_seek(ptr noundef readonly captures
   %11 = load ptr, ptr %10, align 8, !tbaa !80
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %13 = sext i32 %1 to i64
-  %14 = getelementptr inbounds ptr, ptr %10, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %10, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !80
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %17 = load i64, ptr %12, align 8
@@ -958,7 +955,7 @@ define internal range(i32 0, 2) i32 @viv_read_seek(ptr noundef readonly captures
 
 24:                                               ; preds = %.lr.ph, %71
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %71 ]
-  %25 = getelementptr inbounds nuw %struct.VIV_SB_block, ptr %23, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %indvars.iv
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load i64, ptr %26, align 8, !tbaa !65
   %.not = icmp slt i64 %.040, %27
@@ -1002,7 +999,7 @@ define internal range(i32 0, 2) i32 @viv_read_seek(ptr noundef readonly captures
   %55 = getelementptr inbounds nuw i8, ptr %6, i64 72
   store i32 0, ptr %55, align 8, !tbaa !74
   %56 = load ptr, ptr %22, align 8, !tbaa !61
-  %57 = getelementptr inbounds nuw %struct.VIV_SB_block, ptr %56, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [24 x i8], ptr %56, i64 %indvars.iv
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %59 = load i64, ptr %58, align 8, !tbaa !65
   %60 = getelementptr inbounds nuw i8, ptr %53, i64 152
@@ -1561,7 +1558,7 @@ read_sb_block.exit.thread:                        ; preds = %14, %get_v.exit67.i
   %126 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %127 = load i32, ptr %126, align 8, !tbaa !71
   %128 = sext i32 %127 to i64
-  %129 = getelementptr inbounds %struct.VIV_SB_block, ptr %125, i64 %128
+  %129 = getelementptr inbounds [24 x i8], ptr %125, i64 %128
   %130 = getelementptr inbounds nuw i8, ptr %129, i64 4
   %131 = load i32, ptr %130, align 4, !tbaa !67
   %132 = getelementptr inbounds nuw i8, ptr %1, i64 56
@@ -1578,11 +1575,11 @@ read_sb_block.exit.thread:                        ; preds = %14, %get_v.exit67.i
   %136 = call i64 @ffio_read_varlen(ptr noundef nonnull %117) #9
   %137 = trunc i64 %136 to i32
   %138 = load ptr, ptr %134, align 8, !tbaa !69
-  %139 = getelementptr inbounds nuw %struct.VIV_SB_entry, ptr %138, i64 %indvars.iv
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %138, i64 %indvars.iv
   store i32 %137, ptr %139, align 4, !tbaa !88
   %140 = call i32 @avio_r8(ptr noundef nonnull %117) #9
   %141 = load ptr, ptr %134, align 8, !tbaa !69
-  %142 = getelementptr inbounds nuw %struct.VIV_SB_entry, ptr %141, i64 %indvars.iv
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %141, i64 %indvars.iv
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 4
   store i32 %140, ptr %143, align 4, !tbaa !90
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

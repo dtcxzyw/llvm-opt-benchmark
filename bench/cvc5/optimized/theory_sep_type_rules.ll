@@ -120,7 +120,7 @@ define hidden void @_ZN4cvc58internal6theory3sep15SepStarTypeRule11computeTypeEP
   %24 = load i64, ptr %23, align 8
   %25 = lshr i64 %24, 32
   %26 = and i64 %25, 67108863
-  %27 = getelementptr inbounds nuw ptr, ptr %22, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %26
   %.not4950 = icmp eq ptr %spec.select.i.i, %27
   br i1 %.not4950, label %.critedge31, label %.lr.ph
 
@@ -555,7 +555,7 @@ define hidden void @_ZN4cvc58internal6theory3sep15SepWandTypeRule11computeTypeEP
   %24 = load i64, ptr %23, align 8
   %25 = lshr i64 %24, 32
   %26 = and i64 %25, 67108863
-  %27 = getelementptr inbounds nuw ptr, ptr %22, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %26
   %.not4950 = icmp eq ptr %spec.select.i.i, %27
   br i1 %.not4950, label %.critedge31, label %.lr.ph
 
@@ -920,7 +920,7 @@ define hidden void @_ZN4cvc58internal6theory3sep16SepLabelTypeRule11computeTypeE
   %21 = icmp eq i32 %19, 2
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %23 = zext i1 %21 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !13, !noalias !36
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %25, ptr %7, align 8, !tbaa !11, !noalias !39
@@ -1021,7 +1021,7 @@ _ZN4cvc58internal6theory3sep14isMaybeBooleanERKNS0_8TypeNodeE.exit.thread: ; pre
   %70 = icmp eq i32 %68, 2
   %spec.select.i.i = select i1 %70, i64 2, i64 1
   %71 = getelementptr inbounds nuw i8, ptr %61, i64 24
-  %72 = getelementptr inbounds nuw ptr, ptr %71, i64 %spec.select.i.i
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %spec.select.i.i
   %73 = load ptr, ptr %72, align 8, !tbaa !13, !noalias !45
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %73, ptr %6, align 8, !tbaa !11, !noalias !48

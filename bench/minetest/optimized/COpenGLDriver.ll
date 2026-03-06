@@ -15,26 +15,17 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon.55 = type { i64, [8 x i8] }
 %"class.irr::video::SColorf" = type { float, float, float, float }
-%"struct.irr::video::COpenGLDriver::SUserClipPlane" = type <{ %"class.irr::core::plane3d", i8, [3 x i8] }>
-%"class.irr::core::plane3d" = type { %"class.irr::core::vector3d", float }
-%"struct.irr::video::CNullDriver::SMaterialRenderer" = type { %"class.irr::core::string", ptr }
-%"struct.irr::video::S3DVertex" = type { %"class.irr::core::vector3d", %"class.irr::core::vector3d", %"class.irr::video::SColor", %"class.irr::core::vector2d.70" }
-%"class.irr::video::SColor" = type { i32 }
-%"class.irr::core::vector2d.70" = type { float, float }
-%"struct.irr::video::S3DVertex2TCoords" = type { %"struct.irr::video::S3DVertex", %"class.irr::core::vector2d.70" }
-%"struct.irr::video::S3DVertexTangents" = type { %"struct.irr::video::S3DVertex", %"class.irr::core::vector3d", %"class.irr::core::vector3d" }
-%"struct.irr::video::CNullDriver::SOccQuery" = type { ptr, ptr, %union.anon.80, i32, i32 }
-%union.anon.80 = type { ptr }
 %"class.irr::video::SMaterial" = type <{ [4 x %"class.irr::video::SMaterialLayer"], i32, %"class.irr::video::SColor", %"class.irr::video::SColor", %"class.irr::video::SColor", %"class.irr::video::SColor", float, float, float, i8, i8, i16, float, float, float, i16, [6 x i8] }>
 %"class.irr::video::SMaterialLayer" = type { ptr, i16, i32, i32, i8, i8, ptr }
-%"class.irr::core::rect" = type { %"class.irr::core::vector2d", %"class.irr::core::vector2d" }
-%"class.irr::core::vector2d" = type { i32, i32 }
+%"class.irr::video::SColor" = type { i32 }
+%"class.irr::core::vector2d.70" = type { float, float }
 %"class.irr::core::array.111" = type <{ %"class.std::vector.112", i8, [7 x i8] }>
 %"class.std::vector.112" = type { %"struct.std::_Vector_base.113" }
 %"struct.std::_Vector_base.113" = type { %"struct.std::_Vector_base<irr::video::IImage *, std::allocator<irr::video::IImage *>>::_Vector_impl" }
 %"struct.std::_Vector_base<irr::video::IImage *, std::allocator<irr::video::IImage *>>::_Vector_impl" = type { %"struct.std::_Vector_base<irr::video::IImage *, std::allocator<irr::video::IImage *>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<irr::video::IImage *, std::allocator<irr::video::IImage *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.irr::video::SOverrideMaterial::SMaterialTypeReplacement" = type { i32, i32 }
+%"class.irr::core::vector2d" = type { i32, i32 }
+%"struct.irr::video::S3DVertex" = type { %"class.irr::core::vector3d", %"class.irr::core::vector3d", %"class.irr::video::SColor", %"class.irr::core::vector2d.70" }
 %"class.irr::core::dimension2d" = type { i32, i32 }
 
 $_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE13STextureCache5clearEv = comdat any
@@ -1630,7 +1621,7 @@ if.else.i.i:                                      ; preds = %if.then.i204
   br i1 %cmp4.i.i, label %if.then5.i.i, label %_ZN3irr4core5arrayINS_5video13COpenGLDriver14SUserClipPlaneEE10reallocateEjb.exit
 
 if.then5.i.i:                                     ; preds = %if.else.i.i
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.irr::video::COpenGLDriver::SUserClipPlane", ptr %77, i64 %conv.i202
+  %add.ptr.i.i = getelementptr inbounds nuw [20 x i8], ptr %77, i64 %conv.i202
   %tobool.not.i.i.i = icmp eq ptr %78, %add.ptr.i.i
   br i1 %tobool.not.i.i.i, label %_ZN3irr4core5arrayINS_5video13COpenGLDriver14SUserClipPlaneEE10reallocateEjb.exit, label %if.then.i.i.i205
 
@@ -1673,7 +1664,7 @@ _ZNSt12_Vector_baseIN3irr5video13COpenGLDriver14SUserClipPlaneESaIS3_EE13_M_deal
   store ptr %call5.i.i.i.i.i, ptr %UserClipPlanes, align 8, !tbaa !163
   %add.ptr.i17.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 %sub.ptr.sub.i32.i.i
   store ptr %add.ptr.i17.i, ptr %_M_finish.i.i14.i, align 8, !tbaa !164
-  %add.ptr21.i.i = getelementptr inbounds nuw %"struct.irr::video::COpenGLDriver::SUserClipPlane", ptr %call5.i.i.i.i.i, i64 %conv.i202
+  %add.ptr21.i.i = getelementptr inbounds nuw [20 x i8], ptr %call5.i.i.i.i.i, i64 %conv.i202
   store ptr %add.ptr21.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !162
   br label %_ZN3irr4core5arrayINS_5video13COpenGLDriver14SUserClipPlaneEE10reallocateEjb.exit
 
@@ -1801,7 +1792,7 @@ _ZNSt6vectorIN3irr5video13COpenGLDriver14SUserClipPlaneESaIS3_EE17_M_realloc_ins
   %.pre13 = phi i8 [ %.pre13.pre, %if.then.i41.i.i.i.i ], [ %.pre1314, %_ZNSt6vectorIN3irr5video13COpenGLDriver14SUserClipPlaneESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit40.i.i.i.i ]
   store ptr %call5.i.i.i.i.i.i.i, ptr %UserClipPlanes, align 8, !tbaa !163
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i206, align 8, !tbaa !164
-  %add.ptr19.i.i.i.i = getelementptr inbounds nuw %"struct.irr::video::COpenGLDriver::SUserClipPlane", ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
+  %add.ptr19.i.i.i.i = getelementptr inbounds nuw [20 x i8], ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
   store ptr %add.ptr19.i.i.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !162
   br label %_ZN3irr4core5arrayINS_5video13COpenGLDriver14SUserClipPlaneEE9push_backEOS4_.exit
 
@@ -2866,13 +2857,13 @@ for.cond.cleanup.i80:                             ; preds = %for.body.i, %if.the
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i79
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i79 ], [ %indvars.iv.next.i, %for.body.i ]
-  %arrayidx13.i = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv.i
+  %arrayidx13.i = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv.i
   store i32 770, ptr %arrayidx13.i, align 4, !tbaa !129
-  %arrayidx16.i = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv.i
+  %arrayidx16.i = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv.i
   store i32 771, ptr %arrayidx16.i, align 4, !tbaa !129
-  %arrayidx19.i = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv.i
+  %arrayidx19.i = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv.i
   store i32 770, ptr %arrayidx19.i, align 4, !tbaa !129
-  %arrayidx22.i = getelementptr inbounds nuw i32, ptr %24, i64 %indvars.iv.i
+  %arrayidx22.i = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %indvars.iv.i
   store i32 771, ptr %arrayidx22.i, align 4, !tbaa !129
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %25 = load i32, ptr %FrameBufferCount.i78, align 8, !tbaa !209
@@ -3049,7 +3040,7 @@ land.lhs.true:                                    ; preds = %if.then18
 
 if.then27:                                        ; preds = %land.lhs.true
   %conv.i85 = zext i32 %88 to i64
-  %Renderer.split = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SMaterialRenderer", ptr %91, i64 %conv.i85
+  %Renderer.split = getelementptr inbounds nuw [40 x i8], ptr %91, i64 %conv.i85
   %Renderer = getelementptr inbounds nuw i8, ptr %Renderer.split, i64 32
   %92 = load ptr, ptr %Renderer, align 8, !tbaa !234
   %vtable = load ptr, ptr %92, align 8, !tbaa !3
@@ -3075,7 +3066,7 @@ if.end32:                                         ; preds = %if.then27, %land.lh
 
 if.then38:                                        ; preds = %if.end32
   %conv.i92 = zext i32 %94 to i64
-  %Renderer43.split = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SMaterialRenderer", ptr %96, i64 %conv.i92
+  %Renderer43.split = getelementptr inbounds nuw [40 x i8], ptr %96, i64 %conv.i92
   %Renderer43 = getelementptr inbounds nuw i8, ptr %Renderer43.split, i64 32
   %97 = load ptr, ptr %Renderer43, align 8, !tbaa !234
   %98 = load i8, ptr %ResetRenderStates15, align 4, !tbaa !106, !range !131, !noundef !132
@@ -3165,7 +3156,7 @@ if.end58:                                         ; preds = %_ZN3irr5video23COpe
 
 if.then64:                                        ; preds = %if.end58
   %conv.i103 = zext i32 %109 to i64
-  %Renderer69.split = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SMaterialRenderer", ptr %111, i64 %conv.i103
+  %Renderer69.split = getelementptr inbounds nuw [40 x i8], ptr %111, i64 %conv.i103
   %Renderer69 = getelementptr inbounds nuw i8, ptr %Renderer69.split, i64 32
   %112 = load ptr, ptr %Renderer69, align 8, !tbaa !234
   %add.ptr70 = getelementptr inbounds nuw i8, ptr %this, i64 1168
@@ -3239,7 +3230,7 @@ define noundef nonnull align 4 dereferenceable(64) ptr @_ZNK3irr5video13COpenGLD
 entry:
   %Matrices = getelementptr inbounds nuw i8, ptr %this, i64 3088
   %idxprom = zext i32 %state to i64
-  %arrayidx = getelementptr inbounds nuw %"class.irr::core::CMatrix4", ptr %Matrices, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [64 x i8], ptr %Matrices, i64 %idxprom
   ret ptr %arrayidx
 }
 
@@ -3249,7 +3240,7 @@ entry:
   %clip_plane.i = alloca [4 x double], align 16
   %Matrices = getelementptr inbounds nuw i8, ptr %this, i64 3088
   %idxprom = zext i32 %state to i64
-  %arrayidx = getelementptr inbounds nuw %"class.irr::core::CMatrix4", ptr %Matrices, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [64 x i8], ptr %Matrices, i64 %idxprom
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %arrayidx, ptr noundef nonnull align 4 dereferenceable(64) %mat, i64 64, i1 false), !tbaa.struct !236
   %Transformation3DChanged = getelementptr inbounds nuw i8, ptr %this, i64 3573
   store i8 1, ptr %Transformation3DChanged, align 1, !tbaa !107
@@ -3283,7 +3274,7 @@ for.body:                                         ; preds = %for.inc, %for.body.
   %2 = phi i8 [ %1, %for.body.lr.ph ], [ %11, %for.inc ]
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %3 = load ptr, ptr %UserClipPlanes, align 8, !tbaa !163
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.irr::video::COpenGLDriver::SUserClipPlane", ptr %3, i64 %indvars.iv
+  %add.ptr.i.i = getelementptr inbounds nuw [20 x i8], ptr %3, i64 %indvars.iv
   %Enabled = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 16
   %4 = load i8, ptr %Enabled, align 4, !tbaa !237, !range !131, !noundef !132
   %tobool.not = icmp eq i8 %4, 0
@@ -3335,7 +3326,7 @@ entry:
   %UserClipPlanes = getelementptr inbounds nuw i8, ptr %this, i64 3944
   %conv.i = zext i32 %index to i64
   %0 = load ptr, ptr %UserClipPlanes, align 8, !tbaa !163
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.irr::video::COpenGLDriver::SUserClipPlane", ptr %0, i64 %conv.i
+  %add.ptr.i.i = getelementptr inbounds nuw [20 x i8], ptr %0, i64 %conv.i
   %1 = load <2 x float>, ptr %add.ptr.i.i, align 4, !tbaa !103
   %2 = fpext <2 x float> %1 to <2 x double>
   store <2 x double> %2, ptr %clip_plane, align 16, !tbaa !241
@@ -3439,9 +3430,9 @@ for.body.preheader:                               ; preds = %for.cond.preheader
 
 for.body:                                         ; preds = %for.body, %for.body.preheader
   %indvars.iv247 = phi i64 [ 0, %for.body.preheader ], [ %indvars.iv.next248, %for.body ]
-  %Color.split = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %call, i64 %indvars.iv247
+  %Color.split = getelementptr inbounds nuw [36 x i8], ptr %call, i64 %indvars.iv247
   %Color = getelementptr inbounds nuw i8, ptr %Color.split, i64 24
-  %Color28.split = getelementptr inbounds nuw %"struct.irr::video::S3DVertex", ptr %buffer.sroa.0.0, i64 %indvars.iv247
+  %Color28.split = getelementptr inbounds nuw [36 x i8], ptr %buffer.sroa.0.0, i64 %indvars.iv247
   %Color28 = getelementptr inbounds nuw i8, ptr %Color28.split, i64 24
   %7 = load i32, ptr %Color, align 4, !tbaa !119
   %shr.i.i = lshr i32 %7, 16
@@ -3467,9 +3458,9 @@ for.body:                                         ; preds = %for.body, %for.body
 
 for.body37:                                       ; preds = %for.body37, %for.body37.preheader
   %indvars.iv242 = phi i64 [ 0, %for.body37.preheader ], [ %indvars.iv.next243, %for.body37 ]
-  %Color40.split = getelementptr inbounds nuw %"struct.irr::video::S3DVertex2TCoords", ptr %call, i64 %indvars.iv242
+  %Color40.split = getelementptr inbounds nuw [44 x i8], ptr %call, i64 %indvars.iv242
   %Color40 = getelementptr inbounds nuw i8, ptr %Color40.split, i64 24
-  %Color43.split = getelementptr inbounds nuw %"struct.irr::video::S3DVertex2TCoords", ptr %buffer.sroa.0.0, i64 %indvars.iv242
+  %Color43.split = getelementptr inbounds nuw [44 x i8], ptr %buffer.sroa.0.0, i64 %indvars.iv242
   %Color43 = getelementptr inbounds nuw i8, ptr %Color43.split, i64 24
   %11 = load i32, ptr %Color40, align 4, !tbaa !119
   %shr.i.i173 = lshr i32 %11, 16
@@ -3495,9 +3486,9 @@ for.body37:                                       ; preds = %for.body37, %for.bo
 
 for.body55:                                       ; preds = %for.body55, %for.body55.preheader
   %indvars.iv = phi i64 [ 0, %for.body55.preheader ], [ %indvars.iv.next, %for.body55 ]
-  %Color58.split = getelementptr inbounds nuw %"struct.irr::video::S3DVertexTangents", ptr %call, i64 %indvars.iv
+  %Color58.split = getelementptr inbounds nuw [60 x i8], ptr %call, i64 %indvars.iv
   %Color58 = getelementptr inbounds nuw i8, ptr %Color58.split, i64 24
-  %Color61.split = getelementptr inbounds nuw %"struct.irr::video::S3DVertexTangents", ptr %buffer.sroa.0.0, i64 %indvars.iv
+  %Color61.split = getelementptr inbounds nuw [60 x i8], ptr %buffer.sroa.0.0, i64 %indvars.iv
   %Color61 = getelementptr inbounds nuw i8, ptr %Color61.split, i64 24
   %15 = load i32, ptr %Color58, align 4, !tbaa !119
   %shr.i.i186 = lshr i32 %15, 16
@@ -4313,7 +4304,7 @@ _ZN3irr5video11CNullDriver9SOccQueryD2Ev.exit:    ; preds = %delete.notnull.i.i,
 land.lhs.true:                                    ; preds = %_ZN3irr5video11CNullDriver9SOccQueryD2Ev.exit
   %conv.i22 = zext i32 %retval.0.i to i64
   %14 = load ptr, ptr %OcclusionQueries, align 8, !tbaa !269
-  %.split = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SOccQuery", ptr %14, i64 %conv.i22
+  %.split = getelementptr inbounds nuw [32 x i8], ptr %14, i64 %conv.i22
   %15 = getelementptr inbounds nuw i8, ptr %.split, i64 16
   %16 = load i32, ptr %15, align 8, !tbaa !102
   %cmp5 = icmp eq i32 %16, 0
@@ -4502,7 +4493,7 @@ _ZN3irr5video11CNullDriver9SOccQueryD2Ev.exit:    ; preds = %delete.notnull.i.i,
 if.then:                                          ; preds = %_ZN3irr5video11CNullDriver9SOccQueryD2Ev.exit
   %conv.i21 = zext i32 %retval.0.i to i64
   %13 = load ptr, ptr %OcclusionQueries, align 8, !tbaa !269
-  %.split = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SOccQuery", ptr %13, i64 %conv.i21
+  %.split = getelementptr inbounds nuw [32 x i8], ptr %13, i64 %conv.i21
   %14 = getelementptr inbounds nuw i8, ptr %.split, i64 16
   %15 = load i32, ptr %14, align 8, !tbaa !102
   %cmp4.not = icmp eq i32 %15, 0
@@ -4687,7 +4678,7 @@ _ZN3irr5video11CNullDriver9SOccQueryD2Ev.exit:    ; preds = %delete.notnull.i.i,
 if.then2:                                         ; preds = %_ZN3irr5video11CNullDriver9SOccQueryD2Ev.exit
   %conv.i33 = zext i32 %retval.0.i to i64
   %13 = load ptr, ptr %OcclusionQueries, align 8, !tbaa !269
-  %.split = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SOccQuery", ptr %13, i64 %conv.i33
+  %.split = getelementptr inbounds nuw [32 x i8], ptr %13, i64 %conv.i33
   %14 = getelementptr inbounds nuw i8, ptr %.split, i64 16
   %15 = load i32, ptr %14, align 8, !tbaa !102
   %tobool5.not = icmp eq i32 %15, 0
@@ -4716,7 +4707,7 @@ if.then4.i39:                                     ; preds = %if.else.i
 if.end9:                                          ; preds = %if.then4.i39, %if.else.i, %if.then.i37, %if.then2
   tail call void @_ZN3irr5video11CNullDriver17runOcclusionQueryEPNS_5scene10ISceneNodeEb(ptr noundef nonnull align 8 dereferenceable(1164) %this, ptr noundef nonnull %node, i1 noundef zeroext %visible) #25
   %18 = load ptr, ptr %OcclusionQueries, align 8, !tbaa !269
-  %.split5 = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SOccQuery", ptr %18, i64 %conv.i33
+  %.split5 = getelementptr inbounds nuw [32 x i8], ptr %18, i64 %conv.i33
   %19 = getelementptr inbounds nuw i8, ptr %.split5, i64 16
   %20 = load i32, ptr %19, align 8, !tbaa !102
   %tobool13.not = icmp eq i32 %20, 0
@@ -4909,7 +4900,7 @@ _ZN3irr5video11CNullDriver9SOccQueryD2Ev.exit:    ; preds = %delete.notnull.i.i,
 if.then:                                          ; preds = %_ZN3irr5video11CNullDriver9SOccQueryD2Ev.exit
   %conv.i39 = zext i32 %retval.0.i to i64
   %13 = load ptr, ptr %OcclusionQueries, align 8, !tbaa !269
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SOccQuery", ptr %13, i64 %conv.i39
+  %add.ptr.i.i = getelementptr inbounds nuw [32 x i8], ptr %13, i64 %conv.i39
   %Run = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 28
   %14 = load i32, ptr %Run, align 4, !tbaa !278
   %cmp4 = icmp eq i32 %14, -1
@@ -4948,7 +4939,7 @@ if.end11thread-pre-split.if.then13_crit_edge:     ; preds = %if.end11thread-pre-
 
 if.then13:                                        ; preds = %if.end11thread-pre-split.if.then13_crit_edge, %if.end
   %20 = phi ptr [ %.pre, %if.end11thread-pre-split.if.then13_crit_edge ], [ %13, %if.end ]
-  %.split = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SOccQuery", ptr %20, i64 %conv.i39
+  %.split = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %conv.i39
   %21 = getelementptr inbounds nuw i8, ptr %.split, i64 16
   %22 = load i32, ptr %21, align 8, !tbaa !102
   %pGlGetQueryObjectivARB.i46 = getelementptr inbounds nuw i8, ptr %this, i64 2664
@@ -4977,7 +4968,7 @@ _ZN3irr5video23COpenGLExtensionHandler21extGlGetQueryObjectivEjjPi.exit53: ; pre
 if.then18:                                        ; preds = %_ZN3irr5video23COpenGLExtensionHandler21extGlGetQueryObjectivEjjPi.exit53
   %26 = load i32, ptr %available, align 4, !tbaa !129
   %27 = load ptr, ptr %OcclusionQueries, align 8, !tbaa !269
-  %Result.split = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SOccQuery", ptr %27, i64 %conv.i39
+  %Result.split = getelementptr inbounds nuw [32 x i8], ptr %27, i64 %conv.i39
   %Result = getelementptr inbounds nuw i8, ptr %Result.split, i64 24
   store i32 %26, ptr %Result, align 8, !tbaa !281
   br label %if.end22
@@ -5150,7 +5141,7 @@ _ZN3irr5video11CNullDriver9SOccQueryD2Ev.exit:    ; preds = %delete.notnull.i.i,
 if.then:                                          ; preds = %_ZN3irr5video11CNullDriver9SOccQueryD2Ev.exit
   %conv.i14 = zext i32 %retval.0.i to i64
   %13 = load ptr, ptr %OcclusionQueries, align 8, !tbaa !269
-  %Result.split = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SOccQuery", ptr %13, i64 %conv.i14
+  %Result.split = getelementptr inbounds nuw [32 x i8], ptr %13, i64 %conv.i14
   %Result = getelementptr inbounds nuw i8, ptr %Result.split, i64 24
   %14 = load i32, ptr %Result, align 8, !tbaa !281
   br label %cleanup
@@ -5224,7 +5215,7 @@ if.then.i39.i.i.i.i:                              ; preds = %_ZNSt6vectorIPN3irr
 _ZNSt6vectorIPN3irr5video13IRenderTargetESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i.i: ; preds = %if.then.i39.i.i.i.i, %_ZNSt6vectorIPN3irr5video13IRenderTargetESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit38.i.i.i.i
   store ptr %call5.i.i.i.i.i.i.i, ptr %RenderTargets, align 8, !tbaa !284
   store ptr %incdec.ptr.i.i.i.i, ptr %_M_finish.i.i.i, align 8, !tbaa !283
-  %add.ptr19.i.i.i.i = getelementptr inbounds nuw ptr, ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
+  %add.ptr19.i.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i.i.i.i, i64 %cond.i.i.i.i.i
   store ptr %add.ptr19.i.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !282
   br label %_ZN3irr4core5arrayIPNS_5video13IRenderTargetEE9push_backEOS4_.exit
 
@@ -5342,7 +5333,7 @@ if.else.i.i:                                      ; preds = %if.end
   br i1 %cmp4.i.i, label %if.then5.i.i, label %_ZN3irr4core5arrayIjE8set_usedEj.exit
 
 if.then5.i.i:                                     ; preds = %if.else.i.i
-  %add.ptr.i.i = getelementptr inbounds nuw i32, ptr %15, i64 %conv.i
+  %add.ptr.i.i = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %conv.i
   %tobool.not.i.i.i = icmp eq ptr %14, %add.ptr.i.i
   br i1 %tobool.not.i.i.i, label %_ZN3irr4core5arrayIjE8set_usedEj.exit, label %if.then.i.i.i
 
@@ -6269,7 +6260,7 @@ _ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i: ; preds = %
 if.end:                                           ; preds = %_ZN3irr5video23COpenGLExtensionHandler18irrGlActiveTextureEj.exit.i, %if.then4, %if.then
   %Texture = getelementptr inbounds nuw i8, ptr %this, i64 16
   %idxprom = zext nneg i32 %index to i64
-  %arrayidx = getelementptr inbounds nuw ptr, ptr %Texture, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %Texture, i64 %idxprom
   %7 = load ptr, ptr %arrayidx, align 8, !tbaa !135
   %cmp5.not = icmp eq ptr %7, %texture
   br i1 %cmp5.not, label %if.end50, label %if.then6
@@ -6480,7 +6471,7 @@ if.then10:                                        ; preds = %if.then7
 
 if.then12:                                        ; preds = %if.then10
   %conv.i125 = zext i32 %3 to i64
-  %Renderer.split = getelementptr inbounds nuw %"struct.irr::video::CNullDriver::SMaterialRenderer", ptr %5, i64 %conv.i125
+  %Renderer.split = getelementptr inbounds nuw [40 x i8], ptr %5, i64 %conv.i125
   %Renderer = getelementptr inbounds nuw i8, ptr %Renderer.split, i64 32
   %6 = load ptr, ptr %Renderer, align 8, !tbaa !234
   %vtable = load ptr, ptr %6, align 8, !tbaa !3
@@ -6592,13 +6583,13 @@ for.cond.cleanup.i:                               ; preds = %for.body.i, %if.the
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %arrayidx13.i = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv.i
+  %arrayidx13.i = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv.i
   store i32 770, ptr %arrayidx13.i, align 4, !tbaa !129
-  %arrayidx16.i = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv.i
+  %arrayidx16.i = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv.i
   store i32 771, ptr %arrayidx16.i, align 4, !tbaa !129
-  %arrayidx19.i = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv.i
+  %arrayidx19.i = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv.i
   store i32 770, ptr %arrayidx19.i, align 4, !tbaa !129
-  %arrayidx22.i129 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv.i
+  %arrayidx22.i129 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv.i
   store i32 771, ptr %arrayidx22.i129, align 4, !tbaa !129
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %32 = load i32, ptr %FrameBufferCount.i, align 8, !tbaa !209
@@ -6653,7 +6644,7 @@ for.cond.cleanup.i139:                            ; preds = %for.body.i136, %_ZN
 
 for.body.i136:                                    ; preds = %for.body.i136, %for.body.lr.ph.i135
   %indvars.iv.i137 = phi i64 [ 0, %for.body.lr.ph.i135 ], [ %indvars.iv.next.i138, %for.body.i136 ]
-  %arrayidx4.i = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv.i137
+  %arrayidx4.i = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %indvars.iv.i137
   store i32 32774, ptr %arrayidx4.i, align 4, !tbaa !129
   %indvars.iv.next.i138 = add nuw nsw i64 %indvars.iv.i137, 1
   %43 = load i32, ptr %FrameBufferCount.i134, align 8, !tbaa !209
@@ -7551,7 +7542,7 @@ for.body:                                         ; preds = %_ZN3irr5video23COpe
 
 if.then.i:                                        ; preds = %for.body
   %Texture.i = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %Texture.i, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %Texture.i, i64 %indvars.iv
   %6 = load ptr, ptr %arrayidx.i, align 8, !tbaa !135
   %cmp5.not.i = icmp eq ptr %6, null
   br i1 %cmp5.not.i, label %_ZN3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE13STextureCache3setEjPKNS0_8ITextureENS0_17ESetTextureActiveE.exit, label %if.then6.i
@@ -8420,20 +8411,20 @@ if.then9:                                         ; preds = %_ZN3irr5video13COpe
   call void @llvm.lifetime.start.p0(ptr nonnull %texcoordData)
   %idxprom = zext i32 %layer to i64
   %idxprom13 = select i1 %flip, i64 3, i64 0
-  %arrayidx14.split = getelementptr inbounds nuw [4 x %"class.irr::core::vector3d"], ptr @constinit.18, i64 %idxprom
-  %arrayidx14 = getelementptr inbounds nuw %"class.irr::core::vector3d", ptr %arrayidx14.split, i64 %idxprom13
+  %arrayidx14.split = getelementptr inbounds nuw [48 x i8], ptr @constinit.18, i64 %idxprom
+  %arrayidx14 = getelementptr inbounds nuw [12 x i8], ptr %arrayidx14.split, i64 %idxprom13
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(12) %texcoordData, ptr noundef nonnull align 4 dereferenceable(12) %arrayidx14, i64 12, i1 false), !tbaa.struct !352
   %arrayinit.element = getelementptr inbounds nuw i8, ptr %texcoordData, i64 12
   %idxprom19 = select i1 %flip, i64 2, i64 1
-  %arrayidx20 = getelementptr inbounds nuw %"class.irr::core::vector3d", ptr %arrayidx14.split, i64 %idxprom19
+  %arrayidx20 = getelementptr inbounds nuw [12 x i8], ptr %arrayidx14.split, i64 %idxprom19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %arrayinit.element, ptr noundef nonnull align 4 dereferenceable(12) %arrayidx20, i64 12, i1 false), !tbaa.struct !352
   %arrayinit.element21 = getelementptr inbounds nuw i8, ptr %texcoordData, i64 24
   %idxprom26 = select i1 %flip, i64 1, i64 2
-  %arrayidx27 = getelementptr inbounds nuw %"class.irr::core::vector3d", ptr %arrayidx14.split, i64 %idxprom26
+  %arrayidx27 = getelementptr inbounds nuw [12 x i8], ptr %arrayidx14.split, i64 %idxprom26
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %arrayinit.element21, ptr noundef nonnull align 4 dereferenceable(12) %arrayidx27, i64 12, i1 false), !tbaa.struct !352
   %arrayinit.element28 = getelementptr inbounds nuw i8, ptr %texcoordData, i64 36
   %idxprom33 = select i1 %flip, i64 0, i64 3
-  %arrayidx34 = getelementptr inbounds nuw %"class.irr::core::vector3d", ptr %arrayidx14.split, i64 %idxprom33
+  %arrayidx34 = getelementptr inbounds nuw [12 x i8], ptr %arrayidx14.split, i64 %idxprom33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %arrayinit.element28, ptr noundef nonnull align 4 dereferenceable(12) %arrayidx34, i64 12, i1 false), !tbaa.struct !352
   call void @glTexCoordPointer(i32 noundef 3, i32 noundef 5126, i32 noundef 12, ptr noundef nonnull %texcoordData) #25
   call void @llvm.lifetime.end.p0(ptr nonnull %texcoordData)
@@ -8898,7 +8889,7 @@ for.body.lr.ph:                                   ; preds = %if.end63
 for.body:                                         ; preds = %for.inc, %for.body.lr.ph
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.inc ]
   %77 = load ptr, ptr %sourceRects, align 8, !tbaa !361
-  %add.ptr.i.i = getelementptr inbounds nuw %"class.irr::core::rect", ptr %77, i64 %indvars.iv
+  %add.ptr.i.i = getelementptr inbounds nuw [16 x i8], ptr %77, i64 %indvars.iv
   %LowerRightCorner.i = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 8
   %78 = load i32, ptr %LowerRightCorner.i, align 4, !tbaa !345
   %79 = load i32, ptr %add.ptr.i.i, align 4, !tbaa !129
@@ -8913,7 +8904,7 @@ for.body:                                         ; preds = %for.inc, %for.body.
 
 if.end68:                                         ; preds = %for.body
   %83 = load ptr, ptr %positions, align 8, !tbaa !358
-  %add.ptr.i.i381 = getelementptr inbounds nuw %"class.irr::core::vector2d", ptr %83, i64 %indvars.iv
+  %add.ptr.i.i381 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %indvars.iv
   %84 = load i64, ptr %add.ptr.i.i381, align 4, !tbaa.struct !128
   %targetPos.sroa.0.0.extract.trunc = trunc i64 %84 to i32
   %targetPos.sroa.13.0.extract.shift = lshr i64 %84, 32
@@ -10564,7 +10555,7 @@ if.else.i.i:                                      ; preds = %if.then21
   br i1 %cmp4.i.i, label %if.then5.i.i, label %_ZN3irr4core5arrayIPNS_5video6IImageEE8set_usedEj.exit
 
 if.then5.i.i:                                     ; preds = %if.else.i.i
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %20, i64 %conv.i185
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %conv.i185
   %tobool.not.i.i.i = icmp eq ptr %19, %add.ptr.i.i
   br i1 %tobool.not.i.i.i, label %_ZN3irr4core5arrayIPNS_5video6IImageEE8set_usedEj.exit, label %if.then.i.i.i
 
@@ -10598,10 +10589,10 @@ for.body:                                         ; preds = %for.inc, %for.body.
   %25 = load ptr, ptr %vfn30, align 8
   %call31 = call noundef ptr %25(ptr noundef nonnull align 8 dereferenceable(1164) %23, i32 noundef %24, ptr noundef nonnull align 4 dereferenceable(8) %Size28) #25
   %26 = load ptr, ptr %Images, align 8, !tbaa !363
-  %add.ptr.i.i193 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv
+  %add.ptr.i.i193 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv
   store ptr %call31, ptr %add.ptr.i.i193, align 8, !tbaa !135
   %27 = load ptr, ptr %images, align 8, !tbaa !363
-  %add.ptr.i.i195 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %add.ptr.i.i195 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %28 = load ptr, ptr %add.ptr.i.i195, align 8, !tbaa !135
   %Size.i = getelementptr inbounds nuw i8, ptr %28, i64 12
   %29 = load <2 x i32>, ptr %Size.i, align 4
@@ -10611,7 +10602,7 @@ for.body:                                         ; preds = %for.inc, %for.body.
   %33 = extractelement <2 x i1> %31, i64 1
   %34 = select i1 %32, i1 %33, i1 false
   %35 = load ptr, ptr %Images, align 8, !tbaa !363
-  %add.ptr.i.i200 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv
+  %add.ptr.i.i200 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv
   %36 = load ptr, ptr %add.ptr.i.i200, align 8, !tbaa !135
   br i1 %34, label %if.then38, label %if.else
 
@@ -10635,7 +10626,7 @@ if.else:                                          ; preds = %for.body
 
 if.end49:                                         ; preds = %if.else, %if.then38
   %39 = load ptr, ptr %images, align 8, !tbaa !363
-  %add.ptr.i.i206 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv
+  %add.ptr.i.i206 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv
   %40 = load ptr, ptr %add.ptr.i.i206, align 8, !tbaa !135
   %MipMapsData.i = getelementptr inbounds nuw i8, ptr %40, i64 32
   %41 = load ptr, ptr %MipMapsData.i, align 8, !tbaa !382
@@ -10659,7 +10650,7 @@ land.lhs.true:                                    ; preds = %if.then53
 
 _ZNK3irr5video6IImage14getMipMapsDataEj.exit265:  ; preds = %land.lhs.true
   %50 = load ptr, ptr %Images, align 8, !tbaa !363
-  %add.ptr.i.i214 = getelementptr inbounds nuw ptr, ptr %50, i64 %indvars.iv
+  %add.ptr.i.i214 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv
   %51 = load ptr, ptr %add.ptr.i.i214, align 8, !tbaa !135
   %MipMapsData.i1 = getelementptr inbounds nuw i8, ptr %51, i64 32
   %52 = load ptr, ptr %MipMapsData.i1, align 8, !tbaa !382
@@ -10696,7 +10687,7 @@ if.else.split.us.i:                               ; preds = %if.then6.i
   %Size.i4 = getelementptr inbounds nuw i8, ptr %51, i64 12
   %57 = load i32, ptr %Size.i4, align 4, !tbaa !387
   %58 = zext nneg i32 %54 to i64
-  %switch.gep.i = getelementptr inbounds nuw i32, ptr @switch.table._ZNK3irr5video18COpenGLCoreTextureINS0_13COpenGLDriverEE16getLockImageDataEj, i64 %58
+  %switch.gep.i = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK3irr5video18COpenGLCoreTextureINS0_13COpenGLDriverEE16getLockImageDataEj, i64 %58
   %switch.load.us.i = load i32, ptr %switch.gep.i, align 4
   br label %do.body.us.i
 
@@ -10829,7 +10820,7 @@ for.cond117.preheader:                            ; preds = %for.cond.cleanup103
 for.body104:                                      ; preds = %if.end98, %for.body104
   %indvars.iv383 = phi i64 [ %indvars.iv.next384, %for.body104 ], [ 0, %if.end98 ]
   %87 = phi ptr [ %92, %for.body104 ], [ %80, %if.end98 ]
-  %add.ptr.i.i277 = getelementptr inbounds nuw ptr, ptr %87, i64 %indvars.iv383
+  %add.ptr.i.i277 = getelementptr inbounds nuw [8 x i8], ptr %87, i64 %indvars.iv383
   %88 = load ptr, ptr %add.ptr.i.i277, align 8, !tbaa !135
   %Data.i = getelementptr inbounds nuw i8, ptr %88, i64 24
   %89 = load ptr, ptr %Data.i, align 8, !tbaa !393
@@ -10849,7 +10840,7 @@ for.body104:                                      ; preds = %if.end98, %for.body
 for.body121:                                      ; preds = %for.cond117.preheader, %for.body121
   %indvars.iv386 = phi i64 [ %indvars.iv.next387, %for.body121 ], [ 0, %for.cond117.preheader ]
   %94 = phi ptr [ %100, %for.body121 ], [ %82, %for.cond117.preheader ]
-  %add.ptr.i.i285 = getelementptr inbounds nuw ptr, ptr %94, i64 %indvars.iv386
+  %add.ptr.i.i285 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %indvars.iv386
   %95 = load ptr, ptr %add.ptr.i.i285, align 8, !tbaa !135
   %MipMapsData.i286 = getelementptr inbounds nuw i8, ptr %95, i64 32
   %96 = load ptr, ptr %MipMapsData.i286, align 8, !tbaa !382
@@ -10903,7 +10894,7 @@ for.body139:                                      ; preds = %for.cond134.prehead
   %106 = phi ptr [ %111, %_ZNK3irr17IReferenceCounted4dropEv.exit ], [ %104, %for.cond134.preheader ]
   %107 = phi ptr [ %112, %_ZNK3irr17IReferenceCounted4dropEv.exit ], [ %103, %for.cond134.preheader ]
   %indvars.iv389 = phi i64 [ %indvars.iv.next390, %_ZNK3irr17IReferenceCounted4dropEv.exit ], [ 0, %for.cond134.preheader ]
-  %add.ptr.i.i343 = getelementptr inbounds nuw ptr, ptr %106, i64 %indvars.iv389
+  %add.ptr.i.i343 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %indvars.iv389
   %108 = load ptr, ptr %add.ptr.i.i343, align 8, !tbaa !135
   %vtable142 = load ptr, ptr %108, align 8, !tbaa !3
   %vbase.offset.ptr = getelementptr i8, ptr %vtable142, i64 -24
@@ -11428,7 +11419,7 @@ for.cond9.preheader.loopexit.unr-lcssa:           ; preds = %if.end.1, %for.body
   br i1 %lcmp.mod.not, label %for.cond9.preheader, label %for.body.epil
 
 for.body.epil:                                    ; preds = %for.cond9.preheader.loopexit.unr-lcssa
-  %add.ptr.i.i.epil = getelementptr inbounds nuw %"struct.irr::video::SOverrideMaterial::SMaterialTypeReplacement", ptr %2, i64 %indvars.iv.unr
+  %add.ptr.i.i.epil = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.unr
   %6 = load i32, ptr %add.ptr.i.i.epil, align 4, !tbaa !400
   %cmp4.epil = icmp slt i32 %6, 0
   %cmp6.epil = icmp eq i32 %6, %.unr
@@ -11496,7 +11487,7 @@ for.cond9.preheader:                              ; preds = %if.then7.epil, %for
 for.body:                                         ; preds = %if.end.1, %for.body.lr.ph.new
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph.new ], [ %indvars.iv.next.1, %if.end.1 ]
   %8 = phi i32 [ %MaterialType.promoted, %for.body.lr.ph.new ], [ %14, %if.end.1 ]
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.irr::video::SOverrideMaterial::SMaterialTypeReplacement", ptr %2, i64 %indvars.iv
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %9 = load i32, ptr %add.ptr.i.i, align 4, !tbaa !400
   %cmp4 = icmp slt i32 %9, 0
   %cmp6 = icmp eq i32 %9, %8
@@ -12403,8 +12394,8 @@ for.cond.cleanup:                                 ; preds = %_ZNK3irr5video14SMa
 
 for.body:                                         ; preds = %lor.lhs.false181, %_ZNK3irr5video14SMaterialLayerneERKS1_.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK3irr5video14SMaterialLayerneERKS1_.exit ], [ 0, %lor.lhs.false181 ]
-  %arrayidx = getelementptr inbounds nuw %"class.irr::video::SMaterialLayer", ptr %this, i64 %indvars.iv
-  %arrayidx199 = getelementptr inbounds nuw %"class.irr::video::SMaterialLayer", ptr %b, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [32 x i8], ptr %this, i64 %indvars.iv
+  %arrayidx199 = getelementptr inbounds nuw [32 x i8], ptr %b, i64 %indvars.iv
   %34 = load ptr, ptr %arrayidx, align 8, !tbaa !110
   %35 = load ptr, ptr %arrayidx199, align 8, !tbaa !110
   %cmp.not.i = icmp eq ptr %34, %35
@@ -13642,7 +13633,7 @@ for.cond.cleanup.i1009:                           ; preds = %for.body.i1006, %_Z
 
 for.body.i1006:                                   ; preds = %for.body.i1006, %for.body.lr.ph.i1005
   %indvars.iv.i1007 = phi i64 [ 0, %for.body.lr.ph.i1005 ], [ %indvars.iv.next.i1008, %for.body.i1006 ]
-  %arrayidx4.i = getelementptr inbounds nuw i32, ptr %149, i64 %indvars.iv.i1007
+  %arrayidx4.i = getelementptr inbounds nuw [4 x i8], ptr %149, i64 %indvars.iv.i1007
   store i32 32778, ptr %arrayidx4.i, align 4, !tbaa !129
   %indvars.iv.next.i1008 = add nuw nsw i64 %indvars.iv.i1007, 1
   %150 = load i32, ptr %FrameBufferCount.i1004, align 8, !tbaa !209
@@ -13697,7 +13688,7 @@ for.cond.cleanup.i1030:                           ; preds = %for.body.i1025, %_Z
 
 for.body.i1025:                                   ; preds = %for.body.i1025, %for.body.lr.ph.i1024
   %indvars.iv.i1026 = phi i64 [ 0, %for.body.lr.ph.i1024 ], [ %indvars.iv.next.i1028, %for.body.i1025 ]
-  %arrayidx4.i1027 = getelementptr inbounds nuw i32, ptr %160, i64 %indvars.iv.i1026
+  %arrayidx4.i1027 = getelementptr inbounds nuw [4 x i8], ptr %160, i64 %indvars.iv.i1026
   store i32 32779, ptr %arrayidx4.i1027, align 4, !tbaa !129
   %indvars.iv.next.i1028 = add nuw nsw i64 %indvars.iv.i1026, 1
   %161 = load i32, ptr %FrameBufferCount.i1022, align 8, !tbaa !209
@@ -13752,7 +13743,7 @@ for.cond.cleanup.i1055:                           ; preds = %for.body.i1050, %_Z
 
 for.body.i1050:                                   ; preds = %for.body.i1050, %for.body.lr.ph.i1049
   %indvars.iv.i1051 = phi i64 [ 0, %for.body.lr.ph.i1049 ], [ %indvars.iv.next.i1053, %for.body.i1050 ]
-  %arrayidx4.i1052 = getelementptr inbounds nuw i32, ptr %171, i64 %indvars.iv.i1051
+  %arrayidx4.i1052 = getelementptr inbounds nuw [4 x i8], ptr %171, i64 %indvars.iv.i1051
   store i32 32775, ptr %arrayidx4.i1052, align 4, !tbaa !129
   %indvars.iv.next.i1053 = add nuw nsw i64 %indvars.iv.i1051, 1
   %172 = load i32, ptr %FrameBufferCount.i1047, align 8, !tbaa !209
@@ -13807,7 +13798,7 @@ for.cond.cleanup.i1080:                           ; preds = %for.body.i1075, %_Z
 
 for.body.i1075:                                   ; preds = %for.body.i1075, %for.body.lr.ph.i1074
   %indvars.iv.i1076 = phi i64 [ 0, %for.body.lr.ph.i1074 ], [ %indvars.iv.next.i1078, %for.body.i1075 ]
-  %arrayidx4.i1077 = getelementptr inbounds nuw i32, ptr %182, i64 %indvars.iv.i1076
+  %arrayidx4.i1077 = getelementptr inbounds nuw [4 x i8], ptr %182, i64 %indvars.iv.i1076
   store i32 32776, ptr %arrayidx4.i1077, align 4, !tbaa !129
   %indvars.iv.next.i1078 = add nuw nsw i64 %indvars.iv.i1076, 1
   %183 = load i32, ptr %FrameBufferCount.i1072, align 8, !tbaa !209
@@ -13868,7 +13859,7 @@ for.cond.cleanup.i1105:                           ; preds = %for.body.i1100, %_Z
 
 for.body.i1100:                                   ; preds = %for.body.i1100, %for.body.lr.ph.i1099
   %indvars.iv.i1101 = phi i64 [ 0, %for.body.lr.ph.i1099 ], [ %indvars.iv.next.i1103, %for.body.i1100 ]
-  %arrayidx4.i1102 = getelementptr inbounds nuw i32, ptr %194, i64 %indvars.iv.i1101
+  %arrayidx4.i1102 = getelementptr inbounds nuw [4 x i8], ptr %194, i64 %indvars.iv.i1101
   store i32 36892, ptr %arrayidx4.i1102, align 4, !tbaa !129
   %indvars.iv.next.i1103 = add nuw nsw i64 %indvars.iv.i1101, 1
   %195 = load i32, ptr %FrameBufferCount.i1097, align 8, !tbaa !209
@@ -13933,7 +13924,7 @@ for.cond.cleanup.i1130:                           ; preds = %for.body.i1125, %_Z
 
 for.body.i1125:                                   ; preds = %for.body.i1125, %for.body.lr.ph.i1124
   %indvars.iv.i1126 = phi i64 [ 0, %for.body.lr.ph.i1124 ], [ %indvars.iv.next.i1128, %for.body.i1125 ]
-  %arrayidx4.i1127 = getelementptr inbounds nuw i32, ptr %206, i64 %indvars.iv.i1126
+  %arrayidx4.i1127 = getelementptr inbounds nuw [4 x i8], ptr %206, i64 %indvars.iv.i1126
   store i32 36893, ptr %arrayidx4.i1127, align 4, !tbaa !129
   %indvars.iv.next.i1128 = add nuw nsw i64 %indvars.iv.i1126, 1
   %207 = load i32, ptr %FrameBufferCount.i1122, align 8, !tbaa !209
@@ -13998,7 +13989,7 @@ for.cond.cleanup.i1155:                           ; preds = %for.body.i1150, %_Z
 
 for.body.i1150:                                   ; preds = %for.body.i1150, %for.body.lr.ph.i1149
   %indvars.iv.i1151 = phi i64 [ 0, %for.body.lr.ph.i1149 ], [ %indvars.iv.next.i1153, %for.body.i1150 ]
-  %arrayidx4.i1152 = getelementptr inbounds nuw i32, ptr %218, i64 %indvars.iv.i1151
+  %arrayidx4.i1152 = getelementptr inbounds nuw [4 x i8], ptr %218, i64 %indvars.iv.i1151
   store i32 33568, ptr %arrayidx4.i1152, align 4, !tbaa !129
   %indvars.iv.next.i1153 = add nuw nsw i64 %indvars.iv.i1151, 1
   %219 = load i32, ptr %FrameBufferCount.i1147, align 8, !tbaa !209
@@ -14070,7 +14061,7 @@ for.cond.cleanup.i1180:                           ; preds = %for.body.i1175, %_Z
 
 for.body.i1175:                                   ; preds = %for.body.i1175, %for.body.lr.ph.i1174
   %indvars.iv.i1176 = phi i64 [ 0, %for.body.lr.ph.i1174 ], [ %indvars.iv.next.i1178, %for.body.i1175 ]
-  %arrayidx4.i1177 = getelementptr inbounds nuw i32, ptr %232, i64 %indvars.iv.i1176
+  %arrayidx4.i1177 = getelementptr inbounds nuw [4 x i8], ptr %232, i64 %indvars.iv.i1176
   store i32 33569, ptr %arrayidx4.i1177, align 4, !tbaa !129
   %indvars.iv.next.i1178 = add nuw nsw i64 %indvars.iv.i1176, 1
   %233 = load i32, ptr %FrameBufferCount.i1172, align 8, !tbaa !209
@@ -14136,7 +14127,7 @@ for.cond.cleanup.i1205:                           ; preds = %for.body.i1200, %_Z
 
 for.body.i1200:                                   ; preds = %for.body.i1200, %for.body.lr.ph.i1199
   %indvars.iv.i1201 = phi i64 [ 0, %for.body.lr.ph.i1199 ], [ %indvars.iv.next.i1203, %for.body.i1200 ]
-  %arrayidx4.i1202 = getelementptr inbounds nuw i32, ptr %245, i64 %indvars.iv.i1201
+  %arrayidx4.i1202 = getelementptr inbounds nuw [4 x i8], ptr %245, i64 %indvars.iv.i1201
   store i32 32774, ptr %arrayidx4.i1202, align 4, !tbaa !129
   %indvars.iv.next.i1203 = add nuw nsw i64 %indvars.iv.i1201, 1
   %246 = load i32, ptr %FrameBufferCount.i1197, align 8, !tbaa !209
@@ -14176,7 +14167,7 @@ if.then544:                                       ; preds = %if.then539
 
 switch.lookup:                                    ; preds = %if.then544
   %253 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN3irr5video40COpenGLMaterialRenderer_ONETEXTURE_BLEND13OnSetMaterialERKNS0_9SMaterialES4_bPNS0_25IMaterialRendererServicesE.74, i64 %253
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN3irr5video40COpenGLMaterialRenderer_ONETEXTURE_BLEND13OnSetMaterialERKNS0_9SMaterialES4_bPNS0_25IMaterialRendererServicesE.74, i64 %253
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK3irr5video13COpenGLDriver10getGLBlendENS0_14E_BLEND_FACTORE.exit
 
@@ -14188,7 +14179,7 @@ _ZNK3irr5video13COpenGLDriver10getGLBlendENS0_14E_BLEND_FACTORE.exit: ; preds = 
 
 switch.lookup1361:                                ; preds = %_ZNK3irr5video13COpenGLDriver10getGLBlendENS0_14E_BLEND_FACTORE.exit
   %255 = zext nneg i32 %switch.tableidx1362 to i64
-  %switch.gep1363 = getelementptr inbounds nuw i32, ptr @switch.table._ZN3irr5video40COpenGLMaterialRenderer_ONETEXTURE_BLEND13OnSetMaterialERKNS0_9SMaterialES4_bPNS0_25IMaterialRendererServicesE.74, i64 %255
+  %switch.gep1363 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN3irr5video40COpenGLMaterialRenderer_ONETEXTURE_BLEND13OnSetMaterialERKNS0_9SMaterialES4_bPNS0_25IMaterialRendererServicesE.74, i64 %255
   %switch.load1364 = load i32, ptr %switch.gep1363, align 4
   br label %_ZNK3irr5video13COpenGLDriver10getGLBlendENS0_14E_BLEND_FACTORE.exit1228
 
@@ -14200,7 +14191,7 @@ _ZNK3irr5video13COpenGLDriver10getGLBlendENS0_14E_BLEND_FACTORE.exit1228: ; pred
 
 switch.lookup1365:                                ; preds = %_ZNK3irr5video13COpenGLDriver10getGLBlendENS0_14E_BLEND_FACTORE.exit1228
   %257 = zext nneg i32 %switch.tableidx1366 to i64
-  %switch.gep1367 = getelementptr inbounds nuw i32, ptr @switch.table._ZN3irr5video40COpenGLMaterialRenderer_ONETEXTURE_BLEND13OnSetMaterialERKNS0_9SMaterialES4_bPNS0_25IMaterialRendererServicesE.74, i64 %257
+  %switch.gep1367 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN3irr5video40COpenGLMaterialRenderer_ONETEXTURE_BLEND13OnSetMaterialERKNS0_9SMaterialES4_bPNS0_25IMaterialRendererServicesE.74, i64 %257
   %switch.load1368 = load i32, ptr %switch.gep1367, align 4
   br label %_ZNK3irr5video13COpenGLDriver10getGLBlendENS0_14E_BLEND_FACTORE.exit1241
 
@@ -14212,7 +14203,7 @@ _ZNK3irr5video13COpenGLDriver10getGLBlendENS0_14E_BLEND_FACTORE.exit1241: ; pred
 
 switch.lookup1369:                                ; preds = %_ZNK3irr5video13COpenGLDriver10getGLBlendENS0_14E_BLEND_FACTORE.exit1241
   %259 = zext nneg i32 %switch.tableidx1370 to i64
-  %switch.gep1371 = getelementptr inbounds nuw i32, ptr @switch.table._ZN3irr5video40COpenGLMaterialRenderer_ONETEXTURE_BLEND13OnSetMaterialERKNS0_9SMaterialES4_bPNS0_25IMaterialRendererServicesE.74, i64 %259
+  %switch.gep1371 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN3irr5video40COpenGLMaterialRenderer_ONETEXTURE_BLEND13OnSetMaterialERKNS0_9SMaterialES4_bPNS0_25IMaterialRendererServicesE.74, i64 %259
   %switch.load1372 = load i32, ptr %switch.gep1371, align 4
   br label %_ZNK3irr5video13COpenGLDriver10getGLBlendENS0_14E_BLEND_FACTORE.exit1254
 
@@ -14226,7 +14217,7 @@ if.else550:                                       ; preds = %if.then539
 
 switch.lookup1373:                                ; preds = %if.else550
   %260 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep1375 = getelementptr inbounds nuw i32, ptr @switch.table._ZN3irr5video40COpenGLMaterialRenderer_ONETEXTURE_BLEND13OnSetMaterialERKNS0_9SMaterialES4_bPNS0_25IMaterialRendererServicesE.74, i64 %260
+  %switch.gep1375 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN3irr5video40COpenGLMaterialRenderer_ONETEXTURE_BLEND13OnSetMaterialERKNS0_9SMaterialES4_bPNS0_25IMaterialRendererServicesE.74, i64 %260
   %switch.load1376 = load i32, ptr %switch.gep1375, align 4
   br label %_ZNK3irr5video13COpenGLDriver10getGLBlendENS0_14E_BLEND_FACTORE.exit1267
 
@@ -14238,7 +14229,7 @@ _ZNK3irr5video13COpenGLDriver10getGLBlendENS0_14E_BLEND_FACTORE.exit1267: ; pred
 
 switch.lookup1377:                                ; preds = %_ZNK3irr5video13COpenGLDriver10getGLBlendENS0_14E_BLEND_FACTORE.exit1267
   %262 = zext nneg i32 %switch.tableidx1378 to i64
-  %switch.gep1379 = getelementptr inbounds nuw i32, ptr @switch.table._ZN3irr5video40COpenGLMaterialRenderer_ONETEXTURE_BLEND13OnSetMaterialERKNS0_9SMaterialES4_bPNS0_25IMaterialRendererServicesE.74, i64 %262
+  %switch.gep1379 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN3irr5video40COpenGLMaterialRenderer_ONETEXTURE_BLEND13OnSetMaterialERKNS0_9SMaterialES4_bPNS0_25IMaterialRendererServicesE.74, i64 %262
   %switch.load1380 = load i32, ptr %switch.gep1379, align 4
   br label %_ZNK3irr5video13COpenGLDriver10getGLBlendENS0_14E_BLEND_FACTORE.exit1280
 
@@ -14300,13 +14291,13 @@ for.cond.cleanup.i1288:                           ; preds = %for.body.i1285, %if
 
 for.body.i1285:                                   ; preds = %for.body.i1285, %for.body.lr.ph.i1284
   %indvars.iv.i1286 = phi i64 [ 0, %for.body.lr.ph.i1284 ], [ %indvars.iv.next.i1287, %for.body.i1285 ]
-  %arrayidx13.i = getelementptr inbounds nuw i32, ptr %274, i64 %indvars.iv.i1286
+  %arrayidx13.i = getelementptr inbounds nuw [4 x i8], ptr %274, i64 %indvars.iv.i1286
   store i32 %r.0.i1257, ptr %arrayidx13.i, align 4, !tbaa !129
-  %arrayidx16.i = getelementptr inbounds nuw i32, ptr %275, i64 %indvars.iv.i1286
+  %arrayidx16.i = getelementptr inbounds nuw [4 x i8], ptr %275, i64 %indvars.iv.i1286
   store i32 %r.0.i1270, ptr %arrayidx16.i, align 4, !tbaa !129
-  %arrayidx19.i = getelementptr inbounds nuw i32, ptr %276, i64 %indvars.iv.i1286
+  %arrayidx19.i = getelementptr inbounds nuw [4 x i8], ptr %276, i64 %indvars.iv.i1286
   store i32 %r.0.i1257, ptr %arrayidx19.i, align 4, !tbaa !129
-  %arrayidx22.i = getelementptr inbounds nuw i32, ptr %277, i64 %indvars.iv.i1286
+  %arrayidx22.i = getelementptr inbounds nuw [4 x i8], ptr %277, i64 %indvars.iv.i1286
   store i32 %r.0.i1270, ptr %arrayidx22.i, align 4, !tbaa !129
   %indvars.iv.next.i1287 = add nuw nsw i64 %indvars.iv.i1286, 1
   %278 = load i32, ptr %FrameBufferCount.i1283, align 8, !tbaa !209
@@ -14571,7 +14562,7 @@ for.cond.cleanup:                                 ; preds = %for.body, %_ZN3irr5
 
 for.body:                                         ; preds = %for.body, %for.body.lr.ph
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %arrayidx4 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
+  %arrayidx4 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   store i32 %mode, ptr %arrayidx4, align 4, !tbaa !129
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %8 = load i32, ptr %FrameBufferCount, align 8, !tbaa !209
@@ -14660,13 +14651,13 @@ for.body.lr.ph:                                   ; preds = %_ZN3irr5video23COpe
 
 for.body:                                         ; preds = %for.body, %for.body.lr.ph
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %for.body ]
-  %arrayidx17 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
+  %arrayidx17 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv
   store i32 %sourceRGB, ptr %arrayidx17, align 4, !tbaa !129
-  %arrayidx20 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
+  %arrayidx20 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv
   store i32 %destinationRGB, ptr %arrayidx20, align 4, !tbaa !129
-  %arrayidx23 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
+  %arrayidx23 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   store i32 %sourceAlpha, ptr %arrayidx23, align 4, !tbaa !129
-  %arrayidx26 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
+  %arrayidx26 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv
   store i32 %destinationAlpha, ptr %arrayidx26, align 4, !tbaa !129
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %17 = load i32, ptr %FrameBufferCount, align 8, !tbaa !209
@@ -14722,13 +14713,13 @@ for.body.lr.ph.i:                                 ; preds = %if.then.i
 
 for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %indvars.iv.next.i, %for.body.i ]
-  %arrayidx13.i = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv.i
+  %arrayidx13.i = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv.i
   store i32 %sourceRGB, ptr %arrayidx13.i, align 4, !tbaa !129
-  %arrayidx16.i = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv.i
+  %arrayidx16.i = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv.i
   store i32 %destinationRGB, ptr %arrayidx16.i, align 4, !tbaa !129
-  %arrayidx19.i = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv.i
+  %arrayidx19.i = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv.i
   store i32 %sourceRGB, ptr %arrayidx19.i, align 4, !tbaa !129
-  %arrayidx22.i = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv.i
+  %arrayidx22.i = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv.i
   store i32 %destinationRGB, ptr %arrayidx22.i, align 4, !tbaa !129
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %32 = load i32, ptr %FrameBufferCount.i, align 8, !tbaa !209
@@ -14754,7 +14745,7 @@ entry:
 
 switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN3irr5video40COpenGLMaterialRenderer_ONETEXTURE_BLEND13OnSetMaterialERKNS0_9SMaterialES4_bPNS0_25IMaterialRendererServicesE.74, i64 %1
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN3irr5video40COpenGLMaterialRenderer_ONETEXTURE_BLEND13OnSetMaterialERKNS0_9SMaterialES4_bPNS0_25IMaterialRendererServicesE.74, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %sw.epilog
 
@@ -14834,7 +14825,7 @@ for.body:                                         ; preds = %if.end319, %for.bod
 
 _ZNK3irr5video23COpenGLCoreCacheHandlerINS0_13COpenGLDriverENS0_18COpenGLCoreTextureIS2_EEE13STextureCache3getEj.exit: ; preds = %for.body
   %Texture.i = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %Texture.i, i64 %2
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %Texture.i, i64 %2
   %5 = load ptr, ptr %arrayidx.i, align 8, !tbaa !135
   %tobool.not = icmp eq ptr %5, null
   br i1 %tobool.not, label %if.end319, label %if.then6
@@ -14895,7 +14886,7 @@ if.then11:                                        ; preds = %switch.early.test, 
   br i1 %tobool.i.not, label %land.lhs.true, label %if.then20
 
 land.lhs.true:                                    ; preds = %if.then11
-  %15 = getelementptr inbounds nuw %"class.irr::core::CMatrix4", ptr %Matrices21, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [64 x i8], ptr %Matrices21, i64 %indvars.iv
   %arrayidx = getelementptr inbounds nuw i8, ptr %15, i64 128
   %arrayidx.i429 = getelementptr inbounds nuw i8, ptr %15, i64 176
   %16 = load float, ptr %arrayidx.i429, align 8, !tbaa !103
@@ -15017,7 +15008,7 @@ if.then18:                                        ; preds = %_ZNK3irr4core8CMatr
 
 if.then20:                                        ; preds = %if.then11
   call void @llvm.lifetime.start.p0(ptr nonnull %glmat)
-  %48 = getelementptr inbounds nuw %"class.irr::core::CMatrix4", ptr %Matrices21, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [64 x i8], ptr %Matrices21, i64 %indvars.iv
   %arrayidx24 = getelementptr inbounds nuw i8, ptr %48, i64 128
   %49 = load <1 x float>, ptr %TextureFlipMatrix, align 8
   %arrayidx2.i = getelementptr inbounds nuw i8, ptr %48, i64 144
@@ -15123,7 +15114,7 @@ if.then43:                                        ; preds = %if.end39
   %IsCached44 = getelementptr inbounds nuw i8, ptr %5, i64 237
   %101 = load i8, ptr %IsCached44, align 1, !tbaa !435, !range !131, !noundef !132
   %tobool45.not = icmp eq i8 %101, 0
-  %LODBias57.phi.trans.insert.split = getelementptr inbounds nuw %"class.irr::video::SMaterialLayer", ptr %material, i64 %2
+  %LODBias57.phi.trans.insert.split = getelementptr inbounds nuw [32 x i8], ptr %material, i64 %2
   %LODBias57.phi.trans.insert = getelementptr inbounds nuw i8, ptr %LODBias57.phi.trans.insert.split, i64 21
   %.pre = load i8, ptr %LODBias57.phi.trans.insert, align 1, !tbaa !117
   br i1 %tobool45.not, label %if.then53, label %lor.lhs.false46
@@ -15163,7 +15154,7 @@ if.else80:                                        ; preds = %if.end39
   br i1 %tobool83.not, label %if.end110, label %if.then84
 
 if.then84:                                        ; preds = %if.else80
-  %LODBias88.split = getelementptr inbounds nuw %"class.irr::video::SMaterialLayer", ptr %material, i64 %2
+  %LODBias88.split = getelementptr inbounds nuw [32 x i8], ptr %material, i64 %2
   %LODBias88 = getelementptr inbounds nuw i8, ptr %LODBias88.split, i64 21
   %108 = load i8, ptr %LODBias88, align 1, !tbaa !117
   %tobool89.not = icmp eq i8 %108, 0
@@ -15189,7 +15180,7 @@ if.end110:                                        ; preds = %if.else107, %if.the
   %IsCached111 = getelementptr inbounds nuw i8, ptr %5, i64 237
   %112 = load i8, ptr %IsCached111, align 1, !tbaa !435, !range !131, !noundef !132
   %tobool112.not = icmp eq i8 %112, 0
-  %MagFilter123.phi.trans.insert.split = getelementptr inbounds nuw %"class.irr::video::SMaterialLayer", ptr %material, i64 %2
+  %MagFilter123.phi.trans.insert.split = getelementptr inbounds nuw [32 x i8], ptr %material, i64 %2
   %MagFilter123.phi.trans.insert = getelementptr inbounds nuw i8, ptr %MagFilter123.phi.trans.insert.split, i64 16
   %.pre573 = load i32, ptr %MagFilter123.phi.trans.insert, align 8, !tbaa !115
   br i1 %tobool112.not, label %if.then119, label %lor.lhs.false113
@@ -17460,7 +17451,7 @@ if.end:                                           ; preds = %if.then, %_ZNK3irr5
 switch.lookup:                                    ; preds = %if.end
   %8 = trunc i64 %6 to i32
   %9 = zext nneg i32 %format.sink to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN3irr5video18COpenGLCoreTextureINS0_13COpenGLDriverEE14getImageValuesEPKNS0_6IImageE, i64 %9
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN3irr5video18COpenGLCoreTextureINS0_13COpenGLDriverEE14getImageValuesEPKNS0_6IImageE, i64 %9
   %switch.load = load i32, ptr %switch.gep, align 4
   %10 = mul i32 %switch.load, %8
   %11 = lshr exact i32 %10, 3
@@ -17478,7 +17469,7 @@ if.then24:                                        ; preds = %_ZN3irr5video6IImag
   %13 = load i32, ptr %5, align 8, !tbaa !379
   %narrow = tail call i32 @llvm.smin.i32(i32 %13, i32 17)
   %spec.select = zext i32 %narrow to i64
-  %arrayidx = getelementptr inbounds nuw ptr, ptr @_ZN3irr5videoL16ColorFormatNamesE, i64 %spec.select
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr @_ZN3irr5videoL16ColorFormatNamesE, i64 %spec.select
   %14 = load ptr, ptr %arrayidx, align 8, !tbaa !135
   tail call void @_ZN3irr2os7Printer3logEPKcS3_NS_10ELOG_LEVELE(ptr noundef nonnull @.str.62, ptr noundef %14, i32 noundef 3) #25
   br label %return
@@ -17844,7 +17835,7 @@ for.cond.i:                                       ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.cond.i ]
-  %add.ptr.i.i.i = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv.i
   %20 = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !135
   %tobool.not.i = icmp eq ptr %20, null
   br i1 %tobool.not.i, label %for.cond.i, label %if.then17
@@ -17987,7 +17978,7 @@ for.body44.lr.ph:                                 ; preds = %for.cond39.preheade
 for.body:                                         ; preds = %if.end37, %for.body.lr.ph
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %if.end37 ]
   %10 = load ptr, ptr %Textures, align 8, !tbaa !468
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv
   %11 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !135
   %tobool11.not = icmp eq ptr %11, null
   br i1 %tobool11.not, label %for.body.if.else_crit_edge, label %cond.end
@@ -18006,7 +17997,7 @@ cond.end:                                         ; preds = %for.body
 if.then14:                                        ; preds = %cond.end
   %13 = trunc i64 %indvars.iv to i32
   %add = add i32 %13, 36064
-  %add.ptr.i.i171 = getelementptr inbounds nuw i32, ptr %.pre292, i64 %indvars.iv
+  %add.ptr.i.i171 = getelementptr inbounds nuw [4 x i8], ptr %.pre292, i64 %indvars.iv
   store i32 %add, ptr %add.ptr.i.i171, align 4, !tbaa !129
   %Type.i = getelementptr inbounds nuw i8, ptr %11, i64 112
   %14 = load i32, ptr %Type.i, align 8, !tbaa !351
@@ -18015,7 +18006,7 @@ if.then14:                                        ; preds = %cond.end
 
 cond.false20:                                     ; preds = %if.then14
   %15 = load ptr, ptr %CubeSurfaces, align 8, !tbaa !473
-  %add.ptr.i.i173 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv
+  %add.ptr.i.i173 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   %16 = load i32, ptr %add.ptr.i.i173, align 4, !tbaa !474
   %add22 = add nsw i32 %16, 34069
   br label %cond.end23
@@ -18041,7 +18032,7 @@ if.end6.sink.split.i:                             ; preds = %if.else.i, %cond.en
 
 if.else:                                          ; preds = %cond.end, %for.body.if.else_crit_edge
   %20 = phi ptr [ %.pre, %for.body.if.else_crit_edge ], [ %.pre292, %cond.end ]
-  %add.ptr.i.i177 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
+  %add.ptr.i.i177 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv
   %21 = load i32, ptr %add.ptr.i.i177, align 4, !tbaa !129
   %cmp29.not = icmp eq i32 %21, 0
   br i1 %cmp29.not, label %if.end37, label %if.then30
@@ -18084,7 +18075,7 @@ for.body44:                                       ; preds = %for.inc56, %for.bod
   %25 = phi ptr [ %6, %for.body44.lr.ph ], [ %32, %for.inc56 ]
   %26 = phi ptr [ %7, %for.body44.lr.ph ], [ %33, %for.inc56 ]
   %indvars.iv290 = phi i64 [ %umin, %for.body44.lr.ph ], [ %indvars.iv.next291, %for.inc56 ]
-  %add.ptr.i.i197 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv290
+  %add.ptr.i.i197 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv290
   %27 = load i32, ptr %add.ptr.i.i197, align 4, !tbaa !129
   %cmp47.not = icmp eq i32 %27, 0
   br i1 %cmp47.not, label %for.inc56, label %if.then48
@@ -18112,7 +18103,7 @@ if.end6.sink.split.i202:                          ; preds = %if.else.i204, %if.t
 _ZN3irr5video23COpenGLExtensionHandler25irrGlFramebufferTexture2DEjjjji.exit207: ; preds = %if.end6.sink.split.i202, %if.else.i204
   %.pre296 = phi ptr [ %.pre296297, %if.else.i204 ], [ %.pre296.pre, %if.end6.sink.split.i202 ]
   %31 = phi ptr [ %25, %if.else.i204 ], [ %.pre295, %if.end6.sink.split.i202 ]
-  %add.ptr.i.i209 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv290
+  %add.ptr.i.i209 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv290
   store i32 0, ptr %add.ptr.i.i209, align 4, !tbaa !129
   br label %for.inc56
 
@@ -18727,7 +18718,7 @@ if.end:                                           ; preds = %entry
   %UserClipPlanes = getelementptr inbounds nuw i8, ptr %this, i64 3944
   %conv.i = zext nneg i32 %index to i64
   %1 = load ptr, ptr %UserClipPlanes, align 8, !tbaa !163
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.irr::video::COpenGLDriver::SUserClipPlane", ptr %1, i64 %conv.i
+  %add.ptr.i.i = getelementptr inbounds nuw [20 x i8], ptr %1, i64 %conv.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %add.ptr.i.i, ptr noundef nonnull align 4 dereferenceable(16) %plane, i64 16, i1 false), !tbaa.struct !488
   %vtable = load ptr, ptr %this, align 8, !tbaa !3
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 728
@@ -18759,7 +18750,7 @@ if.then2:                                         ; preds = %if.end
   %UserClipPlanes = getelementptr inbounds nuw i8, ptr %this, i64 3944
   %conv.i = zext nneg i32 %index to i64
   %1 = load ptr, ptr %UserClipPlanes, align 8, !tbaa !163
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.irr::video::COpenGLDriver::SUserClipPlane", ptr %1, i64 %conv.i
+  %add.ptr.i.i = getelementptr inbounds nuw [20 x i8], ptr %1, i64 %conv.i
   %Enabled = getelementptr inbounds nuw i8, ptr %add.ptr.i.i, i64 16
   %2 = load i8, ptr %Enabled, align 4, !tbaa !237, !range !131, !noundef !132
   %tobool3.not = icmp eq i8 %2, 0
@@ -18791,7 +18782,7 @@ if.end7:                                          ; preds = %if.else, %if.then4,
   %conv.i20.pre-phi = phi i64 [ %conv.i, %if.then2 ], [ %conv.i, %if.then4 ], [ %.pre, %if.else ]
   %UserClipPlanes9 = getelementptr inbounds nuw i8, ptr %this, i64 3944
   %7 = load ptr, ptr %UserClipPlanes9, align 8, !tbaa !163
-  %Enabled11.split = getelementptr inbounds nuw %"struct.irr::video::COpenGLDriver::SUserClipPlane", ptr %7, i64 %conv.i20.pre-phi
+  %Enabled11.split = getelementptr inbounds nuw [20 x i8], ptr %7, i64 %conv.i20.pre-phi
   %Enabled11 = getelementptr inbounds nuw i8, ptr %Enabled11.split, i64 16
   store i8 %frombool, ptr %Enabled11, align 4, !tbaa !237
   br label %return
@@ -18819,7 +18810,7 @@ entry:
 
 switch.lookup:                                    ; preds = %entry
   %1 = zext nneg i32 %type to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK3irr5video13COpenGLDriver17primitiveTypeToGLENS_5scene16E_PRIMITIVE_TYPEE, i64 %1
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK3irr5video13COpenGLDriver17primitiveTypeToGLENS_5scene16E_PRIMITIVE_TYPEE, i64 %1
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %return
 
@@ -19985,13 +19976,13 @@ for.cond.cleanup.i:                               ; preds = %for.body.i36, %if.t
 
 for.body.i36:                                     ; preds = %for.body.i36, %for.body.lr.ph.i35
   %indvars.iv.i37 = phi i64 [ 0, %for.body.lr.ph.i35 ], [ %indvars.iv.next.i38, %for.body.i36 ]
-  %arrayidx13.i = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv.i37
+  %arrayidx13.i = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %indvars.iv.i37
   store i32 770, ptr %arrayidx13.i, align 4, !tbaa !129
-  %arrayidx16.i = getelementptr inbounds nuw i32, ptr %60, i64 %indvars.iv.i37
+  %arrayidx16.i = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %indvars.iv.i37
   store i32 771, ptr %arrayidx16.i, align 4, !tbaa !129
-  %arrayidx19.i = getelementptr inbounds nuw i32, ptr %61, i64 %indvars.iv.i37
+  %arrayidx19.i = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %indvars.iv.i37
   store i32 770, ptr %arrayidx19.i, align 4, !tbaa !129
-  %arrayidx22.i = getelementptr inbounds nuw i32, ptr %62, i64 %indvars.iv.i37
+  %arrayidx22.i = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %indvars.iv.i37
   store i32 771, ptr %arrayidx22.i, align 4, !tbaa !129
   %indvars.iv.next.i38 = add nuw nsw i64 %indvars.iv.i37, 1
   %63 = load i32, ptr %FrameBufferCount.i, align 8, !tbaa !209
@@ -20838,13 +20829,13 @@ for.cond.cleanup.i:                               ; preds = %for.body.i25, %if.t
 
 for.body.i25:                                     ; preds = %for.body.i25, %for.body.lr.ph.i24
   %indvars.iv.i26 = phi i64 [ 0, %for.body.lr.ph.i24 ], [ %indvars.iv.next.i27, %for.body.i25 ]
-  %arrayidx13.i = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv.i26
+  %arrayidx13.i = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %indvars.iv.i26
   store i32 770, ptr %arrayidx13.i, align 4, !tbaa !129
-  %arrayidx16.i = getelementptr inbounds nuw i32, ptr %60, i64 %indvars.iv.i26
+  %arrayidx16.i = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %indvars.iv.i26
   store i32 771, ptr %arrayidx16.i, align 4, !tbaa !129
-  %arrayidx19.i = getelementptr inbounds nuw i32, ptr %61, i64 %indvars.iv.i26
+  %arrayidx19.i = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %indvars.iv.i26
   store i32 770, ptr %arrayidx19.i, align 4, !tbaa !129
-  %arrayidx22.i = getelementptr inbounds nuw i32, ptr %62, i64 %indvars.iv.i26
+  %arrayidx22.i = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %indvars.iv.i26
   store i32 771, ptr %arrayidx22.i, align 4, !tbaa !129
   %indvars.iv.next.i27 = add nuw nsw i64 %indvars.iv.i26, 1
   %63 = load i32, ptr %FrameBufferCount.i, align 8, !tbaa !209
@@ -21355,7 +21346,7 @@ if.then13:                                        ; preds = %_ZN3irr5video23COpe
 
 switch.lookup:                                    ; preds = %if.then13
   %60 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN3irr5video40COpenGLMaterialRenderer_ONETEXTURE_BLEND13OnSetMaterialERKNS0_9SMaterialES4_bPNS0_25IMaterialRendererServicesE.74, i64 %60
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN3irr5video40COpenGLMaterialRenderer_ONETEXTURE_BLEND13OnSetMaterialERKNS0_9SMaterialES4_bPNS0_25IMaterialRendererServicesE.74, i64 %60
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZNK3irr5video13COpenGLDriver10getGLBlendENS0_14E_BLEND_FACTORE.exit
 
@@ -21367,7 +21358,7 @@ _ZNK3irr5video13COpenGLDriver10getGLBlendENS0_14E_BLEND_FACTORE.exit: ; preds = 
 
 switch.lookup230:                                 ; preds = %_ZNK3irr5video13COpenGLDriver10getGLBlendENS0_14E_BLEND_FACTORE.exit
   %62 = zext nneg i32 %switch.tableidx231 to i64
-  %switch.gep232 = getelementptr inbounds nuw i32, ptr @switch.table._ZN3irr5video40COpenGLMaterialRenderer_ONETEXTURE_BLEND13OnSetMaterialERKNS0_9SMaterialES4_bPNS0_25IMaterialRendererServicesE.74, i64 %62
+  %switch.gep232 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN3irr5video40COpenGLMaterialRenderer_ONETEXTURE_BLEND13OnSetMaterialERKNS0_9SMaterialES4_bPNS0_25IMaterialRendererServicesE.74, i64 %62
   %switch.load233 = load i32, ptr %switch.gep232, align 4
   br label %_ZNK3irr5video13COpenGLDriver10getGLBlendENS0_14E_BLEND_FACTORE.exit67
 
@@ -21379,7 +21370,7 @@ _ZNK3irr5video13COpenGLDriver10getGLBlendENS0_14E_BLEND_FACTORE.exit67: ; preds 
 
 switch.lookup234:                                 ; preds = %_ZNK3irr5video13COpenGLDriver10getGLBlendENS0_14E_BLEND_FACTORE.exit67
   %64 = zext nneg i32 %switch.tableidx235 to i64
-  %switch.gep236 = getelementptr inbounds nuw i32, ptr @switch.table._ZN3irr5video40COpenGLMaterialRenderer_ONETEXTURE_BLEND13OnSetMaterialERKNS0_9SMaterialES4_bPNS0_25IMaterialRendererServicesE.74, i64 %64
+  %switch.gep236 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN3irr5video40COpenGLMaterialRenderer_ONETEXTURE_BLEND13OnSetMaterialERKNS0_9SMaterialES4_bPNS0_25IMaterialRendererServicesE.74, i64 %64
   %switch.load237 = load i32, ptr %switch.gep236, align 4
   br label %_ZNK3irr5video13COpenGLDriver10getGLBlendENS0_14E_BLEND_FACTORE.exit79
 
@@ -21391,7 +21382,7 @@ _ZNK3irr5video13COpenGLDriver10getGLBlendENS0_14E_BLEND_FACTORE.exit79: ; preds 
 
 switch.lookup238:                                 ; preds = %_ZNK3irr5video13COpenGLDriver10getGLBlendENS0_14E_BLEND_FACTORE.exit79
   %66 = zext nneg i32 %switch.tableidx239 to i64
-  %switch.gep240 = getelementptr inbounds nuw i32, ptr @switch.table._ZN3irr5video40COpenGLMaterialRenderer_ONETEXTURE_BLEND13OnSetMaterialERKNS0_9SMaterialES4_bPNS0_25IMaterialRendererServicesE.74, i64 %66
+  %switch.gep240 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN3irr5video40COpenGLMaterialRenderer_ONETEXTURE_BLEND13OnSetMaterialERKNS0_9SMaterialES4_bPNS0_25IMaterialRendererServicesE.74, i64 %66
   %switch.load241 = load i32, ptr %switch.gep240, align 4
   br label %_ZNK3irr5video13COpenGLDriver10getGLBlendENS0_14E_BLEND_FACTORE.exit91
 
@@ -21405,7 +21396,7 @@ if.else24:                                        ; preds = %_ZN3irr5video23COpe
 
 switch.lookup242:                                 ; preds = %if.else24
   %67 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep244 = getelementptr inbounds nuw i32, ptr @switch.table._ZN3irr5video40COpenGLMaterialRenderer_ONETEXTURE_BLEND13OnSetMaterialERKNS0_9SMaterialES4_bPNS0_25IMaterialRendererServicesE.74, i64 %67
+  %switch.gep244 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN3irr5video40COpenGLMaterialRenderer_ONETEXTURE_BLEND13OnSetMaterialERKNS0_9SMaterialES4_bPNS0_25IMaterialRendererServicesE.74, i64 %67
   %switch.load245 = load i32, ptr %switch.gep244, align 4
   br label %_ZNK3irr5video13COpenGLDriver10getGLBlendENS0_14E_BLEND_FACTORE.exit104
 
@@ -21417,7 +21408,7 @@ _ZNK3irr5video13COpenGLDriver10getGLBlendENS0_14E_BLEND_FACTORE.exit104: ; preds
 
 switch.lookup246:                                 ; preds = %_ZNK3irr5video13COpenGLDriver10getGLBlendENS0_14E_BLEND_FACTORE.exit104
   %69 = zext nneg i32 %switch.tableidx247 to i64
-  %switch.gep248 = getelementptr inbounds nuw i32, ptr @switch.table._ZN3irr5video40COpenGLMaterialRenderer_ONETEXTURE_BLEND13OnSetMaterialERKNS0_9SMaterialES4_bPNS0_25IMaterialRendererServicesE.74, i64 %69
+  %switch.gep248 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN3irr5video40COpenGLMaterialRenderer_ONETEXTURE_BLEND13OnSetMaterialERKNS0_9SMaterialES4_bPNS0_25IMaterialRendererServicesE.74, i64 %69
   %switch.load249 = load i32, ptr %switch.gep248, align 4
   br label %_ZNK3irr5video13COpenGLDriver10getGLBlendENS0_14E_BLEND_FACTORE.exit116
 
@@ -21479,13 +21470,13 @@ for.cond.cleanup.i124:                            ; preds = %for.body.i121, %if.
 
 for.body.i121:                                    ; preds = %for.body.i121, %for.body.lr.ph.i120
   %indvars.iv.i122 = phi i64 [ 0, %for.body.lr.ph.i120 ], [ %indvars.iv.next.i123, %for.body.i121 ]
-  %arrayidx13.i = getelementptr inbounds nuw i32, ptr %81, i64 %indvars.iv.i122
+  %arrayidx13.i = getelementptr inbounds nuw [4 x i8], ptr %81, i64 %indvars.iv.i122
   store i32 %r.0.i94, ptr %arrayidx13.i, align 4, !tbaa !129
-  %arrayidx16.i = getelementptr inbounds nuw i32, ptr %82, i64 %indvars.iv.i122
+  %arrayidx16.i = getelementptr inbounds nuw [4 x i8], ptr %82, i64 %indvars.iv.i122
   store i32 %r.0.i106, ptr %arrayidx16.i, align 4, !tbaa !129
-  %arrayidx19.i = getelementptr inbounds nuw i32, ptr %83, i64 %indvars.iv.i122
+  %arrayidx19.i = getelementptr inbounds nuw [4 x i8], ptr %83, i64 %indvars.iv.i122
   store i32 %r.0.i94, ptr %arrayidx19.i, align 4, !tbaa !129
-  %arrayidx22.i = getelementptr inbounds nuw i32, ptr %84, i64 %indvars.iv.i122
+  %arrayidx22.i = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %indvars.iv.i122
   store i32 %r.0.i106, ptr %arrayidx22.i, align 4, !tbaa !129
   %indvars.iv.next.i123 = add nuw nsw i64 %indvars.iv.i122, 1
   %85 = load i32, ptr %FrameBufferCount.i119, align 8, !tbaa !209
@@ -22160,9 +22151,9 @@ if.then.i76:                                      ; preds = %_ZNSt6vectorIN3irr5
 
 _ZNSt12_Vector_baseIN3irr5video13COpenGLDriver14SUserClipPlaneESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %if.then.i76, %_ZNSt6vectorIN3irr5video13COpenGLDriver14SUserClipPlaneESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !163
-  %add.ptr34 = getelementptr inbounds nuw %"struct.irr::video::COpenGLDriver::SUserClipPlane", ptr %add.ptr, i64 %__n
+  %add.ptr34 = getelementptr inbounds nuw [20 x i8], ptr %add.ptr, i64 %__n
   store ptr %add.ptr34, ptr %_M_finish.i, align 8, !tbaa !164
-  %add.ptr37 = getelementptr inbounds nuw %"struct.irr::video::COpenGLDriver::SUserClipPlane", ptr %call5.i.i.i, i64 %5
+  %add.ptr37 = getelementptr inbounds nuw [20 x i8], ptr %call5.i.i.i, i64 %5
   store ptr %add.ptr37, ptr %_M_end_of_storage, align 8, !tbaa !162
   br label %if.end41
 
@@ -22408,7 +22399,7 @@ if.else.i.i:                                      ; preds = %if.end
   br i1 %cmp4.i.i, label %if.then5.i.i, label %_ZN3irr4core5arrayIPNS_5video8ITextureEE8set_usedEj.exit
 
 if.then5.i.i:                                     ; preds = %if.else.i.i
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %27, i64 %conv.i179
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %conv.i179
   %tobool.not.i.i.i = icmp eq ptr %28, %add.ptr.i.i
   br i1 %tobool.not.i.i.i, label %_ZN3irr4core5arrayIPNS_5video8ITextureEE8set_usedEj.exit, label %if.then.i.i.i185
 
@@ -22444,7 +22435,7 @@ for.body41.preheader:                             ; preds = %for.cond37.preheade
 for.body:                                         ; preds = %if.end35, %for.body.lr.ph
   %indvars.iv = phi i64 [ 0, %for.body.lr.ph ], [ %indvars.iv.next, %if.end35 ]
   %35 = phi ptr [ %30, %for.body.lr.ph ], [ %42, %if.end35 ]
-  %arrayidx = getelementptr inbounds nuw ptr, ptr %textures, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %textures, i64 %indvars.iv
   %36 = load ptr, ptr %arrayidx, align 8, !tbaa !135
   %tobool.not = icmp eq ptr %36, null
   br i1 %tobool.not, label %if.else, label %land.lhs.true
@@ -22462,10 +22453,10 @@ if.end24:                                         ; preds = %land.lhs.true
   br i1 %cmp25.not, label %if.else, label %if.then26
 
 if.then26:                                        ; preds = %if.end24
-  %add.ptr.i.i193 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv
+  %add.ptr.i.i193 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv
   store ptr %36, ptr %add.ptr.i.i193, align 8, !tbaa !135
   %39 = load ptr, ptr %Textures, align 8, !tbaa !468
-  %add.ptr.i.i195 = getelementptr inbounds nuw ptr, ptr %39, i64 %indvars.iv
+  %add.ptr.i.i195 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %indvars.iv
   %40 = load ptr, ptr %add.ptr.i.i195, align 8, !tbaa !135
   %vtable = load ptr, ptr %40, align 8, !tbaa !3
   %vbase.offset.ptr = getelementptr i8, ptr %vtable, i64 -24
@@ -22478,7 +22469,7 @@ if.then26:                                        ; preds = %if.end24
   br label %if.end35
 
 if.else:                                          ; preds = %if.end24, %land.lhs.true, %for.body
-  %add.ptr.i.i197 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv
+  %add.ptr.i.i197 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv
   store ptr null, ptr %add.ptr.i.i197, align 8, !tbaa !135
   %.pre307 = load ptr, ptr %Textures, align 8, !tbaa !468
   br label %if.end35
@@ -22507,7 +22498,7 @@ if.then.i.i.i.i204:                               ; preds = %for.cond.cleanup40.
 
 for.body41:                                       ; preds = %for.inc52, %for.body41.preheader
   %indvars.iv300 = phi i64 [ 0, %for.body41.preheader ], [ %indvars.iv.next301, %for.inc52 ]
-  %add.ptr.i.i206 = getelementptr inbounds nuw ptr, ptr %cond.i.i.i.i.i275, i64 %indvars.iv300
+  %add.ptr.i.i206 = getelementptr inbounds nuw [8 x i8], ptr %cond.i.i.i.i.i275, i64 %indvars.iv300
   %45 = load ptr, ptr %add.ptr.i.i206, align 8, !tbaa !135
   %tobool43.not = icmp eq ptr %45, null
   br i1 %tobool43.not, label %for.inc52, label %if.then44
@@ -22587,7 +22578,7 @@ if.else.i.i236:                                   ; preds = %if.then58
   br i1 %cmp4.i.i237, label %if.then5.i.i240, label %if.end.i238
 
 if.then5.i.i240:                                  ; preds = %if.else.i.i236
-  %add.ptr.i.i241 = getelementptr inbounds nuw i32, ptr %49, i64 %conv.i215
+  %add.ptr.i.i241 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %conv.i215
   %tobool.not.i.i.i242 = icmp eq ptr %48, %add.ptr.i.i241
   br i1 %tobool.not.i.i.i242, label %if.end.i238, label %if.then.i.i.i243
 
@@ -22726,7 +22717,7 @@ for.cond.i:                                       ; preds = %for.body.i
 
 for.body.i:                                       ; preds = %for.cond.i, %for.body.preheader.i
   %indvars.iv.i = phi i64 [ 0, %for.body.preheader.i ], [ %indvars.iv.next.i, %for.cond.i ]
-  %add.ptr.i.i.i = getelementptr inbounds nuw ptr, ptr %63, i64 %indvars.iv.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %63, i64 %indvars.iv.i
   %65 = load ptr, ptr %add.ptr.i.i.i, align 8, !tbaa !135
   %tobool.not.i262 = icmp eq ptr %65, null
   br i1 %tobool.not.i262, label %for.cond.i, label %if.then116
@@ -22839,7 +22830,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
   %3 = shl nuw nsw i64 %__n, 2
   %4 = add nsw i64 %3, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i, i8 0, i64 %4, i1 false), !tbaa !129
-  %add.ptr.i.i.i.i.i = getelementptr i32, ptr %0, i64 %__n
+  %add.ptr.i.i.i.i.i = getelementptr [4 x i8], ptr %0, i64 %__n
   br label %_ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPjmjET_S1_T0_RSaIT1_E.exit: ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i
@@ -22891,9 +22882,9 @@ if.then.i69:                                      ; preds = %_ZNSt6vectorIjSaIjE
 
 _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit: ; preds = %if.then.i69, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !310
-  %add.ptr34 = getelementptr inbounds nuw i32, ptr %add.ptr, i64 %__n
+  %add.ptr34 = getelementptr inbounds nuw [4 x i8], ptr %add.ptr, i64 %__n
   store ptr %add.ptr34, ptr %_M_finish.i, align 8, !tbaa !309
-  %add.ptr37 = getelementptr inbounds nuw i32, ptr %call5.i.i.i, i64 %5
+  %add.ptr37 = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i, i64 %5
   store ptr %add.ptr37, ptr %_M_end_of_storage, align 8, !tbaa !502
   br label %if.end41
 
@@ -23136,7 +23127,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
   %3 = shl nuw nsw i64 %__n, 3
   %4 = add nsw i64 %3, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i, i8 0, i64 %4, i1 false), !tbaa !135
-  %add.ptr.i.i.i.i.i = getelementptr ptr, ptr %0, i64 %__n
+  %add.ptr.i.i.i.i.i = getelementptr [8 x i8], ptr %0, i64 %__n
   br label %_ZSt27__uninitialized_default_n_aIPPN3irr5video8ITextureEmS3_ET_S5_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPPN3irr5video8ITextureEmS3_ET_S5_T0_RSaIT1_E.exit: ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i
@@ -23188,9 +23179,9 @@ if.then.i69:                                      ; preds = %_ZNSt6vectorIPN3irr
 
 _ZNSt12_Vector_baseIPN3irr5video8ITextureESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %if.then.i69, %_ZNSt6vectorIPN3irr5video8ITextureESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !468
-  %add.ptr34 = getelementptr inbounds nuw ptr, ptr %add.ptr, i64 %__n
+  %add.ptr34 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr, i64 %__n
   store ptr %add.ptr34, ptr %_M_finish.i, align 8, !tbaa !467
-  %add.ptr37 = getelementptr inbounds nuw ptr, ptr %call5.i.i.i, i64 %5
+  %add.ptr37 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i, i64 %5
   store ptr %add.ptr37, ptr %_M_end_of_storage, align 8, !tbaa !508
   br label %if.end41
 
@@ -23235,7 +23226,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
   %3 = shl nuw nsw i64 %__n, 2
   %4 = add nsw i64 %3, -4
   tail call void @llvm.memset.p0.i64(ptr align 4 %incdec.ptr.i.i.i, i8 0, i64 %4, i1 false), !tbaa !474
-  %add.ptr.i.i.i.i.i = getelementptr i32, ptr %0, i64 %__n
+  %add.ptr.i.i.i.i.i = getelementptr [4 x i8], ptr %0, i64 %__n
   br label %_ZSt27__uninitialized_default_n_aIPN3irr5video14E_CUBE_SURFACEEmS2_ET_S4_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPN3irr5video14E_CUBE_SURFACEEmS2_ET_S4_T0_RSaIT1_E.exit: ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i
@@ -23287,9 +23278,9 @@ if.then.i69:                                      ; preds = %_ZNSt6vectorIN3irr5
 
 _ZNSt12_Vector_baseIN3irr5video14E_CUBE_SURFACEESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %if.then.i69, %_ZNSt6vectorIN3irr5video14E_CUBE_SURFACEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !473
-  %add.ptr34 = getelementptr inbounds nuw i32, ptr %add.ptr, i64 %__n
+  %add.ptr34 = getelementptr inbounds nuw [4 x i8], ptr %add.ptr, i64 %__n
   store ptr %add.ptr34, ptr %_M_finish.i, align 8, !tbaa !501
-  %add.ptr37 = getelementptr inbounds nuw i32, ptr %call5.i.i.i, i64 %5
+  %add.ptr37 = getelementptr inbounds nuw [4 x i8], ptr %call5.i.i.i, i64 %5
   store ptr %add.ptr37, ptr %_M_end_of_storage, align 8, !tbaa !509
   br label %if.end41
 
@@ -23360,7 +23351,7 @@ for.body:                                         ; preds = %if.end, %for.inc
   %12 = phi ptr [ %17, %for.inc ], [ %9, %if.end ]
   %13 = phi ptr [ %18, %for.inc ], [ %8, %if.end ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.inc ], [ 0, %if.end ]
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %14 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !135
   %tobool.not = icmp eq ptr %14, null
   br i1 %tobool.not, label %for.inc, label %if.then9
@@ -24364,7 +24355,7 @@ if.then:                                          ; preds = %entry
   %2 = load i32, ptr %ColorFormat, align 8, !tbaa !379
   %narrow = tail call i32 @llvm.smin.i32(i32 %2, i32 17)
   %spec.select = zext i32 %narrow to i64
-  %arrayidx = getelementptr inbounds nuw ptr, ptr @_ZN3irr5videoL16ColorFormatNamesE, i64 %spec.select
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr @_ZN3irr5videoL16ColorFormatNamesE, i64 %spec.select
   %3 = load ptr, ptr %arrayidx, align 8, !tbaa !135
   tail call void @_ZN3irr2os7Printer3logEPKcS3_NS_10ELOG_LEVELE(ptr noundef nonnull @.str.42, ptr noundef %3, i32 noundef 3) #25
   store i32 0, ptr %InternalFormat, align 8, !tbaa !377
@@ -24486,7 +24477,7 @@ if.end26.i:                                       ; preds = %while.cond10.i, %if
 
 switch.lookup:                                    ; preds = %if.end26.i
   %23 = zext nneg i32 %21 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN3irr5video18COpenGLCoreTextureINS0_13COpenGLDriverEE14getImageValuesEPKNS0_6IImageE, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN3irr5video18COpenGLCoreTextureINS0_13COpenGLDriverEE14getImageValuesEPKNS0_6IImageE, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   %24 = mul i32 %switch.load, %i.4.i
   %25 = lshr exact i32 %24, 3
@@ -24665,14 +24656,14 @@ if.then12:                                        ; preds = %if.end4
 if.then12.if.then22_crit_edge:                    ; preds = %if.then12
   %.pre = load ptr, ptr %Images23.phi.trans.insert, align 8, !tbaa !363
   %.pre149 = zext i32 %layer to i64
-  %add.ptr.i.i129.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %.pre, i64 %.pre149
+  %add.ptr.i.i129.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %.pre149
   %.pre151 = load ptr, ptr %add.ptr.i.i129.phi.trans.insert, align 8, !tbaa !135
   br label %if.end29
 
 lor.lhs.false:                                    ; preds = %if.then12
   %conv.i = zext i32 %layer to i64
   %6 = load ptr, ptr %Images23.phi.trans.insert, align 8, !tbaa !363
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %6, i64 %conv.i
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %conv.i
   %7 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !135
   %tobool16.not = icmp eq ptr %7, null
   br i1 %tobool16.not, label %if.then32, label %land.lhs.true
@@ -24993,7 +24984,7 @@ do.body:                                          ; preds = %_ZN3irr5video6IImag
 
 switch.lookup:                                    ; preds = %do.body
   %11 = zext nneg i32 %9 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK3irr5video18COpenGLCoreTextureINS0_13COpenGLDriverEE16getLockImageDataEj, i64 %11
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK3irr5video18COpenGLCoreTextureINS0_13COpenGLDriverEE16getLockImageDataEj, i64 %11
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN3irr5video6IImage21getDataSizeFromFormatENS0_13ECOLOR_FORMATEjj.exit
 
@@ -25215,7 +25206,7 @@ if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
   %3 = shl nuw nsw i64 %__n, 3
   %4 = add nsw i64 %3, -8
   tail call void @llvm.memset.p0.i64(ptr align 8 %incdec.ptr.i.i.i, i8 0, i64 %4, i1 false), !tbaa !135
-  %add.ptr.i.i.i.i.i = getelementptr ptr, ptr %0, i64 %__n
+  %add.ptr.i.i.i.i.i = getelementptr [8 x i8], ptr %0, i64 %__n
   br label %_ZSt27__uninitialized_default_n_aIPPN3irr5video6IImageEmS3_ET_S5_T0_RSaIT1_E.exit
 
 _ZSt27__uninitialized_default_n_aIPPN3irr5video6IImageEmS3_ET_S5_T0_RSaIT1_E.exit: ; preds = %if.end.i.i.i.i.i, %if.then.i.i.i
@@ -25267,9 +25258,9 @@ if.then.i69:                                      ; preds = %_ZNSt6vectorIPN3irr
 
 _ZNSt12_Vector_baseIPN3irr5video6IImageESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %if.then.i69, %_ZNSt6vectorIPN3irr5video6IImageESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !363
-  %add.ptr34 = getelementptr inbounds nuw ptr, ptr %add.ptr, i64 %__n
+  %add.ptr34 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr, i64 %__n
   store ptr %add.ptr34, ptr %_M_finish.i, align 8, !tbaa !365
-  %add.ptr37 = getelementptr inbounds nuw ptr, ptr %call5.i.i.i, i64 %5
+  %add.ptr37 = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i, i64 %5
   store ptr %add.ptr37, ptr %_M_end_of_storage, align 8, !tbaa !364
   br label %if.end41
 
@@ -25337,7 +25328,7 @@ if.then.i17:                                      ; preds = %while.cond.i
   %.fr3 = freeze i32 %4
   %5 = icmp ult i32 %.fr3, 17
   %6 = zext nneg i32 %.fr3 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK3irr5video18COpenGLCoreTextureINS0_13COpenGLDriverEE16getLockImageDataEj, i64 %6
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK3irr5video18COpenGLCoreTextureINS0_13COpenGLDriverEE16getLockImageDataEj, i64 %6
   br i1 %5, label %while.cond.i23.us, label %while.cond.i23
 
 while.cond.i23.us:                                ; preds = %if.then.i17, %while.body.i29.us
@@ -25512,7 +25503,7 @@ for.body:                                         ; preds = %if.end11, %_ZNK3irr
   %19 = phi ptr [ %24, %_ZNK3irr17IReferenceCounted4dropEv.exit30 ], [ %9, %if.end11 ]
   %20 = phi ptr [ %25, %_ZNK3irr17IReferenceCounted4dropEv.exit30 ], [ %8, %if.end11 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNK3irr17IReferenceCounted4dropEv.exit30 ], [ 0, %if.end11 ]
-  %add.ptr.i.i = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   %21 = load ptr, ptr %add.ptr.i.i, align 8, !tbaa !135
   %vtable15 = load ptr, ptr %21, align 8, !tbaa !3
   %vbase.offset.ptr16 = getelementptr i8, ptr %vtable15, i64 -24

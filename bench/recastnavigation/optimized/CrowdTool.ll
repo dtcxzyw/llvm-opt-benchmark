@@ -4,11 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.dtObstacleAvoidanceParams = type { float, float, float, float, float, float, i8, i8, i8, i8 }
-%"struct.CrowdToolState::AgentTrail" = type { [192 x float], i32 }
-%"struct.dtLocalBoundary::Segment" = type { [6 x float], float }
-%struct.dtCrowdNeighbour = type { i32, float }
 %struct.GraphParams = type { i32, i32, i32, i32, i32, float, float, i32, [16 x i8] }
-%struct.dtNode = type { [3 x float], float, float, i32, i32 }
 %struct.dtCrowdAgentParams = type { float, float, float, float, float, float, float, i8, i8, i8, ptr }
 %class.dtQueryFilter = type { [64 x float], i16, i16 }
 
@@ -389,7 +385,7 @@ define dso_local void @_ZN14CrowdToolState12handleRenderEv(ptr noundef nonnull r
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %54 = getelementptr inbounds nuw i32, ptr %50, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %indvars.iv
   %55 = load i32, ptr %54, align 4
   tail call void @_Z22duDebugDrawNavMeshPolyP11duDebugDrawRK9dtNavMeshjj(ptr noundef nonnull %4, ptr noundef nonnull align 8 dereferenceable(100) %13, i32 noundef %55, i32 noundef 419430399)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -588,7 +584,7 @@ define dso_local void @_ZN14CrowdToolState12handleRenderEv(ptr noundef nonnull r
   br i1 %162, label %163, label %206
 
 163:                                              ; preds = %158
-  %164 = getelementptr inbounds nuw %"struct.CrowdToolState::AgentTrail", ptr %143, i64 %indvars.iv497
+  %164 = getelementptr inbounds nuw [772 x i8], ptr %143, i64 %indvars.iv497
   %165 = getelementptr inbounds nuw i8, ptr %160, i64 416
   %166 = load ptr, ptr %4, align 8
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 32
@@ -614,7 +610,7 @@ define dso_local void @_ZN14CrowdToolState12handleRenderEv(ptr noundef nonnull r
   %175 = srem i32 %174, 64
   %176 = mul nsw i32 %175, 3
   %177 = sext i32 %176 to i64
-  %178 = getelementptr inbounds float, ptr %164, i64 %177
+  %178 = getelementptr inbounds [4 x i8], ptr %164, i64 %177
   %179 = uitofp nneg i32 %.0394458 to float
   %180 = fmul nnan float %179, 1.562500e-02
   %181 = fsub float 1.000000e+00, %180
@@ -715,10 +711,10 @@ define dso_local void @_ZN14CrowdToolState12handleRenderEv(ptr noundef nonnull r
   %240 = mul i32 %239, 3
   %241 = add i32 %240, -3
   %242 = sext i32 %241 to i64
-  %243 = getelementptr inbounds float, ptr %236, i64 %242
+  %243 = getelementptr inbounds [4 x i8], ptr %236, i64 %242
   %244 = select i1 %238, ptr %224, ptr %243
   %245 = zext nneg i32 %240 to i64
-  %246 = getelementptr inbounds nuw float, ptr %236, i64 %245
+  %246 = getelementptr inbounds nuw [4 x i8], ptr %236, i64 %245
   %247 = load float, ptr %244, align 4
   %248 = getelementptr inbounds nuw i8, ptr %244, i64 4
   %249 = load float, ptr %248, align 4
@@ -764,7 +760,7 @@ define dso_local void @_ZN14CrowdToolState12handleRenderEv(ptr noundef nonnull r
   %276 = getelementptr inbounds nuw i8, ptr %218, i64 520
   %277 = mul nsw i32 %270, 3
   %278 = sext i32 %277 to i64
-  %279 = getelementptr inbounds float, ptr %276, i64 %278
+  %279 = getelementptr inbounds [4 x i8], ptr %276, i64 %278
   %280 = load float, ptr %279, align 4
   %281 = getelementptr inbounds nuw i8, ptr %279, i64 4
   %282 = load float, ptr %281, align 4
@@ -828,7 +824,7 @@ define dso_local void @_ZN14CrowdToolState12handleRenderEv(ptr noundef nonnull r
 
 324:                                              ; preds = %.lr.ph470, %324
   %indvars.iv503 = phi i64 [ 0, %.lr.ph470 ], [ %indvars.iv.next504, %324 ]
-  %325 = getelementptr inbounds nuw %"struct.dtLocalBoundary::Segment", ptr %322, i64 %indvars.iv503
+  %325 = getelementptr inbounds nuw [28 x i8], ptr %322, i64 %indvars.iv503
   %326 = getelementptr inbounds nuw i8, ptr %325, i64 12
   %327 = load float, ptr %325, align 4
   %328 = load float, ptr %224, align 4
@@ -897,7 +893,7 @@ define dso_local void @_ZN14CrowdToolState12handleRenderEv(ptr noundef nonnull r
 
 374:                                              ; preds = %.lr.ph474, %396
   %indvars.iv506 = phi i64 [ 0, %.lr.ph474 ], [ %indvars.iv.next507, %396 ]
-  %375 = getelementptr inbounds nuw %struct.dtCrowdNeighbour, ptr %373, i64 %indvars.iv506
+  %375 = getelementptr inbounds nuw [8 x i8], ptr %373, i64 %indvars.iv506
   %376 = load i32, ptr %375, align 8
   %377 = tail call noundef ptr @_ZN7dtCrowd8getAgentEi(ptr noundef nonnull align 8 dereferenceable(5072) %18, i32 noundef %376)
   %.not422 = icmp eq ptr %377, null
@@ -1031,7 +1027,7 @@ define dso_local void @_ZN14CrowdToolState12handleRenderEv(ptr noundef nonnull r
 
 switch.lookup:                                    ; preds = %455
   %464 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN14CrowdToolState12handleRenderEv, i64 %464
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN14CrowdToolState12handleRenderEv, i64 %464
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %465
 
@@ -1124,13 +1120,13 @@ switch.lookup:                                    ; preds = %455
   %.idx = mul nuw nsw i64 %indvars.iv509, 12
   %521 = getelementptr inbounds nuw i8, ptr %520, i64 %.idx
   %522 = load ptr, ptr %516, align 8
-  %523 = getelementptr inbounds nuw float, ptr %522, i64 %indvars.iv509
+  %523 = getelementptr inbounds nuw [4 x i8], ptr %522, i64 %indvars.iv509
   %524 = load float, ptr %523, align 4
   %525 = load ptr, ptr %517, align 8
-  %526 = getelementptr inbounds nuw float, ptr %525, i64 %indvars.iv509
+  %526 = getelementptr inbounds nuw [4 x i8], ptr %525, i64 %indvars.iv509
   %527 = load float, ptr %526, align 4
   %528 = load ptr, ptr %518, align 8
-  %529 = getelementptr inbounds nuw float, ptr %528, i64 %indvars.iv509
+  %529 = getelementptr inbounds nuw [4 x i8], ptr %528, i64 %indvars.iv509
   %530 = load float, ptr %529, align 4
   %531 = fmul float %527, 2.550000e+02
   %532 = fptosi float %531 to i32
@@ -1267,7 +1263,7 @@ switch.lookup:                                    ; preds = %455
 
 switch.lookup538:                                 ; preds = %628
   %639 = zext nneg i8 %switch.tableidx537 to i64
-  %switch.gep539 = getelementptr inbounds nuw i32, ptr @switch.table._ZN14CrowdToolState12handleRenderEv.1, i64 %639
+  %switch.gep539 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN14CrowdToolState12handleRenderEv.1, i64 %639
   %switch.load540 = load i32, ptr %switch.gep539, align 4
   br label %640
 
@@ -1425,7 +1421,7 @@ define dso_local void @_ZN14CrowdToolState19handleRenderOverlayEPdS0_Pi(ptr noun
   %51 = phi i32 [ %46, %.lr.ph102 ], [ %83, %._crit_edge ]
   %indvars.iv = phi i64 [ 0, %.lr.ph102 ], [ %indvars.iv.next, %._crit_edge ]
   %52 = load ptr, ptr %48, align 8
-  %53 = getelementptr inbounds nuw i16, ptr %52, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [2 x i8], ptr %52, i64 %indvars.iv
   %.07098 = load i16, ptr %53, align 2
   %.not8999 = icmp eq i16 %.07098, -1
   br i1 %.not8999, label %._crit_edge, label %.lr.ph
@@ -1443,7 +1439,7 @@ define dso_local void @_ZN14CrowdToolState19handleRenderOverlayEPdS0_Pi(ptr noun
   %56 = phi ptr [ %.pr, %.lr.ph.splitthread-pre-split ], [ %54, %.lr.ph ]
   %.070100 = phi i16 [ %.070, %.lr.ph.splitthread-pre-split ], [ %.07098, %.lr.ph ]
   %57 = zext i16 %.070100 to i64
-  %58 = getelementptr inbounds nuw %struct.dtNode, ptr %56, i64 %57
+  %58 = getelementptr inbounds nuw [28 x i8], ptr %56, i64 %57
   %.not90 = icmp eq ptr %56, null
   br i1 %.not90, label %80, label %59
 
@@ -1476,7 +1472,7 @@ define dso_local void @_ZN14CrowdToolState19handleRenderOverlayEPdS0_Pi(ptr noun
 
 80:                                               ; preds = %59, %70, %.lr.ph.split
   %81 = load ptr, ptr %49, align 8
-  %82 = getelementptr inbounds nuw i16, ptr %81, i64 %57
+  %82 = getelementptr inbounds nuw [2 x i8], ptr %81, i64 %57
   %.070 = load i16, ptr %82, align 2
   %.not89 = icmp eq i16 %.070, -1
   br i1 %.not89, label %._crit_edge.loopexit109, label %.lr.ph.splitthread-pre-split, !llvm.loop !23
@@ -1615,7 +1611,7 @@ define dso_local void @_ZN14CrowdToolState19handleRenderOverlayEPdS0_Pi(ptr noun
 
 158:                                              ; preds = %.lr.ph106, %186
   %indvars.iv111 = phi i64 [ 0, %.lr.ph106 ], [ %indvars.iv.next112, %186 ]
-  %159 = getelementptr inbounds nuw %struct.dtCrowdNeighbour, ptr %156, i64 %indvars.iv111
+  %159 = getelementptr inbounds nuw [8 x i8], ptr %156, i64 %indvars.iv111
   %160 = load i32, ptr %159, align 8
   %161 = call noundef ptr @_ZN7dtCrowd8getAgentEi(ptr noundef nonnull align 8 dereferenceable(5072) %135, i32 noundef %160)
   %162 = load i8, ptr %161, align 8
@@ -1759,7 +1755,7 @@ define dso_local void @_ZN14CrowdToolState10updateTickEf(ptr noundef nonnull ali
   br i1 %28, label %29, label %46
 
 29:                                               ; preds = %24
-  %30 = getelementptr inbounds nuw %"struct.CrowdToolState::AgentTrail", ptr %23, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [772 x i8], ptr %23, i64 %indvars.iv
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 768
   %32 = load i32, ptr %31, align 4
   %33 = add nsw i32 %32, 1
@@ -1767,7 +1763,7 @@ define dso_local void @_ZN14CrowdToolState10updateTickEf(ptr noundef nonnull ali
   store i32 %34, ptr %31, align 4
   %35 = mul nsw i32 %34, 3
   %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds float, ptr %30, i64 %36
+  %37 = getelementptr inbounds [4 x i8], ptr %30, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %26, i64 416
   %39 = load float, ptr %38, align 4
   store float %39, ptr %37, align 4
@@ -1802,7 +1798,7 @@ define dso_local void @_ZN14CrowdToolState10updateTickEf(ptr noundef nonnull ali
   %59 = srem i32 %58, 256
   store i32 %59, ptr %56, align 4
   %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds float, ptr %52, i64 %60
+  %61 = getelementptr inbounds [4 x i8], ptr %52, i64 %60
   store float %55, ptr %61, align 4
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 98912
   %63 = sub nsw i64 %20, %18
@@ -1815,7 +1811,7 @@ define dso_local void @_ZN14CrowdToolState10updateTickEf(ptr noundef nonnull ali
   %70 = srem i32 %69, 256
   store i32 %70, ptr %67, align 8
   %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds float, ptr %62, i64 %71
+  %72 = getelementptr inbounds [4 x i8], ptr %62, i64 %71
   store float %66, ptr %72, align 4
   br label %73
 
@@ -1940,7 +1936,7 @@ define dso_local void @_ZN14CrowdToolState8addAgentEPKf(ptr noundef nonnull alig
 73:                                               ; preds = %70, %67
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %75 = sext i32 %66 to i64
-  %76 = getelementptr inbounds %"struct.CrowdToolState::AgentTrail", ptr %74, i64 %75
+  %76 = getelementptr inbounds [772 x i8], ptr %74, i64 %75
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %78 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %79
@@ -2271,35 +2267,35 @@ define dso_local noundef i32 @_ZN14CrowdToolState13hitTestAgentsEPKfS1_(ptr noun
   %56 = phi float [ 0x47EFFFFFE0000000, %30 ], [ %92, %91 ]
   %57 = phi float [ 0x47EFFFFFE0000000, %30 ], [ %93, %91 ]
   %indvars.iv.i = phi i64 [ 0, %30 ], [ %indvars.iv.next.i, %91 ]
-  %58 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv.i
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv.i
   %59 = load float, ptr %58, align 4
   %60 = tail call float @llvm.fabs.f32(float %59)
   %61 = fcmp olt float %60, 0x3EB0C6F7A0000000
   br i1 %61, label %62, label %72
 
 62:                                               ; preds = %55
-  %63 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv.i
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.i
   %64 = load float, ptr %63, align 4
-  %65 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.i
   %66 = load float, ptr %65, align 4
   %67 = fcmp olt float %64, %66
   br i1 %67, label %_ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit.thread, label %68
 
 68:                                               ; preds = %62
-  %69 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv.i
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv.i
   %70 = load float, ptr %69, align 4
   %71 = fcmp ogt float %64, %70
   br i1 %71, label %_ZL12isectSegAABBPKfS0_S0_S0_RfS1_.exit.thread, label %91
 
 72:                                               ; preds = %55
   %73 = fdiv float 1.000000e+00, %59
-  %74 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.i
   %75 = load float, ptr %74, align 4
-  %76 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv.i
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv.i
   %77 = load float, ptr %76, align 4
   %78 = fsub float %75, %77
   %79 = fmul float %73, %78
-  %80 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv.i
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv.i
   %81 = load float, ptr %80, align 4
   %82 = fsub float %81, %77
   %83 = fmul float %73, %82
@@ -2473,7 +2469,7 @@ define dso_local void @_ZN9CrowdTool4initEP6Sample(ptr noundef nonnull align 8 d
   %11 = tail call noundef i32 %10(ptr noundef nonnull align 8 dereferenceable(28) %0)
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %13 = sext i32 %11 to i64
-  %14 = getelementptr inbounds ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %15, ptr %16, align 8
@@ -2543,7 +2539,7 @@ define dso_local void @_ZN9CrowdTool4initEP6Sample(ptr noundef nonnull align 8 d
   %45 = tail call noundef i32 %44(ptr noundef nonnull align 8 dereferenceable(28) %0)
   %46 = load ptr, ptr %16, align 8
   %47 = sext i32 %45 to i64
-  %48 = getelementptr inbounds ptr, ptr %12, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %12, i64 %47
   store ptr %46, ptr %48, align 8
   br label %49
 

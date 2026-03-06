@@ -26,7 +26,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.9" = type { %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl" }
 %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl" = type { %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.cv::Rect_" = type { i32, i32, i32, i32 }
 
 $_ZN2cv6detail8tracking7feature15CvHaarEvaluator16compute_integralERKNS_3MatERSt6vectorINS_4Mat_IfEESaIS9_EE = comdat any
 
@@ -1521,7 +1520,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit145: ; preds = %30
   br i1 %332, label %333, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit147
 
 333:                                              ; preds = %331
-  %334 = getelementptr inbounds nuw float, ptr %323, i64 %320
+  %334 = getelementptr inbounds nuw [4 x i8], ptr %323, i64 %320
   %.not.i.i146 = icmp eq ptr %322, %334
   br i1 %.not.i.i146, label %_ZNSt6vectorIfSaIfEE6resizeEm.exit147, label %335
 
@@ -1544,15 +1543,15 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit147:            ; preds = %329, %331, %333, %3
 338:                                              ; preds = %.lr.ph, %338
   %339 = phi ptr [ %.pre313, %.lr.ph ], [ %346, %338 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %338 ]
-  %340 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %339, i64 %indvars.iv
+  %340 = getelementptr inbounds nuw [16 x i8], ptr %339, i64 %indvars.iv
   %341 = load ptr, ptr %315, align 8, !tbaa !69
-  %342 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %341, i64 %indvars.iv
+  %342 = getelementptr inbounds nuw [16 x i8], ptr %341, i64 %indvars.iv
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %342, ptr noundef nonnull align 4 dereferenceable(16) %340, i64 16, i1 false), !tbaa.struct !94
   %343 = load ptr, ptr %13, align 8, !tbaa !66
-  %344 = getelementptr inbounds nuw float, ptr %343, i64 %indvars.iv
+  %344 = getelementptr inbounds nuw [4 x i8], ptr %343, i64 %indvars.iv
   %345 = load float, ptr %344, align 4, !tbaa !39
   %346 = load ptr, ptr %15, align 8, !tbaa !69
-  %347 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %346, i64 %indvars.iv
+  %347 = getelementptr inbounds nuw [16 x i8], ptr %346, i64 %indvars.iv
   %348 = getelementptr inbounds nuw i8, ptr %347, i64 8
   %349 = load i32, ptr %348, align 4, !tbaa !88
   %350 = getelementptr inbounds nuw i8, ptr %347, i64 12
@@ -1561,7 +1560,7 @@ _ZNSt6vectorIfSaIfEE6resizeEm.exit147:            ; preds = %329, %331, %333, %3
   %353 = sitofp i32 %352 to float
   %354 = fdiv float %345, %353
   %355 = load ptr, ptr %318, align 8, !tbaa !66
-  %356 = getelementptr inbounds nuw float, ptr %355, i64 %indvars.iv
+  %356 = getelementptr inbounds nuw [4 x i8], ptr %355, i64 %indvars.iv
   store float %354, ptr %356, align 4, !tbaa !39
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %357 = load i32, ptr %12, align 4, !tbaa !82
@@ -1669,9 +1668,9 @@ _ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i: ; preds 
 
 _ZNSt12_Vector_baseIN2cv5Rect_IiEESaIS2_EE13_M_deallocateEPS2_m.exit36.i: ; preds = %33, %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i
   store ptr %28, ptr %0, align 8, !tbaa !69
-  %34 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %29, i64 %12
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %29, i64 %12
   store ptr %34, ptr %3, align 8, !tbaa !96
-  %35 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %28, i64 %26
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %26
   store ptr %35, ptr %13, align 8, !tbaa !97
   br label %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE17_M_default_appendEm.exit
 
@@ -1680,7 +1679,7 @@ _ZNSt12_Vector_baseIN2cv5Rect_IiEESaIS2_EE13_M_deallocateEPS2_m.exit36.i: ; pred
   br i1 %37, label %38, label %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE17_M_default_appendEm.exit
 
 38:                                               ; preds = %36
-  %39 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %5, i64 %1
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %1
   %.not.i4 = icmp eq ptr %4, %39
   br i1 %.not.i4, label %_ZNSt6vectorIN2cv5Rect_IiEESaIS2_EE17_M_default_appendEm.exit, label %40
 
@@ -1714,12 +1713,12 @@ define hidden noundef zeroext i1 @_ZNK2cv6detail8tracking7feature15CvHaarEvaluat
 13:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
   %14 = phi float [ 0.000000e+00, %.lr.ph ], [ %22, %13 ]
-  %15 = getelementptr inbounds nuw %"class.cv::Rect_", ptr %10, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %indvars.iv
   %16 = load i64, ptr %15, align 4
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %18 = load i64, ptr %17, align 4
   %19 = tail call noundef float @_ZNK2cv6detail8tracking7feature15CvHaarEvaluator11FeatureHaar6getSumERKNS_3MatENS_5Rect_IiEE(ptr nonnull align 8 poison, ptr noundef nonnull align 8 dereferenceable(96) %1, i64 %16, i64 %18)
-  %20 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv
   %21 = load float, ptr %20, align 4, !tbaa !39
   %22 = tail call float @llvm.fmuladd.f32(float %19, float %21, float %14)
   store float %22, ptr %4, align 4, !tbaa !39
@@ -1767,18 +1766,18 @@ define hidden noundef float @_ZNK2cv6detail8tracking7feature15CvHaarEvaluator11F
   %26 = mul i64 %24, %25
   %27 = getelementptr inbounds nuw i8, ptr %21, i64 %26
   %28 = sext i32 %19 to i64
-  %29 = getelementptr inbounds i32, ptr %27, i64 %28
+  %29 = getelementptr inbounds [4 x i8], ptr %27, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !73
   %31 = ashr i64 %2, 32
   %32 = mul i64 %24, %31
   %33 = getelementptr inbounds nuw i8, ptr %21, i64 %32
   %sext73 = shl i64 %2, 32
   %34 = ashr exact i64 %sext73, 32
-  %35 = getelementptr inbounds i32, ptr %33, i64 %34
+  %35 = getelementptr inbounds [4 x i8], ptr %33, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !73
-  %37 = getelementptr inbounds i32, ptr %33, i64 %28
+  %37 = getelementptr inbounds [4 x i8], ptr %33, i64 %28
   %38 = load i32, ptr %37, align 4, !tbaa !73
-  %39 = getelementptr inbounds i32, ptr %27, i64 %34
+  %39 = getelementptr inbounds [4 x i8], ptr %27, i64 %34
   %40 = load i32, ptr %39, align 4, !tbaa !73
   %.neg75 = add i32 %36, %30
   %41 = add i32 %38, %40
@@ -1805,20 +1804,20 @@ define hidden noundef float @_ZNK2cv6detail8tracking7feature15CvHaarEvaluator11F
   %55 = mul i64 %53, %54
   %56 = getelementptr inbounds nuw i8, ptr %50, i64 %55
   %57 = sext i32 %48 to i64
-  %58 = getelementptr inbounds double, ptr %56, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %56, i64 %57
   %59 = load double, ptr %58, align 8, !tbaa !105
   %60 = ashr i64 %2, 32
   %61 = mul i64 %53, %60
   %62 = getelementptr inbounds nuw i8, ptr %50, i64 %61
   %sext71 = shl i64 %2, 32
   %63 = ashr exact i64 %sext71, 32
-  %64 = getelementptr inbounds double, ptr %62, i64 %63
+  %64 = getelementptr inbounds [8 x i8], ptr %62, i64 %63
   %65 = load double, ptr %64, align 8, !tbaa !105
   %66 = fadd double %59, %65
-  %67 = getelementptr inbounds double, ptr %62, i64 %57
+  %67 = getelementptr inbounds [8 x i8], ptr %62, i64 %57
   %68 = load double, ptr %67, align 8, !tbaa !105
   %69 = fsub double %66, %68
-  %70 = getelementptr inbounds double, ptr %56, i64 %63
+  %70 = getelementptr inbounds [8 x i8], ptr %56, i64 %63
   %71 = load double, ptr %70, align 8, !tbaa !105
   %72 = fsub double %69, %71
   %73 = fptrunc double %72 to float
@@ -1836,20 +1835,20 @@ define hidden noundef float @_ZNK2cv6detail8tracking7feature15CvHaarEvaluator11F
   %83 = mul i64 %81, %82
   %84 = getelementptr inbounds nuw i8, ptr %78, i64 %83
   %85 = sext i32 %76 to i64
-  %86 = getelementptr inbounds float, ptr %84, i64 %85
+  %86 = getelementptr inbounds [4 x i8], ptr %84, i64 %85
   %87 = load float, ptr %86, align 4, !tbaa !39
   %88 = ashr i64 %2, 32
   %89 = mul i64 %81, %88
   %90 = getelementptr inbounds nuw i8, ptr %78, i64 %89
   %sext = shl i64 %2, 32
   %91 = ashr exact i64 %sext, 32
-  %92 = getelementptr inbounds float, ptr %90, i64 %91
+  %92 = getelementptr inbounds [4 x i8], ptr %90, i64 %91
   %93 = load float, ptr %92, align 4, !tbaa !39
   %94 = fadd float %87, %93
-  %95 = getelementptr inbounds float, ptr %90, i64 %85
+  %95 = getelementptr inbounds [4 x i8], ptr %90, i64 %85
   %96 = load float, ptr %95, align 4, !tbaa !39
   %97 = fsub float %94, %96
-  %98 = getelementptr inbounds float, ptr %84, i64 %91
+  %98 = getelementptr inbounds [4 x i8], ptr %84, i64 %91
   %99 = load float, ptr %98, align 4, !tbaa !39
   %100 = fsub float %97, %99
   br label %101
@@ -2204,7 +2203,7 @@ _ZNSt12_Vector_baseIN2cv6detail8tracking7feature15CvHaarEvaluator11FeatureHaarES
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !107
   store ptr %.0.lcssa.i.i.i.i31, ptr %4, align 8, !tbaa !64
-  %113 = getelementptr inbounds nuw %"class.cv::detail::tracking::feature::CvHaarEvaluator::FeatureHaar", ptr %20, i64 %16
+  %113 = getelementptr inbounds nuw [136 x i8], ptr %20, i64 %16
   store ptr %113, ptr %112, align 8, !tbaa !65
   ret void
 
@@ -2596,9 +2595,9 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36: ; preds = %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !66
-  %38 = getelementptr inbounds nuw float, ptr %31, i64 %1
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %1
   store ptr %38, ptr %4, align 8, !tbaa !83
-  %39 = getelementptr inbounds nuw float, ptr %30, i64 %28
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   store ptr %39, ptr %11, align 8, !tbaa !114
   br label %40
 

@@ -230,9 +230,9 @@ define dso_local noundef zeroext i1 @_ZN15btGjkEpaSolver28DistanceEPK13btConvexS
   %.sroa.7.086 = phi float [ 0.000000e+00, %.lr.ph ], [ %219, %_ZNK12gjkepa2_impl13MinkowskiDiff7SupportERK9btVector3j.exit46 ]
   %.sroa.065.085 = phi float [ 0.000000e+00, %.lr.ph ], [ %218, %_ZNK12gjkepa2_impl13MinkowskiDiff7SupportERK9btVector3j.exit46 ]
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 32
-  %124 = getelementptr inbounds nuw float, ptr %123, i64 %indvars.iv
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %123, i64 %indvars.iv
   %125 = load float, ptr %124, align 4, !tbaa !23
-  %126 = getelementptr inbounds nuw ptr, ptr %122, i64 %indvars.iv
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %indvars.iv
   %127 = load ptr, ptr %126, align 8, !tbaa !28
   %128 = load ptr, ptr %8, align 8, !tbaa !30
   %.unpack.i4.i = load i64, ptr %21, align 8, !tbaa !32
@@ -268,7 +268,7 @@ _ZNK12gjkepa2_impl13MinkowskiDiff7SupportERK9btVector3j.exit: ; preds = %131, %1
   %146 = fadd float %.sroa.778.089, %143
   %147 = fadd float %.sroa.1281.090, %144
   %148 = load ptr, ptr %17, align 8, !tbaa !20
-  %149 = getelementptr inbounds nuw ptr, ptr %148, i64 %indvars.iv
+  %149 = getelementptr inbounds nuw [8 x i8], ptr %148, i64 %indvars.iv
   %150 = load ptr, ptr %149, align 8, !tbaa !28
   %151 = load float, ptr %150, align 4, !tbaa !23
   %152 = fneg float %151
@@ -851,9 +851,9 @@ _ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit: ; preds = %82, %
   %.0 = phi i32 [ 0, %_ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit ], [ %436, %._crit_edge ]
   %171 = sub i32 1, %170
   %172 = zext i32 %170 to i64
-  %173 = getelementptr inbounds nuw %"struct.gjkepa2_impl::GJK::sSimplex", ptr %37, i64 %172
+  %173 = getelementptr inbounds nuw [56 x i8], ptr %37, i64 %172
   %174 = zext i32 %171 to i64
-  %175 = getelementptr inbounds nuw %"struct.gjkepa2_impl::GJK::sSimplex", ptr %37, i64 %174
+  %175 = getelementptr inbounds nuw [56 x i8], ptr %37, i64 %174
   %176 = fmul float %168, %168
   %177 = call float @llvm.fmuladd.f32(float %169, float %169, float %176)
   %178 = call noundef float @llvm.fmuladd.f32(float %167, float %167, float %177)
@@ -873,15 +873,15 @@ _ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit: ; preds = %82, %
   %186 = getelementptr inbounds nuw i8, ptr %173, i64 48
   %187 = load i32, ptr %186, align 8, !tbaa !21
   %188 = zext i32 %187 to i64
-  %189 = getelementptr inbounds nuw float, ptr %185, i64 %188
+  %189 = getelementptr inbounds nuw [4 x i8], ptr %185, i64 %188
   store float 0.000000e+00, ptr %189, align 4, !tbaa !23
   %190 = load i32, ptr %17, align 8, !tbaa !4
   %191 = add i32 %190, -1
   store i32 %191, ptr %17, align 8, !tbaa !4
   %192 = zext i32 %191 to i64
-  %193 = getelementptr inbounds nuw ptr, ptr %10, i64 %192
+  %193 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %192
   %194 = load ptr, ptr %193, align 8, !tbaa !28
-  %195 = getelementptr inbounds nuw ptr, ptr %173, i64 %188
+  %195 = getelementptr inbounds nuw [8 x i8], ptr %173, i64 %188
   store ptr %194, ptr %195, align 8, !tbaa !28
   %196 = add i32 %187, 1
   store i32 %196, ptr %186, align 8, !tbaa !21
@@ -1018,7 +1018,7 @@ _ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit112: ; preds = %22
   %282 = load i32, ptr %186, align 8, !tbaa !21
   %283 = add i32 %282, -1
   %284 = zext i32 %283 to i64
-  %285 = getelementptr inbounds nuw ptr, ptr %173, i64 %284
+  %285 = getelementptr inbounds nuw [8 x i8], ptr %173, i64 %284
   %286 = load ptr, ptr %285, align 8, !tbaa !28
   %287 = getelementptr inbounds nuw i8, ptr %286, i64 16
   %288 = load float, ptr %287, align 4, !tbaa !23
@@ -1035,7 +1035,7 @@ _ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit112: ; preds = %22
 
 294:                                              ; preds = %_ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit112, %293
   %indvars.iv = phi i64 [ 0, %_ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit112 ], [ %indvars.iv.next, %293 ]
-  %295 = getelementptr inbounds nuw %class.btVector3, ptr %6, i64 %indvars.iv
+  %295 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %indvars.iv
   %296 = load float, ptr %295, align 16, !tbaa !23
   %297 = fsub float %288, %296
   %298 = getelementptr inbounds nuw i8, ptr %295, i64 4
@@ -1053,19 +1053,19 @@ _ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit112: ; preds = %22
 308:                                              ; preds = %294
   %309 = load i32, ptr %18, align 4, !tbaa !18
   %310 = zext i32 %309 to i64
-  %311 = getelementptr inbounds nuw %"struct.gjkepa2_impl::GJK::sSimplex", ptr %37, i64 %310
+  %311 = getelementptr inbounds nuw [56 x i8], ptr %37, i64 %310
   %312 = getelementptr inbounds nuw i8, ptr %311, i64 48
   %313 = load i32, ptr %312, align 8, !tbaa !21
   %314 = add i32 %313, -1
   store i32 %314, ptr %312, align 8, !tbaa !21
   %315 = zext i32 %314 to i64
-  %316 = getelementptr inbounds nuw ptr, ptr %311, i64 %315
+  %316 = getelementptr inbounds nuw [8 x i8], ptr %311, i64 %315
   %317 = load ptr, ptr %316, align 8, !tbaa !28
   %318 = load i32, ptr %17, align 8, !tbaa !4
   %319 = add i32 %318, 1
   store i32 %319, ptr %17, align 8, !tbaa !4
   %320 = zext i32 %318 to i64
-  %321 = getelementptr inbounds nuw ptr, ptr %10, i64 %320
+  %321 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %320
   store ptr %317, ptr %321, align 8, !tbaa !28
   br label %.thread
 
@@ -1073,7 +1073,7 @@ _ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit112: ; preds = %22
   %322 = add nuw nsw i32 %.064, 1
   %323 = and i32 %322, 3
   %324 = zext nneg i32 %323 to i64
-  %325 = getelementptr inbounds nuw %class.btVector3, ptr %6, i64 %324
+  %325 = getelementptr inbounds nuw [16 x i8], ptr %6, i64 %324
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %325, ptr noundef nonnull align 4 dereferenceable(16) %287, i64 16, i1 false), !tbaa.struct !48
   %326 = load float, ptr %39, align 8, !tbaa !23
   %327 = load float, ptr %41, align 4, !tbaa !23
@@ -1092,19 +1092,19 @@ _ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit112: ; preds = %22
 337:                                              ; preds = %.critedge
   %338 = load i32, ptr %18, align 4, !tbaa !18
   %339 = zext i32 %338 to i64
-  %340 = getelementptr inbounds nuw %"struct.gjkepa2_impl::GJK::sSimplex", ptr %37, i64 %339
+  %340 = getelementptr inbounds nuw [56 x i8], ptr %37, i64 %339
   %341 = getelementptr inbounds nuw i8, ptr %340, i64 48
   %342 = load i32, ptr %341, align 8, !tbaa !21
   %343 = add i32 %342, -1
   store i32 %343, ptr %341, align 8, !tbaa !21
   %344 = zext i32 %343 to i64
-  %345 = getelementptr inbounds nuw ptr, ptr %340, i64 %344
+  %345 = getelementptr inbounds nuw [8 x i8], ptr %340, i64 %344
   %346 = load ptr, ptr %345, align 8, !tbaa !28
   %347 = load i32, ptr %17, align 8, !tbaa !4
   %348 = add i32 %347, 1
   store i32 %348, ptr %17, align 8, !tbaa !4
   %349 = zext i32 %347 to i64
-  %350 = getelementptr inbounds nuw ptr, ptr %10, i64 %349
+  %350 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %349
   store ptr %346, ptr %350, align 8, !tbaa !28
   br label %.thread
 
@@ -1265,19 +1265,19 @@ _ZN12gjkepa2_impl3GJK13projectoriginERK9btVector3S3_PfRj.exit: ; preds = %392, %
   %446 = shl nuw i32 1, %445
   %447 = and i32 %.pre160, %446
   %.not = icmp eq i32 %447, 0
-  %448 = getelementptr inbounds nuw ptr, ptr %173, i64 %indvars.iv153
+  %448 = getelementptr inbounds nuw [8 x i8], ptr %173, i64 %indvars.iv153
   %449 = load ptr, ptr %448, align 8, !tbaa !28
   br i1 %.not, label %469, label %450
 
 450:                                              ; preds = %439
   %451 = zext i32 %440 to i64
-  %452 = getelementptr inbounds nuw ptr, ptr %175, i64 %451
+  %452 = getelementptr inbounds nuw [8 x i8], ptr %175, i64 %451
   store ptr %449, ptr %452, align 8, !tbaa !28
-  %453 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv153
+  %453 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv153
   %454 = load float, ptr %453, align 4, !tbaa !23
   %455 = add i32 %440, 1
   store i32 %455, ptr %428, align 8, !tbaa !21
-  %456 = getelementptr inbounds nuw float, ptr %430, i64 %451
+  %456 = getelementptr inbounds nuw [4 x i8], ptr %430, i64 %451
   store float %454, ptr %456, align 4, !tbaa !23
   %457 = getelementptr inbounds nuw i8, ptr %449, i64 16
   %458 = load float, ptr %457, align 4, !tbaa !23
@@ -1300,7 +1300,7 @@ _ZN12gjkepa2_impl3GJK13projectoriginERK9btVector3S3_PfRj.exit: ; preds = %392, %
   %470 = add i32 %444, 1
   store i32 %470, ptr %17, align 8, !tbaa !4
   %471 = zext i32 %444 to i64
-  %472 = getelementptr inbounds nuw ptr, ptr %10, i64 %471
+  %472 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %471
   store ptr %449, ptr %472, align 8, !tbaa !28
   br label %473
 
@@ -1317,19 +1317,19 @@ _ZN12gjkepa2_impl3GJK13projectoriginERK9btVector3S3_PfRj.exit: ; preds = %392, %
 .thread141:                                       ; preds = %_ZN12gjkepa2_impl3GJK13projectoriginERK9btVector3S3_PfRj.exit, %352
   %479 = load i32, ptr %18, align 4, !tbaa !18
   %480 = zext i32 %479 to i64
-  %481 = getelementptr inbounds nuw %"struct.gjkepa2_impl::GJK::sSimplex", ptr %37, i64 %480
+  %481 = getelementptr inbounds nuw [56 x i8], ptr %37, i64 %480
   %482 = getelementptr inbounds nuw i8, ptr %481, i64 48
   %483 = load i32, ptr %482, align 8, !tbaa !21
   %484 = add i32 %483, -1
   store i32 %484, ptr %482, align 8, !tbaa !21
   %485 = zext i32 %484 to i64
-  %486 = getelementptr inbounds nuw ptr, ptr %481, i64 %485
+  %486 = getelementptr inbounds nuw [8 x i8], ptr %481, i64 %485
   %487 = load ptr, ptr %486, align 8, !tbaa !28
   %488 = load i32, ptr %17, align 8, !tbaa !4
   %489 = add i32 %488, 1
   store i32 %489, ptr %17, align 8, !tbaa !4
   %490 = zext i32 %488 to i64
-  %491 = getelementptr inbounds nuw ptr, ptr %10, i64 %490
+  %491 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %490
   store ptr %487, ptr %491, align 8, !tbaa !28
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
@@ -1344,7 +1344,7 @@ _ZN12gjkepa2_impl3GJK13projectoriginERK9btVector3S3_PfRj.exit: ; preds = %392, %
 .loopexit:                                        ; preds = %._crit_edge, %.thread141, %.thread
   %.pre-phi = phi i64 [ %.pre162.pre-phi, %.thread ], [ %480, %.thread141 ], [ %174, %._crit_edge ]
   %494 = phi i32 [ %493, %.thread ], [ %492, %.thread141 ], [ %spec.select, %._crit_edge ]
-  %495 = getelementptr inbounds nuw %"struct.gjkepa2_impl::GJK::sSimplex", ptr %37, i64 %.pre-phi
+  %495 = getelementptr inbounds nuw [56 x i8], ptr %37, i64 %.pre-phi
   %496 = getelementptr inbounds nuw i8, ptr %0, i64 448
   store ptr %495, ptr %496, align 8, !tbaa !20
   switch i32 %494, label %504 [
@@ -1436,7 +1436,7 @@ define dso_local noundef zeroext i1 @_ZN15btGjkEpaSolver211PenetrationEPK13btCon
   %36 = phi ptr [ null, %28 ], [ %38, %_ZN12gjkepa2_impl3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit.i.i ]
   %indvars.iv.i.i = phi i64 [ 0, %28 ], [ %indvars.iv.next.i.i, %_ZN12gjkepa2_impl3EPA6appendERNS0_5sListEPNS0_5sFaceE.exit.i.i ]
   %37 = sub nuw nsw i64 255, %indvars.iv.i.i
-  %38 = getelementptr inbounds nuw %"struct.gjkepa2_impl::EPA::sFace", ptr %34, i64 %37
+  %38 = getelementptr inbounds nuw [96 x i8], ptr %34, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 72
   store ptr null, ptr %39, align 8, !tbaa !61
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 80
@@ -1494,7 +1494,7 @@ _ZN12gjkepa2_impl3EPAC2Ev.exit:                   ; preds = %_ZN12gjkepa2_impl3E
   %.sroa.12.077 = phi float [ 0.000000e+00, %.lr.ph ], [ %81, %_ZNK12gjkepa2_impl13MinkowskiDiff7SupportERK9btVector3j.exit ]
   %.sroa.7.076 = phi float [ 0.000000e+00, %.lr.ph ], [ %80, %_ZNK12gjkepa2_impl13MinkowskiDiff7SupportERK9btVector3j.exit ]
   %.sroa.068.075 = phi float [ 0.000000e+00, %.lr.ph ], [ %79, %_ZNK12gjkepa2_impl13MinkowskiDiff7SupportERK9btVector3j.exit ]
-  %58 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %indvars.iv
   %59 = load ptr, ptr %58, align 8, !tbaa !28
   %60 = load ptr, ptr %8, align 8, !tbaa !30
   %.unpack.i4.i = load i64, ptr %55, align 8, !tbaa !32
@@ -1520,7 +1520,7 @@ _ZNK12gjkepa2_impl13MinkowskiDiff7SupportERK9btVector3j.exit: ; preds = %63, %68
   %71 = call { <2 x float>, <2 x float> } %70(ptr noundef nonnull align 8 dereferenceable(32) %61, ptr noundef nonnull align 4 dereferenceable(16) %59)
   %72 = extractvalue { <2 x float>, <2 x float> } %71, 0
   %73 = extractvalue { <2 x float>, <2 x float> } %71, 1
-  %74 = getelementptr inbounds nuw float, ptr %56, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %indvars.iv
   %.sroa.062.0.vec.extract = extractelement <2 x float> %72, i64 0
   %75 = load float, ptr %74, align 4, !tbaa !23
   %76 = fmul float %75, %.sroa.062.0.vec.extract
@@ -1965,7 +1965,7 @@ _ZN12gjkepa2_impl3EPA8findbestEv.exit:            ; preds = %.lr.ph.i, %122
   %164 = add nuw nsw i32 %161, 1
   store i32 %164, ptr %42, align 8, !tbaa !60
   %165 = zext nneg i32 %161 to i64
-  %166 = getelementptr inbounds nuw %"struct.gjkepa2_impl::GJK::sSV", ptr %155, i64 %165
+  %166 = getelementptr inbounds nuw [32 x i8], ptr %155, i64 %165
   %167 = add nuw nsw i32 %.076309, 1
   %168 = trunc i32 %167 to i8
   %169 = getelementptr inbounds nuw i8, ptr %.074310, i64 91
@@ -2004,7 +2004,7 @@ _ZN12gjkepa2_impl3EPA8findbestEv.exit:            ; preds = %.lr.ph.i, %122
 
 193:                                              ; preds = %.preheader, %193
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %193 ]
-  %194 = getelementptr inbounds nuw ptr, ptr %188, i64 %indvars.iv
+  %194 = getelementptr inbounds nuw [8 x i8], ptr %188, i64 %indvars.iv
   %195 = load ptr, ptr %194, align 8, !tbaa !61
   %196 = getelementptr inbounds nuw i8, ptr %189, i64 %indvars.iv
   %197 = load i8, ptr %196, align 1, !tbaa !24
@@ -2447,9 +2447,9 @@ define dso_local noundef float @_ZN15btGjkEpaSolver214SignedDistanceERK9btVector
   %.sroa.7.0171 = phi float [ 0.000000e+00, %.lr.ph ], [ %166, %135 ]
   %.sroa.0135.0170 = phi float [ 0.000000e+00, %.lr.ph ], [ %165, %135 ]
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 32
-  %69 = getelementptr inbounds nuw float, ptr %68, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %indvars.iv
   %70 = load float, ptr %69, align 4, !tbaa !23
-  %71 = getelementptr inbounds nuw ptr, ptr %67, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %indvars.iv
   %72 = load ptr, ptr %71, align 8, !tbaa !28
   %73 = load ptr, ptr %7, align 8, !tbaa !30
   %.unpack.i4.i = load i64, ptr %40, align 8, !tbaa !32
@@ -2488,7 +2488,7 @@ _ZNK12gjkepa2_impl13MinkowskiDiff8Support0ERK9btVector3.exit.i: ; preds = %81, %
   %92 = fadd float %.sroa.7144.0174, %89
   %93 = fadd float %.sroa.11146.0175, %90
   %94 = load ptr, ptr %36, align 8, !tbaa !20
-  %95 = getelementptr inbounds nuw ptr, ptr %94, i64 %indvars.iv
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %indvars.iv
   %96 = load ptr, ptr %95, align 8, !tbaa !28
   %97 = load float, ptr %96, align 4, !tbaa !23
   %98 = fneg float %97
@@ -2917,9 +2917,9 @@ define linkonce_odr dso_local noundef float @_ZN12gjkepa2_impl3GJK13projectorigi
   %.sroa.7.0136 = phi float [ 0.000000e+00, %.preheader ], [ %.sroa.7.1, %144 ]
   %.sroa.0112.0135 = phi float [ 0.000000e+00, %.preheader ], [ %.sroa.0112.1, %144 ]
   %.0132134 = phi i32 [ 0, %.preheader ], [ %.1, %144 ]
-  %58 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %59 = load ptr, ptr %58, align 8, !tbaa !85
-  %60 = getelementptr inbounds nuw %class.btVector3, ptr %7, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %indvars.iv
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 4
   %62 = load float, ptr %61, align 4, !tbaa !23
   %63 = getelementptr inbounds nuw i8, ptr %60, i64 8
@@ -2943,10 +2943,10 @@ define linkonce_odr dso_local noundef float @_ZN12gjkepa2_impl3GJK13projectorigi
   br i1 %80, label %81, label %144
 
 81:                                               ; preds = %57
-  %82 = getelementptr inbounds nuw i32, ptr @_ZZN12gjkepa2_impl3GJK13projectoriginERK9btVector3S3_S3_PfRjE4imd3, i64 %indvars.iv
+  %82 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN12gjkepa2_impl3GJK13projectoriginERK9btVector3S3_S3_PfRjE4imd3, i64 %indvars.iv
   %83 = load i32, ptr %82, align 4, !tbaa !50
   %84 = zext i32 %83 to i64
-  %85 = getelementptr inbounds nuw ptr, ptr %6, i64 %84
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %84
   %86 = load ptr, ptr %85, align 8, !tbaa !85
   %87 = load float, ptr %86, align 4, !tbaa !23
   %88 = fsub float %87, %72
@@ -3022,14 +3022,14 @@ _ZN12gjkepa2_impl3GJK13projectoriginERK9btVector3S3_PfRj.exit: ; preds = %81, %1
   %136 = select i1 %.not49, i32 0, i32 %135
   %137 = add nuw nsw i32 %133, %136
   store i32 %137, ptr %4, align 4, !tbaa !50
-  %138 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
+  %138 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   store float %.sroa.0112.2, ptr %138, align 4, !tbaa !23
-  %139 = getelementptr inbounds nuw float, ptr %3, i64 %84
+  %139 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %84
   store float %.sroa.7.2, ptr %139, align 4, !tbaa !23
-  %140 = getelementptr inbounds nuw i32, ptr @_ZZN12gjkepa2_impl3GJK13projectoriginERK9btVector3S3_S3_PfRjE4imd3, i64 %84
+  %140 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN12gjkepa2_impl3GJK13projectoriginERK9btVector3S3_S3_PfRjE4imd3, i64 %84
   %141 = load i32, ptr %140, align 4, !tbaa !50
   %142 = zext i32 %141 to i64
-  %143 = getelementptr inbounds nuw float, ptr %3, i64 %142
+  %143 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %142
   store float 0.000000e+00, ptr %143, align 4, !tbaa !23
   br label %144
 
@@ -3234,11 +3234,11 @@ define linkonce_odr dso_local noundef float @_ZN12gjkepa2_impl3GJK13projectorigi
 90:                                               ; preds = %84, %153
   %indvars.iv = phi i64 [ 0, %84 ], [ %indvars.iv.next, %153 ]
   %.065103 = phi float [ -1.000000e+00, %84 ], [ %.1, %153 ]
-  %91 = getelementptr inbounds nuw i32, ptr @_ZZN12gjkepa2_impl3GJK13projectoriginERK9btVector3S3_S3_S3_PfRjE4imd3, i64 %indvars.iv
+  %91 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN12gjkepa2_impl3GJK13projectoriginERK9btVector3S3_S3_S3_PfRjE4imd3, i64 %indvars.iv
   %92 = load i32, ptr %91, align 4, !tbaa !50
-  %93 = getelementptr inbounds nuw %class.btVector3, ptr %8, i64 %indvars.iv
+  %93 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %indvars.iv
   %94 = zext i32 %92 to i64
-  %95 = getelementptr inbounds nuw %class.btVector3, ptr %8, i64 %94
+  %95 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %94
   %96 = getelementptr inbounds nuw i8, ptr %93, i64 4
   %97 = load float, ptr %96, align 4, !tbaa !23
   %98 = getelementptr inbounds nuw i8, ptr %95, i64 8
@@ -3269,9 +3269,9 @@ define linkonce_odr dso_local noundef float @_ZN12gjkepa2_impl3GJK13projectorigi
   br i1 %122, label %123, label %153
 
 123:                                              ; preds = %90
-  %124 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %125 = load ptr, ptr %124, align 8, !tbaa !85
-  %126 = getelementptr inbounds nuw ptr, ptr %7, i64 %94
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %94
   %127 = load ptr, ptr %126, align 8, !tbaa !85
   %128 = call noundef float @_ZN12gjkepa2_impl3GJK13projectoriginERK9btVector3S3_S3_PfRj(ptr noundef nonnull align 4 dereferenceable(16) %125, ptr noundef nonnull align 4 dereferenceable(16) %127, ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull %9, ptr noundef nonnull align 4 dereferenceable(4) %10)
   %129 = fcmp olt float %.065103, 0.000000e+00
@@ -3296,15 +3296,15 @@ define linkonce_odr dso_local noundef float @_ZN12gjkepa2_impl3GJK13projectorigi
   %143 = add nuw nsw i32 %142, %136
   store i32 %143, ptr %5, align 4, !tbaa !50
   %144 = load float, ptr %9, align 4, !tbaa !23
-  %145 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
+  %145 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   store float %144, ptr %145, align 4, !tbaa !23
   %146 = load float, ptr %85, align 4, !tbaa !23
-  %147 = getelementptr inbounds nuw float, ptr %4, i64 %94
+  %147 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %94
   store float %146, ptr %147, align 4, !tbaa !23
-  %148 = getelementptr inbounds nuw i32, ptr @_ZZN12gjkepa2_impl3GJK13projectoriginERK9btVector3S3_S3_S3_PfRjE4imd3, i64 %94
+  %148 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN12gjkepa2_impl3GJK13projectoriginERK9btVector3S3_S3_S3_PfRjE4imd3, i64 %94
   %149 = load i32, ptr %148, align 4, !tbaa !50
   %150 = zext i32 %149 to i64
-  %151 = getelementptr inbounds nuw float, ptr %4, i64 %150
+  %151 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %150
   store float 0.000000e+00, ptr %151, align 4, !tbaa !23
   %152 = load float, ptr %86, align 4, !tbaa !23
   store float %152, ptr %87, align 4, !tbaa !23
@@ -3652,19 +3652,19 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12gjkepa2_impl3GJK13Enclose
   %47 = phi ptr [ %11, %.preheader ], [ %251, %.critedge ]
   %indvars.iv262 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next263, %.critedge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %48 = getelementptr inbounds nuw float, ptr %8, i64 %indvars.iv262
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %indvars.iv262
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %48, align 4, !tbaa !23
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 48
   %51 = zext i32 %46 to i64
-  %52 = getelementptr inbounds nuw float, ptr %49, i64 %51
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %51
   store float 0.000000e+00, ptr %52, align 4, !tbaa !23
   store i32 %45, ptr %17, align 8, !tbaa !4
   %53 = zext i32 %45 to i64
-  %54 = getelementptr inbounds nuw ptr, ptr %16, i64 %53
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %53
   %55 = load ptr, ptr %54, align 8, !tbaa !28
-  %56 = getelementptr inbounds nuw ptr, ptr %47, i64 %51
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %51
   store ptr %55, ptr %56, align 8, !tbaa !28
   %57 = add i32 %46, 1
   store i32 %57, ptr %50, align 8, !tbaa !21
@@ -3814,17 +3814,17 @@ _ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit: ; preds = %87, %
   %153 = load i32, ptr %152, align 8, !tbaa !21
   %154 = add i32 %153, -1
   %155 = zext i32 %154 to i64
-  %156 = getelementptr inbounds nuw ptr, ptr %151, i64 %155
+  %156 = getelementptr inbounds nuw [8 x i8], ptr %151, i64 %155
   %157 = load ptr, ptr %156, align 8, !tbaa !28
   %158 = load i32, ptr %17, align 8, !tbaa !4
   %159 = zext i32 %158 to i64
-  %160 = getelementptr inbounds nuw ptr, ptr %16, i64 %159
+  %160 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %159
   store ptr %157, ptr %160, align 8, !tbaa !28
   %161 = fneg float %58
   %162 = fneg float %59
   %163 = fneg float %62
   %164 = getelementptr inbounds nuw i8, ptr %151, i64 32
-  %165 = getelementptr inbounds nuw float, ptr %164, i64 %155
+  %165 = getelementptr inbounds nuw [4 x i8], ptr %164, i64 %155
   store float 0.000000e+00, ptr %165, align 4, !tbaa !23
   store i32 %158, ptr %17, align 8, !tbaa !4
   store ptr %157, ptr %156, align 8, !tbaa !28
@@ -3967,13 +3967,13 @@ _ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit97: ; preds = %188
   %254 = add i32 %253, -1
   store i32 %254, ptr %252, align 8, !tbaa !21
   %255 = zext i32 %254 to i64
-  %256 = getelementptr inbounds nuw ptr, ptr %251, i64 %255
+  %256 = getelementptr inbounds nuw [8 x i8], ptr %251, i64 %255
   %257 = load ptr, ptr %256, align 8, !tbaa !28
   %258 = load i32, ptr %17, align 8, !tbaa !4
   %259 = add i32 %258, 1
   store i32 %259, ptr %17, align 8, !tbaa !4
   %260 = zext i32 %258 to i64
-  %261 = getelementptr inbounds nuw ptr, ptr %16, i64 %260
+  %261 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %260
   store ptr %257, ptr %261, align 8, !tbaa !28
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %indvars.iv.next263 = add nuw nsw i64 %indvars.iv262, 1
@@ -4039,7 +4039,7 @@ _ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit97: ; preds = %188
   %312 = phi ptr [ %11, %263 ], [ %543, %542 ]
   %indvars.iv = phi i64 [ 0, %263 ], [ %indvars.iv.next, %542 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %313 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv
+  %313 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %9, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %313, align 4, !tbaa !23
   %314 = load float, ptr %283, align 4, !tbaa !23
@@ -4065,15 +4065,15 @@ _ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit97: ; preds = %188
   %332 = getelementptr inbounds nuw i8, ptr %312, i64 48
   %333 = load i32, ptr %332, align 8, !tbaa !21
   %334 = zext i32 %333 to i64
-  %335 = getelementptr inbounds nuw float, ptr %331, i64 %334
+  %335 = getelementptr inbounds nuw [4 x i8], ptr %331, i64 %334
   store float 0.000000e+00, ptr %335, align 4, !tbaa !23
   %336 = load i32, ptr %285, align 8, !tbaa !4
   %337 = add i32 %336, -1
   store i32 %337, ptr %285, align 8, !tbaa !4
   %338 = zext i32 %337 to i64
-  %339 = getelementptr inbounds nuw ptr, ptr %284, i64 %338
+  %339 = getelementptr inbounds nuw [8 x i8], ptr %284, i64 %338
   %340 = load ptr, ptr %339, align 8, !tbaa !28
-  %341 = getelementptr inbounds nuw ptr, ptr %312, i64 %334
+  %341 = getelementptr inbounds nuw [8 x i8], ptr %312, i64 %334
   store ptr %340, ptr %341, align 8, !tbaa !28
   %342 = add i32 %333, 1
   store i32 %342, ptr %332, align 8, !tbaa !21
@@ -4217,17 +4217,17 @@ _ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit124: ; preds = %36
   %432 = load i32, ptr %431, align 8, !tbaa !21
   %433 = add i32 %432, -1
   %434 = zext i32 %433 to i64
-  %435 = getelementptr inbounds nuw ptr, ptr %430, i64 %434
+  %435 = getelementptr inbounds nuw [8 x i8], ptr %430, i64 %434
   %436 = load ptr, ptr %435, align 8, !tbaa !28
   %437 = load i32, ptr %285, align 8, !tbaa !4
   %438 = zext i32 %437 to i64
-  %439 = getelementptr inbounds nuw ptr, ptr %284, i64 %438
+  %439 = getelementptr inbounds nuw [8 x i8], ptr %284, i64 %438
   store ptr %436, ptr %439, align 8, !tbaa !28
   %440 = fneg float %318
   %441 = fneg float %322
   %442 = fneg float %325
   %443 = getelementptr inbounds nuw i8, ptr %430, i64 32
-  %444 = getelementptr inbounds nuw float, ptr %443, i64 %434
+  %444 = getelementptr inbounds nuw [4 x i8], ptr %443, i64 %434
   store float 0.000000e+00, ptr %444, align 4, !tbaa !23
   store i32 %437, ptr %285, align 8, !tbaa !4
   store ptr %436, ptr %435, align 8, !tbaa !28
@@ -4370,13 +4370,13 @@ _ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit151: ; preds = %46
   %534 = add i32 %533, -1
   store i32 %534, ptr %532, align 8, !tbaa !21
   %535 = zext i32 %534 to i64
-  %536 = getelementptr inbounds nuw ptr, ptr %531, i64 %535
+  %536 = getelementptr inbounds nuw [8 x i8], ptr %531, i64 %535
   %537 = load ptr, ptr %536, align 8, !tbaa !28
   %538 = load i32, ptr %285, align 8, !tbaa !4
   %539 = add i32 %538, 1
   store i32 %539, ptr %285, align 8, !tbaa !4
   %540 = zext i32 %538 to i64
-  %541 = getelementptr inbounds nuw ptr, ptr %284, i64 %540
+  %541 = getelementptr inbounds nuw [8 x i8], ptr %284, i64 %540
   store ptr %537, ptr %541, align 8, !tbaa !28
   br label %542
 
@@ -4445,7 +4445,7 @@ _ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit151: ; preds = %46
   %593 = add i32 %592, -1
   store i32 %593, ptr %591, align 8, !tbaa !4
   %594 = zext i32 %593 to i64
-  %595 = getelementptr inbounds nuw ptr, ptr %590, i64 %594
+  %595 = getelementptr inbounds nuw [8 x i8], ptr %590, i64 %594
   %596 = load ptr, ptr %595, align 8, !tbaa !28
   %597 = getelementptr inbounds nuw i8, ptr %11, i64 24
   store ptr %596, ptr %597, align 8, !tbaa !28
@@ -4615,17 +4615,17 @@ _ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit178: ; preds = %62
   %711 = load i32, ptr %710, align 8, !tbaa !21
   %712 = add i32 %711, -1
   %713 = zext i32 %712 to i64
-  %714 = getelementptr inbounds nuw ptr, ptr %709, i64 %713
+  %714 = getelementptr inbounds nuw [8 x i8], ptr %709, i64 %713
   %715 = load ptr, ptr %714, align 8, !tbaa !28
   %716 = load i32, ptr %591, align 8, !tbaa !4
   %717 = zext i32 %716 to i64
-  %718 = getelementptr inbounds nuw ptr, ptr %590, i64 %717
+  %718 = getelementptr inbounds nuw [8 x i8], ptr %590, i64 %717
   store ptr %715, ptr %718, align 8, !tbaa !28
   %719 = fneg float %577
   %720 = fneg float %580
   %721 = fneg float %583
   %722 = getelementptr inbounds nuw i8, ptr %709, i64 32
-  %723 = getelementptr inbounds nuw float, ptr %722, i64 %713
+  %723 = getelementptr inbounds nuw [4 x i8], ptr %722, i64 %713
   store float 0.000000e+00, ptr %723, align 4, !tbaa !23
   store i32 %716, ptr %591, align 8, !tbaa !4
   store ptr %715, ptr %714, align 8, !tbaa !28
@@ -4769,13 +4769,13 @@ _ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE.exit205: ; preds = %74
   %814 = add i32 %813, -1
   store i32 %814, ptr %812, align 8, !tbaa !21
   %815 = zext i32 %814 to i64
-  %816 = getelementptr inbounds nuw ptr, ptr %811, i64 %815
+  %816 = getelementptr inbounds nuw [8 x i8], ptr %811, i64 %815
   %817 = load ptr, ptr %816, align 8, !tbaa !28
   %818 = load i32, ptr %591, align 8, !tbaa !4
   %819 = add i32 %818, 1
   store i32 %819, ptr %591, align 8, !tbaa !4
   %820 = zext i32 %818 to i64
-  %821 = getelementptr inbounds nuw ptr, ptr %590, i64 %820
+  %821 = getelementptr inbounds nuw [8 x i8], ptr %590, i64 %820
   store ptr %817, ptr %821, align 8, !tbaa !28
   br label %.thread
 
@@ -5083,7 +5083,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12gjkepa2_impl3EPA6expandEj
 
 10:                                               ; preds = %6
   %11 = zext i32 %4 to i64
-  %12 = getelementptr inbounds nuw i32, ptr @_ZZN12gjkepa2_impl3EPA6expandEjPNS_3GJK3sSVEPNS0_5sFaceEjRNS0_8sHorizonEE4i1m3, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN12gjkepa2_impl3EPA6expandEjPNS_3GJK3sSVEPNS0_5sFaceEjRNS0_8sHorizonEE4i1m3, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !50
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %15 = load float, ptr %3, align 4, !tbaa !23
@@ -5108,9 +5108,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12gjkepa2_impl3EPA6expandEj
 32:                                               ; preds = %10
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %34 = zext i32 %13 to i64
-  %35 = getelementptr inbounds nuw ptr, ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !28
-  %37 = getelementptr inbounds nuw ptr, ptr %33, i64 %11
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %11
   %38 = load ptr, ptr %37, align 8, !tbaa !28
   %39 = tail call noundef ptr @_ZN12gjkepa2_impl3EPA7newfaceEPNS_3GJK3sSVES3_S3_b(ptr noundef nonnull align 8 dereferenceable(28800) %0, ptr noundef %36, ptr noundef %38, ptr noundef nonnull %2, i1 noundef zeroext false)
   %.not52 = icmp eq ptr %39, null
@@ -5126,7 +5126,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12gjkepa2_impl3EPA6expandEj
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 %11
   store i8 0, ptr %45, align 1, !tbaa !24
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %11
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %11
   store ptr %39, ptr %47, align 8, !tbaa !61
   %48 = load ptr, ptr %5, align 8, !tbaa !73
   %.not53 = icmp eq ptr %48, null
@@ -5157,13 +5157,13 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12gjkepa2_impl3EPA6expandEj
   br label %.critedge
 
 60:                                               ; preds = %10
-  %61 = getelementptr inbounds nuw i32, ptr @_ZZN12gjkepa2_impl3EPA6expandEjPNS_3GJK3sSVEPNS0_5sFaceEjRNS0_8sHorizonEE4i2m3, i64 %11
+  %61 = getelementptr inbounds nuw [4 x i8], ptr @_ZZN12gjkepa2_impl3EPA6expandEjPNS_3GJK3sSVEPNS0_5sFaceEjRNS0_8sHorizonEE4i2m3, i64 %11
   %62 = load i32, ptr %61, align 4, !tbaa !50
   %63 = trunc i32 %1 to i8
   store i8 %63, ptr %7, align 1, !tbaa !71
   %64 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %65 = zext i32 %13 to i64
-  %66 = getelementptr inbounds nuw ptr, ptr %64, i64 %65
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %65
   %67 = load ptr, ptr %66, align 8, !tbaa !61
   %68 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 %65
@@ -5174,7 +5174,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12gjkepa2_impl3EPA6expandEj
 
 73:                                               ; preds = %60
   %74 = zext i32 %62 to i64
-  %75 = getelementptr inbounds nuw ptr, ptr %64, i64 %74
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %74
   %76 = load ptr, ptr %75, align 8, !tbaa !61
   %77 = getelementptr inbounds nuw i8, ptr %68, i64 %74
   %78 = load i8, ptr %77, align 1, !tbaa !24

@@ -122,7 +122,7 @@ define hidden noundef zeroext i1 @rb_vmdebug_stack_dump_raw(ptr noundef readonly
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %0, align 8, !tbaa !7
   %10 = load i64, ptr %8, align 8, !tbaa !22
-  %11 = getelementptr i64, ptr %9, i64 %10
+  %11 = getelementptr [8 x i8], ptr %9, i64 %10
   %12 = icmp ult ptr %1, %11
   br i1 %12, label %.lr.ph, label %._crit_edge
 
@@ -305,7 +305,7 @@ RSTRING_PTR.exit118.i:                            ; preds = %76, %70
   %.082.i = phi i64 [ -1, %78 ], [ -1, %RSTRING_PTR.exit.i ], [ %68, %RSTRING_PTR.exit118.i ], [ %68, %RSTRING_PTR.exit114.i ], [ -1, %imemo_type_p.exit.i ], [ -1, %79 ], [ -1, %RB_SYMBOL_P.exit.thread124.i ]
   %87 = load ptr, ptr %0, align 8, !tbaa !7
   %88 = load i64, ptr %8, align 8, !tbaa !22
-  %89 = getelementptr i64, ptr %87, i64 %88
+  %89 = getelementptr [8 x i8], ptr %87, i64 %88
   %90 = ptrtoint ptr %89 to i64
   %91 = ptrtoint ptr %.01012 to i64
   %92 = sub i64 %90, %91
@@ -492,14 +492,14 @@ imemo_type_p.exit120.thread.i:                    ; preds = %imemo_type_p.exit12
   %201 = load i32, ptr %200, align 8, !tbaa !68
   %202 = zext i32 %201 to i64
   %203 = sub nsw i64 0, %202
-  %204 = getelementptr i64, ptr %196, i64 %203
+  %204 = getelementptr [8 x i8], ptr %196, i64 %203
   %205 = getelementptr i8, ptr %204, i64 -16
   %206 = getelementptr inbounds nuw i8, ptr %195, i64 144
   %207 = load ptr, ptr %206, align 8, !tbaa !71
-  %208 = getelementptr i64, ptr %207, i64 %indvars.iv.i
+  %208 = getelementptr [8 x i8], ptr %207, i64 %indvars.iv.i
   %209 = load i64, ptr %208, align 8, !tbaa !26
   %210 = call ptr @rb_id2name(i64 noundef %209) #13
-  %211 = getelementptr i64, ptr %205, i64 %indvars.iv.i
+  %211 = getelementptr [8 x i8], ptr %205, i64 %indvars.iv.i
   %212 = load i64, ptr %211, align 8, !tbaa !26
   %213 = call ptr @rb_raw_obj_info(ptr noundef nonnull %5, i64 noundef 256, i64 noundef %212) #13
   %214 = call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.73, ptr noundef %210, ptr noundef %213) #13
@@ -515,7 +515,7 @@ control_frame_dump.exit:                          ; preds = %86, %98, %101, %104
   %216 = getelementptr i8, ptr %.01012, i64 56
   %217 = load ptr, ptr %0, align 8, !tbaa !7
   %218 = load i64, ptr %8, align 8, !tbaa !22
-  %219 = getelementptr i64, ptr %217, i64 %218
+  %219 = getelementptr [8 x i8], ptr %217, i64 %218
   %220 = icmp ult ptr %216, %219
   br i1 %220, label %.lr.ph, label %._crit_edge, !llvm.loop !72
 
@@ -581,7 +581,7 @@ define hidden noundef zeroext i1 @rb_vmdebug_env_dump_raw(ptr noundef %0, ptr no
 15:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
   %16 = load ptr, ptr %10, align 8, !tbaa !81
-  %17 = getelementptr i64, ptr %16, i64 %indvars.iv
+  %17 = getelementptr [8 x i8], ptr %16, i64 %indvars.iv
   %18 = load i64, ptr %17, align 8, !tbaa !26
   %19 = trunc nuw i64 %indvars.iv to i32
   %20 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %2, i32 noundef 1, ptr noundef nonnull @.str.4, i32 noundef %19, i64 noundef %18, ptr noundef nonnull %17) #13
@@ -590,7 +590,7 @@ define hidden noundef zeroext i1 @rb_vmdebug_env_dump_raw(ptr noundef %0, ptr no
 
 22:                                               ; preds = %15
   %23 = load ptr, ptr %10, align 8, !tbaa !81
-  %24 = getelementptr i64, ptr %23, i64 %indvars.iv
+  %24 = getelementptr [8 x i8], ptr %23, i64 %indvars.iv
   %25 = icmp eq ptr %24, %1
   br i1 %25, label %26, label %29
 
@@ -785,7 +785,7 @@ define hidden zeroext i1 @rb_vmdebug_debug_print_register(ptr noundef readonly c
   %.not = icmp ugt i64 %24, %.pre.pre
   %25 = tail call i64 @llvm.smax.i64(i64 %24, i64 -1)
   %.018 = select i1 %.not, i64 -1, i64 %25
-  %26 = getelementptr i64, ptr %7, i64 %.pre.pre
+  %26 = getelementptr [8 x i8], ptr %7, i64 %.pre.pre
   %27 = ptrtoint ptr %26 to i64
   %28 = ptrtoint ptr %4 to i64
   %29 = sub i64 %27, %28
@@ -840,7 +840,7 @@ rb_vmdebug_debug_print_register.exit:             ; preds = %2, %12
   %.not.i = icmp ugt i64 %27, %.pre.pre.i
   %28 = tail call i64 @llvm.smax.i64(i64 %27, i64 -1)
   %.018.i = select i1 %.not.i, i64 -1, i64 %28
-  %29 = getelementptr i64, ptr %10, i64 %.pre.pre.i
+  %29 = getelementptr [8 x i8], ptr %10, i64 %.pre.pre.i
   %30 = ptrtoint ptr %29 to i64
   %31 = ptrtoint ptr %7 to i64
   %32 = sub i64 %30, %31
@@ -875,7 +875,7 @@ define hidden noundef zeroext i1 @rb_vmdebug_debug_print_pre(ptr noundef readonl
   %17 = ptrtoint ptr %1 to i64
   %18 = load ptr, ptr %0, align 8, !tbaa !7
   %19 = load i64, ptr %16, align 8, !tbaa !22
-  %20 = getelementptr i64, ptr %18, i64 %19
+  %20 = getelementptr [8 x i8], ptr %18, i64 %19
   %21 = ptrtoint ptr %20 to i64
   %22 = sub i64 %21, %17
   %23 = sdiv exact i64 %22, 56
@@ -887,7 +887,7 @@ define hidden noundef zeroext i1 @rb_vmdebug_debug_print_pre(ptr noundef readonl
   %27 = add nuw nsw i32 %.01822, 1
   %28 = load ptr, ptr %0, align 8, !tbaa !7
   %29 = load i64, ptr %16, align 8, !tbaa !22
-  %30 = getelementptr i64, ptr %28, i64 %29
+  %30 = getelementptr [8 x i8], ptr %28, i64 %29
   %31 = ptrtoint ptr %30 to i64
   %32 = sub i64 %31, %17
   %33 = sdiv exact i64 %32, 56
@@ -1648,7 +1648,7 @@ rb_array_len.exit.thread:                         ; preds = %.preheader163
 
 RARRAY_AREF.exit:                                 ; preds = %.thread, %352
   %.0.i.i127 = phi ptr [ %351, %.thread ], [ %354, %352 ]
-  %355 = getelementptr i64, ptr %.0.i.i127, i64 %340
+  %355 = getelementptr [8 x i8], ptr %.0.i.i127, i64 %340
   %356 = load i64, ptr %355, align 8, !tbaa !26
   %357 = icmp eq i64 %356, 0
   %358 = and i64 %356, 7

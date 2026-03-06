@@ -91066,7 +91066,7 @@ define internal fastcc void @"_ZN4core3ptr186drop_in_place$LT$core..result..Resu
 
 .lr.ph.i.i.i:                                     ; preds = %3, %"_ZN4core3ptr62drop_in_place$LT$lsp_types..TextDocumentContentChangeEvent$GT$17hf8e4c0a865a42264E.exit.i.i.i"
   %.sroa.0.09.i.i.i = phi i64 [ %10, %"_ZN4core3ptr62drop_in_place$LT$lsp_types..TextDocumentContentChangeEvent$GT$17hf8e4c0a865a42264E.exit.i.i.i" ], [ 0, %3 ]
-  %9 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, [1 x i32] }, { i32, [4 x i32] }, [1 x i32] }, ptr %5, i64 %.sroa.0.09.i.i.i
+  %9 = getelementptr inbounds [56 x i8], ptr %5, i64 %.sroa.0.09.i.i.i
   %10 = add nuw i64 %.sroa.0.09.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24203)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24206)
@@ -91760,7 +91760,7 @@ define internal fastcc void @"_ZN4core3ptr208drop_in_place$LT$core..result..Resu
 
 .lr.ph.i.i.i.i:                                   ; preds = %4, %"_ZN4core3ptr40drop_in_place$LT$copilot..Completion$GT$17h8c9cb1dba169101bE.exit.i.i.i.i"
   %.sroa.0.07.i.i.i.i = phi i64 [ %11, %"_ZN4core3ptr40drop_in_place$LT$copilot..Completion$GT$17h8c9cb1dba169101bE.exit.i.i.i.i" ], [ 0, %4 ]
-  %10 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } } }, ptr %6, i64 %.sroa.0.07.i.i.i.i
+  %10 = getelementptr inbounds [112 x i8], ptr %6, i64 %.sroa.0.07.i.i.i.i
   %11 = add nuw i64 %.sroa.0.07.i.i.i.i, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24414)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !24417)

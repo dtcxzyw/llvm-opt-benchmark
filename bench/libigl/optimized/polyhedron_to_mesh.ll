@@ -146,7 +146,7 @@ define weak_odr dso_local void @_ZN3igl8copyleft4cgal18polyhedron_to_meshIN4CGAL
   %.02354 = phi i64 [ 0, %.lr.ph ], [ %51, %48 ]
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %30 = load ptr, ptr %1, align 8, !tbaa !30
-  %31 = getelementptr double, ptr %30, i64 %.02354
+  %31 = getelementptr [8 x i8], ptr %30, i64 %.02354
   invoke void @_ZN3igl8copyleft4cgal13assign_scalarERKdRd(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull align 8 dereferenceable(8) %31)
           to label %32 unwind label %25
 
@@ -155,8 +155,8 @@ define weak_odr dso_local void @_ZN3igl8copyleft4cgal18polyhedron_to_meshIN4CGAL
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load ptr, ptr %1, align 8, !tbaa !30
   %36 = load i64, ptr %24, align 8, !tbaa !35
-  %37 = getelementptr double, ptr %35, i64 %.02354
-  %38 = getelementptr double, ptr %37, i64 %36
+  %37 = getelementptr [8 x i8], ptr %35, i64 %.02354
+  %38 = getelementptr [8 x i8], ptr %37, i64 %36
   invoke void @_ZN3igl8copyleft4cgal13assign_scalarERKdRd(ptr noundef nonnull align 8 dereferenceable(8) %34, ptr noundef nonnull align 8 dereferenceable(8) %38)
           to label %39 unwind label %25
 
@@ -165,7 +165,7 @@ define weak_odr dso_local void @_ZN3igl8copyleft4cgal18polyhedron_to_meshIN4CGAL
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 24
   %42 = load ptr, ptr %1, align 8, !tbaa !30
   %43 = load i64, ptr %24, align 8, !tbaa !35
-  %44 = getelementptr double, ptr %42, i64 %.02354
+  %44 = getelementptr [8 x i8], ptr %42, i64 %.02354
   %.idx = shl i64 %43, 4
   %45 = getelementptr i8, ptr %44, i64 %.idx
   invoke void @_ZN3igl8copyleft4cgal13assign_scalarERKdRd(ptr noundef nonnull align 8 dereferenceable(8) %41, ptr noundef nonnull align 8 dereferenceable(8) %45)
@@ -312,8 +312,8 @@ _ZNSt8_Rb_treeIN4CGAL8internal28In_place_list_const_iteratorINS0_31HalfedgeDS_in
   %94 = load ptr, ptr %2, align 8, !tbaa !49
   %95 = load i64, ptr %55, align 8, !tbaa !52
   %96 = mul nsw i64 %95, %.0
-  %97 = getelementptr i32, ptr %94, i64 %.02258
-  %98 = getelementptr i32, ptr %97, i64 %96
+  %97 = getelementptr [4 x i8], ptr %94, i64 %.02258
+  %98 = getelementptr [4 x i8], ptr %97, i64 %96
   %99 = trunc i64 %93 to i32
   store i32 %99, ptr %98, align 4, !tbaa !53
   %100 = add i64 %.0, 1
@@ -589,7 +589,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %.02355 = phi i64 [ 0, %.lr.ph ], [ %55, %52 ]
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load ptr, ptr %1, align 8, !tbaa !57
-  %35 = getelementptr double, ptr %34, i64 %.02355
+  %35 = getelementptr [8 x i8], ptr %34, i64 %.02355
   invoke void @_ZN3igl8copyleft4cgal13assign_scalarERKdRd(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull align 8 dereferenceable(8) %35)
           to label %36 unwind label %29
 
@@ -598,8 +598,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load ptr, ptr %1, align 8, !tbaa !57
   %40 = load i64, ptr %28, align 8, !tbaa !59
-  %41 = getelementptr double, ptr %39, i64 %.02355
-  %42 = getelementptr double, ptr %41, i64 %40
+  %41 = getelementptr [8 x i8], ptr %39, i64 %.02355
+  %42 = getelementptr [8 x i8], ptr %41, i64 %40
   invoke void @_ZN3igl8copyleft4cgal13assign_scalarERKdRd(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef nonnull align 8 dereferenceable(8) %42)
           to label %43 unwind label %29
 
@@ -608,7 +608,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %46 = load ptr, ptr %1, align 8, !tbaa !57
   %47 = load i64, ptr %28, align 8, !tbaa !59
-  %48 = getelementptr double, ptr %46, i64 %.02355
+  %48 = getelementptr [8 x i8], ptr %46, i64 %.02355
   %.idx = shl i64 %47, 4
   %49 = getelementptr i8, ptr %48, i64 %.idx
   invoke void @_ZN3igl8copyleft4cgal13assign_scalarERKdRd(ptr noundef nonnull align 8 dereferenceable(8) %45, ptr noundef nonnull align 8 dereferenceable(8) %49)
@@ -755,8 +755,8 @@ _ZNSt8_Rb_treeIN4CGAL8internal28In_place_list_const_iteratorINS0_31HalfedgeDS_in
   %98 = load ptr, ptr %2, align 8, !tbaa !49
   %99 = load i64, ptr %59, align 8, !tbaa !52
   %100 = mul nsw i64 %99, %.0
-  %101 = getelementptr i32, ptr %98, i64 %.02259
-  %102 = getelementptr i32, ptr %101, i64 %100
+  %101 = getelementptr [4 x i8], ptr %98, i64 %.02259
+  %102 = getelementptr [4 x i8], ptr %101, i64 %100
   %103 = trunc i64 %97 to i32
   store i32 %103, ptr %102, align 4, !tbaa !53
   %104 = add i64 %.0, 1
@@ -853,7 +853,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %.02355 = phi i64 [ 0, %.lr.ph ], [ %55, %52 ]
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load ptr, ptr %1, align 8, !tbaa !57
-  %35 = getelementptr double, ptr %34, i64 %.02355
+  %35 = getelementptr [8 x i8], ptr %34, i64 %.02355
   invoke void @_ZN3igl8copyleft4cgal13assign_scalarERKdRd(ptr noundef nonnull align 8 dereferenceable(8) %33, ptr noundef nonnull align 8 dereferenceable(8) %35)
           to label %36 unwind label %29
 
@@ -862,8 +862,8 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load ptr, ptr %1, align 8, !tbaa !57
   %40 = load i64, ptr %28, align 8, !tbaa !59
-  %41 = getelementptr double, ptr %39, i64 %.02355
-  %42 = getelementptr double, ptr %41, i64 %40
+  %41 = getelementptr [8 x i8], ptr %39, i64 %.02355
+  %42 = getelementptr [8 x i8], ptr %41, i64 %40
   invoke void @_ZN3igl8copyleft4cgal13assign_scalarERKdRd(ptr noundef nonnull align 8 dereferenceable(8) %38, ptr noundef nonnull align 8 dereferenceable(8) %42)
           to label %43 unwind label %29
 
@@ -872,7 +872,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEEE6resizeEll.exi
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %46 = load ptr, ptr %1, align 8, !tbaa !57
   %47 = load i64, ptr %28, align 8, !tbaa !59
-  %48 = getelementptr double, ptr %46, i64 %.02355
+  %48 = getelementptr [8 x i8], ptr %46, i64 %.02355
   %.idx = shl i64 %47, 4
   %49 = getelementptr i8, ptr %48, i64 %.idx
   invoke void @_ZN3igl8copyleft4cgal13assign_scalarERKdRd(ptr noundef nonnull align 8 dereferenceable(8) %45, ptr noundef nonnull align 8 dereferenceable(8) %49)
@@ -1019,8 +1019,8 @@ _ZNSt8_Rb_treeIN4CGAL8internal28In_place_list_const_iteratorINS0_31HalfedgeDS_in
   %98 = load ptr, ptr %2, align 8, !tbaa !49
   %99 = load i64, ptr %59, align 8, !tbaa !52
   %100 = mul nsw i64 %99, %.0
-  %101 = getelementptr i32, ptr %98, i64 %.02259
-  %102 = getelementptr i32, ptr %101, i64 %100
+  %101 = getelementptr [4 x i8], ptr %98, i64 %.02259
+  %102 = getelementptr [4 x i8], ptr %101, i64 %100
   %103 = trunc i64 %97 to i32
   store i32 %103, ptr %102, align 4, !tbaa !53
   %104 = add i64 %.0, 1

@@ -467,7 +467,7 @@ _ZNSt12_Vector_baseIN5arrow7compute9InputTypeESaIS2_EEC2EmRKS3_.exit.i: ; preds 
   store ptr %23, ptr %3, align 8, !tbaa !80
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %23, ptr %24, align 8, !tbaa !83
-  %25 = getelementptr inbounds nuw %"class.arrow::compute::InputType", ptr %23, i64 %12
+  %25 = getelementptr inbounds nuw [40 x i8], ptr %23, i64 %12
   %26 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %25, ptr %26, align 8, !tbaa !84
   br label %.lr.ph.i.i.i.i.i.i

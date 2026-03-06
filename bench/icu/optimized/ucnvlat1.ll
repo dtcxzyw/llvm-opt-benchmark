@@ -892,7 +892,7 @@ define internal void @_ZL26_ASCIIToUnicodeWithOffsetsP23UConverterToUnicodeArgsP
 
 73:                                               ; preds = %69
   %74 = sext i32 %71 to i64
-  %75 = getelementptr inbounds i16, ptr %8, i64 %74
+  %75 = getelementptr inbounds [2 x i8], ptr %8, i64 %74
   %76 = icmp sgt i32 %70, 0
   br i1 %76, label %.lr.ph, label %.loopexit132
 

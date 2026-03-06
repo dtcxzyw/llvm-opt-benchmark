@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.Agdesc_s = type { i8, [3 x i8] }
-%struct.ndata = type { ptr }
 %struct.pack_info = type { float, i32, i32, i8, i32, ptr, ptr, i32 }
 
 @Ndim = external local_unnamed_addr global i16, align 2
@@ -106,7 +105,7 @@ gv_calloc.exit31.i:                               ; preds = %29, %.thread.i30.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %gv_calloc.exit31.i ]
   %.034.i = phi ptr [ %49, %.lr.ph.i ], [ %40, %gv_calloc.exit31.i ]
   tail call void @neato_init_node(ptr noundef nonnull %.034.i) #8
-  %41 = getelementptr inbounds nuw %struct.ndata, ptr %20, i64 %indvars.iv.i
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv.i
   %42 = getelementptr inbounds nuw i8, ptr %.034.i, i64 16
   %43 = load ptr, ptr %42, align 8, !tbaa !3
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 152
@@ -115,7 +114,7 @@ gv_calloc.exit31.i:                               ; preds = %29, %.thread.i30.i
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 184
   %47 = load ptr, ptr %46, align 8, !tbaa !35
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv.i
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv.i
   store ptr %.034.i, ptr %48, align 8, !tbaa !43
   %49 = tail call ptr @agnxtnode(ptr noundef nonnull %0, ptr noundef nonnull %.034.i) #8
   %.not.i = icmp eq ptr %49, null
@@ -324,7 +323,7 @@ makeDerivedNode.exit.i:                           ; preds = %33, %.thread.i.i.i
 
 .lr.ph111.i:                                      ; preds = %._crit_edge98.i, %._crit_edge108.i
   %.0109.i = phi i64 [ %116, %._crit_edge108.i ], [ 0, %._crit_edge98.i ]
-  %89 = getelementptr inbounds nuw ptr, ptr %86, i64 %.0109.i
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %.0109.i
   %90 = load ptr, ptr %89, align 8, !tbaa !72
   %91 = call ptr @agfstnode(ptr noundef %90) #8
   %.not81104.i = icmp eq ptr %91, null
@@ -472,7 +471,7 @@ copyPosns.exit:                                   ; preds = %.lr.ph.i23, %133
 
 .lr.ph:                                           ; preds = %153, %.lr.ph
   %.02134 = phi i64 [ %162, %.lr.ph ], [ 0, %153 ]
-  %159 = getelementptr inbounds nuw ptr, ptr %86, i64 %.02134
+  %159 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %.02134
   %160 = load ptr, ptr %159, align 8, !tbaa !72
   call void @circularLayout(ptr noundef %160, ptr noundef %0, ptr noundef nonnull %3) #8
   %161 = call i32 @adjustNodes(ptr noundef %160) #8
@@ -486,7 +485,7 @@ copyPosns.exit:                                   ; preds = %.lr.ph.i23, %133
 
 .lr.ph37:                                         ; preds = %.lr.ph37.preheader, %copyPosns.exit31
   %.035 = phi i64 [ %182, %copyPosns.exit31 ], [ 0, %.lr.ph37.preheader ]
-  %163 = getelementptr inbounds nuw ptr, ptr %86, i64 %.035
+  %163 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %.035
   %164 = load ptr, ptr %163, align 8, !tbaa !72
   %165 = call ptr @agfstnode(ptr noundef %164) #8
   %.not9.i26 = icmp eq ptr %165, null

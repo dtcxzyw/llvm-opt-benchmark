@@ -77,7 +77,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef readonly captures
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %keymatch.exit37 ]
   %.060 = phi i32 [ 0, %.lr.ph.preheader ], [ %.1, %keymatch.exit37 ]
   %.02059 = phi i32 [ 0, %.lr.ph.preheader ], [ %.121, %keymatch.exit37 ]
-  %12 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !4
   %14 = load i8, ptr %13, align 1, !tbaa !9
   %.not.not = icmp eq i8 %14, 45
@@ -109,7 +109,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef readonly captures
   %24 = tail call ptr @__ctype_b_loc() #9
   %25 = load ptr, ptr %24, align 8, !tbaa !10
   %26 = sext i8 %18 to i64
-  %27 = getelementptr inbounds i16, ptr %25, i64 %26
+  %27 = getelementptr inbounds [2 x i8], ptr %25, i64 %26
   %28 = load i16, ptr %27, align 2, !tbaa !12
   %29 = and i16 %28, 256
   %.not25.i = icmp eq i16 %29, 0
@@ -118,7 +118,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef readonly captures
 30:                                               ; preds = %22
   %31 = tail call ptr @__ctype_tolower_loc() #9
   %32 = load ptr, ptr %31, align 8, !tbaa !14
-  %33 = getelementptr inbounds i32, ptr %32, i64 %26
+  %33 = getelementptr inbounds [4 x i8], ptr %32, i64 %26
   %34 = load i32, ptr %33, align 4, !tbaa !16
   br label %35
 
@@ -153,7 +153,7 @@ keymatch.exit:                                    ; preds = %36
   %45 = tail call ptr @__ctype_b_loc() #9
   %46 = load ptr, ptr %45, align 8, !tbaa !10
   %47 = sext i8 %39 to i64
-  %48 = getelementptr inbounds i16, ptr %46, i64 %47
+  %48 = getelementptr inbounds [2 x i8], ptr %46, i64 %47
   %49 = load i16, ptr %48, align 2, !tbaa !12
   %50 = and i16 %49, 256
   %.not25.i33 = icmp eq i16 %50, 0
@@ -162,7 +162,7 @@ keymatch.exit:                                    ; preds = %36
 51:                                               ; preds = %43
   %52 = tail call ptr @__ctype_tolower_loc() #9
   %53 = load ptr, ptr %52, align 8, !tbaa !14
-  %54 = getelementptr inbounds i32, ptr %53, i64 %47
+  %54 = getelementptr inbounds [4 x i8], ptr %53, i64 %47
   %55 = load i32, ptr %54, align 4, !tbaa !16
   br label %56
 
@@ -221,7 +221,7 @@ keymatch.exit37:                                  ; preds = %57, %keymatch.exit
 
 77:                                               ; preds = %76
   %78 = zext nneg i32 %.022.lcssa to i64
-  %79 = getelementptr inbounds nuw ptr, ptr %1, i64 %78
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %78
   %80 = load ptr, ptr %79, align 8, !tbaa !4
   %81 = tail call noalias ptr @fopen(ptr noundef %80, ptr noundef nonnull @.str.4)
   store ptr %81, ptr @infile, align 8, !tbaa !20
@@ -596,7 +596,7 @@ read_1_byte.exit11.i:                             ; preds = %read_2_bytes.exit
 
 switch.lookup:                                    ; preds = %read_1_byte.exit11.i
   %126 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.scan_JPEG_header, i64 %126
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.scan_JPEG_header, i64 %126
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %127
 
@@ -807,7 +807,7 @@ define internal fastcc void @process_COM(i32 noundef range(i32 0, 2) %0) unnamed
   %18 = tail call ptr @__ctype_b_loc() #9
   %19 = load ptr, ptr %18, align 8, !tbaa !10
   %20 = sext i32 %11 to i64
-  %21 = getelementptr inbounds i16, ptr %19, i64 %20
+  %21 = getelementptr inbounds [2 x i8], ptr %19, i64 %20
   %22 = load i16, ptr %21, align 2, !tbaa !12
   %23 = and i16 %22, 16384
   %.not18.us = icmp eq i16 %23, 0

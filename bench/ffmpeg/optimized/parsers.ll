@@ -74,7 +74,7 @@ target triple = "x86_64-pc-linux-gnu"
 define ptr @av_parser_iterate(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !4
   %3 = ptrtoint ptr %2 to i64
-  %4 = getelementptr inbounds nuw ptr, ptr @parser_list, i64 %3
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @parser_list, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !8
   %.not = icmp eq ptr %2, inttoptr (i64 63 to ptr)
   br i1 %.not, label %9, label %6

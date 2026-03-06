@@ -5,7 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: inlinehint nofree norecurse nounwind memory(argmem: readwrite) uwtable
 define hidden noundef zeroext i1 @_mi_bitmap_try_find_claim_field(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
-  %5 = getelementptr inbounds nuw i64, ptr %0, i64 %1
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %1
   %6 = load atomic i64, ptr %5 monotonic, align 8
   %7 = icmp eq i64 %6, -1
   br i1 %7, label %.loopexit, label %8
@@ -123,7 +123,7 @@ define hidden noundef zeroext i1 @_mi_bitmap_try_find_from_claim(ptr noundef cap
   %.01330.us = phi i64 [ %28, %.loopexit.us ], [ %2, %.lr.ph ]
   %.not.us = icmp ult i64 %.01330.us, %1
   %spec.store.select.us = select i1 %.not.us, i64 %.01330.us, i64 0
-  %10 = getelementptr inbounds nuw i64, ptr %0, i64 %spec.store.select.us
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %spec.store.select.us
   %11 = load atomic i64, ptr %10 monotonic, align 8
   %12 = icmp eq i64 %11, -1
   br i1 %12, label %.loopexit.us, label %mi_bitmap_mask_.exit.i.us
@@ -180,7 +180,7 @@ mi_bitmap_mask_.exit.i.us:                        ; preds = %.lr.ph.split.us
   %.01330.us38 = phi i64 [ %51, %.loopexit20.us ], [ %2, %.lr.ph.split ]
   %.not.us39 = icmp ult i64 %.01330.us38, %1
   %spec.store.select.us40 = select i1 %.not.us39, i64 %.01330.us38, i64 0
-  %30 = getelementptr inbounds nuw i64, ptr %0, i64 %spec.store.select.us40
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %spec.store.select.us40
   %31 = load atomic i64, ptr %30 monotonic, align 8
   %32 = icmp eq i64 %31, -1
   br i1 %32, label %.loopexit20.us, label %mi_bitmap_mask_.exit.i.us41
@@ -239,7 +239,7 @@ mi_bitmap_mask_.exit.i.us41:                      ; preds = %.lr.ph.split.split.
   %.01330.us52 = phi i64 [ %66, %.loopexit20.us71 ], [ %2, %.lr.ph.split.split ]
   %.not.us53 = icmp ult i64 %.01330.us52, %1
   %spec.store.select.us54 = select i1 %.not.us53, i64 %.01330.us52, i64 0
-  %52 = getelementptr inbounds nuw i64, ptr %0, i64 %spec.store.select.us54
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %spec.store.select.us54
   %53 = load atomic i64, ptr %52 monotonic, align 8
   %54 = icmp eq i64 %53, -1
   br i1 %54, label %.loopexit20.us71, label %mi_bitmap_mask_.exit.i.us55
@@ -251,7 +251,7 @@ mi_bitmap_mask_.exit.i.us55:                      ; preds = %.lr.ph.split.split.
   br i1 %.not.not50.i.us57, label %.loopexit20.us71, label %.lr.ph.split.i.us59.preheader
 
 .lr.ph.split.i.us59.preheader:                    ; preds = %mi_bitmap_mask_.exit.i.us55
-  %57 = getelementptr inbounds nuw i64, ptr %0, i64 %spec.store.select.us54
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %spec.store.select.us54
   %58 = cmpxchg ptr %57, i64 %53, i64 %53 acq_rel acquire, align 8
   %59 = extractvalue { i64, i1 } %58, 1
   br i1 %59, label %_mi_bitmap_try_find_claim_field.exit, label %.lr.ph143, !llvm.loop !3
@@ -277,7 +277,7 @@ mi_bitmap_mask_.exit.i.us55:                      ; preds = %.lr.ph.split.split.
   %.01330 = phi i64 [ %90, %.loopexit20 ], [ %2, %.lr.ph.split.split ]
   %.not = icmp ult i64 %.01330, %1
   %spec.store.select = select i1 %.not, i64 %.01330, i64 0
-  %67 = getelementptr inbounds nuw i64, ptr %0, i64 %spec.store.select
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %spec.store.select
   %68 = load atomic i64, ptr %67 monotonic, align 8
   %69 = icmp eq i64 %68, -1
   br i1 %69, label %.loopexit20, label %mi_bitmap_mask_.exit.i
@@ -364,7 +364,7 @@ define hidden noundef zeroext i1 @_mi_bitmap_try_find_from_claim_pred(ptr nounde
   %.02136.us = phi i64 [ %41, %_mi_bitmap_try_find_claim_field.exit.thread.us ], [ %2, %.lr.ph ]
   %.not.us = icmp ult i64 %.02136.us, %1
   %spec.store.select.us = select i1 %.not.us, i64 %.02136.us, i64 0
-  %14 = getelementptr inbounds nuw i64, ptr %0, i64 %spec.store.select.us
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %spec.store.select.us
   %15 = load atomic i64, ptr %14 monotonic, align 8
   %16 = icmp eq i64 %15, -1
   br i1 %16, label %_mi_bitmap_try_find_claim_field.exit.thread.us, label %mi_bitmap_mask_.exit.i.us
@@ -416,7 +416,7 @@ _mi_bitmap_unclaim.exit.us:                       ; preds = %31
   %35 = shl nuw i64 %9, %34
   %36 = xor i64 %35, -1
   %37 = lshr i64 %33, 6
-  %38 = getelementptr inbounds nuw i64, ptr %0, i64 %37
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %37
   %39 = atomicrmw and ptr %38, i64 %36 acq_rel, align 8
   br label %_mi_bitmap_try_find_claim_field.exit.thread.us
 
@@ -450,7 +450,7 @@ _mi_bitmap_try_find_claim_field.exit.thread.us:   ; preds = %30, %_mi_bitmap_unc
   %.02136.us47.us = phi i64 [ %66, %_mi_bitmap_try_find_claim_field.exit.thread.us54.us ], [ %2, %.lr.ph.split.split.us ]
   %.not.us48.us = icmp ult i64 %.02136.us47.us, %1
   %spec.store.select.us49.us = select i1 %.not.us48.us, i64 %.02136.us47.us, i64 0
-  %45 = getelementptr inbounds nuw i64, ptr %0, i64 %spec.store.select.us49.us
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %spec.store.select.us49.us
   %46 = load atomic i64, ptr %45 monotonic, align 8
   %47 = icmp eq i64 %46, -1
   br i1 %47, label %_mi_bitmap_try_find_claim_field.exit.thread.us54.us, label %mi_bitmap_mask_.exit.i.us50.us
@@ -506,7 +506,7 @@ _mi_bitmap_try_find_claim_field.exit.thread.us54.us: ; preds = %64, %mi_bitmap_m
   %.02136.us47 = phi i64 [ %88, %_mi_bitmap_try_find_claim_field.exit.thread.us54 ], [ %2, %.lr.ph.split.split.us ]
   %.not.us48 = icmp ult i64 %.02136.us47, %1
   %spec.store.select.us49 = select i1 %.not.us48, i64 %.02136.us47, i64 0
-  %67 = getelementptr inbounds nuw i64, ptr %0, i64 %spec.store.select.us49
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %spec.store.select.us49
   %68 = load atomic i64, ptr %67 monotonic, align 8
   %69 = icmp eq i64 %68, -1
   br i1 %69, label %_mi_bitmap_try_find_claim_field.exit.thread.us54, label %mi_bitmap_mask_.exit.i.us50
@@ -570,7 +570,7 @@ _mi_bitmap_try_find_claim_field.exit.thread.us54: ; preds = %86, %mi_bitmap_mask
   %.02136 = phi i64 [ %122, %_mi_bitmap_try_find_claim_field.exit.thread ], [ %2, %.lr.ph.split.split.preheader ]
   %.not = icmp ult i64 %.02136, %1
   %spec.store.select = select i1 %.not, i64 %.02136, i64 0
-  %91 = getelementptr inbounds nuw i64, ptr %0, i64 %spec.store.select
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %spec.store.select
   %92 = load atomic i64, ptr %91 monotonic, align 8
   %93 = icmp eq i64 %92, -1
   br i1 %93, label %_mi_bitmap_try_find_claim_field.exit.thread, label %mi_bitmap_mask_.exit.i
@@ -629,7 +629,7 @@ _mi_bitmap_unclaim.exit:                          ; preds = %.loopexit31
   %117 = xor i64 %116, -1
   %.0.i.i28 = select i1 %brmerge68, i64 %.mux69, i64 %117
   %118 = lshr i64 %114, 6
-  %119 = getelementptr inbounds nuw i64, ptr %0, i64 %118
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %118
   %120 = atomicrmw and ptr %119, i64 %.0.i.i28 acq_rel, align 8
   br label %_mi_bitmap_try_find_claim_field.exit.thread
 
@@ -663,7 +663,7 @@ define hidden zeroext i1 @_mi_bitmap_unclaim(ptr noundef captures(none) %0, i64 
 mi_bitmap_mask_.exit:                             ; preds = %4, %7, %9
   %.0.i = phi i64 [ %11, %9 ], [ -1, %4 ], [ 0, %7 ]
   %12 = lshr i64 %3, 6
-  %13 = getelementptr inbounds nuw i64, ptr %0, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %12
   %14 = xor i64 %.0.i, -1
   %15 = atomicrmw and ptr %13, i64 %14 acq_rel, align 8
   %16 = and i64 %15, %.0.i
@@ -690,7 +690,7 @@ define hidden zeroext i1 @_mi_bitmap_claim(ptr noundef captures(none) %0, i64 no
 
 mi_bitmap_mask_.exit:                             ; preds = %5, %9, %11
   %.0.i = phi i64 [ %13, %11 ], [ -1, %5 ], [ 0, %9 ]
-  %14 = getelementptr inbounds nuw i64, ptr %0, i64 %6
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %6
   %15 = atomicrmw or ptr %14, i64 %.0.i acq_rel, align 8
   %.not = icmp eq ptr %4, null
   %.pre = and i64 %15, %.0.i
@@ -726,7 +726,7 @@ define hidden noundef zeroext i1 @_mi_bitmap_try_claim(ptr noundef captures(none
 
 mi_bitmap_mask_.exit:                             ; preds = %4, %8, %10
   %.0.i = phi i64 [ %12, %10 ], [ -1, %4 ], [ 0, %8 ]
-  %13 = getelementptr inbounds nuw i64, ptr %0, i64 %5
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %5
   %14 = load atomic i64, ptr %13 monotonic, align 8
   br label %15
 
@@ -766,7 +766,7 @@ define hidden zeroext i1 @_mi_bitmap_is_claimed(ptr noundef readonly captures(no
 mi_bitmap_is_claimedx.exit:                       ; preds = %4, %7, %9
   %.0.i.i = phi i64 [ %11, %9 ], [ -1, %4 ], [ 0, %7 ]
   %12 = lshr i64 %3, 6
-  %13 = getelementptr inbounds nuw i64, ptr %0, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %12
   %14 = load atomic i64, ptr %13 monotonic, align 8
   %.pre.i = and i64 %14, %.0.i.i
   %15 = icmp eq i64 %.pre.i, %.0.i.i
@@ -792,7 +792,7 @@ define hidden zeroext i1 @_mi_bitmap_is_any_claimed(ptr noundef readonly capture
 mi_bitmap_is_claimedx.exit:                       ; preds = %4, %7, %9
   %.0.i.i = phi i64 [ %11, %9 ], [ -1, %4 ], [ 0, %7 ]
   %12 = lshr i64 %3, 6
-  %13 = getelementptr inbounds nuw i64, ptr %0, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %12
   %14 = load atomic i64, ptr %13 monotonic, align 8
   %.pre.i = and i64 %14, %.0.i.i
   %15 = icmp ne i64 %.pre.i, 0
@@ -826,7 +826,7 @@ define hidden noundef zeroext i1 @_mi_bitmap_try_find_from_claim_across(ptr noun
   %.02042 = phi i64 [ %2, %.lr.ph ], [ %106, %.loopexit ]
   %.not = icmp ult i64 %.02042, %1
   %spec.store.select = select i1 %.not, i64 %.02042, i64 0
-  %14 = getelementptr inbounds nuw i64, ptr %0, i64 %spec.store.select
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %spec.store.select
   %15 = load atomic i64, ptr %14 monotonic, align 8
   %16 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %15, i1 false)
   %17 = icmp eq i64 %16, 0
@@ -1070,7 +1070,7 @@ mi_bitmap_mask_.exit24.i:                         ; preds = %4
   %21 = lshr i64 %20, 6
   %22 = and i64 %20, 63
   %notmask.i25.i = shl nsw i64 -1, %22
-  %23 = getelementptr inbounds nuw i64, ptr %0, i64 %5
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %5
   %24 = xor i64 %.0.i23.i, -1
   %25 = atomicrmw and ptr %23, i64 %24 acq_rel, align 8
   %26 = and i64 %25, %.0.i23.i
@@ -1081,7 +1081,7 @@ mi_bitmap_mask_.exit24.i:                         ; preds = %4
 
 ._crit_edge.thread:                               ; preds = %9, %11, %13
   %.033.ph = phi i64 [ -1, %9 ], [ 0, %11 ], [ %15, %13 ]
-  %27 = getelementptr inbounds nuw i64, ptr %0, i64 %5
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %5
   %28 = xor i64 %.033.ph, -1
   %29 = atomicrmw and ptr %27, i64 %28 acq_rel, align 8
   %30 = and i64 %29, %.033.ph
@@ -1152,7 +1152,7 @@ mi_bitmap_mask_.exit24.i:                         ; preds = %5
   %23 = and i64 %21, 63
   %notmask.i25.i = shl nsw i64 -1, %23
   %24 = xor i64 %notmask.i25.i, -1
-  %25 = getelementptr inbounds nuw i64, ptr %0, i64 %6
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %6
   %26 = atomicrmw or ptr %25, i64 %.0.i23.i acq_rel, align 8
   %27 = and i64 %26, %.0.i23.i
   %.not = icmp eq i64 %27, 0
@@ -1164,7 +1164,7 @@ mi_bitmap_mask_.exit24.i:                         ; preds = %5
 
 ._crit_edge.thread:                               ; preds = %10, %12, %14
   %.052.ph = phi i64 [ -1, %10 ], [ 0, %12 ], [ %16, %14 ]
-  %28 = getelementptr inbounds nuw i64, ptr %0, i64 %6
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %6
   %29 = atomicrmw or ptr %28, i64 %.052.ph acq_rel, align 8
   %30 = and i64 %29, %.052.ph
   %.not69 = icmp eq i64 %30, 0
@@ -1250,7 +1250,7 @@ mi_bitmap_mask_.exit24.i.i:                       ; preds = %4
   %21 = lshr i64 %20, 6
   %22 = and i64 %20, 63
   %notmask.i25.i.i = shl nsw i64 -1, %22
-  %23 = getelementptr inbounds nuw i64, ptr %0, i64 %5
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %5
   %24 = load atomic i64, ptr %23 monotonic, align 8
   %25 = and i64 %24, %.0.i23.i.i
   %.not.i = icmp eq i64 %25, %.0.i23.i.i
@@ -1260,7 +1260,7 @@ mi_bitmap_mask_.exit24.i.i:                       ; preds = %4
 
 ._crit_edge.thread.i:                             ; preds = %13, %11, %9
   %.046.ph.i = phi i64 [ -1, %9 ], [ 0, %11 ], [ %15, %13 ]
-  %26 = getelementptr inbounds nuw i64, ptr %0, i64 %5
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %5
   %27 = load atomic i64, ptr %26 monotonic, align 8
   %28 = and i64 %27, %.046.ph.i
   %.not63.i = icmp eq i64 %28, %.046.ph.i
@@ -1330,7 +1330,7 @@ mi_bitmap_mask_.exit24.i.i:                       ; preds = %4
   %22 = and i64 %20, 63
   %notmask.i25.i.i = shl nsw i64 -1, %22
   %23 = xor i64 %notmask.i25.i.i, -1
-  %24 = getelementptr inbounds nuw i64, ptr %0, i64 %5
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %5
   %25 = load atomic i64, ptr %24 monotonic, align 8
   %26 = and i64 %25, %.0.i23.i.i
   %.not29.i = icmp ne i64 %26, 0
@@ -1340,7 +1340,7 @@ mi_bitmap_mask_.exit24.i.i:                       ; preds = %4
 
 ._crit_edge.thread.i:                             ; preds = %13, %11, %9
   %.046.ph.i = phi i64 [ -1, %9 ], [ 0, %11 ], [ %15, %13 ]
-  %27 = getelementptr inbounds nuw i64, ptr %0, i64 %5
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %5
   %28 = load atomic i64, ptr %27 monotonic, align 8
   %29 = and i64 %28, %.046.ph.i
   %.not2964.i = icmp ne i64 %29, 0

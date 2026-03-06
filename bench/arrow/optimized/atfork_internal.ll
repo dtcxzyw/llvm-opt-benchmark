@@ -21,7 +21,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"class.std::any" = type { ptr, %"union.std::any::_Storage" }
 %"union.std::any::_Storage" = type { ptr }
-%"struct.arrow::internal::(anonymous namespace)::AtForkState::RunningHandler" = type { %"class.std::shared_ptr", %"class.std::any" }
 %"class.std::vector.0" = type { %"struct.std::_Vector_base.1" }
 %"struct.std::_Vector_base.1" = type { %"struct.std::_Vector_base<arrow::internal::(anonymous namespace)::AtForkState::RunningHandler, std::allocator<arrow::internal::(anonymous namespace)::AtForkState::RunningHandler>>::_Vector_impl" }
 %"struct.std::_Vector_base<arrow::internal::(anonymous namespace)::AtForkState::RunningHandler, std::allocator<arrow::internal::(anonymous namespace)::AtForkState::RunningHandler>>::_Vector_impl" = type { %"struct.std::_Vector_base<arrow::internal::(anonymous namespace)::AtForkState::RunningHandler, std::allocator<arrow::internal::(anonymous namespace)::AtForkState::RunningHandler>>::_Vector_impl_data" }
@@ -999,7 +998,7 @@ _ZNSt6vectorIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerESaIS4_E
 _ZNSt6vectorIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerESaIS4_EE17_M_realloc_insertIJSt10shared_ptrINS1_13AtForkHandlerEEEEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i.i: ; preds = %109, %_ZNSt6vectorIN5arrow8internal12_GLOBAL__N_111AtForkState14RunningHandlerESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit.i
   store ptr %63, ptr %22, align 8, !tbaa !68
   store ptr %108, ptr %23, align 8, !tbaa !65
-  %113 = getelementptr inbounds nuw %"struct.arrow::internal::(anonymous namespace)::AtForkState::RunningHandler", ptr %63, i64 %61
+  %113 = getelementptr inbounds nuw [32 x i8], ptr %63, i64 %61
   store ptr %113, ptr %24, align 8, !tbaa !67
   br label %_ZNSt12__shared_ptrIN5arrow8internal13AtForkHandlerELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i.i
 
@@ -2243,7 +2242,7 @@ _ZNSt6vectorISt8weak_ptrIN5arrow8internal13AtForkHandlerEESaIS4_EE11_S_relocateE
 _ZNSt12_Vector_baseISt8weak_ptrIN5arrow8internal13AtForkHandlerEESaIS4_EE13_M_deallocateEPS4_m.exit: ; preds = %_ZNSt6vectorISt8weak_ptrIN5arrow8internal13AtForkHandlerEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22, %40
   store ptr %20, ptr %0, align 8, !tbaa !47
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !26
-  %44 = getelementptr inbounds nuw %"class.std::weak_ptr", ptr %20, i64 %16
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %44, ptr %39, align 8, !tbaa !28
   ret void
 }

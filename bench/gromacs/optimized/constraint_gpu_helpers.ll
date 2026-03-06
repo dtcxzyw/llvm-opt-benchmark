@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.t_interaction_function = type { ptr, ptr, i32, i32, i32, i32 }
-%struct.AtomsAdjacencyListElement = type { i32, i32, i32 }
 %"class.std::vector" = type { %"struct.std::_Vector_base" }
 %"struct.std::_Vector_base" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
 %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
@@ -39,11 +38,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.21" }
 %"struct.std::_Head_base.21" = type { ptr }
 %"struct.std::type_index" = type { ptr }
-%struct.gmx_moltype_t = type { ptr, %struct.t_atoms, %"struct.std::array", %"class.gmx::ListOfLists.67" }
-%struct.t_atoms = type { i32, ptr, ptr, ptr, ptr, i32, ptr, ptr, i8, i8, i8, i8, i8 }
-%"struct.std::array" = type { [95 x %struct.InteractionList] }
-%struct.InteractionList = type { %"class.std::vector" }
-%"class.gmx::ListOfLists.67" = type { %"class.std::vector", %"class.std::vector" }
 %"class.std::filesystem::__cxx11::path" = type { %"class.std::__cxx11::basic_string", %"struct.std::filesystem::__cxx11::path::_List" }
 %"struct.std::filesystem::__cxx11::path::_List" = type { %"class.std::unique_ptr.74" }
 %"class.std::unique_ptr.74" = type { %"struct.std::__uniq_ptr_data.75" }
@@ -52,9 +46,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.77" = type { %"struct.std::_Tuple_impl.78" }
 %"struct.std::_Tuple_impl.78" = type { %"struct.std::_Head_base.81" }
 %"struct.std::_Head_base.81" = type { ptr }
-%struct.t_atom = type { float, float, float, float, i16, i16, i32, i32, i32, [4 x i8] }
-%union.t_iparams = type { %struct.anon.105 }
-%struct.anon.105 = type { [3 x float], [3 x float], [3 x float], [3 x float] }
 
 $_ZN3gmx11ListOfListsI25AtomsAdjacencyListElementEC2EOSt6vectorIiSaIiEEOS3_IS1_SaIS1_EE = comdat any
 
@@ -118,18 +109,18 @@ define noundef i32 @_Z12countCouplediN3gmx8ArrayRefIiEERKNS_11ListOfListsI25Atom
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !4
   %8 = load ptr, ptr %3, align 8, !tbaa !10
-  %9 = getelementptr i32, ptr %8, i64 %5
+  %9 = getelementptr [4 x i8], ptr %8, i64 %5
   %10 = load i32, ptr %9, align 4, !tbaa !13
   %11 = getelementptr i8, ptr %9, i64 4
   %12 = load i32, ptr %11, align 4, !tbaa !13
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds %struct.AtomsAdjacencyListElement, ptr %7, i64 %13
+  %14 = getelementptr inbounds [12 x i8], ptr %7, i64 %13
   %.not19 = icmp eq i32 %10, %12
   br i1 %.not19, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %15 = sext i32 %10 to i64
-  %16 = getelementptr inbounds %struct.AtomsAdjacencyListElement, ptr %7, i64 %15
+  %16 = getelementptr inbounds [12 x i8], ptr %7, i64 %15
   %17 = ptrtoint ptr %1 to i64
   %18 = ptrtoint ptr %2 to i64
   %19 = sub i64 %18, %17
@@ -146,7 +137,7 @@ define noundef i32 @_Z12countCouplediN3gmx8ArrayRefIiEERKNS_11ListOfListsI25Atom
   %22 = getelementptr inbounds nuw i8, ptr %.sroa.013.020, i64 4
   %23 = load i32, ptr %22, align 4, !tbaa !15
   %24 = sext i32 %23 to i64
-  %25 = getelementptr inbounds i32, ptr %1, i64 %24
+  %25 = getelementptr inbounds [4 x i8], ptr %1, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !13
   %27 = icmp eq i32 %26, -1
   br i1 %27, label %28, label %33
@@ -201,7 +192,7 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIiSaI
   %16 = ashr exact i64 %sext, 30
   %17 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %16) #20
   store ptr %17, ptr %0, align 8, !tbaa !10
-  %18 = getelementptr inbounds nuw i32, ptr %17, i64 %14
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %14
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %18, ptr %19, align 8, !tbaa !21
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %17, i8 -1, i64 %16, i1 false), !tbaa !13
@@ -226,14 +217,14 @@ _ZNSt12_Vector_baseIiSaIiEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIiSaI
 
 28:                                               ; preds = %.lr.ph, %42
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
-  %29 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %indvars.iv
   %30 = load i32, ptr %29, align 4, !tbaa !13
   %31 = icmp eq i32 %30, -1
   br i1 %31, label %32, label %42
 
 32:                                               ; preds = %28
   %33 = mul nsw i64 %indvars.iv, %11
-  %34 = getelementptr i32, ptr %1, i64 %33
+  %34 = getelementptr [4 x i8], ptr %1, i64 %33
   %35 = getelementptr i8, ptr %34, i64 8
   %36 = load i32, ptr %35, align 4, !tbaa !13
   %37 = getelementptr i8, ptr %34, i64 4
@@ -296,7 +287,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %4
 .noexc39:                                         ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
   %19 = shl nuw nsw i64 %17, 2
   %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #20
-  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %17
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %17
   store i32 0, ptr %20, align 4, !tbaa !13
   %22 = getelementptr i8, ptr %20, i64 4
   %23 = add nsw i64 %17, -1
@@ -345,19 +336,19 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %32 = mul nsw i64 %indvars.iv, %13
-  %33 = getelementptr i32, ptr %2, i64 %32
+  %33 = getelementptr [4 x i8], ptr %2, i64 %32
   %34 = getelementptr i8, ptr %33, i64 4
   %35 = load i32, ptr %34, align 4, !tbaa !13
   %36 = getelementptr i8, ptr %33, i64 8
   %37 = load i32, ptr %36, align 4, !tbaa !13
   %38 = sext i32 %35 to i64
-  %39 = getelementptr i32, ptr %.sroa.063.0, i64 %38
+  %39 = getelementptr [4 x i8], ptr %.sroa.063.0, i64 %38
   %40 = getelementptr i8, ptr %39, i64 4
   %41 = load i32, ptr %40, align 4, !tbaa !13
   %42 = add nsw i32 %41, 1
   store i32 %42, ptr %40, align 4, !tbaa !13
   %43 = sext i32 %37 to i64
-  %44 = getelementptr i32, ptr %.sroa.063.0, i64 %43
+  %44 = getelementptr [4 x i8], ptr %.sroa.063.0, i64 %43
   %45 = getelementptr i8, ptr %44, i64 4
   %46 = load i32, ptr %45, align 4, !tbaa !13
   %47 = add nsw i32 %46, 1
@@ -426,7 +417,7 @@ _ZNSt12_Vector_baseI25AtomsAdjacencyListElementSaIS0_EEC2EmRKS1_.exit.i: ; preds
   store ptr %64, ptr %6, align 8, !tbaa !4
   %65 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %64, ptr %65, align 8, !tbaa !28
-  %66 = getelementptr inbounds nuw %struct.AtomsAdjacencyListElement, ptr %64, i64 %59
+  %66 = getelementptr inbounds nuw [12 x i8], ptr %64, i64 %59
   %67 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %66, ptr %67, align 8, !tbaa !29
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %64, i8 0, i64 %63, i1 false), !tbaa !13
@@ -461,18 +452,18 @@ _ZNSt12_Vector_baseI25AtomsAdjacencyListElementSaIS0_EEC2EmRKS1_.exit.i: ; preds
 74:                                               ; preds = %.lr.ph86, %74
   %indvars.iv89 = phi i64 [ 0, %.lr.ph86 ], [ %indvars.iv.next90, %74 ]
   %75 = mul nsw i64 %indvars.iv89, %13
-  %76 = getelementptr i32, ptr %2, i64 %75
+  %76 = getelementptr [4 x i8], ptr %2, i64 %75
   %77 = getelementptr i8, ptr %76, i64 4
   %78 = load i32, ptr %77, align 4, !tbaa !13
   %79 = getelementptr i8, ptr %76, i64 8
   %80 = load i32, ptr %79, align 4, !tbaa !13
   %81 = sext i32 %78 to i64
-  %82 = getelementptr inbounds nuw i32, ptr %.sroa.063.0, i64 %81
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.063.0, i64 %81
   %83 = load i32, ptr %82, align 4, !tbaa !13
   %84 = add nsw i32 %83, 1
   store i32 %84, ptr %82, align 4, !tbaa !13
   %85 = sext i32 %83 to i64
-  %86 = getelementptr inbounds nuw %struct.AtomsAdjacencyListElement, ptr %68, i64 %85
+  %86 = getelementptr inbounds nuw [12 x i8], ptr %68, i64 %85
   store i32 %80, ptr %86, align 4, !tbaa !13
   %.sroa.457.0..sroa_idx = getelementptr inbounds nuw i8, ptr %86, i64 4
   %87 = trunc nuw nsw i64 %indvars.iv89 to i32
@@ -480,12 +471,12 @@ _ZNSt12_Vector_baseI25AtomsAdjacencyListElementSaIS0_EEC2EmRKS1_.exit.i: ; preds
   %.sroa.558.0..sroa_idx = getelementptr inbounds nuw i8, ptr %86, i64 8
   store i32 1, ptr %.sroa.558.0..sroa_idx, align 4, !tbaa !13
   %88 = sext i32 %80 to i64
-  %89 = getelementptr inbounds nuw i32, ptr %.sroa.063.0, i64 %88
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.063.0, i64 %88
   %90 = load i32, ptr %89, align 4, !tbaa !13
   %91 = add nsw i32 %90, 1
   store i32 %91, ptr %89, align 4, !tbaa !13
   %92 = sext i32 %90 to i64
-  %93 = getelementptr inbounds nuw %struct.AtomsAdjacencyListElement, ptr %68, i64 %92
+  %93 = getelementptr inbounds nuw [12 x i8], ptr %68, i64 %92
   store i32 %78, ptr %93, align 4, !tbaa !13
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %93, i64 4
   store i32 %87, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !13
@@ -1249,7 +1240,7 @@ define noundef i32 @_Z22computeTotalNumSettlesRK10gmx_mtop_t(ptr noundef nonnull
   %.030 = phi i32 [ %38, %_ZN15InteractionListD2Ev.exit ], [ 0, %1 ]
   %.0929 = phi i32 [ %41, %_ZN15InteractionListD2Ev.exit ], [ 0, %1 ]
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @interaction_function, i64 2064), align 16, !tbaa !18
-  %9 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %6, i64 %7
+  %9 = getelementptr inbounds nuw [2408 x i8], ptr %6, i64 %7
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 1616
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 1624
   %12 = load ptr, ptr %11, align 8, !tbaa !22
@@ -1377,7 +1368,7 @@ define { <2 x float>, <2 x float> } @_Z21getSettleTopologyDataRK10gmx_mtop_t(ptr
   %.067177 = phi i32 [ %46, %_ZN15InteractionListD2Ev.exit ], [ 0, %1 ]
   %10 = load i32, ptr getelementptr inbounds nuw (i8, ptr @interaction_function, i64 2064), align 16, !tbaa !18
   %11 = add nsw i32 %10, 1
-  %12 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %8, i64 %9
+  %12 = getelementptr inbounds nuw [2408 x i8], ptr %8, i64 %9
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 1616
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 1624
   %15 = load ptr, ptr %14, align 8, !tbaa !22
@@ -1499,17 +1490,17 @@ _ZN15InteractionListD2Ev.exit:                    ; preds = %_ZNSt6vectorIiSaIiE
   %56 = mul i32 %.075172, %11
   %57 = add i32 %56, 1
   %58 = zext i32 %57 to i64
-  %59 = getelementptr inbounds nuw i32, ptr %33, i64 %58
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %58
   %60 = load i32, ptr %59, align 4, !tbaa !13
   %61 = add i32 %56, 2
   %62 = zext i32 %61 to i64
-  %63 = getelementptr inbounds nuw i32, ptr %33, i64 %62
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %62
   %64 = load i32, ptr %63, align 4, !tbaa !13
   %65 = sext i32 %60 to i64
-  %66 = getelementptr inbounds %struct.t_atom, ptr %36, i64 %65
+  %66 = getelementptr inbounds [36 x i8], ptr %36, i64 %65
   %.sroa.017.0.copyload = load float, ptr %66, align 4, !tbaa !91
   %67 = sext i32 %64 to i64
-  %68 = getelementptr inbounds %struct.t_atom, ptr %36, i64 %67
+  %68 = getelementptr inbounds [36 x i8], ptr %36, i64 %67
   %.sroa.014.0.copyload = load float, ptr %68, align 4, !tbaa !91
   %69 = fcmp olt float %.1174, 0.000000e+00
   %.2 = select i1 %69, float %.sroa.017.0.copyload, float %.1174
@@ -1528,10 +1519,10 @@ _ZN15InteractionListD2Ev.exit:                    ; preds = %_ZNSt6vectorIiSaIiE
 73:                                               ; preds = %55
   %74 = add i32 %56, 3
   %75 = zext i32 %74 to i64
-  %76 = getelementptr inbounds nuw i32, ptr %33, i64 %75
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %75
   %77 = load i32, ptr %76, align 4, !tbaa !13
   %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds %struct.t_atom, ptr %36, i64 %78
+  %79 = getelementptr inbounds [36 x i8], ptr %36, i64 %78
   %.sroa.0.0.copyload = load float, ptr %79, align 4, !tbaa !91
   %80 = fcmp oeq float %.sroa.014.0.copyload, %.sroa.0.0.copyload
   %81 = fcmp oeq float %.sroa.014.0.copyload, %.266
@@ -1599,7 +1590,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit88.thread:           ; preds = %.loopexit.split-lp,
   %.060191 = phi i32 [ %117, %_ZN15InteractionListD2Ev.exit97 ], [ 0, %.lr.ph192.preheader ]
   %.061190 = phi i32 [ %.162.lcssa294, %_ZN15InteractionListD2Ev.exit97 ], [ -1, %.lr.ph192.preheader ]
   %95 = add i32 %93, 1
-  %96 = getelementptr inbounds nuw %struct.gmx_moltype_t, ptr %91, i64 %94
+  %96 = getelementptr inbounds nuw [2408 x i8], ptr %91, i64 %94
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 1616
   %98 = getelementptr inbounds nuw i8, ptr %96, i64 1624
   %99 = load ptr, ptr %98, align 8, !tbaa !22
@@ -1666,7 +1657,7 @@ _ZN15InteractionListD2Ev.exit97:                  ; preds = %.lr.ph192, %._crit_
   %indvars.iv = phi i64 [ 0, %.lr.ph187.preheader ], [ %indvars.iv.next, %135 ]
   %.162185 = phi i32 [ %.061190, %.lr.ph187.preheader ], [ %.263, %135 ]
   %124 = icmp eq i32 %.162185, -1
-  %125 = getelementptr inbounds nuw i32, ptr %107, i64 %indvars.iv
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %107, i64 %indvars.iv
   %126 = load i32, ptr %125, align 4, !tbaa !13
   br i1 %124, label %135, label %127
 
@@ -1717,7 +1708,7 @@ _ZN15InteractionListD2Ev.exit99:                  ; preds = %133, %131
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %139 = zext nneg i32 %.162.lcssa294 to i64
   %140 = load ptr, ptr %138, align 8, !tbaa !95
-  %141 = getelementptr inbounds nuw %union.t_iparams, ptr %140, i64 %139
+  %141 = getelementptr inbounds nuw [48 x i8], ptr %140, i64 %139
   %142 = load float, ptr %141, align 4, !tbaa !53
   %143 = getelementptr inbounds nuw i8, ptr %141, i64 4
   %144 = load float, ptr %143, align 4, !tbaa !53

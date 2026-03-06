@@ -22,18 +22,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.anon.69 = type { ptr, i32, i32, i64, i64, ptr, i16, i8 }
 %struct.rhashtable_compare_arg = type { ptr, ptr }
 %struct.gnet_stats_queue = type { i32, i32, i32, i32, i32 }
-%struct.netdev_queue = type { ptr, %struct.netdevice_tracker, ptr, ptr, %struct.kobject, i32, i64, %struct.atomic64_t, ptr, ptr, %struct.spinlock, i32, i64, i64, [40 x i8], %struct.dql }
-%struct.netdevice_tracker = type {}
-%struct.kobject = type { ptr, %struct.list_head, ptr, ptr, ptr, ptr, %struct.kref, i8 }
-%struct.kref = type { %struct.refcount_struct }
-%struct.refcount_struct = type { %struct.atomic_t }
-%struct.atomic64_t = type { i64 }
-%struct.spinlock = type { %union.anon.1 }
-%union.anon.1 = type { %struct.raw_spinlock }
-%struct.raw_spinlock = type { %struct.qspinlock }
-%struct.qspinlock = type { %union.anon }
-%union.anon = type { %struct.atomic_t }
-%struct.dql = type { i32, i32, i32, [52 x i8], i32, i32, i32, i32, i32, i32, i64, i32, i32, i32, [20 x i8] }
 
 @rht_ns_params = internal constant %struct.rhashtable_params { i16 0, i16 2, i16 32, i16 0, i32 0, i16 0, i8 1, ptr null, ptr null, ptr @ioam6_ns_cmpfn }, align 8
 @ioam6_net_ops = internal global %struct.pernet_operations { %struct.list_head zeroinitializer, ptr @ioam6_net_init, ptr null, ptr @ioam6_net_exit, ptr null, ptr null, i64 0 }, align 8
@@ -114,7 +102,7 @@ define internal fastcc ptr @rhashtable_lookup_fast(ptr noundef %0, ptr noundef %
 26:                                               ; preds = %.split9.us
   %27 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %28 = zext i32 %20 to i64
-  %29 = getelementptr ptr, ptr %27, i64 %28
+  %29 = getelementptr [8 x i8], ptr %27, i64 %28
   br label %.split5.us.us
 
 .split5.us.us:                                    ; preds = %26, %24
@@ -195,7 +183,7 @@ define internal fastcc ptr @rhashtable_lookup_fast(ptr noundef %0, ptr noundef %
 80:                                               ; preds = %.split9
   %81 = getelementptr inbounds nuw i8, ptr %66, i64 64
   %82 = zext i32 %74 to i64
-  %83 = getelementptr ptr, ptr %81, i64 %82
+  %83 = getelementptr [8 x i8], ptr %81, i64 %82
   br label %.split5
 
 .split5:                                          ; preds = %80, %78
@@ -585,7 +573,7 @@ define dso_local void @ioam6_fill_trace_data(ptr noundef readonly captures(none)
   %223 = getelementptr inbounds nuw i8, ptr %215, i64 24
   %224 = load ptr, ptr %223, align 8
   %225 = zext i16 %222 to i64
-  %.split = getelementptr %struct.netdev_queue, ptr %224, i64 %225
+  %.split = getelementptr [320 x i8], ptr %224, i64 %225
   %226 = getelementptr i8, ptr %.split, i64 8
   %227 = load volatile ptr, ptr %226, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -1998,7 +1986,7 @@ define internal fastcc i32 @rhashtable_lookup_insert_fast(ptr noundef %0, ptr no
 66:                                               ; preds = %56
   %67 = getelementptr inbounds nuw i8, ptr %29, i64 64
   %68 = zext i32 %60 to i64
-  %69 = getelementptr ptr, ptr %67, i64 %68
+  %69 = getelementptr [8 x i8], ptr %67, i64 %68
   br label %70
 
 70:                                               ; preds = %66, %64
@@ -2400,7 +2388,7 @@ define internal fastcc range(i32 -2, 1) i32 @rhashtable_remove_fast(ptr noundef 
 55:                                               ; preds = %45
   %56 = getelementptr inbounds nuw i8, ptr %24, i64 64
   %57 = zext i32 %49 to i64
-  %58 = getelementptr ptr, ptr %56, i64 %57
+  %58 = getelementptr [8 x i8], ptr %56, i64 %57
   br label %59
 
 59:                                               ; preds = %55, %53

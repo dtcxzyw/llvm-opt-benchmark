@@ -3,7 +3,6 @@ source_filename = "bench/wireshark/original/randpkt_core.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.randpkt_example = type { ptr, ptr, i32, i32, ptr, i32, ptr, i32, ptr, ptr, i32 }
 %struct.wtap_dump_params = type { i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8 }
 
 @pkt_arp = hidden global [14 x i8] c"\FF\FF\FF\FF\FF\FF\00\002%\0F\FF\08\06", align 1
@@ -100,7 +99,7 @@ define hidden ptr @randpkt_find_example(i32 noundef %0) local_unnamed_addr #1 {
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %4 = getelementptr %struct.randpkt_example, ptr @examples, i64 %indvars.iv
+  %4 = getelementptr [80 x i8], ptr @examples, i64 %indvars.iv
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i32, ptr %5, align 16
   %7 = icmp eq i32 %6, %0
@@ -508,7 +507,7 @@ define hidden i32 @randpkt_parse_type(ptr noundef %0) local_unnamed_addr #1 {
 
 .preheader:                                       ; preds = %2, %7
   %indvars.iv = phi i64 [ %indvars.iv.next, %7 ], [ 0, %2 ]
-  %8 = getelementptr %struct.randpkt_example, ptr @examples, i64 %indvars.iv
+  %8 = getelementptr [80 x i8], ptr @examples, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 16
   %10 = tail call i32 @g_strcmp0(ptr noundef %9, ptr noundef nonnull %0)
   %11 = icmp eq i32 %10, 0
@@ -520,7 +519,7 @@ define hidden i32 @randpkt_parse_type(ptr noundef %0) local_unnamed_addr #1 {
 
 .loopexit:                                        ; preds = %.preheader, %4
   %13 = phi i64 [ %6, %4 ], [ %indvars.iv, %.preheader ]
-  %14 = getelementptr %struct.randpkt_example, ptr @examples, i64 %13
+  %14 = getelementptr [80 x i8], ptr @examples, i64 %13
   %.010.in = getelementptr inbounds nuw i8, ptr %14, i64 16
   %.010 = load i32, ptr %.010.in, align 16
   ret i32 %.010
@@ -545,17 +544,17 @@ define hidden void @randpkt_example_list(ptr noundef captures(none) initializes(
 
 5:                                                ; preds = %2, %5
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %5 ]
-  %6 = getelementptr %struct.randpkt_example, ptr @examples, i64 %indvars.iv
+  %6 = getelementptr [80 x i8], ptr @examples, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 16
   %8 = tail call noalias ptr @g_strdup(ptr noundef %7)
   %9 = load ptr, ptr %0, align 8
-  %10 = getelementptr ptr, ptr %9, i64 %indvars.iv
+  %10 = getelementptr [8 x i8], ptr %9, i64 %indvars.iv
   store ptr %8, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = tail call noalias ptr @g_strdup(ptr noundef %12)
   %14 = load ptr, ptr %1, align 8
-  %15 = getelementptr ptr, ptr %14, i64 %indvars.iv
+  %15 = getelementptr [8 x i8], ptr %14, i64 %indvars.iv
   store ptr %13, ptr %15, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 23

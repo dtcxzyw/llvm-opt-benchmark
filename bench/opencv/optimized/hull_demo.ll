@@ -29,10 +29,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::Vec" = type { %"class.cv::Matx" }
 %"class.cv::Matx" = type { [4 x double] }
 %"class.cv::_InputOutputArray" = type { %"class.cv::_OutputArray" }
-%"class.std::vector.3" = type { %"struct.std::_Vector_base.4" }
-%"struct.std::_Vector_base.4" = type { %"struct.std::_Vector_base<cv::Point_<int>, std::allocator<cv::Point_<int>>>::_Vector_impl" }
-%"struct.std::_Vector_base<cv::Point_<int>, std::allocator<cv::Point_<int>>>::_Vector_impl" = type { %"struct.std::_Vector_base<cv::Point_<int>, std::allocator<cv::Point_<int>>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<cv::Point_<int>, std::allocator<cv::Point_<int>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 
 $_ZN2cv7MatExprD2Ev = comdat any
 
@@ -784,14 +780,14 @@ _ZNSt6vectorIS_IN2cv6Point_IiEESaIS2_EESaIS4_EE17_S_check_init_lenEmRKS5_.exit.i
   %63 = phi ptr [ %39, %.lr.ph ], [ %70, %67 ]
   %.01080 = phi i64 [ 0, %.lr.ph ], [ %68, %67 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %64 = getelementptr inbounds nuw %"class.std::vector.3", ptr %63, i64 %.01080
+  %64 = getelementptr inbounds nuw [24 x i8], ptr %63, i64 %.01080
   store i32 0, ptr %51, align 8, !tbaa !46
   store i32 0, ptr %52, align 4, !tbaa !48
   store i32 -2130509812, ptr %10, align 8, !tbaa !49
   store ptr %64, ptr %53, align 8, !tbaa !51
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %65 = load ptr, ptr %9, align 8, !tbaa !56
-  %66 = getelementptr inbounds nuw %"class.std::vector.3", ptr %65, i64 %.01080
+  %66 = getelementptr inbounds nuw [24 x i8], ptr %65, i64 %.01080
   store i64 0, ptr %55, align 8
   store i32 -2113732596, ptr %11, align 8, !tbaa !49
   store ptr %66, ptr %54, align 8, !tbaa !51

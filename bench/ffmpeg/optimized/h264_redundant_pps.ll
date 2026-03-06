@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.AVBitStreamFilter = type { ptr, ptr, ptr }
-%struct.CodedBitstreamUnit = type { i32, ptr, i64, i64, ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [19 x i8] c"h264_redundant_pps\00", align 1
 @h264_redundant_pps_codec_ids = internal constant [2 x i32] [i32 27, i32 0], align 4
@@ -42,7 +41,7 @@ define internal range(i32 -2147483648, 1) i32 @h264_redundant_pps_update_fragmen
 11:                                               ; preds = %.lr.ph, %40
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %40 ]
   %12 = load ptr, ptr %10, align 8, !tbaa !20
-  %13 = getelementptr inbounds nuw %struct.CodedBitstreamUnit, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [56 x i8], ptr %12, i64 %indvars.iv
   %14 = load i32, ptr %13, align 8, !tbaa !21
   %15 = icmp eq i32 %14, 8
   br i1 %15, label %16, label %23
@@ -80,7 +79,7 @@ h264_redundant_pps_fixup_pps.exit:                ; preds = %16
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 9
   %31 = load i8, ptr %30, align 1, !tbaa !38
   %32 = zext i8 %31 to i64
-  %33 = getelementptr inbounds nuw ptr, ptr %29, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %32
   %34 = load ptr, ptr %33, align 8, !tbaa !40
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 84
   %36 = load i8, ptr %35, align 4, !tbaa !29

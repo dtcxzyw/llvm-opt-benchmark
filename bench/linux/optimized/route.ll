@@ -198,12 +198,8 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_fib6_info_hw
 %struct.rt6_mtu_change_arg = type { ptr, i32, ptr }
 %struct.fib6_nh_exception_dump_walker = type { ptr, ptr, i32, i32, i32 }
 %struct.anon.109 = type { %struct.in6_addr, %struct.in6_addr }
-%struct.rt6_exception_bucket = type { %struct.hlist_head, i32 }
 %struct.fib6_nh_frl_arg = type { i32, i32, i32, ptr, ptr, ptr }
 %struct.fib6_nh_excptn_arg = type { ptr, i32 }
-%struct.nh_grp_entry = type { ptr, i8, %union.anon.103, %struct.list_head, ptr }
-%union.anon.103 = type { %struct.anon.105 }
-%struct.anon.105 = type { %struct.list_head, i16, i16 }
 
 @__tpstrtab_fib6_table_lookup = internal constant [18 x i8] c"fib6_table_lookup\00", section "__tracepoints_strings", align 16
 @__SCK__tp_func_fib6_table_lookup = dso_local global %struct.static_call_key { ptr @__traceiter_fib6_table_lookup, %union.anon.0 { i64 1 } }, align 8
@@ -411,7 +407,7 @@ define internal void @trace_event_raw_event_fib6_table_lookup(ptr noundef %0, pt
   %23 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %24 = load i8, ptr %23, align 4
   %25 = zext i8 %24 to i64
-  %26 = getelementptr i32, ptr @fib6_prop, i64 %25
+  %26 = getelementptr [4 x i8], ptr @fib6_prop, i64 %25
   %27 = load i32, ptr %26, align 4
   %28 = getelementptr inbounds nuw i8, ptr %17, i64 12
   store i32 %27, ptr %28, align 4
@@ -574,7 +570,7 @@ define internal void @perf_trace_fib6_table_lookup(ptr noundef %0, ptr noundef r
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %35 = load i8, ptr %34, align 4
   %36 = zext i8 %35 to i64
-  %37 = getelementptr i32, ptr @fib6_prop, i64 %36
+  %37 = getelementptr [4 x i8], ptr @fib6_prop, i64 %36
   %38 = load i32, ptr %37, align 4
   %39 = getelementptr inbounds nuw i8, ptr %19, i64 12
   store i32 %38, ptr %39, align 4
@@ -804,7 +800,7 @@ define dso_local ptr @ip6_neigh_lookup(ptr noundef %0, ptr noundef %1, ptr nound
   %53 = lshr i32 %49, %52
   %54 = load ptr, ptr %22, align 8
   %55 = zext i32 %53 to i64
-  %56 = getelementptr ptr, ptr %54, i64 %55
+  %56 = getelementptr [8 x i8], ptr %54, i64 %55
   %57 = load volatile ptr, ptr %56, align 8
   %58 = icmp eq ptr %57, null
   br i1 %58, label %.thread, label %.preheader10
@@ -1946,7 +1942,7 @@ define internal fastcc range(i32 -3, 3) i32 @rt6_score_route(ptr noundef readonl
   %58 = lshr i32 %54, %57
   %59 = load ptr, ptr %27, align 8
   %60 = zext i32 %58 to i64
-  %61 = getelementptr ptr, ptr %59, i64 %60
+  %61 = getelementptr [8 x i8], ptr %59, i64 %60
   %62 = load volatile ptr, ptr %61, align 8
   %63 = icmp eq ptr %62, null
   br i1 %63, label %.sink.split, label %.preheader
@@ -3168,7 +3164,7 @@ define internal fastcc void @fib6_nh_age_exceptions(ptr noundef %0, ptr noundef 
   %122 = lshr i32 %118, %121
   %123 = load ptr, ptr %91, align 8
   %124 = zext i32 %122 to i64
-  %125 = getelementptr ptr, ptr %123, i64 %124
+  %125 = getelementptr [8 x i8], ptr %123, i64 %124
   %126 = load volatile ptr, ptr %125, align 8
   %127 = icmp eq ptr %126, null
   br i1 %127, label %.thread, label %.preheader
@@ -7081,7 +7077,7 @@ rt6_remove_exception.exit:                        ; preds = %54, %49
   %86 = load ptr, ptr %73, align 8
   %87 = ptrtoint ptr %86 to i64
   %88 = and i64 %82, 63
-  %89 = getelementptr i64, ptr @__per_cpu_offset, i64 %88
+  %89 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %88
   %90 = load i64, ptr %89, align 8
   %91 = add i64 %90, %87
   %92 = inttoptr i64 %91 to ptr
@@ -7139,7 +7135,7 @@ define dso_local void @fib6_nh_release_dsts(ptr noundef readonly captures(none) 
   %15 = load ptr, ptr %2, align 8
   %16 = ptrtoint ptr %15 to i64
   %17 = and i64 %11, 63
-  %18 = getelementptr i64, ptr @__per_cpu_offset, i64 %17
+  %18 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %17
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, %16
   %21 = inttoptr i64 %20 to ptr
@@ -9303,7 +9299,7 @@ define dso_local void @rt6_disable_ip(ptr noundef %0, i64 noundef %1) local_unna
 
 23:                                               ; preds = %19
   %24 = and i64 %20, 63
-  %25 = getelementptr i64, ptr @__per_cpu_offset, i64 %24
+  %25 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %24
   %26 = load i64, ptr %25, align 8
   %27 = add i64 %26, ptrtoint (ptr @rt6_uncached_list to i64)
   %28 = inttoptr i64 %27 to ptr
@@ -10931,7 +10927,7 @@ define dso_local i32 @ip6_route_init() local_unnamed_addr #10 section ".init.tex
 
 43:                                               ; preds = %39
   %44 = and i64 %40, 63
-  %45 = getelementptr i64, ptr @__per_cpu_offset, i64 %44
+  %45 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %44
   %46 = load i64, ptr %45, align 8
   %47 = add i64 %46, ptrtoint (ptr @rt6_uncached_list to i64)
   %48 = inttoptr i64 %47 to ptr
@@ -11963,7 +11959,7 @@ define internal i32 @inet6_rtm_getroute(ptr noundef %0, ptr noundef %1, ptr noun
 
 80:                                               ; preds = %.preheader, %90
   %81 = phi i64 [ %91, %90 ], [ 0, %.preheader ]
-  %82 = getelementptr ptr, ptr %4, i64 %81
+  %82 = getelementptr [8 x i8], ptr %4, i64 %81
   %83 = load ptr, ptr %82, align 8
   %84 = icmp eq ptr %83, null
   br i1 %84, label %90, label %85
@@ -12507,7 +12503,7 @@ define internal fastcc void @ip6_rt_copy_init(ptr noundef nonnull initializes((4
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %13 = load i8, ptr %12, align 4
   %14 = zext i8 %13 to i64
-  %15 = getelementptr i32, ptr @fib6_prop, i64 %14
+  %15 = getelementptr [4 x i8], ptr @fib6_prop, i64 %14
   %16 = load i32, ptr %15, align 4
   %17 = trunc i32 %16 to i16
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -12812,7 +12808,7 @@ define internal fastcc void @ip6_pkt_drop(ptr noundef %0, i8 noundef zeroext ran
   %58 = getelementptr inbounds nuw i8, ptr %32, i64 912
   %59 = load ptr, ptr %58, align 8
   %60 = zext nneg i32 %2 to i64
-  %61 = getelementptr i64, ptr %59, i64 %60
+  %61 = getelementptr [8 x i8], ptr %59, i64 %60
   tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %61, ptr elementtype(i64) %61) #22, !srcloc !121
   br label %62
 
@@ -12820,7 +12816,7 @@ define internal fastcc void @ip6_pkt_drop(ptr noundef %0, i8 noundef zeroext ran
   %.pre-phi = phi i64 [ %.pre, %._crit_edge ], [ %60, %57 ]
   %63 = getelementptr inbounds nuw i8, ptr %10, i64 416
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr i64, ptr %64, i64 %.pre-phi
+  %65 = getelementptr [8 x i8], ptr %64, i64 %.pre-phi
   tail call void asm sideeffect "incq %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i64) %65, ptr elementtype(i64) %65) #22, !srcloc !122
   br label %66
 
@@ -13009,7 +13005,7 @@ define internal fastcc ptr @__rt6_find_exception_rcu(ptr noundef captures(none) 
   %18 = lshr i64 %17, 54
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr %struct.rt6_exception_bucket, ptr %19, i64 %18
+  %20 = getelementptr [16 x i8], ptr %19, i64 %18
   store ptr %20, ptr %0, align 8
   %21 = getelementptr i8, ptr %1, i64 8
   br label %22
@@ -13956,7 +13952,7 @@ define internal fastcc ptr @__rt6_find_exception_spinlock(ptr noundef captures(n
   %18 = lshr i64 %17, 54
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %19 = load ptr, ptr %0, align 8
-  %20 = getelementptr %struct.rt6_exception_bucket, ptr %19, i64 %18
+  %20 = getelementptr [16 x i8], ptr %19, i64 %18
   store ptr %20, ptr %0, align 8
   %21 = getelementptr i8, ptr %1, i64 8
   br label %22
@@ -15035,7 +15031,7 @@ define internal fastcc noundef range(i32 -90, 1) i32 @rt6_fill_node_nexthop(ptr 
 
 .preheader:                                       ; preds = %24, %30
   %35 = phi i64 [ %31, %30 ], [ 0, %24 ]
-  %36 = getelementptr %struct.nh_grp_entry, ptr %26, i64 %35
+  %36 = getelementptr [64 x i8], ptr %26, i64 %35
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 128
   %39 = load volatile ptr, ptr %38, align 8
@@ -15519,7 +15515,7 @@ define internal void @ip6_confirm_neigh(ptr noundef readonly captures(address) %
   %65 = lshr i32 %61, %64
   %66 = load ptr, ptr %34, align 8
   %67 = zext i32 %65 to i64
-  %68 = getelementptr ptr, ptr %66, i64 %67
+  %68 = getelementptr [8 x i8], ptr %66, i64 %67
   %69 = load volatile ptr, ptr %68, align 8
   %70 = icmp eq ptr %69, null
   br i1 %70, label %.thread, label %.preheader

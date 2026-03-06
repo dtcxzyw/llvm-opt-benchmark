@@ -665,7 +665,7 @@ define hidden void @commandline_other_options(i32 noundef %0, ptr noundef %1, i1
   %40 = load i32, ptr @ws_optind, align 4
   %41 = sub i32 %0, %40
   %42 = sext i32 %40 to i64
-  %43 = getelementptr ptr, ptr %1, i64 %42
+  %43 = getelementptr [8 x i8], ptr %1, i64 %42
   %44 = icmp sgt i32 %41, 0
   br i1 %44, label %45, label %.thread31
 

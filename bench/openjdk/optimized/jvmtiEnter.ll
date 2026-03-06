@@ -124,7 +124,7 @@ define hidden noundef zeroext i1 @_ZN9JvmtiUtil20has_event_capabilityE10jvmtiEve
 
 switch.lookup:                                    ; preds = %2
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN9JvmtiUtil20has_event_capabilityE10jvmtiEventPK17jvmtiCapabilities, i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN9JvmtiUtil20has_event_capabilityE10jvmtiEventPK17jvmtiCapabilities, i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %5 = load i64, ptr %1, align 4
   %6 = and i64 %5, %switch.load

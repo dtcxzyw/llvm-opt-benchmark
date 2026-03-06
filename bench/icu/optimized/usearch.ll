@@ -452,7 +452,7 @@ _ZL6getFCDPKDsPii.exit.i:                         ; preds = %49, %24, %15
   store i8 %.0.i.i.i, ptr %53, align 8, !tbaa !53
   %54 = add nsw i32 %9, -1
   %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds i16, ptr %7, i64 %55
+  %56 = getelementptr inbounds [2 x i8], ptr %7, i64 %55
   %57 = load i16, ptr %56, align 2, !tbaa !54
   %58 = and i16 %57, -1024
   %59 = icmp eq i16 %58, -9216
@@ -462,7 +462,7 @@ _ZL6getFCDPKDsPii.exit.i:                         ; preds = %49, %24, %15
 
 61:                                               ; preds = %_ZL6getFCDPKDsPii.exit.i
   %62 = zext nneg i32 %9 to i64
-  %63 = getelementptr i16, ptr %7, i64 %62
+  %63 = getelementptr [2 x i8], ptr %7, i64 %62
   %64 = getelementptr i8, ptr %63, i64 -4
   %65 = load i16, ptr %64, align 2, !tbaa !54
   %66 = and i16 %65, -1024
@@ -670,7 +670,7 @@ _ZL18addTouint32_tArrayPijPjjjP10UErrorCode.exit.thread100.i.i: ; preds = %_ZL14
   %170 = zext i32 %.05184.i.i to i64
   %171 = shl nuw nsw i64 %170, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %167, ptr align 4 %.085.i.i, i64 %171, i1 false)
-  %172 = getelementptr inbounds nuw i32, ptr %167, i64 %170
+  %172 = getelementptr inbounds nuw [4 x i8], ptr %167, i64 %170
   store i32 %.0.i79.i.i, ptr %172, align 4, !tbaa !70
   br label %175
 
@@ -678,7 +678,7 @@ _ZL18addTouint32_tArrayPijPjjjP10UErrorCode.exit.i.i: ; preds = %_ZL5getCEPK13US
   %.pre23.i.i.i = zext i32 %.05184.i.i to i64
   %.pre.pre.i.i = load i32, ptr %1, align 4, !tbaa !3
   %173 = icmp slt i32 %.pre.pre.i.i, 1
-  %174 = getelementptr inbounds nuw i32, ptr %.085.i.i, i64 %.pre23.i.i.i
+  %174 = getelementptr inbounds nuw [4 x i8], ptr %.085.i.i, i64 %.pre23.i.i.i
   store i32 %.0.i79.i.i, ptr %174, align 4, !tbaa !70
   br i1 %173, label %175, label %_ZL17initializePatternP13UStringSearchP10UErrorCode.exit
 
@@ -706,7 +706,7 @@ _ZL5getCEPK13UStringSearchj.exit.thread.i.i:      ; preds = %176, %175, %_ZL5get
   %.051.lcssa.i.i = phi i32 [ 0, %134 ], [ %.354.i.i, %_ZL5getCEPK13UStringSearchj.exit.thread.i.i ], [ %.05184.i.i, %140 ]
   %.0.lcssa.i.i = phi ptr [ %115, %134 ], [ %.3.i.i, %_ZL5getCEPK13UStringSearchj.exit.thread.i.i ], [ %.085.i.i, %140 ]
   %178 = zext i32 %.051.lcssa.i.i to i64
-  %179 = getelementptr inbounds nuw i32, ptr %.0.lcssa.i.i, i64 %178
+  %179 = getelementptr inbounds nuw [4 x i8], ptr %.0.lcssa.i.i, i64 %178
   store i32 0, ptr %179, align 4, !tbaa !70
   store ptr %.0.lcssa.i.i, ptr %131, align 8, !tbaa !69
   %180 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -960,7 +960,7 @@ define i32 @usearch_getMatchedText_77(ptr noundef readonly captures(address_is_n
 25:                                               ; preds = %21
   %26 = load ptr, ptr %15, align 8, !tbaa !30
   %27 = sext i32 %17 to i64
-  %28 = getelementptr inbounds i16, ptr %26, i64 %27
+  %28 = getelementptr inbounds [2 x i8], ptr %26, i64 %27
   %29 = shl nuw i32 %spec.select, 1
   %30 = zext i32 %29 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 2 %1, ptr align 2 %28, i64 %30, i1 false)
@@ -1474,7 +1474,7 @@ _ZL16setMatchNotFoundP13UStringSearchR10UErrorCode.exit: ; preds = %30, %36, %39
   %56 = add nuw nsw i32 %52, 1
   store i32 %56, ptr %51, align 8, !tbaa !42
   %57 = sext i32 %52 to i64
-  %58 = getelementptr inbounds i16, ptr %55, i64 %57
+  %58 = getelementptr inbounds [2 x i8], ptr %55, i64 %57
   %59 = load i16, ptr %58, align 2, !tbaa !54
   %60 = and i16 %59, -1024
   %61 = icmp ne i16 %60, -10240
@@ -1484,7 +1484,7 @@ _ZL16setMatchNotFoundP13UStringSearchR10UErrorCode.exit: ; preds = %30, %36, %39
 
 62:                                               ; preds = %54
   %63 = sext i32 %56 to i64
-  %64 = getelementptr inbounds i16, ptr %55, i64 %63
+  %64 = getelementptr inbounds [2 x i8], ptr %55, i64 %63
   %65 = load i16, ptr %64, align 2, !tbaa !54
   %66 = and i16 %65, -1024
   %67 = icmp eq i16 %66, -9216
@@ -1817,7 +1817,7 @@ _ZL16setMatchNotFoundP13UStringSearchR10UErrorCode.exit: ; preds = %44, %47, %50
   %65 = add nsw i32 %60, -1
   store i32 %65, ptr %25, align 8, !tbaa !42
   %66 = sext i32 %65 to i64
-  %67 = getelementptr inbounds i16, ptr %64, i64 %66
+  %67 = getelementptr inbounds [2 x i8], ptr %64, i64 %66
   %68 = load i16, ptr %67, align 2, !tbaa !54
   %69 = and i16 %68, -1024
   %70 = icmp eq i16 %69, -9216
@@ -1827,7 +1827,7 @@ _ZL16setMatchNotFoundP13UStringSearchR10UErrorCode.exit: ; preds = %44, %47, %50
 
 72:                                               ; preds = %63
   %73 = zext nneg i32 %60 to i64
-  %74 = getelementptr i16, ptr %64, i64 %73
+  %74 = getelementptr [2 x i8], ptr %64, i64 %73
   %75 = getelementptr i8, ptr %74, i64 -4
   %76 = load i16, ptr %75, align 2, !tbaa !54
   %77 = and i16 %76, -1024
@@ -3052,7 +3052,7 @@ define signext range(i8 0, 2) i8 @usearch_search_77(ptr noundef %0, i32 noundef 
   %62 = load ptr, ptr %61, align 8, !tbaa !45
   %63 = load ptr, ptr %43, align 8, !tbaa !85
   %64 = zext nneg i32 %49 to i64
-  %65 = getelementptr inbounds nuw %struct.CEI, ptr %63, i64 %64
+  %65 = getelementptr inbounds nuw [16 x i8], ptr %63, i64 %64
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   %67 = getelementptr inbounds nuw i8, ptr %65, i64 12
   %68 = invoke noundef i64 @_ZN6icu_7713UCollationPCE13nextProcessedEPiS1_P10UErrorCode(ptr noundef nonnull align 8 dereferenceable(292) %62, ptr noundef nonnull %66, ptr noundef nonnull %67, ptr noundef nonnull %10)
@@ -3060,7 +3060,7 @@ define signext range(i8 0, 2) i8 @usearch_search_77(ptr noundef %0, i32 noundef 
 
 _ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit.thread485: ; preds = %59
   %69 = load ptr, ptr %43, align 8, !tbaa !85
-  %70 = getelementptr inbounds nuw %struct.CEI, ptr %69, i64 %64
+  %70 = getelementptr inbounds nuw [16 x i8], ptr %69, i64 %64
   store i64 %68, ptr %70, align 8, !tbaa !86
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %.preheader384
@@ -3068,7 +3068,7 @@ _ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit.thread485: ; preds = %59
 _ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit:    ; preds = %47
   %71 = load ptr, ptr %43, align 8, !tbaa !85
   %72 = zext nneg i32 %49 to i64
-  %73 = getelementptr inbounds nuw %struct.CEI, ptr %71, i64 %72
+  %73 = getelementptr inbounds nuw [16 x i8], ptr %71, i64 %72
   %74 = icmp eq ptr %71, null
   br i1 %74, label %_ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit.thread, label %.preheader384
 
@@ -3099,7 +3099,7 @@ _ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit.thread: ; preds = %53, %_ZN6icu_77
   %.0164416 = phi i32 [ %154, %.thread ], [ 0, %.preheader384 ]
   %79 = load ptr, ptr %30, align 8, !tbaa !38
   %80 = sext i32 %.0164416 to i64
-  %81 = getelementptr inbounds i64, ptr %79, i64 %80
+  %81 = getelementptr inbounds [8 x i8], ptr %79, i64 %80
   %82 = load i64, ptr %81, align 8, !tbaa !89
   %83 = add nsw i32 %.0164416, %.0151
   %84 = add nsw i32 %83, %.0158417
@@ -3114,7 +3114,7 @@ _ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit.thread: ; preds = %53, %_ZN6icu_77
 
 90:                                               ; preds = %.lr.ph
   %91 = sext i32 %86 to i64
-  %92 = getelementptr inbounds %struct.CEI, ptr %78, i64 %91
+  %92 = getelementptr inbounds [16 x i8], ptr %78, i64 %91
   %.pre = load i64, ptr %92, align 8, !tbaa !86
   br label %_ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit241
 
@@ -3139,7 +3139,7 @@ _ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit.thread: ; preds = %53, %_ZN6icu_77
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 3152
   %101 = load ptr, ptr %100, align 8, !tbaa !45
   %102 = sext i32 %86 to i64
-  %103 = getelementptr inbounds %struct.CEI, ptr %78, i64 %102
+  %103 = getelementptr inbounds [16 x i8], ptr %78, i64 %102
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 8
   %105 = getelementptr inbounds nuw i8, ptr %103, i64 12
   %106 = invoke noundef i64 @_ZN6icu_7713UCollationPCE13nextProcessedEPiS1_P10UErrorCode(ptr noundef nonnull align 8 dereferenceable(292) %101, ptr noundef nonnull %104, ptr noundef nonnull %105, ptr noundef nonnull %9)
@@ -3147,7 +3147,7 @@ _ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit.thread: ; preds = %53, %_ZN6icu_77
 
 .noexc240:                                        ; preds = %98
   %107 = load ptr, ptr %43, align 8, !tbaa !85
-  %108 = getelementptr inbounds %struct.CEI, ptr %107, i64 %102
+  %108 = getelementptr inbounds [16 x i8], ptr %107, i64 %102
   store i64 %106, ptr %108, align 8, !tbaa !86
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit241
@@ -3264,7 +3264,7 @@ _ZL12compareCE64slls.exit.thread319:              ; preds = %142, %126, %115, %_
 
 167:                                              ; preds = %.critedge
   %168 = sext i32 %163 to i64
-  %169 = getelementptr inbounds %struct.CEI, ptr %157, i64 %168
+  %169 = getelementptr inbounds [16 x i8], ptr %157, i64 %168
   br label %_ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit251
 
 170:                                              ; preds = %.critedge
@@ -3287,7 +3287,7 @@ _ZL12compareCE64slls.exit.thread319:              ; preds = %142, %126, %115, %_
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 3152
   %177 = load ptr, ptr %176, align 8, !tbaa !45
   %178 = sext i32 %163 to i64
-  %179 = getelementptr inbounds %struct.CEI, ptr %157, i64 %178
+  %179 = getelementptr inbounds [16 x i8], ptr %157, i64 %178
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 8
   %181 = getelementptr inbounds nuw i8, ptr %179, i64 12
   %182 = invoke noundef i64 @_ZN6icu_7713UCollationPCE13nextProcessedEPiS1_P10UErrorCode(ptr noundef nonnull align 8 dereferenceable(292) %177, ptr noundef nonnull %180, ptr noundef nonnull %181, ptr noundef nonnull %8)
@@ -3295,7 +3295,7 @@ _ZL12compareCE64slls.exit.thread319:              ; preds = %142, %126, %115, %_
 
 .noexc250:                                        ; preds = %174
   %183 = load ptr, ptr %43, align 8, !tbaa !85
-  %184 = getelementptr inbounds %struct.CEI, ptr %183, i64 %178
+  %184 = getelementptr inbounds [16 x i8], ptr %183, i64 %178
   store i64 %182, ptr %184, align 8, !tbaa !86
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit251
@@ -3335,7 +3335,7 @@ _ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit251: ; preds = %.noexc250, %167
 
 206:                                              ; preds = %200
   %207 = sext i32 %202 to i64
-  %208 = getelementptr inbounds %struct.CEI, ptr %185, i64 %207
+  %208 = getelementptr inbounds [16 x i8], ptr %185, i64 %207
   br label %_ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit258
 
 209:                                              ; preds = %200
@@ -3361,7 +3361,7 @@ _ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit251: ; preds = %.noexc250, %167
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 3152
   %218 = load ptr, ptr %217, align 8, !tbaa !45
   %219 = sext i32 %202 to i64
-  %220 = getelementptr inbounds %struct.CEI, ptr %185, i64 %219
+  %220 = getelementptr inbounds [16 x i8], ptr %185, i64 %219
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 8
   %222 = getelementptr inbounds nuw i8, ptr %220, i64 12
   %223 = invoke noundef i64 @_ZN6icu_7713UCollationPCE13nextProcessedEPiS1_P10UErrorCode(ptr noundef nonnull align 8 dereferenceable(292) %218, ptr noundef nonnull %221, ptr noundef nonnull %222, ptr noundef nonnull %7)
@@ -3369,7 +3369,7 @@ _ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit251: ; preds = %.noexc250, %167
 
 .noexc257:                                        ; preds = %215
   %224 = load ptr, ptr %43, align 8, !tbaa !85
-  %225 = getelementptr inbounds %struct.CEI, ptr %224, i64 %219
+  %225 = getelementptr inbounds [16 x i8], ptr %224, i64 %219
   store i64 %223, ptr %225, align 8, !tbaa !86
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit258
@@ -3418,7 +3418,7 @@ _ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit258: ; preds = %.noexc257, %209, %2
 
 _ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit265thread-pre-split: ; preds = %235
   %243 = sext i32 %239 to i64
-  %244 = getelementptr inbounds %struct.CEI, ptr %236, i64 %243
+  %244 = getelementptr inbounds [16 x i8], ptr %236, i64 %243
   %.pr = load i64, ptr %244, align 8, !tbaa !86
   br label %_ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit265
 
@@ -3443,7 +3443,7 @@ _ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit265thread-pre-split: ; preds = %235
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 3152
   %253 = load ptr, ptr %252, align 8, !tbaa !45
   %254 = sext i32 %239 to i64
-  %255 = getelementptr inbounds %struct.CEI, ptr %236, i64 %254
+  %255 = getelementptr inbounds [16 x i8], ptr %236, i64 %254
   %256 = getelementptr inbounds nuw i8, ptr %255, i64 8
   %257 = getelementptr inbounds nuw i8, ptr %255, i64 12
   %258 = invoke noundef i64 @_ZN6icu_7713UCollationPCE13nextProcessedEPiS1_P10UErrorCode(ptr noundef nonnull align 8 dereferenceable(292) %253, ptr noundef nonnull %256, ptr noundef nonnull %257, ptr noundef nonnull %6)
@@ -3451,7 +3451,7 @@ _ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit265thread-pre-split: ; preds = %235
 
 .noexc264:                                        ; preds = %250
   %259 = load ptr, ptr %43, align 8, !tbaa !85
-  %260 = getelementptr inbounds %struct.CEI, ptr %259, i64 %254
+  %260 = getelementptr inbounds [16 x i8], ptr %259, i64 %254
   store i64 %258, ptr %260, align 8, !tbaa !86
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN6icu_7712_GLOBAL__N_19CEIBuffer3getEi.exit265
@@ -3643,7 +3643,7 @@ _ZL15isBreakBoundaryP13UStringSearchiR10UErrorCode.exit.thread: ; preds = %_ZL16
   %352 = load ptr, ptr %0, align 8, !tbaa !29
   %.val234 = load ptr, ptr %352, align 8
   %353 = zext nneg i32 %.0163 to i64
-  %354 = getelementptr i16, ptr %.val234, i64 %353
+  %354 = getelementptr [2 x i8], ptr %.val234, i64 %353
   %355 = getelementptr i8, ptr %354, i64 -2
   %356 = load i16, ptr %355, align 2, !tbaa !54
   %357 = zext i16 %356 to i32
@@ -4046,7 +4046,7 @@ _ZL18addTouint64_tArrayPljPjmjP10UErrorCode.exit.thread85: ; preds = %_ZL14alloc
   %46 = zext i32 %.048 to i64
   %47 = shl nuw nsw i64 %46, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %43, ptr align 8 %.0, i64 %47, i1 false)
-  %48 = getelementptr inbounds nuw i64, ptr %43, i64 %46
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %46
   store i64 %28, ptr %48, align 8, !tbaa !89
   br label %55
 
@@ -4054,7 +4054,7 @@ _ZL18addTouint64_tArrayPljPjmjP10UErrorCode.exit: ; preds = %35
   %.pre23.i = zext i32 %.048 to i64
   %.pre.pre = load i32, ptr %1, align 4, !tbaa !3
   %49 = icmp slt i32 %.pre.pre, 1
-  %50 = getelementptr inbounds nuw i64, ptr %.0, i64 %.pre23.i
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %.pre23.i
   store i64 %28, ptr %50, align 8, !tbaa !89
   br i1 %49, label %55, label %.critedge64
 
@@ -4085,7 +4085,7 @@ _ZL18addTouint64_tArrayPljPjmjP10UErrorCode.exit: ; preds = %35
 
 .critedge:                                        ; preds = %29, %30
   %57 = zext i32 %.048 to i64
-  %58 = getelementptr inbounds nuw i64, ptr %.0, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %57
   store i64 0, ptr %58, align 8, !tbaa !89
   store ptr %.0, ptr %22, align 8, !tbaa !97
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 1056
@@ -4239,7 +4239,7 @@ define internal fastcc noundef range(i32 -1, 10559488) i32 @_ZN12_GLOBAL__N_111c
 3:                                                ; preds = %1
   %4 = add nsw i32 %0, 1
   %5 = sext i32 %0 to i64
-  %6 = getelementptr inbounds i16, ptr %.0.val, i64 %5
+  %6 = getelementptr inbounds [2 x i8], ptr %.0.val, i64 %5
   %7 = load i16, ptr %6, align 2, !tbaa !54
   %8 = zext i16 %7 to i32
   %9 = and i32 %8, 64512
@@ -4250,7 +4250,7 @@ define internal fastcc noundef range(i32 -1, 10559488) i32 @_ZN12_GLOBAL__N_111c
 
 11:                                               ; preds = %3
   %12 = sext i32 %4 to i64
-  %13 = getelementptr inbounds i16, ptr %.0.val, i64 %12
+  %13 = getelementptr inbounds [2 x i8], ptr %.0.val, i64 %12
   %14 = load i16, ptr %13, align 2, !tbaa !54
   %15 = zext i16 %14 to i32
   %16 = and i32 %15, 64512
@@ -4299,7 +4299,7 @@ define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL14checkIdenticalPK1
   %18 = load ptr, ptr %0, align 8, !tbaa !29
   %19 = load ptr, ptr %18, align 8, !tbaa !30
   %20 = sext i32 %1 to i64
-  %21 = getelementptr inbounds i16, ptr %19, i64 %20
+  %21 = getelementptr inbounds [2 x i8], ptr %19, i64 %20
   store ptr %21, ptr %8, align 8, !tbaa !102
   %22 = sub nsw i32 %2, %1
   invoke void @_ZN6icu_7713UnicodeStringC1EaNS_14ConstChar16PtrEi(ptr noundef nonnull align 8 dereferenceable(64) %7, i8 noundef signext 0, ptr noundef nonnull %8, i32 noundef %22)
@@ -4608,7 +4608,7 @@ _ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.thread: ; preds = %45, %
 77:                                               ; preds = %71
   %78 = load ptr, ptr %70, align 8, !tbaa !85
   %79 = zext nneg i32 %73 to i64
-  %80 = getelementptr inbounds nuw %struct.CEI, ptr %78, i64 %79
+  %80 = getelementptr inbounds nuw [16 x i8], ptr %78, i64 %79
   br label %_ZN6icu_7712_GLOBAL__N_19CEIBuffer11getPreviousEi.exit
 
 81:                                               ; preds = %71
@@ -4633,7 +4633,7 @@ _ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.thread: ; preds = %45, %
   %89 = load ptr, ptr %88, align 8, !tbaa !45
   %90 = load ptr, ptr %70, align 8, !tbaa !85
   %91 = zext nneg i32 %73 to i64
-  %92 = getelementptr inbounds nuw %struct.CEI, ptr %90, i64 %91
+  %92 = getelementptr inbounds nuw [16 x i8], ptr %90, i64 %91
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %94 = getelementptr inbounds nuw i8, ptr %92, i64 12
   %95 = invoke noundef i64 @_ZN6icu_7713UCollationPCE17previousProcessedEPiS1_P10UErrorCode(ptr noundef nonnull align 8 dereferenceable(292) %89, ptr noundef nonnull %93, ptr noundef nonnull %94, ptr noundef nonnull %10)
@@ -4641,7 +4641,7 @@ _ZL16getBreakIteratorP13UStringSearchR10UErrorCode.exit.thread: ; preds = %45, %
 
 .noexc254:                                        ; preds = %86
   %96 = load ptr, ptr %70, align 8, !tbaa !85
-  %97 = getelementptr inbounds nuw %struct.CEI, ptr %96, i64 %91
+  %97 = getelementptr inbounds nuw [16 x i8], ptr %96, i64 %91
   store i64 %95, ptr %97, align 8, !tbaa !86
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZN6icu_7712_GLOBAL__N_19CEIBuffer11getPreviousEi.exit
@@ -4732,7 +4732,7 @@ _ZN6icu_7712_GLOBAL__N_19CEIBuffer11getPreviousEi.exit: ; preds = %.noexc254, %7
   %133 = load ptr, ptr %132, align 8, !tbaa !45
   %134 = load ptr, ptr %114, align 8, !tbaa !85
   %135 = zext nneg i32 %120 to i64
-  %136 = getelementptr inbounds nuw %struct.CEI, ptr %134, i64 %135
+  %136 = getelementptr inbounds nuw [16 x i8], ptr %134, i64 %135
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 8
   %138 = getelementptr inbounds nuw i8, ptr %136, i64 12
   %139 = invoke noundef i64 @_ZN6icu_7713UCollationPCE17previousProcessedEPiS1_P10UErrorCode(ptr noundef nonnull align 8 dereferenceable(292) %133, ptr noundef nonnull %137, ptr noundef nonnull %138, ptr noundef nonnull %9)
@@ -4740,7 +4740,7 @@ _ZN6icu_7712_GLOBAL__N_19CEIBuffer11getPreviousEi.exit: ; preds = %.noexc254, %7
 
 _ZN6icu_7712_GLOBAL__N_19CEIBuffer11getPreviousEi.exit261.thread326: ; preds = %130
   %140 = load ptr, ptr %114, align 8, !tbaa !85
-  %141 = getelementptr inbounds nuw %struct.CEI, ptr %140, i64 %135
+  %141 = getelementptr inbounds nuw [16 x i8], ptr %140, i64 %135
   store i64 %139, ptr %141, align 8, !tbaa !86
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %148
@@ -4748,7 +4748,7 @@ _ZN6icu_7712_GLOBAL__N_19CEIBuffer11getPreviousEi.exit261.thread326: ; preds = %
 _ZN6icu_7712_GLOBAL__N_19CEIBuffer11getPreviousEi.exit261: ; preds = %118
   %142 = load ptr, ptr %114, align 8, !tbaa !85
   %143 = zext nneg i32 %120 to i64
-  %144 = getelementptr inbounds nuw %struct.CEI, ptr %142, i64 %143
+  %144 = getelementptr inbounds nuw [16 x i8], ptr %142, i64 %143
   %145 = icmp eq ptr %142, null
   br i1 %145, label %_ZN6icu_7712_GLOBAL__N_19CEIBuffer11getPreviousEi.exit261.thread, label %148
 
@@ -4775,7 +4775,7 @@ _ZN6icu_7712_GLOBAL__N_19CEIBuffer11getPreviousEi.exit261.thread: ; preds = %124
   %.0168421 = add nsw i32 %.0168.in419, -1
   %153 = load ptr, ptr %30, align 8, !tbaa !38
   %154 = zext nneg i32 %.0168421 to i64
-  %155 = getelementptr inbounds nuw i64, ptr %153, i64 %154
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %153, i64 %154
   %156 = load i64, ptr %155, align 8, !tbaa !89
   %157 = load i32, ptr %115, align 8, !tbaa !75
   %158 = sub nsw i32 %.3, %.0168.in419
@@ -4792,7 +4792,7 @@ _ZN6icu_7712_GLOBAL__N_19CEIBuffer11getPreviousEi.exit261.thread: ; preds = %124
 
 166:                                              ; preds = %.lr.ph
   %167 = sext i32 %162 to i64
-  %168 = getelementptr inbounds %struct.CEI, ptr %152, i64 %167
+  %168 = getelementptr inbounds [16 x i8], ptr %152, i64 %167
   %.pre440 = load i64, ptr %168, align 8, !tbaa !86
   br label %_ZN6icu_7712_GLOBAL__N_19CEIBuffer11getPreviousEi.exit268
 
@@ -4817,7 +4817,7 @@ _ZN6icu_7712_GLOBAL__N_19CEIBuffer11getPreviousEi.exit261.thread: ; preds = %124
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 3152
   %177 = load ptr, ptr %176, align 8, !tbaa !45
   %178 = sext i32 %162 to i64
-  %179 = getelementptr inbounds %struct.CEI, ptr %152, i64 %178
+  %179 = getelementptr inbounds [16 x i8], ptr %152, i64 %178
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 8
   %181 = getelementptr inbounds nuw i8, ptr %179, i64 12
   %182 = invoke noundef i64 @_ZN6icu_7713UCollationPCE17previousProcessedEPiS1_P10UErrorCode(ptr noundef nonnull align 8 dereferenceable(292) %177, ptr noundef nonnull %180, ptr noundef nonnull %181, ptr noundef nonnull %8)
@@ -4825,7 +4825,7 @@ _ZN6icu_7712_GLOBAL__N_19CEIBuffer11getPreviousEi.exit261.thread: ; preds = %124
 
 .noexc267:                                        ; preds = %174
   %183 = load ptr, ptr %114, align 8, !tbaa !85
-  %184 = getelementptr inbounds %struct.CEI, ptr %183, i64 %178
+  %184 = getelementptr inbounds [16 x i8], ptr %183, i64 %178
   store i64 %182, ptr %184, align 8, !tbaa !86
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %_ZN6icu_7712_GLOBAL__N_19CEIBuffer11getPreviousEi.exit268
@@ -4947,7 +4947,7 @@ select.unfold:                                    ; preds = %202, %210
 
 242:                                              ; preds = %.critedge234
   %243 = sext i32 %238 to i64
-  %244 = getelementptr inbounds %struct.CEI, ptr %232, i64 %243
+  %244 = getelementptr inbounds [16 x i8], ptr %232, i64 %243
   br label %_ZN6icu_7712_GLOBAL__N_19CEIBuffer11getPreviousEi.exit278
 
 245:                                              ; preds = %.critedge234
@@ -4971,7 +4971,7 @@ select.unfold:                                    ; preds = %202, %210
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 3152
   %253 = load ptr, ptr %252, align 8, !tbaa !45
   %254 = sext i32 %238 to i64
-  %255 = getelementptr inbounds %struct.CEI, ptr %232, i64 %254
+  %255 = getelementptr inbounds [16 x i8], ptr %232, i64 %254
   %256 = getelementptr inbounds nuw i8, ptr %255, i64 8
   %257 = getelementptr inbounds nuw i8, ptr %255, i64 12
   %258 = invoke noundef i64 @_ZN6icu_7713UCollationPCE17previousProcessedEPiS1_P10UErrorCode(ptr noundef nonnull align 8 dereferenceable(292) %253, ptr noundef nonnull %256, ptr noundef nonnull %257, ptr noundef nonnull %7)
@@ -4979,7 +4979,7 @@ select.unfold:                                    ; preds = %202, %210
 
 .noexc277:                                        ; preds = %250
   %259 = load ptr, ptr %114, align 8, !tbaa !85
-  %260 = getelementptr inbounds %struct.CEI, ptr %259, i64 %254
+  %260 = getelementptr inbounds [16 x i8], ptr %259, i64 %254
   store i64 %258, ptr %260, align 8, !tbaa !86
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %_ZN6icu_7712_GLOBAL__N_19CEIBuffer11getPreviousEi.exit278
@@ -5068,7 +5068,7 @@ _ZL15isBreakBoundaryP13UStringSearchiR10UErrorCode.exit: ; preds = %_ZL16getBrea
 299:                                              ; preds = %292
   %300 = load ptr, ptr %114, align 8, !tbaa !85
   %301 = zext nneg i32 %295 to i64
-  %302 = getelementptr inbounds nuw %struct.CEI, ptr %300, i64 %301
+  %302 = getelementptr inbounds nuw [16 x i8], ptr %300, i64 %301
   br label %_ZN6icu_7712_GLOBAL__N_19CEIBuffer11getPreviousEi.exit289
 
 303:                                              ; preds = %292
@@ -5094,7 +5094,7 @@ _ZL15isBreakBoundaryP13UStringSearchiR10UErrorCode.exit: ; preds = %_ZL16getBrea
   %311 = load ptr, ptr %310, align 8, !tbaa !45
   %312 = load ptr, ptr %114, align 8, !tbaa !85
   %313 = zext nneg i32 %295 to i64
-  %314 = getelementptr inbounds nuw %struct.CEI, ptr %312, i64 %313
+  %314 = getelementptr inbounds nuw [16 x i8], ptr %312, i64 %313
   %315 = getelementptr inbounds nuw i8, ptr %314, i64 8
   %316 = getelementptr inbounds nuw i8, ptr %314, i64 12
   %317 = invoke noundef i64 @_ZN6icu_7713UCollationPCE17previousProcessedEPiS1_P10UErrorCode(ptr noundef nonnull align 8 dereferenceable(292) %311, ptr noundef nonnull %315, ptr noundef nonnull %316, ptr noundef nonnull %6)
@@ -5102,7 +5102,7 @@ _ZL15isBreakBoundaryP13UStringSearchiR10UErrorCode.exit: ; preds = %_ZL16getBrea
 
 .noexc288:                                        ; preds = %308
   %318 = load ptr, ptr %114, align 8, !tbaa !85
-  %319 = getelementptr inbounds nuw %struct.CEI, ptr %318, i64 %313
+  %319 = getelementptr inbounds nuw [16 x i8], ptr %318, i64 %313
   store i64 %317, ptr %319, align 8, !tbaa !86
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_ZN6icu_7712_GLOBAL__N_19CEIBuffer11getPreviousEi.exit289
@@ -5181,7 +5181,7 @@ _ZN6icu_7712_GLOBAL__N_19CEIBuffer11getPreviousEi.exit289: ; preds = %.noexc288,
   %358 = load ptr, ptr %0, align 8, !tbaa !29
   %.val251 = load ptr, ptr %358, align 8
   %359 = zext nneg i32 %321 to i64
-  %360 = getelementptr i16, ptr %.val251, i64 %359
+  %360 = getelementptr [2 x i8], ptr %.val251, i64 %359
   %361 = getelementptr i8, ptr %360, i64 -2
   %362 = load i16, ptr %361, align 2, !tbaa !54
   %363 = zext i16 %362 to i32

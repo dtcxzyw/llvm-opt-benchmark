@@ -750,7 +750,7 @@ define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_779LocaleKey6pr
 
 10:                                               ; preds = %10, %7
   %.0.i.i.i.i = phi i64 [ 0, %7 ], [ %14, %10 ]
-  %11 = getelementptr inbounds nuw i16, ptr %3, i64 %.0.i.i.i.i
+  %11 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %.0.i.i.i.i
   %12 = load i16, ptr %11, align 2, !tbaa !24
   %13 = icmp eq i16 %12, 0
   %14 = add i64 %.0.i.i.i.i, 1
@@ -1059,7 +1059,7 @@ _ZNK6icu_7713UnicodeString7indexOfERKS0_.exit:    ; preds = %26
   %54 = load ptr, ptr %53, align 8
   %55 = select i1 %.not.i.i.i4, ptr %54, ptr %52
   %56 = sext i32 %46 to i64
-  %57 = getelementptr inbounds i16, ptr %55, i64 %56
+  %57 = getelementptr inbounds [2 x i8], ptr %55, i64 %56
   %58 = load i16, ptr %57, align 2, !tbaa !24
   %59 = icmp eq i16 %58, 95
   %60 = zext i1 %59 to i8

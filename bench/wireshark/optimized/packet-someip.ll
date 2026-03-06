@@ -12,20 +12,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.reassembly_table_functions = type { ptr, ptr, ptr, ptr, ptr, ptr }
 %struct._fragment_items = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct._someip_info = type { i16, i16, i16, i16, i8, i8 }
-%struct._generic_one_id_string = type { i32, ptr }
-%struct._generic_two_id_string = type { i32, i32, ptr }
-%struct._someip_parameter_list_uat = type { i32, i32, i32, i32, i8, i32, i32, ptr, i32, i32, ptr }
-%struct._someip_payload_parameter_item = type { i32, ptr, i32, i32, ptr, ptr }
-%struct._someip_parameter_array_uat = type { i32, ptr, i32, i32, i32, ptr, i32, i32, i32, i32, i32 }
-%struct._someip_parameter_array_dim = type { i32, i32, i32, i32, i32 }
-%struct._someip_parameter_struct_uat = type { i32, ptr, i32, i32, i8, i32, i32, ptr, i32, i32, ptr }
-%struct._someip_parameter_union_uat = type { i32, ptr, i32, i32, i32, i32, i32, ptr, i32, i32, ptr }
-%struct._someip_parameter_union_item = type { i32, ptr, i32, i32, ptr, ptr }
-%struct._someip_parameter_enum_uat = type { i32, ptr, i32, i32, i32, i32, ptr }
-%struct._someip_payload_parameter_enum_item = type { i64, ptr }
-%struct._someip_payload_parameter_base_type_list = type { i32, ptr, ptr, i8, i32, i32 }
-%struct._someip_payload_parameter_string = type { i32, ptr, ptr, i8, i32, i32, i8, i32 }
-%struct._someip_payload_parameter_typedef = type { i32, ptr, i32, i32 }
 
 @.str = private unnamed_addr constant [9 x i8] c"udp.port\00", align 1
 @someip_handle_udp = internal unnamed_addr global ptr null, align 8
@@ -3589,7 +3575,7 @@ define hidden void @proto_reg_handoff_someip() #0 {
   %22 = phi ptr [ %30, %29 ], [ %.pre2.i, %18 ]
   %23 = phi i32 [ %31, %29 ], [ %20, %18 ]
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %29 ], [ 0, %18 ]
-  %24 = getelementptr %struct.hf_register_info, ptr %22, i64 %indvars.iv.i.i
+  %24 = getelementptr [80 x i8], ptr %22, i64 %indvars.iv.i.i
   %25 = load ptr, ptr %24, align 8
   %.not13.i.i = icmp eq ptr %25, null
   br i1 %.not13.i.i, label %29, label %26
@@ -3597,7 +3583,7 @@ define hidden void @proto_reg_handoff_someip() #0 {
 26:                                               ; preds = %.lr.ph.i.i
   tail call void @g_free(ptr noundef nonnull %25)
   %27 = load ptr, ptr @dynamic_hf_param, align 8
-  %28 = getelementptr %struct.hf_register_info, ptr %27, i64 %indvars.iv.i.i
+  %28 = getelementptr [80 x i8], ptr %27, i64 %indvars.iv.i.i
   store ptr null, ptr %28, align 8
   %.pre.i.i = load i32, ptr @dynamic_hf_param_size, align 4
   br label %29
@@ -3657,7 +3643,7 @@ update_dynamic_hf_entries_someip_parameter_list.exit: ; preds = %14, %deregister
   %48 = phi ptr [ %56, %55 ], [ %.pre2.i4, %44 ]
   %49 = phi i32 [ %57, %55 ], [ %46, %44 ]
   %indvars.iv.i.i6 = phi i64 [ %indvars.iv.next.i.i10, %55 ], [ 0, %44 ]
-  %50 = getelementptr %struct.hf_register_info, ptr %48, i64 %indvars.iv.i.i6
+  %50 = getelementptr [80 x i8], ptr %48, i64 %indvars.iv.i.i6
   %51 = load ptr, ptr %50, align 8
   %.not13.i.i7 = icmp eq ptr %51, null
   br i1 %.not13.i.i7, label %55, label %52
@@ -3665,7 +3651,7 @@ update_dynamic_hf_entries_someip_parameter_list.exit: ; preds = %14, %deregister
 52:                                               ; preds = %.lr.ph.i.i5
   call void @g_free(ptr noundef nonnull %51)
   %53 = load ptr, ptr @dynamic_hf_array, align 8
-  %54 = getelementptr %struct.hf_register_info, ptr %53, i64 %indvars.iv.i.i6
+  %54 = getelementptr [80 x i8], ptr %53, i64 %indvars.iv.i.i6
   store ptr null, ptr %54, align 8
   %.pre.i.i8 = load i32, ptr @dynamic_hf_array_size, align 4
   br label %55
@@ -3725,7 +3711,7 @@ update_dynamic_hf_entries_someip_parameter_arrays.exit: ; preds = %update_dynami
   %74 = phi ptr [ %82, %81 ], [ %.pre2.i18, %70 ]
   %75 = phi i32 [ %83, %81 ], [ %72, %70 ]
   %indvars.iv.i.i20 = phi i64 [ %indvars.iv.next.i.i24, %81 ], [ 0, %70 ]
-  %76 = getelementptr %struct.hf_register_info, ptr %74, i64 %indvars.iv.i.i20
+  %76 = getelementptr [80 x i8], ptr %74, i64 %indvars.iv.i.i20
   %77 = load ptr, ptr %76, align 8
   %.not13.i.i21 = icmp eq ptr %77, null
   br i1 %.not13.i.i21, label %81, label %78
@@ -3733,7 +3719,7 @@ update_dynamic_hf_entries_someip_parameter_arrays.exit: ; preds = %update_dynami
 78:                                               ; preds = %.lr.ph.i.i19
   call void @g_free(ptr noundef nonnull %77)
   %79 = load ptr, ptr @dynamic_hf_struct, align 8
-  %80 = getelementptr %struct.hf_register_info, ptr %79, i64 %indvars.iv.i.i20
+  %80 = getelementptr [80 x i8], ptr %79, i64 %indvars.iv.i.i20
   store ptr null, ptr %80, align 8
   %.pre.i.i22 = load i32, ptr @dynamic_hf_struct_size, align 4
   br label %81
@@ -3793,7 +3779,7 @@ update_dynamic_hf_entries_someip_parameter_structs.exit: ; preds = %update_dynam
   %100 = phi ptr [ %108, %107 ], [ %.pre2.i32, %96 ]
   %101 = phi i32 [ %109, %107 ], [ %98, %96 ]
   %indvars.iv.i.i34 = phi i64 [ %indvars.iv.next.i.i38, %107 ], [ 0, %96 ]
-  %102 = getelementptr %struct.hf_register_info, ptr %100, i64 %indvars.iv.i.i34
+  %102 = getelementptr [80 x i8], ptr %100, i64 %indvars.iv.i.i34
   %103 = load ptr, ptr %102, align 8
   %.not13.i.i35 = icmp eq ptr %103, null
   br i1 %.not13.i.i35, label %107, label %104
@@ -3801,7 +3787,7 @@ update_dynamic_hf_entries_someip_parameter_structs.exit: ; preds = %update_dynam
 104:                                              ; preds = %.lr.ph.i.i33
   call void @g_free(ptr noundef nonnull %103)
   %105 = load ptr, ptr @dynamic_hf_union, align 8
-  %106 = getelementptr %struct.hf_register_info, ptr %105, i64 %indvars.iv.i.i34
+  %106 = getelementptr [80 x i8], ptr %105, i64 %indvars.iv.i.i34
   store ptr null, ptr %106, align 8
   %.pre.i.i36 = load i32, ptr @dynamic_hf_union_size, align 4
   br label %107
@@ -3929,7 +3915,7 @@ reset_someip_service_cb.exit:                     ; preds = %0, %2
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %reset_someip_service_cb.exit ]
   %5 = load ptr, ptr @data_someip_services, align 8
   %6 = load ptr, ptr @someip_service_ident, align 8
-  %7 = getelementptr %struct._generic_one_id_string, ptr %6, i64 %indvars.iv
+  %7 = getelementptr [16 x i8], ptr %6, i64 %indvars.iv
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
   %10 = inttoptr i64 %9 to ptr
@@ -4077,7 +4063,7 @@ reset_someip_method_cb.exit:                      ; preds = %0, %2
 .lr.ph:                                           ; preds = %reset_someip_method_cb.exit, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %reset_someip_method_cb.exit ]
   %5 = load ptr, ptr @someip_method_ident, align 8
-  %6 = getelementptr %struct._generic_two_id_string, ptr %5, i64 %indvars.iv
+  %6 = getelementptr [16 x i8], ptr %5, i64 %indvars.iv
   %7 = load i32, ptr %6, align 8
   %8 = shl i32 %7, 16
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 4
@@ -4136,7 +4122,7 @@ reset_someip_eventgroup_cb.exit:                  ; preds = %0, %2
 .lr.ph:                                           ; preds = %reset_someip_eventgroup_cb.exit, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %reset_someip_eventgroup_cb.exit ]
   %5 = load ptr, ptr @someip_eventgroup_ident, align 8
-  %6 = getelementptr %struct._generic_two_id_string, ptr %5, i64 %indvars.iv
+  %6 = getelementptr [16 x i8], ptr %5, i64 %indvars.iv
   %7 = load i32, ptr %6, align 8
   %8 = shl i32 %7, 16
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 4
@@ -4242,7 +4228,7 @@ reset_someip_client_cb.exit:                      ; preds = %0, %2
 .lr.ph:                                           ; preds = %reset_someip_client_cb.exit, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %reset_someip_client_cb.exit ]
   %5 = load ptr, ptr @someip_client_ident, align 8
-  %6 = getelementptr %struct._generic_two_id_string, ptr %5, i64 %indvars.iv
+  %6 = getelementptr [16 x i8], ptr %5, i64 %indvars.iv
   %7 = load i32, ptr %6, align 8
   %8 = shl i32 %7, 16
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 4
@@ -4449,7 +4435,7 @@ define internal noundef zeroext i1 @update_someip_parameter_list(ptr noundef rea
 65:                                               ; preds = %58
   %66 = load ptr, ptr @g_ascii_table, align 8
   %67 = zext i8 %57 to i64
-  %68 = getelementptr i16, ptr %66, i64 %67
+  %68 = getelementptr [2 x i8], ptr %66, i64 %67
   %69 = load i16, ptr %68, align 2
   %70 = and i16 %69, 64
   %.not58 = icmp eq i16 %70, 0
@@ -4524,7 +4510,7 @@ define internal void @post_update_someip_parameter_list_cb() #0 {
 .lr.ph.i:                                         ; preds = %83, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %83 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %1)
-  %8 = getelementptr %struct._someip_parameter_list_uat, ptr %3, i64 %indvars.iv.i
+  %8 = getelementptr [56 x i8], ptr %3, i64 %indvars.iv.i
   %9 = load i32, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %11 = load i32, ptr %10, align 4
@@ -4603,7 +4589,7 @@ define internal void @post_update_someip_parameter_list_cb() #0 {
   %66 = getelementptr inbounds nuw i8, ptr %.080.i, i64 24
   %67 = load ptr, ptr %66, align 8
   %68 = zext i32 %63 to i64
-  %69 = getelementptr %struct._someip_payload_parameter_item, ptr %67, i64 %68
+  %69 = getelementptr [40 x i8], ptr %67, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr inbounds nuw i8, ptr %69, i64 8
@@ -4666,7 +4652,7 @@ define internal void @reset_someip_parameter_list_cb() #0 {
   %8 = phi ptr [ %16, %15 ], [ %.pre3, %4 ]
   %9 = phi i32 [ %17, %15 ], [ %6, %4 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %15 ], [ 0, %4 ]
-  %10 = getelementptr %struct.hf_register_info, ptr %8, i64 %indvars.iv.i
+  %10 = getelementptr [80 x i8], ptr %8, i64 %indvars.iv.i
   %11 = load ptr, ptr %10, align 8
   %.not13.i = icmp eq ptr %11, null
   br i1 %.not13.i, label %15, label %12
@@ -4674,7 +4660,7 @@ define internal void @reset_someip_parameter_list_cb() #0 {
 12:                                               ; preds = %.lr.ph.i
   tail call void @g_free(ptr noundef nonnull %11)
   %13 = load ptr, ptr @dynamic_hf_param, align 8
-  %14 = getelementptr %struct.hf_register_info, ptr %13, i64 %indvars.iv.i
+  %14 = getelementptr [80 x i8], ptr %13, i64 %indvars.iv.i
   store ptr null, ptr %14, align 8
   %.pre.i = load i32, ptr @dynamic_hf_param_size, align 4
   br label %15
@@ -4841,7 +4827,7 @@ define internal noundef zeroext i1 @update_someip_parameter_array(ptr noundef re
 38:                                               ; preds = %33
   %39 = load ptr, ptr @g_ascii_table, align 8
   %40 = zext i8 %32 to i64
-  %41 = getelementptr i16, ptr %39, i64 %40
+  %41 = getelementptr [2 x i8], ptr %39, i64 %40
   %42 = load i16, ptr %41, align 2
   %43 = and i16 %42, 64
   %.not11.i = icmp eq i16 %43, 0
@@ -4934,7 +4920,7 @@ define internal void @post_update_someip_parameter_array_cb() #0 {
 
 .lr.ph.i:                                         ; preds = %69, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %69 ]
-  %7 = getelementptr %struct._someip_parameter_array_uat, ptr %2, i64 %indvars.iv.i
+  %7 = getelementptr [64 x i8], ptr %2, i64 %indvars.iv.i
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
   %10 = inttoptr i64 %9 to ptr
@@ -4999,7 +4985,7 @@ define internal void @post_update_someip_parameter_array_cb() #0 {
   %53 = getelementptr inbounds nuw i8, ptr %.062.i, i64 48
   %54 = load ptr, ptr %53, align 8
   %55 = zext i32 %50 to i64
-  %56 = getelementptr %struct._someip_parameter_array_dim, ptr %54, i64 %55
+  %56 = getelementptr [20 x i8], ptr %54, i64 %55
   store i32 %50, ptr %56, align 4
   %57 = getelementptr inbounds nuw i8, ptr %7, i64 44
   %58 = load i32, ptr %57, align 4
@@ -5060,7 +5046,7 @@ define internal void @reset_someip_parameter_array_cb() #0 {
   %8 = phi ptr [ %16, %15 ], [ %.pre3, %4 ]
   %9 = phi i32 [ %17, %15 ], [ %6, %4 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %15 ], [ 0, %4 ]
-  %10 = getelementptr %struct.hf_register_info, ptr %8, i64 %indvars.iv.i
+  %10 = getelementptr [80 x i8], ptr %8, i64 %indvars.iv.i
   %11 = load ptr, ptr %10, align 8
   %.not13.i = icmp eq ptr %11, null
   br i1 %.not13.i, label %15, label %12
@@ -5068,7 +5054,7 @@ define internal void @reset_someip_parameter_array_cb() #0 {
 12:                                               ; preds = %.lr.ph.i
   tail call void @g_free(ptr noundef nonnull %11)
   %13 = load ptr, ptr @dynamic_hf_array, align 8
-  %14 = getelementptr %struct.hf_register_info, ptr %13, i64 %indvars.iv.i
+  %14 = getelementptr [80 x i8], ptr %13, i64 %indvars.iv.i
   store ptr null, ptr %14, align 8
   %.pre.i = load i32, ptr @dynamic_hf_array_size, align 4
   br label %15
@@ -5228,7 +5214,7 @@ define internal noundef zeroext i1 @update_someip_parameter_struct(ptr noundef r
 30:                                               ; preds = %25
   %31 = load ptr, ptr @g_ascii_table, align 8
   %32 = zext i8 %24 to i64
-  %33 = getelementptr i16, ptr %31, i64 %32
+  %33 = getelementptr [2 x i8], ptr %31, i64 %32
   %34 = load i16, ptr %33, align 2
   %35 = and i16 %34, 64
   %.not11.i = icmp eq i16 %35, 0
@@ -5361,7 +5347,7 @@ define internal void @post_update_someip_parameter_struct_cb() #0 {
 
 .lr.ph.i:                                         ; preds = %70, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %70 ]
-  %7 = getelementptr %struct._someip_parameter_struct_uat, ptr %2, i64 %indvars.iv.i
+  %7 = getelementptr [64 x i8], ptr %2, i64 %indvars.iv.i
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
   %10 = inttoptr i64 %9 to ptr
@@ -5426,7 +5412,7 @@ define internal void @post_update_someip_parameter_struct_cb() #0 {
   %53 = getelementptr inbounds nuw i8, ptr %.074.i, i64 32
   %54 = load ptr, ptr %53, align 8
   %55 = zext i32 %50 to i64
-  %56 = getelementptr %struct._someip_payload_parameter_item, ptr %54, i64 %55
+  %56 = getelementptr [40 x i8], ptr %54, i64 %55
   store i32 0, ptr %56, align 8
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 16
@@ -5490,7 +5476,7 @@ define internal void @reset_someip_parameter_struct_cb() #0 {
   %8 = phi ptr [ %16, %15 ], [ %.pre3, %4 ]
   %9 = phi i32 [ %17, %15 ], [ %6, %4 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %15 ], [ 0, %4 ]
-  %10 = getelementptr %struct.hf_register_info, ptr %8, i64 %indvars.iv.i
+  %10 = getelementptr [80 x i8], ptr %8, i64 %indvars.iv.i
   %11 = load ptr, ptr %10, align 8
   %.not13.i = icmp eq ptr %11, null
   br i1 %.not13.i, label %15, label %12
@@ -5498,7 +5484,7 @@ define internal void @reset_someip_parameter_struct_cb() #0 {
 12:                                               ; preds = %.lr.ph.i
   tail call void @g_free(ptr noundef nonnull %11)
   %13 = load ptr, ptr @dynamic_hf_struct, align 8
-  %14 = getelementptr %struct.hf_register_info, ptr %13, i64 %indvars.iv.i
+  %14 = getelementptr [80 x i8], ptr %13, i64 %indvars.iv.i
   store ptr null, ptr %14, align 8
   %.pre.i = load i32, ptr @dynamic_hf_struct_size, align 4
   br label %15
@@ -5644,7 +5630,7 @@ define internal noundef zeroext i1 @update_someip_parameter_union(ptr noundef re
 22:                                               ; preds = %17
   %23 = load ptr, ptr @g_ascii_table, align 8
   %24 = zext i8 %16 to i64
-  %25 = getelementptr i16, ptr %23, i64 %24
+  %25 = getelementptr [2 x i8], ptr %23, i64 %24
   %26 = load i16, ptr %25, align 2
   %27 = and i16 %26, 64
   %.not11.i = icmp eq i16 %27, 0
@@ -5764,7 +5750,7 @@ define internal void @post_update_someip_parameter_union_cb() #0 {
 
 .lr.ph72.i:                                       ; preds = %.critedge.i, %.lr.ph72.preheader.i
   %indvars.iv80.i = phi i64 [ 0, %.lr.ph72.preheader.i ], [ %indvars.iv.next81.i, %.critedge.i ]
-  %7 = getelementptr %struct._someip_parameter_union_uat, ptr %2, i64 %indvars.iv80.i
+  %7 = getelementptr [64 x i8], ptr %2, i64 %indvars.iv80.i
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
   %10 = inttoptr i64 %9 to ptr
@@ -5829,7 +5815,7 @@ define internal void @post_update_someip_parameter_union_cb() #0 {
 
 51:                                               ; preds = %55, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %55 ]
-  %52 = getelementptr %struct._someip_parameter_union_item, ptr %50, i64 %indvars.iv.i
+  %52 = getelementptr [40 x i8], ptr %50, i64 %indvars.iv.i
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = load ptr, ptr %53, align 8
   %.not.i = icmp eq ptr %54, null
@@ -5842,7 +5828,7 @@ define internal void @post_update_someip_parameter_union_cb() #0 {
 
 56:                                               ; preds = %51
   %57 = and i64 %indvars.iv.i, 4294967295
-  %58 = getelementptr %struct._someip_parameter_union_item, ptr %50, i64 %57
+  %58 = getelementptr [40 x i8], ptr %50, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %60 = load i32, ptr %59, align 8
   store i32 %60, ptr %58, align 8
@@ -5905,7 +5891,7 @@ define internal void @reset_someip_parameter_union_cb() #0 {
   %8 = phi ptr [ %16, %15 ], [ %.pre3, %4 ]
   %9 = phi i32 [ %17, %15 ], [ %6, %4 ]
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %15 ], [ 0, %4 ]
-  %10 = getelementptr %struct.hf_register_info, ptr %8, i64 %indvars.iv.i
+  %10 = getelementptr [80 x i8], ptr %8, i64 %indvars.iv.i
   %11 = load ptr, ptr %10, align 8
   %.not13.i = icmp eq ptr %11, null
   br i1 %.not13.i, label %15, label %12
@@ -5913,7 +5899,7 @@ define internal void @reset_someip_parameter_union_cb() #0 {
 12:                                               ; preds = %.lr.ph.i
   tail call void @g_free(ptr noundef nonnull %11)
   %13 = load ptr, ptr @dynamic_hf_union, align 8
-  %14 = getelementptr %struct.hf_register_info, ptr %13, i64 %indvars.iv.i
+  %14 = getelementptr [80 x i8], ptr %13, i64 %indvars.iv.i
   store ptr null, ptr %14, align 8
   %.pre.i = load i32, ptr @dynamic_hf_union_size, align 4
   br label %15
@@ -6112,7 +6098,7 @@ reset_someip_parameter_enum_cb.exit:              ; preds = %3, %5
 
 .lr.ph.i:                                         ; preds = %.critedge.i, %.lr.ph.preheader.i
   %indvars.iv77.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next78.i, %.critedge.i ]
-  %15 = getelementptr %struct._someip_parameter_enum_uat, ptr %10, i64 %indvars.iv77.i
+  %15 = getelementptr [40 x i8], ptr %10, i64 %indvars.iv77.i
   %16 = load i32, ptr %15, align 8
   %17 = zext i32 %16 to i64
   %18 = inttoptr i64 %17 to ptr
@@ -6176,7 +6162,7 @@ reset_someip_parameter_enum_cb.exit:              ; preds = %3, %5
 
 56:                                               ; preds = %60, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %60 ]
-  %57 = getelementptr %struct._someip_payload_parameter_enum_item, ptr %55, i64 %indvars.iv.i
+  %57 = getelementptr [16 x i8], ptr %55, i64 %indvars.iv.i
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %59 = load ptr, ptr %58, align 8
   %.not66.i = icmp eq ptr %59, null
@@ -6189,7 +6175,7 @@ reset_someip_parameter_enum_cb.exit:              ; preds = %3, %5
 
 61:                                               ; preds = %56
   %62 = and i64 %indvars.iv.i, 4294967295
-  %63 = getelementptr %struct._someip_payload_parameter_enum_item, ptr %55, i64 %62
+  %63 = getelementptr [16 x i8], ptr %55, i64 %62
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   %65 = getelementptr inbounds nuw i8, ptr %15, i64 28
   tail call void @llvm.memset.p0.i64(ptr noundef align 8 dereferenceable(16) %63, i8 0, i64 16, i1 false)
@@ -6398,7 +6384,7 @@ reset_someip_parameter_base_type_list_cb.exit:    ; preds = %3, %5
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %reset_someip_parameter_base_type_list_cb.exit ]
   %11 = load ptr, ptr @data_someip_parameter_base_type_list, align 8
   %12 = load ptr, ptr @someip_parameter_base_type_list, align 8
-  %13 = getelementptr %struct._someip_payload_parameter_base_type_list, ptr %12, i64 %indvars.iv
+  %13 = getelementptr [40 x i8], ptr %12, i64 %indvars.iv
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
   %16 = inttoptr i64 %15 to ptr
@@ -6597,7 +6583,7 @@ reset_someip_parameter_string_list_cb.exit:       ; preds = %3, %5
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %reset_someip_parameter_string_list_cb.exit ]
   %11 = load ptr, ptr @data_someip_parameter_strings, align 8
   %12 = load ptr, ptr @someip_parameter_strings, align 8
-  %13 = getelementptr %struct._someip_payload_parameter_string, ptr %12, i64 %indvars.iv
+  %13 = getelementptr [48 x i8], ptr %12, i64 %indvars.iv
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
   %16 = inttoptr i64 %15 to ptr
@@ -6741,7 +6727,7 @@ reset_someip_parameter_typedef_list_cb.exit:      ; preds = %3, %5
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %reset_someip_parameter_typedef_list_cb.exit ]
   %11 = load ptr, ptr @data_someip_parameter_typedefs, align 8
   %12 = load ptr, ptr @someip_parameter_typedefs, align 8
-  %13 = getelementptr %struct._someip_payload_parameter_typedef, ptr %12, i64 %indvars.iv
+  %13 = getelementptr [24 x i8], ptr %12, i64 %indvars.iv
   %14 = load i32, ptr %13, align 8
   %15 = zext i32 %14 to i64
   %16 = inttoptr i64 %15 to ptr
@@ -7170,7 +7156,7 @@ define internal fastcc i32 @dissect_someip_payload_parameters(ptr noundef %0, pt
   %21 = icmp ugt i32 %5, %19
   %or.cond3 = and i1 %9, %21
   %22 = zext nneg i16 %18 to i64
-  %23 = getelementptr %struct._someip_payload_parameter_item, ptr %4, i64 %22
+  %23 = getelementptr [40 x i8], ptr %4, i64 %22
   %.090 = select i1 %or.cond3, ptr %23, ptr null
   switch i16 %17, label %default.unreachable138 [
     i16 0, label %24
@@ -7461,7 +7447,7 @@ proto_item_set_hidden.exit.i:                     ; preds = %136, %142, %145
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.3108 = phi i32 [ %3, %.lr.ph.preheader ], [ %166, %.lr.ph ]
-  %155 = getelementptr %struct._someip_payload_parameter_item, ptr %4, i64 %indvars.iv
+  %155 = getelementptr [40 x i8], ptr %4, i64 %indvars.iv
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 16
   %157 = load i32, ptr %156, align 8
   %158 = trunc i32 %157 to i8
@@ -7709,7 +7695,7 @@ dissect_someip_payload_add_wtlv_if_needed.exit.i: ; preds = %proto_item_set_hidd
 
 115:                                              ; preds = %114, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %114 ]
-  %116 = getelementptr %struct._someip_payload_parameter_enum_item, ptr %112, i64 %indvars.iv.i
+  %116 = getelementptr [16 x i8], ptr %112, i64 %indvars.iv.i
   %117 = load i64, ptr %116, align 8
   %118 = icmp eq i64 %117, %113
   br i1 %118, label %119, label %114
@@ -7795,7 +7781,7 @@ proto_item_set_hidden.exit.i.i67:                 ; preds = %149, %146, %137
 
 switch.lookup:                                    ; preds = %proto_item_set_hidden.exit.i.i67
   %158 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissect_someip_payload_parameter.8, i64 %158
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_someip_payload_parameter.8, i64 %158
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %159
 
@@ -8002,7 +7988,7 @@ proto_item_set_hidden.exit.i:                     ; preds = %255, %252, %248
 
 switch.lookup216:                                 ; preds = %proto_item_set_hidden.exit.i
   %264 = zext nneg i32 %switch.tableidx215 to i64
-  %switch.gep217 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_someip_payload_parameter.8, i64 %264
+  %switch.gep217 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_someip_payload_parameter.8, i64 %264
   %switch.load218 = load i32, ptr %switch.gep217, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   %265 = load ptr, ptr %228, align 8
@@ -8180,7 +8166,7 @@ proto_item_set_hidden.exit.i89:                   ; preds = %338, %335, %331
 
 switch.lookup220:                                 ; preds = %proto_item_set_hidden.exit.i89
   %347 = zext nneg i32 %switch.tableidx219 to i64
-  %switch.gep221 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_someip_payload_parameter.8, i64 %347
+  %switch.gep221 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_someip_payload_parameter.8, i64 %347
   %switch.load222 = load i32, ptr %switch.gep221, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %350
@@ -8337,7 +8323,7 @@ proto_item_set_hidden.exit.i101:                  ; preds = %418, %415, %411
 
 switch.lookup224:                                 ; preds = %proto_item_set_hidden.exit.i101
   %427 = zext nneg i32 %switch.tableidx223 to i64
-  %switch.gep225 = getelementptr inbounds nuw i32, ptr @switch.table.dissect_someip_payload_parameter.8, i64 %427
+  %switch.gep225 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_someip_payload_parameter.8, i64 %427
   %switch.load226 = load i32, ptr %switch.gep225, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %430
@@ -8462,7 +8448,7 @@ dissect_someip_payload_type_field.exit:           ; preds = %450, %453, %456, %4
 484:                                              ; preds = %.lr.ph, %491
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %491 ]
   %.098.i152 = phi ptr [ null, %.lr.ph ], [ %.199.i, %491 ]
-  %485 = getelementptr %struct._someip_parameter_union_item, ptr %483, i64 %indvars.iv
+  %485 = getelementptr [40 x i8], ptr %483, i64 %indvars.iv
   %486 = load i32, ptr %485, align 8
   %487 = icmp eq i32 %486, %474
   br i1 %487, label %488, label %491
@@ -8745,7 +8731,7 @@ dissect_someip_payload_array_payload.exit:        ; preds = %.critedge.i, %21, %
   %65 = load i32, ptr @ett_someip_array_dim, align 4
   %66 = tail call ptr @proto_item_add_subtree(ptr noundef %64, i32 noundef %65)
   %67 = load ptr, ptr %58, align 8
-  %68 = getelementptr %struct._someip_parameter_array_dim, ptr %67, i64 %59
+  %68 = getelementptr [20 x i8], ptr %67, i64 %59
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %70 = load i32, ptr %69, align 4
   %71 = getelementptr inbounds nuw i8, ptr %68, i64 8
@@ -8816,7 +8802,7 @@ dissect_someip_payload_array_dim_length.exit:     ; preds = %78, %85, %88
   %102 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %103 = load ptr, ptr %102, align 8
   %104 = zext i32 %8 to i64
-  %105 = getelementptr %struct._someip_parameter_array_dim, ptr %103, i64 %104
+  %105 = getelementptr [20 x i8], ptr %103, i64 %104
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 4
   %107 = load i32, ptr %106, align 4
   %108 = getelementptr inbounds nuw i8, ptr %105, i64 8
@@ -9393,7 +9379,7 @@ define internal void @update_dynamic_param_hf_entry(ptr readnone captures(none) 
 
 10:                                               ; preds = %7
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr %struct._someip_payload_parameter_item, ptr %11, i64 %indvars.iv
+  %12 = getelementptr [40 x i8], ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr @dynamic_hf_param, align 8
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %15 = load i32, ptr %14, align 8
@@ -9661,7 +9647,7 @@ get_param_attributes.exit:                        ; preds = %41, %get_string_con
   %135 = tail call noalias dereferenceable_or_null(4) ptr @g_malloc(i64 noundef 4) #22
   store i32 0, ptr %135, align 4
   %136 = sext i32 %1 to i64
-  %137 = getelementptr %struct.hf_register_info, ptr %0, i64 %136
+  %137 = getelementptr [80 x i8], ptr %0, i64 %136
   store ptr %135, ptr %137, align 8
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 8
   %139 = getelementptr inbounds nuw i8, ptr %137, i64 32
@@ -9758,7 +9744,7 @@ define internal void @update_dynamic_struct_hf_entry(ptr readnone captures(none)
 
 10:                                               ; preds = %7
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr %struct._someip_payload_parameter_item, ptr %11, i64 %indvars.iv
+  %12 = getelementptr [40 x i8], ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr @dynamic_hf_struct, align 8
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %15 = load i32, ptr %14, align 8
@@ -9811,7 +9797,7 @@ define internal void @update_dynamic_union_hf_entry(ptr readnone captures(none) 
 
 10:                                               ; preds = %7
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr %struct._someip_parameter_union_item, ptr %11, i64 %indvars.iv
+  %12 = getelementptr [40 x i8], ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr @dynamic_hf_union, align 8
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %15 = load i32, ptr %14, align 8

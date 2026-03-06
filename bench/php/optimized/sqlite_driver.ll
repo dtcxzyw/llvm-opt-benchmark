@@ -1295,15 +1295,15 @@ define internal fastcc void @do_callback(ptr noundef readonly captures(none) %0,
 .lr.ph.preheader:                                 ; preds = %37
   %39 = zext nneg i32 %spec.store.select to i64
   %wide.trip.count = zext nneg i32 %1 to i64
-  %invariant.gep = getelementptr inbounds nuw %struct._zval_struct, ptr %.0100, i64 %39
-  %invariant.gep129 = getelementptr inbounds nuw %struct._zval_struct, ptr %.0100, i64 %39
-  %invariant.gep131 = getelementptr inbounds nuw %struct._zval_struct, ptr %.0100, i64 %39
-  %invariant.gep133 = getelementptr inbounds nuw %struct._zval_struct, ptr %.0100, i64 %39
+  %invariant.gep = getelementptr inbounds nuw [16 x i8], ptr %.0100, i64 %39
+  %invariant.gep129 = getelementptr inbounds nuw [16 x i8], ptr %.0100, i64 %39
+  %invariant.gep131 = getelementptr inbounds nuw [16 x i8], ptr %.0100, i64 %39
+  %invariant.gep133 = getelementptr inbounds nuw [16 x i8], ptr %.0100, i64 %39
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %64
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %64 ]
-  %40 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %41 = load ptr, ptr %40, align 8, !tbaa !123
   %42 = tail call i32 @sqlite3_value_type(ptr noundef %41) #11
   switch i32 %42, label %zend_string_alloc.exit [
@@ -1313,7 +1313,7 @@ define internal fastcc void @do_callback(ptr noundef readonly captures(none) %0,
   ]
 
 43:                                               ; preds = %.lr.ph
-  %gep132 = getelementptr inbounds nuw %struct._zval_struct, ptr %invariant.gep131, i64 %indvars.iv
+  %gep132 = getelementptr inbounds nuw [16 x i8], ptr %invariant.gep131, i64 %indvars.iv
   %44 = load ptr, ptr %40, align 8, !tbaa !123
   %45 = tail call i32 @sqlite3_value_int(ptr noundef %44) #11
   %46 = sext i32 %45 to i64
@@ -1321,18 +1321,18 @@ define internal fastcc void @do_callback(ptr noundef readonly captures(none) %0,
   br label %64
 
 47:                                               ; preds = %.lr.ph
-  %gep130 = getelementptr inbounds nuw %struct._zval_struct, ptr %invariant.gep129, i64 %indvars.iv
+  %gep130 = getelementptr inbounds nuw [16 x i8], ptr %invariant.gep129, i64 %indvars.iv
   %48 = load ptr, ptr %40, align 8, !tbaa !123
   %49 = tail call double @sqlite3_value_double(ptr noundef %48) #11
   store double %49, ptr %gep130, align 8, !tbaa !31
   br label %64
 
 50:                                               ; preds = %.lr.ph
-  %gep = getelementptr inbounds nuw %struct._zval_struct, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [16 x i8], ptr %invariant.gep, i64 %indvars.iv
   br label %64
 
 zend_string_alloc.exit:                           ; preds = %.lr.ph
-  %gep134 = getelementptr inbounds nuw %struct._zval_struct, ptr %invariant.gep133, i64 %indvars.iv
+  %gep134 = getelementptr inbounds nuw [16 x i8], ptr %invariant.gep133, i64 %indvars.iv
   %51 = load ptr, ptr %40, align 8, !tbaa !123
   %52 = tail call ptr @sqlite3_value_text(ptr noundef %51) #11
   %53 = load ptr, ptr %40, align 8, !tbaa !123
@@ -1410,7 +1410,7 @@ zend_call_known_fcc.exit:                         ; preds = %78, %70, %._crit_ed
 
 .lr.ph117:                                        ; preds = %.lr.ph117.preheader, %.lr.ph117
   %indvars.iv120 = phi i64 [ %85, %.lr.ph117.preheader ], [ %indvars.iv.next121, %.lr.ph117 ]
-  %87 = getelementptr inbounds nuw %struct._zval_struct, ptr %.0100, i64 %indvars.iv120
+  %87 = getelementptr inbounds nuw [16 x i8], ptr %.0100, i64 %indvars.iv120
   call void @zval_ptr_dtor(ptr noundef nonnull %87) #11
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 1
   %88 = icmp samesign ult i64 %indvars.iv.next121, %86

@@ -205,7 +205,7 @@ define noundef i32 @_ZN7mitsuba4util10core_countEv() local_unnamed_addr #0 perso
 
 29:                                               ; preds = %.lr.ph
   %30 = lshr i64 %indvars.iv, 6
-  %31 = getelementptr inbounds nuw i64, ptr %12, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %30
   %32 = load i64, ptr %31, align 8
   %33 = and i64 %indvars.iv, 63
   %34 = lshr i64 %32, %33
@@ -561,7 +561,7 @@ define void @_ZN7mitsuba4util11time_stringEfb(ptr dead_on_unwind noalias writabl
   %indvars.iv = phi i64 [ %indvars.iv.next, %25 ], [ 0, %13 ]
   %21 = phi float [ %26, %25 ], [ %1, %13 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %22 = getelementptr inbounds nuw %struct.Order, ptr %5, i64 %indvars.iv.next
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %indvars.iv.next
   %23 = load float, ptr %22, align 16
   %24 = fcmp contract ogt float %21, %23
   br i1 %24, label %25, label %.critedge
@@ -577,7 +577,7 @@ define void @_ZN7mitsuba4util11time_stringEfb(ptr dead_on_unwind noalias writabl
   store float %.lcssa, ptr %4, align 4
   %.str.17..str.18 = select i1 %2, ptr @.str.17, ptr @.str.18
   %27 = and i64 %.0.lcssa, 4294967295
-  %28 = getelementptr inbounds nuw %struct.Order, ptr %5, i64 %27
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
   call void @_ZN10tinyformat6formatIJfPKcEEENSt3__112basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEES2_DpRKT_(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %0, ptr noundef nonnull %.str.17..str.18, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 8 dereferenceable(8) %29)
   br label %30
@@ -722,7 +722,7 @@ define void @_ZN7mitsuba4util10mem_stringEmb(ptr dead_on_unwind noalias writable
   %.0.lcssa = phi i64 [ 0, %3 ], [ %14, %._crit_edge.loopexit ]
   store float %.lcssa, ptr %5, align 4
   %.str.26..str.27 = select i1 %2, ptr @.str.26, ptr @.str.27
-  %15 = getelementptr inbounds nuw ptr, ptr %4, i64 %.0.lcssa
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.0.lcssa
   call void @_ZN10tinyformat6formatIJfPKcEEENSt3__112basic_stringIcNS3_11char_traitsIcEENS3_9allocatorIcEEEES2_DpRKT_(ptr dead_on_unwind writable sret(%"class.std::__1::basic_string") align 8 %0, ptr noundef nonnull %.str.26..str.27, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 8 dereferenceable(8) %15)
   ret void
 }
@@ -1547,7 +1547,7 @@ _ZN10tinyformat6detail24printFormatStringLiteralERNSt3__113basic_ostreamIcNS1_11
 
 67:                                               ; preds = %_ZN10tinyformat6detail24printFormatStringLiteralERNSt3__113basic_ostreamIcNS1_11char_traitsIcEEEEPKc.exit
   %68 = sext i32 %66 to i64
-  %69 = getelementptr inbounds %"class.tinyformat::detail::FormatArg", ptr %2, i64 %68
+  %69 = getelementptr inbounds [24 x i8], ptr %2, i64 %68
   %70 = load i8, ptr %8, align 1
   %71 = trunc i8 %70 to i1
   br i1 %71, label %77, label %72
@@ -2105,7 +2105,7 @@ _ZN10tinyformat6detail18parseIntAndAdvanceERPKc.exit: ; preds = %.lr.ph.i
   %153 = add nsw i32 %150, 1
   store i32 %153, ptr %5, align 4
   %154 = sext i32 %150 to i64
-  %155 = getelementptr inbounds %"class.tinyformat::detail::FormatArg", ptr %4, i64 %154
+  %155 = getelementptr inbounds [24 x i8], ptr %4, i64 %154
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 16
   %157 = load ptr, ptr %156, align 8
   %158 = load ptr, ptr %155, align 8
@@ -2198,7 +2198,7 @@ _ZNSt3__19basic_iosIcNS_11char_traitsIcEEE4fillB8ne190000Ec.exit86: ; preds = %1
   %206 = add nsw i32 %203, 1
   store i32 %206, ptr %5, align 4
   %207 = sext i32 %203 to i64
-  %208 = getelementptr inbounds %"class.tinyformat::detail::FormatArg", ptr %4, i64 %207
+  %208 = getelementptr inbounds [24 x i8], ptr %4, i64 %207
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 16
   %210 = load ptr, ptr %209, align 8
   %211 = load ptr, ptr %208, align 8

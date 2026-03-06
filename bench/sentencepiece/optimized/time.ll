@@ -171,7 +171,7 @@ _ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit78.us: ; pred
   %.neg100.us = mul nsw i64 %40, -86400
   %41 = add i64 %.neg100.us, %.4.us116
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %42 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf8internal12_GLOBAL__N_112kDaysInMonthE, i64 %indvars.iv.next
+  %42 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf8internal12_GLOBAL__N_112kDaysInMonthE, i64 %indvars.iv.next
   %43 = load i32, ptr %42, align 4, !tbaa !7
   %44 = sext i32 %43 to i64
   %45 = mul nsw i64 %44, 86400
@@ -189,7 +189,7 @@ _ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit: ; preds = %
   br i1 %.not61, label %.split.us, label %_ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit78
 
 _ZN6google8protobuf8internal12_GLOBAL__N_115SecondsPerMonthEib.exit.thread: ; preds = %_ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.split
-  %47 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf8internal12_GLOBAL__N_112kDaysInMonthE, i64 %indvars.iv129
+  %47 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf8internal12_GLOBAL__N_112kDaysInMonthE, i64 %indvars.iv129
   %48 = load i32, ptr %47, align 4, !tbaa !7
   %49 = sext i32 %48 to i64
   %50 = mul nsw i64 %49, 86400
@@ -300,7 +300,7 @@ define noundef zeroext i1 @_ZN6google8protobuf8internal17DateTimeToSecondsERKNS1
 
 _ZN6google8protobuf8internal12_GLOBAL__N_110IsLeapYearEi.exit.thread30.i: ; preds = %24, %19
   %28 = zext nneg i32 %7 to i64
-  %29 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf8internal12_GLOBAL__N_112kDaysInMonthE, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf8internal12_GLOBAL__N_112kDaysInMonthE, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !7
   %.not = icmp sgt i32 %11, %30
   br i1 %.not, label %_ZN6google8protobuf8internal12_GLOBAL__N_116ValidateDateTimeERKNS1_8DateTimeE.exit.thread, label %32
@@ -414,7 +414,7 @@ _ZN6google8protobuf8internal12_GLOBAL__N_114SecondsPerYearEi.exit.i: ; preds = %
   %.338.lcssa.i = phi i32 [ %.237.lcssa.i, %.preheader.i ], [ %.fr47.i, %_ZN6google8protobuf8internal12_GLOBAL__N_114SecondsPerYearEi.exit.i ]
   %.3.lcssa.i = phi i64 [ %.2.lcssa.i, %.preheader.i ], [ %73, %_ZN6google8protobuf8internal12_GLOBAL__N_114SecondsPerYearEi.exit.i ]
   %75 = zext nneg i32 %7 to i64
-  %76 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf8internal12_GLOBAL__N_113kDaysSinceJanE, i64 %75
+  %76 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf8internal12_GLOBAL__N_113kDaysSinceJanE, i64 %75
   %77 = load i32, ptr %76, align 4, !tbaa !7
   %78 = sext i32 %77 to i64
   %79 = mul nsw i64 %78, 86400

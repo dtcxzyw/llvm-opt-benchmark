@@ -14,7 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.H5VL_file_get_args_t = type { i32, %union.anon.5 }
 %union.anon.5 = type { %struct.H5VL_file_get_name_args_t }
 %struct.H5VL_file_get_name_args_t = type { i32, i64, ptr, ptr }
-%struct.H5T_cmemb_t = type { ptr, i64, i64, ptr }
 %struct.H5_user_cb_state_t = type { %struct.H5E_user_cb_state_t }
 %struct.H5E_user_cb_state_t = type { i32, %union.anon.12, ptr }
 %union.anon.12 = type { ptr }
@@ -564,7 +563,7 @@ define range(i32 -1, 1) i32 @H5T__vlen_reclaim(ptr noundef %0, ptr noundef reado
   %indvars.iv = phi i64 [ %indvars.iv.next, %.thread ], [ 0, %.preheader106 ]
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 64
   %55 = load ptr, ptr %54, align 8, !tbaa !32
-  %56 = getelementptr inbounds nuw %struct.H5T_cmemb_t, ptr %55, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [32 x i8], ptr %55, i64 %indvars.iv
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %58 = load ptr, ptr %57, align 8, !tbaa !44
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 40

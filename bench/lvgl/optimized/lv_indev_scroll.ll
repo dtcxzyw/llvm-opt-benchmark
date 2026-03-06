@@ -1344,7 +1344,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @find_snap_point_
   %.04754 = phi i32 [ 536870911, %.lr.ph ], [ %.1, %58 ]
   %19 = load ptr, ptr %13, align 8, !tbaa !54
   %20 = load ptr, ptr %19, align 8, !tbaa !55
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !58
   %23 = tail call zeroext i1 @lv_obj_has_flag_any(ptr noundef %22, i32 noundef 262145) #6
   br i1 %23, label %58, label %24
@@ -1458,7 +1458,7 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @find_snap_point_
   %.04754 = phi i32 [ 536870911, %.lr.ph ], [ %.1, %56 ]
   %18 = load ptr, ptr %13, align 8, !tbaa !54
   %19 = load ptr, ptr %18, align 8, !tbaa !55
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv
   %21 = load ptr, ptr %20, align 8, !tbaa !58
   %22 = tail call zeroext i1 @lv_obj_has_flag_any(ptr noundef %21, i32 noundef 262145) #6
   br i1 %22, label %56, label %23

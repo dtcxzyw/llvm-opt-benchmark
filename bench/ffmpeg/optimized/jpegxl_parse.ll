@@ -227,9 +227,9 @@ define i32 @ff_jpegxl_parse_codestream_header(ptr noundef %0, i32 noundef %1, pt
   %153 = and i32 %152, 3
   store i32 %143, ptr %48, align 8, !tbaa !15
   %154 = zext nneg i32 %153 to i64
-  %155 = getelementptr inbounds nuw i32, ptr %15, i64 %154
+  %155 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %154
   %156 = load i32, ptr %155, align 4, !tbaa !20
-  %157 = getelementptr inbounds nuw i32, ptr %16, i64 %154
+  %157 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %154
   %158 = load i32, ptr %157, align 4, !tbaa !20
   %.not.i.i272 = icmp eq i32 %158, 0
   br i1 %.not.i.i272, label %jxl_u32.exit.i, label %159
@@ -368,7 +368,7 @@ jpegxl_width_from_ratio.exit.thread.i:            ; preds = %jpegxl_width_from_r
   %235 = tail call i32 @llvm.umin.i32(i32 %114, i32 %234)
   store i32 %235, ptr %48, align 8, !tbaa !15
   %236 = zext nneg i32 %233 to i64
-  %237 = getelementptr inbounds nuw i32, ptr %14, i64 %236
+  %237 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %236
   %238 = load i32, ptr %237, align 4, !tbaa !20
   %.not.i21.i = icmp eq i32 %238, 0
   br i1 %.not.i21.i, label %jxl_u32.exit23.i, label %239
@@ -421,9 +421,9 @@ jxl_u32.exit23.i:                                 ; preds = %jxl_u32.exit23.sink
   %259 = and i32 %258, 3
   store i32 %143, ptr %48, align 8, !tbaa !15
   %260 = zext nneg i32 %259 to i64
-  %261 = getelementptr inbounds nuw i32, ptr %12, i64 %260
+  %261 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %260
   %262 = load i32, ptr %261, align 4, !tbaa !20
-  %263 = getelementptr inbounds nuw i32, ptr %13, i64 %260
+  %263 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %260
   %264 = load i32, ptr %263, align 4, !tbaa !20
   %.not.i24.i = icmp eq i32 %264, 0
   br i1 %.not.i24.i, label %jxl_u32.exit26.i, label %265
@@ -558,7 +558,7 @@ jpegxl_width_from_ratio.exit37.thread.i:          ; preds = %jpegxl_width_from_r
   %340 = tail call i32 @llvm.umin.i32(i32 %114, i32 %339)
   store i32 %340, ptr %48, align 8, !tbaa !15
   %341 = zext nneg i32 %338 to i64
-  %342 = getelementptr inbounds nuw i32, ptr %11, i64 %341
+  %342 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %341
   %343 = load i32, ptr %342, align 4, !tbaa !20
   %.not.i27.i = icmp eq i32 %343, 0
   br i1 %.not.i27.i, label %jxl_u32.exit29.i, label %344
@@ -634,9 +634,9 @@ jpegxl_read_preview_header.exit:                  ; preds = %jxl_u32.exit29.i, %
   %381 = tail call i32 @llvm.umin.i32(i32 %114, i32 %380)
   store i32 %381, ptr %48, align 8, !tbaa !15
   %382 = zext nneg i32 %379 to i64
-  %383 = getelementptr inbounds nuw i32, ptr %35, i64 %382
+  %383 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %382
   %384 = load i32, ptr %383, align 4, !tbaa !20
-  %385 = getelementptr inbounds nuw i32, ptr %36, i64 %382
+  %385 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %382
   %386 = load i32, ptr %385, align 4, !tbaa !20
   %.not.i = icmp eq i32 %386, 0
   br i1 %.not.i, label %jxl_u32.exit, label %387
@@ -719,9 +719,9 @@ jxl_u32.exit:                                     ; preds = %366, %get_bits_long
   %435 = tail call i32 @llvm.umin.i32(i32 %114, i32 %434)
   store i32 %435, ptr %48, align 8, !tbaa !15
   %436 = zext nneg i32 %433 to i64
-  %437 = getelementptr inbounds nuw i32, ptr %33, i64 %436
+  %437 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %436
   %438 = load i32, ptr %437, align 4, !tbaa !20
-  %439 = getelementptr inbounds nuw i32, ptr %34, i64 %436
+  %439 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %436
   %440 = load i32, ptr %439, align 4, !tbaa !20
   %.not.i227 = icmp eq i32 %440, 0
   br i1 %.not.i227, label %jxl_u32.exit229, label %441
@@ -796,7 +796,7 @@ jxl_u32.exit229:                                  ; preds = %jxl_u32.exit, %get_
   %486 = tail call i32 @llvm.umin.i32(i32 %114, i32 %485)
   store i32 %486, ptr %48, align 8, !tbaa !15
   %487 = zext nneg i32 %484 to i64
-  %488 = getelementptr inbounds nuw i32, ptr %32, i64 %487
+  %488 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %487
   %489 = load i32, ptr %488, align 4, !tbaa !20
   %.not.i230 = icmp eq i32 %489, 0
   br i1 %.not.i230, label %501, label %490
@@ -920,9 +920,9 @@ jxl_u32.exit229:                                  ; preds = %jxl_u32.exit, %get_
   %552 = tail call i32 @llvm.umin.i32(i32 %528, i32 %551)
   store i32 %552, ptr %48, align 8, !tbaa !15
   %553 = zext nneg i32 %550 to i64
-  %554 = getelementptr inbounds nuw i32, ptr %30, i64 %553
+  %554 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %553
   %555 = load i32, ptr %554, align 4, !tbaa !20
-  %556 = getelementptr inbounds nuw i32, ptr %31, i64 %553
+  %556 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %553
   %557 = load i32, ptr %556, align 4, !tbaa !20
   %.not.i233 = icmp eq i32 %557, 0
   br i1 %.not.i233, label %jxl_u32.exit235, label %558
@@ -1018,9 +1018,9 @@ jxl_u32.exit235:                                  ; preds = %537, %558
   %606 = tail call i32 @llvm.umin.i32(i32 %584, i32 %605)
   store i32 %606, ptr %48, align 8, !tbaa !15
   %607 = zext nneg i32 %604 to i64
-  %608 = getelementptr inbounds nuw i32, ptr %5, i64 %607
+  %608 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %607
   %609 = load i32, ptr %608, align 4, !tbaa !20
-  %610 = getelementptr inbounds nuw i32, ptr %6, i64 %607
+  %610 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %607
   %611 = load i32, ptr %610, align 4, !tbaa !20
   %.not.i.i.i = icmp eq i32 %611, 0
   br i1 %.not.i.i.i, label %jxl_enum.exit.i, label %612
@@ -1103,7 +1103,7 @@ jxl_enum.exit.i:                                  ; preds = %get_bits_long.exit.
   %659 = tail call i32 @llvm.umin.i32(i32 %649, i32 %658)
   store i32 %659, ptr %48, align 8, !tbaa !15
   %660 = zext nneg i32 %657 to i64
-  %661 = getelementptr inbounds nuw i32, ptr %7, i64 %660
+  %661 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %660
   %662 = load i32, ptr %661, align 4, !tbaa !20
   %.not.i40.i = icmp eq i32 %662, 0
   br i1 %.not.i40.i, label %jxl_u32.exit42.i, label %663
@@ -1153,9 +1153,9 @@ jxl_u32.exit42.i:                                 ; preds = %jxl_u32.exit42.sink
   %682 = tail call i32 @llvm.umin.i32(i32 %649, i32 %681)
   store i32 %682, ptr %48, align 8, !tbaa !15
   %683 = zext nneg i32 %680 to i64
-  %684 = getelementptr inbounds nuw i32, ptr %8, i64 %683
+  %684 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %683
   %685 = load i32, ptr %684, align 4, !tbaa !20
-  %686 = getelementptr inbounds nuw i32, ptr %9, i64 %683
+  %686 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %683
   %687 = load i32, ptr %686, align 4, !tbaa !20
   %.not.i37.i = icmp eq i32 %687, 0
   br i1 %.not.i37.i, label %721, label %688
@@ -1272,7 +1272,7 @@ get_bits_long.exit48.i:                           ; preds = %702, %696
   %749 = tail call i32 @llvm.umin.i32(i32 %725, i32 %748)
   store i32 %749, ptr %48, align 8, !tbaa !15
   %750 = zext nneg i32 %747 to i64
-  %751 = getelementptr inbounds nuw i32, ptr %10, i64 %750
+  %751 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %750
   %752 = load i32, ptr %751, align 4, !tbaa !20
   %.not.i.i284 = icmp eq i32 %752, 0
   br i1 %.not.i.i284, label %jxl_u32.exit.i285, label %753
@@ -1387,9 +1387,9 @@ jpegxl_read_extra_channel_info.exit:              ; preds = %581, %.preheader332
   %812 = tail call i32 @llvm.umin.i32(i32 %766, i32 %811)
   store i32 %812, ptr %48, align 8, !tbaa !15
   %813 = zext nneg i32 %810 to i64
-  %814 = getelementptr inbounds nuw i32, ptr %25, i64 %813
+  %814 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %813
   %815 = load i32, ptr %814, align 4, !tbaa !20
-  %816 = getelementptr inbounds nuw i32, ptr %26, i64 %813
+  %816 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %813
   %817 = load i32, ptr %816, align 4, !tbaa !20
   %.not.i.i = icmp eq i32 %817, 0
   br i1 %.not.i.i, label %jxl_enum.exit, label %818
@@ -1448,9 +1448,9 @@ jxl_enum.exit:                                    ; preds = %789, %818
   %843 = tail call i32 @llvm.umin.i32(i32 %833, i32 %842)
   store i32 %843, ptr %48, align 8, !tbaa !15
   %844 = zext nneg i32 %841 to i64
-  %845 = getelementptr inbounds nuw i32, ptr %23, i64 %844
+  %845 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %844
   %846 = load i32, ptr %845, align 4, !tbaa !20
-  %847 = getelementptr inbounds nuw i32, ptr %24, i64 %844
+  %847 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %844
   %848 = load i32, ptr %847, align 4, !tbaa !20
   %.not.i.i245 = icmp eq i32 %848, 0
   br i1 %.not.i.i245, label %jxl_enum.exit247, label %849
@@ -1495,7 +1495,7 @@ jxl_enum.exit247:                                 ; preds = %826, %849
   %869 = tail call i32 @llvm.umin.i32(i32 %859, i32 %868)
   store i32 %869, ptr %48, align 8, !tbaa !15
   %870 = zext nneg i32 %867 to i64
-  %871 = getelementptr inbounds nuw i32, ptr %29, i64 %870
+  %871 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %870
   %872 = load i32, ptr %871, align 4, !tbaa !20
   %.not.i236 = icmp eq i32 %872, 0
   br i1 %.not.i236, label %jxl_u32.exit238, label %873
@@ -1531,7 +1531,7 @@ jxl_u32.exit238:                                  ; preds = %855, %873
   %889 = tail call i32 @llvm.umin.i32(i32 %876, i32 %888)
   store i32 %889, ptr %48, align 8, !tbaa !15
   %890 = zext nneg i32 %887 to i64
-  %891 = getelementptr inbounds nuw i32, ptr %28, i64 %890
+  %891 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %890
   %892 = load i32, ptr %891, align 4, !tbaa !20
   %.not.i239 = icmp eq i32 %892, 0
   br i1 %.not.i239, label %jxl_u32.exit241, label %893
@@ -1581,9 +1581,9 @@ jxl_u32.exit241:                                  ; preds = %jxl_u32.exit238, %8
   %913 = tail call i32 @llvm.umin.i32(i32 %903, i32 %912)
   store i32 %913, ptr %48, align 8, !tbaa !15
   %914 = zext nneg i32 %911 to i64
-  %915 = getelementptr inbounds nuw i32, ptr %21, i64 %914
+  %915 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %914
   %916 = load i32, ptr %915, align 4, !tbaa !20
-  %917 = getelementptr inbounds nuw i32, ptr %22, i64 %914
+  %917 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %914
   %918 = load i32, ptr %917, align 4, !tbaa !20
   %.not.i.i248 = icmp eq i32 %918, 0
   br i1 %.not.i.i248, label %jxl_enum.exit250, label %919
@@ -1638,7 +1638,7 @@ jxl_enum.exit250:                                 ; preds = %896, %919
   %942 = tail call i32 @llvm.umin.i32(i32 %932, i32 %941)
   store i32 %942, ptr %48, align 8, !tbaa !15
   %943 = zext nneg i32 %940 to i64
-  %944 = getelementptr inbounds nuw i32, ptr %27, i64 %943
+  %944 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %943
   %945 = load i32, ptr %944, align 4, !tbaa !20
   %.not.i242 = icmp eq i32 %945, 0
   br i1 %.not.i242, label %jxl_u32.exit244, label %946
@@ -1717,9 +1717,9 @@ jxl_u32.exit244:                                  ; preds = %930, %946
   %986 = tail call i32 @llvm.umin.i32(i32 %954, i32 %985)
   store i32 %986, ptr %48, align 8, !tbaa !15
   %987 = zext nneg i32 %984 to i64
-  %988 = getelementptr inbounds nuw i32, ptr %19, i64 %987
+  %988 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %987
   %989 = load i32, ptr %988, align 4, !tbaa !20
-  %990 = getelementptr inbounds nuw i32, ptr %20, i64 %987
+  %990 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %987
   %991 = load i32, ptr %990, align 4, !tbaa !20
   %.not.i.i251 = icmp eq i32 %991, 0
   br i1 %.not.i.i251, label %jxl_enum.exit253, label %992
@@ -1776,9 +1776,9 @@ jxl_enum.exit253:                                 ; preds = %971, %992
   %1016 = tail call i32 @llvm.umin.i32(i32 %1000, i32 %1015)
   store i32 %1016, ptr %48, align 8, !tbaa !15
   %1017 = zext nneg i32 %1014 to i64
-  %1018 = getelementptr inbounds nuw i32, ptr %17, i64 %1017
+  %1018 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %1017
   %1019 = load i32, ptr %1018, align 4, !tbaa !20
-  %1020 = getelementptr inbounds nuw i32, ptr %18, i64 %1017
+  %1020 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %1017
   %1021 = load i32, ptr %1020, align 4, !tbaa !20
   %.not.i.i254 = icmp eq i32 %1021, 0
   br i1 %.not.i.i254, label %jxl_enum.exit256, label %1022
@@ -2177,9 +2177,9 @@ jpegxl_width_from_ratio.exit:                     ; preds = %23
   %85 = tail call i32 @llvm.umin.i32(i32 %16, i32 %84)
   store i32 %85, ptr %8, align 8, !tbaa !15
   %86 = zext nneg i32 %83 to i64
-  %87 = getelementptr inbounds nuw i32, ptr %6, i64 %86
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %86
   %88 = load i32, ptr %87, align 4, !tbaa !20
-  %89 = getelementptr inbounds nuw i32, ptr %7, i64 %86
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %86
   %90 = load i32, ptr %89, align 4, !tbaa !20
   %.not.i = icmp eq i32 %90, 0
   br i1 %.not.i, label %jxl_u32.exit, label %91
@@ -2317,9 +2317,9 @@ jpegxl_width_from_ratio.exit39.thread:            ; preds = %jxl_u32.exit, %jpeg
   %167 = tail call i32 @llvm.umin.i32(i32 %16, i32 %166)
   store i32 %167, ptr %8, align 8, !tbaa !15
   %168 = zext nneg i32 %165 to i64
-  %169 = getelementptr inbounds nuw i32, ptr %4, i64 %168
+  %169 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %168
   %170 = load i32, ptr %169, align 4, !tbaa !20
-  %171 = getelementptr inbounds nuw i32, ptr %5, i64 %168
+  %171 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %168
   %172 = load i32, ptr %171, align 4, !tbaa !20
   %.not.i33 = icmp eq i32 %172, 0
   br i1 %.not.i33, label %jxl_u32.exit35, label %173
@@ -2472,9 +2472,9 @@ define internal fastcc void @jpegxl_get_bit_depth(ptr noundef nonnull captures(n
   %37 = and i32 %36, 3
   store i32 %27, ptr %7, align 8, !tbaa !15
   %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr inbounds nuw i32, ptr %3, i64 %38
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !20
-  %41 = getelementptr inbounds nuw i32, ptr %4, i64 %38
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %38
   %42 = load i32, ptr %41, align 4, !tbaa !20
   %.not.i8 = icmp eq i32 %42, 0
   br i1 %.not.i8, label %jxl_u32.exit10, label %43
@@ -2560,9 +2560,9 @@ jxl_u32.exit10:                                   ; preds = %28, %get_bits_long.
   %90 = and i32 %89, 3
   store i32 %27, ptr %7, align 8, !tbaa !15
   %91 = zext nneg i32 %90 to i64
-  %92 = getelementptr inbounds nuw i32, ptr %5, i64 %91
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %91
   %93 = load i32, ptr %92, align 4, !tbaa !20
-  %94 = getelementptr inbounds nuw i32, ptr %6, i64 %91
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %91
   %95 = load i32, ptr %94, align 4, !tbaa !20
   %.not.i = icmp eq i32 %95, 0
   br i1 %.not.i, label %jxl_u32.exit, label %96

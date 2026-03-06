@@ -317,7 +317,7 @@ define hidden void @"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$G
 
 11:                                               ; preds = %11, %6
   %.0.i = phi i64 [ 0, %6 ], [ %29, %11 ]
-  %12 = getelementptr inbounds { ptr, ptr }, ptr %2, i64 %.0.i
+  %12 = getelementptr inbounds [16 x i8], ptr %2, i64 %.0.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !64)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !67)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !70)
@@ -358,7 +358,7 @@ define hidden void @"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$G
 
 41:                                               ; preds = %41, %36
   %.0.i1 = phi i64 [ 0, %36 ], [ %59, %41 ]
-  %42 = getelementptr inbounds { ptr, ptr }, ptr %32, i64 %.0.i1
+  %42 = getelementptr inbounds [16 x i8], ptr %32, i64 %.0.i1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !75)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !78)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !81)
@@ -403,7 +403,7 @@ define hidden void @"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$G
 
 11:                                               ; preds = %11, %6
   %.0.i = phi i64 [ 0, %6 ], [ %29, %11 ]
-  %12 = getelementptr inbounds { ptr, ptr }, ptr %2, i64 %.0.i
+  %12 = getelementptr inbounds [16 x i8], ptr %2, i64 %.0.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !85)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !88)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !91)
@@ -444,7 +444,7 @@ define hidden void @"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$G
 
 41:                                               ; preds = %41, %36
   %.0.i1 = phi i64 [ 0, %36 ], [ %59, %41 ]
-  %42 = getelementptr inbounds { ptr, ptr }, ptr %32, i64 %.0.i1
+  %42 = getelementptr inbounds [16 x i8], ptr %32, i64 %.0.i1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !95)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !98)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !101)
@@ -489,7 +489,7 @@ define hidden void @"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$G
 
 11:                                               ; preds = %11, %6
   %.0.i = phi i64 [ 0, %6 ], [ %29, %11 ]
-  %12 = getelementptr inbounds { ptr, ptr }, ptr %2, i64 %.0.i
+  %12 = getelementptr inbounds [16 x i8], ptr %2, i64 %.0.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !105)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !108)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !111)
@@ -530,7 +530,7 @@ define hidden void @"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$G
 
 41:                                               ; preds = %41, %36
   %.0.i1 = phi i64 [ 0, %36 ], [ %59, %41 ]
-  %42 = getelementptr inbounds { ptr, ptr }, ptr %32, i64 %.0.i1
+  %42 = getelementptr inbounds [16 x i8], ptr %32, i64 %.0.i1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !115)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !118)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !121)
@@ -575,7 +575,7 @@ define hidden void @"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$G
 
 11:                                               ; preds = %11, %6
   %.0.i = phi i64 [ 0, %6 ], [ %29, %11 ]
-  %12 = getelementptr inbounds { ptr, ptr }, ptr %2, i64 %.0.i
+  %12 = getelementptr inbounds [16 x i8], ptr %2, i64 %.0.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !125)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !128)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !131)
@@ -616,7 +616,7 @@ define hidden void @"_ZN109_$LT$alloc..collections..vec_deque..iter..Iter$LT$T$G
 
 41:                                               ; preds = %41, %36
   %.0.i1 = phi i64 [ 0, %36 ], [ %59, %41 ]
-  %42 = getelementptr inbounds { ptr, ptr }, ptr %32, i64 %.0.i1
+  %42 = getelementptr inbounds [16 x i8], ptr %32, i64 %.0.i1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !135)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !138)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !141)
@@ -929,7 +929,7 @@ define hidden void @_ZN11sqlx_sqlite9arguments15SqliteArguments3add17h41751eeed2
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h98d7f06a4775c1d8E.llvm.6880954279671448737.exit": ; preds = %5, %._crit_edge.i
   %17 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %7, %5 ]
   %18 = load ptr, ptr %0, align 8, !alias.scope !218, !noalias !221, !nonnull !5, !noundef !5
-  %19 = getelementptr inbounds { i32, [7 x i32] }, ptr %18, i64 %17
+  %19 = getelementptr inbounds [32 x i8], ptr %18, i64 %17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false)
   %20 = load i64, ptr %6, align 8, !alias.scope !218, !noalias !221, !noundef !5
   %21 = add i64 %20, 1
@@ -5645,7 +5645,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h98d7f06a4775c1d8E.ll
 9:                                                ; preds = %._crit_edge, %2
   %10 = phi i64 [ %.pre, %._crit_edge ], [ %4, %2 ]
   %11 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
-  %12 = getelementptr inbounds { i32, [7 x i32] }, ptr %11, i64 %10
+  %12 = getelementptr inbounds [32 x i8], ptr %11, i64 %10
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   %13 = load i64, ptr %3, align 8, !noundef !5
   %14 = add i64 %13, 1
@@ -8195,7 +8195,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 
 10:                                               ; preds = %10, %5
   %.0 = phi i64 [ 0, %5 ], [ %28, %10 ]
-  %11 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 %.0
+  %11 = getelementptr inbounds [16 x i8], ptr %0, i64 %.0
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1412)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1415)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1418)
@@ -8238,7 +8238,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 
 10:                                               ; preds = %10, %5
   %.0 = phi i64 [ 0, %5 ], [ %28, %10 ]
-  %11 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 %.0
+  %11 = getelementptr inbounds [16 x i8], ptr %0, i64 %.0
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1422)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1425)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1428)
@@ -8281,7 +8281,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 
 10:                                               ; preds = %10, %5
   %.0 = phi i64 [ 0, %5 ], [ %28, %10 ]
-  %11 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 %.0
+  %11 = getelementptr inbounds [16 x i8], ptr %0, i64 %.0
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1432)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1435)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1438)
@@ -8324,7 +8324,7 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 
 10:                                               ; preds = %10, %5
   %.0 = phi i64 [ 0, %5 ], [ %28, %10 ]
-  %11 = getelementptr inbounds { ptr, ptr }, ptr %0, i64 %.0
+  %11 = getelementptr inbounds [16 x i8], ptr %0, i64 %.0
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1442)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1445)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1448)
@@ -8395,7 +8395,7 @@ define hidden void @"_ZN91_$LT$sqlx_sqlite..arguments..SqliteArguments$u20$as$u2
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h98d7f06a4775c1d8E.llvm.6880954279671448737.exit.i": ; preds = %._crit_edge.i.i, %5
   %17 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %7, %5 ]
   %18 = load ptr, ptr %0, align 8, !alias.scope !1457, !noalias !1460, !nonnull !5, !noundef !5
-  %19 = getelementptr inbounds { i32, [7 x i32] }, ptr %18, i64 %17
+  %19 = getelementptr inbounds [32 x i8], ptr %18, i64 %17
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(32) %3, i64 32, i1 false), !noalias !1462
   %20 = load i64, ptr %6, align 8, !alias.scope !1457, !noalias !1460, !noundef !5
   %21 = add i64 %20, 1
@@ -9661,10 +9661,10 @@ define noundef zeroext i1 @"_ZN97_$LT$ockam_vault..software..legacy..secret_attr
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !4, !noundef !5
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN97_$LT$ockam_vault..software..legacy..secret_attributes..SecretType$u20$as$u20$core..fmt..Debug$GT$3fmt17h531bb1a870b4a6d7E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN97_$LT$ockam_vault..software..legacy..secret_attributes..SecretType$u20$as$u20$core..fmt..Debug$GT$3fmt17h531bb1a870b4a6d7E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN97_$LT$ockam_vault..software..legacy..secret_attributes..SecretType$u20$as$u20$core..fmt..Debug$GT$3fmt17h531bb1a870b4a6d7E.27", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN97_$LT$ockam_vault..software..legacy..secret_attributes..SecretType$u20$as$u20$core..fmt..Debug$GT$3fmt17h531bb1a870b4a6d7E.27", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hf5c6803265aa79e0E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5

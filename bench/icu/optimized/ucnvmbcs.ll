@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.UConverterImpl = type { i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.UConverterSharedData = type { i32, i32, ptr, ptr, i8, i8, ptr, i32, %struct.UConverterMBCSTable }
 %struct.UConverterMBCSTable = type { i8, i8, i8, i32, ptr, ptr, ptr, ptr, ptr, ptr, [64 x i16], ptr, ptr, i32, i8, i8, i8, i16, i32, ptr, ptr, ptr, ptr }
-%struct._MBCSToUFallback = type { i32, i32 }
 %struct.UDataInfo = type { i16, i16, i8, i8, i8, i8, [4 x i8], [4 x i8], [4 x i8] }
 %struct.UConverterLoadArgs = type { i32, i32, i8, i8, i16, i32, ptr, ptr, ptr }
 
@@ -57,7 +56,7 @@ define void @ucnv_MBCSGetFilteredUnicodeSetForUnicode_77(ptr noundef %0, ptr nou
 19:                                               ; preds = %16, %.loopexit191
   %indvars.iv238 = phi i64 [ 0, %16 ], [ %indvars.iv.next239, %.loopexit191 ]
   %.0160219 = phi i32 [ 0, %16 ], [ %.4164, %.loopexit191 ]
-  %20 = getelementptr inbounds nuw i16, ptr %7, i64 %indvars.iv238
+  %20 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %indvars.iv238
   %21 = load i16, ptr %20, align 2, !tbaa !17
   %22 = zext i16 %21 to i32
   %23 = icmp samesign ult i32 %., %22
@@ -65,20 +64,20 @@ define void @ucnv_MBCSGetFilteredUnicodeSetForUnicode_77(ptr noundef %0, ptr nou
 
 24:                                               ; preds = %19
   %25 = zext i16 %21 to i64
-  %26 = getelementptr inbounds nuw i16, ptr %7, i64 %25
+  %26 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %25
   br label %27
 
 27:                                               ; preds = %24, %.loopexit
   %indvars.iv234 = phi i64 [ 0, %24 ], [ %indvars.iv.next235, %.loopexit ]
   %.1161217 = phi i32 [ %.0160219, %24 ], [ %.3163, %.loopexit ]
-  %28 = getelementptr inbounds nuw i16, ptr %26, i64 %indvars.iv234
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %26, i64 %indvars.iv234
   %29 = load i16, ptr %28, align 2, !tbaa !17
   %.not187 = icmp eq i16 %29, 0
   br i1 %.not187, label %43, label %30
 
 30:                                               ; preds = %27
   %31 = zext i16 %29 to i64
-  %32 = getelementptr inbounds nuw i16, ptr %15, i64 %31
+  %32 = getelementptr inbounds nuw [2 x i8], ptr %15, i64 %31
   br label %33
 
 33:                                               ; preds = %40, %30
@@ -149,7 +148,7 @@ define void @ucnv_MBCSGetFilteredUnicodeSetForUnicode_77(ptr noundef %0, ptr nou
   %.1148216 = phi i16 [ 0, %51 ], [ %178, %.loopexit203 ]
   %.5165215 = phi i32 [ 0, %51 ], [ %.14, %.loopexit203 ]
   %58 = zext nneg i16 %.1148216 to i64
-  %59 = getelementptr inbounds nuw i16, ptr %7, i64 %58
+  %59 = getelementptr inbounds nuw [2 x i8], ptr %7, i64 %58
   %60 = load i16, ptr %59, align 2, !tbaa !17
   %61 = zext i16 %60 to i32
   %62 = icmp samesign ult i32 %52, %61
@@ -157,13 +156,13 @@ define void @ucnv_MBCSGetFilteredUnicodeSetForUnicode_77(ptr noundef %0, ptr nou
 
 63:                                               ; preds = %57
   %64 = zext i16 %60 to i64
-  %65 = getelementptr inbounds nuw i32, ptr %7, i64 %64
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %64
   br label %66
 
 66:                                               ; preds = %63, %.loopexit192
   %indvars.iv = phi i64 [ 0, %63 ], [ %indvars.iv.next, %.loopexit192 ]
   %.6166213 = phi i32 [ %.5165215, %63 ], [ %.13, %.loopexit192 ]
-  %67 = getelementptr inbounds nuw i32, ptr %65, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %indvars.iv
   %68 = load i32, ptr %67, align 4, !tbaa !27
   %.not177 = icmp eq i32 %68, 0
   br i1 %.not177, label %174, label %69
@@ -554,7 +553,7 @@ define void @ucnv_MBCSToUnicodeWithOffsets_77(ptr noundef %0, ptr noundef %1) #0
   store ptr %70, ptr %6, align 8, !tbaa !61
   %71 = load i8, ptr %69, align 1, !tbaa !28
   %72 = zext i8 %71 to i64
-  %73 = getelementptr inbounds nuw i32, ptr %.0147.i, i64 %72
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %.0147.i, i64 %72
   %74 = load i32, ptr %73, align 4, !tbaa !27
   %75 = trunc i32 %74 to i16
   %76 = getelementptr inbounds nuw i8, ptr %68, i64 2
@@ -564,7 +563,7 @@ define void @ucnv_MBCSToUnicodeWithOffsets_77(ptr noundef %0, ptr noundef %1) #0
   store ptr %77, ptr %6, align 8, !tbaa !61
   %78 = load i8, ptr %70, align 1, !tbaa !28
   %79 = zext i8 %78 to i64
-  %80 = getelementptr inbounds nuw i32, ptr %.0147.i, i64 %79
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %.0147.i, i64 %79
   %81 = load i32, ptr %80, align 4, !tbaa !27
   %82 = or i32 %81, %74
   %83 = trunc i32 %81 to i16
@@ -575,7 +574,7 @@ define void @ucnv_MBCSToUnicodeWithOffsets_77(ptr noundef %0, ptr noundef %1) #0
   store ptr %85, ptr %6, align 8, !tbaa !61
   %86 = load i8, ptr %77, align 1, !tbaa !28
   %87 = zext i8 %86 to i64
-  %88 = getelementptr inbounds nuw i32, ptr %.0147.i, i64 %87
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %.0147.i, i64 %87
   %89 = load i32, ptr %88, align 4, !tbaa !27
   %90 = or i32 %82, %89
   %91 = trunc i32 %89 to i16
@@ -586,7 +585,7 @@ define void @ucnv_MBCSToUnicodeWithOffsets_77(ptr noundef %0, ptr noundef %1) #0
   store ptr %93, ptr %6, align 8, !tbaa !61
   %94 = load i8, ptr %85, align 1, !tbaa !28
   %95 = zext i8 %94 to i64
-  %96 = getelementptr inbounds nuw i32, ptr %.0147.i, i64 %95
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %.0147.i, i64 %95
   %97 = load i32, ptr %96, align 4, !tbaa !27
   %98 = or i32 %90, %97
   %99 = trunc i32 %97 to i16
@@ -597,7 +596,7 @@ define void @ucnv_MBCSToUnicodeWithOffsets_77(ptr noundef %0, ptr noundef %1) #0
   store ptr %101, ptr %6, align 8, !tbaa !61
   %102 = load i8, ptr %93, align 1, !tbaa !28
   %103 = zext i8 %102 to i64
-  %104 = getelementptr inbounds nuw i32, ptr %.0147.i, i64 %103
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %.0147.i, i64 %103
   %105 = load i32, ptr %104, align 4, !tbaa !27
   %106 = or i32 %98, %105
   %107 = trunc i32 %105 to i16
@@ -608,7 +607,7 @@ define void @ucnv_MBCSToUnicodeWithOffsets_77(ptr noundef %0, ptr noundef %1) #0
   store ptr %109, ptr %6, align 8, !tbaa !61
   %110 = load i8, ptr %101, align 1, !tbaa !28
   %111 = zext i8 %110 to i64
-  %112 = getelementptr inbounds nuw i32, ptr %.0147.i, i64 %111
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %.0147.i, i64 %111
   %113 = load i32, ptr %112, align 4, !tbaa !27
   %114 = or i32 %106, %113
   %115 = trunc i32 %113 to i16
@@ -619,7 +618,7 @@ define void @ucnv_MBCSToUnicodeWithOffsets_77(ptr noundef %0, ptr noundef %1) #0
   store ptr %117, ptr %6, align 8, !tbaa !61
   %118 = load i8, ptr %109, align 1, !tbaa !28
   %119 = zext i8 %118 to i64
-  %120 = getelementptr inbounds nuw i32, ptr %.0147.i, i64 %119
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %.0147.i, i64 %119
   %121 = load i32, ptr %120, align 4, !tbaa !27
   %122 = or i32 %114, %121
   %123 = trunc i32 %121 to i16
@@ -630,7 +629,7 @@ define void @ucnv_MBCSToUnicodeWithOffsets_77(ptr noundef %0, ptr noundef %1) #0
   store ptr %125, ptr %6, align 8, !tbaa !61
   %126 = load i8, ptr %117, align 1, !tbaa !28
   %127 = zext i8 %126 to i64
-  %128 = getelementptr inbounds nuw i32, ptr %.0147.i, i64 %127
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %.0147.i, i64 %127
   %129 = load i32, ptr %128, align 4, !tbaa !27
   %130 = or i32 %122, %129
   %131 = trunc i32 %129 to i16
@@ -639,7 +638,7 @@ define void @ucnv_MBCSToUnicodeWithOffsets_77(ptr noundef %0, ptr noundef %1) #0
   %133 = getelementptr inbounds nuw i8, ptr %69, i64 9
   %134 = load i8, ptr %125, align 1, !tbaa !28
   %135 = zext i8 %134 to i64
-  %136 = getelementptr inbounds nuw i32, ptr %.0147.i, i64 %135
+  %136 = getelementptr inbounds nuw [4 x i8], ptr %.0147.i, i64 %135
   %137 = load i32, ptr %136, align 4, !tbaa !27
   %138 = or i32 %130, %137
   %139 = trunc i32 %137 to i16
@@ -648,7 +647,7 @@ define void @ucnv_MBCSToUnicodeWithOffsets_77(ptr noundef %0, ptr noundef %1) #0
   %141 = getelementptr inbounds nuw i8, ptr %69, i64 10
   %142 = load i8, ptr %133, align 1, !tbaa !28
   %143 = zext i8 %142 to i64
-  %144 = getelementptr inbounds nuw i32, ptr %.0147.i, i64 %143
+  %144 = getelementptr inbounds nuw [4 x i8], ptr %.0147.i, i64 %143
   %145 = load i32, ptr %144, align 4, !tbaa !27
   %146 = or i32 %138, %145
   %147 = trunc i32 %145 to i16
@@ -657,7 +656,7 @@ define void @ucnv_MBCSToUnicodeWithOffsets_77(ptr noundef %0, ptr noundef %1) #0
   %149 = getelementptr inbounds nuw i8, ptr %69, i64 11
   %150 = load i8, ptr %141, align 1, !tbaa !28
   %151 = zext i8 %150 to i64
-  %152 = getelementptr inbounds nuw i32, ptr %.0147.i, i64 %151
+  %152 = getelementptr inbounds nuw [4 x i8], ptr %.0147.i, i64 %151
   %153 = load i32, ptr %152, align 4, !tbaa !27
   %154 = or i32 %146, %153
   %155 = trunc i32 %153 to i16
@@ -666,7 +665,7 @@ define void @ucnv_MBCSToUnicodeWithOffsets_77(ptr noundef %0, ptr noundef %1) #0
   %157 = getelementptr inbounds nuw i8, ptr %69, i64 12
   %158 = load i8, ptr %149, align 1, !tbaa !28
   %159 = zext i8 %158 to i64
-  %160 = getelementptr inbounds nuw i32, ptr %.0147.i, i64 %159
+  %160 = getelementptr inbounds nuw [4 x i8], ptr %.0147.i, i64 %159
   %161 = load i32, ptr %160, align 4, !tbaa !27
   %162 = or i32 %154, %161
   %163 = trunc i32 %161 to i16
@@ -675,7 +674,7 @@ define void @ucnv_MBCSToUnicodeWithOffsets_77(ptr noundef %0, ptr noundef %1) #0
   %165 = getelementptr inbounds nuw i8, ptr %69, i64 13
   %166 = load i8, ptr %157, align 1, !tbaa !28
   %167 = zext i8 %166 to i64
-  %168 = getelementptr inbounds nuw i32, ptr %.0147.i, i64 %167
+  %168 = getelementptr inbounds nuw [4 x i8], ptr %.0147.i, i64 %167
   %169 = load i32, ptr %168, align 4, !tbaa !27
   %170 = or i32 %162, %169
   %171 = trunc i32 %169 to i16
@@ -684,7 +683,7 @@ define void @ucnv_MBCSToUnicodeWithOffsets_77(ptr noundef %0, ptr noundef %1) #0
   %173 = getelementptr inbounds nuw i8, ptr %69, i64 14
   %174 = load i8, ptr %165, align 1, !tbaa !28
   %175 = zext i8 %174 to i64
-  %176 = getelementptr inbounds nuw i32, ptr %.0147.i, i64 %175
+  %176 = getelementptr inbounds nuw [4 x i8], ptr %.0147.i, i64 %175
   %177 = load i32, ptr %176, align 4, !tbaa !27
   %178 = or i32 %170, %177
   %179 = trunc i32 %177 to i16
@@ -693,7 +692,7 @@ define void @ucnv_MBCSToUnicodeWithOffsets_77(ptr noundef %0, ptr noundef %1) #0
   %181 = getelementptr inbounds nuw i8, ptr %69, i64 15
   %182 = load i8, ptr %173, align 1, !tbaa !28
   %183 = zext i8 %182 to i64
-  %184 = getelementptr inbounds nuw i32, ptr %.0147.i, i64 %183
+  %184 = getelementptr inbounds nuw [4 x i8], ptr %.0147.i, i64 %183
   %185 = load i32, ptr %184, align 4, !tbaa !27
   %186 = or i32 %178, %185
   %187 = trunc i32 %185 to i16
@@ -703,7 +702,7 @@ define void @ucnv_MBCSToUnicodeWithOffsets_77(ptr noundef %0, ptr noundef %1) #0
   store ptr %189, ptr %6, align 8, !tbaa !61
   %190 = load i8, ptr %181, align 1, !tbaa !28
   %191 = zext i8 %190 to i64
-  %192 = getelementptr inbounds nuw i32, ptr %.0147.i, i64 %191
+  %192 = getelementptr inbounds nuw [4 x i8], ptr %.0147.i, i64 %191
   %193 = load i32, ptr %192, align 4, !tbaa !27
   %194 = or i32 %186, %193
   %195 = trunc i32 %193 to i16
@@ -827,7 +826,7 @@ define void @ucnv_MBCSToUnicodeWithOffsets_77(ptr noundef %0, ptr noundef %1) #0
   store ptr %252, ptr %6, align 8, !tbaa !61
   %253 = load i8, ptr %249, align 1, !tbaa !28
   %254 = zext i8 %253 to i64
-  %255 = getelementptr inbounds nuw i32, ptr %.0147.i, i64 %254
+  %255 = getelementptr inbounds nuw [4 x i8], ptr %.0147.i, i64 %254
   %256 = load i32, ptr %255, align 4, !tbaa !27
   %257 = icmp slt i32 %256, -2146435072
   br i1 %257, label %.outer.backedge.i, label %259
@@ -1048,7 +1047,7 @@ _ZL31ucnv_MBCSSingleToBMPWithOffsetsP23UConverterToUnicodeArgsP10UErrorCode.exit
   store ptr %349, ptr %3, align 8, !tbaa !61
   %350 = load i8, ptr %345, align 1, !tbaa !28
   %351 = zext i8 %350 to i64
-  %352 = getelementptr inbounds nuw i32, ptr %.0.i, i64 %351
+  %352 = getelementptr inbounds nuw [4 x i8], ptr %.0.i, i64 %351
   %353 = load i32, ptr %352, align 4, !tbaa !27
   %354 = icmp slt i32 %353, -2146435072
   br i1 %354, label %355, label %365
@@ -1317,10 +1316,10 @@ _ZL35ucnv_MBCSSingleToUnicodeWithOffsetsP23UConverterToUnicodeArgsP10UErrorCode.
   %.3219 = phi i8 [ %.4220, %515 ], [ %.1217449, %471 ]
   %.2 = phi i32 [ %.3, %515 ], [ %.0214450, %471 ]
   %476 = zext i8 %.3219 to i64
-  %477 = getelementptr inbounds nuw [256 x i32], ptr %.0, i64 %476
+  %477 = getelementptr inbounds nuw [1024 x i8], ptr %.0, i64 %476
   %478 = load i8, ptr %475, align 1, !tbaa !28
   %479 = zext i8 %478 to i64
-  %480 = getelementptr inbounds nuw i32, ptr %477, i64 %479
+  %480 = getelementptr inbounds nuw [4 x i8], ptr %477, i64 %479
   %481 = load i32, ptr %480, align 4, !tbaa !27
   %482 = icmp sgt i32 %481, -1
   br i1 %482, label %483, label %509
@@ -1335,10 +1334,10 @@ _ZL35ucnv_MBCSSingleToUnicodeWithOffsetsP23UConverterToUnicodeArgsP10UErrorCode.
 
 488:                                              ; preds = %483
   %489 = zext nneg i32 %484 to i64
-  %490 = getelementptr inbounds nuw [256 x i32], ptr %.0, i64 %489
+  %490 = getelementptr inbounds nuw [1024 x i8], ptr %.0, i64 %489
   %491 = load i8, ptr %486, align 1, !tbaa !28
   %492 = zext i8 %491 to i64
-  %493 = getelementptr inbounds nuw i32, ptr %490, i64 %492
+  %493 = getelementptr inbounds nuw [4 x i8], ptr %490, i64 %492
   %494 = load i32, ptr %493, align 4, !tbaa !27
   %495 = and i32 %494, -2131755008
   %or.cond313 = icmp eq i32 %495, -2143289344
@@ -1348,7 +1347,7 @@ _ZL35ucnv_MBCSSingleToUnicodeWithOffsetsP23UConverterToUnicodeArgsP10UErrorCode.
   %497 = and i32 %494, 65535
   %498 = add nuw nsw i32 %497, %485
   %499 = zext nneg i32 %498 to i64
-  %500 = getelementptr inbounds nuw i16, ptr %444, i64 %499
+  %500 = getelementptr inbounds nuw [2 x i8], ptr %444, i64 %499
   %501 = load i16, ptr %500, align 2, !tbaa !17
   %502 = icmp ult i16 %501, -2
   br i1 %502, label %503, label %.loopexit.sink.split
@@ -1397,10 +1396,10 @@ _ZL35ucnv_MBCSSingleToUnicodeWithOffsetsP23UConverterToUnicodeArgsP10UErrorCode.
   %.6222 = phi i8 [ %.7223, %569 ], [ %.1217449, %471 ]
   %.5 = phi i32 [ %.6, %569 ], [ %.0214450, %471 ]
   %524 = zext i8 %.6222 to i64
-  %525 = getelementptr inbounds nuw [256 x i32], ptr %.0, i64 %524
+  %525 = getelementptr inbounds nuw [1024 x i8], ptr %.0, i64 %524
   %526 = load i8, ptr %523, align 1, !tbaa !28
   %527 = zext i8 %526 to i64
-  %528 = getelementptr inbounds nuw i32, ptr %525, i64 %527
+  %528 = getelementptr inbounds nuw [4 x i8], ptr %525, i64 %527
   %529 = load i32, ptr %528, align 4, !tbaa !27
   %530 = icmp sgt i32 %529, -1
   br i1 %530, label %531, label %561
@@ -1415,10 +1414,10 @@ _ZL35ucnv_MBCSSingleToUnicodeWithOffsetsP23UConverterToUnicodeArgsP10UErrorCode.
 
 536:                                              ; preds = %531
   %537 = zext nneg i32 %532 to i64
-  %538 = getelementptr inbounds nuw [256 x i32], ptr %.0, i64 %537
+  %538 = getelementptr inbounds nuw [1024 x i8], ptr %.0, i64 %537
   %539 = load i8, ptr %534, align 1, !tbaa !28
   %540 = zext i8 %539 to i64
-  %541 = getelementptr inbounds nuw i32, ptr %538, i64 %540
+  %541 = getelementptr inbounds nuw [4 x i8], ptr %538, i64 %540
   %542 = load i32, ptr %541, align 4, !tbaa !27
   %543 = and i32 %542, -2131755008
   %or.cond315 = icmp eq i32 %543, -2143289344
@@ -1428,7 +1427,7 @@ _ZL35ucnv_MBCSSingleToUnicodeWithOffsetsP23UConverterToUnicodeArgsP10UErrorCode.
   %545 = and i32 %542, 65535
   %546 = add nuw nsw i32 %545, %533
   %547 = zext nneg i32 %546 to i64
-  %548 = getelementptr inbounds nuw i16, ptr %444, i64 %547
+  %548 = getelementptr inbounds nuw [2 x i8], ptr %444, i64 %547
   %549 = load i16, ptr %548, align 2, !tbaa !17
   %550 = icmp ult i16 %549, -2
   br i1 %550, label %551, label %559
@@ -1528,7 +1527,7 @@ _ZL35ucnv_MBCSSingleToUnicodeWithOffsetsP23UConverterToUnicodeArgsP10UErrorCode.
 
 586:                                              ; preds = %469
   %587 = zext i8 %.1217449 to i64
-  %588 = getelementptr inbounds nuw [256 x i32], ptr %.0, i64 %587
+  %588 = getelementptr inbounds nuw [1024 x i8], ptr %.0, i64 %587
   %589 = getelementptr inbounds nuw i8, ptr %.promoted445, i64 1
   store ptr %589, ptr %9, align 8, !tbaa !61
   %590 = load i8, ptr %.promoted445, align 1, !tbaa !28
@@ -1536,7 +1535,7 @@ _ZL35ucnv_MBCSSingleToUnicodeWithOffsetsP23UConverterToUnicodeArgsP10UErrorCode.
   %592 = getelementptr inbounds i8, ptr %449, i64 %591
   store i8 %590, ptr %592, align 1, !tbaa !28
   %593 = zext i8 %590 to i64
-  %594 = getelementptr inbounds nuw i32, ptr %588, i64 %593
+  %594 = getelementptr inbounds nuw [4 x i8], ptr %588, i64 %593
   %595 = load i32, ptr %594, align 4, !tbaa !27
   br label %596
 
@@ -1589,7 +1588,7 @@ _ZL35ucnv_MBCSSingleToUnicodeWithOffsetsP23UConverterToUnicodeArgsP10UErrorCode.
   %615 = and i32 %.5236, 65535
   %616 = add i32 %.7, %615
   %617 = zext i32 %616 to i64
-  %618 = getelementptr inbounds nuw i16, ptr %444, i64 %617
+  %618 = getelementptr inbounds nuw [2 x i8], ptr %444, i64 %617
   %619 = load i16, ptr %618, align 2, !tbaa !17
   %620 = icmp ult i16 %619, -2
   br i1 %620, label %621, label %626
@@ -1631,7 +1630,7 @@ _ZL35ucnv_MBCSSingleToUnicodeWithOffsetsP23UConverterToUnicodeArgsP10UErrorCode.
   %635 = add i32 %.01721.i, %.022.i
   %636 = lshr i32 %635, 1
   %637 = zext nneg i32 %636 to i64
-  %638 = getelementptr inbounds nuw %struct._MBCSToUFallback, ptr %634, i64 %637
+  %638 = getelementptr inbounds nuw [8 x i8], ptr %634, i64 %637
   %639 = load i32, ptr %638, align 4, !tbaa !82
   %640 = icmp ult i32 %616, %639
   %.017..i = select i1 %640, i32 %.01721.i, i32 %636
@@ -1646,7 +1645,7 @@ _ZL35ucnv_MBCSSingleToUnicodeWithOffsetsP23UConverterToUnicodeArgsP10UErrorCode.
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %632
   %.017.lcssa.i = phi i64 [ 0, %632 ], [ %643, %._crit_edge.loopexit.i ]
-  %644 = getelementptr inbounds nuw %struct._MBCSToUFallback, ptr %634, i64 %.017.lcssa.i
+  %644 = getelementptr inbounds nuw [8 x i8], ptr %634, i64 %.017.lcssa.i
   %645 = load i32, ptr %644, align 4, !tbaa !82
   %646 = icmp eq i32 %616, %645
   br i1 %646, label %_ZL20ucnv_MBCSGetFallbackP19UConverterMBCSTablej.exit, label %_ZL20ucnv_MBCSGetFallbackP19UConverterMBCSTablej.exit.thread
@@ -1692,7 +1691,7 @@ _ZL20ucnv_MBCSGetFallbackP19UConverterMBCSTablej.exit: ; preds = %._crit_edge.i
   %663 = add i32 %.7, %662
   %664 = add i32 %663, 1
   %665 = zext i32 %663 to i64
-  %666 = getelementptr inbounds nuw i16, ptr %444, i64 %665
+  %666 = getelementptr inbounds nuw [2 x i8], ptr %444, i64 %665
   %667 = load i16, ptr %666, align 2, !tbaa !17
   %668 = icmp ult i16 %667, -10240
   br i1 %668, label %669, label %674
@@ -1733,7 +1732,7 @@ _ZL20ucnv_MBCSGetFallbackP19UConverterMBCSTablej.exit: ; preds = %._crit_edge.i
 682:                                              ; preds = %680, %676
   %683 = icmp ult ptr %678, %437
   %684 = zext i32 %664 to i64
-  %685 = getelementptr inbounds nuw i16, ptr %444, i64 %684
+  %685 = getelementptr inbounds nuw [2 x i8], ptr %444, i64 %684
   %686 = load i16, ptr %685, align 2, !tbaa !17
   br i1 %683, label %687, label %692
 
@@ -1765,7 +1764,7 @@ _ZL20ucnv_MBCSGetFallbackP19UConverterMBCSTablej.exit: ; preds = %._crit_edge.i
 
 697:                                              ; preds = %695
   %698 = zext i32 %664 to i64
-  %699 = getelementptr inbounds nuw i16, ptr %444, i64 %698
+  %699 = getelementptr inbounds nuw [2 x i8], ptr %444, i64 %698
   %700 = load i16, ptr %699, align 2, !tbaa !17
   %701 = getelementptr inbounds nuw i8, ptr %598, i64 2
   store ptr %701, ptr %10, align 8, !tbaa !56
@@ -1891,7 +1890,7 @@ _ZL20ucnv_MBCSGetFallbackP19UConverterMBCSTablej.exit.thread: ; preds = %_ZL20uc
   %752 = load i8, ptr %751, align 1, !tbaa !76
   %.not = icmp ne i8 %752, 0
   %753 = zext i8 %.9 to i64
-  %754 = getelementptr inbounds nuw [256 x i32], ptr %.0, i64 %753
+  %754 = getelementptr inbounds nuw [1024 x i8], ptr %.0, i64 %753
   %wide.trip.count = zext nneg i8 %.3227 to i64
   br label %755
 
@@ -1900,7 +1899,7 @@ _ZL20ucnv_MBCSGetFallbackP19UConverterMBCSTablej.exit.thread: ; preds = %_ZL20uc
   %756 = getelementptr inbounds nuw i8, ptr %449, i64 %indvars.iv
   %757 = load i8, ptr %756, align 1, !tbaa !28
   %758 = zext i8 %757 to i64
-  %759 = getelementptr inbounds nuw i32, ptr %754, i64 %758
+  %759 = getelementptr inbounds nuw [4 x i8], ptr %754, i64 %758
   %760 = load i32, ptr %759, align 4, !tbaa !27
   %761 = icmp sgt i32 %760, -1
   br i1 %761, label %762, label %_ZL14isSingleOrLeadPA256_Kihah.exit
@@ -2087,7 +2086,7 @@ define internal fastcc noundef i32 @_ZL20ucnv_MBCSGetFallbackP19UConverterMBCSTa
   %8 = add i32 %.022, %.01721
   %9 = lshr i32 %8, 1
   %10 = zext nneg i32 %9 to i64
-  %11 = getelementptr inbounds nuw %struct._MBCSToUFallback, ptr %7, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !82
   %13 = icmp ult i32 %1, %12
   %.017. = select i1 %13, i32 %.01721, i32 %9
@@ -2102,7 +2101,7 @@ define internal fastcc noundef i32 @_ZL20ucnv_MBCSGetFallbackP19UConverterMBCSTa
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %5
   %.017.lcssa = phi i64 [ 0, %5 ], [ %16, %._crit_edge.loopexit ]
-  %17 = getelementptr inbounds nuw %struct._MBCSToUFallback, ptr %7, i64 %.017.lcssa
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.017.lcssa
   %18 = load i32, ptr %17, align 4, !tbaa !82
   %19 = icmp eq i32 %1, %18
   br i1 %19, label %20, label %23
@@ -2141,12 +2140,12 @@ define i32 @ucnv_MBCSSimpleGetNextUChar_77(ptr noundef readonly captures(none) %
   %.061 = phi i8 [ %26, %24 ], [ %13, %6 ]
   %.058 = phi i32 [ %28, %24 ], [ 0, %6 ]
   %16 = zext i8 %.061 to i64
-  %17 = getelementptr inbounds nuw [256 x i32], ptr %9, i64 %16
+  %17 = getelementptr inbounds nuw [1024 x i8], ptr %9, i64 %16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv
   %19 = load i8, ptr %18, align 1, !tbaa !28
   %20 = zext i8 %19 to i64
-  %21 = getelementptr inbounds nuw i32, ptr %17, i64 %20
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %20
   %22 = load i32, ptr %21, align 4, !tbaa !27
   %23 = icmp sgt i32 %22, -1
   br i1 %23, label %24, label %30
@@ -2177,7 +2176,7 @@ define i32 @ucnv_MBCSSimpleGetNextUChar_77(ptr noundef readonly captures(none) %
   %35 = and i32 %22, 65535
   %36 = add i32 %35, %.058
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw i16, ptr %11, i64 %37
+  %38 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %37
   %39 = load i16, ptr %38, align 2, !tbaa !17
   %40 = zext i16 %39 to i32
   %.not = icmp eq i16 %39, -2
@@ -2196,7 +2195,7 @@ define i32 @ucnv_MBCSSimpleGetNextUChar_77(ptr noundef readonly captures(none) %
   %47 = add i32 %46, %.058
   %48 = add i32 %47, 1
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw i16, ptr %11, i64 %49
+  %50 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %49
   %51 = load i16, ptr %50, align 2, !tbaa !17
   %52 = zext i16 %51 to i32
   %53 = icmp ult i16 %51, -10240
@@ -2210,7 +2209,7 @@ define i32 @ucnv_MBCSSimpleGetNextUChar_77(ptr noundef readonly captures(none) %
   %57 = shl nuw nsw i32 %52, 10
   %58 = and i32 %57, 1047552
   %59 = zext i32 %48 to i64
-  %60 = getelementptr inbounds nuw i16, ptr %11, i64 %59
+  %60 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %59
   %61 = load i16, ptr %60, align 2, !tbaa !17
   %62 = zext i16 %61 to i32
   %63 = add nuw nsw i32 %58, 9216
@@ -2224,7 +2223,7 @@ define i32 @ucnv_MBCSSimpleGetNextUChar_77(ptr noundef readonly captures(none) %
 
 68:                                               ; preds = %65
   %69 = zext i32 %48 to i64
-  %70 = getelementptr inbounds nuw i16, ptr %11, i64 %69
+  %70 = getelementptr inbounds nuw [2 x i8], ptr %11, i64 %69
   %71 = load i16, ptr %70, align 2, !tbaa !17
   %72 = zext i16 %71 to i32
   br label %83
@@ -2427,20 +2426,20 @@ define void @ucnv_MBCSFromUnicodeWithOffsets_77(ptr noundef %0, ptr noundef %1) 
 91:                                               ; preds = %83, %.lr.ph138.i
   %92 = lshr i32 %81, 10
   %93 = zext nneg i32 %92 to i64
-  %94 = getelementptr inbounds nuw i16, ptr %58, i64 %93
+  %94 = getelementptr inbounds nuw [2 x i8], ptr %58, i64 %93
   %95 = load i16, ptr %94, align 2, !tbaa !17
   %96 = zext i16 %95 to i32
   %97 = lshr i32 %81, 4
   %98 = and i32 %97, 63
   %99 = add nuw nsw i32 %98, %96
   %100 = zext nneg i32 %99 to i64
-  %101 = getelementptr inbounds nuw i16, ptr %58, i64 %100
+  %101 = getelementptr inbounds nuw [2 x i8], ptr %58, i64 %100
   %102 = load i16, ptr %101, align 2, !tbaa !17
   %103 = zext i16 %102 to i32
   %104 = and i32 %81, 15
   %105 = add nuw nsw i32 %104, %103
   %106 = zext nneg i32 %105 to i64
-  %107 = getelementptr inbounds nuw i16, ptr %.0105.i, i64 %106
+  %107 = getelementptr inbounds nuw [2 x i8], ptr %.0105.i, i64 %106
   %108 = load i16, ptr %107, align 2, !tbaa !17
   %.not120.i = icmp ugt i16 %77, %108
   br i1 %.not120.i, label %109, label %.backedge.i
@@ -2749,20 +2748,20 @@ _ZL33ucnv_MBCSSingleFromBMPWithOffsetsP25UConverterFromUnicodeArgsP10UErrorCode.
   %.2.i453 = phi i32 [ %.1.i, %._crit_edge.i ], [ %.063.i, %256 ]
   %264 = ashr i32 %.369.i, 10
   %265 = sext i32 %264 to i64
-  %266 = getelementptr inbounds i16, ptr %219, i64 %265
+  %266 = getelementptr inbounds [2 x i8], ptr %219, i64 %265
   %267 = load i16, ptr %266, align 2, !tbaa !17
   %268 = zext i16 %267 to i32
   %269 = lshr i32 %.369.i, 4
   %270 = and i32 %269, 63
   %271 = add nuw nsw i32 %270, %268
   %272 = zext nneg i32 %271 to i64
-  %273 = getelementptr inbounds nuw i16, ptr %219, i64 %272
+  %273 = getelementptr inbounds nuw [2 x i8], ptr %219, i64 %272
   %274 = load i16, ptr %273, align 2, !tbaa !17
   %275 = zext i16 %274 to i32
   %276 = and i32 %.369.i, 15
   %277 = add nuw nsw i32 %276, %275
   %278 = zext nneg i32 %277 to i64
-  %279 = getelementptr inbounds nuw i16, ptr %.064.i, i64 %278
+  %279 = getelementptr inbounds nuw [2 x i8], ptr %.064.i, i64 %278
   %280 = load i16, ptr %279, align 2, !tbaa !17
   %281 = zext i16 %280 to i32
   %.not86.i = icmp samesign ugt i32 %.065.i, %281
@@ -2971,13 +2970,13 @@ _ZL37ucnv_MBCSSingleFromUnicodeWithOffsetsP25UConverterFromUnicodeArgsP10UErrorC
   %384 = phi ptr [ %383, %.thread.i467.loopexit ], [ %381, %380 ]
   %385 = lshr i32 %363, 6
   %386 = zext nneg i32 %385 to i64
-  %387 = getelementptr inbounds nuw i16, ptr %344, i64 %386
+  %387 = getelementptr inbounds nuw [2 x i8], ptr %344, i64 %386
   %388 = load i16, ptr %387, align 2, !tbaa !17
   %389 = zext i16 %388 to i32
   %390 = and i32 %363, 63
   %391 = add nuw nsw i32 %390, %389
   %392 = zext nneg i32 %391 to i64
-  %393 = getelementptr inbounds nuw i16, ptr %.099.i, i64 %392
+  %393 = getelementptr inbounds nuw [2 x i8], ptr %.099.i, i64 %392
   %394 = load i16, ptr %393, align 2, !tbaa !17
   %395 = icmp eq i16 %394, 0
   br i1 %395, label %450, label %476
@@ -3038,21 +3037,21 @@ select.unfold.i:                                  ; preds = %406
   %.4.i461 = phi i32 [ %.098.i, %select.unfold.i ], [ %.1167.i548, %396 ]
   %420 = ashr i32 %.4105.i, 10
   %421 = sext i32 %420 to i64
-  %422 = getelementptr inbounds i16, ptr %342, i64 %421
+  %422 = getelementptr inbounds [2 x i8], ptr %342, i64 %421
   %423 = load i16, ptr %422, align 2, !tbaa !17
   %424 = zext i16 %423 to i32
   %425 = lshr i32 %.4105.i, 4
   %426 = and i32 %425, 63
   %427 = add nuw nsw i32 %426, %424
   %428 = zext nneg i32 %427 to i64
-  %429 = getelementptr inbounds nuw i32, ptr %342, i64 %428
+  %429 = getelementptr inbounds nuw [4 x i8], ptr %342, i64 %428
   %430 = load i32, ptr %429, align 4, !tbaa !27
   %431 = shl i32 %430, 4
   %432 = and i32 %431, 1048560
   %433 = and i32 %.4105.i, 15
   %434 = or disjoint i32 %432, %433
   %435 = zext nneg i32 %434 to i64
-  %436 = getelementptr inbounds nuw i16, ptr %.099.i, i64 %435
+  %436 = getelementptr inbounds nuw [2 x i8], ptr %.099.i, i64 %435
   %437 = load i16, ptr %436, align 2, !tbaa !17
   %438 = shl nuw i32 65536, %433
   %439 = and i32 %430, %438
@@ -3384,7 +3383,7 @@ _ZL12getSISOBytes11SISO_OptionjPh.exit471:        ; preds = %550, %546, %552, %5
 592:                                              ; preds = %588
   %593 = lshr i32 %569, 6
   %594 = zext nneg i32 %593 to i64
-  %595 = getelementptr inbounds nuw i16, ptr %.0315, i64 %594
+  %595 = getelementptr inbounds nuw [2 x i8], ptr %.0315, i64 %594
   %596 = load i16, ptr %595, align 2, !tbaa !17
   %597 = zext i16 %596 to i32
   switch i8 %31, label %958 [
@@ -3401,7 +3400,7 @@ _ZL12getSISOBytes11SISO_OptionjPh.exit471:        ; preds = %550, %546, %552, %5
   %599 = and i32 %569, 63
   %600 = add nuw nsw i32 %599, %597
   %601 = zext nneg i32 %600 to i64
-  %602 = getelementptr inbounds nuw i16, ptr %.0331, i64 %601
+  %602 = getelementptr inbounds nuw [2 x i8], ptr %.0331, i64 %601
   %603 = load i16, ptr %602, align 2, !tbaa !17
   %604 = zext i16 %603 to i32
   %605 = icmp ult i16 %603, 256
@@ -3417,7 +3416,7 @@ _ZL12getSISOBytes11SISO_OptionjPh.exit471:        ; preds = %550, %546, %552, %5
   %610 = and i32 %569, 63
   %611 = add nuw nsw i32 %610, %597
   %612 = zext nneg i32 %611 to i64
-  %613 = getelementptr inbounds nuw i16, ptr %.0331, i64 %612
+  %613 = getelementptr inbounds nuw [2 x i8], ptr %.0331, i64 %612
   %614 = load i16, ptr %613, align 2, !tbaa !17
   %615 = zext i16 %614 to i32
   %616 = icmp ult i16 %614, 256
@@ -3471,7 +3470,7 @@ _ZL12getSISOBytes11SISO_OptionjPh.exit471:        ; preds = %550, %546, %552, %5
   %640 = and i32 %569, 63
   %641 = add nuw nsw i32 %640, %597
   %642 = zext nneg i32 %641 to i64
-  %643 = getelementptr inbounds nuw i16, ptr %.0331, i64 %642
+  %643 = getelementptr inbounds nuw [2 x i8], ptr %.0331, i64 %642
   %644 = load i16, ptr %643, align 2, !tbaa !17
   %645 = icmp ult i16 %644, 256
   br i1 %645, label %928, label %646
@@ -3514,7 +3513,7 @@ _ZL12getSISOBytes11SISO_OptionjPh.exit471:        ; preds = %550, %546, %552, %5
   %672 = and i32 %569, 63
   %673 = add nuw nsw i32 %672, %597
   %674 = zext nneg i32 %673 to i64
-  %675 = getelementptr inbounds nuw i32, ptr %.0331, i64 %674
+  %675 = getelementptr inbounds nuw [4 x i8], ptr %.0331, i64 %674
   %676 = load i32, ptr %675, align 4, !tbaa !27
   %677 = icmp ult i32 %676, 256
   br i1 %677, label %678, label %680
@@ -3536,7 +3535,7 @@ _ZL12getSISOBytes11SISO_OptionjPh.exit471:        ; preds = %550, %546, %552, %5
   %685 = and i32 %569, 63
   %686 = add nuw nsw i32 %685, %597
   %687 = zext nneg i32 %686 to i64
-  %688 = getelementptr inbounds nuw i16, ptr %.0331, i64 %687
+  %688 = getelementptr inbounds nuw [2 x i8], ptr %.0331, i64 %687
   %689 = load i16, ptr %688, align 2, !tbaa !17
   %690 = zext i16 %689 to i32
   %691 = icmp ult i16 %689, 256
@@ -3665,14 +3664,14 @@ _ZL12getSISOBytes11SISO_OptionjPh.exit471:        ; preds = %550, %546, %552, %5
   %.5 = phi i32 [ %.0312, %748 ], [ %.1313557790, %732 ]
   %759 = ashr i32 %.4343, 10
   %760 = sext i32 %759 to i64
-  %761 = getelementptr inbounds i16, ptr %528, i64 %760
+  %761 = getelementptr inbounds [2 x i8], ptr %528, i64 %760
   %762 = load i16, ptr %761, align 2, !tbaa !17
   %763 = zext i16 %762 to i32
   %764 = lshr i32 %.4343, 4
   %765 = and i32 %764, 63
   %766 = add nuw nsw i32 %765, %763
   %767 = zext nneg i32 %766 to i64
-  %768 = getelementptr inbounds nuw i32, ptr %528, i64 %767
+  %768 = getelementptr inbounds nuw [4 x i8], ptr %528, i64 %767
   %769 = load i32, ptr %768, align 4, !tbaa !27
   switch i8 %31, label %.critedge._crit_edge [
     i8 1, label %770
@@ -3694,7 +3693,7 @@ _ZL12getSISOBytes11SISO_OptionjPh.exit471:        ; preds = %550, %546, %552, %5
   %773 = and i32 %.4343, 15
   %774 = or disjoint i32 %772, %773
   %775 = zext nneg i32 %774 to i64
-  %776 = getelementptr inbounds nuw i16, ptr %.0331, i64 %775
+  %776 = getelementptr inbounds nuw [2 x i8], ptr %.0331, i64 %775
   %777 = load i16, ptr %776, align 2, !tbaa !17
   %778 = zext i16 %777 to i32
   %779 = icmp ult i16 %777, 256
@@ -3709,7 +3708,7 @@ _ZL12getSISOBytes11SISO_OptionjPh.exit471:        ; preds = %550, %546, %552, %5
   %784 = and i32 %.4343, 15
   %785 = or disjoint i32 %783, %784
   %786 = zext nneg i32 %785 to i64
-  %787 = getelementptr inbounds nuw i16, ptr %.0331, i64 %786
+  %787 = getelementptr inbounds nuw [2 x i8], ptr %.0331, i64 %786
   %788 = load i16, ptr %787, align 2, !tbaa !17
   %789 = zext i16 %788 to i32
   %790 = icmp ult i16 %788, 256
@@ -3776,7 +3775,7 @@ _ZL12getSISOBytes11SISO_OptionjPh.exit471:        ; preds = %550, %546, %552, %5
   %823 = and i32 %.4343, 15
   %824 = or disjoint i32 %822, %823
   %825 = zext nneg i32 %824 to i64
-  %826 = getelementptr inbounds nuw i16, ptr %.0331, i64 %825
+  %826 = getelementptr inbounds nuw [2 x i8], ptr %.0331, i64 %825
   %827 = load i16, ptr %826, align 2, !tbaa !17
   %828 = icmp ult i16 %827, 256
   br i1 %828, label %915, label %829
@@ -3819,7 +3818,7 @@ _ZL12getSISOBytes11SISO_OptionjPh.exit471:        ; preds = %550, %546, %552, %5
   %857 = and i32 %.4343, 15
   %858 = or disjoint i32 %856, %857
   %859 = zext nneg i32 %858 to i64
-  %860 = getelementptr inbounds nuw i32, ptr %.0331, i64 %859
+  %860 = getelementptr inbounds nuw [4 x i8], ptr %.0331, i64 %859
   %861 = load i32, ptr %860, align 4, !tbaa !27
   %862 = icmp ult i32 %861, 256
   br i1 %862, label %915, label %863
@@ -3839,7 +3838,7 @@ _ZL12getSISOBytes11SISO_OptionjPh.exit471:        ; preds = %550, %546, %552, %5
   %870 = and i32 %.4343, 15
   %871 = or disjoint i32 %869, %870
   %872 = zext nneg i32 %871 to i64
-  %873 = getelementptr inbounds nuw i16, ptr %.0331, i64 %872
+  %873 = getelementptr inbounds nuw [2 x i8], ptr %.0331, i64 %872
   %874 = load i16, ptr %873, align 2, !tbaa !17
   %875 = zext i16 %874 to i32
   %876 = icmp ult i16 %874, 256
@@ -4426,20 +4425,20 @@ define range(i32 -1, -2147483648) i32 @ucnv_MBCSFromUChar32_77(ptr noundef reado
   %17 = load ptr, ptr %16, align 8, !tbaa !116
   %18 = ashr i32 %1, 10
   %19 = sext i32 %18 to i64
-  %20 = getelementptr inbounds i16, ptr %12, i64 %19
+  %20 = getelementptr inbounds [2 x i8], ptr %12, i64 %19
   %21 = load i16, ptr %20, align 2, !tbaa !17
   %22 = zext i16 %21 to i32
   %23 = lshr i32 %1, 4
   %24 = and i32 %23, 63
   %25 = add nuw nsw i32 %24, %22
   %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr inbounds nuw i16, ptr %12, i64 %26
+  %27 = getelementptr inbounds nuw [2 x i8], ptr %12, i64 %26
   %28 = load i16, ptr %27, align 2, !tbaa !17
   %29 = zext i16 %28 to i32
   %30 = and i32 %1, 15
   %31 = add nuw nsw i32 %30, %29
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds nuw i16, ptr %17, i64 %32
+  %33 = getelementptr inbounds nuw [2 x i8], ptr %17, i64 %32
   %34 = load i16, ptr %33, align 2, !tbaa !17
   %.not49 = icmp eq i8 %3, 0
   br i1 %.not49, label %37, label %35
@@ -4463,12 +4462,12 @@ define range(i32 -1, -2147483648) i32 @ucnv_MBCSFromUChar32_77(ptr noundef reado
   %44 = and i32 %43, 63
   %45 = ashr i32 %1, 10
   %46 = sext i32 %45 to i64
-  %47 = getelementptr inbounds i16, ptr %12, i64 %46
+  %47 = getelementptr inbounds [2 x i8], ptr %12, i64 %46
   %48 = load i16, ptr %47, align 2, !tbaa !17
   %49 = zext i16 %48 to i32
   %50 = add nuw nsw i32 %44, %49
   %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr inbounds nuw i32, ptr %12, i64 %51
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %51
   %53 = load i32, ptr %52, align 4, !tbaa !27
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %55 = load ptr, ptr %54, align 8, !tbaa !116
@@ -4477,7 +4476,7 @@ define range(i32 -1, -2147483648) i32 @ucnv_MBCSFromUChar32_77(ptr noundef reado
   %58 = and i32 %1, 15
   %59 = or disjoint i32 %57, %58
   %60 = zext nneg i32 %59 to i64
-  %61 = getelementptr inbounds nuw i16, ptr %55, i64 %60
+  %61 = getelementptr inbounds nuw [2 x i8], ptr %55, i64 %60
   %62 = load i16, ptr %61, align 2, !tbaa !17
   %63 = zext i16 %62 to i32
   %64 = icmp ult i16 %62, 256
@@ -4532,7 +4531,7 @@ define signext range(i8 0, 2) i8 @ucnv_MBCSIsLeadByte_77(ptr noundef readonly ca
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !tbaa !88
   %5 = zext i8 %1 to i64
-  %6 = getelementptr inbounds nuw i32, ptr %4, i64 %5
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %5
   %7 = load i32, ptr %6, align 4, !tbaa !27
   %8 = icmp sgt i32 %7, -1
   %9 = zext i1 %8 to i8
@@ -4856,7 +4855,7 @@ define internal void @_ZL13ucnv_MBCSLoadP20UConverterSharedDataP18UConverterLoad
 
 152:                                              ; preds = %146, %157
   %indvars.iv232 = phi i64 [ 0, %146 ], [ %indvars.iv.next233, %157 ]
-  %153 = getelementptr inbounds nuw i32, ptr %145, i64 %indvars.iv232
+  %153 = getelementptr inbounds nuw [4 x i8], ptr %145, i64 %indvars.iv232
   %154 = load i32, ptr %153, align 4, !tbaa !27
   %155 = icmp slt i32 %154, 0
   br i1 %155, label %156, label %157
@@ -4872,12 +4871,12 @@ define internal void @_ZL13ucnv_MBCSLoadP20UConverterSharedDataP18UConverterLoad
 
 158:                                              ; preds = %157
   %159 = zext nneg i8 %138 to i64
-  %160 = getelementptr inbounds nuw [256 x i32], ptr %145, i64 %159
+  %160 = getelementptr inbounds nuw [1024 x i8], ptr %145, i64 %159
   br label %161
 
 161:                                              ; preds = %158, %161
   %indvars.iv236 = phi i64 [ 0, %158 ], [ %indvars.iv.next237, %161 ]
-  %162 = getelementptr inbounds nuw i32, ptr %160, i64 %indvars.iv236
+  %162 = getelementptr inbounds nuw [4 x i8], ptr %160, i64 %indvars.iv236
   store i32 -2140143616, ptr %162, align 4, !tbaa !27
   %indvars.iv.next237 = add nuw nsw i64 %indvars.iv236, 1
   %exitcond239.not = icmp eq i64 %indvars.iv.next237, 256
@@ -4922,7 +4921,7 @@ define internal void @_ZL13ucnv_MBCSLoadP20UConverterSharedDataP18UConverterLoad
   %179 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store ptr %178, ptr %179, align 8, !tbaa !138
   %180 = zext i32 %173 to i64
-  %181 = getelementptr inbounds nuw [256 x i32], ptr %178, i64 %180
+  %181 = getelementptr inbounds nuw [1024 x i8], ptr %178, i64 %180
   %182 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store ptr %181, ptr %182, align 8, !tbaa !81
   %183 = getelementptr inbounds nuw i8, ptr %2, i64 12
@@ -5010,15 +5009,15 @@ define internal void @_ZL13ucnv_MBCSLoadP20UConverterSharedDataP18UConverterLoad
   %indvars.iv = phi i64 [ 0, %232 ], [ %indvars.iv.next, %236 ]
   %237 = lshr i64 %indvars.iv, 4
   %238 = and i64 %237, 268435455
-  %239 = getelementptr inbounds nuw i16, ptr %234, i64 %238
+  %239 = getelementptr inbounds nuw [2 x i8], ptr %234, i64 %238
   %240 = load i16, ptr %239, align 2, !tbaa !17
   %241 = zext i16 %240 to i64
   %242 = shl i64 %indvars.iv, 2
   %243 = and i64 %242, 60
-  %244 = getelementptr inbounds nuw i16, ptr %234, i64 %243
-  %245 = getelementptr inbounds nuw i16, ptr %244, i64 %241
+  %244 = getelementptr inbounds nuw [2 x i8], ptr %234, i64 %243
+  %245 = getelementptr inbounds nuw [2 x i8], ptr %244, i64 %241
   %246 = load i16, ptr %245, align 2, !tbaa !17
-  %247 = getelementptr inbounds nuw i16, ptr %235, i64 %indvars.iv
+  %247 = getelementptr inbounds nuw [2 x i8], ptr %235, i64 %indvars.iv
   store i16 %246, ptr %247, align 2, !tbaa !17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
@@ -5061,7 +5060,7 @@ define internal void @_ZL13ucnv_MBCSLoadP20UConverterSharedDataP18UConverterLoad
 267:                                              ; preds = %.thread252, %267
   %indvars.iv228 = phi i64 [ 0, %.thread252 ], [ %indvars.iv.next229, %267 ]
   %.0180223 = phi i32 [ -1, %.thread252 ], [ %.1, %267 ]
-  %268 = getelementptr inbounds nuw i32, ptr %266, i64 %indvars.iv228
+  %268 = getelementptr inbounds nuw [4 x i8], ptr %266, i64 %indvars.iv228
   %269 = load i32, ptr %268, align 4, !tbaa !27
   %270 = or disjoint i64 %indvars.iv228, 2147483648
   %271 = zext i32 %269 to i64
@@ -5115,17 +5114,17 @@ define internal void @_ZL13ucnv_MBCSLoadP20UConverterSharedDataP18UConverterLoad
   %302 = zext nneg i32 %287 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %293, ptr noundef nonnull align 2 dereferenceable(1) %301, i64 %302, i1 false)
   %303 = zext nneg i32 %281 to i64
-  %304 = getelementptr inbounds nuw i16, ptr %293, i64 %303
+  %304 = getelementptr inbounds nuw [2 x i8], ptr %293, i64 %303
   %305 = sub i32 %286, %300
   %306 = zext i32 %305 to i64
-  %307 = getelementptr inbounds nuw i32, ptr %304, i64 %306
-  %308 = getelementptr inbounds nuw i16, ptr %301, i64 %303
+  %307 = getelementptr inbounds nuw [4 x i8], ptr %304, i64 %306
+  %308 = getelementptr inbounds nuw [2 x i8], ptr %301, i64 %303
   %309 = shl i32 %300, 2
   %310 = zext i32 %309 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %307, ptr nonnull align 2 %308, i64 %310, i1 false)
   store ptr %293, ptr %192, align 8, !tbaa !3
   %311 = zext i32 %286 to i64
-  %312 = getelementptr inbounds nuw i32, ptr %304, i64 %311
+  %312 = getelementptr inbounds nuw [4 x i8], ptr %304, i64 %311
   store ptr %312, ptr %197, align 8, !tbaa !16
   %313 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %314 = load i16, ptr %313, align 8, !tbaa !158
@@ -5142,7 +5141,7 @@ define internal void @_ZL13ucnv_MBCSLoadP20UConverterSharedDataP18UConverterLoad
 319:                                              ; preds = %.loopexit.i, %.lr.ph.i
   %indvars.iv76.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next77.i, %.loopexit.i ]
   %.05968.i = phi i32 [ 0, %.lr.ph.i ], [ %.2.i, %.loopexit.i ]
-  %320 = getelementptr inbounds nuw i16, ptr %293, i64 %indvars.iv76.i
+  %320 = getelementptr inbounds nuw [2 x i8], ptr %293, i64 %indvars.iv76.i
   %321 = load i16, ptr %320, align 2, !tbaa !17
   %322 = zext i16 %321 to i32
   %.not.i = icmp eq i32 %284, %322
@@ -5159,7 +5158,7 @@ define internal void @_ZL13ucnv_MBCSLoadP20UConverterSharedDataP18UConverterLoad
   %indvars.iv.i = phi i64 [ %324, %.preheader.i ], [ %indvars.iv.next.i, %339 ]
   %.067.i = phi i32 [ 0, %.preheader.i ], [ %340, %339 ]
   %indvars.iv.next72.i = add nsw i64 %indvars.iv71.i, 1
-  %327 = getelementptr inbounds i16, ptr %323, i64 %indvars.iv71.i
+  %327 = getelementptr inbounds [2 x i8], ptr %323, i64 %indvars.iv71.i
   %328 = load i16, ptr %327, align 2, !tbaa !17
   %.not64.i = icmp eq i16 %328, 0
   br i1 %.not64.i, label %339, label %329
@@ -5168,7 +5167,7 @@ define internal void @_ZL13ucnv_MBCSLoadP20UConverterSharedDataP18UConverterLoad
   %330 = lshr i16 %328, 4
   %331 = zext nneg i16 %330 to i32
   %332 = add nuw nsw i32 %331, 1
-  %333 = getelementptr inbounds nuw i32, ptr %293, i64 %indvars.iv.i
+  %333 = getelementptr inbounds nuw [4 x i8], ptr %293, i64 %indvars.iv.i
   store i32 %331, ptr %333, align 4, !tbaa !27
   %334 = add nuw nsw i32 %331, 2
   %335 = getelementptr i8, ptr %333, i64 4
@@ -5405,10 +5404,10 @@ define internal void @_ZL13ucnv_MBCSOpenP10UConverterP18UConverterLoadArgsP10UEr
   br i1 %43, label %46, label %62
 
 46:                                               ; preds = %42
-  %47 = getelementptr inbounds nuw i16, ptr %27, i64 %45
+  %47 = getelementptr inbounds nuw [2 x i8], ptr %27, i64 %45
   %48 = load i16, ptr %47, align 2, !tbaa !17
   %49 = zext i16 %48 to i64
-  %50 = getelementptr inbounds nuw i16, ptr %29, i64 %49
+  %50 = getelementptr inbounds nuw [2 x i8], ptr %29, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 20
   %52 = load i16, ptr %51, align 2, !tbaa !17
   %53 = icmp eq i16 %52, 3877
@@ -5418,14 +5417,14 @@ define internal void @_ZL13ucnv_MBCSOpenP10UConverterP18UConverterLoadArgsP10UEr
   %55 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %56 = load i16, ptr %55, align 2, !tbaa !17
   %57 = zext i16 %56 to i64
-  %58 = getelementptr inbounds nuw i16, ptr %29, i64 %57
+  %58 = getelementptr inbounds nuw [2 x i8], ptr %29, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 10
   %60 = load i16, ptr %59, align 2, !tbaa !17
   %61 = icmp eq i16 %60, 3861
   br i1 %61, label %86, label %149
 
 62:                                               ; preds = %42
-  %63 = getelementptr inbounds nuw i32, ptr %27, i64 %45
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %45
   %64 = load i32, ptr %63, align 4, !tbaa !27
   %65 = and i32 %64, 67108864
   %.not.i = icmp eq i32 %65, 0
@@ -5435,7 +5434,7 @@ define internal void @_ZL13ucnv_MBCSOpenP10UConverterP18UConverterLoadArgsP10UEr
   %67 = shl i32 %64, 4
   %68 = and i32 %67, 1048560
   %69 = zext nneg i32 %68 to i64
-  %70 = getelementptr inbounds nuw i16, ptr %29, i64 %69
+  %70 = getelementptr inbounds nuw [2 x i8], ptr %29, i64 %69
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 20
   %72 = load i16, ptr %71, align 2, !tbaa !17
   %73 = icmp eq i16 %72, 37
@@ -5452,7 +5451,7 @@ define internal void @_ZL13ucnv_MBCSOpenP10UConverterP18UConverterLoadArgsP10UEr
   %79 = shl i32 %76, 4
   %80 = and i32 %79, 1048560
   %81 = zext nneg i32 %80 to i64
-  %82 = getelementptr inbounds nuw i16, ptr %29, i64 %81
+  %82 = getelementptr inbounds nuw [2 x i8], ptr %29, i64 %81
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 10
   %84 = load i16, ptr %83, align 2, !tbaa !17
   %85 = icmp eq i16 %84, 21
@@ -5493,7 +5492,7 @@ define internal void @_ZL13ucnv_MBCSOpenP10UConverterP18UConverterLoadArgsP10UEr
   store i32 -2147483515, ptr %105, align 4, !tbaa !27
   %106 = getelementptr inbounds nuw i8, ptr %96, i64 84
   store i32 -2147483638, ptr %106, align 4, !tbaa !27
-  %107 = getelementptr inbounds nuw [256 x i32], ptr %96, i64 %103
+  %107 = getelementptr inbounds nuw [1024 x i8], ptr %96, i64 %103
   %108 = zext i32 %88 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %107, ptr nonnull align 1 %29, i64 %108, i1 false)
   %109 = load i8, ptr %30, align 4, !tbaa !15
@@ -5503,10 +5502,10 @@ define internal void @_ZL13ucnv_MBCSOpenP10UConverterP18UConverterLoadArgsP10UEr
   br i1 %110, label %113, label %122
 
 113:                                              ; preds = %100
-  %114 = getelementptr inbounds nuw i16, ptr %27, i64 %112
+  %114 = getelementptr inbounds nuw [2 x i8], ptr %27, i64 %112
   %115 = load i16, ptr %114, align 2, !tbaa !17
   %116 = zext i16 %115 to i64
-  %117 = getelementptr inbounds nuw i16, ptr %107, i64 %116
+  %117 = getelementptr inbounds nuw [2 x i8], ptr %107, i64 %116
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 20
   store i16 3861, ptr %118, align 2, !tbaa !17
   %119 = getelementptr inbounds nuw i8, ptr %114, i64 16
@@ -5515,12 +5514,12 @@ define internal void @_ZL13ucnv_MBCSOpenP10UConverterP18UConverterLoadArgsP10UEr
   br label %135
 
 122:                                              ; preds = %100
-  %123 = getelementptr inbounds nuw i32, ptr %27, i64 %112
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %112
   %124 = load i32, ptr %123, align 4, !tbaa !27
   %125 = shl i32 %124, 4
   %126 = and i32 %125, 1048560
   %127 = zext nneg i32 %126 to i64
-  %128 = getelementptr inbounds nuw i16, ptr %107, i64 %127
+  %128 = getelementptr inbounds nuw [2 x i8], ptr %107, i64 %127
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 20
   store i16 21, ptr %129, align 2, !tbaa !17
   %130 = getelementptr inbounds nuw i8, ptr %123, i64 32
@@ -5533,7 +5532,7 @@ define internal void @_ZL13ucnv_MBCSOpenP10UConverterP18UConverterLoadArgsP10UEr
 135:                                              ; preds = %122, %113
   %.sink86.i = phi i64 [ %134, %122 ], [ %121, %113 ]
   %.sink.i = phi i16 [ 37, %122 ], [ 3877, %113 ]
-  %136 = getelementptr inbounds nuw i16, ptr %107, i64 %.sink86.i
+  %136 = getelementptr inbounds nuw [2 x i8], ptr %107, i64 %.sink86.i
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 10
   store i16 %.sink.i, ptr %137, align 2, !tbaa !17
   %138 = getelementptr inbounds nuw i8, ptr %107, i64 %108
@@ -5713,7 +5712,7 @@ define internal noundef range(i32 -9, -2147483648) i32 @_ZL21ucnv_MBCSGetNextUCh
   %30 = getelementptr inbounds nuw i8, ptr %.030.i, i64 1
   %31 = load i8, ptr %.030.i, align 1, !tbaa !28
   %32 = zext i8 %31 to i64
-  %33 = getelementptr inbounds nuw i32, ptr %.029.i, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %.029.i, i64 %32
   %34 = load i32, ptr %33, align 4, !tbaa !27
   store ptr %30, ptr %18, align 8, !tbaa !53
   %35 = icmp slt i32 %34, -2146435072
@@ -5808,12 +5807,12 @@ define internal noundef range(i32 -9, -2147483648) i32 @_ZL21ucnv_MBCSGetNextUCh
   %.0139255 = phi i32 [ %80, %168 ], [ %.0139.ph, %.lr.ph.preheader ]
   %.0129258.ptr = getelementptr inbounds nuw i8, ptr %.0140.ph, i64 %.0129258.idx
   %69 = zext i8 %.1136256 to i64
-  %70 = getelementptr inbounds nuw [256 x i32], ptr %.0142, i64 %69
+  %70 = getelementptr inbounds nuw [1024 x i8], ptr %.0142, i64 %69
   %.0129258.add = add nuw i64 %.0129258.idx, 1
   %.ptr = getelementptr inbounds nuw i8, ptr %.0140.ph, i64 %.0129258.add
   %71 = load i8, ptr %.0129258.ptr, align 1, !tbaa !28
   %72 = zext i8 %71 to i64
-  %73 = getelementptr inbounds nuw i32, ptr %70, i64 %72
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %72
   %74 = load i32, ptr %73, align 4, !tbaa !27
   %75 = icmp sgt i32 %74, -1
   br i1 %75, label %76, label %103
@@ -5828,10 +5827,10 @@ define internal noundef range(i32 -9, -2147483648) i32 @_ZL21ucnv_MBCSGetNextUCh
 
 82:                                               ; preds = %76
   %83 = zext nneg i32 %77 to i64
-  %84 = getelementptr inbounds nuw [256 x i32], ptr %.0142, i64 %83
+  %84 = getelementptr inbounds nuw [1024 x i8], ptr %.0142, i64 %83
   %85 = load i8, ptr %.ptr, align 1, !tbaa !28
   %86 = zext i8 %85 to i64
-  %87 = getelementptr inbounds nuw i32, ptr %84, i64 %86
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %86
   %88 = load i32, ptr %87, align 4, !tbaa !27
   %89 = and i32 %88, -2131755008
   %or.cond166 = icmp eq i32 %89, -2143289344
@@ -5841,7 +5840,7 @@ define internal noundef range(i32 -9, -2147483648) i32 @_ZL21ucnv_MBCSGetNextUCh
   %91 = and i32 %88, 65535
   %92 = add i32 %91, %80
   %93 = zext i32 %92 to i64
-  %94 = getelementptr inbounds nuw i16, ptr %56, i64 %93
+  %94 = getelementptr inbounds nuw [2 x i8], ptr %56, i64 %93
   %95 = load i16, ptr %94, align 2, !tbaa !17
   %96 = zext i16 %95 to i32
   %97 = icmp ult i16 %95, -2
@@ -5877,7 +5876,7 @@ define internal noundef range(i32 -9, -2147483648) i32 @_ZL21ucnv_MBCSGetNextUCh
   %113 = and i32 %74, 65535
   %114 = add i32 %113, %.0139255
   %115 = zext i32 %114 to i64
-  %116 = getelementptr inbounds nuw i16, ptr %56, i64 %115
+  %116 = getelementptr inbounds nuw [2 x i8], ptr %56, i64 %115
   %117 = load i16, ptr %116, align 2, !tbaa !17
   %118 = zext i16 %117 to i32
   %119 = icmp ult i16 %117, -2
@@ -5897,7 +5896,7 @@ define internal noundef range(i32 -9, -2147483648) i32 @_ZL21ucnv_MBCSGetNextUCh
   %126 = add i32 %125, %.0139255
   %127 = add i32 %126, 1
   %128 = zext i32 %126 to i64
-  %129 = getelementptr inbounds nuw i16, ptr %56, i64 %128
+  %129 = getelementptr inbounds nuw [2 x i8], ptr %56, i64 %128
   %130 = load i16, ptr %129, align 2, !tbaa !17
   %131 = zext i16 %130 to i32
   %132 = icmp ult i16 %130, -10240
@@ -5911,7 +5910,7 @@ define internal noundef range(i32 -9, -2147483648) i32 @_ZL21ucnv_MBCSGetNextUCh
   %136 = shl nuw nsw i32 %131, 10
   %137 = and i32 %136, 1047552
   %138 = zext i32 %127 to i64
-  %139 = getelementptr inbounds nuw i16, ptr %56, i64 %138
+  %139 = getelementptr inbounds nuw [2 x i8], ptr %56, i64 %138
   %140 = load i16, ptr %139, align 2, !tbaa !17
   %141 = zext i16 %140 to i32
   %142 = add nuw nsw i32 %137, 9216
@@ -5925,7 +5924,7 @@ define internal noundef range(i32 -9, -2147483648) i32 @_ZL21ucnv_MBCSGetNextUCh
 
 147:                                              ; preds = %144
   %148 = zext i32 %127 to i64
-  %149 = getelementptr inbounds nuw i16, ptr %56, i64 %148
+  %149 = getelementptr inbounds nuw [2 x i8], ptr %56, i64 %148
   %150 = load i16, ptr %149, align 2, !tbaa !17
   %151 = zext i16 %150 to i32
   br label %.thread
@@ -6042,7 +6041,7 @@ define internal noundef range(i32 -9, -2147483648) i32 @_ZL21ucnv_MBCSGetNextUCh
 .lr.ph269:                                        ; preds = %182
   %190 = getelementptr inbounds nuw i8, ptr %4, i64 66
   %191 = zext i8 %.2137 to i64
-  %192 = getelementptr inbounds nuw [256 x i32], ptr %.0142, i64 %191
+  %192 = getelementptr inbounds nuw [1024 x i8], ptr %.0142, i64 %191
   br label %193
 
 193:                                              ; preds = %.lr.ph269, %208
@@ -6051,7 +6050,7 @@ define internal noundef range(i32 -9, -2147483648) i32 @_ZL21ucnv_MBCSGetNextUCh
   %.1141266 = phi ptr [ %186, %.lr.ph269 ], [ %209, %208 ]
   %194 = load i8, ptr %.1141266, align 1, !tbaa !28
   %195 = zext i8 %194 to i64
-  %196 = getelementptr inbounds nuw i32, ptr %192, i64 %195
+  %196 = getelementptr inbounds nuw [4 x i8], ptr %192, i64 %195
   %197 = load i32, ptr %196, align 4, !tbaa !27
   %198 = icmp sgt i32 %197, -1
   br i1 %198, label %199, label %_ZL14isSingleOrLeadPA256_Kihah.exit
@@ -6115,12 +6114,12 @@ define internal void @_ZL20ucnv_MBCSGetStartersPK10UConverterPaP10UErrorCode(ptr
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 49
   %9 = load i8, ptr %8, align 1, !tbaa !76
   %10 = zext i8 %9 to i64
-  %11 = getelementptr inbounds nuw [256 x i32], ptr %7, i64 %10
+  %11 = getelementptr inbounds nuw [1024 x i8], ptr %7, i64 %10
   br label %12
 
 12:                                               ; preds = %3, %12
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %12 ]
-  %13 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4, !tbaa !27
   %15 = icmp sgt i32 %14, -1
   %16 = zext i1 %15 to i8
@@ -6328,7 +6327,7 @@ declare void @udata_getInfo_77(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree nosync nounwind memory(argmem: readwrite) uwtable
 define internal fastcc void @_ZL12getStatePropPA256_KiPai(ptr noundef %0, ptr noundef nonnull %1, i32 noundef range(i32 0, 128) %2) unnamed_addr #9 {
   %4 = zext nneg i32 %2 to i64
-  %5 = getelementptr inbounds nuw [256 x i32], ptr %0, i64 %4
+  %5 = getelementptr inbounds nuw [1024 x i8], ptr %0, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 %4
   store i8 0, ptr %6, align 1, !tbaa !28
   br label %7
@@ -6336,7 +6335,7 @@ define internal fastcc void @_ZL12getStatePropPA256_KiPai(ptr noundef %0, ptr no
 7:                                                ; preds = %28, %3
   %indvars.iv82 = phi i32 [ %indvars.iv.next83, %28 ], [ 0, %3 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %28 ], [ 0, %3 ]
-  %8 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !27
   %10 = lshr i32 %9, 24
   %11 = and i32 %10, 127
@@ -6390,7 +6389,7 @@ define internal fastcc void @_ZL12getStatePropPA256_KiPai(ptr noundef %0, ptr no
 
 .lr.ph:                                           ; preds = %29, %54
   %indvars.iv80 = phi i64 [ %indvars.iv.next81, %54 ], [ 255, %29 ]
-  %37 = getelementptr inbounds i32, ptr %5, i64 %indvars.iv80
+  %37 = getelementptr inbounds [4 x i8], ptr %5, i64 %indvars.iv80
   %38 = load i32, ptr %37, align 4, !tbaa !27
   %39 = lshr i32 %38, 24
   %40 = and i32 %39, 127
@@ -6452,7 +6451,7 @@ define internal fastcc void @_ZL12getStatePropPA256_KiPai(ptr noundef %0, ptr no
 
 .lr.ph76:                                         ; preds = %.lr.ph76.preheader, %82
   %indvars.iv87 = phi i64 [ %indvars.iv, %.lr.ph76.preheader ], [ %indvars.iv.next88, %82 ]
-  %63 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv87
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv87
   %64 = load i32, ptr %63, align 4, !tbaa !27
   %65 = lshr i32 %64, 24
   %66 = and i32 %65, 127
@@ -6500,7 +6499,7 @@ define internal fastcc void @_ZL7enumToUP19UConverterMBCSTablePaijjPFaPKvjPiES3_
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !138
   %10 = sext i32 %2 to i64
-  %11 = getelementptr inbounds [256 x i32], ptr %9, i64 %10
+  %11 = getelementptr inbounds [1024 x i8], ptr %9, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !147
   %14 = shl i32 %4, 8
@@ -6549,7 +6548,7 @@ define internal fastcc void @_ZL7enumToUP19UConverterMBCSTablePaijjPFaPKvjPiES3_
 38:                                               ; preds = %.lr.ph, %_ZL20writeStage3RoundtripPKvjPi.exit
   %indvars.iv = phi i64 [ %36, %.lr.ph ], [ %indvars.iv.next, %_ZL20writeStage3RoundtripPKvjPi.exit ]
   %.0722 = phi i32 [ -1, %.lr.ph ], [ %.173, %_ZL20writeStage3RoundtripPKvjPi.exit ]
-  %39 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %40 = load i32, ptr %39, align 4, !tbaa !27
   %41 = icmp sgt i32 %40, -1
   br i1 %41, label %42, label %55
@@ -6572,7 +6571,7 @@ define internal fastcc void @_ZL7enumToUP19UConverterMBCSTablePaijjPFaPKvjPiES3_
 
 .critedge:                                        ; preds = %42, %48
   %53 = and i64 %indvars.iv, 31
-  %54 = getelementptr inbounds nuw i32, ptr %7, i64 %53
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %53
   store i32 -1, ptr %54, align 4, !tbaa !27
   br label %102
 
@@ -6594,7 +6593,7 @@ define internal fastcc void @_ZL7enumToUP19UConverterMBCSTablePaijjPFaPKvjPiES3_
   %61 = and i32 %40, 65535
   %62 = add i32 %61, %3
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds i16, ptr %13, i64 %63
+  %64 = getelementptr inbounds [2 x i8], ptr %13, i64 %63
   %65 = load i16, ptr %64, align 2, !tbaa !17
   %66 = zext i16 %65 to i32
   %67 = icmp ult i16 %65, -2
@@ -6606,7 +6605,7 @@ define internal fastcc void @_ZL7enumToUP19UConverterMBCSTablePaijjPFaPKvjPiES3_
   %70 = add i32 %69, %3
   %71 = add nsw i32 %70, 1
   %72 = sext i32 %70 to i64
-  %73 = getelementptr inbounds i16, ptr %13, i64 %72
+  %73 = getelementptr inbounds [2 x i8], ptr %13, i64 %72
   %74 = load i16, ptr %73, align 2, !tbaa !17
   %75 = zext i16 %74 to i32
   %76 = icmp ult i16 %74, -10240
@@ -6620,7 +6619,7 @@ define internal fastcc void @_ZL7enumToUP19UConverterMBCSTablePaijjPFaPKvjPiES3_
   %80 = shl nuw nsw i32 %75, 10
   %81 = and i32 %80, 1047552
   %82 = sext i32 %71 to i64
-  %83 = getelementptr inbounds i16, ptr %13, i64 %82
+  %83 = getelementptr inbounds [2 x i8], ptr %13, i64 %82
   %84 = load i16, ptr %83, align 2, !tbaa !17
   %85 = zext i16 %84 to i32
   %86 = add nuw nsw i32 %81, 9216
@@ -6633,7 +6632,7 @@ define internal fastcc void @_ZL7enumToUP19UConverterMBCSTablePaijjPFaPKvjPiES3_
 
 90:                                               ; preds = %88
   %91 = sext i32 %71 to i64
-  %92 = getelementptr inbounds i16, ptr %13, i64 %91
+  %92 = getelementptr inbounds [2 x i8], ptr %13, i64 %91
   %93 = load i16, ptr %92, align 2, !tbaa !17
   %94 = zext i16 %93 to i32
   br label %98
@@ -6646,7 +6645,7 @@ define internal fastcc void @_ZL7enumToUP19UConverterMBCSTablePaijjPFaPKvjPiES3_
 98:                                               ; preds = %55, %68, %90, %79, %88, %60, %95, %58
   %.068 = phi i32 [ %59, %58 ], [ %spec.store.select, %60 ], [ -1, %88 ], [ %97, %95 ], [ %75, %68 ], [ %87, %79 ], [ %94, %90 ], [ -1, %55 ]
   %99 = and i64 %indvars.iv, 31
-  %100 = getelementptr inbounds nuw i32, ptr %7, i64 %99
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %99
   store i32 %.068, ptr %100, align 4, !tbaa !27
   %101 = and i32 %.068, %.0722
   br label %102
@@ -6711,7 +6710,7 @@ define internal fastcc void @_ZL7enumToUP19UConverterMBCSTablePaijjPFaPKvjPiES3_
 129:                                              ; preds = %.preheader, %172
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %172 ], [ 0, %.preheader ]
   %.146.i = phi i32 [ %173, %172 ], [ %.146.i.ph, %.preheader ]
-  %130 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv.i
   %131 = load i32, ptr %130, align 4, !tbaa !27
   %132 = icmp slt i32 %131, 0
   br i1 %132, label %172, label %133
@@ -6719,14 +6718,14 @@ define internal fastcc void @_ZL7enumToUP19UConverterMBCSTablePaijjPFaPKvjPiES3_
 133:                                              ; preds = %129
   %134 = lshr i32 %131, 10
   %135 = zext nneg i32 %134 to i64
-  %136 = getelementptr inbounds nuw i16, ptr %110, i64 %135
+  %136 = getelementptr inbounds nuw [2 x i8], ptr %110, i64 %135
   %137 = load i16, ptr %136, align 2, !tbaa !17
   %138 = zext i16 %137 to i64
-  %139 = getelementptr inbounds nuw i32, ptr %110, i64 %138
+  %139 = getelementptr inbounds nuw [4 x i8], ptr %110, i64 %138
   %140 = lshr i32 %131, 4
   %141 = and i32 %140, 63
   %142 = zext nneg i32 %141 to i64
-  %143 = getelementptr inbounds nuw i32, ptr %139, i64 %142
+  %143 = getelementptr inbounds nuw [4 x i8], ptr %139, i64 %142
   %144 = load i32, ptr %143, align 4, !tbaa !27
   %145 = shl i32 %144, 4
   %146 = and i32 %145, 1048560
@@ -6757,14 +6756,14 @@ define internal fastcc void @_ZL7enumToUP19UConverterMBCSTablePaijjPFaPKvjPiES3_
 
 161:                                              ; preds = %133
   %162 = zext nneg i32 %148 to i64
-  %163 = getelementptr inbounds nuw i32, ptr %111, i64 %162
+  %163 = getelementptr inbounds nuw [4 x i8], ptr %111, i64 %162
   store i32 %.146.i, ptr %163, align 4, !tbaa !27
   br label %168
 
 164:                                              ; preds = %133
   %165 = trunc i32 %.146.i to i16
   %166 = zext nneg i32 %148 to i64
-  %167 = getelementptr inbounds nuw i16, ptr %111, i64 %166
+  %167 = getelementptr inbounds nuw [2 x i8], ptr %111, i64 %166
   store i16 %165, ptr %167, align 2, !tbaa !17
   br label %168
 
@@ -6961,7 +6960,7 @@ define internal void @_ZL17ucnv_SBCSFromUTF8P25UConverterFromUnicodeArgsP23UConv
   %100 = zext i16 %99 to i32
   %101 = add nuw nsw i32 %100, %89
   %102 = zext nneg i32 %101 to i64
-  %103 = getelementptr inbounds nuw i16, ptr %.0217, i64 %102
+  %103 = getelementptr inbounds nuw [2 x i8], ptr %.0217, i64 %102
   %104 = load i16, ptr %103, align 2, !tbaa !17
   br label %270
 
@@ -6984,12 +6983,12 @@ define internal void @_ZL17ucnv_SBCSFromUTF8P25UConverterFromUnicodeArgsP23UConv
   %115 = and i32 %89, 31
   %116 = getelementptr inbounds nuw i8, ptr %.1395, i64 2
   %117 = zext nneg i32 %115 to i64
-  %118 = getelementptr inbounds nuw i16, ptr %26, i64 %117
+  %118 = getelementptr inbounds nuw [2 x i8], ptr %26, i64 %117
   %119 = load i16, ptr %118, align 2, !tbaa !17
   %120 = zext i16 %119 to i32
   %121 = add nuw nsw i32 %120, %114
   %122 = zext nneg i32 %121 to i64
-  %123 = getelementptr inbounds nuw i16, ptr %.0217, i64 %122
+  %123 = getelementptr inbounds nuw [2 x i8], ptr %.0217, i64 %122
   %124 = load i16, ptr %123, align 2, !tbaa !17
   %.not264 = icmp ult i16 %124, %82
   br i1 %.not264, label %.loopexit602, label %125
@@ -7020,12 +7019,12 @@ define internal void @_ZL17ucnv_SBCSFromUTF8P25UConverterFromUnicodeArgsP23UConv
   %139 = zext nneg i8 %136 to i32
   %140 = getelementptr inbounds nuw i8, ptr %.1395, i64 3
   %141 = zext nneg i8 %131 to i64
-  %142 = getelementptr inbounds nuw i16, ptr %26, i64 %141
+  %142 = getelementptr inbounds nuw [2 x i8], ptr %26, i64 %141
   %143 = load i16, ptr %142, align 2, !tbaa !17
   %144 = zext i16 %143 to i32
   %145 = add nuw nsw i32 %144, %139
   %146 = zext nneg i32 %145 to i64
-  %147 = getelementptr inbounds nuw i16, ptr %.0217, i64 %146
+  %147 = getelementptr inbounds nuw [2 x i8], ptr %.0217, i64 %146
   %148 = load i16, ptr %147, align 2, !tbaa !17
   %.not263 = icmp ult i16 %148, %82
   br i1 %.not263, label %151, label %149
@@ -7231,7 +7230,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit._crit_edge.thread: ; preds = %214, %170,
   %.6.lcssa503 = phi ptr [ %.6.lcssa, %_ZN6icu_774UTF812isValidTrailEihii.exit._crit_edge ], [ %171, %170 ], [ %215, %214 ]
   %.5237.lcssa502 = phi i32 [ %.5237.lcssa, %_ZN6icu_774UTF812isValidTrailEihii.exit._crit_edge ], [ %175, %170 ], [ %219, %214 ]
   %236 = zext nneg i8 %.1240.fr to i64
-  %237 = getelementptr inbounds nuw i32, ptr @_ZL12utf8_offsets, i64 %236
+  %237 = getelementptr inbounds nuw [4 x i8], ptr @_ZL12utf8_offsets, i64 %236
   %238 = load i32, ptr %237, align 4, !tbaa !27
   %239 = sub nsw i32 %.5237.lcssa502, %238
   %240 = icmp sgt i8 %.1240.fr, 3
@@ -7274,20 +7273,20 @@ _ZN6icu_774UTF812isValidTrailEihii.exit._crit_edge.thread: ; preds = %214, %170,
 .sink.split:                                      ; preds = %_ZN6icu_774UTF812isValidTrailEihii.exit._crit_edge.thread
   %253 = ashr i32 %239, 10
   %254 = sext i32 %253 to i64
-  %255 = getelementptr inbounds i16, ptr %25, i64 %254
+  %255 = getelementptr inbounds [2 x i8], ptr %25, i64 %254
   %256 = load i16, ptr %255, align 2, !tbaa !17
   %257 = zext i16 %256 to i32
   %258 = lshr i32 %239, 4
   %259 = and i32 %258, 63
   %260 = add nuw nsw i32 %259, %257
   %261 = zext nneg i32 %260 to i64
-  %262 = getelementptr inbounds nuw i16, ptr %25, i64 %261
+  %262 = getelementptr inbounds nuw [2 x i8], ptr %25, i64 %261
   %263 = load i16, ptr %262, align 2, !tbaa !17
   %264 = zext i16 %263 to i32
   %265 = and i32 %239, 15
   %266 = add nuw nsw i32 %265, %264
   %267 = zext nneg i32 %266 to i64
-  %268 = getelementptr inbounds nuw i16, ptr %.0217, i64 %267
+  %268 = getelementptr inbounds nuw [2 x i8], ptr %.0217, i64 %267
   %269 = load i16, ptr %268, align 2, !tbaa !17
   br label %270
 
@@ -7595,7 +7594,7 @@ define internal void @_ZL17ucnv_DBCSFromUTF8P25UConverterFromUnicodeArgsP23UConv
   %98 = zext i16 %97 to i32
   %99 = add nuw nsw i32 %98, %86
   %100 = zext nneg i32 %99 to i64
-  %101 = getelementptr inbounds nuw i16, ptr %.0226, i64 %100
+  %101 = getelementptr inbounds nuw [2 x i8], ptr %.0226, i64 %100
   %102 = load i16, ptr %101, align 2, !tbaa !17
   %103 = icmp eq i16 %102, 0
   br i1 %103, label %308, label %290
@@ -7636,12 +7635,12 @@ define internal void @_ZL17ucnv_DBCSFromUTF8P25UConverterFromUnicodeArgsP23UConv
   %128 = or disjoint i32 %127, %126
   %129 = getelementptr inbounds nuw i8, ptr %.1373, i64 3
   %130 = zext nneg i32 %128 to i64
-  %131 = getelementptr inbounds nuw i16, ptr %27, i64 %130
+  %131 = getelementptr inbounds nuw [2 x i8], ptr %27, i64 %130
   %132 = load i16, ptr %131, align 2, !tbaa !17
   %133 = zext i16 %132 to i32
   %134 = add nuw nsw i32 %133, %123
   %135 = zext nneg i32 %134 to i64
-  %136 = getelementptr inbounds nuw i16, ptr %.0226, i64 %135
+  %136 = getelementptr inbounds nuw [2 x i8], ptr %.0226, i64 %135
   %137 = load i16, ptr %136, align 2, !tbaa !17
   %138 = icmp eq i16 %137, 0
   br i1 %138, label %139, label %290
@@ -7666,12 +7665,12 @@ define internal void @_ZL17ucnv_DBCSFromUTF8P25UConverterFromUnicodeArgsP23UConv
   %150 = and i32 %86, 31
   %151 = getelementptr inbounds nuw i8, ptr %.1373, i64 2
   %152 = zext nneg i32 %150 to i64
-  %153 = getelementptr inbounds nuw i16, ptr %27, i64 %152
+  %153 = getelementptr inbounds nuw [2 x i8], ptr %27, i64 %152
   %154 = load i16, ptr %153, align 2, !tbaa !17
   %155 = zext i16 %154 to i32
   %156 = add nuw nsw i32 %155, %147
   %157 = zext nneg i32 %156 to i64
-  %158 = getelementptr inbounds nuw i16, ptr %.0226, i64 %157
+  %158 = getelementptr inbounds nuw [2 x i8], ptr %.0226, i64 %157
   %159 = load i16, ptr %158, align 2, !tbaa !17
   %160 = icmp eq i16 %159, 0
   br i1 %160, label %161, label %290
@@ -7856,7 +7855,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit._crit_edge.thread: ; preds = %220, %176,
   %.7.lcssa454 = phi ptr [ %.7.lcssa, %_ZN6icu_774UTF812isValidTrailEihii.exit._crit_edge ], [ %177, %176 ], [ %221, %220 ]
   %.4245.lcssa453 = phi i32 [ %.4245.lcssa, %_ZN6icu_774UTF812isValidTrailEihii.exit._crit_edge ], [ %181, %176 ], [ %225, %220 ]
   %242 = zext nneg i8 %.1248.fr to i64
-  %243 = getelementptr inbounds nuw i32, ptr @_ZL12utf8_offsets, i64 %242
+  %243 = getelementptr inbounds nuw [4 x i8], ptr @_ZL12utf8_offsets, i64 %242
   %244 = load i32, ptr %243, align 4, !tbaa !27
   %245 = sub nsw i32 %.4245.lcssa453, %244
   %246 = icmp sgt i8 %.1248.fr, 3
@@ -7899,14 +7898,14 @@ _ZN6icu_774UTF812isValidTrailEihii.exit._crit_edge.thread: ; preds = %220, %176,
 .sink.split:                                      ; preds = %_ZN6icu_774UTF812isValidTrailEihii.exit._crit_edge.thread
   %259 = ashr i32 %245, 10
   %260 = sext i32 %259 to i64
-  %261 = getelementptr inbounds i16, ptr %25, i64 %260
+  %261 = getelementptr inbounds [2 x i8], ptr %25, i64 %260
   %262 = load i16, ptr %261, align 2, !tbaa !17
   %263 = zext i16 %262 to i32
   %264 = lshr i32 %245, 4
   %265 = and i32 %264, 63
   %266 = add nuw nsw i32 %265, %263
   %267 = zext nneg i32 %266 to i64
-  %268 = getelementptr inbounds nuw i32, ptr %25, i64 %267
+  %268 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %267
   %269 = load i32, ptr %268, align 4, !tbaa !27
   br label %270
 
@@ -7917,7 +7916,7 @@ _ZN6icu_774UTF812isValidTrailEihii.exit._crit_edge.thread: ; preds = %220, %176,
   %273 = and i32 %245, 15
   %274 = or disjoint i32 %272, %273
   %275 = zext nneg i32 %274 to i64
-  %276 = getelementptr inbounds nuw i16, ptr %.0226, i64 %275
+  %276 = getelementptr inbounds nuw [2 x i8], ptr %.0226, i64 %275
   %277 = load i16, ptr %276, align 2, !tbaa !17
   %278 = shl nuw i32 65536, %273
   %279 = and i32 %.0236, %278
@@ -8142,7 +8141,7 @@ declare void @ucnv_cbFromUWriteBytes_77(ptr noundef, ptr noundef, i32 noundef, i
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(argmem: read) uwtable
 define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL18hasValidTrailBytesPA256_Kih(ptr noundef readonly captures(none) %0, i8 noundef zeroext range(i8 0, -128) %1) unnamed_addr #11 {
   %3 = zext nneg i8 %1 to i64
-  %4 = getelementptr inbounds nuw [256 x i32], ptr %0, i64 %3
+  %4 = getelementptr inbounds nuw [1024 x i8], ptr %0, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 644
   %6 = load i32, ptr %5, align 4, !tbaa !27
   %7 = icmp sgt i32 %6, -1
@@ -8167,7 +8166,7 @@ define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL18hasValidTrailByte
 
 .preheader31:                                     ; preds = %9, %14
   %indvars.iv = phi i64 [ %indvars.iv.next, %14 ], [ 0, %9 ]
-  %15 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %16 = load i32, ptr %15, align 4, !tbaa !27
   %17 = icmp sgt i32 %16, -1
   %18 = and i32 %16, 15728640
@@ -8177,7 +8176,7 @@ define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL18hasValidTrailByte
 
 .preheader:                                       ; preds = %14, %26
   %indvars.iv37 = phi i64 [ %indvars.iv.next38, %26 ], [ 0, %14 ]
-  %19 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv37
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv37
   %20 = load i32, ptr %19, align 4, !tbaa !27
   %21 = icmp sgt i32 %20, -1
   br i1 %21, label %22, label %26

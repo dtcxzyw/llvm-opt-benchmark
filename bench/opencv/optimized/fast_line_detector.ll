@@ -23,7 +23,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<SEGMENT, std::allocator<SEGMENT>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.cv::Vec" = type { %"class.cv::Matx" }
 %"class.cv::Matx" = type { [4 x float] }
-%struct.SEGMENT = type { float, float, float, float, float }
 %"class.cv::Range" = type { i32, i32 }
 %"class.std::vector.15" = type { %"struct.std::_Vector_base.16" }
 %"struct.std::_Vector_base.16" = type { %"struct.std::_Vector_base<cv::Point_<int>, std::allocator<cv::Point_<int>>>::_Vector_impl" }
@@ -35,6 +34,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::Scalar_" = type { %"class.cv::Vec.12" }
 %"class.cv::Vec.12" = type { %"class.cv::Matx.13" }
 %"class.cv::Matx.13" = type { [4 x double] }
+%struct.SEGMENT = type { float, float, float, float, float }
 %"class.cv::Point_.14" = type { i32, i32 }
 %"class.cv::Point_" = type { float, float }
 
@@ -406,7 +406,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %32, %
   %.sroa.14.043 = phi ptr [ null, %.lr.ph ], [ %.sroa.14.1, %_ZNSt6vectorIN2cv3VecIfLi4EEESaIS2_EE9push_backERKS2_.exit ]
   %.sroa.9.042 = phi ptr [ null, %.lr.ph ], [ %.sroa.9.1, %_ZNSt6vectorIN2cv3VecIfLi4EEESaIS2_EE9push_backERKS2_.exit ]
   %.sroa.0.041 = phi ptr [ null, %.lr.ph ], [ %.sroa.0.2, %_ZNSt6vectorIN2cv3VecIfLi4EEESaIS2_EE9push_backERKS2_.exit ]
-  %70 = getelementptr inbounds nuw %struct.SEGMENT, ptr %68, i64 %.01244
+  %70 = getelementptr inbounds nuw [20 x i8], ptr %68, i64 %.01244
   %.sroa.0.0.copyload = load float, ptr %70, align 4, !tbaa !68
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %70, i64 4
   %.sroa.5.0.copyload = load float, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !68
@@ -424,9 +424,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %32, %
 
 .preheader.i:                                     ; preds = %67, %.preheader.i
   %indvars.iv.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i, %.preheader.i ], [ 0, %67 ]
-  %71 = getelementptr inbounds nuw float, ptr %9, i64 %indvars.iv.i.i.i.i.i
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv.i.i.i.i.i
   %72 = load float, ptr %71, align 4, !tbaa !68
-  %73 = getelementptr inbounds nuw float, ptr %.sroa.9.042, i64 %indvars.iv.i.i.i.i.i
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.9.042, i64 %indvars.iv.i.i.i.i.i
   store float %72, ptr %73, align 4, !tbaa !68
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i, 4
@@ -472,9 +472,9 @@ _ZNKSt6vectorIN2cv3VecIfLi4EEESaIS2_EE12_M_check_lenEmPKc.exit.i: ; preds = %74
 
 88:                                               ; preds = %88, %.preheader.i.i.i.i.i.i
   %indvars.iv.i.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i.i, %88 ], [ 0, %.preheader.i.i.i.i.i.i ]
-  %89 = getelementptr inbounds nuw float, ptr %.01214.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %.01214.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
   %90 = load float, ptr %89, align 4, !tbaa !68
-  %91 = getelementptr inbounds nuw float, ptr %.015.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %.015.i.i.i.i.i.i, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
   store float %90, ptr %91, align 4, !tbaa !68
   %indvars.iv.next.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i, 1
   %exitcond.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i.i.i.i.i.i.i, 4
@@ -500,7 +500,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN2cv3VecIfLi4EEES3_SaIS2_EET0_T_S6_S5_
 .noexc22:                                         ; preds = %94, %_ZSt34__uninitialized_move_if_noexcept_aIPN2cv3VecIfLi4EEES3_SaIS2_EET0_T_S6_S5_RT1_.exit38.i
   %.pre49 = phi ptr [ %.pre49.pre, %94 ], [ %.pre4953, %_ZSt34__uninitialized_move_if_noexcept_aIPN2cv3VecIfLi4EEES3_SaIS2_EET0_T_S6_S5_RT1_.exit38.i ]
   %.pre = phi ptr [ %.pre.pre, %94 ], [ %.pre50, %_ZSt34__uninitialized_move_if_noexcept_aIPN2cv3VecIfLi4EEES3_SaIS2_EET0_T_S6_S5_RT1_.exit38.i ]
-  %95 = getelementptr inbounds nuw %"class.cv::Vec", ptr %86, i64 %84
+  %95 = getelementptr inbounds nuw [16 x i8], ptr %86, i64 %84
   br label %_ZNSt6vectorIN2cv3VecIfLi4EEESaIS2_EE9push_backERKS2_.exit
 
 _ZNSt6vectorIN2cv3VecIfLi4EEESaIS2_EE9push_backERKS2_.exit: ; preds = %.preheader.i, %.noexc22
@@ -1008,7 +1008,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i: ; p
 _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %157, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
   store ptr %151, ptr %12, align 8, !tbaa !107
   store ptr %156, ptr %85, align 8, !tbaa !98
-  %158 = getelementptr inbounds nuw %"class.cv::Point_.14", ptr %151, i64 %149
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %151, i64 %149
   store ptr %158, ptr %86, align 8, !tbaa !108
   br label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backERKS2_.exit
 
@@ -1043,7 +1043,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vect
 
 .split.us.i:                                      ; preds = %166, %195
   %indvars.iv89.i = phi i64 [ %indvars.iv.next90.i, %195 ], [ 0, %166 ]
-  %175 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZN2cv8ximgproc20FastLineDetectorImpl13getPointChainERKNS_3MatENS_6Point_IiEERS6_Rfi.indices, i64 %indvars.iv89.i
+  %175 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZN2cv8ximgproc20FastLineDetectorImpl13getPointChainERKNS_3MatENS_6Point_IiEERS6_Rfi.indices, i64 %indvars.iv89.i
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 4
   %177 = load i32, ptr %176, align 4, !tbaa !109
   %178 = add nsw i32 %177, %.sroa.0149.0
@@ -1083,7 +1083,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vect
   %.sroa.0.067.i = phi i32 [ %.sroa.0.1.i, %236 ], [ 0, %166 ]
   %.sroa.5.066.i = phi i32 [ %.sroa.5.1.i, %236 ], [ 0, %166 ]
   %indvars88.i = trunc i64 %indvars.iv.i to i32
-  %196 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZN2cv8ximgproc20FastLineDetectorImpl13getPointChainERKNS_3MatENS_6Point_IiEERS6_Rfi.indices, i64 %indvars.iv.i
+  %196 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZN2cv8ximgproc20FastLineDetectorImpl13getPointChainERKNS_3MatENS_6Point_IiEERS6_Rfi.indices, i64 %indvars.iv.i
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 4
   %198 = load i32, ptr %197, align 4, !tbaa !109
   %199 = add nsw i32 %198, %.sroa.0149.0
@@ -1235,7 +1235,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i107: 
   br label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i110
 
 _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i110: ; preds = %264, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i107
-  %265 = getelementptr inbounds nuw %"class.cv::Point_.14", ptr %259, i64 %257
+  %265 = getelementptr inbounds nuw [8 x i8], ptr %259, i64 %257
   br label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backERKS2_.exit113
 
 _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backERKS2_.exit113: ; preds = %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i110, %246
@@ -1349,7 +1349,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE5clearEv.exit117: ; preds = %301, %._crit_ed
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNSt6vectorI7SEGMENTSaIS0_EE9push_backERKS0_.exit133
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %_ZNSt6vectorI7SEGMENTSaIS0_EE9push_backERKS0_.exit133 ]
-  %303 = getelementptr inbounds nuw %struct.SEGMENT, ptr %291, i64 %indvars.iv
+  %303 = getelementptr inbounds nuw [20 x i8], ptr %291, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %26, ptr noundef nonnull align 4 dereferenceable(20) %303, i64 20, i1 false), !tbaa.struct !117
   %304 = load float, ptr %26, align 4, !tbaa !118
   %305 = load float, ptr %91, align 4, !tbaa !120
@@ -1477,7 +1477,7 @@ _ZNSt6vectorI7SEGMENTSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i: ; preds = 
 _ZNSt6vectorI7SEGMENTSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i: ; preds = %360, %_ZNSt6vectorI7SEGMENTSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i
   store ptr %355, ptr %2, align 8, !tbaa !57
   store ptr %359, ptr %95, align 8, !tbaa !54
-  %361 = getelementptr inbounds nuw %struct.SEGMENT, ptr %355, i64 %353
+  %361 = getelementptr inbounds nuw [20 x i8], ptr %355, i64 %353
   store ptr %361, ptr %96, align 8, !tbaa !125
   br label %_ZNSt6vectorI7SEGMENTSaIS0_EE9push_backERKS0_.exit
 
@@ -1536,7 +1536,7 @@ _ZNSt6vectorI7SEGMENTSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i128: ; preds
 _ZNSt6vectorI7SEGMENTSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i130: ; preds = %383, %_ZNSt6vectorI7SEGMENTSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i128
   store ptr %378, ptr %14, align 8, !tbaa !57
   store ptr %382, ptr %97, align 8, !tbaa !54
-  %384 = getelementptr inbounds nuw %struct.SEGMENT, ptr %378, i64 %376
+  %384 = getelementptr inbounds nuw [20 x i8], ptr %378, i64 %376
   store ptr %384, ptr %98, align 8, !tbaa !125
   br label %_ZNSt6vectorI7SEGMENTSaIS0_EE9push_backERKS0_.exit133
 
@@ -1598,10 +1598,10 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE5clearEv.exit: ; preds = %286, %287, %299, %
   %.048242 = phi i32 [ %.2, %437 ], [ %411, %.lr.ph244.preheader ]
   %.049241 = phi i32 [ %.251, %437 ], [ %412, %.lr.ph244.preheader ]
   %414 = sext i32 %.049241 to i64
-  %415 = getelementptr inbounds %struct.SEGMENT, ptr %413, i64 %414
+  %415 = getelementptr inbounds [20 x i8], ptr %413, i64 %414
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %27, ptr noundef nonnull align 4 dereferenceable(20) %415, i64 20, i1 false), !tbaa.struct !117
   %416 = sext i32 %.048242 to i64
-  %417 = getelementptr inbounds nuw %struct.SEGMENT, ptr %413, i64 %416
+  %417 = getelementptr inbounds nuw [20 x i8], ptr %413, i64 %416
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %28, ptr noundef nonnull align 4 dereferenceable(20) %417, i64 20, i1 false), !tbaa.struct !117
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
   %418 = invoke noundef zeroext i1 @_ZN2cv8ximgproc20FastLineDetectorImpl13mergeSegmentsERK7SEGMENTS4_RS2_(ptr noundef nonnull align 8 dereferenceable(45) %0, ptr noundef nonnull align 4 dereferenceable(20) %27, ptr noundef nonnull align 4 dereferenceable(20) %28, ptr noundef nonnull align 4 dereferenceable(20) %29)
@@ -1618,7 +1618,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE5clearEv.exit: ; preds = %286, %287, %299, %
 421:                                              ; preds = %420
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %415, ptr noundef nonnull align 4 dereferenceable(20) %28, i64 20, i1 false), !tbaa.struct !117
   %422 = load ptr, ptr %14, align 8, !tbaa !130
-  %423 = getelementptr inbounds %struct.SEGMENT, ptr %422, i64 %416
+  %423 = getelementptr inbounds [20 x i8], ptr %422, i64 %416
   %424 = getelementptr inbounds nuw i8, ptr %423, i64 20
   %425 = load ptr, ptr %402, align 8, !tbaa !130
   %.not.i.i134 = icmp eq ptr %424, %425
@@ -1967,7 +1967,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %._crit_edge, %51
 
 69:                                               ; preds = %65, %62
   %70 = load ptr, ptr %47, align 8, !tbaa !64
-  %71 = getelementptr inbounds nuw %"class.cv::Vec", ptr %70, i64 %indvars.iv
+  %71 = getelementptr inbounds nuw [16 x i8], ptr %70, i64 %indvars.iv
   br label %95
 
 72:                                               ; preds = %65
@@ -1997,7 +1997,7 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %._crit_edge, %51
   %91 = mul i64 %89, %90
   %92 = getelementptr inbounds nuw i8, ptr %87, i64 %91
   %93 = sext i32 %.recomposed to i64
-  %94 = getelementptr inbounds %"class.cv::Vec", ptr %92, i64 %93
+  %94 = getelementptr inbounds [16 x i8], ptr %92, i64 %93
   br label %95
 
 95:                                               ; preds = %82, %76, %69
@@ -2866,11 +2866,11 @@ define hidden void @_ZN2cv8ximgproc20FastLineDetectorImpl15extractSegmentsERKSt6
   %.sroa.0.0588 = phi ptr [ null, %.lr.ph592 ], [ %.sroa.0.10, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backERKS2_.exit167.thread316 ]
   %152 = sext i32 %.083591 to i64
   %153 = load ptr, ptr %1, align 8, !tbaa !107
-  %154 = getelementptr inbounds nuw %"class.cv::Point_.14", ptr %153, i64 %152
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %153, i64 %152
   %155 = load i64, ptr %154, align 4
   store i64 %155, ptr %7, align 8
   %156 = sext i32 %151 to i64
-  %157 = getelementptr inbounds nuw %"class.cv::Point_.14", ptr %153, i64 %156
+  %157 = getelementptr inbounds nuw [8 x i8], ptr %153, i64 %156
   %158 = load i64, ptr %157, align 4
   %.sroa.0281.0.extract.trunc = trunc i64 %158 to i32
   %.sroa.10.0.extract.shift = lshr i64 %158, 32
@@ -3006,7 +3006,7 @@ _ZNKSt6vectorIN2cv6Point_IiEESaIS2_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %17
   br label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
 
 _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %193, %.noexc150
-  %194 = getelementptr inbounds nuw %"class.cv::Point_.14", ptr %190, i64 %188
+  %194 = getelementptr inbounds nuw [8 x i8], ptr %190, i64 %188
   br label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backERKS2_.exit
 
 _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backERKS2_.exit: ; preds = %176, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i
@@ -3025,8 +3025,8 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backERKS2_.exit: ; preds = %176, %_ZNS
   %.pn328.pn559 = phi ptr [ %.sroa.18.1.pn, %278 ], [ %.pn328, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backERKS2_.exit ]
   %.sroa.0.2558 = phi ptr [ %.sroa.0.4.ph, %278 ], [ %.sroa.0.15, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backERKS2_.exit ]
   %197 = load ptr, ptr %1, align 8, !tbaa !107
-  %198 = getelementptr %"class.cv::Point_.14", ptr %197, i64 %indvars.iv
-  %199 = getelementptr %"class.cv::Point_.14", ptr %198, i64 %152
+  %198 = getelementptr [8 x i8], ptr %197, i64 %indvars.iv
+  %199 = getelementptr [8 x i8], ptr %198, i64 %152
   %200 = load i64, ptr %199, align 4
   %201 = trunc i64 %200 to i32
   %202 = lshr i64 %200, 32
@@ -3242,7 +3242,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i161: 
   br label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i164
 
 _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i164: ; preds = %276, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i161
-  %277 = getelementptr inbounds nuw %"class.cv::Point_.14", ptr %271, i64 %269
+  %277 = getelementptr inbounds nuw [8 x i8], ptr %271, i64 %269
   br label %278
 
 278:                                              ; preds = %258, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i164
@@ -3323,7 +3323,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i177: 
   br label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i180
 
 _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i180: ; preds = %300, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i177
-  %301 = getelementptr inbounds nuw %"class.cv::Point_.14", ptr %295, i64 %293
+  %301 = getelementptr inbounds nuw [8 x i8], ptr %295, i64 %293
   br label %302
 
 302:                                              ; preds = %282, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i180
@@ -3476,7 +3476,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17_
   %.sroa.0281.0568 = phi i32 [ %.sroa.0281.0.extract.trunc, %.lr.ph574.preheader ], [ %347, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backERKS2_.exit207 ]
   %.sroa.10.0567 = phi i32 [ %.sroa.10.0.extract.trunc, %.lr.ph574.preheader ], [ %349, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backERKS2_.exit207 ]
   %344 = load ptr, ptr %1, align 8, !tbaa !107
-  %345 = getelementptr inbounds nuw %"class.cv::Point_.14", ptr %344, i64 %indvars.iv759
+  %345 = getelementptr inbounds nuw [8 x i8], ptr %344, i64 %indvars.iv759
   %346 = load i64, ptr %345, align 4
   %347 = trunc i64 %346 to i32
   %348 = lshr i64 %346, 32
@@ -3914,7 +3914,7 @@ _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i201: 
   br label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i204
 
 _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i204: ; preds = %499, %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i201
-  %500 = getelementptr inbounds nuw %"class.cv::Point_.14", ptr %494, i64 %492
+  %500 = getelementptr inbounds nuw [8 x i8], ptr %494, i64 %492
   br label %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backERKS2_.exit207
 
 _ZNSt6vectorIN2cv6Point_IiEESaIS2_EE9push_backERKS2_.exit207: ; preds = %_ZNSt6vectorIN2cv6Point_IiEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i204, %481
@@ -4152,7 +4152,7 @@ _ZNSt6vectorI7SEGMENTSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i: ; preds = 
 _ZNSt6vectorI7SEGMENTSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i: ; preds = %565, %_ZNSt6vectorI7SEGMENTSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i
   store ptr %560, ptr %2, align 8, !tbaa !57
   store ptr %564, ptr %147, align 8, !tbaa !54
-  %566 = getelementptr inbounds nuw %struct.SEGMENT, ptr %560, i64 %558
+  %566 = getelementptr inbounds nuw [20 x i8], ptr %560, i64 %558
   store ptr %566, ptr %148, align 8, !tbaa !125
   br label %_ZNSt6vectorI7SEGMENTSaIS0_EE9push_backERKS0_.exit
 
@@ -4961,7 +4961,7 @@ define hidden noundef zeroext i1 @_ZN2cv8ximgproc20FastLineDetectorImpl13getPoin
 
 .split.us:                                        ; preds = %6, %37
   %indvars.iv89 = phi i64 [ %indvars.iv.next90, %37 ], [ 0, %6 ]
-  %17 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZN2cv8ximgproc20FastLineDetectorImpl13getPointChainERKNS_3MatENS_6Point_IiEERS6_Rfi.indices, i64 %indvars.iv89
+  %17 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZN2cv8ximgproc20FastLineDetectorImpl13getPointChainERKNS_3MatENS_6Point_IiEERS6_Rfi.indices, i64 %indvars.iv89
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 4
   %19 = load i32, ptr %18, align 4, !tbaa !109
   %20 = add nsw i32 %19, %.sroa.0.0.extract.trunc
@@ -5001,7 +5001,7 @@ define hidden noundef zeroext i1 @_ZN2cv8ximgproc20FastLineDetectorImpl13getPoin
   %.sroa.0.067 = phi i32 [ %.sroa.0.1, %81 ], [ 0, %6 ]
   %.sroa.5.066 = phi i32 [ %.sroa.5.1, %81 ], [ 0, %6 ]
   %indvars88 = trunc i64 %indvars.iv to i32
-  %38 = getelementptr inbounds nuw [2 x i32], ptr @__const._ZN2cv8ximgproc20FastLineDetectorImpl13getPointChainERKNS_3MatENS_6Point_IiEERS6_Rfi.indices, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZN2cv8ximgproc20FastLineDetectorImpl13getPointChainERKNS_3MatENS_6Point_IiEERS6_Rfi.indices, i64 %indvars.iv
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 4
   %40 = load i32, ptr %39, align 4, !tbaa !109
   %41 = add nsw i32 %40, %.sroa.0.0.extract.trunc
@@ -5176,7 +5176,7 @@ define hidden void @_ZN2cv8ximgproc20FastLineDetectorImpl29additionalOperationsO
   %45 = load float, ptr %28, align 4, !tbaa !159
   %46 = uitofp nneg i32 %43 to float
   %47 = tail call float @llvm.fmuladd.f32(float %32, float %46, float %45)
-  %48 = getelementptr inbounds nuw %"class.cv::Point_", ptr %28, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv
   store float %47, ptr %48, align 4, !tbaa !159
   %49 = load float, ptr %.sroa_idx124, align 4, !tbaa !161
   %50 = tail call float @llvm.fmuladd.f32(float %34, float %46, float %49)
@@ -5199,14 +5199,14 @@ define hidden void @_ZN2cv8ximgproc20FastLineDetectorImpl29additionalOperationsO
 
 58:                                               ; preds = %.preheader127, %58
   %indvars.iv135 = phi i64 [ 0, %.preheader127 ], [ %indvars.iv.next136, %58 ]
-  %59 = getelementptr inbounds nuw %"class.cv::Point_", ptr %28, i64 %indvars.iv135
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv135
   %60 = load float, ptr %59, align 4, !tbaa !159
   %61 = fpext float %60 to double
   %62 = tail call double @cos(double noundef %38) #29, !tbaa !109
   %63 = fadd double %62, %61
   %64 = insertelement <2 x double> poison, double %63, i64 0
   %65 = tail call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %64)
-  %66 = getelementptr inbounds nuw %"class.cv::Point_.14", ptr %35, i64 %indvars.iv135
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv135
   %67 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %68 = load float, ptr %67, align 4, !tbaa !161
   %69 = fpext float %68 to double
@@ -5219,7 +5219,7 @@ define hidden void @_ZN2cv8ximgproc20FastLineDetectorImpl29additionalOperationsO
   %76 = fsub double %61, %75
   %77 = insertelement <2 x double> poison, double %76, i64 0
   %78 = tail call noundef i32 @llvm.x86.sse2.cvtsd2si(<2 x double> %77)
-  %79 = getelementptr inbounds nuw %"class.cv::Point_.14", ptr %36, i64 %indvars.iv135
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv135
   %80 = tail call double @sin(double noundef %38) #29, !tbaa !109
   %81 = fsub double %69, %80
   %82 = insertelement <2 x double> poison, double %81, i64 0
@@ -5257,7 +5257,7 @@ define hidden void @_ZN2cv8ximgproc20FastLineDetectorImpl29additionalOperationsO
   %indvars.iv139 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next140, %95 ]
   %.093131 = phi i32 [ 0, %.preheader ], [ %119, %95 ]
   %.094130 = phi i32 [ 0, %.preheader ], [ %107, %95 ]
-  %96 = getelementptr inbounds nuw %"class.cv::Point_.14", ptr %35, i64 %indvars.iv139
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv139
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 4
   %98 = load i32, ptr %97, align 4, !tbaa !139
   %99 = load i32, ptr %96, align 4, !tbaa !137
@@ -5269,7 +5269,7 @@ define hidden void @_ZN2cv8ximgproc20FastLineDetectorImpl29additionalOperationsO
   %105 = load i8, ptr %104, align 1, !tbaa !97
   %106 = zext i8 %105 to i32
   %107 = add nuw nsw i32 %.094130, %106
-  %108 = getelementptr inbounds nuw %"class.cv::Point_.14", ptr %36, i64 %indvars.iv139
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv139
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 4
   %110 = load i32, ptr %109, align 4, !tbaa !139
   %111 = load i32, ptr %108, align 4, !tbaa !137

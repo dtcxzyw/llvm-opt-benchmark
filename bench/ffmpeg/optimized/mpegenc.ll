@@ -152,7 +152,7 @@ define internal noundef range(i32 -1163346256, 1) i32 @mpeg_mux_init(ptr noundef
   %.0226304 = phi i8 [ -32, %.lr.ph ], [ %.1227, %184 ]
   %.0229303 = phi i8 [ -64, %.lr.ph ], [ %.2231, %184 ]
   %40 = load ptr, ptr %36, align 8, !tbaa !37
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %indvars.iv349
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %indvars.iv349
   %42 = load ptr, ptr %41, align 8, !tbaa !38
   %43 = tail call noalias ptr @av_mallocz(i64 noundef 80) #8
   %.not254 = icmp eq ptr %43, null
@@ -231,7 +231,7 @@ define internal noundef range(i32 -1163346256, 1) i32 @mpeg_mux_init(ptr noundef
 
 72:                                               ; preds = %66, %76
   %indvars.iv = phi i64 [ 0, %66 ], [ %indvars.iv.next, %76 ]
-  %73 = getelementptr inbounds nuw i32, ptr @lpcm_freq_tab, i64 %indvars.iv
+  %73 = getelementptr inbounds nuw [4 x i8], ptr @lpcm_freq_tab, i64 %indvars.iv
   %74 = load i32, ptr %73, align 4, !tbaa !57
   %75 = icmp eq i32 %74, %71
   br i1 %75, label %.thread, label %76
@@ -248,7 +248,7 @@ define internal noundef range(i32 -1163346256, 1) i32 @mpeg_mux_init(ptr noundef
 
 78:                                               ; preds = %77, %78
   %indvars.iv351 = phi i64 [ 0, %77 ], [ %indvars.iv.next352, %78 ]
-  %79 = getelementptr inbounds nuw i32, ptr @lpcm_freq_tab, i64 %indvars.iv351
+  %79 = getelementptr inbounds nuw [4 x i8], ptr @lpcm_freq_tab, i64 %indvars.iv351
   %80 = load i32, ptr %79, align 4, !tbaa !57
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 32, ptr noundef nonnull @.str.23, i32 noundef %80) #8
   %indvars.iv.next352 = add nuw nsw i64 %indvars.iv351, 1
@@ -475,7 +475,7 @@ define internal noundef range(i32 -1163346256, 1) i32 @mpeg_mux_init(ptr noundef
   %.0206312 = phi i32 [ 0, %.lr.ph315 ], [ %.1207, %222 ]
   %.0208311 = phi i32 [ 0, %.lr.ph315 ], [ %.1209, %222 ]
   %189 = load ptr, ptr %38, align 8, !tbaa !37
-  %190 = getelementptr inbounds nuw ptr, ptr %189, i64 %indvars.iv355
+  %190 = getelementptr inbounds nuw [8 x i8], ptr %189, i64 %indvars.iv355
   %191 = load ptr, ptr %190, align 8, !tbaa !38
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 24
   %193 = load ptr, ptr %192, align 8, !tbaa !40
@@ -639,7 +639,7 @@ define internal noundef range(i32 -1163346256, 1) i32 @mpeg_mux_init(ptr noundef
 
 272:                                              ; preds = %.lr.ph320, %272
   %indvars.iv358 = phi i64 [ 0, %.lr.ph320 ], [ %indvars.iv.next359, %272 ]
-  %273 = getelementptr inbounds nuw ptr, ptr %271, i64 %indvars.iv358
+  %273 = getelementptr inbounds nuw [8 x i8], ptr %271, i64 %indvars.iv358
   %274 = load ptr, ptr %273, align 8, !tbaa !38
   %275 = getelementptr inbounds nuw i8, ptr %274, i64 24
   %276 = load ptr, ptr %275, align 8, !tbaa !40
@@ -674,7 +674,7 @@ define internal noundef range(i32 -1163346256, 1) i32 @mpeg_mux_init(ptr noundef
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %297 ]
   %.01118.i = phi i32 [ 12, %.lr.ph.i ], [ %.1.i, %297 ]
   %.01217.i = phi i32 [ 0, %.lr.ph.i ], [ %.2.i, %297 ]
-  %287 = getelementptr inbounds nuw ptr, ptr %285, i64 %indvars.iv.i
+  %287 = getelementptr inbounds nuw [8 x i8], ptr %285, i64 %indvars.iv.i
   %288 = load ptr, ptr %287, align 8, !tbaa !38
   %289 = getelementptr inbounds nuw i8, ptr %288, i64 24
   %290 = load ptr, ptr %289, align 8, !tbaa !40
@@ -725,7 +725,7 @@ define internal range(i32 -2147483648, 1) i32 @mpeg_mux_write_packet(ptr noundef
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load ptr, ptr %11, align 8, !tbaa !37
   %13 = sext i32 %4 to i64
-  %14 = getelementptr inbounds ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !38
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load ptr, ptr %16, align 8, !tbaa !40
@@ -988,7 +988,7 @@ define internal noundef i32 @mpeg_mux_end(ptr noundef %0) #1 {
 12:                                               ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
   %13 = load ptr, ptr %7, align 8, !tbaa !37
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !38
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load ptr, ptr %16, align 8, !tbaa !40
@@ -1024,7 +1024,7 @@ define internal void @mpeg_mux_deinit(ptr noundef readonly captures(none) %0) #1
   %6 = phi i32 [ %3, %.lr.ph18 ], [ %18, %17 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph18 ], [ %indvars.iv.next, %17 ]
   %7 = load ptr, ptr %4, align 8, !tbaa !37
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !38
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %11 = load ptr, ptr %10, align 8, !tbaa !40
@@ -1125,7 +1125,7 @@ define internal fastcc range(i32 0, 2) i32 @output_packet(ptr noundef %0, i32 no
   %.1155245 = phi i32 [ %.0154386, %.lr.ph ], [ %.2156.ph, %67 ]
   %.1159244 = phi i32 [ %.0158385, %.lr.ph ], [ %.2160.ph, %67 ]
   %21 = load ptr, ptr %13, align 8, !tbaa !37
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8, !tbaa !38
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %25 = load ptr, ptr %24, align 8, !tbaa !40
@@ -1225,7 +1225,7 @@ define internal fastcc range(i32 0, 2) i32 @output_packet(ptr noundef %0, i32 no
   %indvars.iv284 = phi i64 [ 0, %.lr.ph254 ], [ %indvars.iv.next285, %83 ]
   %.0147252 = phi i32 [ 0, %.lr.ph254 ], [ %88, %83 ]
   %.0148251 = phi i64 [ 9223372036854775807, %.lr.ph254 ], [ %.1149, %83 ]
-  %74 = getelementptr inbounds nuw ptr, ptr %72, i64 %indvars.iv284
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %indvars.iv284
   %75 = load ptr, ptr %74, align 8, !tbaa !38
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 24
   %77 = load ptr, ptr %76, align 8, !tbaa !40
@@ -1281,7 +1281,7 @@ define internal fastcc range(i32 0, 2) i32 @output_packet(ptr noundef %0, i32 no
 .lr.ph26.i:                                       ; preds = %98, %.critedge.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.critedge.i ], [ 0, %98 ]
   %101 = load ptr, ptr %13, align 8, !tbaa !37
-  %102 = getelementptr inbounds nuw ptr, ptr %101, i64 %indvars.iv.i
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %indvars.iv.i
   %103 = load ptr, ptr %102, align 8, !tbaa !38
   %104 = getelementptr inbounds nuw i8, ptr %103, i64 24
   %105 = load ptr, ptr %104, align 8, !tbaa !40
@@ -1370,7 +1370,7 @@ remove_decoded_packets.exit:                      ; preds = %.critedge.i, %98, %
 141:                                              ; preds = %._crit_edge
   %142 = load ptr, ptr %13, align 8, !tbaa !37
   %143 = zext nneg i32 %.2156.ph to i64
-  %144 = getelementptr inbounds nuw ptr, ptr %142, i64 %143
+  %144 = getelementptr inbounds nuw [8 x i8], ptr %142, i64 %143
   %145 = load ptr, ptr %144, align 8, !tbaa !38
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 24
   %147 = load ptr, ptr %146, align 8, !tbaa !40
@@ -1583,7 +1583,7 @@ get_vcd_padding_size.exit:                        ; preds = %192, %199
 .lr.ph26.i197:                                    ; preds = %253, %.critedge.i201
   %indvars.iv.i198 = phi i64 [ %indvars.iv.next.i202, %.critedge.i201 ], [ 0, %253 ]
   %255 = load ptr, ptr %13, align 8, !tbaa !37
-  %256 = getelementptr inbounds nuw ptr, ptr %255, i64 %indvars.iv.i198
+  %256 = getelementptr inbounds nuw [8 x i8], ptr %255, i64 %indvars.iv.i198
   %257 = load ptr, ptr %256, align 8, !tbaa !38
   %258 = getelementptr inbounds nuw i8, ptr %257, i64 24
   %259 = load ptr, ptr %258, align 8, !tbaa !40
@@ -1669,7 +1669,7 @@ define internal fastcc i32 @flush_packet(ptr noundef %0, i32 noundef range(i32 0
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %12 = load ptr, ptr %11, align 8, !tbaa !37
   %13 = zext nneg i32 %1 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8, !tbaa !38
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load ptr, ptr %16, align 8, !tbaa !40
@@ -2703,7 +2703,7 @@ put_bits.exit142:                                 ; preds = %put_bits.exit126, %
   %.062470 = phi i32 [ 0, %.lr.ph ], [ %.163, %75 ]
   %.064469 = phi i32 [ 0, %.lr.ph ], [ %.165.fr, %75 ]
   %.066468 = phi i32 [ 0, %.lr.ph ], [ %.167, %75 ]
-  %53 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv
   %54 = load ptr, ptr %53, align 8, !tbaa !38
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %56 = load ptr, ptr %55, align 8, !tbaa !40
@@ -2789,7 +2789,7 @@ put_bits.exit206:                                 ; preds = %76, %.thread
   %.sroa.188.6474.idx = phi i64 [ 12, %.lr.ph479 ], [ %.sroa.188.7.idx, %put_bits.exit238 ]
   %.sroa.188.6474.ptr = getelementptr inbounds nuw i8, ptr %1, i64 %.sroa.188.6474.idx
   %97 = load ptr, ptr %50, align 8, !tbaa !37
-  %98 = getelementptr inbounds nuw ptr, ptr %97, i64 %indvars.iv486
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %indvars.iv486
   %99 = load ptr, ptr %98, align 8, !tbaa !38
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 24
   %101 = load ptr, ptr %100, align 8, !tbaa !40

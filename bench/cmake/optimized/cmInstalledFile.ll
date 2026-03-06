@@ -833,7 +833,7 @@ _ZNSt6vectorISt10unique_ptrI29cmCompiledGeneratorExpressionSt14default_deleteIS1
 _ZNSt6vectorISt10unique_ptrI29cmCompiledGeneratorExpressionSt14default_deleteIS1_EESaIS4_EE9push_backEOS4_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrI29cmCompiledGeneratorExpressionSt14default_deleteIS1_EESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i, %95
   store ptr %88, ptr %50, align 8, !tbaa !28
   store ptr %94, ptr %69, align 8, !tbaa !31
-  %96 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %88, i64 %86
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %86
   store ptr %96, ptr %71, align 8, !tbaa !34
   %.pr = load ptr, ptr %10, align 8, !tbaa !26
   %.not.i = icmp eq ptr %.pr, null

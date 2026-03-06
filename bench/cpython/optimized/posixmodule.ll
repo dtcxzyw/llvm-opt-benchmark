@@ -1032,8 +1032,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.siginfo_t = type { i32, i32, i32, i32, %union.anon.856 }
 %union.anon.856 = type { %struct.anon.860, [80 x i8] }
 %struct.anon.860 = type { i32, i32, i32, i64, i64 }
-%struct.iovec = type { ptr, i64 }
-%struct.constdef = type { ptr, i32 }
 
 @_PyRuntime = external global %struct.pyruntimestate, align 8
 @__func__.PyOS_AfterFork_Child = private unnamed_addr constant [21 x i8] c"PyOS_AfterFork_Child\00", align 1
@@ -2510,7 +2508,7 @@ define internal fastcc void @run_at_forkers(ptr noundef %0, i32 noundef range(i3
 16:                                               ; preds = %.lr.ph, %Py_DECREF.exit
   %.025 = phi i64 [ 0, %.lr.ph ], [ %40, %Py_DECREF.exit ]
   %17 = load ptr, ptr %14, align 8, !tbaa !95
-  %18 = getelementptr ptr, ptr %17, i64 %.025
+  %18 = getelementptr [8 x i8], ptr %17, i64 %.025
   %19 = load ptr, ptr %18, align 8, !tbaa !97
   %20 = load ptr, ptr %15, align 8, !tbaa !4
   %21 = getelementptr i8, ptr %19, i64 8
@@ -9441,7 +9439,7 @@ define internal noalias noundef ptr @os_execv(ptr readnone captures(none) %0, pt
 
 .lr.ph.i.i:                                       ; preds = %40, %.lr.ph.i.i
   %.05.i.i = phi i64 [ %46, %.lr.ph.i.i ], [ 0, %40 ]
-  %44 = getelementptr ptr, ptr %35, i64 %.05.i.i
+  %44 = getelementptr [8 x i8], ptr %35, i64 %.05.i.i
   %45 = load ptr, ptr %44, align 8, !tbaa !115
   tail call void @PyMem_Free(ptr noundef %45) #20
   %46 = add nuw nsw i64 %.05.i.i, 1
@@ -9464,7 +9462,7 @@ free_string_array.exit.i:                         ; preds = %.lr.ph.i.i, %40
 
 .lr.ph.i21.i:                                     ; preds = %50, %.lr.ph.i21.i
   %.05.i22.i = phi i64 [ %55, %.lr.ph.i21.i ], [ 0, %50 ]
-  %53 = getelementptr ptr, ptr %35, i64 %.05.i22.i
+  %53 = getelementptr [8 x i8], ptr %35, i64 %.05.i22.i
   %54 = load ptr, ptr %53, align 8, !tbaa !115
   tail call void @PyMem_Free(ptr noundef %54) #20
   %55 = add nuw nsw i64 %.05.i22.i, 1
@@ -9485,7 +9483,7 @@ free_string_array.exit24.i:                       ; preds = %.lr.ph.i21.i, %50
 
 .lr.ph.i25.i:                                     ; preds = %56, %.lr.ph.i25.i
   %.05.i26.i = phi i64 [ %64, %.lr.ph.i25.i ], [ 0, %56 ]
-  %62 = getelementptr ptr, ptr %35, i64 %.05.i26.i
+  %62 = getelementptr [8 x i8], ptr %35, i64 %.05.i26.i
   %63 = load ptr, ptr %62, align 8, !tbaa !115
   tail call void @PyMem_Free(ptr noundef %63) #20
   %64 = add nuw nsw i64 %.05.i26.i, 1
@@ -9688,7 +9686,7 @@ define internal noalias noundef ptr @os_execve(ptr readnone captures(none) %0, p
 
 .lr.ph.i.i:                                       ; preds = %73, %.lr.ph.i.i
   %.05.i.i = phi i64 [ %78, %.lr.ph.i.i ], [ 0, %73 ]
-  %76 = getelementptr ptr, ptr %53, i64 %.05.i.i
+  %76 = getelementptr [8 x i8], ptr %53, i64 %.05.i.i
   %77 = load ptr, ptr %76, align 8, !tbaa !115
   call void @PyMem_Free(ptr noundef %77) #20
   %78 = add nuw nsw i64 %.05.i.i, 1
@@ -9706,7 +9704,7 @@ free_string_array.exit.i:                         ; preds = %.lr.ph.i.i, %73
 
 .lr.ph.i37.i:                                     ; preds = %79, %.lr.ph.i37.i
   %.05.i38.i = phi i64 [ %84, %.lr.ph.i37.i ], [ 0, %79 ]
-  %82 = getelementptr ptr, ptr %45, i64 %.05.i38.i
+  %82 = getelementptr [8 x i8], ptr %45, i64 %.05.i38.i
   %83 = load ptr, ptr %82, align 8, !tbaa !115
   call void @PyMem_Free(ptr noundef %83) #20
   %84 = add nuw nsw i64 %.05.i38.i, 1
@@ -11025,7 +11023,7 @@ thread-pre-split.i:                               ; preds = %46, %40
 
 57:                                               ; preds = %72, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %72 ]
-  %58 = getelementptr i32, ptr %34, i64 %indvars.iv.i
+  %58 = getelementptr [4 x i8], ptr %34, i64 %indvars.iv.i
   %59 = load i32, ptr %58, align 4, !tbaa !114
   %60 = icmp eq i32 %59, -1
   br i1 %60, label %61, label %63
@@ -11065,7 +11063,7 @@ _PyLong_FromGid.exit.i:                           ; preds = %63, %61
 
 72:                                               ; preds = %_PyLong_FromGid.exit.i
   %.val.i = load ptr, ptr %55, align 8, !tbaa !95
-  %73 = getelementptr ptr, ptr %.val.i, i64 %indvars.iv.i
+  %73 = getelementptr [8 x i8], ptr %.val.i, i64 %indvars.iv.i
   store ptr %.0.i.i, ptr %73, align 8, !tbaa !97
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %74 = load i32, ptr %4, align 4, !tbaa !114
@@ -11150,7 +11148,7 @@ define internal ptr @os_getgroups(ptr readnone captures(none) %0, ptr readnone c
 
 31:                                               ; preds = %40, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %40 ]
-  %32 = getelementptr i32, ptr %15, i64 %indvars.iv.i
+  %32 = getelementptr [4 x i8], ptr %15, i64 %indvars.iv.i
   %33 = load i32, ptr %32, align 4, !tbaa !114
   %34 = icmp eq i32 %33, -1
   br i1 %34, label %35, label %37
@@ -11171,7 +11169,7 @@ _PyLong_FromGid.exit.i:                           ; preds = %37, %35
 
 40:                                               ; preds = %_PyLong_FromGid.exit.i
   %.val.i = load ptr, ptr %30, align 8, !tbaa !95
-  %41 = getelementptr ptr, ptr %.val.i, i64 %indvars.iv.i
+  %41 = getelementptr [8 x i8], ptr %.val.i, i64 %indvars.iv.i
   store ptr %.0.i.i, ptr %41, align 8, !tbaa !97
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -11695,7 +11693,7 @@ Py_DECREF.exit45:                                 ; preds = %25, %28, %31
   br label %52
 
 32:                                               ; preds = %21
-  %33 = getelementptr i32, ptr %15, i64 %.03052
+  %33 = getelementptr [4 x i8], ptr %15, i64 %.03052
   %34 = tail call i32 @_Py_Gid_Converter(ptr noundef nonnull %19, ptr noundef %33)
   %.not38 = icmp eq i32 %34, 0
   %35 = load i32, ptr %19, align 8, !tbaa !106
@@ -13617,7 +13615,7 @@ define internal ptr @os_preadv(ptr readnone captures(none) %0, ptr noundef reado
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %55 = getelementptr %struct.Py_buffer, ptr %53, i64 %indvars.iv.i.i
+  %55 = getelementptr [80 x i8], ptr %53, i64 %indvars.iv.i.i
   tail call void @PyBuffer_Release(ptr noundef %55) #20
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -13645,7 +13643,7 @@ define internal ptr @os_preadv(ptr readnone captures(none) %0, ptr noundef reado
 
 .lr.ph.i25.i:                                     ; preds = %.lr.ph.i25.i, %.lr.ph.preheader.i23.i
   %indvars.iv.i26.i = phi i64 [ 0, %.lr.ph.preheader.i23.i ], [ %indvars.iv.next.i27.i, %.lr.ph.i25.i ]
-  %61 = getelementptr %struct.Py_buffer, ptr %59, i64 %indvars.iv.i26.i
+  %61 = getelementptr [80 x i8], ptr %59, i64 %indvars.iv.i26.i
   tail call void @PyBuffer_Release(ptr noundef %61) #20
   %indvars.iv.next.i27.i = add nuw nsw i64 %indvars.iv.i26.i, 1
   %exitcond.not.i28.i = icmp eq i64 %indvars.iv.next.i27.i, %wide.trip.count.i24.i
@@ -13992,7 +13990,7 @@ define internal ptr @os_pwritev(ptr readnone captures(none) %0, ptr noundef read
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i.i, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %.lr.ph.i.i ]
-  %58 = getelementptr %struct.Py_buffer, ptr %56, i64 %indvars.iv.i.i
+  %58 = getelementptr [80 x i8], ptr %56, i64 %indvars.iv.i.i
   tail call void @PyBuffer_Release(ptr noundef %58) #20
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -16769,7 +16767,7 @@ define internal ptr @os__path_splitroot_ex(ptr readnone captures(none) %0, ptr n
 
 25:                                               ; preds = %17
   %26 = load i64, ptr %5, align 8, !tbaa !140
-  %27 = getelementptr i32, ptr %19, i64 %26
+  %27 = getelementptr [4 x i8], ptr %19, i64 %26
   %28 = load i64, ptr %6, align 8, !tbaa !140
   %29 = call ptr @PyUnicode_FromWideChar(ptr noundef %27, i64 noundef %28) #20
   %30 = icmp eq ptr %29, null
@@ -16778,8 +16776,8 @@ define internal ptr @os__path_splitroot_ex(ptr readnone captures(none) %0, ptr n
 31:                                               ; preds = %25
   %32 = load i64, ptr %5, align 8, !tbaa !140
   %33 = load i64, ptr %6, align 8, !tbaa !140
-  %34 = getelementptr i32, ptr %19, i64 %32
-  %35 = getelementptr i32, ptr %34, i64 %33
+  %34 = getelementptr [4 x i8], ptr %19, i64 %32
+  %35 = getelementptr [4 x i8], ptr %34, i64 %33
   %36 = add i64 %32, %33
   %37 = sub i64 %21, %36
   %38 = call ptr @PyUnicode_FromWideChar(ptr noundef %35, i64 noundef %37) #20
@@ -17632,7 +17630,7 @@ fd_and_follow_symlinks_invalid.exit.i:            ; preds = %36
   br label %71
 
 71:                                               ; preds = %70, %67, %65
-  %72 = getelementptr i64, ptr @os_getxattr_impl.buffer_sizes, i64 %.03011.i.us
+  %72 = getelementptr [8 x i8], ptr @os_getxattr_impl.buffer_sizes, i64 %.03011.i.us
   %73 = load i64, ptr %72, align 8, !tbaa !140
   br i1 %exitcond.i.us, label %.split16.us.i, label %.preheader.split.i.us
 
@@ -17678,7 +17676,7 @@ fd_and_follow_symlinks_invalid.exit.i:            ; preds = %36
   br label %91
 
 91:                                               ; preds = %90, %87, %85
-  %92 = getelementptr i64, ptr @os_getxattr_impl.buffer_sizes, i64 %.03011.us.i.us
+  %92 = getelementptr [8 x i8], ptr @os_getxattr_impl.buffer_sizes, i64 %.03011.us.i.us
   %93 = load i64, ptr %92, align 8, !tbaa !140
   br i1 %exitcond31.i.us, label %.split16.us.i, label %.preheader.split.us.i.us
 
@@ -17721,7 +17719,7 @@ fd_and_follow_symlinks_invalid.exit.i:            ; preds = %36
   br label %111
 
 111:                                              ; preds = %110, %107, %105
-  %112 = getelementptr i64, ptr @os_getxattr_impl.buffer_sizes, i64 %.03011.us.i
+  %112 = getelementptr [8 x i8], ptr @os_getxattr_impl.buffer_sizes, i64 %.03011.us.i
   %113 = load i64, ptr %112, align 8, !tbaa !140
   br i1 %exitcond31.i, label %.split16.us.i, label %.preheader.split.us.i
 
@@ -17799,7 +17797,7 @@ fd_and_follow_symlinks_invalid.exit.i:            ; preds = %36
   br label %os_getxattr_impl.exit
 
 144:                                              ; preds = %132, %129, %127
-  %145 = getelementptr i64, ptr @os_getxattr_impl.buffer_sizes, i64 %.03011.i
+  %145 = getelementptr [8 x i8], ptr @os_getxattr_impl.buffer_sizes, i64 %.03011.i
   %146 = load i64, ptr %145, align 8, !tbaa !140
   br i1 %exitcond.i, label %.split16.us.i, label %.preheader.split.i
 
@@ -18530,7 +18528,7 @@ define internal ptr @os_listxattr(ptr readnone captures(none) %0, ptr noundef %1
 
 53:                                               ; preds = %49
   call void @PyMem_Free(ptr noundef nonnull %44) #20
-  %54 = getelementptr i64, ptr @os_listxattr_impl.buffer_sizes, i64 %.05229.i.us
+  %54 = getelementptr [8 x i8], ptr @os_listxattr_impl.buffer_sizes, i64 %.05229.i.us
   %55 = load i64, ptr %54, align 8, !tbaa !140
   br i1 %exitcond.i.us, label %.split39.us.i, label %.split.i.us
 
@@ -18560,7 +18558,7 @@ define internal ptr @os_listxattr(ptr readnone captures(none) %0, ptr noundef %1
 
 66:                                               ; preds = %62
   call void @PyMem_Free(ptr noundef nonnull %57) #20
-  %67 = getelementptr i64, ptr @os_listxattr_impl.buffer_sizes, i64 %.05229.us.i.us
+  %67 = getelementptr [8 x i8], ptr @os_listxattr_impl.buffer_sizes, i64 %.05229.us.i.us
   %68 = load i64, ptr %67, align 8, !tbaa !140
   br i1 %exitcond57.i.us, label %.split39.us.i, label %.split.us.i.us
 
@@ -18587,7 +18585,7 @@ define internal ptr @os_listxattr(ptr readnone captures(none) %0, ptr noundef %1
 
 79:                                               ; preds = %75
   call void @PyMem_Free(ptr noundef nonnull %70) #20
-  %80 = getelementptr i64, ptr @os_listxattr_impl.buffer_sizes, i64 %.05229.us.i
+  %80 = getelementptr [8 x i8], ptr @os_listxattr_impl.buffer_sizes, i64 %.05229.us.i
   %81 = load i64, ptr %80, align 8, !tbaa !140
   br i1 %exitcond57.i, label %.split39.us.i, label %.split.us.i
 
@@ -18716,7 +18714,7 @@ Py_DECREF.exit92.i:                               ; preds = %Py_DECREF.exit90.i
 
 128:                                              ; preds = %91
   call void @PyMem_Free(ptr noundef nonnull %85) #20
-  %129 = getelementptr i64, ptr @os_listxattr_impl.buffer_sizes, i64 %.05229.i
+  %129 = getelementptr [8 x i8], ptr @os_listxattr_impl.buffer_sizes, i64 %.05229.i
   %130 = load i64, ptr %129, align 8, !tbaa !140
   br i1 %exitcond.i, label %.split39.us.i, label %.split.i
 
@@ -21986,7 +21984,7 @@ define internal fastcc ptr @py_posix_spawn(i32 noundef range(i32 0, 2) %0, ptr n
 
 96:                                               ; preds = %.thread98.i, %94
   %.pn.i = phi ptr [ %95, %.thread98.i ], [ %81, %94 ]
-  %.in.i = getelementptr ptr, ptr %.pn.i, i64 %.044.i
+  %.in.i = getelementptr [8 x i8], ptr %.pn.i, i64 %.044.i
   %97 = load ptr, ptr %.in.i, align 8, !tbaa !97
   %98 = load i32, ptr %97, align 8, !tbaa !106
   %99 = icmp slt i32 %98, 0
@@ -22587,7 +22585,7 @@ parse_posix_spawn_flags.exit.thread:              ; preds = %.thread.i96, %205, 
 
 .lr.ph.i:                                         ; preds = %315, %.lr.ph.i
   %.05.i = phi i64 [ %320, %.lr.ph.i ], [ 0, %315 ]
-  %318 = getelementptr ptr, ptr %.166, i64 %.05.i
+  %318 = getelementptr [8 x i8], ptr %.166, i64 %.05.i
   %319 = load ptr, ptr %318, align 8, !tbaa !115
   call void @PyMem_Free(ptr noundef %319) #20
   %320 = add nuw nsw i64 %.05.i, 1
@@ -22607,7 +22605,7 @@ free_string_array.exit:                           ; preds = %.lr.ph.i, %315
 
 .lr.ph.i109:                                      ; preds = %.thread132.thread.thread160, %.lr.ph.i109
   %.05.i110 = phi i64 [ %325, %.lr.ph.i109 ], [ 0, %.thread132.thread.thread160 ]
-  %323 = getelementptr ptr, ptr %53, i64 %.05.i110
+  %323 = getelementptr [8 x i8], ptr %53, i64 %.05.i110
   %324 = load ptr, ptr %323, align 8, !tbaa !115
   call void @PyMem_Free(ptr noundef %324) #20
   %325 = add nuw nsw i64 %.05.i110, 1
@@ -22694,7 +22692,7 @@ define internal fastcc ptr @parse_arglist(ptr noundef %0, ptr noundef nonnull ca
   br i1 %.not.i31, label %fsconvert_strdup.exit, label %25
 
 25:                                               ; preds = %23
-  %26 = getelementptr ptr, ptr %9, i64 %16
+  %26 = getelementptr [8 x i8], ptr %9, i64 %16
   %27 = load ptr, ptr %3, align 8, !tbaa !97
   %28 = getelementptr i8, ptr %27, i64 16
   %.val.i = load i64, ptr %28, align 8, !tbaa !93
@@ -22761,7 +22759,7 @@ Py_DECREF.exit:                                   ; preds = %fsconvert_strdup.ex
 
 ._crit_edge:                                      ; preds = %48, %.preheader
   %.lcssa = phi i64 [ %11, %.preheader ], [ %51, %48 ]
-  %53 = getelementptr ptr, ptr %9, i64 %.lcssa
+  %53 = getelementptr [8 x i8], ptr %9, i64 %.lcssa
   store ptr null, ptr %53, align 8, !tbaa !115
   br label %58
 
@@ -22772,7 +22770,7 @@ select.unfold:                                    ; preds = %Py_DECREF.exit, %15
 
 .lr.ph.i:                                         ; preds = %select.unfold, %.lr.ph.i
   %.05.i = phi i64 [ %57, %.lr.ph.i ], [ 0, %select.unfold ]
-  %55 = getelementptr ptr, ptr %9, i64 %.05.i
+  %55 = getelementptr [8 x i8], ptr %9, i64 %.05.i
   %56 = load ptr, ptr %55, align 8, !tbaa !115
   call void @PyMem_Free(ptr noundef %56) #20
   %57 = add nuw nsw i64 %.05.i, 1
@@ -22986,7 +22984,7 @@ Py_DECREF.exit68:                                 ; preds = %Py_DECREF.exit70, %
   br i1 %.not.i88, label %fsconvert_strdup.exit, label %88
 
 88:                                               ; preds = %85
-  %89 = getelementptr ptr, ptr %13, i64 %.040112
+  %89 = getelementptr [8 x i8], ptr %13, i64 %.040112
   %90 = load ptr, ptr %3, align 8, !tbaa !97
   %91 = getelementptr i8, ptr %90, i64 16
   %.val.i = load i64, ptr %91, align 8, !tbaa !93
@@ -23075,7 +23073,7 @@ Py_DECREF.exit64:                                 ; preds = %._crit_edge, %112, 
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit64, %117, %120
-  %121 = getelementptr ptr, ptr %13, i64 %6
+  %121 = getelementptr [8 x i8], ptr %13, i64 %6
   store ptr null, ptr %121, align 8, !tbaa !115
   store i64 %6, ptr %1, align 8, !tbaa !140
   br label %137
@@ -23120,7 +23118,7 @@ Py_XDECREF.exit93:                                ; preds = %Py_XDECREF.exit, %1
 
 .lr.ph.i:                                         ; preds = %Py_XDECREF.exit93, %.lr.ph.i
   %.05.i = phi i64 [ %136, %.lr.ph.i ], [ 0, %Py_XDECREF.exit93 ]
-  %134 = getelementptr ptr, ptr %13, i64 %.05.i
+  %134 = getelementptr [8 x i8], ptr %13, i64 %.05.i
   %135 = load ptr, ptr %134, align 8, !tbaa !115
   call void @PyMem_Free(ptr noundef %135) #20
   %136 = add nuw nsw i64 %.05.i, 1
@@ -24085,7 +24083,7 @@ Py_DECREF.exit86:                                 ; preds = %23, %26, %29
   %57 = and i64 %24, 63
   %58 = shl nuw i64 1, %57
   %59 = lshr i64 %24, 6
-  %60 = getelementptr i64, ptr %.359, i64 %59
+  %60 = getelementptr [8 x i8], ptr %.359, i64 %59
   %61 = load i64, ptr %60, align 8, !tbaa !140
   %62 = or i64 %61, %58
   store i64 %62, ptr %60, align 8, !tbaa !140
@@ -24241,7 +24239,7 @@ define internal fastcc ptr @os_sched_getaffinity_impl(i32 noundef %0) unnamed_ad
 
 33:                                               ; preds = %.lr.ph16
   %34 = lshr i64 %30, 6
-  %35 = getelementptr i64, ptr %11, i64 %34
+  %35 = getelementptr [8 x i8], ptr %11, i64 %34
   %36 = load i64, ptr %35, align 8, !tbaa !140
   %37 = and i64 %30, 63
   %38 = shl nuw i64 1, %37
@@ -25274,7 +25272,7 @@ define internal fastcc range(i64 -1, -9223372036854775808) i64 @os_readv_impl(i3
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %28 = getelementptr %struct.Py_buffer, ptr %26, i64 %indvars.iv.i
+  %28 = getelementptr [80 x i8], ptr %26, i64 %indvars.iv.i
   tail call void @PyBuffer_Release(ptr noundef %28) #20
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -25302,7 +25300,7 @@ define internal fastcc range(i64 -1, -9223372036854775808) i64 @os_readv_impl(i3
 
 .lr.ph.i23:                                       ; preds = %.lr.ph.i23, %.lr.ph.preheader.i21
   %indvars.iv.i24 = phi i64 [ 0, %.lr.ph.preheader.i21 ], [ %indvars.iv.next.i25, %.lr.ph.i23 ]
-  %34 = getelementptr %struct.Py_buffer, ptr %32, i64 %indvars.iv.i24
+  %34 = getelementptr [80 x i8], ptr %32, i64 %indvars.iv.i24
   tail call void @PyBuffer_Release(ptr noundef %34) #20
   %indvars.iv.next.i25 = add nuw nsw i64 %indvars.iv.i24, 1
   %exitcond.not.i26 = icmp eq i64 %indvars.iv.next.i25, %wide.trip.count.i22
@@ -25372,7 +25370,7 @@ define internal fastcc range(i32 -1, 1) i32 @iov_setup(ptr noundef nonnull captu
 
 24:                                               ; preds = %.lr.ph
   %25 = load ptr, ptr %1, align 8, !tbaa !254
-  %26 = getelementptr %struct.Py_buffer, ptr %25, i64 %.03953
+  %26 = getelementptr [80 x i8], ptr %25, i64 %.03953
   %27 = tail call i32 @PyObject_GetBuffer(ptr noundef nonnull %22, ptr noundef %26, i32 noundef %4) #20
   %28 = icmp eq i32 %27, -1
   %29 = load i32, ptr %22, align 8, !tbaa !106
@@ -25407,13 +25405,13 @@ define internal fastcc range(i32 -1, 1) i32 @iov_setup(ptr noundef nonnull captu
 
 40:                                               ; preds = %35, %36, %39
   %41 = load ptr, ptr %1, align 8, !tbaa !254
-  %42 = getelementptr %struct.Py_buffer, ptr %41, i64 %.03953
+  %42 = getelementptr [80 x i8], ptr %41, i64 %.03953
   %43 = load ptr, ptr %42, align 8, !tbaa !247
   %44 = load ptr, ptr %0, align 8, !tbaa !342
-  %45 = getelementptr %struct.iovec, ptr %44, i64 %.03953
+  %45 = getelementptr [16 x i8], ptr %44, i64 %.03953
   store ptr %43, ptr %45, align 8, !tbaa !344
   %46 = load ptr, ptr %1, align 8, !tbaa !254
-  %47 = getelementptr %struct.Py_buffer, ptr %46, i64 %.03953
+  %47 = getelementptr [80 x i8], ptr %46, i64 %.03953
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
   %49 = load i64, ptr %48, align 8, !tbaa !250
   %50 = getelementptr inbounds nuw i8, ptr %45, i64 8
@@ -25431,7 +25429,7 @@ define internal fastcc range(i32 -1, 1) i32 @iov_setup(ptr noundef nonnull captu
 .lr.ph55:                                         ; preds = %.loopexit48, %.lr.ph55
   %.03854 = phi i64 [ %55, %.lr.ph55 ], [ 0, %.loopexit48 ]
   %53 = load ptr, ptr %1, align 8, !tbaa !254
-  %54 = getelementptr %struct.Py_buffer, ptr %53, i64 %.03854
+  %54 = getelementptr [80 x i8], ptr %53, i64 %.03854
   tail call void @PyBuffer_Release(ptr noundef %54) #20
   %55 = add nuw nsw i64 %.03854, 1
   %exitcond62.not = icmp eq i64 %55, %.03953
@@ -25520,7 +25518,7 @@ define internal fastcc i64 @os_writev_impl(i32 noundef %0, ptr noundef %1) unnam
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %30 = getelementptr %struct.Py_buffer, ptr %28, i64 %indvars.iv.i
+  %30 = getelementptr [80 x i8], ptr %28, i64 %indvars.iv.i
   tail call void @PyBuffer_Release(ptr noundef %30) #20
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -27487,7 +27485,7 @@ Py_DECREF.exit23:                                 ; preds = %6, %9, %12
 
 19:                                               ; preds = %.preheader, %35
   %indvars.iv = phi i64 [ 7, %.preheader ], [ %indvars.iv.next, %35 ]
-  %20 = getelementptr ptr, ptr %18, i64 %indvars.iv
+  %20 = getelementptr [8 x i8], ptr %18, i64 %indvars.iv
   %21 = getelementptr i8, ptr %20, i64 24
   %22 = load ptr, ptr %21, align 8, !tbaa !97
   %23 = icmp eq ptr %22, @_Py_NoneStruct
@@ -27599,7 +27597,7 @@ define internal fastcc i32 @setup_confname_table(ptr noundef readonly captures(n
 
 .preheader:                                       ; preds = %4, %Py_DECREF.exit
   %.02033 = phi i64 [ %32, %Py_DECREF.exit ], [ 0, %4 ]
-  %7 = getelementptr %struct.constdef, ptr %0, i64 %.02033
+  %7 = getelementptr [16 x i8], ptr %0, i64 %.02033
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i32, ptr %8, align 8, !tbaa !383
   %10 = sext i32 %9 to i64

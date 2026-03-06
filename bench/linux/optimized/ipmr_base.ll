@@ -19,9 +19,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_mr_dump: ; .
 
 %struct.rhashtable_params = type { i16, i16, i16, i16, i32, i16, i8, ptr, ptr, ptr }
 %struct.rhashtable_compare_arg = type { ptr, ptr }
-%struct.vif_device = type { ptr, %struct.netdevice_tracker, i64, i64, i64, i64, i64, i8, i16, i32, %struct.netdev_phys_item_id, i32, i32 }
-%struct.netdevice_tracker = type {}
-%struct.netdev_phys_item_id = type { [32 x i8], i8 }
 %struct.rta_mfc_stats = type { i64, i64, i64 }
 %struct.mfc_entry_notifier_info = type { %struct.fib_notifier_info, ptr, i32 }
 %struct.fib_notifier_info = type { i32, ptr }
@@ -215,7 +212,7 @@ define internal fastcc ptr @rhltable_lookup(ptr noundef %0, ptr noundef %1, ptr 
 29:                                               ; preds = %.split11.us
   %30 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %31 = zext i32 %23 to i64
-  %32 = getelementptr ptr, ptr %30, i64 %31
+  %32 = getelementptr [8 x i8], ptr %30, i64 %31
   br label %.split.us.us
 
 .split.us.us:                                     ; preds = %29, %27
@@ -296,7 +293,7 @@ define internal fastcc ptr @rhltable_lookup(ptr noundef %0, ptr noundef %1, ptr 
 83:                                               ; preds = %.split11
   %84 = getelementptr inbounds nuw i8, ptr %69, i64 64
   %85 = zext i32 %77 to i64
-  %86 = getelementptr ptr, ptr %84, i64 %85
+  %86 = getelementptr [8 x i8], ptr %84, i64 %85
   br label %.split
 
 .split:                                           ; preds = %83, %81
@@ -497,7 +494,7 @@ define dso_local noundef ptr @mr_vif_seq_idx(ptr readnone captures(none) %0, ptr
 12:                                               ; preds = %21, %10
   %13 = phi i64 [ 0, %10 ], [ %23, %21 ]
   %14 = phi i64 [ %2, %10 ], [ %22, %21 ]
-  %15 = getelementptr %struct.vif_device, ptr %11, i64 %13
+  %15 = getelementptr [104 x i8], ptr %11, i64 %13
   %16 = load volatile ptr, ptr %15, align 8
   %17 = icmp eq ptr %16, null
   br i1 %17, label %21, label %18
@@ -555,7 +552,7 @@ define dso_local noundef ptr @mr_vif_seq_next(ptr noundef readonly captures(none
 
 22:                                               ; preds = %27, %20
   %23 = phi i64 [ 0, %20 ], [ %28, %27 ]
-  %24 = getelementptr %struct.vif_device, ptr %21, i64 %23
+  %24 = getelementptr [104 x i8], ptr %21, i64 %23
   %25 = load volatile ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %.loopexit
@@ -579,7 +576,7 @@ define dso_local noundef ptr @mr_vif_seq_next(ptr noundef readonly captures(none
 
 38:                                               ; preds = %33
   %39 = sext i32 %35 to i64
-  %40 = getelementptr %struct.vif_device, ptr %13, i64 %39
+  %40 = getelementptr [104 x i8], ptr %13, i64 %39
   %41 = load volatile ptr, ptr %40, align 8
   %42 = icmp eq ptr %41, null
   br i1 %42, label %33, label %.loopexit, !llvm.loop !17
@@ -773,7 +770,7 @@ define dso_local noundef range(i32 -90, 2) i32 @mr_fill_mroute(ptr noundef %0, p
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %17 = load i16, ptr %8, align 8
   %18 = zext i16 %17 to i64
-  %19 = getelementptr %struct.vif_device, ptr %16, i64 %18
+  %19 = getelementptr [104 x i8], ptr %16, i64 %18
   %20 = load volatile ptr, ptr %19, align 8
   %21 = icmp eq ptr %20, null
   br i1 %21, label %28, label %22
@@ -837,7 +834,7 @@ define dso_local noundef range(i32 -90, 2) i32 @mr_fill_mroute(ptr noundef %0, p
 57:                                               ; preds = %88, %54
   %58 = phi i32 [ %52, %54 ], [ %89, %88 ]
   %59 = phi i64 [ %56, %54 ], [ %90, %88 ]
-  %60 = getelementptr %struct.vif_device, ptr %16, i64 %59
+  %60 = getelementptr [104 x i8], ptr %16, i64 %59
   %61 = load volatile ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, null
   br i1 %62, label %88, label %63
@@ -1018,7 +1015,7 @@ define dso_local range(i32 -2147483648, 1) i32 @mr_table_dump(ptr noundef %0, pt
 39:                                               ; preds = %51, %35
   %40 = phi i64 [ %37, %35 ], [ %52, %51 ]
   %41 = phi i1 [ true, %35 ], [ %53, %51 ]
-  %42 = getelementptr %struct.vif_device, ptr %19, i64 %40
+  %42 = getelementptr [104 x i8], ptr %19, i64 %40
   %43 = load volatile ptr, ptr %42, align 8
   %44 = icmp eq ptr %43, null
   br i1 %44, label %51, label %45
@@ -1101,7 +1098,7 @@ define dso_local range(i32 -2147483648, 1) i32 @mr_table_dump(ptr noundef %0, pt
 95:                                               ; preds = %107, %91
   %96 = phi i64 [ %93, %91 ], [ %108, %107 ]
   %97 = phi i1 [ true, %91 ], [ %109, %107 ]
-  %98 = getelementptr %struct.vif_device, ptr %75, i64 %96
+  %98 = getelementptr [104 x i8], ptr %75, i64 %96
   %99 = load volatile ptr, ptr %98, align 8
   %100 = icmp eq ptr %99, null
   br i1 %100, label %107, label %101

@@ -21,7 +21,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.ExpireInfo = type { ptr, i64, ptr, i64, i64, i64 }
 %struct.HashTypeSetEx = type { i32, i64, ptr, ptr, ptr, i64, ptr, ptr }
 %struct.dictType = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, ptr, ptr, ptr }
-%struct.FieldValPair = type { ptr, ptr }
 %struct.OnFieldExpireCtx = type { ptr, ptr }
 
 @mstrHashDictType = dso_local global { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i8, [7 x i8], ptr, ptr, ptr } { ptr @dictSdsHash, ptr null, ptr null, ptr @dictSdsMstrKeyCompare, ptr @dictHfieldDestructor, ptr @dictSdsDestructor, ptr null, ptr null, ptr null, ptr null, ptr null, i8 0, [7 x i8] zeroinitializer, ptr @dictMstrHash, ptr @dictHfieldKeyCompare, ptr null }, align 8
@@ -1245,7 +1244,7 @@ hashTypeConvert.exit:                             ; preds = %20, %21
 26:                                               ; preds = %.lr.ph, %64
   %indvars.iv = phi i64 [ %16, %.lr.ph ], [ %indvars.iv.next, %64 ]
   %.02850 = phi i64 [ 0, %.lr.ph ], [ %.1, %64 ]
-  %27 = getelementptr inbounds ptr, ptr %2, i64 %indvars.iv
+  %27 = getelementptr inbounds [8 x i8], ptr %2, i64 %indvars.iv
   %28 = load ptr, ptr %27, align 8, !tbaa !64
   %29 = load i32, ptr %28, align 8
   %30 = lshr i32 %29, 4
@@ -6173,7 +6172,7 @@ hashTypeLookupWriteOrCreate.exit.thread39:        ; preds = %16, %hashTypeLookup
   %.03542 = phi i32 [ %40, %.lr.ph ], [ 0, %hashTypeLookupWriteOrCreate.exit.thread39 ]
   %28 = load ptr, ptr %12, align 8, !tbaa !109
   %29 = load ptr, ptr %8, align 8, !tbaa !132
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8, !tbaa !64
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !10
@@ -6326,7 +6325,7 @@ define dso_local void @hsetexCommand(ptr noundef %0) local_unnamed_addr #1 {
   %.097249.i = phi i32 [ 2, %.lr.ph.i ], [ %155, %154 ]
   %17 = load ptr, ptr %14, align 8, !tbaa !132
   %18 = sext i32 %.097249.i to i64
-  %19 = getelementptr inbounds ptr, ptr %17, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %17, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !64
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !10
@@ -6341,7 +6340,7 @@ define dso_local void @hsetexCommand(ptr noundef %0) local_unnamed_addr #1 {
   br i1 %.not100.i, label %26, label %hsetexParseArgs.exit.thread160.sink.split
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds ptr, ptr %17, i64 %18
+  %27 = getelementptr inbounds [8 x i8], ptr %17, i64 %18
   %28 = getelementptr i8, ptr %27, i64 8
   %29 = load ptr, ptr %28, align 8, !tbaa !64
   %30 = call i32 @getRangeLongFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %29, i64 noundef 1, i64 noundef 2147483647, ptr noundef nonnull %9, ptr noundef nonnull @.str.67) #17
@@ -6382,7 +6381,7 @@ define dso_local void @hsetexCommand(ptr noundef %0) local_unnamed_addr #1 {
   %47 = or disjoint i32 %.0152, 1
   %48 = add nsw i32 %.097249.i, 1
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds ptr, ptr %17, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %17, i64 %49
   %51 = load ptr, ptr %50, align 8, !tbaa !64
   %52 = call i64 @commandTimeSnapshot() #17
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -6446,7 +6445,7 @@ parseExpireTime.exit.thread.i:                    ; preds = %46, %65, %60, %57
   %75 = or disjoint i32 %.0152, 2
   %76 = add nsw i32 %.097249.i, 1
   %77 = sext i32 %76 to i64
-  %78 = getelementptr inbounds ptr, ptr %17, i64 %77
+  %78 = getelementptr inbounds [8 x i8], ptr %17, i64 %77
   %79 = load ptr, ptr %78, align 8, !tbaa !64
   %80 = call i64 @commandTimeSnapshot() #17
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -6500,7 +6499,7 @@ parseExpireTime.exit128.thread.i:                 ; preds = %74, %89, %85
   %99 = or disjoint i32 %.0152, 4
   %100 = add nsw i32 %.097249.i, 1
   %101 = sext i32 %100 to i64
-  %102 = getelementptr inbounds ptr, ptr %17, i64 %101
+  %102 = getelementptr inbounds [8 x i8], ptr %17, i64 %101
   %103 = load ptr, ptr %102, align 8, !tbaa !64
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %104 = call i32 @getLongLongFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %103, ptr noundef nonnull %6, ptr noundef null) #17
@@ -6552,7 +6551,7 @@ parseExpireTime.exit131.thread.i:                 ; preds = %98, %111, %108
   %121 = or disjoint i32 %.0152, 8
   %122 = add nsw i32 %.097249.i, 1
   %123 = sext i32 %122 to i64
-  %124 = getelementptr inbounds ptr, ptr %17, i64 %123
+  %124 = getelementptr inbounds [8 x i8], ptr %17, i64 %123
   %125 = load ptr, ptr %124, align 8, !tbaa !64
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %126 = call i32 @getLongLongFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %125, ptr noundef nonnull %5, ptr noundef null) #17
@@ -6775,7 +6774,7 @@ hashTypeLength.exit:                              ; preds = %186, %191, %198
   %213 = load ptr, ptr %14, align 8, !tbaa !132
   %.idx508 = shl i64 %indvars.iv485, 4
   %214 = getelementptr i8, ptr %213, i64 %.idx508
-  %215 = getelementptr ptr, ptr %214, i64 %212
+  %215 = getelementptr [8 x i8], ptr %214, i64 %212
   %216 = load ptr, ptr %215, align 8, !tbaa !64
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 8
   %218 = load ptr, ptr %217, align 8, !tbaa !10
@@ -6802,7 +6801,7 @@ hashTypeLength.exit:                              ; preds = %186, %191, %198
   %224 = load ptr, ptr %14, align 8, !tbaa !132
   %.idx507 = shl i64 %indvars.iv482, 4
   %225 = getelementptr i8, ptr %224, i64 %.idx507
-  %226 = getelementptr ptr, ptr %225, i64 %212
+  %226 = getelementptr [8 x i8], ptr %225, i64 %212
   %227 = load ptr, ptr %226, align 8, !tbaa !64
   %228 = getelementptr inbounds nuw i8, ptr %227, i64 8
   %229 = load ptr, ptr %228, align 8, !tbaa !10
@@ -6837,7 +6836,7 @@ hashTypeLength.exit:                              ; preds = %186, %191, %198
   %237 = load ptr, ptr %14, align 8, !tbaa !132
   %.idx = shl i64 %indvars.iv, 4
   %238 = getelementptr i8, ptr %237, i64 %.idx
-  %239 = getelementptr ptr, ptr %238, i64 %236
+  %239 = getelementptr [8 x i8], ptr %238, i64 %236
   %240 = load ptr, ptr %239, align 8, !tbaa !64
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 8
   %242 = load ptr, ptr %241, align 8, !tbaa !10
@@ -6862,7 +6861,7 @@ hashTypeLength.exit:                              ; preds = %186, %191, %198
 .lr.ph.split.split:                               ; preds = %.lr.ph.split
   %249 = load ptr, ptr %14, align 8, !tbaa !132
   %250 = sext i32 %162 to i64
-  %251 = getelementptr inbounds ptr, ptr %249, i64 %250
+  %251 = getelementptr inbounds [8 x i8], ptr %249, i64 %250
   %252 = load ptr, ptr %251, align 8, !tbaa !64
   %253 = getelementptr inbounds nuw i8, ptr %252, i64 8
   %254 = load ptr, ptr %253, align 8, !tbaa !10
@@ -6941,7 +6940,7 @@ hashTypeLength.exit:                              ; preds = %186, %191, %198
   %281 = load ptr, ptr %14, align 8, !tbaa !132
   %.idx509 = shl i64 %indvars.iv488, 4
   %282 = getelementptr i8, ptr %281, i64 %.idx509
-  %283 = getelementptr ptr, ptr %282, i64 %277
+  %283 = getelementptr [8 x i8], ptr %282, i64 %277
   %284 = load ptr, ptr %283, align 8, !tbaa !64
   %285 = getelementptr inbounds nuw i8, ptr %284, i64 8
   %286 = load ptr, ptr %285, align 8, !tbaa !10
@@ -7571,7 +7570,7 @@ define dso_local void @hgetCommand(ptr noundef %0) local_unnamed_addr #1 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %10 = load i32, ptr %9, align 4, !tbaa !146
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !64
   %14 = tail call ptr @lookupKeyReadOrReply(ptr noundef %0, ptr noundef %8, ptr noundef %13) #17
   %15 = icmp eq ptr %14, null
@@ -7720,7 +7719,7 @@ define dso_local void @hmgetCommand(ptr noundef %0) local_unnamed_addr #1 {
 
 17:                                               ; preds = %.lr.ph
   %18 = load ptr, ptr %4, align 8, !tbaa !132
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !64
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !10
@@ -7866,7 +7865,7 @@ define dso_local void @hgetdelCommand(ptr noundef %0) local_unnamed_addr #1 {
   %.06177 = phi i32 [ %49, %60 ], [ 0, %35 ]
   %.06276 = phi i32 [ %.1, %60 ], [ 0, %35 ]
   %41 = load ptr, ptr %5, align 8, !tbaa !132
-  %42 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv
   %43 = load ptr, ptr %42, align 8, !tbaa !64
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load ptr, ptr %44, align 8, !tbaa !10
@@ -7880,7 +7879,7 @@ define dso_local void @hgetdelCommand(ptr noundef %0) local_unnamed_addr #1 {
 51:                                               ; preds = %.lr.ph
   %52 = add nsw i32 %.06276, 1
   %53 = load ptr, ptr %5, align 8, !tbaa !132
-  %54 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %indvars.iv
   %55 = load ptr, ptr %54, align 8, !tbaa !64
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %57 = load ptr, ptr %56, align 8, !tbaa !10
@@ -8123,7 +8122,7 @@ parseExpireTime.exit:                             ; preds = %48
   %.0143 = phi i64 [ %53, %parseExpireTime.exit ], [ 0, %54 ], [ 0, %29 ]
   %.0112 = phi i32 [ 5, %parseExpireTime.exit ], [ 4, %54 ], [ 3, %29 ]
   %58 = zext nneg i32 %.0112 to i64
-  %59 = getelementptr ptr, ptr %56, i64 %58
+  %59 = getelementptr [8 x i8], ptr %56, i64 %58
   %60 = getelementptr i8, ptr %59, i64 -8
   %61 = load ptr, ptr %60, align 8, !tbaa !64
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
@@ -8205,7 +8204,7 @@ parseExpireTime.exit:                             ; preds = %48
   %.0108174.us = phi i32 [ %.1109.us, %121 ], [ 0, %.lr.ph ]
   %.1144173.us = phi i64 [ %.2.us, %121 ], [ %.0143, %.lr.ph ]
   %96 = load ptr, ptr %10, align 8, !tbaa !132
-  %97 = getelementptr inbounds nuw ptr, ptr %96, i64 %indvars.iv190
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %indvars.iv190
   %98 = load ptr, ptr %97, align 8, !tbaa !64
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   %100 = load ptr, ptr %99, align 8, !tbaa !10
@@ -8282,7 +8281,7 @@ addHashFieldToReply.exit.us:                      ; preds = %112, %109
   %indvars.iv = phi i64 [ %indvars.iv.next, %144 ], [ %95, %.lr.ph ]
   %.0176 = phi i32 [ %145, %144 ], [ 0, %.lr.ph ]
   %126 = load ptr, ptr %10, align 8, !tbaa !132
-  %127 = getelementptr inbounds nuw ptr, ptr %126, i64 %indvars.iv
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %126, i64 %indvars.iv
   %128 = load ptr, ptr %127, align 8, !tbaa !64
   %129 = getelementptr inbounds nuw i8, ptr %128, i64 8
   %130 = load ptr, ptr %129, align 8, !tbaa !10
@@ -8560,7 +8559,7 @@ hashTypeIsFieldsWithExpire.exit:                  ; preds = %hashTypeLength.exit
   %indvars.iv = phi i64 [ 2, %.lr.ph ], [ %indvars.iv.next, %91 ]
   %.03661 = phi i32 [ 0, %.lr.ph ], [ %.2, %91 ]
   %54 = load ptr, ptr %2, align 8, !tbaa !132
-  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %indvars.iv
   %56 = load ptr, ptr %55, align 8, !tbaa !64
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load ptr, ptr %57, align 8, !tbaa !10
@@ -8876,7 +8875,7 @@ define dso_local void @genericHgetallCommand(ptr noundef %0, i32 noundef %1) loc
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %8 = load i32, ptr %7, align 4, !tbaa !146
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 128), i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 128), i64 %9
   br label %11
 
 11:                                               ; preds = %2, %6
@@ -9594,7 +9593,7 @@ sdslen.exit:                                      ; preds = %75, %81, %84, %88, 
   %174 = phi ptr [ %179, %.lr.ph212 ], [ %173, %167 ]
   %.0177210 = phi i64 [ %175, %.lr.ph212 ], [ 0, %167 ]
   %175 = add i64 %.0177210, 1
-  %176 = getelementptr inbounds nuw %struct.FieldValPair, ptr %171, i64 %.0177210
+  %176 = getelementptr inbounds nuw [16 x i8], ptr %171, i64 %.0177210
   %177 = tail call ptr @dictGetKey(ptr noundef nonnull %174) #17
   %178 = tail call ptr @dictGetVal(ptr noundef nonnull %174) #17
   store ptr %177, ptr %176, align 8, !tbaa !85
@@ -9620,7 +9619,7 @@ sdslen.exit:                                      ; preds = %75, %81, %84, %88, 
 
 .critedge200.us:                                  ; preds = %.lr.ph218, %.critedge200.us
   %.1178217.us = phi i64 [ %185, %.critedge200.us ], [ 0, %.lr.ph218 ]
-  %182 = getelementptr inbounds nuw %struct.FieldValPair, ptr %171, i64 %.1178217.us
+  %182 = getelementptr inbounds nuw [16 x i8], ptr %171, i64 %.1178217.us
   %183 = load ptr, ptr %182, align 8, !tbaa !160
   %184 = tail call i64 @mstrlen(ptr noundef %183) #17
   tail call void @addReplyBulkCBuffer(ptr noundef nonnull %0, ptr noundef %183, i64 noundef %184) #17
@@ -9633,9 +9632,9 @@ sdslen.exit:                                      ; preds = %75, %81, %84, %88, 
   %186 = tail call i32 @rand() #17
   %187 = sext i32 %186 to i64
   %188 = urem i64 %187, %.0170214
-  %189 = getelementptr inbounds nuw %struct.FieldValPair, ptr %171, i64 %188
+  %189 = getelementptr inbounds nuw [16 x i8], ptr %171, i64 %188
   %190 = add i64 %.0170214, -1
-  %191 = getelementptr inbounds nuw %struct.FieldValPair, ptr %171, i64 %190
+  %191 = getelementptr inbounds nuw [16 x i8], ptr %171, i64 %190
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %189, ptr noundef nonnull align 8 dereferenceable(16) %191, i64 16, i1 false), !tbaa.struct !163
   %192 = icmp ugt i64 %190, %.0
   br i1 %192, label %.lr.ph216, label %.preheader206, !llvm.loop !164
@@ -9651,7 +9650,7 @@ sdslen.exit:                                      ; preds = %75, %81, %84, %88, 
   br label %196
 
 196:                                              ; preds = %.lr.ph218.split, %195
-  %197 = getelementptr inbounds nuw %struct.FieldValPair, ptr %171, i64 %.1178217
+  %197 = getelementptr inbounds nuw [16 x i8], ptr %171, i64 %.1178217
   %198 = load ptr, ptr %197, align 8, !tbaa !160
   %199 = tail call i64 @mstrlen(ptr noundef %198) #17
   tail call void @addReplyBulkCBuffer(ptr noundef nonnull %0, ptr noundef %198, i64 noundef %199) #17
@@ -9864,7 +9863,7 @@ define internal fastcc void @hrandfieldReplyWithListpack(ptr noundef %0, i32 nou
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %16
   %.031.us = phi i64 [ %17, %16 ], [ 0, %.lr.ph ]
-  %7 = getelementptr inbounds nuw %struct.listpackEntry, ptr %2, i64 %.031.us
+  %7 = getelementptr inbounds nuw [24 x i8], ptr %2, i64 %.031.us
   %8 = load ptr, ptr %7, align 8, !tbaa !71
   %.not29.us = icmp eq ptr %8, null
   br i1 %.not29.us, label %13, label %9
@@ -9901,7 +9900,7 @@ define internal fastcc void @hrandfieldReplyWithListpack(ptr noundef %0, i32 nou
   br label %21
 
 21:                                               ; preds = %20, %.lr.ph.split
-  %22 = getelementptr inbounds nuw %struct.listpackEntry, ptr %2, i64 %.031
+  %22 = getelementptr inbounds nuw [24 x i8], ptr %2, i64 %.031
   %23 = load ptr, ptr %22, align 8, !tbaa !71
   %.not29 = icmp eq ptr %23, null
   br i1 %.not29, label %28, label %24
@@ -9920,7 +9919,7 @@ define internal fastcc void @hrandfieldReplyWithListpack(ptr noundef %0, i32 nou
   br label %31
 
 31:                                               ; preds = %28, %24
-  %32 = getelementptr inbounds nuw %struct.listpackEntry, ptr %3, i64 %.031
+  %32 = getelementptr inbounds nuw [24 x i8], ptr %3, i64 %.031
   %33 = load ptr, ptr %32, align 8, !tbaa !71
   %.not30 = icmp eq ptr %33, null
   br i1 %.not30, label %38, label %34
@@ -10021,7 +10020,7 @@ define dso_local void @hrandfieldCommand(ptr noundef %0) local_unnamed_addr #1 {
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %37 = load i32, ptr %36, align 4, !tbaa !146
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 %38
+  %39 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !64
   %41 = tail call ptr @lookupKeyReadOrReply(ptr noundef nonnull %0, ptr noundef %35, ptr noundef %40) #17
   %42 = icmp eq ptr %41, null
@@ -10042,7 +10041,7 @@ define dso_local void @hrandfieldCommand(ptr noundef %0) local_unnamed_addr #1 {
 49:                                               ; preds = %45
   %50 = load i32, ptr %36, align 4, !tbaa !146
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr getelementptr inbounds nuw (i8, ptr @shared, i64 64), i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !64
   tail call void @addReply(ptr noundef nonnull %0, ptr noundef %53) #17
   br label %87
@@ -10291,7 +10290,7 @@ parseExpireTime.exit.thread:                      ; preds = %22, %27, %34, %17
 49:                                               ; preds = %47, %45, %43, %35
   %.097 = phi i32 [ %spec.select, %47 ], [ 4, %45 ], [ 2, %43 ], [ 1, %35 ]
   %.0 = phi i64 [ %spec.select121, %47 ], [ 5, %45 ], [ 5, %43 ], [ 5, %35 ]
-  %50 = getelementptr ptr, ptr %37, i64 %.0
+  %50 = getelementptr [8 x i8], ptr %37, i64 %.0
   %51 = getelementptr i8, ptr %50, i64 -8
   %52 = load ptr, ptr %51, align 8, !tbaa !64
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
@@ -10362,7 +10361,7 @@ parseExpireTime.exit.thread:                      ; preds = %22, %27, %34, %17
   %.0100127 = phi i32 [ %95, %99 ], [ 0, %74 ]
   %83 = load ptr, ptr %7, align 8, !tbaa !132
   %84 = sext i32 %.094130 to i64
-  %85 = getelementptr inbounds ptr, ptr %83, i64 %84
+  %85 = getelementptr inbounds [8 x i8], ptr %83, i64 %84
   %86 = load ptr, ptr %85, align 8, !tbaa !64
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   %88 = load ptr, ptr %87, align 8, !tbaa !10
@@ -10616,7 +10615,7 @@ define internal fastcc void @httlGenericCommand(ptr noundef %0, i64 noundef %1, 
 .lr.ph12:                                         ; preds = %43, %.critedge
   %indvars.iv23 = phi i64 [ %indvars.iv.next24, %.critedge ], [ 0, %43 ]
   %48 = load ptr, ptr %8, align 8, !tbaa !132
-  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv23
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %indvars.iv23
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 32
   %51 = load ptr, ptr %50, align 8, !tbaa !64
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
@@ -10699,7 +10698,7 @@ sdslen.exit:                                      ; preds = %55, %60, %63, %67, 
   %indvars.iv20 = phi i64 [ 0, %.lr.ph10 ], [ %indvars.iv.next21, %.thread ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %91 = load ptr, ptr %8, align 8, !tbaa !132
-  %92 = getelementptr inbounds nuw ptr, ptr %91, i64 %indvars.iv20
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %indvars.iv20
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 32
   %94 = load ptr, ptr %93, align 8, !tbaa !64
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
@@ -10829,7 +10828,7 @@ sdslen.exit:                                      ; preds = %55, %60, %63, %67, 
 153:                                              ; preds = %.lr.ph, %hfieldGetExpireTime.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %hfieldGetExpireTime.exit.thread ]
   %154 = load ptr, ptr %8, align 8, !tbaa !132
-  %155 = getelementptr inbounds nuw ptr, ptr %154, i64 %indvars.iv
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %154, i64 %indvars.iv
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 32
   %157 = load ptr, ptr %156, align 8, !tbaa !64
   %158 = getelementptr inbounds nuw i8, ptr %157, i64 8
@@ -11011,7 +11010,7 @@ define dso_local void @hpersistCommand(ptr noundef %0) local_unnamed_addr #1 {
 45:                                               ; preds = %.lr.ph147, %.critedge
   %indvars.iv156 = phi i64 [ 0, %.lr.ph147 ], [ %indvars.iv.next157, %.critedge ]
   %46 = load ptr, ptr %6, align 8, !tbaa !132
-  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv156
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv156
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %49 = load ptr, ptr %48, align 8, !tbaa !64
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
@@ -11100,7 +11099,7 @@ sdslen.exit:                                      ; preds = %54, %59, %62, %66, 
   %indvars.iv153 = phi i64 [ 0, %.lr.ph143 ], [ %indvars.iv.next154, %.thread ]
   %.0142 = phi i32 [ 0, %.lr.ph143 ], [ %.1, %.thread ]
   %89 = load ptr, ptr %6, align 8, !tbaa !132
-  %90 = getelementptr inbounds nuw ptr, ptr %89, i64 %indvars.iv153
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %indvars.iv153
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 32
   %92 = load ptr, ptr %91, align 8, !tbaa !64
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
@@ -11221,7 +11220,7 @@ sdslen.exit:                                      ; preds = %54, %59, %62, %66, 
   %indvars.iv = phi i64 [ %indvars.iv.next, %hfieldGetExpireTime.exit.thread ], [ 0, %142 ]
   %.2140 = phi i32 [ %.3, %hfieldGetExpireTime.exit.thread ], [ 0, %142 ]
   %147 = load ptr, ptr %6, align 8, !tbaa !132
-  %148 = getelementptr inbounds nuw ptr, ptr %147, i64 %indvars.iv
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %147, i64 %indvars.iv
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 32
   %150 = load ptr, ptr %149, align 8, !tbaa !64
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 8

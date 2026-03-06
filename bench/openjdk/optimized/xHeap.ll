@@ -387,7 +387,7 @@ _ZN8XAddress5is_inEm.exit:                        ; preds = %2
   %14 = lshr i64 %13, 21
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 800
   %16 = load ptr, ptr %15, align 32
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %14
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %14
   %18 = load ptr, ptr %17, align 8
   %.not = icmp eq ptr %18, null
   br i1 %.not, label %_ZNK5XPage5is_inEm.exit, label %19
@@ -1004,9 +1004,9 @@ _ZN22XRelocationSetSelector19register_empty_pageEP5XPage.exit: ; preds = %27, %3
 
 .lr.ph.i.i.i:                                     ; preds = %45, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %.lr.ph.i.i.i ], [ 0, %45 ]
-  %60 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv.i.i.i
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %indvars.iv.i.i.i
   %61 = load ptr, ptr %.phi.trans.insert.i, align 8
-  %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv.i.i.i
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv.i.i.i
   %63 = load ptr, ptr %62, align 8
   store ptr %63, ptr %60, align 8
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -1022,7 +1022,7 @@ _ZN22XRelocationSetSelector19register_empty_pageEP5XPage.exit: ; preds = %27, %3
 
 .lr.ph18.i.i.i:                                   ; preds = %.lr.ph18.i.i.i, %.lr.ph18.preheader.i.i.i
   %indvars.iv20.i.i.i = phi i64 [ %59, %.lr.ph18.preheader.i.i.i ], [ %indvars.iv.next21.i.i.i, %.lr.ph18.i.i.i ]
-  %68 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv20.i.i.i
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %indvars.iv20.i.i.i
   store ptr null, ptr %68, align 8
   %indvars.iv.next21.i.i.i = add nuw nsw i64 %indvars.iv20.i.i.i, 1
   %69 = load i32, ptr %12, align 4
@@ -1045,7 +1045,7 @@ _ZN26GrowableArrayWithAllocatorIP5XPage18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE6ap
   %75 = add nsw i32 %74, 1
   store i32 %75, ptr %11, align 8
   %76 = sext i32 %74 to i64
-  %77 = getelementptr inbounds ptr, ptr %73, i64 %76
+  %77 = getelementptr inbounds [8 x i8], ptr %73, i64 %76
   store ptr %14, ptr %77, align 8
   %78 = load i32, ptr %11, align 8
   %.not.i.i = icmp sgt i32 %78, 63
@@ -1137,7 +1137,7 @@ _ZN5XHeap16free_empty_pagesEP22XRelocationSetSelectori.exit7: ; preds = %.loopex
 .lr.ph.i.i9:                                      ; preds = %101, %.lr.ph.i.i9
   %.09.i.i = phi i64 [ %113, %.lr.ph.i.i9 ], [ %108, %101 ]
   %111 = load ptr, ptr %100, align 16
-  %112 = getelementptr inbounds nuw ptr, ptr %111, i64 %.09.i.i
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %.09.i.i
   store ptr %102, ptr %112, align 8
   %113 = add nuw nsw i64 %.09.i.i, 1
   %114 = icmp samesign ult i64 %113, %110
@@ -1410,7 +1410,7 @@ define hidden void @_ZN5XHeap20reset_relocation_setEv(ptr noundef nonnull align 
 .lr.ph.i.i:                                       ; preds = %8, %.lr.ph.i.i
   %.09.i.i = phi i64 [ %20, %.lr.ph.i.i ], [ %15, %8 ]
   %18 = load ptr, ptr %7, align 16
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %.09.i.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.09.i.i
   store ptr null, ptr %19, align 8
   %20 = add nuw nsw i64 %.09.i.i, 1
   %21 = icmp samesign ult i64 %20, %17
@@ -1477,7 +1477,7 @@ define hidden noundef zeroext i1 @_ZNK5XHeap13is_allocatingEm(ptr noundef nonnul
   %5 = lshr i64 %4, 21
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 800
   %7 = load ptr, ptr %6, align 32
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %5
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %5
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %11 = load i32, ptr %10, align 4
@@ -1903,9 +1903,9 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIP5XPage1
 
 23:                                               ; preds = %23, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %23 ]
-  %24 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv.i.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.i.i
   %25 = load ptr, ptr %18, align 8
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %indvars.iv.i.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %indvars.iv.i.i
   %27 = load ptr, ptr %26, align 8
   store ptr %27, ptr %24, align 8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -1922,7 +1922,7 @@ define linkonce_odr hidden noundef i32 @_ZN26GrowableArrayWithAllocatorIP5XPage1
 
 .lr.ph18.i.i:                                     ; preds = %.lr.ph18.i.i, %.lr.ph18.preheader.i.i
   %indvars.iv20.i.i = phi i64 [ %22, %.lr.ph18.preheader.i.i ], [ %indvars.iv.next21.i.i, %.lr.ph18.i.i ]
-  %33 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv20.i.i
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv20.i.i
   store ptr null, ptr %33, align 8
   %indvars.iv.next21.i.i = add nuw nsw i64 %indvars.iv20.i.i, 1
   %34 = load i32, ptr %4, align 4
@@ -1946,7 +1946,7 @@ _ZN26GrowableArrayWithAllocatorIP5XPage18GrowableArrayCHeapIS1_L8MEMFLAGS5EEE4gr
   store i32 %41, ptr %0, align 8
   %42 = load ptr, ptr %1, align 8
   %43 = sext i32 %40 to i64
-  %44 = getelementptr inbounds ptr, ptr %39, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr %39, i64 %43
   store ptr %42, ptr %44, align 8
   ret i32 %40
 }

@@ -89,7 +89,7 @@ _ZN26GrowableArrayWithAllocatorIP14VTransformNode13GrowableArrayIS1_EE4pushERKS1
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load ptr, ptr %18, align 8
   %20 = sext i32 %16 to i64
-  %21 = getelementptr inbounds ptr, ptr %19, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %19, i64 %20
   store ptr %1, ptr %21, align 8
   ret void
 }
@@ -130,7 +130,7 @@ define hidden noundef zeroext i1 @_ZN15VTransformGraph8scheduleEv(ptr noundef no
   %22 = phi i32 [ %18, %.lr.ph.i ], [ %59, %_ZNK14VTransformNode21has_req_or_dependencyEv.exit.i ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZNK14VTransformNode21has_req_or_dependencyEv.exit.i ]
   %23 = load ptr, ptr %20, align 8
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv.i
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv.i
   %25 = load ptr, ptr %24, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load i32, ptr %26, align 4
@@ -150,7 +150,7 @@ define hidden noundef zeroext i1 @_ZN15VTransformGraph8scheduleEv(ptr noundef no
 
 32:                                               ; preds = %31, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %31 ]
-  %33 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv.i.i
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv.i.i
   %34 = load ptr, ptr %33, align 8
   %.not.not.i.i = icmp eq ptr %34, null
   br i1 %.not.not.i.i, label %31, label %_ZNK14VTransformNode21has_req_or_dependencyEv.exit.i
@@ -196,8 +196,8 @@ _ZN13GrowableArrayIP14VTransformNodeE8allocateEv.exit.i: ; preds = %.loopexit.i
 
 .lr.ph.i24:                                       ; preds = %.lr.ph.i24.preheader, %.lr.ph.i24
   %indvars.iv.i25 = phi i64 [ %indvars.iv.next.i26, %.lr.ph.i24 ], [ 0, %.lr.ph.i24.preheader ]
-  %54 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv.i25
-  %55 = getelementptr inbounds nuw ptr, ptr %.sroa.29.5, i64 %indvars.iv.i25
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv.i25
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.29.5, i64 %indvars.iv.i25
   %56 = load ptr, ptr %55, align 8
   store ptr %56, ptr %54, align 8
   %indvars.iv.next.i26 = add nuw nsw i64 %indvars.iv.i25, 1
@@ -208,7 +208,7 @@ _ZN26GrowableArrayWithAllocatorIP14VTransformNode13GrowableArrayIS1_EE4pushERKS1
   %.sroa.18.6 = phi i32 [ %.0.i.i.i.i.i.i, %.preheader15.i ], [ %.0.i.i.i.i.i.i, %.lr.ph18.preheader.i ], [ %.sroa.18.5, %.loopexit.i ]
   %.sroa.29.6 = phi ptr [ %43, %.preheader15.i ], [ %43, %.lr.ph18.preheader.i ], [ %.sroa.29.5, %.loopexit.i ]
   %57 = sext i32 %.sroa.0.4 to i64
-  %58 = getelementptr inbounds ptr, ptr %.sroa.29.6, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %.sroa.29.6, i64 %57
   store ptr %25, ptr %58, align 8
   %.pre.i = load i32, ptr %17, align 8
   br label %_ZNK14VTransformNode21has_req_or_dependencyEv.exit.i
@@ -242,7 +242,7 @@ _ZNK15VTransformGraph39collect_nodes_without_req_or_dependencyER13GrowableArrayI
   %.sroa.18.0103 = phi i32 [ %.sroa.18.7, %.lr.ph107 ], [ %.sroa.18.1, %192 ]
   %.sroa.0.0102 = phi i32 [ %.sroa.0.5, %.lr.ph107 ], [ %.sroa.0.1, %192 ]
   %70 = sext i32 %.sroa.0.0102 to i64
-  %71 = getelementptr ptr, ptr %.sroa.29.0104, i64 %70
+  %71 = getelementptr [8 x i8], ptr %.sroa.29.0104, i64 %70
   %72 = getelementptr i8, ptr %71, i64 -8
   %73 = load ptr, ptr %72, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 8
@@ -261,7 +261,7 @@ _ZN9VectorSet8test_setEj.exit:                    ; preds = %69, %78
   %80 = shl nuw i32 1, %79
   %81 = load ptr, ptr %64, align 8
   %82 = zext nneg i32 %76 to i64
-  %83 = getelementptr inbounds nuw i32, ptr %81, i64 %82
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %81, i64 %82
   %84 = load i32, ptr %83, align 4
   %85 = or i32 %84, %80
   store i32 %85, ptr %83, align 4
@@ -281,7 +281,7 @@ _ZN9VectorSet8test_setEj.exit:                    ; preds = %69, %78
   %93 = shl nuw i32 1, %92
   %94 = load ptr, ptr %65, align 8
   %95 = zext nneg i32 %89 to i64
-  %96 = getelementptr inbounds nuw i32, ptr %94, i64 %95
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %94, i64 %95
   %97 = load i32, ptr %96, align 4
   %98 = and i32 %97, %93
   %.not84 = icmp eq i32 %98, 0
@@ -305,7 +305,7 @@ _ZNK9VectorSet4testEj.exit.preheader:             ; preds = %91, %87
   %.sroa.18.295 = phi i32 [ %.sroa.18.0103, %.lr.ph ], [ %.sroa.18.3, %_ZNK9VectorSet4testEj.exit ]
   %.sroa.0.293 = phi i32 [ %.sroa.0.0102, %.lr.ph ], [ %.sroa.0.3, %_ZNK9VectorSet4testEj.exit ]
   %105 = load ptr, ptr %102, align 8
-  %106 = getelementptr inbounds nuw ptr, ptr %105, i64 %indvars.iv
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %indvars.iv
   %107 = load ptr, ptr %106, align 8
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %109 = load i32, ptr %108, align 8
@@ -319,7 +319,7 @@ _ZNK9VectorSet4testEj.exit13:                     ; preds = %103
   %113 = shl nuw i32 1, %112
   %114 = load ptr, ptr %65, align 8
   %115 = zext nneg i32 %110 to i64
-  %116 = getelementptr inbounds nuw i32, ptr %114, i64 %115
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %115
   %117 = load i32, ptr %116, align 4
   %118 = and i32 %117, %113
   %.not85 = icmp eq i32 %118, 0
@@ -335,7 +335,7 @@ _ZNK9VectorSet4testEj.exit16:                     ; preds = %_ZNK9VectorSet4test
   %121 = shl nuw i32 1, %120
   %122 = load ptr, ptr %64, align 8
   %123 = zext nneg i32 %110 to i64
-  %124 = getelementptr inbounds nuw i32, ptr %122, i64 %123
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %122, i64 %123
   %125 = load i32, ptr %124, align 4
   %126 = and i32 %125, %121
   %.not86 = icmp eq i32 %126, 0
@@ -382,8 +382,8 @@ _ZN13GrowableArrayIP14VTransformNodeE8allocateEv.exit.i27: ; preds = %_ZNK9Vecto
 
 .lr.ph.i37:                                       ; preds = %.lr.ph.i37.preheader, %.lr.ph.i37
   %indvars.iv.i38 = phi i64 [ %indvars.iv.next.i39, %.lr.ph.i37 ], [ 0, %.lr.ph.i37.preheader ]
-  %146 = getelementptr inbounds nuw ptr, ptr %135, i64 %indvars.iv.i38
-  %147 = getelementptr inbounds nuw ptr, ptr %.sroa.29.296, i64 %indvars.iv.i38
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %135, i64 %indvars.iv.i38
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.29.296, i64 %indvars.iv.i38
   %148 = load ptr, ptr %147, align 8
   store ptr %148, ptr %146, align 8
   %indvars.iv.next.i39 = add nuw nsw i64 %indvars.iv.i38, 1
@@ -395,7 +395,7 @@ _ZN26GrowableArrayWithAllocatorIP14VTransformNode13GrowableArrayIS1_EE4pushERKS1
   %.sroa.29.9 = phi ptr [ %.sroa.29.296, %_ZNK9VectorSet4testEj.exit16.thread ], [ %135, %.preheader15.i29 ], [ %135, %.lr.ph18.preheader.i33 ]
   %149 = add nsw i32 %.sroa.0.293, 1
   %150 = sext i32 %.sroa.0.293 to i64
-  %151 = getelementptr inbounds ptr, ptr %.sroa.29.9, i64 %150
+  %151 = getelementptr inbounds [8 x i8], ptr %.sroa.29.9, i64 %150
   store ptr %107, ptr %151, align 8
   %.pre = load i32, ptr %99, align 4
   br label %_ZNK9VectorSet4testEj.exit
@@ -434,7 +434,7 @@ _ZN9VectorSet3setEj.exit:                         ; preds = %_ZNK9VectorSet4test
   %161 = shl nuw i32 1, %160
   %162 = load ptr, ptr %65, align 8
   %163 = zext nneg i32 %157 to i64
-  %164 = getelementptr inbounds nuw i32, ptr %162, i64 %163
+  %164 = getelementptr inbounds nuw [4 x i8], ptr %162, i64 %163
   %165 = load i32, ptr %164, align 4
   %166 = or i32 %165, %161
   store i32 %166, ptr %164, align 4
@@ -475,7 +475,7 @@ _ZN9VectorSet3setEj.exit:                         ; preds = %_ZNK9VectorSet4test
 183:                                              ; preds = %183, %.lr.ph.i20
   %indvars.iv.i21 = phi i64 [ %182, %.lr.ph.i20 ], [ %indvars.iv.next.i22, %183 ]
   %184 = load ptr, ptr %68, align 8
-  %185 = getelementptr inbounds ptr, ptr %184, i64 %indvars.iv.i21
+  %185 = getelementptr inbounds [8 x i8], ptr %184, i64 %indvars.iv.i21
   store ptr null, ptr %185, align 8
   %indvars.iv.next.i22 = add nsw i64 %indvars.iv.i21, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i22, %wide.trip.count.i
@@ -489,7 +489,7 @@ _ZN9VectorSet3setEj.exit:                         ; preds = %_ZNK9VectorSet4test
 _ZN26GrowableArrayWithAllocatorIP14VTransformNode13GrowableArrayIS1_EE11at_put_growEiRKS1_S6_.exit: ; preds = %_ZN9VectorSet3setEj.exit, %._crit_edge.i
   %187 = load ptr, ptr %68, align 8
   %188 = sext i32 %.07105 to i64
-  %189 = getelementptr inbounds ptr, ptr %187, i64 %188
+  %189 = getelementptr inbounds [8 x i8], ptr %187, i64 %188
   store ptr %73, ptr %189, align 8
   br label %192
 
@@ -550,7 +550,7 @@ define hidden void @_ZNK15VTransformGraph39collect_nodes_without_req_or_dependen
   %10 = phi i32 [ %4, %.lr.ph ], [ %39, %_ZNK14VTransformNode21has_req_or_dependencyEv.exit ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNK14VTransformNode21has_req_or_dependencyEv.exit ]
   %11 = load ptr, ptr %6, align 8
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load i32, ptr %14, align 4
@@ -570,7 +570,7 @@ define hidden void @_ZNK15VTransformGraph39collect_nodes_without_req_or_dependen
 
 20:                                               ; preds = %19, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %19 ]
-  %21 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv.i
   %22 = load ptr, ptr %21, align 8
   %.not.not.i = icmp eq ptr %22, null
   br i1 %.not.not.i, label %19, label %_ZNK14VTransformNode21has_req_or_dependencyEv.exit
@@ -601,7 +601,7 @@ _ZN26GrowableArrayWithAllocatorIP14VTransformNode13GrowableArrayIS1_EE4pushERKS1
   store i32 %35, ptr %1, align 8
   %36 = load ptr, ptr %8, align 8
   %37 = sext i32 %34 to i64
-  %38 = getelementptr inbounds ptr, ptr %36, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %36, i64 %37
   store ptr %13, ptr %38, align 8
   %.pre = load i32, ptr %3, align 8
   br label %_ZNK14VTransformNode21has_req_or_dependencyEv.exit
@@ -622,14 +622,14 @@ define hidden noundef ptr @_ZNK14VTransformNode22find_transformed_inputEiRK13Gro
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds ptr, ptr %5, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr %5, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i32, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = sext i32 %10 to i64
-  %14 = getelementptr inbounds ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds [8 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8
   ret ptr %15
 }
@@ -654,7 +654,7 @@ define hidden { ptr, i64 } @_ZNK23VTransformReplicateNode5applyERK13VLoopAnalyze
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = sext i32 %9 to i64
-  %13 = getelementptr inbounds ptr, ptr %11, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %11, i64 %12
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %16 = load i32, ptr %15, align 8
@@ -671,7 +671,7 @@ define hidden { ptr, i64 } @_ZNK23VTransformReplicateNode5applyERK13VLoopAnalyze
   %26 = load ptr, ptr %25, align 8
   %27 = tail call noundef zeroext i8 @_ZNK4Type24array_element_basic_typeEv(ptr noundef nonnull align 8 dereferenceable(20) %26) #9
   %28 = zext i8 %27 to i64
-  %29 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr @_type2aelembytes, i64 %28
   %30 = load i32, ptr %29, align 4
   %31 = mul i32 %30, %24
   %.fca.0.insert.i = insertvalue { ptr, i64 } poison, ptr %19, 0
@@ -698,7 +698,7 @@ define hidden void @_ZNK14VTransformNode36register_new_node_from_vectorizationER
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %13 = load ptr, ptr %12, align 8
   %14 = zext i32 %8 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = ptrtoint ptr %16 to i64
   %18 = and i64 %17, -2
@@ -716,7 +716,7 @@ _ZNK14PhaseIdealLoop25get_ctrl_no_update_helperEPK4Node.exit8.i.i.i: ; preds = %
   %25 = icmp ult i32 %24, %10
   tail call void @llvm.assume(i1 %25)
   %26 = zext i32 %24 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr %13, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = ptrtoint ptr %28 to i64
   %30 = and i64 %29, -2
@@ -764,7 +764,7 @@ _ZN9VectorSet8test_setEj.exit.i:                  ; preds = %52, %_ZN14PhaseIdea
   %55 = getelementptr inbounds nuw i8, ptr %46, i64 40
   %56 = load ptr, ptr %55, align 8
   %57 = zext nneg i32 %50 to i64
-  %58 = getelementptr inbounds nuw i32, ptr %56, i64 %57
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %56, i64 %57
   %59 = load i32, ptr %58, align 4
   %60 = or i32 %59, %54
   store i32 %60, ptr %58, align 4
@@ -790,7 +790,7 @@ _ZN9Node_List4pushEP4Node.exit.i:                 ; preds = %68, %62
   %69 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %70 = load ptr, ptr %69, align 8
   %71 = zext i32 %64 to i64
-  %72 = getelementptr inbounds nuw ptr, ptr %70, i64 %71
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %71
   store ptr %2, ptr %72, align 8
   br label %_ZN16Unique_Node_List4pushEP4Node.exit
 
@@ -809,7 +809,7 @@ define hidden { ptr, i64 } @_ZNK21VTransformConvI2LNode5applyERK13VLoopAnalyzerR
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = sext i32 %9 to i64
-  %13 = getelementptr inbounds ptr, ptr %11, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %11, i64 %12
   %14 = load ptr, ptr %13, align 8
   %15 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %16 = load ptr, ptr %15, align 8
@@ -884,7 +884,7 @@ _ZN4NodenwEm.exit:                                ; preds = %30, %32
   %56 = add i32 %54, 1
   store i32 %56, ptr %47, align 8
   %57 = zext i32 %54 to i64
-  %58 = getelementptr inbounds nuw ptr, ptr %55, i64 %57
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %57
   store ptr %.0.i.i.i, ptr %58, align 8
   br label %_ZN11ConvI2LNodeC2EP4NodePK8TypeLong.exit
 
@@ -912,7 +912,7 @@ define hidden { ptr, i64 } @_ZNK24VTransformShiftCountNode5applyERK13VLoopAnalyz
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = sext i32 %11 to i64
-  %15 = getelementptr inbounds ptr, ptr %13, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %18 = load ptr, ptr %17, align 8
@@ -977,7 +977,7 @@ _ZN4NodenwEm.exit:                                ; preds = %32, %34
   %58 = load ptr, ptr %57, align 8
   %59 = tail call noundef zeroext i8 @_ZNK4Type24array_element_basic_typeEv(ptr noundef nonnull align 8 dereferenceable(20) %58) #9
   %60 = zext i8 %59 to i64
-  %61 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %60
+  %61 = getelementptr inbounds nuw [4 x i8], ptr @_type2aelembytes, i64 %60
   %62 = load i32, ptr %61, align 4
   %63 = mul i32 %62, %56
   %.fca.0.insert.i = insertvalue { ptr, i64 } poison, ptr %51, 0
@@ -1006,14 +1006,14 @@ define hidden { ptr, i64 } @_ZNK27VTransformPopulateIndexNode5applyERK13VLoopAna
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = sext i32 %11 to i64
-  %15 = getelementptr inbounds ptr, ptr %13, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %13, i64 %14
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %18 = load i8, ptr %17, align 4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %20 = load i32, ptr %19, align 8
   %21 = zext i8 %18 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4Type17_const_basic_typeE, i64 %21
   %23 = load ptr, ptr %22, align 8
   %24 = tail call noundef ptr @_ZN8TypeVect4makeEPK4Typejb(ptr noundef %23, i32 noundef %20, i1 noundef zeroext false) #9
   %25 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -1066,7 +1066,7 @@ _ZN4NodenwEm.exit:                                ; preds = %40, %42
   %56 = load ptr, ptr %55, align 8
   %57 = tail call noundef zeroext i8 @_ZNK4Type24array_element_basic_typeEv(ptr noundef nonnull align 8 dereferenceable(20) %56) #9
   %58 = zext i8 %57 to i64
-  %59 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %58
+  %59 = getelementptr inbounds nuw [4 x i8], ptr @_type2aelembytes, i64 %58
   %60 = load i32, ptr %59, align 4
   %61 = mul i32 %60, %54
   %.fca.0.insert.i = insertvalue { ptr, i64 } poison, ptr %.0.i.i.i, 0
@@ -1119,7 +1119,7 @@ define linkonce_odr hidden void @_ZN17PopulateIndexNodeC2EP4NodeS1_PK8TypeVect(p
   %24 = add i32 %22, 1
   store i32 %24, ptr %15, align 8
   %25 = zext i32 %22 to i64
-  %26 = getelementptr inbounds nuw ptr, ptr %23, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %25
   store ptr %0, ptr %26, align 8
   br label %_ZN4Node8init_reqEjPS_.exit.i
 
@@ -1156,7 +1156,7 @@ _ZN4Node8init_reqEjPS_.exit.i:                    ; preds = %21, %10, %4
   %43 = add i32 %41, 1
   store i32 %43, ptr %34, align 8
   %44 = zext i32 %41 to i64
-  %45 = getelementptr inbounds nuw ptr, ptr %42, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %44
   store ptr %0, ptr %45, align 8
   br label %_ZN10VectorNodeC2EP4NodeS1_PK8TypeVect.exit
 
@@ -1184,12 +1184,12 @@ define hidden { ptr, i64 } @_ZNK31VTransformElementWiseVectorNode5applyERK13VLoo
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %19 = load ptr, ptr %18, align 8
   %20 = sext i32 %17 to i64
-  %21 = getelementptr inbounds i32, ptr %19, i64 %20
+  %21 = getelementptr inbounds [4 x i8], ptr %19, i64 %20
   %22 = load i32, ptr %21, align 4
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 224
   %24 = load ptr, ptr %23, align 8
   %25 = sext i32 %22 to i64
-  %26 = getelementptr inbounds ptr, ptr %24, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %24, i64 %25
   %27 = load ptr, ptr %26, align 8
   %28 = tail call noundef zeroext i8 @_ZNK4Type24array_element_basic_typeEv(ptr noundef nonnull align 8 dereferenceable(20) %27) #9
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 44
@@ -1208,7 +1208,7 @@ define hidden { ptr, i64 } @_ZNK31VTransformElementWiseVectorNode5applyERK13VLoo
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %41 = load ptr, ptr %40, align 8
   %42 = sext i32 %39 to i64
-  %43 = getelementptr inbounds ptr, ptr %41, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %41, i64 %42
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %46 = load i32, ptr %45, align 4
@@ -1221,7 +1221,7 @@ define hidden { ptr, i64 } @_ZNK31VTransformElementWiseVectorNode5applyERK13VLoo
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %52 = load i32, ptr %51, align 8
   %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds ptr, ptr %41, i64 %53
+  %54 = getelementptr inbounds [8 x i8], ptr %41, i64 %53
   %55 = load ptr, ptr %54, align 8
   %.not = icmp eq i32 %46, 3
   br i1 %.not, label %.thread, label %56
@@ -1232,7 +1232,7 @@ define hidden { ptr, i64 } @_ZNK31VTransformElementWiseVectorNode5applyERK13VLoo
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %60 = load i32, ptr %59, align 8
   %61 = sext i32 %60 to i64
-  %62 = getelementptr inbounds ptr, ptr %41, i64 %61
+  %62 = getelementptr inbounds [8 x i8], ptr %41, i64 %61
   %63 = load ptr, ptr %62, align 8
   br label %.thread
 
@@ -1354,7 +1354,7 @@ _ZN4NodenwEm.exit:                                ; preds = %84, %86
 132:                                              ; preds = %132, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %132 ]
   %133 = load ptr, ptr %5, align 8
-  %134 = getelementptr inbounds nuw ptr, ptr %133, i64 %indvars.iv.i
+  %134 = getelementptr inbounds nuw [8 x i8], ptr %133, i64 %indvars.iv.i
   %135 = load ptr, ptr %134, align 8
   %136 = load ptr, ptr %131, align 8
   tail call void @_ZN12PhaseIterGVN21add_users_to_worklistEP4Node(ptr noundef nonnull align 8 dereferenceable(2416) %136, ptr noundef %135) #9
@@ -1377,7 +1377,7 @@ _ZNK20VTransformVectorNode61register_new_node_from_vectorization_and_replace_sca
   %148 = load ptr, ptr %147, align 8
   %149 = tail call noundef zeroext i8 @_ZNK4Type24array_element_basic_typeEv(ptr noundef nonnull align 8 dereferenceable(20) %148) #9
   %150 = zext i8 %149 to i64
-  %151 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %150
+  %151 = getelementptr inbounds nuw [4 x i8], ptr @_type2aelembytes, i64 %150
   %152 = load i32, ptr %151, align 4
   %153 = mul i32 %152, %146
   %.fca.0.insert.i = insertvalue { ptr, i64 } poison, ptr %.0, 0
@@ -1429,7 +1429,7 @@ define hidden void @_ZNK20VTransformVectorNode61register_new_node_from_vectoriza
 13:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
   %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8
   %17 = load ptr, ptr %12, align 8
   tail call void @_ZN12PhaseIterGVN21add_users_to_worklistEP4Node(ptr noundef nonnull align 8 dereferenceable(2416) %17, ptr noundef %16) #9
@@ -1463,12 +1463,12 @@ define hidden { ptr, i64 } @_ZNK24VTransformBoolVectorNode5applyERK13VLoopAnalyz
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %16 = load ptr, ptr %15, align 8
   %17 = sext i32 %14 to i64
-  %18 = getelementptr inbounds i32, ptr %16, i64 %17
+  %18 = getelementptr inbounds [4 x i8], ptr %16, i64 %17
   %19 = load i32, ptr %18, align 4
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 224
   %21 = load ptr, ptr %20, align 8
   %22 = sext i32 %19 to i64
-  %23 = getelementptr inbounds ptr, ptr %21, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %21, i64 %22
   %24 = load ptr, ptr %23, align 8
   %25 = tail call noundef zeroext i8 @_ZNK4Type24array_element_basic_typeEv(ptr noundef nonnull align 8 dereferenceable(20) %24) #9
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1488,14 +1488,14 @@ define hidden { ptr, i64 } @_ZNK24VTransformBoolVectorNode5applyERK13VLoopAnalyz
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %41 = load ptr, ptr %40, align 8
   %42 = sext i32 %39 to i64
-  %43 = getelementptr inbounds ptr, ptr %41, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %41, i64 %42
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load i32, ptr %47, align 8
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds ptr, ptr %41, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %41, i64 %49
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %.sroa.0.0.copyload.i = load i64, ptr %52, align 8
@@ -1506,7 +1506,7 @@ define hidden { ptr, i64 } @_ZNK24VTransformBoolVectorNode5applyERK13VLoopAnalyz
   %56 = load ptr, ptr %55, align 8
   %57 = tail call noundef ptr @_ZN11PhaseValues6intconEi(ptr noundef nonnull align 8 dereferenceable(2400) %56, i32 noundef %.sroa.0.0.extract.trunc) #9
   %58 = zext i8 %25 to i64
-  %59 = getelementptr inbounds nuw ptr, ptr @_ZN4Type17_const_basic_typeE, i64 %58
+  %59 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4Type17_const_basic_typeE, i64 %58
   %60 = load ptr, ptr %59, align 8
   %61 = tail call noundef ptr @_ZN8TypeVect4makeEPK4Typejb(ptr noundef %60, i32 noundef %8, i1 noundef zeroext false) #9
   %62 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -1567,7 +1567,7 @@ _ZN4NodenwEm.exit:                                ; preds = %77, %79
 93:                                               ; preds = %93, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %93 ]
   %94 = load ptr, ptr %5, align 8
-  %95 = getelementptr inbounds nuw ptr, ptr %94, i64 %indvars.iv.i
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %indvars.iv.i
   %96 = load ptr, ptr %95, align 8
   %97 = load ptr, ptr %92, align 8
   tail call void @_ZN12PhaseIterGVN21add_users_to_worklistEP4Node(ptr noundef nonnull align 8 dereferenceable(2416) %97, ptr noundef %96) #9
@@ -1590,7 +1590,7 @@ _ZNK20VTransformVectorNode61register_new_node_from_vectorization_and_replace_sca
   %109 = load ptr, ptr %108, align 8
   %110 = tail call noundef zeroext i8 @_ZNK4Type24array_element_basic_typeEv(ptr noundef nonnull align 8 dereferenceable(20) %109) #9
   %111 = zext i8 %110 to i64
-  %112 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %111
+  %112 = getelementptr inbounds nuw [4 x i8], ptr @_type2aelembytes, i64 %111
   %113 = load i32, ptr %112, align 4
   %114 = mul i32 %113, %107
   %.fca.0.insert.i = insertvalue { ptr, i64 } poison, ptr %.0.i.i.i, 0
@@ -1619,7 +1619,7 @@ define hidden { ptr, i64 } @_ZNK29VTransformReductionVectorNode5applyERK13VLoopA
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load i32, ptr %16, align 8
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %18
+  %19 = getelementptr inbounds nuw [32 x i8], ptr @_ZN4Type10_type_infoE, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %21 = load i8, ptr %20, align 4
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1631,14 +1631,14 @@ define hidden { ptr, i64 } @_ZNK29VTransformReductionVectorNode5applyERK13VLoopA
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %29 = load ptr, ptr %28, align 8
   %30 = sext i32 %27 to i64
-  %31 = getelementptr inbounds ptr, ptr %29, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %29, i64 %30
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %34 = load ptr, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load i32, ptr %35, align 8
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds ptr, ptr %29, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %29, i64 %37
   %39 = load ptr, ptr %38, align 8
   %40 = tail call noundef ptr @_ZN13ReductionNode4makeEiP4NodeS1_S1_9BasicTypeb(i32 noundef %11, ptr noundef null, ptr noundef %32, ptr noundef %39, i8 noundef zeroext %21, i1 noundef zeroext true) #9
   %41 = load ptr, ptr %1, align 8
@@ -1657,7 +1657,7 @@ define hidden { ptr, i64 } @_ZNK29VTransformReductionVectorNode5applyERK13VLoopA
 48:                                               ; preds = %48, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %48 ]
   %49 = load ptr, ptr %5, align 8
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv.i
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv.i
   %51 = load ptr, ptr %50, align 8
   %52 = load ptr, ptr %47, align 8
   tail call void @_ZN12PhaseIterGVN21add_users_to_worklistEP4Node(ptr noundef nonnull align 8 dereferenceable(2416) %52, ptr noundef %51) #9
@@ -1682,7 +1682,7 @@ _ZNK20VTransformVectorNode61register_new_node_from_vectorization_and_replace_sca
   %66 = load ptr, ptr %65, align 8
   %67 = tail call noundef zeroext i8 @_ZNK4Type24array_element_basic_typeEv(ptr noundef nonnull align 8 dereferenceable(20) %66) #9
   %68 = zext i8 %67 to i64
-  %69 = getelementptr inbounds nuw i32, ptr @_type2aelembytes, i64 %68
+  %69 = getelementptr inbounds nuw [4 x i8], ptr @_type2aelembytes, i64 %68
   %70 = load i32, ptr %69, align 4
   %71 = mul i32 %70, %64
   %.fca.0.insert.i = insertvalue { ptr, i64 } poison, ptr %40, 0
@@ -1728,12 +1728,12 @@ define hidden { ptr, i64 } @_ZNK24VTransformLoadVectorNode5applyERK13VLoopAnalyz
   %31 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %32 = load ptr, ptr %31, align 8
   %33 = sext i32 %30 to i64
-  %34 = getelementptr inbounds i32, ptr %32, i64 %33
+  %34 = getelementptr inbounds [4 x i8], ptr %32, i64 %33
   %35 = load i32, ptr %34, align 4
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 224
   %37 = load ptr, ptr %36, align 8
   %38 = sext i32 %35 to i64
-  %39 = getelementptr inbounds ptr, ptr %37, i64 %38
+  %39 = getelementptr inbounds [8 x i8], ptr %37, i64 %38
   %40 = load ptr, ptr %39, align 8
   %41 = tail call noundef zeroext i8 @_ZNK4Type24array_element_basic_typeEv(ptr noundef nonnull align 8 dereferenceable(20) %40) #9
   %42 = getelementptr inbounds nuw i8, ptr %15, i64 44
@@ -1768,7 +1768,7 @@ define hidden { ptr, i64 } @_ZNK24VTransformLoadVectorNode5applyERK13VLoopAnalyz
 .lr.ph.i:                                         ; preds = %57, %_ZNK8VPointer9not_equalERKS_.exit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZNK8VPointer9not_equalERKS_.exit.i ], [ 0, %57 ]
   %61 = load ptr, ptr %7, align 8
-  %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv.i
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv.i
   %63 = load ptr, ptr %62, align 8
   %64 = load ptr, ptr %48, align 8
   call void @_ZN8VPointerC2EP7MemNodeRK5VLoopP10Node_Stackb(ptr noundef nonnull align 8 dereferenceable(64) %4, ptr noundef %63, ptr noundef nonnull align 8 dereferenceable(56) %64, ptr noundef null, i1 noundef zeroext false) #9
@@ -1872,7 +1872,7 @@ _ZNK8VPointer28overlap_possible_with_any_inERK13GrowableArrayIP4NodeE.exit.threa
 123:                                              ; preds = %123, %.lr.ph.i23
   %indvars.iv.i24 = phi i64 [ 0, %.lr.ph.i23 ], [ %indvars.iv.next.i25, %123 ]
   %124 = load ptr, ptr %7, align 8
-  %125 = getelementptr inbounds nuw ptr, ptr %124, i64 %indvars.iv.i24
+  %125 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %indvars.iv.i24
   %126 = load ptr, ptr %125, align 8
   %127 = load ptr, ptr %122, align 8
   call void @_ZN12PhaseIterGVN21add_users_to_worklistEP4Node(ptr noundef nonnull align 8 dereferenceable(2416) %127, ptr noundef %126) #9
@@ -1934,7 +1934,7 @@ define hidden { ptr, i64 } @_ZNK25VTransformStoreVectorNode5applyERK13VLoopAnaly
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %30 = load ptr, ptr %29, align 8
   %31 = sext i32 %28 to i64
-  %32 = getelementptr inbounds ptr, ptr %30, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %30, i64 %31
   %33 = load ptr, ptr %32, align 8
   %34 = tail call noundef ptr @_ZN15StoreVectorNode4makeEiP4NodeS1_S1_PK7TypePtrS1_j(i32 noundef %18, ptr noundef %11, ptr noundef %13, ptr noundef %15, ptr noundef %22, ptr noundef %33, i32 noundef %8) #9
   %35 = load ptr, ptr %1, align 8
@@ -1953,7 +1953,7 @@ define hidden { ptr, i64 } @_ZNK25VTransformStoreVectorNode5applyERK13VLoopAnaly
 42:                                               ; preds = %42, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %42 ]
   %43 = load ptr, ptr %5, align 8
-  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %indvars.iv.i
   %45 = load ptr, ptr %44, align 8
   %46 = load ptr, ptr %41, align 8
   tail call void @_ZN12PhaseIterGVN21add_users_to_worklistEP4Node(ptr noundef nonnull align 8 dereferenceable(2416) %46, ptr noundef %45) #9
@@ -2100,7 +2100,7 @@ define linkonce_odr hidden void @_ZN10VectorNodeC2EP4NodeS1_S1_PK8TypeVect(ptr n
   %25 = add i32 %23, 1
   store i32 %25, ptr %16, align 8
   %26 = zext i32 %23 to i64
-  %27 = getelementptr inbounds nuw ptr, ptr %24, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %26
   store ptr %0, ptr %27, align 8
   br label %_ZN4Node8init_reqEjPS_.exit
 
@@ -2137,7 +2137,7 @@ _ZN4Node8init_reqEjPS_.exit:                      ; preds = %5, %11, %22
   %44 = add i32 %42, 1
   store i32 %44, ptr %35, align 8
   %45 = zext i32 %42 to i64
-  %46 = getelementptr inbounds nuw ptr, ptr %43, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %45
   store ptr %0, ptr %46, align 8
   br label %_ZN4Node8init_reqEjPS_.exit8
 
@@ -2174,7 +2174,7 @@ _ZN4Node8init_reqEjPS_.exit8:                     ; preds = %_ZN4Node8init_reqEj
   %63 = add i32 %61, 1
   store i32 %63, ptr %54, align 8
   %64 = zext i32 %61 to i64
-  %65 = getelementptr inbounds nuw ptr, ptr %62, i64 %64
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %64
   store ptr %0, ptr %65, align 8
   br label %_ZN4Node8init_reqEjPS_.exit12
 
@@ -2256,9 +2256,9 @@ _ZN13GrowableArrayIP14VTransformNodeE8allocateEv.exit: ; preds = %7, %11, %15
 
 25:                                               ; preds = %.lr.ph, %25
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
-  %26 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   store ptr %29, ptr %26, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2275,7 +2275,7 @@ _ZN13GrowableArrayIP14VTransformNodeE8allocateEv.exit: ; preds = %7, %11, %15
 
 .lr.ph18:                                         ; preds = %.lr.ph18.preheader, %.lr.ph18
   %indvars.iv20 = phi i64 [ %24, %.lr.ph18.preheader ], [ %indvars.iv.next21, %.lr.ph18 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %indvars.iv20
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %indvars.iv20
   store ptr null, ptr %35, align 8
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
   %36 = load i32, ptr %3, align 4

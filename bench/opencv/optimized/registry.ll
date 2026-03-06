@@ -21,7 +21,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { i64, [8 x i8] }
 %"class.std::shared_ptr.8" = type { %"class.std::__shared_ptr.9" }
 %"class.std::__shared_ptr.9" = type { ptr, %"class.std::__shared_count" }
-%"struct.std::pair" = type { i32, i32 }
 
 $_ZN2cv3dnn14dnn4_v2024122315BackendRegistryC2Ev = comdat any
 
@@ -243,7 +242,7 @@ _ZNSt6vectorIN2cv3dnn14dnn4_v202412236TargetESaIS3_EE11_S_relocateEPS3_S6_S6_RS4
 
 _ZNSt6vectorIN2cv3dnn14dnn4_v202412236TargetESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %43, %_ZNSt6vectorIN2cv3dnn14dnn4_v202412236TargetESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
   store ptr %42, ptr %12, align 8, !tbaa !21
-  %44 = getelementptr inbounds nuw i32, ptr %37, i64 %35
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %35
   store ptr %44, ptr %13, align 8, !tbaa !23
   br label %_ZNSt6vectorIN2cv3dnn14dnn4_v202412236TargetESaIS3_EE9push_backERKS3_.exit
 
@@ -547,7 +546,7 @@ _ZNSt6vectorISt4pairIN2cv3dnn14dnn4_v202412237BackendENS3_6TargetEESaIS6_EE11_S_
 _ZNSt6vectorISt4pairIN2cv3dnn14dnn4_v202412237BackendENS3_6TargetEESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i: ; preds = %99, %_ZNSt6vectorISt4pairIN2cv3dnn14dnn4_v202412237BackendENS3_6TargetEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i.i.i
   store ptr %93, ptr %0, align 8, !tbaa !10
   store ptr %98, ptr %73, align 8, !tbaa !4
-  %100 = getelementptr inbounds nuw %"struct.std::pair", ptr %93, i64 %91
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %91
   store ptr %100, ptr %75, align 8, !tbaa !11
   br label %_ZNSt6vectorISt4pairIN2cv3dnn14dnn4_v202412237BackendENS3_6TargetEESaIS6_EE9push_backEOS6_.exit
 
@@ -647,7 +646,7 @@ _ZNSt6vectorISt4pairIN2cv3dnn14dnn4_v202412237BackendENS3_6TargetEESaIS6_EE11_S_
 _ZNSt6vectorISt4pairIN2cv3dnn14dnn4_v202412237BackendENS3_6TargetEESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i46: ; preds = %135, %_ZNSt6vectorISt4pairIN2cv3dnn14dnn4_v202412237BackendENS3_6TargetEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i.i.i43
   store ptr %129, ptr %0, align 8, !tbaa !10
   store ptr %134, ptr %109, align 8, !tbaa !4
-  %136 = getelementptr inbounds nuw %"struct.std::pair", ptr %129, i64 %127
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %129, i64 %127
   store ptr %136, ptr %111, align 8, !tbaa !11
   br label %.critedge
 
@@ -737,7 +736,7 @@ _ZNSt6vectorISt4pairIN2cv3dnn14dnn4_v202412237BackendENS3_6TargetEESaIS6_EE11_S_
 _ZNSt6vectorISt4pairIN2cv3dnn14dnn4_v202412237BackendENS3_6TargetEESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i66: ; preds = %168, %_ZNSt6vectorISt4pairIN2cv3dnn14dnn4_v202412237BackendENS3_6TargetEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i.i.i63
   store ptr %162, ptr %0, align 8, !tbaa !10
   store ptr %167, ptr %142, align 8, !tbaa !4
-  %169 = getelementptr inbounds nuw %"struct.std::pair", ptr %162, i64 %160
+  %169 = getelementptr inbounds nuw [8 x i8], ptr %162, i64 %160
   store ptr %169, ptr %144, align 8, !tbaa !11
   br label %.critedge18
 
@@ -874,7 +873,7 @@ _ZNSt6vectorISt4pairIN2cv3dnn14dnn4_v202412237BackendENS3_6TargetEESaIS6_EE11_S_
 _ZNSt6vectorISt4pairIN2cv3dnn14dnn4_v202412237BackendENS3_6TargetEESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i91: ; preds = %221, %_ZNSt6vectorISt4pairIN2cv3dnn14dnn4_v202412237BackendENS3_6TargetEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i.i.i88
   store ptr %215, ptr %0, align 8, !tbaa !10
   store ptr %220, ptr %195, align 8, !tbaa !4
-  %222 = getelementptr inbounds nuw %"struct.std::pair", ptr %215, i64 %213
+  %222 = getelementptr inbounds nuw [8 x i8], ptr %215, i64 %213
   store ptr %222, ptr %197, align 8, !tbaa !11
   br label %_ZNSt6vectorISt4pairIN2cv3dnn14dnn4_v202412237BackendENS3_6TargetEESaIS6_EE9push_backEOS6_.exit94
 

@@ -84,7 +84,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<float, std::allocator<float>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.cv::_InputOutputArray" = type { %"class.cv::_OutputArray" }
 %"class.cv::TermCriteria" = type { i32, i32, double }
-%"class.cv::Point_" = type { float, float }
 %"class.testing::internal::ParamGenerator.100" = type { %"class.testing::internal::linked_ptr.101" }
 %"class.testing::internal::linked_ptr.101" = type { ptr, %"class.testing::internal::linked_ptr_internal" }
 %"class.testing::internal::ParamIterator" = type { %"class.testing::internal::scoped_ptr.130" }
@@ -1375,7 +1374,7 @@ _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_rel
 _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %154, %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %149, ptr %0, align 8, !tbaa !33
   store ptr %153, ptr %11, align 8, !tbaa !30
-  %155 = getelementptr inbounds nuw ptr, ptr %149, i64 %147
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %149, i64 %147
   store ptr %155, ptr %132, align 8, !tbaa !32
   br label %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE9push_backEOS3_.exit
 
@@ -2059,7 +2058,7 @@ _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_rel
 _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %154, %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %149, ptr %0, align 8, !tbaa !33
   store ptr %153, ptr %11, align 8, !tbaa !30
-  %155 = getelementptr inbounds nuw ptr, ptr %149, i64 %147
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %149, i64 %147
   store ptr %155, ptr %132, align 8, !tbaa !32
   br label %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE9push_backEOS3_.exit
 
@@ -2732,7 +2731,7 @@ _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_rel
 _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %154, %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %149, ptr %0, align 8, !tbaa !33
   store ptr %153, ptr %11, align 8, !tbaa !30
-  %155 = getelementptr inbounds nuw ptr, ptr %149, i64 %147
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %149, i64 %147
   store ptr %155, ptr %132, align 8, !tbaa !32
   br label %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE9push_backEOS3_.exit
 
@@ -3496,7 +3495,7 @@ _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_rel
 _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %154, %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %149, ptr %0, align 8, !tbaa !33
   store ptr %153, ptr %11, align 8, !tbaa !30
-  %155 = getelementptr inbounds nuw ptr, ptr %149, i64 %147
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %149, i64 %147
   store ptr %155, ptr %132, align 8, !tbaa !32
   br label %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE9push_backEOS3_.exit
 
@@ -6395,9 +6394,9 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i.i: ; pre
 _ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit36.i.i: ; preds = %310, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i.i
   %.pre167.pre-phi = phi i64 [ %.pre172, %310 ], [ %279, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i.i ]
   store ptr %304, ptr %25, align 8, !tbaa !250
-  %311 = getelementptr inbounds nuw %"class.cv::Point_", ptr %305, i64 %289
+  %311 = getelementptr inbounds nuw [8 x i8], ptr %305, i64 %289
   store ptr %311, ptr %280, align 8, !tbaa !247
-  %312 = getelementptr inbounds nuw %"class.cv::Point_", ptr %304, i64 %302
+  %312 = getelementptr inbounds nuw [8 x i8], ptr %304, i64 %302
   store ptr %312, ptr %290, align 8, !tbaa !251
   br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit
 
@@ -6609,9 +6608,9 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit.i: ; preds = %399, %_ZSt27__
 
 _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36.i: ; preds = %400, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit.i
   store ptr %393, ptr %27, align 8, !tbaa !267
-  %401 = getelementptr inbounds nuw float, ptr %394, i64 %374
+  %401 = getelementptr inbounds nuw [4 x i8], ptr %394, i64 %374
   store ptr %401, ptr %365, align 8, !tbaa !264
-  %402 = getelementptr inbounds nuw float, ptr %393, i64 %391
+  %402 = getelementptr inbounds nuw [4 x i8], ptr %393, i64 %391
   store ptr %402, ptr %375, align 8, !tbaa !268
   br label %408
 
@@ -6620,7 +6619,7 @@ _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36.i: ; preds = %400, %_ZNSt6
   br i1 %404, label %405, label %408
 
 405:                                              ; preds = %403
-  %406 = getelementptr inbounds nuw float, ptr %367, i64 %364
+  %406 = getelementptr inbounds nuw [4 x i8], ptr %367, i64 %364
   %.not.i.i = icmp eq ptr %366, %406
   br i1 %.not.i.i, label %408, label %407
 
@@ -7349,7 +7348,7 @@ _ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit.i: ; preds
   store ptr %60, ptr %0, align 8, !tbaa !250
   %65 = getelementptr inbounds nuw i8, ptr %60, i64 %58
   store ptr %65, ptr %41, align 8, !tbaa !247
-  %66 = getelementptr inbounds nuw %"class.cv::Point_", ptr %60, i64 %46
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %46
   store ptr %66, ptr %50, align 8, !tbaa !251
   br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE7reserveEm.exit
 
@@ -7438,7 +7437,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.us: 
 _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.us: ; preds = %99, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.us
   store ptr %93, ptr %0, align 8, !tbaa !250
   store ptr %98, ptr %41, align 8, !tbaa !247
-  %100 = getelementptr inbounds nuw %"class.cv::Point_", ptr %93, i64 %91
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %91
   store ptr %100, ptr %50, align 8, !tbaa !251
   br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit.us
 
@@ -14853,9 +14852,9 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i.i: ; pre
 _ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit36.i.i: ; preds = %227, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i.i
   %.pre132.pre-phi = phi i64 [ %.pre137, %227 ], [ %196, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i.i ]
   store ptr %221, ptr %19, align 8, !tbaa !250
-  %228 = getelementptr inbounds nuw %"class.cv::Point_", ptr %222, i64 %206
+  %228 = getelementptr inbounds nuw [8 x i8], ptr %222, i64 %206
   store ptr %228, ptr %197, align 8, !tbaa !247
-  %229 = getelementptr inbounds nuw %"class.cv::Point_", ptr %221, i64 %219
+  %229 = getelementptr inbounds nuw [8 x i8], ptr %221, i64 %219
   store ptr %229, ptr %207, align 8, !tbaa !251
   br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit
 
@@ -20032,9 +20031,9 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i.i: ; pre
 _ZNSt12_Vector_baseIN2cv6Point_IfEESaIS2_EE13_M_deallocateEPS2_m.exit36.i.i: ; preds = %323, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i.i
   %.pre211.pre-phi = phi i64 [ %.pre216, %323 ], [ %292, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i.i ]
   store ptr %317, ptr %25, align 8, !tbaa !250
-  %324 = getelementptr inbounds nuw %"class.cv::Point_", ptr %318, i64 %302
+  %324 = getelementptr inbounds nuw [8 x i8], ptr %318, i64 %302
   store ptr %324, ptr %293, align 8, !tbaa !247
-  %325 = getelementptr inbounds nuw %"class.cv::Point_", ptr %317, i64 %315
+  %325 = getelementptr inbounds nuw [8 x i8], ptr %317, i64 %315
   store ptr %325, ptr %303, align 8, !tbaa !251
   br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE6resizeEm.exit
 
@@ -20253,9 +20252,9 @@ _ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit.i: ; preds = %412, %_ZSt27__
 
 _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36.i: ; preds = %413, %_ZNSt6vectorIfSaIfEE11_S_relocateEPfS2_S2_RS0_.exit.i
   store ptr %406, ptr %27, align 8, !tbaa !267
-  %414 = getelementptr inbounds nuw float, ptr %407, i64 %387
+  %414 = getelementptr inbounds nuw [4 x i8], ptr %407, i64 %387
   store ptr %414, ptr %378, align 8, !tbaa !264
-  %415 = getelementptr inbounds nuw float, ptr %406, i64 %404
+  %415 = getelementptr inbounds nuw [4 x i8], ptr %406, i64 %404
   store ptr %415, ptr %388, align 8, !tbaa !268
   br label %421
 
@@ -20264,7 +20263,7 @@ _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit36.i: ; preds = %413, %_ZNSt6
   br i1 %417, label %418, label %421
 
 418:                                              ; preds = %416
-  %419 = getelementptr inbounds nuw float, ptr %380, i64 %377
+  %419 = getelementptr inbounds nuw [4 x i8], ptr %380, i64 %377
   %.not.i.i = icmp eq ptr %379, %419
   br i1 %.not.i.i, label %421, label %420
 
@@ -21886,7 +21885,7 @@ define linkonce_odr hidden void @_ZN7testing8internal30ValuesInIteratorRangeGene
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
   %11 = sub nsw i64 0, %10
-  %12 = getelementptr inbounds i64, ptr %6, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %6, i64 %11
   tail call void @_ZdlPv(ptr noundef %12) #29
   store ptr null, ptr %2, align 8
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -21918,7 +21917,7 @@ define linkonce_odr hidden void @_ZN7testing8internal30ValuesInIteratorRangeGene
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
   %11 = sub nsw i64 0, %10
-  %12 = getelementptr inbounds i64, ptr %6, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %6, i64 %11
   tail call void @_ZdlPv(ptr noundef %12) #29
   br label %_ZN7testing8internal30ValuesInIteratorRangeGeneratorIbED2Ev.exit
 
@@ -21977,7 +21976,7 @@ define linkonce_odr hidden void @_ZNSt13_Bvector_baseISaIbEED2Ev(ptr noundef non
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 3
   %10 = sub nsw i64 0, %9
-  %11 = getelementptr inbounds i64, ptr %5, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %5, i64 %10
   tail call void @_ZdlPv(ptr noundef %11) #29
   store ptr null, ptr %0, align 8
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -39494,7 +39493,7 @@ switch.early.test.i.i.i.i.i.i.i.i.i.i.i:          ; preds = %.preheader.i.i.i.i.
 .critedge38.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %528, %switch.early.test.i.i.i.i.i.i.i.i.i.i.i, %switch.early.test.i.i.i.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i.i.i.i.i
   %.2.lcssa.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.i.i.i.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i.i.i.i.i.i ], [ %indvars.iv.next73.i.i.i.i.i.i.i.i.i.i.i, %528 ], [ %indvars.iv72.i.i.i.i.i.i.i.i.i.i.i, %switch.early.test.i.i.i.i.i.i.i.i.i.i.i ], [ %indvars.iv72.i.i.i.i.i.i.i.i.i.i.i, %switch.early.test.i.i.i.i.i.i.i.i.i.i.i ]
   %.lcssa53.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %522, %.preheader.i.i.i.i.i.i.i.i.i.i.i ], [ %indvars.iv.next73.i.i.i.i.i.i.i.i.i.i.i, %528 ], [ %indvars.iv72.i.i.i.i.i.i.i.i.i.i.i, %switch.early.test.i.i.i.i.i.i.i.i.i.i.i ], [ %indvars.iv72.i.i.i.i.i.i.i.i.i.i.i, %switch.early.test.i.i.i.i.i.i.i.i.i.i.i ]
-  %533 = getelementptr inbounds nuw i32, ptr @__const._ZNK11opencv_test12_GLOBAL__N_112_GLOBAL__N_113PyrBorderMode7PrintToEPSo.vals, i64 %indvars.iv75.i.i.i.i.i.i.i.i.i.i.i
+  %533 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZNK11opencv_test12_GLOBAL__N_112_GLOBAL__N_113PyrBorderMode7PrintToEPSo.vals, i64 %indvars.iv75.i.i.i.i.i.i.i.i.i.i.i
   %534 = load i32, ptr %533, align 4, !tbaa !147, !noalias !1046
   %.not35.i.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %.val.i.i.i.i.i.i.i.i, %534
   br i1 %.not35.i.i.i.i.i.i.i.i.i.i.i, label %535, label %515
@@ -40662,7 +40661,7 @@ _ZSt8_DestroyIPN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN1
 _ZNSt6vectorIN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN11opencv_test12_GLOBAL__N_147Path_Idx_Cn_NPoints_WSize_OpticalFlowPyrLK_fullEE8TestInfoEEESaIS9_EE17_M_realloc_insertIJS9_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i.i.i.i.i: ; preds = %186, %_ZSt8_DestroyIPN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN11opencv_test12_GLOBAL__N_147Path_Idx_Cn_NPoints_WSize_OpticalFlowPyrLK_fullEE8TestInfoEEES9_EvT_SB_RSaIT0_E.exit.i.i.i.i.i.i
   store ptr %148, ptr %121, align 8, !tbaa !843
   store ptr %185, ptr %123, align 8, !tbaa !846
-  %195 = getelementptr inbounds nuw %"class.testing::internal::linked_ptr.52", ptr %148, i64 %146
+  %195 = getelementptr inbounds nuw [16 x i8], ptr %148, i64 %146
   store ptr %195, ptr %125, align 8, !tbaa !1066
   br label %201
 
@@ -40980,7 +40979,7 @@ _ZNSt6vectorIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test12_GLOB
 _ZNSt6vectorIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test12_GLOBAL__N_147Path_Idx_Cn_NPoints_WSize_OpticalFlowPyrLK_fullEE17InstantiationInfoESaIS7_EE9push_backEOS7_.exit.i.i: ; preds = %300, %_ZNSt6vectorIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test12_GLOBAL__N_147Path_Idx_Cn_NPoints_WSize_OpticalFlowPyrLK_fullEE17InstantiationInfoESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit30.i.i.i.i.i
   store ptr %277, ptr %240, align 8, !tbaa !838
   store ptr %299, ptr %247, align 8, !tbaa !841
-  %301 = getelementptr inbounds nuw %"struct.testing::internal::ParameterizedTestCaseInfo<opencv_test::(anonymous namespace)::Path_Idx_Cn_NPoints_WSize_OpticalFlowPyrLK_full>::InstantiationInfo", ptr %277, i64 %273
+  %301 = getelementptr inbounds nuw [64 x i8], ptr %277, i64 %273
   store ptr %301, ptr %249, align 8, !tbaa !1068
   %.pre1.i.i = load ptr, ptr %40, align 8, !tbaa !17
   %302 = icmp eq ptr %.pre1.i.i, %241
@@ -41448,7 +41447,7 @@ _ZSt8_DestroyIPN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN1
 _ZNSt6vectorIN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN11opencv_test12_GLOBAL__N_152Path_Idx_NPoints_WSize_DISABLED_OpticalFlowPyrLK_ovxEE8TestInfoEEESaIS9_EE17_M_realloc_insertIJS9_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i.i.i.i.i: ; preds = %435, %_ZSt8_DestroyIPN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN11opencv_test12_GLOBAL__N_152Path_Idx_NPoints_WSize_DISABLED_OpticalFlowPyrLK_ovxEE8TestInfoEEES9_EvT_SB_RSaIT0_E.exit.i.i.i.i.i.i
   store ptr %397, ptr %370, align 8, !tbaa !913
   store ptr %434, ptr %372, align 8, !tbaa !916
-  %444 = getelementptr inbounds nuw %"class.testing::internal::linked_ptr.138", ptr %397, i64 %395
+  %444 = getelementptr inbounds nuw [16 x i8], ptr %397, i64 %395
   store ptr %444, ptr %374, align 8, !tbaa !1076
   br label %450
 
@@ -41762,7 +41761,7 @@ _ZNSt6vectorIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test12_GLOB
 _ZNSt6vectorIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test12_GLOBAL__N_152Path_Idx_NPoints_WSize_DISABLED_OpticalFlowPyrLK_ovxEE17InstantiationInfoESaIS7_EE9push_backEOS7_.exit.i.i: ; preds = %549, %_ZNSt6vectorIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test12_GLOBAL__N_152Path_Idx_NPoints_WSize_DISABLED_OpticalFlowPyrLK_ovxEE17InstantiationInfoESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit30.i.i.i.i.i
   store ptr %526, ptr %489, align 8, !tbaa !908
   store ptr %548, ptr %496, align 8, !tbaa !911
-  %550 = getelementptr inbounds nuw %"struct.testing::internal::ParameterizedTestCaseInfo<opencv_test::(anonymous namespace)::Path_Idx_NPoints_WSize_DISABLED_OpticalFlowPyrLK_ovx>::InstantiationInfo", ptr %526, i64 %522
+  %550 = getelementptr inbounds nuw [64 x i8], ptr %526, i64 %522
   store ptr %550, ptr %498, align 8, !tbaa !1078
   %.pre1.i.i108 = load ptr, ptr %27, align 8, !tbaa !17
   %551 = icmp eq ptr %.pre1.i.i108, %490
@@ -42230,7 +42229,7 @@ _ZSt8_DestroyIPN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN1
 _ZNSt6vectorIN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN11opencv_test12_GLOBAL__N_153Path_Idx_Cn_NPoints_WSize_Deriv_OpticalFlowPyrLK_selfEE8TestInfoEEESaIS9_EE17_M_realloc_insertIJS9_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i.i.i.i.i: ; preds = %684, %_ZSt8_DestroyIPN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN11opencv_test12_GLOBAL__N_153Path_Idx_Cn_NPoints_WSize_Deriv_OpticalFlowPyrLK_selfEE8TestInfoEEES9_EvT_SB_RSaIT0_E.exit.i.i.i.i.i.i
   store ptr %646, ptr %619, align 8, !tbaa !961
   store ptr %683, ptr %621, align 8, !tbaa !964
-  %693 = getelementptr inbounds nuw %"class.testing::internal::linked_ptr.157", ptr %646, i64 %644
+  %693 = getelementptr inbounds nuw [16 x i8], ptr %646, i64 %644
   store ptr %693, ptr %623, align 8, !tbaa !1086
   br label %699
 
@@ -42544,7 +42543,7 @@ _ZNSt6vectorIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test12_GLOB
 _ZNSt6vectorIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test12_GLOBAL__N_153Path_Idx_Cn_NPoints_WSize_Deriv_OpticalFlowPyrLK_selfEE17InstantiationInfoESaIS7_EE9push_backEOS7_.exit.i.i: ; preds = %798, %_ZNSt6vectorIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test12_GLOBAL__N_153Path_Idx_Cn_NPoints_WSize_Deriv_OpticalFlowPyrLK_selfEE17InstantiationInfoESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit30.i.i.i.i.i
   store ptr %775, ptr %738, align 8, !tbaa !956
   store ptr %797, ptr %745, align 8, !tbaa !959
-  %799 = getelementptr inbounds nuw %"struct.testing::internal::ParameterizedTestCaseInfo<opencv_test::(anonymous namespace)::Path_Idx_Cn_NPoints_WSize_Deriv_OpticalFlowPyrLK_self>::InstantiationInfo", ptr %775, i64 %771
+  %799 = getelementptr inbounds nuw [64 x i8], ptr %775, i64 %771
   store ptr %799, ptr %747, align 8, !tbaa !1088
   %.pre1.i.i214 = load ptr, ptr %14, align 8, !tbaa !17
   %800 = icmp eq ptr %.pre1.i.i214, %739
@@ -43012,7 +43011,7 @@ _ZSt8_DestroyIPN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN1
 _ZNSt6vectorIN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN11opencv_test12_GLOBAL__N_148Path_Win_Deriv_Border_Reuse_OpticalFlowPyrLK_pyrEE8TestInfoEEESaIS9_EE17_M_realloc_insertIJS9_EEEvN9__gnu_cxx17__normal_iteratorIPS9_SB_EEDpOT_.exit.i.i.i.i.i: ; preds = %933, %_ZSt8_DestroyIPN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseInfoIN11opencv_test12_GLOBAL__N_148Path_Win_Deriv_Border_Reuse_OpticalFlowPyrLK_pyrEE8TestInfoEEES9_EvT_SB_RSaIT0_E.exit.i.i.i.i.i.i
   store ptr %895, ptr %868, align 8, !tbaa !1010
   store ptr %932, ptr %870, align 8, !tbaa !1013
-  %942 = getelementptr inbounds nuw %"class.testing::internal::linked_ptr.198", ptr %895, i64 %893
+  %942 = getelementptr inbounds nuw [16 x i8], ptr %895, i64 %893
   store ptr %942, ptr %872, align 8, !tbaa !1096
   br label %948
 
@@ -43326,7 +43325,7 @@ _ZNSt6vectorIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test12_GLOB
 _ZNSt6vectorIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test12_GLOBAL__N_148Path_Win_Deriv_Border_Reuse_OpticalFlowPyrLK_pyrEE17InstantiationInfoESaIS7_EE9push_backEOS7_.exit.i.i: ; preds = %1047, %_ZNSt6vectorIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test12_GLOBAL__N_148Path_Win_Deriv_Border_Reuse_OpticalFlowPyrLK_pyrEE17InstantiationInfoESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit30.i.i.i.i.i
   store ptr %1024, ptr %987, align 8, !tbaa !1005
   store ptr %1046, ptr %994, align 8, !tbaa !1008
-  %1048 = getelementptr inbounds nuw %"struct.testing::internal::ParameterizedTestCaseInfo<opencv_test::(anonymous namespace)::Path_Win_Deriv_Border_Reuse_OpticalFlowPyrLK_pyr>::InstantiationInfo", ptr %1024, i64 %1020
+  %1048 = getelementptr inbounds nuw [64 x i8], ptr %1024, i64 %1020
   store ptr %1048, ptr %996, align 8, !tbaa !1098
   %.pre1.i.i320 = load ptr, ptr %1, align 8, !tbaa !17
   %1049 = icmp eq ptr %.pre1.i.i320, %988

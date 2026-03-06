@@ -20,8 +20,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base.13" }
 %"struct.std::_Head_base.13" = type { ptr }
 %"class.grpc_core::Activity::ScopedActivity" = type { ptr }
-%"struct.std::atomic.0" = type { %"struct.std::__atomic_base.1" }
-%"struct.std::__atomic_base.1" = type { ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon.6 }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon.6 = type { i64, [8 x i8] }
@@ -617,7 +615,7 @@ _ZN9grpc_core8Activity14ScopedActivityC2EPS0_.exit: ; preds = %_ZN9grpc_core8Act
 22:                                               ; preds = %19, %33
   %.029 = phi i64 [ 0, %19 ], [ %34, %33 ]
   %.128 = phi i64 [ %.012, %19 ], [ %.2, %33 ]
-  %23 = getelementptr inbounds nuw %"struct.std::atomic.0", ptr %18, i64 %.029
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.029
   %24 = atomicrmw xchg ptr %23, i64 0 acquire, align 8
   %.not = icmp eq i64 %24, 0
   br i1 %.not, label %33, label %25
@@ -845,7 +843,7 @@ define void @_ZN9grpc_core5Party18MakeNonOwningWakerEv(ptr dead_on_unwind noalia
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i8, ptr %4, align 8, !tbaa !65
   %6 = zext i8 %5 to i64
-  %7 = getelementptr inbounds nuw %"struct.std::atomic.0", ptr %3, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %6
   %8 = load atomic i64, ptr %7 monotonic, align 8
   %.0.i.i = inttoptr i64 %8 to ptr
   %9 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
@@ -960,7 +958,7 @@ define void @_ZN9grpc_core5Party17RunLockedAndUnrefEPS0_m(ptr noundef %0, i64 no
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 56
   %37 = load i16, ptr @_ZN9grpc_core12arena_detail18ArenaContextTraitsIN17grpc_event_engine12experimental11EventEngineEE3id_E, align 2, !tbaa !84
   %38 = zext i16 %37 to i64
-  %39 = getelementptr inbounds nuw ptr, ptr %36, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %38
   %40 = load ptr, ptr %39, align 8, !tbaa !85
   %.not27 = icmp eq ptr %40, null
   br i1 %.not27, label %41, label %.critedge29, !prof !24
@@ -1317,7 +1315,7 @@ _ZN9grpc_core15ScopedTimeCacheC2Ev.exit:          ; preds = %.noexc, %_ZTWN9grpc
   %36 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %35, i1 false)
   %37 = trunc nuw nsw i64 %36 to i32
   %38 = xor i16 %34, %.02869
-  %39 = getelementptr inbounds nuw %"struct.std::atomic.0", ptr %25, i64 %36
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %36
   %40 = load atomic i64, ptr %39 acquire, align 8
   %41 = icmp eq i64 %40, 0
   br i1 %41, label %57, label %44, !prof !24, !llvm.loop !121
@@ -1585,7 +1583,7 @@ _ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit: ; pr
   %.lcssa = phi i64 [ %14, %.lr.ph.preheader ], [ %20, %.lr.ph ]
   %31 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.lcssa69, i1 false)
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %33 = getelementptr inbounds nuw %"struct.std::atomic.0", ptr %32, i64 %31
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %31
   %34 = ptrtoint ptr %1 to i64
   store atomic i64 %34, ptr %33 release, align 8
   %35 = trunc i64 %.lcssa69 to i16
@@ -1681,7 +1679,7 @@ _ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.i: ; 
   %.lcssa = phi i64 [ %17, %.lr.ph.i.preheader ], [ %23, %.lr.ph.i ]
   %34 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.lcssa24, i1 false)
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %36 = getelementptr inbounds nuw %"struct.std::atomic.0", ptr %35, i64 %34
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %34
   %37 = ptrtoint ptr %1 to i64
   store atomic i64 %37, ptr %36 release, align 8
   %38 = trunc i64 %.lcssa24 to i16
@@ -1735,7 +1733,7 @@ _ZN4absl12lts_2024072212log_internal8VLogSite9IsEnabledEi.exit: ; preds = %.loop
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 56
   %61 = load i16, ptr @_ZN9grpc_core12arena_detail18ArenaContextTraitsIN17grpc_event_engine12experimental11EventEngineEE3id_E, align 2, !tbaa !84
   %62 = zext i16 %61 to i64
-  %63 = getelementptr inbounds nuw ptr, ptr %60, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %62
   %64 = load ptr, ptr %63, align 8, !tbaa !85
   store ptr %0, ptr %5, align 16, !tbaa !23
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1886,7 +1884,7 @@ define void @_ZN9grpc_core5Party11WakeupAsyncEt(ptr noundef nonnull align 8 dere
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 56
   %21 = load i16, ptr @_ZN9grpc_core12arena_detail18ArenaContextTraitsIN17grpc_event_engine12experimental11EventEngineEE3id_E, align 2, !tbaa !84
   %22 = zext i16 %21 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %20, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !85
   store ptr %0, ptr %3, align 16, !tbaa !23
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1961,7 +1959,7 @@ define void @_ZThn8_N9grpc_core5Party11WakeupAsyncEt(ptr noundef %0, i16 noundef
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 56
   %22 = load i16, ptr @_ZN9grpc_core12arena_detail18ArenaContextTraitsIN17grpc_event_engine12experimental11EventEngineEE3id_E, align 2, !tbaa !84
   %23 = zext i16 %22 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr %21, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !85
   store ptr %4, ptr %3, align 16, !tbaa !23
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2312,7 +2310,7 @@ _ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %2
 _ZNSt6vectorIPFvPvESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %25, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !134
   store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !132
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !135
   br label %_ZNSt6vectorIPFvPvESaIS2_EE9push_backERKS2_.exit
 
@@ -2732,7 +2730,7 @@ _ZNSt6vectorIN4absl12lts_2024072212AnyInvocableIKFvRN9grpc_core16dump_args_detai
 _ZNSt12_Vector_baseIN4absl12lts_2024072212AnyInvocableIKFvRN9grpc_core16dump_args_detail8DumpArgs10CustomSinkEEEESaIS9_EE13_M_deallocateEPS9_m.exit: ; preds = %_ZNSt6vectorIN4absl12lts_2024072212AnyInvocableIKFvRN9grpc_core16dump_args_detail8DumpArgs10CustomSinkEEEESaIS9_EE11_S_relocateEPS9_SC_SC_RSA_.exit22, %49
   store ptr %20, ptr %0, align 8, !tbaa !110
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !107
-  %53 = getelementptr inbounds nuw %"class.absl::lts_20240722::AnyInvocable.34", ptr %20, i64 %16
+  %53 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %16
   store ptr %53, ptr %48, align 8, !tbaa !108
   ret void
 }

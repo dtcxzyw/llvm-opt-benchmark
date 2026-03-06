@@ -486,7 +486,7 @@ readline.exit.i:                                  ; preds = %.split.i.i, %.split
   %.029200.i = phi ptr [ %.1107.i, %.lr.ph.i ], [ %110, %109 ]
   %112 = load i8, ptr %.029200.i, align 1, !tbaa !38
   %113 = zext i8 %112 to i64
-  %114 = getelementptr inbounds nuw i16, ptr %106, i64 %113
+  %114 = getelementptr inbounds nuw [2 x i8], ptr %106, i64 %113
   %115 = load i16, ptr %114, align 2, !tbaa !58
   %116 = and i16 %115, 16384
   %.not.i = icmp ne i16 %116, 0
@@ -2325,7 +2325,7 @@ switch.hole_check:                                ; preds = %bid_keycmp.exit.thr
 
 switch.lookup:                                    ; preds = %switch.hole_check
   %43 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.bid_keyword_list, i64 %43
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.bid_keyword_list, i64 %43
   %switch.load = load ptr, ptr %switch.gep, align 8
   %44 = load ptr, ptr %switch.load, align 16, !tbaa !104
   %.not25.i = icmp eq ptr %44, null
@@ -2399,7 +2399,7 @@ bid_keycmp.exit.us.i:                             ; preds = %59, %59, %.critedge
 
 bid_keycmp.exit.thread.us.i:                      ; preds = %50, %.critedge.i.loopexit.us.i, %bid_keycmp.exit.us.i, %59, %.critedge.thread.i.us.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %63 = getelementptr inbounds nuw ptr, ptr %switch.load, i64 %indvars.iv.next.i
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %switch.load, i64 %indvars.iv.next.i
   %64 = load ptr, ptr %63, align 8, !tbaa !104
   %.not.us.i = icmp eq ptr %64, null
   br i1 %.not.us.i, label %.critedge, label %.lr.ph.preheader.i.us.i, !llvm.loop !105
@@ -3434,7 +3434,7 @@ define internal fastcc range(i32 -20, 1) i32 @parse_device(ptr noundef nonnull w
 27:                                               ; preds = %25
   %28 = call fastcc i64 @mtree_atol(ptr noundef %6, i32 noundef 0)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %29 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   store i64 %28, ptr %29, align 8, !tbaa !45
   %30 = load i8, ptr %.1, align 1, !tbaa !38
   %31 = icmp eq i8 %30, 0
@@ -3714,7 +3714,7 @@ switch.lookup:
   %4 = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = zext nneg i32 %3 to i64
-  %6 = getelementptr i64, ptr @switch.table.parse_digest, i64 %5
+  %6 = getelementptr [8 x i8], ptr @switch.table.parse_digest, i64 %5
   %switch.gep = getelementptr i8, ptr %6, i64 -8
   %switch.load = load i64, ptr %switch.gep, align 8
   %7 = or disjoint i64 %switch.load, 1

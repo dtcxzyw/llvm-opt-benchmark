@@ -28,7 +28,7 @@ define hidden { ptr, ptr } @"_ZN101_$LT$$RF$mut$u20$smallvec..SmallVec$LT$A$GT$$
   %.sink10.idx.i = select i1 %3, i64 16, i64 0
   %.sink10.i = getelementptr inbounds nuw i8, ptr %0, i64 %.sink10.idx.i
   %6 = load i64, ptr %.sink10.i, align 8, !noundef !9
-  %7 = getelementptr inbounds { { { i32, [1 x i32] } }, i32 }, ptr %.sink11.i, i64 %6
+  %7 = getelementptr inbounds [12 x i8], ptr %.sink11.i, i64 %6
   %8 = insertvalue { ptr, ptr } poison, ptr %.sink11.i, 0
   %9 = insertvalue { ptr, ptr } %8, ptr %7, 1
   ret { ptr, ptr } %9
@@ -121,7 +121,7 @@ define hidden noundef nonnull align 4 dereferenceable(12) ptr @"_ZN75_$LT$usize$
   br i1 %5, label %6, label %8, !prof !11
 
 6:                                                ; preds = %4
-  %7 = getelementptr inbounds { { { i32, [1 x i32] } }, i32 }, ptr %1, i64 %0
+  %7 = getelementptr inbounds [12 x i8], ptr %1, i64 %0
   ret ptr %7
 
 8:                                                ; preds = %4
@@ -147,7 +147,7 @@ define hidden noundef nonnull align 4 dereferenceable(12) ptr @"_ZN80_$LT$smallv
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !12, !noalias !15, !nonnull !9
   %.sink14.i = select i1 %5, ptr %11, ptr %10
-  %12 = getelementptr inbounds { { { i32, [1 x i32] } }, i32 }, ptr %.sink14.i, i64 %1
+  %12 = getelementptr inbounds [12 x i8], ptr %.sink14.i, i64 %1
   ret ptr %12
 }
 

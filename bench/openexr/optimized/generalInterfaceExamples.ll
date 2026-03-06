@@ -31,8 +31,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__shared_count" = type { ptr }
 %"class.std::shared_ptr.11" = type { %"class.std::__shared_ptr.12" }
 %"class.std::__shared_ptr.12" = type { ptr, %"class.std::__shared_count" }
-%"class.Imath_3_2::half" = type { i16 }
-%struct.GZ = type { %"class.Imath_3_2::half", float }
 %"class.Imf_3_4::Array2D" = type { i64, i64, ptr }
 %"class.Imf_3_4::Array2D.14" = type { i64, i64, ptr }
 %"class.Imath_3_2::Box" = type { %"class.Imath_3_2::Vec2.10", %"class.Imath_3_2::Vec2.10" }
@@ -626,11 +624,11 @@ define dso_local void @_Z7readGZ1PKcRN7Imf_3_47Array2DIN9Imath_3_24halfEEES6_RNS
   %66 = load ptr, ptr %34, align 8, !tbaa !29
   %67 = sext i32 %17 to i64
   %68 = sub nsw i64 0, %67
-  %69 = getelementptr inbounds %"class.Imath_3_2::half", ptr %66, i64 %68
+  %69 = getelementptr inbounds [2 x i8], ptr %66, i64 %68
   %70 = mul nsw i32 %59, %19
   %71 = sext i32 %70 to i64
   %72 = sub nsw i64 0, %71
-  %73 = getelementptr inbounds %"class.Imath_3_2::half", ptr %69, i64 %72
+  %73 = getelementptr inbounds [2 x i8], ptr %69, i64 %72
   %74 = shl nsw i64 %.pre-phi56, 1
   invoke void @_ZN7Imf_3_45SliceC1ENS_9PixelTypeEPcmmiidbb(ptr noundef nonnull align 8 dereferenceable(50) %9, i32 noundef 1, ptr noundef %73, i64 noundef 2, i64 noundef %74, i32 noundef 1, i32 noundef 1, double noundef 0.000000e+00, i1 noundef zeroext false, i1 noundef zeroext false)
           to label %75 unwind label %153
@@ -643,12 +641,12 @@ define dso_local void @_Z7readGZ1PKcRN7Imf_3_47Array2DIN9Imath_3_24halfEEES6_RNS
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %77 = load ptr, ptr %43, align 8, !tbaa !29
-  %78 = getelementptr inbounds %"class.Imath_3_2::half", ptr %77, i64 %68
+  %78 = getelementptr inbounds [2 x i8], ptr %77, i64 %68
   %79 = load i32, ptr %4, align 4, !tbaa !28
   %80 = mul nsw i32 %79, %19
   %81 = sext i32 %80 to i64
   %82 = sub nsw i64 0, %81
-  %83 = getelementptr inbounds %"class.Imath_3_2::half", ptr %78, i64 %82
+  %83 = getelementptr inbounds [2 x i8], ptr %78, i64 %82
   %84 = sext i32 %79 to i64
   %85 = shl nsw i64 %84, 1
   invoke void @_ZN7Imf_3_45SliceC1ENS_9PixelTypeEPcmmiidbb(ptr noundef nonnull align 8 dereferenceable(50) %10, i32 noundef 1, ptr noundef %83, i64 noundef 2, i64 noundef %85, i32 noundef 1, i32 noundef 1, double noundef 0.000000e+00, i1 noundef zeroext false, i1 noundef zeroext false)
@@ -662,12 +660,12 @@ define dso_local void @_Z7readGZ1PKcRN7Imf_3_47Array2DIN9Imath_3_24halfEEES6_RNS
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %88 = load ptr, ptr %54, align 8, !tbaa !34
-  %89 = getelementptr inbounds float, ptr %88, i64 %68
+  %89 = getelementptr inbounds [4 x i8], ptr %88, i64 %68
   %90 = load i32, ptr %4, align 4, !tbaa !28
   %91 = mul nsw i32 %90, %19
   %92 = sext i32 %91 to i64
   %93 = sub nsw i64 0, %92
-  %94 = getelementptr inbounds float, ptr %89, i64 %93
+  %94 = getelementptr inbounds [4 x i8], ptr %89, i64 %93
   %95 = sext i32 %90 to i64
   %96 = shl nsw i64 %95, 2
   invoke void @_ZN7Imf_3_45SliceC1ENS_9PixelTypeEPcmmiidbb(ptr noundef nonnull align 8 dereferenceable(50) %11, i32 noundef 2, ptr noundef %94, i64 noundef 4, i64 noundef %96, i32 noundef 1, i32 noundef 1, double noundef 0x47EFFFFFE0000000, i1 noundef zeroext false, i1 noundef zeroext false)
@@ -1033,9 +1031,9 @@ define dso_local void @_Z7readGZ2PKcRN7Imf_3_47Array2DI2GZEERiS6_(ptr noundef %0
   %44 = sub nsw i32 0, %17
   %45 = sext i32 %44 to i64
   %46 = mul nsw i64 %27, %45
-  %47 = getelementptr inbounds %struct.GZ, ptr %32, i64 %46
+  %47 = getelementptr inbounds [8 x i8], ptr %32, i64 %46
   %48 = sext i32 %15 to i64
-  %49 = getelementptr inbounds %struct.GZ, ptr %47, i64 %48
+  %49 = getelementptr inbounds [8 x i8], ptr %47, i64 %48
   %50 = shl nsw i64 %.pre-phi, 3
   invoke void @_ZN7Imf_3_45SliceC1ENS_9PixelTypeEPcmmiidbb(ptr noundef nonnull align 8 dereferenceable(50) %7, i32 noundef 1, ptr noundef nonnull %49, i64 noundef 8, i64 noundef %50, i32 noundef 1, i32 noundef 1, double noundef 0.000000e+00, i1 noundef zeroext false, i1 noundef zeroext false)
           to label %51 unwind label %120
@@ -1050,8 +1048,8 @@ define dso_local void @_Z7readGZ2PKcRN7Imf_3_47Array2DI2GZEERiS6_(ptr noundef %0
   %53 = load ptr, ptr %33, align 8, !tbaa !49
   %54 = load i64, ptr %38, align 8, !tbaa !53
   %55 = mul nsw i64 %54, %45
-  %56 = getelementptr inbounds %struct.GZ, ptr %53, i64 %55
-  %57 = getelementptr inbounds %struct.GZ, ptr %56, i64 %48
+  %56 = getelementptr inbounds [8 x i8], ptr %53, i64 %55
+  %57 = getelementptr inbounds [8 x i8], ptr %56, i64 %48
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 4
   %59 = load i32, ptr %2, align 4, !tbaa !28
   %60 = sext i32 %59 to i64

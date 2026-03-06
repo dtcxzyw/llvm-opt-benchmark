@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.timespec = type { i64, i64 }
-%"struct.std::__1::pair" = type { ptr, ptr }
 
 $__clang_call_terminate = comdat any
 
@@ -347,7 +346,7 @@ _ZNKSt3__16vectorINS_4pairIPNS_18condition_variableEPNS_5mutexEEENS_18__hidden_a
   %25 = shl i64 %.0.i.i.i.i, 4
   %26 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %25) #24
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 %16
-  %28 = getelementptr inbounds nuw %"struct.std::__1::pair", ptr %26, i64 %.0.i.i.i.i
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %.0.i.i.i.i
   store ptr %1, ptr %27, align 8, !tbaa !42
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %2, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !43
@@ -359,7 +358,7 @@ _ZNKSt3__16vectorINS_4pairIPNS_18condition_variableEPNS_5mutexEEENS_18__hidden_a
   %34 = sub i64 %32, %33
   %35 = ashr exact i64 %34, 4
   %36 = sub nsw i64 0, %35
-  %37 = getelementptr inbounds %"struct.std::__1::pair", ptr %27, i64 %36
+  %37 = getelementptr inbounds [16 x i8], ptr %27, i64 %36
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %37, ptr align 8 %31, i64 %34, i1 false)
   store ptr %37, ptr %4, align 8, !tbaa !44
   store ptr %29, ptr %5, align 8, !tbaa !44
@@ -417,7 +416,7 @@ _ZNKSt3__16vectorIPNS_17__assoc_sub_stateENS_18__hidden_allocatorIS2_EEE11__reco
   %23 = shl i64 %.0.i.i.i.i, 3
   %24 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %23) #24
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 %14
-  %26 = getelementptr inbounds nuw ptr, ptr %24, i64 %.0.i.i.i.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %.0.i.i.i.i
   store ptr %1, ptr %25, align 8, !tbaa !36
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 8
   %28 = load ptr, ptr %3, align 8, !tbaa !29
@@ -427,7 +426,7 @@ _ZNKSt3__16vectorIPNS_17__assoc_sub_stateENS_18__hidden_allocatorIS2_EEE11__reco
   %32 = sub i64 %30, %31
   %33 = ashr exact i64 %32, 3
   %34 = sub nsw i64 0, %33
-  %35 = getelementptr inbounds ptr, ptr %25, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %25, i64 %34
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %35, ptr align 8 %29, i64 %32, i1 false)
   store ptr %35, ptr %0, align 8, !tbaa !46
   store ptr %27, ptr %3, align 8, !tbaa !46
@@ -520,7 +519,7 @@ _ZNKSt3__16vectorINS_4pairIPNS_18condition_variableEPNS_5mutexEEENS_18__hidden_a
   %26 = shl i64 %.0.i.i.i.i.i, 4
   %27 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %26) #24
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 %17
-  %29 = getelementptr inbounds nuw %"struct.std::__1::pair", ptr %27, i64 %.0.i.i.i.i.i
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %.0.i.i.i.i.i
   store ptr %1, ptr %28, align 8, !tbaa !42
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr %2, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !43
@@ -532,7 +531,7 @@ _ZNKSt3__16vectorINS_4pairIPNS_18condition_variableEPNS_5mutexEEENS_18__hidden_a
   %35 = sub i64 %33, %34
   %36 = ashr exact i64 %35, 4
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds %"struct.std::__1::pair", ptr %28, i64 %37
+  %38 = getelementptr inbounds [16 x i8], ptr %28, i64 %37
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %38, ptr align 8 %32, i64 %35, i1 false)
   store ptr %38, ptr %5, align 8, !tbaa !44
   store ptr %30, ptr %6, align 8, !tbaa !44
@@ -591,7 +590,7 @@ _ZNKSt3__16vectorIPNS_17__assoc_sub_stateENS_18__hidden_allocatorIS2_EEE11__reco
   %24 = shl i64 %.0.i.i.i.i.i, 3
   %25 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %24) #24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 %15
-  %27 = getelementptr inbounds nuw ptr, ptr %25, i64 %.0.i.i.i.i.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.0.i.i.i.i.i
   store ptr %1, ptr %26, align 8, !tbaa !36
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %29 = load ptr, ptr %4, align 8, !tbaa !29
@@ -601,7 +600,7 @@ _ZNKSt3__16vectorIPNS_17__assoc_sub_stateENS_18__hidden_allocatorIS2_EEE11__reco
   %33 = sub i64 %31, %32
   %34 = ashr exact i64 %33, 3
   %35 = sub nsw i64 0, %34
-  %36 = getelementptr inbounds ptr, ptr %26, i64 %35
+  %36 = getelementptr inbounds [8 x i8], ptr %26, i64 %35
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %36, ptr align 8 %30, i64 %33, i1 false)
   store ptr %36, ptr %3, align 8, !tbaa !46
   store ptr %28, ptr %4, align 8, !tbaa !46

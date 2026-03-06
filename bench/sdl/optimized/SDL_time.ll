@@ -149,7 +149,7 @@ define hidden i32 @SDL_GetDaysInMonth_REAL(i32 noundef %0, i32 noundef %1) local
 
 6:                                                ; preds = %2
   %7 = zext nneg i32 %1 to i64
-  %8 = getelementptr i32, ptr @SDL_GetDaysInMonth_REAL.DAYS_IN_MONTH, i64 %7
+  %8 = getelementptr [4 x i8], ptr @SDL_GetDaysInMonth_REAL.DAYS_IN_MONTH, i64 %7
   %9 = getelementptr i8, ptr %8, i64 -4
   %10 = load i32, ptr %9, align 4
   %11 = icmp eq i32 %1, 2
@@ -188,7 +188,7 @@ define hidden range(i32 -1, 2147483341) i32 @SDL_GetDayOfYear_REAL(i32 noundef %
 7:                                                ; preds = %3
   %8 = icmp slt i32 %2, 1
   %.phi.trans.insert = zext nneg i32 %1 to i64
-  %.phi.trans.insert26 = getelementptr i32, ptr @SDL_GetDaysInMonth_REAL.DAYS_IN_MONTH, i64 %.phi.trans.insert
+  %.phi.trans.insert26 = getelementptr [4 x i8], ptr @SDL_GetDaysInMonth_REAL.DAYS_IN_MONTH, i64 %.phi.trans.insert
   %.phi.trans.insert27 = getelementptr i8, ptr %.phi.trans.insert26, i64 -4
   %.pre = load i32, ptr %.phi.trans.insert27, align 4
   br i1 %8, label %._crit_edge, label %9
@@ -301,7 +301,7 @@ define hidden range(i32 -1, 7) i32 @SDL_GetDayOfWeek_REAL(i32 noundef %0, i32 no
 7:                                                ; preds = %3
   %8 = icmp slt i32 %2, 1
   %.phi.trans.insert = zext nneg i32 %1 to i64
-  %.phi.trans.insert27 = getelementptr i32, ptr @SDL_GetDaysInMonth_REAL.DAYS_IN_MONTH, i64 %.phi.trans.insert
+  %.phi.trans.insert27 = getelementptr [4 x i8], ptr @SDL_GetDaysInMonth_REAL.DAYS_IN_MONTH, i64 %.phi.trans.insert
   %.phi.trans.insert28 = getelementptr i8, ptr %.phi.trans.insert27, i64 -4
   %.pre = load i32, ptr %.phi.trans.insert28, align 4
   br i1 %8, label %._crit_edge, label %9
@@ -439,7 +439,7 @@ define hidden zeroext i1 @SDL_DateTimeToTime_REAL(ptr noundef readonly captures(
 14:                                               ; preds = %8
   %15 = load i32, ptr %0, align 4
   %16 = zext nneg i32 %10 to i64
-  %17 = getelementptr i32, ptr @SDL_GetDaysInMonth_REAL.DAYS_IN_MONTH, i64 %16
+  %17 = getelementptr [4 x i8], ptr @SDL_GetDaysInMonth_REAL.DAYS_IN_MONTH, i64 %16
   %18 = getelementptr i8, ptr %17, i64 -4
   %19 = load i32, ptr %18, align 4
   %20 = icmp eq i32 %10, 2

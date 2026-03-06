@@ -321,12 +321,12 @@ define dso_local i64 @rangesel(ptr noundef %0) local_unnamed_addr #0 {
 158:                                              ; preds = %157, %151
   %indvars.iv.i.i = phi i64 [ 0, %151 ], [ %indvars.iv.next.i.i, %157 ]
   %159 = load ptr, ptr %156, align 8
-  %160 = getelementptr inbounds nuw i64, ptr %159, i64 %indvars.iv.i.i
+  %160 = getelementptr inbounds nuw [8 x i8], ptr %159, i64 %indvars.iv.i.i
   %161 = load i64, ptr %160, align 8
   %162 = inttoptr i64 %161 to ptr
   %163 = call ptr @pg_detoast_datum(ptr noundef %162) #9
-  %164 = getelementptr inbounds nuw %struct.RangeBound, ptr %154, i64 %indvars.iv.i.i
-  %165 = getelementptr inbounds nuw %struct.RangeBound, ptr %155, i64 %indvars.iv.i.i
+  %164 = getelementptr inbounds nuw [16 x i8], ptr %154, i64 %indvars.iv.i.i
+  %165 = getelementptr inbounds nuw [16 x i8], ptr %155, i64 %indvars.iv.i.i
   call void @range_deserialize(ptr noundef %.026, ptr noundef %163, ptr noundef %164, ptr noundef %165, ptr noundef nonnull %6) #9
   %166 = load i8, ptr %6, align 1, !range !4, !noundef !5
   %167 = trunc nuw i8 %166 to i1
@@ -498,7 +498,7 @@ calc_hist_selectivity.exit.i:                     ; preds = %227, %224, %218, %2
 
 switch.lookup68:                                  ; preds = %237
   %239 = zext nneg i32 %switch.tableidx67 to i64
-  %switch.gep69 = getelementptr inbounds nuw double, ptr @switch.table.rangesel.3, i64 %239
+  %switch.gep69 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.rangesel.3, i64 %239
   %switch.load70 = load double, ptr %switch.gep69, align 8
   br label %default_range_selectivity.exit.i
 
@@ -537,7 +537,7 @@ default_range_selectivity.exit.i:                 ; preds = %237, %switch.lookup
 
 switch.lookup72:                                  ; preds = %.thread
   %254 = zext nneg i32 %switch.tableidx71 to i64
-  %switch.gep73 = getelementptr inbounds nuw double, ptr @switch.table.rangesel.4, i64 %254
+  %switch.gep73 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.rangesel.4, i64 %254
   %switch.load74 = load double, ptr %switch.gep73, align 8
   br label %calc_rangesel.exit
 
@@ -562,13 +562,13 @@ calc_rangesel.exit:                               ; preds = %.thread, %switch.lo
 
 switch.lookup:                                    ; preds = %26
   %264 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.rangesel.2, i64 %264
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.rangesel.2, i64 %264
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %default_range_selectivity.exit
 
 switch.lookup64:                                  ; preds = %38
   %265 = zext nneg i32 %switch.tableidx63 to i64
-  %switch.gep65 = getelementptr inbounds nuw i64, ptr @switch.table.rangesel.2, i64 %265
+  %switch.gep65 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.rangesel.2, i64 %265
   %switch.load66 = load i64, ptr %switch.gep65, align 8
   br label %default_range_selectivity.exit
 
@@ -627,7 +627,7 @@ define internal fastcc double @calc_hist_selectivity_scalar(ptr noundef %0, ptr 
   %9 = add i32 %8, %.01519.i
   %10 = sdiv i32 %9, 2
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds %struct.RangeBound, ptr %2, i64 %11
+  %12 = getelementptr inbounds [16 x i8], ptr %2, i64 %11
   %13 = tail call i32 @range_cmp_bounds(ptr noundef %0, ptr noundef %12, ptr noundef nonnull %1) #9
   %14 = icmp slt i32 %13, 0
   %15 = icmp eq i32 %13, 0
@@ -651,7 +651,7 @@ rbound_bsearch.exit:                              ; preds = %7
 
 24:                                               ; preds = %rbound_bsearch.exit
   %25 = zext nneg i32 %.1.i to i64
-  %26 = getelementptr inbounds nuw %struct.RangeBound, ptr %2, i64 %25
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 400
@@ -751,7 +751,7 @@ define internal fastcc double @calc_hist_selectivity_contains(ptr noundef %0, pt
   %11 = add i32 %10, %.01519.i
   %12 = sdiv i32 %11, 2
   %13 = sext i32 %12 to i64
-  %14 = getelementptr inbounds %struct.RangeBound, ptr %3, i64 %13
+  %14 = getelementptr inbounds [16 x i8], ptr %3, i64 %13
   %15 = tail call i32 @range_cmp_bounds(ptr noundef %0, ptr noundef %14, ptr noundef nonnull %1) #9
   %or.cond18.i = icmp slt i32 %15, 1
   %16 = add nsw i32 %12, -1
@@ -768,7 +768,7 @@ rbound_bsearch.exit:                              ; preds = %9
   %20 = add nsw i32 %4, -2
   %21 = tail call i32 @llvm.umin.i32(i32 %.1.i, i32 %20)
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds nuw %struct.RangeBound, ptr %3, i64 %22
+  %23 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 400
@@ -905,7 +905,7 @@ get_position.exit:                                ; preds = %38, %39, %46, %54, 
   %.03755 = phi double [ %.1.i45, %.lr.ph ], [ %.1.i51, %get_distance.exit52 ]
   %.03854 = phi double [ 0.000000e+00, %.lr.ph ], [ %134, %get_distance.exit52 ]
   %.03953 = phi double [ %.1.i41, %.lr.ph ], [ 1.000000e+00, %get_distance.exit52 ]
-  %107 = getelementptr inbounds nuw %struct.RangeBound, ptr %3, i64 %indvars.iv
+  %107 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %109 = load i8, ptr %108, align 8, !range !4, !noundef !5
   %110 = trunc nuw i8 %109 to i1
@@ -979,7 +979,7 @@ define internal fastcc double @calc_hist_selectivity_contained(ptr noundef %0, p
   %15 = add i32 %14, %.01519.i
   %16 = sdiv i32 %15, 2
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds %struct.RangeBound, ptr %3, i64 %17
+  %18 = getelementptr inbounds [16 x i8], ptr %3, i64 %17
   %19 = tail call i32 @range_cmp_bounds(ptr noundef %0, ptr noundef %18, ptr noundef nonnull %2) #9
   %20 = icmp slt i32 %19, 0
   %21 = add nsw i32 %16, -1
@@ -996,7 +996,7 @@ rbound_bsearch.exit:                              ; preds = %13
   %25 = add nsw i32 %4, -2
   %26 = tail call i32 @llvm.umin.i32(i32 %.1.i, i32 %25)
   %27 = zext nneg i32 %26 to i64
-  %28 = getelementptr inbounds nuw %struct.RangeBound, ptr %3, i64 %27
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %27
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 400
@@ -1087,7 +1087,7 @@ rbound_bsearch.exit:                              ; preds = %13
   %.05684 = phi double [ 0.000000e+00, %.lr.ph ], [ %182, %get_distance.exit80 ]
   %.05882 = phi double [ %.1.i64, %.lr.ph ], [ 1.000000e+00, %get_distance.exit80 ]
   %.06081 = phi double [ 0.000000e+00, %.lr.ph ], [ %.054, %get_distance.exit80 ]
-  %85 = getelementptr inbounds nuw %struct.RangeBound, ptr %3, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv
   %86 = tail call i32 @range_cmp_bounds(ptr noundef %0, ptr noundef %85, ptr noundef nonnull %1) #9
   %87 = icmp sgt i32 %86, -1
   br i1 %87, label %156, label %88
@@ -1132,7 +1132,7 @@ rbound_bsearch.exit:                              ; preds = %13
 
 get_distance.exit:                                ; preds = %91, %95, %101, %104, %108
   %.1.i68 = phi double [ 0x7FF0000000000000, %101 ], [ 0x7FF0000000000000, %108 ], [ 0.000000e+00, %104 ], [ %..i, %95 ], [ %.mux.i, %91 ]
-  %109 = getelementptr %struct.RangeBound, ptr %3, i64 %indvars.iv
+  %109 = getelementptr [16 x i8], ptr %3, i64 %indvars.iv
   %110 = getelementptr i8, ptr %109, i64 16
   %111 = load i32, ptr %31, align 8
   %.not.i69 = icmp eq i32 %111, 0
@@ -1296,7 +1296,7 @@ define internal fastcc double @calc_length_hist_frac(ptr noundef readonly captur
   %14 = add i32 %13, %.01420.us.i
   %15 = sdiv i32 %14, 2
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds i64, ptr %0, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %0, i64 %16
   %18 = load double, ptr %17, align 8
   %19 = fcmp olt double %18, %2
   %20 = add nsw i32 %15, -1
@@ -1312,7 +1312,7 @@ define internal fastcc double @calc_length_hist_frac(ptr noundef readonly captur
   %23 = add i32 %22, %.01420.i
   %24 = sdiv i32 %23, 2
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds i64, ptr %0, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %0, i64 %25
   %27 = load double, ptr %26, align 8
   %28 = fcmp ole double %27, %2
   %29 = add nsw i32 %24, -1
@@ -1332,7 +1332,7 @@ length_hist_bsearch.exit:                         ; preds = %.lr.ph.split.us.i, 
 
 33:                                               ; preds = %31
   %34 = zext nneg i32 %.0.lcssa.i to i64
-  %35 = getelementptr inbounds nuw i64, ptr %0, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %34
   %36 = load double, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %38 = load double, ptr %37, align 8
@@ -1391,7 +1391,7 @@ get_len_position.exit:                            ; preds = %53, %52, %51, %46, 
   %.086126 = phi double [ %57, %.lr.ph.preheader ], [ %68, %76 ]
   %.089125 = phi double [ %2, %.lr.ph.preheader ], [ %62, %76 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %61 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv.next
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.next
   %62 = load double, ptr %61, align 8
   %63 = fcmp olt double %62, %3
   %64 = fcmp ole double %62, %3
@@ -1423,7 +1423,7 @@ get_len_position.exit:                            ; preds = %53, %52, %51, %46, 
 
 79:                                               ; preds = %.lr.ph
   %80 = and i64 %indvars.iv, 4294967295
-  %81 = getelementptr inbounds nuw i64, ptr %0, i64 %80
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %80
   %82 = load double, ptr %81, align 8
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %84 = load double, ptr %83, align 8

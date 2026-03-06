@@ -38,7 +38,7 @@ define dso_local void @diffcore_rotate(ptr noundef readonly captures(none) %0) l
 9:                                                ; preds = %.lr.ph, %21
   %indvars.iv58 = phi i32 [ 0, %.lr.ph ], [ %indvars.iv.next59, %21 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !27
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !29
@@ -90,7 +90,7 @@ select.unfold:                                    ; preds = %17, %9
 .lr.ph44:                                         ; preds = %select.unfold, %.lr.ph44
   %indvars.iv52 = phi i64 [ %indvars.iv.next53, %.lr.ph44 ], [ %indvars.iv, %select.unfold ]
   %30 = load ptr, ptr @diff_queued_diff, align 8, !tbaa !26
-  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv52
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv52
   %32 = load ptr, ptr %31, align 8, !tbaa !27
   call void @diff_q(ptr noundef nonnull %2, ptr noundef %32) #12
   %indvars.iv.next53 = add nuw nsw i64 %indvars.iv52, 1
@@ -104,7 +104,7 @@ select.unfold:                                    ; preds = %17, %9
   %37 = load i32, ptr %29, align 8, !tbaa !40
   %.not36 = icmp eq i32 %37, 0
   %38 = load ptr, ptr @diff_queued_diff, align 8, !tbaa !26
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv55
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv55
   %40 = load ptr, ptr %39, align 8, !tbaa !27
   br i1 %.not36, label %42, label %41
 

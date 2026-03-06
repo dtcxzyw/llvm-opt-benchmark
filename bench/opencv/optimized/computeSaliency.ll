@@ -53,8 +53,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::shared_ptr.36" = type { %"class.std::__shared_ptr.37" }
 %"class.std::__shared_ptr.37" = type { ptr, %"class.std::__shared_count" }
 %"class.cv::MatExpr" = type { ptr, i32, %"class.cv::Mat", %"class.cv::Mat", %"class.cv::Mat", double, double, %"class.cv::Scalar_" }
-%"class.cv::Vec" = type { %"class.cv::Matx" }
-%"class.cv::Matx" = type { [4 x i32] }
 
 $_ZN2cv8saliency25StaticSaliencyFineGrained6createEv = comdat any
 
@@ -1392,7 +1390,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit252: ; preds = %43
 441:                                              ; preds = %.lr.ph, %475
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %475 ]
   %442 = load ptr, ptr %41, align 8, !tbaa !80
-  %443 = getelementptr inbounds nuw %"class.cv::Vec", ptr %442, i64 %indvars.iv
+  %443 = getelementptr inbounds nuw [16 x i8], ptr %442, i64 %indvars.iv
   %.sroa.0.0.copyload = load i32, ptr %443, align 4, !tbaa !22
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %443, i64 4
   %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !22

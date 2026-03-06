@@ -664,7 +664,7 @@ define void @_ZNK5boost15program_options29value_semantic_codecvt_helperIcE5parse
   %22 = phi i64 [ 0, %.lr.ph ], [ %50, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit ]
   %.01425 = phi i32 [ 0, %.lr.ph ], [ %49, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %23 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string.3", ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [32 x i8], ptr %21, i64 %22
   invoke void @_ZN5boost9from_utf8ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %23)
           to label %24 unwind label %58
 
@@ -961,7 +961,7 @@ define void @_ZNK5boost15program_options29value_semantic_codecvt_helperIwE5parse
   %21 = phi i64 [ 0, %.lr.ph43 ], [ %46, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit ]
   %.01842 = phi i32 [ 0, %.lr.ph43 ], [ %45, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %22 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string.3", ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %21
   invoke void @_ZN5boost9from_utf8ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %22)
           to label %23 unwind label %54
 
@@ -1062,7 +1062,7 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit27: ; preds = %56,
   %65 = phi i64 [ 0, %.lr.ph ], [ %90, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit35 ]
   %.041 = phi i32 [ 0, %.lr.ph ], [ %89, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit35 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %66 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string.3", ptr %64, i64 %65
+  %66 = getelementptr inbounds nuw [32 x i8], ptr %64, i64 %65
   invoke void @_ZN5boost16from_local_8_bitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %66)
           to label %67 unwind label %98
 
@@ -2721,7 +2721,7 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEC2ERKS4_.exit: ; preds = %.
   %30 = phi i64 [ %.pre5.i.i, %27 ], [ %23, %25 ], [ %23, %._crit_edge.i.i ]
   %31 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %30, ptr %31, align 8, !tbaa !29
-  %32 = getelementptr inbounds nuw i32, ptr %29, i64 %30
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %30
   store i32 0, ptr %32, align 4, !tbaa !65
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %.not = icmp eq i64 %30, 0
@@ -2729,7 +2729,7 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEC2ERKS4_.exit: ; preds = %.
 
 .lr.ph:                                           ; preds = %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEC2ERKS4_.exit, %.lr.ph
   %.01229 = phi i64 [ %36, %.lr.ph ], [ 0, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEC2ERKS4_.exit ]
-  %33 = getelementptr inbounds nuw i32, ptr %29, i64 %.01229
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %.01229
   %34 = load i32, ptr %33, align 4, !tbaa !65
   %35 = call i32 @tolower(i32 noundef %34) #32
   store i32 %35, ptr %33, align 4, !tbaa !65
@@ -3350,7 +3350,7 @@ _ZN5boost3anyC2INSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEERKT_.exit:
   %31 = phi i64 [ %.pre5.i.i.i.i, %26 ], [ %22, %24 ], [ %22, %._crit_edge.i.i.i.i ]
   %32 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store i64 %31, ptr %32, align 8, !tbaa !29
-  %33 = getelementptr inbounds nuw i32, ptr %30, i64 %31
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %31
   store i32 0, ptr %33, align 4, !tbaa !65
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %34 = load ptr, ptr %0, align 8, !tbaa !42
@@ -6893,7 +6893,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %.0.lcssa.i.i811.i.i = phi i64 [ 0, %.loopexit95 ], [ %44, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i.i.i ], [ 0, %.loopexit95.thread ]
   %50 = phi ptr [ null, %.loopexit95 ], [ %48, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i.i.i ], [ null, %.loopexit95.thread ]
   store ptr %50, ptr %7, align 8, !tbaa !8
-  %51 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string.3", ptr %50, i64 %.0.lcssa.i.i811.i.i
+  %51 = getelementptr inbounds nuw [32 x i8], ptr %50, i64 %.0.lcssa.i.i811.i.i
   %52 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %51, ptr %52, align 8, !tbaa !11
   %53 = invoke noundef ptr @_ZSt16__do_uninit_copyISt23_Rb_tree_const_iteratorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEPS6_ET0_T_SA_S9_(ptr %49, ptr nonnull %35, ptr noundef %50)
@@ -6962,7 +6962,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit.i33: ; pre
   %.0104 = phi i32 [ 0, %.lr.ph ], [ %113, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit45 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %79 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string.3", ptr %77, i64 %78
+  %79 = getelementptr inbounds nuw [32 x i8], ptr %77, i64 %78
   invoke void @_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string.3") align 8 %9, ptr noundef nonnull @.str.32, ptr noundef nonnull align 8 dereferenceable(32) %79)
           to label %80 unwind label %123
 
@@ -7493,7 +7493,7 @@ define void @_ZN5boost15program_options16validation_error12get_templateB5cxx11EN
 
 switch.lookup:                                    ; preds = %3
   %6 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5boost15program_options16validation_errorC2ENS1_6kind_tERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_i, i64 %6
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5boost15program_options16validation_errorC2ENS1_6kind_tERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_i, i64 %6
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %7
 
@@ -10186,7 +10186,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !8
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !3
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string.3", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !11
   ret void
 }
@@ -10361,7 +10361,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit24, %72
   store ptr %22, ptr %0, align 8, !tbaa !32
   store ptr %.0.lcssa.i.i.i23, ptr %4, align 8, !tbaa !25
-  %76 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %76 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %76, ptr %71, align 8, !tbaa !27
   ret void
 }
@@ -12989,7 +12989,7 @@ define linkonce_odr hidden void @_ZN5boost15program_options16validation_errorC2E
 
 switch.lookup:                                    ; preds = %5
   %9 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5boost15program_options16validation_errorC2ENS1_6kind_tERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_i, i64 %9
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5boost15program_options16validation_errorC2ENS1_6kind_tERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_i, i64 %9
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %10
 
@@ -14026,7 +14026,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5boost3any6holderINSt7__cxx1112basic
   %21 = phi i64 [ %.pre5.i.i.i, %17 ], [ %13, %15 ], [ %13, %._crit_edge.i.i.i ]
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store i64 %21, ptr %22, align 8, !tbaa !29
-  %23 = getelementptr inbounds nuw i32, ptr %20, i64 %21
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %21
   store i32 0, ptr %23, align 4, !tbaa !65
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret ptr %3

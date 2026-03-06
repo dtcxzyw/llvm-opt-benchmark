@@ -1423,7 +1423,7 @@ indev_reset_check.exit200.thread.i:               ; preds = %indev_reset_check.e
 549:                                              ; preds = %546
   %550 = load i32, ptr %60, align 4, !tbaa !115
   %551 = zext i32 %550 to i64
-  %552 = getelementptr inbounds nuw %struct.lv_point_t, ptr %547, i64 %551
+  %552 = getelementptr inbounds nuw [8 x i8], ptr %547, i64 %551
   %553 = load i32, ptr %552, align 4, !tbaa !116
   %554 = getelementptr inbounds nuw i8, ptr %552, i64 4
   %555 = load i32, ptr %554, align 4, !tbaa !117
@@ -2424,7 +2424,7 @@ define ptr @lv_indev_search_obj(ptr noundef %0, ptr noundef readonly captures(no
   %22 = load ptr, ptr %17, align 8, !tbaa !127
   %23 = load ptr, ptr %22, align 8, !tbaa !132
   %24 = and i64 %indvars.iv.next, 2147483647
-  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !134
   %27 = call ptr @lv_indev_search_obj(ptr noundef %26, ptr noundef nonnull %3)
   %.not = icmp eq ptr %27, null

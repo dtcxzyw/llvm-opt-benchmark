@@ -19,10 +19,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.pthread_cond_t = type { %struct.__pthread_cond_s }
 %struct.__pthread_cond_s = type { %union.__atomic_wide_counter, %union.__atomic_wide_counter, [2 x i32], [2 x i32], i32, i32, [2 x i32] }
 %union.__atomic_wide_counter = type { i64 }
-%struct.pmix_info = type { [512 x i8], i32, %struct.pmix_value }
-%struct.pmix_value = type { i16, %union.anon }
-%union.anon = type { %struct.pmix_envar_t }
-%struct.pmix_envar_t = type { ptr, ptr, i8 }
 
 @.str = private unnamed_addr constant [7 x i8] c"palloc\00", align 1
 @pmix_tool_basename = external local_unnamed_addr global ptr, align 8
@@ -229,7 +225,7 @@ pmix_obj_run_constructors.exit:                   ; preds = %.lr.ph.i, %22
   call void @pmix_expose_param(ptr noundef nonnull %50) #16
   %51 = add i64 %.0212624, 1
   %52 = load ptr, ptr %47, align 8, !tbaa !33
-  %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %51
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %51
   %54 = load ptr, ptr %53, align 8, !tbaa !8
   %.not314 = icmp eq ptr %54, null
   br i1 %.not314, label %.loopexit604, label %.lr.ph, !llvm.loop !34
@@ -1101,7 +1097,7 @@ pmix_cmd_line_get_param.exit486:                  ; preds = %.lr.ph.i481
   %401 = call ptr @PMIx_Argv_split(ptr noundef nonnull %398, i32 noundef 58) #16
   %402 = call i32 @PMIx_Argv_count(ptr noundef %401) #16
   %403 = sext i32 %402 to i64
-  %404 = getelementptr ptr, ptr %401, i64 %403
+  %404 = getelementptr [8 x i8], ptr %401, i64 %403
   %405 = getelementptr i8, ptr %404, i64 -8
   %406 = load ptr, ptr %405, align 8, !tbaa !8
   %407 = call i64 @strtoul(ptr noundef captures(none) %406, ptr noundef null, i32 noundef 10) #16
@@ -1110,7 +1106,7 @@ pmix_cmd_line_get_param.exit486:                  ; preds = %.lr.ph.i481
 
 409:                                              ; preds = %400
   %410 = zext nneg i32 %402 to i64
-  %411 = getelementptr ptr, ptr %401, i64 %410
+  %411 = getelementptr [8 x i8], ptr %401, i64 %410
   %412 = getelementptr i8, ptr %411, i64 -16
   %413 = load ptr, ptr %412, align 8, !tbaa !8
   %.not.i487 = icmp eq ptr %413, null
@@ -1725,7 +1721,7 @@ define internal void @defhandler(i64 %0, i32 noundef %1, ptr readnone captures(n
 .lr.ph:                                           ; preds = %10, %16
   %.026 = phi i64 [ %17, %16 ], [ 0, %10 ]
   %.125 = phi ptr [ %.2, %16 ], [ null, %10 ]
-  %11 = getelementptr inbounds nuw %struct.pmix_info, ptr %3, i64 %.026
+  %11 = getelementptr inbounds nuw [552 x i8], ptr %3, i64 %.026
   %12 = tail call zeroext i1 @PMIx_Check_key(ptr noundef nonnull %11, ptr noundef nonnull @.str.71) #16
   br i1 %12, label %13, label %16
 
@@ -1816,8 +1812,8 @@ define internal void @cbfunc(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr
 15:                                               ; preds = %10, %.critedge
   %.0108113 = phi i64 [ 0, %10 ], [ %82, %.critedge ]
   %16 = load ptr, ptr %13, align 8, !tbaa !44
-  %17 = getelementptr inbounds nuw %struct.pmix_info, ptr %16, i64 %.0108113
-  %18 = getelementptr inbounds nuw %struct.pmix_info, ptr %1, i64 %.0108113
+  %17 = getelementptr inbounds nuw [552 x i8], ptr %16, i64 %.0108113
+  %18 = getelementptr inbounds nuw [552 x i8], ptr %1, i64 %.0108113
   %19 = tail call i32 @PMIx_Info_xfer(ptr noundef %17, ptr noundef %18) #16
   %20 = tail call zeroext i1 @PMIx_Check_key(ptr noundef %18, ptr noundef nonnull @.str.85) #16
   br i1 %20, label %21, label %.critedge

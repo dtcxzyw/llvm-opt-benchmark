@@ -134,7 +134,7 @@ define hidden void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$
   %26 = phi i64 [ %17, %"_ZN86_$LT$smallvec..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h968eb2670a882d4eE.exit.lr.ph.i.i.i.i.i" ], [ %27, %31 ]
   %27 = add i64 %26, 1
   store i64 %27, ptr %15, align 8, !alias.scope !47, !noalias !50
-  %28 = getelementptr inbounds nuw { i32, { i32, i32 }, { i32, i32 } }, ptr %.sink11.i.i.i.i.i.i.i, i64 %26
+  %28 = getelementptr inbounds nuw [20 x i8], ptr %.sink11.i.i.i.i.i.i.i, i64 %26
   %.sroa.02.0.copyload3.i.i.i.i.i = load i32, ptr %28, align 4, !noalias !58
   %.not.i.i.i.i.i = icmp eq i32 %.sroa.02.0.copyload3.i.i.i.i.i, 0
   br i1 %.not.i.i.i.i.i, label %_ZN4core4iter6traits8iterator8Iterator4fold17h21ad5399e8c2c068E.exit.i.i.i.i, label %29
@@ -195,7 +195,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h21ad5399e8c2c068E.exit.i.i.i.i: ; 
 
 47:                                               ; preds = %.noexc24.i.i.i, %39
   %.sroa.06.0.i.i.i.i.i.i = phi i64 [ 0, %39 ], [ %66, %.noexc24.i.i.i ]
-  %48 = getelementptr inbounds nuw { i8, [15 x i8] }, ptr %.sroa.039.0.copyload.i.i.i, i64 %.sroa.06.0.i.i.i.i.i.i
+  %48 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.039.0.copyload.i.i.i, i64 %.sroa.06.0.i.i.i.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !69
   invoke void @"_ZN80_$LT$ty_python_semantic..types..Type$u20$as$u20$ty_ide..HasNavigationTargets$GT$18navigation_targets17he125f8387be12ee5E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %48, ptr noundef nonnull align 1 %.sroa.5.0.copyload.i.i.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(232) %.sroa.6.0.copyload.i.i.i)
           to label %.noexc.i.i.i unwind label %.loopexit.i.i.i, !noalias !68
@@ -230,7 +230,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h21ad5399e8c2c068E.exit.i.i.i.i: ; 
   %57 = phi i64 [ %49, %"_ZN86_$LT$smallvec..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h968eb2670a882d4eE.exit.lr.ph.i.i.i.i.i.i.i.i.i.i" ], [ %58, %62 ]
   %58 = add i64 %57, 1
   store i64 %58, ptr %44, align 8, !alias.scope !89, !noalias !92
-  %59 = getelementptr inbounds nuw { i32, { i32, i32 }, { i32, i32 } }, ptr %.sink11.i.i.i.i.i.i.i.i.i.i.i.i, i64 %57
+  %59 = getelementptr inbounds nuw [20 x i8], ptr %.sink11.i.i.i.i.i.i.i.i.i.i.i.i, i64 %57
   %.sroa.02.0.copyload3.i.i.i.i.i.i.i.i.i.i = load i32, ptr %59, align 4, !noalias !100
   %.not.i.i.i.i.i.i.i.i.i.i = icmp eq i32 %.sroa.02.0.copyload3.i.i.i.i.i.i.i.i.i.i, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h7b692bbc9b6d6b05E.exit.i.i.i.i.i.i", label %60
@@ -328,7 +328,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h21ad5399e8c2c068E.exit.i.i.i.i: ; 
   %86 = phi i64 [ %77, %"_ZN86_$LT$smallvec..IntoIter$LT$A$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h968eb2670a882d4eE.exit.lr.ph.i.i25.i.i.i" ], [ %87, %91 ]
   %87 = add i64 %86, 1
   store i64 %87, ptr %75, align 8, !alias.scope !116, !noalias !119
-  %88 = getelementptr inbounds nuw { i32, { i32, i32 }, { i32, i32 } }, ptr %.sink11.i.i.i.i27.i.i.i, i64 %86
+  %88 = getelementptr inbounds nuw [20 x i8], ptr %.sink11.i.i.i.i27.i.i.i, i64 %86
   %.sroa.02.0.copyload3.i.i29.i.i.i = load i32, ptr %88, align 4, !noalias !127
   %.not.i.i30.i.i.i = icmp eq i32 %.sroa.02.0.copyload3.i.i29.i.i.i, 0
   br i1 %.not.i.i30.i.i.i, label %_ZN4core4iter6traits8iterator8Iterator4fold17h21ad5399e8c2c068E.exit.i32.i.i.i, label %89
@@ -494,7 +494,7 @@ define hidden { ptr, i64 } @"_ZN4core5array4iter21IntoIter$LT$T$C$_$GT$12as_mut_
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8, !noundef !11
   %6 = sub nuw i64 %5, %3
-  %7 = getelementptr inbounds nuw i64, ptr %0, i64 %3
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %3
   %8 = insertvalue { ptr, i64 } poison, ptr %7, 0
   %9 = insertvalue { ptr, i64 } %8, i64 %6, 1
   ret { ptr, i64 } %9
@@ -520,7 +520,7 @@ define hidden { i64, i64 } @"_ZN99_$LT$core..array..iter..IntoIter$LT$T$C$_$GT$$
   store i64 %7, ptr %2, align 8
   %8 = icmp ult i64 %5, 2
   tail call void @llvm.assume(i1 %8)
-  %9 = getelementptr inbounds nuw i64, ptr %0, i64 %5
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %5
   %10 = load i64, ptr %9, align 8, !noundef !11
   br label %11
 
@@ -919,7 +919,7 @@ define void @"_ZN82_$LT$ty_ide..hover..Hover$u20$as$u20$core..iter..traits..coll
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
   %3 = icmp ult i64 %.sroa.5.0.copyload, 576460752303423488
   tail call void @llvm.assume(i1 %3)
-  %4 = getelementptr inbounds nuw { { i8, [15 x i8] } }, ptr %.sroa.4.0.copyload, i64 %.sroa.5.0.copyload
+  %4 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.4.0.copyload, i64 %.sroa.5.0.copyload
   %5 = icmp sgt i64 %.sroa.0.0.copyload, -1
   tail call void @llvm.assume(i1 %5)
   store ptr %.sroa.4.0.copyload, ptr %0, align 8, !alias.scope !148, !noalias !151
@@ -938,7 +938,7 @@ define { ptr, ptr } @"_ZN86_$LT$$RF$ty_ide..hover..Hover$u20$as$u20$core..iter..
   %.val = load ptr, ptr %2, align 8, !nonnull !11, !noundef !11
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val1 = load i64, ptr %3, align 8, !noundef !11
-  %4 = getelementptr inbounds nuw { { i8, [15 x i8] } }, ptr %.val, i64 %.val1
+  %4 = getelementptr inbounds nuw [16 x i8], ptr %.val, i64 %.val1
   %5 = insertvalue { ptr, ptr } poison, ptr %.val, 0
   %6 = insertvalue { ptr, ptr } %5, ptr %4, 1
   ret { ptr, ptr } %6
@@ -954,7 +954,7 @@ define noundef zeroext i1 @"_ZN66_$LT$ty_ide..hover..DisplayHover$u20$as$u20$cor
   %8 = load ptr, ptr %7, align 8, !nonnull !11, !noundef !11
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %10 = load i64, ptr %9, align 8, !noundef !11
-  %11 = getelementptr inbounds nuw { { i8, [15 x i8] } }, ptr %8, i64 %10
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load i8, ptr %12, align 8, !range !153
   %14 = trunc nuw i8 %13 to i1

@@ -1850,7 +1850,7 @@ ftp_getc.exit.i:                                  ; preds = %26, %18
 
 57:                                               ; preds = %.lr.ph
   %indvars.iv.next83 = add nuw nsw i64 %indvars.iv82, 1
-  %58 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.next83
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.next83
   %59 = load i32, ptr %58, align 4, !tbaa !66
   %.not56 = icmp eq i32 %59, 0
   br i1 %.not56, label %.loopexit, label %.lr.ph, !llvm.loop !67

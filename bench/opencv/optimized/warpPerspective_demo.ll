@@ -27,7 +27,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cv::Scalar_" = type { %"class.cv::Vec" }
 %"class.cv::Vec" = type { %"class.cv::Matx" }
 %"class.cv::Matx" = type { [4 x double] }
-%"class.cv::Point_" = type { float, float }
 
 $_ZNSt6vectorIN2cv6Point_IfEESaIS2_EED2Ev = comdat any
 
@@ -464,7 +463,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i: ;
 _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %179, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i
   store ptr %173, ptr @roi_corners, align 8, !tbaa !12
   store ptr %178, ptr getelementptr inbounds nuw (i8, ptr @roi_corners, i64 8), align 8, !tbaa !57
-  %180 = getelementptr inbounds nuw %"class.cv::Point_", ptr %173, i64 %171
+  %180 = getelementptr inbounds nuw [8 x i8], ptr %173, i64 %171
   store ptr %180, ptr getelementptr inbounds nuw (i8, ptr @roi_corners, i64 16), align 8, !tbaa !58
   br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backEOS2_.exit
 
@@ -553,7 +552,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i209
 _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i212: ; preds = %213, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i209
   store ptr %207, ptr @roi_corners, align 8, !tbaa !12
   store ptr %212, ptr getelementptr inbounds nuw (i8, ptr @roi_corners, i64 8), align 8, !tbaa !57
-  %214 = getelementptr inbounds nuw %"class.cv::Point_", ptr %207, i64 %205
+  %214 = getelementptr inbounds nuw [8 x i8], ptr %207, i64 %205
   store ptr %214, ptr getelementptr inbounds nuw (i8, ptr @roi_corners, i64 16), align 8, !tbaa !58
   br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backEOS2_.exit215
 
@@ -642,7 +641,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i225
 _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i228: ; preds = %247, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i225
   store ptr %241, ptr @roi_corners, align 8, !tbaa !12
   store ptr %246, ptr getelementptr inbounds nuw (i8, ptr @roi_corners, i64 8), align 8, !tbaa !57
-  %248 = getelementptr inbounds nuw %"class.cv::Point_", ptr %241, i64 %239
+  %248 = getelementptr inbounds nuw [8 x i8], ptr %241, i64 %239
   store ptr %248, ptr getelementptr inbounds nuw (i8, ptr @roi_corners, i64 16), align 8, !tbaa !58
   br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backEOS2_.exit231
 
@@ -730,7 +729,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i241
 _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i244: ; preds = %281, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i241
   store ptr %275, ptr @roi_corners, align 8, !tbaa !12
   store ptr %280, ptr getelementptr inbounds nuw (i8, ptr @roi_corners, i64 8), align 8, !tbaa !57
-  %282 = getelementptr inbounds nuw %"class.cv::Point_", ptr %275, i64 %273
+  %282 = getelementptr inbounds nuw [8 x i8], ptr %275, i64 %273
   store ptr %282, ptr getelementptr inbounds nuw (i8, ptr @roi_corners, i64 16), align 8, !tbaa !58
   br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backEOS2_.exit247
 
@@ -1011,7 +1010,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit276: ; preds = %39
   store i64 0, ptr %297, align 8
   store i32 50397184, ptr %16, align 8, !tbaa !84
   store ptr %12, ptr %296, align 8, !tbaa !87
-  %404 = getelementptr inbounds nuw %"class.cv::Point_", ptr %403, i64 %.090440
+  %404 = getelementptr inbounds nuw [8 x i8], ptr %403, i64 %.090440
   %405 = load float, ptr %404, align 4, !tbaa !88
   %406 = insertelement <4 x float> poison, float %405, i64 0
   %407 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %406)
@@ -1042,7 +1041,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit276: ; preds = %39
   store i32 50397184, ptr %18, align 8, !tbaa !84
   store ptr %12, ptr %300, align 8, !tbaa !87
   %414 = load ptr, ptr @roi_corners, align 8, !tbaa !12
-  %415 = getelementptr %"class.cv::Point_", ptr %414, i64 %.090440
+  %415 = getelementptr [8 x i8], ptr %414, i64 %.090440
   %416 = getelementptr i8, ptr %415, i64 -8
   %417 = load float, ptr %416, align 4, !tbaa !88
   %418 = insertelement <4 x float> poison, float %417, i64 0
@@ -1081,7 +1080,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit276: ; preds = %39
   store i32 50397184, ptr %20, align 8, !tbaa !84
   store ptr %12, ptr %304, align 8, !tbaa !87
   %432 = load ptr, ptr @roi_corners, align 8, !tbaa !12
-  %433 = getelementptr inbounds nuw %"class.cv::Point_", ptr %432, i64 %.090440
+  %433 = getelementptr inbounds nuw [8 x i8], ptr %432, i64 %.090440
   %434 = load float, ptr %433, align 4, !tbaa !88
   %435 = insertelement <4 x float> poison, float %434, i64 0
   %436 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %435)
@@ -1108,7 +1107,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit276: ; preds = %39
   store i32 50397184, ptr %22, align 8, !tbaa !84
   store ptr %12, ptr %308, align 8, !tbaa !87
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
-  %442 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr @_Z6labelsB5cxx11, i64 %.090440
+  %442 = getelementptr inbounds nuw [32 x i8], ptr @_Z6labelsB5cxx11, i64 %.090440
   %443 = load ptr, ptr %442, align 16, !tbaa !4
   store ptr %310, ptr %23, align 8, !tbaa !43
   %444 = icmp eq ptr %443, null
@@ -1162,7 +1161,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit276: ; preds = %39
   store i8 0, ptr %458, align 1, !tbaa !40
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %459 = load ptr, ptr @roi_corners, align 8, !tbaa !12
-  %460 = getelementptr inbounds nuw %"class.cv::Point_", ptr %459, i64 %.090440
+  %460 = getelementptr inbounds nuw [8 x i8], ptr %459, i64 %.090440
   %461 = load float, ptr %460, align 4, !tbaa !88
   %462 = insertelement <4 x float> poison, float %461, i64 0
   %463 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %462)
@@ -1323,7 +1322,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit303: ; preds = %47
   store i32 50397184, ptr %27, align 8, !tbaa !84
   store ptr %12, ptr %316, align 8, !tbaa !87
   %507 = load ptr, ptr @roi_corners, align 8, !tbaa !12
-  %508 = getelementptr inbounds nuw %"class.cv::Point_", ptr %507, i64 %indvars.iv
+  %508 = getelementptr inbounds nuw [8 x i8], ptr %507, i64 %indvars.iv
   %509 = load float, ptr %508, align 4, !tbaa !88
   %510 = insertelement <4 x float> poison, float %509, i64 0
   %511 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %510)
@@ -1337,7 +1336,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit303: ; preds = %47
   %.sroa.0.0.insert.insert.i307 = or disjoint i64 %.sroa.2.0.insert.shift.i305, %.sroa.0.0.insert.ext.i306
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %516 = and i64 %indvars.iv.next, 3
-  %517 = getelementptr inbounds nuw %"class.cv::Point_", ptr %507, i64 %516
+  %517 = getelementptr inbounds nuw [8 x i8], ptr %507, i64 %516
   %518 = load float, ptr %517, align 4, !tbaa !88
   %519 = insertelement <4 x float> poison, float %518, i64 0
   %520 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %519)
@@ -1364,7 +1363,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit303: ; preds = %47
   store i32 50397184, ptr %29, align 8, !tbaa !84
   store ptr %12, ptr %320, align 8, !tbaa !87
   %526 = load ptr, ptr @roi_corners, align 8, !tbaa !12
-  %527 = getelementptr inbounds nuw %"class.cv::Point_", ptr %526, i64 %indvars.iv
+  %527 = getelementptr inbounds nuw [8 x i8], ptr %526, i64 %indvars.iv
   %528 = load float, ptr %527, align 4, !tbaa !88
   %529 = insertelement <4 x float> poison, float %528, i64 0
   %530 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %529)
@@ -1391,7 +1390,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit303: ; preds = %47
   store i32 50397184, ptr %31, align 8, !tbaa !84
   store ptr %12, ptr %324, align 8, !tbaa !87
   call void @llvm.lifetime.start.p0(ptr nonnull %32)
-  %536 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr @_Z6labelsB5cxx11, i64 %indvars.iv
+  %536 = getelementptr inbounds nuw [32 x i8], ptr @_Z6labelsB5cxx11, i64 %indvars.iv
   %537 = load ptr, ptr %536, align 16, !tbaa !4
   store ptr %326, ptr %32, align 8, !tbaa !43
   %538 = icmp eq ptr %537, null
@@ -1445,7 +1444,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit303: ; preds = %47
   store i8 0, ptr %552, align 1, !tbaa !40
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %553 = load ptr, ptr @roi_corners, align 8, !tbaa !12
-  %554 = getelementptr inbounds nuw %"class.cv::Point_", ptr %553, i64 %indvars.iv
+  %554 = getelementptr inbounds nuw [8 x i8], ptr %553, i64 %indvars.iv
   %555 = load float, ptr %554, align 4, !tbaa !88
   %556 = insertelement <4 x float> poison, float %555, i64 0
   %557 = call noundef i32 @llvm.x86.sse.cvtss2si(<4 x float> %556)
@@ -1871,7 +1870,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17_
   call void @_ZdlPv(ptr noundef nonnull %666) #20
   store ptr %685, ptr @roi_corners, align 8, !tbaa !12
   store ptr %691, ptr getelementptr inbounds nuw (i8, ptr @roi_corners, i64 8), align 8, !tbaa !57
-  %692 = getelementptr inbounds nuw %"class.cv::Point_", ptr %685, i64 %683
+  %692 = getelementptr inbounds nuw [8 x i8], ptr %685, i64 %683
   store ptr %692, ptr getelementptr inbounds nuw (i8, ptr @roi_corners, i64 16), align 8, !tbaa !58
   br label %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE9push_backERKS2_.exit
 
@@ -2002,7 +2001,7 @@ define internal void @_ZL7onMouseiiiiPv(i32 noundef %0, i32 noundef %1, i32 noun
 
 .preheader.split.us:                              ; preds = %.preheader, %28
   %indvars.iv = phi i64 [ %indvars.iv.next, %28 ], [ 0, %.preheader ]
-  %15 = getelementptr inbounds nuw %"class.cv::Point_", ptr %7, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %16 = load float, ptr %15, align 4, !tbaa !88
   %17 = fsub float %16, %13
   %18 = tail call noundef float @llvm.fabs.f32(float %17)
@@ -2100,7 +2099,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i: ;
 _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %51, %_ZNSt6vectorIN2cv6Point_IfEESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i
   store ptr %45, ptr @roi_corners, align 8, !tbaa !12
   store ptr %50, ptr getelementptr inbounds nuw (i8, ptr @roi_corners, i64 8), align 8, !tbaa !57
-  %52 = getelementptr inbounds nuw %"class.cv::Point_", ptr %45, i64 %43
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %43
   store ptr %52, ptr getelementptr inbounds nuw (i8, ptr @roi_corners, i64 16), align 8, !tbaa !58
   br label %.thread
 
@@ -2127,7 +2126,7 @@ _ZNSt6vectorIN2cv6Point_IfEESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__n
   %60 = sitofp i32 %1 to float
   %61 = load i32, ptr @selected_corner_index, align 4, !tbaa !105
   %62 = sext i32 %61 to i64
-  %63 = getelementptr inbounds nuw %"class.cv::Point_", ptr %7, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %62
   store float %60, ptr %63, align 4, !tbaa !88
   %64 = sitofp i32 %2 to float
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 4

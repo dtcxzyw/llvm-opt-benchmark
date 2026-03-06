@@ -435,7 +435,7 @@ mxpeg_decode_com.exit:                            ; preds = %79, %sub_0.i, %sub_
   %188 = load i32, ptr %35, align 16, !tbaa !74
   %189 = xor i32 %188, 1
   %190 = sext i32 %189 to i64
-  %191 = getelementptr inbounds ptr, ptr %34, i64 %190
+  %191 = getelementptr inbounds [8 x i8], ptr %34, i64 %190
   %192 = load ptr, ptr %191, align 8, !tbaa !27
   %193 = load i32, ptr %36, align 4, !tbaa !75
   %194 = add nsw i32 %193, 15
@@ -469,19 +469,19 @@ mxpeg_decode_com.exit:                            ; preds = %79, %sub_0.i, %sub_
 
 207:                                              ; preds = %206, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %206 ]
-  %208 = getelementptr inbounds nuw ptr, ptr %192, i64 %indvars.iv.i
+  %208 = getelementptr inbounds nuw [8 x i8], ptr %192, i64 %indvars.iv.i
   %209 = load ptr, ptr %208, align 8, !tbaa !46
   %.not22.i = icmp eq ptr %209, null
-  %210 = getelementptr inbounds nuw ptr, ptr %185, i64 %indvars.iv.i
+  %210 = getelementptr inbounds nuw [8 x i8], ptr %185, i64 %indvars.iv.i
   %211 = load ptr, ptr %210, align 8, !tbaa !46
   %.not23.i = icmp eq ptr %211, null
   %212 = xor i1 %.not22.i, %.not23.i
   br i1 %212, label %mxpeg_check_dimensions.exit, label %213
 
 213:                                              ; preds = %207
-  %214 = getelementptr inbounds nuw i32, ptr %204, i64 %indvars.iv.i
+  %214 = getelementptr inbounds nuw [4 x i8], ptr %204, i64 %indvars.iv.i
   %215 = load i32, ptr %214, align 4, !tbaa !50
-  %216 = getelementptr inbounds nuw i32, ptr %205, i64 %indvars.iv.i
+  %216 = getelementptr inbounds nuw [4 x i8], ptr %205, i64 %indvars.iv.i
   %217 = load i32, ptr %216, align 4, !tbaa !50
   %.not24.i = icmp eq i32 %215, %217
   br i1 %.not24.i, label %206, label %mxpeg_check_dimensions.exit
@@ -552,7 +552,7 @@ mxpeg_decode_com.exit.thread:                     ; preds = %.loopexit, %225, %7
   store i32 %248, ptr %246, align 16, !tbaa !74
   %249 = getelementptr inbounds nuw i8, ptr %13, i64 4480
   %250 = sext i32 %248 to i64
-  %251 = getelementptr inbounds ptr, ptr %249, i64 %250
+  %251 = getelementptr inbounds [8 x i8], ptr %249, i64 %250
   %252 = load ptr, ptr %251, align 8, !tbaa !27
   store ptr %252, ptr %241, align 8, !tbaa !68
   %253 = getelementptr inbounds nuw i8, ptr %13, i64 4524

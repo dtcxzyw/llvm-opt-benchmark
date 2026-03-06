@@ -34,7 +34,7 @@ define dso_local zeroext i1 @SDLTest_Crc32Init(ptr noundef writeonly captures(ad
   br i1 %10, label %5, label %11, !llvm.loop !4
 
 11:                                               ; preds = %5
-  %12 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   store i32 %.1, ptr %12, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256
@@ -80,7 +80,7 @@ SDLTest_Crc32CalcStart.exit:                      ; preds = %4
   %.0.tr.i = trunc i32 %.024.i to i8
   %.narrow.i = xor i8 %11, %.0.tr.i
   %12 = zext i8 %.narrow.i to i64
-  %13 = getelementptr inbounds nuw i32, ptr %0, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %12
   %14 = load i32, ptr %13, align 4
   %15 = xor i32 %14, %10
   %16 = getelementptr inbounds nuw i8, ptr %.01423.i, i64 1
@@ -163,7 +163,7 @@ define dso_local zeroext i1 @SDLTest_Crc32CalcBuffer(ptr noundef readonly captur
   %.0.tr = trunc i32 %.024 to i8
   %.narrow = xor i8 %13, %.0.tr
   %14 = zext i8 %.narrow to i64
-  %15 = getelementptr inbounds nuw i32, ptr %0, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %14
   %16 = load i32, ptr %15, align 4
   %17 = xor i32 %16, %12
   %18 = getelementptr inbounds nuw i8, ptr %.01423, i64 1

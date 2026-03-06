@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.anon = type { ptr, i64 }
-%struct.anon.4 = type { ptr, i32 }
 
 @.str = private unnamed_addr constant [3 x i8] c"\0D\0A\00", align 1
 @rioBufferIO = internal unnamed_addr constant { ptr, ptr, ptr, ptr, ptr, i64, i64, i64, i64, { %struct.anon, [24 x i8] } } { ptr @rioBufferRead, ptr @rioBufferWrite, ptr @rioBufferTell, ptr @rioBufferFlush, ptr null, i64 0, i64 0, i64 0, i64 0, { %struct.anon, [24 x i8] } zeroinitializer }, align 8
@@ -197,10 +196,10 @@ define dso_local void @rioInitWithConnset(ptr noundef captures(none) initializes
 
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.013 = phi i64 [ %15, %.lr.ph ], [ 0, %3 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %1, i64 %.013
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.013
   %12 = load ptr, ptr %11, align 8, !tbaa !19
   %13 = load ptr, ptr %6, align 8, !tbaa !12
-  %14 = getelementptr inbounds nuw %struct.anon.4, ptr %13, i64 %.013
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %.013
   store ptr %12, ptr %14, align 8, !tbaa !21
   %15 = add nuw i64 %.013, 1
   %exitcond.not = icmp eq i64 %15, %2
@@ -1835,7 +1834,7 @@ sdslen.exit76:                                    ; preds = %48, %44, %40, %36, 
   %.05685 = phi i64 [ %87, %.loopexit ], [ 0, %.lr.ph91.split ]
   %.16184 = phi i64 [ %.262, %.loopexit ], [ %.06088, %.lr.ph91.split ]
   %58 = load ptr, ptr %51, align 8, !tbaa !12
-  %59 = getelementptr inbounds nuw %struct.anon.4, ptr %58, i64 %.05685
+  %59 = getelementptr inbounds nuw [16 x i8], ptr %58, i64 %.05685
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %61 = load i32, ptr %60, align 8, !tbaa !44
   %.not72 = icmp eq i32 %61, 0
@@ -1848,7 +1847,7 @@ sdslen.exit76:                                    ; preds = %48, %44, %40, %36, 
 .preheader:                                       ; preds = %.lr.ph, %84
   %.054 = phi i64 [ %86, %84 ], [ 0, %.lr.ph ]
   %64 = load ptr, ptr %51, align 8, !tbaa !12
-  %65 = getelementptr inbounds nuw %struct.anon.4, ptr %64, i64 %.05685
+  %65 = getelementptr inbounds nuw [16 x i8], ptr %64, i64 %.05685
   %66 = load ptr, ptr %65, align 8, !tbaa !21
   %67 = getelementptr inbounds nuw i8, ptr %.15290, i64 %.054
   %68 = sub i64 %56, %.054
@@ -1878,7 +1877,7 @@ sdslen.exit76:                                    ; preds = %48, %44, %40, %36, 
 
 .thread:                                          ; preds = %.thread.sink.split, %78
   %81 = load ptr, ptr %51, align 8, !tbaa !12
-  %82 = getelementptr inbounds nuw %struct.anon.4, ptr %81, i64 %.05685
+  %82 = getelementptr inbounds nuw [16 x i8], ptr %81, i64 %.05685
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   store i32 1, ptr %83, align 8, !tbaa !44
   br label %.loopexit

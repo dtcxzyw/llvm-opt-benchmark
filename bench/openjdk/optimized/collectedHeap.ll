@@ -13,10 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.stringStream = type <{ %class.outputStream, ptr, i64, i64, i8, [48 x i8], [7 x i8] }>
 %class.outputStream = type { ptr, i32, i8, i32, i64, %class.TimeStamp, ptr, i64 }
 %class.TimeStamp = type { i64 }
-%"class.EventLogBase<GCMessage>::EventRecord" = type { double, ptr, %class.GCMessage }
-%class.GCMessage = type <{ %class.FormatBuffer, i8, [7 x i8] }>
-%class.FormatBuffer = type { %class.FormatBufferBase, [1024 x i8] }
-%class.FormatBufferBase = type { ptr }
 %class.VirtualSpaceSummary = type { ptr, ptr, ptr }
 %class.GCHeapSummary = type { ptr, %class.VirtualSpaceSummary, i64 }
 %class.MetaspaceSummary = type { i64, %class.MetaspaceCombinedStats, %class.MetaspaceChunkFreeListSummary, %class.MetaspaceChunkFreeListSummary }
@@ -342,18 +338,18 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %6, %17
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %21 = load ptr, ptr %20, align 8
   %22 = sext i32 %11 to i64
-  %23 = getelementptr inbounds %"class.EventLogBase<GCMessage>::EventRecord", ptr %21, i64 %22
+  %23 = getelementptr inbounds [1056 x i8], ptr %21, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr null, ptr %24, align 8
   %25 = load ptr, ptr %20, align 8
-  %26 = getelementptr inbounds %"class.EventLogBase<GCMessage>::EventRecord", ptr %25, i64 %22
+  %26 = getelementptr inbounds [1056 x i8], ptr %25, i64 %22
   store double %8, ptr %26, align 8
   %27 = load ptr, ptr %20, align 8
-  %28 = getelementptr inbounds %"class.EventLogBase<GCMessage>::EventRecord", ptr %27, i64 %22
+  %28 = getelementptr inbounds [1056 x i8], ptr %27, i64 %22
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 1048
   store i8 %7, ptr %29, align 8
   %30 = load ptr, ptr %20, align 8
-  %31 = getelementptr inbounds %"class.EventLogBase<GCMessage>::EventRecord", ptr %30, i64 %22
+  %31 = getelementptr inbounds [1056 x i8], ptr %30, i64 %22
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
   %33 = load ptr, ptr %32, align 8
   call void @_ZN12stringStreamC1EPcm(ptr noundef nonnull align 8 dereferenceable(129) %4, ptr noundef %33, i64 noundef 1024) #19
@@ -458,10 +454,10 @@ define hidden void @_ZN13CollectedHeap25create_heap_space_summaryEv(ptr dead_on_
   %7 = lshr i64 %6, 3
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %7
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %7
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %12 = load i64, ptr %11, align 8
-  %13 = getelementptr inbounds ptr, ptr %9, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %9, i64 %12
   store ptr %9, ptr %0, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %10, ptr %14, align 8
@@ -934,7 +930,7 @@ define hidden void @_ZN13CollectedHeapC2Ev(ptr noundef nonnull align 8 captures(
   br i1 %74, label %_ZN9GCHeapLogC2Ev.exit, label %75
 
 75:                                               ; preds = %59
-  %76 = getelementptr inbounds %"class.EventLogBase<GCMessage>::EventRecord", ptr %73, i64 %68
+  %76 = getelementptr inbounds [1056 x i8], ptr %73, i64 %68
   br label %77
 
 77:                                               ; preds = %77, %75
@@ -1362,7 +1358,7 @@ define linkonce_odr hidden void @_ZN13CollectedHeap21fill_with_object_implEPP12H
   br i1 %.not6.i.i.i.i, label %_ZN13CollectedHeap15fill_with_arrayEPP12HeapWordImplmb.exit, label %.lr.ph.i.i.preheader.i.i
 
 .lr.ph.i.i.preheader.i.i:                         ; preds = %30
-  %35 = getelementptr ptr, ptr %0, i64 %34
+  %35 = getelementptr [8 x i8], ptr %0, i64 %34
   %36 = sub i64 %1, %34
   %37 = shl i64 %36, 3
   call void @llvm.memset.p0.i64(ptr align 8 %35, i8 0, i64 %37, i1 false)
@@ -1454,7 +1450,7 @@ define hidden void @_ZN13CollectedHeap17fill_with_objectsEPP12HeapWordImplmb(ptr
   br i1 %.not6.i.i.i.i, label %_ZN13CollectedHeap15fill_with_arrayEPP12HeapWordImplmb.exit, label %.lr.ph.i.i.preheader.i.i
 
 .lr.ph.i.i.preheader.i.i:                         ; preds = %34
-  %39 = getelementptr ptr, ptr %.020, i64 %38
+  %39 = getelementptr [8 x i8], ptr %.020, i64 %38
   %40 = sub i64 %23, %38
   %41 = shl i64 %40, 3
   call void @llvm.memset.p0.i64(ptr align 8 %39, i8 0, i64 %41, i1 false)
@@ -1462,7 +1458,7 @@ define hidden void @_ZN13CollectedHeap17fill_with_objectsEPP12HeapWordImplmb(ptr
 
 _ZN13CollectedHeap15fill_with_arrayEPP12HeapWordImplmb.exit: ; preds = %20, %34, %.lr.ph.i.i.preheader.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %42 = getelementptr inbounds ptr, ptr %.020, i64 %23
+  %42 = getelementptr inbounds [8 x i8], ptr %.020, i64 %23
   %43 = sub i64 %.01719, %23
   %44 = icmp ugt i64 %43, %13
   br i1 %44, label %20, label %._crit_edge, !llvm.loop !14
@@ -1521,7 +1517,7 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit.us: ; preds = %_ZN28JavaThreadIter
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %17 = load ptr, ptr %16, align 8
   %18 = zext i32 %14 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %18
   %20 = load ptr, ptr %19, align 8
   %.not.us = icmp eq ptr %20, null
   br i1 %.not.us, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, label %21
@@ -1557,7 +1553,7 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit:    ; preds = %_ZN28JavaThreadIter
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %39 = load ptr, ptr %38, align 8
   %40 = zext i32 %36 to i64
-  %41 = getelementptr inbounds nuw ptr, ptr %39, i64 %40
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %40
   %42 = load ptr, ptr %41, align 8
   %.not = icmp eq ptr %42, null
   br i1 %.not, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, label %43
@@ -1631,7 +1627,7 @@ _ZN28JavaThreadIteratorWithHandle4nextEv.exit:    ; preds = %7, %24
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %20 = load ptr, ptr %19, align 8
   %21 = zext i32 %17 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8
   %.not = icmp eq ptr %23, null
   br i1 %.not, label %_ZN28JavaThreadIteratorWithHandle4nextEv.exit.thread, label %24
@@ -2544,7 +2540,7 @@ define linkonce_odr hidden void @_ZN12EventLogBaseI9GCMessageE14print_log_implEP
 .lr.ph59.split.us:                                ; preds = %.lr.ph59, %_ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit.us
   %indvars.iv81 = phi i64 [ %indvars.iv.next82, %_ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit.us ], [ 0, %.lr.ph59 ]
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds nuw %"class.EventLogBase<GCMessage>::EventRecord", ptr %17, i64 %indvars.iv81
+  %18 = getelementptr inbounds nuw [1056 x i8], ptr %17, i64 %indvars.iv81
   %19 = load double, ptr %18, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.35, double noundef %19) #19
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -2580,7 +2576,7 @@ _ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit
 
 34:                                               ; preds = %.lr.ph59.split
   %35 = load ptr, ptr %16, align 8
-  %36 = getelementptr inbounds nuw %"class.EventLogBase<GCMessage>::EventRecord", ptr %35, i64 %indvars.iv86
+  %36 = getelementptr inbounds nuw [1056 x i8], ptr %35, i64 %indvars.iv86
   %37 = load double, ptr %36, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.35, double noundef %37) #19
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
@@ -2625,7 +2621,7 @@ _ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit41.us ], [ %58, %.lr.ph ]
   %.245.us = phi i32 [ %73, %_ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit41.us ], [ 0, %.lr.ph ]
   %59 = load ptr, ptr %57, align 8
-  %60 = getelementptr inbounds %"class.EventLogBase<GCMessage>::EventRecord", ptr %59, i64 %indvars.iv
+  %60 = getelementptr inbounds [1056 x i8], ptr %59, i64 %indvars.iv
   %61 = load double, ptr %60, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.35, double noundef %61) #19
   %62 = getelementptr inbounds nuw i8, ptr %60, i64 8
@@ -2663,7 +2659,7 @@ _ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit
 
 78:                                               ; preds = %.lr.ph.split
   %79 = load ptr, ptr %57, align 8
-  %80 = getelementptr inbounds %"class.EventLogBase<GCMessage>::EventRecord", ptr %79, i64 %indvars.iv72
+  %80 = getelementptr inbounds [1056 x i8], ptr %79, i64 %indvars.iv72
   %81 = load double, ptr %80, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.35, double noundef %81) #19
   %82 = getelementptr inbounds nuw i8, ptr %80, i64 8
@@ -2713,7 +2709,7 @@ _ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit
   %indvars.iv75 = phi i64 [ %indvars.iv.next76, %_ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit43.us ], [ 0, %.lr.ph52 ]
   %.349.us = phi i32 [ %115, %_ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit43.us ], [ %.2.lcssa, %.lr.ph52 ]
   %101 = load ptr, ptr %100, align 8
-  %102 = getelementptr inbounds nuw %"class.EventLogBase<GCMessage>::EventRecord", ptr %101, i64 %indvars.iv75
+  %102 = getelementptr inbounds nuw [1056 x i8], ptr %101, i64 %indvars.iv75
   %103 = load double, ptr %102, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.35, double noundef %103) #19
   %104 = getelementptr inbounds nuw i8, ptr %102, i64 8
@@ -2751,7 +2747,7 @@ _ZN12EventLogBaseI9GCMessageE5printEP12outputStreamRNS1_11EventRecordIS0_EE.exit
 
 120:                                              ; preds = %.lr.ph52.split
   %121 = load ptr, ptr %100, align 8
-  %122 = getelementptr inbounds nuw %"class.EventLogBase<GCMessage>::EventRecord", ptr %121, i64 %indvars.iv78
+  %122 = getelementptr inbounds nuw [1056 x i8], ptr %121, i64 %indvars.iv78
   %123 = load double, ptr %122, align 8
   tail call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull @.str.35, double noundef %123) #19
   %124 = getelementptr inbounds nuw i8, ptr %122, i64 8

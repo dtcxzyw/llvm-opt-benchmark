@@ -3,16 +3,15 @@ source_filename = "bench/gromacs/original/helpformat.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.gmx::TextTableFormatter::Impl::ColumnData" = type { %"class.std::__cxx11::basic_string", i32, i8, i32, %"class.std::vector.5", i32, i64 }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
+%"class.gmx::TextLineWrapper" = type { %"class.gmx::TextLineWrapperSettings" }
+%"class.gmx::TextLineWrapperSettings" = type <{ i32, i32, i32, i8, i8, [2 x i8] }>
 %"class.std::vector.5" = type { %"struct.std::_Vector_base.6" }
 %"struct.std::_Vector_base.6" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::__cxx11::basic_string<char>, std::allocator<std::__cxx11::basic_string<char>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.gmx::TextLineWrapper" = type { %"class.gmx::TextLineWrapperSettings" }
-%"class.gmx::TextLineWrapperSettings" = type <{ i32, i32, i32, i8, i8, [2 x i8] }>
+%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
+%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
+%union.anon = type { i64, [8 x i8] }
 
 $__clang_call_terminate = comdat any
 
@@ -639,7 +638,7 @@ _ZNSt6vectorIN3gmx18TextTableFormatter4Impl10ColumnDataESaIS3_EE11_S_relocateEPS
 _ZNSt12_Vector_baseIN3gmx18TextTableFormatter4Impl10ColumnDataESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorIN3gmx18TextTableFormatter4Impl10ColumnDataESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit39, %108
   store ptr %25, ptr %0, align 8, !tbaa !20
   store ptr %.0.lcssa.i.i.i38, ptr %7, align 8, !tbaa !21
-  %112 = getelementptr inbounds nuw %"struct.gmx::TextTableFormatter::Impl::ColumnData", ptr %25, i64 %19
+  %112 = getelementptr inbounds nuw [88 x i8], ptr %25, i64 %19
   store ptr %112, ptr %107, align 8, !tbaa !36
   ret void
 
@@ -788,7 +787,7 @@ define void @_ZN3gmx18TextTableFormatter13addColumnLineEiRKNSt7__cxx1112basic_st
   %6 = load ptr, ptr %0, align 8, !tbaa !18
   %7 = sext i32 %1 to i64
   %8 = load ptr, ptr %6, align 8, !tbaa !20
-  %9 = getelementptr inbounds nuw %"struct.gmx::TextTableFormatter::Impl::ColumnData", ptr %8, i64 %7
+  %9 = getelementptr inbounds nuw [88 x i8], ptr %8, i64 %7
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZN3gmx23TextLineWrapperSettingsC1Ev(ptr noundef nonnull align 4 dereferenceable(16) %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -1060,7 +1059,7 @@ _ZSt7advanceIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char
   %86 = tail call noundef ptr @_ZSt16__do_uninit_copyIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_(ptr %85, ptr %3, ptr noundef %13)
   %87 = sub nuw nsw i64 %9, %20
   %88 = load ptr, ptr %12, align 8, !tbaa !25
-  %89 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %88, i64 %87
+  %89 = getelementptr inbounds nuw [32 x i8], ptr %88, i64 %87
   store ptr %89, ptr %12, align 8, !tbaa !25
   %.not11.i.i.i.i.i53 = icmp eq ptr %1, %13
   br i1 %.not11.i.i.i.i.i53, label %_ZSt22__uninitialized_move_aIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_SaIS5_EET0_T_S9_S8_RT1_.exit61, label %.lr.ph.i.i.i.i.i54
@@ -1280,7 +1279,7 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSa
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit, %166
   store ptr %128, ptr %0, align 8, !tbaa !22
   store ptr %.0.lcssa.i.i.i.i.i83, ptr %12, align 8, !tbaa !25
-  %170 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %128, i64 %124
+  %170 = getelementptr inbounds nuw [32 x i8], ptr %128, i64 %124
   store ptr %170, ptr %10, align 8, !tbaa !34
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESC_ET0_T_SE_SD_.exit
 
@@ -1449,7 +1448,7 @@ define void @_ZN3gmx18TextTableFormatter22addColumnHelpTextBlockEiRKNS_17HelpWri
   %7 = load ptr, ptr %0, align 8, !tbaa !18
   %8 = sext i32 %1 to i64
   %9 = load ptr, ptr %7, align 8, !tbaa !20
-  %10 = getelementptr inbounds nuw %"struct.gmx::TextTableFormatter::Impl::ColumnData", ptr %9, i64 %8
+  %10 = getelementptr inbounds nuw [88 x i8], ptr %9, i64 %8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @_ZN3gmx23TextLineWrapperSettingsC1Ev(ptr noundef nonnull align 4 dereferenceable(14) %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -1531,7 +1530,7 @@ define void @_ZN3gmx18TextTableFormatter24setColumnFirstLineOffsetEii(ptr nounde
   %4 = load ptr, ptr %0, align 8, !tbaa !18
   %5 = sext i32 %1 to i64
   %6 = load ptr, ptr %4, align 8, !tbaa !20
-  %7 = getelementptr inbounds nuw %"struct.gmx::TextTableFormatter::Impl::ColumnData", ptr %6, i64 %5
+  %7 = getelementptr inbounds nuw [88 x i8], ptr %6, i64 %5
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store i32 %2, ptr %8, align 8, !tbaa !51
   ret void
@@ -2004,7 +2003,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE7reserv
   br i1 %200, label %201, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12emplace_backIJEEERS5_DpOT_.exit.thread
 
 201:                                              ; preds = %189
-  %202 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %195, i64 %.046315
+  %202 = getelementptr inbounds nuw [32 x i8], ptr %195, i64 %.046315
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 8
   %204 = load i64, ptr %203, align 8, !tbaa !44
   %205 = trunc i64 %204 to i32
@@ -2091,7 +2090,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
   %239 = load i32, ptr %125, align 8, !tbaa !76, !noalias !84
   %240 = sext i32 %239 to i64
   %241 = load ptr, ptr %116, align 8, !tbaa !22, !noalias !84
-  %242 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %241, i64 %240
+  %242 = getelementptr inbounds nuw [32 x i8], ptr %241, i64 %240
   %243 = load i64, ptr %126, align 8, !tbaa !52, !noalias !84
   %244 = invoke noundef i64 @_ZNK3gmx15TextLineWrapper12findNextLineERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(32) %242, i64 noundef %243)
           to label %.noexc99 unwind label %342
@@ -2122,7 +2121,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE12empla
 251:                                              ; preds = %235
   %252 = add nuw nsw i32 %192, 1
   store i32 %252, ptr %125, align 8, !tbaa !76, !noalias !84
-  %253 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %190, i64 %227
+  %253 = getelementptr inbounds nuw [32 x i8], ptr %190, i64 %227
   store ptr %111, ptr %10, align 8, !tbaa !42, !alias.scope !84
   %254 = load ptr, ptr %253, align 8, !tbaa !26
   %255 = getelementptr inbounds nuw i8, ptr %253, i64 8
@@ -2327,7 +2326,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backEOS5_.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26.i, %324
   store ptr %296, ptr %9, align 8, !tbaa !22
   store ptr %323, ptr %108, align 8, !tbaa !25
-  %328 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %296, i64 %292
+  %328 = getelementptr inbounds nuw [32 x i8], ptr %296, i64 %292
   store ptr %328, ptr %110, align 8, !tbaa !34
   %.pre359 = load ptr, ptr %10, align 8, !tbaa !26
   %329 = icmp eq ptr %.pre359, %111
@@ -2479,7 +2478,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resize
   br i1 %.not227, label %.critedge2, label %402
 
 402:                                              ; preds = %398
-  %403 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %399, i64 %.039320
+  %403 = getelementptr inbounds nuw [32 x i8], ptr %399, i64 %.039320
   %404 = getelementptr inbounds nuw i8, ptr %403, i64 8
   %405 = load i64, ptr %404, align 8, !tbaa !44
   %406 = icmp eq i64 %405, 0
@@ -2487,7 +2486,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE6resize
 
 407:                                              ; preds = %402
   %408 = load ptr, ptr %8, align 8, !tbaa !22
-  %409 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %408, i64 %.039320
+  %409 = getelementptr inbounds nuw [32 x i8], ptr %408, i64 %.039320
   %410 = getelementptr inbounds nuw i8, ptr %409, i64 8
   %411 = load i64, ptr %410, align 8, !tbaa !44
   %412 = icmp eq i64 %411, 4611686018427387903
@@ -2506,7 +2505,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit122: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i119
   %414 = load ptr, ptr %8, align 8, !tbaa !22
-  %415 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %414, i64 %.039320
+  %415 = getelementptr inbounds nuw [32 x i8], ptr %414, i64 %.039320
   %416 = getelementptr inbounds nuw i8, ptr %415, i64 8
   %417 = load i64, ptr %416, align 8, !tbaa !44
   %418 = trunc i64 %417 to i32
@@ -2529,9 +2528,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit122: ; pred
 
 .critedge2:                                       ; preds = %398, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit122, %420, %402
   %421 = load ptr, ptr %8, align 8, !tbaa !22
-  %422 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %421, i64 %.039320
+  %422 = getelementptr inbounds nuw [32 x i8], ptr %421, i64 %.039320
   %423 = load ptr, ptr %9, align 8, !tbaa !22
-  %424 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %423, i64 %.039320
+  %424 = getelementptr inbounds nuw [32 x i8], ptr %423, i64 %.039320
   %425 = getelementptr inbounds nuw i8, ptr %424, i64 8
   %426 = load i64, ptr %425, align 8, !tbaa !44
   %427 = getelementptr inbounds nuw i8, ptr %422, i64 8
@@ -2995,7 +2994,7 @@ define linkonce_odr void @_ZN3gmx18TextTableFormatter4Impl10ColumnData15textForN
   %30 = load i32, ptr %7, align 8, !tbaa !76
   %31 = sext i32 %30 to i64
   %32 = load ptr, ptr %12, align 8, !tbaa !22
-  %33 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %32, i64 %31
+  %33 = getelementptr inbounds nuw [32 x i8], ptr %32, i64 %31
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %35 = load i64, ptr %34, align 8, !tbaa !52
   %36 = call noundef i64 @_ZNK3gmx15TextLineWrapper12findNextLineERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEm(ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(32) %33, i64 noundef %35)
@@ -3021,7 +3020,7 @@ define linkonce_odr void @_ZN3gmx18TextTableFormatter4Impl10ColumnData15textForN
 43:                                               ; preds = %25
   %44 = add nuw nsw i32 %8, 1
   store i32 %44, ptr %7, align 8, !tbaa !76
-  %45 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %15, i64 %11
+  %45 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 %11
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %46, ptr %0, align 8, !tbaa !42
   %47 = load ptr, ptr %45, align 8, !tbaa !26
@@ -3216,7 +3215,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit25, %55
   store ptr %19, ptr %0, align 8, !tbaa !22
   store ptr %.0.lcssa.i.i.i24, ptr %3, align 8, !tbaa !25
-  %59 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %19, i64 %15
+  %59 = getelementptr inbounds nuw [32 x i8], ptr %19, i64 %15
   store ptr %59, ptr %54, align 8, !tbaa !34
   ret void
 }
@@ -3357,9 +3356,9 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit41: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit, %50
   store ptr %29, ptr %0, align 8, !tbaa !22
-  %54 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %30, i64 %1
+  %54 = getelementptr inbounds nuw [32 x i8], ptr %30, i64 %1
   store ptr %54, ptr %4, align 8, !tbaa !25
-  %55 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %29, i64 %27
+  %55 = getelementptr inbounds nuw [32 x i8], ptr %29, i64 %27
   store ptr %55, ptr %11, align 8, !tbaa !34
   br label %56
 

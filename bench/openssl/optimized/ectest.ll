@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.nistp_test_params = type { i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.EC_builtin_curve = type { i32, ptr }
-%struct.c2_curve_test = type { ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, i32 }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
 
 @crv_len = internal unnamed_addr global i64 0, align 8
@@ -1178,7 +1176,7 @@ declare void @add_all_tests(ptr noundef, ptr noundef, i32 noundef, i32 noundef) 
 define internal range(i32 0, 2) i32 @cardinality_test(i32 noundef %0) #0 {
   %2 = load ptr, ptr @curves, align 8, !tbaa !8
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds %struct.EC_builtin_curve, ptr %2, i64 %3
+  %4 = getelementptr inbounds [16 x i8], ptr %2, i64 %3
   %5 = load i32, ptr %4, align 8, !tbaa !16
   %6 = tail call ptr @OBJ_nid2sn(i32 noundef %5) #7
   tail call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str, i32 noundef 2275, ptr noundef nonnull @.str.76, ptr noundef %6) #7
@@ -3481,7 +3479,7 @@ define internal range(i32 0, 2) i32 @char2_curve_test(i32 noundef %0) #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %11 = sext i32 %0 to i64
-  %12 = getelementptr inbounds %struct.c2_curve_test, ptr @char2_curve_tests, i64 %11
+  %12 = getelementptr inbounds [80 x i8], ptr @char2_curve_tests, i64 %11
   %13 = tail call ptr @BN_CTX_new() #7
   %14 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 793, ptr noundef nonnull @.str.77, ptr noundef %13) #7
   %.not = icmp eq i32 %14, 0
@@ -3989,7 +3987,7 @@ define internal range(i32 0, 2) i32 @nistp_single_test(i32 noundef %0) #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = sext i32 %0 to i64
-  %10 = getelementptr inbounds %struct.nistp_test_params, ptr @nistp_tests_params, i64 %9
+  %10 = getelementptr inbounds [80 x i8], ptr @nistp_tests_params, i64 %9
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr null, ptr %2, align 8, !tbaa !12
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -4475,7 +4473,7 @@ define internal range(i32 0, 2) i32 @nistp_single_test(i32 noundef %0) #0 {
 define internal range(i32 0, 2) i32 @internal_curve_test(i32 noundef %0) #0 {
   %2 = load ptr, ptr @curves, align 8, !tbaa !8
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds %struct.EC_builtin_curve, ptr %2, i64 %3
+  %4 = getelementptr inbounds [16 x i8], ptr %2, i64 %3
   %5 = load i32, ptr %4, align 8, !tbaa !16
   %6 = tail call ptr @EC_GROUP_new_by_curve_name(i32 noundef %5) #7
   %7 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 1142, ptr noundef nonnull @.str.430, ptr noundef %6) #7
@@ -4514,7 +4512,7 @@ define internal range(i32 0, 2) i32 @internal_curve_test(i32 noundef %0) #0 {
 define internal range(i32 0, 2) i32 @internal_curve_test_method(i32 noundef %0) #0 {
   %2 = load ptr, ptr @curves, align 8, !tbaa !8
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds %struct.EC_builtin_curve, ptr %2, i64 %3
+  %4 = getelementptr inbounds [16 x i8], ptr %2, i64 %3
   %5 = load i32, ptr %4, align 8, !tbaa !16
   %6 = tail call ptr @EC_GROUP_new_by_curve_name(i32 noundef %5) #7
   %7 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 1161, ptr noundef nonnull @.str.430, ptr noundef %6) #7
@@ -4573,7 +4571,7 @@ define internal range(i32 0, 2) i32 @group_field_test() #0 {
 define internal range(i32 0, 2) i32 @check_named_curve_test(i32 noundef %0) #0 {
   %2 = load ptr, ptr @curves, align 8, !tbaa !8
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds %struct.EC_builtin_curve, ptr %2, i64 %3
+  %4 = getelementptr inbounds [16 x i8], ptr %2, i64 %3
   %5 = load i32, ptr %4, align 8, !tbaa !16
   %6 = tail call ptr @BN_CTX_new() #7
   %7 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 1515, ptr noundef nonnull @.str.33, ptr noundef %6) #7
@@ -5010,7 +5008,7 @@ define internal range(i32 0, 2) i32 @check_named_curve_test(i32 noundef %0) #0 {
 define internal range(i32 0, 2) i32 @check_named_curve_lookup_test(i32 noundef %0) #0 {
   %2 = load ptr, ptr @curves, align 8, !tbaa !8
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds %struct.EC_builtin_curve, ptr %2, i64 %3
+  %4 = getelementptr inbounds [16 x i8], ptr %2, i64 %3
   %5 = load i32, ptr %4, align 8, !tbaa !16
   %6 = tail call ptr @BN_CTX_new() #7
   %7 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 1703, ptr noundef nonnull @.str.77, ptr noundef %6) #7
@@ -5102,7 +5100,7 @@ define internal range(i32 0, 2) i32 @check_ec_key_field_public_range_test(i32 no
 7:                                                ; preds = %4
   %8 = load ptr, ptr @curves, align 8, !tbaa !8
   %9 = sext i32 %0 to i64
-  %10 = getelementptr inbounds %struct.EC_builtin_curve, ptr %8, i64 %9
+  %10 = getelementptr inbounds [16 x i8], ptr %8, i64 %9
   %11 = load i32, ptr %10, align 8, !tbaa !16
   %12 = tail call ptr @EC_KEY_new_by_curve_name(i32 noundef %11) #7
   %13 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 2359, ptr noundef nonnull @.str.481, ptr noundef %12) #7
@@ -5199,7 +5197,7 @@ define internal range(i32 0, 2) i32 @check_named_curve_from_ecparameters(i32 nou
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %3, i8 0, i64 64, i1 false)
   %4 = load ptr, ptr @curves, align 8, !tbaa !8
   %5 = sext i32 %0 to i64
-  %6 = getelementptr inbounds %struct.EC_builtin_curve, ptr %4, i64 %5
+  %6 = getelementptr inbounds [16 x i8], ptr %4, i64 %5
   %7 = load i32, ptr %6, align 8, !tbaa !16
   %8 = tail call ptr @OBJ_nid2sn(i32 noundef %7) #7
   tail call void (ptr, ...) @test_note(ptr noundef nonnull @.str.492, ptr noundef %8) #7
@@ -5713,7 +5711,7 @@ define internal range(i32 0, 2) i32 @check_named_curve_from_ecparameters(i32 nou
 define internal range(i32 0, 2) i32 @ec_point_hex2point_test(i32 noundef %0) #0 {
   %2 = load ptr, ptr @curves, align 8, !tbaa !8
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds %struct.EC_builtin_curve, ptr %2, i64 %3
+  %4 = getelementptr inbounds [16 x i8], ptr %2, i64 %3
   %5 = load i32, ptr %4, align 8, !tbaa !16
   %6 = tail call ptr @BN_CTX_new() #7
   %7 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 2464, ptr noundef nonnull @.str.522, ptr noundef %6) #7
@@ -5789,7 +5787,7 @@ define internal range(i32 0, 2) i32 @ec_point_hex2point_test(i32 noundef %0) #0 
 define internal range(i32 0, 2) i32 @custom_generator_test(i32 noundef %0) #0 {
   %2 = load ptr, ptr @curves, align 8, !tbaa !8
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds %struct.EC_builtin_curve, ptr %2, i64 %3
+  %4 = getelementptr inbounds [16 x i8], ptr %2, i64 %3
   %5 = load i32, ptr %4, align 8, !tbaa !16
   %6 = tail call ptr @OBJ_nid2sn(i32 noundef %5) #7
   tail call void (ptr, ...) @test_note(ptr noundef nonnull @.str.492, ptr noundef %6) #7
@@ -5981,7 +5979,7 @@ define internal i32 @custom_params_test(i32 noundef %0) #0 {
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = load ptr, ptr @curves, align 8, !tbaa !8
   %7 = sext i32 %0 to i64
-  %8 = getelementptr inbounds %struct.EC_builtin_curve, ptr %6, i64 %7
+  %8 = getelementptr inbounds [16 x i8], ptr %6, i64 %7
   %9 = load i32, ptr %8, align 8, !tbaa !16
   %10 = tail call ptr @OBJ_nid2sn(i32 noundef %9) #7
   tail call void (ptr, ...) @test_note(ptr noundef nonnull @.str.492, ptr noundef %10) #7

@@ -31,7 +31,7 @@ define range(i32 -1, 1) i32 @qemu_plugin_install(i64 noundef %0, ptr noundef rea
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %glib_auto_cleanup_GStrv.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %glib_auto_cleanup_GStrv.exit ]
-  %6 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
   %8 = tail call ptr @g_strsplit(ptr noundef %7, ptr noundef nonnull @.str, i32 noundef 2) #7
   %9 = load ptr, ptr %8, align 8

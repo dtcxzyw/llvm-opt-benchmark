@@ -1734,7 +1734,7 @@ define hidden void @dissect_wps_tlvs(ptr noundef %0, ptr noundef %1, i32 noundef
   %591 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %590, ptr noundef %1, i32 noundef %579, i32 noundef 2, i32 noundef 0)
   %592 = add nuw nsw i64 %589, 4294967295
   %593 = and i64 %592, 4294967295
-  %594 = getelementptr i32, ptr @hf_eapwps_tlv_primary_device_type_subcategory, i64 %593
+  %594 = getelementptr [4 x i8], ptr @hf_eapwps_tlv_primary_device_type_subcategory, i64 %593
   %595 = load i32, ptr %594, align 4
   %596 = add i32 %.0696763773, 10
   %597 = call ptr @proto_tree_add_item(ptr noundef %24, i32 noundef %595, ptr noundef %1, i32 noundef %596, i32 noundef 2, i32 noundef 0)

@@ -94,7 +94,7 @@ define void @_ZN3zmq6trie_tD2Ev(ptr noundef nonnull align 8 captures(none) deref
   %.010 = phi i16 [ 0, %.lr.ph ], [ %31, %27 ]
   %21 = load ptr, ptr %4, align 8, !tbaa !12
   %22 = zext i16 %.010 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !17
   %25 = icmp eq ptr %24, null
   br i1 %25, label %27, label %26
@@ -109,7 +109,7 @@ define void @_ZN3zmq6trie_tD2Ev(ptr noundef nonnull align 8 captures(none) deref
 27:                                               ; preds = %26, %19
   %28 = phi i16 [ %.pre11, %26 ], [ %20, %19 ]
   %29 = phi ptr [ %.pre, %26 ], [ %21, %19 ]
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %22
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %22
   store ptr null, ptr %30, align 8, !tbaa !17
   %31 = add i16 %.010, 1
   %.not7 = icmp eq i16 %31, %28
@@ -255,14 +255,14 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse.backedg
   %49 = zext i8 %.sroa.speculated to i32
   %50 = sub nsw i32 %28, %49
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds ptr, ptr %48, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %48, i64 %51
   store ptr %27, ptr %52, align 8, !tbaa !17
   br label %.loopexit
 
 .lr.ph95:                                         ; preds = %.lr.ph95.preheader, %.lr.ph95
   %indvars.iv = phi i64 [ 0, %.lr.ph95.preheader ], [ %indvars.iv.next, %.lr.ph95 ]
   %53 = load ptr, ptr %26, align 8, !tbaa !12
-  %54 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %indvars.iv
   store ptr null, ptr %54, align 8, !tbaa !17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %.not54 = icmp eq i64 %indvars.iv.next, %46
@@ -305,7 +305,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse.backedg
   %.03189 = phi i16 [ %78, %.lr.ph91 ], [ %19, %73 ]
   %75 = load ptr, ptr %59, align 8, !tbaa !12
   %76 = zext i16 %.03189 to i64
-  %77 = getelementptr inbounds nuw ptr, ptr %75, i64 %76
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %76
   store ptr null, ptr %77, align 8, !tbaa !17
   %78 = add i16 %.03189, 1
   %.not52 = icmp eq i16 %78, %74
@@ -338,10 +338,10 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse.backedg
   %93 = phi ptr [ %.pre105, %87 ], [ %86, %79 ]
   %94 = load i8, ptr %8, align 4, !tbaa !9
   %95 = zext i8 %94 to i64
-  %96 = getelementptr inbounds nuw ptr, ptr %93, i64 %95
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %95
   %97 = zext i8 %7 to i64
   %98 = sub nsw i64 0, %97
-  %99 = getelementptr inbounds ptr, ptr %96, i64 %98
+  %99 = getelementptr inbounds [8 x i8], ptr %96, i64 %98
   %100 = zext i16 %19 to i64
   %101 = shl nuw nsw i64 %100, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %99, ptr align 8 %93, i64 %101, i1 false)
@@ -360,7 +360,7 @@ tailrecurse._crit_edge:                           ; preds = %tailrecurse.backedg
   %.03087 = phi i16 [ %108, %.lr.ph ], [ 0, %92 ]
   %105 = load ptr, ptr %59, align 8, !tbaa !12
   %106 = zext i16 %.03087 to i64
-  %107 = getelementptr inbounds nuw ptr, ptr %105, i64 %106
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %106
   store ptr null, ptr %107, align 8, !tbaa !17
   %108 = add i16 %.03087, 1
   %109 = zext i16 %108 to i32
@@ -436,7 +436,7 @@ tailrecurse.backedge:                             ; preds = %112, %131, %127, %1
   %139 = load i8, ptr %8, align 4, !tbaa !9
   %140 = zext i8 %139 to i64
   %141 = sub nsw i64 %138, %140
-  %142 = getelementptr inbounds ptr, ptr %137, i64 %141
+  %142 = getelementptr inbounds [8 x i8], ptr %137, i64 %141
   %143 = load ptr, ptr %142, align 8, !tbaa !17
   %.not55 = icmp eq ptr %143, null
   br i1 %.not55, label %144, label %174
@@ -455,10 +455,10 @@ tailrecurse.backedge:                             ; preds = %112, %131, %127, %1
   %150 = load i8, ptr %8, align 4, !tbaa !9
   %151 = zext i8 %150 to i64
   %152 = sub nsw i64 %138, %151
-  %153 = getelementptr inbounds ptr, ptr %149, i64 %152
+  %153 = getelementptr inbounds [8 x i8], ptr %149, i64 %152
   store ptr %145, ptr %153, align 8, !tbaa !17
   %154 = load ptr, ptr %136, align 8, !tbaa !12
-  %155 = getelementptr inbounds ptr, ptr %154, i64 %152
+  %155 = getelementptr inbounds [8 x i8], ptr %154, i64 %152
   %156 = load ptr, ptr %155, align 8, !tbaa !17
   %.not56 = icmp eq ptr %156, null
   br i1 %.not56, label %157, label %164, !prof !13
@@ -497,7 +497,7 @@ tailrecurse.backedge:                             ; preds = %112, %131, %127, %1
   %176 = load i8, ptr %8, align 4, !tbaa !9
   %177 = zext i8 %176 to i64
   %178 = sub nsw i64 %138, %177
-  %179 = getelementptr inbounds ptr, ptr %175, i64 %178
+  %179 = getelementptr inbounds [8 x i8], ptr %175, i64 %178
   br label %tailrecurse.backedge
 
 180:                                              ; preds = %162, %125
@@ -563,7 +563,7 @@ define noundef zeroext i1 @_ZN3zmq6trie_t2rmEPhm(ptr noundef nonnull align 8 cap
   %24 = load ptr, ptr %23, align 8
   %25 = sub nsw i32 %14, %17
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds ptr, ptr %24, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %24, i64 %26
   %.in = select i1 %22, ptr %23, ptr %27
   %28 = load ptr, ptr %.in, align 8, !tbaa !12
   %.not60 = icmp eq ptr %28, null
@@ -626,7 +626,7 @@ define noundef zeroext i1 @_ZN3zmq6trie_t2rmEPhm(ptr noundef nonnull align 8 cap
   %61 = zext i8 %60 to i32
   %62 = sub nsw i32 %14, %61
   %63 = sext i32 %62 to i64
-  %64 = getelementptr inbounds ptr, ptr %59, i64 %63
+  %64 = getelementptr inbounds [8 x i8], ptr %59, i64 %63
   store ptr null, ptr %64, align 8, !tbaa !17
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %66 = load i16, ptr %65, align 8, !tbaa !11
@@ -660,7 +660,7 @@ define noundef zeroext i1 @_ZN3zmq6trie_t2rmEPhm(ptr noundef nonnull align 8 cap
   %83 = load ptr, ptr %23, align 8, !tbaa !12
   %84 = add nsw i32 %81, -1
   %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds ptr, ptr %83, i64 %85
+  %86 = getelementptr inbounds [8 x i8], ptr %83, i64 %85
   %87 = load ptr, ptr %86, align 8, !tbaa !17
   %88 = trunc i32 %84 to i8
   %89 = add i8 %13, %88
@@ -717,7 +717,7 @@ define noundef zeroext i1 @_ZN3zmq6trie_t2rmEPhm(ptr noundef nonnull align 8 cap
 
 110:                                              ; preds = %.lr.ph92, %113
   %indvars.iv = phi i64 [ 1, %.lr.ph92 ], [ %indvars.iv.next, %113 ]
-  %111 = getelementptr inbounds nuw ptr, ptr %109, i64 %indvars.iv
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %109, i64 %indvars.iv
   %112 = load ptr, ptr %111, align 8, !tbaa !17
   %.not65 = icmp eq ptr %112, null
   br i1 %.not65, label %113, label %114
@@ -817,7 +817,7 @@ define noundef zeroext i1 @_ZN3zmq6trie_t2rmEPhm(ptr noundef nonnull align 8 cap
   %156 = phi ptr [ %.pre109, %150 ], [ %149, %143 ]
   %157 = sub nsw i32 %126, %.pre-phi115
   %158 = sext i32 %157 to i64
-  %159 = getelementptr inbounds ptr, ptr %125, i64 %158
+  %159 = getelementptr inbounds [8 x i8], ptr %125, i64 %158
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %156, ptr align 8 %159, i64 %.pre-phi119, i1 false)
   tail call void @free(ptr noundef %125) #18
   store i8 %.04380, ptr %15, align 4, !tbaa !9
@@ -840,13 +840,13 @@ define noundef zeroext i1 @_ZN3zmq6trie_t2rmEPhm(ptr noundef nonnull align 8 cap
   %168 = load ptr, ptr %23, align 8, !tbaa !12
   %169 = zext i16 %162 to i64
   %wide.trip.count = zext i16 %162 to i64
-  %invariant.gep = getelementptr ptr, ptr %168, i64 %169
+  %invariant.gep = getelementptr [8 x i8], ptr %168, i64 %169
   br label %170
 
 170:                                              ; preds = %.lr.ph, %173
   %indvars.iv95 = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next96, %173 ]
   %171 = xor i64 %indvars.iv95, -1
-  %gep = getelementptr ptr, ptr %invariant.gep, i64 %171
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %171
   %172 = load ptr, ptr %gep, align 8, !tbaa !17
   %.not62 = icmp eq ptr %172, null
   br i1 %.not62, label %173, label %174
@@ -953,7 +953,7 @@ define noundef zeroext i1 @_ZNK3zmq6trie_t5checkEPKhm(ptr noundef nonnull readon
 20:                                               ; preds = %16
   %21 = sub nsw i32 %6, %9
   %22 = sext i32 %21 to i64
-  %23 = getelementptr inbounds ptr, ptr %19, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %19, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !17
   %.not32 = icmp eq ptr %24, null
   br i1 %.not32, label %.critedge, label %25
@@ -1059,7 +1059,7 @@ tailrecurse:                                      ; preds = %27, %6
   store i8 %38, ptr %40, align 1, !tbaa !12
   %41 = load ptr, ptr %25, align 8, !tbaa !12
   %42 = zext i16 %.053 to i64
-  %43 = getelementptr inbounds nuw ptr, ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %42
   %44 = load ptr, ptr %43, align 8, !tbaa !17
   %.not40 = icmp eq ptr %44, null
   br i1 %.not40, label %46, label %45

@@ -503,12 +503,12 @@ for.body.preheader:                               ; preds = %if.then15
 
 vector.ph:                                        ; preds = %for.body.preheader
   %n.vec = and i64 %11, 504
-  %invariant.gep = getelementptr i32, ptr %call19, i64 %10
+  %invariant.gep = getelementptr [4 x i8], ptr %call19, i64 %10
   br label %vector.body
 
 vector.body:                                      ; preds = %vector.body, %vector.ph
   %index = phi i64 [ 0, %vector.ph ], [ %index.next, %vector.body ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %index
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %index
   %12 = getelementptr inbounds nuw i8, ptr %gep, i64 16
   store <4 x i32> splat (i32 -65331), ptr %gep, align 4, !tbaa !30
   store <4 x i32> splat (i32 -65331), ptr %12, align 4, !tbaa !30
@@ -527,7 +527,7 @@ for.body.preheader3:                              ; preds = %middle.block, %for.
 
 for.body:                                         ; preds = %for.body.preheader3, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body ], [ %indvars.iv.ph, %for.body.preheader3 ]
-  %arrayidx = getelementptr inbounds i32, ptr %call19, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds [4 x i8], ptr %call19, i64 %indvars.iv
   store i32 -65331, ptr %arrayidx, align 4, !tbaa !30
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %conv18

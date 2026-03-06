@@ -208,7 +208,7 @@ define internal range(i32 -1, 1) i32 @H5C__prefetched_entry_notify(i32 noundef %
 13:                                               ; preds = %.lr.ph, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %31 ]
   %14 = load ptr, ptr %12, align 8, !tbaa !22
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !23
   %17 = tail call i32 @H5C_destroy_flush_dependency(ptr noundef %16, ptr noundef nonnull %1) #2
   %18 = icmp slt i32 %17, 0

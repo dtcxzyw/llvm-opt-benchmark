@@ -1568,7 +1568,7 @@ _ZN3std2io5error5Error14is_interrupted17haa138aed658ec797E.exit: ; preds = %138
 
 ; Function Attrs: nonlazybind uwtable
 define hidden void @_ZN3std2io22default_write_vectored17hd0061b6b2bf1f3b3E(ptr noalias noundef sret({ i64, [1 x i64] }) align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef align 4 dereferenceable(28) %1, ptr noalias noundef nonnull readonly align 8 captures(address) %2, i64 noundef %3) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %5 = getelementptr inbounds { { { ptr, i64 }, {} } }, ptr %2, i64 %3
+  %5 = getelementptr inbounds [16 x i8], ptr %2, i64 %3
   br label %6
 
 6:                                                ; preds = %9, %4

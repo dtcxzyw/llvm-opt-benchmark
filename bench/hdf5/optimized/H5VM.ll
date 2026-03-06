@@ -13,13 +13,13 @@ target triple = "x86_64-pc-linux-gnu"
 define i64 @H5VM_hyper_stride(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
   %6 = add i32 %0, -1
   %7 = zext i32 %6 to i64
-  %8 = getelementptr inbounds nuw i64, ptr %4, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %7
   store i64 1, ptr %8, align 8, !tbaa !3
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %12, label %9
 
 9:                                                ; preds = %5
-  %10 = getelementptr inbounds nuw i64, ptr %3, i64 %7
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %7
   %11 = load i64, ptr %10, align 8, !tbaa !3
   br label %12
 
@@ -175,13 +175,13 @@ define i64 @H5VM_hyper_stride(i32 noundef %0, ptr noundef readonly captures(none
   %indvars.iv89 = phi i64 [ %indvars.iv.next90, %.lr.ph.split.us ], [ %112, %.lr.ph ]
   %.08084.us = phi i64 [ %122, %.lr.ph.split.us ], [ 1, %.lr.ph ]
   %113 = add nuw nsw i64 %indvars.iv89, 1
-  %114 = getelementptr inbounds nuw i64, ptr %2, i64 %113
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %113
   %115 = load i64, ptr %114, align 8, !tbaa !3
-  %116 = getelementptr inbounds nuw i64, ptr %1, i64 %113
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %113
   %117 = load i64, ptr %116, align 8, !tbaa !3
   %118 = sub i64 %115, %117
   %119 = mul i64 %118, %.08084.us
-  %120 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv89
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv89
   store i64 %119, ptr %120, align 8, !tbaa !3
   %121 = load i64, ptr %114, align 8, !tbaa !3
   %122 = mul i64 %121, %.08084.us
@@ -194,17 +194,17 @@ define i64 @H5VM_hyper_stride(i32 noundef %0, ptr noundef readonly captures(none
   %.186 = phi i64 [ %136, %.lr.ph.split ], [ %13, %.lr.ph ]
   %.08084 = phi i64 [ %132, %.lr.ph.split ], [ 1, %.lr.ph ]
   %123 = add nuw nsw i64 %indvars.iv, 1
-  %124 = getelementptr inbounds nuw i64, ptr %2, i64 %123
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %123
   %125 = load i64, ptr %124, align 8, !tbaa !3
-  %126 = getelementptr inbounds nuw i64, ptr %1, i64 %123
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %123
   %127 = load i64, ptr %126, align 8, !tbaa !3
   %128 = sub i64 %125, %127
   %129 = mul i64 %128, %.08084
-  %130 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv
+  %130 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   store i64 %129, ptr %130, align 8, !tbaa !3
   %131 = load i64, ptr %124, align 8, !tbaa !3
   %132 = mul i64 %131, %.08084
-  %133 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %134 = load i64, ptr %133, align 8, !tbaa !3
   %135 = mul i64 %134, %132
   %136 = add i64 %135, %.186
@@ -241,9 +241,9 @@ define range(i32 0, 2) i32 @H5VM_hyper_eq(i32 noundef %0, ptr noundef readonly c
   %indvars.iv83 = phi i64 [ %indvars.iv.next84, %11 ], [ 0, %.preheader.split.split.split.us ]
   %.02543.us52.us = phi i64 [ %16, %11 ], [ 1, %.preheader.split.split.split.us ]
   %.02642.us53.us = phi i64 [ %13, %11 ], [ 1, %.preheader.split.split.split.us ]
-  %7 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv83
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv83
   %8 = load i64, ptr %7, align 8, !tbaa !3
-  %9 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv83
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv83
   %10 = load i64, ptr %9, align 8, !tbaa !3
   %.not39.us55.us.not = icmp eq i64 %8, %10
   br i1 %.not39.us55.us.not, label %12, label %.thread
@@ -267,7 +267,7 @@ define range(i32 0, 2) i32 @H5VM_hyper_eq(i32 noundef %0, ptr noundef readonly c
   %indvars.iv78 = phi i64 [ %indvars.iv.next79, %20 ], [ 0, %.preheader.split.split.split.us ]
   %.02543.us52 = phi i64 [ %30, %20 ], [ 1, %.preheader.split.split.split.us ]
   %.02642.us53 = phi i64 [ %27, %20 ], [ 1, %.preheader.split.split.split.us ]
-  %18 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv78
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv78
   %19 = load i64, ptr %18, align 8, !tbaa !3
   %.not36.us54 = icmp eq i64 %19, 0
   br i1 %.not36.us54, label %21, label %.thread
@@ -278,9 +278,9 @@ define range(i32 0, 2) i32 @H5VM_hyper_eq(i32 noundef %0, ptr noundef readonly c
   br i1 %exitcond82.not, label %.thread, label %.preheader.split.split.split.us.split, !llvm.loop !9
 
 21:                                               ; preds = %.preheader.split.split.split.us.split
-  %22 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv78
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv78
   %23 = load i64, ptr %22, align 8, !tbaa !3
-  %24 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv78
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv78
   %25 = load i64, ptr %24, align 8, !tbaa !3
   %.not39.us55.not = icmp eq i64 %23, %25
   br i1 %.not39.us55.not, label %26, label %.thread
@@ -302,7 +302,7 @@ define range(i32 0, 2) i32 @H5VM_hyper_eq(i32 noundef %0, ptr noundef readonly c
   %indvars.iv73 = phi i64 [ %indvars.iv.next74, %34 ], [ 0, %.preheader.split.split.split ]
   %.02543.us59 = phi i64 [ %44, %34 ], [ 1, %.preheader.split.split.split ]
   %.02642.us60 = phi i64 [ %41, %34 ], [ 1, %.preheader.split.split.split ]
-  %32 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv73
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv73
   %33 = load i64, ptr %32, align 8, !tbaa !3
   %.not36.us61 = icmp eq i64 %33, 0
   br i1 %.not36.us61, label %35, label %.thread
@@ -313,9 +313,9 @@ define range(i32 0, 2) i32 @H5VM_hyper_eq(i32 noundef %0, ptr noundef readonly c
   br i1 %exitcond77.not, label %.thread, label %.preheader.split.split.split.split.us, !llvm.loop !9
 
 35:                                               ; preds = %.preheader.split.split.split.split.us
-  %36 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv73
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv73
   %37 = load i64, ptr %36, align 8, !tbaa !3
-  %38 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv73
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv73
   %39 = load i64, ptr %38, align 8, !tbaa !3
   %.not39.us62.not = icmp eq i64 %37, %39
   br i1 %.not39.us62.not, label %40, label %.thread
@@ -339,17 +339,17 @@ define range(i32 0, 2) i32 @H5VM_hyper_eq(i32 noundef %0, ptr noundef readonly c
   %indvars.iv = phi i64 [ %indvars.iv.next, %46 ], [ 0, %.preheader.split.split.split ]
   %.02543 = phi i64 [ %60, %46 ], [ 1, %.preheader.split.split.split ]
   %.02642 = phi i64 [ %57, %46 ], [ 1, %.preheader.split.split.split ]
-  %47 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %48 = load i64, ptr %47, align 8, !tbaa !3
-  %49 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %50 = load i64, ptr %49, align 8, !tbaa !3
   %.not36 = icmp eq i64 %48, %50
   br i1 %.not36, label %51, label %.thread
 
 51:                                               ; preds = %.preheader.split.split.split.split
-  %52 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %53 = load i64, ptr %52, align 8, !tbaa !3
-  %54 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %55 = load i64, ptr %54, align 8, !tbaa !3
   %.not39.not = icmp eq i64 %53, %55
   br i1 %.not39.not, label %56, label %.thread
@@ -397,7 +397,7 @@ define noundef i32 @H5VM_hyper_fill(i32 noundef %0, ptr noundef readonly capture
 .lr.ph.preheader.i:                               ; preds = %14
   %16 = zext i32 %0 to i64
   %indvars.iv.next.i24 = add nsw i64 %16, -1
-  %17 = getelementptr inbounds nuw i64, ptr %9, i64 %indvars.iv.next.i24
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv.next.i24
   %18 = load i64, ptr %17, align 8, !tbaa !3
   %19 = icmp eq i64 %18, 1
   br i1 %19, label %.lr.ph, label %H5VM__stride_optimize1.exit
@@ -408,7 +408,7 @@ define noundef i32 @H5VM_hyper_fill(i32 noundef %0, ptr noundef readonly capture
   %indvars.iv.next.i28 = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ %indvars.iv.next.i24, %.lr.ph.preheader.i ]
   %indvars.iv.i27 = phi i64 [ %indvars.iv.next.i28, %.lr.ph.i ], [ %16, %.lr.ph.preheader.i ]
   %indvars.i29 = trunc i64 %indvars.iv.next.i28 to i32
-  %22 = getelementptr inbounds nuw i64, ptr %8, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %21
   %23 = load i64, ptr %22, align 8, !tbaa !3
   %24 = mul i64 %23, %20
   %cond.i = icmp eq i32 %indvars.i29, 0
@@ -417,13 +417,13 @@ define noundef i32 @H5VM_hyper_fill(i32 noundef %0, ptr noundef readonly capture
 .lr.ph.i:                                         ; preds = %.lr.ph
   %25 = add nsw i64 %indvars.iv.i27, 4294967294
   %26 = and i64 %25, 4294967295
-  %27 = getelementptr inbounds nuw i64, ptr %9, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %26
   %28 = load i64, ptr %27, align 8, !tbaa !3
   %29 = add i64 %28, %24
   store i64 %29, ptr %27, align 8, !tbaa !3
   %indvars.iv.next.i = add nsw i64 %indvars.iv.next.i28, -1
   %30 = and i64 %indvars.iv.next.i, 4294967295
-  %31 = getelementptr inbounds nuw i64, ptr %9, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %30
   %32 = load i64, ptr %31, align 8, !tbaa !3
   %.not19.i = icmp ne i64 %32, 0
   %33 = icmp eq i64 %32, %24
@@ -482,10 +482,10 @@ H5VM_vector_reduce_product.exit.i:                ; preds = %.lr.ph.i.i
   %.02342.us.i = phi i32 [ %.02340.i, %.lr.ph.us.i ], [ %.023.us.i, %52 ]
   %.12641.us.i = phi ptr [ %.02543.us.i, %.lr.ph.us.i ], [ %48, %52 ]
   %45 = zext nneg i32 %.02342.us.i to i64
-  %46 = getelementptr inbounds nuw i64, ptr %9, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %45
   %47 = load i64, ptr %46, align 8, !tbaa !3
   %48 = getelementptr inbounds nuw i8, ptr %.12641.us.i, i64 %47
-  %49 = getelementptr inbounds nuw i64, ptr %7, i64 %45
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %45
   %50 = load i64, ptr %49, align 8, !tbaa !3
   %51 = add i64 %50, -1
   store i64 %51, ptr %49, align 8, !tbaa !3
@@ -493,7 +493,7 @@ H5VM_vector_reduce_product.exit.i:                ; preds = %.lr.ph.i.i
   br i1 %.not30.us.i, label %52, label %._crit_edge.us.i
 
 52:                                               ; preds = %44
-  %53 = getelementptr inbounds nuw i64, ptr %8, i64 %45
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %45
   %54 = load i64, ptr %53, align 8, !tbaa !3
   store i64 %54, ptr %49, align 8, !tbaa !3
   %.023.us.i = add nsw i32 %.02342.us.i, -1
@@ -580,10 +580,10 @@ H5VM_vector_reduce_product.exit:                  ; preds = %.lr.ph.i, %.split28
   %.02342.us = phi i32 [ %.02340, %.lr.ph.us ], [ %.023.us, %26 ]
   %.12641.us = phi ptr [ %.02543.us, %.lr.ph.us ], [ %22, %26 ]
   %19 = zext nneg i32 %.02342.us to i64
-  %20 = getelementptr inbounds nuw i64, ptr %3, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %19
   %21 = load i64, ptr %20, align 8, !tbaa !3
   %22 = getelementptr inbounds nuw i8, ptr %.12641.us, i64 %21
-  %23 = getelementptr inbounds nuw i64, ptr %7, i64 %19
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %19
   %24 = load i64, ptr %23, align 8, !tbaa !3
   %25 = add i64 %24, -1
   store i64 %25, ptr %23, align 8, !tbaa !3
@@ -591,7 +591,7 @@ H5VM_vector_reduce_product.exit:                  ; preds = %.lr.ph.i, %.split28
   br i1 %.not30.us, label %26, label %._crit_edge.us
 
 26:                                               ; preds = %18
-  %27 = getelementptr inbounds nuw i64, ptr %2, i64 %19
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %19
   %28 = load i64, ptr %27, align 8, !tbaa !3
   store i64 %28, ptr %23, align 8, !tbaa !3
   %.023.us = add nsw i32 %.02342.us, -1
@@ -638,15 +638,15 @@ define noundef i32 @H5VM_hyper_copy(i32 noundef %0, ptr noundef readonly capture
 17:                                               ; preds = %16, %15
   %18 = add i32 %0, -1
   %19 = zext i32 %18 to i64
-  %20 = getelementptr inbounds nuw i64, ptr %12, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %19
   store i64 1, ptr %20, align 8, !tbaa !3
-  %21 = getelementptr inbounds nuw i64, ptr %11, i64 %19
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %19
   store i64 1, ptr %21, align 8, !tbaa !3
   %.not140 = icmp eq ptr %3, null
   br i1 %.not140, label %25, label %22
 
 22:                                               ; preds = %17
-  %23 = getelementptr inbounds nuw i64, ptr %3, i64 %19
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %19
   %24 = load i64, ptr %23, align 8, !tbaa !3
   br label %25
 
@@ -656,7 +656,7 @@ define noundef i32 @H5VM_hyper_copy(i32 noundef %0, ptr noundef readonly capture
   br i1 %.not141, label %30, label %27
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds nuw i64, ptr %6, i64 %19
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %19
   %29 = load i64, ptr %28, align 8, !tbaa !3
   br label %30
 
@@ -897,26 +897,26 @@ define noundef i32 @H5VM_hyper_copy(i32 noundef %0, ptr noundef readonly capture
   %.1199 = phi i64 [ %26, %.lr.ph.preheader ], [ %201, %206 ]
   %.1128198 = phi i64 [ %31, %.lr.ph.preheader ], [ %208, %206 ]
   %180 = add nuw nsw i64 %indvars.iv, 1
-  %181 = getelementptr inbounds nuw i64, ptr %2, i64 %180
+  %181 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %180
   %182 = load i64, ptr %181, align 8, !tbaa !3
-  %183 = getelementptr inbounds nuw i64, ptr %10, i64 %180
+  %183 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %180
   %184 = load i64, ptr %183, align 8, !tbaa !3
   %185 = sub i64 %182, %184
   %186 = mul i64 %185, %.0125200
-  %187 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv
+  %187 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   store i64 %186, ptr %187, align 8, !tbaa !3
-  %188 = getelementptr inbounds nuw i64, ptr %5, i64 %180
+  %188 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %180
   %189 = load i64, ptr %188, align 8, !tbaa !3
   %190 = sub i64 %189, %184
   %191 = mul i64 %190, %.0124201
-  %192 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv
+  %192 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   store i64 %191, ptr %192, align 8, !tbaa !3
   %193 = mul i64 %182, %.0125200
   %194 = mul i64 %189, %.0124201
   br i1 %.not140, label %199, label %195
 
 195:                                              ; preds = %.lr.ph
-  %196 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
+  %196 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %197 = load i64, ptr %196, align 8, !tbaa !3
   %198 = mul i64 %197, %193
   br label %199
@@ -927,7 +927,7 @@ define noundef i32 @H5VM_hyper_copy(i32 noundef %0, ptr noundef readonly capture
   br i1 %.not141, label %206, label %202
 
 202:                                              ; preds = %199
-  %203 = getelementptr inbounds nuw i64, ptr %6, i64 %indvars.iv
+  %203 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %204 = load i64, ptr %203, align 8, !tbaa !3
   %205 = mul i64 %204, %194
   br label %206
@@ -1100,13 +1100,13 @@ define noundef i32 @H5VM_hyper_copy(i32 noundef %0, ptr noundef readonly capture
   %305 = phi i64 [ %323, %.lr.ph.i ], [ %19, %.lr.ph.i.preheader ]
   %306 = phi i32 [ %322, %.lr.ph.i ], [ %18, %.lr.ph.i.preheader ]
   %.0163204 = phi i32 [ %306, %.lr.ph.i ], [ %0, %.lr.ph.i.preheader ]
-  %307 = getelementptr inbounds nuw i64, ptr %11, i64 %305
+  %307 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %305
   %308 = load i64, ptr %307, align 8, !tbaa !3
   %309 = icmp eq i64 %308, %304
   br i1 %309, label %310, label %.loopexit
 
 310:                                              ; preds = %.lr.ph206
-  %311 = getelementptr inbounds nuw i64, ptr %10, i64 %305
+  %311 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %305
   %312 = load i64, ptr %311, align 8, !tbaa !3
   %313 = mul i64 %312, %304
   %.not142.i = icmp eq i32 %306, 0
@@ -1115,17 +1115,17 @@ define noundef i32 @H5VM_hyper_copy(i32 noundef %0, ptr noundef readonly capture
 .lr.ph.i:                                         ; preds = %310
   %314 = add i32 %.0163204, -2
   %315 = zext i32 %314 to i64
-  %316 = getelementptr inbounds nuw i64, ptr %12, i64 %315
+  %316 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %315
   %317 = load i64, ptr %316, align 8, !tbaa !3
   %318 = add i64 %317, %313
   store i64 %318, ptr %316, align 8, !tbaa !3
-  %319 = getelementptr inbounds nuw i64, ptr %11, i64 %315
+  %319 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %315
   %320 = load i64, ptr %319, align 8, !tbaa !3
   %321 = add i64 %320, %313
   store i64 %321, ptr %319, align 8, !tbaa !3
   %322 = add i32 %306, -1
   %323 = zext i32 %322 to i64
-  %324 = getelementptr inbounds nuw i64, ptr %12, i64 %323
+  %324 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %323
   %325 = load i64, ptr %324, align 8, !tbaa !3
   %326 = icmp eq i64 %325, %313
   br i1 %326, label %.lr.ph206, label %.loopexit, !llvm.loop !14
@@ -1183,13 +1183,13 @@ H5VM_vector_reduce_product.exit.i:                ; preds = %.lr.ph.i.i
   %.13454.us.i = phi ptr [ %.03358.us.i, %.lr.ph.us.i ], [ %345, %349 ]
   %.13653.us.i = phi ptr [ %.03557.us.i, %.lr.ph.us.i ], [ %342, %349 ]
   %339 = zext nneg i32 %.03155.us.i to i64
-  %340 = getelementptr inbounds nuw i64, ptr %11, i64 %339
+  %340 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %339
   %341 = load i64, ptr %340, align 8, !tbaa !3
   %342 = getelementptr inbounds nuw i8, ptr %.13653.us.i, i64 %341
-  %343 = getelementptr inbounds nuw i64, ptr %12, i64 %339
+  %343 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %339
   %344 = load i64, ptr %343, align 8, !tbaa !3
   %345 = getelementptr inbounds nuw i8, ptr %.13454.us.i, i64 %344
-  %346 = getelementptr inbounds nuw i64, ptr %9, i64 %339
+  %346 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %339
   %347 = load i64, ptr %346, align 8, !tbaa !3
   %348 = add i64 %347, -1
   store i64 %348, ptr %346, align 8, !tbaa !3
@@ -1197,7 +1197,7 @@ H5VM_vector_reduce_product.exit.i:                ; preds = %.lr.ph.i.i
   br i1 %.not42.us.i, label %349, label %._crit_edge.us.i
 
 349:                                              ; preds = %338
-  %350 = getelementptr inbounds nuw i64, ptr %10, i64 %339
+  %350 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %339
   %351 = load i64, ptr %350, align 8, !tbaa !3
   store i64 %351, ptr %346, align 8, !tbaa !3
   %.031.us.i = add nsw i32 %.03155.us.i, -1
@@ -1283,13 +1283,13 @@ H5VM_vector_reduce_product.exit:                  ; preds = %.lr.ph.i
   %.13454.us = phi ptr [ %.03358.us, %.lr.ph.us ], [ %24, %28 ]
   %.13653.us = phi ptr [ %.03557.us, %.lr.ph.us ], [ %21, %28 ]
   %18 = zext nneg i32 %.03155.us to i64
-  %19 = getelementptr inbounds nuw i64, ptr %5, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %18
   %20 = load i64, ptr %19, align 8, !tbaa !3
   %21 = getelementptr inbounds nuw i8, ptr %.13653.us, i64 %20
-  %22 = getelementptr inbounds nuw i64, ptr %3, i64 %18
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %18
   %23 = load i64, ptr %22, align 8, !tbaa !3
   %24 = getelementptr inbounds nuw i8, ptr %.13454.us, i64 %23
-  %25 = getelementptr inbounds nuw i64, ptr %8, i64 %18
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %18
   %26 = load i64, ptr %25, align 8, !tbaa !3
   %27 = add i64 %26, -1
   store i64 %27, ptr %25, align 8, !tbaa !3
@@ -1297,7 +1297,7 @@ H5VM_vector_reduce_product.exit:                  ; preds = %.lr.ph.i
   br i1 %.not42.us, label %28, label %._crit_edge.us
 
 28:                                               ; preds = %17
-  %29 = getelementptr inbounds nuw i64, ptr %2, i64 %18
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %18
   %30 = load i64, ptr %29, align 8, !tbaa !3
   store i64 %30, ptr %25, align 8, !tbaa !3
   %.031.us = add nsw i32 %.03155.us, -1
@@ -1374,13 +1374,13 @@ H5VM_vector_reduce_product.exit:                  ; preds = %.lr.ph.i
   %.13454.us = phi ptr [ %.03358.us, %.lr.ph.us ], [ %24, %28 ]
   %.13653.us = phi ptr [ %.03557.us, %.lr.ph.us ], [ %21, %28 ]
   %18 = zext nneg i32 %.03155.us to i64
-  %19 = getelementptr inbounds nuw i64, ptr %5, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %18
   %20 = load i64, ptr %19, align 8, !tbaa !3
   %21 = getelementptr inbounds i8, ptr %.13653.us, i64 %20
-  %22 = getelementptr inbounds nuw i64, ptr %3, i64 %18
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %18
   %23 = load i64, ptr %22, align 8, !tbaa !3
   %24 = getelementptr inbounds i8, ptr %.13454.us, i64 %23
-  %25 = getelementptr inbounds nuw i64, ptr %8, i64 %18
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %18
   %26 = load i64, ptr %25, align 8, !tbaa !3
   %27 = add i64 %26, -1
   store i64 %27, ptr %25, align 8, !tbaa !3
@@ -1388,7 +1388,7 @@ H5VM_vector_reduce_product.exit:                  ; preds = %.lr.ph.i
   br i1 %.not42.us, label %28, label %._crit_edge.us
 
 28:                                               ; preds = %17
-  %29 = getelementptr inbounds nuw i64, ptr %2, i64 %18
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %18
   %30 = load i64, ptr %29, align 8, !tbaa !3
   store i64 %30, ptr %25, align 8, !tbaa !3
   %.031.us = add nsw i32 %.03155.us, -1
@@ -1466,9 +1466,9 @@ define void @H5VM_array_down(i32 noundef %0, ptr noundef readonly captures(none)
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %5, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.0810 = phi i64 [ 1, %.lr.ph.preheader ], [ %9, %.lr.ph ]
-  %6 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   store i64 %.0810, ptr %6, align 8, !tbaa !3
-  %7 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %8 = load i64, ptr %7, align 8, !tbaa !3
   %9 = mul i64 %8, %.0810
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
@@ -1491,9 +1491,9 @@ define i64 @H5VM_array_offset_pre(i32 noundef %0, ptr noundef readonly captures(
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.010 = phi i64 [ 0, %.lr.ph.preheader ], [ %9, %.lr.ph ]
-  %4 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %5 = load i64, ptr %4, align 8, !tbaa !3
-  %6 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %7 = load i64, ptr %6, align 8, !tbaa !3
   %8 = mul i64 %7, %5
   %9 = add i64 %8, %.010
@@ -1521,9 +1521,9 @@ define i64 @H5VM_array_offset(i32 noundef %0, ptr noundef readonly captures(none
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %6, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.0810.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %10, %.lr.ph.i ]
-  %7 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i
   store i64 %.0810.i, ptr %7, align 8, !tbaa !3
-  %8 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i
   %9 = load i64, ptr %8, align 8, !tbaa !3
   %10 = mul i64 %9, %.0810.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
@@ -1541,9 +1541,9 @@ H5VM_array_down.exit:                             ; preds = %3
 .lr.ph.i6:                                        ; preds = %.lr.ph.i6, %.lr.ph.preheader.i5
   %indvars.iv.i7 = phi i64 [ 0, %.lr.ph.preheader.i5 ], [ %indvars.iv.next.i8, %.lr.ph.i6 ]
   %.010.i = phi i64 [ 0, %.lr.ph.preheader.i5 ], [ %16, %.lr.ph.i6 ]
-  %11 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv.i7
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i7
   %12 = load i64, ptr %11, align 8, !tbaa !3
-  %13 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv.i7
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i7
   %14 = load i64, ptr %13, align 8, !tbaa !3
   %15 = mul i64 %14, %12
   %16 = add i64 %15, %.010.i
@@ -1569,10 +1569,10 @@ define noundef i32 @H5VM_array_calc_pre(i64 noundef %0, i32 noundef %1, ptr noun
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.01011 = phi i64 [ %0, %.lr.ph.preheader ], [ %10, %.lr.ph ]
-  %5 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %6 = load i64, ptr %5, align 8, !tbaa !3
   %7 = udiv i64 %.01011, %6
-  %8 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   store i64 %7, ptr %8, align 8, !tbaa !3
   %9 = load i64, ptr %5, align 8, !tbaa !3
   %10 = urem i64 %.01011, %9
@@ -1599,9 +1599,9 @@ define noundef i32 @H5VM_array_calc(i64 noundef %0, i32 noundef %1, ptr noundef 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %7, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.0810.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %11, %.lr.ph.i ]
-  %8 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i
   store i64 %.0810.i, ptr %8, align 8, !tbaa !3
-  %9 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i
   %10 = load i64, ptr %9, align 8, !tbaa !3
   %11 = mul i64 %10, %.0810.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
@@ -1619,10 +1619,10 @@ H5VM_array_down.exit:                             ; preds = %4
 .lr.ph.i8:                                        ; preds = %.lr.ph.i8, %.lr.ph.preheader.i7
   %indvars.iv.i9 = phi i64 [ 0, %.lr.ph.preheader.i7 ], [ %indvars.iv.next.i10, %.lr.ph.i8 ]
   %.01011.i = phi i64 [ %0, %.lr.ph.preheader.i7 ], [ %16, %.lr.ph.i8 ]
-  %12 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv.i9
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i9
   %13 = load i64, ptr %12, align 8, !tbaa !3
   %14 = udiv i64 %.01011.i, %13
-  %15 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv.i9
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i9
   store i64 %14, ptr %15, align 8, !tbaa !3
   %16 = urem i64 %.01011.i, %13
   %indvars.iv.next.i10 = add nuw nsw i64 %indvars.iv.i9, 1
@@ -1649,13 +1649,13 @@ define i64 @H5VM_chunk_index(i32 noundef %0, ptr noundef readonly captures(none)
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %6 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i
   %7 = load i64, ptr %6, align 8, !tbaa !3
-  %8 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.i
   %9 = load i32, ptr %8, align 4, !tbaa !23
   %10 = zext i32 %9 to i64
   %11 = udiv i64 %7, %10
-  %12 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i
   store i64 %11, ptr %12, align 8, !tbaa !3
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -1664,9 +1664,9 @@ define i64 @H5VM_chunk_index(i32 noundef %0, ptr noundef readonly captures(none)
 .lr.ph.i.i:                                       ; preds = %.lr.ph.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %.lr.ph.i ]
   %.010.i.i = phi i64 [ %18, %.lr.ph.i.i ], [ 0, %.lr.ph.i ]
-  %13 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv.i.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i.i
   %14 = load i64, ptr %13, align 8, !tbaa !3
-  %15 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv.i.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i.i
   %16 = load i64, ptr %15, align 8, !tbaa !3
   %17 = mul i64 %16, %14
   %18 = add i64 %17, %.010.i.i
@@ -1691,13 +1691,13 @@ define i64 @H5VM_chunk_index_scaled(i32 noundef %0, ptr noundef readonly capture
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %6 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %7 = load i64, ptr %6, align 8, !tbaa !3
-  %8 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !23
   %10 = zext i32 %9 to i64
   %11 = udiv i64 %7, %10
-  %12 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   store i64 %11, ptr %12, align 8, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1710,9 +1710,9 @@ define i64 @H5VM_chunk_index_scaled(i32 noundef %0, ptr noundef readonly capture
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.010.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %18, %.lr.ph.i ]
-  %13 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv.i
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i
   %14 = load i64, ptr %13, align 8, !tbaa !3
-  %15 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i
   %16 = load i64, ptr %15, align 8, !tbaa !3
   %17 = mul i64 %16, %14
   %18 = add i64 %17, %.010.i
@@ -1736,13 +1736,13 @@ define void @H5VM_chunk_scaled(i32 noundef %0, ptr noundef readonly captures(non
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %5 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %6 = load i64, ptr %5, align 8, !tbaa !3
-  %7 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %8 = load i32, ptr %7, align 4, !tbaa !23
   %9 = zext i32 %8 to i64
   %10 = udiv i64 %6, %9
-  %11 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   store i64 %10, ptr %11, align 8, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1755,17 +1755,17 @@ define void @H5VM_chunk_scaled(i32 noundef %0, ptr noundef readonly captures(non
 ; Function Attrs: nounwind uwtable
 define i64 @H5VM_opvv(i64 noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i64 noundef %4, ptr noundef captures(none) %5, ptr noundef captures(none) %6, ptr noundef %7, ptr noundef readonly captures(none) %8, ptr noundef %9) local_unnamed_addr #5 {
   %11 = load i64, ptr %1, align 8, !tbaa !3
-  %12 = getelementptr inbounds nuw i64, ptr %2, i64 %11
-  %13 = getelementptr inbounds nuw i64, ptr %3, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %11
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %11
   %14 = load i64, ptr %5, align 8, !tbaa !3
-  %15 = getelementptr inbounds nuw i64, ptr %6, i64 %14
-  %16 = getelementptr inbounds nuw i64, ptr %7, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %14
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %14
   %17 = load i64, ptr %12, align 8, !tbaa !3
   %18 = load i64, ptr %13, align 8, !tbaa !3
   %19 = load i64, ptr %15, align 8, !tbaa !3
   %20 = load i64, ptr %16, align 8, !tbaa !3
-  %21 = getelementptr inbounds nuw i64, ptr %3, i64 %0
-  %22 = getelementptr inbounds nuw i64, ptr %7, i64 %4
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %0
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %4
   %23 = icmp ult i64 %19, %17
   br i1 %23, label %24, label %46
 
@@ -1963,15 +1963,15 @@ define i64 @H5VM_opvv(i64 noundef %0, ptr noundef captures(none) %1, ptr noundef
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define i64 @H5VM_memcpyvv(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef %4, ptr noundef readonly captures(none) %5, i64 noundef %6, ptr noundef captures(none) %7, ptr noundef captures(none) %8, ptr noundef %9) local_unnamed_addr #0 {
   %11 = load i64, ptr %2, align 8, !tbaa !3
-  %12 = getelementptr inbounds nuw i64, ptr %3, i64 %11
-  %13 = getelementptr inbounds nuw i64, ptr %4, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %11
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %11
   %14 = load i64, ptr %7, align 8, !tbaa !3
-  %15 = getelementptr inbounds nuw i64, ptr %8, i64 %14
-  %16 = getelementptr inbounds nuw i64, ptr %9, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %14
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %14
   %17 = load i64, ptr %12, align 8, !tbaa !3
   %18 = load i64, ptr %15, align 8, !tbaa !3
-  %19 = getelementptr inbounds nuw i64, ptr %4, i64 %1
-  %20 = getelementptr inbounds nuw i64, ptr %9, i64 %6
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %1
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %6
   %21 = load i64, ptr %13, align 8, !tbaa !3
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 %21
   %23 = load i64, ptr %16, align 8, !tbaa !3

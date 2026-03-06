@@ -42,8 +42,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.llvm::SmallVectorStorage.119" = type { [16 x i8] }
 %"struct.llvm::wasm::WasmLimits" = type { i8, i64, i64 }
 %"struct.llvm::wasm::WasmTableType" = type { i32, %"struct.llvm::wasm::WasmLimits" }
-%"struct.llvm::wasm::WasmImport" = type { %"class.llvm::StringRef", %"class.llvm::StringRef", i8, %union.anon.126 }
-%union.anon.126 = type { %"struct.llvm::wasm::WasmTableType" }
 %"struct.llvm::wasm::WasmFunction" = type <{ i32, i32, %"class.std::vector.113", %"class.llvm::ArrayRef", i32, i32, i32, [4 x i8], %"class.std::optional", %"class.llvm::StringRef", %"class.llvm::StringRef", i32, [4 x i8] }>
 %"class.std::vector.113" = type { %"struct.std::_Vector_base.114" }
 %"struct.std::_Vector_base.114" = type { %"struct.std::_Vector_base<llvm::wasm::WasmLocalDecl, std::allocator<llvm::wasm::WasmLocalDecl>>::_Vector_impl" }
@@ -54,36 +52,24 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Optional_payload" = type { %"struct.std::_Optional_payload_base.base", [7 x i8] }
 %"struct.std::_Optional_payload_base.base" = type <{ %"union.std::_Optional_payload_base<llvm::StringRef>::_Storage", i8 }>
 %"union.std::_Optional_payload_base<llvm::StringRef>::_Storage" = type { %"class.llvm::StringRef" }
-%"struct.llvm::wasm::WasmTable" = type { i32, %"struct.llvm::wasm::WasmTableType", %"class.llvm::StringRef" }
-%"struct.llvm::wasm::WasmTag" = type { i32, i32, %"class.llvm::StringRef" }
 %"struct.llvm::wasm::WasmGlobal" = type { i32, %"struct.llvm::wasm::WasmGlobalType", %"struct.llvm::wasm::WasmInitExpr", %"class.llvm::StringRef", i32, i32 }
 %"struct.llvm::wasm::WasmGlobalType" = type { i8, i8 }
 %"struct.llvm::wasm::WasmInitExpr" = type { i8, %"struct.llvm::wasm::WasmInitExprMVP", %"class.llvm::ArrayRef" }
 %"struct.llvm::wasm::WasmInitExprMVP" = type { i8, %union.anon.120 }
 %union.anon.120 = type { i64 }
-%"struct.llvm::wasm::WasmExport" = type { %"class.llvm::StringRef", i8, i32 }
-%"class.llvm::object::WasmSymbol" = type { %"struct.llvm::wasm::WasmSymbolInfo", ptr, ptr, ptr }
-%"struct.llvm::wasm::WasmSymbolInfo" = type { %"class.llvm::StringRef", i8, i32, %"class.std::optional", %"class.std::optional", %"class.std::optional", %union.anon }
-%union.anon = type { %"struct.llvm::wasm::WasmDataReference" }
-%"struct.llvm::wasm::WasmDataReference" = type { i32, i64, i64 }
 %"struct.llvm::wasm::WasmElemSegment" = type { i32, i32, i32, %"struct.llvm::wasm::WasmInitExpr", %"class.std::vector.180" }
 %"class.std::vector.180" = type { %"struct.std::_Vector_base.181" }
 %"struct.std::_Vector_base.181" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" }
 %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<unsigned int, std::allocator<unsigned int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"struct.llvm::wasm::WasmLocalDecl" = type { i8, i32 }
 %"struct.llvm::object::WasmSegment" = type { i32, [4 x i8], %"struct.llvm::wasm::WasmDataSegment" }
 %"struct.llvm::wasm::WasmDataSegment" = type <{ i32, i32, %"struct.llvm::wasm::WasmInitExpr", %"class.llvm::ArrayRef", %"class.llvm::StringRef", i32, i32, i32, [4 x i8] }>
-%"struct.llvm::wasm::WasmDylinkExportInfo" = type <{ %"class.llvm::StringRef", i32, [4 x i8] }>
-%"struct.llvm::wasm::WasmDylinkImportInfo" = type <{ %"class.llvm::StringRef", %"class.llvm::StringRef", i32, [4 x i8] }>
 %"struct.llvm::detail::DenseSetEmpty" = type { i8 }
 %"struct.std::pair.287" = type <{ %"class.llvm::DenseMapIterator", i8, [7 x i8] }>
 %"class.llvm::DenseMapIterator" = type { ptr, ptr }
 %"class.llvm::DenseSet" = type { %"class.llvm::detail::DenseSetImpl" }
 %"class.llvm::detail::DenseSetImpl" = type { %"class.llvm::DenseMap" }
 %"class.llvm::DenseMap" = type <{ ptr, i32, i32, i32, [4 x i8] }>
-%"struct.llvm::wasm::WasmDebugName" = type { i32, i32, %"class.llvm::StringRef" }
-%"struct.llvm::wasm::WasmInitFunc" = type { i32, i32 }
 %"class.llvm::StringSet" = type { %"class.llvm::StringMap" }
 %"class.llvm::StringMap" = type { %"class.llvm::StringMapImpl" }
 %"class.llvm::StringMapImpl" = type { ptr, i32, i32, i32, i32 }
@@ -119,7 +105,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallSetIterator.173" = type <{ %union.anon.175, i8, [7 x i8] }>
 %union.anon.175 = type { %"struct.std::_Rb_tree_const_iterator.176" }
 %"struct.std::_Rb_tree_const_iterator.176" = type { ptr }
-%"struct.llvm::wasm::WasmRelocation" = type { i8, i32, i64, i64 }
 %"class.llvm::Expected.186" = type { %union.anon.187, i8, [7 x i8] }
 %union.anon.187 = type { %"struct.llvm::AlignedCharArrayUnion.1" }
 %"struct.llvm::AlignedCharArrayUnion.1" = type { [8 x i8] }
@@ -154,9 +139,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.240" = type { %"struct.std::_Vector_base<llvm::object::SectionRef, std::allocator<llvm::object::SectionRef>>::_Vector_impl" }
 %"struct.std::_Vector_base<llvm::object::SectionRef, std::allocator<llvm::object::SectionRef>>::_Vector_impl" = type { %"struct.std::_Vector_base<llvm::object::SectionRef, std::allocator<llvm::object::SectionRef>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<llvm::object::SectionRef, std::allocator<llvm::object::SectionRef>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.llvm::detail::DenseSetPair" = type { i64 }
 %"struct.std::_Rb_tree<llvm::StringRef, llvm::StringRef, std::_Identity<llvm::StringRef>, std::less<llvm::StringRef>>::_Alloc_node" = type { ptr }
-%"struct.std::pair.157" = type { %"class.std::__cxx11::basic_string", %"class.std::__cxx11::basic_string" }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::__cxx11::basic_string<char>, std::_Identity<std::__cxx11::basic_string<char>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node" = type { ptr }
 
 $_ZN4llvmplERKNS_5TwineES2_ = comdat any
@@ -2687,7 +2670,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_4wasm7ValTypeELb1EE9push_backES2_.exit: ; p
   %337 = phi i32 [ %332, %_ZL12parseValTypeRN4llvm6object14WasmObjectFile11ReadContextEj.exit ], [ %.pre.i, %334 ]
   %338 = load ptr, ptr %41, align 8, !tbaa !269
   %339 = zext i32 %337 to i64
-  %340 = getelementptr inbounds nuw i32, ptr %338, i64 %339
+  %340 = getelementptr inbounds nuw [4 x i8], ptr %338, i64 %339
   store i32 %.0.i, ptr %340, align 1
   %341 = load i32, ptr %43, align 8, !tbaa !271
   %342 = add i32 %341, 1
@@ -2863,7 +2846,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_4wasm7ValTypeELb1EE9push_backES2_.exit153: 
   %404 = phi i32 [ %399, %_ZL12parseValTypeRN4llvm6object14WasmObjectFile11ReadContextEj.exit150 ], [ %.pre.i152, %401 ]
   %405 = load ptr, ptr %8, align 8, !tbaa !269
   %406 = zext i32 %404 to i64
-  %407 = getelementptr inbounds nuw i32, ptr %405, i64 %406
+  %407 = getelementptr inbounds nuw [4 x i8], ptr %405, i64 %406
   store i32 %.0.i138, ptr %407, align 1
   %408 = load i32, ptr %39, align 8, !tbaa !271
   %409 = add i32 %408, 1
@@ -3177,7 +3160,7 @@ _ZNSt6vectorIN4llvm4wasm10WasmImportESaIS2_EE7reserveEm.exit.thread: ; preds = %
   store ptr %63, ptr %49, align 8, !tbaa !319
   %67 = getelementptr inbounds nuw i8, ptr %63, i64 %61
   store ptr %67, ptr %58, align 8, !tbaa !320
-  %68 = getelementptr inbounds nuw %"struct.llvm::wasm::WasmImport", ptr %63, i64 %27
+  %68 = getelementptr inbounds nuw [72 x i8], ptr %63, i64 %27
   store ptr %68, ptr %50, align 8, !tbaa !318
   br label %.lr.ph
 
@@ -3695,7 +3678,7 @@ _ZNSt6vectorIN4llvm4wasm10WasmImportESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22
 _ZNSt6vectorIN4llvm4wasm10WasmImportESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %247, %_ZNSt6vectorIN4llvm4wasm10WasmImportESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
   store ptr %242, ptr %49, align 8, !tbaa !319
   store ptr %246, ptr %74, align 8, !tbaa !320
-  %248 = getelementptr inbounds nuw %"struct.llvm::wasm::WasmImport", ptr %242, i64 %240
+  %248 = getelementptr inbounds nuw [72 x i8], ptr %242, i64 %240
   store ptr %248, ptr %50, align 8, !tbaa !318
   br label %_ZNSt6vectorIN4llvm4wasm10WasmImportESaIS2_EE9push_backERKS2_.exit
 
@@ -3871,7 +3854,7 @@ _ZNSt6vectorIN4llvm4wasm12WasmFunctionESaIS2_EE7reserveEm.exit.thread: ; preds =
   store ptr %49, ptr %35, align 8, !tbaa !374
   %70 = getelementptr inbounds nuw i8, ptr %49, i64 %47
   store ptr %70, ptr %44, align 8, !tbaa !375
-  %71 = getelementptr inbounds nuw %"struct.llvm::wasm::WasmFunction", ptr %49, i64 %22
+  %71 = getelementptr inbounds nuw [128 x i8], ptr %49, i64 %22
   store ptr %71, ptr %36, align 8, !tbaa !373
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 288
@@ -4209,7 +4192,7 @@ _ZNSt6vectorIN4llvm4wasm9WasmTableESaIS2_EE7reserveEm.exit.thread: ; preds = %_Z
   store ptr %59, ptr %45, align 8, !tbaa !408
   %63 = getelementptr inbounds nuw i8, ptr %59, i64 %57
   store ptr %63, ptr %54, align 8, !tbaa !409
-  %64 = getelementptr inbounds nuw %"struct.llvm::wasm::WasmTable", ptr %59, i64 %32
+  %64 = getelementptr inbounds nuw [56 x i8], ptr %59, i64 %32
   store ptr %64, ptr %46, align 8, !tbaa !407
   br label %.lr.ph
 
@@ -4309,7 +4292,7 @@ _ZNSt6vectorIN4llvm4wasm9WasmTableESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i
 _ZNSt6vectorIN4llvm4wasm9WasmTableESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %98, %_ZNSt6vectorIN4llvm4wasm9WasmTableESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
   store ptr %93, ptr %45, align 8, !tbaa !408
   store ptr %97, ptr %66, align 8, !tbaa !409
-  %99 = getelementptr inbounds nuw %"struct.llvm::wasm::WasmTable", ptr %93, i64 %91
+  %99 = getelementptr inbounds nuw [56 x i8], ptr %93, i64 %91
   store ptr %99, ptr %46, align 8, !tbaa !407
   br label %_ZNSt6vectorIN4llvm4wasm9WasmTableESaIS2_EE9push_backERKS2_.exit
 
@@ -4470,7 +4453,7 @@ _ZNSt6vectorIN4llvm4wasm10WasmLimitsESaIS2_EE7reserveEm.exit.thread: ; preds = %
   store ptr %48, ptr %34, align 8, !tbaa !437
   %52 = getelementptr inbounds nuw i8, ptr %48, i64 %46
   store ptr %52, ptr %43, align 8, !tbaa !438
-  %53 = getelementptr inbounds nuw %"struct.llvm::wasm::WasmLimits", ptr %48, i64 %21
+  %53 = getelementptr inbounds nuw [24 x i8], ptr %48, i64 %21
   store ptr %53, ptr %35, align 8, !tbaa !436
   br label %.lr.ph
 
@@ -4554,7 +4537,7 @@ _ZNSt6vectorIN4llvm4wasm10WasmLimitsESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16
 _ZNSt6vectorIN4llvm4wasm10WasmLimitsESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %85, %_ZNSt6vectorIN4llvm4wasm10WasmLimitsESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %80, ptr %34, align 8, !tbaa !437
   store ptr %84, ptr %55, align 8, !tbaa !438
-  %86 = getelementptr inbounds nuw %"struct.llvm::wasm::WasmLimits", ptr %80, i64 %78
+  %86 = getelementptr inbounds nuw [24 x i8], ptr %80, i64 %78
   store ptr %86, ptr %35, align 8, !tbaa !436
   br label %_ZNSt6vectorIN4llvm4wasm10WasmLimitsESaIS2_EE9push_backERKS2_.exit
 
@@ -4702,7 +4685,7 @@ _ZNSt6vectorIN4llvm4wasm7WasmTagESaIS2_EE7reserveEm.exit.thread: ; preds = %_ZNS
   store ptr %59, ptr %45, align 8, !tbaa !449
   %63 = getelementptr inbounds nuw i8, ptr %59, i64 %57
   store ptr %63, ptr %54, align 8, !tbaa !450
-  %64 = getelementptr inbounds nuw %"struct.llvm::wasm::WasmTag", ptr %59, i64 %32
+  %64 = getelementptr inbounds nuw [24 x i8], ptr %59, i64 %32
   store ptr %64, ptr %46, align 8, !tbaa !448
   %65 = getelementptr inbounds nuw i8, ptr %1, i64 280
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 288
@@ -4841,7 +4824,7 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit26: ; preds =
   %129 = trunc i64 %128 to i32
   %130 = add i32 %122, %129
   %131 = load ptr, ptr %79, align 8, !tbaa !292
-  %132 = getelementptr inbounds nuw %"struct.llvm::wasm::WasmSignature", ptr %131, i64 %105
+  %132 = getelementptr inbounds nuw [64 x i8], ptr %131, i64 %105
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 56
   store i32 1, ptr %133, align 8, !tbaa !273
   %134 = load ptr, ptr %46, align 8, !tbaa !448
@@ -4908,7 +4891,7 @@ _ZNSt6vectorIN4llvm4wasm7WasmTagESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
 _ZNSt6vectorIN4llvm4wasm7WasmTagESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %151, %_ZNSt6vectorIN4llvm4wasm7WasmTagESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
   store ptr %146, ptr %45, align 8, !tbaa !449
   store ptr %150, ptr %82, align 8, !tbaa !450
-  %152 = getelementptr inbounds nuw %"struct.llvm::wasm::WasmTag", ptr %146, i64 %144
+  %152 = getelementptr inbounds nuw [24 x i8], ptr %146, i64 %144
   store ptr %152, ptr %46, align 8, !tbaa !448
   br label %153
 
@@ -5054,7 +5037,7 @@ _ZNSt6vectorIN4llvm4wasm10WasmGlobalESaIS2_EE7reserveEm.exit.thread: ; preds = %
   store ptr %58, ptr %44, align 8, !tbaa !478
   %62 = getelementptr inbounds nuw i8, ptr %58, i64 %56
   store ptr %62, ptr %53, align 8, !tbaa !479
-  %63 = getelementptr inbounds nuw %"struct.llvm::wasm::WasmGlobal", ptr %58, i64 %31
+  %63 = getelementptr inbounds nuw [72 x i8], ptr %58, i64 %31
   store ptr %63, ptr %45, align 8, !tbaa !477
   br label %.lr.ph
 
@@ -5297,7 +5280,7 @@ _ZNSt6vectorIN4llvm4wasm10WasmGlobalESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22
 _ZNSt6vectorIN4llvm4wasm10WasmGlobalESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %164, %_ZNSt6vectorIN4llvm4wasm10WasmGlobalESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
   store ptr %159, ptr %44, align 8, !tbaa !478
   store ptr %163, ptr %66, align 8, !tbaa !479
-  %165 = getelementptr inbounds nuw %"struct.llvm::wasm::WasmGlobal", ptr %159, i64 %157
+  %165 = getelementptr inbounds nuw [72 x i8], ptr %159, i64 %157
   store ptr %165, ptr %45, align 8, !tbaa !477
   br label %_ZNSt6vectorIN4llvm4wasm10WasmGlobalESaIS2_EE9push_backERKS2_.exit
 
@@ -5445,7 +5428,7 @@ _ZNSt12_Vector_baseIN4llvm4wasm10WasmExportESaIS2_EE13_M_deallocateEPS2_m.exit.i
   store ptr %51, ptr %37, align 8, !tbaa !507
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 %49
   store ptr %55, ptr %46, align 8, !tbaa !508
-  %56 = getelementptr inbounds nuw %"struct.llvm::wasm::WasmExport", ptr %51, i64 %24
+  %56 = getelementptr inbounds nuw [24 x i8], ptr %51, i64 %24
   store ptr %56, ptr %38, align 8, !tbaa !506
   br label %_ZNSt6vectorIN4llvm4wasm10WasmExportESaIS2_EE7reserveEm.exit
 
@@ -5492,7 +5475,7 @@ _ZNSt6vectorIN4llvm6object10WasmSymbolESaIS2_EE7reserveEm.exit.thread: ; preds =
   store ptr %71, ptr %57, align 8, !tbaa !516
   %75 = getelementptr inbounds nuw i8, ptr %71, i64 %69
   store ptr %75, ptr %66, align 8, !tbaa !517
-  %76 = getelementptr inbounds nuw %"class.llvm::object::WasmSymbol", ptr %71, i64 %24
+  %76 = getelementptr inbounds nuw [144 x i8], ptr %71, i64 %24
   store ptr %76, ptr %58, align 8, !tbaa !515
   br label %.lr.ph
 
@@ -5681,7 +5664,7 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit62: ; preds =
 161:                                              ; preds = %160
   %162 = sub nuw i32 %144, %146
   %163 = zext i32 %162 to i64
-  %164 = getelementptr inbounds nuw %"struct.llvm::wasm::WasmFunction", ptr %149, i64 %163
+  %164 = getelementptr inbounds nuw [128 x i8], ptr %149, i64 %163
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 64
   %166 = getelementptr inbounds nuw i8, ptr %164, i64 80
   %167 = load i8, ptr %166, align 8, !tbaa !393, !range !256, !noundef !257
@@ -5700,12 +5683,12 @@ _ZNSt8optionalIN4llvm9StringRefEEaSIRS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7i
   %171 = sub i32 %144, %170
   %172 = zext i32 %171 to i64
   %173 = load ptr, ptr %84, align 8, !tbaa !374
-  %174 = getelementptr inbounds nuw %"struct.llvm::wasm::WasmFunction", ptr %173, i64 %172
+  %174 = getelementptr inbounds nuw [128 x i8], ptr %173, i64 %172
   %175 = getelementptr inbounds nuw i8, ptr %174, i64 4
   %176 = load i32, ptr %175, align 4, !tbaa !394
   %177 = zext i32 %176 to i64
   %178 = load ptr, ptr %86, align 8, !tbaa !292
-  %179 = getelementptr inbounds nuw %"struct.llvm::wasm::WasmSignature", ptr %178, i64 %177
+  %179 = getelementptr inbounds nuw [64 x i8], ptr %178, i64 %177
   br label %_ZNK4llvm6object14WasmObjectFile22isDefinedFunctionIndexEj.exit
 
 180:                                              ; preds = %_ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit62
@@ -5740,7 +5723,7 @@ _ZNSt8optionalIN4llvm9StringRefEEaSIRS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7i
 196:                                              ; preds = %195
   %197 = sub nuw i32 %144, %181
   %198 = zext i32 %197 to i64
-  %199 = getelementptr inbounds nuw %"struct.llvm::wasm::WasmGlobal", ptr %184, i64 %198
+  %199 = getelementptr inbounds nuw [72 x i8], ptr %184, i64 %198
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %199, i64 8
   %.sroa.3.0.copyload = load i8, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !36
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %199, i64 24
@@ -5883,7 +5866,7 @@ _ZNSt6vectorIN4llvm4wasm10WasmExportESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22
 _ZNSt6vectorIN4llvm4wasm10WasmExportESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %247, %_ZNSt6vectorIN4llvm4wasm10WasmExportESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
   store ptr %242, ptr %37, align 8, !tbaa !507
   store ptr %246, ptr %87, align 8, !tbaa !508
-  %248 = getelementptr inbounds nuw %"struct.llvm::wasm::WasmExport", ptr %242, i64 %240
+  %248 = getelementptr inbounds nuw [24 x i8], ptr %242, i64 %240
   store ptr %248, ptr %38, align 8, !tbaa !506
   br label %_ZNSt6vectorIN4llvm4wasm10WasmExportESaIS2_EE9push_backERKS2_.exit
 
@@ -5994,7 +5977,7 @@ _ZNSt6vectorIN4llvm6object10WasmSymbolESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
 _ZNSt6vectorIN4llvm6object10WasmSymbolESaIS2_EE17_M_realloc_insertIJRNS0_4wasm14WasmSymbolInfoERPKNS6_14WasmGlobalTypeERPKNS6_13WasmTableTypeERPKNS6_13WasmSignatureEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %275, %_ZNSt6vectorIN4llvm6object10WasmSymbolESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit25.i.i
   store ptr %269, ptr %57, align 8, !tbaa !516
   store ptr %274, ptr %88, align 8, !tbaa !517
-  %276 = getelementptr inbounds nuw %"class.llvm::object::WasmSymbol", ptr %269, i64 %267
+  %276 = getelementptr inbounds nuw [144 x i8], ptr %269, i64 %267
   store ptr %276, ptr %58, align 8, !tbaa !515
   br label %_ZNSt6vectorIN4llvm6object10WasmSymbolESaIS2_EE12emplace_backIJRNS0_4wasm14WasmSymbolInfoERPKNS6_14WasmGlobalTypeERPKNS6_13WasmTableTypeERPKNS6_13WasmSignatureEEEERS2_DpOT_.exit
 
@@ -6254,7 +6237,7 @@ _ZNSt6vectorIN4llvm4wasm15WasmElemSegmentESaIS2_EE7reserveEm.exit.thread: ; pred
   store ptr %53, ptr %39, align 8, !tbaa !564
   %71 = getelementptr inbounds nuw i8, ptr %53, i64 %51
   store ptr %71, ptr %48, align 8, !tbaa !565
-  %72 = getelementptr inbounds nuw %"struct.llvm::wasm::WasmElemSegment", ptr %53, i64 %26
+  %72 = getelementptr inbounds nuw [80 x i8], ptr %53, i64 %26
   store ptr %72, ptr %40, align 8, !tbaa !563
   br label %.lr.ph178
 
@@ -6981,7 +6964,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i: ; preds = %363, %_Z
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i: ; preds = %365, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i
   store ptr %360, ptr %82, align 8, !tbaa !572
   store ptr %364, ptr %83, align 8, !tbaa !575
-  %366 = getelementptr inbounds nuw i32, ptr %360, i64 %358
+  %366 = getelementptr inbounds nuw [4 x i8], ptr %360, i64 %358
   store ptr %366, ptr %84, align 8, !tbaa !576
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
 
@@ -7226,7 +7209,7 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit: ; preds = %
   %58 = phi ptr [ %41, %.lr.ph113 ], [ %211, %207 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph113 ], [ %indvars.iv.next, %207 ]
   %59 = load ptr, ptr %44, align 8, !tbaa !374
-  %60 = getelementptr inbounds nuw %"struct.llvm::wasm::WasmFunction", ptr %59, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [128 x i8], ptr %59, i64 %indvars.iv
   %61 = load ptr, ptr %19, align 8, !tbaa !251
   br label %62
 
@@ -7389,7 +7372,7 @@ _ZNSt6vectorIN4llvm4wasm13WasmLocalDeclESaIS2_EE7reserveEm.exit.thread: ; preds 
   store ptr %138, ptr %124, align 8, !tbaa !381
   %142 = getelementptr inbounds nuw i8, ptr %138, i64 %136
   store ptr %142, ptr %133, align 8, !tbaa !384
-  %143 = getelementptr inbounds nuw %"struct.llvm::wasm::WasmLocalDecl", ptr %138, i64 %112
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %138, i64 %112
   store ptr %143, ptr %125, align 8, !tbaa !385
   br label %.lr.ph
 
@@ -7531,7 +7514,7 @@ _ZNSt6vectorIN4llvm4wasm13WasmLocalDeclESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exi
 _ZNSt6vectorIN4llvm4wasm13WasmLocalDeclESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %199, %_ZNSt6vectorIN4llvm4wasm13WasmLocalDeclESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %194, ptr %124, align 8, !tbaa !381
   store ptr %198, ptr %144, align 8, !tbaa !384
-  %200 = getelementptr inbounds nuw %"struct.llvm::wasm::WasmLocalDecl", ptr %194, i64 %192
+  %200 = getelementptr inbounds nuw [8 x i8], ptr %194, i64 %192
   store ptr %200, ptr %125, align 8, !tbaa !385
   br label %_ZNSt6vectorIN4llvm4wasm13WasmLocalDeclESaIS2_EE9push_backERKS2_.exit
 
@@ -7743,7 +7726,7 @@ _ZNSt6vectorIN4llvm6object11WasmSegmentESaIS2_EE7reserveEm.exit.thread: ; preds 
   store ptr %70, ptr %56, align 8, !tbaa !648
   %74 = getelementptr inbounds nuw i8, ptr %70, i64 %68
   store ptr %74, ptr %65, align 8, !tbaa !649
-  %75 = getelementptr inbounds nuw %"struct.llvm::object::WasmSegment", ptr %70, i64 %33
+  %75 = getelementptr inbounds nuw [104 x i8], ptr %70, i64 %33
   store ptr %75, ptr %57, align 8, !tbaa !647
   br label %.lr.ph
 
@@ -8060,7 +8043,7 @@ _ZNSt6vectorIN4llvm6object11WasmSegmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exi
 _ZNSt6vectorIN4llvm6object11WasmSegmentESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %207, %_ZNSt6vectorIN4llvm6object11WasmSegmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i
   store ptr %202, ptr %56, align 8, !tbaa !648
   store ptr %206, ptr %86, align 8, !tbaa !649
-  %208 = getelementptr inbounds nuw %"struct.llvm::object::WasmSegment", ptr %202, i64 %200
+  %208 = getelementptr inbounds nuw [104 x i8], ptr %202, i64 %200
   store ptr %208, ptr %57, align 8, !tbaa !647
   br label %.critedge
 
@@ -8591,7 +8574,7 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i:
 _ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %188, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i
   store ptr %183, ptr %134, align 8, !tbaa !689
   store ptr %187, ptr %135, align 8, !tbaa !687
-  %189 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %183, i64 %181
+  %189 = getelementptr inbounds nuw [16 x i8], ptr %183, i64 %181
   store ptr %189, ptr %136, align 8, !tbaa !688
   br label %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE9push_backEOS1_.exit
 
@@ -9123,7 +9106,7 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i:
 _ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %220, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i
   store ptr %215, ptr %16, align 8, !tbaa !689
   store ptr %219, ptr %17, align 8, !tbaa !687
-  %221 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %215, i64 %213
+  %221 = getelementptr inbounds nuw [16 x i8], ptr %215, i64 %213
   store ptr %221, ptr %18, align 8, !tbaa !688
   br label %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE9push_backEOS1_.exit
 
@@ -9370,7 +9353,7 @@ _ZNSt6vectorIN4llvm4wasm20WasmDylinkExportInfoESaIS2_EE11_S_relocateEPS2_S5_S5_R
 _ZNSt6vectorIN4llvm4wasm20WasmDylinkExportInfoESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %319, %_ZNSt6vectorIN4llvm4wasm20WasmDylinkExportInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i
   store ptr %314, ptr %13, align 8, !tbaa !709
   store ptr %318, ptr %14, align 8, !tbaa !707
-  %320 = getelementptr inbounds nuw %"struct.llvm::wasm::WasmDylinkExportInfo", ptr %314, i64 %312
+  %320 = getelementptr inbounds nuw [24 x i8], ptr %314, i64 %312
   store ptr %320, ptr %15, align 8, !tbaa !708
   br label %_ZNSt6vectorIN4llvm4wasm20WasmDylinkExportInfoESaIS2_EE9push_backEOS2_.exit
 
@@ -9680,7 +9663,7 @@ _ZNSt6vectorIN4llvm4wasm20WasmDylinkImportInfoESaIS2_EE11_S_relocateEPS2_S5_S5_R
 _ZNSt6vectorIN4llvm4wasm20WasmDylinkImportInfoESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %443, %_ZNSt6vectorIN4llvm4wasm20WasmDylinkImportInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i
   store ptr %438, ptr %10, align 8, !tbaa !719
   store ptr %442, ptr %11, align 8, !tbaa !717
-  %444 = getelementptr inbounds nuw %"struct.llvm::wasm::WasmDylinkImportInfo", ptr %438, i64 %436
+  %444 = getelementptr inbounds nuw [40 x i8], ptr %438, i64 %436
   store ptr %444, ptr %12, align 8, !tbaa !718
   br label %_ZNSt6vectorIN4llvm4wasm20WasmDylinkImportInfoESaIS2_EE9push_backEOS2_.exit
 
@@ -10116,7 +10099,7 @@ _ZL10readStringRN4llvm6object14WasmObjectFile11ReadContextE.exit: ; preds = %_ZL
 187:                                              ; preds = %186
   %188 = sub nuw i32 %137, %171
   %189 = zext i32 %188 to i64
-  %190 = getelementptr inbounds nuw %"struct.llvm::wasm::WasmFunction", ptr %174, i64 %189
+  %190 = getelementptr inbounds nuw [128 x i8], ptr %174, i64 %189
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 104
   store ptr %158, ptr %191, align 8, !tbaa !13
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %190, i64 112
@@ -10125,7 +10108,7 @@ _ZL10readStringRN4llvm6object14WasmObjectFile11ReadContextE.exit: ; preds = %_ZL
   %193 = load i32, ptr %192, align 4, !tbaa !394
   %194 = zext i32 %193 to i64
   %195 = load ptr, ptr %47, align 8, !tbaa !292
-  %196 = getelementptr inbounds nuw %"struct.llvm::wasm::WasmSignature", ptr %195, i64 %194
+  %196 = getelementptr inbounds nuw [64 x i8], ptr %195, i64 %194
   %197 = getelementptr inbounds nuw i8, ptr %190, i64 80
   %198 = load i8, ptr %197, align 8, !tbaa !393, !range !256, !noundef !257
   %199 = trunc nuw i8 %198 to i1
@@ -10197,7 +10180,7 @@ _ZL10readStringRN4llvm6object14WasmObjectFile11ReadContextE.exit: ; preds = %_ZL
 226:                                              ; preds = %225
   %227 = sub nuw i32 %137, %210
   %228 = zext i32 %227 to i64
-  %229 = getelementptr inbounds nuw %"struct.llvm::wasm::WasmGlobal", ptr %213, i64 %228
+  %229 = getelementptr inbounds nuw [72 x i8], ptr %213, i64 %228
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 4
   br label %_ZNK4llvm6object14WasmObjectFile22isDefinedFunctionIndexEj.exit
 
@@ -10249,7 +10232,7 @@ _ZL10readStringRN4llvm6object14WasmObjectFile11ReadContextE.exit: ; preds = %_ZL
   br label %.critedge
 
 250:                                              ; preds = %238
-  %251 = getelementptr inbounds nuw %"struct.llvm::object::WasmSegment", ptr %240, i64 %125
+  %251 = getelementptr inbounds nuw [104 x i8], ptr %240, i64 %125
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 64
   %253 = load i64, ptr %252, align 8, !tbaa !250
   br label %_ZNK4llvm6object14WasmObjectFile22isDefinedFunctionIndexEj.exit
@@ -10335,7 +10318,7 @@ _ZNSt6vectorIN4llvm4wasm13WasmDebugNameESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exi
 _ZNSt6vectorIN4llvm4wasm13WasmDebugNameESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %276, %_ZNSt6vectorIN4llvm4wasm13WasmDebugNameESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22.i.i.i
   store ptr %271, ptr %51, align 8, !tbaa !782
   store ptr %275, ptr %52, align 8, !tbaa !778
-  %277 = getelementptr inbounds nuw %"struct.llvm::wasm::WasmDebugName", ptr %271, i64 %269
+  %277 = getelementptr inbounds nuw [24 x i8], ptr %271, i64 %269
   store ptr %277, ptr %53, align 8, !tbaa !779
   br label %_ZNSt6vectorIN4llvm4wasm13WasmDebugNameESaIS2_EE9push_backEOS2_.exit
 
@@ -10465,7 +10448,7 @@ _ZNSt6vectorIN4llvm6object10WasmSymbolESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
 _ZNSt6vectorIN4llvm6object10WasmSymbolESaIS2_EE17_M_realloc_insertIJRNS0_4wasm14WasmSymbolInfoERPKNS6_14WasmGlobalTypeERPKNS6_13WasmTableTypeERPKNS6_13WasmSignatureEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %308, %_ZNSt6vectorIN4llvm6object10WasmSymbolESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit25.i.i
   store ptr %300, ptr %54, align 8, !tbaa !516
   store ptr %307, ptr %55, align 8, !tbaa !517
-  %309 = getelementptr inbounds nuw %"class.llvm::object::WasmSymbol", ptr %300, i64 %298
+  %309 = getelementptr inbounds nuw [144 x i8], ptr %300, i64 %298
   store ptr %309, ptr %56, align 8, !tbaa !515
   br label %_ZNSt6vectorIN4llvm6object10WasmSymbolESaIS2_EE12emplace_backIJRNS0_4wasm14WasmSymbolInfoERPKNS6_14WasmGlobalTypeERPKNS6_13WasmTableTypeERPKNS6_13WasmSignatureEEEERS2_DpOT_.exit
 
@@ -10613,7 +10596,7 @@ define dso_local noundef nonnull align 8 dereferenceable(124) ptr @_ZN4llvm6obje
   %6 = sub i32 %1, %5
   %7 = zext i32 %6 to i64
   %8 = load ptr, ptr %3, align 8, !tbaa !374
-  %9 = getelementptr inbounds nuw %"struct.llvm::wasm::WasmFunction", ptr %8, i64 %7
+  %9 = getelementptr inbounds nuw [128 x i8], ptr %8, i64 %7
   ret ptr %9
 }
 
@@ -10671,7 +10654,7 @@ define dso_local noundef nonnull align 8 dereferenceable(72) ptr @_ZNK4llvm6obje
   %6 = sub i32 %1, %5
   %7 = zext i32 %6 to i64
   %8 = load ptr, ptr %3, align 8, !tbaa !478
-  %9 = getelementptr inbounds nuw %"struct.llvm::wasm::WasmGlobal", ptr %8, i64 %7
+  %9 = getelementptr inbounds nuw [72 x i8], ptr %8, i64 %7
   ret ptr %9
 }
 
@@ -11016,7 +10999,7 @@ _ZL11readULEB128RN4llvm6object14WasmObjectFile11ReadContextE.exit.i138: ; preds 
 
 _ZL10readStringRN4llvm6object14WasmObjectFile11ReadContextE.exit: ; preds = %_ZL11readULEB128RN4llvm6object14WasmObjectFile11ReadContextE.exit.i138
   store ptr %148, ptr %13, align 8, !tbaa !252
-  %151 = getelementptr inbounds nuw %"struct.llvm::object::WasmSegment", ptr %116, i64 %indvars.iv
+  %151 = getelementptr inbounds nuw [104 x i8], ptr %116, i64 %indvars.iv
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 72
   store ptr %146, ptr %152, align 8, !tbaa !13
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %151, i64 80
@@ -11222,7 +11205,7 @@ _ZNSt6vectorIN4llvm4wasm12WasmInitFuncESaIS2_EE7reserveEm.exit.thread: ; preds =
   store ptr %239, ptr %42, align 8, !tbaa !848
   %243 = getelementptr inbounds nuw i8, ptr %239, i64 %237
   store ptr %243, ptr %44, align 8, !tbaa !849
-  %244 = getelementptr inbounds nuw %"struct.llvm::wasm::WasmInitFunc", ptr %239, i64 %215
+  %244 = getelementptr inbounds nuw [8 x i8], ptr %239, i64 %215
   store ptr %244, ptr %43, align 8, !tbaa !847
   br label %.lr.ph.preheader
 
@@ -11348,7 +11331,7 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit192: ; preds 
   br i1 %298, label %_ZNK4llvm6object14WasmObjectFile21isValidFunctionSymbolEj.exit, label %_ZNK4llvm6object14WasmObjectFile21isValidFunctionSymbolEj.exit.thread
 
 _ZNK4llvm6object14WasmObjectFile21isValidFunctionSymbolEj.exit: ; preds = %_ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit192
-  %299 = getelementptr inbounds nuw %"class.llvm::object::WasmSymbol", ptr %293, i64 %280
+  %299 = getelementptr inbounds nuw [144 x i8], ptr %293, i64 %280
   %300 = getelementptr inbounds nuw i8, ptr %299, i64 16
   %301 = load i8, ptr %300, align 8, !tbaa !16
   %302 = icmp eq i8 %301, 0
@@ -11415,7 +11398,7 @@ _ZNSt6vectorIN4llvm4wasm12WasmInitFuncESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
 _ZNSt6vectorIN4llvm4wasm12WasmInitFuncESaIS2_EE17_M_realloc_insertIJRS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %327, %_ZNSt6vectorIN4llvm4wasm12WasmInitFuncESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %322, ptr %42, align 8, !tbaa !848
   store ptr %326, ptr %44, align 8, !tbaa !849
-  %328 = getelementptr inbounds nuw %"struct.llvm::wasm::WasmInitFunc", ptr %322, i64 %320
+  %328 = getelementptr inbounds nuw [8 x i8], ptr %322, i64 %320
   store ptr %328, ptr %43, align 8, !tbaa !847
   br label %329
 
@@ -11619,7 +11602,7 @@ _ZNSt6vectorIN4llvm6object10WasmSymbolESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
 _ZNSt12_Vector_baseIN4llvm6object10WasmSymbolESaIS2_EE13_M_deallocateEPS2_m.exit.i: ; preds = %73, %_ZNSt6vectorIN4llvm6object10WasmSymbolESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit.i
   store ptr %72, ptr %59, align 8, !tbaa !516
   store ptr %72, ptr %61, align 8, !tbaa !517
-  %74 = getelementptr inbounds nuw %"class.llvm::object::WasmSymbol", ptr %72, i64 %46
+  %74 = getelementptr inbounds nuw [144 x i8], ptr %72, i64 %46
   store ptr %74, ptr %64, align 8, !tbaa !515
   br label %_ZNSt6vectorIN4llvm6object10WasmSymbolESaIS2_EE7reserveEm.exit
 
@@ -11650,16 +11633,16 @@ _ZNSt6vectorIN4llvm6object10WasmSymbolESaIS2_EE7reserveEm.exit: ; preds = %_ZNSt
 .lr.ph.preheader:                                 ; preds = %86
   %87 = shl nuw nsw i64 %83, 3
   %88 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %87) #27
-  %89 = getelementptr inbounds nuw ptr, ptr %88, i64 %83
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %83
   %90 = shl nuw nsw i64 %83, 3
   %91 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %90) #27
-  %92 = getelementptr inbounds nuw ptr, ptr %91, i64 %83
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %91, i64 %83
   %93 = shl nuw nsw i64 %83, 3
   %94 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %93) #27
-  %95 = getelementptr inbounds nuw ptr, ptr %94, i64 %83
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %83
   %96 = shl nuw nsw i64 %83, 3
   %97 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %96) #27
-  %98 = getelementptr inbounds nuw ptr, ptr %97, i64 %83
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %83
   br label %.lr.ph
 
 .preheader596.loopexit:                           ; preds = %_ZNSt6vectorIPN4llvm4wasm10WasmImportESaIS3_EE12emplace_backIJS3_EEERS3_DpOT_.exit
@@ -11774,7 +11757,7 @@ _ZNSt6vectorIPN4llvm4wasm10WasmImportESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit1
   br label %_ZNSt6vectorIPN4llvm4wasm10WasmImportESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i
 
 _ZNSt6vectorIPN4llvm4wasm10WasmImportESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i: ; preds = %141, %_ZNSt6vectorIPN4llvm4wasm10WasmImportESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
-  %142 = getelementptr inbounds nuw ptr, ptr %136, i64 %134
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %136, i64 %134
   br label %_ZNSt6vectorIPN4llvm4wasm10WasmImportESaIS3_EE12emplace_backIJS3_EEERS3_DpOT_.exit
 
 143:                                              ; preds = %.lr.ph
@@ -11827,7 +11810,7 @@ _ZNSt6vectorIPN4llvm4wasm10WasmImportESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit1
   br label %_ZNSt6vectorIPN4llvm4wasm10WasmImportESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i164
 
 _ZNSt6vectorIPN4llvm4wasm10WasmImportESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i164: ; preds = %163, %_ZNSt6vectorIPN4llvm4wasm10WasmImportESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i162
-  %164 = getelementptr inbounds nuw ptr, ptr %158, i64 %156
+  %164 = getelementptr inbounds nuw [8 x i8], ptr %158, i64 %156
   br label %_ZNSt6vectorIPN4llvm4wasm10WasmImportESaIS3_EE12emplace_backIJS3_EEERS3_DpOT_.exit
 
 165:                                              ; preds = %.lr.ph
@@ -11880,7 +11863,7 @@ _ZNSt6vectorIPN4llvm4wasm10WasmImportESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit1
   br label %_ZNSt6vectorIPN4llvm4wasm10WasmImportESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i172
 
 _ZNSt6vectorIPN4llvm4wasm10WasmImportESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i172: ; preds = %185, %_ZNSt6vectorIPN4llvm4wasm10WasmImportESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i170
-  %186 = getelementptr inbounds nuw ptr, ptr %180, i64 %178
+  %186 = getelementptr inbounds nuw [8 x i8], ptr %180, i64 %178
   br label %_ZNSt6vectorIPN4llvm4wasm10WasmImportESaIS3_EE12emplace_backIJS3_EEERS3_DpOT_.exit
 
 187:                                              ; preds = %.lr.ph
@@ -11933,7 +11916,7 @@ _ZNSt6vectorIPN4llvm4wasm10WasmImportESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit1
   br label %_ZNSt6vectorIPN4llvm4wasm10WasmImportESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i180
 
 _ZNSt6vectorIPN4llvm4wasm10WasmImportESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i180: ; preds = %207, %_ZNSt6vectorIPN4llvm4wasm10WasmImportESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i178
-  %208 = getelementptr inbounds nuw ptr, ptr %202, i64 %200
+  %208 = getelementptr inbounds nuw [8 x i8], ptr %202, i64 %200
   br label %_ZNSt6vectorIPN4llvm4wasm10WasmImportESaIS3_EE12emplace_backIJS3_EEERS3_DpOT_.exit
 
 _ZNSt6vectorIPN4llvm4wasm10WasmImportESaIS3_EE12emplace_backIJS3_EEERS3_DpOT_.exit: ; preds = %_ZNSt6vectorIPN4llvm4wasm10WasmImportESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i180, %188, %_ZNSt6vectorIPN4llvm4wasm10WasmImportESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i172, %166, %_ZNSt6vectorIPN4llvm4wasm10WasmImportESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i164, %144, %_ZNSt6vectorIPN4llvm4wasm10WasmImportESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, %122, %.lr.ph
@@ -12180,12 +12163,12 @@ _ZL10readStringRN4llvm6object14WasmObjectFile11ReadContextE.exit: ; preds = %_ZL
   store ptr %304, ptr %31, align 8, !tbaa !252
   %307 = sub i32 %266, %267
   %308 = zext i32 %307 to i64
-  %309 = getelementptr inbounds nuw %"struct.llvm::wasm::WasmFunction", ptr %270, i64 %308
+  %309 = getelementptr inbounds nuw [128 x i8], ptr %270, i64 %308
   %310 = getelementptr inbounds nuw i8, ptr %309, i64 4
   %311 = load i32, ptr %310, align 4, !tbaa !394
   %312 = zext i32 %311 to i64
   %313 = load ptr, ptr %106, align 8, !tbaa !292
-  %314 = getelementptr inbounds nuw %"struct.llvm::wasm::WasmSignature", ptr %313, i64 %312
+  %314 = getelementptr inbounds nuw [64 x i8], ptr %313, i64 %312
   %315 = getelementptr inbounds nuw i8, ptr %309, i64 96
   %316 = load i64, ptr %315, align 8, !tbaa !887
   %317 = icmp eq i64 %316, 0
@@ -12198,7 +12181,7 @@ _ZL10readStringRN4llvm6object14WasmObjectFile11ReadContextE.exit: ; preds = %_ZL
   br label %858
 
 320:                                              ; preds = %282
-  %321 = getelementptr inbounds nuw ptr, ptr %.sroa.0556.0.lcssa, i64 %254
+  %321 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0556.0.lcssa, i64 %254
   %322 = load ptr, ptr %321, align 8, !tbaa !880
   %323 = and i32 %241, 64
   %.not127 = icmp eq i32 %323, 0
@@ -12276,7 +12259,7 @@ _ZNSt8optionalIN4llvm9StringRefEEaSIRS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7i
   %352 = load i32, ptr %351, align 8, !tbaa !36
   %353 = zext i32 %352 to i64
   %354 = load ptr, ptr %106, align 8, !tbaa !292
-  %355 = getelementptr inbounds nuw %"struct.llvm::wasm::WasmSignature", ptr %354, i64 %353
+  %355 = getelementptr inbounds nuw [64 x i8], ptr %354, i64 %353
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.52, ptr noundef nonnull align 8 dereferenceable(16) %322, i64 16, i1 false)
   br label %858
 
@@ -12441,7 +12424,7 @@ _ZL10readStringRN4llvm6object14WasmObjectFile11ReadContextE.exit247: ; preds = %
   store ptr %423, ptr %31, align 8, !tbaa !252
   %426 = sub i32 %378, %379
   %427 = zext i32 %426 to i64
-  %428 = getelementptr inbounds nuw %"struct.llvm::wasm::WasmGlobal", ptr %382, i64 %427
+  %428 = getelementptr inbounds nuw [72 x i8], ptr %382, i64 %427
   %429 = getelementptr inbounds nuw i8, ptr %428, i64 4
   %430 = getelementptr inbounds nuw i8, ptr %428, i64 56
   %431 = load i64, ptr %430, align 8, !tbaa !887
@@ -12455,7 +12438,7 @@ _ZL10readStringRN4llvm6object14WasmObjectFile11ReadContextE.exit247: ; preds = %
   br label %858
 
 435:                                              ; preds = %395
-  %436 = getelementptr inbounds nuw ptr, ptr %.sroa.0565.0.lcssa, i64 %366
+  %436 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0565.0.lcssa, i64 %366
   %437 = load ptr, ptr %436, align 8, !tbaa !880
   %438 = and i32 %241, 64
   %.not124 = icmp eq i32 %438, 0
@@ -12694,7 +12677,7 @@ _ZL10readStringRN4llvm6object14WasmObjectFile11ReadContextE.exit284: ; preds = %
   store ptr %534, ptr %31, align 8, !tbaa !252
   %537 = sub i32 %489, %490
   %538 = zext i32 %537 to i64
-  %539 = getelementptr inbounds nuw %"struct.llvm::wasm::WasmTable", ptr %493, i64 %538
+  %539 = getelementptr inbounds nuw [56 x i8], ptr %493, i64 %538
   %540 = getelementptr inbounds nuw i8, ptr %539, i64 8
   %541 = getelementptr inbounds nuw i8, ptr %539, i64 48
   %542 = load i64, ptr %541, align 8, !tbaa !887
@@ -12708,7 +12691,7 @@ _ZL10readStringRN4llvm6object14WasmObjectFile11ReadContextE.exit284: ; preds = %
   br label %858
 
 546:                                              ; preds = %506
-  %547 = getelementptr inbounds nuw ptr, ptr %.sroa.0540.0.lcssa, i64 %477
+  %547 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0540.0.lcssa, i64 %477
   %548 = load ptr, ptr %547, align 8, !tbaa !880
   %549 = and i32 %241, 64
   %.not121 = icmp eq i32 %549, 0
@@ -13022,7 +13005,7 @@ _ZL13readVaruint64RN4llvm6object14WasmObjectFile11ReadContextE.exit339: ; preds 
 
 681:                                              ; preds = %668
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  %682 = getelementptr inbounds nuw %"struct.llvm::object::WasmSegment", ptr %670, i64 %612
+  %682 = getelementptr inbounds nuw [104 x i8], ptr %670, i64 %612
   %683 = getelementptr inbounds nuw i8, ptr %682, i64 64
   %684 = load i64, ptr %683, align 8, !tbaa !250
   store i64 %684, ptr %17, align 8, !tbaa !14
@@ -13181,7 +13164,7 @@ _ZL11readULEB128RN4llvm6object14WasmObjectFile11ReadContextE.exit.i344: ; preds 
 _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit349: ; preds = %_ZL11readULEB128RN4llvm6object14WasmObjectFile11ReadContextE.exit.i344
   %730 = trunc nuw i64 %718 to i32
   %731 = load ptr, ptr %107, align 8, !tbaa !405
-  %732 = getelementptr inbounds nuw %"struct.llvm::object::WasmSection", ptr %731, i64 %718
+  %732 = getelementptr inbounds nuw [80 x i8], ptr %731, i64 %718
   %733 = getelementptr inbounds nuw i8, ptr %732, i64 8
   %.sroa.0527.0.copyload = load ptr, ptr %733, align 8, !tbaa !13
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %732, i64 16
@@ -13349,12 +13332,12 @@ _ZL10readStringRN4llvm6object14WasmObjectFile11ReadContextE.exit372: ; preds = %
   store ptr %801, ptr %31, align 8, !tbaa !252
   %804 = sub i32 %756, %757
   %805 = zext i32 %804 to i64
-  %806 = getelementptr inbounds nuw %"struct.llvm::wasm::WasmTag", ptr %760, i64 %805
+  %806 = getelementptr inbounds nuw [24 x i8], ptr %760, i64 %805
   %807 = getelementptr inbounds nuw i8, ptr %806, i64 4
   %808 = load i32, ptr %807, align 4, !tbaa !945
   %809 = zext i32 %808 to i64
   %810 = load ptr, ptr %106, align 8, !tbaa !292
-  %811 = getelementptr inbounds nuw %"struct.llvm::wasm::WasmSignature", ptr %810, i64 %809
+  %811 = getelementptr inbounds nuw [64 x i8], ptr %810, i64 %809
   %812 = getelementptr inbounds nuw i8, ptr %806, i64 16
   %813 = load i64, ptr %812, align 8, !tbaa !887
   %814 = icmp eq i64 %813, 0
@@ -13367,7 +13350,7 @@ _ZL10readStringRN4llvm6object14WasmObjectFile11ReadContextE.exit372: ; preds = %
   br label %858
 
 817:                                              ; preds = %773
-  %818 = getelementptr inbounds nuw ptr, ptr %.sroa.0547.0.lcssa, i64 %744
+  %818 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0547.0.lcssa, i64 %744
   %819 = load ptr, ptr %818, align 8, !tbaa !880
   %820 = and i32 %241, 64
   %.not114 = icmp eq i32 %820, 0
@@ -13445,7 +13428,7 @@ _ZNSt8optionalIN4llvm9StringRefEEaSIRS1_EENSt9enable_ifIX7__and_vISt6__not_ISt7i
   %849 = load i32, ptr %848, align 8, !tbaa !36
   %850 = zext i32 %849 to i64
   %851 = load ptr, ptr %106, align 8, !tbaa !292
-  %852 = getelementptr inbounds nuw %"struct.llvm::wasm::WasmSignature", ptr %851, i64 %850
+  %852 = getelementptr inbounds nuw [64 x i8], ptr %851, i64 %850
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.52, ptr noundef nonnull align 8 dereferenceable(16) %819, i64 16, i1 false)
   br label %858
 
@@ -13626,7 +13609,7 @@ _ZNSt6vectorIN4llvm6object10WasmSymbolESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
 _ZNSt6vectorIN4llvm6object10WasmSymbolESaIS2_EE17_M_realloc_insertIJRNS0_4wasm14WasmSymbolInfoERPKNS6_14WasmGlobalTypeERPKNS6_13WasmTableTypeERPKNS6_13WasmSignatureEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %897, %_ZNSt6vectorIN4llvm6object10WasmSymbolESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit25.i.i
   store ptr %889, ptr %59, align 8, !tbaa !516
   store ptr %896, ptr %61, align 8, !tbaa !517
-  %898 = getelementptr inbounds nuw %"class.llvm::object::WasmSymbol", ptr %889, i64 %887
+  %898 = getelementptr inbounds nuw [144 x i8], ptr %889, i64 %887
   store ptr %898, ptr %64, align 8, !tbaa !515
   br label %_ZNSt6vectorIN4llvm6object10WasmSymbolESaIS2_EE12emplace_backIJRNS0_4wasm14WasmSymbolInfoERPKNS6_14WasmGlobalTypeERPKNS6_13WasmTableTypeERPKNS6_13WasmSignatureEEEERS2_DpOT_.exit
 
@@ -13704,7 +13687,7 @@ _ZNSt6vectorIPN4llvm4wasm10WasmImportESaIS3_EED2Ev.exit411: ; preds = %_ZNSt6vec
 .lr.ph.i:                                         ; preds = %925, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %925 ]
   %919 = load ptr, ptr %12, align 8, !tbaa !976
-  %920 = getelementptr inbounds nuw ptr, ptr %919, i64 %indvars.iv.i
+  %920 = getelementptr inbounds nuw [8 x i8], ptr %919, i64 %indvars.iv.i
   %921 = load ptr, ptr %920, align 8, !tbaa !977
   %magicptr.i = ptrtoint ptr %921 to i64
   switch i64 %magicptr.i, label %922 [
@@ -13745,7 +13728,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm6object14WasmObjectFile21isValidFu
   br i1 %12, label %13, label %18
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds nuw %"class.llvm::object::WasmSymbol", ptr %7, i64 %3
+  %14 = getelementptr inbounds nuw [144 x i8], ptr %7, i64 %3
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load i8, ptr %15, align 8, !tbaa !16
   %17 = icmp eq i8 %16, 0
@@ -13998,7 +13981,7 @@ _ZNSt6vectorIN4llvm9StringRefESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i: ;
 _ZNSt6vectorIN4llvm9StringRefESaIS1_EE17_M_realloc_insertIJRS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %113, %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i
   store ptr %108, ptr %43, align 8, !tbaa !689
   store ptr %112, ptr %44, align 8, !tbaa !687
-  %114 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %108, i64 %106
+  %114 = getelementptr inbounds nuw [16 x i8], ptr %108, i64 %106
   store ptr %114, ptr %45, align 8, !tbaa !688
   br label %_ZNSt6vectorIN4llvm9StringRefESaIS1_EE12emplace_backIJRS1_EEES5_DpOT_.exit
 
@@ -14301,7 +14284,7 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit98: ; preds =
   br label %.critedge44
 
 248:                                              ; preds = %243
-  %249 = getelementptr inbounds nuw %"struct.llvm::object::WasmSegment", ptr %183, i64 %226
+  %249 = getelementptr inbounds nuw [104 x i8], ptr %183, i64 %226
   %250 = getelementptr inbounds nuw i8, ptr %249, i64 96
   %251 = load i32, ptr %250, align 8, !tbaa !670
   %.not41 = icmp eq i32 %251, -1
@@ -14348,7 +14331,7 @@ _ZNK4llvm6object14WasmObjectFile22isDefinedFunctionIndexEj.exit.thread: ; preds 
 262:                                              ; preds = %257
   %263 = sub nuw i32 %238, %173
   %264 = zext i32 %263 to i64
-  %265 = getelementptr inbounds nuw %"struct.llvm::wasm::WasmFunction", ptr %176, i64 %264
+  %265 = getelementptr inbounds nuw [128 x i8], ptr %176, i64 %264
   %266 = getelementptr inbounds nuw i8, ptr %265, i64 120
   %267 = load i32, ptr %266, align 8, !tbaa !628
   %.not39 = icmp eq i32 %267, -1
@@ -14391,7 +14374,7 @@ _ZNK4llvm6object14WasmObjectFile22isDefinedFunctionIndexEj.exit.thread: ; preds 
   br label %.critedge44
 
 278:                                              ; preds = %273
-  %279 = getelementptr inbounds nuw %"struct.llvm::object::WasmSection", ptr %168, i64 %226
+  %279 = getelementptr inbounds nuw [80 x i8], ptr %168, i64 %226
   %280 = load i32, ptr %279, align 8, !tbaa !196
   %.not38 = icmp eq i32 %280, 0
   br i1 %.not38, label %285, label %281
@@ -14448,7 +14431,7 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %.critedge46, %_ZL13
 .lr.ph.i:                                         ; preds = %303, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %303 ]
   %297 = load ptr, ptr %12, align 8, !tbaa !976
-  %298 = getelementptr inbounds nuw ptr, ptr %297, i64 %indvars.iv.i
+  %298 = getelementptr inbounds nuw [8 x i8], ptr %297, i64 %indvars.iv.i
   %299 = load ptr, ptr %298, align 8, !tbaa !977
   %magicptr.i = ptrtoint ptr %299 to i64
   switch i64 %magicptr.i, label %300 [
@@ -15188,7 +15171,7 @@ _ZNK4llvm8SmallSetINS_9StringRefELj8ESt4lessIS1_EE5vfindERKS1_.exit.thread.i: ; 
 _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit.i: ; preds = %238, %.thread.i
   %.pre-phi.i = phi i64 [ %230, %.thread.i ], [ %.pre44.i, %238 ]
   %240 = phi ptr [ %228, %.thread.i ], [ %.pre.i94, %238 ]
-  %241 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %240, i64 %.pre-phi.i
+  %241 = getelementptr inbounds nuw [16 x i8], ptr %240, i64 %.pre-phi.i
   store ptr %162, ptr %241, align 1, !noalias !1069
   %.sroa.2.0..sroa_idx.i20.i = getelementptr inbounds nuw i8, ptr %241, i64 8
   store i64 %163, ptr %.sroa.2.0..sroa_idx.i20.i, align 1, !noalias !1069
@@ -16397,7 +16380,7 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit: ; preds = %
   br label %.critedge74
 
 58:                                               ; preds = %_ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit
-  %59 = getelementptr inbounds nuw %"struct.llvm::object::WasmSection", ptr %49, i64 %34
+  %59 = getelementptr inbounds nuw [80 x i8], ptr %49, i64 %34
   br label %60
 
 60:                                               ; preds = %thread-pre-split.i.i.i99, %58
@@ -16689,7 +16672,7 @@ _ZL13readVaruint32RN4llvm6object14WasmObjectFile11ReadContextE.exit135: ; preds 
   br i1 %181, label %_ZNK4llvm6object14WasmObjectFile21isValidFunctionSymbolEj.exit, label %_ZNK4llvm6object14WasmObjectFile21isValidFunctionSymbolEj.exit.thread
 
 _ZNK4llvm6object14WasmObjectFile21isValidFunctionSymbolEj.exit: ; preds = %174
-  %182 = getelementptr inbounds nuw %"class.llvm::object::WasmSymbol", ptr %176, i64 %161
+  %182 = getelementptr inbounds nuw [144 x i8], ptr %176, i64 %161
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 16
   %184 = load i8, ptr %183, align 8, !tbaa !16
   %185 = icmp eq i8 %184, 0
@@ -16708,7 +16691,7 @@ _ZNK4llvm6object14WasmObjectFile21isValidFunctionSymbolEj.exit.thread: ; preds =
   store i64 27, ptr %188, align 8, !tbaa !36, !alias.scope !1138, !noalias !1135
   %189 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr @.str.161, ptr %189, align 8, !tbaa !36, !alias.scope !1138, !noalias !1135
-  %190 = getelementptr inbounds nuw %"class.llvm::object::WasmSymbol", ptr %176, i64 %161
+  %190 = getelementptr inbounds nuw [144 x i8], ptr %176, i64 %161
   %191 = load ptr, ptr %190, align 8, !tbaa !1076, !noalias !1135
   %192 = getelementptr inbounds nuw i8, ptr %190, i64 8
   %193 = load i64, ptr %192, align 8, !tbaa !887, !noalias !1135
@@ -16740,7 +16723,7 @@ _ZNK4llvm6object14WasmObjectFile21isValidFunctionSymbolEj.exit.thread: ; preds =
   br i1 %205, label %_ZNK4llvm6object14WasmObjectFile18isValidTableSymbolEj.exit, label %_ZNK4llvm6object14WasmObjectFile18isValidTableSymbolEj.exit.thread
 
 _ZNK4llvm6object14WasmObjectFile18isValidTableSymbolEj.exit: ; preds = %198
-  %206 = getelementptr inbounds nuw %"class.llvm::object::WasmSymbol", ptr %200, i64 %161
+  %206 = getelementptr inbounds nuw [144 x i8], ptr %200, i64 %161
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 16
   %208 = load i8, ptr %207, align 8, !tbaa !16
   %209 = icmp eq i8 %208, 5
@@ -16776,7 +16759,7 @@ _ZNK4llvm6object14WasmObjectFile18isValidTableSymbolEj.exit.thread: ; preds = %1
   br i1 %225, label %_ZNK4llvm6object14WasmObjectFile19isValidGlobalSymbolEj.exit, label %_ZNK4llvm6object14WasmObjectFile21isValidFunctionSymbolEj.exit136.thread
 
 _ZNK4llvm6object14WasmObjectFile19isValidGlobalSymbolEj.exit: ; preds = %218
-  %226 = getelementptr inbounds nuw %"class.llvm::object::WasmSymbol", ptr %220, i64 %161
+  %226 = getelementptr inbounds nuw [144 x i8], ptr %220, i64 %161
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 16
   %228 = load i8, ptr %227, align 8, !tbaa !16
   %switch = icmp ult i8 %228, 3
@@ -16797,7 +16780,7 @@ _ZNK4llvm6object14WasmObjectFile21isValidFunctionSymbolEj.exit136.thread: ; pred
   br i1 %236, label %_ZNK4llvm6object14WasmObjectFile19isValidGlobalSymbolEj.exit137, label %_ZNK4llvm6object14WasmObjectFile19isValidGlobalSymbolEj.exit137.thread
 
 _ZNK4llvm6object14WasmObjectFile19isValidGlobalSymbolEj.exit137: ; preds = %229
-  %237 = getelementptr inbounds nuw %"class.llvm::object::WasmSymbol", ptr %231, i64 %161
+  %237 = getelementptr inbounds nuw [144 x i8], ptr %231, i64 %161
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 16
   %239 = load i8, ptr %238, align 8, !tbaa !16
   %240 = icmp eq i8 %239, 2
@@ -16818,7 +16801,7 @@ _ZNK4llvm6object14WasmObjectFile19isValidGlobalSymbolEj.exit137.thread: ; preds 
   br i1 %248, label %_ZNK4llvm6object14WasmObjectFile16isValidTagSymbolEj.exit, label %_ZNK4llvm6object14WasmObjectFile16isValidTagSymbolEj.exit.thread
 
 _ZNK4llvm6object14WasmObjectFile16isValidTagSymbolEj.exit: ; preds = %241
-  %249 = getelementptr inbounds nuw %"class.llvm::object::WasmSymbol", ptr %243, i64 %161
+  %249 = getelementptr inbounds nuw [144 x i8], ptr %243, i64 %161
   %250 = getelementptr inbounds nuw i8, ptr %249, i64 16
   %251 = load i8, ptr %250, align 8, !tbaa !16
   %252 = icmp eq i8 %251, 4
@@ -16839,7 +16822,7 @@ _ZNK4llvm6object14WasmObjectFile16isValidTagSymbolEj.exit.thread: ; preds = %241
   br i1 %260, label %_ZNK4llvm6object14WasmObjectFile17isValidDataSymbolEj.exit138, label %_ZNK4llvm6object14WasmObjectFile17isValidDataSymbolEj.exit138.thread
 
 _ZNK4llvm6object14WasmObjectFile17isValidDataSymbolEj.exit138: ; preds = %253
-  %261 = getelementptr inbounds nuw %"class.llvm::object::WasmSymbol", ptr %255, i64 %161
+  %261 = getelementptr inbounds nuw [144 x i8], ptr %255, i64 %161
   %262 = getelementptr inbounds nuw i8, ptr %261, i64 16
   %263 = load i8, ptr %262, align 8, !tbaa !16
   %264 = icmp eq i8 %263, 1
@@ -16858,7 +16841,7 @@ _ZNK4llvm6object14WasmObjectFile17isValidDataSymbolEj.exit138.thread: ; preds = 
   store i64 23, ptr %267, align 8, !tbaa !36, !alias.scope !1156, !noalias !1153
   %268 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr @.str.161, ptr %268, align 8, !tbaa !36, !alias.scope !1156, !noalias !1153
-  %269 = getelementptr inbounds nuw %"class.llvm::object::WasmSymbol", ptr %255, i64 %161
+  %269 = getelementptr inbounds nuw [144 x i8], ptr %255, i64 %161
   %270 = load ptr, ptr %269, align 8, !tbaa !1076, !noalias !1153
   %271 = getelementptr inbounds nuw i8, ptr %269, i64 8
   %272 = load i64, ptr %271, align 8, !tbaa !887, !noalias !1153
@@ -16895,7 +16878,7 @@ _ZNK4llvm6object14WasmObjectFile17isValidDataSymbolEj.exit138.thread: ; preds = 
   br i1 %287, label %_ZNK4llvm6object14WasmObjectFile17isValidDataSymbolEj.exit140, label %_ZNK4llvm6object14WasmObjectFile17isValidDataSymbolEj.exit140.thread
 
 _ZNK4llvm6object14WasmObjectFile17isValidDataSymbolEj.exit140: ; preds = %280
-  %288 = getelementptr inbounds nuw %"class.llvm::object::WasmSymbol", ptr %282, i64 %161
+  %288 = getelementptr inbounds nuw [144 x i8], ptr %282, i64 %161
   %289 = getelementptr inbounds nuw i8, ptr %288, i64 16
   %290 = load i8, ptr %289, align 8, !tbaa !16
   %291 = icmp eq i8 %290, 1
@@ -16914,7 +16897,7 @@ _ZNK4llvm6object14WasmObjectFile17isValidDataSymbolEj.exit140.thread: ; preds = 
   store i64 23, ptr %294, align 8, !tbaa !36, !alias.scope !1174, !noalias !1171
   %295 = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr @.str.161, ptr %295, align 8, !tbaa !36, !alias.scope !1174, !noalias !1171
-  %296 = getelementptr inbounds nuw %"class.llvm::object::WasmSymbol", ptr %282, i64 %161
+  %296 = getelementptr inbounds nuw [144 x i8], ptr %282, i64 %161
   %297 = load ptr, ptr %296, align 8, !tbaa !1076, !noalias !1171
   %298 = getelementptr inbounds nuw i8, ptr %296, i64 8
   %299 = load i64, ptr %298, align 8, !tbaa !887, !noalias !1171
@@ -17008,7 +16991,7 @@ _ZL12readVarint64RN4llvm6object14WasmObjectFile11ReadContextE.exit: ; preds = %3
   br i1 %336, label %_ZNK4llvm6object14WasmObjectFile21isValidFunctionSymbolEj.exit143, label %_ZNK4llvm6object14WasmObjectFile21isValidFunctionSymbolEj.exit143.thread
 
 _ZNK4llvm6object14WasmObjectFile21isValidFunctionSymbolEj.exit143: ; preds = %329
-  %337 = getelementptr inbounds nuw %"class.llvm::object::WasmSymbol", ptr %331, i64 %161
+  %337 = getelementptr inbounds nuw [144 x i8], ptr %331, i64 %161
   %338 = getelementptr inbounds nuw i8, ptr %337, i64 16
   %339 = load i8, ptr %338, align 8, !tbaa !16
   %340 = icmp eq i8 %339, 0
@@ -17034,7 +17017,7 @@ _ZNK4llvm6object14WasmObjectFile21isValidFunctionSymbolEj.exit143.thread: ; pred
   br i1 %351, label %_ZNK4llvm6object14WasmObjectFile21isValidFunctionSymbolEj.exit144, label %_ZNK4llvm6object14WasmObjectFile21isValidFunctionSymbolEj.exit144.thread
 
 _ZNK4llvm6object14WasmObjectFile21isValidFunctionSymbolEj.exit144: ; preds = %344
-  %352 = getelementptr inbounds nuw %"class.llvm::object::WasmSymbol", ptr %346, i64 %161
+  %352 = getelementptr inbounds nuw [144 x i8], ptr %346, i64 %161
   %353 = getelementptr inbounds nuw i8, ptr %352, i64 16
   %354 = load i8, ptr %353, align 8, !tbaa !16
   %355 = icmp eq i8 %354, 0
@@ -17117,7 +17100,7 @@ _ZL12readVarint64RN4llvm6object14WasmObjectFile11ReadContextE.exit157: ; preds =
   br i1 %388, label %_ZNK4llvm6object14WasmObjectFile20isValidSectionSymbolEj.exit, label %_ZNK4llvm6object14WasmObjectFile20isValidSectionSymbolEj.exit.thread
 
 _ZNK4llvm6object14WasmObjectFile20isValidSectionSymbolEj.exit: ; preds = %381
-  %389 = getelementptr inbounds nuw %"class.llvm::object::WasmSymbol", ptr %383, i64 %161
+  %389 = getelementptr inbounds nuw [144 x i8], ptr %383, i64 %161
   %390 = getelementptr inbounds nuw i8, ptr %389, i64 16
   %391 = load i8, ptr %390, align 8, !tbaa !16
   %392 = icmp eq i8 %391, 3
@@ -17164,7 +17147,7 @@ _ZNK4llvm6object14WasmObjectFile20isValidSectionSymbolEj.exit.thread: ; preds = 
 
 switch.lookup:                                    ; preds = %402
   %404 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN4llvm6object14WasmObjectFile17parseRelocSectionENS_9StringRefERNS1_11ReadContextE, i64 %404
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN4llvm6object14WasmObjectFile17parseRelocSectionENS_9StringRefERNS1_11ReadContextE, i64 %404
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %.thread227
 
@@ -17288,7 +17271,7 @@ _ZNSt6vectorIN4llvm4wasm14WasmRelocationESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.ex
 _ZNSt6vectorIN4llvm4wasm14WasmRelocationESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %435, %_ZNSt6vectorIN4llvm4wasm14WasmRelocationESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %430, ptr %91, align 8, !tbaa !238
   store ptr %434, ptr %92, align 8, !tbaa !237
-  %436 = getelementptr inbounds nuw %"struct.llvm::wasm::WasmRelocation", ptr %430, i64 %428
+  %436 = getelementptr inbounds nuw [24 x i8], ptr %430, i64 %428
   store ptr %436, ptr %93, align 8, !tbaa !239
   br label %_ZNSt6vectorIN4llvm4wasm14WasmRelocationESaIS2_EE9push_backERKS2_.exit
 
@@ -17346,7 +17329,7 @@ _ZN4llvmplERKNS_5TwineES2_.exit:
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr @.str.161, ptr %8, align 8, !tbaa !36, !alias.scope !1207
   %9 = zext i32 %.8.val.4.val to i64
-  %10 = getelementptr inbounds nuw %"class.llvm::object::WasmSymbol", ptr %.0.val.536.val, i64 %9
+  %10 = getelementptr inbounds nuw [144 x i8], ptr %.0.val.536.val, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !1076
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %13 = load i64, ptr %12, align 8, !tbaa !887
@@ -17383,7 +17366,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm6object14WasmObjectFile18isValidTa
   br i1 %12, label %13, label %18
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds nuw %"class.llvm::object::WasmSymbol", ptr %7, i64 %3
+  %14 = getelementptr inbounds nuw [144 x i8], ptr %7, i64 %3
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load i8, ptr %15, align 8, !tbaa !16
   %17 = icmp eq i8 %16, 5
@@ -17409,7 +17392,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm6object14WasmObjectFile19isValidGl
   br i1 %12, label %13, label %18
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds nuw %"class.llvm::object::WasmSymbol", ptr %7, i64 %3
+  %14 = getelementptr inbounds nuw [144 x i8], ptr %7, i64 %3
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load i8, ptr %15, align 8, !tbaa !16
   %17 = icmp eq i8 %16, 2
@@ -17435,7 +17418,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm6object14WasmObjectFile17isValidDa
   br i1 %12, label %13, label %18
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds nuw %"class.llvm::object::WasmSymbol", ptr %7, i64 %3
+  %14 = getelementptr inbounds nuw [144 x i8], ptr %7, i64 %3
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load i8, ptr %15, align 8, !tbaa !16
   %17 = icmp eq i8 %16, 1
@@ -17461,7 +17444,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm6object14WasmObjectFile16isValidTa
   br i1 %12, label %13, label %18
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds nuw %"class.llvm::object::WasmSymbol", ptr %7, i64 %3
+  %14 = getelementptr inbounds nuw [144 x i8], ptr %7, i64 %3
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load i8, ptr %15, align 8, !tbaa !16
   %17 = icmp eq i8 %16, 4
@@ -17568,7 +17551,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm6object14WasmObjectFile20isValidSe
   br i1 %12, label %13, label %18
 
 13:                                               ; preds = %2
-  %14 = getelementptr inbounds nuw %"class.llvm::object::WasmSymbol", ptr %7, i64 %3
+  %14 = getelementptr inbounds nuw [144 x i8], ptr %7, i64 %3
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load i8, ptr %15, align 8, !tbaa !16
   %17 = icmp eq i8 %16, 3
@@ -17660,7 +17643,7 @@ _ZNSt12_Vector_baseIN4llvm4wasm13WasmSignatureESaIS2_EE13_M_deallocateEPS2_m.exi
   store ptr %19, ptr %0, align 8, !tbaa !292
   %39 = getelementptr inbounds nuw i8, ptr %19, i64 %17
   store ptr %39, ptr %14, align 8, !tbaa !291
-  %40 = getelementptr inbounds nuw %"struct.llvm::wasm::WasmSignature", ptr %19, i64 %1
+  %40 = getelementptr inbounds nuw [64 x i8], ptr %19, i64 %1
   store ptr %40, ptr %6, align 8, !tbaa !293
   br label %41
 
@@ -18864,7 +18847,7 @@ define dso_local noundef nonnull align 8 dereferenceable(124) ptr @_ZNK4llvm6obj
   %6 = sub i32 %1, %5
   %7 = zext i32 %6 to i64
   %8 = load ptr, ptr %3, align 8, !tbaa !374
-  %9 = getelementptr inbounds nuw %"struct.llvm::wasm::WasmFunction", ptr %8, i64 %7
+  %9 = getelementptr inbounds nuw [128 x i8], ptr %8, i64 %7
   ret ptr %9
 }
 
@@ -18876,7 +18859,7 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm6objec
   %6 = sub i32 %1, %5
   %7 = zext i32 %6 to i64
   %8 = load ptr, ptr %3, align 8, !tbaa !449
-  %9 = getelementptr inbounds nuw %"struct.llvm::wasm::WasmTag", ptr %8, i64 %7
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %7
   ret ptr %9
 }
 
@@ -18900,7 +18883,7 @@ define dso_local void @_ZNK4llvm6object14WasmObjectFile14getSymbolFlagsENS0_11Da
   %.sroa.1.0.extract.shift = lshr i64 %2, 32
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 536
   %5 = load ptr, ptr %4, align 8, !tbaa !516
-  %6 = getelementptr inbounds nuw %"class.llvm::object::WasmSymbol", ptr %5, i64 %.sroa.1.0.extract.shift
+  %6 = getelementptr inbounds nuw [144 x i8], ptr %5, i64 %.sroa.1.0.extract.shift
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %8 = load i32, ptr %7, align 4, !tbaa !28
   %9 = and i32 %8, 3
@@ -18935,7 +18918,7 @@ define dso_local noundef nonnull align 8 dereferenceable(144) ptr @_ZNK4llvm6obj
   %5 = load i32, ptr %4, align 4, !tbaa !36
   %6 = zext i32 %5 to i64
   %7 = load ptr, ptr %3, align 8, !tbaa !516
-  %8 = getelementptr inbounds nuw %"class.llvm::object::WasmSymbol", ptr %7, i64 %6
+  %8 = getelementptr inbounds nuw [144 x i8], ptr %7, i64 %6
   ret ptr %8
 }
 
@@ -18968,7 +18951,7 @@ define dso_local noundef nonnull align 8 dereferenceable(144) ptr @_ZNK4llvm6obj
   %.sroa.3.0.extract.shift = lshr i64 %.sroa.0.0.copyload.i, 32
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %4 = load ptr, ptr %3, align 8, !tbaa !516
-  %5 = getelementptr inbounds nuw %"class.llvm::object::WasmSymbol", ptr %4, i64 %.sroa.3.0.extract.shift
+  %5 = getelementptr inbounds nuw [144 x i8], ptr %4, i64 %.sroa.3.0.extract.shift
   ret ptr %5
 }
 
@@ -18977,7 +18960,7 @@ define dso_local void @_ZNK4llvm6object14WasmObjectFile13getSymbolNameENS0_11Dat
   %.sroa.1.0.extract.shift = lshr i64 %2, 32
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 536
   %5 = load ptr, ptr %4, align 8, !tbaa !516
-  %6 = getelementptr inbounds nuw %"class.llvm::object::WasmSymbol", ptr %5, i64 %.sroa.1.0.extract.shift
+  %6 = getelementptr inbounds nuw [144 x i8], ptr %5, i64 %.sroa.1.0.extract.shift
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i8, ptr %7, align 8
   %9 = and i8 %8, -2
@@ -18992,7 +18975,7 @@ define dso_local void @_ZNK4llvm6object14WasmObjectFile16getSymbolAddressENS0_11
   %.sroa.3.0.extract.shift = lshr i64 %2, 32
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 536
   %6 = load ptr, ptr %5, align 8, !tbaa !516
-  %7 = getelementptr inbounds nuw %"class.llvm::object::WasmSymbol", ptr %6, i64 %.sroa.3.0.extract.shift
+  %7 = getelementptr inbounds nuw [144 x i8], ptr %6, i64 %.sroa.3.0.extract.shift
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 20
   %9 = load i32, ptr %8, align 4, !tbaa !28
   %10 = and i32 %9, 16
@@ -19068,7 +19051,7 @@ _ZNK4llvm6object14WasmObjectFile22isDefinedFunctionIndexEj.exit: ; preds = %35
 52:                                               ; preds = %_ZNK4llvm6object14WasmObjectFile22isDefinedFunctionIndexEj.exit
   %53 = sub i32 %37, %39
   %54 = zext i32 %53 to i64
-  %55 = getelementptr inbounds nuw %"struct.llvm::wasm::WasmFunction", ptr %45, i64 %54
+  %55 = getelementptr inbounds nuw [128 x i8], ptr %45, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 48
   %57 = load i32, ptr %56, align 8, !tbaa !625
   %58 = add i32 %57, %32
@@ -19106,7 +19089,7 @@ _ZNK4llvm6object14WasmObjectFile20isDefinedGlobalIndexEj.exit: ; preds = %63
 80:                                               ; preds = %_ZNK4llvm6object14WasmObjectFile20isDefinedGlobalIndexEj.exit
   %81 = sub i32 %65, %67
   %82 = zext i32 %81 to i64
-  %83 = getelementptr inbounds nuw %"struct.llvm::wasm::WasmGlobal", ptr %73, i64 %82
+  %83 = getelementptr inbounds nuw [72 x i8], ptr %73, i64 %82
   %84 = getelementptr inbounds nuw i8, ptr %83, i64 64
   %85 = load i32, ptr %84, align 8, !tbaa !491
   %86 = add i32 %85, %32
@@ -19174,7 +19157,7 @@ define dso_local noundef i64 @_ZNK4llvm6object14WasmObjectFile18getWasmSymbolVal
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %13 = zext i32 %11 to i64
   %14 = load ptr, ptr %12, align 8, !tbaa !648
-  %15 = getelementptr inbounds nuw %"struct.llvm::object::WasmSegment", ptr %14, i64 %13
+  %15 = getelementptr inbounds nuw [104 x i8], ptr %14, i64 %13
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %17 = load i8, ptr %16, align 8, !tbaa !1249
   switch i8 %17, label %31 [
@@ -19219,7 +19202,7 @@ define dso_local noundef i64 @_ZNK4llvm6object14WasmObjectFile18getSymbolValueIm
   %.sroa.1.0.extract.shift = lshr i64 %1, 32
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %4 = load ptr, ptr %3, align 8, !tbaa !516
-  %5 = getelementptr inbounds nuw %"class.llvm::object::WasmSymbol", ptr %4, i64 %.sroa.1.0.extract.shift
+  %5 = getelementptr inbounds nuw [144 x i8], ptr %4, i64 %.sroa.1.0.extract.shift
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i8, ptr %6, align 8, !tbaa !16
   switch i8 %7, label %38 [
@@ -19243,7 +19226,7 @@ define dso_local noundef i64 @_ZNK4llvm6object14WasmObjectFile18getSymbolValueIm
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 472
   %16 = zext i32 %14 to i64
   %17 = load ptr, ptr %15, align 8, !tbaa !648
-  %18 = getelementptr inbounds nuw %"struct.llvm::object::WasmSegment", ptr %17, i64 %16
+  %18 = getelementptr inbounds nuw [104 x i8], ptr %17, i64 %16
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load i8, ptr %19, align 8, !tbaa !1249
   switch i8 %20, label %34 [
@@ -19299,7 +19282,7 @@ switch.lookup:
   %.sroa.1.0.extract.shift = lshr i64 %2, 32
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 536
   %4 = load ptr, ptr %3, align 8, !tbaa !516
-  %5 = getelementptr inbounds nuw %"class.llvm::object::WasmSymbol", ptr %4, i64 %.sroa.1.0.extract.shift
+  %5 = getelementptr inbounds nuw [144 x i8], ptr %4, i64 %.sroa.1.0.extract.shift
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i8, ptr %6, align 8, !tbaa !16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -19307,7 +19290,7 @@ switch.lookup:
   %10 = and i8 %9, -2
   store i8 %10, ptr %8, align 8
   %11 = zext nneg i8 %7 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZNK4llvm6object14WasmObjectFile13getSymbolTypeENS0_11DataRefImplE, i64 %11
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZNK4llvm6object14WasmObjectFile13getSymbolTypeENS0_11DataRefImplE, i64 %11
   %switch.load = load i32, ptr %switch.gep, align 4
   store i32 %switch.load, ptr %0, align 8, !tbaa !1250
   ret void
@@ -19318,7 +19301,7 @@ define dso_local void @_ZNK4llvm6object14WasmObjectFile16getSymbolSectionENS0_11
   %.sroa.1.0.extract.shift = lshr i64 %2, 32
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 536
   %5 = load ptr, ptr %4, align 8, !tbaa !516
-  %6 = getelementptr inbounds nuw %"class.llvm::object::WasmSymbol", ptr %5, i64 %.sroa.1.0.extract.shift
+  %6 = getelementptr inbounds nuw [144 x i8], ptr %5, i64 %.sroa.1.0.extract.shift
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %8 = load i32, ptr %7, align 4, !tbaa !28
   %9 = and i32 %8, 16
@@ -19443,7 +19426,7 @@ define dso_local noundef i32 @_ZNK4llvm6object14WasmObjectFile18getSymbolSection
   %.sroa.3.0.extract.shift.i = lshr i64 %1, 32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %5 = load ptr, ptr %4, align 8, !tbaa !516
-  %6 = getelementptr inbounds nuw %"class.llvm::object::WasmSymbol", ptr %5, i64 %.sroa.3.0.extract.shift.i
+  %6 = getelementptr inbounds nuw [144 x i8], ptr %5, i64 %.sroa.3.0.extract.shift.i
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load i8, ptr %7, align 8, !tbaa !16
   switch i8 %8, label %21 [
@@ -19493,7 +19476,7 @@ define dso_local noundef i32 @_ZNK4llvm6object14WasmObjectFile13getSymbolSizeENS
   %.sroa.3.0.extract.shift.i = lshr i64 %1, 32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 536
   %5 = load ptr, ptr %4, align 8, !tbaa !516
-  %6 = getelementptr inbounds nuw %"class.llvm::object::WasmSymbol", ptr %5, i64 %.sroa.3.0.extract.shift.i
+  %6 = getelementptr inbounds nuw [144 x i8], ptr %5, i64 %.sroa.3.0.extract.shift.i
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %8 = load i32, ptr %7, align 4, !tbaa !28
   %9 = and i32 %8, 16
@@ -19518,7 +19501,7 @@ define dso_local noundef i32 @_ZNK4llvm6object14WasmObjectFile13getSymbolSizeENS
   %19 = sub i32 %15, %18
   %20 = zext i32 %19 to i64
   %21 = load ptr, ptr %16, align 8, !tbaa !478
-  %22 = getelementptr inbounds nuw %"struct.llvm::wasm::WasmGlobal", ptr %21, i64 %20
+  %22 = getelementptr inbounds nuw [72 x i8], ptr %21, i64 %20
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 68
   %24 = load i32, ptr %23, align 4, !tbaa !494
   br label %41
@@ -19538,7 +19521,7 @@ define dso_local noundef i32 @_ZNK4llvm6object14WasmObjectFile13getSymbolSizeENS
   %35 = load i32, ptr %34, align 8, !tbaa !327
   %36 = sub i32 %33, %35
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw %"struct.llvm::wasm::WasmFunction", ptr %31, i64 %37
+  %38 = getelementptr inbounds nuw [128 x i8], ptr %31, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 52
   %40 = load i32, ptr %39, align 4, !tbaa !626
   br label %41
@@ -19563,7 +19546,7 @@ define dso_local void @_ZNK4llvm6object14WasmObjectFile14getSectionNameENS0_11Da
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %7 = and i64 %2, 4294967295
   %8 = load ptr, ptr %6, align 8, !tbaa !405
-  %9 = getelementptr inbounds nuw %"struct.llvm::object::WasmSection", ptr %8, i64 %7
+  %9 = getelementptr inbounds nuw [80 x i8], ptr %8, i64 %7
   %10 = load i32, ptr %9, align 8, !tbaa !196
   %11 = icmp eq i32 %10, 0
   br i1 %11, label %12, label %17
@@ -19648,7 +19631,7 @@ define dso_local noundef range(i64 0, 4294967296) i64 @_ZNK4llvm6object14WasmObj
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %12 = and i64 %1, 4294967295
   %13 = load ptr, ptr %11, align 8, !tbaa !405
-  %14 = getelementptr inbounds nuw %"struct.llvm::object::WasmSection", ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [80 x i8], ptr %13, i64 %12
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 4
   %16 = load i32, ptr %15, align 4, !tbaa !200
   %17 = zext i32 %16 to i64
@@ -19678,7 +19661,7 @@ define dso_local noundef i64 @_ZNK4llvm6object14WasmObjectFile14getSectionSizeEN
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = and i64 %1, 4294967295
   %5 = load ptr, ptr %3, align 8, !tbaa !405
-  %6 = getelementptr inbounds nuw %"struct.llvm::object::WasmSection", ptr %5, i64 %4
+  %6 = getelementptr inbounds nuw [80 x i8], ptr %5, i64 %4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %8 = load i64, ptr %7, align 8, !tbaa !250
   ret i64 %8
@@ -19689,7 +19672,7 @@ define dso_local void @_ZNK4llvm6object14WasmObjectFile18getSectionContentsENS0_
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %5 = and i64 %2, 4294967295
   %6 = load ptr, ptr %4, align 8, !tbaa !405
-  %7 = getelementptr inbounds nuw %"struct.llvm::object::WasmSection", ptr %6, i64 %5
+  %7 = getelementptr inbounds nuw [80 x i8], ptr %6, i64 %5
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i8, ptr %9, align 8
@@ -19714,7 +19697,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm6object14WasmObjectFile13isSection
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = and i64 %1, 4294967295
   %5 = load ptr, ptr %3, align 8, !tbaa !405
-  %6 = getelementptr inbounds nuw %"struct.llvm::object::WasmSection", ptr %5, i64 %4
+  %6 = getelementptr inbounds nuw [80 x i8], ptr %5, i64 %4
   %7 = load i32, ptr %6, align 8, !tbaa !196
   %8 = icmp eq i32 %7, 10
   ret i1 %8
@@ -19725,7 +19708,7 @@ define dso_local noundef nonnull align 8 dereferenceable(74) ptr @_ZNK4llvm6obje
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = and i64 %1, 4294967295
   %5 = load ptr, ptr %3, align 8, !tbaa !405
-  %6 = getelementptr inbounds nuw %"struct.llvm::object::WasmSection", ptr %5, i64 %4
+  %6 = getelementptr inbounds nuw [80 x i8], ptr %5, i64 %4
   ret ptr %6
 }
 
@@ -19734,7 +19717,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm6object14WasmObjectFile13isSection
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = and i64 %1, 4294967295
   %5 = load ptr, ptr %3, align 8, !tbaa !405
-  %6 = getelementptr inbounds nuw %"struct.llvm::object::WasmSection", ptr %5, i64 %4
+  %6 = getelementptr inbounds nuw [80 x i8], ptr %5, i64 %4
   %7 = load i32, ptr %6, align 8, !tbaa !196
   %8 = icmp eq i32 %7, 11
   ret i1 %8
@@ -19763,7 +19746,7 @@ define dso_local { i64, ptr } @_ZNK4llvm6object14WasmObjectFile15section_rel_end
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = and i64 %1, 4294967295
   %5 = load ptr, ptr %3, align 8, !tbaa !405
-  %6 = getelementptr inbounds nuw %"struct.llvm::object::WasmSection", ptr %5, i64 %4
+  %6 = getelementptr inbounds nuw [80 x i8], ptr %5, i64 %4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %9 = load ptr, ptr %8, align 8, !tbaa !237
@@ -19794,10 +19777,10 @@ define dso_local noundef i64 @_ZNK4llvm6object14WasmObjectFile19getRelocationOff
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = and i64 %1, 4294967295
   %5 = load ptr, ptr %3, align 8, !tbaa !405
-  %6 = getelementptr inbounds nuw %"struct.llvm::object::WasmSection", ptr %5, i64 %4
+  %6 = getelementptr inbounds nuw [80 x i8], ptr %5, i64 %4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8, !tbaa !238
-  %9 = getelementptr inbounds nuw %"struct.llvm::wasm::WasmRelocation", ptr %8, i64 %.sroa.2.0.extract.shift.i
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %.sroa.2.0.extract.shift.i
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i64, ptr %10, align 8, !tbaa !1260
   ret i64 %11
@@ -19809,10 +19792,10 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4llvm6obje
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = and i64 %1, 4294967295
   %5 = load ptr, ptr %3, align 8, !tbaa !405
-  %6 = getelementptr inbounds nuw %"struct.llvm::object::WasmSection", ptr %5, i64 %4
+  %6 = getelementptr inbounds nuw [80 x i8], ptr %5, i64 %4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8, !tbaa !238
-  %9 = getelementptr inbounds nuw %"struct.llvm::wasm::WasmRelocation", ptr %8, i64 %.sroa.2.0.extract.shift
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %.sroa.2.0.extract.shift
   ret ptr %9
 }
 
@@ -19822,10 +19805,10 @@ define dso_local { i64, ptr } @_ZNK4llvm6object14WasmObjectFile19getRelocationSy
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = and i64 %1, 4294967295
   %5 = load ptr, ptr %3, align 8, !tbaa !405
-  %6 = getelementptr inbounds nuw %"struct.llvm::object::WasmSection", ptr %5, i64 %4
+  %6 = getelementptr inbounds nuw [80 x i8], ptr %5, i64 %4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8, !tbaa !238
-  %9 = getelementptr inbounds nuw %"struct.llvm::wasm::WasmRelocation", ptr %8, i64 %.sroa.2.0.extract.shift.i
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %.sroa.2.0.extract.shift.i
   %10 = load i8, ptr %9, align 8, !tbaa !1262
   %11 = icmp eq i8 %10, 6
   br i1 %11, label %12, label %17
@@ -19858,10 +19841,10 @@ define dso_local noundef range(i64 0, 256) i64 @_ZNK4llvm6object14WasmObjectFile
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = and i64 %1, 4294967295
   %5 = load ptr, ptr %3, align 8, !tbaa !405
-  %6 = getelementptr inbounds nuw %"struct.llvm::object::WasmSection", ptr %5, i64 %4
+  %6 = getelementptr inbounds nuw [80 x i8], ptr %5, i64 %4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8, !tbaa !238
-  %9 = getelementptr inbounds nuw %"struct.llvm::wasm::WasmRelocation", ptr %8, i64 %.sroa.2.0.extract.shift.i
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %.sroa.2.0.extract.shift.i
   %10 = load i8, ptr %9, align 8, !tbaa !1262
   %11 = zext i8 %10 to i64
   ret i64 %11
@@ -19873,20 +19856,20 @@ define dso_local void @_ZNK4llvm6object14WasmObjectFile21getRelocationTypeNameEN
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = and i64 %1, 4294967295
   %6 = load ptr, ptr %4, align 8, !tbaa !405
-  %7 = getelementptr inbounds nuw %"struct.llvm::object::WasmSection", ptr %6, i64 %5
+  %7 = getelementptr inbounds nuw [80 x i8], ptr %6, i64 %5
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %9 = load ptr, ptr %8, align 8, !tbaa !238
-  %10 = getelementptr inbounds nuw %"struct.llvm::wasm::WasmRelocation", ptr %9, i64 %.sroa.2.0.extract.shift.i
+  %10 = getelementptr inbounds nuw [24 x i8], ptr %9, i64 %.sroa.2.0.extract.shift.i
   %11 = load i8, ptr %10, align 8, !tbaa !1262
   %12 = icmp ult i8 %11, 27
   br i1 %12, label %switch.lookup, label %15
 
 switch.lookup:                                    ; preds = %3
   %13 = zext nneg i8 %11 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK4llvm6object14WasmObjectFile21getRelocationTypeNameENS0_11DataRefImplERNS_15SmallVectorImplIcEE, i64 %13
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK4llvm6object14WasmObjectFile21getRelocationTypeNameENS0_11DataRefImplERNS_15SmallVectorImplIcEE, i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
   %14 = zext nneg i8 %11 to i64
-  %switch.gep58 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK4llvm6object14WasmObjectFile21getRelocationTypeNameENS0_11DataRefImplERNS_15SmallVectorImplIcEE.4, i64 %14
+  %switch.gep58 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK4llvm6object14WasmObjectFile21getRelocationTypeNameENS0_11DataRefImplERNS_15SmallVectorImplIcEE.4, i64 %14
   %switch.load59 = load i64, ptr %switch.gep58, align 8
   br label %15
 
@@ -20003,7 +19986,7 @@ define dso_local noundef nonnull align 8 dereferenceable(74) ptr @_ZNK4llvm6obje
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = and i64 %.sroa.0.0.copyload.i, 4294967295
   %5 = load ptr, ptr %3, align 8, !tbaa !405
-  %6 = getelementptr inbounds nuw %"struct.llvm::object::WasmSection", ptr %5, i64 %4
+  %6 = getelementptr inbounds nuw [80 x i8], ptr %5, i64 %4
   ret ptr %6
 }
 
@@ -20014,10 +19997,10 @@ define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4llvm6obje
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = and i64 %.sroa.0.0.copyload.i, 4294967295
   %5 = load ptr, ptr %3, align 8, !tbaa !405
-  %6 = getelementptr inbounds nuw %"struct.llvm::object::WasmSection", ptr %5, i64 %4
+  %6 = getelementptr inbounds nuw [80 x i8], ptr %5, i64 %4
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8, !tbaa !238
-  %9 = getelementptr inbounds nuw %"struct.llvm::wasm::WasmRelocation", ptr %8, i64 %.sroa.2.0.extract.shift.i
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %.sroa.2.0.extract.shift.i
   ret ptr %9
 }
 
@@ -20161,7 +20144,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm6object23WasmSectionOrderChecker19i
   %14 = phi i32 [ 0, %9 ], [ %49, %43 ]
   %.017 = phi i32 [ %7, %9 ], [ %48, %43 ]
   %15 = sext i32 %.017 to i64
-  %16 = getelementptr inbounds [20 x i32], ptr @_ZN4llvm6object23WasmSectionOrderChecker22DisallowedPredecessorsE, i64 %15
+  %16 = getelementptr inbounds [80 x i8], ptr @_ZN4llvm6object23WasmSectionOrderChecker22DisallowedPredecessorsE, i64 %15
   %17 = load i32, ptr %16, align 16, !tbaa !224
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %._crit_edge, label %.lr.ph
@@ -20192,7 +20175,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %25, %27
   %30 = phi i32 [ %19, %25 ], [ %.pre.i, %27 ]
   %31 = load ptr, ptr %5, align 8, !tbaa !269
   %32 = zext i32 %30 to i64
-  %33 = getelementptr inbounds nuw i32, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %32
   store i32 %20, ptr %33, align 1
   %34 = load i32, ptr %11, align 8, !tbaa !271
   %35 = add i32 %34, 1
@@ -20203,7 +20186,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %25, %27
 36:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit, %.lr.ph
   %37 = phi i32 [ %35, %_ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit ], [ %19, %.lr.ph ]
   %38 = add i64 %.01624, 1
-  %39 = getelementptr inbounds nuw i32, ptr %16, i64 %38
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !224
   %41 = icmp eq i32 %40, 0
   br i1 %41, label %._crit_edge, label %.lr.ph, !llvm.loop !1272
@@ -20216,7 +20199,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %25, %27
 43:                                               ; preds = %._crit_edge
   %44 = load ptr, ptr %5, align 8, !tbaa !269
   %45 = zext i32 %42 to i64
-  %46 = getelementptr inbounds nuw i32, ptr %44, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %45
   %47 = getelementptr inbounds i8, ptr %46, i64 -4
   %48 = load i32, ptr %47, align 4, !tbaa !224
   %49 = add i32 %42, -1
@@ -21245,7 +21228,7 @@ _ZNSt6vectorIN4llvm6object11WasmSectionESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exi
 _ZNSt12_Vector_baseIN4llvm6object11WasmSectionESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN4llvm6object11WasmSectionESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22, %75
   store ptr %20, ptr %0, align 8, !tbaa !405
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !235
-  %79 = getelementptr inbounds nuw %"struct.llvm::object::WasmSection", ptr %20, i64 %16
+  %79 = getelementptr inbounds nuw [80 x i8], ptr %20, i64 %16
   store ptr %79, ptr %74, align 8, !tbaa !236
   ret void
 }
@@ -21271,7 +21254,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_6detail
   %16 = add i32 %8, -1
   %17 = and i32 %16, %15
   %18 = zext i32 %17 to i64
-  %19 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %6, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %18
   %20 = load i64, ptr %19, align 8, !tbaa !14
   %21 = icmp eq i64 %11, %20
   br i1 %21, label %.loopexit, label %.lr.ph.i, !prof !1301
@@ -21299,7 +21282,7 @@ define linkonce_odr hidden void @_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_6detail
   %31 = add i32 %.02745.i, %.02546.i
   %32 = and i32 %31, %16
   %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %6, i64 %33
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %33
   %35 = load i64, ptr %34, align 8, !tbaa !14
   %36 = icmp eq i64 %11, %35
   br i1 %36, label %.loopexit, label %.lr.ph.i, !prof !1302, !llvm.loop !1303
@@ -21368,7 +21351,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapImNS_6detail13DenseSetEmptyENS_12DenseMapInfo
   %.sink29 = phi ptr [ %51, %60 ], [ %19, %10 ], [ %34, %27 ]
   %.sink = phi i8 [ 1, %60 ], [ 0, %10 ], [ 0, %27 ]
   %64 = zext i32 %.sink32 to i64
-  %65 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %.sink30, i64 %64
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %.sink30, i64 %64
   store ptr %.sink29, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %65, ptr %.sroa.4.0..sroa_idx, align 8
@@ -21394,7 +21377,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %14 = add i32 %6, -1
   %15 = and i32 %14, %13
   %16 = zext i32 %15 to i64
-  %17 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %4, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %16
   %18 = load i64, ptr %17, align 8, !tbaa !14
   %19 = icmp eq i64 %9, %18
   br i1 %19, label %._crit_edge, label %.lr.ph, !prof !1301
@@ -21422,7 +21405,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm12DenseMapBaseINS_8DenseM
   %29 = add i32 %.02546, %.02745
   %30 = and i32 %29, %14
   %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %4, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %31
   %33 = load i64, ptr %32, align 8, !tbaa !14
   %34 = icmp eq i64 %9, %33
   br i1 %34, label %._crit_edge, label %.lr.ph, !prof !1302, !llvm.loop !1303
@@ -21519,7 +21502,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapImNS_6detail13DenseSetEmptyENS_12DenseMapInfo
   %42 = trunc i64 %41 to i32
   %43 = and i32 %34, %42
   %44 = zext i32 %43 to i64
-  %45 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %21, i64 %44
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %44
   %46 = load i64, ptr %45, align 8, !tbaa !14
   %47 = icmp eq i64 %37, %46
   br i1 %47, label %_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_6detail13DenseSetEmptyENS_12DenseMapInfoImvEENS2_12DenseSetPairImEEEEmS3_S5_S7_E15LookupBucketForImEEbRKT_RPS7_.exit.i, label %.lr.ph.i.i, !prof !1301
@@ -21547,7 +21530,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapImNS_6detail13DenseSetEmptyENS_12DenseMapInfo
   %57 = add i32 %.02745.i.i, %.02546.i.i
   %58 = and i32 %57, %34
   %59 = zext i32 %58 to i64
-  %60 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair", ptr %21, i64 %59
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %59
   %61 = load i64, ptr %60, align 8, !tbaa !14
   %62 = icmp eq i64 %37, %61
   br i1 %62, label %_ZN4llvm12DenseMapBaseINS_8DenseMapImNS_6detail13DenseSetEmptyENS_12DenseMapInfoImvEENS2_12DenseSetPairImEEEEmS3_S5_S7_E15LookupBucketForImEEbRKT_RPS7_.exit.i, label %.lr.ph.i.i, !prof !1302, !llvm.loop !1303
@@ -21578,7 +21561,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZN4llvm9StringMapISt9nullopt_tNS_15Mall
   %5 = tail call noundef i32 @_ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr %1, i64 %2, i32 noundef %3) #26
   %6 = load ptr, ptr %0, align 8, !tbaa !976
   %7 = zext i32 %5 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !977
   %magicptr = ptrtoint ptr %9 to i64
   switch i64 %magicptr, label %.preheader.i.i [
@@ -21630,7 +21613,7 @@ _ZN4llvm14StringMapEntryISt9nullopt_tE6createINS_15MallocAllocatorEJEEEPS2_NS_9S
   %25 = tail call noundef i32 @_ZN4llvm13StringMapImpl11RehashTableEj(ptr noundef nonnull align 8 dereferenceable(24) %0, i32 noundef %5) #26
   %26 = load ptr, ptr %0, align 8, !tbaa !976
   %27 = zext i32 %25 to i64
-  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %27
   br label %.preheader.i.i23
 
 .preheader.i.i23:                                 ; preds = %.critedge.i.i.i25, %_ZN4llvm14StringMapEntryISt9nullopt_tE6createINS_15MallocAllocatorEJEEEPS2_NS_9StringRefERT_DpOT0_.exit
@@ -21750,7 +21733,7 @@ _ZNK4llvm8SmallSetINS_9StringRefELj3ESt4lessIS1_EE5vfindERKS1_.exit.thread: ; pr
 _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit: ; preds = %.thread, %24
   %.pre-phi = phi i64 [ %15, %.thread ], [ %.pre44, %24 ]
   %27 = phi ptr [ %12, %.thread ], [ %.pre, %24 ]
-  %28 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %27, i64 %.pre-phi
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %.pre-phi
   store ptr %.sroa.05.0.copyload.pre, ptr %28, align 1
   %.sroa.2.0..sroa_idx.i20 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store i64 %.sroa.2.0.copyload.i.fr, ptr %.sroa.2.0..sroa_idx.i20, align 1
@@ -21759,7 +21742,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit: ; pred
   store i32 %30, ptr %13, align 8, !tbaa !271
   %31 = load ptr, ptr %1, align 8, !tbaa !269
   %32 = zext i32 %30 to i64
-  %33 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %32
   %34 = getelementptr inbounds i8, ptr %33, i64 -16
   br label %41
 
@@ -22517,7 +22500,7 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaI
 _ZNSt12_Vector_baseISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE13_M_deallocateEPS7_m.exit: ; preds = %_ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_ESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit31, %114
   store ptr %23, ptr %0, align 8, !tbaa !1286
   store ptr %.0.lcssa.i.i.i30, ptr %5, align 8, !tbaa !1077
-  %118 = getelementptr inbounds nuw %"struct.std::pair.157", ptr %23, i64 %17
+  %118 = getelementptr inbounds nuw [64 x i8], ptr %23, i64 %17
   store ptr %118, ptr %113, align 8, !tbaa !1078
   ret void
 }
@@ -22609,7 +22592,7 @@ _ZNK4llvm8SmallSetINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELj8ESt4le
   %38 = load ptr, ptr %1, align 8, !tbaa !269
   %39 = load i32, ptr %19, align 8, !tbaa !271
   %40 = zext i32 %39 to i64
-  %41 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %38, i64 %40
+  %41 = getelementptr inbounds nuw [32 x i8], ptr %38, i64 %40
   %42 = getelementptr inbounds i8, ptr %41, i64 -32
   br label %_ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_EE6insertERKS5_.exit
 
@@ -22747,7 +22730,7 @@ define linkonce_odr hidden void @_ZN4llvm23SmallVectorTemplateBaseINSt7__cxx1112
   br i1 %.not.i.i.not, label %_ZN4llvm23SmallVectorTemplateBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EE28reserveForParamAndGetAddressERKS6_m.exit, label %10, !prof !310
 
 10:                                               ; preds = %2
-  %11 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre3, i64 %6
+  %11 = getelementptr inbounds nuw [32 x i8], ptr %.pre3, i64 %6
   %12 = icmp uge ptr %1, %.pre3
   %13 = icmp ult ptr %1, %11
   %spec.select.i.i.i.i = and i1 %12, %13
@@ -22772,7 +22755,7 @@ _ZN4llvm23SmallVectorTemplateBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcES
   %.016.i.i = phi ptr [ %1, %2 ], [ %19, %14 ], [ %1, %.critedge.i.i ]
   %21 = load i32, ptr %4, align 8, !tbaa !271
   %22 = zext i32 %21 to i64
-  %23 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %20, i64 %22
+  %23 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store ptr %24, ptr %23, align 8, !tbaa !214
   %25 = load ptr, ptr %.016.i.i, align 8, !tbaa !229
@@ -23394,7 +23377,7 @@ _ZNSt6vectorIN4llvm4wasm16WasmFeatureEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
 _ZNSt12_Vector_baseIN4llvm4wasm16WasmFeatureEntryESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN4llvm4wasm16WasmFeatureEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26, %80
   store ptr %21, ptr %0, align 8, !tbaa !1276
   store ptr %.0.lcssa.i.i.i25, ptr %5, align 8, !tbaa !1113
-  %84 = getelementptr inbounds nuw %"struct.llvm::wasm::WasmFeatureEntry", ptr %21, i64 %17
+  %84 = getelementptr inbounds nuw [40 x i8], ptr %21, i64 %17
   store ptr %84, ptr %79, align 8, !tbaa !1114
   ret void
 }
@@ -23627,7 +23610,7 @@ _ZSt8_DestroyIPN4llvm4wasm13WasmSignatureES2_EvT_S4_RSaIT0_E.exit: ; preds = %_Z
 _ZNSt12_Vector_baseIN4llvm4wasm13WasmSignatureESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt8_DestroyIPN4llvm4wasm13WasmSignatureES2_EvT_S4_RSaIT0_E.exit, %57
   store ptr %22, ptr %0, align 8, !tbaa !292
   store ptr %45, ptr %4, align 8, !tbaa !291
-  %61 = getelementptr inbounds nuw %"struct.llvm::wasm::WasmSignature", ptr %22, i64 %16
+  %61 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 %16
   store ptr %61, ptr %56, align 8, !tbaa !293
   ret void
 }
@@ -23729,7 +23712,7 @@ _ZSt4moveIPN4llvm4wasm7ValTypeES3_ET0_T_S5_S4_.exit35: ; preds = %37, %36, %34
   %.idx40 = shl nuw nsw i64 %.026, 2
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx40
   %44 = load ptr, ptr %0, align 8, !tbaa !269
-  %45 = getelementptr inbounds nuw i32, ptr %44, i64 %.026
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %.026
   %46 = sub nsw i64 %40, %.026
   %gepdiff = shl nsw i64 %46, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %45, ptr align 4 %43, i64 %gepdiff, i1 false)
@@ -23899,7 +23882,7 @@ _ZNSt6vectorIN4llvm4wasm12WasmFunctionESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
 _ZNSt12_Vector_baseIN4llvm4wasm12WasmFunctionESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN4llvm4wasm12WasmFunctionESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22, %74
   store ptr %20, ptr %0, align 8, !tbaa !374
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !375
-  %78 = getelementptr inbounds nuw %"struct.llvm::wasm::WasmFunction", ptr %20, i64 %16
+  %78 = getelementptr inbounds nuw [128 x i8], ptr %20, i64 %16
   store ptr %78, ptr %73, align 8, !tbaa !373
   ret void
 }
@@ -24047,7 +24030,7 @@ _ZNSt6vectorIN4llvm4wasm15WasmElemSegmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.e
 _ZNSt12_Vector_baseIN4llvm4wasm15WasmElemSegmentESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN4llvm4wasm15WasmElemSegmentESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22, %65
   store ptr %20, ptr %0, align 8, !tbaa !564
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !565
-  %69 = getelementptr inbounds nuw %"struct.llvm::wasm::WasmElemSegment", ptr %20, i64 %16
+  %69 = getelementptr inbounds nuw [80 x i8], ptr %20, i64 %16
   store ptr %69, ptr %64, align 8, !tbaa !563
   ret void
 }

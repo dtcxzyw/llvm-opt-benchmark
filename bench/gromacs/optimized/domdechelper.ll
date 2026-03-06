@@ -656,7 +656,7 @@ _ZNSt6vectorIPN3gmx19IDomDecHelperClientESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.ex
 _ZNSt6vectorIPN3gmx19IDomDecHelperClientESaIS2_EE17_M_realloc_insertIJRS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %46, %_ZNSt6vectorIPN3gmx19IDomDecHelperClientESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %41, ptr %0, align 8, !tbaa !248
   store ptr %45, ptr %22, align 8, !tbaa !244
-  %47 = getelementptr inbounds nuw ptr, ptr %41, i64 %39
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %39
   store ptr %47, ptr %24, align 8, !tbaa !245
   br label %_ZNSt6vectorIPN3gmx19IDomDecHelperClientESaIS2_EE12emplace_backIJRS2_EEES6_DpOT_.exit
 

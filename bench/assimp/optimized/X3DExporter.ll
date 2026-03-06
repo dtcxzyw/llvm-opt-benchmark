@@ -28,22 +28,20 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::__cxx11::_List_base<aiMatrix4x4t<float>, std::allocator<aiMatrix4x4t<float>>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
 %"struct.std::__detail::_List_node_header" = type { %"struct.std::__detail::_List_node_base", i64 }
 %"struct.std::__detail::_List_node_base" = type { ptr, ptr }
-%class.aiVector3t = type { float, float, float }
-%class.aiVector2t = type { float, float }
-%class.aiColor4t = type { float, float, float, float }
-%struct.aiColor3D = type { float, float, float }
 %"class.std::__cxx11::list.7" = type { %"class.std::__cxx11::_List_base.8" }
 %"class.std::__cxx11::_List_base.8" = type { %"struct.std::__cxx11::_List_base<Assimp::X3DExporter::SAttribute, std::allocator<Assimp::X3DExporter::SAttribute>>::_List_impl" }
 %"struct.std::__cxx11::_List_base<Assimp::X3DExporter::SAttribute, std::allocator<Assimp::X3DExporter::SAttribute>>::_List_impl" = type { %"struct.std::__detail::_List_node_header" }
 %class.aiQuaterniont = type { float, float, float, float }
-%struct.aiString = type { i32, [1024 x i8] }
-%struct.aiMetadataEntry = type { i32, ptr }
+%class.aiVector3t = type { float, float, float }
+%struct.aiColor3D = type { float, float, float }
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
 %"struct.std::_Tuple_impl" = type { %"struct.std::_Head_base" }
 %"struct.std::_Head_base" = type { ptr }
 %"class.std::tuple.27" = type { i8 }
-%struct.aiFace = type { i32, ptr }
+%class.aiColor4t = type { float, float, float, float }
+%struct.aiString = type { i32, [1024 x i8] }
 %struct.aiUVTransform = type { %class.aiVector2t, %class.aiVector2t, float }
+%class.aiVector2t = type { float, float }
 %"class.std::allocator.0" = type { i8 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %"struct.std::_Rb_tree<unsigned long, std::pair<const unsigned long, std::__cxx11::basic_string<char>>, std::_Select1st<std::pair<const unsigned long, std::__cxx11::basic_string<char>>>, std::less<unsigned long>>::_Auto_node" = type { ptr, ptr }
@@ -938,7 +936,7 @@ _ZN6Assimp11X3DExporter23AttrHelper_CommaToPointERNSt7__cxx1112basic_stringIcSt1
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %43 = getelementptr inbounds nuw %class.aiVector3t, ptr %1, i64 %.025229
+  %43 = getelementptr inbounds nuw [12 x i8], ptr %1, i64 %.025229
   %44 = load float, ptr %43, align 4
   %45 = fpext float %44 to double
   call void (ptr, ptr, i64, ptr, ...) @_ZN9__gnu_cxx12__to_xstringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEET_PFiPT0_mPKS8_P13__va_list_tagEmSB_z(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef nonnull @vsnprintf, i64 noundef 58, ptr noundef nonnull @.str.90, double noundef %45)
@@ -1819,7 +1817,7 @@ _ZN6Assimp11X3DExporter23AttrHelper_CommaToPointERNSt7__cxx1112basic_stringIcSt1
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %34 = getelementptr inbounds nuw %class.aiVector2t, ptr %1, i64 %.020121
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.020121
   %35 = load float, ptr %34, align 4
   %36 = fpext float %35 to double
   call void (ptr, ptr, i64, ptr, ...) @_ZN9__gnu_cxx12__to_xstringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEET_PFiPT0_mPKS8_P13__va_list_tagEmSB_z(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull @vsnprintf, i64 noundef 58, ptr noundef nonnull @.str.90, double noundef %36)
@@ -2304,7 +2302,7 @@ _ZN6Assimp11X3DExporter23AttrHelper_CommaToPointERNSt7__cxx1112basic_stringIcSt1
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %34 = getelementptr inbounds nuw %class.aiVector3t, ptr %1, i64 %.020121
+  %34 = getelementptr inbounds nuw [12 x i8], ptr %1, i64 %.020121
   %35 = load float, ptr %34, align 4
   %36 = fpext float %35 to double
   call void (ptr, ptr, i64, ptr, ...) @_ZN9__gnu_cxx12__to_xstringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEET_PFiPT0_mPKS8_P13__va_list_tagEmSB_z(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %8, ptr noundef nonnull @vsnprintf, i64 noundef 58, ptr noundef nonnull @.str.90, double noundef %36)
@@ -2811,7 +2809,7 @@ _ZN6Assimp11X3DExporter23AttrHelper_CommaToPointERNSt7__cxx1112basic_stringIcSt1
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %52 = getelementptr inbounds nuw %class.aiColor4t, ptr %1, i64 %.030357
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %.030357
   %53 = load float, ptr %52, align 4
   %54 = fpext float %53 to double
   call void (ptr, ptr, i64, ptr, ...) @_ZN9__gnu_cxx12__to_xstringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEET_PFiPT0_mPKS8_P13__va_list_tagEmSB_z(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %12, ptr noundef nonnull @vsnprintf, i64 noundef 58, ptr noundef nonnull @.str.90, double noundef %54)
@@ -3855,7 +3853,7 @@ _ZN6Assimp11X3DExporter23AttrHelper_CommaToPointERNSt7__cxx1112basic_stringIcSt1
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %43 = getelementptr inbounds nuw %struct.aiColor3D, ptr %1, i64 %.025229
+  %43 = getelementptr inbounds nuw [12 x i8], ptr %1, i64 %.025229
   %44 = load float, ptr %43, align 4
   %45 = fpext float %44 to double
   call void (ptr, ptr, i64, ptr, ...) @_ZN9__gnu_cxx12__to_xstringINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcEET_PFiPT0_mPKS8_P13__va_list_tagEmSB_z(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %10, ptr noundef nonnull @vsnprintf, i64 noundef 58, ptr noundef nonnull @.str.90, double noundef %45)
@@ -7153,10 +7151,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131: ; preds = %53
   %.048213 = phi i64 [ 0, %.lr.ph ], [ %665, %664 ]
   %546 = getelementptr inbounds nuw i8, ptr %545, i64 8
   %547 = load ptr, ptr %546, align 8
-  %548 = getelementptr inbounds nuw %struct.aiString, ptr %547, i64 %.048213
+  %548 = getelementptr inbounds nuw [1028 x i8], ptr %547, i64 %.048213
   %549 = getelementptr inbounds nuw i8, ptr %545, i64 16
   %550 = load ptr, ptr %549, align 8
-  %551 = getelementptr inbounds nuw %struct.aiMetadataEntry, ptr %550, i64 %.048213
+  %551 = getelementptr inbounds nuw [16 x i8], ptr %550, i64 %.048213
   %552 = load i32, ptr %551, align 8
   switch i32 %552, label %575 [
     i32 0, label %555
@@ -7455,7 +7453,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149: ; preds = %_Z
 678:                                              ; preds = %.lr.ph215, %683
   %.047214 = phi i64 [ 0, %.lr.ph215 ], [ %684, %683 ]
   %679 = load ptr, ptr %672, align 8
-  %680 = getelementptr inbounds nuw i32, ptr %679, i64 %.047214
+  %680 = getelementptr inbounds nuw [4 x i8], ptr %679, i64 %.047214
   %681 = load i32, ptr %680, align 4
   %682 = zext i32 %681 to i64
   invoke void @_ZN6Assimp11X3DExporter11Export_MeshEmm(ptr noundef nonnull align 8 dereferenceable(144) %0, i64 noundef %682, i64 noundef %673)
@@ -7479,7 +7477,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit149: ; preds = %_Z
 690:                                              ; preds = %.lr.ph217, %694
   %.0216 = phi i64 [ 0, %.lr.ph217 ], [ %695, %694 ]
   %691 = load ptr, ptr %676, align 8
-  %692 = getelementptr inbounds nuw ptr, ptr %691, i64 %.0216
+  %692 = getelementptr inbounds nuw [8 x i8], ptr %691, i64 %.0216
   %693 = load ptr, ptr %692, align 8
   invoke void @_ZN6Assimp11X3DExporter11Export_NodeEPK6aiNodem(ptr noundef nonnull align 8 dereferenceable(144) %0, ptr noundef %693, i64 noundef %677)
           to label %694 unwind label %699
@@ -7694,7 +7692,7 @@ define hidden noundef zeroext i1 @_ZN6Assimp11X3DExporter20CheckAndExport_LightE
 
 48:                                               ; preds = %_ZNK8aiStringeqERKS_.exit.thread, %.lr.ph
   %.046310 = phi i64 [ 0, %.lr.ph ], [ %55, %_ZNK8aiStringeqERKS_.exit.thread ]
-  %49 = getelementptr inbounds nuw ptr, ptr %45, i64 %.046310
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %.046310
   %50 = load ptr, ptr %49, align 8
   %51 = load i32, ptr %50, align 4
   %52 = icmp eq i32 %39, %51
@@ -10549,7 +10547,7 @@ define hidden void @_ZN6Assimp11X3DExporter11Export_MeshEmm(ptr noundef nonnull 
   %28 = load ptr, ptr %0, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %1
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %1
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -11251,7 +11249,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit156: ; preds = %29
 299:                                              ; preds = %.lr.ph411, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit
   %.042410 = phi i64 [ 0, %.lr.ph411 ], [ %409, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit ]
   %300 = load ptr, ptr %264, align 8
-  %301 = getelementptr inbounds nuw %struct.aiFace, ptr %300, i64 %.042410
+  %301 = getelementptr inbounds nuw [16 x i8], ptr %300, i64 %.042410
   %302 = load i32, ptr %301, align 8
   %.not413 = icmp eq i32 %302, 0
   br i1 %.not413, label %._crit_edge, label %.lr.ph
@@ -11282,7 +11280,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
   %310 = load ptr, ptr %303, align 8
-  %311 = getelementptr inbounds nuw i32, ptr %310, i64 %.0409
+  %311 = getelementptr inbounds nuw [4 x i8], ptr %310, i64 %.0409
   %312 = load i32, ptr %311, align 4
   call void @llvm.experimental.noalias.scope.decl(metadata !162)
   %313 = icmp ult i32 %312, 10
@@ -12437,7 +12435,7 @@ define hidden void @_ZN6Assimp11X3DExporter15Export_MaterialEmm(ptr noundef nonn
   %62 = load ptr, ptr %0, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 40
   %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds nuw ptr, ptr %64, i64 %1
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %1
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 80

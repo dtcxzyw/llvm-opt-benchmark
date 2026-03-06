@@ -144,7 +144,7 @@ define noundef ptr @xcf_get_base_type_name(i32 noundef %0) local_unnamed_addr #0
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.xcf_get_base_type_name, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.xcf_get_base_type_name, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -160,7 +160,7 @@ define noundef ptr @xcf_get_type_name(i32 noundef %0) local_unnamed_addr #0 {
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.xcf_get_type_name, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.xcf_get_type_name, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -300,7 +300,7 @@ define noundef ptr @xcf_get_compression_name(i32 noundef %0) local_unnamed_addr 
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.xcf_get_compression_name, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.xcf_get_compression_name, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -317,7 +317,7 @@ define noundef ptr @xcf_get_composite_mode_name(i32 noundef %0) local_unnamed_ad
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.xcf_get_composite_mode_name, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.xcf_get_composite_mode_name, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -334,7 +334,7 @@ define noundef ptr @xcf_get_composite_blend_space_name(i32 noundef %0) local_unn
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.xcf_get_composite_blend_space_name, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.xcf_get_composite_blend_space_name, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -350,7 +350,7 @@ define noundef ptr @xcf_get_mode_name(i32 noundef %0) local_unnamed_addr #0 {
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.xcf_get_mode_name, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.xcf_get_mode_name, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -366,7 +366,7 @@ define noundef ptr @xcf_get_field_name(i32 noundef %0) local_unnamed_addr #0 {
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.xcf_get_field_name, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.xcf_get_field_name, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 
@@ -382,7 +382,7 @@ define noundef ptr @xcf_get_state_name(i32 noundef %0) local_unnamed_addr #0 {
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.xcf_get_state_name, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.xcf_get_state_name, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %4
 

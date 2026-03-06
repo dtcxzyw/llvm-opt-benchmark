@@ -712,7 +712,7 @@ define void @_ZN14pingora_rustls24load_certs_and_key_files17ha486c924f03ef3f9E(p
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %32 = icmp ult i64 %.sroa.634.0.copyload, 288230376151711744
   tail call void @llvm.assume(i1 %32)
-  %33 = getelementptr inbounds nuw { i64, [3 x i64] }, ptr %20, i64 %.sroa.634.0.copyload
+  %33 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %.sroa.634.0.copyload
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !71
   store ptr %20, ptr %6, align 8, !alias.scope !78, !noalias !82
   %.sroa.459.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
@@ -735,7 +735,7 @@ define void @_ZN14pingora_rustls24load_certs_and_key_files17ha486c924f03ef3f9E(p
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %36 = icmp ult i64 %.sroa.638.0.copyload, 288230376151711744
   tail call void @llvm.assume(i1 %36)
-  %37 = getelementptr inbounds nuw { i64, [3 x i64] }, ptr %28, i64 %.sroa.638.0.copyload
+  %37 = getelementptr inbounds nuw [32 x i8], ptr %28, i64 %.sroa.638.0.copyload
   store ptr %28, ptr %10, align 8
   %.sroa.466.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %28, ptr %.sroa.466.0..sroa_idx, align 8

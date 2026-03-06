@@ -249,9 +249,9 @@ _ZNSt6vectorIN5Ipopt21TripletToCSRConverter12TripletEntryESaIS2_EE17_S_check_ini
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.sroa.0252.0283 = phi ptr [ %42, %.lr.ph.preheader ], [ %58, %.lr.ph ]
-  %51 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %52 = load i32, ptr %51, align 4, !tbaa !28
-  %53 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %54 = load i32, ptr %53, align 4, !tbaa !28
   %spec.select.i = tail call i32 @llvm.smin.i32(i32 %52, i32 %54)
   %spec.select12.i = tail call i32 @llvm.smax.i32(i32 %52, i32 %54)
@@ -371,7 +371,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12Triple
   %.0213.lcssa = phi i32 [ 1, %.loopexit281 ], [ %96, %.lr.ph290.preheader ]
   %101 = add nsw i32 %.0213.lcssa, -1
   %102 = zext nneg i32 %101 to i64
-  %103 = getelementptr inbounds nuw i32, ptr %79, i64 %102
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %102
   store i32 0, ptr %103, align 4, !tbaa !28
   %104 = getelementptr inbounds nuw i8, ptr %42, i64 4
   %105 = load i32, ptr %104, align 4, !tbaa !33
@@ -382,7 +382,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12Triple
   br i1 %64, label %118, label %108
 
 108:                                              ; preds = %._crit_edge291
-  %109 = getelementptr inbounds nuw i32, ptr %.0211, i64 %102
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %.0211, i64 %102
   %110 = load i32, ptr %109, align 4, !tbaa !28
   %111 = add nsw i32 %110, 1
   store i32 %111, ptr %109, align 4, !tbaa !28
@@ -391,7 +391,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12Triple
 
 112:                                              ; preds = %108
   %113 = sext i32 %105 to i64
-  %114 = getelementptr i32, ptr %.0211, i64 %113
+  %114 = getelementptr [4 x i8], ptr %.0211, i64 %113
   %115 = getelementptr i8, ptr %114, i64 -4
   %116 = load i32, ptr %115, align 4, !tbaa !28
   %117 = add nsw i32 %116, 1
@@ -423,7 +423,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12Triple
 
 125:                                              ; preds = %119
   %126 = sext i32 %120 to i64
-  %127 = getelementptr inbounds i32, ptr %60, i64 %126
+  %127 = getelementptr inbounds [4 x i8], ptr %60, i64 %126
   %128 = load i32, ptr %127, align 4, !tbaa !28
   %129 = icmp eq i32 %128, %123
   br i1 %129, label %130, label %137
@@ -432,9 +432,9 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12Triple
   %131 = getelementptr inbounds nuw i8, ptr %.pn294, i64 20
   %132 = load i32, ptr %131, align 4, !tbaa !34
   %133 = sext i32 %.0209297 to i64
-  %134 = getelementptr inbounds i32, ptr %83, i64 %133
+  %134 = getelementptr inbounds [4 x i8], ptr %83, i64 %133
   store i32 %132, ptr %134, align 4, !tbaa !28
-  %135 = getelementptr inbounds i32, ptr %85, i64 %133
+  %135 = getelementptr inbounds [4 x i8], ptr %85, i64 %133
   store i32 %120, ptr %135, align 4, !tbaa !28
   %136 = add nsw i32 %.0209297, 1
   %.not246 = icmp eq i32 %.1214296, %123
@@ -449,7 +449,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12Triple
 138:                                              ; preds = %137
   %139 = add nsw i32 %.1217295, 1
   %140 = sext i32 %123 to i64
-  %141 = getelementptr i32, ptr %.0211, i64 %140
+  %141 = getelementptr [4 x i8], ptr %.0211, i64 %140
   %142 = getelementptr i8, ptr %141, i64 -4
   %143 = load i32, ptr %142, align 4, !tbaa !28
   %144 = add nsw i32 %143, 1
@@ -460,7 +460,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12Triple
 145:                                              ; preds = %138
   %146 = add nsw i32 %.1217295, 2
   %147 = sext i32 %121 to i64
-  %148 = getelementptr i32, ptr %.0211, i64 %147
+  %148 = getelementptr [4 x i8], ptr %.0211, i64 %147
   %149 = getelementptr i8, ptr %148, i64 -4
   %150 = load i32, ptr %149, align 4, !tbaa !28
   %151 = add nsw i32 %150, 1
@@ -472,17 +472,17 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12Triple
   %153 = add nsw i32 %120, 1
   store i32 %153, ptr %87, align 8, !tbaa !25
   %154 = sext i32 %153 to i64
-  %155 = getelementptr inbounds i32, ptr %60, i64 %154
+  %155 = getelementptr inbounds [4 x i8], ptr %60, i64 %154
   store i32 %123, ptr %155, align 4, !tbaa !28
   %156 = getelementptr inbounds nuw i8, ptr %.pn294, i64 20
   %157 = load i32, ptr %156, align 4, !tbaa !34
-  %158 = getelementptr inbounds i32, ptr %81, i64 %154
+  %158 = getelementptr inbounds [4 x i8], ptr %81, i64 %154
   store i32 %157, ptr %158, align 4, !tbaa !28
   br i1 %124, label %163, label %159
 
 159:                                              ; preds = %152
   %160 = zext nneg i32 %.1214296 to i64
-  %161 = getelementptr inbounds nuw i32, ptr %79, i64 %160
+  %161 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %160
   store i32 %153, ptr %161, align 4, !tbaa !28
   %162 = add nuw nsw i32 %.1214296, 1
   br label %163
@@ -521,7 +521,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12Triple
 
 169:                                              ; preds = %.lr.ph310, %169
   %indvars.iv380 = phi i64 [ %167, %.lr.ph310 ], [ %indvars.iv.next381, %169 ]
-  %170 = getelementptr inbounds nuw i32, ptr %79, i64 %indvars.iv380
+  %170 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %indvars.iv380
   store i32 %166, ptr %170, align 4, !tbaa !28
   %indvars.iv.next381 = add nuw nsw i64 %indvars.iv380, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next381 to i32
@@ -567,10 +567,10 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12Triple
 
 .lr.ph355:                                        ; preds = %.lr.ph355.preheader, %.lr.ph355
   %indvars.iv424 = phi i64 [ 0, %.lr.ph355.preheader ], [ %indvars.iv.next425, %.lr.ph355 ]
-  %186 = getelementptr inbounds nuw i32, ptr %60, i64 %indvars.iv424
+  %186 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %indvars.iv424
   %187 = load i32, ptr %186, align 4, !tbaa !28
   %188 = add nsw i32 %187, -1
-  %189 = getelementptr inbounds nuw i32, ptr %176, i64 %indvars.iv424
+  %189 = getelementptr inbounds nuw [4 x i8], ptr %176, i64 %indvars.iv424
   store i32 %188, ptr %189, align 4, !tbaa !28
   %indvars.iv.next425 = add nuw nsw i64 %indvars.iv424, 1
   %exitcond428.not = icmp eq i64 %indvars.iv.next425, %wide.trip.count427
@@ -585,7 +585,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12Triple
 
 .lr.ph353:                                        ; preds = %.lr.ph353.preheader, %.lr.ph353
   %indvars.iv419 = phi i64 [ 0, %.lr.ph353.preheader ], [ %indvars.iv.next420, %.lr.ph353 ]
-  %190 = getelementptr inbounds nuw i32, ptr %79, i64 %indvars.iv419
+  %190 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %indvars.iv419
   %191 = load i32, ptr %190, align 4, !tbaa !28
   %192 = add nsw i32 %191, 1
   store i32 %192, ptr %190, align 4, !tbaa !28
@@ -675,12 +675,12 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12Triple
 .lr.ph315:                                        ; preds = %.lr.ph315.preheader, %.lr.ph315
   %225 = phi i32 [ 0, %.lr.ph315.preheader ], [ %229, %.lr.ph315 ]
   %indvars.iv384 = phi i64 [ 1, %.lr.ph315.preheader ], [ %indvars.iv.next385, %.lr.ph315 ]
-  %226 = getelementptr i32, ptr %.0211, i64 %indvars.iv384
+  %226 = getelementptr [4 x i8], ptr %.0211, i64 %indvars.iv384
   %227 = getelementptr i8, ptr %226, i64 -4
   %228 = load i32, ptr %227, align 4, !tbaa !28
   %229 = add nsw i32 %228, %225
   %indvars.iv.next385 = add nuw nsw i64 %indvars.iv384, 1
-  %230 = getelementptr inbounds nuw i32, ptr %218, i64 %indvars.iv.next385
+  %230 = getelementptr inbounds nuw [4 x i8], ptr %218, i64 %indvars.iv.next385
   store i32 %229, ptr %230, align 4, !tbaa !28
   %exitcond388.not = icmp eq i64 %indvars.iv.next385, %wide.trip.count387
   br i1 %exitcond388.not, label %._crit_edge316.thread, label %.lr.ph315, !llvm.loop !40
@@ -745,13 +745,13 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12Triple
   %.0183339 = phi i32 [ 0, %.lr.ph342 ], [ %.1.lcssa, %.loopexit279 ]
   %.0184338 = phi i32 [ 0, %.lr.ph342 ], [ %.1185.lcssa, %.loopexit279 ]
   %indvars.iv.next409 = add nuw nsw i64 %indvars.iv408, 1
-  %258 = getelementptr inbounds nuw i32, ptr %250, i64 %indvars.iv.next409
+  %258 = getelementptr inbounds nuw [4 x i8], ptr %250, i64 %indvars.iv.next409
   %259 = load i32, ptr %258, align 4, !tbaa !28
   %260 = icmp slt i32 %257, %259
   br i1 %260, label %.lr.ph334, label %.loopexit279
 
 .lr.ph334:                                        ; preds = %256
-  %261 = getelementptr inbounds nuw i32, ptr %218, i64 %indvars.iv.next409
+  %261 = getelementptr inbounds nuw [4 x i8], ptr %218, i64 %indvars.iv.next409
   %262 = sext i32 %257 to i64
   %263 = trunc i64 %indvars.iv408 to i32
   %264 = add i32 %252, %263
@@ -761,17 +761,17 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12Triple
   %indvars.iv405 = phi i64 [ %262, %.lr.ph334 ], [ %indvars.iv.next406, %322 ]
   %.1330 = phi i32 [ %.0183339, %.lr.ph334 ], [ %.2.lcssa, %322 ]
   %.1185329 = phi i32 [ %.0184338, %.lr.ph334 ], [ %.2186.lcssa, %322 ]
-  %266 = getelementptr inbounds i32, ptr %60, i64 %indvars.iv405
+  %266 = getelementptr inbounds [4 x i8], ptr %60, i64 %indvars.iv405
   %267 = load i32, ptr %266, align 4, !tbaa !28
   %268 = add nsw i32 %267, -1
   %269 = add nsw i32 %268, %252
   %270 = load i32, ptr %261, align 4, !tbaa !28
   %271 = sext i32 %270 to i64
-  %272 = getelementptr inbounds i32, ptr %236, i64 %271
+  %272 = getelementptr inbounds [4 x i8], ptr %236, i64 %271
   store i32 %269, ptr %272, align 4, !tbaa !28
-  %273 = getelementptr inbounds i32, ptr %81, i64 %indvars.iv405
+  %273 = getelementptr inbounds [4 x i8], ptr %81, i64 %indvars.iv405
   %274 = load i32, ptr %273, align 4, !tbaa !28
-  %275 = getelementptr inbounds i32, ptr %238, i64 %271
+  %275 = getelementptr inbounds [4 x i8], ptr %238, i64 %271
   store i32 %274, ptr %275, align 4, !tbaa !28
   %276 = icmp slt i32 %.1185329, %.0209.lcssa
   %277 = zext i32 %268 to i64
@@ -780,7 +780,7 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12Triple
 .lr.ph320:                                        ; preds = %265
   %.not234 = icmp eq i64 %indvars.iv408, %277
   %278 = sext i32 %267 to i64
-  %279 = getelementptr inbounds i32, ptr %218, i64 %278
+  %279 = getelementptr inbounds [4 x i8], ptr %218, i64 %278
   %.not234.fr = freeze i1 %.not234
   %280 = sext i32 %.1330 to i64
   %281 = sext i32 %.1185329 to i64
@@ -802,17 +802,17 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12Triple
 .lr.ph320.split.us:                               ; preds = %.lr.ph320.split.us.preheader, %292
   %indvars.iv399 = phi i64 [ %281, %.lr.ph320.split.us.preheader ], [ %indvars.iv.next400, %292 ]
   %indvars.iv397 = phi i64 [ %280, %.lr.ph320.split.us.preheader ], [ %indvars.iv.next398, %292 ]
-  %289 = getelementptr inbounds i32, ptr %85, i64 %indvars.iv399
+  %289 = getelementptr inbounds [4 x i8], ptr %85, i64 %indvars.iv399
   %290 = load i32, ptr %289, align 4, !tbaa !28
   %291 = icmp eq i32 %290, %288
   br i1 %291, label %292, label %.critedge.loopexit.split.loop.exit468
 
 292:                                              ; preds = %.lr.ph320.split.us
-  %293 = getelementptr inbounds i32, ptr %83, i64 %indvars.iv399
+  %293 = getelementptr inbounds [4 x i8], ptr %83, i64 %indvars.iv399
   %294 = load i32, ptr %293, align 4, !tbaa !28
-  %295 = getelementptr inbounds i32, ptr %244, i64 %indvars.iv397
+  %295 = getelementptr inbounds [4 x i8], ptr %244, i64 %indvars.iv397
   store i32 %294, ptr %295, align 4, !tbaa !28
-  %296 = getelementptr inbounds i32, ptr %246, i64 %indvars.iv397
+  %296 = getelementptr inbounds [4 x i8], ptr %246, i64 %indvars.iv397
   store i32 %270, ptr %296, align 4, !tbaa !28
   %indvars.iv.next398 = add nsw i64 %indvars.iv397, 1
   %indvars.iv.next400 = add nsw i64 %indvars.iv399, 1
@@ -822,23 +822,23 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12Triple
 .lr.ph320.split:                                  ; preds = %.lr.ph320.split.preheader, %300
   %indvars.iv391 = phi i64 [ %281, %.lr.ph320.split.preheader ], [ %indvars.iv.next392, %300 ]
   %indvars.iv389 = phi i64 [ %280, %.lr.ph320.split.preheader ], [ %indvars.iv.next390, %300 ]
-  %297 = getelementptr inbounds i32, ptr %85, i64 %indvars.iv391
+  %297 = getelementptr inbounds [4 x i8], ptr %85, i64 %indvars.iv391
   %298 = load i32, ptr %297, align 4, !tbaa !28
   %299 = icmp eq i32 %298, %285
   br i1 %299, label %300, label %.critedge.loopexit461.split.loop.exit465
 
 300:                                              ; preds = %.lr.ph320.split
-  %301 = getelementptr inbounds i32, ptr %83, i64 %indvars.iv391
+  %301 = getelementptr inbounds [4 x i8], ptr %83, i64 %indvars.iv391
   %302 = load i32, ptr %301, align 4, !tbaa !28
-  %303 = getelementptr inbounds i32, ptr %244, i64 %indvars.iv389
+  %303 = getelementptr inbounds [4 x i8], ptr %244, i64 %indvars.iv389
   store i32 %302, ptr %303, align 4, !tbaa !28
-  %304 = getelementptr inbounds i32, ptr %246, i64 %indvars.iv389
+  %304 = getelementptr inbounds [4 x i8], ptr %246, i64 %indvars.iv389
   store i32 %270, ptr %304, align 4, !tbaa !28
   %305 = add nsw i64 %indvars.iv389, 1
-  %306 = getelementptr inbounds i32, ptr %244, i64 %305
+  %306 = getelementptr inbounds [4 x i8], ptr %244, i64 %305
   store i32 %302, ptr %306, align 4, !tbaa !28
   %307 = load i32, ptr %279, align 4, !tbaa !28
-  %308 = getelementptr inbounds i32, ptr %246, i64 %305
+  %308 = getelementptr inbounds [4 x i8], ptr %246, i64 %305
   store i32 %307, ptr %308, align 4, !tbaa !28
   %indvars.iv.next390 = add nsw i64 %indvars.iv389, 2
   %indvars.iv.next392 = add nsw i64 %indvars.iv391, 1
@@ -865,12 +865,12 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12Triple
 
 314:                                              ; preds = %.critedge
   %315 = sext i32 %267 to i64
-  %316 = getelementptr inbounds i32, ptr %218, i64 %315
+  %316 = getelementptr inbounds [4 x i8], ptr %218, i64 %315
   %317 = load i32, ptr %316, align 4, !tbaa !28
   %318 = sext i32 %317 to i64
-  %319 = getelementptr inbounds i32, ptr %236, i64 %318
+  %319 = getelementptr inbounds [4 x i8], ptr %236, i64 %318
   store i32 %264, ptr %319, align 4, !tbaa !28
-  %320 = getelementptr inbounds i32, ptr %238, i64 %318
+  %320 = getelementptr inbounds [4 x i8], ptr %238, i64 %318
   store i32 %274, ptr %320, align 4, !tbaa !28
   %321 = add nsw i32 %317, 1
   store i32 %321, ptr %316, align 4, !tbaa !28
@@ -899,11 +899,11 @@ _ZSt4sortIN9__gnu_cxx17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12Triple
 
 329:                                              ; preds = %.lr.ph347, %329
   %indvars.iv413 = phi i64 [ 0, %.lr.ph347 ], [ %indvars.iv.next414, %329 ]
-  %330 = getelementptr inbounds nuw i32, ptr %218, i64 %indvars.iv413
+  %330 = getelementptr inbounds nuw [4 x i8], ptr %218, i64 %indvars.iv413
   %331 = load i32, ptr %330, align 4, !tbaa !28
   %332 = load i32, ptr %327, align 4, !tbaa !10
   %333 = add nsw i32 %332, %331
-  %334 = getelementptr inbounds nuw i32, ptr %328, i64 %indvars.iv413
+  %334 = getelementptr inbounds nuw [4 x i8], ptr %328, i64 %indvars.iv413
   store i32 %333, ptr %334, align 4, !tbaa !28
   %indvars.iv.next414 = add nuw nsw i64 %indvars.iv413, 1
   %335 = load i32, ptr %31, align 8, !tbaa !23
@@ -973,12 +973,12 @@ define void @_ZN5Ipopt21TripletToCSRConverter13ConvertValuesEiPKdiPd(ptr noundef
 
 18:                                               ; preds = %.lr.ph, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
-  %19 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4, !tbaa !28
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds double, ptr %2, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %2, i64 %21
   %23 = load double, ptr %22, align 8, !tbaa !45
-  %24 = getelementptr inbounds nuw double, ptr %4, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   store double %23, ptr %24, align 8, !tbaa !45
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -989,15 +989,15 @@ define void @_ZN5Ipopt21TripletToCSRConverter13ConvertValuesEiPKdiPd(ptr noundef
 
 25:                                               ; preds = %.lr.ph15, %25
   %indvars.iv17 = phi i64 [ 0, %.lr.ph15 ], [ %indvars.iv.next18, %25 ]
-  %26 = getelementptr inbounds nuw i32, ptr %15, i64 %indvars.iv17
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv17
   %27 = load i32, ptr %26, align 4, !tbaa !28
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds double, ptr %2, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %2, i64 %28
   %30 = load double, ptr %29, align 8, !tbaa !45
-  %31 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv17
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv17
   %32 = load i32, ptr %31, align 4, !tbaa !28
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds double, ptr %4, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %4, i64 %33
   %35 = load double, ptr %34, align 8, !tbaa !45
   %36 = fadd double %30, %35
   store double %36, ptr %34, align 8, !tbaa !45
@@ -1061,7 +1061,7 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
 
 17:                                               ; preds = %13
   %18 = udiv i64 %14, 24
-  %19 = getelementptr inbounds nuw %"class.Ipopt::TripletToCSRConverter::TripletEntry", ptr %0, i64 %18
+  %19 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %18
   %20 = getelementptr inbounds i8, ptr %storemerge12, i64 -12
   tail call void @_ZSt22__move_median_to_firstIN9__gnu_cxx17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_SC_T0_(ptr %0, ptr nonnull %11, ptr %19, ptr nonnull %20)
   br label %21
@@ -1181,7 +1181,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5Ipopt21TripletToCSRConvert
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %4, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.0.019.i.ptr, i64 12, i1 false), !tbaa.struct !27
   %20 = getelementptr inbounds nuw i8, ptr %.pn18.i, i64 24
   %.neg.i.i.i.i.i.i = sdiv exact i64 %.sroa.0.019.i.idx, -12
-  %21 = getelementptr inbounds %"class.Ipopt::TripletToCSRConverter::TripletEntry", ptr %20, i64 %.neg.i.i.i.i.i.i
+  %21 = getelementptr inbounds [12 x i8], ptr %20, i64 %.neg.i.i.i.i.i.i
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %21, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %.sroa.0.019.i.idx, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %4, i64 12, i1 false), !tbaa.struct !27
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1310,7 +1310,7 @@ _ZSt13move_backwardIN9__gnu_cxx17__normal_iteratorIPN5Ipopt21TripletToCSRConvert
   %55 = ptrtoint ptr %.sroa.0.019.i21 to i64
   %56 = sub i64 %55, %6
   %.neg.i.i.i.i.i.i37 = sdiv exact i64 %56, -12
-  %57 = getelementptr inbounds %"class.Ipopt::TripletToCSRConverter::TripletEntry", ptr %54, i64 %.neg.i.i.i.i.i.i37
+  %57 = getelementptr inbounds [12 x i8], ptr %54, i64 %.neg.i.i.i.i.i.i37
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %57, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %56, i1 false)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %0, ptr noundef nonnull align 4 dereferenceable(12) %3, i64 12, i1 false), !tbaa.struct !27
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -1386,9 +1386,9 @@ define linkonce_odr void @_ZSt11__sort_heapIN9__gnu_cxx17__normal_iteratorIPN5Ip
   %.044.i.i = phi i64 [ %30, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS6_SaIS6_EEEESB_EEbT_T0_.exit.thread42.i.i ], [ 0, %.lr.ph ]
   %15 = shl i64 %.044.i.i, 1
   %16 = add i64 %15, 2
-  %17 = getelementptr inbounds %"class.Ipopt::TripletToCSRConverter::TripletEntry", ptr %0, i64 %16
+  %17 = getelementptr inbounds [12 x i8], ptr %0, i64 %16
   %18 = or disjoint i64 %15, 1
-  %19 = getelementptr inbounds %"class.Ipopt::TripletToCSRConverter::TripletEntry", ptr %0, i64 %18
+  %19 = getelementptr inbounds [12 x i8], ptr %0, i64 %18
   %20 = load i32, ptr %17, align 4, !tbaa !31
   %21 = load i32, ptr %19, align 4, !tbaa !31
   %22 = icmp slt i32 %20, %21
@@ -1412,8 +1412,8 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN5Ipopt21Triplet
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS6_SaIS6_EEEESB_EEbT_T0_.exit.thread42.i.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS6_SaIS6_EEEESB_EEbT_T0_.exit.thread.i.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS6_SaIS6_EEEESB_EEbT_T0_.exit.i.i, %23
   %30 = phi i64 [ %18, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS6_SaIS6_EEEESB_EEbT_T0_.exit.thread.i.i ], [ %16, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS6_SaIS6_EEEESB_EEbT_T0_.exit.i.i ], [ %16, %23 ]
-  %31 = getelementptr inbounds %"class.Ipopt::TripletToCSRConverter::TripletEntry", ptr %0, i64 %30
-  %32 = getelementptr inbounds %"class.Ipopt::TripletToCSRConverter::TripletEntry", ptr %0, i64 %.044.i.i
+  %31 = getelementptr inbounds [12 x i8], ptr %0, i64 %30
+  %32 = getelementptr inbounds [12 x i8], ptr %0, i64 %.044.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %32, ptr noundef nonnull align 4 dereferenceable(12) %31, i64 12, i1 false), !tbaa.struct !27
   %33 = icmp slt i64 %30, %13
   br i1 %33, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !56
@@ -1433,8 +1433,8 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN5Ipopt21Triplet
 40:                                               ; preds = %36
   %41 = shl nsw i64 %.0.lcssa.i.i, 1
   %42 = or disjoint i64 %41, 1
-  %43 = getelementptr inbounds %"class.Ipopt::TripletToCSRConverter::TripletEntry", ptr %0, i64 %42
-  %44 = getelementptr inbounds %"class.Ipopt::TripletToCSRConverter::TripletEntry", ptr %0, i64 %.0.lcssa.i.i
+  %43 = getelementptr inbounds [12 x i8], ptr %0, i64 %42
+  %44 = getelementptr inbounds [12 x i8], ptr %0, i64 %.0.lcssa.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %44, ptr noundef nonnull align 4 dereferenceable(12) %43, i64 12, i1 false), !tbaa.struct !27
   br label %45
 
@@ -1450,7 +1450,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN5Ipopt21Triplet
   %.021.i.i.i = phi i64 [ %.01022.i.i910.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS6_SaIS6_EEEES6_EEbT_RT0_.exit.thread.i.i.i ], [ %.1.i.i, %45 ]
   %.01022.in.i.i.i = add nsw i64 %.021.i.i.i, -1
   %.01022.i.i910.i = lshr i64 %.01022.in.i.i.i, 1
-  %47 = getelementptr inbounds nuw %"class.Ipopt::TripletToCSRConverter::TripletEntry", ptr %0, i64 %.01022.i.i910.i
+  %47 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %.01022.i.i910.i
   %48 = load i32, ptr %47, align 4, !tbaa !31
   %49 = icmp slt i32 %48, %.sroa.013.sroa.0.0.extract.trunc.i.i.i
   br i1 %49, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS6_SaIS6_EEEES6_EEbT_RT0_.exit.thread.i.i.i, label %50
@@ -1466,14 +1466,14 @@ _ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN5Ipopt21TripletT
   br i1 %54, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS6_SaIS6_EEEES6_EEbT_RT0_.exit.thread.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit
 
 _ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS6_SaIS6_EEEES6_EEbT_RT0_.exit.thread.i.i.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS6_SaIS6_EEEES6_EEbT_RT0_.exit.i.i.i, %.lr.ph.i.i.i
-  %55 = getelementptr inbounds nuw %"class.Ipopt::TripletToCSRConverter::TripletEntry", ptr %0, i64 %.021.i.i.i
+  %55 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %.021.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %55, ptr noundef nonnull align 4 dereferenceable(12) %47, i64 12, i1 false), !tbaa.struct !27
   %.not.i = icmp eq i64 %.01022.i.i910.i, 0
   br i1 %.not.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !57
 
 _ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_less_iterEEvT_SC_SC_RT0_.exit: ; preds = %50, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS6_SaIS6_EEEES6_EEbT_RT0_.exit.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS6_SaIS6_EEEES6_EEbT_RT0_.exit.thread.i.i.i, %45
   %.0.lcssa.i.i.i = phi i64 [ %.1.i.i, %45 ], [ %.021.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS6_SaIS6_EEEES6_EEbT_RT0_.exit.i.i.i ], [ 0, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS6_SaIS6_EEEES6_EEbT_RT0_.exit.thread.i.i.i ], [ %.021.i.i.i, %50 ]
-  %56 = getelementptr inbounds %"class.Ipopt::TripletToCSRConverter::TripletEntry", ptr %0, i64 %.0.lcssa.i.i.i
+  %56 = getelementptr inbounds [12 x i8], ptr %0, i64 %.0.lcssa.i.i.i
   store i64 %.sroa.04.0.copyload.i, ptr %56, align 4
   %.sroa.4.0..sroa.0.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %56, i64 8
   store i32 %.sroa.4.0.copyload.i, ptr %.sroa.4.0..sroa.0.0..sroa_idx.i.i.i, align 4, !tbaa !28
@@ -1502,13 +1502,13 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5Ip
   %15 = icmp eq i64 %14, 0
   %16 = lshr exact i64 %10, 1
   %17 = or disjoint i64 %10, 1
-  %18 = getelementptr inbounds nuw %"class.Ipopt::TripletToCSRConverter::TripletEntry", ptr %0, i64 %17
-  %19 = getelementptr inbounds nuw %"class.Ipopt::TripletToCSRConverter::TripletEntry", ptr %0, i64 %16
+  %18 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %17
+  %19 = getelementptr inbounds nuw [12 x i8], ptr %0, i64 %16
   br label %20
 
 20:                                               ; preds = %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit, %8
   %.011 = phi i64 [ %11, %8 ], [ %57, %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit ]
-  %21 = getelementptr inbounds %"class.Ipopt::TripletToCSRConverter::TripletEntry", ptr %0, i64 %.011
+  %21 = getelementptr inbounds [12 x i8], ptr %0, i64 %.011
   %.sroa.04.0.copyload = load i64, ptr %21, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !28
@@ -1519,9 +1519,9 @@ define linkonce_odr void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPN5Ip
   %.044.i = phi i64 [ %38, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS6_SaIS6_EEEESB_EEbT_T0_.exit.thread42.i ], [ %.011, %20 ]
   %23 = shl i64 %.044.i, 1
   %24 = add i64 %23, 2
-  %25 = getelementptr inbounds %"class.Ipopt::TripletToCSRConverter::TripletEntry", ptr %0, i64 %24
+  %25 = getelementptr inbounds [12 x i8], ptr %0, i64 %24
   %26 = or disjoint i64 %23, 1
-  %27 = getelementptr inbounds %"class.Ipopt::TripletToCSRConverter::TripletEntry", ptr %0, i64 %26
+  %27 = getelementptr inbounds [12 x i8], ptr %0, i64 %26
   %28 = load i32, ptr %25, align 4, !tbaa !31
   %29 = load i32, ptr %27, align 4, !tbaa !31
   %30 = icmp slt i32 %28, %29
@@ -1545,8 +1545,8 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN5Ipopt21Triplet
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS6_SaIS6_EEEESB_EEbT_T0_.exit.thread42.i: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS6_SaIS6_EEEESB_EEbT_T0_.exit.thread.i, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS6_SaIS6_EEEESB_EEbT_T0_.exit.i, %31
   %38 = phi i64 [ %26, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS6_SaIS6_EEEESB_EEbT_T0_.exit.thread.i ], [ %24, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS6_SaIS6_EEEESB_EEbT_T0_.exit.i ], [ %24, %31 ]
-  %39 = getelementptr inbounds %"class.Ipopt::TripletToCSRConverter::TripletEntry", ptr %0, i64 %38
-  %40 = getelementptr inbounds %"class.Ipopt::TripletToCSRConverter::TripletEntry", ptr %0, i64 %.044.i
+  %39 = getelementptr inbounds [12 x i8], ptr %0, i64 %38
+  %40 = getelementptr inbounds [12 x i8], ptr %0, i64 %.044.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %40, ptr noundef nonnull align 4 dereferenceable(12) %39, i64 12, i1 false), !tbaa.struct !27
   %41 = icmp slt i64 %38, %13
   br i1 %41, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !56
@@ -1573,7 +1573,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclINS_17__normal_iteratorIPN5Ipopt21Triplet
   %.021.i.i = phi i64 [ %.01022.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS6_SaIS6_EEEES6_EEbT_RT0_.exit.thread.i.i ], [ %.1.i, %44 ]
   %.01022.in.i.i = add nsw i64 %.021.i.i, -1
   %.01022.i.i = sdiv i64 %.01022.in.i.i, 2
-  %46 = getelementptr inbounds %"class.Ipopt::TripletToCSRConverter::TripletEntry", ptr %0, i64 %.01022.i.i
+  %46 = getelementptr inbounds [12 x i8], ptr %0, i64 %.01022.i.i
   %47 = load i32, ptr %46, align 4, !tbaa !31
   %48 = icmp slt i32 %47, %.sroa.013.sroa.0.0.extract.trunc.i.i
   br i1 %48, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS6_SaIS6_EEEES6_EEbT_RT0_.exit.thread.i.i, label %49
@@ -1589,14 +1589,14 @@ _ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN5Ipopt21TripletT
   br i1 %53, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS6_SaIS6_EEEES6_EEbT_RT0_.exit.thread.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit
 
 _ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS6_SaIS6_EEEES6_EEbT_RT0_.exit.thread.i.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS6_SaIS6_EEEES6_EEbT_RT0_.exit.i.i, %.lr.ph.i.i
-  %54 = getelementptr inbounds %"class.Ipopt::TripletToCSRConverter::TripletEntry", ptr %0, i64 %.021.i.i
+  %54 = getelementptr inbounds [12 x i8], ptr %0, i64 %.021.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %54, ptr noundef nonnull align 4 dereferenceable(12) %46, i64 12, i1 false), !tbaa.struct !27
   %55 = icmp sgt i64 %.01022.i.i, %.011
   br i1 %55, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit, !llvm.loop !57
 
 _ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS4_SaIS4_EEEElS4_NS0_5__ops15_Iter_less_iterEEvT_T0_SD_T1_T2_.exit: ; preds = %49, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS6_SaIS6_EEEES6_EEbT_RT0_.exit.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS6_SaIS6_EEEES6_EEbT_RT0_.exit.thread.i.i, %44
   %.0.lcssa.i.i = phi i64 [ %.1.i, %44 ], [ %.021.i.i, %49 ], [ %.01022.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS6_SaIS6_EEEES6_EEbT_RT0_.exit.thread.i.i ], [ %.021.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclINS_17__normal_iteratorIPN5Ipopt21TripletToCSRConverter12TripletEntryESt6vectorIS6_SaIS6_EEEES6_EEbT_RT0_.exit.i.i ]
-  %56 = getelementptr inbounds %"class.Ipopt::TripletToCSRConverter::TripletEntry", ptr %0, i64 %.0.lcssa.i.i
+  %56 = getelementptr inbounds [12 x i8], ptr %0, i64 %.0.lcssa.i.i
   store i64 %.sroa.04.0.copyload, ptr %56, align 4
   %.sroa.4.0..sroa.0.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %56, i64 8
   store i32 %.sroa.4.0.copyload, ptr %.sroa.4.0..sroa.0.0..sroa_idx.i.i, align 4, !tbaa !28

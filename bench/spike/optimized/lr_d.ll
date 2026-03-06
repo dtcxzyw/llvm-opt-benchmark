@@ -137,7 +137,7 @@ define noundef i64 @_Z15fast_rv64i_lr_dP11processor_t6insn_tm(ptr noundef captur
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %20 = lshr i64 %1, 15
   %21 = and i64 %20, 31
-  %22 = getelementptr inbounds nuw i64, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = load i64, ptr %22, align 8, !tbaa !144
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !145
@@ -174,7 +174,7 @@ _ZN5mmu_t13load_reservedIlEET_m.exit:             ; preds = %16, %26, %30
   br i1 %.not.i, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %36
 
 36:                                               ; preds = %_ZN5mmu_t13load_reservedIlEET_m.exit
-  %37 = getelementptr inbounds nuw i64, ptr %19, i64 %35
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %35
   store i64 %.sroa.0.0.copyload.i.i, ptr %37, align 8, !tbaa !144
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -230,7 +230,7 @@ define noundef i64 @_Z17logged_rv64i_lr_dP11processor_t6insn_tm(ptr noundef %0, 
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %21 = lshr i64 %1, 15
   %22 = and i64 %21, 31
-  %23 = getelementptr inbounds nuw i64, ptr %20, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %22
   %24 = load i64, ptr %23, align 8, !tbaa !144
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !145
@@ -276,7 +276,7 @@ _ZN5mmu_t13load_reservedIlEET_m.exit:             ; preds = %17, %27, %31
   br i1 %.not.i, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %40
 
 40:                                               ; preds = %_ZN5mmu_t13load_reservedIlEET_m.exit
-  %41 = getelementptr inbounds nuw i64, ptr %20, i64 %37
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %37
   store i64 %.sroa.0.0.copyload.i.i, ptr %41, align 8, !tbaa !144
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -448,7 +448,7 @@ define noundef i64 @_Z15fast_rv64e_lr_dP11processor_t6insn_tm(ptr noundef captur
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %36 = load ptr, ptr %35, align 8, !tbaa !27
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %38 = getelementptr inbounds nuw i64, ptr %37, i64 %27
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %27
   %39 = load i64, ptr %38, align 8, !tbaa !144
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !145
@@ -483,7 +483,7 @@ _ZN5mmu_t13load_reservedIlEET_m.exit:             ; preds = %34, %42, %46
   br i1 %.not.i, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %50
 
 50:                                               ; preds = %_ZN5mmu_t13load_reservedIlEET_m.exit
-  %51 = getelementptr inbounds nuw i64, ptr %37, i64 %18
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %18
   store i64 %.sroa.0.0.copyload.i.i, ptr %51, align 8, !tbaa !144
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -570,7 +570,7 @@ define noundef i64 @_Z17logged_rv64e_lr_dP11processor_t6insn_tm(ptr noundef %0, 
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %37 = load ptr, ptr %36, align 8, !tbaa !27
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %39 = getelementptr inbounds nuw i64, ptr %38, i64 %28
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %28
   %40 = load i64, ptr %39, align 8, !tbaa !144
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !145
@@ -614,7 +614,7 @@ _ZN5mmu_t13load_reservedIlEET_m.exit:             ; preds = %35, %43, %47
   br i1 %.not.i, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %54
 
 54:                                               ; preds = %_ZN5mmu_t13load_reservedIlEET_m.exit
-  %55 = getelementptr inbounds nuw i64, ptr %38, i64 %19
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %19
   store i64 %.sroa.0.0.copyload.i.i, ptr %55, align 8, !tbaa !144
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -835,7 +835,7 @@ _ZNSt6vectorISt5tupleIJmmhEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22: ; preds
 _ZNSt12_Vector_baseISt5tupleIJmmhEESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorISt5tupleIJmmhEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22, %49
   store ptr %20, ptr %0, align 8, !tbaa !189
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !187
-  %53 = getelementptr inbounds nuw %"class.std::tuple", ptr %20, i64 %16
+  %53 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %53, ptr %48, align 8, !tbaa !188
   ret void
 }

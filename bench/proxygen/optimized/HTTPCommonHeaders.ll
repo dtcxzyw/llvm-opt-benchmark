@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"struct.proxygen::HTTPCommonHeaderName" = type { ptr, i8 }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
 %"class.google::LogMessageFatal" = type { %"class.google::LogMessage" }
 %"class.google::LogMessage" = type { ptr, ptr, %"struct.google::LogMessageTime" }
 %"struct.google::LogMessageTime" = type { %struct.tm, i64, i32, i64 }
@@ -196,7 +193,7 @@ if.then5:                                         ; preds = %if.then3
   br i1 %cmp9, label %if.then10, label %return
 
 if.then10:                                        ; preds = %if.then5
-  %arrayidx12 = getelementptr inbounds nuw %"struct.proxygen::HTTPCommonHeaderName", ptr @_ZN8proxygenL8wordlistE, i64 %conv
+  %arrayidx12 = getelementptr inbounds nuw [16 x i8], ptr @_ZN8proxygenL8wordlistE, i64 %conv
   %10 = load ptr, ptr %arrayidx12, align 16
   %11 = load i8, ptr %str, align 1
   %12 = load i8, ptr %10, align 1
@@ -315,7 +312,7 @@ if.then5.i:                                       ; preds = %if.then3.i
   br i1 %cmp9.i, label %if.then10.i, label %cond.end
 
 if.then10.i:                                      ; preds = %if.then5.i
-  %arrayidx12.i = getelementptr inbounds nuw %"struct.proxygen::HTTPCommonHeaderName", ptr @_ZN8proxygenL8wordlistE, i64 %conv.i
+  %arrayidx12.i = getelementptr inbounds nuw [16 x i8], ptr @_ZN8proxygenL8wordlistE, i64 %conv.i
   %10 = load ptr, ptr %arrayidx12.i, align 16
   %11 = load i8, ptr %name, align 1
   %12 = load i8, ptr %10, align 1
@@ -378,12 +375,12 @@ for.cond.preheader:                               ; preds = %arrayctor.loop
 
 for.body.us:                                      ; preds = %for.cond.preheader, %for.body.us
   %j.09.us = phi i64 [ %inc.us, %for.body.us ], [ 0, %for.cond.preheader ]
-  %arrayidx.us = getelementptr inbounds nuw %"struct.proxygen::HTTPCommonHeaderName", ptr @_ZN8proxygenL8wordlistE, i64 %j.09.us
+  %arrayidx.us = getelementptr inbounds nuw [16 x i8], ptr @_ZN8proxygenL8wordlistE, i64 %j.09.us
   %code1.us = getelementptr inbounds nuw i8, ptr %arrayidx.us, i64 8
   %0 = load i8, ptr %code1.us, align 8
   %1 = load ptr, ptr %arrayidx.us, align 16
   %idxprom17.us = zext i8 %0 to i64
-  %arrayidx18.us = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.ptr, i64 %idxprom17.us
+  %arrayidx18.us = getelementptr inbounds nuw [32 x i8], ptr %.ptr, i64 %idxprom17.us
   %call19.us = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx18.us, ptr noundef %1)
   %call23.us = tail call noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx18.us) #8
   %call26.us = tail call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx18.us) #8
@@ -394,12 +391,12 @@ for.body.us:                                      ; preds = %for.cond.preheader,
 
 for.body:                                         ; preds = %for.cond.preheader, %for.body
   %j.09 = phi i64 [ %inc, %for.body ], [ 0, %for.cond.preheader ]
-  %arrayidx = getelementptr inbounds nuw %"struct.proxygen::HTTPCommonHeaderName", ptr @_ZN8proxygenL8wordlistE, i64 %j.09
+  %arrayidx = getelementptr inbounds nuw [16 x i8], ptr @_ZN8proxygenL8wordlistE, i64 %j.09
   %code1 = getelementptr inbounds nuw i8, ptr %arrayidx, i64 8
   %2 = load i8, ptr %code1, align 8
   %3 = load ptr, ptr %arrayidx, align 16
   %idxprom17 = zext i8 %2 to i64
-  %arrayidx18 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.ptr, i64 %idxprom17
+  %arrayidx18 = getelementptr inbounds nuw [32 x i8], ptr %.ptr, i64 %idxprom17
   %call19 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc(ptr noundef nonnull align 8 dereferenceable(32) %arrayidx18, ptr noundef %3)
   %inc = add nuw nsw i64 %j.09, 1
   %exitcond.not = icmp eq i64 %inc, 87

@@ -249,10 +249,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !27, !noundef !3
   %.val = load i8, ptr %2, align 1, !range !28, !noundef !3
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hffe91de57e5f8315E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hffe91de57e5f8315E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hffe91de57e5f8315E.29", i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hffe91de57e5f8315E.29", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17he69b0a0ceac09084E(ptr noalias noundef nonnull align 8 dereferenceable(24) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -420,7 +420,7 @@ define hidden { i32, i32 } @_ZN5wasmi5table7element14ElementSegment3new17ha94131
   %19 = call { ptr, i64 } @_ZN5wasmi6module7element14ElementSegment5items17h9f26e8117f878beeE(ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %1)
   %20 = extractvalue { ptr, i64 } %19, 0
   %21 = extractvalue { ptr, i64 } %19, 1
-  %22 = getelementptr inbounds nuw { { i32, [5 x i32] } }, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %21
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !47
   store ptr %20, ptr %5, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -828,7 +828,7 @@ define noalias noundef ptr @wasm_func_call(ptr noalias noundef align 8 dereferen
   %29 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i64 0, ptr %29, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %30 = getelementptr inbounds nuw { i8, [15 x i8], { [2 x i64] } }, ptr %26, i64 %27
+  %30 = getelementptr inbounds nuw [32 x i8], ptr %26, i64 %27
   invoke void @_ZN11wasmi_c_api4func26prepare_params_and_results17h19dea7ac14485edcE(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %10, ptr noalias noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull %26, ptr noundef nonnull %30, i64 noundef %23)
           to label %31 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -877,8 +877,8 @@ define noalias noundef ptr @wasm_func_call(ptr noalias noundef align 8 dereferen
           to label %73 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 54:                                               ; preds = %47
-  %55 = getelementptr inbounds nuw { [4 x i64] }, ptr %22, i64 %23
-  %56 = getelementptr inbounds nuw { i8, [23 x i8] }, ptr %36, i64 %38
+  %55 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %23
+  %56 = getelementptr inbounds nuw [24 x i8], ptr %36, i64 %38
   invoke void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$3new17h1f68270258ea35f0E"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %9, ptr noundef nonnull %22, ptr noundef nonnull %55, ptr noundef nonnull %36, ptr noundef nonnull %56)
           to label %_ZN4core4iter6traits8iterator8Iterator3zip17h3d458eb9092f77fdE.exit unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -912,7 +912,7 @@ _ZN4core4iter6traits8iterator8Iterator3zip17h3d458eb9092f77fdE.exit: ; preds = %
           to label %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17he1d368130032f696E.exit" unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17he1d368130032f696E.exit": ; preds = %.lr.ph
-  %66 = getelementptr inbounds nuw { [4 x i64] }, ptr %.val.i, i64 %64
+  %66 = getelementptr inbounds nuw [32 x i8], ptr %.val.i, i64 %64
   store ptr %66, ptr %7, align 8
   %.pre = load i8, ptr %59, align 8, !range !62
   %67 = icmp eq i8 %.pre, 7
@@ -1496,7 +1496,7 @@ define noalias noundef nonnull align 8 ptr @wasm_functype_new(ptr noalias nounde
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %15) ]
   %17 = icmp ult i64 %16, 1152921504606846976
   tail call void @llvm.assume(i1 %17)
-  %18 = getelementptr inbounds nuw ptr, ptr %15, i64 %16
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %16
   store ptr %15, ptr %8, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %15, ptr %.sroa.4.0..sroa_idx, align 8
@@ -1519,7 +1519,7 @@ define noalias noundef nonnull align 8 ptr @wasm_functype_new(ptr noalias nounde
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %21) ]
   %23 = icmp ult i64 %22, 1152921504606846976
   tail call void @llvm.assume(i1 %23)
-  %24 = getelementptr inbounds nuw ptr, ptr %21, i64 %22
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %22
   store ptr %21, ptr %7, align 8
   %.sroa.413.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %21, ptr %.sroa.413.0..sroa_idx, align 8

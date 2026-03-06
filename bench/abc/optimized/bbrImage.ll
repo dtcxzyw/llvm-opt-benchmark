@@ -65,7 +65,7 @@ define noalias noundef ptr @Bbr_bddImageStart(ptr noundef %0, ptr noundef %1, i3
 
 .lr.ph35.i:                                       ; preds = %.lr.ph35.i, %.lr.ph35.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph35.preheader.i ], [ %indvars.iv.next.i, %.lr.ph35.i ]
-  %27 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i
   %28 = load ptr, ptr %27, align 8, !tbaa !26
   %29 = trunc nuw nsw i64 %indvars.iv.i to i32
   tail call fastcc void @Bbr_bddImagePrintLatchDependencyOne(ptr noundef nonnull %0, ptr noundef %28, ptr noundef %14, ptr noundef %15, i32 noundef %29)
@@ -94,9 +94,9 @@ Bbr_bddImagePrintLatchDependency.exit:            ; preds = %.lr.ph35.i, %._crit
 .lr.ph.i108:                                      ; preds = %.lr.ph.i108, %.lr.ph.preheader.i
   %indvars.iv.i109 = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i110, %.lr.ph.i108 ]
   %36 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #12
-  %37 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv.i109
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv.i109
   store ptr %36, ptr %37, align 8, !tbaa !28
-  %38 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i109
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i109
   %39 = load ptr, ptr %38, align 8, !tbaa !26
   store ptr %39, ptr %36, align 8, !tbaa !30
   tail call void @Cudd_Ref(ptr noundef %39) #11
@@ -124,7 +124,7 @@ Bbr_bddImagePrintLatchDependency.exit:            ; preds = %.lr.ph35.i, %._crit
 Bbr_CreateParts.exit:                             ; preds = %.lr.ph.i108, %30
   %52 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #12
   %53 = sext i32 %2 to i64
-  %54 = getelementptr inbounds ptr, ptr %34, i64 %53
+  %54 = getelementptr inbounds [8 x i8], ptr %34, i64 %53
   store ptr %52, ptr %54, align 8, !tbaa !28
   store ptr %1, ptr %52, align 8, !tbaa !30
   tail call void @Cudd_Ref(ptr noundef %1) #11
@@ -155,11 +155,11 @@ Bbr_CreateParts.exit:                             ; preds = %.lr.ph.i108, %30
 
 .lr.ph.i115:                                      ; preds = %.lr.ph.i115, %.lr.ph.preheader.i113
   %indvars.iv.i116 = phi i64 [ 0, %.lr.ph.preheader.i113 ], [ %indvars.iv.next.i117, %.lr.ph.i115 ]
-  %69 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv.i116
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv.i116
   %70 = load ptr, ptr %69, align 8, !tbaa !28
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %72 = load ptr, ptr %71, align 8, !tbaa !33
-  %73 = getelementptr inbounds nuw ptr, ptr %67, i64 %indvars.iv.i116
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %indvars.iv.i116
   store ptr %72, ptr %73, align 8, !tbaa !26
   %indvars.iv.next.i117 = add nuw nsw i64 %indvars.iv.i116, 1
   %exitcond.not.i118 = icmp eq i64 %indvars.iv.next.i117, %wide.trip.count.i114
@@ -207,7 +207,7 @@ Bbr_CreateParts.exit:                             ; preds = %.lr.ph.i108, %30
   %88 = load i32, ptr %.06985.us.i, align 8, !tbaa !40
   %89 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #12
   %90 = sext i32 %88 to i64
-  %91 = getelementptr inbounds ptr, ptr %calloc.i, i64 %90
+  %91 = getelementptr inbounds [8 x i8], ptr %calloc.i, i64 %90
   store ptr %89, ptr %91, align 8, !tbaa !41
   store i32 %88, ptr %89, align 8, !tbaa !43
   tail call void @Cudd_Ref(ptr noundef %87) #11
@@ -217,14 +217,14 @@ Bbr_CreateParts.exit:                             ; preds = %.lr.ph.i108, %30
   %indvars.iv91.i = phi i64 [ 0, %.lr.ph81.us.i ], [ %indvars.iv.next92.i, %109 ]
   %.079.us.i = phi i32 [ 0, %.lr.ph81.us.i ], [ %.1.us.i, %109 ]
   %.07077.us.i = phi ptr [ %87, %.lr.ph81.us.i ], [ %.171.us.i, %109 ]
-  %93 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv91.i
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv91.i
   %94 = load ptr, ptr %93, align 8, !tbaa !28
   %95 = getelementptr inbounds nuw i8, ptr %94, i64 8
   %96 = load ptr, ptr %95, align 8, !tbaa !33
   %97 = load ptr, ptr %86, align 8, !tbaa !45
   %98 = load i32, ptr %.06985.us.i, align 8, !tbaa !40
   %99 = zext i32 %98 to i64
-  %100 = getelementptr inbounds nuw ptr, ptr %97, i64 %99
+  %100 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %99
   %101 = load ptr, ptr %100, align 8, !tbaa !26
   %102 = tail call i32 @Cudd_bddLeq(ptr noundef nonnull %0, ptr noundef %96, ptr noundef %101) #11
   %.not75.us.i = icmp eq i32 %102, 0
@@ -232,7 +232,7 @@ Bbr_CreateParts.exit:                             ; preds = %.lr.ph.i108, %30
 
 103:                                              ; preds = %92
   %104 = load ptr, ptr %86, align 8, !tbaa !45
-  %105 = getelementptr inbounds nuw ptr, ptr %104, i64 %indvars.iv91.i
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 %indvars.iv91.i
   %106 = load ptr, ptr %105, align 8, !tbaa !26
   %107 = tail call ptr @Cudd_bddAnd(ptr noundef nonnull %0, ptr noundef %.07077.us.i, ptr noundef %106) #11
   tail call void @Cudd_Ref(ptr noundef %107) #11
@@ -265,7 +265,7 @@ Bbr_CreateParts.exit:                             ; preds = %.lr.ph.i108, %30
   %117 = load i32, ptr %.06985.i, align 8, !tbaa !40
   %118 = tail call noalias dereferenceable_or_null(24) ptr @malloc(i64 noundef 24) #12
   %119 = sext i32 %117 to i64
-  %120 = getelementptr inbounds ptr, ptr %calloc.i, i64 %119
+  %120 = getelementptr inbounds [8 x i8], ptr %calloc.i, i64 %119
   store ptr %118, ptr %120, align 8, !tbaa !41
   store i32 %117, ptr %118, align 8, !tbaa !43
   tail call void @Cudd_Ref(ptr noundef %116) #11
@@ -301,10 +301,10 @@ Bbr_CreateVars.exit:                              ; preds = %.lr.ph87.split.i, %
 .lr.ph.i123:                                      ; preds = %.lr.ph.i123, %.lr.ph.preheader.i121
   %indvars.iv.i124 = phi i64 [ 0, %.lr.ph.preheader.i121 ], [ %indvars.iv.next.i126, %.lr.ph.i123 ]
   %calloc.i125 = tail call dereferenceable_or_null(48) ptr @calloc(i64 1, i64 48)
-  %130 = getelementptr inbounds nuw ptr, ptr %127, i64 %indvars.iv.i124
+  %130 = getelementptr inbounds nuw [8 x i8], ptr %127, i64 %indvars.iv.i124
   store ptr %calloc.i125, ptr %130, align 8, !tbaa !51
   store ptr %0, ptr %calloc.i125, align 8, !tbaa !53
-  %131 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv.i124
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv.i124
   %132 = load ptr, ptr %131, align 8, !tbaa !28
   %133 = getelementptr inbounds nuw i8, ptr %calloc.i125, i64 40
   store ptr %132, ptr %133, align 8, !tbaa !56
@@ -322,7 +322,7 @@ Bbr_CreateVars.exit:                              ; preds = %.lr.ph87.split.i, %
 
 135:                                              ; preds = %161, %.lr.ph106.i
   %indvars.iv110.i = phi i64 [ 0, %.lr.ph106.i ], [ %indvars.iv.next111.i, %161 ]
-  %136 = getelementptr inbounds nuw ptr, ptr %calloc.i, i64 %indvars.iv110.i
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %calloc.i, i64 %indvars.iv110.i
   %137 = load ptr, ptr %136, align 8, !tbaa !41
   %138 = icmp eq ptr %137, null
   br i1 %138, label %161, label %139
@@ -338,13 +338,13 @@ Bbr_CreateVars.exit:                              ; preds = %.lr.ph87.split.i, %
   %145 = load ptr, ptr %144, align 8, !tbaa !47
   %146 = load i32, ptr %145, align 8, !tbaa !40
   %147 = sext i32 %146 to i64
-  %148 = getelementptr inbounds ptr, ptr %127, i64 %147
+  %148 = getelementptr inbounds [8 x i8], ptr %127, i64 %147
   %149 = load ptr, ptr %148, align 8, !tbaa !51
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 8
   %151 = load ptr, ptr %150, align 8, !tbaa !58
   %152 = icmp eq ptr %151, null
   %153 = load ptr, ptr %129, align 8, !tbaa !45
-  %154 = getelementptr inbounds nuw ptr, ptr %153, i64 %indvars.iv110.i
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %153, i64 %indvars.iv110.i
   %155 = load ptr, ptr %154, align 8, !tbaa !26
   br i1 %152, label %156, label %157
 
@@ -374,12 +374,12 @@ Bbr_CreateVars.exit:                              ; preds = %.lr.ph87.split.i, %
 
 162:                                              ; preds = %._crit_edge174, %.lr.ph108.i
   %indvars.iv115.i = phi i64 [ 0, %.lr.ph108.i ], [ %indvars.iv.next116.i, %._crit_edge174 ]
-  %163 = getelementptr inbounds nuw ptr, ptr %127, i64 %indvars.iv115.i
+  %163 = getelementptr inbounds nuw [8 x i8], ptr %127, i64 %indvars.iv115.i
   %164 = load ptr, ptr %163, align 8, !tbaa !51
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 8
   %166 = load ptr, ptr %165, align 8, !tbaa !58
   %.not.i120 = icmp eq ptr %166, null
-  %.phi.trans.insert = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv115.i
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %indvars.iv115.i
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !28
   br i1 %.not.i120, label %._crit_edge174, label %167
 
@@ -424,7 +424,7 @@ Bbr_CreateVars.exit:                              ; preds = %.lr.ph87.split.i, %
   br i1 %exitcond119.not.i, label %Bbr_CreateNodes.exit, label %162, !llvm.loop !61
 
 Bbr_CreateNodes.exit:                             ; preds = %._crit_edge174, %.preheader.i
-  %186 = getelementptr inbounds ptr, ptr %127, i64 %53
+  %186 = getelementptr inbounds [8 x i8], ptr %127, i64 %53
   %187 = load ptr, ptr %186, align 8, !tbaa !51
   %188 = load i32, ptr %80, align 8, !tbaa !3
   %189 = icmp sgt i32 %188, 0
@@ -448,7 +448,7 @@ Bbr_CreateNodes.exit:                             ; preds = %._crit_edge174, %.p
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph68.i.i ], [ %indvars.iv.next.i.i, %220 ]
   %.04366.i.i = phi double [ 1.000000e+14, %.lr.ph68.i.i ], [ %.144.i.i, %220 ]
   %.04764.i.i = phi i32 [ -1, %.lr.ph68.i.i ], [ %.148.i.i, %220 ]
-  %196 = getelementptr inbounds nuw ptr, ptr %calloc.i, i64 %indvars.iv.i.i
+  %196 = getelementptr inbounds nuw [8 x i8], ptr %calloc.i, i64 %indvars.iv.i.i
   %197 = load ptr, ptr %196, align 8, !tbaa !41
   %.not58.i.i = icmp eq ptr %197, null
   br i1 %.not58.i.i, label %220, label %198
@@ -471,7 +471,7 @@ Bbr_CreateNodes.exit:                             ; preds = %._crit_edge174, %.p
   %.062.i.i = phi double [ %215, %.lr.ph.i.i ], [ 0.000000e+00, %202 ]
   %205 = load i32, ptr %.05163.i.i, align 8, !tbaa !40
   %206 = zext i32 %205 to i64
-  %207 = getelementptr inbounds nuw ptr, ptr %127, i64 %206
+  %207 = getelementptr inbounds nuw [8 x i8], ptr %127, i64 %206
   %208 = load ptr, ptr %207, align 8, !tbaa !51
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 40
   %210 = load ptr, ptr %209, align 8, !tbaa !56
@@ -509,7 +509,7 @@ Bbr_CreateNodes.exit:                             ; preds = %._crit_edge174, %.p
   %indvars.iv87.i.i = phi i64 [ %indvars.iv.next88.i.i, %242 ], [ 0, %._crit_edge69.i.i ]
   %.282.i.i = phi double [ %.3.i.i, %242 ], [ %.144.i.i, %._crit_edge69.i.i ]
   %.24980.i.i = phi i32 [ %.350.i.i, %242 ], [ %.148.i.i, %._crit_edge69.i.i ]
-  %222 = getelementptr inbounds nuw ptr, ptr %calloc.i, i64 %indvars.iv87.i.i
+  %222 = getelementptr inbounds nuw [8 x i8], ptr %calloc.i, i64 %indvars.iv87.i.i
   %223 = load ptr, ptr %222, align 8, !tbaa !41
   %.not.i.i = icmp eq ptr %223, null
   br i1 %.not.i.i, label %242, label %224
@@ -526,7 +526,7 @@ Bbr_CreateNodes.exit:                             ; preds = %._crit_edge174, %.p
   %.174.i.i = phi double [ %237, %.lr.ph77.i.i ], [ 0.000000e+00, %224 ]
   %227 = load i32, ptr %.15275.i.i, align 8, !tbaa !40
   %228 = zext i32 %227 to i64
-  %229 = getelementptr inbounds nuw ptr, ptr %127, i64 %228
+  %229 = getelementptr inbounds nuw [8 x i8], ptr %127, i64 %228
   %230 = load ptr, ptr %229, align 8, !tbaa !51
   %231 = getelementptr inbounds nuw i8, ptr %230, i64 40
   %232 = load ptr, ptr %231, align 8, !tbaa !56
@@ -563,7 +563,7 @@ Bbr_FindBestVariable.exit.i:                      ; preds = %242
 Bbr_FindBestVariable.exit.thread128.i:            ; preds = %Bbr_FindBestVariable.exit.i, %._crit_edge69.i.i
   %.053.i130.i = phi i32 [ %.350.i.i, %Bbr_FindBestVariable.exit.i ], [ %.148.i.i, %._crit_edge69.i.i ]
   %244 = sext i32 %.053.i130.i to i64
-  %245 = getelementptr inbounds ptr, ptr %calloc.i, i64 %244
+  %245 = getelementptr inbounds [8 x i8], ptr %calloc.i, i64 %244
   %246 = load ptr, ptr %245, align 8, !tbaa !41
   %247 = getelementptr inbounds nuw i8, ptr %246, i64 8
   %248 = load ptr, ptr %247, align 8, !tbaa !47
@@ -580,15 +580,15 @@ Bbr_FindBestVariable.exit.thread128.i:            ; preds = %Bbr_FindBestVariabl
   %256 = load ptr, ptr %255, align 8, !tbaa !49
   %257 = load i32, ptr %256, align 8, !tbaa !40
   %258 = sext i32 %254 to i64
-  %259 = getelementptr inbounds ptr, ptr %127, i64 %258
+  %259 = getelementptr inbounds [8 x i8], ptr %127, i64 %258
   %260 = load ptr, ptr %259, align 8, !tbaa !51
   %261 = sext i32 %257 to i64
-  %262 = getelementptr inbounds ptr, ptr %127, i64 %261
+  %262 = getelementptr inbounds [8 x i8], ptr %127, i64 %261
   %263 = load ptr, ptr %262, align 8, !tbaa !51
   %264 = load ptr, ptr %190, align 8, !tbaa !45
   %265 = load i32, ptr %246, align 8, !tbaa !43
   %266 = sext i32 %265 to i64
-  %267 = getelementptr inbounds ptr, ptr %264, i64 %266
+  %267 = getelementptr inbounds [8 x i8], ptr %264, i64 %266
   %268 = load ptr, ptr %267, align 8, !tbaa !26
   tail call void @Cudd_Ref(ptr noundef %268) #11
   %269 = zext i32 %.053.i130.i to i64
@@ -597,7 +597,7 @@ Bbr_FindBestVariable.exit.thread128.i:            ; preds = %Bbr_FindBestVariabl
 .lr.ph.i130:                                      ; preds = %289, %.lr.ph.preheader.i128
   %indvars.iv.i131 = phi i64 [ 0, %.lr.ph.preheader.i128 ], [ %indvars.iv.next.i132, %289 ]
   %.0105132.i = phi ptr [ %268, %.lr.ph.preheader.i128 ], [ %.1.i, %289 ]
-  %270 = getelementptr inbounds nuw ptr, ptr %calloc.i, i64 %indvars.iv.i131
+  %270 = getelementptr inbounds nuw [8 x i8], ptr %calloc.i, i64 %indvars.iv.i131
   %271 = load ptr, ptr %270, align 8, !tbaa !41
   %.not114.i = icmp eq ptr %271, null
   %.not115.i = icmp eq i64 %indvars.iv.i131, %269
@@ -617,7 +617,7 @@ Bbr_FindBestVariable.exit.thread128.i:            ; preds = %Bbr_FindBestVariabl
   %280 = load ptr, ptr %190, align 8, !tbaa !45
   %281 = load i32, ptr %271, align 8, !tbaa !43
   %282 = sext i32 %281 to i64
-  %283 = getelementptr inbounds ptr, ptr %280, i64 %282
+  %283 = getelementptr inbounds [8 x i8], ptr %280, i64 %282
   %284 = load ptr, ptr %283, align 8, !tbaa !26
   %285 = tail call ptr @Cudd_bddAnd(ptr noundef %0, ptr noundef %.0105132.i, ptr noundef %284) #11
   tail call void @Cudd_Ref(ptr noundef %285) #11
@@ -660,7 +660,7 @@ Bbr_FindBestVariable.exit.thread128.i:            ; preds = %Bbr_FindBestVariabl
   %.02430.i.i = phi i32 [ %.125.i.i, %308 ], [ -1, %295 ]
   %297 = load i32, ptr %.034.i.i, align 8, !tbaa !40
   %298 = zext i32 %297 to i64
-  %299 = getelementptr inbounds nuw ptr, ptr %127, i64 %298
+  %299 = getelementptr inbounds nuw [8 x i8], ptr %127, i64 %298
   %300 = load ptr, ptr %299, align 8, !tbaa !51
   %301 = getelementptr inbounds nuw i8, ptr %300, i64 40
   %302 = load ptr, ptr %301, align 8, !tbaa !56
@@ -693,9 +693,9 @@ Bbr_FindBestPartitions.exit.loopexit.i:           ; preds = %308
 Bbr_FindBestPartitions.exit.i:                    ; preds = %Bbr_FindBestPartitions.exit.loopexit.i, %295
   %.024.lcssa.i.i = phi i64 [ -1, %295 ], [ %311, %Bbr_FindBestPartitions.exit.loopexit.i ]
   %.022.lcssa.i.i = phi i64 [ -1, %295 ], [ %312, %Bbr_FindBestPartitions.exit.loopexit.i ]
-  %313 = getelementptr inbounds ptr, ptr %127, i64 %.024.lcssa.i.i
+  %313 = getelementptr inbounds [8 x i8], ptr %127, i64 %.024.lcssa.i.i
   %314 = load ptr, ptr %313, align 8, !tbaa !51
-  %315 = getelementptr inbounds ptr, ptr %127, i64 %.022.lcssa.i.i
+  %315 = getelementptr inbounds [8 x i8], ptr %127, i64 %.022.lcssa.i.i
   %316 = load ptr, ptr %315, align 8, !tbaa !51
   %317 = tail call fastcc ptr @Bbr_CombineTwoNodes(ptr noundef %0, ptr noundef %296, ptr noundef %314, ptr noundef %316)
   br label %318
@@ -705,9 +705,9 @@ Bbr_FindBestPartitions.exit.i:                    ; preds = %Bbr_FindBestPartiti
   %.pre-phi.i = phi i64 [ %.024.lcssa.i.i, %Bbr_FindBestPartitions.exit.i ], [ %258, %290 ]
   %.0107.i = phi ptr [ %316, %Bbr_FindBestPartitions.exit.i ], [ %263, %290 ]
   %.0106.i = phi ptr [ %317, %Bbr_FindBestPartitions.exit.i ], [ %294, %290 ]
-  %319 = getelementptr inbounds ptr, ptr %127, i64 %.pre-phi.i
+  %319 = getelementptr inbounds [8 x i8], ptr %127, i64 %.pre-phi.i
   store ptr %.0106.i, ptr %319, align 8, !tbaa !51
-  %320 = getelementptr inbounds ptr, ptr %127, i64 %.pre-phi142.i
+  %320 = getelementptr inbounds [8 x i8], ptr %127, i64 %.pre-phi142.i
   store ptr null, ptr %320, align 8, !tbaa !51
   %321 = getelementptr inbounds nuw i8, ptr %.0107.i, i64 40
   %322 = load ptr, ptr %321, align 8, !tbaa !56
@@ -722,7 +722,7 @@ Bbr_FindBestPartitions.exit.i:                    ; preds = %Bbr_FindBestPartiti
   %.0104136.i = phi ptr [ %.0104.i, %346 ], [ %.0104134.i, %318 ]
   %326 = load i32, ptr %.0104136.i, align 8, !tbaa !40
   %327 = zext i32 %326 to i64
-  %328 = getelementptr inbounds nuw ptr, ptr %calloc.i, i64 %327
+  %328 = getelementptr inbounds nuw [8 x i8], ptr %calloc.i, i64 %327
   %329 = load ptr, ptr %328, align 8, !tbaa !41
   %330 = icmp eq ptr %329, null
   br i1 %330, label %346, label %331
@@ -731,7 +731,7 @@ Bbr_FindBestPartitions.exit.i:                    ; preds = %Bbr_FindBestPartiti
   %332 = getelementptr inbounds nuw i8, ptr %329, i64 8
   %333 = load ptr, ptr %332, align 8, !tbaa !47
   %334 = load ptr, ptr %190, align 8, !tbaa !45
-  %335 = getelementptr inbounds ptr, ptr %334, i64 %.pre-phi142.i
+  %335 = getelementptr inbounds [8 x i8], ptr %334, i64 %.pre-phi142.i
   %336 = load ptr, ptr %335, align 8, !tbaa !26
   %337 = tail call ptr @Cudd_bddExistAbstract(ptr noundef nonnull %0, ptr noundef %333, ptr noundef %336) #11
   store ptr %337, ptr %332, align 8, !tbaa !47
@@ -739,7 +739,7 @@ Bbr_FindBestPartitions.exit.i:                    ; preds = %Bbr_FindBestPartiti
   tail call void @Cudd_RecursiveDeref(ptr noundef nonnull %0, ptr noundef %333) #11
   %338 = load ptr, ptr %332, align 8, !tbaa !47
   %339 = load ptr, ptr %190, align 8, !tbaa !45
-  %340 = getelementptr inbounds ptr, ptr %339, i64 %.pre-phi.i
+  %340 = getelementptr inbounds [8 x i8], ptr %339, i64 %.pre-phi.i
   %341 = load ptr, ptr %340, align 8, !tbaa !26
   %342 = tail call ptr @Cudd_bddAnd(ptr noundef nonnull %0, ptr noundef %338, ptr noundef %341) #11
   store ptr %342, ptr %332, align 8, !tbaa !47
@@ -778,7 +778,7 @@ Bbr_BuildTreeNode.exit:                           ; preds = %346, %318
 .lr.ph:                                           ; preds = %.preheader152, %359
   %355 = phi i32 [ %360, %359 ], [ %353, %.preheader152 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %359 ], [ 0, %.preheader152 ]
-  %356 = getelementptr inbounds nuw ptr, ptr %calloc.i, i64 %indvars.iv
+  %356 = getelementptr inbounds nuw [8 x i8], ptr %calloc.i, i64 %indvars.iv
   %357 = load ptr, ptr %356, align 8, !tbaa !41
   %.not105 = icmp eq ptr %357, null
   br i1 %.not105, label %359, label %358
@@ -814,7 +814,7 @@ Bbr_BuildTreeNode.exit:                           ; preds = %346, %318
 
 .lr.ph164:                                        ; preds = %.lr.ph164.preheader, %367
   %indvars.iv171 = phi i64 [ 0, %.lr.ph164.preheader ], [ %indvars.iv.next172, %367 ]
-  %364 = getelementptr inbounds nuw ptr, ptr %127, i64 %indvars.iv171
+  %364 = getelementptr inbounds nuw [8 x i8], ptr %127, i64 %indvars.iv171
   %365 = load ptr, ptr %364, align 8, !tbaa !51
   %.not104 = icmp eq ptr %365, null
   br i1 %.not104, label %367, label %366
@@ -862,7 +862,7 @@ Bbr_BuildTreeNode.exit:                           ; preds = %346, %318
 .lr.ph.i139:                                      ; preds = %373, %379
   %indvars.iv.i140 = phi i64 [ %indvars.iv.next.i143, %379 ], [ 0, %373 ]
   %.02732.i = phi i32 [ %.1.i142, %379 ], [ -1, %373 ]
-  %374 = getelementptr inbounds nuw ptr, ptr %127, i64 %indvars.iv.i140
+  %374 = getelementptr inbounds nuw [8 x i8], ptr %127, i64 %indvars.iv.i140
   %375 = load ptr, ptr %374, align 8, !tbaa !51
   %.not.i141 = icmp eq ptr %375, null
   br i1 %.not.i141, label %379, label %376
@@ -884,7 +884,7 @@ Bbr_BuildTreeNode.exit:                           ; preds = %346, %318
 
 ._crit_edge.i136:                                 ; preds = %._crit_edge.loopexit.i, %373
   %.027.lcssa.i = phi i64 [ -1, %373 ], [ %380, %._crit_edge.loopexit.i ]
-  %381 = getelementptr inbounds ptr, ptr %127, i64 %.027.lcssa.i
+  %381 = getelementptr inbounds [8 x i8], ptr %127, i64 %.027.lcssa.i
   %382 = load ptr, ptr %381, align 8, !tbaa !51
   store ptr null, ptr %381, align 8, !tbaa !51
   br label %Bbr_MergeTopNodes.exit
@@ -892,10 +892,10 @@ Bbr_BuildTreeNode.exit:                           ; preds = %346, %318
 383:                                              ; preds = %376
   %384 = load ptr, ptr %84, align 8, !tbaa !39
   %385 = sext i32 %.02732.i to i64
-  %386 = getelementptr inbounds ptr, ptr %127, i64 %385
+  %386 = getelementptr inbounds [8 x i8], ptr %127, i64 %385
   %387 = load ptr, ptr %386, align 8, !tbaa !51
   %388 = and i64 %indvars.iv.i140, 4294967295
-  %389 = getelementptr inbounds nuw ptr, ptr %127, i64 %388
+  %389 = getelementptr inbounds nuw [8 x i8], ptr %127, i64 %388
   %390 = load ptr, ptr %389, align 8, !tbaa !51
   %391 = tail call fastcc ptr @Bbr_CombineTwoNodes(ptr noundef %0, ptr noundef %384, ptr noundef %387, ptr noundef %390)
   store ptr %391, ptr %386, align 8, !tbaa !51
@@ -1175,7 +1175,7 @@ define internal fastcc void @Bbr_bddPrint(ptr noundef %0, ptr noundef %1) unname
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %32
   %indvars.iv = phi i64 [ %indvars.iv.next, %32 ], [ 0, %.lr.ph.us.preheader ]
   %26 = load ptr, ptr %3, align 8, !tbaa !87
-  %27 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4, !tbaa !88
   switch i32 %28, label %32 [
     i32 0, label %29
@@ -1386,7 +1386,7 @@ define noundef ptr @Bbr_bddComputeCube(ptr noundef %0, ptr noundef readonly capt
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.01314 = phi ptr [ %5, %.lr.ph.preheader ], [ %9, %.lr.ph ]
-  %7 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !26
   %9 = tail call ptr @Cudd_bddAnd(ptr noundef nonnull %0, ptr noundef %.01314, ptr noundef %8) #11
   tail call void @Cudd_Ref(ptr noundef %9) #11
@@ -1428,7 +1428,7 @@ define noalias noundef ptr @Bbr_bddImageStart2(ptr noundef %0, ptr noundef %1, i
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.01314.i = phi ptr [ %15, %.lr.ph.preheader.i ], [ %19, %.lr.ph.i ]
-  %17 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.i
   %18 = load ptr, ptr %17, align 8, !tbaa !26
   %19 = tail call ptr @Cudd_bddAnd(ptr noundef nonnull %0, ptr noundef %.01314.i, ptr noundef %18) #11
   tail call void @Cudd_Ref(ptr noundef %19) #11
@@ -1453,7 +1453,7 @@ Bbr_bddComputeCube.exit:                          ; preds = %.lr.ph.i, %7
 .lr.ph.i39:                                       ; preds = %.lr.ph.i39, %.lr.ph.preheader.i37
   %indvars.iv.i40 = phi i64 [ 0, %.lr.ph.preheader.i37 ], [ %indvars.iv.next.i42, %.lr.ph.i39 ]
   %.01314.i41 = phi ptr [ %20, %.lr.ph.preheader.i37 ], [ %24, %.lr.ph.i39 ]
-  %22 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i40
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i40
   %23 = load ptr, ptr %22, align 8, !tbaa !26
   %24 = tail call ptr @Cudd_bddAnd(ptr noundef nonnull %0, ptr noundef %.01314.i41, ptr noundef %23) #11
   tail call void @Cudd_Ref(ptr noundef %24) #11
@@ -1486,7 +1486,7 @@ Bbr_bddComputeCube.exit44:                        ; preds = %.lr.ph.i39, %Bbr_bd
 30:                                               ; preds = %.lr.ph, %30
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
   %31 = phi ptr [ %27, %.lr.ph ], [ %34, %30 ]
-  %32 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8, !tbaa !26
   %34 = tail call ptr @Cudd_bddAnd(ptr noundef nonnull %0, ptr noundef %31, ptr noundef %33) #11
   tail call void @Cudd_Ref(ptr noundef %34) #11
@@ -1677,7 +1677,7 @@ define internal fastcc void @Bbr_bddImagePrintLatchDependencyOne(ptr noundef %0,
 12:                                               ; preds = %.lr.ph, %27
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %27 ]
   %13 = load ptr, ptr %11, align 8, !tbaa !45
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !26
   %16 = tail call i32 @Cudd_bddLeq(ptr noundef nonnull %0, ptr noundef %6, ptr noundef %15) #11
   %.not = icmp eq i32 %16, 0
@@ -1685,7 +1685,7 @@ define internal fastcc void @Bbr_bddImagePrintLatchDependencyOne(ptr noundef %0,
 
 17:                                               ; preds = %12
   %18 = load ptr, ptr %11, align 8, !tbaa !45
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8, !tbaa !26
   %21 = tail call i32 @Cudd_bddLeq(ptr noundef nonnull %0, ptr noundef %2, ptr noundef %20) #11
   %.not21 = icmp eq i32 %21, 0
@@ -1693,7 +1693,7 @@ define internal fastcc void @Bbr_bddImagePrintLatchDependencyOne(ptr noundef %0,
 
 22:                                               ; preds = %17
   %23 = load ptr, ptr %11, align 8, !tbaa !45
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !26
   %26 = tail call i32 @Cudd_bddLeq(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %25) #11
   %.not22 = icmp eq i32 %26, 0

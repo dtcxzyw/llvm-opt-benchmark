@@ -437,7 +437,7 @@ define hidden void @OGLPaints_SetLinearGradientPaint(ptr noundef captures(addres
 
 22:                                               ; preds = %20, %14
   %23 = zext nneg i32 %.2 to i64
-  %24 = getelementptr inbounds nuw i32, ptr @linearGradPrograms, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr @linearGradPrograms, i64 %23
   %25 = load i32, ptr %24, align 4
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %30
@@ -539,11 +539,11 @@ define internal fastcc void @OGLPaints_SetMultiGradientPaint(i32 noundef %0, i32
   %31 = phi float [ %.pre, %.lr.ph.preheader ], [ %33, %.lr.ph ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %32 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv.next
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.next
   %33 = load float, ptr %32, align 4
   %34 = fsub float %33, %31
   %35 = fdiv float 1.000000e+00, %34
-  %36 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   store float %35, ptr %36, align 4
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !6
@@ -565,7 +565,7 @@ define internal fastcc void @OGLPaints_SetMultiGradientPaint(i32 noundef %0, i32
 44:                                               ; preds = %._crit_edge
   %45 = load ptr, ptr @j2d_glTexSubImage1D, align 8
   %46 = sext i32 %19 to i64
-  %47 = getelementptr inbounds i32, ptr %3, i64 %46
+  %47 = getelementptr inbounds [4 x i8], ptr %3, i64 %46
   call void %45(i32 noundef 3552, i32 noundef 0, i32 noundef 15, i32 noundef 1, i32 noundef 32993, i32 noundef 33639, ptr noundef %47) #6
   br label %48
 
@@ -601,7 +601,7 @@ define hidden void @OGLPaints_SetRadialGradientPaint(ptr noundef captures(addres
 
 26:                                               ; preds = %24, %18
   %27 = zext nneg i32 %.2 to i64
-  %28 = getelementptr inbounds nuw i32, ptr @radialGradPrograms, i64 %27
+  %28 = getelementptr inbounds nuw [4 x i8], ptr @radialGradPrograms, i64 %27
   %29 = load i32, ptr %28, align 4
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %31, label %34

@@ -715,7 +715,7 @@ define internal void @ALSA_DetectDevices(ptr noundef writeonly captures(none) %0
 
 .critedge.i:                                      ; preds = %.lr.ph.i, %16
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %16 ], [ 0, %.lr.ph.i ]
-  %17 = getelementptr inbounds nuw ptr, ptr @ALSA_guess_device_prefix.prefixes, i64 %indvars.iv.i
+  %17 = getelementptr inbounds nuw [8 x i8], ptr @ALSA_guess_device_prefix.prefixes, i64 %indvars.iv.i
   %18 = load ptr, ptr %17, align 8
   %19 = call i64 @SDL_strlen_REAL(ptr noundef %18) #8
   %20 = call i32 @SDL_strncmp_REAL(ptr noundef nonnull %15, ptr noundef %18, i64 noundef %19) #8
@@ -739,7 +739,7 @@ thread-pre-split.i:                               ; preds = %16
 .critedge26.i:                                    ; preds = %22, %.lr.ph.i
   %indvars.iv.next35.i = add nuw nsw i64 %indvars.iv34.i, 1
   %24 = load ptr, ptr %3, align 8
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv.next35.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv.next35.i
   %26 = load ptr, ptr %25, align 8
   %.not20.i = icmp eq ptr %26, null
   br i1 %.not20.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !5
@@ -2234,7 +2234,7 @@ define internal fastcc range(i32 -1, 2) i32 @alsa_chmap_cfg(ptr noundef nonnull 
 
 ._crit_edge.i.i:                                  ; preds = %25
   %31 = zext i32 %28 to i64
-  %32 = getelementptr inbounds nuw [8 x i32], ptr @sdl_channel_maps, i64 %31
+  %32 = getelementptr inbounds nuw [32 x i8], ptr @sdl_channel_maps, i64 %31
   %33 = shl nuw nsw i64 %31, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %17, ptr nonnull align 16 %32, i64 %33, i1 false)
   %34 = load ptr, ptr %.03860.i.i, align 8
@@ -2258,7 +2258,7 @@ define internal fastcc range(i32 -1, 2) i32 @alsa_chmap_cfg(ptr noundef nonnull 
 
 .lr.ph.i.i.i:                                     ; preds = %._crit_edge.i.i.i, %.lr.ph.i.preheader.i.i
   %indvars.iv.i.i.i = phi i64 [ %indvars.iv.next.i.i.i, %._crit_edge.i.i.i ], [ 1, %.lr.ph.i.preheader.i.i ]
-  %41 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv.i.i.i
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %indvars.iv.i.i.i
   %42 = load i32, ptr %41, align 4
   br label %44
 
@@ -2269,7 +2269,7 @@ define internal fastcc range(i32 -1, 2) i32 @alsa_chmap_cfg(ptr noundef nonnull 
 
 44:                                               ; preds = %43, %.lr.ph.i.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %43 ], [ 0, %.lr.ph.i.i.i ]
-  %45 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv.i.i
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %indvars.iv.i.i
   %46 = load i32, ptr %45, align 4
   %47 = icmp eq i32 %46, %42
   br i1 %47, label %alsa_chmap_has_duplicate_position.exit.thread.i.i, label %43
@@ -2299,9 +2299,9 @@ alsa_chmap_has_duplicate_position.exit.i.i:       ; preds = %._crit_edge.i.i.i, 
 54:                                               ; preds = %60
   %indvars.iv.next67.i.i = add nuw nsw i64 %indvars.iv66.i.i, 1
   %55 = and i64 %indvars.iv.next67.i.i, 4294967295
-  %56 = getelementptr inbounds nuw i32, ptr %17, i64 %55
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %55
   %57 = load i32, ptr %56, align 4
-  %58 = getelementptr inbounds nuw i32, ptr %49, i64 %55
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %55
   %59 = load i32, ptr %58, align 4
   %.not46.i.i = icmp eq i32 %57, %59
   br i1 %.not46.i.i, label %60, label %.thread.i.i, !llvm.loop !20
@@ -2362,7 +2362,7 @@ alsa_chmap_cfg_ordered_fixed_or_paired.exit.i:    ; preds = %60
 
 ._crit_edge.i4.i:                                 ; preds = %72
   %78 = zext i32 %75 to i64
-  %79 = getelementptr inbounds nuw [8 x i32], ptr @sdl_channel_maps, i64 %78
+  %79 = getelementptr inbounds nuw [32 x i8], ptr @sdl_channel_maps, i64 %78
   %80 = shl nuw nsw i64 %78, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %17, ptr nonnull align 16 %79, i64 %80, i1 false)
   %81 = load ptr, ptr %.04576.i.i, align 8
@@ -2386,7 +2386,7 @@ alsa_chmap_cfg_ordered_fixed_or_paired.exit.i:    ; preds = %60
 
 .lr.ph.i.i7.i:                                    ; preds = %._crit_edge.i.i12.i, %.lr.ph.i.preheader.i5.i
   %indvars.iv.i.i8.i = phi i64 [ %indvars.iv.next.i.i13.i, %._crit_edge.i.i12.i ], [ 1, %.lr.ph.i.preheader.i5.i ]
-  %88 = getelementptr inbounds nuw i32, ptr %82, i64 %indvars.iv.i.i8.i
+  %88 = getelementptr inbounds nuw [4 x i8], ptr %82, i64 %indvars.iv.i.i8.i
   %89 = load i32, ptr %88, align 4
   br label %91
 
@@ -2397,7 +2397,7 @@ alsa_chmap_cfg_ordered_fixed_or_paired.exit.i:    ; preds = %60
 
 91:                                               ; preds = %90, %.lr.ph.i.i7.i
   %indvars.iv.i9.i = phi i64 [ %indvars.iv.next.i10.i, %90 ], [ 0, %.lr.ph.i.i7.i ]
-  %92 = getelementptr inbounds nuw i32, ptr %82, i64 %indvars.iv.i9.i
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %82, i64 %indvars.iv.i9.i
   %93 = load i32, ptr %92, align 4
   %94 = icmp eq i32 %93, %89
   br i1 %94, label %alsa_chmap_has_duplicate_position.exit.thread.i16.i, label %90
@@ -2425,7 +2425,7 @@ alsa_chmap_has_duplicate_position.exit.i14.i:     ; preds = %._crit_edge.i.i12.i
 .preheader.i.i:                                   ; preds = %..loopexit_crit_edge.i.i, %.preheader.preheader.i.i
   %indvars.iv82.i.i = phi i64 [ 0, %.preheader.preheader.i.i ], [ %indvars.iv.next83.i.i, %..loopexit_crit_edge.i.i ]
   %.03868.i.i = phi i32 [ 0, %.preheader.preheader.i.i ], [ %.1.i.i, %..loopexit_crit_edge.i.i ]
-  %99 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv82.i.i
+  %99 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv82.i.i
   %100 = load i32, ptr %99, align 4
   br label %103
 
@@ -2440,7 +2440,7 @@ alsa_chmap_has_duplicate_position.exit.i14.i:     ; preds = %._crit_edge.i.i12.i
 
 103:                                              ; preds = %102, %.preheader.i.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %102 ], [ 0, %.preheader.i.i ]
-  %104 = getelementptr inbounds nuw i32, ptr %96, i64 %indvars.iv.i
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %96, i64 %indvars.iv.i
   %105 = load i32, ptr %104, align 4
   %106 = icmp eq i32 %100, %105
   br i1 %106, label %107, label %102
@@ -2522,7 +2522,7 @@ alsa_chmap_cfg_ordered.exit.thread:               ; preds = %109
 
 ._crit_edge.i:                                    ; preds = %124
   %130 = zext i32 %127 to i64
-  %131 = getelementptr inbounds nuw [8 x i32], ptr @sdl_channel_maps, i64 %130
+  %131 = getelementptr inbounds nuw [32 x i8], ptr @sdl_channel_maps, i64 %130
   %132 = shl nuw nsw i64 %130, 2
   call void @llvm.memcpy.p0.p0.i64(ptr align 4 %116, ptr nonnull align 16 %131, i64 %132, i1 false)
   %133 = load ptr, ptr %.04680.i, align 8
@@ -2546,7 +2546,7 @@ alsa_chmap_cfg_ordered.exit.thread:               ; preds = %109
 
 .lr.ph.i.i:                                       ; preds = %._crit_edge.i.i38, %.lr.ph.i.preheader.i
   %indvars.iv.i.i35 = phi i64 [ %indvars.iv.next.i.i39, %._crit_edge.i.i38 ], [ 1, %.lr.ph.i.preheader.i ]
-  %140 = getelementptr inbounds nuw i32, ptr %134, i64 %indvars.iv.i.i35
+  %140 = getelementptr inbounds nuw [4 x i8], ptr %134, i64 %indvars.iv.i.i35
   %141 = load i32, ptr %140, align 4
   br label %143
 
@@ -2557,7 +2557,7 @@ alsa_chmap_cfg_ordered.exit.thread:               ; preds = %109
 
 143:                                              ; preds = %142, %.lr.ph.i.i
   %indvars.iv.i36 = phi i64 [ %indvars.iv.next.i37, %142 ], [ 0, %.lr.ph.i.i ]
-  %144 = getelementptr inbounds nuw i32, ptr %134, i64 %indvars.iv.i36
+  %144 = getelementptr inbounds nuw [4 x i8], ptr %134, i64 %indvars.iv.i36
   %145 = load i32, ptr %144, align 4
   %146 = icmp eq i32 %145, %141
   br i1 %146, label %alsa_chmap_has_duplicate_position.exit.thread.i, label %142
@@ -2585,7 +2585,7 @@ alsa_chmap_has_duplicate_position.exit.i:         ; preds = %._crit_edge.i.i38, 
 .preheader.i:                                     ; preds = %..loopexit_crit_edge.i, %.preheader.preheader.i
   %indvars.iv86.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next87.i, %..loopexit_crit_edge.i ]
   %.03972.i = phi i32 [ 0, %.preheader.preheader.i ], [ %.1.i, %..loopexit_crit_edge.i ]
-  %151 = getelementptr inbounds nuw i32, ptr %116, i64 %indvars.iv86.i
+  %151 = getelementptr inbounds nuw [4 x i8], ptr %116, i64 %indvars.iv86.i
   %152 = load i32, ptr %151, align 4
   br label %155
 
@@ -2600,7 +2600,7 @@ alsa_chmap_has_duplicate_position.exit.i:         ; preds = %._crit_edge.i.i38, 
 
 155:                                              ; preds = %154, %.preheader.i
   %indvars.iv = phi i64 [ %indvars.iv.next, %154 ], [ 0, %.preheader.i ]
-  %156 = getelementptr inbounds nuw i32, ptr %148, i64 %indvars.iv
+  %156 = getelementptr inbounds nuw [4 x i8], ptr %148, i64 %indvars.iv
   %157 = load i32, ptr %156, align 4
   %158 = icmp eq i32 %152, %157
   br i1 %158, label %159, label %154
@@ -2666,16 +2666,16 @@ alsa_chmap_cfg_unordered.exit:                    ; preds = %alsa_chmap_has_dupl
   %.043 = phi i1 [ false, %.lr.ph.i ], [ %spec.select50, %swizzle_map_compute_alsa_subscan.exit.i ]
   %.012.i = phi i32 [ 0, %.lr.ph.i ], [ %189, %swizzle_map_compute_alsa_subscan.exit.i ]
   %179 = zext i32 %.012.i to i64
-  %180 = getelementptr inbounds nuw i32, ptr %176, i64 %179
+  %180 = getelementptr inbounds nuw [4 x i8], ptr %176, i64 %179
   store i32 -1, ptr %180, align 4
-  %181 = getelementptr inbounds nuw i32, ptr %116, i64 %179
+  %181 = getelementptr inbounds nuw [4 x i8], ptr %116, i64 %179
   %182 = load i32, ptr %181, align 4
   br label %183
 
 183:                                              ; preds = %183, %178
   %.0.i.i = phi i32 [ 0, %178 ], [ %188, %183 ]
   %184 = zext i32 %.0.i.i to i64
-  %185 = getelementptr inbounds nuw i32, ptr %177, i64 %184
+  %185 = getelementptr inbounds nuw [4 x i8], ptr %177, i64 %184
   %186 = load i32, ptr %185, align 4
   %187 = icmp eq i32 %186, %182
   %188 = add i32 %.0.i.i, 1
@@ -2727,7 +2727,7 @@ define internal fastcc void @sdl_6chans_set_rear_or_side_channels_from_alsa_6cha
 
 3:                                                ; preds = %3, %2
   %indvars.iv = phi i64 [ %indvars.iv.next, %3 ], [ 0, %2 ]
-  %4 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %5 = load i32, ptr %4, align 4
   %6 = icmp eq i32 %5, 3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2740,7 +2740,7 @@ has_pos.exit:                                     ; preds = %3
 
 .preheader47:                                     ; preds = %has_pos.exit, %.preheader47
   %indvars.iv58 = phi i64 [ %indvars.iv.next59, %.preheader47 ], [ 0, %has_pos.exit ]
-  %7 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv58
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv58
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, 4
   %indvars.iv.next59 = add nuw nsw i64 %indvars.iv58, 1
@@ -2753,7 +2753,7 @@ has_pos.exit35:                                   ; preds = %.preheader47
 
 .preheader46:                                     ; preds = %has_pos.exit35, %.preheader46
   %indvars.iv61 = phi i64 [ %indvars.iv.next62, %.preheader46 ], [ 0, %has_pos.exit35 ]
-  %10 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv61
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv61
   %11 = load i32, ptr %10, align 4
   %12 = icmp eq i32 %11, 7
   %indvars.iv.next62 = add nuw nsw i64 %indvars.iv61, 1
@@ -2766,7 +2766,7 @@ has_pos.exit39:                                   ; preds = %.preheader46
 
 .preheader45:                                     ; preds = %has_pos.exit39, %.preheader45
   %indvars.iv64 = phi i64 [ %indvars.iv.next65, %.preheader45 ], [ 0, %has_pos.exit39 ]
-  %13 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv64
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv64
   %14 = load i32, ptr %13, align 4
   %15 = icmp eq i32 %14, 8
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
@@ -2780,7 +2780,7 @@ has_pos.exit43:                                   ; preds = %.preheader45
 .preheader:                                       ; preds = %has_pos.exit43, %20
   %indvars.iv67 = phi i64 [ %indvars.iv.next68, %20 ], [ 0, %has_pos.exit43 ]
   %.02952 = phi i32 [ %.2, %20 ], [ 0, %has_pos.exit43 ]
-  %16 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv67
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv67
   %17 = load i32, ptr %16, align 4
   switch i32 %17, label %20 [
     i32 9, label %18

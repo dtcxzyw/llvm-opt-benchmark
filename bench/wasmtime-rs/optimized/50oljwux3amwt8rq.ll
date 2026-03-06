@@ -431,7 +431,7 @@ define void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17
 16:                                               ; preds = %3
   %17 = extractvalue { ptr, i64 } %14, 0
   %18 = extractvalue { ptr, i64 } %14, 1
-  %19 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, ptr %1, i64 %2
+  %19 = getelementptr inbounds [48 x i8], ptr %1, i64 %2
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %1) ]
   store ptr %1, ptr %5, align 8
   %.sroa.0.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -477,7 +477,7 @@ define void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17
   unreachable
 
 33:                                               ; preds = %30
-  %34 = getelementptr inbounds { [6 x i64] }, ptr %17, i64 %25
+  %34 = getelementptr inbounds [48 x i8], ptr %17, i64 %25
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %34, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false)
   %.pr = load i64, ptr %.sroa.2.0..sroa_idx, align 8
   %35 = icmp eq i64 %.pr, 0
@@ -825,7 +825,7 @@ default.unreachable77:                            ; preds = %30
   %74 = load ptr, ptr %73, align 8, !nonnull !3, !noundef !3
   %75 = getelementptr inbounds nuw i8, ptr %26, i64 48
   %76 = load i64, ptr %75, align 8, !noundef !3
-  %77 = getelementptr inbounds { i64, [2 x i64] }, ptr %74, i64 %76
+  %77 = getelementptr inbounds [24 x i8], ptr %74, i64 %76
   store ptr %74, ptr %9, align 8
   %78 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %77, ptr %78, align 8

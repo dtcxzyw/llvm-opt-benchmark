@@ -55,7 +55,7 @@ git_bswap64.exit:                                 ; preds = %git_bswap64.exit, %
   %.03552 = phi i64 [ 0, %.preheader49 ], [ %24, %git_bswap64.exit ]
   %21 = load i64, ptr %.153, align 8, !tbaa !16
   %22 = call i64 asm "bswap ${0:q}", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %21) #5, !srcloc !17
-  %23 = getelementptr inbounds nuw i64, ptr %3, i64 %.03552
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.03552
   store i64 %22, ptr %23, align 8, !tbaa !16
   %24 = add nuw nsw i64 %.03552, 1
   %25 = getelementptr inbounds nuw i8, ptr %.153, i64 8
@@ -83,7 +83,7 @@ git_bswap64.exit:                                 ; preds = %git_bswap64.exit, %
   %.13657 = phi i64 [ %34, %.preheader ], [ 0, %._crit_edge ]
   %31 = load i64, ptr %.258, align 8, !tbaa !16
   %32 = call i64 asm "bswap ${0:q}", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %31) #5, !srcloc !17
-  %33 = getelementptr inbounds nuw i64, ptr %3, i64 %.13657
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.13657
   store i64 %32, ptr %33, align 8, !tbaa !16
   %34 = add nuw i64 %.13657, 1
   %35 = getelementptr inbounds nuw i8, ptr %.258, i64 8
@@ -165,7 +165,7 @@ git_bswap64.exit.i:                               ; preds = %.preheader49.i, %gi
   %.03552.i = phi i64 [ 0, %.preheader49.i ], [ %21, %git_bswap64.exit.i ]
   %18 = load i64, ptr %.153.i, align 8, !tbaa !16
   %19 = call i64 asm "bswap ${0:q}", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %18) #5, !srcloc !17
-  %20 = getelementptr inbounds nuw i64, ptr %3, i64 %.03552.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.03552.i
   store i64 %19, ptr %20, align 8, !tbaa !16
   %21 = add nuw nsw i64 %.03552.i, 1
   %22 = getelementptr inbounds nuw i8, ptr %.153.i, i64 8
@@ -189,7 +189,7 @@ git_bswap64.exit.i:                               ; preds = %.preheader49.i, %gi
   %.13657.i = phi i64 [ %29, %.preheader.i ], [ 0, %._crit_edge.i ]
   %26 = load i64, ptr %.258.i, align 8, !tbaa !16
   %27 = call i64 asm "bswap ${0:q}", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %26) #5, !srcloc !17
-  %28 = getelementptr inbounds nuw i64, ptr %3, i64 %.13657.i
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.13657.i
   store i64 %27, ptr %28, align 8, !tbaa !16
   %29 = add nuw i64 %.13657.i, 1
   %30 = getelementptr inbounds nuw i8, ptr %.258.i, i64 8
@@ -321,7 +321,7 @@ st_mult.exit50:                                   ; preds = %st_mult.exit
 
 git_bswap64.exit:                                 ; preds = %.lr.ph, %git_bswap64.exit
   %.054 = phi i64 [ 0, %.lr.ph ], [ %69, %git_bswap64.exit ]
-  %66 = getelementptr inbounds nuw i64, ptr %65, i64 %.054
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %.054
   %67 = load i64, ptr %66, align 8, !tbaa !16
   %68 = tail call i64 asm "bswap ${0:q}", "=r,0,~{dirflag},~{fpsr},~{flags}"(i64 %67) #5, !srcloc !17
   store i64 %68, ptr %66, align 8, !tbaa !16
@@ -357,7 +357,7 @@ git_bswap64.exit:                                 ; preds = %.lr.ph, %git_bswap6
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 %.idx52
   %.idx53 = shl nuw nsw i64 %84, 11
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 %.idx53
-  %91 = getelementptr inbounds nuw i64, ptr %90, i64 %87
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %87
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %91, ptr %92, align 8, !tbaa !22
   %93 = add nuw nsw i64 %55, 12

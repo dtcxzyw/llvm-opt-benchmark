@@ -7,7 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.anon.70 = type { i32, i32 }
 %struct.anon.71 = type { i32, i32, i32 }
 %struct.intel_dpll_funcs = type { ptr, ptr }
-%struct.__drm_crtcs_state = type { ptr, ptr, ptr, ptr, ptr, ptr, i64 }
 
 @.str = private unnamed_addr constant [43 x i8] c"Unknown DPLL mode %08x in programmed mode\0A\00", align 1
 @intel_limits_bxt = internal constant %struct.intel_limit { %struct.anon.70 { i32 25000, i32 594000 }, %struct.anon.70 { i32 4800000, i32 6700000 }, %struct.anon.70 { i32 1, i32 1 }, %struct.anon.70 zeroinitializer, %struct.anon.70 { i32 2, i32 2 }, %struct.anon.70 { i32 8388608, i32 1069547520 }, %struct.anon.70 zeroinitializer, %struct.anon.70 { i32 2, i32 4 }, %struct.anon.71 { i32 0, i32 1, i32 20 } }, align 4
@@ -1013,7 +1012,7 @@ define dso_local i32 @intel_dpll_crtc_compute_clock(ptr noundef %0, ptr noundef 
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %6, i64 %9
+  %.split = getelementptr [56 x i8], ptr %6, i64 %9
   %10 = getelementptr i8, ptr %.split, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 10
@@ -1100,7 +1099,7 @@ define dso_local i32 @intel_dpll_crtc_get_shared_dpll(ptr noundef %0, ptr nounde
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %6, i64 %9
+  %.split = getelementptr [56 x i8], ptr %6, i64 %9
   %10 = getelementptr i8, ptr %.split, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 10
@@ -1877,7 +1876,7 @@ define dso_local void @chv_enable_pll(ptr noundef readonly captures(none) %0) lo
   %133 = load i32, ptr %129, align 4
   %134 = getelementptr inbounds nuw i8, ptr %3, i64 3428
   %135 = sext i32 %5 to i64
-  %136 = getelementptr i32, ptr %134, i64 %135
+  %136 = getelementptr [4 x i8], ptr %134, i64 %135
   store i32 %133, ptr %136, align 4
   %137 = load ptr, ptr %9, align 8
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 32
@@ -2249,7 +2248,7 @@ define internal i32 @mtl_crtc_compute_clock(ptr noundef %0, ptr noundef readonly
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %4, i64 %7
+  %.split = getelementptr [56 x i8], ptr %4, i64 %7
   %8 = getelementptr i8, ptr %.split, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr @intel_get_crtc_new_encoder(ptr noundef %0, ptr noundef %9) #11
@@ -2290,7 +2289,7 @@ define internal i32 @dg2_crtc_compute_clock(ptr noundef %0, ptr noundef readonly
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %4, i64 %7
+  %.split = getelementptr [56 x i8], ptr %4, i64 %7
   %8 = getelementptr i8, ptr %.split, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = tail call ptr @intel_get_crtc_new_encoder(ptr noundef %0, ptr noundef %9) #11
@@ -2320,7 +2319,7 @@ define internal i32 @hsw_crtc_compute_clock(ptr noundef %0, ptr noundef %1) #1 a
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %6, i64 %9
+  %.split = getelementptr [56 x i8], ptr %6, i64 %9
   %10 = getelementptr i8, ptr %.split, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr @intel_get_crtc_new_encoder(ptr noundef %0, ptr noundef %11) #11
@@ -2374,7 +2373,7 @@ define internal i32 @hsw_crtc_get_shared_dpll(ptr noundef %0, ptr noundef %1) #1
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %6, i64 %9
+  %.split = getelementptr [56 x i8], ptr %6, i64 %9
   %10 = getelementptr i8, ptr %.split, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = tail call ptr @intel_get_crtc_new_encoder(ptr noundef %0, ptr noundef %11) #11
@@ -2414,7 +2413,7 @@ define internal i32 @ilk_crtc_compute_clock(ptr noundef %0, ptr noundef %1) #1 a
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %6, i64 %9
+  %.split = getelementptr [56 x i8], ptr %6, i64 %9
   %10 = getelementptr i8, ptr %.split, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 860
@@ -2675,7 +2674,7 @@ define internal i32 @ilk_crtc_get_shared_dpll(ptr noundef %0, ptr noundef %1) #1
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %4, i64 %7
+  %.split = getelementptr [56 x i8], ptr %4, i64 %7
   %8 = getelementptr i8, ptr %.split, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 860
@@ -3035,7 +3034,7 @@ define internal noundef range(i32 -22, 1) i32 @chv_crtc_compute_clock(ptr nounde
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %4, i64 %7
+  %.split = getelementptr [56 x i8], ptr %4, i64 %7
   %8 = getelementptr i8, ptr %.split, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 880
@@ -3160,7 +3159,7 @@ define internal noundef range(i32 -22, 1) i32 @vlv_crtc_compute_clock(ptr nounde
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %4, i64 %7
+  %.split = getelementptr [56 x i8], ptr %4, i64 %7
   %8 = getelementptr i8, ptr %.split, i64 24
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 880
@@ -3496,7 +3495,7 @@ define internal noundef range(i32 -22, 1) i32 @g4x_crtc_compute_clock(ptr nounde
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %6, i64 %9
+  %.split = getelementptr [56 x i8], ptr %6, i64 %9
   %10 = getelementptr i8, ptr %.split, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 872
@@ -3845,7 +3844,7 @@ define internal noundef range(i32 -22, 1) i32 @pnv_crtc_compute_clock(ptr nounde
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %6, i64 %9
+  %.split = getelementptr [56 x i8], ptr %6, i64 %9
   %10 = getelementptr i8, ptr %.split, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 872
@@ -4195,7 +4194,7 @@ define internal noundef range(i32 -22, 1) i32 @i9xx_crtc_compute_clock(ptr nound
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %6, i64 %9
+  %.split = getelementptr [56 x i8], ptr %6, i64 %9
   %10 = getelementptr i8, ptr %.split, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 872
@@ -4631,7 +4630,7 @@ define internal noundef range(i32 -22, 1) i32 @i8xx_crtc_compute_clock(ptr nound
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %8 = load i32, ptr %7, align 8
   %9 = zext i32 %8 to i64
-  %.split = getelementptr %struct.__drm_crtcs_state, ptr %6, i64 %9
+  %.split = getelementptr [56 x i8], ptr %6, i64 %9
   %10 = getelementptr i8, ptr %.split, i64 24
   %11 = load ptr, ptr %10, align 8
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 872

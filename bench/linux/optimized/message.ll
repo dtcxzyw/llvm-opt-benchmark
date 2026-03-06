@@ -37,12 +37,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_cdc_parse_cd
 %struct.api_context = type { %struct.completion, i32 }
 %struct.completion = type { i32, %struct.swait_queue_head }
 %struct.swait_queue_head = type { %struct.raw_spinlock, %struct.list_head }
-%struct.usb_host_endpoint = type <{ %struct.usb_endpoint_descriptor, %struct.usb_ss_ep_comp_descriptor, %struct.usb_ssp_isoc_ep_comp_descriptor, i8, %struct.list_head, ptr, ptr, ptr, i32, i32, i32, [4 x i8] }>
-%struct.usb_endpoint_descriptor = type <{ i8, i8, i8, i8, i16, i8, i8, i8 }>
-%struct.usb_ss_ep_comp_descriptor = type { i8, i8, i8, i8, i16 }
-%struct.usb_ssp_isoc_ep_comp_descriptor = type { i8, i8, i16, i32 }
-%struct.usb_host_config = type { %struct.usb_config_descriptor, ptr, [16 x ptr], [32 x ptr], [32 x ptr], ptr, i32 }
-%struct.usb_config_descriptor = type <{ i8, i8, i16, i8, i8, i8, i8, i8 }>
 
 @__UNIQUE_ID___addressable_usb_control_msg428 = internal global ptr @usb_control_msg, section ".discard.addressable", align 8
 @__UNIQUE_ID___addressable_usb_control_msg_send429 = internal global ptr @usb_control_msg_send, section ".discard.addressable", align 8
@@ -273,7 +267,7 @@ define dso_local i32 @usb_interrupt_msg(ptr noundef %0, i32 noundef %1, ptr noun
   %11 = lshr i32 %1, 15
   %12 = and i32 %11, 15
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr ptr, ptr %10, i64 %13
+  %14 = getelementptr [8 x i8], ptr %10, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   %17 = icmp slt i32 %3, 0
@@ -365,7 +359,7 @@ define dso_local i32 @usb_bulk_msg(ptr noundef %0, i32 noundef %1, ptr noundef %
   %11 = lshr i32 %1, 15
   %12 = and i32 %11, 15
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr ptr, ptr %10, i64 %13
+  %14 = getelementptr [8 x i8], ptr %10, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = icmp eq ptr %15, null
   %17 = icmp slt i32 %3, 0
@@ -583,7 +577,7 @@ define dso_local noundef range(i32 -22, 1) i32 @usb_sg_init(ptr noundef %0, ptr 
 
 47:                                               ; preds = %.preheader13.split.us
   %48 = load ptr, ptr %34, align 8
-  %49 = getelementptr ptr, ptr %48, i64 %42
+  %49 = getelementptr [8 x i8], ptr %48, i64 %42
   store ptr %45, ptr %49, align 8
   %50 = getelementptr inbounds nuw i8, ptr %45, i64 64
   store ptr null, ptr %50, align 8
@@ -658,7 +652,7 @@ define dso_local noundef range(i32 -22, 1) i32 @usb_sg_init(ptr noundef %0, ptr 
 
 .preheader11.us:                                  ; preds = %.preheader13.split.split.us
   %96 = load ptr, ptr %34, align 8
-  %97 = getelementptr ptr, ptr %96, i64 %92
+  %97 = getelementptr [8 x i8], ptr %96, i64 %92
   store ptr %94, ptr %97, align 8
   %98 = getelementptr inbounds nuw i8, ptr %94, i64 64
   store ptr null, ptr %98, align 8
@@ -711,7 +705,7 @@ define dso_local noundef range(i32 -22, 1) i32 @usb_sg_init(ptr noundef %0, ptr 
 
 127:                                              ; preds = %.preheader13.split.split
   %128 = load ptr, ptr %34, align 8
-  %129 = getelementptr ptr, ptr %128, i64 %123
+  %129 = getelementptr [8 x i8], ptr %128, i64 %123
   store ptr %125, ptr %129, align 8
   %130 = getelementptr inbounds nuw i8, ptr %125, i64 64
   store ptr null, ptr %130, align 8
@@ -750,7 +744,7 @@ define dso_local noundef range(i32 -22, 1) i32 @usb_sg_init(ptr noundef %0, ptr 
 147:                                              ; preds = %.split17.us, %36
   %148 = phi ptr [ %33, %36 ], [ %.pre, %.split17.us ]
   %149 = phi i64 [ -1, %36 ], [ %146, %.split17.us ]
-  %150 = getelementptr ptr, ptr %148, i64 %149
+  %150 = getelementptr [8 x i8], ptr %148, i64 %149
   %151 = load ptr, ptr %150, align 8
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 92
   %153 = load i32, ptr %152, align 4
@@ -786,7 +780,7 @@ define dso_local noundef range(i32 -22, 1) i32 @usb_sg_init(ptr noundef %0, ptr 
   %165 = phi i32 [ %171, %.preheader ], [ %163, %162 ]
   %166 = load ptr, ptr %34, align 8
   %167 = sext i32 %165 to i64
-  %168 = getelementptr ptr, ptr %166, i64 %167
+  %168 = getelementptr [8 x i8], ptr %166, i64 %167
   %169 = load ptr, ptr %168, align 8
   tail call void @usb_free_urb(ptr noundef %169) #12
   %170 = load i32, ptr %29, align 4
@@ -889,7 +883,7 @@ define internal void @sg_complete(ptr noundef readonly captures(address) %0) #0 
   %48 = phi i64 [ 0, %44 ], [ %69, %67 ]
   %49 = phi i32 [ 0, %44 ], [ %68, %67 ]
   %50 = load ptr, ptr %45, align 8
-  %51 = getelementptr ptr, ptr %50, i64 %48
+  %51 = getelementptr [8 x i8], ptr %50, i64 %48
   %52 = load ptr, ptr %51, align 8
   %53 = icmp eq ptr %52, null
   br i1 %53, label %67, label %54
@@ -901,7 +895,7 @@ define internal void @sg_complete(ptr noundef readonly captures(address) %0) #0 
 56:                                               ; preds = %54
   tail call void @usb_block_urb(ptr noundef nonnull %52) #12
   %57 = load ptr, ptr %45, align 8
-  %58 = getelementptr ptr, ptr %57, i64 %48
+  %58 = getelementptr [8 x i8], ptr %57, i64 %48
   %59 = load ptr, ptr %58, align 8
   %60 = tail call i32 @usb_unlink_urb(ptr noundef %59) #12
   switch i32 %60, label %61 [
@@ -987,13 +981,13 @@ define dso_local void @usb_sg_wait(ptr noundef %0) #0 align 16 {
   %14 = load ptr, ptr %7, align 8
   %15 = load ptr, ptr %8, align 8
   %16 = sext i32 %10 to i64
-  %17 = getelementptr ptr, ptr %15, i64 %16
+  %17 = getelementptr [8 x i8], ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 64
   store ptr %14, ptr %19, align 8
   tail call void @_raw_spin_unlock_irq(ptr noundef nonnull %4) #12
   %20 = load ptr, ptr %8, align 8
-  %21 = getelementptr ptr, ptr %20, i64 %16
+  %21 = getelementptr [8 x i8], ptr %20, i64 %16
   %22 = load ptr, ptr %21, align 8
   %23 = tail call i32 @usb_submit_urb(ptr noundef %22, i32 noundef 3072) #12
   switch i32 %23, label %27 [
@@ -1019,7 +1013,7 @@ define dso_local void @usb_sg_wait(ptr noundef %0) #0 align 16 {
 
 27:                                               ; preds = %13
   %28 = load ptr, ptr %8, align 8
-  %29 = getelementptr ptr, ptr %28, i64 %16
+  %29 = getelementptr [8 x i8], ptr %28, i64 %16
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 88
   store i32 %23, ptr %31, align 8
@@ -1075,7 +1069,7 @@ define dso_local void @usb_sg_wait(ptr noundef %0) #0 align 16 {
   %54 = phi i32 [ %60, %.preheader ], [ %52, %50 ]
   %55 = load ptr, ptr %47, align 8
   %56 = sext i32 %54 to i64
-  %57 = getelementptr ptr, ptr %55, i64 %56
+  %57 = getelementptr [8 x i8], ptr %55, i64 %56
   %58 = load ptr, ptr %57, align 8
   tail call void @usb_free_urb(ptr noundef %58) #12
   %59 = load i32, ptr %2, align 4
@@ -1140,11 +1134,11 @@ define dso_local void @usb_sg_cancel(ptr noundef %0) #0 align 16 {
 20:                                               ; preds = %32, %16
   %21 = phi i64 [ %19, %16 ], [ %33, %32 ]
   %22 = load ptr, ptr %17, align 8
-  %23 = getelementptr ptr, ptr %22, i64 %21
+  %23 = getelementptr [8 x i8], ptr %22, i64 %21
   %24 = load ptr, ptr %23, align 8
   tail call void @usb_block_urb(ptr noundef %24) #12
   %25 = load ptr, ptr %17, align 8
-  %26 = getelementptr ptr, ptr %25, i64 %21
+  %26 = getelementptr [8 x i8], ptr %25, i64 %21
   %27 = load ptr, ptr %26, align 8
   %28 = tail call i32 @usb_unlink_urb(ptr noundef %27) #12
   switch i32 %28, label %29 [
@@ -1700,7 +1694,7 @@ define dso_local range(i32 -2147483648, 1) i32 @usb_clear_halt(ptr noundef %0, i
   %15 = zext nneg i32 %4 to i64
   %.v.v = select i1 %14, i64 1072, i64 944
   %.v = getelementptr inbounds nuw i8, ptr %0, i64 %.v.v
-  %16 = getelementptr ptr, ptr %.v, i64 %15
+  %16 = getelementptr [8 x i8], ptr %.v, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = icmp eq ptr %17, null
   br i1 %18, label %20, label %19
@@ -1722,7 +1716,7 @@ define dso_local void @usb_reset_endpoint(ptr noundef %0, i32 noundef %1) #0 ali
   %6 = zext nneg i32 %3 to i64
   %.v.v = select i1 %5, i64 1072, i64 944
   %.v = getelementptr inbounds nuw i8, ptr %0, i64 %.v.v
-  %7 = getelementptr ptr, ptr %.v, i64 %6
+  %7 = getelementptr [8 x i8], ptr %.v, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, null
   br i1 %9, label %11, label %10
@@ -1751,13 +1745,13 @@ define dso_local void @usb_disable_endpoint(ptr noundef %0, i32 noundef %1, i1 n
 
 12:                                               ; preds = %5
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1072
-  %14 = getelementptr ptr, ptr %13, i64 %9
+  %14 = getelementptr [8 x i8], ptr %13, i64 %9
   %15 = load ptr, ptr %14, align 8
   br i1 %11, label %20, label %23
 
 16:                                               ; preds = %5
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 944
-  %18 = getelementptr ptr, ptr %17, i64 %9
+  %18 = getelementptr [8 x i8], ptr %17, i64 %9
   %19 = load ptr, ptr %18, align 8
   br i1 %11, label %20, label %23
 
@@ -1817,7 +1811,7 @@ define dso_local void @usb_disable_interface(ptr noundef %0, ptr noundef readonl
 .split3.split.us:                                 ; preds = %.split3, %35
   %14 = phi i64 [ %36, %35 ], [ 0, %.split3 ]
   %15 = load ptr, ptr %10, align 8
-  %.split.us = getelementptr %struct.usb_host_endpoint, ptr %15, i64 %14
+  %.split.us = getelementptr [80 x i8], ptr %15, i64 %14
   %16 = getelementptr i8, ptr %.split.us, i64 2
   %17 = load i8, ptr %16, align 2
   %18 = and i8 %17, 15
@@ -1827,12 +1821,12 @@ define dso_local void @usb_disable_interface(ptr noundef %0, ptr noundef readonl
   br i1 %19, label %24, label %21
 
 21:                                               ; preds = %.split3.split.us
-  %22 = getelementptr ptr, ptr %12, i64 %20
+  %22 = getelementptr [8 x i8], ptr %12, i64 %20
   %23 = load ptr, ptr %22, align 8
   br i1 %.not, label %30, label %27
 
 24:                                               ; preds = %.split3.split.us
-  %25 = getelementptr ptr, ptr %13, i64 %20
+  %25 = getelementptr [8 x i8], ptr %13, i64 %20
   %26 = load ptr, ptr %25, align 8
   br i1 %.not, label %30, label %27
 
@@ -1865,7 +1859,7 @@ define dso_local void @usb_disable_interface(ptr noundef %0, ptr noundef readonl
   %40 = phi i8 [ %54, %53 ], [ %7, %.split3 ]
   %41 = phi i64 [ %55, %53 ], [ 0, %.split3 ]
   %42 = load ptr, ptr %10, align 8
-  %.split = getelementptr %struct.usb_host_endpoint, ptr %42, i64 %41
+  %.split = getelementptr [80 x i8], ptr %42, i64 %41
   %43 = getelementptr i8, ptr %.split, i64 2
   %44 = load i8, ptr %43, align 2
   %45 = and i8 %44, 15
@@ -1873,7 +1867,7 @@ define dso_local void @usb_disable_interface(ptr noundef %0, ptr noundef readonl
   %47 = zext nneg i8 %45 to i64
   %spec.select = select i1 %46, i64 1072, i64 944
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 %spec.select
-  %.in = getelementptr ptr, ptr %48, i64 %47
+  %.in = getelementptr [8 x i8], ptr %48, i64 %47
   %49 = load ptr, ptr %.in, align 8
   %50 = icmp eq ptr %49, null
   br i1 %50, label %53, label %51
@@ -1917,7 +1911,7 @@ define dso_local void @usb_disable_device(ptr noundef %0, i32 noundef %1) local_
   %11 = phi i64 [ %19, %.preheader5 ], [ 0, %6 ]
   %12 = phi ptr [ %20, %.preheader5 ], [ %4, %6 ]
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 152
-  %14 = getelementptr ptr, ptr %13, i64 %11
+  %14 = getelementptr [8 x i8], ptr %13, i64 %11
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %17 = load i8, ptr %16, align 8
@@ -1939,7 +1933,7 @@ define dso_local void @usb_disable_device(ptr noundef %0, i32 noundef %1) local_
   %26 = phi ptr [ %61, %60 ], [ %20, %.loopexit6 ]
   %27 = phi i64 [ %62, %60 ], [ 0, %.loopexit6 ]
   %28 = getelementptr inbounds nuw i8, ptr %26, i64 152
-  %29 = getelementptr ptr, ptr %28, i64 %27
+  %29 = getelementptr [8 x i8], ptr %28, i64 %27
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 80
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 140
@@ -1970,7 +1964,7 @@ define dso_local void @usb_disable_device(ptr noundef %0, i32 noundef %1) local_
 49:                                               ; preds = %49, %47
   %50 = phi i64 [ 0, %47 ], [ %53, %49 ]
   %51 = load ptr, ptr %48, align 8
-  %52 = getelementptr %struct.usb_host_endpoint, ptr %51, i64 %50
+  %52 = getelementptr [80 x i8], ptr %51, i64 %50
   tail call void @usb_remove_ep_devs(ptr noundef %52) #12
   %53 = add nuw nsw i64 %50, 1
   %54 = load i8, ptr %44, align 4
@@ -2006,13 +2000,13 @@ define dso_local void @usb_disable_device(ptr noundef %0, i32 noundef %1) local_
   %67 = phi i64 [ %76, %.preheader ], [ 0, %.loopexit4 ]
   %68 = phi ptr [ %77, %.preheader ], [ %61, %.loopexit4 ]
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 152
-  %70 = getelementptr ptr, ptr %69, i64 %67
+  %70 = getelementptr [8 x i8], ptr %69, i64 %67
   %71 = load ptr, ptr %70, align 8
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 80
   tail call void @put_device(ptr noundef nonnull %72) #12
   %73 = load ptr, ptr %3, align 8
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 152
-  %75 = getelementptr ptr, ptr %74, i64 %67
+  %75 = getelementptr [8 x i8], ptr %74, i64 %67
   store ptr null, ptr %75, align 8
   %76 = add nuw nsw i64 %67, 1
   %77 = load ptr, ptr %3, align 8
@@ -2086,8 +2080,8 @@ define internal fastcc void @usb_disable_device_endpoints(ptr noundef %0, i32 no
   %18 = and i32 %16, 128
   %19 = icmp eq i32 %18, 0
   %20 = zext nneg i32 %17 to i64
-  %21 = getelementptr ptr, ptr %14, i64 %20
-  %22 = getelementptr ptr, ptr %15, i64 %20
+  %21 = getelementptr [8 x i8], ptr %14, i64 %20
+  %22 = getelementptr [8 x i8], ptr %15, i64 %20
   %23 = select i1 %19, ptr %22, ptr %21
   %24 = load ptr, ptr %23, align 8
   %25 = icmp eq ptr %24, null
@@ -2145,12 +2139,12 @@ define internal fastcc void @usb_disable_device_endpoints(ptr noundef %0, i32 no
   br i1 %50, label %53, label %56
 
 53:                                               ; preds = %.split10
-  %54 = getelementptr ptr, ptr %46, i64 %51
+  %54 = getelementptr [8 x i8], ptr %46, i64 %51
   %55 = load ptr, ptr %54, align 8
   br i1 %52, label %62, label %59
 
 56:                                               ; preds = %.split10
-  %57 = getelementptr ptr, ptr %45, i64 %51
+  %57 = getelementptr [8 x i8], ptr %45, i64 %51
   %58 = load ptr, ptr %57, align 8
   br i1 %52, label %62, label %59
 
@@ -2176,12 +2170,12 @@ define internal fastcc void @usb_disable_device_endpoints(ptr noundef %0, i32 no
   br i1 %50, label %71, label %68
 
 68:                                               ; preds = %67
-  %69 = getelementptr ptr, ptr %46, i64 %51
+  %69 = getelementptr [8 x i8], ptr %46, i64 %51
   %70 = load ptr, ptr %69, align 8
   br i1 %52, label %77, label %74
 
 71:                                               ; preds = %67
-  %72 = getelementptr ptr, ptr %45, i64 %51
+  %72 = getelementptr [8 x i8], ptr %45, i64 %51
   %73 = load ptr, ptr %72, align 8
   br i1 %52, label %77, label %74
 
@@ -2239,7 +2233,7 @@ define dso_local void @usb_enable_endpoint(ptr noundef %0, ptr noundef %1, i1 no
 15:                                               ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   %17 = zext nneg i8 %6 to i64
-  %18 = getelementptr ptr, ptr %16, i64 %17
+  %18 = getelementptr [8 x i8], ptr %16, i64 %17
   store ptr %1, ptr %18, align 8
   %19 = xor i1 %7, true
   %20 = select i1 %19, i1 true, i1 %11
@@ -2248,7 +2242,7 @@ define dso_local void @usb_enable_endpoint(ptr noundef %0, ptr noundef %1, i1 no
 .thread:                                          ; preds = %..thread_crit_edge, %15
   %.pre-phi = phi i64 [ %.pre, %..thread_crit_edge ], [ %17, %15 ]
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 944
-  %22 = getelementptr ptr, ptr %21, i64 %.pre-phi
+  %22 = getelementptr [8 x i8], ptr %21, i64 %.pre-phi
   store ptr %1, ptr %22, align 8
   br label %23
 
@@ -2276,7 +2270,7 @@ define dso_local void @usb_enable_interface(ptr noundef %0, ptr noundef readonly
 .split.us:                                        ; preds = %9, %31
   %13 = phi i64 [ %33, %31 ], [ 0, %9 ]
   %14 = load ptr, ptr %10, align 8
-  %15 = getelementptr %struct.usb_host_endpoint, ptr %14, i64 %13
+  %15 = getelementptr [80 x i8], ptr %14, i64 %13
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 2
   %17 = load i8, ptr %16, align 1
   %18 = and i8 %17, 15
@@ -2291,14 +2285,14 @@ define dso_local void @usb_enable_interface(ptr noundef %0, ptr noundef readonly
   br i1 %24, label %26, label %.thread.us
 
 26:                                               ; preds = %.split.us
-  %27 = getelementptr ptr, ptr %11, i64 %25
+  %27 = getelementptr [8 x i8], ptr %11, i64 %25
   store ptr %15, ptr %27, align 8
   %28 = xor i1 %19, true
   %29 = select i1 %28, i1 true, i1 %23
   br i1 %29, label %.thread.us, label %31
 
 .thread.us:                                       ; preds = %.split.us, %26
-  %30 = getelementptr ptr, ptr %12, i64 %25
+  %30 = getelementptr [8 x i8], ptr %12, i64 %25
   store ptr %15, ptr %30, align 8
   br label %31
 
@@ -2314,7 +2308,7 @@ define dso_local void @usb_enable_interface(ptr noundef %0, ptr noundef readonly
 .split:                                           ; preds = %9, %55
   %37 = phi i64 [ %57, %55 ], [ 0, %9 ]
   %38 = load ptr, ptr %10, align 8
-  %39 = getelementptr %struct.usb_host_endpoint, ptr %38, i64 %37
+  %39 = getelementptr [80 x i8], ptr %38, i64 %37
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 2
   %41 = load i8, ptr %40, align 1
   %42 = and i8 %41, 15
@@ -2328,14 +2322,14 @@ define dso_local void @usb_enable_interface(ptr noundef %0, ptr noundef readonly
   br i1 %48, label %50, label %.thread
 
 50:                                               ; preds = %.split
-  %51 = getelementptr ptr, ptr %11, i64 %49
+  %51 = getelementptr [8 x i8], ptr %11, i64 %49
   store ptr %39, ptr %51, align 8
   %52 = xor i1 %43, true
   %53 = select i1 %52, i1 true, i1 %47
   br i1 %53, label %.thread, label %55
 
 .thread:                                          ; preds = %.split, %50
-  %54 = getelementptr ptr, ptr %12, i64 %49
+  %54 = getelementptr [8 x i8], ptr %12, i64 %49
   store ptr %39, ptr %54, align 8
   br label %55
 
@@ -2400,7 +2394,7 @@ define dso_local range(i32 -2147483648, 1) i32 @usb_set_interface(ptr noundef %0
   %31 = phi i8 [ %45, %44 ], [ %26, %28 ]
   %32 = phi i64 [ %46, %44 ], [ 0, %28 ]
   %33 = load ptr, ptr %29, align 8
-  %.split = getelementptr %struct.usb_host_endpoint, ptr %33, i64 %32
+  %.split = getelementptr [80 x i8], ptr %33, i64 %32
   %34 = getelementptr i8, ptr %.split, i64 2
   %35 = load i8, ptr %34, align 2
   %36 = and i8 %35, 15
@@ -2408,7 +2402,7 @@ define dso_local range(i32 -2147483648, 1) i32 @usb_set_interface(ptr noundef %0
   %38 = icmp slt i8 %35, 0
   %.v.v = select i1 %38, i64 944, i64 1072
   %.v = getelementptr inbounds nuw i8, ptr %0, i64 %.v.v
-  %39 = getelementptr ptr, ptr %.v, i64 %37
+  %39 = getelementptr [8 x i8], ptr %.v, i64 %37
   %40 = load ptr, ptr %39, align 8
   %41 = icmp eq ptr %40, null
   br i1 %41, label %44, label %42
@@ -2454,7 +2448,7 @@ define dso_local range(i32 -2147483648, 1) i32 @usb_set_interface(ptr noundef %0
   %62 = phi ptr [ %67, %.preheader ], [ %54, %53 ]
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
   %64 = load ptr, ptr %63, align 8
-  %.split13 = getelementptr %struct.usb_host_endpoint, ptr %64, i64 %61
+  %.split13 = getelementptr [80 x i8], ptr %64, i64 %61
   %65 = getelementptr i8, ptr %.split13, i64 72
   store i32 0, ptr %65, align 8
   %66 = add nuw nsw i64 %61, 1
@@ -2542,7 +2536,7 @@ define dso_local range(i32 -2147483648, 1) i32 @usb_set_interface(ptr noundef %0
 114:                                              ; preds = %114, %112
   %115 = phi i64 [ 0, %112 ], [ %118, %114 ]
   %116 = load ptr, ptr %113, align 8
-  %117 = getelementptr %struct.usb_host_endpoint, ptr %116, i64 %115
+  %117 = getelementptr [80 x i8], ptr %116, i64 %115
   tail call void @usb_remove_ep_devs(ptr noundef %117) #12
   %118 = add nuw nsw i64 %115, 1
   %119 = load i8, ptr %109, align 4
@@ -2582,7 +2576,7 @@ define dso_local range(i32 -2147483648, 1) i32 @usb_set_interface(ptr noundef %0
 .split25:                                         ; preds = %130, %157
   %135 = phi i64 [ %158, %157 ], [ 0, %130 ]
   %136 = load ptr, ptr %131, align 8
-  %.split14 = getelementptr %struct.usb_host_endpoint, ptr %136, i64 %135
+  %.split14 = getelementptr [80 x i8], ptr %136, i64 %135
   %137 = getelementptr i8, ptr %.split14, i64 2
   %138 = load i8, ptr %137, align 2
   %139 = and i8 %138, 15
@@ -2592,12 +2586,12 @@ define dso_local range(i32 -2147483648, 1) i32 @usb_set_interface(ptr noundef %0
   br i1 %140, label %143, label %146
 
 143:                                              ; preds = %.split25
-  %144 = getelementptr ptr, ptr %134, i64 %141
+  %144 = getelementptr [8 x i8], ptr %134, i64 %141
   %145 = load ptr, ptr %144, align 8
   br i1 %142, label %152, label %149
 
 146:                                              ; preds = %.split25
-  %147 = getelementptr ptr, ptr %133, i64 %141
+  %147 = getelementptr [8 x i8], ptr %133, i64 %141
   %148 = load ptr, ptr %147, align 8
   br i1 %142, label %152, label %149
 
@@ -2644,7 +2638,7 @@ define dso_local range(i32 -2147483648, 1) i32 @usb_set_interface(ptr noundef %0
 168:                                              ; preds = %193, %166
   %169 = phi i64 [ 0, %166 ], [ %194, %193 ]
   %170 = load ptr, ptr %167, align 8
-  %.split15 = getelementptr %struct.usb_host_endpoint, ptr %170, i64 %169
+  %.split15 = getelementptr [80 x i8], ptr %170, i64 %169
   %171 = getelementptr i8, ptr %.split15, i64 2
   %172 = load i8, ptr %171, align 2
   %173 = zext i8 %172 to i32
@@ -2668,7 +2662,7 @@ define dso_local range(i32 -2147483648, 1) i32 @usb_set_interface(ptr noundef %0
   %188 = zext nneg i32 %178 to i64
   %.v16.v = select i1 %187, i64 1072, i64 944
   %.v16 = getelementptr inbounds nuw i8, ptr %0, i64 %.v16.v
-  %189 = getelementptr ptr, ptr %.v16, i64 %188
+  %189 = getelementptr [8 x i8], ptr %.v16, i64 %188
   %190 = load ptr, ptr %189, align 8
   %191 = icmp eq ptr %190, null
   br i1 %191, label %193, label %192
@@ -2700,7 +2694,7 @@ define dso_local range(i32 -2147483648, 1) i32 @usb_set_interface(ptr noundef %0
 206:                                              ; preds = %225, %202
   %207 = phi i64 [ 0, %202 ], [ %227, %225 ]
   %208 = load ptr, ptr %203, align 8
-  %209 = getelementptr %struct.usb_host_endpoint, ptr %208, i64 %207
+  %209 = getelementptr [80 x i8], ptr %208, i64 %207
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 2
   %211 = load i8, ptr %210, align 1
   %212 = and i8 %211, 15
@@ -2715,14 +2709,14 @@ define dso_local range(i32 -2147483648, 1) i32 @usb_set_interface(ptr noundef %0
   br i1 %218, label %220, label %.thread17
 
 220:                                              ; preds = %206
-  %221 = getelementptr ptr, ptr %204, i64 %219
+  %221 = getelementptr [8 x i8], ptr %204, i64 %219
   store ptr %209, ptr %221, align 8
   %222 = xor i1 %213, true
   %223 = select i1 %222, i1 true, i1 %217
   br i1 %223, label %.thread17, label %225
 
 .thread17:                                        ; preds = %206, %220
-  %224 = getelementptr ptr, ptr %205, i64 %219
+  %224 = getelementptr [8 x i8], ptr %205, i64 %219
   store ptr %209, ptr %224, align 8
   br label %225
 
@@ -2767,7 +2761,7 @@ define dso_local range(i32 -2147483648, 1) i32 @usb_set_interface(ptr noundef %0
 250:                                              ; preds = %250, %248
   %251 = phi i64 [ 0, %248 ], [ %255, %250 ]
   %252 = load ptr, ptr %249, align 8
-  %253 = getelementptr %struct.usb_host_endpoint, ptr %252, i64 %251
+  %253 = getelementptr [80 x i8], ptr %252, i64 %251
   %254 = tail call i32 @usb_create_ep_devs(ptr noundef nonnull %231, ptr noundef %253, ptr noundef %239) #12
   %255 = add nuw nsw i64 %251, 1
   %256 = load i8, ptr %245, align 4
@@ -2899,7 +2893,7 @@ define dso_local range(i32 -2147483648, 1) i32 @usb_reset_configuration(ptr noun
 
 43:                                               ; preds = %140, %39
   %44 = phi i64 [ 0, %39 ], [ %141, %140 ]
-  %45 = getelementptr ptr, ptr %40, i64 %44
+  %45 = getelementptr [8 x i8], ptr %40, i64 %44
   %46 = load ptr, ptr %45, align 8
   %47 = tail call ptr @usb_altnum_to_altsetting(ptr noundef %46, i32 noundef 0) #12
   %48 = icmp eq ptr %47, null
@@ -2936,7 +2930,7 @@ define dso_local range(i32 -2147483648, 1) i32 @usb_reset_configuration(ptr noun
 67:                                               ; preds = %67, %65
   %68 = phi i64 [ 0, %65 ], [ %71, %67 ]
   %69 = load ptr, ptr %66, align 8
-  %70 = getelementptr %struct.usb_host_endpoint, ptr %69, i64 %68
+  %70 = getelementptr [80 x i8], ptr %69, i64 %68
   tail call void @usb_remove_ep_devs(ptr noundef %70) #12
   %71 = add nuw nsw i64 %68, 1
   %72 = load i8, ptr %62, align 4
@@ -2972,7 +2966,7 @@ define dso_local range(i32 -2147483648, 1) i32 @usb_reset_configuration(ptr noun
 84:                                               ; preds = %103, %82
   %85 = phi i64 [ 0, %82 ], [ %105, %103 ]
   %86 = load ptr, ptr %83, align 8
-  %87 = getelementptr %struct.usb_host_endpoint, ptr %86, i64 %85
+  %87 = getelementptr [80 x i8], ptr %86, i64 %85
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 2
   %89 = load i8, ptr %88, align 1
   %90 = and i8 %89, 15
@@ -2987,14 +2981,14 @@ define dso_local range(i32 -2147483648, 1) i32 @usb_reset_configuration(ptr noun
   br i1 %96, label %98, label %.thread
 
 98:                                               ; preds = %84
-  %99 = getelementptr ptr, ptr %41, i64 %97
+  %99 = getelementptr [8 x i8], ptr %41, i64 %97
   store ptr %87, ptr %99, align 8
   %100 = xor i1 %91, true
   %101 = select i1 %100, i1 true, i1 %95
   br i1 %101, label %.thread, label %103
 
 .thread:                                          ; preds = %84, %98
-  %102 = getelementptr ptr, ptr %42, i64 %97
+  %102 = getelementptr [8 x i8], ptr %42, i64 %97
   store ptr %87, ptr %102, align 8
   br label %103
 
@@ -3040,7 +3034,7 @@ define dso_local range(i32 -2147483648, 1) i32 @usb_reset_configuration(ptr noun
 129:                                              ; preds = %129, %127
   %130 = phi i64 [ 0, %127 ], [ %134, %129 ]
   %131 = load ptr, ptr %128, align 8
-  %132 = getelementptr %struct.usb_host_endpoint, ptr %131, i64 %130
+  %132 = getelementptr [80 x i8], ptr %131, i64 %130
   %133 = tail call i32 @usb_create_ep_devs(ptr noundef nonnull %109, ptr noundef %132, ptr noundef %117) #12
   %134 = add nuw nsw i64 %130, 1
   %135 = load i8, ptr %124, align 4
@@ -3267,7 +3261,7 @@ define dso_local i32 @usb_set_configuration(ptr noundef %0, i32 noundef %1) #0 a
 
 22:                                               ; preds = %19, %15
   %23 = phi i64 [ 0, %15 ], [ %20, %19 ]
-  %24 = getelementptr %struct.usb_host_config, ptr %17, i64 %23
+  %24 = getelementptr [680 x i8], ptr %17, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 5
   %26 = load i8, ptr %25, align 1
   %27 = zext i8 %26 to i32
@@ -3312,7 +3306,7 @@ define dso_local i32 @usb_set_configuration(ptr noundef %0, i32 noundef %1) #0 a
   %49 = phi i64 [ %70, %69 ], [ 0, %47 ]
   %50 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 80), align 16
   %51 = tail call noalias noundef align 8 dereferenceable_or_null(848) ptr @kmalloc_trace(ptr noundef %50, i32 noundef 3328, i64 noundef 848) #11
-  %52 = getelementptr ptr, ptr %45, i64 %49
+  %52 = getelementptr [8 x i8], ptr %45, i64 %49
   store ptr %51, ptr %52, align 8
   %53 = icmp eq ptr %51, null
   br i1 %53, label %54, label %69
@@ -3335,7 +3329,7 @@ define dso_local i32 @usb_set_configuration(ptr noundef %0, i32 noundef %1) #0 a
 
 64:                                               ; preds = %64, %62
   %65 = phi i64 [ %63, %62 ], [ %68, %64 ]
-  %66 = getelementptr ptr, ptr %58, i64 %65
+  %66 = getelementptr [8 x i8], ptr %58, i64 %65
   %67 = load ptr, ptr %66, align 8
   tail call void @kfree(ptr noundef %67) #12
   %68 = add nsw i64 %65, -1
@@ -3483,11 +3477,11 @@ define dso_local i32 @usb_set_configuration(ptr noundef %0, i32 noundef %1) #0 a
 
 150:                                              ; preds = %261, %133
   %151 = phi i64 [ 0, %133 ], [ %281, %261 ]
-  %152 = getelementptr ptr, ptr %97, i64 %151
+  %152 = getelementptr [8 x i8], ptr %97, i64 %151
   %153 = load ptr, ptr %152, align 8
-  %154 = getelementptr ptr, ptr %134, i64 %151
+  %154 = getelementptr [8 x i8], ptr %134, i64 %151
   store ptr %153, ptr %154, align 8
-  %155 = getelementptr ptr, ptr %135, i64 %151
+  %155 = getelementptr [8 x i8], ptr %135, i64 %151
   %156 = load ptr, ptr %155, align 8
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 8
   store ptr %157, ptr %153, align 8
@@ -3537,7 +3531,7 @@ define dso_local i32 @usb_set_configuration(ptr noundef %0, i32 noundef %1) #0 a
 186:                                              ; preds = %209, %181
   %187 = phi i64 [ 0, %181 ], [ %211, %209 ]
   %188 = phi ptr [ null, %181 ], [ %210, %209 ]
-  %189 = getelementptr ptr, ptr %137, i64 %187
+  %189 = getelementptr [8 x i8], ptr %137, i64 %187
   %190 = load ptr, ptr %189, align 8
   %191 = icmp eq ptr %190, null
   br i1 %191, label %213, label %192
@@ -3594,7 +3588,7 @@ define dso_local i32 @usb_set_configuration(ptr noundef %0, i32 noundef %1) #0 a
 222:                                              ; preds = %241, %220
   %223 = phi i64 [ 0, %220 ], [ %243, %241 ]
   %224 = load ptr, ptr %221, align 8
-  %225 = getelementptr %struct.usb_host_endpoint, ptr %224, i64 %223
+  %225 = getelementptr [80 x i8], ptr %224, i64 %223
   %226 = getelementptr inbounds nuw i8, ptr %225, i64 2
   %227 = load i8, ptr %226, align 1
   %228 = and i8 %227, 15
@@ -3609,14 +3603,14 @@ define dso_local i32 @usb_set_configuration(ptr noundef %0, i32 noundef %1) #0 a
   br i1 %234, label %236, label %.thread35
 
 236:                                              ; preds = %222
-  %237 = getelementptr ptr, ptr %139, i64 %235
+  %237 = getelementptr [8 x i8], ptr %139, i64 %235
   store ptr %225, ptr %237, align 8
   %238 = xor i1 %229, true
   %239 = select i1 %238, i1 true, i1 %233
   br i1 %239, label %.thread35, label %241
 
 .thread35:                                        ; preds = %222, %236
-  %240 = getelementptr ptr, ptr %140, i64 %235
+  %240 = getelementptr [8 x i8], ptr %140, i64 %235
   store ptr %225, ptr %240, align 8
   br label %241
 
@@ -3717,7 +3711,7 @@ define dso_local i32 @usb_set_configuration(ptr noundef %0, i32 noundef %1) #0 a
 
 .split48.us:                                      ; preds = %293, %.split48.us
   %299 = phi i64 [ %303, %.split48.us ], [ 0, %293 ]
-  %300 = getelementptr ptr, ptr %294, i64 %299
+  %300 = getelementptr [8 x i8], ptr %294, i64 %299
   %301 = load ptr, ptr %300, align 8
   %302 = getelementptr inbounds nuw i8, ptr %301, i64 80
   tail call void @put_device(ptr noundef nonnull %302) #12
@@ -3728,7 +3722,7 @@ define dso_local i32 @usb_set_configuration(ptr noundef %0, i32 noundef %1) #0 a
 
 .split48:                                         ; preds = %293, %.loopexit38.split
   %305 = phi i64 [ %344, %.loopexit38.split ], [ 0, %293 ]
-  %306 = getelementptr ptr, ptr %294, i64 %305
+  %306 = getelementptr [8 x i8], ptr %294, i64 %305
   %307 = load ptr, ptr %306, align 8
   %308 = getelementptr inbounds nuw i8, ptr %307, i64 8
   %309 = load ptr, ptr %308, align 8
@@ -3744,7 +3738,7 @@ define dso_local i32 @usb_set_configuration(ptr noundef %0, i32 noundef %1) #0 a
 314:                                              ; preds = %337, %.split47
   %315 = phi i64 [ 0, %.split47 ], [ %338, %337 ]
   %316 = load ptr, ptr %313, align 8
-  %.split = getelementptr %struct.usb_host_endpoint, ptr %316, i64 %315
+  %.split = getelementptr [80 x i8], ptr %316, i64 %315
   %317 = getelementptr i8, ptr %.split, i64 2
   %318 = load i8, ptr %317, align 2
   %319 = and i8 %318, 15
@@ -3754,12 +3748,12 @@ define dso_local i32 @usb_set_configuration(ptr noundef %0, i32 noundef %1) #0 a
   br i1 %320, label %323, label %326
 
 323:                                              ; preds = %314
-  %324 = getelementptr ptr, ptr %297, i64 %321
+  %324 = getelementptr [8 x i8], ptr %297, i64 %321
   %325 = load ptr, ptr %324, align 8
   br i1 %322, label %332, label %329
 
 326:                                              ; preds = %314
-  %327 = getelementptr ptr, ptr %296, i64 %321
+  %327 = getelementptr [8 x i8], ptr %296, i64 %321
   %328 = load ptr, ptr %327, align 8
   br i1 %322, label %332, label %329
 
@@ -3849,7 +3843,7 @@ define dso_local i32 @usb_set_configuration(ptr noundef %0, i32 noundef %1) #0 a
 
 369:                                              ; preds = %428, %365
   %370 = phi i64 [ 0, %365 ], [ %429, %428 ]
-  %371 = getelementptr ptr, ptr %366, i64 %370
+  %371 = getelementptr [8 x i8], ptr %366, i64 %370
   %372 = load ptr, ptr %371, align 8
   %373 = getelementptr inbounds nuw i8, ptr %372, i64 80
   %374 = getelementptr inbounds nuw i8, ptr %372, i64 704
@@ -3923,7 +3917,7 @@ define dso_local i32 @usb_set_configuration(ptr noundef %0, i32 noundef %1) #0 a
 417:                                              ; preds = %417, %415
   %418 = phi i64 [ 0, %415 ], [ %422, %417 ]
   %419 = load ptr, ptr %416, align 8
-  %420 = getelementptr %struct.usb_host_endpoint, ptr %419, i64 %418
+  %420 = getelementptr [80 x i8], ptr %419, i64 %418
   %421 = tail call i32 @usb_create_ep_devs(ptr noundef nonnull %373, ptr noundef %420, ptr noundef %404) #12
   %422 = add nuw nsw i64 %418, 1
   %423 = load i8, ptr %412, align 4

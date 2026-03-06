@@ -510,7 +510,7 @@ define internal i64 @rb_zlib_adler32(i32 noundef %0, ptr noundef readonly captur
 
 9:                                                ; preds = %.preheader.i
   %10 = sext i32 %.185.i18.i to i64
-  %11 = getelementptr inbounds i64, ptr %1, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %1, i64 %10
   %12 = load i64, ptr %11, align 8, !tbaa !6
   %13 = add nsw i32 %.185.i18.i, 1
   br label %14
@@ -723,7 +723,7 @@ define internal i64 @rb_zlib_crc32(i32 noundef %0, ptr noundef readonly captures
 
 9:                                                ; preds = %.preheader.i
   %10 = sext i32 %.185.i18.i to i64
-  %11 = getelementptr inbounds i64, ptr %1, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %1, i64 %10
   %12 = load i64, ptr %11, align 8, !tbaa !6
   %13 = add nsw i32 %.185.i18.i, 1
   br label %14
@@ -925,7 +925,7 @@ define internal i64 @rb_zlib_crc_table(i64 %0) #0 {
 
 4:                                                ; preds = %1, %4
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %6 = load i32, ptr %5, align 4, !tbaa !30
   %7 = zext i32 %6 to i64
   %8 = tail call i64 @rb_uint2inum(i64 noundef %7) #18
@@ -1500,7 +1500,7 @@ define internal noundef i64 @rb_deflate_initialize(i32 noundef %0, ptr noundef r
   %indvars.iv = phi i64 [ %indvars.iv.next, %25 ], [ 0, %3 ]
   %.185.i9 = phi i32 [ %.286.i, %25 ], [ 0, %3 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %13 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !78
   %15 = icmp slt i32 %.185.i9, %0
   %.not108.i = icmp eq ptr %14, null
@@ -1511,7 +1511,7 @@ define internal noundef i64 @rb_deflate_initialize(i32 noundef %0, ptr noundef r
 
 17:                                               ; preds = %16
   %18 = sext i32 %.185.i9 to i64
-  %19 = getelementptr inbounds i64, ptr %1, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %1, i64 %18
   %20 = load i64, ptr %19, align 8, !tbaa !6
   store i64 %20, ptr %14, align 8, !tbaa !6
   br label %21
@@ -3317,7 +3317,7 @@ define internal noundef i64 @rb_gzwriter_initialize(i32 noundef %0, ptr noundef 
 
 .thread:                                          ; preds = %3
   %9 = zext nneg i32 %0 to i64
-  %10 = getelementptr i64, ptr %1, i64 %9
+  %10 = getelementptr [8 x i8], ptr %1, i64 %9
   %11 = getelementptr i8, ptr %10, i64 -8
   %12 = load i64, ptr %11, align 8, !tbaa !6
   %13 = tail call i64 @rb_check_convert_type(i64 noundef %12, i32 noundef 8, ptr noundef nonnull @.str.170, ptr noundef nonnull @.str.171) #18
@@ -3349,7 +3349,7 @@ define internal noundef i64 @rb_gzwriter_initialize(i32 noundef %0, ptr noundef 
   %23 = phi i1 [ true, %.preheader ], [ false, %36 ]
   %.185.i28 = phi i32 [ 1, %.preheader ], [ %.286.i, %36 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %24 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !78
   %26 = icmp slt i32 %.185.i28, %.040
   %.not108.i = icmp eq ptr %25, null
@@ -3360,7 +3360,7 @@ define internal noundef i64 @rb_gzwriter_initialize(i32 noundef %0, ptr noundef 
 
 28:                                               ; preds = %27
   %29 = sext i32 %.185.i28 to i64
-  %30 = getelementptr inbounds i64, ptr %1, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %1, i64 %29
   %31 = load i64, ptr %30, align 8, !tbaa !6
   store i64 %31, ptr %25, align 8, !tbaa !6
   br label %32
@@ -4123,7 +4123,7 @@ rb_scan_args_n_opt.exit:
 
 6:                                                ; preds = %rb_scan_args_n_opt.exit
   %7 = zext nneg i32 %0 to i64
-  %8 = getelementptr i64, ptr %1, i64 %7
+  %8 = getelementptr [8 x i8], ptr %1, i64 %7
   %9 = getelementptr i8, ptr %8, i64 -8
   %10 = load i64, ptr %9, align 8, !tbaa !6
   %11 = tail call i32 @rb_keyword_given_p() #18
@@ -4411,7 +4411,7 @@ define internal i64 @rb_gzreader_read(i32 noundef %0, ptr noundef readonly captu
 
 14:                                               ; preds = %.preheader
   %15 = sext i32 %.185.i12 to i64
-  %16 = getelementptr inbounds i64, ptr %1, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %1, i64 %15
   %17 = load i64, ptr %16, align 8, !tbaa !6
   store i64 %17, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8, !tbaa !6
   %18 = add nsw i32 %.185.i12, 1
@@ -5410,7 +5410,7 @@ define internal i64 @zlib_s_gzip(i32 noundef %0, ptr noundef readonly captures(n
 
 10:                                               ; preds = %3
   %11 = zext nneg i32 %0 to i64
-  %12 = getelementptr i64, ptr %1, i64 %11
+  %12 = getelementptr [8 x i8], ptr %1, i64 %11
   %13 = getelementptr i8, ptr %12, i64 -8
   %14 = load i64, ptr %13, align 8, !tbaa !6
   %15 = tail call i64 @rb_check_hash_type(i64 noundef %14) #18
@@ -7192,7 +7192,7 @@ define internal i64 @rb_inflate_inflate_body(i64 noundef %0) #0 {
 
 11:                                               ; preds = %1
   %12 = zext nneg i32 %7 to i64
-  %13 = getelementptr i64, ptr %9, i64 %12
+  %13 = getelementptr [8 x i8], ptr %9, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -8
   %15 = load i64, ptr %14, align 8, !tbaa !6
   %16 = tail call i64 @rb_check_hash_type(i64 noundef %15) #18

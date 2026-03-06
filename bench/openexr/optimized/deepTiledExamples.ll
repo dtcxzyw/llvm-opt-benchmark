@@ -193,12 +193,12 @@ _ZN7Imf_3_415DeepFrameBufferC2Ev.exit:            ; preds = %52
   %63 = load i32, ptr %2, align 4, !tbaa !10
   %64 = sext i32 %63 to i64
   %65 = sub nsw i64 0, %64
-  %66 = getelementptr inbounds i32, ptr %62, i64 %65
+  %66 = getelementptr inbounds [4 x i8], ptr %62, i64 %65
   %67 = load i32, ptr %20, align 4, !tbaa !12
   %68 = mul nsw i32 %67, %17
   %69 = sext i32 %68 to i64
   %70 = sub nsw i64 0, %69
-  %71 = getelementptr inbounds i32, ptr %66, i64 %70
+  %71 = getelementptr inbounds [4 x i8], ptr %66, i64 %70
   %72 = shl nsw i64 %25, 2
   invoke void @_ZN7Imf_3_45SliceC1ENS_9PixelTypeEPcmmiidbb(ptr noundef nonnull align 8 dereferenceable(50) %9, i32 noundef 0, ptr noundef %71, i64 noundef 4, i64 noundef %72, i32 noundef 1, i32 noundef 1, double noundef 0.000000e+00, i1 noundef zeroext false, i1 noundef zeroext false)
           to label %73 unwind label %130
@@ -214,12 +214,12 @@ _ZN7Imf_3_415DeepFrameBufferC2Ev.exit:            ; preds = %52
   %76 = load i32, ptr %2, align 4, !tbaa !10
   %77 = sext i32 %76 to i64
   %78 = sub nsw i64 0, %77
-  %79 = getelementptr inbounds ptr, ptr %75, i64 %78
+  %79 = getelementptr inbounds [8 x i8], ptr %75, i64 %78
   %80 = load i32, ptr %20, align 4, !tbaa !12
   %81 = mul nsw i32 %80, %17
   %82 = sext i32 %81 to i64
   %83 = sub nsw i64 0, %82
-  %84 = getelementptr inbounds ptr, ptr %79, i64 %83
+  %84 = getelementptr inbounds [8 x i8], ptr %79, i64 %83
   %85 = shl nsw i64 %25, 3
   invoke void @_ZN7Imf_3_49DeepSliceC1ENS_9PixelTypeEPcmmmiidbb(ptr noundef nonnull align 8 dereferenceable(56) %10, i32 noundef 2, ptr noundef %84, i64 noundef 8, i64 noundef %85, i64 noundef 4, i32 noundef 1, i32 noundef 1, double noundef 0.000000e+00, i1 noundef zeroext false, i1 noundef zeroext false)
           to label %86 unwind label %132
@@ -235,12 +235,12 @@ _ZN7Imf_3_415DeepFrameBufferC2Ev.exit:            ; preds = %52
   %89 = load i32, ptr %2, align 4, !tbaa !10
   %90 = sext i32 %89 to i64
   %91 = sub nsw i64 0, %90
-  %92 = getelementptr inbounds ptr, ptr %88, i64 %91
+  %92 = getelementptr inbounds [8 x i8], ptr %88, i64 %91
   %93 = load i32, ptr %20, align 4, !tbaa !12
   %94 = mul nsw i32 %93, %17
   %95 = sext i32 %94 to i64
   %96 = sub nsw i64 0, %95
-  %97 = getelementptr inbounds ptr, ptr %92, i64 %96
+  %97 = getelementptr inbounds [8 x i8], ptr %92, i64 %96
   invoke void @_ZN7Imf_3_49DeepSliceC1ENS_9PixelTypeEPcmmmiidbb(ptr noundef nonnull align 8 dereferenceable(56) %11, i32 noundef 1, ptr noundef %97, i64 noundef 8, i64 noundef %85, i64 noundef 2, i32 noundef 1, i32 noundef 1, double noundef 0.000000e+00, i1 noundef zeroext false, i1 noundef zeroext false)
           to label %98 unwind label %134
 
@@ -289,15 +289,15 @@ _ZN7Imf_3_415DeepFrameBufferC2Ev.exit:            ; preds = %52
 .preheader87:                                     ; preds = %.preheader87.preheader, %._crit_edge
   %indvars.iv103 = phi i64 [ 0, %.preheader87.preheader ], [ %indvars.iv.next104, %._crit_edge ]
   %113 = mul nsw i64 %108, %indvars.iv103
-  %114 = getelementptr inbounds i32, ptr %107, i64 %113
+  %114 = getelementptr inbounds [4 x i8], ptr %107, i64 %113
   %115 = load ptr, ptr %41, align 8
   %116 = load i64, ptr %46, align 8
   %117 = mul nsw i64 %116, %indvars.iv103
-  %118 = getelementptr inbounds ptr, ptr %115, i64 %117
+  %118 = getelementptr inbounds [8 x i8], ptr %115, i64 %117
   %119 = load ptr, ptr %48, align 8
   %120 = load i64, ptr %53, align 8
   %121 = mul nsw i64 %120, %indvars.iv103
-  %122 = getelementptr inbounds ptr, ptr %119, i64 %121
+  %122 = getelementptr inbounds [8 x i8], ptr %119, i64 %121
   br label %142
 
 ._crit_edge93:                                    ; preds = %._crit_edge, %.preheader87.lr.ph, %.preheader88
@@ -363,7 +363,7 @@ _ZN7Imf_3_415DeepFrameBufferC2Ev.exit:            ; preds = %52
 
 142:                                              ; preds = %.preheader87, %154
   %indvars.iv = phi i64 [ 0, %.preheader87 ], [ %indvars.iv.next, %154 ]
-  %143 = getelementptr inbounds nuw i32, ptr %114, i64 %indvars.iv
+  %143 = getelementptr inbounds nuw [4 x i8], ptr %114, i64 %indvars.iv
   %144 = load i32, ptr %143, align 4, !tbaa !42
   %145 = zext i32 %144 to i64
   %146 = shl nuw nsw i64 %145, 2
@@ -371,7 +371,7 @@ _ZN7Imf_3_415DeepFrameBufferC2Ev.exit:            ; preds = %52
           to label %148 unwind label %156
 
 148:                                              ; preds = %142
-  %149 = getelementptr inbounds nuw ptr, ptr %118, i64 %indvars.iv
+  %149 = getelementptr inbounds nuw [8 x i8], ptr %118, i64 %indvars.iv
   store ptr %147, ptr %149, align 8, !tbaa !43
   %150 = load i32, ptr %143, align 4, !tbaa !42
   %151 = zext i32 %150 to i64
@@ -380,7 +380,7 @@ _ZN7Imf_3_415DeepFrameBufferC2Ev.exit:            ; preds = %52
           to label %154 unwind label %156
 
 154:                                              ; preds = %148
-  %155 = getelementptr inbounds nuw ptr, ptr %122, i64 %indvars.iv
+  %155 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %indvars.iv
   store ptr %153, ptr %155, align 8, !tbaa !45
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -522,8 +522,8 @@ _ZN7Imf_3_418DeepTiledInputFileD2Ev.exit:         ; preds = %_ZNSt12__shared_ptr
   %209 = load ptr, ptr %41, align 8, !tbaa !20
   %210 = load i64, ptr %46, align 8, !tbaa !25
   %211 = mul nsw i64 %210, %indvars.iv113
-  %212 = getelementptr inbounds ptr, ptr %209, i64 %211
-  %213 = getelementptr inbounds nuw ptr, ptr %212, i64 %indvars.iv108
+  %212 = getelementptr inbounds [8 x i8], ptr %209, i64 %211
+  %213 = getelementptr inbounds nuw [8 x i8], ptr %212, i64 %indvars.iv108
   %214 = load ptr, ptr %213, align 8, !tbaa !43
   %215 = icmp eq ptr %214, null
   br i1 %215, label %217, label %216
@@ -536,8 +536,8 @@ _ZN7Imf_3_418DeepTiledInputFileD2Ev.exit:         ; preds = %_ZNSt12__shared_ptr
   %218 = load ptr, ptr %48, align 8, !tbaa !26
   %219 = load i64, ptr %53, align 8, !tbaa !30
   %220 = mul nsw i64 %219, %indvars.iv113
-  %221 = getelementptr inbounds ptr, ptr %218, i64 %220
-  %222 = getelementptr inbounds nuw ptr, ptr %221, i64 %indvars.iv108
+  %221 = getelementptr inbounds [8 x i8], ptr %218, i64 %220
+  %222 = getelementptr inbounds nuw [8 x i8], ptr %221, i64 %indvars.iv108
   %223 = load ptr, ptr %222, align 8, !tbaa !45
   %224 = icmp eq ptr %223, null
   br i1 %224, label %226, label %225
@@ -772,8 +772,8 @@ define dso_local void @_Z20getSampleDataForTileiiiiRN7Imf_3_47Array2DIjEERNS0_IP
   %28 = load ptr, ptr %12, align 8, !tbaa !13
   %29 = load i64, ptr %11, align 8, !tbaa !19
   %30 = mul nsw i64 %29, %20
-  %31 = getelementptr inbounds i32, ptr %28, i64 %30
-  %32 = getelementptr inbounds i32, ptr %31, i64 %23
+  %31 = getelementptr inbounds [4 x i8], ptr %28, i64 %30
+  %32 = getelementptr inbounds [4 x i8], ptr %31, i64 %23
   store i32 %27, ptr %32, align 4, !tbaa !42
   %33 = zext i32 %27 to i64
   %34 = shl nuw nsw i64 %33, 2
@@ -781,8 +781,8 @@ define dso_local void @_Z20getSampleDataForTileiiiiRN7Imf_3_47Array2DIjEERNS0_IP
   %36 = load ptr, ptr %13, align 8, !tbaa !20
   %37 = load i64, ptr %14, align 8, !tbaa !25
   %38 = mul nsw i64 %37, %20
-  %39 = getelementptr inbounds ptr, ptr %36, i64 %38
-  %40 = getelementptr inbounds ptr, ptr %39, i64 %23
+  %39 = getelementptr inbounds [8 x i8], ptr %36, i64 %38
+  %40 = getelementptr inbounds [8 x i8], ptr %39, i64 %23
   store ptr %35, ptr %40, align 8, !tbaa !43
   %41 = load i32, ptr %32, align 4, !tbaa !42
   %42 = zext i32 %41 to i64
@@ -791,8 +791,8 @@ define dso_local void @_Z20getSampleDataForTileiiiiRN7Imf_3_47Array2DIjEERNS0_IP
   %45 = load ptr, ptr %15, align 8, !tbaa !26
   %46 = load i64, ptr %16, align 8, !tbaa !30
   %47 = mul nsw i64 %46, %20
-  %48 = getelementptr inbounds ptr, ptr %45, i64 %47
-  %49 = getelementptr inbounds ptr, ptr %48, i64 %23
+  %48 = getelementptr inbounds [8 x i8], ptr %45, i64 %47
+  %49 = getelementptr inbounds [8 x i8], ptr %48, i64 %23
   store ptr %44, ptr %49, align 8, !tbaa !45
   tail call void @_Z18getPixelSampleDataiiRN7Imf_3_47Array2DIPfEERNS0_IPN9Imath_3_24halfEEE(i32 noundef %22, i32 noundef %26, ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %6)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -957,12 +957,12 @@ _ZN7Imf_3_415DeepFrameBufferC2Ev.exit:            ; preds = %65
   %74 = load i32, ptr %2, align 4, !tbaa !10
   %75 = sext i32 %74 to i64
   %76 = sub nsw i64 0, %75
-  %77 = getelementptr inbounds i32, ptr %62, i64 %76
+  %77 = getelementptr inbounds [4 x i8], ptr %62, i64 %76
   %78 = load i32, ptr %21, align 4, !tbaa !12
   %79 = mul nsw i32 %78, %28
   %80 = sext i32 %79 to i64
   %81 = sub nsw i64 0, %80
-  %82 = getelementptr inbounds i32, ptr %77, i64 %81
+  %82 = getelementptr inbounds [4 x i8], ptr %77, i64 %81
   %83 = shl nsw i64 %46, 2
   invoke void @_ZN7Imf_3_45SliceC1ENS_9PixelTypeEPcmmiidbb(ptr noundef nonnull align 8 dereferenceable(50) %15, i32 noundef 0, ptr noundef nonnull %82, i64 noundef 4, i64 noundef %83, i32 noundef 1, i32 noundef 1, double noundef 0.000000e+00, i1 noundef zeroext false, i1 noundef zeroext false)
           to label %84 unwind label %168
@@ -978,12 +978,12 @@ _ZN7Imf_3_415DeepFrameBufferC2Ev.exit:            ; preds = %65
   %87 = load i32, ptr %2, align 4, !tbaa !10
   %88 = sext i32 %87 to i64
   %89 = sub nsw i64 0, %88
-  %90 = getelementptr inbounds ptr, ptr %86, i64 %89
+  %90 = getelementptr inbounds [8 x i8], ptr %86, i64 %89
   %91 = load i32, ptr %21, align 4, !tbaa !12
   %92 = mul nsw i32 %91, %28
   %93 = sext i32 %92 to i64
   %94 = sub nsw i64 0, %93
-  %95 = getelementptr inbounds ptr, ptr %90, i64 %94
+  %95 = getelementptr inbounds [8 x i8], ptr %90, i64 %94
   %96 = shl nsw i64 %46, 3
   invoke void @_ZN7Imf_3_49DeepSliceC1ENS_9PixelTypeEPcmmmiidbb(ptr noundef nonnull align 8 dereferenceable(56) %16, i32 noundef 2, ptr noundef %95, i64 noundef 8, i64 noundef %96, i64 noundef 4, i32 noundef 1, i32 noundef 1, double noundef 0.000000e+00, i1 noundef zeroext false, i1 noundef zeroext false)
           to label %97 unwind label %170
@@ -999,12 +999,12 @@ _ZN7Imf_3_415DeepFrameBufferC2Ev.exit:            ; preds = %65
   %100 = load i32, ptr %2, align 4, !tbaa !10
   %101 = sext i32 %100 to i64
   %102 = sub nsw i64 0, %101
-  %103 = getelementptr inbounds ptr, ptr %99, i64 %102
+  %103 = getelementptr inbounds [8 x i8], ptr %99, i64 %102
   %104 = load i32, ptr %21, align 4, !tbaa !12
   %105 = mul nsw i32 %104, %28
   %106 = sext i32 %105 to i64
   %107 = sub nsw i64 0, %106
-  %108 = getelementptr inbounds ptr, ptr %103, i64 %107
+  %108 = getelementptr inbounds [8 x i8], ptr %103, i64 %107
   invoke void @_ZN7Imf_3_49DeepSliceC1ENS_9PixelTypeEPcmmmiidbb(ptr noundef nonnull align 8 dereferenceable(56) %17, i32 noundef 1, ptr noundef %108, i64 noundef 8, i64 noundef %96, i64 noundef 2, i32 noundef 1, i32 noundef 1, double noundef 0.000000e+00, i1 noundef zeroext false, i1 noundef zeroext false)
           to label %109 unwind label %172
 
@@ -1063,7 +1063,7 @@ _ZN7Imf_3_415DeepFrameBufferC2Ev.exit:            ; preds = %65
 .preheader.us.preheader.i.us.us:                  ; preds = %.lr.ph50.split.us.i.us.us
   %126 = trunc nsw i64 %125 to i32
   %127 = mul nsw i64 %125, %46
-  %128 = getelementptr inbounds i32, ptr %62, i64 %127
+  %128 = getelementptr inbounds [4 x i8], ptr %62, i64 %127
   br label %.preheader.us.i.us.us
 
 .preheader.us.i.us.us:                            ; preds = %.noexc64.us.us, %.preheader.us.preheader.i.us.us
@@ -1078,7 +1078,7 @@ _ZN7Imf_3_415DeepFrameBufferC2Ev.exit:            ; preds = %65
           to label %.noexc61.us.us unwind label %.loopexit.split.us.split.us
 
 .noexc61.us.us:                                   ; preds = %130
-  %133 = getelementptr inbounds nuw i32, ptr %128, i64 %129
+  %133 = getelementptr inbounds nuw [4 x i8], ptr %128, i64 %129
   store i32 %132, ptr %133, align 4, !tbaa !42
   %134 = zext i32 %132 to i64
   %135 = shl nuw nsw i64 %134, 2
@@ -1089,8 +1089,8 @@ _ZN7Imf_3_415DeepFrameBufferC2Ev.exit:            ; preds = %65
   %137 = load ptr, ptr %53, align 8, !tbaa !20
   %138 = load i64, ptr %54, align 8, !tbaa !25
   %139 = mul nsw i64 %138, %125
-  %140 = getelementptr inbounds ptr, ptr %137, i64 %139
-  %141 = getelementptr inbounds nuw ptr, ptr %140, i64 %129
+  %140 = getelementptr inbounds [8 x i8], ptr %137, i64 %139
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %140, i64 %129
   store ptr %136, ptr %141, align 8, !tbaa !43
   %142 = shl nuw nsw i64 %134, 1
   %143 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %142) #15
@@ -1100,8 +1100,8 @@ _ZN7Imf_3_415DeepFrameBufferC2Ev.exit:            ; preds = %65
   %144 = load ptr, ptr %57, align 8, !tbaa !26
   %145 = load i64, ptr %58, align 8, !tbaa !30
   %146 = mul nsw i64 %145, %125
-  %147 = getelementptr inbounds ptr, ptr %144, i64 %146
-  %148 = getelementptr inbounds nuw ptr, ptr %147, i64 %129
+  %147 = getelementptr inbounds [8 x i8], ptr %144, i64 %146
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %147, i64 %129
   store ptr %143, ptr %148, align 8, !tbaa !45
   invoke void @_Z18getPixelSampleDataiiRN7Imf_3_47Array2DIPfEERNS0_IPN9Imath_3_24halfEEE(i32 noundef %126, i32 noundef %131, ptr noundef nonnull align 8 dereferenceable(24) %11, ptr noundef nonnull align 8 dereferenceable(24) %12)
           to label %.noexc64.us.us unwind label %.loopexit.split.us.split.us
@@ -1317,8 +1317,8 @@ _ZN7Imf_3_47Array2DIPfED2Ev.exit:                 ; preds = %_ZN7Imf_3_47Array2D
   %194 = load ptr, ptr %53, align 8, !tbaa !20
   %195 = load i64, ptr %54, align 8, !tbaa !25
   %196 = mul nsw i64 %195, %indvars.iv102
-  %197 = getelementptr inbounds ptr, ptr %194, i64 %196
-  %198 = getelementptr inbounds nuw ptr, ptr %197, i64 %indvars.iv99
+  %197 = getelementptr inbounds [8 x i8], ptr %194, i64 %196
+  %198 = getelementptr inbounds nuw [8 x i8], ptr %197, i64 %indvars.iv99
   %199 = load ptr, ptr %198, align 8, !tbaa !43
   %200 = icmp eq ptr %199, null
   br i1 %200, label %202, label %201
@@ -1331,8 +1331,8 @@ _ZN7Imf_3_47Array2DIPfED2Ev.exit:                 ; preds = %_ZN7Imf_3_47Array2D
   %203 = load ptr, ptr %57, align 8, !tbaa !26
   %204 = load i64, ptr %58, align 8, !tbaa !30
   %205 = mul nsw i64 %204, %indvars.iv102
-  %206 = getelementptr inbounds ptr, ptr %203, i64 %205
-  %207 = getelementptr inbounds nuw ptr, ptr %206, i64 %indvars.iv99
+  %206 = getelementptr inbounds [8 x i8], ptr %203, i64 %205
+  %207 = getelementptr inbounds nuw [8 x i8], ptr %206, i64 %indvars.iv99
   %208 = load ptr, ptr %207, align 8, !tbaa !45
   %209 = icmp eq ptr %208, null
   br i1 %209, label %211, label %210

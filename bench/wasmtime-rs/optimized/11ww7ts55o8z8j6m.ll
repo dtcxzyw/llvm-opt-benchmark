@@ -42,7 +42,7 @@ define hidden { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20
 
 10:                                               ; preds = %7
   %11 = sub nuw i64 %1, %0
-  %12 = getelementptr inbounds i32, ptr %2, i64 %0
+  %12 = getelementptr inbounds [4 x i8], ptr %2, i64 %0
   %13 = insertvalue { ptr, i64 } poison, ptr %12, 0
   %14 = insertvalue { ptr, i64 } %13, i64 %11, 1
   ret { ptr, i64 } %14
@@ -67,7 +67,7 @@ define hidden { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20
 
 10:                                               ; preds = %7
   %11 = sub nuw i64 %1, %0
-  %12 = getelementptr inbounds i32, ptr %2, i64 %0
+  %12 = getelementptr inbounds [4 x i8], ptr %2, i64 %0
   %13 = insertvalue { ptr, i64 } poison, ptr %12, 0
   %14 = insertvalue { ptr, i64 } %13, i64 %11, 1
   ret { ptr, i64 } %14
@@ -92,7 +92,7 @@ define hidden { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20
 
 10:                                               ; preds = %7
   %11 = sub nuw i64 %1, %0
-  %12 = getelementptr inbounds i32, ptr %2, i64 %0
+  %12 = getelementptr inbounds [4 x i8], ptr %2, i64 %0
   %13 = insertvalue { ptr, i64 } poison, ptr %12, 0
   %14 = insertvalue { ptr, i64 } %13, i64 %11, 1
   ret { ptr, i64 } %14
@@ -126,7 +126,7 @@ define hidden void @"_ZN16cranelift_entity4list17ListPool$LT$T$GT$4free17hb6a65e
 
 15:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h1bc63b46bdc39938E.exit"
   %16 = load ptr, ptr %11, align 8, !nonnull !4, !noundef !4
-  %17 = getelementptr inbounds i32, ptr %16, i64 %1
+  %17 = getelementptr inbounds [4 x i8], ptr %16, i64 %1
   store i32 0, ptr %17, align 4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load i64, ptr %5, align 8, !noundef !4
@@ -149,11 +149,11 @@ define hidden void @"_ZN16cranelift_entity4list17ListPool$LT$T$GT$4free17hb6a65e
 
 27:                                               ; preds = %22
   %28 = load ptr, ptr %18, align 8, !nonnull !4, !noundef !4
-  %29 = getelementptr inbounds nuw i64, ptr %28, i64 %4
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %4
   %30 = load i64, ptr %29, align 8, !noundef !4
   %31 = trunc i64 %30 to i32
   %32 = load ptr, ptr %11, align 8, !nonnull !4, !noundef !4
-  %33 = getelementptr inbounds i32, ptr %32, i64 %23
+  %33 = getelementptr inbounds [4 x i8], ptr %32, i64 %23
   store i32 %31, ptr %33, align 4
   %34 = load i64, ptr %5, align 8, !noundef !4
   %35 = icmp ugt i64 %34, %4
@@ -165,7 +165,7 @@ define hidden void @"_ZN16cranelift_entity4list17ListPool$LT$T$GT$4free17hb6a65e
 
 37:                                               ; preds = %27
   %38 = load ptr, ptr %18, align 8, !nonnull !4, !noundef !4
-  %39 = getelementptr inbounds nuw i64, ptr %38, i64 %4
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %4
   store i64 %23, ptr %39, align 8
   ret void
 
@@ -198,7 +198,7 @@ define internal fastcc void @"_ZN16cranelift_entity4list17ListPool$LT$T$GT$4free
 
 15:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h1bc63b46bdc39938E.exit"
   %16 = load ptr, ptr %11, align 8, !nonnull !4, !noundef !4
-  %17 = getelementptr inbounds i32, ptr %16, i64 %1
+  %17 = getelementptr inbounds [4 x i8], ptr %16, i64 %1
   store i32 0, ptr %17, align 4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = load i64, ptr %5, align 8, !noundef !4
@@ -221,11 +221,11 @@ define internal fastcc void @"_ZN16cranelift_entity4list17ListPool$LT$T$GT$4free
 
 27:                                               ; preds = %22
   %28 = load ptr, ptr %18, align 8, !nonnull !4, !noundef !4
-  %29 = getelementptr inbounds nuw i64, ptr %28, i64 %4
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %4
   %30 = load i64, ptr %29, align 8, !noundef !4
   %31 = trunc i64 %30 to i32
   %32 = load ptr, ptr %11, align 8, !nonnull !4, !noundef !4
-  %33 = getelementptr inbounds nuw i32, ptr %32, i64 %23
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %23
   store i32 %31, ptr %33, align 4
   %34 = load i64, ptr %5, align 8, !noundef !4
   %35 = icmp ugt i64 %34, %4
@@ -237,7 +237,7 @@ define internal fastcc void @"_ZN16cranelift_entity4list17ListPool$LT$T$GT$4free
 
 37:                                               ; preds = %27
   %38 = load ptr, ptr %18, align 8, !nonnull !4, !noundef !4
-  %39 = getelementptr inbounds nuw i64, ptr %38, i64 %4
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %4
   store i64 %23, ptr %39, align 8
   ret void
 
@@ -277,7 +277,7 @@ define hidden { i64, i64 } @"_ZN16cranelift_entity4list17ListPool$LT$T$GT$6len_o
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !4
-  %11 = getelementptr inbounds i32, ptr %10, i64 %7
+  %11 = getelementptr inbounds [4 x i8], ptr %10, i64 %7
   %12 = load i32, ptr %11, align 4, !noundef !4
   %13 = zext i32 %12 to i64
   br label %14
@@ -303,7 +303,7 @@ define hidden { i64, i64 } @"_ZN16cranelift_entity4list17ListPool$LT$T$GT$6len_o
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !4
-  %11 = getelementptr inbounds i32, ptr %10, i64 %7
+  %11 = getelementptr inbounds [4 x i8], ptr %10, i64 %7
   %12 = load i32, ptr %11, align 4, !noundef !4
   %13 = zext i32 %12 to i64
   br label %14
@@ -327,7 +327,7 @@ define internal fastcc noundef i64 @"_ZN16cranelift_entity4list17ListPool$LT$T$G
   %11 = zext i8 %3 to i64
   %.not.i = icmp ugt i64 %10, %11
   %12 = load ptr, ptr %8, align 8, !alias.scope !6, !nonnull !4
-  %13 = getelementptr inbounds nuw i64, ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %11
   br i1 %.not.i, label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hb536147038eb86b8E.exit.i", label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hb536147038eb86b8E.exit.thread.i"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hb536147038eb86b8E.exit.i": ; preds = %5
@@ -365,7 +365,7 @@ define internal fastcc noundef i64 @"_ZN16cranelift_entity4list17ListPool$LT$T$G
 27:                                               ; preds = %22
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %29 = load ptr, ptr %28, align 8, !alias.scope !6, !nonnull !4, !noundef !4
-  %30 = getelementptr inbounds i32, ptr %29, i64 %14
+  %30 = getelementptr inbounds [4 x i8], ptr %29, i64 %14
   %31 = load i32, ptr %30, align 4, !noalias !6, !noundef !4
   %32 = zext i32 %31 to i64
   store i64 %32, ptr %13, align 8, !noalias !6
@@ -429,9 +429,9 @@ define internal fastcc noundef i64 @"_ZN16cranelift_entity4list17ListPool$LT$T$G
   %.pn.i = phi i64 [ %.val3, %39 ], [ %.0.i, %45 ]
   %.16.val.pn.i = phi i64 [ %1, %39 ], [ %.val3, %45 ]
   %.sink.i = sub nuw i64 %.16.val.pn.i, %.0.i
-  %.sink7.i = getelementptr inbounds i32, ptr %.val, i64 %.0.i
+  %.sink7.i = getelementptr inbounds [4 x i8], ptr %.val, i64 %.0.i
   %.sink9.i = sub nuw i64 %.pn.i, %1
-  %.sink11.i = getelementptr inbounds i32, ptr %.val, i64 %1
+  %.sink11.i = getelementptr inbounds [4 x i8], ptr %.val, i64 %1
   %51 = icmp ugt i64 %4, %.sink.i
   br i1 %51, label %52, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0fe8369f5961d1c1E.llvm.7615600370855926762.exit"
 
@@ -464,7 +464,7 @@ define internal fastcc noundef i64 @"_ZN16cranelift_entity4list17ListPool$LT$T$G
   %11 = zext nneg i8 %3 to i64
   %.not.i = icmp ugt i64 %10, %11
   %12 = load ptr, ptr %8, align 8, !alias.scope !45, !nonnull !4
-  %13 = getelementptr inbounds nuw i64, ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %11
   br i1 %.not.i, label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hb536147038eb86b8E.exit.i", label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hb536147038eb86b8E.exit.thread.i"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hb536147038eb86b8E.exit.i": ; preds = %5
@@ -501,7 +501,7 @@ define internal fastcc noundef i64 @"_ZN16cranelift_entity4list17ListPool$LT$T$G
 26:                                               ; preds = %21
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %28 = load ptr, ptr %27, align 8, !alias.scope !45, !nonnull !4, !noundef !4
-  %29 = getelementptr inbounds i32, ptr %28, i64 %14
+  %29 = getelementptr inbounds [4 x i8], ptr %28, i64 %14
   %30 = load i32, ptr %29, align 4, !noalias !45, !noundef !4
   %31 = zext i32 %30 to i64
   store i64 %31, ptr %13, align 8, !noalias !45
@@ -535,7 +535,7 @@ define internal fastcc noundef i64 @"_ZN16cranelift_entity4list17ListPool$LT$T$G
 
 44:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6resize17h1bc63b46bdc39938E.exit.i"
   %45 = load ptr, ptr %40, align 8, !alias.scope !58, !nonnull !4, !noundef !4
-  %46 = getelementptr inbounds i32, ptr %45, i64 %1
+  %46 = getelementptr inbounds [4 x i8], ptr %45, i64 %1
   store i32 0, ptr %46, align 4
   %47 = load i64, ptr %9, align 8, !alias.scope !58, !noundef !4
   %48 = icmp ugt i64 %47, %34
@@ -557,11 +557,11 @@ define internal fastcc noundef i64 @"_ZN16cranelift_entity4list17ListPool$LT$T$G
 
 55:                                               ; preds = %50
   %56 = load ptr, ptr %8, align 8, !alias.scope !58, !nonnull !4, !noundef !4
-  %57 = getelementptr inbounds nuw i64, ptr %56, i64 %34
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %34
   %58 = load i64, ptr %57, align 8, !noundef !4
   %59 = trunc i64 %58 to i32
   %60 = load ptr, ptr %40, align 8, !alias.scope !58, !nonnull !4, !noundef !4
-  %61 = getelementptr inbounds nuw i32, ptr %60, i64 %51
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %51
   store i32 %59, ptr %61, align 4
   %62 = load i64, ptr %9, align 8, !alias.scope !58, !noundef !4
   %63 = icmp ugt i64 %62, %34
@@ -577,7 +577,7 @@ define internal fastcc noundef i64 @"_ZN16cranelift_entity4list17ListPool$LT$T$G
 
 "_ZN16cranelift_entity4list17ListPool$LT$T$GT$4free17h621603a1028df808E.exit": ; preds = %55
   %66 = load ptr, ptr %8, align 8, !alias.scope !58, !nonnull !4, !noundef !4
-  %67 = getelementptr inbounds nuw i64, ptr %66, i64 %34
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %34
   store i64 %51, ptr %67, align 8
   ret i64 %.0.i
 
@@ -629,9 +629,9 @@ define internal fastcc noundef i64 @"_ZN16cranelift_entity4list17ListPool$LT$T$G
   %.pn.i = phi i64 [ %.val3, %72 ], [ %.0.i, %78 ]
   %.16.val.pn.i = phi i64 [ %1, %72 ], [ %.val3, %78 ]
   %.sink.i = sub nuw i64 %.16.val.pn.i, %.0.i
-  %.sink7.i = getelementptr inbounds i32, ptr %.val, i64 %.0.i
+  %.sink7.i = getelementptr inbounds [4 x i8], ptr %.val, i64 %.0.i
   %.sink9.i = sub nuw i64 %.pn.i, %1
-  %.sink11.i = getelementptr inbounds i32, ptr %.val, i64 %1
+  %.sink11.i = getelementptr inbounds [4 x i8], ptr %.val, i64 %1
   %84 = icmp ugt i64 %4, %.sink.i
   br i1 %84, label %85, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h010c441a38139c51E.exit"
 
@@ -673,7 +673,7 @@ define hidden void @"_ZN16cranelift_entity4list19EntityList$LT$T$GT$11remove_las
 11:                                               ; preds = %5
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %13 = load ptr, ptr %12, align 8, !alias.scope !95, !noalias !96, !nonnull !4
-  %14 = getelementptr inbounds i32, ptr %13, i64 %10
+  %14 = getelementptr inbounds [4 x i8], ptr %13, i64 %10
   %15 = load i32, ptr %14, align 4, !noalias !98, !noundef !4
   %16 = or i32 %15, 3
   %17 = tail call range(i32 0, 31) i32 @llvm.ctlz.i32(i32 %16, i1 true)
@@ -724,7 +724,7 @@ define hidden void @"_ZN16cranelift_entity4list19EntityList$LT$T$GT$11remove_las
   %43 = add i32 %42, -1
   %44 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %45 = load ptr, ptr %44, align 8, !nonnull !4, !noundef !4
-  %46 = getelementptr inbounds i32, ptr %45, i64 %.010
+  %46 = getelementptr inbounds [4 x i8], ptr %45, i64 %.010
   store i32 %43, ptr %46, align 4
   br label %27
 
@@ -749,7 +749,7 @@ define hidden void @"_ZN16cranelift_entity4list19EntityList$LT$T$GT$11swap_remov
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !107, !noalias !108, !nonnull !4
-  %12 = getelementptr inbounds i32, ptr %11, i64 %8
+  %12 = getelementptr inbounds [4 x i8], ptr %11, i64 %8
   %13 = load i32, ptr %12, align 4, !noalias !110, !noundef !4
   %14 = zext i32 %13 to i64
   %15 = add nuw nsw i64 %14, %5
@@ -761,7 +761,7 @@ define hidden void @"_ZN16cranelift_entity4list19EntityList$LT$T$GT$11swap_remov
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0fe8369f5961d1c1E.llvm.7615600370855926762.exit.i": ; preds = %9
-  %18 = getelementptr inbounds nuw i32, ptr %11, i64 %5
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %5
   br label %"_ZN16cranelift_entity4list19EntityList$LT$T$GT$12as_mut_slice17h705b258b2a2dcabfE.llvm.7615600370855926762.exit"
 
 "_ZN16cranelift_entity4list19EntityList$LT$T$GT$12as_mut_slice17h705b258b2a2dcabfE.llvm.7615600370855926762.exit": ; preds = %3, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0fe8369f5961d1c1E.llvm.7615600370855926762.exit.i"
@@ -785,8 +785,8 @@ define hidden void @"_ZN16cranelift_entity4list19EntityList$LT$T$GT$11swap_remov
   unreachable
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hb07af7f1e204d7e9E.llvm.7615600370855926762.exit": ; preds = %21
-  %24 = getelementptr inbounds nuw i32, ptr %.sroa.0.0.i, i64 %1
-  %25 = getelementptr inbounds i32, ptr %.sroa.0.0.i, i64 %19
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.0.i, i64 %1
+  %25 = getelementptr inbounds [4 x i8], ptr %.sroa.0.0.i, i64 %19
   %.0.copyload.i = load i32, ptr %24, align 4, !alias.scope !114, !noalias !117
   %26 = load i32, ptr %25, align 4, !alias.scope !114, !noalias !117
   store i32 %26, ptr %24, align 4, !alias.scope !114, !noalias !117
@@ -808,7 +808,7 @@ define hidden { ptr, i64 } @"_ZN16cranelift_entity4list19EntityList$LT$T$GT$12as
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8, !alias.scope !119, !noalias !122, !nonnull !4
-  %11 = getelementptr inbounds i32, ptr %10, i64 %7
+  %11 = getelementptr inbounds [4 x i8], ptr %10, i64 %7
   %12 = load i32, ptr %11, align 4, !noalias !124, !noundef !4
   %13 = zext i32 %12 to i64
   %14 = add nuw nsw i64 %13, %4
@@ -820,7 +820,7 @@ define hidden { ptr, i64 } @"_ZN16cranelift_entity4list19EntityList$LT$T$GT$12as
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0fe8369f5961d1c1E.llvm.7615600370855926762.exit": ; preds = %8
-  %17 = getelementptr inbounds nuw i32, ptr %10, i64 %4
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %4
   br label %"_ZN16cranelift_entity4list17ListPool$LT$T$GT$6len_of17hed5b6e4f5b562ee8E.llvm.7615600370855926762.exit.thread"
 
 "_ZN16cranelift_entity4list17ListPool$LT$T$GT$6len_of17hed5b6e4f5b562ee8E.llvm.7615600370855926762.exit.thread": ; preds = %2, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h0fe8369f5961d1c1E.llvm.7615600370855926762.exit"
@@ -847,7 +847,7 @@ define hidden { i32, i32 } @"_ZN16cranelift_entity4list19EntityList$LT$T$GT$3get
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !136, !noalias !137, !nonnull !4
-  %12 = getelementptr inbounds i32, ptr %11, i64 %8
+  %12 = getelementptr inbounds [4 x i8], ptr %11, i64 %8
   %13 = load i32, ptr %12, align 4, !noalias !139, !noundef !4
   %14 = zext i32 %13 to i64
   %15 = add nuw nsw i64 %14, %5
@@ -863,8 +863,8 @@ define hidden { i32, i32 } @"_ZN16cranelift_entity4list19EntityList$LT$T$GT$3get
   br i1 %.not, label %18, label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17heaa07f8d64f6b5a1E.exit"
 
 18:                                               ; preds = %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he42a86ad2fc4ad73E.llvm.7615600370855926762.exit.i"
-  %19 = getelementptr inbounds nuw i32, ptr %11, i64 %5
-  %20 = getelementptr inbounds nuw i32, ptr %19, i64 %1
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %5
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %1
   %21 = load i32, ptr %20, align 4, !alias.scope !143, !noundef !4
   br label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17heaa07f8d64f6b5a1E.exit"
 
@@ -891,7 +891,7 @@ define hidden noundef range(i64 0, 4294967296) i64 @"_ZN16cranelift_entity4list1
 "_ZN16cranelift_entity4list17ListPool$LT$T$GT$6len_of17h70dbaed765101c28E.llvm.7615600370855926762.exit": ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8, !alias.scope !148, !noalias !151, !nonnull !4
-  %10 = getelementptr inbounds i32, ptr %9, i64 %7
+  %10 = getelementptr inbounds [4 x i8], ptr %9, i64 %7
   %11 = load i32, ptr %10, align 4, !noalias !153, !noundef !4
   %12 = zext i32 %11 to i64
   br label %13
@@ -950,7 +950,7 @@ define hidden noundef range(i64 0, 4294967296) i64 @"_ZN16cranelift_entity4list1
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = load ptr, ptr %22, align 8, !alias.scope !159, !nonnull !4, !noundef !4
-  %24 = getelementptr inbounds i32, ptr %23, i64 %14
+  %24 = getelementptr inbounds [4 x i8], ptr %23, i64 %14
   %25 = load i32, ptr %24, align 4, !noalias !159, !noundef !4
   %26 = zext i32 %25 to i64
   store i64 %26, ptr %13, align 8, !noalias !159
@@ -966,7 +966,7 @@ define hidden noundef range(i64 0, 4294967296) i64 @"_ZN16cranelift_entity4list1
 30:                                               ; preds = %3
   %31 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %32 = load ptr, ptr %31, align 8, !alias.scope !154, !noalias !157, !nonnull !4
-  %33 = getelementptr inbounds i32, ptr %32, i64 %8
+  %33 = getelementptr inbounds [4 x i8], ptr %32, i64 %8
   %34 = load i32, ptr %33, align 4, !noalias !172, !noundef !4
   %35 = zext i32 %34 to i64
   %36 = add nuw nsw i64 %35, 1
@@ -979,7 +979,7 @@ define hidden noundef range(i64 0, 4294967296) i64 @"_ZN16cranelift_entity4list1
 40:                                               ; preds = %"_ZN16cranelift_entity4list17ListPool$LT$T$GT$5alloc17h51a5f23ca43a5e77E.exit"
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %42 = load ptr, ptr %41, align 8, !nonnull !4, !noundef !4
-  %43 = getelementptr inbounds i32, ptr %42, i64 %.0.i
+  %43 = getelementptr inbounds [4 x i8], ptr %42, i64 %.0.i
   store i32 1, ptr %43, align 4
   %44 = add nuw i64 %.0.i, 1
   %45 = load i64, ptr %6, align 8, !noundef !4
@@ -992,7 +992,7 @@ define hidden noundef range(i64 0, 4294967296) i64 @"_ZN16cranelift_entity4list1
 
 48:                                               ; preds = %40
   %49 = load ptr, ptr %41, align 8, !nonnull !4, !noundef !4
-  %50 = getelementptr inbounds i32, ptr %49, i64 %44
+  %50 = getelementptr inbounds [4 x i8], ptr %49, i64 %44
   store i32 %1, ptr %50, align 4
   %51 = trunc i64 %44 to i32
   store i32 %51, ptr %0, align 4
@@ -1028,7 +1028,7 @@ define hidden noundef range(i64 0, 4294967296) i64 @"_ZN16cranelift_entity4list1
 
 66:                                               ; preds = %.critedge
   %67 = load ptr, ptr %31, align 8, !nonnull !4, !noundef !4
-  %68 = getelementptr inbounds i32, ptr %67, i64 %64
+  %68 = getelementptr inbounds [4 x i8], ptr %67, i64 %64
   store i32 %1, ptr %68, align 4
   %69 = load i64, ptr %6, align 8, !noundef !4
   %70 = icmp ult i64 %.028, %69
@@ -1041,7 +1041,7 @@ define hidden noundef range(i64 0, 4294967296) i64 @"_ZN16cranelift_entity4list1
 72:                                               ; preds = %66
   %73 = trunc i64 %36 to i32
   %74 = load ptr, ptr %31, align 8, !nonnull !4, !noundef !4
-  %75 = getelementptr inbounds i32, ptr %74, i64 %.028
+  %75 = getelementptr inbounds [4 x i8], ptr %74, i64 %.028
   store i32 %73, ptr %75, align 4
   br label %53
 
@@ -1101,7 +1101,7 @@ define hidden noundef range(i64 0, 4294967296) i64 @"_ZN16cranelift_entity4list1
 23:                                               ; preds = %20
   %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %25 = load ptr, ptr %24, align 8, !alias.scope !178, !nonnull !4, !noundef !4
-  %26 = getelementptr inbounds i32, ptr %25, i64 %16
+  %26 = getelementptr inbounds [4 x i8], ptr %25, i64 %16
   %27 = load i32, ptr %26, align 4, !noalias !178, !noundef !4
   %28 = zext i32 %27 to i64
   store i64 %28, ptr %15, align 8, !noalias !178
@@ -1117,7 +1117,7 @@ define hidden noundef range(i64 0, 4294967296) i64 @"_ZN16cranelift_entity4list1
 32:                                               ; preds = %3
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %34 = load ptr, ptr %33, align 8, !alias.scope !173, !noalias !176, !nonnull !4
-  %35 = getelementptr inbounds i32, ptr %34, i64 %10
+  %35 = getelementptr inbounds [4 x i8], ptr %34, i64 %10
   %36 = load i32, ptr %35, align 4, !noalias !191, !noundef !4
   %37 = zext i32 %36 to i64
   %38 = add nuw nsw i64 %37, 1
@@ -1130,7 +1130,7 @@ define hidden noundef range(i64 0, 4294967296) i64 @"_ZN16cranelift_entity4list1
 42:                                               ; preds = %"_ZN16cranelift_entity4list17ListPool$LT$T$GT$5alloc17h6fd855f969f48ff7E.exit"
   %43 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %44 = load ptr, ptr %43, align 8, !nonnull !4, !noundef !4
-  %45 = getelementptr inbounds i32, ptr %44, i64 %.0.i
+  %45 = getelementptr inbounds [4 x i8], ptr %44, i64 %.0.i
   store i32 1, ptr %45, align 4
   %46 = add nuw i64 %.0.i, 1
   %47 = load i64, ptr %8, align 8, !noundef !4
@@ -1143,7 +1143,7 @@ define hidden noundef range(i64 0, 4294967296) i64 @"_ZN16cranelift_entity4list1
 
 50:                                               ; preds = %42
   %51 = load ptr, ptr %43, align 8, !nonnull !4, !noundef !4
-  %52 = getelementptr inbounds i32, ptr %51, i64 %46
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %46
   store i32 %1, ptr %52, align 4
   %53 = trunc i64 %46 to i32
   store i32 %53, ptr %0, align 4
@@ -1171,7 +1171,7 @@ define hidden noundef range(i64 0, 4294967296) i64 @"_ZN16cranelift_entity4list1
   %65 = zext nneg i8 %61 to i64
   %.not.i.i = icmp ugt i64 %64, %65
   %66 = load ptr, ptr %62, align 8, !alias.scope !198, !nonnull !4
-  %67 = getelementptr inbounds nuw i64, ptr %66, i64 %65
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %65
   br i1 %.not.i.i, label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hb536147038eb86b8E.exit.i.i", label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hb536147038eb86b8E.exit.thread.i.i"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hb536147038eb86b8E.exit.i.i": ; preds = %56
@@ -1203,7 +1203,7 @@ define hidden noundef range(i64 0, 4294967296) i64 @"_ZN16cranelift_entity4list1
   unreachable
 
 76:                                               ; preds = %73
-  %77 = getelementptr inbounds i32, ptr %34, i64 %68
+  %77 = getelementptr inbounds [4 x i8], ptr %34, i64 %68
   %78 = load i32, ptr %77, align 4, !noalias !198, !noundef !4
   %79 = zext i32 %78 to i64
   store i64 %79, ptr %67, align 8, !noalias !198
@@ -1257,9 +1257,9 @@ define hidden noundef range(i64 0, 4294967296) i64 @"_ZN16cranelift_entity4list1
   %.pn.i.i = phi i64 [ %.val3.i, %82 ], [ %.0.i.i, %88 ]
   %.16.val.pn.i.i = phi i64 [ %10, %82 ], [ %.val3.i, %88 ]
   %.sink.i.i = sub nuw i64 %.16.val.pn.i.i, %.0.i.i
-  %.sink7.i.i = getelementptr inbounds i32, ptr %.val.i, i64 %.0.i.i
+  %.sink7.i.i = getelementptr inbounds [4 x i8], ptr %.val.i, i64 %.0.i.i
   %.sink9.i.i = sub nuw i64 %.pn.i.i, %10
-  %.sink11.i.i = getelementptr inbounds i32, ptr %.val.i, i64 %10
+  %.sink11.i.i = getelementptr inbounds [4 x i8], ptr %.val.i, i64 %10
   %.not = icmp ugt i64 %.sink.i.i, %37
   br i1 %.not, label %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17hef7433e2a5da2fe2E.exit.i", label %94
 
@@ -1294,7 +1294,7 @@ define hidden noundef range(i64 0, 4294967296) i64 @"_ZN16cranelift_entity4list1
 
 102:                                              ; preds = %.critedge
   %103 = load ptr, ptr %33, align 8, !nonnull !4, !noundef !4
-  %104 = getelementptr inbounds i32, ptr %103, i64 %100
+  %104 = getelementptr inbounds [4 x i8], ptr %103, i64 %100
   store i32 %1, ptr %104, align 4
   %105 = load i64, ptr %8, align 8, !noundef !4
   %106 = icmp ult i64 %.028, %105
@@ -1307,7 +1307,7 @@ define hidden noundef range(i64 0, 4294967296) i64 @"_ZN16cranelift_entity4list1
 108:                                              ; preds = %102
   %109 = trunc i64 %38 to i32
   %110 = load ptr, ptr %33, align 8, !nonnull !4, !noundef !4
-  %111 = getelementptr inbounds i32, ptr %110, i64 %.028
+  %111 = getelementptr inbounds [4 x i8], ptr %110, i64 %.028
   store i32 %109, ptr %111, align 4
   br label %55
 
@@ -1334,7 +1334,7 @@ define hidden void @"_ZN16cranelift_entity4list19EntityList$LT$T$GT$5clear17hddf
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8, !alias.scope !235, !noalias !238, !nonnull !4
-  %11 = getelementptr inbounds i32, ptr %10, i64 %7
+  %11 = getelementptr inbounds [4 x i8], ptr %10, i64 %7
   %12 = load i32, ptr %11, align 4, !noalias !240, !noundef !4
   %13 = or i32 %12, 3
   %14 = tail call range(i32 0, 31) i32 @llvm.ctlz.i32(i32 %13, i1 true)
@@ -1370,7 +1370,7 @@ define hidden void @"_ZN16cranelift_entity4list19EntityList$LT$T$GT$6extend17ha6
   br i1 %18, label %"_ZN16cranelift_entity4list19EntityList$LT$T$GT$4grow17h30e01782bcf3b2ddE.exit.thread", label %29
 
 19:                                               ; preds = %4
-  %20 = getelementptr inbounds i32, ptr %.val.i, i64 %13
+  %20 = getelementptr inbounds [4 x i8], ptr %.val.i, i64 %13
   %21 = load i32, ptr %20, align 4, !noalias !246, !noundef !4
   %22 = zext i32 %21 to i64
   %23 = or i32 %21, 3
@@ -1394,7 +1394,7 @@ define hidden void @"_ZN16cranelift_entity4list19EntityList$LT$T$GT$6extend17ha6
   %36 = load i64, ptr %35, align 8, !alias.scope !250, !noalias !241, !noundef !4
   %.not.i.i = icmp ugt i64 %36, %33
   %37 = load ptr, ptr %34, align 8, !alias.scope !250, !noalias !241, !nonnull !4
-  %38 = getelementptr inbounds nuw i64, ptr %37, i64 %33
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %33
   br i1 %.not.i.i, label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hb536147038eb86b8E.exit.i.i", label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hb536147038eb86b8E.exit.thread.i.i"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17hb536147038eb86b8E.exit.i.i": ; preds = %29
@@ -1425,7 +1425,7 @@ define hidden void @"_ZN16cranelift_entity4list19EntityList$LT$T$GT$6extend17ha6
   unreachable
 
 47:                                               ; preds = %44
-  %48 = getelementptr inbounds i32, ptr %.val.i, i64 %39
+  %48 = getelementptr inbounds [4 x i8], ptr %.val.i, i64 %39
   %49 = load i32, ptr %48, align 4, !noalias !256, !noundef !4
   %50 = zext i32 %49 to i64
   store i64 %50, ptr %38, align 8, !noalias !256
@@ -1460,7 +1460,7 @@ define hidden void @"_ZN16cranelift_entity4list19EntityList$LT$T$GT$6extend17ha6
 64:                                               ; preds = %54
   %65 = trunc i64 %.0.i to i32
   %66 = load ptr, ptr %11, align 8, !alias.scope !244, !noalias !241, !nonnull !4, !noundef !4
-  %67 = getelementptr inbounds i32, ptr %66, i64 %.024.i
+  %67 = getelementptr inbounds [4 x i8], ptr %66, i64 %.024.i
   store i32 %65, ptr %67, align 4, !noalias !241
   %68 = add nuw i64 %.024.i, 1
   %69 = add i64 %68, %.0.i
@@ -1486,7 +1486,7 @@ define hidden void @"_ZN16cranelift_entity4list19EntityList$LT$T$GT$6extend17ha6
   unreachable
 
 "_ZN16cranelift_entity4list19EntityList$LT$T$GT$4grow17h30e01782bcf3b2ddE.exit": ; preds = %72
-  %77 = getelementptr inbounds i32, ptr %70, i64 %68
+  %77 = getelementptr inbounds [4 x i8], ptr %70, i64 %68
   %78 = sub nsw i64 %.0.i, %8
   %79 = shl nsw i64 %78, 2
   %80 = shl nsw i64 %.0.i, 2
@@ -1509,8 +1509,8 @@ define hidden void @"_ZN16cranelift_entity4list19EntityList$LT$T$GT$6extend17ha6
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h5630b3898d826c25E.exit": ; preds = %"_ZN16cranelift_entity4list19EntityList$LT$T$GT$4grow17h30e01782bcf3b2ddE.exit.thread", %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h5630b3898d826c25E.exit"
   %.sroa.8.056 = phi i64 [ %86, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h5630b3898d826c25E.exit" ], [ 0, %"_ZN16cranelift_entity4list19EntityList$LT$T$GT$4grow17h30e01782bcf3b2ddE.exit.thread" ]
-  %83 = getelementptr inbounds nuw i32, ptr %81, i64 %.sroa.8.056
-  %84 = getelementptr inbounds nuw i32, ptr %1, i64 %.sroa.8.056
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %81, i64 %.sroa.8.056
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.sroa.8.056
   %85 = load i32, ptr %84, align 4, !alias.scope !265, !noalias !268, !noundef !4
   %86 = add nuw nsw i64 %.sroa.8.056, 1
   store i32 %85, ptr %83, align 4
@@ -1534,7 +1534,7 @@ define hidden noundef align 4 dereferenceable_or_null(4) ptr @"_ZN16cranelift_en
 9:                                                ; preds = %3
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = load ptr, ptr %10, align 8, !alias.scope !281, !noalias !282, !nonnull !4
-  %12 = getelementptr inbounds i32, ptr %11, i64 %8
+  %12 = getelementptr inbounds [4 x i8], ptr %11, i64 %8
   %13 = load i32, ptr %12, align 4, !noalias !284, !noundef !4
   %14 = zext i32 %13 to i64
   %15 = add nuw nsw i64 %14, %5
@@ -1546,9 +1546,9 @@ define hidden noundef align 4 dereferenceable_or_null(4) ptr @"_ZN16cranelift_en
   unreachable
 
 "_ZN16cranelift_entity4list19EntityList$LT$T$GT$12as_mut_slice17h705b258b2a2dcabfE.llvm.7615600370855926762.exit": ; preds = %9
-  %18 = getelementptr inbounds nuw i32, ptr %11, i64 %5
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %5
   %19 = icmp ult i64 %1, %14
-  %20 = getelementptr inbounds i32, ptr %18, i64 %1
+  %20 = getelementptr inbounds [4 x i8], ptr %18, i64 %1
   %spec.select = select i1 %19, ptr %20, ptr null
   br label %"_ZN16cranelift_entity4list19EntityList$LT$T$GT$12as_mut_slice17h705b258b2a2dcabfE.llvm.7615600370855926762.exit.thread"
 
@@ -1571,7 +1571,7 @@ define hidden { ptr, i64 } @"_ZN16cranelift_entity4list19EntityList$LT$T$GT$8as_
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8, !alias.scope !288, !noalias !291, !nonnull !4
-  %11 = getelementptr inbounds i32, ptr %10, i64 %7
+  %11 = getelementptr inbounds [4 x i8], ptr %10, i64 %7
   %12 = load i32, ptr %11, align 4, !noalias !293, !noundef !4
   %13 = zext i32 %12 to i64
   %14 = add nuw nsw i64 %13, %4
@@ -1583,7 +1583,7 @@ define hidden { ptr, i64 } @"_ZN16cranelift_entity4list19EntityList$LT$T$GT$8as_
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0578e519831135ebE.llvm.7615600370855926762.exit": ; preds = %8
-  %17 = getelementptr inbounds nuw i32, ptr %10, i64 %4
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %4
   br label %"_ZN16cranelift_entity4list17ListPool$LT$T$GT$6len_of17hed5b6e4f5b562ee8E.llvm.7615600370855926762.exit.thread"
 
 "_ZN16cranelift_entity4list17ListPool$LT$T$GT$6len_of17hed5b6e4f5b562ee8E.llvm.7615600370855926762.exit.thread": ; preds = %2, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0578e519831135ebE.llvm.7615600370855926762.exit"
@@ -1608,7 +1608,7 @@ define hidden { ptr, i64 } @"_ZN16cranelift_entity4list19EntityList$LT$T$GT$8as_
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8, !alias.scope !297, !noalias !300, !nonnull !4
-  %11 = getelementptr inbounds i32, ptr %10, i64 %7
+  %11 = getelementptr inbounds [4 x i8], ptr %10, i64 %7
   %12 = load i32, ptr %11, align 4, !noalias !302, !noundef !4
   %13 = zext i32 %12 to i64
   %14 = add nuw nsw i64 %13, %4
@@ -1620,7 +1620,7 @@ define hidden { ptr, i64 } @"_ZN16cranelift_entity4list19EntityList$LT$T$GT$8as_
   unreachable
 
 "_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he42a86ad2fc4ad73E.llvm.7615600370855926762.exit": ; preds = %8
-  %17 = getelementptr inbounds nuw i32, ptr %10, i64 %4
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %4
   br label %"_ZN16cranelift_entity4list17ListPool$LT$T$GT$6len_of17h70dbaed765101c28E.llvm.7615600370855926762.exit.thread"
 
 "_ZN16cranelift_entity4list17ListPool$LT$T$GT$6len_of17h70dbaed765101c28E.llvm.7615600370855926762.exit.thread": ; preds = %2, %"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17he42a86ad2fc4ad73E.llvm.7615600370855926762.exit"
@@ -1645,8 +1645,8 @@ define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$4swap17hb07af7
   unreachable
 
 10:                                               ; preds = %7
-  %11 = getelementptr inbounds i32, ptr %0, i64 %2
-  %12 = getelementptr inbounds i32, ptr %0, i64 %3
+  %11 = getelementptr inbounds [4 x i8], ptr %0, i64 %2
+  %12 = getelementptr inbounds [4 x i8], ptr %0, i64 %3
   %.0.copyload = load i32, ptr %11, align 4
   %13 = load i32, ptr %12, align 4
   store i32 %13, ptr %11, align 4

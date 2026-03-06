@@ -58,7 +58,7 @@ define range(i32 -2, 1) i32 @pmix_psec_base_select() local_unnamed_addr #0 {
 
 9:                                                ; preds = %.lr.ph61
   %10 = zext nneg i32 %8 to i64
-  %11 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %10
+  %11 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = load i32, ptr %12, align 4, !tbaa !29
   %14 = icmp sgt i32 %13, 4
@@ -82,7 +82,7 @@ define range(i32 -2, 1) i32 @pmix_psec_base_select() local_unnamed_addr #0 {
 
 23:                                               ; preds = %22
   %24 = zext nneg i32 %21 to i64
-  %25 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %24
+  %25 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %27 = load i32, ptr %26, align 4, !tbaa !29
   %28 = icmp sgt i32 %27, 4
@@ -98,7 +98,7 @@ define range(i32 -2, 1) i32 @pmix_psec_base_select() local_unnamed_addr #0 {
 
 32:                                               ; preds = %31
   %33 = zext nneg i32 %21 to i64
-  %34 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %33
+  %34 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %36 = load i32, ptr %35, align 4, !tbaa !29
   %37 = icmp sgt i32 %36, 4
@@ -126,7 +126,7 @@ define range(i32 -2, 1) i32 @pmix_psec_base_select() local_unnamed_addr #0 {
 
 48:                                               ; preds = %46
   %49 = zext nneg i32 %47 to i64
-  %50 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %49
+  %50 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 4
   %52 = load i32, ptr %51, align 4, !tbaa !29
   %53 = icmp sgt i32 %52, 4
@@ -155,7 +155,7 @@ define range(i32 -2, 1) i32 @pmix_psec_base_select() local_unnamed_addr #0 {
 
 63:                                               ; preds = %61
   %64 = zext nneg i32 %62 to i64
-  %65 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %64
+  %65 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %64
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 4
   %67 = load i32, ptr %66, align 4, !tbaa !29
   %68 = icmp sgt i32 %67, 4

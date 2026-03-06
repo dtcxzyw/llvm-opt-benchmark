@@ -3,10 +3,6 @@ source_filename = "bench/ffmpeg/original/rl.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.VLCElem = type { %union.anon }
-%union.anon = type { %struct.anon }
-%struct.anon = type { i16, i16 }
-
 ; Function Attrs: cold nofree norecurse nosync nounwind optsize memory(argmem: readwrite) uwtable
 define void @ff_rl_init_level_run(ptr noundef captures(none) %0, ptr noundef captures(none) initializes((0, 65)) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = trunc i32 %4 to i8
@@ -143,11 +139,11 @@ define void @ff_rl_init(ptr noundef captures(none) %0, ptr noundef %1) local_unn
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %46, %16
-  %47 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv54
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv54
   store ptr %11, ptr %47, align 8, !tbaa !20
-  %48 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv54
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv54
   store ptr %12, ptr %48, align 8, !tbaa !20
-  %49 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv54
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv54
   store ptr %13, ptr %49, align 8, !tbaa !20
   br i1 %10, label %9, label %50, !llvm.loop !21
 
@@ -179,7 +175,7 @@ define void @ff_rl_init_vlc(ptr noundef readonly captures(none) %0, i32 noundef 
 15:                                               ; preds = %2, %.loopexit
   %indvars.iv59 = phi i64 [ 31, %2 ], [ %indvars.iv.next60, %.loopexit ]
   %.04556 = phi i16 [ 32, %2 ], [ %56, %.loopexit ]
-  %16 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv59
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv59
   %17 = load ptr, ptr %16, align 8, !tbaa !22
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %.loopexit, label %18, !llvm.loop !25
@@ -196,7 +192,7 @@ define void @ff_rl_init_vlc(ptr noundef readonly captures(none) %0, i32 noundef 
 
 .lr.ph:                                           ; preds = %18, %46
   %indvars.iv = phi i64 [ %indvars.iv.next, %46 ], [ 0, %18 ]
-  %23 = getelementptr inbounds nuw %struct.VLCElem, ptr %10, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv
   %24 = load i16, ptr %23, align 2, !tbaa !4
   %25 = sext i16 %24 to i32
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 2
@@ -235,14 +231,14 @@ define void @ff_rl_init_vlc(ptr noundef readonly captures(none) %0, i32 noundef 
   %.0 = phi i8 [ %spec.select54, %34 ], [ 66, %.lr.ph ], [ 0, %29 ], [ 66, %31 ]
   %47 = trunc i16 %27 to i8
   %48 = load ptr, ptr %16, align 8, !tbaa !22
-  %49 = getelementptr inbounds nuw %struct.VLCElem, ptr %48, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %indvars.iv
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 2
   store i8 %47, ptr %50, align 2, !tbaa !4
   %51 = load ptr, ptr %16, align 8, !tbaa !22
-  %52 = getelementptr inbounds nuw %struct.VLCElem, ptr %51, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %indvars.iv
   store i16 %.044, ptr %52, align 2, !tbaa !4
   %53 = load ptr, ptr %16, align 8, !tbaa !22
-  %54 = getelementptr inbounds nuw %struct.VLCElem, ptr %53, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %indvars.iv
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 3
   store i8 %.0, ptr %55, align 1, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

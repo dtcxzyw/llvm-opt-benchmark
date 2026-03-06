@@ -8,7 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.in_addr = type { i32 }
 %struct.PACKET = type { ptr, i64 }
 %struct.timeval = type { i64, i64 }
-%struct.ossl_qtx_iovec_st = type { ptr, i64 }
 %struct.qtest_fault_encrypted_extensions = type { ptr, i64 }
 %struct.wpacket_st = type { ptr, ptr, i64, i64, i64, ptr, i8 }
 %struct.quic_pkt_hdr_st = type { i32, i32, %struct.quic_conn_id_st, %struct.quic_conn_id_st, [4 x i8], ptr, i64, i64, ptr }
@@ -1490,7 +1489,7 @@ define internal range(i32 0, 2) i32 @packet_plain_mutate(ptr noundef readonly ca
 .lr.ph:                                           ; preds = %7, %.lr.ph
   %.04149 = phi i64 [ %11, %.lr.ph ], [ 0, %7 ]
   %.04248 = phi i64 [ %12, %.lr.ph ], [ 0, %7 ]
-  %8 = getelementptr inbounds nuw %struct.ossl_qtx_iovec_st, ptr %1, i64 %.04248
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %.04248
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i64, ptr %9, align 8, !tbaa !66
   %11 = add i64 %10, %.04149
@@ -1521,7 +1520,7 @@ define internal range(i32 0, 2) i32 @packet_plain_mutate(ptr noundef readonly ca
 .lr.ph53:                                         ; preds = %19, %.lr.ph53
   %.051 = phi ptr [ %25, %.lr.ph53 ], [ %16, %19 ]
   %.150 = phi i64 [ %26, %.lr.ph53 ], [ 0, %19 ]
-  %21 = getelementptr inbounds nuw %struct.ossl_qtx_iovec_st, ptr %1, i64 %.150
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %.150
   %22 = load ptr, ptr %21, align 8, !tbaa !70
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %24 = load i64, ptr %23, align 8, !tbaa !66

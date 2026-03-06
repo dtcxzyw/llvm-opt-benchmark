@@ -489,7 +489,7 @@ default.unreachable:                              ; preds = %67
 85:                                               ; preds = %82
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !54
   store <2 x i64> <i64 240, i64 16>, ptr %11, align 16, !noalias !54
-  %86 = getelementptr inbounds nuw i64, ptr %11, i64 %83
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %83
   %87 = load i64, ptr %86, align 8, !noalias !54, !noundef !7
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %32, ptr nonnull align 8 %33, i64 %87, i1 false), !noalias !54
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !54
@@ -1559,7 +1559,7 @@ default.unreachable:                              ; preds = %67
 85:                                               ; preds = %82
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !204
   store <2 x i64> <i64 240, i64 16>, ptr %11, align 16, !noalias !204
-  %86 = getelementptr inbounds nuw i64, ptr %11, i64 %83
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %83
   %87 = load i64, ptr %86, align 8, !noalias !204, !noundef !7
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %32, ptr nonnull align 8 %33, i64 %87, i1 false), !noalias !204
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !204
@@ -11347,7 +11347,7 @@ define hidden noundef ptr @"_ZN5tokio7runtime4task4list19OwnedTasks$LT$S$GT$10bi
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load i64, ptr %18, align 8, !noalias !1662, !noundef !7
   %20 = and i64 %19, %16
-  %21 = getelementptr inbounds { {}, { { { i8 } }, [7 x i8], { ptr, ptr } } }, ptr %17, i64 %20
+  %21 = getelementptr inbounds [24 x i8], ptr %17, i64 %20
   %22 = invoke { i8, i8 } @_ZN4core4sync6atomic28atomic_compare_exchange_weak17h607248640f17ffbdE.llvm.7653731377883981346(ptr noundef nonnull align 1 %21, i8 noundef 0, i8 noundef 1, i8 noundef 2, i8 noundef 0)
           to label %.noexc7 unwind label %9
 
@@ -11480,7 +11480,7 @@ define hidden noundef ptr @"_ZN5tokio7runtime4task4list19OwnedTasks$LT$S$GT$10bi
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = load i64, ptr %18, align 8, !noalias !1673, !noundef !7
   %20 = and i64 %19, %16
-  %21 = getelementptr inbounds { {}, { { { i8 } }, [7 x i8], { ptr, ptr } } }, ptr %17, i64 %20
+  %21 = getelementptr inbounds [24 x i8], ptr %17, i64 %20
   %22 = invoke { i8, i8 } @_ZN4core4sync6atomic28atomic_compare_exchange_weak17h607248640f17ffbdE.llvm.7653731377883981346(ptr noundef nonnull align 1 %21, i8 noundef 0, i8 noundef 1, i8 noundef 2, i8 noundef 0)
           to label %.noexc7 unwind label %9
 
@@ -12017,7 +12017,7 @@ define hidden noundef ptr @"_ZN5tokio7runtime9scheduler12multi_thread5queue14Loc
   %26 = zext nneg i32 %25 to i64
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %28 = load ptr, ptr %27, align 8, !nonnull !7, !align !52, !noundef !7
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %26
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %26
   %30 = load ptr, ptr %29, align 8
   br label %37
 
@@ -12260,7 +12260,7 @@ define hidden { ptr, ptr } @"_ZN91_$LT$http..header..map..Iter$LT$T$GT$$u20$as$u
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17ha90b17fe551a040aE.exit": ; preds = %12
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 40
   %.val = load ptr, ptr %18, align 8, !nonnull !7, !noundef !7
-  %19 = getelementptr inbounds { { i64, [2 x i64] }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] }, { { ptr, [3 x i64] } }, i16, [3 x i16] }, ptr %.val, i64 %14
+  %19 = getelementptr inbounds [104 x i8], ptr %.val, i64 %14
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load i64, ptr %20, align 8
   br i1 %13, label %25, label %23
@@ -12288,7 +12288,7 @@ define hidden { ptr, ptr } @"_ZN91_$LT$http..header..map..Iter$LT$T$GT$$u20$as$u
 "_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hcec23f6c89055883E.exit": ; preds = %25
   %29 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %.val31 = load ptr, ptr %29, align 8, !nonnull !7, !noundef !7
-  %30 = getelementptr inbounds { { i64, i64 }, { i64, i64 }, { { ptr, ptr, i64, { ptr } }, i8, [7 x i8] } }, ptr %.val31, i64 %21
+  %30 = getelementptr inbounds [72 x i8], ptr %.val31, i64 %21
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   %32 = load i64, ptr %31, align 8, !range !8, !noundef !7
   %trunc = trunc nuw i64 %32 to i1

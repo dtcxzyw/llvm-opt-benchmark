@@ -3,11 +3,6 @@ source_filename = "bench/postgres/original/generic_xlog.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.PGIOAlignedBlock = type { double, [8184 x i8] }
-%struct.GenericXLogPageData = type { i32, i32, i32, ptr, [8200 x i8] }
-%struct.DecodedBkpBlock = type { i8, %struct.RelFileLocator, i32, i32, i32, i8, i8, i8, ptr, i16, i16, i16, i8, i8, ptr, i16, i16 }
-%struct.RelFileLocator = type { i32, i32, i32 }
-
 @wal_level = external local_unnamed_addr global i32, align 4
 @.str = private unnamed_addr constant [54 x i8] c"maximum number %d of generic xlog buffers is exceeded\00", align 1
 @.str.1 = private unnamed_addr constant [15 x i8] c"generic_xlog.c\00", align 1
@@ -53,8 +48,8 @@ define dso_local ptr @GenericXLogStart(ptr noundef readonly captures(none) %0) l
 
 24:                                               ; preds = %20, %24
   %indvars.iv = phi i64 [ 0, %20 ], [ %indvars.iv.next, %24 ]
-  %25 = getelementptr inbounds nuw %union.PGIOAlignedBlock, ptr %2, i64 %indvars.iv
-  %26 = getelementptr inbounds nuw %struct.GenericXLogPageData, ptr %23, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8192 x i8], ptr %2, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8224 x i8], ptr %23, i64 %indvars.iv
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   store ptr %25, ptr %27, align 16
   store i32 0, ptr %26, align 32
@@ -80,7 +75,7 @@ define dso_local ptr @GenericXLogRegisterBuffer(ptr noundef captures(none) %0, i
 
 6:                                                ; preds = %3, %5
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %5 ]
-  %7 = getelementptr inbounds nuw %struct.GenericXLogPageData, ptr %4, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8224 x i8], ptr %4, i64 %indvars.iv
   %8 = load i32, ptr %7, align 8
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %27
@@ -98,7 +93,7 @@ define dso_local ptr @GenericXLogRegisterBuffer(ptr noundef captures(none) %0, i
   %16 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %17 = xor i32 %1, -1
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr %16, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %18
   %20 = load ptr, ptr %19, align 8
   br label %BufferGetPage.exit
 
@@ -162,7 +157,7 @@ define dso_local i64 @GenericXLogFinish(ptr noundef %0) local_unnamed_addr #0 {
 
 9:                                                ; preds = %5, %209
   %indvars.iv86 = phi i64 [ 0, %5 ], [ %indvars.iv.next87, %209 ]
-  %10 = getelementptr inbounds nuw %struct.GenericXLogPageData, ptr %8, i64 %indvars.iv86
+  %10 = getelementptr inbounds nuw [8224 x i8], ptr %8, i64 %indvars.iv86
   %11 = load i32, ptr %10, align 8
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %209, label %13
@@ -175,7 +170,7 @@ define dso_local i64 @GenericXLogFinish(ptr noundef %0) local_unnamed_addr #0 {
   %16 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %17 = xor i32 %11, -1
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr %16, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %18
   %20 = load ptr, ptr %19, align 8
   br label %BufferGetPage.exit
 
@@ -539,7 +534,7 @@ computeDelta.exit:                                ; preds = %167, %.critedge.i14
 
 215:                                              ; preds = %210, %234
   %indvars.iv90 = phi i64 [ 0, %210 ], [ %indvars.iv.next91, %234 ]
-  %216 = getelementptr inbounds nuw %struct.GenericXLogPageData, ptr %8, i64 %indvars.iv90
+  %216 = getelementptr inbounds nuw [8224 x i8], ptr %8, i64 %indvars.iv90
   %217 = load i32, ptr %216, align 8
   %218 = icmp eq i32 %217, 0
   br i1 %218, label %234, label %219
@@ -552,7 +547,7 @@ computeDelta.exit:                                ; preds = %167, %.critedge.i14
   %222 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %223 = xor i32 %217, -1
   %224 = zext nneg i32 %223 to i64
-  %225 = getelementptr inbounds nuw ptr, ptr %222, i64 %224
+  %225 = getelementptr inbounds nuw [8 x i8], ptr %222, i64 %224
   %226 = load ptr, ptr %225, align 8
   br label %BufferGetPage.exit55
 
@@ -585,7 +580,7 @@ BufferGetPage.exit55:                             ; preds = %221, %227
 
 239:                                              ; preds = %235, %260
   %indvars.iv = phi i64 [ 0, %235 ], [ %indvars.iv.next, %260 ]
-  %240 = getelementptr inbounds nuw %struct.GenericXLogPageData, ptr %238, i64 %indvars.iv
+  %240 = getelementptr inbounds nuw [8224 x i8], ptr %238, i64 %indvars.iv
   %241 = load i32, ptr %240, align 8
   %242 = icmp eq i32 %241, 0
   br i1 %242, label %260, label %243
@@ -598,7 +593,7 @@ BufferGetPage.exit55:                             ; preds = %221, %227
   %246 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %247 = xor i32 %241, -1
   %248 = zext nneg i32 %247 to i64
-  %249 = getelementptr inbounds nuw ptr, ptr %246, i64 %248
+  %249 = getelementptr inbounds nuw [8 x i8], ptr %246, i64 %248
   %250 = load ptr, ptr %249, align 8
   br label %BufferGetPage.exit57
 
@@ -683,10 +678,10 @@ define dso_local void @generic_redo(ptr noundef %0) local_unnamed_addr #0 {
   %.033 = phi i8 [ 0, %.lr.ph ], [ %62, %61 ]
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 88
   %17 = zext i8 %.033 to i64
-  %18 = getelementptr inbounds nuw %struct.DecodedBkpBlock, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [64 x i8], ptr %16, i64 %17
   %19 = load i8, ptr %18, align 8, !range !7, !noundef !8
   %20 = trunc nuw i8 %19 to i1
-  %21 = getelementptr inbounds nuw i32, ptr %2, i64 %17
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %17
   br i1 %20, label %23, label %22
 
 22:                                               ; preds = %14
@@ -708,7 +703,7 @@ define dso_local void @generic_redo(ptr noundef %0) local_unnamed_addr #0 {
   %30 = load ptr, ptr @LocalBufferBlockPointers, align 8
   %31 = xor i32 %27, -1
   %32 = zext nneg i32 %31 to i64
-  %33 = getelementptr inbounds nuw ptr, ptr %30, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %32
   %34 = load ptr, ptr %33, align 8
   br label %BufferGetPage.exit
 
@@ -773,7 +768,7 @@ applyPageRedo.exit:                               ; preds = %.lr.ph.i, %BufferGe
   %67 = phi ptr [ %73, %72 ], [ %64, %.preheader ]
   %.135 = phi i8 [ %74, %72 ], [ 0, %.preheader ]
   %68 = zext i8 %.135 to i64
-  %69 = getelementptr inbounds nuw i32, ptr %2, i64 %68
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %68
   %70 = load i32, ptr %69, align 4
   %.not31 = icmp eq i32 %70, 0
   br i1 %.not31, label %72, label %71

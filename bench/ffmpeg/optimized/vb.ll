@@ -394,7 +394,7 @@ bytestream2_get_byte.exit153.i:                   ; preds = %167
   %174 = lshr i32 %173, 6
   %175 = and i32 %173, 63
   %176 = zext nneg i32 %175 to i64
-  %177 = getelementptr inbounds nuw i16, ptr @vb_patterns, i64 %176
+  %177 = getelementptr inbounds nuw [2 x i8], ptr @vb_patterns, i64 %176
   %178 = load i16, ptr %177, align 2, !tbaa !49
   %179 = zext i16 %178 to i32
   switch i32 %174, label %default.unreachable [
@@ -680,7 +680,7 @@ bytestream2_get_byte.exit17.i:                    ; preds = %260, %259
 bytestream2_get_be24.exit.i:                      ; preds = %280, %279
   %295 = phi ptr [ %239, %279 ], [ %281, %280 ]
   %.0.i18.i = phi i32 [ -16777216, %279 ], [ %294, %280 ]
-  %296 = getelementptr inbounds nuw i32, ptr %271, i64 %indvars.iv.i78
+  %296 = getelementptr inbounds nuw [4 x i8], ptr %271, i64 %indvars.iv.i78
   store i32 %.0.i18.i, ptr %296, align 4, !tbaa !56
   %indvars.iv.next.i79 = add nuw nsw i64 %indvars.iv.i78, 1
   %exitcond.not.i80 = icmp eq i64 %indvars.iv.next.i79, %wide.trip.count.i

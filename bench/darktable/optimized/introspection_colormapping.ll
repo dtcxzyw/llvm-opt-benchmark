@@ -16,9 +16,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.dt_introspection_t = type { i32, i32, ptr, i64, ptr, i64, i64, ptr }
 %struct._cairo_rectangle_int = type { i32, i32, i32, i32 }
 %struct.cmsCIELab = type { double, double, double }
-%union.dt_introspection_field_t = type { %struct.dt_introspection_type_double_t }
-%struct.dt_introspection_type_double_t = type { %struct.dt_introspection_type_header_t, double, double, double }
-%struct.dt_introspection_type_header_t = type { i32, ptr, ptr, ptr, ptr, i64, i64, ptr }
 
 @.str = private unnamed_addr constant [14 x i8] c"color mapping\00", align 1
 @.str.1 = private unnamed_addr constant [73 x i8] c"transfer a color palette and tonal repartition from one image to another\00", align 1
@@ -263,19 +260,19 @@ get_cluster_mapping.exit.thread:                  ; preds = %62
 
 .preheader.us.i:                                  ; preds = %._crit_edge.us.i, %.preheader.us.preheader.i
   %indvars.iv48.i = phi i64 [ 0, %.preheader.us.preheader.i ], [ %indvars.iv.next49.i, %._crit_edge.us.i ]
-  %81 = getelementptr inbounds nuw [2 x float], ptr %74, i64 %indvars.iv48.i
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %indvars.iv48.i
   %82 = load float, ptr %81, align 4, !tbaa !89
   %83 = getelementptr inbounds nuw i8, ptr %81, i64 4
   %84 = load float, ptr %83, align 4, !tbaa !89
-  %85 = getelementptr inbounds nuw float, ptr %75, i64 %indvars.iv48.i
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %indvars.iv48.i
   %86 = load float, ptr %85, align 4, !tbaa !89
-  %87 = getelementptr inbounds nuw i32, ptr %73, i64 %indvars.iv48.i
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %indvars.iv48.i
   br label %88
 
 88:                                               ; preds = %109, %.preheader.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next.i, %109 ]
   %.03944.us.i = phi float [ 0x47EFFFFFE0000000, %.preheader.us.i ], [ %.1.us.i, %109 ]
-  %89 = getelementptr inbounds nuw [2 x float], ptr %76, i64 %indvars.iv.i
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %indvars.iv.i
   %90 = load float, ptr %89, align 4, !tbaa !89
   %91 = fsub reassoc nsz arcp contract afn float %90, %82
   %92 = fmul reassoc nsz arcp contract afn float %91, %91
@@ -284,7 +281,7 @@ get_cluster_mapping.exit.thread:                  ; preds = %62
   %95 = fsub reassoc nsz arcp contract afn float %94, %84
   %96 = fmul reassoc nsz arcp contract afn float %95, %95
   %97 = fadd reassoc nsz arcp contract afn float %96, %92
-  %98 = getelementptr inbounds nuw float, ptr %77, i64 %indvars.iv.i
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %indvars.iv.i
   %99 = load float, ptr %98, align 4, !tbaa !89
   %100 = fsub reassoc nsz arcp contract afn float %99, %86
   %101 = fmul reassoc nsz arcp contract afn float %100, %100
@@ -336,23 +333,23 @@ get_cluster_mapping.exit:                         ; preds = %._crit_edge.us.i
 
 122:                                              ; preds = %get_cluster_mapping.exit, %147
   %indvars.iv = phi i64 [ 0, %get_cluster_mapping.exit ], [ %indvars.iv.next, %147 ]
-  %123 = getelementptr inbounds nuw [2 x float], ptr %112, i64 %indvars.iv
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %indvars.iv
   %124 = load float, ptr %123, align 4, !tbaa !89
   %125 = fcmp reassoc nsz arcp contract afn ogt float %124, 0.000000e+00
   br i1 %125, label %126, label %133
 
 126:                                              ; preds = %122
-  %127 = getelementptr inbounds nuw i32, ptr %73, i64 %indvars.iv
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %indvars.iv
   %128 = load i32, ptr %127, align 4, !tbaa !90
   %129 = sext i32 %128 to i64
-  %130 = getelementptr inbounds [2 x float], ptr %113, i64 %129
+  %130 = getelementptr inbounds [8 x i8], ptr %113, i64 %129
   %131 = load float, ptr %130, align 4, !tbaa !89
   %132 = fdiv reassoc nsz arcp contract afn float %131, %124
   br label %133
 
 133:                                              ; preds = %122, %126
   %134 = phi reassoc nsz arcp contract afn float [ %132, %126 ], [ 0.000000e+00, %122 ]
-  %135 = getelementptr inbounds nuw [2 x float], ptr %111, i64 %indvars.iv
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %indvars.iv
   store float %134, ptr %135, align 4, !tbaa !89
   %136 = getelementptr inbounds nuw i8, ptr %123, i64 4
   %137 = load float, ptr %136, align 4, !tbaa !89
@@ -360,10 +357,10 @@ get_cluster_mapping.exit:                         ; preds = %._crit_edge.us.i
   br i1 %138, label %139, label %147
 
 139:                                              ; preds = %133
-  %140 = getelementptr inbounds nuw i32, ptr %73, i64 %indvars.iv
+  %140 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %indvars.iv
   %141 = load i32, ptr %140, align 4, !tbaa !90
   %142 = sext i32 %141 to i64
-  %143 = getelementptr [2 x float], ptr %8, i64 %142
+  %143 = getelementptr [8 x i8], ptr %8, i64 %142
   %144 = getelementptr i8, ptr %143, i64 8252
   %145 = load float, ptr %144, align 4, !tbaa !89
   %146 = fdiv reassoc nsz arcp contract afn float %145, %137
@@ -383,7 +380,7 @@ get_cluster_mapping.exit:                         ; preds = %._crit_edge.us.i
 
 151:                                              ; preds = %.lr.ph214, %174
   %.0186212 = phi i64 [ 0, %.lr.ph214 ], [ %176, %174 ]
-  %152 = getelementptr inbounds nuw float, ptr %2, i64 %.0186212
+  %152 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.0186212
   %153 = load float, ptr %152, align 4, !tbaa !89
   %154 = fmul reassoc nsz arcp contract afn float %153, 0x40347AE140000000
   %155 = fcmp reassoc nsz arcp contract afn ogt float %154, 2.047000e+03
@@ -392,15 +389,15 @@ get_cluster_mapping.exit:                         ; preds = %._crit_edge.us.i
   %158 = fptosi float %157 to i32
   %159 = sext i32 %158 to i64
   %160 = select i1 %155, i64 2047, i64 %159
-  %161 = getelementptr inbounds i32, ptr %120, i64 %160
+  %161 = getelementptr inbounds [4 x i8], ptr %120, i64 %160
   %162 = load i32, ptr %161, align 4, !tbaa !90
   %163 = sext i32 %162 to i64
-  %164 = getelementptr inbounds float, ptr %119, i64 %163
+  %164 = getelementptr inbounds [4 x i8], ptr %119, i64 %163
   %165 = load float, ptr %164, align 4, !tbaa !89
   %166 = fsub reassoc nsz arcp contract afn float %165, %153
   %167 = fmul reassoc nsz arcp contract afn float %121, %166
   %168 = fadd reassoc nsz arcp contract afn float %167, 5.000000e+01
-  %169 = getelementptr inbounds nuw float, ptr %3, i64 %.0186212
+  %169 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.0186212
   %170 = fcmp reassoc nsz arcp contract afn ogt float %168, 1.000000e+02
   br i1 %170, label %174, label %171
 
@@ -461,15 +458,15 @@ get_cluster_mapping.exit:                         ; preds = %._crit_edge.us.i
 
 187:                                              ; preds = %.lr.ph222, %._crit_edge218
   %.0184220 = phi i64 [ 0, %.lr.ph222 ], [ %247, %._crit_edge218 ]
-  %188 = getelementptr inbounds nuw float, ptr %2, i64 %.0184220
+  %188 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.0184220
   %189 = load float, ptr %188, align 4, !tbaa !89
   %190 = or disjoint i64 %.0184220, 1
-  %191 = getelementptr inbounds nuw float, ptr %2, i64 %190
+  %191 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %190
   %192 = load float, ptr %191, align 4, !tbaa !89
   %193 = or disjoint i64 %.0184220, 2
-  %194 = getelementptr inbounds nuw float, ptr %2, i64 %193
+  %194 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %193
   %195 = load float, ptr %194, align 4, !tbaa !89
-  %196 = getelementptr inbounds nuw float, ptr %3, i64 %.0184220
+  %196 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %.0184220
   %197 = load float, ptr %196, align 4, !tbaa !89
   %198 = fmul reassoc nsz arcp contract afn float %197, 2.000000e+00
   %199 = fadd reassoc nsz arcp contract afn float %189, -1.000000e+02
@@ -505,7 +502,7 @@ get_cluster_mapping.exit:                         ; preds = %._crit_edge.us.i
   %indvars.iv.i207 = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i208, %210 ]
   %.04552.i = phi float [ 0x47EFFFFFE0000000, %.lr.ph.i ], [ %.1.i, %210 ]
   %211 = load float, ptr %207, align 4, !tbaa !89
-  %212 = getelementptr inbounds nuw [2 x float], ptr %74, i64 %indvars.iv.i207
+  %212 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %indvars.iv.i207
   %213 = load float, ptr %212, align 4, !tbaa !89
   %214 = fsub reassoc nsz arcp contract afn float %211, %213
   %215 = fmul reassoc nsz arcp contract afn float %214, %214
@@ -518,7 +515,7 @@ get_cluster_mapping.exit:                         ; preds = %._crit_edge.us.i
   %222 = fcmp reassoc nsz arcp contract afn ogt float %221, 0x3EB0C6F7A0000000
   %223 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %221
   %224 = select reassoc nsz arcp contract afn i1 %222, float %223, float -1.000000e+00
-  %225 = getelementptr inbounds nuw float, ptr %184, i64 %indvars.iv.i207
+  %225 = getelementptr inbounds nuw [4 x i8], ptr %184, i64 %indvars.iv.i207
   store float %224, ptr %225, align 4, !tbaa !89
   %226 = fcmp reassoc nsz arcp contract afn olt float %221, %.04552.i
   %.1.i = select nsz i1 %226, float %221, float %.04552.i
@@ -528,7 +525,7 @@ get_cluster_mapping.exit:                         ; preds = %._crit_edge.us.i
 
 .lr.ph54.i:                                       ; preds = %._crit_edge.i, %.lr.ph54.i
   %indvars.iv64.i = phi i64 [ %indvars.iv.next65.i, %.lr.ph54.i ], [ 0, %._crit_edge.i ]
-  %227 = getelementptr inbounds nuw float, ptr %184, i64 %indvars.iv64.i
+  %227 = getelementptr inbounds nuw [4 x i8], ptr %184, i64 %indvars.iv64.i
   %228 = load float, ptr %227, align 4, !tbaa !89
   %229 = fcmp reassoc nsz arcp contract afn olt float %228, 0.000000e+00
   %230 = select reassoc nsz arcp contract afn i1 %229, float 1.000000e+00, float 0.000000e+00
@@ -548,7 +545,7 @@ get_cluster_mapping.exit:                         ; preds = %._crit_edge.us.i
 .lr.ph58.i:                                       ; preds = %.lr.ph58.i.preheader, %.lr.ph58.i
   %indvars.iv69.i = phi i64 [ %indvars.iv.next70.i, %.lr.ph58.i ], [ 0, %.lr.ph58.i.preheader ]
   %.04355.i = phi float [ %235, %.lr.ph58.i ], [ 0.000000e+00, %.lr.ph58.i.preheader ]
-  %233 = getelementptr inbounds nuw float, ptr %184, i64 %indvars.iv69.i
+  %233 = getelementptr inbounds nuw [4 x i8], ptr %184, i64 %indvars.iv69.i
   %234 = load float, ptr %233, align 4, !tbaa !89
   %235 = fadd reassoc nsz arcp contract afn float %234, %.04355.i
   %indvars.iv.next70.i = add nuw nsw i64 %indvars.iv69.i, 1
@@ -557,7 +554,7 @@ get_cluster_mapping.exit:                         ; preds = %._crit_edge.us.i
 
 .lr.ph62.i:                                       ; preds = %.lr.ph62.i.preheader, %.lr.ph62.i
   %indvars.iv74.i = phi i64 [ %indvars.iv.next75.i, %.lr.ph62.i ], [ 0, %.lr.ph62.i.preheader ]
-  %236 = getelementptr inbounds nuw float, ptr %184, i64 %indvars.iv74.i
+  %236 = getelementptr inbounds nuw [4 x i8], ptr %184, i64 %indvars.iv74.i
   %237 = load float, ptr %236, align 4, !tbaa !89
   %238 = fmul reassoc nsz arcp contract afn float %237, %232
   store float %238, ptr %236, align 4, !tbaa !89
@@ -566,24 +563,24 @@ get_cluster_mapping.exit:                         ; preds = %._crit_edge.us.i
   br i1 %exitcond78.not.i, label %.lr.ph217, label %.lr.ph62.i
 
 get_clusters.exit:                                ; preds = %205
-  %239 = getelementptr inbounds nuw float, ptr %3, i64 %193
+  %239 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %193
   store float 0.000000e+00, ptr %239, align 4, !tbaa !89
-  %240 = getelementptr inbounds nuw float, ptr %3, i64 %190
+  %240 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %190
   store float 0.000000e+00, ptr %240, align 4, !tbaa !89
   br label %._crit_edge218
 
 .lr.ph217:                                        ; preds = %.lr.ph62.i, %._crit_edge59.i
-  %241 = getelementptr inbounds nuw float, ptr %3, i64 %193
+  %241 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %193
   store float 0.000000e+00, ptr %241, align 4, !tbaa !89
-  %242 = getelementptr inbounds nuw float, ptr %3, i64 %190
+  %242 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %190
   store float 0.000000e+00, ptr %242, align 4, !tbaa !89
   br label %249
 
 ._crit_edge218:                                   ; preds = %249, %get_clusters.exit
   %243 = or disjoint i64 %.0184220, 3
-  %244 = getelementptr inbounds nuw float, ptr %2, i64 %243
+  %244 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %243
   %245 = load float, ptr %244, align 4, !tbaa !89
-  %246 = getelementptr inbounds nuw float, ptr %3, i64 %243
+  %246 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %243
   store float %245, ptr %246, align 4, !tbaa !89
   %247 = add nuw i64 %.0184220, 4
   %248 = icmp ult i64 %247, %118
@@ -593,18 +590,18 @@ get_clusters.exit:                                ; preds = %205
   %indvars.iv226 = phi i64 [ 0, %.lr.ph217 ], [ %indvars.iv.next227, %249 ]
   %250 = phi float [ 0.000000e+00, %.lr.ph217 ], [ %279, %249 ]
   %251 = phi float [ 0.000000e+00, %.lr.ph217 ], [ %267, %249 ]
-  %252 = getelementptr inbounds nuw float, ptr %184, i64 %indvars.iv226
+  %252 = getelementptr inbounds nuw [4 x i8], ptr %184, i64 %indvars.iv226
   %253 = load float, ptr %252, align 4, !tbaa !89
-  %254 = getelementptr inbounds nuw [2 x float], ptr %74, i64 %indvars.iv226
+  %254 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %indvars.iv226
   %255 = load float, ptr %254, align 4, !tbaa !89
   %256 = fsub reassoc nsz arcp contract afn float %192, %255
-  %257 = getelementptr inbounds nuw [2 x float], ptr %114, i64 %indvars.iv226
+  %257 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %indvars.iv226
   %258 = load float, ptr %257, align 4, !tbaa !89
   %259 = fmul reassoc nsz arcp contract afn float %256, %258
-  %260 = getelementptr inbounds nuw i32, ptr %73, i64 %indvars.iv226
+  %260 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %indvars.iv226
   %261 = load i32, ptr %260, align 4, !tbaa !90
   %262 = sext i32 %261 to i64
-  %263 = getelementptr inbounds [2 x float], ptr %76, i64 %262
+  %263 = getelementptr inbounds [8 x i8], ptr %76, i64 %262
   %264 = load float, ptr %263, align 4, !tbaa !89
   %265 = fadd reassoc nsz arcp contract afn float %264, %259
   %266 = fmul reassoc nsz arcp contract afn float %265, %253
@@ -1074,8 +1071,8 @@ define internal noundef i32 @cluster_preview_draw(ptr noundef %0, ptr noundef %1
 
 .preheader60:                                     ; preds = %.preheader60.lr.ph, %71
   %indvars.iv = phi i64 [ 0, %.preheader60.lr.ph ], [ %indvars.iv.next, %71 ]
-  %62 = getelementptr inbounds nuw [2 x float], ptr %50, i64 %indvars.iv
-  %63 = getelementptr inbounds nuw [2 x float], ptr %49, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 4
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 4
   br label %.preheader
@@ -1314,7 +1311,7 @@ define internal void @process_clusters(ptr readnone captures(none) %0, ptr nound
   %48 = add nuw nsw i64 %indvars.iv.i, %46
   %49 = shl i64 %48, 2
   %50 = and i64 %49, 4294967292
-  %51 = getelementptr inbounds nuw float, ptr %33, i64 %50
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %50
   %52 = load float, ptr %51, align 16, !tbaa !89
   %53 = fmul reassoc nsz arcp contract afn float %52, 2.048000e+03
   %54 = fpext reassoc nsz arcp contract afn float %53 to double
@@ -1333,7 +1330,7 @@ define internal void @process_clusters(ptr readnone captures(none) %0, ptr nound
 
 62:                                               ; preds = %59, %57, %47
   %63 = phi i64 [ 2047, %47 ], [ %61, %59 ], [ 0, %57 ]
-  %64 = getelementptr inbounds i32, ptr %3, i64 %63
+  %64 = getelementptr inbounds [4 x i8], ptr %3, i64 %63
   %65 = load i32, ptr %64, align 4, !tbaa !90
   %66 = add nsw i32 %65, 1
   store i32 %66, ptr %64, align 4, !tbaa !90
@@ -1357,7 +1354,7 @@ define internal void @process_clusters(ptr readnone captures(none) %0, ptr nound
 68:                                               ; preds = %68, %.preheader45.i
   %store_forwarded116 = phi i32 [ %load_initial115, %.preheader45.i ], [ %71, %68 ]
   %indvars.iv58.i = phi i64 [ 1, %.preheader45.i ], [ %indvars.iv.next59.i, %68 ]
-  %69 = getelementptr i32, ptr %3, i64 %indvars.iv58.i
+  %69 = getelementptr [4 x i8], ptr %3, i64 %indvars.iv58.i
   %70 = load i32, ptr %69, align 4, !tbaa !90
   %71 = add nsw i32 %70, %store_forwarded116
   store i32 %71, ptr %69, align 4, !tbaa !90
@@ -1367,7 +1364,7 @@ define internal void @process_clusters(ptr readnone captures(none) %0, ptr nound
 
 72:                                               ; preds = %85, %.preheader.i
   %indvars.iv62.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next63.i, %85 ]
-  %73 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv62.i
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv62.i
   %74 = load i32, ptr %73, align 4, !tbaa !90
   %75 = sitofp i32 %74 to float
   %76 = load i32, ptr %67, align 4, !tbaa !90
@@ -1401,7 +1398,7 @@ capture_histogram.exit:                           ; preds = %85
   %89 = trunc nuw nsw i64 %indvars.iv.i78 to i32
   %90 = uitofp nneg i32 %89 to float
   %91 = fmul reassoc nnan nsz arcp contract afn float %90, 0x3FA9000000000000
-  %92 = getelementptr inbounds nuw float, ptr %87, i64 %indvars.iv.i78
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %indvars.iv.i78
   store float %91, ptr %92, align 4, !tbaa !89
   %indvars.iv.next.i79 = add nuw nsw i64 %indvars.iv.i78, 1
   %exitcond.not.i80 = icmp eq i64 %indvars.iv.next.i79, 32
@@ -1419,7 +1416,7 @@ capture_histogram.exit:                           ; preds = %85
 
 .lr.ph.i:                                         ; preds = %103, %.lr.ph.preheader.i
   %indvars.iv30.i = phi i64 [ %94, %.lr.ph.preheader.i ], [ %indvars.iv.next31.i, %103 ]
-  %95 = getelementptr inbounds i32, ptr %3, i64 %indvars.iv30.i
+  %95 = getelementptr inbounds [4 x i8], ptr %3, i64 %indvars.iv30.i
   %96 = load i32, ptr %95, align 4, !tbaa !90
   %97 = sext i32 %96 to i64
   %.not.i = icmp sgt i64 %indvars.iv34.i, %97
@@ -1429,7 +1426,7 @@ capture_histogram.exit:                           ; preds = %85
   %99 = trunc nsw i64 %indvars.iv30.i to i32
   %100 = sitofp i32 %99 to float
   %101 = fmul reassoc nnan nsz arcp contract afn float %100, 0x3FA9000000000000
-  %102 = getelementptr inbounds nuw float, ptr %87, i64 %indvars.iv34.i
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %indvars.iv34.i
   store float %101, ptr %102, align 4, !tbaa !89
   br label %.loopexit.i
 
@@ -1493,7 +1490,7 @@ invert_histogram.exit:                            ; preds = %.loopexit.i
   %123 = add nuw nsw i64 %indvars.iv.i95, %121
   %124 = shl i64 %123, 2
   %125 = and i64 %124, 4294967292
-  %126 = getelementptr inbounds nuw float, ptr %33, i64 %125
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %125
   %127 = load float, ptr %126, align 16, !tbaa !89
   %128 = fmul reassoc nsz arcp contract afn float %127, 2.048000e+03
   %129 = fpext reassoc nsz arcp contract afn float %128 to double
@@ -1512,7 +1509,7 @@ invert_histogram.exit:                            ; preds = %.loopexit.i
 
 137:                                              ; preds = %134, %132, %122
   %138 = phi i64 [ 2047, %122 ], [ %136, %134 ], [ 0, %132 ]
-  %139 = getelementptr inbounds i32, ptr %117, i64 %138
+  %139 = getelementptr inbounds [4 x i8], ptr %117, i64 %138
   %140 = load i32, ptr %139, align 4, !tbaa !90
   %141 = add nsw i32 %140, 1
   store i32 %141, ptr %139, align 4, !tbaa !90
@@ -1536,7 +1533,7 @@ invert_histogram.exit:                            ; preds = %.loopexit.i
 143:                                              ; preds = %143, %.preheader45.i83
   %store_forwarded = phi i32 [ %load_initial, %.preheader45.i83 ], [ %146, %143 ]
   %indvars.iv58.i84 = phi i64 [ 1, %.preheader45.i83 ], [ %indvars.iv.next59.i85, %143 ]
-  %144 = getelementptr i32, ptr %117, i64 %indvars.iv58.i84
+  %144 = getelementptr [4 x i8], ptr %117, i64 %indvars.iv58.i84
   %145 = load i32, ptr %144, align 4, !tbaa !90
   %146 = add nsw i32 %145, %store_forwarded
   store i32 %146, ptr %144, align 4, !tbaa !90
@@ -1546,7 +1543,7 @@ invert_histogram.exit:                            ; preds = %.loopexit.i
 
 147:                                              ; preds = %160, %.preheader.i87
   %indvars.iv62.i88 = phi i64 [ 0, %.preheader.i87 ], [ %indvars.iv.next63.i89, %160 ]
-  %148 = getelementptr inbounds nuw i32, ptr %117, i64 %indvars.iv62.i88
+  %148 = getelementptr inbounds nuw [4 x i8], ptr %117, i64 %indvars.iv62.i88
   %149 = load i32, ptr %148, align 4, !tbaa !90
   %150 = sitofp i32 %149 to float
   %151 = load i32, ptr %142, align 4, !tbaa !90
@@ -1701,7 +1698,7 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
 
 .preheader:                                       ; preds = %2, %.preheader
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader ], [ 0, %2 ]
-  %7 = getelementptr inbounds nuw %union.dt_introspection_field_t, ptr @introspection_linear, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [88 x i8], ptr @introspection_linear, i64 %indvars.iv
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 56
   store ptr %0, ptr %8, align 8, !tbaa !175
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2150,7 +2147,7 @@ define internal fastcc void @kmeans(ptr noundef nonnull readonly captures(none) 
   %55 = fmul reassoc nsz arcp contract afn float %54, %18
   %56 = fadd reassoc nsz arcp contract afn float %55, %.0260.lcssa
   %57 = fmul reassoc nsz arcp contract afn float %56, 0x3FECCCCCC0000000
-  %58 = getelementptr inbounds nuw [2 x float], ptr %4, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   store float %57, ptr %58, align 4, !tbaa !89
   %59 = shl i64 %40, 23
   %60 = xor i64 %59, %40
@@ -2170,9 +2167,9 @@ define internal fastcc void @kmeans(ptr noundef nonnull readonly captures(none) 
   %74 = fmul reassoc nsz arcp contract afn float %73, 0x3FECCCCCC0000000
   %75 = getelementptr inbounds nuw i8, ptr %58, i64 4
   store float %74, ptr %75, align 4, !tbaa !89
-  %76 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv
   store float 0.000000e+00, ptr %76, align 4, !tbaa !89
-  %77 = getelementptr inbounds nuw [2 x float], ptr %5, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 4
   store float 0.000000e+00, ptr %78, align 4, !tbaa !89
   store float 0.000000e+00, ptr %77, align 4, !tbaa !89
@@ -2225,7 +2222,7 @@ define internal fastcc void @kmeans(ptr noundef nonnull readonly captures(none) 
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.lr.ph306 ]
   %.03.i = phi float [ %.1.i, %.lr.ph.i ], [ 0x47EFFFFFE0000000, %.lr.ph306 ]
   %.0201.i = phi i32 [ %.121.i, %.lr.ph.i ], [ 0, %.lr.ph306 ]
-  %85 = getelementptr inbounds nuw [2 x float], ptr %4, i64 %indvars.iv.i
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i
   %86 = load float, ptr %85, align 4, !tbaa !89
   %87 = fsub reassoc nsz arcp contract afn float %.sroa.3.0.copyload, %86
   %88 = fmul reassoc nsz arcp contract afn float %87, %87
@@ -2248,12 +2245,12 @@ get_cluster.exit.loopexit:                        ; preds = %.lr.ph.i
 
 get_cluster.exit:                                 ; preds = %get_cluster.exit.loopexit, %.lr.ph306
   %.020.lcssa.i = phi i64 [ 0, %.lr.ph306 ], [ %96, %get_cluster.exit.loopexit ]
-  %97 = getelementptr inbounds i32, ptr %81, i64 %.020.lcssa.i
+  %97 = getelementptr inbounds [4 x i8], ptr %81, i64 %.020.lcssa.i
   %98 = load i32, ptr %97, align 4, !tbaa !90
   %99 = add nsw i32 %98, 1
   store i32 %99, ptr %97, align 4, !tbaa !90
   %100 = fmul reassoc nsz arcp contract afn float %.sroa.3.0.copyload, %.sroa.3.0.copyload
-  %101 = getelementptr inbounds [2 x float], ptr %82, i64 %.020.lcssa.i
+  %101 = getelementptr inbounds [8 x i8], ptr %82, i64 %.020.lcssa.i
   %102 = load float, ptr %101, align 8, !tbaa !89
   %103 = fadd reassoc nsz arcp contract afn float %102, %100
   store float %103, ptr %101, align 8, !tbaa !89
@@ -2262,7 +2259,7 @@ get_cluster.exit:                                 ; preds = %get_cluster.exit.lo
   %106 = load float, ptr %105, align 4, !tbaa !89
   %107 = fadd reassoc nsz arcp contract afn float %106, %104
   store float %107, ptr %105, align 4, !tbaa !89
-  %108 = getelementptr inbounds [2 x float], ptr %83, i64 %.020.lcssa.i
+  %108 = getelementptr inbounds [8 x i8], ptr %83, i64 %.020.lcssa.i
   %109 = load float, ptr %108, align 8, !tbaa !89
   %110 = fadd reassoc nsz arcp contract afn float %109, %.sroa.3.0.copyload
   store float %110, ptr %108, align 8, !tbaa !89
@@ -2282,18 +2279,18 @@ get_cluster.exit:                                 ; preds = %get_cluster.exit.lo
 
 115:                                              ; preds = %.lr.ph318, %115
   %.0274317 = phi i64 [ 0, %.lr.ph318 ], [ %131, %115 ]
-  %116 = getelementptr inbounds nuw i32, ptr %13, i64 %.0274317
-  %117 = getelementptr inbounds nuw [2 x float], ptr %10, i64 %.0274317
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %.0274317
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.0274317
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 4
-  %119 = getelementptr inbounds nuw [2 x float], ptr %11, i64 %.0274317
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.0274317
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 4
-  %121 = getelementptr inbounds nuw i32, ptr %81, i64 %.0274317
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %81, i64 %.0274317
   %122 = load i32, ptr %121, align 4, !tbaa !90
-  %123 = getelementptr inbounds nuw [2 x float], ptr %83, i64 %.0274317
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %.0274317
   %124 = load float, ptr %123, align 8, !tbaa !89
   %125 = getelementptr inbounds nuw i8, ptr %123, i64 4
   %126 = load float, ptr %125, align 4, !tbaa !89
-  %127 = getelementptr inbounds nuw [2 x float], ptr %82, i64 %.0274317
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %.0274317
   %128 = load float, ptr %127, align 8, !tbaa !89
   %129 = getelementptr inbounds nuw i8, ptr %127, i64 4
   %130 = load float, ptr %129, align 4, !tbaa !89
@@ -2308,29 +2305,29 @@ get_cluster.exit:                                 ; preds = %get_cluster.exit.lo
 
 .lr.ph321:                                        ; preds = %._crit_edge, %158
   %indvars.iv351 = phi i64 [ %indvars.iv.next352, %158 ], [ 0, %._crit_edge ]
-  %132 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv351
+  %132 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv351
   %133 = load i32, ptr %132, align 4, !tbaa !90
   %134 = icmp eq i32 %133, 0
   br i1 %134, label %158, label %135
 
 135:                                              ; preds = %.lr.ph321
-  %136 = getelementptr inbounds nuw [2 x float], ptr %10, i64 %indvars.iv351
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv351
   %137 = load float, ptr %136, align 4, !tbaa !89
   %138 = sitofp i32 %133 to float
   %139 = fdiv reassoc nsz arcp contract afn float %137, %138
-  %140 = getelementptr inbounds nuw [2 x float], ptr %4, i64 %indvars.iv351
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv351
   store float %139, ptr %140, align 4, !tbaa !89
   %141 = getelementptr inbounds nuw i8, ptr %136, i64 4
   %142 = load float, ptr %141, align 4, !tbaa !89
   %143 = fdiv reassoc nsz arcp contract afn float %142, %138
   %144 = getelementptr inbounds nuw i8, ptr %140, i64 4
   store float %143, ptr %144, align 4, !tbaa !89
-  %145 = getelementptr inbounds nuw [2 x float], ptr %11, i64 %indvars.iv351
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv351
   %146 = load float, ptr %145, align 4, !tbaa !89
   %147 = fdiv reassoc nsz arcp contract afn float %146, %138
   %148 = fmul reassoc nsz arcp contract afn float %139, %139
   %149 = fsub reassoc nsz arcp contract afn float %147, %148
-  %150 = getelementptr inbounds nuw [2 x float], ptr %5, i64 %indvars.iv351
+  %150 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv351
   store float %149, ptr %150, align 4, !tbaa !89
   %151 = getelementptr inbounds nuw i8, ptr %145, i64 4
   %152 = load float, ptr %151, align 4, !tbaa !89
@@ -2366,11 +2363,11 @@ get_cluster.exit:                                 ; preds = %get_cluster.exit.lo
 
 .lr.ph327.split.us:                               ; preds = %.lr.ph327.split.us.preheader, %.lr.ph327.split.us
   %indvars.iv364 = phi i64 [ 0, %.lr.ph327.split.us.preheader ], [ %indvars.iv.next365, %.lr.ph327.split.us ]
-  %162 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv364
+  %162 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv364
   %163 = load i32, ptr %162, align 4, !tbaa !90
   %164 = sitofp i32 %163 to float
   %165 = fmul reassoc nsz arcp contract afn float %164, %161
-  %166 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv364
+  %166 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv364
   store float %165, ptr %166, align 4, !tbaa !89
   %indvars.iv.next365 = add nuw nsw i64 %indvars.iv364, 1
   %exitcond368.not = icmp eq i64 %indvars.iv.next365, %wide.trip.count.i.pre-phi
@@ -2379,7 +2376,7 @@ get_cluster.exit:                                 ; preds = %get_cluster.exit.lo
 .lr.ph324:                                        ; preds = %158, %.lr.ph324
   %indvars.iv356 = phi i64 [ %indvars.iv.next357, %.lr.ph324 ], [ 0, %158 ]
   %.0323 = phi i32 [ %169, %.lr.ph324 ], [ 0, %158 ]
-  %167 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv356
+  %167 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv356
   %168 = load i32, ptr %167, align 4, !tbaa !90
   %169 = add nsw i32 %168, %.0323
   %indvars.iv.next357 = add nuw nsw i64 %indvars.iv356, 1
@@ -2398,7 +2395,7 @@ get_cluster.exit:                                 ; preds = %get_cluster.exit.lo
 
 .lr.ph332:                                        ; preds = %79, %184
   %indvars.iv370 = phi i64 [ %indvars.iv.next371, %184 ], [ 0, %79 ]
-  %172 = getelementptr inbounds nuw [2 x float], ptr %5, i64 %indvars.iv370
+  %172 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv370
   %173 = load float, ptr %172, align 4, !tbaa !89
   %174 = fcmp reassoc nsz arcp contract afn oeq float %173, 0.000000e+00
   br i1 %174, label %179, label %175
@@ -2410,12 +2407,12 @@ get_cluster.exit:                                 ; preds = %get_cluster.exit.lo
   br i1 %178, label %179, label %184
 
 179:                                              ; preds = %175, %.lr.ph332
-  %180 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv370
+  %180 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv370
   store float 0.000000e+00, ptr %180, align 4, !tbaa !89
   %181 = getelementptr inbounds nuw i8, ptr %172, i64 4
   store float 0.000000e+00, ptr %181, align 4, !tbaa !89
   store float 0.000000e+00, ptr %172, align 4, !tbaa !89
-  %182 = getelementptr inbounds nuw [2 x float], ptr %4, i64 %indvars.iv370
+  %182 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv370
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 4
   store float 0.000000e+00, ptr %183, align 4, !tbaa !89
   store float 0.000000e+00, ptr %182, align 4, !tbaa !89
@@ -2456,30 +2453,30 @@ get_cluster.exit:                                 ; preds = %get_cluster.exit.lo
 
 .lr.ph334:                                        ; preds = %.lr.ph334.preheader, %215
   %indvars.iv375 = phi i64 [ 0, %.lr.ph334.preheader ], [ %indvars.iv.next376, %215 ]
-  %192 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv375
+  %192 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv375
   %193 = load float, ptr %192, align 4, !tbaa !89
   %indvars.iv.next376 = add nuw nsw i64 %indvars.iv375, 1
-  %194 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv.next376
+  %194 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv.next376
   %195 = load float, ptr %194, align 4, !tbaa !89
   %196 = fcmp reassoc nsz arcp contract afn ogt float %193, %195
   br i1 %196, label %197, label %215
 
 197:                                              ; preds = %.lr.ph334
-  %198 = getelementptr inbounds nuw [2 x float], ptr %4, i64 %indvars.iv.next376
+  %198 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.next376
   %199 = load float, ptr %198, align 4, !tbaa !89
   %200 = getelementptr inbounds nuw i8, ptr %198, i64 4
   %201 = load float, ptr %200, align 4, !tbaa !89
-  %202 = getelementptr inbounds nuw [2 x float], ptr %5, i64 %indvars.iv.next376
+  %202 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.next376
   %203 = load float, ptr %202, align 4, !tbaa !89
   %204 = getelementptr inbounds nuw i8, ptr %202, i64 4
   %205 = load float, ptr %204, align 4, !tbaa !89
-  %206 = getelementptr inbounds nuw [2 x float], ptr %4, i64 %indvars.iv375
+  %206 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv375
   %207 = load float, ptr %206, align 4, !tbaa !89
   store float %207, ptr %198, align 4, !tbaa !89
   %208 = getelementptr inbounds nuw i8, ptr %206, i64 4
   %209 = load float, ptr %208, align 4, !tbaa !89
   store float %209, ptr %200, align 4, !tbaa !89
-  %210 = getelementptr inbounds nuw [2 x float], ptr %5, i64 %indvars.iv375
+  %210 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv375
   %211 = load float, ptr %210, align 4, !tbaa !89
   store float %211, ptr %202, align 4, !tbaa !89
   %212 = getelementptr inbounds nuw i8, ptr %210, i64 4

@@ -8534,7 +8534,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__7VtValueESaIS1_EEC2EmRKS2
   store ptr %9, ptr %0, align 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %9, ptr %10, align 8
-  %11 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::VtValue", ptr %9, i64 %1
+  %11 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %11, ptr %12, align 8
   br label %.lr.ph.i.i.i.i.i
@@ -8700,7 +8700,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetISt6vectorIS0_SaIS0
   %33 = phi i1 [ false, %.preheader.backedge ], [ true, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetISt6vectorIS0_SaIS0_EEEERKT_v.exit ]
   %.014 = phi i64 [ 1, %.preheader.backedge ], [ 0, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetISt6vectorIS0_SaIS0_EEEERKT_v.exit ]
   %34 = load ptr, ptr %.0.i.i, align 8
-  %35 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::VtValue", ptr %34, i64 %.014
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %.014
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %37 = load ptr, ptr %36, align 8
   %38 = ptrtoint ptr %37 to i64
@@ -8837,7 +8837,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetISt6vectorIS0_SaIS0
 .preheader:                                       ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetISt6vectorIS0_SaIS0_EEEERKT_v.exit, %_ZN32pxrInternal_v0_24__pxrReserved__L16_IsFloatOrDoubleERKNS_7VtValueE.exit.thread
   %.014 = phi i64 [ %54, %_ZN32pxrInternal_v0_24__pxrReserved__L16_IsFloatOrDoubleERKNS_7VtValueE.exit.thread ], [ 0, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetISt6vectorIS0_SaIS0_EEEERKT_v.exit ]
   %33 = load ptr, ptr %.0.i.i, align 8
-  %34 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::VtValue", ptr %33, i64 %.014
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 %.014
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = ptrtoint ptr %36 to i64
@@ -8972,7 +8972,7 @@ _ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetISt6vectorIS0_SaIS0
 .preheader:                                       ; preds = %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetISt6vectorIS0_SaIS0_EEEERKT_v.exit, %_ZN32pxrInternal_v0_24__pxrReserved__L16_IsFloatOrDoubleERKNS_7VtValueE.exit.thread
   %.014 = phi i64 [ %54, %_ZN32pxrInternal_v0_24__pxrReserved__L16_IsFloatOrDoubleERKNS_7VtValueE.exit.thread ], [ 0, %_ZNKR32pxrInternal_v0_24__pxrReserved__7VtValue12UncheckedGetISt6vectorIS0_SaIS0_EEEERKT_v.exit ]
   %33 = load ptr, ptr %.0.i.i, align 8
-  %34 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::VtValue", ptr %33, i64 %.014
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 %.014
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %36 = load ptr, ptr %35, align 8
   %37 = ptrtoint ptr %36 to i64
@@ -11959,7 +11959,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit32, %28
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i31, ptr %4, align 8
-  %32 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %20, i64 %16
+  %32 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %16
   store ptr %32, ptr %27, align 8
   ret void
 
@@ -12352,7 +12352,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__15HioGlslfxConfig9ParameterESaIS
 _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__15HioGlslfxConfig9ParameterESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__15HioGlslfxConfig9ParameterESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22, %36
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8
-  %40 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::HioGlslfxConfig::Parameter", ptr %20, i64 %16
+  %40 = getelementptr inbounds nuw [88 x i8], ptr %20, i64 %16
   store ptr %40, ptr %35, align 8
   ret void
 }
@@ -12545,7 +12545,7 @@ _ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__15HioGlslfxConfig7TextureESaIS2
 _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__15HioGlslfxConfig7TextureESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__15HioGlslfxConfig7TextureESaIS2_EE12_M_check_lenEmPKc.exit, %31
   store ptr %20, ptr %0, align 8
   store ptr %29, ptr %4, align 8
-  %35 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::HioGlslfxConfig::Texture", ptr %20, i64 %16
+  %35 = getelementptr inbounds nuw [80 x i8], ptr %20, i64 %16
   store ptr %35, ptr %30, align 8
   ret void
 }
@@ -12749,7 +12749,7 @@ _ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__15HioGlslfxConfig9AttributeESaI
 _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__15HioGlslfxConfig9AttributeESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNKSt6vectorIN32pxrInternal_v0_24__pxrReserved__15HioGlslfxConfig9AttributeESaIS2_EE12_M_check_lenEmPKc.exit, %31
   store ptr %20, ptr %0, align 8
   store ptr %29, ptr %4, align 8
-  %35 = getelementptr inbounds nuw %"class.pxrInternal_v0_24__pxrReserved__::HioGlslfxConfig::Attribute", ptr %20, i64 %16
+  %35 = getelementptr inbounds nuw [80 x i8], ptr %20, i64 %16
   store ptr %35, ptr %30, align 8
   ret void
 }

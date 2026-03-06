@@ -3,8 +3,6 @@ source_filename = "bench/luajit/original/lib_buffer.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%union.TValue = type { i64 }
-
 @lj_lib_init_buffer_method = internal constant [132 x i8] c"\CC9\12\04free\05reset\04skip\03set\03put\04putf\03get\08putcdata\07reserve\06commit\03ref\06encode\06decode\04__gc\0A__tostring\05__len\C6buffer\CB__metatable\FA\FC\01\C7__index\FA\FF", align 16
 @lj_lib_cf_buffer_method = internal constant [16 x ptr] [ptr @lj_cf_buffer_method_free, ptr @lj_cf_buffer_method_reset, ptr @lj_cf_buffer_method_skip, ptr @lj_cf_buffer_method_set, ptr @lj_cf_buffer_method_put, ptr @lj_cf_buffer_method_putf, ptr @lj_cf_buffer_method_get, ptr @lj_cf_buffer_method_putcdata, ptr @lj_cf_buffer_method_reserve, ptr @lj_cf_buffer_method_commit, ptr @lj_cf_buffer_method_ref, ptr @lj_cf_buffer_method_encode, ptr @lj_cf_buffer_method_decode, ptr @lj_cf_buffer_method___gc, ptr @lj_cf_buffer_method___tostring, ptr @lj_cf_buffer_method___len], align 16
 @.str = private unnamed_addr constant [11 x i8] c"__tostring\00", align 1
@@ -415,7 +413,7 @@ buffer_tobuf.exit:                                ; preds = %10
 .lr.ph71:                                         ; preds = %buffer_tobuf.exit, %90
   %.069 = phi i64 [ %91, %90 ], [ 1, %buffer_tobuf.exit ]
   %28 = load ptr, ptr %2, align 8, !tbaa !4
-  %29 = getelementptr inbounds nuw %union.TValue, ptr %28, i64 %.069
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %.069
   %30 = load i64, ptr %29, align 8
   %31 = ashr i64 %30, 47
   %32 = icmp eq i64 %31, -5
@@ -497,7 +495,7 @@ buffer_tobuf.exit:                                ; preds = %10
   store i64 %76, ptr %74, align 8, !tbaa !15
   tail call void @lua_call(ptr noundef nonnull %0, i32 noundef 1, i32 noundef 1) #6
   %77 = load ptr, ptr %2, align 8, !tbaa !4
-  %78 = getelementptr inbounds nuw %union.TValue, ptr %77, i64 %.069
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %.069
   %79 = load ptr, ptr %4, align 8, !tbaa !14
   %80 = getelementptr inbounds i8, ptr %79, i64 -8
   %81 = load i64, ptr %80, align 8, !tbaa !15
@@ -663,7 +661,7 @@ buffer_tobuf.exit:                                ; preds = %10
 27:                                               ; preds = %.lr.ph, %36
   %.041 = phi i64 [ 1, %.lr.ph ], [ %50, %36 ]
   %28 = load ptr, ptr %2, align 8, !tbaa !4
-  %29 = getelementptr inbounds nuw %union.TValue, ptr %28, i64 %.041
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %.041
   %30 = load i64, ptr %29, align 8, !tbaa !15
   %31 = icmp eq i64 %30, -1
   br i1 %31, label %36, label %32
@@ -1405,7 +1403,7 @@ define internal noundef i32 @lj_cf_buffer_new(ptr noundef %0) #0 {
   %.045 = phi i32 [ 1, %7 ], [ 2, %10 ], [ 2, %12 ], [ 1, %1 ]
   %.0 = phi i32 [ 0, %7 ], [ 0, %10 ], [ %13, %12 ], [ 0, %1 ]
   %17 = zext nneg i32 %.045 to i64
-  %18 = getelementptr inbounds nuw %union.TValue, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %17
   %19 = getelementptr inbounds i8, ptr %18, i64 -8
   %20 = icmp ult ptr %19, %15
   br i1 %20, label %21, label %40

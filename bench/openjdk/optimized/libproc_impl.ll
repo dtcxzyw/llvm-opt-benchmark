@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 %struct.Elf64_Ehdr = type { [16 x i8], i16, i16, i32, i64, i64, i64, i32, i16, i16, i16, i16, i16, i16 }
-%struct.Elf64_Shdr = type { i32, i32, i64, i64, i64, i64, i32, i32, i64, i64 }
 
 @pathmap_open.alt_root = internal unnamed_addr global ptr null, align 8
 @pathmap_open.alt_root_initialized = internal unnamed_addr global i1 false, align 4
@@ -483,7 +482,7 @@ define hidden range(i32 0, 2) i32 @read_eh_frame(ptr readnone captures(none) %0,
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 62
   %15 = load i16, ptr %14, align 2
   %16 = zext i16 %15 to i64
-  %17 = getelementptr inbounds nuw %struct.Elf64_Shdr, ptr %12, i64 %16
+  %17 = getelementptr inbounds nuw [64 x i8], ptr %12, i64 %16
   %18 = call ptr @read_section_data(i32 noundef %13, ptr noundef nonnull %3, ptr noundef %17) #22
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 60
   %20 = load i16, ptr %19, align 4

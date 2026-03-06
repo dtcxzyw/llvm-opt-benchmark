@@ -5,10 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"class.OpenSubdiv::v3_6_0::Far::PatchDescriptor" = type { i32 }
-%"class.OpenSubdiv::v3_6_0::Far::PatchTable::PatchHandle" = type { i32, i32, i32 }
-%"struct.OpenSubdiv::v3_6_0::Far::PatchParam" = type { i64 }
-%"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode" = type { [4 x %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode::Child"] }
-%"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode::Child" = type { i32 }
 
 $_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchTable11PatchHandleESaIS4_EE17_M_default_appendEm = comdat any
 
@@ -145,7 +141,7 @@ define void @_ZN10OpenSubdiv6v3_6_03Far8PatchMap17initializeHandlesERKNS1_10Patc
   br i1 %26, label %27, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchTable11PatchHandleESaIS4_EE6resizeEm.exit
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds %"class.OpenSubdiv::v3_6_0::Far::PatchTable::PatchHandle", ptr %17, i64 %14
+  %28 = getelementptr inbounds [12 x i8], ptr %17, i64 %14
   %.not.i.i = icmp eq ptr %16, %28
   br i1 %.not.i.i, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchTable11PatchHandleESaIS4_EE6resizeEm.exit, label %29
 
@@ -170,7 +166,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchTable11PatchHandleESaIS4_EE6resizeEm
 
 switch.lookup:                                    ; preds = %.lr.ph39
   %34 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN10OpenSubdiv6v3_6_03Far8PatchMap17initializeHandlesERKNS1_10PatchTableE, i64 %34
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN10OpenSubdiv6v3_6_03Far8PatchMap17initializeHandlesERKNS1_10PatchTableE, i64 %34
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %_ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit
 
@@ -188,7 +184,7 @@ _ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit: ; pr
   %indvars.iv41 = phi i64 [ %37, %.lr.ph.preheader ], [ %indvars.iv.next42, %.lr.ph ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %38 = load ptr, ptr %13, align 8
-  %39 = getelementptr inbounds %"class.OpenSubdiv::v3_6_0::Far::PatchTable::PatchHandle", ptr %38, i64 %indvars.iv41
+  %39 = getelementptr inbounds [12 x i8], ptr %38, i64 %indvars.iv41
   store i32 %.038, ptr %39, align 4
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %41 = trunc nsw i64 %indvars.iv41 to i32
@@ -197,7 +193,7 @@ _ZNK10OpenSubdiv6v3_6_03Far15PatchDescriptor21GetNumControlVerticesEv.exit: ; pr
   %43 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %44 = trunc i64 %42 to i32
   store i32 %44, ptr %43, align 4
-  %45 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::PatchParam", ptr %.fca.0.extract, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %.fca.0.extract, i64 %indvars.iv
   %46 = load i64, ptr %45, align 4
   %47 = trunc i64 %46 to i32
   %48 = and i32 %47, 268435455
@@ -297,7 +293,7 @@ _ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE13_M_deal
   store ptr %37, ptr %18, align 8
   %41 = getelementptr inbounds i8, ptr %37, i64 %35
   store ptr %41, ptr %32, align 8
-  %42 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode", ptr %37, i64 %20
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %37, i64 %20
   store ptr %42, ptr %24, align 8
   %.pre127 = ptrtoint ptr %37 to i64
   br label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE7reserveEm.exit
@@ -324,7 +320,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE7reserveEm.exit:
   br i1 %54, label %55, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE6resizeEm.exit
 
 55:                                               ; preds = %53
-  %56 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode", ptr %43, i64 %45
+  %56 = getelementptr inbounds [16 x i8], ptr %43, i64 %45
   %.not.i.i = icmp eq ptr %44, %56
   br i1 %.not.i.i, label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE6resizeEm.exit, label %57
 
@@ -345,7 +341,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE6resizeEm.exit: 
 61:                                               ; preds = %.lr.ph119, %_ZN10OpenSubdiv6v3_6_03Far8PatchMap14assignRootNodeEPNS2_8QuadNodeEi.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph119 ], [ %indvars.iv.next, %_ZN10OpenSubdiv6v3_6_03Far8PatchMap14assignRootNodeEPNS2_8QuadNodeEi.exit ]
   %62 = load ptr, ptr %58, align 8
-  %63 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::PatchParam", ptr %62, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %indvars.iv
   %64 = load i64, ptr %63, align 4
   %65 = lshr i64 %64, 32
   %66 = trunc nuw i64 %65 to i32
@@ -364,7 +360,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE6resizeEm.exit: 
   %75 = sub nsw i32 %73, %74
   %76 = sext i32 %75 to i64
   %77 = load ptr, ptr %18, align 8
-  %78 = getelementptr inbounds %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode", ptr %77, i64 %76
+  %78 = getelementptr inbounds [16 x i8], ptr %77, i64 %76
   %79 = icmp eq i32 %67, %69
   br i1 %79, label %80, label %86
 
@@ -376,7 +372,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE6resizeEm.exit: 
 
 84:                                               ; preds = %84, %80
   %indvars.iv.i.i = phi i64 [ 0, %80 ], [ %indvars.iv.next.i.i, %84 ]
-  %85 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode::Child", ptr %78, i64 %indvars.iv.i.i
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %78, i64 %indvars.iv.i.i
   store i32 %83, ptr %85, align 4
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 4
@@ -415,7 +411,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE6resizeEm.exit: 
   %104 = or disjoint i32 %103, %100
   %105 = icmp eq i32 %.040107, %67
   %106 = zext nneg i32 %104 to i64
-  %107 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode::Child", ptr %.039108, i64 %106
+  %107 = getelementptr inbounds nuw [4 x i8], ptr %.039108, i64 %106
   br i1 %105, label %108, label %109
 
 108:                                              ; preds = %97
@@ -432,7 +428,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE6resizeEm.exit: 
 113:                                              ; preds = %109
   %114 = lshr i32 %110, 2
   %115 = zext nneg i32 %114 to i64
-  %116 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode", ptr %112, i64 %115
+  %116 = getelementptr inbounds nuw [16 x i8], ptr %112, i64 %115
   br label %_ZN10OpenSubdiv6v3_6_03Far8PatchMap21assignLeafOrChildNodeEPNS2_8QuadNodeEbii.exit
 
 117:                                              ; preds = %109
@@ -498,7 +494,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_S_relocateEPS
 _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i.i: ; preds = %141, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i.i
   store ptr %136, ptr %18, align 8
   store ptr %140, ptr %46, align 8
-  %142 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode", ptr %136, i64 %134
+  %142 = getelementptr inbounds nuw [16 x i8], ptr %136, i64 %134
   store ptr %142, ptr %24, align 8
   br label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE9push_backEOS4_.exit.i
 
@@ -631,7 +627,7 @@ _ZN10OpenSubdiv6v3_6_03Far8PatchMap24transformUVToTriQuadrantIdEEiRKT_RS4_S7_Rb.
   %.195 = phi i1 [ true, %196 ], [ true, %198 ], [ false, %205 ], [ true, %201 ], [ false, %190 ], [ true, %193 ], [ false, %188 ], [ false, %184 ]
   %.0.i47 = phi i64 [ 1, %196 ], [ 2, %198 ], [ 3, %205 ], [ 0, %201 ], [ 0, %190 ], [ 3, %193 ], [ 2, %188 ], [ 1, %184 ]
   %206 = icmp eq i32 %.038115, %67
-  %207 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode::Child", ptr %.1114, i64 %.0.i47
+  %207 = getelementptr inbounds nuw [4 x i8], ptr %.1114, i64 %.0.i47
   br i1 %206, label %208, label %209
 
 208:                                              ; preds = %_ZN10OpenSubdiv6v3_6_03Far8PatchMap24transformUVToTriQuadrantIdEEiRKT_RS4_S7_Rb.exit
@@ -648,7 +644,7 @@ _ZN10OpenSubdiv6v3_6_03Far8PatchMap24transformUVToTriQuadrantIdEEiRKT_RS4_S7_Rb.
 213:                                              ; preds = %209
   %214 = lshr i32 %210, 2
   %215 = zext nneg i32 %214 to i64
-  %216 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode", ptr %212, i64 %215
+  %216 = getelementptr inbounds nuw [16 x i8], ptr %212, i64 %215
   br label %_ZN10OpenSubdiv6v3_6_03Far8PatchMap21assignLeafOrChildNodeEPNS2_8QuadNodeEbii.exit65
 
 217:                                              ; preds = %209
@@ -714,7 +710,7 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_S_relocateEPS
 _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i.i64: ; preds = %241, %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i.i61
   store ptr %236, ptr %18, align 8
   store ptr %240, ptr %46, align 8
-  %242 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode", ptr %236, i64 %234
+  %242 = getelementptr inbounds nuw [16 x i8], ptr %236, i64 %234
   store ptr %242, ptr %24, align 8
   br label %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE9push_backEOS4_.exit.i51
 
@@ -907,9 +903,9 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchTable11PatchHandleESaIS4_EE11_S_relo
 
 _ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far10PatchTable11PatchHandleESaIS4_EE13_M_deallocateEPS4_m.exit38: ; preds = %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far10PatchTable11PatchHandleESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, %42
   store ptr %32, ptr %0, align 8
-  %44 = getelementptr inbounds nuw %"class.OpenSubdiv::v3_6_0::Far::PatchTable::PatchHandle", ptr %33, i64 %1
+  %44 = getelementptr inbounds nuw [12 x i8], ptr %33, i64 %1
   store ptr %44, ptr %4, align 8
-  %45 = getelementptr inbounds nuw %"class.OpenSubdiv::v3_6_0::Far::PatchTable::PatchHandle", ptr %32, i64 %30
+  %45 = getelementptr inbounds nuw [12 x i8], ptr %32, i64 %30
   store ptr %45, ptr %11, align 8
   br label %46
 
@@ -1005,9 +1001,9 @@ _ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_S_relocateEPS
 
 _ZNSt12_Vector_baseIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE13_M_deallocateEPS4_m.exit36: ; preds = %_ZNSt6vectorIN10OpenSubdiv6v3_6_03Far8PatchMap8QuadNodeESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit, %31
   store ptr %26, ptr %0, align 8
-  %33 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode", ptr %27, i64 %1
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %1
   store ptr %33, ptr %4, align 8
-  %34 = getelementptr inbounds nuw %"struct.OpenSubdiv::v3_6_0::Far::PatchMap::QuadNode", ptr %26, i64 %24
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %24
   store ptr %34, ptr %11, align 8
   br label %35
 

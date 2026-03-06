@@ -37,7 +37,7 @@ define range(i64 0, -4294901760) i64 @"_ZN95_$LT$logos_codegen..graph..fork..For
   %8 = tail call { ptr, i64 } @"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h7f1e71a86efcfb54E"(i64 %7, ptr align 4 %5, i64 256, ptr nonnull align 8 @anon.343a85c169baf784e69415944ce08f85.1)
   %9 = extractvalue { ptr, i64 } %8, 0
   %10 = extractvalue { ptr, i64 } %8, 1
-  %11 = getelementptr inbounds i32, ptr %9, i64 %10
+  %11 = getelementptr inbounds [4 x i8], ptr %9, i64 %10
   store ptr %9, ptr %4, align 8
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %11, ptr %12, align 8
@@ -64,7 +64,7 @@ define range(i64 0, -4294901760) i64 @"_ZN95_$LT$logos_codegen..graph..fork..For
   %26 = call { ptr, i64 } @"_ZN110_$LT$core..ops..range..RangeFrom$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h7f1e71a86efcfb54E"(i64 %24, ptr align 4 %25, i64 256, ptr nonnull align 8 @anon.343a85c169baf784e69415944ce08f85.2)
   %27 = extractvalue { ptr, i64 } %26, 0
   %28 = extractvalue { ptr, i64 } %26, 1
-  %29 = getelementptr inbounds i32, ptr %27, i64 %28
+  %29 = getelementptr inbounds [4 x i8], ptr %27, i64 %28
   store ptr %27, ptr %2, align 8
   %30 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %29, ptr %30, align 8

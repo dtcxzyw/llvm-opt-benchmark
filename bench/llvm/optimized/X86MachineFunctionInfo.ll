@@ -7,13 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.llvm::LaneBitmask" = type { i64 }
 %"struct.llvm::yaml::EmptyContext" = type { i8 }
 %"struct.std::_Rb_tree<llvm::Register, llvm::Register, std::_Identity<llvm::Register>, std::less<llvm::Register>>::_Alloc_node" = type { ptr }
-%"struct.std::pair.169" = type { ptr, i64 }
-%"class.llvm::SmallVector.162" = type { %"class.llvm::SmallVectorImpl", %"struct.llvm::SmallVectorStorage.163" }
-%"class.llvm::SmallVectorImpl" = type { %"class.llvm::SmallVectorTemplateBase" }
-%"class.llvm::SmallVectorTemplateBase" = type { %"class.llvm::SmallVectorTemplateCommon" }
-%"class.llvm::SmallVectorTemplateCommon" = type { %"class.llvm::SmallVectorBase" }
-%"class.llvm::SmallVectorBase" = type { ptr, i32, i32 }
-%"struct.llvm::SmallVectorStorage.163" = type { [32 x i8] }
 
 $_ZN4llvm22X86MachineFunctionInfoD2Ev = comdat any
 
@@ -715,7 +708,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds 
   %21 = phi i32 [ %14, %10 ], [ %.pre.i, %17 ]
   %22 = load ptr, ptr %12, align 8, !tbaa !207
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %"struct.std::pair.169", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %23
   store ptr %11, ptr %24, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %8, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -756,7 +749,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Start
   %47 = phi i32 [ %40, %32 ], [ %.pre.i.i, %43 ]
   %48 = load ptr, ptr %33, align 8, !tbaa !207
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   %51 = ptrtoint ptr %39 to i64
   store i64 %51, ptr %50, align 1
   %52 = load i32, ptr %34, align 8, !tbaa !208
@@ -942,7 +935,7 @@ _ZSt4copyIPKmPmET0_T_S4_S3_.exit31.i.i.i.i.i.i.i: ; preds = %33, %32, %30
   %.idx36.i.i.i.i.i.i.i = shl nuw nsw i64 %.022.i.i.i.i.i.i.i, 3
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx36.i.i.i.i.i.i.i
   %41 = load ptr, ptr %.0812.i.i.i.i.i, align 8, !tbaa !207
-  %42 = getelementptr inbounds nuw i64, ptr %41, i64 %.022.i.i.i.i.i.i.i
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %.022.i.i.i.i.i.i.i
   %43 = sub nsw i64 %37, %.022.i.i.i.i.i.i.i
   %gepdiff.i.i.i.i.i.i.i = shl nsw i64 %43, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %42, ptr align 8 %40, i64 %gepdiff.i.i.i.i.i.i.i, i1 false)
@@ -969,7 +962,7 @@ _ZSt4copyIPKN4llvm11SmallVectorImLj4EEEPS2_ET0_T_S7_S6_.exit: ; preds = %11, %_Z
   %.pre-phi = phi i64 [ %.pre55, %_ZSt4copyIPKN4llvm11SmallVectorImLj4EEEPS2_ET0_T_S7_S6_.exit.loopexit ], [ %10, %11 ]
   %48 = phi ptr [ %.pre, %_ZSt4copyIPKN4llvm11SmallVectorImLj4EEEPS2_ET0_T_S7_S6_.exit.loopexit ], [ %12, %11 ]
   %.0 = phi ptr [ %45, %_ZSt4copyIPKN4llvm11SmallVectorImLj4EEEPS2_ET0_T_S7_S6_.exit.loopexit ], [ %12, %11 ]
-  %49 = getelementptr inbounds nuw %"class.llvm::SmallVector.162", ptr %48, i64 %.pre-phi
+  %49 = getelementptr inbounds nuw [48 x i8], ptr %48, i64 %.pre-phi
   %.not4.i = icmp eq ptr %.0, %49
   br i1 %.not4.i, label %.sink.split, label %.lr.ph.i
 
@@ -1098,7 +1091,7 @@ _ZSt4copyIPKmPmET0_T_S4_S3_.exit31.i.i.i.i.i.i.i43: ; preds = %89, %88, %86
   %.idx36.i.i.i.i.i.i.i46 = shl nuw nsw i64 %.022.i.i.i.i.i.i.i44, 3
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 %.idx36.i.i.i.i.i.i.i46
   %97 = load ptr, ptr %.0812.i.i.i.i.i34, align 8, !tbaa !207
-  %98 = getelementptr inbounds nuw i64, ptr %97, i64 %.022.i.i.i.i.i.i.i44
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %.022.i.i.i.i.i.i.i44
   %99 = sub nsw i64 %93, %.022.i.i.i.i.i.i.i44
   %gepdiff.i.i.i.i.i.i.i47 = shl nsw i64 %99, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %98, ptr align 8 %96, i64 %gepdiff.i.i.i.i.i.i.i47, i1 false)
@@ -1120,14 +1113,14 @@ _ZSt4copyIPKN4llvm11SmallVectorImLj4EEEPS2_ET0_T_S7_S6_.exit48: ; preds = %_ZN4l
   %104 = load ptr, ptr %1, align 8, !tbaa !207
   %105 = load i32, ptr %5, align 8, !tbaa !208
   %106 = zext i32 %105 to i64
-  %107 = getelementptr inbounds nuw %"class.llvm::SmallVector.162", ptr %104, i64 %106
+  %107 = getelementptr inbounds nuw [48 x i8], ptr %104, i64 %106
   %.not9.i.i.i.i = icmp samesign eq i64 %.022, %106
   br i1 %.not9.i.i.i.i, label %.sink.split, label %.lr.ph.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %_ZSt4copyIPKN4llvm11SmallVectorImLj4EEEPS2_ET0_T_S7_S6_.exit48
   %108 = load ptr, ptr %0, align 8, !tbaa !207
-  %109 = getelementptr inbounds nuw %"class.llvm::SmallVector.162", ptr %108, i64 %.022
-  %110 = getelementptr inbounds nuw %"class.llvm::SmallVector.162", ptr %104, i64 %.022
+  %109 = getelementptr inbounds nuw [48 x i8], ptr %108, i64 %.022
+  %110 = getelementptr inbounds nuw [48 x i8], ptr %104, i64 %.022
   br label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.lr.ph.i.i.i.i.preheader, %_ZSt10_ConstructIN4llvm11SmallVectorImLj4EEEJRKS2_EEvPT_DpOT0_.exit.i.i.i.i
@@ -1377,7 +1370,7 @@ _ZSt4moveIPmS0_ET0_T_S2_S1_.exit35:               ; preds = %37, %36, %34
   %.idx40 = shl nuw nsw i64 %.026, 3
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 %.idx40
   %44 = load ptr, ptr %0, align 8, !tbaa !207
-  %45 = getelementptr inbounds nuw i64, ptr %44, i64 %.026
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %.026
   %46 = sub nsw i64 %40, %.026
   %gepdiff = shl nsw i64 %46, 3
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %45, ptr align 8 %43, i64 %gepdiff, i1 false)

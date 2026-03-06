@@ -83,7 +83,7 @@ _ZN12ImageStrings9hash_codeEPKc.exit:             ; preds = %7, %_ZN12ImageStrin
   %.07.lcssa.i.i = phi i32 [ 16777619, %7 ], [ %11, %_ZN12ImageStrings9hash_codeEPKci.exit.loopexit.i ]
   %12 = urem i32 %.07.lcssa.i.i, %3
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr inbounds nuw i32, ptr %2, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %13
   %15 = load i32, ptr %14, align 4
   %16 = load ptr, ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
@@ -192,7 +192,7 @@ define hidden void @_ZN13ImageLocation8set_dataEPh(ptr noundef nonnull writeonly
 
 _ZN13ImageLocation15attribute_valueEPhh.exit:     ; preds = %.lr.ph.i
   %15 = zext nneg i8 %5 to i64
-  %16 = getelementptr inbounds nuw i64, ptr %0, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %15
   store i64 %14, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %.01319, i64 %wide.trip.count.i
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 1
@@ -393,7 +393,7 @@ _ZN12ImageStrings9hash_codeEPKc.exit.i:           ; preds = %_ZN12ImageStrings9h
   %.07.lcssa.i.i.i = phi i32 [ 16777619, %16 ], [ %20, %_ZN12ImageStrings9hash_codeEPKci.exit.loopexit.i.i ]
   %21 = urem i32 %.07.lcssa.i.i.i, %13
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr inbounds nuw i32, ptr %7, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %22
   %24 = load i32, ptr %23, align 4
   %25 = load ptr, ptr %5, align 8
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
@@ -436,7 +436,7 @@ _ZN12ImageStrings4findEP6EndianPKcPij.exit:       ; preds = %_ZN12ImageStrings9h
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %40 = load ptr, ptr %39, align 8
   %41 = zext nneg i32 %.0.i16 to i64
-  %42 = getelementptr inbounds nuw i32, ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %41
   %43 = load i32, ptr %42, align 4
   %44 = load ptr, ptr %38, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
@@ -484,7 +484,7 @@ _ZN12ImageStrings4findEP6EndianPKcPij.exit:       ; preds = %_ZN12ImageStrings9h
 
 _ZN13ImageLocation15attribute_valueEPhh.exit.i:   ; preds = %.lr.ph.i.i10
   %64 = zext nneg i8 %54 to i64
-  %65 = getelementptr inbounds nuw i64, ptr %2, i64 %64
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %64
   store i64 %63, ptr %65, align 8
   %66 = getelementptr inbounds nuw i8, ptr %.013.i21, i64 %wide.trip.count.i.i
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 1
@@ -622,7 +622,7 @@ define hidden void @_ZN20ImageFileReaderTable3addEP15ImageFileReader(ptr noundef
   %17 = add i32 %15, 1
   store i32 %17, ptr %0, align 8
   %18 = zext i32 %15 to i64
-  %19 = getelementptr inbounds nuw ptr, ptr %16, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %18
   store ptr %1, ptr %19, align 8
   ret void
 }
@@ -649,17 +649,17 @@ define hidden void @_ZN20ImageFileReaderTable6removeEP15ImageFileReader(ptr noun
 
 7:                                                ; preds = %.lr.ph, %6
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8
   %10 = icmp eq ptr %9, %1
   br i1 %10, label %11, label %6
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %13 = add i32 %3, -1
   store i32 %13, ptr %0, align 8
   %14 = zext i32 %13 to i64
-  %15 = getelementptr inbounds nuw ptr, ptr %5, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %14
   %16 = load ptr, ptr %15, align 8
   store ptr %16, ptr %12, align 8
   %.pr = load i32, ptr %0, align 8
@@ -705,7 +705,7 @@ define hidden noundef zeroext i1 @_ZN20ImageFileReaderTable8containsEP15ImageFil
 
 6:                                                ; preds = %6, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8
   %9 = icmp eq ptr %8, %1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -739,7 +739,7 @@ define hidden noundef ptr @_ZN15ImageFileReader10find_imageEPKc(ptr noundef read
 
 5:                                                ; preds = %.lr.ph, %4
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %4 ]
-  %6 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %0) #23
@@ -793,7 +793,7 @@ define hidden noundef ptr @_ZN15ImageFileReader4openEPKcb(ptr noundef readonly c
 
 6:                                                ; preds = %5, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %5 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
   %10 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %9, ptr noundef nonnull readonly dereferenceable(1) %0) #23
@@ -879,7 +879,7 @@ _ZN15ImageFileReader10find_imageEPKc.exit:        ; preds = %.loopexit.i
 
 40:                                               ; preds = %.lr.ph, %39
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %39 ]
-  %41 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %indvars.iv
   %42 = load ptr, ptr %41, align 8
   %43 = load ptr, ptr %42, align 8
   %44 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %43, ptr noundef nonnull dereferenceable(1) %0) #23
@@ -979,7 +979,7 @@ _ZN20ImageFileReaderTable3addEP15ImageFileReader.exit: ; preds = %._crit_edge.i,
   %81 = add i32 %79, 1
   store i32 %81, ptr @_ZN15ImageFileReader13_reader_tableE, align 8
   %82 = zext i32 %79 to i64
-  %83 = getelementptr inbounds nuw ptr, ptr %80, i64 %82
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %82
   store ptr %20, ptr %83, align 8
   br label %84
 
@@ -1242,17 +1242,17 @@ define hidden void @_ZN15ImageFileReader5closeEPS_(ptr noundef %0) local_unnamed
 
 10:                                               ; preds = %9, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %9 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i
   %12 = load ptr, ptr %11, align 8
   %13 = icmp eq ptr %12, %0
   br i1 %13, label %14, label %9
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i
   %16 = add i32 %7, -1
   store i32 %16, ptr @_ZN15ImageFileReader13_reader_tableE, align 8
   %17 = zext i32 %16 to i64
-  %18 = getelementptr inbounds nuw ptr, ptr %8, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %17
   %19 = load ptr, ptr %18, align 8
   store ptr %19, ptr %15, align 8
   %.pr.i = load i32, ptr @_ZN15ImageFileReader13_reader_tableE, align 8
@@ -1319,7 +1319,7 @@ define hidden noundef zeroext i1 @_ZN15ImageFileReader8id_checkEy(i64 noundef %0
 
 5:                                                ; preds = %5, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %5 ]
-  %6 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i
   %7 = load ptr, ptr %6, align 8
   %8 = icmp eq ptr %7, %2
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -1734,7 +1734,7 @@ _ZN12ImageStrings9hash_codeEPKc.exit.i:           ; preds = %_ZN12ImageStrings9h
   %.07.lcssa.i.i.i = phi i32 [ 16777619, %17 ], [ %21, %_ZN12ImageStrings9hash_codeEPKci.exit.loopexit.i.i ]
   %22 = urem i32 %.07.lcssa.i.i.i, %14
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr inbounds nuw i32, ptr %8, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %23
   %25 = load i32, ptr %24, align 4
   %26 = load ptr, ptr %6, align 8
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 32
@@ -1777,7 +1777,7 @@ _ZN12ImageStrings4findEP6EndianPKcPij.exit:       ; preds = %_ZN12ImageStrings9h
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %41 = load ptr, ptr %40, align 8
   %42 = zext nneg i32 %.0.i16 to i64
-  %43 = getelementptr inbounds nuw i32, ptr %41, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %42
   %44 = load i32, ptr %43, align 4
   %45 = load ptr, ptr %39, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
@@ -1826,7 +1826,7 @@ _ZN12ImageStrings4findEP6EndianPKcPij.exit:       ; preds = %_ZN12ImageStrings9h
 
 _ZN13ImageLocation15attribute_valueEPhh.exit.i.i: ; preds = %.lr.ph.i.i.i10
   %65 = zext nneg i8 %55 to i64
-  %66 = getelementptr inbounds nuw i64, ptr %4, i64 %65
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %65
   store i64 %64, ptr %66, align 8
   %67 = getelementptr inbounds nuw i8, ptr %.013.i3.i, i64 %wide.trip.count.i.i.i
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 1
@@ -1895,7 +1895,7 @@ define hidden void @_ZNK15ImageFileReader12get_resourceEjPh(ptr noundef nonnull 
 
 _ZN13ImageLocation15attribute_valueEPhh.exit.i.i: ; preds = %.lr.ph.i.i.i
   %21 = zext nneg i8 %11 to i64
-  %22 = getelementptr inbounds nuw i64, ptr %4, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %21
   store i64 %20, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %.013.i3.i, i64 %wide.trip.count.i.i.i
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 1

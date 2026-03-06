@@ -75,8 +75,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.81" = type { %"struct.std::_Head_base.84" }
 %"struct.std::_Head_base.84" = type { ptr }
 %"class.testing::internal::AssertHelper" = type { ptr }
-%"class.std::thread" = type { %"class.std::thread::id" }
-%"class.std::thread::id" = type { i64 }
 %"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_iostream.base" = type { %"class.std::basic_istream.base", %"class.std::basic_ostream.base" }
 %"class.std::basic_istream.base" = type { ptr, i64 }
@@ -100,12 +98,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Head_base.42" = type { i32 }
 %"struct.std::_Hashtable<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, unsigned long>, std::allocator<std::pair<const std::__cxx11::basic_string<char>, unsigned long>>, std::__detail::_Select1st, std::equal_to<std::__cxx11::basic_string<char>>, std::hash<string>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true>>::_Scoped_node" = type { ptr, ptr }
 %"struct.testing::TestParamInfo.182" = type { i32, i64 }
-%"class.std::shared_ptr.35" = type { %"class.std::__shared_ptr.36" }
-%"class.std::__shared_ptr.36" = type { ptr, %"class.std::__shared_count" }
-%"struct.testing::internal::ParameterizedTestSuiteInfo<(anonymous namespace)::ConcurrentSequenceLockTest>::InstantiationInfo" = type <{ %"class.std::__cxx11::basic_string", ptr, ptr, ptr, i32, [4 x i8] }>
-%"class.std::shared_ptr.167" = type { %"class.std::__shared_ptr.168" }
-%"class.std::__shared_ptr.168" = type { ptr, %"class.std::__shared_count" }
-%"struct.testing::internal::ParameterizedTestSuiteInfo<(anonymous namespace)::SequenceLockTest>::InstantiationInfo" = type <{ %"class.std::__cxx11::basic_string", ptr, ptr, ptr, i32, [4 x i8] }>
 
 $__clang_call_terminate = comdat any
 
@@ -598,7 +590,7 @@ define internal fastcc noundef nonnull ptr @_ZN7testing8internal30ParameterizedT
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %13 = load i64, ptr %12, align 8, !tbaa !4
   %14 = load ptr, ptr %0, align 8, !tbaa !13
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %13
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %13
   %16 = load ptr, ptr %15, align 8, !tbaa !16
   %17 = load ptr, ptr %16, align 8, !tbaa !18
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
@@ -850,7 +842,7 @@ _ZNSt6vectorIPN7testing8internal30ParameterizedTestSuiteInfoBaseESaIS3_EE11_S_re
 _ZNSt6vectorIPN7testing8internal30ParameterizedTestSuiteInfoBaseESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %115, %_ZNSt6vectorIPN7testing8internal30ParameterizedTestSuiteInfoBaseESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %110, ptr %0, align 8, !tbaa !13
   store ptr %114, ptr %86, align 8, !tbaa !28
-  %116 = getelementptr inbounds nuw ptr, ptr %110, i64 %108
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %110, i64 %108
   store ptr %116, ptr %93, align 8, !tbaa !29
   br label %_ZNSt6vectorIPN7testing8internal30ParameterizedTestSuiteInfoBaseESaIS3_EE9push_backEOS3_.exit
 
@@ -1856,7 +1848,7 @@ define internal fastcc noundef nonnull ptr @_ZN7testing8internal30ParameterizedT
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %13 = load i64, ptr %12, align 8, !tbaa !4
   %14 = load ptr, ptr %0, align 8, !tbaa !13
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %13
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %13
   %16 = load ptr, ptr %15, align 8, !tbaa !16
   %17 = load ptr, ptr %16, align 8, !tbaa !18
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 24
@@ -2108,7 +2100,7 @@ _ZNSt6vectorIPN7testing8internal30ParameterizedTestSuiteInfoBaseESaIS3_EE11_S_re
 _ZNSt6vectorIPN7testing8internal30ParameterizedTestSuiteInfoBaseESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %115, %_ZNSt6vectorIPN7testing8internal30ParameterizedTestSuiteInfoBaseESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %110, ptr %0, align 8, !tbaa !13
   store ptr %114, ptr %86, align 8, !tbaa !28
-  %116 = getelementptr inbounds nuw ptr, ptr %110, i64 %108
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %110, i64 %108
   store ptr %116, ptr %93, align 8, !tbaa !29
   br label %_ZNSt6vectorIPN7testing8internal30ParameterizedTestSuiteInfoBaseESaIS3_EE9push_backEOS3_.exit
 
@@ -3054,7 +3046,7 @@ _ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit32.i.i: ; preds =
 "_ZNSt6vectorISt6threadSaIS0_EE17_M_realloc_insertIJZN12_GLOBAL__N_144ConcurrentSequenceLockTest_ReadAndWrite_Test8TestBodyEvE3$_0EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i": ; preds = %96, %_ZNSt6vectorISt6threadSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit32.i.i
   store ptr %76, ptr %12, align 8, !tbaa !146
   store ptr %95, ptr %40, align 8, !tbaa !145
-  %108 = getelementptr inbounds nuw %"class.std::thread", ptr %76, i64 %74
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %74
   store ptr %108, ptr %41, align 8, !tbaa !128
   br label %"_ZNSt6vectorISt6threadSaIS0_EE12emplace_backIJZN12_GLOBAL__N_144ConcurrentSequenceLockTest_ReadAndWrite_Test8TestBodyEvE3$_0EEERS0_DpOT_.exit"
 
@@ -5175,7 +5167,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i: ; preds = %36, %.noex
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %38, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
   store ptr %33, ptr %0, align 8, !tbaa !52
   store ptr %37, ptr %6, align 8, !tbaa !218
-  %39 = getelementptr inbounds nuw i32, ptr %33, i64 %31
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %31
   store ptr %39, ptr %7, align 8, !tbaa !54
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
@@ -5246,7 +5238,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i: ; preds = %63, %.no
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i: ; preds = %65, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i
   store ptr %60, ptr %0, align 8, !tbaa !52
   store ptr %64, ptr %6, align 8, !tbaa !218
-  %66 = getelementptr inbounds nuw i32, ptr %60, i64 %58
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %58
   store ptr %66, ptr %7, align 8, !tbaa !54
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit
 
@@ -5333,7 +5325,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i16: ; preds = %88, %.
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i18: ; preds = %90, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i.i16
   store ptr %85, ptr %0, align 8, !tbaa !52
   store ptr %89, ptr %6, align 8, !tbaa !218
-  %91 = getelementptr inbounds nuw i32, ptr %85, i64 %83
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %85, i64 %83
   store ptr %91, ptr %7, align 8, !tbaa !54
   br label %_ZNSt6vectorIiSaIiEE9push_backEOi.exit21
 
@@ -5460,7 +5452,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i: ; preds = %28, %.noex
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
   store ptr %25, ptr %0, align 8, !tbaa !52
   store ptr %29, ptr %11, align 8, !tbaa !218
-  %31 = getelementptr inbounds nuw i32, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %23
   store ptr %31, ptr %10, align 8, !tbaa !54
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
@@ -5527,7 +5519,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i11: ; preds = %52, %.no
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i13: ; preds = %54, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i11
   store ptr %49, ptr %0, align 8, !tbaa !52
   store ptr %53, ptr %4, align 8, !tbaa !218
-  %55 = getelementptr inbounds nuw i32, ptr %49, i64 %47
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %47
   store ptr %55, ptr %5, align 8, !tbaa !54
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit16
 
@@ -9123,7 +9115,7 @@ _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %29 = load i64, ptr %28, align 8, !tbaa !345
   %30 = urem i64 %24, %29
   %31 = load ptr, ptr %0, align 8, !tbaa !346
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %30
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %30
   %33 = load ptr, ptr %32, align 8, !tbaa !347
   %.not.i.i = icmp eq ptr %33, null
   br i1 %.not.i.i, label %_ZNKSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_mESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE12_M_find_nodeEmRS7_m.exit, label %34
@@ -11349,7 +11341,7 @@ _ZNKSt8__detail15_Hashtable_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
 
 48:                                               ; preds = %42
   %49 = load ptr, ptr %0, align 8, !tbaa !346
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %45
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %45
   %51 = load ptr, ptr %50, align 8, !tbaa !347
   %.not.i.i = icmp eq ptr %51, null
   br i1 %.not.i.i, label %.critedge28, label %52
@@ -11512,7 +11504,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i64 %2, ptr %32, align 8, !tbaa !348
   %33 = load ptr, ptr %0, align 8, !tbaa !346
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8, !tbaa !347
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %39, label %36
@@ -11538,7 +11530,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 48
   %46 = load i64, ptr %45, align 8, !tbaa !348
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %33, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !347
   br label %49
 
@@ -11630,7 +11622,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 48
   %16 = load i64, ptr %15, align 8, !tbaa !348
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !347
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -11645,7 +11637,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !347
   br label %28
 
@@ -13898,7 +13890,7 @@ _ZNSt12_Vector_baseISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInf
 _ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_126ConcurrentSequenceLockTestEE8TestInfoEESaIS8_EE17_M_realloc_insertIJPS7_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i.i: ; preds = %135, %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_126ConcurrentSequenceLockTestEE8TestInfoEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit38.i.i.i.i.i
   store ptr %125, ptr %102, align 8, !tbaa !357
   store ptr %134, ptr %103, align 8, !tbaa !360
-  %152 = getelementptr inbounds nuw %"class.std::shared_ptr.35", ptr %125, i64 %121
+  %152 = getelementptr inbounds nuw [16 x i8], ptr %125, i64 %121
   store ptr %152, ptr %105, align 8, !tbaa !362
   br label %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_126ConcurrentSequenceLockTestEE8TestInfoEESaIS8_EE12emplace_backIJPS7_EEERS8_DpOT_.exit.i.i.i
 
@@ -14361,7 +14353,7 @@ _ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_126Con
 _ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_126ConcurrentSequenceLockTestEE17InstantiationInfoESaIS6_EE17_M_realloc_insertIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERPFNS1_14ParamGeneratorISt5tupleIJiiEEEEvERPFSF_RKNS0_13TestParamInfoISI_EEERPKcRiEEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i.i: ; preds = %315, %_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_126ConcurrentSequenceLockTestEE17InstantiationInfoESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit44.i.i.i.i
   store ptr %281, ptr %244, align 8, !tbaa !351
   store ptr %314, ptr %245, align 8, !tbaa !354
-  %319 = getelementptr inbounds nuw %"struct.testing::internal::ParameterizedTestSuiteInfo<(anonymous namespace)::ConcurrentSequenceLockTest>::InstantiationInfo", ptr %281, i64 %277
+  %319 = getelementptr inbounds nuw [64 x i8], ptr %281, i64 %277
   store ptr %319, ptr %247, align 8, !tbaa !356
   br label %_ZN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_126ConcurrentSequenceLockTestEE25AddTestSuiteInstantiationENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFNS0_14ParamGeneratorISt5tupleIJiiEEEEvEPFSA_RKNS_13TestParamInfoISD_EEEPKci.exit.i
 
@@ -14798,7 +14790,7 @@ _ZNSt12_Vector_baseISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInf
 _ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_116SequenceLockTestEE8TestInfoEESaIS8_EE17_M_realloc_insertIJPS7_EEEvN9__gnu_cxx17__normal_iteratorIPS8_SA_EEDpOT_.exit.i.i.i.i: ; preds = %460, %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_116SequenceLockTestEE8TestInfoEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit38.i.i.i.i.i
   store ptr %450, ptr %427, align 8, !tbaa !421
   store ptr %459, ptr %428, align 8, !tbaa !424
-  %477 = getelementptr inbounds nuw %"class.std::shared_ptr.167", ptr %450, i64 %446
+  %477 = getelementptr inbounds nuw [16 x i8], ptr %450, i64 %446
   store ptr %477, ptr %430, align 8, !tbaa !426
   br label %_ZNSt6vectorISt10shared_ptrIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_116SequenceLockTestEE8TestInfoEESaIS8_EE12emplace_backIJPS7_EEERS8_DpOT_.exit.i.i.i
 
@@ -15246,7 +15238,7 @@ _ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_116Seq
 _ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_116SequenceLockTestEE17InstantiationInfoESaIS6_EE17_M_realloc_insertIJNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERPFNS1_14ParamGeneratorIiEEvERPFSF_RKNS0_13TestParamInfoIiEEERPKcRiEEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i.i: ; preds = %637, %_ZNSt6vectorIN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_116SequenceLockTestEE17InstantiationInfoESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit44.i.i.i.i
   store ptr %603, ptr %566, align 8, !tbaa !415
   store ptr %636, ptr %567, align 8, !tbaa !418
-  %641 = getelementptr inbounds nuw %"struct.testing::internal::ParameterizedTestSuiteInfo<(anonymous namespace)::SequenceLockTest>::InstantiationInfo", ptr %603, i64 %599
+  %641 = getelementptr inbounds nuw [64 x i8], ptr %603, i64 %599
   store ptr %641, ptr %569, align 8, !tbaa !420
   br label %_ZN7testing8internal26ParameterizedTestSuiteInfoIN12_GLOBAL__N_116SequenceLockTestEE25AddTestSuiteInstantiationENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFNS0_14ParamGeneratorIiEEvEPFSA_RKNS_13TestParamInfoIiEEEPKci.exit.i
 

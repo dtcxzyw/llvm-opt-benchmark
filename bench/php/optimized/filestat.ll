@@ -1744,7 +1744,7 @@ define dso_local void @php_stat(ptr noundef %0, i32 noundef %1, ptr noundef capt
 
 switch.lookup546:                                 ; preds = %.critedge
   %54 = zext nneg i32 %52 to i64
-  %switch.gep547 = getelementptr inbounds nuw i32, ptr @switch.table.php_stat.1, i64 %54
+  %switch.gep547 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.php_stat.1, i64 %54
   %switch.load548 = load i32, ptr %switch.gep547, align 4
   br label %55
 
@@ -2076,7 +2076,7 @@ zend_string_copy.exit406:                         ; preds = %zend_string_release
 
 178:                                              ; preds = %.lr.ph, %177
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %177 ]
-  %179 = getelementptr inbounds nuw i32, ptr %173, i64 %indvars.iv
+  %179 = getelementptr inbounds nuw [4 x i8], ptr %173, i64 %indvars.iv
   %180 = load i32, ptr %179, align 4, !tbaa !46
   %181 = icmp eq i32 %176, %180
   br i1 %181, label %._crit_edge, label %177
@@ -2511,7 +2511,7 @@ zend_string_copy.exit406:                         ; preds = %zend_string_release
 364:                                              ; preds = %320, %364
   %.0361524 = phi i64 [ 0, %320 ], [ %369, %364 ]
   %365 = load ptr, ptr %2, align 8, !tbaa !34
-  %366 = getelementptr inbounds nuw ptr, ptr %20, i64 %.0361524
+  %366 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.0361524
   %367 = load ptr, ptr %366, align 8, !tbaa !85
   %368 = call ptr @zend_hash_next_index_insert(ptr noundef %365, ptr noundef %367) #16
   %369 = add nuw nsw i64 %.0361524, 1
@@ -2521,10 +2521,10 @@ zend_string_copy.exit406:                         ; preds = %zend_string_release
 .preheader:                                       ; preds = %364, %.preheader
   %.1362525 = phi i64 [ %377, %.preheader ], [ 0, %364 ]
   %370 = load ptr, ptr %2, align 8, !tbaa !34
-  %371 = getelementptr inbounds nuw ptr, ptr @__const.php_stat.stat_sb_names, i64 %.1362525
+  %371 = getelementptr inbounds nuw [8 x i8], ptr @__const.php_stat.stat_sb_names, i64 %.1362525
   %372 = load ptr, ptr %371, align 8, !tbaa !71
   %373 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %372) #17
-  %374 = getelementptr inbounds nuw ptr, ptr %20, i64 %.1362525
+  %374 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.1362525
   %375 = load ptr, ptr %374, align 8, !tbaa !85
   %376 = call ptr @zend_hash_str_add_new(ptr noundef %370, ptr noundef nonnull %372, i64 noundef %373, ptr noundef %375) #16
   %377 = add nuw nsw i64 %.1362525, 1
@@ -2556,7 +2556,7 @@ zend_string_copy.exit406:                         ; preds = %zend_string_release
 
 switch.lookup:                                    ; preds = %.critedge395
   %381 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.php_stat, i64 %381
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.php_stat, i64 %381
   %switch.load = load i32, ptr %switch.gep, align 4
   %382 = call i32 @access(ptr noundef %.0359, i32 noundef %switch.load) #16
   %383 = icmp eq i32 %382, 0

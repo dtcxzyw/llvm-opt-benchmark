@@ -62,7 +62,7 @@ define internal void @mpegaudiodec_common_init_static() #0 {
   %6 = shl nuw nsw i8 %4, 2
   %7 = or disjoint i8 %6, %5
   %8 = zext nneg i8 %7 to i16
-  %9 = getelementptr inbounds nuw i16, ptr @ff_scale_factor_modshift, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [2 x i8], ptr @ff_scale_factor_modshift, i64 %indvars.iv
   store i16 %8, ptr %9, align 2, !tbaa !4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 64
@@ -95,7 +95,7 @@ define internal void @mpegaudiodec_common_init_static() #0 {
   %25 = select i1 %24, i16 16, i16 0
   %26 = or disjoint i16 %25, %20
   %27 = or disjoint i16 %26, %22
-  %28 = getelementptr inbounds nuw i16, ptr %2, i64 %indvars.iv107
+  %28 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %indvars.iv107
   store i16 %27, ptr %28, align 2, !tbaa !4
   %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next108, %wide.trip.count
@@ -104,7 +104,7 @@ define internal void @mpegaudiodec_common_init_static() #0 {
 29:                                               ; preds = %14
   %30 = call ptr @ff_vlc_init_tables_from_lengths(ptr noundef nonnull %1, i32 noundef 7, i32 noundef %13, ptr noundef %.07495, i32 noundef 1, ptr noundef nonnull %2, i32 noundef 2, i32 noundef 2, i32 noundef 0, i32 noundef 0) #9
   %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111, 1
-  %31 = getelementptr inbounds nuw ptr, ptr @ff_huff_vlc, i64 %indvars.iv.next112
+  %31 = getelementptr inbounds nuw [8 x i8], ptr @ff_huff_vlc, i64 %indvars.iv.next112
   store ptr %30, ptr %31, align 8, !tbaa !12
   %32 = getelementptr inbounds nuw i8, ptr %.07495, i64 %wide.trip.count
   %33 = getelementptr inbounds nuw i8, ptr %.096, i64 %wide.trip.count
@@ -118,8 +118,8 @@ define internal void @mpegaudiodec_common_init_static() #0 {
   %.07598 = phi i32 [ %42, %.preheader90 ], [ 0, %29 ]
   %35 = select i1 %34, i32 6, i32 4
   %36 = zext nneg i32 %.07598 to i64
-  %37 = getelementptr inbounds nuw %struct.VLCElem, ptr @huff_quad_vlc_tables, i64 %36
-  %38 = getelementptr inbounds nuw %struct.VLC, ptr @ff_huff_quad_vlc, i64 %indvars.iv115
+  %37 = getelementptr inbounds nuw [4 x i8], ptr @huff_quad_vlc_tables, i64 %36
+  %38 = getelementptr inbounds nuw [24 x i8], ptr @ff_huff_quad_vlc, i64 %indvars.iv115
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   store ptr %37, ptr %39, align 8, !tbaa !16
   %40 = shl nuw nsw i32 1, %35
@@ -133,7 +133,7 @@ define internal void @mpegaudiodec_common_init_static() #0 {
 
 .preheader88:                                     ; preds = %.preheader90, %48
   %indvars.iv122 = phi i64 [ %indvars.iv.next123, %48 ], [ 0, %.preheader90 ]
-  %46 = getelementptr inbounds nuw [23 x i16], ptr @ff_band_index_long, i64 %indvars.iv122
+  %46 = getelementptr inbounds nuw [46 x i8], ptr @ff_band_index_long, i64 %indvars.iv122
   %47 = getelementptr inbounds nuw [22 x i8], ptr @ff_band_size_long, i64 %indvars.iv122
   br label %51
 
@@ -149,7 +149,7 @@ define internal void @mpegaudiodec_common_init_static() #0 {
   %indvars.iv118 = phi i64 [ 0, %.preheader88 ], [ %indvars.iv.next119, %51 ]
   %.08199 = phi i32 [ 0, %.preheader88 ], [ %58, %51 ]
   %52 = trunc i32 %.08199 to i16
-  %53 = getelementptr inbounds nuw i16, ptr %46, i64 %indvars.iv118
+  %53 = getelementptr inbounds nuw [2 x i8], ptr %46, i64 %indvars.iv118
   store i16 %52, ptr %53, align 2, !tbaa !4
   %54 = getelementptr inbounds nuw i8, ptr %47, i64 %indvars.iv118
   %55 = load i8, ptr %54, align 1, !tbaa !10
@@ -167,7 +167,7 @@ define internal void @mpegaudiodec_common_init_static() #0 {
 
 .preheader87:                                     ; preds = %48, %.loopexit
   %indvars.iv131 = phi i64 [ %indvars.iv.next132, %.loopexit ], [ 0, %48 ]
-  %60 = getelementptr inbounds nuw i32, ptr @ff_mpa_quant_bits, i64 %indvars.iv131
+  %60 = getelementptr inbounds nuw [4 x i8], ptr @ff_mpa_quant_bits, i64 %indvars.iv131
   %61 = load i32, ptr %60, align 4, !tbaa !23
   %62 = icmp sgt i32 %61, -1
   %.not = icmp eq i32 %61, -30
@@ -177,9 +177,9 @@ define internal void @mpegaudiodec_common_init_static() #0 {
 .lr.ph:                                           ; preds = %.preheader87
   %63 = sub i32 1, %61
   %64 = shl nuw i32 1, %63
-  %65 = getelementptr inbounds nuw i32, ptr @ff_mpa_quant_steps, i64 %indvars.iv131
+  %65 = getelementptr inbounds nuw [4 x i8], ptr @ff_mpa_quant_steps, i64 %indvars.iv131
   %66 = load i32, ptr %65, align 4, !tbaa !23
-  %67 = getelementptr inbounds nuw ptr, ptr @ff_division_tabs, i64 %indvars.iv131
+  %67 = getelementptr inbounds nuw [8 x i8], ptr @ff_division_tabs, i64 %indvars.iv131
   %68 = load ptr, ptr %67, align 8, !tbaa !24
   %smax = call i32 @llvm.smax.i32(i32 %64, i32 1)
   %wide.trip.count129 = zext nneg i32 %smax to i64
@@ -197,7 +197,7 @@ define internal void @mpegaudiodec_common_init_static() #0 {
   %77 = shl i32 %74, 8
   %78 = add nsw i32 %76, %77
   %79 = trunc i32 %78 to i16
-  %80 = getelementptr inbounds nuw i16, ptr %68, i64 %indvars.iv126
+  %80 = getelementptr inbounds nuw [2 x i8], ptr %68, i64 %indvars.iv126
   store i16 %79, ptr %80, align 2, !tbaa !4
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 1
   %exitcond130.not = icmp eq i64 %indvars.iv.next127, %wide.trip.count129
@@ -244,7 +244,7 @@ define internal fastcc void @mpegaudiodec_common_tableinit() unnamed_addr #3 {
 13:                                               ; preds = %7, %3
   %.1 = phi nsz double [ %12, %7 ], [ %.014, %3 ]
   %14 = and i64 %indvars.iv, 3
-  %15 = getelementptr inbounds nuw double, ptr @mpegaudiodec_common_tableinit.exp2_lut, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr @mpegaudiodec_common_tableinit.exp2_lut, i64 %14
   %16 = load double, ptr %15, align 8, !tbaa !28
   %17 = fmul nsz double %.1, %16
   %18 = call nsz double @frexp(double noundef %17, ptr noundef nonnull %1) #9
@@ -252,7 +252,7 @@ define internal fastcc void @mpegaudiodec_common_tableinit() unnamed_addr #3 {
   %20 = tail call i64 @llvm.llrint.i64.f64(double %19)
   %21 = trunc i64 %20 to i32
   %22 = load i32, ptr %1, align 4, !tbaa !23
-  %23 = getelementptr inbounds nuw i32, ptr @ff_table_4_3_value, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [4 x i8], ptr @ff_table_4_3_value, i64 %indvars.iv
   store i32 %21, ptr %23, align 4, !tbaa !23
   %24 = trunc i32 %22 to i8
   %25 = sub i8 103, %24

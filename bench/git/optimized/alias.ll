@@ -365,7 +365,7 @@ st_mult.exit:                                     ; preds = %25
   %35 = phi ptr [ %33, %st_mult.exit ], [ %.pre, %.critedge._crit_edge ]
   %.280 = phi i64 [ %., %st_mult.exit ], [ %.078129, %.critedge._crit_edge ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 %12
-  %37 = getelementptr inbounds nuw ptr, ptr %35, i64 %.081128
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.081128
   store ptr %36, ptr %37, align 8, !tbaa !18
   br label %56
 
@@ -467,7 +467,7 @@ st_mult.exit116:                                  ; preds = %67
 74:                                               ; preds = %.thread150, %st_mult.exit116, %67
   %.081.lcssa144149155 = phi i64 [ %.283, %st_mult.exit116 ], [ %.283, %67 ], [ 1, %.thread150 ]
   %75 = phi ptr [ %73, %st_mult.exit116 ], [ %.pre134, %67 ], [ %.pre134154, %.thread150 ]
-  %76 = getelementptr inbounds nuw ptr, ptr %75, i64 %.081.lcssa144149155
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %.081.lcssa144149155
   store ptr null, ptr %76, align 8, !tbaa !18
   %77 = trunc nuw nsw i64 %.081.lcssa144149155 to i32
   br label %78
@@ -488,7 +488,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 define dso_local ptr @split_cmdline_strerror(i32 noundef %0) local_unnamed_addr #3 {
   %2 = xor i32 %0, -1
   %3 = sext i32 %2 to i64
-  %4 = getelementptr inbounds ptr, ptr @split_cmdline_errors, i64 %3
+  %4 = getelementptr inbounds [8 x i8], ptr @split_cmdline_errors, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !18
   ret ptr %5
 }

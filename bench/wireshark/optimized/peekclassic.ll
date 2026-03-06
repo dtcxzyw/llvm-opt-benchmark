@@ -156,13 +156,13 @@ define hidden range(i32 -1, 2) i32 @peekclassic_open(ptr noundef %0, ptr noundef
 
 switch.lookup:                                    ; preds = %38
   %67 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.peekclassic_open, i64 %67
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.peekclassic_open, i64 %67
   %switch.load = load ptr, ptr %switch.gep, align 8
   %68 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep130 = getelementptr inbounds nuw ptr, ptr @switch.table.peekclassic_open.2, i64 %68
+  %switch.gep130 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.peekclassic_open.2, i64 %68
   %switch.load131 = load ptr, ptr %switch.gep130, align 8
   %69 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep132 = getelementptr inbounds nuw ptr, ptr @switch.table.peekclassic_open.3, i64 %69
+  %switch.gep132 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.peekclassic_open.3, i64 %69
   %switch.load133 = load ptr, ptr %switch.gep132, align 8
   %70 = load i32, ptr %switch.load, align 4
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 20

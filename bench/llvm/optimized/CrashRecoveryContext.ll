@@ -163,9 +163,9 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %0
 
 8:                                                ; preds = %8, %4
   %indvars.iv.i = phi i64 [ 0, %4 ], [ %indvars.iv.next.i, %8 ]
-  %9 = getelementptr inbounds nuw i32, ptr @_ZL7Signals, i64 %indvars.iv.i
+  %9 = getelementptr inbounds nuw [4 x i8], ptr @_ZL7Signals, i64 %indvars.iv.i
   %10 = load i32, ptr %9, align 4, !tbaa !29
-  %11 = getelementptr inbounds nuw %struct.sigaction, ptr @_ZL11PrevActions, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [152 x i8], ptr @_ZL11PrevActions, i64 %indvars.iv.i
   %12 = call i32 @sigaction(i32 noundef %10, ptr noundef nonnull %1, ptr noundef nonnull %11) #19
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not.i = icmp eq i64 %indvars.iv.next.i, 6
@@ -200,9 +200,9 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %0
 
 4:                                                ; preds = %4, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %4 ]
-  %5 = getelementptr inbounds nuw i32, ptr @_ZL7Signals, i64 %indvars.iv.i
+  %5 = getelementptr inbounds nuw [4 x i8], ptr @_ZL7Signals, i64 %indvars.iv.i
   %6 = load i32, ptr %5, align 4, !tbaa !29
-  %7 = getelementptr inbounds nuw %struct.sigaction, ptr @_ZL11PrevActions, i64 %indvars.iv.i
+  %7 = getelementptr inbounds nuw [152 x i8], ptr @_ZL11PrevActions, i64 %indvars.iv.i
   %8 = tail call i32 @sigaction(i32 noundef %6, ptr noundef nonnull %7, ptr noundef null) #19
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %.not.i = icmp eq i64 %indvars.iv.next.i, 6
@@ -487,9 +487,9 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit.i:        ; preds = %5
 
 9:                                                ; preds = %9, %8
   %indvars.iv.i.i = phi i64 [ 0, %8 ], [ %indvars.iv.next.i.i, %9 ]
-  %10 = getelementptr inbounds nuw i32, ptr @_ZL7Signals, i64 %indvars.iv.i.i
+  %10 = getelementptr inbounds nuw [4 x i8], ptr @_ZL7Signals, i64 %indvars.iv.i.i
   %11 = load i32, ptr %10, align 4, !tbaa !29
-  %12 = getelementptr inbounds nuw %struct.sigaction, ptr @_ZL11PrevActions, i64 %indvars.iv.i.i
+  %12 = getelementptr inbounds nuw [152 x i8], ptr @_ZL11PrevActions, i64 %indvars.iv.i.i
   %13 = tail call i32 @sigaction(i32 noundef %11, ptr noundef nonnull %12, ptr noundef null) #19
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 6

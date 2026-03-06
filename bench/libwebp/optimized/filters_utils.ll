@@ -68,16 +68,16 @@ define hidden i32 @WebPEstimateBestFilter(ptr noundef readonly captures(none) %0
   %49 = tail call i32 @llvm.abs.i32(i32 %48, i1 true)
   %50 = lshr i32 %49, 4
   %51 = zext nneg i32 %27 to i64
-  %52 = getelementptr inbounds nuw i32, ptr %5, i64 %51
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %51
   store i32 1, ptr %52, align 4, !tbaa !6
   %53 = zext nneg i32 %33 to i64
-  %54 = getelementptr inbounds nuw i32, ptr %9, i64 %53
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %53
   store i32 1, ptr %54, align 4, !tbaa !6
   %55 = zext nneg i32 %40 to i64
-  %56 = getelementptr inbounds nuw i32, ptr %10, i64 %55
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %55
   store i32 1, ptr %56, align 4, !tbaa !6
   %57 = zext nneg i32 %50 to i64
-  %58 = getelementptr inbounds nuw i32, ptr %11, i64 %57
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %57
   store i32 1, ptr %58, align 4, !tbaa !6
   %59 = mul nuw nsw i32 %.06064.us, 3
   %60 = add nuw nsw i32 %59, 2
@@ -99,13 +99,13 @@ define hidden i32 @WebPEstimateBestFilter(ptr noundef readonly captures(none) %0
   %indvars.iv82 = phi i64 [ %indvars.iv.next83, %72 ], [ 0, %.preheader.preheader ]
   %.05273 = phi i32 [ %spec.select62, %72 ], [ 2147483647, %.preheader.preheader ]
   %.05472 = phi i32 [ %spec.select61, %72 ], [ 0, %.preheader.preheader ]
-  %65 = getelementptr inbounds nuw [16 x i32], ptr %5, i64 %indvars.iv82
+  %65 = getelementptr inbounds nuw [64 x i8], ptr %5, i64 %indvars.iv82
   br label %66
 
 66:                                               ; preds = %.preheader, %66
   %indvars.iv79 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next80, %66 ]
   %.070 = phi i32 [ 0, %.preheader ], [ %spec.select, %66 ]
-  %67 = getelementptr inbounds nuw i32, ptr %65, i64 %indvars.iv79
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %indvars.iv79
   %68 = load i32, ptr %67, align 4, !tbaa !6
   %69 = icmp sgt i32 %68, 0
   %70 = trunc nuw nsw i64 %indvars.iv79 to i32

@@ -4,8 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 %"struct.hermes::vm::VTable" = type { i64, i32, i32, ptr, ptr, ptr, ptr }
-%"class.hermes::vm::GCHermesValueBase.177" = type { %"class.hermes::vm::HermesValue32" }
-%"class.hermes::vm::HermesValue32" = type { i32 }
 
 @_ZN6hermes2vm12HashMapEntry2vtE = hidden constant %"struct.hermes::vm::VTable" { i64 -47381121442796770, i32 22, i32 40, ptr null, ptr null, ptr null, ptr null }, align 8
 @.str = private unnamed_addr constant [4 x i8] c"key\00", align 1
@@ -370,7 +368,7 @@ entry:
   %1 = inttoptr i64 %add.i.i.i to ptr
   %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %idxprom.i = zext i32 %bucket to i64
-  %arrayidx.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.177", ptr %add.ptr.i.i.i.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [4 x i8], ptr %add.ptr.i.i.i.i, i64 %idxprom.i
   %retval.sroa.0.0.copyload.i = load i32, ptr %arrayidx.i, align 4
   switch i32 %retval.sroa.0.0.copyload.i, label %while.cond.preheader [
     i32 7, label %while.end
@@ -610,7 +608,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %add.i.i.i84 = add i64 %conv.i.i.i83, %23
   %27 = inttoptr i64 %add.i.i.i84 to ptr
   %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %arrayidx.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.177", ptr %add.ptr.i.i.i.i, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds nuw [4 x i8], ptr %add.ptr.i.i.i.i, i64 %indvars.iv
   %retval.sroa.0.0.copyload.i = load i32, ptr %arrayidx.i, align 4
   %cmp.i.i85 = icmp eq i32 %retval.sroa.0.0.copyload.i, 7
   %cmp.i.not.i.i.i.i.i = icmp eq i32 %retval.sroa.0.0.copyload.i, 0
@@ -626,7 +624,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
 
 while.body:                                       ; preds = %for.body, %_ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE3setILNS3_6InlineE0EEEvjS2_RNS0_7HadesGCE.exit
   %30 = load ptr, ptr %chunks_.i.i, align 8
-  %arrayidx.i17.i.i = getelementptr inbounds nuw ptr, ptr %30, i64 %conv.i.i
+  %arrayidx.i17.i.i = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %conv.i.i
   %31 = load ptr, ptr %arrayidx.i17.i.i, align 8
   %add.ptr.i.i = getelementptr inbounds nuw i8, ptr %31, i64 128
   store i32 %21, ptr %curChunkIndex_.i.i, align 8
@@ -663,7 +661,7 @@ while.body:                                       ; preds = %for.body, %_ZN6herm
   %38 = inttoptr i64 %and.i.i.i.i.i98 to ptr
   %add.ptr.i.i.i.i99 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %idxprom.i100 = zext i32 %conv7.i to i64
-  %arrayidx.i101 = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.177", ptr %add.ptr.i.i.i.i99, i64 %idxprom.i100
+  %arrayidx.i101 = getelementptr inbounds nuw [4 x i8], ptr %add.ptr.i.i.i.i99, i64 %idxprom.i100
   %retval.sroa.0.0.copyload.i102 = load i32, ptr %arrayidx.i101, align 4
   %cmp.i103 = icmp eq i32 %retval.sroa.0.0.copyload.i102, 7
   %agg.tmp.sroa.0.0.copyload.i.i104 = load i64, ptr %retval.0.i.i.i.i.i.i55, align 8
@@ -727,7 +725,7 @@ if.end96:                                         ; preds = %if.then3.i.i, %if.t
   %sub.i.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i, %23
   %conv.i.i.i.i.i125 = trunc i64 %sub.i.i.i.i.i to i32
   %add.ptr.i.i.i.i127 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %arrayidx.i129 = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.177", ptr %add.ptr.i.i.i.i127, i64 %idxprom.i100
+  %arrayidx.i129 = getelementptr inbounds nuw [4 x i8], ptr %add.ptr.i.i.i.i127, i64 %idxprom.i100
   %51 = load ptr, ptr %youngGen_.i.i.i.i, align 8
   %52 = ptrtoint ptr %arrayidx.i129 to i64
   %and.i.i.i.i.i131 = and i64 %52, 1125899902648320
@@ -784,7 +782,7 @@ _ZN6hermes2vm9GCPointerINS0_16ArrayStorageBaseINS0_13HermesValue32EEEE10setNonNu
   %chunks_.i.i.i = getelementptr inbounds nuw i8, ptr %19, i64 144
   %conv.i.i.i148 = zext i32 %21 to i64
   %58 = load ptr, ptr %chunks_.i.i.i, align 8
-  %arrayidx.i17.i.i.i = getelementptr inbounds nuw ptr, ptr %58, i64 %conv.i.i.i148
+  %arrayidx.i17.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %conv.i.i.i148
   %59 = load ptr, ptr %arrayidx.i17.i.i.i, align 8
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %59, i64 128
   store i32 %21, ptr %curChunkIndex_.i.i, align 8
@@ -819,7 +817,7 @@ entry:
   %4 = inttoptr i64 %add.i.i.i.i to ptr
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %idxprom.i.i = zext i32 %conv7.i to i64
-  %arrayidx.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.177", ptr %add.ptr.i.i.i.i.i, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [4 x i8], ptr %add.ptr.i.i.i.i.i, i64 %idxprom.i.i
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %arrayidx.i.i, align 4
   switch i32 %retval.sroa.0.0.copyload.i.i, label %while.cond.preheader.i [
     i32 7, label %_ZN6hermes2vm14OrderedHashMap14lookupInBucketERNS0_7RuntimeEjNS0_11HermesValueE.exit
@@ -881,7 +879,7 @@ entry:
   %4 = inttoptr i64 %add.i.i.i.i to ptr
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %idxprom.i.i = zext i32 %conv7.i to i64
-  %arrayidx.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.177", ptr %add.ptr.i.i.i.i.i, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [4 x i8], ptr %add.ptr.i.i.i.i.i, i64 %idxprom.i.i
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %arrayidx.i.i, align 4
   switch i32 %retval.sroa.0.0.copyload.i.i, label %while.cond.preheader.i [
     i32 7, label %_ZN6hermes2vm14OrderedHashMap14lookupInBucketERNS0_7RuntimeEjNS0_11HermesValueE.exit
@@ -938,7 +936,7 @@ entry:
   %4 = inttoptr i64 %add.i.i.i.i.i to ptr
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %idxprom.i.i.i = zext i32 %conv7.i.i to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.177", ptr %add.ptr.i.i.i.i.i.i, i64 %idxprom.i.i.i
+  %arrayidx.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %add.ptr.i.i.i.i.i.i, i64 %idxprom.i.i.i
   %retval.sroa.0.0.copyload.i.i.i = load i32, ptr %arrayidx.i.i.i, align 4
   switch i32 %retval.sroa.0.0.copyload.i.i.i, label %while.cond.preheader.i.i [
     i32 7, label %return
@@ -1000,7 +998,7 @@ entry:
   %4 = inttoptr i64 %add.i.i.i.i to ptr
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %idxprom.i.i = zext i32 %conv7.i to i64
-  %arrayidx.i.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.177", ptr %add.ptr.i.i.i.i.i, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [4 x i8], ptr %add.ptr.i.i.i.i.i, i64 %idxprom.i.i
   %retval.sroa.0.0.copyload.i.i = load i32, ptr %arrayidx.i.i, align 4
   switch i32 %retval.sroa.0.0.copyload.i.i, label %while.cond.preheader.i [
     i32 7, label %if.end
@@ -1152,7 +1150,7 @@ _ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE3setISt17integral_constantIb
   %add.i.i.i = add i64 %conv.i.i.i, %3
   %23 = inttoptr i64 %add.i.i.i to ptr
   %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %arrayidx.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.177", ptr %add.ptr.i.i.i.i, i64 %idxprom.i.i
+  %arrayidx.i = getelementptr inbounds nuw [4 x i8], ptr %add.ptr.i.i.i.i, i64 %idxprom.i.i
   %retval.sroa.0.0.copyload.i58 = load i32, ptr %arrayidx.i, align 4
   %retval.sroa.0.0.copyload.i58.fr = freeze i32 %retval.sroa.0.0.copyload.i58
   %conv.i.i.i.i.i.i61 = zext i32 %retval.sroa.0.0.copyload.i58.fr to i64
@@ -1201,7 +1199,7 @@ if.end59:                                         ; preds = %switch.early.test, 
   %sub.i.i.i.i.i = sub i64 %retval.sroa.0.0.copyload.i.i.i, %3
   %conv.i.i.i.i.i = trunc i64 %sub.i.i.i.i.i to i32
   %add.ptr.i.i.i.i75 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %arrayidx.i77 = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.177", ptr %add.ptr.i.i.i.i75, i64 %idxprom.i.i
+  %arrayidx.i77 = getelementptr inbounds nuw [4 x i8], ptr %add.ptr.i.i.i.i75, i64 %idxprom.i.i
   %30 = load ptr, ptr %youngGen_.i.i.i41, align 8
   %31 = ptrtoint ptr %arrayidx.i77 to i64
   %and.i.i.i.i.i79 = and i64 %31, -4194304
@@ -1407,7 +1405,7 @@ entry:
   %4 = inttoptr i64 %add.i.i.i to ptr
   %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %idxprom.i = zext i32 %conv7.i to i64
-  %arrayidx.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.177", ptr %add.ptr.i.i.i.i, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [4 x i8], ptr %add.ptr.i.i.i.i, i64 %idxprom.i
   %retval.sroa.0.0.copyload.i = load i32, ptr %arrayidx.i, align 4
   switch i32 %retval.sroa.0.0.copyload.i, label %while.cond.preheader [
     i32 7, label %return
@@ -1494,7 +1492,7 @@ if.else:                                          ; preds = %if.end
   %cmp.i.i37.not = icmp eq i32 %11, 0
   %spec.select71 = select i1 %cmp.i.i37.not, i32 7, i32 %11
   %add.ptr.i.i.i.i39 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %arrayidx.i41 = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.177", ptr %add.ptr.i.i.i.i39, i64 %idxprom.i
+  %arrayidx.i41 = getelementptr inbounds nuw [4 x i8], ptr %add.ptr.i.i.i.i39, i64 %idxprom.i
   %youngGen_.i.i.i.i42 = getelementptr inbounds nuw i8, ptr %runtime, i64 1640
   %12 = load ptr, ptr %youngGen_.i.i.i.i42, align 8
   %13 = ptrtoint ptr %arrayidx.i41 to i64
@@ -1670,7 +1668,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %add.i.i.i = add i64 %conv.i.i.i, %2
   %3 = inttoptr i64 %add.i.i.i to ptr
   %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %arrayidx.i = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.177", ptr %add.ptr.i.i.i.i, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds nuw [4 x i8], ptr %add.ptr.i.i.i.i, i64 %indvars.iv
   %retval.sroa.0.0.copyload.i = load i32, ptr %arrayidx.i, align 4
   switch i32 %retval.sroa.0.0.copyload.i, label %while.cond.preheader [
     i32 7, label %while.end
@@ -1741,7 +1739,7 @@ while.end.loopexit:                               ; preds = %_ZN6hermes2vm12Hash
 while.end:                                        ; preds = %for.body, %for.body, %while.end.loopexit, %while.cond.preheader
   %.pre-phi = phi ptr [ %.pre57, %while.end.loopexit ], [ %3, %while.cond.preheader ], [ %3, %for.body ], [ %3, %for.body ]
   %add.ptr.i.i.i.i22 = getelementptr inbounds nuw i8, ptr %.pre-phi, i64 8
-  %arrayidx.i24 = getelementptr inbounds nuw %"class.hermes::vm::GCHermesValueBase.177", ptr %add.ptr.i.i.i.i22, i64 %indvars.iv
+  %arrayidx.i24 = getelementptr inbounds nuw [4 x i8], ptr %add.ptr.i.i.i.i22, i64 %indvars.iv
   %12 = load ptr, ptr %youngGen_.i.i.i.i, align 8
   %13 = ptrtoint ptr %arrayidx.i24 to i64
   %and.i.i.i.i.i26 = and i64 %13, -4194304

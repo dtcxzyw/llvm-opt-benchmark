@@ -402,7 +402,7 @@ define internal void @_ZNK4ncnn19Quantize_x86_avx5127forwardERKNS_3MatERS1_RKNS_
   %26 = load i32, ptr %5, align 4, !tbaa !20
   %27 = mul nsw i32 %26, %24
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds float, ptr %25, i64 %28
+  %29 = getelementptr inbounds [4 x i8], ptr %25, i64 %28
   %30 = load ptr, ptr %6, align 8, !tbaa !16
   %31 = getelementptr inbounds i8, ptr %30, i64 %28
   %32 = load i32, ptr %7, align 4, !tbaa !20

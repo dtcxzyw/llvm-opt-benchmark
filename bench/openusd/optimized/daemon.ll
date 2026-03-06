@@ -70,7 +70,7 @@ define noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__17ArchCloseAllFilesEiPK
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.052 = phi i32 [ -1, %.lr.ph.preheader ], [ %spec.select, %.lr.ph ]
-  %18 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %19 = load i32, ptr %18, align 4
   %spec.select = call i32 @llvm.smax.i32(i32 %.052, i32 %19)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -91,7 +91,7 @@ define noundef i32 @_ZN32pxrInternal_v0_24__pxrReserved__17ArchCloseAllFilesEiPK
 
 .preheader:                                       ; preds = %.lr.ph63.split, %20
   %indvars.iv74 = phi i64 [ %indvars.iv.next75, %20 ], [ 0, %.lr.ph63.split ]
-  %21 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv74
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv74
   %22 = load i32, ptr %21, align 4
   %23 = icmp eq i32 %22, %.12960
   br i1 %23, label %.critedge44, label %20

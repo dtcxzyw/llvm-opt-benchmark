@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.FT_Glyph_Class_ = type { i64, i32, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.FT_Vector_ = type { i64, i64 }
-%struct.FT_StrokeBorderRec_ = type { i32, i32, ptr, ptr, i8, i32, ptr, i8 }
 
 @ft_outline_glyph_class = external constant %struct.FT_Glyph_Class_, align 8
 
@@ -349,9 +348,9 @@ define internal fastcc i32 @ft_stroker_subpath_start(ptr noundef nonnull capture
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %29 = load ptr, ptr %28, align 8, !tbaa !34
   %30 = zext nneg i32 %21 to i64
-  %31 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %29, i64 %30
   %32 = zext i32 %27 to i64
-  %33 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %29, i64 %32
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %29, i64 %32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 8 dereferenceable(16) %33, i64 16, i1 false), !tbaa.struct !46
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %35 = load ptr, ptr %34, align 8, !tbaa !35
@@ -414,9 +413,9 @@ ft_stroke_border_moveto.exit:                     ; preds = %3, %25, %26
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %69 = load ptr, ptr %68, align 8, !tbaa !34
   %70 = zext nneg i32 %61 to i64
-  %71 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %69, i64 %70
+  %71 = getelementptr inbounds nuw [16 x i8], ptr %69, i64 %70
   %72 = zext i32 %67 to i64
-  %73 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %69, i64 %72
+  %73 = getelementptr inbounds nuw [16 x i8], ptr %69, i64 %72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %71, ptr noundef nonnull align 8 dereferenceable(16) %73, i64 16, i1 false), !tbaa.struct !46
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %75 = load ptr, ptr %74, align 8, !tbaa !35
@@ -479,7 +478,7 @@ define internal fastcc i32 @ft_stroker_process_corner(ptr noundef nonnull captur
 15:                                               ; preds = %2
   %.lobit = lshr i64 %13, 63
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %17 = getelementptr inbounds nuw %struct.FT_StrokeBorderRec_, ptr %16, i64 %.lobit
+  %17 = getelementptr inbounds nuw [48 x i8], ptr %16, i64 %.lobit
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
@@ -570,7 +569,7 @@ ft_stroker_inside.exit:                           ; preds = %.critedge.i, %53
 70:                                               ; preds = %ft_stroker_inside.exit
   %71 = icmp sgt i64 %13, -1
   %72 = zext i1 %71 to i64
-  %73 = getelementptr inbounds nuw %struct.FT_StrokeBorderRec_, ptr %16, i64 %72
+  %73 = getelementptr inbounds nuw [48 x i8], ptr %16, i64 %72
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %75 = load i32, ptr %74, align 8, !tbaa !30
   %76 = icmp eq i32 %75, 0
@@ -801,7 +800,7 @@ define internal fastcc i32 @ft_stroke_border_lineto(ptr noundef nonnull captures
   %10 = load i32, ptr %0, align 8, !tbaa !33
   %11 = add i32 %10, -1
   %12 = zext i32 %11 to i64
-  %13 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %9, i64 %12
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !46
   br label %73
 
@@ -817,7 +816,7 @@ define internal fastcc i32 @ft_stroke_border_lineto(ptr noundef nonnull captures
   %21 = load ptr, ptr %20, align 8, !tbaa !34
   %22 = add i32 %15, -1
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %21, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %21, i64 %23
   %25 = load i64, ptr %24, align 8, !tbaa !37
   %26 = load i64, ptr %1, align 8, !tbaa !37
   %27 = add i64 %25, 1
@@ -899,7 +898,7 @@ ft_stroke_border_grow.exit:                       ; preds = %49, %56
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %67 = load ptr, ptr %66, align 8, !tbaa !34
   %68 = zext i32 %65 to i64
-  %69 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %67, i64 %68
+  %69 = getelementptr inbounds nuw [16 x i8], ptr %67, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %64, i64 %68
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %69, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !46
   store i8 1, ptr %70, align 1, !tbaa !49
@@ -1207,7 +1206,7 @@ ft_conic_is_small_enough.exit:                    ; preds = %81, %78, %79, %83
   %170 = load i32, ptr %.0124208, align 8, !tbaa !33
   %171 = add i32 %170, -1
   %172 = zext i32 %171 to i64
-  %173 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %169, i64 %172
+  %173 = getelementptr inbounds nuw [16 x i8], ptr %169, i64 %172
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %173, i64 16, i1 false), !tbaa.struct !46
   %174 = load i64, ptr %7, align 8, !tbaa !37
   %175 = sub nsw i64 %162, %174
@@ -1403,7 +1402,7 @@ ft_stroke_border_grow.exit:                       ; preds = %18, %25
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = load ptr, ptr %35, align 8, !tbaa !34
   %37 = zext i32 %34 to i64
-  %38 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %36, i64 %37
+  %38 = getelementptr inbounds nuw [16 x i8], ptr %36, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %33, i64 %37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !46
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 16
@@ -1811,7 +1810,7 @@ ft_cubic_is_small_enough.exit:                    ; preds = %118, %112, %106, %1
   %241 = load i32, ptr %.0143247, align 8, !tbaa !33
   %242 = add i32 %241, -1
   %243 = zext i32 %242 to i64
-  %244 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %240, i64 %243
+  %244 = getelementptr inbounds nuw [16 x i8], ptr %240, i64 %243
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %9, ptr noundef nonnull align 8 dereferenceable(16) %244, i64 16, i1 false), !tbaa.struct !46
   %245 = load i64, ptr %9, align 8, !tbaa !37
   %246 = sub nsw i64 %233, %245
@@ -1999,7 +1998,7 @@ ft_stroke_border_grow.exit:                       ; preds = %19, %26
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %37 = load ptr, ptr %36, align 8, !tbaa !34
   %38 = zext i32 %35 to i64
-  %39 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %37, i64 %38
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %37, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %34, i64 %38
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !46
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 16
@@ -2175,7 +2174,7 @@ define i32 @FT_Stroker_EndSubPath(ptr noundef %0) local_unnamed_addr #0 {
   %59 = getelementptr inbounds nuw i8, ptr %48, i64 %58
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %61 = load ptr, ptr %60, align 8, !tbaa !34
-  %62 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %61, i64 %58
+  %62 = getelementptr inbounds nuw [16 x i8], ptr %61, i64 %58
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
@@ -2194,7 +2193,7 @@ define i32 @FT_Stroker_EndSubPath(ptr noundef %0) local_unnamed_addr #0 {
   %67 = load ptr, ptr %50, align 8, !tbaa !34
   %68 = load i32, ptr %14, align 4, !tbaa !24
   %69 = sext i32 %68 to i64
-  %70 = getelementptr inbounds %struct.FT_Vector_, ptr %67, i64 %69
+  %70 = getelementptr inbounds [16 x i8], ptr %67, i64 %69
   %.not47.i = icmp ult ptr %.042.i, %70
   br i1 %.not47.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !58
 
@@ -2248,9 +2247,9 @@ ft_stroker_add_reverse_left.exit:                 ; preds = %32, %39
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %92 = load ptr, ptr %91, align 8, !tbaa !34
   %93 = zext i32 %85 to i64
-  %94 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %92, i64 %93
+  %94 = getelementptr inbounds nuw [16 x i8], ptr %92, i64 %93
   %95 = zext i32 %90 to i64
-  %96 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %92, i64 %95
+  %96 = getelementptr inbounds nuw [16 x i8], ptr %92, i64 %95
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %94, ptr noundef nonnull align 8 dereferenceable(16) %96, i64 16, i1 false), !tbaa.struct !46
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %98 = load ptr, ptr %97, align 8, !tbaa !35
@@ -2333,9 +2332,9 @@ ft_stroke_border_close.exit:                      ; preds = %88, %89
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %146 = load ptr, ptr %145, align 8, !tbaa !34
   %147 = zext i32 %139 to i64
-  %148 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %146, i64 %147
+  %148 = getelementptr inbounds nuw [16 x i8], ptr %146, i64 %147
   %149 = zext i32 %144 to i64
-  %150 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %146, i64 %149
+  %150 = getelementptr inbounds nuw [16 x i8], ptr %146, i64 %149
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %148, ptr noundef nonnull align 8 dereferenceable(16) %150, i64 16, i1 false), !tbaa.struct !46
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %152 = load ptr, ptr %151, align 8, !tbaa !35
@@ -2379,9 +2378,9 @@ ft_stroke_border_close.exit54:                    ; preds = %142, %143
   %175 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %176 = load ptr, ptr %175, align 8, !tbaa !34
   %177 = zext i32 %169 to i64
-  %178 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %176, i64 %177
+  %178 = getelementptr inbounds nuw [16 x i8], ptr %176, i64 %177
   %179 = zext i32 %174 to i64
-  %180 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %176, i64 %179
+  %180 = getelementptr inbounds nuw [16 x i8], ptr %176, i64 %179
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %178, ptr noundef nonnull align 8 dereferenceable(16) %180, i64 16, i1 false), !tbaa.struct !46
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %182 = load ptr, ptr %181, align 8, !tbaa !35
@@ -2557,7 +2556,7 @@ define range(i32 0, 7) i32 @FT_Stroker_GetBorderCounts(ptr noundef captures(addr
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %9 = zext nneg i32 %1 to i64
-  %10 = getelementptr inbounds nuw %struct.FT_StrokeBorderRec_, ptr %8, i64 %9
+  %10 = getelementptr inbounds nuw [48 x i8], ptr %8, i64 %9
   %11 = load i32, ptr %10, align 8, !tbaa !33
   %.not35.i = icmp eq i32 %11, 0
   br i1 %.not35.i, label %._crit_edge.thread.i, label %.lr.ph.preheader.i
@@ -2754,7 +2753,7 @@ define void @FT_Stroker_ExportBorder(ptr noundef readonly captures(address_is_nu
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %8 = zext nneg i32 %1 to i64
-  %9 = getelementptr inbounds nuw %struct.FT_StrokeBorderRec_, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [48 x i8], ptr %7, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
   %11 = load i8, ptr %10, align 8, !tbaa !25
   %.not = icmp eq i8 %11, 0
@@ -2776,7 +2775,7 @@ define void @FT_Stroker_ExportBorder(ptr noundef readonly captures(address_is_nu
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 2
   %20 = load i16, ptr %19, align 2, !tbaa !64
   %21 = zext i16 %20 to i64
-  %22 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %18, i64 %21
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %18, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %24 = load ptr, ptr %23, align 8, !tbaa !34
   %25 = zext i32 %13 to i64
@@ -2824,7 +2823,7 @@ define void @FT_Stroker_ExportBorder(ptr noundef readonly captures(address_is_nu
   %40 = load ptr, ptr %39, align 8, !tbaa !71
   %41 = load i16, ptr %2, align 8, !tbaa !72
   %42 = zext i16 %41 to i64
-  %43 = getelementptr inbounds nuw i16, ptr %40, i64 %42
+  %43 = getelementptr inbounds nuw [2 x i8], ptr %40, i64 %42
   br label %.lr.ph54.i
 
 .lr.ph54.i:                                       ; preds = %50, %.lr.ph54.preheader.i
@@ -2900,7 +2899,7 @@ define void @FT_Stroker_Export(ptr noundef readonly captures(address_is_null) %0
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %17 = load i16, ptr %16, align 2, !tbaa !64
   %18 = zext i16 %17 to i64
-  %19 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %15, i64 %18
+  %19 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %21 = load ptr, ptr %20, align 8, !tbaa !34
   %22 = zext i32 %10 to i64
@@ -2948,7 +2947,7 @@ define void @FT_Stroker_Export(ptr noundef readonly captures(address_is_null) %0
   %37 = load ptr, ptr %36, align 8, !tbaa !71
   %38 = load i16, ptr %1, align 8, !tbaa !72
   %39 = zext i16 %38 to i64
-  %40 = getelementptr inbounds nuw i16, ptr %37, i64 %39
+  %40 = getelementptr inbounds nuw [2 x i8], ptr %37, i64 %39
   br label %.lr.ph54.i.i
 
 .lr.ph54.i.i:                                     ; preds = %47, %.lr.ph54.preheader.i.i
@@ -3013,7 +3012,7 @@ FT_Stroker_ExportBorder.exit.thread:              ; preds = %FT_Stroker_ExportBo
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %64 = load i16, ptr %63, align 2, !tbaa !64
   %65 = zext i16 %64 to i64
-  %66 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %62, i64 %65
+  %66 = getelementptr inbounds nuw [16 x i8], ptr %62, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %68 = load ptr, ptr %67, align 8, !tbaa !34
   %69 = zext i32 %57 to i64
@@ -3061,7 +3060,7 @@ FT_Stroker_ExportBorder.exit.thread:              ; preds = %FT_Stroker_ExportBo
   %84 = load ptr, ptr %83, align 8, !tbaa !71
   %85 = load i16, ptr %1, align 8, !tbaa !72
   %86 = zext i16 %85 to i64
-  %87 = getelementptr inbounds nuw i16, ptr %84, i64 %86
+  %87 = getelementptr inbounds nuw [2 x i8], ptr %84, i64 %86
   br label %.lr.ph54.i.i24
 
 .lr.ph54.i.i24:                                   ; preds = %94, %.lr.ph54.preheader.i.i22
@@ -3167,7 +3166,7 @@ FT_Stroker_Rewind.exit:                           ; preds = %12
   %.081176 = phi i32 [ -1, %.lr.ph177 ], [ %40, %125 ]
   %36 = add nsw i32 %.081176, 1
   %37 = load ptr, ptr %20, align 8, !tbaa !71
-  %38 = getelementptr inbounds nuw i16, ptr %37, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [2 x i8], ptr %37, i64 %indvars.iv
   %39 = load i16, ptr %38, align 2, !tbaa !73
   %40 = zext i16 %39 to i32
   %.not114 = icmp slt i32 %36, %40
@@ -3176,9 +3175,9 @@ FT_Stroker_Rewind.exit:                           ; preds = %12
 41:                                               ; preds = %35
   %42 = load ptr, ptr %21, align 8, !tbaa !68
   %43 = zext i16 %39 to i64
-  %44 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %42, i64 %43
   %45 = zext nneg i32 %36 to i64
-  %46 = getelementptr inbounds nuw %struct.FT_Vector_, ptr %42, i64 %45
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %42, i64 %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %46, i64 16, i1 false), !tbaa.struct !46
   %.sroa.0.0.copyload = load i64, ptr %44, align 8, !tbaa !47
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %44, i64 8
@@ -3643,7 +3642,7 @@ define i32 @FT_Glyph_StrokeBorder(ptr noundef captures(address_is_null) %0, ptr 
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %23 = zext i1 %.036.v to i64
-  %24 = getelementptr inbounds nuw %struct.FT_StrokeBorderRec_, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [48 x i8], ptr %22, i64 %23
   %25 = load i32, ptr %24, align 8, !tbaa !33
   %.not35.i.i = icmp eq i32 %25, 0
   br i1 %.not35.i.i, label %._crit_edge.thread.i.i, label %.lr.ph.preheader.i.i
@@ -3754,7 +3753,7 @@ define internal fastcc i32 @ft_stroker_arcto(ptr noundef nonnull captures(none) 
   %.neg = mul nuw nsw i64 %14, -11796480
   %17 = add nsw i64 %.neg, 5898240
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %19 = getelementptr inbounds nuw %struct.FT_StrokeBorderRec_, ptr %18, i64 %14
+  %19 = getelementptr inbounds nuw [48 x i8], ptr %18, i64 %14
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = add nsw i64 %17, %13
   %smax = tail call i64 @llvm.abs.i64(i64 %.0, i1 false)

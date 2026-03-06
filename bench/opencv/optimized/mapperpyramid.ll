@@ -362,7 +362,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_ZNSt6vectorIN
 .noexc64:                                         ; preds = %_ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i
   store ptr %137, ptr %12, align 8, !tbaa !40
   %138 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  %139 = getelementptr inbounds nuw %"class.cv::Mat", ptr %137, i64 %133
+  %139 = getelementptr inbounds nuw [96 x i8], ptr %137, i64 %133
   %140 = getelementptr inbounds nuw i8, ptr %12, i64 16
   store ptr %139, ptr %140, align 8, !tbaa !43
   br label %.lr.ph.i.i.i.i.i
@@ -410,7 +410,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i67: ; preds = %_ZNSt6vector
   store ptr %149, ptr %13, align 8, !tbaa !40
   %150 = getelementptr inbounds nuw i8, ptr %13, i64 8
   store ptr %149, ptr %150, align 8, !tbaa !46
-  %151 = getelementptr inbounds nuw %"class.cv::Mat", ptr %149, i64 %143
+  %151 = getelementptr inbounds nuw [96 x i8], ptr %149, i64 %143
   %152 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %151, ptr %152, align 8, !tbaa !43
   br label %.lr.ph.i.i.i.i.i68
@@ -503,13 +503,13 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i67: ; preds = %_ZNSt6vector
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %202 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   %196 = add nsw i64 %indvars.iv, -1
-  %197 = getelementptr inbounds nuw %"class.cv::Mat", ptr %155, i64 %196
+  %197 = getelementptr inbounds nuw [96 x i8], ptr %155, i64 %196
   store i32 0, ptr %163, align 8, !tbaa !47
   store i32 0, ptr %164, align 4, !tbaa !48
   store i32 16842752, ptr %14, align 8, !tbaa !28
   store ptr %197, ptr %165, align 8, !tbaa !22
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %198 = getelementptr inbounds nuw %"class.cv::Mat", ptr %155, i64 %indvars.iv
+  %198 = getelementptr inbounds nuw [96 x i8], ptr %155, i64 %indvars.iv
   store i64 0, ptr %167, align 8
   store i32 33619968, ptr %15, align 8, !tbaa !28
   store ptr %198, ptr %166, align 8, !tbaa !22
@@ -524,13 +524,13 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EEC2EmRKS2_.exit.i67: ; preds = %_ZNSt6vector
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  %200 = getelementptr inbounds nuw %"class.cv::Mat", ptr %156, i64 %196
+  %200 = getelementptr inbounds nuw [96 x i8], ptr %156, i64 %196
   store i32 0, ptr %169, align 8, !tbaa !47
   store i32 0, ptr %170, align 4, !tbaa !48
   store i32 16842752, ptr %17, align 8, !tbaa !28
   store ptr %200, ptr %171, align 8, !tbaa !22
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  %201 = getelementptr inbounds nuw %"class.cv::Mat", ptr %156, i64 %indvars.iv
+  %201 = getelementptr inbounds nuw [96 x i8], ptr %156, i64 %indvars.iv
   store i64 0, ptr %173, align 8
   store i32 33619968, ptr %18, align 8, !tbaa !28
   store ptr %201, ptr %172, align 8, !tbaa !22
@@ -607,7 +607,7 @@ _ZN2cv3PtrINS_3reg3MapEEC2ERKS3_.exit:            ; preds = %._crit_edge136, %21
   %229 = add i32 %227, %228
   %230 = sext i32 %229 to i64
   %231 = load ptr, ptr %12, align 8, !tbaa !40
-  %232 = getelementptr inbounds nuw %"class.cv::Mat", ptr %231, i64 %230
+  %232 = getelementptr inbounds nuw [96 x i8], ptr %231, i64 %230
   %233 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %20, ptr noundef nonnull align 8 dereferenceable(96) %232)
           to label %234 unwind label %247
 
@@ -616,7 +616,7 @@ _ZN2cv3PtrINS_3reg3MapEEC2ERKS3_.exit:            ; preds = %._crit_edge136, %21
   %236 = add i32 %235, %228
   %237 = sext i32 %236 to i64
   %238 = load ptr, ptr %13, align 8, !tbaa !40
-  %239 = getelementptr inbounds nuw %"class.cv::Mat", ptr %238, i64 %237
+  %239 = getelementptr inbounds nuw [96 x i8], ptr %238, i64 %237
   %240 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZN2cv3MataSERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %21, ptr noundef nonnull align 8 dereferenceable(96) %239)
           to label %241 unwind label %247
 

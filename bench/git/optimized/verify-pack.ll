@@ -122,7 +122,7 @@ define dso_local range(i32 0, 2) i32 @cmd_verify_pack(i32 noundef %0, ptr nounde
 45:                                               ; preds = %.preheader, %verify_one_pack.exit
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %verify_one_pack.exit ]
   %.0912 = phi i32 [ 0, %.preheader ], [ %spec.select, %verify_one_pack.exit ]
-  %46 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %47 = load ptr, ptr %46, align 8, !tbaa !8
   %48 = load i32, ptr %7, align 4, !tbaa !4
   %49 = load ptr, ptr %8, align 8, !tbaa !8

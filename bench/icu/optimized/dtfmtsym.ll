@@ -2675,7 +2675,7 @@ _ZN6icu_77L17buildResourcePathERNS_10CharStringEPKcS3_S3_R10UErrorCode.exit482: 
   br i1 %.not293, label %690, label %679
 
 679:                                              ; preds = %677
-  %680 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %678, i64 %indvars.iv
+  %680 = getelementptr inbounds nuw [64 x i8], ptr %678, i64 %indvars.iv
   %681 = getelementptr inbounds nuw i8, ptr %680, i64 8
   %682 = load i16, ptr %681, align 8, !tbaa !23
   %683 = and i16 %682, 1
@@ -2684,7 +2684,7 @@ _ZN6icu_77L17buildResourcePathERNS_10CharStringEPKcS3_S3_R10UErrorCode.exit482: 
 
 684:                                              ; preds = %679
   %685 = load ptr, ptr %138, align 8, !tbaa !88
-  %686 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %685, i64 %indvars.iv
+  %686 = getelementptr inbounds nuw [64 x i8], ptr %685, i64 %indvars.iv
   %687 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %680, ptr noundef nonnull align 8 dereferenceable(64) %686)
           to label %690 unwind label %688
 
@@ -2705,7 +2705,7 @@ _ZN6icu_77L17buildResourcePathERNS_10CharStringEPKcS3_S3_R10UErrorCode.exit482: 
   br i1 %.not295, label %705, label %696
 
 696:                                              ; preds = %694
-  %697 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %695, i64 %indvars.iv
+  %697 = getelementptr inbounds nuw [64 x i8], ptr %695, i64 %indvars.iv
   %698 = getelementptr inbounds nuw i8, ptr %697, i64 8
   %699 = load i16, ptr %698, align 8, !tbaa !23
   %700 = and i16 %699, 1
@@ -2714,7 +2714,7 @@ _ZN6icu_77L17buildResourcePathERNS_10CharStringEPKcS3_S3_R10UErrorCode.exit482: 
 
 701:                                              ; preds = %696
   %702 = load ptr, ptr %138, align 8, !tbaa !88
-  %703 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %702, i64 %indvars.iv
+  %703 = getelementptr inbounds nuw [64 x i8], ptr %702, i64 %indvars.iv
   %704 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %697, ptr noundef nonnull align 8 dereferenceable(64) %703)
           to label %705 unwind label %688
 
@@ -2730,7 +2730,7 @@ _ZN6icu_77L17buildResourcePathERNS_10CharStringEPKcS3_S3_R10UErrorCode.exit482: 
   br i1 %.not297, label %720, label %711
 
 711:                                              ; preds = %709
-  %712 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %710, i64 %indvars.iv
+  %712 = getelementptr inbounds nuw [64 x i8], ptr %710, i64 %indvars.iv
   %713 = getelementptr inbounds nuw i8, ptr %712, i64 8
   %714 = load i16, ptr %713, align 8, !tbaa !23
   %715 = and i16 %714, 1
@@ -2739,7 +2739,7 @@ _ZN6icu_77L17buildResourcePathERNS_10CharStringEPKcS3_S3_R10UErrorCode.exit482: 
 
 716:                                              ; preds = %711
   %717 = load ptr, ptr %138, align 8, !tbaa !88
-  %718 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %717, i64 %indvars.iv
+  %718 = getelementptr inbounds nuw [64 x i8], ptr %717, i64 %indvars.iv
   %719 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %712, ptr noundef nonnull align 8 dereferenceable(64) %718)
           to label %720 unwind label %688
 
@@ -2755,7 +2755,7 @@ _ZN6icu_77L17buildResourcePathERNS_10CharStringEPKcS3_S3_R10UErrorCode.exit482: 
   br i1 %.not299, label %735, label %726
 
 726:                                              ; preds = %724
-  %727 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %725, i64 %indvars.iv
+  %727 = getelementptr inbounds nuw [64 x i8], ptr %725, i64 %indvars.iv
   %728 = getelementptr inbounds nuw i8, ptr %727, i64 8
   %729 = load i16, ptr %728, align 8, !tbaa !23
   %730 = and i16 %729, 1
@@ -2764,7 +2764,7 @@ _ZN6icu_77L17buildResourcePathERNS_10CharStringEPKcS3_S3_R10UErrorCode.exit482: 
 
 731:                                              ; preds = %726
   %732 = load ptr, ptr %144, align 8, !tbaa !94
-  %733 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %732, i64 %indvars.iv
+  %733 = getelementptr inbounds nuw [64 x i8], ptr %732, i64 %indvars.iv
   %734 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %727, ptr noundef nonnull align 8 dereferenceable(64) %733)
           to label %735 unwind label %688
 
@@ -2780,7 +2780,7 @@ _ZN6icu_77L17buildResourcePathERNS_10CharStringEPKcS3_S3_R10UErrorCode.exit482: 
   br i1 %.not301, label %750, label %741
 
 741:                                              ; preds = %739
-  %742 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %740, i64 %indvars.iv
+  %742 = getelementptr inbounds nuw [64 x i8], ptr %740, i64 %indvars.iv
   %743 = getelementptr inbounds nuw i8, ptr %742, i64 8
   %744 = load i16, ptr %743, align 8, !tbaa !23
   %745 = and i16 %744, 1
@@ -2789,7 +2789,7 @@ _ZN6icu_77L17buildResourcePathERNS_10CharStringEPKcS3_S3_R10UErrorCode.exit482: 
 
 746:                                              ; preds = %741
   %747 = load ptr, ptr %144, align 8, !tbaa !94
-  %748 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %747, i64 %indvars.iv
+  %748 = getelementptr inbounds nuw [64 x i8], ptr %747, i64 %indvars.iv
   %749 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %742, ptr noundef nonnull align 8 dereferenceable(64) %748)
           to label %750 unwind label %688
 
@@ -3008,8 +3008,8 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i:      ; preds = %817
 .lr.ph.i:                                         ; preds = %.noexc506, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.noexc506 ]
   %822 = load ptr, ptr %82, align 8, !tbaa !127
-  %823 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %822, i64 %indvars.iv.i
-  %824 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %803, i64 %indvars.iv.i
+  %823 = getelementptr inbounds nuw [64 x i8], ptr %822, i64 %indvars.iv.i
+  %824 = getelementptr inbounds nuw [64 x i8], ptr %803, i64 %indvars.iv.i
   %825 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %823, ptr noundef nonnull align 8 dereferenceable(64) %824)
           to label %.noexc506 unwind label %.loopexit.split-lp1509.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -3175,8 +3175,8 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i522:   ; preds = %864
 .lr.ph.i526:                                      ; preds = %.noexc531, %.lr.ph.preheader.i524
   %indvars.iv.i527 = phi i64 [ 0, %.lr.ph.preheader.i524 ], [ %indvars.iv.next.i528, %.noexc531 ]
   %869 = load ptr, ptr %84, align 8, !tbaa !127
-  %870 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %869, i64 %indvars.iv.i527
-  %871 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %850, i64 %indvars.iv.i527
+  %870 = getelementptr inbounds nuw [64 x i8], ptr %869, i64 %indvars.iv.i527
+  %871 = getelementptr inbounds nuw [64 x i8], ptr %850, i64 %indvars.iv.i527
   %872 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %870, ptr noundef nonnull align 8 dereferenceable(64) %871)
           to label %.noexc531 unwind label %.loopexit.split-lp1509.loopexit.split-lp.loopexit
 
@@ -3465,8 +3465,8 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i578:   ; preds = %950
 .lr.ph.i582:                                      ; preds = %.noexc587, %.lr.ph.preheader.i580
   %indvars.iv.i583 = phi i64 [ 0, %.lr.ph.preheader.i580 ], [ %indvars.iv.next.i584, %.noexc587 ]
   %955 = load ptr, ptr %92, align 8, !tbaa !127
-  %956 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %955, i64 %indvars.iv.i583
-  %957 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %936, i64 %indvars.iv.i583
+  %956 = getelementptr inbounds nuw [64 x i8], ptr %955, i64 %indvars.iv.i583
+  %957 = getelementptr inbounds nuw [64 x i8], ptr %936, i64 %indvars.iv.i583
   %958 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %956, ptr noundef nonnull align 8 dereferenceable(64) %957)
           to label %.noexc587 unwind label %.loopexit.split-lp1509.loopexit
 
@@ -3609,8 +3609,8 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i606:   ; preds = %996
 .lr.ph.i610:                                      ; preds = %.noexc615, %.lr.ph.preheader.i608
   %indvars.iv.i611 = phi i64 [ 0, %.lr.ph.preheader.i608 ], [ %indvars.iv.next.i612, %.noexc615 ]
   %1001 = load ptr, ptr %94, align 8, !tbaa !127
-  %1002 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %1001, i64 %indvars.iv.i611
-  %1003 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %982, i64 %indvars.iv.i611
+  %1002 = getelementptr inbounds nuw [64 x i8], ptr %1001, i64 %indvars.iv.i611
+  %1003 = getelementptr inbounds nuw [64 x i8], ptr %982, i64 %indvars.iv.i611
   %1004 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %1002, ptr noundef nonnull align 8 dereferenceable(64) %1003)
           to label %.noexc615 unwind label %.loopexit1508
 
@@ -3829,8 +3829,8 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i648:   ; preds = %1063
 .lr.ph.i652:                                      ; preds = %.noexc657, %.lr.ph.preheader.i650
   %indvars.iv.i653 = phi i64 [ 0, %.lr.ph.preheader.i650 ], [ %indvars.iv.next.i654, %.noexc657 ]
   %1068 = load ptr, ptr %90, align 8, !tbaa !127
-  %1069 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %1068, i64 %indvars.iv.i653
-  %1070 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %1049, i64 %indvars.iv.i653
+  %1069 = getelementptr inbounds nuw [64 x i8], ptr %1068, i64 %indvars.iv.i653
+  %1070 = getelementptr inbounds nuw [64 x i8], ptr %1049, i64 %indvars.iv.i653
   %1071 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %1069, ptr noundef nonnull align 8 dereferenceable(64) %1070)
           to label %.noexc657 unwind label %.loopexit1499
 
@@ -3914,8 +3914,8 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i662:   ; preds = %1090
 .lr.ph.i666:                                      ; preds = %.noexc671, %.lr.ph.preheader.i664
   %indvars.iv.i667 = phi i64 [ 0, %.lr.ph.preheader.i664 ], [ %indvars.iv.next.i668, %.noexc671 ]
   %1095 = load ptr, ptr %96, align 8, !tbaa !127
-  %1096 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %1095, i64 %indvars.iv.i667
-  %1097 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %1076, i64 %indvars.iv.i667
+  %1096 = getelementptr inbounds nuw [64 x i8], ptr %1095, i64 %indvars.iv.i667
+  %1097 = getelementptr inbounds nuw [64 x i8], ptr %1076, i64 %indvars.iv.i667
   %1098 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %1096, ptr noundef nonnull align 8 dereferenceable(64) %1097)
           to label %.noexc671 unwind label %.loopexit.split-lp1500.loopexit
 
@@ -4289,8 +4289,8 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i715:   ; preds = %1189
 .lr.ph.i719:                                      ; preds = %.noexc724, %.lr.ph.preheader.i717
   %indvars.iv.i720 = phi i64 [ 0, %.lr.ph.preheader.i717 ], [ %indvars.iv.next.i721, %.noexc724 ]
   %1194 = load ptr, ptr %116, align 8, !tbaa !127
-  %1195 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %1194, i64 %indvars.iv.i720
-  %1196 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %1175, i64 %indvars.iv.i720
+  %1195 = getelementptr inbounds nuw [64 x i8], ptr %1194, i64 %indvars.iv.i720
+  %1196 = getelementptr inbounds nuw [64 x i8], ptr %1175, i64 %indvars.iv.i720
   %1197 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %1195, ptr noundef nonnull align 8 dereferenceable(64) %1196)
           to label %.noexc724 unwind label %.loopexit.split-lp1476.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -4506,8 +4506,8 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i757:   ; preds = %1255
 .lr.ph.i761:                                      ; preds = %.noexc766, %.lr.ph.preheader.i759
   %indvars.iv.i762 = phi i64 [ 0, %.lr.ph.preheader.i759 ], [ %indvars.iv.next.i763, %.noexc766 ]
   %1260 = load ptr, ptr %121, align 8, !tbaa !127
-  %1261 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %1260, i64 %indvars.iv.i762
-  %1262 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %1241, i64 %indvars.iv.i762
+  %1261 = getelementptr inbounds nuw [64 x i8], ptr %1260, i64 %indvars.iv.i762
+  %1262 = getelementptr inbounds nuw [64 x i8], ptr %1241, i64 %indvars.iv.i762
   %1263 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %1261, ptr noundef nonnull align 8 dereferenceable(64) %1262)
           to label %.noexc766 unwind label %.loopexit.split-lp1476.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -4650,8 +4650,8 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i785:   ; preds = %1301
 .lr.ph.i789:                                      ; preds = %.noexc794, %.lr.ph.preheader.i787
   %indvars.iv.i790 = phi i64 [ 0, %.lr.ph.preheader.i787 ], [ %indvars.iv.next.i791, %.noexc794 ]
   %1306 = load ptr, ptr %125, align 8, !tbaa !127
-  %1307 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %1306, i64 %indvars.iv.i790
-  %1308 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %1287, i64 %indvars.iv.i790
+  %1307 = getelementptr inbounds nuw [64 x i8], ptr %1306, i64 %indvars.iv.i790
+  %1308 = getelementptr inbounds nuw [64 x i8], ptr %1287, i64 %indvars.iv.i790
   %1309 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %1307, ptr noundef nonnull align 8 dereferenceable(64) %1308)
           to label %.noexc794 unwind label %.loopexit.split-lp1476.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -4794,8 +4794,8 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i813:   ; preds = %1347
 .lr.ph.i817:                                      ; preds = %.noexc822, %.lr.ph.preheader.i815
   %indvars.iv.i818 = phi i64 [ 0, %.lr.ph.preheader.i815 ], [ %indvars.iv.next.i819, %.noexc822 ]
   %1352 = load ptr, ptr %127, align 8, !tbaa !127
-  %1353 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %1352, i64 %indvars.iv.i818
-  %1354 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %1333, i64 %indvars.iv.i818
+  %1353 = getelementptr inbounds nuw [64 x i8], ptr %1352, i64 %indvars.iv.i818
+  %1354 = getelementptr inbounds nuw [64 x i8], ptr %1333, i64 %indvars.iv.i818
   %1355 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %1353, ptr noundef nonnull align 8 dereferenceable(64) %1354)
           to label %.noexc822 unwind label %.loopexit.split-lp1476.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -5011,8 +5011,8 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i855:   ; preds = %1413
 .lr.ph.i859:                                      ; preds = %.noexc864, %.lr.ph.preheader.i857
   %indvars.iv.i860 = phi i64 [ 0, %.lr.ph.preheader.i857 ], [ %indvars.iv.next.i861, %.noexc864 ]
   %1418 = load ptr, ptr %123, align 8, !tbaa !127
-  %1419 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %1418, i64 %indvars.iv.i860
-  %1420 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %1399, i64 %indvars.iv.i860
+  %1419 = getelementptr inbounds nuw [64 x i8], ptr %1418, i64 %indvars.iv.i860
+  %1420 = getelementptr inbounds nuw [64 x i8], ptr %1399, i64 %indvars.iv.i860
   %1421 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %1419, ptr noundef nonnull align 8 dereferenceable(64) %1420)
           to label %.noexc864 unwind label %.loopexit.split-lp1476.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -5173,8 +5173,8 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i887:   ; preds = %1464
 .lr.ph.i891:                                      ; preds = %.noexc896, %.lr.ph.preheader.i889
   %indvars.iv.i892 = phi i64 [ 0, %.lr.ph.preheader.i889 ], [ %indvars.iv.next.i893, %.noexc896 ]
   %1469 = load ptr, ptr %102, align 8, !tbaa !127
-  %1470 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %1469, i64 %indvars.iv.i892
-  %1471 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %1450, i64 %indvars.iv.i892
+  %1470 = getelementptr inbounds nuw [64 x i8], ptr %1469, i64 %indvars.iv.i892
+  %1471 = getelementptr inbounds nuw [64 x i8], ptr %1450, i64 %indvars.iv.i892
   %1472 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %1470, ptr noundef nonnull align 8 dereferenceable(64) %1471)
           to label %.noexc896 unwind label %.loopexit.split-lp1476.loopexit.split-lp.loopexit.split-lp.loopexit
 
@@ -5278,8 +5278,8 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i907:   ; preds = %1500
 .lr.ph.i911:                                      ; preds = %.noexc916, %.lr.ph.preheader.i909
   %indvars.iv.i912 = phi i64 [ 0, %.lr.ph.preheader.i909 ], [ %indvars.iv.next.i913, %.noexc916 ]
   %1505 = load ptr, ptr %106, align 8, !tbaa !127
-  %1506 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %1505, i64 %indvars.iv.i912
-  %1507 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %1486, i64 %indvars.iv.i912
+  %1506 = getelementptr inbounds nuw [64 x i8], ptr %1505, i64 %indvars.iv.i912
+  %1507 = getelementptr inbounds nuw [64 x i8], ptr %1486, i64 %indvars.iv.i912
   %1508 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %1506, ptr noundef nonnull align 8 dereferenceable(64) %1507)
           to label %.noexc916 unwind label %.loopexit.split-lp1476.loopexit.split-lp.loopexit
 
@@ -5376,8 +5376,8 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i927:   ; preds = %1533
 .lr.ph.i931:                                      ; preds = %.noexc936, %.lr.ph.preheader.i929
   %indvars.iv.i932 = phi i64 [ 0, %.lr.ph.preheader.i929 ], [ %indvars.iv.next.i933, %.noexc936 ]
   %1538 = load ptr, ptr %108, align 8, !tbaa !127
-  %1539 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %1538, i64 %indvars.iv.i932
-  %1540 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %1519, i64 %indvars.iv.i932
+  %1539 = getelementptr inbounds nuw [64 x i8], ptr %1538, i64 %indvars.iv.i932
+  %1540 = getelementptr inbounds nuw [64 x i8], ptr %1519, i64 %indvars.iv.i932
   %1541 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %1539, ptr noundef nonnull align 8 dereferenceable(64) %1540)
           to label %.noexc936 unwind label %.loopexit.split-lp1476.loopexit
 
@@ -5474,8 +5474,8 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i947:   ; preds = %1566
 .lr.ph.i951:                                      ; preds = %.noexc956, %.lr.ph.preheader.i949
   %indvars.iv.i952 = phi i64 [ 0, %.lr.ph.preheader.i949 ], [ %indvars.iv.next.i953, %.noexc956 ]
   %1571 = load ptr, ptr %110, align 8, !tbaa !127
-  %1572 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %1571, i64 %indvars.iv.i952
-  %1573 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %1552, i64 %indvars.iv.i952
+  %1572 = getelementptr inbounds nuw [64 x i8], ptr %1571, i64 %indvars.iv.i952
+  %1573 = getelementptr inbounds nuw [64 x i8], ptr %1552, i64 %indvars.iv.i952
   %1574 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %1572, ptr noundef nonnull align 8 dereferenceable(64) %1573)
           to label %.noexc956 unwind label %.loopexit1475
 
@@ -5608,8 +5608,8 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i973:   ; preds = %1610
 .lr.ph.i977:                                      ; preds = %.noexc982, %.lr.ph.preheader.i975
   %indvars.iv.i978 = phi i64 [ 0, %.lr.ph.preheader.i975 ], [ %indvars.iv.next.i979, %.noexc982 ]
   %1615 = load ptr, ptr %104, align 8, !tbaa !127
-  %1616 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %1615, i64 %indvars.iv.i978
-  %1617 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %1596, i64 %indvars.iv.i978
+  %1616 = getelementptr inbounds nuw [64 x i8], ptr %1615, i64 %indvars.iv.i978
+  %1617 = getelementptr inbounds nuw [64 x i8], ptr %1596, i64 %indvars.iv.i978
   %1618 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %1616, ptr noundef nonnull align 8 dereferenceable(64) %1617)
           to label %.noexc982 unwind label %.loopexit1470
 
@@ -5698,8 +5698,8 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i987:   ; preds = %1639
 .lr.ph.i991:                                      ; preds = %.noexc996, %.lr.ph.preheader.i989
   %indvars.iv.i992 = phi i64 [ 0, %.lr.ph.preheader.i989 ], [ %indvars.iv.next.i993, %.noexc996 ]
   %1644 = load ptr, ptr %112, align 8, !tbaa !127
-  %1645 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %1644, i64 %indvars.iv.i992
-  %1646 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %1625, i64 %indvars.iv.i992
+  %1645 = getelementptr inbounds nuw [64 x i8], ptr %1644, i64 %indvars.iv.i992
+  %1646 = getelementptr inbounds nuw [64 x i8], ptr %1625, i64 %indvars.iv.i992
   %1647 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %1645, ptr noundef nonnull align 8 dereferenceable(64) %1646)
           to label %.noexc996 unwind label %.loopexit.split-lp.loopexit
 
@@ -5767,7 +5767,7 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i1001:  ; preds = %1662
 .lr.ph.i1004:                                     ; preds = %_ZN6icu_77L21newUnicodeStringArrayEm.exit.i1001, %1671
   %indvars.iv.i1005 = phi i64 [ %indvars.iv.next.i1006, %1671 ], [ 0, %_ZN6icu_77L21newUnicodeStringArrayEm.exit.i1001 ]
   %1667 = load ptr, ptr %80, align 8, !tbaa !127
-  %1668 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %1667, i64 %indvars.iv.i1005
+  %1668 = getelementptr inbounds nuw [64 x i8], ptr %1667, i64 %indvars.iv.i1005
   %.idx1421 = mul nuw nsw i64 %indvars.iv.i1005, 6
   %1669 = getelementptr inbounds nuw i8, ptr @_ZL15gLastResortEras, i64 %.idx1421
   store ptr %1669, ptr %30, align 8, !tbaa !121
@@ -5835,7 +5835,7 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i1012:  ; preds = %1684
 .lr.ph.i1015:                                     ; preds = %_ZN6icu_77L21newUnicodeStringArrayEm.exit.i1012, %1693
   %indvars.iv.i1016 = phi i64 [ %indvars.iv.next.i1017, %1693 ], [ 0, %_ZN6icu_77L21newUnicodeStringArrayEm.exit.i1012 ]
   %1689 = load ptr, ptr %82, align 8, !tbaa !127
-  %1690 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %1689, i64 %indvars.iv.i1016
+  %1690 = getelementptr inbounds nuw [64 x i8], ptr %1689, i64 %indvars.iv.i1016
   %.idx1422 = mul nuw nsw i64 %indvars.iv.i1016, 6
   %1691 = getelementptr inbounds nuw i8, ptr @_ZL15gLastResortEras, i64 %.idx1422
   store ptr %1691, ptr %29, align 8, !tbaa !121
@@ -5906,7 +5906,7 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i1024:  ; preds = %1707
 .lr.ph.i1027:                                     ; preds = %_ZN6icu_77L21newUnicodeStringArrayEm.exit.i1024, %1716
   %indvars.iv.i1028 = phi i64 [ %indvars.iv.next.i1029, %1716 ], [ 0, %_ZN6icu_77L21newUnicodeStringArrayEm.exit.i1024 ]
   %1712 = load ptr, ptr %84, align 8, !tbaa !127
-  %1713 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %1712, i64 %indvars.iv.i1028
+  %1713 = getelementptr inbounds nuw [64 x i8], ptr %1712, i64 %indvars.iv.i1028
   %.idx1423 = mul nuw nsw i64 %indvars.iv.i1028, 6
   %1714 = getelementptr inbounds nuw i8, ptr @_ZL15gLastResortEras, i64 %.idx1423
   store ptr %1714, ptr %28, align 8, !tbaa !121
@@ -5977,7 +5977,7 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i1036:  ; preds = %1730
 .lr.ph.i1039:                                     ; preds = %_ZN6icu_77L21newUnicodeStringArrayEm.exit.i1036, %1739
   %indvars.iv.i1040 = phi i64 [ %indvars.iv.next.i1041, %1739 ], [ 0, %_ZN6icu_77L21newUnicodeStringArrayEm.exit.i1036 ]
   %1735 = load ptr, ptr %86, align 8, !tbaa !127
-  %1736 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %1735, i64 %indvars.iv.i1040
+  %1736 = getelementptr inbounds nuw [64 x i8], ptr %1735, i64 %indvars.iv.i1040
   %.idx1424 = mul nuw nsw i64 %indvars.iv.i1040, 6
   %1737 = getelementptr inbounds nuw i8, ptr @_ZL21gLastResortMonthNames, i64 %.idx1424
   store ptr %1737, ptr %27, align 8, !tbaa !121
@@ -6048,7 +6048,7 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i1048:  ; preds = %1753
 .lr.ph.i1051:                                     ; preds = %_ZN6icu_77L21newUnicodeStringArrayEm.exit.i1048, %1762
   %indvars.iv.i1052 = phi i64 [ %indvars.iv.next.i1053, %1762 ], [ 0, %_ZN6icu_77L21newUnicodeStringArrayEm.exit.i1048 ]
   %1758 = load ptr, ptr %88, align 8, !tbaa !127
-  %1759 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %1758, i64 %indvars.iv.i1052
+  %1759 = getelementptr inbounds nuw [64 x i8], ptr %1758, i64 %indvars.iv.i1052
   %.idx1425 = mul nuw nsw i64 %indvars.iv.i1052, 6
   %1760 = getelementptr inbounds nuw i8, ptr @_ZL21gLastResortMonthNames, i64 %.idx1425
   store ptr %1760, ptr %26, align 8, !tbaa !121
@@ -6119,7 +6119,7 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i1060:  ; preds = %1776
 .lr.ph.i1063:                                     ; preds = %_ZN6icu_77L21newUnicodeStringArrayEm.exit.i1060, %1785
   %indvars.iv.i1064 = phi i64 [ %indvars.iv.next.i1065, %1785 ], [ 0, %_ZN6icu_77L21newUnicodeStringArrayEm.exit.i1060 ]
   %1781 = load ptr, ptr %90, align 8, !tbaa !127
-  %1782 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %1781, i64 %indvars.iv.i1064
+  %1782 = getelementptr inbounds nuw [64 x i8], ptr %1781, i64 %indvars.iv.i1064
   %.idx1426 = mul nuw nsw i64 %indvars.iv.i1064, 6
   %1783 = getelementptr inbounds nuw i8, ptr @_ZL21gLastResortMonthNames, i64 %.idx1426
   store ptr %1783, ptr %25, align 8, !tbaa !121
@@ -6190,7 +6190,7 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i1072:  ; preds = %1799
 .lr.ph.i1075:                                     ; preds = %_ZN6icu_77L21newUnicodeStringArrayEm.exit.i1072, %1808
   %indvars.iv.i1076 = phi i64 [ %indvars.iv.next.i1077, %1808 ], [ 0, %_ZN6icu_77L21newUnicodeStringArrayEm.exit.i1072 ]
   %1804 = load ptr, ptr %92, align 8, !tbaa !127
-  %1805 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %1804, i64 %indvars.iv.i1076
+  %1805 = getelementptr inbounds nuw [64 x i8], ptr %1804, i64 %indvars.iv.i1076
   %.idx1427 = mul nuw nsw i64 %indvars.iv.i1076, 6
   %1806 = getelementptr inbounds nuw i8, ptr @_ZL21gLastResortMonthNames, i64 %.idx1427
   store ptr %1806, ptr %24, align 8, !tbaa !121
@@ -6261,7 +6261,7 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i1084:  ; preds = %1822
 .lr.ph.i1087:                                     ; preds = %_ZN6icu_77L21newUnicodeStringArrayEm.exit.i1084, %1831
   %indvars.iv.i1088 = phi i64 [ %indvars.iv.next.i1089, %1831 ], [ 0, %_ZN6icu_77L21newUnicodeStringArrayEm.exit.i1084 ]
   %1827 = load ptr, ptr %94, align 8, !tbaa !127
-  %1828 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %1827, i64 %indvars.iv.i1088
+  %1828 = getelementptr inbounds nuw [64 x i8], ptr %1827, i64 %indvars.iv.i1088
   %.idx1428 = mul nuw nsw i64 %indvars.iv.i1088, 6
   %1829 = getelementptr inbounds nuw i8, ptr @_ZL21gLastResortMonthNames, i64 %.idx1428
   store ptr %1829, ptr %23, align 8, !tbaa !121
@@ -6332,7 +6332,7 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i1096:  ; preds = %1845
 .lr.ph.i1099:                                     ; preds = %_ZN6icu_77L21newUnicodeStringArrayEm.exit.i1096, %1854
   %indvars.iv.i1100 = phi i64 [ %indvars.iv.next.i1101, %1854 ], [ 0, %_ZN6icu_77L21newUnicodeStringArrayEm.exit.i1096 ]
   %1850 = load ptr, ptr %96, align 8, !tbaa !127
-  %1851 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %1850, i64 %indvars.iv.i1100
+  %1851 = getelementptr inbounds nuw [64 x i8], ptr %1850, i64 %indvars.iv.i1100
   %.idx1429 = mul nuw nsw i64 %indvars.iv.i1100, 6
   %1852 = getelementptr inbounds nuw i8, ptr @_ZL21gLastResortMonthNames, i64 %.idx1429
   store ptr %1852, ptr %22, align 8, !tbaa !121
@@ -6403,7 +6403,7 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i1108:  ; preds = %1868
 .lr.ph.i1111:                                     ; preds = %_ZN6icu_77L21newUnicodeStringArrayEm.exit.i1108, %1877
   %indvars.iv.i1112 = phi i64 [ %indvars.iv.next.i1113, %1877 ], [ 0, %_ZN6icu_77L21newUnicodeStringArrayEm.exit.i1108 ]
   %1873 = load ptr, ptr %98, align 8, !tbaa !127
-  %1874 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %1873, i64 %indvars.iv.i1112
+  %1874 = getelementptr inbounds nuw [64 x i8], ptr %1873, i64 %indvars.iv.i1112
   %.idx1430 = shl nuw nsw i64 %indvars.iv.i1112, 2
   %1875 = getelementptr inbounds nuw i8, ptr @_ZL19gLastResortDayNames, i64 %.idx1430
   store ptr %1875, ptr %21, align 8, !tbaa !121
@@ -6474,7 +6474,7 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i1120:  ; preds = %1891
 .lr.ph.i1123:                                     ; preds = %_ZN6icu_77L21newUnicodeStringArrayEm.exit.i1120, %1900
   %indvars.iv.i1124 = phi i64 [ %indvars.iv.next.i1125, %1900 ], [ 0, %_ZN6icu_77L21newUnicodeStringArrayEm.exit.i1120 ]
   %1896 = load ptr, ptr %100, align 8, !tbaa !127
-  %1897 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %1896, i64 %indvars.iv.i1124
+  %1897 = getelementptr inbounds nuw [64 x i8], ptr %1896, i64 %indvars.iv.i1124
   %.idx1431 = shl nuw nsw i64 %indvars.iv.i1124, 2
   %1898 = getelementptr inbounds nuw i8, ptr @_ZL19gLastResortDayNames, i64 %.idx1431
   store ptr %1898, ptr %20, align 8, !tbaa !121
@@ -6545,7 +6545,7 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i1132:  ; preds = %1914
 .lr.ph.i1135:                                     ; preds = %_ZN6icu_77L21newUnicodeStringArrayEm.exit.i1132, %1923
   %indvars.iv.i1136 = phi i64 [ %indvars.iv.next.i1137, %1923 ], [ 0, %_ZN6icu_77L21newUnicodeStringArrayEm.exit.i1132 ]
   %1919 = load ptr, ptr %102, align 8, !tbaa !127
-  %1920 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %1919, i64 %indvars.iv.i1136
+  %1920 = getelementptr inbounds nuw [64 x i8], ptr %1919, i64 %indvars.iv.i1136
   %.idx1432 = shl nuw nsw i64 %indvars.iv.i1136, 2
   %1921 = getelementptr inbounds nuw i8, ptr @_ZL19gLastResortDayNames, i64 %.idx1432
   store ptr %1921, ptr %19, align 8, !tbaa !121
@@ -6616,7 +6616,7 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i1144:  ; preds = %1937
 .lr.ph.i1147:                                     ; preds = %_ZN6icu_77L21newUnicodeStringArrayEm.exit.i1144, %1946
   %indvars.iv.i1148 = phi i64 [ %indvars.iv.next.i1149, %1946 ], [ 0, %_ZN6icu_77L21newUnicodeStringArrayEm.exit.i1144 ]
   %1942 = load ptr, ptr %104, align 8, !tbaa !127
-  %1943 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %1942, i64 %indvars.iv.i1148
+  %1943 = getelementptr inbounds nuw [64 x i8], ptr %1942, i64 %indvars.iv.i1148
   %.idx1433 = shl nuw nsw i64 %indvars.iv.i1148, 2
   %1944 = getelementptr inbounds nuw i8, ptr @_ZL19gLastResortDayNames, i64 %.idx1433
   store ptr %1944, ptr %18, align 8, !tbaa !121
@@ -6687,7 +6687,7 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i1156:  ; preds = %1960
 .lr.ph.i1159:                                     ; preds = %_ZN6icu_77L21newUnicodeStringArrayEm.exit.i1156, %1969
   %indvars.iv.i1160 = phi i64 [ %indvars.iv.next.i1161, %1969 ], [ 0, %_ZN6icu_77L21newUnicodeStringArrayEm.exit.i1156 ]
   %1965 = load ptr, ptr %106, align 8, !tbaa !127
-  %1966 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %1965, i64 %indvars.iv.i1160
+  %1966 = getelementptr inbounds nuw [64 x i8], ptr %1965, i64 %indvars.iv.i1160
   %.idx1434 = shl nuw nsw i64 %indvars.iv.i1160, 2
   %1967 = getelementptr inbounds nuw i8, ptr @_ZL19gLastResortDayNames, i64 %.idx1434
   store ptr %1967, ptr %17, align 8, !tbaa !121
@@ -6758,7 +6758,7 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i1168:  ; preds = %1983
 .lr.ph.i1171:                                     ; preds = %_ZN6icu_77L21newUnicodeStringArrayEm.exit.i1168, %1992
   %indvars.iv.i1172 = phi i64 [ %indvars.iv.next.i1173, %1992 ], [ 0, %_ZN6icu_77L21newUnicodeStringArrayEm.exit.i1168 ]
   %1988 = load ptr, ptr %108, align 8, !tbaa !127
-  %1989 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %1988, i64 %indvars.iv.i1172
+  %1989 = getelementptr inbounds nuw [64 x i8], ptr %1988, i64 %indvars.iv.i1172
   %.idx1435 = shl nuw nsw i64 %indvars.iv.i1172, 2
   %1990 = getelementptr inbounds nuw i8, ptr @_ZL19gLastResortDayNames, i64 %.idx1435
   store ptr %1990, ptr %16, align 8, !tbaa !121
@@ -6829,7 +6829,7 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i1180:  ; preds = %2006
 .lr.ph.i1183:                                     ; preds = %_ZN6icu_77L21newUnicodeStringArrayEm.exit.i1180, %2015
   %indvars.iv.i1184 = phi i64 [ %indvars.iv.next.i1185, %2015 ], [ 0, %_ZN6icu_77L21newUnicodeStringArrayEm.exit.i1180 ]
   %2011 = load ptr, ptr %110, align 8, !tbaa !127
-  %2012 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %2011, i64 %indvars.iv.i1184
+  %2012 = getelementptr inbounds nuw [64 x i8], ptr %2011, i64 %indvars.iv.i1184
   %.idx1436 = shl nuw nsw i64 %indvars.iv.i1184, 2
   %2013 = getelementptr inbounds nuw i8, ptr @_ZL19gLastResortDayNames, i64 %.idx1436
   store ptr %2013, ptr %15, align 8, !tbaa !121
@@ -6900,7 +6900,7 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i1192:  ; preds = %2029
 .lr.ph.i1195:                                     ; preds = %_ZN6icu_77L21newUnicodeStringArrayEm.exit.i1192, %2038
   %indvars.iv.i1196 = phi i64 [ %indvars.iv.next.i1197, %2038 ], [ 0, %_ZN6icu_77L21newUnicodeStringArrayEm.exit.i1192 ]
   %2034 = load ptr, ptr %112, align 8, !tbaa !127
-  %2035 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %2034, i64 %indvars.iv.i1196
+  %2035 = getelementptr inbounds nuw [64 x i8], ptr %2034, i64 %indvars.iv.i1196
   %.idx1437 = shl nuw nsw i64 %indvars.iv.i1196, 2
   %2036 = getelementptr inbounds nuw i8, ptr @_ZL19gLastResortDayNames, i64 %.idx1437
   store ptr %2036, ptr %14, align 8, !tbaa !121
@@ -6971,7 +6971,7 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i1204:  ; preds = %2052
 .lr.ph.i1207:                                     ; preds = %_ZN6icu_77L21newUnicodeStringArrayEm.exit.i1204, %2061
   %indvars.iv.i1208 = phi i64 [ %indvars.iv.next.i1209, %2061 ], [ 0, %_ZN6icu_77L21newUnicodeStringArrayEm.exit.i1204 ]
   %2057 = load ptr, ptr %114, align 8, !tbaa !127
-  %2058 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %2057, i64 %indvars.iv.i1208
+  %2058 = getelementptr inbounds nuw [64 x i8], ptr %2057, i64 %indvars.iv.i1208
   %.idx1438 = mul nuw nsw i64 %indvars.iv.i1208, 6
   %2059 = getelementptr inbounds nuw i8, ptr @_ZL22gLastResortAmPmMarkers, i64 %.idx1438
   store ptr %2059, ptr %13, align 8, !tbaa !121
@@ -7042,7 +7042,7 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i1216:  ; preds = %2075
 .lr.ph.i1219:                                     ; preds = %_ZN6icu_77L21newUnicodeStringArrayEm.exit.i1216, %2084
   %indvars.iv.i1220 = phi i64 [ %indvars.iv.next.i1221, %2084 ], [ 0, %_ZN6icu_77L21newUnicodeStringArrayEm.exit.i1216 ]
   %2080 = load ptr, ptr %116, align 8, !tbaa !127
-  %2081 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %2080, i64 %indvars.iv.i1220
+  %2081 = getelementptr inbounds nuw [64 x i8], ptr %2080, i64 %indvars.iv.i1220
   %.idx1439 = mul nuw nsw i64 %indvars.iv.i1220, 6
   %2082 = getelementptr inbounds nuw i8, ptr @_ZL22gLastResortAmPmMarkers, i64 %.idx1439
   store ptr %2082, ptr %12, align 8, !tbaa !121
@@ -7113,7 +7113,7 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i1228:  ; preds = %2098
 .lr.ph.i1231:                                     ; preds = %_ZN6icu_77L21newUnicodeStringArrayEm.exit.i1228, %2107
   %indvars.iv.i1232 = phi i64 [ %indvars.iv.next.i1233, %2107 ], [ 0, %_ZN6icu_77L21newUnicodeStringArrayEm.exit.i1228 ]
   %2103 = load ptr, ptr %119, align 8, !tbaa !127
-  %2104 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %2103, i64 %indvars.iv.i1232
+  %2104 = getelementptr inbounds nuw [64 x i8], ptr %2103, i64 %indvars.iv.i1232
   %.idx1440 = shl nuw nsw i64 %indvars.iv.i1232, 2
   %2105 = getelementptr inbounds nuw i8, ptr @_ZL19gLastResortQuarters, i64 %.idx1440
   store ptr %2105, ptr %11, align 8, !tbaa !121
@@ -7184,7 +7184,7 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i1240:  ; preds = %2121
 .lr.ph.i1243:                                     ; preds = %_ZN6icu_77L21newUnicodeStringArrayEm.exit.i1240, %2130
   %indvars.iv.i1244 = phi i64 [ %indvars.iv.next.i1245, %2130 ], [ 0, %_ZN6icu_77L21newUnicodeStringArrayEm.exit.i1240 ]
   %2126 = load ptr, ptr %121, align 8, !tbaa !127
-  %2127 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %2126, i64 %indvars.iv.i1244
+  %2127 = getelementptr inbounds nuw [64 x i8], ptr %2126, i64 %indvars.iv.i1244
   %.idx1441 = shl nuw nsw i64 %indvars.iv.i1244, 2
   %2128 = getelementptr inbounds nuw i8, ptr @_ZL19gLastResortQuarters, i64 %.idx1441
   store ptr %2128, ptr %10, align 8, !tbaa !121
@@ -7255,7 +7255,7 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i1252:  ; preds = %2144
 .lr.ph.i1255:                                     ; preds = %_ZN6icu_77L21newUnicodeStringArrayEm.exit.i1252, %2153
   %indvars.iv.i1256 = phi i64 [ %indvars.iv.next.i1257, %2153 ], [ 0, %_ZN6icu_77L21newUnicodeStringArrayEm.exit.i1252 ]
   %2149 = load ptr, ptr %123, align 8, !tbaa !127
-  %2150 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %2149, i64 %indvars.iv.i1256
+  %2150 = getelementptr inbounds nuw [64 x i8], ptr %2149, i64 %indvars.iv.i1256
   %.idx1442 = shl nuw nsw i64 %indvars.iv.i1256, 2
   %2151 = getelementptr inbounds nuw i8, ptr @_ZL19gLastResortQuarters, i64 %.idx1442
   store ptr %2151, ptr %9, align 8, !tbaa !121
@@ -7326,7 +7326,7 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i1264:  ; preds = %2167
 .lr.ph.i1267:                                     ; preds = %_ZN6icu_77L21newUnicodeStringArrayEm.exit.i1264, %2176
   %indvars.iv.i1268 = phi i64 [ %indvars.iv.next.i1269, %2176 ], [ 0, %_ZN6icu_77L21newUnicodeStringArrayEm.exit.i1264 ]
   %2172 = load ptr, ptr %125, align 8, !tbaa !127
-  %2173 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %2172, i64 %indvars.iv.i1268
+  %2173 = getelementptr inbounds nuw [64 x i8], ptr %2172, i64 %indvars.iv.i1268
   %.idx1443 = shl nuw nsw i64 %indvars.iv.i1268, 2
   %2174 = getelementptr inbounds nuw i8, ptr @_ZL19gLastResortQuarters, i64 %.idx1443
   store ptr %2174, ptr %8, align 8, !tbaa !121
@@ -7397,7 +7397,7 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i1276:  ; preds = %2190
 .lr.ph.i1279:                                     ; preds = %_ZN6icu_77L21newUnicodeStringArrayEm.exit.i1276, %2199
   %indvars.iv.i1280 = phi i64 [ %indvars.iv.next.i1281, %2199 ], [ 0, %_ZN6icu_77L21newUnicodeStringArrayEm.exit.i1276 ]
   %2195 = load ptr, ptr %127, align 8, !tbaa !127
-  %2196 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %2195, i64 %indvars.iv.i1280
+  %2196 = getelementptr inbounds nuw [64 x i8], ptr %2195, i64 %indvars.iv.i1280
   %.idx1444 = shl nuw nsw i64 %indvars.iv.i1280, 2
   %2197 = getelementptr inbounds nuw i8, ptr @_ZL19gLastResortQuarters, i64 %.idx1444
   store ptr %2197, ptr %7, align 8, !tbaa !121
@@ -7468,7 +7468,7 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i1288:  ; preds = %2213
 .lr.ph.i1291:                                     ; preds = %_ZN6icu_77L21newUnicodeStringArrayEm.exit.i1288, %2222
   %indvars.iv.i1292 = phi i64 [ %indvars.iv.next.i1293, %2222 ], [ 0, %_ZN6icu_77L21newUnicodeStringArrayEm.exit.i1288 ]
   %2218 = load ptr, ptr %129, align 8, !tbaa !127
-  %2219 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %2218, i64 %indvars.iv.i1292
+  %2219 = getelementptr inbounds nuw [64 x i8], ptr %2218, i64 %indvars.iv.i1292
   %.idx1445 = shl nuw nsw i64 %indvars.iv.i1292, 2
   %2220 = getelementptr inbounds nuw i8, ptr @_ZL19gLastResortQuarters, i64 %.idx1445
   store ptr %2220, ptr %6, align 8, !tbaa !121
@@ -7928,8 +7928,8 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i:      ; preds = %30
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %35 = load ptr, ptr %12, align 8, !tbaa !127
-  %36 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %35, i64 %indvars.iv.i
-  %37 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %15, i64 %indvars.iv.i
+  %36 = getelementptr inbounds nuw [64 x i8], ptr %35, i64 %indvars.iv.i
+  %37 = getelementptr inbounds nuw [64 x i8], ptr %15, i64 %indvars.iv.i
   %38 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %36, ptr noundef nonnull align 8 dereferenceable(64) %37)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -7993,8 +7993,8 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i90:    ; preds = %57
 .lr.ph.i94:                                       ; preds = %.lr.ph.i94, %.lr.ph.preheader.i92
   %indvars.iv.i95 = phi i64 [ 0, %.lr.ph.preheader.i92 ], [ %indvars.iv.next.i96, %.lr.ph.i94 ]
   %62 = load ptr, ptr %39, align 8, !tbaa !127
-  %63 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %62, i64 %indvars.iv.i95
-  %64 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %42, i64 %indvars.iv.i95
+  %63 = getelementptr inbounds nuw [64 x i8], ptr %62, i64 %indvars.iv.i95
+  %64 = getelementptr inbounds nuw [64 x i8], ptr %42, i64 %indvars.iv.i95
   %65 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %63, ptr noundef nonnull align 8 dereferenceable(64) %64)
   %indvars.iv.next.i96 = add nuw nsw i64 %indvars.iv.i95, 1
   %exitcond.not.i97 = icmp eq i64 %indvars.iv.next.i96, %wide.trip.count.i93
@@ -8058,8 +8058,8 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i103:   ; preds = %84
 .lr.ph.i107:                                      ; preds = %.lr.ph.i107, %.lr.ph.preheader.i105
   %indvars.iv.i108 = phi i64 [ 0, %.lr.ph.preheader.i105 ], [ %indvars.iv.next.i109, %.lr.ph.i107 ]
   %89 = load ptr, ptr %66, align 8, !tbaa !127
-  %90 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %89, i64 %indvars.iv.i108
-  %91 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %69, i64 %indvars.iv.i108
+  %90 = getelementptr inbounds nuw [64 x i8], ptr %89, i64 %indvars.iv.i108
+  %91 = getelementptr inbounds nuw [64 x i8], ptr %69, i64 %indvars.iv.i108
   %92 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %90, ptr noundef nonnull align 8 dereferenceable(64) %91)
   %indvars.iv.next.i109 = add nuw nsw i64 %indvars.iv.i108, 1
   %exitcond.not.i110 = icmp eq i64 %indvars.iv.next.i109, %wide.trip.count.i106
@@ -8123,8 +8123,8 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i116:   ; preds = %111
 .lr.ph.i120:                                      ; preds = %.lr.ph.i120, %.lr.ph.preheader.i118
   %indvars.iv.i121 = phi i64 [ 0, %.lr.ph.preheader.i118 ], [ %indvars.iv.next.i122, %.lr.ph.i120 ]
   %116 = load ptr, ptr %93, align 8, !tbaa !127
-  %117 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %116, i64 %indvars.iv.i121
-  %118 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %96, i64 %indvars.iv.i121
+  %117 = getelementptr inbounds nuw [64 x i8], ptr %116, i64 %indvars.iv.i121
+  %118 = getelementptr inbounds nuw [64 x i8], ptr %96, i64 %indvars.iv.i121
   %119 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %117, ptr noundef nonnull align 8 dereferenceable(64) %118)
   %indvars.iv.next.i122 = add nuw nsw i64 %indvars.iv.i121, 1
   %exitcond.not.i123 = icmp eq i64 %indvars.iv.next.i122, %wide.trip.count.i119
@@ -8188,8 +8188,8 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i129:   ; preds = %138
 .lr.ph.i133:                                      ; preds = %.lr.ph.i133, %.lr.ph.preheader.i131
   %indvars.iv.i134 = phi i64 [ 0, %.lr.ph.preheader.i131 ], [ %indvars.iv.next.i135, %.lr.ph.i133 ]
   %143 = load ptr, ptr %120, align 8, !tbaa !127
-  %144 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %143, i64 %indvars.iv.i134
-  %145 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %123, i64 %indvars.iv.i134
+  %144 = getelementptr inbounds nuw [64 x i8], ptr %143, i64 %indvars.iv.i134
+  %145 = getelementptr inbounds nuw [64 x i8], ptr %123, i64 %indvars.iv.i134
   %146 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %144, ptr noundef nonnull align 8 dereferenceable(64) %145)
   %indvars.iv.next.i135 = add nuw nsw i64 %indvars.iv.i134, 1
   %exitcond.not.i136 = icmp eq i64 %indvars.iv.next.i135, %wide.trip.count.i132
@@ -8253,8 +8253,8 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i142:   ; preds = %165
 .lr.ph.i146:                                      ; preds = %.lr.ph.i146, %.lr.ph.preheader.i144
   %indvars.iv.i147 = phi i64 [ 0, %.lr.ph.preheader.i144 ], [ %indvars.iv.next.i148, %.lr.ph.i146 ]
   %170 = load ptr, ptr %147, align 8, !tbaa !127
-  %171 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %170, i64 %indvars.iv.i147
-  %172 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %150, i64 %indvars.iv.i147
+  %171 = getelementptr inbounds nuw [64 x i8], ptr %170, i64 %indvars.iv.i147
+  %172 = getelementptr inbounds nuw [64 x i8], ptr %150, i64 %indvars.iv.i147
   %173 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %171, ptr noundef nonnull align 8 dereferenceable(64) %172)
   %indvars.iv.next.i148 = add nuw nsw i64 %indvars.iv.i147, 1
   %exitcond.not.i149 = icmp eq i64 %indvars.iv.next.i148, %wide.trip.count.i145
@@ -8318,8 +8318,8 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i155:   ; preds = %192
 .lr.ph.i159:                                      ; preds = %.lr.ph.i159, %.lr.ph.preheader.i157
   %indvars.iv.i160 = phi i64 [ 0, %.lr.ph.preheader.i157 ], [ %indvars.iv.next.i161, %.lr.ph.i159 ]
   %197 = load ptr, ptr %174, align 8, !tbaa !127
-  %198 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %197, i64 %indvars.iv.i160
-  %199 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %177, i64 %indvars.iv.i160
+  %198 = getelementptr inbounds nuw [64 x i8], ptr %197, i64 %indvars.iv.i160
+  %199 = getelementptr inbounds nuw [64 x i8], ptr %177, i64 %indvars.iv.i160
   %200 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %198, ptr noundef nonnull align 8 dereferenceable(64) %199)
   %indvars.iv.next.i161 = add nuw nsw i64 %indvars.iv.i160, 1
   %exitcond.not.i162 = icmp eq i64 %indvars.iv.next.i161, %wide.trip.count.i158
@@ -8383,8 +8383,8 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i168:   ; preds = %219
 .lr.ph.i172:                                      ; preds = %.lr.ph.i172, %.lr.ph.preheader.i170
   %indvars.iv.i173 = phi i64 [ 0, %.lr.ph.preheader.i170 ], [ %indvars.iv.next.i174, %.lr.ph.i172 ]
   %224 = load ptr, ptr %201, align 8, !tbaa !127
-  %225 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %224, i64 %indvars.iv.i173
-  %226 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %204, i64 %indvars.iv.i173
+  %225 = getelementptr inbounds nuw [64 x i8], ptr %224, i64 %indvars.iv.i173
+  %226 = getelementptr inbounds nuw [64 x i8], ptr %204, i64 %indvars.iv.i173
   %227 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %225, ptr noundef nonnull align 8 dereferenceable(64) %226)
   %indvars.iv.next.i174 = add nuw nsw i64 %indvars.iv.i173, 1
   %exitcond.not.i175 = icmp eq i64 %indvars.iv.next.i174, %wide.trip.count.i171
@@ -8448,8 +8448,8 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i181:   ; preds = %246
 .lr.ph.i185:                                      ; preds = %.lr.ph.i185, %.lr.ph.preheader.i183
   %indvars.iv.i186 = phi i64 [ 0, %.lr.ph.preheader.i183 ], [ %indvars.iv.next.i187, %.lr.ph.i185 ]
   %251 = load ptr, ptr %228, align 8, !tbaa !127
-  %252 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %251, i64 %indvars.iv.i186
-  %253 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %231, i64 %indvars.iv.i186
+  %252 = getelementptr inbounds nuw [64 x i8], ptr %251, i64 %indvars.iv.i186
+  %253 = getelementptr inbounds nuw [64 x i8], ptr %231, i64 %indvars.iv.i186
   %254 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %252, ptr noundef nonnull align 8 dereferenceable(64) %253)
   %indvars.iv.next.i187 = add nuw nsw i64 %indvars.iv.i186, 1
   %exitcond.not.i188 = icmp eq i64 %indvars.iv.next.i187, %wide.trip.count.i184
@@ -8513,8 +8513,8 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i194:   ; preds = %273
 .lr.ph.i198:                                      ; preds = %.lr.ph.i198, %.lr.ph.preheader.i196
   %indvars.iv.i199 = phi i64 [ 0, %.lr.ph.preheader.i196 ], [ %indvars.iv.next.i200, %.lr.ph.i198 ]
   %278 = load ptr, ptr %255, align 8, !tbaa !127
-  %279 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %278, i64 %indvars.iv.i199
-  %280 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %258, i64 %indvars.iv.i199
+  %279 = getelementptr inbounds nuw [64 x i8], ptr %278, i64 %indvars.iv.i199
+  %280 = getelementptr inbounds nuw [64 x i8], ptr %258, i64 %indvars.iv.i199
   %281 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %279, ptr noundef nonnull align 8 dereferenceable(64) %280)
   %indvars.iv.next.i200 = add nuw nsw i64 %indvars.iv.i199, 1
   %exitcond.not.i201 = icmp eq i64 %indvars.iv.next.i200, %wide.trip.count.i197
@@ -8578,8 +8578,8 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i207:   ; preds = %300
 .lr.ph.i211:                                      ; preds = %.lr.ph.i211, %.lr.ph.preheader.i209
   %indvars.iv.i212 = phi i64 [ 0, %.lr.ph.preheader.i209 ], [ %indvars.iv.next.i213, %.lr.ph.i211 ]
   %305 = load ptr, ptr %282, align 8, !tbaa !127
-  %306 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %305, i64 %indvars.iv.i212
-  %307 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %285, i64 %indvars.iv.i212
+  %306 = getelementptr inbounds nuw [64 x i8], ptr %305, i64 %indvars.iv.i212
+  %307 = getelementptr inbounds nuw [64 x i8], ptr %285, i64 %indvars.iv.i212
   %308 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %306, ptr noundef nonnull align 8 dereferenceable(64) %307)
   %indvars.iv.next.i213 = add nuw nsw i64 %indvars.iv.i212, 1
   %exitcond.not.i214 = icmp eq i64 %indvars.iv.next.i213, %wide.trip.count.i210
@@ -8643,8 +8643,8 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i220:   ; preds = %327
 .lr.ph.i224:                                      ; preds = %.lr.ph.i224, %.lr.ph.preheader.i222
   %indvars.iv.i225 = phi i64 [ 0, %.lr.ph.preheader.i222 ], [ %indvars.iv.next.i226, %.lr.ph.i224 ]
   %332 = load ptr, ptr %309, align 8, !tbaa !127
-  %333 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %332, i64 %indvars.iv.i225
-  %334 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %312, i64 %indvars.iv.i225
+  %333 = getelementptr inbounds nuw [64 x i8], ptr %332, i64 %indvars.iv.i225
+  %334 = getelementptr inbounds nuw [64 x i8], ptr %312, i64 %indvars.iv.i225
   %335 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %333, ptr noundef nonnull align 8 dereferenceable(64) %334)
   %indvars.iv.next.i226 = add nuw nsw i64 %indvars.iv.i225, 1
   %exitcond.not.i227 = icmp eq i64 %indvars.iv.next.i226, %wide.trip.count.i223
@@ -8708,8 +8708,8 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i233:   ; preds = %354
 .lr.ph.i237:                                      ; preds = %.lr.ph.i237, %.lr.ph.preheader.i235
   %indvars.iv.i238 = phi i64 [ 0, %.lr.ph.preheader.i235 ], [ %indvars.iv.next.i239, %.lr.ph.i237 ]
   %359 = load ptr, ptr %336, align 8, !tbaa !127
-  %360 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %359, i64 %indvars.iv.i238
-  %361 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %339, i64 %indvars.iv.i238
+  %360 = getelementptr inbounds nuw [64 x i8], ptr %359, i64 %indvars.iv.i238
+  %361 = getelementptr inbounds nuw [64 x i8], ptr %339, i64 %indvars.iv.i238
   %362 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %360, ptr noundef nonnull align 8 dereferenceable(64) %361)
   %indvars.iv.next.i239 = add nuw nsw i64 %indvars.iv.i238, 1
   %exitcond.not.i240 = icmp eq i64 %indvars.iv.next.i239, %wide.trip.count.i236
@@ -8773,8 +8773,8 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i246:   ; preds = %381
 .lr.ph.i250:                                      ; preds = %.lr.ph.i250, %.lr.ph.preheader.i248
   %indvars.iv.i251 = phi i64 [ 0, %.lr.ph.preheader.i248 ], [ %indvars.iv.next.i252, %.lr.ph.i250 ]
   %386 = load ptr, ptr %363, align 8, !tbaa !127
-  %387 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %386, i64 %indvars.iv.i251
-  %388 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %366, i64 %indvars.iv.i251
+  %387 = getelementptr inbounds nuw [64 x i8], ptr %386, i64 %indvars.iv.i251
+  %388 = getelementptr inbounds nuw [64 x i8], ptr %366, i64 %indvars.iv.i251
   %389 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %387, ptr noundef nonnull align 8 dereferenceable(64) %388)
   %indvars.iv.next.i252 = add nuw nsw i64 %indvars.iv.i251, 1
   %exitcond.not.i253 = icmp eq i64 %indvars.iv.next.i252, %wide.trip.count.i249
@@ -8838,8 +8838,8 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i259:   ; preds = %408
 .lr.ph.i263:                                      ; preds = %.lr.ph.i263, %.lr.ph.preheader.i261
   %indvars.iv.i264 = phi i64 [ 0, %.lr.ph.preheader.i261 ], [ %indvars.iv.next.i265, %.lr.ph.i263 ]
   %413 = load ptr, ptr %390, align 8, !tbaa !127
-  %414 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %413, i64 %indvars.iv.i264
-  %415 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %393, i64 %indvars.iv.i264
+  %414 = getelementptr inbounds nuw [64 x i8], ptr %413, i64 %indvars.iv.i264
+  %415 = getelementptr inbounds nuw [64 x i8], ptr %393, i64 %indvars.iv.i264
   %416 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %414, ptr noundef nonnull align 8 dereferenceable(64) %415)
   %indvars.iv.next.i265 = add nuw nsw i64 %indvars.iv.i264, 1
   %exitcond.not.i266 = icmp eq i64 %indvars.iv.next.i265, %wide.trip.count.i262
@@ -8903,8 +8903,8 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i272:   ; preds = %435
 .lr.ph.i276:                                      ; preds = %.lr.ph.i276, %.lr.ph.preheader.i274
   %indvars.iv.i277 = phi i64 [ 0, %.lr.ph.preheader.i274 ], [ %indvars.iv.next.i278, %.lr.ph.i276 ]
   %440 = load ptr, ptr %417, align 8, !tbaa !127
-  %441 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %440, i64 %indvars.iv.i277
-  %442 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %420, i64 %indvars.iv.i277
+  %441 = getelementptr inbounds nuw [64 x i8], ptr %440, i64 %indvars.iv.i277
+  %442 = getelementptr inbounds nuw [64 x i8], ptr %420, i64 %indvars.iv.i277
   %443 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %441, ptr noundef nonnull align 8 dereferenceable(64) %442)
   %indvars.iv.next.i278 = add nuw nsw i64 %indvars.iv.i277, 1
   %exitcond.not.i279 = icmp eq i64 %indvars.iv.next.i278, %wide.trip.count.i275
@@ -8968,8 +8968,8 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i285:   ; preds = %462
 .lr.ph.i289:                                      ; preds = %.lr.ph.i289, %.lr.ph.preheader.i287
   %indvars.iv.i290 = phi i64 [ 0, %.lr.ph.preheader.i287 ], [ %indvars.iv.next.i291, %.lr.ph.i289 ]
   %467 = load ptr, ptr %444, align 8, !tbaa !127
-  %468 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %467, i64 %indvars.iv.i290
-  %469 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %447, i64 %indvars.iv.i290
+  %468 = getelementptr inbounds nuw [64 x i8], ptr %467, i64 %indvars.iv.i290
+  %469 = getelementptr inbounds nuw [64 x i8], ptr %447, i64 %indvars.iv.i290
   %470 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %468, ptr noundef nonnull align 8 dereferenceable(64) %469)
   %indvars.iv.next.i291 = add nuw nsw i64 %indvars.iv.i290, 1
   %exitcond.not.i292 = icmp eq i64 %indvars.iv.next.i291, %wide.trip.count.i288
@@ -9033,8 +9033,8 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i298:   ; preds = %489
 .lr.ph.i302:                                      ; preds = %.lr.ph.i302, %.lr.ph.preheader.i300
   %indvars.iv.i303 = phi i64 [ 0, %.lr.ph.preheader.i300 ], [ %indvars.iv.next.i304, %.lr.ph.i302 ]
   %494 = load ptr, ptr %471, align 8, !tbaa !127
-  %495 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %494, i64 %indvars.iv.i303
-  %496 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %474, i64 %indvars.iv.i303
+  %495 = getelementptr inbounds nuw [64 x i8], ptr %494, i64 %indvars.iv.i303
+  %496 = getelementptr inbounds nuw [64 x i8], ptr %474, i64 %indvars.iv.i303
   %497 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %495, ptr noundef nonnull align 8 dereferenceable(64) %496)
   %indvars.iv.next.i304 = add nuw nsw i64 %indvars.iv.i303, 1
   %exitcond.not.i305 = icmp eq i64 %indvars.iv.next.i304, %wide.trip.count.i301
@@ -9098,8 +9098,8 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i311:   ; preds = %516
 .lr.ph.i315:                                      ; preds = %.lr.ph.i315, %.lr.ph.preheader.i313
   %indvars.iv.i316 = phi i64 [ 0, %.lr.ph.preheader.i313 ], [ %indvars.iv.next.i317, %.lr.ph.i315 ]
   %521 = load ptr, ptr %498, align 8, !tbaa !127
-  %522 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %521, i64 %indvars.iv.i316
-  %523 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %501, i64 %indvars.iv.i316
+  %522 = getelementptr inbounds nuw [64 x i8], ptr %521, i64 %indvars.iv.i316
+  %523 = getelementptr inbounds nuw [64 x i8], ptr %501, i64 %indvars.iv.i316
   %524 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %522, ptr noundef nonnull align 8 dereferenceable(64) %523)
   %indvars.iv.next.i317 = add nuw nsw i64 %indvars.iv.i316, 1
   %exitcond.not.i318 = icmp eq i64 %indvars.iv.next.i317, %wide.trip.count.i314
@@ -9166,8 +9166,8 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i324:   ; preds = %546
 .lr.ph.i328:                                      ; preds = %.lr.ph.i328, %.lr.ph.preheader.i326
   %indvars.iv.i329 = phi i64 [ 0, %.lr.ph.preheader.i326 ], [ %indvars.iv.next.i330, %.lr.ph.i328 ]
   %551 = load ptr, ptr %528, align 8, !tbaa !127
-  %552 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %551, i64 %indvars.iv.i329
-  %553 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %531, i64 %indvars.iv.i329
+  %552 = getelementptr inbounds nuw [64 x i8], ptr %551, i64 %indvars.iv.i329
+  %553 = getelementptr inbounds nuw [64 x i8], ptr %531, i64 %indvars.iv.i329
   %554 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %552, ptr noundef nonnull align 8 dereferenceable(64) %553)
   %indvars.iv.next.i330 = add nuw nsw i64 %indvars.iv.i329, 1
   %exitcond.not.i331 = icmp eq i64 %indvars.iv.next.i330, %wide.trip.count.i327
@@ -9231,8 +9231,8 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i337:   ; preds = %573
 .lr.ph.i341:                                      ; preds = %.lr.ph.i341, %.lr.ph.preheader.i339
   %indvars.iv.i342 = phi i64 [ 0, %.lr.ph.preheader.i339 ], [ %indvars.iv.next.i343, %.lr.ph.i341 ]
   %578 = load ptr, ptr %555, align 8, !tbaa !127
-  %579 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %578, i64 %indvars.iv.i342
-  %580 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %558, i64 %indvars.iv.i342
+  %579 = getelementptr inbounds nuw [64 x i8], ptr %578, i64 %indvars.iv.i342
+  %580 = getelementptr inbounds nuw [64 x i8], ptr %558, i64 %indvars.iv.i342
   %581 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %579, ptr noundef nonnull align 8 dereferenceable(64) %580)
   %indvars.iv.next.i343 = add nuw nsw i64 %indvars.iv.i342, 1
   %exitcond.not.i344 = icmp eq i64 %indvars.iv.next.i343, %wide.trip.count.i340
@@ -9296,8 +9296,8 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i350:   ; preds = %600
 .lr.ph.i354:                                      ; preds = %.lr.ph.i354, %.lr.ph.preheader.i352
   %indvars.iv.i355 = phi i64 [ 0, %.lr.ph.preheader.i352 ], [ %indvars.iv.next.i356, %.lr.ph.i354 ]
   %605 = load ptr, ptr %582, align 8, !tbaa !127
-  %606 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %605, i64 %indvars.iv.i355
-  %607 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %585, i64 %indvars.iv.i355
+  %606 = getelementptr inbounds nuw [64 x i8], ptr %605, i64 %indvars.iv.i355
+  %607 = getelementptr inbounds nuw [64 x i8], ptr %585, i64 %indvars.iv.i355
   %608 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %606, ptr noundef nonnull align 8 dereferenceable(64) %607)
   %indvars.iv.next.i356 = add nuw nsw i64 %indvars.iv.i355, 1
   %exitcond.not.i357 = icmp eq i64 %indvars.iv.next.i356, %wide.trip.count.i353
@@ -9361,8 +9361,8 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i363:   ; preds = %627
 .lr.ph.i367:                                      ; preds = %.lr.ph.i367, %.lr.ph.preheader.i365
   %indvars.iv.i368 = phi i64 [ 0, %.lr.ph.preheader.i365 ], [ %indvars.iv.next.i369, %.lr.ph.i367 ]
   %632 = load ptr, ptr %609, align 8, !tbaa !127
-  %633 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %632, i64 %indvars.iv.i368
-  %634 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %612, i64 %indvars.iv.i368
+  %633 = getelementptr inbounds nuw [64 x i8], ptr %632, i64 %indvars.iv.i368
+  %634 = getelementptr inbounds nuw [64 x i8], ptr %612, i64 %indvars.iv.i368
   %635 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %633, ptr noundef nonnull align 8 dereferenceable(64) %634)
   %indvars.iv.next.i369 = add nuw nsw i64 %indvars.iv.i368, 1
   %exitcond.not.i370 = icmp eq i64 %indvars.iv.next.i369, %wide.trip.count.i366
@@ -9426,8 +9426,8 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i376:   ; preds = %654
 .lr.ph.i380:                                      ; preds = %.lr.ph.i380, %.lr.ph.preheader.i378
   %indvars.iv.i381 = phi i64 [ 0, %.lr.ph.preheader.i378 ], [ %indvars.iv.next.i382, %.lr.ph.i380 ]
   %659 = load ptr, ptr %636, align 8, !tbaa !127
-  %660 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %659, i64 %indvars.iv.i381
-  %661 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %639, i64 %indvars.iv.i381
+  %660 = getelementptr inbounds nuw [64 x i8], ptr %659, i64 %indvars.iv.i381
+  %661 = getelementptr inbounds nuw [64 x i8], ptr %639, i64 %indvars.iv.i381
   %662 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %660, ptr noundef nonnull align 8 dereferenceable(64) %661)
   %indvars.iv.next.i382 = add nuw nsw i64 %indvars.iv.i381, 1
   %exitcond.not.i383 = icmp eq i64 %indvars.iv.next.i382, %wide.trip.count.i379
@@ -9491,8 +9491,8 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i389:   ; preds = %681
 .lr.ph.i393:                                      ; preds = %.lr.ph.i393, %.lr.ph.preheader.i391
   %indvars.iv.i394 = phi i64 [ 0, %.lr.ph.preheader.i391 ], [ %indvars.iv.next.i395, %.lr.ph.i393 ]
   %686 = load ptr, ptr %663, align 8, !tbaa !127
-  %687 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %686, i64 %indvars.iv.i394
-  %688 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %666, i64 %indvars.iv.i394
+  %687 = getelementptr inbounds nuw [64 x i8], ptr %686, i64 %indvars.iv.i394
+  %688 = getelementptr inbounds nuw [64 x i8], ptr %666, i64 %indvars.iv.i394
   %689 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %687, ptr noundef nonnull align 8 dereferenceable(64) %688)
   %indvars.iv.next.i395 = add nuw nsw i64 %indvars.iv.i394, 1
   %exitcond.not.i396 = icmp eq i64 %indvars.iv.next.i395, %wide.trip.count.i392
@@ -9556,8 +9556,8 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i402:   ; preds = %708
 .lr.ph.i406:                                      ; preds = %.lr.ph.i406, %.lr.ph.preheader.i404
   %indvars.iv.i407 = phi i64 [ 0, %.lr.ph.preheader.i404 ], [ %indvars.iv.next.i408, %.lr.ph.i406 ]
   %713 = load ptr, ptr %690, align 8, !tbaa !127
-  %714 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %713, i64 %indvars.iv.i407
-  %715 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %693, i64 %indvars.iv.i407
+  %714 = getelementptr inbounds nuw [64 x i8], ptr %713, i64 %indvars.iv.i407
+  %715 = getelementptr inbounds nuw [64 x i8], ptr %693, i64 %indvars.iv.i407
   %716 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %714, ptr noundef nonnull align 8 dereferenceable(64) %715)
   %indvars.iv.next.i408 = add nuw nsw i64 %indvars.iv.i407, 1
   %exitcond.not.i409 = icmp eq i64 %indvars.iv.next.i408, %wide.trip.count.i405
@@ -9621,8 +9621,8 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i415:   ; preds = %735
 .lr.ph.i419:                                      ; preds = %.lr.ph.i419, %.lr.ph.preheader.i417
   %indvars.iv.i420 = phi i64 [ 0, %.lr.ph.preheader.i417 ], [ %indvars.iv.next.i421, %.lr.ph.i419 ]
   %740 = load ptr, ptr %717, align 8, !tbaa !127
-  %741 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %740, i64 %indvars.iv.i420
-  %742 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %720, i64 %indvars.iv.i420
+  %741 = getelementptr inbounds nuw [64 x i8], ptr %740, i64 %indvars.iv.i420
+  %742 = getelementptr inbounds nuw [64 x i8], ptr %720, i64 %indvars.iv.i420
   %743 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %741, ptr noundef nonnull align 8 dereferenceable(64) %742)
   %indvars.iv.next.i421 = add nuw nsw i64 %indvars.iv.i420, 1
   %exitcond.not.i422 = icmp eq i64 %indvars.iv.next.i421, %wide.trip.count.i418
@@ -9686,8 +9686,8 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i428:   ; preds = %762
 .lr.ph.i432:                                      ; preds = %.lr.ph.i432, %.lr.ph.preheader.i430
   %indvars.iv.i433 = phi i64 [ 0, %.lr.ph.preheader.i430 ], [ %indvars.iv.next.i434, %.lr.ph.i432 ]
   %767 = load ptr, ptr %744, align 8, !tbaa !127
-  %768 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %767, i64 %indvars.iv.i433
-  %769 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %747, i64 %indvars.iv.i433
+  %768 = getelementptr inbounds nuw [64 x i8], ptr %767, i64 %indvars.iv.i433
+  %769 = getelementptr inbounds nuw [64 x i8], ptr %747, i64 %indvars.iv.i433
   %770 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %768, ptr noundef nonnull align 8 dereferenceable(64) %769)
   %indvars.iv.next.i434 = add nuw nsw i64 %indvars.iv.i433, 1
   %exitcond.not.i435 = icmp eq i64 %indvars.iv.next.i434, %wide.trip.count.i431
@@ -9751,8 +9751,8 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i441:   ; preds = %789
 .lr.ph.i445:                                      ; preds = %.lr.ph.i445, %.lr.ph.preheader.i443
   %indvars.iv.i446 = phi i64 [ 0, %.lr.ph.preheader.i443 ], [ %indvars.iv.next.i447, %.lr.ph.i445 ]
   %794 = load ptr, ptr %771, align 8, !tbaa !127
-  %795 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %794, i64 %indvars.iv.i446
-  %796 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %774, i64 %indvars.iv.i446
+  %795 = getelementptr inbounds nuw [64 x i8], ptr %794, i64 %indvars.iv.i446
+  %796 = getelementptr inbounds nuw [64 x i8], ptr %774, i64 %indvars.iv.i446
   %797 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %795, ptr noundef nonnull align 8 dereferenceable(64) %796)
   %indvars.iv.next.i447 = add nuw nsw i64 %indvars.iv.i446, 1
   %exitcond.not.i448 = icmp eq i64 %indvars.iv.next.i447, %wide.trip.count.i444
@@ -9816,8 +9816,8 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i454:   ; preds = %816
 .lr.ph.i458:                                      ; preds = %.lr.ph.i458, %.lr.ph.preheader.i456
   %indvars.iv.i459 = phi i64 [ 0, %.lr.ph.preheader.i456 ], [ %indvars.iv.next.i460, %.lr.ph.i458 ]
   %821 = load ptr, ptr %798, align 8, !tbaa !127
-  %822 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %821, i64 %indvars.iv.i459
-  %823 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %801, i64 %indvars.iv.i459
+  %822 = getelementptr inbounds nuw [64 x i8], ptr %821, i64 %indvars.iv.i459
+  %823 = getelementptr inbounds nuw [64 x i8], ptr %801, i64 %indvars.iv.i459
   %824 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %822, ptr noundef nonnull align 8 dereferenceable(64) %823)
   %indvars.iv.next.i460 = add nuw nsw i64 %indvars.iv.i459, 1
   %exitcond.not.i461 = icmp eq i64 %indvars.iv.next.i460, %wide.trip.count.i457
@@ -9881,8 +9881,8 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i467:   ; preds = %843
 .lr.ph.i471:                                      ; preds = %.lr.ph.i471, %.lr.ph.preheader.i469
   %indvars.iv.i472 = phi i64 [ 0, %.lr.ph.preheader.i469 ], [ %indvars.iv.next.i473, %.lr.ph.i471 ]
   %848 = load ptr, ptr %825, align 8, !tbaa !127
-  %849 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %848, i64 %indvars.iv.i472
-  %850 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %828, i64 %indvars.iv.i472
+  %849 = getelementptr inbounds nuw [64 x i8], ptr %848, i64 %indvars.iv.i472
+  %850 = getelementptr inbounds nuw [64 x i8], ptr %828, i64 %indvars.iv.i472
   %851 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %849, ptr noundef nonnull align 8 dereferenceable(64) %850)
   %indvars.iv.next.i473 = add nuw nsw i64 %indvars.iv.i472, 1
   %exitcond.not.i474 = icmp eq i64 %indvars.iv.next.i473, %wide.trip.count.i470
@@ -9942,8 +9942,8 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i480:   ; preds = %868
 .lr.ph.i484:                                      ; preds = %.lr.ph.i484, %.lr.ph.preheader.i482
   %indvars.iv.i485 = phi i64 [ 0, %.lr.ph.preheader.i482 ], [ %indvars.iv.next.i486, %.lr.ph.i484 ]
   %873 = load ptr, ptr %854, align 8, !tbaa !127
-  %874 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %873, i64 %indvars.iv.i485
-  %875 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %853, i64 %indvars.iv.i485
+  %874 = getelementptr inbounds nuw [64 x i8], ptr %873, i64 %indvars.iv.i485
+  %875 = getelementptr inbounds nuw [64 x i8], ptr %853, i64 %indvars.iv.i485
   %876 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %874, ptr noundef nonnull align 8 dereferenceable(64) %875)
   %indvars.iv.next.i486 = add nuw nsw i64 %indvars.iv.i485, 1
   %exitcond.not.i487 = icmp eq i64 %indvars.iv.next.i486, %wide.trip.count.i483
@@ -10009,8 +10009,8 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i493:   ; preds = %895
 .lr.ph.i497:                                      ; preds = %.lr.ph.i497, %.lr.ph.preheader.i495
   %indvars.iv.i498 = phi i64 [ 0, %.lr.ph.preheader.i495 ], [ %indvars.iv.next.i499, %.lr.ph.i497 ]
   %900 = load ptr, ptr %881, align 8, !tbaa !127
-  %901 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %900, i64 %indvars.iv.i498
-  %902 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %880, i64 %indvars.iv.i498
+  %901 = getelementptr inbounds nuw [64 x i8], ptr %900, i64 %indvars.iv.i498
+  %902 = getelementptr inbounds nuw [64 x i8], ptr %880, i64 %indvars.iv.i498
   %903 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %901, ptr noundef nonnull align 8 dereferenceable(64) %902)
   %indvars.iv.next.i499 = add nuw nsw i64 %indvars.iv.i498, 1
   %exitcond.not.i500 = icmp eq i64 %indvars.iv.next.i499, %wide.trip.count.i496
@@ -10076,8 +10076,8 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit.i506:   ; preds = %922
 .lr.ph.i510:                                      ; preds = %.lr.ph.i510, %.lr.ph.preheader.i508
   %indvars.iv.i511 = phi i64 [ 0, %.lr.ph.preheader.i508 ], [ %indvars.iv.next.i512, %.lr.ph.i510 ]
   %927 = load ptr, ptr %908, align 8, !tbaa !127
-  %928 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %927, i64 %indvars.iv.i511
-  %929 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %907, i64 %indvars.iv.i511
+  %928 = getelementptr inbounds nuw [64 x i8], ptr %927, i64 %indvars.iv.i511
+  %929 = getelementptr inbounds nuw [64 x i8], ptr %907, i64 %indvars.iv.i511
   %930 = call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %928, ptr noundef nonnull align 8 dereferenceable(64) %929)
   %indvars.iv.next.i512 = add nuw nsw i64 %indvars.iv.i511, 1
   %exitcond.not.i513 = icmp eq i64 %indvars.iv.next.i512, %wide.trip.count.i509
@@ -10185,8 +10185,8 @@ _ZN6icu_77L21newUnicodeStringArrayEm.exit:        ; preds = %17
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %22 = load ptr, ptr %0, align 8, !tbaa !127
-  %23 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %22, i64 %indvars.iv
-  %24 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %2, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [64 x i8], ptr %2, i64 %indvars.iv
   %25 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %23, ptr noundef nonnull align 8 dereferenceable(64) %24)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -10252,31 +10252,31 @@ define void @_ZN6icu_7717DateFormatSymbols17createZoneStringsEPKPKNS_13UnicodeSt
 
 .preheader22.preheader:                           ; preds = %12
   %27 = load ptr, ptr %8, align 8, !tbaa !147
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv33
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv33
   store ptr null, ptr %28, align 8, !tbaa !127
   br label %.preheader22
 
 .preheader23:                                     ; preds = %23
   %.ptr11.i = getelementptr inbounds nuw i8, ptr %20, i64 8
   %29 = load ptr, ptr %8, align 8, !tbaa !147
-  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv33
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv33
   store ptr %.ptr11.i, ptr %30, align 8, !tbaa !127
   %31 = load i32, ptr %11, align 4, !tbaa !148
   %32 = icmp sgt i32 %31, 0
   br i1 %32, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.preheader23
-  %33 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv33
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv33
   br label %34
 
 34:                                               ; preds = %.lr.ph, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
   %35 = load ptr, ptr %8, align 8, !tbaa !147
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv33
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv33
   %37 = load ptr, ptr %36, align 8, !tbaa !127
-  %38 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %37, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [64 x i8], ptr %37, i64 %indvars.iv
   %39 = load ptr, ptr %33, align 8, !tbaa !127
-  %40 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %39, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [64 x i8], ptr %39, i64 %indvars.iv
   %41 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString12fastCopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %38, ptr noundef nonnull align 8 dereferenceable(64) %40)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %42 = load i32, ptr %11, align 4, !tbaa !148
@@ -10301,7 +10301,7 @@ define void @_ZN6icu_7717DateFormatSymbols17createZoneStringsEPKPKNS_13UnicodeSt
 .preheader22:                                     ; preds = %.preheader22.preheader, %63
   %indvars.iv37 = phi i64 [ %indvars.iv33, %.preheader22.preheader ], [ %indvars.iv.next38, %63 ]
   %51 = load ptr, ptr %8, align 8, !tbaa !147
-  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %indvars.iv37
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %indvars.iv37
   %53 = load ptr, ptr %52, align 8, !tbaa !127
   %54 = icmp eq ptr %53, null
   br i1 %54, label %63, label %55
@@ -11418,7 +11418,7 @@ define void @_ZN6icu_7717DateFormatSymbols18disposeZoneStringsEv(ptr noundef non
   %8 = phi i32 [ %22, %21 ], [ %5, %.preheader16 ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %21 ], [ 0, %.preheader16 ]
   %9 = load ptr, ptr %2, align 8, !tbaa !147
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !127
   %12 = icmp eq ptr %11, null
   br i1 %12, label %21, label %13
@@ -11478,7 +11478,7 @@ define void @_ZN6icu_7717DateFormatSymbols18disposeZoneStringsEv(ptr noundef non
   %32 = phi i32 [ %46, %45 ], [ %29, %.preheader13 ]
   %indvars.iv22 = phi i64 [ %indvars.iv.next23, %45 ], [ 0, %.preheader13 ]
   %33 = load ptr, ptr %26, align 8, !tbaa !150
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %indvars.iv22
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %indvars.iv22
   %35 = load ptr, ptr %34, align 8, !tbaa !127
   %36 = icmp eq ptr %35, null
   br i1 %36, label %45, label %37
@@ -11532,8 +11532,8 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7717DateFormatSymbols12arrayCo
 7:                                                ; preds = %.lr.ph, %.preheader.backedge
   %indvars.iv13 = phi i64 [ %6, %.lr.ph ], [ %8, %.preheader.backedge ]
   %8 = add nsw i64 %indvars.iv13, -1
-  %9 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %0, i64 %8
-  %10 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %1, i64 %8
+  %9 = getelementptr inbounds nuw [64 x i8], ptr %0, i64 %8
+  %10 = getelementptr inbounds nuw [64 x i8], ptr %1, i64 %8
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %12 = load i16, ptr %11, align 8, !tbaa !23
   %13 = and i16 %12, 1
@@ -12312,10 +12312,10 @@ define noundef zeroext i1 @_ZNK6icu_7717DateFormatSymbolseqERKS0_(ptr noundef no
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %478 = load ptr, ptr %454, align 8, !tbaa !147
-  %479 = getelementptr inbounds nuw ptr, ptr %478, i64 %indvars.iv
+  %479 = getelementptr inbounds nuw [8 x i8], ptr %478, i64 %indvars.iv
   %480 = load ptr, ptr %479, align 8, !tbaa !127
   %481 = load ptr, ptr %457, align 8, !tbaa !147
-  %482 = getelementptr inbounds nuw ptr, ptr %481, i64 %indvars.iv
+  %482 = getelementptr inbounds nuw [8 x i8], ptr %481, i64 %indvars.iv
   %483 = load ptr, ptr %482, align 8, !tbaa !127
   %484 = load i32, ptr %472, align 4, !tbaa !148
   %485 = tail call noundef signext i8 @_ZN6icu_7717DateFormatSymbols12arrayCompareEPKNS_13UnicodeStringES3_i(ptr noundef %480, ptr noundef %483, i32 noundef %484)
@@ -12457,10 +12457,10 @@ define noundef ptr @_ZNK6icu_7717DateFormatSymbols9getMonthsERiNS0_13DtContextTy
   %switch.table._ZNK6icu_7717DateFormatSymbols9getMonthsERiNS0_13DtContextTypeENS0_11DtWidthTypeE.6.sink = phi ptr [ @switch.table._ZNK6icu_7717DateFormatSymbols9getMonthsERiNS0_13DtContextTypeENS0_11DtWidthTypeE, %5 ], [ @switch.table._ZNK6icu_7717DateFormatSymbols9getMonthsERiNS0_13DtContextTypeENS0_11DtWidthTypeE.6, %7 ]
   %switch.table._ZNK6icu_7717DateFormatSymbols9getMonthsERiNS0_13DtContextTypeENS0_11DtWidthTypeE.7.sink = phi ptr [ @switch.table._ZNK6icu_7717DateFormatSymbols9getMonthsERiNS0_13DtContextTypeENS0_11DtWidthTypeE.5, %5 ], [ @switch.table._ZNK6icu_7717DateFormatSymbols9getMonthsERiNS0_13DtContextTypeENS0_11DtWidthTypeE.7, %7 ]
   %9 = zext nneg i32 %3 to i64
-  %switch.gep15 = getelementptr inbounds nuw i64, ptr %switch.table._ZNK6icu_7717DateFormatSymbols9getMonthsERiNS0_13DtContextTypeENS0_11DtWidthTypeE.6.sink, i64 %9
+  %switch.gep15 = getelementptr inbounds nuw [8 x i8], ptr %switch.table._ZNK6icu_7717DateFormatSymbols9getMonthsERiNS0_13DtContextTypeENS0_11DtWidthTypeE.6.sink, i64 %9
   %switch.load16 = load i64, ptr %switch.gep15, align 8
   %10 = zext nneg i32 %3 to i64
-  %switch.gep17 = getelementptr inbounds nuw i64, ptr %switch.table._ZNK6icu_7717DateFormatSymbols9getMonthsERiNS0_13DtContextTypeENS0_11DtWidthTypeE.7.sink, i64 %10
+  %switch.gep17 = getelementptr inbounds nuw [8 x i8], ptr %switch.table._ZNK6icu_7717DateFormatSymbols9getMonthsERiNS0_13DtContextTypeENS0_11DtWidthTypeE.7.sink, i64 %10
   %switch.load18 = load i64, ptr %switch.gep17, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load16
   %12 = load i32, ptr %11, align 8, !tbaa !12
@@ -12513,10 +12513,10 @@ define noundef ptr @_ZNK6icu_7717DateFormatSymbols11getWeekdaysERiNS0_13DtContex
   %switch.table._ZNK6icu_7717DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE.9.sink = phi ptr [ @switch.table._ZNK6icu_7717DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE, %5 ], [ @switch.table._ZNK6icu_7717DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE.9, %7 ]
   %switch.table._ZNK6icu_7717DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE.10.sink = phi ptr [ @switch.table._ZNK6icu_7717DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE.8, %5 ], [ @switch.table._ZNK6icu_7717DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE.10, %7 ]
   %9 = zext nneg i32 %3 to i64
-  %switch.gep17 = getelementptr inbounds nuw i64, ptr %switch.table._ZNK6icu_7717DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE.9.sink, i64 %9
+  %switch.gep17 = getelementptr inbounds nuw [8 x i8], ptr %switch.table._ZNK6icu_7717DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE.9.sink, i64 %9
   %switch.load18 = load i64, ptr %switch.gep17, align 8
   %10 = zext nneg i32 %3 to i64
-  %switch.gep19 = getelementptr inbounds nuw i64, ptr %switch.table._ZNK6icu_7717DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE.10.sink, i64 %10
+  %switch.gep19 = getelementptr inbounds nuw [8 x i8], ptr %switch.table._ZNK6icu_7717DateFormatSymbols11getWeekdaysERiNS0_13DtContextTypeENS0_11DtWidthTypeE.10.sink, i64 %10
   %switch.load20 = load i64, ptr %switch.gep19, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load18
   %12 = load i32, ptr %11, align 8, !tbaa !12
@@ -12549,10 +12549,10 @@ define noundef ptr @_ZNK6icu_7717DateFormatSymbols11getQuartersERiNS0_13DtContex
   %switch.table._ZNK6icu_7717DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE.12.sink = phi ptr [ @switch.table._ZNK6icu_7717DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE, %5 ], [ @switch.table._ZNK6icu_7717DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE.12, %7 ]
   %switch.table._ZNK6icu_7717DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE.13.sink = phi ptr [ @switch.table._ZNK6icu_7717DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE.11, %5 ], [ @switch.table._ZNK6icu_7717DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE.13, %7 ]
   %9 = zext nneg i32 %3 to i64
-  %switch.gep15 = getelementptr inbounds nuw i64, ptr %switch.table._ZNK6icu_7717DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE.12.sink, i64 %9
+  %switch.gep15 = getelementptr inbounds nuw [8 x i8], ptr %switch.table._ZNK6icu_7717DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE.12.sink, i64 %9
   %switch.load16 = load i64, ptr %switch.gep15, align 8
   %10 = zext nneg i32 %3 to i64
-  %switch.gep17 = getelementptr inbounds nuw i64, ptr %switch.table._ZNK6icu_7717DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE.13.sink, i64 %10
+  %switch.gep17 = getelementptr inbounds nuw [8 x i8], ptr %switch.table._ZNK6icu_7717DateFormatSymbols11getQuartersERiNS0_13DtContextTypeENS0_11DtWidthTypeE.13.sink, i64 %10
   %switch.load18 = load i64, ptr %switch.gep17, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load16
   %12 = load i32, ptr %11, align 8, !tbaa !12
@@ -15188,14 +15188,14 @@ define void @_ZN6icu_7717DateFormatSymbols20initZoneStringsArrayEv(ptr noundef n
 
 51:                                               ; preds = %44
   %52 = and i64 %indvars.iv, 4294967295
-  %53 = getelementptr inbounds nuw ptr, ptr %20, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %52
   store ptr null, ptr %53, align 8, !tbaa !127
   store i32 7, ptr %2, align 4, !tbaa !13
   br label %.loopexit96
 
 54:                                               ; preds = %48
   %.ptr62 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %55 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv
   store ptr %.ptr62, ptr %55, align 8, !tbaa !127
   %56 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7713UnicodeString8copyFromERKS0_a(ptr noundef nonnull align 8 dereferenceable(64) %.ptr62, ptr noundef nonnull align 8 dereferenceable(64) %38, i8 noundef signext 0)
           to label %_ZN6icu_7713UnicodeString5setToERKS0_.exit unwind label %42
@@ -15234,7 +15234,7 @@ _ZN6icu_7713UnicodeString5setToERKS0_.exit:       ; preds = %54
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %75
   %indvars.iv88 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next89, %75 ]
-  %65 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv88
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv88
   %66 = load ptr, ptr %65, align 8, !tbaa !127
   %.not68 = icmp eq ptr %66, null
   br i1 %.not68, label %75, label %67
@@ -15458,7 +15458,7 @@ define internal fastcc void @_ZN6icu_77L20initLeapMonthPatternEPNS_13UnicodeStri
   %7 = alloca %"class.icu_77::UnicodeString", align 8
   %8 = alloca %"class.icu_77::ConstChar16Ptr", align 8
   %9 = zext nneg i32 %1 to i64
-  %10 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %0, i64 %9
+  %10 = getelementptr inbounds nuw [64 x i8], ptr %0, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load i16, ptr %11, align 8, !tbaa !23
   %13 = and i16 %12, 1
@@ -15629,7 +15629,7 @@ _ZNK6icu_779Hashtable3getERKNS_13UnicodeStringE.exit: ; preds = %8
 .lr.ph:                                           ; preds = %.preheader1, %37
   %indvars.iv = phi i64 [ %indvars.iv.next, %37 ], [ 0, %.preheader1 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %24 = getelementptr inbounds nuw ptr, ptr @_ZN6icu_77L13dayPeriodKeysE, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [8 x i8], ptr @_ZN6icu_77L13dayPeriodKeysE, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !161
   invoke void @_ZN6icu_7713UnicodeStringC1EPKciNS0_10EInvariantE(ptr noundef nonnull align 8 dereferenceable(64) %5, ptr noundef %25, i32 noundef -1, i32 noundef 0)
           to label %26 unwind label %32
@@ -15641,7 +15641,7 @@ _ZNK6icu_779Hashtable3getERKNS_13UnicodeStringE.exit: ; preds = %8
 
 _ZNK6icu_779Hashtable3getERKNS_13UnicodeStringE.exit56: ; preds = %26
   %.not52 = icmp eq ptr %28, null
-  %29 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %.ptr46, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [64 x i8], ptr %.ptr46, i64 %indvars.iv
   br i1 %.not52, label %36, label %30
 
 30:                                               ; preds = %_ZNK6icu_779Hashtable3getERKNS_13UnicodeStringE.exit56
@@ -15679,7 +15679,7 @@ _ZNK6icu_779Hashtable3getERKNS_13UnicodeStringE.exit56: ; preds = %26
 
 .lr.ph5:                                          ; preds = %.preheader, %43
   %indvars.iv8 = phi i64 [ %indvars.iv.next9, %43 ], [ 0, %.preheader ]
-  %42 = getelementptr inbounds nuw %"class.icu_77::UnicodeString", ptr %.ptr46, i64 %indvars.iv8
+  %42 = getelementptr inbounds nuw [64 x i8], ptr %.ptr46, i64 %indvars.iv8
   invoke void @_ZN6icu_7713UnicodeString10setToBogusEv(ptr noundef nonnull align 8 dereferenceable(64) %42)
           to label %43 unwind label %47
 
@@ -15895,7 +15895,7 @@ _ZN6icu_7712LocalPointerINS_7UVectorEED2Ev.exit:  ; preds = %_ZN6icu_779Hashtabl
   %29 = phi i32 [ %17, %.lr.ph.i ], [ %41, %40 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %40 ]
   %30 = load ptr, ptr %19, align 8, !tbaa !110
-  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv.i
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv.i
   %32 = load ptr, ptr %31, align 8, !tbaa !164
   %33 = icmp eq ptr %32, null
   br i1 %33, label %40, label %34
@@ -16055,7 +16055,7 @@ _ZN6icu_7715MaybeStackArrayIPNS_9HashtableELi8EED2Ev.exit: ; preds = %._crit_edg
   %14 = phi i32 [ %2, %.lr.ph ], [ %26, %25 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %25 ]
   %15 = load ptr, ptr %4, align 8, !tbaa !110
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !164
   %18 = icmp eq ptr %17, null
   br i1 %18, label %25, label %19
@@ -18158,7 +18158,7 @@ _ZN6icu_779HashtableC2EaR10UErrorCode.exit:       ; preds = %.noexc, %33, %43, %
   store i32 %46, ptr %0, align 8, !tbaa !106
   %47 = sext i32 %45 to i64
   %48 = load ptr, ptr %4, align 8, !tbaa !110
-  %49 = getelementptr inbounds ptr, ptr %48, i64 %47
+  %49 = getelementptr inbounds [8 x i8], ptr %48, i64 %47
   store ptr %31, ptr %49, align 8, !tbaa !164
   br label %_ZN6icu_7715MaybeStackArrayIPNS_9HashtableELi8EE6resizeEii.exit.thread
 

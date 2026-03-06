@@ -4200,7 +4200,7 @@ define dso_local range(i32 -1, 1) i32 @php_register_url_stream_wrapper(ptr nound
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv.i
   %10 = load i8, ptr %9, align 1, !tbaa !21
   %11 = sext i8 %10 to i64
-  %12 = getelementptr inbounds i16, ptr %7, i64 %11
+  %12 = getelementptr inbounds [2 x i8], ptr %7, i64 %11
   %13 = load i16, ptr %12, align 2, !tbaa !139
   %.fr18.i = freeze i16 %13
   %14 = and i16 %.fr18.i, 8
@@ -4283,7 +4283,7 @@ define dso_local range(i32 -1, 1) i32 @php_register_url_stream_wrapper_volatile(
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 %indvars.iv.i
   %12 = load i8, ptr %11, align 1, !tbaa !21
   %13 = sext i8 %12 to i64
-  %14 = getelementptr inbounds i16, ptr %9, i64 %13
+  %14 = getelementptr inbounds [2 x i8], ptr %9, i64 %13
   %15 = load i16, ptr %14, align 2, !tbaa !139
   %.fr18.i = freeze i16 %15
   %16 = and i16 %.fr18.i, 8
@@ -4392,7 +4392,7 @@ define dso_local noundef ptr @php_stream_locate_url_wrapper(ptr noundef %0, ptr 
   %.084 = phi i64 [ %21, %.critedge ], [ 0, %.preheader ]
   %16 = load i8, ptr %.090, align 1, !tbaa !21
   %17 = sext i8 %16 to i64
-  %18 = getelementptr inbounds i16, ptr %11, i64 %17
+  %18 = getelementptr inbounds [2 x i8], ptr %11, i64 %17
   %19 = load i16, ptr %18, align 2, !tbaa !139
   %.fr163 = freeze i16 %19
   %20 = and i16 %.fr163, 8
@@ -5742,7 +5742,7 @@ zend_string_init.exit:                            ; preds = %18, %.lr.ph
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %28, ptr nonnull align 1 %6, i64 %21, i1 false)
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 %21
   store i8 0, ptr %29, align 1, !tbaa !21
-  %30 = getelementptr inbounds nuw ptr, ptr %.138, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %.138, i64 %indvars.iv
   store ptr %24, ptr %30, align 8, !tbaa !133
   %31 = icmp ult i32 %.1, 10
   br i1 %31, label %40, label %32
@@ -5799,7 +5799,7 @@ select.unfold50._crit_edge:                       ; preds = %select.unfold50._cr
 
 .lr.ph61:                                         ; preds = %.lr.ph61.preheader, %.lr.ph61
   %indvars.iv67 = phi i64 [ 0, %.lr.ph61.preheader ], [ %indvars.iv.next68, %.lr.ph61 ]
-  %42 = getelementptr inbounds nuw ptr, ptr %.23979, i64 %indvars.iv67
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %.23979, i64 %indvars.iv67
   %43 = load ptr, ptr %42, align 8, !tbaa !133
   call void @_efree(ptr noundef %43) #27
   %indvars.iv.next68 = add nuw nsw i64 %indvars.iv67, 1

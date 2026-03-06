@@ -35,13 +35,13 @@ target triple = "x86_64-pc-linux-gnu"
 %class.map.43 = type { %class.table2map.44 }
 %class.table2map.44 = type { %class.core_hashtable.45 }
 %class.core_hashtable.45 = type <{ ptr, i32, i32, i32, [4 x i8] }>
-%struct.asymbol = type <{ i8, [7 x i8], %class.symbol, %class.rational, i32, [4 x i8] }>
 %class.ref_vector = type { %class.ref_vector_core }
 %class.ref_vector_core = type { %class.ref_manager_wrapper, %class.ptr_vector }
 %class.ref_manager_wrapper = type { ptr }
 %class.ptr_vector = type { %class.vector }
 %class.vector = type { ptr }
 %"class.std::allocator" = type { i8 }
+%struct.asymbol = type <{ i8, [7 x i8], %class.symbol, %class.rational, i32, [4 x i8] }>
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
 %"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
@@ -50,8 +50,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.lp_parse::bound" = type <{ %class.optional, %class.optional, i8, [7 x i8] }>
 %class.optional = type { ptr }
 %struct._key_data = type { %class.symbol, %"struct.lp_parse::bound" }
-%class.default_map_entry = type { %class.default_hash_entry }
-%class.default_hash_entry = type { i32, i32, %struct._key_data }
 %class.obj_ref.95 = type { ptr, ptr }
 %"struct.std::pair.79" = type { %class.rational, %class.symbol }
 
@@ -761,7 +759,7 @@ _ZN6vectorIjLb0EjE9push_backERKj.exit:            ; preds = %82, %.noexc12
   %87 = phi ptr [ %.pre.i11, %.noexc12 ], [ %77, %82 ]
   %88 = getelementptr inbounds i8, ptr %87, i64 -4
   %89 = zext i32 %86 to i64
-  %90 = getelementptr inbounds nuw i32, ptr %87, i64 %89
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %89
   store i32 %70, ptr %90, align 4, !tbaa !125
   %91 = add i32 %86, 1
   store i32 %91, ptr %88, align 4, !tbaa !125
@@ -1307,7 +1305,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i:     ; preds = %1
 
 14:                                               ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i
   %15 = zext i32 %9 to i64
-  %16 = getelementptr inbounds nuw %struct.asymbol, ptr %10, i64 %15
+  %16 = getelementptr inbounds nuw [56 x i8], ptr %10, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   br label %_ZN8lp_parse4peekEj.exit.i
 
@@ -1330,7 +1328,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i1.i:    ; preds = %19
 
 25:                                               ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i1.i
   %26 = zext i32 %20 to i64
-  %27 = getelementptr inbounds nuw %struct.asymbol, ptr %21, i64 %26
+  %27 = getelementptr inbounds nuw [56 x i8], ptr %21, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   br label %_ZN8lp_parse4peekEj.exit4.i
 
@@ -1381,7 +1379,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i1:    ; preds = %39
 
 45:                                               ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i1
   %46 = zext i32 %40 to i64
-  %47 = getelementptr inbounds nuw %struct.asymbol, ptr %41, i64 %46
+  %47 = getelementptr inbounds nuw [56 x i8], ptr %41, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   br label %_ZN8lp_parse9is_boundsEv.exit
 
@@ -1471,7 +1469,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i5:    ; preds = %_ZeqRK6symbolPKc.ex
 
 75:                                               ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i5
   %76 = zext i32 %71 to i64
-  %77 = getelementptr inbounds nuw %struct.asymbol, ptr %70, i64 %76
+  %77 = getelementptr inbounds nuw [56 x i8], ptr %70, i64 %76
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
   br label %_ZN8lp_parse4peekEj.exit.i7
 
@@ -1494,7 +1492,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i1.i9:   ; preds = %80
 
 86:                                               ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i1.i9
   %87 = zext i32 %81 to i64
-  %88 = getelementptr inbounds nuw %struct.asymbol, ptr %82, i64 %87
+  %88 = getelementptr inbounds nuw [56 x i8], ptr %82, i64 %87
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
   br label %_ZN8lp_parse4peekEj.exit4.i11
 
@@ -1517,7 +1515,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i5.i:    ; preds = %91
 
 97:                                               ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i5.i
   %98 = zext i32 %92 to i64
-  %99 = getelementptr inbounds nuw %struct.asymbol, ptr %93, i64 %98
+  %99 = getelementptr inbounds nuw [56 x i8], ptr %93, i64 %98
   %100 = getelementptr inbounds nuw i8, ptr %99, i64 8
   br label %_ZN8lp_parse9is_binaryEv.exit
 
@@ -1552,7 +1550,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i13:   ; preds = %106
 
 112:                                              ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i13
   %113 = zext i32 %107 to i64
-  %114 = getelementptr inbounds nuw %struct.asymbol, ptr %108, i64 %113
+  %114 = getelementptr inbounds nuw [56 x i8], ptr %108, i64 %113
   %115 = getelementptr inbounds nuw i8, ptr %114, i64 8
   br label %_ZN8lp_parse4peekEj.exit.i15
 
@@ -1575,7 +1573,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i1.i17:  ; preds = %117
 
 123:                                              ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i1.i17
   %124 = zext i32 %118 to i64
-  %125 = getelementptr inbounds nuw %struct.asymbol, ptr %119, i64 %124
+  %125 = getelementptr inbounds nuw [56 x i8], ptr %119, i64 %124
   %126 = getelementptr inbounds nuw i8, ptr %125, i64 8
   br label %_ZN8lp_parse4peekEj.exit4.i19
 
@@ -1598,7 +1596,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i5.i21:  ; preds = %128
 
 134:                                              ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i5.i21
   %135 = zext i32 %129 to i64
-  %136 = getelementptr inbounds nuw %struct.asymbol, ptr %130, i64 %135
+  %136 = getelementptr inbounds nuw [56 x i8], ptr %130, i64 %135
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 8
   br label %_ZN8lp_parse10is_generalEv.exit
 
@@ -2276,7 +2274,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0
   %94 = phi ptr [ %.pre.i.i, %.noexc21 ], [ %84, %86 ]
   %95 = getelementptr inbounds i8, ptr %94, i64 -4
   %96 = zext i32 %93 to i64
-  %97 = getelementptr inbounds nuw ptr, ptr %94, i64 %96
+  %97 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %96
   store ptr %79, ptr %97, align 8, !tbaa !246
   %98 = add i32 %93, 1
   store i32 %98, ptr %95, align 4, !tbaa !125
@@ -3317,7 +3315,7 @@ _ZN7obj_refI3app11ast_managerED2Ev.exit22:        ; preds = %105, %107, %113
   %139 = phi ptr [ %.pre.i, %.noexc23 ], [ %128, %130 ]
   %140 = getelementptr inbounds i8, ptr %139, i64 -4
   %141 = zext i32 %138 to i64
-  %142 = getelementptr inbounds nuw i32, ptr %139, i64 %141
+  %142 = getelementptr inbounds nuw [4 x i8], ptr %139, i64 %141
   store i32 %126, ptr %142, align 4, !tbaa !125
   %143 = add i32 %138, 1
   store i32 %143, ptr %140, align 4, !tbaa !125
@@ -5777,7 +5775,7 @@ _ZN6vectorIcLb0EjE9push_backEOc.exit75:           ; preds = %179, %185
   %210 = phi i32 [ %.pre2.i78, %.noexc ], [ %204, %202 ]
   %211 = phi ptr [ %.pre.i76, %.noexc ], [ %200, %202 ]
   %212 = zext i32 %210 to i64
-  %213 = getelementptr inbounds nuw %struct.asymbol, ptr %211, i64 %212
+  %213 = getelementptr inbounds nuw [56 x i8], ptr %211, i64 %212
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %213, ptr noundef nonnull align 8 dereferenceable(52) %3, i64 16, i1 false)
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 16
   %215 = load i32, ptr %27, align 8, !tbaa !132
@@ -5870,7 +5868,7 @@ _ZN7asymbolD2Ev.exit:                             ; preds = %.noexc.i.i
 
 _ZN6vectorI7asymbolLb1EjE4backEv.exit:            ; preds = %256, %261
   %.0.i.i = phi i64 [ %265, %261 ], [ 4294967295, %256 ]
-  %266 = getelementptr inbounds nuw %struct.asymbol, ptr %259, i64 %.0.i.i
+  %266 = getelementptr inbounds nuw [56 x i8], ptr %259, i64 %.0.i.i
   %267 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRK7asymbol(ptr noundef nonnull align 8 dereferenceable(8) %257, ptr noundef nonnull align 8 dereferenceable(52) %266)
   %268 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %267, ptr noundef nonnull @.str.23, i64 noundef 1)
   call void @_Z14verbose_unlockv()
@@ -5900,7 +5898,7 @@ _ZN6vectorI7asymbolLb1EjE4backEv.exit:            ; preds = %256, %261
 
 _ZN6vectorI7asymbolLb1EjE4backEv.exit80:          ; preds = %271, %276
   %.0.i.i79 = phi i64 [ %280, %276 ], [ 4294967295, %271 ]
-  %281 = getelementptr inbounds nuw %struct.asymbol, ptr %274, i64 %.0.i.i79
+  %281 = getelementptr inbounds nuw [56 x i8], ptr %274, i64 %.0.i.i79
   %282 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRK7asymbol(ptr noundef nonnull align 8 dereferenceable(8) %272, ptr noundef nonnull align 8 dereferenceable(52) %281)
   %283 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %282, ptr noundef nonnull @.str.23, i64 noundef 1)
   br label %_ZN17opt_stream_buffer9skip_lineEv.exitthread-pre-split, !llvm.loop !261
@@ -6742,7 +6740,7 @@ _ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i.i: ; preds = %582, %580
   %602 = phi i32 [ %.pre2.i129, %.noexc130 ], [ %596, %594 ]
   %603 = phi ptr [ %.pre.i127, %.noexc130 ], [ %592, %594 ]
   %604 = zext i32 %602 to i64
-  %605 = getelementptr inbounds nuw %struct.asymbol, ptr %603, i64 %604
+  %605 = getelementptr inbounds nuw [56 x i8], ptr %603, i64 %604
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %605, ptr noundef nonnull align 8 dereferenceable(52) %18, i64 16, i1 false)
   %606 = getelementptr inbounds nuw i8, ptr %605, i64 16
   %607 = load i32, ptr %100, align 8, !tbaa !132
@@ -6849,7 +6847,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %653
 
 662:                                              ; preds = %657, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit
   %.0.i.i135 = phi i64 [ %661, %657 ], [ 4294967295, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ]
-  %663 = getelementptr inbounds nuw %struct.asymbol, ptr %655, i64 %.0.i.i135
+  %663 = getelementptr inbounds nuw [56 x i8], ptr %655, i64 %.0.i.i135
   %664 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRK7asymbol(ptr noundef nonnull align 8 dereferenceable(8) %652, ptr noundef nonnull align 8 dereferenceable(52) %663)
           to label %665 unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -6899,7 +6897,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit140: ; preds = %674
 
 683:                                              ; preds = %678, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit140
   %.0.i.i141 = phi i64 [ %682, %678 ], [ 4294967295, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit140 ]
-  %684 = getelementptr inbounds nuw %struct.asymbol, ptr %676, i64 %.0.i.i141
+  %684 = getelementptr inbounds nuw [56 x i8], ptr %676, i64 %.0.i.i141
   %685 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRK7asymbol(ptr noundef nonnull align 8 dereferenceable(8) %673, ptr noundef nonnull align 8 dereferenceable(52) %684)
           to label %686 unwind label %.loopexit.split-lp.loopexit.split-lp
 
@@ -7150,7 +7148,7 @@ _ZN6vectorIcLb0EjE9push_backEOc.exit163:          ; preds = %757, %763
   %788 = phi i32 [ %.pre2.i166, %.noexc167 ], [ %782, %780 ]
   %789 = phi ptr [ %.pre.i164, %.noexc167 ], [ %778, %780 ]
   %790 = zext i32 %788 to i64
-  %791 = getelementptr inbounds nuw %struct.asymbol, ptr %789, i64 %790
+  %791 = getelementptr inbounds nuw [56 x i8], ptr %789, i64 %790
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(52) %791, ptr noundef nonnull align 8 dereferenceable(52) %19, i64 16, i1 false)
   %792 = getelementptr inbounds nuw i8, ptr %791, i64 16
   %793 = load i32, ptr %35, align 8, !tbaa !132
@@ -7243,7 +7241,7 @@ _ZN7asymbolD2Ev.exit170:                          ; preds = %.noexc.i.i169
 
 _ZN6vectorI7asymbolLb1EjE4backEv.exit172:         ; preds = %834, %839
   %.0.i.i171 = phi i64 [ %843, %839 ], [ 4294967295, %834 ]
-  %844 = getelementptr inbounds nuw %struct.asymbol, ptr %837, i64 %.0.i.i171
+  %844 = getelementptr inbounds nuw [56 x i8], ptr %837, i64 %.0.i.i171
   %845 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRK7asymbol(ptr noundef nonnull align 8 dereferenceable(8) %835, ptr noundef nonnull align 8 dereferenceable(52) %844)
   %846 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %845, ptr noundef nonnull @.str.23, i64 noundef 1)
   call void @_Z14verbose_unlockv()
@@ -7273,7 +7271,7 @@ _ZN6vectorI7asymbolLb1EjE4backEv.exit172:         ; preds = %834, %839
 
 _ZN6vectorI7asymbolLb1EjE4backEv.exit174:         ; preds = %849, %854
   %.0.i.i173 = phi i64 [ %858, %854 ], [ 4294967295, %849 ]
-  %859 = getelementptr inbounds nuw %struct.asymbol, ptr %852, i64 %.0.i.i173
+  %859 = getelementptr inbounds nuw [56 x i8], ptr %852, i64 %.0.i.i173
   %860 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoRK7asymbol(ptr noundef nonnull align 8 dereferenceable(8) %850, ptr noundef nonnull align 8 dereferenceable(52) %859)
   %861 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %860, ptr noundef nonnull @.str.23, i64 noundef 1)
   br label %_ZN17opt_stream_buffer9skip_lineEv.exitthread-pre-split
@@ -8731,7 +8729,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i:     ; preds = %1
 
 9:                                                ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i
   %10 = zext i32 %4 to i64
-  %11 = getelementptr inbounds nuw %struct.asymbol, ptr %5, i64 %10
+  %11 = getelementptr inbounds nuw [56 x i8], ptr %5, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   br label %_ZN8lp_parse4peekEj.exit.i
 
@@ -8756,7 +8754,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i2:    ; preds = %14
 
 21:                                               ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i2
   %22 = zext i32 %16 to i64
-  %23 = getelementptr inbounds nuw %struct.asymbol, ptr %17, i64 %22
+  %23 = getelementptr inbounds nuw [56 x i8], ptr %17, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   br label %_ZN8lp_parse4peekEj.exit.i4
 
@@ -8783,7 +8781,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i7:    ; preds = %_ZN8lp_parse10try_a
 
 32:                                               ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i7
   %33 = zext i32 %27 to i64
-  %34 = getelementptr inbounds nuw %struct.asymbol, ptr %28, i64 %33
+  %34 = getelementptr inbounds nuw [56 x i8], ptr %28, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   br label %_ZN8lp_parse4peekEj.exit.i9
 
@@ -8808,7 +8806,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i12:   ; preds = %37
 
 44:                                               ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i12
   %45 = zext i32 %39 to i64
-  %46 = getelementptr inbounds nuw %struct.asymbol, ptr %40, i64 %45
+  %46 = getelementptr inbounds nuw [56 x i8], ptr %40, i64 %45
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   br label %_ZN8lp_parse4peekEj.exit.i14
 
@@ -8835,7 +8833,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i17:   ; preds = %_ZN8lp_parse10try_a
 
 55:                                               ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i17
   %56 = zext i32 %50 to i64
-  %57 = getelementptr inbounds nuw %struct.asymbol, ptr %51, i64 %56
+  %57 = getelementptr inbounds nuw [56 x i8], ptr %51, i64 %56
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
   br label %_ZN8lp_parse4peekEj.exit.i19
 
@@ -8858,7 +8856,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i22:   ; preds = %_ZN8lp_parse10try_a
 
 65:                                               ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i22
   %66 = zext i32 %60 to i64
-  %67 = getelementptr inbounds nuw %struct.asymbol, ptr %61, i64 %66
+  %67 = getelementptr inbounds nuw [56 x i8], ptr %61, i64 %66
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   br label %_ZN8lp_parse4peekEj.exit.i24
 
@@ -8903,7 +8901,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i:         ; preds = %2
 
 13:                                               ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i
   %14 = zext i32 %7 to i64
-  %15 = getelementptr inbounds nuw %struct.asymbol, ptr %8, i64 %14
+  %15 = getelementptr inbounds nuw [56 x i8], ptr %8, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %17 = load i32, ptr %16, align 8, !tbaa !263
   %18 = zext i32 %17 to i64
@@ -8956,7 +8954,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i:       ; preds = %_ZStlsISt11char_tra
 
 38:                                               ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i
   %39 = zext i32 %33 to i64
-  %40 = getelementptr inbounds nuw %struct.asymbol, ptr %34, i64 %39
+  %40 = getelementptr inbounds nuw [56 x i8], ptr %34, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   br label %_ZN8lp_parse4peekEj.exit
 
@@ -9096,7 +9094,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i:     ; preds = %1
 
 9:                                                ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i
   %10 = zext i32 %4 to i64
-  %11 = getelementptr inbounds nuw %struct.asymbol, ptr %5, i64 %10
+  %11 = getelementptr inbounds nuw [56 x i8], ptr %5, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   br label %_ZN8lp_parse4peekEj.exit.i
 
@@ -9119,7 +9117,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i1.i:    ; preds = %14
 
 20:                                               ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i1.i
   %21 = zext i32 %15 to i64
-  %22 = getelementptr inbounds nuw %struct.asymbol, ptr %16, i64 %21
+  %22 = getelementptr inbounds nuw [56 x i8], ptr %16, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   br label %_ZN8lp_parse4peekEj.exit4.i
 
@@ -9142,7 +9140,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i5.i:    ; preds = %25
 
 31:                                               ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i5.i
   %32 = zext i32 %26 to i64
-  %33 = getelementptr inbounds nuw %struct.asymbol, ptr %27, i64 %32
+  %33 = getelementptr inbounds nuw [56 x i8], ptr %27, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   br label %_ZN8lp_parse10is_generalEv.exit
 
@@ -9165,7 +9163,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i1:    ; preds = %36
 
 42:                                               ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i1
   %43 = zext i32 %37 to i64
-  %44 = getelementptr inbounds nuw %struct.asymbol, ptr %38, i64 %43
+  %44 = getelementptr inbounds nuw [56 x i8], ptr %38, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   br label %_ZN8lp_parse4peekEj.exit.i3
 
@@ -9188,7 +9186,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i1.i5:   ; preds = %47
 
 53:                                               ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i1.i5
   %54 = zext i32 %48 to i64
-  %55 = getelementptr inbounds nuw %struct.asymbol, ptr %49, i64 %54
+  %55 = getelementptr inbounds nuw [56 x i8], ptr %49, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   br label %_ZN8lp_parse4peekEj.exit4.i7
 
@@ -9211,7 +9209,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i5.i9:   ; preds = %58
 
 64:                                               ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i5.i9
   %65 = zext i32 %59 to i64
-  %66 = getelementptr inbounds nuw %struct.asymbol, ptr %60, i64 %65
+  %66 = getelementptr inbounds nuw [56 x i8], ptr %60, i64 %65
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 8
   br label %_ZN8lp_parse9is_binaryEv.exit
 
@@ -9234,7 +9232,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i13:   ; preds = %69
 
 75:                                               ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i13
   %76 = zext i32 %70 to i64
-  %77 = getelementptr inbounds nuw %struct.asymbol, ptr %71, i64 %76
+  %77 = getelementptr inbounds nuw [56 x i8], ptr %71, i64 %76
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
   br label %_ZN8lp_parse9is_boundsEv.exit
 
@@ -9257,7 +9255,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i17:   ; preds = %80
 
 86:                                               ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i17
   %87 = zext i32 %81 to i64
-  %88 = getelementptr inbounds nuw %struct.asymbol, ptr %82, i64 %87
+  %88 = getelementptr inbounds nuw [56 x i8], ptr %82, i64 %87
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
   br label %_ZN8lp_parse4peekEj.exit.i19
 
@@ -9313,7 +9311,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i:       ; preds = %1
 
 16:                                               ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i
   %17 = zext i32 %11 to i64
-  %18 = getelementptr inbounds nuw %struct.asymbol, ptr %12, i64 %17
+  %18 = getelementptr inbounds nuw [56 x i8], ptr %12, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   br label %_ZN8lp_parse4peekEj.exit
 
@@ -9336,7 +9334,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i14:     ; preds = %21
 
 27:                                               ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i14
   %28 = zext i32 %22 to i64
-  %29 = getelementptr inbounds nuw %struct.asymbol, ptr %23, i64 %28
+  %29 = getelementptr inbounds nuw [56 x i8], ptr %23, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   br label %_ZN8lp_parse4peekEj.exit17
 
@@ -9462,7 +9460,7 @@ _ZlsRSo6symbol.exit20:                            ; preds = %_ZStlsISt11char_tra
   %84 = load i32, ptr %9, align 8, !tbaa !158
   %85 = load ptr, ptr %8, align 8, !tbaa !155
   %86 = zext i32 %84 to i64
-  %87 = getelementptr inbounds nuw %struct.asymbol, ptr %85, i64 %86
+  %87 = getelementptr inbounds nuw [56 x i8], ptr %85, i64 %86
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 16
   store i32 0, ptr %6, align 8, !tbaa !132
   %89 = getelementptr inbounds nuw i8, ptr %6, i64 4
@@ -9706,7 +9704,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i:     ; preds = %1
 
 15:                                               ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i
   %16 = zext i32 %10 to i64
-  %17 = getelementptr inbounds nuw %struct.asymbol, ptr %11, i64 %16
+  %17 = getelementptr inbounds nuw [56 x i8], ptr %11, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   br label %_ZN8lp_parse4peekEj.exit.i
 
@@ -9730,7 +9728,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i2.i:    ; preds = %20
 
 27:                                               ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i2.i
   %28 = zext i32 %22 to i64
-  %29 = getelementptr inbounds nuw %struct.asymbol, ptr %23, i64 %28
+  %29 = getelementptr inbounds nuw [56 x i8], ptr %23, i64 %28
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   br label %_ZN8lp_parse7peek_leEj.exit
 
@@ -9753,7 +9751,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i:         ; preds = %_ZN8lp_parse7peek_l
 
 _ZN12lp_tokenizer8peek_numEj.exit:                ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i
   %37 = zext i32 %32 to i64
-  %38 = getelementptr inbounds nuw %struct.asymbol, ptr %33, i64 %37
+  %38 = getelementptr inbounds nuw [56 x i8], ptr %33, i64 %37
   %39 = load i8, ptr %38, align 8, !tbaa !146, !range !150, !noundef !151
   %40 = trunc nuw i8 %39 to i1
   br i1 %40, label %41, label %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i4
@@ -9824,7 +9822,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i:       ; preds = %_ZN8rationalC2ERKS_
 
 72:                                               ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i
   %73 = zext i32 %67 to i64
-  %74 = getelementptr inbounds nuw %struct.asymbol, ptr %68, i64 %73
+  %74 = getelementptr inbounds nuw [56 x i8], ptr %68, i64 %73
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   br label %_ZN8lp_parse4peekEj.exit
 
@@ -9909,7 +9907,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i4:    ; preds = %_ZN12lp_tokenizer8p
 
 98:                                               ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i4
   %99 = zext i32 %95 to i64
-  %100 = getelementptr inbounds nuw %struct.asymbol, ptr %.pr162, i64 %99
+  %100 = getelementptr inbounds nuw [56 x i8], ptr %.pr162, i64 %99
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 8
   br label %_ZN8lp_parse4peekEj.exit.i6
 
@@ -9933,7 +9931,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i3.i:    ; preds = %103
 
 110:                                              ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i3.i
   %111 = zext i32 %105 to i64
-  %112 = getelementptr inbounds nuw %struct.asymbol, ptr %106, i64 %111
+  %112 = getelementptr inbounds nuw [56 x i8], ptr %106, i64 %111
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
   br label %_ZN8lp_parse4peekEj.exit6.i
 
@@ -9957,7 +9955,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i7.i:    ; preds = %115
 
 122:                                              ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i7.i
   %123 = zext i32 %117 to i64
-  %124 = getelementptr inbounds nuw %struct.asymbol, ptr %118, i64 %123
+  %124 = getelementptr inbounds nuw [56 x i8], ptr %118, i64 %123
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 8
   br label %_ZN8lp_parse21peek_minus_infty_longEj.exit
 
@@ -9981,7 +9979,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i8:    ; preds = %_ZN8lp_parse21peek_
 
 133:                                              ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i8
   %134 = zext i32 %128 to i64
-  %135 = getelementptr inbounds nuw %struct.asymbol, ptr %129, i64 %134
+  %135 = getelementptr inbounds nuw [56 x i8], ptr %129, i64 %134
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 8
   br label %_ZN8lp_parse4peekEj.exit.i10
 
@@ -10005,7 +10003,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i2.i12:  ; preds = %138
 
 145:                                              ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i2.i12
   %146 = zext i32 %140 to i64
-  %147 = getelementptr inbounds nuw %struct.asymbol, ptr %141, i64 %146
+  %147 = getelementptr inbounds nuw [56 x i8], ptr %141, i64 %146
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 8
   br label %_ZN8lp_parse7peek_leEj.exit16
 
@@ -10029,7 +10027,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i17:     ; preds = %_ZN8lp_parse7peek_l
 
 156:                                              ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i17
   %157 = zext i32 %151 to i64
-  %158 = getelementptr inbounds nuw %struct.asymbol, ptr %152, i64 %157
+  %158 = getelementptr inbounds nuw [56 x i8], ptr %152, i64 %157
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 8
   br label %_ZN8lp_parse4peekEj.exit20
 
@@ -10056,7 +10054,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i21:   ; preds = %_ZN8lp_parse21peek_
 
 167:                                              ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i21
   %168 = zext i32 %162 to i64
-  %169 = getelementptr inbounds nuw %struct.asymbol, ptr %163, i64 %168
+  %169 = getelementptr inbounds nuw [56 x i8], ptr %163, i64 %168
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 8
   br label %_ZN8lp_parse4peekEj.exit.i23
 
@@ -10079,7 +10077,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i2.i25:  ; preds = %172
 
 178:                                              ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i2.i25
   %179 = zext i32 %173 to i64
-  %180 = getelementptr inbounds nuw %struct.asymbol, ptr %174, i64 %179
+  %180 = getelementptr inbounds nuw [56 x i8], ptr %174, i64 %179
   %181 = getelementptr inbounds nuw i8, ptr %180, i64 8
   br label %_ZN8lp_parse22peek_minus_infty_shortEj.exit
 
@@ -10103,7 +10101,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i29:   ; preds = %_ZN8lp_parse22peek_
 
 189:                                              ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i29
   %190 = zext i32 %184 to i64
-  %191 = getelementptr inbounds nuw %struct.asymbol, ptr %185, i64 %190
+  %191 = getelementptr inbounds nuw [56 x i8], ptr %185, i64 %190
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 8
   br label %_ZN8lp_parse4peekEj.exit.i31
 
@@ -10127,7 +10125,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i2.i33:  ; preds = %194
 
 201:                                              ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i2.i33
   %202 = zext i32 %196 to i64
-  %203 = getelementptr inbounds nuw %struct.asymbol, ptr %197, i64 %202
+  %203 = getelementptr inbounds nuw [56 x i8], ptr %197, i64 %202
   %204 = getelementptr inbounds nuw i8, ptr %203, i64 8
   br label %_ZN8lp_parse7peek_leEj.exit37
 
@@ -10151,7 +10149,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i38:     ; preds = %_ZN8lp_parse7peek_l
 
 212:                                              ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i38
   %213 = zext i32 %207 to i64
-  %214 = getelementptr inbounds nuw %struct.asymbol, ptr %208, i64 %213
+  %214 = getelementptr inbounds nuw [56 x i8], ptr %208, i64 %213
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 8
   br label %_ZN8lp_parse4peekEj.exit41
 
@@ -10179,7 +10177,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i42:   ; preds = %218
 
 225:                                              ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i42
   %226 = zext i32 %220 to i64
-  %227 = getelementptr inbounds nuw %struct.asymbol, ptr %221, i64 %226
+  %227 = getelementptr inbounds nuw [56 x i8], ptr %221, i64 %226
   %228 = getelementptr inbounds nuw i8, ptr %227, i64 8
   br label %_ZN8lp_parse4peekEj.exit.i44
 
@@ -10203,7 +10201,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i3.i46:  ; preds = %230
 
 237:                                              ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i3.i46
   %238 = zext i32 %232 to i64
-  %239 = getelementptr inbounds nuw %struct.asymbol, ptr %233, i64 %238
+  %239 = getelementptr inbounds nuw [56 x i8], ptr %233, i64 %238
   %240 = getelementptr inbounds nuw i8, ptr %239, i64 8
   br label %_ZN8lp_parse4peekEj.exit6.i48
 
@@ -10227,7 +10225,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i7.i50:  ; preds = %242
 
 249:                                              ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i7.i50
   %250 = zext i32 %244 to i64
-  %251 = getelementptr inbounds nuw %struct.asymbol, ptr %245, i64 %250
+  %251 = getelementptr inbounds nuw [56 x i8], ptr %245, i64 %250
   %252 = getelementptr inbounds nuw i8, ptr %251, i64 8
   br label %_ZN8lp_parse20peek_plus_infty_longEj.exit
 
@@ -10251,7 +10249,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i54:   ; preds = %_ZN8lp_parse20peek_
 
 260:                                              ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i54
   %261 = zext i32 %255 to i64
-  %262 = getelementptr inbounds nuw %struct.asymbol, ptr %256, i64 %261
+  %262 = getelementptr inbounds nuw [56 x i8], ptr %256, i64 %261
   %263 = getelementptr inbounds nuw i8, ptr %262, i64 8
   br label %_ZN8lp_parse4peekEj.exit.i56
 
@@ -10275,7 +10273,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i2.i58:  ; preds = %265
 
 272:                                              ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i2.i58
   %273 = zext i32 %267 to i64
-  %274 = getelementptr inbounds nuw %struct.asymbol, ptr %268, i64 %273
+  %274 = getelementptr inbounds nuw [56 x i8], ptr %268, i64 %273
   %275 = getelementptr inbounds nuw i8, ptr %274, i64 8
   br label %_ZN8lp_parse7peek_leEj.exit62
 
@@ -10305,7 +10303,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i63:   ; preds = %_ZN8lp_parse20peek_
 
 285:                                              ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i63
   %286 = zext i32 %280 to i64
-  %287 = getelementptr inbounds nuw %struct.asymbol, ptr %281, i64 %286
+  %287 = getelementptr inbounds nuw [56 x i8], ptr %281, i64 %286
   %288 = getelementptr inbounds nuw i8, ptr %287, i64 8
   br label %_ZN8lp_parse4peekEj.exit.i65
 
@@ -10329,7 +10327,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i2.i67:  ; preds = %290
 
 297:                                              ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i2.i67
   %298 = zext i32 %292 to i64
-  %299 = getelementptr inbounds nuw %struct.asymbol, ptr %293, i64 %298
+  %299 = getelementptr inbounds nuw [56 x i8], ptr %293, i64 %298
   %300 = getelementptr inbounds nuw i8, ptr %299, i64 8
   br label %_ZN8lp_parse21peek_plus_infty_shortEj.exit
 
@@ -10353,7 +10351,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i71:   ; preds = %_ZN8lp_parse21peek_
 
 308:                                              ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i71
   %309 = zext i32 %303 to i64
-  %310 = getelementptr inbounds nuw %struct.asymbol, ptr %304, i64 %309
+  %310 = getelementptr inbounds nuw [56 x i8], ptr %304, i64 %309
   %311 = getelementptr inbounds nuw i8, ptr %310, i64 8
   br label %_ZN8lp_parse4peekEj.exit.i73
 
@@ -10377,7 +10375,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i2.i75:  ; preds = %313
 
 320:                                              ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i2.i75
   %321 = zext i32 %315 to i64
-  %322 = getelementptr inbounds nuw %struct.asymbol, ptr %316, i64 %321
+  %322 = getelementptr inbounds nuw [56 x i8], ptr %316, i64 %321
   %323 = getelementptr inbounds nuw i8, ptr %322, i64 8
   br label %_ZN8lp_parse7peek_leEj.exit79
 
@@ -10407,7 +10405,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i80:   ; preds = %327
 
 334:                                              ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i80
   %335 = zext i32 %329 to i64
-  %336 = getelementptr inbounds nuw %struct.asymbol, ptr %330, i64 %335
+  %336 = getelementptr inbounds nuw [56 x i8], ptr %330, i64 %335
   %337 = getelementptr inbounds nuw i8, ptr %336, i64 8
   br label %_ZN8lp_parse4peekEj.exit.i82
 
@@ -10431,7 +10429,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i2.i84:  ; preds = %339
 
 346:                                              ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i2.i84
   %347 = zext i32 %341 to i64
-  %348 = getelementptr inbounds nuw %struct.asymbol, ptr %342, i64 %347
+  %348 = getelementptr inbounds nuw [56 x i8], ptr %342, i64 %347
   %349 = getelementptr inbounds nuw i8, ptr %348, i64 8
   br label %_ZN8lp_parse7peek_leEj.exit88
 
@@ -10455,7 +10453,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i89:       ; preds = %_ZN8lp_parse7peek_l
 
 _ZN12lp_tokenizer8peek_numEj.exit92:              ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i89
   %357 = zext i32 %352 to i64
-  %358 = getelementptr inbounds nuw %struct.asymbol, ptr %353, i64 %357
+  %358 = getelementptr inbounds nuw [56 x i8], ptr %353, i64 %357
   %359 = load i8, ptr %358, align 8, !tbaa !146, !range !150, !noundef !151
   %360 = trunc nuw i8 %359 to i1
   br i1 %360, label %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i93, label %_ZN12lp_tokenizer8peek_numEj.exit92.thread
@@ -10463,7 +10461,7 @@ _ZN12lp_tokenizer8peek_numEj.exit92:              ; preds = %_ZNK6vectorI7asymbo
 _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i93:     ; preds = %_ZN12lp_tokenizer8peek_numEj.exit92
   %.not.i.i94 = icmp ult i32 %351, %356
   %361 = zext i32 %351 to i64
-  %362 = getelementptr inbounds nuw %struct.asymbol, ptr %353, i64 %361
+  %362 = getelementptr inbounds nuw [56 x i8], ptr %353, i64 %361
   %363 = getelementptr inbounds nuw i8, ptr %362, i64 8
   %.0.i.i95 = select i1 %.not.i.i94, ptr %363, ptr @_ZN6symbol4nullE
   %364 = load i64, ptr %.0.i.i95, align 8, !tbaa !154
@@ -10610,7 +10608,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i:       ; preds = %1
 
 12:                                               ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i
   %13 = zext i32 %7 to i64
-  %14 = getelementptr inbounds nuw %struct.asymbol, ptr %8, i64 %13
+  %14 = getelementptr inbounds nuw [56 x i8], ptr %8, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   br label %_ZN8lp_parse4peekEj.exit
 
@@ -10711,7 +10709,7 @@ _ZNK14core_hashtableI17default_map_entryI6symbolN8lp_parse5boundEEN9table2mapIS4
   %.idx.i.i.i.i = mul nuw nsw i64 %51, 40
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 %.idx.i.i.i.i
   %53 = zext i32 %47 to i64
-  %54 = getelementptr inbounds nuw %class.default_map_entry, ptr %50, i64 %53
+  %54 = getelementptr inbounds nuw [40 x i8], ptr %50, i64 %53
   %.not30.i.i.i.i = icmp eq i32 %49, %47
   br i1 %.not30.i.i.i.i, label %.preheader.i.i.i.i, label %.lr.ph.i.i.i.i
 
@@ -10800,7 +10798,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i:       ; preds = %1
 
 11:                                               ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i
   %12 = zext i32 %6 to i64
-  %13 = getelementptr inbounds nuw %struct.asymbol, ptr %7, i64 %12
+  %13 = getelementptr inbounds nuw [56 x i8], ptr %7, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   br label %_ZN8lp_parse4peekEj.exit
 
@@ -10824,7 +10822,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i5:      ; preds = %16
 
 23:                                               ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i5
   %24 = zext i32 %18 to i64
-  %25 = getelementptr inbounds nuw %struct.asymbol, ptr %19, i64 %24
+  %25 = getelementptr inbounds nuw [56 x i8], ptr %19, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   br label %_ZN8lp_parse4peekEj.exit8
 
@@ -10848,7 +10846,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i9:      ; preds = %28
 
 35:                                               ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i9
   %36 = zext i32 %30 to i64
-  %37 = getelementptr inbounds nuw %struct.asymbol, ptr %31, i64 %36
+  %37 = getelementptr inbounds nuw [56 x i8], ptr %31, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   br label %_ZN8lp_parse4peekEj.exit12
 
@@ -10899,7 +10897,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i13:     ; preds = %54
 
 60:                                               ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i13
   %61 = zext i32 %55 to i64
-  %62 = getelementptr inbounds nuw %struct.asymbol, ptr %56, i64 %61
+  %62 = getelementptr inbounds nuw [56 x i8], ptr %56, i64 %61
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   br label %_ZN8lp_parse4peekEj.exit16
 
@@ -10999,7 +10997,7 @@ _ZN6vectorIN8lp_parse10constraintELb1EjE3endEv.exit: ; preds = %1
 
 _ZNK9table2mapI17default_map_entryI6symbolN8lp_parse5boundEE16symbol_hash_proc14symbol_eq_procE5beginEv.exit: ; preds = %.lr.ph.i.i.i.i, %36, %._crit_edge
   %.sroa.0.1.i.i = phi ptr [ %28, %._crit_edge ], [ %32, %36 ], [ %.sroa.0.0.i.i, %.lr.ph.i.i.i.i ]
-  %38 = getelementptr inbounds nuw %class.default_map_entry, ptr %28, i64 %31
+  %38 = getelementptr inbounds nuw [40 x i8], ptr %28, i64 %31
   %.not147152 = icmp eq ptr %.sroa.0.1.i.i, %38
   br i1 %.not147152, label %._crit_edge155, label %.lr.ph154
 
@@ -11789,7 +11787,7 @@ _ZN14core_hashtableI17default_map_entryI6symbolN8lp_parse5boundEEN9table2mapIS4_
   %363 = phi ptr [ %.pre.i, %.noexc140 ], [ %352, %354 ]
   %364 = getelementptr inbounds i8, ptr %363, i64 -4
   %365 = zext i32 %362 to i64
-  %366 = getelementptr inbounds nuw i32, ptr %363, i64 %365
+  %366 = getelementptr inbounds nuw [4 x i8], ptr %363, i64 %365
   store i32 %258, ptr %366, align 4, !tbaa !125
   %367 = add i32 %362, 1
   store i32 %367, ptr %364, align 4, !tbaa !125
@@ -11853,7 +11851,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i:     ; preds = %1
 
 9:                                                ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i
   %10 = zext i32 %4 to i64
-  %11 = getelementptr inbounds nuw %struct.asymbol, ptr %5, i64 %10
+  %11 = getelementptr inbounds nuw [56 x i8], ptr %5, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   br label %_ZN8lp_parse4peekEj.exit.i
 
@@ -11881,7 +11879,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i2:    ; preds = %_ZN8lp_parse10try_a
 
 20:                                               ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i2
   %21 = zext i32 %14 to i64
-  %22 = getelementptr inbounds nuw %struct.asymbol, ptr %16, i64 %21
+  %22 = getelementptr inbounds nuw [56 x i8], ptr %16, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   br label %_ZN8lp_parse4peekEj.exit.i4
 
@@ -11909,7 +11907,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i7:    ; preds = %_ZN8lp_parse10try_a
 
 31:                                               ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i7
   %32 = zext i32 %25 to i64
-  %33 = getelementptr inbounds nuw %struct.asymbol, ptr %27, i64 %32
+  %33 = getelementptr inbounds nuw [56 x i8], ptr %27, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   br label %_ZN8lp_parse4peekEj.exit.i9
 
@@ -11937,7 +11935,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i12:   ; preds = %_ZN8lp_parse10try_a
 
 42:                                               ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i12
   %43 = zext i32 %36 to i64
-  %44 = getelementptr inbounds nuw %struct.asymbol, ptr %38, i64 %43
+  %44 = getelementptr inbounds nuw [56 x i8], ptr %38, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   br label %_ZN8lp_parse4peekEj.exit.i14
 
@@ -12056,7 +12054,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i:       ; preds = %8
 
 16:                                               ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i
   %17 = zext i32 %11 to i64
-  %18 = getelementptr inbounds nuw %struct.asymbol, ptr %12, i64 %17
+  %18 = getelementptr inbounds nuw [56 x i8], ptr %12, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   br label %_ZN8lp_parse4peekEj.exit
 
@@ -12086,7 +12084,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i15:     ; preds = %22
 
 28:                                               ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i15
   %29 = zext i32 %23 to i64
-  %30 = getelementptr inbounds nuw %struct.asymbol, ptr %24, i64 %29
+  %30 = getelementptr inbounds nuw [56 x i8], ptr %24, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   br label %_ZN8lp_parse4peekEj.exit18
 
@@ -12128,7 +12126,7 @@ _ZN8lp_parse4peekEj.exit18:                       ; preds = %22, %_ZNK6vectorI7a
   %46 = phi i32 [ %.pre2.i, %.noexc ], [ %40, %38 ]
   %47 = phi ptr [ %.pre.i, %.noexc ], [ %36, %38 ]
   %48 = zext i32 %46 to i64
-  %49 = getelementptr inbounds nuw %"struct.std::pair.79", ptr %47, i64 %48
+  %49 = getelementptr inbounds nuw [40 x i8], ptr %47, i64 %48
   %50 = load i32, ptr %3, align 8, !tbaa !132
   store i32 %50, ptr %49, align 8, !tbaa !132
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 4
@@ -12216,7 +12214,7 @@ _ZNSt4pairI8rational6symbolED2Ev.exit:            ; preds = %.noexc.i.i
 
 _ZN6vectorISt4pairI8rational6symbolELb1EjE4backEv.exit: ; preds = %93, %96
   %.0.i.i19 = phi i64 [ %100, %96 ], [ 4294967295, %93 ]
-  %101 = getelementptr inbounds nuw %"struct.std::pair.79", ptr %94, i64 %.0.i.i19
+  %101 = getelementptr inbounds nuw [40 x i8], ptr %94, i64 %.0.i.i19
   call void @llvm.experimental.noalias.scope.decl(metadata !310)
   store i32 0, ptr %4, align 8, !tbaa !132, !alias.scope !310
   %102 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -12299,7 +12297,7 @@ _ZngRK8rational.exit:                             ; preds = %_ZN8rationalC2ERKS_
 
 139:                                              ; preds = %134, %_ZngRK8rational.exit
   %.0.i.i20 = phi i64 [ %138, %134 ], [ 4294967295, %_ZngRK8rational.exit ]
-  %140 = getelementptr inbounds nuw %"struct.std::pair.79", ptr %132, i64 %.0.i.i20
+  %140 = getelementptr inbounds nuw [40 x i8], ptr %132, i64 %.0.i.i20
   %141 = load i32, ptr %140, align 4, !tbaa !125
   %142 = load i32, ptr %4, align 8, !tbaa !125
   store i32 %142, ptr %140, align 4, !tbaa !125
@@ -12417,7 +12415,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i22:     ; preds = %206
 
 212:                                              ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i22
   %213 = zext i32 %207 to i64
-  %214 = getelementptr inbounds nuw %struct.asymbol, ptr %208, i64 %213
+  %214 = getelementptr inbounds nuw [56 x i8], ptr %208, i64 %213
   %215 = getelementptr inbounds nuw i8, ptr %214, i64 8
   br label %_ZN8lp_parse4peekEj.exit25
 
@@ -12440,7 +12438,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i26:     ; preds = %217
 
 223:                                              ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i26
   %224 = zext i32 %218 to i64
-  %225 = getelementptr inbounds nuw %struct.asymbol, ptr %219, i64 %224
+  %225 = getelementptr inbounds nuw [56 x i8], ptr %219, i64 %224
   %226 = getelementptr inbounds nuw i8, ptr %225, i64 8
   br label %_ZN8lp_parse4peekEj.exit29
 
@@ -12463,7 +12461,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i30:     ; preds = %.critedge
 
 233:                                              ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i30
   %234 = zext i32 %228 to i64
-  %235 = getelementptr inbounds nuw %struct.asymbol, ptr %229, i64 %234
+  %235 = getelementptr inbounds nuw [56 x i8], ptr %229, i64 %234
   %236 = getelementptr inbounds nuw i8, ptr %235, i64 8
   br label %_ZN8lp_parse4peekEj.exit33
 
@@ -12501,7 +12499,7 @@ _ZN8lp_parse4peekEj.exit33:                       ; preds = %.critedge, %_ZNK6ve
   %250 = phi i32 [ %.pre2.i36, %.noexc37 ], [ %244, %242 ]
   %251 = phi ptr [ %.pre.i34, %.noexc37 ], [ %240, %242 ]
   %252 = zext i32 %250 to i64
-  %253 = getelementptr inbounds nuw %"struct.std::pair.79", ptr %251, i64 %252
+  %253 = getelementptr inbounds nuw [40 x i8], ptr %251, i64 %252
   %254 = load i32, ptr %5, align 8, !tbaa !132
   store i32 %254, ptr %253, align 8, !tbaa !132
   %255 = getelementptr inbounds nuw i8, ptr %253, i64 4
@@ -12583,7 +12581,7 @@ _ZNSt4pairI8rational6symbolED2Ev.exit40:          ; preds = %.noexc.i.i39
 
 _ZN6vectorISt4pairI8rational6symbolELb1EjE4backEv.exit42: ; preds = %291, %294
   %.0.i.i41 = phi i64 [ %298, %294 ], [ 4294967295, %291 ]
-  %299 = getelementptr inbounds nuw %"struct.std::pair.79", ptr %292, i64 %.0.i.i41
+  %299 = getelementptr inbounds nuw [40 x i8], ptr %292, i64 %.0.i.i41
   call void @llvm.experimental.noalias.scope.decl(metadata !313)
   store i32 0, ptr %6, align 8, !tbaa !132, !alias.scope !313
   %300 = load i8, ptr %201, align 4, !alias.scope !313
@@ -12657,7 +12655,7 @@ _ZngRK8rational.exit45:                           ; preds = %_ZN8rationalC2ERKS_
 
 332:                                              ; preds = %327, %_ZngRK8rational.exit45
   %.0.i.i46 = phi i64 [ %331, %327 ], [ 4294967295, %_ZngRK8rational.exit45 ]
-  %333 = getelementptr inbounds nuw %"struct.std::pair.79", ptr %325, i64 %.0.i.i46
+  %333 = getelementptr inbounds nuw [40 x i8], ptr %325, i64 %.0.i.i46
   %334 = load i32, ptr %333, align 4, !tbaa !125
   %335 = load i32, ptr %6, align 8, !tbaa !125
   store i32 %335, ptr %333, align 4, !tbaa !125
@@ -12776,7 +12774,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i:       ; preds = %1
 
 9:                                                ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i
   %10 = zext i32 %4 to i64
-  %11 = getelementptr inbounds nuw %struct.asymbol, ptr %5, i64 %10
+  %11 = getelementptr inbounds nuw [56 x i8], ptr %5, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   br label %_ZN8lp_parse4peekEj.exit
 
@@ -12799,7 +12797,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i1:      ; preds = %14
 
 20:                                               ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i1
   %21 = zext i32 %15 to i64
-  %22 = getelementptr inbounds nuw %struct.asymbol, ptr %16, i64 %21
+  %22 = getelementptr inbounds nuw [56 x i8], ptr %16, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   br label %_ZN8lp_parse4peekEj.exit4
 
@@ -12822,7 +12820,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i5:      ; preds = %25
 
 31:                                               ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i5
   %32 = zext i32 %26 to i64
-  %33 = getelementptr inbounds nuw %struct.asymbol, ptr %27, i64 %32
+  %33 = getelementptr inbounds nuw [56 x i8], ptr %27, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   br label %_ZN8lp_parse4peekEj.exit8
 
@@ -12845,7 +12843,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i9:      ; preds = %36
 
 42:                                               ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i9
   %43 = zext i32 %37 to i64
-  %44 = getelementptr inbounds nuw %struct.asymbol, ptr %38, i64 %43
+  %44 = getelementptr inbounds nuw [56 x i8], ptr %38, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   br label %_ZN8lp_parse4peekEj.exit12
 
@@ -12868,7 +12866,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i13:     ; preds = %47
 
 53:                                               ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i13
   %54 = zext i32 %48 to i64
-  %55 = getelementptr inbounds nuw %struct.asymbol, ptr %49, i64 %54
+  %55 = getelementptr inbounds nuw [56 x i8], ptr %49, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   br label %_ZN8lp_parse4peekEj.exit16
 
@@ -12899,7 +12897,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i:       ; preds = %2
 
 10:                                               ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i
   %11 = zext i32 %5 to i64
-  %12 = getelementptr inbounds nuw %struct.asymbol, ptr %6, i64 %11
+  %12 = getelementptr inbounds nuw [56 x i8], ptr %6, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   br label %_ZN8lp_parse4peekEj.exit
 
@@ -12971,7 +12969,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i:         ; preds = %_ZNSt4pairI8rationa
 
 _ZN12lp_tokenizer8peek_numEj.exit:                ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i
   %45 = zext i32 %40 to i64
-  %46 = getelementptr inbounds nuw %struct.asymbol, ptr %41, i64 %45
+  %46 = getelementptr inbounds nuw [56 x i8], ptr %41, i64 %45
   %47 = load i8, ptr %46, align 8, !tbaa !146, !range !150, !noundef !151
   %48 = trunc nuw i8 %47 to i1
   br i1 %48, label %49, label %_ZN12lp_tokenizer8peek_numEj.exit.thread
@@ -13032,7 +13030,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i4:      ; preds = %_ZN8rationalaSERKS_
 
 77:                                               ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i4
   %78 = zext i32 %72 to i64
-  %79 = getelementptr inbounds nuw %struct.asymbol, ptr %73, i64 %78
+  %79 = getelementptr inbounds nuw [56 x i8], ptr %73, i64 %78
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   br label %_ZN8lp_parse4peekEj.exit7
 
@@ -13353,7 +13351,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i:       ; preds = %3
 
 12:                                               ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i
   %13 = zext i32 %7 to i64
-  %14 = getelementptr inbounds nuw %struct.asymbol, ptr %8, i64 %13
+  %14 = getelementptr inbounds nuw [56 x i8], ptr %8, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   br label %_ZN8lp_parse4peekEj.exit
 
@@ -13377,7 +13375,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i:         ; preds = %17
 
 _ZN12lp_tokenizer8peek_numEj.exit:                ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i
   %24 = zext i32 %19 to i64
-  %25 = getelementptr inbounds nuw %struct.asymbol, ptr %20, i64 %24
+  %25 = getelementptr inbounds nuw [56 x i8], ptr %20, i64 %24
   %26 = load i8, ptr %25, align 8, !tbaa !146, !range !150, !noundef !151
   %27 = trunc nuw i8 %26 to i1
   br i1 %27, label %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i3, label %_ZN12lp_tokenizer8peek_numEj.exit.thread
@@ -13386,7 +13384,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i3:      ; preds = %_ZN12lp_tokenizer8p
   %28 = add i32 %18, 3
   %.not.i.i4 = icmp ult i32 %28, %23
   %29 = zext i32 %28 to i64
-  %30 = getelementptr inbounds nuw %struct.asymbol, ptr %20, i64 %29
+  %30 = getelementptr inbounds nuw [56 x i8], ptr %20, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %.0.i.i5 = select i1 %.not.i.i4, ptr %31, ptr @_ZN6symbol4nullE
   %32 = tail call noundef zeroext i1 @_ZeqRK6symbolPKc(ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i5, ptr noundef nonnull @.str.48)
@@ -13406,7 +13404,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i7:      ; preds = %33
 
 39:                                               ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i7
   %40 = zext i32 %34 to i64
-  %41 = getelementptr inbounds nuw %struct.asymbol, ptr %35, i64 %40
+  %41 = getelementptr inbounds nuw [56 x i8], ptr %35, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   br label %_ZN8lp_parse4peekEj.exit10
 
@@ -13416,7 +13414,7 @@ _ZN8lp_parse4peekEj.exit10:                       ; preds = %33, %_ZNK6vectorI7a
   store i64 %43, ptr %1, align 8, !tbaa !154
   %44 = add i32 %34, 2
   %45 = zext i32 %44 to i64
-  %46 = getelementptr inbounds nuw %struct.asymbol, ptr %35, i64 %45
+  %46 = getelementptr inbounds nuw [56 x i8], ptr %35, i64 %45
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %48 = load ptr, ptr @_ZN8rational13g_mpq_managerE, align 8, !tbaa !136
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 20
@@ -13487,7 +13485,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i:     ; preds = %1
 
 9:                                                ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i
   %10 = zext i32 %4 to i64
-  %11 = getelementptr inbounds nuw %struct.asymbol, ptr %5, i64 %10
+  %11 = getelementptr inbounds nuw [56 x i8], ptr %5, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   br label %_ZN8lp_parse4peekEj.exit.i
 
@@ -13515,7 +13513,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i1:    ; preds = %_ZN8lp_parse10try_a
 
 20:                                               ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i1
   %21 = zext i32 %14 to i64
-  %22 = getelementptr inbounds nuw %struct.asymbol, ptr %16, i64 %21
+  %22 = getelementptr inbounds nuw [56 x i8], ptr %16, i64 %21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   br label %_ZN8lp_parse4peekEj.exit.i3
 
@@ -13543,7 +13541,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i6:    ; preds = %_ZN8lp_parse10try_a
 
 31:                                               ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i6
   %32 = zext i32 %25 to i64
-  %33 = getelementptr inbounds nuw %struct.asymbol, ptr %27, i64 %32
+  %33 = getelementptr inbounds nuw [56 x i8], ptr %27, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   br label %_ZN8lp_parse4peekEj.exit.i8
 
@@ -13571,7 +13569,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i11:   ; preds = %_ZN8lp_parse10try_a
 
 42:                                               ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i11
   %43 = zext i32 %36 to i64
-  %44 = getelementptr inbounds nuw %struct.asymbol, ptr %38, i64 %43
+  %44 = getelementptr inbounds nuw [56 x i8], ptr %38, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
   br label %_ZN8lp_parse4peekEj.exit.i13
 
@@ -13599,7 +13597,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i16:   ; preds = %_ZN8lp_parse10try_a
 
 53:                                               ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i16
   %54 = zext i32 %47 to i64
-  %55 = getelementptr inbounds nuw %struct.asymbol, ptr %49, i64 %54
+  %55 = getelementptr inbounds nuw [56 x i8], ptr %49, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 8
   br label %_ZN8lp_parse4peekEj.exit.i18
 
@@ -13648,7 +13646,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN6v
   %13 = phi i32 [ %.pre2, %11 ], [ %7, %5 ]
   %14 = phi ptr [ %.pre, %11 ], [ %3, %5 ]
   %15 = zext i32 %13 to i64
-  %16 = getelementptr inbounds nuw %"struct.lp_parse::constraint", ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [96 x i8], ptr %14, i64 %15
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %16, ptr noundef nonnull align 8 dereferenceable(96) %1, i64 16, i1 false)
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -13856,7 +13854,7 @@ _ZNK6vectorISt4pairI8rational6symbolELb1EjE8capacityEv.exit.i.i: ; preds = %_ZN8
 
 _ZN6vectorISt4pairI8rational6symbolELb1EjE9copy_coreERKS4_.exit.i: ; preds = %53, %.noexc
   %.0.i.i.i.i = phi i64 [ %56, %53 ], [ 0, %.noexc ]
-  %57 = getelementptr inbounds nuw %"struct.std::pair.79", ptr %51, i64 %.0.i.i.i.i
+  %57 = getelementptr inbounds nuw [40 x i8], ptr %51, i64 %.0.i.i.i.i
   %58 = invoke noundef ptr @_ZSt16__do_uninit_copyIPKSt4pairI8rational6symbolEPS3_ET0_T_S8_S7_(ptr noundef %51, ptr noundef %57, ptr noundef nonnull %50)
           to label %_ZN6vectorISt4pairI8rational6symbolELb1EjEC2ERKS4_.exit unwind label %88
 
@@ -14060,7 +14058,7 @@ _ZNK6vectorIN8lp_parse10constraintELb1EjE4sizeEv.exit: ; preds = %44, %50
   store i32 %.0.i, ptr %53, align 4, !tbaa !125
   %54 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %55 = zext i32 %.0.i to i64
-  %56 = getelementptr inbounds nuw %"struct.lp_parse::constraint", ptr %48, i64 %55
+  %56 = getelementptr inbounds nuw [96 x i8], ptr %48, i64 %55
   %57 = tail call noundef ptr @_ZSt16__do_uninit_copyISt13move_iteratorIPN8lp_parse10constraintEES3_ET0_T_S6_S5_(ptr %48, ptr %56, ptr noundef nonnull %54)
   %58 = load ptr, ptr %0, align 8, !tbaa !186
   %.not.i = icmp eq ptr %58, null
@@ -14349,7 +14347,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i:     ; preds = %2
 
 12:                                               ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i
   %13 = zext i32 %7 to i64
-  %14 = getelementptr inbounds nuw %struct.asymbol, ptr %8, i64 %13
+  %14 = getelementptr inbounds nuw [56 x i8], ptr %8, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   br label %_ZN8lp_parse4peekEj.exit.i
 
@@ -14372,7 +14370,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i2.i:    ; preds = %17
 
 23:                                               ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i2.i
   %24 = zext i32 %18 to i64
-  %25 = getelementptr inbounds nuw %struct.asymbol, ptr %19, i64 %24
+  %25 = getelementptr inbounds nuw [56 x i8], ptr %19, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
   br label %_ZN8lp_parse7peek_leEj.exit
 
@@ -14396,7 +14394,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i:         ; preds = %_ZN8lp_parse7peek_l
 
 _ZN12lp_tokenizer8peek_numEj.exit:                ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i
   %34 = zext i32 %29 to i64
-  %35 = getelementptr inbounds nuw %struct.asymbol, ptr %30, i64 %34
+  %35 = getelementptr inbounds nuw [56 x i8], ptr %30, i64 %34
   %36 = load i8, ptr %35, align 8, !tbaa !146, !range !150, !noundef !151
   %37 = trunc nuw i8 %36 to i1
   br i1 %37, label %38, label %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i3
@@ -14525,7 +14523,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i3:    ; preds = %_ZN12lp_tokenizer8p
 
 84:                                               ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i3
   %85 = zext i32 %81 to i64
-  %86 = getelementptr inbounds nuw %struct.asymbol, ptr %.pr59, i64 %85
+  %86 = getelementptr inbounds nuw [56 x i8], ptr %.pr59, i64 %85
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 8
   br label %_ZN8lp_parse4peekEj.exit.i5
 
@@ -14548,7 +14546,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i2.i7:   ; preds = %89
 
 95:                                               ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i2.i7
   %96 = zext i32 %90 to i64
-  %97 = getelementptr inbounds nuw %struct.asymbol, ptr %91, i64 %96
+  %97 = getelementptr inbounds nuw [56 x i8], ptr %91, i64 %96
   %98 = getelementptr inbounds nuw i8, ptr %97, i64 8
   br label %_ZN8lp_parse7peek_leEj.exit11
 
@@ -14572,7 +14570,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i12:   ; preds = %_ZN8lp_parse7peek_l
 
 106:                                              ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i12
   %107 = zext i32 %101 to i64
-  %108 = getelementptr inbounds nuw %struct.asymbol, ptr %102, i64 %107
+  %108 = getelementptr inbounds nuw [56 x i8], ptr %102, i64 %107
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 8
   br label %_ZN8lp_parse4peekEj.exit.i14
 
@@ -14596,7 +14594,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i3.i:    ; preds = %111
 
 118:                                              ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i3.i
   %119 = zext i32 %113 to i64
-  %120 = getelementptr inbounds nuw %struct.asymbol, ptr %114, i64 %119
+  %120 = getelementptr inbounds nuw [56 x i8], ptr %114, i64 %119
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 8
   br label %_ZN8lp_parse4peekEj.exit6.i
 
@@ -14620,7 +14618,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i7.i:    ; preds = %123
 
 130:                                              ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i7.i
   %131 = zext i32 %125 to i64
-  %132 = getelementptr inbounds nuw %struct.asymbol, ptr %126, i64 %131
+  %132 = getelementptr inbounds nuw [56 x i8], ptr %126, i64 %131
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 8
   br label %_ZN8lp_parse20peek_plus_infty_longEj.exit
 
@@ -14649,7 +14647,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i16:   ; preds = %_ZN8lp_parse20peek_
 
 142:                                              ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i16
   %143 = zext i32 %137 to i64
-  %144 = getelementptr inbounds nuw %struct.asymbol, ptr %138, i64 %143
+  %144 = getelementptr inbounds nuw [56 x i8], ptr %138, i64 %143
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 8
   br label %_ZN8lp_parse4peekEj.exit.i18
 
@@ -14672,7 +14670,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i2.i20:  ; preds = %147
 
 153:                                              ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i2.i20
   %154 = zext i32 %148 to i64
-  %155 = getelementptr inbounds nuw %struct.asymbol, ptr %149, i64 %154
+  %155 = getelementptr inbounds nuw [56 x i8], ptr %149, i64 %154
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 8
   br label %_ZN8lp_parse7peek_leEj.exit24
 
@@ -14696,7 +14694,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i25:   ; preds = %_ZN8lp_parse7peek_l
 
 164:                                              ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i.i25
   %165 = zext i32 %159 to i64
-  %166 = getelementptr inbounds nuw %struct.asymbol, ptr %160, i64 %165
+  %166 = getelementptr inbounds nuw [56 x i8], ptr %160, i64 %165
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 8
   br label %_ZN8lp_parse4peekEj.exit.i27
 
@@ -14720,7 +14718,7 @@ _ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i2.i29:  ; preds = %169
 
 176:                                              ; preds = %_ZNK6vectorI7asymbolLb1EjE4sizeEv.exit.i.i2.i29
   %177 = zext i32 %171 to i64
-  %178 = getelementptr inbounds nuw %struct.asymbol, ptr %172, i64 %177
+  %178 = getelementptr inbounds nuw [56 x i8], ptr %172, i64 %177
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 8
   br label %_ZN8lp_parse21peek_plus_infty_shortEj.exit
 
@@ -14778,7 +14776,7 @@ _ZNK14core_hashtableI17default_map_entryI6symbolN8lp_parse5boundEEN9table2mapIS4
   %.idx.i.i = mul nuw nsw i64 %23, 40
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 %.idx.i.i
   %25 = zext i32 %19 to i64
-  %26 = getelementptr inbounds nuw %class.default_map_entry, ptr %22, i64 %25
+  %26 = getelementptr inbounds nuw [40 x i8], ptr %22, i64 %25
   %.not30.i.i = icmp eq i32 %21, %19
   br i1 %.not30.i.i, label %.preheader.i.i, label %.lr.ph.i.i
 
@@ -15317,7 +15315,7 @@ _ZNK14core_hashtableI17default_map_entryI6symbolN8lp_parse5boundEEN9table2mapIS4
   %.idx = mul nuw nsw i64 %48, 40
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 %.idx
   %50 = zext i32 %31 to i64
-  %51 = getelementptr inbounds nuw %class.default_map_entry, ptr %47, i64 %50
+  %51 = getelementptr inbounds nuw [40 x i8], ptr %47, i64 %50
   %.not63 = icmp eq i32 %46, %31
   br i1 %.not63, label %.preheader, label %.lr.ph
 
@@ -15520,7 +15518,7 @@ define linkonce_odr hidden void @_ZN14core_hashtableI17default_map_entryI6symbol
   %.idx = mul nuw nsw i64 %6, 40
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %.idx
   %8 = zext i32 %3 to i64
-  %9 = getelementptr inbounds nuw %class.default_map_entry, ptr %2, i64 %8
+  %9 = getelementptr inbounds nuw [40 x i8], ptr %2, i64 %8
   %.not38 = icmp eq i32 %1, 0
   br i1 %.not38, label %._crit_edge43, label %.lr.ph42
 
@@ -15855,7 +15853,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.
   %103 = phi ptr [ %.pre.i.i29, %.noexc30 ], [ %92, %94 ]
   %104 = getelementptr inbounds i8, ptr %103, i64 -4
   %105 = zext i32 %102 to i64
-  %106 = getelementptr inbounds nuw ptr, ptr %103, i64 %105
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %103, i64 %105
   store ptr %87, ptr %106, align 8, !tbaa !246
   %107 = add i32 %102, 1
   store i32 %107, ptr %104, align 4, !tbaa !125

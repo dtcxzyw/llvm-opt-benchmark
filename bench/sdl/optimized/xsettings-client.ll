@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.XWindowAttributes = type { i32, i32, i32, i32, i32, i32, ptr, i64, i32, i32, i32, i32, i64, i64, i32, i64, i32, i32, i64, i64, i64, i32, ptr }
-%struct.Screen = type { ptr, ptr, i64, i32, i32, i32, i32, i32, ptr, i32, ptr, ptr, i64, i64, i64, i32, i32, i32, i32, i64 }
 
 @.str = private unnamed_addr constant [15 x i8] c"_XSETTINGS_S%d\00", align 1
 @.str.1 = private unnamed_addr constant [20 x i8] c"_XSETTINGS_SETTINGS\00", align 1
@@ -76,7 +75,7 @@ define hidden noalias noundef ptr @xsettings_client_new_with_grab_funcs(ptr noun
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %31 = load ptr, ptr %30, align 8
   %32 = sext i32 %1 to i64
-  %33 = getelementptr inbounds %struct.Screen, ptr %31, i64 %32
+  %33 = getelementptr inbounds [128 x i8], ptr %31, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load i64, ptr %34, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -93,7 +92,7 @@ define hidden noalias noundef ptr @xsettings_client_new_with_grab_funcs(ptr noun
 
 43:                                               ; preds = %11
   %44 = load ptr, ptr %30, align 8
-  %45 = getelementptr inbounds %struct.Screen, ptr %44, i64 %32
+  %45 = getelementptr inbounds [128 x i8], ptr %44, i64 %32
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 16
   %47 = load i64, ptr %46, align 8
   %48 = call i32 %3(i64 noundef %47, i32 noundef 1, i64 noundef 131072, ptr noundef %4) #16
@@ -244,7 +243,7 @@ define hidden void @xsettings_client_destroy(ptr noundef captures(none) %0) loca
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds %struct.Screen, ptr %7, i64 %10
+  %11 = getelementptr inbounds [128 x i8], ptr %7, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load i64, ptr %12, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -497,7 +496,7 @@ define hidden range(i32 0, 2) i32 @xsettings_client_process_event(ptr noundef ca
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load i32, ptr %8, align 8
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds %struct.Screen, ptr %7, i64 %10
+  %11 = getelementptr inbounds [128 x i8], ptr %7, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load i64, ptr %12, align 8
   %14 = icmp eq i64 %4, %13

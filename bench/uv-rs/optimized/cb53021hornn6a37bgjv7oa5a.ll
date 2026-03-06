@@ -271,7 +271,7 @@ _ZN14regex_automata4meta5regex5Regex20search_captures_with17he4b8b79c5562e093E.e
   br i1 %95, label %97, label %_ZN14regex_automata4util8captures8Captures9get_match17h691bce1009b35e94E.exit
 
 97:                                               ; preds = %93
-  %98 = getelementptr inbounds nuw i64, ptr %96, i64 %.sroa.049.2.i.i
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %.sroa.049.2.i.i
   %99 = load i64, ptr %98, align 8, !noalias !35, !noundef !3
   %100 = icmp ne i64 %99, 0
   %101 = icmp ult i64 %.sroa.051.0.i.i, %94
@@ -279,7 +279,7 @@ _ZN14regex_automata4meta5regex5Regex20search_captures_with17he4b8b79c5562e093E.e
   br i1 %or.cond.i.i, label %102, label %_ZN14regex_automata4util8captures8Captures9get_match17h691bce1009b35e94E.exit
 
 102:                                              ; preds = %97
-  %103 = getelementptr inbounds nuw i64, ptr %96, i64 %.sroa.051.0.i.i
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %96, i64 %.sroa.051.0.i.i
   %104 = load i64, ptr %103, align 8, !noalias !35, !noundef !3
   %105 = icmp eq i64 %104, 0
   br i1 %105, label %_ZN14regex_automata4util8captures8Captures9get_match17h691bce1009b35e94E.exit, label %106
@@ -825,10 +825,10 @@ switch.lookup:
   %2 = load ptr, ptr %0, align 8, !nonnull !3, !align !105, !noundef !3
   %.val = load i8, ptr %2, align 1, !range !124, !noundef !3
   %3 = zext nneg i8 %.val to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfd91b8370c7c9b07E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfd91b8370c7c9b07E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %.val to i64
-  %switch.gep1 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfd91b8370c7c9b07E.33", i64 %4
+  %switch.gep1 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hfd91b8370c7c9b07E.33", i64 %4
   %switch.load2 = load ptr, ptr %switch.gep1, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load2, i64 noundef %switch.load)
   ret i1 %5
@@ -1660,7 +1660,7 @@ _ZN14regex_automata4meta5regex5Regex13captures_iter17h14a3e71b8d6f0741E.exit: ; 
   br i1 %100, label %102, label %112
 
 102:                                              ; preds = %98
-  %103 = getelementptr inbounds nuw i64, ptr %101, i64 %.sroa.049.2.i
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %.sroa.049.2.i
   %104 = load i64, ptr %103, align 8, !noalias !338, !noundef !3
   %105 = icmp ne i64 %104, 0
   %106 = icmp ult i64 %.sroa.051.0.i, %99
@@ -1668,7 +1668,7 @@ _ZN14regex_automata4meta5regex5Regex13captures_iter17h14a3e71b8d6f0741E.exit: ; 
   br i1 %or.cond.i, label %107, label %112
 
 107:                                              ; preds = %102
-  %108 = getelementptr inbounds nuw i64, ptr %101, i64 %.sroa.051.0.i
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %.sroa.051.0.i
   %109 = load i64, ptr %108, align 8, !noalias !338, !noundef !3
   %110 = icmp eq i64 %109, 0
   br i1 %110, label %112, label %113

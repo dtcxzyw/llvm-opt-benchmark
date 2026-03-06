@@ -46,7 +46,7 @@ define hidden i32 @psa_status_to_mbedtls(i32 noundef %0, ptr noundef readonly ca
 
 .lr.ph:                                           ; preds = %4, %9
   %.01115 = phi i64 [ %10, %9 ], [ 0, %4 ]
-  %5 = getelementptr inbounds nuw %struct.mbedtls_error_pair_t, ptr %1, i64 %.01115
+  %5 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.01115
   %6 = load i16, ptr %5, align 2, !tbaa !3
   %7 = sext i16 %6 to i32
   %8 = icmp eq i32 %0, %7
@@ -58,7 +58,7 @@ define hidden i32 @psa_status_to_mbedtls(i32 noundef %0, ptr noundef readonly ca
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
 
 11:                                               ; preds = %.lr.ph
-  %12 = getelementptr inbounds nuw %struct.mbedtls_error_pair_t, ptr %1, i64 %.01115
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %.01115
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 2
   %14 = load i16, ptr %13, align 2, !tbaa !10
   %15 = sext i16 %14 to i32
@@ -138,7 +138,7 @@ define hidden zeroext range(i8 0, 66) i8 @mbedtls_ecc_group_to_psa(i32 noundef %
 
 switch.lookup:                                    ; preds = %2
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.mbedtls_ecc_group_to_psa, i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.mbedtls_ecc_group_to_psa, i64 %4
   %switch.load = load i64, ptr %switch.gep, align 8
   %5 = zext nneg i32 %switch.tableidx to i64
   %switch.gep14 = getelementptr inbounds nuw i8, ptr @switch.table.mbedtls_ecc_group_to_psa.1, i64 %5

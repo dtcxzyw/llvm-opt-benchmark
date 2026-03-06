@@ -65,11 +65,11 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::Twine" = type <{ %"union.llvm::Twine::Child", %"union.llvm::Twine::Child", i8, i8, [6 x i8] }>
 %"union.llvm::Twine::Child" = type { %struct.anon }
 %struct.anon = type { ptr, i64 }
+%"class.llvm::ArrayRef.71" = type { ptr, i64 }
 %"struct.(anonymous namespace)::SimpleKey" = type <{ %"class.llvm::AllocatorList<llvm::yaml::Token, llvm::BumpPtrAllocatorImpl<>>::IteratorImpl", i32, i32, i32, i8, [3 x i8] }>
 %"class.llvm::AllocatorList<llvm::yaml::Token, llvm::BumpPtrAllocatorImpl<>>::IteratorImpl" = type { %"class.llvm::iterator_adaptor_base" }
 %"class.llvm::iterator_adaptor_base" = type { %"class.llvm::ilist_iterator" }
 %"class.llvm::ilist_iterator" = type { ptr }
-%"class.llvm::ArrayRef.71" = type { ptr, i64 }
 %"class.llvm::SmallString.34" = type { %"class.llvm::SmallVector.35" }
 %"class.llvm::SmallVector.35" = type { %"class.llvm::SmallVectorImpl.25", %"struct.llvm::SmallVectorStorage.36" }
 %"struct.llvm::SmallVectorStorage.36" = type { [256 x i8] }
@@ -85,7 +85,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.90" = type { %"struct.std::_Tuple_impl.91" }
 %"struct.std::_Tuple_impl.91" = type { %"struct.std::_Head_base.92" }
 %"struct.std::_Head_base.92" = type { ptr }
-%"struct.std::pair.59" = type { ptr, i64 }
 
 $_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_RKS8_ = comdat any
 
@@ -3575,7 +3574,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm4yaml7Scanner15fetchMoreTokensEv(pt
   %40 = load ptr, ptr %35, align 8, !tbaa !26
   %41 = load i32, ptr %36, align 8, !tbaa !34
   %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds nuw i32, ptr %40, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %42
   %44 = getelementptr inbounds i8, ptr %43, i64 -4
   %45 = load i32, ptr %44, align 4, !tbaa !142
   %46 = add i32 %41, -1
@@ -3713,7 +3712,7 @@ _ZN4llvm4yaml7Scanner14isBlankOrBreakEPKc.exit:   ; preds = %57, %_ZN4llvm4yaml7
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %.val.i.i = load ptr, ptr %94, align 8, !tbaa !26
   %95 = zext i32 %91 to i64
-  %96 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SimpleKey", ptr %.val.i.i, i64 %95
+  %96 = getelementptr inbounds nuw [24 x i8], ptr %.val.i.i, i64 %95
   %97 = getelementptr inbounds i8, ptr %96, i64 -8
   %98 = load i32, ptr %97, align 8, !tbaa !144
   %99 = icmp eq i32 %98, %93
@@ -3783,7 +3782,7 @@ _ZN4llvm4yaml7Scanner21scanFlowCollectionEndEb.exit: ; preds = %116, %_ZNKSt7__c
   %126 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %.val.i.i26 = load ptr, ptr %126, align 8, !tbaa !26
   %127 = zext i32 %123 to i64
-  %128 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SimpleKey", ptr %.val.i.i26, i64 %127
+  %128 = getelementptr inbounds nuw [24 x i8], ptr %.val.i.i26, i64 %127
   %129 = getelementptr inbounds i8, ptr %128, i64 -8
   %130 = load i32, ptr %129, align 8, !tbaa !144
   %131 = icmp eq i32 %130, %125
@@ -3853,7 +3852,7 @@ _ZN4llvm4yaml7Scanner21scanFlowCollectionEndEb.exit32: ; preds = %148, %_ZNKSt7_
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %.val.i.i34 = load ptr, ptr %158, align 8, !tbaa !26
   %159 = zext i32 %155 to i64
-  %160 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SimpleKey", ptr %.val.i.i34, i64 %159
+  %160 = getelementptr inbounds nuw [24 x i8], ptr %.val.i.i34, i64 %159
   %161 = getelementptr inbounds i8, ptr %160, i64 -8
   %162 = load i32, ptr %161, align 8, !tbaa !144
   %163 = icmp eq i32 %162, %157
@@ -4179,7 +4178,7 @@ _ZN4llvm4yaml7Scanner8setErrorERKNS_5TwineEPKc.exit: ; preds = %37, %40
   %.val.i = phi ptr [ %.val.i.pre, %_ZN4llvm4yaml7Scanner8setErrorERKNS_5TwineEPKc.exit ], [ %.val919, %24 ]
   %45 = getelementptr inbounds nuw i8, ptr %.014, i64 24
   %46 = zext i32 %.val6.i to i64
-  %47 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SimpleKey", ptr %.val.i, i64 %46
+  %47 = getelementptr inbounds nuw [24 x i8], ptr %.val.i, i64 %46
   %.not.i.i.i.i.i.i = icmp eq ptr %47, %45
   br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_19SimpleKeyEE5eraseEPKS2_.exit, label %48
 
@@ -4209,7 +4208,7 @@ _ZN4llvm15SmallVectorImplIN12_GLOBAL__N_19SimpleKeyEE5eraseEPKS2_.exit: ; preds 
   %.val9 = phi ptr [ %.val9.pre, %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_19SimpleKeyEE5eraseEPKS2_.exit ], [ %.val919, %54 ]
   %.1 = phi ptr [ %.014, %_ZN4llvm15SmallVectorImplIN12_GLOBAL__N_19SimpleKeyEE5eraseEPKS2_.exit ], [ %55, %54 ]
   %57 = zext i32 %.val10 to i64
-  %58 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SimpleKey", ptr %.val9, i64 %57
+  %58 = getelementptr inbounds nuw [24 x i8], ptr %.val9, i64 %57
   %.not = icmp eq ptr %.1, %58
   br i1 %.not, label %._crit_edge, label %14, !llvm.loop !157
 }
@@ -4946,7 +4945,7 @@ define dso_local void @_ZN4llvm4yaml7Scanner22saveSimpleKeyCandidateENS_13Alloca
   br i1 %.not.not.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_19SimpleKeyELb1EE9push_backERKS2_.exit, label %26, !prof !135
 
 26:                                               ; preds = %9
-  %27 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SimpleKey", ptr %.val.pre4.i, i64 %22
+  %27 = getelementptr inbounds nuw [24 x i8], ptr %.val.pre4.i, i64 %22
   %28 = icmp uge ptr %5, %.val.pre4.i
   %29 = icmp ult ptr %5, %27
   %spec.select.i.i.i.i.i = and i1 %28, %29
@@ -4973,7 +4972,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_19SimpleKeyELb1EE9push_backERKS2
   %.016.i.i.i = phi ptr [ %5, %9 ], [ %35, %30 ], [ %5, %.critedge.i.i.i ]
   %.val3.i = load i32, ptr %20, align 8, !tbaa !34
   %37 = zext i32 %.val3.i to i64
-  %38 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SimpleKey", ptr %.val.i, i64 %37
+  %38 = getelementptr inbounds nuw [24 x i8], ptr %.val.i, i64 %37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %38, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i, i64 24, i1 false)
   %39 = load i32, ptr %20, align 8, !tbaa !34
   %40 = add i32 %39, 1
@@ -4996,7 +4995,7 @@ define dso_local void @_ZN4llvm4yaml7Scanner36removeSimpleKeyCandidatesOnFlowLev
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %.val = load ptr, ptr %6, align 8, !tbaa !26
   %7 = zext i32 %4 to i64
-  %8 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SimpleKey", ptr %.val, i64 %7
+  %8 = getelementptr inbounds nuw [24 x i8], ptr %.val, i64 %7
   %9 = getelementptr inbounds i8, ptr %8, i64 -8
   %10 = load i32, ptr %9, align 8, !tbaa !144
   %11 = icmp eq i32 %10, %1
@@ -5051,7 +5050,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm4yaml7Scanner12unrollIndentEi(ptr n
   %21 = load ptr, ptr %16, align 8, !tbaa !26
   %22 = load i32, ptr %17, align 8, !tbaa !34
   %23 = zext i32 %22 to i64
-  %24 = getelementptr inbounds nuw i32, ptr %21, i64 %23
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %23
   %25 = getelementptr inbounds i8, ptr %24, i64 -4
   %26 = load i32, ptr %25, align 4, !tbaa !142
   %27 = add i32 %22, -1
@@ -5111,7 +5110,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit: ; preds = %12, %18
   %22 = phi i32 [ %15, %12 ], [ %.pre.i, %18 ]
   %23 = load ptr, ptr %13, align 8, !tbaa !26
   %24 = zext i32 %22 to i64
-  %25 = getelementptr inbounds nuw i32, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %24
   store i32 %10, ptr %25, align 1
   %26 = load i32, ptr %14, align 8, !tbaa !34
   %27 = add i32 %26, 1
@@ -5798,7 +5797,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm4yaml7Scanner13scanStreamEndEv(ptr 
   %28 = load ptr, ptr %23, align 8, !tbaa !26
   %29 = load i32, ptr %24, align 8, !tbaa !34
   %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds nuw i32, ptr %28, i64 %30
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %30
   %32 = getelementptr inbounds i8, ptr %31, i64 -4
   %33 = load i32, ptr %32, align 4, !tbaa !142
   %34 = add i32 %29, -1
@@ -5901,7 +5900,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm4yaml7Scanner13scanDirectiveEv(ptr 
   %23 = load ptr, ptr %18, align 8, !tbaa !26
   %24 = load i32, ptr %19, align 8, !tbaa !34
   %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds nuw i32, ptr %23, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %25
   %27 = getelementptr inbounds i8, ptr %26, i64 -4
   %28 = load i32, ptr %27, align 4, !tbaa !142
   %29 = add i32 %24, -1
@@ -6386,7 +6385,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm4yaml7Scanner21scanDocumentIndicato
   %22 = load ptr, ptr %17, align 8, !tbaa !26
   %23 = load i32, ptr %18, align 8, !tbaa !34
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds nuw i32, ptr %22, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %24
   %26 = getelementptr inbounds i8, ptr %25, i64 -4
   %27 = load i32, ptr %26, align 4, !tbaa !142
   %28 = add i32 %23, -1
@@ -6516,7 +6515,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm4yaml7Scanner23scanFlowCollectionSt
   br i1 %.not.not.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_19SimpleKeyELb1EE9push_backERKS2_.exit.i, label %41, !prof !135
 
 41:                                               ; preds = %22
-  %42 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SimpleKey", ptr %.val.pre4.i.i, i64 %37
+  %42 = getelementptr inbounds nuw [24 x i8], ptr %.val.pre4.i.i, i64 %37
   %43 = icmp uge ptr %3, %.val.pre4.i.i
   %44 = icmp ult ptr %3, %42
   %spec.select.i.i.i.i.i.i = and i1 %43, %44
@@ -6543,7 +6542,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_19SimpleKeyELb1EE9push_backERKS2
   %.016.i.i.i.i = phi ptr [ %3, %22 ], [ %50, %45 ], [ %3, %.critedge.i.i.i.i ]
   %.val3.i.i = load i32, ptr %35, align 8, !tbaa !34
   %52 = zext i32 %.val3.i.i to i64
-  %53 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SimpleKey", ptr %.val.i.i, i64 %52
+  %53 = getelementptr inbounds nuw [24 x i8], ptr %.val.i.i, i64 %52
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %53, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i.i, i64 24, i1 false)
   %54 = load i32, ptr %35, align 8, !tbaa !34
   %55 = add i32 %54, 1
@@ -6588,7 +6587,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm4yaml7Scanner21scanFlowCollectionEn
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %.val.i = load ptr, ptr %9, align 8, !tbaa !26
   %10 = zext i32 %6 to i64
-  %11 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SimpleKey", ptr %.val.i, i64 %10
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %.val.i, i64 %10
   %12 = getelementptr inbounds i8, ptr %11, i64 -8
   %13 = load i32, ptr %12, align 8, !tbaa !144
   %14 = icmp eq i32 %13, %8
@@ -6667,7 +6666,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm4yaml7Scanner13scanFlowEntryEv(ptr 
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %.val.i = load ptr, ptr %8, align 8, !tbaa !26
   %9 = zext i32 %4 to i64
-  %10 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SimpleKey", ptr %.val.i, i64 %9
+  %10 = getelementptr inbounds nuw [24 x i8], ptr %.val.i, i64 %9
   %11 = getelementptr inbounds i8, ptr %10, i64 -8
   %12 = load i32, ptr %11, align 8, !tbaa !144
   %13 = icmp eq i32 %12, %7
@@ -6761,7 +6760,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit.i: ; preds = %20, %14
   %24 = phi i32 [ %17, %14 ], [ %.pre.i.i, %20 ]
   %25 = load ptr, ptr %15, align 8, !tbaa !26
   %26 = zext i32 %24 to i64
-  %27 = getelementptr inbounds nuw i32, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %26
   store i32 %12, ptr %27, align 1
   %28 = load i32, ptr %16, align 8, !tbaa !34
   %29 = add i32 %28, 1
@@ -6807,7 +6806,7 @@ _ZN4llvm4yaml7Scanner10rollIndentEiNS0_5Token9TokenKindENS_13AllocatorListIS2_NS
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %.val.i = load ptr, ptr %45, align 8, !tbaa !26
   %46 = zext i32 %42 to i64
-  %47 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SimpleKey", ptr %.val.i, i64 %46
+  %47 = getelementptr inbounds nuw [24 x i8], ptr %.val.i, i64 %46
   %48 = getelementptr inbounds i8, ptr %47, i64 -8
   %49 = load i32, ptr %48, align 8, !tbaa !144
   %50 = icmp eq i32 %49, %44
@@ -6898,7 +6897,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit.i: ; preds = %20, %14
   %24 = phi i32 [ %17, %14 ], [ %.pre.i.i, %20 ]
   %25 = load ptr, ptr %15, align 8, !tbaa !26
   %26 = zext i32 %24 to i64
-  %27 = getelementptr inbounds nuw i32, ptr %25, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %26
   store i32 %12, ptr %27, align 1
   %28 = load i32, ptr %16, align 8, !tbaa !34
   %29 = add i32 %28, 1
@@ -6945,7 +6944,7 @@ _ZN4llvm4yaml7Scanner10rollIndentEiNS0_5Token9TokenKindENS_13AllocatorListIS2_NS
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %.val.i = load ptr, ptr %45, align 8, !tbaa !26
   %46 = zext i32 %43 to i64
-  %47 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SimpleKey", ptr %.val.i, i64 %46
+  %47 = getelementptr inbounds nuw [24 x i8], ptr %.val.i, i64 %46
   %48 = getelementptr inbounds i8, ptr %47, i64 -8
   %49 = load i32, ptr %48, align 8, !tbaa !144
   %50 = icmp eq i32 %49, %41
@@ -7016,7 +7015,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm4yaml7Scanner9scanValueEv(ptr nound
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %.val.i = load ptr, ptr %9, align 8, !tbaa !26, !noalias !161
   %10 = zext i32 %7 to i64
-  %11 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SimpleKey", ptr %.val.i, i64 %10
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %.val.i, i64 %10
   %12 = getelementptr inbounds i8, ptr %11, i64 -24
   %.sroa.028.0.copyload = load ptr, ptr %12, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds i8, ptr %11, i64 -16
@@ -7091,7 +7090,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit.i: ; preds = %42, %36
   %46 = phi i32 [ %39, %36 ], [ %.pre.i.i, %42 ]
   %47 = load ptr, ptr %37, align 8, !tbaa !26
   %48 = zext i32 %46 to i64
-  %49 = getelementptr inbounds nuw i32, ptr %47, i64 %48
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %48
   store i32 %34, ptr %49, align 1
   %50 = load i32, ptr %38, align 8, !tbaa !34
   %51 = add i32 %50, 1
@@ -7181,7 +7180,7 @@ _ZN4llvm23SmallVectorTemplateBaseIiLb1EE9push_backEi.exit.i13: ; preds = %85, %7
   %89 = phi i32 [ %82, %79 ], [ %.pre.i.i12, %85 ]
   %90 = load ptr, ptr %80, align 8, !tbaa !26
   %91 = zext i32 %89 to i64
-  %92 = getelementptr inbounds nuw i32, ptr %90, i64 %91
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %91
   store i32 %77, ptr %92, align 1
   %93 = load i32, ptr %81, align 8, !tbaa !34
   %94 = add i32 %93, 1
@@ -7540,7 +7539,7 @@ _ZN4llvm4yaml7Scanner8setErrorERKNS_5TwineEPKc.exit: ; preds = %84, %88
   br i1 %.not.not.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_19SimpleKeyELb1EE9push_backERKS2_.exit.i, label %126, !prof !135
 
 126:                                              ; preds = %109
-  %127 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SimpleKey", ptr %.val.pre4.i.i, i64 %122
+  %127 = getelementptr inbounds nuw [24 x i8], ptr %.val.pre4.i.i, i64 %122
   %128 = icmp uge ptr %3, %.val.pre4.i.i
   %129 = icmp ult ptr %3, %127
   %spec.select.i.i.i.i.i.i = and i1 %128, %129
@@ -7567,7 +7566,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_19SimpleKeyELb1EE9push_backERKS2
   %.016.i.i.i.i = phi ptr [ %3, %109 ], [ %135, %130 ], [ %3, %.critedge.i.i.i.i ]
   %.val3.i.i = load i32, ptr %120, align 8, !tbaa !34
   %137 = zext i32 %.val3.i.i to i64
-  %138 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SimpleKey", ptr %.val.i.i, i64 %137
+  %138 = getelementptr inbounds nuw [24 x i8], ptr %.val.i.i, i64 %137
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %138, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i.i, i64 24, i1 false)
   %139 = load i32, ptr %120, align 8, !tbaa !34
   %140 = add i32 %139, 1
@@ -8049,7 +8048,7 @@ _ZN4llvm4yaml7Scanner8setErrorERKNS_5TwineEPKc.exit71: ; preds = %132, %136
   br i1 %.not.not.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_19SimpleKeyELb1EE9push_backERKS2_.exit.i, label %172, !prof !135
 
 172:                                              ; preds = %155
-  %173 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SimpleKey", ptr %.val.pre4.i.i, i64 %168
+  %173 = getelementptr inbounds nuw [24 x i8], ptr %.val.pre4.i.i, i64 %168
   %174 = icmp uge ptr %2, %.val.pre4.i.i
   %175 = icmp ult ptr %2, %173
   %spec.select.i.i.i.i.i.i = and i1 %174, %175
@@ -8076,7 +8075,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_19SimpleKeyELb1EE9push_backERKS2
   %.016.i.i.i.i = phi ptr [ %2, %155 ], [ %181, %176 ], [ %2, %.critedge.i.i.i.i ]
   %.val3.i.i = load i32, ptr %166, align 8, !tbaa !34
   %183 = zext i32 %.val3.i.i to i64
-  %184 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SimpleKey", ptr %.val.i.i, i64 %183
+  %184 = getelementptr inbounds nuw [24 x i8], ptr %.val.i.i, i64 %183
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %184, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i.i, i64 24, i1 false)
   %185 = load i32, ptr %166, align 8, !tbaa !34
   %186 = add i32 %185, 1
@@ -8293,7 +8292,7 @@ _ZN4llvm4yaml7Scanner8setErrorERKNS_5TwineEPKc.exit: ; preds = %43, %47
   br i1 %.not.not.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_19SimpleKeyELb1EE9push_backERKS2_.exit.i, label %84, !prof !135
 
 84:                                               ; preds = %67
-  %85 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SimpleKey", ptr %.val.pre4.i.i, i64 %80
+  %85 = getelementptr inbounds nuw [24 x i8], ptr %.val.pre4.i.i, i64 %80
   %86 = icmp uge ptr %3, %.val.pre4.i.i
   %87 = icmp ult ptr %3, %85
   %spec.select.i.i.i.i.i.i = and i1 %86, %87
@@ -8320,7 +8319,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_19SimpleKeyELb1EE9push_backERKS2
   %.016.i.i.i.i = phi ptr [ %3, %67 ], [ %93, %88 ], [ %3, %.critedge.i.i.i.i ]
   %.val3.i.i = load i32, ptr %78, align 8, !tbaa !34
   %95 = zext i32 %.val3.i.i to i64
-  %96 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SimpleKey", ptr %.val.i.i, i64 %95
+  %96 = getelementptr inbounds nuw [24 x i8], ptr %.val.i.i, i64 %95
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %96, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i.i, i64 24, i1 false)
   %97 = load i32, ptr %78, align 8, !tbaa !34
   %98 = add i32 %97, 1
@@ -10059,7 +10058,7 @@ _ZN4llvm4yaml7Scanner14isBlankOrBreakEPKc.exit.thread: ; preds = %16, %16, %16, 
   br i1 %.not.not.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_19SimpleKeyELb1EE9push_backERKS2_.exit.i, label %145, !prof !135
 
 145:                                              ; preds = %128
-  %146 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SimpleKey", ptr %.val.pre4.i.i, i64 %141
+  %146 = getelementptr inbounds nuw [24 x i8], ptr %.val.pre4.i.i, i64 %141
   %147 = icmp uge ptr %2, %.val.pre4.i.i
   %148 = icmp ult ptr %2, %146
   %spec.select.i.i.i.i.i.i = and i1 %147, %148
@@ -10086,7 +10085,7 @@ _ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_19SimpleKeyELb1EE9push_backERKS2
   %.016.i.i.i.i = phi ptr [ %2, %128 ], [ %154, %149 ], [ %2, %.critedge.i.i.i.i ]
   %.val3.i.i = load i32, ptr %139, align 8, !tbaa !34
   %156 = zext i32 %.val3.i.i to i64
-  %157 = getelementptr inbounds nuw %"struct.(anonymous namespace)::SimpleKey", ptr %.val.i.i, i64 %156
+  %157 = getelementptr inbounds nuw [24 x i8], ptr %.val.i.i, i64 %156
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %157, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i.i, i64 24, i1 false)
   %158 = load i32, ptr %139, align 8, !tbaa !34
   %159 = add i32 %158, 1
@@ -15684,7 +15683,7 @@ _ZSt8_DestroyIPN4llvm9SourceMgr9SrcBufferES2_EvT_S4_RSaIT0_E.exit: ; preds = %.l
 _ZNSt12_Vector_baseIN4llvm9SourceMgr9SrcBufferESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZSt8_DestroyIPN4llvm9SourceMgr9SrcBufferES2_EvT_S4_RSaIT0_E.exit, %29
   store ptr %20, ptr %0, align 8, !tbaa !46
   store ptr %.0.lcssa.i.i.i.i.i23, ptr %4, align 8, !tbaa !49
-  %33 = getelementptr inbounds nuw %"struct.llvm::SourceMgr::SrcBuffer", ptr %20, i64 %16
+  %33 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %33, ptr %28, align 8, !tbaa !51
   ret void
 }
@@ -15898,7 +15897,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPvmELb1EE9push_backES3_.exit: ; preds 
   %21 = phi i32 [ %14, %10 ], [ %.pre.i, %17 ]
   %22 = load ptr, ptr %12, align 8, !tbaa !26
   %23 = zext i32 %21 to i64
-  %24 = getelementptr inbounds nuw %"struct.std::pair.59", ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [16 x i8], ptr %22, i64 %23
   store ptr %11, ptr %24, align 1
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 %8, ptr %.sroa.2.0..sroa_idx.i, align 1
@@ -15939,7 +15938,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Start
   %47 = phi i32 [ %40, %32 ], [ %.pre.i.i, %43 ]
   %48 = load ptr, ptr %33, align 8, !tbaa !26
   %49 = zext i32 %47 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %48, i64 %49
   %51 = ptrtoint ptr %39 to i64
   store i64 %51, ptr %50, align 1
   %52 = load i32, ptr %34, align 8, !tbaa !34

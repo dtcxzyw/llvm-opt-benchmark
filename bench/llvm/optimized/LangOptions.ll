@@ -450,7 +450,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread11.us.preheader: ; preds = %.lr.ph.split
   br label %_ZN4llvmeqENS_9StringRefES0_.exit.thread11.us
 
 18:                                               ; preds = %_ZN4llvmeqENS_9StringRefES0_.exit.thread11.us
-  %19 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %7, i64 %indvars.iv.next29
+  %19 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 %indvars.iv.next29
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load i64, ptr %20, align 8, !tbaa !48
   %.not.i.us = icmp eq i64 %21, 0
@@ -464,7 +464,7 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread11.us:    ; preds = %_ZN4llvmeqENS_9Stri
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %_ZN4llvmeqENS_9StringRefES0_.exit.thread11
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %_ZN4llvmeqENS_9StringRefES0_.exit.thread11 ]
-  %22 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %7, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 %indvars.iv
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i64, ptr %23, align 8, !tbaa !48
   %.not.i = icmp eq i64 %.fr24, %24
@@ -992,13 +992,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
 
 switch.lookup:                                    ; preds = %165
   %175 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5clang11LangOptions15setLangDefaultsERS0_NS_8LanguageERKN4llvm6TripleERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EENS_12LangStandard4KindE, i64 %175
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang11LangOptions15setLangDefaultsERS0_NS_8LanguageERKN4llvm6TripleERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EENS_12LangStandard4KindE, i64 %175
   %switch.load = load i64, ptr %switch.gep, align 8
   %176 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep209 = getelementptr inbounds nuw i64, ptr @switch.table._ZN5clang11LangOptions15setLangDefaultsERS0_NS_8LanguageERKN4llvm6TripleERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EENS_12LangStandard4KindE.1, i64 %176
+  %switch.gep209 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang11LangOptions15setLangDefaultsERS0_NS_8LanguageERKN4llvm6TripleERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EENS_12LangStandard4KindE.1, i64 %176
   %switch.load210 = load i64, ptr %switch.gep209, align 8
   %177 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep211 = getelementptr inbounds nuw i64, ptr @switch.table._ZN5clang11LangOptions15setLangDefaultsERS0_NS_8LanguageERKN4llvm6TripleERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EENS_12LangStandard4KindE.2, i64 %177
+  %switch.gep211 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang11LangOptions15setLangDefaultsERS0_NS_8LanguageERKN4llvm6TripleERSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaISD_EENS_12LangStandard4KindE.2, i64 %177
   %switch.load212 = load i64, ptr %switch.gep211, align 8
   %178 = getelementptr inbounds nuw i8, ptr %0, i64 %switch.load
   %179 = load i64, ptr %178, align 8
@@ -1420,10 +1420,10 @@ switch.lookup:                                    ; preds = %49, %47
   %54 = lshr i8 %53, 3
   %55 = and i8 %54, 7
   %56 = zext nneg i8 %55 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5clang17FPOptionsOverride4dumpEv, i64 %56
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang17FPOptionsOverride4dumpEv, i64 %56
   %switch.load = load i64, ptr %switch.gep, align 8
   %57 = zext nneg i8 %55 to i64
-  %switch.gep57 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang17FPOptionsOverride4dumpEv.4, i64 %57
+  %switch.gep57 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang17FPOptionsOverride4dumpEv.4, i64 %57
   %switch.load58 = load ptr, ptr %switch.gep57, align 8
   %58 = getelementptr inbounds nuw i8, ptr %.0.i.i5, i64 24
   %59 = load ptr, ptr %58, align 8, !tbaa !75
@@ -1964,10 +1964,10 @@ switch.lookup:                                    ; preds = %61, %59
   %66 = lshr i8 %65, 3
   %67 = and i8 %66, 7
   %68 = zext nneg i8 %67 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN5clang17FPOptionsOverride4dumpEv, i64 %68
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang17FPOptionsOverride4dumpEv, i64 %68
   %switch.load = load i64, ptr %switch.gep, align 8
   %69 = zext nneg i8 %67 to i64
-  %switch.gep85 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN5clang17FPOptionsOverride4dumpEv.4, i64 %69
+  %switch.gep85 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN5clang17FPOptionsOverride4dumpEv.4, i64 %69
   %switch.load86 = load ptr, ptr %switch.gep85, align 8
   %70 = getelementptr inbounds nuw i8, ptr %.0.i.i5, i64 24
   %71 = load ptr, ptr %70, align 8, !tbaa !75
@@ -2708,7 +2708,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !60
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !61
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !80
   ret void
 }

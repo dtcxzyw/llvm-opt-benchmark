@@ -66,12 +66,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.Assimp::Blender::SectionParser" = type <{ %"struct.Assimp::Blender::FileBlockHead", ptr, i8, [7 x i8] }>
 %"struct.Assimp::Blender::FileBlockHead" = type { i64, %"class.std::__cxx11::basic_string", i64, %"struct.Assimp::Blender::Pointer", i32, i64 }
 %"struct.Assimp::Blender::Pointer" = type { i64 }
-%"class.Assimp::Blender::Structure" = type { %"class.std::__cxx11::basic_string", %"class.Assimp::Blender::vector.49", %"class.std::map.14", i64, i64 }
-%"class.Assimp::Blender::vector.49" = type { %"class.std::vector.50" }
-%"class.std::vector.50" = type { %"struct.std::_Vector_base.51" }
-%"struct.std::_Vector_base.51" = type { %"struct.std::_Vector_base<Assimp::Blender::Field, std::allocator<Assimp::Blender::Field>>::_Vector_impl" }
-%"struct.std::_Vector_base<Assimp::Blender::Field, std::allocator<Assimp::Blender::Field>>::_Vector_impl" = type { %"struct.std::_Vector_base<Assimp::Blender::Field, std::allocator<Assimp::Blender::Field>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<Assimp::Blender::Field, std::allocator<Assimp::Blender::Field>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"struct.Assimp::Blender::ConversionData" = type { %"class.std::set", %"struct.Assimp::Blender::TempArray.76", %"struct.Assimp::Blender::TempArray.82", %"struct.Assimp::Blender::TempArray.88", %"struct.Assimp::Blender::TempArray.94", %"struct.Assimp::Blender::TempArray.100", %"class.std::deque.106", i32, [19 x i32], ptr }
 %"class.std::set" = type { %"class.std::_Rb_tree.71" }
 %"class.std::_Rb_tree.71" = type { %"struct.std::_Rb_tree<const Assimp::Blender::Object *, const Assimp::Blender::Object *, std::_Identity<const Assimp::Blender::Object *>, Assimp::Blender::ObjectCompare>::_Rb_tree_impl" }
@@ -143,8 +137,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Head_base.284" = type { ptr }
 %struct.aiString = type { i32, [1024 x i8] }
 %struct.aiColor3D = type { float, float, float }
-%"class.std::shared_ptr.144" = type { %"class.std::__shared_ptr.145" }
-%"class.std::__shared_ptr.145" = type { ptr, %"class.std::__shared_count" }
 %"class.std::shared_ptr.141" = type { %"class.std::__shared_ptr.142" }
 %"class.std::__shared_ptr.142" = type { ptr, %"class.std::__shared_count" }
 %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, const Assimp::Blender::MLoopUV *>, std::_Select1st<std::pair<const unsigned int, const Assimp::Blender::MLoopUV *>>, std::less<unsigned int>>::_Alloc_node" = type { ptr }
@@ -161,18 +153,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::_Rb_tree.249" = type { %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, const Assimp::Blender::MLoopUV *>, std::_Select1st<std::pair<const unsigned int, const Assimp::Blender::MLoopUV *>>, std::less<unsigned int>>::_Rb_tree_impl" }
 %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, const Assimp::Blender::MLoopUV *>, std::_Select1st<std::pair<const unsigned int, const Assimp::Blender::MLoopUV *>>, std::less<unsigned int>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
 %"struct.std::pair.263" = type { i32, %"class.std::map.248" }
-%"struct.Assimp::Blender::MFace" = type <{ %"struct.Assimp::Blender::ElemBase", i32, i32, i32, i32, i32, i8, [3 x i8] }>
-%"struct.Assimp::Blender::MPoly" = type <{ %"struct.Assimp::Blender::ElemBase", i32, i32, i16, i8, [5 x i8] }>
-%struct.aiFace = type { i32, ptr }
-%class.aiVector3t = type { float, float, float }
-%"struct.Assimp::Blender::MVert" = type <{ %"struct.Assimp::Blender::ElemBase", [3 x float], [3 x float], i8, [3 x i8], i32, i32, [4 x i8] }>
-%"struct.Assimp::Blender::MLoop" = type { %"struct.Assimp::Blender::ElemBase", i32, i32 }
-%"struct.Assimp::Blender::MTFace" = type { %"struct.Assimp::Blender::ElemBase", [4 x [2 x float]], i8, i16, i16, i16 }
-%"struct.Assimp::Blender::MLoopUV" = type <{ %"struct.Assimp::Blender::ElemBase", [2 x float], i32, [4 x i8] }>
-%"struct.Assimp::Blender::TFace" = type { %"struct.Assimp::Blender::ElemBase", [4 x [2 x float]], [4 x i32], i8, i16, i16, i16 }
-%class.aiColor4t = type { float, float, float, float }
-%"struct.Assimp::Blender::MCol" = type <{ %"struct.Assimp::Blender::ElemBase", i8, i8, i8, i8, [4 x i8] }>
-%"struct.Assimp::Blender::MLoopCol" = type <{ %"struct.Assimp::Blender::ElemBase", i8, i8, i8, i8, [4 x i8] }>
 %"struct.std::__detail::_AllocNode" = type { ptr }
 %"class.std::unordered_set" = type { %"class.std::_Hashtable" }
 %"class.std::_Hashtable" = type { ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
@@ -3307,7 +3287,7 @@ common.resume:                                    ; preds = %66, %51, %33
   br label %common.resume
 
 _ZN6Assimp12StreamReaderILb1ELb1EE13SetCurrentPosEm.exit: ; preds = %._crit_edge
-  %68 = getelementptr inbounds nuw %"class.Assimp::Blender::Structure", ptr %39, i64 %38
+  %68 = getelementptr inbounds nuw [120 x i8], ptr %39, i64 %38
   call void @_ZNK6Assimp7Blender9Structure7ConvertINS0_5SceneEEEvRT_RKNS0_12FileDatabaseE(ptr noundef nonnull align 8 dereferenceable(120) %68, ptr noundef nonnull align 8 dereferenceable(1176) %1, ptr noundef nonnull align 8 dereferenceable(232) %2)
   %69 = call noundef ptr @_ZN6Assimp13DefaultLogger3getEv()
   %70 = getelementptr inbounds nuw i8, ptr %2, i64 168
@@ -4150,7 +4130,7 @@ _ZNSt5dequeIPKN6Assimp7Blender6ObjectESaIS4_EED2Ev.exit: ; preds = %._crit_edge1
   br i1 %370, label %371, label %373
 
 371:                                              ; preds = %369
-  %372 = getelementptr inbounds nuw ptr, ptr %360, i64 %indvars.iv
+  %372 = getelementptr inbounds nuw [8 x i8], ptr %360, i64 %indvars.iv
   br label %_ZNSt5dequeIPKN6Assimp7Blender6ObjectESaIS4_EEixEm.exit
 
 373:                                              ; preds = %369
@@ -4163,11 +4143,11 @@ _ZNSt5dequeIPKN6Assimp7Blender6ObjectESaIS4_EED2Ev.exit: ; preds = %._crit_edge1
 
 377:                                              ; preds = %375, %373
   %378 = phi i64 [ %374, %373 ], [ %376, %375 ]
-  %379 = getelementptr inbounds ptr, ptr %362, i64 %378
+  %379 = getelementptr inbounds [8 x i8], ptr %362, i64 %378
   %380 = load ptr, ptr %379, align 8, !noalias !33
   %381 = shl nsw i64 %378, 6
   %382 = sub nsw i64 %367, %381
-  %383 = getelementptr inbounds ptr, ptr %380, i64 %382
+  %383 = getelementptr inbounds [8 x i8], ptr %380, i64 %382
   br label %_ZNSt5dequeIPKN6Assimp7Blender6ObjectESaIS4_EEixEm.exit
 
 _ZNSt5dequeIPKN6Assimp7Blender6ObjectESaIS4_EEixEm.exit: ; preds = %371, %377
@@ -4186,11 +4166,11 @@ _ZNSt5dequeIPKN6Assimp7Blender6ObjectESaIS4_EEixEm.exit: ; preds = %371, %377
 
 386:                                              ; preds = %_ZNSt5dequeIPKN6Assimp7Blender6ObjectESaIS4_EEixEm.exit
   %387 = load ptr, ptr %338, align 8
-  %388 = getelementptr inbounds nuw ptr, ptr %387, i64 %indvars.iv
+  %388 = getelementptr inbounds nuw [8 x i8], ptr %387, i64 %indvars.iv
   store ptr %385, ptr %388, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %389 = load ptr, ptr %338, align 8
-  %390 = getelementptr inbounds nuw ptr, ptr %389, i64 %indvars.iv
+  %390 = getelementptr inbounds nuw [8 x i8], ptr %389, i64 %indvars.iv
   %391 = load ptr, ptr %390, align 8
   %392 = getelementptr inbounds nuw i8, ptr %391, i64 1096
   store ptr %13, ptr %392, align 8
@@ -5627,7 +5607,7 @@ _ZSt19static_pointer_castIN6Assimp7Blender15CollectionChildENS1_8ElemBaseEESt10s
   br i1 %319, label %320, label %322
 
 320:                                              ; preds = %318
-  %321 = getelementptr inbounds nuw ptr, ptr %311, i64 %indvars.iv186
+  %321 = getelementptr inbounds nuw [8 x i8], ptr %311, i64 %indvars.iv186
   br label %_ZNSt5dequeIPN6Assimp7Blender6ObjectESaIS3_EEixEm.exit
 
 322:                                              ; preds = %318
@@ -5640,11 +5620,11 @@ _ZSt19static_pointer_castIN6Assimp7Blender15CollectionChildENS1_8ElemBaseEESt10s
 
 326:                                              ; preds = %324, %322
   %327 = phi i64 [ %323, %322 ], [ %325, %324 ]
-  %328 = getelementptr inbounds ptr, ptr %310, i64 %327
+  %328 = getelementptr inbounds [8 x i8], ptr %310, i64 %327
   %329 = load ptr, ptr %328, align 8, !noalias !51
   %330 = shl nsw i64 %327, 6
   %331 = sub nsw i64 %316, %330
-  %332 = getelementptr inbounds ptr, ptr %329, i64 %331
+  %332 = getelementptr inbounds [8 x i8], ptr %329, i64 %331
   br label %_ZNSt5dequeIPN6Assimp7Blender6ObjectESaIS3_EEixEm.exit
 
 _ZNSt5dequeIPN6Assimp7Blender6ObjectESaIS3_EEixEm.exit: ; preds = %320, %326
@@ -5663,11 +5643,11 @@ _ZNSt5dequeIPN6Assimp7Blender6ObjectESaIS3_EEixEm.exit: ; preds = %320, %326
 
 335:                                              ; preds = %_ZNSt5dequeIPN6Assimp7Blender6ObjectESaIS3_EEixEm.exit
   %336 = load ptr, ptr %263, align 8
-  %337 = getelementptr inbounds nuw ptr, ptr %336, i64 %indvars.iv186
+  %337 = getelementptr inbounds nuw [8 x i8], ptr %336, i64 %indvars.iv186
   store ptr %334, ptr %337, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   %338 = load ptr, ptr %263, align 8
-  %339 = getelementptr inbounds nuw ptr, ptr %338, i64 %indvars.iv186
+  %339 = getelementptr inbounds nuw [8 x i8], ptr %338, i64 %indvars.iv186
   %340 = load ptr, ptr %339, align 8
   %341 = getelementptr inbounds nuw i8, ptr %340, i64 1096
   store ptr %2, ptr %341, align 8
@@ -5887,7 +5867,7 @@ _ZNSt5dequeIPN6Assimp7Blender6ObjectESaIS3_EED2Ev.exit: ; preds = %_ZNSt5dequeIP
 432:                                              ; preds = %428
   %433 = load ptr, ptr %263, align 8
   %434 = zext i32 %.0112 to i64
-  %435 = getelementptr inbounds nuw ptr, ptr %433, i64 %434
+  %435 = getelementptr inbounds nuw [8 x i8], ptr %433, i64 %434
   store ptr %416, ptr %435, align 8
   %436 = load ptr, ptr %14, align 8
   %437 = icmp eq ptr %436, %305
@@ -5902,12 +5882,12 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %432, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   %440 = load ptr, ptr %263, align 8
-  %441 = getelementptr inbounds nuw ptr, ptr %440, i64 %434
+  %441 = getelementptr inbounds nuw [8 x i8], ptr %440, i64 %434
   %442 = load ptr, ptr %441, align 8
   %443 = getelementptr inbounds nuw i8, ptr %442, i64 1096
   store ptr %2, ptr %443, align 8
   %444 = load ptr, ptr %263, align 8
-  %445 = getelementptr inbounds nuw ptr, ptr %444, i64 %434
+  %445 = getelementptr inbounds nuw [8 x i8], ptr %444, i64 %434
   %446 = load ptr, ptr %445, align 8
   invoke void @_ZN6Assimp15BlenderImporter18ParseSubCollectionERKNS_7Blender5SceneEP6aiNodeRKSt10shared_ptrINS1_10CollectionEERNS1_14ConversionDataE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(1176) %1, ptr noundef %446, ptr noundef nonnull align 8 dereferenceable(16) %413, ptr noundef nonnull align 8 dereferenceable(336) %4)
           to label %457 unwind label %447
@@ -6435,7 +6415,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit90: ; preds = %85,
   %123 = trunc nuw i64 %indvars.iv to i32
   %124 = add i32 %123, %119
   %125 = load ptr, ptr %118, align 8
-  %126 = getelementptr inbounds nuw i32, ptr %125, i64 %indvars.iv
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %125, i64 %indvars.iv
   store i32 %124, ptr %126, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %127 = load i32, ptr %113, align 8
@@ -6518,7 +6498,7 @@ _ZNSt6vectorIP7aiLightSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds =
 _ZNSt6vectorIP7aiLightSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %161, %_ZNSt6vectorIP7aiLightSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %156, ptr %135, align 8
   store ptr %160, ptr %136, align 8
-  %162 = getelementptr inbounds nuw ptr, ptr %156, i64 %154
+  %162 = getelementptr inbounds nuw [8 x i8], ptr %156, i64 %154
   store ptr %162, ptr %138, align 8
   br label %_ZNSt6vectorIP7aiLightSaIS1_EE9push_backERKS1_.exit
 
@@ -6662,7 +6642,7 @@ _ZNSt6vectorIP8aiCameraSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; preds 
 _ZNSt6vectorIP8aiCameraSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %229, %_ZNSt6vectorIP8aiCameraSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %224, ptr %203, align 8
   store ptr %228, ptr %204, align 8
-  %230 = getelementptr inbounds nuw ptr, ptr %224, i64 %222
+  %230 = getelementptr inbounds nuw [8 x i8], ptr %224, i64 %222
   store ptr %230, ptr %206, align 8
   br label %_ZNSt6vectorIP7aiLightSaIS1_EE9push_backERKS1_.exit
 
@@ -6849,7 +6829,7 @@ _ZNSt6vectorIP7aiLightSaIS1_EE9push_backERKS1_.exit: ; preds = %122, %117, %208,
 
 .preheader:                                       ; preds = %_ZNSt6vectorIP7aiLightSaIS1_EE9push_backERKS1_.exit, %271
   %indvars.iv196 = phi i64 [ 0, %_ZNSt6vectorIP7aiLightSaIS1_EE9push_backERKS1_.exit ], [ %indvars.iv.next197, %271 ]
-  %268 = getelementptr inbounds nuw [4 x float], ptr %263, i64 %indvars.iv196
+  %268 = getelementptr inbounds nuw [16 x i8], ptr %263, i64 %indvars.iv196
   br label %272
 
 269:                                              ; preds = %271
@@ -6865,7 +6845,7 @@ _ZNSt6vectorIP7aiLightSaIS1_EE9push_backERKS1_.exit: ; preds = %122, %117, %208,
 
 272:                                              ; preds = %.preheader, %_ZN12aiMatrix4x4tIfEixEj.exit
   %indvars.iv193 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next194, %_ZN12aiMatrix4x4tIfEixEj.exit ]
-  %273 = getelementptr inbounds nuw float, ptr %268, i64 %indvars.iv193
+  %273 = getelementptr inbounds nuw [4 x i8], ptr %268, i64 %indvars.iv193
   %274 = load float, ptr %273, align 4
   %275 = trunc nuw nsw i64 %indvars.iv193 to i32
   switch i32 %275, label %default.unreachable5.i [
@@ -6889,7 +6869,7 @@ default.unreachable5.i:                           ; preds = %272
 
 _ZN12aiMatrix4x4tIfEixEj.exit:                    ; preds = %272, %276, %277, %278
   %.0.i = phi ptr [ %266, %277 ], [ %265, %278 ], [ %264, %272 ], [ %267, %276 ]
-  %279 = getelementptr inbounds nuw float, ptr %.0.i, i64 %indvars.iv196
+  %279 = getelementptr inbounds nuw [4 x i8], ptr %.0.i, i64 %indvars.iv196
   store float %274, ptr %279, align 4
   %indvars.iv.next194 = add nuw nsw i64 %indvars.iv193, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next194, 4
@@ -7660,7 +7640,7 @@ _ZNSt12_Vector_baseIP10aiMaterialSaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds =
   store ptr %60, ptr %14, align 8
   %64 = getelementptr inbounds nuw i8, ptr %60, i64 %58
   store ptr %64, ptr %55, align 8
-  %65 = getelementptr inbounds nuw ptr, ptr %60, i64 %43
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %43
   store ptr %65, ptr %47, align 8
   br label %_ZNSt6vectorIP10aiMaterialSaIS1_EE7reserveEm.exit
 
@@ -7757,7 +7737,7 @@ _ZNSt6vectorIP10aiMaterialSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i: ; pre
 _ZNSt6vectorIP10aiMaterialSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %107, %_ZNSt6vectorIP10aiMaterialSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i
   store ptr %102, ptr %14, align 8
   store ptr %106, ptr %71, align 8
-  %108 = getelementptr inbounds nuw ptr, ptr %102, i64 %100
+  %108 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 %100
   store ptr %108, ptr %47, align 8
   br label %_ZNSt6vectorIP10aiMaterialSaIS1_EE9push_backERKS1_.exit
 
@@ -7990,7 +7970,7 @@ _ZNSt15_Deque_iteratorISt10shared_ptrIN6Assimp7Blender8MaterialEERS4_PS4_EppEv.e
   %.083 = phi i64 [ 0, %204 ], [ %256, %_ZN6Assimp15BlenderImporter14ResolveTextureEP10aiMaterialPKNS_7Blender8MaterialEPKNS3_4MTexERNS3_14ConversionDataE.exit ]
   %222 = load ptr, ptr %.sroa.076.085, align 8
   %223 = getelementptr inbounds nuw i8, ptr %222, i64 1432
-  %224 = getelementptr inbounds nuw %"class.std::shared_ptr.144", ptr %223, i64 %.083
+  %224 = getelementptr inbounds nuw [16 x i8], ptr %223, i64 %.083
   %225 = load ptr, ptr %224, align 8
   %.not80 = icmp eq ptr %225, null
   br i1 %.not80, label %_ZN6Assimp15BlenderImporter14ResolveTextureEP10aiMaterialPKNS_7Blender8MaterialEPKNS3_4MTexERNS3_14ConversionDataE.exit, label %226
@@ -8055,7 +8035,7 @@ _ZN6Assimp12LogFunctionsINS_15BlenderImporterEE7LogWarnIJRA49_KcRPS4_EEEvDpOT_.e
 
 switch.lookup:                                    ; preds = %_ZN6Assimp12LogFunctionsINS_15BlenderImporterEE7LogWarnIJRA49_KcRPS4_EEEvDpOT_.exit.i
   %243 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN6Assimp15BlenderImporter14ResolveTextureEP10aiMaterialPKNS_7Blender8MaterialEPKNS3_4MTexERNS3_14ConversionDataE, i64 %243
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN6Assimp15BlenderImporter14ResolveTextureEP10aiMaterialPKNS_7Blender8MaterialEPKNS3_4MTexERNS3_14ConversionDataE, i64 %243
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN6Assimp15BlenderImporter18AddSentinelTextureEP10aiMaterialPKNS_7Blender8MaterialEPKNS3_4MTexERNS3_14ConversionDataE.exit.i
 
@@ -8478,7 +8458,7 @@ _ZNSt6vectorIP9aiTextureSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; pre
 _ZNSt6vectorIP9aiTextureSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %69, %_ZNSt6vectorIP9aiTextureSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
   store ptr %64, ptr %17, align 8
   store ptr %68, ptr %18, align 8
-  %70 = getelementptr inbounds nuw ptr, ptr %64, i64 %62
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %62
   store ptr %70, ptr %46, align 8
   br label %_ZNSt6vectorIP9aiTextureSaIS1_EE9push_backEOS1_.exit
 
@@ -8795,7 +8775,7 @@ _ZN6Assimp12LogFunctionsINS_15BlenderImporterEE7LogInfoIJRA45_KcRA240_S4_EEEvDpO
   %.054 = phi i32 [ %spec.select, %208 ], [ %., %190 ], [ 1, %_ZN6Assimp12LogFunctionsINS_15BlenderImporterEE7LogInfoIJRA45_KcRA240_S4_EEEvDpOT_.exit ], [ 2, %198 ], [ 11, %200 ], [ 7, %202 ], [ 4, %204 ], [ 3, %206 ]
   %211 = getelementptr inbounds nuw i8, ptr %5, i64 252
   %212 = zext nneg i32 %.054 to i64
-  %213 = getelementptr inbounds nuw i32, ptr %211, i64 %212
+  %213 = getelementptr inbounds nuw [4 x i8], ptr %211, i64 %212
   %214 = load i32, ptr %213, align 4
   %215 = add i32 %214, 1
   store i32 %215, ptr %213, align 4
@@ -8832,7 +8812,7 @@ define hidden void @_ZN6Assimp15BlenderImporter18AddSentinelTextureEP10aiMateria
 
 switch.lookup:                                    ; preds = %5
   %16 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN6Assimp15BlenderImporter14ResolveTextureEP10aiMaterialPKNS_7Blender8MaterialEPKNS3_4MTexERNS3_14ConversionDataE, i64 %16
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN6Assimp15BlenderImporter14ResolveTextureEP10aiMaterialPKNS_7Blender8MaterialEPKNS3_4MTexERNS3_14ConversionDataE, i64 %16
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN6Assimp7Blender27GetTextureTypeDisplayStringENS0_3Tex4TypeE.exit
 
@@ -8919,7 +8899,7 @@ _ZN6Assimp12LogFunctionsINS_15BlenderImporterEE7LogWarnIJRA49_KcRPS4_EEEvDpOT_.e
 
 switch.lookup:                                    ; preds = %_ZN6Assimp12LogFunctionsINS_15BlenderImporterEE7LogWarnIJRA49_KcRPS4_EEEvDpOT_.exit
   %27 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN6Assimp15BlenderImporter14ResolveTextureEP10aiMaterialPKNS_7Blender8MaterialEPKNS3_4MTexERNS3_14ConversionDataE, i64 %27
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN6Assimp15BlenderImporter14ResolveTextureEP10aiMaterialPKNS_7Blender8MaterialEPKNS3_4MTexERNS3_14ConversionDataE, i64 %27
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN6Assimp15BlenderImporter18AddSentinelTextureEP10aiMaterialPKNS_7Blender8MaterialEPKNS3_4MTexERNS3_14ConversionDataE.exit
 
@@ -9859,7 +9839,7 @@ common.resume:                                    ; preds = %1512, %103, %85, %6
 .lr.ph:                                           ; preds = %105, %131
   %indvars.iv = phi i64 [ %indvars.iv.next, %131 ], [ 0, %105 ]
   %121 = load ptr, ptr %57, align 8
-  %122 = getelementptr inbounds nuw %"struct.Assimp::Blender::MFace", ptr %121, i64 %indvars.iv
+  %122 = getelementptr inbounds nuw [40 x i8], ptr %121, i64 %indvars.iv
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 32
   %124 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3mapIimSt4lessIiESaISt4pairIKimEEEixERS3_(ptr noundef nonnull align 8 dereferenceable(48) %25, ptr noundef nonnull align 4 dereferenceable(4) %123)
           to label %125 unwind label %138
@@ -9944,14 +9924,14 @@ _ZNSt12_Vector_baseIP6aiMeshSaIS1_EE13_M_deallocateEPS1_m.exit.i: ; preds = %162
   store ptr %159, ptr %5, align 8
   %163 = getelementptr inbounds nuw i8, ptr %159, i64 %145
   store ptr %163, ptr %140, align 8
-  %164 = getelementptr inbounds nuw ptr, ptr %159, i64 %148
+  %164 = getelementptr inbounds nuw [8 x i8], ptr %159, i64 %148
   store ptr %164, ptr %152, align 8
   br label %_ZNSt6vectorIP6aiMeshSaIS1_EE7reserveEm.exit
 
 165:                                              ; preds = %.lr.ph739, %180
   %indvars.iv836 = phi i64 [ 0, %.lr.ph739 ], [ %indvars.iv.next837, %180 ]
   %166 = load ptr, ptr %120, align 8
-  %167 = getelementptr inbounds nuw %"struct.Assimp::Blender::MPoly", ptr %166, i64 %indvars.iv836
+  %167 = getelementptr inbounds nuw [32 x i8], ptr %166, i64 %indvars.iv836
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 24
   %169 = load i16, ptr %168, align 8
@@ -10149,7 +10129,7 @@ _ZNSt6vectorIP6aiMeshSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds 
 _ZNSt6vectorIP6aiMeshSaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %268, %_ZNSt6vectorIP6aiMeshSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
   store ptr %263, ptr %5, align 8
   store ptr %267, ptr %140, align 8
-  %269 = getelementptr inbounds nuw ptr, ptr %263, i64 %261
+  %269 = getelementptr inbounds nuw [8 x i8], ptr %263, i64 %261
   store ptr %269, ptr %152, align 8
   br label %_ZNSt6vectorIP6aiMeshSaIS1_EE9push_backEOS1_.exit
 
@@ -10229,7 +10209,7 @@ _ZNSt6vectorIP6aiMeshSaIS1_EE9push_backEOS1_.exit: ; preds = %_ZNSt6vectorIP6aiM
   br i1 %312, label %.loopexit703, label %313
 
 313:                                              ; preds = %310
-  %314 = getelementptr inbounds %struct.aiFace, ptr %311, i64 %304
+  %314 = getelementptr inbounds [16 x i8], ptr %311, i64 %304
   br label %315
 
 315:                                              ; preds = %315, %313
@@ -10388,7 +10368,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZN8a
 
 363:                                              ; preds = %347
   call void @llvm.lifetime.start.p0(ptr nonnull %33)
-  %364 = getelementptr inbounds nuw %"class.std::shared_ptr.141", ptr %345, i64 %349
+  %364 = getelementptr inbounds nuw [16 x i8], ptr %345, i64 %349
   %365 = load ptr, ptr %364, align 8
   store ptr %365, ptr %33, align 8
   %366 = getelementptr inbounds nuw i8, ptr %364, i64 8
@@ -10625,7 +10605,7 @@ _ZNSt12__shared_ptrIN6Assimp7Blender8MaterialELN9__gnu_cxx12_Lock_policyE2EED2Ev
 .lr.ph744:                                        ; preds = %.preheader702, %660
   %indvars.iv839 = phi i64 [ %indvars.iv.next840, %660 ], [ 0, %.preheader702 ]
   %486 = load ptr, ptr %57, align 8
-  %487 = getelementptr inbounds nuw %"struct.Assimp::Blender::MFace", ptr %486, i64 %indvars.iv839
+  %487 = getelementptr inbounds nuw [40 x i8], ptr %486, i64 %indvars.iv839
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
   %488 = getelementptr inbounds nuw i8, ptr %487, i64 32
   %489 = load i32, ptr %488, align 8
@@ -10637,7 +10617,7 @@ _ZNSt12__shared_ptrIN6Assimp7Blender8MaterialELN9__gnu_cxx12_Lock_policyE2EED2Ev
 492:                                              ; preds = %.lr.ph744
   %493 = load i64, ptr %491, align 8
   %494 = load ptr, ptr %5, align 8
-  %495 = getelementptr inbounds nuw ptr, ptr %494, i64 %493
+  %495 = getelementptr inbounds nuw [8 x i8], ptr %494, i64 %493
   %496 = load ptr, ptr %495, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
   %497 = getelementptr inbounds nuw i8, ptr %496, i64 208
@@ -10647,7 +10627,7 @@ _ZNSt12__shared_ptrIN6Assimp7Blender8MaterialELN9__gnu_cxx12_Lock_policyE2EED2Ev
   %501 = add i32 %500, 1
   store i32 %501, ptr %499, align 8
   %502 = zext i32 %500 to i64
-  %503 = getelementptr inbounds nuw %struct.aiFace, ptr %498, i64 %502
+  %503 = getelementptr inbounds nuw [16 x i8], ptr %498, i64 %502
   %504 = getelementptr inbounds nuw i8, ptr %487, i64 28
   %505 = load i32, ptr %504, align 4
   %.not455 = icmp eq i32 %505, 0
@@ -10666,10 +10646,10 @@ _ZNSt12__shared_ptrIN6Assimp7Blender8MaterialELN9__gnu_cxx12_Lock_policyE2EED2Ev
   %514 = getelementptr inbounds nuw i8, ptr %496, i64 4
   %515 = load i32, ptr %514, align 4
   %516 = zext i32 %515 to i64
-  %517 = getelementptr inbounds nuw %class.aiVector3t, ptr %513, i64 %516
+  %517 = getelementptr inbounds nuw [12 x i8], ptr %513, i64 %516
   %518 = getelementptr inbounds nuw i8, ptr %496, i64 24
   %519 = load ptr, ptr %518, align 8
-  %520 = getelementptr inbounds nuw %class.aiVector3t, ptr %519, i64 %516
+  %520 = getelementptr inbounds nuw [12 x i8], ptr %519, i64 %516
   %521 = getelementptr inbounds nuw i8, ptr %487, i64 16
   %522 = load i32, ptr %521, align 8
   %523 = load i32, ptr %53, align 8
@@ -10716,7 +10696,7 @@ _ZNSt12__shared_ptrIN6Assimp7Blender8MaterialELN9__gnu_cxx12_Lock_policyE2EED2Ev
 535:                                              ; preds = %510
   %536 = sext i32 %522 to i64
   %537 = load ptr, ptr %73, align 8
-  %538 = getelementptr inbounds nuw %"struct.Assimp::Blender::MVert", ptr %537, i64 %536
+  %538 = getelementptr inbounds nuw [56 x i8], ptr %537, i64 %536
   %539 = getelementptr inbounds nuw i8, ptr %538, i64 16
   %540 = load float, ptr %539, align 8
   store float %540, ptr %517, align 4
@@ -10774,7 +10754,7 @@ _ZNSt12__shared_ptrIN6Assimp7Blender8MaterialELN9__gnu_cxx12_Lock_policyE2EED2Ev
   %569 = getelementptr inbounds nuw i8, ptr %517, i64 12
   %570 = sext i32 %559 to i64
   %571 = load ptr, ptr %73, align 8
-  %572 = getelementptr inbounds nuw %"struct.Assimp::Blender::MVert", ptr %571, i64 %570
+  %572 = getelementptr inbounds nuw [56 x i8], ptr %571, i64 %570
   %573 = getelementptr inbounds nuw i8, ptr %572, i64 16
   %574 = load float, ptr %573, align 8
   store float %574, ptr %569, align 4
@@ -10828,7 +10808,7 @@ _ZNSt12__shared_ptrIN6Assimp7Blender8MaterialELN9__gnu_cxx12_Lock_policyE2EED2Ev
   %602 = getelementptr inbounds nuw i8, ptr %517, i64 24
   %603 = sext i32 %594 to i64
   %604 = load ptr, ptr %73, align 8
-  %605 = getelementptr inbounds nuw %"struct.Assimp::Blender::MVert", ptr %604, i64 %603
+  %605 = getelementptr inbounds nuw [56 x i8], ptr %604, i64 %603
   %606 = getelementptr inbounds nuw i8, ptr %605, i64 16
   %607 = load float, ptr %606, align 8
   store float %607, ptr %602, align 4
@@ -10893,7 +10873,7 @@ _ZNSt12__shared_ptrIN6Assimp7Blender8MaterialELN9__gnu_cxx12_Lock_policyE2EED2Ev
 636:                                              ; preds = %635
   %637 = sext i32 %628 to i64
   %638 = load ptr, ptr %73, align 8
-  %639 = getelementptr inbounds nuw %"struct.Assimp::Blender::MVert", ptr %638, i64 %637
+  %639 = getelementptr inbounds nuw [56 x i8], ptr %638, i64 %637
   %640 = getelementptr inbounds nuw i8, ptr %639, i64 16
   %641 = load float, ptr %640, align 8
   store float %641, ptr %626, align 4
@@ -10981,7 +10961,7 @@ _ZNSt12__shared_ptrIN6Assimp7Blender8MaterialELN9__gnu_cxx12_Lock_policyE2EED2Ev
 695:                                              ; preds = %.lr.ph752, %824
   %indvars.iv845 = phi i64 [ 0, %.lr.ph752 ], [ %indvars.iv.next846, %824 ]
   %696 = load ptr, ptr %485, align 8
-  %697 = getelementptr inbounds nuw %"struct.Assimp::Blender::MPoly", ptr %696, i64 %indvars.iv845
+  %697 = getelementptr inbounds nuw [32 x i8], ptr %696, i64 %indvars.iv845
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
   %698 = getelementptr inbounds nuw i8, ptr %697, i64 24
   %699 = load i16, ptr %698, align 8
@@ -10993,7 +10973,7 @@ _ZNSt12__shared_ptrIN6Assimp7Blender8MaterialELN9__gnu_cxx12_Lock_policyE2EED2Ev
 702:                                              ; preds = %695
   %703 = load i64, ptr %701, align 8
   %704 = load ptr, ptr %5, align 8
-  %705 = getelementptr inbounds nuw ptr, ptr %704, i64 %703
+  %705 = getelementptr inbounds nuw [8 x i8], ptr %704, i64 %703
   %706 = load ptr, ptr %705, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
   %707 = getelementptr inbounds nuw i8, ptr %706, i64 208
@@ -11003,7 +10983,7 @@ _ZNSt12__shared_ptrIN6Assimp7Blender8MaterialELN9__gnu_cxx12_Lock_policyE2EED2Ev
   %711 = add i32 %710, 1
   store i32 %711, ptr %709, align 8
   %712 = zext i32 %710 to i64
-  %713 = getelementptr inbounds nuw %struct.aiFace, ptr %708, i64 %712
+  %713 = getelementptr inbounds nuw [16 x i8], ptr %708, i64 %712
   %714 = getelementptr inbounds nuw i8, ptr %697, i64 20
   %715 = load i32, ptr %714, align 4
   store i32 %715, ptr %713, align 8
@@ -11025,10 +11005,10 @@ _ZNSt12__shared_ptrIN6Assimp7Blender8MaterialELN9__gnu_cxx12_Lock_policyE2EED2Ev
   %725 = load ptr, ptr %724, align 8
   %726 = load i32, ptr %721, align 4
   %727 = zext i32 %726 to i64
-  %728 = getelementptr inbounds nuw %class.aiVector3t, ptr %725, i64 %727
+  %728 = getelementptr inbounds nuw [12 x i8], ptr %725, i64 %727
   %729 = getelementptr inbounds nuw i8, ptr %706, i64 16
   %730 = load ptr, ptr %729, align 8
-  %731 = getelementptr inbounds nuw %class.aiVector3t, ptr %730, i64 %727
+  %731 = getelementptr inbounds nuw [12 x i8], ptr %730, i64 %727
   %732 = getelementptr inbounds nuw i8, ptr %697, i64 16
   br label %738
 
@@ -11056,7 +11036,7 @@ _ZNSt12__shared_ptrIN6Assimp7Blender8MaterialELN9__gnu_cxx12_Lock_policyE2EED2Ev
   %741 = add nsw i32 %739, %740
   %742 = sext i32 %741 to i64
   %743 = load ptr, ptr %91, align 8
-  %744 = getelementptr inbounds nuw %"struct.Assimp::Blender::MLoop", ptr %743, i64 %742
+  %744 = getelementptr inbounds nuw [24 x i8], ptr %743, i64 %742
   %745 = getelementptr inbounds nuw i8, ptr %744, i64 16
   %746 = load i32, ptr %745, align 8
   %747 = load i32, ptr %53, align 8
@@ -11189,7 +11169,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 795:                                              ; preds = %738
   %796 = sext i32 %746 to i64
   %797 = load ptr, ptr %73, align 8
-  %798 = getelementptr inbounds nuw %"struct.Assimp::Blender::MVert", ptr %797, i64 %796
+  %798 = getelementptr inbounds nuw [56 x i8], ptr %797, i64 %796
   %799 = getelementptr inbounds nuw i8, ptr %798, i64 16
   %800 = load float, ptr %799, align 8
   store float %800, ptr %.0406747, align 4
@@ -11216,7 +11196,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %816 = add i32 %815, 1
   store i32 %816, ptr %721, align 4
   %817 = load ptr, ptr %720, align 8
-  %818 = getelementptr inbounds nuw i32, ptr %817, i64 %indvars.iv842
+  %818 = getelementptr inbounds nuw [4 x i8], ptr %817, i64 %indvars.iv842
   store i32 %815, ptr %818, align 4
   %819 = getelementptr inbounds nuw i8, ptr %.0406747, i64 12
   %820 = getelementptr inbounds nuw i8, ptr %.0408746, i64 12
@@ -11252,7 +11232,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %indvars.iv851 = phi i64 [ 0, %.lr.ph757 ], [ %indvars.iv.next852, %_ZNSt12__shared_ptrIN6Assimp7Blender8MaterialELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit547 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %38)
   %835 = load ptr, ptr %671, align 8
-  %836 = getelementptr inbounds nuw %"class.std::shared_ptr.141", ptr %835, i64 %indvars.iv851
+  %836 = getelementptr inbounds nuw [16 x i8], ptr %835, i64 %indvars.iv851
   %837 = load ptr, ptr %836, align 8
   store ptr %837, ptr %38, align 8
   %838 = getelementptr inbounds nuw i8, ptr %836, i64 8
@@ -11296,7 +11276,7 @@ _ZNSt10shared_ptrIN6Assimp7Blender8MaterialEEC2ERKS3_.exit510: ; preds = %834, %
   %indvars.iv848 = phi i64 [ 0, %_ZNSt10shared_ptrIN6Assimp7Blender8MaterialEEC2ERKS3_.exit510 ], [ %indvars.iv.next849, %919 ]
   %851 = load ptr, ptr %38, align 8
   %852 = getelementptr inbounds nuw i8, ptr %851, i64 1432
-  %853 = getelementptr inbounds nuw %"class.std::shared_ptr.144", ptr %852, i64 %indvars.iv848
+  %853 = getelementptr inbounds nuw [16 x i8], ptr %852, i64 %indvars.iv848
   %854 = load ptr, ptr %853, align 8
   %.not682 = icmp eq ptr %854, null
   br i1 %.not682, label %919, label %855
@@ -11833,7 +11813,7 @@ _ZNSt3mapIjS_IjPKN6Assimp7Blender7MLoopUVESt4lessIjESaISt4pairIKjS4_EEES6_SaIS7_
 .loopexit697:                                     ; preds = %.loopexit697.loopexit, %1040
   %1046 = load ptr, ptr %.sroa.0627.0762, align 8
   %1047 = getelementptr inbounds nuw i8, ptr %1046, i64 112
-  %1048 = getelementptr inbounds nuw ptr, ptr %1047, i64 %1033
+  %1048 = getelementptr inbounds nuw [8 x i8], ptr %1047, i64 %1033
   store ptr %1039, ptr %1048, align 8
   %1049 = add i32 %.0412759, 1
   %1050 = zext i32 %1049 to i64
@@ -11871,10 +11851,10 @@ _ZNSt3mapIjS_IjPKN6Assimp7Blender7MLoopUVESt4lessIjESaISt4pairIKjS4_EEES6_SaIS7_
 .lr.ph772:                                        ; preds = %.preheader696, %._crit_edge770
   %indvars.iv858 = phi i64 [ %indvars.iv.next859, %._crit_edge770 ], [ 0, %.preheader696 ]
   %1065 = load ptr, ptr %830, align 8
-  %1066 = getelementptr inbounds nuw %"struct.Assimp::Blender::MTFace", ptr %1065, i64 %indvars.iv858
+  %1066 = getelementptr inbounds nuw [56 x i8], ptr %1065, i64 %indvars.iv858
   call void @llvm.lifetime.start.p0(ptr nonnull %42)
   %1067 = load ptr, ptr %57, align 8
-  %1068 = getelementptr inbounds nuw %"struct.Assimp::Blender::MFace", ptr %1067, i64 %indvars.iv858
+  %1068 = getelementptr inbounds nuw [40 x i8], ptr %1067, i64 %indvars.iv858
   %1069 = getelementptr inbounds nuw i8, ptr %1068, i64 32
   %1070 = load i32, ptr %1069, align 8
   %1071 = sext i32 %1070 to i64
@@ -11885,7 +11865,7 @@ _ZNSt3mapIjS_IjPKN6Assimp7Blender7MLoopUVESt4lessIjESaISt4pairIKjS4_EEES6_SaIS7_
 1073:                                             ; preds = %.lr.ph772
   %1074 = load i64, ptr %1072, align 8
   %1075 = load ptr, ptr %5, align 8
-  %1076 = getelementptr inbounds nuw ptr, ptr %1075, i64 %1074
+  %1076 = getelementptr inbounds nuw [8 x i8], ptr %1075, i64 %1074
   %1077 = load ptr, ptr %1076, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
   %1078 = getelementptr inbounds nuw i8, ptr %1077, i64 208
@@ -11895,7 +11875,7 @@ _ZNSt3mapIjS_IjPKN6Assimp7Blender7MLoopUVESt4lessIjESaISt4pairIKjS4_EEES6_SaIS7_
   %1082 = add i32 %1081, 1
   store i32 %1082, ptr %1080, align 8
   %1083 = zext i32 %1081 to i64
-  %1084 = getelementptr inbounds nuw %struct.aiFace, ptr %1079, i64 %1083
+  %1084 = getelementptr inbounds nuw [16 x i8], ptr %1079, i64 %1083
   %1085 = getelementptr inbounds nuw i8, ptr %1077, i64 4
   %1086 = load i32, ptr %1084, align 8
   %.not817 = icmp eq i32 %1086, 0
@@ -11906,7 +11886,7 @@ _ZNSt3mapIjS_IjPKN6Assimp7Blender7MLoopUVESt4lessIjESaISt4pairIKjS4_EEES6_SaIS7_
   %1088 = load ptr, ptr %1087, align 8
   %1089 = load i32, ptr %1085, align 4
   %1090 = zext i32 %1089 to i64
-  %1091 = getelementptr inbounds nuw %class.aiVector3t, ptr %1088, i64 %1090
+  %1091 = getelementptr inbounds nuw [12 x i8], ptr %1088, i64 %1090
   %1092 = getelementptr inbounds nuw i8, ptr %1066, i64 16
   br label %1098
 
@@ -11926,7 +11906,7 @@ _ZNSt3mapIjS_IjPKN6Assimp7Blender7MLoopUVESt4lessIjESaISt4pairIKjS4_EEES6_SaIS7_
 1098:                                             ; preds = %.lr.ph769, %1098
   %indvars.iv855 = phi i64 [ 0, %.lr.ph769 ], [ %indvars.iv.next856, %1098 ]
   %.0416767 = phi ptr [ %1091, %.lr.ph769 ], [ %1104, %1098 ]
-  %1099 = getelementptr inbounds nuw [2 x float], ptr %1092, i64 %indvars.iv855
+  %1099 = getelementptr inbounds nuw [8 x i8], ptr %1092, i64 %indvars.iv855
   %1100 = load float, ptr %1099, align 8
   store float %1100, ptr %.0416767, align 4
   %1101 = getelementptr inbounds nuw i8, ptr %1099, i64 4
@@ -11946,7 +11926,7 @@ _ZNSt3mapIjS_IjPKN6Assimp7Blender7MLoopUVESt4lessIjESaISt4pairIKjS4_EEES6_SaIS7_
 1110:                                             ; preds = %.lr.ph785, %.loopexit691
   %indvars.iv861 = phi i64 [ 0, %.lr.ph785 ], [ %indvars.iv.next862, %.loopexit691 ]
   %1111 = load ptr, ptr %1063, align 8
-  %1112 = getelementptr inbounds nuw %"struct.Assimp::Blender::MPoly", ptr %1111, i64 %indvars.iv861
+  %1112 = getelementptr inbounds nuw [32 x i8], ptr %1111, i64 %indvars.iv861
   call void @llvm.lifetime.start.p0(ptr nonnull %43)
   %1113 = getelementptr inbounds nuw i8, ptr %1112, i64 24
   %1114 = load i16, ptr %1113, align 8
@@ -11958,7 +11938,7 @@ _ZNSt3mapIjS_IjPKN6Assimp7Blender7MLoopUVESt4lessIjESaISt4pairIKjS4_EEES6_SaIS7_
 1117:                                             ; preds = %1110
   %1118 = load i64, ptr %1116, align 8
   %1119 = load ptr, ptr %5, align 8
-  %1120 = getelementptr inbounds nuw ptr, ptr %1119, i64 %1118
+  %1120 = getelementptr inbounds nuw [8 x i8], ptr %1119, i64 %1118
   %1121 = load ptr, ptr %1120, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %43)
   %1122 = getelementptr inbounds nuw i8, ptr %1121, i64 208
@@ -11968,7 +11948,7 @@ _ZNSt3mapIjS_IjPKN6Assimp7Blender7MLoopUVESt4lessIjESaISt4pairIKjS4_EEES6_SaIS7_
   %1126 = add i32 %1125, 1
   store i32 %1126, ptr %1124, align 8
   %1127 = zext i32 %1125 to i64
-  %1128 = getelementptr inbounds nuw %struct.aiFace, ptr %1123, i64 %1127
+  %1128 = getelementptr inbounds nuw [16 x i8], ptr %1123, i64 %1127
   %1129 = load i16, ptr %1113, align 8
   %1130 = sext i16 %1129 to i32
   %1131 = load ptr, ptr %667, align 8
@@ -12025,7 +12005,7 @@ _ZNSt3mapIjS_IjPKN6Assimp7Blender7MLoopUVESt4lessIjESaISt4pairIKjS4_EEES6_SaIS7_
   %1145 = load ptr, ptr %1144, align 8
   %1146 = load i32, ptr %1142, align 4
   %1147 = zext i32 %1146 to i64
-  %1148 = getelementptr inbounds nuw %class.aiVector3t, ptr %1145, i64 %1147
+  %1148 = getelementptr inbounds nuw [12 x i8], ptr %1145, i64 %1147
   %1149 = getelementptr inbounds nuw i8, ptr %1112, i64 16
   br label %1152
 
@@ -12042,7 +12022,7 @@ _ZNSt3mapIjS_IjPKN6Assimp7Blender7MLoopUVESt4lessIjESaISt4pairIKjS4_EEES6_SaIS7_
   %1154 = add i32 %1153, %.0413782
   %1155 = zext i32 %1154 to i64
   %1156 = load ptr, ptr %1064, align 8
-  %1157 = getelementptr inbounds nuw %"struct.Assimp::Blender::MLoopUV", ptr %1156, i64 %1155
+  %1157 = getelementptr inbounds nuw [32 x i8], ptr %1156, i64 %1155
   %1158 = getelementptr inbounds nuw i8, ptr %1157, i64 16
   %1159 = load float, ptr %1158, align 8
   store float %1159, ptr %.0414781, align 4
@@ -12149,11 +12129,11 @@ _ZNSt8_Rb_treeIjSt4pairIKjPKN6Assimp7Blender7MLoopUVEESt10_Select1stIS7_ESt4less
   br i1 %.not819, label %._crit_edge777, label %.lr.ph776.preheader
 
 .lr.ph776.preheader:                              ; preds = %1198
-  %1202 = getelementptr inbounds nuw ptr, ptr %1139, i64 %1170
+  %1202 = getelementptr inbounds nuw [8 x i8], ptr %1139, i64 %1170
   %1203 = load ptr, ptr %1202, align 8
   %1204 = load i32, ptr %1140, align 4
   %1205 = zext i32 %1204 to i64
-  %1206 = getelementptr inbounds nuw %class.aiVector3t, ptr %1203, i64 %1205
+  %1206 = getelementptr inbounds nuw [12 x i8], ptr %1203, i64 %1205
   br label %.lr.ph776
 
 .lr.ph776:                                        ; preds = %.lr.ph776.preheader, %.lr.ph776
@@ -12162,7 +12142,7 @@ _ZNSt8_Rb_treeIjSt4pairIKjPKN6Assimp7Blender7MLoopUVEESt10_Select1stIS7_ESt4less
   %1207 = load i32, ptr %1141, align 8
   %1208 = add i32 %1207, %.0409774
   %1209 = zext i32 %1208 to i64
-  %1210 = getelementptr inbounds nuw %"struct.Assimp::Blender::MLoopUV", ptr %1200, i64 %1209
+  %1210 = getelementptr inbounds nuw [32 x i8], ptr %1200, i64 %1209
   %1211 = getelementptr inbounds nuw i8, ptr %1210, i64 16
   %1212 = load float, ptr %1211, align 8
   store float %1212, ptr %.0410773, align 4
@@ -12302,10 +12282,10 @@ _ZNSt8_Rb_treeIjSt4pairIKjPKN6Assimp7Blender7MLoopUVEESt10_Select1stIS7_ESt4less
 .lr.ph796:                                        ; preds = %.preheader688, %._crit_edge794
   %indvars.iv867 = phi i64 [ %indvars.iv.next868, %._crit_edge794 ], [ 0, %.preheader688 ]
   %1280 = load ptr, ptr %1236, align 8
-  %1281 = getelementptr inbounds nuw %"struct.Assimp::Blender::TFace", ptr %1280, i64 %indvars.iv867
+  %1281 = getelementptr inbounds nuw [72 x i8], ptr %1280, i64 %indvars.iv867
   call void @llvm.lifetime.start.p0(ptr nonnull %44)
   %1282 = load ptr, ptr %57, align 8
-  %1283 = getelementptr inbounds nuw %"struct.Assimp::Blender::MFace", ptr %1282, i64 %indvars.iv867
+  %1283 = getelementptr inbounds nuw [40 x i8], ptr %1282, i64 %indvars.iv867
   %1284 = getelementptr inbounds nuw i8, ptr %1283, i64 32
   %1285 = load i32, ptr %1284, align 8
   %1286 = sext i32 %1285 to i64
@@ -12316,7 +12296,7 @@ _ZNSt8_Rb_treeIjSt4pairIKjPKN6Assimp7Blender7MLoopUVEESt10_Select1stIS7_ESt4less
 1288:                                             ; preds = %.lr.ph796
   %1289 = load i64, ptr %1287, align 8
   %1290 = load ptr, ptr %5, align 8
-  %1291 = getelementptr inbounds nuw ptr, ptr %1290, i64 %1289
+  %1291 = getelementptr inbounds nuw [8 x i8], ptr %1290, i64 %1289
   %1292 = load ptr, ptr %1291, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %44)
   %1293 = getelementptr inbounds nuw i8, ptr %1292, i64 208
@@ -12326,7 +12306,7 @@ _ZNSt8_Rb_treeIjSt4pairIKjPKN6Assimp7Blender7MLoopUVEESt10_Select1stIS7_ESt4less
   %1297 = add i32 %1296, 1
   store i32 %1297, ptr %1295, align 8
   %1298 = zext i32 %1296 to i64
-  %1299 = getelementptr inbounds nuw %struct.aiFace, ptr %1294, i64 %1298
+  %1299 = getelementptr inbounds nuw [16 x i8], ptr %1294, i64 %1298
   %1300 = getelementptr inbounds nuw i8, ptr %1292, i64 4
   %1301 = load i32, ptr %1299, align 8
   %.not821 = icmp eq i32 %1301, 0
@@ -12337,7 +12317,7 @@ _ZNSt8_Rb_treeIjSt4pairIKjPKN6Assimp7Blender7MLoopUVEESt10_Select1stIS7_ESt4less
   %1303 = load ptr, ptr %1302, align 8
   %1304 = load i32, ptr %1300, align 4
   %1305 = zext i32 %1304 to i64
-  %1306 = getelementptr inbounds nuw %class.aiVector3t, ptr %1303, i64 %1305
+  %1306 = getelementptr inbounds nuw [12 x i8], ptr %1303, i64 %1305
   %1307 = getelementptr inbounds nuw i8, ptr %1281, i64 16
   br label %1313
 
@@ -12357,7 +12337,7 @@ _ZNSt8_Rb_treeIjSt4pairIKjPKN6Assimp7Blender7MLoopUVEESt10_Select1stIS7_ESt4less
 1313:                                             ; preds = %.lr.ph793, %1313
   %indvars.iv864 = phi i64 [ 0, %.lr.ph793 ], [ %indvars.iv.next865, %1313 ]
   %.0404790 = phi ptr [ %1306, %.lr.ph793 ], [ %1319, %1313 ]
-  %1314 = getelementptr inbounds nuw [2 x float], ptr %1307, i64 %indvars.iv864
+  %1314 = getelementptr inbounds nuw [8 x i8], ptr %1307, i64 %indvars.iv864
   %1315 = load float, ptr %1314, align 8
   store float %1315, ptr %.0404790, align 4
   %1316 = getelementptr inbounds nuw i8, ptr %1314, i64 4
@@ -12491,7 +12471,7 @@ _ZNSt8_Rb_treeIjSt4pairIKjPKN6Assimp7Blender7MLoopUVEESt10_Select1stIS7_ESt4less
   %indvars.iv873 = phi i64 [ %indvars.iv.next874, %.preheader685 ], [ 0, %.preheader686 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %45)
   %1376 = load ptr, ptr %57, align 8
-  %1377 = getelementptr inbounds nuw %"struct.Assimp::Blender::MFace", ptr %1376, i64 %indvars.iv873
+  %1377 = getelementptr inbounds nuw [40 x i8], ptr %1376, i64 %indvars.iv873
   %1378 = getelementptr inbounds nuw i8, ptr %1377, i64 32
   %1379 = load i32, ptr %1378, align 8
   %1380 = sext i32 %1379 to i64
@@ -12502,7 +12482,7 @@ _ZNSt8_Rb_treeIjSt4pairIKjPKN6Assimp7Blender7MLoopUVEESt10_Select1stIS7_ESt4less
 1382:                                             ; preds = %.lr.ph807
   %1383 = load i64, ptr %1381, align 8
   %1384 = load ptr, ptr %5, align 8
-  %1385 = getelementptr inbounds nuw ptr, ptr %1384, i64 %1383
+  %1385 = getelementptr inbounds nuw [8 x i8], ptr %1384, i64 %1383
   %1386 = load ptr, ptr %1385, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %45)
   %1387 = getelementptr inbounds nuw i8, ptr %1386, i64 208
@@ -12512,7 +12492,7 @@ _ZNSt8_Rb_treeIjSt4pairIKjPKN6Assimp7Blender7MLoopUVEESt10_Select1stIS7_ESt4less
   %1391 = add i32 %1390, 1
   store i32 %1391, ptr %1389, align 8
   %1392 = zext i32 %1390 to i64
-  %1393 = getelementptr inbounds nuw %struct.aiFace, ptr %1388, i64 %1392
+  %1393 = getelementptr inbounds nuw [16 x i8], ptr %1388, i64 %1392
   %1394 = getelementptr inbounds nuw i8, ptr %1386, i64 4
   %1395 = load i32, ptr %1393, align 8
   %.not822 = icmp eq i32 %1395, 0
@@ -12523,7 +12503,7 @@ _ZNSt8_Rb_treeIjSt4pairIKjPKN6Assimp7Blender7MLoopUVEESt10_Select1stIS7_ESt4less
   %1397 = load ptr, ptr %1396, align 8
   %1398 = load i32, ptr %1394, align 4
   %1399 = zext i32 %1398 to i64
-  %1400 = getelementptr inbounds nuw %class.aiColor4t, ptr %1397, i64 %1399
+  %1400 = getelementptr inbounds nuw [16 x i8], ptr %1397, i64 %1399
   %1401 = shl i64 %indvars.iv873, 2
   br label %1407
 
@@ -12546,7 +12526,7 @@ _ZNSt8_Rb_treeIjSt4pairIKjPKN6Assimp7Blender7MLoopUVEESt10_Select1stIS7_ESt4less
   %1408 = add i64 %1401, %indvars.iv870
   %1409 = and i64 %1408, 4294967295
   %1410 = load ptr, ptr %1325, align 8
-  %1411 = getelementptr inbounds nuw %"struct.Assimp::Blender::MCol", ptr %1410, i64 %1409
+  %1411 = getelementptr inbounds nuw [24 x i8], ptr %1410, i64 %1409
   %1412 = getelementptr inbounds nuw i8, ptr %1411, i64 16
   %1413 = load i8, ptr %1412, align 8
   %1414 = sitofp i8 %1413 to float
@@ -12579,7 +12559,7 @@ _ZNSt8_Rb_treeIjSt4pairIKjPKN6Assimp7Blender7MLoopUVEESt10_Select1stIS7_ESt4less
 1433:                                             ; preds = %.lr.ph814, %._crit_edge812
   %indvars.iv876 = phi i64 [ 0, %.lr.ph814 ], [ %indvars.iv.next877, %._crit_edge812 ]
   %1434 = load ptr, ptr %1374, align 8
-  %1435 = getelementptr inbounds nuw %"struct.Assimp::Blender::MPoly", ptr %1434, i64 %indvars.iv876
+  %1435 = getelementptr inbounds nuw [32 x i8], ptr %1434, i64 %indvars.iv876
   call void @llvm.lifetime.start.p0(ptr nonnull %46)
   %1436 = getelementptr inbounds nuw i8, ptr %1435, i64 24
   %1437 = load i16, ptr %1436, align 8
@@ -12591,7 +12571,7 @@ _ZNSt8_Rb_treeIjSt4pairIKjPKN6Assimp7Blender7MLoopUVEESt10_Select1stIS7_ESt4less
 1440:                                             ; preds = %1433
   %1441 = load i64, ptr %1439, align 8
   %1442 = load ptr, ptr %5, align 8
-  %1443 = getelementptr inbounds nuw ptr, ptr %1442, i64 %1441
+  %1443 = getelementptr inbounds nuw [8 x i8], ptr %1442, i64 %1441
   %1444 = load ptr, ptr %1443, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %46)
   %1445 = getelementptr inbounds nuw i8, ptr %1444, i64 208
@@ -12601,7 +12581,7 @@ _ZNSt8_Rb_treeIjSt4pairIKjPKN6Assimp7Blender7MLoopUVEESt10_Select1stIS7_ESt4less
   %1449 = add i32 %1448, 1
   store i32 %1449, ptr %1447, align 8
   %1450 = zext i32 %1448 to i64
-  %1451 = getelementptr inbounds nuw %struct.aiFace, ptr %1446, i64 %1450
+  %1451 = getelementptr inbounds nuw [16 x i8], ptr %1446, i64 %1450
   %1452 = getelementptr inbounds nuw i8, ptr %1444, i64 4
   %1453 = load i32, ptr %1451, align 8
   %.not823 = icmp eq i32 %1453, 0
@@ -12612,7 +12592,7 @@ _ZNSt8_Rb_treeIjSt4pairIKjPKN6Assimp7Blender7MLoopUVEESt10_Select1stIS7_ESt4less
   %1455 = load ptr, ptr %1454, align 8
   %1456 = load i32, ptr %1452, align 4
   %1457 = zext i32 %1456 to i64
-  %1458 = getelementptr inbounds nuw %class.aiColor4t, ptr %1455, i64 %1457
+  %1458 = getelementptr inbounds nuw [16 x i8], ptr %1455, i64 %1457
   %1459 = getelementptr inbounds nuw i8, ptr %1435, i64 16
   br label %1465
 
@@ -12636,7 +12616,7 @@ _ZNSt8_Rb_treeIjSt4pairIKjPKN6Assimp7Blender7MLoopUVEESt10_Select1stIS7_ESt4less
   %1467 = add i32 %1466, %.0374809
   %1468 = zext i32 %1467 to i64
   %1469 = load ptr, ptr %1375, align 8
-  %1470 = getelementptr inbounds nuw %"struct.Assimp::Blender::MLoopCol", ptr %1469, i64 %1468
+  %1470 = getelementptr inbounds nuw [24 x i8], ptr %1469, i64 %1468
   %1471 = getelementptr inbounds nuw i8, ptr %1470, i64 16
   %1472 = load i8, ptr %1471, align 8
   %1473 = uitofp i8 %1472 to float
@@ -14412,7 +14392,7 @@ _ZNSt11_Deque_baseIPN6Assimp7Blender6ObjectESaIS3_EE15_M_allocate_mapEm.exit:
   store ptr %7, ptr %0, align 8
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %9
   %.idx = shl nuw nsw i64 %3, 3
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
@@ -14506,7 +14486,7 @@ _ZNSt11_Deque_baseIPN6Assimp7Blender6ObjectESaIS3_EE15_M_create_nodesEPPS3_S7_.e
   store ptr %48, ptr %49, align 8
   store ptr %39, ptr %37, align 8
   %50 = and i64 %1, 63
-  %51 = getelementptr inbounds nuw ptr, ptr %46, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %50
   store ptr %51, ptr %43, align 8
   ret void
 
@@ -14539,7 +14519,7 @@ _ZNSt11_Deque_baseIPN6Assimp7Blender10CollectionESaIS3_EE15_M_allocate_mapEm.exi
   store ptr %7, ptr %0, align 8
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %9
   %.idx = shl nuw nsw i64 %3, 3
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
@@ -14633,7 +14613,7 @@ _ZNSt11_Deque_baseIPN6Assimp7Blender10CollectionESaIS3_EE15_M_create_nodesEPPS3_
   store ptr %48, ptr %49, align 8
   store ptr %39, ptr %37, align 8
   %50 = and i64 %1, 63
-  %51 = getelementptr inbounds nuw ptr, ptr %46, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %50
   store ptr %51, ptr %43, align 8
   ret void
 
@@ -14917,7 +14897,7 @@ _ZNSt11_Deque_baseISt10shared_ptrIN6Assimp7Blender8MaterialEESaIS4_EE15_M_alloca
   store ptr %7, ptr %0, align 8
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %9
   %.idx = shl nuw nsw i64 %3, 3
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
@@ -15011,7 +14991,7 @@ _ZNSt11_Deque_baseISt10shared_ptrIN6Assimp7Blender8MaterialEESaIS4_EE15_M_create
   store ptr %48, ptr %49, align 8
   store ptr %39, ptr %37, align 8
   %50 = and i64 %1, 31
-  %51 = getelementptr inbounds nuw %"class.std::shared_ptr.141", ptr %46, i64 %50
+  %51 = getelementptr inbounds nuw [16 x i8], ptr %46, i64 %50
   store ptr %51, ptr %43, align 8
   ret void
 
@@ -15087,7 +15067,7 @@ define linkonce_odr hidden void @_ZN6aiMeshD2Ev(ptr noundef nonnull align 8 dere
 
 28:                                               ; preds = %23, %33
   %indvars.iv = phi i64 [ 0, %23 ], [ %indvars.iv.next, %33 ]
-  %29 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv
   %30 = load ptr, ptr %29, align 8
   %31 = icmp eq ptr %30, null
   br i1 %31, label %33, label %32
@@ -15109,7 +15089,7 @@ define linkonce_odr hidden void @_ZN6aiMeshD2Ev(ptr noundef nonnull align 8 dere
 .preheader47:                                     ; preds = %25, %42
   %indvars.iv63 = phi i64 [ %indvars.iv.next64, %42 ], [ 0, %25 ]
   %37 = load ptr, ptr %26, align 8
-  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv63
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %indvars.iv63
   %39 = load ptr, ptr %38, align 8
   %40 = icmp eq ptr %39, null
   br i1 %40, label %42, label %41
@@ -15139,7 +15119,7 @@ define linkonce_odr hidden void @_ZN6aiMeshD2Ev(ptr noundef nonnull align 8 dere
 
 49:                                               ; preds = %44, %54
   %indvars.iv67 = phi i64 [ 0, %44 ], [ %indvars.iv.next68, %54 ]
-  %50 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv67
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %indvars.iv67
   %51 = load ptr, ptr %50, align 8
   %52 = icmp eq ptr %51, null
   br i1 %52, label %54, label %53
@@ -15182,7 +15162,7 @@ define linkonce_odr hidden void @_ZN6aiMeshD2Ev(ptr noundef nonnull align 8 dere
   %63 = phi i32 [ %48, %.lr.ph.preheader ], [ %70, %69 ]
   %indvars.iv71 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next72, %69 ]
   %64 = load ptr, ptr %56, align 8
-  %65 = getelementptr inbounds nuw ptr, ptr %64, i64 %indvars.iv71
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %indvars.iv71
   %66 = load ptr, ptr %65, align 8
   %.not41 = icmp eq ptr %66, null
   br i1 %.not41, label %69, label %67
@@ -15293,7 +15273,7 @@ _ZNSt13unordered_setIPK6aiBoneSt4hashIS2_ESt8equal_toIS2_ESaIS2_EED2Ev.exit: ; p
   %104 = phi i32 [ %111, %110 ], [ %99, %100 ]
   %indvars.iv74 = phi i64 [ %indvars.iv.next75, %110 ], [ 0, %100 ]
   %105 = load ptr, ptr %101, align 8
-  %106 = getelementptr inbounds nuw ptr, ptr %105, i64 %indvars.iv74
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %105, i64 %indvars.iv74
   %107 = load ptr, ptr %106, align 8
   %108 = icmp eq ptr %107, null
   br i1 %108, label %110, label %109
@@ -15415,7 +15395,7 @@ define linkonce_odr hidden void @_ZN10aiAnimMeshD2Ev(ptr noundef nonnull align 8
 
 24:                                               ; preds = %21, %29
   %indvars.iv = phi i64 [ 0, %21 ], [ %indvars.iv.next, %29 ]
-  %25 = getelementptr inbounds nuw ptr, ptr %22, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
   br i1 %27, label %29, label %28
@@ -15434,7 +15414,7 @@ define linkonce_odr hidden void @_ZN10aiAnimMeshD2Ev(ptr noundef nonnull align 8
 
 31:                                               ; preds = %.preheader, %36
   %indvars.iv16 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next17, %36 ]
-  %32 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv16
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv16
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
   br i1 %34, label %36, label %35
@@ -15466,7 +15446,7 @@ define linkonce_odr hidden { ptr, i8 } @_ZNSt10_HashtableIPK6aiBoneS2_SaIS2_ENSt
   %10 = load i64, ptr %9, align 8
   %11 = urem i64 %8, %10
   %12 = load ptr, ptr %0, align 8
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %11
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %11
   %14 = load ptr, ptr %13, align 8
   %.not.i.i = icmp eq ptr %14, null
   br i1 %.not.i.i, label %.critedge, label %28
@@ -15603,7 +15583,7 @@ _ZNSt10_HashtableIPK6aiBoneS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4h
 31:                                               ; preds = %_ZNSt10_HashtableIPK6aiBoneS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_rehashEmRKm.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableIPK6aiBoneS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE9_M_rehashEmRKm.exit ], [ %1, %5 ]
   %32 = load ptr, ptr %0, align 8
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0
   %34 = load ptr, ptr %33, align 8
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %40, label %35
@@ -15612,7 +15592,7 @@ _ZNSt10_HashtableIPK6aiBoneS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4h
   %36 = load ptr, ptr %34, align 8
   store ptr %36, ptr %3, align 8
   %37 = load ptr, ptr %0, align 8
-  %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %.0
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %.0
   %39 = load ptr, ptr %38, align 8
   store ptr %3, ptr %39, align 8
   br label %_ZNSt10_HashtableIPK6aiBoneS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE22_M_insert_bucket_beginEmPNS4_10_Hash_nodeIS2_Lb0EEE.exit
@@ -15633,13 +15613,13 @@ _ZNSt10_HashtableIPK6aiBoneS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4h
   %48 = load ptr, ptr %46, align 8
   %49 = ptrtoint ptr %48 to i64
   %50 = urem i64 %49, %47
-  %51 = getelementptr inbounds nuw ptr, ptr %45, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %50
   store ptr %3, ptr %51, align 8
   br label %52
 
 52:                                               ; preds = %44, %40
   %53 = load ptr, ptr %0, align 8
-  %54 = getelementptr inbounds nuw ptr, ptr %53, i64 %.0
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %.0
   store ptr %41, ptr %54, align 8
   br label %_ZNSt10_HashtableIPK6aiBoneS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4hashIS2_ENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb1ELb1EEEE22_M_insert_bucket_beginEmPNS4_10_Hash_nodeIS2_Lb0EEE.exit
 
@@ -15700,7 +15680,7 @@ _ZNSt10_HashtableIPK6aiBoneS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4h
   %16 = load ptr, ptr %15, align 8
   %17 = ptrtoint ptr %16 to i64
   %18 = urem i64 %17, %1
-  %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %18
   %20 = load ptr, ptr %19, align 8
   %.not27 = icmp eq ptr %20, null
   br i1 %.not27, label %21, label %26
@@ -15715,7 +15695,7 @@ _ZNSt10_HashtableIPK6aiBoneS2_SaIS2_ENSt8__detail9_IdentityESt8equal_toIS2_ESt4h
   br i1 %.not28, label %29, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %25, align 8
   br label %29
 
@@ -15785,7 +15765,7 @@ _ZNSt11_Deque_baseIPKN6Assimp7Blender6ObjectESaIS4_EE15_M_allocate_mapEm.exit:
   store ptr %7, ptr %0, align 8
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %9
   %.idx = shl nuw nsw i64 %3, 3
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
@@ -15879,7 +15859,7 @@ _ZNSt11_Deque_baseIPKN6Assimp7Blender6ObjectESaIS4_EE15_M_create_nodesEPPS4_S8_.
   store ptr %48, ptr %49, align 8
   store ptr %39, ptr %37, align 8
   %50 = and i64 %1, 63
-  %51 = getelementptr inbounds nuw ptr, ptr %46, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %50
   store ptr %51, ptr %43, align 8
   ret void
 
@@ -18399,7 +18379,7 @@ _ZNSt6vectorIN6Assimp7Blender13FileBlockHeadESaIS2_EE11_S_relocateEPS2_S5_S5_RS3
 _ZNSt12_Vector_baseIN6Assimp7Blender13FileBlockHeadESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN6Assimp7Blender13FileBlockHeadESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit36, %86
   store ptr %21, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8
-  %90 = getelementptr inbounds nuw %"struct.Assimp::Blender::FileBlockHead", ptr %21, i64 %17
+  %90 = getelementptr inbounds nuw [72 x i8], ptr %21, i64 %17
   store ptr %90, ptr %85, align 8
   ret void
 
@@ -18641,7 +18621,7 @@ _ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPN6Assimp7Blender13FileBlock
 26:                                               ; preds = %18
   %27 = add nsw i64 %.015, -1
   %28 = udiv i64 %19, 144
-  %29 = getelementptr inbounds nuw %"struct.Assimp::Blender::FileBlockHead", ptr %0, i64 %28
+  %29 = getelementptr inbounds nuw [72 x i8], ptr %0, i64 %28
   %30 = getelementptr inbounds i8, ptr %storemerge14, i64 -72
   %31 = load i64, ptr %12, align 8
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 48
@@ -18918,7 +18898,7 @@ define linkonce_odr hidden void @_ZSt11__make_heapIN9__gnu_cxx17__normal_iterato
 22:                                               ; preds = %_ZN6Assimp7Blender13FileBlockHeadD2Ev.exit13, %11
   %.08 = phi i64 [ %13, %11 ], [ %49, %_ZN6Assimp7Blender13FileBlockHeadD2Ev.exit13 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %23 = getelementptr inbounds %"struct.Assimp::Blender::FileBlockHead", ptr %0, i64 %.08
+  %23 = getelementptr inbounds [72 x i8], ptr %0, i64 %.08
   %24 = load i64, ptr %23, align 8
   store i64 %24, ptr %4, align 8
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -19248,17 +19228,17 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_itera
   %.047 = phi i64 [ %spec.select, %_ZN6Assimp7Blender13FileBlockHeadaSEOS1_.exit ], [ %1, %4 ]
   %10 = shl i64 %.047, 1
   %11 = add i64 %10, 2
-  %12 = getelementptr inbounds %"struct.Assimp::Blender::FileBlockHead", ptr %0, i64 %11
+  %12 = getelementptr inbounds [72 x i8], ptr %0, i64 %11
   %13 = or disjoint i64 %10, 1
-  %14 = getelementptr inbounds %"struct.Assimp::Blender::FileBlockHead", ptr %0, i64 %13
+  %14 = getelementptr inbounds [72 x i8], ptr %0, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %16 = load i64, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 48
   %18 = load i64, ptr %17, align 8
   %19 = icmp ult i64 %16, %18
   %spec.select = select i1 %19, i64 %13, i64 %11
-  %20 = getelementptr inbounds %"struct.Assimp::Blender::FileBlockHead", ptr %0, i64 %spec.select
-  %21 = getelementptr inbounds %"struct.Assimp::Blender::FileBlockHead", ptr %0, i64 %.047
+  %20 = getelementptr inbounds [72 x i8], ptr %0, i64 %spec.select
+  %21 = getelementptr inbounds [72 x i8], ptr %0, i64 %.047
   %22 = load i64, ptr %20, align 8
   store i64 %22, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -19367,8 +19347,8 @@ _ZN6Assimp7Blender13FileBlockHeadaSEOS1_.exit:    ; preds = %31, %_ZNSt7__cxx111
 65:                                               ; preds = %61
   %66 = shl nsw i64 %.0.lcssa, 1
   %67 = or disjoint i64 %66, 1
-  %68 = getelementptr inbounds %"struct.Assimp::Blender::FileBlockHead", ptr %0, i64 %67
-  %69 = getelementptr inbounds %"struct.Assimp::Blender::FileBlockHead", ptr %0, i64 %.0.lcssa
+  %68 = getelementptr inbounds [72 x i8], ptr %0, i64 %67
+  %69 = getelementptr inbounds [72 x i8], ptr %0, i64 %.0.lcssa
   %70 = load i64, ptr %68, align 8
   store i64 %70, ptr %69, align 8
   %71 = getelementptr inbounds nuw i8, ptr %69, i64 8
@@ -19552,7 +19532,7 @@ define linkonce_odr hidden void @_ZSt11__push_heapIN9__gnu_cxx17__normal_iterato
   %.027 = phi i64 [ %1, %.lr.ph ], [ %.0928, %_ZN6Assimp7Blender13FileBlockHeadaSEOS1_.exit ]
   %.0928.in = add nsw i64 %.027, -1
   %.0928 = sdiv i64 %.0928.in, 2
-  %9 = getelementptr inbounds %"struct.Assimp::Blender::FileBlockHead", ptr %0, i64 %.0928
+  %9 = getelementptr inbounds [72 x i8], ptr %0, i64 %.0928
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 48
   %11 = load i64, ptr %10, align 8
   %12 = load i64, ptr %7, align 8
@@ -19560,7 +19540,7 @@ define linkonce_odr hidden void @_ZSt11__push_heapIN9__gnu_cxx17__normal_iterato
   br i1 %13, label %14, label %.critedge
 
 14:                                               ; preds = %8
-  %15 = getelementptr inbounds %"struct.Assimp::Blender::FileBlockHead", ptr %0, i64 %.027
+  %15 = getelementptr inbounds [72 x i8], ptr %0, i64 %.027
   %16 = load i64, ptr %9, align 8
   store i64 %16, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -19656,7 +19636,7 @@ _ZN6Assimp7Blender13FileBlockHeadaSEOS1_.exit:    ; preds = %25, %_ZNSt7__cxx111
 
 .critedge:                                        ; preds = %8, %_ZN6Assimp7Blender13FileBlockHeadaSEOS1_.exit, %5
   %.0.lcssa = phi i64 [ %1, %5 ], [ %.0928, %_ZN6Assimp7Blender13FileBlockHeadaSEOS1_.exit ], [ %.027, %8 ]
-  %53 = getelementptr inbounds %"struct.Assimp::Blender::FileBlockHead", ptr %0, i64 %.0.lcssa
+  %53 = getelementptr inbounds [72 x i8], ptr %0, i64 %.0.lcssa
   %54 = load i64, ptr %3, align 8
   store i64 %54, ptr %53, align 8
   %55 = getelementptr inbounds nuw i8, ptr %53, i64 8
@@ -21255,9 +21235,9 @@ define linkonce_odr hidden void @_ZNSt5dequeIPN6Assimp7Blender6ObjectESaIS3_EE17
   %19 = load ptr, ptr %0, align 8
   %20 = sub i64 %15, %13
   %21 = lshr i64 %20, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = select i1 %2, i64 %1, i64 0
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = icmp ult ptr %24, %7
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %26, %7
@@ -21276,12 +21256,12 @@ define linkonce_odr hidden void @_ZNSt5dequeIPN6Assimp7Blender6ObjectESaIS3_EE17
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPPPN6Assimp7Blender6ObjectES5_ET0_T_S7_S6_.exit, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw ptr, ptr %24, i64 %12
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %12
   %34 = ptrtoint ptr %26 to i64
   %35 = sub i64 %34, %9
   %36 = ashr exact i64 %35, 3
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds ptr, ptr %33, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %33, i64 %37
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %38, ptr align 8 %7, i64 %35, i1 false)
   br label %_ZSt4copyIPPPN6Assimp7Blender6ObjectES5_ET0_T_S7_S6_.exit
 
@@ -21309,9 +21289,9 @@ _ZNSt11_Deque_baseIPN6Assimp7Blender6ObjectESaIS3_EE15_M_allocate_mapEm.exit: ; 
   %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #28
   %47 = sub i64 %41, %13
   %48 = lshr i64 %47, 1
-  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %48
   %50 = select i1 %2, i64 %1, i64 0
-  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i25 = icmp eq ptr %52, %7
   br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPPPN6Assimp7Blender6ObjectES5_ET0_T_S7_S6_.exit26, label %53
@@ -21339,7 +21319,7 @@ _ZSt4copyIPPPN6Assimp7Blender6ObjectES5_ET0_T_S7_S6_.exit: ; preds = %32, %31, %
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 512
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %60, ptr %61, align 8
-  %62 = getelementptr inbounds nuw ptr, ptr %.0, i64 %12
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %12
   %63 = getelementptr inbounds i8, ptr %62, i64 -8
   store ptr %63, ptr %4, align 8
   %64 = load ptr, ptr %63, align 8
@@ -21451,9 +21431,9 @@ define linkonce_odr hidden void @_ZNSt5dequeIPN6Assimp7Blender10CollectionESaIS3
   %19 = load ptr, ptr %0, align 8
   %20 = sub i64 %15, %13
   %21 = lshr i64 %20, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = select i1 %2, i64 %1, i64 0
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = icmp ult ptr %24, %7
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %26, %7
@@ -21472,12 +21452,12 @@ define linkonce_odr hidden void @_ZNSt5dequeIPN6Assimp7Blender10CollectionESaIS3
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPPPN6Assimp7Blender10CollectionES5_ET0_T_S7_S6_.exit, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw ptr, ptr %24, i64 %12
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %12
   %34 = ptrtoint ptr %26 to i64
   %35 = sub i64 %34, %9
   %36 = ashr exact i64 %35, 3
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds ptr, ptr %33, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %33, i64 %37
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %38, ptr align 8 %7, i64 %35, i1 false)
   br label %_ZSt4copyIPPPN6Assimp7Blender10CollectionES5_ET0_T_S7_S6_.exit
 
@@ -21505,9 +21485,9 @@ _ZNSt11_Deque_baseIPN6Assimp7Blender10CollectionESaIS3_EE15_M_allocate_mapEm.exi
   %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #28
   %47 = sub i64 %41, %13
   %48 = lshr i64 %47, 1
-  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %48
   %50 = select i1 %2, i64 %1, i64 0
-  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i25 = icmp eq ptr %52, %7
   br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPPPN6Assimp7Blender10CollectionES5_ET0_T_S7_S6_.exit26, label %53
@@ -21535,7 +21515,7 @@ _ZSt4copyIPPPN6Assimp7Blender10CollectionES5_ET0_T_S7_S6_.exit: ; preds = %32, %
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 512
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %60, ptr %61, align 8
-  %62 = getelementptr inbounds nuw ptr, ptr %.0, i64 %12
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %12
   %63 = getelementptr inbounds i8, ptr %62, i64 -8
   store ptr %63, ptr %4, align 8
   %64 = load ptr, ptr %63, align 8
@@ -21644,9 +21624,9 @@ define linkonce_odr hidden void @_ZNSt5dequeIPKN6Assimp7Blender6ObjectESaIS4_EE1
   %19 = load ptr, ptr %0, align 8
   %20 = sub i64 %15, %13
   %21 = lshr i64 %20, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = select i1 %2, i64 %1, i64 0
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = icmp ult ptr %24, %7
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %26, %7
@@ -21665,12 +21645,12 @@ define linkonce_odr hidden void @_ZNSt5dequeIPKN6Assimp7Blender6ObjectESaIS4_EE1
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPPPKN6Assimp7Blender6ObjectES6_ET0_T_S8_S7_.exit, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw ptr, ptr %24, i64 %12
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %12
   %34 = ptrtoint ptr %26 to i64
   %35 = sub i64 %34, %9
   %36 = ashr exact i64 %35, 3
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds ptr, ptr %33, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %33, i64 %37
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %38, ptr align 8 %7, i64 %35, i1 false)
   br label %_ZSt4copyIPPPKN6Assimp7Blender6ObjectES6_ET0_T_S8_S7_.exit
 
@@ -21698,9 +21678,9 @@ _ZNSt11_Deque_baseIPKN6Assimp7Blender6ObjectESaIS4_EE15_M_allocate_mapEm.exit: ;
   %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #28
   %47 = sub i64 %41, %13
   %48 = lshr i64 %47, 1
-  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %48
   %50 = select i1 %2, i64 %1, i64 0
-  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i25 = icmp eq ptr %52, %7
   br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPPPKN6Assimp7Blender6ObjectES6_ET0_T_S8_S7_.exit26, label %53
@@ -21728,7 +21708,7 @@ _ZSt4copyIPPPKN6Assimp7Blender6ObjectES6_ET0_T_S8_S7_.exit: ; preds = %32, %31, 
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 512
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %60, ptr %61, align 8
-  %62 = getelementptr inbounds nuw ptr, ptr %.0, i64 %12
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %12
   %63 = getelementptr inbounds i8, ptr %62, i64 -8
   store ptr %63, ptr %4, align 8
   %64 = load ptr, ptr %63, align 8
@@ -22782,9 +22762,9 @@ define linkonce_odr hidden void @_ZNSt5dequeISt10shared_ptrIN6Assimp7Blender8Mat
   %19 = load ptr, ptr %0, align 8
   %20 = sub i64 %15, %13
   %21 = lshr i64 %20, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = select i1 %2, i64 %1, i64 0
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = icmp ult ptr %24, %7
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %26, %7
@@ -22803,12 +22783,12 @@ define linkonce_odr hidden void @_ZNSt5dequeISt10shared_ptrIN6Assimp7Blender8Mat
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPPSt10shared_ptrIN6Assimp7Blender8MaterialEES6_ET0_T_S8_S7_.exit, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw ptr, ptr %24, i64 %12
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %12
   %34 = ptrtoint ptr %26 to i64
   %35 = sub i64 %34, %9
   %36 = ashr exact i64 %35, 3
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds ptr, ptr %33, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %33, i64 %37
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %38, ptr align 8 %7, i64 %35, i1 false)
   br label %_ZSt4copyIPPSt10shared_ptrIN6Assimp7Blender8MaterialEES6_ET0_T_S8_S7_.exit
 
@@ -22836,9 +22816,9 @@ _ZNSt11_Deque_baseISt10shared_ptrIN6Assimp7Blender8MaterialEESaIS4_EE15_M_alloca
   %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #28
   %47 = sub i64 %41, %13
   %48 = lshr i64 %47, 1
-  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %48
   %50 = select i1 %2, i64 %1, i64 0
-  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i25 = icmp eq ptr %52, %7
   br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPPSt10shared_ptrIN6Assimp7Blender8MaterialEES6_ET0_T_S8_S7_.exit26, label %53
@@ -22866,7 +22846,7 @@ _ZSt4copyIPPSt10shared_ptrIN6Assimp7Blender8MaterialEES6_ET0_T_S8_S7_.exit: ; pr
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 512
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %60, ptr %61, align 8
-  %62 = getelementptr inbounds nuw ptr, ptr %.0, i64 %12
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %12
   %63 = getelementptr inbounds i8, ptr %62, i64 -8
   store ptr %63, ptr %4, align 8
   %64 = load ptr, ptr %63, align 8

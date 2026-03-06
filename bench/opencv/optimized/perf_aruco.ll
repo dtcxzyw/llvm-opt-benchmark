@@ -76,7 +76,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::map.126" = type { %"class.std::_Rb_tree.127" }
 %"class.std::_Rb_tree.127" = type { %"struct.std::_Rb_tree<int, std::pair<const int, double>, std::_Select1st<std::pair<const int, double>>, std::less<int>>::_Rb_tree_impl" }
 %"struct.std::_Rb_tree<int, std::pair<const int, double>, std::_Select1st<std::pair<const int, double>>, std::less<int>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
-%"class.cv::Point_.106" = type { float, float }
 %"struct.testing::internal::ParameterizedTestCaseInfo<opencv_test::EstimateAruco_ArucoSecond>::InstantiationInfo" = type <{ %"class.std::__cxx11::basic_string", ptr, ptr, ptr, i32, [4 x i8] }>
 %"struct.testing::internal::ParameterizedTestCaseInfo<opencv_test::EstimateLargeAruco_ArucoFHD>::InstantiationInfo" = type <{ %"class.std::__cxx11::basic_string", ptr, ptr, ptr, i32, [4 x i8] }>
 %"class.testing::internal::ParamGenerator.64" = type { %"class.testing::internal::linked_ptr.65" }
@@ -1559,7 +1558,7 @@ _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_rel
 _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %103, %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %98, ptr %0, align 8, !tbaa !60
   store ptr %102, ptr %9, align 8, !tbaa !57
-  %104 = getelementptr inbounds nuw ptr, ptr %98, i64 %96
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %96
   store ptr %104, ptr %81, align 8, !tbaa !59
   br label %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE9push_backEOS3_.exit
 
@@ -3475,7 +3474,7 @@ define internal fastcc noundef double @_ZN11opencv_testL14getMaxDistanceERSt3map
   %37 = phi ptr [ %71, %_ZNSt3mapIiSt6vectorIN2cv6Point_IfEESaIS3_EESt4lessIiESaISt4pairIKiS5_EEE4findERS9_.exit.thread ], [ %15, %.lr.ph51 ]
   %.02350 = phi i64 [ %72, %_ZNSt3mapIiSt6vectorIN2cv6Point_IfEESaIS3_EESt4lessIiESaISt4pairIKiS5_EEE4findERS9_.exit.thread ], [ 0, %.lr.ph51 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %38 = getelementptr inbounds nuw i32, ptr %36, i64 %.02350
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %.02350
   %39 = load i32, ptr %38, align 4, !tbaa !129
   store i32 %39, ptr %5, align 4, !tbaa !129
   %40 = load ptr, ptr %17, align 8, !tbaa !153
@@ -3509,7 +3508,7 @@ _ZNSt3mapIiSt6vectorIN2cv6Point_IfEESaIS3_EESt4lessIiESaISt4pairIKiS5_EEE4findER
   %48 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 40
   %49 = load ptr, ptr %48, align 8, !tbaa !149
   %50 = load ptr, ptr %2, align 8, !tbaa !145
-  %51 = getelementptr inbounds nuw %"class.std::vector.100", ptr %50, i64 %.02350
+  %51 = getelementptr inbounds nuw [24 x i8], ptr %50, i64 %.02350
   %52 = load ptr, ptr %51, align 8, !tbaa !149
   br label %55
 
@@ -3520,8 +3519,8 @@ _ZNSt3mapIiSt6vectorIN2cv6Point_IfEESaIS3_EESt4lessIiESaISt4pairIKiS5_EEE4findER
 55:                                               ; preds = %.preheader, %55
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %55 ]
   %.048 = phi double [ 0.000000e+00, %.preheader ], [ %.sroa.speculated, %55 ]
-  %56 = getelementptr inbounds nuw %"class.cv::Point_.106", ptr %49, i64 %indvars.iv
-  %57 = getelementptr inbounds nuw %"class.cv::Point_.106", ptr %52, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %indvars.iv
   %.val = load float, ptr %56, align 4, !tbaa !180
   %58 = getelementptr i8, ptr %56, i64 4
   %.val28 = load float, ptr %58, align 4, !tbaa !182
@@ -4188,7 +4187,7 @@ _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_rel
 _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %103, %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %98, ptr %0, align 8, !tbaa !60
   store ptr %102, ptr %9, align 8, !tbaa !57
-  %104 = getelementptr inbounds nuw ptr, ptr %98, i64 %96
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %96
   store ptr %104, ptr %81, align 8, !tbaa !59
   br label %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE9push_backEOS3_.exit
 
@@ -5667,7 +5666,7 @@ _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_rel
 _ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %103, %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i.i
   store ptr %98, ptr %0, align 8, !tbaa !60
   store ptr %102, ptr %9, align 8, !tbaa !57
-  %104 = getelementptr inbounds nuw ptr, ptr %98, i64 %96
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %96
   store ptr %104, ptr %81, align 8, !tbaa !59
   br label %_ZNSt6vectorIPN7testing8internal29ParameterizedTestCaseInfoBaseESaIS3_EE9push_backEOS3_.exit
 
@@ -7652,7 +7651,7 @@ _ZNSt12_Vector_baseIN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseIn
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !269
   store ptr %35, ptr %4, align 8, !tbaa !261
-  %42 = getelementptr inbounds nuw %"class.testing::internal::linked_ptr.73", ptr %20, i64 %16
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %42, ptr %41, align 8, !tbaa !264
   ret void
 
@@ -8598,7 +8597,7 @@ define linkonce_odr hidden void @_ZN7testing8internal30ValuesInIteratorRangeGene
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
   %11 = sub nsw i64 0, %10
-  %12 = getelementptr inbounds i64, ptr %6, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %6, i64 %11
   tail call void @_ZdlPv(ptr noundef %12) #34
   store ptr null, ptr %2, align 8
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -8630,7 +8629,7 @@ define linkonce_odr hidden void @_ZN7testing8internal30ValuesInIteratorRangeGene
   %9 = sub i64 %7, %8
   %10 = ashr exact i64 %9, 3
   %11 = sub nsw i64 0, %10
-  %12 = getelementptr inbounds i64, ptr %6, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %6, i64 %11
   tail call void @_ZdlPv(ptr noundef %12) #34
   br label %_ZN7testing8internal30ValuesInIteratorRangeGeneratorIbED2Ev.exit
 
@@ -8689,7 +8688,7 @@ define linkonce_odr hidden void @_ZNSt13_Bvector_baseISaIbEED2Ev(ptr noundef non
   %8 = sub i64 %6, %7
   %9 = ashr exact i64 %8, 3
   %10 = sub nsw i64 0, %9
-  %11 = getelementptr inbounds i64, ptr %5, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %5, i64 %10
   tail call void @_ZdlPv(ptr noundef %11) #34
   store ptr null, ptr %0, align 8
   %.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -13547,7 +13546,7 @@ _ZNSt12_Vector_baseIN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseIn
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !457
   store ptr %35, ptr %4, align 8, !tbaa !453
-  %42 = getelementptr inbounds nuw %"class.testing::internal::linked_ptr.142", ptr %20, i64 %16
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %42, ptr %41, align 8, !tbaa !456
   ret void
 
@@ -14214,7 +14213,7 @@ _ZNSt12_Vector_baseIN7testing8internal10linked_ptrINS1_25ParameterizedTestCaseIn
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !470
   store ptr %35, ptr %4, align 8, !tbaa !463
-  %42 = getelementptr inbounds nuw %"class.testing::internal::linked_ptr.147", ptr %20, i64 %16
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %42, ptr %41, align 8, !tbaa !466
   ret void
 
@@ -19742,7 +19741,7 @@ _ZNSt12_Vector_baseIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8, !tbaa !566
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !66
-  %76 = getelementptr inbounds nuw %"struct.testing::internal::ParameterizedTestCaseInfo<opencv_test::EstimateAruco_ArucoFirst>::InstantiationInfo", ptr %22, i64 %16
+  %76 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 %16
   store ptr %76, ptr %75, align 8, !tbaa !69
   ret void
 }
@@ -22714,7 +22713,7 @@ _ZNSt12_Vector_baseIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8, !tbaa !635
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !223
-  %76 = getelementptr inbounds nuw %"struct.testing::internal::ParameterizedTestCaseInfo<opencv_test::EstimateAruco_ArucoSecond>::InstantiationInfo", ptr %22, i64 %16
+  %76 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 %16
   store ptr %76, ptr %75, align 8, !tbaa !226
   ret void
 }
@@ -25043,7 +25042,7 @@ _ZNSt12_Vector_baseIN7testing8internal25ParameterizedTestCaseInfoIN11opencv_test
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8, !tbaa !665
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !242
-  %76 = getelementptr inbounds nuw %"struct.testing::internal::ParameterizedTestCaseInfo<opencv_test::EstimateLargeAruco_ArucoFHD>::InstantiationInfo", ptr %22, i64 %16
+  %76 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 %16
   store ptr %76, ptr %75, align 8, !tbaa !245
   ret void
 }

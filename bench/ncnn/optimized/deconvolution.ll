@@ -1065,15 +1065,15 @@ _ZNK4ncnn3Mat5emptyEv.exit166:                    ; preds = %44
   %62 = mul nuw nsw i64 %61, %57
   %63 = add nuw nsw i64 %indvars.iv194, %59
   %64 = mul nuw nsw i64 %63, %57
-  %invariant.gep = getelementptr inbounds nuw float, ptr %52, i64 %62
-  %invariant.gep239 = getelementptr inbounds nuw float, ptr %45, i64 %64
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %52, i64 %62
+  %invariant.gep239 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %64
   br label %65
 
 65:                                               ; preds = %65, %.preheader.us.us.us.us.us.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %65 ], [ 0, %.preheader.us.us.us.us.us.us ]
-  %gep = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   %66 = load float, ptr %gep, align 4, !tbaa !63
-  %gep240 = getelementptr inbounds nuw float, ptr %invariant.gep239, i64 %indvars.iv
+  %gep240 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep239, i64 %indvars.iv
   store float %66, ptr %gep240, align 4, !tbaa !63
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %57
@@ -2100,7 +2100,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %13
 .noexc32:                                         ; preds = %_ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i
   %28 = shl nuw nsw i64 %26, 2
   %29 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %28) #20
-  %30 = getelementptr inbounds nuw i32, ptr %29, i64 %26
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %26
   store i32 0, ptr %29, align 4, !tbaa !71
   %31 = add nsw i64 %26, -1
   %32 = icmp eq i64 %31, 0
@@ -2136,7 +2136,7 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPimiET_
 41:                                               ; preds = %.preheader.us, %41
   %indvars.iv = phi i64 [ %39, %.preheader.us ], [ %indvars.iv.next, %41 ]
   %.13135.us = phi i32 [ %.03039.us, %.preheader.us ], [ %43, %41 ]
-  %42 = getelementptr inbounds i32, ptr %.sroa.033.0, i64 %indvars.iv
+  %42 = getelementptr inbounds [4 x i8], ptr %.sroa.033.0, i64 %indvars.iv
   store i32 %.13135.us, ptr %42, align 4, !tbaa !71
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %43 = add nsw i32 %.13135.us, %8
@@ -2450,7 +2450,7 @@ define internal void @_ZN4ncnnL13deconvolutionERKNS_3MatERS0_S2_S2_iiiiiiiS2_RKN
   br i1 %brmerge, label %_ZNK4ncnn3Mat5emptyEv.exit.thread, label %77
 
 77:                                               ; preds = %.noexc83
-  %78 = getelementptr inbounds nuw float, ptr %47, i64 %indvars.iv172
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %indvars.iv172
   %79 = load float, ptr %78, align 4, !tbaa !63
   br label %_ZNK4ncnn3Mat5emptyEv.exit.thread
 
@@ -2477,7 +2477,7 @@ _ZN4ncnn3Mat4fillEf.exit:                         ; preds = %.lr.ph, %_ZNK4ncnn3
   %86 = mul i32 %64, %85
   %87 = mul i32 %86, %84
   %88 = sext i32 %87 to i64
-  %89 = getelementptr inbounds float, ptr %83, i64 %88
+  %89 = getelementptr inbounds [4 x i8], ptr %83, i64 %88
   br i1 %66, label %.preheader.us.preheader, label %._crit_edge135
 
 .preheader.us.preheader:                          ; preds = %.preheader.lr.ph
@@ -2519,8 +2519,8 @@ _ZN4ncnn3Mat4fillEf.exit:                         ; preds = %.lr.ph, %_ZNK4ncnn3
 .noexc84.lr.ph.us.us.us:                          ; preds = %.noexc84.lr.ph.us.us.us.preheader, %._crit_edge124.split.us.us.us.us
   %indvars.iv157 = phi i64 [ 0, %.noexc84.lr.ph.us.us.us.preheader ], [ %indvars.iv.next158, %._crit_edge124.split.us.us.us.us ]
   %105 = mul nsw i64 %indvars.iv157, %92
-  %106 = getelementptr inbounds float, ptr %94, i64 %105
-  %invariant.gep125.us.us.us = getelementptr float, ptr %invariant.gep.us, i64 %indvars.iv157
+  %106 = getelementptr inbounds [4 x i8], ptr %94, i64 %105
+  %invariant.gep125.us.us.us = getelementptr [4 x i8], ptr %invariant.gep.us, i64 %indvars.iv157
   %107 = load ptr, ptr %10, align 8
   br label %.noexc84.us.us.us.us
 
@@ -2534,13 +2534,13 @@ _ZN4ncnn3Mat4fillEf.exit:                         ; preds = %.lr.ph, %_ZNK4ncnn3
 
 109:                                              ; preds = %109, %.noexc84.us.us.us.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %109 ], [ 0, %.noexc84.us.us.us.us ]
-  %110 = getelementptr inbounds nuw float, ptr %.073122.us.us.us.us, i64 %indvars.iv
+  %110 = getelementptr inbounds nuw [4 x i8], ptr %.073122.us.us.us.us, i64 %indvars.iv
   %111 = load float, ptr %110, align 4, !tbaa !63
   %112 = fmul fast float %111, %108
-  %113 = getelementptr inbounds nuw i32, ptr %107, i64 %indvars.iv
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %107, i64 %indvars.iv
   %114 = load i32, ptr %113, align 4, !tbaa !71
   %115 = sext i32 %114 to i64
-  %116 = getelementptr inbounds float, ptr %106, i64 %115
+  %116 = getelementptr inbounds [4 x i8], ptr %106, i64 %115
   %117 = load float, ptr %116, align 4, !tbaa !63
   %118 = fadd fast float %117, %112
   store float %118, ptr %116, align 4, !tbaa !63
@@ -2549,7 +2549,7 @@ _ZN4ncnn3Mat4fillEf.exit:                         ; preds = %.lr.ph, %_ZNK4ncnn3
   br i1 %exitcond151.not, label %._crit_edge.us.us.us.us, label %109, !llvm.loop !81
 
 ._crit_edge.us.us.us.us:                          ; preds = %109
-  %119 = getelementptr inbounds nuw float, ptr %.073122.us.us.us.us, i64 %103
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %.073122.us.us.us.us, i64 %103
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 1
   %exitcond156.not = icmp eq i64 %indvars.iv.next153, %wide.trip.count155
   br i1 %exitcond156.not, label %._crit_edge124.split.us.us.us.us, label %.noexc84.us.us.us.us, !llvm.loop !82
@@ -2575,7 +2575,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %_ZL13activation_ssf
 
 122:                                              ; preds = %.lr.ph144, %_ZL13activation_ssfiRKN4ncnn3MatE.exit
   %indvars.iv167 = phi i64 [ 0, %.lr.ph144 ], [ %indvars.iv.next168, %_ZL13activation_ssfiRKN4ncnn3MatE.exit ]
-  %123 = getelementptr inbounds nuw float, ptr %76, i64 %indvars.iv167
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %indvars.iv167
   %124 = load float, ptr %123, align 4, !tbaa !63
   switch i32 %73, label %_ZL13activation_ssfiRKN4ncnn3MatE.exit [
     i32 1, label %125

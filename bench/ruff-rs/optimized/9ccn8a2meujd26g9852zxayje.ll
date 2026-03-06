@@ -42,7 +42,7 @@ define noundef zeroext i1 @_ZN18ruff_python_trivia14comment_ranges13CommentRange
   %.sroa.05.0.lcssa.i = phi i64 [ 0, %3 ], [ %32, %"_ZN18ruff_python_trivia14comment_ranges13CommentRanges10intersects28_$u7b$$u7b$closure$u7d$$u7d$17hbdbe33d57db9d13eE.exit28.i" ]
   %8 = icmp ult i64 %.sroa.05.0.lcssa.i, %7
   tail call void @llvm.assume(i1 %8)
-  %9 = getelementptr inbounds nuw { i32, i32 }, ptr %5, i64 %.sroa.05.0.lcssa.i
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.sroa.05.0.lcssa.i
   %10 = load i32, ptr %9, align 4, !alias.scope !4, !noalias !9, !noundef !3
   %11 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %12 = load i32, ptr %11, align 4, !alias.scope !4, !noalias !9, !noundef !3
@@ -68,7 +68,7 @@ define noundef zeroext i1 @_ZN18ruff_python_trivia14comment_ranges13CommentRange
   %21 = add i64 %20, %.sroa.05.032.i
   %22 = icmp ult i64 %21, %7
   tail call void @llvm.assume(i1 %22)
-  %23 = getelementptr inbounds nuw { i32, i32 }, ptr %5, i64 %21
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %21
   %24 = load i32, ptr %23, align 4, !alias.scope !11, !noalias !9, !noundef !3
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 4
   %26 = load i32, ptr %25, align 4, !alias.scope !11, !noalias !9, !noundef !3
@@ -114,8 +114,8 @@ define { ptr, i64 } @_ZN18ruff_python_trivia14comment_ranges13CommentRanges17com
   br i1 %12, label %19, label %13, !prof !14
 
 13:                                               ; preds = %3
-  %14 = getelementptr inbounds nuw { i32, i32 }, ptr %8, i64 %11
-  %15 = getelementptr inbounds nuw { i32, i32 }, ptr %8, i64 %10
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %11
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %10
   store ptr %14, ptr %4, align 8
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %15, ptr %16, align 8
@@ -264,7 +264,7 @@ define void @_ZN18ruff_python_trivia14comment_ranges13CommentRanges14block_comme
   %.sroa.0102.0.copyload = load i64, ptr %10, align 8
   %.sroa.4103.0.copyload = load ptr, ptr %14, align 8, !nonnull !3, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %42 = getelementptr inbounds nuw i32, ptr %.sroa.4103.0.copyload, i64 %.pre
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.4103.0.copyload, i64 %.pre
   %43 = icmp sgt i64 %.sroa.0102.0.copyload, -1
   call void @llvm.assume(i1 %43)
   store ptr %.sroa.4103.0.copyload, ptr %5, align 8, !alias.scope !18, !noalias !21
@@ -332,7 +332,7 @@ define void @_ZN18ruff_python_trivia14comment_ranges13CommentRanges14block_comme
   %.sroa.0.0.copyload = load i64, ptr %10, align 8
   %.sroa.4.0.copyload = load ptr, ptr %14, align 8, !nonnull !3, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %67 = getelementptr inbounds nuw i32, ptr %.sroa.4.0.copyload, i64 %58
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.4.0.copyload, i64 %58
   %68 = icmp sgt i64 %.sroa.0.0.copyload, -1
   call void @llvm.assume(i1 %68)
   store ptr %.sroa.4.0.copyload, ptr %9, align 8, !alias.scope !23, !noalias !26
@@ -416,7 +416,7 @@ define void @_ZN18ruff_python_trivia14comment_ranges13CommentRanges14block_comme
   %.sroa.096.0.copyload = load i64, ptr %10, align 8
   %.sroa.497.0.copyload = load ptr, ptr %14, align 8, !nonnull !3, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %97 = getelementptr inbounds nuw i32, ptr %.sroa.497.0.copyload, i64 %84
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.497.0.copyload, i64 %84
   %98 = icmp sgt i64 %.sroa.096.0.copyload, -1
   call void @llvm.assume(i1 %98)
   store ptr %.sroa.497.0.copyload, ptr %7, align 8, !alias.scope !32, !noalias !35
@@ -474,7 +474,7 @@ define void @_ZN18ruff_python_trivia14comment_ranges13CommentRanges14block_comme
 
 117:                                              ; preds = %92, %95
   %118 = load ptr, ptr %14, align 8, !alias.scope !29, !nonnull !3, !noundef !3
-  %119 = getelementptr inbounds nuw i32, ptr %118, i64 %84
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %118, i64 %84
   store i32 %49, ptr %119, align 4
   %120 = add i64 %84, 1
   store i64 %120, ptr %15, align 8, !alias.scope !29
@@ -493,7 +493,7 @@ define void @_ZN18ruff_python_trivia14comment_ranges13CommentRanges14block_comme
   %.sroa.099.0.copyload = load i64, ptr %10, align 8
   %.sroa.4100.0.copyload = load ptr, ptr %14, align 8, !nonnull !3, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %129 = getelementptr inbounds nuw i32, ptr %.sroa.4100.0.copyload, i64 %86
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.4100.0.copyload, i64 %86
   %130 = icmp sgt i64 %.sroa.099.0.copyload, -1
   call void @llvm.assume(i1 %130)
   store ptr %.sroa.4100.0.copyload, ptr %6, align 8, !alias.scope !37, !noalias !40
@@ -553,7 +553,7 @@ define void @_ZN18ruff_python_trivia14comment_ranges13CommentRanges14block_comme
   %.sroa.093.0.copyload = load i64, ptr %10, align 8
   %.sroa.494.0.copyload = load ptr, ptr %14, align 8, !nonnull !3, !noundef !3
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %150 = getelementptr inbounds nuw i32, ptr %.sroa.494.0.copyload, i64 %79
+  %150 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.494.0.copyload, i64 %79
   %151 = icmp sgt i64 %.sroa.093.0.copyload, -1
   call void @llvm.assume(i1 %151)
   store ptr %.sroa.494.0.copyload, ptr %8, align 8, !alias.scope !42, !noalias !45
@@ -976,7 +976,7 @@ define { ptr, ptr } @"_ZN115_$LT$$RF$ruff_python_trivia..comment_ranges..Comment
   %3 = load ptr, ptr %2, align 8, !nonnull !3, !noundef !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !3
-  %6 = getelementptr inbounds nuw { i32, i32 }, ptr %3, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %5
   %7 = insertvalue { ptr, ptr } poison, ptr %3, 0
   %8 = insertvalue { ptr, ptr } %7, ptr %6, 1
   ret { ptr, ptr } %8

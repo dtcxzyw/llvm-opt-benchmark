@@ -7,10 +7,10 @@ target triple = "x86_64-pc-linux-gnu"
 define noundef i32 @sgemm_otcopy(i64 noundef %0, i64 noundef %1, ptr noundef readonly %2, i64 noundef %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
   %6 = and i64 %1, -4
   %7 = mul nsw i64 %6, %0
-  %8 = getelementptr inbounds float, ptr %4, i64 %7
+  %8 = getelementptr inbounds [4 x i8], ptr %4, i64 %7
   %9 = and i64 %1, -2
   %10 = mul nsw i64 %9, %0
-  %11 = getelementptr inbounds float, ptr %4, i64 %10
+  %11 = getelementptr inbounds [4 x i8], ptr %4, i64 %10
   %12 = ashr i64 %0, 2
   %13 = icmp sgt i64 %12, 0
   br i1 %13, label %.preheader276, label %.loopexit277
@@ -32,9 +32,9 @@ define noundef i32 @sgemm_otcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
   %.1242.us = phi ptr [ %111, %107 ], [ %4, %.preheader276 ]
   %.1224.us = phi ptr [ %110, %107 ], [ %2, %.preheader276 ]
   %.0222.us = phi i64 [ %108, %107 ], [ %12, %.preheader276 ]
-  %18 = getelementptr inbounds float, ptr %.1224.us, i64 %3
-  %19 = getelementptr inbounds float, ptr %18, i64 %3
-  %20 = getelementptr inbounds float, ptr %19, i64 %3
+  %18 = getelementptr inbounds [4 x i8], ptr %.1224.us, i64 %3
+  %19 = getelementptr inbounds [4 x i8], ptr %18, i64 %3
+  %20 = getelementptr inbounds [4 x i8], ptr %19, i64 %3
   br label %21
 
 21:                                               ; preds = %.preheader274.us, %21
@@ -199,9 +199,9 @@ define noundef i32 @sgemm_otcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
   %.1245.us290 = phi ptr [ %126, %.preheader276.split.split.us.split ], [ %11, %.preheader276.split.split.us ]
   %.1224.us292 = phi ptr [ %118, %.preheader276.split.split.us.split ], [ %2, %.preheader276.split.split.us ]
   %.0222.us293 = phi i64 [ %127, %.preheader276.split.split.us.split ], [ %12, %.preheader276.split.split.us ]
-  %115 = getelementptr inbounds float, ptr %.1224.us292, i64 %3
-  %116 = getelementptr inbounds float, ptr %115, i64 %3
-  %117 = getelementptr inbounds float, ptr %116, i64 %3
+  %115 = getelementptr inbounds [4 x i8], ptr %.1224.us292, i64 %3
+  %116 = getelementptr inbounds [4 x i8], ptr %115, i64 %3
+  %117 = getelementptr inbounds [4 x i8], ptr %116, i64 %3
   %118 = getelementptr inbounds i8, ptr %.1224.us292, i64 %.idx
   %119 = load float, ptr %.1224.us292, align 4, !tbaa !3
   %120 = load float, ptr %115, align 4, !tbaa !3
@@ -226,9 +226,9 @@ define noundef i32 @sgemm_otcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
   %.1249.us308 = phi ptr [ %152, %.preheader276.split.split.split.us ], [ %8, %.preheader276.split.split ]
   %.1224.us311 = phi ptr [ %132, %.preheader276.split.split.split.us ], [ %2, %.preheader276.split.split ]
   %.0222.us312 = phi i64 [ %153, %.preheader276.split.split.split.us ], [ %12, %.preheader276.split.split ]
-  %129 = getelementptr inbounds float, ptr %.1224.us311, i64 %3
-  %130 = getelementptr inbounds float, ptr %129, i64 %3
-  %131 = getelementptr inbounds float, ptr %130, i64 %3
+  %129 = getelementptr inbounds [4 x i8], ptr %.1224.us311, i64 %3
+  %130 = getelementptr inbounds [4 x i8], ptr %129, i64 %3
+  %131 = getelementptr inbounds [4 x i8], ptr %130, i64 %3
   %132 = getelementptr inbounds i8, ptr %.1224.us311, i64 %.idx
   %133 = load float, ptr %.1224.us311, align 4, !tbaa !3
   %134 = getelementptr inbounds nuw i8, ptr %.1224.us311, i64 4
@@ -267,9 +267,9 @@ define noundef i32 @sgemm_otcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
   %.1245 = phi ptr [ %190, %.preheader276.split.split.split ], [ %11, %.preheader276.split.split ]
   %.1224 = phi ptr [ %158, %.preheader276.split.split.split ], [ %2, %.preheader276.split.split ]
   %.0222 = phi i64 [ %191, %.preheader276.split.split.split ], [ %12, %.preheader276.split.split ]
-  %155 = getelementptr inbounds float, ptr %.1224, i64 %3
-  %156 = getelementptr inbounds float, ptr %155, i64 %3
-  %157 = getelementptr inbounds float, ptr %156, i64 %3
+  %155 = getelementptr inbounds [4 x i8], ptr %.1224, i64 %3
+  %156 = getelementptr inbounds [4 x i8], ptr %155, i64 %3
+  %157 = getelementptr inbounds [4 x i8], ptr %156, i64 %3
   %158 = getelementptr inbounds i8, ptr %.1224, i64 %.idx
   %159 = load float, ptr %.1224, align 4, !tbaa !3
   %160 = getelementptr inbounds nuw i8, ptr %.1224, i64 4
@@ -344,7 +344,7 @@ define noundef i32 @sgemm_otcopy(i64 noundef %0, i64 noundef %1, ptr noundef rea
   br i1 %.not263, label %251, label %197
 
 197:                                              ; preds = %.loopexit277
-  %198 = getelementptr inbounds float, ptr %.0223, i64 %3
+  %198 = getelementptr inbounds [4 x i8], ptr %.0223, i64 %3
   %.idx264 = shl nsw i64 %3, 3
   %199 = getelementptr inbounds i8, ptr %.0223, i64 %.idx264
   %200 = getelementptr inbounds nuw i8, ptr %.0241, i64 32

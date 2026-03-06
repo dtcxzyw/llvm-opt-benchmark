@@ -49459,7 +49459,7 @@ define internal i32 @dissect_rrc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 692
   %21 = load i32, ptr %20, align 4
   %22 = sext i32 %21 to i64
-  %23 = getelementptr i32, ptr %7, i64 %22
+  %23 = getelementptr [4 x i8], ptr %7, i64 %22
   %24 = load i32, ptr %23, align 4
   %switch.tableidx = add i32 %24, -1
   %25 = icmp ult i32 %switch.tableidx, 6
@@ -49467,7 +49467,7 @@ define internal i32 @dissect_rrc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 switch.lookup:                                    ; preds = %19
   %26 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_rrc, i64 %26
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_rrc, i64 %26
   %switch.load = load ptr, ptr %switch.gep, align 8
   %27 = load ptr, ptr %switch.load, align 8
   %28 = tail call i32 @call_dissector(ptr noundef %27, ptr noundef %0, ptr noundef %1, ptr noundef %16)
@@ -51382,7 +51382,7 @@ private_data_get_cn_domain.exit:                  ; preds = %19, %23
   %32 = getelementptr inbounds nuw i8, ptr %12, i64 692
   %33 = load i32, ptr %32, align 4
   %34 = sext i32 %33 to i64
-  %35 = getelementptr i32, ptr %16, i64 %34
+  %35 = getelementptr [4 x i8], ptr %16, i64 %34
   %36 = load i32, ptr %35, align 4
   %37 = load ptr, ptr @rrc_ciph_info_tree, align 8
   %38 = sext i32 %36 to i64
@@ -51412,7 +51412,7 @@ private_data_get_cn_domain.exit:                  ; preds = %19, %23
   %51 = load ptr, ptr @rrc_ciph_info_tree, align 8
   %52 = load i32, ptr %32, align 4
   %53 = sext i32 %52 to i64
-  %54 = getelementptr i32, ptr %16, i64 %53
+  %54 = getelementptr [4 x i8], ptr %16, i64 %53
   %55 = load i32, ptr %54, align 4
   %56 = sext i32 %55 to i64
   %57 = inttoptr i64 %56 to ptr
@@ -58586,7 +58586,7 @@ define internal i32 @dissect_rrc_DL_TransportChannelType_r5(ptr noundef %0, i32 
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 692
   %32 = load i32, ptr %31, align 4
   %33 = sext i32 %32 to i64
-  %34 = getelementptr i16, ptr %30, i64 %33
+  %34 = getelementptr [2 x i8], ptr %30, i64 %33
   %35 = load i16, ptr %34, align 2
   %36 = icmp eq i16 %35, 0
   br i1 %36, label %37, label %42
@@ -58614,7 +58614,7 @@ define internal i32 @dissect_rrc_DL_TransportChannelType_r5(ptr noundef %0, i32 
   %52 = load ptr, ptr @hsdsch_muxed_flows, align 8
   %53 = load i32, ptr %31, align 4
   %54 = sext i32 %53 to i64
-  %55 = getelementptr i16, ptr %30, i64 %54
+  %55 = getelementptr [2 x i8], ptr %30, i64 %54
   %56 = load i16, ptr %55, align 2
   %57 = zext i16 %56 to i64
   %58 = inttoptr i64 %57 to ptr
@@ -60305,7 +60305,7 @@ define internal i32 @dissect_rrc_H_RNTI(ptr noundef %0, i32 noundef %1, ptr noun
   %28 = getelementptr inbounds nuw i8, ptr %16, i64 692
   %29 = load i32, ptr %28, align 4
   %30 = sext i32 %29 to i64
-  %31 = getelementptr i16, ptr %27, i64 %30
+  %31 = getelementptr [2 x i8], ptr %27, i64 %30
   store i16 %26, ptr %31, align 2
   br label %32
 
@@ -60605,7 +60605,7 @@ define internal i32 @dissect_rrc_DL_TransportChannelType_r7(ptr noundef %0, i32 
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 692
   %32 = load i32, ptr %31, align 4
   %33 = sext i32 %32 to i64
-  %34 = getelementptr i16, ptr %30, i64 %33
+  %34 = getelementptr [2 x i8], ptr %30, i64 %33
   %35 = load i16, ptr %34, align 2
   %36 = icmp eq i16 %35, 0
   br i1 %36, label %37, label %42
@@ -60633,7 +60633,7 @@ define internal i32 @dissect_rrc_DL_TransportChannelType_r7(ptr noundef %0, i32 
   %52 = load ptr, ptr @hsdsch_muxed_flows, align 8
   %53 = load i32, ptr %31, align 4
   %54 = sext i32 %53 to i64
-  %55 = getelementptr i16, ptr %30, i64 %54
+  %55 = getelementptr [2 x i8], ptr %30, i64 %54
   %56 = load i16, ptr %55, align 2
   %57 = zext i16 %56 to i64
   %58 = inttoptr i64 %57 to ptr
@@ -78033,7 +78033,7 @@ define internal i32 @dissect_rrc_C_RNTI(ptr noundef %0, i32 noundef %1, ptr noun
   br i1 %cond, label %47, label %49
 
 47:                                               ; preds = %40
-  %48 = getelementptr i32, ptr %36, i64 %44
+  %48 = getelementptr [4 x i8], ptr %36, i64 %44
   br label %71
 
 49:                                               ; preds = %40
@@ -88594,7 +88594,7 @@ private_data_get_rrc_state_indicator.exit:        ; preds = %33, %37
   %47 = getelementptr inbounds nuw i8, ptr %22, i64 692
   %48 = load i32, ptr %47, align 4
   %49 = sext i32 %48 to i64
-  %50 = getelementptr i32, ptr %26, i64 %49
+  %50 = getelementptr [4 x i8], ptr %26, i64 %49
   %51 = load i32, ptr %50, align 4
   %52 = icmp eq ptr %42, null
   br i1 %52, label %53, label %private_data_get_scrambling_code.exit.i
@@ -88710,7 +88710,7 @@ private_data_get_rrc_state_indicator.exit:        ; preds = %33, %37
   %47 = getelementptr inbounds nuw i8, ptr %22, i64 692
   %48 = load i32, ptr %47, align 4
   %49 = sext i32 %48 to i64
-  %50 = getelementptr i32, ptr %26, i64 %49
+  %50 = getelementptr [4 x i8], ptr %26, i64 %49
   %51 = load i32, ptr %50, align 4
   %52 = icmp eq ptr %42, null
   br i1 %52, label %53, label %private_data_get_scrambling_code.exit.i
@@ -88814,7 +88814,7 @@ private_data_get_rrc_state_indicator.exit:        ; preds = %33, %37
   %47 = getelementptr inbounds nuw i8, ptr %22, i64 692
   %48 = load i32, ptr %47, align 4
   %49 = sext i32 %48 to i64
-  %50 = getelementptr i32, ptr %26, i64 %49
+  %50 = getelementptr [4 x i8], ptr %26, i64 %49
   %51 = load i32, ptr %50, align 4
   %52 = icmp eq ptr %42, null
   br i1 %52, label %53, label %private_data_get_scrambling_code.exit.i
@@ -89201,9 +89201,9 @@ private_data_get_rlc_ciphering_sqn.exit:          ; preds = %private_data_get_rb
   %53 = load i8, ptr %52, align 1, !range !6, !noundef !7
   %54 = xor i8 %53, 1
   %55 = zext i32 %48 to i64
-  %56 = getelementptr [2 x i32], ptr %30, i64 %55
+  %56 = getelementptr [8 x i8], ptr %30, i64 %55
   %57 = zext nneg i8 %54 to i64
-  %58 = getelementptr i32, ptr %56, i64 %57
+  %58 = getelementptr [4 x i8], ptr %56, i64 %57
   store i32 %51, ptr %58, align 4
   br label %59
 
@@ -96206,7 +96206,7 @@ private_data_get_rrc_state_indicator.exit:        ; preds = %29, %33
   %43 = getelementptr inbounds nuw i8, ptr %22, i64 692
   %44 = load i32, ptr %43, align 4
   %45 = sext i32 %44 to i64
-  %46 = getelementptr i32, ptr %26, i64 %45
+  %46 = getelementptr [4 x i8], ptr %26, i64 %45
   %47 = load i32, ptr %46, align 4
   %48 = icmp eq ptr %38, null
   br i1 %48, label %49, label %private_data_get_scrambling_code.exit.i
@@ -96372,7 +96372,7 @@ define internal i32 @dissect_rrc_SecurityModeCommand(ptr noundef %0, i32 noundef
   %23 = getelementptr inbounds nuw i8, ptr %13, i64 692
   %24 = load i32, ptr %23, align 4
   %25 = sext i32 %24 to i64
-  %26 = getelementptr i32, ptr %17, i64 %25
+  %26 = getelementptr [4 x i8], ptr %17, i64 %25
   %27 = load i32, ptr %26, align 4
   %28 = load ptr, ptr @rrc_ciph_info_tree, align 8
   %29 = sext i32 %27 to i64
@@ -96402,7 +96402,7 @@ define internal i32 @dissect_rrc_SecurityModeCommand(ptr noundef %0, i32 noundef
   %42 = load ptr, ptr @rrc_ciph_info_tree, align 8
   %43 = load i32, ptr %23, align 4
   %44 = sext i32 %43 to i64
-  %45 = getelementptr i32, ptr %17, i64 %44
+  %45 = getelementptr [4 x i8], ptr %17, i64 %44
   %46 = load i32, ptr %45, align 4
   %47 = sext i32 %46 to i64
   %48 = inttoptr i64 %47 to ptr
@@ -104093,7 +104093,7 @@ define internal i32 @dissect_rrc_SecurityModeComplete(ptr noundef %0, i32 nounde
   %24 = getelementptr inbounds nuw i8, ptr %13, i64 692
   %25 = load i32, ptr %24, align 4
   %26 = sext i32 %25 to i64
-  %27 = getelementptr i32, ptr %17, i64 %26
+  %27 = getelementptr [4 x i8], ptr %17, i64 %26
   %28 = load i32, ptr %27, align 4
   %29 = load ptr, ptr @rrc_ciph_info_tree, align 8
   %30 = sext i32 %28 to i64
@@ -104123,7 +104123,7 @@ define internal i32 @dissect_rrc_SecurityModeComplete(ptr noundef %0, i32 nounde
   %43 = load ptr, ptr @rrc_ciph_info_tree, align 8
   %44 = load i32, ptr %24, align 4
   %45 = sext i32 %44 to i64
-  %46 = getelementptr i32, ptr %17, i64 %45
+  %46 = getelementptr [4 x i8], ptr %17, i64 %45
   %47 = load i32, ptr %46, align 4
   %48 = sext i32 %47 to i64
   %49 = inttoptr i64 %48 to ptr

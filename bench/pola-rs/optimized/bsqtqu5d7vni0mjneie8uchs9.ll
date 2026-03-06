@@ -557,9 +557,9 @@ define hidden { ptr, ptr } @"_ZN5alloc11collections5btree4node173Handle$LT$alloc
   %5 = load i64, ptr %4, align 8, !noundef !3
   %6 = icmp ult i64 %5, 11
   tail call void @llvm.assume(i1 %6)
-  %7 = getelementptr inbounds nuw { [3 x i64] }, ptr %3, i64 %5
+  %7 = getelementptr inbounds nuw [24 x i8], ptr %3, i64 %5
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 272
-  %9 = getelementptr inbounds nuw { [3 x i64] }, ptr %8, i64 %5
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %5
   %10 = insertvalue { ptr, ptr } poison, ptr %7, 0
   %11 = insertvalue { ptr, ptr } %10, ptr %9, 1
   ret { ptr, ptr } %11
@@ -573,7 +573,7 @@ define hidden { ptr, i64 } @"_ZN5alloc11collections5btree4node180Handle$LT$alloc
   %5 = load i64, ptr %4, align 8, !noundef !3
   %6 = icmp ult i64 %5, 12
   tail call void @llvm.assume(i1 %6)
-  %7 = getelementptr inbounds nuw ptr, ptr %3, i64 %5
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %5
   %8 = load ptr, ptr %7, align 8, !nonnull !3, !noundef !3
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8, !noundef !3
@@ -662,7 +662,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate235_$LT$impl$u20$alloc
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 544
   %15 = icmp samesign ult i64 %9, 12
   tail call void @llvm.assume(i1 %15)
-  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %9
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %9
   br label %18
 
 17:                                               ; preds = %21, %10
@@ -1042,8 +1042,8 @@ _ZN10polars_row5fixed7decimal23num_bits_from_precision17h7b75fc79020d54ffE.exit.
   %58 = and i8 %3, 1
   %.not.i1 = icmp eq i8 %58, 0
   %..i = select i1 %.not.i1, i128 0, i128 %48
-  %59 = getelementptr inbounds nuw i64, ptr %4, i64 %5
-  %60 = getelementptr inbounds nuw i128, ptr %34, i64 %36
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %5
+  %60 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %36
   switch i64 %.sroa.0.0.i.i, label %default.unreachable [
     i64 1, label %62
     i64 2, label %64
@@ -1360,8 +1360,8 @@ default.unreachable:                              ; preds = %44
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit.i": ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit.i", %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit.lr.ph.i"
   %.sroa.5252.0468.i = phi i64 [ %.sroa.5252.0.copyload.i, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit.lr.ph.i" ], [ %96, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit.i" ]
-  %94 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.copyload.i, i64 %.sroa.5252.0468.i
-  %95 = getelementptr inbounds nuw i128, ptr %.sroa.4251.0.copyload.i, i64 %.sroa.5252.0468.i
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.copyload.i, i64 %.sroa.5252.0468.i
+  %95 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.4251.0.copyload.i, i64 %.sroa.5252.0468.i
   %96 = add nuw i64 %.sroa.5252.0468.i, 1
   %97 = load i128, ptr %95, align 16, !noalias !50, !noundef !3
   %98 = and i128 %97, %48
@@ -1378,8 +1378,8 @@ default.unreachable:                              ; preds = %44
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit180.i": ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit180.i", %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit180.lr.ph.i"
   %.sroa.5258.0467.i = phi i64 [ %.sroa.5258.0.copyload.i, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit180.lr.ph.i" ], [ %105, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit180.i" ]
-  %103 = getelementptr inbounds nuw i64, ptr %.sroa.0254.0.copyload.i, i64 %.sroa.5258.0467.i
-  %104 = getelementptr inbounds nuw i128, ptr %.sroa.4256.0.copyload.i, i64 %.sroa.5258.0467.i
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0254.0.copyload.i, i64 %.sroa.5258.0467.i
+  %104 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.4256.0.copyload.i, i64 %.sroa.5258.0467.i
   %105 = add nuw i64 %.sroa.5258.0467.i, 1
   %106 = load i128, ptr %104, align 16, !noalias !50, !noundef !3
   %107 = and i128 %106, %48
@@ -1398,8 +1398,8 @@ default.unreachable:                              ; preds = %44
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit185.i": ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit185.i", %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit185.lr.ph.i"
   %.sroa.5266.0466.i = phi i64 [ %.sroa.5266.0.copyload.i, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit185.lr.ph.i" ], [ %115, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit185.i" ]
-  %113 = getelementptr inbounds nuw i64, ptr %.sroa.0262.0.copyload.i, i64 %.sroa.5266.0466.i
-  %114 = getelementptr inbounds nuw i128, ptr %.sroa.4264.0.copyload.i, i64 %.sroa.5266.0466.i
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0262.0.copyload.i, i64 %.sroa.5266.0466.i
+  %114 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.4264.0.copyload.i, i64 %.sroa.5266.0466.i
   %115 = add nuw i64 %.sroa.5266.0466.i, 1
   %116 = load i128, ptr %114, align 16, !noalias !50, !noundef !3
   %117 = and i128 %116, %48
@@ -1418,8 +1418,8 @@ default.unreachable:                              ; preds = %44
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit190.i": ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit190.i", %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit190.lr.ph.i"
   %.sroa.5274.0465.i = phi i64 [ %.sroa.5274.0.copyload.i, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit190.lr.ph.i" ], [ %125, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit190.i" ]
-  %123 = getelementptr inbounds nuw i64, ptr %.sroa.0270.0.copyload.i, i64 %.sroa.5274.0465.i
-  %124 = getelementptr inbounds nuw i128, ptr %.sroa.4272.0.copyload.i, i64 %.sroa.5274.0465.i
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0270.0.copyload.i, i64 %.sroa.5274.0465.i
+  %124 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.4272.0.copyload.i, i64 %.sroa.5274.0465.i
   %125 = add nuw i64 %.sroa.5274.0465.i, 1
   %126 = load i128, ptr %124, align 16, !noalias !50, !noundef !3
   %127 = and i128 %126, %48
@@ -1438,8 +1438,8 @@ default.unreachable:                              ; preds = %44
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit195.i": ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit195.i", %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit195.lr.ph.i"
   %.sroa.5282.0464.i = phi i64 [ %.sroa.5282.0.copyload.i, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit195.lr.ph.i" ], [ %135, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit195.i" ]
-  %133 = getelementptr inbounds nuw i64, ptr %.sroa.0278.0.copyload.i, i64 %.sroa.5282.0464.i
-  %134 = getelementptr inbounds nuw i128, ptr %.sroa.4280.0.copyload.i, i64 %.sroa.5282.0464.i
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0278.0.copyload.i, i64 %.sroa.5282.0464.i
+  %134 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.4280.0.copyload.i, i64 %.sroa.5282.0464.i
   %135 = add nuw i64 %.sroa.5282.0464.i, 1
   %136 = load i128, ptr %134, align 16, !noalias !50, !noundef !3
   %137 = and i128 %136, %48
@@ -1458,8 +1458,8 @@ default.unreachable:                              ; preds = %44
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit200.i": ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit200.i", %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit200.lr.ph.i"
   %.sroa.5290.0463.i = phi i64 [ %.sroa.5290.0.copyload.i, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit200.lr.ph.i" ], [ %145, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit200.i" ]
-  %143 = getelementptr inbounds nuw i64, ptr %.sroa.0286.0.copyload.i, i64 %.sroa.5290.0463.i
-  %144 = getelementptr inbounds nuw i128, ptr %.sroa.4288.0.copyload.i, i64 %.sroa.5290.0463.i
+  %143 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0286.0.copyload.i, i64 %.sroa.5290.0463.i
+  %144 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.4288.0.copyload.i, i64 %.sroa.5290.0463.i
   %145 = add nuw i64 %.sroa.5290.0463.i, 1
   %146 = load i128, ptr %144, align 16, !noalias !50, !noundef !3
   %147 = and i128 %146, %48
@@ -1478,8 +1478,8 @@ default.unreachable:                              ; preds = %44
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit205.i": ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit205.i", %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit205.lr.ph.i"
   %.sroa.5298.0462.i = phi i64 [ %.sroa.5298.0.copyload.i, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit205.lr.ph.i" ], [ %155, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit205.i" ]
-  %153 = getelementptr inbounds nuw i64, ptr %.sroa.0294.0.copyload.i, i64 %.sroa.5298.0462.i
-  %154 = getelementptr inbounds nuw i128, ptr %.sroa.4296.0.copyload.i, i64 %.sroa.5298.0462.i
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0294.0.copyload.i, i64 %.sroa.5298.0462.i
+  %154 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.4296.0.copyload.i, i64 %.sroa.5298.0462.i
   %155 = add nuw i64 %.sroa.5298.0462.i, 1
   %156 = load i128, ptr %154, align 16, !noalias !50, !noundef !3
   %157 = and i128 %156, %48
@@ -1498,8 +1498,8 @@ default.unreachable:                              ; preds = %44
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit210.i": ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit210.i", %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit210.lr.ph.i"
   %.sroa.5306.0461.i = phi i64 [ %.sroa.5306.0.copyload.i, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit210.lr.ph.i" ], [ %165, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit210.i" ]
-  %163 = getelementptr inbounds nuw i64, ptr %.sroa.0302.0.copyload.i, i64 %.sroa.5306.0461.i
-  %164 = getelementptr inbounds nuw i128, ptr %.sroa.4304.0.copyload.i, i64 %.sroa.5306.0461.i
+  %163 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0302.0.copyload.i, i64 %.sroa.5306.0461.i
+  %164 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.4304.0.copyload.i, i64 %.sroa.5306.0461.i
   %165 = add nuw i64 %.sroa.5306.0461.i, 1
   %166 = load i128, ptr %164, align 16, !noalias !50, !noundef !3
   %167 = and i128 %166, %48
@@ -1518,8 +1518,8 @@ default.unreachable:                              ; preds = %44
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit215.i": ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit215.i", %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit215.lr.ph.i"
   %.sroa.5314.0460.i = phi i64 [ %.sroa.5314.0.copyload.i, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit215.lr.ph.i" ], [ %175, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit215.i" ]
-  %173 = getelementptr inbounds nuw i64, ptr %.sroa.0310.0.copyload.i, i64 %.sroa.5314.0460.i
-  %174 = getelementptr inbounds nuw i128, ptr %.sroa.4312.0.copyload.i, i64 %.sroa.5314.0460.i
+  %173 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0310.0.copyload.i, i64 %.sroa.5314.0460.i
+  %174 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.4312.0.copyload.i, i64 %.sroa.5314.0460.i
   %175 = add nuw i64 %.sroa.5314.0460.i, 1
   %176 = load i128, ptr %174, align 16, !noalias !50, !noundef !3
   %177 = and i128 %176, %48
@@ -1538,8 +1538,8 @@ default.unreachable:                              ; preds = %44
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit220.i": ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit220.i", %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit220.lr.ph.i"
   %.sroa.5322.0459.i = phi i64 [ %.sroa.5322.0.copyload.i, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit220.lr.ph.i" ], [ %185, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit220.i" ]
-  %183 = getelementptr inbounds nuw i64, ptr %.sroa.0318.0.copyload.i, i64 %.sroa.5322.0459.i
-  %184 = getelementptr inbounds nuw i128, ptr %.sroa.4320.0.copyload.i, i64 %.sroa.5322.0459.i
+  %183 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0318.0.copyload.i, i64 %.sroa.5322.0459.i
+  %184 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.4320.0.copyload.i, i64 %.sroa.5322.0459.i
   %185 = add nuw i64 %.sroa.5322.0459.i, 1
   %186 = load i128, ptr %184, align 16, !noalias !50, !noundef !3
   %187 = and i128 %186, %48
@@ -1558,8 +1558,8 @@ default.unreachable:                              ; preds = %44
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit225.i": ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit225.i", %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit225.lr.ph.i"
   %.sroa.5330.0458.i = phi i64 [ %.sroa.5330.0.copyload.i, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit225.lr.ph.i" ], [ %195, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit225.i" ]
-  %193 = getelementptr inbounds nuw i64, ptr %.sroa.0326.0.copyload.i, i64 %.sroa.5330.0458.i
-  %194 = getelementptr inbounds nuw i128, ptr %.sroa.4328.0.copyload.i, i64 %.sroa.5330.0458.i
+  %193 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0326.0.copyload.i, i64 %.sroa.5330.0458.i
+  %194 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.4328.0.copyload.i, i64 %.sroa.5330.0458.i
   %195 = add nuw i64 %.sroa.5330.0458.i, 1
   %196 = load i128, ptr %194, align 16, !noalias !50, !noundef !3
   %197 = and i128 %196, %48
@@ -1578,8 +1578,8 @@ default.unreachable:                              ; preds = %44
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit230.i": ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit230.i", %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit230.lr.ph.i"
   %.sroa.5338.0457.i = phi i64 [ %.sroa.5338.0.copyload.i, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit230.lr.ph.i" ], [ %205, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit230.i" ]
-  %203 = getelementptr inbounds nuw i64, ptr %.sroa.0334.0.copyload.i, i64 %.sroa.5338.0457.i
-  %204 = getelementptr inbounds nuw i128, ptr %.sroa.4336.0.copyload.i, i64 %.sroa.5338.0457.i
+  %203 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0334.0.copyload.i, i64 %.sroa.5338.0457.i
+  %204 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.4336.0.copyload.i, i64 %.sroa.5338.0457.i
   %205 = add nuw i64 %.sroa.5338.0457.i, 1
   %206 = load i128, ptr %204, align 16, !noalias !50, !noundef !3
   %207 = and i128 %206, %48
@@ -1598,8 +1598,8 @@ default.unreachable:                              ; preds = %44
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit235.i": ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit235.i", %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit235.lr.ph.i"
   %.sroa.5346.0456.i = phi i64 [ %.sroa.5346.0.copyload.i, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit235.lr.ph.i" ], [ %215, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit235.i" ]
-  %213 = getelementptr inbounds nuw i64, ptr %.sroa.0342.0.copyload.i, i64 %.sroa.5346.0456.i
-  %214 = getelementptr inbounds nuw i128, ptr %.sroa.4344.0.copyload.i, i64 %.sroa.5346.0456.i
+  %213 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0342.0.copyload.i, i64 %.sroa.5346.0456.i
+  %214 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.4344.0.copyload.i, i64 %.sroa.5346.0456.i
   %215 = add nuw i64 %.sroa.5346.0456.i, 1
   %216 = load i128, ptr %214, align 16, !noalias !50, !noundef !3
   %217 = and i128 %216, %48
@@ -1618,8 +1618,8 @@ default.unreachable:                              ; preds = %44
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit240.i": ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit240.i", %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit240.lr.ph.i"
   %.sroa.5354.0455.i = phi i64 [ %.sroa.5354.0.copyload.i, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit240.lr.ph.i" ], [ %225, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit240.i" ]
-  %223 = getelementptr inbounds nuw i64, ptr %.sroa.0350.0.copyload.i, i64 %.sroa.5354.0455.i
-  %224 = getelementptr inbounds nuw i128, ptr %.sroa.4352.0.copyload.i, i64 %.sroa.5354.0455.i
+  %223 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0350.0.copyload.i, i64 %.sroa.5354.0455.i
+  %224 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.4352.0.copyload.i, i64 %.sroa.5354.0455.i
   %225 = add nuw i64 %.sroa.5354.0455.i, 1
   %226 = load i128, ptr %224, align 16, !noalias !50, !noundef !3
   %227 = and i128 %226, %48
@@ -1638,8 +1638,8 @@ default.unreachable:                              ; preds = %44
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit245.i": ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit245.i", %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit245.lr.ph.i"
   %.sroa.5362.0454.i = phi i64 [ %.sroa.5362.0.copyload.i, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit245.lr.ph.i" ], [ %235, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit245.i" ]
-  %233 = getelementptr inbounds nuw i64, ptr %.sroa.0358.0.copyload.i, i64 %.sroa.5362.0454.i
-  %234 = getelementptr inbounds nuw i128, ptr %.sroa.4360.0.copyload.i, i64 %.sroa.5362.0454.i
+  %233 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0358.0.copyload.i, i64 %.sroa.5362.0454.i
+  %234 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.4360.0.copyload.i, i64 %.sroa.5362.0454.i
   %235 = add nuw i64 %.sroa.5362.0454.i, 1
   %236 = load i128, ptr %234, align 16, !noalias !50, !noundef !3
   %237 = and i128 %236, %48
@@ -1658,8 +1658,8 @@ default.unreachable:                              ; preds = %44
 
 "_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit250.i": ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit250.i", %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit250.lr.ph.i"
   %.sroa.5370.0453.i = phi i64 [ %.sroa.5370.0.copyload.i, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit250.lr.ph.i" ], [ %245, %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h7a6924a929fa3346E.exit250.i" ]
-  %243 = getelementptr inbounds nuw i64, ptr %.sroa.0366.0.copyload.i, i64 %.sroa.5370.0453.i
-  %244 = getelementptr inbounds nuw i128, ptr %.sroa.4368.0.copyload.i, i64 %.sroa.5370.0453.i
+  %243 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0366.0.copyload.i, i64 %.sroa.5370.0453.i
+  %244 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.4368.0.copyload.i, i64 %.sroa.5370.0453.i
   %245 = add nuw i64 %.sroa.5370.0453.i, 1
   %246 = load i128, ptr %244, align 16, !noalias !50, !noundef !3
   %247 = and i128 %246, %48
@@ -1699,7 +1699,7 @@ _ZN10polars_row5fixed7decimal12encode_slice17hd301b88dc8214b90E.exit: ; preds = 
   %255 = load ptr, ptr %254, align 8, !noundef !3
   %256 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %257 = load i64, ptr %256, align 8, !noundef !3
-  %258 = getelementptr inbounds nuw i128, ptr %255, i64 %257
+  %258 = getelementptr inbounds nuw [16 x i8], ptr %255, i64 %257
   %259 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %260 = load ptr, ptr %259, align 8, !noundef !3
   %.not = icmp eq ptr %260, null
@@ -1901,7 +1901,7 @@ _ZN10polars_row5fixed7decimal23num_bits_from_precision17h7b75fc79020d54ffE.exit:
           to label %210 unwind label %.thread229
 
 111:                                              ; preds = %109
-  %112 = getelementptr inbounds nuw { ptr, i64 }, ptr %1, i64 %2
+  %112 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %2
   %113 = getelementptr inbounds nuw i8, ptr %57, i64 24
   store ptr %1, ptr %113, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %57, i64 32
@@ -1919,7 +1919,7 @@ _ZN10polars_row5fixed7decimal23num_bits_from_precision17h7b75fc79020d54ffE.exit:
           to label %159 unwind label %.thread229
 
 114:                                              ; preds = %109
-  %115 = getelementptr inbounds nuw { ptr, i64 }, ptr %1, i64 %2
+  %115 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %2
   %116 = getelementptr inbounds nuw i8, ptr %56, i64 24
   store ptr %1, ptr %116, align 8
   %.sroa.45.0..sroa_idx = getelementptr inbounds nuw i8, ptr %56, i64 32
@@ -1937,7 +1937,7 @@ _ZN10polars_row5fixed7decimal23num_bits_from_precision17h7b75fc79020d54ffE.exit:
           to label %159 unwind label %.thread229
 
 117:                                              ; preds = %109
-  %118 = getelementptr inbounds nuw { ptr, i64 }, ptr %1, i64 %2
+  %118 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %2
   %119 = getelementptr inbounds nuw i8, ptr %55, i64 24
   store ptr %1, ptr %119, align 8
   %.sroa.413.0..sroa_idx = getelementptr inbounds nuw i8, ptr %55, i64 32
@@ -1955,7 +1955,7 @@ _ZN10polars_row5fixed7decimal23num_bits_from_precision17h7b75fc79020d54ffE.exit:
           to label %159 unwind label %.thread229
 
 120:                                              ; preds = %109
-  %121 = getelementptr inbounds nuw { ptr, i64 }, ptr %1, i64 %2
+  %121 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %2
   %122 = getelementptr inbounds nuw i8, ptr %54, i64 24
   store ptr %1, ptr %122, align 8
   %.sroa.421.0..sroa_idx = getelementptr inbounds nuw i8, ptr %54, i64 32
@@ -1973,7 +1973,7 @@ _ZN10polars_row5fixed7decimal23num_bits_from_precision17h7b75fc79020d54ffE.exit:
           to label %159 unwind label %.thread229
 
 123:                                              ; preds = %109
-  %124 = getelementptr inbounds nuw { ptr, i64 }, ptr %1, i64 %2
+  %124 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %2
   %125 = getelementptr inbounds nuw i8, ptr %53, i64 24
   store ptr %1, ptr %125, align 8
   %.sroa.429.0..sroa_idx = getelementptr inbounds nuw i8, ptr %53, i64 32
@@ -1991,7 +1991,7 @@ _ZN10polars_row5fixed7decimal23num_bits_from_precision17h7b75fc79020d54ffE.exit:
           to label %159 unwind label %.thread229
 
 126:                                              ; preds = %109
-  %127 = getelementptr inbounds nuw { ptr, i64 }, ptr %1, i64 %2
+  %127 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %2
   %128 = getelementptr inbounds nuw i8, ptr %52, i64 24
   store ptr %1, ptr %128, align 8
   %.sroa.437.0..sroa_idx = getelementptr inbounds nuw i8, ptr %52, i64 32
@@ -2009,7 +2009,7 @@ _ZN10polars_row5fixed7decimal23num_bits_from_precision17h7b75fc79020d54ffE.exit:
           to label %159 unwind label %.thread229
 
 129:                                              ; preds = %109
-  %130 = getelementptr inbounds nuw { ptr, i64 }, ptr %1, i64 %2
+  %130 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %2
   %131 = getelementptr inbounds nuw i8, ptr %51, i64 24
   store ptr %1, ptr %131, align 8
   %.sroa.445.0..sroa_idx = getelementptr inbounds nuw i8, ptr %51, i64 32
@@ -2027,7 +2027,7 @@ _ZN10polars_row5fixed7decimal23num_bits_from_precision17h7b75fc79020d54ffE.exit:
           to label %159 unwind label %.thread229
 
 132:                                              ; preds = %109
-  %133 = getelementptr inbounds nuw { ptr, i64 }, ptr %1, i64 %2
+  %133 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %2
   %134 = getelementptr inbounds nuw i8, ptr %50, i64 24
   store ptr %1, ptr %134, align 8
   %.sroa.453.0..sroa_idx = getelementptr inbounds nuw i8, ptr %50, i64 32
@@ -2045,7 +2045,7 @@ _ZN10polars_row5fixed7decimal23num_bits_from_precision17h7b75fc79020d54ffE.exit:
           to label %159 unwind label %.thread229
 
 135:                                              ; preds = %109
-  %136 = getelementptr inbounds nuw { ptr, i64 }, ptr %1, i64 %2
+  %136 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %2
   %137 = getelementptr inbounds nuw i8, ptr %49, i64 24
   store ptr %1, ptr %137, align 8
   %.sroa.461.0..sroa_idx = getelementptr inbounds nuw i8, ptr %49, i64 32
@@ -2063,7 +2063,7 @@ _ZN10polars_row5fixed7decimal23num_bits_from_precision17h7b75fc79020d54ffE.exit:
           to label %159 unwind label %.thread229
 
 138:                                              ; preds = %109
-  %139 = getelementptr inbounds nuw { ptr, i64 }, ptr %1, i64 %2
+  %139 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %2
   %140 = getelementptr inbounds nuw i8, ptr %48, i64 24
   store ptr %1, ptr %140, align 8
   %.sroa.469.0..sroa_idx = getelementptr inbounds nuw i8, ptr %48, i64 32
@@ -2081,7 +2081,7 @@ _ZN10polars_row5fixed7decimal23num_bits_from_precision17h7b75fc79020d54ffE.exit:
           to label %159 unwind label %.thread229
 
 141:                                              ; preds = %109
-  %142 = getelementptr inbounds nuw { ptr, i64 }, ptr %1, i64 %2
+  %142 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %2
   %143 = getelementptr inbounds nuw i8, ptr %47, i64 24
   store ptr %1, ptr %143, align 8
   %.sroa.477.0..sroa_idx = getelementptr inbounds nuw i8, ptr %47, i64 32
@@ -2099,7 +2099,7 @@ _ZN10polars_row5fixed7decimal23num_bits_from_precision17h7b75fc79020d54ffE.exit:
           to label %159 unwind label %.thread229
 
 144:                                              ; preds = %109
-  %145 = getelementptr inbounds nuw { ptr, i64 }, ptr %1, i64 %2
+  %145 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %2
   %146 = getelementptr inbounds nuw i8, ptr %46, i64 24
   store ptr %1, ptr %146, align 8
   %.sroa.485.0..sroa_idx = getelementptr inbounds nuw i8, ptr %46, i64 32
@@ -2117,7 +2117,7 @@ _ZN10polars_row5fixed7decimal23num_bits_from_precision17h7b75fc79020d54ffE.exit:
           to label %159 unwind label %.thread229
 
 147:                                              ; preds = %109
-  %148 = getelementptr inbounds nuw { ptr, i64 }, ptr %1, i64 %2
+  %148 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %2
   %149 = getelementptr inbounds nuw i8, ptr %45, i64 24
   store ptr %1, ptr %149, align 8
   %.sroa.493.0..sroa_idx = getelementptr inbounds nuw i8, ptr %45, i64 32
@@ -2135,7 +2135,7 @@ _ZN10polars_row5fixed7decimal23num_bits_from_precision17h7b75fc79020d54ffE.exit:
           to label %159 unwind label %.thread229
 
 150:                                              ; preds = %109
-  %151 = getelementptr inbounds nuw { ptr, i64 }, ptr %1, i64 %2
+  %151 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %2
   %152 = getelementptr inbounds nuw i8, ptr %44, i64 24
   store ptr %1, ptr %152, align 8
   %.sroa.4101.0..sroa_idx = getelementptr inbounds nuw i8, ptr %44, i64 32
@@ -2153,7 +2153,7 @@ _ZN10polars_row5fixed7decimal23num_bits_from_precision17h7b75fc79020d54ffE.exit:
           to label %159 unwind label %.thread229
 
 153:                                              ; preds = %109
-  %154 = getelementptr inbounds nuw { ptr, i64 }, ptr %1, i64 %2
+  %154 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %2
   %155 = getelementptr inbounds nuw i8, ptr %43, i64 24
   store ptr %1, ptr %155, align 8
   %.sroa.4109.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 32
@@ -2171,7 +2171,7 @@ _ZN10polars_row5fixed7decimal23num_bits_from_precision17h7b75fc79020d54ffE.exit:
           to label %159 unwind label %.thread229
 
 156:                                              ; preds = %109
-  %157 = getelementptr inbounds nuw { ptr, i64 }, ptr %1, i64 %2
+  %157 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %2
   %158 = getelementptr inbounds nuw i8, ptr %42, i64 24
   store ptr %1, ptr %158, align 8
   %.sroa.4117.0..sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 32
@@ -2324,8 +2324,8 @@ default.unreachable:                              ; preds = %183
   br i1 %186, label %.invoke, label %281, !prof !127
 
 203:                                              ; preds = %187
-  %204 = getelementptr inbounds nuw { ptr, i64 }, ptr %1, i64 %184
-  %205 = getelementptr inbounds nuw { ptr, i64 }, ptr %1, i64 %2
+  %204 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %184
+  %205 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %2
   store ptr %204, ptr %36, align 8
   %206 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store ptr %205, ptr %206, align 8
@@ -2362,8 +2362,8 @@ default.unreachable:                              ; preds = %183
   unreachable
 
 211:                                              ; preds = %188
-  %212 = getelementptr inbounds nuw { ptr, i64 }, ptr %1, i64 %184
-  %213 = getelementptr inbounds nuw { ptr, i64 }, ptr %1, i64 %2
+  %212 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %184
+  %213 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %2
   store ptr %212, ptr %35, align 8
   %214 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store ptr %213, ptr %214, align 8
@@ -2381,8 +2381,8 @@ default.unreachable:                              ; preds = %183
           to label %208 unwind label %.thread233
 
 216:                                              ; preds = %189
-  %217 = getelementptr inbounds nuw { ptr, i64 }, ptr %1, i64 %184
-  %218 = getelementptr inbounds nuw { ptr, i64 }, ptr %1, i64 %2
+  %217 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %184
+  %218 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %2
   store ptr %217, ptr %34, align 8
   %219 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store ptr %218, ptr %219, align 8
@@ -2400,8 +2400,8 @@ default.unreachable:                              ; preds = %183
           to label %208 unwind label %.thread233
 
 221:                                              ; preds = %190
-  %222 = getelementptr inbounds nuw { ptr, i64 }, ptr %1, i64 %184
-  %223 = getelementptr inbounds nuw { ptr, i64 }, ptr %1, i64 %2
+  %222 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %184
+  %223 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %2
   store ptr %222, ptr %33, align 8
   %224 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store ptr %223, ptr %224, align 8
@@ -2419,8 +2419,8 @@ default.unreachable:                              ; preds = %183
           to label %208 unwind label %.thread233
 
 226:                                              ; preds = %191
-  %227 = getelementptr inbounds nuw { ptr, i64 }, ptr %1, i64 %184
-  %228 = getelementptr inbounds nuw { ptr, i64 }, ptr %1, i64 %2
+  %227 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %184
+  %228 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %2
   store ptr %227, ptr %32, align 8
   %229 = getelementptr inbounds nuw i8, ptr %32, i64 8
   store ptr %228, ptr %229, align 8
@@ -2438,8 +2438,8 @@ default.unreachable:                              ; preds = %183
           to label %208 unwind label %.thread233
 
 231:                                              ; preds = %192
-  %232 = getelementptr inbounds nuw { ptr, i64 }, ptr %1, i64 %184
-  %233 = getelementptr inbounds nuw { ptr, i64 }, ptr %1, i64 %2
+  %232 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %184
+  %233 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %2
   store ptr %232, ptr %31, align 8
   %234 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store ptr %233, ptr %234, align 8
@@ -2457,8 +2457,8 @@ default.unreachable:                              ; preds = %183
           to label %208 unwind label %.thread233
 
 236:                                              ; preds = %193
-  %237 = getelementptr inbounds nuw { ptr, i64 }, ptr %1, i64 %184
-  %238 = getelementptr inbounds nuw { ptr, i64 }, ptr %1, i64 %2
+  %237 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %184
+  %238 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %2
   store ptr %237, ptr %30, align 8
   %239 = getelementptr inbounds nuw i8, ptr %30, i64 8
   store ptr %238, ptr %239, align 8
@@ -2476,8 +2476,8 @@ default.unreachable:                              ; preds = %183
           to label %208 unwind label %.thread233
 
 241:                                              ; preds = %194
-  %242 = getelementptr inbounds nuw { ptr, i64 }, ptr %1, i64 %184
-  %243 = getelementptr inbounds nuw { ptr, i64 }, ptr %1, i64 %2
+  %242 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %184
+  %243 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %2
   store ptr %242, ptr %29, align 8
   %244 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr %243, ptr %244, align 8
@@ -2495,8 +2495,8 @@ default.unreachable:                              ; preds = %183
           to label %208 unwind label %.thread233
 
 246:                                              ; preds = %195
-  %247 = getelementptr inbounds nuw { ptr, i64 }, ptr %1, i64 %184
-  %248 = getelementptr inbounds nuw { ptr, i64 }, ptr %1, i64 %2
+  %247 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %184
+  %248 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %2
   store ptr %247, ptr %28, align 8
   %249 = getelementptr inbounds nuw i8, ptr %28, i64 8
   store ptr %248, ptr %249, align 8
@@ -2514,8 +2514,8 @@ default.unreachable:                              ; preds = %183
           to label %208 unwind label %.thread233
 
 251:                                              ; preds = %196
-  %252 = getelementptr inbounds nuw { ptr, i64 }, ptr %1, i64 %184
-  %253 = getelementptr inbounds nuw { ptr, i64 }, ptr %1, i64 %2
+  %252 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %184
+  %253 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %2
   store ptr %252, ptr %27, align 8
   %254 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store ptr %253, ptr %254, align 8
@@ -2533,8 +2533,8 @@ default.unreachable:                              ; preds = %183
           to label %208 unwind label %.thread233
 
 256:                                              ; preds = %197
-  %257 = getelementptr inbounds nuw { ptr, i64 }, ptr %1, i64 %184
-  %258 = getelementptr inbounds nuw { ptr, i64 }, ptr %1, i64 %2
+  %257 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %184
+  %258 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %2
   store ptr %257, ptr %26, align 8
   %259 = getelementptr inbounds nuw i8, ptr %26, i64 8
   store ptr %258, ptr %259, align 8
@@ -2552,8 +2552,8 @@ default.unreachable:                              ; preds = %183
           to label %208 unwind label %.thread233
 
 261:                                              ; preds = %198
-  %262 = getelementptr inbounds nuw { ptr, i64 }, ptr %1, i64 %184
-  %263 = getelementptr inbounds nuw { ptr, i64 }, ptr %1, i64 %2
+  %262 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %184
+  %263 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %2
   store ptr %262, ptr %25, align 8
   %264 = getelementptr inbounds nuw i8, ptr %25, i64 8
   store ptr %263, ptr %264, align 8
@@ -2571,8 +2571,8 @@ default.unreachable:                              ; preds = %183
           to label %208 unwind label %.thread233
 
 266:                                              ; preds = %199
-  %267 = getelementptr inbounds nuw { ptr, i64 }, ptr %1, i64 %184
-  %268 = getelementptr inbounds nuw { ptr, i64 }, ptr %1, i64 %2
+  %267 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %184
+  %268 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %2
   store ptr %267, ptr %24, align 8
   %269 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store ptr %268, ptr %269, align 8
@@ -2590,8 +2590,8 @@ default.unreachable:                              ; preds = %183
           to label %208 unwind label %.thread233
 
 271:                                              ; preds = %200
-  %272 = getelementptr inbounds nuw { ptr, i64 }, ptr %1, i64 %184
-  %273 = getelementptr inbounds nuw { ptr, i64 }, ptr %1, i64 %2
+  %272 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %184
+  %273 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %2
   store ptr %272, ptr %23, align 8
   %274 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store ptr %273, ptr %274, align 8
@@ -2609,8 +2609,8 @@ default.unreachable:                              ; preds = %183
           to label %208 unwind label %.thread233
 
 276:                                              ; preds = %201
-  %277 = getelementptr inbounds nuw { ptr, i64 }, ptr %1, i64 %184
-  %278 = getelementptr inbounds nuw { ptr, i64 }, ptr %1, i64 %2
+  %277 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %184
+  %278 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %2
   store ptr %277, ptr %22, align 8
   %279 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %278, ptr %279, align 8
@@ -2628,8 +2628,8 @@ default.unreachable:                              ; preds = %183
           to label %208 unwind label %.thread233
 
 281:                                              ; preds = %202
-  %282 = getelementptr inbounds nuw { ptr, i64 }, ptr %1, i64 %184
-  %283 = getelementptr inbounds nuw { ptr, i64 }, ptr %1, i64 %2
+  %282 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %184
+  %283 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %2
   store ptr %282, ptr %21, align 8
   %284 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store ptr %283, ptr %284, align 8
@@ -3346,7 +3346,7 @@ _ZN10polars_row8variable6binary11decoded_len17h4f9569e3f40fe677E.exit: ; preds =
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h0b833bc5d81c93a5E.exit.i": ; preds = %118, %.noexc31
   %123 = load ptr, ptr %37, align 8, !alias.scope !188, !noalias !191, !nonnull !3, !noundef !3
-  %124 = getelementptr inbounds nuw { ptr, ptr, i64 }, ptr %123, i64 %115
+  %124 = getelementptr inbounds nuw [24 x i8], ptr %123, i64 %115
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %124, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   %125 = add i64 %115, 1
   store i64 %125, ptr %36, align 8, !alias.scope !188, !noalias !191
@@ -3385,7 +3385,7 @@ _ZN12polars_arrow5array7binview4view4View14new_from_bytes17h2e0224cb3746c684E.ex
 
 "_ZN12polars_arrow5array7binview7mutable31MutableBinaryViewArray$LT$T$GT$26push_value_ignore_validity17h102ec00518d7bbabE.exit": ; preds = %129, %_ZN12polars_arrow5array7binview4view4View14new_from_bytes17h2e0224cb3746c684E.exit.i
   %131 = load ptr, ptr %39, align 8, !alias.scope !194, !noalias !197, !nonnull !3, !noundef !3
-  %132 = getelementptr inbounds nuw { i32, i32, i32, i32 }, ptr %131, i64 %126
+  %132 = getelementptr inbounds nuw [16 x i8], ptr %131, i64 %126
   store i32 %78, ptr %132, align 4
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %132, i64 4
   store i32 %.sroa.3.0.i, ptr %.sroa.3.0..sroa_idx.i, align 4

@@ -368,10 +368,10 @@ switch.lookup:                                    ; preds = %switch.hole_check
 
 switch.lookup3:                                   ; preds = %switch.lookup
   %18 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK7nanogui7Texture15bytes_per_pixelEv, i64 %18
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK7nanogui7Texture15bytes_per_pixelEv, i64 %18
   %switch.load = load i64, ptr %switch.gep, align 8
   %19 = zext nneg i8 %11 to i64
-  %switch.gep4 = getelementptr inbounds nuw i64, ptr @switch.table._ZNK7nanogui7Texture8channelsEv, i64 %19
+  %switch.gep4 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK7nanogui7Texture8channelsEv, i64 %19
   %switch.load5 = load i64, ptr %switch.gep4, align 8
   %20 = mul nuw nsw i64 %switch.load5, %switch.load
   ret i64 %20
@@ -401,7 +401,7 @@ define hidden noundef range(i64 1, 5) i64 @_ZNK7nanogui7Texture8channelsEv(ptr n
 
 switch.lookup:                                    ; preds = %1
   %10 = zext nneg i8 %3 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZNK7nanogui7Texture8channelsEv, i64 %10
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK7nanogui7Texture8channelsEv, i64 %10
   %switch.load = load i64, ptr %switch.gep, align 8
   ret i64 %switch.load
 }

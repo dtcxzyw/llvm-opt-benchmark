@@ -52,8 +52,8 @@ _ZL37gmx_omp_nthreads_get_simple_rvec_task17ModuleMultiThreadi.exit: ; preds = %
 
 .preheader39.us.i:                                ; preds = %.preheader39.lr.ph.i, %.loopexit.us.i
   %indvars.iv71.i = phi i64 [ %indvars.iv.next72.i, %.loopexit.us.i ], [ 0, %.preheader39.lr.ph.i ]
-  %22 = getelementptr inbounds nuw [3 x float], ptr %1, i64 %indvars.iv71.i
-  %23 = getelementptr inbounds nuw [3 x float], ptr %2, i64 %indvars.iv71.i
+  %22 = getelementptr inbounds nuw [12 x i8], ptr %1, i64 %indvars.iv71.i
+  %23 = getelementptr inbounds nuw [12 x i8], ptr %2, i64 %indvars.iv71.i
   br label %.preheader38.us.i
 
 24:                                               ; preds = %34
@@ -74,9 +74,9 @@ _ZL37gmx_omp_nthreads_get_simple_rvec_task17ModuleMultiThreadi.exit: ; preds = %
 
 28:                                               ; preds = %.preheader.us.i, %28
   %indvars.iv63.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next64.i, %28 ]
-  %29 = getelementptr inbounds nuw float, ptr %23, i64 %indvars.iv63.i
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv63.i
   %30 = load float, ptr %29, align 4, !tbaa !15
-  %31 = getelementptr inbounds nuw float, ptr %43, i64 %indvars.iv63.i
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv63.i
   %32 = load float, ptr %31, align 4, !tbaa !15
   %33 = tail call float @llvm.fmuladd.f32(float %.pre45, float %30, float %32)
   store float %33, ptr %31, align 4, !tbaa !15
@@ -96,9 +96,9 @@ _ZL37gmx_omp_nthreads_get_simple_rvec_task17ModuleMultiThreadi.exit: ; preds = %
 
 35:                                               ; preds = %.preheader38.us.i, %35
   %indvars.iv55.i = phi i64 [ 0, %.preheader38.us.i ], [ %indvars.iv.next56.i, %35 ]
-  %36 = getelementptr inbounds nuw float, ptr %23, i64 %indvars.iv55.i
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv55.i
   %37 = load float, ptr %36, align 4, !tbaa !15
-  %38 = getelementptr inbounds nuw float, ptr %45, i64 %indvars.iv55.i
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %indvars.iv55.i
   %39 = load float, ptr %38, align 4, !tbaa !15
   %40 = tail call float @llvm.fmuladd.f32(float %.pre44, float %37, float %39)
   store float %40, ptr %38, align 4, !tbaa !15
@@ -108,29 +108,29 @@ _ZL37gmx_omp_nthreads_get_simple_rvec_task17ModuleMultiThreadi.exit: ; preds = %
 
 .preheader.us.i:                                  ; preds = %.preheader.us.i.preheader, %27
   %indvars.iv67.i = phi i64 [ %indvars.iv.next68.i, %27 ], [ 0, %.preheader.us.i.preheader ]
-  %41 = getelementptr inbounds nuw [3 x float], ptr %5, i64 %indvars.iv67.i
-  %42 = getelementptr inbounds nuw float, ptr %41, i64 %indvars.iv67.i
-  %43 = getelementptr inbounds nuw [3 x float], ptr %12, i64 %indvars.iv67.i
+  %41 = getelementptr inbounds nuw [12 x i8], ptr %5, i64 %indvars.iv67.i
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %indvars.iv67.i
+  %43 = getelementptr inbounds nuw [12 x i8], ptr %12, i64 %indvars.iv67.i
   %.pre45 = load float, ptr %42, align 4, !tbaa !15
   br label %28
 
 .preheader38.us.i:                                ; preds = %34, %.preheader39.us.i
   %indvars.iv59.i = phi i64 [ %indvars.iv.next60.i, %34 ], [ 0, %.preheader39.us.i ]
-  %44 = getelementptr inbounds nuw float, ptr %22, i64 %indvars.iv59.i
-  %45 = getelementptr inbounds nuw [3 x float], ptr %12, i64 %indvars.iv59.i
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv59.i
+  %45 = getelementptr inbounds nuw [12 x i8], ptr %12, i64 %indvars.iv59.i
   %.pre44 = load float, ptr %44, align 4, !tbaa !15
   br label %35
 
 .preheader39.i:                                   ; preds = %.preheader39.lr.ph.i, %50
   %indvars.iv51.i = phi i64 [ %indvars.iv.next52.i, %50 ], [ 0, %.preheader39.lr.ph.i ]
-  %46 = getelementptr inbounds nuw [3 x float], ptr %1, i64 %indvars.iv51.i
-  %47 = getelementptr inbounds nuw [3 x float], ptr %2, i64 %indvars.iv51.i
+  %46 = getelementptr inbounds nuw [12 x i8], ptr %1, i64 %indvars.iv51.i
+  %47 = getelementptr inbounds nuw [12 x i8], ptr %2, i64 %indvars.iv51.i
   br label %.preheader38.i
 
 .preheader38.i:                                   ; preds = %51, %.preheader39.i
   %indvars.iv47.i = phi i64 [ 0, %.preheader39.i ], [ %indvars.iv.next48.i, %51 ]
-  %48 = getelementptr inbounds nuw float, ptr %46, i64 %indvars.iv47.i
-  %49 = getelementptr inbounds nuw [3 x float], ptr %12, i64 %indvars.iv47.i
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %indvars.iv47.i
+  %49 = getelementptr inbounds nuw [12 x i8], ptr %12, i64 %indvars.iv47.i
   %.pre = load float, ptr %48, align 4, !tbaa !15
   br label %52
 
@@ -146,9 +146,9 @@ _ZL37gmx_omp_nthreads_get_simple_rvec_task17ModuleMultiThreadi.exit: ; preds = %
 
 52:                                               ; preds = %52, %.preheader38.i
   %indvars.iv.i = phi i64 [ 0, %.preheader38.i ], [ %indvars.iv.next.i, %52 ]
-  %53 = getelementptr inbounds nuw float, ptr %47, i64 %indvars.iv.i
+  %53 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %indvars.iv.i
   %54 = load float, ptr %53, align 4, !tbaa !15
-  %55 = getelementptr inbounds nuw float, ptr %49, i64 %indvars.iv.i
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %indvars.iv.i
   %56 = load float, ptr %55, align 4, !tbaa !15
   %57 = tail call float @llvm.fmuladd.f32(float %.pre, float %54, float %56)
   store float %57, ptr %55, align 4, !tbaa !15
@@ -254,8 +254,8 @@ _ZL14calc_x_times_fiPA3_KfS1_bS1_PA3_f.exit.preheader: ; preds = %50, %.loopexit
 
 _ZL14calc_x_times_fiPA3_KfS1_bS1_PA3_f.exit:      ; preds = %_ZL14calc_x_times_fiPA3_KfS1_bS1_PA3_f.exit.preheader, %_ZL14calc_x_times_fiPA3_KfS1_bS1_PA3_f.exit
   %indvars.iv40 = phi i64 [ %indvars.iv.next41, %_ZL14calc_x_times_fiPA3_KfS1_bS1_PA3_f.exit ], [ 0, %_ZL14calc_x_times_fiPA3_KfS1_bS1_PA3_f.exit.preheader ]
-  %108 = getelementptr inbounds nuw [3 x float], ptr %3, i64 %indvars.iv40
-  %109 = getelementptr inbounds nuw [3 x float], ptr %12, i64 %indvars.iv40
+  %108 = getelementptr inbounds nuw [12 x i8], ptr %3, i64 %indvars.iv40
+  %109 = getelementptr inbounds nuw [12 x i8], ptr %12, i64 %indvars.iv40
   %110 = load float, ptr %109, align 4, !tbaa !15
   %111 = getelementptr inbounds nuw i8, ptr %109, i64 4
   %112 = load float, ptr %111, align 4, !tbaa !15
@@ -335,9 +335,9 @@ define internal void @_Z8calc_viriPA3_KfS1_PA3_fbS1_.omp_outlined(ptr noalias no
   %33 = sub nsw i32 %.sroa.speculated, %29
   %34 = load ptr, ptr %4, align 8, !tbaa !8
   %35 = sext i32 %29 to i64
-  %36 = getelementptr inbounds [3 x float], ptr %34, i64 %35
+  %36 = getelementptr inbounds [12 x i8], ptr %34, i64 %35
   %37 = load ptr, ptr %5, align 8, !tbaa !8
-  %38 = getelementptr inbounds [3 x float], ptr %37, i64 %35
+  %38 = getelementptr inbounds [12 x i8], ptr %37, i64 %35
   %39 = load i8, ptr %6, align 1, !tbaa !11, !range !23, !noundef !24
   %40 = load ptr, ptr %7, align 8, !tbaa !8
   %41 = icmp eq i64 %indvars.iv, 0
@@ -355,8 +355,8 @@ define internal void @_Z8calc_viriPA3_KfS1_PA3_fbS1_.omp_outlined(ptr noalias no
 
 .preheader39.us.i:                                ; preds = %.preheader39.lr.ph.i, %.loopexit.us.i
   %indvars.iv71.i = phi i64 [ %indvars.iv.next72.i, %.loopexit.us.i ], [ 0, %.preheader39.lr.ph.i ]
-  %46 = getelementptr inbounds nuw [3 x float], ptr %36, i64 %indvars.iv71.i
-  %47 = getelementptr inbounds nuw [3 x float], ptr %38, i64 %indvars.iv71.i
+  %46 = getelementptr inbounds nuw [12 x i8], ptr %36, i64 %indvars.iv71.i
+  %47 = getelementptr inbounds nuw [12 x i8], ptr %38, i64 %indvars.iv71.i
   br label %.preheader38.us.i
 
 48:                                               ; preds = %59
@@ -378,9 +378,9 @@ define internal void @_Z8calc_viriPA3_KfS1_PA3_fbS1_.omp_outlined(ptr noalias no
 52:                                               ; preds = %.preheader.us.i, %52
   %indvars.iv63.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next64.i, %52 ]
   %53 = load float, ptr %68, align 4, !tbaa !15
-  %54 = getelementptr inbounds nuw float, ptr %47, i64 %indvars.iv63.i
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %indvars.iv63.i
   %55 = load float, ptr %54, align 4, !tbaa !15
-  %56 = getelementptr inbounds nuw float, ptr %69, i64 %indvars.iv63.i
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %indvars.iv63.i
   %57 = load float, ptr %56, align 4, !tbaa !15
   %58 = call float @llvm.fmuladd.f32(float %53, float %55, float %57)
   store float %58, ptr %56, align 4, !tbaa !15
@@ -401,9 +401,9 @@ define internal void @_Z8calc_viriPA3_KfS1_PA3_fbS1_.omp_outlined(ptr noalias no
 60:                                               ; preds = %.preheader38.us.i, %60
   %indvars.iv55.i = phi i64 [ 0, %.preheader38.us.i ], [ %indvars.iv.next56.i, %60 ]
   %61 = load float, ptr %70, align 4, !tbaa !15
-  %62 = getelementptr inbounds nuw float, ptr %47, i64 %indvars.iv55.i
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %indvars.iv55.i
   %63 = load float, ptr %62, align 4, !tbaa !15
-  %64 = getelementptr inbounds nuw float, ptr %71, i64 %indvars.iv55.i
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %indvars.iv55.i
   %65 = load float, ptr %64, align 4, !tbaa !15
   %66 = call float @llvm.fmuladd.f32(float %61, float %63, float %65)
   store float %66, ptr %64, align 4, !tbaa !15
@@ -413,27 +413,27 @@ define internal void @_Z8calc_viriPA3_KfS1_PA3_fbS1_.omp_outlined(ptr noalias no
 
 .preheader.us.i:                                  ; preds = %.preheader.us.i.preheader, %51
   %indvars.iv67.i = phi i64 [ %indvars.iv.next68.i, %51 ], [ 0, %.preheader.us.i.preheader ]
-  %67 = getelementptr inbounds nuw [3 x float], ptr %40, i64 %indvars.iv67.i
-  %68 = getelementptr inbounds nuw float, ptr %67, i64 %indvars.iv67.i
-  %69 = getelementptr inbounds nuw [3 x float], ptr %43, i64 %indvars.iv67.i
+  %67 = getelementptr inbounds nuw [12 x i8], ptr %40, i64 %indvars.iv67.i
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %indvars.iv67.i
+  %69 = getelementptr inbounds nuw [12 x i8], ptr %43, i64 %indvars.iv67.i
   br label %52
 
 .preheader38.us.i:                                ; preds = %59, %.preheader39.us.i
   %indvars.iv59.i = phi i64 [ %indvars.iv.next60.i, %59 ], [ 0, %.preheader39.us.i ]
-  %70 = getelementptr inbounds nuw float, ptr %46, i64 %indvars.iv59.i
-  %71 = getelementptr inbounds nuw [3 x float], ptr %43, i64 %indvars.iv59.i
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %indvars.iv59.i
+  %71 = getelementptr inbounds nuw [12 x i8], ptr %43, i64 %indvars.iv59.i
   br label %60
 
 .preheader39.i:                                   ; preds = %.preheader39.lr.ph.i, %76
   %indvars.iv51.i = phi i64 [ %indvars.iv.next52.i, %76 ], [ 0, %.preheader39.lr.ph.i ]
-  %72 = getelementptr inbounds nuw [3 x float], ptr %36, i64 %indvars.iv51.i
-  %73 = getelementptr inbounds nuw [3 x float], ptr %38, i64 %indvars.iv51.i
+  %72 = getelementptr inbounds nuw [12 x i8], ptr %36, i64 %indvars.iv51.i
+  %73 = getelementptr inbounds nuw [12 x i8], ptr %38, i64 %indvars.iv51.i
   br label %.preheader38.i
 
 .preheader38.i:                                   ; preds = %77, %.preheader39.i
   %indvars.iv47.i = phi i64 [ 0, %.preheader39.i ], [ %indvars.iv.next48.i, %77 ]
-  %74 = getelementptr inbounds nuw float, ptr %72, i64 %indvars.iv47.i
-  %75 = getelementptr inbounds nuw [3 x float], ptr %43, i64 %indvars.iv47.i
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %indvars.iv47.i
+  %75 = getelementptr inbounds nuw [12 x i8], ptr %43, i64 %indvars.iv47.i
   br label %78
 
 76:                                               ; preds = %77
@@ -449,9 +449,9 @@ define internal void @_Z8calc_viriPA3_KfS1_PA3_fbS1_.omp_outlined(ptr noalias no
 78:                                               ; preds = %78, %.preheader38.i
   %indvars.iv.i = phi i64 [ 0, %.preheader38.i ], [ %indvars.iv.next.i, %78 ]
   %79 = load float, ptr %74, align 4, !tbaa !15
-  %80 = getelementptr inbounds nuw float, ptr %73, i64 %indvars.iv.i
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %indvars.iv.i
   %81 = load float, ptr %80, align 4, !tbaa !15
-  %82 = getelementptr inbounds nuw float, ptr %75, i64 %indvars.iv.i
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %indvars.iv.i
   %83 = load float, ptr %82, align 4, !tbaa !15
   %84 = call float @llvm.fmuladd.f32(float %79, float %81, float %83)
   store float %84, ptr %82, align 4, !tbaa !15
@@ -504,8 +504,8 @@ declare double @llvm.fmuladd.f64(double, double, double) #4
 define void @_Z10f_calc_viriiPA3_KfS1_PA3_fS1_(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = sub nsw i32 %1, %0
   %8 = sext i32 %0 to i64
-  %9 = getelementptr inbounds [3 x float], ptr %2, i64 %8
-  %10 = getelementptr inbounds [3 x float], ptr %3, i64 %8
+  %9 = getelementptr inbounds [12 x i8], ptr %2, i64 %8
+  %10 = getelementptr inbounds [12 x i8], ptr %3, i64 %8
   tail call void @_Z8calc_viriPA3_KfS1_PA3_fbS1_(i32 noundef %7, ptr noundef %9, ptr noundef %10, ptr noundef %4, i1 noundef zeroext false, ptr noundef %5)
   ret void
 }

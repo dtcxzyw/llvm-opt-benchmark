@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.XSetWindowAttributes = type { i64, i64, i64, i64, i32, i32, i32, i64, i64, i32, i64, i64, i32, i64, i64 }
-%struct.Screen = type { ptr, ptr, i64, i32, i32, i32, i32, i32, ptr, i32, ptr, ptr, i64, i64, i64, i32, i32, i32, i32, i64 }
 
 @X11_XCreateWindow = external local_unnamed_addr global ptr, align 8
 @X11_XSelectInput = external local_unnamed_addr global ptr, align 8
@@ -43,7 +42,7 @@ define hidden i64 @GetWindow(ptr noundef readonly captures(none) %0) local_unnam
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 224
   %13 = load i32, ptr %12, align 8
   %14 = sext i32 %13 to i64
-  %15 = getelementptr inbounds %struct.Screen, ptr %11, i64 %14
+  %15 = getelementptr inbounds [128 x i8], ptr %11, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load i64, ptr %16, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -105,7 +104,7 @@ GetWindow.exit:                                   ; preds = %6
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 224
   %15 = load i32, ptr %14, align 8
   %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds %struct.Screen, ptr %13, i64 %16
+  %17 = getelementptr inbounds [128 x i8], ptr %13, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load i64, ptr %18, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -210,7 +209,7 @@ define internal fastcc ptr @GetSelectionData(ptr noundef readonly captures(none)
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 224
   %25 = load i32, ptr %24, align 8
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds %struct.Screen, ptr %23, i64 %26
+  %27 = getelementptr inbounds [128 x i8], ptr %23, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %29 = load i64, ptr %28, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)

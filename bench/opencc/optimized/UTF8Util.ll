@@ -38,7 +38,7 @@ define void @_ZN6opencc8UTF8Util11SkipUtf8BomEP8_IO_FILE(ptr noundef captures(ad
 7:                                                ; preds = %6, %10
   %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %10 ]
   %8 = tail call i32 @getc(ptr noundef nonnull %0)
-  %9 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   store i32 %8, ptr %9, align 4, !tbaa !3
   %.not20 = icmp eq i32 %8, -1
   br i1 %.not20, label %.critedge.split.loop.exit28, label %10
@@ -76,7 +76,7 @@ define void @_ZN6opencc8UTF8Util11SkipUtf8BomEP8_IO_FILE(ptr noundef captures(ad
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv25 = phi i64 [ %21, %.lr.ph.preheader ], [ %indvars.iv.next26, %.lr.ph ]
   %indvars.iv.next26 = add nsw i64 %indvars.iv25, -1
-  %22 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.next26
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.next26
   %23 = load i32, ptr %22, align 4, !tbaa !3
   %24 = tail call i32 @ungetc(i32 noundef %23, ptr noundef nonnull %0)
   %25 = icmp samesign ugt i64 %indvars.iv25, 1

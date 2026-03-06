@@ -51,7 +51,7 @@ define void @Aig_ObjCreateRepr(ptr noundef readonly captures(none) %0, ptr nound
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %7 = load i32, ptr %6, align 4, !tbaa !22
   %8 = sext i32 %7 to i64
-  %9 = getelementptr inbounds ptr, ptr %5, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %5, i64 %8
   store ptr %1, ptr %9, align 8, !tbaa !23
   ret void
 }
@@ -90,7 +90,7 @@ define void @Aig_ManTransferRepr(ptr noundef captures(none) %0, ptr noundef read
   %20 = phi ptr [ %15, %14 ], [ %17, %16 ]
   store ptr %20, ptr %10, align 8, !tbaa !21
   %21 = sext i32 %19 to i64
-  %22 = getelementptr inbounds ptr, ptr %20, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %20, i64 %21
   %23 = sub nsw i32 %9, %19
   %24 = sext i32 %23 to i64
   %25 = shl nsw i64 %24, 3
@@ -116,7 +116,7 @@ define void @Aig_ManTransferRepr(ptr noundef captures(none) %0, ptr noundef read
 
 34:                                               ; preds = %.lr.ph, %Aig_ObjSetRepr_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Aig_ObjSetRepr_.exit ]
-  %35 = getelementptr inbounds nuw ptr, ptr %.val30, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %.val30, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8, !tbaa !28
   %37 = icmp eq ptr %36, null
   br i1 %37, label %Aig_ObjSetRepr_.exit, label %38
@@ -126,7 +126,7 @@ define void @Aig_ManTransferRepr(ptr noundef captures(none) %0, ptr noundef read
   %39 = getelementptr i8, ptr %36, i64 36
   %.val32 = load i32, ptr %39, align 4, !tbaa !22
   %40 = sext i32 %.val32 to i64
-  %41 = getelementptr inbounds ptr, ptr %.val31, i64 %40
+  %41 = getelementptr inbounds [8 x i8], ptr %.val31, i64 %40
   %42 = load ptr, ptr %41, align 8, !tbaa !23
   %.not27 = icmp eq ptr %42, null
   br i1 %.not27, label %Aig_ObjSetRepr_.exit, label %43
@@ -155,7 +155,7 @@ define void @Aig_ManTransferRepr(ptr noundef captures(none) %0, ptr noundef read
   %..i = tail call i32 @llvm.smax.i32(i32 %56, i32 %58)
   %.19.i = select i1 %59, ptr %54, ptr %53
   %61 = sext i32 %..i to i64
-  %62 = getelementptr inbounds ptr, ptr %60, i64 %61
+  %62 = getelementptr inbounds [8 x i8], ptr %60, i64 %61
   store ptr %.19.i, ptr %62, align 8, !tbaa !23
   br label %Aig_ObjSetRepr_.exit
 
@@ -184,7 +184,7 @@ define ptr @Aig_ManDupRepr_rec(ptr noundef %0, ptr noundef %1, ptr noundef captu
   %8 = getelementptr i8, ptr %2, i64 36
   %.val27 = load i32, ptr %8, align 4, !tbaa !22
   %9 = sext i32 %.val27 to i64
-  %10 = getelementptr inbounds ptr, ptr %.val, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %.val, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !23
   %.not26 = icmp eq ptr %11, null
   br i1 %.not26, label %26, label %12
@@ -235,7 +235,7 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   %40 = getelementptr i8, ptr %39, i64 36
   %.val8.i.i = load i32, ptr %40, align 4, !tbaa !22
   %41 = sext i32 %.val8.i.i to i64
-  %42 = getelementptr inbounds ptr, ptr %.val30, i64 %41
+  %42 = getelementptr inbounds [8 x i8], ptr %.val30, i64 %41
   %43 = load ptr, ptr %42, align 8, !tbaa !23
   %.not.i.i = icmp eq ptr %43, null
   br i1 %.not.i.i, label %56, label %44
@@ -272,7 +272,7 @@ Aig_ObjChild0Repr.exit:                           ; preds = %44, %56
   %66 = getelementptr i8, ptr %65, i64 36
   %.val8.i.i34 = load i32, ptr %66, align 4, !tbaa !22
   %67 = sext i32 %.val8.i.i34 to i64
-  %68 = getelementptr inbounds ptr, ptr %.val30, i64 %67
+  %68 = getelementptr inbounds [8 x i8], ptr %.val30, i64 %67
   %69 = load ptr, ptr %68, align 8, !tbaa !23
   %.not.i.i35 = icmp eq ptr %69, null
   br i1 %.not.i.i35, label %82, label %70
@@ -406,7 +406,7 @@ Vec_IntDup.exit:                                  ; preds = %30, %35
   %52 = phi ptr [ %58, %.lr.ph ], [ %49, %44 ]
   %53 = getelementptr i8, ptr %52, i64 8
   %.val73 = load ptr, ptr %53, align 8, !tbaa !27
-  %54 = getelementptr inbounds nuw ptr, ptr %.val73, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %.val73, i64 %indvars.iv
   %55 = load ptr, ptr %54, align 8, !tbaa !28
   %56 = tail call ptr @Aig_ObjCreateCi(ptr noundef nonnull %5) #19
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 40
@@ -447,7 +447,7 @@ Vec_IntDup.exit:                                  ; preds = %30, %35
   %indvars.iv110 = phi i64 [ 0, %.lr.ph101 ], [ %indvars.iv.next111, %138 ]
   %72 = getelementptr i8, ptr %71, i64 8
   %.val72 = load ptr, ptr %72, align 8, !tbaa !27
-  %73 = getelementptr inbounds nuw ptr, ptr %.val72, i64 %indvars.iv110
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %.val72, i64 %indvars.iv110
   %74 = load ptr, ptr %73, align 8, !tbaa !28
   %75 = icmp eq ptr %74, null
   br i1 %75, label %138, label %76
@@ -471,7 +471,7 @@ Vec_IntDup.exit:                                  ; preds = %30, %35
   %86 = getelementptr i8, ptr %85, i64 36
   %.val8.i.i = load i32, ptr %86, align 4, !tbaa !22
   %87 = sext i32 %.val8.i.i to i64
-  %88 = getelementptr inbounds ptr, ptr %.val77, i64 %87
+  %88 = getelementptr inbounds [8 x i8], ptr %.val77, i64 %87
   %89 = load ptr, ptr %88, align 8, !tbaa !23
   %.not.i.i = icmp eq ptr %89, null
   br i1 %.not.i.i, label %102, label %90
@@ -509,7 +509,7 @@ Aig_ObjChild0Repr.exit:                           ; preds = %90, %102
   %113 = getelementptr i8, ptr %112, i64 36
   %.val8.i.i88 = load i32, ptr %113, align 4, !tbaa !22
   %114 = sext i32 %.val8.i.i88 to i64
-  %115 = getelementptr inbounds ptr, ptr %.val77, i64 %114
+  %115 = getelementptr inbounds [8 x i8], ptr %.val77, i64 %114
   %116 = load ptr, ptr %115, align 8, !tbaa !23
   %.not.i.i89 = icmp eq ptr %116, null
   br i1 %.not.i.i89, label %129, label %117
@@ -559,7 +559,7 @@ Aig_ObjChild1Repr.exit:                           ; preds = %117, %129
   %143 = phi ptr [ %152, %.lr.ph104 ], [ %67, %.preheader ]
   %144 = getelementptr i8, ptr %143, i64 8
   %.val71 = load ptr, ptr %144, align 8, !tbaa !27
-  %145 = getelementptr inbounds nuw ptr, ptr %.val71, i64 %indvars.iv113
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %.val71, i64 %indvars.iv113
   %146 = load ptr, ptr %145, align 8, !tbaa !28
   %147 = getelementptr i8, ptr %146, i64 8
   %.val74 = load ptr, ptr %147, align 8, !tbaa !32
@@ -592,7 +592,7 @@ Aig_ObjChild1Repr.exit:                           ; preds = %117, %129
   %162 = phi ptr [ %157, %.lr.ph107 ], [ %194, %Aig_ObjChild0Repr.exit94 ]
   %163 = getelementptr i8, ptr %162, i64 8
   %.val70 = load ptr, ptr %163, align 8, !tbaa !27
-  %164 = getelementptr inbounds nuw ptr, ptr %.val70, i64 %indvars.iv116
+  %164 = getelementptr inbounds nuw [8 x i8], ptr %.val70, i64 %indvars.iv116
   %165 = load ptr, ptr %164, align 8, !tbaa !28
   %.val75 = load ptr, ptr %160, align 8, !tbaa !21
   %166 = getelementptr i8, ptr %165, i64 8
@@ -603,7 +603,7 @@ Aig_ObjChild1Repr.exit:                           ; preds = %117, %129
   %170 = getelementptr i8, ptr %169, i64 36
   %.val8.i.i91 = load i32, ptr %170, align 4, !tbaa !22
   %171 = sext i32 %.val8.i.i91 to i64
-  %172 = getelementptr inbounds ptr, ptr %.val75, i64 %171
+  %172 = getelementptr inbounds [8 x i8], ptr %.val75, i64 %171
   %173 = load ptr, ptr %172, align 8, !tbaa !23
   %.not.i.i92 = icmp eq ptr %173, null
   br i1 %.not.i.i92, label %186, label %174
@@ -686,7 +686,7 @@ define noundef ptr @Aig_ManDupReprBasic(ptr noundef %0) local_unnamed_addr #8 {
   %indvars.iv = phi i64 [ %indvars.iv.next, %20 ], [ 0, %1 ]
   %9 = getelementptr i8, ptr %8, i64 8
   %.val14 = load ptr, ptr %9, align 8, !tbaa !27
-  %10 = getelementptr inbounds nuw ptr, ptr %.val14, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %.val14, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !28
   %12 = icmp eq ptr %11, null
   br i1 %12, label %20, label %13
@@ -743,7 +743,7 @@ define i32 @Aig_ManRemapRepr(ptr noundef readonly captures(none) %0) local_unnam
 8:                                                ; preds = %.lr.ph, %Aig_ObjFindReprTransitive.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Aig_ObjFindReprTransitive.exit.thread ]
   %.024 = phi i32 [ 0, %.lr.ph ], [ %.1, %Aig_ObjFindReprTransitive.exit.thread ]
-  %9 = getelementptr inbounds nuw ptr, ptr %.val18, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %.val18, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !28
   %11 = icmp eq ptr %10, null
   br i1 %11, label %Aig_ObjFindReprTransitive.exit.thread, label %12
@@ -762,7 +762,7 @@ define i32 @Aig_ManRemapRepr(ptr noundef readonly captures(none) %0) local_unnam
   %18 = getelementptr i8, ptr %10, i64 36
   %.val21 = load i32, ptr %18, align 4, !tbaa !22
   %19 = sext i32 %.val21 to i64
-  %20 = getelementptr inbounds ptr, ptr %.val20, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %.val20, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !23
   %.not.i = icmp eq ptr %21, null
   br i1 %.not.i, label %Aig_ObjFindReprTransitive.exit.thread, label %.preheader.i
@@ -772,7 +772,7 @@ define i32 @Aig_ManRemapRepr(ptr noundef readonly captures(none) %0) local_unnam
   %22 = getelementptr i8, ptr %.1.i, i64 36
   %.1.val.i = load i32, ptr %22, align 4, !tbaa !22
   %23 = sext i32 %.1.val.i to i64
-  %24 = getelementptr inbounds ptr, ptr %.val20, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %.val20, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !23
   %.not9.i = icmp eq ptr %25, null
   br i1 %.not9.i, label %Aig_ObjFindReprTransitive.exit, label %.preheader.i, !llvm.loop !52
@@ -786,7 +786,7 @@ Aig_ObjFindReprTransitive.exit:                   ; preds = %.preheader.i
   %..i = tail call i32 @llvm.smax.i32(i32 %.val21, i32 %.1.val.i)
   %.19.i = select i1 %27, ptr %10, ptr %.1.i
   %28 = sext i32 %..i to i64
-  %29 = getelementptr inbounds ptr, ptr %.val20, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %.val20, i64 %28
   store ptr %.19.i, ptr %29, align 8, !tbaa !23
   %.pre = load i64, ptr %13, align 8
   br label %Aig_ObjSetRepr_.exit
@@ -834,13 +834,13 @@ define i32 @Aig_ManCountReprs(ptr noundef readonly captures(none) %0) local_unna
 10:                                               ; preds = %.lr.ph, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
   %.015 = phi i32 [ 0, %.lr.ph ], [ %.1, %20 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %.val13, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %.val13, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !28
   %13 = icmp eq ptr %12, null
   br i1 %13, label %20, label %14
 
 14:                                               ; preds = %10
-  %15 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !23
   %17 = icmp ne ptr %16, null
   %18 = zext i1 %17 to i32
@@ -917,7 +917,7 @@ Aig_ObjEquiv.exit:                                ; preds = %26
   %27 = getelementptr inbounds nuw i8, ptr %.tr3032, i64 36
   %28 = load i32, ptr %27, align 4, !tbaa !22
   %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds ptr, ptr %.val28, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %.val28, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !23
   %32 = icmp eq ptr %31, null
   br i1 %32, label %._crit_edge, label %7
@@ -958,7 +958,7 @@ define noundef ptr @Aig_ManRehash(ptr noundef %0) local_unnamed_addr #8 {
 9:                                                ; preds = %Aig_ObjFindReprTransitive.exit.thread.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %Aig_ObjFindReprTransitive.exit.thread.i ]
   %.024.i = phi i32 [ 0, %.lr.ph.i ], [ %.1.i, %Aig_ObjFindReprTransitive.exit.thread.i ]
-  %10 = getelementptr inbounds nuw ptr, ptr %.val18.i, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %.val18.i, i64 %indvars.iv.i
   %11 = load ptr, ptr %10, align 8, !tbaa !28
   %12 = icmp eq ptr %11, null
   br i1 %12, label %Aig_ObjFindReprTransitive.exit.thread.i, label %13
@@ -977,7 +977,7 @@ define noundef ptr @Aig_ManRehash(ptr noundef %0) local_unnamed_addr #8 {
   %19 = getelementptr i8, ptr %11, i64 36
   %.val21.i = load i32, ptr %19, align 4, !tbaa !22
   %20 = sext i32 %.val21.i to i64
-  %21 = getelementptr inbounds ptr, ptr %.val20.i, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %.val20.i, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !23
   %.not.i.i = icmp eq ptr %22, null
   br i1 %.not.i.i, label %Aig_ObjFindReprTransitive.exit.thread.i, label %.preheader.i.i
@@ -987,7 +987,7 @@ define noundef ptr @Aig_ManRehash(ptr noundef %0) local_unnamed_addr #8 {
   %23 = getelementptr i8, ptr %.1.i.i, i64 36
   %.1.val.i.i = load i32, ptr %23, align 4, !tbaa !22
   %24 = sext i32 %.1.val.i.i to i64
-  %25 = getelementptr inbounds ptr, ptr %.val20.i, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %.val20.i, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !23
   %.not9.i.i = icmp eq ptr %26, null
   br i1 %.not9.i.i, label %Aig_ObjFindReprTransitive.exit.i, label %.preheader.i.i, !llvm.loop !52
@@ -1001,7 +1001,7 @@ Aig_ObjFindReprTransitive.exit.i:                 ; preds = %.preheader.i.i
   %..i.i = tail call i32 @llvm.smax.i32(i32 %.val21.i, i32 %.1.val.i.i)
   %.19.i.i = select i1 %28, ptr %11, ptr %.1.i.i
   %29 = sext i32 %..i.i to i64
-  %30 = getelementptr inbounds ptr, ptr %.val20.i, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %.val20.i, i64 %29
   store ptr %.19.i.i, ptr %30, align 8, !tbaa !23
   %.pre.i = load i64, ptr %14, align 8
   br label %Aig_ObjSetRepr_.exit.i
@@ -1075,7 +1075,7 @@ define void @Aig_ManMarkValidChoices(ptr noundef initializes((248, 256)) %0) loc
   %10 = phi ptr [ %.val37, %.lr.ph ], [ %54, %53 ]
   %11 = getelementptr i8, ptr %10, i64 8
   %.val38 = load ptr, ptr %11, align 8, !tbaa !27
-  %12 = getelementptr inbounds nuw ptr, ptr %.val38, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %.val38, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !28
   %14 = icmp eq ptr %13, null
   br i1 %14, label %53, label %15
@@ -1094,7 +1094,7 @@ define void @Aig_ManMarkValidChoices(ptr noundef initializes((248, 256)) %0) loc
   %21 = getelementptr i8, ptr %13, i64 36
   %.val40 = load i32, ptr %21, align 4, !tbaa !22
   %22 = sext i32 %.val40 to i64
-  %23 = getelementptr inbounds ptr, ptr %.val39, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %.val39, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !23
   %25 = icmp eq ptr %24, null
   br i1 %25, label %53, label %26
@@ -1122,7 +1122,7 @@ define void @Aig_ManMarkValidChoices(ptr noundef initializes((248, 256)) %0) loc
   %.val45 = load ptr, ptr %8, align 8, !tbaa !21
   %.val46 = load i32, ptr %21, align 4, !tbaa !22
   %35 = sext i32 %.val46 to i64
-  %36 = getelementptr inbounds ptr, ptr %.val45, i64 %35
+  %36 = getelementptr inbounds [8 x i8], ptr %.val45, i64 %35
   store ptr null, ptr %36, align 8, !tbaa !23
   br label %53
 
@@ -1136,7 +1136,7 @@ define void @Aig_ManMarkValidChoices(ptr noundef initializes((248, 256)) %0) loc
   %.val47 = load ptr, ptr %8, align 8, !tbaa !21
   %.val48 = load i32, ptr %21, align 4, !tbaa !22
   %41 = sext i32 %.val48 to i64
-  %42 = getelementptr inbounds ptr, ptr %.val47, i64 %41
+  %42 = getelementptr inbounds [8 x i8], ptr %.val47, i64 %41
   store ptr null, ptr %42, align 8, !tbaa !23
   br label %53
 
@@ -1145,11 +1145,11 @@ define void @Aig_ManMarkValidChoices(ptr noundef initializes((248, 256)) %0) loc
   %45 = getelementptr inbounds nuw i8, ptr %24, i64 36
   %46 = load i32, ptr %45, align 4, !tbaa !22
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds ptr, ptr %44, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %44, i64 %47
   %49 = load ptr, ptr %48, align 8, !tbaa !23
   %50 = load i32, ptr %21, align 4, !tbaa !22
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds ptr, ptr %44, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %44, i64 %51
   store ptr %49, ptr %52, align 8, !tbaa !23
   store ptr %13, ptr %48, align 8, !tbaa !23
   br label %53
@@ -1193,7 +1193,7 @@ define i32 @Aig_TransferMappedClasses(ptr noundef readonly captures(none) %0, pt
 13:                                               ; preds = %.lr.ph, %Aig_ObjSetRepr_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %Aig_ObjSetRepr_.exit ]
   %.126 = phi i32 [ 0, %.lr.ph ], [ %.2, %Aig_ObjSetRepr_.exit ]
-  %14 = getelementptr inbounds nuw ptr, ptr %.val20, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %.val20, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !28
   %16 = icmp eq ptr %15, null
   br i1 %16, label %Aig_ObjSetRepr_.exit, label %17
@@ -1202,7 +1202,7 @@ define i32 @Aig_TransferMappedClasses(ptr noundef readonly captures(none) %0, pt
   %18 = getelementptr inbounds nuw i8, ptr %15, i64 36
   %19 = load i32, ptr %18, align 4, !tbaa !22
   %20 = sext i32 %19 to i64
-  %21 = getelementptr inbounds ptr, ptr %5, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %5, i64 %20
   %22 = load ptr, ptr %21, align 8, !tbaa !23
   %23 = icmp eq ptr %22, null
   br i1 %23, label %Aig_ObjSetRepr_.exit, label %24
@@ -1214,20 +1214,20 @@ define i32 @Aig_TransferMappedClasses(ptr noundef readonly captures(none) %0, pt
   br i1 %.not.i, label %Aig_ObjSetRepr_.exit, label %Aig_ManObj.exit25
 
 Aig_ManObj.exit25:                                ; preds = %24
-  %26 = getelementptr inbounds i32, ptr %2, i64 %20
+  %26 = getelementptr inbounds [4 x i8], ptr %2, i64 %20
   %27 = load i32, ptr %26, align 4, !tbaa !60
   %28 = getelementptr i8, ptr %.val21, i64 8
   %.val.i = load ptr, ptr %28, align 8, !tbaa !27
   %29 = sext i32 %27 to i64
-  %30 = getelementptr inbounds ptr, ptr %.val.i, i64 %29
+  %30 = getelementptr inbounds [8 x i8], ptr %.val.i, i64 %29
   %31 = load ptr, ptr %30, align 8, !tbaa !28
   %32 = getelementptr inbounds nuw i8, ptr %22, i64 36
   %33 = load i32, ptr %32, align 4, !tbaa !22
   %34 = sext i32 %33 to i64
-  %35 = getelementptr inbounds i32, ptr %2, i64 %34
+  %35 = getelementptr inbounds [4 x i8], ptr %2, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !60
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds ptr, ptr %.val.i, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %.val.i, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !28
   %40 = icmp eq ptr %31, %39
   br i1 %40, label %Aig_ObjSetRepr_.exit, label %.sink.split.i
@@ -1242,7 +1242,7 @@ Aig_ManObj.exit25:                                ; preds = %24
   %..i = tail call i32 @llvm.smax.i32(i32 %42, i32 %44)
   %.19.i = select i1 %45, ptr %31, ptr %39
   %47 = sext i32 %..i to i64
-  %48 = getelementptr inbounds ptr, ptr %46, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %46, i64 %47
   store ptr %.19.i, ptr %48, align 8, !tbaa !23
   br label %Aig_ObjSetRepr_.exit
 

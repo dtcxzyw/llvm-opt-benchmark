@@ -59,7 +59,7 @@ define hidden ptr @add_tlv_subtree(ptr noundef %0, ptr noundef %1, i32 noundef %
   %15 = add i32 %11, %10
   %.mask = and i32 %13, 255
   %16 = zext nneg i32 %.mask to i64
-  %17 = getelementptr i32, ptr @ett_tlv, i64 %16
+  %17 = getelementptr [4 x i8], ptr @ett_tlv, i64 %16
   %18 = load i32, ptr %17, align 4
   %19 = load ptr, ptr %14, align 8
   %20 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %3, i32 noundef %4, i32 noundef %15, i32 noundef %18, ptr noundef null, ptr noundef %19)
@@ -132,7 +132,7 @@ define hidden noundef ptr @add_tlv_subtree_no_item(ptr noundef %0, ptr noundef %
   %14 = add i32 %10, %9
   %.mask = and i32 %12, 255
   %15 = zext nneg i32 %.mask to i64
-  %16 = getelementptr i32, ptr @ett_tlv, i64 %15
+  %16 = getelementptr [4 x i8], ptr @ett_tlv, i64 %15
   %17 = load i32, ptr %16, align 4
   %18 = load ptr, ptr %13, align 8
   %19 = tail call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %3, i32 noundef %4, i32 noundef %14, i32 noundef %17, ptr noundef null, ptr noundef %18)
@@ -176,7 +176,7 @@ define hidden ptr @add_protocol_subtree(ptr noundef %0, i32 noundef %1, ptr noun
   %17 = tail call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_protocol_format(ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %16, ptr noundef nonnull @.str, ptr noundef %7, i32 noundef %13)
   %.mask = and i32 %15, 255
   %18 = zext nneg i32 %.mask to i64
-  %19 = getelementptr i32, ptr @ett_tlv, i64 %18
+  %19 = getelementptr [4 x i8], ptr @ett_tlv, i64 %18
   %20 = load i32, ptr %19, align 4
   %21 = tail call ptr @proto_item_add_subtree(ptr noundef %17, i32 noundef %20)
   %22 = load i32, ptr @hf_tlv_type, align 4
@@ -317,8 +317,8 @@ define hidden void @proto_register_wimax() local_unnamed_addr #0 {
 
 3:                                                ; preds = %0, %3
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %3 ]
-  %4 = getelementptr i32, ptr @ett_tlv, i64 %indvars.iv
-  %5 = getelementptr ptr, ptr %1, i64 %indvars.iv
+  %4 = getelementptr [4 x i8], ptr @ett_tlv, i64 %indvars.iv
+  %5 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv
   store ptr %4, ptr %5, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 256

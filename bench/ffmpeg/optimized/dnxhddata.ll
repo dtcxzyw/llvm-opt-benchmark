@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.AVRational = type { i32, i32 }
-%struct.CIDEntry = type { i32, i32, i32, i32, i32, i16, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, [5 x i32], %struct.AVRational }
 
 @.str = private unnamed_addr constant [34 x i8] c"Profile selected is experimental\0A\00", align 1
 @.str.1 = private unnamed_addr constant [56 x i8] c"Frame size: %dx%d%c; bitrate: %dMbps; pixel format: %s\0A\00", align 1
@@ -76,7 +75,7 @@ define noundef ptr @ff_dnxhd_get_cid_table(i32 noundef %0) local_unnamed_addr #0
 
 3:                                                ; preds = %1, %2
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %2 ]
-  %4 = getelementptr inbounds nuw %struct.CIDEntry, ptr @dnxhd_cid_table, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [152 x i8], ptr @dnxhd_cid_table, i64 %indvars.iv
   %5 = load i32, ptr %4, align 8, !tbaa !6
   %6 = icmp eq i32 %5, %0
   br i1 %6, label %7, label %2
@@ -97,7 +96,7 @@ define i32 @ff_dnxhd_get_frame_size(i32 noundef %0) local_unnamed_addr #0 {
 
 3:                                                ; preds = %2, %1
   %indvars.iv.i = phi i64 [ 0, %1 ], [ %indvars.iv.next.i, %2 ]
-  %4 = getelementptr inbounds nuw %struct.CIDEntry, ptr @dnxhd_cid_table, i64 %indvars.iv.i
+  %4 = getelementptr inbounds nuw [152 x i8], ptr @dnxhd_cid_table, i64 %indvars.iv.i
   %5 = load i32, ptr %4, align 8, !tbaa !6
   %6 = icmp eq i32 %5, %0
   br i1 %6, label %ff_dnxhd_get_cid_table.exit, label %2
@@ -123,7 +122,7 @@ define range(i32 -1, 2147479553) i32 @ff_dnxhd_get_hr_frame_size(i32 noundef %0,
 
 5:                                                ; preds = %4, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %4 ]
-  %6 = getelementptr inbounds nuw %struct.CIDEntry, ptr @dnxhd_cid_table, i64 %indvars.iv.i
+  %6 = getelementptr inbounds nuw [152 x i8], ptr @dnxhd_cid_table, i64 %indvars.iv.i
   %7 = load i32, ptr %6, align 8, !tbaa !6
   %8 = icmp eq i32 %7, %0
   br i1 %8, label %ff_dnxhd_get_cid_table.exit, label %4
@@ -185,7 +184,7 @@ define i32 @ff_dnxhd_find_cid(ptr noundef %0, i32 noundef %1) local_unnamed_addr
 
 16:                                               ; preds = %.preheader41, %.loopexit
   %indvars.iv47 = phi i64 [ 0, %.preheader41 ], [ %indvars.iv.next48, %.loopexit ]
-  %17 = getelementptr inbounds nuw %struct.CIDEntry, ptr @dnxhd_cid_table, i64 %indvars.iv47
+  %17 = getelementptr inbounds nuw [152 x i8], ptr @dnxhd_cid_table, i64 %indvars.iv47
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 20
   %19 = load i16, ptr %18, align 4, !tbaa !36
   %20 = zext i16 %19 to i32
@@ -243,7 +242,7 @@ define i32 @ff_dnxhd_find_cid(ptr noundef %0, i32 noundef %1) local_unnamed_addr
 
 48:                                               ; preds = %.preheader, %47
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %47 ]
-  %49 = getelementptr inbounds nuw i32, ptr %45, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %45, i64 %indvars.iv
   %50 = load i32, ptr %49, align 4, !tbaa !45
   %51 = icmp eq i32 %50, %6
   br i1 %51, label %52, label %47
@@ -270,7 +269,7 @@ define void @ff_dnxhd_print_profiles(ptr noundef %0, i32 noundef %1) local_unnam
 
 3:                                                ; preds = %2, %24
   %indvars.iv25 = phi i64 [ 0, %2 ], [ %indvars.iv.next26, %24 ]
-  %4 = getelementptr inbounds nuw %struct.CIDEntry, ptr @dnxhd_cid_table, i64 %indvars.iv25
+  %4 = getelementptr inbounds nuw [152 x i8], ptr @dnxhd_cid_table, i64 %indvars.iv25
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 120
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -283,7 +282,7 @@ define void @ff_dnxhd_print_profiles(ptr noundef %0, i32 noundef %1) local_unnam
 
 12:                                               ; preds = %3, %15
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %15 ]
-  %13 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %14 = load i32, ptr %13, align 4, !tbaa !45
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %24, label %15

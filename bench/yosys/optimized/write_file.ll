@@ -149,7 +149,7 @@ define internal void @_ZN12_GLOBAL__N_117WriteFileFrontend7executeERPSiNSt7__cxx
   br i1 %20, label %.lr.ph73, label %.lr.ph.._crit_edge.loopexit_crit_edge
 
 .lr.ph:                                           ; preds = %.lr.ph73
-  %21 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.pre36.pre72, i64 %24
+  %21 = getelementptr inbounds nuw [32 x i8], ptr %.pre36.pre72, i64 %24
   %22 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %21, ptr noundef nonnull @.str.13) #20
   %23 = icmp eq i32 %22, 0
   %.pre.pre = load ptr, ptr %11, align 8, !tbaa !16
@@ -193,7 +193,7 @@ define internal void @_ZN12_GLOBAL__N_117WriteFileFrontend7executeERPSiNSt7__cxx
   br i1 %34, label %35, label %42
 
 35:                                               ; preds = %._crit_edge
-  %36 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %32, i64 %.015.lcssa
+  %36 = getelementptr inbounds nuw [32 x i8], ptr %32, i64 %.015.lcssa
   %37 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5rfindEPKcmm(ptr noundef nonnull align 8 dereferenceable(32) %36, ptr noundef nonnull @.str.14, i64 noundef 0, i64 noundef 1) #20
   %.not = icmp eq i64 %37, 0
   br i1 %.not, label %42, label %38
@@ -201,7 +201,7 @@ define internal void @_ZN12_GLOBAL__N_117WriteFileFrontend7executeERPSiNSt7__cxx
 38:                                               ; preds = %35
   %39 = add nuw i64 %.015.lcssa, 1
   %40 = load ptr, ptr %3, align 8, !tbaa !19
-  %41 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %40, i64 %.015.lcssa
+  %41 = getelementptr inbounds nuw [32 x i8], ptr %40, i64 %.015.lcssa
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %6, ptr noundef nonnull align 8 dereferenceable(32) %41)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit unwind label %30
 

@@ -706,7 +706,7 @@ define { i64, i64 } @_ZN12typst_syntax6source6Source4edit17h5c4e916e908c5c9fE(pt
   %31 = add i64 %30, %.01926.i.i.i.i
   %32 = icmp ult i64 %31, %29
   tail call void @llvm.assume(i1 %32)
-  %33 = getelementptr inbounds { i64, i64 }, ptr %27, i64 %31
+  %33 = getelementptr inbounds [16 x i8], ptr %27, i64 %31
   %.val23.i.i.i.i = load i64, ptr %33, align 8, !alias.scope !104, !noalias !109, !noundef !4
   %34 = icmp eq i64 %.val23.i.i.i.i, %1
   br i1 %34, label %.loopexit.loopexit, label %35
@@ -1237,7 +1237,7 @@ define noundef i64 @_ZN12typst_syntax6source6Source9len_utf1617h36acad021878cff9
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %7 = load ptr, ptr %6, align 8, !nonnull !4, !noundef !4
-  %8 = getelementptr { i64, i64 }, ptr %7, i64 %4
+  %8 = getelementptr [16 x i8], ptr %7, i64 %4
   %9 = getelementptr i8, ptr %8, i64 -16
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.thread, label %11
@@ -1509,7 +1509,7 @@ define { i64, i64 } @_ZN12typst_syntax6source6Source13byte_to_utf1617hfd39dcaf65
   %12 = add i64 %11, %.01926.i.i.i.i
   %13 = icmp ult i64 %12, %10
   tail call void @llvm.assume(i1 %13)
-  %14 = getelementptr inbounds { i64, i64 }, ptr %8, i64 %12
+  %14 = getelementptr inbounds [16 x i8], ptr %8, i64 %12
   %.val23.i.i.i.i = load i64, ptr %14, align 8, !alias.scope !287, !noalias !292, !noundef !4
   %15 = icmp eq i64 %.val23.i.i.i.i, %1
   br i1 %15, label %.loopexit, label %16
@@ -1537,7 +1537,7 @@ define { i64, i64 } @_ZN12typst_syntax6source6Source13byte_to_utf1617hfd39dcaf65
   br i1 %24, label %25, label %.thread
 
 25:                                               ; preds = %.loopexit
-  %26 = getelementptr inbounds { i64, i64 }, ptr %8, i64 %.sroa.3.0.i.ph
+  %26 = getelementptr inbounds [16 x i8], ptr %8, i64 %.sroa.3.0.i.ph
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %28 = load ptr, ptr %27, align 8, !nonnull !4, !noundef !4
   %29 = load i64, ptr %26, align 8, !noundef !4
@@ -1680,7 +1680,7 @@ define { i64, i64 } @_ZN12typst_syntax6source6Source12byte_to_line17h149d40b12fd
   %12 = add i64 %11, %.01926.i.i.i
   %13 = icmp ult i64 %12, %10
   tail call void @llvm.assume(i1 %13)
-  %14 = getelementptr inbounds { i64, i64 }, ptr %8, i64 %12
+  %14 = getelementptr inbounds [16 x i8], ptr %8, i64 %12
   %.val23.i.i.i = load i64, ptr %14, align 8, !alias.scope !310, !noalias !315, !noundef !4
   %15 = icmp eq i64 %.val23.i.i.i, %1
   br i1 %15, label %"_ZN12typst_syntax6source6Source12byte_to_line28_$u7b$$u7b$closure$u7d$$u7d$17h90cab4c8a5745757E.exit", label %16
@@ -1735,7 +1735,7 @@ define { i64, i64 } @_ZN12typst_syntax6source6Source14byte_to_column17h931e4d614
   %12 = add i64 %11, %.01926.i.i.i.i
   %13 = icmp ult i64 %12, %10
   tail call void @llvm.assume(i1 %13)
-  %14 = getelementptr inbounds { i64, i64 }, ptr %8, i64 %12
+  %14 = getelementptr inbounds [16 x i8], ptr %8, i64 %12
   %.val23.i.i.i.i = load i64, ptr %14, align 8, !alias.scope !320, !noalias !325, !noundef !4
   %15 = icmp eq i64 %.val23.i.i.i.i, %1
   br i1 %15, label %.loopexit, label %16
@@ -1763,7 +1763,7 @@ define { i64, i64 } @_ZN12typst_syntax6source6Source14byte_to_column17h931e4d614
   br i1 %24, label %25, label %"_ZN81_$LT$core..str..iter..Chars$u20$as$u20$core..iter..traits..iterator..Iterator$GT$5count17hb7e61b61a4501cf1E.exit"
 
 25:                                               ; preds = %.loopexit
-  %26 = getelementptr inbounds { i64, i64 }, ptr %8, i64 %.sroa.3.0.i.ph
+  %26 = getelementptr inbounds [16 x i8], ptr %8, i64 %.sroa.3.0.i.ph
   %27 = load i64, ptr %26, align 8, !noalias !327, !noundef !4
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %29 = load ptr, ptr %28, align 8, !noalias !330, !nonnull !4, !noundef !4
@@ -1834,7 +1834,7 @@ define { i64, i64 } @_ZN12typst_syntax6source6Source13utf16_to_byte17hfe36532953
   %9 = add i64 %8, %.01926.i.i
   %10 = icmp ult i64 %9, %7
   tail call void @llvm.assume(i1 %10)
-  %11 = getelementptr inbounds { i64, i64 }, ptr %5, i64 %9
+  %11 = getelementptr inbounds [16 x i8], ptr %5, i64 %9
   %12 = getelementptr i8, ptr %11, i64 8
   %.val23.i.i = load i64, ptr %12, align 8, !alias.scope !344, !noalias !349, !noundef !4
   %13 = icmp eq i64 %.val23.i.i, %1
@@ -1863,7 +1863,7 @@ define { i64, i64 } @_ZN12typst_syntax6source6Source13utf16_to_byte17hfe36532953
   br i1 %.not54, label %23, label %80
 
 23:                                               ; preds = %.loopexit
-  %24 = getelementptr inbounds { i64, i64 }, ptr %5, i64 %22
+  %24 = getelementptr inbounds [16 x i8], ptr %5, i64 %22
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load i64, ptr %25, align 8, !noundef !4
   %27 = load i64, ptr %24, align 8, !noundef !4
@@ -2005,7 +2005,7 @@ define { i64, i64 } @_ZN12typst_syntax6source6Source12line_to_byte17hb1010177ae2
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 120
   %9 = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4
-  %10 = getelementptr inbounds { i64, i64 }, ptr %9, i64 %1
+  %10 = getelementptr inbounds [16 x i8], ptr %9, i64 %1
   %11 = load i64, ptr %10, align 8, !noundef !4
   br label %.thread
 
@@ -2029,12 +2029,12 @@ define void @_ZN12typst_syntax6source6Source13line_to_range17h5cbfb48723cea6e1E(
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 120
   %10 = load ptr, ptr %9, align 8, !noalias !364, !nonnull !4, !noundef !4
-  %11 = getelementptr inbounds { i64, i64 }, ptr %10, i64 %2
+  %11 = getelementptr inbounds [16 x i8], ptr %10, i64 %2
   %12 = load i64, ptr %11, align 8, !noalias !364, !noundef !4
   %13 = add nuw i64 %2, 1
   %14 = icmp ult i64 %13, %6
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %16 = getelementptr inbounds { i64, i64 }, ptr %10, i64 %13
+  %16 = getelementptr inbounds [16 x i8], ptr %10, i64 %13
   %.in = select i1 %14, ptr %16, ptr %15
   %17 = load i64, ptr %.in, align 8, !noundef !4
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2062,12 +2062,12 @@ define { i64, i64 } @_ZN12typst_syntax6source6Source19line_column_to_byte17h6f3f
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 120
   %10 = load ptr, ptr %9, align 8, !noalias !376, !nonnull !4, !noundef !4
-  %11 = getelementptr inbounds { i64, i64 }, ptr %10, i64 %1
+  %11 = getelementptr inbounds [16 x i8], ptr %10, i64 %1
   %12 = load i64, ptr %11, align 8, !noalias !376, !noundef !4
   %13 = add nuw i64 %1, 1
   %14 = icmp ult i64 %13, %6
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %16 = getelementptr inbounds { i64, i64 }, ptr %10, i64 %13
+  %16 = getelementptr inbounds [16 x i8], ptr %10, i64 %13
   %.in.i = select i1 %14, ptr %16, ptr %15
   %17 = load i64, ptr %.in.i, align 8, !noalias !377, !noundef !4
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 40

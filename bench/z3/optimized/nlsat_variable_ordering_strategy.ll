@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
 %"class.sat::literal" = type { i32 }
-%class.mpz = type { i32, i8, ptr }
 %class.svector = type { %class.vector }
 %class.vector = type { ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
@@ -13,6 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator" = type { i8 }
 %class._scoped_numeral = type { ptr, %class.mpz }
+%class.mpz = type { i32, i8, ptr }
 %"struct.__gnu_cxx::__ops::_Iter_comp_iter.13" = type { %"struct.nlsat::vos_var_info_collector::imp::univariate_reorder_lt" }
 %"struct.nlsat::vos_var_info_collector::imp::univariate_reorder_lt" = type { ptr }
 %"struct.__gnu_cxx::__ops::_Iter_comp_iter.16" = type { %"struct.nlsat::vos_var_info_collector::imp::feature_reorder_lt" }
@@ -234,7 +234,7 @@ _ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i18:   ; preds = %_ZNK6vectorIjLb0EjE
 .lr.ph.preheader.i14:                             ; preds = %34
   %36 = zext i32 %.pre to i64
   %37 = zext i32 %.0.i17.i11.ph to i64
-  %38 = getelementptr i32, ptr %29, i64 %37
+  %38 = getelementptr [4 x i8], ptr %29, i64 %37
   %39 = sub nsw i64 %36, %37
   %40 = shl nsw i64 %39, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %38, i8 0, i64 %40, i1 false), !tbaa !25
@@ -297,7 +297,7 @@ _ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i36:   ; preds = %_ZNK6vectorIjLb0EjE
 .lr.ph.preheader.i32:                             ; preds = %52
   %54 = zext i32 %41 to i64
   %55 = zext i32 %.0.i17.i29.ph to i64
-  %56 = getelementptr i32, ptr %47, i64 %55
+  %56 = getelementptr [4 x i8], ptr %47, i64 %55
   %57 = sub nsw i64 %54, %55
   %58 = shl nsw i64 %57, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %56, i8 0, i64 %58, i1 false), !tbaa !25
@@ -361,7 +361,7 @@ _ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i54:   ; preds = %_ZNK6vectorIjLb0EjE
 .lr.ph.preheader.i50:                             ; preds = %72
   %74 = zext i32 %61 to i64
   %75 = zext i32 %.0.i17.i47.ph to i64
-  %76 = getelementptr i32, ptr %67, i64 %75
+  %76 = getelementptr [4 x i8], ptr %67, i64 %75
   %77 = sub nsw i64 %74, %75
   %78 = shl nsw i64 %77, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %76, i8 0, i64 %78, i1 false), !tbaa !25
@@ -431,7 +431,7 @@ _ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i72:   ; preds = %_ZNK6vectorIjLb0EjE
 .lr.ph.preheader.i68:                             ; preds = %94
   %96 = zext i32 %.pr145 to i64
   %97 = zext i32 %.0.i17.i65.ph to i64
-  %98 = getelementptr i32, ptr %89, i64 %97
+  %98 = getelementptr [4 x i8], ptr %89, i64 %97
   %99 = sub nsw i64 %96, %97
   %100 = shl nsw i64 %99, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %98, i8 0, i64 %100, i1 false), !tbaa !25
@@ -490,7 +490,7 @@ _ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i90:   ; preds = %_ZNK6vectorIjLb0EjE
 .lr.ph.preheader.i86:                             ; preds = %112
   %114 = zext i32 %101 to i64
   %115 = zext i32 %.0.i17.i83.ph to i64
-  %116 = getelementptr i32, ptr %107, i64 %115
+  %116 = getelementptr [4 x i8], ptr %107, i64 %115
   %117 = sub nsw i64 %114, %115
   %118 = shl nsw i64 %117, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %116, i8 0, i64 %118, i1 false), !tbaa !25
@@ -560,7 +560,7 @@ _ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i108:  ; preds = %_ZNK6vectorIjLb0EjE
 .lr.ph.preheader.i104:                            ; preds = %134
   %136 = zext i32 %.pr146 to i64
   %137 = zext i32 %.0.i17.i101.ph to i64
-  %138 = getelementptr i32, ptr %129, i64 %137
+  %138 = getelementptr [4 x i8], ptr %129, i64 %137
   %139 = sub nsw i64 %136, %137
   %140 = shl nsw i64 %139, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %138, i8 0, i64 %140, i1 false), !tbaa !25
@@ -619,7 +619,7 @@ _ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i126:  ; preds = %_ZNK6vectorIjLb0EjE
 .lr.ph.preheader.i122:                            ; preds = %152
   %154 = zext i32 %141 to i64
   %155 = zext i32 %.0.i17.i119.ph to i64
-  %156 = getelementptr i32, ptr %147, i64 %155
+  %156 = getelementptr [4 x i8], ptr %147, i64 %155
   %157 = sub nsw i64 %154, %155
   %158 = shl nsw i64 %157, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %156, i8 0, i64 %158, i1 false), !tbaa !25
@@ -684,13 +684,13 @@ _ZNK6vectorI3mpzLb0EjE8capacityEv.exit.thread.i:  ; preds = %_ZNK6vectorI3mpzLb0
   %175 = getelementptr inbounds i8, ptr %169, i64 -4
   store i32 %.pr147, ptr %175, align 4, !tbaa !25
   %176 = zext i32 %.pr147 to i64
-  %177 = getelementptr inbounds nuw %class.mpz, ptr %169, i64 %176
+  %177 = getelementptr inbounds nuw [16 x i8], ptr %169, i64 %176
   %.not1319.i137 = icmp eq i32 %.0.i17.i136.ph, %.pr147
   br i1 %.not1319.i137, label %_ZN6vectorI3mpzLb0EjE6resizeIiEEvjT_z.exit, label %.lr.ph.preheader.i138
 
 .lr.ph.preheader.i138:                            ; preds = %174
   %178 = zext i32 %.0.i17.i136.ph to i64
-  %179 = getelementptr inbounds nuw %class.mpz, ptr %169, i64 %178
+  %179 = getelementptr inbounds nuw [16 x i8], ptr %169, i64 %178
   br label %.lr.ph.i139
 
 .lr.ph.i139:                                      ; preds = %.lr.ph.i139, %.lr.ph.preheader.i138
@@ -825,7 +825,7 @@ _ZNK6vectorIPN5nlsat6clauseELb0EjE4sizeEv.exit.i: ; preds = %2
 9:                                                ; preds = %_ZN5nlsat22vos_var_info_collector3imp7collectERKNS_6clauseE.exit.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZN5nlsat22vos_var_info_collector3imp7collectERKNS_6clauseE.exit.i ]
   %10 = load ptr, ptr %1, align 8, !tbaa !35
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv.i
   %12 = load ptr, ptr %11, align 8, !tbaa !39
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = load i32, ptr %13, align 4, !tbaa !41
@@ -839,13 +839,13 @@ _ZNK6vectorIPN5nlsat6clauseELb0EjE4sizeEv.exit.i: ; preds = %2
 
 16:                                               ; preds = %_ZN5nlsat22vos_var_info_collector3imp7collectEN3sat7literalE.exit.i.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %_ZN5nlsat22vos_var_info_collector3imp7collectEN3sat7literalE.exit.i.i ]
-  %17 = getelementptr inbounds nuw %"class.sat::literal", ptr %15, i64 %indvars.iv.i.i
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv.i.i
   %.sroa.0.0.copyload.i.i = load i32, ptr %17, align 4, !tbaa !25
   %18 = lshr i32 %.sroa.0.0.copyload.i.i, 1
   %19 = load ptr, ptr %8, align 8, !tbaa !43
   %20 = load ptr, ptr %19, align 8, !tbaa !44
   %21 = zext nneg i32 %18 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !47
   %24 = icmp eq ptr %23, null
   br i1 %24, label %_ZN5nlsat22vos_var_info_collector3imp7collectEN3sat7literalE.exit.i.i, label %25
@@ -868,7 +868,7 @@ _ZNK6vectorIPN5nlsat6clauseELb0EjE4sizeEv.exit.i: ; preds = %2
 
 32:                                               ; preds = %32, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %32 ]
-  %33 = getelementptr inbounds nuw ptr, ptr %31, i64 %indvars.iv.i.i.i
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv.i.i.i
   %34 = load ptr, ptr %33, align 8, !tbaa !54
   %35 = ptrtoint ptr %34 to i64
   %36 = and i64 %35, -8
@@ -956,7 +956,7 @@ define linkonce_odr hidden void @_ZN5nlsat22vos_var_info_collector3impclER7svect
   %20 = phi i32 [ %.pre2.i, %.noexc ], [ %13, %11 ]
   %21 = getelementptr inbounds i8, ptr %19, i64 -4
   %22 = zext i32 %20 to i64
-  %23 = getelementptr inbounds nuw i32, ptr %19, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %22
   store i32 %storemerge44, ptr %23, align 4, !tbaa !25
   %24 = add i32 %20, 1
   store i32 %24, ptr %21, align 4, !tbaa !25
@@ -1178,7 +1178,7 @@ _ZNK6vectorIjLb0EjE8capacityEv.exit.thread.i:     ; preds = %_ZNK6vectorIjLb0EjE
 .lr.ph.preheader.i:                               ; preds = %102
   %104 = zext i32 %91 to i64
   %105 = zext i32 %.0.i17.i.ph to i64
-  %106 = getelementptr i32, ptr %97, i64 %105
+  %106 = getelementptr [4 x i8], ptr %97, i64 %105
   %107 = sub nsw i64 %104, %105
   %108 = shl nsw i64 %107, 2
   call void @llvm.memset.p0.i64(ptr align 4 %106, i8 0, i64 %108, i1 false), !tbaa !25
@@ -1215,10 +1215,10 @@ _ZN6vectorIjLb0EjED2Ev.exit:                      ; preds = %._crit_edge47, %._c
 
 .lr.ph46:                                         ; preds = %_ZN6vectorIjLb0EjE6resizeIiEEvjT_z.exit, %.lr.ph46
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph46 ], [ 0, %_ZN6vectorIjLb0EjE6resizeIiEEvjT_z.exit ]
-  %113 = getelementptr inbounds nuw i32, ptr %.pre, i64 %indvars.iv
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %.pre, i64 %indvars.iv
   %114 = load i32, ptr %113, align 4, !tbaa !25
   %115 = zext i32 %114 to i64
-  %116 = getelementptr inbounds nuw i32, ptr %.ph, i64 %115
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %.ph, i64 %115
   %117 = trunc nuw i64 %indvars.iv to i32
   store i32 %117, ptr %116, align 4, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1724,7 +1724,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit:                  ; preds = %11
   %17 = load i32, ptr %.pr.pre, align 4, !tbaa !25
   %18 = load ptr, ptr %16, align 8, !tbaa !24
   %19 = zext i32 %17 to i64
-  %20 = getelementptr inbounds nuw i32, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %18, i64 %19
   %21 = load i32, ptr %20, align 4, !tbaa !25
   %22 = add i32 %21, 1
   store i32 %22, ptr %20, align 4, !tbaa !25
@@ -1768,7 +1768,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit44:                ; preds = %15, %_ZNK6vectorIjL
 36:                                               ; preds = %.lr.ph, %.loopexit49
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.loopexit49 ]
   %37 = load ptr, ptr %3, align 8, !tbaa !24
-  %38 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %indvars.iv
   %39 = load i32, ptr %38, align 4, !tbaa !25
   %40 = invoke noundef i32 @_ZN10polynomial7manager6degreeEPKNS_10polynomialEj(ptr noundef %1, i32 noundef %39)
           to label %41 unwind label %56
@@ -1776,17 +1776,17 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit44:                ; preds = %15, %_ZNK6vectorIjL
 41:                                               ; preds = %36
   %42 = load ptr, ptr %28, align 8, !tbaa !24
   %43 = zext i32 %39 to i64
-  %44 = getelementptr inbounds nuw i32, ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %43
   %45 = load i32, ptr %44, align 4, !tbaa !25
   %46 = add i32 %45, 1
   store i32 %46, ptr %44, align 4, !tbaa !25
   %47 = load ptr, ptr %29, align 8, !tbaa !24
-  %48 = getelementptr inbounds nuw i32, ptr %47, i64 %43
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %43
   %49 = load i32, ptr %48, align 4, !tbaa !25
   %50 = add i32 %49, %40
   store i32 %50, ptr %48, align 4, !tbaa !25
   %51 = load ptr, ptr %30, align 8, !tbaa !24
-  %52 = getelementptr inbounds nuw i32, ptr %51, i64 %43
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %43
   %53 = load i32, ptr %52, align 4, !tbaa !25
   %54 = icmp ugt i32 %40, %53
   br i1 %54, label %55, label %58
@@ -1842,7 +1842,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit44:                ; preds = %15, %_ZNK6vectorIjL
 
 76:                                               ; preds = %73
   %77 = load ptr, ptr %34, align 8, !tbaa !28
-  %78 = getelementptr inbounds nuw %class.mpz, ptr %77, i64 %43
+  %78 = getelementptr inbounds nuw [16 x i8], ptr %77, i64 %43
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 4
   %80 = load i8, ptr %79, align 4
   %81 = and i8 %80, 1
@@ -1876,7 +1876,7 @@ _ZN11mpz_managerILb0EE2gtERK3mpzS3_.exit:         ; preds = %91
 
 97:                                               ; preds = %94
   %98 = load ptr, ptr %34, align 8, !tbaa !28
-  %99 = getelementptr inbounds nuw %class.mpz, ptr %98, i64 %43
+  %99 = getelementptr inbounds nuw [16 x i8], ptr %98, i64 %43
   %100 = load i8, ptr %32, align 4
   %101 = and i8 %100, 1
   %102 = icmp eq i8 %101, 0
@@ -2054,7 +2054,7 @@ define linkonce_odr hidden void @_ZN5nlsat22vos_var_info_collector3imp7collectEP
   %12 = add i32 %11, %.033
   %13 = load ptr, ptr %4, align 8, !tbaa !24
   %14 = zext i32 %10 to i64
-  %15 = getelementptr inbounds nuw i32, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !25
   %17 = add i32 %16, 1
   store i32 %17, ptr %15, align 4, !tbaa !25
@@ -2070,12 +2070,12 @@ define linkonce_odr hidden void @_ZN5nlsat22vos_var_info_collector3imp7collectEP
   %20 = tail call noundef i32 @_ZN10polynomial7manager7get_varEPKNS_8monomialEj(ptr noundef %1, i32 noundef %.03034)
   %21 = load ptr, ptr %6, align 8, !tbaa !24
   %22 = zext i32 %20 to i64
-  %23 = getelementptr inbounds nuw i32, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %21, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !25
   %25 = add i32 %24, %.0.lcssa
   store i32 %25, ptr %23, align 4, !tbaa !25
   %26 = load ptr, ptr %7, align 8, !tbaa !24
-  %27 = getelementptr inbounds nuw i32, ptr %26, i64 %22
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %22
   %28 = load i32, ptr %27, align 4, !tbaa !25
   %29 = icmp ugt i32 %.0.lcssa, %28
   br i1 %29, label %30, label %31
@@ -2088,7 +2088,7 @@ define linkonce_odr hidden void @_ZN5nlsat22vos_var_info_collector3imp7collectEP
   %32 = tail call noundef i32 @_ZN10polynomial7manager9degree_ofEPKNS_8monomialEj(ptr noundef %1, i32 noundef %20)
   %33 = sub i32 %.0.lcssa, %32
   %34 = load ptr, ptr %8, align 8, !tbaa !24
-  %35 = getelementptr inbounds nuw i32, ptr %34, i64 %22
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %22
   %36 = load i32, ptr %35, align 4, !tbaa !25
   %37 = icmp ugt i32 %33, %36
   br i1 %37, label %38, label %39
@@ -2151,7 +2151,7 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPjlN9__gnu_cxx5__ops15_I
 
 20:                                               ; preds = %20, %16
   %.014.i.i = phi i64 [ %19, %16 ], [ %23, %20 ]
-  %21 = getelementptr inbounds nuw i32, ptr %0, i64 %.014.i.i
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.014.i.i
   %22 = load i32, ptr %21, align 4, !tbaa !25
   tail call void @_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp16brown_reorder_ltEEEEvT_T0_SA_T1_T2_(ptr noundef %0, i64 noundef %.014.i.i, i64 noundef %17, i32 noundef %22, ptr %3)
   %.not.i.i = icmp eq i64 %.014.i.i, 0
@@ -2173,7 +2173,7 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPjlN9__gnu_cxx5__ops15_I
 
 31:                                               ; preds = %13
   %32 = lshr i64 %14, 3
-  %33 = getelementptr inbounds nuw i32, ptr %0, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %32
   %34 = getelementptr inbounds i8, ptr %.024, i64 -4
   tail call void @_ZSt22__move_median_to_firstIPjN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp16brown_reorder_ltEEEEvT_S9_S9_S9_T0_(ptr noundef %0, ptr noundef nonnull %9, ptr noundef %33, ptr noundef nonnull %34, ptr %3)
   %35 = load ptr, ptr %10, align 8, !tbaa !24
@@ -2184,7 +2184,7 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPjlN9__gnu_cxx5__ops15_I
   %.0.i.i = phi ptr [ %9, %31 ], [ %93, %92 ]
   %37 = load i32, ptr %0, align 4, !tbaa !25
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw i32, ptr %35, i64 %38
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !25
   br label %41
 
@@ -2192,7 +2192,7 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPjlN9__gnu_cxx5__ops15_I
   %.1.i.i = phi ptr [ %.0.i.i, %36 ], [ %66, %65 ]
   %42 = load i32, ptr %.1.i.i, align 4, !tbaa !25
   %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds nuw i32, ptr %35, i64 %43
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %43
   %45 = load i32, ptr %44, align 4, !tbaa !25
   %.not.i.i.i.i = icmp eq i32 %45, %40
   br i1 %.not.i.i.i.i, label %48, label %46
@@ -2206,18 +2206,18 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPjlN9__gnu_cxx5__ops15_I
 
 48:                                               ; preds = %41
   %49 = load ptr, ptr %11, align 8, !tbaa !24
-  %50 = getelementptr inbounds nuw i32, ptr %49, i64 %43
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %43
   %51 = load i32, ptr %50, align 4, !tbaa !25
-  %52 = getelementptr inbounds nuw i32, ptr %49, i64 %38
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %38
   %53 = load i32, ptr %52, align 4, !tbaa !25
   %.not15.i.i.i.i = icmp eq i32 %51, %53
   br i1 %.not15.i.i.i.i, label %54, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp16brown_reorder_ltEEclIPjS8_EEbT_T0_.exit.i.i
 
 54:                                               ; preds = %48
   %55 = load ptr, ptr %12, align 8, !tbaa !24
-  %56 = getelementptr inbounds nuw i32, ptr %55, i64 %43
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %43
   %57 = load i32, ptr %56, align 4, !tbaa !25
-  %58 = getelementptr inbounds nuw i32, ptr %55, i64 %38
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %38
   %59 = load i32, ptr %58, align 4, !tbaa !25
   %.not16.i.i.i.i = icmp eq i32 %57, %59
   br i1 %.not16.i.i.i.i, label %62, label %60
@@ -2243,7 +2243,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp16brown_
   %.114.i.i = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -4
   %67 = load i32, ptr %.114.i.i, align 4, !tbaa !25
   %68 = zext i32 %67 to i64
-  %69 = getelementptr inbounds nuw i32, ptr %35, i64 %68
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %68
   %70 = load i32, ptr %69, align 4, !tbaa !25
   %.not.i.i15.i.i = icmp eq i32 %40, %70
   br i1 %.not.i.i15.i.i, label %73, label %71
@@ -2254,18 +2254,18 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp16brown_
 
 73:                                               ; preds = %.preheader.i.i
   %74 = load ptr, ptr %11, align 8, !tbaa !24
-  %75 = getelementptr inbounds nuw i32, ptr %74, i64 %38
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %38
   %76 = load i32, ptr %75, align 4, !tbaa !25
-  %77 = getelementptr inbounds nuw i32, ptr %74, i64 %68
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %68
   %78 = load i32, ptr %77, align 4, !tbaa !25
   %.not15.i.i17.i.i = icmp eq i32 %76, %78
   br i1 %.not15.i.i17.i.i, label %79, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp16brown_reorder_ltEEclIPjS8_EEbT_T0_.exit19.i.i
 
 79:                                               ; preds = %73
   %80 = load ptr, ptr %12, align 8, !tbaa !24
-  %81 = getelementptr inbounds nuw i32, ptr %80, i64 %38
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %38
   %82 = load i32, ptr %81, align 4, !tbaa !25
-  %83 = getelementptr inbounds nuw i32, ptr %80, i64 %68
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %68
   %84 = load i32, ptr %83, align 4, !tbaa !25
   %.not16.i.i18.i.i = icmp eq i32 %82, %84
   br i1 %.not16.i.i18.i.i, label %87, label %85
@@ -2329,10 +2329,10 @@ define linkonce_odr hidden void @_ZSt22__final_insertion_sortIPjN9__gnu_cxx5__op
   %14 = load i32, ptr %0, align 4, !tbaa !25
   %15 = load ptr, ptr %9, align 8, !tbaa !24
   %16 = zext i32 %13 to i64
-  %17 = getelementptr inbounds nuw i32, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !25
   %19 = zext i32 %14 to i64
-  %20 = getelementptr inbounds nuw i32, ptr %15, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %19
   %21 = load i32, ptr %20, align 4, !tbaa !25
   %.not.i.i.i = icmp eq i32 %18, %21
   br i1 %.not.i.i.i, label %24, label %22
@@ -2346,18 +2346,18 @@ define linkonce_odr hidden void @_ZSt22__final_insertion_sortIPjN9__gnu_cxx5__op
 
 24:                                               ; preds = %12
   %25 = load ptr, ptr %10, align 8, !tbaa !24
-  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %16
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %16
   %27 = load i32, ptr %26, align 4, !tbaa !25
-  %28 = getelementptr inbounds nuw i32, ptr %25, i64 %19
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %19
   %29 = load i32, ptr %28, align 4, !tbaa !25
   %.not15.i.i.i = icmp eq i32 %27, %29
   br i1 %.not15.i.i.i, label %30, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp16brown_reorder_ltEEclIPjS8_EEbT_T0_.exit.i
 
 30:                                               ; preds = %24
   %31 = load ptr, ptr %11, align 8, !tbaa !24
-  %32 = getelementptr inbounds nuw i32, ptr %31, i64 %16
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %16
   %33 = load i32, ptr %32, align 4, !tbaa !25
-  %34 = getelementptr inbounds nuw i32, ptr %31, i64 %19
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %19
   %35 = load i32, ptr %34, align 4, !tbaa !25
   %.not16.i.i.i = icmp eq i32 %33, %35
   br i1 %.not16.i.i.i, label %38, label %36
@@ -2384,7 +2384,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp16brown_
   %.0.i.i = getelementptr inbounds i8, ptr %.09.i.i, i64 -4
   %44 = load i32, ptr %.0.i.i, align 4, !tbaa !25
   %45 = zext i32 %44 to i64
-  %46 = getelementptr inbounds nuw i32, ptr %15, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !25
   %.not.i.i.i.i = icmp eq i32 %43, %47
   br i1 %.not.i.i.i.i, label %50, label %48
@@ -2395,18 +2395,18 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp16brown_
 
 50:                                               ; preds = %42
   %51 = load ptr, ptr %10, align 8, !tbaa !24
-  %52 = getelementptr inbounds nuw i32, ptr %51, i64 %16
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %16
   %53 = load i32, ptr %52, align 4, !tbaa !25
-  %54 = getelementptr inbounds nuw i32, ptr %51, i64 %45
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %45
   %55 = load i32, ptr %54, align 4, !tbaa !25
   %.not15.i.i.i.i = icmp eq i32 %53, %55
   br i1 %.not15.i.i.i.i, label %56, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5nlsat22vos_var_info_collector3imp16brown_reorder_ltEEclIjPjEEbRT_T0_.exit.i.i
 
 56:                                               ; preds = %50
   %57 = load ptr, ptr %11, align 8, !tbaa !24
-  %58 = getelementptr inbounds nuw i32, ptr %57, i64 %16
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %16
   %59 = load i32, ptr %58, align 4, !tbaa !25
-  %60 = getelementptr inbounds nuw i32, ptr %57, i64 %45
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %45
   %61 = load i32, ptr %60, align 4, !tbaa !25
   %.not16.i.i.i.i = icmp eq i32 %59, %61
   br i1 %.not16.i.i.i.i, label %64, label %62
@@ -2448,7 +2448,7 @@ _ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_inf
   %.08.i = phi ptr [ %68, %.lr.ph.i ], [ %100, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIN5nlsat22vos_var_info_collector3imp16brown_reorder_ltEEEEvT_T0_.exit.i14 ]
   %71 = load i32, ptr %.08.i, align 4, !tbaa !25
   %72 = zext i32 %71 to i64
-  %73 = getelementptr inbounds nuw i32, ptr %69, i64 %72
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %72
   br label %74
 
 74:                                               ; preds = %99, %70
@@ -2457,7 +2457,7 @@ _ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_inf
   %75 = load i32, ptr %.0.i.i12, align 4, !tbaa !25
   %76 = load i32, ptr %73, align 4, !tbaa !25
   %77 = zext i32 %75 to i64
-  %78 = getelementptr inbounds nuw i32, ptr %69, i64 %77
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %77
   %79 = load i32, ptr %78, align 4, !tbaa !25
   %.not.i.i.i.i13 = icmp eq i32 %76, %79
   br i1 %.not.i.i.i.i13, label %82, label %80
@@ -2468,18 +2468,18 @@ _ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_inf
 
 82:                                               ; preds = %74
   %83 = load ptr, ptr %10, align 8, !tbaa !24
-  %84 = getelementptr inbounds nuw i32, ptr %83, i64 %72
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %83, i64 %72
   %85 = load i32, ptr %84, align 4, !tbaa !25
-  %86 = getelementptr inbounds nuw i32, ptr %83, i64 %77
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %83, i64 %77
   %87 = load i32, ptr %86, align 4, !tbaa !25
   %.not15.i.i.i.i16 = icmp eq i32 %85, %87
   br i1 %.not15.i.i.i.i16, label %88, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5nlsat22vos_var_info_collector3imp16brown_reorder_ltEEclIjPjEEbRT_T0_.exit.i.i17
 
 88:                                               ; preds = %82
   %89 = load ptr, ptr %11, align 8, !tbaa !24
-  %90 = getelementptr inbounds nuw i32, ptr %89, i64 %72
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %72
   %91 = load i32, ptr %90, align 4, !tbaa !25
-  %92 = getelementptr inbounds nuw i32, ptr %89, i64 %77
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %77
   %93 = load i32, ptr %92, align 4, !tbaa !25
   %.not16.i.i.i.i18 = icmp eq i32 %91, %93
   br i1 %.not16.i.i.i.i18, label %96, label %94
@@ -2532,16 +2532,16 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Ite
   %.030 = phi i64 [ %1, %.lr.ph ], [ %spec.select, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp16brown_reorder_ltEEclIPjS8_EEbT_T0_.exit ]
   %14 = shl i64 %.030, 1
   %15 = add i64 %14, 2
-  %16 = getelementptr inbounds i32, ptr %0, i64 %15
-  %17 = getelementptr i32, ptr %0, i64 %14
+  %16 = getelementptr inbounds [4 x i8], ptr %0, i64 %15
+  %17 = getelementptr [4 x i8], ptr %0, i64 %14
   %18 = getelementptr i8, ptr %17, i64 4
   %19 = load i32, ptr %16, align 4, !tbaa !25
   %20 = load i32, ptr %18, align 4, !tbaa !25
   %21 = zext i32 %19 to i64
-  %22 = getelementptr inbounds nuw i32, ptr %10, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !25
   %24 = zext i32 %20 to i64
-  %25 = getelementptr inbounds nuw i32, ptr %10, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !25
   %.not.i.i = icmp eq i32 %23, %26
   br i1 %.not.i.i, label %29, label %27
@@ -2552,9 +2552,9 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Ite
 
 29:                                               ; preds = %13
   %30 = load ptr, ptr %11, align 8, !tbaa !24
-  %31 = getelementptr inbounds nuw i32, ptr %30, i64 %21
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %21
   %32 = load i32, ptr %31, align 4, !tbaa !25
-  %33 = getelementptr inbounds nuw i32, ptr %30, i64 %24
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %24
   %34 = load i32, ptr %33, align 4, !tbaa !25
   %.not15.i.i = icmp eq i32 %32, %34
   br i1 %.not15.i.i, label %37, label %35
@@ -2565,9 +2565,9 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Ite
 
 37:                                               ; preds = %29
   %38 = load ptr, ptr %12, align 8, !tbaa !24
-  %39 = getelementptr inbounds nuw i32, ptr %38, i64 %21
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %21
   %40 = load i32, ptr %39, align 4, !tbaa !25
-  %41 = getelementptr inbounds nuw i32, ptr %38, i64 %24
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %24
   %42 = load i32, ptr %41, align 4, !tbaa !25
   %.not16.i.i = icmp eq i32 %40, %42
   br i1 %.not16.i.i, label %45, label %43
@@ -2584,9 +2584,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp16brown_
   %.0.i.i = phi i1 [ %28, %27 ], [ %36, %35 ], [ %44, %43 ], [ %46, %45 ]
   %47 = or disjoint i64 %14, 1
   %spec.select = select i1 %.0.i.i, i64 %47, i64 %15
-  %48 = getelementptr inbounds i32, ptr %0, i64 %spec.select
+  %48 = getelementptr inbounds [4 x i8], ptr %0, i64 %spec.select
   %49 = load i32, ptr %48, align 4, !tbaa !25
-  %50 = getelementptr inbounds i32, ptr %0, i64 %.030
+  %50 = getelementptr inbounds [4 x i8], ptr %0, i64 %.030
   store i32 %49, ptr %50, align 4, !tbaa !25
   %51 = icmp slt i64 %spec.select, %7
   br i1 %51, label %13, label %._crit_edge, !llvm.loop !95
@@ -2606,9 +2606,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp16brown_
 58:                                               ; preds = %54
   %59 = shl nsw i64 %.0.lcssa, 1
   %60 = or disjoint i64 %59, 1
-  %61 = getelementptr inbounds i32, ptr %0, i64 %60
+  %61 = getelementptr inbounds [4 x i8], ptr %0, i64 %60
   %62 = load i32, ptr %61, align 4, !tbaa !25
-  %63 = getelementptr inbounds i32, ptr %0, i64 %.0.lcssa
+  %63 = getelementptr inbounds [4 x i8], ptr %0, i64 %.0.lcssa
   store i32 %62, ptr %63, align 4, !tbaa !25
   br label %64
 
@@ -2621,7 +2621,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp16brown_
   %66 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %67 = load ptr, ptr %66, align 8, !tbaa !24
   %68 = zext i32 %3 to i64
-  %69 = getelementptr inbounds nuw i32, ptr %67, i64 %68
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 72
   br label %72
@@ -2630,10 +2630,10 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp16brown_
   %.01317.i = phi i64 [ %.128, %.lr.ph.i ], [ %.018.i, %98 ]
   %.018.in.i = add nsw i64 %.01317.i, -1
   %.018.i = sdiv i64 %.018.in.i, 2
-  %73 = getelementptr inbounds i32, ptr %0, i64 %.018.i
+  %73 = getelementptr inbounds [4 x i8], ptr %0, i64 %.018.i
   %74 = load i32, ptr %73, align 4, !tbaa !25
   %75 = zext i32 %74 to i64
-  %76 = getelementptr inbounds nuw i32, ptr %67, i64 %75
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %75
   %77 = load i32, ptr %76, align 4, !tbaa !25
   %78 = load i32, ptr %69, align 4, !tbaa !25
   %.not.i.i.i = icmp eq i32 %77, %78
@@ -2645,18 +2645,18 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp16brown_
 
 81:                                               ; preds = %72
   %82 = load ptr, ptr %70, align 8, !tbaa !24
-  %83 = getelementptr inbounds nuw i32, ptr %82, i64 %75
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %82, i64 %75
   %84 = load i32, ptr %83, align 4, !tbaa !25
-  %85 = getelementptr inbounds nuw i32, ptr %82, i64 %68
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %82, i64 %68
   %86 = load i32, ptr %85, align 4, !tbaa !25
   %.not15.i.i.i = icmp eq i32 %84, %86
   br i1 %.not15.i.i.i, label %87, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5nlsat22vos_var_info_collector3imp16brown_reorder_ltEEclIPjjEEbT_RT0_.exit.i
 
 87:                                               ; preds = %81
   %88 = load ptr, ptr %71, align 8, !tbaa !24
-  %89 = getelementptr inbounds nuw i32, ptr %88, i64 %75
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %75
   %90 = load i32, ptr %89, align 4, !tbaa !25
-  %91 = getelementptr inbounds nuw i32, ptr %88, i64 %68
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %68
   %92 = load i32, ptr %91, align 4, !tbaa !25
   %.not16.i.i.i = icmp eq i32 %90, %92
   br i1 %.not16.i.i.i, label %95, label %93
@@ -2674,14 +2674,14 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5nlsat22vos_var_info_collector3imp16brown_r
   br i1 %97, label %98, label %_ZSt11__push_heapIPjljN9__gnu_cxx5__ops14_Iter_comp_valIN5nlsat22vos_var_info_collector3imp16brown_reorder_ltEEEEvT_T0_SA_T1_RT2_.exit
 
 98:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5nlsat22vos_var_info_collector3imp16brown_reorder_ltEEclIPjjEEbT_RT0_.exit.i, %95, %93, %79
-  %99 = getelementptr inbounds i32, ptr %0, i64 %.01317.i
+  %99 = getelementptr inbounds [4 x i8], ptr %0, i64 %.01317.i
   store i32 %74, ptr %99, align 4, !tbaa !25
   %100 = icmp sgt i64 %.018.i, %1
   br i1 %100, label %72, label %_ZSt11__push_heapIPjljN9__gnu_cxx5__ops14_Iter_comp_valIN5nlsat22vos_var_info_collector3imp16brown_reorder_ltEEEEvT_T0_SA_T1_RT2_.exit, !llvm.loop !96
 
 _ZSt11__push_heapIPjljN9__gnu_cxx5__ops14_Iter_comp_valIN5nlsat22vos_var_info_collector3imp16brown_reorder_ltEEEEvT_T0_SA_T1_RT2_.exit: ; preds = %79, %93, %95, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5nlsat22vos_var_info_collector3imp16brown_reorder_ltEEclIPjjEEbT_RT0_.exit.i, %98, %64
   %.013.lcssa.i = phi i64 [ %.128, %64 ], [ %.01317.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5nlsat22vos_var_info_collector3imp16brown_reorder_ltEEclIPjjEEbT_RT0_.exit.i ], [ %.018.i, %98 ], [ %.01317.i, %79 ], [ %.01317.i, %95 ], [ %.01317.i, %93 ]
-  %101 = getelementptr inbounds i32, ptr %0, i64 %.013.lcssa.i
+  %101 = getelementptr inbounds [4 x i8], ptr %0, i64 %.013.lcssa.i
   store i32 %3, ptr %101, align 4, !tbaa !25
   ret void
 }
@@ -2693,10 +2693,10 @@ define linkonce_odr hidden void @_ZSt22__move_median_to_firstIPjN9__gnu_cxx5__op
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %9 = load ptr, ptr %8, align 8, !tbaa !24
   %10 = zext i32 %6 to i64
-  %11 = getelementptr inbounds nuw i32, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !25
   %13 = zext i32 %7 to i64
-  %14 = getelementptr inbounds nuw i32, ptr %9, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !25
   %.not.i.i = icmp eq i32 %12, %15
   br i1 %.not.i.i, label %18, label %16
@@ -2708,9 +2708,9 @@ define linkonce_odr hidden void @_ZSt22__move_median_to_firstIPjN9__gnu_cxx5__op
 18:                                               ; preds = %5
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %20 = load ptr, ptr %19, align 8, !tbaa !24
-  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %10
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %10
   %22 = load i32, ptr %21, align 4, !tbaa !25
-  %23 = getelementptr inbounds nuw i32, ptr %20, i64 %13
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %13
   %24 = load i32, ptr %23, align 4, !tbaa !25
   %.not15.i.i = icmp eq i32 %22, %24
   br i1 %.not15.i.i, label %25, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp16brown_reorder_ltEEclIPjS8_EEbT_T0_.exit
@@ -2718,9 +2718,9 @@ define linkonce_odr hidden void @_ZSt22__move_median_to_firstIPjN9__gnu_cxx5__op
 25:                                               ; preds = %18
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %27 = load ptr, ptr %26, align 8, !tbaa !24
-  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %10
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %10
   %29 = load i32, ptr %28, align 4, !tbaa !25
-  %30 = getelementptr inbounds nuw i32, ptr %27, i64 %13
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %13
   %31 = load i32, ptr %30, align 4, !tbaa !25
   %.not16.i.i = icmp eq i32 %29, %31
   br i1 %.not16.i.i, label %34, label %32
@@ -2740,7 +2740,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp16brown_
 37:                                               ; preds = %32, %34, %16, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp16brown_reorder_ltEEclIPjS8_EEbT_T0_.exit
   %38 = load i32, ptr %3, align 4, !tbaa !25
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw i32, ptr %9, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !25
   %.not.i.i22 = icmp eq i32 %15, %41
   br i1 %.not.i.i22, label %44, label %42
@@ -2752,9 +2752,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp16brown_
 44:                                               ; preds = %37
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %46 = load ptr, ptr %45, align 8, !tbaa !24
-  %47 = getelementptr inbounds nuw i32, ptr %46, i64 %13
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %13
   %48 = load i32, ptr %47, align 4, !tbaa !25
-  %49 = getelementptr inbounds nuw i32, ptr %46, i64 %39
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %39
   %50 = load i32, ptr %49, align 4, !tbaa !25
   %.not15.i.i24 = icmp eq i32 %48, %50
   br i1 %.not15.i.i24, label %51, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp16brown_reorder_ltEEclIPjS8_EEbT_T0_.exit26
@@ -2762,9 +2762,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp16brown_
 51:                                               ; preds = %44
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %53 = load ptr, ptr %52, align 8, !tbaa !24
-  %54 = getelementptr inbounds nuw i32, ptr %53, i64 %13
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %13
   %55 = load i32, ptr %54, align 4, !tbaa !25
-  %56 = getelementptr inbounds nuw i32, ptr %53, i64 %39
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %39
   %57 = load i32, ptr %56, align 4, !tbaa !25
   %.not16.i.i25 = icmp eq i32 %55, %57
   br i1 %.not16.i.i25, label %60, label %58
@@ -2792,9 +2792,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp16brown_
 66:                                               ; preds = %63
   %67 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %68 = load ptr, ptr %67, align 8, !tbaa !24
-  %69 = getelementptr inbounds nuw i32, ptr %68, i64 %10
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %10
   %70 = load i32, ptr %69, align 4, !tbaa !25
-  %71 = getelementptr inbounds nuw i32, ptr %68, i64 %39
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %39
   %72 = load i32, ptr %71, align 4, !tbaa !25
   %.not15.i.i29 = icmp eq i32 %70, %72
   br i1 %.not15.i.i29, label %73, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp16brown_reorder_ltEEclIPjS8_EEbT_T0_.exit31
@@ -2802,9 +2802,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp16brown_
 73:                                               ; preds = %66
   %74 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %75 = load ptr, ptr %74, align 8, !tbaa !24
-  %76 = getelementptr inbounds nuw i32, ptr %75, i64 %10
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %10
   %77 = load i32, ptr %76, align 4, !tbaa !25
-  %78 = getelementptr inbounds nuw i32, ptr %75, i64 %39
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %39
   %79 = load i32, ptr %78, align 4, !tbaa !25
   %.not16.i.i30 = icmp eq i32 %77, %79
   br i1 %.not16.i.i30, label %82, label %80
@@ -2827,7 +2827,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp16brown_
 86:                                               ; preds = %32, %34, %16, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp16brown_reorder_ltEEclIPjS8_EEbT_T0_.exit
   %87 = load i32, ptr %3, align 4, !tbaa !25
   %88 = zext i32 %87 to i64
-  %89 = getelementptr inbounds nuw i32, ptr %9, i64 %88
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %88
   %90 = load i32, ptr %89, align 4, !tbaa !25
   %.not.i.i32 = icmp eq i32 %12, %90
   br i1 %.not.i.i32, label %93, label %91
@@ -2839,9 +2839,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp16brown_
 93:                                               ; preds = %86
   %94 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %95 = load ptr, ptr %94, align 8, !tbaa !24
-  %96 = getelementptr inbounds nuw i32, ptr %95, i64 %10
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %95, i64 %10
   %97 = load i32, ptr %96, align 4, !tbaa !25
-  %98 = getelementptr inbounds nuw i32, ptr %95, i64 %88
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %95, i64 %88
   %99 = load i32, ptr %98, align 4, !tbaa !25
   %.not15.i.i34 = icmp eq i32 %97, %99
   br i1 %.not15.i.i34, label %100, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp16brown_reorder_ltEEclIPjS8_EEbT_T0_.exit36
@@ -2849,9 +2849,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp16brown_
 100:                                              ; preds = %93
   %101 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %102 = load ptr, ptr %101, align 8, !tbaa !24
-  %103 = getelementptr inbounds nuw i32, ptr %102, i64 %10
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %102, i64 %10
   %104 = load i32, ptr %103, align 4, !tbaa !25
-  %105 = getelementptr inbounds nuw i32, ptr %102, i64 %88
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %102, i64 %88
   %106 = load i32, ptr %105, align 4, !tbaa !25
   %.not16.i.i35 = icmp eq i32 %104, %106
   br i1 %.not16.i.i35, label %109, label %107
@@ -2879,9 +2879,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp16brown_
 115:                                              ; preds = %112
   %116 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %117 = load ptr, ptr %116, align 8, !tbaa !24
-  %118 = getelementptr inbounds nuw i32, ptr %117, i64 %13
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %117, i64 %13
   %119 = load i32, ptr %118, align 4, !tbaa !25
-  %120 = getelementptr inbounds nuw i32, ptr %117, i64 %88
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %117, i64 %88
   %121 = load i32, ptr %120, align 4, !tbaa !25
   %.not15.i.i39 = icmp eq i32 %119, %121
   br i1 %.not15.i.i39, label %122, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp16brown_reorder_ltEEclIPjS8_EEbT_T0_.exit41
@@ -2889,9 +2889,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp16brown_
 122:                                              ; preds = %115
   %123 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %124 = load ptr, ptr %123, align 8, !tbaa !24
-  %125 = getelementptr inbounds nuw i32, ptr %124, i64 %13
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %124, i64 %13
   %126 = load i32, ptr %125, align 4, !tbaa !25
-  %127 = getelementptr inbounds nuw i32, ptr %124, i64 %88
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %124, i64 %88
   %128 = load i32, ptr %127, align 4, !tbaa !25
   %.not16.i.i40 = icmp eq i32 %126, %128
   br i1 %.not16.i.i40, label %131, label %129
@@ -2947,10 +2947,10 @@ define linkonce_odr hidden void @_ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_It
   %11 = load i32, ptr %0, align 4, !tbaa !25
   %12 = load ptr, ptr %5, align 8, !tbaa !24
   %13 = zext i32 %10 to i64
-  %14 = getelementptr inbounds nuw i32, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !25
   %16 = zext i32 %11 to i64
-  %17 = getelementptr inbounds nuw i32, ptr %12, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !25
   %.not.i.i = icmp eq i32 %15, %18
   br i1 %.not.i.i, label %21, label %19
@@ -2961,18 +2961,18 @@ define linkonce_odr hidden void @_ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_It
 
 21:                                               ; preds = %9
   %22 = load ptr, ptr %6, align 8, !tbaa !24
-  %23 = getelementptr inbounds nuw i32, ptr %22, i64 %13
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %13
   %24 = load i32, ptr %23, align 4, !tbaa !25
-  %25 = getelementptr inbounds nuw i32, ptr %22, i64 %16
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %16
   %26 = load i32, ptr %25, align 4, !tbaa !25
   %.not15.i.i = icmp eq i32 %24, %26
   br i1 %.not15.i.i, label %27, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp16brown_reorder_ltEEclIPjS8_EEbT_T0_.exit
 
 27:                                               ; preds = %21
   %28 = load ptr, ptr %7, align 8, !tbaa !24
-  %29 = getelementptr inbounds nuw i32, ptr %28, i64 %13
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %13
   %30 = load i32, ptr %29, align 4, !tbaa !25
-  %31 = getelementptr inbounds nuw i32, ptr %28, i64 %16
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %16
   %32 = load i32, ptr %31, align 4, !tbaa !25
   %.not16.i.i = icmp eq i32 %30, %32
   br i1 %.not16.i.i, label %35, label %33
@@ -2998,7 +2998,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp16brown_
   %41 = sub i64 %40, %8
   %42 = ashr exact i64 %41, 2
   %43 = sub nsw i64 0, %42
-  %44 = getelementptr inbounds i32, ptr %39, i64 %43
+  %44 = getelementptr inbounds [4 x i8], ptr %39, i64 %43
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %44, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %41, i1 false)
   br label %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIN5nlsat22vos_var_info_collector3imp16brown_reorder_ltEEEEvT_T0_.exit
 
@@ -3008,7 +3008,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp16brown_
   %.0.i = getelementptr inbounds i8, ptr %.09.i, i64 -4
   %47 = load i32, ptr %.0.i, align 4, !tbaa !25
   %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds nuw i32, ptr %12, i64 %48
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %48
   %50 = load i32, ptr %49, align 4, !tbaa !25
   %.not.i.i.i = icmp eq i32 %46, %50
   br i1 %.not.i.i.i, label %53, label %51
@@ -3019,18 +3019,18 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp16brown_
 
 53:                                               ; preds = %45
   %54 = load ptr, ptr %6, align 8, !tbaa !24
-  %55 = getelementptr inbounds nuw i32, ptr %54, i64 %13
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %13
   %56 = load i32, ptr %55, align 4, !tbaa !25
-  %57 = getelementptr inbounds nuw i32, ptr %54, i64 %48
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %48
   %58 = load i32, ptr %57, align 4, !tbaa !25
   %.not15.i.i.i = icmp eq i32 %56, %58
   br i1 %.not15.i.i.i, label %59, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5nlsat22vos_var_info_collector3imp16brown_reorder_ltEEclIjPjEEbRT_T0_.exit.i
 
 59:                                               ; preds = %53
   %60 = load ptr, ptr %7, align 8, !tbaa !24
-  %61 = getelementptr inbounds nuw i32, ptr %60, i64 %13
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %13
   %62 = load i32, ptr %61, align 4, !tbaa !25
-  %63 = getelementptr inbounds nuw i32, ptr %60, i64 %48
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %48
   %64 = load i32, ptr %63, align 4, !tbaa !25
   %.not16.i.i.i = icmp eq i32 %62, %64
   br i1 %.not16.i.i.i, label %67, label %65
@@ -3096,7 +3096,7 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPjlN9__gnu_cxx5__ops15_I
 
 20:                                               ; preds = %20, %16
   %.014.i.i = phi i64 [ %19, %16 ], [ %23, %20 ]
-  %21 = getelementptr inbounds nuw i32, ptr %0, i64 %.014.i.i
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.014.i.i
   %22 = load i32, ptr %21, align 4, !tbaa !25
   tail call void @_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp21triangular_reorder_ltEEEEvT_T0_SA_T1_T2_(ptr noundef %0, i64 noundef %.014.i.i, i64 noundef %17, i32 noundef %22, ptr %3)
   %.not.i.i = icmp eq i64 %.014.i.i, 0
@@ -3118,7 +3118,7 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPjlN9__gnu_cxx5__ops15_I
 
 31:                                               ; preds = %13
   %32 = lshr i64 %14, 3
-  %33 = getelementptr inbounds nuw i32, ptr %0, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %32
   %34 = getelementptr inbounds i8, ptr %.024, i64 -4
   tail call void @_ZSt22__move_median_to_firstIPjN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp21triangular_reorder_ltEEEEvT_S9_S9_S9_T0_(ptr noundef %0, ptr noundef nonnull %9, ptr noundef %33, ptr noundef nonnull %34, ptr %3)
   %35 = load ptr, ptr %10, align 8, !tbaa !24
@@ -3129,7 +3129,7 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPjlN9__gnu_cxx5__ops15_I
   %.0.i.i = phi ptr [ %9, %31 ], [ %93, %92 ]
   %37 = load i32, ptr %0, align 4, !tbaa !25
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw i32, ptr %35, i64 %38
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !25
   br label %41
 
@@ -3137,7 +3137,7 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPjlN9__gnu_cxx5__ops15_I
   %.1.i.i = phi ptr [ %.0.i.i, %36 ], [ %66, %65 ]
   %42 = load i32, ptr %.1.i.i, align 4, !tbaa !25
   %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds nuw i32, ptr %35, i64 %43
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %43
   %45 = load i32, ptr %44, align 4, !tbaa !25
   %.not.i.i.i.i = icmp eq i32 %45, %40
   br i1 %.not.i.i.i.i, label %48, label %46
@@ -3151,18 +3151,18 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPjlN9__gnu_cxx5__ops15_I
 
 48:                                               ; preds = %41
   %49 = load ptr, ptr %11, align 8, !tbaa !24
-  %50 = getelementptr inbounds nuw i32, ptr %49, i64 %43
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %43
   %51 = load i32, ptr %50, align 4, !tbaa !25
-  %52 = getelementptr inbounds nuw i32, ptr %49, i64 %38
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %38
   %53 = load i32, ptr %52, align 4, !tbaa !25
   %.not15.i.i.i.i = icmp eq i32 %51, %53
   br i1 %.not15.i.i.i.i, label %54, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp21triangular_reorder_ltEEclIPjS8_EEbT_T0_.exit.i.i
 
 54:                                               ; preds = %48
   %55 = load ptr, ptr %12, align 8, !tbaa !24
-  %56 = getelementptr inbounds nuw i32, ptr %55, i64 %43
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %43
   %57 = load i32, ptr %56, align 4, !tbaa !25
-  %58 = getelementptr inbounds nuw i32, ptr %55, i64 %38
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %38
   %59 = load i32, ptr %58, align 4, !tbaa !25
   %.not16.i.i.i.i = icmp eq i32 %57, %59
   br i1 %.not16.i.i.i.i, label %62, label %60
@@ -3188,7 +3188,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp21triang
   %.114.i.i = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -4
   %67 = load i32, ptr %.114.i.i, align 4, !tbaa !25
   %68 = zext i32 %67 to i64
-  %69 = getelementptr inbounds nuw i32, ptr %35, i64 %68
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %68
   %70 = load i32, ptr %69, align 4, !tbaa !25
   %.not.i.i15.i.i = icmp eq i32 %40, %70
   br i1 %.not.i.i15.i.i, label %73, label %71
@@ -3199,18 +3199,18 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp21triang
 
 73:                                               ; preds = %.preheader.i.i
   %74 = load ptr, ptr %11, align 8, !tbaa !24
-  %75 = getelementptr inbounds nuw i32, ptr %74, i64 %38
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %38
   %76 = load i32, ptr %75, align 4, !tbaa !25
-  %77 = getelementptr inbounds nuw i32, ptr %74, i64 %68
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %68
   %78 = load i32, ptr %77, align 4, !tbaa !25
   %.not15.i.i17.i.i = icmp eq i32 %76, %78
   br i1 %.not15.i.i17.i.i, label %79, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp21triangular_reorder_ltEEclIPjS8_EEbT_T0_.exit19.i.i
 
 79:                                               ; preds = %73
   %80 = load ptr, ptr %12, align 8, !tbaa !24
-  %81 = getelementptr inbounds nuw i32, ptr %80, i64 %38
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %38
   %82 = load i32, ptr %81, align 4, !tbaa !25
-  %83 = getelementptr inbounds nuw i32, ptr %80, i64 %68
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %68
   %84 = load i32, ptr %83, align 4, !tbaa !25
   %.not16.i.i18.i.i = icmp eq i32 %82, %84
   br i1 %.not16.i.i18.i.i, label %87, label %85
@@ -3274,10 +3274,10 @@ define linkonce_odr hidden void @_ZSt22__final_insertion_sortIPjN9__gnu_cxx5__op
   %14 = load i32, ptr %0, align 4, !tbaa !25
   %15 = load ptr, ptr %9, align 8, !tbaa !24
   %16 = zext i32 %13 to i64
-  %17 = getelementptr inbounds nuw i32, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !25
   %19 = zext i32 %14 to i64
-  %20 = getelementptr inbounds nuw i32, ptr %15, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %19
   %21 = load i32, ptr %20, align 4, !tbaa !25
   %.not.i.i.i = icmp eq i32 %18, %21
   br i1 %.not.i.i.i, label %24, label %22
@@ -3291,18 +3291,18 @@ define linkonce_odr hidden void @_ZSt22__final_insertion_sortIPjN9__gnu_cxx5__op
 
 24:                                               ; preds = %12
   %25 = load ptr, ptr %10, align 8, !tbaa !24
-  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %16
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %16
   %27 = load i32, ptr %26, align 4, !tbaa !25
-  %28 = getelementptr inbounds nuw i32, ptr %25, i64 %19
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %19
   %29 = load i32, ptr %28, align 4, !tbaa !25
   %.not15.i.i.i = icmp eq i32 %27, %29
   br i1 %.not15.i.i.i, label %30, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp21triangular_reorder_ltEEclIPjS8_EEbT_T0_.exit.i
 
 30:                                               ; preds = %24
   %31 = load ptr, ptr %11, align 8, !tbaa !24
-  %32 = getelementptr inbounds nuw i32, ptr %31, i64 %16
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %16
   %33 = load i32, ptr %32, align 4, !tbaa !25
-  %34 = getelementptr inbounds nuw i32, ptr %31, i64 %19
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %19
   %35 = load i32, ptr %34, align 4, !tbaa !25
   %.not16.i.i.i = icmp eq i32 %33, %35
   br i1 %.not16.i.i.i, label %38, label %36
@@ -3329,7 +3329,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp21triang
   %.0.i.i = getelementptr inbounds i8, ptr %.09.i.i, i64 -4
   %44 = load i32, ptr %.0.i.i, align 4, !tbaa !25
   %45 = zext i32 %44 to i64
-  %46 = getelementptr inbounds nuw i32, ptr %15, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !25
   %.not.i.i.i.i = icmp eq i32 %43, %47
   br i1 %.not.i.i.i.i, label %50, label %48
@@ -3340,18 +3340,18 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp21triang
 
 50:                                               ; preds = %42
   %51 = load ptr, ptr %10, align 8, !tbaa !24
-  %52 = getelementptr inbounds nuw i32, ptr %51, i64 %16
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %16
   %53 = load i32, ptr %52, align 4, !tbaa !25
-  %54 = getelementptr inbounds nuw i32, ptr %51, i64 %45
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %45
   %55 = load i32, ptr %54, align 4, !tbaa !25
   %.not15.i.i.i.i = icmp eq i32 %53, %55
   br i1 %.not15.i.i.i.i, label %56, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5nlsat22vos_var_info_collector3imp21triangular_reorder_ltEEclIjPjEEbRT_T0_.exit.i.i
 
 56:                                               ; preds = %50
   %57 = load ptr, ptr %11, align 8, !tbaa !24
-  %58 = getelementptr inbounds nuw i32, ptr %57, i64 %16
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %16
   %59 = load i32, ptr %58, align 4, !tbaa !25
-  %60 = getelementptr inbounds nuw i32, ptr %57, i64 %45
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %45
   %61 = load i32, ptr %60, align 4, !tbaa !25
   %.not16.i.i.i.i = icmp eq i32 %59, %61
   br i1 %.not16.i.i.i.i, label %64, label %62
@@ -3393,7 +3393,7 @@ _ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_inf
   %.08.i = phi ptr [ %68, %.lr.ph.i ], [ %100, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIN5nlsat22vos_var_info_collector3imp21triangular_reorder_ltEEEEvT_T0_.exit.i14 ]
   %71 = load i32, ptr %.08.i, align 4, !tbaa !25
   %72 = zext i32 %71 to i64
-  %73 = getelementptr inbounds nuw i32, ptr %69, i64 %72
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %72
   br label %74
 
 74:                                               ; preds = %99, %70
@@ -3402,7 +3402,7 @@ _ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_inf
   %75 = load i32, ptr %.0.i.i12, align 4, !tbaa !25
   %76 = load i32, ptr %73, align 4, !tbaa !25
   %77 = zext i32 %75 to i64
-  %78 = getelementptr inbounds nuw i32, ptr %69, i64 %77
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %77
   %79 = load i32, ptr %78, align 4, !tbaa !25
   %.not.i.i.i.i13 = icmp eq i32 %76, %79
   br i1 %.not.i.i.i.i13, label %82, label %80
@@ -3413,18 +3413,18 @@ _ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_inf
 
 82:                                               ; preds = %74
   %83 = load ptr, ptr %10, align 8, !tbaa !24
-  %84 = getelementptr inbounds nuw i32, ptr %83, i64 %72
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %83, i64 %72
   %85 = load i32, ptr %84, align 4, !tbaa !25
-  %86 = getelementptr inbounds nuw i32, ptr %83, i64 %77
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %83, i64 %77
   %87 = load i32, ptr %86, align 4, !tbaa !25
   %.not15.i.i.i.i16 = icmp eq i32 %85, %87
   br i1 %.not15.i.i.i.i16, label %88, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5nlsat22vos_var_info_collector3imp21triangular_reorder_ltEEclIjPjEEbRT_T0_.exit.i.i17
 
 88:                                               ; preds = %82
   %89 = load ptr, ptr %11, align 8, !tbaa !24
-  %90 = getelementptr inbounds nuw i32, ptr %89, i64 %72
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %72
   %91 = load i32, ptr %90, align 4, !tbaa !25
-  %92 = getelementptr inbounds nuw i32, ptr %89, i64 %77
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %77
   %93 = load i32, ptr %92, align 4, !tbaa !25
   %.not16.i.i.i.i18 = icmp eq i32 %91, %93
   br i1 %.not16.i.i.i.i18, label %96, label %94
@@ -3477,16 +3477,16 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Ite
   %.030 = phi i64 [ %1, %.lr.ph ], [ %spec.select, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp21triangular_reorder_ltEEclIPjS8_EEbT_T0_.exit ]
   %14 = shl i64 %.030, 1
   %15 = add i64 %14, 2
-  %16 = getelementptr inbounds i32, ptr %0, i64 %15
-  %17 = getelementptr i32, ptr %0, i64 %14
+  %16 = getelementptr inbounds [4 x i8], ptr %0, i64 %15
+  %17 = getelementptr [4 x i8], ptr %0, i64 %14
   %18 = getelementptr i8, ptr %17, i64 4
   %19 = load i32, ptr %16, align 4, !tbaa !25
   %20 = load i32, ptr %18, align 4, !tbaa !25
   %21 = zext i32 %19 to i64
-  %22 = getelementptr inbounds nuw i32, ptr %10, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !25
   %24 = zext i32 %20 to i64
-  %25 = getelementptr inbounds nuw i32, ptr %10, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !25
   %.not.i.i = icmp eq i32 %23, %26
   br i1 %.not.i.i, label %29, label %27
@@ -3497,9 +3497,9 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Ite
 
 29:                                               ; preds = %13
   %30 = load ptr, ptr %11, align 8, !tbaa !24
-  %31 = getelementptr inbounds nuw i32, ptr %30, i64 %21
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %21
   %32 = load i32, ptr %31, align 4, !tbaa !25
-  %33 = getelementptr inbounds nuw i32, ptr %30, i64 %24
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %24
   %34 = load i32, ptr %33, align 4, !tbaa !25
   %.not15.i.i = icmp eq i32 %32, %34
   br i1 %.not15.i.i, label %37, label %35
@@ -3510,9 +3510,9 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Ite
 
 37:                                               ; preds = %29
   %38 = load ptr, ptr %12, align 8, !tbaa !24
-  %39 = getelementptr inbounds nuw i32, ptr %38, i64 %21
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %21
   %40 = load i32, ptr %39, align 4, !tbaa !25
-  %41 = getelementptr inbounds nuw i32, ptr %38, i64 %24
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %24
   %42 = load i32, ptr %41, align 4, !tbaa !25
   %.not16.i.i = icmp eq i32 %40, %42
   br i1 %.not16.i.i, label %45, label %43
@@ -3529,9 +3529,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp21triang
   %.0.i.i = phi i1 [ %28, %27 ], [ %36, %35 ], [ %44, %43 ], [ %46, %45 ]
   %47 = or disjoint i64 %14, 1
   %spec.select = select i1 %.0.i.i, i64 %47, i64 %15
-  %48 = getelementptr inbounds i32, ptr %0, i64 %spec.select
+  %48 = getelementptr inbounds [4 x i8], ptr %0, i64 %spec.select
   %49 = load i32, ptr %48, align 4, !tbaa !25
-  %50 = getelementptr inbounds i32, ptr %0, i64 %.030
+  %50 = getelementptr inbounds [4 x i8], ptr %0, i64 %.030
   store i32 %49, ptr %50, align 4, !tbaa !25
   %51 = icmp slt i64 %spec.select, %7
   br i1 %51, label %13, label %._crit_edge, !llvm.loop !106
@@ -3551,9 +3551,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp21triang
 58:                                               ; preds = %54
   %59 = shl nsw i64 %.0.lcssa, 1
   %60 = or disjoint i64 %59, 1
-  %61 = getelementptr inbounds i32, ptr %0, i64 %60
+  %61 = getelementptr inbounds [4 x i8], ptr %0, i64 %60
   %62 = load i32, ptr %61, align 4, !tbaa !25
-  %63 = getelementptr inbounds i32, ptr %0, i64 %.0.lcssa
+  %63 = getelementptr inbounds [4 x i8], ptr %0, i64 %.0.lcssa
   store i32 %62, ptr %63, align 4, !tbaa !25
   br label %64
 
@@ -3566,7 +3566,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp21triang
   %66 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %67 = load ptr, ptr %66, align 8, !tbaa !24
   %68 = zext i32 %3 to i64
-  %69 = getelementptr inbounds nuw i32, ptr %67, i64 %68
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 32
   br label %72
@@ -3575,10 +3575,10 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp21triang
   %.01317.i = phi i64 [ %.128, %.lr.ph.i ], [ %.018.i, %98 ]
   %.018.in.i = add nsw i64 %.01317.i, -1
   %.018.i = sdiv i64 %.018.in.i, 2
-  %73 = getelementptr inbounds i32, ptr %0, i64 %.018.i
+  %73 = getelementptr inbounds [4 x i8], ptr %0, i64 %.018.i
   %74 = load i32, ptr %73, align 4, !tbaa !25
   %75 = zext i32 %74 to i64
-  %76 = getelementptr inbounds nuw i32, ptr %67, i64 %75
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %75
   %77 = load i32, ptr %76, align 4, !tbaa !25
   %78 = load i32, ptr %69, align 4, !tbaa !25
   %.not.i.i.i = icmp eq i32 %77, %78
@@ -3590,18 +3590,18 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp21triang
 
 81:                                               ; preds = %72
   %82 = load ptr, ptr %70, align 8, !tbaa !24
-  %83 = getelementptr inbounds nuw i32, ptr %82, i64 %75
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %82, i64 %75
   %84 = load i32, ptr %83, align 4, !tbaa !25
-  %85 = getelementptr inbounds nuw i32, ptr %82, i64 %68
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %82, i64 %68
   %86 = load i32, ptr %85, align 4, !tbaa !25
   %.not15.i.i.i = icmp eq i32 %84, %86
   br i1 %.not15.i.i.i, label %87, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5nlsat22vos_var_info_collector3imp21triangular_reorder_ltEEclIPjjEEbT_RT0_.exit.i
 
 87:                                               ; preds = %81
   %88 = load ptr, ptr %71, align 8, !tbaa !24
-  %89 = getelementptr inbounds nuw i32, ptr %88, i64 %75
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %75
   %90 = load i32, ptr %89, align 4, !tbaa !25
-  %91 = getelementptr inbounds nuw i32, ptr %88, i64 %68
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %68
   %92 = load i32, ptr %91, align 4, !tbaa !25
   %.not16.i.i.i = icmp eq i32 %90, %92
   br i1 %.not16.i.i.i, label %95, label %93
@@ -3619,14 +3619,14 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5nlsat22vos_var_info_collector3imp21triangu
   br i1 %97, label %98, label %_ZSt11__push_heapIPjljN9__gnu_cxx5__ops14_Iter_comp_valIN5nlsat22vos_var_info_collector3imp21triangular_reorder_ltEEEEvT_T0_SA_T1_RT2_.exit
 
 98:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5nlsat22vos_var_info_collector3imp21triangular_reorder_ltEEclIPjjEEbT_RT0_.exit.i, %95, %93, %79
-  %99 = getelementptr inbounds i32, ptr %0, i64 %.01317.i
+  %99 = getelementptr inbounds [4 x i8], ptr %0, i64 %.01317.i
   store i32 %74, ptr %99, align 4, !tbaa !25
   %100 = icmp sgt i64 %.018.i, %1
   br i1 %100, label %72, label %_ZSt11__push_heapIPjljN9__gnu_cxx5__ops14_Iter_comp_valIN5nlsat22vos_var_info_collector3imp21triangular_reorder_ltEEEEvT_T0_SA_T1_RT2_.exit, !llvm.loop !107
 
 _ZSt11__push_heapIPjljN9__gnu_cxx5__ops14_Iter_comp_valIN5nlsat22vos_var_info_collector3imp21triangular_reorder_ltEEEEvT_T0_SA_T1_RT2_.exit: ; preds = %79, %93, %95, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5nlsat22vos_var_info_collector3imp21triangular_reorder_ltEEclIPjjEEbT_RT0_.exit.i, %98, %64
   %.013.lcssa.i = phi i64 [ %.128, %64 ], [ %.01317.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5nlsat22vos_var_info_collector3imp21triangular_reorder_ltEEclIPjjEEbT_RT0_.exit.i ], [ %.018.i, %98 ], [ %.01317.i, %79 ], [ %.01317.i, %95 ], [ %.01317.i, %93 ]
-  %101 = getelementptr inbounds i32, ptr %0, i64 %.013.lcssa.i
+  %101 = getelementptr inbounds [4 x i8], ptr %0, i64 %.013.lcssa.i
   store i32 %3, ptr %101, align 4, !tbaa !25
   ret void
 }
@@ -3638,10 +3638,10 @@ define linkonce_odr hidden void @_ZSt22__move_median_to_firstIPjN9__gnu_cxx5__op
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %9 = load ptr, ptr %8, align 8, !tbaa !24
   %10 = zext i32 %6 to i64
-  %11 = getelementptr inbounds nuw i32, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !25
   %13 = zext i32 %7 to i64
-  %14 = getelementptr inbounds nuw i32, ptr %9, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !25
   %.not.i.i = icmp eq i32 %12, %15
   br i1 %.not.i.i, label %18, label %16
@@ -3653,9 +3653,9 @@ define linkonce_odr hidden void @_ZSt22__move_median_to_firstIPjN9__gnu_cxx5__op
 18:                                               ; preds = %5
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %20 = load ptr, ptr %19, align 8, !tbaa !24
-  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %10
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %10
   %22 = load i32, ptr %21, align 4, !tbaa !25
-  %23 = getelementptr inbounds nuw i32, ptr %20, i64 %13
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %13
   %24 = load i32, ptr %23, align 4, !tbaa !25
   %.not15.i.i = icmp eq i32 %22, %24
   br i1 %.not15.i.i, label %25, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp21triangular_reorder_ltEEclIPjS8_EEbT_T0_.exit
@@ -3663,9 +3663,9 @@ define linkonce_odr hidden void @_ZSt22__move_median_to_firstIPjN9__gnu_cxx5__op
 25:                                               ; preds = %18
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %27 = load ptr, ptr %26, align 8, !tbaa !24
-  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %10
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %10
   %29 = load i32, ptr %28, align 4, !tbaa !25
-  %30 = getelementptr inbounds nuw i32, ptr %27, i64 %13
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %13
   %31 = load i32, ptr %30, align 4, !tbaa !25
   %.not16.i.i = icmp eq i32 %29, %31
   br i1 %.not16.i.i, label %34, label %32
@@ -3685,7 +3685,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp21triang
 37:                                               ; preds = %32, %34, %16, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp21triangular_reorder_ltEEclIPjS8_EEbT_T0_.exit
   %38 = load i32, ptr %3, align 4, !tbaa !25
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw i32, ptr %9, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !25
   %.not.i.i22 = icmp eq i32 %15, %41
   br i1 %.not.i.i22, label %44, label %42
@@ -3697,9 +3697,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp21triang
 44:                                               ; preds = %37
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %46 = load ptr, ptr %45, align 8, !tbaa !24
-  %47 = getelementptr inbounds nuw i32, ptr %46, i64 %13
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %13
   %48 = load i32, ptr %47, align 4, !tbaa !25
-  %49 = getelementptr inbounds nuw i32, ptr %46, i64 %39
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %39
   %50 = load i32, ptr %49, align 4, !tbaa !25
   %.not15.i.i24 = icmp eq i32 %48, %50
   br i1 %.not15.i.i24, label %51, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp21triangular_reorder_ltEEclIPjS8_EEbT_T0_.exit26
@@ -3707,9 +3707,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp21triang
 51:                                               ; preds = %44
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %53 = load ptr, ptr %52, align 8, !tbaa !24
-  %54 = getelementptr inbounds nuw i32, ptr %53, i64 %13
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %13
   %55 = load i32, ptr %54, align 4, !tbaa !25
-  %56 = getelementptr inbounds nuw i32, ptr %53, i64 %39
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %39
   %57 = load i32, ptr %56, align 4, !tbaa !25
   %.not16.i.i25 = icmp eq i32 %55, %57
   br i1 %.not16.i.i25, label %60, label %58
@@ -3737,9 +3737,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp21triang
 66:                                               ; preds = %63
   %67 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %68 = load ptr, ptr %67, align 8, !tbaa !24
-  %69 = getelementptr inbounds nuw i32, ptr %68, i64 %10
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %10
   %70 = load i32, ptr %69, align 4, !tbaa !25
-  %71 = getelementptr inbounds nuw i32, ptr %68, i64 %39
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %39
   %72 = load i32, ptr %71, align 4, !tbaa !25
   %.not15.i.i29 = icmp eq i32 %70, %72
   br i1 %.not15.i.i29, label %73, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp21triangular_reorder_ltEEclIPjS8_EEbT_T0_.exit31
@@ -3747,9 +3747,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp21triang
 73:                                               ; preds = %66
   %74 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %75 = load ptr, ptr %74, align 8, !tbaa !24
-  %76 = getelementptr inbounds nuw i32, ptr %75, i64 %10
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %10
   %77 = load i32, ptr %76, align 4, !tbaa !25
-  %78 = getelementptr inbounds nuw i32, ptr %75, i64 %39
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %39
   %79 = load i32, ptr %78, align 4, !tbaa !25
   %.not16.i.i30 = icmp eq i32 %77, %79
   br i1 %.not16.i.i30, label %82, label %80
@@ -3772,7 +3772,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp21triang
 86:                                               ; preds = %32, %34, %16, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp21triangular_reorder_ltEEclIPjS8_EEbT_T0_.exit
   %87 = load i32, ptr %3, align 4, !tbaa !25
   %88 = zext i32 %87 to i64
-  %89 = getelementptr inbounds nuw i32, ptr %9, i64 %88
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %88
   %90 = load i32, ptr %89, align 4, !tbaa !25
   %.not.i.i32 = icmp eq i32 %12, %90
   br i1 %.not.i.i32, label %93, label %91
@@ -3784,9 +3784,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp21triang
 93:                                               ; preds = %86
   %94 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %95 = load ptr, ptr %94, align 8, !tbaa !24
-  %96 = getelementptr inbounds nuw i32, ptr %95, i64 %10
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %95, i64 %10
   %97 = load i32, ptr %96, align 4, !tbaa !25
-  %98 = getelementptr inbounds nuw i32, ptr %95, i64 %88
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %95, i64 %88
   %99 = load i32, ptr %98, align 4, !tbaa !25
   %.not15.i.i34 = icmp eq i32 %97, %99
   br i1 %.not15.i.i34, label %100, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp21triangular_reorder_ltEEclIPjS8_EEbT_T0_.exit36
@@ -3794,9 +3794,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp21triang
 100:                                              ; preds = %93
   %101 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %102 = load ptr, ptr %101, align 8, !tbaa !24
-  %103 = getelementptr inbounds nuw i32, ptr %102, i64 %10
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %102, i64 %10
   %104 = load i32, ptr %103, align 4, !tbaa !25
-  %105 = getelementptr inbounds nuw i32, ptr %102, i64 %88
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %102, i64 %88
   %106 = load i32, ptr %105, align 4, !tbaa !25
   %.not16.i.i35 = icmp eq i32 %104, %106
   br i1 %.not16.i.i35, label %109, label %107
@@ -3824,9 +3824,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp21triang
 115:                                              ; preds = %112
   %116 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %117 = load ptr, ptr %116, align 8, !tbaa !24
-  %118 = getelementptr inbounds nuw i32, ptr %117, i64 %13
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %117, i64 %13
   %119 = load i32, ptr %118, align 4, !tbaa !25
-  %120 = getelementptr inbounds nuw i32, ptr %117, i64 %88
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %117, i64 %88
   %121 = load i32, ptr %120, align 4, !tbaa !25
   %.not15.i.i39 = icmp eq i32 %119, %121
   br i1 %.not15.i.i39, label %122, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp21triangular_reorder_ltEEclIPjS8_EEbT_T0_.exit41
@@ -3834,9 +3834,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp21triang
 122:                                              ; preds = %115
   %123 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %124 = load ptr, ptr %123, align 8, !tbaa !24
-  %125 = getelementptr inbounds nuw i32, ptr %124, i64 %13
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %124, i64 %13
   %126 = load i32, ptr %125, align 4, !tbaa !25
-  %127 = getelementptr inbounds nuw i32, ptr %124, i64 %88
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %124, i64 %88
   %128 = load i32, ptr %127, align 4, !tbaa !25
   %.not16.i.i40 = icmp eq i32 %126, %128
   br i1 %.not16.i.i40, label %131, label %129
@@ -3889,10 +3889,10 @@ define linkonce_odr hidden void @_ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_It
   %11 = load i32, ptr %0, align 4, !tbaa !25
   %12 = load ptr, ptr %5, align 8, !tbaa !24
   %13 = zext i32 %10 to i64
-  %14 = getelementptr inbounds nuw i32, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !25
   %16 = zext i32 %11 to i64
-  %17 = getelementptr inbounds nuw i32, ptr %12, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !25
   %.not.i.i = icmp eq i32 %15, %18
   br i1 %.not.i.i, label %21, label %19
@@ -3903,18 +3903,18 @@ define linkonce_odr hidden void @_ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_It
 
 21:                                               ; preds = %9
   %22 = load ptr, ptr %6, align 8, !tbaa !24
-  %23 = getelementptr inbounds nuw i32, ptr %22, i64 %13
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %13
   %24 = load i32, ptr %23, align 4, !tbaa !25
-  %25 = getelementptr inbounds nuw i32, ptr %22, i64 %16
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %16
   %26 = load i32, ptr %25, align 4, !tbaa !25
   %.not15.i.i = icmp eq i32 %24, %26
   br i1 %.not15.i.i, label %27, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp21triangular_reorder_ltEEclIPjS8_EEbT_T0_.exit
 
 27:                                               ; preds = %21
   %28 = load ptr, ptr %7, align 8, !tbaa !24
-  %29 = getelementptr inbounds nuw i32, ptr %28, i64 %13
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %13
   %30 = load i32, ptr %29, align 4, !tbaa !25
-  %31 = getelementptr inbounds nuw i32, ptr %28, i64 %16
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %16
   %32 = load i32, ptr %31, align 4, !tbaa !25
   %.not16.i.i = icmp eq i32 %30, %32
   br i1 %.not16.i.i, label %35, label %33
@@ -3940,7 +3940,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp21triang
   %41 = sub i64 %40, %8
   %42 = ashr exact i64 %41, 2
   %43 = sub nsw i64 0, %42
-  %44 = getelementptr inbounds i32, ptr %39, i64 %43
+  %44 = getelementptr inbounds [4 x i8], ptr %39, i64 %43
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %44, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %41, i1 false)
   br label %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIN5nlsat22vos_var_info_collector3imp21triangular_reorder_ltEEEEvT_T0_.exit
 
@@ -3950,7 +3950,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp21triang
   %.0.i = getelementptr inbounds i8, ptr %.09.i, i64 -4
   %47 = load i32, ptr %.0.i, align 4, !tbaa !25
   %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds nuw i32, ptr %12, i64 %48
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %48
   %50 = load i32, ptr %49, align 4, !tbaa !25
   %.not.i.i.i = icmp eq i32 %46, %50
   br i1 %.not.i.i.i, label %53, label %51
@@ -3961,18 +3961,18 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp21triang
 
 53:                                               ; preds = %45
   %54 = load ptr, ptr %6, align 8, !tbaa !24
-  %55 = getelementptr inbounds nuw i32, ptr %54, i64 %13
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %13
   %56 = load i32, ptr %55, align 4, !tbaa !25
-  %57 = getelementptr inbounds nuw i32, ptr %54, i64 %48
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %48
   %58 = load i32, ptr %57, align 4, !tbaa !25
   %.not15.i.i.i = icmp eq i32 %56, %58
   br i1 %.not15.i.i.i, label %59, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5nlsat22vos_var_info_collector3imp21triangular_reorder_ltEEclIjPjEEbRT_T0_.exit.i
 
 59:                                               ; preds = %53
   %60 = load ptr, ptr %7, align 8, !tbaa !24
-  %61 = getelementptr inbounds nuw i32, ptr %60, i64 %13
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %13
   %62 = load i32, ptr %61, align 4, !tbaa !25
-  %63 = getelementptr inbounds nuw i32, ptr %60, i64 %48
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %48
   %64 = load i32, ptr %63, align 4, !tbaa !25
   %.not16.i.i.i = icmp eq i32 %62, %64
   br i1 %.not16.i.i.i, label %67, label %65
@@ -4035,7 +4035,7 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPjlN9__gnu_cxx5__ops15_I
 
 20:                                               ; preds = %20, %16
   %.014.i.i = phi i64 [ %19, %16 ], [ %23, %20 ]
-  %21 = getelementptr inbounds nuw i32, ptr %0, i64 %.014.i.i
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.014.i.i
   %22 = load i32, ptr %21, align 4, !tbaa !25
   tail call void @_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp19onlypoly_reorder_ltEEEEvT_T0_SA_T1_T2_(ptr noundef %0, i64 noundef %.014.i.i, i64 noundef %17, i32 noundef %22, ptr %3)
   %.not.i.i = icmp eq i64 %.014.i.i, 0
@@ -4057,7 +4057,7 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPjlN9__gnu_cxx5__ops15_I
 
 31:                                               ; preds = %13
   %32 = lshr i64 %14, 3
-  %33 = getelementptr inbounds nuw i32, ptr %0, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %32
   %34 = getelementptr inbounds i8, ptr %.024, i64 -4
   tail call void @_ZSt22__move_median_to_firstIPjN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp19onlypoly_reorder_ltEEEEvT_S9_S9_S9_T0_(ptr noundef %0, ptr noundef nonnull %9, ptr noundef %33, ptr noundef nonnull %34, ptr %3)
   %35 = load ptr, ptr %10, align 8, !tbaa !24
@@ -4068,7 +4068,7 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPjlN9__gnu_cxx5__ops15_I
   %.0.i.i = phi ptr [ %9, %31 ], [ %93, %92 ]
   %37 = load i32, ptr %0, align 4, !tbaa !25
   %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw i32, ptr %35, i64 %38
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !25
   br label %41
 
@@ -4076,7 +4076,7 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPjlN9__gnu_cxx5__ops15_I
   %.1.i.i = phi ptr [ %.0.i.i, %36 ], [ %66, %65 ]
   %42 = load i32, ptr %.1.i.i, align 4, !tbaa !25
   %43 = zext i32 %42 to i64
-  %44 = getelementptr inbounds nuw i32, ptr %35, i64 %43
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %43
   %45 = load i32, ptr %44, align 4, !tbaa !25
   %.not.i.i.i.i = icmp eq i32 %45, %40
   br i1 %.not.i.i.i.i, label %48, label %46
@@ -4090,18 +4090,18 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPjlN9__gnu_cxx5__ops15_I
 
 48:                                               ; preds = %41
   %49 = load ptr, ptr %11, align 8, !tbaa !24
-  %50 = getelementptr inbounds nuw i32, ptr %49, i64 %43
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %43
   %51 = load i32, ptr %50, align 4, !tbaa !25
-  %52 = getelementptr inbounds nuw i32, ptr %49, i64 %38
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %49, i64 %38
   %53 = load i32, ptr %52, align 4, !tbaa !25
   %.not15.i.i.i.i = icmp eq i32 %51, %53
   br i1 %.not15.i.i.i.i, label %54, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp19onlypoly_reorder_ltEEclIPjS8_EEbT_T0_.exit.i.i
 
 54:                                               ; preds = %48
   %55 = load ptr, ptr %12, align 8, !tbaa !24
-  %56 = getelementptr inbounds nuw i32, ptr %55, i64 %43
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %43
   %57 = load i32, ptr %56, align 4, !tbaa !25
-  %58 = getelementptr inbounds nuw i32, ptr %55, i64 %38
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %38
   %59 = load i32, ptr %58, align 4, !tbaa !25
   %.not16.i.i.i.i = icmp eq i32 %57, %59
   br i1 %.not16.i.i.i.i, label %62, label %60
@@ -4127,7 +4127,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp19onlypo
   %.114.i.i = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -4
   %67 = load i32, ptr %.114.i.i, align 4, !tbaa !25
   %68 = zext i32 %67 to i64
-  %69 = getelementptr inbounds nuw i32, ptr %35, i64 %68
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %68
   %70 = load i32, ptr %69, align 4, !tbaa !25
   %.not.i.i15.i.i = icmp eq i32 %40, %70
   br i1 %.not.i.i15.i.i, label %73, label %71
@@ -4138,18 +4138,18 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp19onlypo
 
 73:                                               ; preds = %.preheader.i.i
   %74 = load ptr, ptr %11, align 8, !tbaa !24
-  %75 = getelementptr inbounds nuw i32, ptr %74, i64 %38
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %38
   %76 = load i32, ptr %75, align 4, !tbaa !25
-  %77 = getelementptr inbounds nuw i32, ptr %74, i64 %68
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %74, i64 %68
   %78 = load i32, ptr %77, align 4, !tbaa !25
   %.not15.i.i17.i.i = icmp eq i32 %76, %78
   br i1 %.not15.i.i17.i.i, label %79, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp19onlypoly_reorder_ltEEclIPjS8_EEbT_T0_.exit19.i.i
 
 79:                                               ; preds = %73
   %80 = load ptr, ptr %12, align 8, !tbaa !24
-  %81 = getelementptr inbounds nuw i32, ptr %80, i64 %38
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %38
   %82 = load i32, ptr %81, align 4, !tbaa !25
-  %83 = getelementptr inbounds nuw i32, ptr %80, i64 %68
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %68
   %84 = load i32, ptr %83, align 4, !tbaa !25
   %.not16.i.i18.i.i = icmp eq i32 %82, %84
   br i1 %.not16.i.i18.i.i, label %87, label %85
@@ -4213,10 +4213,10 @@ define linkonce_odr hidden void @_ZSt22__final_insertion_sortIPjN9__gnu_cxx5__op
   %14 = load i32, ptr %0, align 4, !tbaa !25
   %15 = load ptr, ptr %9, align 8, !tbaa !24
   %16 = zext i32 %13 to i64
-  %17 = getelementptr inbounds nuw i32, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !25
   %19 = zext i32 %14 to i64
-  %20 = getelementptr inbounds nuw i32, ptr %15, i64 %19
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %19
   %21 = load i32, ptr %20, align 4, !tbaa !25
   %.not.i.i.i = icmp eq i32 %18, %21
   br i1 %.not.i.i.i, label %24, label %22
@@ -4230,18 +4230,18 @@ define linkonce_odr hidden void @_ZSt22__final_insertion_sortIPjN9__gnu_cxx5__op
 
 24:                                               ; preds = %12
   %25 = load ptr, ptr %10, align 8, !tbaa !24
-  %26 = getelementptr inbounds nuw i32, ptr %25, i64 %16
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %16
   %27 = load i32, ptr %26, align 4, !tbaa !25
-  %28 = getelementptr inbounds nuw i32, ptr %25, i64 %19
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %19
   %29 = load i32, ptr %28, align 4, !tbaa !25
   %.not15.i.i.i = icmp eq i32 %27, %29
   br i1 %.not15.i.i.i, label %30, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp19onlypoly_reorder_ltEEclIPjS8_EEbT_T0_.exit.i
 
 30:                                               ; preds = %24
   %31 = load ptr, ptr %11, align 8, !tbaa !24
-  %32 = getelementptr inbounds nuw i32, ptr %31, i64 %16
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %16
   %33 = load i32, ptr %32, align 4, !tbaa !25
-  %34 = getelementptr inbounds nuw i32, ptr %31, i64 %19
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %19
   %35 = load i32, ptr %34, align 4, !tbaa !25
   %.not16.i.i.i = icmp eq i32 %33, %35
   br i1 %.not16.i.i.i, label %38, label %36
@@ -4268,7 +4268,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp19onlypo
   %.0.i.i = getelementptr inbounds i8, ptr %.09.i.i, i64 -4
   %44 = load i32, ptr %.0.i.i, align 4, !tbaa !25
   %45 = zext i32 %44 to i64
-  %46 = getelementptr inbounds nuw i32, ptr %15, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %45
   %47 = load i32, ptr %46, align 4, !tbaa !25
   %.not.i.i.i.i = icmp eq i32 %43, %47
   br i1 %.not.i.i.i.i, label %50, label %48
@@ -4279,18 +4279,18 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp19onlypo
 
 50:                                               ; preds = %42
   %51 = load ptr, ptr %10, align 8, !tbaa !24
-  %52 = getelementptr inbounds nuw i32, ptr %51, i64 %16
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %16
   %53 = load i32, ptr %52, align 4, !tbaa !25
-  %54 = getelementptr inbounds nuw i32, ptr %51, i64 %45
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %51, i64 %45
   %55 = load i32, ptr %54, align 4, !tbaa !25
   %.not15.i.i.i.i = icmp eq i32 %53, %55
   br i1 %.not15.i.i.i.i, label %56, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5nlsat22vos_var_info_collector3imp19onlypoly_reorder_ltEEclIjPjEEbRT_T0_.exit.i.i
 
 56:                                               ; preds = %50
   %57 = load ptr, ptr %11, align 8, !tbaa !24
-  %58 = getelementptr inbounds nuw i32, ptr %57, i64 %16
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %16
   %59 = load i32, ptr %58, align 4, !tbaa !25
-  %60 = getelementptr inbounds nuw i32, ptr %57, i64 %45
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %45
   %61 = load i32, ptr %60, align 4, !tbaa !25
   %.not16.i.i.i.i = icmp eq i32 %59, %61
   br i1 %.not16.i.i.i.i, label %64, label %62
@@ -4332,7 +4332,7 @@ _ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_inf
   %.08.i = phi ptr [ %68, %.lr.ph.i ], [ %100, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIN5nlsat22vos_var_info_collector3imp19onlypoly_reorder_ltEEEEvT_T0_.exit.i14 ]
   %71 = load i32, ptr %.08.i, align 4, !tbaa !25
   %72 = zext i32 %71 to i64
-  %73 = getelementptr inbounds nuw i32, ptr %69, i64 %72
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %72
   br label %74
 
 74:                                               ; preds = %99, %70
@@ -4341,7 +4341,7 @@ _ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_inf
   %75 = load i32, ptr %.0.i.i12, align 4, !tbaa !25
   %76 = load i32, ptr %73, align 4, !tbaa !25
   %77 = zext i32 %75 to i64
-  %78 = getelementptr inbounds nuw i32, ptr %69, i64 %77
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %77
   %79 = load i32, ptr %78, align 4, !tbaa !25
   %.not.i.i.i.i13 = icmp eq i32 %76, %79
   br i1 %.not.i.i.i.i13, label %82, label %80
@@ -4352,18 +4352,18 @@ _ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_inf
 
 82:                                               ; preds = %74
   %83 = load ptr, ptr %10, align 8, !tbaa !24
-  %84 = getelementptr inbounds nuw i32, ptr %83, i64 %72
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %83, i64 %72
   %85 = load i32, ptr %84, align 4, !tbaa !25
-  %86 = getelementptr inbounds nuw i32, ptr %83, i64 %77
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %83, i64 %77
   %87 = load i32, ptr %86, align 4, !tbaa !25
   %.not15.i.i.i.i16 = icmp eq i32 %85, %87
   br i1 %.not15.i.i.i.i16, label %88, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5nlsat22vos_var_info_collector3imp19onlypoly_reorder_ltEEclIjPjEEbRT_T0_.exit.i.i17
 
 88:                                               ; preds = %82
   %89 = load ptr, ptr %11, align 8, !tbaa !24
-  %90 = getelementptr inbounds nuw i32, ptr %89, i64 %72
+  %90 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %72
   %91 = load i32, ptr %90, align 4, !tbaa !25
-  %92 = getelementptr inbounds nuw i32, ptr %89, i64 %77
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %77
   %93 = load i32, ptr %92, align 4, !tbaa !25
   %.not16.i.i.i.i18 = icmp eq i32 %91, %93
   br i1 %.not16.i.i.i.i18, label %96, label %94
@@ -4416,16 +4416,16 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Ite
   %.030 = phi i64 [ %1, %.lr.ph ], [ %spec.select, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp19onlypoly_reorder_ltEEclIPjS8_EEbT_T0_.exit ]
   %14 = shl i64 %.030, 1
   %15 = add i64 %14, 2
-  %16 = getelementptr inbounds i32, ptr %0, i64 %15
-  %17 = getelementptr i32, ptr %0, i64 %14
+  %16 = getelementptr inbounds [4 x i8], ptr %0, i64 %15
+  %17 = getelementptr [4 x i8], ptr %0, i64 %14
   %18 = getelementptr i8, ptr %17, i64 4
   %19 = load i32, ptr %16, align 4, !tbaa !25
   %20 = load i32, ptr %18, align 4, !tbaa !25
   %21 = zext i32 %19 to i64
-  %22 = getelementptr inbounds nuw i32, ptr %10, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !25
   %24 = zext i32 %20 to i64
-  %25 = getelementptr inbounds nuw i32, ptr %10, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !25
   %.not.i.i = icmp eq i32 %23, %26
   br i1 %.not.i.i, label %29, label %27
@@ -4436,9 +4436,9 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Ite
 
 29:                                               ; preds = %13
   %30 = load ptr, ptr %11, align 8, !tbaa !24
-  %31 = getelementptr inbounds nuw i32, ptr %30, i64 %21
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %21
   %32 = load i32, ptr %31, align 4, !tbaa !25
-  %33 = getelementptr inbounds nuw i32, ptr %30, i64 %24
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %24
   %34 = load i32, ptr %33, align 4, !tbaa !25
   %.not15.i.i = icmp eq i32 %32, %34
   br i1 %.not15.i.i, label %37, label %35
@@ -4449,9 +4449,9 @@ define linkonce_odr hidden void @_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Ite
 
 37:                                               ; preds = %29
   %38 = load ptr, ptr %12, align 8, !tbaa !24
-  %39 = getelementptr inbounds nuw i32, ptr %38, i64 %21
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %21
   %40 = load i32, ptr %39, align 4, !tbaa !25
-  %41 = getelementptr inbounds nuw i32, ptr %38, i64 %24
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %24
   %42 = load i32, ptr %41, align 4, !tbaa !25
   %.not16.i.i = icmp eq i32 %40, %42
   br i1 %.not16.i.i, label %45, label %43
@@ -4468,9 +4468,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp19onlypo
   %.0.i.i = phi i1 [ %28, %27 ], [ %36, %35 ], [ %44, %43 ], [ %46, %45 ]
   %47 = or disjoint i64 %14, 1
   %spec.select = select i1 %.0.i.i, i64 %47, i64 %15
-  %48 = getelementptr inbounds i32, ptr %0, i64 %spec.select
+  %48 = getelementptr inbounds [4 x i8], ptr %0, i64 %spec.select
   %49 = load i32, ptr %48, align 4, !tbaa !25
-  %50 = getelementptr inbounds i32, ptr %0, i64 %.030
+  %50 = getelementptr inbounds [4 x i8], ptr %0, i64 %.030
   store i32 %49, ptr %50, align 4, !tbaa !25
   %51 = icmp slt i64 %spec.select, %7
   br i1 %51, label %13, label %._crit_edge, !llvm.loop !117
@@ -4490,9 +4490,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp19onlypo
 58:                                               ; preds = %54
   %59 = shl nsw i64 %.0.lcssa, 1
   %60 = or disjoint i64 %59, 1
-  %61 = getelementptr inbounds i32, ptr %0, i64 %60
+  %61 = getelementptr inbounds [4 x i8], ptr %0, i64 %60
   %62 = load i32, ptr %61, align 4, !tbaa !25
-  %63 = getelementptr inbounds i32, ptr %0, i64 %.0.lcssa
+  %63 = getelementptr inbounds [4 x i8], ptr %0, i64 %.0.lcssa
   store i32 %62, ptr %63, align 4, !tbaa !25
   br label %64
 
@@ -4505,7 +4505,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp19onlypo
   %66 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %67 = load ptr, ptr %66, align 8, !tbaa !24
   %68 = zext i32 %3 to i64
-  %69 = getelementptr inbounds nuw i32, ptr %67, i64 %68
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 40
   br label %72
@@ -4514,10 +4514,10 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp19onlypo
   %.01317.i = phi i64 [ %.128, %.lr.ph.i ], [ %.018.i, %98 ]
   %.018.in.i = add nsw i64 %.01317.i, -1
   %.018.i = sdiv i64 %.018.in.i, 2
-  %73 = getelementptr inbounds i32, ptr %0, i64 %.018.i
+  %73 = getelementptr inbounds [4 x i8], ptr %0, i64 %.018.i
   %74 = load i32, ptr %73, align 4, !tbaa !25
   %75 = zext i32 %74 to i64
-  %76 = getelementptr inbounds nuw i32, ptr %67, i64 %75
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %75
   %77 = load i32, ptr %76, align 4, !tbaa !25
   %78 = load i32, ptr %69, align 4, !tbaa !25
   %.not.i.i.i = icmp eq i32 %77, %78
@@ -4529,18 +4529,18 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp19onlypo
 
 81:                                               ; preds = %72
   %82 = load ptr, ptr %70, align 8, !tbaa !24
-  %83 = getelementptr inbounds nuw i32, ptr %82, i64 %75
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %82, i64 %75
   %84 = load i32, ptr %83, align 4, !tbaa !25
-  %85 = getelementptr inbounds nuw i32, ptr %82, i64 %68
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %82, i64 %68
   %86 = load i32, ptr %85, align 4, !tbaa !25
   %.not15.i.i.i = icmp eq i32 %84, %86
   br i1 %.not15.i.i.i, label %87, label %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5nlsat22vos_var_info_collector3imp19onlypoly_reorder_ltEEclIPjjEEbT_RT0_.exit.i
 
 87:                                               ; preds = %81
   %88 = load ptr, ptr %71, align 8, !tbaa !24
-  %89 = getelementptr inbounds nuw i32, ptr %88, i64 %75
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %75
   %90 = load i32, ptr %89, align 4, !tbaa !25
-  %91 = getelementptr inbounds nuw i32, ptr %88, i64 %68
+  %91 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %68
   %92 = load i32, ptr %91, align 4, !tbaa !25
   %.not16.i.i.i = icmp eq i32 %90, %92
   br i1 %.not16.i.i.i, label %95, label %93
@@ -4558,14 +4558,14 @@ _ZN9__gnu_cxx5__ops14_Iter_comp_valIN5nlsat22vos_var_info_collector3imp19onlypol
   br i1 %97, label %98, label %_ZSt11__push_heapIPjljN9__gnu_cxx5__ops14_Iter_comp_valIN5nlsat22vos_var_info_collector3imp19onlypoly_reorder_ltEEEEvT_T0_SA_T1_RT2_.exit
 
 98:                                               ; preds = %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5nlsat22vos_var_info_collector3imp19onlypoly_reorder_ltEEclIPjjEEbT_RT0_.exit.i, %95, %93, %79
-  %99 = getelementptr inbounds i32, ptr %0, i64 %.01317.i
+  %99 = getelementptr inbounds [4 x i8], ptr %0, i64 %.01317.i
   store i32 %74, ptr %99, align 4, !tbaa !25
   %100 = icmp sgt i64 %.018.i, %1
   br i1 %100, label %72, label %_ZSt11__push_heapIPjljN9__gnu_cxx5__ops14_Iter_comp_valIN5nlsat22vos_var_info_collector3imp19onlypoly_reorder_ltEEEEvT_T0_SA_T1_RT2_.exit, !llvm.loop !118
 
 _ZSt11__push_heapIPjljN9__gnu_cxx5__ops14_Iter_comp_valIN5nlsat22vos_var_info_collector3imp19onlypoly_reorder_ltEEEEvT_T0_SA_T1_RT2_.exit: ; preds = %79, %93, %95, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5nlsat22vos_var_info_collector3imp19onlypoly_reorder_ltEEclIPjjEEbT_RT0_.exit.i, %98, %64
   %.013.lcssa.i = phi i64 [ %.128, %64 ], [ %.01317.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIN5nlsat22vos_var_info_collector3imp19onlypoly_reorder_ltEEclIPjjEEbT_RT0_.exit.i ], [ %.018.i, %98 ], [ %.01317.i, %79 ], [ %.01317.i, %95 ], [ %.01317.i, %93 ]
-  %101 = getelementptr inbounds i32, ptr %0, i64 %.013.lcssa.i
+  %101 = getelementptr inbounds [4 x i8], ptr %0, i64 %.013.lcssa.i
   store i32 %3, ptr %101, align 4, !tbaa !25
   ret void
 }
@@ -4577,10 +4577,10 @@ define linkonce_odr hidden void @_ZSt22__move_median_to_firstIPjN9__gnu_cxx5__op
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %9 = load ptr, ptr %8, align 8, !tbaa !24
   %10 = zext i32 %6 to i64
-  %11 = getelementptr inbounds nuw i32, ptr %9, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !25
   %13 = zext i32 %7 to i64
-  %14 = getelementptr inbounds nuw i32, ptr %9, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !25
   %.not.i.i = icmp eq i32 %12, %15
   br i1 %.not.i.i, label %18, label %16
@@ -4592,9 +4592,9 @@ define linkonce_odr hidden void @_ZSt22__move_median_to_firstIPjN9__gnu_cxx5__op
 18:                                               ; preds = %5
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %20 = load ptr, ptr %19, align 8, !tbaa !24
-  %21 = getelementptr inbounds nuw i32, ptr %20, i64 %10
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %10
   %22 = load i32, ptr %21, align 4, !tbaa !25
-  %23 = getelementptr inbounds nuw i32, ptr %20, i64 %13
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %13
   %24 = load i32, ptr %23, align 4, !tbaa !25
   %.not15.i.i = icmp eq i32 %22, %24
   br i1 %.not15.i.i, label %25, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp19onlypoly_reorder_ltEEclIPjS8_EEbT_T0_.exit
@@ -4602,9 +4602,9 @@ define linkonce_odr hidden void @_ZSt22__move_median_to_firstIPjN9__gnu_cxx5__op
 25:                                               ; preds = %18
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %27 = load ptr, ptr %26, align 8, !tbaa !24
-  %28 = getelementptr inbounds nuw i32, ptr %27, i64 %10
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %10
   %29 = load i32, ptr %28, align 4, !tbaa !25
-  %30 = getelementptr inbounds nuw i32, ptr %27, i64 %13
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %13
   %31 = load i32, ptr %30, align 4, !tbaa !25
   %.not16.i.i = icmp eq i32 %29, %31
   br i1 %.not16.i.i, label %34, label %32
@@ -4624,7 +4624,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp19onlypo
 37:                                               ; preds = %32, %34, %16, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp19onlypoly_reorder_ltEEclIPjS8_EEbT_T0_.exit
   %38 = load i32, ptr %3, align 4, !tbaa !25
   %39 = zext i32 %38 to i64
-  %40 = getelementptr inbounds nuw i32, ptr %9, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !25
   %.not.i.i22 = icmp eq i32 %15, %41
   br i1 %.not.i.i22, label %44, label %42
@@ -4636,9 +4636,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp19onlypo
 44:                                               ; preds = %37
   %45 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %46 = load ptr, ptr %45, align 8, !tbaa !24
-  %47 = getelementptr inbounds nuw i32, ptr %46, i64 %13
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %13
   %48 = load i32, ptr %47, align 4, !tbaa !25
-  %49 = getelementptr inbounds nuw i32, ptr %46, i64 %39
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %39
   %50 = load i32, ptr %49, align 4, !tbaa !25
   %.not15.i.i24 = icmp eq i32 %48, %50
   br i1 %.not15.i.i24, label %51, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp19onlypoly_reorder_ltEEclIPjS8_EEbT_T0_.exit26
@@ -4646,9 +4646,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp19onlypo
 51:                                               ; preds = %44
   %52 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %53 = load ptr, ptr %52, align 8, !tbaa !24
-  %54 = getelementptr inbounds nuw i32, ptr %53, i64 %13
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %13
   %55 = load i32, ptr %54, align 4, !tbaa !25
-  %56 = getelementptr inbounds nuw i32, ptr %53, i64 %39
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %39
   %57 = load i32, ptr %56, align 4, !tbaa !25
   %.not16.i.i25 = icmp eq i32 %55, %57
   br i1 %.not16.i.i25, label %60, label %58
@@ -4676,9 +4676,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp19onlypo
 66:                                               ; preds = %63
   %67 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %68 = load ptr, ptr %67, align 8, !tbaa !24
-  %69 = getelementptr inbounds nuw i32, ptr %68, i64 %10
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %10
   %70 = load i32, ptr %69, align 4, !tbaa !25
-  %71 = getelementptr inbounds nuw i32, ptr %68, i64 %39
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %39
   %72 = load i32, ptr %71, align 4, !tbaa !25
   %.not15.i.i29 = icmp eq i32 %70, %72
   br i1 %.not15.i.i29, label %73, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp19onlypoly_reorder_ltEEclIPjS8_EEbT_T0_.exit31
@@ -4686,9 +4686,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp19onlypo
 73:                                               ; preds = %66
   %74 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %75 = load ptr, ptr %74, align 8, !tbaa !24
-  %76 = getelementptr inbounds nuw i32, ptr %75, i64 %10
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %10
   %77 = load i32, ptr %76, align 4, !tbaa !25
-  %78 = getelementptr inbounds nuw i32, ptr %75, i64 %39
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %39
   %79 = load i32, ptr %78, align 4, !tbaa !25
   %.not16.i.i30 = icmp eq i32 %77, %79
   br i1 %.not16.i.i30, label %82, label %80
@@ -4711,7 +4711,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp19onlypo
 86:                                               ; preds = %32, %34, %16, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp19onlypoly_reorder_ltEEclIPjS8_EEbT_T0_.exit
   %87 = load i32, ptr %3, align 4, !tbaa !25
   %88 = zext i32 %87 to i64
-  %89 = getelementptr inbounds nuw i32, ptr %9, i64 %88
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %88
   %90 = load i32, ptr %89, align 4, !tbaa !25
   %.not.i.i32 = icmp eq i32 %12, %90
   br i1 %.not.i.i32, label %93, label %91
@@ -4723,9 +4723,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp19onlypo
 93:                                               ; preds = %86
   %94 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %95 = load ptr, ptr %94, align 8, !tbaa !24
-  %96 = getelementptr inbounds nuw i32, ptr %95, i64 %10
+  %96 = getelementptr inbounds nuw [4 x i8], ptr %95, i64 %10
   %97 = load i32, ptr %96, align 4, !tbaa !25
-  %98 = getelementptr inbounds nuw i32, ptr %95, i64 %88
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %95, i64 %88
   %99 = load i32, ptr %98, align 4, !tbaa !25
   %.not15.i.i34 = icmp eq i32 %97, %99
   br i1 %.not15.i.i34, label %100, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp19onlypoly_reorder_ltEEclIPjS8_EEbT_T0_.exit36
@@ -4733,9 +4733,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp19onlypo
 100:                                              ; preds = %93
   %101 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %102 = load ptr, ptr %101, align 8, !tbaa !24
-  %103 = getelementptr inbounds nuw i32, ptr %102, i64 %10
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %102, i64 %10
   %104 = load i32, ptr %103, align 4, !tbaa !25
-  %105 = getelementptr inbounds nuw i32, ptr %102, i64 %88
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %102, i64 %88
   %106 = load i32, ptr %105, align 4, !tbaa !25
   %.not16.i.i35 = icmp eq i32 %104, %106
   br i1 %.not16.i.i35, label %109, label %107
@@ -4763,9 +4763,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp19onlypo
 115:                                              ; preds = %112
   %116 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %117 = load ptr, ptr %116, align 8, !tbaa !24
-  %118 = getelementptr inbounds nuw i32, ptr %117, i64 %13
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %117, i64 %13
   %119 = load i32, ptr %118, align 4, !tbaa !25
-  %120 = getelementptr inbounds nuw i32, ptr %117, i64 %88
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %117, i64 %88
   %121 = load i32, ptr %120, align 4, !tbaa !25
   %.not15.i.i39 = icmp eq i32 %119, %121
   br i1 %.not15.i.i39, label %122, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp19onlypoly_reorder_ltEEclIPjS8_EEbT_T0_.exit41
@@ -4773,9 +4773,9 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp19onlypo
 122:                                              ; preds = %115
   %123 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %124 = load ptr, ptr %123, align 8, !tbaa !24
-  %125 = getelementptr inbounds nuw i32, ptr %124, i64 %13
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %124, i64 %13
   %126 = load i32, ptr %125, align 4, !tbaa !25
-  %127 = getelementptr inbounds nuw i32, ptr %124, i64 %88
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %124, i64 %88
   %128 = load i32, ptr %127, align 4, !tbaa !25
   %.not16.i.i40 = icmp eq i32 %126, %128
   br i1 %.not16.i.i40, label %131, label %129
@@ -4828,10 +4828,10 @@ define linkonce_odr hidden void @_ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_It
   %11 = load i32, ptr %0, align 4, !tbaa !25
   %12 = load ptr, ptr %5, align 8, !tbaa !24
   %13 = zext i32 %10 to i64
-  %14 = getelementptr inbounds nuw i32, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !25
   %16 = zext i32 %11 to i64
-  %17 = getelementptr inbounds nuw i32, ptr %12, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !25
   %.not.i.i = icmp eq i32 %15, %18
   br i1 %.not.i.i, label %21, label %19
@@ -4842,18 +4842,18 @@ define linkonce_odr hidden void @_ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_It
 
 21:                                               ; preds = %9
   %22 = load ptr, ptr %6, align 8, !tbaa !24
-  %23 = getelementptr inbounds nuw i32, ptr %22, i64 %13
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %13
   %24 = load i32, ptr %23, align 4, !tbaa !25
-  %25 = getelementptr inbounds nuw i32, ptr %22, i64 %16
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %16
   %26 = load i32, ptr %25, align 4, !tbaa !25
   %.not15.i.i = icmp eq i32 %24, %26
   br i1 %.not15.i.i, label %27, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp19onlypoly_reorder_ltEEclIPjS8_EEbT_T0_.exit
 
 27:                                               ; preds = %21
   %28 = load ptr, ptr %7, align 8, !tbaa !24
-  %29 = getelementptr inbounds nuw i32, ptr %28, i64 %13
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %13
   %30 = load i32, ptr %29, align 4, !tbaa !25
-  %31 = getelementptr inbounds nuw i32, ptr %28, i64 %16
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %16
   %32 = load i32, ptr %31, align 4, !tbaa !25
   %.not16.i.i = icmp eq i32 %30, %32
   br i1 %.not16.i.i, label %35, label %33
@@ -4879,7 +4879,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp19onlypo
   %41 = sub i64 %40, %8
   %42 = ashr exact i64 %41, 2
   %43 = sub nsw i64 0, %42
-  %44 = getelementptr inbounds i32, ptr %39, i64 %43
+  %44 = getelementptr inbounds [4 x i8], ptr %39, i64 %43
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %44, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %41, i1 false)
   br label %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIN5nlsat22vos_var_info_collector3imp19onlypoly_reorder_ltEEEEvT_T0_.exit
 
@@ -4889,7 +4889,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp19onlypo
   %.0.i = getelementptr inbounds i8, ptr %.09.i, i64 -4
   %47 = load i32, ptr %.0.i, align 4, !tbaa !25
   %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds nuw i32, ptr %12, i64 %48
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %48
   %50 = load i32, ptr %49, align 4, !tbaa !25
   %.not.i.i.i = icmp eq i32 %46, %50
   br i1 %.not.i.i.i, label %53, label %51
@@ -4900,18 +4900,18 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp19onlypo
 
 53:                                               ; preds = %45
   %54 = load ptr, ptr %6, align 8, !tbaa !24
-  %55 = getelementptr inbounds nuw i32, ptr %54, i64 %13
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %13
   %56 = load i32, ptr %55, align 4, !tbaa !25
-  %57 = getelementptr inbounds nuw i32, ptr %54, i64 %48
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %48
   %58 = load i32, ptr %57, align 4, !tbaa !25
   %.not15.i.i.i = icmp eq i32 %56, %58
   br i1 %.not15.i.i.i, label %59, label %_ZN9__gnu_cxx5__ops14_Val_comp_iterIN5nlsat22vos_var_info_collector3imp19onlypoly_reorder_ltEEclIjPjEEbRT_T0_.exit.i
 
 59:                                               ; preds = %53
   %60 = load ptr, ptr %7, align 8, !tbaa !24
-  %61 = getelementptr inbounds nuw i32, ptr %60, i64 %13
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %13
   %62 = load i32, ptr %61, align 4, !tbaa !25
-  %63 = getelementptr inbounds nuw i32, ptr %60, i64 %48
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %60, i64 %48
   %64 = load i32, ptr %63, align 4, !tbaa !25
   %.not16.i.i.i = icmp eq i32 %62, %64
   br i1 %.not16.i.i.i, label %67, label %65
@@ -4976,13 +4976,13 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPjlN9__gnu_cxx5__ops15_I
   %21 = and i64 %13, 4
   %22 = icmp eq i64 %21, 0
   %23 = or disjoint i64 %17, 1
-  %24 = getelementptr inbounds nuw i32, ptr %0, i64 %23
-  %25 = getelementptr inbounds nuw i32, ptr %0, i64 %18
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %23
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %18
   br label %26
 
 26:                                               ; preds = %_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp21univariate_reorder_ltEEEEvT_T0_SA_T1_T2_.exit.i.i, %15
   %.014.i.i = phi i64 [ %18, %15 ], [ %73, %_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp21univariate_reorder_ltEEEEvT_T0_SA_T1_T2_.exit.i.i ]
-  %27 = getelementptr inbounds nuw i32, ptr %0, i64 %.014.i.i
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.014.i.i
   %28 = load i32, ptr %27, align 4, !tbaa !25
   %29 = icmp slt i64 %.014.i.i, %20
   br i1 %29, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
@@ -4995,16 +4995,16 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPjlN9__gnu_cxx5__ops15_I
   %.030.i.i.i = phi i64 [ %.014.i.i, %.lr.ph.i.i.i ], [ %spec.select.i.i.i, %31 ]
   %32 = shl i64 %.030.i.i.i, 1
   %33 = add i64 %32, 2
-  %34 = getelementptr inbounds i32, ptr %0, i64 %33
-  %35 = getelementptr i32, ptr %0, i64 %32
+  %34 = getelementptr inbounds [4 x i8], ptr %0, i64 %33
+  %35 = getelementptr [4 x i8], ptr %0, i64 %32
   %36 = getelementptr i8, ptr %35, i64 4
   %37 = load i32, ptr %34, align 4, !tbaa !25
   %38 = load i32, ptr %36, align 4, !tbaa !25
   %39 = zext i32 %37 to i64
-  %40 = getelementptr inbounds nuw i32, ptr %30, i64 %39
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %39
   %41 = load i32, ptr %40, align 4, !tbaa !25
   %42 = zext i32 %38 to i64
-  %43 = getelementptr inbounds nuw i32, ptr %30, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !25
   %.not.i.i.i.i.i = icmp eq i32 %41, %44
   %45 = icmp ugt i32 %41, %44
@@ -5012,9 +5012,9 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPjlN9__gnu_cxx5__ops15_I
   %.0.i.i.i.i.i = select i1 %.not.i.i.i.i.i, i1 %46, i1 %45
   %47 = or disjoint i64 %32, 1
   %spec.select.i.i.i = select i1 %.0.i.i.i.i.i, i64 %47, i64 %33
-  %48 = getelementptr inbounds i32, ptr %0, i64 %spec.select.i.i.i
+  %48 = getelementptr inbounds [4 x i8], ptr %0, i64 %spec.select.i.i.i
   %49 = load i32, ptr %48, align 4, !tbaa !25
-  %50 = getelementptr inbounds i32, ptr %0, i64 %.030.i.i.i
+  %50 = getelementptr inbounds [4 x i8], ptr %0, i64 %.030.i.i.i
   store i32 %49, ptr %50, align 4, !tbaa !25
   %51 = icmp slt i64 %spec.select.i.i.i, %20
   br i1 %51, label %31, label %._crit_edge.i.i.i, !llvm.loop !119
@@ -5038,17 +5038,17 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPjlN9__gnu_cxx5__ops15_I
 .lr.ph.i.i.i.i:                                   ; preds = %55
   %57 = load ptr, ptr %11, align 8, !tbaa !24
   %58 = zext i32 %28 to i64
-  %59 = getelementptr inbounds nuw i32, ptr %57, i64 %58
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %58
   br label %60
 
 60:                                               ; preds = %69, %.lr.ph.i.i.i.i
   %.01317.i.i.i.i = phi i64 [ %.128.i.i.i, %.lr.ph.i.i.i.i ], [ %.018.i.i.i.i, %69 ]
   %.018.in.i.i.i.i = add nsw i64 %.01317.i.i.i.i, -1
   %.018.i.i.i.i = sdiv i64 %.018.in.i.i.i.i, 2
-  %61 = getelementptr inbounds nuw i32, ptr %0, i64 %.018.i.i.i.i
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.018.i.i.i.i
   %62 = load i32, ptr %61, align 4, !tbaa !25
   %63 = zext i32 %62 to i64
-  %64 = getelementptr inbounds nuw i32, ptr %57, i64 %63
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %63
   %65 = load i32, ptr %64, align 4, !tbaa !25
   %66 = load i32, ptr %59, align 4, !tbaa !25
   %.not.i.i.i.i.i.i = icmp eq i32 %65, %66
@@ -5058,14 +5058,14 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPjlN9__gnu_cxx5__ops15_I
   br i1 %.0.i.i.i.i.i.i, label %69, label %_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp21univariate_reorder_ltEEEEvT_T0_SA_T1_T2_.exit.i.i
 
 69:                                               ; preds = %60
-  %70 = getelementptr inbounds nuw i32, ptr %0, i64 %.01317.i.i.i.i
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.01317.i.i.i.i
   store i32 %62, ptr %70, align 4, !tbaa !25
   %71 = icmp sgt i64 %.018.i.i.i.i, %.014.i.i
   br i1 %71, label %60, label %_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp21univariate_reorder_ltEEEEvT_T0_SA_T1_T2_.exit.i.i, !llvm.loop !120
 
 _ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp21univariate_reorder_ltEEEEvT_T0_SA_T1_T2_.exit.i.i: ; preds = %69, %60, %55
   %.013.lcssa.i.i.i.i = phi i64 [ %.128.i.i.i, %55 ], [ %.018.i.i.i.i, %69 ], [ %.01317.i.i.i.i, %60 ]
-  %72 = getelementptr inbounds nuw i32, ptr %0, i64 %.013.lcssa.i.i.i.i
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.013.lcssa.i.i.i.i
   store i32 %28, ptr %72, align 4, !tbaa !25
   %.not.i.i = icmp eq i64 %.014.i.i, 0
   %73 = add nsw i64 %.014.i.i, -1
@@ -5079,16 +5079,16 @@ _ZSt13__heap_selectIPjN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_c
 74:                                               ; preds = %12
   %75 = add nsw i64 %.01521, -1
   %76 = lshr i64 %13, 3
-  %77 = getelementptr inbounds nuw i32, ptr %0, i64 %76
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %76
   %78 = getelementptr inbounds i8, ptr %.022, i64 -4
   %79 = load i32, ptr %10, align 4, !tbaa !25
   %80 = load i32, ptr %77, align 4, !tbaa !25
   %81 = load ptr, ptr %11, align 8, !tbaa !24
   %82 = zext i32 %79 to i64
-  %83 = getelementptr inbounds nuw i32, ptr %81, i64 %82
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %81, i64 %82
   %84 = load i32, ptr %83, align 4, !tbaa !25
   %85 = zext i32 %80 to i64
-  %86 = getelementptr inbounds nuw i32, ptr %81, i64 %85
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %81, i64 %85
   %87 = load i32, ptr %86, align 4, !tbaa !25
   %.not.i.i.i.i = icmp eq i32 %84, %87
   %88 = icmp ugt i32 %84, %87
@@ -5096,7 +5096,7 @@ _ZSt13__heap_selectIPjN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_c
   %.0.i.i.i.i = select i1 %.not.i.i.i.i, i1 %89, i1 %88
   %90 = load i32, ptr %78, align 4, !tbaa !25
   %91 = zext i32 %90 to i64
-  %92 = getelementptr inbounds nuw i32, ptr %81, i64 %91
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %81, i64 %91
   %93 = load i32, ptr %92, align 4, !tbaa !25
   br i1 %.0.i.i.i.i, label %94, label %105
 
@@ -5170,7 +5170,7 @@ _ZSt22__move_median_to_firstIPjN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_v
   %.0.i.i = phi ptr [ %127, %136 ], [ %10, %_ZSt22__move_median_to_firstIPjN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp21univariate_reorder_ltEEEEvT_S9_S9_S9_T0_.exit.i.preheader ]
   %116 = load i32, ptr %0, align 4, !tbaa !25
   %117 = zext i32 %116 to i64
-  %118 = getelementptr inbounds nuw i32, ptr %81, i64 %117
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %81, i64 %117
   %119 = load i32, ptr %118, align 4, !tbaa !25
   br label %120
 
@@ -5178,7 +5178,7 @@ _ZSt22__move_median_to_firstIPjN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_v
   %.1.i.i = phi ptr [ %.0.i.i, %_ZSt22__move_median_to_firstIPjN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp21univariate_reorder_ltEEEEvT_S9_S9_S9_T0_.exit.i ], [ %127, %120 ]
   %121 = load i32, ptr %.1.i.i, align 4, !tbaa !25
   %122 = zext i32 %121 to i64
-  %123 = getelementptr inbounds nuw i32, ptr %81, i64 %122
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %81, i64 %122
   %124 = load i32, ptr %123, align 4, !tbaa !25
   %.not.i.i.i12.i = icmp eq i32 %124, %119
   %125 = icmp ugt i32 %124, %119
@@ -5192,7 +5192,7 @@ _ZSt22__move_median_to_firstIPjN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_v
   %.114.i.i = getelementptr inbounds i8, ptr %.013.pn.i.i, i64 -4
   %128 = load i32, ptr %.114.i.i, align 4, !tbaa !25
   %129 = zext i32 %128 to i64
-  %130 = getelementptr inbounds nuw i32, ptr %81, i64 %129
+  %130 = getelementptr inbounds nuw [4 x i8], ptr %81, i64 %129
   %131 = load i32, ptr %130, align 4, !tbaa !25
   %.not.i.i15.i.i = icmp eq i32 %119, %131
   %132 = icmp ugt i32 %119, %131
@@ -5241,10 +5241,10 @@ define linkonce_odr hidden void @_ZSt22__final_insertion_sortIPjN9__gnu_cxx5__op
   %12 = load i32, ptr %0, align 4, !tbaa !25
   %13 = load ptr, ptr %9, align 8, !tbaa !24
   %14 = zext i32 %11 to i64
-  %15 = getelementptr inbounds nuw i32, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !25
   %17 = zext i32 %12 to i64
-  %18 = getelementptr inbounds nuw i32, ptr %13, i64 %17
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !25
   %.not.i.i.i = icmp eq i32 %16, %19
   %20 = icmp ugt i32 %16, %19
@@ -5259,7 +5259,7 @@ define linkonce_odr hidden void @_ZSt22__final_insertion_sortIPjN9__gnu_cxx5__op
 23:                                               ; preds = %10
   %24 = load i32, ptr %.pn19.i, align 4, !tbaa !25
   %25 = zext i32 %24 to i64
-  %26 = getelementptr inbounds nuw i32, ptr %13, i64 %25
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %25
   %27 = load i32, ptr %26, align 4, !tbaa !25
   %.not.i.i12.i.i = icmp eq i32 %16, %27
   %28 = icmp ugt i32 %16, %27
@@ -5276,7 +5276,7 @@ define linkonce_odr hidden void @_ZSt22__final_insertion_sortIPjN9__gnu_cxx5__op
   %31 = load i32, ptr %.0.i.i, align 4, !tbaa !25
   %32 = load i32, ptr %15, align 4, !tbaa !25
   %33 = zext i32 %31 to i64
-  %34 = getelementptr inbounds nuw i32, ptr %13, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !25
   %.not.i.i.i.i = icmp eq i32 %32, %35
   %36 = icmp ugt i32 %32, %35
@@ -5304,12 +5304,12 @@ _ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_inf
   %.08.i = phi ptr [ %38, %.lr.ph.i ], [ %59, %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIN5nlsat22vos_var_info_collector3imp21univariate_reorder_ltEEEEvT_T0_.exit.i13 ]
   %41 = load i32, ptr %.08.i, align 4, !tbaa !25
   %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds nuw i32, ptr %39, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %42
   %.011.i.i = getelementptr inbounds i8, ptr %.08.i, i64 -4
   %44 = load i32, ptr %.011.i.i, align 4, !tbaa !25
   %45 = load i32, ptr %43, align 4, !tbaa !25
   %46 = zext i32 %44 to i64
-  %47 = getelementptr inbounds nuw i32, ptr %39, i64 %46
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %46
   %48 = load i32, ptr %47, align 4, !tbaa !25
   %.not.i.i12.i.i11 = icmp eq i32 %45, %48
   %49 = icmp ugt i32 %45, %48
@@ -5326,7 +5326,7 @@ _ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_inf
   %52 = load i32, ptr %.0.i.i18, align 4, !tbaa !25
   %53 = load i32, ptr %43, align 4, !tbaa !25
   %54 = zext i32 %52 to i64
-  %55 = getelementptr inbounds nuw i32, ptr %39, i64 %54
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %54
   %56 = load i32, ptr %55, align 4, !tbaa !25
   %.not.i.i.i.i19 = icmp eq i32 %53, %56
   %57 = icmp ugt i32 %53, %56
@@ -5361,10 +5361,10 @@ _ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIN5nlsat22vos
   %65 = load i32, ptr %0, align 4, !tbaa !25
   %66 = load ptr, ptr %62, align 8, !tbaa !24
   %67 = zext i32 %64 to i64
-  %68 = getelementptr inbounds nuw i32, ptr %66, i64 %67
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %67
   %69 = load i32, ptr %68, align 4, !tbaa !25
   %70 = zext i32 %65 to i64
-  %71 = getelementptr inbounds nuw i32, ptr %66, i64 %70
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %70
   %72 = load i32, ptr %71, align 4, !tbaa !25
   %.not.i.i.i25 = icmp eq i32 %69, %72
   %73 = icmp ugt i32 %69, %72
@@ -5378,14 +5378,14 @@ _ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIN5nlsat22vos
   %78 = sub i64 %77, %5
   %79 = ashr exact i64 %78, 2
   %80 = sub nsw i64 0, %79
-  %81 = getelementptr inbounds i32, ptr %76, i64 %80
+  %81 = getelementptr inbounds [4 x i8], ptr %76, i64 %80
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %81, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %78, i1 false)
   br label %_ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIN5nlsat22vos_var_info_collector3imp21univariate_reorder_ltEEEEvT_T0_.exit.i29
 
 82:                                               ; preds = %63
   %83 = load i32, ptr %.pn19.i24, align 4, !tbaa !25
   %84 = zext i32 %83 to i64
-  %85 = getelementptr inbounds nuw i32, ptr %66, i64 %84
+  %85 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %84
   %86 = load i32, ptr %85, align 4, !tbaa !25
   %.not.i.i12.i.i27 = icmp eq i32 %69, %86
   %87 = icmp ugt i32 %69, %86
@@ -5402,7 +5402,7 @@ _ZSt25__unguarded_linear_insertIPjN9__gnu_cxx5__ops14_Val_comp_iterIN5nlsat22vos
   %90 = load i32, ptr %.0.i.i36, align 4, !tbaa !25
   %91 = load i32, ptr %68, align 4, !tbaa !25
   %92 = zext i32 %90 to i64
-  %93 = getelementptr inbounds nuw i32, ptr %66, i64 %92
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %92
   %94 = load i32, ptr %93, align 4, !tbaa !25
   %.not.i.i.i.i37 = icmp eq i32 %91, %94
   %95 = icmp ugt i32 %91, %94
@@ -5456,16 +5456,16 @@ define linkonce_odr hidden void @_ZSt11__sort_heapIPjN9__gnu_cxx5__ops15_Iter_co
   %.030.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %spec.select.i.i, %20 ]
   %21 = shl i64 %.030.i.i, 1
   %22 = add i64 %21, 2
-  %23 = getelementptr inbounds i32, ptr %0, i64 %22
-  %24 = getelementptr i32, ptr %0, i64 %21
+  %23 = getelementptr inbounds [4 x i8], ptr %0, i64 %22
+  %24 = getelementptr [4 x i8], ptr %0, i64 %21
   %25 = getelementptr i8, ptr %24, i64 4
   %26 = load i32, ptr %23, align 4, !tbaa !25
   %27 = load i32, ptr %25, align 4, !tbaa !25
   %28 = zext i32 %26 to i64
-  %29 = getelementptr inbounds nuw i32, ptr %19, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !25
   %31 = zext i32 %27 to i64
-  %32 = getelementptr inbounds nuw i32, ptr %19, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !25
   %.not.i.i.i.i = icmp eq i32 %30, %33
   %34 = icmp ugt i32 %30, %33
@@ -5473,9 +5473,9 @@ define linkonce_odr hidden void @_ZSt11__sort_heapIPjN9__gnu_cxx5__ops15_Iter_co
   %.0.i.i.i.i = select i1 %.not.i.i.i.i, i1 %35, i1 %34
   %36 = or disjoint i64 %21, 1
   %spec.select.i.i = select i1 %.0.i.i.i.i, i64 %36, i64 %22
-  %37 = getelementptr inbounds i32, ptr %0, i64 %spec.select.i.i
+  %37 = getelementptr inbounds [4 x i8], ptr %0, i64 %spec.select.i.i
   %38 = load i32, ptr %37, align 4, !tbaa !25
-  %39 = getelementptr inbounds i32, ptr %0, i64 %.030.i.i
+  %39 = getelementptr inbounds [4 x i8], ptr %0, i64 %.030.i.i
   store i32 %38, ptr %39, align 4, !tbaa !25
   %40 = icmp slt i64 %spec.select.i.i, %17
   br i1 %40, label %20, label %._crit_edge.i.i, !llvm.loop !119
@@ -5495,9 +5495,9 @@ define linkonce_odr hidden void @_ZSt11__sort_heapIPjN9__gnu_cxx5__ops15_Iter_co
 .thread.i:                                        ; preds = %43
   %47 = shl nuw nsw i64 %.0.lcssa.i.i, 1
   %48 = or disjoint i64 %47, 1
-  %49 = getelementptr inbounds nuw i32, ptr %0, i64 %48
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %48
   %50 = load i32, ptr %49, align 4, !tbaa !25
-  %51 = getelementptr inbounds i32, ptr %0, i64 %.0.lcssa.i.i
+  %51 = getelementptr inbounds [4 x i8], ptr %0, i64 %.0.lcssa.i.i
   store i32 %50, ptr %51, align 4, !tbaa !25
   br label %.lr.ph.i.i.i
 
@@ -5509,17 +5509,17 @@ define linkonce_odr hidden void @_ZSt11__sort_heapIPjN9__gnu_cxx5__ops15_Iter_co
   %.128.i8.i = phi i64 [ %48, %.thread.i ], [ %.0.lcssa.i.i, %52 ]
   %53 = load ptr, ptr %8, align 8, !tbaa !24
   %54 = zext i32 %11 to i64
-  %55 = getelementptr inbounds nuw i32, ptr %53, i64 %54
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %54
   br label %56
 
 56:                                               ; preds = %65, %.lr.ph.i.i.i
   %.01317.i.i.i = phi i64 [ %.128.i8.i, %.lr.ph.i.i.i ], [ %.018.i.i910.i, %65 ]
   %.018.in.i.i.i = add nsw i64 %.01317.i.i.i, -1
   %.018.i.i910.i = lshr i64 %.018.in.i.i.i, 1
-  %57 = getelementptr inbounds nuw i32, ptr %0, i64 %.018.i.i910.i
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.018.i.i910.i
   %58 = load i32, ptr %57, align 4, !tbaa !25
   %59 = zext i32 %58 to i64
-  %60 = getelementptr inbounds nuw i32, ptr %53, i64 %59
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %59
   %61 = load i32, ptr %60, align 4, !tbaa !25
   %62 = load i32, ptr %55, align 4, !tbaa !25
   %.not.i.i.i.i.i = icmp eq i32 %61, %62
@@ -5529,14 +5529,14 @@ define linkonce_odr hidden void @_ZSt11__sort_heapIPjN9__gnu_cxx5__ops15_Iter_co
   br i1 %.0.i.i.i.i.i, label %65, label %_ZSt10__pop_heapIPjN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp21univariate_reorder_ltEEEEvT_S9_S9_RT0_.exit
 
 65:                                               ; preds = %56
-  %66 = getelementptr inbounds i32, ptr %0, i64 %.01317.i.i.i
+  %66 = getelementptr inbounds [4 x i8], ptr %0, i64 %.01317.i.i.i
   store i32 %58, ptr %66, align 4, !tbaa !25
   %.not11.i = icmp eq i64 %.018.i.i910.i, 0
   br i1 %.not11.i, label %_ZSt10__pop_heapIPjN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp21univariate_reorder_ltEEEEvT_S9_S9_RT0_.exit, label %56, !llvm.loop !120
 
 _ZSt10__pop_heapIPjN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp21univariate_reorder_ltEEEEvT_S9_S9_RT0_.exit: ; preds = %56, %65, %52
   %.013.lcssa.i.i.i = phi i64 [ 0, %52 ], [ %.01317.i.i.i, %56 ], [ 0, %65 ]
-  %67 = getelementptr inbounds i32, ptr %0, i64 %.013.lcssa.i.i.i
+  %67 = getelementptr inbounds [4 x i8], ptr %0, i64 %.013.lcssa.i.i.i
   store i32 %11, ptr %67, align 4, !tbaa !25
   %68 = icmp sgt i64 %14, 4
   br i1 %68, label %9, label %._crit_edge, !llvm.loop !130
@@ -5580,7 +5580,7 @@ define linkonce_odr hidden void @_ZSt16__introsort_loopIPjlN9__gnu_cxx5__ops15_I
 16:                                               ; preds = %12
   %17 = add nsw i64 %.01517, -1
   %18 = lshr i64 %13, 3
-  %19 = getelementptr inbounds nuw i32, ptr %0, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %18
   %20 = getelementptr inbounds i8, ptr %.018, i64 -4
   tail call void @_ZSt22__move_median_to_firstIPjN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp18feature_reorder_ltEEEEvT_S9_S9_S9_T0_(ptr noundef %0, ptr noundef nonnull %11, ptr noundef %19, ptr noundef nonnull %20, ptr %3)
   %21 = tail call noundef ptr @_ZSt21__unguarded_partitionIPjN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp18feature_reorder_ltEEEET_S9_S9_S9_T0_(ptr noundef nonnull %11, ptr noundef %.018, ptr noundef %0, ptr %3)
@@ -5627,17 +5627,17 @@ define linkonce_odr hidden void @_ZSt11__sort_heapIPjN9__gnu_cxx5__ops15_Iter_co
   %.029.i.i = phi i64 [ %spec.select.i.i, %_ZNK5nlsat22vos_var_info_collector3imp18feature_reorder_ltclEjj.exit14 ], [ 0, %.lr.ph.i.i.preheader ]
   %20 = shl i64 %.029.i.i, 1
   %21 = add i64 %20, 2
-  %22 = getelementptr inbounds i32, ptr %0, i64 %21
-  %23 = getelementptr i32, ptr %0, i64 %20
+  %22 = getelementptr inbounds [4 x i8], ptr %0, i64 %21
+  %23 = getelementptr [4 x i8], ptr %0, i64 %20
   %24 = getelementptr i8, ptr %23, i64 4
   %25 = load i32, ptr %22, align 4, !tbaa !25
   %26 = load i32, ptr %24, align 4, !tbaa !25
   %27 = load ptr, ptr %17, align 8, !tbaa !24
   %28 = zext i32 %25 to i64
-  %29 = getelementptr inbounds nuw i32, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !25
   %31 = zext i32 %26 to i64
-  %32 = getelementptr inbounds nuw i32, ptr %27, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !25
   %.not.i8 = icmp eq i32 %30, %33
   br i1 %.not.i8, label %36, label %34
@@ -5648,9 +5648,9 @@ define linkonce_odr hidden void @_ZSt11__sort_heapIPjN9__gnu_cxx5__ops15_Iter_co
 
 36:                                               ; preds = %.lr.ph.i.i
   %37 = load ptr, ptr %18, align 8, !tbaa !24
-  %38 = getelementptr inbounds nuw i32, ptr %37, i64 %28
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %28
   %39 = load i32, ptr %38, align 4, !tbaa !25
-  %40 = getelementptr inbounds nuw i32, ptr %37, i64 %31
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %31
   %41 = load i32, ptr %40, align 4, !tbaa !25
   %.not15.i10 = icmp eq i32 %39, %41
   br i1 %.not15.i10, label %44, label %42
@@ -5663,8 +5663,8 @@ define linkonce_odr hidden void @_ZSt11__sort_heapIPjN9__gnu_cxx5__ops15_Iter_co
   %45 = load ptr, ptr %.sroa.0.0.copyload.i, align 8, !tbaa !76
   %46 = tail call noundef nonnull align 8 dereferenceable(600) ptr @_ZNK10polynomial7manager1mEv(ptr noundef nonnull align 8 dereferenceable(8) %45)
   %47 = load ptr, ptr %19, align 8, !tbaa !28
-  %48 = getelementptr inbounds nuw %class.mpz, ptr %47, i64 %28
-  %49 = getelementptr inbounds nuw %class.mpz, ptr %47, i64 %31
+  %48 = getelementptr inbounds nuw [16 x i8], ptr %47, i64 %28
+  %49 = getelementptr inbounds nuw [16 x i8], ptr %47, i64 %31
   %50 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %51 = load i8, ptr %50, align 4
   %52 = and i8 %51, 1
@@ -5693,8 +5693,8 @@ _ZN11mpz_managerILb0EE2eqERK3mpzS3_.exit._crit_edge.i12: ; preds = %_ZN11mpz_man
   %65 = load ptr, ptr %.sroa.0.0.copyload.i, align 8, !tbaa !76
   %66 = tail call noundef nonnull align 8 dereferenceable(600) ptr @_ZNK10polynomial7manager1mEv(ptr noundef nonnull align 8 dereferenceable(8) %65)
   %67 = load ptr, ptr %19, align 8, !tbaa !28
-  %68 = getelementptr inbounds nuw %class.mpz, ptr %67, i64 %28
-  %69 = getelementptr inbounds nuw %class.mpz, ptr %67, i64 %31
+  %68 = getelementptr inbounds nuw [16 x i8], ptr %67, i64 %28
+  %69 = getelementptr inbounds nuw [16 x i8], ptr %67, i64 %31
   %70 = getelementptr inbounds nuw i8, ptr %68, i64 4
   %71 = load i8, ptr %70, align 4
   %72 = and i8 %71, 1
@@ -5727,9 +5727,9 @@ _ZNK5nlsat22vos_var_info_collector3imp18feature_reorder_ltclEjj.exit14: ; preds 
   %.0.i9 = phi i1 [ %35, %34 ], [ %43, %42 ], [ %87, %86 ], [ %82, %79 ], [ %85, %83 ]
   %88 = or disjoint i64 %20, 1
   %spec.select.i.i = select i1 %.0.i9, i64 %88, i64 %21
-  %89 = getelementptr inbounds i32, ptr %0, i64 %spec.select.i.i
+  %89 = getelementptr inbounds [4 x i8], ptr %0, i64 %spec.select.i.i
   %90 = load i32, ptr %89, align 4, !tbaa !25
-  %91 = getelementptr inbounds i32, ptr %0, i64 %.029.i.i
+  %91 = getelementptr inbounds [4 x i8], ptr %0, i64 %.029.i.i
   store i32 %90, ptr %91, align 4, !tbaa !25
   %92 = icmp slt i64 %spec.select.i.i, %15
   br i1 %92, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !132
@@ -5749,9 +5749,9 @@ _ZNK5nlsat22vos_var_info_collector3imp18feature_reorder_ltclEjj.exit14: ; preds 
 .thread.i:                                        ; preds = %95
   %99 = shl nuw nsw i64 %.0.lcssa.i.i, 1
   %100 = or disjoint i64 %99, 1
-  %101 = getelementptr inbounds nuw i32, ptr %0, i64 %100
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %100
   %102 = load i32, ptr %101, align 4, !tbaa !25
-  %103 = getelementptr inbounds i32, ptr %0, i64 %.0.lcssa.i.i
+  %103 = getelementptr inbounds [4 x i8], ptr %0, i64 %.0.lcssa.i.i
   store i32 %102, ptr %103, align 4, !tbaa !25
   br label %.lr.ph.i.i.preheader.i
 
@@ -5771,13 +5771,13 @@ _ZNK5nlsat22vos_var_info_collector3imp18feature_reorder_ltclEjj.exit14: ; preds 
   %.01317.i.i.i = phi i64 [ %.018.i.i78.i, %170 ], [ %.128.i12.i, %.lr.ph.i.i.preheader.i ]
   %.018.in.i.i.i = add nsw i64 %.01317.i.i.i, -1
   %.018.i.i78.i = lshr i64 %.018.in.i.i.i, 1
-  %109 = getelementptr inbounds nuw i32, ptr %0, i64 %.018.i.i78.i
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.018.i.i78.i
   %110 = load i32, ptr %109, align 4, !tbaa !25
   %111 = load ptr, ptr %105, align 8, !tbaa !24
   %112 = zext i32 %110 to i64
-  %113 = getelementptr inbounds nuw i32, ptr %111, i64 %112
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %111, i64 %112
   %114 = load i32, ptr %113, align 4, !tbaa !25
-  %115 = getelementptr inbounds nuw i32, ptr %111, i64 %106
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %111, i64 %106
   %116 = load i32, ptr %115, align 4, !tbaa !25
   %.not.i7 = icmp eq i32 %114, %116
   br i1 %.not.i7, label %119, label %117
@@ -5788,9 +5788,9 @@ _ZNK5nlsat22vos_var_info_collector3imp18feature_reorder_ltclEjj.exit14: ; preds 
 
 119:                                              ; preds = %.lr.ph.i.i.i
   %120 = load ptr, ptr %107, align 8, !tbaa !24
-  %121 = getelementptr inbounds nuw i32, ptr %120, i64 %112
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %120, i64 %112
   %122 = load i32, ptr %121, align 4, !tbaa !25
-  %123 = getelementptr inbounds nuw i32, ptr %120, i64 %106
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %120, i64 %106
   %124 = load i32, ptr %123, align 4, !tbaa !25
   %.not15.i = icmp eq i32 %122, %124
   br i1 %.not15.i, label %125, label %_ZNK5nlsat22vos_var_info_collector3imp18feature_reorder_ltclEjj.exit
@@ -5799,8 +5799,8 @@ _ZNK5nlsat22vos_var_info_collector3imp18feature_reorder_ltclEjj.exit14: ; preds 
   %126 = load ptr, ptr %.sroa.0.0.copyload.i, align 8, !tbaa !76
   %127 = tail call noundef nonnull align 8 dereferenceable(600) ptr @_ZNK10polynomial7manager1mEv(ptr noundef nonnull align 8 dereferenceable(8) %126)
   %128 = load ptr, ptr %108, align 8, !tbaa !28
-  %129 = getelementptr inbounds nuw %class.mpz, ptr %128, i64 %112
-  %130 = getelementptr inbounds nuw %class.mpz, ptr %128, i64 %106
+  %129 = getelementptr inbounds nuw [16 x i8], ptr %128, i64 %112
+  %130 = getelementptr inbounds nuw [16 x i8], ptr %128, i64 %106
   %131 = getelementptr inbounds nuw i8, ptr %129, i64 4
   %132 = load i8, ptr %131, align 4
   %133 = and i8 %132, 1
@@ -5829,8 +5829,8 @@ _ZN11mpz_managerILb0EE2eqERK3mpzS3_.exit._crit_edge.i: ; preds = %_ZN11mpz_manag
   %146 = load ptr, ptr %.sroa.0.0.copyload.i, align 8, !tbaa !76
   %147 = tail call noundef nonnull align 8 dereferenceable(600) ptr @_ZNK10polynomial7manager1mEv(ptr noundef nonnull align 8 dereferenceable(8) %146)
   %148 = load ptr, ptr %108, align 8, !tbaa !28
-  %149 = getelementptr inbounds nuw %class.mpz, ptr %148, i64 %112
-  %150 = getelementptr inbounds nuw %class.mpz, ptr %148, i64 %106
+  %149 = getelementptr inbounds nuw [16 x i8], ptr %148, i64 %112
+  %150 = getelementptr inbounds nuw [16 x i8], ptr %148, i64 %106
   %151 = getelementptr inbounds nuw i8, ptr %149, i64 4
   %152 = load i8, ptr %151, align 4
   %153 = and i8 %152, 1
@@ -5865,14 +5865,14 @@ _ZNK5nlsat22vos_var_info_collector3imp18feature_reorder_ltclEjj.exit: ; preds = 
 
 170:                                              ; preds = %167, %160, %164, %117, %_ZNK5nlsat22vos_var_info_collector3imp18feature_reorder_ltclEjj.exit
   %171 = load i32, ptr %109, align 4, !tbaa !25
-  %172 = getelementptr inbounds i32, ptr %0, i64 %.01317.i.i.i
+  %172 = getelementptr inbounds [4 x i8], ptr %0, i64 %.01317.i.i.i
   store i32 %171, ptr %172, align 4, !tbaa !25
   %.not9.i = icmp eq i64 %.018.i.i78.i, 0
   br i1 %.not9.i, label %_ZSt10__pop_heapIPjN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp18feature_reorder_ltEEEEvT_S9_S9_RT0_.exit, label %.lr.ph.i.i.i, !llvm.loop !133
 
 _ZSt10__pop_heapIPjN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp18feature_reorder_ltEEEEvT_S9_S9_RT0_.exit: ; preds = %167, %160, %164, %117, %_ZNK5nlsat22vos_var_info_collector3imp18feature_reorder_ltclEjj.exit, %170, %104
   %.013.lcssa.i.i.i = phi i64 [ 0, %104 ], [ %.01317.i.i.i, %167 ], [ %.01317.i.i.i, %160 ], [ %.01317.i.i.i, %164 ], [ %.01317.i.i.i, %117 ], [ %.01317.i.i.i, %_ZNK5nlsat22vos_var_info_collector3imp18feature_reorder_ltclEjj.exit ], [ 0, %170 ]
-  %173 = getelementptr inbounds i32, ptr %0, i64 %.013.lcssa.i.i.i
+  %173 = getelementptr inbounds [4 x i8], ptr %0, i64 %.013.lcssa.i.i.i
   store i32 %9, ptr %173, align 4, !tbaa !25
   %174 = icmp sgt i64 %12, 4
   br i1 %174, label %.lr.ph, label %._crit_edge, !llvm.loop !134
@@ -5899,13 +5899,13 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPjN9__gnu_cxx5__ops15_Iter_co
   %15 = icmp eq i64 %14, 0
   %16 = lshr exact i64 %10, 1
   %17 = or disjoint i64 %10, 1
-  %18 = getelementptr inbounds nuw i32, ptr %0, i64 %17
-  %19 = getelementptr inbounds nuw i32, ptr %0, i64 %16
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %17
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %16
   br label %20
 
 20:                                               ; preds = %_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp18feature_reorder_ltEEEEvT_T0_SA_T1_T2_.exit, %9
   %.014 = phi i64 [ %11, %9 ], [ %175, %_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp18feature_reorder_ltEEEEvT_T0_SA_T1_T2_.exit ]
-  %21 = getelementptr inbounds nuw i32, ptr %0, i64 %.014
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.014
   %22 = load i32, ptr %21, align 4, !tbaa !25
   %.sroa.0.0.copyload = load ptr, ptr %2, align 8, !tbaa !129
   %23 = icmp slt i64 %.014, %13
@@ -5921,17 +5921,17 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPjN9__gnu_cxx5__ops15_Iter_co
   %.029.i = phi i64 [ %spec.select.i, %_ZNK5nlsat22vos_var_info_collector3imp18feature_reorder_ltclEjj.exit22 ], [ %.014, %.lr.ph.i.preheader ]
   %27 = shl i64 %.029.i, 1
   %28 = add i64 %27, 2
-  %29 = getelementptr inbounds i32, ptr %0, i64 %28
-  %30 = getelementptr i32, ptr %0, i64 %27
+  %29 = getelementptr inbounds [4 x i8], ptr %0, i64 %28
+  %30 = getelementptr [4 x i8], ptr %0, i64 %27
   %31 = getelementptr i8, ptr %30, i64 4
   %32 = load i32, ptr %29, align 4, !tbaa !25
   %33 = load i32, ptr %31, align 4, !tbaa !25
   %34 = load ptr, ptr %24, align 8, !tbaa !24
   %35 = zext i32 %32 to i64
-  %36 = getelementptr inbounds nuw i32, ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %35
   %37 = load i32, ptr %36, align 4, !tbaa !25
   %38 = zext i32 %33 to i64
-  %39 = getelementptr inbounds nuw i32, ptr %34, i64 %38
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !25
   %.not.i16 = icmp eq i32 %37, %40
   br i1 %.not.i16, label %43, label %41
@@ -5942,9 +5942,9 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPjN9__gnu_cxx5__ops15_Iter_co
 
 43:                                               ; preds = %.lr.ph.i
   %44 = load ptr, ptr %25, align 8, !tbaa !24
-  %45 = getelementptr inbounds nuw i32, ptr %44, i64 %35
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %35
   %46 = load i32, ptr %45, align 4, !tbaa !25
-  %47 = getelementptr inbounds nuw i32, ptr %44, i64 %38
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %38
   %48 = load i32, ptr %47, align 4, !tbaa !25
   %.not15.i18 = icmp eq i32 %46, %48
   br i1 %.not15.i18, label %51, label %49
@@ -5957,8 +5957,8 @@ define linkonce_odr hidden void @_ZSt11__make_heapIPjN9__gnu_cxx5__ops15_Iter_co
   %52 = load ptr, ptr %.sroa.0.0.copyload, align 8, !tbaa !76
   %53 = tail call noundef nonnull align 8 dereferenceable(600) ptr @_ZNK10polynomial7manager1mEv(ptr noundef nonnull align 8 dereferenceable(8) %52)
   %54 = load ptr, ptr %26, align 8, !tbaa !28
-  %55 = getelementptr inbounds nuw %class.mpz, ptr %54, i64 %35
-  %56 = getelementptr inbounds nuw %class.mpz, ptr %54, i64 %38
+  %55 = getelementptr inbounds nuw [16 x i8], ptr %54, i64 %35
+  %56 = getelementptr inbounds nuw [16 x i8], ptr %54, i64 %38
   %57 = getelementptr inbounds nuw i8, ptr %55, i64 4
   %58 = load i8, ptr %57, align 4
   %59 = and i8 %58, 1
@@ -5987,8 +5987,8 @@ _ZN11mpz_managerILb0EE2eqERK3mpzS3_.exit._crit_edge.i20: ; preds = %_ZN11mpz_man
   %72 = load ptr, ptr %.sroa.0.0.copyload, align 8, !tbaa !76
   %73 = tail call noundef nonnull align 8 dereferenceable(600) ptr @_ZNK10polynomial7manager1mEv(ptr noundef nonnull align 8 dereferenceable(8) %72)
   %74 = load ptr, ptr %26, align 8, !tbaa !28
-  %75 = getelementptr inbounds nuw %class.mpz, ptr %74, i64 %35
-  %76 = getelementptr inbounds nuw %class.mpz, ptr %74, i64 %38
+  %75 = getelementptr inbounds nuw [16 x i8], ptr %74, i64 %35
+  %76 = getelementptr inbounds nuw [16 x i8], ptr %74, i64 %38
   %77 = getelementptr inbounds nuw i8, ptr %75, i64 4
   %78 = load i8, ptr %77, align 4
   %79 = and i8 %78, 1
@@ -6021,9 +6021,9 @@ _ZNK5nlsat22vos_var_info_collector3imp18feature_reorder_ltclEjj.exit22: ; preds 
   %.0.i17 = phi i1 [ %42, %41 ], [ %50, %49 ], [ %94, %93 ], [ %89, %86 ], [ %92, %90 ]
   %95 = or disjoint i64 %27, 1
   %spec.select.i = select i1 %.0.i17, i64 %95, i64 %28
-  %96 = getelementptr inbounds i32, ptr %0, i64 %spec.select.i
+  %96 = getelementptr inbounds [4 x i8], ptr %0, i64 %spec.select.i
   %97 = load i32, ptr %96, align 4, !tbaa !25
-  %98 = getelementptr inbounds i32, ptr %0, i64 %.029.i
+  %98 = getelementptr inbounds [4 x i8], ptr %0, i64 %.029.i
   store i32 %97, ptr %98, align 4, !tbaa !25
   %99 = icmp slt i64 %spec.select.i, %13
   br i1 %99, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !132
@@ -6055,13 +6055,13 @@ _ZNK5nlsat22vos_var_info_collector3imp18feature_reorder_ltclEjj.exit22: ; preds 
   %.01317.i.i = phi i64 [ %.018.i.i, %170 ], [ %.128.i, %.lr.ph.i.i.preheader ]
   %.018.in.i.i = add nsw i64 %.01317.i.i, -1
   %.018.i.i = sdiv i64 %.018.in.i.i, 2
-  %109 = getelementptr inbounds i32, ptr %0, i64 %.018.i.i
+  %109 = getelementptr inbounds [4 x i8], ptr %0, i64 %.018.i.i
   %110 = load i32, ptr %109, align 4, !tbaa !25
   %111 = load ptr, ptr %105, align 8, !tbaa !24
   %112 = zext i32 %110 to i64
-  %113 = getelementptr inbounds nuw i32, ptr %111, i64 %112
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %111, i64 %112
   %114 = load i32, ptr %113, align 4, !tbaa !25
-  %115 = getelementptr inbounds nuw i32, ptr %111, i64 %106
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %111, i64 %106
   %116 = load i32, ptr %115, align 4, !tbaa !25
   %.not.i = icmp eq i32 %114, %116
   br i1 %.not.i, label %119, label %117
@@ -6072,9 +6072,9 @@ _ZNK5nlsat22vos_var_info_collector3imp18feature_reorder_ltclEjj.exit22: ; preds 
 
 119:                                              ; preds = %.lr.ph.i.i
   %120 = load ptr, ptr %107, align 8, !tbaa !24
-  %121 = getelementptr inbounds nuw i32, ptr %120, i64 %112
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %120, i64 %112
   %122 = load i32, ptr %121, align 4, !tbaa !25
-  %123 = getelementptr inbounds nuw i32, ptr %120, i64 %106
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %120, i64 %106
   %124 = load i32, ptr %123, align 4, !tbaa !25
   %.not15.i = icmp eq i32 %122, %124
   br i1 %.not15.i, label %125, label %_ZNK5nlsat22vos_var_info_collector3imp18feature_reorder_ltclEjj.exit
@@ -6083,8 +6083,8 @@ _ZNK5nlsat22vos_var_info_collector3imp18feature_reorder_ltclEjj.exit22: ; preds 
   %126 = load ptr, ptr %.sroa.0.0.copyload, align 8, !tbaa !76
   %127 = tail call noundef nonnull align 8 dereferenceable(600) ptr @_ZNK10polynomial7manager1mEv(ptr noundef nonnull align 8 dereferenceable(8) %126)
   %128 = load ptr, ptr %108, align 8, !tbaa !28
-  %129 = getelementptr inbounds nuw %class.mpz, ptr %128, i64 %112
-  %130 = getelementptr inbounds nuw %class.mpz, ptr %128, i64 %106
+  %129 = getelementptr inbounds nuw [16 x i8], ptr %128, i64 %112
+  %130 = getelementptr inbounds nuw [16 x i8], ptr %128, i64 %106
   %131 = getelementptr inbounds nuw i8, ptr %129, i64 4
   %132 = load i8, ptr %131, align 4
   %133 = and i8 %132, 1
@@ -6113,8 +6113,8 @@ _ZN11mpz_managerILb0EE2eqERK3mpzS3_.exit._crit_edge.i: ; preds = %_ZN11mpz_manag
   %146 = load ptr, ptr %.sroa.0.0.copyload, align 8, !tbaa !76
   %147 = tail call noundef nonnull align 8 dereferenceable(600) ptr @_ZNK10polynomial7manager1mEv(ptr noundef nonnull align 8 dereferenceable(8) %146)
   %148 = load ptr, ptr %108, align 8, !tbaa !28
-  %149 = getelementptr inbounds nuw %class.mpz, ptr %148, i64 %112
-  %150 = getelementptr inbounds nuw %class.mpz, ptr %148, i64 %106
+  %149 = getelementptr inbounds nuw [16 x i8], ptr %148, i64 %112
+  %150 = getelementptr inbounds nuw [16 x i8], ptr %148, i64 %106
   %151 = getelementptr inbounds nuw i8, ptr %149, i64 4
   %152 = load i8, ptr %151, align 4
   %153 = and i8 %152, 1
@@ -6149,14 +6149,14 @@ _ZNK5nlsat22vos_var_info_collector3imp18feature_reorder_ltclEjj.exit: ; preds = 
 
 170:                                              ; preds = %167, %160, %164, %117, %_ZNK5nlsat22vos_var_info_collector3imp18feature_reorder_ltclEjj.exit
   %171 = load i32, ptr %109, align 4, !tbaa !25
-  %172 = getelementptr inbounds i32, ptr %0, i64 %.01317.i.i
+  %172 = getelementptr inbounds [4 x i8], ptr %0, i64 %.01317.i.i
   store i32 %171, ptr %172, align 4, !tbaa !25
   %173 = icmp sgt i64 %.018.i.i, %.014
   br i1 %173, label %.lr.ph.i.i, label %_ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp18feature_reorder_ltEEEEvT_T0_SA_T1_T2_.exit, !llvm.loop !133
 
 _ZSt13__adjust_heapIPjljN9__gnu_cxx5__ops15_Iter_comp_iterIN5nlsat22vos_var_info_collector3imp18feature_reorder_ltEEEEvT_T0_SA_T1_T2_.exit: ; preds = %167, %160, %164, %117, %_ZNK5nlsat22vos_var_info_collector3imp18feature_reorder_ltclEjj.exit, %170, %103
   %.013.lcssa.i.i = phi i64 [ %.128.i, %103 ], [ %.01317.i.i, %167 ], [ %.01317.i.i, %160 ], [ %.01317.i.i, %164 ], [ %.01317.i.i, %117 ], [ %.018.i.i, %170 ], [ %.01317.i.i, %_ZNK5nlsat22vos_var_info_collector3imp18feature_reorder_ltclEjj.exit ]
-  %174 = getelementptr inbounds i32, ptr %0, i64 %.013.lcssa.i.i
+  %174 = getelementptr inbounds [4 x i8], ptr %0, i64 %.013.lcssa.i.i
   store i32 %22, ptr %174, align 4, !tbaa !25
   %.not = icmp eq i64 %.014, 0
   %175 = add nsw i64 %.014, -1
@@ -6172,10 +6172,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5nlsat22vos_var_info_collecto
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !24
   %7 = zext i32 %1 to i64
-  %8 = getelementptr inbounds nuw i32, ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !25
   %10 = zext i32 %2 to i64
-  %11 = getelementptr inbounds nuw i32, ptr %6, i64 %10
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !25
   %.not = icmp eq i32 %9, %12
   br i1 %.not, label %15, label %13
@@ -6187,9 +6187,9 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5nlsat22vos_var_info_collecto
 15:                                               ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %17 = load ptr, ptr %16, align 8, !tbaa !24
-  %18 = getelementptr inbounds nuw i32, ptr %17, i64 %7
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %7
   %19 = load i32, ptr %18, align 4, !tbaa !25
-  %20 = getelementptr inbounds nuw i32, ptr %17, i64 %10
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %10
   %21 = load i32, ptr %20, align 4, !tbaa !25
   %.not15 = icmp eq i32 %19, %21
   br i1 %.not15, label %24, label %22
@@ -6204,8 +6204,8 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5nlsat22vos_var_info_collecto
   %27 = load ptr, ptr %0, align 8, !tbaa !136
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 88
   %29 = load ptr, ptr %28, align 8, !tbaa !28
-  %30 = getelementptr inbounds nuw %class.mpz, ptr %29, i64 %7
-  %31 = getelementptr inbounds nuw %class.mpz, ptr %29, i64 %10
+  %30 = getelementptr inbounds nuw [16 x i8], ptr %29, i64 %7
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %29, i64 %10
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %33 = load i8, ptr %32, align 4
   %34 = and i8 %33, 1
@@ -6241,8 +6241,8 @@ _ZN11mpz_managerILb0EE2eqERK3mpzS3_.exit._crit_edge: ; preds = %_ZN11mpz_manager
   %51 = load ptr, ptr %0, align 8, !tbaa !136
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 88
   %53 = load ptr, ptr %52, align 8, !tbaa !28
-  %54 = getelementptr inbounds nuw %class.mpz, ptr %53, i64 %7
-  %55 = getelementptr inbounds nuw %class.mpz, ptr %53, i64 %10
+  %54 = getelementptr inbounds nuw [16 x i8], ptr %53, i64 %7
+  %55 = getelementptr inbounds nuw [16 x i8], ptr %53, i64 %10
   %56 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %57 = load i8, ptr %56, align 4
   %58 = and i8 %57, 1
@@ -6370,10 +6370,10 @@ define linkonce_odr hidden noundef ptr @_ZSt21__unguarded_partitionIPjN9__gnu_cx
   %11 = load i32, ptr %2, align 4, !tbaa !25
   %12 = load ptr, ptr %5, align 8, !tbaa !24
   %13 = zext i32 %10 to i64
-  %14 = getelementptr inbounds nuw i32, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !25
   %16 = zext i32 %11 to i64
-  %17 = getelementptr inbounds nuw i32, ptr %12, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !25
   %.not.i = icmp eq i32 %15, %18
   br i1 %.not.i, label %21, label %19
@@ -6384,9 +6384,9 @@ define linkonce_odr hidden noundef ptr @_ZSt21__unguarded_partitionIPjN9__gnu_cx
 
 21:                                               ; preds = %9
   %22 = load ptr, ptr %6, align 8, !tbaa !24
-  %23 = getelementptr inbounds nuw i32, ptr %22, i64 %13
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %13
   %24 = load i32, ptr %23, align 4, !tbaa !25
-  %25 = getelementptr inbounds nuw i32, ptr %22, i64 %16
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %16
   %26 = load i32, ptr %25, align 4, !tbaa !25
   %.not15.i = icmp eq i32 %24, %26
   br i1 %.not15.i, label %27, label %_ZNK5nlsat22vos_var_info_collector3imp18feature_reorder_ltclEjj.exit
@@ -6395,8 +6395,8 @@ define linkonce_odr hidden noundef ptr @_ZSt21__unguarded_partitionIPjN9__gnu_cx
   %28 = load ptr, ptr %3, align 8, !tbaa !76
   %29 = tail call noundef nonnull align 8 dereferenceable(600) ptr @_ZNK10polynomial7manager1mEv(ptr noundef nonnull align 8 dereferenceable(8) %28)
   %30 = load ptr, ptr %7, align 8, !tbaa !28
-  %31 = getelementptr inbounds nuw %class.mpz, ptr %30, i64 %13
-  %32 = getelementptr inbounds nuw %class.mpz, ptr %30, i64 %16
+  %31 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %13
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %16
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %34 = load i8, ptr %33, align 4
   %35 = and i8 %34, 1
@@ -6425,8 +6425,8 @@ _ZN11mpz_managerILb0EE2eqERK3mpzS3_.exit._crit_edge.i: ; preds = %_ZN11mpz_manag
   %48 = load ptr, ptr %3, align 8, !tbaa !76
   %49 = tail call noundef nonnull align 8 dereferenceable(600) ptr @_ZNK10polynomial7manager1mEv(ptr noundef nonnull align 8 dereferenceable(8) %48)
   %50 = load ptr, ptr %7, align 8, !tbaa !28
-  %51 = getelementptr inbounds nuw %class.mpz, ptr %50, i64 %13
-  %52 = getelementptr inbounds nuw %class.mpz, ptr %50, i64 %16
+  %51 = getelementptr inbounds nuw [16 x i8], ptr %50, i64 %13
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %50, i64 %16
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 4
   %54 = load i8, ptr %53, align 4
   %55 = and i8 %54, 1
@@ -6473,10 +6473,10 @@ _ZNK5nlsat22vos_var_info_collector3imp18feature_reorder_ltclEjj.exit: ; preds = 
   %75 = load i32, ptr %.114, align 4, !tbaa !25
   %76 = load ptr, ptr %5, align 8, !tbaa !24
   %77 = zext i32 %74 to i64
-  %78 = getelementptr inbounds nuw i32, ptr %76, i64 %77
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %77
   %79 = load i32, ptr %78, align 4, !tbaa !25
   %80 = zext i32 %75 to i64
-  %81 = getelementptr inbounds nuw i32, ptr %76, i64 %80
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %76, i64 %80
   %82 = load i32, ptr %81, align 4, !tbaa !25
   %.not.i15 = icmp eq i32 %79, %82
   br i1 %.not.i15, label %85, label %83
@@ -6487,9 +6487,9 @@ _ZNK5nlsat22vos_var_info_collector3imp18feature_reorder_ltclEjj.exit: ; preds = 
 
 85:                                               ; preds = %.preheader
   %86 = load ptr, ptr %6, align 8, !tbaa !24
-  %87 = getelementptr inbounds nuw i32, ptr %86, i64 %77
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %77
   %88 = load i32, ptr %87, align 4, !tbaa !25
-  %89 = getelementptr inbounds nuw i32, ptr %86, i64 %80
+  %89 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %80
   %90 = load i32, ptr %89, align 4, !tbaa !25
   %.not15.i17 = icmp eq i32 %88, %90
   br i1 %.not15.i17, label %91, label %_ZNK5nlsat22vos_var_info_collector3imp18feature_reorder_ltclEjj.exit21
@@ -6498,8 +6498,8 @@ _ZNK5nlsat22vos_var_info_collector3imp18feature_reorder_ltclEjj.exit: ; preds = 
   %92 = load ptr, ptr %3, align 8, !tbaa !76
   %93 = tail call noundef nonnull align 8 dereferenceable(600) ptr @_ZNK10polynomial7manager1mEv(ptr noundef nonnull align 8 dereferenceable(8) %92)
   %94 = load ptr, ptr %7, align 8, !tbaa !28
-  %95 = getelementptr inbounds nuw %class.mpz, ptr %94, i64 %77
-  %96 = getelementptr inbounds nuw %class.mpz, ptr %94, i64 %80
+  %95 = getelementptr inbounds nuw [16 x i8], ptr %94, i64 %77
+  %96 = getelementptr inbounds nuw [16 x i8], ptr %94, i64 %80
   %97 = getelementptr inbounds nuw i8, ptr %95, i64 4
   %98 = load i8, ptr %97, align 4
   %99 = and i8 %98, 1
@@ -6528,8 +6528,8 @@ _ZN11mpz_managerILb0EE2eqERK3mpzS3_.exit._crit_edge.i19: ; preds = %_ZN11mpz_man
   %112 = load ptr, ptr %3, align 8, !tbaa !76
   %113 = tail call noundef nonnull align 8 dereferenceable(600) ptr @_ZNK10polynomial7manager1mEv(ptr noundef nonnull align 8 dereferenceable(8) %112)
   %114 = load ptr, ptr %7, align 8, !tbaa !28
-  %115 = getelementptr inbounds nuw %class.mpz, ptr %114, i64 %77
-  %116 = getelementptr inbounds nuw %class.mpz, ptr %114, i64 %80
+  %115 = getelementptr inbounds nuw [16 x i8], ptr %114, i64 %77
+  %116 = getelementptr inbounds nuw [16 x i8], ptr %114, i64 %80
   %117 = getelementptr inbounds nuw i8, ptr %115, i64 4
   %118 = load i8, ptr %117, align 4
   %119 = and i8 %118, 1
@@ -6613,7 +6613,7 @@ define linkonce_odr hidden void @_ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_It
   %16 = sub i64 %15, %7
   %17 = ashr exact i64 %16, 2
   %18 = sub nsw i64 0, %17
-  %19 = getelementptr inbounds i32, ptr %14, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %14, i64 %18
   call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %19, ptr noundef nonnull align 4 dereferenceable(1) %0, i64 %16, i1 false)
   store i32 %13, ptr %0, align 4, !tbaa !25
   br label %95
@@ -6641,10 +6641,10 @@ define linkonce_odr hidden void @_ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_It
   %27 = load ptr, ptr %4, align 8, !tbaa !136
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %29 = load ptr, ptr %28, align 8, !tbaa !24
-  %30 = getelementptr inbounds nuw i32, ptr %29, i64 %24
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %24
   %31 = load i32, ptr %30, align 4, !tbaa !25
   %32 = zext i32 %26 to i64
-  %33 = getelementptr inbounds nuw i32, ptr %29, i64 %32
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %32
   %34 = load i32, ptr %33, align 4, !tbaa !25
   %.not.i = icmp eq i32 %31, %34
   br i1 %.not.i, label %37, label %35
@@ -6656,9 +6656,9 @@ define linkonce_odr hidden void @_ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_It
 37:                                               ; preds = %.lr.ph.i
   %38 = getelementptr inbounds nuw i8, ptr %27, i64 56
   %39 = load ptr, ptr %38, align 8, !tbaa !24
-  %40 = getelementptr inbounds nuw i32, ptr %39, i64 %24
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %24
   %41 = load i32, ptr %40, align 4, !tbaa !25
-  %42 = getelementptr inbounds nuw i32, ptr %39, i64 %32
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %32
   %43 = load i32, ptr %42, align 4, !tbaa !25
   %.not15.i = icmp eq i32 %41, %43
   br i1 %.not15.i, label %44, label %_ZNK5nlsat22vos_var_info_collector3imp18feature_reorder_ltclEjj.exit
@@ -6669,8 +6669,8 @@ define linkonce_odr hidden void @_ZSt16__insertion_sortIPjN9__gnu_cxx5__ops15_It
   %47 = load ptr, ptr %4, align 8, !tbaa !136
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 88
   %49 = load ptr, ptr %48, align 8, !tbaa !28
-  %50 = getelementptr inbounds nuw %class.mpz, ptr %49, i64 %24
-  %51 = getelementptr inbounds nuw %class.mpz, ptr %49, i64 %32
+  %50 = getelementptr inbounds nuw [16 x i8], ptr %49, i64 %24
+  %51 = getelementptr inbounds nuw [16 x i8], ptr %49, i64 %32
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 4
   %53 = load i8, ptr %52, align 4
   %54 = and i8 %53, 1
@@ -6706,8 +6706,8 @@ _ZN11mpz_managerILb0EE2eqERK3mpzS3_.exit._crit_edge.i: ; preds = %_ZN11mpz_manag
   %71 = load ptr, ptr %4, align 8, !tbaa !136
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 88
   %73 = load ptr, ptr %72, align 8, !tbaa !28
-  %74 = getelementptr inbounds nuw %class.mpz, ptr %73, i64 %24
-  %75 = getelementptr inbounds nuw %class.mpz, ptr %73, i64 %32
+  %74 = getelementptr inbounds nuw [16 x i8], ptr %73, i64 %24
+  %75 = getelementptr inbounds nuw [16 x i8], ptr %73, i64 %32
   %76 = getelementptr inbounds nuw i8, ptr %74, i64 4
   %77 = load i8, ptr %76, align 4
   %78 = and i8 %77, 1
@@ -6791,10 +6791,10 @@ define linkonce_odr hidden void @_ZSt26__unguarded_insertion_sortIPjN9__gnu_cxx5
   %11 = load ptr, ptr %4, align 8, !tbaa !136
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !24
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %8
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %8
   %15 = load i32, ptr %14, align 4, !tbaa !25
   %16 = zext i32 %10 to i64
-  %17 = getelementptr inbounds nuw i32, ptr %13, i64 %16
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %16
   %18 = load i32, ptr %17, align 4, !tbaa !25
   %.not.i = icmp eq i32 %15, %18
   br i1 %.not.i, label %21, label %19
@@ -6806,9 +6806,9 @@ define linkonce_odr hidden void @_ZSt26__unguarded_insertion_sortIPjN9__gnu_cxx5
 21:                                               ; preds = %.lr.ph.i
   %22 = getelementptr inbounds nuw i8, ptr %11, i64 56
   %23 = load ptr, ptr %22, align 8, !tbaa !24
-  %24 = getelementptr inbounds nuw i32, ptr %23, i64 %8
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %8
   %25 = load i32, ptr %24, align 4, !tbaa !25
-  %26 = getelementptr inbounds nuw i32, ptr %23, i64 %16
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %16
   %27 = load i32, ptr %26, align 4, !tbaa !25
   %.not15.i = icmp eq i32 %25, %27
   br i1 %.not15.i, label %28, label %_ZNK5nlsat22vos_var_info_collector3imp18feature_reorder_ltclEjj.exit
@@ -6819,8 +6819,8 @@ define linkonce_odr hidden void @_ZSt26__unguarded_insertion_sortIPjN9__gnu_cxx5
   %31 = load ptr, ptr %4, align 8, !tbaa !136
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 88
   %33 = load ptr, ptr %32, align 8, !tbaa !28
-  %34 = getelementptr inbounds nuw %class.mpz, ptr %33, i64 %8
-  %35 = getelementptr inbounds nuw %class.mpz, ptr %33, i64 %16
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 %8
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 %16
   %36 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %37 = load i8, ptr %36, align 4
   %38 = and i8 %37, 1
@@ -6856,8 +6856,8 @@ _ZN11mpz_managerILb0EE2eqERK3mpzS3_.exit._crit_edge.i: ; preds = %_ZN11mpz_manag
   %55 = load ptr, ptr %4, align 8, !tbaa !136
   %56 = getelementptr inbounds nuw i8, ptr %55, i64 88
   %57 = load ptr, ptr %56, align 8, !tbaa !28
-  %58 = getelementptr inbounds nuw %class.mpz, ptr %57, i64 %8
-  %59 = getelementptr inbounds nuw %class.mpz, ptr %57, i64 %16
+  %58 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %8
+  %59 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %16
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 4
   %61 = load i8, ptr %60, align 4
   %62 = and i8 %61, 1

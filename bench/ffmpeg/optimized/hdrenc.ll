@@ -136,11 +136,11 @@ define internal range(i32 -2147483648, 1) i32 @hdr_encode_frame(ptr noundef %0, 
 .lr.ph124:                                        ; preds = %.preheader, %float2rgbe.exit
   %indvars.iv138 = phi i64 [ %indvars.iv.next139, %float2rgbe.exit ], [ 0, %.preheader ]
   %.3122 = phi ptr [ %104, %float2rgbe.exit ], [ %.2125, %.preheader ]
-  %71 = getelementptr inbounds nuw float, ptr %57, i64 %indvars.iv138
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %indvars.iv138
   %72 = load float, ptr %71, align 4, !tbaa !36
-  %73 = getelementptr inbounds nuw float, ptr %62, i64 %indvars.iv138
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %indvars.iv138
   %74 = load float, ptr %73, align 4, !tbaa !36
-  %75 = getelementptr inbounds nuw float, ptr %67, i64 %indvars.iv138
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %indvars.iv138
   %76 = load float, ptr %75, align 4, !tbaa !36
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %77 = fcmp nsz ogt float %72, %74
@@ -231,11 +231,11 @@ float2rgbe.exit:                                  ; preds = %.lr.ph124, %81
   %121 = load ptr, ptr %8, align 8, !tbaa !28
   %122 = shl nsw i64 %indvars.iv, 2
   %123 = getelementptr inbounds nuw i8, ptr %121, i64 %122
-  %124 = getelementptr inbounds nuw float, ptr %57, i64 %indvars.iv
+  %124 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %indvars.iv
   %125 = load float, ptr %124, align 4, !tbaa !36
-  %126 = getelementptr inbounds nuw float, ptr %62, i64 %indvars.iv
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %indvars.iv
   %127 = load float, ptr %126, align 4, !tbaa !36
-  %128 = getelementptr inbounds nuw float, ptr %67, i64 %indvars.iv
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %67, i64 %indvars.iv
   %129 = load float, ptr %128, align 4, !tbaa !36
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %130 = fcmp nsz ogt float %125, %127

@@ -176,7 +176,7 @@ sub_132:                                          ; preds = %.tail
 
 58:                                               ; preds = %58, %57
   %indvars.iv.i.i = phi i64 [ 0, %57 ], [ %indvars.iv.next.i.i, %58 ]
-  %59 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv.i.i
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv.i.i
   store ptr @.str.3, ptr %59, align 8, !tbaa !23
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
@@ -213,7 +213,7 @@ _Z5uiMsgIJPwRA2048_wEEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %58
 
 69:                                               ; preds = %69, %68
   %indvars.iv.i.i25 = phi i64 [ 0, %68 ], [ %indvars.iv.next.i.i26, %69 ]
-  %70 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv.i.i25
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv.i.i25
   store ptr @.str.3, ptr %70, align 8, !tbaa !23
   %indvars.iv.next.i.i26 = add nuw nsw i64 %indvars.iv.i.i25, 1
   %exitcond.not.i.i27 = icmp eq i64 %indvars.iv.next.i.i26, 8

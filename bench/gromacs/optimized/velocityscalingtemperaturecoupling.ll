@@ -53,8 +53,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Tuple_impl.143" = type { %"struct.std::_Head_base.146" }
 %"struct.std::_Head_base.146" = type { ptr }
 %"struct.std::pair.157" = type { %"class.std::__cxx11::basic_string", %"class.gmx::KeyValueTreeValue" }
-%"class.gmx::KeyValueTreeProperty" = type { %"struct.std::_Rb_tree_const_iterator" }
-%"struct.std::_Rb_tree_const_iterator" = type { ptr }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, gmx::KeyValueTreeValue>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, gmx::KeyValueTreeValue>>, std::less<std::__cxx11::basic_string<char>>>::_Auto_node" = type { ptr, ptr }
 %"class.gmx::KeyValueTreeArray" = type { %"class.std::vector.181" }
 %"class.std::vector.181" = type { %"struct.std::_Vector_base.182" }
@@ -67,7 +65,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.gmx::ArrayRefIter.108" = type { ptr }
 %"class.gmx::ArrayRef.110" = type { %"struct.gmx::ArrayRefIter.111", %"struct.gmx::ArrayRefIter.111" }
 %"struct.gmx::ArrayRefIter.111" = type { ptr }
-%struct.t_grp_tcstat = type { float, float, [3 x [3 x float]], [3 x [3 x float]], [3 x [3 x float]], float, double, double, double }
 %"class.gmx::KeyValueTreeUniformArrayBuilder.259" = type { %"class.gmx::KeyValueTreeArrayBuilderBase" }
 %"class.gmx::KeyValueTreeObject" = type { %"class.std::map", %"class.std::vector.152" }
 %"class.std::map" = type { %"class.std::_Rb_tree" }
@@ -89,12 +86,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.anon.385 = type { ptr, %"struct.gmx::PropagatorTag" }
 %"struct.gmx::PropagatorTag" = type { %"class.std::__cxx11::basic_string" }
 %"class.std::function.386" = type { %"class.std::_Function_base", ptr }
-%"class.std::unique_ptr.539" = type { %"struct.std::__uniq_ptr_data.540" }
-%"struct.std::__uniq_ptr_data.540" = type { %"class.std::__uniq_ptr_impl.541" }
-%"class.std::__uniq_ptr_impl.541" = type { %"class.std::tuple.542" }
-%"class.std::tuple.542" = type { %"struct.std::_Tuple_impl.543" }
-%"struct.std::_Tuple_impl.543" = type { %"struct.std::_Head_base.546" }
-%"struct.std::_Head_base.546" = type { ptr }
 %"class.gmx::ElementNotFoundError" = type { %"class.gmx::ModularSimulatorError" }
 %"class.gmx::ModularSimulatorError" = type { %"class.gmx::GromacsException" }
 %"class.gmx::GromacsException" = type { %"class.std::exception", %"class.std::shared_ptr" }
@@ -1529,7 +1520,7 @@ _ZNSt12_Vector_baseIdSaIdEEC2EmRKS0_.exit.thread.i: ; preds = %_ZNSt6vectorIfSaI
 
 .noexc75:                                         ; preds = %79
   store ptr %81, ptr %64, align 8, !tbaa !57
-  %82 = getelementptr inbounds nuw double, ptr %81, i64 %30
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %30
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store ptr %82, ptr %83, align 8, !tbaa !58
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %81, i8 0, i64 %80, i1 false), !tbaa !110
@@ -2354,7 +2345,7 @@ define linkonce_odr noundef float @_ZN3gmx27VRescaleTemperatureCoupling5applyEli
   %8 = sext i32 %2 to i64
   %9 = load i64, ptr %7, align 8
   %10 = inttoptr i64 %9 to ptr
-  %11 = getelementptr inbounds float, ptr %10, i64 %8
+  %11 = getelementptr inbounds [4 x i8], ptr %10, i64 %8
   %12 = load float, ptr %11, align 4, !tbaa !144
   %13 = fcmp ult float %12, 0.000000e+00
   br i1 %13, label %22, label %14
@@ -2363,7 +2354,7 @@ define linkonce_odr noundef float @_ZN3gmx27VRescaleTemperatureCoupling5applyEli
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %16 = load i64, ptr %15, align 8
   %17 = inttoptr i64 %16 to ptr
-  %18 = getelementptr inbounds float, ptr %17, i64 %8
+  %18 = getelementptr inbounds [4 x i8], ptr %17, i64 %8
   %19 = load float, ptr %18, align 4, !tbaa !144
   %20 = fcmp ogt float %19, 0.000000e+00
   %21 = fcmp ogt float %3, 0.000000e+00
@@ -2374,12 +2365,12 @@ define linkonce_odr noundef float @_ZN3gmx27VRescaleTemperatureCoupling5applyEli
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load i64, ptr %23, align 8
   %25 = inttoptr i64 %24 to ptr
-  %26 = getelementptr inbounds float, ptr %25, i64 %8
+  %26 = getelementptr inbounds [4 x i8], ptr %25, i64 %8
   store float 1.000000e+00, ptr %26, align 4, !tbaa !144
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %28 = load i64, ptr %27, align 8
   %29 = inttoptr i64 %28 to ptr
-  %30 = getelementptr inbounds double, ptr %29, i64 %8
+  %30 = getelementptr inbounds [8 x i8], ptr %29, i64 %8
   %31 = load double, ptr %30, align 8, !tbaa !110
   br label %81
 
@@ -2387,7 +2378,7 @@ define linkonce_odr noundef float @_ZN3gmx27VRescaleTemperatureCoupling5applyEli
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %34 = load i64, ptr %33, align 8
   %35 = inttoptr i64 %34 to ptr
-  %36 = getelementptr inbounds float, ptr %35, i64 %8
+  %36 = getelementptr inbounds [4 x i8], ptr %35, i64 %8
   %37 = load float, ptr %36, align 4, !tbaa !144
   %38 = fpext float %37 to double
   %39 = fmul double %38, 5.000000e-01
@@ -2415,7 +2406,7 @@ define linkonce_odr noundef float @_ZN3gmx27VRescaleTemperatureCoupling5applyEli
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %57 = load i64, ptr %56, align 8
   %58 = inttoptr i64 %57 to ptr
-  %59 = getelementptr inbounds float, ptr %58, i64 %8
+  %59 = getelementptr inbounds [4 x i8], ptr %58, i64 %8
   store float %.sink, ptr %59, align 4, !tbaa !144
   %60 = load ptr, ptr @debug, align 8, !tbaa !151
   %.not = icmp eq ptr %60, null
@@ -2428,7 +2419,7 @@ define linkonce_odr noundef float @_ZN3gmx27VRescaleTemperatureCoupling5applyEli
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %66 = load i64, ptr %65, align 8
   %67 = inttoptr i64 %66 to ptr
-  %68 = getelementptr inbounds float, ptr %67, i64 %8
+  %68 = getelementptr inbounds [4 x i8], ptr %67, i64 %8
   %69 = load float, ptr %68, align 4, !tbaa !144
   %70 = fpext float %69 to double
   %71 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %60, ptr noundef nonnull @.str.8, i32 noundef %2, double noundef %62, double noundef %63, double noundef %64, double noundef %70) #36
@@ -2438,7 +2429,7 @@ define linkonce_odr noundef float @_ZN3gmx27VRescaleTemperatureCoupling5applyEli
   %73 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %74 = load i64, ptr %73, align 8
   %75 = inttoptr i64 %74 to ptr
-  %76 = getelementptr inbounds double, ptr %75, i64 %8
+  %76 = getelementptr inbounds [8 x i8], ptr %75, i64 %8
   %77 = load double, ptr %76, align 8, !tbaa !110
   %78 = fsub float %50, %3
   %79 = fpext float %78 to double
@@ -2467,7 +2458,7 @@ define linkonce_odr noundef float @_ZN3gmx27VRescaleTemperatureCoupling37updateR
   %7 = sext i32 %1 to i64
   %8 = load i64, ptr %6, align 8
   %9 = inttoptr i64 %8 to ptr
-  %10 = getelementptr inbounds double, ptr %9, i64 %7
+  %10 = getelementptr inbounds [8 x i8], ptr %9, i64 %7
   %11 = load double, ptr %10, align 8, !tbaa !110
   %12 = fptrunc double %11 to float
   ret float %12
@@ -2553,7 +2544,7 @@ define linkonce_odr noundef float @_ZN3gmx28BerendsenTemperatureCoupling5applyEl
   %8 = sext i32 %2 to i64
   %9 = load i64, ptr %7, align 8
   %10 = inttoptr i64 %9 to ptr
-  %11 = getelementptr inbounds float, ptr %10, i64 %8
+  %11 = getelementptr inbounds [4 x i8], ptr %10, i64 %8
   %12 = load float, ptr %11, align 4, !tbaa !144
   %13 = fcmp ult float %12, 0.000000e+00
   br i1 %13, label %22, label %14
@@ -2562,7 +2553,7 @@ define linkonce_odr noundef float @_ZN3gmx28BerendsenTemperatureCoupling5applyEl
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %16 = load i64, ptr %15, align 8
   %17 = inttoptr i64 %16 to ptr
-  %18 = getelementptr inbounds float, ptr %17, i64 %8
+  %18 = getelementptr inbounds [4 x i8], ptr %17, i64 %8
   %19 = load float, ptr %18, align 4, !tbaa !144
   %20 = fcmp ogt float %19, 0.000000e+00
   %21 = fcmp ogt float %3, 0.000000e+00
@@ -2573,12 +2564,12 @@ define linkonce_odr noundef float @_ZN3gmx28BerendsenTemperatureCoupling5applyEl
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load i64, ptr %23, align 8
   %25 = inttoptr i64 %24 to ptr
-  %26 = getelementptr inbounds float, ptr %25, i64 %8
+  %26 = getelementptr inbounds [4 x i8], ptr %25, i64 %8
   store float 1.000000e+00, ptr %26, align 4, !tbaa !144
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %28 = load i64, ptr %27, align 8
   %29 = inttoptr i64 %28 to ptr
-  %30 = getelementptr inbounds double, ptr %29, i64 %8
+  %30 = getelementptr inbounds [8 x i8], ptr %29, i64 %8
   %31 = load double, ptr %30, align 8, !tbaa !110
   br label %76
 
@@ -2589,7 +2580,7 @@ define linkonce_odr noundef float @_ZN3gmx28BerendsenTemperatureCoupling5applyEl
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %37 = load i64, ptr %36, align 8
   %38 = inttoptr i64 %37 to ptr
-  %39 = getelementptr inbounds float, ptr %38, i64 %8
+  %39 = getelementptr inbounds [4 x i8], ptr %38, i64 %8
   %40 = load float, ptr %39, align 4, !tbaa !144
   %41 = fdiv float %40, %4
   %42 = fpext float %41 to double
@@ -2604,7 +2595,7 @@ define linkonce_odr noundef float @_ZN3gmx28BerendsenTemperatureCoupling5applyEl
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %50 = load i64, ptr %49, align 8
   %51 = inttoptr i64 %50 to ptr
-  %52 = getelementptr inbounds float, ptr %51, i64 %8
+  %52 = getelementptr inbounds [4 x i8], ptr %51, i64 %8
   store float %.sroa.speculated, ptr %52, align 4, !tbaa !144
   %53 = load ptr, ptr @debug, align 8, !tbaa !151
   %.not = icmp eq ptr %53, null
@@ -2614,7 +2605,7 @@ define linkonce_odr noundef float @_ZN3gmx28BerendsenTemperatureCoupling5applyEl
   %55 = fpext float %4 to double
   %56 = load i64, ptr %49, align 8
   %57 = inttoptr i64 %56 to ptr
-  %58 = getelementptr inbounds float, ptr %57, i64 %8
+  %58 = getelementptr inbounds [4 x i8], ptr %57, i64 %8
   %59 = load float, ptr %58, align 4, !tbaa !144
   %60 = fpext float %59 to double
   %61 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %53, ptr noundef nonnull @.str.10, i32 noundef %2, double noundef %55, double noundef %60) #36
@@ -2624,11 +2615,11 @@ define linkonce_odr noundef float @_ZN3gmx28BerendsenTemperatureCoupling5applyEl
   %63 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %64 = load i64, ptr %63, align 8
   %65 = inttoptr i64 %64 to ptr
-  %66 = getelementptr inbounds double, ptr %65, i64 %8
+  %66 = getelementptr inbounds [8 x i8], ptr %65, i64 %8
   %67 = load double, ptr %66, align 8, !tbaa !110
   %68 = load i64, ptr %49, align 8
   %69 = inttoptr i64 %68 to ptr
-  %70 = getelementptr inbounds float, ptr %69, i64 %8
+  %70 = getelementptr inbounds [4 x i8], ptr %69, i64 %8
   %71 = load float, ptr %70, align 4, !tbaa !144
   %72 = tail call float @llvm.fmuladd.f32(float %71, float %71, float -1.000000e+00)
   %73 = fmul float %3, %72
@@ -2658,7 +2649,7 @@ define linkonce_odr noundef float @_ZN3gmx28BerendsenTemperatureCoupling37update
   %7 = sext i32 %1 to i64
   %8 = load i64, ptr %6, align 8
   %9 = inttoptr i64 %8 to ptr
-  %10 = getelementptr inbounds double, ptr %9, i64 %7
+  %10 = getelementptr inbounds [8 x i8], ptr %9, i64 %7
   %11 = load double, ptr %10, align 8, !tbaa !110
   %12 = fptrunc double %11 to float
   ret float %12
@@ -2734,7 +2725,7 @@ _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit:            ; preds = %6, %._ZNSt6vectorIf
   br i1 %26, label %27, label %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit18
 
 27:                                               ; preds = %25
-  %28 = getelementptr inbounds nuw float, ptr %15, i64 %13
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %13
   %.not.i.i16 = icmp eq ptr %16, %28
   br i1 %.not.i.i16, label %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit18, label %29
 
@@ -2766,7 +2757,7 @@ _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit18:          ; preds = %29, %27, %25, %23
   br i1 %41, label %42, label %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit21
 
 42:                                               ; preds = %40
-  %43 = getelementptr inbounds nuw float, ptr %32, i64 %13
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %13
   %.not.i.i19 = icmp eq ptr %31, %43
   br i1 %.not.i.i19, label %_ZNSt6vectorIfSaIfEE6resizeEmRKf.exit21, label %44
 
@@ -2807,13 +2798,13 @@ _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit21:          ; preds = %44, %42, %40, %38
 
 53:                                               ; preds = %.lr.ph, %70
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %70 ]
-  %54 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %55 = load float, ptr %54, align 4, !tbaa !144
   %56 = fcmp ogt float %55, 0.000000e+00
   br i1 %56, label %57, label %70
 
 57:                                               ; preds = %53
-  %58 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %59 = load float, ptr %58, align 4, !tbaa !144
   %60 = fcmp ogt float %59, 0.000000e+00
   br i1 %60, label %61, label %70
@@ -2826,7 +2817,7 @@ _ZNSt6vectorIfSaIfEE6resizeEmRKf.exit21:          ; preds = %44, %42, %40, %38
   %66 = fmul double %64, %65
   %67 = fdiv double 1.000000e+00, %66
   %68 = fptrunc double %67 to float
-  %69 = getelementptr inbounds nuw float, ptr %46, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %indvars.iv
   store float %68, ptr %69, align 4, !tbaa !144
   br label %70
 
@@ -3073,7 +3064,7 @@ define linkonce_odr noundef float @_ZN3gmx29NoseHooverTemperatureCoupling37updat
   %9 = sext i32 %1 to i64
   %10 = load i64, ptr %8, align 8
   %11 = inttoptr i64 %10 to ptr
-  %12 = getelementptr inbounds float, ptr %11, i64 %9
+  %12 = getelementptr inbounds [4 x i8], ptr %11, i64 %9
   %13 = load float, ptr %12, align 4, !tbaa !144
   %14 = fcmp ogt float %13, 0.000000e+00
   br i1 %14, label %15, label %22
@@ -3082,7 +3073,7 @@ define linkonce_odr noundef float @_ZN3gmx29NoseHooverTemperatureCoupling37updat
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %17 = load i64, ptr %16, align 8
   %18 = inttoptr i64 %17 to ptr
-  %19 = getelementptr inbounds float, ptr %18, i64 %9
+  %19 = getelementptr inbounds [4 x i8], ptr %18, i64 %9
   %20 = load float, ptr %19, align 4, !tbaa !144
   %21 = fcmp ogt float %20, 0.000000e+00
   br label %22
@@ -3093,7 +3084,7 @@ define linkonce_odr noundef float @_ZN3gmx29NoseHooverTemperatureCoupling37updat
   %24 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %25 = load i64, ptr %24, align 8
   %26 = inttoptr i64 %25 to ptr
-  %27 = getelementptr inbounds float, ptr %26, i64 %.pre-phi
+  %27 = getelementptr inbounds [4 x i8], ptr %26, i64 %.pre-phi
   %28 = load float, ptr %27, align 4, !tbaa !144
   %29 = fcmp ogt float %28, 0.000000e+00
   br i1 %29, label %30, label %.thr_comm
@@ -3102,7 +3093,7 @@ define linkonce_odr noundef float @_ZN3gmx29NoseHooverTemperatureCoupling37updat
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %32 = load i64, ptr %31, align 8
   %33 = inttoptr i64 %32 to ptr
-  %34 = getelementptr inbounds float, ptr %33, i64 %.pre-phi
+  %34 = getelementptr inbounds [4 x i8], ptr %33, i64 %.pre-phi
   %35 = load float, ptr %34, align 4, !tbaa !144
   %36 = fcmp ogt float %35, 0.000000e+00
   br i1 %36, label %37, label %.thr_comm
@@ -3114,7 +3105,7 @@ define linkonce_odr noundef float @_ZN3gmx29NoseHooverTemperatureCoupling37updat
   %38 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %39 = load i64, ptr %38, align 8
   %40 = inttoptr i64 %39 to ptr
-  %41 = getelementptr inbounds float, ptr %40, i64 %.pre-phi
+  %41 = getelementptr inbounds [4 x i8], ptr %40, i64 %.pre-phi
   %42 = load float, ptr %41, align 4, !tbaa !144
   %43 = fcmp ogt float %42, 0.000000e+00
   %44 = xor i1 %23, %43
@@ -3132,19 +3123,19 @@ define linkonce_odr noundef float @_ZN3gmx29NoseHooverTemperatureCoupling37updat
   %48 = fdiv float %28, %2
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %50 = load ptr, ptr %49, align 8, !tbaa !59
-  %51 = getelementptr inbounds nuw float, ptr %50, i64 %.pre-phi
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %50, i64 %.pre-phi
   %52 = load float, ptr %51, align 4, !tbaa !144
   %53 = fmul float %48, %52
   store float %53, ptr %51, align 4, !tbaa !144
   %54 = load i64, ptr %24, align 8
   %55 = inttoptr i64 %54 to ptr
-  %56 = getelementptr inbounds float, ptr %55, i64 %.pre-phi
+  %56 = getelementptr inbounds [4 x i8], ptr %55, i64 %.pre-phi
   %57 = load float, ptr %56, align 4, !tbaa !144
   %58 = fdiv float %2, %57
   %59 = tail call noundef float @sqrtf(float noundef %58) #36, !tbaa !123
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %61 = load ptr, ptr %60, align 8, !tbaa !59
-  %62 = getelementptr inbounds nuw float, ptr %61, i64 %.pre-phi
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %.pre-phi
   %63 = load float, ptr %62, align 4, !tbaa !144
   %64 = fmul float %59, %63
   store float %64, ptr %62, align 4, !tbaa !144
@@ -3154,26 +3145,26 @@ define linkonce_odr noundef float @_ZN3gmx29NoseHooverTemperatureCoupling37updat
   %65 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %66 = load i64, ptr %65, align 8
   %67 = inttoptr i64 %66 to ptr
-  %68 = getelementptr inbounds float, ptr %67, i64 %.pre-phi
+  %68 = getelementptr inbounds [4 x i8], ptr %67, i64 %.pre-phi
   %69 = load float, ptr %68, align 4, !tbaa !144
   %70 = fpext float %69 to double
   %71 = fmul double %70, 0x3F71072C483AF26D
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %73 = load ptr, ptr %72, align 8, !tbaa !59
-  %74 = getelementptr inbounds nuw float, ptr %73, i64 %.pre-phi
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %.pre-phi
   %75 = load float, ptr %74, align 4, !tbaa !144
   %76 = fmul float %75, %75
   %77 = fpext float %76 to double
   %78 = fmul double %71, %77
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %80 = load ptr, ptr %79, align 8, !tbaa !59
-  %81 = getelementptr inbounds nuw float, ptr %80, i64 %.pre-phi
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %80, i64 %.pre-phi
   %82 = load float, ptr %81, align 4, !tbaa !144
   %83 = fpext float %82 to double
   %84 = fdiv double %78, %83
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %86 = load ptr, ptr %85, align 8, !tbaa !59
-  %87 = getelementptr inbounds nuw float, ptr %86, i64 %.pre-phi
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %86, i64 %.pre-phi
   %88 = load float, ptr %87, align 4, !tbaa !144
   %89 = fmul float %69, %88
   %90 = fpext float %89 to double
@@ -3325,7 +3316,7 @@ define linkonce_odr void @_ZNSt6vectorIfSaIfEE14_M_fill_insertEN9__gnu_cxx17__no
 
 _ZSt22__uninitialized_move_aIPfS0_SaIfEET0_T_S3_S2_RT1_.exit: ; preds = %23, %20
   %24 = phi ptr [ %.pre, %23 ], [ %9, %20 ]
-  %25 = getelementptr inbounds nuw float, ptr %24, i64 %2
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %2
   store ptr %25, ptr %8, align 8, !tbaa !109
   %.not.i.i.i.i.i = icmp eq ptr %21, %1
   br i1 %.not.i.i.i.i.i, label %_ZSt13move_backwardIPfS0_ET0_T_S2_S1_.exit, label %26
@@ -3334,7 +3325,7 @@ _ZSt22__uninitialized_move_aIPfS0_SaIfEET0_T_S3_S2_RT1_.exit: ; preds = %23, %20
   %27 = sub i64 %22, %16
   %28 = ashr exact i64 %27, 2
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds float, ptr %9, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %9, i64 %29
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %30, ptr align 4 %1, i64 %27, i1 false)
   br label %_ZSt13move_backwardIPfS0_ET0_T_S2_S1_.exit
 
@@ -3445,7 +3436,7 @@ _ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit80: ; preds = %.l
   br label %_ZSt34__uninitialized_move_if_noexcept_aIPfS0_SaIfEET0_T_S3_S2_RT1_.exit
 
 _ZSt34__uninitialized_move_if_noexcept_aIPfS0_SaIfEET0_T_S3_S2_RT1_.exit: ; preds = %67, %_ZSt24__uninitialized_fill_n_aIPfmffET_S1_T0_RKT1_RSaIT2_E.exit80
-  %68 = getelementptr inbounds nuw float, ptr %63, i64 %2
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %2
   %69 = sub i64 %11, %56
   %.not.i.i.i.i.i.i.i.i.i82 = icmp eq ptr %9, %1
   br i1 %.not.i.i.i.i.i.i.i.i.i82, label %71, label %70
@@ -3467,7 +3458,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPfS0_SaIfEET0_T_S3_S2_RT1_.exit: ; pred
 _ZNSt12_Vector_baseIfSaIfEE13_M_deallocateEPfm.exit: ; preds = %71, %73
   store ptr %62, ptr %0, align 8, !tbaa !59
   store ptr %72, ptr %8, align 8, !tbaa !109
-  %75 = getelementptr inbounds nuw float, ptr %62, i64 %55
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %55
   store ptr %75, ptr %6, align 8, !tbaa !60
   br label %_ZSt4fillIPffEvT_S1_RKT0_.exit
 
@@ -3485,7 +3476,7 @@ define linkonce_odr noundef float @_ZN3gmx29NoseHooverTemperatureCoupling13apply
   %8 = sext i32 %2 to i64
   %9 = load i64, ptr %7, align 8
   %10 = inttoptr i64 %9 to ptr
-  %11 = getelementptr inbounds float, ptr %10, i64 %8
+  %11 = getelementptr inbounds [4 x i8], ptr %10, i64 %8
   %12 = load float, ptr %11, align 4, !tbaa !144
   %13 = fcmp ult float %12, 0.000000e+00
   br i1 %13, label %22, label %14
@@ -3494,7 +3485,7 @@ define linkonce_odr noundef float @_ZN3gmx29NoseHooverTemperatureCoupling13apply
   %15 = getelementptr inbounds nuw i8, ptr %5, i64 40
   %16 = load i64, ptr %15, align 8
   %17 = inttoptr i64 %16 to ptr
-  %18 = getelementptr inbounds float, ptr %17, i64 %8
+  %18 = getelementptr inbounds [4 x i8], ptr %17, i64 %8
   %19 = load float, ptr %18, align 4, !tbaa !144
   %20 = fcmp ogt float %19, 0.000000e+00
   %21 = fcmp ogt float %3, 0.000000e+00
@@ -3505,33 +3496,33 @@ define linkonce_odr noundef float @_ZN3gmx29NoseHooverTemperatureCoupling13apply
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %24 = load i64, ptr %23, align 8
   %25 = inttoptr i64 %24 to ptr
-  %26 = getelementptr inbounds float, ptr %25, i64 %8
+  %26 = getelementptr inbounds [4 x i8], ptr %25, i64 %8
   store float 1.000000e+00, ptr %26, align 4, !tbaa !144
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %28 = load i64, ptr %27, align 8
   %29 = inttoptr i64 %28 to ptr
-  %30 = getelementptr inbounds float, ptr %29, i64 %8
+  %30 = getelementptr inbounds [4 x i8], ptr %29, i64 %8
   store float 1.000000e+00, ptr %30, align 4, !tbaa !144
   %31 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %32 = load i64, ptr %31, align 8
   %33 = inttoptr i64 %32 to ptr
-  %34 = getelementptr inbounds double, ptr %33, i64 %8
+  %34 = getelementptr inbounds [8 x i8], ptr %33, i64 %8
   %35 = load double, ptr %34, align 8, !tbaa !110
   br label %109
 
 36:                                               ; preds = %14
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %38 = load ptr, ptr %37, align 8, !tbaa !59
-  %39 = getelementptr inbounds nuw float, ptr %38, i64 %8
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %38, i64 %8
   %40 = load float, ptr %39, align 4, !tbaa !144
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %42 = load ptr, ptr %41, align 8, !tbaa !59
-  %43 = getelementptr inbounds nuw float, ptr %42, i64 %8
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %8
   %44 = load float, ptr %43, align 4, !tbaa !144
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %46 = load i64, ptr %45, align 8
   %47 = inttoptr i64 %46 to ptr
-  %48 = getelementptr inbounds float, ptr %47, i64 %8
+  %48 = getelementptr inbounds [4 x i8], ptr %47, i64 %8
   %49 = load float, ptr %48, align 4, !tbaa !144
   %50 = fsub float %4, %49
   %51 = fmul float %44, %50
@@ -3546,7 +3537,7 @@ define linkonce_odr noundef float @_ZN3gmx29NoseHooverTemperatureCoupling13apply
   %59 = fmul double %52, %58
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %61 = load ptr, ptr %60, align 8, !tbaa !59
-  %62 = getelementptr inbounds nuw float, ptr %61, i64 %8
+  %62 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %8
   %63 = load float, ptr %62, align 4, !tbaa !144
   %64 = fpext float %63 to double
   %65 = tail call double @llvm.fmuladd.f64(double %59, double 5.000000e-01, double %64)
@@ -3560,7 +3551,7 @@ define linkonce_odr noundef float @_ZN3gmx29NoseHooverTemperatureCoupling13apply
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %73 = load i64, ptr %72, align 8
   %74 = inttoptr i64 %73 to ptr
-  %75 = getelementptr inbounds float, ptr %74, i64 %8
+  %75 = getelementptr inbounds [4 x i8], ptr %74, i64 %8
   store float %71, ptr %75, align 4, !tbaa !144
   %76 = fmul double %52, 5.000000e-01
   %77 = load float, ptr %39, align 4, !tbaa !144
@@ -3571,15 +3562,15 @@ define linkonce_odr noundef float @_ZN3gmx29NoseHooverTemperatureCoupling13apply
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %83 = load i64, ptr %82, align 8
   %84 = inttoptr i64 %83 to ptr
-  %85 = getelementptr inbounds float, ptr %84, i64 %8
+  %85 = getelementptr inbounds [4 x i8], ptr %84, i64 %8
   store float %81, ptr %85, align 4, !tbaa !144
   %86 = load i64, ptr %15, align 8
   %87 = inttoptr i64 %86 to ptr
-  %88 = getelementptr inbounds float, ptr %87, i64 %8
+  %88 = getelementptr inbounds [4 x i8], ptr %87, i64 %8
   %89 = load float, ptr %88, align 4, !tbaa !144
   %90 = load i64, ptr %45, align 8
   %91 = inttoptr i64 %90 to ptr
-  %92 = getelementptr inbounds float, ptr %91, i64 %8
+  %92 = getelementptr inbounds [4 x i8], ptr %91, i64 %8
   %93 = load float, ptr %92, align 4, !tbaa !144
   %94 = fpext float %89 to double
   %95 = fmul double %94, 0x3F71072C483AF26D
@@ -4046,7 +4037,7 @@ _ZNSt12_Vector_baseIN3gmx20KeyValueTreePropertyESaIS1_EE13_M_deallocateEPS1_m.ex
   store ptr %52, ptr %33, align 8, !tbaa !178
   %57 = getelementptr inbounds nuw i8, ptr %52, i64 %39
   store ptr %57, ptr %34, align 8, !tbaa !175
-  %58 = getelementptr inbounds nuw %"class.gmx::KeyValueTreeProperty", ptr %52, i64 %41
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %41
   store ptr %58, ptr %45, align 8, !tbaa !179
   br label %_ZNSt6vectorIN3gmx20KeyValueTreePropertyESaIS1_EE7reserveEm.exit
 
@@ -4199,7 +4190,7 @@ _ZNSt6vectorIN3gmx20KeyValueTreePropertyESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.ex
 _ZNSt6vectorIN3gmx20KeyValueTreePropertyESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %116, %_ZNSt6vectorIN3gmx20KeyValueTreePropertyESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i
   store ptr %109, ptr %88, align 8, !tbaa !178
   store ptr %115, ptr %89, align 8, !tbaa !175
-  %117 = getelementptr inbounds nuw %"class.gmx::KeyValueTreeProperty", ptr %109, i64 %107
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %109, i64 %107
   store ptr %117, ptr %91, align 8, !tbaa !179
   br label %_ZNSt6vectorIN3gmx20KeyValueTreePropertyESaIS1_EE9push_backEOS1_.exit
 
@@ -5035,7 +5026,7 @@ _ZNSt6vectorIN3gmx17KeyValueTreeValueESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit2
 .noexc:                                           ; preds = %33, %_ZNSt6vectorIN3gmx17KeyValueTreeValueESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i
   store ptr %27, ptr %7, align 8, !tbaa !229
   store ptr %32, ptr %8, align 8, !tbaa !225
-  %34 = getelementptr inbounds nuw %"class.gmx::KeyValueTreeValue", ptr %27, i64 %25
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %25
   store ptr %34, ptr %10, align 8, !tbaa !228
   br label %_ZN3gmx17KeyValueTreeValueD2Ev.exit
 
@@ -6513,7 +6504,7 @@ define void @_ZN3gmx34VelocityScalingTemperatureCoupling9setLambdaEl(ptr noundef
   %56 = load i32, ptr %52, align 8, !tbaa !105
   %57 = icmp eq i32 %56, 0
   %58 = load ptr, ptr %53, align 8, !tbaa !279
-  %59 = getelementptr inbounds nuw %struct.t_grp_tcstat, ptr %58, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [144 x i8], ptr %58, i64 %indvars.iv
   br i1 %57, label %60, label %70
 
 60:                                               ; preds = %55
@@ -6551,7 +6542,7 @@ define void @_ZN3gmx34VelocityScalingTemperatureCoupling9setLambdaEl(ptr noundef
   %87 = call noundef float %85(ptr noundef nonnull align 8 dereferenceable(8) %82, i64 noundef %1, i32 noundef %86, float noundef %80, float noundef %81, ptr noundef nonnull align 8 dereferenceable(72) %3)
   %88 = fpext float %87 to double
   %89 = load ptr, ptr %40, align 8, !tbaa !57
-  %90 = getelementptr inbounds nuw double, ptr %89, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %indvars.iv
   store double %88, ptr %90, align 8, !tbaa !110
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %91 = load i32, ptr %49, align 8, !tbaa !107
@@ -6716,7 +6707,7 @@ _ZSt4copyIN3gmx12ArrayRefIterIKfEEN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSa
 63:                                               ; preds = %.lr.ph, %63
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %63 ]
   %64 = load ptr, ptr %51, align 8, !tbaa !56
-  %65 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %66 = load float, ptr %65, align 4, !tbaa !144
   %67 = load ptr, ptr %64, align 8, !tbaa !52
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 32
@@ -6725,7 +6716,7 @@ _ZSt4copyIN3gmx12ArrayRefIterIKfEEN9__gnu_cxx17__normal_iteratorIPfSt6vectorIfSa
   %71 = call noundef float %69(ptr noundef nonnull align 8 dereferenceable(8) %64, i32 noundef %70, float noundef %66, i32 noundef %3, ptr noundef nonnull align 8 dereferenceable(72) %5)
   %72 = fpext float %71 to double
   %73 = load ptr, ptr %39, align 8, !tbaa !57
-  %74 = getelementptr inbounds nuw double, ptr %73, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %indvars.iv
   store double %72, ptr %74, align 8, !tbaa !110
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %75 = load i32, ptr %48, align 8, !tbaa !107
@@ -7148,7 +7139,7 @@ _ZNSt6vectorIN3gmx17KeyValueTreeValueESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit2
 .noexc:                                           ; preds = %33, %_ZNSt6vectorIN3gmx17KeyValueTreeValueESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i
   store ptr %27, ptr %7, align 8, !tbaa !229
   store ptr %32, ptr %8, align 8, !tbaa !225
-  %34 = getelementptr inbounds nuw %"class.gmx::KeyValueTreeValue", ptr %27, i64 %25
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %25
   store ptr %34, ptr %10, align 8, !tbaa !228
   br label %_ZN3gmx17KeyValueTreeValueD2Ev.exit
 
@@ -7651,7 +7642,7 @@ _ZNSt6vectorIN3gmx20KeyValueTreePropertyESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.ex
 _ZNSt6vectorIN3gmx20KeyValueTreePropertyESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %84, %_ZNSt6vectorIN3gmx20KeyValueTreePropertyESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i.i
   store ptr %77, ptr %10, align 8, !tbaa !178
   store ptr %83, ptr %18, align 8, !tbaa !175
-  %85 = getelementptr inbounds nuw %"class.gmx::KeyValueTreeProperty", ptr %77, i64 %75
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %75
   store ptr %85, ptr %19, align 8, !tbaa !179
   br label %_ZNSt6vectorIN3gmx20KeyValueTreePropertyESaIS1_EE9push_backEOS1_.exit
 
@@ -8656,7 +8647,7 @@ _ZNSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaI
 .noexc:                                           ; preds = %33, %_ZNSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i
   store ptr %27, ptr %14, align 8, !tbaa !497
   store ptr %32, ptr %6, align 8, !tbaa !490
-  %34 = getelementptr inbounds nuw %"class.std::unique_ptr.539", ptr %27, i64 %25
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %25
   store ptr %34, ptr %8, align 8, !tbaa !493
   br label %_ZNSt6vectorISt10unique_ptrIN3gmx17ISimulatorElementESt14default_deleteIS2_EESaIS5_EE12emplace_backIJS0_INS1_34VelocityScalingTemperatureCouplingES3_IS9_EEEEERS5_DpOT_.exit.i
 
@@ -8822,7 +8813,7 @@ _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
 _ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE17_M_realloc_insertIJRPNS0_34VelocityScalingTemperatureCouplingEEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %44, %_ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %39, ptr %19, align 8, !tbaa !510
   store ptr %43, ptr %20, align 8, !tbaa !506
-  %45 = getelementptr inbounds nuw ptr, ptr %39, i64 %37
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %37
   store ptr %45, ptr %22, align 8, !tbaa !509
   br label %_ZNSt6vectorIPN3gmx17ISimulatorElementESaIS2_EE12emplace_backIJRPNS0_34VelocityScalingTemperatureCouplingEEEERS2_DpOT_.exit
 
@@ -9097,7 +9088,7 @@ _ZNSt6vectorIPN3gmx22IEnergySignallerClientESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_
 _ZNSt6vectorIPN3gmx22IEnergySignallerClientESaIS2_EE17_M_realloc_insertIJRS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %42, %_ZNSt6vectorIPN3gmx22IEnergySignallerClientESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %37, ptr %0, align 8, !tbaa !531
   store ptr %41, ptr %18, align 8, !tbaa !527
-  %43 = getelementptr inbounds nuw ptr, ptr %37, i64 %35
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %35
   store ptr %43, ptr %20, align 8, !tbaa !528
   br label %_ZNSt6vectorIPN3gmx22IEnergySignallerClientESaIS2_EE12emplace_backIJRS2_EEES6_DpOT_.exit
 
@@ -9446,7 +9437,7 @@ define internal void @"_ZNSt17_Function_handlerIFvN3gmx8ArrayRefIKfEENS0_35Refer
 63:                                               ; preds = %63, %.lr.ph.i.i.i.i
   %indvars.iv.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %63 ]
   %64 = load ptr, ptr %54, align 8, !tbaa !56
-  %65 = getelementptr inbounds nuw float, ptr %.val3, i64 %indvars.iv.i.i.i.i
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %.val3, i64 %indvars.iv.i.i.i.i
   %66 = load float, ptr %65, align 4, !tbaa !144
   %67 = load ptr, ptr %64, align 8, !tbaa !52
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 32
@@ -9455,7 +9446,7 @@ define internal void @"_ZNSt17_Function_handlerIFvN3gmx8ArrayRefIKfEENS0_35Refer
   %71 = call noundef float %69(ptr noundef nonnull align 8 dereferenceable(8) %64, i32 noundef %70, float noundef %66, i32 noundef %.val5, ptr noundef nonnull align 8 dereferenceable(72) %4)
   %72 = fpext float %71 to double
   %73 = load ptr, ptr %42, align 8, !tbaa !57
-  %74 = getelementptr inbounds nuw double, ptr %73, i64 %indvars.iv.i.i.i.i
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %73, i64 %indvars.iv.i.i.i.i
   store double %72, ptr %74, align 8, !tbaa !110
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
   %75 = load i32, ptr %51, align 8, !tbaa !107

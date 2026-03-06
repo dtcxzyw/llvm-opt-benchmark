@@ -80,7 +80,7 @@ define internal i32 @prte_odls_default_launch_local_procs(ptr noundef %0) #1 {
 
 6:                                                ; preds = %4
   %7 = zext nneg i32 %5 to i64
-  %8 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %7
+  %8 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %10 = load i32, ptr %9, align 4, !tbaa !18
   %11 = icmp sgt i32 %10, 1
@@ -197,7 +197,7 @@ define internal i32 @prte_odls_default_restart_proc(ptr noundef %0) #1 {
 
 5:                                                ; preds = %3
   %6 = zext nneg i32 %4 to i64
-  %7 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %6
+  %7 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %9 = load i32, ptr %8, align 4, !tbaa !18
   %10 = icmp sgt i32 %9, 1
@@ -238,7 +238,7 @@ define internal i32 @odls_default_kill_local(i32 noundef %0, i32 noundef %1) #1 
 
 11:                                               ; preds = %9
   %12 = zext nneg i32 %10 to i64
-  %13 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %12
+  %13 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %15 = load i32, ptr %14, align 4, !tbaa !18
   %16 = icmp sgt i32 %15, 1
@@ -258,7 +258,7 @@ define internal i32 @odls_default_kill_local(i32 noundef %0, i32 noundef %1) #1 
 
 22:                                               ; preds = %20
   %23 = zext nneg i32 %21 to i64
-  %24 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %23
+  %24 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 4
   %26 = load i32, ptr %25, align 4, !tbaa !18
   %27 = icmp sgt i32 %26, 1
@@ -492,7 +492,7 @@ define internal i32 @odls_default_fork_local_proc(ptr noundef %0) #1 {
 
 121:                                              ; preds = %111
   %122 = zext nneg i32 %120 to i64
-  %123 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %122
+  %123 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %122
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 4
   %125 = load i32, ptr %124, align 4, !tbaa !18
   %126 = icmp sgt i32 %125, 0
@@ -1242,7 +1242,7 @@ define internal range(i32 -17, 1) i32 @send_signal(i32 noundef %0, i32 noundef %
 
 7:                                                ; preds = %2
   %8 = zext nneg i32 %6 to i64
-  %9 = getelementptr inbounds nuw %struct.pmix_output_desc_t, ptr @pmix_output_info, i64 %8
+  %9 = getelementptr inbounds nuw [72 x i8], ptr @pmix_output_info, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %11 = load i32, ptr %10, align 4, !tbaa !18
   %12 = icmp sgt i32 %11, 0

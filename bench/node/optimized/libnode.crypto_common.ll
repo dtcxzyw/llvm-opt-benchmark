@@ -2041,7 +2041,7 @@ do.body4.i:                                       ; preds = %_ZN4node13OneByteSt
 _ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm16EEixEm.exit: ; preds = %_ZN4node13OneByteStringEPN2v87IsolateEPKci.exit
   %inc = add nsw i32 %j.023, 1
   %3 = load ptr, ptr %buf_.i.i, align 8
-  %arrayidx.i = getelementptr inbounds %"class.v8::Local", ptr %3, i64 %conv19
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %3, i64 %conv19
   store ptr %call.i, ptr %arrayidx.i, align 8
   br label %for.inc
 
@@ -3250,7 +3250,7 @@ do.body4.i:                                       ; preds = %if.end
 _ZN4node16MaybeStackBufferIN2v85LocalINS1_5ValueEEELm16EEixEm.exit: ; preds = %if.end
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %50 = load ptr, ptr %buf_.i.i, align 8
-  %arrayidx.i = getelementptr inbounds nuw %"class.v8::Local", ptr %50, i64 %indvars.iv
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %indvars.iv
   store ptr %call6, ptr %arrayidx.i, align 8
   %add = add i64 %n.0119, 2
   %cmp = icmp ult i64 %add, %call2

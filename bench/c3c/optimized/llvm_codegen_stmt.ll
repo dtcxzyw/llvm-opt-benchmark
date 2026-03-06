@@ -21,32 +21,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.anon.101 = type { ptr, ptr, ptr, ptr }
 %struct.anon.102 = type { ptr, ptr, i32, i8 }
 %struct.anon.103 = type { ptr, ptr }
-%struct.Ast_ = type { %union.SourceSpan, i32, i8, %union.anon.61 }
-%union.SourceSpan = type { i64 }
-%union.anon.61 = type { %struct.AstDocDirective_ }
-%struct.AstDocDirective_ = type { i8, %union.anon.64 }
-%union.anon.64 = type { %struct.anon.65 }
-%struct.anon.65 = type { ptr, %union.SourceSpan, i8 }
 %struct.BEValue = type { i8, i32, ptr, ptr, ptr }
-%struct.Expr_ = type { ptr, %union.SourceSpan, i16, %union.anon.29 }
-%union.anon.29 = type { %struct.ExprAnySwitch }
-%struct.ExprAnySwitch = type { i8, %union.anon.31 }
-%union.anon.31 = type { %struct.anon.32 }
-%struct.anon.32 = type { ptr, %union.SourceSpan, ptr }
-%struct.TypeInfo_ = type { i16, ptr, %union.SourceSpan, %union.anon.56 }
-%union.anon.56 = type { %struct.anon.57 }
-%struct.anon.57 = type { ptr, ptr }
-%struct.Decl_ = type { ptr, ptr, %union.SourceSpan, i64, %union.anon, i32, %union.anon.0, i64, ptr, ptr, ptr, %union.anon.1 }
-%union.anon = type { ptr }
-%union.anon.0 = type { i16 }
-%union.anon.1 = type { %struct.FuncDecl }
-%struct.FuncDecl = type { i32, [4 x i8], %struct.Signature_, i32, i32, %union.anon.8 }
-%struct.Signature_ = type <{ %struct.CalleeAttributes, i16, i8, i32, i32, [4 x i8], ptr }>
-%struct.CalleeAttributes = type { i8 }
-%union.anon.8 = type { %struct.anon.9 }
-%struct.anon.9 = type { i16, %union.anon.10 }
-%union.anon.10 = type { ptr }
-%struct.ReusableConstant_ = type { ptr, ptr, ptr }
 %struct.ClobberList = type { [1024 x i8], i32 }
 
 @.str = private unnamed_addr constant [5 x i8] c"temp\00", align 1
@@ -144,7 +119,7 @@ define dso_local void @llvm_emit_compound_stmt(ptr noundef %0, ptr noundef reado
   %.018 = phi i32 [ %14, %.lr.ph ], [ %9, %7 ]
   %10 = load ptr, ptr @ast_arena, align 8
   %11 = zext i32 %.018 to i64
-  %12 = getelementptr inbounds nuw %struct.Ast_, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [48 x i8], ptr %10, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i32, ptr %13, align 8
   tail call void @llvm_emit_stmt(ptr noundef nonnull %0, ptr noundef nonnull %12)
@@ -643,7 +618,7 @@ define dso_local void @llvm_emit_for_stmt(ptr noundef %0, ptr noundef captures(n
 14:                                               ; preds = %10
   %15 = load ptr, ptr @expr_arena, align 8
   %16 = zext i32 %13 to i64
-  %17 = getelementptr inbounds nuw %struct.Expr_, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [56 x i8], ptr %15, i64 %16
   call void @llvm_emit_expr(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %17) #9
   br label %18
 
@@ -664,7 +639,7 @@ define dso_local void @llvm_emit_for_stmt(ptr noundef %0, ptr noundef captures(n
   %27 = load i32, ptr %26, align 4
   %28 = load ptr, ptr @ast_arena, align 8
   %29 = zext i32 %27 to i64
-  %30 = getelementptr inbounds nuw %struct.Ast_, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [48 x i8], ptr %28, i64 %29
   %31 = call zeroext i1 @ast_is_not_empty(ptr noundef %30) #9
   br i1 %31, label %32, label %34
 
@@ -684,7 +659,7 @@ define dso_local void @llvm_emit_for_stmt(ptr noundef %0, ptr noundef captures(n
 39:                                               ; preds = %34
   %40 = load ptr, ptr @expr_arena, align 8
   %41 = zext i32 %38 to i64
-  %42 = getelementptr inbounds nuw %struct.Expr_, ptr %40, i64 %41
+  %42 = getelementptr inbounds nuw [56 x i8], ptr %40, i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load i16, ptr %43, align 8
   %45 = and i16 %44, 255
@@ -866,7 +841,7 @@ default.unreachable157:                           ; preds = %95
 109:                                              ; preds = %107, %108
   %110 = load ptr, ptr @expr_arena, align 8
   %111 = zext i32 %21 to i64
-  %112 = getelementptr inbounds nuw %struct.Expr_, ptr %110, i64 %111
+  %112 = getelementptr inbounds nuw [56 x i8], ptr %110, i64 %111
   call void @llvm_emit_expr(ptr noundef nonnull %0, ptr noundef nonnull %5, ptr noundef nonnull %112) #9
   br label %113
 
@@ -1025,7 +1000,7 @@ define dso_local void @llvm_emit_panic(ptr noundef %0, ptr noundef %1, i64 %2, p
 
 77:                                               ; preds = %67, %77
   %indvars.iv = phi i64 [ 0, %67 ], [ %indvars.iv.next, %77 ]
-  %78 = getelementptr inbounds nuw ptr, ptr %72, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %indvars.iv
   %79 = load ptr, ptr %78, align 8
   %80 = call fastcc ptr @type_lowering(ptr noundef %79)
   %81 = load i8, ptr %9, align 8
@@ -1033,11 +1008,11 @@ define dso_local void @llvm_emit_panic(ptr noundef %0, ptr noundef %1, i64 %2, p
   store i8 %82, ptr %9, align 8
   store i32 0, ptr %73, align 4
   store ptr %80, ptr %74, align 8
-  %83 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %84 = load ptr, ptr %83, align 8
   store ptr %84, ptr %75, align 8
   store ptr null, ptr %76, align 8
-  %85 = getelementptr inbounds nuw ptr, ptr %70, i64 %indvars.iv
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %indvars.iv
   %86 = load ptr, ptr %85, align 8
   call void @llvm_emit_parameter(ptr noundef nonnull %0, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef %86, ptr noundef nonnull %9, ptr noundef %80) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1082,7 +1057,7 @@ define dso_local void @llvm_emit_panic(ptr noundef %0, ptr noundef %1, i64 %2, p
   %indvars.iv161 = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next162, %.lr.ph ]
   %104 = trunc nuw i64 %indvars.iv161 to i32
   %105 = call ptr @llvm_emit_array_gep_raw(ptr noundef nonnull %0, ptr noundef %100, ptr noundef %97, i32 noundef %104, i32 noundef %98, ptr noundef nonnull %10) #9
-  %106 = getelementptr inbounds nuw %struct.BEValue, ptr %4, i64 %indvars.iv161
+  %106 = getelementptr inbounds nuw [32 x i8], ptr %4, i64 %indvars.iv161
   %107 = load i32, ptr %10, align 4
   %108 = call ptr @llvm_store_to_ptr_aligned(ptr noundef nonnull %0, ptr noundef %105, ptr noundef nonnull %106, i32 noundef %107) #9
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
@@ -1191,7 +1166,7 @@ define internal fastcc void @llvm_emit_decl_expr_list(ptr noundef %0, ptr nounde
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %.03947 = phi i64 [ %16, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %13 = load ptr, ptr %6, align 8
-  %14 = getelementptr inbounds ptr, ptr %13, i64 %.03947
+  %14 = getelementptr inbounds [8 x i8], ptr %13, i64 %.03947
   %15 = load ptr, ptr %14, align 8
   call void @llvm_emit_expr(ptr noundef %0, ptr noundef nonnull %5, ptr noundef %15) #9
   %16 = add nuw i64 %.03947, 1
@@ -1205,7 +1180,7 @@ define internal fastcc void @llvm_emit_decl_expr_list(ptr noundef %0, ptr nounde
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %8
   %.054 = phi i64 [ %.053, %._crit_edge.loopexit ], [ 0, %8 ]
   %17 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %7, %8 ]
-  %18 = getelementptr inbounds ptr, ptr %17, i64 %.054
+  %18 = getelementptr inbounds [8 x i8], ptr %17, i64 %.054
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %19, align 8
   call void @llvm_emit_expr(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %19) #9
@@ -1226,7 +1201,7 @@ define internal fastcc void @llvm_emit_decl_expr_list(ptr noundef %0, ptr nounde
 30:                                               ; preds = %25
   %31 = load ptr, ptr @type_info_arena, align 8
   %32 = zext i32 %29 to i64
-  %33 = getelementptr inbounds nuw %struct.TypeInfo_, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [40 x i8], ptr %31, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load ptr, ptr %34, align 8
   br label %36
@@ -1377,7 +1352,7 @@ define dso_local void @llvm_emit_stmt(ptr noundef %0, ptr noundef %1) local_unna
 
 .lr.ph90:                                         ; preds = %.lr.ph90.preheader, %36
   %indvars.iv = phi i64 [ 0, %.lr.ph90.preheader ], [ %indvars.iv.next, %36 ]
-  %33 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8
   %.not49 = icmp eq ptr %34, null
   br i1 %.not49, label %36, label %35
@@ -1409,7 +1384,7 @@ define dso_local void @llvm_emit_stmt(ptr noundef %0, ptr noundef %1) local_unna
   %44 = load i32, ptr %43, align 4
   %45 = load ptr, ptr @ast_arena, align 8
   %46 = zext i32 %44 to i64
-  %47 = getelementptr inbounds nuw %struct.Ast_, ptr %45, i64 %46
+  %47 = getelementptr inbounds nuw [48 x i8], ptr %45, i64 %46
   %48 = tail call zeroext i1 @ast_is_not_empty(ptr noundef %47) #9
   br i1 %48, label %49, label %51
 
@@ -1424,7 +1399,7 @@ define dso_local void @llvm_emit_stmt(ptr noundef %0, ptr noundef %1) local_unna
   %.not.i = icmp eq i32 %53, 0
   %54 = load ptr, ptr @ast_arena, align 8
   %55 = zext i32 %53 to i64
-  %56 = getelementptr inbounds nuw %struct.Ast_, ptr %54, i64 %55
+  %56 = getelementptr inbounds nuw [48 x i8], ptr %54, i64 %55
   %57 = select i1 %.not.i, ptr null, ptr %56
   %58 = tail call zeroext i1 @ast_is_not_empty(ptr noundef %57) #9
   br i1 %58, label %59, label %61
@@ -1438,7 +1413,7 @@ define dso_local void @llvm_emit_stmt(ptr noundef %0, ptr noundef %1) local_unna
   %62 = load i32, ptr %42, align 8
   %63 = load ptr, ptr @expr_arena, align 8
   %64 = zext i32 %62 to i64
-  %65 = getelementptr inbounds nuw %struct.Expr_, ptr %63, i64 %64
+  %65 = getelementptr inbounds nuw [56 x i8], ptr %63, i64 %64
   store ptr %40, ptr %42, align 8
   %66 = load i32, ptr %41, align 8
   %.not.i59 = icmp eq i32 %66, 0
@@ -1449,7 +1424,7 @@ define dso_local void @llvm_emit_stmt(ptr noundef %0, ptr noundef %1) local_unna
 
 68:                                               ; preds = %61
   %69 = zext i32 %66 to i64
-  %70 = getelementptr inbounds nuw %struct.Decl_, ptr %67, i64 %69
+  %70 = getelementptr inbounds nuw [136 x i8], ptr %67, i64 %69
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 88
   store ptr %40, ptr %71, align 8
   br label %72
@@ -1588,7 +1563,7 @@ llvm_emit_if_stmt.exit:                           ; preds = %94, %95
   %.084.i76 = phi i32 [ %119, %.lr.ph78 ], [ %114, %113 ]
   %115 = load ptr, ptr @ast_arena, align 8
   %116 = zext i32 %.084.i76 to i64
-  %117 = getelementptr inbounds nuw %struct.Ast_, ptr %115, i64 %116
+  %117 = getelementptr inbounds nuw [48 x i8], ptr %115, i64 %116
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
   %119 = load i32, ptr %118, align 8
   call void @llvm_emit_stmt(ptr noundef nonnull %0, ptr noundef nonnull %117)
@@ -1682,7 +1657,7 @@ llvm_emit_if_stmt.exit:                           ; preds = %94, %95
   %.083.i80 = phi i32 [ %156, %.lr.ph82 ], [ %151, %150 ]
   %152 = load ptr, ptr @ast_arena, align 8
   %153 = zext i32 %.083.i80 to i64
-  %154 = getelementptr inbounds nuw %struct.Ast_, ptr %152, i64 %153
+  %154 = getelementptr inbounds nuw [48 x i8], ptr %152, i64 %153
   %155 = getelementptr inbounds nuw i8, ptr %154, i64 8
   %156 = load i32, ptr %155, align 8
   call void @llvm_emit_stmt(ptr noundef nonnull %0, ptr noundef nonnull %154)
@@ -1725,7 +1700,7 @@ llvm_emit_if_stmt.exit:                           ; preds = %94, %95
   %.082.i84 = phi i32 [ %172, %.lr.ph86 ], [ %167, %164 ]
   %168 = load ptr, ptr @ast_arena, align 8
   %169 = zext i32 %.082.i84 to i64
-  %170 = getelementptr inbounds nuw %struct.Ast_, ptr %168, i64 %169
+  %170 = getelementptr inbounds nuw [48 x i8], ptr %168, i64 %169
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 8
   %172 = load i32, ptr %171, align 8
   call void @llvm_emit_stmt(ptr noundef nonnull %0, ptr noundef nonnull %170)
@@ -1827,7 +1802,7 @@ llvm_emit_return.exit:                            ; preds = %.loopexit67, %174
 214:                                              ; preds = %207
   %215 = load ptr, ptr @ast_arena, align 8
   %216 = zext i32 %211 to i64
-  %217 = getelementptr inbounds nuw %struct.Ast_, ptr %215, i64 %216
+  %217 = getelementptr inbounds nuw [48 x i8], ptr %215, i64 %216
   %218 = call ptr @copy_ast_defer(ptr noundef nonnull %217) #9
   %219 = load ptr, ptr @ast_arena, align 8
   %220 = ptrtoint ptr %218 to i64
@@ -1863,7 +1838,7 @@ llvm_emit_return.exit:                            ; preds = %.loopexit67, %174
   %.069.i69 = phi i32 [ %243, %.lr.ph ], [ %209, %238 ]
   %239 = load ptr, ptr @ast_arena, align 8
   %240 = zext i32 %.069.i69 to i64
-  %241 = getelementptr inbounds nuw %struct.Ast_, ptr %239, i64 %240
+  %241 = getelementptr inbounds nuw [48 x i8], ptr %239, i64 %240
   %242 = getelementptr inbounds nuw i8, ptr %241, i64 8
   %243 = load i32, ptr %242, align 8
   call void @llvm_emit_stmt(ptr noundef nonnull %0, ptr noundef nonnull %241)
@@ -1887,7 +1862,7 @@ llvm_emit_return.exit:                            ; preds = %.loopexit67, %174
   %.068.i71 = phi i32 [ %252, %.lr.ph73 ], [ %226, %245 ]
   %248 = load ptr, ptr @ast_arena, align 8
   %249 = zext i32 %.068.i71 to i64
-  %250 = getelementptr inbounds nuw %struct.Ast_, ptr %248, i64 %249
+  %250 = getelementptr inbounds nuw [48 x i8], ptr %248, i64 %249
   %251 = getelementptr inbounds nuw i8, ptr %250, i64 8
   %252 = load i32, ptr %251, align 8
   call void @llvm_emit_stmt(ptr noundef nonnull %0, ptr noundef nonnull %250)
@@ -1926,7 +1901,7 @@ llvm_emit_block_exit_return.exit:                 ; preds = %._crit_edge, %._cri
   %.0.i92 = phi i32 [ %266, %.lr.ph94 ], [ %261, %259 ]
   %262 = load ptr, ptr @ast_arena, align 8
   %263 = zext i32 %.0.i92 to i64
-  %264 = getelementptr inbounds nuw %struct.Ast_, ptr %262, i64 %263
+  %264 = getelementptr inbounds nuw [48 x i8], ptr %262, i64 %263
   %265 = getelementptr inbounds nuw i8, ptr %264, i64 8
   %266 = load i32, ptr %265, align 8
   tail call void @llvm_emit_stmt(ptr noundef nonnull %0, ptr noundef nonnull %264)
@@ -1961,7 +1936,7 @@ llvm_emit_block_exit_return.exit:                 ; preds = %._crit_edge, %._cri
   %274 = load i32, ptr %273, align 8
   %275 = load ptr, ptr @expr_arena, align 8
   %276 = zext i32 %274 to i64
-  %277 = getelementptr inbounds nuw %struct.Expr_, ptr %275, i64 %276
+  %277 = getelementptr inbounds nuw [56 x i8], ptr %275, i64 %276
   %278 = load i32, ptr getelementptr inbounds nuw (i8, ptr @active_target, i64 336), align 8
   %.not.i56 = icmp eq i32 %278, 0
   br i1 %.not.i56, label %332, label %279
@@ -1985,7 +1960,7 @@ llvm_emit_block_exit_return.exit:                 ; preds = %._crit_edge, %._cri
 
 286:                                              ; preds = %279
   %287 = zext i32 %284 to i64
-  %288 = getelementptr inbounds nuw %struct.Expr_, ptr %285, i64 %287
+  %288 = getelementptr inbounds nuw [56 x i8], ptr %285, i64 %287
   %289 = getelementptr inbounds nuw i8, ptr %288, i64 32
   %290 = load ptr, ptr %289, align 8
   %291 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -2006,7 +1981,7 @@ llvm_emit_block_exit_return.exit:                 ; preds = %._crit_edge, %._cri
 .preheader.i:                                     ; preds = %323, %.preheader.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next.i, %323 ]
   %.173.i57 = phi ptr [ null, %.preheader.preheader.i ], [ %326, %323 ]
-  %297 = getelementptr inbounds nuw ptr, ptr %292, i64 %indvars.iv.i
+  %297 = getelementptr inbounds nuw [8 x i8], ptr %292, i64 %indvars.iv.i
   %298 = load ptr, ptr %297, align 8
   call void @llvm_emit_expr(ptr noundef nonnull %0, ptr noundef nonnull %4, ptr noundef %298) #9
   %299 = load ptr, ptr %298, align 8
@@ -2060,7 +2035,7 @@ llvm_emit_block_exit_return.exit:                 ; preds = %._crit_edge, %._cri
   store i32 %325, ptr %.1.i.i, align 4
   %326 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
   %327 = zext i32 %324 to i64
-  %328 = getelementptr inbounds nuw %struct.BEValue, ptr %326, i64 %327
+  %328 = getelementptr inbounds nuw [32 x i8], ptr %326, i64 %327
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %328, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -2126,7 +2101,7 @@ define dso_local void @llvm_emit_switch(ptr noundef %0, ptr noundef captures(non
 
 12:                                               ; preds = %8
   %13 = zext i32 %10 to i64
-  %14 = getelementptr inbounds nuw %struct.Expr_, ptr %11, i64 %13
+  %14 = getelementptr inbounds nuw [56 x i8], ptr %11, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8
@@ -2225,7 +2200,7 @@ define internal fastcc void @llvm_emit_switch_body(ptr noundef %0, ptr noundef n
 .preheader:                                       ; preds = %.preheader.preheader, %42
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %42 ]
   %.0112142 = phi ptr [ null, %.preheader.preheader ], [ %..0112142, %42 ]
-  %34 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load i32, ptr %36, align 8
@@ -2259,7 +2234,7 @@ define internal fastcc void @llvm_emit_switch_body(ptr noundef %0, ptr noundef n
   %indvars.iv153 = phi i64 [ %wide.trip.count, %43 ], [ %47, %53 ]
   %.0115144 = phi ptr [ %44, %43 ], [ %.1116, %53 ]
   %47 = add nsw i64 %indvars.iv153, -1
-  %48 = getelementptr inbounds nuw ptr, ptr %30, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %47
   %49 = load ptr, ptr %48, align 8
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 32
   %51 = load ptr, ptr %50, align 8
@@ -2307,7 +2282,7 @@ define internal fastcc void @llvm_emit_switch_body(ptr noundef %0, ptr noundef n
 
 64:                                               ; preds = %.lr.ph, %104
   %indvars.iv156 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next157, %104 ]
-  %65 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv156
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv156
   %66 = load ptr, ptr %65, align 8
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 32
   %68 = load ptr, ptr %67, align 8
@@ -2319,7 +2294,7 @@ define internal fastcc void @llvm_emit_switch_body(ptr noundef %0, ptr noundef n
   %72 = load i32, ptr %71, align 8
   %73 = load ptr, ptr @expr_arena, align 8
   %74 = zext i32 %72 to i64
-  %75 = getelementptr inbounds nuw %struct.Expr_, ptr %73, i64 %74
+  %75 = getelementptr inbounds nuw [56 x i8], ptr %73, i64 %74
   call void @llvm_emit_expr(ptr noundef %0, ptr noundef nonnull %5, ptr noundef %75) #9
   call void @llvm_value_rvalue(ptr noundef %0, ptr noundef nonnull %5) #9
   %76 = getelementptr inbounds nuw i8, ptr %66, i64 20
@@ -2332,7 +2307,7 @@ define internal fastcc void @llvm_emit_switch_body(ptr noundef %0, ptr noundef n
 
 79:                                               ; preds = %70
   %80 = zext i32 %77 to i64
-  %81 = getelementptr inbounds nuw %struct.Expr_, ptr %78, i64 %80
+  %81 = getelementptr inbounds nuw [56 x i8], ptr %78, i64 %80
   call void @llvm_emit_expr(ptr noundef %0, ptr noundef nonnull %7, ptr noundef nonnull %81) #9
   call void @llvm_value_rvalue(ptr noundef %0, ptr noundef nonnull %7) #9
   call void @llvm_emit_comp(ptr noundef %0, ptr noundef nonnull %8, ptr noundef nonnull %5, ptr noundef nonnull %11, i32 noundef 17) #9
@@ -2457,7 +2432,7 @@ llvm_emit_switch_body_if_chain.exit:              ; preds = %._crit_edge, %105, 
 
 132:                                              ; preds = %125, %179
   %indvars.iv161 = phi i64 [ 0, %125 ], [ %indvars.iv.next162, %179 ]
-  %133 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv161
+  %133 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv161
   %134 = load ptr, ptr %133, align 8
   %135 = getelementptr inbounds nuw i8, ptr %134, i64 32
   %136 = load ptr, ptr %135, align 8
@@ -2469,7 +2444,7 @@ llvm_emit_switch_body_if_chain.exit:              ; preds = %._crit_edge, %105, 
   %139 = load i32, ptr %138, align 8
   %140 = load ptr, ptr @expr_arena, align 8
   %141 = zext i32 %139 to i64
-  %142 = getelementptr inbounds nuw %struct.Expr_, ptr %140, i64 %141
+  %142 = getelementptr inbounds nuw [56 x i8], ptr %140, i64 %141
   call void @llvm_emit_expr(ptr noundef %0, ptr noundef nonnull %12, ptr noundef %142) #9
   call void @llvm_value_rvalue(ptr noundef %0, ptr noundef nonnull %12) #9
   %143 = load ptr, ptr %128, align 8
@@ -2484,7 +2459,7 @@ llvm_emit_switch_body_if_chain.exit:              ; preds = %._crit_edge, %105, 
 
 147:                                              ; preds = %137
   %148 = zext i32 %145 to i64
-  %149 = getelementptr inbounds nuw %struct.Expr_, ptr %146, i64 %148
+  %149 = getelementptr inbounds nuw [56 x i8], ptr %146, i64 %148
   call void @llvm_emit_expr(ptr noundef %0, ptr noundef nonnull %13, ptr noundef nonnull %149) #9
   call void @llvm_value_rvalue(ptr noundef %0, ptr noundef nonnull %13) #9
   %150 = load ptr, ptr %129, align 8
@@ -2564,7 +2539,7 @@ define dso_local void @llvm_emit_break(ptr noundef %0, ptr noundef readonly capt
   %.01517 = phi i32 [ %9, %.lr.ph ], [ %4, %2 ]
   %5 = load ptr, ptr @ast_arena, align 8
   %6 = zext i32 %.01517 to i64
-  %7 = getelementptr inbounds nuw %struct.Ast_, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [48 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i32, ptr %8, align 8
   tail call void @llvm_emit_stmt(ptr noundef %0, ptr noundef nonnull %7)
@@ -2576,7 +2551,7 @@ define dso_local void @llvm_emit_break(ptr noundef %0, ptr noundef readonly capt
   %11 = load i32, ptr %10, align 8
   %12 = load ptr, ptr @ast_arena, align 8
   %13 = zext i32 %11 to i64
-  %14 = getelementptr inbounds nuw %struct.Ast_, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [48 x i8], ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 12
   %16 = load i8, ptr %15, align 4
   %switch.tableidx = add i8 %16, -20
@@ -2592,7 +2567,7 @@ define dso_local void @llvm_emit_break(ptr noundef %0, ptr noundef readonly capt
 
 switch.lookup:                                    ; preds = %._crit_edge
   %19 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.llvm_emit_break, i64 %19
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.llvm_emit_break, i64 %19
   %switch.load = load i64, ptr %switch.gep, align 8
   %20 = getelementptr inbounds nuw i8, ptr %14, i64 %switch.load
   %.0 = load ptr, ptr %20, align 8
@@ -2616,7 +2591,7 @@ define dso_local void @llvm_emit_continue(ptr noundef %0, ptr noundef readonly c
   %.014 = phi i32 [ %9, %.lr.ph ], [ %4, %2 ]
   %5 = load ptr, ptr @ast_arena, align 8
   %6 = zext i32 %.014 to i64
-  %7 = getelementptr inbounds nuw %struct.Ast_, ptr %5, i64 %6
+  %7 = getelementptr inbounds nuw [48 x i8], ptr %5, i64 %6
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load i32, ptr %8, align 8
   tail call void @llvm_emit_stmt(ptr noundef %0, ptr noundef nonnull %7)
@@ -2628,7 +2603,7 @@ define dso_local void @llvm_emit_continue(ptr noundef %0, ptr noundef readonly c
   %11 = load i32, ptr %10, align 8
   %12 = load ptr, ptr @ast_arena, align 8
   %13 = zext i32 %11 to i64
-  %14 = getelementptr inbounds nuw %struct.Ast_, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [48 x i8], ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 12
   %16 = load i8, ptr %15, align 4
   switch i8 %16, label %22 [
@@ -2663,7 +2638,7 @@ define dso_local void @gencontext_emit_next_stmt(ptr noundef %0, ptr noundef rea
   %6 = load i32, ptr %5, align 8
   %7 = load ptr, ptr @ast_arena, align 8
   %8 = zext i32 %6 to i64
-  %9 = getelementptr inbounds nuw %struct.Ast_, ptr %7, i64 %8
+  %9 = getelementptr inbounds nuw [48 x i8], ptr %7, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 12
   %11 = load i8, ptr %10, align 4
   %.not = icmp eq i8 %11, 27
@@ -2678,7 +2653,7 @@ define dso_local void @gencontext_emit_next_stmt(ptr noundef %0, ptr noundef rea
   %.02731 = phi i32 [ %18, %.lr.ph ], [ %13, %12 ]
   %14 = load ptr, ptr @ast_arena, align 8
   %15 = zext i32 %.02731 to i64
-  %16 = getelementptr inbounds nuw %struct.Ast_, ptr %14, i64 %15
+  %16 = getelementptr inbounds nuw [48 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load i32, ptr %17, align 8
   tail call void @llvm_emit_stmt(ptr noundef %0, ptr noundef nonnull %16)
@@ -2709,7 +2684,7 @@ define dso_local void @gencontext_emit_next_stmt(ptr noundef %0, ptr noundef rea
   %.033 = phi i32 [ %34, %.lr.ph35 ], [ %29, %22 ]
   %30 = load ptr, ptr @ast_arena, align 8
   %31 = zext i32 %.033 to i64
-  %32 = getelementptr inbounds nuw %struct.Ast_, ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [48 x i8], ptr %30, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load i32, ptr %33, align 8
   call void @llvm_emit_stmt(ptr noundef %0, ptr noundef nonnull %32)
@@ -2812,7 +2787,7 @@ define dso_local ptr @llvm_emit_zstring_named(ptr noundef %0, ptr noundef %1, pt
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %22
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %22 ]
-  %10 = getelementptr inbounds nuw %struct.ReusableConstant_, ptr %6, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [24 x i8], ptr %6, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8
   %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %11) #11
   %13 = icmp eq i32 %12, 0
@@ -2913,7 +2888,7 @@ define dso_local ptr @llvm_emit_zstring_named(ptr noundef %0, ptr noundef %1, pt
   %71 = load i32, ptr %.1.i, align 4
   %72 = add i32 %71, -1
   %73 = zext i32 %72 to i64
-  %74 = getelementptr inbounds nuw %struct.ReusableConstant_, ptr %70, i64 %73
+  %74 = getelementptr inbounds nuw [24 x i8], ptr %70, i64 %73
   store ptr %40, ptr %74, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %74, i64 8
   store ptr %42, ptr %.sroa.2.0..sroa_idx, align 8
@@ -3066,7 +3041,7 @@ define dso_local void @llvm_emit_panic_if_true(ptr noundef %0, ptr noundef %1, p
   %46 = load i32, ptr %.1.i, align 4
   %47 = add i32 %46, -1
   %48 = zext i32 %47 to i64
-  %49 = getelementptr inbounds nuw ptr, ptr %45, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %48
   store ptr %13, ptr %49, align 8
   %.not62 = icmp eq ptr %5, null
   br i1 %.not62, label %95, label %50
@@ -3105,7 +3080,7 @@ define dso_local void @llvm_emit_panic_if_true(ptr noundef %0, ptr noundef %1, p
   store i32 %68, ptr %.1.i68, align 4
   %69 = getelementptr inbounds nuw i8, ptr %.1.i68, i64 8
   %70 = zext i32 %67 to i64
-  %71 = getelementptr inbounds nuw %struct.BEValue, ptr %69, i64 %70
+  %71 = getelementptr inbounds nuw [32 x i8], ptr %69, i64 %70
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %71, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
   %.not64 = icmp eq ptr %6, null
   br i1 %.not64, label %95, label %72
@@ -3146,7 +3121,7 @@ define dso_local void @llvm_emit_panic_if_true(ptr noundef %0, ptr noundef %1, p
   store i32 %91, ptr %.1.i75, align 4
   %92 = getelementptr inbounds nuw i8, ptr %.1.i75, i64 8
   %93 = zext i32 %90 to i64
-  %94 = getelementptr inbounds nuw %struct.BEValue, ptr %92, i64 %93
+  %94 = getelementptr inbounds nuw [32 x i8], ptr %92, i64 %93
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %94, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
   br label %95
 
@@ -3225,7 +3200,7 @@ add_target_clobbers_to_buffer.exit:               ; preds = %2, %.sink.split.i
   %20 = ptrtoint ptr %17 to i64
   %21 = load ptr, ptr @expr_arena, align 8
   %22 = and i64 %20, 4294967295
-  %23 = getelementptr inbounds nuw %struct.Expr_, ptr %21, i64 %22
+  %23 = getelementptr inbounds nuw [56 x i8], ptr %21, i64 %22
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %25 = load ptr, ptr %24, align 8
   br label %235
@@ -3255,7 +3230,7 @@ add_target_clobbers_to_buffer.exit:               ; preds = %2, %.sink.split.i
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %97 ]
   %.0129329 = phi i32 [ 0, %.lr.ph ], [ %.1, %97 ]
   %.0130328 = phi i32 [ 0, %.lr.ph ], [ %.1131, %97 ]
-  %38 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv
   %39 = load ptr, ptr %38, align 8
   %.not.i = icmp eq i32 %37, 0
   br i1 %.not.i, label %codegen_new_constraint.exit, label %.lr.ph.i.i
@@ -3346,7 +3321,7 @@ codegen_append_constraints.exit:                  ; preds = %55, %60
   %66 = load ptr, ptr %34, align 8
   %67 = call ptr @llvm_get_type(ptr noundef %0, ptr noundef %66) #9
   %68 = zext i32 %.0130328 to i64
-  %69 = getelementptr inbounds nuw ptr, ptr %5, i64 %68
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %68
   store ptr %67, ptr %69, align 8
   %70 = load ptr, ptr %34, align 8
   %71 = call ptr @type_get_ptr(ptr noundef %70) #9
@@ -3354,11 +3329,11 @@ codegen_append_constraints.exit:                  ; preds = %55, %60
   call void @llvm_value_rvalue(ptr noundef %0, ptr noundef nonnull %9) #9
   %72 = load ptr, ptr %35, align 8
   %73 = call ptr @LLVMTypeOf(ptr noundef %72) #9
-  %74 = getelementptr inbounds nuw ptr, ptr %4, i64 %68
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %68
   store ptr %73, ptr %74, align 8
   %75 = load ptr, ptr %35, align 8
   %76 = add i32 %.0130328, 1
-  %77 = getelementptr inbounds nuw ptr, ptr %6, i64 %68
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %68
   store ptr %75, ptr %77, align 8
   br label %97
 
@@ -3413,13 +3388,13 @@ codegen_append_constraints.exit170:               ; preds = %81, %86
   store i32 %storemerge, ptr %33, align 4
   %89 = load ptr, ptr %48, align 8
   %90 = zext i32 %.0129329 to i64
-  %91 = getelementptr inbounds nuw ptr, ptr %8, i64 %90
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %90
   store ptr %89, ptr %91, align 8
   %92 = getelementptr inbounds nuw i8, ptr %89, i64 72
   %93 = load ptr, ptr %92, align 8
   %94 = call ptr @llvm_get_type(ptr noundef %0, ptr noundef %93) #9
   %95 = add i32 %.0129329, 1
-  %96 = getelementptr inbounds nuw ptr, ptr %7, i64 %90
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %90
   store ptr %94, ptr %96, align 8
   br label %97
 
@@ -3464,7 +3439,7 @@ codegen_append_constraints.exit170:               ; preds = %81, %86
   %112 = phi i32 [ %99, %.lr.ph334 ], [ %.0.lcssa.i.sink, %codegen_append_constraints.exit203 ]
   %indvars.iv357 = phi i64 [ 0, %.lr.ph334 ], [ %indvars.iv.next358, %codegen_append_constraints.exit203 ]
   %.2132332 = phi i32 [ %.0130.lcssa, %.lr.ph334 ], [ %175, %codegen_append_constraints.exit203 ]
-  %113 = getelementptr inbounds nuw ptr, ptr %101, i64 %indvars.iv357
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %101, i64 %indvars.iv357
   %114 = load ptr, ptr %113, align 8
   %.not.i180 = icmp eq i32 %112, 0
   br i1 %.not.i180, label %codegen_new_constraint.exit185, label %.lr.ph.i.i181
@@ -3487,7 +3462,7 @@ codegen_append_constraints.exit.i183:             ; preds = %.lr.ph.i.i181
 codegen_new_constraint.exit185:                   ; preds = %111, %codegen_append_constraints.exit.i183
   %118 = phi i32 [ 0, %111 ], [ %indvars.iv.next.i.i184, %codegen_append_constraints.exit.i183 ]
   %119 = zext i32 %.2132332 to i64
-  %120 = getelementptr inbounds nuw ptr, ptr %5, i64 %119
+  %120 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %119
   store ptr null, ptr %120, align 8
   %121 = load i64, ptr %114, align 8
   %122 = trunc i64 %121 to i8
@@ -3605,7 +3580,7 @@ codegen_append_constraints.exit215:               ; preds = %.lr.ph.i207
   %163 = load i32, ptr %162, align 8
   %164 = load ptr, ptr @expr_arena, align 8
   %165 = zext i32 %163 to i64
-  %166 = getelementptr inbounds nuw %struct.Expr_, ptr %164, i64 %165
+  %166 = getelementptr inbounds nuw [56 x i8], ptr %164, i64 %165
   call void @llvm_emit_expr(ptr noundef %0, ptr noundef nonnull %10, ptr noundef %166) #9
   %exitcond.i222 = icmp eq i32 %118, 1023
   br i1 %exitcond.i222, label %167, label %codegen_append_constraints.exit227
@@ -3631,11 +3606,11 @@ codegen_append_constraints.exit203:               ; preds = %._crit_edge.loopexi
   call void @llvm_value_rvalue(ptr noundef %0, ptr noundef nonnull %10) #9
   %171 = load ptr, ptr %107, align 8
   %172 = call ptr @LLVMTypeOf(ptr noundef %171) #9
-  %173 = getelementptr inbounds nuw ptr, ptr %4, i64 %119
+  %173 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %119
   store ptr %172, ptr %173, align 8
   %174 = load ptr, ptr %107, align 8
   %175 = add i32 %.2132332, 1
-  %176 = getelementptr inbounds nuw ptr, ptr %6, i64 %119
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %119
   store ptr %174, ptr %176, align 8
   %indvars.iv.next358 = add nuw nsw i64 %indvars.iv357, 1
   %exitcond361.not = icmp eq i64 %indvars.iv.next358, %wide.trip.count360
@@ -3644,7 +3619,7 @@ codegen_append_constraints.exit203:               ; preds = %._crit_edge.loopexi
 177:                                              ; preds = %.preheader308, %.loopexit307
   %178 = phi i32 [ %108, %.preheader308 ], [ %211, %.loopexit307 ]
   %indvars.iv367 = phi i64 [ 0, %.preheader308 ], [ %indvars.iv.next368, %.loopexit307 ]
-  %179 = getelementptr inbounds nuw i64, ptr %17, i64 %indvars.iv367
+  %179 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv367
   %180 = load i64, ptr %179, align 8
   %.not146 = icmp eq i64 %180, 0
   br i1 %.not146, label %.loopexit307, label %.preheader306
@@ -3709,7 +3684,7 @@ codegen_append_constraints.exit.i231:             ; preds = %.lr.ph.i.i229
 
 codegen_append_constraints.exit245:               ; preds = %191
   %194 = trunc nuw i64 %indvars.iv.next.i241 to i32
-  %gep = getelementptr inbounds nuw ptr, ptr %invariant.gep, i64 %indvars.iv363
+  %gep = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep, i64 %indvars.iv363
   %195 = load ptr, ptr %gep, align 8
   %196 = load i8, ptr %195, align 1
   %.not11.i246 = icmp eq i8 %196, 0
@@ -3888,7 +3863,7 @@ codegen_append_constraints.exit289:               ; preds = %codegen_new_constra
 
 .lr.ph341:                                        ; preds = %.lr.ph341.preheader, %255
   %indvars.iv371 = phi i64 [ 0, %.lr.ph341.preheader ], [ %indvars.iv.next372.pre-phi, %255 ]
-  %249 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv371
+  %249 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv371
   %250 = load ptr, ptr %249, align 8
   %.not151 = icmp eq ptr %250, null
   br i1 %.not151, label %.lr.ph341._crit_edge, label %251
@@ -3937,7 +3912,7 @@ codegen_append_constraints.exit289:               ; preds = %codegen_new_constra
 
 .lr.ph344:                                        ; preds = %.lr.ph344.preheader, %.lr.ph344
   %indvars.iv376 = phi i64 [ 0, %.lr.ph344.preheader ], [ %indvars.iv.next377, %.lr.ph344 ]
-  %268 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv376
+  %268 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv376
   %269 = load ptr, ptr %268, align 8
   %270 = load ptr, ptr %246, align 8
   %271 = trunc nuw i64 %indvars.iv376 to i32
@@ -4086,13 +4061,13 @@ tailrecurse:                                      ; preds = %tailrecurse.outer, 
   %12 = load i32, ptr %5, align 8
   %13 = load ptr, ptr @expr_arena, align 8
   %14 = zext i32 %12 to i64
-  %15 = getelementptr inbounds nuw %struct.Expr_, ptr %13, i64 %14
+  %15 = getelementptr inbounds nuw [56 x i8], ptr %13, i64 %14
   tail call fastcc void @llvm_emit_assume(ptr noundef %0, ptr noundef %15)
   %16 = getelementptr inbounds nuw i8, ptr %.tr29.ph, i64 28
   %17 = load i32, ptr %16, align 4
   %18 = load ptr, ptr @expr_arena, align 8
   %19 = zext i32 %17 to i64
-  %20 = getelementptr inbounds nuw %struct.Expr_, ptr %18, i64 %19
+  %20 = getelementptr inbounds nuw [56 x i8], ptr %18, i64 %19
   br label %tailrecurse.outer
 
 21:                                               ; preds = %tailrecurse
@@ -4119,11 +4094,11 @@ tailrecurse:                                      ; preds = %tailrecurse.outer, 
   %36 = load i32, ptr %35, align 8
   %37 = load ptr, ptr @expr_arena, align 8
   %38 = zext i32 %36 to i64
-  %39 = getelementptr inbounds nuw %struct.Expr_, ptr %37, i64 %38
+  %39 = getelementptr inbounds nuw [56 x i8], ptr %37, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %25, i64 28
   %41 = load i32, ptr %40, align 4
   %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds nuw %struct.Expr_, ptr %37, i64 %42
+  %43 = getelementptr inbounds nuw [56 x i8], ptr %37, i64 %42
   store ptr %39, ptr %5, align 8
   tail call fastcc void @llvm_emit_assume(ptr noundef %0, ptr noundef nonnull %.tr29.ph)
   store ptr %43, ptr %5, align 8

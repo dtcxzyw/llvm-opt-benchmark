@@ -902,7 +902,7 @@ define internal fastcc ptr @process_non_polling_request(ptr noundef nonnull %0, 
 
 switch.lookup:                                    ; preds = %22
   %26 = zext nneg i32 %23 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.process_non_polling_request, i64 %26
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.process_non_polling_request, i64 %26
   %switch.load = load i32, ptr %switch.gep, align 4
   %27 = tail call i32 @OSSL_CMP_MSG_get_bodytype(ptr noundef nonnull %1) #3
   %28 = icmp eq i32 %27, 4

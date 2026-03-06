@@ -237,7 +237,7 @@ ivch_read.exit3:                                  ; preds = %85, %88, %91
 
 103:                                              ; preds = %ivch_read.exit4, %ivch_read.exit3
   %104 = phi i64 [ 0, %ivch_read.exit3 ], [ %124, %ivch_read.exit4 ]
-  %105 = getelementptr i16, ptr @backup_addresses, i64 %104
+  %105 = getelementptr [2 x i8], ptr @backup_addresses, i64 %104
   %106 = load i16, ptr %105, align 2
   %107 = zext i16 %106 to i32
   %108 = load ptr, ptr %20, align 8
@@ -265,7 +265,7 @@ ivch_read.exit3:                                  ; preds = %85, %88, %91
   br i1 %114, label %115, label %118
 
 115:                                              ; preds = %103
-  %116 = getelementptr i16, ptr %94, i64 %104
+  %116 = getelementptr [2 x i8], ptr %94, i64 %104
   %117 = load i16, ptr %4, align 2
   store i16 %117, ptr %116, align 2
   br label %ivch_read.exit4
@@ -1826,10 +1826,10 @@ define internal fastcc void @ivch_reset(ptr noundef readonly captures(none) %0) 
 
 31:                                               ; preds = %51, %26
   %32 = phi i64 [ 0, %26 ], [ %52, %51 ]
-  %33 = getelementptr i16, ptr @backup_addresses, i64 %32
+  %33 = getelementptr [2 x i8], ptr @backup_addresses, i64 %32
   %34 = load i16, ptr %33, align 2
   %35 = zext i16 %34 to i32
-  %36 = getelementptr i16, ptr %27, i64 %32
+  %36 = getelementptr [2 x i8], ptr %27, i64 %32
   %37 = load i16, ptr %36, align 2
   %38 = load ptr, ptr %6, align 8
   %39 = load ptr, ptr %9, align 8

@@ -21,7 +21,7 @@ define void @dorgbr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %15 = load i32, ptr %5, align 4, !tbaa !3
   %narrow = xor i32 %15, -1
   %16 = sext i32 %narrow to i64
-  %17 = getelementptr inbounds double, ptr %4, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %4, i64 %16
   store i32 0, ptr %9, align 4, !tbaa !3
   %18 = tail call i32 @lsame_(ptr noundef %0, ptr noundef nonnull @.str) #5
   %19 = load i32, ptr %1, align 4, !tbaa !3
@@ -211,7 +211,7 @@ define void @dorgbr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 .lr.ph242:                                        ; preds = %.lr.ph242.preheader, %._crit_edge
   %indvars.iv = phi i64 [ %87, %.lr.ph242.preheader ], [ %93, %._crit_edge ]
   %90 = mul nsw i64 %indvars.iv, %88
-  %91 = getelementptr double, ptr %17, i64 %90
+  %91 = getelementptr [8 x i8], ptr %17, i64 %90
   %92 = getelementptr i8, ptr %91, i64 8
   store double 0.000000e+00, ptr %92, align 8, !tbaa !7
   %.not227.not239 = icmp slt i64 %indvars.iv, %87
@@ -220,16 +220,16 @@ define void @dorgbr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 .lr.ph:                                           ; preds = %.lr.ph242
   %94 = mul nsw i64 %93, %88
-  %invariant.gep = getelementptr double, ptr %17, i64 %94
-  %invariant.gep290 = getelementptr double, ptr %17, i64 %90
+  %invariant.gep = getelementptr [8 x i8], ptr %17, i64 %94
+  %invariant.gep290 = getelementptr [8 x i8], ptr %17, i64 %90
   br label %95
 
 95:                                               ; preds = %.lr.ph, %95
   %indvars.iv263 = phi i64 [ %indvars.iv, %.lr.ph ], [ %indvars.iv.next264, %95 ]
   %indvars.iv.next264 = add nsw i64 %indvars.iv263, 1
-  %gep = getelementptr double, ptr %invariant.gep, i64 %indvars.iv.next264
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %indvars.iv.next264
   %96 = load double, ptr %gep, align 8, !tbaa !7
-  %gep291 = getelementptr double, ptr %invariant.gep290, i64 %indvars.iv.next264
+  %gep291 = getelementptr [8 x i8], ptr %invariant.gep290, i64 %indvars.iv.next264
   store double %96, ptr %gep291, align 8, !tbaa !7
   %lftr.wideiv = trunc i64 %indvars.iv.next264 to i32
   %exitcond.not = icmp eq i32 %77, %lftr.wideiv
@@ -256,7 +256,7 @@ define void @dorgbr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %106, ptr %13, align 4, !tbaa !3
   %107 = shl i32 %15, 1
   %108 = sext i32 %107 to i64
-  %109 = getelementptr double, ptr %17, i64 %108
+  %109 = getelementptr [8 x i8], ptr %17, i64 %108
   %110 = getelementptr i8, ptr %109, i64 16
   call void @dorgqr_(ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef %110, ptr noundef nonnull %5, ptr noundef %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %14) #5
   br label %._crit_edge248.thread
@@ -297,7 +297,7 @@ define void @dorgbr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
 
 .lr.ph255:                                        ; preds = %.preheader
   %126 = add i64 %125, 4294967294
-  %invariant.gep292 = getelementptr double, ptr %17, i64 %125
+  %invariant.gep292 = getelementptr [8 x i8], ptr %17, i64 %125
   br label %127
 
 127:                                              ; preds = %.lr.ph255, %127
@@ -308,13 +308,13 @@ define void @dorgbr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   %129 = ashr exact i64 %sext, 29
   %130 = getelementptr inbounds i8, ptr %17, i64 %129
   %131 = load double, ptr %130, align 8, !tbaa !7
-  %gep293 = getelementptr double, ptr %invariant.gep292, i64 %indvars.iv.next277
+  %gep293 = getelementptr [8 x i8], ptr %invariant.gep292, i64 %indvars.iv.next277
   store double %131, ptr %gep293, align 8, !tbaa !7
   %132 = icmp sgt i64 %indvars.iv276, 3
   br i1 %132, label %127, label %._crit_edge256, !llvm.loop !12
 
 ._crit_edge256:                                   ; preds = %127, %.preheader
-  %133 = getelementptr double, ptr %17, i64 %125
+  %133 = getelementptr [8 x i8], ptr %17, i64 %125
   %134 = getelementptr i8, ptr %133, i64 8
   store double 0.000000e+00, ptr %134, align 8, !tbaa !7
   %indvars.iv.next275 = add nuw nsw i64 %indvars.iv274, 1
@@ -328,7 +328,7 @@ define void @dorgbr_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef
   store i32 %135, ptr %13, align 4, !tbaa !3
   %136 = shl i32 %15, 1
   %137 = sext i32 %136 to i64
-  %138 = getelementptr double, ptr %17, i64 %137
+  %138 = getelementptr [8 x i8], ptr %17, i64 %137
   %139 = getelementptr i8, ptr %138, i64 16
   call void @dorglq_(ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef %139, ptr noundef nonnull %5, ptr noundef %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %14) #5
   br label %._crit_edge248.thread

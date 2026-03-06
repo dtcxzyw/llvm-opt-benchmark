@@ -164,7 +164,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5alloc11colle
   %.sroa.0.0.copyload = load ptr, ptr %26, align 8, !nonnull !5, !noundef !5
   %.sroa.22.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.22.0.copyload = load i64, ptr %.sroa.22.0..sroa_idx, align 8
-  %27 = getelementptr inbounds { ptr, ptr }, ptr %.sroa.0.0.copyload, i64 %.sroa.22.0.copyload
+  %27 = getelementptr inbounds [16 x i8], ptr %.sroa.0.0.copyload, i64 %.sroa.22.0.copyload
   br label %28
 
 28:                                               ; preds = %25, %"_ZN14ockam_executor8executor8Executor9poll_task28_$u7b$$u7b$closure$u7d$$u7d$17h825e0000dfed1448E.llvm.1761375074273294282.exit"
@@ -229,7 +229,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5alloc11colle
   %.sroa.018.0.copyload = load ptr, ptr %4, align 8, !nonnull !5, !noundef !5
   %.sroa.420.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   %.sroa.420.0.copyload = load i64, ptr %.sroa.420.0..sroa_idx, align 8
-  %27 = getelementptr inbounds { ptr, ptr }, ptr %.sroa.018.0.copyload, i64 %.sroa.420.0.copyload
+  %27 = getelementptr inbounds [16 x i8], ptr %.sroa.018.0.copyload, i64 %.sroa.420.0.copyload
   %28 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load i64, ptr %29, align 8, !noundef !5
@@ -259,7 +259,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN5alloc11colle
   %.sroa.0.0.copyload = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
   %.sroa.41.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.41.0.copyload = load i64, ptr %.sroa.41.0..sroa_idx, align 8
-  %2 = getelementptr inbounds { ptr, ptr }, ptr %.sroa.0.0.copyload, i64 %.sroa.41.0.copyload
+  %2 = getelementptr inbounds [16 x i8], ptr %.sroa.0.0.copyload, i64 %.sroa.41.0.copyload
   ret ptr %2
 }
 

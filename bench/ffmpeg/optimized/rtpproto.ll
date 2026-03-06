@@ -624,7 +624,7 @@ define internal range(i32 -110, -1414092868) i32 @rtp_read(ptr noundef %0, ptr n
 
 .preheader:                                       ; preds = %37, %58
   %indvars.iv = phi i64 [ %indvars.iv.next, %58 ], [ 1, %37 ]
-  %40 = getelementptr inbounds nuw %struct.pollfd, ptr %4, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 6
   %42 = load i16, ptr %41, align 2, !tbaa !55
   %43 = and i16 %42, 1
@@ -632,11 +632,11 @@ define internal range(i32 -110, -1414092868) i32 @rtp_read(ptr noundef %0, ptr n
   br i1 %.not38, label %58, label %44
 
 44:                                               ; preds = %.preheader
-  %45 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %46 = load ptr, ptr %45, align 8, !tbaa !58
   store i32 128, ptr %46, align 4, !tbaa !15
   %47 = load i32, ptr %40, align 8, !tbaa !52
-  %48 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %49 = load ptr, ptr %48, align 8, !tbaa !57
   %50 = call i64 @recvfrom(i32 noundef %47, ptr noundef %1, i64 noundef %33, i32 noundef 0, ptr noundef %49, ptr noundef nonnull %46) #12
   %51 = trunc i64 %50 to i32

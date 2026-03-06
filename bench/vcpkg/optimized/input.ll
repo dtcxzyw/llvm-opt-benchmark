@@ -13328,7 +13328,7 @@ _ZNSt6vectorIN5vcpkg11TripletFileESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit30: ;
 _ZNSt12_Vector_baseIN5vcpkg11TripletFileESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorIN5vcpkg11TripletFileESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit30, %114
   store ptr %22, ptr %0, align 8, !tbaa !109
   store ptr %.0.lcssa.i.i.i29, ptr %4, align 8, !tbaa !89
-  %118 = getelementptr inbounds nuw %"struct.vcpkg::TripletFile", ptr %22, i64 %16
+  %118 = getelementptr inbounds nuw [64 x i8], ptr %22, i64 %16
   store ptr %118, ptr %113, align 8, !tbaa !92
   ret void
 }

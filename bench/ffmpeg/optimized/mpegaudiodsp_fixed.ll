@@ -153,19 +153,19 @@ define hidden void @ff_mpadsp_apply_window_fixed(ptr noundef captures(none) %0, 
   %126 = trunc nsw i32 %.0.i.i to i16
   store i16 %126, ptr %3, align 2, !tbaa !8
   %127 = sub i64 0, %4
-  %.0189303 = and i64 %122, 16777215
-  %.0304 = getelementptr inbounds i16, ptr %3, i64 %4
+  %.0303 = getelementptr inbounds [2 x i8], ptr %3, i64 %4
+  %.0188304 = and i64 %122, 16777215
   br label %128
 
 128:                                              ; preds = %5, %128
   %indvars.iv = phi i64 [ 1, %5 ], [ %indvars.iv.next, %128 ]
-  %.0310 = phi ptr [ %.0304, %5 ], [ %.0, %128 ]
-  %.0189309 = phi i64 [ %.0189303, %5 ], [ %.0189, %128 ]
-  %.pn178308 = phi ptr [ %1, %5 ], [ %.0174, %128 ]
+  %.0188310 = phi i64 [ %.0188304, %5 ], [ %.0188, %128 ]
+  %.0309 = phi ptr [ %.0303, %5 ], [ %.0, %128 ]
+  %.pn308 = phi ptr [ %1, %5 ], [ %.0174, %128 ]
   %.0175307 = phi ptr [ %8, %5 ], [ %300, %128 ]
   %.0176306 = phi ptr [ %7, %5 ], [ %299, %128 ]
-  %.0174 = getelementptr inbounds nuw i8, ptr %.pn178308, i64 4
-  %129 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %.0174 = getelementptr inbounds nuw i8, ptr %.pn308, i64 4
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %130 = load i32, ptr %129, align 4, !tbaa !4
   %131 = load i32, ptr %.0174, align 4, !tbaa !4
   %132 = sext i32 %131 to i64
@@ -175,7 +175,7 @@ define hidden void @ff_mpadsp_apply_window_fixed(ptr noundef captures(none) %0, 
   %136 = sext i32 %135 to i64
   %137 = getelementptr inbounds nuw i8, ptr %129, i64 256
   %138 = load i32, ptr %137, align 4, !tbaa !4
-  %139 = getelementptr inbounds nuw i8, ptr %.pn178308, i64 260
+  %139 = getelementptr inbounds nuw i8, ptr %.pn308, i64 260
   %140 = load i32, ptr %139, align 4, !tbaa !4
   %141 = sext i32 %140 to i64
   %142 = sext i32 %138 to i64
@@ -185,7 +185,7 @@ define hidden void @ff_mpadsp_apply_window_fixed(ptr noundef captures(none) %0, 
   %146 = sext i32 %145 to i64
   %147 = getelementptr inbounds nuw i8, ptr %129, i64 512
   %148 = load i32, ptr %147, align 4, !tbaa !4
-  %149 = getelementptr inbounds nuw i8, ptr %.pn178308, i64 516
+  %149 = getelementptr inbounds nuw i8, ptr %.pn308, i64 516
   %150 = load i32, ptr %149, align 4, !tbaa !4
   %151 = sext i32 %150 to i64
   %152 = sext i32 %148 to i64
@@ -195,7 +195,7 @@ define hidden void @ff_mpadsp_apply_window_fixed(ptr noundef captures(none) %0, 
   %156 = sext i32 %155 to i64
   %157 = getelementptr inbounds nuw i8, ptr %129, i64 768
   %158 = load i32, ptr %157, align 4, !tbaa !4
-  %159 = getelementptr inbounds nuw i8, ptr %.pn178308, i64 772
+  %159 = getelementptr inbounds nuw i8, ptr %.pn308, i64 772
   %160 = load i32, ptr %159, align 4, !tbaa !4
   %161 = sext i32 %160 to i64
   %162 = sext i32 %158 to i64
@@ -205,7 +205,7 @@ define hidden void @ff_mpadsp_apply_window_fixed(ptr noundef captures(none) %0, 
   %166 = sext i32 %165 to i64
   %167 = getelementptr inbounds nuw i8, ptr %129, i64 1024
   %168 = load i32, ptr %167, align 4, !tbaa !4
-  %169 = getelementptr inbounds nuw i8, ptr %.pn178308, i64 1028
+  %169 = getelementptr inbounds nuw i8, ptr %.pn308, i64 1028
   %170 = load i32, ptr %169, align 4, !tbaa !4
   %171 = sext i32 %170 to i64
   %172 = sext i32 %168 to i64
@@ -215,7 +215,7 @@ define hidden void @ff_mpadsp_apply_window_fixed(ptr noundef captures(none) %0, 
   %176 = sext i32 %175 to i64
   %177 = getelementptr inbounds nuw i8, ptr %129, i64 1280
   %178 = load i32, ptr %177, align 4, !tbaa !4
-  %179 = getelementptr inbounds nuw i8, ptr %.pn178308, i64 1284
+  %179 = getelementptr inbounds nuw i8, ptr %.pn308, i64 1284
   %180 = load i32, ptr %179, align 4, !tbaa !4
   %181 = sext i32 %180 to i64
   %182 = sext i32 %178 to i64
@@ -225,7 +225,7 @@ define hidden void @ff_mpadsp_apply_window_fixed(ptr noundef captures(none) %0, 
   %186 = sext i32 %185 to i64
   %187 = getelementptr inbounds nuw i8, ptr %129, i64 1536
   %188 = load i32, ptr %187, align 4, !tbaa !4
-  %189 = getelementptr inbounds nuw i8, ptr %.pn178308, i64 1540
+  %189 = getelementptr inbounds nuw i8, ptr %.pn308, i64 1540
   %190 = load i32, ptr %189, align 4, !tbaa !4
   %191 = sext i32 %190 to i64
   %192 = sext i32 %188 to i64
@@ -235,7 +235,7 @@ define hidden void @ff_mpadsp_apply_window_fixed(ptr noundef captures(none) %0, 
   %196 = sext i32 %195 to i64
   %197 = getelementptr inbounds nuw i8, ptr %129, i64 1792
   %198 = load i32, ptr %197, align 4, !tbaa !4
-  %199 = getelementptr inbounds nuw i8, ptr %.pn178308, i64 1796
+  %199 = getelementptr inbounds nuw i8, ptr %.pn308, i64 1796
   %200 = load i32, ptr %199, align 4, !tbaa !4
   %201 = sext i32 %200 to i64
   %202 = sext i32 %198 to i64
@@ -244,9 +244,9 @@ define hidden void @ff_mpadsp_apply_window_fixed(ptr noundef captures(none) %0, 
   %205 = load i32, ptr %204, align 4, !tbaa !4
   %206 = sext i32 %205 to i64
   %207 = sub nsw i64 0, %indvars.iv
-  %208 = getelementptr inbounds i32, ptr %66, i64 %207
+  %208 = getelementptr inbounds [4 x i8], ptr %66, i64 %207
   %209 = load i32, ptr %208, align 4, !tbaa !4
-  %210 = getelementptr inbounds nuw i8, ptr %.pn178308, i64 132
+  %210 = getelementptr inbounds nuw i8, ptr %.pn308, i64 132
   %211 = load i32, ptr %210, align 4, !tbaa !4
   %212 = sext i32 %211 to i64
   %213 = sext i32 %209 to i64
@@ -255,7 +255,7 @@ define hidden void @ff_mpadsp_apply_window_fixed(ptr noundef captures(none) %0, 
   %216 = sext i32 %215 to i64
   %217 = getelementptr inbounds nuw i8, ptr %208, i64 256
   %218 = load i32, ptr %217, align 4, !tbaa !4
-  %219 = getelementptr inbounds nuw i8, ptr %.pn178308, i64 388
+  %219 = getelementptr inbounds nuw i8, ptr %.pn308, i64 388
   %220 = load i32, ptr %219, align 4, !tbaa !4
   %221 = sext i32 %220 to i64
   %222 = sext i32 %218 to i64
@@ -264,7 +264,7 @@ define hidden void @ff_mpadsp_apply_window_fixed(ptr noundef captures(none) %0, 
   %225 = sext i32 %224 to i64
   %226 = getelementptr inbounds nuw i8, ptr %208, i64 512
   %227 = load i32, ptr %226, align 4, !tbaa !4
-  %228 = getelementptr inbounds nuw i8, ptr %.pn178308, i64 644
+  %228 = getelementptr inbounds nuw i8, ptr %.pn308, i64 644
   %229 = load i32, ptr %228, align 4, !tbaa !4
   %230 = sext i32 %229 to i64
   %231 = sext i32 %227 to i64
@@ -273,7 +273,7 @@ define hidden void @ff_mpadsp_apply_window_fixed(ptr noundef captures(none) %0, 
   %234 = sext i32 %233 to i64
   %235 = getelementptr inbounds nuw i8, ptr %208, i64 768
   %236 = load i32, ptr %235, align 4, !tbaa !4
-  %237 = getelementptr inbounds nuw i8, ptr %.pn178308, i64 900
+  %237 = getelementptr inbounds nuw i8, ptr %.pn308, i64 900
   %238 = load i32, ptr %237, align 4, !tbaa !4
   %239 = sext i32 %238 to i64
   %240 = sext i32 %236 to i64
@@ -282,7 +282,7 @@ define hidden void @ff_mpadsp_apply_window_fixed(ptr noundef captures(none) %0, 
   %243 = sext i32 %242 to i64
   %244 = getelementptr inbounds nuw i8, ptr %208, i64 1024
   %245 = load i32, ptr %244, align 4, !tbaa !4
-  %246 = getelementptr inbounds nuw i8, ptr %.pn178308, i64 1156
+  %246 = getelementptr inbounds nuw i8, ptr %.pn308, i64 1156
   %247 = load i32, ptr %246, align 4, !tbaa !4
   %248 = sext i32 %247 to i64
   %249 = sext i32 %245 to i64
@@ -291,7 +291,7 @@ define hidden void @ff_mpadsp_apply_window_fixed(ptr noundef captures(none) %0, 
   %252 = sext i32 %251 to i64
   %253 = getelementptr inbounds nuw i8, ptr %208, i64 1280
   %254 = load i32, ptr %253, align 4, !tbaa !4
-  %255 = getelementptr inbounds nuw i8, ptr %.pn178308, i64 1412
+  %255 = getelementptr inbounds nuw i8, ptr %.pn308, i64 1412
   %256 = load i32, ptr %255, align 4, !tbaa !4
   %257 = sext i32 %256 to i64
   %258 = sext i32 %254 to i64
@@ -300,7 +300,7 @@ define hidden void @ff_mpadsp_apply_window_fixed(ptr noundef captures(none) %0, 
   %261 = sext i32 %260 to i64
   %262 = getelementptr inbounds nuw i8, ptr %208, i64 1536
   %263 = load i32, ptr %262, align 4, !tbaa !4
-  %264 = getelementptr inbounds nuw i8, ptr %.pn178308, i64 1668
+  %264 = getelementptr inbounds nuw i8, ptr %.pn308, i64 1668
   %265 = load i32, ptr %264, align 4, !tbaa !4
   %266 = sext i32 %265 to i64
   %267 = sext i32 %263 to i64
@@ -309,7 +309,7 @@ define hidden void @ff_mpadsp_apply_window_fixed(ptr noundef captures(none) %0, 
   %270 = sext i32 %269 to i64
   %271 = getelementptr inbounds nuw i8, ptr %208, i64 1792
   %272 = load i32, ptr %271, align 4, !tbaa !4
-  %273 = getelementptr inbounds nuw i8, ptr %.pn178308, i64 1924
+  %273 = getelementptr inbounds nuw i8, ptr %.pn308, i64 1924
   %274 = load i32, ptr %273, align 4, !tbaa !4
   %275 = sext i32 %274 to i64
   %276 = sext i32 %272 to i64
@@ -328,7 +328,7 @@ define hidden void @ff_mpadsp_apply_window_fixed(ptr noundef captures(none) %0, 
   %reass.add283 = add i64 %reass.add282, %.neg242
   %reass.add284 = add i64 %reass.add283, %.neg244
   %reass.add285 = add i64 %reass.add284, %.neg246
-  %277 = add nsw i64 %134, %.0189309
+  %277 = add nsw i64 %134, %.0188310
   %278 = add i64 %277, %143
   %279 = add i64 %278, %153
   %280 = add i64 %279, %163
@@ -344,9 +344,9 @@ define hidden void @ff_mpadsp_apply_window_fixed(ptr noundef captures(none) %0, 
   %290 = trunc i64 %289 to i32
   %291 = and i64 %285, 16777215
   %292 = tail call i32 @llvm.smax.i32(i32 %290, i32 -32768)
-  %.0.i.i179 = tail call range(i32 -32768, 32768) i32 @llvm.smin.i32(i32 %292, i32 32767)
-  %293 = trunc nsw i32 %.0.i.i179 to i16
-  store i16 %293, ptr %.0310, align 2, !tbaa !8
+  %.0.i.i178 = tail call range(i32 -32768, 32768) i32 @llvm.smin.i32(i32 %292, i32 32767)
+  %293 = trunc nsw i32 %.0.i.i178 to i16
+  store i16 %293, ptr %.0309, align 2, !tbaa !8
   %.neg248 = mul nsw i64 %136, %133
   %.neg249 = mul nsw i64 %146, %142
   %.neg251 = mul nsw i64 %156, %152
@@ -382,61 +382,61 @@ define hidden void @ff_mpadsp_apply_window_fixed(ptr noundef captures(none) %0, 
   %295 = lshr i64 %294, 24
   %296 = trunc i64 %295 to i32
   %297 = tail call i32 @llvm.smax.i32(i32 %296, i32 -32768)
-  %.0.i.i180 = tail call range(i32 -32768, 32768) i32 @llvm.smin.i32(i32 %297, i32 32767)
-  %298 = trunc nsw i32 %.0.i.i180 to i16
+  %.0.i.i179 = tail call range(i32 -32768, 32768) i32 @llvm.smin.i32(i32 %297, i32 32767)
+  %298 = trunc nsw i32 %.0.i.i179 to i16
   store i16 %298, ptr %.0176306, align 2, !tbaa !8
-  %299 = getelementptr inbounds i16, ptr %.0176306, i64 %127
+  %299 = getelementptr inbounds [2 x i8], ptr %.0176306, i64 %127
   %300 = getelementptr inbounds i8, ptr %.0175307, i64 -4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.0189 = and i64 %294, 16777215
-  %.0 = getelementptr inbounds i16, ptr %.0310, i64 %4
+  %.0 = getelementptr inbounds [2 x i8], ptr %.0309, i64 %4
+  %.0188 = and i64 %294, 16777215
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
   br i1 %exitcond.not, label %301, label %128, !llvm.loop !10
 
 301:                                              ; preds = %128
   %302 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %303 = getelementptr inbounds nuw i8, ptr %.pn178308, i64 136
+  %303 = getelementptr inbounds nuw i8, ptr %.pn308, i64 136
   %304 = load i32, ptr %303, align 4, !tbaa !4
   %305 = sext i32 %304 to i64
   %306 = load i32, ptr %302, align 4, !tbaa !4
   %307 = sext i32 %306 to i64
-  %308 = getelementptr inbounds nuw i8, ptr %.pn178308, i64 392
+  %308 = getelementptr inbounds nuw i8, ptr %.pn308, i64 392
   %309 = load i32, ptr %308, align 4, !tbaa !4
   %310 = sext i32 %309 to i64
   %311 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %312 = load i32, ptr %311, align 4, !tbaa !4
   %313 = sext i32 %312 to i64
-  %314 = getelementptr inbounds nuw i8, ptr %.pn178308, i64 648
+  %314 = getelementptr inbounds nuw i8, ptr %.pn308, i64 648
   %315 = load i32, ptr %314, align 4, !tbaa !4
   %316 = sext i32 %315 to i64
   %317 = getelementptr inbounds nuw i8, ptr %0, i64 640
   %318 = load i32, ptr %317, align 4, !tbaa !4
   %319 = sext i32 %318 to i64
-  %320 = getelementptr inbounds nuw i8, ptr %.pn178308, i64 904
+  %320 = getelementptr inbounds nuw i8, ptr %.pn308, i64 904
   %321 = load i32, ptr %320, align 4, !tbaa !4
   %322 = sext i32 %321 to i64
   %323 = getelementptr inbounds nuw i8, ptr %0, i64 896
   %324 = load i32, ptr %323, align 4, !tbaa !4
   %325 = sext i32 %324 to i64
-  %326 = getelementptr inbounds nuw i8, ptr %.pn178308, i64 1160
+  %326 = getelementptr inbounds nuw i8, ptr %.pn308, i64 1160
   %327 = load i32, ptr %326, align 4, !tbaa !4
   %328 = sext i32 %327 to i64
   %329 = getelementptr inbounds nuw i8, ptr %0, i64 1152
   %330 = load i32, ptr %329, align 4, !tbaa !4
   %331 = sext i32 %330 to i64
-  %332 = getelementptr inbounds nuw i8, ptr %.pn178308, i64 1416
+  %332 = getelementptr inbounds nuw i8, ptr %.pn308, i64 1416
   %333 = load i32, ptr %332, align 4, !tbaa !4
   %334 = sext i32 %333 to i64
   %335 = getelementptr inbounds nuw i8, ptr %0, i64 1408
   %336 = load i32, ptr %335, align 4, !tbaa !4
   %337 = sext i32 %336 to i64
-  %338 = getelementptr inbounds nuw i8, ptr %.pn178308, i64 1672
+  %338 = getelementptr inbounds nuw i8, ptr %.pn308, i64 1672
   %339 = load i32, ptr %338, align 4, !tbaa !4
   %340 = sext i32 %339 to i64
   %341 = getelementptr inbounds nuw i8, ptr %0, i64 1664
   %342 = load i32, ptr %341, align 4, !tbaa !4
   %343 = sext i32 %342 to i64
-  %344 = getelementptr inbounds nuw i8, ptr %.pn178308, i64 1928
+  %344 = getelementptr inbounds nuw i8, ptr %.pn308, i64 1928
   %345 = load i32, ptr %344, align 4, !tbaa !4
   %346 = sext i32 %345 to i64
   %347 = getelementptr inbounds nuw i8, ptr %0, i64 1920
@@ -457,12 +457,12 @@ define hidden void @ff_mpadsp_apply_window_fixed(ptr noundef captures(none) %0, 
   %reass.add229 = add i64 %reass.add228, %.neg219
   %reass.add230 = add i64 %reass.add229, %.neg221
   %reass.add231 = add i64 %reass.add230, %.neg223
-  %350 = sub i64 %.0189, %reass.add231
+  %350 = sub i64 %.0188, %reass.add231
   %351 = lshr i64 %350, 24
   %352 = trunc i64 %351 to i32
   %353 = tail call i32 @llvm.smax.i32(i32 %352, i32 -32768)
-  %.0.i.i181 = tail call range(i32 -32768, 32768) i32 @llvm.smin.i32(i32 %353, i32 32767)
-  %354 = trunc nsw i32 %.0.i.i181 to i16
+  %.0.i.i180 = tail call range(i32 -32768, 32768) i32 @llvm.smin.i32(i32 %353, i32 32767)
+  %354 = trunc nsw i32 %.0.i.i180 to i16
   store i16 %354, ptr %.0, align 2, !tbaa !8
   %355 = trunc i64 %350 to i32
   %356 = and i32 %355, 16777215
@@ -477,7 +477,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 define hidden void @ff_mpa_synth_filter_fixed(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef %7) local_unnamed_addr #2 {
   %9 = load i32, ptr %2, align 4, !tbaa !4
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds i32, ptr %1, i64 %10
+  %11 = getelementptr inbounds [4 x i8], ptr %1, i64 %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %13 = load ptr, ptr %12, align 8, !tbaa !12
   tail call void %13(ptr noundef %11, ptr noundef %7) #10
@@ -527,7 +527,7 @@ define hidden void @ff_imdct36_blocks_fixed(ptr noundef writeonly captures(none)
 
 13:                                               ; preds = %13, %12
   %indvars.iv.i = phi i64 [ 17, %12 ], [ %indvars.iv.next.i, %13 ]
-  %14 = getelementptr i32, ptr %.01828, i64 %indvars.iv.i
+  %14 = getelementptr [4 x i8], ptr %.01828, i64 %indvars.iv.i
   %15 = getelementptr i8, ptr %14, i64 -4
   %16 = load i32, ptr %15, align 4, !tbaa !4
   %17 = load i32, ptr %14, align 4, !tbaa !4
@@ -546,9 +546,9 @@ define hidden void @ff_imdct36_blocks_fixed(ptr noundef writeonly captures(none)
   %20 = phi i32 [ %.pre.i, %.preheader172.preheader.i ], [ %22, %.preheader172.i ]
   %indvars.iv179.i = phi i64 [ 17, %.preheader172.preheader.i ], [ %indvars.iv.next180.i, %.preheader172.i ]
   %indvars.iv.next180.i = add nsw i64 %indvars.iv179.i, -2
-  %21 = getelementptr inbounds nuw i32, ptr %.01828, i64 %indvars.iv.next180.i
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %.01828, i64 %indvars.iv.next180.i
   %22 = load i32, ptr %21, align 4, !tbaa !4
-  %23 = getelementptr inbounds nuw i32, ptr %.01828, i64 %indvars.iv179.i
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %.01828, i64 %indvars.iv179.i
   %24 = add i32 %22, %20
   store i32 %24, ptr %23, align 4, !tbaa !4
   %25 = icmp samesign ugt i64 %indvars.iv179.i, 4
@@ -558,7 +558,7 @@ define hidden void @ff_imdct36_blocks_fixed(ptr noundef writeonly captures(none)
   %26 = phi i1 [ false, %.preheader171.i ], [ true, %.preheader172.i ]
   %indvars.iv182.i.sroa.phi = phi ptr [ %indvars.iv182.i.sroa.gep, %.preheader171.i ], [ %7, %.preheader172.i ]
   %indvars.iv182.i = phi i64 [ 1, %.preheader171.i ], [ 0, %.preheader172.i ]
-  %27 = getelementptr inbounds nuw i32, ptr %.01828, i64 %indvars.iv182.i
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %.01828, i64 %indvars.iv182.i
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %29 = load i32, ptr %28, align 4, !tbaa !4
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 64
@@ -669,13 +669,13 @@ define hidden void @ff_imdct36_blocks_fixed(ptr noundef writeonly captures(none)
   %122 = and i32 %121, 4
   %123 = add nsw i32 %120, %122
   %124 = sext i32 %123 to i64
-  %125 = getelementptr inbounds [40 x i32], ptr @ff_mdct_win_fixed, i64 %124
+  %125 = getelementptr inbounds [160 x i8], ptr @ff_mdct_win_fixed, i64 %124
   br label %.preheader.i
 
 .preheader.i:                                     ; preds = %.preheader.i.preheader, %.preheader.i
   %indvars.iv187.i = phi i64 [ %indvars.iv.next188.i, %.preheader.i ], [ 0, %.preheader.i.preheader ]
   %indvars.iv185.i = phi i64 [ %indvars.iv.next186.i, %.preheader.i ], [ 0, %.preheader.i.preheader ]
-  %126 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv185.i
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv185.i
   %127 = load i32, ptr %126, align 16, !tbaa !4
   %128 = getelementptr inbounds nuw i8, ptr %126, i64 8
   %129 = load i32, ptr %128, align 8, !tbaa !4
@@ -687,7 +687,7 @@ define hidden void @ff_imdct36_blocks_fixed(ptr noundef writeonly captures(none)
   %135 = load i32, ptr %134, align 4, !tbaa !4
   %136 = add i32 %135, %133
   %137 = shl i32 %136, 1
-  %138 = getelementptr inbounds nuw i32, ptr @icos36h, i64 %indvars.iv187.i
+  %138 = getelementptr inbounds nuw [4 x i8], ptr @icos36h, i64 %indvars.iv187.i
   %139 = load i32, ptr %138, align 4, !tbaa !4
   %140 = sext i32 %137 to i64
   %141 = sext i32 %139 to i64
@@ -697,7 +697,7 @@ define hidden void @ff_imdct36_blocks_fixed(ptr noundef writeonly captures(none)
   %145 = sub i32 %135, %133
   %146 = sext i32 %145 to i64
   %147 = sub nuw nsw i64 8, %indvars.iv187.i
-  %148 = getelementptr inbounds nuw i32, ptr @icos36, i64 %147
+  %148 = getelementptr inbounds nuw [4 x i8], ptr @icos36, i64 %147
   %149 = load i32, ptr %148, align 4, !tbaa !4
   %150 = sext i32 %149 to i64
   %151 = mul nsw i64 %150, %146
@@ -706,7 +706,7 @@ define hidden void @ff_imdct36_blocks_fixed(ptr noundef writeonly captures(none)
   %154 = add i32 %130, %144
   %155 = sub i32 %130, %144
   %156 = add nuw nsw i64 %indvars.iv187.i, 9
-  %157 = getelementptr inbounds nuw i32, ptr %125, i64 %156
+  %157 = getelementptr inbounds nuw [4 x i8], ptr %125, i64 %156
   %158 = load i32, ptr %157, align 4, !tbaa !4
   %159 = sext i32 %155 to i64
   %160 = sext i32 %158 to i64
@@ -720,7 +720,7 @@ define hidden void @ff_imdct36_blocks_fixed(ptr noundef writeonly captures(none)
   %.idx192.i = shl nuw nsw i64 %156, 7
   %167 = getelementptr inbounds nuw i8, ptr %.031, i64 %.idx192.i
   store i32 %166, ptr %167, align 4, !tbaa !4
-  %168 = getelementptr inbounds nuw i32, ptr %125, i64 %147
+  %168 = getelementptr inbounds nuw [4 x i8], ptr %125, i64 %147
   %169 = load i32, ptr %168, align 4, !tbaa !4
   %170 = sext i32 %169 to i64
   %171 = mul nsw i64 %159, %170
@@ -733,7 +733,7 @@ define hidden void @ff_imdct36_blocks_fixed(ptr noundef writeonly captures(none)
   %.idx194.i = shl nuw nsw i64 %147, 7
   %177 = getelementptr inbounds nuw i8, ptr %.031, i64 %.idx194.i
   store i32 %176, ptr %177, align 4, !tbaa !4
-  %178 = getelementptr inbounds nuw i32, ptr %125, i64 %indvars.iv187.i
+  %178 = getelementptr inbounds nuw [4 x i8], ptr %125, i64 %indvars.iv187.i
   %179 = getelementptr inbounds nuw i8, ptr %178, i64 116
   %180 = load i32, ptr %179, align 4, !tbaa !4
   %181 = sext i32 %154 to i64
@@ -743,7 +743,7 @@ define hidden void @ff_imdct36_blocks_fixed(ptr noundef writeonly captures(none)
   %185 = trunc nuw i64 %184 to i32
   store i32 %185, ptr %164, align 4, !tbaa !4
   %186 = sub nuw nsw i64 28, %indvars.iv187.i
-  %187 = getelementptr inbounds nuw i32, ptr %125, i64 %186
+  %187 = getelementptr inbounds nuw [4 x i8], ptr %125, i64 %186
   %188 = load i32, ptr %187, align 4, !tbaa !4
   %189 = sext i32 %188 to i64
   %190 = mul nsw i64 %189, %181
@@ -753,7 +753,7 @@ define hidden void @ff_imdct36_blocks_fixed(ptr noundef writeonly captures(none)
   %193 = add i32 %131, %153
   %194 = sub i32 %131, %153
   %195 = sub nuw nsw i64 17, %indvars.iv187.i
-  %196 = getelementptr inbounds nuw i32, ptr %125, i64 %195
+  %196 = getelementptr inbounds nuw [4 x i8], ptr %125, i64 %195
   %197 = load i32, ptr %196, align 4, !tbaa !4
   %198 = sext i32 %194 to i64
   %199 = sext i32 %197 to i64
@@ -780,7 +780,7 @@ define hidden void @ff_imdct36_blocks_fixed(ptr noundef writeonly captures(none)
   %215 = getelementptr inbounds nuw i8, ptr %.031, i64 %.idx198.i
   store i32 %214, ptr %215, align 4, !tbaa !4
   %216 = sub nuw nsw i64 37, %indvars.iv187.i
-  %217 = getelementptr inbounds nuw i32, ptr %125, i64 %216
+  %217 = getelementptr inbounds nuw [4 x i8], ptr %125, i64 %216
   %218 = load i32, ptr %217, align 4, !tbaa !4
   %219 = sext i32 %193 to i64
   %220 = sext i32 %218 to i64
@@ -853,7 +853,7 @@ imdct36.exit:                                     ; preds = %.preheader.i
   %274 = and i32 %.01729, 3
   %.not = icmp eq i32 %274, 3
   %275 = select i1 %.not, i64 69, i64 1
-  %276 = getelementptr inbounds nuw i32, ptr %.01630, i64 %275
+  %276 = getelementptr inbounds nuw [4 x i8], ptr %.01630, i64 %275
   %277 = getelementptr inbounds nuw i8, ptr %.031, i64 4
   %278 = add nuw nsw i32 %.01729, 1
   %exitcond.not = icmp eq i32 %278, %3
@@ -869,9 +869,9 @@ define internal fastcc void @mpa_synth_init() unnamed_addr #7 {
 
 1:                                                ; preds = %0, %10
   %indvars.iv = phi i64 [ 0, %0 ], [ %indvars.iv.next, %10 ]
-  %2 = getelementptr inbounds nuw i32, ptr @ff_mpa_enwindow, i64 %indvars.iv
+  %2 = getelementptr inbounds nuw [4 x i8], ptr @ff_mpa_enwindow, i64 %indvars.iv
   %3 = load i32, ptr %2, align 4, !tbaa !4
-  %4 = getelementptr inbounds nuw i32, ptr @ff_mpa_synth_window_fixed, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [4 x i8], ptr @ff_mpa_synth_window_fixed, i64 %indvars.iv
   store i32 %3, ptr %4, align 4, !tbaa !4
   %.not34 = icmp eq i64 %indvars.iv, 0
   br i1 %.not34, label %10, label %5
@@ -882,7 +882,7 @@ define internal fastcc void @mpa_synth_init() unnamed_addr #7 {
   %7 = sub nsw i32 0, %3
   %spec.select = select i1 %.not, i32 %3, i32 %7
   %8 = sub nuw nsw i64 512, %indvars.iv
-  %9 = getelementptr inbounds nuw i32, ptr @ff_mpa_synth_window_fixed, i64 %8
+  %9 = getelementptr inbounds nuw [4 x i8], ptr @ff_mpa_synth_window_fixed, i64 %8
   store i32 %spec.select, ptr %9, align 4, !tbaa !4
   br label %10
 
@@ -902,9 +902,9 @@ define internal fastcc void @mpa_synth_init() unnamed_addr #7 {
 13:                                               ; preds = %.preheader2, %13
   %indvars.iv10 = phi i64 [ 0, %.preheader2 ], [ %indvars.iv.next11, %13 ]
   %14 = sub nuw nsw i64 %12, %indvars.iv10
-  %15 = getelementptr inbounds nuw i32, ptr @ff_mpa_synth_window_fixed, i64 %14
+  %15 = getelementptr inbounds nuw [4 x i8], ptr @ff_mpa_synth_window_fixed, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !4
-  %gep = getelementptr inbounds nuw i32, ptr %invariant.gep, i64 %indvars.iv10
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep, i64 %indvars.iv10
   %17 = getelementptr inbounds nuw i8, ptr %gep, i64 2048
   store i32 %16, ptr %17, align 4, !tbaa !4
   %indvars.iv.next11 = add nuw nsw i64 %indvars.iv10, 1
@@ -927,9 +927,9 @@ define internal fastcc void @mpa_synth_init() unnamed_addr #7 {
 21:                                               ; preds = %.preheader, %21
   %indvars.iv18 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next19, %21 ]
   %22 = sub nuw nsw i64 %20, %indvars.iv18
-  %23 = getelementptr inbounds nuw i32, ptr @ff_mpa_synth_window_fixed, i64 %22
+  %23 = getelementptr inbounds nuw [4 x i8], ptr @ff_mpa_synth_window_fixed, i64 %22
   %24 = load i32, ptr %23, align 4, !tbaa !4
-  %gep28 = getelementptr inbounds nuw i32, ptr %invariant.gep27, i64 %indvars.iv18
+  %gep28 = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep27, i64 %indvars.iv18
   %25 = getelementptr inbounds nuw i8, ptr %gep28, i64 2560
   store i32 %24, ptr %25, align 4, !tbaa !4
   %indvars.iv.next19 = add nuw nsw i64 %indvars.iv18, 1

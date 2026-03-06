@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.strbuf = type { i64, i64, ptr }
 %struct.object_id = type { [32 x i8], i32 }
 %struct.object_array = type { i32, i32, ptr }
-%struct.object_array_entry = type { ptr, ptr, ptr, i32 }
 %struct.rev_info = type { ptr, %struct.object_array, ptr, %struct.object_array, %struct.rev_cmdline_info, %struct.list_objects_filter_options, %struct.ref_exclusions, ptr, ptr, ptr, %struct.pathspec, i32, i32, i32, i32, i64, i32, i32, %struct.date_mode, i32, i32, i32, i32, ptr, i32, i32, ptr, ptr, i32, ptr, ptr, %struct.ident_split, ptr, i32, ptr, ptr, ptr, i32, i32, i32, ptr, %struct.grep_opt, ptr, i32, i32, i64, i64, i64, i32, i32, ptr, ptr, ptr, %struct.diff_options, %struct.diff_options, ptr, %struct.decoration, %struct.decoration, %struct.decoration, %struct.display_notes_opt, ptr, ptr, ptr, ptr, ptr, i32, ptr, i32, i32, i32, %struct.decoration, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i32, ptr, %struct.oidset }
 %struct.rev_cmdline_info = type { i32, i32, ptr }
 %struct.list_objects_filter_options = type { %struct.strbuf, i32, i8, ptr, i64, i64, i32, i64, i64, ptr }
@@ -158,7 +157,7 @@ define dso_local range(i32 -1, 1) i32 @unregister_shallow(ptr noundef %0) local_
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 64
   %10 = load ptr, ptr %9, align 8, !tbaa !46
   %11 = zext nneg i32 %3 to i64
-  %12 = getelementptr inbounds nuw ptr, ptr %10, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %11
   %13 = load ptr, ptr %12, align 8, !tbaa !47
   tail call void @free(ptr noundef %13) #16
   %14 = add nuw nsw i32 %3, 1
@@ -173,7 +172,7 @@ define dso_local range(i32 -1, 1) i32 @unregister_shallow(ptr noundef %0) local_
 21:                                               ; preds = %5
   %22 = getelementptr inbounds nuw i8, ptr %17, i64 64
   %23 = load ptr, ptr %22, align 8, !tbaa !46
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %11
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %11
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = xor i32 %3, -1
   %27 = add nsw i32 %19, %26
@@ -432,7 +431,7 @@ define dso_local ptr @get_shallow_commits(ptr noundef readonly captures(none) %0
   %17 = load ptr, ptr @the_repository, align 8, !tbaa !45
   %18 = load ptr, ptr %7, align 8, !tbaa !58
   %19 = add nuw nsw i64 %.0, 1
-  %20 = getelementptr inbounds nuw %struct.object_array_entry, ptr %18, i64 %.0
+  %20 = getelementptr inbounds nuw [32 x i8], ptr %18, i64 %.0
   %21 = load ptr, ptr %20, align 8, !tbaa !59
   %22 = call ptr @deref_tag(ptr noundef %17, ptr noundef %21, ptr noundef null, i32 noundef 0) #16
   %.not62 = icmp eq ptr %22, null
@@ -474,7 +473,7 @@ st_mult.exit.i.i:                                 ; preds = %26
   %.sroa.23.6 = phi i32 [ %.sroa.23.0.ph, %26 ], [ %30, %st_mult.exit.i.i ]
   %.sroa.40143.6 = phi ptr [ %.sroa.40143.0.ph, %26 ], [ %33, %st_mult.exit.i.i ]
   %39 = zext nneg i32 %28 to i64
-  %40 = getelementptr inbounds nuw ptr, ptr %.sroa.40143.6, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.40143.6, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !64
   %.not34.i.i = icmp eq ptr %41, null
   br i1 %.not34.i.i, label %42, label %commit_depth_at.exit
@@ -487,7 +486,7 @@ st_mult.exit.i.i:                                 ; preds = %26
 commit_depth_at.exit:                             ; preds = %._crit_edge4.i.i, %42
   %44 = phi ptr [ %41, %._crit_edge4.i.i ], [ %43, %42 ]
   %45 = zext nneg i32 %29 to i64
-  %46 = getelementptr inbounds nuw ptr, ptr %44, i64 %45
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %45
   %47 = load ptr, ptr %46, align 8, !tbaa !66
   %.not64 = icmp eq ptr %47, null
   br i1 %.not64, label %48, label %50
@@ -530,7 +529,7 @@ st_mult.exit.i.i80:                               ; preds = %52
   %.sroa.23.7 = phi i32 [ %.sroa.23.0.ph, %52 ], [ %57, %st_mult.exit.i.i80 ]
   %.sroa.40143.7 = phi ptr [ %.sroa.40143.0.ph, %52 ], [ %60, %st_mult.exit.i.i80 ]
   %66 = zext nneg i32 %55 to i64
-  %67 = getelementptr inbounds nuw ptr, ptr %.sroa.40143.7, i64 %66
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.40143.7, i64 %66
   %68 = load ptr, ptr %67, align 8, !tbaa !64
   %.not34.i.i86 = icmp eq ptr %68, null
   br i1 %.not34.i.i86, label %69, label %commit_depth_at.exit90
@@ -543,7 +542,7 @@ st_mult.exit.i.i80:                               ; preds = %52
 commit_depth_at.exit90:                           ; preds = %._crit_edge4.i.i87, %69
   %71 = phi ptr [ %68, %._crit_edge4.i.i87 ], [ %70, %69 ]
   %72 = zext nneg i32 %56 to i64
-  %73 = getelementptr inbounds nuw ptr, ptr %71, i64 %72
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %72
   %74 = load ptr, ptr %73, align 8, !tbaa !66
   %75 = load i32, ptr %74, align 4, !tbaa !39
   br label %.critedge74
@@ -641,7 +640,7 @@ st_mult.exit.i.i92:                               ; preds = %.lr.ph
   %.sroa.23.8 = phi i32 [ %.sroa.23.4162, %.lr.ph ], [ %103, %st_mult.exit.i.i92 ]
   %.sroa.40143.8 = phi ptr [ %.sroa.40143.4163, %.lr.ph ], [ %106, %st_mult.exit.i.i92 ]
   %112 = zext nneg i32 %101 to i64
-  %113 = getelementptr inbounds nuw ptr, ptr %.sroa.40143.8, i64 %112
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.40143.8, i64 %112
   %114 = load ptr, ptr %113, align 8, !tbaa !64
   %.not34.i.i98 = icmp eq ptr %114, null
   br i1 %.not34.i.i98, label %115, label %commit_depth_at.exit102
@@ -654,7 +653,7 @@ st_mult.exit.i.i92:                               ; preds = %.lr.ph
 commit_depth_at.exit102:                          ; preds = %._crit_edge4.i.i99, %115
   %117 = phi ptr [ %114, %._crit_edge4.i.i99 ], [ %116, %115 ]
   %118 = zext nneg i32 %102 to i64
-  %119 = getelementptr inbounds nuw ptr, ptr %117, i64 %118
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %118
   %120 = load ptr, ptr %119, align 8, !tbaa !66
   %.not71 = icmp eq ptr %120, null
   br i1 %.not71, label %121, label %123
@@ -709,7 +708,7 @@ st_mult.exit.i.i104:                              ; preds = %130
   %.sroa.23.9 = phi i32 [ %.sroa.23.8, %130 ], [ %134, %st_mult.exit.i.i104 ]
   %.sroa.40143.9 = phi ptr [ %.sroa.40143.8, %130 ], [ %137, %st_mult.exit.i.i104 ]
   %143 = zext nneg i32 %132 to i64
-  %144 = getelementptr inbounds nuw ptr, ptr %.sroa.40143.9, i64 %143
+  %144 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.40143.9, i64 %143
   %145 = load ptr, ptr %144, align 8, !tbaa !64
   %.not34.i.i110 = icmp eq ptr %145, null
   br i1 %.not34.i.i110, label %146, label %commit_depth_at.exit114
@@ -722,7 +721,7 @@ st_mult.exit.i.i104:                              ; preds = %130
 commit_depth_at.exit114:                          ; preds = %._crit_edge4.i.i111, %146
   %148 = phi ptr [ %145, %._crit_edge4.i.i111 ], [ %147, %146 ]
   %149 = zext nneg i32 %133 to i64
-  %150 = getelementptr inbounds nuw ptr, ptr %148, i64 %149
+  %150 = getelementptr inbounds nuw [8 x i8], ptr %148, i64 %149
   %151 = load ptr, ptr %150, align 8, !tbaa !66
   %152 = load i32, ptr %151, align 4, !tbaa !39
   br label %153
@@ -747,7 +746,7 @@ commit_depth_at.exit114:                          ; preds = %._crit_edge4.i.i111
 
 .lr.ph4.i:                                        ; preds = %.lr.ph4.i.preheader, %.loopexit.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.loopexit.i ], [ 0, %.lr.ph4.i.preheader ]
-  %157 = getelementptr inbounds nuw ptr, ptr %.sroa.40143.0.ph, i64 %indvars.iv.i
+  %157 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.40143.0.ph, i64 %indvars.iv.i
   %158 = load ptr, ptr %157, align 8, !tbaa !64
   %.not.i = icmp eq ptr %158, null
   br i1 %.not.i, label %.loopexit.i, label %.lr.ph.i
@@ -755,7 +754,7 @@ commit_depth_at.exit114:                          ; preds = %._crit_edge4.i.i111
 .lr.ph.i:                                         ; preds = %.lr.ph4.i, %.lr.ph.i
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.i ], [ 0, %.lr.ph4.i ]
   %159 = load ptr, ptr %157, align 8, !tbaa !64
-  %160 = getelementptr inbounds nuw ptr, ptr %159, i64 %indvars.iv
+  %160 = getelementptr inbounds nuw [8 x i8], ptr %159, i64 %indvars.iv
   %161 = load ptr, ptr %160, align 8, !tbaa !66
   call void @free(ptr noundef %161) #16
   store ptr null, ptr %160, align 8, !tbaa !66
@@ -770,7 +769,7 @@ commit_depth_at.exit114:                          ; preds = %._crit_edge4.i.i111
 
 .lr.ph.i.i115:                                    ; preds = %.loopexit.i, %.lr.ph.i.i115
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i115 ], [ 0, %.loopexit.i ]
-  %162 = getelementptr inbounds nuw ptr, ptr %.sroa.40143.0.ph, i64 %indvars.iv.i.i
+  %162 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.40143.0.ph, i64 %indvars.iv.i.i
   %163 = load ptr, ptr %162, align 8, !tbaa !64
   call void @free(ptr noundef %163) #16
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -1018,7 +1017,7 @@ define internal fastcc i32 @write_shallow_commits_1(ptr noundef %0, i32 noundef 
 17:                                               ; preds = %.lr.ph, %strbuf_addch.exit
   %.013 = phi i64 [ 0, %.lr.ph ], [ %32, %strbuf_addch.exit ]
   %18 = load ptr, ptr %2, align 8, !tbaa !89
-  %19 = getelementptr inbounds nuw %struct.object_id, ptr %18, i64 %.013
+  %19 = getelementptr inbounds nuw [36 x i8], ptr %18, i64 %.013
   %20 = call ptr @oid_to_hex(ptr noundef %19) #16
   %21 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %20) #17
   call void @strbuf_add(ptr noundef %0, ptr noundef nonnull %20, i64 noundef %21) #16
@@ -1437,7 +1436,7 @@ st_mult.exit29:                                   ; preds = %st_mult.exit
   %.031 = phi i64 [ 0, %.lr.ph ], [ %48, %47 ]
   %24 = load ptr, ptr @the_repository, align 8, !tbaa !45
   %25 = load ptr, ptr %1, align 8, !tbaa !89
-  %26 = getelementptr inbounds nuw %struct.object_id, ptr %25, i64 %.031
+  %26 = getelementptr inbounds nuw [36 x i8], ptr %25, i64 %.031
   %27 = tail call i32 @repo_has_object_file(ptr noundef %24, ptr noundef %26) #16
   %.not25 = icmp eq i32 %27, 0
   br i1 %.not25, label %42, label %28
@@ -1445,7 +1444,7 @@ st_mult.exit29:                                   ; preds = %st_mult.exit
 28:                                               ; preds = %23
   %29 = load ptr, ptr @the_repository, align 8, !tbaa !45
   %30 = load ptr, ptr %1, align 8, !tbaa !89
-  %31 = getelementptr inbounds nuw %struct.object_id, ptr %30, i64 %.031
+  %31 = getelementptr inbounds nuw [36 x i8], ptr %30, i64 %.031
   %32 = tail call ptr @lookup_commit_graft(ptr noundef %29, ptr noundef %31) #16
   %.not26 = icmp eq ptr %32, null
   br i1 %.not26, label %37, label %33
@@ -1461,7 +1460,7 @@ st_mult.exit29:                                   ; preds = %st_mult.exit
   %39 = load i64, ptr %21, align 8, !tbaa !113
   %40 = add i64 %39, 1
   store i64 %40, ptr %21, align 8, !tbaa !113
-  %41 = getelementptr inbounds nuw i64, ptr %38, i64 %39
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %39
   store i64 %.031, ptr %41, align 8, !tbaa !114
   br label %47
 
@@ -1470,7 +1469,7 @@ st_mult.exit29:                                   ; preds = %st_mult.exit
   %44 = load i64, ptr %22, align 8, !tbaa !115
   %45 = add i64 %44, 1
   store i64 %45, ptr %22, align 8, !tbaa !115
-  %46 = getelementptr inbounds nuw i64, ptr %43, i64 %44
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %44
   store i64 %.031, ptr %46, align 8, !tbaa !114
   br label %47
 
@@ -1514,7 +1513,7 @@ define dso_local void @clear_shallow_info(ptr noundef readonly captures(none) %0
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.011 = phi i64 [ %11, %.lr.ph ], [ 0, %.preheader ]
   %8 = load ptr, ptr %2, align 8, !tbaa !117
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %.011
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.011
   %10 = load ptr, ptr %9, align 8, !tbaa !66
   tail call void @free(ptr noundef %10) #16
   %11 = add nuw i64 %.011, 1
@@ -1576,21 +1575,21 @@ define dso_local void @remove_nonexistent_theirs_shallow(ptr noundef captures(no
   br i1 %.not16, label %._crit_edge22, label %12
 
 ._crit_edge22:                                    ; preds = %11
-  %.phi.trans.insert = getelementptr inbounds nuw i64, ptr %.pre, i64 %.020
+  %.phi.trans.insert = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %.020
   %.pre23 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !114
   br label %16
 
 12:                                               ; preds = %11
-  %13 = getelementptr inbounds nuw i64, ptr %.pre, i64 %.01519
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %.01519
   %14 = load i64, ptr %13, align 8, !tbaa !114
-  %15 = getelementptr inbounds nuw i64, ptr %.pre, i64 %.020
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %.020
   store i64 %14, ptr %15, align 8, !tbaa !114
   br label %16
 
 16:                                               ; preds = %._crit_edge22, %12
   %17 = phi i64 [ %.pre23, %._crit_edge22 ], [ %14, %12 ]
   %18 = load ptr, ptr @the_repository, align 8, !tbaa !45
-  %19 = getelementptr inbounds nuw %struct.object_id, ptr %3, i64 %17
+  %19 = getelementptr inbounds nuw [36 x i8], ptr %3, i64 %17
   %20 = tail call i32 @repo_has_object_file(ptr noundef %18, ptr noundef %19) #16
   %.not17 = icmp ne i32 %20, 0
   %21 = zext i1 %.not17 to i64
@@ -1664,10 +1663,10 @@ st_mult.exit:                                     ; preds = %13
 28:                                               ; preds = %.lr.ph, %28
   %29 = phi i64 [ 0, %.lr.ph ], [ %34, %28 ]
   %.060211 = phi i64 [ 0, %.lr.ph ], [ %32, %28 ]
-  %30 = getelementptr inbounds nuw i64, ptr %24, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %29
   %31 = load i64, ptr %30, align 8, !tbaa !114
   %32 = add i64 %.060211, 1
-  %33 = getelementptr inbounds nuw i64, ptr %21, i64 %.060211
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.060211
   store i64 %31, ptr %33, align 8, !tbaa !114
   %34 = and i64 %32, 4294967295
   %35 = load i64, ptr %14, align 8, !tbaa !113
@@ -1678,10 +1677,10 @@ st_mult.exit:                                     ; preds = %13
   %38 = phi i64 [ 0, %.lr.ph215 ], [ %44, %37 ]
   %.1214 = phi i32 [ 0, %.lr.ph215 ], [ %43, %37 ]
   %.161213 = phi i64 [ %.060.lcssa, %.lr.ph215 ], [ %41, %37 ]
-  %39 = getelementptr inbounds nuw i64, ptr %27, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %38
   %40 = load i64, ptr %39, align 8, !tbaa !114
   %41 = add i64 %.161213, 1
-  %42 = getelementptr inbounds nuw i64, ptr %21, i64 %.161213
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.161213
   store i64 %40, ptr %42, align 8, !tbaa !114
   %43 = add i32 %.1214, 1
   %44 = zext i32 %43 to i64
@@ -1752,9 +1751,9 @@ st_mult.exit:                                     ; preds = %13
   %74 = phi i64 [ %83, %.lr.ph223 ], [ 0, %._crit_edge220 ]
   %.3221 = phi i32 [ %82, %.lr.ph223 ], [ 0, %._crit_edge220 ]
   %75 = load ptr, ptr @the_repository, align 8, !tbaa !45
-  %76 = getelementptr inbounds nuw i64, ptr %21, i64 %74
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %74
   %77 = load i64, ptr %76, align 8, !tbaa !114
-  %78 = getelementptr inbounds nuw %struct.object_id, ptr %7, i64 %77
+  %78 = getelementptr inbounds nuw [36 x i8], ptr %7, i64 %77
   %79 = tail call ptr @lookup_commit(ptr noundef %75, ptr noundef %78) #16
   %80 = load i32, ptr %79, align 8
   %81 = or i32 %80, 16384
@@ -1774,7 +1773,7 @@ st_mult.exit:                                     ; preds = %13
   %.sroa.37125.0225 = phi ptr [ null, %.lr.ph231 ], [ %.sroa.37125.6, %paint_down.exit ]
   %.sroa.21.0224 = phi i32 [ 0, %.lr.ph231 ], [ %.sroa.21.6, %paint_down.exit ]
   %87 = load ptr, ptr %9, align 8, !tbaa !89
-  %88 = getelementptr inbounds nuw %struct.object_id, ptr %87, i64 %86
+  %88 = getelementptr inbounds nuw [36 x i8], ptr %87, i64 %86
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store ptr null, ptr %5, align 8, !tbaa !54
   %89 = load ptr, ptr @the_repository, align 8, !tbaa !45
@@ -1804,7 +1803,7 @@ st_mult.exit.i.i:                                 ; preds = %95
   %100 = call ptr @xrealloc(ptr noundef %.sroa.62138.0226, i64 noundef %99) #16
   %101 = call ptr @xmalloc(i64 noundef 524288) #16
   %102 = zext i32 %.sroa.82.0229 to i64
-  %103 = getelementptr inbounds nuw ptr, ptr %100, i64 %102
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %102
   store ptr %101, ptr %103, align 8, !tbaa !103
   %104 = getelementptr inbounds nuw i8, ptr %101, i64 524288
   br label %paint_alloc.exit.i
@@ -1820,7 +1819,7 @@ paint_alloc.exit.i:                               ; preds = %91, %st_mult.exit.i
   %108 = shl nuw i32 1, %107
   %109 = lshr i32 %.4230, 5
   %110 = zext nneg i32 %109 to i64
-  %111 = getelementptr inbounds nuw i32, ptr %105, i64 %110
+  %111 = getelementptr inbounds nuw [4 x i8], ptr %105, i64 %110
   %112 = load i32, ptr %111, align 4, !tbaa !39
   %113 = or i32 %112, %108
   store i32 %113, ptr %111, align 4, !tbaa !39
@@ -1863,7 +1862,7 @@ st_mult.exit.i.i.i:                               ; preds = %.lr.ph81.i
   %.sroa.21.4 = phi i32 [ %.sroa.21.3, %.lr.ph81.i ], [ %120, %st_mult.exit.i.i.i ]
   %.sroa.37125.4 = phi ptr [ %.sroa.37125.3, %.lr.ph81.i ], [ %123, %st_mult.exit.i.i.i ]
   %129 = zext nneg i32 %118 to i64
-  %130 = getelementptr inbounds nuw ptr, ptr %.sroa.37125.4, i64 %129
+  %130 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.37125.4, i64 %129
   %131 = load ptr, ptr %130, align 8, !tbaa !64
   %.not34.i.i.i = icmp eq ptr %131, null
   br i1 %.not34.i.i.i, label %132, label %ref_bitmap_at.exit.i
@@ -1876,7 +1875,7 @@ st_mult.exit.i.i.i:                               ; preds = %.lr.ph81.i
 ref_bitmap_at.exit.i:                             ; preds = %132, %._crit_edge4.i.i.i
   %134 = phi ptr [ %131, %._crit_edge4.i.i.i ], [ %133, %132 ]
   %135 = zext nneg i32 %119 to i64
-  %136 = getelementptr inbounds nuw ptr, ptr %134, i64 %135
+  %136 = getelementptr inbounds nuw [8 x i8], ptr %134, i64 %135
   %137 = load i32, ptr %116, align 8
   %138 = and i32 %137, 48
   %.not59.i = icmp eq i32 %138, 0
@@ -1899,9 +1898,9 @@ ref_bitmap_at.exit.i:                             ; preds = %132, %._crit_edge4.
 
 .lr.ph.i:                                         ; preds = %143, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %143 ]
-  %144 = getelementptr inbounds nuw i32, ptr %105, i64 %indvars.iv.i
+  %144 = getelementptr inbounds nuw [4 x i8], ptr %105, i64 %indvars.iv.i
   %145 = load i32, ptr %144, align 4, !tbaa !39
-  %146 = getelementptr inbounds nuw i32, ptr %92, i64 %indvars.iv.i
+  %146 = getelementptr inbounds nuw [4 x i8], ptr %92, i64 %indvars.iv.i
   %147 = load i32, ptr %146, align 4, !tbaa !39
   %148 = or i32 %147, %145
   store i32 %148, ptr %146, align 4, !tbaa !39
@@ -1936,7 +1935,7 @@ st_mult.exit.i68.i:                               ; preds = %153
   %158 = call ptr @xrealloc(ptr noundef %.sroa.62138.2, i64 noundef %157) #16
   %159 = call ptr @xmalloc(i64 noundef 524288) #16
   %160 = zext i32 %.sroa.82.2 to i64
-  %161 = getelementptr inbounds nuw ptr, ptr %158, i64 %160
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %158, i64 %160
   store ptr %159, ptr %161, align 8, !tbaa !103
   %162 = getelementptr inbounds nuw i8, ptr %159, i64 524288
   br label %paint_alloc.exit70.i
@@ -2082,9 +2081,9 @@ paint_down.exit:                                  ; preds = %85, %._crit_edge86.
   %.sroa.37125.1238 = phi ptr [ %.sroa.37125.7, %237 ], [ %.sroa.37125.0.lcssa, %198 ]
   %.sroa.21.1237 = phi i32 [ %.sroa.21.7, %237 ], [ %.sroa.21.0.lcssa, %198 ]
   %207 = load ptr, ptr @the_repository, align 8, !tbaa !45
-  %208 = getelementptr inbounds nuw i64, ptr %21, i64 %206
+  %208 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %206
   %209 = load i64, ptr %208, align 8, !tbaa !114
-  %210 = getelementptr inbounds nuw %struct.object_id, ptr %7, i64 %209
+  %210 = getelementptr inbounds nuw [36 x i8], ptr %7, i64 %209
   %211 = call ptr @lookup_commit(ptr noundef %207, ptr noundef %210) #16
   %212 = getelementptr i8, ptr %211, i64 64
   %.val = load i32, ptr %212, align 8, !tbaa !63
@@ -2112,7 +2111,7 @@ st_mult.exit.i.i76:                               ; preds = %.lr.ph241
   %.sroa.21.7 = phi i32 [ %.sroa.21.1237, %.lr.ph241 ], [ %215, %st_mult.exit.i.i76 ]
   %.sroa.37125.7 = phi ptr [ %.sroa.37125.1238, %.lr.ph241 ], [ %218, %st_mult.exit.i.i76 ]
   %224 = zext nneg i32 %213 to i64
-  %225 = getelementptr inbounds nuw ptr, ptr %.sroa.37125.7, i64 %224
+  %225 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.37125.7, i64 %224
   %226 = load ptr, ptr %225, align 8, !tbaa !64
   %.not34.i.i = icmp eq ptr %226, null
   br i1 %.not34.i.i, label %227, label %ref_bitmap_at.exit
@@ -2125,7 +2124,7 @@ st_mult.exit.i.i76:                               ; preds = %.lr.ph241
 ref_bitmap_at.exit:                               ; preds = %._crit_edge4.i.i, %227
   %229 = phi ptr [ %226, %._crit_edge4.i.i ], [ %228, %227 ]
   %230 = zext nneg i32 %214 to i64
-  %231 = getelementptr inbounds nuw ptr, ptr %229, i64 %230
+  %231 = getelementptr inbounds nuw [8 x i8], ptr %229, i64 %230
   %232 = load ptr, ptr %231, align 8, !tbaa !66
   %.not71 = icmp eq ptr %232, null
   br i1 %.not71, label %237, label %233
@@ -2133,7 +2132,7 @@ ref_bitmap_at.exit:                               ; preds = %._crit_edge4.i.i, %
 233:                                              ; preds = %ref_bitmap_at.exit
   %234 = call ptr @xmemdupz(ptr noundef nonnull %232, i64 noundef %201) #16
   %235 = load i64, ptr %208, align 8, !tbaa !114
-  %236 = getelementptr inbounds nuw ptr, ptr %1, i64 %235
+  %236 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %235
   store ptr %234, ptr %236, align 8, !tbaa !66
   br label %237
 
@@ -2193,18 +2192,18 @@ ref_bitmap_at.exit:                               ; preds = %._crit_edge4.i.i, %
   %.063106.i = phi i64 [ 0, %.lr.ph108.i ], [ %.164.i, %.loopexit101.i ]
   %.not72.i = icmp eq i64 %.061107.i, %.063106.i
   %.pre.i = load ptr, ptr %260, align 8, !tbaa !112
-  %.phi.trans.insert.i = getelementptr inbounds nuw i64, ptr %.pre.i, i64 %.061107.i
+  %.phi.trans.insert.i = getelementptr inbounds nuw [8 x i8], ptr %.pre.i, i64 %.061107.i
   %.pre126.i = load i64, ptr %.phi.trans.insert.i, align 8, !tbaa !114
   br i1 %.not72.i, label %._crit_edge125.i, label %262
 
 262:                                              ; preds = %261
-  %263 = getelementptr inbounds nuw i64, ptr %.pre.i, i64 %.063106.i
+  %263 = getelementptr inbounds nuw [8 x i8], ptr %.pre.i, i64 %.063106.i
   store i64 %.pre126.i, ptr %263, align 8, !tbaa !114
   br label %._crit_edge125.i
 
 ._crit_edge125.i:                                 ; preds = %262, %261
   %264 = load ptr, ptr @the_repository, align 8, !tbaa !45
-  %265 = getelementptr inbounds nuw %struct.object_id, ptr %243, i64 %.pre126.i
+  %265 = getelementptr inbounds nuw [36 x i8], ptr %243, i64 %.pre126.i
   %266 = call ptr @lookup_commit(ptr noundef %264, ptr noundef %265) #16
   %267 = getelementptr i8, ptr %266, i64 64
   %.val75.i = load i32, ptr %267, align 8, !tbaa !63
@@ -2232,7 +2231,7 @@ st_mult.exit.i.i.i81:                             ; preds = %._crit_edge125.i
   %.sroa.21.9 = phi i32 [ %.sroa.21.8, %._crit_edge125.i ], [ %270, %st_mult.exit.i.i.i81 ]
   %.sroa.37125.9 = phi ptr [ %.sroa.37125.8, %._crit_edge125.i ], [ %273, %st_mult.exit.i.i.i81 ]
   %279 = zext nneg i32 %268 to i64
-  %280 = getelementptr inbounds nuw ptr, ptr %.sroa.37125.9, i64 %279
+  %280 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.37125.9, i64 %279
   %281 = load ptr, ptr %280, align 8, !tbaa !64
   %.not34.i.i.i87 = icmp eq ptr %281, null
   br i1 %.not34.i.i.i87, label %282, label %ref_bitmap_at.exit.i88
@@ -2245,7 +2244,7 @@ st_mult.exit.i.i.i81:                             ; preds = %._crit_edge125.i
 ref_bitmap_at.exit.i88:                           ; preds = %282, %._crit_edge4.i.i.i95
   %284 = phi ptr [ %281, %._crit_edge4.i.i.i95 ], [ %283, %282 ]
   %285 = zext nneg i32 %269 to i64
-  %286 = getelementptr inbounds nuw ptr, ptr %284, i64 %285
+  %286 = getelementptr inbounds nuw [8 x i8], ptr %284, i64 %285
   %287 = load ptr, ptr %286, align 8, !tbaa !66
   %.not73.i = icmp eq ptr %287, null
   %brmerge.i = select i1 %.not73.i, i1 true, i1 %.not121.i
@@ -2258,7 +2257,7 @@ ref_bitmap_at.exit.i88:                           ; preds = %282, %._crit_edge4.
 
 .lr.ph.i89:                                       ; preds = %ref_bitmap_at.exit.i88, %288
   %.060105.i = phi i64 [ %289, %288 ], [ 0, %ref_bitmap_at.exit.i88 ]
-  %290 = getelementptr inbounds nuw i32, ptr %287, i64 %.060105.i
+  %290 = getelementptr inbounds nuw [4 x i8], ptr %287, i64 %.060105.i
   %291 = load i32, ptr %290, align 4, !tbaa !39
   %.not74.i = icmp eq i32 %291, 0
   br i1 %.not74.i, label %288, label %292
@@ -2274,7 +2273,7 @@ ref_bitmap_at.exit.i88:                           ; preds = %282, %._crit_edge4.
 .lr.ph.i.i93:                                     ; preds = %292, %308
   %.010.i.i = phi i64 [ %309, %308 ], [ 0, %292 ]
   %297 = lshr i64 %.010.i.i, 5
-  %298 = getelementptr inbounds nuw i32, ptr %287, i64 %297
+  %298 = getelementptr inbounds nuw [4 x i8], ptr %287, i64 %297
   %299 = load i32, ptr %298, align 4, !tbaa !39
   %300 = trunc i64 %.010.i.i to i32
   %301 = and i32 %300, 31
@@ -2284,7 +2283,7 @@ ref_bitmap_at.exit.i88:                           ; preds = %282, %._crit_edge4.
   br i1 %.not9.i.i, label %308, label %304
 
 304:                                              ; preds = %.lr.ph.i.i93
-  %305 = getelementptr inbounds nuw i32, ptr %2, i64 %.010.i.i
+  %305 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.010.i.i
   %306 = load i32, ptr %305, align 4, !tbaa !39
   %307 = add nsw i32 %306, 1
   store i32 %307, ptr %305, align 4, !tbaa !39
@@ -2336,18 +2335,18 @@ update_refstatus.exit.i:                          ; preds = %308, %292
   %.2111.i = phi i64 [ 0, %.lr.ph114.i ], [ %.3.i, %.loopexit99.i ]
   %.not68.i = icmp eq i64 %.162112.i, %.2111.i
   %.pre127.i = load ptr, ptr %321, align 8, !tbaa !111
-  %.phi.trans.insert129.i = getelementptr inbounds nuw i64, ptr %.pre127.i, i64 %.162112.i
+  %.phi.trans.insert129.i = getelementptr inbounds nuw [8 x i8], ptr %.pre127.i, i64 %.162112.i
   %.pre130.i = load i64, ptr %.phi.trans.insert129.i, align 8, !tbaa !114
   br i1 %.not68.i, label %._crit_edge128.i, label %324
 
 324:                                              ; preds = %323
-  %325 = getelementptr inbounds nuw i64, ptr %.pre127.i, i64 %.2111.i
+  %325 = getelementptr inbounds nuw [8 x i8], ptr %.pre127.i, i64 %.2111.i
   store i64 %.pre130.i, ptr %325, align 8, !tbaa !114
   br label %._crit_edge128.i
 
 ._crit_edge128.i:                                 ; preds = %324, %323
   %326 = load ptr, ptr @the_repository, align 8, !tbaa !45
-  %327 = getelementptr inbounds nuw %struct.object_id, ptr %243, i64 %.pre130.i
+  %327 = getelementptr inbounds nuw [36 x i8], ptr %243, i64 %.pre130.i
   %328 = call ptr @lookup_commit(ptr noundef %326, ptr noundef %327) #16
   %329 = getelementptr i8, ptr %328, i64 64
   %.val.i91 = load i32, ptr %329, align 8, !tbaa !63
@@ -2375,7 +2374,7 @@ st_mult.exit.i.i78.i:                             ; preds = %._crit_edge128.i
   %.sroa.21.12 = phi i32 [ %.sroa.21.11, %._crit_edge128.i ], [ %332, %st_mult.exit.i.i78.i ]
   %.sroa.37125.12 = phi ptr [ %.sroa.37125.11, %._crit_edge128.i ], [ %335, %st_mult.exit.i.i78.i ]
   %341 = zext nneg i32 %330 to i64
-  %342 = getelementptr inbounds nuw ptr, ptr %.sroa.37125.12, i64 %341
+  %342 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.37125.12, i64 %341
   %343 = load ptr, ptr %342, align 8, !tbaa !64
   %.not34.i.i84.i = icmp eq ptr %343, null
   br i1 %.not34.i.i84.i, label %344, label %ref_bitmap_at.exit88.i
@@ -2388,7 +2387,7 @@ st_mult.exit.i.i78.i:                             ; preds = %._crit_edge128.i
 ref_bitmap_at.exit88.i:                           ; preds = %344, %._crit_edge4.i.i85.i
   %346 = phi ptr [ %343, %._crit_edge4.i.i85.i ], [ %345, %344 ]
   %347 = zext nneg i32 %331 to i64
-  %348 = getelementptr inbounds nuw ptr, ptr %346, i64 %347
+  %348 = getelementptr inbounds nuw [8 x i8], ptr %346, i64 %347
   %349 = load ptr, ptr %348, align 8, !tbaa !66
   %.not69.i = icmp eq ptr %349, null
   %brmerge119.i = select i1 %.not69.i, i1 true, i1 %.not123.i
@@ -2397,7 +2396,7 @@ ref_bitmap_at.exit88.i:                           ; preds = %344, %._crit_edge4.
 .lr.ph110.i:                                      ; preds = %ref_bitmap_at.exit88.i, %.thread.i
   %.1109.i = phi i64 [ %383, %.thread.i ], [ 0, %ref_bitmap_at.exit88.i ]
   %350 = load ptr, ptr %348, align 8, !tbaa !66
-  %351 = getelementptr inbounds nuw i32, ptr %350, i64 %.1109.i
+  %351 = getelementptr inbounds nuw [4 x i8], ptr %350, i64 %.1109.i
   %352 = load i32, ptr %351, align 4, !tbaa !39
   %.not70.i = icmp eq i32 %352, 0
   br i1 %.not70.i, label %.thread.i, label %353
@@ -2432,7 +2431,7 @@ ref_bitmap_at.exit88.i:                           ; preds = %344, %._crit_edge4.
 .lr.ph.i91.i:                                     ; preds = %363, %380
   %.010.i92.i = phi i64 [ %381, %380 ], [ 0, %363 ]
   %369 = lshr i64 %.010.i92.i, 5
-  %370 = getelementptr inbounds nuw i32, ptr %367, i64 %369
+  %370 = getelementptr inbounds nuw [4 x i8], ptr %367, i64 %369
   %371 = load i32, ptr %370, align 4, !tbaa !39
   %372 = trunc i64 %.010.i92.i to i32
   %373 = and i32 %372, 31
@@ -2442,7 +2441,7 @@ ref_bitmap_at.exit88.i:                           ; preds = %344, %._crit_edge4.
   br i1 %.not9.i93.i, label %380, label %376
 
 376:                                              ; preds = %.lr.ph.i91.i
-  %377 = getelementptr inbounds nuw i32, ptr %2, i64 %.010.i92.i
+  %377 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.010.i92.i
   %378 = load i32, ptr %377, align 4, !tbaa !39
   %379 = add nsw i32 %378, 1
   store i32 %379, ptr %377, align 4, !tbaa !39
@@ -2493,7 +2492,7 @@ post_assign_shallow.exit:                         ; preds = %.loopexit99.i, %._c
 
 .lr.ph.i98:                                       ; preds = %.lr.ph.i98.preheader, %.lr.ph.i98
   %indvars.iv.i99 = phi i64 [ %indvars.iv.next.i100, %.lr.ph.i98 ], [ 0, %.lr.ph.i98.preheader ]
-  %389 = getelementptr inbounds nuw ptr, ptr %.sroa.37125.2322, i64 %indvars.iv.i99
+  %389 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.37125.2322, i64 %indvars.iv.i99
   %390 = load ptr, ptr %389, align 8, !tbaa !64
   call void @free(ptr noundef %390) #16
   %indvars.iv.next.i100 = add nuw nsw i64 %indvars.iv.i99, 1
@@ -2512,7 +2511,7 @@ clear_ref_bitmap.exit:                            ; preds = %.lr.ph.i98, %.loope
 
 .lr.ph245:                                        ; preds = %.lr.ph245.preheader, %.lr.ph245
   %indvars.iv = phi i64 [ 0, %.lr.ph245.preheader ], [ %indvars.iv.next, %.lr.ph245 ]
-  %391 = getelementptr inbounds nuw ptr, ptr %.sroa.62138.0.lcssa, i64 %indvars.iv
+  %391 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.62138.0.lcssa, i64 %indvars.iv
   %392 = load ptr, ptr %391, align 8, !tbaa !103
   call void @free(ptr noundef %392) #16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2561,7 +2560,7 @@ define dso_local i32 @delayed_reachability_test(ptr noundef captures(none) %0, i
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8, !tbaa !119
   %6 = sext i32 %1 to i64
-  %7 = getelementptr inbounds i32, ptr %5, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %5, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !39
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %._crit_edge18, label %9
@@ -2575,7 +2574,7 @@ define dso_local i32 @delayed_reachability_test(ptr noundef captures(none) %0, i
   %10 = load ptr, ptr @the_repository, align 8, !tbaa !45
   %11 = load ptr, ptr %0, align 8, !tbaa !106
   %12 = load ptr, ptr %11, align 8, !tbaa !89
-  %13 = getelementptr inbounds %struct.object_id, ptr %12, i64 %6
+  %13 = getelementptr inbounds [36 x i8], ptr %12, i64 %6
   %14 = tail call ptr @lookup_commit(ptr noundef %10, ptr noundef %13) #16
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %16 = load ptr, ptr %15, align 8, !tbaa !144
@@ -2613,7 +2612,7 @@ define dso_local i32 @delayed_reachability_test(ptr noundef captures(none) %0, i
   %33 = call i32 @repo_in_merge_bases_many(ptr noundef %31, ptr noundef %14, i32 noundef %32, ptr noundef %29, i32 noundef 1) #16
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %35 = load ptr, ptr %34, align 8, !tbaa !120
-  %36 = getelementptr inbounds i32, ptr %35, i64 %6
+  %36 = getelementptr inbounds [4 x i8], ptr %35, i64 %6
   store i32 %33, ptr %36, align 4, !tbaa !39
   %37 = icmp slt i32 %33, 0
   br i1 %37, label %38, label %40
@@ -2625,13 +2624,13 @@ define dso_local i32 @delayed_reachability_test(ptr noundef captures(none) %0, i
 
 40:                                               ; preds = %28
   %41 = load ptr, ptr %4, align 8, !tbaa !119
-  %42 = getelementptr inbounds i32, ptr %41, i64 %6
+  %42 = getelementptr inbounds [4 x i8], ptr %41, i64 %6
   store i32 0, ptr %42, align 4, !tbaa !39
   br label %43
 
 43:                                               ; preds = %._crit_edge18, %40
   %44 = phi ptr [ %.pre20, %._crit_edge18 ], [ %35, %40 ]
-  %45 = getelementptr inbounds i32, ptr %44, i64 %6
+  %45 = getelementptr inbounds [4 x i8], ptr %44, i64 %6
   %46 = load i32, ptr %45, align 4, !tbaa !39
   ret i32 %46
 }
@@ -2671,7 +2670,7 @@ st_mult.exit:                                     ; preds = %12
   %22 = tail call ptr @lookup_commit_reference_gently(ptr noundef %21, ptr noundef %2, i32 noundef 1) #16
   %23 = load ptr, ptr %4, align 8, !tbaa !139
   %24 = load i64, ptr %6, align 8, !tbaa !137
-  %25 = getelementptr inbounds nuw ptr, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %24
   store ptr %22, ptr %25, align 8, !tbaa !147
   %.not = icmp eq ptr %22, null
   br i1 %.not, label %28, label %26

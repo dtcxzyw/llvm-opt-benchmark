@@ -46,14 +46,14 @@ define internal ptr @get_video_buffer(ptr noundef readonly captures(none) %0, i3
 
 19:                                               ; preds = %14, %17
   %20 = phi i32 [ %18, %17 ], [ 0, %14 ]
-  %21 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !34
   %.not32 = icmp eq ptr %22, null
   br i1 %.not32, label %31, label %23
 
 23:                                               ; preds = %19
   %24 = ashr i32 %13, %20
-  %25 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv
   %26 = load i32, ptr %25, align 4, !tbaa !35
   %27 = mul nsw i32 %26, %24
   %28 = sext i32 %27 to i64
@@ -194,7 +194,7 @@ flip_bayer.exit:                                  ; preds = %29, %33, %._crit_ed
 
 73:                                               ; preds = %71, %68
   %74 = phi i32 [ %72, %71 ], [ 0, %68 ]
-  %75 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %76 = load ptr, ptr %75, align 8, !tbaa !34
   %.not31 = icmp eq ptr %76, null
   br i1 %.not31, label %87, label %77
@@ -203,7 +203,7 @@ flip_bayer.exit:                                  ; preds = %29, %33, %._crit_ed
   %78 = load i32, ptr %10, align 4, !tbaa !45
   %79 = add i32 %78, -1
   %80 = ashr i32 %79, %74
-  %81 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %82 = load i32, ptr %81, align 4, !tbaa !35
   %83 = mul nsw i32 %82, %80
   %84 = sext i32 %83 to i64

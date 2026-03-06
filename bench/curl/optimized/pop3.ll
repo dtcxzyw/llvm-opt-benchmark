@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.Curl_handler = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32 }
 %struct.MD5_params = type { ptr, ptr, ptr, i32, i32 }
-%struct.pop3_cmd = type { ptr, i16, i8 }
 
 @.str = private unnamed_addr constant [5 x i8] c"pop3\00", align 1
 @Curl_handler_pop3 = hidden local_unnamed_addr constant %struct.Curl_handler { ptr @.str, ptr @pop3_setup_connection, ptr @pop3_do, ptr @pop3_done, ptr null, ptr @pop3_connect, ptr @pop3_multi_statemach, ptr @pop3_doing, ptr @pop3_getsock, ptr @pop3_getsock, ptr null, ptr null, ptr @pop3_disconnect, ptr @pop3_write, ptr null, ptr null, ptr null, ptr null, i32 110, i32 16384, i32 16384, i32 1092 }, align 8
@@ -188,7 +187,7 @@ pop3_parse_custom_request.exit.thread:            ; preds = %9, %pop3_parse_cust
 
 49:                                               ; preds = %63, %47
   %.017.i.i.i.i = phi i64 [ 0, %47 ], [ %64, %63 ]
-  %50 = getelementptr inbounds nuw %struct.pop3_cmd, ptr @pop3cmds, i64 %.017.i.i.i.i
+  %50 = getelementptr inbounds nuw [16 x i8], ptr @pop3cmds, i64 %.017.i.i.i.i
   %51 = load ptr, ptr %50, align 16, !tbaa !91
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %53 = load i16, ptr %52, align 8, !tbaa !93

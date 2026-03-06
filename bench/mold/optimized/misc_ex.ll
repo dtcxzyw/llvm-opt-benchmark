@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::atomic" = type { i32 }
 %"struct.tbb::detail::r1::dynamic_link_descriptor" = type { ptr, ptr, ptr }
 %"class.tbb::detail::r1::affinity_helper" = type <{ ptr, i32, [4 x i8] }>
-%struct.cpu_set_t = type { [16 x i64] }
 
 $__clang_call_terminate = comdat any
 
@@ -339,7 +338,7 @@ _ZN3tbb6detail2r1L24get_thread_affinity_maskEmP9cpu_set_t.exit.i: ; preds = %_ZN
 .preheader.i:                                     ; preds = %60, %65
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %65 ], [ 0, %60 ]
   %.070.i = phi i32 [ %spec.select.i, %65 ], [ 0, %60 ]
-  %64 = getelementptr inbounds nuw %struct.cpu_set_t, ptr %18, i64 %indvars.iv.i
+  %64 = getelementptr inbounds nuw [128 x i8], ptr %18, i64 %indvars.iv.i
   br label %68
 
 ._crit_edge.i:                                    ; preds = %65, %60
@@ -359,7 +358,7 @@ _ZN3tbb6detail2r1L24get_thread_affinity_maskEmP9cpu_set_t.exit.i: ; preds = %_ZN
   %.04567.i = phi i64 [ 0, %.preheader.i ], [ %76, %68 ]
   %69 = and i64 %.04567.i, 63
   %70 = lshr i64 %.04567.i, 6
-  %71 = getelementptr inbounds nuw i64, ptr %64, i64 %70
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %70
   %72 = load i64, ptr %71, align 8, !tbaa !14
   %73 = lshr i64 %72, %69
   %74 = trunc i64 %73 to i32

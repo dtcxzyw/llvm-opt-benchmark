@@ -233,7 +233,7 @@ define internal fastcc void @"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$
   %22 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %20, ptr %22, align 8
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  %24 = getelementptr inbounds nuw ptr, ptr %1, i64 %2
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %2
   %25 = icmp eq i64 %16, 0
   br i1 %25, label %.thread, label %.lr.ph
 
@@ -696,7 +696,7 @@ _ZN11wasmi_c_api3vec15wasm_byte_vec_t8as_slice17h0c9ac82e806b75f4E.exit.i.i.i.i.
 
 "_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17ha8432fe8405c93a9E.exit": ; preds = %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h3b957745d8eea904E.exit.i", %34
   %.sroa.0.0.i13 = phi ptr [ %38, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h3b957745d8eea904E.exit.i" ], [ null, %34 ]
-  %149 = getelementptr inbounds nuw ptr, ptr %20, i64 %.sroa.7.086
+  %149 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.sroa.7.086
   store ptr %.sroa.0.0.i13, ptr %149, align 8
   %150 = icmp eq i64 %32, 0
   br i1 %150, label %.thread, label %31
@@ -746,7 +746,7 @@ define internal fastcc void @"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %14, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %18 = getelementptr inbounds nuw ptr, ptr %1, i64 %2
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %2
   %19 = icmp eq i64 %10, 0
   br i1 %19, label %.thread, label %.lr.ph
 
@@ -798,7 +798,7 @@ define internal fastcc void @"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$
 
 "_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf733262d33ff7aa0E.exit": ; preds = %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h620cc8efca87796dE.exit.i", %22
   %.sroa.0.0.i13 = phi ptr [ %26, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h620cc8efca87796dE.exit.i" ], [ null, %22 ]
-  %29 = getelementptr inbounds nuw ptr, ptr %14, i64 %.sroa.7.025
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.sroa.7.025
   store ptr %.sroa.0.0.i13, ptr %29, align 8
   %30 = icmp eq i64 %20, 0
   br i1 %30, label %.thread, label %.lr.ph
@@ -848,7 +848,7 @@ define internal fastcc void @"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %14, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %18 = getelementptr inbounds nuw ptr, ptr %1, i64 %2
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %2
   %19 = icmp eq i64 %10, 0
   br i1 %19, label %.thread, label %.lr.ph
 
@@ -900,7 +900,7 @@ define internal fastcc void @"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$
 
 "_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h5f811dd251e5d23dE.exit": ; preds = %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h4ae62bb23bf37974E.exit.i", %22
   %.sroa.0.0.i13 = phi ptr [ %26, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h4ae62bb23bf37974E.exit.i" ], [ null, %22 ]
-  %29 = getelementptr inbounds nuw ptr, ptr %14, i64 %.sroa.7.025
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.sroa.7.025
   store ptr %.sroa.0.0.i13, ptr %29, align 8
   %30 = icmp eq i64 %20, 0
   br i1 %30, label %.thread, label %.lr.ph
@@ -950,7 +950,7 @@ define internal fastcc void @"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %14, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %18 = getelementptr inbounds nuw ptr, ptr %1, i64 %2
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %2
   %19 = icmp eq i64 %10, 0
   br i1 %19, label %.thread, label %.lr.ph
 
@@ -1002,7 +1002,7 @@ define internal fastcc void @"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$
 
 "_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcf8d464c38eee650E.exit": ; preds = %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h32c806887320ac50E.exit.i", %22
   %.sroa.0.0.i13 = phi ptr [ %26, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h32c806887320ac50E.exit.i" ], [ null, %22 ]
-  %29 = getelementptr inbounds nuw ptr, ptr %14, i64 %.sroa.7.025
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.sroa.7.025
   store ptr %.sroa.0.0.i13, ptr %29, align 8
   %30 = icmp eq i64 %20, 0
   br i1 %30, label %.thread, label %.lr.ph
@@ -1052,7 +1052,7 @@ define internal fastcc void @"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %14, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %18 = getelementptr inbounds nuw ptr, ptr %1, i64 %2
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %2
   %19 = icmp eq i64 %10, 0
   br i1 %19, label %.thread, label %.lr.ph
 
@@ -1104,7 +1104,7 @@ define internal fastcc void @"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$
 
 "_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h6830021bb80056faE.exit": ; preds = %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h30027e23b533214aE.exit.i", %22
   %.sroa.0.0.i13 = phi ptr [ %26, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h30027e23b533214aE.exit.i" ], [ null, %22 ]
-  %29 = getelementptr inbounds nuw ptr, ptr %14, i64 %.sroa.7.025
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.sroa.7.025
   store ptr %.sroa.0.0.i13, ptr %29, align 8
   %30 = icmp eq i64 %20, 0
   br i1 %30, label %.thread, label %.lr.ph
@@ -1167,7 +1167,7 @@ define internal fastcc void @"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$
   store ptr %24, ptr %26, align 8
   %27 = getelementptr inbounds nuw i8, ptr %16, i64 16
   store i64 0, ptr %27, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %1, i64 %2
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %2
   %29 = icmp eq i64 %20, 0
   br i1 %29, label %.thread, label %.lr.ph
 
@@ -1717,7 +1717,7 @@ _ZN11wasmi_c_api3vec15wasm_byte_vec_t8as_slice17h0c9ac82e806b75f4E.exit.i9.i.i.i
 
 "_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hf70f4830d3610116E.exit": ; preds = %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb08bcad69e62e200E.exit.i", %41
   %.sroa.0.0.i13 = phi ptr [ %45, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hb08bcad69e62e200E.exit.i" ], [ null, %41 ]
-  %175 = getelementptr inbounds nuw ptr, ptr %24, i64 %.sroa.7.097
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %.sroa.7.097
   store ptr %.sroa.0.0.i13, ptr %175, align 8
   %176 = icmp eq i64 %39, 0
   br i1 %176, label %.thread, label %38
@@ -1767,7 +1767,7 @@ define internal fastcc void @"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %14, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %18 = getelementptr inbounds nuw ptr, ptr %1, i64 %2
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %2
   %19 = icmp eq i64 %10, 0
   br i1 %19, label %.thread, label %.lr.ph
 
@@ -1819,7 +1819,7 @@ define internal fastcc void @"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$
 
 "_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hde82ca180ed4cdbbE.exit": ; preds = %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h17346343404a8abcE.exit.i", %22
   %.sroa.0.0.i13 = phi ptr [ %26, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h17346343404a8abcE.exit.i" ], [ null, %22 ]
-  %29 = getelementptr inbounds nuw ptr, ptr %14, i64 %.sroa.7.025
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.sroa.7.025
   store ptr %.sroa.0.0.i13, ptr %29, align 8
   %30 = icmp eq i64 %20, 0
   br i1 %30, label %.thread, label %.lr.ph
@@ -2473,7 +2473,7 @@ _ZN11wasmi_c_api3vec18wasm_valtype_vec_t8as_slice17h8e827a9b932782a4E.exit: ; pr
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %19, ptr %21, align 8, !noalias !181
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %23 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.i, i64 %5
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.i, i64 %5
   %24 = icmp eq i64 %15, 0
   br i1 %24, label %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h81a4b96da3fda69bE.exit", label %.lr.ph.i
 
@@ -2503,7 +2503,7 @@ _ZN11wasmi_c_api3vec18wasm_valtype_vec_t8as_slice17h8e827a9b932782a4E.exit: ; pr
 
 "_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h4716a39982a1ba93E.exit.i": ; preds = %.noexc.i, %27
   %.sroa.0.0.i13.i = phi ptr [ %31, %.noexc.i ], [ null, %27 ]
-  %32 = getelementptr inbounds nuw ptr, ptr %19, i64 %.sroa.7.023.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.sroa.7.023.i
   store ptr %.sroa.0.0.i13.i, ptr %32, align 8, !noalias !181
   %33 = icmp eq i64 %25, 0
   br i1 %33, label %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h81a4b96da3fda69bE.exit", label %.lr.ph.i
@@ -2708,7 +2708,7 @@ define void @wasm_valtype_vec_copy(ptr noalias noundef writeonly align 8 capture
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %23, ptr %25, align 8, !noalias !210
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %27 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.i, i64 %6
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.i, i64 %6
   %28 = icmp eq i64 %19, 0
   br i1 %28, label %.loopexit, label %.lr.ph.i
 
@@ -2738,7 +2738,7 @@ define void @wasm_valtype_vec_copy(ptr noalias noundef writeonly align 8 capture
 
 "_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h4716a39982a1ba93E.exit.i": ; preds = %.noexc.i, %31
   %.sroa.0.0.i13.i = phi ptr [ %35, %.noexc.i ], [ null, %31 ]
-  %36 = getelementptr inbounds nuw ptr, ptr %23, i64 %.sroa.7.023.i
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.sroa.7.023.i
   store ptr %.sroa.0.0.i13.i, ptr %36, align 8, !noalias !210
   %37 = icmp eq i64 %29, 0
   br i1 %37, label %.loopexit, label %.lr.ph.i
@@ -2815,7 +2815,7 @@ _ZN11wasmi_c_api3vec18wasm_valtype_vec_t4take17hd1fe19702e97b95cE.exit: ; preds 
 
 .lr.ph.i.i:                                       ; preds = %_ZN11wasmi_c_api3vec18wasm_valtype_vec_t4take17hd1fe19702e97b95cE.exit, %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$wasmi_c_api..types..val..wasm_valtype_t$GT$$GT$$GT$17h0c937417c6a46f78E.exit.i.i"
   %.sroa.0.09.i.i = phi i64 [ %17, %"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$wasmi_c_api..types..val..wasm_valtype_t$GT$$GT$$GT$17h0c937417c6a46f78E.exit.i.i" ], [ 0, %_ZN11wasmi_c_api3vec18wasm_valtype_vec_t4take17hd1fe19702e97b95cE.exit ]
-  %16 = getelementptr inbounds nuw ptr, ptr %13, i64 %.sroa.0.09.i.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.sroa.0.09.i.i
   %17 = add nuw i64 %.sroa.0.09.i.i, 1
   %.val7.i.i = load ptr, ptr %16, align 8, !alias.scope !224, !align !187, !noundef !7
   %18 = icmp eq ptr %.val7.i.i, null
@@ -3143,7 +3143,7 @@ _ZN11wasmi_c_api3vec19wasm_functype_vec_t4take17hbef17d0f2e7bbbf1E.exit: ; preds
 
 .lr.ph.i.i:                                       ; preds = %_ZN11wasmi_c_api3vec19wasm_functype_vec_t4take17hbef17d0f2e7bbbf1E.exit, %"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$wasmi_c_api..types..func..wasm_functype_t$GT$$GT$$GT$17he1d702965f0e438bE.exit.i.i"
   %.sroa.0.08.i.i = phi i64 [ %17, %"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$wasmi_c_api..types..func..wasm_functype_t$GT$$GT$$GT$17he1d702965f0e438bE.exit.i.i" ], [ 0, %_ZN11wasmi_c_api3vec19wasm_functype_vec_t4take17hbef17d0f2e7bbbf1E.exit ]
-  %16 = getelementptr inbounds nuw ptr, ptr %13, i64 %.sroa.0.08.i.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.sroa.0.08.i.i
   %17 = add nuw i64 %.sroa.0.08.i.i, 1
   %.val7.i.i = load ptr, ptr %16, align 8, !alias.scope !257, !align !10, !noundef !7
   %18 = icmp eq ptr %.val7.i.i, null
@@ -3173,7 +3173,7 @@ _ZN11wasmi_c_api3vec19wasm_functype_vec_t4take17hbef17d0f2e7bbbf1E.exit: ; preds
   br i1 %23, label %.body, label %24
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds nuw ptr, ptr %13, i64 %.sroa.0.1.i.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.sroa.0.1.i.i
   %26 = add i64 %.sroa.0.1.i.i, 1
   %.val.i.i = load ptr, ptr %25, align 8, !alias.scope !257, !align !10, !noundef !7
   invoke fastcc void @"_ZN4core3ptr115drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$wasmi_c_api..types..func..wasm_functype_t$GT$$GT$$GT$17he1d702965f0e438bE"(ptr %.val.i.i) #17
@@ -3505,7 +3505,7 @@ _ZN11wasmi_c_api3vec21wasm_globaltype_vec_t4take17hdb55a1ad15270967E.exit: ; pre
 
 .lr.ph.i.i:                                       ; preds = %_ZN11wasmi_c_api3vec21wasm_globaltype_vec_t4take17hdb55a1ad15270967E.exit, %"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$wasmi_c_api..types..global..wasm_globaltype_t$GT$$GT$$GT$17h49589f084eebf1e6E.exit.i.i"
   %.sroa.0.08.i.i = phi i64 [ %17, %"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$wasmi_c_api..types..global..wasm_globaltype_t$GT$$GT$$GT$17h49589f084eebf1e6E.exit.i.i" ], [ 0, %_ZN11wasmi_c_api3vec21wasm_globaltype_vec_t4take17hdb55a1ad15270967E.exit ]
-  %16 = getelementptr inbounds nuw ptr, ptr %13, i64 %.sroa.0.08.i.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.sroa.0.08.i.i
   %17 = add nuw i64 %.sroa.0.08.i.i, 1
   %.val7.i.i = load ptr, ptr %16, align 8, !alias.scope !290, !align !10, !noundef !7
   %18 = icmp eq ptr %.val7.i.i, null
@@ -3535,7 +3535,7 @@ _ZN11wasmi_c_api3vec21wasm_globaltype_vec_t4take17hdb55a1ad15270967E.exit: ; pre
   br i1 %23, label %.body, label %24
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds nuw ptr, ptr %13, i64 %.sroa.0.1.i.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.sroa.0.1.i.i
   %26 = add i64 %.sroa.0.1.i.i, 1
   %.val.i.i = load ptr, ptr %25, align 8, !alias.scope !290, !align !10, !noundef !7
   invoke fastcc void @"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$wasmi_c_api..types..global..wasm_globaltype_t$GT$$GT$$GT$17h49589f084eebf1e6E"(ptr %.val.i.i) #17
@@ -3867,7 +3867,7 @@ _ZN11wasmi_c_api3vec20wasm_tabletype_vec_t4take17h541efe9be3e09389E.exit: ; pred
 
 .lr.ph.i.i:                                       ; preds = %_ZN11wasmi_c_api3vec20wasm_tabletype_vec_t4take17h541efe9be3e09389E.exit, %"_ZN4core3ptr117drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$wasmi_c_api..types..table..wasm_tabletype_t$GT$$GT$$GT$17h3f995343c4ca96a4E.exit.i.i"
   %.sroa.0.08.i.i = phi i64 [ %17, %"_ZN4core3ptr117drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$wasmi_c_api..types..table..wasm_tabletype_t$GT$$GT$$GT$17h3f995343c4ca96a4E.exit.i.i" ], [ 0, %_ZN11wasmi_c_api3vec20wasm_tabletype_vec_t4take17h541efe9be3e09389E.exit ]
-  %16 = getelementptr inbounds nuw ptr, ptr %13, i64 %.sroa.0.08.i.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.sroa.0.08.i.i
   %17 = add nuw i64 %.sroa.0.08.i.i, 1
   %.val7.i.i = load ptr, ptr %16, align 8, !alias.scope !323, !align !10, !noundef !7
   %18 = icmp eq ptr %.val7.i.i, null
@@ -3897,7 +3897,7 @@ _ZN11wasmi_c_api3vec20wasm_tabletype_vec_t4take17h541efe9be3e09389E.exit: ; pred
   br i1 %23, label %.body, label %24
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds nuw ptr, ptr %13, i64 %.sroa.0.1.i.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.sroa.0.1.i.i
   %26 = add i64 %.sroa.0.1.i.i, 1
   %.val.i.i = load ptr, ptr %25, align 8, !alias.scope !323, !align !10, !noundef !7
   invoke fastcc void @"_ZN4core3ptr117drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$wasmi_c_api..types..table..wasm_tabletype_t$GT$$GT$$GT$17h3f995343c4ca96a4E"(ptr %.val.i.i) #17
@@ -4229,7 +4229,7 @@ _ZN11wasmi_c_api3vec21wasm_memorytype_vec_t4take17h085684499f220dbcE.exit: ; pre
 
 .lr.ph.i.i:                                       ; preds = %_ZN11wasmi_c_api3vec21wasm_memorytype_vec_t4take17h085684499f220dbcE.exit, %"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$wasmi_c_api..types..memory..wasm_memorytype_t$GT$$GT$$GT$17h7b2aaa3722ac2fa6E.exit.i.i"
   %.sroa.0.08.i.i = phi i64 [ %17, %"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$wasmi_c_api..types..memory..wasm_memorytype_t$GT$$GT$$GT$17h7b2aaa3722ac2fa6E.exit.i.i" ], [ 0, %_ZN11wasmi_c_api3vec21wasm_memorytype_vec_t4take17h085684499f220dbcE.exit ]
-  %16 = getelementptr inbounds nuw ptr, ptr %13, i64 %.sroa.0.08.i.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.sroa.0.08.i.i
   %17 = add nuw i64 %.sroa.0.08.i.i, 1
   %.val7.i.i = load ptr, ptr %16, align 8, !alias.scope !356, !align !10, !noundef !7
   %18 = icmp eq ptr %.val7.i.i, null
@@ -4259,7 +4259,7 @@ _ZN11wasmi_c_api3vec21wasm_memorytype_vec_t4take17h085684499f220dbcE.exit: ; pre
   br i1 %23, label %.body, label %24
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds nuw ptr, ptr %13, i64 %.sroa.0.1.i.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.sroa.0.1.i.i
   %26 = add i64 %.sroa.0.1.i.i, 1
   %.val.i.i = load ptr, ptr %25, align 8, !alias.scope !356, !align !10, !noundef !7
   invoke fastcc void @"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$wasmi_c_api..types..memory..wasm_memorytype_t$GT$$GT$$GT$17h7b2aaa3722ac2fa6E"(ptr %.val.i.i) #17
@@ -4591,7 +4591,7 @@ _ZN11wasmi_c_api3vec21wasm_externtype_vec_t4take17h78db3518dec1ed2dE.exit: ; pre
 
 .lr.ph.i.i:                                       ; preds = %_ZN11wasmi_c_api3vec21wasm_externtype_vec_t4take17h78db3518dec1ed2dE.exit, %"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$wasmi_c_api..types..extern..wasm_externtype_t$GT$$GT$$GT$17ha98a8f96e2b7543eE.exit.i.i"
   %.sroa.0.08.i.i = phi i64 [ %17, %"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$wasmi_c_api..types..extern..wasm_externtype_t$GT$$GT$$GT$17ha98a8f96e2b7543eE.exit.i.i" ], [ 0, %_ZN11wasmi_c_api3vec21wasm_externtype_vec_t4take17h78db3518dec1ed2dE.exit ]
-  %16 = getelementptr inbounds nuw ptr, ptr %13, i64 %.sroa.0.08.i.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.sroa.0.08.i.i
   %17 = add nuw i64 %.sroa.0.08.i.i, 1
   %.val7.i.i = load ptr, ptr %16, align 8, !alias.scope !389, !align !10, !noundef !7
   %18 = icmp eq ptr %.val7.i.i, null
@@ -4621,7 +4621,7 @@ _ZN11wasmi_c_api3vec21wasm_externtype_vec_t4take17h78db3518dec1ed2dE.exit: ; pre
   br i1 %23, label %.body, label %24
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds nuw ptr, ptr %13, i64 %.sroa.0.1.i.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.sroa.0.1.i.i
   %26 = add i64 %.sroa.0.1.i.i, 1
   %.val.i.i = load ptr, ptr %25, align 8, !alias.scope !389, !align !10, !noundef !7
   invoke fastcc void @"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$wasmi_c_api..types..extern..wasm_externtype_t$GT$$GT$$GT$17ha98a8f96e2b7543eE"(ptr %.val.i.i) #17
@@ -4953,7 +4953,7 @@ _ZN11wasmi_c_api3vec21wasm_importtype_vec_t4take17h277b23ebf706a5ccE.exit: ; pre
 
 .lr.ph.i.i:                                       ; preds = %_ZN11wasmi_c_api3vec21wasm_importtype_vec_t4take17h277b23ebf706a5ccE.exit, %"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$wasmi_c_api..types..import..wasm_importtype_t$GT$$GT$$GT$17ha0d148cee6903243E.exit.i.i"
   %.sroa.0.08.i.i = phi i64 [ %17, %"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$wasmi_c_api..types..import..wasm_importtype_t$GT$$GT$$GT$17ha0d148cee6903243E.exit.i.i" ], [ 0, %_ZN11wasmi_c_api3vec21wasm_importtype_vec_t4take17h277b23ebf706a5ccE.exit ]
-  %16 = getelementptr inbounds nuw ptr, ptr %13, i64 %.sroa.0.08.i.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.sroa.0.08.i.i
   %17 = add nuw i64 %.sroa.0.08.i.i, 1
   %.val7.i.i = load ptr, ptr %16, align 8, !alias.scope !422, !align !10, !noundef !7
   %18 = icmp eq ptr %.val7.i.i, null
@@ -4983,7 +4983,7 @@ _ZN11wasmi_c_api3vec21wasm_importtype_vec_t4take17h277b23ebf706a5ccE.exit: ; pre
   br i1 %23, label %.body, label %24
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds nuw ptr, ptr %13, i64 %.sroa.0.1.i.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.sroa.0.1.i.i
   %26 = add i64 %.sroa.0.1.i.i, 1
   %.val.i.i = load ptr, ptr %25, align 8, !alias.scope !422, !align !10, !noundef !7
   invoke fastcc void @"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$wasmi_c_api..types..import..wasm_importtype_t$GT$$GT$$GT$17ha0d148cee6903243E"(ptr %.val.i.i) #17
@@ -5315,7 +5315,7 @@ _ZN11wasmi_c_api3vec21wasm_exporttype_vec_t4take17ha84e1d5d2f2db72dE.exit: ; pre
 
 .lr.ph.i.i:                                       ; preds = %_ZN11wasmi_c_api3vec21wasm_exporttype_vec_t4take17ha84e1d5d2f2db72dE.exit, %"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$wasmi_c_api..types..export..wasm_exporttype_t$GT$$GT$$GT$17h24ad4c10bf4f09b2E.exit.i.i"
   %.sroa.0.08.i.i = phi i64 [ %17, %"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$wasmi_c_api..types..export..wasm_exporttype_t$GT$$GT$$GT$17h24ad4c10bf4f09b2E.exit.i.i" ], [ 0, %_ZN11wasmi_c_api3vec21wasm_exporttype_vec_t4take17ha84e1d5d2f2db72dE.exit ]
-  %16 = getelementptr inbounds nuw ptr, ptr %13, i64 %.sroa.0.08.i.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.sroa.0.08.i.i
   %17 = add nuw i64 %.sroa.0.08.i.i, 1
   %.val7.i.i = load ptr, ptr %16, align 8, !alias.scope !455, !align !10, !noundef !7
   %18 = icmp eq ptr %.val7.i.i, null
@@ -5345,7 +5345,7 @@ _ZN11wasmi_c_api3vec21wasm_exporttype_vec_t4take17ha84e1d5d2f2db72dE.exit: ; pre
   br i1 %23, label %.body, label %24
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds nuw ptr, ptr %13, i64 %.sroa.0.1.i.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.sroa.0.1.i.i
   %26 = add i64 %.sroa.0.1.i.i, 1
   %.val.i.i = load ptr, ptr %25, align 8, !alias.scope !455, !align !10, !noundef !7
   invoke fastcc void @"_ZN4core3ptr119drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$wasmi_c_api..types..export..wasm_exporttype_t$GT$$GT$$GT$17h24ad4c10bf4f09b2E"(ptr %.val.i.i) #17
@@ -5501,7 +5501,7 @@ _ZN11wasmi_c_api3vec14wasm_val_vec_t8as_slice17h7c7b6f44112e781aE.exit: ; preds 
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %20, ptr %22, align 8, !noalias !461
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %24 = getelementptr inbounds nuw { i8, [15 x i8], { [2 x i64] } }, ptr %.sroa.0.0.i, i64 %6
+  %24 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.0.0.i, i64 %6
   %25 = icmp eq i64 %16, 0
   br i1 %25, label %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h22c26c393b5b0bb5E.exit", label %.lr.ph.i
 
@@ -5520,7 +5520,7 @@ _ZN11wasmi_c_api3vec14wasm_val_vec_t8as_slice17h7c7b6f44112e781aE.exit: ; preds 
 29:                                               ; preds = %28
   %30 = add nuw nsw i64 %.sroa.7.020.i, 1
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.011.021.i, i64 32
-  %32 = getelementptr inbounds nuw { [4 x i64] }, ptr %20, i64 %.sroa.7.020.i
+  %32 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %.sroa.7.020.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %32, ptr noundef nonnull align 16 dereferenceable(32) %3, i64 32, i1 false), !noalias !468
   %33 = icmp eq i64 %26, 0
   br i1 %33, label %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h22c26c393b5b0bb5E.exit", label %.lr.ph.i
@@ -5714,7 +5714,7 @@ define void @wasm_val_vec_copy(ptr noalias noundef writeonly align 8 captures(no
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %24, ptr %26, align 8, !noalias !486
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %28 = getelementptr inbounds nuw { i8, [15 x i8], { [2 x i64] } }, ptr %.sroa.0.0.i, i64 %7
+  %28 = getelementptr inbounds nuw [32 x i8], ptr %.sroa.0.0.i, i64 %7
   %29 = icmp eq i64 %20, 0
   br i1 %29, label %.loopexit, label %.lr.ph.i
 
@@ -5733,7 +5733,7 @@ define void @wasm_val_vec_copy(ptr noalias noundef writeonly align 8 captures(no
 33:                                               ; preds = %32
   %34 = add nuw nsw i64 %.sroa.7.020.i, 1
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.011.021.i, i64 32
-  %36 = getelementptr inbounds nuw { [4 x i64] }, ptr %24, i64 %.sroa.7.020.i
+  %36 = getelementptr inbounds nuw [32 x i8], ptr %24, i64 %.sroa.7.020.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %36, ptr noundef nonnull align 16 dereferenceable(32) %4, i64 32, i1 false), !noalias !493
   %37 = icmp eq i64 %30, 0
   br i1 %37, label %.loopexit, label %.lr.ph.i
@@ -5813,7 +5813,7 @@ _ZN11wasmi_c_api3vec14wasm_val_vec_t4take17hb7ebf46ba35f3426E.exit: ; preds = %.
   br i1 %16, label %"_ZN4core3ptr59drop_in_place$LT$$u5b$wasmi_c_api..val..wasm_val_t$u5d$$GT$17hbd4e367649fd0e7dE.exit.i", label %17
 
 17:                                               ; preds = %15
-  %18 = getelementptr inbounds nuw { i8, [15 x i8], { [2 x i64] } }, ptr %13, i64 %.sroa.0.0.i.i
+  %18 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 %.sroa.0.0.i.i
   %19 = add i64 %.sroa.0.0.i.i, 1
   invoke void @"_ZN4core3ptr49drop_in_place$LT$wasmi_c_api..val..wasm_val_t$GT$17hd4e20a6be405157fE"(ptr noalias noundef nonnull align 16 dereferenceable(32) %18)
           to label %15 unwind label %22
@@ -5829,7 +5829,7 @@ _ZN11wasmi_c_api3vec14wasm_val_vec_t4take17hb7ebf46ba35f3426E.exit: ; preds = %.
   br label %20
 
 24:                                               ; preds = %20
-  %25 = getelementptr inbounds nuw { i8, [15 x i8], { [2 x i64] } }, ptr %13, i64 %.sroa.0.1.i.i
+  %25 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 %.sroa.0.1.i.i
   %26 = add i64 %.sroa.0.1.i.i, 1
   invoke void @"_ZN4core3ptr49drop_in_place$LT$wasmi_c_api..val..wasm_val_t$GT$17hd4e20a6be405157fE"(ptr noalias noundef nonnull align 16 dereferenceable(32) %25) #17
           to label %20 unwind label %27
@@ -5987,7 +5987,7 @@ _ZN11wasmi_c_api3vec16wasm_frame_vec_t8as_slice17hc96aebd5eb4ae612E.exit: ; pred
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %19, ptr %21, align 8, !noalias !509
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %23 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.i, i64 %5
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.i, i64 %5
   %24 = icmp eq i64 %15, 0
   br i1 %24, label %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h63d2a7c74fd7f00dE.exit", label %.lr.ph.i
 
@@ -6012,7 +6012,7 @@ _ZN11wasmi_c_api3vec16wasm_frame_vec_t8as_slice17hc96aebd5eb4ae612E.exit: ; pred
 
 "_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h75e63a454dd0d094E.exit.i": ; preds = %30, %27
   %.sroa.0.0.i13.i = phi ptr [ null, %27 ], [ %31, %30 ]
-  %32 = getelementptr inbounds nuw ptr, ptr %19, i64 %.sroa.7.023.i
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.sroa.7.023.i
   store ptr %.sroa.0.0.i13.i, ptr %32, align 8, !noalias !509
   %33 = icmp eq i64 %25, 0
   br i1 %33, label %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h63d2a7c74fd7f00dE.exit", label %.lr.ph.i
@@ -6217,7 +6217,7 @@ define void @wasm_frame_vec_copy(ptr noalias noundef writeonly align 8 captures(
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %23, ptr %25, align 8, !noalias !537
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %27 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.i, i64 %6
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.i, i64 %6
   %28 = icmp eq i64 %19, 0
   br i1 %28, label %.loopexit, label %.lr.ph.i
 
@@ -6242,7 +6242,7 @@ define void @wasm_frame_vec_copy(ptr noalias noundef writeonly align 8 captures(
 
 "_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h75e63a454dd0d094E.exit.i": ; preds = %34, %31
   %.sroa.0.0.i13.i = phi ptr [ null, %31 ], [ %35, %34 ]
-  %36 = getelementptr inbounds nuw ptr, ptr %23, i64 %.sroa.7.023.i
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.sroa.7.023.i
   store ptr %.sroa.0.0.i13.i, ptr %36, align 8, !noalias !537
   %37 = icmp eq i64 %29, 0
   br i1 %37, label %.loopexit, label %.lr.ph.i
@@ -6452,7 +6452,7 @@ _ZN11wasmi_c_api3vec17wasm_extern_vec_t8as_slice17hee84806d2a590d8dE.exit: ; pre
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %19, ptr %21, align 8, !noalias !557
   %22 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %23 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.i, i64 %5
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.i, i64 %5
   %24 = icmp eq i64 %15, 0
   br i1 %24, label %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h442ce6958badb161E.exit", label %.lr.ph.i
 
@@ -6496,7 +6496,7 @@ _ZN11wasmi_c_api3vec17wasm_extern_vec_t8as_slice17hee84806d2a590d8dE.exit: ; pre
 
 "_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcb5d601747da480cE.exit.i": ; preds = %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd33347bf93c7997eE.exit.i.i", %27
   %.sroa.0.0.i13.i = phi ptr [ %31, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd33347bf93c7997eE.exit.i.i" ], [ null, %27 ]
-  %37 = getelementptr inbounds nuw ptr, ptr %19, i64 %.sroa.7.024.i
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.sroa.7.024.i
   store ptr %.sroa.0.0.i13.i, ptr %37, align 8, !noalias !557
   %38 = icmp eq i64 %25, 0
   br i1 %38, label %"_ZN87_$LT$T$u20$as$u20$alloc..slice..$LT$impl$u20$$u5b$T$u5d$$GT$..to_vec_in..ConvertVec$GT$6to_vec17h442ce6958badb161E.exit", label %.lr.ph.i
@@ -6701,7 +6701,7 @@ define void @wasm_extern_vec_copy(ptr noalias noundef writeonly align 8 captures
   %25 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %23, ptr %25, align 8, !noalias !596
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %27 = getelementptr inbounds nuw ptr, ptr %.sroa.0.0.i, i64 %6
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.i, i64 %6
   %28 = icmp eq i64 %19, 0
   br i1 %28, label %.loopexit, label %.lr.ph.i
 
@@ -6745,7 +6745,7 @@ define void @wasm_extern_vec_copy(ptr noalias noundef writeonly align 8 captures
 
 "_ZN68_$LT$core..option..Option$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hcb5d601747da480cE.exit.i": ; preds = %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd33347bf93c7997eE.exit.i.i", %31
   %.sroa.0.0.i13.i = phi ptr [ %35, %"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hd33347bf93c7997eE.exit.i.i" ], [ null, %31 ]
-  %41 = getelementptr inbounds nuw ptr, ptr %23, i64 %.sroa.7.024.i
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.sroa.7.024.i
   store ptr %.sroa.0.0.i13.i, ptr %41, align 8, !noalias !596
   %42 = icmp eq i64 %29, 0
   br i1 %42, label %.loopexit, label %.lr.ph.i
@@ -6822,7 +6822,7 @@ _ZN11wasmi_c_api3vec17wasm_extern_vec_t4take17h23edb07d54e912faE.exit: ; preds =
 
 .lr.ph.i.i:                                       ; preds = %_ZN11wasmi_c_api3vec17wasm_extern_vec_t4take17h23edb07d54e912faE.exit, %"_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$wasmi_c_api..extern..wasm_extern_t$GT$$GT$$GT$17hc990e9ce1f11bae8E.exit.i.i"
   %.sroa.0.08.i.i = phi i64 [ %17, %"_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$wasmi_c_api..extern..wasm_extern_t$GT$$GT$$GT$17hc990e9ce1f11bae8E.exit.i.i" ], [ 0, %_ZN11wasmi_c_api3vec17wasm_extern_vec_t4take17h23edb07d54e912faE.exit ]
-  %16 = getelementptr inbounds nuw ptr, ptr %13, i64 %.sroa.0.08.i.i
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.sroa.0.08.i.i
   %17 = add nuw i64 %.sroa.0.08.i.i, 1
   %.val7.i.i = load ptr, ptr %16, align 8, !alias.scope !621, !align !10, !noundef !7
   %18 = icmp eq ptr %.val7.i.i, null
@@ -6852,7 +6852,7 @@ _ZN11wasmi_c_api3vec17wasm_extern_vec_t4take17h23edb07d54e912faE.exit: ; preds =
   br i1 %23, label %.body, label %24
 
 24:                                               ; preds = %22
-  %25 = getelementptr inbounds nuw ptr, ptr %13, i64 %.sroa.0.1.i.i
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.sroa.0.1.i.i
   %26 = add i64 %.sroa.0.1.i.i, 1
   %.val.i.i = load ptr, ptr %25, align 8, !alias.scope !621, !align !10, !noundef !7
   invoke fastcc void @"_ZN4core3ptr108drop_in_place$LT$core..option..Option$LT$alloc..boxed..Box$LT$wasmi_c_api..extern..wasm_extern_t$GT$$GT$$GT$17hc990e9ce1f11bae8E"(ptr %.val.i.i) #17

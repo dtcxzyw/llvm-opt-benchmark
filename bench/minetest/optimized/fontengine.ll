@@ -22,13 +22,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %struct.FontSpec = type <{ i32, i8, i8, i8, i8 }>
-%"class.std::map" = type { %"class.std::_Rb_tree" }
-%"class.std::_Rb_tree" = type { %"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, irr::gui::IGUIFont *>, std::_Select1st<std::pair<const unsigned int, irr::gui::IGUIFont *>>, std::less<unsigned int>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<unsigned int, std::pair<const unsigned int, irr::gui::IGUIFont *>, std::_Select1st<std::pair<const unsigned int, irr::gui::IGUIFont *>>, std::less<unsigned int>>::_Rb_tree_impl" = type { %"struct.std::_Rb_tree_key_compare", %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_key_compare" = type { %"struct.std::less" }
-%"struct.std::less" = type { i8 }
-%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
 %"class.irr::core::string" = type { %"class.std::__cxx11::basic_string" }
 
 $_ZNSt3mapIjPN3irr3gui8IGUIFontESt4lessIjESaISt4pairIKjS3_EEED2Ev = comdat any
@@ -1081,7 +1074,7 @@ if.end7:                                          ; preds = %if.then6, %if.then,
 if.then9:                                         ; preds = %if.end7
   %m_default_size = getelementptr inbounds nuw i8, ptr %this, i64 624
   %idxprom = zext i8 %7 to i64
-  %arrayidx = getelementptr inbounds nuw i32, ptr %m_default_size, i64 %idxprom
+  %arrayidx = getelementptr inbounds nuw [4 x i8], ptr %m_default_size, i64 %idxprom
   %8 = load i32, ptr %arrayidx, align 4, !tbaa !28
   store i32 %8, ptr %spec, align 8, !tbaa !48
   br label %if.end12
@@ -1105,8 +1098,8 @@ _ZNSt11unique_lockISt15recursive_mutexEC2ERS0_.exit: ; preds = %if.end12
   %conv7.i = and i64 %5, 255
   %.idx = mul nuw nsw i64 %conv.i, 192
   %11 = getelementptr inbounds nuw i8, ptr %m_font_cache, i64 %.idx
-  %12 = getelementptr inbounds nuw %"class.std::map", ptr %11, i64 %shl4.i
-  %arrayidx14 = getelementptr inbounds nuw %"class.std::map", ptr %12, i64 %conv7.i
+  %12 = getelementptr inbounds nuw [48 x i8], ptr %11, i64 %shl4.i
+  %arrayidx14 = getelementptr inbounds nuw [48 x i8], ptr %12, i64 %conv7.i
   %_M_parent.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx14, i64 16
   %13 = load ptr, ptr %_M_parent.i.i.i, align 8, !tbaa !22
   %add.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %arrayidx14, i64 8
@@ -2804,7 +2797,7 @@ entry:
   %m_default_size = getelementptr inbounds nuw i8, ptr %this, i64 624
   %narrow = select i1 %cmp, i8 0, i8 %mode
   %retval.0.in.idx = zext i8 %narrow to i64
-  %retval.0.in = getelementptr inbounds nuw i32, ptr %m_default_size, i64 %retval.0.in.idx
+  %retval.0.in = getelementptr inbounds nuw [4 x i8], ptr %m_default_size, i64 %retval.0.in.idx
   %retval.0 = load i32, ptr %retval.0.in, align 4, !tbaa !28
   ret i32 %retval.0
 }

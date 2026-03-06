@@ -4120,7 +4120,7 @@ _ZNSt6vectorIPFbRKN4llvm15TargetInstrInfoERKNS0_19TargetSubtargetInfoEPKNS0_12Ma
   %.pre = phi i64 [ %.pre.pre, %32 ], [ %4, %_ZNSt6vectorIPFbRKN4llvm15TargetInstrInfoERKNS0_19TargetSubtargetInfoEPKNS0_12MachineInstrERS8_ESaISC_EE11_S_relocateEPSC_SF_SF_RSD_.exit16.i.i.i6 ]
   store ptr %27, ptr %0, align 8, !tbaa !405
   store ptr %31, ptr %14, align 8, !tbaa !407
-  %33 = getelementptr inbounds nuw ptr, ptr %27, i64 %25
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %25
   store ptr %33, ptr %15, align 8, !tbaa !408
   br label %_ZNSt6vectorIPFbRKN4llvm15TargetInstrInfoERKNS0_19TargetSubtargetInfoEPKNS0_12MachineInstrERS8_ESaISC_EE9push_backEOSC_.exit9
 
@@ -4188,7 +4188,7 @@ _ZNSt6vectorIPFbRKN4llvm15TargetInstrInfoERKNS0_19TargetSubtargetInfoEPKNS0_12Ma
 _ZNSt6vectorIPFbRKN4llvm15TargetInstrInfoERKNS0_19TargetSubtargetInfoEPKNS0_12MachineInstrERS8_ESaISC_EE17_M_realloc_insertIJSC_EEEvN9__gnu_cxx17__normal_iteratorIPSC_SE_EEDpOT_.exit.i.i16: ; preds = %61, %_ZNSt6vectorIPFbRKN4llvm15TargetInstrInfoERKNS0_19TargetSubtargetInfoEPKNS0_12MachineInstrERS8_ESaISC_EE11_S_relocateEPSC_SF_SF_RSD_.exit16.i.i.i14
   store ptr %56, ptr %0, align 8, !tbaa !405
   store ptr %60, ptr %40, align 8, !tbaa !407
-  %62 = getelementptr inbounds nuw ptr, ptr %56, i64 %54
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %54
   store ptr %62, ptr %41, align 8, !tbaa !408
   br label %_ZNSt6vectorIPFbRKN4llvm15TargetInstrInfoERKNS0_19TargetSubtargetInfoEPKNS0_12MachineInstrERS8_ESaISC_EE9push_backEOSC_.exit17
 
@@ -4259,7 +4259,7 @@ _ZNSt6vectorIPFbRKN4llvm15TargetInstrInfoERKNS0_19TargetSubtargetInfoEPKNS0_12Ma
   %.pre58 = phi i64 [ %.pre58.pre, %91 ], [ %65, %_ZNSt6vectorIPFbRKN4llvm15TargetInstrInfoERKNS0_19TargetSubtargetInfoEPKNS0_12MachineInstrERS8_ESaISC_EE11_S_relocateEPSC_SF_SF_RSD_.exit16.i.i.i22 ]
   store ptr %86, ptr %0, align 8, !tbaa !405
   store ptr %90, ptr %68, align 8, !tbaa !407
-  %92 = getelementptr inbounds nuw ptr, ptr %86, i64 %84
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %84
   store ptr %92, ptr %69, align 8, !tbaa !408
   br label %_ZNSt6vectorIPFbRKN4llvm15TargetInstrInfoERKNS0_19TargetSubtargetInfoEPKNS0_12MachineInstrERS8_ESaISC_EE9push_backEOSC_.exit25
 
@@ -4329,7 +4329,7 @@ _ZNSt6vectorIPFbRKN4llvm15TargetInstrInfoERKNS0_19TargetSubtargetInfoEPKNS0_12Ma
   %.pre59 = phi i64 [ %.pre59.pre, %120 ], [ %94, %_ZNSt6vectorIPFbRKN4llvm15TargetInstrInfoERKNS0_19TargetSubtargetInfoEPKNS0_12MachineInstrERS8_ESaISC_EE11_S_relocateEPSC_SF_SF_RSD_.exit16.i.i.i30 ]
   store ptr %115, ptr %0, align 8, !tbaa !405
   store ptr %119, ptr %97, align 8, !tbaa !407
-  %121 = getelementptr inbounds nuw ptr, ptr %115, i64 %113
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %115, i64 %113
   store ptr %121, ptr %98, align 8, !tbaa !408
   br label %_ZNSt6vectorIPFbRKN4llvm15TargetInstrInfoERKNS0_19TargetSubtargetInfoEPKNS0_12MachineInstrERS8_ESaISC_EE9push_backEOSC_.exit33
 
@@ -4397,7 +4397,7 @@ _ZNSt6vectorIPFbRKN4llvm15TargetInstrInfoERKNS0_19TargetSubtargetInfoEPKNS0_12Ma
 _ZNSt6vectorIPFbRKN4llvm15TargetInstrInfoERKNS0_19TargetSubtargetInfoEPKNS0_12MachineInstrERS8_ESaISC_EE17_M_realloc_insertIJSC_EEEvN9__gnu_cxx17__normal_iteratorIPSC_SE_EEDpOT_.exit.i.i40: ; preds = %149, %_ZNSt6vectorIPFbRKN4llvm15TargetInstrInfoERKNS0_19TargetSubtargetInfoEPKNS0_12MachineInstrERS8_ESaISC_EE11_S_relocateEPSC_SF_SF_RSD_.exit16.i.i.i38
   store ptr %144, ptr %0, align 8, !tbaa !405
   store ptr %148, ptr %126, align 8, !tbaa !407
-  %150 = getelementptr inbounds nuw ptr, ptr %144, i64 %142
+  %150 = getelementptr inbounds nuw [8 x i8], ptr %144, i64 %142
   store ptr %150, ptr %127, align 8, !tbaa !408
   br label %_ZNSt6vectorIPFbRKN4llvm15TargetInstrInfoERKNS0_19TargetSubtargetInfoEPKNS0_12MachineInstrERS8_ESaISC_EE9push_backEOSC_.exit41
 
@@ -5011,7 +5011,7 @@ define dso_local noundef ptr @_ZN4llvm18RISCVTuneInfoTable16getRISCVTuneInfoENS_
   %.04.i.i = phi ptr [ %.1.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm18RISCVTuneInfoTable16getRISCVTuneInfoENS2_9StringRefEE4CompEclIPKZNS3_16getRISCVTuneInfoES4_E9IndexTypeKZNS3_16getRISCVTuneInfoES4_E7KeyTypeEEbT_RT0_.exit.i.i ], [ @_ZZN4llvm18RISCVTuneInfoTable16getRISCVTuneInfoENS_9StringRefEE5Index, %2 ]
   %.0113.i.i = phi i64 [ %.112.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valIZN4llvm18RISCVTuneInfoTable16getRISCVTuneInfoENS2_9StringRefEE4CompEclIPKZNS3_16getRISCVTuneInfoES4_E9IndexTypeKZNS3_16getRISCVTuneInfoES4_E7KeyTypeEEbT_RT0_.exit.i.i ], [ 3, %2 ]
   %7 = lshr i64 %.0113.i.i, 1
-  %8 = getelementptr inbounds nuw %struct.IndexType, ptr %.04.i.i, i64 %7
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %.04.i.i, i64 %7
   %.val.i.i = load ptr, ptr %8, align 8, !tbaa !522
   %.not.i.i.i.i.i = icmp eq ptr %.val.i.i, null
   br i1 %.not.i.i.i.i.i, label %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i, label %9
@@ -5068,7 +5068,7 @@ _ZSt11lower_boundIPKZN4llvm18RISCVTuneInfoTable16getRISCVTuneInfoENS0_9StringRef
   %28 = getelementptr inbounds nuw i8, ptr %.1.i.i, i64 8
   %29 = load i32, ptr %28, align 8, !tbaa !526
   %30 = zext i32 %29 to i64
-  %31 = getelementptr inbounds nuw %"struct.llvm::RISCVTuneInfoTable::RISCVTuneInfo", ptr @_ZN4llvm18RISCVTuneInfoTableL18RISCVTuneInfoTableE, i64 %30
+  %31 = getelementptr inbounds nuw [72 x i8], ptr @_ZN4llvm18RISCVTuneInfoTableL18RISCVTuneInfoTableE, i64 %30
   br label %32
 
 32:                                               ; preds = %_ZSt11lower_boundIPKZN4llvm18RISCVTuneInfoTable16getRISCVTuneInfoENS0_9StringRefEE9IndexTypeZNS1_16getRISCVTuneInfoES2_E7KeyTypeZNS1_16getRISCVTuneInfoES2_E4CompET_S8_S8_RKT0_T1_.exit, %24, %27
@@ -5137,7 +5137,7 @@ _ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE.exit: ; preds 
   %27 = phi i32 [ %22, %5 ], [ %.pre.i.i, %24 ]
   %28 = load ptr, ptr %11, align 8, !tbaa !539
   %29 = zext i32 %27 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %29
   %31 = ptrtoint ptr %21 to i64
   store i64 %31, ptr %30, align 1
   %32 = load i32, ptr %13, align 8, !tbaa !540
@@ -5275,7 +5275,7 @@ _ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE.exit: ; preds 
   %27 = phi i32 [ %22, %5 ], [ %.pre.i.i, %24 ]
   %28 = load ptr, ptr %11, align 8, !tbaa !539
   %29 = zext i32 %27 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %29
   %31 = ptrtoint ptr %21 to i64
   store i64 %31, ptr %30, align 1
   %32 = load i32, ptr %13, align 8, !tbaa !540
@@ -5411,7 +5411,7 @@ _ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE.exit: ; preds 
   %27 = phi i32 [ %22, %5 ], [ %.pre.i.i, %24 ]
   %28 = load ptr, ptr %11, align 8, !tbaa !539
   %29 = zext i32 %27 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %29
   %31 = ptrtoint ptr %21 to i64
   store i64 %31, ptr %30, align 1
   %32 = load i32, ptr %13, align 8, !tbaa !540
@@ -5505,7 +5505,7 @@ _ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE.exit: ; preds 
   %26 = phi i32 [ %21, %4 ], [ %.pre.i.i, %23 ]
   %27 = load ptr, ptr %10, align 8, !tbaa !539
   %28 = zext i32 %26 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   %30 = ptrtoint ptr %20 to i64
   store i64 %30, ptr %29, align 1
   %31 = load i32, ptr %12, align 8, !tbaa !540
@@ -5592,7 +5592,7 @@ _ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE.exit: ; preds 
   %26 = phi i32 [ %21, %4 ], [ %.pre.i.i, %23 ]
   %27 = load ptr, ptr %10, align 8, !tbaa !539
   %28 = zext i32 %26 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   %30 = ptrtoint ptr %20 to i64
   store i64 %30, ptr %29, align 1
   %31 = load i32, ptr %12, align 8, !tbaa !540
@@ -5680,7 +5680,7 @@ _ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE.exit: ; preds 
   %27 = phi i32 [ %22, %5 ], [ %.pre.i.i, %24 ]
   %28 = load ptr, ptr %11, align 8, !tbaa !539
   %29 = zext i32 %27 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %29
   %31 = ptrtoint ptr %21 to i64
   store i64 %31, ptr %30, align 1
   %32 = load i32, ptr %13, align 8, !tbaa !540
@@ -5775,7 +5775,7 @@ _ZN4llvm2cl6OptionC2ENS0_18NumOccurrencesFlagENS0_12OptionHiddenE.exit: ; preds 
   %27 = phi i32 [ %22, %5 ], [ %.pre.i.i, %24 ]
   %28 = load ptr, ptr %11, align 8, !tbaa !539
   %29 = zext i32 %27 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %29
   %31 = ptrtoint ptr %21 to i64
   store i64 %31, ptr %30, align 1
   %32 = load i32, ptr %13, align 8, !tbaa !540
@@ -6460,7 +6460,7 @@ _ZSt7advanceIPKN4llvm18SubtargetSubTypeKVElEvRT_T0_.exit.i.i.i: ; preds = %3, %_
   %.017.i.i.i = phi ptr [ %.1.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKN4llvm18SubtargetSubTypeKVEKNS3_9StringRefEEEbT_RT0_.exit.i.i.i ], [ %5, %3 ]
   %.01116.i.i.i = phi i64 [ %.112.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKN4llvm18SubtargetSubTypeKVEKNS3_9StringRefEEEbT_RT0_.exit.i.i.i ], [ %7, %3 ]
   %8 = lshr i64 %.01116.i.i.i, 1
-  %9 = getelementptr inbounds nuw %"struct.llvm::SubtargetSubTypeKV", ptr %.017.i.i.i, i64 %8
+  %9 = getelementptr inbounds nuw [96 x i8], ptr %.017.i.i.i, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !609
   %.not.i.i.i.i.i.i = icmp eq ptr %10, null
   br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm9StringRefC2EPKc.exit.i.i.i.i.i, label %11
@@ -6505,7 +6505,7 @@ _ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKN4llvm18SubtargetSubTypeKVEKNS3_9String
 
 _ZN4llvm11lower_boundIRKNS_8ArrayRefINS_18SubtargetSubTypeKVEEERNS_9StringRefEEEDaOT_OT0_.exit: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKN4llvm18SubtargetSubTypeKVEKNS3_9StringRefEEEbT_RT0_.exit.i.i.i, %3
   %.0.lcssa.i.i.i = phi ptr [ %5, %3 ], [ %.1.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKN4llvm18SubtargetSubTypeKVEKNS3_9StringRefEEEbT_RT0_.exit.i.i.i ]
-  %25 = getelementptr inbounds nuw %"struct.llvm::SubtargetSubTypeKV", ptr %5, i64 %7
+  %25 = getelementptr inbounds nuw [96 x i8], ptr %5, i64 %7
   %.not = icmp eq ptr %.0.lcssa.i.i.i, %25
   br i1 %.not, label %_ZN4llvmeqENS_9StringRefES0_.exit, label %26
 
@@ -6878,7 +6878,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm14RISCVSubtarget24isRegi
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %4 = zext i32 %1 to i64
   %5 = lshr i64 %4, 6
-  %6 = getelementptr inbounds nuw i64, ptr %3, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %5
   %7 = load i64, ptr %6, align 8, !tbaa !3
   %8 = and i64 %4, 63
   %9 = shl nuw i64 1, %8

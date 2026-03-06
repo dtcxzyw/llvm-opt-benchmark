@@ -13,16 +13,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_si_meminfo: 
 %struct.pcpu_hot = type { %union.anon.13 }
 %union.anon.13 = type { %struct.anon.14, [16 x i8] }
 %struct.anon.14 = type { ptr, i32, i32, i64, i64, ptr, i16, i8 }
-%struct.zone = type { [4 x i64], i64, i64, [4 x i64], i32, ptr, ptr, ptr, i32, i32, i32, i64, %struct.atomic64_t, i64, i64, ptr, i32, [20 x i8], %struct.cacheline_padding, [11 x %struct.free_area], i64, %struct.spinlock, [28 x i8], %struct.cacheline_padding, i64, i64, [2 x i64], i64, i64, i32, i32, i32, i8, i8, [2 x i8], %struct.cacheline_padding, [10 x %struct.atomic64_t], [6 x %struct.atomic64_t] }
-%struct.free_area = type { [4 x %struct.list_head], i64 }
-%struct.list_head = type { ptr, ptr }
-%struct.spinlock = type { %union.anon }
-%union.anon = type { %struct.raw_spinlock }
-%struct.raw_spinlock = type { %struct.qspinlock }
-%struct.qspinlock = type { %union.anon.0 }
-%union.anon.0 = type { %struct.atomic_t }
-%struct.atomic_t = type { i32 }
-%struct.cacheline_padding = type { [0 x i8] }
 
 @_totalram_pages = dso_local global %struct.atomic64_t zeroinitializer, section ".data..read_mostly", align 8
 @__UNIQUE_ID___addressable__totalram_pages477 = internal global ptr @_totalram_pages, section ".discard.addressable", align 8
@@ -140,14 +130,14 @@ declare dso_local i64 @nr_blockdev_pages() local_unnamed_addr #1
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local void @si_meminfo_node(ptr noundef writeonly captures(none) %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = sext i32 %1 to i64
-  %4 = getelementptr ptr, ptr @node_data, i64 %3
+  %4 = getelementptr [8 x i8], ptr @node_data, i64 %3
   %5 = load ptr, ptr %4, align 8
   br label %6
 
 6:                                                ; preds = %6, %2
   %7 = phi i64 [ 0, %2 ], [ %12, %6 ]
   %8 = phi i64 [ 0, %2 ], [ %11, %6 ]
-  %.split = getelementptr %struct.zone, ptr %5, i64 %7
+  %.split = getelementptr [1216 x i8], ptr %5, i64 %7
   %9 = getelementptr i8, ptr %.split, i64 136
   %10 = load volatile i64, ptr %9, align 8
   %11 = add i64 %10, %8
@@ -258,7 +248,7 @@ define dso_local void @__show_mem(i32 noundef %0, ptr noundef %1, i32 noundef %2
   %57 = load ptr, ptr %45, align 32
   %58 = ptrtoint ptr %57 to i64
   %59 = and i64 %53, 63
-  %60 = getelementptr i64, ptr @__per_cpu_offset, i64 %59
+  %60 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %59
   %61 = load i64, ptr %60, align 8
   %62 = add i64 %61, %58
   %63 = inttoptr i64 %62 to ptr
@@ -371,7 +361,7 @@ define dso_local void @__show_mem(i32 noundef %0, ptr noundef %1, i32 noundef %2
 
 143:                                              ; preds = %.preheader36
   %144 = sext i32 %142 to i64
-  %.split = getelementptr %struct.zone, ptr %122, i64 %144
+  %.split = getelementptr [1216 x i8], ptr %122, i64 %144
   %145 = getelementptr i8, ptr %.split, i64 136
   %146 = load volatile i64, ptr %145, align 8
   %147 = icmp eq i64 %146, 0
@@ -495,7 +485,7 @@ define dso_local void @__show_mem(i32 noundef %0, ptr noundef %1, i32 noundef %2
   %233 = load ptr, ptr %221, align 32
   %234 = ptrtoint ptr %233 to i64
   %235 = and i64 %229, 63
-  %236 = getelementptr i64, ptr @__per_cpu_offset, i64 %235
+  %236 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %235
   %237 = load i64, ptr %236, align 8
   %238 = add i64 %237, %234
   %239 = inttoptr i64 %238 to ptr
@@ -588,7 +578,7 @@ define dso_local void @__show_mem(i32 noundef %0, ptr noundef %1, i32 noundef %2
 
 321:                                              ; preds = %321, %.thread30
   %322 = phi i64 [ 0, %.thread30 ], [ %326, %321 ]
-  %323 = getelementptr i64, ptr %320, i64 %322
+  %323 = getelementptr [8 x i8], ptr %320, i64 %322
   %324 = load i64, ptr %323, align 8
   %325 = tail call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.10, i64 noundef %324) #9
   %326 = add nuw nsw i64 %322, 1
@@ -678,10 +668,10 @@ define dso_local void @__show_mem(i32 noundef %0, ptr noundef %1, i32 noundef %2
 376:                                              ; preds = %399, %367
   %377 = phi i64 [ 0, %367 ], [ %402, %399 ]
   %378 = phi i64 [ 0, %367 ], [ %401, %399 ]
-  %379 = getelementptr %struct.free_area, ptr %375, i64 %377
+  %379 = getelementptr [72 x i8], ptr %375, i64 %377
   %380 = getelementptr inbounds nuw i8, ptr %379, i64 64
   %381 = load i64, ptr %380, align 8
-  %382 = getelementptr i64, ptr %5, i64 %377
+  %382 = getelementptr [8 x i8], ptr %5, i64 %377
   store i64 %381, ptr %382, align 8
   %383 = getelementptr i8, ptr %6, i64 %377
   store i8 0, ptr %383, align 1
@@ -690,7 +680,7 @@ define dso_local void @__show_mem(i32 noundef %0, ptr noundef %1, i32 noundef %2
 384:                                              ; preds = %395, %376
   %385 = phi i8 [ 0, %376 ], [ %396, %395 ]
   %386 = phi i64 [ 0, %376 ], [ %397, %395 ]
-  %387 = getelementptr %struct.list_head, ptr %379, i64 %386
+  %387 = getelementptr [16 x i8], ptr %379, i64 %386
   %388 = load volatile ptr, ptr %387, align 8
   %389 = icmp eq ptr %388, %387
   br i1 %389, label %395, label %390
@@ -722,7 +712,7 @@ define dso_local void @__show_mem(i32 noundef %0, ptr noundef %1, i32 noundef %2
 
 405:                                              ; preds = %433, %404
   %406 = phi i64 [ 0, %404 ], [ %434, %433 ]
-  %407 = getelementptr i64, ptr %5, i64 %406
+  %407 = getelementptr [8 x i8], ptr %5, i64 %406
   %408 = load i64, ptr %407, align 8
   %409 = shl nuw nsw i64 4, %406
   %410 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.13, i64 noundef %408, i64 noundef %409) #9

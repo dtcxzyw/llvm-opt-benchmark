@@ -508,7 +508,7 @@ _ZNSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EE5clearEv.exit: ; preds =
   %28 = load i64, ptr %7, align 8, !tbaa !40
   %29 = urem i64 %27, %28
   %30 = load ptr, ptr %0, align 8, !tbaa !33
-  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %29
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %29
   %32 = load ptr, ptr %31, align 8, !tbaa !78
   %.not.i.i.i.i = icmp eq ptr %32, null
   br i1 %.not.i.i.i.i, label %_ZNSt13unordered_mapIPN3g2o16OptimizableGraph6VertexENS0_18EstimatePropagator17AdjacencyMapEntryENS4_20VertexIDHashFunctionESt8equal_toIS3_ESaISt4pairIKS3_S5_EEE4findERSA_.exit, label %33
@@ -724,7 +724,7 @@ define void @_ZN3g2o18EstimatePropagator9propagateERSt3setIPNS_10HyperGraph6Vert
   %48 = load i64, ptr %19, align 8, !tbaa !40
   %49 = urem i64 %47, %48
   %50 = load ptr, ptr %0, align 8, !tbaa !33
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %49
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %49
   %52 = load ptr, ptr %51, align 8, !tbaa !78
   %.not.i.i.i.i = icmp eq ptr %52, null
   br i1 %.not.i.i.i.i, label %_ZNSt13unordered_mapIPN3g2o16OptimizableGraph6VertexENS0_18EstimatePropagator17AdjacencyMapEntryENS4_20VertexIDHashFunctionESt8equal_toIS3_ESaISt4pairIKS3_S5_EEE4findERSA_.exit, label %53
@@ -950,7 +950,7 @@ _ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_E
   %152 = phi ptr [ %221, %219 ], [ %145, %.lr.ph232 ]
   %.050225 = phi i64 [ %222, %219 ], [ 0, %.lr.ph232 ]
   %.0224 = phi i32 [ %.1, %219 ], [ -1, %.lr.ph232 ]
-  %153 = getelementptr inbounds nuw ptr, ptr %151, i64 %.050225
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %151, i64 %.050225
   %154 = load ptr, ptr %153, align 8, !tbaa !66
   %.not58 = icmp eq ptr %154, null
   br i1 %.not58, label %219, label %155
@@ -979,7 +979,7 @@ _ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_E
   %165 = load i64, ptr %32, align 8, !tbaa !40
   %166 = urem i64 %164, %165
   %167 = load ptr, ptr %0, align 8, !tbaa !33
-  %168 = getelementptr inbounds nuw ptr, ptr %167, i64 %166
+  %168 = getelementptr inbounds nuw [8 x i8], ptr %167, i64 %166
   %169 = load ptr, ptr %168, align 8, !tbaa !78
   %.not.i.i.i.i69 = icmp eq ptr %169, null
   br i1 %.not.i.i.i.i69, label %_ZNSt13unordered_mapIPN3g2o16OptimizableGraph6VertexENS0_18EstimatePropagator17AdjacencyMapEntryENS4_20VertexIDHashFunctionESt8equal_toIS3_ESaISt4pairIKS3_S5_EEE4findERSA_.exit79, label %170
@@ -1137,7 +1137,7 @@ _ZNSt3setIPN3g2o10HyperGraph6VertexESt4lessIS3_ESaIS3_EED2Ev.exit: ; preds = %._
 .lr.ph228:                                        ; preds = %.preheader, %401
   %232 = phi ptr [ %404, %401 ], [ %220, %.preheader ]
   %.051227 = phi i64 [ %402, %401 ], [ 0, %.preheader ]
-  %233 = getelementptr inbounds nuw ptr, ptr %232, i64 %.051227
+  %233 = getelementptr inbounds nuw [8 x i8], ptr %232, i64 %.051227
   %234 = load ptr, ptr %233, align 8, !tbaa !66
   %.not = icmp eq ptr %234, null
   %235 = icmp eq ptr %234, %101
@@ -1293,7 +1293,7 @@ _ZNSt8_Rb_treeIPN3g2o10HyperGraph6VertexES3_St9_IdentityIS3_ESt4lessIS3_ESaIS3_E
   %287 = load i64, ptr %32, align 8, !tbaa !40
   %288 = urem i64 %286, %287
   %289 = load ptr, ptr %0, align 8, !tbaa !33
-  %290 = getelementptr inbounds nuw ptr, ptr %289, i64 %288
+  %290 = getelementptr inbounds nuw [8 x i8], ptr %289, i64 %288
   %291 = load ptr, ptr %290, align 8, !tbaa !78
   %.not.i.i.i.i107 = icmp eq ptr %291, null
   br i1 %.not.i.i.i.i107, label %_ZNSt13unordered_mapIPN3g2o16OptimizableGraph6VertexENS0_18EstimatePropagator17AdjacencyMapEntryENS4_20VertexIDHashFunctionESt8equal_toIS3_ESaISt4pairIKS3_S5_EEE4findERSA_.exit117, label %292
@@ -2327,7 +2327,7 @@ _ZNSt10_HashtableIPN3g2o16OptimizableGraph6VertexESt4pairIKS3_NS0_18EstimateProp
   %38 = load i64, ptr %37, align 8, !tbaa !40
   %39 = urem i64 %36, %38
   %40 = load ptr, ptr %0, align 8, !tbaa !33
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %39
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %39
   %42 = load ptr, ptr %41, align 8, !tbaa !78
   %.not.i.i = icmp eq ptr %42, null
   br i1 %.not.i.i, label %.critedge27, label %57
@@ -2488,7 +2488,7 @@ _ZNSt10_HashtableIPN3g2o16OptimizableGraph6VertexESt4pairIKS3_NS0_18EstimateProp
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 104
   store i64 %2, ptr %32, align 8, !tbaa !79
   %33 = load ptr, ptr %0, align 8, !tbaa !33
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8, !tbaa !78
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %39, label %36
@@ -2514,7 +2514,7 @@ _ZNSt10_HashtableIPN3g2o16OptimizableGraph6VertexESt4pairIKS3_NS0_18EstimateProp
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 104
   %46 = load i64, ptr %45, align 8, !tbaa !79
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %33, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !78
   br label %49
 
@@ -2607,7 +2607,7 @@ _ZNSt10_HashtableIPN3g2o16OptimizableGraph6VertexESt4pairIKS3_NS0_18EstimateProp
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 104
   %16 = load i64, ptr %15, align 8, !tbaa !79
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !78
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -2622,7 +2622,7 @@ _ZNSt10_HashtableIPN3g2o16OptimizableGraph6VertexESt4pairIKS3_NS0_18EstimateProp
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !78
   br label %28
 

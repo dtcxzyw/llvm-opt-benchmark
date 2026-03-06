@@ -8,8 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.cli_environment = type { i32, i32, i32, i32, i32, i32, i32, [65 x i8], [65 x i8], [65 x i8], [65 x i8], [65 x i8], [65 x i8], [65 x i8], i8, i8, i8, i8, i8, i8, i8, i8, i8 }
 %struct.cli_ctx_tag = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, i32, i32, ptr, i32, i32, ptr, [16 x i8], ptr, ptr, ptr, ptr, ptr, ptr, %struct.timeval, i8, i8 }
 %struct.timeval = type { i64, i64 }
-%struct.recursion_level_tag = type { i32, i64, ptr, i32, i32, i32, %struct.image_fuzzy_hash, i8 }
-%struct.image_fuzzy_hash = type { [8 x i8] }
 
 @stderr = external local_unnamed_addr global ptr, align 8
 @.str = private unnamed_addr constant [41 x i8] c"ERROR: Can't parse command line options\0A\00", align 1
@@ -200,7 +198,7 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 54:                                               ; preds = %54, %.preheader196
   %indvars.iv = phi i64 [ %indvars.iv.next, %54 ], [ 1, %.preheader196 ]
-  %55 = getelementptr inbounds nuw ptr, ptr %49, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %indvars.iv
   %56 = load ptr, ptr %55, align 8, !tbaa !17
   %.not166 = icmp eq ptr %56, null
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -574,7 +572,7 @@ print_src.exit:                                   ; preds = %116, %169
   %222 = getelementptr inbounds nuw i8, ptr %5, i64 92
   %223 = load i32, ptr %222, align 4, !tbaa !89
   %224 = zext i32 %223 to i64
-  %225 = getelementptr inbounds nuw %struct.recursion_level_tag, ptr %216, i64 %224
+  %225 = getelementptr inbounds nuw [48 x i8], ptr %216, i64 %224
   %226 = load i64, ptr inttoptr (i64 88 to ptr), align 8, !tbaa !90
   %227 = getelementptr inbounds nuw i8, ptr %225, i64 8
   store i64 %226, ptr %227, align 8, !tbaa !92
@@ -649,7 +647,7 @@ print_src.exit:                                   ; preds = %116, %169
   %263 = add i32 %.0129204, 1
   %264 = load ptr, ptr %26, align 8, !tbaa !16
   %265 = zext i32 %263 to i64
-  %266 = getelementptr inbounds nuw ptr, ptr %264, i64 %265
+  %266 = getelementptr inbounds nuw [8 x i8], ptr %264, i64 %265
   %267 = load ptr, ptr %266, align 8, !tbaa !17
   %.not183 = icmp eq ptr %267, null
   br i1 %.not183, label %.loopexit, label %.lr.ph205

@@ -7,7 +7,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.lock_class_key = type {}
 %struct.scatterlist = type { i64, i32, i32, i64, i32, i32 }
 %struct.virtio_admin_cmd = type { i16, i16, i64, ptr, ptr }
-%struct.resource = type { i64, i64, ptr, i64, i64, ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [44 x i8] c"Failed to execute command on admin vq: %d\0A.\00", align 1
 @.str.1 = private unnamed_addr constant [49 x i8] c"admin command error: status(%#x) qualifier(%#x)\0A\00", align 1
@@ -87,7 +86,7 @@ define dso_local range(i32 -65535, 1) i32 @vp_modern_admin_cmd_exec(ptr noundef 
   %33 = phi i32 [ 2, %30 ], [ 1, %19 ]
   call void @sg_init_one(ptr noundef nonnull %6, ptr noundef nonnull %13, i32 noundef 8) #11
   %34 = zext nneg i32 %33 to i64
-  %35 = getelementptr ptr, ptr %4, i64 %34
+  %35 = getelementptr [8 x i8], ptr %4, i64 %34
   store ptr %6, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %37 = load ptr, ptr %36, align 8
@@ -993,7 +992,7 @@ define internal noundef zeroext i1 @vp_get_shm_region(ptr noundef readonly captu
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %64 = zext i8 %63 to i64
   %65 = getelementptr inbounds nuw i8, ptr %10, i64 920
-  %66 = getelementptr %struct.resource, ptr %65, i64 %64
+  %66 = getelementptr [64 x i8], ptr %65, i64 %64
   %67 = load i64, ptr %66, align 8
   %68 = add i64 %62, %56
   %69 = icmp ult i64 %68, %56
@@ -1049,7 +1048,7 @@ define internal noundef range(i32 -2, 1) i32 @vp_modern_disable_vq_and_reset(ptr
   %14 = load ptr, ptr %13, align 8
   %15 = load i32, ptr %10, align 8
   %16 = zext i32 %15 to i64
-  %17 = getelementptr ptr, ptr %14, i64 %16
+  %17 = getelementptr [8 x i8], ptr %14, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 936
   %20 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef nonnull %19) #11
@@ -1109,7 +1108,7 @@ define internal noundef range(i32 -16, 1) i32 @vp_modern_enable_vq_after_reset(p
   %11 = zext i32 %10 to i64
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 960
   %13 = load ptr, ptr %12, align 8
-  %14 = getelementptr ptr, ptr %13, i64 %11
+  %14 = getelementptr [8 x i8], ptr %13, i64 %11
   %15 = load ptr, ptr %14, align 8
   %16 = trunc i32 %10 to i16
   %17 = tail call i32 @vp_modern_get_queue_reset(ptr noundef nonnull %4, i16 noundef zeroext %16) #11

@@ -79,10 +79,10 @@ invoke.cont.lr.ph.i:                              ; preds = %entry
 invoke.cont.i:                                    ; preds = %invoke.cont.i, %invoke.cont.lr.ph.i
   %i.09.i = phi i64 [ 0, %invoke.cont.lr.ph.i ], [ %inc.i, %invoke.cont.i ]
   %mul.i.i.i = mul i64 %i.09.i, %1
-  %add.ptr.i.i.i = getelementptr inbounds nuw double, ptr %5, i64 %mul.i.i.i
-  %arrayidx.i = getelementptr inbounds nuw double, ptr %add.ptr.i.i.i, i64 %i.09.i
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %mul.i.i.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i.i, i64 %i.09.i
   %6 = load double, ptr %arrayidx.i, align 8, !tbaa !22, !noalias !3
-  %arrayidx.i.i = getelementptr inbounds nuw double, ptr %call.i.i, i64 %i.09.i
+  %arrayidx.i.i = getelementptr inbounds nuw [8 x i8], ptr %call.i.i, i64 %i.09.i
   store double %6, ptr %arrayidx.i.i, align 8, !tbaa !22, !noalias !3
   %inc.i = add nuw i64 %i.09.i, 1
   %exitcond.not.i = icmp eq i64 %inc.i, %.sroa.speculated.i
@@ -313,23 +313,23 @@ for.cond.cleanup:                                 ; preds = %for.cond.cleanup66,
 
 invoke.cont62:                                    ; preds = %invoke.cont62.lr.ph, %for.cond.cleanup66
   %i.0237 = phi i64 [ 0, %invoke.cont62.lr.ph ], [ %inc167, %for.cond.cleanup66 ]
-  %arrayidx.i100 = getelementptr inbounds nuw double, ptr %7, i64 %i.0237
+  %arrayidx.i100 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %i.0237
   %38 = load double, ptr %arrayidx.i100, align 8, !tbaa !22
   %call57 = tail call double @sqrt(double noundef %38) #20, !tbaa !30
-  %arrayidx.i101 = getelementptr inbounds nuw double, ptr %cond.i, i64 %i.0237
+  %arrayidx.i101 = getelementptr inbounds nuw [8 x i8], ptr %cond.i, i64 %i.0237
   store double %call57, ptr %arrayidx.i101, align 8, !tbaa !22
   %mul.i.i = mul i64 %i.0237, %0
-  %add.ptr.i.i = getelementptr inbounds nuw double, ptr %cond.i63, i64 %mul.i.i
-  %arrayidx = getelementptr inbounds nuw double, ptr %add.ptr.i.i, i64 %i.0237
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %cond.i63, i64 %mul.i.i
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i, i64 %i.0237
   store double 1.000000e+00, ptr %arrayidx, align 8, !tbaa !22
-  %invariant.gep = getelementptr double, ptr %cond.i63, i64 %i.0237
+  %invariant.gep = getelementptr [8 x i8], ptr %cond.i63, i64 %i.0237
   %cmp65232.not = icmp eq i64 %i.0237, 0
   br i1 %cmp65232.not, label %for.cond.cleanup66, label %invoke.cont73.lr.ph
 
 invoke.cont73.lr.ph:                              ; preds = %invoke.cont62
   %mul.i.i104 = mul i64 %i.0237, %14
-  %add.ptr.i.i105 = getelementptr inbounds nuw double, ptr %16, i64 %mul.i.i104
-  %invariant.gep234 = getelementptr double, ptr %16, i64 %i.0237
+  %add.ptr.i.i105 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %mul.i.i104
+  %invariant.gep234 = getelementptr [8 x i8], ptr %16, i64 %i.0237
   br label %invoke.cont73
 
 for.cond.cleanup66:                               ; preds = %invoke.cont162, %invoke.cont62
@@ -339,10 +339,10 @@ for.cond.cleanup66:                               ; preds = %invoke.cont162, %in
 
 invoke.cont73:                                    ; preds = %invoke.cont73.lr.ph, %invoke.cont162
   %j.0233 = phi i64 [ 0, %invoke.cont73.lr.ph ], [ %inc, %invoke.cont162 ]
-  %arrayidx72 = getelementptr inbounds nuw double, ptr %add.ptr.i.i105, i64 %j.0233
+  %arrayidx72 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i105, i64 %j.0233
   %39 = load double, ptr %arrayidx72, align 8, !tbaa !22
   %mul.i.i107 = mul i64 %j.0233, %14
-  %gep235 = getelementptr double, ptr %invariant.gep234, i64 %mul.i.i107
+  %gep235 = getelementptr [8 x i8], ptr %invariant.gep234, i64 %mul.i.i107
   %40 = load double, ptr %gep235, align 8, !tbaa !22
   %sub = fsub double %39, %40
   %41 = tail call double @llvm.fabs.f64(double %sub)
@@ -382,8 +382,8 @@ invoke.cont94:                                    ; preds = %invoke.cont90
   %42 = load ptr, ptr %cov, align 8, !tbaa !19
   %43 = load i64, ptr %columns_.i.i, align 8, !tbaa !18
   %mul.i.i128 = mul i64 %43, %i.0237
-  %add.ptr.i.i129 = getelementptr inbounds nuw double, ptr %42, i64 %mul.i.i128
-  %arrayidx96 = getelementptr inbounds nuw double, ptr %add.ptr.i.i129, i64 %j.0233
+  %add.ptr.i.i129 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %mul.i.i128
+  %arrayidx96 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i129, i64 %j.0233
   %44 = load double, ptr %arrayidx96, align 8, !tbaa !22
   %call.i131 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %call.i122, double noundef %44)
           to label %invoke.cont97 unwind label %lpad81
@@ -412,8 +412,8 @@ invoke.cont109:                                   ; preds = %invoke.cont105
   %45 = load ptr, ptr %cov, align 8, !tbaa !19
   %46 = load i64, ptr %columns_.i.i, align 8, !tbaa !18
   %mul.i.i148 = mul i64 %46, %j.0233
-  %add.ptr.i.i149 = getelementptr inbounds nuw double, ptr %45, i64 %mul.i.i148
-  %arrayidx111 = getelementptr inbounds nuw double, ptr %add.ptr.i.i149, i64 %i.0237
+  %add.ptr.i.i149 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %mul.i.i148
+  %arrayidx111 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i149, i64 %i.0237
   %47 = load double, ptr %arrayidx111, align 8, !tbaa !22
   %call.i151 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %call.i142, double noundef %47)
           to label %invoke.cont112 unwind label %lpad81
@@ -553,14 +553,14 @@ ehcleanup144:                                     ; preds = %ehcleanup143, %lpad
   br label %ehcleanup170
 
 invoke.cont162:                                   ; preds = %invoke.cont73
-  %arrayidx.i181 = getelementptr inbounds nuw double, ptr %cond.i, i64 %j.0233
+  %arrayidx.i181 = getelementptr inbounds nuw [8 x i8], ptr %cond.i, i64 %j.0233
   %66 = load double, ptr %arrayidx.i181, align 8, !tbaa !22
   %mul = fmul double %call57, %66
   %div = fdiv double %39, %mul
   %mul.i.i183 = mul i64 %j.0233, %0
-  %gep = getelementptr double, ptr %invariant.gep, i64 %mul.i.i183
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %mul.i.i183
   store double %div, ptr %gep, align 8, !tbaa !22
-  %arrayidx164 = getelementptr inbounds nuw double, ptr %add.ptr.i.i, i64 %j.0233
+  %arrayidx164 = getelementptr inbounds nuw [8 x i8], ptr %add.ptr.i.i, i64 %j.0233
   store double %div, ptr %arrayidx164, align 8, !tbaa !22
   %inc = add nuw i64 %j.0233, 1
   %exitcond.not = icmp eq i64 %inc, %i.0237

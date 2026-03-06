@@ -56,7 +56,7 @@ define void @ff_h2645_decode_common_vui_params(ptr noundef captures(none) %0, pt
 
 34:                                               ; preds = %21
   %35 = zext nneg i32 %29 to i64
-  %36 = getelementptr inbounds nuw %struct.AVRational, ptr @ff_h2645_pixel_aspect, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr @ff_h2645_pixel_aspect, i64 %35
   %37 = load i64, ptr %36, align 8
   store i64 %37, ptr %1, align 4
   br label %64

@@ -1350,7 +1350,7 @@ _ZNSt12_Vector_baseIN5clang10installapi10HeaderFileESaIS2_EE13_M_deallocateEPS2_
   store ptr %19, ptr %0, align 8, !tbaa !165
   %61 = getelementptr inbounds nuw i8, ptr %19, i64 %17
   store ptr %61, ptr %14, align 8, !tbaa !150
-  %62 = getelementptr inbounds nuw %"class.clang::installapi::HeaderFile", ptr %19, i64 %1
+  %62 = getelementptr inbounds nuw [80 x i8], ptr %19, i64 %1
   store ptr %62, ptr %6, align 8, !tbaa !151
   br label %63
 
@@ -2045,7 +2045,7 @@ _ZNSt6vectorIN5clang10installapi10HeaderFileESaIS2_EE11_S_relocateEPS2_S5_S5_RS3
 _ZNSt12_Vector_baseIN5clang10installapi10HeaderFileESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN5clang10installapi10HeaderFileESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit30, %129
   store ptr %22, ptr %0, align 8, !tbaa !165
   store ptr %.0.lcssa.i.i.i29, ptr %4, align 8, !tbaa !150
-  %133 = getelementptr inbounds nuw %"class.clang::installapi::HeaderFile", ptr %22, i64 %16
+  %133 = getelementptr inbounds nuw [80 x i8], ptr %22, i64 %16
   store ptr %133, ptr %128, align 8, !tbaa !151
   ret void
 }
@@ -2346,7 +2346,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i, %68
   store ptr %61, ptr %40, align 8, !tbaa !230
   store ptr %67, ptr %41, align 8, !tbaa !227
-  %69 = getelementptr inbounds nuw %"class.std::unique_ptr.9", ptr %61, i64 %59
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %59
   store ptr %69, ptr %43, align 8, !tbaa !229
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit
 
@@ -2496,7 +2496,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit52: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i49, %130
   store ptr %124, ptr %79, align 8, !tbaa !230
   store ptr %.0.lcssa.i.i.i21.i50, ptr %83, align 8, !tbaa !227
-  %131 = getelementptr inbounds nuw %"class.std::unique_ptr.9", ptr %124, i64 %122
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %124, i64 %122
   store ptr %131, ptr %85, align 8, !tbaa !229
   br label %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit21
 
@@ -2616,7 +2616,7 @@ _ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_
 _ZNSt12_Vector_baseISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, %31
   store ptr %20, ptr %0, align 8, !tbaa !230
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !227
-  %35 = getelementptr inbounds nuw %"class.std::unique_ptr.9", ptr %20, i64 %16
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %35, ptr %30, align 8, !tbaa !229
   ret void
 }
@@ -3186,7 +3186,7 @@ _ZNSt6vectorIN5clang10installapi10HeaderFileESaIS2_EE11_S_relocateEPS2_S5_S5_RS3
 _ZNSt12_Vector_baseIN5clang10installapi10HeaderFileESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN5clang10installapi10HeaderFileESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit33, %101
   store ptr %23, ptr %0, align 8, !tbaa !165
   store ptr %.0.lcssa.i.i.i32, ptr %7, align 8, !tbaa !150
-  %105 = getelementptr inbounds nuw %"class.clang::installapi::HeaderFile", ptr %23, i64 %19
+  %105 = getelementptr inbounds nuw [80 x i8], ptr %23, i64 %19
   store ptr %105, ptr %100, align 8, !tbaa !151
   ret void
 }

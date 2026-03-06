@@ -5011,7 +5011,7 @@ switch.lookup:                                    ; preds = %1
 
 switch.lookup22:                                  ; preds = %14
   %19 = zext nneg i32 %17 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table._ZN22LayoutPreferencesFrame13updateWidgetsEv, i64 %19
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN22LayoutPreferencesFrame13updateWidgetsEv, i64 %19
   %switch.load = load i64, ptr %switch.gep, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %21 = load ptr, ptr %20, align 8
@@ -5029,7 +5029,7 @@ switch.lookup22:                                  ; preds = %14
 
 switch.lookup23:                                  ; preds = %24
   %29 = zext nneg i32 %27 to i64
-  %switch.gep24 = getelementptr inbounds nuw i64, ptr @switch.table._ZN22LayoutPreferencesFrame13updateWidgetsEv.1, i64 %29
+  %switch.gep24 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN22LayoutPreferencesFrame13updateWidgetsEv.1, i64 %29
   %switch.load25 = load i64, ptr %switch.gep24, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %31 = load ptr, ptr %30, align 8
@@ -5047,7 +5047,7 @@ switch.lookup23:                                  ; preds = %24
 
 switch.lookup26:                                  ; preds = %34
   %39 = zext nneg i32 %37 to i64
-  %switch.gep27 = getelementptr inbounds nuw i64, ptr @switch.table._ZN22LayoutPreferencesFrame13updateWidgetsEv.2, i64 %39
+  %switch.gep27 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN22LayoutPreferencesFrame13updateWidgetsEv.2, i64 %39
   %switch.load28 = load i64, ptr %switch.gep27, align 8
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %41 = load ptr, ptr %40, align 8

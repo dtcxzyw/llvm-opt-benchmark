@@ -66,7 +66,7 @@ define dso_local i64 @tool_read_cb(ptr noundef captures(none) %0, i64 noundef %1
   %39 = shl nuw i64 1, %38
   %40 = sdiv i32 %36, 64
   %41 = sext i32 %40 to i64
-  %42 = getelementptr inbounds i64, ptr %5, i64 %41
+  %42 = getelementptr inbounds [8 x i8], ptr %5, i64 %41
   %43 = load i64, ptr %42, align 8, !tbaa !37
   %44 = or i64 %39, %43
   store i64 %44, ptr %42, align 8, !tbaa !37

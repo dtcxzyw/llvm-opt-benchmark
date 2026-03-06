@@ -17,7 +17,7 @@ target triple = "x86_64-unknown-linux-gnu"
 define hidden { i64, i32 } @_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17hae1e2f99d5187a36E(ptr noundef %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = ptrtoint ptr %0 to i64
   %3 = urem i64 %2, 67
-  %4 = getelementptr inbounds nuw { { { i64 } }, [15 x i64] }, ptr @_ZN15crossbeam_utils6atomic11atomic_cell4lock5LOCKS17h1d6d82bcdf51e06aE, i64 %3
+  %4 = getelementptr inbounds nuw [128 x i8], ptr @_ZN15crossbeam_utils6atomic11atomic_cell4lock5LOCKS17h1d6d82bcdf51e06aE, i64 %3
   %5 = load atomic i64, ptr %4 acquire, align 8
   %.not = icmp eq i64 %5, 1
   br i1 %.not, label %10, label %6
@@ -89,7 +89,7 @@ _ZN15crossbeam_utils6atomic8seq_lock7SeqLock5write17hcee33be407eb2aebE.exit: ; p
 define hidden void @_ZN15crossbeam_utils6atomic11atomic_cell28atomic_compare_exchange_weak17h4a628e3a1925800fE(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = ptrtoint ptr %1 to i64
   %8 = urem i64 %7, 67
-  %9 = getelementptr inbounds nuw { { { i64 } }, [15 x i64] }, ptr @_ZN15crossbeam_utils6atomic11atomic_cell4lock5LOCKS17h1d6d82bcdf51e06aE, i64 %8
+  %9 = getelementptr inbounds nuw [128 x i8], ptr @_ZN15crossbeam_utils6atomic11atomic_cell4lock5LOCKS17h1d6d82bcdf51e06aE, i64 %8
   %10 = atomicrmw xchg ptr %9, i64 1 acquire, align 8
   %11 = icmp eq i64 %10, 1
   br i1 %11, label %.lr.ph.i, label %.loopexit

@@ -47,7 +47,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
 %"class.std::locale" = type { ptr }
 %"struct.std::piecewise_construct_t" = type { i8 }
-%class.VDouble0 = type { double }
 %class.V3DfgPeephole = type { %class.DfgVisitor, ptr, ptr, ptr, ptr, %"class.V3DfgCacheInternal::V3DfgCache" }
 %class.DfgVisitor = type { ptr }
 %"class.V3DfgCacheInternal::V3DfgCache" = type { ptr, %"class.std::unordered_map.52", %"class.std::unordered_map.68", %"class.std::unordered_map.68", %"class.std::unordered_map.84", %"class.std::unordered_map.84", %"class.std::unordered_map.84", %"class.std::unordered_map.84", %"class.std::unordered_map.84", %"class.std::unordered_map.84", %"class.std::unordered_map.84", %"class.std::unordered_map.84", %"class.std::unordered_map.84", %"class.std::unordered_map.84", %"class.std::unordered_map.84", %"class.std::unordered_map.84", %"class.std::unordered_map.84", %"class.std::unordered_map.68", %"class.std::unordered_map.68", %"class.std::unordered_map.68", %"class.std::unordered_map.100" }
@@ -65,7 +64,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
 %"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
 %"union.std::_Nocopy_types" = type { { i64, i64 } }
-%class.DfgEdge = type { ptr, ptr, ptr, ptr }
 %class.anon.202 = type { ptr }
 %"class.std::function.126" = type { %"class.std::_Function_base", ptr }
 %"class.std::tuple" = type { %"struct.std::_Tuple_impl" }
@@ -81,7 +79,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.188" = type { %"struct.std::_Tuple_impl.189" }
 %"struct.std::_Tuple_impl.189" = type { %"struct.std::_Head_base.172" }
 %"class.std::function.195" = type { %"class.std::_Function_base", ptr }
-%"struct.std::pair.199" = type <{ ptr, i32, [4 x i8] }>
 %"class.std::unordered_map.203" = type { %"class.std::_Hashtable.204" }
 %"class.std::_Hashtable.204" = type { [8 x i8], ptr, i64, %"struct.std::__detail::_Hash_node_base", i64, %"struct.std::__detail::_Prime_rehash_policy", ptr }
 %"class.std::tuple.236" = type { %"struct.std::_Tuple_impl.237" }
@@ -1627,7 +1624,7 @@ define internal fastcc void @"_ZZN20V3DfgPeepholeContextC1ERKNSt7__cxx1112basic_
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %4 = zext i32 %0 to i64
-  %5 = getelementptr inbounds nuw ptr, ptr @_ZZNK19VDfgPeepholePattern5asciiEvE5names, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK19VDfgPeepholePattern5asciiEvE5names, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %7, ptr %3, align 8, !tbaa !4
@@ -2092,7 +2089,7 @@ define internal fastcc void @"_ZZN20V3DfgPeepholeContextD1EvENK3$_0clE19VDfgPeep
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %7 = zext i32 %0 to i64
-  %8 = getelementptr inbounds nuw ptr, ptr @_ZZNK19VDfgPeepholePattern5asciiEvE5names, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK19VDfgPeepholePattern5asciiEvE5names, i64 %7
   %9 = load ptr, ptr %8, align 8, !tbaa !19
   %10 = getelementptr inbounds nuw i8, ptr %3, i64 16
   store ptr %10, ptr %3, align 8, !tbaa !4
@@ -2270,7 +2267,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i18
   store i64 0, ptr %75, align 8, !tbaa !13
   store i8 0, ptr %65, align 8, !tbaa !15
   %77 = getelementptr inbounds nuw i8, ptr %.0.val, i64 104
-  %78 = getelementptr inbounds nuw %class.VDouble0, ptr %77, i64 %7
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %7
   %79 = load double, ptr %78, align 8, !tbaa !16
   invoke void @_ZN7V3Stats7addStatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEdj(ptr noundef nonnull align 8 dereferenceable(32) %4, double noundef %79, i32 noundef 0)
           to label %80 unwind label %104
@@ -3266,7 +3263,7 @@ define linkonce_odr dso_local void @_ZN13V3DfgPeephole12deleteVertexEP9DfgVertex
   unreachable
 
 _ZNKSt8functionIFvR7DfgEdgemEEclES1_m.exit.i:     ; preds = %.lr.ph.i
-  %19 = getelementptr inbounds nuw %class.DfgEdge, ptr %15, i64 %.06.i
+  %19 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 %.06.i
   %20 = load ptr, ptr %10, align 8, !tbaa !190
   invoke void %20(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %19, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %.noexc10 unwind label %.loopexit
@@ -8484,7 +8481,7 @@ define linkonce_odr dso_local void @_ZN13V3DfgPeephole20addSourcesToWorkListEP9D
 
 .lr.ph.i:                                         ; preds = %.noexc, %.noexc4
   %.08.i = phi i64 [ %21, %.noexc4 ], [ 0, %.noexc ]
-  %14 = getelementptr inbounds nuw %class.DfgEdge, ptr %12, i64 %.08.i
+  %14 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 %.08.i
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !205
   %.not.i = icmp eq ptr %16, null
@@ -8598,7 +8595,7 @@ define linkonce_odr dso_local void @_ZN9DfgVertex17forEachSourceEdgeESt8function
   unreachable
 
 _ZNKSt8functionIFvR7DfgEdgemEEclES1_m.exit:       ; preds = %12
-  %15 = getelementptr inbounds nuw %class.DfgEdge, ptr %8, i64 %.06
+  %15 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 %.06
   %16 = load ptr, ptr %11, align 8, !tbaa !190
   call void %16(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %15, ptr noundef nonnull align 8 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -8638,7 +8635,7 @@ define linkonce_odr dso_local void @_ZN9DfgVertex13forEachSourceESt8functionIFvR
 
 11:                                               ; preds = %.lr.ph, %19
   %.08 = phi i64 [ 0, %.lr.ph ], [ %20, %19 ]
-  %12 = getelementptr inbounds nuw %class.DfgEdge, ptr %7, i64 %.08
+  %12 = getelementptr inbounds nuw [32 x i8], ptr %7, i64 %.08
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !205
   %.not = icmp eq ptr %14, null
@@ -9275,7 +9272,7 @@ _ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic
           to label %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit unwind label %31
 
 _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %_ZStlsIcSt11char_traitsIcESaIcEERSt13basic_ostreamIT_T0_ES7_RKNSt7__cxx1112basic_stringIS4_S5_T1_EE.exit
-  %21 = getelementptr inbounds nuw ptr, ptr @_ZZNK19VDfgPeepholePattern5asciiEvE5names, i64 %7
+  %21 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK19VDfgPeepholePattern5asciiEvE5names, i64 %7
   %22 = load ptr, ptr %21, align 8, !tbaa !19
   %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef %22)
           to label %24 unwind label %31
@@ -9321,7 +9318,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit5: ; preds = %31, 
 38:                                               ; preds = %11, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %39 = load ptr, ptr %4, align 8, !tbaa !244
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 104
-  %41 = getelementptr inbounds nuw %class.VDouble0, ptr %40, i64 %7
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %7
   %42 = load double, ptr %41, align 8, !tbaa !16
   %43 = fadd double %42, 1.000000e+00
   store double %43, ptr %41, align 8, !tbaa !16
@@ -10138,7 +10135,7 @@ _ZN12V3NumberData13destroyStringEv.exit.thread.i: ; preds = %11, %_ZN12V3NumberD
   %27 = shl nuw nsw i64 %26, 3
   %28 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %27) #28
   store ptr %28, ptr %0, align 8, !tbaa !276
-  %29 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %28, i64 %26
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %26
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %29, ptr %30, align 8, !tbaa !279
   store i64 0, ptr %28, align 4
@@ -10187,7 +10184,7 @@ _ZN12V3NumberData3numEv.exit:                     ; preds = %.lr.ph, %_ZN12V3Num
   %48 = icmp slt i32 %47, 129
   %49 = load ptr, ptr %0, align 8
   %spec.select.i = select i1 %48, ptr %0, ptr %49
-  %50 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %spec.select.i, i64 %indvars.iv
   store i32 0, ptr %50, align 4, !tbaa !269
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %50, i64 4
   store i32 0, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !269
@@ -10352,7 +10349,7 @@ define linkonce_odr dso_local void @_ZN12V3NumberData6resizeEi(ptr noundef nonnu
   br i1 %33, label %34, label %.sink.split
 
 34:                                               ; preds = %32
-  %35 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %24, i64 %21
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %21
   %.not.i.i = icmp eq ptr %23, %35
   br i1 %.not.i.i, label %.sink.split, label %36
 
@@ -10389,7 +10386,7 @@ _ZNSt6vectorIN12V3NumberData9ValueAndXESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
   %49 = shl nuw nsw i64 %48, 3
   %50 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %49) #28
   store ptr %50, ptr %0, align 8, !tbaa !276
-  %51 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %50, i64 %48
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %48
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %51, ptr %52, align 8, !tbaa !279
   store i64 0, ptr %50, align 4
@@ -10595,9 +10592,9 @@ _ZNSt6vectorIN12V3NumberData9ValueAndXESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
 
 _ZNSt12_Vector_baseIN12V3NumberData9ValueAndXESaIS1_EE13_M_deallocateEPS1_m.exit38: ; preds = %_ZNSt6vectorIN12V3NumberData9ValueAndXESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %44
   store ptr %33, ptr %0, align 8, !tbaa !276
-  %46 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %34, i64 %1
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %1
   store ptr %46, ptr %4, align 8, !tbaa !281
-  %47 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %33, i64 %31
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %31
   store ptr %47, ptr %11, align 8, !tbaa !279
   br label %48
 
@@ -11230,7 +11227,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS1_P15DfgVertexBinary
   store i64 %2, ptr %32, align 8, !tbaa !305
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !183
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %.0
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %.0
   %36 = load ptr, ptr %35, align 8, !tbaa !307
   %.not.i = icmp eq ptr %36, null
   br i1 %.not.i, label %40, label %37
@@ -11256,7 +11253,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS1_P15DfgVertexBinary
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %47 = load i64, ptr %46, align 8, !tbaa !305
   %48 = urem i64 %47, %45
-  %49 = getelementptr inbounds nuw ptr, ptr %34, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %48
   store ptr %3, ptr %49, align 8, !tbaa !307
   br label %50
 
@@ -11332,7 +11329,7 @@ define linkonce_odr dso_local void @_ZNK9DfgVertex8typeNameB5cxx11Ev(ptr dead_on
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %5 = load i16, ptr %4, align 8, !tbaa !308
   %6 = zext i16 %5 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr @_ZZNK8VDfgType5asciiEvE5names, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK8VDfgType5asciiEvE5names, i64 %6
   %8 = load ptr, ptr %7, align 8, !tbaa !19
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %9, ptr %0, align 8, !tbaa !4
@@ -11380,7 +11377,7 @@ define linkonce_odr dso_local void @_ZNK9DfgVertex8typeNameB5cxx11Ev(ptr dead_on
 define linkonce_odr dso_local noundef ptr @_ZNK8VDfgType5asciiEv(ptr noundef nonnull align 2 dereferenceable(2) %0) #5 comdat align 2 {
   %2 = load i16, ptr %0, align 2, !tbaa !308
   %3 = zext i16 %2 to i64
-  %4 = getelementptr inbounds nuw ptr, ptr @_ZZNK8VDfgType5asciiEvE5names, i64 %3
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK8VDfgType5asciiEvE5names, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !19
   ret ptr %5
 }
@@ -11397,7 +11394,7 @@ declare i32 @_ZNK8V3Number6toHashEv(ptr noundef nonnull align 8 dereferenceable(
 define linkonce_odr dso_local noundef ptr @_ZNKSt10_HashtableIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS1_P15DfgVertexBinaryESaIS6_ENSt8__detail10_Select1stENS1_5EqualENS1_4HashENS8_18_Mod_range_hashingENS8_20_Default_ranged_hashENS8_20_Prime_rehash_policyENS8_17_Hashtable_traitsILb1ELb0ELb1EEEE19_M_find_before_nodeEmRS3_m(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 noundef %3) local_unnamed_addr #3 comdat align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !183
-  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %1
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %1
   %8 = load ptr, ptr %7, align 8, !tbaa !307
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %_ZNKSt8__detail15_Hashtable_baseIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS2_P15DfgVertexBinaryENS_10_Select1stENS2_5EqualENS2_4HashENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_17_Hashtable_traitsILb1ELb0ELb1EEEE9_M_equalsERS4_mRKNS_16_Hash_node_valueIS7_Lb1EEE.exit.thread20, label %9
@@ -11530,7 +11527,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS1_P15DfgVertexBinary
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 32
   %16 = load i64, ptr %15, align 8, !tbaa !305
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !307
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -11545,7 +11542,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal9KeyBinaryESt4pairIKS1_P15DfgVertexBinary
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !307
   br label %28
 
@@ -11621,7 +11618,7 @@ define linkonce_odr dso_local { ptr, i64 } @_ZNK18DfgVertexWithArityILm2EE11sour
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK6DfgAdd7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
-  %5 = getelementptr inbounds nuw ptr, ptr @_ZZNK6DfgAdd7srcNameB5cxx11EmE5names, i64 %2
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK6DfgAdd7srcNameB5cxx11EmE5names, i64 %2
   %6 = load ptr, ptr %5, align 8, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %7, ptr %0, align 8, !tbaa !4
@@ -12784,7 +12781,7 @@ define linkonce_odr dso_local void @_ZN6DfgAnd6acceptER10DfgVisitor(ptr noundef 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK6DfgAnd7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
-  %5 = getelementptr inbounds nuw ptr, ptr @_ZZNK6DfgAnd7srcNameB5cxx11EmE5names, i64 %2
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK6DfgAnd7srcNameB5cxx11EmE5names, i64 %2
   %6 = load ptr, ptr %5, align 8, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %7, ptr %0, align 8, !tbaa !4
@@ -13035,7 +13032,7 @@ define linkonce_odr dso_local void @_ZN5DfgOr6acceptER10DfgVisitor(ptr noundef n
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK5DfgOr7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
-  %5 = getelementptr inbounds nuw ptr, ptr @_ZZNK5DfgOr7srcNameB5cxx11EmE5names, i64 %2
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK5DfgOr7srcNameB5cxx11EmE5names, i64 %2
   %6 = load ptr, ptr %5, align 8, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %7, ptr %0, align 8, !tbaa !4
@@ -13273,7 +13270,7 @@ _ZNKSt8__detail15_Hashtable_baseIN18V3DfgCacheInternal8KeyUnaryESt4pairIKS2_P14D
 52:                                               ; preds = %46
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %54 = load ptr, ptr %53, align 8, !tbaa !181
-  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %50
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %50
   %56 = load ptr, ptr %55, align 8, !tbaa !307
   %.not.i.i = icmp eq ptr %56, null
   br i1 %.not.i.i, label %.critedge29, label %57
@@ -13433,7 +13430,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal8KeyUnaryESt4pairIKS1_P14DfgVertexUnaryES
   store i64 %2, ptr %32, align 8, !tbaa !305
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !181
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %.0
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %.0
   %36 = load ptr, ptr %35, align 8, !tbaa !307
   %.not.i = icmp eq ptr %36, null
   br i1 %.not.i, label %40, label %37
@@ -13459,7 +13456,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal8KeyUnaryESt4pairIKS1_P14DfgVertexUnaryES
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %47 = load i64, ptr %46, align 8, !tbaa !305
   %48 = urem i64 %47, %45
-  %49 = getelementptr inbounds nuw ptr, ptr %34, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %48
   store ptr %3, ptr %49, align 8, !tbaa !307
   br label %50
 
@@ -13521,7 +13518,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal8KeyUnaryESt4pairIKS1_P14DfgVertexUnaryES
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 24
   %16 = load i64, ptr %15, align 8, !tbaa !305
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !307
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -13536,7 +13533,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal8KeyUnaryESt4pairIKS1_P14DfgVertexUnaryES
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !307
   br label %28
 
@@ -13608,7 +13605,7 @@ define linkonce_odr dso_local { ptr, i64 } @_ZNK18DfgVertexWithArityILm1EE11sour
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK6DfgNot7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
-  %5 = getelementptr inbounds nuw ptr, ptr @_ZZNK6DfgNot7srcNameB5cxx11EmE5names, i64 %2
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK6DfgNot7srcNameB5cxx11EmE5names, i64 %2
   %6 = load ptr, ptr %5, align 8, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %7, ptr %0, align 8, !tbaa !4
@@ -13769,7 +13766,7 @@ define linkonce_odr dso_local void @_ZN5DfgEq6acceptER10DfgVisitor(ptr noundef n
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK5DfgEq7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
-  %5 = getelementptr inbounds nuw ptr, ptr @_ZZNK5DfgEq7srcNameB5cxx11EmE5names, i64 %2
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK5DfgEq7srcNameB5cxx11EmE5names, i64 %2
   %6 = load ptr, ptr %5, align 8, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %7, ptr %0, align 8, !tbaa !4
@@ -14026,7 +14023,7 @@ define linkonce_odr dso_local void @_ZN9DfgConcat6acceptER10DfgVisitor(ptr nound
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK9DfgConcat7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
-  %5 = getelementptr inbounds nuw ptr, ptr @_ZZNK9DfgConcat7srcNameB5cxx11EmE5names, i64 %2
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK9DfgConcat7srcNameB5cxx11EmE5names, i64 %2
   %6 = load ptr, ptr %5, align 8, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %7, ptr %0, align 8, !tbaa !4
@@ -14179,7 +14176,7 @@ define linkonce_odr dso_local void @_ZN9DfgRedAnd6acceptER10DfgVisitor(ptr nound
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK9DfgRedAnd7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
-  %5 = getelementptr inbounds nuw ptr, ptr @_ZZNK9DfgRedAnd7srcNameB5cxx11EmE5names, i64 %2
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK9DfgRedAnd7srcNameB5cxx11EmE5names, i64 %2
   %6 = load ptr, ptr %5, align 8, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %7, ptr %0, align 8, !tbaa !4
@@ -14275,7 +14272,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK11DfgVarArray8driverAtEm(ptr noun
   unreachable
 
 _ZNKSt8functionIFbRK7DfgEdgemEEclES2_m.exit.i:    ; preds = %.lr.ph.i
-  %17 = getelementptr inbounds nuw %class.DfgEdge, ptr %11, i64 %.01416.i
+  %17 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 %.01416.i
   %18 = load ptr, ptr %6, align 8, !tbaa !399
   %19 = invoke noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(8) %3)
           to label %.noexc6 unwind label %.loopexit
@@ -14385,7 +14382,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK9DfgVertex14findSourceEdgeESt8fun
   unreachable
 
 _ZNKSt8functionIFbRK7DfgEdgemEEclES2_m.exit:      ; preds = %14
-  %17 = getelementptr inbounds nuw %class.DfgEdge, ptr %8, i64 %.01416
+  %17 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 %.01416
   %18 = load ptr, ptr %11, align 8, !tbaa !399
   %19 = call noundef zeroext i1 %18(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %17, ptr noundef nonnull align 8 dereferenceable(8) %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -14402,7 +14399,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNSt17_Function_handlerIFbRK7
   %5 = load ptr, ptr %0, align 8, !tbaa !402
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 104
   %7 = load ptr, ptr %6, align 8, !tbaa !404
-  %8 = getelementptr inbounds nuw %"struct.std::pair.199", ptr %7, i64 %4
+  %8 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %4
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load i32, ptr %9, align 8, !tbaa !407
   %11 = zext i32 %10 to i64
@@ -15354,7 +15351,7 @@ define linkonce_odr dso_local void @_ZN9DfgShiftR6acceptER10DfgVisitor(ptr nound
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK9DfgShiftR7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
-  %5 = getelementptr inbounds nuw ptr, ptr @_ZZNK9DfgShiftR7srcNameB5cxx11EmE5names, i64 %2
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK9DfgShiftR7srcNameB5cxx11EmE5names, i64 %2
   %6 = load ptr, ptr %5, align 8, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %7, ptr %0, align 8, !tbaa !4
@@ -15515,7 +15512,7 @@ define linkonce_odr dso_local void @_ZN9DfgShiftL6acceptER10DfgVisitor(ptr nound
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK9DfgShiftL7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
-  %5 = getelementptr inbounds nuw ptr, ptr @_ZZNK9DfgShiftL7srcNameB5cxx11EmE5names, i64 %2
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK9DfgShiftL7srcNameB5cxx11EmE5names, i64 %2
   %6 = load ptr, ptr %5, align 8, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %7, ptr %0, align 8, !tbaa !4
@@ -15950,7 +15947,7 @@ _ZNKSt8__detail15_Hashtable_baseIN18V3DfgCacheInternal6KeySelESt4pairIKS2_P6DfgS
 86:                                               ; preds = %66
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %88 = load ptr, ptr %87, align 8, !tbaa !178
-  %89 = getelementptr inbounds nuw ptr, ptr %88, i64 %84
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %84
   %90 = load ptr, ptr %89, align 8, !tbaa !307
   %.not.i.i = icmp eq ptr %90, null
   br i1 %.not.i.i, label %.critedge29, label %91
@@ -16124,7 +16121,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal6KeySelESt4pairIKS1_P6DfgSelESaIS6_ENSt8_
   store i64 %2, ptr %32, align 8, !tbaa !305
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !178
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %.0
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %.0
   %36 = load ptr, ptr %35, align 8, !tbaa !307
   %.not.i = icmp eq ptr %36, null
   br i1 %.not.i, label %40, label %37
@@ -16150,7 +16147,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal6KeySelESt4pairIKS1_P6DfgSelESaIS6_ENSt8_
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 32
   %47 = load i64, ptr %46, align 8, !tbaa !305
   %48 = urem i64 %47, %45
-  %49 = getelementptr inbounds nuw ptr, ptr %34, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %48
   store ptr %3, ptr %49, align 8, !tbaa !307
   br label %50
 
@@ -16212,7 +16209,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal6KeySelESt4pairIKS1_P6DfgSelESaIS6_ENSt8_
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 32
   %16 = load i64, ptr %15, align 8, !tbaa !305
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !307
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -16227,7 +16224,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal6KeySelESt4pairIKS1_P6DfgSelESaIS6_ENSt8_
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !307
   br label %28
 
@@ -16779,7 +16776,7 @@ define linkonce_odr dso_local noundef ptr @_ZN13V3DfgPeephole4makeI7DfgCondJP9Df
 
 24:                                               ; preds = %24, %.noexc.i.i
   %.09.i.i.i.i.i = phi i64 [ 0, %.noexc.i.i ], [ %27, %24 ]
-  %25 = getelementptr inbounds nuw %class.DfgEdge, ptr %23, i64 %.09.i.i.i.i.i
+  %25 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %.09.i.i.i.i.i
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store ptr %22, ptr %26, align 8, !tbaa !247
   %27 = add nuw nsw i64 %.09.i.i.i.i.i, 1
@@ -16948,7 +16945,7 @@ _ZNKSt8__detail15_Hashtable_baseIN18V3DfgCacheInternal10KeyTernaryESt4pairIKS2_P
 38:                                               ; preds = %33
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %40 = load ptr, ptr %39, align 8, !tbaa !185
-  %41 = getelementptr inbounds nuw ptr, ptr %40, i64 %36
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %36
   %42 = load ptr, ptr %41, align 8, !tbaa !307
   %.not.i.i = icmp eq ptr %42, null
   br i1 %.not.i.i, label %.critedge29, label %43
@@ -17088,7 +17085,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal10KeyTernaryESt4pairIKS1_P16DfgVertexTern
   store i64 %2, ptr %32, align 8, !tbaa !305
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !185
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %.0
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %.0
   %36 = load ptr, ptr %35, align 8, !tbaa !307
   %.not.i = icmp eq ptr %36, null
   br i1 %.not.i, label %40, label %37
@@ -17114,7 +17111,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal10KeyTernaryESt4pairIKS1_P16DfgVertexTern
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 40
   %47 = load i64, ptr %46, align 8, !tbaa !305
   %48 = urem i64 %47, %45
-  %49 = getelementptr inbounds nuw ptr, ptr %34, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %48
   store ptr %3, ptr %49, align 8, !tbaa !307
   br label %50
 
@@ -17356,7 +17353,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal10KeyTernaryESt4pairIKS1_P16DfgVertexTern
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 40
   %16 = load i64, ptr %15, align 8, !tbaa !305
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !307
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -17371,7 +17368,7 @@ _ZNSt10_HashtableIN18V3DfgCacheInternal10KeyTernaryESt4pairIKS1_P16DfgVertexTern
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !307
   br label %28
 
@@ -17443,7 +17440,7 @@ define linkonce_odr dso_local { ptr, i64 } @_ZNK18DfgVertexWithArityILm3EE11sour
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK7DfgCond7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(168) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
-  %5 = getelementptr inbounds nuw ptr, ptr @_ZZNK7DfgCond7srcNameB5cxx11EmE5names, i64 %2
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK7DfgCond7srcNameB5cxx11EmE5names, i64 %2
   %6 = load ptr, ptr %5, align 8, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %7, ptr %0, align 8, !tbaa !4
@@ -17547,7 +17544,7 @@ define linkonce_odr dso_local noundef ptr @_ZN13V3DfgPeephole4makeI7DfgCondJP5Df
 
 24:                                               ; preds = %24, %.noexc.i.i
   %.09.i.i.i.i.i = phi i64 [ 0, %.noexc.i.i ], [ %27, %24 ]
-  %25 = getelementptr inbounds nuw %class.DfgEdge, ptr %23, i64 %.09.i.i.i.i.i
+  %25 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %.09.i.i.i.i.i
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store ptr %22, ptr %26, align 8, !tbaa !247
   %27 = add nuw nsw i64 %.09.i.i.i.i.i, 1
@@ -17624,7 +17621,7 @@ define linkonce_odr dso_local void @_ZN6DfgSub6acceptER10DfgVisitor(ptr noundef 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK6DfgSub7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
-  %5 = getelementptr inbounds nuw ptr, ptr @_ZZNK6DfgSub7srcNameB5cxx11EmE5names, i64 %2
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK6DfgSub7srcNameB5cxx11EmE5names, i64 %2
   %6 = load ptr, ptr %5, align 8, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %7, ptr %0, align 8, !tbaa !4
@@ -19289,7 +19286,7 @@ define linkonce_odr dso_local void @_ZN6DfgMul6acceptER10DfgVisitor(ptr noundef 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK6DfgMul7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
-  %5 = getelementptr inbounds nuw ptr, ptr @_ZZNK6DfgMul7srcNameB5cxx11EmE5names, i64 %2
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK6DfgMul7srcNameB5cxx11EmE5names, i64 %2
   %6 = load ptr, ptr %5, align 8, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %7, ptr %0, align 8, !tbaa !4
@@ -20172,7 +20169,7 @@ define linkonce_odr dso_local void @_ZN7DfgMulS6acceptER10DfgVisitor(ptr noundef
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK7DfgMulS7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
-  %5 = getelementptr inbounds nuw ptr, ptr @_ZZNK7DfgMulS7srcNameB5cxx11EmE5names, i64 %2
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK7DfgMulS7srcNameB5cxx11EmE5names, i64 %2
   %6 = load ptr, ptr %5, align 8, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %7, ptr %0, align 8, !tbaa !4
@@ -20370,7 +20367,7 @@ define linkonce_odr dso_local noundef ptr @_ZN13V3DfgPeephole4makeI7DfgCondJP9Df
 
 24:                                               ; preds = %24, %.noexc.i.i
   %.09.i.i.i.i.i = phi i64 [ 0, %.noexc.i.i ], [ %27, %24 ]
-  %25 = getelementptr inbounds nuw %class.DfgEdge, ptr %23, i64 %.09.i.i.i.i.i
+  %25 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %.09.i.i.i.i.i
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store ptr %22, ptr %26, align 8, !tbaa !247
   %27 = add nuw nsw i64 %.09.i.i.i.i.i, 1
@@ -20533,7 +20530,7 @@ define linkonce_odr dso_local void @_ZN6DfgNeq6acceptER10DfgVisitor(ptr noundef 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK6DfgNeq7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
-  %5 = getelementptr inbounds nuw ptr, ptr @_ZZNK6DfgNeq7srcNameB5cxx11EmE5names, i64 %2
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK6DfgNeq7srcNameB5cxx11EmE5names, i64 %2
   %6 = load ptr, ptr %5, align 8, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %7, ptr %0, align 8, !tbaa !4
@@ -21852,7 +21849,7 @@ define linkonce_odr dso_local void @_ZN8DfgRedOr6acceptER10DfgVisitor(ptr nounde
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK8DfgRedOr7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
-  %5 = getelementptr inbounds nuw ptr, ptr @_ZZNK8DfgRedOr7srcNameB5cxx11EmE5names, i64 %2
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK8DfgRedOr7srcNameB5cxx11EmE5names, i64 %2
   %6 = load ptr, ptr %5, align 8, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %7, ptr %0, align 8, !tbaa !4
@@ -22189,7 +22186,7 @@ define linkonce_odr dso_local noundef ptr @_ZN13V3DfgPeephole4makeI7DfgCondJP9Df
 
 24:                                               ; preds = %24, %.noexc.i.i
   %.09.i.i.i.i.i = phi i64 [ 0, %.noexc.i.i ], [ %27, %24 ]
-  %25 = getelementptr inbounds nuw %class.DfgEdge, ptr %23, i64 %.09.i.i.i.i.i
+  %25 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %.09.i.i.i.i.i
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store ptr %22, ptr %26, align 8, !tbaa !247
   %27 = add nuw nsw i64 %.09.i.i.i.i.i, 1
@@ -22610,7 +22607,7 @@ define linkonce_odr dso_local noundef ptr @_ZN13V3DfgPeephole4makeI7DfgCondJP9Df
 
 24:                                               ; preds = %24, %.noexc.i.i
   %.09.i.i.i.i.i = phi i64 [ 0, %.noexc.i.i ], [ %27, %24 ]
-  %25 = getelementptr inbounds nuw %class.DfgEdge, ptr %23, i64 %.09.i.i.i.i.i
+  %25 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %.09.i.i.i.i.i
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store ptr %22, ptr %26, align 8, !tbaa !247
   %27 = add nuw nsw i64 %.09.i.i.i.i.i, 1
@@ -23031,7 +23028,7 @@ define linkonce_odr dso_local noundef ptr @_ZN13V3DfgPeephole4makeI7DfgCondJP9Df
 
 24:                                               ; preds = %24, %.noexc.i.i
   %.09.i.i.i.i.i = phi i64 [ 0, %.noexc.i.i ], [ %27, %24 ]
-  %25 = getelementptr inbounds nuw %class.DfgEdge, ptr %23, i64 %.09.i.i.i.i.i
+  %25 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %.09.i.i.i.i.i
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store ptr %22, ptr %26, align 8, !tbaa !247
   %27 = add nuw nsw i64 %.09.i.i.i.i.i, 1
@@ -23194,7 +23191,7 @@ define linkonce_odr dso_local void @_ZN9DfgRedXor6acceptER10DfgVisitor(ptr nound
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK9DfgRedXor7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(104) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
-  %5 = getelementptr inbounds nuw ptr, ptr @_ZZNK9DfgRedXor7srcNameB5cxx11EmE5names, i64 %2
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK9DfgRedXor7srcNameB5cxx11EmE5names, i64 %2
   %6 = load ptr, ptr %5, align 8, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %7, ptr %0, align 8, !tbaa !4
@@ -23265,7 +23262,7 @@ define linkonce_odr dso_local void @_ZN6DfgXor6acceptER10DfgVisitor(ptr noundef 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK6DfgXor7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
-  %5 = getelementptr inbounds nuw ptr, ptr @_ZZNK6DfgXor7srcNameB5cxx11EmE5names, i64 %2
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK6DfgXor7srcNameB5cxx11EmE5names, i64 %2
   %6 = load ptr, ptr %5, align 8, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %7, ptr %0, align 8, !tbaa !4
@@ -23543,7 +23540,7 @@ define linkonce_odr dso_local noundef ptr @_ZN13V3DfgPeephole4makeI7DfgCondJP9Df
 
 24:                                               ; preds = %24, %.noexc.i.i
   %.09.i.i.i.i.i = phi i64 [ 0, %.noexc.i.i ], [ %27, %24 ]
-  %25 = getelementptr inbounds nuw %class.DfgEdge, ptr %23, i64 %.09.i.i.i.i.i
+  %25 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %.09.i.i.i.i.i
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store ptr %22, ptr %26, align 8, !tbaa !247
   %27 = add nuw nsw i64 %.09.i.i.i.i.i, 1
@@ -23983,7 +23980,7 @@ define linkonce_odr dso_local void @_ZN10DfgShiftRS6acceptER10DfgVisitor(ptr nou
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNK10DfgShiftRS7srcNameB5cxx11Em(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(136) %1, i64 noundef %2) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
-  %5 = getelementptr inbounds nuw ptr, ptr @_ZZNK10DfgShiftRS7srcNameB5cxx11EmE5names, i64 %2
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK10DfgShiftRS7srcNameB5cxx11EmE5names, i64 %2
   %6 = load ptr, ptr %5, align 8, !tbaa !19
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %7, ptr %0, align 8, !tbaa !4

@@ -809,7 +809,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit: ; preds = %_ZN
 
 64:                                               ; preds = %61
   %65 = load ptr, ptr %62, align 8, !tbaa !64, !noalias !67
-  %66 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %65, i64 %indvars.iv
   %67 = load ptr, ptr %66, align 8, !tbaa !15, !noalias !67
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN11flatbuffers14FlatBufServiceE, i64 16), ptr %63, align 8, !tbaa !46, !noalias !67
   %68 = getelementptr inbounds nuw i8, ptr %63, i64 8
@@ -817,7 +817,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit: ; preds = %_ZN
   %69 = load ptr, ptr %11, align 8, !tbaa !53
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 360
   %71 = load ptr, ptr %70, align 8, !tbaa !64
-  %72 = getelementptr inbounds nuw ptr, ptr %71, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %indvars.iv
   %73 = load ptr, ptr %72, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 168
@@ -4502,7 +4502,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN11flatbuffers17JavaGRPCGene
 
 ._crit_edge.i.i:                                  ; preds = %50
   %53 = load ptr, ptr %51, align 8, !tbaa !64, !noalias !133
-  %54 = getelementptr inbounds nuw ptr, ptr %53, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %indvars.iv
   %55 = load ptr, ptr %54, align 8, !tbaa !15, !noalias !133
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN11flatbuffers14FlatBufServiceE, i64 16), ptr %52, align 8, !tbaa !46, !noalias !133
   %56 = getelementptr inbounds nuw i8, ptr %52, i64 8
@@ -4510,7 +4510,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN11flatbuffers17JavaGRPCGene
   %57 = load ptr, ptr %10, align 8, !tbaa !130
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 360
   %59 = load ptr, ptr %58, align 8, !tbaa !64
-  %60 = getelementptr inbounds nuw ptr, ptr %59, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %indvars.iv
   %61 = load ptr, ptr %60, align 8, !tbaa !15
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 168
@@ -5455,7 +5455,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i28
 
 79:                                               ; preds = %76
   %80 = load ptr, ptr %77, align 8, !tbaa !64, !noalias !251
-  %81 = getelementptr inbounds nuw ptr, ptr %80, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %indvars.iv
   %82 = load ptr, ptr %81, align 8, !tbaa !15, !noalias !251
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN11flatbuffers14FlatBufServiceE, i64 16), ptr %78, align 8, !tbaa !46, !noalias !251
   %83 = getelementptr inbounds nuw i8, ptr %78, i64 8
@@ -5974,7 +5974,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN11flatbuffers15TSGRPCGenera
   %50 = phi ptr [ %17, %.lr.ph ], [ %41, %39 ]
   %51 = call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #23
   %52 = load ptr, ptr %50, align 8, !tbaa !64, !noalias !258
-  %53 = getelementptr inbounds nuw ptr, ptr %52, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %indvars.iv
   %54 = load ptr, ptr %53, align 8, !tbaa !15, !noalias !258
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN11flatbuffers14FlatBufServiceE, i64 16), ptr %51, align 8, !tbaa !46, !noalias !258
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 8
@@ -6647,7 +6647,7 @@ define linkonce_odr dso_local void @_ZNK11flatbuffers11FlatBufFile7serviceEi(ptr
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 360
   %8 = sext i32 %2 to i64
   %9 = load ptr, ptr %7, align 8, !tbaa !64
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %8
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %8
   %11 = load ptr, ptr %10, align 8, !tbaa !15
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN11flatbuffers14FlatBufServiceE, i64 16), ptr %4, align 8, !tbaa !46
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -7034,7 +7034,7 @@ define linkonce_odr dso_local void @_ZNK11flatbuffers14FlatBufService6methodEi(p
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 248
   %8 = sext i32 %2 to i64
   %9 = load ptr, ptr %7, align 8, !tbaa !296
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %8
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %8
   %11 = load ptr, ptr %10, align 8, !tbaa !297
   invoke void @_ZN11flatbuffers13FlatBufMethodC2EPKNS_7RPCCallE(ptr noundef nonnull align 8 dereferenceable(20) %4, ptr noundef %11)
           to label %12 unwind label %13

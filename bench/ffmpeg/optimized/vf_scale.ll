@@ -498,7 +498,7 @@ define internal range(i32 -2147483648, 1) i32 @init(ptr noundef %0) #0 {
 140:                                              ; preds = %121, %149
   %141 = phi i1 [ true, %121 ], [ false, %149 ]
   %indvars.iv = phi i64 [ 0, %121 ], [ 1, %149 ]
-  %142 = getelementptr inbounds nuw double, ptr %122, i64 %indvars.iv
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %122, i64 %indvars.iv
   %143 = load double, ptr %142, align 8, !tbaa !54
   %144 = fcmp nsz une double %143, 0x7FEFFFFFFFFFFFFF
   br i1 %144, label %145, label %149
@@ -506,7 +506,7 @@ define internal range(i32 -2147483648, 1) i32 @init(ptr noundef %0) #0 {
 145:                                              ; preds = %140
   %146 = load ptr, ptr %123, align 8, !tbaa !20
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 24
-  %148 = getelementptr inbounds nuw double, ptr %147, i64 %indvars.iv
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %147, i64 %indvars.iv
   store double %143, ptr %148, align 8, !tbaa !54
   br label %149
 
@@ -657,7 +657,7 @@ define internal range(i32 -2147483648, 1) i32 @query_formats(ptr noundef readonl
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load ptr, ptr %46, align 8, !tbaa !72
   %48 = sext i32 %.04792 to i64
-  %49 = getelementptr inbounds i32, ptr %47, i64 %48
+  %49 = getelementptr inbounds [4 x i8], ptr %47, i64 %48
   %50 = load i32, ptr %49, align 4, !tbaa !73
   %51 = call i32 @sws_test_colorspace(i32 noundef %50, i32 noundef 0) #14
   %.not72 = icmp eq i32 %51, 0
@@ -686,10 +686,10 @@ define internal range(i32 -2147483648, 1) i32 @query_formats(ptr noundef readonl
 60:                                               ; preds = %.lr.ph89, %60
   %indvars.iv = phi i64 [ %58, %.lr.ph89 ], [ %indvars.iv.next, %60 ]
   %.04687 = phi i32 [ %.04792, %.lr.ph89 ], [ %68, %60 ]
-  %61 = getelementptr inbounds i32, ptr %57, i64 %indvars.iv
+  %61 = getelementptr inbounds [4 x i8], ptr %57, i64 %indvars.iv
   %62 = load i32, ptr %61, align 4, !tbaa !73
   %63 = sext i32 %.04687 to i64
-  %64 = getelementptr inbounds i32, ptr %57, i64 %63
+  %64 = getelementptr inbounds [4 x i8], ptr %57, i64 %63
   store i32 %62, ptr %64, align 4, !tbaa !73
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %65 = load i32, ptr %.pre117, align 8, !tbaa !67
@@ -737,7 +737,7 @@ define internal range(i32 -2147483648, 1) i32 @query_formats(ptr noundef readonl
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %89 = load ptr, ptr %88, align 8, !tbaa !72
   %90 = sext i32 %.045102 to i64
-  %91 = getelementptr inbounds i32, ptr %89, i64 %90
+  %91 = getelementptr inbounds [4 x i8], ptr %89, i64 %90
   %92 = load i32, ptr %91, align 4, !tbaa !73
   %93 = call i32 @sws_test_colorspace(i32 noundef %92, i32 noundef 1) #14
   %.not70 = icmp eq i32 %93, 0
@@ -766,10 +766,10 @@ define internal range(i32 -2147483648, 1) i32 @query_formats(ptr noundef readonl
 102:                                              ; preds = %.lr.ph98, %102
   %indvars.iv114 = phi i64 [ %100, %.lr.ph98 ], [ %indvars.iv.next115, %102 ]
   %.096 = phi i32 [ %.045102, %.lr.ph98 ], [ %110, %102 ]
-  %103 = getelementptr inbounds i32, ptr %99, i64 %indvars.iv114
+  %103 = getelementptr inbounds [4 x i8], ptr %99, i64 %indvars.iv114
   %104 = load i32, ptr %103, align 4, !tbaa !73
   %105 = sext i32 %.096 to i64
-  %106 = getelementptr inbounds i32, ptr %99, i64 %105
+  %106 = getelementptr inbounds [4 x i8], ptr %99, i64 %105
   store i32 %104, ptr %106, align 4, !tbaa !73
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %107 = load i32, ptr %.pre119, align 8, !tbaa !67

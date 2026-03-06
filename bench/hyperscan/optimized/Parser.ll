@@ -48,7 +48,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::pair" = type <{ %"class.ue2::flat_detail::iter_wrapper", i8, [7 x i8] }>
 %"class.ue2::flat_detail::iter_wrapper" = type { %"class.boost::container::vec_iterator" }
 %"class.boost::container::vec_iterator" = type { ptr }
-%"struct.ue2::(anonymous namespace)::ExprState" = type <{ ptr, i64, %"struct.ue2::ParseMode", [2 x i8] }>
 %"class.boost::container::vec_iterator.155" = type { ptr }
 %"struct.boost::container::dtl::scoped_destructor_n" = type { ptr, ptr, i64 }
 
@@ -562,10 +561,10 @@ _ZN5boost11make_uniqueIN3ue217ComponentSequenceEEENS_10enable_if_IXntsr8is_array
   %.11415 = phi i32 [ %.21416, %6871 ], [ 746, %_ZN5boost11make_uniqueIN3ue217ComponentSequenceEEENS_10enable_if_IXntsr8is_arrayIT_EE5valueESt10unique_ptrIS4_St14default_deleteIS4_EEE4typeEv.exit ]
   %.2 = phi ptr [ %6872, %6871 ], [ %300, %_ZN5boost11make_uniqueIN3ue217ComponentSequenceEEENS_10enable_if_IXntsr8is_arrayIT_EE5valueESt10unique_ptrIS4_St14default_deleteIS4_EEE4typeEv.exit ]
   %311 = sext i32 %.11415 to i64
-  %312 = getelementptr inbounds i16, ptr @_ZN3ue2L25_regex_from_state_actionsE, i64 %311
+  %312 = getelementptr inbounds [2 x i8], ptr @_ZN3ue2L25_regex_from_state_actionsE, i64 %311
   %313 = load i16, ptr %312, align 2
   %314 = sext i16 %313 to i64
-  %315 = getelementptr inbounds i16, ptr @_ZN3ue2L14_regex_actionsE, i64 %314
+  %315 = getelementptr inbounds [2 x i8], ptr @_ZN3ue2L14_regex_actionsE, i64 %314
   %316 = load i16, ptr %315, align 2
   %.not222513195 = icmp eq i16 %316, 0
   br i1 %.not222513195, label %._crit_edge13201, label %.lr.ph13200.preheader
@@ -597,7 +596,7 @@ _ZN5boost11make_uniqueIN3ue217ComponentSequenceEEENS_10enable_if_IXntsr8is_array
   %326 = sext i8 %325 to i32
   %327 = shl nsw i32 %326, 1
   %328 = sext i32 %327 to i64
-  %329 = getelementptr inbounds i16, ptr @_ZN3ue2L16_regex_cond_keysE, i64 %328
+  %329 = getelementptr inbounds [2 x i8], ptr @_ZN3ue2L16_regex_cond_keysE, i64 %328
   %330 = icmp sgt i8 %323, 0
   br i1 %330, label %.lr.ph13206.preheader, label %.loopexit5567
 
@@ -617,7 +616,7 @@ _ZN5boost11make_uniqueIN3ue217ComponentSequenceEEENS_10enable_if_IXntsr8is_array
   %337 = sub i64 %335, %336
   %338 = ashr i64 %337, 2
   %339 = and i64 %338, -2
-  %340 = getelementptr inbounds i16, ptr %.0185613203, i64 %339
+  %340 = getelementptr inbounds [2 x i8], ptr %.0185613203, i64 %339
   %341 = load i16, ptr %340, align 2
   %342 = icmp sgt i16 %341, %321
   br i1 %342, label %343, label %345
@@ -680,11 +679,11 @@ _ZN5boost11make_uniqueIN3ue217ComponentSequenceEEENS_10enable_if_IXntsr8is_array
 
 .loopexit5567:                                    ; preds = %369, %368, %364, %360, %351, %._crit_edge13201
   %.01866 = phi i16 [ %321, %._crit_edge13201 ], [ %spec.select5563, %360 ], [ %321, %351 ], [ %spec.select5564, %364 ], [ %spec.select5565, %368 ], [ %321, %369 ]
-  %371 = getelementptr inbounds i16, ptr @_ZN3ue2L18_regex_key_offsetsE, i64 %311
+  %371 = getelementptr inbounds [2 x i8], ptr @_ZN3ue2L18_regex_key_offsetsE, i64 %311
   %372 = load i16, ptr %371, align 2
   %373 = sext i16 %372 to i64
-  %374 = getelementptr inbounds i16, ptr @_ZN3ue2L17_regex_trans_keysE, i64 %373
-  %375 = getelementptr inbounds i16, ptr @_ZN3ue2L20_regex_index_offsetsE, i64 %311
+  %374 = getelementptr inbounds [2 x i8], ptr @_ZN3ue2L17_regex_trans_keysE, i64 %373
+  %375 = getelementptr inbounds [2 x i8], ptr @_ZN3ue2L20_regex_index_offsetsE, i64 %311
   %376 = load i16, ptr %375, align 2
   %377 = sext i16 %376 to i32
   %378 = getelementptr inbounds i8, ptr @_ZN3ue2L21_regex_single_lengthsE, i64 %311
@@ -711,7 +710,7 @@ _ZN5boost11make_uniqueIN3ue217ComponentSequenceEEENS_10enable_if_IXntsr8is_array
   %386 = ptrtoint ptr %.0184613207 to i64
   %387 = sub i64 %385, %386
   %388 = ashr i64 %387, 2
-  %389 = getelementptr inbounds i16, ptr %.0184613207, i64 %388
+  %389 = getelementptr inbounds [2 x i8], ptr %.0184613207, i64 %388
   %390 = load i16, ptr %389, align 2
   %391 = icmp slt i16 %.01866, %390
   br i1 %391, label %392, label %394
@@ -767,7 +766,7 @@ _ZN5boost11make_uniqueIN3ue217ComponentSequenceEEENS_10enable_if_IXntsr8is_array
   %416 = sub i64 %414, %415
   %417 = ashr i64 %416, 2
   %418 = and i64 %417, -2
-  %419 = getelementptr inbounds i16, ptr %.0183613211, i64 %418
+  %419 = getelementptr inbounds [2 x i8], ptr %.0183613211, i64 %418
   %420 = load i16, ptr %419, align 2
   %421 = icmp slt i16 %.01866, %420
   br i1 %421, label %422, label %424
@@ -808,7 +807,7 @@ _ZN5boost11make_uniqueIN3ue217ComponentSequenceEEENS_10enable_if_IXntsr8is_array
 438:                                              ; preds = %400, %.loopexit, %406
   %.21870 = phi i32 [ %.31871, %.loopexit ], [ %.01868, %406 ], [ %.11869, %400 ]
   %439 = zext i32 %.21870 to i64
-  %440 = getelementptr inbounds nuw i16, ptr @_ZN3ue2L15_regex_indiciesE, i64 %439
+  %440 = getelementptr inbounds nuw [2 x i8], ptr @_ZN3ue2L15_regex_indiciesE, i64 %439
   %441 = load i16, ptr %440, align 2
   %442 = sext i16 %441 to i64
   br label %443
@@ -837,17 +836,17 @@ _ZN5boost11make_uniqueIN3ue217ComponentSequenceEEENS_10enable_if_IXntsr8is_array
   %.21473 = phi i32 [ %.01471, %6880 ], [ %.11472, %438 ]
   %.3 = phi ptr [ %.0, %6880 ], [ %.2, %438 ]
   %444 = and i64 %.41872, 4294967295
-  %445 = getelementptr inbounds nuw i16, ptr @_ZN3ue2L18_regex_trans_targsE, i64 %444
+  %445 = getelementptr inbounds nuw [2 x i8], ptr @_ZN3ue2L18_regex_trans_targsE, i64 %444
   %446 = load i16, ptr %445, align 2
   %447 = sext i16 %446 to i32
-  %448 = getelementptr inbounds nuw i16, ptr @_ZN3ue2L20_regex_trans_actionsE, i64 %444
+  %448 = getelementptr inbounds nuw [2 x i8], ptr @_ZN3ue2L20_regex_trans_actionsE, i64 %444
   %449 = load i16, ptr %448, align 2
   %450 = icmp eq i16 %449, 0
   br i1 %450, label %.loopexit5569, label %451
 
 451:                                              ; preds = %443
   %452 = sext i16 %449 to i64
-  %453 = getelementptr inbounds i16, ptr @_ZN3ue2L14_regex_actionsE, i64 %452
+  %453 = getelementptr inbounds [2 x i8], ptr @_ZN3ue2L14_regex_actionsE, i64 %452
   %454 = load i16, ptr %453, align 2
   %.not190913155 = icmp eq i16 %454, 0
   br i1 %.not190913155, label %.loopexit5569, label %.lr.ph13172
@@ -1564,7 +1563,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit: ; preds 
   %564 = phi ptr [ %.pre20681, %._crit_edge20680 ], [ %552, %548 ]
   %565 = add nsw i32 %.21479, 1
   %566 = sext i32 %.21479 to i64
-  %567 = getelementptr inbounds nuw i32, ptr %564, i64 %566
+  %567 = getelementptr inbounds nuw [4 x i8], ptr %564, i64 %566
   store i32 %447, ptr %567, align 4
   br label %.loopexit5569
 
@@ -1626,7 +1625,7 @@ _ZNSt10unique_ptrIN3ue29ComponentESt14default_deleteIS1_EED2Ev.exit2273: ; preds
   %589 = add nsw i32 %.21479, -1
   %590 = sext i32 %589 to i64
   %591 = load ptr, ptr %46, align 8
-  %592 = getelementptr inbounds nuw i32, ptr %591, i64 %590
+  %592 = getelementptr inbounds nuw [4 x i8], ptr %591, i64 %590
   %593 = load i32, ptr %592, align 4
   br label %.loopexit5569
 
@@ -2079,7 +2078,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %700 = add nsw i32 %.21479, -1
   %701 = sext i32 %700 to i64
   %702 = load ptr, ptr %46, align 8
-  %703 = getelementptr inbounds nuw i32, ptr %702, i64 %701
+  %703 = getelementptr inbounds nuw [4 x i8], ptr %702, i64 %701
   %704 = load i32, ptr %703, align 4
   br label %.loopexit5569
 
@@ -2096,7 +2095,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %712 = add nsw i32 %.21479, -1
   %713 = sext i32 %712 to i64
   %714 = load ptr, ptr %46, align 8
-  %715 = getelementptr inbounds nuw i32, ptr %714, i64 %713
+  %715 = getelementptr inbounds nuw [4 x i8], ptr %714, i64 %713
   %716 = load i32, ptr %715, align 4
   br label %.loopexit5569
 
@@ -2113,7 +2112,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %724 = add nsw i32 %.21479, -1
   %725 = sext i32 %724 to i64
   %726 = load ptr, ptr %46, align 8
-  %727 = getelementptr inbounds nuw i32, ptr %726, i64 %725
+  %727 = getelementptr inbounds nuw [4 x i8], ptr %726, i64 %725
   %728 = load i32, ptr %727, align 4
   br label %.loopexit5569
 
@@ -2130,7 +2129,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %736 = add nsw i32 %.21479, -1
   %737 = sext i32 %736 to i64
   %738 = load ptr, ptr %46, align 8
-  %739 = getelementptr inbounds nuw i32, ptr %738, i64 %737
+  %739 = getelementptr inbounds nuw [4 x i8], ptr %738, i64 %737
   %740 = load i32, ptr %739, align 4
   br label %.loopexit5569
 
@@ -2147,7 +2146,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %748 = add nsw i32 %.21479, -1
   %749 = sext i32 %748 to i64
   %750 = load ptr, ptr %46, align 8
-  %751 = getelementptr inbounds nuw i32, ptr %750, i64 %749
+  %751 = getelementptr inbounds nuw [4 x i8], ptr %750, i64 %749
   %752 = load i32, ptr %751, align 4
   br label %.loopexit5569
 
@@ -2164,7 +2163,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %760 = add nsw i32 %.21479, -1
   %761 = sext i32 %760 to i64
   %762 = load ptr, ptr %46, align 8
-  %763 = getelementptr inbounds nuw i32, ptr %762, i64 %761
+  %763 = getelementptr inbounds nuw [4 x i8], ptr %762, i64 %761
   %764 = load i32, ptr %763, align 4
   br label %.loopexit5569
 
@@ -2181,7 +2180,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %772 = add nsw i32 %.21479, -1
   %773 = sext i32 %772 to i64
   %774 = load ptr, ptr %46, align 8
-  %775 = getelementptr inbounds nuw i32, ptr %774, i64 %773
+  %775 = getelementptr inbounds nuw [4 x i8], ptr %774, i64 %773
   %776 = load i32, ptr %775, align 4
   br label %.loopexit5569
 
@@ -2198,7 +2197,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %784 = add nsw i32 %.21479, -1
   %785 = sext i32 %784 to i64
   %786 = load ptr, ptr %46, align 8
-  %787 = getelementptr inbounds nuw i32, ptr %786, i64 %785
+  %787 = getelementptr inbounds nuw [4 x i8], ptr %786, i64 %785
   %788 = load i32, ptr %787, align 4
   br label %.loopexit5569
 
@@ -2215,7 +2214,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %796 = add nsw i32 %.21479, -1
   %797 = sext i32 %796 to i64
   %798 = load ptr, ptr %46, align 8
-  %799 = getelementptr inbounds nuw i32, ptr %798, i64 %797
+  %799 = getelementptr inbounds nuw [4 x i8], ptr %798, i64 %797
   %800 = load i32, ptr %799, align 4
   br label %.loopexit5569
 
@@ -2232,7 +2231,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %808 = add nsw i32 %.21479, -1
   %809 = sext i32 %808 to i64
   %810 = load ptr, ptr %46, align 8
-  %811 = getelementptr inbounds nuw i32, ptr %810, i64 %809
+  %811 = getelementptr inbounds nuw [4 x i8], ptr %810, i64 %809
   %812 = load i32, ptr %811, align 4
   br label %.loopexit5569
 
@@ -2249,7 +2248,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %820 = add nsw i32 %.21479, -1
   %821 = sext i32 %820 to i64
   %822 = load ptr, ptr %46, align 8
-  %823 = getelementptr inbounds nuw i32, ptr %822, i64 %821
+  %823 = getelementptr inbounds nuw [4 x i8], ptr %822, i64 %821
   %824 = load i32, ptr %823, align 4
   br label %.loopexit5569
 
@@ -2266,7 +2265,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %832 = add nsw i32 %.21479, -1
   %833 = sext i32 %832 to i64
   %834 = load ptr, ptr %46, align 8
-  %835 = getelementptr inbounds nuw i32, ptr %834, i64 %833
+  %835 = getelementptr inbounds nuw [4 x i8], ptr %834, i64 %833
   %836 = load i32, ptr %835, align 4
   br label %.loopexit5569
 
@@ -2283,7 +2282,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %844 = add nsw i32 %.21479, -1
   %845 = sext i32 %844 to i64
   %846 = load ptr, ptr %46, align 8
-  %847 = getelementptr inbounds nuw i32, ptr %846, i64 %845
+  %847 = getelementptr inbounds nuw [4 x i8], ptr %846, i64 %845
   %848 = load i32, ptr %847, align 4
   br label %.loopexit5569
 
@@ -2300,7 +2299,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %856 = add nsw i32 %.21479, -1
   %857 = sext i32 %856 to i64
   %858 = load ptr, ptr %46, align 8
-  %859 = getelementptr inbounds nuw i32, ptr %858, i64 %857
+  %859 = getelementptr inbounds nuw [4 x i8], ptr %858, i64 %857
   %860 = load i32, ptr %859, align 4
   br label %.loopexit5569
 
@@ -2317,7 +2316,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %868 = add nsw i32 %.21479, -1
   %869 = sext i32 %868 to i64
   %870 = load ptr, ptr %46, align 8
-  %871 = getelementptr inbounds nuw i32, ptr %870, i64 %869
+  %871 = getelementptr inbounds nuw [4 x i8], ptr %870, i64 %869
   %872 = load i32, ptr %871, align 4
   br label %.loopexit5569
 
@@ -2334,7 +2333,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %880 = add nsw i32 %.21479, -1
   %881 = sext i32 %880 to i64
   %882 = load ptr, ptr %46, align 8
-  %883 = getelementptr inbounds nuw i32, ptr %882, i64 %881
+  %883 = getelementptr inbounds nuw [4 x i8], ptr %882, i64 %881
   %884 = load i32, ptr %883, align 4
   br label %.loopexit5569
 
@@ -2351,7 +2350,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %892 = add nsw i32 %.21479, -1
   %893 = sext i32 %892 to i64
   %894 = load ptr, ptr %46, align 8
-  %895 = getelementptr inbounds nuw i32, ptr %894, i64 %893
+  %895 = getelementptr inbounds nuw [4 x i8], ptr %894, i64 %893
   %896 = load i32, ptr %895, align 4
   br label %.loopexit5569
 
@@ -2368,7 +2367,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %904 = add nsw i32 %.21479, -1
   %905 = sext i32 %904 to i64
   %906 = load ptr, ptr %46, align 8
-  %907 = getelementptr inbounds nuw i32, ptr %906, i64 %905
+  %907 = getelementptr inbounds nuw [4 x i8], ptr %906, i64 %905
   %908 = load i32, ptr %907, align 4
   br label %.loopexit5569
 
@@ -2385,7 +2384,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %916 = add nsw i32 %.21479, -1
   %917 = sext i32 %916 to i64
   %918 = load ptr, ptr %46, align 8
-  %919 = getelementptr inbounds nuw i32, ptr %918, i64 %917
+  %919 = getelementptr inbounds nuw [4 x i8], ptr %918, i64 %917
   %920 = load i32, ptr %919, align 4
   br label %.loopexit5569
 
@@ -2402,7 +2401,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %928 = add nsw i32 %.21479, -1
   %929 = sext i32 %928 to i64
   %930 = load ptr, ptr %46, align 8
-  %931 = getelementptr inbounds nuw i32, ptr %930, i64 %929
+  %931 = getelementptr inbounds nuw [4 x i8], ptr %930, i64 %929
   %932 = load i32, ptr %931, align 4
   br label %.loopexit5569
 
@@ -2419,7 +2418,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %940 = add nsw i32 %.21479, -1
   %941 = sext i32 %940 to i64
   %942 = load ptr, ptr %46, align 8
-  %943 = getelementptr inbounds nuw i32, ptr %942, i64 %941
+  %943 = getelementptr inbounds nuw [4 x i8], ptr %942, i64 %941
   %944 = load i32, ptr %943, align 4
   br label %.loopexit5569
 
@@ -2436,7 +2435,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %952 = add nsw i32 %.21479, -1
   %953 = sext i32 %952 to i64
   %954 = load ptr, ptr %46, align 8
-  %955 = getelementptr inbounds nuw i32, ptr %954, i64 %953
+  %955 = getelementptr inbounds nuw [4 x i8], ptr %954, i64 %953
   %956 = load i32, ptr %955, align 4
   br label %.loopexit5569
 
@@ -2453,7 +2452,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %964 = add nsw i32 %.21479, -1
   %965 = sext i32 %964 to i64
   %966 = load ptr, ptr %46, align 8
-  %967 = getelementptr inbounds nuw i32, ptr %966, i64 %965
+  %967 = getelementptr inbounds nuw [4 x i8], ptr %966, i64 %965
   %968 = load i32, ptr %967, align 4
   br label %.loopexit5569
 
@@ -2470,7 +2469,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %976 = add nsw i32 %.21479, -1
   %977 = sext i32 %976 to i64
   %978 = load ptr, ptr %46, align 8
-  %979 = getelementptr inbounds nuw i32, ptr %978, i64 %977
+  %979 = getelementptr inbounds nuw [4 x i8], ptr %978, i64 %977
   %980 = load i32, ptr %979, align 4
   br label %.loopexit5569
 
@@ -2487,7 +2486,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %988 = add nsw i32 %.21479, -1
   %989 = sext i32 %988 to i64
   %990 = load ptr, ptr %46, align 8
-  %991 = getelementptr inbounds nuw i32, ptr %990, i64 %989
+  %991 = getelementptr inbounds nuw [4 x i8], ptr %990, i64 %989
   %992 = load i32, ptr %991, align 4
   br label %.loopexit5569
 
@@ -2504,7 +2503,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1000 = add nsw i32 %.21479, -1
   %1001 = sext i32 %1000 to i64
   %1002 = load ptr, ptr %46, align 8
-  %1003 = getelementptr inbounds nuw i32, ptr %1002, i64 %1001
+  %1003 = getelementptr inbounds nuw [4 x i8], ptr %1002, i64 %1001
   %1004 = load i32, ptr %1003, align 4
   br label %.loopexit5569
 
@@ -2521,7 +2520,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1012 = add nsw i32 %.21479, -1
   %1013 = sext i32 %1012 to i64
   %1014 = load ptr, ptr %46, align 8
-  %1015 = getelementptr inbounds nuw i32, ptr %1014, i64 %1013
+  %1015 = getelementptr inbounds nuw [4 x i8], ptr %1014, i64 %1013
   %1016 = load i32, ptr %1015, align 4
   br label %.loopexit5569
 
@@ -2538,7 +2537,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1024 = add nsw i32 %.21479, -1
   %1025 = sext i32 %1024 to i64
   %1026 = load ptr, ptr %46, align 8
-  %1027 = getelementptr inbounds nuw i32, ptr %1026, i64 %1025
+  %1027 = getelementptr inbounds nuw [4 x i8], ptr %1026, i64 %1025
   %1028 = load i32, ptr %1027, align 4
   br label %.loopexit5569
 
@@ -2555,7 +2554,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1036 = add nsw i32 %.21479, -1
   %1037 = sext i32 %1036 to i64
   %1038 = load ptr, ptr %46, align 8
-  %1039 = getelementptr inbounds nuw i32, ptr %1038, i64 %1037
+  %1039 = getelementptr inbounds nuw [4 x i8], ptr %1038, i64 %1037
   %1040 = load i32, ptr %1039, align 4
   br label %.loopexit5569
 
@@ -2572,7 +2571,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1048 = add nsw i32 %.21479, -1
   %1049 = sext i32 %1048 to i64
   %1050 = load ptr, ptr %46, align 8
-  %1051 = getelementptr inbounds nuw i32, ptr %1050, i64 %1049
+  %1051 = getelementptr inbounds nuw [4 x i8], ptr %1050, i64 %1049
   %1052 = load i32, ptr %1051, align 4
   br label %.loopexit5569
 
@@ -2589,7 +2588,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1060 = add nsw i32 %.21479, -1
   %1061 = sext i32 %1060 to i64
   %1062 = load ptr, ptr %46, align 8
-  %1063 = getelementptr inbounds nuw i32, ptr %1062, i64 %1061
+  %1063 = getelementptr inbounds nuw [4 x i8], ptr %1062, i64 %1061
   %1064 = load i32, ptr %1063, align 4
   br label %.loopexit5569
 
@@ -2606,7 +2605,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1072 = add nsw i32 %.21479, -1
   %1073 = sext i32 %1072 to i64
   %1074 = load ptr, ptr %46, align 8
-  %1075 = getelementptr inbounds nuw i32, ptr %1074, i64 %1073
+  %1075 = getelementptr inbounds nuw [4 x i8], ptr %1074, i64 %1073
   %1076 = load i32, ptr %1075, align 4
   br label %.loopexit5569
 
@@ -2623,7 +2622,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1084 = add nsw i32 %.21479, -1
   %1085 = sext i32 %1084 to i64
   %1086 = load ptr, ptr %46, align 8
-  %1087 = getelementptr inbounds nuw i32, ptr %1086, i64 %1085
+  %1087 = getelementptr inbounds nuw [4 x i8], ptr %1086, i64 %1085
   %1088 = load i32, ptr %1087, align 4
   br label %.loopexit5569
 
@@ -2640,7 +2639,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1096 = add nsw i32 %.21479, -1
   %1097 = sext i32 %1096 to i64
   %1098 = load ptr, ptr %46, align 8
-  %1099 = getelementptr inbounds nuw i32, ptr %1098, i64 %1097
+  %1099 = getelementptr inbounds nuw [4 x i8], ptr %1098, i64 %1097
   %1100 = load i32, ptr %1099, align 4
   br label %.loopexit5569
 
@@ -2657,7 +2656,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1108 = add nsw i32 %.21479, -1
   %1109 = sext i32 %1108 to i64
   %1110 = load ptr, ptr %46, align 8
-  %1111 = getelementptr inbounds nuw i32, ptr %1110, i64 %1109
+  %1111 = getelementptr inbounds nuw [4 x i8], ptr %1110, i64 %1109
   %1112 = load i32, ptr %1111, align 4
   br label %.loopexit5569
 
@@ -2674,7 +2673,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1120 = add nsw i32 %.21479, -1
   %1121 = sext i32 %1120 to i64
   %1122 = load ptr, ptr %46, align 8
-  %1123 = getelementptr inbounds nuw i32, ptr %1122, i64 %1121
+  %1123 = getelementptr inbounds nuw [4 x i8], ptr %1122, i64 %1121
   %1124 = load i32, ptr %1123, align 4
   br label %.loopexit5569
 
@@ -2691,7 +2690,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1132 = add nsw i32 %.21479, -1
   %1133 = sext i32 %1132 to i64
   %1134 = load ptr, ptr %46, align 8
-  %1135 = getelementptr inbounds nuw i32, ptr %1134, i64 %1133
+  %1135 = getelementptr inbounds nuw [4 x i8], ptr %1134, i64 %1133
   %1136 = load i32, ptr %1135, align 4
   br label %.loopexit5569
 
@@ -2708,7 +2707,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1144 = add nsw i32 %.21479, -1
   %1145 = sext i32 %1144 to i64
   %1146 = load ptr, ptr %46, align 8
-  %1147 = getelementptr inbounds nuw i32, ptr %1146, i64 %1145
+  %1147 = getelementptr inbounds nuw [4 x i8], ptr %1146, i64 %1145
   %1148 = load i32, ptr %1147, align 4
   br label %.loopexit5569
 
@@ -2725,7 +2724,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1156 = add nsw i32 %.21479, -1
   %1157 = sext i32 %1156 to i64
   %1158 = load ptr, ptr %46, align 8
-  %1159 = getelementptr inbounds nuw i32, ptr %1158, i64 %1157
+  %1159 = getelementptr inbounds nuw [4 x i8], ptr %1158, i64 %1157
   %1160 = load i32, ptr %1159, align 4
   br label %.loopexit5569
 
@@ -2742,7 +2741,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1168 = add nsw i32 %.21479, -1
   %1169 = sext i32 %1168 to i64
   %1170 = load ptr, ptr %46, align 8
-  %1171 = getelementptr inbounds nuw i32, ptr %1170, i64 %1169
+  %1171 = getelementptr inbounds nuw [4 x i8], ptr %1170, i64 %1169
   %1172 = load i32, ptr %1171, align 4
   br label %.loopexit5569
 
@@ -2759,7 +2758,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1180 = add nsw i32 %.21479, -1
   %1181 = sext i32 %1180 to i64
   %1182 = load ptr, ptr %46, align 8
-  %1183 = getelementptr inbounds nuw i32, ptr %1182, i64 %1181
+  %1183 = getelementptr inbounds nuw [4 x i8], ptr %1182, i64 %1181
   %1184 = load i32, ptr %1183, align 4
   br label %.loopexit5569
 
@@ -2776,7 +2775,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1192 = add nsw i32 %.21479, -1
   %1193 = sext i32 %1192 to i64
   %1194 = load ptr, ptr %46, align 8
-  %1195 = getelementptr inbounds nuw i32, ptr %1194, i64 %1193
+  %1195 = getelementptr inbounds nuw [4 x i8], ptr %1194, i64 %1193
   %1196 = load i32, ptr %1195, align 4
   br label %.loopexit5569
 
@@ -2793,7 +2792,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1204 = add nsw i32 %.21479, -1
   %1205 = sext i32 %1204 to i64
   %1206 = load ptr, ptr %46, align 8
-  %1207 = getelementptr inbounds nuw i32, ptr %1206, i64 %1205
+  %1207 = getelementptr inbounds nuw [4 x i8], ptr %1206, i64 %1205
   %1208 = load i32, ptr %1207, align 4
   br label %.loopexit5569
 
@@ -2810,7 +2809,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1216 = add nsw i32 %.21479, -1
   %1217 = sext i32 %1216 to i64
   %1218 = load ptr, ptr %46, align 8
-  %1219 = getelementptr inbounds nuw i32, ptr %1218, i64 %1217
+  %1219 = getelementptr inbounds nuw [4 x i8], ptr %1218, i64 %1217
   %1220 = load i32, ptr %1219, align 4
   br label %.loopexit5569
 
@@ -2827,7 +2826,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1228 = add nsw i32 %.21479, -1
   %1229 = sext i32 %1228 to i64
   %1230 = load ptr, ptr %46, align 8
-  %1231 = getelementptr inbounds nuw i32, ptr %1230, i64 %1229
+  %1231 = getelementptr inbounds nuw [4 x i8], ptr %1230, i64 %1229
   %1232 = load i32, ptr %1231, align 4
   br label %.loopexit5569
 
@@ -2844,7 +2843,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1240 = add nsw i32 %.21479, -1
   %1241 = sext i32 %1240 to i64
   %1242 = load ptr, ptr %46, align 8
-  %1243 = getelementptr inbounds nuw i32, ptr %1242, i64 %1241
+  %1243 = getelementptr inbounds nuw [4 x i8], ptr %1242, i64 %1241
   %1244 = load i32, ptr %1243, align 4
   br label %.loopexit5569
 
@@ -2861,7 +2860,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1252 = add nsw i32 %.21479, -1
   %1253 = sext i32 %1252 to i64
   %1254 = load ptr, ptr %46, align 8
-  %1255 = getelementptr inbounds nuw i32, ptr %1254, i64 %1253
+  %1255 = getelementptr inbounds nuw [4 x i8], ptr %1254, i64 %1253
   %1256 = load i32, ptr %1255, align 4
   br label %.loopexit5569
 
@@ -2878,7 +2877,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1264 = add nsw i32 %.21479, -1
   %1265 = sext i32 %1264 to i64
   %1266 = load ptr, ptr %46, align 8
-  %1267 = getelementptr inbounds nuw i32, ptr %1266, i64 %1265
+  %1267 = getelementptr inbounds nuw [4 x i8], ptr %1266, i64 %1265
   %1268 = load i32, ptr %1267, align 4
   br label %.loopexit5569
 
@@ -2895,7 +2894,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1276 = add nsw i32 %.21479, -1
   %1277 = sext i32 %1276 to i64
   %1278 = load ptr, ptr %46, align 8
-  %1279 = getelementptr inbounds nuw i32, ptr %1278, i64 %1277
+  %1279 = getelementptr inbounds nuw [4 x i8], ptr %1278, i64 %1277
   %1280 = load i32, ptr %1279, align 4
   br label %.loopexit5569
 
@@ -2912,7 +2911,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1288 = add nsw i32 %.21479, -1
   %1289 = sext i32 %1288 to i64
   %1290 = load ptr, ptr %46, align 8
-  %1291 = getelementptr inbounds nuw i32, ptr %1290, i64 %1289
+  %1291 = getelementptr inbounds nuw [4 x i8], ptr %1290, i64 %1289
   %1292 = load i32, ptr %1291, align 4
   br label %.loopexit5569
 
@@ -2929,7 +2928,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1300 = add nsw i32 %.21479, -1
   %1301 = sext i32 %1300 to i64
   %1302 = load ptr, ptr %46, align 8
-  %1303 = getelementptr inbounds nuw i32, ptr %1302, i64 %1301
+  %1303 = getelementptr inbounds nuw [4 x i8], ptr %1302, i64 %1301
   %1304 = load i32, ptr %1303, align 4
   br label %.loopexit5569
 
@@ -2946,7 +2945,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1312 = add nsw i32 %.21479, -1
   %1313 = sext i32 %1312 to i64
   %1314 = load ptr, ptr %46, align 8
-  %1315 = getelementptr inbounds nuw i32, ptr %1314, i64 %1313
+  %1315 = getelementptr inbounds nuw [4 x i8], ptr %1314, i64 %1313
   %1316 = load i32, ptr %1315, align 4
   br label %.loopexit5569
 
@@ -2963,7 +2962,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1324 = add nsw i32 %.21479, -1
   %1325 = sext i32 %1324 to i64
   %1326 = load ptr, ptr %46, align 8
-  %1327 = getelementptr inbounds nuw i32, ptr %1326, i64 %1325
+  %1327 = getelementptr inbounds nuw [4 x i8], ptr %1326, i64 %1325
   %1328 = load i32, ptr %1327, align 4
   br label %.loopexit5569
 
@@ -2980,7 +2979,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1336 = add nsw i32 %.21479, -1
   %1337 = sext i32 %1336 to i64
   %1338 = load ptr, ptr %46, align 8
-  %1339 = getelementptr inbounds nuw i32, ptr %1338, i64 %1337
+  %1339 = getelementptr inbounds nuw [4 x i8], ptr %1338, i64 %1337
   %1340 = load i32, ptr %1339, align 4
   br label %.loopexit5569
 
@@ -2997,7 +2996,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1348 = add nsw i32 %.21479, -1
   %1349 = sext i32 %1348 to i64
   %1350 = load ptr, ptr %46, align 8
-  %1351 = getelementptr inbounds nuw i32, ptr %1350, i64 %1349
+  %1351 = getelementptr inbounds nuw [4 x i8], ptr %1350, i64 %1349
   %1352 = load i32, ptr %1351, align 4
   br label %.loopexit5569
 
@@ -3014,7 +3013,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1360 = add nsw i32 %.21479, -1
   %1361 = sext i32 %1360 to i64
   %1362 = load ptr, ptr %46, align 8
-  %1363 = getelementptr inbounds nuw i32, ptr %1362, i64 %1361
+  %1363 = getelementptr inbounds nuw [4 x i8], ptr %1362, i64 %1361
   %1364 = load i32, ptr %1363, align 4
   br label %.loopexit5569
 
@@ -3031,7 +3030,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1372 = add nsw i32 %.21479, -1
   %1373 = sext i32 %1372 to i64
   %1374 = load ptr, ptr %46, align 8
-  %1375 = getelementptr inbounds nuw i32, ptr %1374, i64 %1373
+  %1375 = getelementptr inbounds nuw [4 x i8], ptr %1374, i64 %1373
   %1376 = load i32, ptr %1375, align 4
   br label %.loopexit5569
 
@@ -3048,7 +3047,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1384 = add nsw i32 %.21479, -1
   %1385 = sext i32 %1384 to i64
   %1386 = load ptr, ptr %46, align 8
-  %1387 = getelementptr inbounds nuw i32, ptr %1386, i64 %1385
+  %1387 = getelementptr inbounds nuw [4 x i8], ptr %1386, i64 %1385
   %1388 = load i32, ptr %1387, align 4
   br label %.loopexit5569
 
@@ -3065,7 +3064,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1396 = add nsw i32 %.21479, -1
   %1397 = sext i32 %1396 to i64
   %1398 = load ptr, ptr %46, align 8
-  %1399 = getelementptr inbounds nuw i32, ptr %1398, i64 %1397
+  %1399 = getelementptr inbounds nuw [4 x i8], ptr %1398, i64 %1397
   %1400 = load i32, ptr %1399, align 4
   br label %.loopexit5569
 
@@ -3082,7 +3081,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1408 = add nsw i32 %.21479, -1
   %1409 = sext i32 %1408 to i64
   %1410 = load ptr, ptr %46, align 8
-  %1411 = getelementptr inbounds nuw i32, ptr %1410, i64 %1409
+  %1411 = getelementptr inbounds nuw [4 x i8], ptr %1410, i64 %1409
   %1412 = load i32, ptr %1411, align 4
   br label %.loopexit5569
 
@@ -3099,7 +3098,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1420 = add nsw i32 %.21479, -1
   %1421 = sext i32 %1420 to i64
   %1422 = load ptr, ptr %46, align 8
-  %1423 = getelementptr inbounds nuw i32, ptr %1422, i64 %1421
+  %1423 = getelementptr inbounds nuw [4 x i8], ptr %1422, i64 %1421
   %1424 = load i32, ptr %1423, align 4
   br label %.loopexit5569
 
@@ -3116,7 +3115,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1432 = add nsw i32 %.21479, -1
   %1433 = sext i32 %1432 to i64
   %1434 = load ptr, ptr %46, align 8
-  %1435 = getelementptr inbounds nuw i32, ptr %1434, i64 %1433
+  %1435 = getelementptr inbounds nuw [4 x i8], ptr %1434, i64 %1433
   %1436 = load i32, ptr %1435, align 4
   br label %.loopexit5569
 
@@ -3133,7 +3132,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1444 = add nsw i32 %.21479, -1
   %1445 = sext i32 %1444 to i64
   %1446 = load ptr, ptr %46, align 8
-  %1447 = getelementptr inbounds nuw i32, ptr %1446, i64 %1445
+  %1447 = getelementptr inbounds nuw [4 x i8], ptr %1446, i64 %1445
   %1448 = load i32, ptr %1447, align 4
   br label %.loopexit5569
 
@@ -3150,7 +3149,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1456 = add nsw i32 %.21479, -1
   %1457 = sext i32 %1456 to i64
   %1458 = load ptr, ptr %46, align 8
-  %1459 = getelementptr inbounds nuw i32, ptr %1458, i64 %1457
+  %1459 = getelementptr inbounds nuw [4 x i8], ptr %1458, i64 %1457
   %1460 = load i32, ptr %1459, align 4
   br label %.loopexit5569
 
@@ -3167,7 +3166,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1468 = add nsw i32 %.21479, -1
   %1469 = sext i32 %1468 to i64
   %1470 = load ptr, ptr %46, align 8
-  %1471 = getelementptr inbounds nuw i32, ptr %1470, i64 %1469
+  %1471 = getelementptr inbounds nuw [4 x i8], ptr %1470, i64 %1469
   %1472 = load i32, ptr %1471, align 4
   br label %.loopexit5569
 
@@ -3184,7 +3183,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1480 = add nsw i32 %.21479, -1
   %1481 = sext i32 %1480 to i64
   %1482 = load ptr, ptr %46, align 8
-  %1483 = getelementptr inbounds nuw i32, ptr %1482, i64 %1481
+  %1483 = getelementptr inbounds nuw [4 x i8], ptr %1482, i64 %1481
   %1484 = load i32, ptr %1483, align 4
   br label %.loopexit5569
 
@@ -3201,7 +3200,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1492 = add nsw i32 %.21479, -1
   %1493 = sext i32 %1492 to i64
   %1494 = load ptr, ptr %46, align 8
-  %1495 = getelementptr inbounds nuw i32, ptr %1494, i64 %1493
+  %1495 = getelementptr inbounds nuw [4 x i8], ptr %1494, i64 %1493
   %1496 = load i32, ptr %1495, align 4
   br label %.loopexit5569
 
@@ -3218,7 +3217,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1504 = add nsw i32 %.21479, -1
   %1505 = sext i32 %1504 to i64
   %1506 = load ptr, ptr %46, align 8
-  %1507 = getelementptr inbounds nuw i32, ptr %1506, i64 %1505
+  %1507 = getelementptr inbounds nuw [4 x i8], ptr %1506, i64 %1505
   %1508 = load i32, ptr %1507, align 4
   br label %.loopexit5569
 
@@ -3235,7 +3234,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1516 = add nsw i32 %.21479, -1
   %1517 = sext i32 %1516 to i64
   %1518 = load ptr, ptr %46, align 8
-  %1519 = getelementptr inbounds nuw i32, ptr %1518, i64 %1517
+  %1519 = getelementptr inbounds nuw [4 x i8], ptr %1518, i64 %1517
   %1520 = load i32, ptr %1519, align 4
   br label %.loopexit5569
 
@@ -3252,7 +3251,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1528 = add nsw i32 %.21479, -1
   %1529 = sext i32 %1528 to i64
   %1530 = load ptr, ptr %46, align 8
-  %1531 = getelementptr inbounds nuw i32, ptr %1530, i64 %1529
+  %1531 = getelementptr inbounds nuw [4 x i8], ptr %1530, i64 %1529
   %1532 = load i32, ptr %1531, align 4
   br label %.loopexit5569
 
@@ -3269,7 +3268,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1540 = add nsw i32 %.21479, -1
   %1541 = sext i32 %1540 to i64
   %1542 = load ptr, ptr %46, align 8
-  %1543 = getelementptr inbounds nuw i32, ptr %1542, i64 %1541
+  %1543 = getelementptr inbounds nuw [4 x i8], ptr %1542, i64 %1541
   %1544 = load i32, ptr %1543, align 4
   br label %.loopexit5569
 
@@ -3286,7 +3285,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1552 = add nsw i32 %.21479, -1
   %1553 = sext i32 %1552 to i64
   %1554 = load ptr, ptr %46, align 8
-  %1555 = getelementptr inbounds nuw i32, ptr %1554, i64 %1553
+  %1555 = getelementptr inbounds nuw [4 x i8], ptr %1554, i64 %1553
   %1556 = load i32, ptr %1555, align 4
   br label %.loopexit5569
 
@@ -3303,7 +3302,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1564 = add nsw i32 %.21479, -1
   %1565 = sext i32 %1564 to i64
   %1566 = load ptr, ptr %46, align 8
-  %1567 = getelementptr inbounds nuw i32, ptr %1566, i64 %1565
+  %1567 = getelementptr inbounds nuw [4 x i8], ptr %1566, i64 %1565
   %1568 = load i32, ptr %1567, align 4
   br label %.loopexit5569
 
@@ -3320,7 +3319,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1576 = add nsw i32 %.21479, -1
   %1577 = sext i32 %1576 to i64
   %1578 = load ptr, ptr %46, align 8
-  %1579 = getelementptr inbounds nuw i32, ptr %1578, i64 %1577
+  %1579 = getelementptr inbounds nuw [4 x i8], ptr %1578, i64 %1577
   %1580 = load i32, ptr %1579, align 4
   br label %.loopexit5569
 
@@ -3337,7 +3336,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1588 = add nsw i32 %.21479, -1
   %1589 = sext i32 %1588 to i64
   %1590 = load ptr, ptr %46, align 8
-  %1591 = getelementptr inbounds nuw i32, ptr %1590, i64 %1589
+  %1591 = getelementptr inbounds nuw [4 x i8], ptr %1590, i64 %1589
   %1592 = load i32, ptr %1591, align 4
   br label %.loopexit5569
 
@@ -3354,7 +3353,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1600 = add nsw i32 %.21479, -1
   %1601 = sext i32 %1600 to i64
   %1602 = load ptr, ptr %46, align 8
-  %1603 = getelementptr inbounds nuw i32, ptr %1602, i64 %1601
+  %1603 = getelementptr inbounds nuw [4 x i8], ptr %1602, i64 %1601
   %1604 = load i32, ptr %1603, align 4
   br label %.loopexit5569
 
@@ -3371,7 +3370,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1612 = add nsw i32 %.21479, -1
   %1613 = sext i32 %1612 to i64
   %1614 = load ptr, ptr %46, align 8
-  %1615 = getelementptr inbounds nuw i32, ptr %1614, i64 %1613
+  %1615 = getelementptr inbounds nuw [4 x i8], ptr %1614, i64 %1613
   %1616 = load i32, ptr %1615, align 4
   br label %.loopexit5569
 
@@ -3388,7 +3387,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1624 = add nsw i32 %.21479, -1
   %1625 = sext i32 %1624 to i64
   %1626 = load ptr, ptr %46, align 8
-  %1627 = getelementptr inbounds nuw i32, ptr %1626, i64 %1625
+  %1627 = getelementptr inbounds nuw [4 x i8], ptr %1626, i64 %1625
   %1628 = load i32, ptr %1627, align 4
   br label %.loopexit5569
 
@@ -3405,7 +3404,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1636 = add nsw i32 %.21479, -1
   %1637 = sext i32 %1636 to i64
   %1638 = load ptr, ptr %46, align 8
-  %1639 = getelementptr inbounds nuw i32, ptr %1638, i64 %1637
+  %1639 = getelementptr inbounds nuw [4 x i8], ptr %1638, i64 %1637
   %1640 = load i32, ptr %1639, align 4
   br label %.loopexit5569
 
@@ -3422,7 +3421,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1648 = add nsw i32 %.21479, -1
   %1649 = sext i32 %1648 to i64
   %1650 = load ptr, ptr %46, align 8
-  %1651 = getelementptr inbounds nuw i32, ptr %1650, i64 %1649
+  %1651 = getelementptr inbounds nuw [4 x i8], ptr %1650, i64 %1649
   %1652 = load i32, ptr %1651, align 4
   br label %.loopexit5569
 
@@ -3439,7 +3438,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1660 = add nsw i32 %.21479, -1
   %1661 = sext i32 %1660 to i64
   %1662 = load ptr, ptr %46, align 8
-  %1663 = getelementptr inbounds nuw i32, ptr %1662, i64 %1661
+  %1663 = getelementptr inbounds nuw [4 x i8], ptr %1662, i64 %1661
   %1664 = load i32, ptr %1663, align 4
   br label %.loopexit5569
 
@@ -3456,7 +3455,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1672 = add nsw i32 %.21479, -1
   %1673 = sext i32 %1672 to i64
   %1674 = load ptr, ptr %46, align 8
-  %1675 = getelementptr inbounds nuw i32, ptr %1674, i64 %1673
+  %1675 = getelementptr inbounds nuw [4 x i8], ptr %1674, i64 %1673
   %1676 = load i32, ptr %1675, align 4
   br label %.loopexit5569
 
@@ -3473,7 +3472,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1684 = add nsw i32 %.21479, -1
   %1685 = sext i32 %1684 to i64
   %1686 = load ptr, ptr %46, align 8
-  %1687 = getelementptr inbounds nuw i32, ptr %1686, i64 %1685
+  %1687 = getelementptr inbounds nuw [4 x i8], ptr %1686, i64 %1685
   %1688 = load i32, ptr %1687, align 4
   br label %.loopexit5569
 
@@ -3490,7 +3489,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1696 = add nsw i32 %.21479, -1
   %1697 = sext i32 %1696 to i64
   %1698 = load ptr, ptr %46, align 8
-  %1699 = getelementptr inbounds nuw i32, ptr %1698, i64 %1697
+  %1699 = getelementptr inbounds nuw [4 x i8], ptr %1698, i64 %1697
   %1700 = load i32, ptr %1699, align 4
   br label %.loopexit5569
 
@@ -3507,7 +3506,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1708 = add nsw i32 %.21479, -1
   %1709 = sext i32 %1708 to i64
   %1710 = load ptr, ptr %46, align 8
-  %1711 = getelementptr inbounds nuw i32, ptr %1710, i64 %1709
+  %1711 = getelementptr inbounds nuw [4 x i8], ptr %1710, i64 %1709
   %1712 = load i32, ptr %1711, align 4
   br label %.loopexit5569
 
@@ -3524,7 +3523,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1720 = add nsw i32 %.21479, -1
   %1721 = sext i32 %1720 to i64
   %1722 = load ptr, ptr %46, align 8
-  %1723 = getelementptr inbounds nuw i32, ptr %1722, i64 %1721
+  %1723 = getelementptr inbounds nuw [4 x i8], ptr %1722, i64 %1721
   %1724 = load i32, ptr %1723, align 4
   br label %.loopexit5569
 
@@ -3541,7 +3540,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1732 = add nsw i32 %.21479, -1
   %1733 = sext i32 %1732 to i64
   %1734 = load ptr, ptr %46, align 8
-  %1735 = getelementptr inbounds nuw i32, ptr %1734, i64 %1733
+  %1735 = getelementptr inbounds nuw [4 x i8], ptr %1734, i64 %1733
   %1736 = load i32, ptr %1735, align 4
   br label %.loopexit5569
 
@@ -3558,7 +3557,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1744 = add nsw i32 %.21479, -1
   %1745 = sext i32 %1744 to i64
   %1746 = load ptr, ptr %46, align 8
-  %1747 = getelementptr inbounds nuw i32, ptr %1746, i64 %1745
+  %1747 = getelementptr inbounds nuw [4 x i8], ptr %1746, i64 %1745
   %1748 = load i32, ptr %1747, align 4
   br label %.loopexit5569
 
@@ -3575,7 +3574,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1756 = add nsw i32 %.21479, -1
   %1757 = sext i32 %1756 to i64
   %1758 = load ptr, ptr %46, align 8
-  %1759 = getelementptr inbounds nuw i32, ptr %1758, i64 %1757
+  %1759 = getelementptr inbounds nuw [4 x i8], ptr %1758, i64 %1757
   %1760 = load i32, ptr %1759, align 4
   br label %.loopexit5569
 
@@ -3592,7 +3591,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1768 = add nsw i32 %.21479, -1
   %1769 = sext i32 %1768 to i64
   %1770 = load ptr, ptr %46, align 8
-  %1771 = getelementptr inbounds nuw i32, ptr %1770, i64 %1769
+  %1771 = getelementptr inbounds nuw [4 x i8], ptr %1770, i64 %1769
   %1772 = load i32, ptr %1771, align 4
   br label %.loopexit5569
 
@@ -3609,7 +3608,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1780 = add nsw i32 %.21479, -1
   %1781 = sext i32 %1780 to i64
   %1782 = load ptr, ptr %46, align 8
-  %1783 = getelementptr inbounds nuw i32, ptr %1782, i64 %1781
+  %1783 = getelementptr inbounds nuw [4 x i8], ptr %1782, i64 %1781
   %1784 = load i32, ptr %1783, align 4
   br label %.loopexit5569
 
@@ -3626,7 +3625,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1792 = add nsw i32 %.21479, -1
   %1793 = sext i32 %1792 to i64
   %1794 = load ptr, ptr %46, align 8
-  %1795 = getelementptr inbounds nuw i32, ptr %1794, i64 %1793
+  %1795 = getelementptr inbounds nuw [4 x i8], ptr %1794, i64 %1793
   %1796 = load i32, ptr %1795, align 4
   br label %.loopexit5569
 
@@ -3643,7 +3642,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1804 = add nsw i32 %.21479, -1
   %1805 = sext i32 %1804 to i64
   %1806 = load ptr, ptr %46, align 8
-  %1807 = getelementptr inbounds nuw i32, ptr %1806, i64 %1805
+  %1807 = getelementptr inbounds nuw [4 x i8], ptr %1806, i64 %1805
   %1808 = load i32, ptr %1807, align 4
   br label %.loopexit5569
 
@@ -3660,7 +3659,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1816 = add nsw i32 %.21479, -1
   %1817 = sext i32 %1816 to i64
   %1818 = load ptr, ptr %46, align 8
-  %1819 = getelementptr inbounds nuw i32, ptr %1818, i64 %1817
+  %1819 = getelementptr inbounds nuw [4 x i8], ptr %1818, i64 %1817
   %1820 = load i32, ptr %1819, align 4
   br label %.loopexit5569
 
@@ -3677,7 +3676,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1828 = add nsw i32 %.21479, -1
   %1829 = sext i32 %1828 to i64
   %1830 = load ptr, ptr %46, align 8
-  %1831 = getelementptr inbounds nuw i32, ptr %1830, i64 %1829
+  %1831 = getelementptr inbounds nuw [4 x i8], ptr %1830, i64 %1829
   %1832 = load i32, ptr %1831, align 4
   br label %.loopexit5569
 
@@ -3694,7 +3693,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1840 = add nsw i32 %.21479, -1
   %1841 = sext i32 %1840 to i64
   %1842 = load ptr, ptr %46, align 8
-  %1843 = getelementptr inbounds nuw i32, ptr %1842, i64 %1841
+  %1843 = getelementptr inbounds nuw [4 x i8], ptr %1842, i64 %1841
   %1844 = load i32, ptr %1843, align 4
   br label %.loopexit5569
 
@@ -3711,7 +3710,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1852 = add nsw i32 %.21479, -1
   %1853 = sext i32 %1852 to i64
   %1854 = load ptr, ptr %46, align 8
-  %1855 = getelementptr inbounds nuw i32, ptr %1854, i64 %1853
+  %1855 = getelementptr inbounds nuw [4 x i8], ptr %1854, i64 %1853
   %1856 = load i32, ptr %1855, align 4
   br label %.loopexit5569
 
@@ -3728,7 +3727,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1864 = add nsw i32 %.21479, -1
   %1865 = sext i32 %1864 to i64
   %1866 = load ptr, ptr %46, align 8
-  %1867 = getelementptr inbounds nuw i32, ptr %1866, i64 %1865
+  %1867 = getelementptr inbounds nuw [4 x i8], ptr %1866, i64 %1865
   %1868 = load i32, ptr %1867, align 4
   br label %.loopexit5569
 
@@ -3745,7 +3744,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1876 = add nsw i32 %.21479, -1
   %1877 = sext i32 %1876 to i64
   %1878 = load ptr, ptr %46, align 8
-  %1879 = getelementptr inbounds nuw i32, ptr %1878, i64 %1877
+  %1879 = getelementptr inbounds nuw [4 x i8], ptr %1878, i64 %1877
   %1880 = load i32, ptr %1879, align 4
   br label %.loopexit5569
 
@@ -3762,7 +3761,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1888 = add nsw i32 %.21479, -1
   %1889 = sext i32 %1888 to i64
   %1890 = load ptr, ptr %46, align 8
-  %1891 = getelementptr inbounds nuw i32, ptr %1890, i64 %1889
+  %1891 = getelementptr inbounds nuw [4 x i8], ptr %1890, i64 %1889
   %1892 = load i32, ptr %1891, align 4
   br label %.loopexit5569
 
@@ -3779,7 +3778,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1900 = add nsw i32 %.21479, -1
   %1901 = sext i32 %1900 to i64
   %1902 = load ptr, ptr %46, align 8
-  %1903 = getelementptr inbounds nuw i32, ptr %1902, i64 %1901
+  %1903 = getelementptr inbounds nuw [4 x i8], ptr %1902, i64 %1901
   %1904 = load i32, ptr %1903, align 4
   br label %.loopexit5569
 
@@ -3796,7 +3795,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1912 = add nsw i32 %.21479, -1
   %1913 = sext i32 %1912 to i64
   %1914 = load ptr, ptr %46, align 8
-  %1915 = getelementptr inbounds nuw i32, ptr %1914, i64 %1913
+  %1915 = getelementptr inbounds nuw [4 x i8], ptr %1914, i64 %1913
   %1916 = load i32, ptr %1915, align 4
   br label %.loopexit5569
 
@@ -3813,7 +3812,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1924 = add nsw i32 %.21479, -1
   %1925 = sext i32 %1924 to i64
   %1926 = load ptr, ptr %46, align 8
-  %1927 = getelementptr inbounds nuw i32, ptr %1926, i64 %1925
+  %1927 = getelementptr inbounds nuw [4 x i8], ptr %1926, i64 %1925
   %1928 = load i32, ptr %1927, align 4
   br label %.loopexit5569
 
@@ -3830,7 +3829,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1936 = add nsw i32 %.21479, -1
   %1937 = sext i32 %1936 to i64
   %1938 = load ptr, ptr %46, align 8
-  %1939 = getelementptr inbounds nuw i32, ptr %1938, i64 %1937
+  %1939 = getelementptr inbounds nuw [4 x i8], ptr %1938, i64 %1937
   %1940 = load i32, ptr %1939, align 4
   br label %.loopexit5569
 
@@ -3847,7 +3846,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1948 = add nsw i32 %.21479, -1
   %1949 = sext i32 %1948 to i64
   %1950 = load ptr, ptr %46, align 8
-  %1951 = getelementptr inbounds nuw i32, ptr %1950, i64 %1949
+  %1951 = getelementptr inbounds nuw [4 x i8], ptr %1950, i64 %1949
   %1952 = load i32, ptr %1951, align 4
   br label %.loopexit5569
 
@@ -3864,7 +3863,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1960 = add nsw i32 %.21479, -1
   %1961 = sext i32 %1960 to i64
   %1962 = load ptr, ptr %46, align 8
-  %1963 = getelementptr inbounds nuw i32, ptr %1962, i64 %1961
+  %1963 = getelementptr inbounds nuw [4 x i8], ptr %1962, i64 %1961
   %1964 = load i32, ptr %1963, align 4
   br label %.loopexit5569
 
@@ -3881,7 +3880,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1972 = add nsw i32 %.21479, -1
   %1973 = sext i32 %1972 to i64
   %1974 = load ptr, ptr %46, align 8
-  %1975 = getelementptr inbounds nuw i32, ptr %1974, i64 %1973
+  %1975 = getelementptr inbounds nuw [4 x i8], ptr %1974, i64 %1973
   %1976 = load i32, ptr %1975, align 4
   br label %.loopexit5569
 
@@ -3898,7 +3897,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1984 = add nsw i32 %.21479, -1
   %1985 = sext i32 %1984 to i64
   %1986 = load ptr, ptr %46, align 8
-  %1987 = getelementptr inbounds nuw i32, ptr %1986, i64 %1985
+  %1987 = getelementptr inbounds nuw [4 x i8], ptr %1986, i64 %1985
   %1988 = load i32, ptr %1987, align 4
   br label %.loopexit5569
 
@@ -3915,7 +3914,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %1996 = add nsw i32 %.21479, -1
   %1997 = sext i32 %1996 to i64
   %1998 = load ptr, ptr %46, align 8
-  %1999 = getelementptr inbounds nuw i32, ptr %1998, i64 %1997
+  %1999 = getelementptr inbounds nuw [4 x i8], ptr %1998, i64 %1997
   %2000 = load i32, ptr %1999, align 4
   br label %.loopexit5569
 
@@ -3932,7 +3931,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %2008 = add nsw i32 %.21479, -1
   %2009 = sext i32 %2008 to i64
   %2010 = load ptr, ptr %46, align 8
-  %2011 = getelementptr inbounds nuw i32, ptr %2010, i64 %2009
+  %2011 = getelementptr inbounds nuw [4 x i8], ptr %2010, i64 %2009
   %2012 = load i32, ptr %2011, align 4
   br label %.loopexit5569
 
@@ -3949,7 +3948,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %2020 = add nsw i32 %.21479, -1
   %2021 = sext i32 %2020 to i64
   %2022 = load ptr, ptr %46, align 8
-  %2023 = getelementptr inbounds nuw i32, ptr %2022, i64 %2021
+  %2023 = getelementptr inbounds nuw [4 x i8], ptr %2022, i64 %2021
   %2024 = load i32, ptr %2023, align 4
   br label %.loopexit5569
 
@@ -3966,7 +3965,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %2032 = add nsw i32 %.21479, -1
   %2033 = sext i32 %2032 to i64
   %2034 = load ptr, ptr %46, align 8
-  %2035 = getelementptr inbounds nuw i32, ptr %2034, i64 %2033
+  %2035 = getelementptr inbounds nuw [4 x i8], ptr %2034, i64 %2033
   %2036 = load i32, ptr %2035, align 4
   br label %.loopexit5569
 
@@ -3983,7 +3982,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %2044 = add nsw i32 %.21479, -1
   %2045 = sext i32 %2044 to i64
   %2046 = load ptr, ptr %46, align 8
-  %2047 = getelementptr inbounds nuw i32, ptr %2046, i64 %2045
+  %2047 = getelementptr inbounds nuw [4 x i8], ptr %2046, i64 %2045
   %2048 = load i32, ptr %2047, align 4
   br label %.loopexit5569
 
@@ -4000,7 +3999,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %2056 = add nsw i32 %.21479, -1
   %2057 = sext i32 %2056 to i64
   %2058 = load ptr, ptr %46, align 8
-  %2059 = getelementptr inbounds nuw i32, ptr %2058, i64 %2057
+  %2059 = getelementptr inbounds nuw [4 x i8], ptr %2058, i64 %2057
   %2060 = load i32, ptr %2059, align 4
   br label %.loopexit5569
 
@@ -4017,7 +4016,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %2068 = add nsw i32 %.21479, -1
   %2069 = sext i32 %2068 to i64
   %2070 = load ptr, ptr %46, align 8
-  %2071 = getelementptr inbounds nuw i32, ptr %2070, i64 %2069
+  %2071 = getelementptr inbounds nuw [4 x i8], ptr %2070, i64 %2069
   %2072 = load i32, ptr %2071, align 4
   br label %.loopexit5569
 
@@ -4034,7 +4033,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %2080 = add nsw i32 %.21479, -1
   %2081 = sext i32 %2080 to i64
   %2082 = load ptr, ptr %46, align 8
-  %2083 = getelementptr inbounds nuw i32, ptr %2082, i64 %2081
+  %2083 = getelementptr inbounds nuw [4 x i8], ptr %2082, i64 %2081
   %2084 = load i32, ptr %2083, align 4
   br label %.loopexit5569
 
@@ -4051,7 +4050,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %2092 = add nsw i32 %.21479, -1
   %2093 = sext i32 %2092 to i64
   %2094 = load ptr, ptr %46, align 8
-  %2095 = getelementptr inbounds nuw i32, ptr %2094, i64 %2093
+  %2095 = getelementptr inbounds nuw [4 x i8], ptr %2094, i64 %2093
   %2096 = load i32, ptr %2095, align 4
   br label %.loopexit5569
 
@@ -4068,7 +4067,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %2104 = add nsw i32 %.21479, -1
   %2105 = sext i32 %2104 to i64
   %2106 = load ptr, ptr %46, align 8
-  %2107 = getelementptr inbounds nuw i32, ptr %2106, i64 %2105
+  %2107 = getelementptr inbounds nuw [4 x i8], ptr %2106, i64 %2105
   %2108 = load i32, ptr %2107, align 4
   br label %.loopexit5569
 
@@ -4085,7 +4084,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %2116 = add nsw i32 %.21479, -1
   %2117 = sext i32 %2116 to i64
   %2118 = load ptr, ptr %46, align 8
-  %2119 = getelementptr inbounds nuw i32, ptr %2118, i64 %2117
+  %2119 = getelementptr inbounds nuw [4 x i8], ptr %2118, i64 %2117
   %2120 = load i32, ptr %2119, align 4
   br label %.loopexit5569
 
@@ -4102,7 +4101,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %2128 = add nsw i32 %.21479, -1
   %2129 = sext i32 %2128 to i64
   %2130 = load ptr, ptr %46, align 8
-  %2131 = getelementptr inbounds nuw i32, ptr %2130, i64 %2129
+  %2131 = getelementptr inbounds nuw [4 x i8], ptr %2130, i64 %2129
   %2132 = load i32, ptr %2131, align 4
   br label %.loopexit5569
 
@@ -4119,7 +4118,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %2140 = add nsw i32 %.21479, -1
   %2141 = sext i32 %2140 to i64
   %2142 = load ptr, ptr %46, align 8
-  %2143 = getelementptr inbounds nuw i32, ptr %2142, i64 %2141
+  %2143 = getelementptr inbounds nuw [4 x i8], ptr %2142, i64 %2141
   %2144 = load i32, ptr %2143, align 4
   br label %.loopexit5569
 
@@ -4136,7 +4135,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %2152 = add nsw i32 %.21479, -1
   %2153 = sext i32 %2152 to i64
   %2154 = load ptr, ptr %46, align 8
-  %2155 = getelementptr inbounds nuw i32, ptr %2154, i64 %2153
+  %2155 = getelementptr inbounds nuw [4 x i8], ptr %2154, i64 %2153
   %2156 = load i32, ptr %2155, align 4
   br label %.loopexit5569
 
@@ -4153,7 +4152,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %2164 = add nsw i32 %.21479, -1
   %2165 = sext i32 %2164 to i64
   %2166 = load ptr, ptr %46, align 8
-  %2167 = getelementptr inbounds nuw i32, ptr %2166, i64 %2165
+  %2167 = getelementptr inbounds nuw [4 x i8], ptr %2166, i64 %2165
   %2168 = load i32, ptr %2167, align 4
   br label %.loopexit5569
 
@@ -4170,7 +4169,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %2176 = add nsw i32 %.21479, -1
   %2177 = sext i32 %2176 to i64
   %2178 = load ptr, ptr %46, align 8
-  %2179 = getelementptr inbounds nuw i32, ptr %2178, i64 %2177
+  %2179 = getelementptr inbounds nuw [4 x i8], ptr %2178, i64 %2177
   %2180 = load i32, ptr %2179, align 4
   br label %.loopexit5569
 
@@ -4187,7 +4186,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %2188 = add nsw i32 %.21479, -1
   %2189 = sext i32 %2188 to i64
   %2190 = load ptr, ptr %46, align 8
-  %2191 = getelementptr inbounds nuw i32, ptr %2190, i64 %2189
+  %2191 = getelementptr inbounds nuw [4 x i8], ptr %2190, i64 %2189
   %2192 = load i32, ptr %2191, align 4
   br label %.loopexit5569
 
@@ -4204,7 +4203,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %2200 = add nsw i32 %.21479, -1
   %2201 = sext i32 %2200 to i64
   %2202 = load ptr, ptr %46, align 8
-  %2203 = getelementptr inbounds nuw i32, ptr %2202, i64 %2201
+  %2203 = getelementptr inbounds nuw [4 x i8], ptr %2202, i64 %2201
   %2204 = load i32, ptr %2203, align 4
   br label %.loopexit5569
 
@@ -4221,7 +4220,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %2212 = add nsw i32 %.21479, -1
   %2213 = sext i32 %2212 to i64
   %2214 = load ptr, ptr %46, align 8
-  %2215 = getelementptr inbounds nuw i32, ptr %2214, i64 %2213
+  %2215 = getelementptr inbounds nuw [4 x i8], ptr %2214, i64 %2213
   %2216 = load i32, ptr %2215, align 4
   br label %.loopexit5569
 
@@ -4238,7 +4237,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2294: ; preds = %6
   %2224 = add nsw i32 %.21479, -1
   %2225 = sext i32 %2224 to i64
   %2226 = load ptr, ptr %46, align 8
-  %2227 = getelementptr inbounds nuw i32, ptr %2226, i64 %2225
+  %2227 = getelementptr inbounds nuw [4 x i8], ptr %2226, i64 %2225
   %2228 = load i32, ptr %2227, align 4
   br label %.loopexit5569
 
@@ -4307,7 +4306,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2297: ; preds = %2
   %2247 = add nsw i32 %.21479, -1
   %2248 = sext i32 %2247 to i64
   %2249 = load ptr, ptr %46, align 8
-  %2250 = getelementptr inbounds nuw i32, ptr %2249, i64 %2248
+  %2250 = getelementptr inbounds nuw [4 x i8], ptr %2249, i64 %2248
   %2251 = load i32, ptr %2250, align 4
   br label %.loopexit5569
 
@@ -4324,7 +4323,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2297: ; preds = %2
   %2259 = add nsw i32 %.21479, -1
   %2260 = sext i32 %2259 to i64
   %2261 = load ptr, ptr %46, align 8
-  %2262 = getelementptr inbounds nuw i32, ptr %2261, i64 %2260
+  %2262 = getelementptr inbounds nuw [4 x i8], ptr %2261, i64 %2260
   %2263 = load i32, ptr %2262, align 4
   br label %.loopexit5569
 
@@ -4341,7 +4340,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2297: ; preds = %2
   %2271 = add nsw i32 %.21479, -1
   %2272 = sext i32 %2271 to i64
   %2273 = load ptr, ptr %46, align 8
-  %2274 = getelementptr inbounds nuw i32, ptr %2273, i64 %2272
+  %2274 = getelementptr inbounds nuw [4 x i8], ptr %2273, i64 %2272
   %2275 = load i32, ptr %2274, align 4
   br label %.loopexit5569
 
@@ -4358,7 +4357,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2297: ; preds = %2
   %2283 = add nsw i32 %.21479, -1
   %2284 = sext i32 %2283 to i64
   %2285 = load ptr, ptr %46, align 8
-  %2286 = getelementptr inbounds nuw i32, ptr %2285, i64 %2284
+  %2286 = getelementptr inbounds nuw [4 x i8], ptr %2285, i64 %2284
   %2287 = load i32, ptr %2286, align 4
   br label %.loopexit5569
 
@@ -4375,7 +4374,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2297: ; preds = %2
   %2295 = add nsw i32 %.21479, -1
   %2296 = sext i32 %2295 to i64
   %2297 = load ptr, ptr %46, align 8
-  %2298 = getelementptr inbounds nuw i32, ptr %2297, i64 %2296
+  %2298 = getelementptr inbounds nuw [4 x i8], ptr %2297, i64 %2296
   %2299 = load i32, ptr %2298, align 4
   br label %.loopexit5569
 
@@ -4392,7 +4391,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2297: ; preds = %2
   %2307 = add nsw i32 %.21479, -1
   %2308 = sext i32 %2307 to i64
   %2309 = load ptr, ptr %46, align 8
-  %2310 = getelementptr inbounds nuw i32, ptr %2309, i64 %2308
+  %2310 = getelementptr inbounds nuw [4 x i8], ptr %2309, i64 %2308
   %2311 = load i32, ptr %2310, align 4
   br label %.loopexit5569
 
@@ -4409,7 +4408,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2297: ; preds = %2
   %2319 = add nsw i32 %.21479, -1
   %2320 = sext i32 %2319 to i64
   %2321 = load ptr, ptr %46, align 8
-  %2322 = getelementptr inbounds nuw i32, ptr %2321, i64 %2320
+  %2322 = getelementptr inbounds nuw [4 x i8], ptr %2321, i64 %2320
   %2323 = load i32, ptr %2322, align 4
   br label %.loopexit5569
 
@@ -4426,7 +4425,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2297: ; preds = %2
   %2331 = add nsw i32 %.21479, -1
   %2332 = sext i32 %2331 to i64
   %2333 = load ptr, ptr %46, align 8
-  %2334 = getelementptr inbounds nuw i32, ptr %2333, i64 %2332
+  %2334 = getelementptr inbounds nuw [4 x i8], ptr %2333, i64 %2332
   %2335 = load i32, ptr %2334, align 4
   br label %.loopexit5569
 
@@ -4443,7 +4442,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2297: ; preds = %2
   %2343 = add nsw i32 %.21479, -1
   %2344 = sext i32 %2343 to i64
   %2345 = load ptr, ptr %46, align 8
-  %2346 = getelementptr inbounds nuw i32, ptr %2345, i64 %2344
+  %2346 = getelementptr inbounds nuw [4 x i8], ptr %2345, i64 %2344
   %2347 = load i32, ptr %2346, align 4
   br label %.loopexit5569
 
@@ -4460,7 +4459,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2297: ; preds = %2
   %2355 = add nsw i32 %.21479, -1
   %2356 = sext i32 %2355 to i64
   %2357 = load ptr, ptr %46, align 8
-  %2358 = getelementptr inbounds nuw i32, ptr %2357, i64 %2356
+  %2358 = getelementptr inbounds nuw [4 x i8], ptr %2357, i64 %2356
   %2359 = load i32, ptr %2358, align 4
   br label %.loopexit5569
 
@@ -4529,7 +4528,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2300: ; preds = %2
   %2378 = add nsw i32 %.21479, -1
   %2379 = sext i32 %2378 to i64
   %2380 = load ptr, ptr %46, align 8
-  %2381 = getelementptr inbounds nuw i32, ptr %2380, i64 %2379
+  %2381 = getelementptr inbounds nuw [4 x i8], ptr %2380, i64 %2379
   %2382 = load i32, ptr %2381, align 4
   br label %.loopexit5569
 
@@ -4546,7 +4545,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2300: ; preds = %2
   %2390 = add nsw i32 %.21479, -1
   %2391 = sext i32 %2390 to i64
   %2392 = load ptr, ptr %46, align 8
-  %2393 = getelementptr inbounds nuw i32, ptr %2392, i64 %2391
+  %2393 = getelementptr inbounds nuw [4 x i8], ptr %2392, i64 %2391
   %2394 = load i32, ptr %2393, align 4
   br label %.loopexit5569
 
@@ -4563,7 +4562,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2300: ; preds = %2
   %2402 = add nsw i32 %.21479, -1
   %2403 = sext i32 %2402 to i64
   %2404 = load ptr, ptr %46, align 8
-  %2405 = getelementptr inbounds nuw i32, ptr %2404, i64 %2403
+  %2405 = getelementptr inbounds nuw [4 x i8], ptr %2404, i64 %2403
   %2406 = load i32, ptr %2405, align 4
   br label %.loopexit5569
 
@@ -4580,7 +4579,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2300: ; preds = %2
   %2414 = add nsw i32 %.21479, -1
   %2415 = sext i32 %2414 to i64
   %2416 = load ptr, ptr %46, align 8
-  %2417 = getelementptr inbounds nuw i32, ptr %2416, i64 %2415
+  %2417 = getelementptr inbounds nuw [4 x i8], ptr %2416, i64 %2415
   %2418 = load i32, ptr %2417, align 4
   br label %.loopexit5569
 
@@ -4597,7 +4596,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2300: ; preds = %2
   %2426 = add nsw i32 %.21479, -1
   %2427 = sext i32 %2426 to i64
   %2428 = load ptr, ptr %46, align 8
-  %2429 = getelementptr inbounds nuw i32, ptr %2428, i64 %2427
+  %2429 = getelementptr inbounds nuw [4 x i8], ptr %2428, i64 %2427
   %2430 = load i32, ptr %2429, align 4
   br label %.loopexit5569
 
@@ -4614,7 +4613,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2300: ; preds = %2
   %2438 = add nsw i32 %.21479, -1
   %2439 = sext i32 %2438 to i64
   %2440 = load ptr, ptr %46, align 8
-  %2441 = getelementptr inbounds nuw i32, ptr %2440, i64 %2439
+  %2441 = getelementptr inbounds nuw [4 x i8], ptr %2440, i64 %2439
   %2442 = load i32, ptr %2441, align 4
   br label %.loopexit5569
 
@@ -4631,7 +4630,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2300: ; preds = %2
   %2450 = add nsw i32 %.21479, -1
   %2451 = sext i32 %2450 to i64
   %2452 = load ptr, ptr %46, align 8
-  %2453 = getelementptr inbounds nuw i32, ptr %2452, i64 %2451
+  %2453 = getelementptr inbounds nuw [4 x i8], ptr %2452, i64 %2451
   %2454 = load i32, ptr %2453, align 4
   br label %.loopexit5569
 
@@ -4648,7 +4647,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2300: ; preds = %2
   %2462 = add nsw i32 %.21479, -1
   %2463 = sext i32 %2462 to i64
   %2464 = load ptr, ptr %46, align 8
-  %2465 = getelementptr inbounds nuw i32, ptr %2464, i64 %2463
+  %2465 = getelementptr inbounds nuw [4 x i8], ptr %2464, i64 %2463
   %2466 = load i32, ptr %2465, align 4
   br label %.loopexit5569
 
@@ -4665,7 +4664,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2300: ; preds = %2
   %2474 = add nsw i32 %.21479, -1
   %2475 = sext i32 %2474 to i64
   %2476 = load ptr, ptr %46, align 8
-  %2477 = getelementptr inbounds nuw i32, ptr %2476, i64 %2475
+  %2477 = getelementptr inbounds nuw [4 x i8], ptr %2476, i64 %2475
   %2478 = load i32, ptr %2477, align 4
   br label %.loopexit5569
 
@@ -4788,7 +4787,7 @@ _ZNSt10unique_ptrIN3ue29ComponentESt14default_deleteIS1_EED2Ev.exit2309: ; preds
   %2517 = add nsw i32 %.21479, -1
   %2518 = sext i32 %2517 to i64
   %2519 = load ptr, ptr %46, align 8
-  %2520 = getelementptr inbounds nuw i32, ptr %2519, i64 %2518
+  %2520 = getelementptr inbounds nuw [4 x i8], ptr %2519, i64 %2518
   %2521 = load i32, ptr %2520, align 4
   br label %.loopexit5569
 
@@ -4859,7 +4858,7 @@ _ZNSt10unique_ptrIN3ue29ComponentESt14default_deleteIS1_EED2Ev.exit2315: ; preds
   %2549 = add nsw i32 %.21479, -1
   %2550 = sext i32 %2549 to i64
   %2551 = load ptr, ptr %46, align 8
-  %2552 = getelementptr inbounds nuw i32, ptr %2551, i64 %2550
+  %2552 = getelementptr inbounds nuw [4 x i8], ptr %2551, i64 %2550
   %2553 = load i32, ptr %2552, align 4
   br label %.loopexit5569
 
@@ -4930,7 +4929,7 @@ _ZNSt10unique_ptrIN3ue29ComponentESt14default_deleteIS1_EED2Ev.exit2321: ; preds
   %2581 = add nsw i32 %.21479, -1
   %2582 = sext i32 %2581 to i64
   %2583 = load ptr, ptr %46, align 8
-  %2584 = getelementptr inbounds nuw i32, ptr %2583, i64 %2582
+  %2584 = getelementptr inbounds nuw [4 x i8], ptr %2583, i64 %2582
   %2585 = load i32, ptr %2584, align 4
   br label %.loopexit5569
 
@@ -5001,7 +5000,7 @@ _ZNSt10unique_ptrIN3ue29ComponentESt14default_deleteIS1_EED2Ev.exit2327: ; preds
   %2613 = add nsw i32 %.21479, -1
   %2614 = sext i32 %2613 to i64
   %2615 = load ptr, ptr %46, align 8
-  %2616 = getelementptr inbounds nuw i32, ptr %2615, i64 %2614
+  %2616 = getelementptr inbounds nuw [4 x i8], ptr %2615, i64 %2614
   %2617 = load i32, ptr %2616, align 4
   br label %.loopexit5569
 
@@ -5072,7 +5071,7 @@ _ZNSt10unique_ptrIN3ue29ComponentESt14default_deleteIS1_EED2Ev.exit2333: ; preds
   %2645 = add nsw i32 %.21479, -1
   %2646 = sext i32 %2645 to i64
   %2647 = load ptr, ptr %46, align 8
-  %2648 = getelementptr inbounds nuw i32, ptr %2647, i64 %2646
+  %2648 = getelementptr inbounds nuw [4 x i8], ptr %2647, i64 %2646
   %2649 = load i32, ptr %2648, align 4
   br label %.loopexit5569
 
@@ -5143,7 +5142,7 @@ _ZNSt10unique_ptrIN3ue29ComponentESt14default_deleteIS1_EED2Ev.exit2339: ; preds
   %2677 = add nsw i32 %.21479, -1
   %2678 = sext i32 %2677 to i64
   %2679 = load ptr, ptr %46, align 8
-  %2680 = getelementptr inbounds nuw i32, ptr %2679, i64 %2678
+  %2680 = getelementptr inbounds nuw [4 x i8], ptr %2679, i64 %2678
   %2681 = load i32, ptr %2680, align 4
   br label %.loopexit5569
 
@@ -5214,7 +5213,7 @@ _ZNSt10unique_ptrIN3ue29ComponentESt14default_deleteIS1_EED2Ev.exit2345: ; preds
   %2709 = add nsw i32 %.21479, -1
   %2710 = sext i32 %2709 to i64
   %2711 = load ptr, ptr %46, align 8
-  %2712 = getelementptr inbounds nuw i32, ptr %2711, i64 %2710
+  %2712 = getelementptr inbounds nuw [4 x i8], ptr %2711, i64 %2710
   %2713 = load i32, ptr %2712, align 4
   br label %.loopexit5569
 
@@ -5626,7 +5625,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2354: ; preds = %2
   %2903 = phi ptr [ %.pre20679, %._crit_edge20678 ], [ %2891, %2887 ]
   %2904 = add nsw i32 %.21479, 1
   %2905 = sext i32 %.21479 to i64
-  %2906 = getelementptr inbounds nuw i32, ptr %2903, i64 %2905
+  %2906 = getelementptr inbounds nuw [4 x i8], ptr %2903, i64 %2905
   store i32 %447, ptr %2906, align 4
   br label %.loopexit5569
 
@@ -5751,7 +5750,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2354: ; preds = %2
   %2981 = phi ptr [ %.pre20677, %._crit_edge20676 ], [ %2969, %2964 ]
   %2982 = add nsw i32 %.21479, 1
   %2983 = sext i32 %.21479 to i64
-  %2984 = getelementptr inbounds nuw i32, ptr %2981, i64 %2983
+  %2984 = getelementptr inbounds nuw [4 x i8], ptr %2981, i64 %2983
   store i32 %447, ptr %2984, align 4
   br label %.loopexit5569
 
@@ -5784,7 +5783,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2354: ; preds = %2
   %3002 = phi ptr [ %.pre20675, %._crit_edge20674 ], [ %2990, %2985 ]
   %3003 = add nsw i32 %.21479, 1
   %3004 = sext i32 %.21479 to i64
-  %3005 = getelementptr inbounds nuw i32, ptr %3002, i64 %3004
+  %3005 = getelementptr inbounds nuw [4 x i8], ptr %3002, i64 %3004
   store i32 %447, ptr %3005, align 4
   br label %.loopexit5569
 
@@ -5817,7 +5816,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2354: ; preds = %2
   %3023 = phi ptr [ %.pre20673, %._crit_edge20672 ], [ %3011, %3006 ]
   %3024 = add nsw i32 %.21479, 1
   %3025 = sext i32 %.21479 to i64
-  %3026 = getelementptr inbounds nuw i32, ptr %3023, i64 %3025
+  %3026 = getelementptr inbounds nuw [4 x i8], ptr %3023, i64 %3025
   store i32 %447, ptr %3026, align 4
   br label %.loopexit5569
 
@@ -5850,7 +5849,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2354: ; preds = %2
   %3044 = phi ptr [ %.pre20671, %._crit_edge20670 ], [ %3032, %3027 ]
   %3045 = add nsw i32 %.21479, 1
   %3046 = sext i32 %.21479 to i64
-  %3047 = getelementptr inbounds nuw i32, ptr %3044, i64 %3046
+  %3047 = getelementptr inbounds nuw [4 x i8], ptr %3044, i64 %3046
   store i32 %447, ptr %3047, align 4
   br label %.loopexit5569
 
@@ -7372,7 +7371,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit2450: ; preds = %3
   %3591 = phi ptr [ %.pre20669, %._crit_edge20668 ], [ %3579, %3575 ]
   %3592 = add nsw i32 %.21479, 1
   %3593 = sext i32 %.21479 to i64
-  %3594 = getelementptr inbounds nuw i32, ptr %3591, i64 %3593
+  %3594 = getelementptr inbounds nuw [4 x i8], ptr %3591, i64 %3593
   store i32 %447, ptr %3594, align 4
   br label %.loopexit5569
 
@@ -7776,7 +7775,7 @@ _ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit2484: ;
   %3763 = add nsw i32 %.21479, -1
   %3764 = sext i32 %3763 to i64
   %3765 = load ptr, ptr %46, align 8
-  %3766 = getelementptr inbounds nuw i32, ptr %3765, i64 %3764
+  %3766 = getelementptr inbounds nuw [4 x i8], ptr %3765, i64 %3764
   %3767 = load i32, ptr %3766, align 4
   br label %.loopexit5569
 
@@ -8815,7 +8814,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i2574: ; preds = 
   %4141 = phi ptr [ %.pre20667, %._crit_edge20666 ], [ %4129, %4124 ]
   %4142 = add nsw i32 %.21479, 1
   %4143 = sext i32 %.21479 to i64
-  %4144 = getelementptr inbounds nuw i32, ptr %4141, i64 %4143
+  %4144 = getelementptr inbounds nuw [4 x i8], ptr %4141, i64 %4143
   store i32 %447, ptr %4144, align 4
   br label %.loopexit5569
 
@@ -11891,7 +11890,7 @@ _ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit3031: ;
   %5030 = phi ptr [ %.pre20665, %._crit_edge20664 ], [ %5014, %_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit3031 ]
   %5031 = add nsw i32 %.21479, 1
   %5032 = sext i32 %.21479 to i64
-  %5033 = getelementptr inbounds nuw i32, ptr %5030, i64 %5032
+  %5033 = getelementptr inbounds nuw [4 x i8], ptr %5030, i64 %5032
   store i32 %447, ptr %5033, align 4
   br label %.loopexit5569
 
@@ -11961,7 +11960,7 @@ _ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit3037: ;
   %5063 = phi ptr [ %.pre20663, %._crit_edge20662 ], [ %5047, %_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit3037 ]
   %5064 = add nsw i32 %.21479, 1
   %5065 = sext i32 %.21479 to i64
-  %5066 = getelementptr inbounds nuw i32, ptr %5063, i64 %5065
+  %5066 = getelementptr inbounds nuw [4 x i8], ptr %5063, i64 %5065
   store i32 %447, ptr %5066, align 4
   br label %.loopexit5569
 
@@ -12031,7 +12030,7 @@ _ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit3043: ;
   %5096 = phi ptr [ %.pre20661, %._crit_edge20660 ], [ %5080, %_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit3043 ]
   %5097 = add nsw i32 %.21479, 1
   %5098 = sext i32 %.21479 to i64
-  %5099 = getelementptr inbounds nuw i32, ptr %5096, i64 %5098
+  %5099 = getelementptr inbounds nuw [4 x i8], ptr %5096, i64 %5098
   store i32 %447, ptr %5099, align 4
   br label %.loopexit5569
 
@@ -12101,7 +12100,7 @@ _ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit3049: ;
   %5129 = phi ptr [ %.pre, %._crit_edge20659 ], [ %5113, %_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit3049 ]
   %5130 = add nsw i32 %.21479, 1
   %5131 = sext i32 %.21479 to i64
-  %5132 = getelementptr inbounds nuw i32, ptr %5129, i64 %5131
+  %5132 = getelementptr inbounds nuw [4 x i8], ptr %5129, i64 %5131
   store i32 %447, ptr %5132, align 4
   br label %.loopexit5569
 
@@ -12576,7 +12575,7 @@ _ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
   br label %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i
 
 _ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %5257, %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i.i
-  %5258 = getelementptr inbounds nuw %"struct.ue2::(anonymous namespace)::ExprState", ptr %5253, i64 %5251
+  %5258 = getelementptr inbounds nuw [24 x i8], ptr %5253, i64 %5251
   br label %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE9push_backEOS2_.exit
 
 _ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE9push_backEOS2_.exit: ; preds = %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i, %5239
@@ -12736,7 +12735,7 @@ _ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
   br label %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i3135
 
 _ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i3135: ; preds = %5298, %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i.i3132
-  %5299 = getelementptr inbounds nuw %"struct.ue2::(anonymous namespace)::ExprState", ptr %5294, i64 %5292
+  %5299 = getelementptr inbounds nuw [24 x i8], ptr %5294, i64 %5292
   br label %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE9push_backEOS2_.exit3138
 
 _ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE9push_backEOS2_.exit3138: ; preds = %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i3135, %5280
@@ -12898,7 +12897,7 @@ _ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
   br label %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i3172
 
 _ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i3172: ; preds = %5339, %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i.i3169
-  %5340 = getelementptr inbounds nuw %"struct.ue2::(anonymous namespace)::ExprState", ptr %5335, i64 %5333
+  %5340 = getelementptr inbounds nuw [24 x i8], ptr %5335, i64 %5333
   br label %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE9push_backEOS2_.exit3175
 
 _ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE9push_backEOS2_.exit3175: ; preds = %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i3172, %5321
@@ -13060,7 +13059,7 @@ _ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
   br label %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i3212
 
 _ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i3212: ; preds = %5380, %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i.i3209
-  %5381 = getelementptr inbounds nuw %"struct.ue2::(anonymous namespace)::ExprState", ptr %5376, i64 %5374
+  %5381 = getelementptr inbounds nuw [24 x i8], ptr %5376, i64 %5374
   br label %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE9push_backEOS2_.exit3215
 
 _ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE9push_backEOS2_.exit3215: ; preds = %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i3212, %5362
@@ -13222,7 +13221,7 @@ _ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
   br label %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i3252
 
 _ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i3252: ; preds = %5421, %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i.i3249
-  %5422 = getelementptr inbounds nuw %"struct.ue2::(anonymous namespace)::ExprState", ptr %5417, i64 %5415
+  %5422 = getelementptr inbounds nuw [24 x i8], ptr %5417, i64 %5415
   br label %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE9push_backEOS2_.exit3255
 
 _ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE9push_backEOS2_.exit3255: ; preds = %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i3252, %5403
@@ -13488,7 +13487,7 @@ _ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
   br label %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i3298
 
 _ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i3298: ; preds = %5484, %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i.i3295
-  %5485 = getelementptr inbounds nuw %"struct.ue2::(anonymous namespace)::ExprState", ptr %5480, i64 %5478
+  %5485 = getelementptr inbounds nuw [24 x i8], ptr %5480, i64 %5478
   br label %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE9push_backEOS2_.exit3301
 
 _ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE9push_backEOS2_.exit3301: ; preds = %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i3298, %5466
@@ -13797,7 +13796,7 @@ _ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
   br label %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i3344
 
 _ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i3344: ; preds = %5566, %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i.i3341
-  %5567 = getelementptr inbounds nuw %"struct.ue2::(anonymous namespace)::ExprState", ptr %5562, i64 %5560
+  %5567 = getelementptr inbounds nuw [24 x i8], ptr %5562, i64 %5560
   br label %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE9push_backEOS2_.exit3347
 
 _ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE9push_backEOS2_.exit3347: ; preds = %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i3344, %5548
@@ -14095,7 +14094,7 @@ _ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
   br label %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i3395
 
 _ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i3395: ; preds = %5637, %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i.i3392
-  %5638 = getelementptr inbounds nuw %"struct.ue2::(anonymous namespace)::ExprState", ptr %5633, i64 %5631
+  %5638 = getelementptr inbounds nuw [24 x i8], ptr %5633, i64 %5631
   br label %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE9push_backEOS2_.exit3398
 
 _ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE9push_backEOS2_.exit3398: ; preds = %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i3395, %5619
@@ -14250,7 +14249,7 @@ _ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
   br label %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i3431
 
 _ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i3431: ; preds = %5683, %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i.i3428
-  %5684 = getelementptr inbounds nuw %"struct.ue2::(anonymous namespace)::ExprState", ptr %5678, i64 %5676
+  %5684 = getelementptr inbounds nuw [24 x i8], ptr %5678, i64 %5676
   br label %_ZN3ue2L13addEscapedHexEPNS_17ComponentSequenceEjRKNS_9ParseModeE.exit
 
 5685:                                             ; preds = %5614
@@ -14396,7 +14395,7 @@ _ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
   br label %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i3463
 
 _ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i3463: ; preds = %5716, %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i.i3460
-  %5717 = getelementptr inbounds nuw %"struct.ue2::(anonymous namespace)::ExprState", ptr %5712, i64 %5710
+  %5717 = getelementptr inbounds nuw [24 x i8], ptr %5712, i64 %5710
   br label %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE9push_backEOS2_.exit3466
 
 _ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE9push_backEOS2_.exit3466: ; preds = %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i3463, %5698
@@ -14551,7 +14550,7 @@ _ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
   br label %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i3502
 
 _ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i3502: ; preds = %5762, %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i.i3499
-  %5763 = getelementptr inbounds nuw %"struct.ue2::(anonymous namespace)::ExprState", ptr %5757, i64 %5755
+  %5763 = getelementptr inbounds nuw [24 x i8], ptr %5757, i64 %5755
   br label %_ZN3ue2L13addEscapedHexEPNS_17ComponentSequenceEjRKNS_9ParseModeE.exit
 
 5764:                                             ; preds = %5693
@@ -14697,7 +14696,7 @@ _ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
   br label %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i3534
 
 _ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i3534: ; preds = %5795, %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i.i3531
-  %5796 = getelementptr inbounds nuw %"struct.ue2::(anonymous namespace)::ExprState", ptr %5791, i64 %5789
+  %5796 = getelementptr inbounds nuw [24 x i8], ptr %5791, i64 %5789
   br label %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE9push_backEOS2_.exit3537
 
 _ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE9push_backEOS2_.exit3537: ; preds = %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i3534, %5777
@@ -14852,7 +14851,7 @@ _ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
   br label %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i3573
 
 _ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i3573: ; preds = %5841, %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i.i3570
-  %5842 = getelementptr inbounds nuw %"struct.ue2::(anonymous namespace)::ExprState", ptr %5836, i64 %5834
+  %5842 = getelementptr inbounds nuw [24 x i8], ptr %5836, i64 %5834
   br label %_ZN3ue2L13addEscapedHexEPNS_17ComponentSequenceEjRKNS_9ParseModeE.exit
 
 5843:                                             ; preds = %5772
@@ -14998,7 +14997,7 @@ _ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
   br label %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i3605
 
 _ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i3605: ; preds = %5874, %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i.i3602
-  %5875 = getelementptr inbounds nuw %"struct.ue2::(anonymous namespace)::ExprState", ptr %5870, i64 %5868
+  %5875 = getelementptr inbounds nuw [24 x i8], ptr %5870, i64 %5868
   br label %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE9push_backEOS2_.exit3608
 
 _ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE9push_backEOS2_.exit3608: ; preds = %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i3605, %5856
@@ -15153,7 +15152,7 @@ _ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
   br label %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i3644
 
 _ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i3644: ; preds = %5920, %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i.i3641
-  %5921 = getelementptr inbounds nuw %"struct.ue2::(anonymous namespace)::ExprState", ptr %5915, i64 %5913
+  %5921 = getelementptr inbounds nuw [24 x i8], ptr %5915, i64 %5913
   br label %_ZN3ue2L13addEscapedHexEPNS_17ComponentSequenceEjRKNS_9ParseModeE.exit
 
 5922:                                             ; preds = %5851
@@ -15393,7 +15392,7 @@ _ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
   br label %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i3678
 
 _ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i3678: ; preds = %5975, %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i.i3675
-  %5976 = getelementptr inbounds nuw %"struct.ue2::(anonymous namespace)::ExprState", ptr %5971, i64 %5969
+  %5976 = getelementptr inbounds nuw [24 x i8], ptr %5971, i64 %5969
   br label %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE9push_backEOS2_.exit3681
 
 _ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE9push_backEOS2_.exit3681: ; preds = %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i3678, %5957
@@ -15556,7 +15555,7 @@ _ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
   br label %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i3717
 
 _ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i3717: ; preds = %6017, %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i.i3714
-  %6018 = getelementptr inbounds nuw %"struct.ue2::(anonymous namespace)::ExprState", ptr %6013, i64 %6011
+  %6018 = getelementptr inbounds nuw [24 x i8], ptr %6013, i64 %6011
   br label %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE9push_backEOS2_.exit3720
 
 _ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE9push_backEOS2_.exit3720: ; preds = %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i3717, %5999
@@ -16236,7 +16235,7 @@ _ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
   br label %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i3806
 
 _ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i3806: ; preds = %6250, %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i.i3803
-  %6251 = getelementptr inbounds nuw %"struct.ue2::(anonymous namespace)::ExprState", ptr %6246, i64 %6244
+  %6251 = getelementptr inbounds nuw [24 x i8], ptr %6246, i64 %6244
   br label %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE9push_backEOS2_.exit3809
 
 _ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE9push_backEOS2_.exit3809: ; preds = %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i3806, %6232
@@ -17826,7 +17825,7 @@ _ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.
   br label %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i4009
 
 _ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i4009: ; preds = %6673, %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit26.i.i.i4006
-  %6674 = getelementptr inbounds nuw %"struct.ue2::(anonymous namespace)::ExprState", ptr %6669, i64 %6667
+  %6674 = getelementptr inbounds nuw [24 x i8], ptr %6669, i64 %6667
   br label %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE9push_backEOS2_.exit4012
 
 _ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE9push_backEOS2_.exit4012: ; preds = %_ZNSt6vectorIN3ue212_GLOBAL__N_19ExprStateESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i4009, %6655
@@ -18601,10 +18600,10 @@ _ZN3ue2L13addEscapedHexEPNS_17ComponentSequenceEjRKNS_9ParseModeE.exit: ; preds 
   %.21416 = phi i32 [ %447, %443 ], [ %447, %451 ], [ 836, %_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit4042 ], [ 790, %563 ], [ %593, %588 ], [ %704, %698 ], [ %716, %710 ], [ %728, %722 ], [ %740, %734 ], [ %752, %746 ], [ %764, %758 ], [ %776, %770 ], [ %788, %782 ], [ %800, %794 ], [ %812, %806 ], [ %824, %818 ], [ %836, %830 ], [ %848, %842 ], [ %860, %854 ], [ %872, %866 ], [ %884, %878 ], [ %896, %890 ], [ %908, %902 ], [ %920, %914 ], [ %932, %926 ], [ %944, %938 ], [ %956, %950 ], [ %968, %962 ], [ %980, %974 ], [ %992, %986 ], [ %1004, %998 ], [ %1016, %1010 ], [ %1028, %1022 ], [ %1040, %1034 ], [ %1052, %1046 ], [ %1064, %1058 ], [ %1076, %1070 ], [ %1088, %1082 ], [ %1100, %1094 ], [ %1112, %1106 ], [ %1124, %1118 ], [ %1136, %1130 ], [ %1148, %1142 ], [ %1160, %1154 ], [ %1172, %1166 ], [ %1184, %1178 ], [ %1196, %1190 ], [ %1208, %1202 ], [ %1220, %1214 ], [ %1232, %1226 ], [ %1244, %1238 ], [ %1256, %1250 ], [ %1268, %1262 ], [ %1280, %1274 ], [ %1292, %1286 ], [ %1304, %1298 ], [ %1316, %1310 ], [ %1328, %1322 ], [ %1340, %1334 ], [ %1352, %1346 ], [ %1364, %1358 ], [ %1376, %1370 ], [ %1388, %1382 ], [ %1400, %1394 ], [ %1412, %1406 ], [ %1424, %1418 ], [ %1436, %1430 ], [ %1448, %1442 ], [ %1460, %1454 ], [ %1472, %1466 ], [ %1484, %1478 ], [ %1496, %1490 ], [ %1508, %1502 ], [ %1520, %1514 ], [ %1532, %1526 ], [ %1544, %1538 ], [ %1556, %1550 ], [ %1568, %1562 ], [ %1580, %1574 ], [ %1592, %1586 ], [ %1604, %1598 ], [ %1616, %1610 ], [ %1628, %1622 ], [ %1640, %1634 ], [ %1652, %1646 ], [ %1664, %1658 ], [ %1676, %1670 ], [ %1688, %1682 ], [ %1700, %1694 ], [ %1712, %1706 ], [ %1724, %1718 ], [ %1736, %1730 ], [ %1748, %1742 ], [ %1760, %1754 ], [ %1772, %1766 ], [ %1784, %1778 ], [ %1796, %1790 ], [ %1808, %1802 ], [ %1820, %1814 ], [ %1832, %1826 ], [ %1844, %1838 ], [ %1856, %1850 ], [ %1868, %1862 ], [ %1880, %1874 ], [ %1892, %1886 ], [ %1904, %1898 ], [ %1916, %1910 ], [ %1928, %1922 ], [ %1940, %1934 ], [ %1952, %1946 ], [ %1964, %1958 ], [ %1976, %1970 ], [ %1988, %1982 ], [ %2000, %1994 ], [ %2012, %2006 ], [ %2024, %2018 ], [ %2036, %2030 ], [ %2048, %2042 ], [ %2060, %2054 ], [ %2072, %2066 ], [ %2084, %2078 ], [ %2096, %2090 ], [ %2108, %2102 ], [ %2120, %2114 ], [ %2132, %2126 ], [ %2144, %2138 ], [ %2156, %2150 ], [ %2168, %2162 ], [ %2180, %2174 ], [ %2192, %2186 ], [ %2204, %2198 ], [ %2216, %2210 ], [ %2228, %2222 ], [ %2251, %2245 ], [ %2263, %2257 ], [ %2275, %2269 ], [ %2287, %2281 ], [ %2299, %2293 ], [ %2311, %2305 ], [ %2323, %2317 ], [ %2335, %2329 ], [ %2347, %2341 ], [ %2359, %2353 ], [ %2382, %2376 ], [ %2394, %2388 ], [ %2406, %2400 ], [ %2418, %2412 ], [ %2430, %2424 ], [ %2442, %2436 ], [ %2454, %2448 ], [ %2466, %2460 ], [ %2478, %2472 ], [ %2521, %2516 ], [ %2553, %2548 ], [ %2585, %2580 ], [ %2617, %2612 ], [ %2649, %2644 ], [ %2681, %2676 ], [ %2713, %2708 ], [ 843, %2902 ], [ 559, %2980 ], [ 818, %3001 ], [ 559, %3022 ], [ 818, %3043 ], [ 746, %_ZNSt10unique_ptrIN3ue29ComponentESt14default_deleteIS1_EED2Ev.exit2426 ], [ 819, %3566 ], [ 843, %3590 ], [ 819, %3597 ], [ 819, %3600 ], [ 746, %3602 ], [ %3767, %3761 ], [ 746, %3839 ], [ 746, %3843 ], [ 838, %3899 ], [ 849, %4122 ], [ 787, %4140 ], [ 559, %5029 ], [ 818, %5062 ], [ 559, %5095 ], [ 818, %5128 ], [ 848, %5217 ], [ 836, %_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit3839 ], [ %447, %_ZN3ue2L13addEscapedHexEPNS_17ComponentSequenceEjRKNS_9ParseModeE.exit ]
   %.4 = phi ptr [ %.3, %443 ], [ %.3, %451 ], [ %6698, %_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit4042 ], [ %549, %563 ], [ %.513169, %588 ], [ %.513169, %698 ], [ %.513169, %710 ], [ %.513169, %722 ], [ %.513169, %734 ], [ %.513169, %746 ], [ %.513169, %758 ], [ %.513169, %770 ], [ %.513169, %782 ], [ %.513169, %794 ], [ %.513169, %806 ], [ %.513169, %818 ], [ %.513169, %830 ], [ %.513169, %842 ], [ %.513169, %854 ], [ %.513169, %866 ], [ %.513169, %878 ], [ %.513169, %890 ], [ %.513169, %902 ], [ %.513169, %914 ], [ %.513169, %926 ], [ %.513169, %938 ], [ %.513169, %950 ], [ %.513169, %962 ], [ %.513169, %974 ], [ %.513169, %986 ], [ %.513169, %998 ], [ %.513169, %1010 ], [ %.513169, %1022 ], [ %.513169, %1034 ], [ %.513169, %1046 ], [ %.513169, %1058 ], [ %.513169, %1070 ], [ %.513169, %1082 ], [ %.513169, %1094 ], [ %.513169, %1106 ], [ %.513169, %1118 ], [ %.513169, %1130 ], [ %.513169, %1142 ], [ %.513169, %1154 ], [ %.513169, %1166 ], [ %.513169, %1178 ], [ %.513169, %1190 ], [ %.513169, %1202 ], [ %.513169, %1214 ], [ %.513169, %1226 ], [ %.513169, %1238 ], [ %.513169, %1250 ], [ %.513169, %1262 ], [ %.513169, %1274 ], [ %.513169, %1286 ], [ %.513169, %1298 ], [ %.513169, %1310 ], [ %.513169, %1322 ], [ %.513169, %1334 ], [ %.513169, %1346 ], [ %.513169, %1358 ], [ %.513169, %1370 ], [ %.513169, %1382 ], [ %.513169, %1394 ], [ %.513169, %1406 ], [ %.513169, %1418 ], [ %.513169, %1430 ], [ %.513169, %1442 ], [ %.513169, %1454 ], [ %.513169, %1466 ], [ %.513169, %1478 ], [ %.513169, %1490 ], [ %.513169, %1502 ], [ %.513169, %1514 ], [ %.513169, %1526 ], [ %.513169, %1538 ], [ %.513169, %1550 ], [ %.513169, %1562 ], [ %.513169, %1574 ], [ %.513169, %1586 ], [ %.513169, %1598 ], [ %.513169, %1610 ], [ %.513169, %1622 ], [ %.513169, %1634 ], [ %.513169, %1646 ], [ %.513169, %1658 ], [ %.513169, %1670 ], [ %.513169, %1682 ], [ %.513169, %1694 ], [ %.513169, %1706 ], [ %.513169, %1718 ], [ %.513169, %1730 ], [ %.513169, %1742 ], [ %.513169, %1754 ], [ %.513169, %1766 ], [ %.513169, %1778 ], [ %.513169, %1790 ], [ %.513169, %1802 ], [ %.513169, %1814 ], [ %.513169, %1826 ], [ %.513169, %1838 ], [ %.513169, %1850 ], [ %.513169, %1862 ], [ %.513169, %1874 ], [ %.513169, %1886 ], [ %.513169, %1898 ], [ %.513169, %1910 ], [ %.513169, %1922 ], [ %.513169, %1934 ], [ %.513169, %1946 ], [ %.513169, %1958 ], [ %.513169, %1970 ], [ %.513169, %1982 ], [ %.513169, %1994 ], [ %.513169, %2006 ], [ %.513169, %2018 ], [ %.513169, %2030 ], [ %.513169, %2042 ], [ %.513169, %2054 ], [ %.513169, %2066 ], [ %.513169, %2078 ], [ %.513169, %2090 ], [ %.513169, %2102 ], [ %.513169, %2114 ], [ %.513169, %2126 ], [ %.513169, %2138 ], [ %.513169, %2150 ], [ %.513169, %2162 ], [ %.513169, %2174 ], [ %.513169, %2186 ], [ %.513169, %2198 ], [ %.513169, %2210 ], [ %.513169, %2222 ], [ %2246, %2245 ], [ %2258, %2257 ], [ %2270, %2269 ], [ %2282, %2281 ], [ %2294, %2293 ], [ %2306, %2305 ], [ %2318, %2317 ], [ %2330, %2329 ], [ %2342, %2341 ], [ %2354, %2353 ], [ %2377, %2376 ], [ %2389, %2388 ], [ %2401, %2400 ], [ %2413, %2412 ], [ %2425, %2424 ], [ %2437, %2436 ], [ %2449, %2448 ], [ %2461, %2460 ], [ %2473, %2472 ], [ %.513169, %2516 ], [ %.513169, %2548 ], [ %.513169, %2580 ], [ %.513169, %2612 ], [ %.513169, %2644 ], [ %.513169, %2676 ], [ %.513169, %2708 ], [ %.513169, %2902 ], [ %2966, %2980 ], [ %2987, %3001 ], [ %3008, %3022 ], [ %3029, %3043 ], [ %.513169, %_ZNSt10unique_ptrIN3ue29ComponentESt14default_deleteIS1_EED2Ev.exit2426 ], [ %3567, %3566 ], [ %.513169, %3590 ], [ %3599, %3597 ], [ %3601, %3600 ], [ %.513169, %3602 ], [ %.513169, %3761 ], [ %.513169, %3839 ], [ %.513169, %3843 ], [ %.513169, %3899 ], [ %.513169, %4122 ], [ %4126, %4140 ], [ %5011, %5029 ], [ %5044, %5062 ], [ %5077, %5095 ], [ %5110, %5128 ], [ %.513169, %5217 ], [ %6275, %_ZNSt10unique_ptrIN3ue214ComponentClassESt14default_deleteIS1_EED2Ev.exit3839 ], [ %.6, %_ZN3ue2L13addEscapedHexEPNS_17ComponentSequenceEjRKNS_9ParseModeE.exit ]
   %6861 = sext i32 %.21416 to i64
-  %6862 = getelementptr inbounds i16, ptr @_ZN3ue2L23_regex_to_state_actionsE, i64 %6861
+  %6862 = getelementptr inbounds [2 x i8], ptr @_ZN3ue2L23_regex_to_state_actionsE, i64 %6861
   %6863 = load i16, ptr %6862, align 2
   %6864 = sext i16 %6863 to i64
-  %6865 = getelementptr inbounds i16, ptr @_ZN3ue2L14_regex_actionsE, i64 %6864
+  %6865 = getelementptr inbounds [2 x i8], ptr @_ZN3ue2L14_regex_actionsE, i64 %6864
   %6866 = load i16, ptr %6865, align 2
   %.not222313187 = icmp eq i16 %6866, 0
   br i1 %.not222313187, label %._crit_edge13193, label %.lr.ph13192.preheader
@@ -18663,7 +18662,7 @@ _ZN3ue2L13addEscapedHexEPNS_17ComponentSequenceEjRKNS_9ParseModeE.exit: ; preds 
 
 6875:                                             ; preds = %6873
   %6876 = sext i32 %.01414 to i64
-  %6877 = getelementptr inbounds i16, ptr @_ZN3ue2L16_regex_eof_transE, i64 %6876
+  %6877 = getelementptr inbounds [2 x i8], ptr @_ZN3ue2L16_regex_eof_transE, i64 %6876
   %6878 = load i16, ptr %6877, align 2
   %6879 = icmp sgt i16 %6878, 0
   br i1 %6879, label %6880, label %6883
@@ -18674,10 +18673,10 @@ _ZN3ue2L13addEscapedHexEPNS_17ComponentSequenceEjRKNS_9ParseModeE.exit: ; preds 
   br label %443
 
 6883:                                             ; preds = %6875
-  %6884 = getelementptr inbounds i16, ptr @_ZN3ue2L18_regex_eof_actionsE, i64 %6876
+  %6884 = getelementptr inbounds [2 x i8], ptr @_ZN3ue2L18_regex_eof_actionsE, i64 %6876
   %6885 = load i16, ptr %6884, align 2
   %6886 = sext i16 %6885 to i64
-  %6887 = getelementptr inbounds i16, ptr @_ZN3ue2L14_regex_actionsE, i64 %6886
+  %6887 = getelementptr inbounds [2 x i8], ptr @_ZN3ue2L14_regex_actionsE, i64 %6886
   %6888 = load i16, ptr %6887, align 2
   %6889 = sext i16 %6888 to i32
   br label %6890
@@ -19528,7 +19527,7 @@ define linkonce_odr dso_local void @_ZNSt6vectorIiSaIiEE6resizeEm(ptr noundef no
   br i1 %14, label %15, label %_ZNSt6vectorIiSaIiEE15_M_erase_at_endEPi.exit
 
 15:                                               ; preds = %13
-  %16 = getelementptr inbounds nuw i32, ptr %5, i64 %1
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %1
   %.not.i = icmp eq ptr %4, %16
   br i1 %.not.i, label %_ZNSt6vectorIiSaIiEE15_M_erase_at_endEPi.exit, label %17
 
@@ -20040,7 +20039,7 @@ define linkonce_odr hidden void @_ZN3ue28flat_setINSt7__cxx1112basic_stringIcSt1
   %6 = load ptr, ptr %1, align 8, !noalias !232
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i64, ptr %7, align 8, !noalias !235
-  %9 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %6, i64 %8
+  %9 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %8
   %10 = ptrtoint ptr %6 to i64
   %11 = icmp sgt i64 %8, 0
   br i1 %11, label %_ZSt7advanceIN5boost9container12vec_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EEElEvRT_T0_.exit.lr.ph.i.i, label %_ZSt11lower_boundIN5boost9container12vec_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EEES8_St4lessIS8_EET_SD_SD_RKT0_T1_.exit
@@ -20055,7 +20054,7 @@ _ZSt7advanceIN5boost9container12vec_iteratorIPNSt7__cxx1112basic_stringIcSt11cha
   %15 = phi ptr [ %6, %_ZSt7advanceIN5boost9container12vec_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EEElEvRT_T0_.exit.lr.ph.i.i ], [ %28, %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclIN5boost9container12vec_iteratorIPS8_Lb0EEEKS8_EEbT_RT0_.exit.i.i ]
   %.012.i.i = phi i64 [ %8, %_ZSt7advanceIN5boost9container12vec_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EEElEvRT_T0_.exit.lr.ph.i.i ], [ %.1.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclIN5boost9container12vec_iteratorIPS8_Lb0EEEKS8_EEbT_RT0_.exit.i.i ]
   %16 = lshr i64 %.012.i.i, 1
-  %17 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load i64, ptr %18, align 8, !noalias !238
   %.sroa.speculated.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %13, i64 %19)
@@ -21168,9 +21167,9 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIiSaIiEE13_M_deallocateEPim.exit36: ; preds = %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8
-  %38 = getelementptr inbounds nuw i32, ptr %31, i64 %1
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %1
   store ptr %38, ptr %4, align 8
-  %39 = getelementptr inbounds nuw i32, ptr %30, i64 %28
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %28
   store ptr %39, ptr %11, align 8
   br label %40
 
@@ -21286,7 +21285,7 @@ define linkonce_odr hidden void @_ZN5boost9container6vectorINSt7__cxx1112basic_s
   %8 = load ptr, ptr %0, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load i64, ptr %9, align 8
-  %11 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %8, i64 %10
+  %11 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 %10
   %12 = ptrtoint ptr %11 to i64
   %13 = ptrtoint ptr %1 to i64
   %14 = sub i64 %12, %13
@@ -21496,7 +21495,7 @@ _ZN5boost9container13move_backwardIPNSt7__cxx1112basic_stringIcSt11char_traitsIc
   br label %136
 
 88:                                               ; preds = %34
-  %89 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %1, i64 %2
+  %89 = getelementptr inbounds nuw [32 x i8], ptr %1, i64 %2
   br label %.lr.ph.i42
 
 .lr.ph.i42:                                       ; preds = %88, %100
@@ -21772,13 +21771,13 @@ _ZN5boost9container3dtl24scoped_array_deallocatorINS0_22small_vector_allocatorIN
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 %51
   store i8 0, ptr %54, align 1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %55 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %.0, i64 %4
+  %55 = getelementptr inbounds nuw [32 x i8], ptr %.0, i64 %4
   br i1 %.not, label %_ZN5boost9container19vector_alloc_holderINS0_22small_vector_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIvEvEEmNS_11move_detail17integral_constantIjLj1EEEE10deallocateERKPS8_m.exit, label %56
 
 56:                                               ; preds = %50
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %58 = load i64, ptr %57, align 8
-  %59 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %11, i64 %58
+  %59 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 %58
   %.not16.i22 = icmp eq ptr %3, %59
   br i1 %.not16.i22, label %_ZN5boost9container24uninitialized_move_allocINS0_22small_vector_allocatorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIvEvEEPS8_SB_EENS0_3dtl41disable_if_memtransfer_copy_constructibleIT0_T1_SF_E4typeERT_SE_SE_SF_.exit29, label %.lr.ph.i23
 

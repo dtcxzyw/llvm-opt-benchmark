@@ -39,12 +39,12 @@ define hidden noundef double @_ZN2cv3ccm10deltaCIE76ERKNS_3VecIdLi3EEES4_(ptr no
 
 4:                                                ; preds = %4, %2
   %indvars.iv.i.i.i = phi i64 [ 0, %2 ], [ %indvars.iv.next.i.i.i, %4 ]
-  %5 = getelementptr inbounds nuw double, ptr %0, i64 %indvars.iv.i.i.i
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.i.i.i
   %6 = load double, ptr %5, align 8, !tbaa !6, !noalias !3
-  %7 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv.i.i.i
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i.i.i
   %8 = load double, ptr %7, align 8, !tbaa !6, !noalias !3
   %9 = fsub double %6, %8
-  %10 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.i.i.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i.i.i
   store double %9, ptr %10, align 8, !tbaa !6, !alias.scope !3
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %indvars.iv.next.i.i.i, 3
@@ -53,7 +53,7 @@ define hidden noundef double @_ZN2cv3ccm10deltaCIE76ERKNS_3VecIdLi3EEES4_(ptr no
 _ZN2cvmiIdLi3EEENS_3VecIT_XT0_EEERKS3_S5_.exit:   ; preds = %4, %_ZN2cvmiIdLi3EEENS_3VecIT_XT0_EEERKS3_S5_.exit
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %_ZN2cvmiIdLi3EEENS_3VecIT_XT0_EEERKS3_S5_.exit ], [ 0, %4 ]
   %.010.i.i = phi double [ %13, %_ZN2cvmiIdLi3EEENS_3VecIT_XT0_EEERKS3_S5_.exit ], [ 0.000000e+00, %4 ]
-  %11 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv.i.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i.i
   %12 = load double, ptr %11, align 8, !tbaa !6
   %13 = tail call double @llvm.fmuladd.f64(double %12, double %12, double %.010.i.i)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -620,7 +620,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %10, %
 
 switch.lookup:                                    ; preds = %4
   %15 = zext nneg i32 %3 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN2cv3ccm8distanceENS_3MatES1_NS0_13DISTANCE_TYPEE, i64 %15
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN2cv3ccm8distanceENS_3MatES1_NS0_13DISTANCE_TYPEE, i64 %15
   %switch.load = load ptr, ptr %switch.gep, align 8
   tail call void @_ZN2cv3ccm12distanceWiseIRFdRKNS_3VecIdLi3EEES5_EEENS_3MatERS8_S9_OT_(ptr dead_on_unwind writable sret(%"class.cv::Mat") align 8 %0, ptr noundef nonnull align 8 dereferenceable(96) %1, ptr noundef nonnull align 8 dereferenceable(96) %2, ptr noundef nonnull %switch.load)
   ret void
@@ -926,7 +926,7 @@ define linkonce_odr hidden void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr nound
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %11 = load ptr, ptr %10, align 8, !tbaa !49
   %12 = zext nneg i32 %7 to i64
-  %13 = getelementptr i64, ptr %11, i64 %12
+  %13 = getelementptr [8 x i8], ptr %11, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -8
   %15 = load i64, ptr %14, align 8, !tbaa !50
   br label %16

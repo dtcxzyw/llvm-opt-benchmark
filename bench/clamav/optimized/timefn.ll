@@ -353,7 +353,7 @@ define void @_ZN7RarTime10SetIsoTextEPKw(ptr noundef nonnull writeonly align 8 c
 
 33:                                               ; preds = %26
   %34 = zext nneg i32 %31 to i64
-  %35 = getelementptr inbounds nuw i32, ptr %4, i64 %34
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %34
   %36 = load i32, ptr %35, align 4, !tbaa !34
   %37 = mul nsw i32 %36, 10
   %38 = load i32, ptr %.015, align 4, !tbaa !32
@@ -450,7 +450,7 @@ define void @_ZN7RarTime10SetAgeTextEPKw(ptr noundef nonnull writeonly align 8 c
   %.1 = phi i32 [ %.025, %14 ], [ %30, %29 ], [ %28, %26 ], [ %25, %23 ], [ %22, %20 ], [ %.025, %18 ]
   %32 = add i32 %.01824, 1
   %33 = zext i32 %32 to i64
-  %34 = getelementptr inbounds nuw i32, ptr %1, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !32
   %.not = icmp eq i32 %35, 0
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !37

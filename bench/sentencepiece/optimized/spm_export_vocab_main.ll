@@ -147,13 +147,13 @@ define noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed_addr #3 p
 
 21:                                               ; preds = %.noexc
   %22 = sext i32 %0 to i64
-  %23 = getelementptr inbounds ptr, ptr %1, i64 %22
+  %23 = getelementptr inbounds [8 x i8], ptr %1, i64 %22
   %24 = ptrtoint ptr %19 to i64
   %25 = ptrtoint ptr %20 to i64
   %26 = sub i64 %24, %25
   %27 = ashr exact i64 %26, 3
   %28 = sub nsw i64 0, %27
-  %29 = getelementptr inbounds ptr, ptr %23, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %23, i64 %28
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %29, ptr align 8 %20, i64 %26, i1 false)
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKPcSt6vectorIS2_SaIS2_EEEEPS2_ET0_T_SB_SA_.exit.i
 
@@ -732,7 +732,7 @@ _ZN4absl7GetFlagINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEERKT_RKNS_
   %263 = getelementptr inbounds nuw i8, ptr %261, i64 64
   %264 = load ptr, ptr %263, align 8, !tbaa !30
   %265 = getelementptr inbounds nuw i8, ptr %264, i64 8
-  %266 = getelementptr inbounds nuw ptr, ptr %265, i64 %indvars.iv
+  %266 = getelementptr inbounds nuw [8 x i8], ptr %265, i64 %indvars.iv
   %267 = load ptr, ptr %266, align 8, !tbaa !35
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 48
   %269 = load ptr, ptr %268, align 8, !tbaa !36

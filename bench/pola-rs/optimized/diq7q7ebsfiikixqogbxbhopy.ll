@@ -247,7 +247,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17h9b13074
   %27 = zext nneg i16 %26 to i64
   %28 = and i16 %25, %.lcssa.i.i
   %29 = sub nsw i64 0, %27
-  %30 = getelementptr inbounds { { { { { ptr, i64 } }, {}, {} } }, i32, [1 x i32] }, ptr %.sroa.06.1.i, i64 %29
+  %30 = getelementptr inbounds [24 x i8], ptr %.sroa.06.1.i, i64 %29
   %31 = add i64 %.sroa.108.015.i, -1
   %32 = getelementptr inbounds i8, ptr %30, i64 -24
   tail call void @"_ZN4core3ptr68drop_in_place$LT$regex_automata..util..determinize..state..State$GT$17h27f328094e89d91cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %32), !noalias !14
@@ -332,7 +332,7 @@ define hidden void @_ZN9hashbrown3raw13RawTableInner16drop_inner_table17hf807b26
   %27 = zext nneg i16 %26 to i64
   %28 = and i16 %25, %.lcssa.i.i
   %29 = sub nsw i64 0, %27
-  %30 = getelementptr inbounds { i32, [1 x i32], { { { { { { { i64, ptr, {} }, {} }, i64 } } }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { { { { i64, ptr, {} }, {} }, i64 } } } }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i32, [1 x i32] }, { i32, [1 x i32] }, i64, i64, i64, i64, i64, i64, i64, i64, i64, { ptr, [5 x i64] }, i64, i64, i64, i64, i32, float, i32, i8, i8, [2 x i8] } } }, ptr %.sroa.06.1.i, i64 %29
+  %30 = getelementptr inbounds [392 x i8], ptr %.sroa.06.1.i, i64 %29
   %31 = add i64 %.sroa.108.015.i, -1
   %32 = getelementptr inbounds i8, ptr %30, i64 -384
   tail call void @"_ZN4core3ptr53drop_in_place$LT$sysinfo..common..system..Process$GT$17h604333b908f9288eE"(ptr noalias noundef nonnull align 8 dereferenceable(384) %32), !noalias !23
@@ -679,7 +679,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17hb3a027330886b1b5E.exit.i.
   tail call void @llvm.experimental.noalias.scope.decl(metadata !60)
   %76 = load ptr, ptr %0, align 8, !alias.scope !60, !noalias !63, !nonnull !6, !noundef !6
   %77 = sub nsw i64 0, %74
-  %78 = getelementptr inbounds { { i32, i32 } }, ptr %76, i64 %77
+  %78 = getelementptr inbounds [8 x i8], ptr %76, i64 %77
   %79 = getelementptr inbounds i8, ptr %78, i64 -8
   %.val3.i = load i32, ptr %79, align 4, !range !65, !noalias !66, !noundef !6
   %80 = getelementptr i8, ptr %78, i64 -4
@@ -834,7 +834,7 @@ _ZN9hashbrown3raw13RawTableInner23prepare_rehash_in_place17hf70de054a87a1a12E.ex
 _ZN4core3ptr25swap_nonoverlapping_bytes17h4a5d355a75866bf8E.exit: ; preds = %217, %142
   tail call void @llvm.experimental.noalias.scope.decl(metadata !72)
   %147 = load ptr, ptr %0, align 8, !alias.scope !72, !noalias !75, !nonnull !6, !noundef !6
-  %148 = getelementptr inbounds { { i32, i32 } }, ptr %147, i64 %146
+  %148 = getelementptr inbounds [8 x i8], ptr %147, i64 %146
   %149 = getelementptr inbounds i8, ptr %148, i64 -8
   %.val3.i14 = load i32, ptr %149, align 4, !range !65, !noalias !77, !noundef !6
   %150 = getelementptr i8, ptr %148, i64 -4

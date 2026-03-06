@@ -319,10 +319,10 @@ define dso_local noundef zeroext i1 @gres_sched_add(ptr noundef captures(none) %
   %87 = call i32 @slurm_bit_set_count_range(ptr noundef %1, i32 noundef %86, i32 noundef %85) #4
   %88 = trunc i32 %87 to i16
   %89 = load ptr, ptr %14, align 8
-  %90 = getelementptr inbounds nuw i16, ptr %89, i64 %indvars.iv
+  %90 = getelementptr inbounds nuw [2 x i8], ptr %89, i64 %indvars.iv
   store i16 %88, ptr %90, align 2
   %91 = load ptr, ptr %14, align 8
-  %92 = getelementptr inbounds nuw i16, ptr %91, i64 %indvars.iv
+  %92 = getelementptr inbounds nuw [2 x i8], ptr %91, i64 %indvars.iv
   %93 = load i16, ptr %92, align 2
   %94 = zext i16 %93 to i64
   %95 = add i64 %.3127, %94
@@ -343,7 +343,7 @@ define dso_local noundef zeroext i1 @gres_sched_add(ptr noundef captures(none) %
   br i1 %.not67.i, label %_gres_per_job_reduce_res_cores.exit.thread, label %100
 
 100:                                              ; preds = %97
-  %101 = getelementptr inbounds ptr, ptr %99, i64 %27
+  %101 = getelementptr inbounds [8 x i8], ptr %99, i64 %27
   %102 = load ptr, ptr %101, align 8
   %.not68.i = icmp eq ptr %102, null
   br i1 %.not68.i, label %_gres_per_job_reduce_res_cores.exit.thread, label %103
@@ -399,12 +399,12 @@ define dso_local noundef zeroext i1 @gres_sched_add(ptr noundef captures(none) %
   %120 = add i16 %.178.i, -1
   %121 = udiv i32 %116, %23
   %122 = zext nneg i32 %121 to i64
-  %123 = getelementptr inbounds nuw i16, ptr %96, i64 %122
+  %123 = getelementptr inbounds nuw [2 x i8], ptr %96, i64 %122
   %124 = load i16, ptr %123, align 2
   %125 = add i16 %124, -1
   store i16 %125, ptr %123, align 2
   %126 = add i64 %.7, -1
-  %127 = getelementptr inbounds nuw i16, ptr %2, i64 %122
+  %127 = getelementptr inbounds nuw [2 x i8], ptr %2, i64 %122
   %128 = load i16, ptr %127, align 2
   %129 = icmp ult i16 %125, %128
   br i1 %129, label %130, label %132

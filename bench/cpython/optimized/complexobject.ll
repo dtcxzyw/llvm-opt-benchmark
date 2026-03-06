@@ -4331,7 +4331,7 @@ define internal ptr @complex_from_string_inner(ptr noundef %0, i64 noundef %1, p
   %.047 = phi ptr [ %0, %3 ], [ %11, %5 ]
   %6 = load i8, ptr %.047, align 1, !tbaa !12
   %7 = zext i8 %6 to i64
-  %8 = getelementptr i32, ptr @_Py_ctype_table, i64 %7
+  %8 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !4
   %10 = and i32 %9, 8
   %.not = icmp eq i32 %10, 0
@@ -4347,7 +4347,7 @@ define internal ptr @complex_from_string_inner(ptr noundef %0, i64 noundef %1, p
   %.2 = getelementptr i8, ptr %.047.pn, i64 1
   %13 = load i8, ptr %.2, align 1, !tbaa !12
   %14 = zext i8 %13 to i64
-  %15 = getelementptr i32, ptr @_Py_ctype_table, i64 %14
+  %15 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %14
   %16 = load i32, ptr %15, align 4, !tbaa !4
   %17 = and i32 %16, 8
   %.not58 = icmp eq i32 %17, 0
@@ -4474,7 +4474,7 @@ define internal ptr @complex_from_string_inner(ptr noundef %0, i64 noundef %1, p
   %.6 = phi ptr [ %.4, %62 ], [ %69, %63 ]
   %64 = load i8, ptr %.6, align 1, !tbaa !12
   %65 = zext i8 %64 to i64
-  %66 = getelementptr i32, ptr @_Py_ctype_table, i64 %65
+  %66 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %65
   %67 = load i32, ptr %66, align 4, !tbaa !4
   %68 = and i32 %67, 8
   %.not65 = icmp eq i32 %68, 0
@@ -4493,7 +4493,7 @@ define internal ptr @complex_from_string_inner(ptr noundef %0, i64 noundef %1, p
   %.8 = getelementptr i8, ptr %.6.pn, i64 1
   %72 = load i8, ptr %.8, align 1, !tbaa !12
   %73 = zext i8 %72 to i64
-  %74 = getelementptr i32, ptr @_Py_ctype_table, i64 %73
+  %74 = getelementptr [4 x i8], ptr @_Py_ctype_table, i64 %73
   %75 = load i32, ptr %74, align 4, !tbaa !4
   %76 = and i32 %75, 8
   %.not69 = icmp eq i32 %76, 0

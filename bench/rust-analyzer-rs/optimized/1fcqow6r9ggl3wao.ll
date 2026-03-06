@@ -398,7 +398,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h2e5860c3d3cf
   %16 = phi i64 [ %.pre, %"._ZN5alloc3vec16Vec$LT$T$C$A$GT$7reserve17ha69fa842ff2f9852E.exit_crit_edge" ], [ %9, %3 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8, !nonnull !4, !noundef !4
-  %19 = getelementptr inbounds { { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } } }, ptr %18, i64 %16
+  %19 = getelementptr inbounds [64 x i8], ptr %18, i64 %16
   %20 = icmp ugt i64 %1, 1
   br i1 %20, label %.lr.ph, label %._crit_edge
 
@@ -721,9 +721,9 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$5drain17h6c3699d2767735bfE"(
   store i64 %6, ptr %3, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8, !nonnull !4, !noundef !4
-  %10 = getelementptr inbounds i32, ptr %9, i64 %6
+  %10 = getelementptr inbounds [4 x i8], ptr %9, i64 %6
   %11 = sub i64 %4, %7
-  %12 = getelementptr inbounds i32, ptr %9, i64 %7
+  %12 = getelementptr inbounds [4 x i8], ptr %9, i64 %7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %7, ptr %13, align 8
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -816,7 +816,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8dedup_by17h3309cc883ef0836d
 
 10:                                               ; preds = %7, %"_ZN3vfs8file_set20FileSetConfigBuilder5build28_$u7b$$u7b$closure$u7d$$u7d$17h12268de3b637f848E.exit.thread"
   %.039 = phi i64 [ 1, %7 ], [ %23, %"_ZN3vfs8file_set20FileSetConfigBuilder5build28_$u7b$$u7b$closure$u7d$$u7d$17h12268de3b637f848E.exit.thread" ]
-  %11 = getelementptr { { { i64, ptr, {} }, i64 }, i64 }, ptr %9, i64 %.039
+  %11 = getelementptr [32 x i8], ptr %9, i64 %.039
   %12 = getelementptr i8, ptr %11, i64 16
   %.val14 = load i64, ptr %12, align 8, !noundef !4
   %13 = getelementptr i8, ptr %11, i64 -16
@@ -848,8 +848,8 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8dedup_by17h3309cc883ef0836d
   %.sroa.12.0 = phi i64 [ %.sroa.12.141, %.loopexit ], [ %.039, %.loopexit.split-lp ]
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %18 = sub i64 %5, %.sroa.5.0
-  %19 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64 }, ptr %9, i64 %.sroa.12.0
-  %20 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64 }, ptr %9, i64 %.sroa.5.0
+  %19 = getelementptr inbounds [32 x i8], ptr %9, i64 %.sroa.12.0
+  %20 = getelementptr inbounds [32 x i8], ptr %9, i64 %.sroa.5.0
   %21 = shl i64 %18, 5
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %19, ptr nonnull align 8 %20, i64 %21, i1 false), !noalias !151
   %22 = add i64 %18, %.sroa.12.0
@@ -902,8 +902,8 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$8dedup_by17h3309cc883ef0836d
 37:                                               ; preds = %.lr.ph, %55
   %.sroa.12.141 = phi i64 [ %.039, %.lr.ph ], [ %.sroa.12.2, %55 ]
   %.sroa.5.140 = phi i64 [ %25, %.lr.ph ], [ %.sroa.5.2, %55 ]
-  %38 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i64 }, ptr %9, i64 %.sroa.5.140
-  %39 = getelementptr { { { i64, ptr, {} }, i64 }, i64 }, ptr %9, i64 %.sroa.12.141
+  %38 = getelementptr inbounds [32 x i8], ptr %9, i64 %.sroa.5.140
+  %39 = getelementptr [32 x i8], ptr %9, i64 %.sroa.12.141
   %40 = getelementptr i8, ptr %38, i64 16
   %.val18 = load i64, ptr %40, align 8, !noundef !4
   %41 = getelementptr i8, ptr %39, i64 -16

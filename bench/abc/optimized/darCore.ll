@@ -154,7 +154,7 @@ Abc_Clock.exit:                                   ; preds = %33, %36
   %.0119194 = phi i32 [ 0, %.lr.ph195 ], [ %.1, %239 ]
   %64 = getelementptr i8, ptr %63, i64 8
   %.val154 = load ptr, ptr %64, align 8, !tbaa !43
-  %65 = getelementptr inbounds nuw ptr, ptr %.val154, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %.val154, i64 %indvars.iv
   %66 = load ptr, ptr %65, align 8, !tbaa !44
   %67 = icmp eq ptr %66, null
   br i1 %67, label %239, label %68
@@ -314,7 +314,7 @@ Aig_ManObj.exit:                                  ; preds = %138
   %141 = getelementptr i8, ptr %.val158, i64 8
   %.val.i = load ptr, ptr %141, align 8, !tbaa !43
   %142 = sext i32 %136 to i64
-  %143 = getelementptr inbounds ptr, ptr %.val.i, i64 %142
+  %143 = getelementptr inbounds [8 x i8], ptr %.val.i, i64 %142
   %144 = load ptr, ptr %143, align 8, !tbaa !44
   %.not139 = icmp eq ptr %144, null
   br i1 %.not139, label %Aig_ManObj.exit.thread, label %147
@@ -350,7 +350,7 @@ Aig_ManObj.exit.thread:                           ; preds = %138, %132, %127, %A
   %160 = getelementptr i8, ptr %.val159, i64 8
   %.val.i168 = load ptr, ptr %160, align 8, !tbaa !43
   %161 = sext i32 %159 to i64
-  %162 = getelementptr inbounds ptr, ptr %.val.i168, i64 %161
+  %162 = getelementptr inbounds [8 x i8], ptr %.val.i168, i64 %161
   %163 = load ptr, ptr %162, align 8, !tbaa !44
   %164 = ptrtoint ptr %163 to i64
   br label %Aig_ManObj.exit169
@@ -484,7 +484,7 @@ Aig_ObjPhaseReal.exit:                            ; preds = %207, %209
   %.val150 = load i32, ptr %41, align 8, !tbaa !38
   %232 = load i32, ptr %60, align 8, !tbaa !58
   %233 = sext i32 %232 to i64
-  %234 = getelementptr inbounds i32, ptr %59, i64 %233
+  %234 = getelementptr inbounds [4 x i8], ptr %59, i64 %233
   %235 = load i32, ptr %234, align 4, !tbaa !38
   %.neg180 = add i32 %.val148, %.val147
   %236 = add i32 %.val149, %.val150
@@ -653,7 +653,7 @@ define i32 @Dar_ManCutCount(ptr noundef readonly captures(none) %0, ptr noundef 
   %indvars.iv = phi i64 [ 0, %.lr.ph40 ], [ %indvars.iv.next, %.loopexit ]
   %.039 = phi i32 [ 0, %.lr.ph40 ], [ %.3, %.loopexit ]
   %.01938 = phi i32 [ 0, %.lr.ph40 ], [ %.322, %.loopexit ]
-  %9 = getelementptr inbounds nuw ptr, ptr %.val29, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %.val29, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !44
   %11 = icmp eq ptr %10, null
   br i1 %11, label %.loopexit, label %12
@@ -790,7 +790,7 @@ Abc_Clock.exit:                                   ; preds = %4, %10
   %39 = phi ptr [ %44, %.lr.ph ], [ %32, %Abc_Clock.exit ]
   %40 = getelementptr i8, ptr %39, i64 8
   %.val41 = load ptr, ptr %40, align 8, !tbaa !43
-  %41 = getelementptr inbounds nuw ptr, ptr %.val41, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %.val41, i64 %indvars.iv
   %42 = load ptr, ptr %41, align 8, !tbaa !44
   %43 = call ptr @Dar_ObjPrepareCuts(ptr noundef nonnull %24, ptr noundef %42) #12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -806,7 +806,7 @@ Abc_Clock.exit:                                   ; preds = %4, %10
   %indvars.iv60 = phi i64 [ %indvars.iv.next61, %.critedge ], [ 0, %.critedge.preheader ]
   %49 = getelementptr i8, ptr %48, i64 8
   %.val40 = load ptr, ptr %49, align 8, !tbaa !43
-  %50 = getelementptr inbounds nuw ptr, ptr %.val40, i64 %indvars.iv60
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %.val40, i64 %indvars.iv60
   %51 = load ptr, ptr %50, align 8, !tbaa !44
   %52 = icmp eq ptr %51, null
   br i1 %52, label %.critedge, label %53
@@ -854,7 +854,7 @@ Abc_Clock.exit:                                   ; preds = %4, %10
   %indvars.iv.i = phi i64 [ 0, %.lr.ph40.i ], [ %indvars.iv.next.i, %.loopexit.i ]
   %.039.i = phi i32 [ 0, %.lr.ph40.i ], [ %.3.i, %.loopexit.i ]
   %.01938.i = phi i32 [ 0, %.lr.ph40.i ], [ %.322.i, %.loopexit.i ]
-  %68 = getelementptr inbounds nuw ptr, ptr %.val29.i, i64 %indvars.iv.i
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %.val29.i, i64 %indvars.iv.i
   %69 = load ptr, ptr %68, align 8, !tbaa !44
   %70 = icmp eq ptr %69, null
   br i1 %70, label %.loopexit.i, label %71

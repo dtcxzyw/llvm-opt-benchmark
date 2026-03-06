@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.ObjectAddress = type { i32, i32, i32 }
-%union.ListCell = type { ptr }
-%struct.FormData_pg_attribute = type { i32, %struct.nameData, i32, i16, i16, i32, i16, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i8, i16, i32 }
-%struct.nameData = type { [64 x i8] }
 
 @InvalidObjectAddress = external local_unnamed_addr constant %struct.ObjectAddress, align 4
 @post_parse_analyze_hook = external local_unnamed_addr global ptr, align 8
@@ -151,7 +148,7 @@ list_head.exit.i:                                 ; preds = %49, %44
   %.0324658.i = phi ptr [ %.133.i, %107 ], [ %52, %.lr.ph.i ]
   %.04757.i = phi ptr [ %.1.i, %107 ], [ null, %.lr.ph.i ]
   %58 = load ptr, ptr %54, align 8
-  %59 = getelementptr inbounds nuw %union.ListCell, ptr %58, i64 %indvars.iv.i
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %58, i64 %indvars.iv.i
   %60 = load ptr, ptr %59, align 8
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 42
   %62 = load i8, ptr %61, align 2, !range !4, !noundef !5
@@ -178,7 +175,7 @@ list_head.exit.i:                                 ; preds = %49, %44
   %.val40.i = load ptr, ptr %70, align 8
   %71 = getelementptr inbounds nuw i8, ptr %.0324658.i, i64 8
   %72 = sext i32 %.val.i to i64
-  %73 = getelementptr inbounds %union.ListCell, ptr %.val40.i, i64 %72
+  %73 = getelementptr inbounds [8 x i8], ptr %.val40.i, i64 %72
   %74 = icmp ult ptr %71, %73
   %..i.i = select i1 %74, ptr %71, ptr null
   br label %77
@@ -536,7 +533,7 @@ list_head.exit:                                   ; preds = %3, %10
   %18 = shl nsw i64 %17, 4
   %19 = getelementptr i8, ptr %2, i64 %18
   %20 = getelementptr i8, ptr %19, i64 24
-  %21 = getelementptr inbounds nuw %struct.FormData_pg_attribute, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [100 x i8], ptr %20, i64 %indvars.iv
   %.not45 = icmp eq ptr %.04153, null
   br i1 %.not45, label %33, label %22
 
@@ -551,7 +548,7 @@ list_head.exit:                                   ; preds = %3, %10
   %.val47 = load ptr, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %.04153, i64 8
   %30 = sext i32 %.val to i64
-  %31 = getelementptr inbounds %union.ListCell, ptr %.val47, i64 %30
+  %31 = getelementptr inbounds [8 x i8], ptr %.val47, i64 %30
   %32 = icmp ult ptr %29, %31
   %..i = select i1 %32, ptr %29, ptr null
   br label %35

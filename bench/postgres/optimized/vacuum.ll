@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.VacuumParams = type { i32, i32, i32, i32, i32, i8, i32, i32, i32, i32, double, i32 }
-%union.ListCell = type { ptr }
 %struct.__jmp_buf_tag = type { [8 x i64], i32, %struct.__sigset_t }
 %struct.__sigset_t = type { [16 x i64] }
 %struct.LockRelId = type { i32, i32 }
@@ -191,7 +190,7 @@ define dso_local void @ExecVacuum(ptr noundef %0, ptr noundef readonly captures(
   %indvars.iv406 = phi i64 [ %indvars.iv.next, %207 ], [ 0, %.lr.ph ]
   %18 = phi i32 [ %208, %207 ], [ 0, %.lr.ph ]
   %19 = load ptr, ptr %14, align 8
-  %20 = getelementptr inbounds nuw %union.ListCell, ptr %19, i64 %indvars.iv406
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %indvars.iv406
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8
@@ -566,7 +565,7 @@ define dso_local void @ExecVacuum(ptr noundef %0, ptr noundef readonly captures(
 
 233:                                              ; preds = %.lr.ph252, %232
   %indvars.iv257 = phi i64 [ 0, %.lr.ph252 ], [ %indvars.iv.next258, %232 ]
-  %234 = getelementptr inbounds nuw %union.ListCell, ptr %231, i64 %indvars.iv257
+  %234 = getelementptr inbounds nuw [8 x i8], ptr %231, i64 %indvars.iv257
   %235 = load ptr, ptr %234, align 8
   %236 = getelementptr inbounds nuw i8, ptr %235, i64 24
   %237 = load ptr, ptr %236, align 8
@@ -775,7 +774,7 @@ define dso_local void @vacuum(ptr noundef readonly captures(address) %0, ptr nou
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %expand_vacuum_rel.exit ]
   %.05887 = phi ptr [ null, %.lr.ph ], [ %120, %expand_vacuum_rel.exit ]
   %29 = load ptr, ptr %27, align 8
-  %30 = getelementptr inbounds nuw %union.ListCell, ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %indvars.iv
   %31 = load ptr, ptr %30, align 8
   %32 = load i32, ptr %1, align 8
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 16
@@ -915,7 +914,7 @@ define dso_local void @vacuum(ptr noundef readonly captures(address) %0, ptr nou
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %115 ], [ 0, %.lr.ph.i ]
   %.46872.i = phi ptr [ %.5.i, %115 ], [ %.2.i, %.lr.ph.i ]
   %106 = load ptr, ptr %101, align 8
-  %107 = getelementptr inbounds nuw %union.ListCell, ptr %106, i64 %indvars.iv.i
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %indvars.iv.i
   %108 = load i32, ptr %107, align 8
   %109 = icmp eq i32 %108, %43
   br i1 %109, label %115, label %110
@@ -1085,7 +1084,7 @@ list_length.exit.thread:                          ; preds = %154, %list_length.e
 .lr.ph111:                                        ; preds = %.lr.ph89, %203
   %indvars.iv93110 = phi i64 [ %indvars.iv.next94, %203 ], [ 0, %.lr.ph89 ]
   %173 = load ptr, ptr %170, align 8
-  %174 = getelementptr inbounds nuw %union.ListCell, ptr %173, i64 %indvars.iv93110
+  %174 = getelementptr inbounds nuw [8 x i8], ptr %173, i64 %indvars.iv93110
   %175 = load ptr, ptr %174, align 8
   %176 = load i32, ptr %1, align 8
   %177 = and i32 %176, 1
@@ -2576,7 +2575,7 @@ list_length.exit:                                 ; preds = %4
   %indvars.iv = phi i64 [ %indvars.iv.next, %31 ], [ 0, %.lr.ph ]
   %.0222731 = phi i32 [ %.1, %31 ], [ 0, %.lr.ph ]
   %16 = load ptr, ptr %13, align 8
-  %17 = getelementptr inbounds nuw %union.ListCell, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv
   %18 = load i32, ptr %17, align 8
   %19 = tail call ptr @index_open(i32 noundef %18, i32 noundef %1) #15
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 328
@@ -2600,7 +2599,7 @@ list_length.exit:                                 ; preds = %4
   %26 = load ptr, ptr %3, align 8
   %27 = add i32 %.0222731, 1
   %28 = sext i32 %.0222731 to i64
-  %29 = getelementptr inbounds ptr, ptr %26, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %26, i64 %28
   store ptr %19, ptr %29, align 8
   br label %31
 
@@ -2640,7 +2639,7 @@ define dso_local void @vac_close_indexes(i32 noundef %0, ptr noundef %1, i32 nou
   %.07 = phi i32 [ %5, %.lr.ph ], [ %0, %.preheader ]
   %5 = add i32 %.07, -1
   %6 = sext i32 %5 to i64
-  %7 = getelementptr inbounds ptr, ptr %1, i64 %6
+  %7 = getelementptr inbounds [8 x i8], ptr %1, i64 %6
   %8 = load ptr, ptr %7, align 8
   tail call void @index_close(ptr noundef %8, i32 noundef %2) #15
   %.not = icmp eq i32 %5, 0

@@ -4,10 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.XIEventMask = type { i32, i32, ptr }
-%struct.Screen = type { ptr, ptr, i64, i32, i32, i32, i32, i32, ptr, i32, ptr, ptr, i64, i64, i64, i32, i32, i32, i32, i64 }
-%struct.XIDeviceInfo = type { i32, ptr, i32, i32, i32, i32, ptr }
 %union._XEvent = type { [24 x i64] }
-%struct.XIHierarchyInfo = type { i32, i32, i32, i32, i32 }
 %struct.XIGrabModifiers = type { i32, i32 }
 
 @.str = private unnamed_addr constant [22 x i8] c"SDL_VIDEO_X11_XINPUT2\00", align 1
@@ -97,7 +94,7 @@ define hidden noundef zeroext i1 @X11_InitXinput2(ptr noundef readonly captures(
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 224
   %39 = load i32, ptr %38, align 8
   %40 = sext i32 %39 to i64
-  %41 = getelementptr inbounds %struct.Screen, ptr %37, i64 %40
+  %41 = getelementptr inbounds [128 x i8], ptr %37, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
   %43 = load i64, ptr %42, align 8
   %44 = call i32 %34(ptr noundef %35, i64 noundef %43, ptr noundef nonnull %4, i32 noundef 1) #8
@@ -112,7 +109,7 @@ define hidden noundef zeroext i1 @X11_InitXinput2(ptr noundef readonly captures(
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 224
   %50 = load i32, ptr %49, align 8
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds %struct.Screen, ptr %48, i64 %51
+  %52 = getelementptr inbounds [128 x i8], ptr %48, i64 %51
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
   %54 = load i64, ptr %53, align 8
   %55 = call i32 %45(ptr noundef %46, i64 noundef %54, ptr noundef nonnull %4, i32 noundef 1) #8
@@ -205,13 +202,13 @@ HasDeviceID.exit92.preheader:                     ; preds = %.lr.ph173.thread, %
 
 .lr.ph.preheader.i86.us:                          ; preds = %.lr.ph.preheader.i86.us.preheader, %HasDeviceID.exit92.us
   %indvars.iv194 = phi i64 [ %26, %.lr.ph.preheader.i86.us.preheader ], [ %indvars.iv.next195, %HasDeviceID.exit92.us ]
-  %27 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv194
+  %27 = getelementptr inbounds [4 x i8], ptr %13, i64 %indvars.iv194
   %28 = load i32, ptr %27, align 4
   br label %.lr.ph.i88.us
 
 .lr.ph.i88.us:                                    ; preds = %32, %.lr.ph.preheader.i86.us
   %indvars.iv.i89.us = phi i64 [ 0, %.lr.ph.preheader.i86.us ], [ %indvars.iv.next.i90.us, %32 ]
-  %29 = getelementptr inbounds nuw i32, ptr %.1134, i64 %indvars.iv.i89.us
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %.1134, i64 %indvars.iv.i89.us
   %30 = load i32, ptr %29, align 4
   %31 = icmp eq i32 %28, %30
   br i1 %31, label %HasDeviceID.exit92.us, label %32
@@ -238,7 +235,7 @@ HasDeviceID.exit92.us:                            ; preds = %.lr.ph.i88.us, %.lo
   %.0130157 = phi i32 [ 0, %.lr.ph163 ], [ %.1131, %._crit_edge ]
   %.0133156 = phi ptr [ null, %.lr.ph163 ], [ %.1134, %._crit_edge ]
   %.0136155 = phi i32 [ 0, %.lr.ph163 ], [ %.1137, %._crit_edge ]
-  %35 = getelementptr inbounds nuw %struct.XIDeviceInfo, ptr %12, i64 %indvars.iv188
+  %35 = getelementptr inbounds nuw [40 x i8], ptr %12, i64 %indvars.iv188
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load i32, ptr %36, align 8
   switch i32 %37, label %HasDeviceID.exit [
@@ -263,7 +260,7 @@ HasDeviceID.exit92.us:                            ; preds = %.lr.ph.i88.us, %.lo
 
 44:                                               ; preds = %38
   %45 = sext i32 %.0136155 to i64
-  %46 = getelementptr inbounds i32, ptr %43, i64 %45
+  %46 = getelementptr inbounds [4 x i8], ptr %43, i64 %45
   store i32 %39, ptr %46, align 4
   br label %AddDeviceID.exit
 
@@ -285,7 +282,7 @@ AddDeviceID.exit:                                 ; preds = %38, %44
 
 .lr.ph.i:                                         ; preds = %49, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %49 ]
-  %50 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv.i
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv.i
   %51 = load i32, ptr %50, align 4
   %52 = icmp eq i32 %39, %51
   br i1 %52, label %HasDeviceID.exit, label %49
@@ -312,7 +309,7 @@ AddDeviceID.exit:                                 ; preds = %38, %44
 
 63:                                               ; preds = %57
   %64 = sext i32 %.0130157 to i64
-  %65 = getelementptr inbounds i32, ptr %62, i64 %64
+  %65 = getelementptr inbounds [4 x i8], ptr %62, i64 %64
   store i32 %58, ptr %65, align 4
   br label %AddDeviceID.exit68
 
@@ -334,7 +331,7 @@ AddDeviceID.exit68:                               ; preds = %57, %63
 
 .lr.ph.i72:                                       ; preds = %68, %.lr.ph.preheader.i70
   %indvars.iv.i73 = phi i64 [ 0, %.lr.ph.preheader.i70 ], [ %indvars.iv.next.i74, %68 ]
-  %69 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i73
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv.i73
   %70 = load i32, ptr %69, align 4
   %71 = icmp eq i32 %58, %70
   br i1 %71, label %HasDeviceID.exit, label %68
@@ -374,7 +371,7 @@ HasDeviceID.exit:                                 ; preds = %.lr.ph.i72, %.lr.ph
   %.1152 = phi ptr [ %.0122160, %.lr.ph ], [ %.2, %HasDeviceID64.exit ]
   %.1124151 = phi i32 [ %.0123159, %.lr.ph ], [ %.2125, %HasDeviceID64.exit ]
   %83 = load ptr, ptr %77, align 8
-  %84 = getelementptr inbounds nuw ptr, ptr %83, i64 %indvars.iv
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %indvars.iv
   %85 = load ptr, ptr %84, align 8
   %86 = load i32, ptr %85, align 4
   %.not66 = icmp eq i32 %86, 8
@@ -393,7 +390,7 @@ HasDeviceID.exit:                                 ; preds = %.lr.ph.i72, %.lr.ph
 
 95:                                               ; preds = %87
   %96 = sext i32 %.1124151 to i64
-  %97 = getelementptr inbounds i64, ptr %94, i64 %96
+  %97 = getelementptr inbounds [8 x i8], ptr %94, i64 %96
   store i64 %90, ptr %97, align 8
   br label %AddDeviceID64.exit
 
@@ -415,7 +412,7 @@ AddDeviceID64.exit:                               ; preds = %87, %95
 
 .lr.ph.i81:                                       ; preds = %100, %.lr.ph.preheader.i79
   %indvars.iv.i82 = phi i64 [ 0, %.lr.ph.preheader.i79 ], [ %indvars.iv.next.i83, %100 ]
-  %101 = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv.i82
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.i82
   %102 = load i64, ptr %101, align 8
   %103 = icmp eq i64 %102, %90
   br i1 %103, label %HasDeviceID64.exit, label %100
@@ -478,13 +475,13 @@ HasDeviceID.exit100.preheader:                    ; preds = %.lr.ph177.thread, %
 
 .lr.ph.preheader.i94.us:                          ; preds = %.lr.ph.preheader.i94.us.preheader, %HasDeviceID.exit100.us
   %indvars.iv200 = phi i64 [ %119, %.lr.ph.preheader.i94.us.preheader ], [ %indvars.iv.next201, %HasDeviceID.exit100.us ]
-  %120 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv200
+  %120 = getelementptr inbounds [4 x i8], ptr %14, i64 %indvars.iv200
   %121 = load i32, ptr %120, align 4
   br label %.lr.ph.i96.us
 
 .lr.ph.i96.us:                                    ; preds = %125, %.lr.ph.preheader.i94.us
   %indvars.iv.i97.us = phi i64 [ 0, %.lr.ph.preheader.i94.us ], [ %indvars.iv.next.i98.us, %125 ]
-  %122 = getelementptr inbounds nuw i32, ptr %.0127.lcssa234, i64 %indvars.iv.i97.us
+  %122 = getelementptr inbounds nuw [4 x i8], ptr %.0127.lcssa234, i64 %indvars.iv.i97.us
   %123 = load i32, ptr %122, align 4
   %124 = icmp eq i32 %121, %123
   br i1 %124, label %HasDeviceID.exit100.us, label %125
@@ -505,7 +502,7 @@ HasDeviceID.exit100.us:                           ; preds = %.lr.ph.i96.us, %.lo
 
 HasDeviceID.exit92:                               ; preds = %HasDeviceID.exit92.preheader, %HasDeviceID.exit92
   %indvars.iv191 = phi i64 [ %25, %HasDeviceID.exit92.preheader ], [ %indvars.iv.next192, %HasDeviceID.exit92 ]
-  %127 = getelementptr inbounds i32, ptr %13, i64 %indvars.iv191
+  %127 = getelementptr inbounds [4 x i8], ptr %13, i64 %indvars.iv191
   %128 = load i32, ptr %127, align 4
   call void @SDL_RemoveKeyboard(i32 noundef %128, i1 noundef zeroext %9) #8
   %indvars.iv.next192 = add nsw i64 %indvars.iv191, -1
@@ -550,13 +547,13 @@ HasDeviceID64.exit108.preheader:                  ; preds = %.lr.ph181.thread, %
 
 .lr.ph.preheader.i102.us:                         ; preds = %.lr.ph.preheader.i102.us.preheader, %HasDeviceID64.exit108.us
   %indvars.iv206 = phi i64 [ %137, %.lr.ph.preheader.i102.us.preheader ], [ %indvars.iv.next207, %HasDeviceID64.exit108.us ]
-  %138 = getelementptr inbounds i64, ptr %15, i64 %indvars.iv206
+  %138 = getelementptr inbounds [8 x i8], ptr %15, i64 %indvars.iv206
   %139 = load i64, ptr %138, align 8
   br label %.lr.ph.i104.us
 
 .lr.ph.i104.us:                                   ; preds = %143, %.lr.ph.preheader.i102.us
   %indvars.iv.i105.us = phi i64 [ 0, %.lr.ph.preheader.i102.us ], [ %indvars.iv.next.i106.us, %143 ]
-  %140 = getelementptr inbounds nuw i64, ptr %.0122.lcssa238258, i64 %indvars.iv.i105.us
+  %140 = getelementptr inbounds nuw [8 x i8], ptr %.0122.lcssa238258, i64 %indvars.iv.i105.us
   %141 = load i64, ptr %140, align 8
   %142 = icmp eq i64 %139, %141
   br i1 %142, label %HasDeviceID64.exit108.us, label %143
@@ -577,7 +574,7 @@ HasDeviceID64.exit108.us:                         ; preds = %.lr.ph.i104.us, %.l
 
 HasDeviceID.exit100:                              ; preds = %HasDeviceID.exit100.preheader, %HasDeviceID.exit100
   %indvars.iv197 = phi i64 [ %118, %HasDeviceID.exit100.preheader ], [ %indvars.iv.next198, %HasDeviceID.exit100 ]
-  %145 = getelementptr inbounds i32, ptr %14, i64 %indvars.iv197
+  %145 = getelementptr inbounds [4 x i8], ptr %14, i64 %indvars.iv197
   %146 = load i32, ptr %145, align 4
   call void @SDL_RemoveMouse(i32 noundef %146, i1 noundef zeroext %9) #8
   %indvars.iv.next198 = add nsw i64 %indvars.iv197, -1
@@ -604,7 +601,7 @@ HasDeviceID.exit100:                              ; preds = %HasDeviceID.exit100
 
 HasDeviceID64.exit108:                            ; preds = %HasDeviceID64.exit108.preheader, %HasDeviceID64.exit108
   %indvars.iv203 = phi i64 [ %136, %HasDeviceID64.exit108.preheader ], [ %indvars.iv.next204, %HasDeviceID64.exit108 ]
-  %149 = getelementptr inbounds i64, ptr %15, i64 %indvars.iv203
+  %149 = getelementptr inbounds [8 x i8], ptr %15, i64 %indvars.iv203
   %150 = load i64, ptr %149, align 8
   call void @SDL_DelTouch(i64 noundef %150) #8
   %indvars.iv.next204 = add nsw i64 %indvars.iv203, -1
@@ -665,7 +662,7 @@ define hidden void @X11_HandleXinput2Event(ptr noundef %0, ptr noundef readonly 
 21:                                               ; preds = %.lr.ph279, %xinput2_remove_device_info.exit
   %indvars.iv297 = phi i64 [ 0, %.lr.ph279 ], [ %indvars.iv.next298, %xinput2_remove_device_info.exit ]
   %22 = load ptr, ptr %19, align 8
-  %23 = getelementptr inbounds nuw %struct.XIHierarchyInfo, ptr %22, i64 %indvars.iv297
+  %23 = getelementptr inbounds nuw [20 x i8], ptr %22, i64 %indvars.iv297
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load i32, ptr %24, align 4
   %26 = and i32 %25, 136
@@ -689,7 +686,7 @@ define hidden void @X11_HandleXinput2Event(ptr noundef %0, ptr noundef readonly 
 
 34:                                               ; preds = %29, %31, %27
   %35 = load ptr, ptr %19, align 8
-  %36 = getelementptr inbounds nuw %struct.XIHierarchyInfo, ptr %35, i64 %indvars.iv297
+  %36 = getelementptr inbounds nuw [20 x i8], ptr %35, i64 %indvars.iv297
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load i32, ptr %37, align 4
   %39 = and i32 %38, 8
@@ -839,7 +836,7 @@ parse_valuators.exit:                             ; preds = %93, %74
   br label %110
 
 105:                                              ; preds = %98
-  %106 = getelementptr inbounds nuw double, ptr %97, i64 %indvars.iv294
+  %106 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %indvars.iv294
   %107 = load double, ptr %106, align 8
   %108 = load double, ptr %indvars.iv294.sroa.phi368, align 8
   %109 = fsub double %107, %108
@@ -1009,7 +1006,7 @@ parse_valuators.exit:                             ; preds = %93, %74
 
 204:                                              ; preds = %203, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %203 ]
-  %205 = getelementptr inbounds nuw ptr, ptr %202, i64 %indvars.iv.i.i
+  %205 = getelementptr inbounds nuw [8 x i8], ptr %202, i64 %indvars.iv.i.i
   %206 = load ptr, ptr %205, align 8
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 8
   %208 = load i64, ptr %207, align 8
@@ -1055,7 +1052,7 @@ xinput2_get_sdlwindow.exit:                       ; preds = %203, %200, %xinput2
 
 224:                                              ; preds = %223, %.lr.ph.i197
   %indvars.iv.i198 = phi i64 [ 0, %.lr.ph.i197 ], [ %indvars.iv.next.i, %223 ]
-  %225 = getelementptr inbounds nuw ptr, ptr %222, i64 %indvars.iv.i198
+  %225 = getelementptr inbounds nuw [8 x i8], ptr %222, i64 %indvars.iv.i198
   %226 = load ptr, ptr %225, align 8
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 8
   %228 = load i64, ptr %227, align 8
@@ -1132,7 +1129,7 @@ xinput2_get_sdlwindowdata.exit:                   ; preds = %223, %224, %220
 
 267:                                              ; preds = %266, %.lr.ph.i.i200
   %indvars.iv.i.i202 = phi i64 [ 0, %.lr.ph.i.i200 ], [ %indvars.iv.next.i.i204, %266 ]
-  %268 = getelementptr inbounds nuw ptr, ptr %265, i64 %indvars.iv.i.i202
+  %268 = getelementptr inbounds nuw [8 x i8], ptr %265, i64 %indvars.iv.i.i202
   %269 = load ptr, ptr %268, align 8
   %270 = getelementptr inbounds nuw i8, ptr %269, i64 8
   %271 = load i64, ptr %270, align 8
@@ -1170,14 +1167,14 @@ xinput2_get_sdlwindow.exit207:                    ; preds = %266, %258, %xinput2
 
 289:                                              ; preds = %xinput2_get_sdlwindow.exit207, %297
   %indvars.iv = phi i64 [ 0, %xinput2_get_sdlwindow.exit207 ], [ %indvars.iv.next, %297 ]
-  %290 = getelementptr inbounds nuw i32, ptr %287, i64 %indvars.iv
+  %290 = getelementptr inbounds nuw [4 x i8], ptr %287, i64 %indvars.iv
   %291 = load i32, ptr %290, align 4
   %.not185 = icmp eq i32 %291, -1
   br i1 %.not185, label %297, label %292
 
 292:                                              ; preds = %289
   %293 = load i32, ptr %253, align 4
-  %294 = getelementptr inbounds nuw float, ptr %4, i64 %indvars.iv
+  %294 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %295 = load float, ptr %294, align 4
   %296 = trunc nuw nsw i64 %indvars.iv to i32
   call void @SDL_SendPenAxis(i64 noundef 0, i32 noundef %293, ptr noundef %273, i32 noundef %296, float noundef %295) #8
@@ -1228,7 +1225,7 @@ xinput2_get_sdlwindow.exit207:                    ; preds = %266, %258, %xinput2
 
 319:                                              ; preds = %318, %.lr.ph.i.i208
   %indvars.iv.i.i210 = phi i64 [ 0, %.lr.ph.i.i208 ], [ %indvars.iv.next.i.i212, %318 ]
-  %320 = getelementptr inbounds nuw ptr, ptr %317, i64 %indvars.iv.i.i210
+  %320 = getelementptr inbounds nuw [8 x i8], ptr %317, i64 %indvars.iv.i.i210
   %321 = load ptr, ptr %320, align 8
   %322 = getelementptr inbounds nuw i8, ptr %321, i64 8
   %323 = load i64, ptr %322, align 8
@@ -1280,7 +1277,7 @@ xinput2_get_sdlwindow.exit215:                    ; preds = %319
 
 350:                                              ; preds = %349, %.lr.ph.i.i216
   %indvars.iv.i.i218 = phi i64 [ 0, %.lr.ph.i.i216 ], [ %indvars.iv.next.i.i220, %349 ]
-  %351 = getelementptr inbounds nuw ptr, ptr %348, i64 %indvars.iv.i.i218
+  %351 = getelementptr inbounds nuw [8 x i8], ptr %348, i64 %indvars.iv.i.i218
   %352 = load ptr, ptr %351, align 8
   %353 = getelementptr inbounds nuw i8, ptr %352, i64 8
   %354 = load i64, ptr %353, align 8
@@ -1367,7 +1364,7 @@ xinput2_normalize_touch_coordinates.exit:         ; preds = %364, %375, %380
 
 403:                                              ; preds = %402, %.lr.ph.i.i225
   %indvars.iv.i.i227 = phi i64 [ 0, %.lr.ph.i.i225 ], [ %indvars.iv.next.i.i229, %402 ]
-  %404 = getelementptr inbounds nuw ptr, ptr %401, i64 %indvars.iv.i.i227
+  %404 = getelementptr inbounds nuw [8 x i8], ptr %401, i64 %indvars.iv.i.i227
   %405 = load ptr, ptr %404, align 8
   %406 = getelementptr inbounds nuw i8, ptr %405, i64 8
   %407 = load i64, ptr %406, align 8
@@ -1454,7 +1451,7 @@ xinput2_normalize_touch_coordinates.exit236:      ; preds = %417, %428, %433
 
 456:                                              ; preds = %455, %.lr.ph.i.i237
   %indvars.iv.i.i239 = phi i64 [ 0, %.lr.ph.i.i237 ], [ %indvars.iv.next.i.i241, %455 ]
-  %457 = getelementptr inbounds nuw ptr, ptr %454, i64 %indvars.iv.i.i239
+  %457 = getelementptr inbounds nuw [8 x i8], ptr %454, i64 %indvars.iv.i.i239
   %458 = load ptr, ptr %457, align 8
   %459 = getelementptr inbounds nuw i8, ptr %458, i64 8
   %460 = load i64, ptr %459, align 8
@@ -1610,7 +1607,7 @@ define internal fastcc noundef ptr @xinput2_get_device_info(ptr noundef captures
 30:                                               ; preds = %.lr.ph65, %50
   %indvars.iv = phi i64 [ 0, %.lr.ph65 ], [ %indvars.iv.next, %50 ]
   %.04263 = phi i32 [ 0, %.lr.ph65 ], [ %.2.ph, %50 ]
-  %31 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %indvars.iv
   %32 = load ptr, ptr %31, align 8
   %33 = load i32, ptr %32, align 8
   %34 = icmp eq i32 %33, 2
@@ -1626,11 +1623,11 @@ define internal fastcc noundef ptr @xinput2_get_device_info(ptr noundef captures
   store i8 %41, ptr %40, align 1
   %42 = getelementptr inbounds nuw i8, ptr %32, i64 24
   %43 = load double, ptr %42, align 8
-  %44 = getelementptr inbounds double, ptr %27, i64 %39
+  %44 = getelementptr inbounds [8 x i8], ptr %27, i64 %39
   store double %43, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %46 = load double, ptr %45, align 8
-  %47 = getelementptr inbounds double, ptr %28, i64 %39
+  %47 = getelementptr inbounds [8 x i8], ptr %28, i64 %39
   store double %46, ptr %47, align 8
   %48 = add nsw i32 %.04263, 1
   %49 = icmp sgt i32 %.04263, 0

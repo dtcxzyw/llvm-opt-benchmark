@@ -811,7 +811,7 @@ define internal range(i32 0, 2) i32 @test_fromdata_rsa() #0 {
 .lr.ph:                                           ; preds = %.thread, %99
   %indvars.iv = phi i64 [ %indvars.iv.next, %99 ], [ 0, %.thread ]
   %.157 = phi i32 [ %.2, %99 ], [ %.0.shrunk, %.thread ]
-  %81 = getelementptr inbounds nuw i64, ptr @test_fromdata_rsa.key_numbers, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw [8 x i8], ptr @test_fromdata_rsa.key_numbers, i64 %indvars.iv
   %82 = load i64, ptr %81, align 8, !tbaa !9
   %83 = call i32 @BN_set_word(ptr noundef %5, i64 noundef %82) #6
   %84 = icmp ne i32 %83, 0
@@ -821,7 +821,7 @@ define internal range(i32 0, 2) i32 @test_fromdata_rsa() #0 {
   br i1 %.not50, label %98, label %87
 
 87:                                               ; preds = %.lr.ph
-  %88 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %2, i64 %indvars.iv
+  %88 = getelementptr inbounds nuw [40 x i8], ptr %2, i64 %indvars.iv
   %89 = load ptr, ptr %1, align 8, !tbaa !15
   %90 = load ptr, ptr %88, align 8, !tbaa !21
   %91 = call i32 @EVP_PKEY_get_bn_param(ptr noundef %89, ptr noundef %90, ptr noundef nonnull %3) #6
@@ -843,7 +843,7 @@ define internal range(i32 0, 2) i32 @test_fromdata_rsa() #0 {
 99:                                               ; preds = %95, %98
   %.2 = phi i32 [ %.157, %95 ], [ 0, %98 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %100 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %2, i64 %indvars.iv.next
+  %100 = getelementptr inbounds nuw [40 x i8], ptr %2, i64 %indvars.iv.next
   %101 = load ptr, ptr %100, align 8, !tbaa !21
   %.not49 = icmp eq ptr %101, null
   br i1 %.not49, label %._crit_edge, label %.lr.ph, !llvm.loop !23
@@ -3964,7 +3964,7 @@ define internal fastcc range(i32 0, 2) i32 @compare_with_file(ptr noundef %0, i3
 
 switch.lookup:                                    ; preds = %3
   %10 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.compare_with_file, i64 %10
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.compare_with_file, i64 %10
   %switch.load = load ptr, ptr %switch.gep, align 8
   %11 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %4, i64 noundef 80, ptr noundef nonnull @.str.104, ptr noundef %0, ptr noundef nonnull %switch.load) #6
   %12 = load ptr, ptr @datadir, align 8, !tbaa !4
@@ -4153,13 +4153,13 @@ define internal fastcc range(i32 0, 2) i32 @test_print_key_type_using_encoder(pt
 
 switch.lookup:                                    ; preds = %3
   %8 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.test_print_key_type_using_encoder, i64 %8
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.test_print_key_type_using_encoder, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   %9 = zext nneg i32 %1 to i64
-  %switch.gep43 = getelementptr inbounds nuw i32, ptr @switch.table.test_print_key_type_using_encoder.2, i64 %9
+  %switch.gep43 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.test_print_key_type_using_encoder.2, i64 %9
   %switch.load44 = load i32, ptr %switch.gep43, align 4
   %10 = zext nneg i32 %1 to i64
-  %switch.gep45 = getelementptr inbounds nuw ptr, ptr @switch.table.test_print_key_type_using_encoder.3, i64 %10
+  %switch.gep45 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.test_print_key_type_using_encoder.3, i64 %10
   %switch.load46 = load ptr, ptr %switch.gep45, align 8
   %11 = tail call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 262, ptr noundef nonnull @.str.78, ptr noundef %5) #6
   %.not = icmp eq i32 %11, 0
@@ -4343,7 +4343,7 @@ define internal fastcc range(i32 0, 2) i32 @do_fromdata_rsa_derive(ptr noundef %
 .lr.ph:                                           ; preds = %.preheader55, %40
   %indvars.iv = phi i64 [ %indvars.iv.next, %40 ], [ 0, %.preheader55 ]
   %25 = phi ptr [ %43, %40 ], [ %21, %.preheader55 ]
-  %26 = getelementptr inbounds nuw %struct.check_data, ptr %1, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv
   %27 = load ptr, ptr %7, align 8, !tbaa !34
   %28 = call ptr @OSSL_PARAM_locate_const(ptr noundef %27, ptr noundef nonnull %25) #6
   %29 = call i32 @test_ptr(ptr noundef nonnull @.str, i32 noundef 483, ptr noundef nonnull @.str.146, ptr noundef %28) #6
@@ -4374,7 +4374,7 @@ define internal fastcc range(i32 0, 2) i32 @do_fromdata_rsa_derive(ptr noundef %
   call void @BN_free(ptr noundef %41) #6
   store ptr null, ptr %6, align 8, !tbaa !17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %42 = getelementptr inbounds nuw %struct.check_data, ptr %1, i64 %indvars.iv.next
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %indvars.iv.next
   %43 = load ptr, ptr %42, align 8, !tbaa !24
   %.not37 = icmp eq ptr %43, null
   br i1 %.not37, label %.preheader, label %.lr.ph, !llvm.loop !36

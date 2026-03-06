@@ -929,7 +929,7 @@ define internal ptr @dh_import_types(i32 noundef %0) #1 {
   %4 = or disjoint i32 %spec.select.i, 2
   %.1.i = select i1 %.not5.i, i32 %spec.select.i, i32 %4
   %5 = zext nneg i32 %.1.i to i64
-  %6 = getelementptr inbounds nuw ptr, ptr @dh_types, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @dh_types, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !45
   ret ptr %7
 }
@@ -1009,7 +1009,7 @@ define internal ptr @dh_export_types(i32 noundef %0) #1 {
   %4 = or disjoint i32 %spec.select.i, 2
   %.1.i = select i1 %.not5.i, i32 %spec.select.i, i32 %4
   %5 = zext nneg i32 %.1.i to i64
-  %6 = getelementptr inbounds nuw ptr, ptr @dh_types, i64 %5
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @dh_types, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !45
   ret ptr %7
 }

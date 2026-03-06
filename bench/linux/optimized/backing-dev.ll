@@ -271,7 +271,7 @@ define dso_local i32 @bdi_init(ptr noundef initializes((728, 736)) %0) local_unn
 
 52:                                               ; preds = %60, %50
   %53 = phi i64 [ 0, %50 ], [ %61, %60 ]
-  %54 = getelementptr %struct.percpu_counter, ptr %51, i64 %53
+  %54 = getelementptr [40 x i8], ptr %51, i64 %53
   %55 = tail call i32 @__percpu_counter_init_many(ptr noundef %54, i64 noundef 0, i32 noundef 3264, i32 noundef 1, ptr noundef nonnull @wb_init.__key.5) #14
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %60, label %57
@@ -289,7 +289,7 @@ define dso_local i32 @bdi_init(ptr noundef initializes((728, 736)) %0) local_unn
 .preheader:                                       ; preds = %57, %.preheader
   %63 = phi i64 [ %64, %.preheader ], [ %53, %57 ]
   %64 = add nsw i64 %63, -1
-  %65 = getelementptr %struct.percpu_counter, ptr %51, i64 %64
+  %65 = getelementptr [40 x i8], ptr %51, i64 %64
   tail call void @percpu_counter_destroy_many(ptr noundef %65, i32 noundef 1) #14
   %66 = icmp eq i64 %64, 0
   br i1 %66, label %.loopexit, label %.preheader, !llvm.loop !9
@@ -751,7 +751,7 @@ define dso_local void @bdi_put(ptr noundef %0) #1 align 16 {
 
 27:                                               ; preds = %27, %25
   %28 = phi i64 [ 0, %25 ], [ %30, %27 ]
-  %29 = getelementptr %struct.percpu_counter, ptr %26, i64 %28
+  %29 = getelementptr [40 x i8], ptr %26, i64 %28
   tail call void @percpu_counter_destroy_many(ptr noundef %29, i32 noundef 1) #14
   %30 = add nuw nsw i64 %28, 1
   %31 = icmp eq i64 %30, 4

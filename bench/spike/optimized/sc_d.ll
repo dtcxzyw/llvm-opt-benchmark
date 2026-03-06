@@ -15,7 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Head_base" = type { i8 }
 %"struct.std::_Head_base.131" = type { i64 }
 %"struct.std::_Head_base.132" = type { i64 }
-%struct.tlb_entry_t = type { ptr, i64 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
@@ -169,11 +168,11 @@ define noundef i64 @_Z15fast_rv64i_sc_dP11processor_t6insn_tm(ptr noundef captur
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %18 = lshr i64 %1, 15
   %19 = and i64 %18, 31
-  %20 = getelementptr inbounds nuw i64, ptr %17, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %19
   %21 = load i64, ptr %20, align 8, !tbaa !144
   %22 = lshr i64 %1, 20
   %23 = and i64 %22, 31
-  %24 = getelementptr inbounds nuw i64, ptr %17, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %23
   %25 = load i64, ptr %24, align 8, !tbaa !144
   %26 = tail call noundef zeroext i1 @_ZN5mmu_t17store_conditionalImEEbmT_(ptr noundef nonnull align 8 dereferenceable(43168) %16, i64 noundef %21, i64 noundef %25)
   %27 = lshr i64 %1, 7
@@ -184,7 +183,7 @@ define noundef i64 @_Z15fast_rv64i_sc_dP11processor_t6insn_tm(ptr noundef captur
 29:                                               ; preds = %14
   %30 = xor i1 %26, true
   %31 = zext i1 %30 to i64
-  %32 = getelementptr inbounds nuw i64, ptr %17, i64 %28
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %28
   store i64 %31, ptr %32, align 8, !tbaa !144
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -255,7 +254,7 @@ _ZN5mmu_t22check_load_reservationEmm.exit:        ; preds = %9
   %34 = lshr i64 %1, 12
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 41104
   %36 = and i64 %34, 255
-  %37 = getelementptr inbounds nuw i64, ptr %35, i64 %36
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %36
   %38 = load i64, ptr %37, align 8, !tbaa !144
   %39 = icmp eq i64 %38, %34
   %40 = select i1 %.not.i10, i1 %39, i1 false, !prof !26
@@ -263,7 +262,7 @@ _ZN5mmu_t22check_load_reservationEmm.exit:        ; preds = %9
 
 41:                                               ; preds = %33
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 32912
-  %43 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %42, i64 %36
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %42, i64 %36
   %44 = load ptr, ptr %43, align 8, !tbaa !172
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 %1
   store i64 %2, ptr %45, align 8
@@ -350,11 +349,11 @@ define noundef i64 @_Z17logged_rv64i_sc_dP11processor_t6insn_tm(ptr noundef %0, 
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %19 = lshr i64 %1, 15
   %20 = and i64 %19, 31
-  %21 = getelementptr inbounds nuw i64, ptr %18, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !144
   %23 = lshr i64 %1, 20
   %24 = and i64 %23, 31
-  %25 = getelementptr inbounds nuw i64, ptr %18, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %24
   %26 = load i64, ptr %25, align 8, !tbaa !144
   %27 = tail call noundef zeroext i1 @_ZN5mmu_t17store_conditionalImEEbmT_(ptr noundef nonnull align 8 dereferenceable(43168) %17, i64 noundef %22, i64 noundef %26)
   %28 = xor i1 %27, true
@@ -374,7 +373,7 @@ define noundef i64 @_Z17logged_rv64i_sc_dP11processor_t6insn_tm(ptr noundef %0, 
   br i1 %.not.i, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %35
 
 35:                                               ; preds = %15
-  %36 = getelementptr inbounds nuw i64, ptr %18, i64 %32
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %32
   store i64 %29, ptr %36, align 8, !tbaa !144
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -544,9 +543,9 @@ define noundef i64 @_Z15fast_rv64e_sc_dP11processor_t6insn_tm(ptr noundef captur
   unreachable
 
 35:                                               ; preds = %25
-  %36 = getelementptr inbounds nuw i64, ptr %26, i64 %18
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %18
   %37 = load i64, ptr %36, align 8, !tbaa !144
-  %38 = getelementptr inbounds nuw i64, ptr %26, i64 %28
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %28
   %39 = load i64, ptr %38, align 8, !tbaa !144
   %40 = tail call noundef zeroext i1 @_ZN5mmu_t17store_conditionalImEEbmT_(ptr noundef nonnull align 8 dereferenceable(43168) %16, i64 noundef %37, i64 noundef %39)
   %41 = lshr i64 %1, 7
@@ -573,7 +572,7 @@ define noundef i64 @_Z15fast_rv64e_sc_dP11processor_t6insn_tm(ptr noundef captur
 50:                                               ; preds = %49
   %51 = xor i1 %40, true
   %52 = zext i1 %51 to i64
-  %53 = getelementptr inbounds nuw i64, ptr %26, i64 %42
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %42
   store i64 %52, ptr %53, align 8, !tbaa !144
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -658,9 +657,9 @@ define noundef i64 @_Z17logged_rv64e_sc_dP11processor_t6insn_tm(ptr noundef %0, 
   unreachable
 
 36:                                               ; preds = %26
-  %37 = getelementptr inbounds nuw i64, ptr %27, i64 %19
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %19
   %38 = load i64, ptr %37, align 8, !tbaa !144
-  %39 = getelementptr inbounds nuw i64, ptr %27, i64 %29
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %29
   %40 = load i64, ptr %39, align 8, !tbaa !144
   %41 = tail call noundef zeroext i1 @_ZN5mmu_t17store_conditionalImEEbmT_(ptr noundef nonnull align 8 dereferenceable(43168) %17, i64 noundef %38, i64 noundef %40)
   %42 = lshr i64 %1, 7
@@ -696,7 +695,7 @@ define noundef i64 @_Z17logged_rv64e_sc_dP11processor_t6insn_tm(ptr noundef %0, 
   br i1 %.not.i, label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit, label %56
 
 56:                                               ; preds = %50
-  %57 = getelementptr inbounds nuw i64, ptr %27, i64 %43
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %43
   store i64 %52, ptr %57, align 8, !tbaa !144
   br label %_ZN9regfile_tImLm32ELb1EE5writeEmm.exit
 
@@ -991,7 +990,7 @@ _ZNSt6vectorISt5tupleIJmmhEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22: ; preds
 _ZNSt12_Vector_baseISt5tupleIJmmhEESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNSt6vectorISt5tupleIJmmhEESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22, %49
   store ptr %20, ptr %0, align 8, !tbaa !197
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8, !tbaa !195
-  %53 = getelementptr inbounds nuw %"class.std::tuple", ptr %20, i64 %16
+  %53 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %16
   store ptr %53, ptr %48, align 8, !tbaa !196
   ret void
 }

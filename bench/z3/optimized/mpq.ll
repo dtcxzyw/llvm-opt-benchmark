@@ -5247,7 +5247,7 @@ _ZN11mpq_managerILb1EE3setER3mpqRKS1_.exit:       ; preds = %27, %32
   br i1 %47, label %.loopexit, label %_ZN11mpq_managerILb1EE6is_oneERK3mpq.exit.thread
 
 _ZN11mpq_managerILb1EE6is_oneERK3mpq.exit.thread: ; preds = %41
-  %48 = getelementptr inbounds nuw %class.mpq, ptr %2, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [32 x i8], ptr %2, i64 %indvars.iv
   tail call void @_ZN11mpz_managerILb1EE3gcdERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(728) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull align 8 dereferenceable(32) %3)
   tail call void @_ZN11mpz_managerILb1EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(728) %0, ptr noundef nonnull align 8 dereferenceable(16) %35)
   store i32 1, ptr %35, align 8, !tbaa !3
@@ -11952,7 +11952,7 @@ _ZN11mpq_managerILb0EE3setER3mpqRKS1_.exit:       ; preds = %27, %32
   br i1 %47, label %.loopexit, label %_ZN11mpq_managerILb0EE6is_oneERK3mpq.exit.thread
 
 _ZN11mpq_managerILb0EE6is_oneERK3mpq.exit.thread: ; preds = %41
-  %48 = getelementptr inbounds nuw %class.mpq, ptr %2, i64 %indvars.iv
+  %48 = getelementptr inbounds nuw [32 x i8], ptr %2, i64 %indvars.iv
   tail call void @_ZN11mpz_managerILb0EE3gcdERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(728) %0, ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %48, ptr noundef nonnull align 8 dereferenceable(32) %3)
   tail call void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(728) %0, ptr noundef nonnull align 8 dereferenceable(16) %35)
   store i32 1, ptr %35, align 8, !tbaa !3

@@ -3,9 +3,6 @@ source_filename = "bench/openjdk/original/hb-ot-shaper-vowel-constraints.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.hb_glyph_info_t = type { i32, i32, i32, %union._hb_var_int_t, %union._hb_var_int_t }
-%union._hb_var_int_t = type { i32 }
-
 $_ZN11hb_buffer_t10next_glyphEv = comdat any
 
 ; Function Attrs: mustprogress uwtable
@@ -65,7 +62,7 @@ define hidden void @_Z37_hb_preprocess_text_vowel_constraintsPK18hb_ot_shape_pla
 25:                                               ; preds = %20
   %26 = load ptr, ptr %16, align 8
   %27 = zext i32 %22 to i64
-  %28 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [20 x i8], ptr %26, i64 %27
   %29 = load i32, ptr %28, align 4
   switch i32 %29, label %.critedge224 [
     i32 2309, label %30
@@ -77,7 +74,7 @@ define hidden void @_Z37_hb_preprocess_text_vowel_constraintsPK18hb_ot_shape_pla
 
 30:                                               ; preds = %25
   %31 = zext i32 %21 to i64
-  %32 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %26, i64 %31
+  %32 = getelementptr inbounds nuw [20 x i8], ptr %26, i64 %31
   %33 = load i32, ptr %32, align 4
   switch i32 %33, label %.critedge224 [
     i32 2362, label %.critedge226
@@ -96,7 +93,7 @@ define hidden void @_Z37_hb_preprocess_text_vowel_constraintsPK18hb_ot_shape_pla
 
 34:                                               ; preds = %25
   %35 = zext i32 %21 to i64
-  %36 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %26, i64 %35
+  %36 = getelementptr inbounds nuw [20 x i8], ptr %26, i64 %35
   %37 = load i32, ptr %36, align 4
   switch i32 %37, label %.critedge224 [
     i32 2362, label %.critedge226
@@ -108,14 +105,14 @@ define hidden void @_Z37_hb_preprocess_text_vowel_constraintsPK18hb_ot_shape_pla
 
 38:                                               ; preds = %25
   %39 = zext i32 %21 to i64
-  %40 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %26, i64 %39
+  %40 = getelementptr inbounds nuw [20 x i8], ptr %26, i64 %39
   %41 = load i32, ptr %40, align 4
   %42 = icmp eq i32 %41, 2369
   br label %62
 
 43:                                               ; preds = %25
   %44 = zext i32 %21 to i64
-  %45 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %26, i64 %44
+  %45 = getelementptr inbounds nuw [20 x i8], ptr %26, i64 %44
   %46 = load i32, ptr %45, align 4
   %.off = add i32 %46, -2373
   %switch = icmp ult i32 %.off, 3
@@ -123,7 +120,7 @@ define hidden void @_Z37_hb_preprocess_text_vowel_constraintsPK18hb_ot_shape_pla
 
 47:                                               ; preds = %25
   %48 = zext i32 %21 to i64
-  %49 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %26, i64 %48
+  %49 = getelementptr inbounds nuw [20 x i8], ptr %26, i64 %48
   %50 = load i32, ptr %49, align 4
   %51 = icmp eq i32 %50, 2381
   br i1 %51, label %52, label %.critedge224
@@ -135,7 +132,7 @@ define hidden void @_Z37_hb_preprocess_text_vowel_constraintsPK18hb_ot_shape_pla
 
 55:                                               ; preds = %52
   %56 = zext i32 %53 to i64
-  %57 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %26, i64 %56
+  %57 = getelementptr inbounds nuw [20 x i8], ptr %26, i64 %56
   %58 = load i32, ptr %57, align 4
   %59 = icmp eq i32 %58, 2311
   br i1 %59, label %60, label %.critedge224
@@ -168,11 +165,11 @@ define hidden void @_Z37_hb_preprocess_text_vowel_constraintsPK18hb_ot_shape_pla
   %72 = load ptr, ptr %16, align 8
   %73 = load i32, ptr %13, align 4
   %74 = zext i32 %73 to i64
-  %75 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %72, i64 %74
+  %75 = getelementptr inbounds nuw [20 x i8], ptr %72, i64 %74
   %76 = load ptr, ptr %18, align 8
   %77 = load i32, ptr %19, align 4
   %78 = zext i32 %77 to i64
-  %79 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %76, i64 %78
+  %79 = getelementptr inbounds nuw [20 x i8], ptr %76, i64 %78
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %79, ptr noundef nonnull align 4 dereferenceable(20) %75, i64 20, i1 false)
   %.pre.i = load i32, ptr %19, align 4
   %.pre561.pre = load i32, ptr %13, align 4
@@ -219,11 +216,11 @@ _ZN11hb_buffer_t10next_glyphEv.exit:              ; preds = %69, %83
   %97 = load ptr, ptr %16, align 8
   %98 = load i32, ptr %13, align 4
   %99 = zext i32 %98 to i64
-  %100 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %97, i64 %99
+  %100 = getelementptr inbounds nuw [20 x i8], ptr %97, i64 %99
   %101 = load ptr, ptr %18, align 8
   %102 = load i32, ptr %19, align 4
   %103 = zext i32 %102 to i64
-  %104 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %101, i64 %103
+  %104 = getelementptr inbounds nuw [20 x i8], ptr %101, i64 %103
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %104, ptr noundef nonnull align 4 dereferenceable(20) %100, i64 20, i1 false)
   %.pre.i285 = load i32, ptr %19, align 4
   br label %105
@@ -267,11 +264,11 @@ _ZN11hb_buffer_t10next_glyphEv.exit287:           ; preds = %108, %94, %_ZN11hb_
   %120 = load ptr, ptr %16, align 8
   %121 = load i32, ptr %13, align 4
   %122 = zext i32 %121 to i64
-  %123 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %120, i64 %122
+  %123 = getelementptr inbounds nuw [20 x i8], ptr %120, i64 %122
   %124 = load ptr, ptr %18, align 8
   %125 = load i32, ptr %19, align 4
   %126 = zext i32 %125 to i64
-  %127 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %124, i64 %126
+  %127 = getelementptr inbounds nuw [20 x i8], ptr %124, i64 %126
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %127, ptr noundef nonnull align 4 dereferenceable(20) %123, i64 20, i1 false)
   %.pre.i290 = load i32, ptr %19, align 4
   %.pre562.pre = load i32, ptr %13, align 4
@@ -320,7 +317,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit292:           ; preds = %131, %117, %_ZN11hb
 150:                                              ; preds = %145
   %151 = load ptr, ptr %141, align 8
   %152 = zext i32 %147 to i64
-  %153 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %151, i64 %152
+  %153 = getelementptr inbounds nuw [20 x i8], ptr %151, i64 %152
   %154 = load i32, ptr %153, align 4
   switch i32 %154, label %.critedge228 [
     i32 2437, label %157
@@ -337,7 +334,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit292:           ; preds = %131, %117, %_ZN11hb
 157:                                              ; preds = %150, %156, %155
   %.sink668 = phi i32 [ 2530, %156 ], [ 2499, %155 ], [ 2494, %150 ]
   %158 = zext i32 %146 to i64
-  %159 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %151, i64 %158
+  %159 = getelementptr inbounds nuw [20 x i8], ptr %151, i64 %158
   %160 = load i32, ptr %159, align 4
   %161 = icmp eq i32 %160, %.sink668
   %162 = load i8, ptr %142, align 2
@@ -362,11 +359,11 @@ _ZN11hb_buffer_t10next_glyphEv.exit292:           ; preds = %131, %117, %_ZN11hb
   %171 = load ptr, ptr %141, align 8
   %172 = load i32, ptr %138, align 4
   %173 = zext i32 %172 to i64
-  %174 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %171, i64 %173
+  %174 = getelementptr inbounds nuw [20 x i8], ptr %171, i64 %173
   %175 = load ptr, ptr %143, align 8
   %176 = load i32, ptr %144, align 4
   %177 = zext i32 %176 to i64
-  %178 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %175, i64 %177
+  %178 = getelementptr inbounds nuw [20 x i8], ptr %175, i64 %177
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %178, ptr noundef nonnull align 4 dereferenceable(20) %174, i64 20, i1 false)
   %.pre.i295 = load i32, ptr %144, align 4
   %.pre559.pre = load i32, ptr %138, align 4
@@ -415,11 +412,11 @@ _ZN11hb_buffer_t10next_glyphEv.exit297:           ; preds = %168, %182
   %195 = load ptr, ptr %141, align 8
   %196 = load i32, ptr %138, align 4
   %197 = zext i32 %196 to i64
-  %198 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %195, i64 %197
+  %198 = getelementptr inbounds nuw [20 x i8], ptr %195, i64 %197
   %199 = load ptr, ptr %143, align 8
   %200 = load i32, ptr %144, align 4
   %201 = zext i32 %200 to i64
-  %202 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %199, i64 %201
+  %202 = getelementptr inbounds nuw [20 x i8], ptr %199, i64 %201
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %202, ptr noundef nonnull align 4 dereferenceable(20) %198, i64 20, i1 false)
   %.pre.i300 = load i32, ptr %144, align 4
   %.pre560.pre = load i32, ptr %138, align 4
@@ -468,7 +465,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit302:           ; preds = %206, %192, %185, %_
 225:                                              ; preds = %220
   %226 = load ptr, ptr %216, align 8
   %227 = zext i32 %222 to i64
-  %228 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %226, i64 %227
+  %228 = getelementptr inbounds nuw [20 x i8], ptr %226, i64 %227
   %229 = load i32, ptr %228, align 4
   switch i32 %229, label %.critedge230 [
     i32 2565, label %230
@@ -478,7 +475,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit302:           ; preds = %206, %192, %185, %_
 
 230:                                              ; preds = %225
   %231 = zext i32 %221 to i64
-  %232 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %226, i64 %231
+  %232 = getelementptr inbounds nuw [20 x i8], ptr %226, i64 %231
   %233 = load i32, ptr %232, align 4
   switch i32 %233, label %.critedge230 [
     i32 2622, label %242
@@ -488,7 +485,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit302:           ; preds = %206, %192, %185, %_
 
 234:                                              ; preds = %225
   %235 = zext i32 %221 to i64
-  %236 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %226, i64 %235
+  %236 = getelementptr inbounds nuw [20 x i8], ptr %226, i64 %235
   %237 = load i32, ptr %236, align 4
   switch i32 %237, label %.critedge230 [
     i32 2623, label %242
@@ -498,7 +495,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit302:           ; preds = %206, %192, %185, %_
 
 238:                                              ; preds = %225
   %239 = zext i32 %221 to i64
-  %240 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %226, i64 %239
+  %240 = getelementptr inbounds nuw [20 x i8], ptr %226, i64 %239
   %241 = load i32, ptr %240, align 4
   switch i32 %241, label %.critedge230 [
     i32 2625, label %242
@@ -529,11 +526,11 @@ _ZN11hb_buffer_t10next_glyphEv.exit302:           ; preds = %206, %192, %185, %_
   %252 = load ptr, ptr %216, align 8
   %253 = load i32, ptr %213, align 4
   %254 = zext i32 %253 to i64
-  %255 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %252, i64 %254
+  %255 = getelementptr inbounds nuw [20 x i8], ptr %252, i64 %254
   %256 = load ptr, ptr %218, align 8
   %257 = load i32, ptr %219, align 4
   %258 = zext i32 %257 to i64
-  %259 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %256, i64 %258
+  %259 = getelementptr inbounds nuw [20 x i8], ptr %256, i64 %258
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %259, ptr noundef nonnull align 4 dereferenceable(20) %255, i64 20, i1 false)
   %.pre.i305 = load i32, ptr %219, align 4
   %.pre555.pre = load i32, ptr %213, align 4
@@ -580,11 +577,11 @@ _ZN11hb_buffer_t10next_glyphEv.exit307:           ; preds = %249, %263
 274:                                              ; preds = %272
   %275 = load ptr, ptr %216, align 8
   %276 = zext i32 %.pre558 to i64
-  %277 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %275, i64 %276
+  %277 = getelementptr inbounds nuw [20 x i8], ptr %275, i64 %276
   %278 = load ptr, ptr %218, align 8
   %279 = load i32, ptr %219, align 4
   %280 = zext i32 %279 to i64
-  %281 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %278, i64 %280
+  %281 = getelementptr inbounds nuw [20 x i8], ptr %278, i64 %280
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %281, ptr noundef nonnull align 4 dereferenceable(20) %277, i64 20, i1 false)
   %.pre.i310 = load i32, ptr %219, align 4
   %.pre556.pre = load i32, ptr %213, align 4
@@ -633,7 +630,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit312:           ; preds = %285, %272, %_ZN11hb
 304:                                              ; preds = %299
   %305 = load ptr, ptr %295, align 8
   %306 = zext i32 %301 to i64
-  %307 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %305, i64 %306
+  %307 = getelementptr inbounds nuw [20 x i8], ptr %305, i64 %306
   %308 = load i32, ptr %307, align 4
   switch i32 %308, label %.critedge232 [
     i32 2693, label %309
@@ -642,7 +639,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit312:           ; preds = %285, %272, %_ZN11hb
 
 309:                                              ; preds = %304
   %310 = zext i32 %300 to i64
-  %311 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %305, i64 %310
+  %311 = getelementptr inbounds nuw [20 x i8], ptr %305, i64 %310
   %312 = load i32, ptr %311, align 4
   switch i32 %312, label %.critedge232 [
     i32 2750, label %.critedge234
@@ -677,11 +674,11 @@ _ZN11hb_buffer_t10next_glyphEv.exit312:           ; preds = %285, %272, %_ZN11hb
   %322 = load ptr, ptr %295, align 8
   %323 = load i32, ptr %292, align 4
   %324 = zext i32 %323 to i64
-  %325 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %322, i64 %324
+  %325 = getelementptr inbounds nuw [20 x i8], ptr %322, i64 %324
   %326 = load ptr, ptr %297, align 8
   %327 = load i32, ptr %298, align 4
   %328 = zext i32 %327 to i64
-  %329 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %326, i64 %328
+  %329 = getelementptr inbounds nuw [20 x i8], ptr %326, i64 %328
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %329, ptr noundef nonnull align 4 dereferenceable(20) %325, i64 20, i1 false)
   %.pre.i315 = load i32, ptr %298, align 4
   %.pre553.pre = load i32, ptr %292, align 4
@@ -702,7 +699,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit312:           ; preds = %285, %272, %_ZN11hb
 
 336:                                              ; preds = %304
   %337 = zext i32 %300 to i64
-  %338 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %305, i64 %337
+  %338 = getelementptr inbounds nuw [20 x i8], ptr %305, i64 %337
   %339 = load i32, ptr %338, align 4
   %340 = icmp eq i32 %339, 2750
   %341 = load i8, ptr %296, align 2
@@ -727,11 +724,11 @@ _ZN11hb_buffer_t10next_glyphEv.exit312:           ; preds = %285, %272, %_ZN11hb
   %350 = load ptr, ptr %295, align 8
   %351 = load i32, ptr %292, align 4
   %352 = zext i32 %351 to i64
-  %353 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %350, i64 %352
+  %353 = getelementptr inbounds nuw [20 x i8], ptr %350, i64 %352
   %354 = load ptr, ptr %297, align 8
   %355 = load i32, ptr %298, align 4
   %356 = zext i32 %355 to i64
-  %357 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %354, i64 %356
+  %357 = getelementptr inbounds nuw [20 x i8], ptr %354, i64 %356
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %357, ptr noundef nonnull align 4 dereferenceable(20) %353, i64 20, i1 false)
   %.pre.i320 = load i32, ptr %298, align 4
   %.pre552.pre = load i32, ptr %292, align 4
@@ -780,11 +777,11 @@ _ZN11hb_buffer_t10next_glyphEv.exit317:           ; preds = %333, %319, %_ZN11hb
   %373 = load ptr, ptr %295, align 8
   %374 = load i32, ptr %292, align 4
   %375 = zext i32 %374 to i64
-  %376 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %373, i64 %375
+  %376 = getelementptr inbounds nuw [20 x i8], ptr %373, i64 %375
   %377 = load ptr, ptr %297, align 8
   %378 = load i32, ptr %298, align 4
   %379 = zext i32 %378 to i64
-  %380 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %377, i64 %379
+  %380 = getelementptr inbounds nuw [20 x i8], ptr %377, i64 %379
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %380, ptr noundef nonnull align 4 dereferenceable(20) %376, i64 20, i1 false)
   %.pre.i325 = load i32, ptr %298, align 4
   %.pre554.pre = load i32, ptr %292, align 4
@@ -833,7 +830,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit327:           ; preds = %384, %370, %_ZN11hb
 403:                                              ; preds = %398
   %404 = load ptr, ptr %394, align 8
   %405 = zext i32 %400 to i64
-  %406 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %404, i64 %405
+  %406 = getelementptr inbounds nuw [20 x i8], ptr %404, i64 %405
   %407 = load i32, ptr %406, align 4
   switch i32 %407, label %.critedge236 [
     i32 2821, label %409
@@ -847,7 +844,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit327:           ; preds = %384, %370, %_ZN11hb
 409:                                              ; preds = %403, %408
   %.sink670 = phi i32 [ 2903, %408 ], [ 2878, %403 ]
   %410 = zext i32 %399 to i64
-  %411 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %404, i64 %410
+  %411 = getelementptr inbounds nuw [20 x i8], ptr %404, i64 %410
   %412 = load i32, ptr %411, align 4
   %413 = icmp eq i32 %412, %.sink670
   %414 = load i8, ptr %395, align 2
@@ -872,11 +869,11 @@ _ZN11hb_buffer_t10next_glyphEv.exit327:           ; preds = %384, %370, %_ZN11hb
   %423 = load ptr, ptr %394, align 8
   %424 = load i32, ptr %391, align 4
   %425 = zext i32 %424 to i64
-  %426 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %423, i64 %425
+  %426 = getelementptr inbounds nuw [20 x i8], ptr %423, i64 %425
   %427 = load ptr, ptr %396, align 8
   %428 = load i32, ptr %397, align 4
   %429 = zext i32 %428 to i64
-  %430 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %427, i64 %429
+  %430 = getelementptr inbounds nuw [20 x i8], ptr %427, i64 %429
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %430, ptr noundef nonnull align 4 dereferenceable(20) %426, i64 20, i1 false)
   %.pre.i330 = load i32, ptr %397, align 4
   %.pre550.pre = load i32, ptr %391, align 4
@@ -925,11 +922,11 @@ _ZN11hb_buffer_t10next_glyphEv.exit332:           ; preds = %420, %434
   %447 = load ptr, ptr %394, align 8
   %448 = load i32, ptr %391, align 4
   %449 = zext i32 %448 to i64
-  %450 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %447, i64 %449
+  %450 = getelementptr inbounds nuw [20 x i8], ptr %447, i64 %449
   %451 = load ptr, ptr %396, align 8
   %452 = load i32, ptr %397, align 4
   %453 = zext i32 %452 to i64
-  %454 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %451, i64 %453
+  %454 = getelementptr inbounds nuw [20 x i8], ptr %451, i64 %453
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %454, ptr noundef nonnull align 4 dereferenceable(20) %450, i64 20, i1 false)
   %.pre.i335 = load i32, ptr %397, align 4
   %.pre551.pre = load i32, ptr %391, align 4
@@ -978,14 +975,14 @@ _ZN11hb_buffer_t10next_glyphEv.exit337:           ; preds = %458, %444, %437, %_
 477:                                              ; preds = %472
   %478 = load ptr, ptr %468, align 8
   %479 = zext i32 %474 to i64
-  %480 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %478, i64 %479
+  %480 = getelementptr inbounds nuw [20 x i8], ptr %478, i64 %479
   %481 = load i32, ptr %480, align 4
   %482 = icmp eq i32 %481, 2949
   br i1 %482, label %483, label %.critedge239
 
 483:                                              ; preds = %477
   %484 = zext i32 %473 to i64
-  %485 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %478, i64 %484
+  %485 = getelementptr inbounds nuw [20 x i8], ptr %478, i64 %484
   %486 = load i32, ptr %485, align 4
   %487 = icmp eq i32 %486, 3010
   %488 = load i8, ptr %469, align 2
@@ -1010,11 +1007,11 @@ _ZN11hb_buffer_t10next_glyphEv.exit337:           ; preds = %458, %444, %437, %_
   %497 = load ptr, ptr %468, align 8
   %498 = load i32, ptr %465, align 4
   %499 = zext i32 %498 to i64
-  %500 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %497, i64 %499
+  %500 = getelementptr inbounds nuw [20 x i8], ptr %497, i64 %499
   %501 = load ptr, ptr %470, align 8
   %502 = load i32, ptr %471, align 4
   %503 = zext i32 %502 to i64
-  %504 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %501, i64 %503
+  %504 = getelementptr inbounds nuw [20 x i8], ptr %501, i64 %503
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %504, ptr noundef nonnull align 4 dereferenceable(20) %500, i64 20, i1 false)
   %.pre.i340 = load i32, ptr %471, align 4
   %.pre549.pre = load i32, ptr %465, align 4
@@ -1063,11 +1060,11 @@ _ZN11hb_buffer_t10next_glyphEv.exit342:           ; preds = %494, %508
   %521 = load ptr, ptr %468, align 8
   %522 = load i32, ptr %465, align 4
   %523 = zext i32 %522 to i64
-  %524 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %521, i64 %523
+  %524 = getelementptr inbounds nuw [20 x i8], ptr %521, i64 %523
   %525 = load ptr, ptr %470, align 8
   %526 = load i32, ptr %471, align 4
   %527 = zext i32 %526 to i64
-  %528 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %525, i64 %527
+  %528 = getelementptr inbounds nuw [20 x i8], ptr %525, i64 %527
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %528, ptr noundef nonnull align 4 dereferenceable(20) %524, i64 20, i1 false)
   %.pre.i345 = load i32, ptr %471, align 4
   %.pre548.pre = load i32, ptr %465, align 4
@@ -1116,7 +1113,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit347:           ; preds = %532, %518, %511, %_
 551:                                              ; preds = %546
   %552 = load ptr, ptr %542, align 8
   %553 = zext i32 %548 to i64
-  %554 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %552, i64 %553
+  %554 = getelementptr inbounds nuw [20 x i8], ptr %552, i64 %553
   %555 = load i32, ptr %554, align 4
   switch i32 %555, label %.critedge241 [
     i32 3090, label %556
@@ -1127,7 +1124,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit347:           ; preds = %532, %518, %511, %_
 
 556:                                              ; preds = %551
   %557 = zext i32 %547 to i64
-  %558 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %552, i64 %557
+  %558 = getelementptr inbounds nuw [20 x i8], ptr %552, i64 %557
   %559 = load i32, ptr %558, align 4
   %switch.selectcmp.case1 = icmp eq i32 %559, 3148
   %switch.selectcmp.case2 = icmp eq i32 %559, 3157
@@ -1136,7 +1133,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit347:           ; preds = %532, %518, %511, %_
 
 560:                                              ; preds = %551, %551, %551
   %561 = zext i32 %547 to i64
-  %562 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %552, i64 %561
+  %562 = getelementptr inbounds nuw [20 x i8], ptr %552, i64 %561
   %563 = load i32, ptr %562, align 4
   %564 = icmp eq i32 %563, 3157
   br label %565
@@ -1165,11 +1162,11 @@ _ZN11hb_buffer_t10next_glyphEv.exit347:           ; preds = %532, %518, %511, %_
   %575 = load ptr, ptr %542, align 8
   %576 = load i32, ptr %539, align 4
   %577 = zext i32 %576 to i64
-  %578 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %575, i64 %577
+  %578 = getelementptr inbounds nuw [20 x i8], ptr %575, i64 %577
   %579 = load ptr, ptr %544, align 8
   %580 = load i32, ptr %545, align 4
   %581 = zext i32 %580 to i64
-  %582 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %579, i64 %581
+  %582 = getelementptr inbounds nuw [20 x i8], ptr %579, i64 %581
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %582, ptr noundef nonnull align 4 dereferenceable(20) %578, i64 20, i1 false)
   %.pre.i350 = load i32, ptr %545, align 4
   %.pre546.pre = load i32, ptr %539, align 4
@@ -1218,11 +1215,11 @@ _ZN11hb_buffer_t10next_glyphEv.exit352:           ; preds = %572, %586
   %599 = load ptr, ptr %542, align 8
   %600 = load i32, ptr %539, align 4
   %601 = zext i32 %600 to i64
-  %602 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %599, i64 %601
+  %602 = getelementptr inbounds nuw [20 x i8], ptr %599, i64 %601
   %603 = load ptr, ptr %544, align 8
   %604 = load i32, ptr %545, align 4
   %605 = zext i32 %604 to i64
-  %606 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %603, i64 %605
+  %606 = getelementptr inbounds nuw [20 x i8], ptr %603, i64 %605
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %606, ptr noundef nonnull align 4 dereferenceable(20) %602, i64 20, i1 false)
   %.pre.i355 = load i32, ptr %545, align 4
   %.pre547.pre = load i32, ptr %539, align 4
@@ -1271,7 +1268,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit357:           ; preds = %610, %596, %589, %_
 629:                                              ; preds = %624
   %630 = load ptr, ptr %620, align 8
   %631 = zext i32 %626 to i64
-  %632 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %630, i64 %631
+  %632 = getelementptr inbounds nuw [20 x i8], ptr %630, i64 %631
   %633 = load i32, ptr %632, align 4
   switch i32 %633, label %.critedge243 [
     i32 3209, label %635
@@ -1285,7 +1282,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit357:           ; preds = %610, %596, %589, %_
 635:                                              ; preds = %629, %629, %634
   %.sink672 = phi i32 [ 3276, %634 ], [ 3262, %629 ], [ 3262, %629 ]
   %636 = zext i32 %625 to i64
-  %637 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %630, i64 %636
+  %637 = getelementptr inbounds nuw [20 x i8], ptr %630, i64 %636
   %638 = load i32, ptr %637, align 4
   %639 = icmp eq i32 %638, %.sink672
   %640 = load i8, ptr %621, align 2
@@ -1310,11 +1307,11 @@ _ZN11hb_buffer_t10next_glyphEv.exit357:           ; preds = %610, %596, %589, %_
   %649 = load ptr, ptr %620, align 8
   %650 = load i32, ptr %617, align 4
   %651 = zext i32 %650 to i64
-  %652 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %649, i64 %651
+  %652 = getelementptr inbounds nuw [20 x i8], ptr %649, i64 %651
   %653 = load ptr, ptr %622, align 8
   %654 = load i32, ptr %623, align 4
   %655 = zext i32 %654 to i64
-  %656 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %653, i64 %655
+  %656 = getelementptr inbounds nuw [20 x i8], ptr %653, i64 %655
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %656, ptr noundef nonnull align 4 dereferenceable(20) %652, i64 20, i1 false)
   %.pre.i360 = load i32, ptr %623, align 4
   %.pre544.pre = load i32, ptr %617, align 4
@@ -1363,11 +1360,11 @@ _ZN11hb_buffer_t10next_glyphEv.exit362:           ; preds = %646, %660
   %673 = load ptr, ptr %620, align 8
   %674 = load i32, ptr %617, align 4
   %675 = zext i32 %674 to i64
-  %676 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %673, i64 %675
+  %676 = getelementptr inbounds nuw [20 x i8], ptr %673, i64 %675
   %677 = load ptr, ptr %622, align 8
   %678 = load i32, ptr %623, align 4
   %679 = zext i32 %678 to i64
-  %680 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %677, i64 %679
+  %680 = getelementptr inbounds nuw [20 x i8], ptr %677, i64 %679
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %680, ptr noundef nonnull align 4 dereferenceable(20) %676, i64 20, i1 false)
   %.pre.i365 = load i32, ptr %623, align 4
   %.pre545.pre = load i32, ptr %617, align 4
@@ -1416,7 +1413,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit367:           ; preds = %684, %670, %663, %_
 703:                                              ; preds = %698
   %704 = load ptr, ptr %694, align 8
   %705 = zext i32 %700 to i64
-  %706 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %704, i64 %705
+  %706 = getelementptr inbounds nuw [20 x i8], ptr %704, i64 %705
   %707 = load i32, ptr %706, align 4
   switch i32 %707, label %.critedge248 [
     i32 3335, label %708
@@ -1427,21 +1424,21 @@ _ZN11hb_buffer_t10next_glyphEv.exit367:           ; preds = %684, %670, %663, %_
 
 708:                                              ; preds = %703, %703
   %709 = zext i32 %699 to i64
-  %710 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %704, i64 %709
+  %710 = getelementptr inbounds nuw [20 x i8], ptr %704, i64 %709
   %711 = load i32, ptr %710, align 4
   %712 = icmp eq i32 %711, 3415
   br label %722
 
 713:                                              ; preds = %703
   %714 = zext i32 %699 to i64
-  %715 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %704, i64 %714
+  %715 = getelementptr inbounds nuw [20 x i8], ptr %704, i64 %714
   %716 = load i32, ptr %715, align 4
   %717 = icmp eq i32 %716, 3398
   br label %722
 
 718:                                              ; preds = %703
   %719 = zext i32 %699 to i64
-  %720 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %704, i64 %719
+  %720 = getelementptr inbounds nuw [20 x i8], ptr %704, i64 %719
   %721 = load i32, ptr %720, align 4
   %switch.selectcmp.case1244 = icmp eq i32 %721, 3390
   %switch.selectcmp.case2245 = icmp eq i32 %721, 3415
@@ -1472,11 +1469,11 @@ _ZN11hb_buffer_t10next_glyphEv.exit367:           ; preds = %684, %670, %663, %_
   %732 = load ptr, ptr %694, align 8
   %733 = load i32, ptr %691, align 4
   %734 = zext i32 %733 to i64
-  %735 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %732, i64 %734
+  %735 = getelementptr inbounds nuw [20 x i8], ptr %732, i64 %734
   %736 = load ptr, ptr %696, align 8
   %737 = load i32, ptr %697, align 4
   %738 = zext i32 %737 to i64
-  %739 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %736, i64 %738
+  %739 = getelementptr inbounds nuw [20 x i8], ptr %736, i64 %738
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %739, ptr noundef nonnull align 4 dereferenceable(20) %735, i64 20, i1 false)
   %.pre.i370 = load i32, ptr %697, align 4
   %.pre542.pre = load i32, ptr %691, align 4
@@ -1525,11 +1522,11 @@ _ZN11hb_buffer_t10next_glyphEv.exit372:           ; preds = %729, %743
   %756 = load ptr, ptr %694, align 8
   %757 = load i32, ptr %691, align 4
   %758 = zext i32 %757 to i64
-  %759 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %756, i64 %758
+  %759 = getelementptr inbounds nuw [20 x i8], ptr %756, i64 %758
   %760 = load ptr, ptr %696, align 8
   %761 = load i32, ptr %697, align 4
   %762 = zext i32 %761 to i64
-  %763 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %760, i64 %762
+  %763 = getelementptr inbounds nuw [20 x i8], ptr %760, i64 %762
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %763, ptr noundef nonnull align 4 dereferenceable(20) %759, i64 20, i1 false)
   %.pre.i375 = load i32, ptr %697, align 4
   %.pre543.pre = load i32, ptr %691, align 4
@@ -1578,7 +1575,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit377:           ; preds = %767, %753, %746, %_
 786:                                              ; preds = %781
   %787 = load ptr, ptr %777, align 8
   %788 = zext i32 %783 to i64
-  %789 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %787, i64 %788
+  %789 = getelementptr inbounds nuw [20 x i8], ptr %787, i64 %788
   %790 = load i32, ptr %789, align 4
   switch i32 %790, label %.critedge253 [
     i32 3461, label %791
@@ -1591,7 +1588,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit377:           ; preds = %767, %753, %746, %_
 
 791:                                              ; preds = %786
   %792 = zext i32 %782 to i64
-  %793 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %787, i64 %792
+  %793 = getelementptr inbounds nuw [20 x i8], ptr %787, i64 %792
   %794 = load i32, ptr %793, align 4
   %.off249 = add i32 %794, -3535
   %switch250 = icmp ult i32 %.off249, 3
@@ -1599,21 +1596,21 @@ _ZN11hb_buffer_t10next_glyphEv.exit377:           ; preds = %767, %753, %746, %_
 
 795:                                              ; preds = %786, %786, %786
   %796 = zext i32 %782 to i64
-  %797 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %787, i64 %796
+  %797 = getelementptr inbounds nuw [20 x i8], ptr %787, i64 %796
   %798 = load i32, ptr %797, align 4
   %799 = icmp eq i32 %798, 3551
   br label %832
 
 800:                                              ; preds = %786
   %801 = zext i32 %782 to i64
-  %802 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %787, i64 %801
+  %802 = getelementptr inbounds nuw [20 x i8], ptr %787, i64 %801
   %803 = load i32, ptr %802, align 4
   %804 = icmp eq i32 %803, 3544
   br label %832
 
 805:                                              ; preds = %786
   %806 = zext i32 %782 to i64
-  %807 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %787, i64 %806
+  %807 = getelementptr inbounds nuw [20 x i8], ptr %787, i64 %806
   %808 = load i32, ptr %807, align 4
   switch i32 %808, label %.critedge253 [
     i32 3530, label %.critedge255
@@ -1647,11 +1644,11 @@ _ZN11hb_buffer_t10next_glyphEv.exit377:           ; preds = %767, %753, %746, %_
   %818 = load ptr, ptr %777, align 8
   %819 = load i32, ptr %774, align 4
   %820 = zext i32 %819 to i64
-  %821 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %818, i64 %820
+  %821 = getelementptr inbounds nuw [20 x i8], ptr %818, i64 %820
   %822 = load ptr, ptr %779, align 8
   %823 = load i32, ptr %780, align 4
   %824 = zext i32 %823 to i64
-  %825 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %822, i64 %824
+  %825 = getelementptr inbounds nuw [20 x i8], ptr %822, i64 %824
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %825, ptr noundef nonnull align 4 dereferenceable(20) %821, i64 20, i1 false)
   %.pre.i380 = load i32, ptr %780, align 4
   %.pre539.pre = load i32, ptr %774, align 4
@@ -1694,11 +1691,11 @@ _ZN11hb_buffer_t10next_glyphEv.exit377:           ; preds = %767, %753, %746, %_
   %842 = load ptr, ptr %777, align 8
   %843 = load i32, ptr %774, align 4
   %844 = zext i32 %843 to i64
-  %845 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %842, i64 %844
+  %845 = getelementptr inbounds nuw [20 x i8], ptr %842, i64 %844
   %846 = load ptr, ptr %779, align 8
   %847 = load i32, ptr %780, align 4
   %848 = zext i32 %847 to i64
-  %849 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %846, i64 %848
+  %849 = getelementptr inbounds nuw [20 x i8], ptr %846, i64 %848
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %849, ptr noundef nonnull align 4 dereferenceable(20) %845, i64 20, i1 false)
   %.pre.i385 = load i32, ptr %780, align 4
   %.pre540.pre = load i32, ptr %774, align 4
@@ -1747,11 +1744,11 @@ _ZN11hb_buffer_t10next_glyphEv.exit382:           ; preds = %829, %815, %_ZN11hb
   %865 = load ptr, ptr %777, align 8
   %866 = load i32, ptr %774, align 4
   %867 = zext i32 %866 to i64
-  %868 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %865, i64 %867
+  %868 = getelementptr inbounds nuw [20 x i8], ptr %865, i64 %867
   %869 = load ptr, ptr %779, align 8
   %870 = load i32, ptr %780, align 4
   %871 = zext i32 %870 to i64
-  %872 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %869, i64 %871
+  %872 = getelementptr inbounds nuw [20 x i8], ptr %869, i64 %871
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %872, ptr noundef nonnull align 4 dereferenceable(20) %868, i64 20, i1 false)
   %.pre.i390 = load i32, ptr %780, align 4
   %.pre541.pre = load i32, ptr %774, align 4
@@ -1800,7 +1797,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit392:           ; preds = %876, %862, %_ZN11hb
 895:                                              ; preds = %890
   %896 = load ptr, ptr %886, align 8
   %897 = zext i32 %892 to i64
-  %898 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %896, i64 %897
+  %898 = getelementptr inbounds nuw [20 x i8], ptr %896, i64 %897
   %899 = load i32, ptr %898, align 4
   switch i32 %899, label %.critedge257 [
     i32 69637, label %902
@@ -1817,7 +1814,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit392:           ; preds = %876, %862, %_ZN11hb
 902:                                              ; preds = %895, %901, %900
   %.sink674 = phi i32 [ 69698, %901 ], [ 69694, %900 ], [ 69688, %895 ]
   %903 = zext i32 %891 to i64
-  %904 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %896, i64 %903
+  %904 = getelementptr inbounds nuw [20 x i8], ptr %896, i64 %903
   %905 = load i32, ptr %904, align 4
   %906 = icmp eq i32 %905, %.sink674
   %907 = load i8, ptr %887, align 2
@@ -1842,11 +1839,11 @@ _ZN11hb_buffer_t10next_glyphEv.exit392:           ; preds = %876, %862, %_ZN11hb
   %916 = load ptr, ptr %886, align 8
   %917 = load i32, ptr %883, align 4
   %918 = zext i32 %917 to i64
-  %919 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %916, i64 %918
+  %919 = getelementptr inbounds nuw [20 x i8], ptr %916, i64 %918
   %920 = load ptr, ptr %888, align 8
   %921 = load i32, ptr %889, align 4
   %922 = zext i32 %921 to i64
-  %923 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %920, i64 %922
+  %923 = getelementptr inbounds nuw [20 x i8], ptr %920, i64 %922
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %923, ptr noundef nonnull align 4 dereferenceable(20) %919, i64 20, i1 false)
   %.pre.i395 = load i32, ptr %889, align 4
   %.pre537.pre = load i32, ptr %883, align 4
@@ -1895,11 +1892,11 @@ _ZN11hb_buffer_t10next_glyphEv.exit397:           ; preds = %913, %927
   %940 = load ptr, ptr %886, align 8
   %941 = load i32, ptr %883, align 4
   %942 = zext i32 %941 to i64
-  %943 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %940, i64 %942
+  %943 = getelementptr inbounds nuw [20 x i8], ptr %940, i64 %942
   %944 = load ptr, ptr %888, align 8
   %945 = load i32, ptr %889, align 4
   %946 = zext i32 %945 to i64
-  %947 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %944, i64 %946
+  %947 = getelementptr inbounds nuw [20 x i8], ptr %944, i64 %946
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %947, ptr noundef nonnull align 4 dereferenceable(20) %943, i64 20, i1 false)
   %.pre.i400 = load i32, ptr %889, align 4
   %.pre538.pre = load i32, ptr %883, align 4
@@ -1948,7 +1945,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit402:           ; preds = %951, %937, %930, %_
 970:                                              ; preds = %965
   %971 = load ptr, ptr %961, align 8
   %972 = zext i32 %967 to i64
-  %973 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %971, i64 %972
+  %973 = getelementptr inbounds nuw [20 x i8], ptr %971, i64 %972
   %974 = load i32, ptr %973, align 4
   switch i32 %974, label %.critedge262 [
     i32 70144, label %975
@@ -1959,7 +1956,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit402:           ; preds = %951, %937, %930, %_
 
 975:                                              ; preds = %970
   %976 = zext i32 %966 to i64
-  %977 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %971, i64 %976
+  %977 = getelementptr inbounds nuw [20 x i8], ptr %971, i64 %976
   %978 = load i32, ptr %977, align 4
   switch i32 %978, label %.critedge262 [
     i32 70188, label %.critedge264
@@ -1990,11 +1987,11 @@ _ZN11hb_buffer_t10next_glyphEv.exit402:           ; preds = %951, %937, %930, %_
   %988 = load ptr, ptr %961, align 8
   %989 = load i32, ptr %958, align 4
   %990 = zext i32 %989 to i64
-  %991 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %988, i64 %990
+  %991 = getelementptr inbounds nuw [20 x i8], ptr %988, i64 %990
   %992 = load ptr, ptr %963, align 8
   %993 = load i32, ptr %964, align 4
   %994 = zext i32 %993 to i64
-  %995 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %992, i64 %994
+  %995 = getelementptr inbounds nuw [20 x i8], ptr %992, i64 %994
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %995, ptr noundef nonnull align 4 dereferenceable(20) %991, i64 20, i1 false)
   %.pre.i405 = load i32, ptr %964, align 4
   %.pre535.pre = load i32, ptr %958, align 4
@@ -2015,14 +2012,14 @@ _ZN11hb_buffer_t10next_glyphEv.exit402:           ; preds = %951, %937, %930, %_
 
 1002:                                             ; preds = %970
   %1003 = zext i32 %966 to i64
-  %1004 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %971, i64 %1003
+  %1004 = getelementptr inbounds nuw [20 x i8], ptr %971, i64 %1003
   %1005 = load i32, ptr %1004, align 4
   %1006 = icmp eq i32 %1005, 70188
   br label %1017
 
 1007:                                             ; preds = %970
   %1008 = zext i32 %966 to i64
-  %1009 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %971, i64 %1008
+  %1009 = getelementptr inbounds nuw [20 x i8], ptr %971, i64 %1008
   %1010 = load i32, ptr %1009, align 4
   %1011 = and i32 %1010, -2
   %switch259 = icmp eq i32 %1011, 70192
@@ -2030,7 +2027,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit402:           ; preds = %951, %937, %930, %_
 
 1012:                                             ; preds = %970
   %1013 = zext i32 %966 to i64
-  %1014 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %971, i64 %1013
+  %1014 = getelementptr inbounds nuw [20 x i8], ptr %971, i64 %1013
   %1015 = load i32, ptr %1014, align 4
   %1016 = icmp eq i32 %1015, 70190
   br label %1017
@@ -2059,11 +2056,11 @@ _ZN11hb_buffer_t10next_glyphEv.exit402:           ; preds = %951, %937, %930, %_
   %1027 = load ptr, ptr %961, align 8
   %1028 = load i32, ptr %958, align 4
   %1029 = zext i32 %1028 to i64
-  %1030 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %1027, i64 %1029
+  %1030 = getelementptr inbounds nuw [20 x i8], ptr %1027, i64 %1029
   %1031 = load ptr, ptr %963, align 8
   %1032 = load i32, ptr %964, align 4
   %1033 = zext i32 %1032 to i64
-  %1034 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %1031, i64 %1033
+  %1034 = getelementptr inbounds nuw [20 x i8], ptr %1031, i64 %1033
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %1034, ptr noundef nonnull align 4 dereferenceable(20) %1030, i64 20, i1 false)
   %.pre.i410 = load i32, ptr %964, align 4
   %.pre534.pre = load i32, ptr %958, align 4
@@ -2112,11 +2109,11 @@ _ZN11hb_buffer_t10next_glyphEv.exit407:           ; preds = %999, %985, %_ZN11hb
   %1050 = load ptr, ptr %961, align 8
   %1051 = load i32, ptr %958, align 4
   %1052 = zext i32 %1051 to i64
-  %1053 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %1050, i64 %1052
+  %1053 = getelementptr inbounds nuw [20 x i8], ptr %1050, i64 %1052
   %1054 = load ptr, ptr %963, align 8
   %1055 = load i32, ptr %964, align 4
   %1056 = zext i32 %1055 to i64
-  %1057 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %1054, i64 %1056
+  %1057 = getelementptr inbounds nuw [20 x i8], ptr %1054, i64 %1056
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %1057, ptr noundef nonnull align 4 dereferenceable(20) %1053, i64 20, i1 false)
   %.pre.i415 = load i32, ptr %964, align 4
   %.pre536.pre = load i32, ptr %958, align 4
@@ -2165,14 +2162,14 @@ _ZN11hb_buffer_t10next_glyphEv.exit417:           ; preds = %1061, %1047, %_ZN11
 1080:                                             ; preds = %1075
   %1081 = load ptr, ptr %1071, align 8
   %1082 = zext i32 %1077 to i64
-  %1083 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %1081, i64 %1082
+  %1083 = getelementptr inbounds nuw [20 x i8], ptr %1081, i64 %1082
   %1084 = load i32, ptr %1083, align 4
   %cond = icmp eq i32 %1084, 70320
   br i1 %cond, label %1085, label %.critedge266
 
 1085:                                             ; preds = %1080
   %1086 = zext i32 %1076 to i64
-  %1087 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %1081, i64 %1086
+  %1087 = getelementptr inbounds nuw [20 x i8], ptr %1081, i64 %1086
   %1088 = load i32, ptr %1087, align 4
   switch i32 %1088, label %.critedge266 [
     i32 70368, label %1089
@@ -2205,11 +2202,11 @@ _ZN11hb_buffer_t10next_glyphEv.exit417:           ; preds = %1061, %1047, %_ZN11
   %1099 = load ptr, ptr %1071, align 8
   %1100 = load i32, ptr %1068, align 4
   %1101 = zext i32 %1100 to i64
-  %1102 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %1099, i64 %1101
+  %1102 = getelementptr inbounds nuw [20 x i8], ptr %1099, i64 %1101
   %1103 = load ptr, ptr %1073, align 8
   %1104 = load i32, ptr %1074, align 4
   %1105 = zext i32 %1104 to i64
-  %1106 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %1103, i64 %1105
+  %1106 = getelementptr inbounds nuw [20 x i8], ptr %1103, i64 %1105
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %1106, ptr noundef nonnull align 4 dereferenceable(20) %1102, i64 20, i1 false)
   %.pre.i420 = load i32, ptr %1074, align 4
   %.pre530.pre = load i32, ptr %1068, align 4
@@ -2256,11 +2253,11 @@ _ZN11hb_buffer_t10next_glyphEv.exit422:           ; preds = %1096, %1110
 1121:                                             ; preds = %1119
   %1122 = load ptr, ptr %1071, align 8
   %1123 = zext i32 %.pre533 to i64
-  %1124 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %1122, i64 %1123
+  %1124 = getelementptr inbounds nuw [20 x i8], ptr %1122, i64 %1123
   %1125 = load ptr, ptr %1073, align 8
   %1126 = load i32, ptr %1074, align 4
   %1127 = zext i32 %1126 to i64
-  %1128 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %1125, i64 %1127
+  %1128 = getelementptr inbounds nuw [20 x i8], ptr %1125, i64 %1127
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %1128, ptr noundef nonnull align 4 dereferenceable(20) %1124, i64 20, i1 false)
   %.pre.i425 = load i32, ptr %1074, align 4
   %.pre531.pre = load i32, ptr %1068, align 4
@@ -2309,7 +2306,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit427:           ; preds = %1132, %1119, %_ZN11
 1151:                                             ; preds = %1146
   %1152 = load ptr, ptr %1142, align 8
   %1153 = zext i32 %1148 to i64
-  %1154 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %1152, i64 %1153
+  %1154 = getelementptr inbounds nuw [20 x i8], ptr %1152, i64 %1153
   %1155 = load i32, ptr %1154, align 4
   switch i32 %1155, label %.critedge271 [
     i32 70785, label %1156
@@ -2320,21 +2317,21 @@ _ZN11hb_buffer_t10next_glyphEv.exit427:           ; preds = %1132, %1119, %_ZN11
 
 1156:                                             ; preds = %1151
   %1157 = zext i32 %1147 to i64
-  %1158 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %1152, i64 %1157
+  %1158 = getelementptr inbounds nuw [20 x i8], ptr %1152, i64 %1157
   %1159 = load i32, ptr %1158, align 4
   %1160 = icmp eq i32 %1159, 70832
   br label %1170
 
 1161:                                             ; preds = %1151, %1151
   %1162 = zext i32 %1147 to i64
-  %1163 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %1152, i64 %1162
+  %1163 = getelementptr inbounds nuw [20 x i8], ptr %1152, i64 %1162
   %1164 = load i32, ptr %1163, align 4
   %1165 = icmp eq i32 %1164, 70842
   br label %1170
 
 1166:                                             ; preds = %1151
   %1167 = zext i32 %1147 to i64
-  %1168 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %1152, i64 %1167
+  %1168 = getelementptr inbounds nuw [20 x i8], ptr %1152, i64 %1167
   %1169 = load i32, ptr %1168, align 4
   %.off267 = add i32 %1169, -70837
   %switch268 = icmp ult i32 %.off267, 2
@@ -2364,11 +2361,11 @@ _ZN11hb_buffer_t10next_glyphEv.exit427:           ; preds = %1132, %1119, %_ZN11
   %1180 = load ptr, ptr %1142, align 8
   %1181 = load i32, ptr %1139, align 4
   %1182 = zext i32 %1181 to i64
-  %1183 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %1180, i64 %1182
+  %1183 = getelementptr inbounds nuw [20 x i8], ptr %1180, i64 %1182
   %1184 = load ptr, ptr %1144, align 8
   %1185 = load i32, ptr %1145, align 4
   %1186 = zext i32 %1185 to i64
-  %1187 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %1184, i64 %1186
+  %1187 = getelementptr inbounds nuw [20 x i8], ptr %1184, i64 %1186
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %1187, ptr noundef nonnull align 4 dereferenceable(20) %1183, i64 20, i1 false)
   %.pre.i430 = load i32, ptr %1145, align 4
   %.pre528.pre = load i32, ptr %1139, align 4
@@ -2417,11 +2414,11 @@ _ZN11hb_buffer_t10next_glyphEv.exit432:           ; preds = %1177, %1191
   %1204 = load ptr, ptr %1142, align 8
   %1205 = load i32, ptr %1139, align 4
   %1206 = zext i32 %1205 to i64
-  %1207 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %1204, i64 %1206
+  %1207 = getelementptr inbounds nuw [20 x i8], ptr %1204, i64 %1206
   %1208 = load ptr, ptr %1144, align 8
   %1209 = load i32, ptr %1145, align 4
   %1210 = zext i32 %1209 to i64
-  %1211 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %1208, i64 %1210
+  %1211 = getelementptr inbounds nuw [20 x i8], ptr %1208, i64 %1210
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %1211, ptr noundef nonnull align 4 dereferenceable(20) %1207, i64 20, i1 false)
   %.pre.i435 = load i32, ptr %1145, align 4
   %.pre529.pre = load i32, ptr %1139, align 4
@@ -2470,7 +2467,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit437:           ; preds = %1215, %1201, %1194,
 1234:                                             ; preds = %1229
   %1235 = load ptr, ptr %1225, align 8
   %1236 = zext i32 %1231 to i64
-  %1237 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %1235, i64 %1236
+  %1237 = getelementptr inbounds nuw [20 x i8], ptr %1235, i64 %1236
   %1238 = load i32, ptr %1237, align 4
   %1239 = and i32 %1238, -2
   %switch273 = icmp eq i32 %1239, 71168
@@ -2478,7 +2475,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit437:           ; preds = %1215, %1201, %1194,
 
 1240:                                             ; preds = %1234
   %1241 = zext i32 %1230 to i64
-  %1242 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %1235, i64 %1241
+  %1242 = getelementptr inbounds nuw [20 x i8], ptr %1235, i64 %1241
   %1243 = load i32, ptr %1242, align 4
   %.off274 = add i32 %1243, -71225
   %switch275 = icmp ult i32 %.off274, 2
@@ -2504,11 +2501,11 @@ _ZN11hb_buffer_t10next_glyphEv.exit437:           ; preds = %1215, %1201, %1194,
   %1253 = load ptr, ptr %1225, align 8
   %1254 = load i32, ptr %1222, align 4
   %1255 = zext i32 %1254 to i64
-  %1256 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %1253, i64 %1255
+  %1256 = getelementptr inbounds nuw [20 x i8], ptr %1253, i64 %1255
   %1257 = load ptr, ptr %1227, align 8
   %1258 = load i32, ptr %1228, align 4
   %1259 = zext i32 %1258 to i64
-  %1260 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %1257, i64 %1259
+  %1260 = getelementptr inbounds nuw [20 x i8], ptr %1257, i64 %1259
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %1260, ptr noundef nonnull align 4 dereferenceable(20) %1256, i64 20, i1 false)
   %.pre.i440 = load i32, ptr %1228, align 4
   %.pre527.pre = load i32, ptr %1222, align 4
@@ -2557,11 +2554,11 @@ _ZN11hb_buffer_t10next_glyphEv.exit442:           ; preds = %1250, %1264
   %1277 = load ptr, ptr %1225, align 8
   %1278 = load i32, ptr %1222, align 4
   %1279 = zext i32 %1278 to i64
-  %1280 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %1277, i64 %1279
+  %1280 = getelementptr inbounds nuw [20 x i8], ptr %1277, i64 %1279
   %1281 = load ptr, ptr %1227, align 8
   %1282 = load i32, ptr %1228, align 4
   %1283 = zext i32 %1282 to i64
-  %1284 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %1281, i64 %1283
+  %1284 = getelementptr inbounds nuw [20 x i8], ptr %1281, i64 %1283
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %1284, ptr noundef nonnull align 4 dereferenceable(20) %1280, i64 20, i1 false)
   %.pre.i445 = load i32, ptr %1228, align 4
   %.pre526.pre = load i32, ptr %1222, align 4
@@ -2610,7 +2607,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit447:           ; preds = %1288, %1274, %1267,
 1307:                                             ; preds = %1302
   %1308 = load ptr, ptr %1298, align 8
   %1309 = zext i32 %1304 to i64
-  %1310 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %1308, i64 %1309
+  %1310 = getelementptr inbounds nuw [20 x i8], ptr %1308, i64 %1309
   %1311 = load i32, ptr %1310, align 4
   switch i32 %1311, label %.critedge280 [
     i32 71296, label %1312
@@ -2619,7 +2616,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit447:           ; preds = %1288, %1274, %1267,
 
 1312:                                             ; preds = %1307
   %1313 = zext i32 %1303 to i64
-  %1314 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %1308, i64 %1313
+  %1314 = getelementptr inbounds nuw [20 x i8], ptr %1308, i64 %1313
   %1315 = load i32, ptr %1314, align 4
   switch i32 %1315, label %.critedge280 [
     i32 71341, label %.critedge282
@@ -2650,11 +2647,11 @@ _ZN11hb_buffer_t10next_glyphEv.exit447:           ; preds = %1288, %1274, %1267,
   %1325 = load ptr, ptr %1298, align 8
   %1326 = load i32, ptr %1295, align 4
   %1327 = zext i32 %1326 to i64
-  %1328 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %1325, i64 %1327
+  %1328 = getelementptr inbounds nuw [20 x i8], ptr %1325, i64 %1327
   %1329 = load ptr, ptr %1300, align 8
   %1330 = load i32, ptr %1301, align 4
   %1331 = zext i32 %1330 to i64
-  %1332 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %1329, i64 %1331
+  %1332 = getelementptr inbounds nuw [20 x i8], ptr %1329, i64 %1331
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %1332, ptr noundef nonnull align 4 dereferenceable(20) %1328, i64 20, i1 false)
   %.pre.i450 = load i32, ptr %1301, align 4
   %.pre524.pre = load i32, ptr %1295, align 4
@@ -2675,7 +2672,7 @@ _ZN11hb_buffer_t10next_glyphEv.exit447:           ; preds = %1288, %1274, %1267,
 
 1339:                                             ; preds = %1307
   %1340 = zext i32 %1303 to i64
-  %1341 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %1308, i64 %1340
+  %1341 = getelementptr inbounds nuw [20 x i8], ptr %1308, i64 %1340
   %1342 = load i32, ptr %1341, align 4
   %1343 = icmp eq i32 %1342, 71346
   %1344 = load i8, ptr %1299, align 2
@@ -2700,11 +2697,11 @@ _ZN11hb_buffer_t10next_glyphEv.exit447:           ; preds = %1288, %1274, %1267,
   %1353 = load ptr, ptr %1298, align 8
   %1354 = load i32, ptr %1295, align 4
   %1355 = zext i32 %1354 to i64
-  %1356 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %1353, i64 %1355
+  %1356 = getelementptr inbounds nuw [20 x i8], ptr %1353, i64 %1355
   %1357 = load ptr, ptr %1300, align 8
   %1358 = load i32, ptr %1301, align 4
   %1359 = zext i32 %1358 to i64
-  %1360 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %1357, i64 %1359
+  %1360 = getelementptr inbounds nuw [20 x i8], ptr %1357, i64 %1359
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %1360, ptr noundef nonnull align 4 dereferenceable(20) %1356, i64 20, i1 false)
   %.pre.i455 = load i32, ptr %1301, align 4
   %.pre.pre = load i32, ptr %1295, align 4
@@ -2753,11 +2750,11 @@ _ZN11hb_buffer_t10next_glyphEv.exit452:           ; preds = %1336, %1322, %_ZN11
   %1376 = load ptr, ptr %1298, align 8
   %1377 = load i32, ptr %1295, align 4
   %1378 = zext i32 %1377 to i64
-  %1379 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %1376, i64 %1378
+  %1379 = getelementptr inbounds nuw [20 x i8], ptr %1376, i64 %1378
   %1380 = load ptr, ptr %1300, align 8
   %1381 = load i32, ptr %1301, align 4
   %1382 = zext i32 %1381 to i64
-  %1383 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %1380, i64 %1382
+  %1383 = getelementptr inbounds nuw [20 x i8], ptr %1380, i64 %1382
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %1383, ptr noundef nonnull align 4 dereferenceable(20) %1379, i64 20, i1 false)
   %.pre.i460 = load i32, ptr %1301, align 4
   %.pre525.pre = load i32, ptr %1295, align 4
@@ -2824,12 +2821,12 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN11hb_buffer_t10next_glyphEv(pt
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %20 = load i32, ptr %19, align 4
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %18, i64 %21
+  %22 = getelementptr inbounds nuw [20 x i8], ptr %18, i64 %21
   %23 = load ptr, ptr %6, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %25 = load i32, ptr %24, align 4
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %23, i64 %26
+  %27 = getelementptr inbounds nuw [20 x i8], ptr %23, i64 %26
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %27, ptr noundef nonnull align 4 dereferenceable(20) %22, i64 20, i1 false)
   %.pre = load i32, ptr %24, align 4
   br label %28
@@ -2875,7 +2872,7 @@ define internal fastcc void @_ZL26_output_with_dotted_circleP11hb_buffer_t(ptr n
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %11 = load ptr, ptr %10, align 8
   %12 = zext i32 %5 to i64
-  %13 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %11, i64 %12
+  %13 = getelementptr inbounds nuw [20 x i8], ptr %11, i64 %12
   %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 112
   %.pre.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8
   %.phi.trans.insert21.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 92
@@ -2889,7 +2886,7 @@ define internal fastcc void @_ZL26_output_with_dotted_circleP11hb_buffer_t(ptr n
   %18 = load i32, ptr %17, align 4
   %narrow.i.i.i.i = tail call i32 @llvm.usub.sat.i32(i32 %18, i32 1)
   %19 = zext i32 %narrow.i.i.i.i to i64
-  %20 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %16, i64 %19
+  %20 = getelementptr inbounds nuw [20 x i8], ptr %16, i64 %19
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %14, %9
@@ -2897,7 +2894,7 @@ define internal fastcc void @_ZL26_output_with_dotted_circleP11hb_buffer_t(ptr n
   %22 = phi ptr [ %.pre.i.i.i, %9 ], [ %16, %14 ]
   %23 = phi ptr [ %13, %9 ], [ %20, %14 ]
   %24 = zext i32 %21 to i64
-  %25 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %22, i64 %24
+  %25 = getelementptr inbounds nuw [20 x i8], ptr %22, i64 %24
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %25, ptr noundef nonnull align 4 dereferenceable(20) %23, i64 20, i1 false)
   store i32 9676, ptr %25, align 4
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 92
@@ -2912,7 +2909,7 @@ _ZL21_output_dotted_circleP11hb_buffer_t.exit:    ; preds = %._ZN11hb_buffer_t12
   %31 = load ptr, ptr %30, align 8
   %narrow.i.i = tail call i32 @llvm.usub.sat.i32(i32 %29, i32 1)
   %32 = zext i32 %narrow.i.i to i64
-  %33 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [20 x i8], ptr %31, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
   %35 = load i16, ptr %34, align 4
   %36 = and i16 %35, -129
@@ -2946,12 +2943,12 @@ _ZL21_output_dotted_circleP11hb_buffer_t.exit:    ; preds = %._ZN11hb_buffer_t12
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %54 = load i32, ptr %53, align 4
   %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %52, i64 %55
+  %56 = getelementptr inbounds nuw [20 x i8], ptr %52, i64 %55
   %57 = load ptr, ptr %30, align 8
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %59 = load i32, ptr %58, align 4
   %60 = zext i32 %59 to i64
-  %61 = getelementptr inbounds nuw %struct.hb_glyph_info_t, ptr %57, i64 %60
+  %61 = getelementptr inbounds nuw [20 x i8], ptr %57, i64 %60
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %61, ptr noundef nonnull align 4 dereferenceable(20) %56, i64 20, i1 false)
   %.pre.i2 = load i32, ptr %58, align 4
   br label %62

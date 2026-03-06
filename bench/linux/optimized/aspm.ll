@@ -378,7 +378,7 @@ define dso_local void @pcie_aspm_init_link_state(ptr noundef %0) local_unnamed_a
   %178 = load i32, ptr %177, align 8
   %179 = and i32 %178, 7
   %180 = zext nneg i32 %179 to i64
-  %181 = getelementptr i16, ptr %13, i64 %180
+  %181 = getelementptr [2 x i8], ptr %13, i64 %180
   store i16 %176, ptr %181, align 2
   %182 = call i32 @pcie_capability_clear_and_set_word_locked(ptr noundef %173, i32 noundef 16, i16 noundef zeroext 64, i16 noundef zeroext %170) #14
   %183 = load ptr, ptr %173, align 8
@@ -405,7 +405,7 @@ define dso_local void @pcie_aspm_init_link_state(ptr noundef %0) local_unnamed_a
   %195 = load i32, ptr %194, align 8
   %196 = and i32 %195, 7
   %197 = zext nneg i32 %196 to i64
-  %198 = getelementptr i16, ptr %13, i64 %197
+  %198 = getelementptr [2 x i8], ptr %13, i64 %197
   %199 = load i16, ptr %198, align 2
   %200 = call i32 @pcie_capability_clear_and_set_word_locked(ptr noundef %193, i32 noundef 16, i16 noundef zeroext 64, i16 noundef zeroext %199) #14
   %201 = load ptr, ptr %193, align 8
@@ -2792,7 +2792,7 @@ define internal i32 @pcie_aspm_get_policy(ptr noundef writeonly captures(none) %
   %8 = icmp eq i64 %4, %7
   %9 = sext i32 %5 to i64
   %10 = getelementptr i8, ptr %0, i64 %9
-  %11 = getelementptr ptr, ptr @policy_str, i64 %4
+  %11 = getelementptr [8 x i8], ptr @policy_str, i64 %4
   %12 = load ptr, ptr %11, align 8
   %13 = select i1 %8, ptr @.str.13, ptr @.str.14
   %14 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef %10, ptr noundef nonnull dereferenceable(1) %13, ptr noundef %12) #14

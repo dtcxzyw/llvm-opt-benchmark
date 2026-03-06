@@ -65,7 +65,7 @@ define hidden range(i32 0, 2) i32 @main(i32 noundef %0, ptr noundef readonly cap
   %.081127 = phi i32 [ %.182, %48 ], [ 0, %.preheader ]
   %.083126 = phi i32 [ %.2, %48 ], [ 1, %.preheader ]
   %14 = sext i32 %.079128 to i64
-  %15 = getelementptr inbounds ptr, ptr %1, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %1, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !9
   %17 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(6) @.str.1) #17
   %.not100 = icmp eq i32 %17, 0
@@ -132,7 +132,7 @@ sub_1114:                                         ; preds = %.tail, %sub_1
 
 43:                                               ; preds = %37
   %44 = sext i32 %38 to i64
-  %45 = getelementptr inbounds ptr, ptr %1, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %1, i64 %44
   %46 = load ptr, ptr %45, align 8, !tbaa !9
   br label %48
 
@@ -862,13 +862,13 @@ define internal fastcc void @ConvertToGray(ptr noundef nonnull readonly captures
   %13 = load i32, ptr %7, align 8, !tbaa !23
   %14 = mul nsw i32 %13, %.02022
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds i32, ptr %6, i64 %15
+  %16 = getelementptr inbounds [4 x i8], ptr %6, i64 %15
   %17 = icmp sgt i32 %12, 0
   br i1 %17, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.lr.ph24.split, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph24.split ]
-  %18 = getelementptr inbounds nuw i32, ptr %16, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv
   %19 = load i32, ptr %18, align 4, !tbaa !30
   %20 = lshr i32 %19, 16
   %21 = and i32 %20, 255

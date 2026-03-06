@@ -390,7 +390,7 @@ define dso_local noundef range(i32 -1, 1) i32 @acpi_isa_irq_to_gsi(i32 noundef %
 
 6:                                                ; preds = %2
   %7 = zext i32 %0 to i64
-  %8 = getelementptr i32, ptr @isa_irq_to_gsi, i64 %7
+  %8 = getelementptr [4 x i8], ptr @isa_irq_to_gsi, i64 %7
   %9 = load i32, ptr %8, align 4
   %10 = icmp eq i32 %9, -1
   br i1 %10, label %12, label %11
@@ -455,11 +455,11 @@ define dso_local range(i32 -2147483648, 1) i32 @acpi_map_cpu(ptr noundef %0, i32
   br i1 %13, label %17, label %15
 
 15:                                               ; preds = %11
-  %16 = getelementptr i32, ptr %12, i64 %14
+  %16 = getelementptr [4 x i8], ptr %12, i64 %14
   br label %24
 
 17:                                               ; preds = %11
-  %18 = getelementptr i64, ptr @__per_cpu_offset, i64 %14
+  %18 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %14
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, ptrtoint (ptr @x86_cpu_to_acpiid to i64)
   %21 = inttoptr i64 %20 to ptr
@@ -481,7 +481,7 @@ define dso_local range(i32 -2147483648, 1) i32 @acpi_map_cpu(ptr noundef %0, i32
 28:                                               ; preds = %24
   %29 = trunc i32 %26 to i16
   %30 = sext i32 %1 to i64
-  %31 = getelementptr i16, ptr @__apicid_to_node, i64 %30
+  %31 = getelementptr [2 x i8], ptr @__apicid_to_node, i64 %30
   store i16 %29, ptr %31, align 2
   tail call void @numa_set_node(i32 noundef %9, i32 noundef %26) #18
   br label %32
@@ -526,11 +526,11 @@ define internal fastcc void @acpi_register_lapic(i32 noundef range(i32 0, 65536)
   br i1 %17, label %21, label %19
 
 19:                                               ; preds = %15
-  %20 = getelementptr i32, ptr %16, i64 %18
+  %20 = getelementptr [4 x i8], ptr %16, i64 %18
   br label %26
 
 21:                                               ; preds = %15
-  %22 = getelementptr i64, ptr @__per_cpu_offset, i64 %18
+  %22 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %18
   %23 = load i64, ptr %22, align 8
   %24 = add i64 %23, ptrtoint (ptr @x86_cpu_to_acpiid to i64)
   %25 = inttoptr i64 %24 to ptr
@@ -551,13 +551,13 @@ declare dso_local void @acpi_processor_set_pdc(ptr noundef) local_unnamed_addr #
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
 define dso_local noundef i32 @acpi_unmap_cpu(i32 noundef %0) #3 align 16 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr i64, ptr @__per_cpu_offset, i64 %2
+  %3 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %2
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @x86_cpu_to_apicid to i64)
   %6 = inttoptr i64 %5 to ptr
   %7 = load i32, ptr %6, align 4
   %8 = sext i32 %7 to i64
-  %9 = getelementptr i16, ptr @__apicid_to_node, i64 %8
+  %9 = getelementptr [2 x i8], ptr @__apicid_to_node, i64 %8
   store i16 -1, ptr %9, align 2
   store i32 65535, ptr %6, align 4
   %10 = zext i32 %0 to i64
@@ -2143,7 +2143,7 @@ define internal fastcc void @mp_config_acpi_legacy_irqs() unnamed_addr #0 sectio
   br i1 %16, label %17, label %.critedge
 
 17:                                               ; preds = %12
-  %18 = getelementptr i32, ptr @isa_irq_to_gsi, i64 %13
+  %18 = getelementptr [4 x i8], ptr @isa_irq_to_gsi, i64 %13
   %19 = load i32, ptr %18, align 4
   %.not = icmp eq i32 %19, -1
   br i1 %.not, label %.critedge, label %20
@@ -2166,7 +2166,7 @@ define internal fastcc void @mp_config_acpi_legacy_irqs() unnamed_addr #0 sectio
 
 30:                                               ; preds = %51, %28
   %31 = phi i64 [ 0, %28 ], [ %52, %51 ]
-  %32 = getelementptr %struct.mpc_intsrc, ptr @mp_irqs, i64 %31
+  %32 = getelementptr [8 x i8], ptr @mp_irqs, i64 %31
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %34 = load i8, ptr %33, align 4
   %35 = icmp eq i8 %34, 0
@@ -2289,7 +2289,7 @@ define internal fastcc void @mp_override_legacy_irq(i8 noundef zeroext %0, i8 no
 
 20:                                               ; preds = %16
   %21 = zext i32 %3 to i64
-  %22 = getelementptr i32, ptr @isa_irq_to_gsi, i64 %21
+  %22 = getelementptr [4 x i8], ptr @isa_irq_to_gsi, i64 %21
   %23 = load i32, ptr %22, align 4
   %24 = icmp eq i32 %23, %3
   br i1 %24, label %25, label %26
@@ -2300,7 +2300,7 @@ define internal fastcc void @mp_override_legacy_irq(i8 noundef zeroext %0, i8 no
 
 26:                                               ; preds = %25, %20, %16
   %27 = zext nneg i8 %0 to i64
-  %28 = getelementptr i32, ptr @isa_irq_to_gsi, i64 %27
+  %28 = getelementptr [4 x i8], ptr @isa_irq_to_gsi, i64 %27
   store i32 %3, ptr %28, align 4
   br label %29
 

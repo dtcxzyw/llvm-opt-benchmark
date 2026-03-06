@@ -5,11 +5,8 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.aiString = type { i32, [1024 x i8] }
 %struct.aiColor3D = type { float, float, float }
-%struct.aiFace = type { i32, ptr }
 %class.aiVector3t = type { float, float, float }
 %class.aiQuaterniont = type { float, float, float, float }
-%struct.aiVectorKey = type { double, %class.aiVector3t, i32 }
-%struct.aiQuatKey = type <{ double, %class.aiQuaterniont, i32, [4 x i8] }>
 
 $_ZNK12aiMatrix4x4tIfE9DecomposeER10aiVector3tIfER13aiQuaterniontIfES3_ = comdat any
 
@@ -46,7 +43,7 @@ define void @_ZN6Assimp17ScenePreprocessor12ProcessSceneEv(ptr noundef nonnull r
   %indvars.iv = phi i64 [ %indvars.iv.next, %17 ], [ 0, %1 ]
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %17, label %16
@@ -77,7 +74,7 @@ define void @_ZN6Assimp17ScenePreprocessor12ProcessSceneEv(ptr noundef nonnull r
   %indvars.iv37 = phi i64 [ %indvars.iv.next38, %32 ], [ 0, %.preheader ]
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 56
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv37
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv37
   %29 = load ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %32, label %31
@@ -120,7 +117,7 @@ define void @_ZN6Assimp17ScenePreprocessor12ProcessSceneEv(ptr noundef nonnull r
   %50 = getelementptr inbounds nuw i8, ptr %47, i64 32
   %51 = load i32, ptr %50, align 8
   %52 = zext i32 %51 to i64
-  %53 = getelementptr inbounds nuw ptr, ptr %49, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %52
   store ptr %45, ptr %53, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store float 0x3FE3333340000000, ptr %3, align 4
@@ -165,7 +162,7 @@ define void @_ZN6Assimp17ScenePreprocessor12ProcessSceneEv(ptr noundef nonnull r
   %indvars.iv40 = phi i64 [ %indvars.iv.next41, %79 ], [ 0, %46 ]
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 24
   %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds nuw ptr, ptr %71, i64 %indvars.iv40
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %indvars.iv40
   %73 = load ptr, ptr %72, align 8
   %74 = icmp eq ptr %73, null
   br i1 %74, label %79, label %75
@@ -217,10 +214,10 @@ define void @_ZN6Assimp17ScenePreprocessor11ProcessMeshEP6aiMesh(ptr nonnull rea
 
 12:                                               ; preds = %2, %.loopexit78
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %.loopexit78 ]
-  %13 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   %.not70 = icmp eq ptr %14, null
-  %15 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   br i1 %.not70, label %.loopexit78.sink.split, label %16
 
 16:                                               ; preds = %12
@@ -311,7 +308,7 @@ define void @_ZN6Assimp17ScenePreprocessor11ProcessMeshEP6aiMesh(ptr nonnull rea
 39:                                               ; preds = %.lr.ph93, %45
   %40 = phi i32 [ 0, %.lr.ph93 ], [ %46, %45 ]
   %indvars.iv102 = phi i64 [ 0, %.lr.ph93 ], [ %indvars.iv.next103, %45 ]
-  %41 = getelementptr inbounds nuw %struct.aiFace, ptr %11, i64 %indvars.iv102
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %11, i64 %indvars.iv102
   %42 = load i32, ptr %41, align 8
   %switch.tableidx = add i32 %42, -1
   %43 = icmp ult i32 %switch.tableidx, 3
@@ -319,7 +316,7 @@ define void @_ZN6Assimp17ScenePreprocessor11ProcessMeshEP6aiMesh(ptr nonnull rea
 
 switch.lookup:                                    ; preds = %39
   %44 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN6Assimp17ScenePreprocessor11ProcessMeshEP6aiMesh, i64 %44
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN6Assimp17ScenePreprocessor11ProcessMeshEP6aiMesh, i64 %44
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %45
 
@@ -373,9 +370,9 @@ switch.lookup:                                    ; preds = %39
 .lr.ph96:                                         ; preds = %.lr.ph96.preheader, %.lr.ph96
   %indvars.iv106 = phi i64 [ 0, %.lr.ph96.preheader ], [ %indvars.iv.next107, %.lr.ph96 ]
   %65 = load ptr, ptr %50, align 8
-  %66 = getelementptr inbounds nuw %class.aiVector3t, ptr %65, i64 %indvars.iv106
+  %66 = getelementptr inbounds nuw [12 x i8], ptr %65, i64 %indvars.iv106
   %67 = load ptr, ptr %47, align 8
-  %68 = getelementptr inbounds nuw %class.aiVector3t, ptr %67, i64 %indvars.iv106
+  %68 = getelementptr inbounds nuw [12 x i8], ptr %67, i64 %indvars.iv106
   %69 = getelementptr inbounds nuw i8, ptr %66, i64 4
   %70 = load float, ptr %69, align 4
   %71 = getelementptr inbounds nuw i8, ptr %68, i64 8
@@ -398,7 +395,7 @@ switch.lookup:                                    ; preds = %39
   %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %79, i64 0
   %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %84, i64 1
   %88 = load ptr, ptr %53, align 8
-  %89 = getelementptr inbounds nuw %class.aiVector3t, ptr %88, i64 %indvars.iv106
+  %89 = getelementptr inbounds nuw [12 x i8], ptr %88, i64 %indvars.iv106
   store <2 x float> %.sroa.0.4.vec.insert.i, ptr %89, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %89, i64 8
   store float %87, ptr %.sroa.4.0..sroa_idx, align 4
@@ -447,7 +444,7 @@ define void @_ZN6Assimp17ScenePreprocessor16ProcessAnimationEP11aiAnimation(ptr 
   %.0109134 = phi double [ 1.000000e+11, %.lr.ph136 ], [ %.1168, %108 ]
   %.0110133 = phi double [ -1.000000e+11, %.lr.ph136 ], [ %.1111166, %108 ]
   %21 = load ptr, ptr %8, align 8
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %indvars.iv154
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv154
   %23 = load ptr, ptr %22, align 8
   %24 = load double, ptr %9, align 8
   %25 = fcmp oeq double %24, -1.000000e+00
@@ -483,7 +480,7 @@ define void @_ZN6Assimp17ScenePreprocessor16ProcessAnimationEP11aiAnimation(ptr 
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
   %.2118 = phi double [ %.0109134, %.lr.ph ], [ %.sroa.speculated107, %34 ]
   %.2112117 = phi double [ %.0110133, %.lr.ph ], [ %.sroa.speculated94, %34 ]
-  %35 = getelementptr inbounds nuw %struct.aiVectorKey, ptr %29, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [24 x i8], ptr %29, i64 %indvars.iv
   %36 = load double, ptr %35, align 8
   %37 = fcmp olt double %36, %.2118
   %.sroa.speculated107 = select i1 %37, double %36, double %.2118
@@ -515,7 +512,7 @@ define void @_ZN6Assimp17ScenePreprocessor16ProcessAnimationEP11aiAnimation(ptr 
   %indvars.iv144 = phi i64 [ 0, %.lr.ph124 ], [ %indvars.iv.next145, %44 ]
   %.3122 = phi double [ %.2.lcssa, %.lr.ph124 ], [ %.sroa.speculated104, %44 ]
   %.3113121 = phi double [ %.2112.lcssa, %.lr.ph124 ], [ %.sroa.speculated91, %44 ]
-  %45 = getelementptr inbounds nuw %struct.aiVectorKey, ptr %33, i64 %indvars.iv144
+  %45 = getelementptr inbounds nuw [24 x i8], ptr %33, i64 %indvars.iv144
   %46 = load double, ptr %45, align 8
   %47 = fcmp olt double %46, %.3122
   %.sroa.speculated104 = select i1 %47, double %46, double %.3122
@@ -529,7 +526,7 @@ define void @_ZN6Assimp17ScenePreprocessor16ProcessAnimationEP11aiAnimation(ptr 
   %indvars.iv149 = phi i64 [ 0, %.lr.ph130 ], [ %indvars.iv.next150, %49 ]
   %.4128 = phi double [ %.3.lcssa, %.lr.ph130 ], [ %.sroa.speculated101, %49 ]
   %.4114127 = phi double [ %.3113.lcssa, %.lr.ph130 ], [ %.sroa.speculated88, %49 ]
-  %50 = getelementptr inbounds nuw %struct.aiQuatKey, ptr %43, i64 %indvars.iv149
+  %50 = getelementptr inbounds nuw [32 x i8], ptr %43, i64 %indvars.iv149
   %51 = load double, ptr %50, align 8
   %52 = fcmp olt double %51, %.4128
   %.sroa.speculated101 = select i1 %52, double %51, double %.4128

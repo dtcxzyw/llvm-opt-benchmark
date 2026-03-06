@@ -21,9 +21,9 @@ define range(i32 -1, 2) i32 @memCompare(ptr noundef readonly captures(none) %0, 
 
 9:                                                ; preds = %6
   %10 = add nsw i64 %indvars.iv, -1
-  %11 = getelementptr inbounds nuw i64, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %10
   %12 = load i64, ptr %11, align 8, !tbaa !3
-  %13 = getelementptr inbounds nuw i64, ptr %1, i64 %10
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %10
   %14 = load i64, ptr %13, align 8, !tbaa !3
   %15 = icmp eq i64 %12, %14
   br i1 %15, label %6, label %16, !llvm.loop !7
@@ -66,14 +66,14 @@ define void @sortAndUnique1(ptr noundef %0, ptr noundef captures(none) %1) local
   %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %15 ]
   %.024 = phi i64 [ %7, %.lr.ph.preheader ], [ %.1, %15 ]
   %.01922 = phi i32 [ 1, %.lr.ph.preheader ], [ %.120, %15 ]
-  %8 = getelementptr inbounds nuw i64, ptr %0, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %9 = load i64, ptr %8, align 8, !tbaa !3
   %.not = icmp eq i64 %.024, %9
   br i1 %.not, label %15, label %10
 
 10:                                               ; preds = %.lr.ph
   %11 = sext i32 %.01922 to i64
-  %12 = getelementptr inbounds i64, ptr %0, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %0, i64 %11
   store i64 %9, ptr %12, align 8, !tbaa !3
   %13 = load i64, ptr %8, align 8, !tbaa !3
   %14 = add nsw i32 %.01922, 1
@@ -133,9 +133,9 @@ define range(i32 -1, 2) i32 @compareWords3(ptr noundef readonly captures(none) %
 
 10:                                               ; preds = %7
   %11 = add nsw i64 %indvars.iv.i, -1
-  %12 = getelementptr inbounds nuw i64, ptr %3, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %11
   %13 = load i64, ptr %12, align 8, !tbaa !3
-  %14 = getelementptr inbounds nuw i64, ptr %4, i64 %11
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %11
   %15 = load i64, ptr %14, align 8, !tbaa !3
   %16 = icmp eq i64 %13, %15
   br i1 %16, label %7, label %17, !llvm.loop !7
@@ -172,7 +172,7 @@ define void @sortAndUnique(ptr noundef %0, ptr noundef captures(none) %1) local_
   %indvars.iv = phi i64 [ 1, %.lr.ph ], [ %indvars.iv.next, %20 ]
   %.024 = phi ptr [ %7, %.lr.ph ], [ %.1, %20 ]
   %.02022 = phi i32 [ 1, %.lr.ph ], [ %.121, %20 ]
-  %13 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !15
   %bcmp = tail call i32 @bcmp(ptr %14, ptr %.024, i64 %11)
   %.not = icmp eq i32 %bcmp, 0
@@ -180,7 +180,7 @@ define void @sortAndUnique(ptr noundef %0, ptr noundef captures(none) %1) local_
 
 15:                                               ; preds = %12
   %16 = sext i32 %.02022 to i64
-  %17 = getelementptr inbounds ptr, ptr %0, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %0, i64 %16
   store ptr %14, ptr %17, align 8, !tbaa !15
   %18 = load ptr, ptr %13, align 8, !tbaa !15
   %19 = add nsw i32 %.02022, 1
@@ -245,9 +245,9 @@ define noalias noundef ptr @makeArray(ptr noundef readonly captures(none) %0) lo
 14:                                               ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
   %15 = tail call noalias ptr @malloc(i64 noundef %11) #23
-  %16 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   store ptr %15, ptr %16, align 8, !tbaa !15
-  %17 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8, !tbaa !15
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %18, i64 %11, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -270,7 +270,7 @@ define void @freeArray(ptr noundef captures(none) %0, ptr noundef readonly captu
 
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %2 ]
-  %6 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %7 = load ptr, ptr %6, align 8, !tbaa !15
   tail call void @free(ptr noundef %7) #21
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -298,10 +298,10 @@ define noalias noundef ptr @makeArrayB(ptr noundef readonly captures(none) %0, i
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %7 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !15
   %9 = load i64, ptr %8, align 8, !tbaa !3
-  %10 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   store i64 %9, ptr %10, align 8, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -340,7 +340,7 @@ declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unna
 define range(i32 0, 2) i32 @minimalInitialFlip1(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %1) #21
   %4 = sext i32 %3 to i64
-  %5 = getelementptr i64, ptr %0, i64 %4
+  %5 = getelementptr [8 x i8], ptr %0, i64 %4
   %6 = getelementptr i8, ptr %5, i64 -8
   %7 = load i64, ptr %6, align 8, !tbaa !3
   %.not = icmp sgt i64 %7, -1
@@ -382,9 +382,9 @@ define range(i32 0, 2) i32 @minimalFlip1(ptr noundef %0, ptr noundef captures(no
 
 14:                                               ; preds = %11
   %15 = add nsw i64 %indvars.iv.i, -1
-  %16 = getelementptr inbounds nuw i64, ptr %1, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %15
   %17 = load i64, ptr %16, align 8, !tbaa !3
-  %18 = getelementptr inbounds nuw i64, ptr %0, i64 %15
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %15
   %19 = load i64, ptr %18, align 8, !tbaa !3
   %20 = icmp eq i64 %17, %19
   br i1 %20, label %11, label %21, !llvm.loop !7
@@ -420,9 +420,9 @@ memCompare.exit:                                  ; preds = %21
 
 30:                                               ; preds = %27
   %31 = add nsw i64 %indvars.iv.i38, -1
-  %32 = getelementptr inbounds nuw i64, ptr %1, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %31
   %33 = load i64, ptr %32, align 8, !tbaa !3
-  %34 = getelementptr inbounds nuw i64, ptr %0, i64 %31
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %31
   %35 = load i64, ptr %34, align 8, !tbaa !3
   %36 = icmp eq i64 %33, %35
   br i1 %36, label %27, label %37, !llvm.loop !7
@@ -473,9 +473,9 @@ define range(i32 0, 2) i32 @minimalSwap1(ptr noundef %0, ptr noundef captures(no
 
 15:                                               ; preds = %12
   %16 = add nsw i64 %indvars.iv.i, -1
-  %17 = getelementptr inbounds nuw i64, ptr %1, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %16
   %18 = load i64, ptr %17, align 8, !tbaa !3
-  %19 = getelementptr inbounds nuw i64, ptr %0, i64 %16
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %16
   %20 = load i64, ptr %19, align 8, !tbaa !3
   %21 = icmp eq i64 %18, %20
   br i1 %21, label %12, label %22, !llvm.loop !7
@@ -511,9 +511,9 @@ memCompare.exit:                                  ; preds = %22
 
 31:                                               ; preds = %28
   %32 = add nsw i64 %indvars.iv.i37, -1
-  %33 = getelementptr inbounds nuw i64, ptr %1, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %32
   %34 = load i64, ptr %33, align 8, !tbaa !3
-  %35 = getelementptr inbounds nuw i64, ptr %0, i64 %32
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %32
   %36 = load i64, ptr %35, align 8, !tbaa !3
   %37 = icmp eq i64 %34, %36
   br i1 %37, label %28, label %38, !llvm.loop !7
@@ -539,7 +539,7 @@ declare void @Kit_TruthSwapAdjacentVars_64bit(ptr noundef, i32 noundef, i32 noun
 define range(i32 0, 2) i32 @minimalInitialFlip(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %1) #21
   %5 = sext i32 %4 to i64
-  %6 = getelementptr i64, ptr %0, i64 %5
+  %6 = getelementptr [8 x i8], ptr %0, i64 %5
   %7 = getelementptr i8, ptr %6, i64 -8
   %8 = load i64, ptr %7, align 8, !tbaa !3
   %.not = icmp sgt i64 %8, -1
@@ -588,9 +588,9 @@ define range(i32 0, 2) i32 @minimalFlip(ptr noundef %0, ptr noundef captures(non
 
 18:                                               ; preds = %15
   %19 = add nsw i64 %indvars.iv.i, -1
-  %20 = getelementptr inbounds nuw i64, ptr %1, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %19
   %21 = load i64, ptr %20, align 8, !tbaa !3
-  %22 = getelementptr inbounds nuw i64, ptr %0, i64 %19
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %19
   %23 = load i64, ptr %22, align 8, !tbaa !3
   %24 = icmp eq i64 %21, %23
   br i1 %24, label %15, label %25, !llvm.loop !7
@@ -634,9 +634,9 @@ memCompare.exit:                                  ; preds = %25
 
 38:                                               ; preds = %35
   %39 = add nsw i64 %indvars.iv.i46, -1
-  %40 = getelementptr inbounds nuw i64, ptr %1, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %39
   %41 = load i64, ptr %40, align 8, !tbaa !3
-  %42 = getelementptr inbounds nuw i64, ptr %0, i64 %39
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %39
   %43 = load i64, ptr %42, align 8, !tbaa !3
   %44 = icmp eq i64 %41, %43
   br i1 %44, label %35, label %45, !llvm.loop !7
@@ -738,9 +738,9 @@ swapInfoAdjacentVars.exit:                        ; preds = %7, %20
 
 29:                                               ; preds = %26
   %30 = add nsw i64 %indvars.iv.i, -1
-  %31 = getelementptr inbounds nuw i64, ptr %1, i64 %30
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %30
   %32 = load i64, ptr %31, align 8, !tbaa !3
-  %33 = getelementptr inbounds nuw i64, ptr %0, i64 %30
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %30
   %34 = load i64, ptr %33, align 8, !tbaa !3
   %35 = icmp eq i64 %32, %34
   br i1 %35, label %26, label %36, !llvm.loop !7
@@ -805,9 +805,9 @@ swapInfoAdjacentVars.exit60:                      ; preds = %39, %51
 
 59:                                               ; preds = %56
   %60 = add nsw i64 %indvars.iv.i61, -1
-  %61 = getelementptr inbounds nuw i64, ptr %1, i64 %60
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %60
   %62 = load i64, ptr %61, align 8, !tbaa !3
-  %63 = getelementptr inbounds nuw i64, ptr %0, i64 %60
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %60
   %64 = load i64, ptr %63, align 8, !tbaa !3
   %65 = icmp eq i64 %62, %64
   br i1 %65, label %56, label %66, !llvm.loop !7
@@ -837,7 +837,7 @@ define void @luckyCanonicizer(ptr noundef %0, ptr noundef captures(none) %1, ptr
 9:                                                ; preds = %7, %minimalInitialFlip.exit
   %10 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #21
   %11 = sext i32 %10 to i64
-  %12 = getelementptr i64, ptr %0, i64 %11
+  %12 = getelementptr [8 x i8], ptr %0, i64 %11
   %13 = getelementptr i8, ptr %12, i64 -8
   %14 = load i64, ptr %13, align 8, !tbaa !3
   %.not.i = icmp sgt i64 %14, -1
@@ -870,7 +870,7 @@ define noundef i32 @luckyCanonicizer1_simple(ptr noundef %0, ptr noundef capture
 7:                                                ; preds = %6, %minimalInitialFlip1.exit
   %8 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #21
   %9 = sext i32 %8 to i64
-  %10 = getelementptr i64, ptr %0, i64 %9
+  %10 = getelementptr [8 x i8], ptr %0, i64 %9
   %11 = getelementptr i8, ptr %10, i64 -8
   %12 = load i64, ptr %11, align 8, !tbaa !3
   %.not.i = icmp sgt i64 %12, -1
@@ -901,7 +901,7 @@ define void @luckyCanonicizer_final(ptr noundef %0, ptr noundef captures(none) %
 5:                                                ; preds = %minimalInitialFlip1.exit.i, %4
   %6 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %3) #21
   %7 = sext i32 %6 to i64
-  %8 = getelementptr i64, ptr %0, i64 %7
+  %8 = getelementptr [8 x i8], ptr %0, i64 %7
   %9 = getelementptr i8, ptr %8, i64 -8
   %10 = load i64, ptr %9, align 8, !tbaa !3
   %.not.i.i = icmp sgt i64 %10, -1
@@ -944,7 +944,7 @@ define i32 @Kit_TruthSemiCanonicize_new_internal(ptr noundef %0, i32 noundef %1,
 10:                                               ; preds = %minimalInitialFlip.exit.i, %3
   %11 = tail call i32 @Kit_TruthWordNum_64bit(i32 noundef %1) #21
   %12 = sext i32 %11 to i64
-  %13 = getelementptr i64, ptr %0, i64 %12
+  %13 = getelementptr [8 x i8], ptr %0, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -8
   %15 = load i64, ptr %14, align 8, !tbaa !3
   %.not.i.i = icmp sgt i64 %15, -1

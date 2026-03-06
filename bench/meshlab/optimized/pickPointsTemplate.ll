@@ -127,7 +127,7 @@ define noundef zeroext i1 @_ZN18PickPointsTemplate4saveE7QStringPSt6vectorIS0_Sa
 .lr.ph:                                           ; preds = %12, %_ZN7QStringD2Ev.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN7QStringD2Ev.exit ], [ 0, %12 ]
   %16 = phi ptr [ %30, %_ZN7QStringD2Ev.exit ], [ %15, %12 ]
-  %17 = getelementptr inbounds nuw %class.QString, ptr %16, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
   store ptr %18, ptr %6, align 8
   %19 = load atomic i32, ptr %18 monotonic, align 4
@@ -1026,7 +1026,7 @@ _ZNSt12_Vector_baseI7QStringSaIS0_EE13_M_deallocateEPS0_m.exit: ; preds = %_ZNSt
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i22, ptr %4, align 8
-  %41 = getelementptr inbounds nuw %class.QString, ptr %20, i64 %16
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %41, ptr %40, align 8
   ret void
 }

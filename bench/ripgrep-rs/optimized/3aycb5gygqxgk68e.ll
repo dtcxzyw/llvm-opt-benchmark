@@ -63,7 +63,7 @@ define noundef zeroext i1 @"_ZN57_$LT$grep_matcher..BitSet$u20$as$u20$core..fmt.
   %8 = lshr i8 %.sroa.5.011, 6
   %9 = zext nneg i8 %8 to i64
   %10 = and i8 %.sroa.5.011, 63
-  %11 = getelementptr inbounds nuw i64, ptr %0, i64 %9
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %9
   %12 = load i64, ptr %11, align 8, !noundef !4
   %13 = zext nneg i8 %10 to i64
   %14 = shl nuw i64 1, %13

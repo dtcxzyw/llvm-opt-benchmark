@@ -128,7 +128,7 @@ define dso_local i64 @i915_gem_shrink(ptr noundef %0, ptr noundef %1, i64 nounde
 55:                                               ; preds = %63, %53
   %56 = phi i1 [ true, %53 ], [ false, %63 ]
   %57 = phi i64 [ 0, %53 ], [ 1, %63 ]
-  %58 = getelementptr ptr, ptr %54, i64 %57
+  %58 = getelementptr [8 x i8], ptr %54, i64 %57
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %59, null
   br i1 %60, label %63, label %61
@@ -900,7 +900,7 @@ define internal noundef i32 @i915_gem_shrinker_vmap(ptr noundef %0, i64 %1, ptr 
   %14 = phi i1 [ true, %7 ], [ false, %75 ]
   %15 = phi i64 [ 0, %7 ], [ 1, %75 ]
   %16 = phi i64 [ %8, %7 ], [ %76, %75 ]
-  %17 = getelementptr ptr, ptr %9, i64 %15
+  %17 = getelementptr [8 x i8], ptr %9, i64 %15
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
   br i1 %19, label %75, label %20

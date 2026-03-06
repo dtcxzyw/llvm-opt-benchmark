@@ -11,7 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
 %"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
 %"class.std::__shared_count" = type { ptr }
-%struct.aiFace = type { i32, ptr }
 %"class.Assimp::Formatter::basic_formatter" = type { %"class.std::__cxx11::basic_ostringstream" }
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
@@ -806,7 +805,7 @@ _ZN6Assimp12StreamReaderILb0ELb0EE5GetF4Ev.exit229: ; preds = %173
 257:                                              ; preds = %243
   store i64 %253, ptr %256, align 16
   %258 = getelementptr inbounds nuw i8, ptr %256, i64 8
-  %259 = getelementptr inbounds nuw %struct.aiFace, ptr %258, i64 %253
+  %259 = getelementptr inbounds nuw [16 x i8], ptr %258, i64 %253
   br label %260
 
 260:                                              ; preds = %260, %257
@@ -926,7 +925,7 @@ _ZN6Assimp12StreamReaderILb0ELb0EE5GetF4Ev.exit229: ; preds = %173
   %310 = trunc nuw nsw i64 %indvars.iv310 to i32
   %311 = uitofp nneg i32 %310 to float
   %312 = add nuw i64 %indvars.iv310, %302
-  %313 = getelementptr inbounds nuw i16, ptr %206, i64 %312
+  %313 = getelementptr inbounds nuw [2 x i8], ptr %206, i64 %312
   %314 = load i16, ptr %313, align 2
   %315 = sitofp i16 %314 to float
   %316 = call float @llvm.fmuladd.f32(float %315, float %.0158, float %216)
@@ -937,7 +936,7 @@ _ZN6Assimp12StreamReaderILb0ELb0EE5GetF4Ev.exit229: ; preds = %173
   %.sroa.5265.0..1155.sroa_idx.us = getelementptr inbounds nuw i8, ptr %.1155285.us, i64 8
   store float %316, ptr %.sroa.5265.0..1155.sroa_idx.us, align 4
   %318 = add nuw nsw i64 %indvars.iv310, %304
-  %319 = getelementptr inbounds nuw i16, ptr %206, i64 %318
+  %319 = getelementptr inbounds nuw [2 x i8], ptr %206, i64 %318
   %320 = load i16, ptr %319, align 2
   %321 = sitofp i16 %320 to float
   %322 = call float @llvm.fmuladd.f32(float %321, float %.0158, float %216)
@@ -948,7 +947,7 @@ _ZN6Assimp12StreamReaderILb0ELb0EE5GetF4Ev.exit229: ; preds = %173
   %.sroa.5262.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %.1155285.us, i64 20
   store float %322, ptr %.sroa.5262.0..sroa_idx.us, align 4
   %324 = fadd float %311, 1.000000e+00
-  %325 = getelementptr inbounds nuw i16, ptr %206, i64 %318
+  %325 = getelementptr inbounds nuw [2 x i8], ptr %206, i64 %318
   %326 = getelementptr inbounds nuw i8, ptr %325, i64 2
   %327 = load i16, ptr %326, align 2
   %328 = sitofp i16 %327 to float
@@ -959,7 +958,7 @@ _ZN6Assimp12StreamReaderILb0ELb0EE5GetF4Ev.exit229: ; preds = %173
   store float %303, ptr %.sroa.4258.0..sroa_idx.us, align 4
   %.sroa.5259.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %.1155285.us, i64 32
   store float %329, ptr %.sroa.5259.0..sroa_idx.us, align 4
-  %331 = getelementptr inbounds nuw i16, ptr %206, i64 %312
+  %331 = getelementptr inbounds nuw [2 x i8], ptr %206, i64 %312
   %332 = getelementptr inbounds nuw i8, ptr %331, i64 2
   %333 = load i16, ptr %332, align 2
   %334 = sitofp i16 %333 to float
@@ -1027,7 +1026,7 @@ _ZN6Assimp12StreamReaderILb0ELb0EE5GetF4Ev.exit229: ; preds = %173
   %indvars.iv = phi i64 [ %indvars.iv.next, %355 ], [ 0, %351 ]
   %.2145282.us = phi i32 [ %358, %355 ], [ %.1144287.us, %351 ]
   %356 = load ptr, ptr %352, align 8
-  %357 = getelementptr inbounds nuw i32, ptr %356, i64 %indvars.iv
+  %357 = getelementptr inbounds nuw [4 x i8], ptr %356, i64 %indvars.iv
   store i32 %.2145282.us, ptr %357, align 4
   %358 = add i32 %.2145282.us, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

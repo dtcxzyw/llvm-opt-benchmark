@@ -1487,7 +1487,7 @@ define hidden noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_
   br i1 %32, label %33, label %.lr.ph.i
 
 33:                                               ; preds = %.lr.ph.i
-  %34 = getelementptr inbounds nuw i16, ptr %.sroa.0.0.i, i64 %.sroa.0.0.sroa.speculated.i.i.i
+  %34 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.0.0.i, i64 %.sroa.0.0.sroa.speculated.i.i.i
   %35 = sub nuw i64 %.sroa.6.0.i, %.sroa.0.0.sroa.speculated.i.i.i
   br i1 %31, label %.preheader52, label %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$u16$u5d$$C$polars_error..PolarsError$GT$$GT$17h0d6899b37e957e03E.exit22"
 
@@ -1516,7 +1516,7 @@ define hidden noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_
   br i1 %41, label %42, label %.lr.ph.i17
 
 42:                                               ; preds = %.lr.ph.i17
-  %43 = getelementptr inbounds nuw i16, ptr %.sroa.0.0.i13, i64 %.sroa.0.0.sroa.speculated.i.i.i15
+  %43 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.0.0.i13, i64 %.sroa.0.0.sroa.speculated.i.i.i15
   %44 = sub nuw i64 %.sroa.6.0.i12, %.sroa.0.0.sroa.speculated.i.i.i15
   br i1 %40, label %.preheader, label %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$u16$u5d$$C$polars_error..PolarsError$GT$$GT$17h0d6899b37e957e03E.exit22"
 
@@ -1591,7 +1591,7 @@ _ZN10polars_ops6series3ops7various9check_cmp17h2db7f5f7e1758f0aE.exit.thread: ; 
   br i1 %69, label %70, label %.lr.ph.i42.us
 
 70:                                               ; preds = %.lr.ph.i42.us
-  %71 = getelementptr inbounds nuw i16, ptr %.sroa.0.0.i38.us, i64 %.sroa.0.0.sroa.speculated.i.i.i40.us
+  %71 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.0.0.i38.us, i64 %.sroa.0.0.sroa.speculated.i.i.i40.us
   %72 = sub nuw i64 %.sroa.6.0.i37.us, %.sroa.0.0.sroa.speculated.i.i.i40.us
   br i1 %68, label %63, label %_ZN10polars_ops6series3ops7various9check_cmp17h2db7f5f7e1758f0aE.exit.thread
 
@@ -1642,7 +1642,7 @@ _ZN10polars_ops6series3ops7various9check_cmp17h2db7f5f7e1758f0aE.exit.loopexit.u
   br i1 %91, label %92, label %.lr.ph.i30
 
 92:                                               ; preds = %.lr.ph.i30
-  %93 = getelementptr inbounds nuw i16, ptr %.sroa.0.0.i26, i64 %.sroa.0.0.sroa.speculated.i.i.i28
+  %93 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.0.0.i26, i64 %.sroa.0.0.sroa.speculated.i.i.i28
   %94 = sub nuw i64 %.sroa.6.0.i25, %.sroa.0.0.sroa.speculated.i.i.i28
   br i1 %90, label %85, label %_ZN10polars_ops6series3ops7various9check_cmp17h2db7f5f7e1758f0aE.exit.thread
 
@@ -1766,7 +1766,7 @@ define hidden noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_
   br i1 %32, label %33, label %.lr.ph.i
 
 33:                                               ; preds = %.lr.ph.i
-  %34 = getelementptr inbounds nuw i16, ptr %.sroa.0.0.i, i64 %.sroa.0.0.sroa.speculated.i.i.i
+  %34 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.0.0.i, i64 %.sroa.0.0.sroa.speculated.i.i.i
   %35 = sub nuw i64 %.sroa.6.0.i, %.sroa.0.0.sroa.speculated.i.i.i
   br i1 %31, label %.preheader52, label %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$i16$u5d$$C$polars_error..PolarsError$GT$$GT$17hb8b260d334dfec5dE.exit22"
 
@@ -1795,7 +1795,7 @@ define hidden noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_
   br i1 %41, label %42, label %.lr.ph.i17
 
 42:                                               ; preds = %.lr.ph.i17
-  %43 = getelementptr inbounds nuw i16, ptr %.sroa.0.0.i13, i64 %.sroa.0.0.sroa.speculated.i.i.i15
+  %43 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.0.0.i13, i64 %.sroa.0.0.sroa.speculated.i.i.i15
   %44 = sub nuw i64 %.sroa.6.0.i12, %.sroa.0.0.sroa.speculated.i.i.i15
   br i1 %40, label %.preheader, label %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$i16$u5d$$C$polars_error..PolarsError$GT$$GT$17hb8b260d334dfec5dE.exit22"
 
@@ -1870,7 +1870,7 @@ _ZN10polars_ops6series3ops7various9check_cmp17hcda90c7b8256b796E.exit.thread: ; 
   br i1 %69, label %70, label %.lr.ph.i42.us
 
 70:                                               ; preds = %.lr.ph.i42.us
-  %71 = getelementptr inbounds nuw i16, ptr %.sroa.0.0.i38.us, i64 %.sroa.0.0.sroa.speculated.i.i.i40.us
+  %71 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.0.0.i38.us, i64 %.sroa.0.0.sroa.speculated.i.i.i40.us
   %72 = sub nuw i64 %.sroa.6.0.i37.us, %.sroa.0.0.sroa.speculated.i.i.i40.us
   br i1 %68, label %63, label %_ZN10polars_ops6series3ops7various9check_cmp17hcda90c7b8256b796E.exit.thread
 
@@ -1921,7 +1921,7 @@ _ZN10polars_ops6series3ops7various9check_cmp17hcda90c7b8256b796E.exit.loopexit.u
   br i1 %91, label %92, label %.lr.ph.i30
 
 92:                                               ; preds = %.lr.ph.i30
-  %93 = getelementptr inbounds nuw i16, ptr %.sroa.0.0.i26, i64 %.sroa.0.0.sroa.speculated.i.i.i28
+  %93 = getelementptr inbounds nuw [2 x i8], ptr %.sroa.0.0.i26, i64 %.sroa.0.0.sroa.speculated.i.i.i28
   %94 = sub nuw i64 %.sroa.6.0.i25, %.sroa.0.0.sroa.speculated.i.i.i28
   br i1 %90, label %85, label %_ZN10polars_ops6series3ops7various9check_cmp17hcda90c7b8256b796E.exit.thread
 
@@ -2045,7 +2045,7 @@ define hidden noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_
   br i1 %32, label %33, label %.lr.ph.i
 
 33:                                               ; preds = %.lr.ph.i
-  %34 = getelementptr inbounds nuw i32, ptr %.sroa.0.0.i, i64 %.sroa.0.0.sroa.speculated.i.i.i
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.0.i, i64 %.sroa.0.0.sroa.speculated.i.i.i
   %35 = sub nuw i64 %.sroa.6.0.i, %.sroa.0.0.sroa.speculated.i.i.i
   br i1 %31, label %.preheader52, label %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$i32$u5d$$C$polars_error..PolarsError$GT$$GT$17h286c522ac3ddf419E.exit22"
 
@@ -2074,7 +2074,7 @@ define hidden noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_
   br i1 %41, label %42, label %.lr.ph.i17
 
 42:                                               ; preds = %.lr.ph.i17
-  %43 = getelementptr inbounds nuw i32, ptr %.sroa.0.0.i13, i64 %.sroa.0.0.sroa.speculated.i.i.i15
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.0.i13, i64 %.sroa.0.0.sroa.speculated.i.i.i15
   %44 = sub nuw i64 %.sroa.6.0.i12, %.sroa.0.0.sroa.speculated.i.i.i15
   br i1 %40, label %.preheader, label %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$i32$u5d$$C$polars_error..PolarsError$GT$$GT$17h286c522ac3ddf419E.exit22"
 
@@ -2149,7 +2149,7 @@ _ZN10polars_ops6series3ops7various9check_cmp17h9a6632012b30f9a4E.exit.thread: ; 
   br i1 %69, label %70, label %.lr.ph.i42.us
 
 70:                                               ; preds = %.lr.ph.i42.us
-  %71 = getelementptr inbounds nuw i32, ptr %.sroa.0.0.i38.us, i64 %.sroa.0.0.sroa.speculated.i.i.i40.us
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.0.i38.us, i64 %.sroa.0.0.sroa.speculated.i.i.i40.us
   %72 = sub nuw i64 %.sroa.6.0.i37.us, %.sroa.0.0.sroa.speculated.i.i.i40.us
   br i1 %68, label %63, label %_ZN10polars_ops6series3ops7various9check_cmp17h9a6632012b30f9a4E.exit.thread
 
@@ -2200,7 +2200,7 @@ _ZN10polars_ops6series3ops7various9check_cmp17h9a6632012b30f9a4E.exit.loopexit.u
   br i1 %91, label %92, label %.lr.ph.i30
 
 92:                                               ; preds = %.lr.ph.i30
-  %93 = getelementptr inbounds nuw i32, ptr %.sroa.0.0.i26, i64 %.sroa.0.0.sroa.speculated.i.i.i28
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.0.i26, i64 %.sroa.0.0.sroa.speculated.i.i.i28
   %94 = sub nuw i64 %.sroa.6.0.i25, %.sroa.0.0.sroa.speculated.i.i.i28
   br i1 %90, label %85, label %_ZN10polars_ops6series3ops7various9check_cmp17h9a6632012b30f9a4E.exit.thread
 
@@ -2324,7 +2324,7 @@ define hidden noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_
   br i1 %32, label %33, label %.lr.ph.i
 
 33:                                               ; preds = %.lr.ph.i
-  %34 = getelementptr inbounds nuw i128, ptr %.sroa.0.0.i, i64 %.sroa.0.0.sroa.speculated.i.i.i
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0.i, i64 %.sroa.0.0.sroa.speculated.i.i.i
   %35 = sub nuw i64 %.sroa.6.0.i, %.sroa.0.0.sroa.speculated.i.i.i
   br i1 %31, label %.preheader52, label %"_ZN4core3ptr95drop_in_place$LT$core..result..Result$LT$$RF$$u5b$i128$u5d$$C$polars_error..PolarsError$GT$$GT$17he311b4f54fe82c9dE.exit22"
 
@@ -2353,7 +2353,7 @@ define hidden noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_
   br i1 %41, label %42, label %.lr.ph.i17
 
 42:                                               ; preds = %.lr.ph.i17
-  %43 = getelementptr inbounds nuw i128, ptr %.sroa.0.0.i13, i64 %.sroa.0.0.sroa.speculated.i.i.i15
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0.i13, i64 %.sroa.0.0.sroa.speculated.i.i.i15
   %44 = sub nuw i64 %.sroa.6.0.i12, %.sroa.0.0.sroa.speculated.i.i.i15
   br i1 %40, label %.preheader, label %"_ZN4core3ptr95drop_in_place$LT$core..result..Result$LT$$RF$$u5b$i128$u5d$$C$polars_error..PolarsError$GT$$GT$17he311b4f54fe82c9dE.exit22"
 
@@ -2428,7 +2428,7 @@ _ZN10polars_ops6series3ops7various9check_cmp17h03df4170f8b5bbeeE.exit.thread: ; 
   br i1 %69, label %70, label %.lr.ph.i42.us
 
 70:                                               ; preds = %.lr.ph.i42.us
-  %71 = getelementptr inbounds nuw i128, ptr %.sroa.0.0.i38.us, i64 %.sroa.0.0.sroa.speculated.i.i.i40.us
+  %71 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0.i38.us, i64 %.sroa.0.0.sroa.speculated.i.i.i40.us
   %72 = sub nuw i64 %.sroa.6.0.i37.us, %.sroa.0.0.sroa.speculated.i.i.i40.us
   br i1 %68, label %63, label %_ZN10polars_ops6series3ops7various9check_cmp17h03df4170f8b5bbeeE.exit.thread
 
@@ -2479,7 +2479,7 @@ _ZN10polars_ops6series3ops7various9check_cmp17h03df4170f8b5bbeeE.exit.loopexit.u
   br i1 %91, label %92, label %.lr.ph.i30
 
 92:                                               ; preds = %.lr.ph.i30
-  %93 = getelementptr inbounds nuw i128, ptr %.sroa.0.0.i26, i64 %.sroa.0.0.sroa.speculated.i.i.i28
+  %93 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.0.0.i26, i64 %.sroa.0.0.sroa.speculated.i.i.i28
   %94 = sub nuw i64 %.sroa.6.0.i25, %.sroa.0.0.sroa.speculated.i.i.i28
   br i1 %90, label %85, label %_ZN10polars_ops6series3ops7various9check_cmp17h03df4170f8b5bbeeE.exit.thread
 
@@ -2603,7 +2603,7 @@ define hidden noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_
   br i1 %32, label %33, label %.lr.ph.i
 
 33:                                               ; preds = %.lr.ph.i
-  %34 = getelementptr inbounds nuw i32, ptr %.sroa.0.0.i, i64 %.sroa.0.0.sroa.speculated.i.i.i
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.0.i, i64 %.sroa.0.0.sroa.speculated.i.i.i
   %35 = sub nuw i64 %.sroa.6.0.i, %.sroa.0.0.sroa.speculated.i.i.i
   br i1 %31, label %.preheader52, label %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$u32$u5d$$C$polars_error..PolarsError$GT$$GT$17h40fe02a301aefa56E.exit22"
 
@@ -2632,7 +2632,7 @@ define hidden noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_
   br i1 %41, label %42, label %.lr.ph.i17
 
 42:                                               ; preds = %.lr.ph.i17
-  %43 = getelementptr inbounds nuw i32, ptr %.sroa.0.0.i13, i64 %.sroa.0.0.sroa.speculated.i.i.i15
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.0.i13, i64 %.sroa.0.0.sroa.speculated.i.i.i15
   %44 = sub nuw i64 %.sroa.6.0.i12, %.sroa.0.0.sroa.speculated.i.i.i15
   br i1 %40, label %.preheader, label %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$u32$u5d$$C$polars_error..PolarsError$GT$$GT$17h40fe02a301aefa56E.exit22"
 
@@ -2707,7 +2707,7 @@ _ZN10polars_ops6series3ops7various9check_cmp17h99564aac81019a67E.exit.thread: ; 
   br i1 %69, label %70, label %.lr.ph.i42.us
 
 70:                                               ; preds = %.lr.ph.i42.us
-  %71 = getelementptr inbounds nuw i32, ptr %.sroa.0.0.i38.us, i64 %.sroa.0.0.sroa.speculated.i.i.i40.us
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.0.i38.us, i64 %.sroa.0.0.sroa.speculated.i.i.i40.us
   %72 = sub nuw i64 %.sroa.6.0.i37.us, %.sroa.0.0.sroa.speculated.i.i.i40.us
   br i1 %68, label %63, label %_ZN10polars_ops6series3ops7various9check_cmp17h99564aac81019a67E.exit.thread
 
@@ -2758,7 +2758,7 @@ _ZN10polars_ops6series3ops7various9check_cmp17h99564aac81019a67E.exit.loopexit.u
   br i1 %91, label %92, label %.lr.ph.i30
 
 92:                                               ; preds = %.lr.ph.i30
-  %93 = getelementptr inbounds nuw i32, ptr %.sroa.0.0.i26, i64 %.sroa.0.0.sroa.speculated.i.i.i28
+  %93 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.0.i26, i64 %.sroa.0.0.sroa.speculated.i.i.i28
   %94 = sub nuw i64 %.sroa.6.0.i25, %.sroa.0.0.sroa.speculated.i.i.i28
   br i1 %90, label %85, label %_ZN10polars_ops6series3ops7various9check_cmp17h99564aac81019a67E.exit.thread
 
@@ -3155,7 +3155,7 @@ define hidden noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_
   br i1 %34, label %35, label %.lr.ph.i
 
 35:                                               ; preds = %.lr.ph.i
-  %36 = getelementptr inbounds nuw double, ptr %.sroa.0.0.i, i64 %.sroa.0.0.sroa.speculated.i.i.i
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.i, i64 %.sroa.0.0.sroa.speculated.i.i.i
   %37 = sub nuw i64 %.sroa.6.0.i, %.sroa.0.0.sroa.speculated.i.i.i
   br i1 %33, label %.preheader50, label %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$f64$u5d$$C$polars_error..PolarsError$GT$$GT$17hd179499f7678504eE.exit22"
 
@@ -3186,7 +3186,7 @@ define hidden noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_
   br i1 %45, label %46, label %.lr.ph.i17
 
 46:                                               ; preds = %.lr.ph.i17
-  %47 = getelementptr inbounds nuw double, ptr %.sroa.0.0.i13, i64 %.sroa.0.0.sroa.speculated.i.i.i15
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.i13, i64 %.sroa.0.0.sroa.speculated.i.i.i15
   %48 = sub nuw i64 %.sroa.6.0.i12, %.sroa.0.0.sroa.speculated.i.i.i15
   br i1 %44, label %.preheader, label %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$f64$u5d$$C$polars_error..PolarsError$GT$$GT$17hd179499f7678504eE.exit22"
 
@@ -3263,7 +3263,7 @@ _ZN10polars_ops6series3ops7various9check_cmp17heed59f7ec513be8fE.exit.thread: ; 
   br i1 %75, label %76, label %.lr.ph.i42.us
 
 76:                                               ; preds = %.lr.ph.i42.us
-  %77 = getelementptr inbounds nuw double, ptr %.sroa.0.0.i38.us, i64 %.sroa.0.0.sroa.speculated.i.i.i40.us
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.i38.us, i64 %.sroa.0.0.sroa.speculated.i.i.i40.us
   %78 = sub nuw i64 %.sroa.6.0.i37.us, %.sroa.0.0.sroa.speculated.i.i.i40.us
   br i1 %74, label %67, label %_ZN10polars_ops6series3ops7various9check_cmp17heed59f7ec513be8fE.exit.thread
 
@@ -3316,7 +3316,7 @@ _ZN10polars_ops6series3ops7various9check_cmp17heed59f7ec513be8fE.exit.loopexit.u
   br i1 %99, label %100, label %.lr.ph.i30
 
 100:                                              ; preds = %.lr.ph.i30
-  %101 = getelementptr inbounds nuw double, ptr %.sroa.0.0.i26, i64 %.sroa.0.0.sroa.speculated.i.i.i28
+  %101 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.i26, i64 %.sroa.0.0.sroa.speculated.i.i.i28
   %102 = sub nuw i64 %.sroa.6.0.i25, %.sroa.0.0.sroa.speculated.i.i.i28
   br i1 %98, label %91, label %_ZN10polars_ops6series3ops7various9check_cmp17heed59f7ec513be8fE.exit.thread
 
@@ -3711,7 +3711,7 @@ define hidden noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_
   br i1 %32, label %33, label %.lr.ph.i
 
 33:                                               ; preds = %.lr.ph.i
-  %34 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.i, i64 %.sroa.0.0.sroa.speculated.i.i.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.i, i64 %.sroa.0.0.sroa.speculated.i.i.i
   %35 = sub nuw i64 %.sroa.6.0.i, %.sroa.0.0.sroa.speculated.i.i.i
   br i1 %31, label %.preheader52, label %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$u64$u5d$$C$polars_error..PolarsError$GT$$GT$17h23aa2cd5172ff5a4E.exit22"
 
@@ -3740,7 +3740,7 @@ define hidden noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_
   br i1 %41, label %42, label %.lr.ph.i17
 
 42:                                               ; preds = %.lr.ph.i17
-  %43 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.i13, i64 %.sroa.0.0.sroa.speculated.i.i.i15
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.i13, i64 %.sroa.0.0.sroa.speculated.i.i.i15
   %44 = sub nuw i64 %.sroa.6.0.i12, %.sroa.0.0.sroa.speculated.i.i.i15
   br i1 %40, label %.preheader, label %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$u64$u5d$$C$polars_error..PolarsError$GT$$GT$17h23aa2cd5172ff5a4E.exit22"
 
@@ -3815,7 +3815,7 @@ _ZN10polars_ops6series3ops7various9check_cmp17he8a8b523f44c52a2E.exit.thread: ; 
   br i1 %69, label %70, label %.lr.ph.i42.us
 
 70:                                               ; preds = %.lr.ph.i42.us
-  %71 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.i38.us, i64 %.sroa.0.0.sroa.speculated.i.i.i40.us
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.i38.us, i64 %.sroa.0.0.sroa.speculated.i.i.i40.us
   %72 = sub nuw i64 %.sroa.6.0.i37.us, %.sroa.0.0.sroa.speculated.i.i.i40.us
   br i1 %68, label %63, label %_ZN10polars_ops6series3ops7various9check_cmp17he8a8b523f44c52a2E.exit.thread
 
@@ -3866,7 +3866,7 @@ _ZN10polars_ops6series3ops7various9check_cmp17he8a8b523f44c52a2E.exit.loopexit.u
   br i1 %91, label %92, label %.lr.ph.i30
 
 92:                                               ; preds = %.lr.ph.i30
-  %93 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.i26, i64 %.sroa.0.0.sroa.speculated.i.i.i28
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.i26, i64 %.sroa.0.0.sroa.speculated.i.i.i28
   %94 = sub nuw i64 %.sroa.6.0.i25, %.sroa.0.0.sroa.speculated.i.i.i28
   br i1 %90, label %85, label %_ZN10polars_ops6series3ops7various9check_cmp17he8a8b523f44c52a2E.exit.thread
 
@@ -3992,7 +3992,7 @@ define hidden noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_
   br i1 %34, label %35, label %.lr.ph.i
 
 35:                                               ; preds = %.lr.ph.i
-  %36 = getelementptr inbounds nuw float, ptr %.sroa.0.0.i, i64 %.sroa.0.0.sroa.speculated.i.i.i
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.0.i, i64 %.sroa.0.0.sroa.speculated.i.i.i
   %37 = sub nuw i64 %.sroa.6.0.i, %.sroa.0.0.sroa.speculated.i.i.i
   br i1 %33, label %.preheader50, label %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$f32$u5d$$C$polars_error..PolarsError$GT$$GT$17he8dc429137c87f27E.exit22"
 
@@ -4023,7 +4023,7 @@ define hidden noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_
   br i1 %45, label %46, label %.lr.ph.i17
 
 46:                                               ; preds = %.lr.ph.i17
-  %47 = getelementptr inbounds nuw float, ptr %.sroa.0.0.i13, i64 %.sroa.0.0.sroa.speculated.i.i.i15
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.0.i13, i64 %.sroa.0.0.sroa.speculated.i.i.i15
   %48 = sub nuw i64 %.sroa.6.0.i12, %.sroa.0.0.sroa.speculated.i.i.i15
   br i1 %44, label %.preheader, label %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$f32$u5d$$C$polars_error..PolarsError$GT$$GT$17he8dc429137c87f27E.exit22"
 
@@ -4100,7 +4100,7 @@ _ZN10polars_ops6series3ops7various9check_cmp17h7fdcc52af5ae8b88E.exit.thread: ; 
   br i1 %75, label %76, label %.lr.ph.i42.us
 
 76:                                               ; preds = %.lr.ph.i42.us
-  %77 = getelementptr inbounds nuw float, ptr %.sroa.0.0.i38.us, i64 %.sroa.0.0.sroa.speculated.i.i.i40.us
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.0.i38.us, i64 %.sroa.0.0.sroa.speculated.i.i.i40.us
   %78 = sub nuw i64 %.sroa.6.0.i37.us, %.sroa.0.0.sroa.speculated.i.i.i40.us
   br i1 %74, label %67, label %_ZN10polars_ops6series3ops7various9check_cmp17h7fdcc52af5ae8b88E.exit.thread
 
@@ -4153,7 +4153,7 @@ _ZN10polars_ops6series3ops7various9check_cmp17h7fdcc52af5ae8b88E.exit.loopexit.u
   br i1 %99, label %100, label %.lr.ph.i30
 
 100:                                              ; preds = %.lr.ph.i30
-  %101 = getelementptr inbounds nuw float, ptr %.sroa.0.0.i26, i64 %.sroa.0.0.sroa.speculated.i.i.i28
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0.0.i26, i64 %.sroa.0.0.sroa.speculated.i.i.i28
   %102 = sub nuw i64 %.sroa.6.0.i25, %.sroa.0.0.sroa.speculated.i.i.i28
   br i1 %98, label %91, label %_ZN10polars_ops6series3ops7various9check_cmp17h7fdcc52af5ae8b88E.exit.thread
 
@@ -4277,7 +4277,7 @@ define hidden noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_
   br i1 %32, label %33, label %.lr.ph.i
 
 33:                                               ; preds = %.lr.ph.i
-  %34 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.i, i64 %.sroa.0.0.sroa.speculated.i.i.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.i, i64 %.sroa.0.0.sroa.speculated.i.i.i
   %35 = sub nuw i64 %.sroa.6.0.i, %.sroa.0.0.sroa.speculated.i.i.i
   br i1 %31, label %.preheader52, label %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$i64$u5d$$C$polars_error..PolarsError$GT$$GT$17h37e765759c67a730E.exit22"
 
@@ -4306,7 +4306,7 @@ define hidden noundef zeroext i1 @_ZN10polars_ops6series3ops7various16is_sorted_
   br i1 %41, label %42, label %.lr.ph.i17
 
 42:                                               ; preds = %.lr.ph.i17
-  %43 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.i13, i64 %.sroa.0.0.sroa.speculated.i.i.i15
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.i13, i64 %.sroa.0.0.sroa.speculated.i.i.i15
   %44 = sub nuw i64 %.sroa.6.0.i12, %.sroa.0.0.sroa.speculated.i.i.i15
   br i1 %40, label %.preheader, label %"_ZN4core3ptr94drop_in_place$LT$core..result..Result$LT$$RF$$u5b$i64$u5d$$C$polars_error..PolarsError$GT$$GT$17h37e765759c67a730E.exit22"
 
@@ -4381,7 +4381,7 @@ _ZN10polars_ops6series3ops7various9check_cmp17h81e85dc2d4a2576cE.exit.thread: ; 
   br i1 %69, label %70, label %.lr.ph.i42.us
 
 70:                                               ; preds = %.lr.ph.i42.us
-  %71 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.i38.us, i64 %.sroa.0.0.sroa.speculated.i.i.i40.us
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.i38.us, i64 %.sroa.0.0.sroa.speculated.i.i.i40.us
   %72 = sub nuw i64 %.sroa.6.0.i37.us, %.sroa.0.0.sroa.speculated.i.i.i40.us
   br i1 %68, label %63, label %_ZN10polars_ops6series3ops7various9check_cmp17h81e85dc2d4a2576cE.exit.thread
 
@@ -4432,7 +4432,7 @@ _ZN10polars_ops6series3ops7various9check_cmp17h81e85dc2d4a2576cE.exit.loopexit.u
   br i1 %91, label %92, label %.lr.ph.i30
 
 92:                                               ; preds = %.lr.ph.i30
-  %93 = getelementptr inbounds nuw i64, ptr %.sroa.0.0.i26, i64 %.sroa.0.0.sroa.speculated.i.i.i28
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.0.0.i26, i64 %.sroa.0.0.sroa.speculated.i.i.i28
   %94 = sub nuw i64 %.sroa.6.0.i25, %.sroa.0.0.sroa.speculated.i.i.i28
   br i1 %90, label %85, label %_ZN10polars_ops6series3ops7various9check_cmp17h81e85dc2d4a2576cE.exit.thread
 
@@ -28635,9 +28635,9 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit: ; preds = %
   store ptr %.sroa.560.0.copyload, ptr %.sroa.657.0..sroa_idx, align 8, !noalias !3179
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !3174
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.052.0.copyload) ]
-  %42 = getelementptr inbounds nuw { { { ptr, ptr } }, {}, {} }, ptr %.sroa.052.0.copyload, i64 %.sroa.453.0.copyload
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.052.0.copyload, i64 %.sroa.453.0.copyload
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.5.0.copyload) ]
-  %43 = getelementptr inbounds nuw { i8, [159 x i8] }, ptr %.sroa.5.0.copyload, i64 %.sroa.6.0.copyload
+  %43 = getelementptr inbounds nuw [160 x i8], ptr %.sroa.5.0.copyload, i64 %.sroa.6.0.copyload
   invoke void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$3new17ha20404b44c77f9bdE"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %15, ptr noundef nonnull %.sroa.052.0.copyload, ptr noundef nonnull %42, ptr noundef nonnull %.sroa.5.0.copyload, ptr noundef nonnull %43)
           to label %_ZN5rayon4iter8plumbing8Producer9fold_with17h02a168b3a665e435E.exit unwind label %45, !noalias !3174
 
@@ -33025,9 +33025,9 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit: ; preds = %
   store ptr %.sroa.559.0.copyload, ptr %.sroa.656.0..sroa_idx, align 8, !noalias !3637
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !3632
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.051.0.copyload) ]
-  %37 = getelementptr inbounds nuw { { { ptr, ptr } }, {}, {} }, ptr %.sroa.051.0.copyload, i64 %.sroa.452.0.copyload
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %.sroa.051.0.copyload, i64 %.sroa.452.0.copyload
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.5.0.copyload) ]
-  %38 = getelementptr inbounds nuw { i8, [159 x i8] }, ptr %.sroa.5.0.copyload, i64 %.sroa.6.0.copyload
+  %38 = getelementptr inbounds nuw [160 x i8], ptr %.sroa.5.0.copyload, i64 %.sroa.6.0.copyload
   invoke void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$3new17ha20404b44c77f9bdE"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %13, ptr noundef nonnull %.sroa.051.0.copyload, ptr noundef nonnull %37, ptr noundef nonnull %.sroa.5.0.copyload, ptr noundef nonnull %38)
           to label %_ZN5rayon4iter8plumbing8Producer9fold_with17hfa9d39b8254e0b06E.exit unwind label %40, !noalias !3632
 
@@ -40279,7 +40279,7 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit: ; preds = %
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.047.0.copyload) ]
   %42 = getelementptr inbounds i8, ptr %.sroa.047.0.copyload, i64 -768
   %43 = sub nsw i64 0, %40
-  %44 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, { { { i64, ptr, {} }, {} }, i64 } }, ptr %42, i64 %43
+  %44 = getelementptr inbounds [48 x i8], ptr %42, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.448.0.copyload, i64 %38
   %46 = load <16 x i8>, ptr %41, align 16, !noalias !4412
   %47 = icmp sgt <16 x i8> %46, splat (i8 -1)
@@ -40474,7 +40474,7 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit: ; preds = %
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.050.0.copyload) ]
   %38 = getelementptr inbounds i8, ptr %.sroa.050.0.copyload, i64 -768
   %39 = sub nsw i64 0, %36
-  %40 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, { { { i64, ptr, {} }, {} }, i64 } }, ptr %38, i64 %39
+  %40 = getelementptr inbounds [48 x i8], ptr %38, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.451.0.copyload, i64 %34
   %42 = load <16 x i8>, ptr %37, align 16, !noalias !4503
   %43 = icmp sgt <16 x i8> %42, splat (i8 -1)
@@ -40666,7 +40666,7 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit: ; preds = %
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.050.0.copyload) ]
   %38 = getelementptr inbounds i8, ptr %.sroa.050.0.copyload, i64 -512
   %39 = sub nsw i64 0, %36
-  %40 = getelementptr inbounds { ptr, { { { i64, ptr, {} }, {} }, i64 } }, ptr %38, i64 %39
+  %40 = getelementptr inbounds [32 x i8], ptr %38, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %.sroa.451.0.copyload, i64 %34
   %42 = load <16 x i8>, ptr %37, align 16, !noalias !4582
   %43 = icmp sgt <16 x i8> %42, splat (i8 -1)
@@ -40868,7 +40868,7 @@ _ZN5rayon4iter8plumbing8Splitter9try_split17h28751560c582e358E.exit: ; preds = %
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %.sroa.047.0.copyload) ]
   %42 = getelementptr inbounds i8, ptr %.sroa.047.0.copyload, i64 -512
   %43 = sub nsw i64 0, %40
-  %44 = getelementptr inbounds { ptr, { { { i64, ptr, {} }, {} }, i64 } }, ptr %42, i64 %43
+  %44 = getelementptr inbounds [32 x i8], ptr %42, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.448.0.copyload, i64 %38
   %46 = load <16 x i8>, ptr %41, align 16, !noalias !4681
   %47 = icmp sgt <16 x i8> %46, splat (i8 -1)

@@ -11,13 +11,10 @@ target triple = "x86_64-pc-linux-gnu"
 %class.mpz = type { i32, i8, ptr }
 %"struct.polynomial::factor_params" = type { i32, i32, i32 }
 %class.obj_ref = type { ptr, ptr }
-%"struct.chashtable<polynomial::polynomial *, polynomial::poly_hash_proc, polynomial::poly_eq_proc>::cell" = type { ptr, ptr }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.std::allocator" = type { i8 }
-%"struct.chashtable<polynomial::psc_chain_entry *, polynomial::psc_chain_entry::hash_proc, polynomial::psc_chain_entry::eq_proc>::cell" = type { ptr, ptr }
-%"struct.chashtable<polynomial::factor_entry *, polynomial::factor_entry::hash_proc, polynomial::factor_entry::eq_proc>::cell" = type { ptr, ptr }
 
 $_ZN10polynomial5cache3impC2ERNS_7managerE = comdat any
 
@@ -363,7 +360,7 @@ _ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7man
   %33 = phi ptr [ %.pre.i.i, %31 ], [ %23, %25 ]
   %34 = getelementptr inbounds i8, ptr %33, i64 -4
   %35 = zext i32 %32 to i64
-  %36 = getelementptr inbounds nuw ptr, ptr %33, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %35
   store ptr %16, ptr %36, align 8, !tbaa !74
   %37 = add i32 %32, 1
   store i32 %37, ptr %34, align 4, !tbaa !76
@@ -574,7 +571,7 @@ _ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7man
 87:                                               ; preds = %.lr.ph, %_ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE9push_backEPS1_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE9push_backEPS1_.exit ]
   %88 = load ptr, ptr %86, align 8, !tbaa !88
-  %89 = getelementptr inbounds nuw ptr, ptr %88, i64 %indvars.iv
+  %89 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %indvars.iv
   %90 = load ptr, ptr %89, align 8, !tbaa !74
   %91 = load ptr, ptr %4, align 8, !tbaa !78
   call void @_ZN10polynomial7manager7inc_refEPNS_10polynomialE(ptr noundef nonnull align 8 dereferenceable(8) %91, ptr noundef %90)
@@ -602,7 +599,7 @@ _ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7man
   %102 = phi ptr [ %.pre.i.i, %100 ], [ %92, %94 ]
   %103 = getelementptr inbounds i8, ptr %102, i64 -4
   %104 = zext i32 %101 to i64
-  %105 = getelementptr inbounds nuw ptr, ptr %102, i64 %104
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %102, i64 %104
   store ptr %90, ptr %105, align 8, !tbaa !74
   %106 = add i32 %101, 1
   store i32 %106, ptr %103, align 4, !tbaa !76
@@ -646,23 +643,23 @@ _ZNK15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7ma
 .lr.ph40:                                         ; preds = %.lr.ph40.preheader, %.lr.ph40
   %125 = phi ptr [ %.pre, %.lr.ph40.preheader ], [ %134, %.lr.ph40 ]
   %indvars.iv45 = phi i64 [ 0, %.lr.ph40.preheader ], [ %indvars.iv.next46, %.lr.ph40 ]
-  %126 = getelementptr inbounds nuw ptr, ptr %125, i64 %indvars.iv45
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %125, i64 %indvars.iv45
   %127 = load ptr, ptr %126, align 8, !tbaa !74
   %128 = call noundef ptr @_ZN10polynomial5cache3imp9mk_uniqueEPNS_10polynomialE(ptr noundef nonnull align 8 dereferenceable(248) %0, ptr noundef %127)
   %129 = load ptr, ptr %4, align 8, !tbaa !78
   call void @_ZN10polynomial7manager7inc_refEPNS_10polynomialE(ptr noundef nonnull align 8 dereferenceable(8) %129, ptr noundef %128)
   %130 = load ptr, ptr %68, align 8, !tbaa !79
-  %131 = getelementptr inbounds nuw ptr, ptr %130, i64 %indvars.iv45
+  %131 = getelementptr inbounds nuw [8 x i8], ptr %130, i64 %indvars.iv45
   %132 = load ptr, ptr %131, align 8, !tbaa !74
   %133 = load ptr, ptr %4, align 8, !tbaa !78
   call void @_ZN10polynomial7manager7dec_refEPNS_10polynomialE(ptr noundef nonnull align 8 dereferenceable(8) %133, ptr noundef %132)
   %134 = load ptr, ptr %68, align 8, !tbaa !79
-  %135 = getelementptr inbounds nuw ptr, ptr %134, i64 %indvars.iv45
+  %135 = getelementptr inbounds nuw [8 x i8], ptr %134, i64 %indvars.iv45
   store ptr %128, ptr %135, align 8, !tbaa !74
   %136 = load ptr, ptr %6, align 8, !tbaa !89
   %137 = getelementptr inbounds nuw i8, ptr %136, i64 32
   %138 = load ptr, ptr %137, align 8, !tbaa !88
-  %139 = getelementptr inbounds nuw ptr, ptr %138, i64 %indvars.iv45
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %138, i64 %indvars.iv45
   store ptr %128, ptr %139, align 8, !tbaa !74
   %indvars.iv.next46 = add nuw nsw i64 %indvars.iv45, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next46, %120
@@ -809,7 +806,7 @@ _ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7man
 70:                                               ; preds = %.lr.ph, %_ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE9push_backEPS1_.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7managerEEE9push_backEPS1_.exit ]
   %71 = load ptr, ptr %69, align 8, !tbaa !97
-  %72 = getelementptr inbounds nuw ptr, ptr %71, i64 %indvars.iv
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %indvars.iv
   %73 = load ptr, ptr %72, align 8, !tbaa !74
   %74 = load ptr, ptr %2, align 8, !tbaa !78
   call void @_ZN10polynomial7manager7inc_refEPNS_10polynomialE(ptr noundef nonnull align 8 dereferenceable(8) %74, ptr noundef %73)
@@ -837,7 +834,7 @@ _ZN15ref_vector_coreIN10polynomial10polynomialE19ref_manager_wrapperIS1_NS0_7man
   %85 = phi ptr [ %.pre.i.i, %83 ], [ %75, %77 ]
   %86 = getelementptr inbounds i8, ptr %85, i64 -4
   %87 = zext i32 %84 to i64
-  %88 = getelementptr inbounds nuw ptr, ptr %85, i64 %87
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %85, i64 %87
   store ptr %73, ptr %88, align 8, !tbaa !74
   %89 = add i32 %84, 1
   store i32 %89, ptr %86, align 4, !tbaa !76
@@ -972,14 +969,14 @@ _ZN7obj_refIN10polynomial10polynomialENS0_7managerEED2Ev.exit: ; preds = %122, %
   %141 = phi ptr [ %.pre.i.i49, %.noexc52 ], [ %130, %132 ]
   %142 = getelementptr inbounds i8, ptr %141, i64 -4
   %143 = zext i32 %140 to i64
-  %144 = getelementptr inbounds nuw ptr, ptr %141, i64 %143
+  %144 = getelementptr inbounds nuw [8 x i8], ptr %141, i64 %143
   store ptr %121, ptr %144, align 8, !tbaa !74
   %145 = add i32 %140, 1
   store i32 %145, ptr %142, align 4, !tbaa !76
   %146 = load ptr, ptr %4, align 8, !tbaa !98
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 16
   %148 = load ptr, ptr %147, align 8, !tbaa !97
-  %149 = getelementptr inbounds nuw ptr, ptr %148, i64 %indvars.iv60
+  %149 = getelementptr inbounds nuw [8 x i8], ptr %148, i64 %indvars.iv60
   store ptr %121, ptr %149, align 8, !tbaa !74
   %indvars.iv.next61 = add nuw nsw i64 %indvars.iv60, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next61, %106
@@ -1198,7 +1195,7 @@ _ZNK10chashtableIPN10polynomial10polynomialENS0_14poly_hash_procENS0_12poly_eq_p
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load i32, ptr %9, align 8, !tbaa !18
   %11 = zext i32 %10 to i64
-  %12 = getelementptr inbounds nuw %"struct.chashtable<polynomial::polynomial *, polynomial::poly_hash_proc, polynomial::poly_eq_proc>::cell", ptr %8, i64 %11
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %11
   %13 = icmp ult ptr %6, %12
   br i1 %13, label %_ZNK10chashtableIPN10polynomial10polynomialENS0_14poly_hash_procENS0_12poly_eq_procEE14has_free_cellsEv.exit.thread, label %14
 
@@ -1217,7 +1214,7 @@ _ZNK10chashtableIPN10polynomial10polynomialENS0_14poly_hash_procENS0_12poly_eq_p
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !24
   %24 = zext i32 %21 to i64
-  %25 = getelementptr inbounds nuw %"struct.chashtable<polynomial::polynomial *, polynomial::poly_hash_proc, polynomial::poly_eq_proc>::cell", ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %23, i64 %24
   %26 = load ptr, ptr %25, align 8, !tbaa !19
   %27 = ptrtoint ptr %26 to i64
   %28 = and i64 %27, 7
@@ -1502,8 +1499,8 @@ _ZN10chashtableIPN10polynomial10polynomialENS0_14poly_hash_procENS0_12poly_eq_pr
   %82 = zext i32 %81 to i64
   %.idx.i = shl nuw nsw i64 %82, 4
   %83 = getelementptr inbounds nuw i8, ptr %80, i64 %.idx.i
-  %84 = getelementptr inbounds nuw %"struct.chashtable<polynomial::polynomial *, polynomial::poly_hash_proc, polynomial::poly_eq_proc>::cell", ptr %77, i64 %20
-  %85 = getelementptr inbounds nuw %"struct.chashtable<polynomial::polynomial *, polynomial::poly_hash_proc, polynomial::poly_eq_proc>::cell", ptr %77, i64 %75
+  %84 = getelementptr inbounds nuw [16 x i8], ptr %77, i64 %20
+  %85 = getelementptr inbounds nuw [16 x i8], ptr %77, i64 %75
   %.not63.i = icmp eq i32 %81, 0
   br i1 %.not63.i, label %_ZN10chashtableIPN10polynomial10polynomialENS0_14poly_hash_procENS0_12poly_eq_procEE10copy_tableEPNS5_4cellEjjS7_jjRj.exit, label %.lr.ph.i
 
@@ -1525,7 +1522,7 @@ _ZN10chashtableIPN10polynomial10polynomialENS0_14poly_hash_procENS0_12poly_eq_pr
   %93 = tail call noundef i32 @_ZN10polynomial7manager4hashEPKNS_10polynomialE(ptr noundef nonnull align 8 dereferenceable(8) %92, ptr noundef %91)
   %94 = and i32 %93, %19
   %95 = zext i32 %94 to i64
-  %96 = getelementptr inbounds nuw %"struct.chashtable<polynomial::polynomial *, polynomial::poly_hash_proc, polynomial::poly_eq_proc>::cell", ptr %77, i64 %95
+  %96 = getelementptr inbounds nuw [16 x i8], ptr %77, i64 %95
   %97 = load ptr, ptr %96, align 8, !tbaa !19
   %98 = ptrtoint ptr %97 to i64
   %99 = and i64 %98, 7
@@ -2061,7 +2058,7 @@ _ZNK10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE14
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !34
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %"struct.chashtable<polynomial::psc_chain_entry *, polynomial::psc_chain_entry::hash_proc, polynomial::psc_chain_entry::eq_proc>::cell", ptr %.pre28, i64 %9
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %.pre28, i64 %9
   %11 = icmp ult ptr %6, %10
   br i1 %11, label %_ZNK10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE14has_free_cellsEv.exit.thread, label %12
 
@@ -2080,7 +2077,7 @@ _ZNK10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE14
   %19 = load i32, ptr %18, align 4, !tbaa !86
   %20 = and i32 %19, %16
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw %"struct.chashtable<polynomial::psc_chain_entry *, polynomial::psc_chain_entry::hash_proc, polynomial::psc_chain_entry::eq_proc>::cell", ptr %13, i64 %21
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !35
   %24 = ptrtoint ptr %23 to i64
   %25 = and i64 %24, 7
@@ -2381,8 +2378,8 @@ _ZN10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE11a
   %81 = zext i32 %80 to i64
   %.idx.i = shl nuw nsw i64 %81, 4
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 %.idx.i
-  %83 = getelementptr inbounds nuw %"struct.chashtable<polynomial::psc_chain_entry *, polynomial::psc_chain_entry::hash_proc, polynomial::psc_chain_entry::eq_proc>::cell", ptr %76, i64 %19
-  %84 = getelementptr inbounds nuw %"struct.chashtable<polynomial::psc_chain_entry *, polynomial::psc_chain_entry::hash_proc, polynomial::psc_chain_entry::eq_proc>::cell", ptr %76, i64 %74
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %76, i64 %19
+  %84 = getelementptr inbounds nuw [16 x i8], ptr %76, i64 %74
   %.not63.i = icmp eq i32 %80, 0
   br i1 %.not63.i, label %_ZN10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE10copy_tableEPNS5_4cellEjjS7_jjRj.exit, label %.lr.ph.i
 
@@ -2404,7 +2401,7 @@ _ZN10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE11a
   %92 = load i32, ptr %91, align 4, !tbaa !86
   %93 = and i32 %92, %18
   %94 = zext i32 %93 to i64
-  %95 = getelementptr inbounds nuw %"struct.chashtable<polynomial::psc_chain_entry *, polynomial::psc_chain_entry::hash_proc, polynomial::psc_chain_entry::eq_proc>::cell", ptr %76, i64 %94
+  %95 = getelementptr inbounds nuw [16 x i8], ptr %76, i64 %94
   %96 = load ptr, ptr %95, align 8, !tbaa !35
   %97 = ptrtoint ptr %96 to i64
   %98 = and i64 %97, 7
@@ -2574,7 +2571,7 @@ _ZNK10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE14has
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !49
   %9 = zext i32 %8 to i64
-  %10 = getelementptr inbounds nuw %"struct.chashtable<polynomial::factor_entry *, polynomial::factor_entry::hash_proc, polynomial::factor_entry::eq_proc>::cell", ptr %.pre28, i64 %9
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %.pre28, i64 %9
   %11 = icmp ult ptr %6, %10
   br i1 %11, label %_ZNK10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE14has_free_cellsEv.exit.thread, label %12
 
@@ -2593,7 +2590,7 @@ _ZNK10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE14has
   %19 = load i32, ptr %18, align 8, !tbaa !95
   %20 = and i32 %19, %16
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw %"struct.chashtable<polynomial::factor_entry *, polynomial::factor_entry::hash_proc, polynomial::factor_entry::eq_proc>::cell", ptr %13, i64 %21
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !50
   %24 = ptrtoint ptr %23 to i64
   %25 = and i64 %24, 7
@@ -2908,8 +2905,8 @@ _ZN10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE11allo
   %81 = zext i32 %80 to i64
   %.idx.i = shl nuw nsw i64 %81, 4
   %82 = getelementptr inbounds nuw i8, ptr %79, i64 %.idx.i
-  %83 = getelementptr inbounds nuw %"struct.chashtable<polynomial::factor_entry *, polynomial::factor_entry::hash_proc, polynomial::factor_entry::eq_proc>::cell", ptr %76, i64 %19
-  %84 = getelementptr inbounds nuw %"struct.chashtable<polynomial::factor_entry *, polynomial::factor_entry::hash_proc, polynomial::factor_entry::eq_proc>::cell", ptr %76, i64 %74
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %76, i64 %19
+  %84 = getelementptr inbounds nuw [16 x i8], ptr %76, i64 %74
   %.not63.i = icmp eq i32 %80, 0
   br i1 %.not63.i, label %_ZN10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE10copy_tableEPNS5_4cellEjjS7_jjRj.exit, label %.lr.ph.i
 
@@ -2931,7 +2928,7 @@ _ZN10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE11allo
   %92 = load i32, ptr %91, align 8, !tbaa !95
   %93 = and i32 %92, %18
   %94 = zext i32 %93 to i64
-  %95 = getelementptr inbounds nuw %"struct.chashtable<polynomial::factor_entry *, polynomial::factor_entry::hash_proc, polynomial::factor_entry::eq_proc>::cell", ptr %76, i64 %94
+  %95 = getelementptr inbounds nuw [16 x i8], ptr %76, i64 %94
   %96 = load ptr, ptr %95, align 8, !tbaa !50
   %97 = ptrtoint ptr %96 to i64
   %98 = and i64 %97, 7
@@ -3314,7 +3311,7 @@ _ZN10chashtableIPN10polynomial15psc_chain_entryENS1_9hash_procENS1_7eq_procEE8fi
   store i32 0, ptr %37, align 8, !tbaa !41
   store i32 0, ptr %19, align 4, !tbaa !42
   %38 = zext i32 %27 to i64
-  %39 = getelementptr inbounds nuw %"struct.chashtable<polynomial::psc_chain_entry *, polynomial::psc_chain_entry::hash_proc, polynomial::psc_chain_entry::eq_proc>::cell", ptr %34, i64 %38
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 128
   store ptr %39, ptr %40, align 8, !tbaa !43
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -3457,7 +3454,7 @@ _ZN10chashtableIPN10polynomial12factor_entryENS1_9hash_procENS1_7eq_procEE8final
   store i32 0, ptr %37, align 8, !tbaa !56
   store i32 0, ptr %19, align 4, !tbaa !57
   %38 = zext i32 %27 to i64
-  %39 = getelementptr inbounds nuw %"struct.chashtable<polynomial::factor_entry *, polynomial::factor_entry::hash_proc, polynomial::factor_entry::eq_proc>::cell", ptr %34, i64 %38
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %38
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 192
   store ptr %39, ptr %40, align 8, !tbaa !58
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 200

@@ -2200,11 +2200,11 @@ for.cond.cleanup:                                 ; preds = %for.body.lr.ph, %en
   %fixedStrikes_ = getelementptr inbounds nuw i8, ptr %this, i64 80
   %10 = load i64, ptr %currentIndex_, align 8, !tbaa !53
   %11 = load ptr, ptr %fixedStrikes_, align 8, !tbaa !10
-  %add.ptr.i = getelementptr inbounds nuw double, ptr %11, i64 %10
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %10
   %12 = load double, ptr %add.ptr.i, align 8, !tbaa !52
   %fixedMultipliers_ = getelementptr inbounds nuw i8, ptr %this, i64 104
   %13 = load ptr, ptr %fixedMultipliers_, align 8, !tbaa !10
-  %add.ptr.i9 = getelementptr inbounds nuw double, ptr %13, i64 %10
+  %add.ptr.i9 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %10
   %14 = load double, ptr %add.ptr.i9, align 8, !tbaa !52
   %neg = fneg double %14
   %15 = tail call double @llvm.fmuladd.f64(double %neg, double %call5, double %12)
@@ -2212,17 +2212,17 @@ for.cond.cleanup:                                 ; preds = %for.body.lr.ph, %en
   %.sroa.speculated = select i1 %cmp.i, double 0.000000e+00, double %15
   %fixedAccruals_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   %16 = load ptr, ptr %fixedAccruals_, align 8, !tbaa !10
-  %add.ptr.i10 = getelementptr inbounds nuw double, ptr %16, i64 %10
+  %add.ptr.i10 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %10
   %17 = load double, ptr %add.ptr.i10, align 8, !tbaa !52
   %mul = fmul double %17, %.sroa.speculated
   %floatingSpreads_ = getelementptr inbounds nuw i8, ptr %this, i64 128
   %18 = load ptr, ptr %floatingSpreads_, align 8, !tbaa !10
-  %add.ptr.i11 = getelementptr inbounds nuw double, ptr %18, i64 %10
+  %add.ptr.i11 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %10
   %19 = load double, ptr %add.ptr.i11, align 8, !tbaa !52
   %add = fadd double %call5, %19
   %floatingAccruals_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   %20 = load ptr, ptr %floatingAccruals_, align 8, !tbaa !10
-  %add.ptr.i12 = getelementptr inbounds nuw double, ptr %20, i64 %10
+  %add.ptr.i12 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %10
   %21 = load double, ptr %add.ptr.i12, align 8, !tbaa !52
   %mul18 = fmul double %add, %21
   %22 = load ptr, ptr %cashFlowsGenerated, align 8, !tbaa !48
@@ -2257,7 +2257,7 @@ if.else:                                          ; preds = %for.cond.cleanup
 
 if.end:                                           ; preds = %if.else, %if.then
   %mul52.sink = phi double [ %mul52, %if.else ], [ %mul40, %if.then ]
-  %32 = getelementptr double, ptr %25, i64 %10
+  %32 = getelementptr [8 x i8], ptr %25, i64 %10
   %add.ptr.i30 = getelementptr i8, ptr %32, i64 8
   store double %mul52.sink, ptr %add.ptr.i30, align 8, !tbaa !52
   %inc60 = add i64 %10, 1
@@ -2813,7 +2813,7 @@ if.then.i.i.i.i.i:                                ; preds = %_ZNSt6vectorImSaImE
   %mul.i.i.i.i.i.i = shl nuw nsw i64 %0, 3
   %call5.i.i.i.i2.i.i4 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %mul.i.i.i.i.i.i) #21
   store ptr %call5.i.i.i.i2.i.i4, ptr %agg.result, align 8, !tbaa !36
-  %add.ptr.i.i.i = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i2.i.i4, i64 %0
+  %add.ptr.i.i.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i4, i64 %0
   %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !37
   store i64 0, ptr %call5.i.i.i.i2.i.i4, align 8, !tbaa !41
@@ -2840,7 +2840,7 @@ for.body.lr.ph:                                   ; preds = %if.end.i.i.i.i.i.i.
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.body
   %i.06 = phi i64 [ 0, %for.body.lr.ph ], [ %inc, %for.body ]
-  %add.ptr.i = getelementptr inbounds nuw i64, ptr %call5.i.i.i.i2.i.i4, i64 %i.06
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %call5.i.i.i.i2.i.i4, i64 %i.06
   store i64 %i.06, ptr %add.ptr.i, align 8, !tbaa !41
   %inc = add nuw nsw i64 %i.06, 1
   %cmp = icmp samesign ult i64 %inc, %0

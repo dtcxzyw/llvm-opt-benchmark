@@ -4,11 +4,8 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %union.anon = type { i64 }
-%union.Vardesc = type { %struct.anon.11 }
-%struct.anon.11 = type { %union.Value, i8, i8, i8, i16, ptr }
-%union.Value = type { ptr }
-%struct.AbsLineInfo = type { i32, i32 }
 %struct.TValue = type { %union.Value, i8 }
+%union.Value = type { ptr }
 %struct.expdesc = type { i32, %union.anon, i32, i32 }
 
 @.str = private unnamed_addr constant [8 x i8] c"returns\00", align 1
@@ -78,7 +75,7 @@ define hidden range(i32 0, 2) i32 @luaK_exp2const(ptr noundef readonly captures(
   %.val.val = load ptr, ptr %21, align 8, !tbaa !33
   %.val.val.val = load ptr, ptr %.val.val, align 8, !tbaa !34
   %22 = sext i32 %.val21 to i64
-  %23 = getelementptr inbounds %union.Vardesc, ptr %.val.val.val, i64 %22
+  %23 = getelementptr inbounds [24 x i8], ptr %.val.val.val, i64 %22
   %24 = load i64, ptr %23, align 8, !tbaa !22
   store i64 %24, ptr %2, align 8, !tbaa !22
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 8
@@ -130,7 +127,7 @@ define hidden void @luaK_nil(ptr noundef captures(none) %0, i32 noundef %1, i32 
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %14 = load ptr, ptr %13, align 8, !tbaa !45
   %15 = sext i32 %7 to i64
-  %16 = getelementptr i32, ptr %14, i64 %15
+  %16 = getelementptr [4 x i8], ptr %14, i64 %15
   %17 = getelementptr i8, ptr %16, i64 -4
   br label %previousinstruction.exit
 
@@ -224,7 +221,7 @@ define hidden void @luaK_concat(ptr noundef readonly captures(none) %0, ptr noun
 10:                                               ; preds = %.preheader, %10
   %.0 = phi i32 [ %18, %10 ], [ %6, %.preheader ]
   %11 = sext i32 %.0 to i64
-  %12 = getelementptr inbounds i32, ptr %.val.val, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %.val.val, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !53
   %14 = lshr i32 %13, 7
   %15 = add nsw i32 %14, -16777215
@@ -249,7 +246,7 @@ define hidden void @luaK_concat(ptr noundef readonly captures(none) %0, ptr noun
   unreachable
 
 fixjump.exit:                                     ; preds = %19
-  %25 = getelementptr inbounds i32, ptr %.val.val, i64 %11
+  %25 = getelementptr inbounds [4 x i8], ptr %.val.val, i64 %11
   %26 = and i32 %13, 127
   %27 = shl i32 %20, 7
   %28 = add i32 %27, 2147483520
@@ -317,7 +314,7 @@ define internal fastcc void @patchlistaux(ptr noundef readonly captures(none) %0
 9:                                                ; preds = %.lr.ph, %fixjump.exit17
   %.021 = phi i32 [ %1, %.lr.ph ], [ %17, %fixjump.exit17 ]
   %10 = sext i32 %.021 to i64
-  %11 = getelementptr inbounds i32, ptr %.val.val, i64 %10
+  %11 = getelementptr inbounds [4 x i8], ptr %.val.val, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !53
   %13 = lshr i32 %12, 7
   %14 = add nsw i32 %13, -16777215
@@ -445,7 +442,7 @@ define hidden range(i32 -2147483648, 2147483647) i32 @luaK_code(ptr noundef capt
   %15 = add nsw i32 %14, 1
   store i32 %15, ptr %10, align 8, !tbaa !42
   %16 = sext i32 %14 to i64
-  %17 = getelementptr inbounds i32, ptr %13, i64 %16
+  %17 = getelementptr inbounds [4 x i8], ptr %13, i64 %16
   store i32 %1, ptr %17, align 4, !tbaa !53
   %18 = load ptr, ptr %4, align 8, !tbaa !27
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -479,7 +476,7 @@ define hidden range(i32 -2147483648, 2147483647) i32 @luaK_code(ptr noundef capt
   store ptr %41, ptr %36, align 8, !tbaa !58
   %42 = load i32, ptr %38, align 4, !tbaa !59
   %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds %struct.AbsLineInfo, ptr %41, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr %41, i64 %43
   store i32 %25, ptr %44, align 4, !tbaa !60
   %45 = add nsw i32 %42, 1
   store i32 %45, ptr %38, align 4, !tbaa !59
@@ -646,7 +643,7 @@ define hidden void @luaK_setreturns(ptr noundef %0, ptr noundef readonly capture
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !22
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds i32, ptr %6, i64 %9
+  %10 = getelementptr inbounds [4 x i8], ptr %6, i64 %9
   %11 = add nsw i32 %2, 1
   tail call void @luaY_checklimit(ptr noundef nonnull %0, i32 noundef %11, i32 noundef 255, ptr noundef nonnull @.str.3) #12
   %12 = load i32, ptr %1, align 8, !tbaa !21
@@ -711,7 +708,7 @@ define hidden void @luaK_setoneret(ptr noundef readonly captures(none) %0, ptr n
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load i32, ptr %8, align 8, !tbaa !22
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds i32, ptr %7, i64 %10
+  %11 = getelementptr inbounds [4 x i8], ptr %7, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !53
   %13 = lshr i32 %12, 7
   %14 = and i32 %13, 255
@@ -725,7 +722,7 @@ define hidden void @luaK_setoneret(ptr noundef readonly captures(none) %0, ptr n
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load i32, ptr %19, align 8, !tbaa !22
   %21 = sext i32 %20 to i64
-  %22 = getelementptr inbounds i32, ptr %18, i64 %21
+  %22 = getelementptr inbounds [4 x i8], ptr %18, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !53
   %24 = and i32 %23, 16777215
   %25 = or disjoint i32 %24, 33554432
@@ -761,7 +758,7 @@ define hidden void @luaK_dischargevars(ptr noundef %0, ptr noundef captures(none
   %.val.val = load ptr, ptr %7, align 8, !tbaa !33
   %.val.val.val = load ptr, ptr %.val.val, align 8, !tbaa !34
   %8 = sext i32 %.val40 to i64
-  %9 = getelementptr inbounds %union.Vardesc, ptr %.val.val.val, i64 %8
+  %9 = getelementptr inbounds [24 x i8], ptr %.val.val.val, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load i8, ptr %10, align 8, !tbaa !40
   %12 = and i8 %11, 63
@@ -971,7 +968,7 @@ freeregs.exit:                                    ; preds = %freereg.exit.i, %fr
   %119 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %120 = load i32, ptr %119, align 8, !tbaa !22
   %121 = sext i32 %120 to i64
-  %122 = getelementptr inbounds i32, ptr %118, i64 %121
+  %122 = getelementptr inbounds [4 x i8], ptr %118, i64 %121
   %123 = load i32, ptr %122, align 4, !tbaa !53
   %124 = lshr i32 %123, 7
   %125 = and i32 %124, 255
@@ -985,7 +982,7 @@ freeregs.exit:                                    ; preds = %freereg.exit.i, %fr
   %130 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %131 = load i32, ptr %130, align 8, !tbaa !22
   %132 = sext i32 %131 to i64
-  %133 = getelementptr inbounds i32, ptr %129, i64 %132
+  %133 = getelementptr inbounds [4 x i8], ptr %129, i64 %132
   %134 = load i32, ptr %133, align 4, !tbaa !53
   %135 = and i32 %134, 16777215
   %136 = or disjoint i32 %135, 33554432
@@ -1081,7 +1078,7 @@ define internal fastcc void @exp2reg(ptr noundef %0, ptr noundef captures(none) 
 16:                                               ; preds = %16, %.preheader.i
   %.0.i = phi i32 [ %24, %16 ], [ %12, %.preheader.i ]
   %17 = sext i32 %.0.i to i64
-  %18 = getelementptr inbounds i32, ptr %.val.val.i, i64 %17
+  %18 = getelementptr inbounds [4 x i8], ptr %.val.val.i, i64 %17
   %19 = load i32, ptr %18, align 4, !tbaa !53
   %20 = lshr i32 %19, 7
   %21 = add nsw i32 %20, -16777215
@@ -1106,7 +1103,7 @@ define internal fastcc void @exp2reg(ptr noundef %0, ptr noundef captures(none) 
   unreachable
 
 fixjump.exit.i:                                   ; preds = %25
-  %31 = getelementptr inbounds i32, ptr %.val.val.i, i64 %17
+  %31 = getelementptr inbounds [4 x i8], ptr %.val.val.i, i64 %17
   %32 = and i32 %19, 127
   %33 = shl i32 %26, 7
   %34 = add i32 %33, 2147483520
@@ -1135,7 +1132,7 @@ luaK_concat.exit:                                 ; preds = %fixjump.exit.i, %15
 42:                                               ; preds = %select.unfold.i, %.lr.ph.i
   %.0813.i = phi i32 [ %37, %.lr.ph.i ], [ %62, %select.unfold.i ]
   %43 = sext i32 %.0813.i to i64
-  %44 = getelementptr inbounds i32, ptr %.val10.val.i, i64 %43
+  %44 = getelementptr inbounds [4 x i8], ptr %.val10.val.i, i64 %43
   %45 = icmp sgt i32 %.0813.i, 0
   br i1 %45, label %46, label %54
 
@@ -1184,7 +1181,7 @@ select.unfold.i:                                  ; preds = %getjumpcontrol.exit
 64:                                               ; preds = %select.unfold.i50, %.lr.ph.i42
   %.0813.i45 = phi i32 [ %39, %.lr.ph.i42 ], [ %84, %select.unfold.i50 ]
   %65 = sext i32 %.0813.i45 to i64
-  %66 = getelementptr inbounds i32, ptr %.val10.val.i44, i64 %65
+  %66 = getelementptr inbounds [4 x i8], ptr %.val10.val.i44, i64 %65
   %67 = icmp sgt i32 %.0813.i45, 0
   br i1 %67, label %68, label %76
 
@@ -1615,7 +1612,7 @@ define hidden void @luaK_goiftrue(ptr noundef %0, ptr noundef captures(none) %1)
   %6 = getelementptr i8, ptr %.val, i64 64
   %.val.val = load ptr, ptr %6, align 8, !tbaa !45
   %7 = sext i32 %.val13 to i64
-  %8 = getelementptr inbounds i32, ptr %.val.val, i64 %7
+  %8 = getelementptr inbounds [4 x i8], ptr %.val.val, i64 %7
   %9 = icmp sgt i32 %.val13, 0
   br i1 %9, label %10, label %18
 
@@ -1670,7 +1667,7 @@ negatecondition.exit:                             ; preds = %10, %18
 32:                                               ; preds = %32, %.preheader.i
   %.0.i = phi i32 [ %40, %32 ], [ %28, %.preheader.i ]
   %33 = sext i32 %.0.i to i64
-  %34 = getelementptr inbounds i32, ptr %.val.val.i, i64 %33
+  %34 = getelementptr inbounds [4 x i8], ptr %.val.val.i, i64 %33
   %35 = load i32, ptr %34, align 4, !tbaa !53
   %36 = lshr i32 %35, 7
   %37 = add nsw i32 %36, -16777215
@@ -1695,7 +1692,7 @@ negatecondition.exit:                             ; preds = %10, %18
   unreachable
 
 fixjump.exit.i:                                   ; preds = %41
-  %47 = getelementptr inbounds i32, ptr %.val.val.i, i64 %33
+  %47 = getelementptr inbounds [4 x i8], ptr %.val.val.i, i64 %33
   %48 = and i32 %35, 127
   %49 = shl i32 %42, 7
   %50 = add i32 %49, 2147483520
@@ -1730,7 +1727,7 @@ define internal fastcc range(i32 -2147483648, 2147483647) i32 @jumponcond(ptr no
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = load i32, ptr %9, align 8, !tbaa !22
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds i32, ptr %8, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %8, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !53
   %14 = and i32 %13, 127
   %15 = icmp eq i32 %14, 51
@@ -1884,7 +1881,7 @@ define hidden void @luaK_goiffalse(ptr noundef %0, ptr noundef captures(none) %1
 17:                                               ; preds = %17, %.preheader.i
   %.0.i = phi i32 [ %25, %17 ], [ %13, %.preheader.i ]
   %18 = sext i32 %.0.i to i64
-  %19 = getelementptr inbounds i32, ptr %.val.val.i, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %.val.val.i, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !53
   %21 = lshr i32 %20, 7
   %22 = add nsw i32 %21, -16777215
@@ -1909,7 +1906,7 @@ define hidden void @luaK_goiffalse(ptr noundef %0, ptr noundef captures(none) %1
   unreachable
 
 fixjump.exit.i:                                   ; preds = %26
-  %32 = getelementptr inbounds i32, ptr %.val.val.i, i64 %18
+  %32 = getelementptr inbounds [4 x i8], ptr %.val.val.i, i64 %18
   %33 = and i32 %20, 127
   %34 = shl i32 %27, 7
   %35 = add i32 %34, 2147483520
@@ -2203,7 +2200,7 @@ isKstr.exit:                                      ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 56
   %31 = load ptr, ptr %30, align 8, !tbaa !68
   %32 = sext i32 %27 to i64
-  %33 = getelementptr inbounds %struct.TValue, ptr %31, i64 %32
+  %33 = getelementptr inbounds [16 x i8], ptr %31, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 8
   %35 = load i8, ptr %34, align 8, !tbaa !40
   %.not = icmp eq i8 %35, 68
@@ -2274,7 +2271,7 @@ isKstr.exit34:                                    ; preds = %62
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 56
   %68 = load ptr, ptr %67, align 8, !tbaa !68
   %69 = sext i32 %64 to i64
-  %70 = getelementptr inbounds %struct.TValue, ptr %68, i64 %69
+  %70 = getelementptr inbounds [16 x i8], ptr %68, i64 %69
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
   %72 = load i8, ptr %71, align 8, !tbaa !40
   %.not39 = icmp eq i8 %72, 68
@@ -2394,7 +2391,7 @@ codeunexpval.exit:                                ; preds = %8, %13, %18
   %32 = getelementptr i8, ptr %.val.i, i64 64
   %.val.val.i = load ptr, ptr %32, align 8, !tbaa !45
   %33 = sext i32 %.val21.i to i64
-  %34 = getelementptr inbounds i32, ptr %.val.val.i, i64 %33
+  %34 = getelementptr inbounds [4 x i8], ptr %.val.val.i, i64 %33
   %35 = icmp sgt i32 %.val21.i, 0
   br i1 %35, label %36, label %44
 
@@ -2495,7 +2492,7 @@ freeexp.exit.i:                                   ; preds = %68, %discharge2anyr
 83:                                               ; preds = %patchtestreg.exit.i.i, %.lr.ph.i.i
   %.07.i.i = phi i32 [ %81, %.lr.ph.i.i ], [ %108, %patchtestreg.exit.i.i ]
   %84 = sext i32 %.07.i.i to i64
-  %85 = getelementptr inbounds i32, ptr %.val4.val.i.i, i64 %84
+  %85 = getelementptr inbounds [4 x i8], ptr %.val4.val.i.i, i64 %84
   %86 = icmp sgt i32 %.07.i.i, 0
   br i1 %86, label %87, label %95
 
@@ -2558,7 +2555,7 @@ removevalues.exit.i:                              ; preds = %removevalues.exitth
 111:                                              ; preds = %patchtestreg.exit.i35.i, %.lr.ph.i27.i
   %.07.i30.i = phi i32 [ %109, %.lr.ph.i27.i ], [ %136, %patchtestreg.exit.i35.i ]
   %112 = sext i32 %.07.i30.i to i64
-  %113 = getelementptr inbounds i32, ptr %.val4.val.i29.i, i64 %112
+  %113 = getelementptr inbounds [4 x i8], ptr %.val4.val.i29.i, i64 %112
   %114 = icmp sgt i32 %.07.i30.i, 0
   br i1 %114, label %115, label %123
 
@@ -2980,7 +2977,7 @@ define hidden void @luaK_posfix(ptr noundef %0, i32 noundef %1, ptr noundef capt
 29:                                               ; preds = %29, %.preheader.i
   %.0.i = phi i32 [ %37, %29 ], [ %25, %.preheader.i ]
   %30 = sext i32 %.0.i to i64
-  %31 = getelementptr inbounds i32, ptr %.val.val.i, i64 %30
+  %31 = getelementptr inbounds [4 x i8], ptr %.val.val.i, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !53
   %33 = lshr i32 %32, 7
   %34 = add nsw i32 %33, -16777215
@@ -3005,7 +3002,7 @@ define hidden void @luaK_posfix(ptr noundef %0, i32 noundef %1, ptr noundef capt
   unreachable
 
 fixjump.exit.i:                                   ; preds = %38
-  %44 = getelementptr inbounds i32, ptr %.val.val.i, i64 %30
+  %44 = getelementptr inbounds [4 x i8], ptr %.val.val.i, i64 %30
   %45 = and i32 %32, 127
   %46 = shl i32 %39, 7
   %47 = add i32 %46, 2147483520
@@ -3042,7 +3039,7 @@ luaK_concat.exit:                                 ; preds = %19, %28, %fixjump.e
 59:                                               ; preds = %59, %.preheader.i84
   %.0.i87 = phi i32 [ %67, %59 ], [ %55, %.preheader.i84 ]
   %60 = sext i32 %.0.i87 to i64
-  %61 = getelementptr inbounds i32, ptr %.val.val.i86, i64 %60
+  %61 = getelementptr inbounds [4 x i8], ptr %.val.val.i86, i64 %60
   %62 = load i32, ptr %61, align 4, !tbaa !53
   %63 = lshr i32 %62, 7
   %64 = add nsw i32 %63, -16777215
@@ -3067,7 +3064,7 @@ luaK_concat.exit:                                 ; preds = %19, %28, %fixjump.e
   unreachable
 
 fixjump.exit.i92:                                 ; preds = %68
-  %74 = getelementptr inbounds i32, ptr %.val.val.i86, i64 %60
+  %74 = getelementptr inbounds [4 x i8], ptr %.val.val.i86, i64 %60
   %75 = and i32 %62, 127
   %76 = shl i32 %69, 7
   %77 = add i32 %76, 2147483520
@@ -3139,7 +3136,7 @@ luaK_exp2nextreg.exit:                            ; preds = %freeexp.exit.i, %96
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 64
   %114 = load ptr, ptr %113, align 8, !tbaa !45
   %115 = sext i32 %107 to i64
-  %116 = getelementptr i32, ptr %114, i64 %115
+  %116 = getelementptr [4 x i8], ptr %114, i64 %115
   %117 = getelementptr i8, ptr %116, i64 -4
   br label %previousinstruction.exit.i
 
@@ -3304,7 +3301,7 @@ finishbinexpneg.exit:                             ; preds = %187
   %198 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %199 = load i32, ptr %198, align 8, !tbaa !42
   %200 = sext i32 %199 to i64
-  %201 = getelementptr i32, ptr %197, i64 %200
+  %201 = getelementptr [4 x i8], ptr %197, i64 %200
   %202 = getelementptr i8, ptr %201, i64 -4
   %203 = load i32, ptr %202, align 4, !tbaa !53
   %204 = and i32 %203, -16711681
@@ -3834,7 +3831,7 @@ isKint.exit:                                      ; preds = %6
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %26 = load i32, ptr %25, align 8, !tbaa !42
   %27 = sext i32 %26 to i64
-  %28 = getelementptr i32, ptr %24, i64 %27
+  %28 = getelementptr [4 x i8], ptr %24, i64 %27
   %29 = getelementptr i8, ptr %28, i64 -4
   %30 = load i32, ptr %29, align 4, !tbaa !53
   %31 = and i32 %30, -16711681
@@ -3978,7 +3975,7 @@ removelastlineinfo.exit:                          ; preds = %12, %20
   store ptr %45, ptr %40, align 8, !tbaa !58
   %46 = load i32, ptr %42, align 4, !tbaa !59
   %47 = sext i32 %46 to i64
-  %48 = getelementptr inbounds %struct.AbsLineInfo, ptr %45, i64 %47
+  %48 = getelementptr inbounds [8 x i8], ptr %45, i64 %47
   store i32 %28, ptr %48, align 4, !tbaa !60
   %49 = add nsw i32 %46, 1
   store i32 %49, ptr %42, align 4, !tbaa !59
@@ -4028,7 +4025,7 @@ define hidden void @luaK_settablesize(ptr noundef readonly captures(none) %0, i3
   %16 = icmp sgt i32 %3, 1023
   %17 = sdiv i32 %3, 1024
   %18 = sext i32 %1 to i64
-  %19 = getelementptr inbounds i32, ptr %8, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %8, i64 %18
   %20 = shl i32 %2, 7
   %21 = shl i32 %3, 22
   %22 = select i1 %16, i32 32768, i32 0
@@ -4098,7 +4095,7 @@ define hidden void @luaK_finish(ptr noundef readonly captures(none) %0) local_un
 
 11:                                               ; preds = %.lr.ph, %56
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %56 ]
-  %12 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4, !tbaa !53
   %14 = and i32 %13, 127
   switch i32 %14, label %56 [
@@ -4161,7 +4158,7 @@ define hidden void @luaK_finish(ptr noundef readonly captures(none) %0) local_un
   %.0811.i = phi i32 [ %47, %44 ], [ %15, %.preheader.preheader ]
   %.0910.i = phi i32 [ %48, %44 ], [ 0, %.preheader.preheader ]
   %40 = sext i32 %.0811.i to i64
-  %41 = getelementptr inbounds i32, ptr %7, i64 %40
+  %41 = getelementptr inbounds [4 x i8], ptr %7, i64 %40
   %42 = load i32, ptr %41, align 4, !tbaa !53
   %43 = and i32 %42, 127
   %.not.i = icmp eq i32 %43, 56
@@ -4252,7 +4249,7 @@ define internal fastcc i32 @k2proto(ptr noundef captures(none) %0, ptr noundef n
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %28, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
-  %29 = getelementptr inbounds %struct.TValue, ptr %25, i64 %indvars.iv.i
+  %29 = getelementptr inbounds [16 x i8], ptr %25, i64 %indvars.iv.i
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store i8 0, ptr %30, align 8, !tbaa !40
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -4260,7 +4257,7 @@ define internal fastcc i32 @k2proto(ptr noundef captures(none) %0, ptr noundef n
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %14
   %31 = sext i32 %22 to i64
-  %32 = getelementptr inbounds %struct.TValue, ptr %25, i64 %31
+  %32 = getelementptr inbounds [16 x i8], ptr %25, i64 %31
   %33 = load i64, ptr %2, align 8, !tbaa !22
   store i64 %33, ptr %32, align 8, !tbaa !22
   %34 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -4353,7 +4350,7 @@ define internal fastcc void @discharge2reg(ptr noundef %0, ptr noundef captures(
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 64
   %17 = load ptr, ptr %16, align 8, !tbaa !45
   %18 = sext i32 %10 to i64
-  %19 = getelementptr i32, ptr %17, i64 %18
+  %19 = getelementptr [4 x i8], ptr %17, i64 %18
   %20 = getelementptr i8, ptr %19, i64 -4
   br label %previousinstruction.exit.i
 
@@ -4512,7 +4509,7 @@ luaK_float.exit:                                  ; preds = %83, %94, %98
   %111 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %112 = load i32, ptr %111, align 8, !tbaa !22
   %113 = sext i32 %112 to i64
-  %114 = getelementptr inbounds i32, ptr %110, i64 %113
+  %114 = getelementptr inbounds [4 x i8], ptr %110, i64 %113
   %115 = load i32, ptr %114, align 4, !tbaa !53
   %116 = and i32 %115, -32641
   %117 = shl i32 %2, 7
@@ -4584,7 +4581,7 @@ define internal fastcc i32 @luaK_numberK(ptr noundef %0, double noundef %1) unna
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 56
   %21 = load ptr, ptr %20, align 8, !tbaa !68
   %22 = sext i32 %18 to i64
-  %23 = getelementptr inbounds %struct.TValue, ptr %21, i64 %22
+  %23 = getelementptr inbounds [16 x i8], ptr %21, i64 %22
   %24 = call i32 @luaV_equalobj(ptr noundef null, ptr noundef %23, ptr noundef nonnull %3) #12
   %.not23 = icmp eq i32 %24, 0
   br i1 %.not23, label %25, label %addk.exit
@@ -4615,7 +4612,7 @@ define internal fastcc i32 @luaK_numberK(ptr noundef %0, double noundef %1) unna
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ %40, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, 1
-  %41 = getelementptr inbounds %struct.TValue, ptr %37, i64 %indvars.iv.i
+  %41 = getelementptr inbounds [16 x i8], ptr %37, i64 %indvars.iv.i
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store i8 0, ptr %42, align 8, !tbaa !40
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -4623,7 +4620,7 @@ define internal fastcc i32 @luaK_numberK(ptr noundef %0, double noundef %1) unna
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i, %25
   %43 = sext i32 %34 to i64
-  %44 = getelementptr inbounds %struct.TValue, ptr %37, i64 %43
+  %44 = getelementptr inbounds [16 x i8], ptr %37, i64 %43
   %45 = load i64, ptr %3, align 8, !tbaa !22
   store i64 %45, ptr %44, align 8, !tbaa !22
   %46 = load i8, ptr %6, align 8, !tbaa !40

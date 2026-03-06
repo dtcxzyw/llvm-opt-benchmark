@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.strbuf = type { i64, i64, ptr }
 %struct.ref_namespace_info = type { ptr, i32, i8 }
 %struct.diff_queue_struct = type { ptr, i32, i32 }
-%struct.string_list_item = type { ptr, ptr }
 %struct.object_id = type { [32 x i8], i32 }
 %struct.string_list = type { ptr, i64, i64, i8, ptr }
 %struct.decoration_filter = type { ptr, ptr, ptr }
@@ -111,7 +110,7 @@ define dso_local void @list_config_color_decorate_slots(ptr noundef %0, ptr noun
 
 4:                                                ; preds = %2, %10
   %.06 = phi i64 [ 0, %2 ], [ %11, %10 ]
-  %5 = getelementptr inbounds nuw ptr, ptr @color_decorate_slots, i64 %.06
+  %5 = getelementptr inbounds nuw [8 x i8], ptr @color_decorate_slots, i64 %.06
   %6 = load ptr, ptr %5, align 8, !tbaa !4
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %10, label %7
@@ -241,7 +240,7 @@ define dso_local void @load_ref_decorations(ptr noundef %0, i32 noundef %1) loca
   %9 = load ptr, ptr %8, align 8, !tbaa !20
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %11 = load i64, ptr %10, align 8, !tbaa !24
-  %12 = getelementptr inbounds nuw %struct.string_list_item, ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw [16 x i8], ptr %9, i64 %11
   %13 = icmp ult ptr %7, %12
   br i1 %13, label %.lr.ph, label %.critedge
 
@@ -254,7 +253,7 @@ define dso_local void @load_ref_decorations(ptr noundef %0, i32 noundef %1) loca
   %17 = load ptr, ptr %16, align 8, !tbaa !20
   %18 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %19 = load i64, ptr %18, align 8, !tbaa !24
-  %20 = getelementptr inbounds nuw %struct.string_list_item, ptr %17, i64 %19
+  %20 = getelementptr inbounds nuw [16 x i8], ptr %17, i64 %19
   %21 = icmp ult ptr %15, %20
   br i1 %21, label %.lr.ph, label %.critedge
 
@@ -269,7 +268,7 @@ define dso_local void @load_ref_decorations(ptr noundef %0, i32 noundef %1) loca
   %25 = load ptr, ptr %24, align 8, !tbaa !20
   %26 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %27 = load i64, ptr %26, align 8, !tbaa !24
-  %28 = getelementptr inbounds nuw %struct.string_list_item, ptr %25, i64 %27
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %25, i64 %27
   %29 = icmp ult ptr %23, %28
   br i1 %29, label %.lr.ph44, label %.critedge2
 
@@ -282,7 +281,7 @@ define dso_local void @load_ref_decorations(ptr noundef %0, i32 noundef %1) loca
   %33 = load ptr, ptr %32, align 8, !tbaa !20
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %35 = load i64, ptr %34, align 8, !tbaa !24
-  %36 = getelementptr inbounds nuw %struct.string_list_item, ptr %33, i64 %35
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %33, i64 %35
   %37 = icmp ult ptr %31, %36
   br i1 %37, label %.lr.ph44, label %.critedge2
 
@@ -298,7 +297,7 @@ define dso_local void @load_ref_decorations(ptr noundef %0, i32 noundef %1) loca
   %42 = load ptr, ptr %41, align 8, !tbaa !20
   %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %44 = load i64, ptr %43, align 8, !tbaa !24
-  %45 = getelementptr inbounds nuw %struct.string_list_item, ptr %42, i64 %44
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %42, i64 %44
   %46 = icmp ult ptr %40, %45
   br i1 %46, label %.lr.ph48, label %.critedge4
 
@@ -311,7 +310,7 @@ define dso_local void @load_ref_decorations(ptr noundef %0, i32 noundef %1) loca
   %50 = load ptr, ptr %49, align 8, !tbaa !20
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 8
   %52 = load i64, ptr %51, align 8, !tbaa !24
-  %53 = getelementptr inbounds nuw %struct.string_list_item, ptr %50, i64 %52
+  %53 = getelementptr inbounds nuw [16 x i8], ptr %50, i64 %52
   %54 = icmp ult ptr %48, %53
   br i1 %54, label %.lr.ph48, label %.critedge4
 
@@ -429,7 +428,7 @@ match_ref_pattern.exit.thread.i:                  ; preds = %27, %.match_ref_pat
   %33 = phi i64 [ %.pre96, %.match_ref_pattern.exit.thread.i_crit_edge ], [ %19, %match_ref_pattern.exit.i ], [ %19, %27 ]
   %34 = phi ptr [ %.pre, %.match_ref_pattern.exit.thread.i_crit_edge ], [ %20, %match_ref_pattern.exit.i ], [ %20, %27 ]
   %35 = getelementptr inbounds nuw i8, ptr %.03792.i75, i64 16
-  %36 = getelementptr inbounds nuw %struct.string_list_item, ptr %34, i64 %33
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %34, i64 %33
   %37 = icmp ult ptr %35, %36
   br i1 %37, label %.lr.ph, label %.critedge.i
 
@@ -493,7 +492,7 @@ match_ref_pattern.exit62.thread.i:                ; preds = %51, %.match_ref_pat
   %57 = phi i64 [ %.pre98, %.match_ref_pattern.exit62.thread.i_crit_edge ], [ %43, %match_ref_pattern.exit62.i ], [ %43, %51 ]
   %58 = phi ptr [ %.pre97, %.match_ref_pattern.exit62.thread.i_crit_edge ], [ %44, %match_ref_pattern.exit62.i ], [ %44, %51 ]
   %59 = getelementptr inbounds nuw i8, ptr %.195.i76, i64 16
-  %60 = getelementptr inbounds nuw %struct.string_list_item, ptr %58, i64 %57
+  %60 = getelementptr inbounds nuw [16 x i8], ptr %58, i64 %57
   %61 = icmp ult ptr %59, %60
   br i1 %61, label %.lr.ph77, label %ref_filter_match.exit.thread
 
@@ -557,7 +556,7 @@ match_ref_pattern.exit73.thread.i:                ; preds = %76, %.match_ref_pat
   %82 = phi i64 [ %.pre100, %.match_ref_pattern.exit73.thread.i_crit_edge ], [ %68, %match_ref_pattern.exit73.i ], [ %68, %76 ]
   %83 = phi ptr [ %.pre99, %.match_ref_pattern.exit73.thread.i_crit_edge ], [ %69, %match_ref_pattern.exit73.i ], [ %69, %76 ]
   %84 = getelementptr inbounds nuw i8, ptr %.2101.i78, i64 16
-  %85 = getelementptr inbounds nuw %struct.string_list_item, ptr %83, i64 %82
+  %85 = getelementptr inbounds nuw [16 x i8], ptr %83, i64 %82
   %86 = icmp ult ptr %84, %85
   br i1 %86, label %.lr.ph79, label %ref_filter_match.exit
 
@@ -617,7 +616,7 @@ add_name_decoration.exit:                         ; preds = %96
 
 111:                                              ; preds = %108, %127
   %indvars.iv = phi i64 [ 0, %108 ], [ %indvars.iv.next, %127 ]
-  %112 = getelementptr inbounds nuw %struct.ref_namespace_info, ptr @ref_namespace, i64 %indvars.iv
+  %112 = getelementptr inbounds nuw [16 x i8], ptr @ref_namespace, i64 %indvars.iv
   %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
   %114 = load i32, ptr %113, align 8, !tbaa !34
   %.not49 = icmp eq i32 %114, 0
@@ -1354,7 +1353,7 @@ define dso_local void @log_write_email_headers(ptr noundef captures(none) %0, pt
   %55 = select i1 %.not52, ptr @.str.21, ptr @.str.20
   %56 = load ptr, ptr %39, align 8, !tbaa !109
   %57 = load ptr, ptr %56, align 8, !tbaa !20
-  %58 = getelementptr inbounds nuw %struct.string_list_item, ptr %57, i64 %indvars.iv
+  %58 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %indvars.iv
   %59 = load ptr, ptr %58, align 8, !tbaa !25
   %60 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %54, ptr noundef nonnull @.str.19, ptr noundef nonnull %55, ptr noundef %59) #15
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

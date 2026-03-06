@@ -9,11 +9,10 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallVectorTemplateCommon" = type { %"class.llvm::SmallVectorBase" }
 %"class.llvm::SmallVectorBase" = type { ptr, i32, i32 }
 %"struct.llvm::SmallVectorStorage" = type { [128 x i8] }
-%struct.llvm_regmatch_t = type { i64, i64 }
-%"class.llvm::StringRef" = type { ptr, i64 }
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
+%"class.llvm::StringRef" = type { ptr, i64 }
 %"class.llvm::SmallVector.3" = type { %"class.llvm::SmallVectorImpl.0", %"struct.llvm::SmallVectorStorage.4" }
 %"class.llvm::SmallVectorImpl.0" = type { %"class.llvm::SmallVectorTemplateBase.1" }
 %"class.llvm::SmallVectorTemplateBase.1" = type { %"class.llvm::SmallVectorTemplateCommon.2" }
@@ -256,7 +255,7 @@ _ZN4llvm15SmallVectorImplI15llvm_regmatch_tE7reserveEm.exit.i.i..lr.ph.preheader
 .lr.ph.preheader.i.i:                             ; preds = %_ZN4llvm15SmallVectorImplI15llvm_regmatch_tE7reserveEm.exit.i.i..lr.ph.preheader.i.i_crit_edge, %29
   %38 = phi ptr [ %.pre, %_ZN4llvm15SmallVectorImplI15llvm_regmatch_tE7reserveEm.exit.i.i..lr.ph.preheader.i.i_crit_edge ], [ %32, %29 ]
   %.pre-phi.i.i46 = phi i64 [ %.pre13.i.i, %_ZN4llvm15SmallVectorImplI15llvm_regmatch_tE7reserveEm.exit.i.i..lr.ph.preheader.i.i_crit_edge ], [ 0, %29 ]
-  %39 = getelementptr %struct.llvm_regmatch_t, ptr %38, i64 %.pre-phi.i.i46
+  %39 = getelementptr [16 x i8], ptr %38, i64 %.pre-phi.i.i46
   %40 = sub nsw i64 %36, %.pre-phi.i.i46
   %41 = shl nsw i64 %40, 4
   call void @llvm.memset.p0.i64(ptr align 8 %39, i8 0, i64 %41, i1 false)
@@ -308,7 +307,7 @@ _ZN4llvm15SmallVectorImplI15llvm_regmatch_tE6resizeEm.exit: ; preds = %_ZN4llvm1
   %62 = phi i32 [ 0, %.lr.ph ], [ %storemerge, %89 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %89 ]
   %63 = load ptr, ptr %6, align 8, !tbaa !21
-  %64 = getelementptr inbounds nuw %struct.llvm_regmatch_t, ptr %63, i64 %indvars.iv
+  %64 = getelementptr inbounds nuw [16 x i8], ptr %63, i64 %indvars.iv
   %65 = load i64, ptr %64, align 8, !tbaa !25
   %66 = icmp eq i64 %65, -1
   br i1 %66, label %67, label %76
@@ -329,7 +328,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit: ; pred
   %72 = phi i32 [ %62, %67 ], [ %.pre.i, %69 ]
   %73 = load ptr, ptr %3, align 8, !tbaa !21
   %74 = zext i32 %72 to i64
-  %75 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %73, i64 %74
+  %75 = getelementptr inbounds nuw [16 x i8], ptr %73, i64 %74
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %75, i8 0, i64 16, i1 false)
   br label %89
 
@@ -353,7 +352,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_9StringRefELb1EE9push_backES1_.exit38: ; pr
   %85 = phi i32 [ %62, %76 ], [ %.pre.i36, %82 ]
   %86 = load ptr, ptr %3, align 8, !tbaa !21
   %87 = zext i32 %85 to i64
-  %88 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %86, i64 %87
+  %88 = getelementptr inbounds nuw [16 x i8], ptr %86, i64 %87
   store ptr %77, ptr %88, align 1
   %.sroa.2.0..sroa_idx.i37 = getelementptr inbounds nuw i8, ptr %88, i64 8
   store i64 %80, ptr %.sroa.2.0..sroa_idx.i37, align 1
@@ -679,7 +678,7 @@ _ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit.thread: ; preds = %128, %126
 
 139:                                              ; preds = %130
   %140 = load ptr, ptr %14, align 8, !tbaa !21
-  %141 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %140, i64 %129
+  %141 = getelementptr inbounds nuw [16 x i8], ptr %140, i64 %129
   %.sroa.09.0.copyload = load ptr, ptr %141, align 8, !tbaa !43
   %.sroa.210.0..sroa_idx = getelementptr inbounds nuw i8, ptr %141, i64 8
   %.sroa.210.0.copyload = load i64, ptr %.sroa.210.0..sroa_idx, align 8, !tbaa !32
@@ -889,7 +888,7 @@ _ZNK4llvm9StringRef12getAsIntegerIjEEbjRT_.exit73.thread: ; preds = %221, %214
 
 227:                                              ; preds = %223
   %228 = load ptr, ptr %14, align 8, !tbaa !21
-  %229 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %228, i64 %222
+  %229 = getelementptr inbounds nuw [16 x i8], ptr %228, i64 %222
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %229, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !32
   %230 = load i64, ptr %51, align 8, !tbaa !20

@@ -137,7 +137,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   %58 = add nsw i32 %57, 1
   store i32 %58, ptr %30, align 4, !tbaa !23
   %59 = sext i32 %57 to i64
-  %60 = getelementptr inbounds i32, ptr %56, i64 %59
+  %60 = getelementptr inbounds [4 x i8], ptr %56, i64 %59
   store i32 %29, ptr %60, align 4, !tbaa !27
   br label %Aig_ObjSatValue.exit
 
@@ -422,14 +422,14 @@ define range(i32 0, 4) i32 @Aig_ObjTerSimulate(ptr noundef %0, ptr noundef captu
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
   %.val14 = load ptr, ptr %6, align 8, !tbaa !26
-  %10 = getelementptr inbounds nuw i32, ptr %.val14, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %.val14, i64 %indvars.iv
   %11 = load i32, ptr %10, align 4, !tbaa !27
   %12 = ashr i32 %11, 1
   %.val15 = load ptr, ptr %7, align 8, !tbaa !32
   %13 = getelementptr i8, ptr %.val15, i64 8
   %.val15.val = load ptr, ptr %13, align 8, !tbaa !33
   %14 = sext i32 %12 to i64
-  %15 = getelementptr inbounds ptr, ptr %.val15.val, i64 %14
+  %15 = getelementptr inbounds [8 x i8], ptr %.val15.val, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !35
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %18 = load i64, ptr %17, align 8
@@ -502,13 +502,13 @@ Aig_ManObj.exit:                                  ; preds = %Aig_ManObj.exit.lr.
   %.04694 = phi i32 [ 0, %Aig_ManObj.exit.lr.ph ], [ %.147, %66 ]
   %.04893 = phi i32 [ 0, %Aig_ManObj.exit.lr.ph ], [ %.149, %66 ]
   %.val55 = load ptr, ptr %18, align 8, !tbaa !26
-  %20 = getelementptr inbounds nuw i32, ptr %.val55, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [4 x i8], ptr %.val55, i64 %indvars.iv
   %21 = load i32, ptr %20, align 4, !tbaa !27
   %.val56 = load ptr, ptr %19, align 8, !tbaa !40, !nonnull !41, !noundef !41
   %22 = getelementptr i8, ptr %.val56, i64 8
   %.val.i = load ptr, ptr %22, align 8, !tbaa !33
   %23 = sext i32 %21 to i64
-  %24 = getelementptr inbounds ptr, ptr %.val.i, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %.val.i, i64 %23
   %25 = load ptr, ptr %24, align 8, !tbaa !35
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %27 = load i64, ptr %26, align 8

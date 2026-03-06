@@ -84,7 +84,7 @@ define hidden void @zif_levenshtein(ptr noundef readonly captures(none) %0, ptr 
 45:                                               ; preds = %45, %29
   %.06378.i = phi i64 [ 0, %29 ], [ %48, %45 ]
   %46 = mul i64 %.06378.i, %15
-  %47 = getelementptr inbounds nuw i64, ptr %36, i64 %.06378.i
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %.06378.i
   store i64 %46, ptr %47, align 8, !tbaa !4
   %48 = add i64 %.06378.i, 1
   %.not.i = icmp ugt i64 %48, %40
@@ -117,13 +117,13 @@ define hidden void @zif_levenshtein(ptr noundef readonly captures(none) %0, ptr 
   %61 = select i1 %60, i64 0, i64 %16
   %62 = add nsw i64 %61, %56
   %63 = add nuw i64 %.179.i, 1
-  %64 = getelementptr inbounds nuw i64, ptr %.06981.i, i64 %63
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %.06981.i, i64 %63
   %65 = load i64, ptr %64, align 8, !tbaa !4
   %66 = add nsw i64 %65, %17
   %spec.select.i = call i64 @llvm.smin.i64(i64 %66, i64 %62)
   %67 = add nsw i64 %55, %15
   %.168.i = call i64 @llvm.smin.i64(i64 %67, i64 %spec.select.i)
-  %68 = getelementptr inbounds nuw i64, ptr %.07080.i, i64 %63
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %.07080.i, i64 %63
   store i64 %.168.i, ptr %68, align 8, !tbaa !4
   %69 = load i64, ptr %33, align 8, !tbaa !12
   %70 = icmp ult i64 %63, %69
@@ -140,7 +140,7 @@ define hidden void @zif_levenshtein(ptr noundef readonly captures(none) %0, ptr 
   %75 = phi i64 [ %40, %.preheader.i ], [ %71, %._crit_edge.i ]
   %.070.lcssa.i = phi ptr [ %39, %.preheader.i ], [ %.06981.i, %._crit_edge.i ]
   %.069.lcssa.i = phi ptr [ %36, %.preheader.i ], [ %.07080.i, %._crit_edge.i ]
-  %76 = getelementptr inbounds nuw i64, ptr %.069.lcssa.i, i64 %75
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %.069.lcssa.i, i64 %75
   %77 = load i64, ptr %76, align 8, !tbaa !4
   call void @_efree(ptr noundef nonnull %.069.lcssa.i) #4
   call void @_efree(ptr noundef %.070.lcssa.i) #4

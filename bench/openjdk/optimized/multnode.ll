@@ -243,7 +243,7 @@ define hidden noundef ptr @_ZNK8ProjNode9proj_typeEPK4Type(ptr noundef nonnull r
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load ptr, ptr %11, align 8
   %13 = zext i32 %10 to i64
-  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %13
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8
@@ -327,7 +327,7 @@ define hidden noundef ptr @_ZNK8ProjNode11bottom_typeEv(ptr noundef nonnull read
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %22 = load ptr, ptr %21, align 8
   %23 = zext i32 %20 to i64
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = load ptr, ptr %24, align 8
   %26 = load ptr, ptr %2, align 8
   %27 = load ptr, ptr %26, align 8
@@ -474,7 +474,7 @@ define hidden noundef ptr @_ZNK8ProjNode5ValueEP8PhaseGVN(ptr noundef nonnull re
   %14 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = zext i32 %13 to i64
-  %17 = getelementptr inbounds nuw ptr, ptr %15, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr @_ZN4Type3TOPE, align 8
   %20 = icmp eq ptr %18, %19
@@ -491,7 +491,7 @@ define hidden noundef ptr @_ZNK8ProjNode5ValueEP8PhaseGVN(ptr noundef nonnull re
   %27 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %28 = load ptr, ptr %27, align 8
   %29 = zext i32 %26 to i64
-  %30 = getelementptr inbounds nuw ptr, ptr %28, i64 %29
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %29
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq i32 %26, 5
   br i1 %32, label %33, label %_ZNK8ProjNode9proj_typeEPK4Type.exit
@@ -554,7 +554,7 @@ define hidden noundef i32 @_ZNK8ProjNode9ideal_regEv(ptr noundef nonnull align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load i32, ptr %6, align 8
   %8 = zext i32 %7 to i64
-  %9 = getelementptr inbounds nuw %"struct.Type::TypeInfo", ptr @_ZN4Type10_type_infoE, i64 %8
+  %9 = getelementptr inbounds nuw [32 x i8], ptr @_ZN4Type10_type_infoE, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 20
   %11 = load i32, ptr %10, align 4
   ret i32 %11

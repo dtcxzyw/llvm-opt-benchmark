@@ -379,13 +379,13 @@ _ZN4llvmplERKNS_5TwineES2_.exit80:                ; preds = %_ZNK4llvm9StringRef
   %168 = zext i32 %167 to i64
   %169 = sext i32 %163 to i64
   %.sroa.0.0.v.i.i.i = select i1 %164, i64 %168, i64 %169
-  %.sroa.0.0.i.i.i = getelementptr inbounds ptr, ptr %165, i64 %.sroa.0.0.v.i.i.i
+  %.sroa.0.0.i.i.i = getelementptr inbounds [8 x i8], ptr %165, i64 %.sroa.0.0.v.i.i.i
   %170 = load ptr, ptr %37, align 8, !tbaa !48
   %171 = load ptr, ptr %170, align 8, !tbaa !52
   %172 = getelementptr inbounds nuw i8, ptr %170, i64 8
   %173 = load i32, ptr %172, align 8, !tbaa !56
   %174 = zext i32 %173 to i64
-  %175 = getelementptr inbounds nuw ptr, ptr %171, i64 %174
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %171, i64 %174
   %176 = icmp eq ptr %.sroa.0.0.i.i.i, %175
   br i1 %176, label %_ZN4llvmplERKNS_5TwineES2_.exit110, label %179
 
@@ -651,7 +651,7 @@ define linkonce_odr hidden void @_ZNK4llvm9StringMapINSt7__cxx1112basic_stringIc
 
 13:                                               ; preds = %4
   %14 = load ptr, ptr %1, align 8
-  %.sroa.0.0.i.i = getelementptr inbounds ptr, ptr %14, i64 %12
+  %.sroa.0.0.i.i = getelementptr inbounds [8 x i8], ptr %14, i64 %12
   %15 = load ptr, ptr %.sroa.0.0.i.i, align 8, !tbaa !88
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 16

@@ -4,11 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.OnigMatchArg = type { ptr, i64, i32, ptr, ptr, ptr, i64, ptr, i32, i64, i32, i64, i64, ptr, i64, ptr }
-%struct._OnigStackType = type { i32, i64, %union.anon }
-%union.anon = type { %struct.anon }
-%struct.anon = type { ptr, ptr, ptr, ptr }
-%struct.OnigRepeatRange = type { i32, i32 }
-%struct.OnigCacheOpcode = type { ptr, i64, i32, i64, i64, i32, ptr }
 
 @MatchStackLimitSize = internal unnamed_addr global i32 0, align 4
 @onig_search_gpos.address_for_empty_string = internal constant [1 x i8] zeroinitializer, align 1
@@ -51,9 +46,9 @@ define dso_local void @onig_region_clear(ptr noundef readonly captures(none) %0)
 
 9:                                                ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
-  %10 = getelementptr i64, ptr %6, i64 %indvars.iv
+  %10 = getelementptr [8 x i8], ptr %6, i64 %indvars.iv
   store i64 -1, ptr %10, align 8, !tbaa !19
-  %11 = getelementptr i64, ptr %8, i64 %indvars.iv
+  %11 = getelementptr [8 x i8], ptr %8, i64 %indvars.iv
   store i64 -1, ptr %11, align 8, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -173,12 +168,12 @@ define dso_local range(i32 -30, 1) i32 @onig_region_set(ptr noundef captures(non
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !24
   %16 = zext nneg i32 %1 to i64
-  %17 = getelementptr i64, ptr %15, i64 %16
+  %17 = getelementptr [8 x i8], ptr %15, i64 %16
   store i64 %13, ptr %17, align 8, !tbaa !19
   %18 = sext i32 %3 to i64
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !23
-  %21 = getelementptr i64, ptr %20, i64 %16
+  %21 = getelementptr [8 x i8], ptr %20, i64 %16
   store i64 %18, ptr %21, align 8, !tbaa !19
   br label %22
 
@@ -265,13 +260,13 @@ define dso_local void @onig_region_copy(ptr noundef captures(address) %0, ptr no
 
 18:                                               ; preds = %.lr.ph, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
-  %19 = getelementptr i64, ptr %11, i64 %indvars.iv
+  %19 = getelementptr [8 x i8], ptr %11, i64 %indvars.iv
   %20 = load i64, ptr %19, align 8, !tbaa !19
-  %21 = getelementptr i64, ptr %13, i64 %indvars.iv
+  %21 = getelementptr [8 x i8], ptr %13, i64 %indvars.iv
   store i64 %20, ptr %21, align 8, !tbaa !19
-  %22 = getelementptr i64, ptr %15, i64 %indvars.iv
+  %22 = getelementptr [8 x i8], ptr %15, i64 %indvars.iv
   %23 = load i64, ptr %22, align 8, !tbaa !19
-  %24 = getelementptr i64, ptr %17, i64 %indvars.iv
+  %24 = getelementptr [8 x i8], ptr %17, i64 %indvars.iv
   store i64 %23, ptr %24, align 8, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -352,9 +347,9 @@ define dso_local i64 @onig_match(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 32:                                               ; preds = %32, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %32 ]
-  %33 = getelementptr i64, ptr %29, i64 %indvars.iv.i.i
+  %33 = getelementptr [8 x i8], ptr %29, i64 %indvars.iv.i.i
   store i64 -1, ptr %33, align 8, !tbaa !19
-  %34 = getelementptr i64, ptr %31, i64 %indvars.iv.i.i
+  %34 = getelementptr [8 x i8], ptr %31, i64 %indvars.iv.i.i
   store i64 -1, ptr %34, align 8, !tbaa !19
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -446,7 +441,7 @@ define internal fastcc i64 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef
   store ptr %54, ptr %20, align 8, !tbaa !50
   %56 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %57 = load i64, ptr %56, align 8, !tbaa !52
-  %58 = getelementptr %struct._OnigStackType, ptr %54, i64 %57
+  %58 = getelementptr [48 x i8], ptr %54, i64 %57
   br label %75
 
 59:                                               ; preds = %51
@@ -466,7 +461,7 @@ define internal fastcc i64 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef
   store ptr %63, ptr %20, align 8, !tbaa !50
   %67 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %68 = load i64, ptr %67, align 8, !tbaa !52
-  %69 = getelementptr %struct._OnigStackType, ptr %63, i64 %68
+  %69 = getelementptr [48 x i8], ptr %63, i64 %68
   br label %75
 
 70:                                               ; preds = %62
@@ -486,11 +481,11 @@ define internal fastcc i64 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef
   %77 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %78 = load i32, ptr %77, align 8, !tbaa !53
   %79 = sext i32 %43 to i64
-  %80 = getelementptr i64, ptr %.02226, i64 %79
+  %80 = getelementptr [8 x i8], ptr %.02226, i64 %79
   %81 = add i32 %45, 1
   %82 = sext i32 %81 to i64
-  %83 = getelementptr i64, ptr %80, i64 %82
-  %84 = getelementptr i64, ptr %.02226, i64 %49
+  %83 = getelementptr [8 x i8], ptr %80, i64 %82
+  %84 = getelementptr [8 x i8], ptr %.02226, i64 %49
   %85 = icmp ult ptr %80, %84
   br i1 %85, label %.lr.ph.preheader, label %96
 
@@ -605,7 +600,7 @@ define internal fastcc i64 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef
 
 154:                                              ; preds = %.lr.ph4099, %199
   %indvars.iv = phi i64 [ 1, %.lr.ph4099 ], [ %indvars.iv.next, %199 ]
-  %155 = getelementptr i64, ptr %83, i64 %indvars.iv
+  %155 = getelementptr [8 x i8], ptr %83, i64 %indvars.iv
   %156 = load i64, ptr %155, align 8, !tbaa !19
   %.not2831 = icmp eq i64 %156, -1
   br i1 %.not2831, label %197, label %157
@@ -628,23 +623,23 @@ define internal fastcc i64 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef
   br i1 %.not2832, label %173, label %166
 
 166:                                              ; preds = %164, %160
-  %167 = getelementptr i64, ptr %80, i64 %indvars.iv
+  %167 = getelementptr [8 x i8], ptr %80, i64 %indvars.iv
   %168 = load i64, ptr %167, align 8, !tbaa !19
-  %169 = getelementptr %struct._OnigStackType, ptr %153, i64 %168
+  %169 = getelementptr [48 x i8], ptr %153, i64 %168
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 24
   %171 = load ptr, ptr %170, align 8, !tbaa !57
   %172 = ptrtoint ptr %171 to i64
   br label %176
 
 173:                                              ; preds = %164, %160
-  %174 = getelementptr i64, ptr %80, i64 %indvars.iv
+  %174 = getelementptr [8 x i8], ptr %80, i64 %indvars.iv
   %175 = load i64, ptr %174, align 8, !tbaa !19
   br label %176
 
 176:                                              ; preds = %173, %166
   %.sink5605 = phi i64 [ %175, %173 ], [ %172, %166 ]
   %177 = sub i64 %.sink5605, %111
-  %178 = getelementptr i64, ptr %149, i64 %indvars.iv
+  %178 = getelementptr [8 x i8], ptr %149, i64 %indvars.iv
   store i64 %177, ptr %178, align 8, !tbaa !19
   %179 = load i32, ptr %105, align 4, !tbaa !60
   br i1 %158, label %180, label %184
@@ -663,7 +658,7 @@ define internal fastcc i64 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef
 
 186:                                              ; preds = %184, %180
   %187 = load i64, ptr %155, align 8, !tbaa !19
-  %188 = getelementptr %struct._OnigStackType, ptr %153, i64 %187
+  %188 = getelementptr [48 x i8], ptr %153, i64 %187
   %189 = getelementptr inbounds nuw i8, ptr %188, i64 24
   %190 = load ptr, ptr %189, align 8, !tbaa !57
   %191 = ptrtoint ptr %190 to i64
@@ -679,14 +674,14 @@ define internal fastcc i64 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef
   br label %199
 
 197:                                              ; preds = %154
-  %198 = getelementptr i64, ptr %152, i64 %indvars.iv
+  %198 = getelementptr [8 x i8], ptr %152, i64 %indvars.iv
   store i64 -1, ptr %198, align 8, !tbaa !19
   br label %199
 
 199:                                              ; preds = %194, %197
   %.sink5608 = phi ptr [ %152, %194 ], [ %149, %197 ]
   %.sink5606 = phi i64 [ %196, %194 ], [ -1, %197 ]
-  %200 = getelementptr i64, ptr %.sink5608, i64 %indvars.iv
+  %200 = getelementptr [8 x i8], ptr %.sink5608, i64 %indvars.iv
   store i64 %.sink5606, ptr %200, align 8, !tbaa !19
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond4507 = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1329,7 +1324,7 @@ define internal fastcc i64 @match_at(ptr noundef %0, ptr noundef %1, ptr noundef
   %528 = zext i8 %527 to i32
   %529 = lshr i32 %528, 5
   %530 = zext nneg i32 %529 to i64
-  %531 = getelementptr i32, ptr %.02204, i64 %530
+  %531 = getelementptr [4 x i8], ptr %.02204, i64 %530
   %532 = load i32, ptr %531, align 4, !tbaa !29
   %533 = and i32 %528, 31
   %534 = shl nuw i32 1, %533
@@ -1438,7 +1433,7 @@ enclen_approx.exit:                               ; preds = %565, %567
   %592 = zext i8 %591 to i32
   %593 = lshr i32 %592, 5
   %594 = zext nneg i32 %593 to i64
-  %595 = getelementptr i32, ptr %.02204, i64 %594
+  %595 = getelementptr [4 x i8], ptr %.02204, i64 %594
   %596 = load i32, ptr %595, align 4, !tbaa !29
   %597 = and i32 %592, 31
   %598 = shl nuw i32 1, %597
@@ -1468,7 +1463,7 @@ enclen_approx.exit:                               ; preds = %565, %567
   %615 = zext i8 %614 to i32
   %616 = lshr i32 %615, 5
   %617 = zext nneg i32 %616 to i64
-  %618 = getelementptr i32, ptr %.02204, i64 %617
+  %618 = getelementptr [4 x i8], ptr %.02204, i64 %617
   %619 = load i32, ptr %618, align 4, !tbaa !29
   %620 = and i32 %615, 31
   %621 = shl nuw i32 1, %620
@@ -1597,7 +1592,7 @@ enclen_approx.exit:                               ; preds = %565, %567
   %688 = zext i8 %687 to i32
   %689 = lshr i32 %688, 5
   %690 = zext nneg i32 %689 to i64
-  %691 = getelementptr i32, ptr %.02204, i64 %690
+  %691 = getelementptr [4 x i8], ptr %.02204, i64 %690
   %692 = load i32, ptr %691, align 4, !tbaa !29
   %693 = and i32 %688, 31
   %694 = shl nuw i32 1, %693
@@ -1946,7 +1941,7 @@ stack_double.exit:                                ; preds = %865, %876
   %883 = sub i64 %850, %854
   %884 = getelementptr i8, ptr %.052.i, i64 %883
   store ptr %.052.i, ptr %20, align 8, !tbaa !50
-  %885 = getelementptr %struct._OnigStackType, ptr %.052.i, i64 %.050.i
+  %885 = getelementptr [48 x i8], ptr %.052.i, i64 %.050.i
   store ptr %885, ptr %22, align 8, !tbaa !50
   br label %895
 
@@ -2066,7 +2061,7 @@ stack_double.exit2898:                            ; preds = %928, %939
   %946 = sub i64 %912, %917
   %947 = getelementptr i8, ptr %.052.i2895, i64 %946
   store ptr %.052.i2895, ptr %20, align 8, !tbaa !50
-  %948 = getelementptr %struct._OnigStackType, ptr %.052.i2895, i64 %.050.i2896
+  %948 = getelementptr [48 x i8], ptr %.052.i2895, i64 %.050.i2896
   store ptr %948, ptr %22, align 8, !tbaa !50
   br label %958
 
@@ -2409,7 +2404,7 @@ stack_double.exit2921:                            ; preds = %1113, %1124
   %1131 = sub i64 %1098, %1102
   %1132 = getelementptr i8, ptr %.052.i2918, i64 %1131
   store ptr %.052.i2918, ptr %20, align 8, !tbaa !50
-  %1133 = getelementptr %struct._OnigStackType, ptr %.052.i2918, i64 %.050.i2919
+  %1133 = getelementptr [48 x i8], ptr %.052.i2918, i64 %.050.i2919
   store ptr %1133, ptr %22, align 8, !tbaa !50
   br label %1143
 
@@ -2529,7 +2524,7 @@ stack_double.exit2927:                            ; preds = %1176, %1187
   %1194 = sub i64 %1160, %1165
   %1195 = getelementptr i8, ptr %.052.i2924, i64 %1194
   store ptr %.052.i2924, ptr %20, align 8, !tbaa !50
-  %1196 = getelementptr %struct._OnigStackType, ptr %.052.i2924, i64 %.050.i2925
+  %1196 = getelementptr [48 x i8], ptr %.052.i2924, i64 %.050.i2925
   store ptr %1196, ptr %22, align 8, !tbaa !50
   br label %1206
 
@@ -2836,7 +2831,7 @@ stack_double.exit2944:                            ; preds = %1335, %1346
   %1353 = sub i64 %1320, %1324
   %1354 = getelementptr i8, ptr %.052.i2941, i64 %1353
   store ptr %.052.i2941, ptr %20, align 8, !tbaa !50
-  %1355 = getelementptr %struct._OnigStackType, ptr %.052.i2941, i64 %.050.i2942
+  %1355 = getelementptr [48 x i8], ptr %.052.i2941, i64 %.050.i2942
   store ptr %1355, ptr %22, align 8, !tbaa !50
   br label %1365
 
@@ -2964,7 +2959,7 @@ stack_double.exit2950:                            ; preds = %1403, %1414
   %1421 = sub i64 %1387, %1392
   %1422 = getelementptr i8, ptr %.052.i2947, i64 %1421
   store ptr %.052.i2947, ptr %20, align 8, !tbaa !50
-  %1423 = getelementptr %struct._OnigStackType, ptr %.052.i2947, i64 %.050.i2948
+  %1423 = getelementptr [48 x i8], ptr %.052.i2947, i64 %.050.i2948
   store ptr %1423, ptr %22, align 8, !tbaa !50
   br label %1433
 
@@ -3324,7 +3319,7 @@ stack_double.exit2973:                            ; preds = %1595, %1606
   %1613 = sub i64 %1580, %1584
   %1614 = getelementptr i8, ptr %.052.i2970, i64 %1613
   store ptr %.052.i2970, ptr %20, align 8, !tbaa !50
-  %1615 = getelementptr %struct._OnigStackType, ptr %.052.i2970, i64 %.050.i2971
+  %1615 = getelementptr [48 x i8], ptr %.052.i2970, i64 %.050.i2971
   store ptr %1615, ptr %22, align 8, !tbaa !50
   br label %1625
 
@@ -3452,7 +3447,7 @@ stack_double.exit2979:                            ; preds = %1663, %1674
   %1681 = sub i64 %1647, %1652
   %1682 = getelementptr i8, ptr %.052.i2976, i64 %1681
   store ptr %.052.i2976, ptr %20, align 8, !tbaa !50
-  %1683 = getelementptr %struct._OnigStackType, ptr %.052.i2976, i64 %.050.i2977
+  %1683 = getelementptr [48 x i8], ptr %.052.i2976, i64 %.050.i2977
   store ptr %1683, ptr %22, align 8, !tbaa !50
   br label %1693
 
@@ -4664,7 +4659,7 @@ stack_double.exit3040:                            ; preds = %2318, %2329
   %2336 = sub i64 %2302, %2307
   %2337 = getelementptr i8, ptr %.052.i3037, i64 %2336
   store ptr %.052.i3037, ptr %20, align 8, !tbaa !50
-  %2338 = getelementptr %struct._OnigStackType, ptr %.052.i3037, i64 %.050.i3038
+  %2338 = getelementptr [48 x i8], ptr %.052.i3037, i64 %.050.i3038
   store ptr %2338, ptr %22, align 8, !tbaa !50
   br label %2348
 
@@ -4712,11 +4707,11 @@ stack_double.exit3040:                            ; preds = %2318, %2329
   %2361 = getelementptr inbounds nuw i8, ptr %2349, i64 24
   store ptr %2360, ptr %2361, align 8, !tbaa !57
   %2362 = sext i16 %2297 to i64
-  %2363 = getelementptr i64, ptr %80, i64 %2362
+  %2363 = getelementptr [8 x i8], ptr %80, i64 %2362
   %2364 = load i64, ptr %2363, align 8, !tbaa !19
   %2365 = getelementptr inbounds nuw i8, ptr %2349, i64 32
   store i64 %2364, ptr %2365, align 8, !tbaa !57
-  %2366 = getelementptr i64, ptr %83, i64 %2362
+  %2366 = getelementptr [8 x i8], ptr %83, i64 %2362
   %2367 = load i64, ptr %2366, align 8, !tbaa !19
   %2368 = getelementptr inbounds nuw i8, ptr %2349, i64 40
   store i64 %2367, ptr %2368, align 8, !tbaa !57
@@ -4737,9 +4732,9 @@ stack_double.exit3040:                            ; preds = %2318, %2329
   %2378 = load ptr, ptr %19, align 8, !tbaa !18
   %2379 = ptrtoint ptr %2378 to i64
   %2380 = sext i16 %2376 to i64
-  %2381 = getelementptr i64, ptr %80, i64 %2380
+  %2381 = getelementptr [8 x i8], ptr %80, i64 %2380
   store i64 %2379, ptr %2381, align 8, !tbaa !19
-  %2382 = getelementptr i64, ptr %83, i64 %2380
+  %2382 = getelementptr [8 x i8], ptr %83, i64 %2380
   store i64 -1, ptr %2382, align 8, !tbaa !19
   %2383 = getelementptr i8, ptr %.02204, i64 3
   br label %.backedge.backedge
@@ -4817,7 +4812,7 @@ stack_double.exit3046:                            ; preds = %2406, %2417
   %2424 = sub i64 %2390, %2395
   %2425 = getelementptr i8, ptr %.052.i3043, i64 %2424
   store ptr %.052.i3043, ptr %20, align 8, !tbaa !50
-  %2426 = getelementptr %struct._OnigStackType, ptr %.052.i3043, i64 %.050.i3044
+  %2426 = getelementptr [48 x i8], ptr %.052.i3043, i64 %.050.i3044
   store ptr %2426, ptr %22, align 8, !tbaa !50
   br label %2436
 
@@ -4865,11 +4860,11 @@ stack_double.exit3046:                            ; preds = %2406, %2417
   %2449 = getelementptr inbounds nuw i8, ptr %2437, i64 24
   store ptr %2448, ptr %2449, align 8, !tbaa !57
   %2450 = sext i16 %2385 to i64
-  %2451 = getelementptr i64, ptr %80, i64 %2450
+  %2451 = getelementptr [8 x i8], ptr %80, i64 %2450
   %2452 = load i64, ptr %2451, align 8, !tbaa !19
   %2453 = getelementptr inbounds nuw i8, ptr %2437, i64 32
   store i64 %2452, ptr %2453, align 8, !tbaa !57
-  %2454 = getelementptr i64, ptr %83, i64 %2450
+  %2454 = getelementptr [8 x i8], ptr %83, i64 %2450
   %2455 = load i64, ptr %2454, align 8, !tbaa !19
   %2456 = getelementptr inbounds nuw i8, ptr %2437, i64 40
   store i64 %2455, ptr %2456, align 8, !tbaa !57
@@ -4889,7 +4884,7 @@ stack_double.exit3046:                            ; preds = %2406, %2417
   %2466 = load ptr, ptr %19, align 8, !tbaa !18
   %2467 = ptrtoint ptr %2466 to i64
   %2468 = sext i16 %2464 to i64
-  %2469 = getelementptr i64, ptr %83, i64 %2468
+  %2469 = getelementptr [8 x i8], ptr %83, i64 %2468
   store i64 %2467, ptr %2469, align 8, !tbaa !19
   %2470 = getelementptr i8, ptr %.02204, i64 3
   br label %.backedge.backedge
@@ -4958,7 +4953,7 @@ stack_double.exit3046:                            ; preds = %2406, %2417
   %2503 = sub i64 %2501, %2502
   %2504 = sdiv exact i64 %2503, 48
   %2505 = sext i16 %2475 to i64
-  %2506 = getelementptr i64, ptr %80, i64 %2505
+  %2506 = getelementptr [8 x i8], ptr %80, i64 %2505
   store i64 %2504, ptr %2506, align 8, !tbaa !19
   %2507 = load ptr, ptr %22, align 8, !tbaa !50
   %2508 = ptrtoint ptr %2507 to i64
@@ -5027,7 +5022,7 @@ stack_double.exit3052:                            ; preds = %2523, %2534
   %2541 = sub i64 %2509, %2502
   %2542 = getelementptr i8, ptr %.052.i3049, i64 %2541
   store ptr %.052.i3049, ptr %20, align 8, !tbaa !50
-  %2543 = getelementptr %struct._OnigStackType, ptr %.052.i3049, i64 %.050.i3050
+  %2543 = getelementptr [48 x i8], ptr %.052.i3049, i64 %.050.i3050
   store ptr %2543, ptr %22, align 8, !tbaa !50
   br label %2553
 
@@ -5077,7 +5072,7 @@ stack_double.exit3052:                            ; preds = %2523, %2534
   %2567 = load i64, ptr %2506, align 8, !tbaa !19
   %2568 = getelementptr inbounds nuw i8, ptr %2555, i64 32
   store i64 %2567, ptr %2568, align 8, !tbaa !57
-  %2569 = getelementptr i64, ptr %83, i64 %2505
+  %2569 = getelementptr [8 x i8], ptr %83, i64 %2505
   %2570 = load i64, ptr %2569, align 8, !tbaa !19
   %2571 = getelementptr inbounds nuw i8, ptr %2555, i64 40
   store i64 %2570, ptr %2571, align 8, !tbaa !57
@@ -5097,7 +5092,7 @@ stack_double.exit3052:                            ; preds = %2523, %2534
   %2581 = load ptr, ptr %19, align 8, !tbaa !18
   %2582 = ptrtoint ptr %2581 to i64
   %2583 = sext i16 %2579 to i64
-  %2584 = getelementptr i64, ptr %83, i64 %2583
+  %2584 = getelementptr [8 x i8], ptr %83, i64 %2583
   store i64 %2582, ptr %2584, align 8, !tbaa !19
   %2585 = load ptr, ptr %21, align 8, !tbaa !50
   %2586 = load ptr, ptr %20, align 8, !tbaa !50
@@ -5177,7 +5172,7 @@ stack_double.exit3052:                            ; preds = %2523, %2534
 
 2624:                                             ; preds = %2620, %2615
   %.sink5617 = phi i64 [ %2623, %2620 ], [ %2619, %2615 ]
-  %2625 = getelementptr i64, ptr %80, i64 %2583
+  %2625 = getelementptr [8 x i8], ptr %80, i64 %2583
   store i64 %.sink5617, ptr %2625, align 8, !tbaa !19
   %2626 = load ptr, ptr %22, align 8, !tbaa !50
   %2627 = ptrtoint ptr %2626 to i64
@@ -5247,7 +5242,7 @@ stack_double.exit3058:                            ; preds = %2643, %2654
   %2661 = sub i64 %2628, %2632
   %2662 = getelementptr i8, ptr %.052.i3055, i64 %2661
   store ptr %.052.i3055, ptr %20, align 8, !tbaa !50
-  %2663 = getelementptr %struct._OnigStackType, ptr %.052.i3055, i64 %.050.i3056
+  %2663 = getelementptr [48 x i8], ptr %.052.i3055, i64 %.050.i3056
   store ptr %2663, ptr %22, align 8, !tbaa !50
   br label %2673
 
@@ -5312,13 +5307,13 @@ stack_double.exit3058:                            ; preds = %2643, %2654
 
 2693:                                             ; preds = %2690
   %2694 = sext i16 %.02198 to i64
-  %2695 = getelementptr i64, ptr %83, i64 %2694
+  %2695 = getelementptr [8 x i8], ptr %83, i64 %2694
   %2696 = load i64, ptr %2695, align 8, !tbaa !19
   %2697 = icmp eq i64 %2696, -1
   br i1 %2697, label %is_mbc_newline_ex.exit.thread, label %2698
 
 2698:                                             ; preds = %2693
-  %2699 = getelementptr i64, ptr %80, i64 %2694
+  %2699 = getelementptr [8 x i8], ptr %80, i64 %2694
   %2700 = load i64, ptr %2699, align 8, !tbaa !19
   %2701 = icmp eq i64 %2700, -1
   br i1 %2701, label %is_mbc_newline_ex.exit.thread, label %2702
@@ -5341,7 +5336,7 @@ stack_double.exit3058:                            ; preds = %2643, %2654
 
 2710:                                             ; preds = %2708, %2705
   %2711 = load ptr, ptr %20, align 8, !tbaa !50
-  %2712 = getelementptr %struct._OnigStackType, ptr %2711, i64 %2700
+  %2712 = getelementptr [48 x i8], ptr %2711, i64 %2700
   %2713 = getelementptr inbounds nuw i8, ptr %2712, i64 24
   %2714 = load ptr, ptr %2713, align 8, !tbaa !57
   br label %2717
@@ -5368,7 +5363,7 @@ stack_double.exit3058:                            ; preds = %2643, %2654
 
 2724:                                             ; preds = %2722, %2719
   %2725 = load ptr, ptr %20, align 8, !tbaa !50
-  %2726 = getelementptr %struct._OnigStackType, ptr %2725, i64 %2696
+  %2726 = getelementptr [48 x i8], ptr %2725, i64 %2696
   %2727 = getelementptr inbounds nuw i8, ptr %2726, i64 24
   %2728 = load ptr, ptr %2727, align 8, !tbaa !57
   %2729 = ptrtoint ptr %2728 to i64
@@ -5439,13 +5434,13 @@ enclen_approx.exit3061:                           ; preds = %2749, %2751
 
 2764:                                             ; preds = %2759
   %2765 = sext i16 %2760 to i64
-  %2766 = getelementptr i64, ptr %83, i64 %2765
+  %2766 = getelementptr [8 x i8], ptr %83, i64 %2765
   %2767 = load i64, ptr %2766, align 8, !tbaa !19
   %2768 = icmp eq i64 %2767, -1
   br i1 %2768, label %is_mbc_newline_ex.exit.thread, label %2769
 
 2769:                                             ; preds = %2764
-  %2770 = getelementptr i64, ptr %80, i64 %2765
+  %2770 = getelementptr [8 x i8], ptr %80, i64 %2765
   %2771 = load i64, ptr %2770, align 8, !tbaa !19
   %2772 = icmp eq i64 %2771, -1
   br i1 %2772, label %is_mbc_newline_ex.exit.thread, label %2773
@@ -5468,7 +5463,7 @@ enclen_approx.exit3061:                           ; preds = %2749, %2751
 
 2781:                                             ; preds = %2779, %2776
   %2782 = load ptr, ptr %20, align 8, !tbaa !50
-  %2783 = getelementptr %struct._OnigStackType, ptr %2782, i64 %2771
+  %2783 = getelementptr [48 x i8], ptr %2782, i64 %2771
   %2784 = getelementptr inbounds nuw i8, ptr %2783, i64 24
   %2785 = load ptr, ptr %2784, align 8, !tbaa !57
   br label %2788
@@ -5495,7 +5490,7 @@ enclen_approx.exit3061:                           ; preds = %2749, %2751
 
 2795:                                             ; preds = %2793, %2790
   %2796 = load ptr, ptr %20, align 8, !tbaa !50
-  %2797 = getelementptr %struct._OnigStackType, ptr %2796, i64 %2767
+  %2797 = getelementptr [48 x i8], ptr %2796, i64 %2767
   %2798 = getelementptr inbounds nuw i8, ptr %2797, i64 24
   %2799 = load ptr, ptr %2798, align 8, !tbaa !57
   %2800 = ptrtoint ptr %2799 to i64
@@ -5625,13 +5620,13 @@ enclen_approx.exit3066:                           ; preds = %2831, %2833
   %2848 = load i16, ptr %.1222164035, align 2, !tbaa !86
   %2849 = getelementptr i8, ptr %.1222164035, i64 2
   %2850 = sext i16 %2848 to i64
-  %2851 = getelementptr i64, ptr %83, i64 %2850
+  %2851 = getelementptr [8 x i8], ptr %83, i64 %2850
   %2852 = load i64, ptr %2851, align 8, !tbaa !19
   %2853 = icmp eq i64 %2852, -1
   br i1 %2853, label %.loopexit3521, label %2854
 
 2854:                                             ; preds = %2847
-  %2855 = getelementptr i64, ptr %80, i64 %2850
+  %2855 = getelementptr [8 x i8], ptr %80, i64 %2850
   %2856 = load i64, ptr %2855, align 8, !tbaa !19
   %2857 = icmp eq i64 %2856, -1
   br i1 %2857, label %.loopexit3521, label %2858
@@ -5654,7 +5649,7 @@ enclen_approx.exit3066:                           ; preds = %2831, %2833
   br i1 %.not2662, label %2871, label %2867
 
 2867:                                             ; preds = %2865, %2862
-  %2868 = getelementptr %struct._OnigStackType, ptr %2845, i64 %2856
+  %2868 = getelementptr [48 x i8], ptr %2845, i64 %2856
   %2869 = getelementptr inbounds nuw i8, ptr %2868, i64 24
   %2870 = load ptr, ptr %2869, align 8, !tbaa !57
   br label %2873
@@ -5680,7 +5675,7 @@ enclen_approx.exit3066:                           ; preds = %2831, %2833
   br i1 %.not2664, label %2885, label %2880
 
 2880:                                             ; preds = %2878, %2875
-  %2881 = getelementptr %struct._OnigStackType, ptr %2845, i64 %2852
+  %2881 = getelementptr [48 x i8], ptr %2845, i64 %2852
   %2882 = getelementptr inbounds nuw i8, ptr %2881, i64 24
   %2883 = load ptr, ptr %2882, align 8, !tbaa !57
   %2884 = ptrtoint ptr %2883 to i64
@@ -5776,13 +5771,13 @@ enclen_approx.exit3069:                           ; preds = %2904, %2906
   %2926 = load i16, ptr %.1422184026, align 2, !tbaa !86
   %2927 = getelementptr i8, ptr %.1422184026, i64 2
   %2928 = sext i16 %2926 to i64
-  %2929 = getelementptr i64, ptr %83, i64 %2928
+  %2929 = getelementptr [8 x i8], ptr %83, i64 %2928
   %2930 = load i64, ptr %2929, align 8, !tbaa !19
   %2931 = icmp eq i64 %2930, -1
   br i1 %2931, label %3010, label %2932
 
 2932:                                             ; preds = %.lr.ph4031
-  %2933 = getelementptr i64, ptr %80, i64 %2928
+  %2933 = getelementptr [8 x i8], ptr %80, i64 %2928
   %2934 = load i64, ptr %2933, align 8, !tbaa !19
   %2935 = icmp eq i64 %2934, -1
   br i1 %2935, label %3010, label %2936
@@ -5806,7 +5801,7 @@ enclen_approx.exit3069:                           ; preds = %2904, %2906
 
 2945:                                             ; preds = %2943, %2940
   %2946 = load ptr, ptr %20, align 8, !tbaa !50
-  %2947 = getelementptr %struct._OnigStackType, ptr %2946, i64 %2934
+  %2947 = getelementptr [48 x i8], ptr %2946, i64 %2934
   %2948 = getelementptr inbounds nuw i8, ptr %2947, i64 24
   %2949 = load ptr, ptr %2948, align 8, !tbaa !57
   br label %2952
@@ -5833,7 +5828,7 @@ enclen_approx.exit3069:                           ; preds = %2904, %2906
 
 2959:                                             ; preds = %2957, %2954
   %2960 = load ptr, ptr %20, align 8, !tbaa !50
-  %2961 = getelementptr %struct._OnigStackType, ptr %2960, i64 %2930
+  %2961 = getelementptr [48 x i8], ptr %2960, i64 %2930
   %2962 = getelementptr inbounds nuw i8, ptr %2961, i64 24
   %2963 = load ptr, ptr %2962, align 8, !tbaa !57
   %2964 = ptrtoint ptr %2963 to i64
@@ -6223,7 +6218,7 @@ stack_double.exit3095:                            ; preds = %3116, %3127
   %3134 = sub i64 %3100, %3105
   %3135 = getelementptr i8, ptr %.052.i3092, i64 %3134
   store ptr %.052.i3092, ptr %20, align 8, !tbaa !50
-  %3136 = getelementptr %struct._OnigStackType, ptr %.052.i3092, i64 %.050.i3093
+  %3136 = getelementptr [48 x i8], ptr %.052.i3092, i64 %.050.i3093
   store ptr %3136, ptr %22, align 8, !tbaa !50
   %.pre4596 = ptrtoint ptr %3135 to i64
   br label %3146
@@ -6276,7 +6271,7 @@ stack_double.exit3095:                            ; preds = %3116, %3127
   %3162 = load ptr, ptr %21, align 8, !tbaa !50
   %3163 = getelementptr i8, ptr %3162, i64 -40
   %3164 = load i64, ptr %3163, align 8, !tbaa !56
-  %3165 = getelementptr %struct._OnigStackType, ptr %3161, i64 %3164
+  %3165 = getelementptr [48 x i8], ptr %3161, i64 %3164
   %3166 = getelementptr i8, ptr %3165, i64 48
   %3167 = sext i16 %3160 to i32
   br label %3168
@@ -6337,7 +6332,7 @@ stack_double.exit3095:                            ; preds = %3116, %3127
   %3193 = load ptr, ptr %21, align 8, !tbaa !50
   %3194 = getelementptr i8, ptr %3193, i64 -40
   %3195 = load i64, ptr %3194, align 8, !tbaa !56
-  %3196 = getelementptr %struct._OnigStackType, ptr %3192, i64 %3195
+  %3196 = getelementptr [48 x i8], ptr %3192, i64 %3195
   %3197 = getelementptr i8, ptr %3196, i64 48
   %3198 = sext i16 %3191 to i32
   br label %3199
@@ -6402,7 +6397,7 @@ stack_double.exit3095:                            ; preds = %3116, %3127
   br i1 %.not2575, label %3233, label %3229
 
 3229:                                             ; preds = %3227, %3224
-  %3230 = getelementptr %struct._OnigStackType, ptr %3192, i64 %3217
+  %3230 = getelementptr [48 x i8], ptr %3192, i64 %3217
   %3231 = getelementptr inbounds nuw i8, ptr %3230, i64 24
   %3232 = load ptr, ptr %3231, align 8, !tbaa !57
   br label %3235
@@ -6415,7 +6410,7 @@ stack_double.exit3095:                            ; preds = %3116, %3127
   %.02270 = phi ptr [ %3232, %3229 ], [ %3234, %3233 ]
   %3236 = getelementptr inbounds nuw i8, ptr %.122693995, i64 32
   %3237 = load i64, ptr %3236, align 8, !tbaa !57
-  %3238 = getelementptr %struct._OnigStackType, ptr %3192, i64 %3237
+  %3238 = getelementptr [48 x i8], ptr %3192, i64 %3237
   %3239 = getelementptr inbounds nuw i8, ptr %3238, i64 24
   %3240 = load ptr, ptr %3239, align 8, !tbaa !57
   %.not2577 = icmp eq ptr %3240, %.02270
@@ -6446,7 +6441,7 @@ stack_double.exit3095:                            ; preds = %3116, %3127
   %3250 = load ptr, ptr %21, align 8, !tbaa !50
   %3251 = getelementptr i8, ptr %3250, i64 -40
   %3252 = load i64, ptr %3251, align 8, !tbaa !56
-  %3253 = getelementptr %struct._OnigStackType, ptr %3249, i64 %3252
+  %3253 = getelementptr [48 x i8], ptr %3249, i64 %3252
   %3254 = getelementptr i8, ptr %3253, i64 48
   %3255 = sext i16 %3248 to i32
   br label %.outer6050
@@ -6522,7 +6517,7 @@ stack_double.exit3095:                            ; preds = %3116, %3127
   br i1 %.not2567, label %3291, label %3287
 
 3287:                                             ; preds = %3285, %3282
-  %3288 = getelementptr %struct._OnigStackType, ptr %3249, i64 %3275
+  %3288 = getelementptr [48 x i8], ptr %3249, i64 %3275
   %3289 = getelementptr inbounds nuw i8, ptr %3288, i64 24
   %3290 = load ptr, ptr %3289, align 8, !tbaa !57
   br label %3293
@@ -6535,7 +6530,7 @@ stack_double.exit3095:                            ; preds = %3116, %3127
   %.02278 = phi ptr [ %3290, %3287 ], [ %3292, %3291 ]
   %3294 = getelementptr inbounds nuw i8, ptr %.122773991, i64 32
   %3295 = load i64, ptr %3294, align 8, !tbaa !57
-  %3296 = getelementptr %struct._OnigStackType, ptr %3249, i64 %3295
+  %3296 = getelementptr [48 x i8], ptr %3249, i64 %3295
   %3297 = getelementptr inbounds nuw i8, ptr %3296, i64 24
   %3298 = load ptr, ptr %3297, align 8, !tbaa !57
   %.not2569 = icmp eq ptr %3298, %.02278
@@ -6641,7 +6636,7 @@ stack_double.exit3101:                            ; preds = %3328, %3339
   %3346 = sub i64 %3313, %3317
   %3347 = getelementptr i8, ptr %.052.i3098, i64 %3346
   store ptr %.052.i3098, ptr %20, align 8, !tbaa !50
-  %3348 = getelementptr %struct._OnigStackType, ptr %.052.i3098, i64 %.050.i3099
+  %3348 = getelementptr [48 x i8], ptr %.052.i3098, i64 %.050.i3099
   store ptr %3348, ptr %22, align 8, !tbaa !50
   %.pre4598 = ptrtoint ptr %3347 to i64
   br label %3358
@@ -6975,7 +6970,7 @@ stack_double.exit3115:                            ; preds = %3508, %3519
   %3526 = sub i64 %3492, %3497
   %3527 = getelementptr i8, ptr %.052.i3112, i64 %3526
   store ptr %.052.i3112, ptr %20, align 8, !tbaa !50
-  %3528 = getelementptr %struct._OnigStackType, ptr %.052.i3112, i64 %.050.i3113
+  %3528 = getelementptr [48 x i8], ptr %.052.i3112, i64 %.050.i3113
   store ptr %3528, ptr %22, align 8, !tbaa !50
   br label %3538
 
@@ -7317,7 +7312,7 @@ stack_double.exit3129:                            ; preds = %3696, %3707
   %3714 = sub i64 %3680, %3685
   %3715 = getelementptr i8, ptr %.052.i3126, i64 %3714
   store ptr %.052.i3126, ptr %20, align 8, !tbaa !50
-  %3716 = getelementptr %struct._OnigStackType, ptr %.052.i3126, i64 %.050.i3127
+  %3716 = getelementptr [48 x i8], ptr %.052.i3126, i64 %.050.i3127
   store ptr %3716, ptr %22, align 8, !tbaa !50
   br label %3726
 
@@ -7400,7 +7395,7 @@ stack_double.exit3129:                            ; preds = %3696, %3707
   %3762 = sub i64 %3757, %3761
   %3763 = sdiv exact i64 %3762, 48
   %3764 = sext i16 %3750 to i64
-  %3765 = getelementptr i64, ptr %.02226, i64 %3764
+  %3765 = getelementptr [8 x i8], ptr %.02226, i64 %3764
   store i64 %3763, ptr %3765, align 8, !tbaa !19
   br label %3855
 
@@ -7497,7 +7492,7 @@ stack_double.exit3129:                            ; preds = %3696, %3707
   %3811 = sub i64 %.pre4584, %3810
   %3812 = sdiv exact i64 %3811, 48
   %3813 = sext i16 %3750 to i64
-  %3814 = getelementptr i64, ptr %.02226, i64 %3813
+  %3814 = getelementptr [8 x i8], ptr %.02226, i64 %3813
   store i64 %3812, ptr %3814, align 8, !tbaa !19
   br i1 %3808, label %3815, label %3855
 
@@ -7561,7 +7556,7 @@ stack_double.exit3141:                            ; preds = %3826, %3837
   %.050.i3139 = phi i64 [ %3827, %3826 ], [ %.151.i3137, %3837 ]
   %3844 = getelementptr i8, ptr %.052.i3138, i64 %3811
   store ptr %.052.i3138, ptr %20, align 8, !tbaa !50
-  %3845 = getelementptr %struct._OnigStackType, ptr %.052.i3138, i64 %.050.i3139
+  %3845 = getelementptr [48 x i8], ptr %.052.i3138, i64 %.050.i3139
   store ptr %3845, ptr %22, align 8, !tbaa !50
   br label %3855
 
@@ -7613,7 +7608,7 @@ stack_double.exit3141:                            ; preds = %3826, %3837
   %3870 = getelementptr i8, ptr %3858, i64 48
   store ptr %3870, ptr %21, align 8, !tbaa !50
   %3871 = load ptr, ptr %106, align 8, !tbaa !106
-  %3872 = getelementptr %struct.OnigRepeatRange, ptr %3871, i64 %3856
+  %3872 = getelementptr [8 x i8], ptr %3871, i64 %3856
   %3873 = load i32, ptr %3872, align 4, !tbaa !107
   %3874 = icmp eq i32 %3873, 0
   br i1 %3874, label %3875, label %4046
@@ -7887,7 +7882,7 @@ stack_double.exit3155:                            ; preds = %3998, %4009
   %4016 = sub i64 %3983, %3987
   %4017 = getelementptr i8, ptr %.052.i3152, i64 %4016
   store ptr %.052.i3152, ptr %20, align 8, !tbaa !50
-  %4018 = getelementptr %struct._OnigStackType, ptr %.052.i3152, i64 %.050.i3153
+  %4018 = getelementptr [48 x i8], ptr %.052.i3152, i64 %.050.i3153
   store ptr %4018, ptr %22, align 8, !tbaa !50
   br label %4028
 
@@ -7966,7 +7961,7 @@ stack_double.exit3155:                            ; preds = %3998, %4009
   %4061 = sub i64 %4056, %4060
   %4062 = sdiv exact i64 %4061, 48
   %4063 = sext i16 %4049 to i64
-  %4064 = getelementptr i64, ptr %.02226, i64 %4063
+  %4064 = getelementptr [8 x i8], ptr %.02226, i64 %4063
   store i64 %4062, ptr %4064, align 8, !tbaa !19
   br label %4154
 
@@ -8063,7 +8058,7 @@ stack_double.exit3155:                            ; preds = %3998, %4009
   %4110 = sub i64 %.pre4590, %4109
   %4111 = sdiv exact i64 %4110, 48
   %4112 = sext i16 %4049 to i64
-  %4113 = getelementptr i64, ptr %.02226, i64 %4112
+  %4113 = getelementptr [8 x i8], ptr %.02226, i64 %4112
   store i64 %4111, ptr %4113, align 8, !tbaa !19
   br i1 %4107, label %4114, label %4154
 
@@ -8127,7 +8122,7 @@ stack_double.exit3167:                            ; preds = %4125, %4136
   %.050.i3165 = phi i64 [ %4126, %4125 ], [ %.151.i3163, %4136 ]
   %4143 = getelementptr i8, ptr %.052.i3164, i64 %4110
   store ptr %.052.i3164, ptr %20, align 8, !tbaa !50
-  %4144 = getelementptr %struct._OnigStackType, ptr %.052.i3164, i64 %.050.i3165
+  %4144 = getelementptr [48 x i8], ptr %.052.i3164, i64 %.050.i3165
   store ptr %4144, ptr %22, align 8, !tbaa !50
   br label %4154
 
@@ -8179,7 +8174,7 @@ stack_double.exit3167:                            ; preds = %4125, %4136
   %4169 = getelementptr i8, ptr %4157, i64 48
   store ptr %4169, ptr %21, align 8, !tbaa !50
   %4170 = load ptr, ptr %106, align 8, !tbaa !106
-  %4171 = getelementptr %struct.OnigRepeatRange, ptr %4170, i64 %4155
+  %4171 = getelementptr [8 x i8], ptr %4170, i64 %4155
   %4172 = load i32, ptr %4171, align 4, !tbaa !107
   %4173 = icmp eq i32 %4172, 0
   br i1 %4173, label %4174, label %4345
@@ -8453,7 +8448,7 @@ stack_double.exit3181:                            ; preds = %4297, %4308
   %4315 = sub i64 %4282, %4286
   %4316 = getelementptr i8, ptr %.052.i3178, i64 %4315
   store ptr %.052.i3178, ptr %20, align 8, !tbaa !50
-  %4317 = getelementptr %struct._OnigStackType, ptr %.052.i3178, i64 %.050.i3179
+  %4317 = getelementptr [48 x i8], ptr %.052.i3178, i64 %.050.i3179
   store ptr %4317, ptr %22, align 8, !tbaa !50
   br label %4327
 
@@ -8517,10 +8512,10 @@ stack_double.exit3181:                            ; preds = %4297, %4308
 4347:                                             ; preds = %.backedge
   %4348 = load i16, ptr %.02204, align 2, !tbaa !86
   %4349 = sext i16 %4348 to i64
-  %4350 = getelementptr i64, ptr %.02226, i64 %4349
+  %4350 = getelementptr [8 x i8], ptr %.02226, i64 %4349
   %4351 = load i64, ptr %4350, align 8, !tbaa !19
   %4352 = load ptr, ptr %20, align 8, !tbaa !50
-  %4353 = getelementptr %struct._OnigStackType, ptr %4352, i64 %4351
+  %4353 = getelementptr [48 x i8], ptr %4352, i64 %4351
   br label %4354
 
 4354:                                             ; preds = %4633, %4347
@@ -8534,7 +8529,7 @@ stack_double.exit3181:                            ; preds = %4297, %4308
   %4358 = add i32 %4357, 1
   store i32 %4358, ptr %4356, align 8, !tbaa !57
   %4359 = load ptr, ptr %106, align 8, !tbaa !106
-  %4360 = getelementptr %struct.OnigRepeatRange, ptr %4359, i64 %.pre-phi4522
+  %4360 = getelementptr [8 x i8], ptr %4359, i64 %.pre-phi4522
   %4361 = getelementptr inbounds nuw i8, ptr %4360, i64 4
   %4362 = load i32, ptr %4361, align 4, !tbaa !109
   %.not2596 = icmp slt i32 %4358, %4362
@@ -8825,7 +8820,7 @@ stack_double.exit3195:                            ; preds = %4497, %4508
   %4515 = sub i64 %4482, %4486
   %4516 = getelementptr i8, ptr %.052.i3192, i64 %4515
   store ptr %.052.i3192, ptr %20, align 8, !tbaa !50
-  %4517 = getelementptr %struct._OnigStackType, ptr %.052.i3192, i64 %.050.i3193
+  %4517 = getelementptr [48 x i8], ptr %.052.i3192, i64 %.050.i3193
   store ptr %4517, ptr %22, align 8, !tbaa !50
   br label %4527
 
@@ -8877,7 +8872,7 @@ stack_double.exit3195:                            ; preds = %4497, %4508
   store ptr %.02225, ptr %4541, align 8, !tbaa !57
   %4542 = getelementptr i8, ptr %4529, i64 48
   store ptr %4542, ptr %21, align 8, !tbaa !50
-  %4543 = getelementptr %struct._OnigStackType, ptr %4528, i64 %.02239
+  %4543 = getelementptr [48 x i8], ptr %4528, i64 %.02239
   br label %.sink.split
 
 .sink.split:                                      ; preds = %4363, %4534
@@ -8959,7 +8954,7 @@ stack_double.exit3201:                            ; preds = %4566, %4577
   %4584 = sub i64 %4551, %4555
   %4585 = getelementptr i8, ptr %.052.i3198, i64 %4584
   store ptr %.052.i3198, ptr %20, align 8, !tbaa !50
-  %4586 = getelementptr %struct._OnigStackType, ptr %.052.i3198, i64 %.050.i3199
+  %4586 = getelementptr [48 x i8], ptr %.052.i3198, i64 %.050.i3199
   store ptr %4586, ptr %22, align 8, !tbaa !50
   br label %4596
 
@@ -9081,10 +9076,10 @@ stack_double.exit3201:                            ; preds = %4566, %4577
 4639:                                             ; preds = %.backedge
   %4640 = load i16, ptr %.02204, align 2, !tbaa !86
   %4641 = sext i16 %4640 to i64
-  %4642 = getelementptr i64, ptr %.02226, i64 %4641
+  %4642 = getelementptr [8 x i8], ptr %.02226, i64 %4641
   %4643 = load i64, ptr %4642, align 8, !tbaa !19
   %4644 = load ptr, ptr %20, align 8, !tbaa !50
-  %4645 = getelementptr %struct._OnigStackType, ptr %4644, i64 %4643
+  %4645 = getelementptr [48 x i8], ptr %4644, i64 %4643
   br label %4646
 
 4646:                                             ; preds = %5034, %4639
@@ -9098,7 +9093,7 @@ stack_double.exit3201:                            ; preds = %4566, %4577
   %4650 = add i32 %4649, 1
   store i32 %4650, ptr %4648, align 8, !tbaa !57
   %4651 = load ptr, ptr %106, align 8, !tbaa !106
-  %4652 = getelementptr %struct.OnigRepeatRange, ptr %4651, i64 %.pre-phi
+  %4652 = getelementptr [8 x i8], ptr %4651, i64 %.pre-phi
   %4653 = getelementptr inbounds nuw i8, ptr %4652, i64 4
   %4654 = load i32, ptr %4653, align 4, !tbaa !109
   %4655 = icmp slt i32 %4650, %4654
@@ -9181,7 +9176,7 @@ stack_double.exit3207:                            ; preds = %4679, %4690
   %4697 = sub i64 %4663, %4668
   %4698 = getelementptr i8, ptr %.052.i3204, i64 %4697
   store ptr %.052.i3204, ptr %20, align 8, !tbaa !50
-  %4699 = getelementptr %struct._OnigStackType, ptr %.052.i3204, i64 %.050.i3205
+  %4699 = getelementptr [48 x i8], ptr %.052.i3204, i64 %.050.i3205
   store ptr %4699, ptr %22, align 8, !tbaa !50
   br label %4709
 
@@ -9499,7 +9494,7 @@ stack_double.exit3221:                            ; preds = %4846, %4857
   %4864 = sub i64 %4831, %4835
   %4865 = getelementptr i8, ptr %.052.i3218, i64 %4864
   store ptr %.052.i3218, ptr %20, align 8, !tbaa !50
-  %4866 = getelementptr %struct._OnigStackType, ptr %.052.i3218, i64 %.050.i3219
+  %4866 = getelementptr [48 x i8], ptr %.052.i3218, i64 %.050.i3219
   store ptr %4866, ptr %22, align 8, !tbaa !50
   br label %4876
 
@@ -9615,7 +9610,7 @@ stack_double.exit3227:                            ; preds = %4904, %4915
   %4922 = sub i64 %4663, %4893
   %4923 = getelementptr i8, ptr %.052.i3224, i64 %4922
   store ptr %.052.i3224, ptr %20, align 8, !tbaa !50
-  %4924 = getelementptr %struct._OnigStackType, ptr %.052.i3224, i64 %.050.i3225
+  %4924 = getelementptr [48 x i8], ptr %.052.i3224, i64 %.050.i3225
   store ptr %4924, ptr %22, align 8, !tbaa !50
   br label %4934
 
@@ -9734,7 +9729,7 @@ stack_double.exit3233:                            ; preds = %4966, %4977
   %4984 = sub i64 %4951, %4955
   %4985 = getelementptr i8, ptr %.052.i3230, i64 %4984
   store ptr %.052.i3230, ptr %20, align 8, !tbaa !50
-  %4986 = getelementptr %struct._OnigStackType, ptr %.052.i3230, i64 %.050.i3231
+  %4986 = getelementptr [48 x i8], ptr %.052.i3230, i64 %.050.i3231
   store ptr %4986, ptr %22, align 8, !tbaa !50
   br label %4996
 
@@ -9933,7 +9928,7 @@ stack_double.exit3239:                            ; preds = %5060, %5071
   %5078 = sub i64 %5044, %5049
   %5079 = getelementptr i8, ptr %.052.i3236, i64 %5078
   store ptr %.052.i3236, ptr %20, align 8, !tbaa !50
-  %5080 = getelementptr %struct._OnigStackType, ptr %.052.i3236, i64 %.050.i3237
+  %5080 = getelementptr [48 x i8], ptr %.052.i3236, i64 %.050.i3237
   store ptr %5080, ptr %22, align 8, !tbaa !50
   br label %5090
 
@@ -10126,7 +10121,7 @@ stack_double.exit3247:                            ; preds = %5159, %5170
   %5177 = sub i64 %5143, %5148
   %5178 = getelementptr i8, ptr %.052.i3244, i64 %5177
   store ptr %.052.i3244, ptr %20, align 8, !tbaa !50
-  %5179 = getelementptr %struct._OnigStackType, ptr %.052.i3244, i64 %.050.i3245
+  %5179 = getelementptr [48 x i8], ptr %.052.i3244, i64 %.050.i3245
   store ptr %5179, ptr %22, align 8, !tbaa !50
   br label %5189
 
@@ -10201,14 +10196,14 @@ memoize_extended_match_cache_point.exit3249:      ; preds = %5250, %5263, %5267,
   %5214 = load i64, ptr %5213, align 8, !tbaa !57
   %5215 = load i32, ptr %5212, align 8, !tbaa !57
   %5216 = sext i32 %5215 to i64
-  %5217 = getelementptr i64, ptr %80, i64 %5216
+  %5217 = getelementptr [8 x i8], ptr %80, i64 %5216
   store i64 %5214, ptr %5217, align 8, !tbaa !19
   %5218 = getelementptr i8, ptr %5208, i64 -32
   %5219 = getelementptr i8, ptr %5208, i64 -8
   %5220 = load i64, ptr %5219, align 8, !tbaa !57
   %5221 = load i32, ptr %5218, align 8, !tbaa !57
   %5222 = sext i32 %5221 to i64
-  %5223 = getelementptr i64, ptr %83, i64 %5222
+  %5223 = getelementptr [8 x i8], ptr %83, i64 %5222
   store i64 %5220, ptr %5223, align 8, !tbaa !19
   br label %memoize_extended_match_cache_point.exit3249
 
@@ -10216,7 +10211,7 @@ memoize_extended_match_cache_point.exit3249:      ; preds = %5250, %5263, %5267,
   %5225 = load ptr, ptr %20, align 8, !tbaa !50
   %5226 = getelementptr i8, ptr %5208, i64 -32
   %5227 = load i64, ptr %5226, align 8, !tbaa !57
-  %5228 = getelementptr %struct._OnigStackType, ptr %5225, i64 %5227
+  %5228 = getelementptr [48 x i8], ptr %5225, i64 %5227
   %5229 = getelementptr inbounds nuw i8, ptr %5228, i64 16
   %5230 = load i32, ptr %5229, align 8, !tbaa !57
   %5231 = add i32 %5230, -1
@@ -10231,14 +10226,14 @@ memoize_extended_match_cache_point.exit3249:      ; preds = %5250, %5263, %5267,
   %5235 = load i64, ptr %5234, align 8, !tbaa !57
   %5236 = load i32, ptr %5233, align 8, !tbaa !57
   %5237 = sext i32 %5236 to i64
-  %5238 = getelementptr i64, ptr %80, i64 %5237
+  %5238 = getelementptr [8 x i8], ptr %80, i64 %5237
   store i64 %5235, ptr %5238, align 8, !tbaa !19
   %5239 = getelementptr i8, ptr %5208, i64 -32
   %5240 = getelementptr i8, ptr %5208, i64 -8
   %5241 = load i64, ptr %5240, align 8, !tbaa !57
   %5242 = load i32, ptr %5239, align 8, !tbaa !57
   %5243 = sext i32 %5242 to i64
-  %5244 = getelementptr i64, ptr %83, i64 %5243
+  %5244 = getelementptr [8 x i8], ptr %83, i64 %5243
   store i64 %5241, ptr %5244, align 8, !tbaa !19
   br label %memoize_extended_match_cache_point.exit3249
 
@@ -10357,7 +10352,7 @@ stack_double.exit3255:                            ; preds = %5290, %5301
   %5308 = sub i64 %5274, %5279
   %5309 = getelementptr i8, ptr %.052.i3252, i64 %5308
   store ptr %.052.i3252, ptr %20, align 8, !tbaa !50
-  %5310 = getelementptr %struct._OnigStackType, ptr %.052.i3252, i64 %.050.i3253
+  %5310 = getelementptr [48 x i8], ptr %.052.i3252, i64 %.050.i3253
   store ptr %5310, ptr %22, align 8, !tbaa !50
   br label %5320
 
@@ -10540,7 +10535,7 @@ stack_double.exit3261:                            ; preds = %5383, %5394
   %5401 = sub i64 %5368, %5372
   %5402 = getelementptr i8, ptr %.052.i3258, i64 %5401
   store ptr %.052.i3258, ptr %20, align 8, !tbaa !50
-  %5403 = getelementptr %struct._OnigStackType, ptr %.052.i3258, i64 %.050.i3259
+  %5403 = getelementptr [48 x i8], ptr %.052.i3258, i64 %.050.i3259
   store ptr %5403, ptr %22, align 8, !tbaa !50
   br label %5413
 
@@ -10622,14 +10617,14 @@ stack_double.exit3261:                            ; preds = %5383, %5394
   %5441 = load i64, ptr %5440, align 8, !tbaa !57
   %5442 = load i32, ptr %5439, align 8, !tbaa !57
   %5443 = sext i32 %5442 to i64
-  %5444 = getelementptr i64, ptr %80, i64 %5443
+  %5444 = getelementptr [8 x i8], ptr %80, i64 %5443
   store i64 %5441, ptr %5444, align 8, !tbaa !19
   %5445 = getelementptr i8, ptr %5435, i64 -32
   %5446 = getelementptr i8, ptr %5435, i64 -8
   %5447 = load i64, ptr %5446, align 8, !tbaa !57
   %5448 = load i32, ptr %5445, align 8, !tbaa !57
   %5449 = sext i32 %5448 to i64
-  %5450 = getelementptr i64, ptr %83, i64 %5449
+  %5450 = getelementptr [8 x i8], ptr %83, i64 %5449
   store i64 %5447, ptr %5450, align 8, !tbaa !19
   br label %5434
 
@@ -10637,7 +10632,7 @@ stack_double.exit3261:                            ; preds = %5383, %5394
   %5452 = load ptr, ptr %20, align 8, !tbaa !50
   %5453 = getelementptr i8, ptr %5435, i64 -32
   %5454 = load i64, ptr %5453, align 8, !tbaa !57
-  %5455 = getelementptr %struct._OnigStackType, ptr %5452, i64 %5454
+  %5455 = getelementptr [48 x i8], ptr %5452, i64 %5454
   %5456 = getelementptr inbounds nuw i8, ptr %5455, i64 16
   %5457 = load i32, ptr %5456, align 8, !tbaa !57
   %5458 = add i32 %5457, -1
@@ -10650,14 +10645,14 @@ stack_double.exit3261:                            ; preds = %5383, %5394
   %5462 = load i64, ptr %5461, align 8, !tbaa !57
   %5463 = load i32, ptr %5460, align 8, !tbaa !57
   %5464 = sext i32 %5463 to i64
-  %5465 = getelementptr i64, ptr %80, i64 %5464
+  %5465 = getelementptr [8 x i8], ptr %80, i64 %5464
   store i64 %5462, ptr %5465, align 8, !tbaa !19
   %5466 = getelementptr i8, ptr %5435, i64 -32
   %5467 = getelementptr i8, ptr %5435, i64 -8
   %5468 = load i64, ptr %5467, align 8, !tbaa !57
   %5469 = load i32, ptr %5466, align 8, !tbaa !57
   %5470 = sext i32 %5469 to i64
-  %5471 = getelementptr i64, ptr %83, i64 %5470
+  %5471 = getelementptr [8 x i8], ptr %83, i64 %5470
   store i64 %5468, ptr %5471, align 8, !tbaa !19
   br label %5434
 
@@ -10732,7 +10727,7 @@ stack_double.exit3267:                            ; preds = %5492, %5503
   %5510 = sub i64 %5476, %5481
   %5511 = getelementptr i8, ptr %.052.i3264, i64 %5510
   store ptr %.052.i3264, ptr %20, align 8, !tbaa !50
-  %5512 = getelementptr %struct._OnigStackType, ptr %.052.i3264, i64 %.050.i3265
+  %5512 = getelementptr [48 x i8], ptr %.052.i3264, i64 %.050.i3265
   store ptr %5512, ptr %22, align 8, !tbaa !50
   br label %5522
 
@@ -10891,14 +10886,14 @@ memoize_extended_match_cache_point.exit3269:      ; preds = %5578, %5574, %.lr.p
   %5590 = load i64, ptr %5589, align 8, !tbaa !57
   %5591 = load i32, ptr %5588, align 8, !tbaa !57
   %5592 = sext i32 %5591 to i64
-  %5593 = getelementptr i64, ptr %80, i64 %5592
+  %5593 = getelementptr [8 x i8], ptr %80, i64 %5592
   store i64 %5590, ptr %5593, align 8, !tbaa !19
   %5594 = getelementptr inbounds nuw i8, ptr %5585, i64 16
   %5595 = getelementptr inbounds nuw i8, ptr %5585, i64 40
   %5596 = load i64, ptr %5595, align 8, !tbaa !57
   %5597 = load i32, ptr %5594, align 8, !tbaa !57
   %5598 = sext i32 %5597 to i64
-  %5599 = getelementptr i64, ptr %83, i64 %5598
+  %5599 = getelementptr [8 x i8], ptr %83, i64 %5598
   store i64 %5596, ptr %5599, align 8, !tbaa !19
   br label %memoize_extended_match_cache_point.exit3271
 
@@ -10965,14 +10960,14 @@ memoize_extended_match_cache_point.exit3271:      ; preds = %.lr.ph3986, %.threa
   %5635 = load i64, ptr %5634, align 8, !tbaa !57
   %5636 = load i32, ptr %5633, align 8, !tbaa !57
   %5637 = sext i32 %5636 to i64
-  %5638 = getelementptr i64, ptr %80, i64 %5637
+  %5638 = getelementptr [8 x i8], ptr %80, i64 %5637
   store i64 %5635, ptr %5638, align 8, !tbaa !19
   %5639 = getelementptr inbounds nuw i8, ptr %5629, i64 16
   %5640 = getelementptr inbounds nuw i8, ptr %5629, i64 40
   %5641 = load i64, ptr %5640, align 8, !tbaa !57
   %5642 = load i32, ptr %5639, align 8, !tbaa !57
   %5643 = sext i32 %5642 to i64
-  %5644 = getelementptr i64, ptr %83, i64 %5643
+  %5644 = getelementptr [8 x i8], ptr %83, i64 %5643
   store i64 %5641, ptr %5644, align 8, !tbaa !19
   br label %memoize_extended_match_cache_point.exit3273
 
@@ -10980,7 +10975,7 @@ memoize_extended_match_cache_point.exit3271:      ; preds = %.lr.ph3986, %.threa
   %5646 = load ptr, ptr %20, align 8, !tbaa !50
   %5647 = getelementptr i8, ptr %5631, i64 -32
   %5648 = load i64, ptr %5647, align 8, !tbaa !57
-  %5649 = getelementptr %struct._OnigStackType, ptr %5646, i64 %5648
+  %5649 = getelementptr [48 x i8], ptr %5646, i64 %5648
   %5650 = getelementptr inbounds nuw i8, ptr %5649, i64 16
   %5651 = load i32, ptr %5650, align 8, !tbaa !57
   %5652 = add i32 %5651, -1
@@ -10995,14 +10990,14 @@ memoize_extended_match_cache_point.exit3271:      ; preds = %.lr.ph3986, %.threa
   %5656 = load i64, ptr %5655, align 8, !tbaa !57
   %5657 = load i32, ptr %5654, align 8, !tbaa !57
   %5658 = sext i32 %5657 to i64
-  %5659 = getelementptr i64, ptr %80, i64 %5658
+  %5659 = getelementptr [8 x i8], ptr %80, i64 %5658
   store i64 %5656, ptr %5659, align 8, !tbaa !19
   %5660 = getelementptr inbounds nuw i8, ptr %5629, i64 16
   %5661 = getelementptr inbounds nuw i8, ptr %5629, i64 40
   %5662 = load i64, ptr %5661, align 8, !tbaa !57
   %5663 = load i32, ptr %5660, align 8, !tbaa !57
   %5664 = sext i32 %5663 to i64
-  %5665 = getelementptr i64, ptr %83, i64 %5664
+  %5665 = getelementptr [8 x i8], ptr %83, i64 %5664
   store i64 %5662, ptr %5665, align 8, !tbaa !19
   br label %memoize_extended_match_cache_point.exit3273
 
@@ -11156,7 +11151,7 @@ stack_double.exit3279:                            ; preds = %5729, %5740
   %5747 = sub i64 %5713, %5718
   %5748 = getelementptr i8, ptr %.052.i3276, i64 %5747
   store ptr %.052.i3276, ptr %20, align 8, !tbaa !50
-  %5749 = getelementptr %struct._OnigStackType, ptr %.052.i3276, i64 %.050.i3277
+  %5749 = getelementptr [48 x i8], ptr %.052.i3276, i64 %.050.i3277
   store ptr %5749, ptr %22, align 8, !tbaa !50
   br label %5759
 
@@ -11301,7 +11296,7 @@ stack_double.exit3285:                            ; preds = %5806, %5817
   %5824 = sub i64 %5791, %5795
   %5825 = getelementptr i8, ptr %.052.i3282, i64 %5824
   store ptr %.052.i3282, ptr %20, align 8, !tbaa !50
-  %5826 = getelementptr %struct._OnigStackType, ptr %.052.i3282, i64 %.050.i3283
+  %5826 = getelementptr [48 x i8], ptr %.052.i3282, i64 %.050.i3283
   store ptr %5826, ptr %22, align 8, !tbaa !50
   br label %5836
 
@@ -11416,7 +11411,7 @@ stack_double.exit3291:                            ; preds = %5866, %5877
   %5884 = sub i64 %5851, %5855
   %5885 = getelementptr i8, ptr %.052.i3288, i64 %5884
   store ptr %.052.i3288, ptr %20, align 8, !tbaa !50
-  %5886 = getelementptr %struct._OnigStackType, ptr %.052.i3288, i64 %.050.i3289
+  %5886 = getelementptr [48 x i8], ptr %.052.i3288, i64 %.050.i3289
   store ptr %5886, ptr %22, align 8, !tbaa !50
   br label %5896
 
@@ -11537,7 +11532,7 @@ stack_double.exit3297:                            ; preds = %5930, %5941
   %5948 = sub i64 %5915, %5919
   %5949 = getelementptr i8, ptr %.052.i3294, i64 %5948
   store ptr %.052.i3294, ptr %20, align 8, !tbaa !50
-  %5950 = getelementptr %struct._OnigStackType, ptr %.052.i3294, i64 %.050.i3295
+  %5950 = getelementptr [48 x i8], ptr %.052.i3294, i64 %.050.i3295
   store ptr %5950, ptr %22, align 8, !tbaa !50
   br label %5960
 
@@ -11606,14 +11601,14 @@ stack_double.exit3297:                            ; preds = %5930, %5941
   %5980 = load i64, ptr %5979, align 8, !tbaa !57
   %5981 = load i32, ptr %5978, align 8, !tbaa !57
   %5982 = sext i32 %5981 to i64
-  %5983 = getelementptr i64, ptr %80, i64 %5982
+  %5983 = getelementptr [8 x i8], ptr %80, i64 %5982
   store i64 %5980, ptr %5983, align 8, !tbaa !19
   %5984 = getelementptr i8, ptr %5974, i64 -32
   %5985 = getelementptr i8, ptr %5974, i64 -8
   %5986 = load i64, ptr %5985, align 8, !tbaa !57
   %5987 = load i32, ptr %5984, align 8, !tbaa !57
   %5988 = sext i32 %5987 to i64
-  %5989 = getelementptr i64, ptr %83, i64 %5988
+  %5989 = getelementptr [8 x i8], ptr %83, i64 %5988
   store i64 %5986, ptr %5989, align 8, !tbaa !19
   br label %5973
 
@@ -11621,7 +11616,7 @@ stack_double.exit3297:                            ; preds = %5930, %5941
   %5991 = load ptr, ptr %20, align 8, !tbaa !50
   %5992 = getelementptr i8, ptr %5974, i64 -32
   %5993 = load i64, ptr %5992, align 8, !tbaa !57
-  %5994 = getelementptr %struct._OnigStackType, ptr %5991, i64 %5993
+  %5994 = getelementptr [48 x i8], ptr %5991, i64 %5993
   %5995 = getelementptr inbounds nuw i8, ptr %5994, i64 16
   %5996 = load i32, ptr %5995, align 8, !tbaa !57
   %5997 = add i32 %5996, -1
@@ -11634,14 +11629,14 @@ stack_double.exit3297:                            ; preds = %5930, %5941
   %6001 = load i64, ptr %6000, align 8, !tbaa !57
   %6002 = load i32, ptr %5999, align 8, !tbaa !57
   %6003 = sext i32 %6002 to i64
-  %6004 = getelementptr i64, ptr %80, i64 %6003
+  %6004 = getelementptr [8 x i8], ptr %80, i64 %6003
   store i64 %6001, ptr %6004, align 8, !tbaa !19
   %6005 = getelementptr i8, ptr %5974, i64 -32
   %6006 = getelementptr i8, ptr %5974, i64 -8
   %6007 = load i64, ptr %6006, align 8, !tbaa !57
   %6008 = load i32, ptr %6005, align 8, !tbaa !57
   %6009 = sext i32 %6008 to i64
-  %6010 = getelementptr i64, ptr %83, i64 %6009
+  %6010 = getelementptr [8 x i8], ptr %83, i64 %6009
   store i64 %6007, ptr %6010, align 8, !tbaa !19
   br label %5973
 
@@ -11718,7 +11713,7 @@ stack_double.exit3303:                            ; preds = %6033, %6044
   %6051 = sub i64 %6017, %6022
   %6052 = getelementptr i8, ptr %.052.i3300, i64 %6051
   store ptr %.052.i3300, ptr %20, align 8, !tbaa !50
-  %6053 = getelementptr %struct._OnigStackType, ptr %.052.i3300, i64 %.050.i3301
+  %6053 = getelementptr [48 x i8], ptr %.052.i3300, i64 %.050.i3301
   store ptr %6053, ptr %22, align 8, !tbaa !50
   br label %6063
 
@@ -11875,7 +11870,7 @@ stack_double.exit3309:                            ; preds = %6111, %6122
   %6129 = sub i64 %6091, %6100
   %6130 = getelementptr i8, ptr %.052.i3306, i64 %6129
   store ptr %.052.i3306, ptr %20, align 8, !tbaa !50
-  %6131 = getelementptr %struct._OnigStackType, ptr %.052.i3306, i64 %.050.i3307
+  %6131 = getelementptr [48 x i8], ptr %.052.i3306, i64 %.050.i3307
   store ptr %6131, ptr %22, align 8, !tbaa !50
   br label %6141
 
@@ -11932,13 +11927,13 @@ stack_double.exit3309:                            ; preds = %6111, %6122
 
 6160:                                             ; preds = %6153
   %6161 = sext i16 %6154 to i64
-  %6162 = getelementptr i64, ptr %83, i64 %6161
+  %6162 = getelementptr [8 x i8], ptr %83, i64 %6161
   %6163 = load i64, ptr %6162, align 8, !tbaa !19
   %6164 = icmp eq i64 %6163, -1
   br i1 %6164, label %6169, label %6165
 
 6165:                                             ; preds = %6160
-  %6166 = getelementptr i64, ptr %80, i64 %6161
+  %6166 = getelementptr [8 x i8], ptr %80, i64 %6161
   %6167 = load i64, ptr %6166, align 8, !tbaa !19
   %6168 = icmp eq i64 %6167, -1
   br i1 %6168, label %6169, label %6172
@@ -12067,13 +12062,13 @@ memoize_extended_match_cache_point.exit3311:      ; preds = %6211, %6207, %.lr.p
   %6222 = load i64, ptr %6221, align 8, !tbaa !57
   %6223 = load i32, ptr %6220, align 8, !tbaa !57
   %6224 = sext i32 %6223 to i64
-  %6225 = getelementptr i64, ptr %80, i64 %6224
+  %6225 = getelementptr [8 x i8], ptr %80, i64 %6224
   store i64 %6222, ptr %6225, align 8, !tbaa !19
   %6226 = getelementptr i8, ptr %6219, i64 -8
   %6227 = load i64, ptr %6226, align 8, !tbaa !57
   %6228 = load i32, ptr %6220, align 8, !tbaa !57
   %6229 = sext i32 %6228 to i64
-  %6230 = getelementptr i64, ptr %83, i64 %6229
+  %6230 = getelementptr [8 x i8], ptr %83, i64 %6229
   store i64 %6227, ptr %6230, align 8, !tbaa !19
   br label %memoize_extended_match_cache_point.exit3313
 
@@ -12140,13 +12135,13 @@ memoize_extended_match_cache_point.exit3313:      ; preds = %.lr.ph4101, %6253, 
   %6266 = load i64, ptr %6265, align 8, !tbaa !57
   %6267 = load i32, ptr %6264, align 8, !tbaa !57
   %6268 = sext i32 %6267 to i64
-  %6269 = getelementptr i64, ptr %80, i64 %6268
+  %6269 = getelementptr [8 x i8], ptr %80, i64 %6268
   store i64 %6266, ptr %6269, align 8, !tbaa !19
   %6270 = getelementptr i8, ptr %6262, i64 -8
   %6271 = load i64, ptr %6270, align 8, !tbaa !57
   %6272 = load i32, ptr %6264, align 8, !tbaa !57
   %6273 = sext i32 %6272 to i64
-  %6274 = getelementptr i64, ptr %83, i64 %6273
+  %6274 = getelementptr [8 x i8], ptr %83, i64 %6273
   store i64 %6271, ptr %6274, align 8, !tbaa !19
   br label %memoize_extended_match_cache_point.exit3315
 
@@ -12154,7 +12149,7 @@ memoize_extended_match_cache_point.exit3313:      ; preds = %.lr.ph4101, %6253, 
   %6276 = load ptr, ptr %20, align 8, !tbaa !50
   %6277 = getelementptr i8, ptr %6262, i64 -32
   %6278 = load i64, ptr %6277, align 8, !tbaa !57
-  %6279 = getelementptr %struct._OnigStackType, ptr %6276, i64 %6278
+  %6279 = getelementptr [48 x i8], ptr %6276, i64 %6278
   %6280 = getelementptr inbounds nuw i8, ptr %6279, i64 16
   %6281 = load i32, ptr %6280, align 8, !tbaa !57
   %6282 = add i32 %6281, -1
@@ -12169,13 +12164,13 @@ memoize_extended_match_cache_point.exit3313:      ; preds = %.lr.ph4101, %6253, 
   %6286 = load i64, ptr %6285, align 8, !tbaa !57
   %6287 = load i32, ptr %6284, align 8, !tbaa !57
   %6288 = sext i32 %6287 to i64
-  %6289 = getelementptr i64, ptr %80, i64 %6288
+  %6289 = getelementptr [8 x i8], ptr %80, i64 %6288
   store i64 %6286, ptr %6289, align 8, !tbaa !19
   %6290 = getelementptr i8, ptr %6262, i64 -8
   %6291 = load i64, ptr %6290, align 8, !tbaa !57
   %6292 = load i32, ptr %6284, align 8, !tbaa !57
   %6293 = sext i32 %6292 to i64
-  %6294 = getelementptr i64, ptr %83, i64 %6293
+  %6294 = getelementptr [8 x i8], ptr %83, i64 %6293
   store i64 %6291, ptr %6294, align 8, !tbaa !19
   br label %memoize_extended_match_cache_point.exit3315
 
@@ -12512,7 +12507,7 @@ count_num_cache_opcodes.exit.thread3480:          ; preds = %6352, %6355
   %.pn.in.in = phi ptr [ %41, %96 ], [ %.pn.in.in.be, %.backedge.backedge ]
   %.pn.in = load i8, ptr %.pn.in.in, align 1, !tbaa !57
   %.pn = zext i8 %.pn.in to i64
-  %.in = getelementptr ptr, ptr @match_at.oplabels, i64 %.pn
+  %.in = getelementptr [8 x i8], ptr @match_at.oplabels, i64 %.pn
   %6449 = load ptr, ptr %.in, align 8, !tbaa !76
   indirectbr ptr %6449, [label %6411, label %131, label %206, label %234, label %249, label %269, label %294, label %324, label %366, label %381, label %406, label %441, label %466, label %496, label %216, label %342, label %522, label %552, label %581, label %609, label %638, label %677, label %704, label %752, label %770, label %1018, label %1239, label %1499, label %1732, label %1790, label %1848, label %1952, label %2052, label %2108, label %1756, label %1814, label %1876, label %1978, label %2070, label %2126, label %2164, label %2172, label %2180, label %2216, label %2228, label %2291, label %2690, label %2686, label %2687, label %2759, label %2841, label %2922, label %3015, label %2375, label %2296, label %2384, label %2474, label %2463, label %2578, label %2471, label %is_mbc_newline_ex.exit.thread, label %3368, label %3381, label %3557, label %.thread3484, label %3563, label %3749, label %4048, label %4347, label %4639, label %4616, label %5017, label %3094, label %3159, label %3190, label %3247, label %5040, label %5107, label %5137, label %memoize_extended_match_cache_point.exit3249, label %5270, label %5332, label %5344, label %5353, label %5434, label %5472, label %5537, label %5973, label %6011, label %6079, label %6153]
 }
@@ -12559,9 +12554,9 @@ define dso_local i64 @onig_search_gpos(ptr noundef %0, ptr noundef %1, ptr nound
 
 29:                                               ; preds = %29, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %29 ]
-  %30 = getelementptr i64, ptr %26, i64 %indvars.iv.i.i
+  %30 = getelementptr [8 x i8], ptr %26, i64 %indvars.iv.i.i
   store i64 -1, ptr %30, align 8, !tbaa !19
-  %31 = getelementptr i64, ptr %28, i64 %indvars.iv.i.i
+  %31 = getelementptr [8 x i8], ptr %28, i64 %indvars.iv.i.i
   store i64 -1, ptr %31, align 8, !tbaa !19
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
@@ -13461,9 +13456,9 @@ is_mbc_newline_ex.exit.thread:                    ; preds = %286, %310, %is_mbc_
 
 458:                                              ; preds = %458, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %458 ]
-  %459 = getelementptr i64, ptr %455, i64 %indvars.iv.i
+  %459 = getelementptr [8 x i8], ptr %455, i64 %indvars.iv.i
   store i64 -1, ptr %459, align 8, !tbaa !19
-  %460 = getelementptr i64, ptr %457, i64 %indvars.iv.i
+  %460 = getelementptr [8 x i8], ptr %457, i64 %indvars.iv.i
   store i64 -1, ptr %460, align 8, !tbaa !19
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -15348,7 +15343,7 @@ define internal fastcc range(i64 -13, 1) i64 @count_num_cache_opcodes_inner(ptr 
   store ptr %117, ptr %6, align 8, !tbaa !18
   %118 = load ptr, ptr %20, align 8, !tbaa !106
   %119 = sext i16 %116 to i64
-  %120 = getelementptr %struct.OnigRepeatRange, ptr %118, i64 %119
+  %120 = getelementptr [8 x i8], ptr %118, i64 %119
   %121 = load i32, ptr %120, align 4, !tbaa !107
   %122 = icmp eq i32 %121, 0
   br i1 %122, label %123, label %125
@@ -15368,7 +15363,7 @@ define internal fastcc range(i64 -13, 1) i64 @count_num_cache_opcodes_inner(ptr 
 
 130:                                              ; preds = %125
   %131 = load ptr, ptr %20, align 8, !tbaa !106
-  %132 = getelementptr %struct.OnigRepeatRange, ptr %131, i64 %119
+  %132 = getelementptr [8 x i8], ptr %131, i64 %119
   %133 = load i32, ptr %132, align 4, !tbaa !107
   %134 = getelementptr inbounds nuw i8, ptr %132, i64 4
   %135 = load i32, ptr %134, align 4, !tbaa !109
@@ -15500,7 +15495,7 @@ define internal fastcc i64 @find_cache_point(ptr noundef readonly captures(none)
   %.01520.i = phi i64 [ %.116.i, %16 ], [ 0, %7 ]
   %11 = add i64 %.01520.i, %.01321.i
   %12 = sdiv i64 %11, 2
-  %13 = getelementptr %struct.OnigCacheOpcode, ptr %1, i64 %12
+  %13 = getelementptr [56 x i8], ptr %1, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !157
   %15 = icmp eq ptr %14, %3
   br i1 %15, label %bsearch_cache_opcodes.exit, label %16
@@ -15522,7 +15517,7 @@ bsearch_cache_opcodes.exit:                       ; preds = %.lr.ph.i, %16, %7
   br i1 %or.cond, label %22, label %79
 
 22:                                               ; preds = %bsearch_cache_opcodes.exit
-  %23 = getelementptr %struct.OnigCacheOpcode, ptr %1, i64 %.1.i
+  %23 = getelementptr [56 x i8], ptr %1, i64 %.1.i
   %24 = load ptr, ptr %23, align 8, !tbaa !157
   %25 = icmp eq ptr %24, %3
   br i1 %25, label %26, label %79
@@ -15544,10 +15539,10 @@ bsearch_cache_opcodes.exit:                       ; preds = %.lr.ph.i, %16, %7
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %38 = load ptr, ptr %37, align 8, !tbaa !106
   %39 = sext i32 %30 to i64
-  %40 = getelementptr %struct.OnigRepeatRange, ptr %38, i64 %39
-  %41 = getelementptr i64, ptr %5, i64 %39
+  %40 = getelementptr [8 x i8], ptr %38, i64 %39
+  %41 = getelementptr [8 x i8], ptr %5, i64 %39
   %42 = load i64, ptr %41, align 8, !tbaa !19
-  %43 = getelementptr %struct._OnigStackType, ptr %4, i64 %42
+  %43 = getelementptr [48 x i8], ptr %4, i64 %42
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load i32, ptr %44, align 8, !tbaa !57
   %46 = sext i1 %spec.select to i32
@@ -15668,7 +15663,7 @@ define internal fastcc range(i32 -15, 1) i32 @stack_double(ptr noundef nonnull c
   %42 = getelementptr i8, ptr %.052, i64 %41
   store ptr %42, ptr %2, align 8, !tbaa !50
   store ptr %.052, ptr %0, align 8, !tbaa !50
-  %43 = getelementptr %struct._OnigStackType, ptr %.052, i64 %.050
+  %43 = getelementptr [48 x i8], ptr %.052, i64 %.050
   store ptr %43, ptr %1, align 8, !tbaa !50
   br label %.thread
 
@@ -16126,7 +16121,7 @@ define internal fastcc range(i64 -14, 1) i64 @init_cache_opcodes_inner(ptr nound
   store ptr %149, ptr %7, align 8, !tbaa !18
   %150 = load ptr, ptr %23, align 8, !tbaa !106
   %151 = sext i16 %148 to i64
-  %152 = getelementptr %struct.OnigRepeatRange, ptr %150, i64 %151
+  %152 = getelementptr [8 x i8], ptr %150, i64 %151
   %153 = load i32, ptr %152, align 4, !tbaa !107
   %154 = icmp eq i32 %153, 0
   %.pre = load i64, ptr %8, align 8, !tbaa !19
@@ -16160,7 +16155,7 @@ define internal fastcc range(i64 -14, 1) i64 @init_cache_opcodes_inner(ptr nound
 
 167:                                              ; preds = %163
   %168 = load ptr, ptr %23, align 8, !tbaa !106
-  %169 = getelementptr %struct.OnigRepeatRange, ptr %168, i64 %151
+  %169 = getelementptr [8 x i8], ptr %168, i64 %151
   %170 = load i32, ptr %169, align 4, !tbaa !107
   %171 = getelementptr inbounds nuw i8, ptr %169, i64 4
   %172 = load i32, ptr %171, align 4, !tbaa !109

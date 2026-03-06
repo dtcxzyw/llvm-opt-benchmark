@@ -334,7 +334,7 @@ define void @_ZN10wasmi_fuzz12crash_inputs21generate_crash_inputs17h3cc47bdd2293
 93:                                               ; preds = %"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$4next17h911bd087de725c8aE.exit.i.i.i.i"
   %94 = extractvalue { ptr, i64 } %91, 1
   %.val.i.i.i.i.i = load ptr, ptr %88, align 8, !alias.scope !120, !noalias !123, !nonnull !6, !noundef !6
-  %95 = getelementptr inbounds nuw i32, ptr %.val.i.i.i.i.i, i64 %89
+  %95 = getelementptr inbounds nuw [4 x i8], ptr %.val.i.i.i.i.i, i64 %89
   %96 = load i32, ptr %95, align 4, !noalias !119, !noundef !6
   call void @llvm.experimental.noalias.scope.decl(metadata !126)
   call void @llvm.experimental.noalias.scope.decl(metadata !129)

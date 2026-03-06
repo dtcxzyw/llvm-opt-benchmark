@@ -3,10 +3,6 @@ source_filename = "bench/darktable/original/exif_gps.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.tiff_ifd_t = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, ptr, i32, ptr, i32, i32, i32, i32, i32, i32, i32, float, i64, i64, i32, [2 x %struct.libraw_dng_color_t], %struct.libraw_dng_levels_t, i32 }
-%struct.libraw_dng_color_t = type { i32, i16, [4 x [4 x float]], [4 x [3 x float]], [3 x [4 x float]] }
-%struct.libraw_dng_levels_t = type { i32, [4104 x i32], i32, [4104 x float], float, [4 x i32], [4 x i16], [4 x float], i32, [4 x float], [4 x float], float, float }
-
 @.str = private unnamed_addr constant [4 x i8] c"R98\00", align 1
 @.str.1 = private unnamed_addr constant [4 x i8] c"R03\00", align 1
 @.str.2 = private unnamed_addr constant [8 x i8] c"EASTMAN\00", align 1
@@ -566,7 +562,7 @@ define void @_ZN6LibRaw10parse_exifEi(ptr noundef nonnull align 8 dereferenceabl
 
 247:                                              ; preds = %241
   %248 = zext nneg i32 %245 to i64
-  %249 = getelementptr %struct.tiff_ifd_t, ptr %0, i64 %248
+  %249 = getelementptr [33408 x i8], ptr %0, i64 %248
   %250 = getelementptr i8, ptr %249, i64 400044
   store float %244, ptr %250, align 4, !tbaa !104
   br label %.loopexit131
@@ -651,7 +647,7 @@ define void @_ZN6LibRaw10parse_exifEi(ptr noundef nonnull align 8 dereferenceabl
 
 292:                                              ; preds = %285
   %293 = zext nneg i32 %290 to i64
-  %294 = getelementptr %struct.tiff_ifd_t, ptr %0, i64 %293
+  %294 = getelementptr [33408 x i8], ptr %0, i64 %293
   %295 = getelementptr i8, ptr %294, i64 400044
   store float %289, ptr %295, align 4, !tbaa !104
   br label %.loopexit131
@@ -811,8 +807,8 @@ define void @_ZN6LibRaw10parse_exifEi(ptr noundef nonnull align 8 dereferenceabl
 .preheader128:                                    ; preds = %359, %.loopexit
   %indvars.iv157 = phi i64 [ %indvars.iv.next158, %.loopexit ], [ 0, %359 ]
   %.061140 = phi ptr [ %373, %.loopexit ], [ %365, %359 ]
-  %366 = getelementptr inbounds nuw [4 x float], ptr %55, i64 %indvars.iv157
-  %invariant.gep = getelementptr inbounds nuw float, ptr %55, i64 %indvars.iv157
+  %366 = getelementptr inbounds nuw [16 x i8], ptr %55, i64 %indvars.iv157
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %indvars.iv157
   br label %367
 
 367:                                              ; preds = %.preheader128, %374
@@ -822,9 +818,9 @@ define void @_ZN6LibRaw10parse_exifEi(ptr noundef nonnull align 8 dereferenceabl
   %368 = call i64 @strtol(ptr noundef nonnull captures(none) %.1137, ptr noundef null, i32 noundef 10) #11
   %369 = trunc i64 %368 to i32
   %370 = sitofp i32 %369 to float
-  %371 = getelementptr inbounds nuw float, ptr %366, i64 %indvars.iv
+  %371 = getelementptr inbounds nuw [4 x i8], ptr %366, i64 %indvars.iv
   store float %370, ptr %371, align 4, !tbaa !111
-  %gep = getelementptr inbounds nuw [4 x float], ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [16 x i8], ptr %invariant.gep, i64 %indvars.iv
   %372 = load float, ptr %gep, align 4, !tbaa !111
   %373 = call ptr @strtok_r(ptr noundef null, ptr noundef nonnull @.str.19, ptr noundef nonnull %9) #11
   %.not98 = icmp eq ptr %373, null
@@ -847,7 +843,7 @@ define void @_ZN6LibRaw10parse_exifEi(ptr noundef nonnull align 8 dereferenceabl
 
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv153 = phi i64 [ %indvars.iv.next154, %.preheader ], [ 0, %.preheader.preheader ]
-  %380 = getelementptr inbounds nuw float, ptr %366, i64 %indvars.iv153
+  %380 = getelementptr inbounds nuw [4 x i8], ptr %366, i64 %indvars.iv153
   %381 = load float, ptr %380, align 4, !tbaa !111
   %382 = fmul reassoc nsz arcp contract afn float %381, %379
   store float %382, ptr %380, align 4, !tbaa !111
@@ -1164,7 +1160,7 @@ define void @_ZN6LibRaw16parse_gps_librawEi(ptr noundef nonnull align 8 derefere
   %95 = load i32, ptr %4, align 4, !tbaa !73
   %96 = call reassoc nsz arcp contract afn noundef double @_ZN6LibRaw7getrealEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %95)
   %97 = fptrunc reassoc nsz arcp contract afn double %96 to float
-  %98 = getelementptr inbounds nuw float, ptr %27, i64 %indvars.iv41
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv41
   store float %97, ptr %98, align 4, !tbaa !111
   %indvars.iv.next42 = add nuw nsw i64 %indvars.iv41, 1
   %exitcond44.not = icmp eq i64 %indvars.iv.next42, 3
@@ -1180,7 +1176,7 @@ define void @_ZN6LibRaw16parse_gps_librawEi(ptr noundef nonnull align 8 derefere
   %102 = load i32, ptr %4, align 4, !tbaa !73
   %103 = call reassoc nsz arcp contract afn noundef double @_ZN6LibRaw7getrealEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %102)
   %104 = fptrunc reassoc nsz arcp contract afn double %103 to float
-  %105 = getelementptr inbounds nuw float, ptr %26, i64 %indvars.iv37
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv37
   store float %104, ptr %105, align 4, !tbaa !111
   %indvars.iv.next38 = add nuw nsw i64 %indvars.iv37, 1
   %exitcond40.not = icmp eq i64 %indvars.iv.next38, 3
@@ -1196,7 +1192,7 @@ define void @_ZN6LibRaw16parse_gps_librawEi(ptr noundef nonnull align 8 derefere
   %109 = load i32, ptr %4, align 4, !tbaa !73
   %110 = call reassoc nsz arcp contract afn noundef double @_ZN6LibRaw7getrealEi(ptr noundef nonnull align 8 dereferenceable(767680) %0, i32 noundef %109)
   %111 = fptrunc reassoc nsz arcp contract afn double %110 to float
-  %112 = getelementptr inbounds nuw float, ptr %25, i64 %indvars.iv
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv
   store float %111, ptr %112, align 4, !tbaa !111
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -1310,7 +1306,7 @@ define void @_ZN6LibRaw9parse_gpsEi(ptr noundef nonnull align 8 dereferenceable(
   %35 = lshr i32 %34, 1
   %36 = add nuw i32 %35, 29
   %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw i32, ptr %12, i64 %37
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %37
   store i32 %33, ptr %38, align 4, !tbaa !73
   br label %.backedge
 
@@ -1322,7 +1318,7 @@ define void @_ZN6LibRaw9parse_gpsEi(ptr noundef nonnull align 8 dereferenceable(
   %43 = mul i32 %42, 6
   %44 = add i32 %43, %.015
   %45 = zext i32 %44 to i64
-  %46 = getelementptr inbounds nuw i32, ptr %12, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %45
   store i32 %40, ptr %46, align 4, !tbaa !73
   %47 = add nuw nsw i32 %.015, 1
   %exitcond.not = icmp eq i32 %47, 6
@@ -1340,7 +1336,7 @@ define void @_ZN6LibRaw9parse_gpsEi(ptr noundef nonnull align 8 dereferenceable(
   %.lhs.trunc = trunc nuw nsw i32 %27 to i8
   %52 = udiv i8 %.lhs.trunc, 3
   %53 = zext nneg i8 %52 to i64
-  %54 = getelementptr inbounds nuw i32, ptr %11, i64 %53
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %53
   %55 = call i32 @llvm.umin.i32(i32 %17, i32 12)
   %56 = load ptr, ptr %51, align 8, !tbaa !71
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 64

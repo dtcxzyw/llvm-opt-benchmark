@@ -348,7 +348,7 @@ _ZN12opencv_caffe12NetParameterC2Ev.exit:         ; preds = %77
   %indvars.iv130 = phi i64 [ 0, %.lr.ph128 ], [ %indvars.iv.next131, %.loopexit ]
   %96 = load ptr, ptr %82, align 8, !tbaa !26
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
-  %98 = getelementptr inbounds nuw ptr, ptr %97, i64 %indvars.iv130
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %97, i64 %indvars.iv130
   %99 = load ptr, ptr %98, align 8, !tbaa !27
   %100 = load ptr, ptr %7, align 8, !tbaa !12
   %101 = load ptr, ptr %27, align 8, !tbaa !12
@@ -384,7 +384,7 @@ _ZSt4findIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_tr
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i ]
   %117 = load ptr, ptr %113, align 8, !tbaa !26
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 8
-  %119 = getelementptr inbounds nuw ptr, ptr %118, i64 %indvars.iv
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %118, i64 %indvars.iv
   %120 = load ptr, ptr %119, align 8, !tbaa !27
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 24
   %122 = load i32, ptr %121, align 8, !tbaa !30
@@ -462,7 +462,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit95: ; preds = %128
 144:                                              ; preds = %141
   %145 = load ptr, ptr %87, align 8, !tbaa !45
   %146 = zext nneg i32 %142 to i64
-  %147 = getelementptr i64, ptr %145, i64 %146
+  %147 = getelementptr [8 x i8], ptr %145, i64 %146
   %148 = getelementptr i8, ptr %147, i64 -8
   %149 = load i64, ptr %148, align 8, !tbaa !46
   %150 = mul i64 %149, %140
@@ -1251,7 +1251,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %22, ptr %0, align 8, !tbaa !9
   store ptr %.0.lcssa.i.i.i.i25, ptr %4, align 8, !tbaa !3
-  %70 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %70 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %70, ptr %69, align 8, !tbaa !11
   ret void
 }

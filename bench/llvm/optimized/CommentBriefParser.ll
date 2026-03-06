@@ -355,7 +355,7 @@ thread-pre-split:                                 ; preds = %105, %96
   %.sroa.013.025.i = phi ptr [ %129, %128 ], [ %119, %.thread78 ]
   %122 = load i8, ptr %.sroa.013.025.i, align 1, !tbaa !19
   %123 = zext i8 %122 to i64
-  %124 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %123
+  %124 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5clang8charinfo9InfoTableE, i64 %123
   %125 = load i16, ptr %124, align 2, !tbaa !31
   %126 = and i16 %125, 7
   %.not23.i = icmp ne i16 %126, 0
@@ -430,7 +430,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i: ; 
   %.sroa.013.025.i56 = phi ptr [ %159, %158 ], [ %149, %148 ]
   %152 = load i8, ptr %.sroa.013.025.i56, align 1, !tbaa !19
   %153 = zext i8 %152 to i64
-  %154 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %153
+  %154 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5clang8charinfo9InfoTableE, i64 %153
   %155 = load i16, ptr %154, align 2, !tbaa !31
   %156 = and i16 %155, 7
   %.not23.i57 = icmp ne i16 %156, 0
@@ -545,7 +545,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang8comments12_GLOBAL__N_112isW
   %.02946.i.i.i.i.i = phi ptr [ %35, %34 ], [ %0, %.lr.ph.i.i.i.i.i.preheader ]
   %8 = load i8, ptr %.02946.i.i.i.i.i, align 1, !tbaa !19
   %9 = zext i8 %8 to i64
-  %10 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %9
+  %10 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5clang8charinfo9InfoTableE, i64 %9
   %11 = load i16, ptr %10, align 2, !tbaa !31
   %12 = and i16 %11, 7
   %.not = icmp eq i16 %12, 0
@@ -555,7 +555,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang8comments12_GLOBAL__N_112isW
   %14 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 1
   %15 = load i8, ptr %14, align 1, !tbaa !19
   %16 = zext i8 %15 to i64
-  %17 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %16
+  %17 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5clang8charinfo9InfoTableE, i64 %16
   %18 = load i16, ptr %17, align 2, !tbaa !31
   %19 = and i16 %18, 7
   %.not1 = icmp eq i16 %19, 0
@@ -565,7 +565,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang8comments12_GLOBAL__N_112isW
   %21 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 2
   %22 = load i8, ptr %21, align 1, !tbaa !19
   %23 = zext i8 %22 to i64
-  %24 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %23
+  %24 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5clang8charinfo9InfoTableE, i64 %23
   %25 = load i16, ptr %24, align 2, !tbaa !31
   %26 = and i16 %25, 7
   %.not2 = icmp eq i16 %26, 0
@@ -575,7 +575,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang8comments12_GLOBAL__N_112isW
   %28 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 3
   %29 = load i8, ptr %28, align 1, !tbaa !19
   %30 = zext i8 %29 to i64
-  %31 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %30
+  %31 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5clang8charinfo9InfoTableE, i64 %30
   %32 = load i16, ptr %31, align 2, !tbaa !31
   %33 = and i16 %32, 7
   %.not3 = icmp eq i16 %33, 0
@@ -600,7 +600,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang8comments12_GLOBAL__N_112isW
 39:                                               ; preds = %._crit_edge.i.i.i.i.i
   %40 = load i8, ptr %.029.lcssa.i.i.i.i.i, align 1, !tbaa !19
   %41 = zext i8 %40 to i64
-  %42 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %41
+  %42 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5clang8charinfo9InfoTableE, i64 %41
   %43 = load i16, ptr %42, align 2, !tbaa !31
   %44 = and i16 %43, 7
   %.not4 = icmp eq i16 %44, 0
@@ -614,7 +614,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang8comments12_GLOBAL__N_112isW
   %.1.i.i.i.i.i = phi ptr [ %46, %45 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %48 = load i8, ptr %.1.i.i.i.i.i, align 1, !tbaa !19
   %49 = zext i8 %48 to i64
-  %50 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %49
+  %50 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5clang8charinfo9InfoTableE, i64 %49
   %51 = load i16, ptr %50, align 2, !tbaa !31
   %52 = and i16 %51, 7
   %.not5 = icmp eq i16 %52, 0
@@ -628,7 +628,7 @@ define internal fastcc noundef zeroext i1 @_ZN5clang8comments12_GLOBAL__N_112isW
   %.2.i.i.i.i.i = phi ptr [ %54, %53 ], [ %.029.lcssa.i.i.i.i.i, %._crit_edge.i.i.i.i.i ]
   %56 = load i8, ptr %.2.i.i.i.i.i, align 1, !tbaa !19
   %57 = zext i8 %56 to i64
-  %58 = getelementptr inbounds nuw i16, ptr @_ZN5clang8charinfo9InfoTableE, i64 %57
+  %58 = getelementptr inbounds nuw [2 x i8], ptr @_ZN5clang8charinfo9InfoTableE, i64 %57
   %59 = load i16, ptr %58, align 2, !tbaa !31
   %60 = and i16 %59, 7
   %.not6 = icmp eq i16 %60, 0

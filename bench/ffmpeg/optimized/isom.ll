@@ -353,7 +353,7 @@ ff_mp4_read_descr.exit:                           ; preds = %20, %21
 
 69:                                               ; preds = %61
   %70 = sext i32 %67 to i64
-  %71 = getelementptr inbounds i16, ptr @ff_mpa_freq_tab, i64 %70
+  %71 = getelementptr inbounds [2 x i8], ptr @ff_mpa_freq_tab, i64 %70
   %72 = load i16, ptr %71, align 2, !tbaa !36
   %73 = zext i16 %72 to i32
   %74 = getelementptr inbounds nuw i8, ptr %63, i64 152

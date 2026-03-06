@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.dtNavMeshCreateParams = type { ptr, i32, ptr, ptr, ptr, i32, i32, ptr, ptr, i32, ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32, i32, [3 x float], [3 x float], float, float, float, float, float, i8 }
-%struct.ConvexVolume = type { [36 x float], float, float, i32, i32 }
 
 $__clang_call_terminate = comdat any
 
@@ -1607,7 +1606,7 @@ _ZN9rcContext10startTimerE12rcTimerLabel.exit:    ; preds = %_ZN9rcContext11rese
 .lr.ph:                                           ; preds = %217, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %217 ]
   %223 = load ptr, ptr %107, align 8
-  %224 = getelementptr inbounds nuw %struct.ConvexVolume, ptr %219, i64 %indvars.iv
+  %224 = getelementptr inbounds nuw [160 x i8], ptr %219, i64 %indvars.iv
   %225 = getelementptr inbounds nuw i8, ptr %224, i64 152
   %226 = load i32, ptr %225, align 4
   %227 = getelementptr inbounds nuw i8, ptr %224, i64 144
@@ -1806,11 +1805,11 @@ _ZN9rcContext10startTimerE12rcTimerLabel.exit:    ; preds = %_ZN9rcContext11rese
 
 switch.lookup:                                    ; preds = %323
   %327 = zext nneg i8 %324 to i64
-  %switch.gep = getelementptr inbounds nuw i16, ptr @switch.table._ZN15Sample_SoloMesh11handleBuildEv, i64 %327
+  %switch.gep = getelementptr inbounds nuw [2 x i8], ptr @switch.table._ZN15Sample_SoloMesh11handleBuildEv, i64 %327
   %switch.load = load i16, ptr %switch.gep, align 2
   %328 = getelementptr inbounds nuw i8, ptr %325, i64 24
   %329 = load ptr, ptr %328, align 8
-  %330 = getelementptr inbounds nuw i16, ptr %329, i64 %indvars.iv75
+  %330 = getelementptr inbounds nuw [2 x i8], ptr %329, i64 %indvars.iv75
   store i16 %switch.load, ptr %330, align 2
   br label %331
 

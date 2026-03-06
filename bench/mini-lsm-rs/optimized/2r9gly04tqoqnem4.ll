@@ -678,7 +678,7 @@ define void @_ZN16mini_lsm_starter11lsm_storage7MiniLsm21add_compaction_filter17
   %35 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %15, %"_ZN78_$LT$parking_lot..raw_mutex..RawMutex$u20$as$u20$lock_api..mutex..RawMutex$GT$4lock17hc8ec2492ec8cdf56E.exit.i" ]
   %36 = getelementptr inbounds nuw i8, ptr %.val, i64 32
   %37 = load ptr, ptr %36, align 8, !alias.scope !60, !noalias !65, !nonnull !4, !noundef !4
-  %38 = getelementptr inbounds { { ptr, ptr, i64, { ptr } } }, ptr %37, i64 %35
+  %38 = getelementptr inbounds [32 x i8], ptr %37, i64 %35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %38, ptr noundef nonnull align 8 dereferenceable(32) %4, i64 32, i1 false)
   %39 = load i64, ptr %14, align 8, !alias.scope !60, !noalias !65, !noundef !4
   %40 = add i64 %39, 1

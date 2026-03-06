@@ -79,30 +79,7 @@ module asm ".previous\09\09\09\09\09"
 %struct.anon.125 = type { ptr, i32, i32, i64, i64, ptr, i16, i8 }
 %struct.cpumask = type { [1 x i64] }
 %struct.trace_event_buffer = type { ptr, ptr, ptr, ptr, i32, ptr }
-%struct.msix_entry = type { i32, i16 }
-%struct.e1000_buffer = type { i64, ptr, %union.anon.10 }
-%union.anon.10 = type { %struct.anon.11 }
-%struct.anon.11 = type { i64, i16, i16, i32, i32, i16 }
-%struct.e1000_ps_page = type { ptr, i64 }
-%struct.e1000_tx_desc = type { i64, %union.anon.97, %union.anon.99 }
-%union.anon.97 = type { i32 }
-%union.anon.99 = type { i32 }
-%union.e1000_rx_desc_extended = type { %struct.anon.39 }
-%struct.anon.39 = type { i64, i64 }
-%struct.bio_vec = type { ptr, i32, i32 }
-%union.e1000_rx_desc_packet_split = type { %struct.anon.80 }
-%struct.anon.80 = type { [4 x i64] }
-%struct.page = type { i64, %union.anon.71, %union.anon.79, %struct.atomic_t, [8 x i8] }
-%union.anon.71 = type { %struct.anon.72 }
-%struct.anon.72 = type { %union.anon.73, ptr, %union.anon.75, i64 }
-%union.anon.73 = type { %struct.list_head }
-%union.anon.75 = type { i64 }
-%union.anon.79 = type { %struct.atomic_t }
 %struct.vlan_hdr = type { i16, i16 }
-%struct.e1000_context_desc = type { %union.anon.104, %union.anon.106, i32, %union.anon.108 }
-%union.anon.104 = type { i32 }
-%union.anon.106 = type { i32 }
-%union.anon.108 = type { i32 }
 %struct.hwtstamp_config = type { i32, i32, i32 }
 %struct.skb_shared_hwtstamps = type { %union.anon.69 }
 %union.anon.69 = type { i64 }
@@ -582,7 +559,7 @@ define dso_local void @e1000e_set_interrupt_capability(ptr noundef captures(none
   %19 = trunc i32 %18 to i16
   %20 = load ptr, ptr %13, align 8
   %21 = sext i32 %18 to i64
-  %.split = getelementptr %struct.msix_entry, ptr %20, i64 %21
+  %.split = getelementptr [8 x i8], ptr %20, i64 %21
   %22 = getelementptr i8, ptr %.split, i64 4
   store i16 %19, ptr %22, align 4
   %23 = add nuw i32 %18, 1
@@ -950,7 +927,7 @@ define dso_local noundef range(i32 -12, 1) i32 @e1000e_setup_rx_resources(ptr no
   %19 = sext i32 %17 to i64
   %20 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 48), align 16
   %21 = tail call noalias align 8 dereferenceable_or_null(48) ptr @kmalloc_trace(ptr noundef %20, i32 noundef 3520, i64 noundef 48) #24
-  %.split = getelementptr %struct.e1000_buffer, ptr %18, i64 %19
+  %.split = getelementptr [40 x i8], ptr %18, i64 %19
   %22 = getelementptr i8, ptr %.split, i64 16
   store ptr %21, ptr %22, align 8
   %23 = icmp eq ptr %21, null
@@ -995,7 +972,7 @@ define dso_local noundef range(i32 -12, 1) i32 @e1000e_setup_rx_resources(ptr no
   %43 = phi i32 [ %48, %.preheader ], [ 0, %.loopexit5 ]
   %44 = load ptr, ptr %8, align 8
   %45 = sext i32 %43 to i64
-  %.split3 = getelementptr %struct.e1000_buffer, ptr %44, i64 %45
+  %.split3 = getelementptr [40 x i8], ptr %44, i64 %45
   %46 = getelementptr i8, ptr %.split3, i64 16
   %47 = load ptr, ptr %46, align 8
   tail call void @kfree(ptr noundef %47) #22
@@ -1055,7 +1032,7 @@ define internal fastcc void @e1000_clean_tx_ring(ptr noundef captures(none) %0) 
 8:                                                ; preds = %27, %6
   %9 = phi i64 [ 0, %6 ], [ %29, %27 ]
   %10 = load ptr, ptr %7, align 8
-  %11 = getelementptr %struct.e1000_buffer, ptr %10, i64 %9
+  %11 = getelementptr [40 x i8], ptr %10, i64 %9
   %12 = load i64, ptr %11, align 8
   %13 = icmp eq i64 %12, 0
   br i1 %13, label %22, label %14
@@ -1139,7 +1116,7 @@ define dso_local void @e1000e_free_rx_resources(ptr noundef captures(none) %0) l
   %11 = phi i32 [ 0, %8 ], [ %16, %10 ]
   %12 = load ptr, ptr %9, align 8
   %13 = sext i32 %11 to i64
-  %.split = getelementptr %struct.e1000_buffer, ptr %12, i64 %13
+  %.split = getelementptr [40 x i8], ptr %12, i64 %13
   %14 = getelementptr i8, ptr %.split, i64 16
   %15 = load ptr, ptr %14, align 8
   tail call void @kfree(ptr noundef %15) #22
@@ -1187,7 +1164,7 @@ define internal fastcc void @e1000_clean_rx_ring(ptr noundef captures(none) %0) 
 14:                                               ; preds = %121, %6
   %15 = phi i64 [ 0, %6 ], [ %122, %121 ]
   %16 = load ptr, ptr %9, align 8
-  %17 = getelementptr %struct.e1000_buffer, ptr %16, i64 %15
+  %17 = getelementptr [40 x i8], ptr %16, i64 %15
   %18 = load i64, ptr %17, align 8
   %19 = icmp eq i64 %18, 0
   br i1 %19, label %34, label %20
@@ -1305,7 +1282,7 @@ define internal fastcc void @e1000_clean_rx_ring(ptr noundef captures(none) %0) 
 77:                                               ; preds = %.preheader, %118
   %78 = phi i64 [ %119, %118 ], [ 0, %.preheader ]
   %79 = load ptr, ptr %35, align 8
-  %80 = getelementptr %struct.e1000_ps_page, ptr %79, i64 %78
+  %80 = getelementptr [16 x i8], ptr %79, i64 %78
   %81 = load ptr, ptr %80, align 8
   %82 = icmp eq ptr %81, null
   br i1 %82, label %121, label %83
@@ -2528,7 +2505,7 @@ define internal fastcc void @e1000_flush_desc_rings(ptr noundef readonly capture
   %80 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %81 = load ptr, ptr %80, align 8
   %82 = zext i16 %75 to i64
-  %83 = getelementptr %struct.e1000_tx_desc, ptr %81, i64 %82
+  %83 = getelementptr [16 x i8], ptr %81, i64 %82
   %84 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %85 = load i64, ptr %84, align 8
   store i64 %85, ptr %83, align 8
@@ -3664,7 +3641,7 @@ define internal fastcc void @e1000_configure(ptr noundef %0) unnamed_addr #1 ali
 507:                                              ; preds = %.loopexit78, %506
   %508 = phi i64 [ 0, %506 ], [ %535, %.loopexit78 ]
   %509 = shl nuw nsw i64 %508, 2
-  %510 = getelementptr i32, ptr %2, i64 %508
+  %510 = getelementptr [4 x i8], ptr %2, i64 %508
   %511 = load i32, ptr %510, align 4
   %512 = load ptr, ptr %79, align 8
   %513 = getelementptr inbounds nuw i8, ptr %512, i64 11920
@@ -5343,7 +5320,7 @@ define internal fastcc void @e1000_irq_disable(ptr noundef readonly captures(non
   %63 = phi i32 [ %68, %.preheader ], [ 0, %59 ]
   %64 = load ptr, ptr %27, align 8
   %65 = sext i32 %63 to i64
-  %66 = getelementptr %struct.msix_entry, ptr %64, i64 %65
+  %66 = getelementptr [8 x i8], ptr %64, i64 %65
   %67 = load i32, ptr %66, align 4
   tail call void @synchronize_irq(i32 noundef %67) #22
   %68 = add nuw i32 %63, 1
@@ -6494,7 +6471,7 @@ e1000e_setup_tx_resources.exit:                   ; preds = %9, %._crit_edge.i
   %107 = phi i32 [ 0, %104 ], [ %112, %106 ]
   %108 = load ptr, ptr %105, align 8
   %109 = sext i32 %107 to i64
-  %.split = getelementptr %struct.e1000_buffer, ptr %108, i64 %109
+  %.split = getelementptr [40 x i8], ptr %108, i64 %109
   %110 = getelementptr i8, ptr %.split, i64 16
   %111 = load ptr, ptr %110, align 8
   tail call void @kfree(ptr noundef %111) #22
@@ -7072,7 +7049,7 @@ define dso_local noundef i32 @e1000e_close(ptr noundef %0) #1 align 16 {
   %77 = phi i32 [ 0, %74 ], [ %82, %76 ]
   %78 = load ptr, ptr %75, align 8
   %79 = sext i32 %77 to i64
-  %.split = getelementptr %struct.e1000_buffer, ptr %78, i64 %79
+  %.split = getelementptr [40 x i8], ptr %78, i64 %79
   %80 = getelementptr i8, ptr %.split, i64 16
   %81 = load ptr, ptr %80, align 8
   tail call void @kfree(ptr noundef %81) #22
@@ -7388,7 +7365,7 @@ define internal noundef zeroext i1 @e1000_clean_rx_irq(ptr noundef %0, ptr nound
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = zext i16 %10 to i64
-  %15 = getelementptr %union.e1000_rx_desc_extended, ptr %13, i64 %14
+  %15 = getelementptr [16 x i8], ptr %13, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 184
@@ -7412,7 +7389,7 @@ define internal noundef zeroext i1 @e1000_clean_rx_irq(ptr noundef %0, ptr nound
 
 .lr.ph23:                                         ; preds = %.lr.ph.preheader
   %31 = load ptr, ptr %16, align 8
-  %32 = getelementptr %struct.e1000_buffer, ptr %31, i64 %14
+  %32 = getelementptr [40 x i8], ptr %31, i64 %14
   br label %35
 
 .lr.ph:                                           ; preds = %159
@@ -7444,10 +7421,10 @@ define internal noundef zeroext i1 @e1000_clean_rx_irq(ptr noundef %0, ptr nound
   %52 = select i1 %51, i32 0, i32 %49
   %53 = load ptr, ptr %12, align 8
   %54 = zext i32 %52 to i64
-  %55 = getelementptr %union.e1000_rx_desc_extended, ptr %53, i64 %54
+  %55 = getelementptr [16 x i8], ptr %53, i64 %54
   tail call void @llvm.prefetch.p0(ptr %55, i32 0, i32 3, i32 1)
   %56 = load ptr, ptr %16, align 8
-  %57 = getelementptr %struct.e1000_buffer, ptr %56, i64 %54
+  %57 = getelementptr [40 x i8], ptr %56, i64 %54
   %58 = add nsw i32 %40, 1
   %59 = load i64, ptr %38, align 8
   %60 = load i32, ptr %19, align 4
@@ -7684,7 +7661,7 @@ define internal noundef zeroext i1 @e1000_clean_jumbo_rx_irq(ptr noundef %0, ptr
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = zext i16 %10 to i64
-  %15 = getelementptr %union.e1000_rx_desc_extended, ptr %13, i64 %14
+  %15 = getelementptr [16 x i8], ptr %13, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 184
@@ -7706,7 +7683,7 @@ define internal noundef zeroext i1 @e1000_clean_jumbo_rx_irq(ptr noundef %0, ptr
 
 .lr.ph28:                                         ; preds = %.lr.ph.preheader
   %29 = load ptr, ptr %16, align 8
-  %30 = getelementptr %struct.e1000_buffer, ptr %29, i64 %14
+  %30 = getelementptr [40 x i8], ptr %29, i64 %14
   br label %33
 
 .lr.ph:                                           ; preds = %432
@@ -7735,10 +7712,10 @@ define internal noundef zeroext i1 @e1000_clean_jumbo_rx_irq(ptr noundef %0, ptr
   %48 = select i1 %47, i32 0, i32 %45
   %49 = load ptr, ptr %12, align 8
   %50 = zext i32 %48 to i64
-  %51 = getelementptr %union.e1000_rx_desc_extended, ptr %49, i64 %50
+  %51 = getelementptr [16 x i8], ptr %49, i64 %50
   tail call void @llvm.prefetch.p0(ptr %51, i32 0, i32 3, i32 1)
   %52 = load ptr, ptr %16, align 8
-  %53 = getelementptr %struct.e1000_buffer, ptr %52, i64 %50
+  %53 = getelementptr [40 x i8], ptr %52, i64 %50
   %54 = add nsw i32 %38, 1
   %55 = load i64, ptr %36, align 8
   tail call void @dma_unmap_page_attrs(ptr noundef nonnull %18, i64 noundef %55, i64 noundef 4096, i32 noundef 2, i64 noundef 0) #22
@@ -7875,7 +7852,7 @@ define internal noundef zeroext i1 @e1000_clean_jumbo_rx_irq(ptr noundef %0, ptr
   %141 = load ptr, ptr %140, align 8
   %142 = getelementptr inbounds nuw i8, ptr %137, i64 48
   %143 = zext i8 %139 to i64
-  %144 = getelementptr %struct.bio_vec, ptr %142, i64 %143
+  %144 = getelementptr [16 x i8], ptr %142, i64 %143
   store ptr %141, ptr %144, align 8
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 12
   store i32 0, ptr %145, align 4
@@ -7983,7 +7960,7 @@ define internal noundef zeroext i1 @e1000_clean_jumbo_rx_irq(ptr noundef %0, ptr
   %213 = load ptr, ptr %212, align 8
   %214 = getelementptr inbounds nuw i8, ptr %209, i64 48
   %215 = zext i8 %211 to i64
-  %216 = getelementptr %struct.bio_vec, ptr %214, i64 %215
+  %216 = getelementptr [16 x i8], ptr %214, i64 %215
   store ptr %213, ptr %216, align 8
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 12
   store i32 0, ptr %217, align 4
@@ -8377,7 +8354,7 @@ define internal noundef zeroext i1 @e1000_clean_rx_irq_ps(ptr noundef %0, ptr no
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = zext i16 %8 to i64
-  %13 = getelementptr %union.e1000_rx_desc_packet_split, ptr %11, i64 %12
+  %13 = getelementptr [32 x i8], ptr %11, i64 %12
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = load i32, ptr %15, align 8
@@ -8403,7 +8380,7 @@ define internal noundef zeroext i1 @e1000_clean_rx_irq_ps(ptr noundef %0, ptr no
 
 .lr.ph.preheader:                                 ; preds = %19
   %33 = load ptr, ptr %14, align 8
-  %34 = getelementptr %struct.e1000_buffer, ptr %33, i64 %12
+  %34 = getelementptr [40 x i8], ptr %33, i64 %12
   br label %.lr.ph
 
 35:                                               ; preds = %297
@@ -8435,10 +8412,10 @@ define internal noundef zeroext i1 @e1000_clean_rx_irq_ps(ptr noundef %0, ptr no
   %55 = select i1 %54, i32 0, i32 %52
   %56 = load ptr, ptr %10, align 8
   %57 = zext i32 %55 to i64
-  %58 = getelementptr %union.e1000_rx_desc_packet_split, ptr %56, i64 %57
+  %58 = getelementptr [32 x i8], ptr %56, i64 %57
   tail call void @llvm.prefetch.p0(ptr %58, i32 0, i32 3, i32 1)
   %59 = load ptr, ptr %14, align 8
-  %60 = getelementptr %struct.e1000_buffer, ptr %59, i64 %57
+  %60 = getelementptr [40 x i8], ptr %59, i64 %57
   %61 = add nsw i32 %42, 1
   %62 = load i64, ptr %40, align 8
   %63 = load i16, ptr %24, align 8
@@ -8567,7 +8544,7 @@ define internal noundef zeroext i1 @e1000_clean_rx_irq_ps(ptr noundef %0, ptr no
 
 144:                                              ; preds = %198, %136
   %145 = phi i64 [ 0, %136 ], [ %212, %198 ]
-  %146 = getelementptr i16, ptr %91, i64 %145
+  %146 = getelementptr [2 x i8], ptr %91, i64 %145
   %147 = load i16, ptr %146, align 2
   %148 = icmp eq i16 %147, 0
   br i1 %148, label %214, label %149
@@ -8575,7 +8552,7 @@ define internal noundef zeroext i1 @e1000_clean_rx_irq_ps(ptr noundef %0, ptr no
 149:                                              ; preds = %144
   %150 = zext i16 %147 to i32
   %151 = load ptr, ptr %137, align 8
-  %152 = getelementptr %struct.e1000_ps_page, ptr %151, i64 %145
+  %152 = getelementptr [16 x i8], ptr %151, i64 %145
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 8
   %154 = load i64, ptr %153, align 8
   tail call void @dma_unmap_page_attrs(ptr noundef nonnull %23, i64 noundef %154, i64 noundef 4096, i32 noundef 2, i64 noundef 0) #22
@@ -8586,7 +8563,7 @@ define internal noundef zeroext i1 @e1000_clean_rx_irq_ps(ptr noundef %0, ptr no
   %158 = zext i32 %157 to i64
   %159 = getelementptr i8, ptr %156, i64 %158
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 48
-  %161 = getelementptr %struct.bio_vec, ptr %160, i64 %145
+  %161 = getelementptr [16 x i8], ptr %160, i64 %145
   store ptr %155, ptr %161, align 8
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 12
   store i32 0, ptr %162, align 4
@@ -10410,7 +10387,7 @@ define internal void @e1000_alloc_rx_buffers_ps(ptr noundef captures(none) %0, i
 13:                                               ; preds = %3
   %14 = load ptr, ptr %11, align 8
   %15 = zext i16 %9 to i64
-  %16 = getelementptr %struct.e1000_buffer, ptr %14, i64 %15
+  %16 = getelementptr [40 x i8], ptr %14, i64 %15
   %17 = load ptr, ptr %7, align 16
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 1428
@@ -10429,14 +10406,14 @@ define internal void @e1000_alloc_rx_buffers_ps(ptr noundef captures(none) %0, i
   %30 = add i32 %27, -1
   %31 = load ptr, ptr %18, align 8
   %32 = zext i32 %28 to i64
-  %33 = getelementptr %union.e1000_rx_desc_packet_split, ptr %31, i64 %32
+  %33 = getelementptr [32 x i8], ptr %31, i64 %32
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 16
   br label %35
 
 35:                                               ; preds = %62, %26
   %36 = phi i64 [ 0, %26 ], [ %64, %62 ]
   %37 = load ptr, ptr %34, align 8
-  %38 = getelementptr %struct.e1000_ps_page, ptr %37, i64 %36
+  %38 = getelementptr [16 x i8], ptr %37, i64 %36
   %39 = load i32, ptr %19, align 4
   %40 = zext i32 %39 to i64
   %41 = icmp samesign ult i64 %36, %40
@@ -10485,7 +10462,7 @@ define internal void @e1000_alloc_rx_buffers_ps(ptr noundef captures(none) %0, i
 62:                                               ; preds = %52, %._crit_edge, %35
   %63 = phi i64 [ -1, %35 ], [ %.pre, %._crit_edge ], [ %53, %52 ]
   %64 = add nuw nsw i64 %36, 1
-  %65 = getelementptr i64, ptr %33, i64 %64
+  %65 = getelementptr [8 x i8], ptr %33, i64 %64
   store i64 %63, ptr %65, align 8
   %66 = icmp eq i64 %64, 3
   br i1 %66, label %67, label %35, !llvm.loop !60
@@ -10557,7 +10534,7 @@ define internal void @e1000_alloc_rx_buffers_ps(ptr noundef captures(none) %0, i
   %104 = select i1 %100, i64 %101, i64 %103
   %105 = add i64 %99, %104
   %106 = lshr i64 %105, 12
-  %107 = getelementptr %struct.page, ptr %97, i64 %106
+  %107 = getelementptr [64 x i8], ptr %97, i64 %106
   %108 = and i64 %98, 4095
   %109 = tail call i64 @dma_map_page_attrs(ptr noundef nonnull %20, ptr noundef %107, i64 noundef %108, i64 noundef %81, i32 noundef 2, i64 noundef 0) #22
   store i64 %109, ptr %29, align 8
@@ -10605,7 +10582,7 @@ define internal void @e1000_alloc_rx_buffers_ps(ptr noundef captures(none) %0, i
   %130 = select i1 %129, i32 0, i32 %127
   %131 = load ptr, ptr %11, align 8
   %132 = zext i32 %130 to i64
-  %133 = getelementptr %struct.e1000_buffer, ptr %131, i64 %132
+  %133 = getelementptr [40 x i8], ptr %131, i64 %132
   %134 = icmp eq i32 %30, 0
   br i1 %134, label %.loopexit7, label %26, !llvm.loop !67
 
@@ -10631,7 +10608,7 @@ define internal void @e1000_alloc_jumbo_rx_buffers(ptr noundef captures(none) %0
 12:                                               ; preds = %3
   %13 = load ptr, ptr %10, align 8
   %14 = zext i16 %8 to i64
-  %15 = getelementptr %struct.e1000_buffer, ptr %13, i64 %14
+  %15 = getelementptr [40 x i8], ptr %13, i64 %14
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 1456
   %17 = load ptr, ptr %16, align 16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 184
@@ -10690,7 +10667,7 @@ define internal void @e1000_alloc_jumbo_rx_buffers(ptr noundef captures(none) %0
   %49 = phi i64 [ %46, %45 ], [ %43, %41 ]
   %50 = load ptr, ptr %19, align 8
   %51 = zext i32 %23 to i64
-  %52 = getelementptr %union.e1000_rx_desc_extended, ptr %50, i64 %51
+  %52 = getelementptr [16 x i8], ptr %50, i64 %51
   store i64 %49, ptr %52, align 8
   %53 = add i32 %23, 1
   %54 = load i32, ptr %20, align 4
@@ -10704,7 +10681,7 @@ define internal void @e1000_alloc_jumbo_rx_buffers(ptr noundef captures(none) %0
   %58 = phi i32 [ 0, %56 ], [ %53, %48 ]
   %59 = load ptr, ptr %10, align 8
   %60 = zext i32 %58 to i64
-  %61 = getelementptr %struct.e1000_buffer, ptr %59, i64 %60
+  %61 = getelementptr [40 x i8], ptr %59, i64 %60
   %62 = icmp eq i32 %25, 0
   br i1 %62, label %.loopexit, label %21, !llvm.loop !68
 
@@ -10774,7 +10751,7 @@ define internal void @e1000_alloc_rx_buffers(ptr noundef captures(none) %0, i32 
 14:                                               ; preds = %3
   %15 = load ptr, ptr %12, align 8
   %16 = zext i16 %10 to i64
-  %17 = getelementptr %struct.e1000_buffer, ptr %15, i64 %16
+  %17 = getelementptr [40 x i8], ptr %15, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 1456
   %19 = load ptr, ptr %18, align 16
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 184
@@ -10867,7 +10844,7 @@ define internal void @e1000_alloc_rx_buffers(ptr noundef captures(none) %0, i32 
   %71 = select i1 %67, i64 %68, i64 %70
   %72 = add i64 %66, %71
   %73 = lshr i64 %72, 12
-  %74 = getelementptr %struct.page, ptr %64, i64 %73
+  %74 = getelementptr [64 x i8], ptr %64, i64 %73
   %75 = and i64 %65, 4095
   %76 = tail call i64 @dma_map_page_attrs(ptr noundef nonnull %20, ptr noundef %74, i64 noundef %75, i64 noundef %48, i32 noundef 2, i64 noundef 0) #22
   store i64 %76, ptr %29, align 8
@@ -10885,7 +10862,7 @@ define internal void @e1000_alloc_rx_buffers(ptr noundef captures(none) %0, i32 
 81:                                               ; preds = %62
   %82 = load ptr, ptr %22, align 8
   %83 = zext i32 %28 to i64
-  %84 = getelementptr %union.e1000_rx_desc_extended, ptr %82, i64 %83
+  %84 = getelementptr [16 x i8], ptr %82, i64 %83
   store i64 %76, ptr %84, align 8
   %85 = and i32 %28, 15
   %86 = icmp eq i32 %85, 0
@@ -10914,7 +10891,7 @@ define internal void @e1000_alloc_rx_buffers(ptr noundef captures(none) %0, i32 
   %98 = select i1 %97, i32 0, i32 %95
   %99 = load ptr, ptr %12, align 8
   %100 = zext i32 %98 to i64
-  %101 = getelementptr %struct.e1000_buffer, ptr %99, i64 %100
+  %101 = getelementptr [40 x i8], ptr %99, i64 %100
   %102 = icmp eq i32 %30, 0
   br i1 %102, label %.loopexit6, label %26, !llvm.loop !71
 
@@ -11638,13 +11615,13 @@ define internal fastcc zeroext i1 @e1000_clean_tx_irq(ptr noundef captures(none)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %9 = load ptr, ptr %8, align 8
   %10 = zext i16 %6 to i64
-  %.split = getelementptr %struct.e1000_buffer, ptr %9, i64 %10
+  %.split = getelementptr [40 x i8], ptr %9, i64 %10
   %11 = getelementptr i8, ptr %.split, i64 26
   %12 = load i16, ptr %11, align 2
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load ptr, ptr %13, align 8
   %15 = zext i16 %12 to i64
-  %16 = getelementptr %struct.e1000_tx_desc, ptr %14, i64 %15
+  %16 = getelementptr [16 x i8], ptr %14, i64 %15
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 12
@@ -11682,7 +11659,7 @@ define internal fastcc zeroext i1 @e1000_clean_tx_irq(ptr noundef captures(none)
   %38 = load ptr, ptr %13, align 8
   %39 = zext i32 %37 to i64
   %40 = load ptr, ptr %8, align 8
-  %41 = getelementptr %struct.e1000_buffer, ptr %40, i64 %39
+  %41 = getelementptr [40 x i8], ptr %40, i64 %39
   %42 = icmp eq i32 %37, %29
   br i1 %42, label %43, label %57
 
@@ -11738,7 +11715,7 @@ define internal fastcc zeroext i1 @e1000_clean_tx_irq(ptr noundef captures(none)
 76:                                               ; preds = %75, %71
   %77 = getelementptr inbounds nuw i8, ptr %41, i64 16
   store i64 0, ptr %77, align 8
-  %.split8 = getelementptr %struct.e1000_tx_desc, ptr %38, i64 %39
+  %.split8 = getelementptr [16 x i8], ptr %38, i64 %39
   %78 = getelementptr i8, ptr %.split8, i64 12
   store i32 0, ptr %78, align 4
   %79 = add i32 %37, 1
@@ -11757,12 +11734,12 @@ define internal fastcc zeroext i1 @e1000_clean_tx_irq(ptr noundef captures(none)
 88:                                               ; preds = %84
   %89 = load ptr, ptr %8, align 8
   %90 = zext i32 %82 to i64
-  %.split9 = getelementptr %struct.e1000_buffer, ptr %89, i64 %90
+  %.split9 = getelementptr [40 x i8], ptr %89, i64 %90
   %91 = getelementptr i8, ptr %.split9, i64 26
   %92 = load i16, ptr %91, align 2
   %93 = load ptr, ptr %13, align 8
   %94 = zext i16 %92 to i64
-  %95 = getelementptr %struct.e1000_tx_desc, ptr %93, i64 %94
+  %95 = getelementptr [16 x i8], ptr %93, i64 %94
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 12
   %97 = load i32, ptr %96, align 4
   %98 = and i32 %97, 1
@@ -11879,7 +11856,7 @@ define internal fastcc zeroext i1 @e1000_clean_tx_irq(ptr noundef captures(none)
   store i8 0, ptr %165, align 16
   %169 = load ptr, ptr %8, align 8
   %170 = zext i32 %161 to i64
-  %.split10 = getelementptr %struct.e1000_buffer, ptr %169, i64 %170
+  %.split10 = getelementptr [40 x i8], ptr %169, i64 %170
   %171 = getelementptr i8, ptr %.split10, i64 16
   %172 = load i64, ptr %171, align 8
   %173 = icmp eq i64 %172, 0
@@ -11990,7 +11967,7 @@ define internal i32 @e1000_probe(ptr noundef %0, ptr noundef readonly captures(n
   %3 = alloca i16, align 2
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load i64, ptr %4, align 8
-  %6 = getelementptr ptr, ptr @e1000_info_tbl, i64 %5
+  %6 = getelementptr [8 x i8], ptr @e1000_info_tbl, i64 %5
   %7 = load ptr, ptr %6, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i16 0, ptr %3, align 2
@@ -14413,7 +14390,7 @@ define internal void @e1000_print_hw_hang(ptr noundef %0) #1 align 16 {
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 56
   %14 = load ptr, ptr %13, align 8
   %15 = zext i16 %12 to i64
-  %.split = getelementptr %struct.e1000_buffer, ptr %14, i64 %15
+  %.split = getelementptr [40 x i8], ptr %14, i64 %15
   %16 = getelementptr i8, ptr %.split, i64 26
   %17 = load i16, ptr %16, align 2
   %18 = zext i16 %17 to i32
@@ -14573,11 +14550,11 @@ define internal void @e1000_print_hw_hang(ptr noundef %0) #1 align 16 {
   %127 = load i16, ptr %11, align 2
   %128 = zext i16 %127 to i32
   %129 = load ptr, ptr %13, align 8
-  %.split2 = getelementptr %struct.e1000_buffer, ptr %129, i64 %21
+  %.split2 = getelementptr [40 x i8], ptr %129, i64 %21
   %130 = getelementptr i8, ptr %.split2, i64 16
   %131 = load i64, ptr %130, align 8
   %132 = load volatile i64, ptr @jiffies, align 64
-  %.split3 = getelementptr %struct.e1000_tx_desc, ptr %20, i64 %21
+  %.split3 = getelementptr [16 x i8], ptr %20, i64 %21
   %133 = getelementptr i8, ptr %.split3, i64 12
   %134 = load i8, ptr %133, align 4
   %135 = zext i8 %134 to i32
@@ -15359,7 +15336,7 @@ __skb_put.exit:                                   ; preds = %72
   %384 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %385 = load ptr, ptr %384, align 8
   %386 = zext i16 %382 to i64
-  %387 = getelementptr %struct.e1000_context_desc, ptr %385, i64 %386
+  %387 = getelementptr [16 x i8], ptr %385, i64 %386
   %388 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %389 = load ptr, ptr %388, align 8
   store i8 %365, ptr %387, align 4
@@ -15380,7 +15357,7 @@ __skb_put.exit:                                   ; preds = %72
   %397 = getelementptr inbounds nuw i8, ptr %387, i64 8
   store i32 %381, ptr %397, align 4
   %398 = load volatile i64, ptr @jiffies, align 64
-  %.split = getelementptr %struct.e1000_buffer, ptr %389, i64 %386
+  %.split = getelementptr [40 x i8], ptr %389, i64 %386
   %399 = getelementptr i8, ptr %.split, i64 16
   store i64 %398, ptr %399, align 8
   %400 = getelementptr i8, ptr %.split, i64 26
@@ -15463,7 +15440,7 @@ __skb_put.exit:                                   ; preds = %72
   %457 = zext i16 %453 to i64
   %458 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %459 = load ptr, ptr %458, align 8
-  %460 = getelementptr %struct.e1000_context_desc, ptr %459, i64 %457
+  %460 = getelementptr [16 x i8], ptr %459, i64 %457
   store i32 0, ptr %460, align 4
   %461 = getelementptr inbounds nuw i8, ptr %460, i64 4
   store i8 %452, ptr %461, align 4
@@ -15481,7 +15458,7 @@ __skb_put.exit:                                   ; preds = %72
   %470 = getelementptr inbounds nuw i8, ptr %460, i64 8
   store i32 %440, ptr %470, align 4
   %471 = load volatile i64, ptr @jiffies, align 64
-  %.split.i = getelementptr %struct.e1000_buffer, ptr %456, i64 %457
+  %.split.i = getelementptr [40 x i8], ptr %456, i64 %457
   %472 = getelementptr i8, ptr %.split.i, i64 16
   store i64 %471, ptr %472, align 8
   %473 = getelementptr i8, ptr %.split.i, i64 26
@@ -15554,7 +15531,7 @@ e1000_tx_csum.exit:                               ; preds = %406, %439
   %520 = phi i32 [ 0, %505 ], [ %568, %570 ]
   %521 = load ptr, ptr %506, align 8
   %522 = zext i32 %519 to i64
-  %523 = getelementptr %struct.e1000_buffer, ptr %521, i64 %522
+  %523 = getelementptr [40 x i8], ptr %521, i64 %522
   %524 = call i32 @llvm.umin.i32(i32 %517, i32 %496)
   %525 = trunc i32 %524 to i16
   %526 = getelementptr inbounds nuw i8, ptr %523, i64 16
@@ -15617,7 +15594,7 @@ e1000_tx_csum.exit:                               ; preds = %406, %439
   %558 = select i1 %554, i64 %555, i64 %557
   %559 = add i64 %553, %558
   %560 = lshr i64 %559, 12
-  %561 = getelementptr %struct.page, ptr %551, i64 %560
+  %561 = getelementptr [64 x i8], ptr %551, i64 %560
   %562 = and i64 %552, 4095
   %563 = call i64 @dma_map_page_attrs(ptr noundef nonnull %507, ptr noundef %561, i64 noundef %562, i64 noundef %534, i32 noundef 1, i64 noundef 0) #22
   store i64 %563, ptr %523, align 8
@@ -15656,7 +15633,7 @@ e1000_tx_csum.exit:                               ; preds = %406, %439
   %584 = zext i32 %583 to i64
   %585 = getelementptr i8, ptr %582, i64 %584
   %586 = getelementptr inbounds nuw i8, ptr %585, i64 48
-  %587 = getelementptr %struct.bio_vec, ptr %586, i64 %579
+  %587 = getelementptr [16 x i8], ptr %586, i64 %579
   %588 = getelementptr inbounds nuw i8, ptr %587, i64 8
   %589 = load i32, ptr %588, align 8
   %590 = icmp eq i32 %589, 0
@@ -15677,7 +15654,7 @@ e1000_tx_csum.exit:                               ; preds = %406, %439
   %601 = select i1 %600, i32 0, i32 %598
   %602 = load ptr, ptr %513, align 8
   %603 = zext i32 %601 to i64
-  %604 = getelementptr %struct.e1000_buffer, ptr %602, i64 %603
+  %604 = getelementptr [40 x i8], ptr %602, i64 %603
   %605 = call i32 @llvm.umin.i32(i32 %594, i32 %496)
   %606 = trunc i32 %605 to i16
   %607 = getelementptr inbounds nuw i8, ptr %604, i64 16
@@ -15739,7 +15716,7 @@ e1000_tx_csum.exit:                               ; preds = %406, %439
   %643 = add i32 %642, -1
   %644 = load ptr, ptr %633, align 8
   %645 = zext i32 %643 to i64
-  %646 = getelementptr %struct.e1000_buffer, ptr %644, i64 %645
+  %646 = getelementptr [40 x i8], ptr %644, i64 %645
   %647 = load i64, ptr %646, align 8
   %648 = icmp eq i64 %647, 0
   br i1 %648, label %657, label %649
@@ -15793,21 +15770,21 @@ e1000_tx_map.exit:                                ; preds = %.loopexit22.i, %.th
   %681 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %682 = load ptr, ptr %681, align 8
   %683 = zext i32 %666 to i64
-  %.split.i14 = getelementptr %struct.e1000_buffer, ptr %682, i64 %683
+  %.split.i14 = getelementptr [40 x i8], ptr %682, i64 %683
   %684 = getelementptr i8, ptr %.split.i14, i64 8
   store ptr %0, ptr %684, align 8
   %685 = load ptr, ptr %681, align 8
-  %.split14.i = getelementptr %struct.e1000_buffer, ptr %685, i64 %683
+  %.split14.i = getelementptr [40 x i8], ptr %685, i64 %683
   %686 = getelementptr i8, ptr %.split14.i, i64 28
   store i32 %674, ptr %686, align 4
   %687 = load ptr, ptr %681, align 8
-  %.split15.i = getelementptr %struct.e1000_buffer, ptr %687, i64 %683
+  %.split15.i = getelementptr [40 x i8], ptr %687, i64 %683
   %688 = getelementptr i8, ptr %.split15.i, i64 32
   store i32 %680, ptr %688, align 8
   %689 = trunc i32 %666 to i16
   %690 = load ptr, ptr %681, align 8
   %691 = zext i16 %260 to i64
-  %.split16.i = getelementptr %struct.e1000_buffer, ptr %690, i64 %691
+  %.split16.i = getelementptr [40 x i8], ptr %690, i64 %691
   %692 = getelementptr i8, ptr %.split16.i, i64 26
   store i16 %689, ptr %692, align 2
   %693 = icmp eq i32 %665, 0
@@ -15969,9 +15946,9 @@ netdev_sent_queue.exit:                           ; preds = %742, %751, %757
   %798 = phi i32 [ %794, %790 ], [ %814, %796 ]
   %799 = load ptr, ptr %681, align 8
   %800 = zext i32 %798 to i64
-  %801 = getelementptr %struct.e1000_buffer, ptr %799, i64 %800
+  %801 = getelementptr [40 x i8], ptr %799, i64 %800
   %802 = load ptr, ptr %795, align 8
-  %803 = getelementptr %struct.e1000_tx_desc, ptr %802, i64 %800
+  %803 = getelementptr [16 x i8], ptr %802, i64 %800
   %804 = load i64, ptr %801, align 8
   store i64 %804, ptr %803, align 8
   %805 = getelementptr inbounds nuw i8, ptr %801, i64 24
@@ -16117,7 +16094,7 @@ e1000_tx_map.exit.thread:                         ; preds = %662, %.loopexit21.i
   %896 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %897 = load ptr, ptr %896, align 8
   %898 = zext i16 %260 to i64
-  %.split13 = getelementptr %struct.e1000_buffer, ptr %897, i64 %898
+  %.split13 = getelementptr [40 x i8], ptr %897, i64 %898
   %899 = getelementptr i8, ptr %.split13, i64 16
   store i64 0, ptr %899, align 8
   store i16 %260, ptr %213, align 8
@@ -17192,7 +17169,7 @@ define internal fastcc void @e1000e_dump(ptr noundef readonly captures(none) %0)
   %78 = getelementptr inbounds nuw i8, ptr %6, i64 34
   %79 = load i16, ptr %78, align 2
   %80 = zext i16 %79 to i64
-  %81 = getelementptr %struct.e1000_buffer, ptr %77, i64 %80
+  %81 = getelementptr [40 x i8], ptr %77, i64 %80
   %82 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %83 = load i16, ptr %82, align 8
   %84 = zext i16 %83 to i32
@@ -17234,9 +17211,9 @@ define internal fastcc void @e1000e_dump(ptr noundef readonly captures(none) %0)
 
 113:                                              ; preds = %.preheader
   %114 = sext i32 %110 to i64
-  %115 = getelementptr %struct.e1000_tx_desc, ptr %109, i64 %114
+  %115 = getelementptr [16 x i8], ptr %109, i64 %114
   %116 = load ptr, ptr %76, align 8
-  %117 = getelementptr %struct.e1000_buffer, ptr %116, i64 %114
+  %117 = getelementptr [40 x i8], ptr %116, i64 %114
   %118 = load i16, ptr %82, align 8
   %119 = zext i16 %118 to i32
   %120 = icmp eq i32 %110, %119
@@ -17336,9 +17313,9 @@ define internal fastcc void @e1000e_dump(ptr noundef readonly captures(none) %0)
   %194 = phi i32 [ 0, %190 ], [ %234, %233 ]
   %195 = load ptr, ptr %191, align 8
   %196 = sext i32 %194 to i64
-  %197 = getelementptr %struct.e1000_buffer, ptr %195, i64 %196
+  %197 = getelementptr [40 x i8], ptr %195, i64 %196
   %198 = load ptr, ptr %192, align 8
-  %199 = getelementptr %union.e1000_rx_desc_packet_split, ptr %198, i64 %196
+  %199 = getelementptr [32 x i8], ptr %198, i64 %196
   %200 = getelementptr inbounds nuw i8, ptr %199, i64 8
   %201 = load i32, ptr %200, align 8
   %202 = load i16, ptr %167, align 8
@@ -17408,9 +17385,9 @@ define internal fastcc void @e1000e_dump(ptr noundef readonly captures(none) %0)
   %247 = phi i32 [ 0, %242 ], [ %290, %289 ]
   %248 = load ptr, ptr %243, align 8
   %249 = sext i32 %247 to i64
-  %250 = getelementptr %struct.e1000_buffer, ptr %248, i64 %249
+  %250 = getelementptr [40 x i8], ptr %248, i64 %249
   %251 = load ptr, ptr %244, align 8
-  %252 = getelementptr %union.e1000_rx_desc_extended, ptr %251, i64 %249
+  %252 = getelementptr [16 x i8], ptr %251, i64 %249
   %253 = getelementptr inbounds nuw i8, ptr %252, i64 8
   %254 = load i32, ptr %253, align 8
   %255 = load i16, ptr %167, align 8
@@ -17494,7 +17471,7 @@ define internal fastcc void @e1000e_dump_ps_pages(ptr noundef readonly captures(
   %10 = phi i32 [ 0, %6 ], [ %28, %26 ]
   %11 = load ptr, ptr %7, align 8
   %12 = sext i32 %10 to i64
-  %13 = getelementptr %struct.e1000_ps_page, ptr %11, i64 %12
+  %13 = getelementptr [16 x i8], ptr %11, i64 %12
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq ptr %14, null
   br i1 %15, label %26, label %16

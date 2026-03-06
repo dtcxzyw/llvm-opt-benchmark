@@ -316,17 +316,17 @@ Super_ManStop.exit:                               ; preds = %98, %101
 
 125:                                              ; preds = %125, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %125 ]
-  %126 = getelementptr inbounds nuw float, ptr %124, i64 %indvars.iv.i
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %124, i64 %indvars.iv.i
   store float -9.999000e+03, ptr %126, align 4, !tbaa !39
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count84.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %125, !llvm.loop !40
 
 ._crit_edge.i:                                    ; preds = %125
-  %127 = getelementptr inbounds nuw float, ptr %124, i64 %indvars.iv81.i
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %124, i64 %indvars.iv81.i
   store float 0.000000e+00, ptr %127, align 4, !tbaa !39
   %128 = load ptr, ptr %113, align 8, !tbaa !34
-  %129 = getelementptr inbounds nuw ptr, ptr %128, i64 %indvars.iv81.i
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %indvars.iv81.i
   store ptr %119, ptr %129, align 8, !tbaa !42
   call void @llvm.lifetime.start.p0(ptr nonnull %37)
   %130 = load ptr, ptr %59, align 8, !tbaa !21
@@ -354,7 +354,7 @@ Super_AddGateToTable.exit.i:                      ; preds = %132, %._crit_edge.i
   %138 = add nsw i32 %137, 1
   store i32 %138, ptr %116, align 4, !tbaa !49
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
-  %139 = getelementptr inbounds nuw ptr, ptr %117, i64 %indvars.iv81.i
+  %139 = getelementptr inbounds nuw [8 x i8], ptr %117, i64 %indvars.iv81.i
   store ptr %119, ptr %139, align 8, !tbaa !42
   %indvars.iv.next82.i = add nuw nsw i64 %indvars.iv81.i, 1
   %exitcond85.not.i = icmp eq i64 %indvars.iv.next82.i, %wide.trip.count84.i
@@ -380,7 +380,7 @@ Super_AddGateToTable.exit.i:                      ; preds = %132, %._crit_edge.i
 
 146:                                              ; preds = %142
   %147 = load ptr, ptr %113, align 8, !tbaa !34
-  %148 = getelementptr inbounds nuw ptr, ptr %147, i64 %indvars.iv86.i
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %147, i64 %indvars.iv86.i
   %149 = load ptr, ptr %148, align 8, !tbaa !42
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 12
   %151 = load i32, ptr %150, align 4, !tbaa !33
@@ -406,7 +406,7 @@ Super_AddGateToTable.exit.i:                      ; preds = %132, %._crit_edge.i
 
 .preheader.i:                                     ; preds = %.split75.us.i, %.preheader.i
   %indvars.iv96.i = phi i64 [ %indvars.iv.next97.i, %.preheader.i ], [ 0, %.split75.us.i ]
-  %158 = getelementptr inbounds nuw ptr, ptr %157, i64 %indvars.iv96.i
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %157, i64 %indvars.iv96.i
   %159 = load ptr, ptr %158, align 8, !tbaa !42
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 12
   %161 = load i32, ptr %160, align 4, !tbaa !33
@@ -427,7 +427,7 @@ Super_AddGateToTable.exit.i:                      ; preds = %132, %._crit_edge.i
 
 .preheader63.i:                                   ; preds = %.split75.us.i, %.preheader63.i
   %indvars.iv91.i = phi i64 [ %indvars.iv.next92.i, %.preheader63.i ], [ 0, %.split75.us.i ]
-  %168 = getelementptr inbounds nuw ptr, ptr %157, i64 %indvars.iv91.i
+  %168 = getelementptr inbounds nuw [8 x i8], ptr %157, i64 %indvars.iv91.i
   %169 = load ptr, ptr %168, align 8, !tbaa !42
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 16
   store i32 0, ptr %170, align 4, !tbaa !33
@@ -601,7 +601,7 @@ Abc_Clock.exit90:                                 ; preds = %228, %231
   %indvars.iv.i.i = phi i64 [ %248, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %.critedge.i.i ]
   %.019.i.i = phi ptr [ %.017.i.i, %.lr.ph.i.i ], [ %.0.i.i, %.critedge.i.i ]
   %indvars.iv.next.i.i = add nsw i64 %indvars.iv.i.i, 1
-  %249 = getelementptr inbounds ptr, ptr %247, i64 %indvars.iv.i.i
+  %249 = getelementptr inbounds [8 x i8], ptr %247, i64 %indvars.iv.i.i
   store ptr %.019.i.i, ptr %249, align 8, !tbaa !42
   %250 = getelementptr inbounds nuw i8, ptr %.019.i.i, i64 104
   %.0.i.i = load ptr, ptr %250, align 8, !tbaa !42
@@ -677,14 +677,14 @@ Abc_Clock.exit.i:                                 ; preds = %271, %265
   br i1 %286, label %287, label %292
 
 287:                                              ; preds = %284
-  %288 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv1411.i
+  %288 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv1411.i
   %289 = load ptr, ptr %288, align 8, !tbaa !58
   %290 = call i32 @Mio_GateReadPinNum(ptr noundef %289) #20
   %291 = icmp sgt i32 %290, 3
   br i1 %291, label %.critedge.i, label %292
 
 292:                                              ; preds = %287, %284
-  %293 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv1411.i
+  %293 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv1411.i
   %294 = load ptr, ptr %293, align 8, !tbaa !58
   %295 = call double @Mio_GateReadDelayMax(ptr noundef %294) #20
   %296 = fptrunc double %295 to float
@@ -702,7 +702,7 @@ Abc_Clock.exit.i:                                 ; preds = %271, %265
 301:                                              ; preds = %318, %.lr.ph.i99
   %indvars.iv.i100 = phi i64 [ 0, %.lr.ph.i99 ], [ %indvars.iv.next.i101, %318 ]
   %.0617946.i = phi i32 [ 0, %.lr.ph.i99 ], [ %.2619.i, %318 ]
-  %302 = getelementptr inbounds nuw ptr, ptr %.pre1414.pre.i, i64 %indvars.iv.i100
+  %302 = getelementptr inbounds nuw [8 x i8], ptr %.pre1414.pre.i, i64 %indvars.iv.i100
   %303 = load ptr, ptr %302, align 8, !tbaa !42
   br i1 %300, label %304, label %._crit_edge1415.i
 
@@ -715,7 +715,7 @@ Abc_Clock.exit.i:                                 ; preds = %271, %265
 
 ._crit_edge1415.i:                                ; preds = %304, %301
   %309 = sext i32 %.0617946.i to i64
-  %310 = getelementptr inbounds ptr, ptr %281, i64 %309
+  %310 = getelementptr inbounds [8 x i8], ptr %281, i64 %309
   store ptr %303, ptr %310, align 8, !tbaa !42
   %311 = add nsw i32 %.0617946.i, 1
   %312 = getelementptr inbounds nuw i8, ptr %303, i64 100
@@ -828,7 +828,7 @@ Abc_Clock.exit.i:                                 ; preds = %271, %265
   %indvars.iv1376.i = phi i64 [ 0, %.lr.ph1166.preheader.i ], [ %indvars.iv.next1377.i, %403 ]
   %.21165.i = phi i32 [ 0, %.lr.ph1166.preheader.i ], [ %348, %403 ]
   %.26451163.i = phi float [ %.06431281.i, %.lr.ph1166.preheader.i ], [ %.3646.i, %403 ]
-  %343 = getelementptr inbounds nuw ptr, ptr %281, i64 %indvars.iv1376.i
+  %343 = getelementptr inbounds nuw [8 x i8], ptr %281, i64 %indvars.iv1376.i
   %344 = load ptr, ptr %343, align 8, !tbaa !42
   %345 = icmp eq ptr %344, null
   %346 = icmp ne i32 %.21165.i, 0
@@ -948,7 +948,7 @@ Super_AddGateToTable.exit.i97:                    ; preds = %394, %._crit_edge.i
   %indvars.iv1371.i = phi i64 [ 0, %.lr.ph1154.preheader.i ], [ %indvars.iv.next1372.i, %.critedge4.i ]
   %.31153.i = phi i32 [ 0, %.lr.ph1154.preheader.i ], [ %.6.i, %.critedge4.i ]
   %.46471151.i = phi float [ %.06431281.i, %.lr.ph1154.preheader.i ], [ %.7650.i, %.critedge4.i ]
-  %404 = getelementptr inbounds nuw ptr, ptr %281, i64 %indvars.iv1371.i
+  %404 = getelementptr inbounds nuw [8 x i8], ptr %281, i64 %indvars.iv1371.i
   %405 = load ptr, ptr %404, align 8, !tbaa !42
   %.not764.i = icmp eq ptr %405, null
   br i1 %.not764.i, label %.critedge.i, label %406
@@ -978,7 +978,7 @@ Super_AddGateToTable.exit.i97:                    ; preds = %394, %._crit_edge.i
   %indvars.iv1366.i = phi i64 [ 0, %.lr.ph1142.i ], [ %indvars.iv.next1367.i, %474 ]
   %.41140.i = phi i32 [ %.31153.i, %.lr.ph1142.i ], [ %.5.i, %474 ]
   %.56481138.i = phi float [ %.46471151.i, %.lr.ph1142.i ], [ %.6649.i, %474 ]
-  %419 = getelementptr inbounds nuw ptr, ptr %281, i64 %indvars.iv1366.i
+  %419 = getelementptr inbounds nuw [8 x i8], ptr %281, i64 %indvars.iv1366.i
   %420 = load ptr, ptr %419, align 8, !tbaa !42
   %.not765.i = icmp eq ptr %420, null
   br i1 %.not765.i, label %.critedge4.i, label %421
@@ -1105,7 +1105,7 @@ Super_AddGateToTable.exit854.i:                   ; preds = %465, %._crit_edge.i
   %indvars.iv1361.i = phi i64 [ 0, %.lr.ph1129.preheader.i ], [ %indvars.iv.next1362.i, %.critedge8.i ]
   %.71128.i = phi i32 [ 0, %.lr.ph1129.preheader.i ], [ %.8.lcssa.i, %.critedge8.i ]
   %.86511126.i = phi float [ %.06431281.i, %.lr.ph1129.preheader.i ], [ %.9652.lcssa.i, %.critedge8.i ]
-  %475 = getelementptr inbounds nuw ptr, ptr %281, i64 %indvars.iv1361.i
+  %475 = getelementptr inbounds nuw [8 x i8], ptr %281, i64 %indvars.iv1361.i
   %476 = load ptr, ptr %475, align 8, !tbaa !42
   %.not755.i = icmp eq ptr %476, null
   br i1 %.not755.i, label %.critedge.i, label %477
@@ -1135,7 +1135,7 @@ Super_AddGateToTable.exit854.i:                   ; preds = %465, %._crit_edge.i
   %indvars.iv1356.i = phi i64 [ %indvars.iv.next1357.i, %.critedge10.us.i ], [ 0, %.lr.ph1112.i ]
   %.81110.us.i = phi i32 [ %.11.us.i, %.critedge10.us.i ], [ %.71128.i, %.lr.ph1112.i ]
   %.96521107.us.i = phi float [ %.12655.us.i, %.critedge10.us.i ], [ %.86511126.i, %.lr.ph1112.i ]
-  %490 = getelementptr inbounds nuw ptr, ptr %281, i64 %indvars.iv1356.i
+  %490 = getelementptr inbounds nuw [8 x i8], ptr %281, i64 %indvars.iv1356.i
   %491 = load ptr, ptr %490, align 8, !tbaa !42
   %.not756.us.i = icmp eq ptr %491, null
   br i1 %.not756.us.i, label %.critedge8.i, label %492
@@ -1169,7 +1169,7 @@ Super_AddGateToTable.exit854.i:                   ; preds = %465, %._crit_edge.i
   %indvars.iv1351.i = phi i64 [ 0, %.lr.ph1098.us.i ], [ %indvars.iv.next1352.i, %561 ]
   %.91096.us.i = phi i32 [ %.81110.us.i, %.lr.ph1098.us.i ], [ %.10.us.i, %561 ]
   %.106531094.us.i = phi float [ %.96521107.us.i, %.lr.ph1098.us.i ], [ %.11654.us.i, %561 ]
-  %506 = getelementptr inbounds nuw ptr, ptr %281, i64 %indvars.iv1351.i
+  %506 = getelementptr inbounds nuw [8 x i8], ptr %281, i64 %indvars.iv1351.i
   %507 = load ptr, ptr %506, align 8, !tbaa !42
   %.not758.us.i = icmp eq ptr %507, null
   br i1 %.not758.us.i, label %.critedge10.us.i, label %508
@@ -1307,7 +1307,7 @@ Super_AddGateToTable.exit859.us.i:                ; preds = %552, %._crit_edge.i
   %indvars.iv1346.i = phi i64 [ 0, %.lr.ph1085.preheader.i ], [ %indvars.iv.next1347.i, %.critedge14.i ]
   %.121084.i = phi i32 [ 0, %.lr.ph1085.preheader.i ], [ %.13.lcssa.i, %.critedge14.i ]
   %.136561082.i = phi float [ %.06431281.i, %.lr.ph1085.preheader.i ], [ %.14657.lcssa.i, %.critedge14.i ]
-  %562 = getelementptr inbounds nuw ptr, ptr %281, i64 %indvars.iv1346.i
+  %562 = getelementptr inbounds nuw [8 x i8], ptr %281, i64 %indvars.iv1346.i
   %563 = load ptr, ptr %562, align 8, !tbaa !42
   %.not742.i = icmp eq ptr %563, null
   br i1 %.not742.i, label %.critedge.i, label %564
@@ -1337,7 +1337,7 @@ Super_AddGateToTable.exit859.us.i:                ; preds = %552, %._crit_edge.i
   %indvars.iv1341.i = phi i64 [ %indvars.iv.next1342.i, %.critedge16.us.i ], [ 0, %.lr.ph1068.i ]
   %.131066.us.i = phi i32 [ %.18.us.i, %.critedge16.us.i ], [ %.121084.i, %.lr.ph1068.i ]
   %.146571063.us.i = phi float [ %.19662.us.i, %.critedge16.us.i ], [ %.136561082.i, %.lr.ph1068.i ]
-  %577 = getelementptr inbounds nuw ptr, ptr %281, i64 %indvars.iv1341.i
+  %577 = getelementptr inbounds nuw [8 x i8], ptr %281, i64 %indvars.iv1341.i
   %578 = load ptr, ptr %577, align 8, !tbaa !42
   %.not743.us.i = icmp eq ptr %578, null
   br i1 %.not743.us.i, label %.critedge14.i, label %579
@@ -1378,7 +1378,7 @@ Super_AddGateToTable.exit859.us.i:                ; preds = %552, %._crit_edge.i
   %indvars.iv1336.i = phi i64 [ %indvars.iv.next1337.i, %.critedge18.us.us.i ], [ 0, %.lr.ph1049.us.i ]
   %.141047.us.us.i = phi i32 [ %.17.us.us.i, %.critedge18.us.us.i ], [ %.131066.us.i, %.lr.ph1049.us.i ]
   %.156581044.us.us.i = phi float [ %.18661.us.us.i, %.critedge18.us.us.i ], [ %.146571063.us.i, %.lr.ph1049.us.i ]
-  %593 = getelementptr inbounds nuw ptr, ptr %281, i64 %indvars.iv1336.i
+  %593 = getelementptr inbounds nuw [8 x i8], ptr %281, i64 %indvars.iv1336.i
   %594 = load ptr, ptr %593, align 8, !tbaa !42
   %.not745.us.us.i = icmp eq ptr %594, null
   br i1 %.not745.us.us.i, label %.critedge16.us.i, label %595
@@ -1414,7 +1414,7 @@ Super_AddGateToTable.exit859.us.i:                ; preds = %552, %._crit_edge.i
   %indvars.iv1331.i = phi i64 [ %indvars.iv.next1332.i, %664 ], [ 0, %.lr.ph1035.us.us.i ]
   %.151033.us.us.i = phi i32 [ %.16.us.us.i, %664 ], [ %.141047.us.us.i, %.lr.ph1035.us.us.i ]
   %.166591031.us.us.i = phi float [ %.17660.us.us.i, %664 ], [ %.156581044.us.us.i, %.lr.ph1035.us.us.i ]
-  %609 = getelementptr inbounds nuw ptr, ptr %281, i64 %indvars.iv1331.i
+  %609 = getelementptr inbounds nuw [8 x i8], ptr %281, i64 %indvars.iv1331.i
   %610 = load ptr, ptr %609, align 8, !tbaa !42
   %.not748.us.us.i = icmp eq ptr %610, null
   br i1 %.not748.us.us.i, label %.critedge18.us.us.i, label %611
@@ -1556,7 +1556,7 @@ Super_AddGateToTable.exit864.us.us.i:             ; preds = %655, %._crit_edge.i
   %indvars.iv1326.i = phi i64 [ 0, %.lr.ph1022.preheader.i ], [ %indvars.iv.next1327.i, %.critedge22.i ]
   %.191021.i = phi i32 [ 0, %.lr.ph1022.preheader.i ], [ %.20.lcssa.i, %.critedge22.i ]
   %.206631019.i = phi float [ %.06431281.i, %.lr.ph1022.preheader.i ], [ %.21664.lcssa.i, %.critedge22.i ]
-  %665 = getelementptr inbounds nuw ptr, ptr %281, i64 %indvars.iv1326.i
+  %665 = getelementptr inbounds nuw [8 x i8], ptr %281, i64 %indvars.iv1326.i
   %666 = load ptr, ptr %665, align 8, !tbaa !42
   %.not724.i = icmp eq ptr %666, null
   br i1 %.not724.i, label %.critedge.i, label %667
@@ -1586,7 +1586,7 @@ Super_AddGateToTable.exit864.us.us.i:             ; preds = %655, %._crit_edge.i
   %indvars.iv1321.i = phi i64 [ %indvars.iv.next1322.i, %.critedge24.us.i ], [ 0, %.lr.ph1005.i ]
   %.201003.us.i = phi i32 [ %.27.us.i, %.critedge24.us.i ], [ %.191021.i, %.lr.ph1005.i ]
   %.216641000.us.i = phi float [ %.28671.us.i, %.critedge24.us.i ], [ %.206631019.i, %.lr.ph1005.i ]
-  %680 = getelementptr inbounds nuw ptr, ptr %281, i64 %indvars.iv1321.i
+  %680 = getelementptr inbounds nuw [8 x i8], ptr %281, i64 %indvars.iv1321.i
   %681 = load ptr, ptr %680, align 8, !tbaa !42
   %.not725.us.i = icmp eq ptr %681, null
   br i1 %.not725.us.i, label %.critedge22.i, label %682
@@ -1627,7 +1627,7 @@ Super_AddGateToTable.exit864.us.us.i:             ; preds = %655, %._crit_edge.i
   %indvars.iv1316.i = phi i64 [ %indvars.iv.next1317.i, %.critedge26.us.us.i ], [ 0, %.lr.ph986.us.i ]
   %.21984.us.us.i = phi i32 [ %.26.us.us.i, %.critedge26.us.us.i ], [ %.201003.us.i, %.lr.ph986.us.i ]
   %.22665981.us.us.i = phi float [ %.27670.us.us.i, %.critedge26.us.us.i ], [ %.216641000.us.i, %.lr.ph986.us.i ]
-  %696 = getelementptr inbounds nuw ptr, ptr %281, i64 %indvars.iv1316.i
+  %696 = getelementptr inbounds nuw [8 x i8], ptr %281, i64 %indvars.iv1316.i
   %697 = load ptr, ptr %696, align 8, !tbaa !42
   %.not727.us.us.i = icmp eq ptr %697, null
   br i1 %.not727.us.us.i, label %.critedge24.us.i, label %698
@@ -1670,7 +1670,7 @@ Super_AddGateToTable.exit864.us.us.i:             ; preds = %655, %._crit_edge.i
   %indvars.iv1311.i = phi i64 [ %indvars.iv.next1312.i, %.critedge28.us.us.us.i ], [ 0, %.lr.ph967.us.us.i ]
   %.22965.us.us.us.i = phi i32 [ %.25.us.us.us.i, %.critedge28.us.us.us.i ], [ %.21984.us.us.i, %.lr.ph967.us.us.i ]
   %.23666962.us.us.us.i = phi float [ %.26669.us.us.us.i, %.critedge28.us.us.us.i ], [ %.22665981.us.us.i, %.lr.ph967.us.us.i ]
-  %712 = getelementptr inbounds nuw ptr, ptr %281, i64 %indvars.iv1311.i
+  %712 = getelementptr inbounds nuw [8 x i8], ptr %281, i64 %indvars.iv1311.i
   %713 = load ptr, ptr %712, align 8, !tbaa !42
   %.not730.us.us.us.i = icmp eq ptr %713, null
   br i1 %.not730.us.us.us.i, label %.critedge26.us.us.i, label %714
@@ -1708,7 +1708,7 @@ Super_AddGateToTable.exit864.us.us.i:             ; preds = %655, %._crit_edge.i
   %indvars.iv1306.i = phi i64 [ %indvars.iv.next1307.i, %783 ], [ 0, %.lr.ph953.us.us.us.i ]
   %.23951.us.us.us.i = phi i32 [ %.24.us.us.us.i, %783 ], [ %.22965.us.us.us.i, %.lr.ph953.us.us.us.i ]
   %.24667949.us.us.us.i = phi float [ %.25668.us.us.us.i, %783 ], [ %.23666962.us.us.us.i, %.lr.ph953.us.us.us.i ]
-  %728 = getelementptr inbounds nuw ptr, ptr %281, i64 %indvars.iv1306.i
+  %728 = getelementptr inbounds nuw [8 x i8], ptr %281, i64 %indvars.iv1306.i
   %729 = load ptr, ptr %728, align 8, !tbaa !42
   %.not734.us.us.us.i = icmp eq ptr %729, null
   br i1 %.not734.us.us.us.i, label %.critedge28.us.us.us.i, label %730
@@ -1854,7 +1854,7 @@ Super_AddGateToTable.exit869.us.us.us.i:          ; preds = %774, %._crit_edge.i
   %indvars.iv1406.i = phi i64 [ 0, %.lr.ph1272.preheader.i ], [ %indvars.iv.next1407.i, %.critedge32.i ]
   %.281271.i = phi i32 [ 0, %.lr.ph1272.preheader.i ], [ %.29.lcssa.i, %.critedge32.i ]
   %.296721269.i = phi float [ %.06431281.i, %.lr.ph1272.preheader.i ], [ %.30673.lcssa.i, %.critedge32.i ]
-  %784 = getelementptr inbounds nuw ptr, ptr %281, i64 %indvars.iv1406.i
+  %784 = getelementptr inbounds nuw [8 x i8], ptr %281, i64 %indvars.iv1406.i
   %785 = load ptr, ptr %784, align 8, !tbaa !42
   %.not773.i = icmp eq ptr %785, null
   br i1 %.not773.i, label %.critedge.i, label %786
@@ -1884,7 +1884,7 @@ Super_AddGateToTable.exit869.us.us.us.i:          ; preds = %774, %._crit_edge.i
   %indvars.iv1401.i = phi i64 [ %indvars.iv.next1402.i, %.critedge34.us.i ], [ 0, %.lr.ph1255.i ]
   %.291253.us.i = phi i32 [ %.38.us.i, %.critedge34.us.i ], [ %.281271.i, %.lr.ph1255.i ]
   %.306731250.us.i = phi float [ %.39.us.i, %.critedge34.us.i ], [ %.296721269.i, %.lr.ph1255.i ]
-  %799 = getelementptr inbounds nuw ptr, ptr %281, i64 %indvars.iv1401.i
+  %799 = getelementptr inbounds nuw [8 x i8], ptr %281, i64 %indvars.iv1401.i
   %800 = load ptr, ptr %799, align 8, !tbaa !42
   %.not774.us.i = icmp eq ptr %800, null
   br i1 %.not774.us.i, label %.critedge32.i, label %801
@@ -1925,7 +1925,7 @@ Super_AddGateToTable.exit869.us.us.us.i:          ; preds = %774, %._crit_edge.i
   %indvars.iv1396.i = phi i64 [ %indvars.iv.next1397.i, %.critedge36.us.us.i ], [ 0, %.lr.ph1236.us.i ]
   %.301234.us.us.i = phi i32 [ %.37.us.us.i, %.critedge36.us.us.i ], [ %.291253.us.i, %.lr.ph1236.us.i ]
   %.316741231.us.us.i = phi float [ %.38681.us.us.i, %.critedge36.us.us.i ], [ %.306731250.us.i, %.lr.ph1236.us.i ]
-  %815 = getelementptr inbounds nuw ptr, ptr %281, i64 %indvars.iv1396.i
+  %815 = getelementptr inbounds nuw [8 x i8], ptr %281, i64 %indvars.iv1396.i
   %816 = load ptr, ptr %815, align 8, !tbaa !42
   %.not776.us.us.i = icmp eq ptr %816, null
   br i1 %.not776.us.us.i, label %.critedge34.us.i, label %817
@@ -1968,7 +1968,7 @@ Super_AddGateToTable.exit869.us.us.us.i:          ; preds = %774, %._crit_edge.i
   %indvars.iv1391.i = phi i64 [ %indvars.iv.next1392.i, %.critedge38.us.us.us.i ], [ 0, %.lr.ph1217.us.us.i ]
   %.311215.us.us.us.i = phi i32 [ %.36.us.us.us.i, %.critedge38.us.us.us.i ], [ %.301234.us.us.i, %.lr.ph1217.us.us.i ]
   %.326751212.us.us.us.i = phi float [ %.37680.us.us.us.i, %.critedge38.us.us.us.i ], [ %.316741231.us.us.i, %.lr.ph1217.us.us.i ]
-  %831 = getelementptr inbounds nuw ptr, ptr %281, i64 %indvars.iv1391.i
+  %831 = getelementptr inbounds nuw [8 x i8], ptr %281, i64 %indvars.iv1391.i
   %832 = load ptr, ptr %831, align 8, !tbaa !42
   %.not779.us.us.us.i = icmp eq ptr %832, null
   br i1 %.not779.us.us.us.i, label %.critedge36.us.us.i, label %833
@@ -2013,7 +2013,7 @@ Super_AddGateToTable.exit869.us.us.us.i:          ; preds = %774, %._crit_edge.i
   %indvars.iv1386.i = phi i64 [ %indvars.iv.next1387.i, %.critedge40.us.us.us.us.i ], [ 0, %.lr.ph1193.us.us.us.i ]
   %.321191.us.us.us.us.i = phi i32 [ %.35.us.us.us.us.i, %.critedge40.us.us.us.us.i ], [ %.311215.us.us.us.i, %.lr.ph1193.us.us.us.i ]
   %.336761188.us.us.us.us.i = phi float [ %.36679.us.us.us.us.i, %.critedge40.us.us.us.us.i ], [ %.326751212.us.us.us.i, %.lr.ph1193.us.us.us.i ]
-  %847 = getelementptr inbounds nuw ptr, ptr %281, i64 %indvars.iv1386.i
+  %847 = getelementptr inbounds nuw [8 x i8], ptr %281, i64 %indvars.iv1386.i
   %848 = load ptr, ptr %847, align 8, !tbaa !42
   %.not783.us.us.us.us.i = icmp eq ptr %848, null
   br i1 %.not783.us.us.us.us.i, label %.critedge38.us.us.us.i, label %849
@@ -2058,7 +2058,7 @@ Super_AddGateToTable.exit869.us.us.us.i:          ; preds = %774, %._crit_edge.i
   %indvars.iv1381.i = phi i64 [ %indvars.iv.next1382.i, %920 ], [ 0, %.lr.ph1179.us.us.us.us.i ]
   %.331177.us.us.us.us.i = phi i32 [ %.34.us.us.us.us.i, %920 ], [ %852, %.lr.ph1179.us.us.us.us.i ]
   %.346771175.us.us.us.us.i = phi float [ %.35678.us.us.us.us.i, %920 ], [ %.336761188.us.us.us.us.i, %.lr.ph1179.us.us.us.us.i ]
-  %865 = getelementptr inbounds nuw ptr, ptr %281, i64 %indvars.iv1381.i
+  %865 = getelementptr inbounds nuw [8 x i8], ptr %281, i64 %indvars.iv1381.i
   %866 = load ptr, ptr %865, align 8, !tbaa !42
   %.not789.us.us.us.us.i = icmp eq ptr %866, null
   br i1 %.not789.us.us.us.us.i, label %.critedge40.us.us.us.us.i, label %867
@@ -2392,7 +2392,7 @@ Abc_Clock.exit.i111:                              ; preds = %980, %._crit_edge72
 993:                                              ; preds = %999, %.lr.ph.i118
   %indvars.iv.i120 = phi i64 [ 0, %.lr.ph.i118 ], [ %indvars.iv.next.i122, %999 ]
   %.03665.i = phi i32 [ 0, %.lr.ph.i118 ], [ %.1.i121, %999 ]
-  %994 = getelementptr inbounds nuw float, ptr %992, i64 %indvars.iv.i120
+  %994 = getelementptr inbounds nuw [4 x i8], ptr %992, i64 %indvars.iv.i120
   %995 = load float, ptr %994, align 4, !tbaa !39
   %996 = fpext float %995 to double
   %997 = fcmp olt double %996, 0xC0C3877FDF3B645A
@@ -2414,7 +2414,7 @@ Abc_Clock.exit.i111:                              ; preds = %980, %._crit_edge72
   %1002 = add nsw i32 %1001, 1
   store i32 %1002, ptr %108, align 8, !tbaa !38
   %1003 = sext i32 %1001 to i64
-  %1004 = getelementptr inbounds ptr, ptr %1000, i64 %1003
+  %1004 = getelementptr inbounds [8 x i8], ptr %1000, i64 %1003
   store ptr %.03869.i, ptr %1004, align 8, !tbaa !42
   br label %.thread.i110
 
@@ -2510,7 +2510,7 @@ Abc_Clock.exit50.i:                               ; preds = %1022, %1019
 
 1045:                                             ; preds = %1041
   %indvars.iv.next.i.i117 = add nuw nsw i64 %indvars.iv.i.i116, 1
-  %1046 = getelementptr inbounds nuw ptr, ptr %1038, i64 %indvars.iv.next.i.i117
+  %1046 = getelementptr inbounds nuw [8 x i8], ptr %1038, i64 %indvars.iv.next.i.i117
   %1047 = load ptr, ptr %1046, align 8, !tbaa !42
   %1048 = getelementptr inbounds nuw i8, ptr %1047, i64 12
   %1049 = load i32, ptr %1048, align 4, !tbaa !33
@@ -2601,7 +2601,7 @@ Abc_Clock.exit50.i:                               ; preds = %1022, %1019
 .lr.ph66.i.i:                                     ; preds = %.critedge.i.i113, %1139
   %indvars.iv70.i.i = phi i64 [ %indvars.iv.next71.i.i, %1139 ], [ 0, %.critedge.i.i113 ]
   %1117 = load ptr, ptr %113, align 8, !tbaa !34
-  %1118 = getelementptr inbounds nuw ptr, ptr %1117, i64 %indvars.iv70.i.i
+  %1118 = getelementptr inbounds nuw [8 x i8], ptr %1117, i64 %indvars.iv70.i.i
   %1119 = load ptr, ptr %1118, align 8, !tbaa !42
   %.not57.i.i = icmp eq ptr %1119, null
   br i1 %.not57.i.i, label %.critedge2.i.i, label %1120
@@ -2618,7 +2618,7 @@ Abc_Clock.exit50.i:                               ; preds = %1022, %1019
 
 1125:                                             ; preds = %1120
   %1126 = load ptr, ptr %113, align 8, !tbaa !34
-  %1127 = getelementptr inbounds nuw ptr, ptr %1126, i64 %indvars.iv.next71.i.i
+  %1127 = getelementptr inbounds nuw [8 x i8], ptr %1126, i64 %indvars.iv.next71.i.i
   %1128 = load ptr, ptr %1127, align 8, !tbaa !42
   %1129 = getelementptr inbounds nuw i8, ptr %1128, i64 12
   %1130 = load i32, ptr %1129, align 4, !tbaa !33
@@ -4668,7 +4668,7 @@ define void @Super_WriteLibraryGateName_rec(ptr noundef readonly captures(none) 
   br label %21
 
 21:                                               ; preds = %20, %19
-  %22 = getelementptr inbounds nuw ptr, ptr %18, i64 %indvars.iv
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
   %23 = load ptr, ptr %22, align 8, !tbaa !42
   tail call void @Super_WriteLibraryGateName_rec(ptr noundef %23, ptr noundef nonnull %1)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4725,7 +4725,7 @@ define void @Super_WriteLibraryGate(ptr noundef %0, ptr noundef readonly capture
 
 18:                                               ; preds = %.lr.ph, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %18 ]
-  %19 = getelementptr inbounds nuw float, ptr %17, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv
   %20 = load float, ptr %19, align 4, !tbaa !39
   %21 = fcmp oeq float %20, -9.999000e+03
   %22 = fpext float %20 to double
@@ -4773,7 +4773,7 @@ define void @Super_WriteLibraryTreeFile_rec(ptr noundef captures(none) %0, ptr n
 
 13:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
-  %14 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !42
   tail call void @Super_WriteLibraryTreeFile_rec(ptr noundef %0, ptr noundef %1, ptr noundef %15, ptr noundef %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4805,7 +4805,7 @@ define void @Super_WriteLibraryTreeFile_rec(ptr noundef captures(none) %0, ptr n
 
 27:                                               ; preds = %.lr.ph30, %27
   %indvars.iv33 = phi i64 [ 0, %.lr.ph30 ], [ %indvars.iv.next34, %27 ]
-  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %indvars.iv33
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv33
   %29 = load ptr, ptr %28, align 8, !tbaa !42
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load i32, ptr %30, align 8
@@ -4847,7 +4847,7 @@ define void @Super_WriteLibraryTreeStr_rec(ptr noundef captures(none) %0, ptr no
 
 14:                                               ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
-  %15 = getelementptr inbounds nuw ptr, ptr %13, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !42
   tail call void @Super_WriteLibraryTreeStr_rec(ptr noundef %0, ptr noundef %1, ptr noundef %16, ptr noundef %3)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -5097,7 +5097,7 @@ Vec_StrPush.exit.i46:                             ; preds = %114, %Vec_StrGrow.e
   %119 = sext i32 %117 to i64
   %120 = getelementptr inbounds i8, ptr %116, i64 %119
   store i8 32, ptr %120, align 1, !tbaa !103
-  %121 = getelementptr inbounds nuw ptr, ptr %93, i64 %indvars.iv78
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %indvars.iv78
   %122 = load ptr, ptr %121, align 8, !tbaa !42
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 8
   %124 = load i32, ptr %123, align 8
@@ -5547,7 +5547,7 @@ Vec_StrPush.exit41:                               ; preds = %.Vec_StrGrow.exit10
 
 .lr.ph:                                           ; preds = %.lr.ph80
   %72 = load ptr, ptr %64, align 8, !tbaa !34
-  %73 = getelementptr inbounds nuw ptr, ptr %72, i64 %indvars.iv.next
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %indvars.iv.next
   %74 = load ptr, ptr %73, align 8, !tbaa !42
   %.not = icmp eq ptr %74, null
   br i1 %.not, label %.critedge, label %.lr.ph80, !llvm.loop !115
@@ -5579,7 +5579,7 @@ Vec_StrPush.exit41:                               ; preds = %.Vec_StrGrow.exit10
 .lr.ph53:                                         ; preds = %.critedge, %89
   %indvars.iv58 = phi i64 [ %indvars.iv.next59, %89 ], [ 0, %.critedge ]
   %86 = load ptr, ptr %64, align 8, !tbaa !34
-  %87 = getelementptr inbounds nuw ptr, ptr %86, i64 %indvars.iv58
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %86, i64 %indvars.iv58
   %88 = load ptr, ptr %87, align 8, !tbaa !42
   %.not33 = icmp eq ptr %88, null
   br i1 %.not33, label %.critedge2, label %89
@@ -5968,14 +5968,14 @@ define internal fastcc range(i32 0, 2) i32 @Super_CompareGates(ptr noundef captu
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %84 ]
   %.181 = phi i32 [ %.058, %.lr.ph ], [ %.3, %84 ]
   %.16080 = phi i32 [ %.059, %.lr.ph ], [ %.362, %84 ]
-  %65 = getelementptr inbounds nuw float, ptr %63, i64 %indvars.iv
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %indvars.iv
   %66 = load float, ptr %65, align 4, !tbaa !39
   %67 = fpext float %66 to double
   %68 = fcmp oeq float %66, -9.999000e+03
   br i1 %68, label %84, label %69
 
 69:                                               ; preds = %64
-  %70 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %71 = load float, ptr %70, align 4, !tbaa !39
   %72 = fpext float %71 to double
   %73 = fcmp oeq float %71, -9.999000e+03

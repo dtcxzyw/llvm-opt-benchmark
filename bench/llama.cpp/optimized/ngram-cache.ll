@@ -157,7 +157,7 @@ define void @_Z25common_ngram_cache_updateRSt13unordered_mapI12common_ngramS_Iii
   %38 = sub nsw i64 %.042186, %storemerge189
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %39 = load ptr, ptr %3, align 8, !tbaa !9
-  %40 = getelementptr inbounds nuw i32, ptr %39, i64 %38
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %38
   br label %41
 
 41:                                               ; preds = %46, %37
@@ -166,20 +166,20 @@ define void @_Z25common_ngram_cache_updateRSt13unordered_mapI12common_ngramS_Iii
   br i1 %42, label %43, label %46
 
 43:                                               ; preds = %41
-  %44 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv.i
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv.i
   %45 = load i32, ptr %44, align 4, !tbaa !12
   br label %46
 
 46:                                               ; preds = %43, %41
   %47 = phi i32 [ %45, %43 ], [ -1, %41 ]
-  %48 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv.i
   store i32 %47, ptr %48, align 4, !tbaa !12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
   br i1 %exitcond.not.i, label %_ZN12common_ngramC2EPKii.exit, label %41, !llvm.loop !14
 
 _ZN12common_ngramC2EPKii.exit:                    ; preds = %46
-  %49 = getelementptr inbounds nuw i32, ptr %39, i64 %.042186
+  %49 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %.042186
   %50 = load i32, ptr %49, align 4, !tbaa !12
   %51 = load i64, ptr %24, align 8, !tbaa !15
   %.not.not.i.i = icmp eq i64 %51, 0
@@ -197,9 +197,9 @@ _ZN12common_ngramC2EPKii.exit:                    ; preds = %46
 
 54:                                               ; preds = %54, %52
   %indvars.iv.i.i.i.i.i = phi i64 [ 0, %52 ], [ %indvars.iv.next.i.i.i.i.i, %54 ]
-  %55 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i.i.i.i.i
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv.i.i.i.i.i
   %56 = load i32, ptr %55, align 4, !tbaa !12
-  %57 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv.i.i.i.i.i
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %indvars.iv.i.i.i.i.i
   %58 = load i32, ptr %57, align 4, !tbaa !12
   %.not.i.i.i.i.i = icmp eq i32 %56, %58
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
@@ -219,7 +219,7 @@ _ZNKSt8__detail15_Hashtable_baseI12common_ngramSt4pairIKS1_St13unordered_mapIiiS
 63:                                               ; preds = %63, %59
   %indvars.iv.i.i.i.i = phi i64 [ 1, %59 ], [ %indvars.iv.next.i.i.i.i, %63 ]
   %.068.i.i.i.i = phi i64 [ %62, %59 ], [ %68, %63 ]
-  %64 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i.i.i.i
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv.i.i.i.i
   %65 = load i32, ptr %64, align 4, !tbaa !12
   %66 = sext i32 %65 to i64
   %67 = mul i64 %66, -7046029254386353131
@@ -232,7 +232,7 @@ _ZNKSt8__detail15_Hash_code_baseI12common_ngramSt4pairIKS1_St13unordered_mapIiiS
   %69 = load i64, ptr %25, align 8, !tbaa !28
   %70 = urem i64 %68, %69
   %71 = load ptr, ptr %0, align 8, !tbaa !29
-  %72 = getelementptr inbounds nuw ptr, ptr %71, i64 %70
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %70
   %73 = load ptr, ptr %72, align 8, !tbaa !30
   %.not.i.i.i.i = icmp eq ptr %73, null
   br i1 %.not.i.i.i.i, label %.loopexit136, label %74
@@ -252,9 +252,9 @@ _ZNKSt8__detail15_Hash_code_baseI12common_ngramSt4pairIKS1_St13unordered_mapIiiS
 
 .preheader.i.i.i.i.i:                             ; preds = %76, %.preheader.i.i.i.i.i
   %indvars.iv.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i ], [ 0, %76 ]
-  %81 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i.i.i.i.i.i.i.i
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv.i.i.i.i.i.i.i.i
   %82 = load i32, ptr %81, align 4, !tbaa !12
-  %83 = getelementptr inbounds nuw i32, ptr %79, i64 %indvars.iv.i.i.i.i.i.i.i.i
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %indvars.iv.i.i.i.i.i.i.i.i
   %84 = load i32, ptr %83, align 4, !tbaa !12
   %.not.i.i.i.i.i.i.i.i = icmp eq i32 %82, %84
   %indvars.iv.next.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i, 1
@@ -376,7 +376,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %114 = load i32, ptr %113, align 8, !tbaa !12
   %115 = sext i32 %114 to i64
   %116 = urem i64 %115, %102
-  %117 = getelementptr inbounds nuw ptr, ptr %.0.i.i, i64 %116
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i, i64 %116
   %118 = load ptr, ptr %117, align 8, !tbaa !30
   %.not27.i = icmp eq ptr %118, null
   br i1 %.not27.i, label %119, label %124
@@ -391,7 +391,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   br i1 %.not28.i, label %127, label %122
 
 122:                                              ; preds = %119
-  %123 = getelementptr inbounds nuw ptr, ptr %.0.i.i, i64 %.02530.i
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i, i64 %.02530.i
   store ptr %.031.i, ptr %123, align 8, !tbaa !30
   br label %127
 
@@ -461,7 +461,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
 143:                                              ; preds = %.noexc78._crit_edge, %_ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit.i
   %144 = phi ptr [ %.0.i.i, %_ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit.i ], [ %.pre230, %.noexc78._crit_edge ]
   %.0.i = phi i64 [ %142, %_ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit.i ], [ 0, %.noexc78._crit_edge ]
-  %145 = getelementptr inbounds nuw ptr, ptr %144, i64 %.0.i
+  %145 = getelementptr inbounds nuw [8 x i8], ptr %144, i64 %.0.i
   %146 = load ptr, ptr %145, align 8, !tbaa !30
   %.not.i.i77 = icmp eq ptr %146, null
   br i1 %.not.i.i77, label %150, label %147
@@ -486,7 +486,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %155 = load i32, ptr %153, align 4, !tbaa !12
   %156 = sext i32 %155 to i64
   %157 = urem i64 %156, %154
-  %158 = getelementptr inbounds nuw ptr, ptr %144, i64 %157
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %144, i64 %157
   store ptr %90, ptr %158, align 8, !tbaa !30
   br label %159
 
@@ -601,7 +601,7 @@ _ZNSt13unordered_mapI12common_ngramS_IiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEE
   %192 = load i64, ptr %191, align 8, !tbaa !36
   %193 = urem i64 %190, %192
   %194 = load ptr, ptr %179, align 8, !tbaa !34
-  %195 = getelementptr inbounds nuw ptr, ptr %194, i64 %193
+  %195 = getelementptr inbounds nuw [8 x i8], ptr %194, i64 %193
   %196 = load ptr, ptr %195, align 8, !tbaa !30
   %.not.i.i.i.i49 = icmp eq ptr %196, null
   br i1 %.not.i.i.i.i49, label %.loopexit, label %197
@@ -651,7 +651,7 @@ _ZNSt13unordered_mapI12common_ngramS_IiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEE
   %216 = load i64, ptr %215, align 8, !tbaa !36
   %217 = urem i64 %214, %216
   %218 = load ptr, ptr %179, align 8, !tbaa !34
-  %219 = getelementptr inbounds nuw ptr, ptr %218, i64 %217
+  %219 = getelementptr inbounds nuw [8 x i8], ptr %218, i64 %217
   %220 = load ptr, ptr %219, align 8, !tbaa !30
   %.not.i.i.i59 = icmp eq ptr %220, null
   br i1 %.not.i.i.i59, label %.critedge28.i65, label %233
@@ -784,7 +784,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %271 = load i32, ptr %270, align 8, !tbaa !12
   %272 = sext i32 %271 to i64
   %273 = urem i64 %272, %257
-  %274 = getelementptr inbounds nuw ptr, ptr %.0.i.i93, i64 %273
+  %274 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i93, i64 %273
   %275 = load ptr, ptr %274, align 8, !tbaa !30
   %.not27.i98 = icmp eq ptr %275, null
   br i1 %.not27.i98, label %276, label %281
@@ -799,7 +799,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   br i1 %.not28.i102, label %284, label %279
 
 279:                                              ; preds = %276
-  %280 = getelementptr inbounds nuw ptr, ptr %.0.i.i93, i64 %.02530.i97
+  %280 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i93, i64 %.02530.i97
   store ptr %.031.i96, ptr %280, align 8, !tbaa !30
   br label %284
 
@@ -871,7 +871,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
 302:                                              ; preds = %.noexc84._crit_edge, %_ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit.i83
   %303 = phi ptr [ %.0.i.i93, %_ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit.i83 ], [ %.pre, %.noexc84._crit_edge ]
   %.0.i80 = phi i64 [ %301, %_ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit.i83 ], [ %247, %.noexc84._crit_edge ]
-  %304 = getelementptr inbounds nuw ptr, ptr %303, i64 %.0.i80
+  %304 = getelementptr inbounds nuw [8 x i8], ptr %303, i64 %.0.i80
   %305 = load ptr, ptr %304, align 8, !tbaa !30
   %.not.i.i81 = icmp eq ptr %305, null
   br i1 %.not.i.i81, label %309, label %306
@@ -898,7 +898,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %316 = load i32, ptr %314, align 4, !tbaa !12
   %317 = sext i32 %316 to i64
   %318 = urem i64 %317, %315
-  %319 = getelementptr inbounds nuw ptr, ptr %303, i64 %318
+  %319 = getelementptr inbounds nuw [8 x i8], ptr %303, i64 %318
   store ptr %210, ptr %319, align 8, !tbaa !30
   br label %320
 
@@ -1112,9 +1112,9 @@ define void @_Z24common_ngram_cache_draftRSt6vectorIiSaIiEES2_iiiRSt13unordered_
 
 76:                                               ; preds = %76, %74
   %indvars.iv.i.i.i.i.i = phi i64 [ 0, %74 ], [ %indvars.iv.next.i.i.i.i.i, %76 ]
-  %77 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.i.i.i.i.i
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv.i.i.i.i.i
   %78 = load i32, ptr %77, align 4, !tbaa !12
-  %79 = getelementptr inbounds nuw i32, ptr %75, i64 %indvars.iv.i.i.i.i.i
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %75, i64 %indvars.iv.i.i.i.i.i
   %80 = load i32, ptr %79, align 4, !tbaa !12
   %.not.i.i.i.i.i = icmp eq i32 %78, %80
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
@@ -1134,7 +1134,7 @@ _ZNKSt8__detail15_Hashtable_baseI12common_ngramSt4pairIKS1_St13unordered_mapIiiS
 85:                                               ; preds = %85, %81
   %indvars.iv.i.i.i.i = phi i64 [ 1, %81 ], [ %indvars.iv.next.i.i.i.i, %85 ]
   %.068.i.i.i.i = phi i64 [ %84, %81 ], [ %90, %85 ]
-  %86 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.i.i.i.i
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv.i.i.i.i
   %87 = load i32, ptr %86, align 4, !tbaa !12
   %88 = sext i32 %87 to i64
   %89 = mul i64 %88, -7046029254386353131
@@ -1147,7 +1147,7 @@ _ZNKSt8__detail15_Hash_code_baseI12common_ngramSt4pairIKS1_St13unordered_mapIiiS
   %91 = load i64, ptr %36, align 8, !tbaa !28
   %92 = urem i64 %90, %91
   %93 = load ptr, ptr %7, align 8, !tbaa !29
-  %94 = getelementptr inbounds nuw ptr, ptr %93, i64 %92
+  %94 = getelementptr inbounds nuw [8 x i8], ptr %93, i64 %92
   %95 = load ptr, ptr %94, align 8, !tbaa !30
   %.not.i.i.i.i = icmp eq ptr %95, null
   br i1 %.not.i.i.i.i, label %_ZNSt13unordered_mapI12common_ngramS_IiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEE26common_ngram_hash_functionS3_IS0_ESaIS5_IKS0_S9_EEE4findERSC_.exit, label %96
@@ -1167,9 +1167,9 @@ _ZNKSt8__detail15_Hash_code_baseI12common_ngramSt4pairIKS1_St13unordered_mapIiiS
 
 .preheader.i.i.i.i.i:                             ; preds = %98, %.preheader.i.i.i.i.i
   %indvars.iv.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i ], [ 0, %98 ]
-  %103 = getelementptr inbounds nuw i32, ptr %12, i64 %indvars.iv.i.i.i.i.i.i.i.i
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv.i.i.i.i.i.i.i.i
   %104 = load i32, ptr %103, align 4, !tbaa !12
-  %105 = getelementptr inbounds nuw i32, ptr %101, i64 %indvars.iv.i.i.i.i.i.i.i.i
+  %105 = getelementptr inbounds nuw [4 x i8], ptr %101, i64 %indvars.iv.i.i.i.i.i.i.i.i
   %106 = load i32, ptr %105, align 4, !tbaa !12
   %.not.i.i.i.i.i.i.i.i = icmp eq i32 %104, %106
   %indvars.iv.next.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i, 1
@@ -1206,14 +1206,14 @@ _ZNSt13unordered_mapI12common_ngramS_IiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEE
 112:                                              ; preds = %.lr.ph, %112
   %indvars.iv = phi i64 [ %72, %.lr.ph ], [ %indvars.iv.next, %112 ]
   %113 = icmp ugt i64 %71, %indvars.iv
-  %114 = getelementptr inbounds nuw i32, ptr %.val52, i64 %indvars.iv
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %.val52, i64 %indvars.iv
   %reass.sub = sub nsw i64 %indvars.iv, %71
-  %115 = getelementptr i32, ptr %56, i64 %reass.sub
+  %115 = getelementptr [4 x i8], ptr %56, i64 %reass.sub
   %116 = getelementptr i8, ptr %115, i64 4
   %.in.i = select i1 %113, ptr %114, ptr %116
   %117 = load i32, ptr %.in.i, align 4, !tbaa !12
   %118 = sub nsw i64 %indvars.iv, %72
-  %119 = getelementptr inbounds i32, ptr %12, i64 %118
+  %119 = getelementptr inbounds [4 x i8], ptr %12, i64 %118
   store i32 %117, ptr %119, align 4, !tbaa !12
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %lftr.wideiv = trunc i64 %indvars.iv.next to i32
@@ -1339,7 +1339,7 @@ _ZNSt6vectorI12common_ngramSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i: ; pr
 
 _ZNSt6vectorI12common_ngramSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i: ; preds = %168, %_ZNSt6vectorI12common_ngramSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit22.i.i
   store ptr %167, ptr %43, align 8, !tbaa !60
-  %169 = getelementptr inbounds nuw %struct.common_ngram, ptr %163, i64 %161
+  %169 = getelementptr inbounds nuw [16 x i8], ptr %163, i64 %161
   store ptr %169, ptr %44, align 8, !tbaa !55
   br label %_ZNSt6vectorI12common_ngramSaIS0_EE9push_backERKS0_.exit
 
@@ -1362,14 +1362,14 @@ _ZNSt6vectorI12common_ngramSaIS0_EE17_M_realloc_insertIJRKS0_EEEvN9__gnu_cxx17__
 171:                                              ; preds = %.lr.ph112, %171
   %indvars.iv143 = phi i64 [ %145, %.lr.ph112 ], [ %indvars.iv.next144, %171 ]
   %172 = icmp ugt i64 %143, %indvars.iv143
-  %173 = getelementptr inbounds nuw i32, ptr %.val, i64 %indvars.iv143
+  %173 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %indvars.iv143
   %reass.sub123 = sub nsw i64 %indvars.iv143, %143
-  %174 = getelementptr i32, ptr %129, i64 %reass.sub123
+  %174 = getelementptr [4 x i8], ptr %129, i64 %reass.sub123
   %175 = getelementptr i8, ptr %174, i64 4
   %.in.i58 = select i1 %172, ptr %173, ptr %175
   %176 = load i32, ptr %.in.i58, align 4, !tbaa !12
   %177 = sub nsw i64 %indvars.iv143, %146
-  %178 = getelementptr inbounds i32, ptr %15, i64 %177
+  %178 = getelementptr inbounds [4 x i8], ptr %15, i64 %177
   store i32 %176, ptr %178, align 4, !tbaa !12
   %indvars.iv.next144 = add nsw i64 %indvars.iv143, 1
   %179 = icmp slt i64 %indvars.iv.next144, %147
@@ -1434,9 +1434,9 @@ _ZNSt6vectorI12common_ngramSaIS0_EE9push_backERKS0_.exit: ; preds = %_ZNSt6vecto
 
 194:                                              ; preds = %194, %192
   %indvars.iv.i.i.i.i.i.i = phi i64 [ 0, %192 ], [ %indvars.iv.next.i.i.i.i.i.i, %194 ]
-  %195 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.i.i.i.i.i.i
+  %195 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv.i.i.i.i.i.i
   %196 = load i32, ptr %195, align 4, !tbaa !12
-  %197 = getelementptr inbounds nuw i32, ptr %193, i64 %indvars.iv.i.i.i.i.i.i
+  %197 = getelementptr inbounds nuw [4 x i8], ptr %193, i64 %indvars.iv.i.i.i.i.i.i
   %198 = load i32, ptr %197, align 4, !tbaa !12
   %.not.i.i.i.i.i.i = icmp eq i32 %196, %198
   %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i, 1
@@ -1456,7 +1456,7 @@ _ZNKSt8__detail15_Hashtable_baseI12common_ngramSt4pairIKS1_St13unordered_mapIiiS
 202:                                              ; preds = %202, %199
   %indvars.iv.i.i.i.i.i59 = phi i64 [ 1, %199 ], [ %indvars.iv.next.i.i.i.i.i60, %202 ]
   %.068.i.i.i.i.i = phi i64 [ %201, %199 ], [ %207, %202 ]
-  %203 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.i.i.i.i.i59
+  %203 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv.i.i.i.i.i59
   %204 = load i32, ptr %203, align 4, !tbaa !12
   %205 = sext i32 %204 to i64
   %206 = mul i64 %205, -7046029254386353131
@@ -1469,7 +1469,7 @@ _ZNKSt8__detail15_Hash_code_baseI12common_ngramSt4pairIKS1_St13unordered_mapIiiS
   %208 = load i64, ptr %36, align 8, !tbaa !28
   %209 = urem i64 %207, %208
   %210 = load ptr, ptr %7, align 8, !tbaa !29
-  %211 = getelementptr inbounds nuw ptr, ptr %210, i64 %209
+  %211 = getelementptr inbounds nuw [8 x i8], ptr %210, i64 %209
   %212 = load ptr, ptr %211, align 8, !tbaa !30
   %.not.i.i.i.i.i61 = icmp eq ptr %212, null
   br i1 %.not.i.i.i.i.i61, label %.thread89, label %213
@@ -1489,9 +1489,9 @@ _ZNKSt8__detail15_Hash_code_baseI12common_ngramSt4pairIKS1_St13unordered_mapIiiS
 
 .preheader.i.i.i.i.i.i:                           ; preds = %215, %.preheader.i.i.i.i.i.i
   %indvars.iv.i.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i.i ], [ 0, %215 ]
-  %220 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
+  %220 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
   %221 = load i32, ptr %220, align 4, !tbaa !12
-  %222 = getelementptr inbounds nuw i32, ptr %218, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
+  %222 = getelementptr inbounds nuw [4 x i8], ptr %218, i64 %indvars.iv.i.i.i.i.i.i.i.i.i
   %223 = load i32, ptr %222, align 4, !tbaa !12
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i32 %221, %223
   %indvars.iv.next.i.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i.i, 1
@@ -1676,7 +1676,7 @@ _ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i: ; preds = %285, %.noe
 _ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i: ; preds = %287, %_ZNSt6vectorIiSaIiEE11_S_relocateEPiS2_S2_RS0_.exit16.i.i
   store ptr %282, ptr %1, align 8, !tbaa !9
   store ptr %286, ptr %16, align 8, !tbaa !3
-  %288 = getelementptr inbounds nuw i32, ptr %282, i64 %280
+  %288 = getelementptr inbounds nuw [4 x i8], ptr %282, i64 %280
   store ptr %288, ptr %51, align 8, !tbaa !73
   br label %_ZNSt6vectorIiSaIiEE9push_backERKi.exit
 
@@ -1800,7 +1800,7 @@ define internal fastcc noundef i32 @_ZL9try_draftRSt13unordered_mapI12common_ngr
   %indvars.iv = phi i64 [ %29, %.lr.ph84 ], [ %indvars.iv.next, %_ZNSt13unordered_mapI12common_ngramS_IiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEE26common_ngram_hash_functionS3_IS0_ESaIS5_IKS0_S9_EEE4findERSC_.exit.thread ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %31 = load ptr, ptr %1, align 8, !tbaa !74
-  %32 = getelementptr inbounds nuw %struct.common_ngram, ptr %31, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %indvars.iv
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %32, i64 16, i1 false), !tbaa.struct !58
   %33 = load i64, ptr %18, align 8, !tbaa !15
   %.not.not.i.i = icmp eq i64 %33, 0
@@ -1818,9 +1818,9 @@ define internal fastcc noundef i32 @_ZL9try_draftRSt13unordered_mapI12common_ngr
 
 36:                                               ; preds = %36, %34
   %indvars.iv.i.i.i.i.i = phi i64 [ 0, %34 ], [ %indvars.iv.next.i.i.i.i.i, %36 ]
-  %37 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i.i.i.i.i
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv.i.i.i.i.i
   %38 = load i32, ptr %37, align 4, !tbaa !12
-  %39 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv.i.i.i.i.i
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %indvars.iv.i.i.i.i.i
   %40 = load i32, ptr %39, align 4, !tbaa !12
   %.not.i.i.i.i.i = icmp eq i32 %38, %40
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
@@ -1840,7 +1840,7 @@ _ZNKSt8__detail15_Hashtable_baseI12common_ngramSt4pairIKS1_St13unordered_mapIiiS
 45:                                               ; preds = %45, %41
   %indvars.iv.i.i.i.i = phi i64 [ 1, %41 ], [ %indvars.iv.next.i.i.i.i, %45 ]
   %.068.i.i.i.i = phi i64 [ %44, %41 ], [ %50, %45 ]
-  %46 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i.i.i.i
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv.i.i.i.i
   %47 = load i32, ptr %46, align 4, !tbaa !12
   %48 = sext i32 %47 to i64
   %49 = mul i64 %48, -7046029254386353131
@@ -1853,7 +1853,7 @@ _ZNKSt8__detail15_Hash_code_baseI12common_ngramSt4pairIKS1_St13unordered_mapIiiS
   %51 = load i64, ptr %19, align 8, !tbaa !28
   %52 = urem i64 %50, %51
   %53 = load ptr, ptr %0, align 8, !tbaa !29
-  %54 = getelementptr inbounds nuw ptr, ptr %53, i64 %52
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %52
   %55 = load ptr, ptr %54, align 8, !tbaa !30
   %.not.i.i.i.i = icmp eq ptr %55, null
   br i1 %.not.i.i.i.i, label %_ZNSt13unordered_mapI12common_ngramS_IiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEE26common_ngram_hash_functionS3_IS0_ESaIS5_IKS0_S9_EEE4findERSC_.exit.thread, label %56
@@ -1873,9 +1873,9 @@ _ZNKSt8__detail15_Hash_code_baseI12common_ngramSt4pairIKS1_St13unordered_mapIiiS
 
 .preheader.i.i.i.i.i:                             ; preds = %58, %.preheader.i.i.i.i.i
   %indvars.iv.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i ], [ 0, %58 ]
-  %63 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i.i.i.i.i.i.i.i
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv.i.i.i.i.i.i.i.i
   %64 = load i32, ptr %63, align 4, !tbaa !12
-  %65 = getelementptr inbounds nuw i32, ptr %61, i64 %indvars.iv.i.i.i.i.i.i.i.i
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %indvars.iv.i.i.i.i.i.i.i.i
   %66 = load i32, ptr %65, align 4, !tbaa !12
   %.not.i.i.i.i.i.i.i.i = icmp eq i32 %64, %66
   %indvars.iv.next.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i, 1
@@ -1936,7 +1936,7 @@ _ZNSt13unordered_mapI12common_ngramS_IiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEE
   %.037.lcssa = phi i32 [ 0, %_ZNSt13unordered_mapI12common_ngramS_IiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEE26common_ngram_hash_functionS3_IS0_ESaIS5_IKS0_S9_EEE4findERSC_.exit ], [ %120, %._crit_edge.loopexit ]
   %.035.lcssa = phi i32 [ -1, %_ZNSt13unordered_mapI12common_ngramS_IiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEE26common_ngram_hash_functionS3_IS0_ESaIS5_IKS0_S9_EEE4findERSC_.exit ], [ %.136, %._crit_edge.loopexit ]
   %.031.lcssa = phi i32 [ 0, %_ZNSt13unordered_mapI12common_ngramS_IiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEE26common_ngram_hash_functionS3_IS0_ESaIS5_IKS0_S9_EEE4findERSC_.exit ], [ %82, %._crit_edge.loopexit ]
-  %83 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   %84 = load i32, ptr %83, align 4, !tbaa !12
   %85 = icmp slt i32 %.037.lcssa, %84
   br i1 %85, label %127, label %122
@@ -1968,7 +1968,7 @@ _ZNSt13unordered_mapI12common_ngramS_IiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEE
 95:                                               ; preds = %86
   %96 = sext i32 %88 to i64
   %97 = urem i64 %96, %80
-  %98 = getelementptr inbounds nuw ptr, ptr %81, i64 %97
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %81, i64 %97
   %99 = load ptr, ptr %98, align 8, !tbaa !30
   %.not.i.i.i.i39 = icmp eq ptr %99, null
   br i1 %.not.i.i.i.i39, label %_ZNSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEE4findERS5_.exit.thread, label %100
@@ -2022,7 +2022,7 @@ _ZNSt13unordered_mapIiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEEE4findERS5_.exit.
   br i1 %.not, label %._crit_edge.loopexit, label %86
 
 122:                                              ; preds = %._crit_edge
-  %123 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv
   %124 = load i32, ptr %123, align 4, !tbaa !12
   %125 = mul nsw i32 %124, %.037.lcssa
   %126 = icmp slt i32 %.031.lcssa, %125
@@ -2674,7 +2674,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %22
   %123 = load i64, ptr %37, align 8, !tbaa !36
   %124 = urem i64 %122, %123
   %125 = load ptr, ptr %9, align 8, !tbaa !34
-  %126 = getelementptr inbounds nuw ptr, ptr %125, i64 %124
+  %126 = getelementptr inbounds nuw [8 x i8], ptr %125, i64 %124
   %127 = load ptr, ptr %126, align 8, !tbaa !30
   %.not.i.i.i = icmp eq ptr %127, null
   br i1 %.not.i.i.i, label %.critedge28.i, label %136
@@ -2797,7 +2797,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %169 = load i32, ptr %168, align 8, !tbaa !12
   %170 = sext i32 %169 to i64
   %171 = urem i64 %170, %157
-  %172 = getelementptr inbounds nuw ptr, ptr %.0.i.i, i64 %171
+  %172 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i, i64 %171
   %173 = load ptr, ptr %172, align 8, !tbaa !30
   %.not27.i = icmp eq ptr %173, null
   br i1 %.not27.i, label %174, label %179
@@ -2812,7 +2812,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   br i1 %.not28.i, label %182, label %177
 
 177:                                              ; preds = %174
-  %178 = getelementptr inbounds nuw ptr, ptr %.0.i.i, i64 %.02530.i
+  %178 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i, i64 %.02530.i
   store ptr %.031.i, ptr %178, align 8, !tbaa !30
   br label %182
 
@@ -2882,7 +2882,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
 198:                                              ; preds = %.noexc27._crit_edge, %_ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit.i
   %199 = phi ptr [ %.0.i.i, %_ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit.i ], [ %.pre, %.noexc27._crit_edge ]
   %.0.i = phi i64 [ %197, %_ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit.i ], [ %150, %.noexc27._crit_edge ]
-  %200 = getelementptr inbounds nuw ptr, ptr %199, i64 %.0.i
+  %200 = getelementptr inbounds nuw [8 x i8], ptr %199, i64 %.0.i
   %201 = load ptr, ptr %200, align 8, !tbaa !30
   %.not.i.i = icmp eq ptr %201, null
   br i1 %.not.i.i, label %205, label %202
@@ -2907,7 +2907,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %210 = load i32, ptr %208, align 4, !tbaa !12
   %211 = sext i32 %210 to i64
   %212 = urem i64 %211, %209
-  %213 = getelementptr inbounds nuw ptr, ptr %199, i64 %212
+  %213 = getelementptr inbounds nuw [8 x i8], ptr %199, i64 %212
   store ptr %117, ptr %213, align 8, !tbaa !30
   br label %214
 
@@ -3185,9 +3185,9 @@ define void @_Z24common_ngram_cache_mergeRSt13unordered_mapI12common_ngramS_IiiS
 
 37:                                               ; preds = %37, %35
   %indvars.iv.i.i.i.i.i = phi i64 [ 0, %35 ], [ %indvars.iv.next.i.i.i.i.i, %37 ]
-  %38 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i.i.i.i.i
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv.i.i.i.i.i
   %39 = load i32, ptr %38, align 4, !tbaa !12
-  %40 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv.i.i.i.i.i
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %indvars.iv.i.i.i.i.i
   %41 = load i32, ptr %40, align 4, !tbaa !12
   %.not.i.i.i.i.i = icmp eq i32 %39, %41
   %indvars.iv.next.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i, 1
@@ -3207,7 +3207,7 @@ _ZNKSt8__detail15_Hashtable_baseI12common_ngramSt4pairIKS1_St13unordered_mapIiiS
 46:                                               ; preds = %46, %42
   %indvars.iv.i.i.i.i = phi i64 [ 1, %42 ], [ %indvars.iv.next.i.i.i.i, %46 ]
   %.068.i.i.i.i = phi i64 [ %45, %42 ], [ %51, %46 ]
-  %47 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i.i.i.i
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv.i.i.i.i
   %48 = load i32, ptr %47, align 4, !tbaa !12
   %49 = sext i32 %48 to i64
   %50 = mul i64 %49, -7046029254386353131
@@ -3220,7 +3220,7 @@ _ZNKSt8__detail15_Hash_code_baseI12common_ngramSt4pairIKS1_St13unordered_mapIiiS
   %52 = load i64, ptr %21, align 8, !tbaa !28
   %53 = urem i64 %51, %52
   %54 = load ptr, ptr %0, align 8, !tbaa !29
-  %55 = getelementptr inbounds nuw ptr, ptr %54, i64 %53
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %53
   %56 = load ptr, ptr %55, align 8, !tbaa !30
   %.not.i.i.i.i = icmp eq ptr %56, null
   br i1 %.not.i.i.i.i, label %.loopexit69, label %57
@@ -3240,9 +3240,9 @@ _ZNKSt8__detail15_Hash_code_baseI12common_ngramSt4pairIKS1_St13unordered_mapIiiS
 
 .preheader.i.i.i.i.i:                             ; preds = %59, %.preheader.i.i.i.i.i
   %indvars.iv.i.i.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i.i.i, %.preheader.i.i.i.i.i ], [ 0, %59 ]
-  %64 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv.i.i.i.i.i.i.i.i
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv.i.i.i.i.i.i.i.i
   %65 = load i32, ptr %64, align 4, !tbaa !12
-  %66 = getelementptr inbounds nuw i32, ptr %62, i64 %indvars.iv.i.i.i.i.i.i.i.i
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %indvars.iv.i.i.i.i.i.i.i.i
   %67 = load i32, ptr %66, align 4, !tbaa !12
   %.not.i.i.i.i.i.i.i.i = icmp eq i32 %65, %67
   %indvars.iv.next.i.i.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i.i.i, 1
@@ -3338,7 +3338,7 @@ _ZNSt13unordered_mapI12common_ngramS_IiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEE
   %104 = load i64, ptr %81, align 8, !tbaa !36
   %105 = urem i64 %103, %104
   %106 = load ptr, ptr %79, align 8, !tbaa !34
-  %107 = getelementptr inbounds nuw ptr, ptr %106, i64 %105
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %105
   %108 = load ptr, ptr %107, align 8, !tbaa !30
   %.not.i.i.i.i25 = icmp eq ptr %108, null
   br i1 %.not.i.i.i.i25, label %.loopexit, label %109
@@ -3390,7 +3390,7 @@ _ZNSt13unordered_mapI12common_ngramS_IiiSt4hashIiESt8equal_toIiESaISt4pairIKiiEE
   %127 = load i64, ptr %81, align 8, !tbaa !36
   %128 = urem i64 %126, %127
   %129 = load ptr, ptr %79, align 8, !tbaa !34
-  %130 = getelementptr inbounds nuw ptr, ptr %129, i64 %128
+  %130 = getelementptr inbounds nuw [8 x i8], ptr %129, i64 %128
   %131 = load ptr, ptr %130, align 8, !tbaa !30
   %.not.i.i.i = icmp eq ptr %131, null
   br i1 %.not.i.i.i, label %.critedge28.i, label %140
@@ -3513,7 +3513,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %173 = load i32, ptr %172, align 8, !tbaa !12
   %174 = sext i32 %173 to i64
   %175 = urem i64 %174, %161
-  %176 = getelementptr inbounds nuw ptr, ptr %.0.i.i, i64 %175
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i, i64 %175
   %177 = load ptr, ptr %176, align 8, !tbaa !30
   %.not27.i = icmp eq ptr %177, null
   br i1 %.not27.i, label %178, label %183
@@ -3528,7 +3528,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   br i1 %.not28.i, label %186, label %181
 
 181:                                              ; preds = %178
-  %182 = getelementptr inbounds nuw ptr, ptr %.0.i.i, i64 %.02530.i
+  %182 = getelementptr inbounds nuw [8 x i8], ptr %.0.i.i, i64 %.02530.i
   store ptr %.031.i, ptr %182, align 8, !tbaa !30
   br label %186
 
@@ -3598,7 +3598,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
 202:                                              ; preds = %.noexc36._crit_edge, %_ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit.i
   %203 = phi ptr [ %.0.i.i, %_ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit.i ], [ %.pre, %.noexc36._crit_edge ]
   %.0.i = phi i64 [ %201, %_ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS4_18_Mod_range_hashingENS4_20_Default_ranged_hashENS4_20_Prime_rehash_policyENS4_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit.i ], [ %154, %.noexc36._crit_edge ]
-  %204 = getelementptr inbounds nuw ptr, ptr %203, i64 %.0.i
+  %204 = getelementptr inbounds nuw [8 x i8], ptr %203, i64 %.0.i
   %205 = load ptr, ptr %204, align 8, !tbaa !30
   %.not.i.i35 = icmp eq ptr %205, null
   br i1 %.not.i.i35, label %209, label %206
@@ -3624,7 +3624,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %215 = load i32, ptr %213, align 4, !tbaa !12
   %216 = sext i32 %215 to i64
   %217 = urem i64 %216, %214
-  %218 = getelementptr inbounds nuw ptr, ptr %203, i64 %217
+  %218 = getelementptr inbounds nuw [8 x i8], ptr %203, i64 %217
   store ptr %122, ptr %218, align 8, !tbaa !30
   br label %219
 
@@ -4042,7 +4042,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %sext = shl i64 %29, 32
   %34 = ashr exact i64 %sext, 32
   %35 = urem i64 %34, %33
-  %36 = getelementptr inbounds nuw ptr, ptr %31, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %35
   store ptr %30, ptr %36, align 8, !tbaa !30
   %.02837 = load ptr, ptr %19, align 8, !tbaa !24
   %.not3038 = icmp eq ptr %.02837, null
@@ -4077,7 +4077,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %47 = ashr exact i64 %sext45, 32
   %48 = urem i64 %47, %46
   %49 = load ptr, ptr %0, align 8, !tbaa !34
-  %50 = getelementptr inbounds nuw ptr, ptr %49, i64 %48
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %48
   %51 = load ptr, ptr %50, align 8, !tbaa !30
   %.not32 = icmp eq ptr %51, null
   br i1 %.not32, label %52, label %57
@@ -4229,7 +4229,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %sext = shl i64 %26, 32
   %30 = ashr exact i64 %sext, 32
   %31 = urem i64 %30, %29
-  %32 = getelementptr inbounds nuw ptr, ptr %18, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %31
   store ptr %27, ptr %32, align 8, !tbaa !30
   %.02834 = load ptr, ptr %20, align 8, !tbaa !24
   %.not3035 = icmp eq ptr %.02834, null
@@ -4251,7 +4251,7 @@ _ZNSt10_HashtableIiSt4pairIKiiESaIS2_ENSt8__detail10_Select1stESt8equal_toIiESt4
   %sext41 = shl i64 %37, 32
   %38 = ashr exact i64 %sext41, 32
   %39 = urem i64 %38, %29
-  %40 = getelementptr inbounds nuw ptr, ptr %18, i64 %39
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !30
   %.not32 = icmp eq ptr %41, null
   br i1 %.not32, label %42, label %47
@@ -4422,9 +4422,9 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableI12common_ngramSt4pairIKS0_St1
 
 15:                                               ; preds = %15, %13
   %indvars.iv.i.i.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i.i.i, %15 ]
-  %16 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i.i.i
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv.i.i.i
   %17 = load i32, ptr %16, align 4, !tbaa !12
-  %18 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i.i.i
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv.i.i.i
   %19 = load i32, ptr %18, align 4, !tbaa !12
   %.not.i.i.i = icmp eq i32 %17, %19
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -4444,7 +4444,7 @@ _ZNKSt8__detail15_Hashtable_baseI12common_ngramSt4pairIKS1_St13unordered_mapIiiS
 23:                                               ; preds = %23, %.critedge
   %indvars.iv.i.i = phi i64 [ 1, %.critedge ], [ %indvars.iv.next.i.i, %23 ]
   %.068.i.i = phi i64 [ %22, %.critedge ], [ %28, %23 ]
-  %24 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i.i
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv.i.i
   %25 = load i32, ptr %24, align 4, !tbaa !12
   %26 = sext i32 %25 to i64
   %27 = mul i64 %26, -7046029254386353131
@@ -4461,7 +4461,7 @@ _ZNKSt8__detail15_Hashtable_baseI12common_ngramSt4pairIKS1_St13unordered_mapIiiS
 
 33:                                               ; preds = %29
   %34 = load ptr, ptr %0, align 8, !tbaa !29
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %32
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %32
   %36 = load ptr, ptr %35, align 8, !tbaa !30
   %.not.i.i = icmp eq ptr %36, null
   br i1 %.not.i.i, label %.critedge28, label %37
@@ -4481,9 +4481,9 @@ _ZNKSt8__detail15_Hashtable_baseI12common_ngramSt4pairIKS1_St13unordered_mapIiiS
 
 .preheader.i.i.i:                                 ; preds = %39, %.preheader.i.i.i
   %indvars.iv.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i, %.preheader.i.i.i ], [ 0, %39 ]
-  %44 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i.i.i.i.i.i
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv.i.i.i.i.i.i
   %45 = load i32, ptr %44, align 4, !tbaa !12
-  %46 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv.i.i.i.i.i.i
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %indvars.iv.i.i.i.i.i.i
   %47 = load i32, ptr %46, align 4, !tbaa !12
   %.not.i.i.i.i.i.i = icmp eq i32 %45, %47
   %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i, 1
@@ -4620,7 +4620,7 @@ _ZNSt10_HashtableI12common_ngramSt4pairIKS0_St13unordered_mapIiiSt4hashIiESt8equ
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 80
   store i64 %2, ptr %32, align 8, !tbaa !31
   %33 = load ptr, ptr %0, align 8, !tbaa !29
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8, !tbaa !30
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %39, label %36
@@ -4646,7 +4646,7 @@ _ZNSt10_HashtableI12common_ngramSt4pairIKS0_St13unordered_mapIiiSt4hashIiESt8equ
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 80
   %46 = load i64, ptr %45, align 8, !tbaa !31
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %33, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !30
   br label %49
 
@@ -4817,7 +4817,7 @@ _ZNSt10_HashtableI12common_ngramSt4pairIKS0_St13unordered_mapIiiSt4hashIiESt8equ
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 80
   %16 = load i64, ptr %15, align 8, !tbaa !31
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !30
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -4832,7 +4832,7 @@ _ZNSt10_HashtableI12common_ngramSt4pairIKS0_St13unordered_mapIiiSt4hashIiESt8equ
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !30
   br label %28
 
@@ -4911,9 +4911,9 @@ define linkonce_odr { ptr, i8 } @_ZNSt10_HashtableI12common_ngramSt4pairIKS0_St1
 
 15:                                               ; preds = %15, %13
   %indvars.iv.i.i.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i.i.i, %15 ]
-  %16 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i.i.i
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv.i.i.i
   %17 = load i32, ptr %16, align 4, !tbaa !12
-  %18 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv.i.i.i
+  %18 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv.i.i.i
   %19 = load i32, ptr %18, align 4, !tbaa !12
   %.not.i.i.i = icmp eq i32 %17, %19
   %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
@@ -4933,7 +4933,7 @@ _ZNKSt8__detail15_Hashtable_baseI12common_ngramSt4pairIKS1_St13unordered_mapIiiS
 23:                                               ; preds = %23, %.critedge
   %indvars.iv.i.i = phi i64 [ 1, %.critedge ], [ %indvars.iv.next.i.i, %23 ]
   %.068.i.i = phi i64 [ %22, %.critedge ], [ %28, %23 ]
-  %24 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i.i
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv.i.i
   %25 = load i32, ptr %24, align 4, !tbaa !12
   %26 = sext i32 %25 to i64
   %27 = mul i64 %26, -7046029254386353131
@@ -4950,7 +4950,7 @@ _ZNKSt8__detail15_Hashtable_baseI12common_ngramSt4pairIKS1_St13unordered_mapIiiS
 
 33:                                               ; preds = %29
   %34 = load ptr, ptr %0, align 8, !tbaa !29
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %32
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %32
   %36 = load ptr, ptr %35, align 8, !tbaa !30
   %.not.i.i = icmp eq ptr %36, null
   br i1 %.not.i.i, label %.critedge28, label %37
@@ -4970,9 +4970,9 @@ _ZNKSt8__detail15_Hashtable_baseI12common_ngramSt4pairIKS1_St13unordered_mapIiiS
 
 .preheader.i.i.i:                                 ; preds = %39, %.preheader.i.i.i
   %indvars.iv.i.i.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i.i.i, %.preheader.i.i.i ], [ 0, %39 ]
-  %44 = getelementptr inbounds nuw i32, ptr %7, i64 %indvars.iv.i.i.i.i.i.i
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv.i.i.i.i.i.i
   %45 = load i32, ptr %44, align 4, !tbaa !12
-  %46 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv.i.i.i.i.i.i
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %indvars.iv.i.i.i.i.i.i
   %47 = load i32, ptr %46, align 4, !tbaa !12
   %.not.i.i.i.i.i.i = icmp eq i32 %45, %47
   %indvars.iv.next.i.i.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i.i.i, 1

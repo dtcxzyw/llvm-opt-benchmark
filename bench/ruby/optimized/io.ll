@@ -5277,7 +5277,7 @@ define dso_local range(i32 0, 4096) i32 @rb_io_oflags_fmode(i32 noundef %0) loca
 switch.lookup:
   %1 = and i32 %0, 3
   %2 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.io_initialize, i64 %2
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.io_initialize, i64 %2
   %switch.load = load i32, ptr %switch.gep, align 4
   %3 = lshr i32 %0, 4
   %4 = and i32 %3, 64
@@ -5300,7 +5300,7 @@ switch.lookup:
   %1 = tail call i32 @rb_io_modestr_fmode(ptr noundef %0)
   %2 = and i32 %1, 3
   %3 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.rb_io_reopen, i64 %3
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.rb_io_reopen, i64 %3
   %switch.load = load i32, ptr %switch.gep, align 4
   %4 = shl i32 %1, 4
   %5 = and i32 %4, 1024
@@ -5833,7 +5833,7 @@ rb_num2int_inline.exit:                           ; preds = %33, %35
   %.0.i = phi i64 [ %34, %33 ], [ %36, %35 ]
   %37 = trunc i64 %.0.i to i32
   %38 = and i64 %.0.i, 3
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.io_initialize, i64 %38
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.io_initialize, i64 %38
   %switch.load = load i32, ptr %switch.gep, align 4
   %39 = lshr i32 %37, 4
   %40 = and i32 %39, 64
@@ -5857,7 +5857,7 @@ switch.lookup:                                    ; preds = %28
   store i32 %49, ptr %8, align 4, !tbaa !20
   %50 = and i32 %49, 3
   %51 = zext nneg i32 %50 to i64
-  %switch.gep152 = getelementptr inbounds nuw i32, ptr @switch.table.rb_io_reopen, i64 %51
+  %switch.gep152 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.rb_io_reopen, i64 %51
   %switch.load153 = load i32, ptr %switch.gep152, align 4
   %52 = shl i32 %49, 4
   %53 = and i32 %52, 1024
@@ -6035,7 +6035,7 @@ rb_num2int_inline.exit95:                         ; preds = %117, %119
   store i64 %125, ptr %7, align 8, !tbaa !23
   %126 = and i32 %122, 3
   %127 = zext nneg i32 %126 to i64
-  %switch.gep155 = getelementptr inbounds nuw i32, ptr @switch.table.io_initialize, i64 %127
+  %switch.gep155 = getelementptr inbounds nuw [4 x i8], ptr @switch.table.io_initialize, i64 %127
   %switch.load156 = load i32, ptr %switch.gep155, align 4
   %128 = lshr i32 %122, 4
   %129 = and i32 %128, 64
@@ -6488,7 +6488,7 @@ switch.lookup:                                    ; preds = %31, %34
   store i64 4, ptr %41, align 8, !tbaa !127
   %42 = and i32 %32, 3
   %43 = zext nneg i32 %42 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.rb_io_reopen, i64 %43
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.rb_io_reopen, i64 %43
   %switch.load = load i32, ptr %switch.gep, align 4
   %44 = shl i32 %32, 4
   %45 = and i32 %44, 1024
@@ -7499,7 +7499,7 @@ define dso_local noundef i64 @rb_io_print(i32 noundef %0, ptr noundef readonly c
   br label %23
 
 23:                                               ; preds = %20, %.lr.ph
-  %24 = getelementptr i64, ptr %.0131829, i64 %indvars.iv
+  %24 = getelementptr [8 x i8], ptr %.0131829, i64 %indvars.iv
   %25 = load i64, ptr %24, align 8, !tbaa !23
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %25, ptr %5, align 8, !tbaa !23
@@ -7633,7 +7633,7 @@ define dso_local noundef i64 @rb_io_puts(i32 noundef %0, ptr noundef readonly ca
 
 14:                                               ; preds = %.lr.ph, %67
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %67 ]
-  %15 = getelementptr i64, ptr %1, i64 %indvars.iv
+  %15 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv
   %16 = load i64, ptr %15, align 8, !tbaa !23
   %17 = icmp eq i64 %16, 0
   %18 = and i64 %16, 7
@@ -7797,7 +7797,7 @@ rb_array_len.exit.thread:                         ; preds = %14
 
 RARRAY_AREF.exit:                                 ; preds = %rb_array_len.exit.thread, %22
   %.0.i.i = phi ptr [ %23, %22 ], [ %12, %rb_array_len.exit.thread ]
-  %24 = getelementptr i64, ptr %.0.i.i, i64 %.0
+  %24 = getelementptr [8 x i8], ptr %.0.i.i, i64 %.0
   %25 = load i64, ptr %24, align 8, !tbaa !23
   store i64 %25, ptr %4, align 8, !tbaa !23
   %26 = call i64 @rb_io_puts(i32 noundef 1, ptr noundef nonnull %4, i64 noundef %1)
@@ -8333,7 +8333,7 @@ switch.lookup:                                    ; preds = %.tail, %.tail.threa
   %.0 = phi i64 [ %4, %3 ], [ %6, %.tail.thread ], [ %spec.select, %.tail ]
   %11 = and i32 %1, 3
   %12 = zext nneg i32 %11 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.io_initialize, i64 %12
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.io_initialize, i64 %12
   %switch.load = load i32, ptr %switch.gep, align 4
   %13 = lshr i32 %1, 4
   %14 = and i32 %13, 64
@@ -8545,7 +8545,7 @@ switch.lookup:                                    ; preds = %1
   %5 = load i32, ptr %4, align 4, !tbaa !34
   %6 = and i32 %5, 3
   %7 = zext nneg i32 %6 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.rb_io_reopen, i64 %7
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.rb_io_reopen, i64 %7
   %switch.load = load i32, ptr %switch.gep, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i32, ptr %8, align 8, !tbaa !7
@@ -8574,7 +8574,7 @@ default.unreachable:                              ; preds = %11
 
 switch.lookup10:                                  ; preds = %switch.lookup
   %15 = zext nneg i32 %switch.load to i64
-  %switch.gep11 = getelementptr inbounds nuw ptr, ptr @switch.table.rb_io_stdio_file.17, i64 %15
+  %switch.gep11 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.rb_io_stdio_file.17, i64 %15
   %switch.load12 = load ptr, ptr %switch.gep11, align 8
   br label %rb_io_oflags_modestr.exit
 
@@ -9567,7 +9567,7 @@ rb_scan_args_n_opt.exit:                          ; preds = %rbimpl_RB_TYPE_P_fa
 
 18:                                               ; preds = %rb_scan_args_n_opt.exit
   %19 = zext nneg i32 %0 to i64
-  %20 = getelementptr i64, ptr %1, i64 %19
+  %20 = getelementptr [8 x i8], ptr %1, i64 %19
   %21 = getelementptr i8, ptr %20, i64 -8
   %22 = load i64, ptr %21, align 8, !tbaa !23
   %23 = tail call i32 @rb_keyword_given_p() #28
@@ -10306,7 +10306,7 @@ rb_num2long_inline.exit:                          ; preds = %21, %23
   %27 = phi i32 [ %46, %rb_num2long_inline.exit26 ], [ %26, %.lr.ph.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %28 = sext i32 %27 to i64
-  %29 = getelementptr i64, ptr %25, i64 %28
+  %29 = getelementptr [8 x i8], ptr %25, i64 %28
   %30 = load i64, ptr %29, align 8, !tbaa !23
   %31 = call i64 @rb_check_string_type(i64 noundef %30) #28
   store i64 %31, ptr %5, align 8, !tbaa !23
@@ -10336,7 +10336,7 @@ rb_num2long_inline.exit:                          ; preds = %21, %23
 
 rb_num2long_inline.exit26:                        ; preds = %43, %41, %33
   %.0.i25.sink = phi i64 [ %37, %33 ], [ %42, %41 ], [ %44, %43 ]
-  %45 = getelementptr i64, ptr %4, i64 %28
+  %45 = getelementptr [8 x i8], ptr %4, i64 %28
   store i64 %.0.i25.sink, ptr %45, align 8, !tbaa !23
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %46 = add i32 %27, -1
@@ -10839,7 +10839,7 @@ define internal i64 @rb_f_select(i32 noundef %0, ptr noundef %1, i64 %2) #0 {
   %indvars.iv = phi i64 [ 1, %.preheader ], [ %indvars.iv.next, %33 ]
   %.185.i19 = phi i32 [ 1, %.preheader ], [ %.286.i, %33 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %21 = getelementptr ptr, ptr %7, i64 %indvars.iv
+  %21 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !128
   %23 = icmp slt i32 %.185.i19, %0
   %.not108.i = icmp eq ptr %22, null
@@ -10850,7 +10850,7 @@ define internal i64 @rb_f_select(i32 noundef %0, ptr noundef %1, i64 %2) #0 {
 
 25:                                               ; preds = %24
   %26 = sext i32 %.185.i19 to i64
-  %27 = getelementptr i64, ptr %1, i64 %26
+  %27 = getelementptr [8 x i8], ptr %1, i64 %26
   %28 = load i64, ptr %27, align 8, !tbaa !23
   store i64 %28, ptr %22, align 8, !tbaa !23
   br label %29
@@ -10902,7 +10902,7 @@ rb_scan_args_set.exit:                            ; preds = %34
 
 46:                                               ; preds = %43, %46
   %indvars.iv23 = phi i64 [ 0, %43 ], [ %indvars.iv.next24, %46 ]
-  %47 = getelementptr %struct.rb_fdset_t, ptr %45, i64 %indvars.iv23
+  %47 = getelementptr [16 x i8], ptr %45, i64 %indvars.iv23
   call void @rb_fd_init(ptr noundef %47) #28
   %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
   %exitcond26.not = icmp eq i64 %indvars.iv.next24, 4
@@ -11161,7 +11161,7 @@ define internal i64 @rb_f_p(i32 noundef %0, ptr noundef %1, i64 %2) #0 {
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %5 = getelementptr i64, ptr %1, i64 %indvars.iv
+  %5 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv
   %6 = load i64, ptr %5, align 8, !tbaa !23
   %7 = tail call i64 @rb_inspect(i64 noundef %6) #28
   %8 = tail call i64 @rb_obj_as_string(i64 noundef %7) #28
@@ -11320,7 +11320,7 @@ define internal range(i64 1, 4294967296) i64 @rb_io_s_sysopen(i32 noundef %0, pt
   %15 = phi i1 [ true, %.preheader ], [ false, %28 ]
   %.185.i14 = phi i32 [ 1, %.preheader ], [ %.286.i, %28 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %16 = getelementptr ptr, ptr %7, i64 %indvars.iv
+  %16 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !128
   %18 = icmp slt i32 %.185.i14, %0
   %.not108.i = icmp eq ptr %17, null
@@ -11331,7 +11331,7 @@ define internal range(i64 1, 4294967296) i64 @rb_io_s_sysopen(i32 noundef %0, pt
 
 20:                                               ; preds = %19
   %21 = sext i32 %.185.i14 to i64
-  %22 = getelementptr i64, ptr %1, i64 %21
+  %22 = getelementptr [8 x i8], ptr %1, i64 %21
   %23 = load i64, ptr %22, align 8, !tbaa !23
   store i64 %23, ptr %17, align 8, !tbaa !23
   br label %24
@@ -11400,7 +11400,7 @@ switch.lookup:                                    ; preds = %37
   %49 = call i32 @rb_io_modestr_fmode(ptr noundef %48)
   %50 = and i32 %49, 3
   %51 = zext nneg i32 %50 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.rb_io_reopen, i64 %51
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.rb_io_reopen, i64 %51
   %switch.load = load i32, ptr %switch.gep, align 4
   %52 = shl i32 %49, 4
   %53 = and i32 %52, 1024
@@ -11456,7 +11456,7 @@ define internal i64 @rb_io_s_for_fd(i32 noundef %0, ptr noundef readonly capture
 
 6:                                                ; preds = %3
   %7 = zext nneg i32 %0 to i64
-  %8 = getelementptr i64, ptr %1, i64 %7
+  %8 = getelementptr [8 x i8], ptr %1, i64 %7
   %9 = getelementptr i8, ptr %8, i64 -8
   %10 = load i64, ptr %9, align 8, !tbaa !23
   %11 = tail call i32 @rb_keyword_given_p() #28
@@ -11504,7 +11504,7 @@ define internal i64 @rb_io_s_popen(i32 noundef %0, ptr noundef readonly captures
 
 5:                                                ; preds = %3
   %6 = zext nneg i32 %0 to i64
-  %7 = getelementptr i64, ptr %1, i64 %6
+  %7 = getelementptr [8 x i8], ptr %1, i64 %6
   %8 = getelementptr i8, ptr %7, i64 -8
   %9 = load i64, ptr %8, align 8, !tbaa !23
   %10 = tail call i64 @rb_check_hash_type(i64 noundef %9) #28
@@ -11624,7 +11624,7 @@ rb_scan_args_n_opt.exit:
 
 11:                                               ; preds = %rb_scan_args_n_opt.exit
   %12 = zext nneg i32 %0 to i64
-  %13 = getelementptr i64, ptr %1, i64 %12
+  %13 = getelementptr [8 x i8], ptr %1, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -8
   %15 = load i64, ptr %14, align 8, !tbaa !23
   %16 = call i32 @rb_keyword_given_p() #28
@@ -11647,7 +11647,7 @@ rb_scan_args_n_opt.exit:
   %22 = phi i1 [ true, %.preheader ], [ false, %35 ]
   %.185.i22 = phi i32 [ 1, %.preheader ], [ %.286.i, %35 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %23 = getelementptr ptr, ptr %8, i64 %indvars.iv
+  %23 = getelementptr [8 x i8], ptr %8, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8, !tbaa !128
   %25 = icmp slt i32 %.185.i22, %.0.i36
   %.not108.i = icmp eq ptr %24, null
@@ -11658,7 +11658,7 @@ rb_scan_args_n_opt.exit:
 
 27:                                               ; preds = %26
   %28 = sext i32 %.185.i22 to i64
-  %29 = getelementptr i64, ptr %1, i64 %28
+  %29 = getelementptr [8 x i8], ptr %1, i64 %28
   %30 = load i64, ptr %29, align 8, !tbaa !23
   store i64 %30, ptr %24, align 8, !tbaa !23
   br label %31
@@ -11842,7 +11842,7 @@ rb_scan_args_n_opt.exit:
 
 11:                                               ; preds = %rb_scan_args_n_opt.exit
   %12 = zext nneg i32 %0 to i64
-  %13 = getelementptr i64, ptr %1, i64 %12
+  %13 = getelementptr [8 x i8], ptr %1, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -8
   %15 = load i64, ptr %14, align 8, !tbaa !23
   %16 = call i32 @rb_keyword_given_p() #28
@@ -11865,7 +11865,7 @@ rb_scan_args_n_opt.exit:
   %22 = phi i1 [ true, %.preheader ], [ false, %35 ]
   %.185.i17 = phi i32 [ 1, %.preheader ], [ %.286.i, %35 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %23 = getelementptr ptr, ptr %8, i64 %indvars.iv
+  %23 = getelementptr [8 x i8], ptr %8, i64 %indvars.iv
   %24 = load ptr, ptr %23, align 8, !tbaa !128
   %25 = icmp slt i32 %.185.i17, %.0.i31
   %.not108.i = icmp eq ptr %24, null
@@ -11876,7 +11876,7 @@ rb_scan_args_n_opt.exit:
 
 27:                                               ; preds = %26
   %28 = sext i32 %.185.i17 to i64
-  %29 = getelementptr i64, ptr %1, i64 %28
+  %29 = getelementptr [8 x i8], ptr %1, i64 %28
   %30 = load i64, ptr %29, align 8, !tbaa !23
   store i64 %30, ptr %24, align 8, !tbaa !23
   br label %31
@@ -12053,7 +12053,7 @@ rb_scan_args_n_opt.exit:
 
 13:                                               ; preds = %rb_scan_args_n_opt.exit
   %14 = zext nneg i32 %0 to i64
-  %15 = getelementptr i64, ptr %1, i64 %14
+  %15 = getelementptr [8 x i8], ptr %1, i64 %14
   %16 = getelementptr i8, ptr %15, i64 -8
   %17 = load i64, ptr %16, align 8, !tbaa !23
   %18 = call i32 @rb_keyword_given_p() #28
@@ -12075,7 +12075,7 @@ rb_scan_args_n_opt.exit:
   %indvars.iv = phi i64 [ 1, %.preheader ], [ %indvars.iv.next, %36 ]
   %.185.i17 = phi i32 [ 1, %.preheader ], [ %.286.i, %36 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %24 = getelementptr ptr, ptr %6, i64 %indvars.iv
+  %24 = getelementptr [8 x i8], ptr %6, i64 %indvars.iv
   %25 = load ptr, ptr %24, align 8, !tbaa !128
   %26 = icmp slt i32 %.185.i17, %.0.i30
   %.not108.i = icmp eq ptr %25, null
@@ -12086,7 +12086,7 @@ rb_scan_args_n_opt.exit:
 
 28:                                               ; preds = %27
   %29 = sext i32 %.185.i17 to i64
-  %30 = getelementptr i64, ptr %1, i64 %29
+  %30 = getelementptr [8 x i8], ptr %1, i64 %29
   %31 = load i64, ptr %30, align 8, !tbaa !23
   store i64 %31, ptr %25, align 8, !tbaa !23
   br label %32
@@ -12229,7 +12229,7 @@ define internal i64 @rb_io_s_binread(i32 noundef %0, ptr noundef %1, i64 noundef
   %13 = phi i1 [ false, %26 ], [ true, %3 ]
   %.185.i14 = phi i32 [ %.286.i, %26 ], [ 1, %3 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %14 = getelementptr ptr, ptr %7, i64 %indvars.iv
+  %14 = getelementptr [8 x i8], ptr %7, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !128
   %16 = icmp slt i32 %.185.i14, %0
   %.not108.i = icmp eq ptr %15, null
@@ -12240,7 +12240,7 @@ define internal i64 @rb_io_s_binread(i32 noundef %0, ptr noundef %1, i64 noundef
 
 18:                                               ; preds = %17
   %19 = sext i32 %.185.i14 to i64
-  %20 = getelementptr i64, ptr %1, i64 %19
+  %20 = getelementptr [8 x i8], ptr %1, i64 %19
   %21 = load i64, ptr %20, align 8, !tbaa !23
   store i64 %21, ptr %15, align 8, !tbaa !23
   br label %22
@@ -12372,7 +12372,7 @@ rb_scan_args_n_opt.exit:
 
 12:                                               ; preds = %rb_scan_args_n_opt.exit
   %13 = zext nneg i32 %0 to i64
-  %14 = getelementptr i64, ptr %1, i64 %13
+  %14 = getelementptr [8 x i8], ptr %1, i64 %13
   %15 = getelementptr i8, ptr %14, i64 -8
   %16 = load i64, ptr %15, align 8, !tbaa !23
   %17 = tail call i32 @rb_keyword_given_p() #28
@@ -12402,7 +12402,7 @@ rb_scan_args_n_opt.exit:
 
 24:                                               ; preds = %.preheader
   %25 = sext i32 %.185.i43 to i64
-  %26 = getelementptr i64, ptr %1, i64 %25
+  %26 = getelementptr [8 x i8], ptr %1, i64 %25
   %27 = load i64, ptr %26, align 8, !tbaa !23
   store i64 %27, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8, !tbaa !23
   %28 = add nsw i32 %.185.i43, 1
@@ -12711,7 +12711,7 @@ define internal i64 @rb_io_s_copy_stream(i32 noundef %0, ptr noundef readonly ca
   br i1 %.not109.i, label %19, label %16
 
 16:                                               ; preds = %.preheader7
-  %17 = getelementptr i64, ptr %1, i64 %indvars.iv
+  %17 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv
   %18 = load i64, ptr %17, align 8, !tbaa !23
   store i64 %18, ptr %15, align 8, !tbaa !23
   br label %19
@@ -12724,7 +12724,7 @@ define internal i64 @rb_io_s_copy_stream(i32 noundef %0, ptr noundef readonly ca
   %20 = phi i1 [ false, %33 ], [ true, %19 ]
   %.185.i12 = phi i32 [ %.286.i, %33 ], [ 2, %19 ]
   %indvars.iv.next21 = add nuw nsw i64 %indvars.iv20, 1
-  %21 = getelementptr ptr, ptr %9, i64 %indvars.iv20
+  %21 = getelementptr [8 x i8], ptr %9, i64 %indvars.iv20
   %22 = load ptr, ptr %21, align 8, !tbaa !128
   %23 = icmp slt i32 %.185.i12, %0
   %.not108.i = icmp eq ptr %22, null
@@ -12735,7 +12735,7 @@ define internal i64 @rb_io_s_copy_stream(i32 noundef %0, ptr noundef readonly ca
 
 25:                                               ; preds = %24
   %26 = sext i32 %.185.i12 to i64
-  %27 = getelementptr i64, ptr %1, i64 %26
+  %27 = getelementptr [8 x i8], ptr %1, i64 %26
   %28 = load i64, ptr %27, align 8, !tbaa !23
   store i64 %28, ptr %22, align 8, !tbaa !23
   br label %29
@@ -12846,7 +12846,7 @@ rb_scan_args_n_opt.exit:
 
 4:                                                ; preds = %rb_scan_args_n_opt.exit
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr i64, ptr %1, i64 %5
+  %6 = getelementptr [8 x i8], ptr %1, i64 %5
   %7 = getelementptr i8, ptr %6, i64 -8
   %8 = load i64, ptr %7, align 8, !tbaa !23
   %9 = tail call i32 @rb_keyword_given_p() #28
@@ -13274,7 +13274,7 @@ rb_scan_args_n_opt.exit:
 
 12:                                               ; preds = %rb_scan_args_n_opt.exit
   %13 = zext nneg i32 %0 to i64
-  %14 = getelementptr i64, ptr %1, i64 %13
+  %14 = getelementptr [8 x i8], ptr %1, i64 %13
   %15 = getelementptr i8, ptr %14, i64 -8
   %16 = load i64, ptr %15, align 8, !tbaa !23
   %17 = tail call i32 @rb_keyword_given_p() #28
@@ -13986,7 +13986,7 @@ switch.lookup:                                    ; preds = %300
   %324 = load i32, ptr %323, align 4, !tbaa !34
   %325 = and i32 %324, 3
   %326 = zext nneg i32 %325 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.rb_io_reopen, i64 %326
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.rb_io_reopen, i64 %326
   %switch.load = load i32, ptr %switch.gep, align 4
   %327 = shl i32 %324, 4
   %328 = and i32 %327, 1024
@@ -15516,7 +15516,7 @@ define internal i64 @rb_io_pread(i32 noundef %0, ptr noundef readonly captures(n
   %exitcond.not = phi i1 [ true, %.preheader26 ], [ false, %3 ]
   %indvars.iv.sroa.phi.sroa.speculated = phi ptr [ %5, %.preheader26 ], [ %4, %3 ]
   %indvars.iv = phi i64 [ 1, %.preheader26 ], [ 0, %3 ]
-  %9 = getelementptr i64, ptr %1, i64 %indvars.iv
+  %9 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv
   %10 = load i64, ptr %9, align 8, !tbaa !23
   store i64 %10, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8, !tbaa !23
   br i1 %exitcond.not, label %.preheader, label %.preheader26, !llvm.loop !231
@@ -16578,7 +16578,7 @@ define internal i64 @io_read(i32 noundef %0, ptr noundef readonly captures(none)
 
 11:                                               ; preds = %.preheader
   %12 = sext i32 %.185.i48 to i64
-  %13 = getelementptr i64, ptr %1, i64 %12
+  %13 = getelementptr [8 x i8], ptr %1, i64 %12
   %14 = load i64, ptr %13, align 8, !tbaa !23
   store i64 %14, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8, !tbaa !23
   %15 = add nsw i32 %.185.i48, 1
@@ -18860,7 +18860,7 @@ define internal noundef i64 @rb_io_advise(i32 noundef %0, ptr noundef readonly c
   %14 = phi i1 [ true, %.preheader ], [ false, %27 ]
   %.185.i19 = phi i32 [ 1, %.preheader ], [ %.286.i, %27 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %15 = getelementptr ptr, ptr %8, i64 %indvars.iv
+  %15 = getelementptr [8 x i8], ptr %8, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !128
   %17 = icmp slt i32 %.185.i19, %0
   %.not108.i = icmp eq ptr %16, null
@@ -18871,7 +18871,7 @@ define internal noundef i64 @rb_io_advise(i32 noundef %0, ptr noundef readonly c
 
 19:                                               ; preds = %18
   %20 = sext i32 %.185.i19 to i64
-  %21 = getelementptr i64, ptr %1, i64 %20
+  %21 = getelementptr [8 x i8], ptr %1, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !23
   store i64 %22, ptr %16, align 8, !tbaa !23
   br label %23
@@ -20170,7 +20170,7 @@ RB_SYMBOL_P.exit.thread:                          ; preds = %3
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %90 ]
   %.02982 = phi i64 [ 36, %.lr.ph.preheader ], [ %.130, %90 ]
   %.03181 = phi i32 [ 0, %.lr.ph.preheader ], [ %.132, %90 ]
-  %33 = getelementptr i64, ptr %1, i64 %indvars.iv
+  %33 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv
   %34 = load i64, ptr %33, align 8, !tbaa !23
   %35 = freeze i64 %34
   %36 = and i64 %35, 255
@@ -21463,7 +21463,7 @@ define internal i64 @argf_read(i32 noundef %0, ptr noundef %1, i64 noundef %2) #
 
 9:                                                ; preds = %.preheader
   %10 = sext i32 %.185.i44 to i64
-  %11 = getelementptr i64, ptr %1, i64 %10
+  %11 = getelementptr [8 x i8], ptr %1, i64 %10
   %12 = load i64, ptr %11, align 8, !tbaa !23
   store i64 %12, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8, !tbaa !23
   %13 = add nsw i32 %.185.i44, 1
@@ -21656,7 +21656,7 @@ rb_scan_args_n_opt.exit:
 
 4:                                                ; preds = %rb_scan_args_n_opt.exit
   %5 = zext nneg i32 %0 to i64
-  %6 = getelementptr i64, ptr %1, i64 %5
+  %6 = getelementptr [8 x i8], ptr %1, i64 %5
   %7 = getelementptr i8, ptr %6, i64 -8
   %8 = load i64, ptr %7, align 8, !tbaa !23
   %9 = tail call i32 @rb_keyword_given_p() #28
@@ -23419,7 +23419,7 @@ rb_scan_args_n_opt.exit:                          ; preds = %3
 
 25:                                               ; preds = %rb_scan_args_n_opt.exit
   %26 = zext nneg i32 %0 to i64
-  %27 = getelementptr i64, ptr %1, i64 %26
+  %27 = getelementptr [8 x i8], ptr %1, i64 %26
   %28 = getelementptr i8, ptr %27, i64 -8
   %29 = load i64, ptr %28, align 8, !tbaa !23
   %30 = call i32 @rb_keyword_given_p() #28
@@ -23444,7 +23444,7 @@ rb_scan_args_n_opt.exit:                          ; preds = %3
   %37 = phi i1 [ true, %.preheader ], [ false, %50 ]
   %.185.i21 = phi i32 [ 1, %.preheader ], [ %.286.i, %50 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %38 = getelementptr ptr, ptr %15, i64 %indvars.iv
+  %38 = getelementptr [8 x i8], ptr %15, i64 %indvars.iv
   %39 = load ptr, ptr %38, align 8, !tbaa !128
   %40 = icmp slt i32 %.185.i21, %.0.i33
   %.not108.i = icmp eq ptr %39, null
@@ -23455,7 +23455,7 @@ rb_scan_args_n_opt.exit:                          ; preds = %3
 
 42:                                               ; preds = %41
   %43 = sext i32 %.185.i21 to i64
-  %44 = getelementptr i64, ptr %1, i64 %43
+  %44 = getelementptr [8 x i8], ptr %1, i64 %43
   %45 = load i64, ptr %44, align 8, !tbaa !23
   store i64 %45, ptr %39, align 8, !tbaa !23
   br label %46
@@ -28436,13 +28436,13 @@ rb_io_check_writable.exit:                        ; preds = %44, %47
 
 56:                                               ; preds = %53
   %57 = sext i32 %.03044 to i64
-  %58 = getelementptr i64, ptr %1, i64 %57
+  %58 = getelementptr [8 x i8], ptr %1, i64 %57
   %59 = tail call fastcc i64 @io_fwritev(i32 noundef %54, ptr noundef %58, ptr noundef nonnull %31)
   br label %78
 
 60:                                               ; preds = %53, %50
   %61 = sext i32 %.03044 to i64
-  %62 = getelementptr i64, ptr %1, i64 %61
+  %62 = getelementptr [8 x i8], ptr %1, i64 %61
   %63 = load i64, ptr %62, align 8, !tbaa !23
   %64 = tail call i64 @rb_obj_as_string(i64 noundef %63) #28
   %65 = icmp slt i32 %.03044, %49
@@ -28577,7 +28577,7 @@ rb_alloc_tmp_buffer2.exit42:                      ; preds = %27
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %RSTRING_PTR.exit
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %RSTRING_PTR.exit ]
-  %34 = getelementptr i64, ptr %1, i64 %indvars.iv
+  %34 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv
   %35 = load i64, ptr %34, align 8, !tbaa !23
   %36 = call i64 @rb_obj_as_string(i64 noundef %35) #28
   store i32 0, ptr %5, align 4, !tbaa !20
@@ -28592,7 +28592,7 @@ rb_alloc_tmp_buffer2.exit42:                      ; preds = %27
 
 40:                                               ; preds = %39, %.lr.ph
   %41 = call i64 @rb_str_tmp_frozen_acquire(i64 noundef %37) #28
-  %42 = getelementptr i64, ptr %33, i64 %indvars.iv
+  %42 = getelementptr [8 x i8], ptr %33, i64 %indvars.iv
   store i64 %41, ptr %42, align 8, !tbaa !23
   %43 = inttoptr i64 %41 to ptr
   %44 = load i64, ptr %43, align 8, !tbaa !25, !noalias !410
@@ -28608,7 +28608,7 @@ rb_alloc_tmp_buffer2.exit42:                      ; preds = %27
 RSTRING_PTR.exit:                                 ; preds = %40, %47
   %.sroa.2.0.i = phi ptr [ %.sroa.2.0.copyload.i, %47 ], [ %46, %40 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %48 = getelementptr %struct.iovec, ptr %21, i64 %indvars.iv.next
+  %48 = getelementptr [16 x i8], ptr %21, i64 %indvars.iv.next
   store ptr %.sroa.2.0.i, ptr %48, align 8, !tbaa !332
   %49 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %50 = load i64, ptr %49, align 8, !tbaa !65
@@ -28678,7 +28678,7 @@ io_allocate_write_buffer.exit.i:                  ; preds = %72, %67
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 1, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
   %.04760.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %78, %.lr.ph.i ]
-  %75 = getelementptr %struct.iovec, ptr %21, i64 %indvars.iv.i
+  %75 = getelementptr [16 x i8], ptr %21, i64 %indvars.iv.i
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %77 = load i64, ptr %76, align 8, !tbaa !334
   %78 = add i64 %77, %.04760.i
@@ -28714,7 +28714,7 @@ io_allocate_write_buffer.exit.i:                  ; preds = %72, %67
 .lr.ph64.i:                                       ; preds = %ruby_nonempty_memcpy.exit.i, %.lr.ph64.preheader.i
   %indvars.iv67.i = phi i64 [ 1, %.lr.ph64.preheader.i ], [ %indvars.iv.next68.i, %ruby_nonempty_memcpy.exit.i ]
   %.04562.i = phi i64 [ %86, %.lr.ph64.preheader.i ], [ %98, %ruby_nonempty_memcpy.exit.i ]
-  %91 = getelementptr %struct.iovec, ptr %21, i64 %indvars.iv67.i
+  %91 = getelementptr [16 x i8], ptr %21, i64 %indvars.iv67.i
   %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
   %93 = load i64, ptr %92, align 8, !tbaa !334
   %.not.i.i43 = icmp eq i64 %93, 0
@@ -28806,9 +28806,9 @@ io_binwritev.exit:                                ; preds = %._crit_edge, %._cri
 
 .lr.ph47:                                         ; preds = %.lr.ph47.preheader, %.lr.ph47
   %indvars.iv50 = phi i64 [ 0, %.lr.ph47.preheader ], [ %indvars.iv.next51, %.lr.ph47 ]
-  %123 = getelementptr i64, ptr %1, i64 %indvars.iv50
+  %123 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv50
   %124 = load i64, ptr %123, align 8, !tbaa !23
-  %125 = getelementptr i64, ptr %33, i64 %indvars.iv50
+  %125 = getelementptr [8 x i8], ptr %33, i64 %indvars.iv50
   %126 = load i64, ptr %125, align 8, !tbaa !23
   call void @rb_str_tmp_frozen_release(i64 noundef %124, i64 noundef %126) #28
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
@@ -29532,7 +29532,7 @@ rb_array_len.exit.thread.i:                       ; preds = %Check_Type.exit.i
 
 RARRAY_AREF.exit.i:                               ; preds = %33, %rb_array_len.exit.thread.i
   %.0.i.i.i = phi ptr [ %34, %33 ], [ %23, %rb_array_len.exit.thread.i ]
-  %35 = getelementptr i64, ptr %.0.i.i.i, i64 %.0128.i
+  %35 = getelementptr [8 x i8], ptr %.0.i.i.i, i64 %.0128.i
   %36 = load i64, ptr %35, align 8, !tbaa !23
   %37 = tail call i64 @rb_convert_type_with_id(i64 noundef %36, i32 noundef 11, ptr noundef nonnull @.str.5, i64 noundef 3329) #28
   %38 = icmp eq i64 %37, 0
@@ -29681,7 +29681,7 @@ rb_array_len.exit167.thread.i:                    ; preds = %Check_Type.exit164.
 
 RARRAY_AREF.exit170.i:                            ; preds = %94, %rb_array_len.exit167.thread.i
   %.0.i.i169.i = phi ptr [ %95, %94 ], [ %84, %rb_array_len.exit167.thread.i ]
-  %96 = getelementptr i64, ptr %.0.i.i169.i, i64 %.1129.i
+  %96 = getelementptr [8 x i8], ptr %.0.i.i169.i, i64 %.1129.i
   %97 = load i64, ptr %96, align 8, !tbaa !23
   %98 = tail call i64 @rb_convert_type_with_id(i64 noundef %97, i32 noundef 11, ptr noundef nonnull @.str.5, i64 noundef 3329) #28
   %99 = inttoptr i64 %98 to ptr
@@ -29817,7 +29817,7 @@ rb_array_len.exit188.thread.i:                    ; preds = %Check_Type.exit185.
 
 RARRAY_AREF.exit191.i:                            ; preds = %150, %rb_array_len.exit188.thread.i
   %.0.i.i190.i = phi ptr [ %151, %150 ], [ %140, %rb_array_len.exit188.thread.i ]
-  %152 = getelementptr i64, ptr %.0.i.i190.i, i64 %.2.i
+  %152 = getelementptr [8 x i8], ptr %.0.i.i190.i, i64 %.2.i
   %153 = load i64, ptr %152, align 8, !tbaa !23
   %154 = tail call i64 @rb_convert_type_with_id(i64 noundef %153, i32 noundef 11, ptr noundef nonnull @.str.5, i64 noundef 3329) #28
   %155 = inttoptr i64 %154 to ptr
@@ -30489,7 +30489,7 @@ define internal noundef i64 @select_end(i64 noundef %0) #0 {
 
 4:                                                ; preds = %1, %4
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %4 ]
-  %5 = getelementptr %struct.rb_fdset_t, ptr %3, i64 %indvars.iv
+  %5 = getelementptr [16 x i8], ptr %3, i64 %indvars.iv
   tail call void @rb_fd_term(ptr noundef %5) #28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
@@ -30668,7 +30668,7 @@ rb_scan_args_n_opt.exit:                          ; preds = %43, %45
   br i1 %.not, label %63, label %48
 
 48:                                               ; preds = %rb_scan_args_n_opt.exit
-  %49 = getelementptr i64, ptr %.0.i16, i64 %.0.i.i
+  %49 = getelementptr [8 x i8], ptr %.0.i16, i64 %.0.i.i
   %50 = getelementptr i8, ptr %49, i64 -8
   %51 = load i64, ptr %50, align 8, !tbaa !23
   %52 = icmp eq i64 %51, 0
@@ -30703,7 +30703,7 @@ rb_scan_args_keyword_p.exit:                      ; preds = %48
 
 66:                                               ; preds = %64
   %67 = sext i32 %.185.i20 to i64
-  %68 = getelementptr i64, ptr %.0.i16, i64 %67
+  %68 = getelementptr [8 x i8], ptr %.0.i16, i64 %67
   %69 = load i64, ptr %68, align 8, !tbaa !23
   store i64 %69, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8, !tbaa !23
   %70 = add nsw i32 %.185.i20, 1
@@ -31255,7 +31255,7 @@ rb_scan_args_n_opt.exit:
 
 10:                                               ; preds = %rb_scan_args_n_opt.exit
   %11 = zext nneg i32 %0 to i64
-  %12 = getelementptr i64, ptr %1, i64 %11
+  %12 = getelementptr [8 x i8], ptr %1, i64 %11
   %13 = getelementptr i8, ptr %12, i64 -8
   %14 = load i64, ptr %13, align 8, !tbaa !23
   %15 = tail call i32 @rb_keyword_given_p() #28
@@ -31281,7 +31281,7 @@ rb_scan_args_n_opt.exit:
   br i1 %.not109.i, label %24, label %21
 
 21:                                               ; preds = %.preheader16
-  %22 = getelementptr i64, ptr %1, i64 %indvars.iv
+  %22 = getelementptr [8 x i8], ptr %1, i64 %indvars.iv
   %23 = load i64, ptr %22, align 8, !tbaa !23
   store i64 %23, ptr %indvars.iv.sroa.phi.sroa.speculated, align 8, !tbaa !23
   br label %24
@@ -33604,7 +33604,7 @@ rb_update_max_fd.exit:                            ; preds = %rb_update_max_fd.ex
   %40 = phi i32 [ %.pre, %rb_update_max_fd.exit.loopexit ], [ %21, %26 ]
   %41 = and i32 %40, 3
   %42 = zext nneg i32 %41 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.io_initialize, i64 %42
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.io_initialize, i64 %42
   %switch.load = load i32, ptr %switch.gep, align 4
   %43 = load i64, ptr %5, align 8, !tbaa !23
   %44 = icmp eq i64 %43, 4
@@ -33908,7 +33908,7 @@ rb_scan_args_n_opt.exit:
 
 7:                                                ; preds = %rb_scan_args_n_opt.exit
   %8 = zext nneg i32 %0 to i64
-  %9 = getelementptr i64, ptr %1, i64 %8
+  %9 = getelementptr [8 x i8], ptr %1, i64 %8
   %10 = getelementptr i8, ptr %9, i64 -8
   %11 = load i64, ptr %10, align 8, !tbaa !23
   %12 = tail call i32 @rb_keyword_given_p() #28

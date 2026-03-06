@@ -164,7 +164,7 @@ define void @_ZN3g2o8internal7toEulerERKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEE(p
 35:                                               ; preds = %2
   %36 = fcmp ogt double %6, %4
   %.0.i.i.i = zext i1 %36 to i64
-  %37 = getelementptr double, ptr %1, i64 %.0.i.i.i
+  %37 = getelementptr [8 x i8], ptr %1, i64 %.0.i.i.i
   %.idx.i.i.i.i = select i1 %36, i64 24, i64 0
   %38 = getelementptr i8, ptr %37, i64 %.idx.i.i.i.i
   %39 = load double, ptr %38, align 8, !tbaa !7
@@ -178,16 +178,16 @@ define void @_ZN3g2o8internal7toEulerERKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEE(p
   %.urem.i.i.i = add i64 %.fr.i.i.i, -2
   %.cmp.i.i.i = icmp ult i64 %44, 3
   %45 = select i1 %.cmp.i.i.i, i64 %44, i64 %.urem.i.i.i
-  %46 = getelementptr double, ptr %1, i64 %.1.i.i.i
+  %46 = getelementptr [8 x i8], ptr %1, i64 %.1.i.i.i
   %.idx.i66.i.i.i = mul nuw nsw i64 %.1.i.i.i, 24
   %47 = getelementptr i8, ptr %46, i64 %.idx.i66.i.i.i
   %48 = load double, ptr %47, align 8, !tbaa !7
-  %49 = getelementptr double, ptr %1, i64 %.fr.i.i.i
+  %49 = getelementptr [8 x i8], ptr %1, i64 %.fr.i.i.i
   %.idx.i67.i.i.i = mul nuw nsw i64 %.fr.i.i.i, 24
   %50 = getelementptr i8, ptr %49, i64 %.idx.i67.i.i.i
   %51 = load double, ptr %50, align 8, !tbaa !7
   %52 = fsub double %48, %51
-  %53 = getelementptr double, ptr %1, i64 %45
+  %53 = getelementptr [8 x i8], ptr %1, i64 %45
   %.idx.i68.i.i.i = mul i64 %45, 24
   %54 = getelementptr i8, ptr %53, i64 %.idx.i68.i.i.i
   %55 = load double, ptr %54, align 8, !tbaa !7
@@ -195,7 +195,7 @@ define void @_ZN3g2o8internal7toEulerERKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEE(p
   %57 = fadd double %56, 1.000000e+00
   %58 = tail call double @sqrt(double noundef %57) #14, !tbaa !9
   %59 = fmul double %58, 5.000000e-01
-  %60 = getelementptr inbounds nuw double, ptr %3, i64 %.1.i.i.i
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.1.i.i.i
   store double %59, ptr %60, align 8, !tbaa !7
   %61 = fdiv double 5.000000e-01, %58
   %62 = getelementptr i8, ptr %53, i64 %.idx.i67.i.i.i
@@ -212,7 +212,7 @@ define void @_ZN3g2o8internal7toEulerERKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEE(p
   %72 = load double, ptr %71, align 8, !tbaa !7
   %73 = fadd double %70, %72
   %74 = fmul double %61, %73
-  %75 = getelementptr inbounds double, ptr %3, i64 %.fr.i.i.i
+  %75 = getelementptr inbounds [8 x i8], ptr %3, i64 %.fr.i.i.i
   store double %74, ptr %75, align 8, !tbaa !7
   %76 = getelementptr i8, ptr %53, i64 %.idx.i66.i.i.i
   %77 = load double, ptr %76, align 8, !tbaa !7
@@ -220,7 +220,7 @@ define void @_ZN3g2o8internal7toEulerERKN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEE(p
   %79 = load double, ptr %78, align 8, !tbaa !7
   %80 = fadd double %77, %79
   %81 = fmul double %61, %80
-  %82 = getelementptr inbounds double, ptr %3, i64 %45
+  %82 = getelementptr inbounds [8 x i8], ptr %3, i64 %45
   store double %81, ptr %82, align 8, !tbaa !7
   %.pre = load double, ptr %68, align 8, !tbaa !7
   %.pre23 = load double, ptr %3, align 16, !tbaa !7
@@ -401,7 +401,7 @@ define void @_ZN3g2o8internal19toCompactQuaternionERKN5Eigen6MatrixIdLi3ELi3ELi0
 38:                                               ; preds = %2
   %39 = fcmp ogt double %6, %4
   %.0.i.i.i = zext i1 %39 to i64
-  %40 = getelementptr double, ptr %1, i64 %.0.i.i.i
+  %40 = getelementptr [8 x i8], ptr %1, i64 %.0.i.i.i
   %.idx.i.i.i.i = select i1 %39, i64 24, i64 0
   %41 = getelementptr i8, ptr %40, i64 %.idx.i.i.i.i
   %42 = load double, ptr %41, align 8, !tbaa !7
@@ -415,16 +415,16 @@ define void @_ZN3g2o8internal19toCompactQuaternionERKN5Eigen6MatrixIdLi3ELi3ELi0
   %.urem.i.i.i = add i64 %.fr.i.i.i, -2
   %.cmp.i.i.i = icmp ult i64 %47, 3
   %48 = select i1 %.cmp.i.i.i, i64 %47, i64 %.urem.i.i.i
-  %49 = getelementptr double, ptr %1, i64 %.1.i.i.i
+  %49 = getelementptr [8 x i8], ptr %1, i64 %.1.i.i.i
   %.idx.i66.i.i.i = mul nuw nsw i64 %.1.i.i.i, 24
   %50 = getelementptr i8, ptr %49, i64 %.idx.i66.i.i.i
   %51 = load double, ptr %50, align 8, !tbaa !7
-  %52 = getelementptr double, ptr %1, i64 %.fr.i.i.i
+  %52 = getelementptr [8 x i8], ptr %1, i64 %.fr.i.i.i
   %.idx.i67.i.i.i = mul nuw nsw i64 %.fr.i.i.i, 24
   %53 = getelementptr i8, ptr %52, i64 %.idx.i67.i.i.i
   %54 = load double, ptr %53, align 8, !tbaa !7
   %55 = fsub double %51, %54
-  %56 = getelementptr double, ptr %1, i64 %48
+  %56 = getelementptr [8 x i8], ptr %1, i64 %48
   %.idx.i68.i.i.i = mul i64 %48, 24
   %57 = getelementptr i8, ptr %56, i64 %.idx.i68.i.i.i
   %58 = load double, ptr %57, align 8, !tbaa !7
@@ -432,7 +432,7 @@ define void @_ZN3g2o8internal19toCompactQuaternionERKN5Eigen6MatrixIdLi3ELi3ELi0
   %60 = fadd double %59, 1.000000e+00
   %61 = tail call double @sqrt(double noundef %60) #14, !tbaa !9
   %62 = fmul double %61, 5.000000e-01
-  %63 = getelementptr inbounds nuw double, ptr %3, i64 %.1.i.i.i
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.1.i.i.i
   store double %62, ptr %63, align 8, !tbaa !7
   %64 = fdiv double 5.000000e-01, %61
   %65 = getelementptr i8, ptr %56, i64 %.idx.i67.i.i.i
@@ -449,7 +449,7 @@ define void @_ZN3g2o8internal19toCompactQuaternionERKN5Eigen6MatrixIdLi3ELi3ELi0
   %75 = load double, ptr %74, align 8, !tbaa !7
   %76 = fadd double %73, %75
   %77 = fmul double %64, %76
-  %78 = getelementptr inbounds double, ptr %3, i64 %.fr.i.i.i
+  %78 = getelementptr inbounds [8 x i8], ptr %3, i64 %.fr.i.i.i
   store double %77, ptr %78, align 8, !tbaa !7
   %79 = getelementptr i8, ptr %56, i64 %.idx.i66.i.i.i
   %80 = load double, ptr %79, align 8, !tbaa !7
@@ -457,7 +457,7 @@ define void @_ZN3g2o8internal19toCompactQuaternionERKN5Eigen6MatrixIdLi3ELi3ELi0
   %82 = load double, ptr %81, align 8, !tbaa !7
   %83 = fadd double %80, %82
   %84 = fmul double %64, %83
-  %85 = getelementptr inbounds double, ptr %3, i64 %48
+  %85 = getelementptr inbounds [8 x i8], ptr %3, i64 %48
   store double %84, ptr %85, align 8, !tbaa !7
   br label %_ZN5Eigen10QuaternionIdLi0EEC2INS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEERKNS_10MatrixBaseIT_EE.exit
 
@@ -668,16 +668,16 @@ _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_5BlockIKNS0_IdLi4ELi4ELi0ELi4ELi4EE
   %.urem.i.i.i.i = add i64 %.fr.i.i.i.i, -2
   %.cmp.i.i.i.i = icmp ult i64 %55, 3
   %56 = select i1 %.cmp.i.i.i.i, i64 %55, i64 %.urem.i.i.i.i
-  %57 = getelementptr double, ptr %4, i64 %.1.i.i.i.i
+  %57 = getelementptr [8 x i8], ptr %4, i64 %.1.i.i.i.i
   %.idx.i66.i.i.i.i = mul nuw nsw i64 %.1.i.i.i.i, 24
   %58 = getelementptr i8, ptr %57, i64 %.idx.i66.i.i.i.i
   %59 = load double, ptr %58, align 8, !tbaa !7, !noalias !19
-  %60 = getelementptr double, ptr %4, i64 %.fr.i.i.i.i
+  %60 = getelementptr [8 x i8], ptr %4, i64 %.fr.i.i.i.i
   %.idx.i67.i.i.i.i = mul nuw nsw i64 %.fr.i.i.i.i, 24
   %61 = getelementptr i8, ptr %60, i64 %.idx.i67.i.i.i.i
   %62 = load double, ptr %61, align 8, !tbaa !7, !noalias !19
   %63 = fsub double %59, %62
-  %64 = getelementptr double, ptr %4, i64 %56
+  %64 = getelementptr [8 x i8], ptr %4, i64 %56
   %.idx.i68.i.i.i.i = mul i64 %56, 24
   %65 = getelementptr i8, ptr %64, i64 %.idx.i68.i.i.i.i
   %66 = load double, ptr %65, align 8, !tbaa !7, !noalias !19
@@ -685,7 +685,7 @@ _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_5BlockIKNS0_IdLi4ELi4ELi0ELi4ELi4EE
   %68 = fadd double %67, 1.000000e+00
   %69 = tail call double @sqrt(double noundef %68) #14, !tbaa !9, !noalias !19
   %70 = fmul double %69, 5.000000e-01
-  %71 = getelementptr inbounds nuw double, ptr %3, i64 %.1.i.i.i.i
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.1.i.i.i.i
   store double %70, ptr %71, align 8, !tbaa !7, !noalias !19
   %72 = fdiv double 5.000000e-01, %69
   %73 = getelementptr i8, ptr %64, i64 %.idx.i67.i.i.i.i
@@ -702,7 +702,7 @@ _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_5BlockIKNS0_IdLi4ELi4ELi0ELi4ELi4EE
   %83 = load double, ptr %82, align 8, !tbaa !7, !noalias !19
   %84 = fadd double %81, %83
   %85 = fmul double %72, %84
-  %86 = getelementptr inbounds double, ptr %3, i64 %.fr.i.i.i.i
+  %86 = getelementptr inbounds [8 x i8], ptr %3, i64 %.fr.i.i.i.i
   store double %85, ptr %86, align 8, !tbaa !7, !noalias !19
   %87 = getelementptr i8, ptr %64, i64 %.idx.i66.i.i.i.i
   %88 = load double, ptr %87, align 8, !tbaa !7, !noalias !19
@@ -710,7 +710,7 @@ _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_5BlockIKNS0_IdLi4ELi4ELi0ELi4ELi4EE
   %90 = load double, ptr %89, align 8, !tbaa !7, !noalias !19
   %91 = fadd double %88, %90
   %92 = fmul double %72, %91
-  %93 = getelementptr inbounds double, ptr %3, i64 %56
+  %93 = getelementptr inbounds [8 x i8], ptr %3, i64 %56
   store double %92, ptr %93, align 8, !tbaa !7, !noalias !19
   br label %_ZN5Eigen10QuaternionIdLi0EEC2INS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEERKNS_10MatrixBaseIT_EE.exit.i
 
@@ -861,7 +861,7 @@ define void @_ZN3g2o8internal10toVectorQTERKN5Eigen9TransformIdLi3ELi1ELi0EEE(pt
   %.0.i.i.i = zext i1 %39 to i64
   %.idx.i.i.i.i = select i1 %39, i64 32, i64 0
   %40 = getelementptr i8, ptr %1, i64 %.idx.i.i.i.i
-  %41 = getelementptr double, ptr %40, i64 %.0.i.i.i
+  %41 = getelementptr [8 x i8], ptr %40, i64 %.0.i.i.i
   %42 = load double, ptr %41, align 8, !tbaa !7
   %43 = fcmp ogt double %8, %42
   %.1.i.i.i = select i1 %43, i64 2, i64 %.0.i.i.i
@@ -875,47 +875,47 @@ define void @_ZN3g2o8internal10toVectorQTERKN5Eigen9TransformIdLi3ELi1ELi0EEE(pt
   %48 = select i1 %.cmp.i.i.i, i64 %47, i64 %.urem.i.i.i
   %.idx.i46.i.i.i = shl nuw nsw i64 %.1.i.i.i, 5
   %49 = getelementptr i8, ptr %1, i64 %.idx.i46.i.i.i
-  %50 = getelementptr double, ptr %49, i64 %.1.i.i.i
+  %50 = getelementptr [8 x i8], ptr %49, i64 %.1.i.i.i
   %51 = load double, ptr %50, align 8, !tbaa !7
   %.idx.i47.i.i.i = shl nuw nsw i64 %.fr.i.i.i, 5
   %52 = getelementptr i8, ptr %1, i64 %.idx.i47.i.i.i
-  %53 = getelementptr double, ptr %52, i64 %.fr.i.i.i
+  %53 = getelementptr [8 x i8], ptr %52, i64 %.fr.i.i.i
   %54 = load double, ptr %53, align 8, !tbaa !7
   %55 = fsub double %51, %54
   %.idx.i48.i.i.i = shl i64 %48, 5
   %56 = getelementptr i8, ptr %1, i64 %.idx.i48.i.i.i
-  %57 = getelementptr double, ptr %56, i64 %48
+  %57 = getelementptr [8 x i8], ptr %56, i64 %48
   %58 = load double, ptr %57, align 8, !tbaa !7
   %59 = fsub double %55, %58
   %60 = fadd double %59, 1.000000e+00
   %61 = tail call double @sqrt(double noundef %60) #14, !tbaa !9
   %62 = fmul double %61, 5.000000e-01
-  %63 = getelementptr inbounds nuw double, ptr %3, i64 %.1.i.i.i
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.1.i.i.i
   store double %62, ptr %63, align 8, !tbaa !7
   %64 = fdiv double 5.000000e-01, %61
-  %65 = getelementptr double, ptr %52, i64 %48
+  %65 = getelementptr [8 x i8], ptr %52, i64 %48
   %66 = load double, ptr %65, align 8, !tbaa !7
-  %67 = getelementptr double, ptr %56, i64 %.fr.i.i.i
+  %67 = getelementptr [8 x i8], ptr %56, i64 %.fr.i.i.i
   %68 = load double, ptr %67, align 8, !tbaa !7
   %69 = fsub double %66, %68
   %70 = fmul double %64, %69
   %71 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store double %70, ptr %71, align 8, !tbaa !7
-  %72 = getelementptr double, ptr %49, i64 %.fr.i.i.i
+  %72 = getelementptr [8 x i8], ptr %49, i64 %.fr.i.i.i
   %73 = load double, ptr %72, align 8, !tbaa !7
-  %74 = getelementptr double, ptr %52, i64 %.1.i.i.i
+  %74 = getelementptr [8 x i8], ptr %52, i64 %.1.i.i.i
   %75 = load double, ptr %74, align 8, !tbaa !7
   %76 = fadd double %73, %75
   %77 = fmul double %64, %76
-  %78 = getelementptr inbounds double, ptr %3, i64 %.fr.i.i.i
+  %78 = getelementptr inbounds [8 x i8], ptr %3, i64 %.fr.i.i.i
   store double %77, ptr %78, align 8, !tbaa !7
-  %79 = getelementptr double, ptr %49, i64 %48
+  %79 = getelementptr [8 x i8], ptr %49, i64 %48
   %80 = load double, ptr %79, align 8, !tbaa !7
-  %81 = getelementptr double, ptr %56, i64 %.1.i.i.i
+  %81 = getelementptr [8 x i8], ptr %56, i64 %.1.i.i.i
   %82 = load double, ptr %81, align 8, !tbaa !7
   %83 = fadd double %80, %82
   %84 = fmul double %64, %83
-  %85 = getelementptr inbounds double, ptr %3, i64 %48
+  %85 = getelementptr inbounds [8 x i8], ptr %3, i64 %48
   store double %84, ptr %85, align 8, !tbaa !7
   br label %_ZN5Eigen10QuaternionIdLi0EEC2INS_5BlockIKNS_6MatrixIdLi4ELi4ELi0ELi4ELi4EEELi3ELi3ELb0EEEEERKNS_10MatrixBaseIT_EE.exit
 
@@ -1383,16 +1383,16 @@ _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_5BlockIKNS0_IdLi4ELi4ELi0ELi4ELi4EE
   %.urem.i.i.i.i = add i64 %.fr.i.i.i.i, -2
   %.cmp.i.i.i.i = icmp ult i64 %58, 3
   %59 = select i1 %.cmp.i.i.i.i, i64 %58, i64 %.urem.i.i.i.i
-  %60 = getelementptr double, ptr %3, i64 %.1.i.i.i.i
+  %60 = getelementptr [8 x i8], ptr %3, i64 %.1.i.i.i.i
   %.idx.i66.i.i.i.i = mul nuw nsw i64 %.1.i.i.i.i, 24
   %61 = getelementptr i8, ptr %60, i64 %.idx.i66.i.i.i.i
   %62 = load double, ptr %61, align 8, !tbaa !7
-  %63 = getelementptr double, ptr %3, i64 %.fr.i.i.i.i
+  %63 = getelementptr [8 x i8], ptr %3, i64 %.fr.i.i.i.i
   %.idx.i67.i.i.i.i = mul nuw nsw i64 %.fr.i.i.i.i, 24
   %64 = getelementptr i8, ptr %63, i64 %.idx.i67.i.i.i.i
   %65 = load double, ptr %64, align 8, !tbaa !7
   %66 = fsub double %62, %65
-  %67 = getelementptr double, ptr %3, i64 %59
+  %67 = getelementptr [8 x i8], ptr %3, i64 %59
   %.idx.i68.i.i.i.i = mul i64 %59, 24
   %68 = getelementptr i8, ptr %67, i64 %.idx.i68.i.i.i.i
   %69 = load double, ptr %68, align 8, !tbaa !7
@@ -1400,7 +1400,7 @@ _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_5BlockIKNS0_IdLi4ELi4ELi0ELi4ELi4EE
   %71 = fadd double %70, 1.000000e+00
   %72 = tail call double @sqrt(double noundef %71) #14, !tbaa !9
   %73 = fmul double %72, 5.000000e-01
-  %74 = getelementptr inbounds nuw double, ptr %0, i64 %.1.i.i.i.i
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.1.i.i.i.i
   store double %73, ptr %74, align 8, !tbaa !7
   %75 = fdiv double 5.000000e-01, %72
   %76 = getelementptr i8, ptr %67, i64 %.idx.i67.i.i.i.i
@@ -1417,7 +1417,7 @@ _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_5BlockIKNS0_IdLi4ELi4ELi0ELi4ELi4EE
   %86 = load double, ptr %85, align 8, !tbaa !7
   %87 = fadd double %84, %86
   %88 = fmul double %75, %87
-  %89 = getelementptr inbounds double, ptr %0, i64 %.fr.i.i.i.i
+  %89 = getelementptr inbounds [8 x i8], ptr %0, i64 %.fr.i.i.i.i
   store double %88, ptr %89, align 8, !tbaa !7
   %90 = getelementptr i8, ptr %67, i64 %.idx.i66.i.i.i.i
   %91 = load double, ptr %90, align 8, !tbaa !7
@@ -1425,7 +1425,7 @@ _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEC2INS_5BlockIKNS0_IdLi4ELi4ELi0ELi4ELi4EE
   %93 = load double, ptr %92, align 8, !tbaa !7
   %94 = fadd double %91, %93
   %95 = fmul double %75, %94
-  %96 = getelementptr inbounds double, ptr %0, i64 %59
+  %96 = getelementptr inbounds [8 x i8], ptr %0, i64 %59
   store double %95, ptr %96, align 8, !tbaa !7
   %.pre.i = load double, ptr %82, align 8, !tbaa !7
   br label %_ZN5Eigen10QuaternionIdLi0EEC2INS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEERKNS_10MatrixBaseIT_EE.exit.i

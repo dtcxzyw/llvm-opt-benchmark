@@ -297,7 +297,7 @@ define internal i32 @netlbl_cipsov4_add(ptr readnone captures(none) %0, ptr noun
   %165 = phi ptr [ %170, %.preheader73 ], [ %153, %156 ]
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 8
   %167 = load ptr, ptr %166, align 8
-  %168 = getelementptr i32, ptr %167, i64 %164
+  %168 = getelementptr [4 x i8], ptr %167, i64 %164
   store i32 -2147483648, ptr %168, align 4
   %169 = add nuw nsw i64 %164, 1
   %170 = load ptr, ptr %49, align 8
@@ -311,7 +311,7 @@ define internal i32 @netlbl_cipsov4_add(ptr readnone captures(none) %0, ptr noun
   %175 = phi i64 [ %179, %.preheader71 ], [ 0, %.loopexit74 ]
   %176 = phi ptr [ %180, %.preheader71 ], [ %160, %.loopexit74 ]
   %177 = load ptr, ptr %176, align 8
-  %178 = getelementptr i32, ptr %177, i64 %175
+  %178 = getelementptr [4 x i8], ptr %177, i64 %175
   store i32 -2147483648, ptr %178, align 4
   %179 = add nuw nsw i64 %175, 1
   %180 = load ptr, ptr %49, align 8
@@ -375,13 +375,13 @@ define internal i32 @netlbl_cipsov4_add(ptr readnone captures(none) %0, ptr noun
   %221 = getelementptr i8, ptr %207, i64 4
   %222 = load i32, ptr %221, align 4
   %223 = zext i32 %222 to i64
-  %224 = getelementptr i32, ptr %220, i64 %223
+  %224 = getelementptr [4 x i8], ptr %220, i64 %223
   store i32 %217, ptr %224, align 4
   %225 = load i32, ptr %221, align 4
   %226 = load ptr, ptr %49, align 8
   %227 = load ptr, ptr %226, align 8
   %228 = zext i32 %217 to i64
-  %229 = getelementptr i32, ptr %227, i64 %228
+  %229 = getelementptr [4 x i8], ptr %227, i64 %228
   store i32 %225, ptr %229, align 4
   %.pre93 = load i16, ptr %193, align 2
   %.pre98 = zext i16 %.pre93 to i32
@@ -596,7 +596,7 @@ define internal i32 @netlbl_cipsov4_add(ptr readnone captures(none) %0, ptr noun
   %359 = phi ptr [ %364, %.preheader66 ], [ %346, %350 ]
   %360 = getelementptr inbounds nuw i8, ptr %359, i64 32
   %361 = load ptr, ptr %360, align 8
-  %362 = getelementptr i32, ptr %361, i64 %358
+  %362 = getelementptr [4 x i8], ptr %361, i64 %358
   store i32 -2147483648, ptr %362, align 4
   %363 = add nuw nsw i64 %358, 1
   %364 = load ptr, ptr %49, align 8
@@ -611,7 +611,7 @@ define internal i32 @netlbl_cipsov4_add(ptr readnone captures(none) %0, ptr noun
   %370 = phi ptr [ %375, %.preheader ], [ %354, %.loopexit67 ]
   %371 = getelementptr inbounds nuw i8, ptr %370, i64 24
   %372 = load ptr, ptr %371, align 8
-  %373 = getelementptr i32, ptr %372, i64 %369
+  %373 = getelementptr [4 x i8], ptr %372, i64 %369
   store i32 -2147483648, ptr %373, align 4
   %374 = add nuw nsw i64 %369, 1
   %375 = load ptr, ptr %49, align 8
@@ -675,14 +675,14 @@ define internal i32 @netlbl_cipsov4_add(ptr readnone captures(none) %0, ptr noun
   %416 = getelementptr i8, ptr %402, i64 4
   %417 = load i32, ptr %416, align 4
   %418 = zext i32 %417 to i64
-  %419 = getelementptr i32, ptr %415, i64 %418
+  %419 = getelementptr [4 x i8], ptr %415, i64 %418
   store i32 %412, ptr %419, align 4
   %420 = load i32, ptr %416, align 4
   %421 = load ptr, ptr %49, align 8
   %422 = getelementptr inbounds nuw i8, ptr %421, i64 24
   %423 = load ptr, ptr %422, align 8
   %424 = zext i32 %412 to i64
-  %425 = getelementptr i32, ptr %423, i64 %424
+  %425 = getelementptr [4 x i8], ptr %423, i64 %424
   store i32 %420, ptr %425, align 4
   %.pre96 = load i16, ptr %388, align 2
   %.pre97 = zext i16 %.pre96 to i32
@@ -1142,7 +1142,7 @@ define internal i32 @netlbl_cipsov4_list(ptr readnone captures(none) %0, ptr nou
   %90 = phi i64 [ %128, %126 ], [ 0, %83 ]
   %91 = getelementptr inbounds nuw i8, ptr %89, i64 8
   %92 = load ptr, ptr %91, align 8
-  %93 = getelementptr i32, ptr %92, i64 %90
+  %93 = getelementptr [4 x i8], ptr %92, i64 %90
   %94 = load i32, ptr %93, align 4
   %95 = icmp eq i32 %94, -2147483648
   br i1 %95, label %126, label %96
@@ -1171,7 +1171,7 @@ define internal i32 @netlbl_cipsov4_list(ptr readnone captures(none) %0, ptr nou
   %110 = load ptr, ptr %84, align 8
   %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %112 = load ptr, ptr %111, align 8
-  %113 = getelementptr i32, ptr %112, i64 %90
+  %113 = getelementptr [4 x i8], ptr %112, i64 %90
   %114 = load i32, ptr %113, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 %114, ptr %5, align 4
@@ -1234,7 +1234,7 @@ define internal i32 @netlbl_cipsov4_list(ptr readnone captures(none) %0, ptr nou
   %155 = phi i64 [ %193, %191 ], [ 0, %149 ]
   %156 = getelementptr inbounds nuw i8, ptr %154, i64 32
   %157 = load ptr, ptr %156, align 8
-  %158 = getelementptr i32, ptr %157, i64 %155
+  %158 = getelementptr [4 x i8], ptr %157, i64 %155
   %159 = load i32, ptr %158, align 4
   %160 = icmp eq i32 %159, -2147483648
   br i1 %160, label %191, label %161
@@ -1263,7 +1263,7 @@ define internal i32 @netlbl_cipsov4_list(ptr readnone captures(none) %0, ptr nou
   %175 = load ptr, ptr %84, align 8
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 32
   %177 = load ptr, ptr %176, align 8
-  %178 = getelementptr i32, ptr %177, i64 %155
+  %178 = getelementptr [4 x i8], ptr %177, i64 %155
   %179 = load i32, ptr %178, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %179, ptr %3, align 4

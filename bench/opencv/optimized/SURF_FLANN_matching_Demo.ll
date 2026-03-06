@@ -46,7 +46,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.28" = type { %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl" }
 %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl" = type { %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<char, std::allocator<char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.cv::DMatch" = type { i32, i32, i32, float }
 
 $_ZNSt6vectorIS_IN2cv6DMatchESaIS1_EESaIS3_EED2Ev = comdat any
 
@@ -676,7 +675,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit141: ; preds = %.b
   %210 = phi ptr [ null, %.lr.ph ], [ %245, %_ZNSt6vectorIN2cv6DMatchESaIS1_EE9push_backERKS1_.exit ]
   %211 = phi ptr [ %190, %.lr.ph ], [ %248, %_ZNSt6vectorIN2cv6DMatchESaIS1_EE9push_backERKS1_.exit ]
   %.0185 = phi i64 [ 0, %.lr.ph ], [ %246, %_ZNSt6vectorIN2cv6DMatchESaIS1_EE9push_backERKS1_.exit ]
-  %212 = getelementptr inbounds nuw %"class.std::vector.22", ptr %211, i64 %.0185
+  %212 = getelementptr inbounds nuw [24 x i8], ptr %211, i64 %.0185
   %213 = load ptr, ptr %212, align 8, !tbaa !68
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 12
   %215 = load float, ptr %214, align 4, !tbaa !71
@@ -754,7 +753,7 @@ _ZNSt6vectorIN2cv6DMatchESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i: ; pred
 _ZNSt6vectorIN2cv6DMatchESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %243, %_ZNSt6vectorIN2cv6DMatchESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit22.i.i
   store ptr %238, ptr %28, align 8, !tbaa !68
   store ptr %242, ptr %191, align 8, !tbaa !78
-  %244 = getelementptr inbounds nuw %"class.cv::DMatch", ptr %238, i64 %236
+  %244 = getelementptr inbounds nuw [16 x i8], ptr %238, i64 %236
   store ptr %244, ptr %192, align 8, !tbaa !74
   br label %_ZNSt6vectorIN2cv6DMatchESaIS1_EE9push_backERKS1_.exit
 

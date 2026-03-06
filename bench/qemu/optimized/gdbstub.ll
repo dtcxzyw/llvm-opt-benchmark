@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.riscv_csr_operations = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32 }
 %struct.GDBFeatureBuilder = type { ptr, ptr, ptr, i32 }
-%struct.TypeSize = type { ptr, ptr, i32, i8 }
 
 @.str = private unnamed_addr constant [31 x i8] c"../qemu/target/riscv/gdbstub.c\00", align 1
 @__func__.riscv_cpu_gdb_read_register = private unnamed_addr constant [28 x i8] c"riscv_cpu_gdb_read_register\00", align 1
@@ -59,7 +58,7 @@ define dso_local range(i32 0, 9) i32 @riscv_cpu_gdb_read_register(ptr noundef %0
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 11200
   %12 = sext i32 %2 to i64
-  %13 = getelementptr inbounds i64, ptr %11, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %11, i64 %12
   br label %18
 
 14:                                               ; preds = %3
@@ -152,7 +151,7 @@ define dso_local range(i32 4, 9) i32 @riscv_cpu_gdb_write_register(ptr noundef %
 
 21:                                               ; preds = %19
   %22 = zext nneg i32 %2 to i64
-  %23 = getelementptr inbounds nuw i64, ptr %7, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %22
   store i64 %.0, ptr %23, align 8
   br label %28
 
@@ -216,7 +215,7 @@ define dso_local void @riscv_cpu_register_gdb_regs_for_features(ptr noundef %0) 
 
 27:                                               ; preds = %27, %18
   %indvars.iv.i = phi i64 [ 0, %18 ], [ %indvars.iv.next.i, %27 ]
-  %28 = getelementptr inbounds nuw %struct.TypeSize, ptr @vec_lanes, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw [24 x i8], ptr @vec_lanes, i64 %indvars.iv.i
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load i32, ptr %29, align 8
   %31 = sdiv i32 %25, %30
@@ -234,7 +233,7 @@ define dso_local void @riscv_cpu_register_gdb_regs_for_features(ptr noundef %0) 
 
 36:                                               ; preds = %36, %35
   %indvars.iv26.i = phi i64 [ 0, %35 ], [ %indvars.iv.next27.i, %36 ]
-  %37 = getelementptr inbounds nuw %struct.TypeSize, ptr @vec_lanes, i64 %indvars.iv26.i
+  %37 = getelementptr inbounds nuw [24 x i8], ptr @vec_lanes, i64 %indvars.iv26.i
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 20
   %39 = load i8, ptr %38, align 4
   %40 = sext i8 %39 to i32
@@ -276,7 +275,7 @@ ricsv_gen_dynamic_vector_feature.exit:            ; preds = %44
 
 switch.lookup:                                    ; preds = %47
   %52 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.riscv_cpu_register_gdb_regs_for_features, i64 %52
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.riscv_cpu_register_gdb_regs_for_features, i64 %52
   %switch.load = load ptr, ptr %switch.gep, align 8
   %53 = call ptr @gdb_find_static_feature(ptr noundef nonnull %switch.load) #7
   call void @gdb_register_coprocessor(ptr noundef %0, ptr noundef nonnull @riscv_gdb_get_virtual, ptr noundef nonnull @riscv_gdb_set_virtual, ptr noundef %53, i32 noundef 0) #7
@@ -304,7 +303,7 @@ switch.lookup:                                    ; preds = %47
 67:                                               ; preds = %86, %57
   %indvars.iv.i19 = phi i64 [ 0, %57 ], [ %indvars.iv.next.i20, %86 ]
   %68 = load i64, ptr %66, align 16
-  %69 = getelementptr inbounds nuw %struct.riscv_csr_operations, ptr @csr_ops, i64 %indvars.iv.i19
+  %69 = getelementptr inbounds nuw [64 x i8], ptr @csr_ops, i64 %indvars.iv.i19
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 56
   %71 = load i32, ptr %70, align 8
   %72 = zext i32 %71 to i64
@@ -373,7 +372,7 @@ define internal range(i32 0, 9) i32 @riscv_gdb_get_fpu(ptr noundef %0, ptr nound
 13:                                               ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 15880
   %15 = sext i32 %2 to i64
-  %16 = getelementptr inbounds i64, ptr %14, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %14, i64 %15
   %17 = load i64, ptr %16, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 %17, ptr %5, align 8
@@ -389,7 +388,7 @@ define internal range(i32 0, 9) i32 @riscv_gdb_get_fpu(ptr noundef %0, ptr nound
 21:                                               ; preds = %19
   %22 = getelementptr inbounds nuw i8, ptr %6, i64 15880
   %23 = sext i32 %2 to i64
-  %24 = getelementptr inbounds i64, ptr %22, i64 %23
+  %24 = getelementptr inbounds [8 x i8], ptr %22, i64 %23
   %25 = load i64, ptr %24, align 8
   %26 = trunc i64 %25 to i32
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -413,7 +412,7 @@ define internal range(i32 0, 9) i32 @riscv_gdb_set_fpu(ptr noundef %0, ptr nound
   %.val = load i64, ptr %1, align 1
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 15880
   %8 = sext i32 %2 to i64
-  %9 = getelementptr inbounds i64, ptr %7, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %7, i64 %8
   store i64 %.val, ptr %9, align 8
   br label %10
 
@@ -448,7 +447,7 @@ define internal range(i32 0, 65537) i32 @riscv_gdb_get_vector(ptr noundef %0, pt
   %13 = add i32 %.019, %11
   %14 = sdiv i32 %13, 8
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds i64, ptr %10, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %10, i64 %15
   %17 = load i64, ptr %16, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 %17, ptr %4, align 8
@@ -496,7 +495,7 @@ define internal range(i32 0, 65536) i32 @riscv_gdb_set_vector(ptr noundef %0, pt
   %15 = add i32 %10, %14
   %16 = sdiv i32 %15, 8
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds i64, ptr %9, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %9, i64 %17
   store i64 %.val, ptr %18, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 8
   %19 = icmp samesign ult i64 %indvars.iv.next, %11

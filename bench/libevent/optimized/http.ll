@@ -3769,7 +3769,7 @@ define void @evhttp_send_error(ptr noundef %0, i32 noundef %1, ptr noundef %2) l
   %.lhs.trunc.i.i = trunc nuw nsw i32 %1 to i16
   %23 = udiv i16 %.lhs.trunc.i.i, 100
   %24 = zext nneg i16 %23 to i64
-  %25 = getelementptr %struct.response_class, ptr @response_classes, i64 %24
+  %25 = getelementptr [24 x i8], ptr @response_classes, i64 %24
   %26 = getelementptr i8, ptr %25, i64 -16
   %27 = load i64, ptr %26, align 8
   %28 = trunc i64 %27 to i32
@@ -3785,7 +3785,7 @@ define void @evhttp_send_error(ptr noundef %0, i32 noundef %1, ptr noundef %2) l
   %33 = getelementptr i8, ptr %25, i64 -8
   %34 = load ptr, ptr %33, align 8
   %35 = zext nneg i32 %20 to i64
-  %36 = getelementptr inbounds nuw ptr, ptr %34, i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %35
   %37 = load ptr, ptr %36, align 8
   br label %evhttp_response_phrase_internal.exit.i
 
@@ -3823,7 +3823,7 @@ evhttp_response_code_.exit:                       ; preds = %evhttp_response_phr
   %.lhs.trunc.i = trunc nuw nsw i32 %1 to i16
   %53 = udiv i16 %.lhs.trunc.i, 100
   %54 = zext nneg i16 %53 to i64
-  %55 = getelementptr %struct.response_class, ptr @response_classes, i64 %54
+  %55 = getelementptr [24 x i8], ptr @response_classes, i64 %54
   %56 = getelementptr i8, ptr %55, i64 -16
   %57 = load i64, ptr %56, align 8
   %58 = trunc i64 %57 to i32
@@ -3839,7 +3839,7 @@ evhttp_response_code_.exit:                       ; preds = %evhttp_response_phr
   %63 = getelementptr i8, ptr %55, i64 -8
   %64 = load ptr, ptr %63, align 8
   %65 = zext nneg i32 %50 to i64
-  %66 = getelementptr inbounds nuw ptr, ptr %64, i64 %65
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %65
   %67 = load ptr, ptr %66, align 8
   br label %evhttp_response_phrase_internal.exit
 
@@ -3891,7 +3891,7 @@ define hidden void @evhttp_response_code_(ptr noundef captures(none) initializes
   %.lhs.trunc.i = trunc nuw nsw i32 %1 to i16
   %15 = udiv i16 %.lhs.trunc.i, 100
   %16 = zext nneg i16 %15 to i64
-  %17 = getelementptr %struct.response_class, ptr @response_classes, i64 %16
+  %17 = getelementptr [24 x i8], ptr @response_classes, i64 %16
   %18 = getelementptr i8, ptr %17, i64 -16
   %19 = load i64, ptr %18, align 8
   %20 = trunc i64 %19 to i32
@@ -3907,7 +3907,7 @@ define hidden void @evhttp_response_code_(ptr noundef captures(none) initializes
   %25 = getelementptr i8, ptr %17, i64 -8
   %26 = load ptr, ptr %25, align 8
   %27 = zext nneg i32 %12 to i64
-  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %27
   %29 = load ptr, ptr %28, align 8
   br label %evhttp_response_phrase_internal.exit
 
@@ -4109,7 +4109,7 @@ define void @evhttp_send_reply(ptr noundef initializes((72, 76), (116, 120)) %0,
   %.lhs.trunc.i.i = trunc nuw nsw i32 %1 to i16
   %16 = udiv i16 %.lhs.trunc.i.i, 100
   %17 = zext nneg i16 %16 to i64
-  %18 = getelementptr %struct.response_class, ptr @response_classes, i64 %17
+  %18 = getelementptr [24 x i8], ptr @response_classes, i64 %17
   %19 = getelementptr i8, ptr %18, i64 -16
   %20 = load i64, ptr %19, align 8
   %21 = trunc i64 %20 to i32
@@ -4125,7 +4125,7 @@ define void @evhttp_send_reply(ptr noundef initializes((72, 76), (116, 120)) %0,
   %26 = getelementptr i8, ptr %18, i64 -8
   %27 = load ptr, ptr %26, align 8
   %28 = zext nneg i32 %13 to i64
-  %29 = getelementptr inbounds nuw ptr, ptr %27, i64 %28
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %28
   %30 = load ptr, ptr %29, align 8
   br label %evhttp_response_phrase_internal.exit.i
 
@@ -4219,7 +4219,7 @@ define void @evhttp_send_reply_start(ptr noundef captures(none) initializes((72,
   %.lhs.trunc.i.i = trunc nuw nsw i32 %1 to i16
   %15 = udiv i16 %.lhs.trunc.i.i, 100
   %16 = zext nneg i16 %15 to i64
-  %17 = getelementptr %struct.response_class, ptr @response_classes, i64 %16
+  %17 = getelementptr [24 x i8], ptr @response_classes, i64 %16
   %18 = getelementptr i8, ptr %17, i64 -16
   %19 = load i64, ptr %18, align 8
   %20 = trunc i64 %19 to i32
@@ -4235,7 +4235,7 @@ define void @evhttp_send_reply_start(ptr noundef captures(none) initializes((72,
   %25 = getelementptr i8, ptr %17, i64 -8
   %26 = load ptr, ptr %25, align 8
   %27 = zext nneg i32 %12 to i64
-  %28 = getelementptr inbounds nuw ptr, ptr %26, i64 %27
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %27
   %29 = load ptr, ptr %28, align 8
   br label %evhttp_response_phrase_internal.exit.i
 
@@ -9699,7 +9699,7 @@ evhttp_handle_chunked_read.exit.thread80:         ; preds = %27
   %36 = load ptr, ptr %35, align 8
   %37 = load i8, ptr %28, align 1
   %38 = sext i8 %37 to i64
-  %39 = getelementptr inbounds i16, ptr %36, i64 %38
+  %39 = getelementptr inbounds [2 x i8], ptr %36, i64 %38
   %40 = load i16, ptr %39, align 2
   %.fr84.i = freeze i16 %40
   %41 = and i16 %.fr84.i, 8192
@@ -10552,10 +10552,10 @@ define internal fastcc ptr @evhttp_method_(ptr noundef readonly captures(none) %
 
 switch.lookup:                                    ; preds = %.split
   %25 = zext nneg i32 %7 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.evhttp_method_, i64 %25
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.evhttp_method_, i64 %25
   %switch.load = load ptr, ptr %switch.gep, align 8
   %26 = zext nneg i32 %7 to i64
-  %switch.gep29 = getelementptr inbounds nuw i16, ptr @switch.table.evhttp_method_.9, i64 %26
+  %switch.gep29 = getelementptr inbounds nuw [2 x i8], ptr @switch.table.evhttp_method_.9, i64 %26
   %switch.load30 = load i16, ptr %switch.gep29, align 2
   br label %27
 

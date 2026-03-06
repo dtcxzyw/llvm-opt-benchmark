@@ -46,7 +46,7 @@ define dso_local i64 @meshopt_encodeIndexBuffer(ptr noundef %0, i64 noundef %1, 
   br i1 %20, label %.loopexit, label %21
 
 21:                                               ; preds = %.lr.ph
-  %22 = getelementptr inbounds nuw i32, ptr %2, i64 %.0189305
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.0189305
   %23 = load i32, ptr %22, align 4, !tbaa !4
   %24 = getelementptr i8, ptr %22, i64 4
   %25 = load i32, ptr %24, align 4, !tbaa !4
@@ -59,7 +59,7 @@ define dso_local i64 @meshopt_encodeIndexBuffer(ptr noundef %0, i64 noundef %1, 
   %29 = xor i64 %indvars.iv.i, -1
   %30 = add nsw i64 %.0280302, %29
   %31 = and i64 %30, 15
-  %32 = getelementptr inbounds nuw [2 x i32], ptr %5, i64 %31
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %31
   %33 = load i32, ptr %32, align 8, !tbaa !4
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 4
   %35 = load i32, ptr %34, align 4, !tbaa !4
@@ -110,20 +110,20 @@ _ZN7meshoptL11getEdgeFifoEPA2_jjjjm.exit:         ; preds = %38, %44, %51
 58:                                               ; preds = %_ZN7meshoptL11getEdgeFifoEPA2_jjjjm.exit
   %59 = and i32 %56, 3
   %60 = zext nneg i32 %59 to i64
-  %61 = getelementptr inbounds nuw [3 x i32], ptr @_ZN7meshoptL19kTriangleIndexOrderE, i64 %60
+  %61 = getelementptr inbounds nuw [12 x i8], ptr @_ZN7meshoptL19kTriangleIndexOrderE, i64 %60
   %62 = load i32, ptr %61, align 4, !tbaa !4
   %63 = zext i32 %62 to i64
-  %64 = getelementptr i32, ptr %22, i64 %63
+  %64 = getelementptr [4 x i8], ptr %22, i64 %63
   %65 = load i32, ptr %64, align 4, !tbaa !4
   %66 = getelementptr inbounds nuw i8, ptr %61, i64 4
   %67 = load i32, ptr %66, align 4, !tbaa !4
   %68 = zext i32 %67 to i64
-  %69 = getelementptr i32, ptr %22, i64 %68
+  %69 = getelementptr [4 x i8], ptr %22, i64 %68
   %70 = load i32, ptr %69, align 4, !tbaa !4
   %71 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %72 = load i32, ptr %71, align 4, !tbaa !4
   %73 = zext i32 %72 to i64
-  %74 = getelementptr i32, ptr %22, i64 %73
+  %74 = getelementptr [4 x i8], ptr %22, i64 %73
   %75 = load i32, ptr %74, align 4, !tbaa !4
   br label %76
 
@@ -132,7 +132,7 @@ _ZN7meshoptL11getEdgeFifoEPA2_jjjjm.exit:         ; preds = %38, %44, %51
   %77 = xor i64 %indvars.iv.i219, -1
   %78 = add i64 %.0275303, %77
   %79 = and i64 %78, 15
-  %80 = getelementptr inbounds nuw i32, ptr %6, i64 %79
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %79
   %81 = load i32, ptr %80, align 4, !tbaa !4
   %.not.i = icmp eq i32 %81, %75
   br i1 %.not.i, label %.split.loop.exit17.i, label %82
@@ -220,7 +220,7 @@ _ZN7meshoptL11encodeIndexERPhjj.exit:             ; preds = %.thread, %97
 _ZN7meshoptL11encodeIndexERPhjj.exit.thread:      ; preds = %108, %_ZN7meshoptL11encodeIndexERPhjj.exit
   %.3182338 = phi i32 [ %.3182, %_ZN7meshoptL11encodeIndexERPhjj.exit ], [ %75, %108 ]
   %.1336 = phi ptr [ %.0269304, %_ZN7meshoptL11encodeIndexERPhjj.exit ], [ %113, %108 ]
-  %116 = getelementptr inbounds nuw i32, ptr %6, i64 %.0275303
+  %116 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.0275303
   store i32 %75, ptr %116, align 4, !tbaa !4
   %117 = add i64 %.0275303, 1
   %118 = and i64 %117, 15
@@ -231,20 +231,20 @@ _ZN7meshoptL11getEdgeFifoEPA2_jjjjm.exit.thread:  ; preds = %55, %_ZN7meshoptL11
   %120 = icmp eq i32 %27, %.0176310
   %121 = select i1 %120, i64 2, i64 0
   %122 = select i1 %119, i64 1, i64 %121
-  %123 = getelementptr inbounds nuw [3 x i32], ptr @_ZN7meshoptL19kTriangleIndexOrderE, i64 %122
+  %123 = getelementptr inbounds nuw [12 x i8], ptr @_ZN7meshoptL19kTriangleIndexOrderE, i64 %122
   %124 = load i32, ptr %123, align 4, !tbaa !4
   %125 = zext i32 %124 to i64
-  %126 = getelementptr i32, ptr %22, i64 %125
+  %126 = getelementptr [4 x i8], ptr %22, i64 %125
   %127 = load i32, ptr %126, align 4, !tbaa !4
   %128 = getelementptr inbounds nuw i8, ptr %123, i64 4
   %129 = load i32, ptr %128, align 4, !tbaa !4
   %130 = zext i32 %129 to i64
-  %131 = getelementptr i32, ptr %22, i64 %130
+  %131 = getelementptr [4 x i8], ptr %22, i64 %130
   %132 = load i32, ptr %131, align 4, !tbaa !4
   %133 = getelementptr inbounds nuw i8, ptr %123, i64 8
   %134 = load i32, ptr %133, align 4, !tbaa !4
   %135 = zext i32 %134 to i64
-  %136 = getelementptr i32, ptr %22, i64 %135
+  %136 = getelementptr [4 x i8], ptr %22, i64 %135
   %137 = load i32, ptr %136, align 4, !tbaa !4
   %138 = icmp eq i32 %127, 0
   %139 = icmp eq i32 %132, 1
@@ -269,7 +269,7 @@ _ZN7meshoptL11getEdgeFifoEPA2_jjjjm.exit.thread:  ; preds = %55, %_ZN7meshoptL11
   %145 = xor i64 %indvars.iv.i222, -1
   %146 = add i64 %.0275303, %145
   %147 = and i64 %146, 15
-  %148 = getelementptr inbounds nuw i32, ptr %6, i64 %147
+  %148 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %147
   %149 = load i32, ptr %148, align 4, !tbaa !4
   %.not.i223 = icmp eq i32 %149, %132
   br i1 %.not.i223, label %.split.loop.exit17.i226, label %150
@@ -292,7 +292,7 @@ _ZN7meshoptL13getVertexFifoEPjjm.exit227:         ; preds = %150, %.split.loop.e
   %154 = xor i64 %indvars.iv.i228, -1
   %155 = add i64 %.0275303, %154
   %156 = and i64 %155, 15
-  %157 = getelementptr inbounds nuw i32, ptr %6, i64 %156
+  %157 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %156
   %158 = load i32, ptr %157, align 4, !tbaa !4
   %.not.i229 = icmp eq i32 %158, %137
   br i1 %.not.i229, label %.split.loop.exit17.i232, label %159
@@ -464,7 +464,7 @@ _ZN7meshoptL11encodeIndexERPhjj.exit244:          ; preds = %210, %_ZN7meshoptL1
 _ZN7meshoptL11encodeIndexERPhjj.exit248:          ; preds = %223, %_ZN7meshoptL11encodeIndexERPhjj.exit244
   %.6273 = phi ptr [ %.5272, %_ZN7meshoptL11encodeIndexERPhjj.exit244 ], [ %228, %223 ]
   %.7 = phi i32 [ %.6185, %_ZN7meshoptL11encodeIndexERPhjj.exit244 ], [ %137, %223 ]
-  %230 = getelementptr inbounds nuw i32, ptr %6, i64 %.0275303
+  %230 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.0275303
   store i32 %127, ptr %230, align 4, !tbaa !4
   %231 = add i64 %.0275303, 1
   %232 = and i64 %231, 15
@@ -474,7 +474,7 @@ _ZN7meshoptL11encodeIndexERPhjj.exit248:          ; preds = %223, %_ZN7meshoptL1
   ]
 
 233:                                              ; preds = %_ZN7meshoptL11encodeIndexERPhjj.exit248, %_ZN7meshoptL11encodeIndexERPhjj.exit248
-  %234 = getelementptr inbounds nuw i32, ptr %6, i64 %232
+  %234 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %232
   store i32 %132, ptr %234, align 4, !tbaa !4
   %235 = add i64 %.0275303, 2
   %236 = and i64 %235, 15
@@ -488,7 +488,7 @@ _ZN7meshoptL11encodeIndexERPhjj.exit248:          ; preds = %223, %_ZN7meshoptL1
   ]
 
 238:                                              ; preds = %237, %237
-  %239 = getelementptr inbounds nuw i32, ptr %6, i64 %.3278
+  %239 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %.3278
   store i32 %137, ptr %239, align 4, !tbaa !4
   %240 = add nuw nsw i64 %.3278, 1
   %241 = and i64 %240, 15
@@ -496,7 +496,7 @@ _ZN7meshoptL11encodeIndexERPhjj.exit248:          ; preds = %223, %_ZN7meshoptL1
 
 242:                                              ; preds = %237, %238
   %.4279 = phi i64 [ %.3278, %237 ], [ %241, %238 ]
-  %243 = getelementptr inbounds nuw [2 x i32], ptr %5, i64 %.0280302
+  %243 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.0280302
   store i32 %132, ptr %243, align 8, !tbaa !4
   %244 = getelementptr inbounds nuw i8, ptr %243, i64 4
   store i32 %127, ptr %244, align 4, !tbaa !4
@@ -515,13 +515,13 @@ _ZN7meshoptL11encodeIndexERPhjj.exit248:          ; preds = %223, %_ZN7meshoptL1
   %.2270 = phi ptr [ %.6273, %242 ], [ %.0269304, %_ZN7meshoptL11encodeIndexERPhjj.exit ], [ %.1336, %_ZN7meshoptL11encodeIndexERPhjj.exit.thread ]
   %.4183 = phi i32 [ %.7, %242 ], [ %.3182, %_ZN7meshoptL11encodeIndexERPhjj.exit ], [ %.3182338, %_ZN7meshoptL11encodeIndexERPhjj.exit.thread ]
   %.2178 = phi i32 [ %.6, %242 ], [ %.1177, %_ZN7meshoptL11encodeIndexERPhjj.exit ], [ %.1177, %_ZN7meshoptL11encodeIndexERPhjj.exit.thread ]
-  %248 = getelementptr inbounds nuw [2 x i32], ptr %5, i64 %.sink364
+  %248 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.sink364
   store i32 %.sink362, ptr %248, align 8, !tbaa !4
   %249 = getelementptr inbounds nuw i8, ptr %248, i64 4
   store i32 %.sink359, ptr %249, align 4, !tbaa !4
   %250 = add nuw nsw i64 %.0280302, %.sink358
   %251 = and i64 %250, 15
-  %252 = getelementptr inbounds nuw [2 x i32], ptr %5, i64 %251
+  %252 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %251
   store i32 %.sink354, ptr %252, align 8, !tbaa !4
   %253 = getelementptr inbounds nuw i8, ptr %252, i64 4
   store i32 %.sink362, ptr %253, align 4, !tbaa !4
@@ -688,7 +688,7 @@ define dso_local range(i32 -3, 1) i32 @meshopt_decodeIndexBuffer(ptr noundef wri
   %36 = zext i32 %35 to i64
   %37 = add nuw nsw i64 %.0220231, %36
   %38 = and i64 %37, 15
-  %39 = getelementptr inbounds nuw [2 x i32], ptr %6, i64 %38
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %38
   %40 = load i32, ptr %39, align 8, !tbaa !4
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 4
   %42 = load i32, ptr %41, align 4, !tbaa !4
@@ -701,7 +701,7 @@ define dso_local range(i32 -3, 1) i32 @meshopt_decodeIndexBuffer(ptr noundef wri
   %47 = zext i32 %46 to i64
   %48 = add nuw nsw i64 %.0218232, %47
   %49 = and i64 %48, 15
-  %50 = getelementptr inbounds nuw i32, ptr %7, i64 %49
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !4
   %52 = icmp eq i32 %43, 0
   %53 = select i1 %52, i32 %.0139238, i32 %51
@@ -711,7 +711,7 @@ define dso_local range(i32 -3, 1) i32 @meshopt_decodeIndexBuffer(ptr noundef wri
 
 56:                                               ; preds = %45
   %57 = trunc i32 %40 to i16
-  %58 = getelementptr inbounds nuw i16, ptr %0, i64 %.0150234
+  %58 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %.0150234
   store i16 %57, ptr %58, align 2, !tbaa !17
   %59 = trunc i32 %42 to i16
   %60 = getelementptr i8, ptr %58, i64 2
@@ -722,7 +722,7 @@ define dso_local range(i32 -3, 1) i32 @meshopt_decodeIndexBuffer(ptr noundef wri
   br label %_ZN7meshoptL13writeTriangleEPvmmjjj.exit
 
 63:                                               ; preds = %45
-  %64 = getelementptr inbounds nuw i32, ptr %0, i64 %.0150234
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.0150234
   store i32 %40, ptr %64, align 4, !tbaa !4
   %65 = getelementptr i8, ptr %64, i64 4
   store i32 %42, ptr %65, align 4, !tbaa !4
@@ -731,7 +731,7 @@ define dso_local range(i32 -3, 1) i32 @meshopt_decodeIndexBuffer(ptr noundef wri
   br label %_ZN7meshoptL13writeTriangleEPvmmjjj.exit
 
 _ZN7meshoptL13writeTriangleEPvmmjjj.exit:         ; preds = %56, %63
-  %67 = getelementptr inbounds nuw i32, ptr %7, i64 %.0218232
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.0218232
   store i32 %53, ptr %67, align 4, !tbaa !4
   %68 = zext i1 %52 to i64
   %69 = add nuw nsw i64 %.0218232, %68
@@ -797,7 +797,7 @@ _ZN7meshoptL11decodeIndexERPKhj.exit:             ; preds = %82, %91, %75
 
 101:                                              ; preds = %99
   %102 = trunc i32 %40 to i16
-  %103 = getelementptr inbounds nuw i16, ptr %0, i64 %.0150234
+  %103 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %.0150234
   store i16 %102, ptr %103, align 2, !tbaa !17
   %104 = trunc i32 %42 to i16
   %105 = getelementptr i8, ptr %103, i64 2
@@ -808,7 +808,7 @@ _ZN7meshoptL11decodeIndexERPKhj.exit:             ; preds = %82, %91, %75
   br label %_ZN7meshoptL13writeTriangleEPvmmjjj.exit165
 
 108:                                              ; preds = %99
-  %109 = getelementptr inbounds nuw i32, ptr %0, i64 %.0150234
+  %109 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.0150234
   store i32 %40, ptr %109, align 4, !tbaa !4
   %110 = getelementptr i8, ptr %109, i64 4
   store i32 %42, ptr %110, align 4, !tbaa !4
@@ -817,7 +817,7 @@ _ZN7meshoptL11decodeIndexERPKhj.exit:             ; preds = %82, %91, %75
   br label %_ZN7meshoptL13writeTriangleEPvmmjjj.exit165
 
 _ZN7meshoptL13writeTriangleEPvmmjjj.exit165:      ; preds = %101, %108
-  %112 = getelementptr inbounds nuw i32, ptr %7, i64 %.0218232
+  %112 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.0218232
   store i32 %100, ptr %112, align 4, !tbaa !4
   %113 = add nuw nsw i64 %.0218232, 1
   br label %302
@@ -838,7 +838,7 @@ _ZN7meshoptL13writeTriangleEPvmmjjj.exit165:      ; preds = %101, %108
   %125 = zext nneg i32 %122 to i64
   %126 = sub nsw i64 %.0218232, %125
   %127 = and i64 %126, 15
-  %128 = getelementptr inbounds nuw i32, ptr %7, i64 %127
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %127
   %129 = load i32, ptr %128, align 4, !tbaa !4
   %130 = icmp eq i32 %122, 0
   %131 = select i1 %130, i32 %124, i32 %129
@@ -847,7 +847,7 @@ _ZN7meshoptL13writeTriangleEPvmmjjj.exit165:      ; preds = %101, %108
   %134 = zext i8 %120 to i64
   %135 = sub nsw i64 %.0218232, %134
   %136 = and i64 %135, 15
-  %137 = getelementptr inbounds nuw i32, ptr %7, i64 %136
+  %137 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %136
   %138 = load i32, ptr %137, align 4, !tbaa !4
   %139 = icmp eq i32 %123, 0
   %140 = select i1 %139, i32 %133, i32 %138
@@ -857,7 +857,7 @@ _ZN7meshoptL13writeTriangleEPvmmjjj.exit165:      ; preds = %101, %108
 
 143:                                              ; preds = %116
   %144 = trunc i32 %.0139238 to i16
-  %145 = getelementptr inbounds nuw i16, ptr %0, i64 %.0150234
+  %145 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %.0150234
   store i16 %144, ptr %145, align 2, !tbaa !17
   %146 = trunc i32 %131 to i16
   %147 = getelementptr i8, ptr %145, i64 2
@@ -868,7 +868,7 @@ _ZN7meshoptL13writeTriangleEPvmmjjj.exit165:      ; preds = %101, %108
   br label %_ZN7meshoptL13writeTriangleEPvmmjjj.exit166
 
 150:                                              ; preds = %116
-  %151 = getelementptr inbounds nuw i32, ptr %0, i64 %.0150234
+  %151 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.0150234
   store i32 %.0139238, ptr %151, align 4, !tbaa !4
   %152 = getelementptr i8, ptr %151, i64 4
   store i32 %131, ptr %152, align 4, !tbaa !4
@@ -877,20 +877,20 @@ _ZN7meshoptL13writeTriangleEPvmmjjj.exit165:      ; preds = %101, %108
   br label %_ZN7meshoptL13writeTriangleEPvmmjjj.exit166
 
 _ZN7meshoptL13writeTriangleEPvmmjjj.exit166:      ; preds = %143, %150
-  %154 = getelementptr inbounds nuw i32, ptr %7, i64 %.0218232
+  %154 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.0218232
   store i32 %.0139238, ptr %154, align 4, !tbaa !4
   %155 = add nuw nsw i64 %.0218232, 1
   %156 = and i64 %155, 15
-  %157 = getelementptr inbounds nuw i32, ptr %7, i64 %156
+  %157 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %156
   store i32 %131, ptr %157, align 4, !tbaa !4
   %158 = zext i1 %130 to i64
   %159 = add nuw nsw i64 %155, %158
   %160 = and i64 %159, 15
-  %161 = getelementptr inbounds nuw i32, ptr %7, i64 %160
+  %161 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %160
   store i32 %140, ptr %161, align 4, !tbaa !4
   %162 = zext i1 %139 to i64
   %163 = add nuw nsw i64 %159, %162
-  %164 = getelementptr inbounds nuw [2 x i32], ptr %6, i64 %.0220231
+  %164 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.0220231
   store i32 %131, ptr %164, align 8, !tbaa !4
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 4
   store i32 %.0139238, ptr %165, align 4, !tbaa !4
@@ -920,7 +920,7 @@ _ZN7meshoptL13writeTriangleEPvmmjjj.exit166:      ; preds = %143, %150
   %180 = zext nneg i32 %172 to i64
   %181 = sub nsw i64 %.0218232, %180
   %182 = and i64 %181, 15
-  %183 = getelementptr inbounds nuw i32, ptr %7, i64 %182
+  %183 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %182
   %184 = load i32, ptr %183, align 4, !tbaa !4
   br label %185
 
@@ -938,7 +938,7 @@ _ZN7meshoptL13writeTriangleEPvmmjjj.exit166:      ; preds = %143, %150
   %191 = zext i8 %170 to i64
   %192 = sub nsw i64 %.0218232, %191
   %193 = and i64 %192, 15
-  %194 = getelementptr inbounds nuw i32, ptr %7, i64 %193
+  %194 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %193
   %195 = load i32, ptr %194, align 4, !tbaa !4
   br label %196
 
@@ -1095,7 +1095,7 @@ _ZN7meshoptL11decodeIndexERPKhj.exit184:          ; preds = %257, %266, %250
 
 275:                                              ; preds = %274
   %276 = trunc i32 %.0136 to i16
-  %277 = getelementptr inbounds nuw i16, ptr %0, i64 %.0150234
+  %277 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %.0150234
   store i16 %276, ptr %277, align 2, !tbaa !17
   %278 = trunc i32 %.0135 to i16
   %279 = getelementptr i8, ptr %277, i64 2
@@ -1106,7 +1106,7 @@ _ZN7meshoptL11decodeIndexERPKhj.exit184:          ; preds = %257, %266, %250
   br label %_ZN7meshoptL13writeTriangleEPvmmjjj.exit185
 
 282:                                              ; preds = %274
-  %283 = getelementptr inbounds nuw i32, ptr %0, i64 %.0150234
+  %283 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.0150234
   store i32 %.0136, ptr %283, align 4, !tbaa !4
   %284 = getelementptr i8, ptr %283, i64 4
   store i32 %.0135, ptr %284, align 4, !tbaa !4
@@ -1115,22 +1115,22 @@ _ZN7meshoptL11decodeIndexERPKhj.exit184:          ; preds = %257, %266, %250
   br label %_ZN7meshoptL13writeTriangleEPvmmjjj.exit185
 
 _ZN7meshoptL13writeTriangleEPvmmjjj.exit185:      ; preds = %275, %282
-  %286 = getelementptr inbounds nuw i32, ptr %7, i64 %.0218232
+  %286 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %.0218232
   store i32 %.0136, ptr %286, align 4, !tbaa !4
   %287 = add nuw nsw i64 %.0218232, 1
   %288 = and i64 %287, 15
   %289 = or i1 %176, %223
-  %290 = getelementptr inbounds nuw i32, ptr %7, i64 %288
+  %290 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %288
   store i32 %.0135, ptr %290, align 4, !tbaa !4
   %291 = zext i1 %289 to i64
   %292 = add nuw nsw i64 %287, %291
   %293 = and i64 %292, 15
   %294 = or i1 %187, %249
-  %295 = getelementptr inbounds nuw i32, ptr %7, i64 %293
+  %295 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %293
   store i32 %.0, ptr %295, align 4, !tbaa !4
   %296 = zext i1 %294 to i64
   %297 = add nuw nsw i64 %292, %296
-  %298 = getelementptr inbounds nuw [2 x i32], ptr %6, i64 %.0220231
+  %298 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.0220231
   store i32 %.0135, ptr %298, align 8, !tbaa !4
   %299 = getelementptr inbounds nuw i8, ptr %298, i64 4
   store i32 %.0136, ptr %299, align 4, !tbaa !4
@@ -1149,13 +1149,13 @@ _ZN7meshoptL13writeTriangleEPvmmjjj.exit185:      ; preds = %275, %282
   %.2 = phi ptr [ %.0213233, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit ], [ %.1, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit165 ], [ %.0213233, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit166 ], [ %.5216, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit185 ]
   %.2145 = phi i32 [ %.0143237, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit ], [ %100, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit165 ], [ %.0143237, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit166 ], [ %.5148, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit185 ]
   %.2141 = phi i32 [ %55, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit ], [ %.0139238, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit165 ], [ %142, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit166 ], [ %.6, %_ZN7meshoptL13writeTriangleEPvmmjjj.exit185 ]
-  %303 = getelementptr inbounds nuw [2 x i32], ptr %6, i64 %.0220231.sink
+  %303 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.0220231.sink
   store i32 %.sink277, ptr %303, align 8, !tbaa !4
   %304 = getelementptr inbounds nuw i8, ptr %303, i64 4
   store i32 %.sink274, ptr %304, align 4, !tbaa !4
   %305 = add nuw nsw i64 %.0220231, %.sink273
   %306 = and i64 %305, 15
-  %307 = getelementptr inbounds nuw [2 x i32], ptr %6, i64 %306
+  %307 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %306
   store i32 %.sink269, ptr %307, align 8, !tbaa !4
   %308 = getelementptr inbounds nuw i8, ptr %307, i64 4
   store i32 %.sink277, ptr %308, align 4, !tbaa !4
@@ -1212,7 +1212,7 @@ define dso_local i64 @meshopt_encodeIndexSequence(ptr noundef %0, i64 noundef %1
   br i1 %.not, label %16, label %.loopexit
 
 16:                                               ; preds = %.lr.ph
-  %17 = getelementptr inbounds nuw i32, ptr %2, i64 %.03448
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %.03448
   %18 = load i32, ptr %17, align 4, !tbaa !4
   %19 = add i32 %18, -30
   %20 = sub i32 %19, %15
@@ -1220,7 +1220,7 @@ define dso_local i64 @meshopt_encodeIndexSequence(ptr noundef %0, i64 noundef %1
   %22 = zext i1 %21 to i32
   %23 = xor i32 %.03349, %22
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds nuw i32, ptr %5, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !4
   %27 = sub i32 %18, %26
   %28 = shl i32 %27, 2
@@ -1369,12 +1369,12 @@ _ZN7meshoptL11decodeVByteERPKh.exit.us:           ; preds = %24, %33, %17
   %39 = ashr i32 %38, 31
   %40 = xor i32 %39, %37
   %41 = zext nneg i32 %36 to i64
-  %42 = getelementptr inbounds nuw i32, ptr %6, i64 %41
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !4
   %44 = add i32 %40, %43
   store i32 %44, ptr %42, align 4, !tbaa !4
   %45 = trunc i32 %44 to i16
-  %46 = getelementptr inbounds nuw i16, ptr %0, i64 %.03043.us
+  %46 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %.03043.us
   store i16 %45, ptr %46, align 2, !tbaa !17
   %47 = add nuw i64 %.03043.us, 1
   %exitcond50.not = icmp eq i64 %47, %1
@@ -1427,11 +1427,11 @@ _ZN7meshoptL11decodeVByteERPKh.exit:              ; preds = %55, %64, %48
   %70 = ashr i32 %69, 31
   %71 = xor i32 %70, %68
   %72 = zext nneg i32 %67 to i64
-  %73 = getelementptr inbounds nuw i32, ptr %6, i64 %72
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %72
   %74 = load i32, ptr %73, align 4, !tbaa !4
   %75 = add i32 %71, %74
   store i32 %75, ptr %73, align 4, !tbaa !4
-  %76 = getelementptr inbounds nuw i32, ptr %0, i64 %.03043
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.03043
   store i32 %75, ptr %76, align 4, !tbaa !4
   %77 = add nuw i64 %.03043, 1
   %exitcond.not = icmp eq i64 %77, %1

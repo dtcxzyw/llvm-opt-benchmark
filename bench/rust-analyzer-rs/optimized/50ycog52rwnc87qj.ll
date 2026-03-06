@@ -216,7 +216,7 @@ define void @_ZN4span3map11RealSpanMap14span_for_range17h7ca1bd590fbbd0ddE(ptr n
   %15 = add i64 %14, %.01925.i
   %16 = icmp ult i64 %15, %13
   tail call void @llvm.assume(i1 %16)
-  %17 = getelementptr inbounds { i32, i32 }, ptr %11, i64 %15
+  %17 = getelementptr inbounds [8 x i8], ptr %11, i64 %15
   %.val23.i = load i32, ptr %17, align 4, !alias.scope !19, !noalias !22, !noundef !4
   %.not.i.not.i = icmp ugt i32 %.val23.i, %2
   %18 = add nuw i64 %15, 1
@@ -257,7 +257,7 @@ define void @_ZN4span3map11RealSpanMap14span_for_range17h7ca1bd590fbbd0ddE(ptr n
   unreachable
 
 32:                                               ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$16binary_search_by17h41e8ebb1da6f9b98E.exit"
-  %33 = getelementptr inbounds { i32, i32 }, ptr %11, i64 %22
+  %33 = getelementptr inbounds [8 x i8], ptr %11, i64 %22
   %34 = load i32, ptr %33, align 4, !noundef !4
   %.not.i.not.i13 = icmp ult i32 %2, %34
   %.not.i9.not.i = icmp ult i32 %3, %34

@@ -2984,7 +2984,7 @@ _ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__16TfTemplateString12_PlaceHolder
 _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__16TfTemplateString12_PlaceHolderESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__16TfTemplateString12_PlaceHolderESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit22, %34
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8
-  %38 = getelementptr inbounds nuw %"struct.pxrInternal_v0_24__pxrReserved__::TfTemplateString::_PlaceHolder", ptr %20, i64 %16
+  %38 = getelementptr inbounds nuw [48 x i8], ptr %20, i64 %16
   store ptr %38, ptr %33, align 8
   ret void
 }
@@ -3069,7 +3069,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22, %28
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8
-  %32 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %20, i64 %16
+  %32 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %16
   store ptr %32, ptr %27, align 8
   ret void
 }

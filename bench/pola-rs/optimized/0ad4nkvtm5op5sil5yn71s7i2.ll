@@ -387,7 +387,7 @@ _ZN4core4hash11BuildHasher8hash_one17h189c98ef8cec59c2E.exit: ; preds = %29, %33
   %98 = and i64 %97, %.val6.i
   %99 = load ptr, ptr %77, align 8, !alias.scope !55, !noalias !65, !nonnull !3, !noundef !3
   %100 = sub nsw i64 0, %98
-  %101 = getelementptr inbounds { { i32, i32 } }, ptr %99, i64 %100
+  %101 = getelementptr inbounds [8 x i8], ptr %99, i64 %100
   %102 = getelementptr inbounds i8, ptr %101, i64 -8
   %.val3.i.i.i = load i32, ptr %102, align 4, !range !68, !noalias !69, !noundef !3
   %103 = getelementptr i8, ptr %101, i64 -4
@@ -574,7 +574,7 @@ common.resume:                                    ; preds = %237, %372, %344, %1
 
 174:                                              ; preds = %92
   %175 = load ptr, ptr %77, align 8, !alias.scope !55, !noalias !58, !nonnull !3
-  %176 = getelementptr inbounds { { i32, i32 } }, ptr %175, i64 %100
+  %176 = getelementptr inbounds [8 x i8], ptr %175, i64 %100
   %177 = getelementptr inbounds i8, ptr %176, i64 -8
   %178 = load i32, ptr %177, align 4, !range !68, !noundef !3
   %179 = getelementptr inbounds i8, ptr %176, i64 -4
@@ -758,7 +758,7 @@ common.resume:                                    ; preds = %237, %372, %344, %1
   %259 = add i64 %258, 1
   store i64 %259, ptr %257, align 8, !alias.scope !101
   %260 = sub nsw i64 0, %.sroa.3.0.i.i.ph
-  %261 = getelementptr inbounds { { i32, i32 } }, ptr %245, i64 %260
+  %261 = getelementptr inbounds [8 x i8], ptr %245, i64 %260
   %262 = getelementptr inbounds i8, ptr %261, i64 -8
   store i32 %243, ptr %262, align 4, !noalias !101
   %263 = getelementptr inbounds i8, ptr %261, i64 -4
@@ -893,7 +893,7 @@ common.resume:                                    ; preds = %237, %372, %344, %1
   %328 = add i64 %.sroa.04.0.i.i.i, %326
   %329 = and i64 %328, %317
   %330 = sub nsw i64 0, %329
-  %331 = getelementptr inbounds { { i32, i32 } }, ptr %318, i64 %330
+  %331 = getelementptr inbounds [8 x i8], ptr %318, i64 %330
   %332 = getelementptr inbounds i8, ptr %331, i64 -8
   %.val2.i.i.i = load i32, ptr %332, align 4, !noalias !126
   %333 = getelementptr i8, ptr %331, i64 -4

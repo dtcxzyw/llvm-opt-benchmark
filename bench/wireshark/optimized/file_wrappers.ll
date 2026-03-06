@@ -164,7 +164,7 @@ define range(i32 0, 4) i32 @wtap_get_compression_type(ptr noundef readonly captu
 
 switch.lookup:                                    ; preds = %19
   %23 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.wtap_get_compression_type, i64 %23
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.wtap_get_compression_type, i64 %23
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %file_get_compression_type.exit
 
@@ -750,7 +750,7 @@ gz_skip.exit:                                     ; preds = %39, %33
   %109 = add i32 %.0182.i, %.03.i
   %110 = lshr i32 %109, 1
   %111 = zext nneg i32 %110 to i64
-  %112 = getelementptr ptr, ptr %107, i64 %111
+  %112 = getelementptr [8 x i8], ptr %107, i64 %111
   %113 = load ptr, ptr %112, align 8
   %114 = load i64, ptr %113, align 8
   %115 = icmp slt i64 %102, %114
@@ -1649,7 +1649,7 @@ fill_in_buffer.exit.i:                            ; preds = %52, %50
 
 60:                                               ; preds = %.preheader, %64
   %.03751.i = phi i64 [ %65, %64 ], [ 0, %.preheader ]
-  %61 = getelementptr ptr, ptr @compression_type_tests, i64 %.03751.i
+  %61 = getelementptr [8 x i8], ptr @compression_type_tests, i64 %.03751.i
   %62 = load ptr, ptr %61, align 8
   %63 = tail call i32 %62(ptr noundef %0)
   switch i32 %63, label %64 [
@@ -1685,7 +1685,7 @@ fill_in_buffer.exit.i:                            ; preds = %52, %50
   %79 = load ptr, ptr %68, align 8
   %80 = add i32 %77, -1
   %81 = zext i32 %80 to i64
-  %82 = getelementptr ptr, ptr %79, i64 %81
+  %82 = getelementptr [8 x i8], ptr %79, i64 %81
   %83 = load ptr, ptr %82, align 8
   %.not35.i.i = icmp eq ptr %83, null
   br i1 %.not35.i.i, label %.thread.i.i, label %84
@@ -2047,7 +2047,7 @@ fill_in_buffer.exit.thread.i.thread:              ; preds = %247
   %265 = load i32, ptr %264, align 8
   %266 = add i32 %265, -1
   %267 = zext i32 %266 to i64
-  %268 = getelementptr ptr, ptr %263, i64 %267
+  %268 = getelementptr [8 x i8], ptr %263, i64 %267
   %269 = load ptr, ptr %268, align 8
   %270 = load i64, ptr %269, align 8
   %271 = add i64 %270, 1048576
@@ -2555,7 +2555,7 @@ fill_in_buffer.exit.i27:                          ; preds = %buf_read.exit.i.i38
   %544 = load ptr, ptr %539, align 8
   %545 = add i32 %542, -1
   %546 = zext i32 %545 to i64
-  %547 = getelementptr ptr, ptr %544, i64 %546
+  %547 = getelementptr [8 x i8], ptr %544, i64 %546
   %548 = load ptr, ptr %547, align 8
   %.not48.i.i = icmp eq ptr %548, null
   br i1 %.not48.i.i, label %.thread.i.i31, label %549
@@ -4126,7 +4126,7 @@ define internal fastcc void @fast_seek_header(ptr noundef readonly captures(none
   %11 = load ptr, ptr %6, align 8
   %12 = add i32 %9, -1
   %13 = zext i32 %12 to i64
-  %14 = getelementptr ptr, ptr %11, i64 %13
+  %14 = getelementptr [8 x i8], ptr %11, i64 %13
   %15 = load ptr, ptr %14, align 8
   %.not35 = icmp eq ptr %15, null
   br i1 %.not35, label %.thread, label %16

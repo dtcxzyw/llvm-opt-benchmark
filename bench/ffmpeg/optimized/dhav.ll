@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.tm = type { i32, i32, i32, i32, i32, i32, i32, i32, i32, i64, ptr }
-%struct.AVIndexEntry = type { i64, i64, i32, i32 }
 
 @.str = private unnamed_addr constant [5 x i8] c"dhav\00", align 1
 @.str.1 = private unnamed_addr constant [10 x i8] c"Video DAV\00", align 1
@@ -558,7 +557,7 @@ define internal i32 @dhav_read_packet(ptr noundef %0, ptr noundef %1) #1 {
   %127 = getelementptr i8, ptr %0, i64 48
   %.val109 = load ptr, ptr %127, align 8, !tbaa !81
   %128 = zext nneg i32 %103 to i64
-  %129 = getelementptr inbounds nuw ptr, ptr %.val109, i64 %128
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %.val109, i64 %128
   %130 = load ptr, ptr %129, align 8, !tbaa !82
   %131 = getelementptr inbounds nuw i8, ptr %130, i64 24
   %132 = load ptr, ptr %131, align 8, !tbaa !68
@@ -679,7 +678,7 @@ define internal range(i32 -11, 1) i32 @dhav_read_seek(ptr noundef readonly captu
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8, !tbaa !81
   %9 = sext i32 %1 to i64
-  %10 = getelementptr inbounds ptr, ptr %8, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %8, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !82
   %12 = tail call i32 @av_index_search_timestamp(ptr noundef %11, i64 noundef %2, i32 noundef %3) #7
   %13 = icmp slt i32 %12, 0
@@ -689,7 +688,7 @@ define internal range(i32 -11, 1) i32 @dhav_read_seek(ptr noundef readonly captu
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 320
   %16 = load ptr, ptr %15, align 8, !tbaa !91
   %17 = zext nneg i32 %12 to i64
-  %18 = getelementptr inbounds nuw %struct.AVIndexEntry, ptr %16, i64 %17
+  %18 = getelementptr inbounds nuw [24 x i8], ptr %16, i64 %17
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load i64, ptr %19, align 8, !tbaa !103
   %21 = icmp slt i64 %20, %2
@@ -723,7 +722,7 @@ define internal range(i32 -11, 1) i32 @dhav_read_seek(ptr noundef readonly captu
 
 34:                                               ; preds = %.lr.ph, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %34 ]
-  %35 = getelementptr inbounds nuw ptr, ptr %30, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8, !tbaa !82
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %38 = load ptr, ptr %37, align 8, !tbaa !68
@@ -973,7 +972,7 @@ define internal fastcc i32 @parse_ext(ptr noundef %0, i32 noundef %1) unnamed_ad
 
 52:                                               ; preds = %44
   %53 = zext nneg i32 %50 to i64
-  %54 = getelementptr inbounds nuw i32, ptr @sample_rates, i64 %53
+  %54 = getelementptr inbounds nuw [4 x i8], ptr @sample_rates, i64 %53
   %55 = load i32, ptr %54, align 4, !tbaa !77
   br label %56
 
@@ -1005,7 +1004,7 @@ define internal fastcc i32 @parse_ext(ptr noundef %0, i32 noundef %1) unnamed_ad
 
 72:                                               ; preds = %62
   %73 = zext nneg i32 %70 to i64
-  %74 = getelementptr inbounds nuw i32, ptr @sample_rates, i64 %73
+  %74 = getelementptr inbounds nuw [4 x i8], ptr @sample_rates, i64 %73
   %75 = load i32, ptr %74, align 4, !tbaa !77
   br label %76
 

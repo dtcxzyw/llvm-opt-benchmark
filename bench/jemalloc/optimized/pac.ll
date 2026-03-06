@@ -468,7 +468,7 @@ malloc_mutex_lock.exit:                           ; preds = %29, %35
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 58404
   %41 = load i32, ptr %40, align 4, !tbaa !60
   %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds nuw i64, ptr @je_sz_pind2sz_tab, i64 %42
+  %43 = getelementptr inbounds nuw [8 x i8], ptr @je_sz_pind2sz_tab, i64 %42
   %44 = load i64, ptr %43, align 8, !tbaa !58
   store i64 %44, ptr %2, align 8, !tbaa !58
   br label %45

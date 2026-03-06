@@ -1383,12 +1383,12 @@ define hidden void @aom_highbd_lpf_horizontal_4_c(ptr noundef captures(none) %0,
 17:                                               ; preds = %6, %17
   %.030 = phi ptr [ %0, %6 ], [ %57, %17 ]
   %.02829 = phi i32 [ 0, %6 ], [ %58, %17 ]
-  %18 = getelementptr inbounds i16, ptr %.030, i64 %8
+  %18 = getelementptr inbounds [2 x i8], ptr %.030, i64 %8
   %19 = load i16, ptr %18, align 2
-  %20 = getelementptr inbounds i16, ptr %.030, i64 %10
+  %20 = getelementptr inbounds [2 x i8], ptr %.030, i64 %10
   %21 = load i16, ptr %20, align 2
   %22 = load i16, ptr %.030, align 2
-  %23 = getelementptr inbounds i16, ptr %.030, i64 %11
+  %23 = getelementptr inbounds [2 x i8], ptr %.030, i64 %11
   %24 = load i16, ptr %23, align 2
   %25 = load i8, ptr %3, align 1
   %26 = load i8, ptr %2, align 1
@@ -1422,8 +1422,8 @@ define hidden void @aom_highbd_lpf_horizontal_4_c(ptr noundef captures(none) %0,
   %52 = and i1 %51, %50
   %53 = sext i1 %52 to i8
   %54 = load i8, ptr %4, align 1
-  %55 = getelementptr inbounds i16, ptr %.030, i64 %15
-  %56 = getelementptr inbounds i16, ptr %.030, i64 %16
+  %55 = getelementptr inbounds [2 x i8], ptr %.030, i64 %15
+  %56 = getelementptr inbounds [2 x i8], ptr %.030, i64 %16
   tail call fastcc void @highbd_filter4(i8 noundef signext %53, i8 noundef zeroext %54, ptr noundef nonnull %55, ptr noundef nonnull %56, ptr noundef nonnull %.030, ptr noundef nonnull %23, i32 noundef %5)
   %57 = getelementptr inbounds nuw i8, ptr %.030, i64 2
   %58 = add nuw nsw i32 %.02829, 1
@@ -1641,12 +1641,12 @@ define hidden void @aom_highbd_lpf_horizontal_4_dual_c(ptr noundef captures(none
 20:                                               ; preds = %20, %9
   %.030.i = phi ptr [ %0, %9 ], [ %60, %20 ]
   %.02829.i = phi i32 [ 0, %9 ], [ %61, %20 ]
-  %21 = getelementptr inbounds i16, ptr %.030.i, i64 %11
+  %21 = getelementptr inbounds [2 x i8], ptr %.030.i, i64 %11
   %22 = load i16, ptr %21, align 2
-  %23 = getelementptr inbounds i16, ptr %.030.i, i64 %13
+  %23 = getelementptr inbounds [2 x i8], ptr %.030.i, i64 %13
   %24 = load i16, ptr %23, align 2
   %25 = load i16, ptr %.030.i, align 2
-  %26 = getelementptr inbounds i16, ptr %.030.i, i64 %14
+  %26 = getelementptr inbounds [2 x i8], ptr %.030.i, i64 %14
   %27 = load i16, ptr %26, align 2
   %28 = load i8, ptr %3, align 1
   %29 = load i8, ptr %2, align 1
@@ -1680,8 +1680,8 @@ define hidden void @aom_highbd_lpf_horizontal_4_dual_c(ptr noundef captures(none
   %55 = and i1 %54, %53
   %56 = sext i1 %55 to i8
   %57 = load i8, ptr %4, align 1
-  %58 = getelementptr inbounds i16, ptr %.030.i, i64 %18
-  %59 = getelementptr inbounds i16, ptr %.030.i, i64 %19
+  %58 = getelementptr inbounds [2 x i8], ptr %.030.i, i64 %18
+  %59 = getelementptr inbounds [2 x i8], ptr %.030.i, i64 %19
   tail call fastcc void @highbd_filter4(i8 noundef signext %56, i8 noundef zeroext %57, ptr noundef nonnull %58, ptr noundef nonnull %59, ptr noundef nonnull %.030.i, ptr noundef nonnull %26, i32 noundef %8)
   %60 = getelementptr inbounds nuw i8, ptr %.030.i, i64 2
   %61 = add nuw nsw i32 %.02829.i, 1
@@ -1695,12 +1695,12 @@ aom_highbd_lpf_horizontal_4_c.exit:               ; preds = %20
 63:                                               ; preds = %63, %aom_highbd_lpf_horizontal_4_c.exit
   %.030.i11 = phi ptr [ %62, %aom_highbd_lpf_horizontal_4_c.exit ], [ %103, %63 ]
   %.02829.i12 = phi i32 [ 0, %aom_highbd_lpf_horizontal_4_c.exit ], [ %104, %63 ]
-  %64 = getelementptr inbounds i16, ptr %.030.i11, i64 %11
+  %64 = getelementptr inbounds [2 x i8], ptr %.030.i11, i64 %11
   %65 = load i16, ptr %64, align 2
-  %66 = getelementptr inbounds i16, ptr %.030.i11, i64 %13
+  %66 = getelementptr inbounds [2 x i8], ptr %.030.i11, i64 %13
   %67 = load i16, ptr %66, align 2
   %68 = load i16, ptr %.030.i11, align 2
-  %69 = getelementptr inbounds i16, ptr %.030.i11, i64 %14
+  %69 = getelementptr inbounds [2 x i8], ptr %.030.i11, i64 %14
   %70 = load i16, ptr %69, align 2
   %71 = load i8, ptr %6, align 1
   %72 = load i8, ptr %5, align 1
@@ -1734,8 +1734,8 @@ aom_highbd_lpf_horizontal_4_c.exit:               ; preds = %20
   %98 = and i1 %97, %96
   %99 = sext i1 %98 to i8
   %100 = load i8, ptr %7, align 1
-  %101 = getelementptr inbounds i16, ptr %.030.i11, i64 %18
-  %102 = getelementptr inbounds i16, ptr %.030.i11, i64 %19
+  %101 = getelementptr inbounds [2 x i8], ptr %.030.i11, i64 %18
+  %102 = getelementptr inbounds [2 x i8], ptr %.030.i11, i64 %19
   tail call fastcc void @highbd_filter4(i8 noundef signext %99, i8 noundef zeroext %100, ptr noundef nonnull %101, ptr noundef nonnull %102, ptr noundef nonnull %.030.i11, ptr noundef nonnull %69, i32 noundef %8)
   %103 = getelementptr inbounds nuw i8, ptr %.030.i11, i64 2
   %104 = add nuw nsw i32 %.02829.i12, 1
@@ -1795,7 +1795,7 @@ define hidden void @aom_highbd_lpf_vertical_4_c(ptr noundef captures(none) %0, i
   %45 = sext i1 %44 to i8
   %46 = load i8, ptr %4, align 1
   tail call fastcc void @highbd_filter4(i8 noundef signext %45, i8 noundef zeroext %46, ptr noundef nonnull %10, ptr noundef nonnull %12, ptr noundef nonnull %.024, ptr noundef nonnull %15, i32 noundef %5)
-  %47 = getelementptr inbounds i16, ptr %.024, i64 %8
+  %47 = getelementptr inbounds [2 x i8], ptr %.024, i64 %8
   %48 = add nuw nsw i32 %.02223, 1
   %exitcond.not = icmp eq i32 %48, 4
   br i1 %exitcond.not, label %49, label %9, !llvm.loop !14
@@ -1853,7 +1853,7 @@ define hidden void @aom_highbd_lpf_vertical_4_dual_c(ptr noundef captures(none) 
   %48 = sext i1 %47 to i8
   %49 = load i8, ptr %4, align 1
   tail call fastcc void @highbd_filter4(i8 noundef signext %48, i8 noundef zeroext %49, ptr noundef nonnull %13, ptr noundef nonnull %15, ptr noundef nonnull %.024.i, ptr noundef nonnull %18, i32 noundef %8)
-  %50 = getelementptr inbounds i16, ptr %.024.i, i64 %11
+  %50 = getelementptr inbounds [2 x i8], ptr %.024.i, i64 %11
   %51 = add nuw nsw i32 %.02223.i, 1
   %exitcond.not.i = icmp eq i32 %51, 4
   br i1 %exitcond.not.i, label %aom_highbd_lpf_vertical_4_c.exit, label %12, !llvm.loop !14
@@ -1861,7 +1861,7 @@ define hidden void @aom_highbd_lpf_vertical_4_dual_c(ptr noundef captures(none) 
 aom_highbd_lpf_vertical_4_c.exit:                 ; preds = %12
   %52 = shl nsw i32 %1, 2
   %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds i16, ptr %0, i64 %53
+  %54 = getelementptr inbounds [2 x i8], ptr %0, i64 %53
   br label %55
 
 55:                                               ; preds = %55, %aom_highbd_lpf_vertical_4_c.exit
@@ -1907,7 +1907,7 @@ aom_highbd_lpf_vertical_4_c.exit:                 ; preds = %12
   %91 = sext i1 %90 to i8
   %92 = load i8, ptr %7, align 1
   tail call fastcc void @highbd_filter4(i8 noundef signext %91, i8 noundef zeroext %92, ptr noundef nonnull %56, ptr noundef nonnull %58, ptr noundef nonnull %.024.i12, ptr noundef nonnull %61, i32 noundef %8)
-  %93 = getelementptr inbounds i16, ptr %.024.i12, i64 %11
+  %93 = getelementptr inbounds [2 x i8], ptr %.024.i12, i64 %11
   %94 = add nuw nsw i32 %.02223.i13, 1
   %exitcond.not.i16 = icmp eq i32 %94, 4
   br i1 %exitcond.not.i16, label %aom_highbd_lpf_vertical_4_c.exit17, label %55, !llvm.loop !14
@@ -1945,20 +1945,20 @@ define hidden void @aom_highbd_lpf_horizontal_8_c(ptr noundef captures(none) %0,
 28:                                               ; preds = %6, %28
   %.061 = phi ptr [ %0, %6 ], [ %107, %28 ]
   %.05860 = phi i32 [ 0, %6 ], [ %108, %28 ]
-  %29 = getelementptr inbounds i16, ptr %.061, i64 %8
+  %29 = getelementptr inbounds [2 x i8], ptr %.061, i64 %8
   %30 = load i16, ptr %29, align 2
-  %31 = getelementptr inbounds i16, ptr %.061, i64 %10
+  %31 = getelementptr inbounds [2 x i8], ptr %.061, i64 %10
   %32 = load i16, ptr %31, align 2
-  %33 = getelementptr inbounds i16, ptr %.061, i64 %12
+  %33 = getelementptr inbounds [2 x i8], ptr %.061, i64 %12
   %34 = load i16, ptr %33, align 2
-  %35 = getelementptr inbounds i16, ptr %.061, i64 %14
+  %35 = getelementptr inbounds [2 x i8], ptr %.061, i64 %14
   %36 = load i16, ptr %35, align 2
   %37 = load i16, ptr %.061, align 2
-  %38 = getelementptr inbounds i16, ptr %.061, i64 %15
+  %38 = getelementptr inbounds [2 x i8], ptr %.061, i64 %15
   %39 = load i16, ptr %38, align 2
-  %40 = getelementptr inbounds i16, ptr %.061, i64 %17
+  %40 = getelementptr inbounds [2 x i8], ptr %.061, i64 %17
   %41 = load i16, ptr %40, align 2
-  %42 = getelementptr inbounds i16, ptr %.061, i64 %19
+  %42 = getelementptr inbounds [2 x i8], ptr %.061, i64 %19
   %43 = load i16, ptr %42, align 2
   %44 = load i8, ptr %3, align 1
   %45 = load i8, ptr %2, align 1
@@ -2032,10 +2032,10 @@ define hidden void @aom_highbd_lpf_horizontal_8_c(ptr noundef captures(none) %0,
   %.not28.i = and i1 %100, %.not31.i
   %101 = sext i1 %.not28.i to i8
   %102 = load i8, ptr %4, align 1
-  %103 = getelementptr inbounds i16, ptr %.061, i64 %24
-  %104 = getelementptr inbounds i16, ptr %.061, i64 %25
-  %105 = getelementptr inbounds i16, ptr %.061, i64 %26
-  %106 = getelementptr inbounds i16, ptr %.061, i64 %27
+  %103 = getelementptr inbounds [2 x i8], ptr %.061, i64 %24
+  %104 = getelementptr inbounds [2 x i8], ptr %.061, i64 %25
+  %105 = getelementptr inbounds [2 x i8], ptr %.061, i64 %26
+  %106 = getelementptr inbounds [2 x i8], ptr %.061, i64 %27
   tail call fastcc void @highbd_filter8(i8 noundef signext %86, i8 noundef zeroext %102, i8 noundef signext %101, ptr noundef nonnull %103, ptr noundef nonnull %104, ptr noundef nonnull %105, ptr noundef nonnull %106, ptr noundef nonnull %.061, ptr noundef nonnull %38, ptr noundef nonnull %40, ptr noundef nonnull %42, i32 noundef %5)
   %107 = getelementptr inbounds nuw i8, ptr %.061, i64 2
   %108 = add nuw nsw i32 %.05860, 1
@@ -2161,16 +2161,16 @@ define hidden void @aom_highbd_lpf_horizontal_6_c(ptr noundef captures(none) %0,
 23:                                               ; preds = %6, %highbd_filter6.exit
   %.049 = phi ptr [ %0, %6 ], [ %126, %highbd_filter6.exit ]
   %.04648 = phi i32 [ 0, %6 ], [ %127, %highbd_filter6.exit ]
-  %24 = getelementptr inbounds i16, ptr %.049, i64 %8
+  %24 = getelementptr inbounds [2 x i8], ptr %.049, i64 %8
   %25 = load i16, ptr %24, align 2
-  %26 = getelementptr inbounds i16, ptr %.049, i64 %10
+  %26 = getelementptr inbounds [2 x i8], ptr %.049, i64 %10
   %27 = load i16, ptr %26, align 2
-  %28 = getelementptr inbounds i16, ptr %.049, i64 %12
+  %28 = getelementptr inbounds [2 x i8], ptr %.049, i64 %12
   %29 = load i16, ptr %28, align 2
   %30 = load i16, ptr %.049, align 2
-  %31 = getelementptr inbounds i16, ptr %.049, i64 %13
+  %31 = getelementptr inbounds [2 x i8], ptr %.049, i64 %13
   %32 = load i16, ptr %31, align 2
-  %33 = getelementptr inbounds i16, ptr %.049, i64 %15
+  %33 = getelementptr inbounds [2 x i8], ptr %.049, i64 %15
   %34 = load i16, ptr %33, align 2
   %35 = load i8, ptr %3, align 1
   %36 = load i8, ptr %2, align 1
@@ -2223,13 +2223,13 @@ define hidden void @aom_highbd_lpf_horizontal_6_c(ptr noundef captures(none) %0,
   %81 = and i1 %80, %79
   %82 = icmp sle i32 %76, %17
   %83 = and i1 %82, %81
-  %84 = getelementptr inbounds i16, ptr %.049, i64 %18
-  %85 = getelementptr inbounds i16, ptr %.049, i64 %19
+  %84 = getelementptr inbounds [2 x i8], ptr %.049, i64 %18
+  %85 = getelementptr inbounds [2 x i8], ptr %.049, i64 %19
   %or.cond.i = and i1 %83, %72
   br i1 %or.cond.i, label %86, label %123
 
 86:                                               ; preds = %23
-  %87 = getelementptr inbounds i16, ptr %.049, i64 %22
+  %87 = getelementptr inbounds [2 x i8], ptr %.049, i64 %22
   %88 = load i16, ptr %87, align 2
   %89 = load i16, ptr %84, align 2
   %90 = load i16, ptr %85, align 2
@@ -2423,7 +2423,7 @@ define hidden void @aom_highbd_lpf_vertical_6_c(ptr noundef captures(none) %0, i
   br label %highbd_filter6.exit
 
 highbd_filter6.exit:                              ; preds = %71, %102
-  %105 = getelementptr inbounds i16, ptr %.039, i64 %9
+  %105 = getelementptr inbounds [2 x i8], ptr %.039, i64 %9
   %106 = add nuw nsw i32 %.03638, 1
   %exitcond.not = icmp eq i32 %106, 4
   br i1 %exitcond.not, label %107, label %10, !llvm.loop !17
@@ -2437,7 +2437,7 @@ define hidden void @aom_highbd_lpf_vertical_6_dual_c(ptr noundef captures(none) 
   tail call void @aom_highbd_lpf_vertical_6_c(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %8)
   %10 = shl nsw i32 %1, 2
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds i16, ptr %0, i64 %11
+  %12 = getelementptr inbounds [2 x i8], ptr %0, i64 %11
   tail call void @aom_highbd_lpf_vertical_6_c(ptr noundef %12, i32 noundef %1, ptr noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %8)
   ret void
 }
@@ -2541,7 +2541,7 @@ define hidden void @aom_highbd_lpf_vertical_8_c(ptr noundef captures(none) %0, i
   %83 = sext i1 %.not28.i to i8
   %84 = load i8, ptr %4, align 1
   tail call fastcc void @highbd_filter8(i8 noundef signext %68, i8 noundef zeroext %84, i8 noundef signext %83, ptr noundef nonnull %11, ptr noundef nonnull %13, ptr noundef nonnull %15, ptr noundef nonnull %17, ptr noundef nonnull %.047, ptr noundef nonnull %20, ptr noundef nonnull %22, ptr noundef nonnull %24, i32 noundef %5)
-  %85 = getelementptr inbounds i16, ptr %.047, i64 %9
+  %85 = getelementptr inbounds [2 x i8], ptr %.047, i64 %9
   %86 = add nuw nsw i32 %.04446, 1
   %exitcond.not = icmp eq i32 %86, 4
   br i1 %exitcond.not, label %87, label %10, !llvm.loop !18
@@ -2555,7 +2555,7 @@ define hidden void @aom_highbd_lpf_vertical_8_dual_c(ptr noundef captures(none) 
   tail call void @aom_highbd_lpf_vertical_8_c(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %8)
   %10 = shl nsw i32 %1, 2
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds i16, ptr %0, i64 %11
+  %12 = getelementptr inbounds [2 x i8], ptr %0, i64 %11
   tail call void @aom_highbd_lpf_vertical_8_c(ptr noundef %12, i32 noundef %1, ptr noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %8)
   ret void
 }
@@ -2610,20 +2610,20 @@ define internal fastcc void @highbd_mb_lpf_horizontal_edge_w(ptr noundef capture
 43:                                               ; preds = %6, %43
   %.096 = phi ptr [ %0, %6 ], [ %162, %43 ]
   %.08795 = phi i32 [ 0, %6 ], [ %163, %43 ]
-  %44 = getelementptr inbounds i16, ptr %.096, i64 %8
+  %44 = getelementptr inbounds [2 x i8], ptr %.096, i64 %8
   %45 = load i16, ptr %44, align 2
-  %46 = getelementptr inbounds i16, ptr %.096, i64 %10
+  %46 = getelementptr inbounds [2 x i8], ptr %.096, i64 %10
   %47 = load i16, ptr %46, align 2
-  %48 = getelementptr inbounds i16, ptr %.096, i64 %12
+  %48 = getelementptr inbounds [2 x i8], ptr %.096, i64 %12
   %49 = load i16, ptr %48, align 2
-  %50 = getelementptr inbounds i16, ptr %.096, i64 %14
+  %50 = getelementptr inbounds [2 x i8], ptr %.096, i64 %14
   %51 = load i16, ptr %50, align 2
   %52 = load i16, ptr %.096, align 2
-  %53 = getelementptr inbounds i16, ptr %.096, i64 %15
+  %53 = getelementptr inbounds [2 x i8], ptr %.096, i64 %15
   %54 = load i16, ptr %53, align 2
-  %55 = getelementptr inbounds i16, ptr %.096, i64 %17
+  %55 = getelementptr inbounds [2 x i8], ptr %.096, i64 %17
   %56 = load i16, ptr %55, align 2
-  %57 = getelementptr inbounds i16, ptr %.096, i64 %19
+  %57 = getelementptr inbounds [2 x i8], ptr %.096, i64 %19
   %58 = load i16, ptr %57, align 2
   %59 = load i8, ptr %3, align 1
   %60 = load i8, ptr %2, align 1
@@ -2696,17 +2696,17 @@ define internal fastcc void @highbd_mb_lpf_horizontal_edge_w(ptr noundef capture
   %115 = icmp sle i32 %114, %21
   %.not28.i = and i1 %115, %.not31.i
   %116 = sext i1 %.not28.i to i8
-  %117 = getelementptr inbounds i16, ptr %.096, i64 %23
+  %117 = getelementptr inbounds [2 x i8], ptr %.096, i64 %23
   %118 = load i16, ptr %117, align 2
-  %119 = getelementptr inbounds i16, ptr %.096, i64 %25
+  %119 = getelementptr inbounds [2 x i8], ptr %.096, i64 %25
   %120 = load i16, ptr %119, align 2
-  %121 = getelementptr inbounds i16, ptr %.096, i64 %27
+  %121 = getelementptr inbounds [2 x i8], ptr %.096, i64 %27
   %122 = load i16, ptr %121, align 2
-  %123 = getelementptr inbounds i16, ptr %.096, i64 %29
+  %123 = getelementptr inbounds [2 x i8], ptr %.096, i64 %29
   %124 = load i16, ptr %123, align 2
-  %125 = getelementptr inbounds i16, ptr %.096, i64 %31
+  %125 = getelementptr inbounds [2 x i8], ptr %.096, i64 %31
   %126 = load i16, ptr %125, align 2
-  %127 = getelementptr inbounds i16, ptr %.096, i64 %33
+  %127 = getelementptr inbounds [2 x i8], ptr %.096, i64 %33
   %128 = load i16, ptr %127, align 2
   %129 = zext i16 %122 to i32
   %130 = sub nsw i32 %129, %75
@@ -2739,13 +2739,13 @@ define internal fastcc void @highbd_mb_lpf_horizontal_edge_w(ptr noundef capture
   %.not28.i94 = and i1 %152, %.not31.i93
   %153 = sext i1 %.not28.i94 to i8
   %154 = load i8, ptr %4, align 1
-  %155 = getelementptr inbounds i16, ptr %.096, i64 %36
-  %156 = getelementptr inbounds i16, ptr %.096, i64 %37
-  %157 = getelementptr inbounds i16, ptr %.096, i64 %38
-  %158 = getelementptr inbounds i16, ptr %.096, i64 %39
-  %159 = getelementptr inbounds i16, ptr %.096, i64 %40
-  %160 = getelementptr inbounds i16, ptr %.096, i64 %41
-  %161 = getelementptr inbounds i16, ptr %.096, i64 %42
+  %155 = getelementptr inbounds [2 x i8], ptr %.096, i64 %36
+  %156 = getelementptr inbounds [2 x i8], ptr %.096, i64 %37
+  %157 = getelementptr inbounds [2 x i8], ptr %.096, i64 %38
+  %158 = getelementptr inbounds [2 x i8], ptr %.096, i64 %39
+  %159 = getelementptr inbounds [2 x i8], ptr %.096, i64 %40
+  %160 = getelementptr inbounds [2 x i8], ptr %.096, i64 %41
+  %161 = getelementptr inbounds [2 x i8], ptr %.096, i64 %42
   tail call fastcc void @highbd_filter14(i8 noundef signext %101, i8 noundef zeroext %154, i8 noundef signext %116, i8 noundef signext %153, ptr noundef nonnull %155, ptr noundef nonnull %156, ptr noundef nonnull %157, ptr noundef nonnull %158, ptr noundef nonnull %159, ptr noundef nonnull %160, ptr noundef nonnull %161, ptr noundef nonnull %.096, ptr noundef nonnull %53, ptr noundef nonnull %55, ptr noundef nonnull %57, ptr noundef nonnull %123, ptr noundef nonnull %125, ptr noundef nonnull %127, i32 noundef %5)
   %162 = getelementptr inbounds nuw i8, ptr %.096, i64 2
   %163 = add nuw nsw i32 %.08795, 1
@@ -2911,7 +2911,7 @@ define internal fastcc void @highbd_mb_lpf_vertical_edge_w(ptr noundef captures(
   %120 = sext i1 %.not28.i67 to i8
   %121 = load i8, ptr %4, align 1
   tail call fastcc void @highbd_filter14(i8 noundef signext %68, i8 noundef zeroext %121, i8 noundef signext %83, i8 noundef signext %120, ptr noundef nonnull %84, ptr noundef nonnull %86, ptr noundef nonnull %88, ptr noundef nonnull %11, ptr noundef nonnull %13, ptr noundef nonnull %15, ptr noundef nonnull %17, ptr noundef nonnull %.069, ptr noundef nonnull %20, ptr noundef nonnull %22, ptr noundef nonnull %24, ptr noundef nonnull %90, ptr noundef nonnull %92, ptr noundef nonnull %94, i32 noundef %5)
-  %122 = getelementptr inbounds i16, ptr %.069, i64 %9
+  %122 = getelementptr inbounds [2 x i8], ptr %.069, i64 %9
   %123 = add nuw nsw i32 %.06068, 1
   %exitcond.not = icmp eq i32 %123, 4
   br i1 %exitcond.not, label %124, label %10, !llvm.loop !20
@@ -2925,7 +2925,7 @@ define hidden void @aom_highbd_lpf_vertical_14_dual_c(ptr noundef captures(none)
   tail call fastcc void @highbd_mb_lpf_vertical_edge_w(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %8)
   %10 = shl nsw i32 %1, 2
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds i16, ptr %0, i64 %11
+  %12 = getelementptr inbounds [2 x i8], ptr %0, i64 %11
   tail call fastcc void @highbd_mb_lpf_vertical_edge_w(ptr noundef %12, i32 noundef %1, ptr noundef %5, ptr noundef %6, ptr noundef %7, i32 noundef %8)
   ret void
 }

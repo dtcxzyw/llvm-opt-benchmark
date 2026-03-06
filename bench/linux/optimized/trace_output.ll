@@ -35,7 +35,6 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_unregister_t
 %struct.tracepoint = type { ptr, %struct.static_key, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.static_key = type { %struct.atomic_t, %union.anon.3 }
 %union.anon.3 = type { i64 }
-%struct.trace_print_flags = type { i64, ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 @trace_event_sem = dso_local global %struct.rw_semaphore { %struct.atomic64_t zeroinitializer, %struct.atomic64_t zeroinitializer, %struct.optimistic_spin_queue zeroinitializer, %struct.raw_spinlock zeroinitializer, %struct.list_head { ptr getelementptr (i8, ptr @trace_event_sem, i64 24), ptr getelementptr (i8, ptr @trace_event_sem, i64 24) } }, align 8
@@ -286,7 +285,7 @@ define dso_local ptr @trace_print_flags_seq(ptr noundef %0, ptr noundef %1, i64 
   %28 = phi i32 [ %17, %.split.us ], [ 0, %23 ]
   %29 = add i32 %18, 1
   %30 = sext i32 %29 to i64
-  %31 = getelementptr %struct.trace_print_flags, ptr %3, i64 %30
+  %31 = getelementptr [16 x i8], ptr %3, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8
   %34 = icmp ne ptr %33, null
@@ -324,7 +323,7 @@ define dso_local ptr @trace_print_flags_seq(ptr noundef %0, ptr noundef %1, i64 
   %53 = phi i32 [ %39, %.split ], [ 0, %50 ]
   %54 = add i32 %40, 1
   %55 = sext i32 %54 to i64
-  %56 = getelementptr %struct.trace_print_flags, ptr %3, i64 %55
+  %56 = getelementptr [16 x i8], ptr %3, i64 %55
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %58 = load ptr, ptr %57, align 8
   %59 = icmp ne ptr %58, null
@@ -392,7 +391,7 @@ define dso_local ptr @trace_print_symbols_seq(ptr noundef %0, i64 noundef %1, pt
   %16 = phi i32 [ %17, %23 ], [ 0, %13 ]
   %17 = add i32 %16, 1
   %18 = sext i32 %17 to i64
-  %19 = getelementptr %struct.trace_print_flags, ptr %2, i64 %18
+  %19 = getelementptr [16 x i8], ptr %2, i64 %18
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %21 = load ptr, ptr %20, align 8
   %22 = icmp eq ptr %21, null
@@ -916,7 +915,7 @@ define dso_local zeroext i8 @trace_find_mark(i64 noundef %0) local_unnamed_addr 
 
 2:                                                ; preds = %7, %1
   %3 = phi i64 [ 0, %1 ], [ %8, %7 ]
-  %4 = getelementptr %struct.trace_mark, ptr @mark, i64 %3
+  %4 = getelementptr [16 x i8], ptr @mark, i64 %3
   %5 = load i64, ptr %4, align 16
   %6 = icmp ult i64 %5, %0
   br i1 %6, label %10, label %7
@@ -932,7 +931,7 @@ define dso_local zeroext i8 @trace_find_mark(i64 noundef %0) local_unnamed_addr 
   br i1 %12, label %.thread, label %13
 
 13:                                               ; preds = %10
-  %.split = getelementptr %struct.trace_mark, ptr @mark, i64 %11
+  %.split = getelementptr [16 x i8], ptr @mark, i64 %11
   %14 = getelementptr i8, ptr %.split, i64 8
   %15 = load i8, ptr %14, align 8
   br label %.thread
@@ -1151,7 +1150,7 @@ define dso_local range(i32 0, 2) i32 @trace_print_lat_context(ptr noundef %0) lo
 
 73:                                               ; preds = %78, %71
   %74 = phi i64 [ 0, %71 ], [ %79, %78 ]
-  %75 = getelementptr %struct.trace_mark, ptr @mark, i64 %74
+  %75 = getelementptr [16 x i8], ptr @mark, i64 %74
   %76 = load i64, ptr %75, align 16
   %77 = icmp ult i64 %76, %72
   br i1 %77, label %81, label %78
@@ -1167,7 +1166,7 @@ define dso_local range(i32 0, 2) i32 @trace_print_lat_context(ptr noundef %0) lo
   br i1 %83, label %.thread4, label %84
 
 84:                                               ; preds = %81
-  %.split = getelementptr %struct.trace_mark, ptr @mark, i64 %82
+  %.split = getelementptr [16 x i8], ptr @mark, i64 %82
   %85 = getelementptr i8, ptr %.split, i64 8
   %86 = load i8, ptr %85, align 8
   %87 = zext i8 %86 to i32
@@ -1210,7 +1209,7 @@ declare dso_local ptr @trace_find_next_entry(ptr noundef, ptr noundef, ptr nound
 define dso_local ptr @ftrace_find_event(i32 noundef %0) local_unnamed_addr #4 align 16 {
   %2 = and i32 %0, 127
   %3 = zext nneg i32 %2 to i64
-  %4 = getelementptr %struct.hlist_head, ptr @event_hash, i64 %3
+  %4 = getelementptr [8 x i8], ptr @event_hash, i64 %3
   br label %5
 
 5:                                                ; preds = %9, %1
@@ -1304,7 +1303,7 @@ define dso_local i32 @register_trace_event(ptr noundef %0) #0 align 16 {
 20:                                               ; preds = %17
   %21 = and i32 %11, 127
   %22 = zext nneg i32 %21 to i64
-  %23 = getelementptr %struct.hlist_head, ptr @event_hash, i64 %22
+  %23 = getelementptr [8 x i8], ptr @event_hash, i64 %22
   br label %24
 
 24:                                               ; preds = %28, %20
@@ -1369,7 +1368,7 @@ define dso_local i32 @register_trace_event(ptr noundef %0) #0 align 16 {
   %55 = load i32, ptr %10, align 8
   %56 = and i32 %55, 127
   %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr %struct.hlist_head, ptr @event_hash, i64 %57
+  %58 = getelementptr [8 x i8], ptr @event_hash, i64 %57
   %59 = load ptr, ptr %58, align 8
   store volatile ptr %59, ptr %0, align 8
   %60 = icmp eq ptr %59, null
@@ -1885,7 +1884,7 @@ define dso_local noundef i32 @init_events() local_unnamed_addr #5 section ".init
 
 11:                                               ; preds = %8, %1
   %12 = add nuw nsw i64 %2, 1
-  %13 = getelementptr ptr, ptr @events, i64 %12
+  %13 = getelementptr [8 x i8], ptr @events, i64 %12
   %14 = load ptr, ptr %13, align 8
   %15 = icmp eq i64 %12, 13
   br i1 %15, label %16, label %1, !llvm.loop !48
@@ -2407,7 +2406,7 @@ define internal i32 @trace_user_stack_print(ptr noundef %0, i32 noundef %1, ptr 
 
 .split.us:                                        ; preds = %.split.us.preheader, %55
   %41 = phi i64 [ %56, %55 ], [ 0, %.split.us.preheader ]
-  %42 = getelementptr i64, ptr %40, i64 %41
+  %42 = getelementptr [8 x i8], ptr %40, i64 %41
   %43 = load i64, ptr %42, align 8
   %44 = icmp eq i64 %43, 0
   br i1 %44, label %.critedge21, label %45
@@ -2441,7 +2440,7 @@ define internal i32 @trace_user_stack_print(ptr noundef %0, i32 noundef %1, ptr 
 
 .split:                                           ; preds = %27, %102
   %58 = phi i64 [ %103, %102 ], [ 0, %27 ]
-  %59 = getelementptr i64, ptr %29, i64 %58
+  %59 = getelementptr [8 x i8], ptr %29, i64 %58
   %60 = load i64, ptr %59, align 8
   %61 = icmp eq i64 %60, 0
   br i1 %61, label %.split7.us, label %62
@@ -2935,7 +2934,7 @@ define internal i32 @trace_timerlat_print(ptr noundef %0, i32 %1, ptr readnone c
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %14 = load i32, ptr %13, align 4
   %15 = sext i32 %14 to i64
-  %16 = getelementptr ptr, ptr @timerlat_lat_context, i64 %15
+  %16 = getelementptr [8 x i8], ptr @timerlat_lat_context, i64 %15
   %17 = load ptr, ptr %16, align 8
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %19 = load i64, ptr %18, align 8

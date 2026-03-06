@@ -368,7 +368,7 @@ define noundef i32 @_ZNK6icu_7724CollationElementIterator9getOffsetEv(ptr nounde
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %23 = load ptr, ptr %22, align 8, !tbaa !35
   %24 = zext nneg i32 %spec.select to i64
-  %25 = getelementptr inbounds nuw i32, ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !36
   br label %_ZNK6icu_779UVector3210elementAtiEi.exit
 
@@ -486,7 +486,7 @@ define linkonce_odr noundef i64 @_ZN6icu_7717CollationIterator6nextCEER10UErrorC
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %12 = sext i32 %5 to i64
   %13 = load ptr, ptr %11, align 8, !tbaa !38
-  %14 = getelementptr inbounds i64, ptr %13, i64 %12
+  %14 = getelementptr inbounds [8 x i8], ptr %13, i64 %12
   %15 = load i64, ptr %14, align 8, !tbaa !39
   br label %_ZN6icu_7717CollationIterator8CEBuffer9incLengthER10UErrorCode.exit.thread
 
@@ -533,7 +533,7 @@ define linkonce_odr noundef i64 @_ZN6icu_7717CollationIterator6nextCEER10UErrorC
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %43 = sext i32 %30 to i64
   %44 = load ptr, ptr %42, align 8, !tbaa !38
-  %45 = getelementptr inbounds i64, ptr %44, i64 %43
+  %45 = getelementptr inbounds [8 x i8], ptr %44, i64 %43
   store i64 %41, ptr %45, align 8, !tbaa !39
   br label %160
 
@@ -553,7 +553,7 @@ define linkonce_odr noundef i64 @_ZN6icu_7717CollationIterator6nextCEER10UErrorC
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %55 = sext i32 %52 to i64
   %56 = load ptr, ptr %54, align 8, !tbaa !38
-  %57 = getelementptr inbounds i64, ptr %56, i64 %55
+  %57 = getelementptr inbounds [8 x i8], ptr %56, i64 %55
   store i64 4311744768, ptr %57, align 8, !tbaa !39
   br label %160
 
@@ -572,7 +572,7 @@ define linkonce_odr noundef i64 @_ZN6icu_7717CollationIterator6nextCEER10UErrorC
   %68 = load ptr, ptr %63, align 8, !tbaa !55
   %69 = lshr i32 %49, 5
   %70 = zext nneg i32 %69 to i64
-  %71 = getelementptr inbounds nuw i16, ptr %68, i64 %70
+  %71 = getelementptr inbounds nuw [2 x i8], ptr %68, i64 %70
   %72 = load i16, ptr %71, align 2, !tbaa !56
   %73 = zext i16 %72 to i32
   %74 = shl nuw nsw i32 %73, 2
@@ -591,7 +591,7 @@ define linkonce_odr noundef i64 @_ZN6icu_7717CollationIterator6nextCEER10UErrorC
   %83 = lshr i32 %49, 5
   %84 = add nuw nsw i32 %82, %83
   %85 = zext nneg i32 %84 to i64
-  %86 = getelementptr inbounds nuw i16, ptr %80, i64 %85
+  %86 = getelementptr inbounds nuw [2 x i8], ptr %80, i64 %85
   %87 = load i16, ptr %86, align 2, !tbaa !56
   %88 = zext i16 %87 to i32
   %89 = shl nuw nsw i32 %88, 2
@@ -618,7 +618,7 @@ define linkonce_odr noundef i64 @_ZN6icu_7717CollationIterator6nextCEER10UErrorC
   %101 = load ptr, ptr %63, align 8, !tbaa !55
   %102 = lshr i32 %49, 11
   %103 = zext nneg i32 %102 to i64
-  %104 = getelementptr inbounds nuw i16, ptr %101, i64 %103
+  %104 = getelementptr inbounds nuw [2 x i8], ptr %101, i64 %103
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 4160
   %106 = load i16, ptr %105, align 2, !tbaa !56
   %107 = zext i16 %106 to i32
@@ -626,7 +626,7 @@ define linkonce_odr noundef i64 @_ZN6icu_7717CollationIterator6nextCEER10UErrorC
   %109 = and i32 %108, 63
   %110 = add nuw nsw i32 %109, %107
   %111 = zext nneg i32 %110 to i64
-  %112 = getelementptr inbounds nuw i16, ptr %101, i64 %111
+  %112 = getelementptr inbounds nuw [2 x i8], ptr %101, i64 %111
   %113 = load i16, ptr %112, align 2, !tbaa !56
   %114 = zext i16 %113 to i32
   %115 = shl nuw nsw i32 %114, 2
@@ -637,7 +637,7 @@ define linkonce_odr noundef i64 @_ZN6icu_7717CollationIterator6nextCEER10UErrorC
 _ZNK6icu_7713CollationData7getCE32Ei.exit:        ; preds = %67, %79, %92, %97, %100
   %118 = phi i32 [ %76, %67 ], [ %91, %79 ], [ 128, %92 ], [ %99, %97 ], [ %117, %100 ]
   %119 = sext i32 %118 to i64
-  %120 = getelementptr inbounds i32, ptr %65, i64 %119
+  %120 = getelementptr inbounds [4 x i8], ptr %65, i64 %119
   %121 = load i32, ptr %120, align 4, !tbaa !36
   %122 = and i32 %121, 255
   %123 = icmp samesign ult i32 %122, 192
@@ -660,7 +660,7 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit:        ; preds = %67, %79, %92, %97, 
   %137 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %138 = sext i32 %125 to i64
   %139 = load ptr, ptr %137, align 8, !tbaa !38
-  %140 = getelementptr inbounds i64, ptr %139, i64 %138
+  %140 = getelementptr inbounds [8 x i8], ptr %139, i64 %138
   store i64 %136, ptr %140, align 8, !tbaa !39
   br label %160
 
@@ -687,7 +687,7 @@ _ZNK6icu_7713CollationData7getCE32Ei.exit:        ; preds = %67, %79, %92, %97, 
   %153 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %154 = sext i32 %147 to i64
   %155 = load ptr, ptr %153, align 8, !tbaa !38
-  %156 = getelementptr inbounds i64, ptr %155, i64 %154
+  %156 = getelementptr inbounds [8 x i8], ptr %155, i64 %154
   store i64 %152, ptr %156, align 8, !tbaa !39
   br label %160
 
@@ -978,7 +978,7 @@ _ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread.i: ; preds = %_Z
   %92 = getelementptr inbounds nuw i8, ptr %76, i64 24
   %93 = load ptr, ptr %92, align 8, !tbaa !35
   %94 = sext i32 %91 to i64
-  %95 = getelementptr inbounds i32, ptr %93, i64 %94
+  %95 = getelementptr inbounds [4 x i8], ptr %93, i64 %94
   store i32 %84, ptr %95, align 4, !tbaa !36
   %96 = load i32, ptr %77, align 8, !tbaa !22
   %97 = add nsw i32 %96, 1
@@ -1011,7 +1011,7 @@ _ZN6icu_779UVector3214ensureCapacityEiR10UErrorCode.exit.thread.i35: ; preds = %
   %107 = getelementptr inbounds nuw i8, ptr %98, i64 24
   %108 = load ptr, ptr %107, align 8, !tbaa !35
   %109 = sext i32 %106 to i64
-  %110 = getelementptr inbounds i32, ptr %108, i64 %109
+  %110 = getelementptr inbounds [4 x i8], ptr %108, i64 %109
   store i32 %56, ptr %110, align 4, !tbaa !36
   %111 = load i32, ptr %99, align 8, !tbaa !22
   %112 = add nsw i32 %111, 1
@@ -1098,7 +1098,7 @@ define void @_ZN6icu_7724CollationElementIterator9setOffsetEiR10UErrorCode(ptr n
   %.not.i.i.i = icmp eq i16 %33, 0
   %34 = load ptr, ptr %21, align 8
   %35 = select i1 %.not.i.i.i, ptr %34, ptr %20
-  %36 = getelementptr inbounds nuw i16, ptr %35, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [2 x i8], ptr %35, i64 %indvars.iv
   %37 = load i16, ptr %36, align 2, !tbaa !59
   %38 = zext i16 %37 to i32
   br label %_ZNK6icu_7713UnicodeString6charAtEi.exit
@@ -1252,7 +1252,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %6, %14, %16
   %41 = load i32, ptr %40, align 4
   %42 = select i1 %37, i32 %41, i32 %39
   %43 = sext i32 %42 to i64
-  %44 = getelementptr inbounds i16, ptr %.0.i, i64 %43
+  %44 = getelementptr inbounds [2 x i8], ptr %.0.i, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %30, i64 8
   %46 = load ptr, ptr %35, align 8, !tbaa !50
   store ptr %46, ptr %45, align 8, !tbaa !79
@@ -1301,7 +1301,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %6, %14, %16
   %72 = load i32, ptr %71, align 4
   %73 = select i1 %68, i32 %72, i32 %70
   %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds i16, ptr %.0.i, i64 %74
+  %75 = getelementptr inbounds [2 x i8], ptr %.0.i, i64 %74
   %76 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %77 = load ptr, ptr %66, align 8, !tbaa !50
   store ptr %77, ptr %76, align 8, !tbaa !79
@@ -1733,7 +1733,7 @@ define internal void @_ZN6icu_7712_GLOBAL__N_110MaxExpSink15handleExpansionEPKli
   br label %.preheader
 
 5:                                                ; preds = %.preheader
-  %6 = getelementptr i64, ptr %1, i64 %wide.trip.count
+  %6 = getelementptr [8 x i8], ptr %1, i64 %wide.trip.count
   %7 = getelementptr i8, ptr %6, i64 -8
   %8 = load i64, ptr %7, align 8, !tbaa !39
   %9 = lshr i64 %8, 32
@@ -1751,7 +1751,7 @@ define internal void @_ZN6icu_7712_GLOBAL__N_110MaxExpSink15handleExpansionEPKli
 .preheader:                                       ; preds = %.preheader.preheader, %.preheader
   %indvars.iv = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next, %.preheader ]
   %.02127 = phi i32 [ 0, %.preheader.preheader ], [ %23, %.preheader ]
-  %19 = getelementptr inbounds nuw i64, ptr %1, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %20 = load i64, ptr %19, align 8, !tbaa !39
   %21 = and i64 %20, 281470698455103
   %.not25 = icmp eq i64 %21, 0

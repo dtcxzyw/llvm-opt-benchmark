@@ -170,10 +170,10 @@ define internal i32 @yop_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   %47 = load ptr, ptr %46, align 8, !tbaa !43
   %48 = getelementptr inbounds nuw i8, ptr %6, i64 20
   %49 = zext nneg i8 %39 to i64
-  %50 = getelementptr inbounds nuw i32, ptr %48, i64 %49
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %48, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !38
   %52 = sext i32 %51 to i64
-  %invariant.gep = getelementptr i32, ptr %47, i64 %52
+  %invariant.gep = getelementptr [4 x i8], ptr %47, i64 %52
   br label %68
 
 .preheader92:                                     ; preds = %68, %43
@@ -219,7 +219,7 @@ define internal i32 @yop_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
   %80 = zext i8 %79 to i32
   %81 = shl nuw nsw i32 %80, 2
   %82 = or disjoint i32 %77, %81
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   %83 = lshr i32 %82, 6
   %84 = and i32 %83, 197379
   %85 = or i32 %82, %84

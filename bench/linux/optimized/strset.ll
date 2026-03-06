@@ -217,7 +217,7 @@ define internal range(i32 -2147483648, 1) i32 @strset_prepare_data(ptr noundef r
   br i1 %15, label %27, label %16
 
 16:                                               ; preds = %10
-  %17 = getelementptr %struct.strset_info, ptr %5, i64 %11
+  %17 = getelementptr [16 x i8], ptr %5, i64 %11
   %18 = load i8, ptr %17, align 8, !range !15, !noundef !16
   %19 = icmp eq i8 %18, 0
   br i1 %19, label %27, label %20
@@ -268,12 +268,12 @@ define internal range(i32 -2147483648, 1) i32 @strset_prepare_data(ptr noundef r
   br i1 %.not, label %128, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %42
-  %.phi.trans.insert = getelementptr %struct.strset_info, ptr %5, i64 %39
+  %.phi.trans.insert = getelementptr [16 x i8], ptr %5, i64 %39
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !range !15
   br label %58
 
 46:                                               ; preds = %38
-  %47 = getelementptr %struct.strset_info, ptr %5, i64 %39
+  %47 = getelementptr [16 x i8], ptr %5, i64 %39
   %48 = load i8, ptr %47, align 8, !range !15, !noundef !16
   %49 = icmp eq i8 %48, 0
   br i1 %49, label %50, label %54
@@ -293,7 +293,7 @@ define internal range(i32 -2147483648, 1) i32 @strset_prepare_data(ptr noundef r
 
 58:                                               ; preds = %._crit_edge, %54
   %59 = phi i8 [ %.pre, %._crit_edge ], [ %48, %54 ]
-  %60 = getelementptr %struct.strset_info, ptr %5, i64 %39
+  %60 = getelementptr [16 x i8], ptr %5, i64 %39
   %61 = icmp eq i8 %59, 0
   br i1 %61, label %128, label %62
 
@@ -423,7 +423,7 @@ define internal range(i32 -2147483648, 1) i32 @strset_prepare_data(ptr noundef r
 
 135:                                              ; preds = %144, %133
   %136 = phi i64 [ 0, %133 ], [ %145, %144 ]
-  %137 = getelementptr %struct.strset_info, ptr %5, i64 %136
+  %137 = getelementptr [16 x i8], ptr %5, i64 %136
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 1
   %139 = load i8, ptr %138, align 1, !range !15, !noundef !16
   %140 = icmp eq i8 %139, 0
@@ -459,7 +459,7 @@ define internal i32 @strset_reply_size(ptr noundef readonly captures(none) %0, p
 .split.us:                                        ; preds = %2, %49
   %8 = phi i64 [ %50, %49 ], [ 0, %2 ]
   %9 = phi i32 [ %.ph.us, %49 ], [ 4, %2 ]
-  %10 = getelementptr %struct.strset_info, ptr %6, i64 %8
+  %10 = getelementptr [16 x i8], ptr %6, i64 %8
   %11 = load i8, ptr %10, align 8, !range !15, !noundef !16
   %12 = icmp eq i8 %11, 0
   br i1 %12, label %13, label %17
@@ -532,7 +532,7 @@ define internal i32 @strset_reply_size(ptr noundef readonly captures(none) %0, p
   br i1 %.not, label %86, label %57
 
 57:                                               ; preds = %.split
-  %58 = getelementptr %struct.strset_info, ptr %6, i64 %52
+  %58 = getelementptr [16 x i8], ptr %6, i64 %52
   %59 = load i8, ptr %7, align 4, !range !15, !noundef !16
   %60 = icmp ne i8 %59, 0
   %61 = getelementptr inbounds nuw i8, ptr %58, i64 4
@@ -620,12 +620,12 @@ define internal noundef range(i32 -95, 1) i32 @strset_fill_reply(ptr noundef %0,
   br i1 %.not, label %162, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %26
-  %.phi.trans.insert = getelementptr %struct.strset_info, ptr %19, i64 %23
+  %.phi.trans.insert = getelementptr [16 x i8], ptr %19, i64 %23
   %.pre = load i8, ptr %.phi.trans.insert, align 8, !range !15
   br label %42
 
 30:                                               ; preds = %22
-  %31 = getelementptr %struct.strset_info, ptr %19, i64 %23
+  %31 = getelementptr [16 x i8], ptr %19, i64 %23
   %32 = load i8, ptr %31, align 8, !range !15, !noundef !16
   %33 = icmp eq i8 %32, 0
   br i1 %33, label %34, label %38
@@ -645,7 +645,7 @@ define internal noundef range(i32 -95, 1) i32 @strset_fill_reply(ptr noundef %0,
 
 42:                                               ; preds = %._crit_edge, %38
   %43 = phi i8 [ %.pre, %._crit_edge ], [ %32, %38 ]
-  %44 = getelementptr %struct.strset_info, ptr %19, i64 %23
+  %44 = getelementptr [16 x i8], ptr %19, i64 %23
   %45 = load i8, ptr %20, align 4, !range !15, !noundef !16
   %46 = icmp eq i8 %45, 0
   %47 = icmp eq i8 %43, 0
@@ -884,7 +884,7 @@ define internal void @strset_cleanup_data(ptr noundef captures(none) %0) #0 alig
 
 3:                                                ; preds = %12, %1
   %4 = phi i64 [ 0, %1 ], [ %13, %12 ]
-  %5 = getelementptr %struct.strset_info, ptr %2, i64 %4
+  %5 = getelementptr [16 x i8], ptr %2, i64 %4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 1
   %7 = load i8, ptr %6, align 1, !range !15, !noundef !16
   %8 = icmp eq i8 %7, 0

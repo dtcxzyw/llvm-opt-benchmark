@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"struct.std::ios_base::_Words" = type { ptr, i64 }
 
 $_ZN5boost6locale4impl8ios_propINS0_8ios_infoEE6createERSt8ios_base = comdat any
 
@@ -355,7 +354,7 @@ _ZN5boost6locale4impl8ios_propINS0_8ios_infoEE6get_idEv.exit.i.i: ; preds = %6, 
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %14 = load ptr, ptr %13, align 8, !tbaa !37
   %15 = sext i32 %8 to i64
-  %16 = getelementptr inbounds %"struct.std::ios_base::_Words", ptr %14, i64 %15
+  %16 = getelementptr inbounds [16 x i8], ptr %14, i64 %15
   br label %_ZN5boost6locale4impl8ios_propINS0_8ios_infoEE8get_implERSt8ios_base.exit.i
 
 17:                                               ; preds = %_ZN5boost6locale4impl8ios_propINS0_8ios_infoEE6get_idEv.exit.i.i
@@ -432,7 +431,7 @@ _ZN5boost6locale4impl8ios_propINS0_8ios_infoEE6get_idEv.exit: ; preds = %1, %4, 
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %16 = load ptr, ptr %15, align 8, !tbaa !37
   %17 = sext i32 %8 to i64
-  %18 = getelementptr inbounds %"struct.std::ios_base::_Words", ptr %16, i64 %17
+  %18 = getelementptr inbounds [16 x i8], ptr %16, i64 %17
   br label %_ZNSt8ios_base5pwordEi.exit
 
 19:                                               ; preds = %10
@@ -483,7 +482,7 @@ _ZN5boost6locale4impl8ios_propINS0_8ios_infoEE6get_idEv.exit.i: ; preds = %8, %6
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %16 = load ptr, ptr %15, align 8, !tbaa !37
   %17 = sext i32 %10 to i64
-  %18 = getelementptr inbounds %"struct.std::ios_base::_Words", ptr %16, i64 %17
+  %18 = getelementptr inbounds [16 x i8], ptr %16, i64 %17
   br label %_ZN5boost6locale4impl8ios_propINS0_8ios_infoEE8get_implERSt8ios_base.exit
 
 19:                                               ; preds = %_ZN5boost6locale4impl8ios_propINS0_8ios_infoEE6get_idEv.exit.i
@@ -513,7 +512,7 @@ _ZN5boost6locale4impl8ios_propINS0_8ios_infoEE8get_implERSt8ios_base.exit: ; pre
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %29 = load ptr, ptr %28, align 8, !tbaa !37
   %30 = sext i32 %2 to i64
-  %31 = getelementptr inbounds %"struct.std::ios_base::_Words", ptr %29, i64 %30
+  %31 = getelementptr inbounds [16 x i8], ptr %29, i64 %30
   br label %_ZNSt8ios_base5pwordEi.exit
 
 32:                                               ; preds = %24
@@ -539,7 +538,7 @@ _ZNSt8ios_base5pwordEi.exit:                      ; preds = %27, %32
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 200
   %42 = load ptr, ptr %41, align 8, !tbaa !37
   %43 = sext i32 %2 to i64
-  %44 = getelementptr inbounds %"struct.std::ios_base::_Words", ptr %42, i64 %43
+  %44 = getelementptr inbounds [16 x i8], ptr %42, i64 %43
   br label %_ZNSt8ios_base5pwordEi.exit11
 
 45:                                               ; preds = %37

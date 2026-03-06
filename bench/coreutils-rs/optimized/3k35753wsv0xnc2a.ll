@@ -174,7 +174,7 @@ define hidden void @"_ZN3nom5multi8many_m_n28_$u7b$$u7b$closure$u7d$$u7d$17h6186
 38:                                               ; preds = %.noexc28, %31
   %39 = phi i64 [ %.pre.i, %.noexc28 ], [ %34, %31 ]
   %40 = load ptr, ptr %18, align 8, !alias.scope !17, !nonnull !4, !noundef !4
-  %41 = getelementptr inbounds i32, ptr %40, i64 %39
+  %41 = getelementptr inbounds [4 x i8], ptr %40, i64 %39
   store i32 %.sroa.15.sroa.0.0.insert.ext48, ptr %41, align 4
   %42 = load i64, ptr %19, align 8, !alias.scope !17, !noundef !4
   %43 = add i64 %42, 1
@@ -435,7 +435,7 @@ define hidden void @"_ZN4core3ptr117drop_in_place$LT$$u5b$core..result..Result$L
 
 7:                                                ; preds = %.lr.ph, %"_ZN4core3ptr107drop_in_place$LT$core..result..Result$LT$uu_tr..operation..Sequence$C$uu_tr..operation..BadSequence$GT$$GT$17h1688d2c515a0e454E.llvm.17160738934229394523.exit"
   %.07 = phi i64 [ 0, %.lr.ph ], [ %9, %"_ZN4core3ptr107drop_in_place$LT$core..result..Result$LT$uu_tr..operation..Sequence$C$uu_tr..operation..BadSequence$GT$$GT$17h1688d2c515a0e454E.llvm.17160738934229394523.exit" ]
-  %8 = getelementptr inbounds { i64, [2 x i64] }, ptr %0, i64 %.07
+  %8 = getelementptr inbounds [24 x i8], ptr %0, i64 %.07
   %9 = add nuw i64 %.07, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !52)
   %10 = load i64, ptr %8, align 8, !range !40, !alias.scope !52, !noundef !4
@@ -490,7 +490,7 @@ define hidden void @"_ZN4core3ptr117drop_in_place$LT$$u5b$core..result..Result$L
   br label %22
 
 26:                                               ; preds = %22
-  %27 = getelementptr inbounds { i64, [2 x i64] }, ptr %0, i64 %.1
+  %27 = getelementptr inbounds [24 x i8], ptr %0, i64 %.1
   %28 = add i64 %.1, 1
   invoke void @"_ZN4core3ptr107drop_in_place$LT$core..result..Result$LT$uu_tr..operation..Sequence$C$uu_tr..operation..BadSequence$GT$$GT$17h1688d2c515a0e454E.llvm.17160738934229394523"(ptr noalias noundef nonnull align 8 dereferenceable(24) %27) #16
           to label %22 unwind label %30

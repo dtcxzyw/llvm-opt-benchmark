@@ -8,10 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.agxbuf = type { %union.anon }
 %union.anon = type { %struct.anon }
 %struct.anon = type { ptr, i64, i64, [7 x i8], i8 }
-%struct.fontdef_t = type { ptr, ptr, i32, ptr }
-%struct.face_t = type { i32, ptr }
-%struct._PostscriptAlias = type { ptr, ptr, ptr, ptr, ptr, i32, ptr, ptr, ptr }
-%struct.gv_font_map = type { ptr, ptr }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
 
 @Verbose = external local_unnamed_addr global i8, align 1
@@ -184,8 +180,8 @@ gv_calloc.exit:                                   ; preds = %1
 
 strview_str.exit.i.us:                            ; preds = %gv_calloc.exit, %strview_str.exit.i.us
   %.055135.i.us = phi i64 [ %28, %strview_str.exit.i.us ], [ 0, %gv_calloc.exit ]
-  %22 = getelementptr inbounds nuw %struct.availfont_t, ptr %14, i64 %.055135.i.us
-  %23 = getelementptr inbounds nuw %struct.fontdef_t, ptr @gv_ps_fontdefs, i64 %.055135.i.us
+  %22 = getelementptr inbounds nuw [24 x i8], ptr %14, i64 %.055135.i.us
+  %23 = getelementptr inbounds nuw [32 x i8], ptr @gv_ps_fontdefs, i64 %.055135.i.us
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = load ptr, ptr %24, align 8, !tbaa !13, !noalias !8
   store ptr %25, ptr %22, align 8, !tbaa !17, !alias.scope !8
@@ -204,8 +200,8 @@ gv_calloc.exit.splitthread-pre-split:             ; preds = %strview_str.exit.i
 gv_calloc.exit.split:                             ; preds = %gv_calloc.exit, %gv_calloc.exit.splitthread-pre-split
   %29 = phi i32 [ %.pr, %gv_calloc.exit.splitthread-pre-split ], [ %20, %gv_calloc.exit ]
   %.055135.i = phi i64 [ %139, %gv_calloc.exit.splitthread-pre-split ], [ 0, %gv_calloc.exit ]
-  %30 = getelementptr inbounds nuw %struct.availfont_t, ptr %14, i64 %.055135.i
-  %31 = getelementptr inbounds nuw %struct.fontdef_t, ptr @gv_ps_fontdefs, i64 %.055135.i
+  %30 = getelementptr inbounds nuw [24 x i8], ptr %14, i64 %.055135.i
+  %31 = getelementptr inbounds nuw [32 x i8], ptr @gv_ps_fontdefs, i64 %.055135.i
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %33 = load ptr, ptr %32, align 8, !tbaa !13, !noalias !8
   store ptr %33, ptr %30, align 8, !tbaa !17, !alias.scope !8
@@ -224,7 +220,7 @@ gv_calloc.exit.split:                             ; preds = %gv_calloc.exit, %gv
 
 37:                                               ; preds = %36, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %36 ]
-  %38 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv.i
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv.i
   %39 = load ptr, ptr %38, align 8, !tbaa !26, !noalias !8
   %40 = call ptr @pango_font_family_get_name(ptr noundef %39) #24, !noalias !8
   %41 = call i32 @strcasecmp(ptr noundef %33, ptr noundef %40) #24, !noalias !8
@@ -251,7 +247,7 @@ gv_calloc.exit.split:                             ; preds = %gv_calloc.exit, %gv
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.loopexit.i.i ], [ 0, %43 ]
   %.01115.i.i = phi i32 [ %.1.i.i, %.loopexit.i.i ], [ 0, %43 ]
   %47 = load ptr, ptr %8, align 8, !tbaa !28, !noalias !8
-  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %indvars.iv.i.i
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv.i.i
   %49 = load ptr, ptr %48, align 8, !tbaa !30, !noalias !8
   %50 = call ptr @pango_font_face_get_face_name(ptr noundef %49) #24, !noalias !8
   br label %53
@@ -263,7 +259,7 @@ gv_calloc.exit.split:                             ; preds = %gv_calloc.exit, %gv
 
 53:                                               ; preds = %51, %.lr.ph.i.i
   %.013.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %52, %51 ]
-  %54 = getelementptr inbounds nuw %struct.face_t, ptr @facelist, i64 %.013.i.i
+  %54 = getelementptr inbounds nuw [16 x i8], ptr @facelist, i64 %.013.i.i
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8, !tbaa !33, !noalias !8
   %57 = call ptr @strcasestr(ptr noundef %50, ptr noundef %56) #23, !noalias !8
@@ -301,7 +297,7 @@ gv_calloc.exit.split:                             ; preds = %gv_calloc.exit, %gv
 
 .preheader.us.i:                                  ; preds = %..thread91_crit_edge.us.i, %.preheader.lr.ph.i
   %indvars.iv160.i = phi i64 [ %indvars.iv.next161.i, %..thread91_crit_edge.us.i ], [ 0, %.preheader.lr.ph.i ]
-  %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %indvars.iv160.i
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %indvars.iv160.i
   %71 = load ptr, ptr %70, align 8, !tbaa !39, !noalias !8
   br label %73
 
@@ -312,7 +308,7 @@ gv_calloc.exit.split:                             ; preds = %gv_calloc.exit, %gv
 
 73:                                               ; preds = %72, %.preheader.us.i
   %indvars.iv155.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next156.i, %72 ]
-  %74 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv155.i
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv155.i
   %75 = load ptr, ptr %74, align 8, !tbaa !26, !noalias !8
   %76 = call ptr @pango_font_family_get_name(ptr noundef %75) #24, !noalias !8
   %77 = call i32 @strcasecmp(ptr noundef %71, ptr noundef %76) #24, !noalias !8
@@ -348,7 +344,7 @@ gv_calloc.exit.split:                             ; preds = %gv_calloc.exit, %gv
   %indvars.iv.i61.i = phi i64 [ %indvars.iv.next.i67.i, %.loopexit.i65.i ], [ 0, %.split.us.i ]
   %.01115.i62.i = phi i32 [ %.1.i66.i, %.loopexit.i65.i ], [ 0, %.split.us.i ]
   %83 = load ptr, ptr %6, align 8, !tbaa !28, !noalias !8
-  %84 = getelementptr inbounds nuw ptr, ptr %83, i64 %indvars.iv.i61.i
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %indvars.iv.i61.i
   %85 = load ptr, ptr %84, align 8, !tbaa !30, !noalias !8
   %86 = call ptr @pango_font_face_get_face_name(ptr noundef %85) #24, !noalias !8
   br label %89
@@ -360,7 +356,7 @@ gv_calloc.exit.split:                             ; preds = %gv_calloc.exit, %gv
 
 89:                                               ; preds = %87, %.lr.ph.i60.i
   %.013.i63.i = phi i64 [ 0, %.lr.ph.i60.i ], [ %88, %87 ]
-  %90 = getelementptr inbounds nuw %struct.face_t, ptr @facelist, i64 %.013.i63.i
+  %90 = getelementptr inbounds nuw [16 x i8], ptr @facelist, i64 %.013.i63.i
   %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
   %92 = load ptr, ptr %91, align 8, !tbaa !33, !noalias !8
   %93 = call ptr @strcasestr(ptr noundef %86, ptr noundef %92) #23, !noalias !8
@@ -394,7 +390,7 @@ gv_calloc.exit.split:                             ; preds = %gv_calloc.exit, %gv
 
 103:                                              ; preds = %102, %.preheader116.i
   %indvars.iv165.i = phi i64 [ 0, %.preheader116.i ], [ %indvars.iv.next166.i, %102 ]
-  %104 = getelementptr inbounds nuw ptr, ptr %35, i64 %indvars.iv165.i
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv165.i
   %105 = load ptr, ptr %104, align 8, !tbaa !26, !noalias !8
   %106 = call ptr @pango_font_family_get_name(ptr noundef %105) #24, !noalias !8
   %107 = call i32 @strcasecmp(ptr noundef %81, ptr noundef %106) #24, !noalias !8
@@ -414,7 +410,7 @@ gv_calloc.exit.split:                             ; preds = %gv_calloc.exit, %gv
   %indvars.iv.i75.i = phi i64 [ %indvars.iv.next.i81.i, %.loopexit.i79.i ], [ 0, %109 ]
   %.01115.i76.i = phi i32 [ %.1.i80.i, %.loopexit.i79.i ], [ 0, %109 ]
   %112 = load ptr, ptr %4, align 8, !tbaa !28, !noalias !8
-  %113 = getelementptr inbounds nuw ptr, ptr %112, i64 %indvars.iv.i75.i
+  %113 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %indvars.iv.i75.i
   %114 = load ptr, ptr %113, align 8, !tbaa !30, !noalias !8
   %115 = call ptr @pango_font_face_get_face_name(ptr noundef %114) #24, !noalias !8
   br label %118
@@ -426,7 +422,7 @@ gv_calloc.exit.split:                             ; preds = %gv_calloc.exit, %gv
 
 118:                                              ; preds = %116, %.lr.ph.i74.i
   %.013.i77.i = phi i64 [ 0, %.lr.ph.i74.i ], [ %117, %116 ]
-  %119 = getelementptr inbounds nuw %struct.face_t, ptr @facelist, i64 %.013.i77.i
+  %119 = getelementptr inbounds nuw [16 x i8], ptr @facelist, i64 %.013.i77.i
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 8
   %121 = load ptr, ptr %120, align 8, !tbaa !33, !noalias !8
   %122 = call ptr @strcasestr(ptr noundef %115, ptr noundef %121) #23, !noalias !8
@@ -504,7 +500,7 @@ gv_get_ps_fontlist.exit:                          ; preds = %strview_str.exit.i.
 
 148:                                              ; preds = %148, %147
   %.03.i = phi i64 [ 0, %147 ], [ %152, %148 ]
-  %149 = getelementptr inbounds nuw %struct.availfont_t, ptr %3, i64 %.03.i
+  %149 = getelementptr inbounds nuw [24 x i8], ptr %3, i64 %.03.i
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 8
   %151 = load ptr, ptr %150, align 8, !tbaa !19
   call void @free(ptr noundef %151) #23
@@ -540,12 +536,12 @@ agxbfree.exit16:                                  ; preds = %agxbfree.exit, %156
 
 159:                                              ; preds = %gv_get_ps_fontlist.exit, %gv_get_font.exit
   %.047 = phi i64 [ 0, %gv_get_ps_fontlist.exit ], [ %450, %gv_get_font.exit ]
-  %160 = getelementptr inbounds nuw %struct._PostscriptAlias, ptr @postscript_alias, i64 %.047
+  %160 = getelementptr inbounds nuw [72 x i8], ptr @postscript_alias, i64 %.047
   %161 = load ptr, ptr %160, align 8, !tbaa !48
   %162 = getelementptr inbounds nuw i8, ptr %160, i64 40
   %163 = load i32, ptr %162, align 8, !tbaa !50
   %164 = sext i32 %163 to i64
-  %165 = getelementptr inbounds %struct.gv_font_map, ptr %15, i64 %164
+  %165 = getelementptr inbounds [16 x i8], ptr %15, i64 %164
   store ptr %161, ptr %165, align 8, !tbaa !51
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %2, ptr noundef nonnull align 8 dereferenceable(240) %14, i64 240, i1 false)
@@ -553,7 +549,7 @@ agxbfree.exit16:                                  ; preds = %agxbfree.exit, %156
 
 166:                                              ; preds = %446, %159
   %.039148.i = phi i64 [ 0, %159 ], [ %447, %446 ]
-  %167 = getelementptr inbounds nuw %struct.availfont_t, ptr %2, i64 %.039148.i
+  %167 = getelementptr inbounds nuw [24 x i8], ptr %2, i64 %.039148.i
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 16
   %169 = load i32, ptr %168, align 8, !tbaa !20
   %.not.i17 = icmp eq i32 %169, 0
@@ -639,7 +635,7 @@ agxbclear.exit.thread.i.i.i:                      ; preds = %agxbputc.exit.i.i.i
 
 196:                                              ; preds = %203, %173
   %.06.i.i = phi i64 [ 0, %173 ], [ %204, %203 ]
-  %197 = getelementptr inbounds nuw %struct.face_t, ptr @facelist, i64 %.06.i.i
+  %197 = getelementptr inbounds nuw [16 x i8], ptr @facelist, i64 %.06.i.i
   %198 = load i32, ptr %197, align 16, !tbaa !35
   %199 = and i32 %198, %169
   %.not.i.i18 = icmp eq i32 %199, 0
@@ -1259,7 +1255,7 @@ gv_get_font.exit:                                 ; preds = %446, %agxbdisown.ex
   %.pre-phi = phi i64 [ %.pre71, %agxbdisown.exit.i ], [ %164, %446 ]
   %spec.select.i = phi ptr [ %.0.i.i, %agxbdisown.exit.i ], [ null, %446 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %448 = getelementptr inbounds %struct.gv_font_map, ptr %15, i64 %.pre-phi
+  %448 = getelementptr inbounds [16 x i8], ptr %15, i64 %.pre-phi
   %449 = getelementptr inbounds nuw i8, ptr %448, i64 8
   store ptr %spec.select.i, ptr %449, align 8, !tbaa !59
   %450 = add nuw nsw i64 %.047, 1
@@ -1295,7 +1291,7 @@ define internal fastcc void @printFontMap(ptr noundef readonly captures(none) %0
 
 3:                                                ; preds = %1, %13
   %.013 = phi i64 [ 0, %1 ], [ %14, %13 ]
-  %4 = getelementptr inbounds nuw %struct.gv_font_map, ptr %0, i64 %.013
+  %4 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %.013
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !59
   %.not = icmp eq ptr %6, null

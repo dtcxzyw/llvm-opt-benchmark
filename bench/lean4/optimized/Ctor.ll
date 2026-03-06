@@ -57,7 +57,7 @@ define internal fastcc ptr @lean_array_set(ptr noundef %0, ptr noundef %1, ptr n
 lean_ensure_exclusive_array.exit.i:               ; preds = %12, %10
   %.0.i.i = phi ptr [ %13, %12 ], [ %0, %10 ]
   %14 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %7
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %7
   %16 = load ptr, ptr %15, align 8, !tbaa !11
   %17 = ptrtoint ptr %16 to i64
   %18 = trunc i64 %17 to i1
@@ -13830,7 +13830,7 @@ declare ptr @l_Lean_Meta_isExprDefEq(ptr noundef, ptr noundef, ptr noundef, ptr 
 define internal fastcc void @lean_ctor_release(ptr noundef captures(none) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = zext nneg i32 %1 to i64
-  %5 = getelementptr inbounds nuw ptr, ptr %3, i64 %4
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !11
   %7 = ptrtoint ptr %6 to i64
   %8 = trunc i64 %7 to i1

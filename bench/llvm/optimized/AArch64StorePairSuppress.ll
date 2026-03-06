@@ -9,7 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::reference_wrapper" = type { ptr }
 %"class.llvm::MachineTraceMetrics::Trace" = type { ptr, ptr }
 %"class.llvm::ArrayRef.327" = type { ptr, i64 }
-%"struct.llvm::MCSchedClassDesc" = type { i16, i16, i16, i16, i16, i16, i16 }
 
 $_ZN4llvm19MachineFunctionPass16doInitializationERNS_6ModuleE = comdat any
 
@@ -492,12 +491,12 @@ _ZNK4llvm4Pass11getAnalysisINS_30MachineTraceMetricsWrapperPassEEERT_v.exit: ; p
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %93 = load ptr, ptr %54, align 8, !tbaa !354
   %94 = zext i16 %92 to i64
-  %95 = getelementptr inbounds nuw %"struct.llvm::MCSchedClassDesc", ptr %93, i64 %94
+  %95 = getelementptr inbounds nuw [14 x i8], ptr %93, i64 %94
   store ptr %95, ptr %5, align 8, !tbaa !34
   %96 = getelementptr inbounds i8, ptr %90, i64 -234426
   %97 = load i16, ptr %96, align 2, !tbaa !352
   %98 = zext i16 %97 to i64
-  %99 = getelementptr inbounds nuw %"struct.llvm::MCSchedClassDesc", ptr %93, i64 %98
+  %99 = getelementptr inbounds nuw [14 x i8], ptr %93, i64 %98
   %100 = load i16, ptr %95, align 2
   %101 = and i16 %100, 8190
   %switch.i = icmp eq i16 %101, 8190
@@ -743,7 +742,7 @@ _ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit.thread: ; 
 _ZN4llvm23SmallVectorTemplateBaseIPKvLb1EE9push_backES2_.exit: ; preds = %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit.thread, %47
   %.pre-phi = phi i64 [ %7, %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit.thread ], [ %.pre17, %47 ]
   %50 = phi ptr [ %4, %_ZN4llvm12is_containedIRNS_15SmallVectorImplIPKvEES3_EEbOT_RKT0_.exit.thread ], [ %.pre, %47 ]
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %.pre-phi
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %.pre-phi
   %52 = ptrtoint ptr %2 to i64
   store i64 %52, ptr %51, align 1
   %53 = load i32, ptr %5, align 8, !tbaa !42

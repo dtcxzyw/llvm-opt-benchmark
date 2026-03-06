@@ -1984,7 +1984,7 @@ define void @_ZN16uv_configuration15config_settings14ConfigSettings5merge17h09bb
 56:                                               ; preds = %50
   %.sroa.046.0.copyload = load ptr, ptr %24, align 8, !nonnull !4, !noundef !4
   %.sroa.650.0.copyload = load i64, ptr %.sroa.650.0..sroa_idx, align 8
-  %57 = getelementptr inbounds { [4 x i64] }, ptr %.sroa.046.0.copyload, i64 %.sroa.650.0.copyload
+  %57 = getelementptr inbounds [32 x i8], ptr %.sroa.046.0.copyload, i64 %.sroa.650.0.copyload
   %58 = load i64, ptr %57, align 8, !range !81, !noundef !4
   %trunc = trunc nuw i64 %58 to i1
   br i1 %trunc, label %61, label %59
@@ -2218,7 +2218,7 @@ define void @_ZN16uv_configuration15config_settings14ConfigSettings5merge17h09bb
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h77d3661dc37fd52aE.exit": ; preds = %116, %121
   %126 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %127 = load ptr, ptr %126, align 8, !alias.scope !383, !noalias !386, !nonnull !4, !noundef !4
-  %128 = getelementptr inbounds { { { { i64, ptr, {} }, {} }, i64 } }, ptr %127, i64 %118
+  %128 = getelementptr inbounds [24 x i8], ptr %127, i64 %118
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %128, ptr noundef nonnull align 8 dereferenceable(24) %7, i64 24, i1 false)
   %129 = add i64 %118, 1
   store i64 %129, ptr %117, align 8, !alias.scope !383, !noalias !386
@@ -2231,7 +2231,7 @@ define void @_ZN16uv_configuration15config_settings14ConfigSettings5merge17h09bb
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %131 = icmp ult i64 %.sroa.3.0.copyload, 384307168202282326
   call void @llvm.assume(i1 %131)
-  %132 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %.sroa.2.0.copyload, i64 %.sroa.3.0.copyload
+  %132 = getelementptr inbounds nuw [24 x i8], ptr %.sroa.2.0.copyload, i64 %.sroa.3.0.copyload
   %133 = icmp sgt i64 %.sroa.060.0.copyload, -1
   call void @llvm.assume(i1 %133)
   store ptr %.sroa.2.0.copyload, ptr %5, align 8, !alias.scope !388, !noalias !391
@@ -2271,7 +2271,7 @@ define void @_ZN16uv_configuration15config_settings14ConfigSettings5merge17h09bb
   call void @llvm.assume(i1 %146)
   %147 = getelementptr inbounds nuw i8, ptr %57, i64 16
   %148 = load ptr, ptr %147, align 8, !alias.scope !403, !noalias !396, !nonnull !4, !noundef !4
-  %149 = getelementptr inbounds nuw { { { { i64, ptr, {} }, {} }, i64 } }, ptr %148, i64 %145
+  %149 = getelementptr inbounds nuw [24 x i8], ptr %148, i64 %145
   %150 = mul i64 %134, 24
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %149, ptr nonnull align 8 %.sroa.2.0.copyload, i64 %150, i1 false)
   %151 = load i64, ptr %138, align 8, !alias.scope !403, !noalias !396, !noundef !4

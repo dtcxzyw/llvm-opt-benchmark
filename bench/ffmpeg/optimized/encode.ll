@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.SideDataMap = type { i32, i32 }
-%struct.AVChannelLayout = type { i32, i32, %union.anon, ptr }
-%union.anon = type { i64 }
-%struct.AVPacketSideData = type { ptr, i64, i32 }
 
 @.str = private unnamed_addr constant [62 x i8] c"Invalid minimum required packet size %ld (max allowed is %d)\0A\00", align 1
 @.str.1 = private unnamed_addr constant [30 x i8] c"Assertion %s failed at %s:%d\0A\00", align 1
@@ -1102,7 +1099,7 @@ define range(i32 -2147483648, 1) i32 @ff_encode_preinit(ptr noundef %0) local_un
 
 58:                                               ; preds = %62, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %62 ]
-  %59 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv.i
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %indvars.iv.i
   %60 = load i32, ptr %59, align 4, !tbaa !60
   %61 = icmp eq i32 %57, %60
   br i1 %61, label %._crit_edge.loopexit.i, label %62
@@ -1143,14 +1140,14 @@ define range(i32 -2147483648, 1) i32 @ff_encode_preinit(ptr noundef %0) local_un
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.31, ptr noundef %71) #8
   %indvars.iv.next78.i = add nuw nsw i64 %indvars.iv77.i, 1
   %72 = load ptr, ptr %9, align 8, !tbaa !103
-  %73 = getelementptr inbounds nuw i32, ptr %72, i64 %indvars.iv.next78.i
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %indvars.iv.next78.i
   %74 = load i32, ptr %73, align 4, !tbaa !60
   %.not66.i = icmp eq i32 %74, -1
   br i1 %.not66.i, label %encode_preinit_video.exit, label %.lr.ph75.i, !llvm.loop !106
 
 75:                                               ; preds = %._crit_edge.i
   %76 = zext nneg i32 %.054.lcssa.i to i64
-  %77 = getelementptr inbounds nuw i32, ptr %54, i64 %76
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %76
   %78 = load i32, ptr %77, align 4, !tbaa !60
   switch i32 %78, label %81 [
     i32 12, label %79
@@ -1313,7 +1310,7 @@ encode_preinit_video.exit:                        ; preds = %.lr.ph75.i, %48, %5
   %indvars.iv.i87 = phi i64 [ 0, %.lr.ph.i86 ], [ %indvars.iv.next.i88, %166 ]
   %146 = load i32, ptr %126, align 4, !tbaa !118
   %147 = load ptr, ptr %2, align 8, !tbaa !103
-  %148 = getelementptr inbounds nuw i32, ptr %147, i64 %indvars.iv.i87
+  %148 = getelementptr inbounds nuw [4 x i8], ptr %147, i64 %indvars.iv.i87
   %149 = load i32, ptr %148, align 4, !tbaa !60
   %150 = icmp eq i32 %146, %149
   br i1 %150, label %.loopexit.loopexit.i, label %151
@@ -1326,7 +1323,7 @@ encode_preinit_video.exit:                        ; preds = %.lr.ph75.i, %48, %5
 154:                                              ; preds = %151
   %155 = call i32 @av_get_planar_sample_fmt(i32 noundef %146) #8
   %156 = load ptr, ptr %2, align 8, !tbaa !103
-  %157 = getelementptr inbounds nuw i32, ptr %156, i64 %indvars.iv.i87
+  %157 = getelementptr inbounds nuw [4 x i8], ptr %156, i64 %indvars.iv.i87
   %158 = load i32, ptr %157, align 4, !tbaa !60
   %159 = call i32 @av_get_planar_sample_fmt(i32 noundef %158) #8
   %160 = icmp eq i32 %155, %159
@@ -1339,7 +1336,7 @@ encode_preinit_video.exit:                        ; preds = %.lr.ph75.i, %48, %5
 161:                                              ; preds = %154
   %162 = trunc nuw nsw i64 %indvars.iv.i87 to i32
   %163 = load ptr, ptr %2, align 8, !tbaa !103
-  %164 = getelementptr inbounds nuw i32, ptr %163, i64 %indvars.iv.i87
+  %164 = getelementptr inbounds nuw [4 x i8], ptr %163, i64 %indvars.iv.i87
   %165 = load i32, ptr %164, align 4, !tbaa !60
   store i32 %165, ptr %126, align 4, !tbaa !118
   %.pre148.i = load i32, ptr %5, align 4, !tbaa !60
@@ -1382,7 +1379,7 @@ encode_preinit_video.exit:                        ; preds = %.lr.ph75.i, %48, %5
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.31, ptr noundef %179) #8
   %indvars.iv.next128.i = add nuw nsw i64 %indvars.iv127.i, 1
   %180 = load ptr, ptr %2, align 8, !tbaa !103
-  %181 = getelementptr inbounds nuw i32, ptr %180, i64 %indvars.iv.next128.i
+  %181 = getelementptr inbounds nuw [4 x i8], ptr %180, i64 %indvars.iv.next128.i
   %182 = load i32, ptr %181, align 4, !tbaa !60
   %.not87.i = icmp eq i32 %182, -1
   br i1 %.not87.i, label %encode_preinit_audio.exit, label %.lr.ph100.i, !llvm.loop !121
@@ -1409,7 +1406,7 @@ encode_preinit_video.exit:                        ; preds = %.lr.ph75.i, %48, %5
 
 191:                                              ; preds = %195, %.lr.ph102.i
   %indvars.iv131.i = phi i64 [ 0, %.lr.ph102.i ], [ %indvars.iv.next132.i, %195 ]
-  %192 = getelementptr inbounds nuw i32, ptr %187, i64 %indvars.iv131.i
+  %192 = getelementptr inbounds nuw [4 x i8], ptr %187, i64 %indvars.iv131.i
   %193 = load i32, ptr %192, align 4, !tbaa !60
   %194 = icmp eq i32 %190, %193
   br i1 %194, label %._crit_edge.loopexit.i85, label %195
@@ -1448,7 +1445,7 @@ encode_preinit_video.exit:                        ; preds = %.lr.ph75.i, %48, %5
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.42, i32 noundef %202) #8
   %indvars.iv.next136.i = add nuw nsw i64 %indvars.iv135.i, 1
   %203 = load ptr, ptr %3, align 8, !tbaa !122
-  %204 = getelementptr inbounds nuw i32, ptr %203, i64 %indvars.iv.next136.i
+  %204 = getelementptr inbounds nuw [4 x i8], ptr %203, i64 %indvars.iv.next136.i
   %205 = load i32, ptr %204, align 4, !tbaa !60
   %.not86.i = icmp eq i32 %205, 0
   br i1 %.not86.i, label %encode_preinit_audio.exit, label %.lr.ph111.i, !llvm.loop !124
@@ -1472,7 +1469,7 @@ encode_preinit_video.exit:                        ; preds = %.lr.ph75.i, %48, %5
 .lr.ph113.i:                                      ; preds = %.preheader.i81, %217
   %indvars.iv139.i = phi i64 [ %indvars.iv.next140.i, %217 ], [ 0, %.preheader.i81 ]
   %214 = load ptr, ptr %4, align 8, !tbaa !125
-  %215 = getelementptr inbounds nuw %struct.AVChannelLayout, ptr %214, i64 %indvars.iv139.i
+  %215 = getelementptr inbounds nuw [24 x i8], ptr %214, i64 %indvars.iv139.i
   %216 = call i32 @av_channel_layout_compare(ptr noundef nonnull %211, ptr noundef %215) #8
   %.not82.i = icmp eq i32 %216, 0
   %.pre149.pre.i = load i32, ptr %7, align 4, !tbaa !60
@@ -1522,7 +1519,7 @@ encode_preinit_video.exit:                        ; preds = %.lr.ph75.i, %48, %5
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull @.str.31, ptr noundef nonnull %233) #8
   %indvars.iv.next144.i = add nuw nsw i64 %indvars.iv143.i, 1
   %234 = load ptr, ptr %4, align 8, !tbaa !125
-  %235 = getelementptr inbounds nuw %struct.AVChannelLayout, ptr %234, i64 %indvars.iv.next144.i
+  %235 = getelementptr inbounds nuw [24 x i8], ptr %234, i64 %indvars.iv.next144.i
   %236 = getelementptr inbounds nuw i8, ptr %235, i64 4
   %237 = load i32, ptr %236, align 4, !tbaa !127
   %.not85.i = icmp eq i32 %237, 0
@@ -1665,7 +1662,7 @@ encode_preinit_audio.exit:                        ; preds = %.lr.ph100.i, %.lr.p
 301:                                              ; preds = %.lr.ph, %322
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %322 ]
   %302 = phi i32 [ %295, %.lr.ph ], [ %324, %322 ]
-  %303 = getelementptr inbounds nuw %struct.SideDataMap, ptr @ff_sd_global_map, i64 %indvars.iv
+  %303 = getelementptr inbounds nuw [8 x i8], ptr @ff_sd_global_map, i64 %indvars.iv
   %304 = getelementptr inbounds nuw i8, ptr %303, i64 4
   %305 = load i32, ptr %304, align 4, !tbaa !135
   %306 = load ptr, ptr %297, align 8, !tbaa !136
@@ -1698,7 +1695,7 @@ encode_preinit_audio.exit:                        ; preds = %.lr.ph100.i, %.lr.p
 
 322:                                              ; preds = %301, %317, %309
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %323 = getelementptr inbounds nuw %struct.SideDataMap, ptr @ff_sd_global_map, i64 %indvars.iv.next
+  %323 = getelementptr inbounds nuw [8 x i8], ptr @ff_sd_global_map, i64 %indvars.iv.next
   %324 = load i32, ptr %323, align 4, !tbaa !133
   %325 = icmp ugt i32 %324, 37
   br i1 %325, label %.critedge, label %301, !llvm.loop !142
@@ -1897,7 +1894,7 @@ define ptr @ff_encode_add_cpb_side_data(ptr noundef captures(none) %0) local_unn
 
 10:                                               ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
-  %11 = getelementptr inbounds nuw %struct.AVPacketSideData, ptr %8, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [24 x i8], ptr %8, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load i32, ptr %12, align 8, !tbaa !151
   %14 = icmp eq i32 %13, 10
@@ -1933,11 +1930,11 @@ define ptr @ff_encode_add_cpb_side_data(ptr noundef captures(none) %0) local_unn
   %28 = add nsw i32 %27, 1
   store i32 %28, ptr %4, align 8, !tbaa !139
   %29 = sext i32 %27 to i64
-  %30 = getelementptr inbounds %struct.AVPacketSideData, ptr %24, i64 %29
+  %30 = getelementptr inbounds [24 x i8], ptr %24, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
   store i32 10, ptr %31, align 8, !tbaa !151
   %32 = sext i32 %28 to i64
-  %33 = getelementptr %struct.AVPacketSideData, ptr %24, i64 %32
+  %33 = getelementptr [24 x i8], ptr %24, i64 %32
   %34 = getelementptr i8, ptr %33, i64 -24
   store ptr %17, ptr %34, align 8, !tbaa !140
   %35 = load i64, ptr %3, align 8, !tbaa !154
@@ -1977,7 +1974,7 @@ define range(i32 -22, 1) i32 @ff_check_codec_matrices(ptr noundef %0, i32 nounde
 
 14:                                               ; preds = %4, %.critedge39
   %indvars.iv50 = phi i64 [ 0, %4 ], [ %indvars.iv.next51, %.critedge39 ]
-  %15 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv50
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv50
   %16 = load ptr, ptr %15, align 8, !tbaa !157
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %.critedge39, label %17
@@ -1991,7 +1988,7 @@ define range(i32 -22, 1) i32 @ff_check_codec_matrices(ptr noundef %0, i32 nounde
 
 .preheader:                                       ; preds = %17, %32
   %indvars.iv = phi i64 [ %indvars.iv.next, %32 ], [ 0, %17 ]
-  %21 = getelementptr inbounds nuw i16, ptr %16, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [2 x i8], ptr %16, i64 %indvars.iv
   %22 = load i16, ptr %21, align 2, !tbaa !160
   %23 = icmp ult i16 %22, %2
   %24 = icmp ugt i16 %22, %3
@@ -2001,7 +1998,7 @@ define range(i32 -22, 1) i32 @ff_check_codec_matrices(ptr noundef %0, i32 nounde
 25:                                               ; preds = %.preheader
   %26 = trunc nuw nsw i64 %indvars.iv to i32
   %27 = zext i16 %2 to i32
-  %28 = getelementptr inbounds nuw ptr, ptr @__const.ff_check_codec_matrices.names, i64 %indvars.iv50
+  %28 = getelementptr inbounds nuw [8 x i8], ptr @__const.ff_check_codec_matrices.names, i64 %indvars.iv50
   %29 = load ptr, ptr %28, align 8, !tbaa !161
   %30 = zext i16 %22 to i32
   %31 = zext i16 %3 to i32

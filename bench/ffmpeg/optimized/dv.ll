@@ -3,8 +3,6 @@ source_filename = "bench/ffmpeg/original/dv.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.DVwork_chunk = type { i16, [5 x i16] }
-
 @dv_calc_mb_coordinates.off = internal unnamed_addr constant [5 x i8] c"\02\06\08\00\04", align 1
 @dv_calc_mb_coordinates.shuf1 = internal unnamed_addr constant [5 x i8] c"$\126\00H", align 1
 @dv_calc_mb_coordinates.shuf2 = internal unnamed_addr constant [5 x i8] c"\18\0C$\000", align 1
@@ -112,7 +110,7 @@ define void @ff_dv_init_dynamic_tables(ptr noundef writeonly captures(none) %0, 
 
 .thread.us:                                       ; preds = %49, %46, %40
   %52 = sext i32 %.23650.us to i64
-  %53 = getelementptr inbounds %struct.DVwork_chunk, ptr %0, i64 %52
+  %53 = getelementptr inbounds [12 x i8], ptr %0, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 2
   %55 = load i32, ptr %9, align 4, !tbaa !17
   %.zext39.us = zext nneg i8 %43 to i32
@@ -195,7 +193,7 @@ define void @ff_dv_init_dynamic_tables(ptr noundef writeonly captures(none) %0, 
   %101 = shl i32 %.2.us.us.i.us, 8
   %102 = or i32 %101, %100
   %103 = trunc i32 %102 to i16
-  %104 = getelementptr inbounds nuw i16, ptr %54, i64 %indvars.iv.i.us
+  %104 = getelementptr inbounds nuw [2 x i8], ptr %54, i64 %indvars.iv.i.us
   store i16 %103, ptr %104, align 2, !tbaa !20
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %indvars.iv.next.i.us, 5
@@ -223,7 +221,7 @@ define void @ff_dv_init_dynamic_tables(ptr noundef writeonly captures(none) %0, 
   %120 = shl i32 %118, 9
   %121 = or i32 %120, %119
   %122 = trunc i32 %121 to i16
-  %123 = getelementptr inbounds nuw i16, ptr %54, i64 %indvars.iv146.i.us
+  %123 = getelementptr inbounds nuw [2 x i8], ptr %54, i64 %indvars.iv146.i.us
   store i16 %122, ptr %123, align 2, !tbaa !20
   %indvars.iv.next147.i.us = add nuw nsw i64 %indvars.iv146.i.us, 1
   %exitcond149.not.i.us = icmp eq i64 %indvars.iv.next147.i.us, 5
@@ -253,7 +251,7 @@ define void @ff_dv_init_dynamic_tables(ptr noundef writeonly captures(none) %0, 
   %141 = shl i32 %139, 8
   %142 = or i32 %141, %140
   %143 = trunc i32 %142 to i16
-  %144 = getelementptr inbounds nuw i16, ptr %54, i64 %indvars.iv150.i.us
+  %144 = getelementptr inbounds nuw [2 x i8], ptr %54, i64 %indvars.iv150.i.us
   store i16 %143, ptr %144, align 2, !tbaa !20
   %indvars.iv.next151.i.us = add nuw nsw i64 %indvars.iv150.i.us, 1
   %exitcond153.not.i.us = icmp eq i64 %indvars.iv.next151.i.us, 5
@@ -289,7 +287,7 @@ define void @ff_dv_init_dynamic_tables(ptr noundef writeonly captures(none) %0, 
   %167 = shl i32 %165, 9
   %168 = or i32 %166, %167
   %169 = trunc i32 %168 to i16
-  %170 = getelementptr inbounds nuw i16, ptr %54, i64 %indvars.iv154.i.us
+  %170 = getelementptr inbounds nuw [2 x i8], ptr %54, i64 %indvars.iv154.i.us
   store i16 %169, ptr %170, align 2, !tbaa !20
   %indvars.iv.next155.i.us = add nuw nsw i64 %indvars.iv154.i.us, 1
   %exitcond157.not.i.us = icmp eq i64 %indvars.iv.next155.i.us, 5
@@ -336,7 +334,7 @@ define void @ff_dv_init_dynamic_tables(ptr noundef writeonly captures(none) %0, 
   %201 = shl i32 %.1.us.i.us, 9
   %202 = or i32 %201, %200
   %203 = trunc i32 %202 to i16
-  %204 = getelementptr inbounds nuw i16, ptr %54, i64 %indvars.iv158.i.us
+  %204 = getelementptr inbounds nuw [2 x i8], ptr %54, i64 %indvars.iv158.i.us
   store i16 %203, ptr %204, align 2, !tbaa !20
   %indvars.iv.next159.i.us = add nuw nsw i64 %indvars.iv158.i.us, 1
   %exitcond161.not.i.us = icmp eq i64 %indvars.iv.next159.i.us, 5
@@ -368,7 +366,7 @@ define void @ff_dv_init_dynamic_tables(ptr noundef writeonly captures(none) %0, 
   %220 = shl nuw nsw i32 %215, 1
   %221 = or i32 %219, %220
   %222 = trunc i32 %221 to i16
-  %223 = getelementptr inbounds nuw i16, ptr %54, i64 %indvars.iv162.i.us
+  %223 = getelementptr inbounds nuw [2 x i8], ptr %54, i64 %indvars.iv162.i.us
   store i16 %222, ptr %223, align 2, !tbaa !20
   %indvars.iv.next163.i.us = add nuw nsw i64 %indvars.iv162.i.us, 1
   %exitcond165.not.i.us = icmp eq i64 %indvars.iv.next163.i.us, 5
@@ -386,7 +384,7 @@ define void @ff_dv_init_dynamic_tables(ptr noundef writeonly captures(none) %0, 
   %.0.us.us.i.us = select i1 %226, i16 0, i16 -31232
   %230 = shl i16 %.0107.us.us.i.us, 1
   %231 = or i16 %230, %.0.us.us.i.us
-  %232 = getelementptr inbounds nuw i16, ptr %54, i64 %indvars.iv166.i.us
+  %232 = getelementptr inbounds nuw [2 x i8], ptr %54, i64 %indvars.iv166.i.us
   store i16 %231, ptr %232, align 2, !tbaa !20
   %indvars.iv.next167.i.us = add nuw nsw i64 %indvars.iv166.i.us, 1
   %exitcond169.not.i.us = icmp eq i64 %indvars.iv.next167.i.us, 5

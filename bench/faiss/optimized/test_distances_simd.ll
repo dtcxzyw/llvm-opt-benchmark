@@ -365,7 +365,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit:            ; preds = %_ZNSt6vectorIfSaIfE
   %27 = shl nuw nsw i64 %25, 2
   %28 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %27) #19
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %28, i8 0, i64 %27, i1 false), !tbaa !15
-  %29 = getelementptr inbounds nuw float, ptr %28, i64 %25
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %25
   %30 = ptrtoint ptr %29 to i64
   %31 = ptrtoint ptr %28 to i64
   br label %.lr.ph
@@ -383,7 +383,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit:            ; preds = %_ZNSt6vectorIfSaIfE
 
 _ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEiRT_.exit: ; preds = %.lr.ph
   %34 = sitofp i32 %33 to float
-  %35 = getelementptr inbounds nuw float, ptr %28, i64 %.039325
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %.039325
   store float %34, ptr %35, align 4, !tbaa !15
   %36 = add nuw i64 %.039325, 1
   %exitcond.not = icmp eq i64 %36, %25
@@ -420,7 +420,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i74: ; preds = %38
           to label %.noexc78 unwind label %.loopexit180
 
 .noexc78:                                         ; preds = %44
-  %47 = getelementptr inbounds nuw float, ptr %46, i64 %41
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %41
   store float 0.000000e+00, ptr %46, align 4, !tbaa !15
   %48 = getelementptr i8, ptr %46, i64 4
   %49 = add nsw i64 %41, -1
@@ -472,7 +472,7 @@ _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i85: ; preds = %_ZNSt6vectorIfS
 
 .noexc87:                                         ; preds = %60
   store ptr %62, ptr %7, align 8, !tbaa !19
-  %63 = getelementptr inbounds nuw float, ptr %62, i64 %57
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %57
   store ptr %63, ptr %16, align 8, !tbaa !23
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %62, i8 0, i64 %61, i1 false), !tbaa !15
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 %61
@@ -495,7 +495,7 @@ _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i85: ; preds = %_ZNSt6vectorIfS
 
 _ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEiRT_.exit90: ; preds = %.lr.ph327
   %66 = sitofp i32 %65 to float
-  %67 = getelementptr inbounds nuw float, ptr %46, i64 %.0326
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %.0326
   store float %66, ptr %67, align 4, !tbaa !15
   %68 = add nuw i64 %.0326, 1
   %exitcond461.not = icmp eq i64 %68, %55
@@ -528,7 +528,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i91: ; preds = %.loopexit
 
 .noexc99:                                         ; preds = %71
   store ptr %73, ptr %8, align 8, !tbaa !19
-  %74 = getelementptr inbounds nuw float, ptr %73, i64 %57
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %57
   store ptr %74, ptr %18, align 8, !tbaa !23
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %73, i8 0, i64 %72, i1 false), !tbaa !15
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 %72
@@ -542,9 +542,9 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i91: ; preds = %.loopexit
           to label %.noexc101 unwind label %125
 
 .noexc101:                                        ; preds = %.lr.ph.i
-  %77 = getelementptr inbounds nuw float, ptr %73, i64 %.011.i
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %.011.i
   store float %76, ptr %77, align 4, !tbaa !15
-  %78 = getelementptr inbounds nuw float, ptr %.0910.i, i64 %25
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %.0910.i, i64 %25
   %79 = add nuw i64 %.011.i, 1
   %exitcond.not.i = icmp eq i64 %79, %57
   br i1 %exitcond.not.i, label %_Z17fvec_L2sqr_ny_refPfPKfS1_mm.exit.loopexit, label %.lr.ph.i, !llvm.loop !26
@@ -1107,7 +1107,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit:            ; preds = %_ZNSt6vectorIfSaIfE
   %27 = shl nuw nsw i64 %25, 2
   %28 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %27) #19
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %28, i8 0, i64 %27, i1 false), !tbaa !15
-  %29 = getelementptr inbounds nuw float, ptr %28, i64 %25
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %25
   %30 = ptrtoint ptr %29 to i64
   %31 = ptrtoint ptr %28 to i64
   br label %.lr.ph
@@ -1125,7 +1125,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit:            ; preds = %_ZNSt6vectorIfSaIfE
 
 _ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEiRT_.exit: ; preds = %.lr.ph
   %34 = sitofp i32 %33 to float
-  %35 = getelementptr inbounds nuw float, ptr %28, i64 %.039325
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %.039325
   store float %34, ptr %35, align 4, !tbaa !15
   %36 = add nuw i64 %.039325, 1
   %exitcond.not = icmp eq i64 %36, %25
@@ -1162,7 +1162,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i74: ; preds = %38
           to label %.noexc78 unwind label %.loopexit180
 
 .noexc78:                                         ; preds = %44
-  %47 = getelementptr inbounds nuw float, ptr %46, i64 %41
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %41
   store float 0.000000e+00, ptr %46, align 4, !tbaa !15
   %48 = getelementptr i8, ptr %46, i64 4
   %49 = add nsw i64 %41, -1
@@ -1214,7 +1214,7 @@ _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i85: ; preds = %_ZNSt6vectorIfS
 
 .noexc87:                                         ; preds = %60
   store ptr %62, ptr %7, align 8, !tbaa !19
-  %63 = getelementptr inbounds nuw float, ptr %62, i64 %57
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %57
   store ptr %63, ptr %16, align 8, !tbaa !23
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %62, i8 0, i64 %61, i1 false), !tbaa !15
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 %61
@@ -1237,7 +1237,7 @@ _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i85: ; preds = %_ZNSt6vectorIfS
 
 _ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEiRT_.exit90: ; preds = %.lr.ph327
   %66 = sitofp i32 %65 to float
-  %67 = getelementptr inbounds nuw float, ptr %46, i64 %.0326
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %.0326
   store float %66, ptr %67, align 4, !tbaa !15
   %68 = add nuw i64 %.0326, 1
   %exitcond461.not = icmp eq i64 %68, %55
@@ -1270,7 +1270,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i91: ; preds = %.loopexit
 
 .noexc99:                                         ; preds = %71
   store ptr %73, ptr %8, align 8, !tbaa !19
-  %74 = getelementptr inbounds nuw float, ptr %73, i64 %57
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %57
   store ptr %74, ptr %18, align 8, !tbaa !23
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %73, i8 0, i64 %72, i1 false), !tbaa !15
   %75 = getelementptr inbounds nuw i8, ptr %73, i64 %72
@@ -1284,9 +1284,9 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i91: ; preds = %.loopexit
           to label %.noexc101 unwind label %125
 
 .noexc101:                                        ; preds = %.lr.ph.i
-  %77 = getelementptr inbounds nuw float, ptr %73, i64 %.011.i
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %73, i64 %.011.i
   store float %76, ptr %77, align 4, !tbaa !15
-  %78 = getelementptr inbounds nuw float, ptr %.0910.i, i64 %25
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %.0910.i, i64 %25
   %79 = add nuw i64 %.011.i, 1
   %exitcond.not.i = icmp eq i64 %79, %57
   br i1 %exitcond.not.i, label %_Z26fvec_inner_products_ny_refPfPKfS1_mm.exit.loopexit, label %.lr.ph.i, !llvm.loop !60
@@ -1830,7 +1830,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %15
 .noexc87:                                         ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
   %19 = shl nuw nsw i64 %17, 2
   %20 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #19
-  %21 = getelementptr inbounds nuw float, ptr %20, i64 %17
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %17
   store float 0.000000e+00, ptr %20, align 4, !tbaa !15
   %22 = getelementptr i8, ptr %20, i64 4
   %23 = add nsw i64 %17, -1
@@ -1859,7 +1859,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i88: ; preds = %_ZNSt24unifo
           to label %.noexc95 unwind label %63
 
 .noexc95:                                         ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i88
-  %34 = getelementptr inbounds nuw float, ptr %33, i64 %31
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %31
   store float 0.000000e+00, ptr %33, align 4, !tbaa !15
   %35 = getelementptr i8, ptr %33, i64 4
   %.idx.i.i.i.i.i.i.i91 = add nsw i64 %32, -4
@@ -1877,7 +1877,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i88: ; preds = %_ZNSt24unifo
 
 _ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEiRT_.exit: ; preds = %.lr.ph
   %40 = sitofp i32 %39 to float
-  %41 = getelementptr inbounds nuw float, ptr %20, i64 %.055291
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %.055291
   store float %40, ptr %41, align 4, !tbaa !15
   %42 = call float @llvm.fmuladd.f32(float %40, float %40, float %.056290)
   %43 = add nuw i64 %.055291, 1
@@ -1913,7 +1913,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit96:             ; preds = %_ZNSt6vectorIfSaIfE
 
 .preheader176.us:                                 ; preds = %.preheader176.us.preheader, %._crit_edge.us
   %.054295.us = phi i64 [ %59, %._crit_edge.us ], [ 0, %.preheader176.us.preheader ]
-  %51 = getelementptr inbounds nuw float, ptr %47, i64 %.054295.us
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %.054295.us
   br label %52
 
 52:                                               ; preds = %.preheader176.us, %_ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEiRT_.exit107.us
@@ -1923,7 +1923,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit96:             ; preds = %_ZNSt6vectorIfSaIfE
 
 _ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEiRT_.exit107.us: ; preds = %52
   %54 = sitofp i32 %53 to float
-  %55 = getelementptr inbounds nuw float, ptr %.sroa.0150.0, i64 %.053293.us
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0150.0, i64 %.053293.us
   store float %54, ptr %55, align 4, !tbaa !15
   %56 = load float, ptr %51, align 4, !tbaa !15
   %57 = call float @llvm.fmuladd.f32(float %54, float %54, float %56)
@@ -1970,7 +1970,7 @@ _ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineImLm16807ELm0
   br i1 %.not.i.i.i.i, label %._crit_edge, label %.lr.ph306
 
 .lr.ph306:                                        ; preds = %.preheader
-  %67 = getelementptr float, ptr %.sroa.0150.0, i64 %.052308
+  %67 = getelementptr [4 x i8], ptr %.sroa.0150.0, i64 %.052308
   br label %78
 
 68:                                               ; preds = %._crit_edge
@@ -1985,11 +1985,11 @@ _ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineImLm16807ELm0
 
 ._crit_edge:                                      ; preds = %78, %.preheader
   %.051.lcssa = phi float [ 0.000000e+00, %.preheader ], [ %83, %78 ]
-  %72 = getelementptr inbounds nuw float, ptr %47, i64 %.052308
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %.052308
   %73 = load float, ptr %72, align 4, !tbaa !15
   %74 = fadd float %.056.lcssa480, %73
   %75 = call float @llvm.fmuladd.f32(float %.051.lcssa, float -2.000000e+00, float %74)
-  %76 = getelementptr inbounds nuw float, ptr %61, i64 %.052308
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %61, i64 %.052308
   store float %75, ptr %76, align 4, !tbaa !15
   %77 = add nuw nsw i64 %.052308, 1
   %exitcond424.not = icmp eq i64 %77, 11
@@ -1998,7 +1998,7 @@ _ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineImLm16807ELm0
 78:                                               ; preds = %.lr.ph306, %78
   %.0305 = phi i64 [ 0, %.lr.ph306 ], [ %84, %78 ]
   %.051304 = phi float [ 0.000000e+00, %.lr.ph306 ], [ %83, %78 ]
-  %79 = getelementptr inbounds nuw float, ptr %.sroa.0160.0457478, i64 %.0305
+  %79 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0160.0457478, i64 %.0305
   %80 = load float, ptr %79, align 4, !tbaa !15
   %.idx = mul i64 %.0305, 44
   %81 = getelementptr i8, ptr %67, i64 %.idx
@@ -2378,7 +2378,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %11
 .noexc97:                                         ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
   %15 = shl nuw nsw i64 %13, 2
   %16 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %15) #19
-  %17 = getelementptr inbounds nuw float, ptr %16, i64 %13
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %13
   store float 0.000000e+00, ptr %16, align 4, !tbaa !15
   %18 = getelementptr i8, ptr %16, i64 4
   %19 = add nsw i64 %13, -1
@@ -2407,7 +2407,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i98: ; preds = %_ZNSt24unifo
           to label %.noexc105 unwind label %58
 
 .noexc105:                                        ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i98
-  %30 = getelementptr inbounds nuw float, ptr %29, i64 %27
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %27
   store float 0.000000e+00, ptr %29, align 4, !tbaa !15
   %31 = getelementptr i8, ptr %29, i64 4
   %.idx.i.i.i.i.i.i.i101 = add nsw i64 %28, -4
@@ -2425,7 +2425,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i98: ; preds = %_ZNSt24unifo
 
 _ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEiRT_.exit: ; preds = %.lr.ph
   %36 = sitofp i32 %35 to float
-  %37 = getelementptr inbounds nuw float, ptr %16, i64 %.064309
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.064309
   store float %36, ptr %37, align 4, !tbaa !15
   %38 = call float @llvm.fmuladd.f32(float %36, float %36, float %.065308)
   %39 = add nuw i64 %.064309, 1
@@ -2461,7 +2461,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit106:            ; preds = %_ZNSt6vectorIfSaIfE
 
 .preheader198.us:                                 ; preds = %.preheader198.us.preheader, %._crit_edge.us
   %.063313.us = phi i64 [ %55, %._crit_edge.us ], [ 0, %.preheader198.us.preheader ]
-  %47 = getelementptr inbounds nuw float, ptr %43, i64 %.063313.us
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %.063313.us
   br label %48
 
 48:                                               ; preds = %.preheader198.us, %_ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEiRT_.exit117.us
@@ -2471,7 +2471,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit106:            ; preds = %_ZNSt6vectorIfSaIfE
 
 _ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEiRT_.exit117.us: ; preds = %48
   %50 = sitofp i32 %49 to float
-  %51 = getelementptr inbounds nuw float, ptr %.sroa.0172.0, i64 %.062311.us
+  %51 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0172.0, i64 %.062311.us
   store float %50, ptr %51, align 4, !tbaa !15
   %52 = load float, ptr %47, align 4, !tbaa !15
   %53 = call float @llvm.fmuladd.f32(float %50, float %50, float %52)
@@ -2513,7 +2513,7 @@ _ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineImLm16807ELm0
   br i1 %.not.i.i.i.i, label %_ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit115, label %.lr.ph324
 
 .lr.ph324:                                        ; preds = %.preheader
-  %62 = getelementptr float, ptr %.sroa.0172.0, i64 %.061326
+  %62 = getelementptr [4 x i8], ptr %.sroa.0172.0, i64 %.061326
   br label %72
 
 63:                                               ; preds = %_ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit115
@@ -2528,11 +2528,11 @@ _ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineImLm16807ELm0
 
 _ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit115:         ; preds = %72, %.preheader
   %.060.lcssa = phi float [ 0.000000e+00, %.preheader ], [ %77, %72 ]
-  %66 = getelementptr inbounds nuw float, ptr %43, i64 %.061326
+  %66 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %.061326
   %67 = load float, ptr %66, align 4, !tbaa !15
   %68 = fadd float %.065.lcssa505, %67
   %69 = call float @llvm.fmuladd.f32(float %.060.lcssa, float -2.000000e+00, float %68)
-  %70 = getelementptr inbounds nuw float, ptr %57, i64 %.061326
+  %70 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %.061326
   store float %69, ptr %70, align 4, !tbaa !15
   %71 = add nuw nsw i64 %.061326, 1
   %exitcond455.not = icmp eq i64 %71, 11
@@ -2541,7 +2541,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit115:         ; preds = %72, %.preheader
 72:                                               ; preds = %.lr.ph324, %72
   %.059323 = phi i64 [ 0, %.lr.ph324 ], [ %78, %72 ]
   %.060322 = phi float [ 0.000000e+00, %.lr.ph324 ], [ %77, %72 ]
-  %73 = getelementptr inbounds nuw float, ptr %.sroa.0182.0483503, i64 %.059323
+  %73 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0182.0483503, i64 %.059323
   %74 = load float, ptr %73, align 4, !tbaa !15
   %.idx = mul i64 %.059323, 44
   %75 = getelementptr i8, ptr %62, i64 %.idx
@@ -2558,7 +2558,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKfRKS0_.exit115:         ; preds = %72, %.preheader
 81:                                               ; preds = %63, %86
   %.0328 = phi i64 [ 0, %63 ], [ %87, %86 ]
   %.058327 = phi float [ 0x7FF0000000000000, %63 ], [ %.1, %86 ]
-  %82 = getelementptr inbounds nuw float, ptr %57, i64 %.0328
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %.0328
   %83 = load float, ptr %82, align 4, !tbaa !15
   %84 = fcmp olt float %83, %.058327
   br i1 %84, label %85, label %86
@@ -2873,7 +2873,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit52.thread:      ; preds = %_ZNSt6vectorIfSaIfE
 .noexc43:                                         ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
   %15 = shl nuw nsw i64 %13, 2
   %16 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %15) #19
-  %17 = getelementptr inbounds nuw float, ptr %16, i64 %13
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %13
   store float 0.000000e+00, ptr %16, align 4, !tbaa !15
   %18 = getelementptr i8, ptr %16, i64 4
   %19 = add nsw i64 %13, -1
@@ -2892,7 +2892,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc43
           to label %.noexc51 unwind label %_ZNSt6vectorIfSaIfEED2Ev.exit77.thread
 
 .noexc51:                                         ; preds = %22
-  %24 = getelementptr inbounds nuw float, ptr %23, i64 %13
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %13
   store float 0.000000e+00, ptr %23, align 4, !tbaa !15
   br i1 %20, label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit52, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i46
 
@@ -2936,14 +2936,14 @@ _ZNSt6vectorIfSaIfEED2Ev.exit77.thread:           ; preds = %22
 
 _ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEiRT_.exit: ; preds = %.lr.ph
   %35 = sitofp i32 %34 to float
-  %36 = getelementptr inbounds nuw float, ptr %16, i64 %.0163
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.0163
   store float %35, ptr %36, align 4, !tbaa !15
   %37 = invoke noundef i32 @_ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEiRT_RKNS0_10param_typeE(ptr noundef nonnull align 4 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(8) %3)
           to label %_ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEiRT_.exit55 unwind label %.thread
 
 _ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEiRT_.exit55: ; preds = %_ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEiRT_.exit
   %38 = sitofp i32 %37 to float
-  %39 = getelementptr inbounds nuw float, ptr %23, i64 %.0163
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %.0163
   store float %38, ptr %39, align 4, !tbaa !15
   %40 = load float, ptr %36, align 4, !tbaa !15
   %41 = fsub float %40, %38
@@ -3286,7 +3286,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit52.thread:      ; preds = %_ZNSt6vectorIfSaIfE
 .noexc43:                                         ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
   %15 = shl nuw nsw i64 %13, 2
   %16 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %15) #19
-  %17 = getelementptr inbounds nuw float, ptr %16, i64 %13
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %13
   store float 0.000000e+00, ptr %16, align 4, !tbaa !15
   %18 = getelementptr i8, ptr %16, i64 4
   %19 = add nsw i64 %13, -1
@@ -3305,7 +3305,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc43
           to label %.noexc51 unwind label %_ZNSt6vectorIfSaIfEED2Ev.exit77.thread
 
 .noexc51:                                         ; preds = %22
-  %24 = getelementptr inbounds nuw float, ptr %23, i64 %13
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %13
   store float 0.000000e+00, ptr %23, align 4, !tbaa !15
   br i1 %20, label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit52, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i46
 
@@ -3349,14 +3349,14 @@ _ZNSt6vectorIfSaIfEED2Ev.exit77.thread:           ; preds = %22
 
 _ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEiRT_.exit: ; preds = %.lr.ph
   %35 = sitofp i32 %34 to float
-  %36 = getelementptr inbounds nuw float, ptr %16, i64 %.0163
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %.0163
   store float %35, ptr %36, align 4, !tbaa !15
   %37 = invoke noundef i32 @_ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEiRT_RKNS0_10param_typeE(ptr noundef nonnull align 4 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(8) %3)
           to label %_ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEiRT_.exit55 unwind label %.thread
 
 _ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEiRT_.exit55: ; preds = %_ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEiRT_.exit
   %38 = sitofp i32 %37 to float
-  %39 = getelementptr inbounds nuw float, ptr %23, i64 %.0163
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %.0163
   store float %38, ptr %39, align 4, !tbaa !15
   %40 = load float, ptr %36, align 4, !tbaa !15
   %41 = fsub float %40, %38
@@ -3699,7 +3699,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %15
 .noexc52:                                         ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
   %19 = shl nuw nsw i64 %17, 2
   %20 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #19
-  %21 = getelementptr inbounds nuw float, ptr %20, i64 %17
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %17
   store float 0.000000e+00, ptr %20, align 4, !tbaa !15
   %22 = getelementptr i8, ptr %20, i64 4
   %23 = add nsw i64 %17, -1
@@ -3718,7 +3718,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc52
           to label %.noexc60 unwind label %_ZNSt6vectorIfSaIfEED2Ev.exit105.thread
 
 .noexc60:                                         ; preds = %26
-  %28 = getelementptr inbounds nuw float, ptr %27, i64 %17
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %17
   store float 0.000000e+00, ptr %27, align 4, !tbaa !15
   br i1 %24, label %_ZNSt6vectorIfSaIfEEC2EmRKS0_.exit61, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i55
 
@@ -3753,7 +3753,7 @@ _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i68: ; preds = %_ZNSt6vectorIfS
 
 .noexc70:                                         ; preds = %32
   store ptr %34, ptr %4, align 8, !tbaa !19
-  %35 = getelementptr inbounds nuw float, ptr %34, i64 %17
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %17
   store ptr %35, ptr %10, align 8, !tbaa !23
   store float 0.000000e+00, ptr %34, align 4, !tbaa !15
   %36 = getelementptr i8, ptr %34, i64 4
@@ -3792,7 +3792,7 @@ _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i77: ; preds = %_ZNSt6vectorIfS
 
 .noexc79:                                         ; preds = %45
   store ptr %47, ptr %5, align 8, !tbaa !19
-  %48 = getelementptr inbounds nuw float, ptr %47, i64 %17
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %47, i64 %17
   store ptr %48, ptr %12, align 8, !tbaa !23
   store float 0.000000e+00, ptr %47, align 4, !tbaa !15
   %49 = getelementptr i8, ptr %47, i64 4
@@ -3828,19 +3828,19 @@ _ZNSt6vectorIfSaIfEED2Ev.exit105.thread:          ; preds = %26
 
 _ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEiRT_.exit82: ; preds = %.lr.ph
   %59 = sitofp i32 %58 to float
-  %60 = getelementptr inbounds nuw float, ptr %.sroa.0117.0138, i64 %.0227
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0117.0138, i64 %.0227
   store float %59, ptr %60, align 4, !tbaa !15
   %61 = invoke noundef i32 @_ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEiRT_RKNS0_10param_typeE(ptr noundef nonnull align 4 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(8) %3)
           to label %_ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEiRT_.exit84 unwind label %69
 
 _ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEiRT_.exit84: ; preds = %_ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEiRT_.exit82
   %62 = sitofp i32 %61 to float
-  %63 = getelementptr inbounds nuw float, ptr %.sroa.0110.0, i64 %.0227
+  %63 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0110.0, i64 %.0227
   store float %62, ptr %63, align 4, !tbaa !15
   %64 = load float, ptr %60, align 4, !tbaa !15
   %65 = call float @llvm.fmuladd.f32(float %31, float %62, float %64)
   %66 = load ptr, ptr %4, align 8, !tbaa !19
-  %67 = getelementptr inbounds nuw float, ptr %66, i64 %.0227
+  %67 = getelementptr inbounds nuw [4 x i8], ptr %66, i64 %.0227
   store float %65, ptr %67, align 4, !tbaa !15
   %68 = add nuw i64 %.0227, 1
   %exitcond.not = icmp eq i64 %68, %44
@@ -4224,7 +4224,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %15
 .noexc48:                                         ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
   %19 = shl nuw nsw i64 %17, 2
   %20 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #19
-  %21 = getelementptr inbounds nuw float, ptr %20, i64 %17
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %17
   store float 0.000000e+00, ptr %20, align 4, !tbaa !15
   %22 = getelementptr i8, ptr %20, i64 4
   %23 = add nsw i64 %17, -1
@@ -4243,7 +4243,7 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i: ; preds = %.noexc48
           to label %.noexc56 unwind label %_ZNSt6vectorIfSaIfEED2Ev.exit99.thread
 
 .noexc56:                                         ; preds = %26
-  %28 = getelementptr inbounds nuw float, ptr %27, i64 %17
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %17
   store float 0.000000e+00, ptr %27, align 4, !tbaa !15
   br i1 %24, label %30, label %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i51
 
@@ -4267,7 +4267,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i67.thread: ; preds = %_ZNSt
 
 .noexc65:                                         ; preds = %30
   store ptr %31, ptr %4, align 8, !tbaa !19
-  %32 = getelementptr inbounds nuw float, ptr %31, i64 %17
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %17
   store ptr %32, ptr %10, align 8, !tbaa !23
   store float 0.000000e+00, ptr %31, align 4, !tbaa !15
   %33 = getelementptr i8, ptr %31, i64 4
@@ -4298,7 +4298,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i67.thread374: ; preds = %_Z
 
 .noexc74:                                         ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i67.thread374
   store ptr %42, ptr %5, align 8, !tbaa !19
-  %43 = getelementptr inbounds nuw float, ptr %42, i64 %17
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %42, i64 %17
   store ptr %43, ptr %12, align 8, !tbaa !23
   store float 0.000000e+00, ptr %42, align 4, !tbaa !15
   %44 = getelementptr i8, ptr %42, i64 4
@@ -4330,19 +4330,19 @@ _ZNSt6vectorIfSaIfEED2Ev.exit97.thread:           ; preds = %30
 
 _ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEiRT_.exit: ; preds = %.lr.ph
   %51 = sitofp i32 %50 to float
-  %52 = getelementptr inbounds nuw float, ptr %20, i64 %.0242
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %.0242
   store float %51, ptr %52, align 4, !tbaa !15
   %53 = invoke noundef i32 @_ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEiRT_RKNS0_10param_typeE(ptr noundef nonnull align 4 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(8) %3)
           to label %_ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEiRT_.exit78 unwind label %61
 
 _ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEiRT_.exit78: ; preds = %_ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEiRT_.exit
   %54 = sitofp i32 %53 to float
-  %55 = getelementptr inbounds nuw float, ptr %27, i64 %.0242
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %.0242
   store float %54, ptr %55, align 4, !tbaa !15
   %56 = load float, ptr %52, align 4, !tbaa !15
   %57 = fadd float %56, %54
   %58 = load ptr, ptr %4, align 8, !tbaa !19
-  %59 = getelementptr inbounds nuw float, ptr %58, i64 %.0242
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %.0242
   store float %57, ptr %59, align 4, !tbaa !15
   %60 = add nuw i64 %.0242, 1
   %exitcond.not = icmp eq i64 %60, %39
@@ -4746,7 +4746,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %15
 .noexc48:                                         ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
   %19 = shl nuw nsw i64 %17, 2
   %20 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #19
-  %21 = getelementptr inbounds nuw float, ptr %20, i64 %17
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %17
   store float 0.000000e+00, ptr %20, align 4, !tbaa !15
   %22 = getelementptr i8, ptr %20, i64 4
   %23 = add nsw i64 %17, -1
@@ -4782,7 +4782,7 @@ _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i55: ; preds = %_ZNSt6vectorIfS
 
 .noexc57:                                         ; preds = %28
   store ptr %30, ptr %4, align 8, !tbaa !19
-  %31 = getelementptr inbounds nuw float, ptr %30, i64 %17
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %17
   store ptr %31, ptr %10, align 8, !tbaa !23
   store float 0.000000e+00, ptr %30, align 4, !tbaa !15
   %32 = getelementptr i8, ptr %30, i64 4
@@ -4821,7 +4821,7 @@ _ZNSt12_Vector_baseIfSaIfEEC2EmRKS0_.exit.thread.i64: ; preds = %_ZNSt6vectorIfS
 
 .noexc66:                                         ; preds = %41
   store ptr %43, ptr %5, align 8, !tbaa !19
-  %44 = getelementptr inbounds nuw float, ptr %43, i64 %17
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %17
   store ptr %44, ptr %12, align 8, !tbaa !23
   store float 0.000000e+00, ptr %43, align 4, !tbaa !15
   %45 = getelementptr i8, ptr %43, i64 4
@@ -4852,11 +4852,11 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.loopexit.i.i.i.i.i61: ; preds = %.noexc66
 
 _ZNSt24uniform_int_distributionIiEclISt26linear_congruential_engineImLm16807ELm0ELm2147483647EEEEiRT_.exit69: ; preds = %.lr.ph
   %54 = sitofp i32 %53 to float
-  %55 = getelementptr inbounds nuw float, ptr %.sroa.0102.0, i64 %.0159
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %.sroa.0102.0, i64 %.0159
   store float %54, ptr %55, align 4, !tbaa !15
   %56 = fadd float %27, %54
   %57 = load ptr, ptr %4, align 8, !tbaa !19
-  %58 = getelementptr inbounds nuw float, ptr %57, i64 %.0159
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %57, i64 %.0159
   store float %56, ptr %58, align 4, !tbaa !15
   %59 = add nuw i64 %.0159, 1
   %exitcond.not = icmp eq i64 %59, %40
@@ -5242,9 +5242,9 @@ define dso_local void @_Z26fvec_inner_products_ny_refPfPKfS1_mm(ptr noundef writ
   %.011 = phi i64 [ %9, %.lr.ph ], [ 0, %5 ]
   %.0910 = phi ptr [ %8, %.lr.ph ], [ %2, %5 ]
   %6 = tail call noundef float @_ZN5faiss18fvec_inner_productEPKfS1_m(ptr noundef %1, ptr noundef %.0910, i64 noundef %3)
-  %7 = getelementptr inbounds nuw float, ptr %0, i64 %.011
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.011
   store float %6, ptr %7, align 4, !tbaa !15
-  %8 = getelementptr inbounds nuw float, ptr %.0910, i64 %3
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %.0910, i64 %3
   %9 = add nuw i64 %.011, 1
   %exitcond.not = icmp eq i64 %9, %4
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !60
@@ -5264,9 +5264,9 @@ define dso_local void @_Z17fvec_L2sqr_ny_refPfPKfS1_mm(ptr noundef writeonly cap
   %.011 = phi i64 [ %9, %.lr.ph ], [ 0, %5 ]
   %.0910 = phi ptr [ %8, %.lr.ph ], [ %2, %5 ]
   %6 = tail call noundef float @_ZN5faiss10fvec_L2sqrEPKfS1_m(ptr noundef %1, ptr noundef %.0910, i64 noundef %3)
-  %7 = getelementptr inbounds nuw float, ptr %0, i64 %.011
+  %7 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.011
   store float %6, ptr %7, align 4, !tbaa !15
-  %8 = getelementptr inbounds nuw float, ptr %.0910, i64 %3
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %.0910, i64 %3
   %9 = add nuw i64 %.011, 1
   %exitcond.not = icmp eq i64 %9, %4
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26

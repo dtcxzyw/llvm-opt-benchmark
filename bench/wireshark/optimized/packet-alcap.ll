@@ -8,7 +8,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct._value_string_ext = type { ptr, i32, i32, ptr, ptr }
 %struct.true_false_string = type { ptr, ptr }
 %struct.expert_field = type { i32, i32 }
-%struct._alcap_param_info_t = type { i32, ptr, ptr, i8 }
 %struct.e164_info_t = type { i32, i32, ptr, i32 }
 
 @legs_by_bearer = internal unnamed_addr global ptr null, align 8
@@ -1013,7 +1012,7 @@ define internal i32 @dissect_alcap(ptr noundef %0, ptr noundef %1, ptr noundef %
   %48 = icmp ugt i8 %44, 35
   %narrow = select i1 %48, i8 0, i8 %44
   %.idx = zext i8 %narrow to i64
-  %49 = getelementptr %struct._alcap_param_info_t, ptr @param_infos, i64 %.idx
+  %49 = getelementptr [32 x i8], ptr @param_infos, i64 %.idx
   %50 = load i32, ptr @hf_alcap_param_id, align 4
   %51 = tail call ptr @proto_tree_add_item(ptr noundef %.0, i32 noundef %50, ptr noundef %0, i32 noundef %.0154195, i32 noundef 1, i32 noundef 0)
   %52 = load i32, ptr %49, align 16

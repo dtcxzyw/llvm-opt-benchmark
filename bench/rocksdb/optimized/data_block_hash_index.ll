@@ -3,8 +3,6 @@ source_filename = "bench/rocksdb/original/data_block_hash_index.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.std::pair" = type <{ i32, i8, [3 x i8] }>
-
 @.str = private unnamed_addr constant [21 x i8] c"basic_string::append\00", align 1
 @.str.1 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 
@@ -95,7 +93,7 @@ _ZNSt6vectorISt4pairIjhESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i.i: ; preds
 _ZNSt6vectorISt4pairIjhESaIS1_EE17_M_realloc_insertIJRjhEEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i: ; preds = %41, %_ZNSt6vectorISt4pairIjhESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit33.i.i
   store ptr %34, ptr %12, align 8, !tbaa !27
   store ptr %40, ptr %14, align 8, !tbaa !21
-  %42 = getelementptr inbounds nuw %"struct.std::pair", ptr %34, i64 %32
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %32
   store ptr %42, ptr %16, align 8, !tbaa !22
   br label %_ZNSt6vectorISt4pairIjhESaIS1_EE12emplace_backIJRjhEEERS1_DpOT_.exit
 

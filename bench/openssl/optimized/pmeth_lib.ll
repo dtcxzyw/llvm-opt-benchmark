@@ -1374,7 +1374,7 @@ define ptr @EVP_PKEY_meth_get0(i64 noundef %0) local_unnamed_addr #0 {
   br i1 %2, label %3, label %7
 
 3:                                                ; preds = %1
-  %4 = getelementptr inbounds nuw ptr, ptr @standard_methods, i64 %0
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @standard_methods, i64 %0
   %5 = load ptr, ptr %4, align 8, !tbaa !13
   %6 = tail call ptr %5() #10
   br label %18

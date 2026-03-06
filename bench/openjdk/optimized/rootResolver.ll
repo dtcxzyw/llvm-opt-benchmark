@@ -28,7 +28,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.RootResolverMarkScope = type { i8 }
 %class.ReferenceToThreadRootClosure = type <{ ptr, i8, [7 x i8] }>
 %class.ReferenceToRootClosure = type <{ ptr, %struct.RootCallbackInfo, i8, [7 x i8] }>
-%class.ImmutableOopMapPair = type { i32, i32 }
 
 $_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_162ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE = comdat any
 
@@ -212,7 +211,7 @@ define hidden noundef zeroext i1 @_ZN22ReferenceToRootClosure20do_oop_storage_ro
 
 18:                                               ; preds = %_ZN10OopStorage5Block7iterateINS_5OopFnI22ReferenceLocateClosureEEEEbT_.exit.i.i.i, %.lr.ph.i.i.i
   %.0911.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %29, %_ZN10OopStorage5Block7iterateINS_5OopFnI22ReferenceLocateClosureEEEEbT_.exit.i.i.i ]
-  %19 = getelementptr inbounds ptr, ptr %17, i64 %.0911.i.i.i
+  %19 = getelementptr inbounds [8 x i8], ptr %17, i64 %.0911.i.i.i
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 512
   %22 = load volatile i64, ptr %21, align 8
@@ -224,7 +223,7 @@ define hidden noundef zeroext i1 @_ZN22ReferenceToRootClosure20do_oop_storage_ro
   %23 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0810.i.i.i.i.i, i1 true)
   %24 = shl nuw i64 1, %23
   %25 = xor i64 %24, %.0810.i.i.i.i.i
-  %26 = getelementptr inbounds nuw ptr, ptr %20, i64 %23
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %23
   %27 = load ptr, ptr %2, align 8
   %28 = load ptr, ptr %27, align 8
   call void %28(ptr noundef nonnull align 8 dereferenceable(49) %2, ptr noundef nonnull %26) #8
@@ -314,7 +313,7 @@ define hidden noundef zeroext i1 @_ZN22ReferenceToRootClosure8do_rootsEv(ptr nou
 
 30:                                               ; preds = %_ZN10OopStorage5Block7iterateINS_5OopFnI22ReferenceLocateClosureEEEEbT_.exit.i.i.i.i, %.lr.ph.i.i.i.i
   %.0911.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %41, %_ZN10OopStorage5Block7iterateINS_5OopFnI22ReferenceLocateClosureEEEEbT_.exit.i.i.i.i ]
-  %31 = getelementptr inbounds ptr, ptr %29, i64 %.0911.i.i.i.i
+  %31 = getelementptr inbounds [8 x i8], ptr %29, i64 %.0911.i.i.i.i
   %32 = load ptr, ptr %31, align 8
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 512
   %34 = load volatile i64, ptr %33, align 8
@@ -326,7 +325,7 @@ define hidden noundef zeroext i1 @_ZN22ReferenceToRootClosure8do_rootsEv(ptr nou
   %35 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %.0810.i.i.i.i.i.i, i1 true)
   %36 = shl nuw i64 1, %35
   %37 = xor i64 %36, %.0810.i.i.i.i.i.i
-  %38 = getelementptr inbounds nuw ptr, ptr %32, i64 %35
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %35
   %39 = load ptr, ptr %2, align 8
   %40 = load ptr, ptr %39, align 8
   call void %40(ptr noundef nonnull align 8 dereferenceable(49) %2, ptr noundef nonnull %38) #8
@@ -631,7 +630,7 @@ _ZN16StackFrameStream7is_doneEv.exit.thread:      ; preds = %_ZN16StackFrameStre
 66:                                               ; preds = %.lr.ph19, %66
   %indvars.iv = phi i64 [ 0, %.lr.ph19 ], [ %indvars.iv.next, %66 ]
   %67 = load ptr, ptr %65, align 8
-  %68 = getelementptr inbounds nuw ptr, ptr %67, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [8 x i8], ptr %67, i64 %indvars.iv
   %69 = load ptr, ptr %68, align 8
   call void @_ZN29jvmtiDeferredLocalVariableSet7oops_doEP10OopClosure(ptr noundef nonnull align 8 dereferenceable(41) %69, ptr noundef nonnull %4) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1172,7 +1171,7 @@ define linkonce_odr hidden void @_ZNK5frame25sender_for_compiled_frameEP11Regist
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 44
   %9 = load i32, ptr %8, align 4
   %10 = sext i32 %9 to i64
-  %11 = getelementptr inbounds i64, ptr %5, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %5, i64 %10
   %12 = getelementptr inbounds i8, ptr %11, i64 -8
   %13 = load i64, ptr %12, align 8
   %14 = inttoptr i64 %13 to ptr
@@ -1227,7 +1226,7 @@ _ZNK5frame7oop_mapEv.exit.thread23:               ; preds = %42
   %45 = lshr i32 %44, 24
   %46 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %47 = zext nneg i32 %45 to i64
-  %48 = getelementptr inbounds nuw %class.ImmutableOopMapPair, ptr %46, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %47
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 4
   %50 = load i32, ptr %49, align 4
   %51 = load i32, ptr %36, align 4

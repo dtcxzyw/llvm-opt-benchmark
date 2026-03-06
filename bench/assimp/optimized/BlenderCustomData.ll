@@ -10,17 +10,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.Assimp::Blender::Structure" = type { %"class.std::__cxx11::basic_string", %"class.Assimp::Blender::vector.23", %"class.std::map.3", i64, i64 }
-%"class.Assimp::Blender::vector.23" = type { %"class.std::vector.24" }
-%"class.std::vector.24" = type { %"struct.std::_Vector_base.25" }
-%"struct.std::_Vector_base.25" = type { %"struct.std::_Vector_base<Assimp::Blender::Field, std::allocator<Assimp::Blender::Field>>::_Vector_impl" }
-%"struct.std::_Vector_base<Assimp::Blender::Field, std::allocator<Assimp::Blender::Field>>::_Vector_impl" = type { %"struct.std::_Vector_base<Assimp::Blender::Field, std::allocator<Assimp::Blender::Field>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<Assimp::Blender::Field, std::allocator<Assimp::Blender::Field>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::map.3" = type { %"class.std::_Rb_tree.4" }
-%"class.std::_Rb_tree.4" = type { %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, unsigned long>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, unsigned long>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" }
-%"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, unsigned long>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, unsigned long>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
-%"struct.std::_Rb_tree_header" = type { %"struct.std::_Rb_tree_node_base", i64 }
-%"struct.std::_Rb_tree_node_base" = type { i32, ptr, ptr, ptr }
 %"struct.Assimp::Blender::MEdge" = type <{ %"struct.Assimp::Blender::ElemBase", i32, i32, i8, i8, i16, [4 x i8] }>
 %"struct.Assimp::Blender::MFace" = type <{ %"struct.Assimp::Blender::ElemBase", i32, i32, i32, i32, i32, i8, [3 x i8] }>
 %"struct.Assimp::Blender::MTFace" = type { %"struct.Assimp::Blender::ElemBase", [4 x [2 x float]], i8, i16, i16, i16 }
@@ -471,7 +460,7 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmSt4lessIS5_ESaIS
   %34 = getelementptr inbounds nuw i8, ptr %.19.i.i.i, i64 64
   %35 = load i64, ptr %34, align 8
   %36 = load ptr, ptr %33, align 8
-  %37 = getelementptr inbounds nuw %"class.Assimp::Blender::Structure", ptr %36, i64 %35
+  %37 = getelementptr inbounds nuw [120 x i8], ptr %36, i64 %35
   ret ptr %37
 }
 
@@ -662,7 +651,7 @@ define hidden noundef nonnull ptr @_ZN6Assimp7Blender11createMEdgeEm(i64 noundef
   br i1 %8, label %.loopexit, label %9
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds %"struct.Assimp::Blender::MEdge", ptr %7, i64 %0
+  %10 = getelementptr inbounds [32 x i8], ptr %7, i64 %0
   br label %11
 
 11:                                               ; preds = %11, %9
@@ -818,7 +807,7 @@ define hidden noundef nonnull ptr @_ZN6Assimp7Blender11createMFaceEm(i64 noundef
   br i1 %12, label %.loopexit, label %13
 
 13:                                               ; preds = %1
-  %14 = getelementptr inbounds %"struct.Assimp::Blender::MFace", ptr %11, i64 %0
+  %14 = getelementptr inbounds [40 x i8], ptr %11, i64 %0
   br label %15
 
 15:                                               ; preds = %15, %13
@@ -982,7 +971,7 @@ define hidden noundef nonnull ptr @_ZN6Assimp7Blender12createMTFaceEm(i64 nounde
   br i1 %12, label %.loopexit, label %13
 
 13:                                               ; preds = %1
-  %14 = getelementptr inbounds %"struct.Assimp::Blender::MTFace", ptr %11, i64 %0
+  %14 = getelementptr inbounds [56 x i8], ptr %11, i64 %0
   br label %15
 
 15:                                               ; preds = %15, %13
@@ -1142,7 +1131,7 @@ define hidden noundef nonnull ptr @_ZN6Assimp7Blender14createMTexPolyEm(i64 noun
   br i1 %8, label %.loopexit, label %9
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds %"struct.Assimp::Blender::MTexPoly", ptr %7, i64 %0
+  %10 = getelementptr inbounds [32 x i8], ptr %7, i64 %0
   br label %11
 
 11:                                               ; preds = %11, %9
@@ -1294,7 +1283,7 @@ define hidden noundef nonnull ptr @_ZN6Assimp7Blender13createMLoopUVEm(i64 nound
   br i1 %8, label %.loopexit, label %9
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds %"struct.Assimp::Blender::MLoopUV", ptr %7, i64 %0
+  %10 = getelementptr inbounds [32 x i8], ptr %7, i64 %0
   br label %11
 
 11:                                               ; preds = %11, %9
@@ -1451,7 +1440,7 @@ define hidden noundef nonnull ptr @_ZN6Assimp7Blender14createMLoopColEm(i64 noun
   br i1 %12, label %.loopexit, label %13
 
 13:                                               ; preds = %1
-  %14 = getelementptr inbounds %"struct.Assimp::Blender::MLoopCol", ptr %11, i64 %0
+  %14 = getelementptr inbounds [24 x i8], ptr %11, i64 %0
   br label %15
 
 15:                                               ; preds = %15, %13
@@ -1603,7 +1592,7 @@ define hidden noundef nonnull ptr @_ZN6Assimp7Blender11createMPolyEm(i64 noundef
   br i1 %8, label %.loopexit, label %9
 
 9:                                                ; preds = %1
-  %10 = getelementptr inbounds %"struct.Assimp::Blender::MPoly", ptr %7, i64 %0
+  %10 = getelementptr inbounds [32 x i8], ptr %7, i64 %0
   br label %11
 
 11:                                               ; preds = %11, %9
@@ -1760,7 +1749,7 @@ define hidden noundef nonnull ptr @_ZN6Assimp7Blender11createMLoopEm(i64 noundef
   br i1 %12, label %.loopexit, label %13
 
 13:                                               ; preds = %1
-  %14 = getelementptr inbounds %"struct.Assimp::Blender::MLoop", ptr %11, i64 %0
+  %14 = getelementptr inbounds [24 x i8], ptr %11, i64 %0
   br label %15
 
 15:                                               ; preds = %15, %13
@@ -1846,7 +1835,7 @@ define hidden noundef zeroext i1 @_ZN6Assimp7Blender14readCustomDataERSt10shared
   br i1 %or.cond7, label %21, label %26
 
 21:                                               ; preds = %12
-  %22 = getelementptr inbounds nuw %"struct.Assimp::Blender::CustomDataTypeDescription", ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 %13
+  %22 = getelementptr inbounds nuw [24 x i8], ptr @_ZN6Assimp7BlenderL26customDataTypeDescriptionsE, i64 %13
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 16
   %.sroa.7.0.copyload = load ptr, ptr %.sroa.7.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %22, i64 8

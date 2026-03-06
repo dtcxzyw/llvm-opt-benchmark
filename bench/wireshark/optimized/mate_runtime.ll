@@ -246,7 +246,7 @@ define hidden void @mate_analyze_frame(ptr noundef readonly captures(none) %0, p
 37:                                               ; preds = %33, %30
   %38 = phi ptr [ %.pre, %33 ], [ %31, %30 ]
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr ptr, ptr %39, i64 %indvars.iv101
+  %40 = getelementptr [8 x i8], ptr %39, i64 %indvars.iv101
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr @dbg_pdu, align 8
   %43 = load ptr, ptr @dbg_facility, align 8
@@ -284,7 +284,7 @@ define hidden void @mate_analyze_frame(ptr noundef readonly captures(none) %0, p
   %62 = load ptr, ptr %41, align 8
   call void (ptr, i32, ptr, ptr, ...) @dbg_print(ptr noundef %60, i32 noundef 3, ptr noundef %61, ptr noundef nonnull @.str.4, ptr noundef %62)
   %63 = load ptr, ptr %47, align 8
-  %64 = getelementptr ptr, ptr %63, i64 %indvars.iv
+  %64 = getelementptr [8 x i8], ptr %63, i64 %indvars.iv
   %65 = load ptr, ptr %64, align 8
   %66 = load i32, ptr %18, align 4
   %67 = call noalias dereferenceable_or_null(144) ptr @g_slice_alloc(i64 noundef 144) #9
@@ -358,7 +358,7 @@ define hidden void @mate_analyze_frame(ptr noundef readonly captures(none) %0, p
   %107 = add nsw i64 %indvars.iv169.i, -1
   %108 = load ptr, ptr %51, align 8
   %109 = load ptr, ptr %108, align 8
-  %110 = getelementptr ptr, ptr %109, i64 %107
+  %110 = getelementptr [8 x i8], ptr %109, i64 %107
   %111 = load ptr, ptr %110, align 8
   %112 = load i32, ptr %111, align 4
   %113 = call ptr @proto_get_finfo_ptr_array(ptr noundef %2, i32 noundef %112)
@@ -380,7 +380,7 @@ define hidden void @mate_analyze_frame(ptr noundef readonly captures(none) %0, p
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %117 ]
   %.0124149.i = phi ptr [ null, %.lr.ph.i ], [ %.1125.i, %117 ]
   %.0126148.i = phi i32 [ 99999, %.lr.ph.i ], [ %.1127.i, %117 ]
-  %118 = getelementptr ptr, ptr %116, i64 %indvars.iv.i
+  %118 = getelementptr [8 x i8], ptr %116, i64 %indvars.iv.i
   %119 = load ptr, ptr %118, align 8
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 8
   %121 = load i32, ptr %120, align 8
@@ -449,7 +449,7 @@ define hidden void @mate_analyze_frame(ptr noundef readonly captures(none) %0, p
   %indvars.iv177.i = phi i64 [ %indvars.iv.next178.i, %186 ], [ 0, %145 ]
   %149 = phi ptr [ %187, %186 ], [ %144, %145 ]
   %150 = load ptr, ptr %149, align 8
-  %151 = getelementptr ptr, ptr %150, i64 %indvars.iv177.i
+  %151 = getelementptr [8 x i8], ptr %150, i64 %indvars.iv177.i
   %152 = load ptr, ptr %151, align 8
   %153 = load i32, ptr %152, align 4
   %154 = call ptr @proto_get_finfo_ptr_array(ptr noundef %2, i32 noundef %153)
@@ -471,7 +471,7 @@ define hidden void @mate_analyze_frame(ptr noundef readonly captures(none) %0, p
   %indvars.iv172.i = phi i64 [ 0, %.lr.ph159.i ], [ %indvars.iv.next173.i, %158 ]
   %.2157.i = phi ptr [ null, %.lr.ph159.i ], [ %.3.i, %158 ]
   %.2128156.i = phi i32 [ 99999, %.lr.ph159.i ], [ %.3129.i, %158 ]
-  %159 = getelementptr ptr, ptr %157, i64 %indvars.iv172.i
+  %159 = getelementptr [8 x i8], ptr %157, i64 %indvars.iv172.i
   %160 = load ptr, ptr %159, align 8
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 8
   %162 = load i32, ptr %161, align 8
@@ -545,7 +545,7 @@ define hidden void @mate_analyze_frame(ptr noundef readonly captures(none) %0, p
 .lr.ph.i.i:                                       ; preds = %.loopexit.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %.loopexit.i ]
   %199 = load ptr, ptr %195, align 8
-  %200 = getelementptr ptr, ptr %199, i64 %indvars.iv.i.i
+  %200 = getelementptr [8 x i8], ptr %199, i64 %indvars.iv.i.i
   %201 = load ptr, ptr %200, align 8
   call void @avpl_transform(ptr noundef %196, ptr noundef %201)
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
@@ -1039,7 +1039,7 @@ apply_extras.exit120.i:                           ; preds = %410, %391
 .lr.ph.i.i67:                                     ; preds = %457, %.lr.ph.i.i67
   %indvars.iv.i.i68 = phi i64 [ %indvars.iv.next.i.i69, %.lr.ph.i.i67 ], [ 0, %457 ]
   %464 = load ptr, ptr %461, align 8
-  %465 = getelementptr ptr, ptr %464, i64 %indvars.iv.i.i68
+  %465 = getelementptr [8 x i8], ptr %464, i64 %indvars.iv.i.i68
   %466 = load ptr, ptr %465, align 8
   call void @avpl_transform(ptr noundef %454, ptr noundef %466)
   %indvars.iv.next.i.i69 = add nuw nsw i64 %indvars.iv.i.i68, 1
@@ -1618,7 +1618,7 @@ define internal void @get_pdu_fields(ptr noundef readonly captures(none) %0, ptr
 .lr.ph54:                                         ; preds = %.preheader, %.loopexit
   %indvars.iv = phi i64 [ %indvars.iv.next, %.loopexit ], [ 0, %.preheader ]
   %10 = load ptr, ptr %7, align 8
-  %11 = getelementptr ptr, ptr %10, i64 %indvars.iv
+  %11 = getelementptr [8 x i8], ptr %10, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %14 = load i32, ptr %13, align 8
@@ -1701,7 +1701,7 @@ define internal fastcc zeroext i1 @add_avp(ptr noundef %0, ptr noundef %1, ptr n
 16:                                               ; preds = %.lr.ph, %49
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %49 ]
   %.02838 = phi i1 [ true, %.lr.ph ], [ %.1, %49 ]
-  %17 = getelementptr ptr, ptr %15, i64 %indvars.iv
+  %17 = getelementptr [8 x i8], ptr %15, i64 %indvars.iv
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, %11

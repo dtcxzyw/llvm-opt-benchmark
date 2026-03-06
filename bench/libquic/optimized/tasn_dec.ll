@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.ASN1_TLC_st = type { i8, i32, i64, i32, i32, i32 }
-%struct.ASN1_TEMPLATE_st = type { i64, i64, i64, ptr, ptr }
 %struct.buf_mem_st = type { i64, ptr, i64 }
 
 @tag2bit = internal unnamed_addr constant [32 x i64] [i64 0, i64 0, i64 0, i64 1024, i64 512, i64 0, i64 0, i64 4096, i64 4096, i64 4096, i64 4096, i64 4096, i64 8192, i64 4096, i64 4096, i64 4096, i64 65536, i64 0, i64 1, i64 2, i64 4, i64 8, i64 16, i64 16384, i64 32768, i64 32, i64 64, i64 128, i64 256, i64 4096, i64 2048, i64 4096], align 16
@@ -20,7 +19,7 @@ define hidden i64 @ASN1_tag2bit(i32 noundef %0) local_unnamed_addr #0 {
 
 2:                                                ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %4 = getelementptr inbounds nuw i64, ptr @tag2bit, i64 %3
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @tag2bit, i64 %3
   %5 = load i64, ptr %4, align 8, !tbaa !6
   br label %6
 
@@ -156,7 +155,7 @@ define hidden i32 @ASN1_item_ex_d2i(ptr noundef %0, ptr noundef %1, i64 noundef 
 
 46:                                               ; preds = %44
   %47 = zext nneg i32 %45 to i64
-  %48 = getelementptr inbounds nuw i64, ptr @tag2bit, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr @tag2bit, i64 %47
   %49 = load i64, ptr %48, align 8, !tbaa !6
   br label %ASN1_tag2bit.exit
 
@@ -287,7 +286,7 @@ ASN1_tag2bit.exit:                                ; preds = %44, %46
 107:                                              ; preds = %102
   %108 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %109 = load ptr, ptr %108, align 8, !tbaa !24
-  %110 = getelementptr inbounds nuw %struct.ASN1_TEMPLATE_st, ptr %109, i64 %103
+  %110 = getelementptr inbounds nuw [40 x i8], ptr %109, i64 %103
   %111 = tail call ptr @asn1_get_field_ptr(ptr noundef nonnull %0, ptr noundef %110) #7
   tail call void @ASN1_template_free(ptr noundef %111, ptr noundef %110) #7
   %112 = tail call i32 @asn1_set_choice_selector(ptr noundef nonnull %0, i32 noundef -1, ptr noundef nonnull %3) #7

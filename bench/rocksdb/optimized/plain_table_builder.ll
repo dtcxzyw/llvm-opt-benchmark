@@ -26,12 +26,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::tuple.22" = type { %"struct.std::_Tuple_impl.23" }
 %"struct.std::_Tuple_impl.23" = type { %"struct.std::_Head_base.26" }
 %"struct.std::_Head_base.26" = type { ptr }
-%"class.std::unique_ptr.138" = type { %"struct.std::__uniq_ptr_data.139" }
-%"struct.std::__uniq_ptr_data.139" = type { %"class.std::__uniq_ptr_impl.140" }
-%"class.std::__uniq_ptr_impl.140" = type { %"class.std::tuple.141" }
-%"class.std::tuple.141" = type { %"struct.std::_Tuple_impl.142" }
-%"struct.std::_Tuple_impl.142" = type { %"struct.std::_Head_base.145" }
-%"struct.std::_Head_base.145" = type { ptr }
 %"class.std::tuple.220" = type { %"struct.std::_Tuple_impl.221" }
 %"struct.std::_Tuple_impl.221" = type { %"struct.std::_Head_base.222" }
 %"struct.std::_Head_base.222" = type { ptr }
@@ -1077,7 +1071,7 @@ _ZNSt6vectorISt10unique_ptrIN7rocksdb19InternalTblPropCollESt14default_deleteIS2
 .noexc76:                                         ; preds = %258, %_ZNSt6vectorISt10unique_ptrIN7rocksdb19InternalTblPropCollESt14default_deleteIS2_EESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i
   store ptr %251, ptr %28, align 16, !tbaa !233
   store ptr %257, ptr %214, align 8, !tbaa !229
-  %259 = getelementptr inbounds nuw %"class.std::unique_ptr.138", ptr %251, i64 %249
+  %259 = getelementptr inbounds nuw [8 x i8], ptr %251, i64 %249
   store ptr %259, ptr %215, align 16, !tbaa !230
   br label %_ZNSt10unique_ptrIN7rocksdb19InternalTblPropCollESt14default_deleteIS1_EED2Ev.exit80
 
@@ -2116,7 +2110,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i: ; preds = %105, %.n
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i: ; preds = %107, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i
   store ptr %102, ptr %82, align 8, !tbaa !241
   store ptr %106, ptr %83, align 16, !tbaa !316
-  %108 = getelementptr inbounds nuw i32, ptr %102, i64 %100
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %102, i64 %100
   store ptr %108, ptr %85, align 8, !tbaa !242
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
 
@@ -2203,7 +2197,7 @@ _ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i49: ; preds = %143, %
 _ZNSt6vectorIjSaIjEE17_M_realloc_insertIJjEEEvN9__gnu_cxx17__normal_iteratorIPjS1_EEDpOT_.exit.i.i51: ; preds = %145, %_ZNSt6vectorIjSaIjEE11_S_relocateEPjS2_S2_RS0_.exit16.i.i.i49
   store ptr %140, ptr %120, align 8, !tbaa !241
   store ptr %144, ptr %121, align 16, !tbaa !316
-  %146 = getelementptr inbounds nuw i32, ptr %140, i64 %138
+  %146 = getelementptr inbounds nuw [4 x i8], ptr %140, i64 %138
   store ptr %146, ptr %123, align 8, !tbaa !242
   br label %_ZNSt6vectorIjSaIjEE9push_backEOj.exit
 
@@ -9766,7 +9760,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %4, 
   %21 = phi ptr [ %28, %27 ], [ %14, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
   %22 = phi ptr [ %29, %27 ], [ %13, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
   %.05.i.i = phi i64 [ %30, %27 ], [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i ]
-  %23 = getelementptr inbounds nuw ptr, ptr %21, i64 %.05.i.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.05.i.i
   %24 = load ptr, ptr %23, align 8, !tbaa !414
   %25 = icmp eq ptr %24, null
   br i1 %25, label %27, label %26

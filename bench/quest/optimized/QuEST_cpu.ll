@@ -139,12 +139,12 @@ define internal void @densmatr_oneQubitDegradeOffDiagonal.omp_outlined(ptr noali
 
 38:                                               ; preds = %32
   %39 = load double, ptr %7, align 8, !tbaa !4
-  %40 = getelementptr inbounds double, ptr %29, i64 %.026
+  %40 = getelementptr inbounds [8 x i8], ptr %29, i64 %.026
   %41 = load double, ptr %40, align 8, !tbaa !4
   %42 = fmul double %39, %41
   store double %42, ptr %40, align 8, !tbaa !4
   %43 = load double, ptr %7, align 8, !tbaa !4
-  %44 = getelementptr inbounds double, ptr %31, i64 %.026
+  %44 = getelementptr inbounds [8 x i8], ptr %31, i64 %.026
   %45 = load double, ptr %44, align 8, !tbaa !4
   %46 = fmul double %43, %45
   store double %46, ptr %44, align 8, !tbaa !4
@@ -340,12 +340,12 @@ define internal void @densmatr_mixTwoQubitDephasing.omp_outlined(ptr noalias nou
 
 47:                                               ; preds = %36
   %48 = load double, ptr %10, align 8, !tbaa !4
-  %49 = getelementptr inbounds double, ptr %33, i64 %.037
+  %49 = getelementptr inbounds [8 x i8], ptr %33, i64 %.037
   %50 = load double, ptr %49, align 8, !tbaa !4
   %51 = fmul double %48, %50
   store double %51, ptr %49, align 8, !tbaa !4
   %52 = load double, ptr %10, align 8, !tbaa !4
-  %53 = getelementptr inbounds double, ptr %35, i64 %.037
+  %53 = getelementptr inbounds [8 x i8], ptr %35, i64 %.037
   %54 = load double, ptr %53, align 8, !tbaa !4
   %55 = fmul double %52, %54
   store double %55, ptr %53, align 8, !tbaa !4
@@ -464,12 +464,12 @@ define internal void @densmatr_mixDepolarisingLocal.omp_outlined(ptr noalias nou
 
 39:                                               ; preds = %33
   %40 = load double, ptr %7, align 8, !tbaa !4
-  %41 = getelementptr inbounds double, ptr %30, i64 %.045
+  %41 = getelementptr inbounds [8 x i8], ptr %30, i64 %.045
   %42 = load double, ptr %41, align 8, !tbaa !4
   %43 = fmul double %40, %42
   store double %43, ptr %41, align 8, !tbaa !4
   %44 = load double, ptr %7, align 8, !tbaa !4
-  %45 = getelementptr inbounds double, ptr %32, i64 %.045
+  %45 = getelementptr inbounds [8 x i8], ptr %32, i64 %.045
   %46 = load double, ptr %45, align 8, !tbaa !4
   %47 = fmul double %44, %46
   store double %47, ptr %45, align 8, !tbaa !4
@@ -482,15 +482,15 @@ define internal void @densmatr_mixDepolarisingLocal.omp_outlined(ptr noalias nou
 
 51:                                               ; preds = %48
   %52 = or i64 %27, %.045
-  %53 = getelementptr inbounds double, ptr %30, i64 %.045
+  %53 = getelementptr inbounds [8 x i8], ptr %30, i64 %.045
   %54 = load double, ptr %53, align 8, !tbaa !4
-  %55 = getelementptr inbounds double, ptr %30, i64 %52
+  %55 = getelementptr inbounds [8 x i8], ptr %30, i64 %52
   %56 = load double, ptr %55, align 8, !tbaa !4
   %57 = fadd double %54, %56
   %58 = fmul double %57, 5.000000e-01
-  %59 = getelementptr inbounds double, ptr %32, i64 %.045
+  %59 = getelementptr inbounds [8 x i8], ptr %32, i64 %.045
   %60 = load double, ptr %59, align 8, !tbaa !4
-  %61 = getelementptr inbounds double, ptr %32, i64 %52
+  %61 = getelementptr inbounds [8 x i8], ptr %32, i64 %52
   %62 = load double, ptr %61, align 8, !tbaa !4
   %63 = fadd double %60, %62
   %64 = fmul double %63, 5.000000e-01
@@ -643,12 +643,12 @@ define internal void @densmatr_mixDampingLocal.omp_outlined(ptr noalias noundef 
 
 40:                                               ; preds = %34
   %41 = load double, ptr %7, align 8, !tbaa !4
-  %42 = getelementptr inbounds double, ptr %31, i64 %.040
+  %42 = getelementptr inbounds [8 x i8], ptr %31, i64 %.040
   %43 = load double, ptr %42, align 8, !tbaa !4
   %44 = fmul double %41, %43
   store double %44, ptr %42, align 8, !tbaa !4
   %45 = load double, ptr %7, align 8, !tbaa !4
-  %46 = getelementptr inbounds double, ptr %33, i64 %.040
+  %46 = getelementptr inbounds [8 x i8], ptr %33, i64 %.040
   %47 = load double, ptr %46, align 8, !tbaa !4
   %48 = fmul double %45, %47
   store double %48, ptr %46, align 8, !tbaa !4
@@ -661,17 +661,17 @@ define internal void @densmatr_mixDampingLocal.omp_outlined(ptr noalias noundef 
 
 52:                                               ; preds = %49
   %53 = or i64 %28, %.040
-  %54 = getelementptr inbounds double, ptr %31, i64 %.040
+  %54 = getelementptr inbounds [8 x i8], ptr %31, i64 %.040
   %55 = load double, ptr %54, align 8, !tbaa !4
   %56 = load double, ptr %8, align 8, !tbaa !4
-  %57 = getelementptr inbounds double, ptr %31, i64 %53
+  %57 = getelementptr inbounds [8 x i8], ptr %31, i64 %53
   %58 = load double, ptr %57, align 8, !tbaa !4
   %59 = call double @llvm.fmuladd.f64(double %56, double %58, double %55)
   store double %59, ptr %54, align 8, !tbaa !4
-  %60 = getelementptr inbounds double, ptr %33, i64 %.040
+  %60 = getelementptr inbounds [8 x i8], ptr %33, i64 %.040
   %61 = load double, ptr %60, align 8, !tbaa !4
   %62 = load double, ptr %8, align 8, !tbaa !4
-  %63 = getelementptr inbounds double, ptr %33, i64 %53
+  %63 = getelementptr inbounds [8 x i8], ptr %33, i64 %53
   %64 = load double, ptr %63, align 8, !tbaa !4
   %65 = call double @llvm.fmuladd.f64(double %62, double %64, double %61)
   store double %65, ptr %60, align 8, !tbaa !4
@@ -856,9 +856,9 @@ define internal void @densmatr_mixDepolarisingDistributed.omp_outlined(ptr noali
   %63 = add nsw i64 %62, %56
   %64 = load double, ptr %9, align 8, !tbaa !4
   %65 = fsub double 1.000000e+00, %64
-  %66 = getelementptr inbounds double, ptr %41, i64 %63
+  %66 = getelementptr inbounds [8 x i8], ptr %41, i64 %63
   %67 = load double, ptr %66, align 8, !tbaa !4
-  %68 = getelementptr inbounds double, ptr %43, i64 %.037
+  %68 = getelementptr inbounds [8 x i8], ptr %43, i64 %.037
   %69 = load double, ptr %68, align 8, !tbaa !4
   %70 = fadd double %67, %69
   %71 = fmul double %64, %70
@@ -867,9 +867,9 @@ define internal void @densmatr_mixDepolarisingDistributed.omp_outlined(ptr noali
   store double %73, ptr %66, align 8, !tbaa !4
   %74 = load double, ptr %9, align 8, !tbaa !4
   %75 = fsub double 1.000000e+00, %74
-  %76 = getelementptr inbounds double, ptr %45, i64 %63
+  %76 = getelementptr inbounds [8 x i8], ptr %45, i64 %63
   %77 = load double, ptr %76, align 8, !tbaa !4
-  %78 = getelementptr inbounds double, ptr %47, i64 %.037
+  %78 = getelementptr inbounds [8 x i8], ptr %47, i64 %.037
   %79 = load double, ptr %78, align 8, !tbaa !4
   %80 = fadd double %77, %79
   %81 = fmul double %74, %80
@@ -1057,17 +1057,17 @@ define internal void @densmatr_mixDampingDistributed.omp_outlined(ptr noalias no
   br i1 %69, label %70, label %83
 
 70:                                               ; preds = %49
-  %71 = getelementptr inbounds double, ptr %42, i64 %64
+  %71 = getelementptr inbounds [8 x i8], ptr %42, i64 %64
   %72 = load double, ptr %71, align 8, !tbaa !4
   %73 = load double, ptr %9, align 8, !tbaa !4
-  %74 = getelementptr inbounds double, ptr %46, i64 %.042
+  %74 = getelementptr inbounds [8 x i8], ptr %46, i64 %.042
   %75 = load double, ptr %74, align 8, !tbaa !4
   %76 = call double @llvm.fmuladd.f64(double %73, double %75, double %72)
   store double %76, ptr %71, align 8, !tbaa !4
-  %77 = getelementptr inbounds double, ptr %44, i64 %64
+  %77 = getelementptr inbounds [8 x i8], ptr %44, i64 %64
   %78 = load double, ptr %77, align 8, !tbaa !4
   %79 = load double, ptr %9, align 8, !tbaa !4
-  %80 = getelementptr inbounds double, ptr %48, i64 %.042
+  %80 = getelementptr inbounds [8 x i8], ptr %48, i64 %.042
   %81 = load double, ptr %80, align 8, !tbaa !4
   %82 = call double @llvm.fmuladd.f64(double %79, double %81, double %78)
   store double %82, ptr %77, align 8, !tbaa !4
@@ -1075,12 +1075,12 @@ define internal void @densmatr_mixDampingDistributed.omp_outlined(ptr noalias no
 
 83:                                               ; preds = %49
   %84 = load double, ptr %10, align 8, !tbaa !4
-  %85 = getelementptr inbounds double, ptr %42, i64 %64
+  %85 = getelementptr inbounds [8 x i8], ptr %42, i64 %64
   %86 = load double, ptr %85, align 8, !tbaa !4
   %87 = fmul double %84, %86
   store double %87, ptr %85, align 8, !tbaa !4
   %88 = load double, ptr %10, align 8, !tbaa !4
-  %89 = getelementptr inbounds double, ptr %44, i64 %64
+  %89 = getelementptr inbounds [8 x i8], ptr %44, i64 %64
   %90 = load double, ptr %89, align 8, !tbaa !4
   %91 = fmul double %88, %90
   store double %91, ptr %89, align 8, !tbaa !4
@@ -1210,18 +1210,18 @@ define internal void @densmatr_mixTwoQubitDepolarisingLocal.omp_outlined(ptr noa
 
 48:                                               ; preds = %44
   %49 = or i64 %34, %.099109
-  %50 = getelementptr inbounds double, ptr %37, i64 %.099109
+  %50 = getelementptr inbounds [8 x i8], ptr %37, i64 %.099109
   %51 = load double, ptr %50, align 8, !tbaa !4
-  %52 = getelementptr inbounds double, ptr %39, i64 %.099109
+  %52 = getelementptr inbounds [8 x i8], ptr %39, i64 %.099109
   %53 = load double, ptr %52, align 8, !tbaa !4
   %54 = load double, ptr %6, align 8, !tbaa !4
-  %55 = getelementptr inbounds double, ptr %37, i64 %49
+  %55 = getelementptr inbounds [8 x i8], ptr %37, i64 %49
   %56 = load double, ptr %55, align 8, !tbaa !4
   %57 = call double @llvm.fmuladd.f64(double %54, double %56, double %51)
   store double %57, ptr %50, align 8, !tbaa !4
   %58 = load double, ptr %52, align 8, !tbaa !4
   %59 = load double, ptr %6, align 8, !tbaa !4
-  %60 = getelementptr inbounds double, ptr %39, i64 %49
+  %60 = getelementptr inbounds [8 x i8], ptr %39, i64 %49
   %61 = load double, ptr %60, align 8, !tbaa !4
   %62 = call double @llvm.fmuladd.f64(double %59, double %61, double %58)
   store double %62, ptr %52, align 8, !tbaa !4
@@ -1303,18 +1303,18 @@ define internal void @densmatr_mixTwoQubitDepolarisingLocal.omp_outlined(ptr noa
 
 99:                                               ; preds = %95
   %100 = or i64 %85, %.0100111
-  %101 = getelementptr inbounds double, ptr %88, i64 %.0100111
+  %101 = getelementptr inbounds [8 x i8], ptr %88, i64 %.0100111
   %102 = load double, ptr %101, align 8, !tbaa !4
-  %103 = getelementptr inbounds double, ptr %90, i64 %.0100111
+  %103 = getelementptr inbounds [8 x i8], ptr %90, i64 %.0100111
   %104 = load double, ptr %103, align 8, !tbaa !4
   %105 = load double, ptr %6, align 8, !tbaa !4
-  %106 = getelementptr inbounds double, ptr %88, i64 %100
+  %106 = getelementptr inbounds [8 x i8], ptr %88, i64 %100
   %107 = load double, ptr %106, align 8, !tbaa !4
   %108 = call double @llvm.fmuladd.f64(double %105, double %107, double %102)
   store double %108, ptr %101, align 8, !tbaa !4
   %109 = load double, ptr %103, align 8, !tbaa !4
   %110 = load double, ptr %6, align 8, !tbaa !4
-  %111 = getelementptr inbounds double, ptr %90, i64 %100
+  %111 = getelementptr inbounds [8 x i8], ptr %90, i64 %100
   %112 = load double, ptr %111, align 8, !tbaa !4
   %113 = call double @llvm.fmuladd.f64(double %110, double %112, double %109)
   store double %113, ptr %103, align 8, !tbaa !4
@@ -1397,13 +1397,13 @@ define internal void @densmatr_mixTwoQubitDepolarisingLocal.omp_outlined(ptr noa
 150:                                              ; preds = %146
   %151 = or i64 %137, %.0116
   %152 = xor i64 %151, %136
-  %153 = getelementptr inbounds double, ptr %139, i64 %.0116
+  %153 = getelementptr inbounds [8 x i8], ptr %139, i64 %.0116
   %154 = load double, ptr %153, align 8, !tbaa !4
-  %155 = getelementptr inbounds double, ptr %141, i64 %.0116
+  %155 = getelementptr inbounds [8 x i8], ptr %141, i64 %.0116
   %156 = load double, ptr %155, align 8, !tbaa !4
   %157 = load double, ptr %7, align 8, !tbaa !4
   %158 = load double, ptr %6, align 8, !tbaa !4
-  %159 = getelementptr inbounds double, ptr %139, i64 %152
+  %159 = getelementptr inbounds [8 x i8], ptr %139, i64 %152
   %160 = load double, ptr %159, align 8, !tbaa !4
   %161 = call double @llvm.fmuladd.f64(double %158, double %160, double %154)
   %162 = fmul double %157, %161
@@ -1411,7 +1411,7 @@ define internal void @densmatr_mixTwoQubitDepolarisingLocal.omp_outlined(ptr noa
   %163 = load double, ptr %7, align 8, !tbaa !4
   %164 = load double, ptr %155, align 8, !tbaa !4
   %165 = load double, ptr %6, align 8, !tbaa !4
-  %166 = getelementptr inbounds double, ptr %141, i64 %152
+  %166 = getelementptr inbounds [8 x i8], ptr %141, i64 %152
   %167 = load double, ptr %166, align 8, !tbaa !4
   %168 = call double @llvm.fmuladd.f64(double %165, double %167, double %164)
   %169 = fmul double %163, %168
@@ -1544,18 +1544,18 @@ define internal void @densmatr_mixTwoQubitDepolarisingLocalPart1.omp_outlined(pt
 
 39:                                               ; preds = %35
   %40 = or i64 %25, %.037
-  %41 = getelementptr inbounds double, ptr %28, i64 %.037
+  %41 = getelementptr inbounds [8 x i8], ptr %28, i64 %.037
   %42 = load double, ptr %41, align 8, !tbaa !4
-  %43 = getelementptr inbounds double, ptr %30, i64 %.037
+  %43 = getelementptr inbounds [8 x i8], ptr %30, i64 %.037
   %44 = load double, ptr %43, align 8, !tbaa !4
   %45 = load double, ptr %6, align 8, !tbaa !4
-  %46 = getelementptr inbounds double, ptr %28, i64 %40
+  %46 = getelementptr inbounds [8 x i8], ptr %28, i64 %40
   %47 = load double, ptr %46, align 8, !tbaa !4
   %48 = call double @llvm.fmuladd.f64(double %45, double %47, double %42)
   store double %48, ptr %41, align 8, !tbaa !4
   %49 = load double, ptr %43, align 8, !tbaa !4
   %50 = load double, ptr %6, align 8, !tbaa !4
-  %51 = getelementptr inbounds double, ptr %30, i64 %40
+  %51 = getelementptr inbounds [8 x i8], ptr %30, i64 %40
   %52 = load double, ptr %51, align 8, !tbaa !4
   %53 = call double @llvm.fmuladd.f64(double %50, double %52, double %49)
   store double %53, ptr %43, align 8, !tbaa !4
@@ -1740,19 +1740,19 @@ define internal void @densmatr_mixTwoQubitDepolarisingDistributed.omp_outlined(p
   %84 = mul nsw i64 %50, %83
   %85 = add nsw i64 %84, %78
   %86 = load double, ptr %12, align 8, !tbaa !4
-  %87 = getelementptr inbounds double, ptr %52, i64 %85
+  %87 = getelementptr inbounds [8 x i8], ptr %52, i64 %85
   %88 = load double, ptr %87, align 8, !tbaa !4
   %89 = load double, ptr %13, align 8, !tbaa !4
-  %90 = getelementptr inbounds double, ptr %54, i64 %.046
+  %90 = getelementptr inbounds [8 x i8], ptr %54, i64 %.046
   %91 = load double, ptr %90, align 8, !tbaa !4
   %92 = call double @llvm.fmuladd.f64(double %89, double %91, double %88)
   %93 = fmul double %86, %92
   store double %93, ptr %87, align 8, !tbaa !4
   %94 = load double, ptr %12, align 8, !tbaa !4
-  %95 = getelementptr inbounds double, ptr %56, i64 %85
+  %95 = getelementptr inbounds [8 x i8], ptr %56, i64 %85
   %96 = load double, ptr %95, align 8, !tbaa !4
   %97 = load double, ptr %13, align 8, !tbaa !4
-  %98 = getelementptr inbounds double, ptr %58, i64 %.046
+  %98 = getelementptr inbounds [8 x i8], ptr %58, i64 %.046
   %99 = load double, ptr %98, align 8, !tbaa !4
   %100 = call double @llvm.fmuladd.f64(double %97, double %99, double %96)
   %101 = fmul double %94, %100
@@ -1934,19 +1934,19 @@ define internal void @densmatr_mixTwoQubitDepolarisingQ1LocalQ2DistributedPart3.
   %87 = mul nsw i64 %50, %86
   %88 = add nsw i64 %87, %78
   %89 = load double, ptr %12, align 8, !tbaa !4
-  %90 = getelementptr inbounds double, ptr %52, i64 %88
+  %90 = getelementptr inbounds [8 x i8], ptr %52, i64 %88
   %91 = load double, ptr %90, align 8, !tbaa !4
   %92 = load double, ptr %13, align 8, !tbaa !4
-  %93 = getelementptr inbounds double, ptr %54, i64 %81
+  %93 = getelementptr inbounds [8 x i8], ptr %54, i64 %81
   %94 = load double, ptr %93, align 8, !tbaa !4
   %95 = call double @llvm.fmuladd.f64(double %92, double %94, double %91)
   %96 = fmul double %89, %95
   store double %96, ptr %90, align 8, !tbaa !4
   %97 = load double, ptr %12, align 8, !tbaa !4
-  %98 = getelementptr inbounds double, ptr %56, i64 %88
+  %98 = getelementptr inbounds [8 x i8], ptr %56, i64 %88
   %99 = load double, ptr %98, align 8, !tbaa !4
   %100 = load double, ptr %13, align 8, !tbaa !4
-  %101 = getelementptr inbounds double, ptr %58, i64 %81
+  %101 = getelementptr inbounds [8 x i8], ptr %58, i64 %81
   %102 = load double, ptr %101, align 8, !tbaa !4
   %103 = call double @llvm.fmuladd.f64(double %100, double %102, double %99)
   %104 = fmul double %97, %103
@@ -2018,9 +2018,9 @@ define internal void @zeroSomeAmps.omp_outlined(ptr noalias noundef readonly cap
 23:                                               ; preds = %.lr.ph, %23
   %.020 = phi i64 [ %18, %.lr.ph ], [ %27, %23 ]
   %24 = add i64 %.020, %10
-  %25 = getelementptr inbounds double, ptr %20, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %20, i64 %24
   store double 0.000000e+00, ptr %25, align 8, !tbaa !4
-  %26 = getelementptr inbounds double, ptr %22, i64 %24
+  %26 = getelementptr inbounds [8 x i8], ptr %22, i64 %24
   store double 0.000000e+00, ptr %26, align 8, !tbaa !4
   %27 = add i64 %.020, 1
   %exitcond.not = icmp eq i64 %.020, %17
@@ -2094,12 +2094,12 @@ define internal void @normaliseSomeAmps.omp_outlined(ptr noalias noundef readonl
   %.021 = phi i64 [ %19, %.lr.ph ], [ %34, %24 ]
   %25 = add i64 %.021, %11
   %26 = load double, ptr %5, align 8, !tbaa !4
-  %27 = getelementptr inbounds double, ptr %21, i64 %25
+  %27 = getelementptr inbounds [8 x i8], ptr %21, i64 %25
   %28 = load double, ptr %27, align 8, !tbaa !4
   %29 = fdiv double %28, %26
   store double %29, ptr %27, align 8, !tbaa !4
   %30 = load double, ptr %5, align 8, !tbaa !4
-  %31 = getelementptr inbounds double, ptr %23, i64 %25
+  %31 = getelementptr inbounds [8 x i8], ptr %23, i64 %25
   %32 = load double, ptr %31, align 8, !tbaa !4
   %33 = fdiv double %32, %30
   store double %33, ptr %31, align 8, !tbaa !4
@@ -2613,9 +2613,9 @@ define internal void @densmatr_calcPurityLocal.omp_outlined(ptr noalias noundef 
 22:                                               ; preds = %.lr.ph, %22
   %.020 = phi i64 [ %19, %.lr.ph ], [ %31, %22 ]
   %23 = phi double [ 0.000000e+00, %.lr.ph ], [ %30, %22 ]
-  %24 = getelementptr inbounds double, ptr %20, i64 %.020
+  %24 = getelementptr inbounds [8 x i8], ptr %20, i64 %.020
   %25 = load double, ptr %24, align 8, !tbaa !4
-  %26 = getelementptr inbounds double, ptr %21, i64 %.020
+  %26 = getelementptr inbounds [8 x i8], ptr %21, i64 %.020
   %27 = load double, ptr %26, align 8, !tbaa !4
   %28 = fmul double %27, %27
   %29 = call double @llvm.fmuladd.f64(double %25, double %25, double %28)
@@ -2755,24 +2755,24 @@ define internal void @densmatr_mixDensityMatrix.omp_outlined(ptr noalias noundef
   %.023 = phi i64 [ %19, %.lr.ph ], [ %45, %24 ]
   %25 = load double, ptr %4, align 8, !tbaa !4
   %26 = fsub double 1.000000e+00, %25
-  %27 = getelementptr inbounds double, ptr %20, i64 %.023
+  %27 = getelementptr inbounds [8 x i8], ptr %20, i64 %.023
   %28 = load double, ptr %27, align 8, !tbaa !4
   %29 = fmul double %26, %28
   store double %29, ptr %27, align 8, !tbaa !4
   %30 = load double, ptr %4, align 8, !tbaa !4
   %31 = fsub double 1.000000e+00, %30
-  %32 = getelementptr inbounds double, ptr %21, i64 %.023
+  %32 = getelementptr inbounds [8 x i8], ptr %21, i64 %.023
   %33 = load double, ptr %32, align 8, !tbaa !4
   %34 = fmul double %31, %33
   store double %34, ptr %32, align 8, !tbaa !4
   %35 = load double, ptr %4, align 8, !tbaa !4
-  %36 = getelementptr inbounds double, ptr %22, i64 %.023
+  %36 = getelementptr inbounds [8 x i8], ptr %22, i64 %.023
   %37 = load double, ptr %36, align 8, !tbaa !4
   %38 = load double, ptr %27, align 8, !tbaa !4
   %39 = call double @llvm.fmuladd.f64(double %35, double %37, double %38)
   store double %39, ptr %27, align 8, !tbaa !4
   %40 = load double, ptr %4, align 8, !tbaa !4
-  %41 = getelementptr inbounds double, ptr %23, i64 %.023
+  %41 = getelementptr inbounds [8 x i8], ptr %23, i64 %.023
   %42 = load double, ptr %41, align 8, !tbaa !4
   %43 = load double, ptr %32, align 8, !tbaa !4
   %44 = call double @llvm.fmuladd.f64(double %40, double %42, double %43)
@@ -2878,14 +2878,14 @@ define internal void @densmatr_calcHilbertSchmidtDistanceSquaredLocal.omp_outlin
 26:                                               ; preds = %.lr.ph, %26
   %.026 = phi i64 [ %21, %.lr.ph ], [ %41, %26 ]
   %27 = phi double [ 0.000000e+00, %.lr.ph ], [ %40, %26 ]
-  %28 = getelementptr inbounds double, ptr %22, i64 %.026
+  %28 = getelementptr inbounds [8 x i8], ptr %22, i64 %.026
   %29 = load double, ptr %28, align 8, !tbaa !4
-  %30 = getelementptr inbounds double, ptr %23, i64 %.026
+  %30 = getelementptr inbounds [8 x i8], ptr %23, i64 %.026
   %31 = load double, ptr %30, align 8, !tbaa !4
   %32 = fsub double %29, %31
-  %33 = getelementptr inbounds double, ptr %24, i64 %.026
+  %33 = getelementptr inbounds [8 x i8], ptr %24, i64 %.026
   %34 = load double, ptr %33, align 8, !tbaa !4
-  %35 = getelementptr inbounds double, ptr %25, i64 %.026
+  %35 = getelementptr inbounds [8 x i8], ptr %25, i64 %.026
   %36 = load double, ptr %35, align 8, !tbaa !4
   %37 = fsub double %34, %36
   %38 = fmul double %37, %37
@@ -3026,13 +3026,13 @@ define internal void @densmatr_calcInnerProductLocal.omp_outlined(ptr noalias no
 26:                                               ; preds = %.lr.ph, %26
   %.022 = phi i64 [ %21, %.lr.ph ], [ %39, %26 ]
   %27 = phi double [ 0.000000e+00, %.lr.ph ], [ %38, %26 ]
-  %28 = getelementptr inbounds double, ptr %22, i64 %.022
+  %28 = getelementptr inbounds [8 x i8], ptr %22, i64 %.022
   %29 = load double, ptr %28, align 8, !tbaa !4
-  %30 = getelementptr inbounds double, ptr %23, i64 %.022
+  %30 = getelementptr inbounds [8 x i8], ptr %23, i64 %.022
   %31 = load double, ptr %30, align 8, !tbaa !4
-  %32 = getelementptr inbounds double, ptr %24, i64 %.022
+  %32 = getelementptr inbounds [8 x i8], ptr %24, i64 %.022
   %33 = load double, ptr %32, align 8, !tbaa !4
-  %34 = getelementptr inbounds double, ptr %25, i64 %.022
+  %34 = getelementptr inbounds [8 x i8], ptr %25, i64 %.022
   %35 = load double, ptr %34, align 8, !tbaa !4
   %36 = fmul double %33, %35
   %37 = call double @llvm.fmuladd.f64(double %29, double %31, double %36)
@@ -3204,9 +3204,9 @@ define internal void @densmatr_calcFidelityLocal.omp_outlined(ptr noalias nounde
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv62 = phi i64 [ %36, %.lr.ph.us.preheader ], [ %indvars.iv.next63, %._crit_edge.us ]
   %38 = phi double [ 0.000000e+00, %.lr.ph.us.preheader ], [ %64, %._crit_edge.us ]
-  %39 = getelementptr inbounds double, ptr %24, i64 %indvars.iv62
+  %39 = getelementptr inbounds [8 x i8], ptr %24, i64 %indvars.iv62
   %40 = load double, ptr %39, align 8, !tbaa !4
-  %41 = getelementptr inbounds double, ptr %25, i64 %indvars.iv62
+  %41 = getelementptr inbounds [8 x i8], ptr %25, i64 %indvars.iv62
   %42 = load double, ptr %41, align 8, !tbaa !4
   br label %43
 
@@ -3216,14 +3216,14 @@ define internal void @densmatr_calcFidelityLocal.omp_outlined(ptr noalias nounde
   %.04446.us = phi double [ 0.000000e+00, %.lr.ph.us ], [ %61, %43 ]
   %44 = mul nsw i64 %indvars.iv58, %34
   %45 = add nsw i64 %44, %indvars.iv62
-  %46 = getelementptr inbounds double, ptr %28, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr %28, i64 %45
   %47 = load double, ptr %46, align 8, !tbaa !4
-  %48 = getelementptr inbounds double, ptr %29, i64 %45
+  %48 = getelementptr inbounds [8 x i8], ptr %29, i64 %45
   %49 = load double, ptr %48, align 8, !tbaa !4
   %50 = add nsw i64 %indvars.iv58, %35
-  %51 = getelementptr inbounds double, ptr %24, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %24, i64 %50
   %52 = load double, ptr %51, align 8, !tbaa !4
-  %53 = getelementptr inbounds double, ptr %25, i64 %50
+  %53 = getelementptr inbounds [8 x i8], ptr %25, i64 %50
   %54 = load double, ptr %53, align 8, !tbaa !4
   %55 = fneg double %54
   %56 = fmul double %49, %55
@@ -3249,9 +3249,9 @@ define internal void @densmatr_calcFidelityLocal.omp_outlined(ptr noalias nounde
 .lr.ph53.split:                                   ; preds = %.lr.ph53.split.preheader, %.lr.ph53.split
   %indvars.iv = phi i64 [ %30, %.lr.ph53.split.preheader ], [ %indvars.iv.next, %.lr.ph53.split ]
   %65 = phi double [ 0.000000e+00, %.lr.ph53.split.preheader ], [ %72, %.lr.ph53.split ]
-  %66 = getelementptr inbounds double, ptr %24, i64 %indvars.iv
+  %66 = getelementptr inbounds [8 x i8], ptr %24, i64 %indvars.iv
   %67 = load double, ptr %66, align 8, !tbaa !4
-  %68 = getelementptr inbounds double, ptr %25, i64 %indvars.iv
+  %68 = getelementptr inbounds [8 x i8], ptr %25, i64 %indvars.iv
   %69 = load double, ptr %68, align 8, !tbaa !4
   %70 = fmul double %69, 0.000000e+00
   %71 = call double @llvm.fmuladd.f64(double %67, double 0.000000e+00, double %70)
@@ -3406,13 +3406,13 @@ define internal void @statevec_calcInnerProductLocal.omp_outlined(ptr noalias no
   %.032 = phi i64 [ %23, %.lr.ph ], [ %46, %28 ]
   %29 = phi double [ 0.000000e+00, %.lr.ph ], [ %41, %28 ]
   %30 = phi double [ 0.000000e+00, %.lr.ph ], [ %45, %28 ]
-  %31 = getelementptr inbounds double, ptr %24, i64 %.032
+  %31 = getelementptr inbounds [8 x i8], ptr %24, i64 %.032
   %32 = load double, ptr %31, align 8, !tbaa !4
-  %33 = getelementptr inbounds double, ptr %25, i64 %.032
+  %33 = getelementptr inbounds [8 x i8], ptr %25, i64 %.032
   %34 = load double, ptr %33, align 8, !tbaa !4
-  %35 = getelementptr inbounds double, ptr %26, i64 %.032
+  %35 = getelementptr inbounds [8 x i8], ptr %26, i64 %.032
   %36 = load double, ptr %35, align 8, !tbaa !4
-  %37 = getelementptr inbounds double, ptr %27, i64 %.032
+  %37 = getelementptr inbounds [8 x i8], ptr %27, i64 %.032
   %38 = load double, ptr %37, align 8, !tbaa !4
   %39 = fmul double %34, %38
   %40 = call double @llvm.fmuladd.f64(double %32, double %36, double %39)
@@ -3524,10 +3524,10 @@ define void @densmatr_initClassicalState(ptr noundef readonly byval(%struct.Qure
 
 23:                                               ; preds = %2
   %24 = load ptr, ptr %4, align 8, !tbaa !26
-  %25 = getelementptr inbounds double, ptr %24, i64 %21
+  %25 = getelementptr inbounds [8 x i8], ptr %24, i64 %21
   store double 1.000000e+00, ptr %25, align 8, !tbaa !4
   %26 = load ptr, ptr %5, align 8, !tbaa !26
-  %27 = getelementptr inbounds double, ptr %26, i64 %21
+  %27 = getelementptr inbounds [8 x i8], ptr %26, i64 %21
   store double 0.000000e+00, ptr %27, align 8, !tbaa !4
   br label %28
 
@@ -3574,9 +3574,9 @@ define internal void @densmatr_initClassicalState.omp_outlined(ptr noalias nound
 
 19:                                               ; preds = %.lr.ph, %19
   %.016 = phi i64 [ %16, %.lr.ph ], [ %22, %19 ]
-  %20 = getelementptr inbounds double, ptr %17, i64 %.016
+  %20 = getelementptr inbounds [8 x i8], ptr %17, i64 %.016
   store double 0.000000e+00, ptr %20, align 8, !tbaa !4
-  %21 = getelementptr inbounds double, ptr %18, i64 %.016
+  %21 = getelementptr inbounds [8 x i8], ptr %18, i64 %.016
   store double 0.000000e+00, ptr %21, align 8, !tbaa !4
   %22 = add i64 %.016, 1
   %exitcond.not = icmp eq i64 %.016, %15
@@ -3666,9 +3666,9 @@ define internal void @densmatr_initPlusState.omp_outlined(ptr noalias noundef re
 20:                                               ; preds = %.lr.ph, %20
   %.017 = phi i64 [ %17, %.lr.ph ], [ %24, %20 ]
   %21 = load double, ptr %4, align 8, !tbaa !4
-  %22 = getelementptr inbounds double, ptr %18, i64 %.017
+  %22 = getelementptr inbounds [8 x i8], ptr %18, i64 %.017
   store double %21, ptr %22, align 8, !tbaa !4
-  %23 = getelementptr inbounds double, ptr %19, i64 %.017
+  %23 = getelementptr inbounds [8 x i8], ptr %19, i64 %.017
   store double 0.000000e+00, ptr %23, align 8, !tbaa !4
   %24 = add i64 %.017, 1
   %exitcond.not = icmp eq i64 %.017, %16
@@ -3779,16 +3779,16 @@ define internal void @densmatr_initPureStateLocal.omp_outlined(ptr noalias nound
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us
   %.03539.us = phi i64 [ %48, %._crit_edge.us ], [ %20, %.preheader.lr.ph ]
   %28 = add nsw i64 %25, %.03539.us
-  %29 = getelementptr inbounds double, ptr %23, i64 %28
-  %30 = getelementptr inbounds double, ptr %24, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %23, i64 %28
+  %30 = getelementptr inbounds [8 x i8], ptr %24, i64 %28
   %31 = mul nsw i64 %21, %.03539.us
   br label %32
 
 32:                                               ; preds = %.preheader.us, %32
   %.037.us = phi i64 [ 0, %.preheader.us ], [ %47, %32 ]
-  %33 = getelementptr inbounds nuw double, ptr %23, i64 %.037.us
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.037.us
   %34 = load double, ptr %33, align 8, !tbaa !4
-  %35 = getelementptr inbounds nuw double, ptr %24, i64 %.037.us
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %.037.us
   %36 = load double, ptr %35, align 8, !tbaa !4
   %37 = load double, ptr %29, align 8, !tbaa !4
   %38 = load double, ptr %30, align 8, !tbaa !4
@@ -3796,11 +3796,11 @@ define internal void @densmatr_initPureStateLocal.omp_outlined(ptr noalias nound
   %40 = add nsw i64 %31, %.037.us
   %41 = fmul double %36, %38
   %42 = call double @llvm.fmuladd.f64(double %34, double %37, double %41)
-  %43 = getelementptr inbounds double, ptr %26, i64 %40
+  %43 = getelementptr inbounds [8 x i8], ptr %26, i64 %40
   store double %42, ptr %43, align 8, !tbaa !4
   %44 = fmul double %36, %37
   %45 = call double @llvm.fmuladd.f64(double %34, double %39, double %44)
-  %46 = getelementptr inbounds double, ptr %27, i64 %40
+  %46 = getelementptr inbounds [8 x i8], ptr %27, i64 %40
   store double %45, ptr %46, align 8, !tbaa !4
   %47 = add nuw nsw i64 %.037.us, 1
   %exitcond.not = icmp eq i64 %47, %21
@@ -3918,23 +3918,23 @@ define internal void @statevec_setAmps.omp_outlined(ptr noalias noundef readonly
 .lr.ph:                                           ; preds = %17
   %25 = load ptr, ptr %5, align 8, !tbaa !26
   %26 = load i64, ptr %6, align 8, !tbaa !16
-  %invariant.gep = getelementptr double, ptr %25, i64 %26
+  %invariant.gep = getelementptr [8 x i8], ptr %25, i64 %26
   %27 = load ptr, ptr %4, align 8, !tbaa !26
   %28 = load ptr, ptr %8, align 8, !tbaa !26
-  %invariant.gep27 = getelementptr double, ptr %28, i64 %26
+  %invariant.gep27 = getelementptr [8 x i8], ptr %28, i64 %26
   %29 = load ptr, ptr %7, align 8, !tbaa !26
   br label %30
 
 30:                                               ; preds = %.lr.ph, %30
   %.026 = phi i64 [ %22, %.lr.ph ], [ %36, %30 ]
   %31 = add i64 %.026, %14
-  %gep = getelementptr double, ptr %invariant.gep, i64 %31
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %31
   %32 = load double, ptr %gep, align 8, !tbaa !4
-  %33 = getelementptr inbounds double, ptr %27, i64 %31
+  %33 = getelementptr inbounds [8 x i8], ptr %27, i64 %31
   store double %32, ptr %33, align 8, !tbaa !4
-  %gep28 = getelementptr double, ptr %invariant.gep27, i64 %31
+  %gep28 = getelementptr [8 x i8], ptr %invariant.gep27, i64 %31
   %34 = load double, ptr %gep28, align 8, !tbaa !4
-  %35 = getelementptr inbounds double, ptr %29, i64 %31
+  %35 = getelementptr inbounds [8 x i8], ptr %29, i64 %31
   store double %34, ptr %35, align 8, !tbaa !4
   %36 = add nuw i64 %.026, 1
   %exitcond.not = icmp eq i64 %.026, %21
@@ -4145,7 +4145,7 @@ define internal void @statevec_applySubDiagonalOp.omp_outlined(ptr noalias nound
 34:                                               ; preds = %.lr.ph.us, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %34 ]
   %.043.us = phi i64 [ 0, %.lr.ph.us ], [ %45, %34 ]
-  %35 = getelementptr inbounds nuw i32, ptr %26, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv
   %36 = load i32, ptr %35, align 4, !tbaa !18
   %37 = zext i32 %36 to i64
   %38 = shl nuw i64 1, %37
@@ -4161,14 +4161,14 @@ define internal void @statevec_applySubDiagonalOp.omp_outlined(ptr noalias nound
   br i1 %exitcond51.not, label %._crit_edge.us, label %34
 
 ._crit_edge.us:                                   ; preds = %34
-  %46 = getelementptr inbounds double, ptr %27, i64 %45
+  %46 = getelementptr inbounds [8 x i8], ptr %27, i64 %45
   %47 = load double, ptr %46, align 8, !tbaa !4
-  %48 = getelementptr inbounds double, ptr %28, i64 %45
+  %48 = getelementptr inbounds [8 x i8], ptr %28, i64 %45
   %49 = load double, ptr %48, align 8, !tbaa !4
   %50 = fmul double %49, %30
-  %51 = getelementptr inbounds double, ptr %31, i64 %.04145.us
+  %51 = getelementptr inbounds [8 x i8], ptr %31, i64 %.04145.us
   %52 = load double, ptr %51, align 8, !tbaa !4
-  %53 = getelementptr inbounds double, ptr %32, i64 %.04145.us
+  %53 = getelementptr inbounds [8 x i8], ptr %32, i64 %.04145.us
   %54 = load double, ptr %53, align 8, !tbaa !4
   %55 = fneg double %50
   %56 = fmul double %54, %55
@@ -4186,9 +4186,9 @@ define internal void @statevec_applySubDiagonalOp.omp_outlined(ptr noalias nound
   %61 = load double, ptr %27, align 8, !tbaa !4
   %62 = load double, ptr %28, align 8, !tbaa !4
   %63 = fmul double %62, %30
-  %64 = getelementptr inbounds double, ptr %31, i64 %.04145
+  %64 = getelementptr inbounds [8 x i8], ptr %31, i64 %.04145
   %65 = load double, ptr %64, align 8, !tbaa !4
-  %66 = getelementptr inbounds double, ptr %32, i64 %.04145
+  %66 = getelementptr inbounds [8 x i8], ptr %32, i64 %.04145
   %67 = load double, ptr %66, align 8, !tbaa !4
   %68 = fneg double %63
   %69 = fmul double %67, %68
@@ -4378,13 +4378,13 @@ define internal void @agnostic_initDiagonalOpFromPauliHamil.omp_outlined(ptr noa
   %indvars.iv67 = phi i64 [ %indvars.iv.next68, %._crit_edge.us.us.us ], [ 0, %.preheader.lr.ph.us.us ]
   %.045.us.us.us = phi double [ %52, %._crit_edge.us.us.us ], [ 0.000000e+00, %.preheader.lr.ph.us.us ]
   %33 = mul nuw nsw i64 %indvars.iv67, %30
-  %34 = getelementptr inbounds nuw i32, ptr %32, i64 %33
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %32, i64 %33
   br label %35
 
 35:                                               ; preds = %46, %.preheader.us.us.us
   %indvars.iv62 = phi i64 [ %indvars.iv.next63, %46 ], [ 0, %.preheader.us.us.us ]
   %.03543.us.us.us = phi i32 [ %.1.us.us.us, %46 ], [ 0, %.preheader.us.us.us ]
-  %36 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv62
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv62
   %37 = load i32, ptr %36, align 4, !tbaa !18
   %38 = icmp eq i32 %37, 3
   br i1 %38, label %39, label %46
@@ -4411,7 +4411,7 @@ define internal void @agnostic_initDiagonalOpFromPauliHamil.omp_outlined(ptr noa
 ._crit_edge.us.us.us:                             ; preds = %46
   %47 = shl nuw nsw i32 %.1.us.us.us, 1
   %48 = sub nsw i32 1, %47
-  %49 = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv67
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv67
   %50 = load double, ptr %49, align 8, !tbaa !4
   %51 = sitofp i32 %48 to double
   %52 = call double @llvm.fmuladd.f64(double %50, double %51, double %.045.us.us.us)
@@ -4420,9 +4420,9 @@ define internal void @agnostic_initDiagonalOpFromPauliHamil.omp_outlined(ptr noa
   br i1 %exitcond71.not, label %._crit_edge46.split.us.us.us, label %.preheader.us.us.us
 
 ._crit_edge46.split.us.us.us:                     ; preds = %._crit_edge.us.us.us
-  %53 = getelementptr inbounds double, ptr %27, i64 %.03849.us.us
+  %53 = getelementptr inbounds [8 x i8], ptr %27, i64 %.03849.us.us
   store double %52, ptr %53, align 8, !tbaa !4
-  %54 = getelementptr inbounds double, ptr %28, i64 %.03849.us.us
+  %54 = getelementptr inbounds [8 x i8], ptr %28, i64 %.03849.us.us
   store double 0.000000e+00, ptr %54, align 8, !tbaa !4
   %55 = add i64 %.03849.us.us, 1
   %exitcond72.not = icmp eq i64 %.03849.us.us, %20
@@ -4435,7 +4435,7 @@ define internal void @agnostic_initDiagonalOpFromPauliHamil.omp_outlined(ptr noa
 .preheader.us50:                                  ; preds = %.preheader.lr.ph.us, %.preheader.us50
   %indvars.iv = phi i64 [ 0, %.preheader.lr.ph.us ], [ %indvars.iv.next, %.preheader.us50 ]
   %.045.us51 = phi double [ 0.000000e+00, %.preheader.lr.ph.us ], [ %58, %.preheader.us50 ]
-  %56 = getelementptr inbounds nuw double, ptr %26, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %indvars.iv
   %57 = load double, ptr %56, align 8, !tbaa !4
   %58 = fadd double %57, %.045.us51
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -4443,9 +4443,9 @@ define internal void @agnostic_initDiagonalOpFromPauliHamil.omp_outlined(ptr noa
   br i1 %exitcond60.not, label %._crit_edge46.split.us53, label %.preheader.us50
 
 ._crit_edge46.split.us53:                         ; preds = %.preheader.us50
-  %59 = getelementptr inbounds double, ptr %27, i64 %.03849.us
+  %59 = getelementptr inbounds [8 x i8], ptr %27, i64 %.03849.us
   store double %58, ptr %59, align 8, !tbaa !4
-  %60 = getelementptr inbounds double, ptr %28, i64 %.03849.us
+  %60 = getelementptr inbounds [8 x i8], ptr %28, i64 %.03849.us
   store double 0.000000e+00, ptr %60, align 8, !tbaa !4
   %61 = add i64 %.03849.us, 1
   %exitcond61.not = icmp eq i64 %.03849.us, %20
@@ -4453,9 +4453,9 @@ define internal void @agnostic_initDiagonalOpFromPauliHamil.omp_outlined(ptr noa
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %.03849 = phi i64 [ %64, %.lr.ph.split ], [ %21, %.lr.ph ]
-  %62 = getelementptr inbounds double, ptr %27, i64 %.03849
+  %62 = getelementptr inbounds [8 x i8], ptr %27, i64 %.03849
   store double 0.000000e+00, ptr %62, align 8, !tbaa !4
-  %63 = getelementptr inbounds double, ptr %28, i64 %.03849
+  %63 = getelementptr inbounds [8 x i8], ptr %28, i64 %.03849
   store double 0.000000e+00, ptr %63, align 8, !tbaa !4
   %64 = add i64 %.03849, 1
   %exitcond.not = icmp eq i64 %.03849, %20
@@ -4522,9 +4522,9 @@ define void @statevec_reportStateToScreen(ptr noundef readonly byval(%struct.Qur
 
 23:                                               ; preds = %.lr.ph.us.us, %23
   %.01118.us.us = phi i64 [ 0, %.lr.ph.us.us ], [ %29, %23 ]
-  %24 = getelementptr inbounds nuw double, ptr %16, i64 %.01118.us.us
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.01118.us.us
   %25 = load double, ptr %24, align 8, !tbaa !4
-  %26 = getelementptr inbounds nuw double, ptr %18, i64 %.01118.us.us
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.01118.us.us
   %27 = load double, ptr %26, align 8, !tbaa !4
   %28 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, double noundef %25, double noundef %27)
   %29 = add nuw nsw i64 %.01118.us.us, 1
@@ -4586,9 +4586,9 @@ define void @statevec_reportStateToScreen(ptr noundef readonly byval(%struct.Qur
 
 .lr.ph.us24:                                      ; preds = %.lr.ph.us24.preheader, %.lr.ph.us24
   %.01118.us23 = phi i64 [ %49, %.lr.ph.us24 ], [ 0, %.lr.ph.us24.preheader ]
-  %44 = getelementptr inbounds nuw double, ptr %16, i64 %.01118.us23
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.01118.us23
   %45 = load double, ptr %44, align 8, !tbaa !4
-  %46 = getelementptr inbounds nuw double, ptr %18, i64 %.01118.us23
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.01118.us23
   %47 = load double, ptr %46, align 8, !tbaa !4
   %48 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.4, double noundef %45, double noundef %47)
   %49 = add nuw nsw i64 %.01118.us23, 1
@@ -4697,9 +4697,9 @@ define internal void @statevec_initBlankState.omp_outlined(ptr noalias noundef r
 
 19:                                               ; preds = %.lr.ph, %19
   %.016 = phi i64 [ %16, %.lr.ph ], [ %22, %19 ]
-  %20 = getelementptr inbounds double, ptr %17, i64 %.016
+  %20 = getelementptr inbounds [8 x i8], ptr %17, i64 %.016
   store double 0.000000e+00, ptr %20, align 8, !tbaa !4
-  %21 = getelementptr inbounds double, ptr %18, i64 %.016
+  %21 = getelementptr inbounds [8 x i8], ptr %18, i64 %.016
   store double 0.000000e+00, ptr %21, align 8, !tbaa !4
   %22 = add i64 %.016, 1
   %exitcond.not = icmp eq i64 %.016, %15
@@ -4825,9 +4825,9 @@ define internal void @statevec_initPlusState.omp_outlined(ptr noalias noundef re
 20:                                               ; preds = %.lr.ph, %20
   %.017 = phi i64 [ %17, %.lr.ph ], [ %24, %20 ]
   %21 = load double, ptr %4, align 8, !tbaa !4
-  %22 = getelementptr inbounds double, ptr %18, i64 %.017
+  %22 = getelementptr inbounds [8 x i8], ptr %18, i64 %.017
   store double %21, ptr %22, align 8, !tbaa !4
-  %23 = getelementptr inbounds double, ptr %19, i64 %.017
+  %23 = getelementptr inbounds [8 x i8], ptr %19, i64 %.017
   store double 0.000000e+00, ptr %23, align 8, !tbaa !4
   %24 = add i64 %.017, 1
   %exitcond.not = icmp eq i64 %.017, %16
@@ -4875,10 +4875,10 @@ define void @statevec_initClassicalState(ptr noundef readonly byval(%struct.Qure
 
 19:                                               ; preds = %2
   %20 = load ptr, ptr %4, align 8, !tbaa !26
-  %21 = getelementptr inbounds double, ptr %20, i64 %17
+  %21 = getelementptr inbounds [8 x i8], ptr %20, i64 %17
   store double 1.000000e+00, ptr %21, align 8, !tbaa !4
   %22 = load ptr, ptr %5, align 8, !tbaa !26
-  %23 = getelementptr inbounds double, ptr %22, i64 %17
+  %23 = getelementptr inbounds [8 x i8], ptr %22, i64 %17
   store double 0.000000e+00, ptr %23, align 8, !tbaa !4
   br label %24
 
@@ -4925,9 +4925,9 @@ define internal void @statevec_initClassicalState.omp_outlined(ptr noalias nound
 
 19:                                               ; preds = %.lr.ph, %19
   %.016 = phi i64 [ %16, %.lr.ph ], [ %22, %19 ]
-  %20 = getelementptr inbounds double, ptr %17, i64 %.016
+  %20 = getelementptr inbounds [8 x i8], ptr %17, i64 %.016
   store double 0.000000e+00, ptr %20, align 8, !tbaa !4
-  %21 = getelementptr inbounds double, ptr %18, i64 %.016
+  %21 = getelementptr inbounds [8 x i8], ptr %18, i64 %.016
   store double 0.000000e+00, ptr %21, align 8, !tbaa !4
   %22 = add i64 %.016, 1
   %exitcond.not = icmp eq i64 %.016, %15
@@ -5020,13 +5020,13 @@ define internal void @statevec_cloneQureg.omp_outlined(ptr noalias noundef reado
 
 23:                                               ; preds = %.lr.ph, %23
   %.020 = phi i64 [ %18, %.lr.ph ], [ %30, %23 ]
-  %24 = getelementptr inbounds double, ptr %19, i64 %.020
+  %24 = getelementptr inbounds [8 x i8], ptr %19, i64 %.020
   %25 = load double, ptr %24, align 8, !tbaa !4
-  %26 = getelementptr inbounds double, ptr %20, i64 %.020
+  %26 = getelementptr inbounds [8 x i8], ptr %20, i64 %.020
   store double %25, ptr %26, align 8, !tbaa !4
-  %27 = getelementptr inbounds double, ptr %21, i64 %.020
+  %27 = getelementptr inbounds [8 x i8], ptr %21, i64 %.020
   %28 = load double, ptr %27, align 8, !tbaa !4
-  %29 = getelementptr inbounds double, ptr %22, i64 %.020
+  %29 = getelementptr inbounds [8 x i8], ptr %22, i64 %.020
   store double %28, ptr %29, align 8, !tbaa !4
   %30 = add i64 %.020, 1
   %exitcond.not = icmp eq i64 %.020, %17
@@ -5118,11 +5118,11 @@ define internal void @statevec_initDebugState.omp_outlined(ptr noalias noundef r
   %23 = sitofp i64 %22 to double
   %24 = fmul nnan double %23, 2.000000e+00
   %25 = fdiv double %24, 1.000000e+01
-  %26 = getelementptr inbounds double, ptr %19, i64 %.019
+  %26 = getelementptr inbounds [8 x i8], ptr %19, i64 %.019
   store double %25, ptr %26, align 8, !tbaa !4
   %27 = call double @llvm.fmuladd.f64(double %23, double 2.000000e+00, double 1.000000e+00)
   %28 = fdiv double %27, 1.000000e+01
-  %29 = getelementptr inbounds double, ptr %20, i64 %.019
+  %29 = getelementptr inbounds [8 x i8], ptr %20, i64 %.019
   store double %28, ptr %29, align 8, !tbaa !4
   %30 = add i64 %.019, 1
   %exitcond.not = icmp eq i64 %.019, %16
@@ -5236,13 +5236,13 @@ define internal void @statevec_compactUnitaryLocal.omp_outlined(ptr noalias noun
   %30 = srem i64 %.048, %23
   %31 = add nsw i64 %29, %30
   %32 = add nsw i64 %31, %23
-  %33 = getelementptr inbounds double, ptr %25, i64 %31
+  %33 = getelementptr inbounds [8 x i8], ptr %25, i64 %31
   %34 = load double, ptr %33, align 8, !tbaa !4
-  %35 = getelementptr inbounds double, ptr %26, i64 %31
+  %35 = getelementptr inbounds [8 x i8], ptr %26, i64 %31
   %36 = load double, ptr %35, align 8, !tbaa !4
-  %37 = getelementptr inbounds double, ptr %25, i64 %32
+  %37 = getelementptr inbounds [8 x i8], ptr %25, i64 %32
   %38 = load double, ptr %37, align 8, !tbaa !4
-  %39 = getelementptr inbounds double, ptr %26, i64 %32
+  %39 = getelementptr inbounds [8 x i8], ptr %26, i64 %32
   %40 = load double, ptr %39, align 8, !tbaa !4
   %41 = load double, ptr %7, align 8, !tbaa !4
   %42 = load double, ptr %8, align 8, !tbaa !4
@@ -5443,21 +5443,21 @@ define internal void @statevec_multiControlledTwoQubitUnitaryLocal.omp_outlined(
   %82 = xor i64 %77, %33
   %83 = xor i64 %77, %35
   %84 = xor i64 %82, %35
-  %85 = getelementptr inbounds double, ptr %36, i64 %77
+  %85 = getelementptr inbounds [8 x i8], ptr %36, i64 %77
   %86 = load double, ptr %85, align 8, !tbaa !4
-  %87 = getelementptr inbounds double, ptr %37, i64 %77
+  %87 = getelementptr inbounds [8 x i8], ptr %37, i64 %77
   %88 = load double, ptr %87, align 8, !tbaa !4
-  %89 = getelementptr inbounds double, ptr %36, i64 %82
+  %89 = getelementptr inbounds [8 x i8], ptr %36, i64 %82
   %90 = load double, ptr %89, align 8, !tbaa !4
-  %91 = getelementptr inbounds double, ptr %37, i64 %82
+  %91 = getelementptr inbounds [8 x i8], ptr %37, i64 %82
   %92 = load double, ptr %91, align 8, !tbaa !4
-  %93 = getelementptr inbounds double, ptr %36, i64 %83
+  %93 = getelementptr inbounds [8 x i8], ptr %36, i64 %83
   %94 = load double, ptr %93, align 8, !tbaa !4
-  %95 = getelementptr inbounds double, ptr %37, i64 %83
+  %95 = getelementptr inbounds [8 x i8], ptr %37, i64 %83
   %96 = load double, ptr %95, align 8, !tbaa !4
-  %97 = getelementptr inbounds double, ptr %36, i64 %84
+  %97 = getelementptr inbounds [8 x i8], ptr %36, i64 %84
   %98 = load double, ptr %97, align 8, !tbaa !4
-  %99 = getelementptr inbounds double, ptr %37, i64 %84
+  %99 = getelementptr inbounds [8 x i8], ptr %37, i64 %84
   %100 = load double, ptr %99, align 8, !tbaa !4
   %101 = load double, ptr %9, align 8, !tbaa !4
   %102 = load double, ptr %38, align 8, !tbaa !4
@@ -5695,9 +5695,9 @@ define void @statevec_multiControlledMultiQubitUnitaryLocal(ptr noundef readonly
 
 .lr.ph:                                           ; preds = %5, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %5 ]
-  %33 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %34 = load i32, ptr %33, align 4, !tbaa !18
-  %35 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv
   store i32 %34, ptr %35, align 4, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %20
@@ -5765,7 +5765,7 @@ define internal void @statevec_multiControlledMultiQubitUnitaryLocal.omp_outline
 .lr.ph:                                           ; preds = %.preheader82, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader82 ]
   %.085 = phi i64 [ %48, %.lr.ph ], [ %.071101, %.preheader82 ]
-  %41 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   %42 = load i32, ptr %41, align 4, !tbaa !18
   %43 = zext nneg i32 %42 to i64
   %44 = shl nsw i64 -1, %43
@@ -5808,7 +5808,7 @@ define internal void @statevec_multiControlledMultiQubitUnitaryLocal.omp_outline
   br i1 %.not80.us, label %63, label %57
 
 57:                                               ; preds = %54
-  %58 = getelementptr inbounds nuw i32, ptr %53, i64 %indvars.iv109
+  %58 = getelementptr inbounds nuw [4 x i8], ptr %53, i64 %indvars.iv109
   %59 = load i32, ptr %58, align 4, !tbaa !18
   %60 = zext nneg i32 %59 to i64
   %61 = shl nuw i64 1, %60
@@ -5822,24 +5822,24 @@ define internal void @statevec_multiControlledMultiQubitUnitaryLocal.omp_outline
   br i1 %exitcond113.not, label %._crit_edge90.us, label %54
 
 ._crit_edge90.us:                                 ; preds = %63
-  %64 = getelementptr inbounds nuw i64, ptr %21, i64 %indvars.iv114
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv114
   store i64 %.1.us, ptr %64, align 8, !tbaa !16
-  %65 = getelementptr inbounds double, ptr %37, i64 %.1.us
+  %65 = getelementptr inbounds [8 x i8], ptr %37, i64 %.1.us
   %66 = load double, ptr %65, align 8, !tbaa !4
-  %67 = getelementptr inbounds nuw double, ptr %22, i64 %indvars.iv114
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv114
   store double %66, ptr %67, align 8, !tbaa !4
-  %68 = getelementptr inbounds double, ptr %38, i64 %.1.us
+  %68 = getelementptr inbounds [8 x i8], ptr %38, i64 %.1.us
   %69 = load double, ptr %68, align 8, !tbaa !4
-  %70 = getelementptr inbounds nuw double, ptr %23, i64 %indvars.iv114
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv114
   store double %69, ptr %70, align 8, !tbaa !4
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 1
   %exitcond117.not = icmp eq i64 %indvars.iv.next115, %35
   br i1 %exitcond117.not, label %.preheader81, label %.preheader.us
 
 .preheader.lr.ph.split:                           ; preds = %.preheader.lr.ph
-  %71 = getelementptr inbounds double, ptr %37, i64 %.0.lcssa
+  %71 = getelementptr inbounds [8 x i8], ptr %37, i64 %.0.lcssa
   %72 = load double, ptr %71, align 8, !tbaa !4
-  %73 = getelementptr inbounds double, ptr %38, i64 %.0.lcssa
+  %73 = getelementptr inbounds [8 x i8], ptr %38, i64 %.0.lcssa
   %74 = load double, ptr %73, align 8, !tbaa !4
   br label %.preheader
 
@@ -5853,27 +5853,27 @@ define internal void @statevec_multiControlledMultiQubitUnitaryLocal.omp_outline
 
 .lr.ph96.us:                                      ; preds = %._crit_edge97.us, %.lr.ph99
   %indvars.iv122 = phi i64 [ %indvars.iv.next123, %._crit_edge97.us ], [ 0, %.lr.ph99 ]
-  %77 = getelementptr inbounds nuw i64, ptr %21, i64 %indvars.iv122
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv122
   %78 = load i64, ptr %77, align 8, !tbaa !16
-  %79 = getelementptr inbounds double, ptr %37, i64 %78
+  %79 = getelementptr inbounds [8 x i8], ptr %37, i64 %78
   store double 0.000000e+00, ptr %79, align 8, !tbaa !4
-  %80 = getelementptr inbounds double, ptr %38, i64 %78
+  %80 = getelementptr inbounds [8 x i8], ptr %38, i64 %78
   store double 0.000000e+00, ptr %80, align 8, !tbaa !4
-  %81 = getelementptr inbounds nuw ptr, ptr %75, i64 %indvars.iv122
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %indvars.iv122
   %82 = load ptr, ptr %81, align 8, !tbaa !26
-  %83 = getelementptr inbounds nuw ptr, ptr %76, i64 %indvars.iv122
+  %83 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %indvars.iv122
   %84 = load ptr, ptr %83, align 8, !tbaa !26
   br label %85
 
 85:                                               ; preds = %.lr.ph96.us, %85
   %indvars.iv118 = phi i64 [ 0, %.lr.ph96.us ], [ %indvars.iv.next119, %85 ]
-  %86 = getelementptr inbounds nuw double, ptr %82, i64 %indvars.iv118
+  %86 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %indvars.iv118
   %87 = load double, ptr %86, align 8, !tbaa !4
-  %88 = getelementptr inbounds nuw double, ptr %84, i64 %indvars.iv118
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %indvars.iv118
   %89 = load double, ptr %88, align 8, !tbaa !4
-  %90 = getelementptr inbounds nuw double, ptr %22, i64 %indvars.iv118
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv118
   %91 = load double, ptr %90, align 8, !tbaa !4
-  %92 = getelementptr inbounds nuw double, ptr %23, i64 %indvars.iv118
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv118
   %93 = load double, ptr %92, align 8, !tbaa !4
   %94 = fneg double %89
   %95 = fmul double %93, %94
@@ -5897,11 +5897,11 @@ define internal void @statevec_multiControlledMultiQubitUnitaryLocal.omp_outline
 
 .preheader:                                       ; preds = %.preheader.lr.ph.split, %.preheader
   %indvars.iv105 = phi i64 [ 0, %.preheader.lr.ph.split ], [ %indvars.iv.next106, %.preheader ]
-  %103 = getelementptr inbounds nuw i64, ptr %21, i64 %indvars.iv105
+  %103 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %indvars.iv105
   store i64 %.0.lcssa, ptr %103, align 8, !tbaa !16
-  %104 = getelementptr inbounds nuw double, ptr %22, i64 %indvars.iv105
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %indvars.iv105
   store double %72, ptr %104, align 8, !tbaa !4
-  %105 = getelementptr inbounds nuw double, ptr %23, i64 %indvars.iv105
+  %105 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv105
   store double %74, ptr %105, align 8, !tbaa !4
   %indvars.iv.next106 = add nuw nsw i64 %indvars.iv105, 1
   %exitcond108.not = icmp eq i64 %indvars.iv.next106, %35
@@ -6014,13 +6014,13 @@ define internal void @statevec_unitaryLocal.omp_outlined(ptr noalias noundef rea
   %34 = srem i64 %.045, %20
   %35 = add nsw i64 %33, %34
   %36 = add nsw i64 %35, %20
-  %37 = getelementptr inbounds double, ptr %22, i64 %35
+  %37 = getelementptr inbounds [8 x i8], ptr %22, i64 %35
   %38 = load double, ptr %37, align 8, !tbaa !4
-  %39 = getelementptr inbounds double, ptr %23, i64 %35
+  %39 = getelementptr inbounds [8 x i8], ptr %23, i64 %35
   %40 = load double, ptr %39, align 8, !tbaa !4
-  %41 = getelementptr inbounds double, ptr %22, i64 %36
+  %41 = getelementptr inbounds [8 x i8], ptr %22, i64 %36
   %42 = load double, ptr %41, align 8, !tbaa !4
-  %43 = getelementptr inbounds double, ptr %23, i64 %36
+  %43 = getelementptr inbounds [8 x i8], ptr %23, i64 %36
   %44 = load double, ptr %43, align 8, !tbaa !4
   %45 = load double, ptr %7, align 8, !tbaa !4
   %46 = load double, ptr %24, align 8, !tbaa !4
@@ -6170,13 +6170,13 @@ define internal void @statevec_compactUnitaryDistributed.omp_outlined(ptr noalia
 
 31:                                               ; preds = %.lr.ph, %31
   %.036 = phi i64 [ %24, %.lr.ph ], [ %60, %31 ]
-  %32 = getelementptr inbounds double, ptr %25, i64 %.036
+  %32 = getelementptr inbounds [8 x i8], ptr %25, i64 %.036
   %33 = load double, ptr %32, align 8, !tbaa !4
-  %34 = getelementptr inbounds double, ptr %26, i64 %.036
+  %34 = getelementptr inbounds [8 x i8], ptr %26, i64 %.036
   %35 = load double, ptr %34, align 8, !tbaa !4
-  %36 = getelementptr inbounds double, ptr %27, i64 %.036
+  %36 = getelementptr inbounds [8 x i8], ptr %27, i64 %.036
   %37 = load double, ptr %36, align 8, !tbaa !4
-  %38 = getelementptr inbounds double, ptr %28, i64 %.036
+  %38 = getelementptr inbounds [8 x i8], ptr %28, i64 %.036
   %39 = load double, ptr %38, align 8, !tbaa !4
   %40 = load double, ptr %8, align 8, !tbaa !4
   %41 = load double, ptr %9, align 8, !tbaa !4
@@ -6187,7 +6187,7 @@ define internal void @statevec_compactUnitaryDistributed.omp_outlined(ptr noalia
   %46 = call double @llvm.fmuladd.f64(double %45, double %37, double %44)
   %47 = load double, ptr %11, align 8, !tbaa !4
   %48 = call double @llvm.fmuladd.f64(double %47, double %39, double %46)
-  %49 = getelementptr inbounds double, ptr %29, i64 %.036
+  %49 = getelementptr inbounds [8 x i8], ptr %29, i64 %.036
   store double %48, ptr %49, align 8, !tbaa !4
   %50 = load double, ptr %8, align 8, !tbaa !4
   %51 = load double, ptr %9, align 8, !tbaa !4
@@ -6198,7 +6198,7 @@ define internal void @statevec_compactUnitaryDistributed.omp_outlined(ptr noalia
   %56 = load double, ptr %11, align 8, !tbaa !4
   %57 = fneg double %56
   %58 = call double @llvm.fmuladd.f64(double %57, double %37, double %55)
-  %59 = getelementptr inbounds double, ptr %30, i64 %.036
+  %59 = getelementptr inbounds [8 x i8], ptr %30, i64 %.036
   store double %58, ptr %59, align 8, !tbaa !4
   %60 = add i64 %.036, 1
   %exitcond.not = icmp eq i64 %.036, %23
@@ -6309,13 +6309,13 @@ define internal void @statevec_unitaryDistributed.omp_outlined(ptr noalias nound
 
 31:                                               ; preds = %.lr.ph, %31
   %.036 = phi i64 [ %24, %.lr.ph ], [ %60, %31 ]
-  %32 = getelementptr inbounds double, ptr %25, i64 %.036
+  %32 = getelementptr inbounds [8 x i8], ptr %25, i64 %.036
   %33 = load double, ptr %32, align 8, !tbaa !4
-  %34 = getelementptr inbounds double, ptr %26, i64 %.036
+  %34 = getelementptr inbounds [8 x i8], ptr %26, i64 %.036
   %35 = load double, ptr %34, align 8, !tbaa !4
-  %36 = getelementptr inbounds double, ptr %27, i64 %.036
+  %36 = getelementptr inbounds [8 x i8], ptr %27, i64 %.036
   %37 = load double, ptr %36, align 8, !tbaa !4
-  %38 = getelementptr inbounds double, ptr %28, i64 %.036
+  %38 = getelementptr inbounds [8 x i8], ptr %28, i64 %.036
   %39 = load double, ptr %38, align 8, !tbaa !4
   %40 = load double, ptr %8, align 8, !tbaa !4
   %41 = load double, ptr %9, align 8, !tbaa !4
@@ -6327,7 +6327,7 @@ define internal void @statevec_unitaryDistributed.omp_outlined(ptr noalias nound
   %47 = load double, ptr %11, align 8, !tbaa !4
   %48 = fneg double %47
   %49 = call double @llvm.fmuladd.f64(double %48, double %39, double %46)
-  %50 = getelementptr inbounds double, ptr %29, i64 %.036
+  %50 = getelementptr inbounds [8 x i8], ptr %29, i64 %.036
   store double %49, ptr %50, align 8, !tbaa !4
   %51 = load double, ptr %8, align 8, !tbaa !4
   %52 = load double, ptr %9, align 8, !tbaa !4
@@ -6337,7 +6337,7 @@ define internal void @statevec_unitaryDistributed.omp_outlined(ptr noalias nound
   %56 = call double @llvm.fmuladd.f64(double %55, double %39, double %54)
   %57 = load double, ptr %11, align 8, !tbaa !4
   %58 = call double @llvm.fmuladd.f64(double %57, double %37, double %56)
-  %59 = getelementptr inbounds double, ptr %30, i64 %.036
+  %59 = getelementptr inbounds [8 x i8], ptr %30, i64 %.036
   store double %58, ptr %59, align 8, !tbaa !4
   %60 = add i64 %.036, 1
   %exitcond.not = icmp eq i64 %.036, %23
@@ -6478,13 +6478,13 @@ define internal void @statevec_controlledCompactUnitaryLocal.omp_outlined(ptr no
 
 45:                                               ; preds = %36
   %46 = add nsw i64 %40, %26
-  %47 = getelementptr inbounds double, ptr %34, i64 %40
+  %47 = getelementptr inbounds [8 x i8], ptr %34, i64 %40
   %48 = load double, ptr %47, align 8, !tbaa !4
-  %49 = getelementptr inbounds double, ptr %35, i64 %40
+  %49 = getelementptr inbounds [8 x i8], ptr %35, i64 %40
   %50 = load double, ptr %49, align 8, !tbaa !4
-  %51 = getelementptr inbounds double, ptr %34, i64 %46
+  %51 = getelementptr inbounds [8 x i8], ptr %34, i64 %46
   %52 = load double, ptr %51, align 8, !tbaa !4
-  %53 = getelementptr inbounds double, ptr %35, i64 %46
+  %53 = getelementptr inbounds [8 x i8], ptr %35, i64 %46
   %54 = load double, ptr %53, align 8, !tbaa !4
   %55 = load double, ptr %10, align 8, !tbaa !4
   %56 = load double, ptr %11, align 8, !tbaa !4
@@ -6660,13 +6660,13 @@ define internal void @statevec_multiControlledUnitaryLocal.omp_outlined(ptr noal
 
 49:                                               ; preds = %40
   %50 = add nsw i64 %44, %24
-  %51 = getelementptr inbounds double, ptr %31, i64 %44
+  %51 = getelementptr inbounds [8 x i8], ptr %31, i64 %44
   %52 = load double, ptr %51, align 8, !tbaa !4
-  %53 = getelementptr inbounds double, ptr %32, i64 %44
+  %53 = getelementptr inbounds [8 x i8], ptr %32, i64 %44
   %54 = load double, ptr %53, align 8, !tbaa !4
-  %55 = getelementptr inbounds double, ptr %31, i64 %50
+  %55 = getelementptr inbounds [8 x i8], ptr %31, i64 %50
   %56 = load double, ptr %55, align 8, !tbaa !4
-  %57 = getelementptr inbounds double, ptr %32, i64 %50
+  %57 = getelementptr inbounds [8 x i8], ptr %32, i64 %50
   %58 = load double, ptr %57, align 8, !tbaa !4
   %59 = load double, ptr %11, align 8, !tbaa !4
   %60 = load double, ptr %33, align 8, !tbaa !4
@@ -6840,13 +6840,13 @@ define internal void @statevec_controlledUnitaryLocal.omp_outlined(ptr noalias n
 
 49:                                               ; preds = %40
   %50 = add nsw i64 %44, %23
-  %51 = getelementptr inbounds double, ptr %31, i64 %44
+  %51 = getelementptr inbounds [8 x i8], ptr %31, i64 %44
   %52 = load double, ptr %51, align 8, !tbaa !4
-  %53 = getelementptr inbounds double, ptr %32, i64 %44
+  %53 = getelementptr inbounds [8 x i8], ptr %32, i64 %44
   %54 = load double, ptr %53, align 8, !tbaa !4
-  %55 = getelementptr inbounds double, ptr %31, i64 %50
+  %55 = getelementptr inbounds [8 x i8], ptr %31, i64 %50
   %56 = load double, ptr %55, align 8, !tbaa !4
-  %57 = getelementptr inbounds double, ptr %32, i64 %50
+  %57 = getelementptr inbounds [8 x i8], ptr %32, i64 %50
   %58 = load double, ptr %57, align 8, !tbaa !4
   %59 = load double, ptr %10, align 8, !tbaa !4
   %60 = load double, ptr %33, align 8, !tbaa !4
@@ -7029,13 +7029,13 @@ define internal void @statevec_controlledCompactUnitaryDistributed.omp_outlined(
   br i1 %.not40, label %74, label %45
 
 45:                                               ; preds = %40
-  %46 = getelementptr inbounds double, ptr %34, i64 %.042
+  %46 = getelementptr inbounds [8 x i8], ptr %34, i64 %.042
   %47 = load double, ptr %46, align 8, !tbaa !4
-  %48 = getelementptr inbounds double, ptr %35, i64 %.042
+  %48 = getelementptr inbounds [8 x i8], ptr %35, i64 %.042
   %49 = load double, ptr %48, align 8, !tbaa !4
-  %50 = getelementptr inbounds double, ptr %36, i64 %.042
+  %50 = getelementptr inbounds [8 x i8], ptr %36, i64 %.042
   %51 = load double, ptr %50, align 8, !tbaa !4
-  %52 = getelementptr inbounds double, ptr %37, i64 %.042
+  %52 = getelementptr inbounds [8 x i8], ptr %37, i64 %.042
   %53 = load double, ptr %52, align 8, !tbaa !4
   %54 = load double, ptr %11, align 8, !tbaa !4
   %55 = load double, ptr %12, align 8, !tbaa !4
@@ -7046,7 +7046,7 @@ define internal void @statevec_controlledCompactUnitaryDistributed.omp_outlined(
   %60 = call double @llvm.fmuladd.f64(double %59, double %51, double %58)
   %61 = load double, ptr %14, align 8, !tbaa !4
   %62 = call double @llvm.fmuladd.f64(double %61, double %53, double %60)
-  %63 = getelementptr inbounds double, ptr %38, i64 %.042
+  %63 = getelementptr inbounds [8 x i8], ptr %38, i64 %.042
   store double %62, ptr %63, align 8, !tbaa !4
   %64 = load double, ptr %11, align 8, !tbaa !4
   %65 = load double, ptr %12, align 8, !tbaa !4
@@ -7057,7 +7057,7 @@ define internal void @statevec_controlledCompactUnitaryDistributed.omp_outlined(
   %70 = load double, ptr %14, align 8, !tbaa !4
   %71 = fneg double %70
   %72 = call double @llvm.fmuladd.f64(double %71, double %51, double %69)
-  %73 = getelementptr inbounds double, ptr %39, i64 %.042
+  %73 = getelementptr inbounds [8 x i8], ptr %39, i64 %.042
   store double %72, ptr %73, align 8, !tbaa !4
   br label %74
 
@@ -7201,13 +7201,13 @@ define internal void @statevec_controlledUnitaryDistributed.omp_outlined(ptr noa
   br i1 %.not40, label %74, label %45
 
 45:                                               ; preds = %40
-  %46 = getelementptr inbounds double, ptr %34, i64 %.042
+  %46 = getelementptr inbounds [8 x i8], ptr %34, i64 %.042
   %47 = load double, ptr %46, align 8, !tbaa !4
-  %48 = getelementptr inbounds double, ptr %35, i64 %.042
+  %48 = getelementptr inbounds [8 x i8], ptr %35, i64 %.042
   %49 = load double, ptr %48, align 8, !tbaa !4
-  %50 = getelementptr inbounds double, ptr %36, i64 %.042
+  %50 = getelementptr inbounds [8 x i8], ptr %36, i64 %.042
   %51 = load double, ptr %50, align 8, !tbaa !4
-  %52 = getelementptr inbounds double, ptr %37, i64 %.042
+  %52 = getelementptr inbounds [8 x i8], ptr %37, i64 %.042
   %53 = load double, ptr %52, align 8, !tbaa !4
   %54 = load double, ptr %11, align 8, !tbaa !4
   %55 = load double, ptr %12, align 8, !tbaa !4
@@ -7219,7 +7219,7 @@ define internal void @statevec_controlledUnitaryDistributed.omp_outlined(ptr noa
   %61 = load double, ptr %14, align 8, !tbaa !4
   %62 = fneg double %61
   %63 = call double @llvm.fmuladd.f64(double %62, double %53, double %60)
-  %64 = getelementptr inbounds double, ptr %38, i64 %.042
+  %64 = getelementptr inbounds [8 x i8], ptr %38, i64 %.042
   store double %63, ptr %64, align 8, !tbaa !4
   %65 = load double, ptr %11, align 8, !tbaa !4
   %66 = load double, ptr %12, align 8, !tbaa !4
@@ -7229,7 +7229,7 @@ define internal void @statevec_controlledUnitaryDistributed.omp_outlined(ptr noa
   %70 = call double @llvm.fmuladd.f64(double %69, double %53, double %68)
   %71 = load double, ptr %14, align 8, !tbaa !4
   %72 = call double @llvm.fmuladd.f64(double %71, double %51, double %70)
-  %73 = getelementptr inbounds double, ptr %39, i64 %.042
+  %73 = getelementptr inbounds [8 x i8], ptr %39, i64 %.042
   store double %72, ptr %73, align 8, !tbaa !4
   br label %74
 
@@ -7376,13 +7376,13 @@ define internal void @statevec_multiControlledUnitaryDistributed.omp_outlined(pt
   br i1 %44, label %45, label %74
 
 45:                                               ; preds = %40
-  %46 = getelementptr inbounds double, ptr %34, i64 %.041
+  %46 = getelementptr inbounds [8 x i8], ptr %34, i64 %.041
   %47 = load double, ptr %46, align 8, !tbaa !4
-  %48 = getelementptr inbounds double, ptr %35, i64 %.041
+  %48 = getelementptr inbounds [8 x i8], ptr %35, i64 %.041
   %49 = load double, ptr %48, align 8, !tbaa !4
-  %50 = getelementptr inbounds double, ptr %36, i64 %.041
+  %50 = getelementptr inbounds [8 x i8], ptr %36, i64 %.041
   %51 = load double, ptr %50, align 8, !tbaa !4
-  %52 = getelementptr inbounds double, ptr %37, i64 %.041
+  %52 = getelementptr inbounds [8 x i8], ptr %37, i64 %.041
   %53 = load double, ptr %52, align 8, !tbaa !4
   %54 = load double, ptr %12, align 8, !tbaa !4
   %55 = load double, ptr %13, align 8, !tbaa !4
@@ -7394,7 +7394,7 @@ define internal void @statevec_multiControlledUnitaryDistributed.omp_outlined(pt
   %61 = load double, ptr %15, align 8, !tbaa !4
   %62 = fneg double %61
   %63 = call double @llvm.fmuladd.f64(double %62, double %53, double %60)
-  %64 = getelementptr inbounds double, ptr %38, i64 %.041
+  %64 = getelementptr inbounds [8 x i8], ptr %38, i64 %.041
   store double %63, ptr %64, align 8, !tbaa !4
   %65 = load double, ptr %12, align 8, !tbaa !4
   %66 = load double, ptr %13, align 8, !tbaa !4
@@ -7404,7 +7404,7 @@ define internal void @statevec_multiControlledUnitaryDistributed.omp_outlined(pt
   %70 = call double @llvm.fmuladd.f64(double %69, double %53, double %68)
   %71 = load double, ptr %15, align 8, !tbaa !4
   %72 = call double @llvm.fmuladd.f64(double %71, double %51, double %70)
-  %73 = getelementptr inbounds double, ptr %39, i64 %.041
+  %73 = getelementptr inbounds [8 x i8], ptr %39, i64 %.041
   store double %72, ptr %73, align 8, !tbaa !4
   br label %74
 
@@ -7505,14 +7505,14 @@ define internal void @statevec_pauliXLocal.omp_outlined(ptr noalias noundef read
   %26 = srem i64 %.030, %19
   %27 = add nsw i64 %25, %26
   %28 = add nsw i64 %27, %19
-  %29 = getelementptr inbounds double, ptr %21, i64 %27
+  %29 = getelementptr inbounds [8 x i8], ptr %21, i64 %27
   %30 = load double, ptr %29, align 8, !tbaa !4
-  %31 = getelementptr inbounds double, ptr %22, i64 %27
+  %31 = getelementptr inbounds [8 x i8], ptr %22, i64 %27
   %32 = load double, ptr %31, align 8, !tbaa !4
-  %33 = getelementptr inbounds double, ptr %21, i64 %28
+  %33 = getelementptr inbounds [8 x i8], ptr %21, i64 %28
   %34 = load double, ptr %33, align 8, !tbaa !4
   store double %34, ptr %29, align 8, !tbaa !4
-  %35 = getelementptr inbounds double, ptr %22, i64 %28
+  %35 = getelementptr inbounds [8 x i8], ptr %22, i64 %28
   %36 = load double, ptr %35, align 8, !tbaa !4
   store double %36, ptr %31, align 8, !tbaa !4
   store double %30, ptr %33, align 8, !tbaa !4
@@ -7600,13 +7600,13 @@ define internal void @statevec_pauliXDistributed.omp_outlined(ptr noalias nounde
 
 23:                                               ; preds = %.lr.ph, %23
   %.020 = phi i64 [ %18, %.lr.ph ], [ %30, %23 ]
-  %24 = getelementptr inbounds double, ptr %19, i64 %.020
+  %24 = getelementptr inbounds [8 x i8], ptr %19, i64 %.020
   %25 = load double, ptr %24, align 8, !tbaa !4
-  %26 = getelementptr inbounds double, ptr %20, i64 %.020
+  %26 = getelementptr inbounds [8 x i8], ptr %20, i64 %.020
   store double %25, ptr %26, align 8, !tbaa !4
-  %27 = getelementptr inbounds double, ptr %21, i64 %.020
+  %27 = getelementptr inbounds [8 x i8], ptr %21, i64 %.020
   %28 = load double, ptr %27, align 8, !tbaa !4
-  %29 = getelementptr inbounds double, ptr %22, i64 %.020
+  %29 = getelementptr inbounds [8 x i8], ptr %22, i64 %.020
   store double %28, ptr %29, align 8, !tbaa !4
   %30 = add i64 %.020, 1
   %exitcond.not = icmp eq i64 %.020, %17
@@ -7731,14 +7731,14 @@ define internal void @statevec_controlledNotLocal.omp_outlined(ptr noalias nound
 
 41:                                               ; preds = %32
   %42 = add nsw i64 %36, %22
-  %43 = getelementptr inbounds double, ptr %30, i64 %36
+  %43 = getelementptr inbounds [8 x i8], ptr %30, i64 %36
   %44 = load double, ptr %43, align 8, !tbaa !4
-  %45 = getelementptr inbounds double, ptr %31, i64 %36
+  %45 = getelementptr inbounds [8 x i8], ptr %31, i64 %36
   %46 = load double, ptr %45, align 8, !tbaa !4
-  %47 = getelementptr inbounds double, ptr %30, i64 %42
+  %47 = getelementptr inbounds [8 x i8], ptr %30, i64 %42
   %48 = load double, ptr %47, align 8, !tbaa !4
   store double %48, ptr %43, align 8, !tbaa !4
-  %49 = getelementptr inbounds double, ptr %31, i64 %42
+  %49 = getelementptr inbounds [8 x i8], ptr %31, i64 %42
   %50 = load double, ptr %49, align 8, !tbaa !4
   store double %50, ptr %45, align 8, !tbaa !4
   store double %44, ptr %47, align 8, !tbaa !4
@@ -7856,13 +7856,13 @@ define internal void @statevec_controlledNotDistributed.omp_outlined(ptr noalias
   br i1 %.not24, label %44, label %37
 
 37:                                               ; preds = %32
-  %38 = getelementptr inbounds double, ptr %28, i64 %.026
+  %38 = getelementptr inbounds [8 x i8], ptr %28, i64 %.026
   %39 = load double, ptr %38, align 8, !tbaa !4
-  %40 = getelementptr inbounds double, ptr %29, i64 %.026
+  %40 = getelementptr inbounds [8 x i8], ptr %29, i64 %.026
   store double %39, ptr %40, align 8, !tbaa !4
-  %41 = getelementptr inbounds double, ptr %30, i64 %.026
+  %41 = getelementptr inbounds [8 x i8], ptr %30, i64 %.026
   %42 = load double, ptr %41, align 8, !tbaa !4
-  %43 = getelementptr inbounds double, ptr %31, i64 %.026
+  %43 = getelementptr inbounds [8 x i8], ptr %31, i64 %.026
   store double %42, ptr %43, align 8, !tbaa !4
   br label %44
 
@@ -7967,14 +7967,14 @@ define internal void @statevec_multiControlledMultiQubitNotLocal.omp_outlined(pt
   br i1 %28, label %38, label %29
 
 29:                                               ; preds = %.lr.ph.split.us
-  %30 = getelementptr inbounds double, ptr %25, i64 %27
+  %30 = getelementptr inbounds [8 x i8], ptr %25, i64 %27
   %31 = load double, ptr %30, align 8, !tbaa !4
-  %32 = getelementptr inbounds double, ptr %26, i64 %27
+  %32 = getelementptr inbounds [8 x i8], ptr %26, i64 %27
   %33 = load double, ptr %32, align 8, !tbaa !4
-  %34 = getelementptr inbounds double, ptr %25, i64 %.036.us
+  %34 = getelementptr inbounds [8 x i8], ptr %25, i64 %.036.us
   %35 = load double, ptr %34, align 8, !tbaa !4
   store double %35, ptr %30, align 8, !tbaa !4
-  %36 = getelementptr inbounds double, ptr %26, i64 %.036.us
+  %36 = getelementptr inbounds [8 x i8], ptr %26, i64 %.036.us
   %37 = load double, ptr %36, align 8, !tbaa !4
   store double %37, ptr %32, align 8, !tbaa !4
   store double %31, ptr %34, align 8, !tbaa !4
@@ -7999,14 +7999,14 @@ define internal void @statevec_multiControlledMultiQubitNotLocal.omp_outlined(pt
   br i1 %44, label %54, label %45
 
 45:                                               ; preds = %42
-  %46 = getelementptr inbounds double, ptr %25, i64 %43
+  %46 = getelementptr inbounds [8 x i8], ptr %25, i64 %43
   %47 = load double, ptr %46, align 8, !tbaa !4
-  %48 = getelementptr inbounds double, ptr %26, i64 %43
+  %48 = getelementptr inbounds [8 x i8], ptr %26, i64 %43
   %49 = load double, ptr %48, align 8, !tbaa !4
-  %50 = getelementptr inbounds double, ptr %25, i64 %.036
+  %50 = getelementptr inbounds [8 x i8], ptr %25, i64 %.036
   %51 = load double, ptr %50, align 8, !tbaa !4
   store double %51, ptr %46, align 8, !tbaa !4
-  %52 = getelementptr inbounds double, ptr %26, i64 %.036
+  %52 = getelementptr inbounds [8 x i8], ptr %26, i64 %.036
   %53 = load double, ptr %52, align 8, !tbaa !4
   store double %53, ptr %48, align 8, !tbaa !4
   store double %47, ptr %50, align 8, !tbaa !4
@@ -8120,13 +8120,13 @@ define internal void @statevec_multiControlledMultiQubitNotDistributed.omp_outli
   %32 = add nsw i64 %22, %.031.us
   %33 = xor i64 %32, %26
   %34 = srem i64 %33, %27
-  %35 = getelementptr inbounds double, ptr %28, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %28, i64 %34
   %36 = load double, ptr %35, align 8, !tbaa !4
-  %37 = getelementptr inbounds double, ptr %29, i64 %.031.us
+  %37 = getelementptr inbounds [8 x i8], ptr %29, i64 %.031.us
   store double %36, ptr %37, align 8, !tbaa !4
-  %38 = getelementptr inbounds double, ptr %30, i64 %34
+  %38 = getelementptr inbounds [8 x i8], ptr %30, i64 %34
   %39 = load double, ptr %38, align 8, !tbaa !4
-  %40 = getelementptr inbounds double, ptr %31, i64 %.031.us
+  %40 = getelementptr inbounds [8 x i8], ptr %31, i64 %.031.us
   store double %39, ptr %40, align 8, !tbaa !4
   %41 = add i64 %.031.us, 1
   %exitcond33.not = icmp eq i64 %.031.us, %20
@@ -8142,13 +8142,13 @@ define internal void @statevec_multiControlledMultiQubitNotDistributed.omp_outli
 44:                                               ; preds = %.lr.ph.split
   %45 = xor i64 %42, %26
   %46 = srem i64 %45, %27
-  %47 = getelementptr inbounds double, ptr %28, i64 %46
+  %47 = getelementptr inbounds [8 x i8], ptr %28, i64 %46
   %48 = load double, ptr %47, align 8, !tbaa !4
-  %49 = getelementptr inbounds double, ptr %29, i64 %.031
+  %49 = getelementptr inbounds [8 x i8], ptr %29, i64 %.031
   store double %48, ptr %49, align 8, !tbaa !4
-  %50 = getelementptr inbounds double, ptr %30, i64 %46
+  %50 = getelementptr inbounds [8 x i8], ptr %30, i64 %46
   %51 = load double, ptr %50, align 8, !tbaa !4
-  %52 = getelementptr inbounds double, ptr %31, i64 %.031
+  %52 = getelementptr inbounds [8 x i8], ptr %31, i64 %.031
   store double %51, ptr %52, align 8, !tbaa !4
   br label %53
 
@@ -8253,15 +8253,15 @@ define internal void @statevec_pauliYLocal.omp_outlined(ptr noalias noundef read
   %29 = srem i64 %.031, %20
   %30 = add nsw i64 %28, %29
   %31 = add nsw i64 %30, %20
-  %32 = getelementptr inbounds double, ptr %22, i64 %30
+  %32 = getelementptr inbounds [8 x i8], ptr %22, i64 %30
   %33 = load double, ptr %32, align 8, !tbaa !4
-  %34 = getelementptr inbounds double, ptr %23, i64 %30
+  %34 = getelementptr inbounds [8 x i8], ptr %23, i64 %30
   %35 = load double, ptr %34, align 8, !tbaa !4
-  %36 = getelementptr inbounds double, ptr %23, i64 %31
+  %36 = getelementptr inbounds [8 x i8], ptr %23, i64 %31
   %37 = load double, ptr %36, align 8, !tbaa !4
   %38 = fmul double %37, %25
   store double %38, ptr %32, align 8, !tbaa !4
-  %39 = getelementptr inbounds double, ptr %22, i64 %31
+  %39 = getelementptr inbounds [8 x i8], ptr %22, i64 %31
   %40 = load double, ptr %39, align 8, !tbaa !4
   %41 = fneg double %40
   %42 = fmul double %25, %41
@@ -8374,15 +8374,15 @@ define internal void @statevec_pauliYDistributed.omp_outlined(ptr noalias nounde
 
 33:                                               ; preds = %.lr.ph, %33
   %.023 = phi i64 [ %21, %.lr.ph ], [ %42, %33 ]
-  %34 = getelementptr inbounds double, ptr %26, i64 %.023
+  %34 = getelementptr inbounds [8 x i8], ptr %26, i64 %.023
   %35 = load double, ptr %34, align 8, !tbaa !4
   %36 = fmul double %35, %25
-  %37 = getelementptr inbounds double, ptr %27, i64 %.023
+  %37 = getelementptr inbounds [8 x i8], ptr %27, i64 %.023
   store double %36, ptr %37, align 8, !tbaa !4
-  %38 = getelementptr inbounds double, ptr %31, i64 %.023
+  %38 = getelementptr inbounds [8 x i8], ptr %31, i64 %.023
   %39 = load double, ptr %38, align 8, !tbaa !4
   %40 = fmul double %39, %30
-  %41 = getelementptr inbounds double, ptr %32, i64 %.023
+  %41 = getelementptr inbounds [8 x i8], ptr %32, i64 %.023
   store double %40, ptr %41, align 8, !tbaa !4
   %42 = add i64 %.023, 1
   %exitcond.not = icmp eq i64 %.023, %20
@@ -8511,15 +8511,15 @@ define internal void @statevec_controlledPauliYLocal.omp_outlined(ptr noalias no
 
 44:                                               ; preds = %35
   %45 = add nsw i64 %39, %23
-  %46 = getelementptr inbounds double, ptr %31, i64 %39
+  %46 = getelementptr inbounds [8 x i8], ptr %31, i64 %39
   %47 = load double, ptr %46, align 8, !tbaa !4
-  %48 = getelementptr inbounds double, ptr %32, i64 %39
+  %48 = getelementptr inbounds [8 x i8], ptr %32, i64 %39
   %49 = load double, ptr %48, align 8, !tbaa !4
-  %50 = getelementptr inbounds double, ptr %32, i64 %45
+  %50 = getelementptr inbounds [8 x i8], ptr %32, i64 %45
   %51 = load double, ptr %50, align 8, !tbaa !4
   %52 = fmul double %51, %34
   store double %52, ptr %46, align 8, !tbaa !4
-  %53 = getelementptr inbounds double, ptr %31, i64 %45
+  %53 = getelementptr inbounds [8 x i8], ptr %31, i64 %45
   %54 = load double, ptr %53, align 8, !tbaa !4
   %55 = fneg double %54
   %56 = fmul double %34, %55
@@ -8646,16 +8646,16 @@ define internal void @statevec_controlledPauliYDistributed.omp_outlined(ptr noal
   br i1 %.not25, label %50, label %40
 
 40:                                               ; preds = %35
-  %41 = getelementptr inbounds double, ptr %31, i64 %.027
+  %41 = getelementptr inbounds [8 x i8], ptr %31, i64 %.027
   %42 = load double, ptr %41, align 8, !tbaa !4
   %43 = fmul double %42, %30
-  %44 = getelementptr inbounds double, ptr %32, i64 %.027
+  %44 = getelementptr inbounds [8 x i8], ptr %32, i64 %.027
   store double %43, ptr %44, align 8, !tbaa !4
-  %45 = getelementptr inbounds double, ptr %33, i64 %.027
+  %45 = getelementptr inbounds [8 x i8], ptr %33, i64 %.027
   %46 = load double, ptr %45, align 8, !tbaa !4
   %47 = fneg double %46
   %48 = fmul double %30, %47
-  %49 = getelementptr inbounds double, ptr %34, i64 %.027
+  %49 = getelementptr inbounds [8 x i8], ptr %34, i64 %.027
   store double %48, ptr %49, align 8, !tbaa !4
   br label %50
 
@@ -8760,13 +8760,13 @@ define internal void @statevec_hadamardLocal.omp_outlined(ptr noalias noundef re
   %27 = srem i64 %.037, %20
   %28 = add nsw i64 %26, %27
   %29 = add nsw i64 %28, %20
-  %30 = getelementptr inbounds double, ptr %22, i64 %28
+  %30 = getelementptr inbounds [8 x i8], ptr %22, i64 %28
   %31 = load double, ptr %30, align 8, !tbaa !4
-  %32 = getelementptr inbounds double, ptr %23, i64 %28
+  %32 = getelementptr inbounds [8 x i8], ptr %23, i64 %28
   %33 = load double, ptr %32, align 8, !tbaa !4
-  %34 = getelementptr inbounds double, ptr %22, i64 %29
+  %34 = getelementptr inbounds [8 x i8], ptr %22, i64 %29
   %35 = load double, ptr %34, align 8, !tbaa !4
-  %36 = getelementptr inbounds double, ptr %23, i64 %29
+  %36 = getelementptr inbounds [8 x i8], ptr %23, i64 %29
   %37 = load double, ptr %36, align 8, !tbaa !4
   %38 = load double, ptr %7, align 8, !tbaa !4
   %39 = fadd double %31, %35
@@ -8889,23 +8889,23 @@ define internal void @statevec_hadamardDistributed.omp_outlined(ptr noalias noun
 
 31:                                               ; preds = %.lr.ph, %31
   %.030 = phi i64 [ %22, %.lr.ph ], [ %48, %31 ]
-  %32 = getelementptr inbounds double, ptr %23, i64 %.030
+  %32 = getelementptr inbounds [8 x i8], ptr %23, i64 %.030
   %33 = load double, ptr %32, align 8, !tbaa !4
-  %34 = getelementptr inbounds double, ptr %24, i64 %.030
+  %34 = getelementptr inbounds [8 x i8], ptr %24, i64 %.030
   %35 = load double, ptr %34, align 8, !tbaa !4
-  %36 = getelementptr inbounds double, ptr %25, i64 %.030
+  %36 = getelementptr inbounds [8 x i8], ptr %25, i64 %.030
   %37 = load double, ptr %36, align 8, !tbaa !4
-  %38 = getelementptr inbounds double, ptr %26, i64 %.030
+  %38 = getelementptr inbounds [8 x i8], ptr %26, i64 %.030
   %39 = load double, ptr %38, align 8, !tbaa !4
   %40 = load double, ptr %8, align 8, !tbaa !4
   %41 = call double @llvm.fmuladd.f64(double %28, double %37, double %33)
   %42 = fmul double %40, %41
-  %43 = getelementptr inbounds double, ptr %29, i64 %.030
+  %43 = getelementptr inbounds [8 x i8], ptr %29, i64 %.030
   store double %42, ptr %43, align 8, !tbaa !4
   %44 = load double, ptr %8, align 8, !tbaa !4
   %45 = call double @llvm.fmuladd.f64(double %28, double %39, double %35)
   %46 = fmul double %45, %44
-  %47 = getelementptr inbounds double, ptr %30, i64 %.030
+  %47 = getelementptr inbounds [8 x i8], ptr %30, i64 %.030
   store double %46, ptr %47, align 8, !tbaa !4
   %48 = add i64 %.030, 1
   %exitcond.not = icmp eq i64 %.030, %21
@@ -9019,9 +9019,9 @@ define internal void @statevec_phaseShiftByTerm.omp_outlined(ptr noalias noundef
   br i1 %.not27, label %50, label %36
 
 36:                                               ; preds = %31
-  %37 = getelementptr inbounds double, ptr %29, i64 %.029
+  %37 = getelementptr inbounds [8 x i8], ptr %29, i64 %.029
   %38 = load double, ptr %37, align 8, !tbaa !4
-  %39 = getelementptr inbounds double, ptr %30, i64 %.029
+  %39 = getelementptr inbounds [8 x i8], ptr %30, i64 %.029
   %40 = load double, ptr %39, align 8, !tbaa !4
   %41 = load double, ptr %8, align 8, !tbaa !4
   %42 = load double, ptr %9, align 8, !tbaa !4
@@ -9166,9 +9166,9 @@ define internal void @statevec_controlledPhaseShift.omp_outlined(ptr noalias nou
   br i1 %or.cond, label %45, label %59
 
 45:                                               ; preds = %35
-  %46 = getelementptr inbounds double, ptr %33, i64 %.032
+  %46 = getelementptr inbounds [8 x i8], ptr %33, i64 %.032
   %47 = load double, ptr %46, align 8, !tbaa !4
-  %48 = getelementptr inbounds double, ptr %34, i64 %.032
+  %48 = getelementptr inbounds [8 x i8], ptr %34, i64 %.032
   %49 = load double, ptr %48, align 8, !tbaa !4
   %50 = load double, ptr %9, align 8, !tbaa !4
   %51 = load double, ptr %10, align 8, !tbaa !4
@@ -9298,9 +9298,9 @@ define internal void @statevec_multiControlledPhaseShift.omp_outlined(ptr noalia
   br i1 %31, label %32, label %46
 
 32:                                               ; preds = %28
-  %33 = getelementptr inbounds double, ptr %26, i64 %.028
+  %33 = getelementptr inbounds [8 x i8], ptr %26, i64 %.028
   %34 = load double, ptr %33, align 8, !tbaa !4
-  %35 = getelementptr inbounds double, ptr %27, i64 %.028
+  %35 = getelementptr inbounds [8 x i8], ptr %27, i64 %.028
   %36 = load double, ptr %35, align 8, !tbaa !4
   %37 = load double, ptr %8, align 8, !tbaa !4
   %38 = load double, ptr %9, align 8, !tbaa !4
@@ -9440,9 +9440,9 @@ define internal void @statevec_multiRotateZ.omp_outlined(ptr noalias noundef rea
 
 28:                                               ; preds = %.lr.ph, %52
   %.031 = phi i64 [ %21, %.lr.ph ], [ %57, %52 ]
-  %29 = getelementptr inbounds double, ptr %22, i64 %.031
+  %29 = getelementptr inbounds [8 x i8], ptr %22, i64 %.031
   %30 = load double, ptr %29, align 8, !tbaa !4
-  %31 = getelementptr inbounds double, ptr %23, i64 %.031
+  %31 = getelementptr inbounds [8 x i8], ptr %23, i64 %.031
   %32 = load double, ptr %31, align 8, !tbaa !4
   %33 = add nsw i64 %27, %.031
   %34 = and i64 %33, %24
@@ -9598,9 +9598,9 @@ define internal void @statevec_multiControlledMultiRotateZ.omp_outlined(ptr noal
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %getBitMaskParity.exit.us
   %.035.us = phi i64 [ %50, %getBitMaskParity.exit.us ], [ %21, %.lr.ph ]
-  %27 = getelementptr inbounds double, ptr %22, i64 %.035.us
+  %27 = getelementptr inbounds [8 x i8], ptr %22, i64 %.035.us
   %28 = load double, ptr %27, align 8, !tbaa !4
-  %29 = getelementptr inbounds double, ptr %23, i64 %.035.us
+  %29 = getelementptr inbounds [8 x i8], ptr %23, i64 %.035.us
   %30 = load double, ptr %29, align 8, !tbaa !4
   %31 = add nsw i64 %24, %.035.us
   %32 = and i64 %26, %31
@@ -9644,9 +9644,9 @@ getBitMaskParity.exit.us:                         ; preds = %getBitMaskParity.ex
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %76
   %.035 = phi i64 [ %77, %76 ], [ %21, %.lr.ph ]
-  %51 = getelementptr inbounds double, ptr %22, i64 %.035
+  %51 = getelementptr inbounds [8 x i8], ptr %22, i64 %.035
   %52 = load double, ptr %51, align 8, !tbaa !4
-  %53 = getelementptr inbounds double, ptr %23, i64 %.035
+  %53 = getelementptr inbounds [8 x i8], ptr %23, i64 %.035
   %54 = load double, ptr %53, align 8, !tbaa !4
   %55 = add nsw i64 %24, %.035
   %56 = and i64 %.fr, %55
@@ -9814,7 +9814,7 @@ define internal void @densmatr_findProbabilityOfZeroLocal.omp_outlined(ptr noali
   %27 = load i64, ptr %5, align 8
   %28 = load i64, ptr %4, align 8
   %29 = load ptr, ptr %8, align 8
-  %30 = getelementptr double, ptr %29, i64 %28
+  %30 = getelementptr [8 x i8], ptr %29, i64 %28
   br label %31
 
 31:                                               ; preds = %.lr.ph, %43
@@ -9829,7 +9829,7 @@ define internal void @densmatr_findProbabilityOfZeroLocal.omp_outlined(ptr noali
 
 38:                                               ; preds = %31
   %39 = mul nsw i64 %27, %.023
-  %40 = getelementptr double, ptr %30, i64 %39
+  %40 = getelementptr [8 x i8], ptr %30, i64 %39
   %41 = load double, ptr %40, align 8, !tbaa !4
   %42 = fadd double %41, %32
   store double %42, ptr %10, align 8, !tbaa !4
@@ -9975,9 +9975,9 @@ define internal void @statevec_findProbabilityOfZeroLocal.omp_outlined(ptr noali
   %29 = mul nsw i64 %23, %28
   %30 = srem i64 %.025, %22
   %31 = add nsw i64 %29, %30
-  %32 = getelementptr inbounds double, ptr %24, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %24, i64 %31
   %33 = load double, ptr %32, align 8, !tbaa !4
-  %34 = getelementptr inbounds double, ptr %25, i64 %31
+  %34 = getelementptr inbounds [8 x i8], ptr %25, i64 %31
   %35 = load double, ptr %34, align 8, !tbaa !4
   %36 = fmul double %35, %35
   %37 = call double @llvm.fmuladd.f64(double %33, double %33, double %36)
@@ -10103,9 +10103,9 @@ define internal void @statevec_findProbabilityOfZeroDistributed.omp_outlined(ptr
 22:                                               ; preds = %.lr.ph, %22
   %.020 = phi i64 [ %19, %.lr.ph ], [ %31, %22 ]
   %23 = phi double [ 0.000000e+00, %.lr.ph ], [ %30, %22 ]
-  %24 = getelementptr inbounds double, ptr %20, i64 %.020
+  %24 = getelementptr inbounds [8 x i8], ptr %20, i64 %.020
   %25 = load double, ptr %24, align 8, !tbaa !4
-  %26 = getelementptr inbounds double, ptr %21, i64 %.020
+  %26 = getelementptr inbounds [8 x i8], ptr %21, i64 %.020
   %27 = load double, ptr %26, align 8, !tbaa !4
   %28 = fmul double %27, %27
   %29 = call double @llvm.fmuladd.f64(double %25, double %25, double %28)
@@ -10303,7 +10303,7 @@ define internal void @statevec_calcProbOfAllOutcomesLocal.omp_outlined.7(ptr noa
 26:                                               ; preds = %.lr.ph, %26
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %26 ]
   %.02931 = phi i64 [ 0, %.lr.ph ], [ %35, %26 ]
-  %27 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4, !tbaa !18
   %29 = zext i32 %28 to i64
   %30 = shl nuw i64 1, %29
@@ -10320,15 +10320,15 @@ define internal void @statevec_calcProbOfAllOutcomesLocal.omp_outlined.7(ptr noa
 ._crit_edge:                                      ; preds = %26, %.preheader
   %.029.lcssa = phi i64 [ 0, %.preheader ], [ %35, %26 ]
   %36 = load ptr, ptr %6, align 8, !tbaa !26
-  %37 = getelementptr inbounds double, ptr %36, i64 %.03034
+  %37 = getelementptr inbounds [8 x i8], ptr %36, i64 %.03034
   %38 = load double, ptr %37, align 8, !tbaa !4
   %39 = load ptr, ptr %7, align 8, !tbaa !26
-  %40 = getelementptr inbounds double, ptr %39, i64 %.03034
+  %40 = getelementptr inbounds [8 x i8], ptr %39, i64 %.03034
   %41 = load double, ptr %40, align 8, !tbaa !4
   %42 = fmul double %41, %41
   %43 = call double @llvm.fmuladd.f64(double %38, double %38, double %42)
   %44 = load ptr, ptr %8, align 8, !tbaa !26
-  %45 = getelementptr inbounds double, ptr %44, i64 %.029.lcssa
+  %45 = getelementptr inbounds [8 x i8], ptr %44, i64 %.029.lcssa
   %46 = atomicrmw fadd ptr %45, double %43 monotonic, align 8
   %47 = add nsw i64 %.03034, 1
   %48 = load i64, ptr %11, align 8, !tbaa !16
@@ -10518,7 +10518,7 @@ define internal void @densmatr_calcProbOfAllOutcomesLocal.omp_outlined.8(ptr noa
 30:                                               ; preds = %.lr.ph, %30
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
   %.02830 = phi i64 [ 0, %.lr.ph ], [ %39, %30 ]
-  %31 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4, !tbaa !18
   %33 = zext i32 %32 to i64
   %34 = shl nuw i64 1, %33
@@ -10535,10 +10535,10 @@ define internal void @densmatr_calcProbOfAllOutcomesLocal.omp_outlined.8(ptr noa
 ._crit_edge:                                      ; preds = %30, %.lr.ph35
   %.028.lcssa = phi i64 [ 0, %.lr.ph35 ], [ %39, %30 ]
   %40 = load ptr, ptr %8, align 8, !tbaa !26
-  %41 = getelementptr inbounds double, ptr %40, i64 %.028.lcssa
+  %41 = getelementptr inbounds [8 x i8], ptr %40, i64 %.028.lcssa
   %42 = load ptr, ptr %9, align 8, !tbaa !26
-  %43 = getelementptr double, ptr %42, i64 %24
-  %44 = getelementptr double, ptr %43, i64 %26
+  %43 = getelementptr [8 x i8], ptr %42, i64 %24
+  %44 = getelementptr [8 x i8], ptr %43, i64 %26
   %45 = load double, ptr %44, align 8, !tbaa !4
   %46 = atomicrmw fadd ptr %41, double %45 monotonic, align 8
   %47 = add nsw i64 %.02933, 1
@@ -10656,11 +10656,11 @@ define internal void @statevec_controlledPhaseFlip.omp_outlined(ptr noalias noun
   br i1 %or.cond, label %43, label %50
 
 43:                                               ; preds = %33
-  %44 = getelementptr inbounds double, ptr %31, i64 %.026
+  %44 = getelementptr inbounds [8 x i8], ptr %31, i64 %.026
   %45 = load double, ptr %44, align 8, !tbaa !4
   %46 = fneg double %45
   store double %46, ptr %44, align 8, !tbaa !4
-  %47 = getelementptr inbounds double, ptr %32, i64 %.026
+  %47 = getelementptr inbounds [8 x i8], ptr %32, i64 %.026
   %48 = load double, ptr %47, align 8, !tbaa !4
   %49 = fneg double %48
   store double %49, ptr %47, align 8, !tbaa !4
@@ -10769,11 +10769,11 @@ define internal void @statevec_multiControlledPhaseFlip.omp_outlined(ptr noalias
   br i1 %29, label %30, label %37
 
 30:                                               ; preds = %26
-  %31 = getelementptr inbounds double, ptr %24, i64 %.022
+  %31 = getelementptr inbounds [8 x i8], ptr %24, i64 %.022
   %32 = load double, ptr %31, align 8, !tbaa !4
   %33 = fneg double %32
   store double %33, ptr %31, align 8, !tbaa !4
-  %34 = getelementptr inbounds double, ptr %25, i64 %.022
+  %34 = getelementptr inbounds [8 x i8], ptr %25, i64 %.022
   %35 = load double, ptr %34, align 8, !tbaa !4
   %36 = fneg double %35
   store double %36, ptr %34, align 8, !tbaa !4
@@ -10892,19 +10892,19 @@ define internal void @statevec_collapseToKnownProbOutcomeLocal.omp_outlined(ptr 
   %34 = mul nsw i64 %29, %33
   %35 = srem i64 %.051, %28
   %36 = add nsw i64 %34, %35
-  %37 = getelementptr inbounds double, ptr %30, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %30, i64 %36
   %38 = load double, ptr %37, align 8, !tbaa !4
   %39 = load double, ptr %7, align 8, !tbaa !4
   %40 = fmul double %38, %39
   store double %40, ptr %37, align 8, !tbaa !4
-  %41 = getelementptr inbounds double, ptr %31, i64 %36
+  %41 = getelementptr inbounds [8 x i8], ptr %31, i64 %36
   %42 = load double, ptr %41, align 8, !tbaa !4
   %43 = load double, ptr %7, align 8, !tbaa !4
   %44 = fmul double %42, %43
   store double %44, ptr %41, align 8, !tbaa !4
-  %45 = getelementptr double, ptr %37, i64 %28
+  %45 = getelementptr [8 x i8], ptr %37, i64 %28
   store double 0.000000e+00, ptr %45, align 8, !tbaa !4
-  %46 = getelementptr double, ptr %41, i64 %28
+  %46 = getelementptr [8 x i8], ptr %41, i64 %28
   store double 0.000000e+00, ptr %46, align 8, !tbaa !4
   %47 = add i64 %.051, 1
   %exitcond55.not = icmp eq i64 %.051, %26
@@ -10956,16 +10956,16 @@ define internal void @statevec_collapseToKnownProbOutcomeLocal.omp_outlined(ptr 
   %61 = mul nsw i64 %56, %60
   %62 = srem i64 %.04649, %55
   %63 = add nsw i64 %61, %62
-  %64 = getelementptr inbounds double, ptr %57, i64 %63
+  %64 = getelementptr inbounds [8 x i8], ptr %57, i64 %63
   store double 0.000000e+00, ptr %64, align 8, !tbaa !4
-  %65 = getelementptr inbounds double, ptr %58, i64 %63
+  %65 = getelementptr inbounds [8 x i8], ptr %58, i64 %63
   store double 0.000000e+00, ptr %65, align 8, !tbaa !4
-  %66 = getelementptr double, ptr %64, i64 %55
+  %66 = getelementptr [8 x i8], ptr %64, i64 %55
   %67 = load double, ptr %66, align 8, !tbaa !4
   %68 = load double, ptr %7, align 8, !tbaa !4
   %69 = fmul double %67, %68
   store double %69, ptr %66, align 8, !tbaa !4
-  %70 = getelementptr double, ptr %65, i64 %55
+  %70 = getelementptr [8 x i8], ptr %65, i64 %55
   %71 = load double, ptr %70, align 8, !tbaa !4
   %72 = load double, ptr %7, align 8, !tbaa !4
   %73 = fmul double %71, %72
@@ -11056,12 +11056,12 @@ define internal void @statevec_collapseToKnownProbOutcomeDistributedRenorm.omp_o
 
 20:                                               ; preds = %.lr.ph, %20
   %.019 = phi i64 [ %17, %.lr.ph ], [ %29, %20 ]
-  %21 = getelementptr inbounds double, ptr %18, i64 %.019
+  %21 = getelementptr inbounds [8 x i8], ptr %18, i64 %.019
   %22 = load double, ptr %21, align 8, !tbaa !4
   %23 = load double, ptr %4, align 8, !tbaa !4
   %24 = fmul double %22, %23
   store double %24, ptr %21, align 8, !tbaa !4
-  %25 = getelementptr inbounds double, ptr %19, i64 %.019
+  %25 = getelementptr inbounds [8 x i8], ptr %19, i64 %.019
   %26 = load double, ptr %25, align 8, !tbaa !4
   %27 = load double, ptr %4, align 8, !tbaa !4
   %28 = fmul double %26, %27
@@ -11143,9 +11143,9 @@ define internal void @statevec_collapseToOutcomeDistributedSetZero.omp_outlined(
 
 19:                                               ; preds = %.lr.ph, %19
   %.016 = phi i64 [ %16, %.lr.ph ], [ %22, %19 ]
-  %20 = getelementptr inbounds double, ptr %17, i64 %.016
+  %20 = getelementptr inbounds [8 x i8], ptr %17, i64 %.016
   store double 0.000000e+00, ptr %20, align 8, !tbaa !4
-  %21 = getelementptr inbounds double, ptr %18, i64 %.016
+  %21 = getelementptr inbounds [8 x i8], ptr %18, i64 %.016
   store double 0.000000e+00, ptr %21, align 8, !tbaa !4
   %22 = add i64 %.016, 1
   %exitcond.not = icmp eq i64 %.016, %15
@@ -11251,13 +11251,13 @@ define internal void @statevec_swapQubitAmpsLocal.omp_outlined(ptr noalias nound
   %41 = xor i64 %40, %39
   %42 = xor i64 %41, %28
   %43 = xor i64 %41, %30
-  %44 = getelementptr inbounds double, ptr %31, i64 %42
+  %44 = getelementptr inbounds [8 x i8], ptr %31, i64 %42
   %45 = load double, ptr %44, align 8, !tbaa !4
-  %46 = getelementptr inbounds double, ptr %32, i64 %42
+  %46 = getelementptr inbounds [8 x i8], ptr %32, i64 %42
   %47 = load double, ptr %46, align 8, !tbaa !4
-  %48 = getelementptr inbounds double, ptr %31, i64 %43
+  %48 = getelementptr inbounds [8 x i8], ptr %31, i64 %43
   %49 = load double, ptr %48, align 8, !tbaa !4
-  %50 = getelementptr inbounds double, ptr %32, i64 %43
+  %50 = getelementptr inbounds [8 x i8], ptr %32, i64 %43
   %51 = load double, ptr %50, align 8, !tbaa !4
   store double %49, ptr %44, align 8, !tbaa !4
   store double %45, ptr %48, align 8, !tbaa !4
@@ -11394,13 +11394,13 @@ define internal void @statevec_swapQubitAmpsDistributed.omp_outlined(ptr noalias
 43:                                               ; preds = %35
   %.reass = xor i64 %36, %invariant.op
   %44 = sub nsw i64 %.reass, %30
-  %45 = getelementptr inbounds double, ptr %31, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %31, i64 %44
   %46 = load double, ptr %45, align 8, !tbaa !4
-  %47 = getelementptr inbounds double, ptr %32, i64 %.030
+  %47 = getelementptr inbounds [8 x i8], ptr %32, i64 %.030
   store double %46, ptr %47, align 8, !tbaa !4
-  %48 = getelementptr inbounds double, ptr %33, i64 %44
+  %48 = getelementptr inbounds [8 x i8], ptr %33, i64 %44
   %49 = load double, ptr %48, align 8, !tbaa !4
-  %50 = getelementptr inbounds double, ptr %34, i64 %.030
+  %50 = getelementptr inbounds [8 x i8], ptr %34, i64 %.030
   store double %49, ptr %50, align 8, !tbaa !4
   br label %51
 
@@ -11534,17 +11534,17 @@ define internal void @statevec_setWeightedQureg.omp_outlined(ptr noalias noundef
 
 33:                                               ; preds = %.lr.ph, %33
   %.044 = phi i64 [ %26, %.lr.ph ], [ %77, %33 ]
-  %34 = getelementptr inbounds double, ptr %27, i64 %.044
+  %34 = getelementptr inbounds [8 x i8], ptr %27, i64 %.044
   %35 = load double, ptr %34, align 8, !tbaa !4
-  %36 = getelementptr inbounds double, ptr %28, i64 %.044
+  %36 = getelementptr inbounds [8 x i8], ptr %28, i64 %.044
   %37 = load double, ptr %36, align 8, !tbaa !4
-  %38 = getelementptr inbounds double, ptr %29, i64 %.044
+  %38 = getelementptr inbounds [8 x i8], ptr %29, i64 %.044
   %39 = load double, ptr %38, align 8, !tbaa !4
-  %40 = getelementptr inbounds double, ptr %30, i64 %.044
+  %40 = getelementptr inbounds [8 x i8], ptr %30, i64 %.044
   %41 = load double, ptr %40, align 8, !tbaa !4
-  %42 = getelementptr inbounds double, ptr %31, i64 %.044
+  %42 = getelementptr inbounds [8 x i8], ptr %31, i64 %.044
   %43 = load double, ptr %42, align 8, !tbaa !4
-  %44 = getelementptr inbounds double, ptr %32, i64 %.044
+  %44 = getelementptr inbounds [8 x i8], ptr %32, i64 %.044
   %45 = load double, ptr %44, align 8, !tbaa !4
   %46 = load double, ptr %9, align 8, !tbaa !4
   %47 = load double, ptr %10, align 8, !tbaa !4
@@ -11670,13 +11670,13 @@ define internal void @statevec_applyDiagonalOp.omp_outlined(ptr noalias noundef 
 
 23:                                               ; preds = %.lr.ph, %23
   %.030 = phi i64 [ %18, %.lr.ph ], [ %37, %23 ]
-  %24 = getelementptr inbounds double, ptr %19, i64 %.030
+  %24 = getelementptr inbounds [8 x i8], ptr %19, i64 %.030
   %25 = load double, ptr %24, align 8, !tbaa !4
-  %26 = getelementptr inbounds double, ptr %20, i64 %.030
+  %26 = getelementptr inbounds [8 x i8], ptr %20, i64 %.030
   %27 = load double, ptr %26, align 8, !tbaa !4
-  %28 = getelementptr inbounds double, ptr %21, i64 %.030
+  %28 = getelementptr inbounds [8 x i8], ptr %21, i64 %.030
   %29 = load double, ptr %28, align 8, !tbaa !4
-  %30 = getelementptr inbounds double, ptr %22, i64 %.030
+  %30 = getelementptr inbounds [8 x i8], ptr %22, i64 %.030
   %31 = load double, ptr %30, align 8, !tbaa !4
   %32 = fneg double %31
   %33 = fmul double %27, %32
@@ -11784,14 +11784,14 @@ define internal void @densmatr_applyDiagonalOpLocal.omp_outlined(ptr noalias nou
 
 26:                                               ; preds = %.lr.ph, %26
   %.031 = phi i64 [ %19, %.lr.ph ], [ %41, %26 ]
-  %27 = getelementptr inbounds double, ptr %20, i64 %.031
+  %27 = getelementptr inbounds [8 x i8], ptr %20, i64 %.031
   %28 = load double, ptr %27, align 8, !tbaa !4
-  %29 = getelementptr inbounds double, ptr %21, i64 %.031
+  %29 = getelementptr inbounds [8 x i8], ptr %21, i64 %.031
   %30 = load double, ptr %29, align 8, !tbaa !4
   %31 = srem i64 %.031, %24
-  %32 = getelementptr inbounds double, ptr %22, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %22, i64 %31
   %33 = load double, ptr %32, align 8, !tbaa !4
-  %34 = getelementptr inbounds double, ptr %25, i64 %31
+  %34 = getelementptr inbounds [8 x i8], ptr %25, i64 %31
   %35 = load double, ptr %34, align 8, !tbaa !4
   %36 = fneg double %35
   %37 = fmul double %30, %36
@@ -11912,13 +11912,13 @@ define internal void @statevec_calcExpecDiagonalOpLocal.omp_outlined(ptr noalias
   %.032 = phi i64 [ %23, %.lr.ph ], [ %43, %28 ]
   %29 = phi double [ 0.000000e+00, %.lr.ph ], [ %41, %28 ]
   %30 = phi double [ 0.000000e+00, %.lr.ph ], [ %42, %28 ]
-  %31 = getelementptr inbounds double, ptr %24, i64 %.032
+  %31 = getelementptr inbounds [8 x i8], ptr %24, i64 %.032
   %32 = load double, ptr %31, align 8, !tbaa !4
-  %33 = getelementptr inbounds double, ptr %25, i64 %.032
+  %33 = getelementptr inbounds [8 x i8], ptr %25, i64 %.032
   %34 = load double, ptr %33, align 8, !tbaa !4
-  %35 = getelementptr inbounds double, ptr %26, i64 %.032
+  %35 = getelementptr inbounds [8 x i8], ptr %26, i64 %.032
   %36 = load double, ptr %35, align 8, !tbaa !4
-  %37 = getelementptr inbounds double, ptr %27, i64 %.032
+  %37 = getelementptr inbounds [8 x i8], ptr %27, i64 %.032
   %38 = load double, ptr %37, align 8, !tbaa !4
   %39 = fmul double %34, %34
   %40 = call double @llvm.fmuladd.f64(double %32, double %32, double %39)
@@ -12134,15 +12134,15 @@ define internal void @densmatr_calcExpecDiagonalOpLocal.omp_outlined(ptr noalias
   %42 = phi double [ 0.000000e+00, %.lr.ph ], [ %61, %40 ]
   %43 = mul i64 %.042, %21
   %44 = add i64 %43, %19
-  %45 = getelementptr inbounds double, ptr %34, i64 %44
+  %45 = getelementptr inbounds [8 x i8], ptr %34, i64 %44
   %46 = load double, ptr %45, align 8, !tbaa !4
-  %47 = getelementptr inbounds double, ptr %35, i64 %44
+  %47 = getelementptr inbounds [8 x i8], ptr %35, i64 %44
   %48 = load double, ptr %47, align 8, !tbaa !4
   %49 = sub nsw i64 %44, %36
   %50 = sdiv i64 %49, %37
-  %51 = getelementptr inbounds double, ptr %38, i64 %50
+  %51 = getelementptr inbounds [8 x i8], ptr %38, i64 %50
   %52 = load double, ptr %51, align 8, !tbaa !4
-  %53 = getelementptr inbounds double, ptr %39, i64 %50
+  %53 = getelementptr inbounds [8 x i8], ptr %39, i64 %50
   %54 = load double, ptr %53, align 8, !tbaa !4
   %55 = fneg double %54
   %56 = fmul double %48, %55
@@ -12314,23 +12314,23 @@ define internal void @agnostic_setDiagonalOpElems.omp_outlined(ptr noalias nound
 .lr.ph:                                           ; preds = %17
   %25 = load ptr, ptr %5, align 8, !tbaa !26
   %26 = load i64, ptr %6, align 8, !tbaa !16
-  %invariant.gep = getelementptr double, ptr %25, i64 %26
+  %invariant.gep = getelementptr [8 x i8], ptr %25, i64 %26
   %27 = load ptr, ptr %4, align 8, !tbaa !26
   %28 = load ptr, ptr %8, align 8, !tbaa !26
-  %invariant.gep27 = getelementptr double, ptr %28, i64 %26
+  %invariant.gep27 = getelementptr [8 x i8], ptr %28, i64 %26
   %29 = load ptr, ptr %7, align 8, !tbaa !26
   br label %30
 
 30:                                               ; preds = %.lr.ph, %30
   %.026 = phi i64 [ %22, %.lr.ph ], [ %36, %30 ]
   %31 = add i64 %.026, %14
-  %gep = getelementptr double, ptr %invariant.gep, i64 %31
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %31
   %32 = load double, ptr %gep, align 8, !tbaa !4
-  %33 = getelementptr inbounds double, ptr %27, i64 %31
+  %33 = getelementptr inbounds [8 x i8], ptr %27, i64 %31
   store double %32, ptr %33, align 8, !tbaa !4
-  %gep28 = getelementptr double, ptr %invariant.gep27, i64 %31
+  %gep28 = getelementptr [8 x i8], ptr %invariant.gep27, i64 %31
   %34 = load double, ptr %gep28, align 8, !tbaa !4
-  %35 = getelementptr inbounds double, ptr %29, i64 %31
+  %35 = getelementptr inbounds [8 x i8], ptr %29, i64 %31
   store double %34, ptr %35, align 8, !tbaa !4
   %36 = add nuw i64 %.026, 1
   %exitcond.not = icmp eq i64 %.026, %21
@@ -12473,7 +12473,7 @@ define internal void @statevec_applyPhaseFuncOverrides.omp_outlined(ptr noalias 
 .lr.ph87:                                         ; preds = %.lr.ph87.preheader, %.lr.ph87
   %indvars.iv105 = phi i64 [ 0, %.lr.ph87.preheader ], [ %indvars.iv.next106, %.lr.ph87 ]
   %.086 = phi i64 [ 0, %.lr.ph87.preheader ], [ %55, %.lr.ph87 ]
-  %47 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv105
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv105
   %48 = load i32, ptr %47, align 4, !tbaa !18
   %49 = zext i32 %48 to i64
   %50 = shl nuw i64 1, %49
@@ -12490,7 +12490,7 @@ define internal void @statevec_applyPhaseFuncOverrides.omp_outlined(ptr noalias 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.283 = phi i64 [ 0, %.lr.ph.preheader ], [ %64, %.lr.ph ]
-  %56 = getelementptr inbounds nuw i32, ptr %29, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv
   %57 = load i32, ptr %56, align 4, !tbaa !18
   %58 = zext i32 %57 to i64
   %59 = shl nuw i64 1, %58
@@ -12507,7 +12507,7 @@ define internal void @statevec_applyPhaseFuncOverrides.omp_outlined(ptr noalias 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader80
   %.2.lcssa = phi i64 [ 0, %.preheader80 ], [ %64, %.lr.ph ]
   %65 = sext i32 %43 to i64
-  %66 = getelementptr inbounds i32, ptr %29, i64 %65
+  %66 = getelementptr inbounds [4 x i8], ptr %29, i64 %65
   %67 = load i32, ptr %66, align 4, !tbaa !18
   %68 = zext i32 %67 to i64
   %69 = shl nuw i64 1, %68
@@ -12544,7 +12544,7 @@ define internal void @statevec_applyPhaseFuncOverrides.omp_outlined(ptr noalias 
 
 .lr.ph91:                                         ; preds = %.lr.ph91.preheader, %85
   %indvars.iv110 = phi i64 [ 0, %.lr.ph91.preheader ], [ %indvars.iv.next111, %85 ]
-  %82 = getelementptr inbounds nuw i64, ptr %30, i64 %indvars.iv110
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv110
   %83 = load i64, ptr %82, align 8, !tbaa !16
   %84 = icmp eq i64 %.1, %83
   br i1 %84, label %86, label %85
@@ -12556,16 +12556,16 @@ define internal void @statevec_applyPhaseFuncOverrides.omp_outlined(ptr noalias 
 
 86:                                               ; preds = %.lr.ph91
   %87 = and i64 %indvars.iv110, 4294967295
-  %88 = getelementptr inbounds nuw double, ptr %33, i64 %87
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %87
   %89 = load double, ptr %88, align 8, !tbaa !4
   br label %.loopexit
 
 90:                                               ; preds = %.lr.ph94, %90
   %indvars.iv115 = phi i64 [ 0, %.lr.ph94 ], [ %indvars.iv.next116, %90 ]
   %.17292 = phi double [ 0.000000e+00, %.lr.ph94 ], [ %96, %90 ]
-  %91 = getelementptr inbounds nuw double, ptr %31, i64 %indvars.iv115
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv115
   %92 = load double, ptr %91, align 8, !tbaa !4
-  %93 = getelementptr inbounds nuw double, ptr %32, i64 %indvars.iv115
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %indvars.iv115
   %94 = load double, ptr %93, align 8, !tbaa !4
   %95 = call double @pow(double noundef %81, double noundef %94) #3, !tbaa !18
   %96 = call double @llvm.fmuladd.f64(double %92, double %95, double %.17292)
@@ -12583,9 +12583,9 @@ define internal void @statevec_applyPhaseFuncOverrides.omp_outlined(ptr noalias 
   %spec.select = select i1 %.not76, double %.071, double %101
   %102 = call double @cos(double noundef %spec.select) #3, !tbaa !18
   %103 = call double @sin(double noundef %spec.select) #3, !tbaa !18
-  %104 = getelementptr inbounds double, ptr %34, i64 %.07097
+  %104 = getelementptr inbounds [8 x i8], ptr %34, i64 %.07097
   %105 = load double, ptr %104, align 8, !tbaa !4
-  %106 = getelementptr inbounds double, ptr %35, i64 %.07097
+  %106 = getelementptr inbounds [8 x i8], ptr %35, i64 %.07097
   %107 = load double, ptr %106, align 8, !tbaa !4
   %108 = fneg double %103
   %109 = fmul double %107, %108
@@ -12728,9 +12728,9 @@ define internal void @statevec_applyMultiVarPhaseFuncOverrides.omp_outlined(ptr 
 .preheader103.us:                                 ; preds = %.lr.ph122, %.loopexit.us
   %indvars.iv176 = phi i64 [ %indvars.iv.next177, %.loopexit.us ], [ 0, %.lr.ph122 ]
   %.087119.us = phi i32 [ %.188.lcssa.us, %.loopexit.us ], [ %42, %.lr.ph122 ]
-  %46 = getelementptr inbounds nuw i64, ptr %18, i64 %indvars.iv176
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv176
   store i64 0, ptr %46, align 8, !tbaa !16
-  %47 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv176
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv176
   %48 = load i32, ptr %47, align 4, !tbaa !18
   %49 = icmp sgt i32 %48, 0
   br i1 %49, label %.lr.ph115.us, label %.loopexit.us
@@ -12740,7 +12740,7 @@ define internal void @statevec_applyMultiVarPhaseFuncOverrides.omp_outlined(ptr 
   %indvars.iv167 = phi i64 [ 0, %.lr.ph115.us ], [ %indvars.iv.next168, %50 ]
   %51 = phi i64 [ 0, %.lr.ph115.us ], [ %60, %50 ]
   %indvars.iv.next170 = add nsw i64 %indvars.iv169, 1
-  %52 = getelementptr inbounds i32, ptr %44, i64 %indvars.iv169
+  %52 = getelementptr inbounds [4 x i8], ptr %44, i64 %indvars.iv169
   %53 = load i32, ptr %52, align 4, !tbaa !18
   %54 = zext i32 %53 to i64
   %55 = shl nuw i64 1, %54
@@ -12773,9 +12773,9 @@ define internal void @statevec_applyMultiVarPhaseFuncOverrides.omp_outlined(ptr 
 .preheader104.us:                                 ; preds = %.lr.ph122, %94
   %indvars.iv162 = phi i64 [ %indvars.iv.next163, %94 ], [ 0, %.lr.ph122 ]
   %.087119.us126 = phi i32 [ %70, %94 ], [ 0, %.lr.ph122 ]
-  %63 = getelementptr inbounds nuw i64, ptr %18, i64 %indvars.iv162
+  %63 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv162
   store i64 0, ptr %63, align 8, !tbaa !16
-  %64 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv162
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv162
   %65 = load i32, ptr %64, align 4, !tbaa !18
   %66 = add i32 %65, -1
   %67 = icmp sgt i32 %65, 1
@@ -12786,7 +12786,7 @@ define internal void @statevec_applyMultiVarPhaseFuncOverrides.omp_outlined(ptr 
   %.289.lcssa.us = phi i32 [ %97, %._crit_edge.us ], [ %.087119.us126, %.preheader104.us ]
   %70 = add nsw i32 %.289.lcssa.us, 1
   %71 = sext i32 %.289.lcssa.us to i64
-  %72 = getelementptr inbounds i32, ptr %44, i64 %71
+  %72 = getelementptr inbounds [4 x i8], ptr %44, i64 %71
   %73 = load i32, ptr %72, align 4, !tbaa !18
   %74 = zext i32 %73 to i64
   %75 = shl nuw i64 1, %74
@@ -12808,7 +12808,7 @@ define internal void @statevec_applyMultiVarPhaseFuncOverrides.omp_outlined(ptr 
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %83 ]
   %84 = phi i64 [ 0, %.lr.ph.us ], [ %93, %83 ]
   %indvars.iv.next158 = add nsw i64 %indvars.iv157, 1
-  %85 = getelementptr inbounds i32, ptr %44, i64 %indvars.iv157
+  %85 = getelementptr inbounds [4 x i8], ptr %44, i64 %indvars.iv157
   %86 = load i32, ptr %85, align 4, !tbaa !18
   %87 = zext i32 %86 to i64
   %88 = shl nuw i64 1, %87
@@ -12865,7 +12865,7 @@ define internal void @statevec_applyMultiVarPhaseFuncOverrides.omp_outlined(ptr 
 .preheader102.us:                                 ; preds = %.preheader102.us.preheader, %114
   %indvars.iv189 = phi i64 [ 0, %.preheader102.us.preheader ], [ %indvars.iv.next190, %114 ]
   %108 = mul nuw nsw i64 %indvars.iv189, %107
-  %invariant.gep = getelementptr inbounds nuw i64, ptr %106, i64 %108
+  %invariant.gep = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %108
   br label %110
 
 109:                                              ; preds = %110
@@ -12875,9 +12875,9 @@ define internal void @statevec_applyMultiVarPhaseFuncOverrides.omp_outlined(ptr 
 
 110:                                              ; preds = %.preheader102.us, %109
   %indvars.iv184 = phi i64 [ 0, %.preheader102.us ], [ %indvars.iv.next185, %109 ]
-  %111 = getelementptr inbounds nuw i64, ptr %18, i64 %indvars.iv184
+  %111 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv184
   %112 = load i64, ptr %111, align 8, !tbaa !16
-  %gep = getelementptr inbounds nuw i64, ptr %invariant.gep, i64 %indvars.iv184
+  %gep = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep, i64 %indvars.iv184
   %113 = load i64, ptr %gep, align 8, !tbaa !16
   %.not97.us = icmp eq i64 %112, %113
   br i1 %.not97.us, label %109, label %114
@@ -12898,7 +12898,7 @@ define internal void @statevec_applyMultiVarPhaseFuncOverrides.omp_outlined(ptr 
 
 .critedge:                                        ; preds = %.preheader106.thread, %.critedge.loopexit
   %.084.lcssa108 = phi i64 [ 0, %.preheader106.thread ], [ %117, %.critedge.loopexit ]
-  %118 = getelementptr inbounds nuw double, ptr %32, i64 %.084.lcssa108
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.084.lcssa108
   %119 = load double, ptr %118, align 8, !tbaa !4
   br label %.loopexit105
 
@@ -12907,13 +12907,13 @@ define internal void @statevec_applyMultiVarPhaseFuncOverrides.omp_outlined(ptr 
   %indvars.iv197 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next198, %.critedge100 ]
   %.4141 = phi i32 [ 0, %.preheader.lr.ph ], [ %.5.lcssa, %.critedge100 ]
   %.192140 = phi double [ 0.000000e+00, %.preheader.lr.ph ], [ %.293.lcssa, %.critedge100 ]
-  %121 = getelementptr inbounds nuw i32, ptr %31, i64 %indvars.iv197
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %indvars.iv197
   %122 = load i32, ptr %121, align 4, !tbaa !18
   %123 = icmp sgt i32 %122, 0
   br i1 %123, label %.lr.ph, label %.critedge100
 
 .lr.ph:                                           ; preds = %.preheader
-  %124 = getelementptr inbounds nuw i64, ptr %18, i64 %indvars.iv197
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv197
   %125 = load i64, ptr %124, align 8, !tbaa !16
   %126 = sitofp i64 %125 to double
   %127 = sext i32 %.4141 to i64
@@ -12923,9 +12923,9 @@ define internal void @statevec_applyMultiVarPhaseFuncOverrides.omp_outlined(ptr 
   %indvars.iv194 = phi i64 [ %127, %.lr.ph ], [ %indvars.iv.next195, %128 ]
   %.085137 = phi i32 [ 0, %.lr.ph ], [ %135, %128 ]
   %.293135 = phi double [ %.192140, %.lr.ph ], [ %134, %128 ]
-  %129 = getelementptr inbounds double, ptr %115, i64 %indvars.iv194
+  %129 = getelementptr inbounds [8 x i8], ptr %115, i64 %indvars.iv194
   %130 = load double, ptr %129, align 8, !tbaa !4
-  %131 = getelementptr inbounds double, ptr %116, i64 %indvars.iv194
+  %131 = getelementptr inbounds [8 x i8], ptr %116, i64 %indvars.iv194
   %132 = load double, ptr %131, align 8, !tbaa !4
   %133 = call double @pow(double noundef %126, double noundef %132) #3, !tbaa !18
   %134 = call double @llvm.fmuladd.f64(double %130, double %133, double %.293135)
@@ -12957,9 +12957,9 @@ define internal void @statevec_applyMultiVarPhaseFuncOverrides.omp_outlined(ptr 
   %spec.select = select i1 %.not99, double %.091, double %143
   %144 = call double @cos(double noundef %spec.select) #3, !tbaa !18
   %145 = call double @sin(double noundef %spec.select) #3, !tbaa !18
-  %146 = getelementptr inbounds double, ptr %33, i64 %.086145
+  %146 = getelementptr inbounds [8 x i8], ptr %33, i64 %.086145
   %147 = load double, ptr %146, align 8, !tbaa !4
-  %148 = getelementptr inbounds double, ptr %34, i64 %.086145
+  %148 = getelementptr inbounds [8 x i8], ptr %34, i64 %.086145
   %149 = load double, ptr %148, align 8, !tbaa !4
   %150 = fneg double %145
   %151 = fmul double %149, %150
@@ -13112,7 +13112,7 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %57
   %indvars.iv274 = phi i64 [ 0, %.preheader.lr.ph ], [ %indvars.iv.next275, %57 ]
   %51 = mul nuw nsw i64 %indvars.iv274, %50
-  %invariant.gep = getelementptr inbounds nuw i64, ptr %49, i64 %51
+  %invariant.gep = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %51
   br label %53
 
 52:                                               ; preds = %53
@@ -13122,9 +13122,9 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
 
 53:                                               ; preds = %.preheader.us, %52
   %indvars.iv269 = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next270, %52 ]
-  %54 = getelementptr inbounds nuw i64, ptr %17, i64 %indvars.iv269
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv269
   %55 = load i64, ptr %54, align 8, !tbaa !16
-  %gep = getelementptr inbounds nuw i64, ptr %invariant.gep, i64 %indvars.iv269
+  %gep = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep, i64 %indvars.iv269
   %56 = load i64, ptr %gep, align 8, !tbaa !16
   %.not165.us = icmp eq i64 %55, %56
   br i1 %.not165.us, label %52, label %57
@@ -13137,7 +13137,7 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
 58:                                               ; preds = %.lr.ph199, %.loopexit
   %indvars.iv264 = phi i64 [ 0, %.lr.ph199 ], [ %indvars.iv.next265, %.loopexit ]
   %.0137196 = phi i32 [ 0, %.lr.ph199 ], [ %.3140, %.loopexit ]
-  %59 = getelementptr inbounds nuw i64, ptr %17, i64 %indvars.iv264
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv264
   store i64 0, ptr %59, align 8, !tbaa !16
   switch i32 %42, label %.loopexit [
     i32 0, label %.preheader171
@@ -13145,7 +13145,7 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
   ]
 
 .preheader172:                                    ; preds = %58
-  %60 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv264
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv264
   %61 = load i32, ptr %60, align 4, !tbaa !18
   %62 = add i32 %61, -1
   %63 = icmp sgt i32 %61, 1
@@ -13157,7 +13157,7 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
   br label %80
 
 .preheader171:                                    ; preds = %58
-  %65 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv264
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv264
   %66 = load i32, ptr %65, align 4, !tbaa !18
   %67 = icmp sgt i32 %66, 0
   br i1 %67, label %.lr.ph192, label %.loopexit
@@ -13172,7 +13172,7 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
   %indvars.iv255 = phi i64 [ 0, %.lr.ph192 ], [ %indvars.iv.next256, %69 ]
   %70 = phi i64 [ 0, %.lr.ph192 ], [ %79, %69 ]
   %indvars.iv.next258 = add nsw i64 %indvars.iv257, 1
-  %71 = getelementptr inbounds i32, ptr %44, i64 %indvars.iv257
+  %71 = getelementptr inbounds [4 x i8], ptr %44, i64 %indvars.iv257
   %72 = load i32, ptr %71, align 4, !tbaa !18
   %73 = zext i32 %72 to i64
   %74 = shl nuw i64 1, %73
@@ -13191,7 +13191,7 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %80 ]
   %81 = phi i64 [ 0, %.lr.ph ], [ %90, %80 ]
   %indvars.iv.next251 = add nsw i64 %indvars.iv250, 1
-  %82 = getelementptr inbounds i32, ptr %44, i64 %indvars.iv250
+  %82 = getelementptr inbounds [4 x i8], ptr %44, i64 %indvars.iv250
   %83 = load i32, ptr %82, align 4, !tbaa !18
   %84 = zext i32 %83 to i64
   %85 = shl nuw i64 1, %84
@@ -13216,7 +13216,7 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
   %.2139.lcssa = phi i32 [ %92, %._crit_edge ], [ %.0137196, %.preheader172 ]
   %95 = add nsw i32 %.2139.lcssa, 1
   %96 = sext i32 %.2139.lcssa to i64
-  %97 = getelementptr inbounds i32, ptr %44, i64 %96
+  %97 = getelementptr inbounds [4 x i8], ptr %44, i64 %96
   %98 = load i32, ptr %97, align 4, !tbaa !18
   %99 = zext i32 %98 to i64
   %100 = shl nuw i64 1, %99
@@ -13254,7 +13254,7 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
 
 .critedge:                                        ; preds = %.preheader183.thread, %.critedge.loopexit
   %.0136.lcssa185 = phi i64 [ 0, %.preheader183.thread ], [ %109, %.critedge.loopexit ]
-  %110 = getelementptr inbounds nuw double, ptr %32, i64 %.0136.lcssa185
+  %110 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0136.lcssa185
   %111 = load double, ptr %110, align 8, !tbaa !4
   br label %224
 
@@ -13316,10 +13316,10 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
 .lr.ph226:                                        ; preds = %.lr.ph226.preheader, %.lr.ph226
   %indvars.iv293 = phi i64 [ 0, %.lr.ph226.preheader ], [ %indvars.iv.next294, %.lr.ph226 ]
   %.0145224 = phi double [ 0.000000e+00, %.lr.ph226.preheader ], [ %123, %.lr.ph226 ]
-  %116 = getelementptr inbounds nuw i64, ptr %17, i64 %indvars.iv293
+  %116 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv293
   %117 = load i64, ptr %116, align 8, !tbaa !16
   %118 = sitofp i64 %117 to double
-  %119 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv293
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv293
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 16
   %121 = load double, ptr %120, align 8, !tbaa !4
   %122 = fsub double %118, %121
@@ -13331,7 +13331,7 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
 .lr.ph230:                                        ; preds = %.lr.ph230.preheader, %.lr.ph230
   %indvars.iv298 = phi i64 [ 0, %.lr.ph230.preheader ], [ %indvars.iv.next299, %.lr.ph230 ]
   %.2147228 = phi double [ 0.000000e+00, %.lr.ph230.preheader ], [ %128, %.lr.ph230 ]
-  %124 = getelementptr inbounds nuw i64, ptr %17, i64 %indvars.iv298
+  %124 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv298
   %125 = load i64, ptr %124, align 8, !tbaa !16
   %126 = mul nsw i64 %125, %125
   %127 = uitofp nneg i64 %126 to double
@@ -13392,7 +13392,7 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
 .lr.ph221:                                        ; preds = %.lr.ph221.preheader, %.lr.ph221
   %indvars.iv288 = phi i64 [ 0, %.lr.ph221.preheader ], [ %indvars.iv.next289, %.lr.ph221 ]
   %.0148218 = phi double [ 1.000000e+00, %.lr.ph221.preheader ], [ %151, %.lr.ph221 ]
-  %148 = getelementptr inbounds nuw i64, ptr %17, i64 %indvars.iv288
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv288
   %149 = load i64, ptr %148, align 8, !tbaa !16
   %150 = sitofp i64 %149 to double
   %151 = fmul double %.0148218, %150
@@ -13442,14 +13442,14 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
 .lr.ph216:                                        ; preds = %.lr.ph216.preheader, %.lr.ph216
   %indvars.iv285 = phi i64 [ 0, %.lr.ph216.preheader ], [ %indvars.iv.next286, %.lr.ph216 ]
   %.0149214 = phi double [ 0.000000e+00, %.lr.ph216.preheader ], [ %179, %.lr.ph216 ]
-  %168 = getelementptr inbounds nuw i64, ptr %17, i64 %indvars.iv285
+  %168 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv285
   %169 = load i64, ptr %168, align 16, !tbaa !16
   %170 = getelementptr inbounds nuw i8, ptr %168, i64 8
   %171 = load i64, ptr %170, align 8, !tbaa !16
   %172 = sub nsw i64 %169, %171
   %173 = sitofp i64 %172 to double
   %174 = lshr exact i64 %indvars.iv285, 1
-  %175 = getelementptr inbounds nuw double, ptr %30, i64 %174
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %174
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 16
   %177 = load double, ptr %176, align 8, !tbaa !4
   %178 = fsub double %173, %177
@@ -13462,15 +13462,15 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
   %indvars.iv282 = phi i64 [ 0, %.lr.ph212.preheader ], [ %indvars.iv.next283, %.lr.ph212 ]
   %.2151210 = phi double [ 0.000000e+00, %.lr.ph212.preheader ], [ %194, %.lr.ph212 ]
   %indvars.iv.next283 = add nuw nsw i64 %indvars.iv282, 2
-  %181 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv.next283
+  %181 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv.next283
   %182 = load double, ptr %181, align 8, !tbaa !4
-  %183 = getelementptr inbounds nuw i64, ptr %17, i64 %indvars.iv282
+  %183 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv282
   %184 = load i64, ptr %183, align 16, !tbaa !16
   %185 = getelementptr inbounds nuw i8, ptr %183, i64 8
   %186 = load i64, ptr %185, align 8, !tbaa !16
   %187 = sub nsw i64 %184, %186
   %188 = sitofp i64 %187 to double
-  %189 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv282
+  %189 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv282
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 24
   %191 = load double, ptr %190, align 8, !tbaa !4
   %192 = fsub double %188, %191
@@ -13482,7 +13482,7 @@ define internal void @statevec_applyParamNamedPhaseFuncOverrides.omp_outlined(pt
 .lr.ph208:                                        ; preds = %.lr.ph208.preheader, %.lr.ph208
   %indvars.iv279 = phi i64 [ 0, %.lr.ph208.preheader ], [ %indvars.iv.next280, %.lr.ph208 ]
   %.3152206 = phi double [ 0.000000e+00, %.lr.ph208.preheader ], [ %203, %.lr.ph208 ]
-  %196 = getelementptr inbounds nuw i64, ptr %17, i64 %indvars.iv279
+  %196 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv279
   %197 = getelementptr inbounds nuw i8, ptr %196, i64 8
   %198 = load i64, ptr %197, align 8, !tbaa !16
   %199 = load i64, ptr %196, align 16, !tbaa !16
@@ -13556,9 +13556,9 @@ default.unreachable:                              ; preds = %._crit_edge222
   %spec.select = select i1 %.not167, double %.0143, double %226
   %227 = call double @cos(double noundef %spec.select) #3, !tbaa !18
   %228 = call double @sin(double noundef %spec.select) #3, !tbaa !18
-  %229 = getelementptr inbounds double, ptr %33, i64 %.0141233
+  %229 = getelementptr inbounds [8 x i8], ptr %33, i64 %.0141233
   %230 = load double, ptr %229, align 8, !tbaa !4
-  %231 = getelementptr inbounds double, ptr %34, i64 %.0141233
+  %231 = getelementptr inbounds [8 x i8], ptr %34, i64 %.0141233
   %232 = load double, ptr %231, align 8, !tbaa !4
   %233 = fneg double %228
   %234 = fmul double %232, %233
@@ -13740,7 +13740,7 @@ define internal void @densmatr_setQuregToPauliHamil.omp_outlined(ptr noalias nou
   %45 = trunc i64 %44 to i32
   %46 = and i32 %45, 1
   %47 = add nuw nsw i64 %.05866.us.us.us, 1
-  %48 = getelementptr inbounds nuw i32, ptr %39, i64 %.05866.us.us.us
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %.05866.us.us.us
   %49 = load i32, ptr %48, align 4, !tbaa !18
   %50 = shl i32 %49, 2
   %51 = shl i32 %43, 1
@@ -13748,9 +13748,9 @@ define internal void @densmatr_setQuregToPauliHamil.omp_outlined(ptr noalias nou
   %53 = or disjoint i32 %50, %52
   %54 = or disjoint i32 %53, %46
   %55 = sext i32 %54 to i64
-  %56 = getelementptr inbounds i32, ptr %7, i64 %55
+  %56 = getelementptr inbounds [4 x i8], ptr %7, i64 %55
   %57 = load i32, ptr %56, align 4, !tbaa !18
-  %58 = getelementptr inbounds i32, ptr %8, i64 %55
+  %58 = getelementptr inbounds [4 x i8], ptr %8, i64 %55
   %59 = load i32, ptr %58, align 4, !tbaa !18
   %60 = mul nsw i32 %57, %.06265.us.us.us
   %61 = mul nsw i32 %59, %.06364.us.us.us
@@ -13763,7 +13763,7 @@ define internal void @densmatr_setQuregToPauliHamil.omp_outlined(ptr noalias nou
   br i1 %exitcond97.not, label %._crit_edge.us.us.us, label %41
 
 ._crit_edge.us.us.us:                             ; preds = %41
-  %66 = getelementptr inbounds nuw double, ptr %32, i64 %.05771.us.us.us
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.05771.us.us.us
   %67 = load double, ptr %66, align 8, !tbaa !4
   %68 = sitofp i32 %62 to double
   %69 = call double @llvm.fmuladd.f64(double %67, double %68, double %.05970.us.us.us)
@@ -13774,9 +13774,9 @@ define internal void @densmatr_setQuregToPauliHamil.omp_outlined(ptr noalias nou
   br i1 %exitcond98.not, label %._crit_edge74.split.us.us.us, label %.lr.ph.us.us.us
 
 ._crit_edge74.split.us.us.us:                     ; preds = %._crit_edge.us.us.us
-  %73 = getelementptr inbounds double, ptr %33, i64 %.06079.us.us
+  %73 = getelementptr inbounds [8 x i8], ptr %33, i64 %.06079.us.us
   store double %69, ptr %73, align 8, !tbaa !4
-  %74 = getelementptr inbounds double, ptr %34, i64 %.06079.us.us
+  %74 = getelementptr inbounds [8 x i8], ptr %34, i64 %.06079.us.us
   store double %71, ptr %74, align 8, !tbaa !4
   %75 = add i64 %.06079.us.us, 1
   %exitcond99.not = icmp eq i64 %.06079.us.us, %22
@@ -13790,7 +13790,7 @@ define internal void @densmatr_setQuregToPauliHamil.omp_outlined(ptr noalias nou
   %.05771.us80 = phi i64 [ 0, %.lr.ph73.us ], [ %81, %76 ]
   %.05970.us81 = phi double [ 0.000000e+00, %.lr.ph73.us ], [ %79, %76 ]
   %.06169.us82 = phi double [ 0.000000e+00, %.lr.ph73.us ], [ %80, %76 ]
-  %77 = getelementptr inbounds nuw double, ptr %32, i64 %.05771.us80
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.05771.us80
   %78 = load double, ptr %77, align 8, !tbaa !4
   %79 = fadd double %78, %.05970.us81
   %80 = call double @llvm.fmuladd.f64(double %78, double 0.000000e+00, double %.06169.us82)
@@ -13799,9 +13799,9 @@ define internal void @densmatr_setQuregToPauliHamil.omp_outlined(ptr noalias nou
   br i1 %exitcond94.not, label %._crit_edge74.split.us83, label %76
 
 ._crit_edge74.split.us83:                         ; preds = %76
-  %82 = getelementptr inbounds double, ptr %33, i64 %.06079.us
+  %82 = getelementptr inbounds [8 x i8], ptr %33, i64 %.06079.us
   store double %79, ptr %82, align 8, !tbaa !4
-  %83 = getelementptr inbounds double, ptr %34, i64 %.06079.us
+  %83 = getelementptr inbounds [8 x i8], ptr %34, i64 %.06079.us
   store double %80, ptr %83, align 8, !tbaa !4
   %84 = add i64 %.06079.us, 1
   %exitcond95.not = icmp eq i64 %.06079.us, %22
@@ -13809,9 +13809,9 @@ define internal void @densmatr_setQuregToPauliHamil.omp_outlined(ptr noalias nou
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %.06079 = phi i64 [ %87, %.lr.ph.split ], [ %23, %.lr.ph ]
-  %85 = getelementptr inbounds double, ptr %33, i64 %.06079
+  %85 = getelementptr inbounds [8 x i8], ptr %33, i64 %.06079
   store double 0.000000e+00, ptr %85, align 8, !tbaa !4
-  %86 = getelementptr inbounds double, ptr %34, i64 %.06079
+  %86 = getelementptr inbounds [8 x i8], ptr %34, i64 %.06079
   store double 0.000000e+00, ptr %86, align 8, !tbaa !4
   %87 = add i64 %.06079, 1
   %exitcond.not = icmp eq i64 %.06079, %22

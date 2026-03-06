@@ -25,7 +25,7 @@ define hidden range(i64 0, 137438953409) i64 @mbedtls_mpi_core_bitlen(ptr nounde
 
 7:                                                ; preds = %4
   %8 = add nsw i64 %indvars.iv, -1
-  %9 = getelementptr inbounds nuw i64, ptr %0, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %8
   %10 = load i64, ptr %9, align 8, !tbaa !3
   %.not = icmp eq i64 %10, 0
   br i1 %.not, label %4, label %11, !llvm.loop !7
@@ -45,7 +45,7 @@ define hidden range(i64 0, 137438953409) i64 @mbedtls_mpi_core_bitlen(ptr nounde
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define hidden void @mbedtls_mpi_core_bigendian_to_host(ptr noundef captures(address) %0, i64 noundef %1) local_unnamed_addr #3 {
   %3 = icmp eq i64 %1, 0
-  %4 = getelementptr i64, ptr %0, i64 %1
+  %4 = getelementptr [8 x i8], ptr %0, i64 %1
   %.01214 = getelementptr i8, ptr %4, i64 -8
   %.not15 = icmp ugt ptr %0, %.01214
   %or.cond = or i1 %3, %.not15
@@ -87,7 +87,7 @@ define hidden i64 @mbedtls_mpi_core_uint_le_mpi(i64 noundef %0, ptr noundef read
 .lr.ph:                                           ; preds = %3, %.lr.ph
   %.011 = phi i64 [ %15, %.lr.ph ], [ 1, %3 ]
   %.0910 = phi i64 [ %14, %.lr.ph ], [ %6, %3 ]
-  %11 = getelementptr inbounds nuw i64, ptr %1, i64 %.011
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.011
   %12 = load i64, ptr %11, align 8, !tbaa !3
   %13 = tail call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %12) #11, !srcloc !12
   %14 = or i64 %13, %.0910
@@ -113,9 +113,9 @@ define hidden i64 @mbedtls_mpi_core_lt_ct(ptr noundef readonly captures(none) %0
   %.01822 = phi i64 [ %22, %.lr.ph ], [ %6, %3 ]
   %.01921 = phi i64 [ %21, %.lr.ph ], [ %4, %3 ]
   %7 = add i64 %.023, -1
-  %8 = getelementptr inbounds nuw i64, ptr %1, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %7
   %9 = load i64, ptr %8, align 8, !tbaa !3
-  %10 = getelementptr inbounds nuw i64, ptr %0, i64 %7
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %7
   %11 = load i64, ptr %10, align 8, !tbaa !3
   %12 = tail call { i64, i64, i64 } asm sideeffect "mov $1, $0                                 \0A\09xor $2, $0                                 \0A\09sub $2, $1                                 \0A\09and $0, $2                                 \0A\09not $0                                       \0A\09and $0, $1                                 \0A\09or $2, $1                                  \0A\09sar $$63, $1                                  \0A\09", "=&{ax},=&{di},=&{si},1,2,~{dirflag},~{fpsr},~{flags}"(i64 %9, i64 %11) #11, !srcloc !10
   %13 = extractvalue { i64, i64, i64 } %12, 1
@@ -141,9 +141,9 @@ define hidden void @mbedtls_mpi_core_cond_assign(ptr noundef captures(address) %
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %.013 = phi i64 [ %13, %.lr.ph ], [ 0, %4 ]
-  %7 = getelementptr inbounds nuw i64, ptr %1, i64 %.013
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.013
   %8 = load i64, ptr %7, align 8, !tbaa !3
-  %9 = getelementptr inbounds nuw i64, ptr %0, i64 %.013
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.013
   %10 = load i64, ptr %9, align 8, !tbaa !3
   %11 = tail call { i64, i64, i64 } asm sideeffect "and  $0, $1                      \0A\09not  $0                              \0A\09and  $0, $2                      \0A\09or   $1, $2                            \0A\09", "=&{di},=&{si},=&{ax},0,1,2,~{dirflag},~{fpsr},~{flags}"(i64 %3, i64 %8, i64 %10) #11, !srcloc !15
   %12 = extractvalue { i64, i64, i64 } %11, 2
@@ -165,9 +165,9 @@ define hidden void @mbedtls_mpi_core_cond_swap(ptr noundef captures(address) %0,
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %.021 = phi i64 [ %16, %.lr.ph ], [ 0, %4 ]
-  %7 = getelementptr inbounds nuw i64, ptr %0, i64 %.021
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.021
   %8 = load i64, ptr %7, align 8, !tbaa !3
-  %9 = getelementptr inbounds nuw i64, ptr %1, i64 %.021
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.021
   %10 = load i64, ptr %9, align 8, !tbaa !3
   %11 = tail call { i64, i64, i64 } asm sideeffect "and  $0, $1                      \0A\09not  $0                              \0A\09and  $0, $2                      \0A\09or   $1, $2                            \0A\09", "=&{di},=&{si},=&{ax},0,1,2,~{dirflag},~{fpsr},~{flags}"(i64 %3, i64 %10, i64 %8) #11, !srcloc !15
   %12 = extractvalue { i64, i64, i64 } %11, 2
@@ -213,7 +213,7 @@ define hidden range(i32 -8, 1) i32 @mbedtls_mpi_core_read_le(ptr noundef capture
   %18 = zext i8 %17 to i64
   %19 = shl nuw i64 %18, %15
   %20 = lshr i64 %.01619, 3
-  %21 = getelementptr inbounds nuw i64, ptr %0, i64 %20
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !3
   %23 = or i64 %19, %22
   store i64 %23, ptr %21, align 8, !tbaa !3
@@ -256,7 +256,7 @@ define hidden range(i32 -8, 1) i32 @mbedtls_mpi_core_read_be(ptr noundef capture
   br label %18
 
 18:                                               ; preds = %15, %13
-  %19 = getelementptr i64, ptr %0, i64 %1
+  %19 = getelementptr [8 x i8], ptr %0, i64 %1
   %.01214.i = getelementptr i8, ptr %19, i64 -8
   %.not15.i = icmp ugt ptr %0, %.01214.i
   br i1 %.not15.i, label %mbedtls_mpi_core_bigendian_to_host.exit, label %.lr.ph.i
@@ -301,7 +301,7 @@ define hidden range(i32 -8, 1) i32 @mbedtls_mpi_core_write_le(ptr noundef readon
 .lr.ph:                                           ; preds = %.preheader, %7
   %.02837 = phi i64 [ %8, %7 ], [ %3, %.preheader ]
   %9 = lshr i64 %.02837, 3
-  %10 = getelementptr inbounds nuw i64, ptr %0, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %9
   %11 = load i64, ptr %10, align 8, !tbaa !3
   %12 = shl i64 %.02837, 3
   %13 = and i64 %12, 56
@@ -321,7 +321,7 @@ define hidden range(i32 -8, 1) i32 @mbedtls_mpi_core_write_le(ptr noundef readon
 .lr.ph39:                                         ; preds = %.critedge, %.lr.ph39
   %.038 = phi i64 [ %24, %.lr.ph39 ], [ 0, %.critedge ]
   %16 = lshr i64 %.038, 3
-  %17 = getelementptr inbounds nuw i64, ptr %0, i64 %16
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %16
   %18 = load i64, ptr %17, align 8, !tbaa !3
   %19 = shl i64 %.038, 3
   %20 = and i64 %19, 56
@@ -370,7 +370,7 @@ define hidden range(i32 -8, 1) i32 @mbedtls_mpi_core_write_be(ptr noundef readon
 .lr.ph:                                           ; preds = %.preheader, %12
   %.03041 = phi i64 [ %13, %12 ], [ %3, %.preheader ]
   %14 = lshr i64 %.03041, 3
-  %15 = getelementptr inbounds nuw i64, ptr %0, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %14
   %16 = load i64, ptr %15, align 8, !tbaa !3
   %17 = shl i64 %.03041, 3
   %18 = and i64 %17, 56
@@ -392,7 +392,7 @@ define hidden range(i32 -8, 1) i32 @mbedtls_mpi_core_write_be(ptr noundef readon
 22:                                               ; preds = %.lr.ph43, %22
   %.042 = phi i64 [ 0, %.lr.ph43 ], [ %32, %22 ]
   %23 = lshr i64 %.042, 3
-  %24 = getelementptr inbounds nuw i64, ptr %0, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %23
   %25 = load i64, ptr %24, align 8, !tbaa !3
   %26 = shl i64 %.042, 3
   %27 = and i64 %26, 56
@@ -449,8 +449,8 @@ define hidden void @mbedtls_mpi_core_shift_r(ptr noundef captures(none) %0, i64 
 
 .lr.ph:                                           ; preds = %.preheader45, %.lr.ph
   %.046 = phi i64 [ %19, %.lr.ph ], [ 0, %.preheader45 ]
-  %16 = getelementptr i64, ptr %0, i64 %.046
-  %17 = getelementptr i64, ptr %16, i64 %4
+  %16 = getelementptr [8 x i8], ptr %0, i64 %.046
+  %17 = getelementptr [8 x i8], ptr %16, i64 %4
   %18 = load i64, ptr %17, align 8, !tbaa !3
   store i64 %18, ptr %16, align 8, !tbaa !3
   %19 = add nuw i64 %.046, 1
@@ -469,7 +469,7 @@ define hidden void @mbedtls_mpi_core_shift_r(ptr noundef captures(none) %0, i64 
 21:                                               ; preds = %.lr.ph52, %21
   %.251 = phi i64 [ %1, %.lr.ph52 ], [ %28, %21 ]
   %.03850 = phi i64 [ 0, %.lr.ph52 ], [ %25, %21 ]
-  %22 = getelementptr i64, ptr %0, i64 %.251
+  %22 = getelementptr [8 x i8], ptr %0, i64 %.251
   %23 = getelementptr i8, ptr %22, i64 -8
   %24 = load i64, ptr %23, align 8, !tbaa !3
   %25 = shl i64 %24, %20
@@ -511,8 +511,8 @@ define hidden void @mbedtls_mpi_core_shift_l(ptr noundef captures(none) %0, i64 
 
 9:                                                ; preds = %.lr.ph, %9
   %.038 = phi i64 [ %1, %.lr.ph ], [ %14, %9 ]
-  %10 = getelementptr i64, ptr %0, i64 %.038
-  %11 = getelementptr i64, ptr %10, i64 %7
+  %10 = getelementptr [8 x i8], ptr %0, i64 %.038
+  %11 = getelementptr [8 x i8], ptr %10, i64 %7
   %12 = load i64, ptr %11, align 8, !tbaa !3
   %13 = getelementptr i8, ptr %10, i64 -8
   store i64 %12, ptr %13, align 8, !tbaa !3
@@ -533,7 +533,7 @@ define hidden void @mbedtls_mpi_core_shift_l(ptr noundef captures(none) %0, i64 
 18:                                               ; preds = %.lr.ph44, %18
   %.243 = phi i64 [ %4, %.lr.ph44 ], [ %24, %18 ]
   %.03042 = phi i64 [ 0, %.lr.ph44 ], [ %21, %18 ]
-  %19 = getelementptr inbounds nuw i64, ptr %0, i64 %.243
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.243
   %20 = load i64, ptr %19, align 8, !tbaa !3
   %21 = lshr i64 %20, %17
   %22 = shl i64 %20, %5
@@ -559,18 +559,18 @@ define hidden range(i64 0, 3) i64 @mbedtls_mpi_core_add(ptr noundef writeonly ca
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %.021 = phi i64 [ %15, %.lr.ph ], [ 0, %4 ]
   %.01920 = phi i64 [ %17, %.lr.ph ], [ 0, %4 ]
-  %5 = getelementptr inbounds nuw i64, ptr %1, i64 %.01920
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.01920
   %6 = load i64, ptr %5, align 8, !tbaa !3
   %7 = add i64 %6, %.021
   %8 = icmp ult i64 %7, %6
   %9 = zext i1 %8 to i64
-  %10 = getelementptr inbounds nuw i64, ptr %2, i64 %.01920
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.01920
   %11 = load i64, ptr %10, align 8, !tbaa !3
   %12 = add i64 %7, %11
   %13 = icmp ult i64 %12, %11
   %14 = zext i1 %13 to i64
   %15 = add nuw nsw i64 %14, %9
-  %16 = getelementptr inbounds nuw i64, ptr %0, i64 %.01920
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.01920
   store i64 %12, ptr %16, align 8, !tbaa !3
   %17 = add nuw i64 %.01920, 1
   %exitcond.not = icmp eq i64 %17, %3
@@ -591,10 +591,10 @@ define hidden range(i64 0, 3) i64 @mbedtls_mpi_core_add_if(ptr noundef captures(
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %.023 = phi i64 [ %18, %.lr.ph ], [ 0, %4 ]
   %.02122 = phi i64 [ %19, %.lr.ph ], [ 0, %4 ]
-  %7 = getelementptr inbounds nuw i64, ptr %1, i64 %.02122
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.02122
   %8 = load i64, ptr %7, align 8, !tbaa !3
   %9 = and i64 %8, %6
-  %10 = getelementptr inbounds nuw i64, ptr %0, i64 %.02122
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.02122
   %11 = load i64, ptr %10, align 8, !tbaa !3
   %12 = add i64 %11, %.023
   %13 = icmp ult i64 %12, %11
@@ -621,18 +621,18 @@ define hidden range(i64 0, 3) i64 @mbedtls_mpi_core_sub(ptr noundef writeonly ca
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %.020 = phi i64 [ %14, %.lr.ph ], [ 0, %4 ]
   %.01819 = phi i64 [ %17, %.lr.ph ], [ 0, %4 ]
-  %5 = getelementptr inbounds nuw i64, ptr %1, i64 %.01819
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.01819
   %6 = load i64, ptr %5, align 8, !tbaa !3
   %7 = icmp ult i64 %6, %.020
   %8 = zext i1 %7 to i64
   %9 = sub i64 %6, %.020
-  %10 = getelementptr inbounds nuw i64, ptr %2, i64 %.01819
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.01819
   %11 = load i64, ptr %10, align 8, !tbaa !3
   %12 = icmp ult i64 %9, %11
   %13 = zext i1 %12 to i64
   %14 = add nuw nsw i64 %13, %8
   %15 = sub i64 %9, %11
-  %16 = getelementptr inbounds nuw i64, ptr %0, i64 %.01819
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.01819
   store i64 %15, ptr %16, align 8, !tbaa !3
   %17 = add nuw i64 %.01819, 1
   %exitcond.not = icmp eq i64 %17, %3
@@ -733,7 +733,7 @@ define hidden void @mbedtls_mpi_core_mul(ptr noundef %0, ptr noundef %1, i64 nou
 
 .preheader40.i.us.us:                             ; preds = %.lr.ph.split.us.split.us, %mbedtls_mpi_core_mla.exit.loopexit.us.us
   %.016.us.us = phi i64 [ %19, %mbedtls_mpi_core_mla.exit.loopexit.us.us ], [ 0, %.lr.ph.split.us.split.us ]
-  %12 = getelementptr inbounds nuw i64, ptr %0, i64 %.016.us.us
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.016.us.us
   br label %.lr.ph60.i.us.us
 
 .lr.ph60.i.us.us:                                 ; preds = %.preheader40.i.us.us, %.lr.ph60.i.us.us
@@ -757,8 +757,8 @@ mbedtls_mpi_core_mla.exit.loopexit.us.us:         ; preds = %.lr.ph60.i.us.us
 
 .preheader40.i.us:                                ; preds = %.lr.ph.split.us, %mbedtls_mpi_core_mla.exit.us
   %.016.us = phi i64 [ %34, %mbedtls_mpi_core_mla.exit.us ], [ 0, %.lr.ph.split.us ]
-  %20 = getelementptr inbounds nuw i64, ptr %0, i64 %.016.us
-  %21 = getelementptr inbounds nuw i64, ptr %3, i64 %.016.us
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.016.us
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.016.us
   %22 = load i64, ptr %21, align 8, !tbaa !3
   br label %.lr.ph53.i.us
 
@@ -805,8 +805,8 @@ mbedtls_mpi_core_mla.exit.us:                     ; preds = %.lr.ph60.i.us, %.pr
 
 .lr.ph.i.preheader.us.us:                         ; preds = %.lr.ph.split.split.us, %.preheader40.i.loopexit.us.us
   %.016.us17.us = phi i64 [ %43, %.preheader40.i.loopexit.us.us ], [ 0, %.lr.ph.split.split.us ]
-  %35 = getelementptr inbounds nuw i64, ptr %0, i64 %.016.us17.us
-  %36 = getelementptr inbounds nuw i64, ptr %3, i64 %.016.us17.us
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.016.us17.us
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.016.us17.us
   %37 = load i64, ptr %36, align 8, !tbaa !3
   br label %.lr.ph.i.us.us
 
@@ -830,8 +830,8 @@ mbedtls_mpi_core_mla.exit.us:                     ; preds = %.lr.ph60.i.us, %.pr
 
 .lr.ph.i.preheader.us:                            ; preds = %.lr.ph.split.split.us, %mbedtls_mpi_core_mla.exit.loopexit.us28
   %.016.us17 = phi i64 [ %58, %mbedtls_mpi_core_mla.exit.loopexit.us28 ], [ 0, %.lr.ph.split.split.us ]
-  %44 = getelementptr inbounds nuw i64, ptr %0, i64 %.016.us17
-  %45 = getelementptr inbounds nuw i64, ptr %3, i64 %.016.us17
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.016.us17
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.016.us17
   %46 = load i64, ptr %45, align 8, !tbaa !3
   br label %.lr.ph.i.us
 
@@ -872,8 +872,8 @@ mbedtls_mpi_core_mla.exit.loopexit.us28:          ; preds = %.lr.ph60.i.us21
 
 .lr.ph.i.preheader.us29:                          ; preds = %.lr.ph.split.split, %.preheader.i.loopexit.us44
   %.016.us30 = phi i64 [ %72, %.preheader.i.loopexit.us44 ], [ 0, %.lr.ph.split.split ]
-  %59 = getelementptr inbounds nuw i64, ptr %0, i64 %.016.us30
-  %60 = getelementptr inbounds nuw i64, ptr %3, i64 %.016.us30
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.016.us30
+  %60 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.016.us30
   %61 = load i64, ptr %60, align 8, !tbaa !3
   br label %.lr.ph.i.us31
 
@@ -913,8 +913,8 @@ mbedtls_mpi_core_mla.exit.loopexit.us28:          ; preds = %.lr.ph60.i.us21
 
 .lr.ph.i.preheader:                               ; preds = %.lr.ph.split.split, %mbedtls_mpi_core_mla.exit.loopexit
   %.016 = phi i64 [ %92, %mbedtls_mpi_core_mla.exit.loopexit ], [ 0, %.lr.ph.split.split ]
-  %73 = getelementptr inbounds nuw i64, ptr %0, i64 %.016
-  %74 = getelementptr inbounds nuw i64, ptr %3, i64 %.016
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.016
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.016
   %75 = load i64, ptr %74, align 8, !tbaa !3
   br label %.lr.ph.i
 
@@ -997,7 +997,7 @@ define hidden void @mbedtls_mpi_core_montmul(ptr noundef %0, ptr noundef readonl
   br i1 %.not, label %._crit_edge.thread, label %.lr.ph
 
 ._crit_edge.thread:                               ; preds = %8
-  %11 = getelementptr inbounds nuw i64, ptr %7, i64 %5
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %5
   %12 = load i64, ptr %11, align 8, !tbaa !3
   br label %mbedtls_mpi_core_sub.exit
 
@@ -1020,25 +1020,25 @@ define hidden void @mbedtls_mpi_core_montmul(ptr noundef %0, ptr noundef readonl
   br label %38
 
 .lr.ph.i.preheader:                               ; preds = %mbedtls_mpi_core_mla.exit65
-  %20 = getelementptr inbounds nuw i64, ptr %78, i64 %5
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %5
   %21 = load i64, ptr %20, align 8, !tbaa !3
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
   %.020.i = phi i64 [ %31, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
   %.01819.i = phi i64 [ %34, %.lr.ph.i ], [ 0, %.lr.ph.i.preheader ]
-  %22 = getelementptr inbounds nuw i64, ptr %78, i64 %.01819.i
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %78, i64 %.01819.i
   %23 = load i64, ptr %22, align 8, !tbaa !3
   %24 = icmp ult i64 %23, %.020.i
   %25 = zext i1 %24 to i64
   %26 = sub i64 %23, %.020.i
-  %27 = getelementptr inbounds nuw i64, ptr %4, i64 %.01819.i
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.01819.i
   %28 = load i64, ptr %27, align 8, !tbaa !3
   %29 = icmp ult i64 %26, %28
   %30 = zext i1 %29 to i64
   %31 = add nuw nsw i64 %30, %25
   %32 = sub i64 %26, %28
-  %33 = getelementptr inbounds nuw i64, ptr %0, i64 %.01819.i
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.01819.i
   store i64 %32, ptr %33, align 8, !tbaa !3
   %34 = add nuw i64 %.01819.i, 1
   %exitcond.not.i = icmp eq i64 %34, %5
@@ -1059,7 +1059,7 @@ mbedtls_mpi_core_sub.exit:                        ; preds = %._crit_edge.thread,
 38:                                               ; preds = %.lr.ph, %mbedtls_mpi_core_mla.exit65
   %.077 = phi ptr [ %7, %.lr.ph ], [ %78, %mbedtls_mpi_core_mla.exit65 ]
   %.03276 = phi i64 [ 0, %.lr.ph ], [ %79, %mbedtls_mpi_core_mla.exit65 ]
-  %39 = getelementptr inbounds nuw i64, ptr %1, i64 %.03276
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.03276
   %40 = load i64, ptr %39, align 8, !tbaa !3
   %41 = load i64, ptr %.077, align 8, !tbaa !3
   %42 = load i64, ptr %2, align 8, !tbaa !3
@@ -1246,7 +1246,7 @@ define hidden i32 @mbedtls_mpi_core_fill_random(ptr noundef %0, i64 noundef %1, 
 
 20:                                               ; preds = %12
   %21 = icmp eq i64 %2, 0
-  %22 = getelementptr i64, ptr %0, i64 %10
+  %22 = getelementptr [8 x i8], ptr %0, i64 %10
   %.01214.i = getelementptr i8, ptr %22, i64 -8
   %.not15.i = icmp ugt ptr %0, %.01214.i
   %or.cond.i = or i1 %21, %.not15.i
@@ -1286,7 +1286,7 @@ define hidden i32 @mbedtls_mpi_core_random(ptr noundef %0, i64 noundef %1, ptr n
 
 13:                                               ; preds = %10
   %14 = add nsw i64 %indvars.iv.i, -1
-  %15 = getelementptr inbounds nuw i64, ptr %2, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %14
   %16 = load i64, ptr %15, align 8, !tbaa !3
   %.not.i = icmp eq i64 %16, 0
   br i1 %.not.i, label %10, label %mbedtls_mpi_core_bitlen.exit, !llvm.loop !7
@@ -1319,7 +1319,7 @@ mbedtls_mpi_core_bitlen.exit.thread:              ; preds = %10, %mbedtls_mpi_co
   %35 = shl i64 %34, 3
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 %30
   %37 = icmp eq i64 %25, 0
-  %38 = getelementptr i64, ptr %0, i64 %31
+  %38 = getelementptr [8 x i8], ptr %0, i64 %31
   %.01214.i.i = getelementptr i8, ptr %38, i64 -8
   %.not15.i.i = icmp ugt ptr %0, %.01214.i.i
   %or.cond.i.i = or i1 %37, %.not15.i.i
@@ -1390,8 +1390,8 @@ mbedtls_mpi_core_bitlen.exit.thread.split:        ; preds = %mbedtls_mpi_core_bi
 
 .lr.ph.i:                                         ; preds = %.preheader45.i, %.lr.ph.i
   %.046.i = phi i64 [ %62, %.lr.ph.i ], [ 0, %.preheader45.i ]
-  %59 = getelementptr i64, ptr %0, i64 %.046.i
-  %60 = getelementptr i64, ptr %59, i64 %39
+  %59 = getelementptr [8 x i8], ptr %0, i64 %.046.i
+  %60 = getelementptr [8 x i8], ptr %59, i64 %39
   %61 = load i64, ptr %60, align 8, !tbaa !3
   store i64 %61, ptr %59, align 8, !tbaa !3
   %62 = add nuw i64 %.046.i, 1
@@ -1404,7 +1404,7 @@ mbedtls_mpi_core_bitlen.exit.thread.split:        ; preds = %mbedtls_mpi_core_bi
 .lr.ph52.i:                                       ; preds = %.loopexit44.i, %.lr.ph52.i
   %.251.i = phi i64 [ %69, %.lr.ph52.i ], [ %3, %.loopexit44.i ]
   %.03850.i = phi i64 [ %66, %.lr.ph52.i ], [ 0, %.loopexit44.i ]
-  %63 = getelementptr i64, ptr %0, i64 %.251.i
+  %63 = getelementptr [8 x i8], ptr %0, i64 %.251.i
   %64 = getelementptr i8, ptr %63, i64 -8
   %65 = load i64, ptr %64, align 8, !tbaa !3
   %66 = shl i64 %65, %46
@@ -1429,7 +1429,7 @@ mbedtls_mpi_core_shift_r.exit:                    ; preds = %.lr.ph52.i, %57, %.
 .lr.ph.i28:                                       ; preds = %72, %.lr.ph.i28
   %.011.i = phi i64 [ %80, %.lr.ph.i28 ], [ 1, %72 ]
   %.0910.i = phi i64 [ %79, %.lr.ph.i28 ], [ %75, %72 ]
-  %76 = getelementptr inbounds nuw i64, ptr %0, i64 %.011.i
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.011.i
   %77 = load i64, ptr %76, align 8, !tbaa !3
   %78 = tail call i64 asm sideeffect "mov  $1, $0                                \0A\09neg  $0                                      \0A\09or   $1, $0                                \0A\09sar  $$63, $0                                 \0A\09", "=&{ax},{di},~{dirflag},~{fpsr},~{flags}"(i64 %77) #11, !srcloc !12
   %79 = or i64 %78, %.0910.i
@@ -1452,9 +1452,9 @@ mbedtls_mpi_core_uint_le_mpi.exit:                ; preds = %.lr.ph.i28, %72
   %.01822.i = phi i64 [ %102, %.lr.ph.i30 ], [ %86, %mbedtls_mpi_core_uint_le_mpi.exit ]
   %.01921.i = phi i64 [ %101, %.lr.ph.i30 ], [ %84, %mbedtls_mpi_core_uint_le_mpi.exit ]
   %87 = add i64 %.023.i, -1
-  %88 = getelementptr inbounds nuw i64, ptr %2, i64 %87
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %87
   %89 = load i64, ptr %88, align 8, !tbaa !3
-  %90 = getelementptr inbounds nuw i64, ptr %0, i64 %87
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %87
   %91 = load i64, ptr %90, align 8, !tbaa !3
   %92 = tail call { i64, i64, i64 } asm sideeffect "mov $1, $0                                 \0A\09xor $2, $0                                 \0A\09sub $2, $1                                 \0A\09and $0, $2                                 \0A\09not $0                                       \0A\09and $0, $1                                 \0A\09or $2, $1                                  \0A\09sar $$63, $1                                  \0A\09", "=&{ax},=&{di},=&{si},1,2,~{dirflag},~{fpsr},~{flags}"(i64 %89, i64 %91) #11, !srcloc !10
   %93 = extractvalue { i64, i64, i64 } %92, 1
@@ -1518,7 +1518,7 @@ define internal fastcc void @mbedtls_mpi_core_exp_mod_optionally_safe(ptr nounde
 
 16:                                               ; preds = %13
   %17 = add nsw i64 %indvars.iv.i.i, -1
-  %18 = getelementptr inbounds nuw i64, ptr %4, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !3
   %.not.i.i = icmp eq i64 %19, 0
   br i1 %.not.i.i, label %13, label %20, !llvm.loop !7
@@ -1562,21 +1562,21 @@ mbedtls_mpi_core_montmul_init.exit:               ; preds = %31
   %39 = select i1 %38, i64 3, i64 1
   %40 = shl nuw nsw i64 1, %39
   %41 = shl i64 %3, %39
-  %42 = getelementptr inbounds nuw i64, ptr %8, i64 %41
-  %43 = getelementptr inbounds nuw i64, ptr %42, i64 %3
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %41
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %3
   %44 = sub i64 0, %34
   %45 = shl i64 %3, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %8, i8 0, i64 %45, i1 false)
   store i64 1, ptr %8, align 8, !tbaa !3
   tail call void @mbedtls_mpi_core_montmul(ptr noundef nonnull %8, ptr noundef nonnull %8, ptr noundef %7, i64 noundef %3, ptr noundef nonnull %2, i64 noundef %3, i64 noundef %44, ptr noundef nonnull %43)
-  %46 = getelementptr inbounds nuw i64, ptr %8, i64 %3
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %3
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %46, ptr readonly align 8 %1, i64 %45, i1 false)
   br i1 %38, label %.lr.ph.i, label %exp_mod_precompute_window.exit
 
 .lr.ph.i:                                         ; preds = %mbedtls_mpi_core_montmul_init.exit, %.lr.ph.i
   %.032.i = phi ptr [ %47, %.lr.ph.i ], [ %46, %mbedtls_mpi_core_montmul_init.exit ]
   %.03031.i = phi i64 [ %48, %.lr.ph.i ], [ 2, %mbedtls_mpi_core_montmul_init.exit ]
-  %47 = getelementptr inbounds nuw i64, ptr %.032.i, i64 %3
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %.032.i, i64 %3
   tail call void @mbedtls_mpi_core_montmul(ptr noundef %47, ptr noundef %.032.i, ptr noundef nonnull %46, i64 noundef %3, ptr noundef nonnull %2, i64 noundef %3, i64 noundef %44, ptr noundef nonnull %43)
   %48 = add nuw nsw i64 %.03031.i, 1
   %exitcond.not.i = icmp eq i64 %48, %40
@@ -1600,7 +1600,7 @@ exp_mod_precompute_window.exit:                   ; preds = %.lr.ph.i, %mbedtls_
   %storemerge = select i1 %50, i64 63, i64 %51
   %53 = add i64 %.052, 1
   %54 = shl i64 %.0, 1
-  %55 = getelementptr inbounds nuw i64, ptr %4, i64 %.167
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.167
   %56 = load i64, ptr %55, align 8, !tbaa !3
   %57 = lshr i64 %56, %storemerge
   %58 = and i64 %57, 1
@@ -1616,7 +1616,7 @@ exp_mod_precompute_window.exit:                   ; preds = %.lr.ph.i, %mbedtls_
 
 63:                                               ; preds = %62
   %64 = mul i64 %59, %3
-  %65 = getelementptr inbounds nuw i64, ptr %8, i64 %64
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %42, ptr nonnull readonly align 8 %65, i64 %45, i1 false)
   br label %exp_mod_table_lookup_optionally_safe.exit
 
@@ -1646,9 +1646,9 @@ mbedtls_mpi_core_cond_assign.exit.us.i.i:         ; preds = %66, %mbedtls_mpi_co
 
 .lr.ph.i.i.i:                                     ; preds = %.split.i.i, %.lr.ph.i.i.i
   %.013.i.i.i = phi i64 [ %83, %.lr.ph.i.i.i ], [ 0, %.split.i.i ]
-  %77 = getelementptr inbounds nuw i64, ptr %.012.i.i, i64 %.013.i.i.i
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %.012.i.i, i64 %.013.i.i.i
   %78 = load i64, ptr %77, align 8, !tbaa !3
-  %79 = getelementptr inbounds nuw i64, ptr %42, i64 %.013.i.i.i
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %.013.i.i.i
   %80 = load i64, ptr %79, align 8, !tbaa !3
   %81 = tail call { i64, i64, i64 } asm sideeffect "and  $0, $1                      \0A\09not  $0                              \0A\09and  $0, $2                      \0A\09or   $1, $2                            \0A\09", "=&{di},=&{si},=&{ax},0,1,2,~{dirflag},~{fpsr},~{flags}"(i64 %76, i64 %78, i64 %80) #11, !srcloc !15
   %82 = extractvalue { i64, i64, i64 } %81, 2
@@ -1659,7 +1659,7 @@ mbedtls_mpi_core_cond_assign.exit.us.i.i:         ; preds = %66, %mbedtls_mpi_co
 
 mbedtls_mpi_core_cond_assign.exit.i.i:            ; preds = %.lr.ph.i.i.i, %.split.i.i
   %84 = add nuw nsw i64 %.01011.i.i, 1
-  %85 = getelementptr inbounds nuw i64, ptr %.012.i.i, i64 %3
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %.012.i.i, i64 %3
   %exitcond.not.i.i = icmp eq i64 %84, %40
   br i1 %exitcond.not.i.i, label %exp_mod_table_lookup_optionally_safe.exit, label %.split.i.i, !llvm.loop !46
 
@@ -1694,12 +1694,12 @@ define hidden i64 @mbedtls_mpi_core_sub_int(ptr noundef writeonly captures(none)
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %.014 = phi i64 [ %9, %.lr.ph ], [ %2, %4 ]
   %.01213 = phi i64 [ %11, %.lr.ph ], [ 0, %4 ]
-  %5 = getelementptr inbounds nuw i64, ptr %1, i64 %.01213
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.01213
   %6 = load i64, ptr %5, align 8, !tbaa !3
   %7 = sub i64 %6, %.014
   %8 = icmp ugt i64 %.014, %6
   %9 = zext i1 %8 to i64
-  %10 = getelementptr inbounds nuw i64, ptr %0, i64 %.01213
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.01213
   store i64 %7, ptr %10, align 8, !tbaa !3
   %11 = add nuw i64 %.01213, 1
   %exitcond.not = icmp eq i64 %11, %3
@@ -1719,7 +1719,7 @@ define hidden i64 @mbedtls_mpi_core_check_zero_ct(ptr noundef %0, i64 noundef %1
 .lr.ph:                                           ; preds = %2, %.lr.ph
   %.09 = phi i64 [ %7, %.lr.ph ], [ 0, %2 ]
   %.078 = phi i64 [ %6, %.lr.ph ], [ 0, %2 ]
-  %4 = getelementptr inbounds nuw i64, ptr %0, i64 %.09
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.09
   %5 = load volatile i64, ptr %4, align 8, !tbaa !3
   %6 = or i64 %5, %.078
   %7 = add nuw i64 %.09, 1

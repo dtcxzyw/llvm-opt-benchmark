@@ -134,7 +134,7 @@ define dso_local void @relay_reset(ptr noundef readonly captures(address_is_null
 31:                                               ; preds = %31, %29
   %32 = phi i64 [ 0, %29 ], [ %35, %31 ]
   %33 = load ptr, ptr %30, align 8
-  %34 = getelementptr i64, ptr %33, i64 %32
+  %34 = getelementptr [8 x i8], ptr %33, i64 %32
   store i64 0, ptr %34, align 8
   %35 = add nuw i64 %32, 1
   %36 = load ptr, ptr %24, align 8
@@ -179,7 +179,7 @@ define dso_local void @relay_reset(ptr noundef readonly captures(address_is_null
   %61 = load ptr, ptr %49, align 8
   %62 = ptrtoint ptr %61 to i64
   %63 = and i64 %57, 63
-  %64 = getelementptr i64, ptr @__per_cpu_offset, i64 %63
+  %64 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %63
   %65 = load i64, ptr %64, align 8
   %66 = add i64 %65, %62
   %67 = inttoptr i64 %66 to ptr
@@ -215,7 +215,7 @@ define dso_local void @relay_reset(ptr noundef readonly captures(address_is_null
 85:                                               ; preds = %85, %83
   %86 = phi i64 [ 0, %83 ], [ %89, %85 ]
   %87 = load ptr, ptr %84, align 8
-  %88 = getelementptr i64, ptr %87, i64 %86
+  %88 = getelementptr [8 x i8], ptr %87, i64 %86
   store i64 0, ptr %88, align 8
   %89 = add nuw i64 %86, 1
   %90 = load ptr, ptr %78, align 8
@@ -266,7 +266,7 @@ define dso_local noundef range(i32 -12, 1) i32 @relay_prepare_cpu(i32 noundef %0
 
 4:                                                ; preds = %1
   %5 = zext i32 %0 to i64
-  %6 = getelementptr i64, ptr @__per_cpu_offset, i64 %5
+  %6 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %5
   br label %7
 
 7:                                                ; preds = %29, %4
@@ -387,10 +387,10 @@ define internal fastcc ptr @relay_open_buf(ptr noundef %0, i32 noundef %1) unnam
   %49 = phi i64 [ %59, %57 ], [ 0, %45 ]
   %50 = tail call ptr @alloc_pages(i32 noundef 3264, i32 noundef 0) #15
   %51 = load ptr, ptr %41, align 8
-  %52 = getelementptr ptr, ptr %51, i64 %49
+  %52 = getelementptr [8 x i8], ptr %51, i64 %49
   store ptr %50, ptr %52, align 8
   %53 = load ptr, ptr %41, align 8
-  %54 = getelementptr ptr, ptr %53, i64 %49
+  %54 = getelementptr [8 x i8], ptr %53, i64 %49
   %55 = load ptr, ptr %54, align 8
   %56 = icmp eq ptr %55, null
   br i1 %56, label %70, label %57, !prof !13
@@ -432,7 +432,7 @@ define internal fastcc ptr @relay_open_buf(ptr noundef %0, i32 noundef %1) unnam
 77:                                               ; preds = %77, %75
   %78 = phi i64 [ 0, %75 ], [ %82, %77 ]
   %79 = load ptr, ptr %41, align 8
-  %80 = getelementptr ptr, ptr %79, i64 %78
+  %80 = getelementptr [8 x i8], ptr %79, i64 %78
   %81 = load ptr, ptr %80, align 8
   tail call void @__free_pages(ptr noundef %81, i32 noundef 0) #15
   %82 = add nuw nsw i64 %78, 1
@@ -562,7 +562,7 @@ define internal fastcc ptr @relay_open_buf(ptr noundef %0, i32 noundef %1) unnam
 .preheader:                                       ; preds = %134, %.preheader
   %151 = phi i64 [ %154, %.preheader ], [ 0, %134 ]
   %152 = load ptr, ptr %29, align 8
-  %153 = getelementptr i64, ptr %152, i64 %151
+  %153 = getelementptr [8 x i8], ptr %152, i64 %151
   store i64 0, ptr %153, align 8
   %154 = add nuw i64 %151, 1
   %155 = load ptr, ptr %88, align 8
@@ -711,7 +711,7 @@ define dso_local noundef ptr @relay_open(ptr noundef %0, ptr noundef %1, i64 nou
   %63 = load ptr, ptr %29, align 8
   %64 = ptrtoint ptr %63 to i64
   %65 = and i64 %56, 63
-  %66 = getelementptr i64, ptr @__per_cpu_offset, i64 %65
+  %66 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %65
   %67 = load i64, ptr %66, align 8
   %68 = add i64 %67, %64
   %69 = inttoptr i64 %68 to ptr
@@ -751,7 +751,7 @@ define dso_local noundef ptr @relay_open(ptr noundef %0, ptr noundef %1, i64 nou
   %87 = load ptr, ptr %29, align 8
   %88 = ptrtoint ptr %87 to i64
   %89 = and i64 %83, 63
-  %90 = getelementptr i64, ptr @__per_cpu_offset, i64 %89
+  %90 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %89
   %91 = load i64, ptr %90, align 8
   %92 = add i64 %91, %88
   %93 = inttoptr i64 %92 to ptr
@@ -963,7 +963,7 @@ define dso_local i32 @relay_late_setup_files(ptr noundef %0, ptr noundef %1, ptr
   %74 = load ptr, ptr %57, align 8
   %75 = ptrtoint ptr %74 to i64
   %76 = and i64 %70, 63
-  %77 = getelementptr i64, ptr @__per_cpu_offset, i64 %76
+  %77 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %76
   %78 = load i64, ptr %77, align 8
   %79 = add i64 %78, %75
   %80 = inttoptr i64 %79 to ptr
@@ -1128,7 +1128,7 @@ define dso_local noundef i64 @relay_switch_subbuf(ptr noundef %0, i64 noundef %1
   %20 = urem i64 %17, %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr i64, ptr %22, i64 %20
+  %23 = getelementptr [8 x i8], ptr %22, i64 %20
   store i64 %14, ptr %23, align 8
   %24 = load i64, ptr %16, align 8
   %25 = add i64 %24, 1
@@ -1140,7 +1140,7 @@ define dso_local noundef i64 @relay_switch_subbuf(ptr noundef %0, i64 noundef %1
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
   %31 = load i64, ptr %30, align 8
   %32 = load ptr, ptr %21, align 8
-  %33 = getelementptr i64, ptr %32, i64 %20
+  %33 = getelementptr [8 x i8], ptr %32, i64 %20
   %34 = load i64, ptr %33, align 8
   %35 = sub i64 %31, %34
   br i1 %28, label %42, label %36
@@ -1225,7 +1225,7 @@ define dso_local noundef i64 @relay_switch_subbuf(ptr noundef %0, i64 noundef %1
   store ptr %66, ptr %54, align 8
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr i64, ptr %88, i64 %61
+  %89 = getelementptr [8 x i8], ptr %88, i64 %61
   store i64 0, ptr %89, align 8
   %90 = load i64, ptr %9, align 16
   %91 = add i64 %90, %1
@@ -1261,7 +1261,7 @@ define dso_local void @relay_subbufs_consumed(ptr noundef readonly captures(addr
   %9 = load ptr, ptr %8, align 8
   %10 = ptrtoint ptr %9 to i64
   %11 = zext nneg i32 %1 to i64
-  %12 = getelementptr i64, ptr @__per_cpu_offset, i64 %11
+  %12 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %11
   %13 = load i64, ptr %12, align 8
   %14 = add i64 %13, %10
   %15 = inttoptr i64 %14 to ptr
@@ -1368,7 +1368,7 @@ define dso_local void @relay_close(ptr noundef %0) #1 align 16 {
   %48 = load ptr, ptr %36, align 8
   %49 = ptrtoint ptr %48 to i64
   %50 = and i64 %44, 63
-  %51 = getelementptr i64, ptr @__per_cpu_offset, i64 %50
+  %51 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %50
   %52 = load i64, ptr %51, align 8
   %53 = add i64 %52, %49
   %54 = inttoptr i64 %53 to ptr
@@ -1515,7 +1515,7 @@ define dso_local void @relay_flush(ptr noundef readonly captures(address_is_null
   %31 = load ptr, ptr %19, align 8
   %32 = ptrtoint ptr %31 to i64
   %33 = and i64 %27, 63
-  %34 = getelementptr i64, ptr @__per_cpu_offset, i64 %33
+  %34 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %33
   %35 = load i64, ptr %34, align 8
   %36 = add i64 %35, %32
   %37 = inttoptr i64 %36 to ptr
@@ -1644,7 +1644,7 @@ define internal i64 @relay_file_read(ptr noundef readonly captures(none) %0, ptr
   %69 = urem i64 %67, %68
   %70 = udiv i64 %69, %62
   %71 = load ptr, ptr %17, align 8
-  %72 = getelementptr i64, ptr %71, i64 %70
+  %72 = getelementptr [8 x i8], ptr %71, i64 %70
   %73 = load i64, ptr %72, align 8
   %74 = add nuw i64 %70, 1
   %75 = mul i64 %74, %62
@@ -1658,7 +1658,7 @@ define internal i64 @relay_file_read(ptr noundef readonly captures(none) %0, ptr
   %81 = urem i64 %74, %64
   %82 = mul i64 %81, %62
   %.pre16 = udiv i64 %82, %62
-  %.phi.trans.insert = getelementptr i64, ptr %71, i64 %.pre16
+  %.phi.trans.insert = getelementptr [8 x i8], ptr %71, i64 %.pre16
   %.pre17 = load i64, ptr %.phi.trans.insert, align 8
   br label %83
 
@@ -1721,7 +1721,7 @@ define internal i64 @relay_file_read(ptr noundef readonly captures(none) %0, ptr
   %118 = load i64, ptr %117, align 8
   %119 = udiv i64 %85, %116
   %120 = load ptr, ptr %17, align 8
-  %121 = getelementptr i64, ptr %120, i64 %119
+  %121 = getelementptr [8 x i8], ptr %120, i64 %119
   %122 = load i64, ptr %121, align 8
   %123 = urem i64 %85, %116
   %124 = add i64 %122, %105
@@ -1939,7 +1939,7 @@ define internal fastcc void @relay_destroy_buf(ptr noundef %0) unnamed_addr #1 a
 12:                                               ; preds = %12, %10
   %13 = phi i64 [ 0, %10 ], [ %17, %12 ]
   %14 = load ptr, ptr %11, align 8
-  %15 = getelementptr ptr, ptr %14, i64 %13
+  %15 = getelementptr [8 x i8], ptr %14, i64 %13
   %16 = load ptr, ptr %15, align 8
   tail call void @__free_pages(ptr noundef %16, i32 noundef 0) #15
   %17 = add nuw nsw i64 %13, 1
@@ -1961,7 +1961,7 @@ define internal fastcc void @relay_destroy_buf(ptr noundef %0) unnamed_addr #1 a
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %28 = load i32, ptr %27, align 8
   %29 = zext i32 %28 to i64
-  %30 = getelementptr i64, ptr @__per_cpu_offset, i64 %29
+  %30 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %29
   %31 = load i64, ptr %30, align 8
   %32 = add i64 %31, %26
   %33 = inttoptr i64 %32 to ptr
@@ -2078,7 +2078,7 @@ define internal fastcc void @relay_file_read_consume(ptr noundef captures(none) 
   %34 = load ptr, ptr %33, align 8
   %35 = ptrtoint ptr %34 to i64
   %36 = zext nneg i32 %28 to i64
-  %37 = getelementptr i64, ptr @__per_cpu_offset, i64 %36
+  %37 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %36
   %38 = load i64, ptr %37, align 8
   %39 = add i64 %38, %35
   %40 = inttoptr i64 %39 to ptr
@@ -2122,7 +2122,7 @@ define internal fastcc void @relay_file_read_consume(ptr noundef captures(none) 
   %66 = phi i64 [ %64, %60 ], [ %59, %57 ]
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %68 = load ptr, ptr %67, align 8
-  %69 = getelementptr i64, ptr %68, i64 %66
+  %69 = getelementptr [8 x i8], ptr %68, i64 %66
   %70 = load i64, ptr %69, align 8
   %71 = add i64 %70, %55
   %72 = icmp eq i64 %71, %7
@@ -2154,7 +2154,7 @@ define internal fastcc void @relay_file_read_consume(ptr noundef captures(none) 
   %90 = load ptr, ptr %89, align 8
   %91 = ptrtoint ptr %90 to i64
   %92 = zext nneg i32 %84 to i64
-  %93 = getelementptr i64, ptr @__per_cpu_offset, i64 %92
+  %93 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %92
   %94 = load i64, ptr %93, align 8
   %95 = add i64 %94, %91
   %96 = inttoptr i64 %95 to ptr

@@ -3322,7 +3322,7 @@ dissect_llrp_impinj_parameter.exit:               ; preds = %1201, %890, %1203, 
 
 switch.lookup:                                    ; preds = %1211
   %1216 = zext nneg i8 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dissect_llrp_parameters, i64 %1216
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dissect_llrp_parameters, i64 %1216
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %1217
 

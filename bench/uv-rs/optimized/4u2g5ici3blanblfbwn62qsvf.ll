@@ -5893,7 +5893,7 @@ define hidden void @"_ZN148_$LT$$LT$uv_workspace..pyproject..ToolUvSources$u20$a
   %57 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %58 = icmp ult i64 %56, 11
   call void @llvm.assume(i1 %58)
-  %59 = getelementptr inbounds nuw ptr, ptr %57, i64 %56
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %56
   store ptr %59, ptr %15, align 8
   store ptr %15, ptr %16, align 8
   %.sroa.415.0..sroa_idx = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -6841,7 +6841,7 @@ _ZN4core3ops8function6FnOnce9call_once17h74c8d4a9ce5ddf79E.llvm.1304739322803122
   %192 = getelementptr inbounds nuw i8, ptr %189, i64 8
   %193 = icmp ult i64 %191, 11
   call void @llvm.assume(i1 %193)
-  %194 = getelementptr inbounds nuw ptr, ptr %192, i64 %191
+  %194 = getelementptr inbounds nuw [8 x i8], ptr %192, i64 %191
   store ptr %194, ptr %38, align 8
   store ptr %38, ptr %39, align 8
   %.sroa.415.0..sroa_idx = getelementptr inbounds nuw i8, ptr %39, i64 8
@@ -7293,7 +7293,7 @@ define hidden void @"_ZN158_$LT$$LT$uv_pypi_types..dependency_groups..Dependency
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %55 = icmp ult i64 %53, 11
   call void @llvm.assume(i1 %55)
-  %56 = getelementptr inbounds nuw ptr, ptr %54, i64 %53
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %53
   store ptr %56, ptr %14, align 8
   store ptr %14, ptr %15, align 8
   %.sroa.415.0..sroa_idx = getelementptr inbounds nuw i8, ptr %15, i64 8
@@ -8057,7 +8057,7 @@ define hidden void @"_ZN158_$LT$$LT$uv_pypi_types..dependency_groups..Dependency
   %173 = getelementptr inbounds nuw i8, ptr %170, i64 8
   %174 = icmp ult i64 %172, 11
   call void @llvm.assume(i1 %174)
-  %175 = getelementptr inbounds nuw ptr, ptr %173, i64 %172
+  %175 = getelementptr inbounds nuw [8 x i8], ptr %173, i64 %172
   store ptr %175, ptr %33, align 8
   store ptr %33, ptr %34, align 8
   %.sroa.415.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 8
@@ -8488,7 +8488,7 @@ define hidden void @"_ZN161_$LT$$LT$uv_pypi_types..dependency_groups..Dependency
   %.sroa.0.0.copyload.i = load ptr, ptr %30, align 8, !noalias !1499, !nonnull !3, !noundef !3
   %.sroa.43.0.copyload.i = load i64, ptr %.sroa.43.0..sroa_idx.i, align 8, !noalias !1499
   %71 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 272
-  %72 = getelementptr inbounds { [3 x i64] }, ptr %71, i64 %.sroa.43.0.copyload.i
+  %72 = getelementptr inbounds [24 x i8], ptr %71, i64 %.sroa.43.0.copyload.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %72, i64 24, i1 false), !noalias !1507
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %72, ptr noundef nonnull align 8 dereferenceable(24) %34, i64 24, i1 false)
   %.pr = load i64, ptr %21, align 8, !alias.scope !1508
@@ -8597,7 +8597,7 @@ define hidden void @"_ZN161_$LT$$LT$uv_pypi_types..dependency_groups..Dependency
   %98 = icmp ult i64 %.sroa.23.0.copyload.i, 11
   call void @llvm.assume(i1 %98)
   %99 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i80, i64 272
-  %100 = getelementptr inbounds nuw { [3 x i64] }, ptr %99, i64 %.sroa.23.0.copyload.i
+  %100 = getelementptr inbounds nuw [24 x i8], ptr %99, i64 %.sroa.23.0.copyload.i
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !1527
   %101 = getelementptr i8, ptr %100, i64 8
   %.val = load ptr, ptr %101, align 8, !nonnull !3, !noundef !3
@@ -9339,7 +9339,7 @@ define hidden void @"_ZN161_$LT$$LT$uv_pypi_types..dependency_groups..Dependency
   %.sroa.0.0.copyload.i = load ptr, ptr %62, align 8, !noalias !1668, !nonnull !3, !noundef !3
   %.sroa.43.0.copyload.i = load i64, ptr %.sroa.43.0..sroa_idx.i, align 8, !noalias !1668
   %168 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 272
-  %169 = getelementptr inbounds { [3 x i64] }, ptr %168, i64 %.sroa.43.0.copyload.i
+  %169 = getelementptr inbounds [24 x i8], ptr %168, i64 %.sroa.43.0.copyload.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %38, ptr noundef nonnull align 8 dereferenceable(24) %169, i64 24, i1 false), !noalias !1677
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %169, ptr noundef nonnull align 8 dereferenceable(24) %39, i64 24, i1 false), !noalias !1676
   %.pr = load i64, ptr %38, align 8, !alias.scope !1678
@@ -9452,7 +9452,7 @@ define hidden void @"_ZN161_$LT$$LT$uv_pypi_types..dependency_groups..Dependency
   %195 = icmp ult i64 %.sroa.23.0.copyload.i, 11
   call void @llvm.assume(i1 %195)
   %196 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i79, i64 272
-  %197 = getelementptr inbounds nuw { [3 x i64] }, ptr %196, i64 %.sroa.23.0.copyload.i
+  %197 = getelementptr inbounds nuw [24 x i8], ptr %196, i64 %.sroa.23.0.copyload.i
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !1697
   %198 = getelementptr i8, ptr %197, i64 8
   %.val = load ptr, ptr %198, align 8, !nonnull !3, !noundef !3
@@ -29763,7 +29763,7 @@ define hidden void @"_ZN200_$LT$serde..de..impls..$LT$impl$u20$serde..de..Deseri
   %.sroa.0.0.copyload.i = load ptr, ptr %38, align 8, !noalias !4929, !nonnull !3, !noundef !3
   %.sroa.43.0.copyload.i = load i64, ptr %.sroa.43.0..sroa_idx.i, align 8, !noalias !4929
   %113 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i, i64 96
-  %114 = getelementptr inbounds { [3 x i64] }, ptr %113, i64 %.sroa.43.0.copyload.i
+  %114 = getelementptr inbounds [24 x i8], ptr %113, i64 %.sroa.43.0.copyload.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %21, ptr noundef nonnull align 8 dereferenceable(24) %114, i64 24, i1 false), !noalias !4937
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %114, ptr noundef nonnull align 8 dereferenceable(24) %22, i64 24, i1 false), !noalias !4936
   %.pr = load i64, ptr %21, align 8, !alias.scope !4938

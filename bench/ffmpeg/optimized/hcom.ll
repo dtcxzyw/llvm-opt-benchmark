@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %union.anon = type { ptr }
-%struct.HEntry = type { i16, i16 }
 
 @.str = private unnamed_addr constant [5 x i8] c"hcom\00", align 1
 @.str.1 = private unnamed_addr constant [11 x i8] c"HCOM Audio\00", align 1
@@ -83,7 +82,7 @@ define internal range(i32 -1094995529, 1) i32 @hcom_init(ptr noundef %0) #0 {
   %41 = getelementptr inbounds nuw i8, ptr %38, i64 %40
   %42 = load i16, ptr %41, align 1, !tbaa !30
   %43 = tail call i16 @llvm.bswap.i16(i16 %42)
-  %44 = getelementptr inbounds nuw %struct.HEntry, ptr %34, i64 %indvars.iv
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv
   store i16 %43, ptr %44, align 2, !tbaa !39
   %45 = getelementptr inbounds nuw i8, ptr %37, i64 %40
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
@@ -180,14 +179,14 @@ define internal i32 @hcom_decode(ptr noundef %0, ptr noundef %1, ptr noundef wri
   %35 = load ptr, ptr %22, align 8, !tbaa !38
   %36 = load i32, ptr %23, align 8, !tbaa !46
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds %struct.HEntry, ptr %35, i64 %37
+  %38 = getelementptr inbounds [4 x i8], ptr %35, i64 %37
   %storemerge.in.in.idx = select i1 %.not, i64 0, i64 2
   %storemerge.in.in = getelementptr inbounds nuw i8, ptr %38, i64 %storemerge.in.in.idx
   %storemerge.in = load i16, ptr %storemerge.in.in, align 2, !tbaa !55
   %storemerge = sext i16 %storemerge.in to i32
   store i32 %storemerge, ptr %23, align 8, !tbaa !46
   %39 = sext i16 %storemerge.in to i64
-  %40 = getelementptr inbounds %struct.HEntry, ptr %35, i64 %39
+  %40 = getelementptr inbounds [4 x i8], ptr %35, i64 %39
   %41 = load i16, ptr %40, align 2, !tbaa !39
   %42 = icmp slt i16 %41, 0
   br i1 %42, label %43, label %53

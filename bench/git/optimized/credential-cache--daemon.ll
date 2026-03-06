@@ -14,7 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.stat = type { i64, i64, i64, i32, i32, i32, i32, i64, i64, i64, i64, %struct.timespec, %struct.timespec, %struct.timespec, [3 x i64] }
 %struct.timespec = type { i64, i64 }
 %struct.option = type { i32, i32, ptr, ptr, ptr, ptr, i32, ptr, i64, ptr, i64, ptr }
-%struct.credential_cache_entry = type { %struct.credential, i64 }
 
 @cmd_credential_cache_daemon.usage = internal global [2 x ptr] [ptr @.str, ptr null], align 16
 @.str = private unnamed_addr constant [53 x i8] c"git credential-cache--daemon [--debug] <socket-path>\00", align 1
@@ -245,7 +244,7 @@ init_socket_directory.exit:                       ; preds = %31, %41
   %.030.i.i.i = phi i64 [ -1, %.lr.ph.i.i.i ], [ %.1.i.i.i, %101 ]
   %.01729.i.i.i = phi i32 [ 0, %.lr.ph.i.i.i ], [ %.118.i.i.i, %101 ]
   %87 = sext i32 %.01729.i.i.i to i64
-  %88 = getelementptr inbounds %struct.credential_cache_entry, ptr %86, i64 %87
+  %88 = getelementptr inbounds [208 x i8], ptr %86, i64 %87
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 200
   %90 = load i64, ptr %89, align 8, !tbaa !34
   %.not27.i.i.i = icmp ugt i64 %90, %74
@@ -261,9 +260,9 @@ init_socket_directory.exit:                       ; preds = %31, %41
   br i1 %.not28.i.i.i, label %98, label %94
 
 94:                                               ; preds = %91
-  %95 = getelementptr inbounds %struct.credential_cache_entry, ptr %.pre.i.i.i, i64 %87
+  %95 = getelementptr inbounds [208 x i8], ptr %.pre.i.i.i, i64 %87
   %96 = sext i32 %93 to i64
-  %97 = getelementptr inbounds %struct.credential_cache_entry, ptr %.pre.i.i.i, i64 %96
+  %97 = getelementptr inbounds [208 x i8], ptr %.pre.i.i.i, i64 %96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %95, ptr noundef nonnull align 8 dereferenceable(208) %97, i64 208, i1 false)
   br label %98
 
@@ -433,14 +432,14 @@ read_request.exit.i.i.i:                          ; preds = %146
 .lr.ph.i.i.i.i:                                   ; preds = %160, %163
   %indvars.iv.i.i.i.i = phi i64 [ %indvars.iv.next.i.i.i.i, %163 ], [ 0, %160 ]
   %167 = load ptr, ptr @entries, align 8, !tbaa !32
-  %168 = getelementptr inbounds nuw %struct.credential_cache_entry, ptr %167, i64 %indvars.iv.i.i.i.i
+  %168 = getelementptr inbounds nuw [208 x i8], ptr %167, i64 %indvars.iv.i.i.i.i
   %169 = call i32 @credential_match(ptr noundef nonnull %5, ptr noundef %168, i32 noundef 0) #16
   %.not.i.i.i.i = icmp eq i32 %169, 0
   br i1 %.not.i.i.i.i, label %163, label %lookup_credential.exit.i.i.i
 
 lookup_credential.exit.i.i.i:                     ; preds = %.lr.ph.i.i.i.i
   %170 = load ptr, ptr @entries, align 8
-  %171 = getelementptr inbounds nuw %struct.credential_cache_entry, ptr %170, i64 %indvars.iv.i.i.i.i
+  %171 = getelementptr inbounds nuw [208 x i8], ptr %170, i64 %indvars.iv.i.i.i.i
   %.not37.i.i.i = icmp eq ptr %170, null
   br i1 %.not37.i.i.i, label %serve_one_client.exit.i.i, label %172
 
@@ -542,7 +541,7 @@ lookup_credential.exit.i.i.i:                     ; preds = %.lr.ph.i.i.i.i
 .lr.ph.i50.i.i.i:                                 ; preds = %216, %224
   %indvars.iv.i51.i.i.i = phi i64 [ %indvars.iv.next.i53.i.i.i, %224 ], [ 0, %216 ]
   %219 = load ptr, ptr @entries, align 8, !tbaa !32
-  %220 = getelementptr inbounds nuw %struct.credential_cache_entry, ptr %219, i64 %indvars.iv.i51.i.i.i
+  %220 = getelementptr inbounds nuw [208 x i8], ptr %219, i64 %indvars.iv.i51.i.i.i
   %221 = call i32 @credential_match(ptr noundef nonnull %5, ptr noundef %220, i32 noundef 1) #16
   %.not.i52.i.i.i = icmp eq i32 %221, 0
   br i1 %.not.i52.i.i.i, label %224, label %222
@@ -747,7 +746,7 @@ define internal fastcc void @remove_credential(ptr noundef nonnull %0, i32 nound
 .lr.ph:                                           ; preds = %2, %10
   %indvars.iv = phi i64 [ %indvars.iv.next, %10 ], [ 0, %2 ]
   %5 = load ptr, ptr @entries, align 8, !tbaa !32
-  %6 = getelementptr inbounds nuw %struct.credential_cache_entry, ptr %5, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [208 x i8], ptr %5, i64 %indvars.iv
   %7 = tail call i32 @credential_match(ptr noundef nonnull %0, ptr noundef %6, i32 noundef %1) #16
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %10, label %8
@@ -811,7 +810,7 @@ st_mult.exit:                                     ; preds = %6
   %20 = add nsw i32 %18, 1
   store i32 %20, ptr @entries_nr, align 4, !tbaa !4
   %21 = sext i32 %18 to i64
-  %22 = getelementptr inbounds %struct.credential_cache_entry, ptr %19, i64 %21
+  %22 = getelementptr inbounds [208 x i8], ptr %19, i64 %21
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %22, ptr noundef nonnull align 8 dereferenceable(200) %0, i64 200, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %0, i8 0, i64 200, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)

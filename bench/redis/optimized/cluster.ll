@@ -21,7 +21,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.multiCmd = type { ptr, i32, i32, ptr }
 %struct.getKeysResult = type { i32, i32, [6 x %struct.keyReference], ptr }
 %struct.keyReference = type { i32, i32 }
-%struct.SlotRange = type { i16, i16 }
 
 @server = external local_unnamed_addr global %struct.redisServer, align 8
 @.str = private unnamed_addr constant [29 x i8] c"rdbSaveObjectType(payload,o)\00", align 1
@@ -470,7 +469,7 @@ define dso_local void @restoreCommand(ptr noundef %0) local_unnamed_addr #0 {
   %.0101146 = phi i32 [ %.2103, %60 ], [ 0, %1 ]
   %15 = load ptr, ptr %10, align 8, !tbaa !58
   %16 = sext i32 %.095148 to i64
-  %17 = getelementptr inbounds ptr, ptr %15, i64 %16
+  %17 = getelementptr inbounds [8 x i8], ptr %15, i64 %16
   %18 = load ptr, ptr %17, align 8, !tbaa !59
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load ptr, ptr %19, align 8, !tbaa !64
@@ -497,7 +496,7 @@ define dso_local void @restoreCommand(ptr noundef %0) local_unnamed_addr #0 {
 31:                                               ; preds = %24
   %32 = add nsw i32 %.095148, 1
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds ptr, ptr %15, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %15, i64 %33
   %35 = load ptr, ptr %34, align 8, !tbaa !59
   %36 = call i32 @getLongLongFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %35, ptr noundef nonnull %5, ptr noundef null) #16
   %.not123 = icmp eq i32 %36, 0
@@ -529,7 +528,7 @@ define dso_local void @restoreCommand(ptr noundef %0) local_unnamed_addr #0 {
 49:                                               ; preds = %44
   %50 = add nsw i32 %.095148, 1
   %51 = sext i32 %50 to i64
-  %52 = getelementptr inbounds ptr, ptr %15, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %15, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !59
   %54 = call i32 @getLongLongFromObjectOrReply(ptr noundef nonnull %0, ptr noundef %53, ptr noundef nonnull %4, ptr noundef null) #16
   %.not122 = icmp eq i32 %54, 0
@@ -1303,7 +1302,7 @@ define dso_local void @migrateCommand(ptr noundef %0) #0 {
   %16 = add i32 %14, %15
   %17 = load ptr, ptr %12, align 8, !tbaa !58
   %18 = sext i32 %.0253440 to i64
-  %19 = getelementptr inbounds ptr, ptr %17, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %17, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !59
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = load ptr, ptr %21, align 8, !tbaa !64
@@ -1347,7 +1346,7 @@ define dso_local void @migrateCommand(ptr noundef %0) #0 {
 37:                                               ; preds = %33
   %38 = add nsw i32 %.0253440, 1
   %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds ptr, ptr %17, i64 %39
+  %40 = getelementptr inbounds [8 x i8], ptr %17, i64 %39
   %41 = load ptr, ptr %40, align 8, !tbaa !59
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load ptr, ptr %42, align 8, !tbaa !64
@@ -1430,7 +1429,7 @@ sdslen.exit.thread:                               ; preds = %47, %sdslen.exit
   %.3260.ph.ph = phi ptr [ %43, %37 ], [ %.0257439, %28 ]
   %79 = add nsw i32 %.0253440, %.sink619
   %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds ptr, ptr %.sink616, i64 %80
+  %81 = getelementptr inbounds [8 x i8], ptr %.sink616, i64 %80
   %82 = load ptr, ptr %81, align 8, !tbaa !59
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 8
   %84 = load ptr, ptr %83, align 8, !tbaa !64
@@ -1499,20 +1498,20 @@ sdslen.exit.thread:                               ; preds = %47, %sdslen.exit
   %111 = load ptr, ptr %109, align 8, !tbaa !47
   %112 = load ptr, ptr %89, align 8, !tbaa !58
   %113 = add nsw i64 %indvars.iv, %.1274
-  %114 = getelementptr inbounds ptr, ptr %112, i64 %113
+  %114 = getelementptr inbounds [8 x i8], ptr %112, i64 %113
   %115 = load ptr, ptr %114, align 8, !tbaa !59
   %116 = call ptr @lookupKeyRead(ptr noundef %111, ptr noundef %115) #16
   %117 = sext i32 %.0261446 to i64
-  %118 = getelementptr inbounds ptr, ptr %106, i64 %117
+  %118 = getelementptr inbounds [8 x i8], ptr %106, i64 %117
   store ptr %116, ptr %118, align 8, !tbaa !59
   %.not328 = icmp eq ptr %116, null
   br i1 %.not328, label %125, label %119
 
 119:                                              ; preds = %110
   %120 = load ptr, ptr %89, align 8, !tbaa !58
-  %121 = getelementptr inbounds ptr, ptr %120, i64 %113
+  %121 = getelementptr inbounds [8 x i8], ptr %120, i64 %113
   %122 = load ptr, ptr %121, align 8, !tbaa !59
-  %123 = getelementptr inbounds ptr, ptr %107, i64 %117
+  %123 = getelementptr inbounds [8 x i8], ptr %107, i64 %117
   store ptr %122, ptr %123, align 8, !tbaa !59
   %124 = add nsw i32 %.0261446, 1
   br label %125
@@ -1748,7 +1747,7 @@ sdslen.exit333:                                   ; preds = %184, %188, %191, %1
   %indvars.iv511 = phi i64 [ 0, %.lr.ph453.preheader ], [ %indvars.iv.next512, %320 ]
   %.0251451 = phi i32 [ 0, %.lr.ph453.preheader ], [ %.1252, %320 ]
   %221 = load ptr, ptr %139, align 8, !tbaa !47
-  %222 = getelementptr inbounds nuw ptr, ptr %107, i64 %indvars.iv511
+  %222 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %indvars.iv511
   %223 = load ptr, ptr %222, align 8, !tbaa !59
   %224 = call i64 @getExpire(ptr noundef %221, ptr noundef %223) #16
   %.not318 = icmp eq i64 %224, -1
@@ -1766,14 +1765,14 @@ sdslen.exit333:                                   ; preds = %184, %188, %191, %1
 
 231:                                              ; preds = %229, %.lr.ph453
   %.0250 = phi i64 [ %230, %229 ], [ 0, %.lr.ph453 ]
-  %232 = getelementptr inbounds nuw ptr, ptr %106, i64 %indvars.iv511
+  %232 = getelementptr inbounds nuw [8 x i8], ptr %106, i64 %indvars.iv511
   %233 = load ptr, ptr %232, align 8, !tbaa !59
   %234 = sext i32 %.0251451 to i64
-  %235 = getelementptr inbounds ptr, ptr %106, i64 %234
+  %235 = getelementptr inbounds [8 x i8], ptr %106, i64 %234
   store ptr %233, ptr %235, align 8, !tbaa !59
   %236 = load ptr, ptr %222, align 8, !tbaa !59
   %237 = add nsw i32 %.0251451, 1
-  %238 = getelementptr inbounds ptr, ptr %107, i64 %234
+  %238 = getelementptr inbounds [8 x i8], ptr %107, i64 %234
   store ptr %236, ptr %238, align 8, !tbaa !59
   %239 = call i64 @rioWriteBulkCount(ptr noundef nonnull %4, i8 noundef signext 42, i64 noundef %140) #16
   %.not320 = icmp eq i64 %239, 0
@@ -2136,7 +2135,7 @@ sdslen.exit339:                                   ; preds = %328, %332, %335, %3
 
 407:                                              ; preds = %406
   %408 = load ptr, ptr %139, align 8, !tbaa !47
-  %409 = getelementptr inbounds nuw ptr, ptr %107, i64 %indvars.iv516
+  %409 = getelementptr inbounds nuw [8 x i8], ptr %107, i64 %indvars.iv516
   %410 = load ptr, ptr %409, align 8, !tbaa !59
   %411 = call i32 @dbDelete(ptr noundef %408, ptr noundef %410) #16
   %412 = load ptr, ptr %139, align 8, !tbaa !47
@@ -2153,7 +2152,7 @@ sdslen.exit339:                                   ; preds = %328, %332, %335, %3
   %420 = load ptr, ptr %409, align 8, !tbaa !59
   %421 = add nsw i32 %.0239459, 1
   %422 = sext i32 %.0239459 to i64
-  %423 = getelementptr inbounds ptr, ptr %.2285556, i64 %422
+  %423 = getelementptr inbounds [8 x i8], ptr %.2285556, i64 %422
   store ptr %420, ptr %423, align 8, !tbaa !59
   call void @incrRefCount(ptr noundef %420) #16
   br label %424
@@ -2357,7 +2356,7 @@ define dso_local range(i32 0, 2) i32 @isValidAuxChar(i32 noundef %0) local_unnam
   %2 = tail call ptr @__ctype_b_loc() #21
   %3 = load ptr, ptr %2, align 8, !tbaa !98
   %4 = sext i32 %0 to i64
-  %5 = getelementptr inbounds i16, ptr %3, i64 %4
+  %5 = getelementptr inbounds [2 x i8], ptr %3, i64 %4
   %6 = load i16, ptr %5, align 2, !tbaa !42
   %7 = and i16 %6, 8
   %.not = icmp eq i16 %7, 0
@@ -2393,7 +2392,7 @@ define dso_local range(i32 0, 2) i32 @isValidAuxString(ptr noundef readonly capt
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 %indvars.iv
   %7 = load i8, ptr %6, align 1, !tbaa !5
   %8 = sext i8 %7 to i64
-  %9 = getelementptr inbounds i16, ptr %4, i64 %8
+  %9 = getelementptr inbounds [2 x i8], ptr %4, i64 %8
   %10 = load i16, ptr %9, align 2, !tbaa !42
   %11 = and i16 %10, 8
   %.not.i = icmp eq i16 %11, 0
@@ -3615,7 +3614,7 @@ define dso_local ptr @getNodeByQuery(ptr noundef readonly captures(none) %0, ptr
   %.0163288 = phi i32 [ 0, %.lr.ph297 ], [ %.1164.lcssa, %.thread223 ]
   %.0168287 = phi i32 [ 0, %.lr.ph297 ], [ %.1169.lcssa, %.thread223 ]
   %34 = load ptr, ptr %.0141324, align 8, !tbaa !125
-  %35 = getelementptr inbounds nuw %struct.multiCmd, ptr %34, i64 %indvars.iv311
+  %35 = getelementptr inbounds nuw [24 x i8], ptr %34, i64 %indvars.iv311
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %37 = load ptr, ptr %36, align 8, !tbaa !130
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 12
@@ -3655,10 +3654,10 @@ define dso_local ptr @getNodeByQuery(ptr noundef readonly captures(none) %0, ptr
   %.1155273 = phi i32 [ %.0154290, %.lr.ph.preheader ], [ %.3157, %136 ]
   %.1164272 = phi i32 [ %.0163288, %.lr.ph.preheader ], [ %.2165, %136 ]
   %.1169271 = phi i32 [ %.0168287, %.lr.ph.preheader ], [ %.2170, %136 ]
-  %47 = getelementptr inbounds nuw %struct.keyReference, ptr %46, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv
   %48 = load i32, ptr %47, align 4, !tbaa !133
   %49 = sext i32 %48 to i64
-  %50 = getelementptr inbounds ptr, ptr %40, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %40, i64 %49
   %51 = load ptr, ptr %50, align 8, !tbaa !59
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %53 = load ptr, ptr %52, align 8, !tbaa !64
@@ -4713,7 +4712,7 @@ define dso_local void @replySlotsFlushAndFree(ptr noundef %0, ptr noundef %1) lo
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
   tail call void @addReplyArrayLen(ptr noundef %0, i64 noundef 2) #16
-  %9 = getelementptr inbounds nuw %struct.SlotRange, ptr %7, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   %10 = load i16, ptr %9, align 4, !tbaa !148
   %11 = zext i16 %10 to i64
   tail call void @addReplyLongLong(ptr noundef %0, i64 noundef %11) #16
@@ -4747,7 +4746,7 @@ define dso_local void @sflushCommand(ptr noundef %0) local_unnamed_addr #0 {
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %12 = load ptr, ptr %11, align 8, !tbaa !58
   %13 = sext i32 %6 to i64
-  %14 = getelementptr ptr, ptr %12, i64 %13
+  %14 = getelementptr [8 x i8], ptr %12, i64 %13
   %15 = getelementptr i8, ptr %14, i64 -8
   %16 = load ptr, ptr %15, align 8, !tbaa !59
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
@@ -4798,7 +4797,7 @@ define dso_local void @sflushCommand(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph101:                                        ; preds = %32, %.critedge
   %.072100 = phi i64 [ %64, %.critedge ], [ 1, %32 ]
   %35 = load ptr, ptr %11, align 8, !tbaa !58
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %.072100
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.072100
   %37 = load ptr, ptr %36, align 8, !tbaa !59
   %38 = call i32 @getLongLongFromObject(ptr noundef %37, ptr noundef nonnull %2) #16
   %39 = icmp ne i32 %38, 0
@@ -4813,7 +4812,7 @@ define dso_local void @sflushCommand(ptr noundef %0) local_unnamed_addr #0 {
 
 43:                                               ; preds = %.lr.ph101
   %44 = load ptr, ptr %11, align 8, !tbaa !58
-  %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %.072100
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %.072100
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load ptr, ptr %46, align 8, !tbaa !59
   %48 = call i32 @getLongLongFromObject(ptr noundef %47, ptr noundef nonnull %3) #16
@@ -4901,7 +4900,7 @@ define dso_local void @sflushCommand(ptr noundef %0) local_unnamed_addr #0 {
   %78 = getelementptr inbounds nuw i8, ptr %.066103, i64 4
   %79 = load i32, ptr %.066103, align 4, !tbaa !44
   %80 = sext i32 %79 to i64
-  %81 = getelementptr inbounds %struct.SlotRange, ptr %78, i64 %80
+  %81 = getelementptr inbounds [4 x i8], ptr %78, i64 %80
   store i16 %77, ptr %81, align 4, !tbaa !148
   br label %97
 
@@ -4916,7 +4915,7 @@ define dso_local void @sflushCommand(ptr noundef %0) local_unnamed_addr #0 {
   %87 = add nsw i32 %86, 1
   store i32 %87, ptr %.066103, align 4, !tbaa !44
   %88 = sext i32 %86 to i64
-  %89 = getelementptr %struct.SlotRange, ptr %.066103, i64 %88
+  %89 = getelementptr [4 x i8], ptr %.066103, i64 %88
   %90 = getelementptr i8, ptr %89, i64 6
   store i16 %85, ptr %90, align 2, !tbaa !150
   %.not83 = icmp slt i32 %87, %.068102
@@ -4946,7 +4945,7 @@ define dso_local void @sflushCommand(ptr noundef %0) local_unnamed_addr #0 {
   %100 = add nsw i32 %99, 1
   store i32 %100, ptr %.167, align 4, !tbaa !44
   %101 = sext i32 %99 to i64
-  %102 = getelementptr %struct.SlotRange, ptr %.167, i64 %101
+  %102 = getelementptr [4 x i8], ptr %.167, i64 %101
   %103 = getelementptr i8, ptr %102, i64 6
   store i16 16383, ptr %103, align 2, !tbaa !150
   br label %104
@@ -4971,7 +4970,7 @@ define dso_local void @sflushCommand(ptr noundef %0) local_unnamed_addr #0 {
 113:                                              ; preds = %113, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %113 ]
   call void @addReplyArrayLen(ptr noundef %0, i64 noundef 2) #16
-  %114 = getelementptr inbounds nuw %struct.SlotRange, ptr %112, i64 %indvars.iv.i
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %112, i64 %indvars.iv.i
   %115 = load i16, ptr %114, align 4, !tbaa !148
   %116 = zext i16 %115 to i64
   call void @addReplyLongLong(ptr noundef %0, i64 noundef %116) #16

@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.pg_prng_state = type { i64, i64 }
-%union.ListCell = type { ptr }
 
 @pg_global_prng_state = external global %struct.pg_prng_state, align 8
 @.str = private unnamed_addr constant [37 x i8] c"TABLESAMPLE parameter cannot be null\00", align 1
@@ -220,7 +219,7 @@ list_length.exit.i:                               ; preds = %14, %6
 .lr.ph54.i:                                       ; preds = %.lr.ph.i, %43
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %43 ], [ 0, %.lr.ph.i ]
   %27 = load ptr, ptr %23, align 8
-  %28 = getelementptr inbounds nuw %union.ListCell, ptr %27, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %indvars.iv.i
   %29 = load ptr, ptr %28, align 8
   %30 = load ptr, ptr %24, align 8
   %31 = load ptr, ptr @CurrentMemoryContext, align 8
@@ -229,7 +228,7 @@ list_length.exit.i:                               ; preds = %14, %6
   %33 = load ptr, ptr %32, align 8
   %34 = call i64 %33(ptr noundef %29, ptr noundef %10, ptr noundef nonnull %2) #5
   store ptr %31, ptr @CurrentMemoryContext, align 8
-  %35 = getelementptr inbounds nuw i64, ptr %20, i64 %indvars.iv.i
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv.i
   store i64 %34, ptr %35, align 8
   %36 = load i8, ptr %2, align 1, !range !4, !noundef !5
   %37 = trunc nuw i8 %36 to i1

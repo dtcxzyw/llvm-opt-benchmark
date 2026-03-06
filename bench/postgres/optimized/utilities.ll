@@ -3,8 +3,6 @@ source_filename = "bench/postgres/original/utilities.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.among = type { i32, ptr, i32, i32, ptr }
-
 ; Function Attrs: nounwind uwtable
 define hidden ptr @create_s() local_unnamed_addr #0 {
   %1 = tail call ptr @palloc(i64 noundef 10) #9
@@ -1095,7 +1093,7 @@ select.unfold:                                    ; preds = %.thread145, %.outer
   %14 = add i32 %13, %.064
   %15 = tail call i32 @llvm.smin.i32(i32 %.072, i32 %.070)
   %16 = sext i32 %14 to i64
-  %17 = getelementptr inbounds %struct.among, ptr %1, i64 %16
+  %17 = getelementptr inbounds [32 x i8], ptr %1, i64 %16
   %18 = load i32, ptr %17, align 8
   %19 = icmp slt i32 %15, %18
   br i1 %19, label %.lr.ph, label %.thread145
@@ -1157,7 +1155,7 @@ select.unfold:                                    ; preds = %.thread145, %.outer
 .preheader:                                       ; preds = %43, %.thread
   %.266 = phi i32 [ %59, %.thread ], [ %40, %43 ]
   %46 = sext i32 %.266 to i64
-  %47 = getelementptr inbounds %struct.among, ptr %1, i64 %46
+  %47 = getelementptr inbounds [32 x i8], ptr %1, i64 %46
   %48 = load i32, ptr %47, align 8
   %.not82 = icmp slt i32 %39, %48
   br i1 %.not82, label %.thread, label %49
@@ -1225,7 +1223,7 @@ select.unfold:                                    ; preds = %.thread143, %.outer
   %15 = add i32 %14, %.064
   %16 = tail call i32 @llvm.smin.i32(i32 %.072, i32 %.070)
   %17 = sext i32 %15 to i64
-  %18 = getelementptr inbounds %struct.among, ptr %1, i64 %17
+  %18 = getelementptr inbounds [32 x i8], ptr %1, i64 %17
   %19 = load i32, ptr %18, align 8
   %20 = xor i32 %16, -1
   %21 = add i32 %19, %20
@@ -1293,7 +1291,7 @@ select.unfold:                                    ; preds = %.thread143, %.outer
 .preheader:                                       ; preds = %50, %.thread
   %.266 = phi i32 [ %66, %.thread ], [ %47, %50 ]
   %53 = sext i32 %.266 to i64
-  %54 = getelementptr inbounds %struct.among, ptr %1, i64 %53
+  %54 = getelementptr inbounds [32 x i8], ptr %1, i64 %53
   %55 = load i32, ptr %54, align 8
   %.not82 = icmp slt i32 %46, %55
   br i1 %.not82, label %.thread, label %56

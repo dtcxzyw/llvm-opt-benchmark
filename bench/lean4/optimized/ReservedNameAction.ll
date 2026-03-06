@@ -635,7 +635,7 @@ define ptr @l_Array_anyMUnsafe_any___at_Lean_executeReservedNameAction___spec__1
 15:                                               ; preds = %.lr.ph, %239
   %.072180 = phi i64 [ %2, %.lr.ph ], [ %240, %239 ]
   %.076179 = phi ptr [ %6, %.lr.ph ], [ %76, %239 ]
-  %16 = getelementptr inbounds nuw ptr, ptr %8, i64 %.072180
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.072180
   %17 = load ptr, ptr %16, align 8, !tbaa !4
   %18 = ptrtoint ptr %17 to i64
   %19 = trunc i64 %18 to i1

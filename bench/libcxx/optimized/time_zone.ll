@@ -60,8 +60,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::__1::chrono::__tz::__constrained_weekday" = type <{ %"class.std::__1::chrono::weekday", [3 x i8], i32, %"class.std::__1::chrono::day", [3 x i8] }>
 %"class.std::__1::chrono::weekday" = type { i8 }
 %class.anon.37 = type { ptr, ptr }
-%"struct.std::__1::pair.262" = type { %"class.std::__1::basic_string", %"class.std::__1::vector.170" }
-%"class.std::__1::vector.170" = type { ptr, ptr, ptr }
 %"struct.std::__1::__variant_detail::__visitation::__variant::__value_visitor.44" = type { ptr }
 %class.anon.42 = type { i8 }
 %"class.std::__1::basic_format_args" = type { i64, %union.anon.53 }
@@ -794,7 +792,7 @@ define dso_local void @_ZNKSt3__16chrono9time_zone10__get_infoB8ne210000ENS0_10t
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !42
   store ptr %7, ptr %4, align 8, !noalias !42
   %47 = zext i32 %43 to i64
-  %48 = getelementptr inbounds nuw ptr, ptr @"__const._ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000INS1_9__variant15__value_visitorIZNS_6chronoL14__get_sys_infoB8ne210000ENS6_10time_pointINS6_12system_clockENS6_8durationIxNS_5ratioILl1ELl1EEEEEEESD_RKNS6_4__tz14__continuationERKNS_6vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENSI_INSE_6__ruleENSN_ISQ_EEEEEENSN_IST_EEEEE3$_0EEJRKNS0_6__implIJNS_9monostateENSE_6__saveESP_EEEEEEDcOT_DpOT0_.__fmatrix", i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr @"__const._ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000INS1_9__variant15__value_visitorIZNS_6chronoL14__get_sys_infoB8ne210000ENS6_10time_pointINS6_12system_clockENS6_8durationIxNS_5ratioILl1ELl1EEEEEEESD_RKNS6_4__tz14__continuationERKNS_6vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENSI_INSE_6__ruleENSN_ISQ_EEEEEENSN_IST_EEEEE3$_0EEJRKNS0_6__implIJNS_9monostateENSE_6__saveESP_EEEEEEDcOT_DpOT0_.__fmatrix", i64 %47
   %49 = load ptr, ptr %48, align 8, !tbaa !45, !noalias !46
   invoke void %49(ptr dead_on_unwind nonnull writable sret(%"class.std::__1::expected") align 8 %9, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(32) %46)
           to label %50 unwind label %.loopexit
@@ -1877,7 +1875,7 @@ _ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit.i.i.i.i
   %24 = getelementptr inbounds i8, ptr %.07.i.i.i.i.i, i64 -96
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %25 = zext i32 %21 to i64
-  %26 = getelementptr inbounds nuw ptr, ptr @__const._ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.__fmatrix, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.__fmatrix, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !45
   invoke void %27(ptr noundef nonnull align 1 dereferenceable(1) %3, ptr noundef nonnull align 8 dereferenceable(32) %24)
           to label %_ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000IZNS0_6__dtorINS0_8__traitsIJNS_9monostateENS_6chrono4__tz6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEELNS0_6_TraitE1EE9__destroyB8ne210000EvEUlRT_E_JRSI_EEEDcOSJ_DpOT0_.exit.i.i.i.i.i.i.i.i.i.i.i unwind label %28
@@ -2134,7 +2132,7 @@ define internal void @"_ZNSt3__116__variant_detail12__visitation6__base12__dispa
   %.sroa.0.05.i.i.i.i.i.i.i.i.i = phi ptr [ %.val.i.i.i.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %.sroa.0.1.i.i.i.i.i.i.i.i.i, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit.i.i.i.i.i.i.i.i.i ]
   %.04.i.i.i.i.i.i.i.i.i = phi i64 [ %31, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %.1.i.i.i.i.i.i.i.i.i, %_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED2Ev.exit.i.i.i.i.i.i.i.i.i ]
   %39 = lshr i64 %.04.i.i.i.i.i.i.i.i.i, 1
-  %40 = getelementptr inbounds nuw %"struct.std::__1::pair.262", ptr %.sroa.0.05.i.i.i.i.i.i.i.i.i, i64 %39
+  %40 = getelementptr inbounds nuw [48 x i8], ptr %.sroa.0.05.i.i.i.i.i.i.i.i.i, i64 %39
   call void @llvm.lifetime.start.p0(ptr nonnull %16), !noalias !127
   %41 = load i8, ptr %40, align 8, !noalias !133
   %42 = trunc i8 %41 to i1
@@ -2391,7 +2389,7 @@ _ZNSt3__16chronoL11__get_rulesB8ne210000ERKNS_6vectorINS_4pairINS_12basic_string
 _ZNSt3__16chronoL19__to_year_month_dayB8ne210000ENS0_4yearENS0_5monthENS_7variantIJNS0_3dayENS0_12weekday_lastENS0_4__tz21__constrained_weekdayEEEE.exit.i.i.i.i.i.i.i: ; preds = %_ZNSt3__16chronoL11__get_rulesB8ne210000ERKNS_6vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEENS1_INS0_4__tz6__ruleENS6_ISA_EEEEEENS6_ISD_EEEERKS8_.exit.i.i.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !149
   store ptr %9, ptr %5, align 8, !noalias !149
-  %160 = getelementptr inbounds nuw ptr, ptr @"__const._ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000INS1_9__variant15__value_visitorIZNS_6chronoL19__to_year_month_dayB8ne210000ENS6_4yearENS6_5monthENS_7variantIJNS6_3dayENS6_12weekday_lastENS6_4__tz21__constrained_weekdayEEEEE3$_0EEJRNS0_6__implIJSA_SB_SD_EEEEEEDcOT_DpOT0_.__fmatrix", i64 %157
+  %160 = getelementptr inbounds nuw [8 x i8], ptr @"__const._ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000INS1_9__variant15__value_visitorIZNS_6chronoL19__to_year_month_dayB8ne210000ENS6_4yearENS6_5monthENS_7variantIJNS6_3dayENS6_12weekday_lastENS6_4__tz21__constrained_weekdayEEEEE3$_0EEJRNS0_6__implIJSA_SB_SD_EEEEEEDcOT_DpOT0_.__fmatrix", i64 %157
   %161 = load ptr, ptr %160, align 8, !tbaa !45, !noalias !149
   %162 = call i32 %161(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 4 dereferenceable(16) %8), !noalias !149
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !149
@@ -2931,7 +2929,7 @@ define internal fastcc i64 @_ZNSt3__16chronoL22__until_to_sys_secondsB8ne210000E
 _ZNSt3__16chronoL19__to_year_month_dayB8ne210000ENS0_4yearENS0_5monthENS_7variantIJNS0_3dayENS0_12weekday_lastENS0_4__tz21__constrained_weekdayEEEE.exit: ; preds = %12
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr %8, ptr %4, align 8
-  %20 = getelementptr inbounds nuw ptr, ptr @"__const._ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000INS1_9__variant15__value_visitorIZNS_6chronoL19__to_year_month_dayB8ne210000ENS6_4yearENS6_5monthENS_7variantIJNS6_3dayENS6_12weekday_lastENS6_4__tz21__constrained_weekdayEEEEE3$_0EEJRNS0_6__implIJSA_SB_SD_EEEEEEDcOT_DpOT0_.__fmatrix", i64 %17
+  %20 = getelementptr inbounds nuw [8 x i8], ptr @"__const._ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000INS1_9__variant15__value_visitorIZNS_6chronoL19__to_year_month_dayB8ne210000ENS6_4yearENS6_5monthENS_7variantIJNS6_3dayENS6_12weekday_lastENS6_4__tz21__constrained_weekdayEEEEE3$_0EEJRNS0_6__implIJSA_SB_SD_EEEEEEDcOT_DpOT0_.__fmatrix", i64 %17
   %21 = load ptr, ptr %20, align 8, !tbaa !45
   %22 = call i32 %21(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 4 dereferenceable(16) %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -2967,7 +2965,7 @@ _ZNSt3__16chronoL19__to_year_month_dayB8ne210000ENS0_4yearENS0_5monthENS_7varian
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   store ptr %3, ptr %2, align 8
   %35 = zext i32 %31 to i64
-  %36 = getelementptr inbounds nuw ptr, ptr @"__const._ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000INS1_9__variant15__value_visitorIZNS_6chronoL19__at_to_sys_secondsB8ne210000ERKNS6_4__tz14__continuationEE3$_0EEJRKNS0_6__implIJNS_9monostateENS7_6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEEEEEDcOT_DpOT0_.__fmatrix", i64 %35
+  %36 = getelementptr inbounds nuw [8 x i8], ptr @"__const._ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000INS1_9__variant15__value_visitorIZNS_6chronoL19__at_to_sys_secondsB8ne210000ERKNS6_4__tz14__continuationEE3$_0EEJRKNS0_6__implIJNS_9monostateENS7_6__saveENS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEEEEEEEDcOT_DpOT0_.__fmatrix", i64 %35
   %37 = load ptr, ptr %36, align 8, !tbaa !45
   %38 = call i64 %37(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(32) %34)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
@@ -3770,7 +3768,7 @@ _ZNSt3__17vformatB8ne210000IvEENS_12basic_stringIcNS_11char_traitsIcEENS_9alloca
   %305 = tail call ptr @__ctype_b_loc() #36
   %306 = load ptr, ptr %305, align 8, !tbaa !268
   %307 = sext i8 %58 to i64
-  %308 = getelementptr inbounds i16, ptr %306, i64 %307
+  %308 = getelementptr inbounds [2 x i8], ptr %306, i64 %307
   %309 = load i16, ptr %308, align 2, !tbaa !153
   %310 = and i16 %309, 8
   %.not = icmp eq i16 %310, 0
@@ -4142,7 +4140,7 @@ define internal i32 @"_ZNSt3__116__variant_detail12__visitation6__base12__dispat
   %14 = zext nneg i8 %.val.val3.val to i64
   %15 = add nuw nsw i64 %14, 4294967295
   %16 = and i64 %15, 4294967295
-  %17 = getelementptr inbounds nuw %"class.std::__1::chrono::day", ptr @__const._ZNKSt3__16chrono19year_month_day_last3dayB8ne210000Ev.__d, i64 %16
+  %17 = getelementptr inbounds nuw i8, ptr @__const._ZNKSt3__16chrono19year_month_day_last3dayB8ne210000Ev.__d, i64 %16
   %18 = load i8, ptr %17, align 1, !tbaa !17
   %19 = zext i8 %18 to i32
   %20 = add nuw nsw i32 %19, -719469
@@ -4924,7 +4922,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__18__format26__handle_replacement
   %36 = trunc i64 %35 to i8
   %37 = and i8 %36, 31
   %38 = load ptr, ptr %30, align 8, !tbaa !17, !noalias !325
-  %39 = getelementptr inbounds nuw %"class.std::__1::__basic_format_arg_value", ptr %38, i64 %23
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %23
   %.sroa.0.0.copyload.i.i = load i64, ptr %39, align 16, !noalias !325
   %.sroa.2.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %39, i64 8
   %.sroa.2.0.copyload.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !17, !noalias !325
@@ -4937,7 +4935,7 @@ define linkonce_odr hidden noundef ptr @_ZNSt3__18__format26__handle_replacement
 
 41:                                               ; preds = %28
   %42 = load ptr, ptr %30, align 8, !tbaa !17, !noalias !325
-  %43 = getelementptr inbounds nuw %"class.std::__1::basic_format_arg", ptr %42, i64 %23
+  %43 = getelementptr inbounds nuw [32 x i8], ptr %42, i64 %23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %7, ptr noundef nonnull align 16 dereferenceable(32) %43, i64 32, i1 false), !tbaa.struct !330
   br label %_ZNKSt3__120basic_format_contextINS_20back_insert_iteratorINS_8__format15__output_bufferIcEEEEcE3argB8ne210000Em.exit
 
@@ -7318,7 +7316,7 @@ define linkonce_odr hidden { i64, i64 } @_ZNKSt3__113__format_spec8__parserIcE31
   %27 = trunc i64 %26 to i8
   %28 = and i8 %27, 31
   %29 = load ptr, ptr %21, align 8, !tbaa !17, !noalias !389
-  %30 = getelementptr inbounds nuw %"class.std::__1::__basic_format_arg_value", ptr %29, i64 %16
+  %30 = getelementptr inbounds nuw [16 x i8], ptr %29, i64 %16
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %30, align 16, !noalias !389
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %30, i64 8
   %.sroa.2.0.copyload.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !tbaa !17, !noalias !389
@@ -7326,7 +7324,7 @@ define linkonce_odr hidden { i64, i64 } @_ZNKSt3__113__format_spec8__parserIcE31
 
 31:                                               ; preds = %19
   %32 = load ptr, ptr %21, align 8, !tbaa !17, !noalias !389
-  %33 = getelementptr inbounds nuw %"class.std::__1::basic_format_arg", ptr %32, i64 %16
+  %33 = getelementptr inbounds nuw [32 x i8], ptr %32, i64 %16
   %.sroa.0.0.copyload.i = load i64, ptr %33, align 16
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %33, i64 8
   %.sroa.3.0.copyload.i = load i64, ptr %.sroa.3.0..sroa_idx.i, align 8, !tbaa !17
@@ -7385,7 +7383,7 @@ _ZNKSt3__113__format_spec8__parserIcE11__get_widthB8ne210000INS_20basic_format_c
   %51 = trunc i64 %50 to i8
   %52 = and i8 %51, 31
   %53 = load ptr, ptr %45, align 8, !tbaa !17, !noalias !394
-  %54 = getelementptr inbounds nuw %"class.std::__1::__basic_format_arg_value", ptr %53, i64 %40
+  %54 = getelementptr inbounds nuw [16 x i8], ptr %53, i64 %40
   %.sroa.0.0.copyload.i.i.i23 = load i64, ptr %54, align 16, !noalias !394
   %.sroa.2.0..sroa_idx.i.i.i24 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %.sroa.2.0.copyload.i.i.i25 = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i24, align 8, !tbaa !17, !noalias !394
@@ -7393,7 +7391,7 @@ _ZNKSt3__113__format_spec8__parserIcE11__get_widthB8ne210000INS_20basic_format_c
 
 55:                                               ; preds = %43
   %56 = load ptr, ptr %45, align 8, !tbaa !17, !noalias !394
-  %57 = getelementptr inbounds nuw %"class.std::__1::basic_format_arg", ptr %56, i64 %40
+  %57 = getelementptr inbounds nuw [32 x i8], ptr %56, i64 %40
   %.sroa.0.0.copyload.i17 = load i64, ptr %57, align 16
   %.sroa.3.0..sroa_idx.i18 = getelementptr inbounds nuw i8, ptr %57, i64 8
   %.sroa.3.0.copyload.i19 = load i64, ptr %.sroa.3.0..sroa_idx.i18, align 8, !tbaa !17
@@ -7873,7 +7871,7 @@ define linkonce_odr hidden { i64, ptr } @_ZNSt3__113__format_spec8__detail43__es
   %.017.i.i.i.i.i = phi ptr [ @_ZNSt3__144__extended_grapheme_custer_property_boundary9__entriesB8ne210000E, %4 ], [ %.1.i.i.i.i.i, %12 ]
   %.01016.i.i.i.i.i = phi i64 [ 1501, %4 ], [ %.111.i.i.i.i.i, %12 ]
   %13 = lshr i64 %.01016.i.i.i.i.i, 1
-  %14 = getelementptr inbounds nuw i32, ptr %.017.i.i.i.i.i, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %.017.i.i.i.i.i, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !333
   %.not14.i.i.i.i.i = icmp ult i32 %11, %15
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 4
@@ -7943,7 +7941,7 @@ _ZNSt3__144__extended_grapheme_custer_property_boundary14__get_propertyB8ne21000
   %.017.i.i.i.i3.i = phi ptr [ @_ZNSt3__122__indic_conjunct_break9__entriesB8ne210000E, %40 ], [ %.1.i.i.i.i8.i, %42 ]
   %.01016.i.i.i.i4.i = phi i64 [ 403, %40 ], [ %.111.i.i.i.i7.i, %42 ]
   %43 = lshr i64 %.01016.i.i.i.i4.i, 1
-  %44 = getelementptr inbounds nuw i32, ptr %.017.i.i.i.i3.i, i64 %43
+  %44 = getelementptr inbounds nuw [4 x i8], ptr %.017.i.i.i.i3.i, i64 %43
   %45 = load i32, ptr %44, align 4, !tbaa !333
   %.not14.i.i.i.i5.i = icmp ult i32 %11, %45
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 4
@@ -8189,7 +8187,7 @@ _ZNSt3__19__unicode17__code_point_viewIcE9__consumeB8ne210000Ev.exit: ; preds = 
   %.017.i.i.i.i.i.i = phi ptr [ @_ZNSt3__144__extended_grapheme_custer_property_boundary9__entriesB8ne210000E, %_ZNSt3__19__unicode17__code_point_viewIcE9__consumeB8ne210000Ev.exit ], [ %.1.i.i.i.i.i.i, %171 ]
   %.01016.i.i.i.i.i.i = phi i64 [ 1501, %_ZNSt3__19__unicode17__code_point_viewIcE9__consumeB8ne210000Ev.exit ], [ %.111.i.i.i.i.i.i, %171 ]
   %172 = lshr i64 %.01016.i.i.i.i.i.i, 1
-  %173 = getelementptr inbounds nuw i32, ptr %.017.i.i.i.i.i.i, i64 %172
+  %173 = getelementptr inbounds nuw [4 x i8], ptr %.017.i.i.i.i.i.i, i64 %172
   %174 = load i32, ptr %173, align 4, !tbaa !333
   %.not14.i.i.i.i.i.i = icmp ult i32 %170, %174
   %175 = getelementptr inbounds nuw i8, ptr %173, i64 4
@@ -8250,7 +8248,7 @@ _ZNSt3__19__unicode33__extended_grapheme_cluster_breakclB8ne210000EDi.exit.i: ; 
   %.017.i.i.i.i = phi ptr [ @_ZNSt3__124__width_estimation_table9__entriesB8ne210000E, %194 ], [ %.1.i.i.i.i, %197 ]
   %.01016.i.i.i.i = phi i64 [ 110, %194 ], [ %.111.i.i.i.i, %197 ]
   %198 = lshr i64 %.01016.i.i.i.i, 1
-  %199 = getelementptr inbounds nuw i32, ptr %.017.i.i.i.i, i64 %198
+  %199 = getelementptr inbounds nuw [4 x i8], ptr %.017.i.i.i.i, i64 %198
   %200 = load i32, ptr %199, align 4, !tbaa !333
   %.not14.i.i.i.i = icmp ult i32 %196, %200
   %201 = getelementptr inbounds nuw i8, ptr %199, i64 4
@@ -8311,7 +8309,7 @@ define linkonce_odr hidden noundef zeroext i8 @_ZNSt3__122__indic_conjunct_break
   %.017.i.i.i = phi ptr [ @_ZNSt3__122__indic_conjunct_break9__entriesB8ne210000E, %1 ], [ %.1.i.i.i, %4 ]
   %.01016.i.i.i = phi i64 [ 403, %1 ], [ %.111.i.i.i, %4 ]
   %5 = lshr i64 %.01016.i.i.i, 1
-  %6 = getelementptr inbounds nuw i32, ptr %.017.i.i.i, i64 %5
+  %6 = getelementptr inbounds nuw [4 x i8], ptr %.017.i.i.i, i64 %5
   %7 = load i32, ptr %6, align 4, !tbaa !333
   %.not14.i.i.i = icmp ult i32 %3, %7
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 4
@@ -8371,7 +8369,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt3__19__unicode33__extended_g
   %.017.i.i.i.i.i = phi ptr [ @_ZNSt3__122__indic_conjunct_break9__entriesB8ne210000E, %8 ], [ %.1.i.i.i.i.i, %11 ]
   %.01016.i.i.i.i.i = phi i64 [ 403, %8 ], [ %.111.i.i.i.i.i, %11 ]
   %12 = lshr i64 %.01016.i.i.i.i.i, 1
-  %13 = getelementptr inbounds nuw i32, ptr %.017.i.i.i.i.i, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %.017.i.i.i.i.i, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !333
   %.not14.i.i.i.i.i = icmp ult i32 %10, %14
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 4
@@ -10289,7 +10287,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZNSt3__119__to_chars_integralB8ne21000
   %16 = mul nuw nsw i32 %15, 1233
   %17 = lshr i32 %16, 12
   %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr inbounds nuw i32, ptr @_ZNSt3__16__itoa10__pow10_32E, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr @_ZNSt3__16__itoa10__pow10_32E, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !333
   %21 = icmp ult i32 %2, %20
   %.neg.i.i = sext i1 %21 to i32
@@ -11564,7 +11562,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNSt3__111__formatter29__is_esca
   %.017.i.i.i.i = phi ptr [ @_ZNSt3__122__escaped_output_table9__entriesB8ne210000E, %7 ], [ %.1.i.i.i.i, %10 ]
   %.01016.i.i.i.i = phi i64 [ 735, %7 ], [ %.111.i.i.i.i, %10 ]
   %11 = lshr i64 %.01016.i.i.i.i, 1
-  %12 = getelementptr inbounds nuw i32, ptr %.017.i.i.i.i, i64 %11
+  %12 = getelementptr inbounds nuw [4 x i8], ptr %.017.i.i.i.i, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !333
   %.not14.i.i.i.i = icmp ult i32 %9, %13
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 4
@@ -11603,7 +11601,7 @@ _ZNSt3__122__escaped_output_table14__needs_escapeB8ne210000EDi.exit.thread: ; pr
   %.017.i.i.i.i5 = phi ptr [ @_ZNSt3__144__extended_grapheme_custer_property_boundary9__entriesB8ne210000E, %25 ], [ %.1.i.i.i.i10, %28 ]
   %.01016.i.i.i.i6 = phi i64 [ 1501, %25 ], [ %.111.i.i.i.i9, %28 ]
   %29 = lshr i64 %.01016.i.i.i.i6, 1
-  %30 = getelementptr inbounds nuw i32, ptr %.017.i.i.i.i5, i64 %29
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %.017.i.i.i.i5, i64 %29
   %31 = load i32, ptr %30, align 4, !tbaa !333
   %.not14.i.i.i.i7 = icmp ult i32 %27, %31
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 4
@@ -12639,7 +12637,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZNSt3__119__to_chars_integralB8ne21000
   %17 = mul nuw nsw i32 %16, 1233
   %18 = lshr i32 %17, 12
   %19 = zext nneg i32 %18 to i64
-  %20 = getelementptr inbounds nuw i64, ptr @_ZNSt3__16__itoa10__pow10_64E, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr @_ZNSt3__16__itoa10__pow10_64E, i64 %19
   %21 = load i64, ptr %20, align 8, !tbaa !233
   %22 = icmp ult i64 %2, %21
   %.neg.i.i = sext i1 %22 to i32
@@ -13589,7 +13587,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZNSt3__115__to_chars_itoaB8ne210000IoE
   %15 = mul nuw nsw i32 %14, 1233
   %16 = lshr i32 %15, 12
   %17 = zext nneg i32 %16 to i64
-  %18 = getelementptr inbounds nuw i64, ptr @_ZNSt3__16__itoa10__pow10_64E, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr @_ZNSt3__16__itoa10__pow10_64E, i64 %17
   %19 = load i64, ptr %18, align 8, !tbaa !233
   %20 = icmp ult i64 %2, %19
   %.neg.i.i = sext i1 %20 to i32
@@ -13674,7 +13672,7 @@ define linkonce_odr hidden { ptr, i32 } @_ZNSt3__115__to_chars_itoaB8ne210000IoE
   %76 = mul nuw nsw i32 %75, 1233
   %77 = lshr i32 %76, 12
   %78 = zext nneg i32 %77 to i64
-  %79 = getelementptr inbounds nuw i128, ptr @_ZNSt3__16__itoa11__pow10_128E, i64 %78
+  %79 = getelementptr inbounds nuw [16 x i8], ptr @_ZNSt3__16__itoa11__pow10_128E, i64 %78
   %80 = load i128, ptr %79, align 16, !tbaa !334
   %81 = icmp ult i128 %.sroa.013.0.insert.insert, %80
   %.neg.i = sext i1 %81 to i32
@@ -22569,7 +22567,7 @@ define linkonce_odr hidden { i64, i64 } @_ZNKSt3__113__format_spec8__parserIcE34
   %25 = trunc i64 %24 to i8
   %26 = and i8 %25, 31
   %27 = load ptr, ptr %19, align 8, !tbaa !17, !noalias !689
-  %28 = getelementptr inbounds nuw %"class.std::__1::__basic_format_arg_value", ptr %27, i64 %14
+  %28 = getelementptr inbounds nuw [16 x i8], ptr %27, i64 %14
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %28, align 16, !noalias !689
   %.sroa.2.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %28, i64 8
   %.sroa.2.0.copyload.i.i.i = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i, align 8, !tbaa !17, !noalias !689
@@ -22577,7 +22575,7 @@ define linkonce_odr hidden { i64, i64 } @_ZNKSt3__113__format_spec8__parserIcE34
 
 29:                                               ; preds = %17
   %30 = load ptr, ptr %19, align 8, !tbaa !17, !noalias !689
-  %31 = getelementptr inbounds nuw %"class.std::__1::basic_format_arg", ptr %30, i64 %14
+  %31 = getelementptr inbounds nuw [32 x i8], ptr %30, i64 %14
   %.sroa.0.0.copyload.i = load i64, ptr %31, align 16
   %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %31, i64 8
   %.sroa.3.0.copyload.i = load i64, ptr %.sroa.3.0..sroa_idx.i, align 8, !tbaa !17
@@ -22636,7 +22634,7 @@ _ZNKSt3__113__format_spec8__parserIcE11__get_widthB8ne210000INS_20basic_format_c
   %49 = trunc i64 %48 to i8
   %50 = and i8 %49, 31
   %51 = load ptr, ptr %43, align 8, !tbaa !17, !noalias !694
-  %52 = getelementptr inbounds nuw %"class.std::__1::__basic_format_arg_value", ptr %51, i64 %38
+  %52 = getelementptr inbounds nuw [16 x i8], ptr %51, i64 %38
   %.sroa.0.0.copyload.i.i.i27 = load i64, ptr %52, align 16, !noalias !694
   %.sroa.2.0..sroa_idx.i.i.i28 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %.sroa.2.0.copyload.i.i.i29 = load i64, ptr %.sroa.2.0..sroa_idx.i.i.i28, align 8, !tbaa !17, !noalias !694
@@ -22644,7 +22642,7 @@ _ZNKSt3__113__format_spec8__parserIcE11__get_widthB8ne210000INS_20basic_format_c
 
 53:                                               ; preds = %41
   %54 = load ptr, ptr %43, align 8, !tbaa !17, !noalias !694
-  %55 = getelementptr inbounds nuw %"class.std::__1::basic_format_arg", ptr %54, i64 %38
+  %55 = getelementptr inbounds nuw [32 x i8], ptr %54, i64 %38
   %.sroa.0.0.copyload.i21 = load i64, ptr %55, align 16
   %.sroa.3.0..sroa_idx.i22 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %.sroa.3.0.copyload.i23 = load i64, ptr %.sroa.3.0..sroa_idx.i22, align 8, !tbaa !17
@@ -25305,7 +25303,7 @@ define internal fastcc { i64, ptr } @_ZNSt3__16chronoL11__next_ruleB8ne210000ENS
 _ZNSt3__16chronoL19__to_year_month_dayB8ne210000ENS0_4yearENS0_5monthENS_7variantIJNS0_3dayENS0_12weekday_lastENS0_4__tz21__constrained_weekdayEEEE.exit.i: ; preds = %66
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   store ptr %10, ptr %6, align 8
-  %70 = getelementptr inbounds nuw ptr, ptr @"__const._ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000INS1_9__variant15__value_visitorIZNS_6chronoL19__to_year_month_dayB8ne210000ENS6_4yearENS6_5monthENS_7variantIJNS6_3dayENS6_12weekday_lastENS6_4__tz21__constrained_weekdayEEEEE3$_0EEJRNS0_6__implIJSA_SB_SD_EEEEEEDcOT_DpOT0_.__fmatrix", i64 %67
+  %70 = getelementptr inbounds nuw [8 x i8], ptr @"__const._ZNSt3__116__variant_detail12__visitation6__base11__visit_altB8ne210000INS1_9__variant15__value_visitorIZNS_6chronoL19__to_year_month_dayB8ne210000ENS6_4yearENS6_5monthENS_7variantIJNS6_3dayENS6_12weekday_lastENS6_4__tz21__constrained_weekdayEEEEE3$_0EEJRNS0_6__implIJSA_SB_SD_EEEEEEDcOT_DpOT0_.__fmatrix", i64 %67
   %71 = load ptr, ptr %70, align 8, !tbaa !45
   %72 = invoke i32 %71(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 4 dereferenceable(16) %9)
           to label %.noexc26 unwind label %.loopexit78

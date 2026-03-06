@@ -3,9 +3,6 @@ source_filename = "bench/llvm/original/ScoreboardHazardRecognizer.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.llvm::InstrStage" = type { i32, i64, i32, i32 }
-%"struct.llvm::InstrItinerary" = type { i16, i16, i16, i16, i16 }
-
 $_ZN4llvm26ScoreboardHazardRecognizerD2Ev = comdat any
 
 $_ZN4llvm26ScoreboardHazardRecognizerD0Ev = comdat any
@@ -79,13 +76,13 @@ _ZNK4llvm18InstrItineraryData11isEndMarkerEj.exit.thread: ; preds = %_ZNK4llvm18
   %.02654 = phi i32 [ %45, %.preheader.thread ], [ 0, %_ZNK4llvm18InstrItineraryData11isEndMarkerEj.exit.thread.preheader ]
   %28 = phi i32 [ %44, %.preheader.thread ], [ 0, %_ZNK4llvm18InstrItineraryData11isEndMarkerEj.exit.thread.preheader ]
   %29 = zext i16 %26 to i64
-  %30 = getelementptr inbounds nuw %"struct.llvm::InstrStage", ptr %23, i64 %29
+  %30 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %29
   %.not3039 = icmp eq i16 %27, %26
   br i1 %.not3039, label %.preheader.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %_ZNK4llvm18InstrItineraryData11isEndMarkerEj.exit.thread
   %31 = zext i16 %27 to i64
-  %32 = getelementptr inbounds nuw %"struct.llvm::InstrStage", ptr %23, i64 %31
+  %32 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %31
   br label %.lr.ph
 
 .preheader:                                       ; preds = %.lr.ph
@@ -123,7 +120,7 @@ _ZNK4llvm18InstrItineraryData11isEndMarkerEj.exit.thread: ; preds = %_ZNK4llvm18
   %.2.lcssa = phi i32 [ %42, %._crit_edge ], [ %.155, %.preheader ], [ %.155, %_ZNK4llvm18InstrItineraryData11isEndMarkerEj.exit.thread ]
   %45 = add i32 %.02654, 1
   %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds nuw %"struct.llvm::InstrItinerary", ptr %14, i64 %46
+  %47 = getelementptr inbounds nuw [10 x i8], ptr %14, i64 %46
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 2
   %49 = load i16, ptr %48, align 2, !tbaa !31
   %50 = icmp eq i16 %49, -1
@@ -274,7 +271,7 @@ _ZNK4llvm11ScheduleDAG12getInstrDescEPKNS_5SUnitE.exit: ; preds = %17, %20
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 96
   %29 = load ptr, ptr %28, align 8, !tbaa !21
   %30 = zext i16 %26 to i64
-  %31 = getelementptr inbounds nuw %"struct.llvm::InstrItinerary", ptr %29, i64 %30
+  %31 = getelementptr inbounds nuw [10 x i8], ptr %29, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 2
   %33 = load i16, ptr %32, align 2, !tbaa !31
   %34 = getelementptr inbounds nuw i8, ptr %27, i64 72
@@ -282,13 +279,13 @@ _ZNK4llvm11ScheduleDAG12getInstrDescEPKNS_5SUnitE.exit: ; preds = %17, %20
   %36 = getelementptr inbounds nuw i8, ptr %31, i64 4
   %37 = load i16, ptr %36, align 2, !tbaa !34
   %38 = zext i16 %37 to i64
-  %39 = getelementptr inbounds nuw %"struct.llvm::InstrStage", ptr %35, i64 %38
+  %39 = getelementptr inbounds nuw [24 x i8], ptr %35, i64 %38
   %.not4360.not = icmp eq i16 %33, %37
   br i1 %.not4360.not, label %.loopexit, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %24
   %40 = zext i16 %33 to i64
-  %41 = getelementptr inbounds nuw %"struct.llvm::InstrStage", ptr %35, i64 %40
+  %41 = getelementptr inbounds nuw [24 x i8], ptr %35, i64 %40
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %44 = load i64, ptr %43, align 8
@@ -346,7 +343,7 @@ _ZNK4llvm11ScheduleDAG12getInstrDescEPKNS_5SUnitE.exit: ; preds = %17, %20
   %69 = zext nneg i32 %62 to i64
   %70 = add i64 %49, %69
   %71 = and i64 %52, %70
-  %72 = getelementptr inbounds nuw i64, ptr %47, i64 %71
+  %72 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %71
   %73 = load i64, ptr %72, align 8, !tbaa !73
   %74 = xor i64 %73, -1
   %75 = and i64 %66, %74
@@ -357,7 +354,7 @@ _ZNK4llvm11ScheduleDAG12getInstrDescEPKNS_5SUnitE.exit: ; preds = %17, %20
   %.1 = phi i64 [ %66, %._crit_edge ], [ %75, %68 ]
   %77 = add i64 %55, %.pre-phi
   %78 = and i64 %77, %56
-  %79 = getelementptr inbounds nuw i64, ptr %53, i64 %78
+  %79 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %78
   %80 = load i64, ptr %79, align 8, !tbaa !73
   %81 = xor i64 %80, -1
   %82 = and i64 %.1, %81
@@ -439,7 +436,7 @@ _ZNK4llvm11ScheduleDAG12getInstrDescEPKNS_5SUnitE.exit: ; preds = %16, %19
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 96
   %33 = load ptr, ptr %32, align 8, !tbaa !21
   %34 = zext i16 %30 to i64
-  %35 = getelementptr inbounds nuw %"struct.llvm::InstrItinerary", ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw [10 x i8], ptr %33, i64 %34
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 2
   %37 = load i16, ptr %36, align 2, !tbaa !31
   %38 = getelementptr inbounds nuw i8, ptr %31, i64 72
@@ -447,13 +444,13 @@ _ZNK4llvm11ScheduleDAG12getInstrDescEPKNS_5SUnitE.exit: ; preds = %16, %19
   %40 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %41 = load i16, ptr %40, align 2, !tbaa !34
   %42 = zext i16 %41 to i64
-  %43 = getelementptr inbounds nuw %"struct.llvm::InstrStage", ptr %39, i64 %42
+  %43 = getelementptr inbounds nuw [24 x i8], ptr %39, i64 %42
   %.not3639 = icmp eq i16 %37, %41
   br i1 %.not3639, label %.loopexit, label %.preheader.lr.ph
 
 .preheader.lr.ph:                                 ; preds = %25
   %44 = zext i16 %37 to i64
-  %45 = getelementptr inbounds nuw %"struct.llvm::InstrStage", ptr %39, i64 %44
+  %45 = getelementptr inbounds nuw [24 x i8], ptr %39, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -493,14 +490,14 @@ _ZNK4llvm11ScheduleDAG12getInstrDescEPKNS_5SUnitE.exit: ; preds = %16, %19
   %64 = zext i32 %63 to i64
   %65 = add i64 %61, %64
   %66 = and i64 %60, %65
-  %67 = getelementptr inbounds nuw i64, ptr %57, i64 %66
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %66
   %68 = load i64, ptr %67, align 8, !tbaa !73
   %69 = load i64, ptr %48, align 8, !tbaa !44
   %70 = add i64 %69, -1
   %71 = load i64, ptr %47, align 8, !tbaa !46
   %72 = add i64 %71, %64
   %73 = and i64 %70, %72
-  %74 = getelementptr inbounds nuw i64, ptr %56, i64 %73
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %73
   %75 = load i64, ptr %74, align 8, !tbaa !73
   %76 = load i64, ptr %53, align 8, !tbaa !71
   %77 = or i64 %75, %68
@@ -524,7 +521,7 @@ _ZNK4llvm11ScheduleDAG12getInstrDescEPKNS_5SUnitE.exit: ; preds = %16, %19
   %89 = load i64, ptr %51, align 8, !tbaa !44
   %90 = add i64 %89, -1
   %91 = and i64 %90, %88
-  %92 = getelementptr inbounds nuw i64, ptr %57, i64 %91
+  %92 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %91
   %93 = load i64, ptr %92, align 8, !tbaa !73
   %94 = or i64 %93, %.2.us
   store i64 %94, ptr %92, align 8, !tbaa !73
@@ -556,7 +553,7 @@ _ZNK4llvm11ScheduleDAG12getInstrDescEPKNS_5SUnitE.exit: ; preds = %16, %19
   %104 = load i64, ptr %51, align 8, !tbaa !44
   %105 = add i64 %104, -1
   %106 = and i64 %105, %103
-  %107 = getelementptr inbounds nuw i64, ptr %57, i64 %106
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %57, i64 %106
   %108 = load i64, ptr %107, align 8, !tbaa !73
   %109 = xor i64 %108, -1
   %110 = and i64 %101, %109
@@ -582,7 +579,7 @@ _ZNK4llvm11ScheduleDAG12getInstrDescEPKNS_5SUnitE.exit: ; preds = %16, %19
   %120 = load i64, ptr %48, align 8, !tbaa !44
   %121 = add i64 %120, -1
   %122 = and i64 %121, %119
-  %123 = getelementptr inbounds nuw i64, ptr %56, i64 %122
+  %123 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %122
   %124 = load i64, ptr %123, align 8, !tbaa !73
   %125 = or i64 %124, %.2
   store i64 %125, ptr %123, align 8, !tbaa !73
@@ -606,7 +603,7 @@ define dso_local void @_ZN4llvm26ScoreboardHazardRecognizer12AdvanceCycleEv(ptr 
   %8 = load i64, ptr %7, align 8, !tbaa !44
   %9 = add i64 %8, -1
   %10 = and i64 %9, %6
-  %11 = getelementptr inbounds nuw i64, ptr %4, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %10
   store i64 0, ptr %11, align 8, !tbaa !73
   %12 = load i64, ptr %5, align 8, !tbaa !46
   %13 = add i64 %12, 1
@@ -622,7 +619,7 @@ define dso_local void @_ZN4llvm26ScoreboardHazardRecognizer12AdvanceCycleEv(ptr 
   %22 = load i64, ptr %21, align 8, !tbaa !44
   %23 = add i64 %22, -1
   %24 = and i64 %23, %20
-  %25 = getelementptr inbounds nuw i64, ptr %18, i64 %24
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %24
   store i64 0, ptr %25, align 8, !tbaa !73
   %26 = load i64, ptr %19, align 8, !tbaa !46
   %27 = add i64 %26, 1
@@ -646,7 +643,7 @@ define dso_local void @_ZN4llvm26ScoreboardHazardRecognizer11RecedeCycleEv(ptr n
   %9 = load i64, ptr %8, align 8, !tbaa !46
   %10 = add i64 %9, %6
   %11 = and i64 %10, %6
-  %12 = getelementptr inbounds nuw i64, ptr %7, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %11
   store i64 0, ptr %12, align 8, !tbaa !73
   %13 = load i64, ptr %8, align 8, !tbaa !46
   %14 = add i64 %13, -1
@@ -663,7 +660,7 @@ define dso_local void @_ZN4llvm26ScoreboardHazardRecognizer11RecedeCycleEv(ptr n
   %24 = load i64, ptr %23, align 8, !tbaa !46
   %25 = add i64 %24, %21
   %26 = and i64 %25, %21
-  %27 = getelementptr inbounds nuw i64, ptr %22, i64 %26
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %26
   store i64 0, ptr %27, align 8, !tbaa !73
   %28 = load i64, ptr %23, align 8, !tbaa !46
   %29 = add i64 %28, -1

@@ -12,7 +12,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.pretty_print_context = type { i32, i32, ptr, i32, %struct.date_mode, i8, i32, i32, ptr, ptr, ptr, ptr, ptr, i32, ptr, i8, ptr, %struct.string_list, i32 }
 %struct.date_mode = type { i32, i32, ptr }
 %struct.string_list = type { ptr, i64, i64, i8, ptr }
-%struct.string_list_item = type { ptr, ptr }
 %struct.shortlog = type { %struct.string_list, i32, i32, i32, i32, i32, i32, i32, i32, %struct.date_mode, i32, %struct.string_list, %struct.string_list, i32, %struct.string_list, ptr }
 %struct.rev_info = type { ptr, %struct.object_array, ptr, %struct.object_array, %struct.rev_cmdline_info, %struct.list_objects_filter_options, %struct.ref_exclusions, ptr, ptr, ptr, %struct.pathspec, i32, i32, i32, i32, i64, i32, i32, %struct.date_mode, i32, i32, i32, i32, ptr, i32, i32, ptr, ptr, i32, ptr, ptr, %struct.ident_split, ptr, i32, ptr, ptr, ptr, i32, i32, i32, ptr, %struct.grep_opt, ptr, i32, i32, i64, i64, i64, i32, i32, ptr, ptr, ptr, %struct.diff_options, %struct.diff_options, ptr, %struct.decoration, %struct.decoration, %struct.decoration, %struct.display_notes_opt, ptr, ptr, ptr, ptr, ptr, i32, ptr, i32, i32, i32, %struct.decoration, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, ptr, i32, ptr, %struct.oidset }
 %struct.object_array = type { i32, i32, ptr }
@@ -282,7 +281,7 @@ shortlog_needs_dedup.exit.thread.i:               ; preds = %shortlog_needs_dedu
   %80 = getelementptr inbounds nuw i8, ptr %.018.i18, i64 16
   %81 = load ptr, ptr %58, align 8, !tbaa !44
   %82 = load i64, ptr %60, align 8, !tbaa !45
-  %83 = getelementptr inbounds nuw %struct.string_list_item, ptr %81, i64 %82
+  %83 = getelementptr inbounds nuw [16 x i8], ptr %81, i64 %82
   %84 = icmp ult ptr %80, %83
   br i1 %84, label %.lr.ph, label %insert_records_from_format.exit
 
@@ -1273,7 +1272,7 @@ define dso_local void @shortlog_output(ptr noundef %0) local_unnamed_addr #0 {
 23:                                               ; preds = %.lr.ph47, %77
   %24 = phi ptr [ %.pre, %.lr.ph47 ], [ %78, %77 ]
   %.045 = phi i64 [ 0, %.lr.ph47 ], [ %81, %77 ]
-  %25 = getelementptr inbounds nuw %struct.string_list_item, ptr %24, i64 %.045
+  %25 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %.045
   %26 = load i32, ptr %15, align 8, !tbaa !28
   %.not40 = icmp eq i32 %26, 0
   br i1 %.not40, label %35, label %27
@@ -1303,7 +1302,7 @@ define dso_local void @shortlog_output(ptr noundef %0) local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %35, %70
   %.03844 = phi i64 [ %71, %70 ], [ %43, %35 ]
   %44 = load ptr, ptr %37, align 8, !tbaa !142
-  %45 = getelementptr %struct.string_list_item, ptr %44, i64 %.03844
+  %45 = getelementptr [16 x i8], ptr %44, i64 %.03844
   %46 = getelementptr i8, ptr %45, i64 -16
   %47 = load ptr, ptr %46, align 8, !tbaa !46
   %48 = load i32, ptr %17, align 4, !tbaa !136
@@ -1381,7 +1380,7 @@ add_wrapped_shortlog_msg.exit:                    ; preds = %strbuf_avail.exit.i
 
 77:                                               ; preds = %._crit_edge, %27
   %78 = load ptr, ptr %0, align 8, !tbaa !138
-  %79 = getelementptr inbounds nuw %struct.string_list_item, ptr %78, i64 %.045
+  %79 = getelementptr inbounds nuw [16 x i8], ptr %78, i64 %.045
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
   store ptr null, ptr %80, align 8, !tbaa !140
   %81 = add nuw i64 %.045, 1

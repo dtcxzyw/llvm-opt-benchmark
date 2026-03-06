@@ -54,7 +54,7 @@ define dso_local noundef nonnull ptr @tick_get_broadcast_mask() local_unnamed_ad
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none, target_mem0: none, target_mem1: none)
 define dso_local ptr @tick_get_wakeup_device(i32 noundef %0) local_unnamed_addr #1 align 16 {
   %2 = sext i32 %0 to i64
-  %3 = getelementptr i64, ptr @__per_cpu_offset, i64 %2
+  %3 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %2
   %4 = load i64, ptr %3, align 8
   %5 = add i64 %4, ptrtoint (ptr @tick_oneshot_wakeup_device to i64)
   %6 = inttoptr i64 %5 to ptr
@@ -66,7 +66,7 @@ define dso_local ptr @tick_get_wakeup_device(i32 noundef %0) local_unnamed_addr 
 define dso_local void @tick_install_broadcast_device(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 align 16 {
   %3 = load ptr, ptr @tick_broadcast_device, align 8
   %4 = sext i32 %1 to i64
-  %5 = getelementptr i64, ptr @__per_cpu_offset, i64 %4
+  %5 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %4
   %6 = load i64, ptr %5, align 8
   %7 = add i64 %6, ptrtoint (ptr @tick_oneshot_wakeup_device to i64)
   %8 = inttoptr i64 %7 to ptr
@@ -86,12 +86,12 @@ define dso_local void @tick_install_broadcast_device(ptr noundef %0, i32 noundef
   %18 = load ptr, ptr %17, align 16
   %19 = and i32 %1, 63
   %20 = zext nneg i32 %19 to i64
-  %21 = getelementptr [1 x i64], ptr @cpu_bit_bitmap, i64 %20
+  %21 = getelementptr [8 x i8], ptr @cpu_bit_bitmap, i64 %20
   %22 = getelementptr i8, ptr %21, i64 8
   %23 = lshr i32 %1, 6
   %24 = zext nneg i32 %23 to i64
   %25 = sub nsw i64 0, %24
-  %26 = getelementptr i64, ptr %22, i64 %25
+  %26 = getelementptr [8 x i8], ptr %22, i64 %25
   %27 = load i64, ptr %18, align 8
   %28 = load i64, ptr %26, align 8
   %29 = icmp eq i64 %27, %28
@@ -493,7 +493,7 @@ define internal fastcc void @tick_broadcast_setup_oneshot(ptr noundef %0, i1 nou
 
 29:                                               ; preds = %25
   %30 = and i64 %26, 63
-  %31 = getelementptr i64, ptr @__per_cpu_offset, i64 %30
+  %31 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %30
   %32 = load i64, ptr %31, align 8
   %33 = add i64 %32, ptrtoint (ptr @tick_cpu_device to i64)
   %34 = inttoptr i64 %33 to ptr
@@ -538,12 +538,12 @@ define internal fastcc void @tick_broadcast_setup_oneshot(ptr noundef %0, i1 nou
   %56 = tail call i32 @clockevents_program_event(ptr noundef nonnull %0, i64 noundef %47, i1 noundef zeroext true) #11
   %57 = and i32 %3, 63
   %58 = zext nneg i32 %57 to i64
-  %59 = getelementptr [1 x i64], ptr @cpu_bit_bitmap, i64 %58
+  %59 = getelementptr [8 x i8], ptr @cpu_bit_bitmap, i64 %58
   %60 = getelementptr i8, ptr %59, i64 8
   %61 = lshr i32 %3, 6
   %62 = zext nneg i32 %61 to i64
   %63 = sub nsw i64 0, %62
-  %64 = getelementptr i64, ptr %60, i64 %63
+  %64 = getelementptr [8 x i8], ptr %60, i64 %63
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %66 = load i32, ptr %65, align 4
   %67 = and i32 %66, 32
@@ -767,7 +767,7 @@ define internal void @tick_handle_periodic_broadcast(ptr noundef %0) #2 align 16
 28:                                               ; preds = %24
   %29 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %26) #13, !srcloc !10
   %30 = and i64 %29, 4294967295
-  %31 = getelementptr i64, ptr @__per_cpu_offset, i64 %30
+  %31 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %30
   %32 = load i64, ptr %31, align 8
   %33 = add i64 %32, ptrtoint (ptr @tick_cpu_device to i64)
   %34 = inttoptr i64 %33 to ptr
@@ -811,7 +811,7 @@ define dso_local void @tick_broadcast_offline(i32 noundef %0) local_unnamed_addr
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @tick_broadcast_mask, i64 %2) #11, !srcloc !7
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock;  btrq  $1,$0", "*m,Ir,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) @tick_broadcast_on, i64 %2) #11, !srcloc !7
   %3 = sext i32 %0 to i64
-  %4 = getelementptr i64, ptr @__per_cpu_offset, i64 %3
+  %4 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %3
   %5 = load i64, ptr %4, align 8
   %6 = add i64 %5, ptrtoint (ptr @tick_oneshot_wakeup_device to i64)
   %7 = inttoptr i64 %6 to ptr
@@ -986,7 +986,7 @@ define dso_local range(i32 -16, 1) i32 @__tick_broadcast_oneshot_control(i32 nou
 
 9:                                                ; preds = %1
   %10 = sext i32 %4 to i64
-  %11 = getelementptr i64, ptr @__per_cpu_offset, i64 %10
+  %11 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %10
   %12 = load i64, ptr %11, align 8
   %13 = add i64 %12, ptrtoint (ptr @tick_oneshot_wakeup_device to i64)
   %14 = inttoptr i64 %13 to ptr
@@ -1309,12 +1309,12 @@ define internal fastcc void @tick_broadcast_set_event(ptr noundef %0, i32 nounde
   %9 = tail call i32 @clockevents_program_event(ptr noundef %0, i64 noundef %2, i1 noundef zeroext true) #11
   %10 = and i32 %1, 63
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr [1 x i64], ptr @cpu_bit_bitmap, i64 %11
+  %12 = getelementptr [8 x i8], ptr @cpu_bit_bitmap, i64 %11
   %13 = getelementptr i8, ptr %12, i64 8
   %14 = lshr i32 %1, 6
   %15 = zext nneg i32 %14 to i64
   %16 = sub nsw i64 0, %15
-  %17 = getelementptr i64, ptr %13, i64 %16
+  %17 = getelementptr [8 x i8], ptr %13, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %19 = load i32, ptr %18, align 4
   %20 = and i32 %19, 32
@@ -1377,7 +1377,7 @@ define internal void @tick_handle_oneshot_broadcast(ptr noundef initializes((24,
 
 16:                                               ; preds = %12
   %17 = and i64 %13, 63
-  %18 = getelementptr i64, ptr @__per_cpu_offset, i64 %17
+  %18 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %17
   %19 = load i64, ptr %18, align 8
   %20 = add i64 %19, ptrtoint (ptr @tick_cpu_device to i64)
   %21 = inttoptr i64 %20 to ptr
@@ -1462,7 +1462,7 @@ define internal void @tick_handle_oneshot_broadcast(ptr noundef initializes((24,
 67:                                               ; preds = %63
   %68 = tail call i64 asm "rep; bsf $1,$0", "=r,rm,~{dirflag},~{fpsr},~{flags}"(i64 %65) #13, !srcloc !10
   %69 = and i64 %68, 4294967295
-  %70 = getelementptr i64, ptr @__per_cpu_offset, i64 %69
+  %70 = getelementptr [8 x i8], ptr @__per_cpu_offset, i64 %69
   %71 = load i64, ptr %70, align 8
   %72 = add i64 %71, ptrtoint (ptr @tick_cpu_device to i64)
   %73 = inttoptr i64 %72 to ptr
@@ -1489,7 +1489,7 @@ define internal void @tick_handle_oneshot_broadcast(ptr noundef initializes((24,
 84:                                               ; preds = %83, %79
   %85 = tail call i32 @clockevents_program_event(ptr noundef %0, i64 noundef %.lcssa, i1 noundef zeroext true) #11
   %86 = zext nneg i32 %.lcssa6 to i64
-  %87 = getelementptr [1 x i64], ptr @cpu_bit_bitmap, i64 %86
+  %87 = getelementptr [8 x i8], ptr @cpu_bit_bitmap, i64 %86
   %88 = getelementptr i8, ptr %87, i64 8
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %90 = load i32, ptr %89, align 4

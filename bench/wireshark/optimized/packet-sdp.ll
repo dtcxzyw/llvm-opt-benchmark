@@ -20,7 +20,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { %struct.anon.0 }
 %struct.anon.0 = type { %struct._address, i16 }
 %struct.transport_info_t = type { i32, [128 x ptr], [128 x i32], [128 x i32], ptr, ptr, i32, i32, i32, i32 }
-%struct.anon.1 = type { ptr, i32 }
 %struct._asn1_ctx_t = type { i32, i32, i8, ptr, ptr, ptr, ptr, ptr, %struct.anon.3, %struct.anon.7, %struct.anon.8, ptr }
 %struct.anon.3 = type { i32, i8, i8, i8, ptr, ptr, i32, i32, ptr, ptr, ptr, %union.anon.4 }
 %union.anon.4 = type { %struct.anon.5 }
@@ -546,7 +545,7 @@ define hidden void @setup_sdp_transport(ptr noundef %0, ptr noundef %1, i32 noun
   %indvars.iv = phi i64 [ 0, %.thread ], [ %indvars.iv.next, %26 ]
   %27 = tail call ptr @wmem_file_scope()
   %28 = tail call noalias ptr @wmem_strdup(ptr noundef %27, ptr noundef nonnull @.str.34)
-  %29 = getelementptr ptr, ptr %25, i64 %indvars.iv
+  %29 = getelementptr [8 x i8], ptr %25, i64 %indvars.iv
   store ptr %28, ptr %29, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 128
@@ -1613,7 +1612,7 @@ define internal fastcc void @complete_descriptions(ptr noundef readonly captures
 
 22:                                               ; preds = %.lr.ph, %22
   %indvars.iv91 = phi i64 [ %indvars.iv, %.lr.ph ], [ %indvars.iv.next92, %22 ]
-  %23 = getelementptr %struct.media_description_t, ptr %11, i64 %indvars.iv91
+  %23 = getelementptr [176 x i8], ptr %11, i64 %indvars.iv91
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 10
   %25 = load i16, ptr %24, align 2
   %26 = icmp eq i16 %21, %25
@@ -1692,7 +1691,7 @@ define internal fastcc void @complete_descriptions(ptr noundef readonly captures
 
 55:                                               ; preds = %.lr.ph87, %103
   %indvars.iv101 = phi i64 [ %54, %.lr.ph87 ], [ %indvars.iv.next102, %103 ]
-  %56 = getelementptr %struct.media_description_t, ptr %11, i64 %indvars.iv101
+  %56 = getelementptr [176 x i8], ptr %11, i64 %indvars.iv101
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 12
   %58 = load i16, ptr %57, align 4
   %59 = icmp eq i16 %58, 0
@@ -1716,7 +1715,7 @@ define internal fastcc void @complete_descriptions(ptr noundef readonly captures
 
 68:                                               ; preds = %64
   %69 = sub nuw nsw i64 %indvars.iv101, %54
-  %70 = getelementptr %struct.media_description_t, ptr %11, i64 %69
+  %70 = getelementptr [176 x i8], ptr %11, i64 %69
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 10
   store i16 0, ptr %71, align 2
   br label %72
@@ -2221,7 +2220,7 @@ define internal i32 @dissect_sdp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %indvars.iv = phi i64 [ 0, %29 ], [ %indvars.iv.next, %34 ]
   %35 = load ptr, ptr %17, align 8
   %36 = tail call noalias ptr @wmem_strdup(ptr noundef %35, ptr noundef nonnull @.str.34)
-  %37 = getelementptr ptr, ptr %33, i64 %indvars.iv
+  %37 = getelementptr [8 x i8], ptr %33, i64 %indvars.iv
   store ptr %36, ptr %37, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 128
@@ -2505,7 +2504,7 @@ define internal i32 @dissect_sdp(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 
 165:                                              ; preds = %.lr.ph239, %191
   %indvars.iv254 = phi i64 [ 0, %.lr.ph239 ], [ %indvars.iv.next255, %191 ]
-  %166 = getelementptr i32, ptr %163, i64 %indvars.iv254
+  %166 = getelementptr [4 x i8], ptr %163, i64 %indvars.iv254
   %167 = load i32, ptr %166, align 4
   %168 = and i32 %167, -32
   %or.cond202 = icmp eq i32 %168, 96
@@ -3308,7 +3307,7 @@ find_next_token_in_line.exit113:                  ; preds = %47, %.loopexit.i110
   %69 = load ptr, ptr %6, align 8
   %70 = load i8, ptr %69, align 1
   %71 = zext i8 %70 to i64
-  %72 = getelementptr i16, ptr %68, i64 %71
+  %72 = getelementptr [2 x i8], ptr %68, i64 %71
   %73 = load i16, ptr %72, align 2
   %74 = and i16 %73, 8
   %.not99 = icmp eq i16 %74, 0
@@ -3440,7 +3439,7 @@ find_next_token_in_line.exit138:                  ; preds = %112, %.loopexit.i13
   %131 = load ptr, ptr %6, align 8
   %132 = load i8, ptr %131, align 1
   %133 = zext i8 %132 to i64
-  %134 = getelementptr i16, ptr %130, i64 %133
+  %134 = getelementptr [2 x i8], ptr %130, i64 %133
   %135 = load i16, ptr %134, align 2
   %136 = and i16 %135, 8
   %.not98 = icmp eq i16 %136, 0
@@ -3538,7 +3537,7 @@ find_next_token_in_line.exit153:                  ; preds = %156, %.loopexit.i15
 
 177:                                              ; preds = %176, %.loopexit217
   %indvars.iv.i = phi i64 [ 0, %.loopexit217 ], [ %indvars.iv.next.i, %176 ]
-  %178 = getelementptr %struct.anon.1, ptr @__const.parse_sdp_media_protocol.protocols, i64 %indvars.iv.i
+  %178 = getelementptr [16 x i8], ptr @__const.parse_sdp_media_protocol.protocols, i64 %indvars.iv.i
   %179 = load ptr, ptr %178, align 16
   %180 = call i32 @strcmp(ptr noundef %179, ptr noundef readonly %175) #14
   %.not.i154 = icmp eq i32 %180, 0
@@ -3620,7 +3619,7 @@ find_next_optional_token_in_line.exit.thread210:  ; preds = %.lr.ph.i, %find_nex
   %209 = call ptr @tvb_get_string_enc(ptr noundef %208, ptr noundef %0, i32 noundef %.042.i214, i32 noundef %.02940.i216, i32 noundef 2)
   %210 = load i8, ptr %209, align 1
   %211 = zext i8 %210 to i64
-  %212 = getelementptr i16, ptr %157, i64 %211
+  %212 = getelementptr [2 x i8], ptr %157, i64 %211
   %213 = load i16, ptr %212, align 2
   %214 = and i16 %213, 8
   %.not100 = icmp eq i16 %214, 0
@@ -3639,7 +3638,7 @@ find_next_optional_token_in_line.exit.thread210:  ; preds = %.lr.ph.i, %find_nex
   %223 = call i64 @strtol(ptr noundef captures(none) %209, ptr noundef null, i32 noundef 10) #11
   %224 = trunc i64 %223 to i32
   %225 = sext i8 %222 to i64
-  %226 = getelementptr i32, ptr %187, i64 %225
+  %226 = getelementptr [4 x i8], ptr %187, i64 %225
   store i32 %224, ptr %226, align 4
   %227 = icmp slt i8 %222, 19
   br i1 %227, label %228, label %236
@@ -3697,7 +3696,7 @@ define internal fastcc void @dissect_sdp_media_attribute(ptr noundef %0, ptr nou
 
 27:                                               ; preds = %35, %23
   %indvars.iv.i = phi i64 [ 1, %23 ], [ %indvars.iv.next.i, %35 ]
-  %28 = getelementptr %struct.sdp_names_t, ptr @sdp_media_attribute_names, i64 %indvars.iv.i
+  %28 = getelementptr [8 x i8], ptr @sdp_media_attribute_names, i64 %indvars.iv.i
   %29 = load ptr, ptr %28, align 8
   %30 = tail call i64 @strlen(ptr noundef %29) #14
   %31 = icmp eq i64 %30, %26
@@ -3783,7 +3782,7 @@ find_sdp_media_attribute_names.exit:              ; preds = %35, %.split.loop.ex
   %71 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %72 = load i8, ptr %18, align 1
   %73 = zext i8 %72 to i64
-  %74 = getelementptr ptr, ptr %71, i64 %73
+  %74 = getelementptr [8 x i8], ptr %71, i64 %73
   store ptr %70, ptr %74, align 8
   %75 = add nuw i32 %58, 1
   %76 = sub i32 %3, %75
@@ -3796,13 +3795,13 @@ find_sdp_media_attribute_names.exit:              ; preds = %35, %.split.loop.ex
   %82 = getelementptr inbounds nuw i8, ptr %4, i64 1032
   %83 = load i8, ptr %18, align 1
   %84 = zext i8 %83 to i64
-  %85 = getelementptr i32, ptr %82, i64 %84
+  %85 = getelementptr [4 x i8], ptr %82, i64 %84
   store i32 0, ptr %85, align 4
   %86 = load ptr, ptr %43, align 8
   %87 = call ptr @tvb_get_string_enc(ptr noundef %86, ptr noundef %0, i32 noundef %75, i32 noundef %79, i32 noundef 2)
   %88 = load i8, ptr %18, align 1
   %89 = zext i8 %88 to i64
-  %90 = getelementptr i32, ptr %82, i64 %89
+  %90 = getelementptr [4 x i8], ptr %82, i64 %89
   %91 = call zeroext i1 @ws_strtou32(ptr noundef %87, ptr noundef null, ptr noundef %90)
   br i1 %91, label %94, label %92
 
@@ -3813,7 +3812,7 @@ find_sdp_media_attribute_names.exit:              ; preds = %35, %.split.loop.ex
 94:                                               ; preds = %68
   %95 = load i8, ptr %18, align 1
   %96 = zext i8 %95 to i64
-  %97 = getelementptr ptr, ptr %71, i64 %96
+  %97 = getelementptr [8 x i8], ptr %71, i64 %96
   %98 = load ptr, ptr %97, align 8
   %99 = call i32 @strcmp(ptr noundef %98, ptr noundef nonnull dereferenceable(5) @.str.253) #14
   %.not.i = icmp eq i32 %99, 0
@@ -3827,7 +3826,7 @@ find_sdp_media_attribute_names.exit:              ; preds = %35, %.split.loop.ex
   %102 = getelementptr inbounds nuw i8, ptr %4, i64 1544
   %103 = load i8, ptr %18, align 1
   %104 = zext i8 %103 to i64
-  %105 = getelementptr i32, ptr %102, i64 %104
+  %105 = getelementptr [4 x i8], ptr %102, i64 %104
   store i32 1, ptr %105, align 4
   %.not84.i = icmp eq ptr %6, null
   br i1 %.not84.i, label %.thread.i, label %106
@@ -3849,7 +3848,7 @@ find_sdp_media_attribute_names.exit:              ; preds = %35, %.split.loop.ex
   %116 = call ptr @tvb_get_string_enc(ptr noundef %115, ptr noundef %0, i32 noundef %111, i32 noundef %112, i32 noundef 2)
   %117 = load i8, ptr %18, align 1
   %118 = zext i8 %117 to i64
-  %119 = getelementptr i32, ptr %102, i64 %118
+  %119 = getelementptr [4 x i8], ptr %102, i64 %118
   %120 = call zeroext i1 @ws_strtou32(ptr noundef %116, ptr noundef null, ptr noundef %119)
   br i1 %120, label %123, label %121
 
@@ -3864,7 +3863,7 @@ find_sdp_media_attribute_names.exit:              ; preds = %35, %.split.loop.ex
 
 ._crit_edge.i:                                    ; preds = %123
   %.phi.trans.insert.i = zext i8 %.pre.i to i64
-  %.phi.trans.insert89.i = getelementptr i32, ptr %102, i64 %.phi.trans.insert.i
+  %.phi.trans.insert89.i = getelementptr [4 x i8], ptr %102, i64 %.phi.trans.insert.i
   %.pre90.i = load i32, ptr %.phi.trans.insert89.i, align 4
   br label %124
 
@@ -3879,9 +3878,9 @@ find_sdp_media_attribute_names.exit:              ; preds = %35, %.split.loop.ex
   %127 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %128 = load ptr, ptr %127, align 8
   %129 = zext i8 %126 to i32
-  %130 = getelementptr ptr, ptr %71, i64 %.pre-phi.i
+  %130 = getelementptr [8 x i8], ptr %71, i64 %.pre-phi.i
   %131 = load ptr, ptr %130, align 8
-  %132 = getelementptr i32, ptr %82, i64 %.pre-phi.i
+  %132 = getelementptr [4 x i8], ptr %82, i64 %.pre-phi.i
   %133 = load i32, ptr %132, align 4
   call void @rtp_dyn_payload_insert(ptr noundef %128, i32 noundef %129, ptr noundef %131, i32 noundef %133, i32 noundef %125)
   br label %dissect_sdp_media_attribute_rtpmap.exit
@@ -3891,11 +3890,11 @@ find_sdp_media_attribute_names.exit:              ; preds = %35, %.split.loop.ex
   %136 = load ptr, ptr %135, align 8
   %137 = zext i8 %.pre.i to i32
   %138 = zext i8 %.pre.i to i64
-  %139 = getelementptr ptr, ptr %71, i64 %138
+  %139 = getelementptr [8 x i8], ptr %71, i64 %138
   %140 = load ptr, ptr %139, align 8
-  %141 = getelementptr i32, ptr %82, i64 %138
+  %141 = getelementptr [4 x i8], ptr %82, i64 %138
   %142 = load i32, ptr %141, align 4
-  %143 = getelementptr i32, ptr %102, i64 %138
+  %143 = getelementptr [4 x i8], ptr %102, i64 %138
   %144 = load i32, ptr %143, align 4
   call void @rtp_dyn_payload_insert(ptr noundef %136, i32 noundef %137, ptr noundef %140, i32 noundef %142, i32 noundef %144)
   br label %dissect_sdp_media_attribute_rtpmap.exit
@@ -3943,7 +3942,7 @@ dissect_sdp_media_attribute_rtpmap.exit:          ; preds = %49, %52, %60, %.thr
 165:                                              ; preds = %164
   %166 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %167 = zext nneg i8 %162 to i64
-  %168 = getelementptr ptr, ptr %166, i64 %167
+  %168 = getelementptr [8 x i8], ptr %166, i64 %167
   %169 = load ptr, ptr %168, align 8
   br label %.sink.split.i
 
@@ -4982,7 +4981,7 @@ define internal fastcc void @decode_sdp_fmtp(ptr noundef %0, ptr noundef %1, ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %18 = zext i8 %5 to i64
-  %19 = getelementptr ptr, ptr %17, i64 %18
+  %19 = getelementptr [8 x i8], ptr %17, i64 %18
   %20 = load ptr, ptr %19, align 8
   %21 = add i32 %4, %3
   %22 = call i32 @tvb_find_uint8(ptr noundef %1, i32 noundef %3, i32 noundef %4, i8 noundef zeroext 61)

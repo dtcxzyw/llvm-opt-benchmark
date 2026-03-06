@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.quic_test_case = type { [16 x i8], i64, i64 }
-%struct.quic_test_case.0 = type { [16 x i8], i64, i64, i32 }
 
 @smbuf = internal global [256 x i8] zeroinitializer, align 16
 @.str = private unnamed_addr constant [21 x i8] c"test_PACKET_buf_init\00", align 1
@@ -1562,7 +1561,7 @@ define internal range(i32 0, 2) i32 @test_PACKET_get_quic_vlint() #0 {
 
 3:                                                ; preds = %0, %1
   %.014 = phi i64 [ 0, %0 ], [ %2, %1 ]
-  %4 = getelementptr inbounds nuw %struct.quic_test_case, ptr @test_PACKET_get_quic_vlint.cases, i64 %.014
+  %4 = getelementptr inbounds nuw [32 x i8], ptr @test_PACKET_get_quic_vlint.cases, i64 %.014
   %5 = tail call i32 @test_true(ptr noundef nonnull @.str.25, i32 noundef 509, ptr noundef nonnull @.str.126, i32 noundef 1) #7
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %21, label %PACKET_get_quic_vlint.exit
@@ -1607,7 +1606,7 @@ define internal range(i32 0, 2) i32 @test_PACKET_get_quic_length_prefixed() #0 {
   %.052 = phi i64 [ 0, %0 ], [ %35, %34 ]
   %.sroa.5.051 = phi i64 [ 0, %0 ], [ %.sroa.5.1, %34 ]
   %.sroa.0.050 = phi ptr [ null, %0 ], [ %.sroa.0.1, %34 ]
-  %2 = getelementptr inbounds nuw %struct.quic_test_case.0, ptr @test_PACKET_get_quic_length_prefixed.cases, i64 %.052
+  %2 = getelementptr inbounds nuw [40 x i8], ptr @test_PACKET_get_quic_length_prefixed.cases, i64 %.052
   %.not = icmp samesign ult i64 %.052, 6
   br i1 %.not, label %PACKET_buf_init.exit, label %PACKET_buf_init.exit.thread
 

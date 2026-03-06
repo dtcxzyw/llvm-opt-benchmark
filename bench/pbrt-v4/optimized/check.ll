@@ -11,10 +11,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.std::function" = type { %"class.std::_Function_base", ptr }
-%"class.std::_Function_base" = type { %"union.std::_Any_data", ptr }
-%"union.std::_Any_data" = type { %"union.std::_Nocopy_types" }
-%"union.std::_Nocopy_types" = type { { i64, i64 } }
 %"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_iostream.base" = type { %"class.std::basic_istream.base", %"class.std::basic_ostream.base" }
 %"class.std::basic_istream.base" = type { ptr, i64 }
@@ -118,7 +114,7 @@ define dso_local void @_ZN4pbrt15PrintStackTraceEv() local_unnamed_addr #3 {
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, i8 0, i64 64, i1 false)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !tbaa !4
-  %9 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !8
   br label %11
 
@@ -205,7 +201,7 @@ define dso_local void @_ZN4pbrt15PrintStackTraceEv() local_unnamed_addr #3 {
   %35 = load i32, ptr %5, align 4, !tbaa !4
   %36 = icmp eq i32 %35, 0
   %37 = load ptr, ptr @stderr, align 8, !tbaa !15
-  %38 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %39 = load ptr, ptr %38, align 8, !tbaa !18
   br i1 %36, label %40, label %42
 
@@ -746,7 +742,7 @@ _ZNSt6vectorISt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvE
 _ZNSt12_Vector_baseISt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEESaIS8_EE13_M_deallocateEPS8_m.exit: ; preds = %_ZNSt6vectorISt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEvEESaIS8_EE11_S_relocateEPS8_SB_SB_RS9_.exit25, %47
   store ptr %20, ptr %0, align 8, !tbaa !20
   store ptr %.0.lcssa.i.i.i24, ptr %4, align 8, !tbaa !23
-  %51 = getelementptr inbounds nuw %"class.std::function", ptr %20, i64 %16
+  %51 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %16
   store ptr %51, ptr %46, align 8, !tbaa !27
   ret void
 }

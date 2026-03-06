@@ -6,9 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.SegmentJob = type { %struct.WebPWorker, [256 x i32], i32, i32, %struct.VP8EncIterator, i32 }
 %struct.WebPWorker = type { ptr, i32, ptr, ptr, ptr, i32 }
 %struct.VP8EncIterator = type { i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, [37 x i8], ptr, i32, [9 x i32], [9 x i32], [4 x [3 x i64]], i64, i64, ptr, i32, i32, i32, i32, [2 x [2 x i8]], ptr, ptr, ptr, ptr, ptr, ptr, [88 x i8], [3359 x i8] }
-%struct.VP8MBInfo = type { i8, i8, [2 x i8] }
-%struct.VP8SegmentInfo = type { %struct.VP8Matrix, %struct.VP8Matrix, %struct.VP8Matrix, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i64 }
-%struct.VP8Matrix = type { [16 x i16], [16 x i16], [16 x i32], [16 x i32], [16 x i16] }
 %struct.VP8Histogram = type { i32, i32 }
 
 @VP8Mean16x4 = external local_unnamed_addr global ptr, align 8
@@ -137,9 +134,9 @@ define hidden i32 @VP8EncAnalyze(ptr noundef %0) local_unnamed_addr #0 {
 
 .preheader:                                       ; preds = %62, %.preheader
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader ], [ 0, %62 ]
-  %76 = getelementptr inbounds nuw i32, ptr %54, i64 %indvars.iv.i
+  %76 = getelementptr inbounds nuw [4 x i8], ptr %54, i64 %indvars.iv.i
   %77 = load i32, ptr %76, align 4, !tbaa !47
-  %78 = getelementptr inbounds nuw i32, ptr %43, i64 %indvars.iv.i
+  %78 = getelementptr inbounds nuw [4 x i8], ptr %43, i64 %indvars.iv.i
   %79 = load i32, ptr %78, align 4, !tbaa !47
   %80 = add nsw i32 %79, %77
   store i32 %80, ptr %78, align 4, !tbaa !47
@@ -234,7 +231,7 @@ MergeJobs.exit:                                   ; preds = %.preheader
 
 127:                                              ; preds = %131, %115
   %indvars.iv.i53 = phi i64 [ 0, %115 ], [ %indvars.iv.next.i54, %131 ]
-  %128 = getelementptr inbounds nuw i32, ptr %124, i64 %indvars.iv.i53
+  %128 = getelementptr inbounds nuw [4 x i8], ptr %124, i64 %indvars.iv.i53
   %129 = load i32, ptr %128, align 4, !tbaa !47
   %130 = icmp eq i32 %129, 0
   br i1 %130, label %131, label %.critedge.i
@@ -251,7 +248,7 @@ MergeJobs.exit:                                   ; preds = %.preheader
 
 .lr.ph.i:                                         ; preds = %.critedge.i, %137
   %indvars.iv161.i = phi i64 [ %indvars.iv.next162.i, %137 ], [ 255, %.critedge.i ]
-  %134 = getelementptr inbounds i32, ptr %124, i64 %indvars.iv161.i
+  %134 = getelementptr inbounds [4 x i8], ptr %124, i64 %indvars.iv161.i
   %135 = load i32, ptr %134, align 4, !tbaa !47
   %136 = icmp eq i32 %135, 0
   br i1 %136, label %137, label %.critedge2.loopexit.split.loop.exit210.i
@@ -304,7 +301,7 @@ MergeJobs.exit:                                   ; preds = %.preheader
 .lr.ph138.i.us:                                   ; preds = %.preheader121.i.us, %177
   %indvars.iv174.i.us = phi i64 [ %indvars.iv.next175.i.us, %177 ], [ %148, %.preheader121.i.us ]
   %.4136.i.us = phi i32 [ %.6.i.us, %177 ], [ 0, %.preheader121.i.us ]
-  %150 = getelementptr inbounds nuw i32, ptr %124, i64 %indvars.iv174.i.us
+  %150 = getelementptr inbounds nuw [4 x i8], ptr %124, i64 %indvars.iv174.i.us
   %151 = load i32, ptr %150, align 4, !tbaa !47
   %.not114.i.us = icmp eq i32 %151, 0
   br i1 %.not114.i.us, label %177, label %.preheader.preheader.i.us
@@ -324,11 +321,11 @@ MergeJobs.exit:                                   ; preds = %.preheader
   br i1 %156, label %157, label %.critedge4.i.us
 
 157:                                              ; preds = %.preheader.i.us
-  %158 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.next172.i.us
+  %158 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.next172.i.us
   %159 = load i32, ptr %158, align 4, !tbaa !47
   %160 = sub nsw i32 %155, %159
   %161 = call i32 @llvm.abs.i32(i32 %160, i1 true)
-  %162 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv171.i.us
+  %162 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv171.i.us
   %163 = load i32, ptr %162, align 4, !tbaa !47
   %164 = sub nsw i32 %155, %163
   %165 = call i32 @llvm.abs.i32(i32 %164, i1 true)
@@ -341,15 +338,15 @@ MergeJobs.exit:                                   ; preds = %.preheader
 
 .critedge4.i.us:                                  ; preds = %.preheader.i.us, %.critedge4.loopexit.i.us
   %.5.lcssa.i.us = phi i32 [ %167, %.critedge4.loopexit.i.us ], [ %154, %.preheader.i.us ]
-  %168 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv174.i.us
+  %168 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv174.i.us
   store i32 %.5.lcssa.i.us, ptr %168, align 4, !tbaa !47
   %169 = mul nsw i32 %151, %155
   %170 = zext nneg i32 %.5.lcssa.i.us to i64
-  %171 = getelementptr inbounds nuw i32, ptr %6, i64 %170
+  %171 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %170
   %172 = load i32, ptr %171, align 4, !tbaa !47
   %173 = add nsw i32 %172, %169
   store i32 %173, ptr %171, align 4, !tbaa !47
-  %174 = getelementptr inbounds nuw i32, ptr %5, i64 %170
+  %174 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %170
   %175 = load i32, ptr %174, align 4, !tbaa !47
   %176 = add nsw i32 %175, %151
   store i32 %176, ptr %174, align 4, !tbaa !47
@@ -369,18 +366,18 @@ MergeJobs.exit:                                   ; preds = %.preheader
   %.2142.i.us = phi i32 [ %.3.i.us, %194 ], [ 0, %.lr.ph143.i.us.preheader ]
   %.0103140.i.us = phi i32 [ %.1104.i.us, %194 ], [ 0, %.lr.ph143.i.us.preheader ]
   %.0105139.i.us = phi i32 [ %.1106.i.us, %194 ], [ 0, %.lr.ph143.i.us.preheader ]
-  %178 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv180.i.us
+  %178 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv180.i.us
   %179 = load i32, ptr %178, align 4, !tbaa !47
   %.not113.i.us = icmp eq i32 %179, 0
   br i1 %.not113.i.us, label %194, label %180
 
 180:                                              ; preds = %.lr.ph143.i.us
-  %181 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv180.i.us
+  %181 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv180.i.us
   %182 = load i32, ptr %181, align 4, !tbaa !47
   %183 = sdiv i32 %179, 2
   %184 = add nsw i32 %182, %183
   %185 = sdiv i32 %184, %179
-  %186 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv180.i.us
+  %186 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv180.i.us
   %187 = load i32, ptr %186, align 4, !tbaa !47
   %188 = sub nsw i32 %187, %185
   %189 = call i32 @llvm.abs.i32(i32 %188, i1 true)
@@ -412,7 +409,7 @@ MergeJobs.exit:                                   ; preds = %.preheader
   %198 = mul nsw i32 %.298131.i, %140
   %199 = sdiv i32 %198, %142
   %200 = add nsw i32 %199, %.096.lcssa196.i
-  %201 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv164.i
+  %201 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv164.i
   store i32 %200, ptr %201, align 4, !tbaa !47
   %indvars.iv.next165.i = add nuw nsw i64 %indvars.iv164.i, 1
   %202 = add nuw nsw i32 %.298131.i, 2
@@ -425,7 +422,7 @@ MergeJobs.exit:                                   ; preds = %.preheader
 .lr.ph138.i:                                      ; preds = %.preheader120.i, %230
   %indvars.iv174.i = phi i64 [ %indvars.iv.next175.i, %230 ], [ %148, %.preheader120.i ]
   %.4136.i = phi i32 [ %.6.i, %230 ], [ 0, %.preheader120.i ]
-  %203 = getelementptr inbounds nuw i32, ptr %124, i64 %indvars.iv174.i
+  %203 = getelementptr inbounds nuw [4 x i8], ptr %124, i64 %indvars.iv174.i
   %204 = load i32, ptr %203, align 4, !tbaa !47
   %.not114.i = icmp eq i32 %204, 0
   br i1 %.not114.i, label %230, label %.preheader.preheader.i
@@ -445,11 +442,11 @@ MergeJobs.exit:                                   ; preds = %.preheader
   br i1 %209, label %210, label %.critedge4.i
 
 210:                                              ; preds = %.preheader.i
-  %211 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.next172.i
+  %211 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.next172.i
   %212 = load i32, ptr %211, align 4, !tbaa !47
   %213 = sub nsw i32 %208, %212
   %214 = call i32 @llvm.abs.i32(i32 %213, i1 true)
-  %215 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv171.i
+  %215 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv171.i
   %216 = load i32, ptr %215, align 4, !tbaa !47
   %217 = sub nsw i32 %208, %216
   %218 = call i32 @llvm.abs.i32(i32 %217, i1 true)
@@ -462,15 +459,15 @@ MergeJobs.exit:                                   ; preds = %.preheader
 
 .critedge4.i:                                     ; preds = %.preheader.i, %.critedge4.loopexit.i
   %.5.lcssa.i = phi i32 [ %220, %.critedge4.loopexit.i ], [ %207, %.preheader.i ]
-  %221 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv174.i
+  %221 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv174.i
   store i32 %.5.lcssa.i, ptr %221, align 4, !tbaa !47
   %222 = mul nsw i32 %204, %208
   %223 = zext nneg i32 %.5.lcssa.i to i64
-  %224 = getelementptr inbounds nuw i32, ptr %6, i64 %223
+  %224 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %223
   %225 = load i32, ptr %224, align 4, !tbaa !47
   %226 = add nsw i32 %225, %222
   store i32 %226, ptr %224, align 4, !tbaa !47
-  %227 = getelementptr inbounds nuw i32, ptr %5, i64 %223
+  %227 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %223
   %228 = load i32, ptr %227, align 4, !tbaa !47
   %229 = add nsw i32 %228, %204
   store i32 %229, ptr %227, align 4, !tbaa !47
@@ -503,11 +500,11 @@ MergeJobs.exit:                                   ; preds = %.preheader
 240:                                              ; preds = %240, %.lr.ph150.i
   %indvars.iv186.i = phi i64 [ 0, %.lr.ph150.i ], [ %indvars.iv.next187.i, %240 ]
   %241 = load ptr, ptr %239, align 8, !tbaa !62
-  %242 = getelementptr inbounds nuw %struct.VP8MBInfo, ptr %241, i64 %indvars.iv186.i
+  %242 = getelementptr inbounds nuw [4 x i8], ptr %241, i64 %indvars.iv186.i
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 1
   %244 = load i8, ptr %243, align 1, !tbaa !63
   %245 = zext i8 %244 to i64
-  %246 = getelementptr inbounds nuw i32, ptr %4, i64 %245
+  %246 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %245
   %247 = load i32, ptr %246, align 4, !tbaa !47
   %248 = trunc i32 %247 to i8
   %249 = load i8, ptr %242, align 4
@@ -517,7 +514,7 @@ MergeJobs.exit:                                   ; preds = %.preheader
   %253 = or disjoint i8 %251, %252
   store i8 %253, ptr %242, align 4
   %254 = sext i32 %247 to i64
-  %255 = getelementptr inbounds i32, ptr %3, i64 %254
+  %255 = getelementptr inbounds [4 x i8], ptr %3, i64 %254
   %256 = load i32, ptr %255, align 4, !tbaa !47
   %257 = trunc i32 %256 to i8
   store i8 %257, ptr %243, align 1, !tbaa !63
@@ -586,34 +583,34 @@ MergeJobs.exit:                                   ; preds = %.preheader
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %2, i8 0, i64 16, i1 false)
   %289 = load ptr, ptr %277, align 8, !tbaa !62
   %290 = add nuw nsw i64 %indvars.iv76.i.i, %287
-  %291 = getelementptr inbounds nuw %struct.VP8MBInfo, ptr %289, i64 %290
+  %291 = getelementptr inbounds nuw [4 x i8], ptr %289, i64 %290
   %292 = load i8, ptr %291, align 4
   %293 = lshr i8 %292, 5
   %294 = and i8 %293, 3
-  %295 = getelementptr inbounds %struct.VP8MBInfo, ptr %291, i64 %280
+  %295 = getelementptr inbounds [4 x i8], ptr %291, i64 %280
   %296 = load i8, ptr %295, align 4
   %297 = lshr i8 %296, 5
   %298 = and i8 %297, 3
   %299 = zext nneg i8 %298 to i64
-  %300 = getelementptr inbounds nuw i32, ptr %2, i64 %299
+  %300 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %299
   %301 = load i32, ptr %300, align 4, !tbaa !47
   %302 = add nsw i32 %301, 1
   store i32 %302, ptr %300, align 4, !tbaa !47
-  %303 = getelementptr inbounds %struct.VP8MBInfo, ptr %291, i64 %281
+  %303 = getelementptr inbounds [4 x i8], ptr %291, i64 %281
   %304 = load i8, ptr %303, align 4
   %305 = lshr i8 %304, 5
   %306 = and i8 %305, 3
   %307 = zext nneg i8 %306 to i64
-  %308 = getelementptr inbounds nuw i32, ptr %2, i64 %307
+  %308 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %307
   %309 = load i32, ptr %308, align 4, !tbaa !47
   %310 = add nsw i32 %309, 1
   store i32 %310, ptr %308, align 4, !tbaa !47
-  %311 = getelementptr inbounds %struct.VP8MBInfo, ptr %291, i64 %283
+  %311 = getelementptr inbounds [4 x i8], ptr %291, i64 %283
   %312 = load i8, ptr %311, align 4
   %313 = lshr i8 %312, 5
   %314 = and i8 %313, 3
   %315 = zext nneg i8 %314 to i64
-  %316 = getelementptr inbounds nuw i32, ptr %2, i64 %315
+  %316 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %315
   %317 = load i32, ptr %316, align 4, !tbaa !47
   %318 = add nsw i32 %317, 1
   store i32 %318, ptr %316, align 4, !tbaa !47
@@ -622,7 +619,7 @@ MergeJobs.exit:                                   ; preds = %.preheader
   %321 = lshr i8 %320, 5
   %322 = and i8 %321, 3
   %323 = zext nneg i8 %322 to i64
-  %324 = getelementptr inbounds nuw i32, ptr %2, i64 %323
+  %324 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %323
   %325 = load i32, ptr %324, align 4, !tbaa !47
   %326 = add nsw i32 %325, 1
   store i32 %326, ptr %324, align 4, !tbaa !47
@@ -631,25 +628,25 @@ MergeJobs.exit:                                   ; preds = %.preheader
   %329 = lshr i8 %328, 5
   %330 = and i8 %329, 3
   %331 = zext nneg i8 %330 to i64
-  %332 = getelementptr inbounds nuw i32, ptr %2, i64 %331
+  %332 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %331
   %333 = load i32, ptr %332, align 4, !tbaa !47
   %334 = add nsw i32 %333, 1
   store i32 %334, ptr %332, align 4, !tbaa !47
-  %335 = getelementptr inbounds %struct.VP8MBInfo, ptr %291, i64 %284
+  %335 = getelementptr inbounds [4 x i8], ptr %291, i64 %284
   %336 = load i8, ptr %335, align 4
   %337 = lshr i8 %336, 5
   %338 = and i8 %337, 3
   %339 = zext nneg i8 %338 to i64
-  %340 = getelementptr inbounds nuw i32, ptr %2, i64 %339
+  %340 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %339
   %341 = load i32, ptr %340, align 4, !tbaa !47
   %342 = add nsw i32 %341, 1
   store i32 %342, ptr %340, align 4, !tbaa !47
-  %343 = getelementptr inbounds nuw %struct.VP8MBInfo, ptr %291, i64 %285
+  %343 = getelementptr inbounds nuw [4 x i8], ptr %291, i64 %285
   %344 = load i8, ptr %343, align 4
   %345 = lshr i8 %344, 5
   %346 = and i8 %345, 3
   %347 = zext nneg i8 %346 to i64
-  %348 = getelementptr inbounds nuw i32, ptr %2, i64 %347
+  %348 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %347
   %349 = load i32, ptr %348, align 4, !tbaa !47
   %350 = add nsw i32 %349, 1
   store i32 %350, ptr %348, align 4, !tbaa !47
@@ -658,7 +655,7 @@ MergeJobs.exit:                                   ; preds = %.preheader
   %353 = lshr i8 %352, 5
   %354 = and i8 %353, 3
   %355 = zext nneg i8 %354 to i64
-  %356 = getelementptr inbounds nuw i32, ptr %2, i64 %355
+  %356 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %355
   %357 = load i32, ptr %356, align 4, !tbaa !47
   %358 = add nsw i32 %357, 1
   store i32 %358, ptr %356, align 4, !tbaa !47
@@ -666,7 +663,7 @@ MergeJobs.exit:                                   ; preds = %.preheader
 
 359:                                              ; preds = %363, %288
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %363 ], [ 0, %288 ]
-  %360 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv.i.i
+  %360 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv.i.i
   %361 = load i32, ptr %360, align 4, !tbaa !47
   %362 = icmp sgt i32 %361, 4
   br i1 %362, label %364, label %363
@@ -703,7 +700,7 @@ MergeJobs.exit:                                   ; preds = %.preheader
   %indvars.iv85.i.i = phi i64 [ 1, %.preheader.us.i.i ], [ %indvars.iv.next86.i.i, %368 ]
   %369 = load ptr, ptr %277, align 8, !tbaa !62
   %370 = add nuw nsw i64 %indvars.iv85.i.i, %367
-  %371 = getelementptr inbounds nuw %struct.VP8MBInfo, ptr %369, i64 %370
+  %371 = getelementptr inbounds nuw [4 x i8], ptr %369, i64 %370
   %372 = getelementptr inbounds nuw i8, ptr %271, i64 %370
   %373 = load i8, ptr %372, align 1, !tbaa !68
   %374 = load i8, ptr %371, align 4
@@ -739,7 +736,7 @@ SmoothSegmentMap.exit.i:                          ; preds = %._crit_edge70.i.i, 
   %indvars.iv.i116.i = phi i64 [ 0, %.preheader.preheader.i.i ], [ %indvars.iv.next.i117.i, %.preheader.i.i ]
   %.149.i.i = phi i32 [ %380, %.preheader.preheader.i.i ], [ %spec.select.i.i, %.preheader.i.i ]
   %.13948.i.i = phi i32 [ %380, %.preheader.preheader.i.i ], [ %.240.i.i, %.preheader.i.i ]
-  %382 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i116.i
+  %382 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv.i116.i
   %383 = load i32, ptr %382, align 4, !tbaa !47
   %spec.select.i.i = call i32 @llvm.smin.i32(i32 %.149.i.i, i32 %383)
   %.240.i.i = call i32 @llvm.smax.i32(i32 %.13948.i.i, i32 %383)
@@ -764,7 +761,7 @@ SmoothSegmentMap.exit.i:                          ; preds = %._crit_edge70.i.i, 
 
 389:                                              ; preds = %389, %.lr.ph.i.i
   %indvars.iv52.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next53.i.i, %389 ]
-  %390 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv52.i.i
+  %390 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv52.i.i
   %391 = load i32, ptr %390, align 4, !tbaa !47
   %392 = sub nsw i32 %391, %234
   %393 = mul nsw i32 %392, 255
@@ -774,7 +771,7 @@ SmoothSegmentMap.exit.i:                          ; preds = %._crit_edge70.i.i, 
   %397 = sdiv i32 %396, %387
   %398 = call i32 @llvm.smax.i32(i32 %394, i32 -127)
   %399 = call i32 @llvm.smin.i32(i32 %398, i32 127)
-  %400 = getelementptr inbounds nuw %struct.VP8SegmentInfo, ptr %388, i64 %indvars.iv52.i.i
+  %400 = getelementptr inbounds nuw [744 x i8], ptr %388, i64 %indvars.iv52.i.i
   %401 = getelementptr inbounds nuw i8, ptr %400, i64 672
   store i32 %399, ptr %401, align 8, !tbaa !74
   %402 = call i32 @llvm.smax.i32(i32 %397, i32 0)
@@ -809,7 +806,7 @@ SmoothSegmentMap.exit.i:                          ; preds = %._crit_edge70.i.i, 
 412:                                              ; preds = %412, %.lr.ph.i57
   %indvars.iv.i58 = phi i64 [ 0, %.lr.ph.i57 ], [ %indvars.iv.next.i59, %412 ]
   %413 = load ptr, ptr %411, align 8, !tbaa !62
-  %414 = getelementptr inbounds nuw %struct.VP8MBInfo, ptr %413, i64 %indvars.iv.i58
+  %414 = getelementptr inbounds nuw [4 x i8], ptr %413, i64 %indvars.iv.i58
   %415 = load i8, ptr %414, align 4
   %416 = and i8 %415, -128
   %417 = or disjoint i8 %416, 1
@@ -904,7 +901,7 @@ define internal i32 @DoSegmentsJob(ptr noundef captures(none) %0, ptr noundef %1
   %36 = load ptr, ptr %19, align 8, !tbaa !84
   %37 = shl nuw nsw i64 %indvars.iv.i.i, 5
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 %37
-  %39 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv.i.i
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.i.i
   call void %35(ptr noundef %38, ptr noundef nonnull %39) #6
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 4
   %40 = icmp samesign ult i64 %indvars.iv.i.i, 12
@@ -914,7 +911,7 @@ define internal i32 @DoSegmentsJob(ptr noundef captures(none) %0, ptr noundef %1
   %indvars.iv27.i.i = phi i64 [ %indvars.iv.next28.i.i, %.preheader.i.i ], [ 0, %34 ]
   %.024.i.i = phi i32 [ %45, %.preheader.i.i ], [ 0, %34 ]
   %.01923.i.i = phi i32 [ %43, %.preheader.i.i ], [ 0, %34 ]
-  %41 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv27.i.i
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv27.i.i
   %42 = load i32, ptr %41, align 4, !tbaa !47
   %43 = add i32 %42, %.01923.i.i
   %44 = mul i32 %42, %42
@@ -963,7 +960,7 @@ FastMBAnalyze.exit.i:                             ; preds = %55, %54
   %59 = load ptr, ptr @VP8CollectHistogram, align 8, !tbaa !83
   %60 = load ptr, ptr %19, align 8, !tbaa !84
   %61 = load ptr, ptr %20, align 8, !tbaa !90
-  %62 = getelementptr inbounds nuw i16, ptr @VP8I16ModeOffsets, i64 %indvars.iv.i18.i
+  %62 = getelementptr inbounds nuw [2 x i8], ptr @VP8I16ModeOffsets, i64 %indvars.iv.i18.i
   %63 = load i16, ptr %62, align 2, !tbaa !91
   %64 = zext i16 %63 to i64
   %65 = getelementptr inbounds nuw i8, ptr %61, i64 %64
@@ -1011,7 +1008,7 @@ MBAnalyzeBestIntra16Mode.exit.i:                  ; preds = %GetAlpha.exit.i.i
   %79 = load ptr, ptr %19, align 8, !tbaa !84
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 16
   %81 = load ptr, ptr %20, align 8, !tbaa !90
-  %82 = getelementptr inbounds nuw i16, ptr @VP8UVModeOffsets, i64 %indvars.iv.i19.i
+  %82 = getelementptr inbounds nuw [2 x i8], ptr @VP8UVModeOffsets, i64 %indvars.iv.i19.i
   %83 = load i16, ptr %82, align 2, !tbaa !91
   %84 = zext i16 %83 to i64
   %85 = getelementptr inbounds nuw i8, ptr %81, i64 %84
@@ -1046,7 +1043,7 @@ MBAnalyze.exit:                                   ; preds = %GetAlpha.exit.i22.i
   %97 = call i32 @llvm.umin.i32(i32 %95, i32 255)
   %98 = select i1 %96, i32 0, i32 %97
   %99 = zext nneg i32 %98 to i64
-  %100 = getelementptr inbounds nuw i32, ptr %14, i64 %99
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %99
   %101 = load i32, ptr %100, align 4, !tbaa !47
   %102 = add nsw i32 %101, 1
   store i32 %102, ptr %100, align 4, !tbaa !47

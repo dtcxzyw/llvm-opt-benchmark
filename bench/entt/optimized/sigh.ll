@@ -13,7 +13,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.entt::sink" = type { ptr }
 %"class.entt::connection" = type { %"class.entt::delegate", ptr }
 %"class.entt::delegate" = type { ptr, ptr }
-%"class.entt::delegate.108" = type { ptr, ptr }
 %"class.testing::internal::GTestLog" = type { i32 }
 %struct.sigh_listener = type { i8 }
 %"class.entt::sigh" = type { %"class.std::vector" }
@@ -55,21 +54,18 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<entt::delegate<void ()>, std::allocator<entt::delegate<void ()>>>::_Vector_impl" = type { %"struct.std::_Vector_base<entt::delegate<void ()>, std::allocator<entt::delegate<void ()>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<entt::delegate<void ()>, std::allocator<entt::delegate<void ()>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.entt::sink.32" = type { ptr }
-%"class.entt::delegate.123" = type { ptr, ptr }
 %"class.entt::sigh.34" = type { %"class.std::vector.35" }
 %"class.std::vector.35" = type { %"struct.std::_Vector_base.36" }
 %"struct.std::_Vector_base.36" = type { %"struct.std::_Vector_base<entt::delegate<bool (int)>, std::allocator<entt::delegate<bool (int)>>>::_Vector_impl" }
 %"struct.std::_Vector_base<entt::delegate<bool (int)>, std::allocator<entt::delegate<bool (int)>>>::_Vector_impl" = type { %"struct.std::_Vector_base<entt::delegate<bool (int)>, std::allocator<entt::delegate<bool (int)>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<entt::delegate<bool (int)>, std::allocator<entt::delegate<bool (int)>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.entt::sink.40" = type { ptr }
-%"class.entt::delegate.138" = type { ptr, ptr }
 %"class.entt::sigh.44" = type { %"class.std::vector.45" }
 %"class.std::vector.45" = type { %"struct.std::_Vector_base.46" }
 %"struct.std::_Vector_base.46" = type { %"struct.std::_Vector_base<entt::delegate<void (int)>, std::allocator<entt::delegate<void (int)>>>::_Vector_impl" }
 %"struct.std::_Vector_base<entt::delegate<void (int)>, std::allocator<entt::delegate<void (int)>>>::_Vector_impl" = type { %"struct.std::_Vector_base<entt::delegate<void (int)>, std::allocator<entt::delegate<void (int)>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<entt::delegate<void (int)>, std::allocator<entt::delegate<void (int)>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.entt::sink.50" = type { ptr }
-%"class.entt::delegate.159" = type { ptr, ptr }
 %struct.const_nonconst_noexcept = type { i32 }
 %"class.entt::sigh.59" = type { %"class.std::vector.60" }
 %"class.std::vector.60" = type { %"struct.std::_Vector_base.61" }
@@ -77,14 +73,12 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<entt::delegate<bool &(sigh_listener &)>, std::allocator<entt::delegate<bool &(sigh_listener &)>>>::_Vector_impl" = type { %"struct.std::_Vector_base<entt::delegate<bool &(sigh_listener &)>, std::allocator<entt::delegate<bool &(sigh_listener &)>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<entt::delegate<bool &(sigh_listener &)>, std::allocator<entt::delegate<bool &(sigh_listener &)>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.entt::sink.65" = type { ptr }
-%"class.entt::delegate.197" = type { ptr, ptr }
 %"class.entt::sigh.68" = type { %"class.std::vector.69" }
 %"class.std::vector.69" = type { %"struct.std::_Vector_base.70" }
 %"struct.std::_Vector_base.70" = type { %"struct.std::_Vector_base<entt::delegate<void (sigh_listener *, int)>, std::allocator<entt::delegate<void (sigh_listener *, int)>>>::_Vector_impl" }
 %"struct.std::_Vector_base<entt::delegate<void (sigh_listener *, int)>, std::allocator<entt::delegate<void (sigh_listener *, int)>>>::_Vector_impl" = type { %"struct.std::_Vector_base<entt::delegate<void (sigh_listener *, int)>, std::allocator<entt::delegate<void (sigh_listener *, int)>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<entt::delegate<void (sigh_listener *, int)>, std::allocator<entt::delegate<void (sigh_listener *, int)>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.entt::sink.74" = type { ptr }
-%"class.entt::delegate.204" = type { ptr, ptr }
 %"class.entt::sigh.80" = type { %"class.std::vector.45" }
 %"class.entt::sink.81" = type { ptr }
 %"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
@@ -821,7 +815,7 @@ define hidden void @_Z27connect_and_auto_disconnectRN4entt4sighIFvRiESaIvEEERKi(
   %.010.i.i = phi i64 [ %12, %.lr.ph.i.i ], [ %15, %28 ]
   %15 = add i64 %.010.i.i, -1
   %16 = load ptr, ptr %5, align 8, !tbaa !13
-  %17 = getelementptr inbounds nuw %"class.entt::delegate.108", ptr %16, i64 %15
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %15
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !14
   %20 = icmp eq ptr %19, @_ZZN4entt8delegateIFvRiEE7connectITnDaXadL_Z27connect_and_auto_disconnectRNS_4sighIS2_SaIvEEERKiEES7_EEvRT0_ENUlPKvS1_E_8__invokeESE_S1_
@@ -869,7 +863,7 @@ define linkonce_odr hidden void @_ZN4entt4sinkINS_4sighIFvRiESaIvEEEE7connectITn
   %.010.i.i = phi i64 [ %10, %.lr.ph.i.i ], [ %13, %26 ]
   %13 = add i64 %.010.i.i, -1
   %14 = load ptr, ptr %3, align 8, !tbaa !13
-  %15 = getelementptr inbounds nuw %"class.entt::delegate.108", ptr %14, i64 %13
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %13
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !14
   %18 = icmp eq ptr %17, @_ZZN4entt8delegateIFvRiEE7connectITnDaXadL_ZN13sigh_listener1fES1_EEEEvvENUlPKvS1_E_8__invokeES7_S1_
@@ -967,7 +961,7 @@ _ZNSt6vectorIN4entt8delegateIFvRiEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.
 _ZNSt6vectorIN4entt8delegateIFvRiEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i: ; preds = %54, %_ZNSt6vectorIN4entt8delegateIFvRiEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i
   store ptr %49, ptr %29, align 8, !tbaa !13
   store ptr %53, ptr %30, align 8, !tbaa !10
-  %55 = getelementptr inbounds nuw %"class.entt::delegate.108", ptr %49, i64 %47
+  %55 = getelementptr inbounds nuw [16 x i8], ptr %49, i64 %47
   store ptr %55, ptr %31, align 8, !tbaa !21
   br label %_ZNSt6vectorIN4entt8delegateIFvRiEEESaIS4_EE9push_backEOS4_.exit
 
@@ -3289,7 +3283,7 @@ define linkonce_odr hidden void @_ZN4entt4sinkINS_4sighIFvRiESaIvEEEE10disconnec
   %.010.i = phi i64 [ %9, %.lr.ph.i ], [ %12, %25 ]
   %12 = add i64 %.010.i, -1
   %13 = load ptr, ptr %2, align 8, !tbaa !13
-  %14 = getelementptr inbounds nuw %"class.entt::delegate.108", ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %12
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !14
   %17 = icmp eq ptr %16, @_ZZN4entt8delegateIFvRiEE7connectITnDaXadL_ZN13sigh_listener1fES1_EEEEvvENUlPKvS1_E_8__invokeES7_S1_
@@ -3336,7 +3330,7 @@ define linkonce_odr hidden void @_ZN4entt4sinkINS_4sighIFvRiESaIvEEEE10disconnec
   %.010.i = phi i64 [ %12, %21 ], [ %10, %.lr.ph.preheader.i ]
   %12 = add i64 %.010.i, -1
   %13 = load ptr, ptr %3, align 8, !tbaa !13
-  %14 = getelementptr inbounds nuw %"class.entt::delegate.108", ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %12
   %15 = load ptr, ptr %14, align 8, !tbaa !100
   %16 = icmp eq ptr %15, %1
   br i1 %16, label %17, label %21
@@ -5740,7 +5734,7 @@ _ZN4entt4sinkINS_4sighIFvRiESaIvEEEE10disconnectITnDaXadL_ZN13sigh_listener1fES2
   %.010.i.i = phi i64 [ %174, %.lr.ph.i.i ], [ %177, %190 ]
   %177 = add i64 %.010.i.i, -1
   %178 = load ptr, ptr %71, align 8, !tbaa !13
-  %179 = getelementptr inbounds nuw %"class.entt::delegate.108", ptr %178, i64 %177
+  %179 = getelementptr inbounds nuw [16 x i8], ptr %178, i64 %177
   %180 = getelementptr inbounds nuw i8, ptr %179, i64 8
   %181 = load ptr, ptr %180, align 8, !tbaa !14
   %182 = icmp eq ptr %181, @_ZZN4entt8delegateIFvRiEE7connectITnDaXadL_ZN13sigh_listener1fES1_EEEEvvENUlPKvS1_E_8__invokeES7_S1_
@@ -6364,7 +6358,7 @@ _ZN4entt4sinkINS_4sighIFvRiESaIvEEEE10disconnectITnDaXadL_ZN13sigh_listener1gEiE
   %.010.i.i314 = phi i64 [ %386, %.lr.ph.i.i313 ], [ %389, %402 ]
   %389 = add i64 %.010.i.i314, -1
   %390 = load ptr, ptr %284, align 8, !tbaa !13
-  %391 = getelementptr inbounds nuw %"class.entt::delegate.108", ptr %390, i64 %389
+  %391 = getelementptr inbounds nuw [16 x i8], ptr %390, i64 %389
   %392 = getelementptr inbounds nuw i8, ptr %391, i64 8
   %393 = load ptr, ptr %392, align 8, !tbaa !14
   %394 = icmp eq ptr %393, @_ZZN4entt8delegateIFvRiEE7connectITnDaXadL_ZN13sigh_listener1gEiEES5_EEvRT0_ENUlPKvS1_E_8__invokeES9_S1_
@@ -6988,7 +6982,7 @@ _ZN4entt4sinkINS_4sighIFvRiESaIvEEEE10disconnectEPKv.exit.thread: ; preds = %591
   %.010.i.i406 = phi i64 [ %600, %609 ], [ %598, %.lr.ph.preheader.i.i ]
   %600 = add i64 %.010.i.i406, -1
   %601 = load ptr, ptr %496, align 8, !tbaa !13
-  %602 = getelementptr inbounds nuw %"class.entt::delegate.108", ptr %601, i64 %600
+  %602 = getelementptr inbounds nuw [16 x i8], ptr %601, i64 %600
   %603 = load ptr, ptr %602, align 8, !tbaa !100
   %604 = icmp eq ptr %603, %2
   br i1 %604, label %605, label %609
@@ -7751,7 +7745,7 @@ define linkonce_odr hidden void @_ZN4entt4sinkINS_4sighIFvRiESaIvEEEE7connectITn
   %.010.i.i = phi i64 [ %11, %.lr.ph.i.i ], [ %14, %27 ]
   %14 = add i64 %.010.i.i, -1
   %15 = load ptr, ptr %4, align 8, !tbaa !13
-  %16 = getelementptr inbounds nuw %"class.entt::delegate.108", ptr %15, i64 %14
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %14
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !14
   %19 = icmp eq ptr %18, @_ZZN4entt8delegateIFvRiEE7connectITnDaXadL_ZN13sigh_listener1gEiEES5_EEvRT0_ENUlPKvS1_E_8__invokeES9_S1_
@@ -7849,7 +7843,7 @@ _ZNSt6vectorIN4entt8delegateIFvRiEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.
 _ZNSt6vectorIN4entt8delegateIFvRiEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i: ; preds = %55, %_ZNSt6vectorIN4entt8delegateIFvRiEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i
   store ptr %50, ptr %30, align 8, !tbaa !13
   store ptr %54, ptr %31, align 8, !tbaa !10
-  %56 = getelementptr inbounds nuw %"class.entt::delegate.108", ptr %50, i64 %48
+  %56 = getelementptr inbounds nuw [16 x i8], ptr %50, i64 %48
   store ptr %56, ptr %32, align 8, !tbaa !21
   br label %_ZNSt6vectorIN4entt8delegateIFvRiEEESaIS4_EE9push_backEOS4_.exit
 
@@ -8454,7 +8448,7 @@ _ZNK4entt4sighIFvRiESaIvEE7publishES1_.exit.thread: ; preds = %30
   %.05.i = phi i64 [ %39, %.noexc ], [ %38, %.lr.ph.preheader.i ]
   %39 = add i64 %.05.i, -1
   %40 = load ptr, ptr %2, align 8, !tbaa !13
-  %41 = getelementptr inbounds nuw %"class.entt::delegate.108", ptr %40, i64 %39
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %40, i64 %39
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load ptr, ptr %42, align 8, !tbaa !14
   %44 = load ptr, ptr %41, align 8, !tbaa !100
@@ -8961,7 +8955,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %.010.i.i = phi i64 [ %199, %.lr.ph.i.i ], [ %202, %215 ]
   %202 = add i64 %.010.i.i, -1
   %203 = load ptr, ptr %192, align 8, !tbaa !13
-  %204 = getelementptr inbounds nuw %"class.entt::delegate.108", ptr %203, i64 %202
+  %204 = getelementptr inbounds nuw [16 x i8], ptr %203, i64 %202
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 8
   %206 = load ptr, ptr %205, align 8, !tbaa !14
   %207 = icmp eq ptr %206, @_ZZN4entt8delegateIFvRiEE7connectITnDaXadL_ZN13sigh_listener1fES1_EEEEvvENUlPKvS1_E_8__invokeES7_S1_
@@ -9005,7 +8999,7 @@ _ZNK4entt4sighIFvRiESaIvEE7publishES1_.exit127.thread: ; preds = %_ZN4entt4sinkI
   %.05.i124 = phi i64 [ %224, %.noexc126 ], [ %223, %.lr.ph.preheader.i122 ]
   %224 = add i64 %.05.i124, -1
   %225 = load ptr, ptr %2, align 8, !tbaa !13
-  %226 = getelementptr inbounds nuw %"class.entt::delegate.108", ptr %225, i64 %224
+  %226 = getelementptr inbounds nuw [16 x i8], ptr %225, i64 %224
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 8
   %228 = load ptr, ptr %227, align 8, !tbaa !14
   %229 = load ptr, ptr %226, align 8, !tbaa !100
@@ -9559,7 +9553,7 @@ _ZNK4entt4sighIFvvESaIvEE7publishEv.exit.thread:  ; preds = %35
   %.04.i = phi i64 [ %44, %.noexc ], [ %43, %.lr.ph.preheader.i ]
   %44 = add i64 %.04.i, -1
   %45 = load ptr, ptr %2, align 8, !tbaa !132
-  %46 = getelementptr inbounds nuw %"class.entt::delegate.123", ptr %45, i64 %44
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %45, i64 %44
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 8
   %48 = load ptr, ptr %47, align 8, !tbaa !133
   %49 = load ptr, ptr %46, align 8, !tbaa !135
@@ -10071,7 +10065,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %.010.i.i = phi i64 [ %204, %.lr.ph.i.i ], [ %207, %220 ]
   %207 = add i64 %.010.i.i, -1
   %208 = load ptr, ptr %197, align 8, !tbaa !132
-  %209 = getelementptr inbounds nuw %"class.entt::delegate.123", ptr %208, i64 %207
+  %209 = getelementptr inbounds nuw [16 x i8], ptr %208, i64 %207
   %210 = getelementptr inbounds nuw i8, ptr %209, i64 8
   %211 = load ptr, ptr %210, align 8, !tbaa !133
   %212 = icmp eq ptr %211, @_ZZN4entt8delegateIFvvEE7connectITnDaXadL_ZN13sigh_listener1fERiEEiEEvRT0_ENUlPKvE_8__invokeES9_
@@ -10115,7 +10109,7 @@ _ZNK4entt4sighIFvvESaIvEE7publishEv.exit139.thread: ; preds = %_ZN4entt4sinkINS_
   %.04.i136 = phi i64 [ %229, %.noexc138 ], [ %228, %.lr.ph.preheader.i134 ]
   %229 = add i64 %.04.i136, -1
   %230 = load ptr, ptr %2, align 8, !tbaa !132
-  %231 = getelementptr inbounds nuw %"class.entt::delegate.123", ptr %230, i64 %229
+  %231 = getelementptr inbounds nuw [16 x i8], ptr %230, i64 %229
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 8
   %233 = load ptr, ptr %232, align 8, !tbaa !133
   %234 = load ptr, ptr %231, align 8, !tbaa !135
@@ -10596,7 +10590,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %.010.i.i206 = phi i64 [ %383, %392 ], [ %381, %.lr.ph.preheader.i.i ]
   %383 = add i64 %.010.i.i206, -1
   %384 = load ptr, ptr %374, align 8, !tbaa !132
-  %385 = getelementptr inbounds nuw %"class.entt::delegate.123", ptr %384, i64 %383
+  %385 = getelementptr inbounds nuw [16 x i8], ptr %384, i64 %383
   %386 = load ptr, ptr %385, align 8, !tbaa !135
   %387 = icmp eq ptr %386, %4
   br i1 %387, label %388, label %392
@@ -10631,7 +10625,7 @@ _ZN4entt4sinkINS_4sighIFvvESaIvEEEE10disconnectEPKv.exit: ; preds = %392, %373
   %.04.i211 = phi i64 [ %400, %.noexc213 ], [ %399, %.lr.ph.preheader.i209 ]
   %400 = add i64 %.04.i211, -1
   %401 = load ptr, ptr %2, align 8, !tbaa !132
-  %402 = getelementptr inbounds nuw %"class.entt::delegate.123", ptr %401, i64 %400
+  %402 = getelementptr inbounds nuw [16 x i8], ptr %401, i64 %400
   %403 = getelementptr inbounds nuw i8, ptr %402, i64 8
   %404 = load ptr, ptr %403, align 8, !tbaa !133
   %405 = load ptr, ptr %402, align 8, !tbaa !135
@@ -10854,7 +10848,7 @@ define linkonce_odr hidden void @_ZN4entt4sinkINS_4sighIFvvESaIvEEEE7connectITnD
   %.010.i.i = phi i64 [ %11, %.lr.ph.i.i ], [ %14, %27 ]
   %14 = add i64 %.010.i.i, -1
   %15 = load ptr, ptr %4, align 8, !tbaa !132
-  %16 = getelementptr inbounds nuw %"class.entt::delegate.123", ptr %15, i64 %14
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %14
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !133
   %19 = icmp eq ptr %18, @_ZZN4entt8delegateIFvvEE7connectITnDaXadL_ZN13sigh_listener1fERiEEiEEvRT0_ENUlPKvE_8__invokeES9_
@@ -10952,7 +10946,7 @@ _ZNSt6vectorIN4entt8delegateIFvvEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i
 _ZNSt6vectorIN4entt8delegateIFvvEEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %55, %_ZNSt6vectorIN4entt8delegateIFvvEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i
   store ptr %50, ptr %30, align 8, !tbaa !132
   store ptr %54, ptr %31, align 8, !tbaa !129
-  %56 = getelementptr inbounds nuw %"class.entt::delegate.123", ptr %50, i64 %48
+  %56 = getelementptr inbounds nuw [16 x i8], ptr %50, i64 %48
   store ptr %56, ptr %32, align 8, !tbaa !155
   br label %_ZNSt6vectorIN4entt8delegateIFvvEEESaIS3_EE9push_backEOS3_.exit
 
@@ -11048,7 +11042,7 @@ define hidden void @_ZN17SigH_Members_Test8TestBodyEv(ptr nonnull readnone align
   %.05.i = phi i64 [ %59, %.noexc ], [ %58, %.lr.ph.preheader.i ]
   %59 = add i64 %.05.i, -1
   %60 = load ptr, ptr %4, align 8, !tbaa !167
-  %61 = getelementptr inbounds nuw %"class.entt::delegate.138", ptr %60, i64 %59
+  %61 = getelementptr inbounds nuw [16 x i8], ptr %60, i64 %59
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = load ptr, ptr %62, align 8, !tbaa !168
   %64 = load ptr, ptr %61, align 8, !tbaa !170
@@ -11534,7 +11528,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %.010.i.i = phi i64 [ %216, %.lr.ph.i.i ], [ %219, %232 ]
   %219 = add i64 %.010.i.i, -1
   %220 = load ptr, ptr %209, align 8, !tbaa !167
-  %221 = getelementptr inbounds nuw %"class.entt::delegate.138", ptr %220, i64 %219
+  %221 = getelementptr inbounds nuw [16 x i8], ptr %220, i64 %219
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 8
   %223 = load ptr, ptr %222, align 8, !tbaa !168
   %224 = icmp eq ptr %223, @_ZZN4entt8delegateIFbiEE7connectITnDaXadL_ZN13sigh_listener1gEiEES4_EEvRT0_ENUlPKviE_8__invokeES8_i
@@ -11573,7 +11567,7 @@ _ZN4entt4sinkINS_4sighIFbiESaIvEEEE10disconnectITnDaXadL_ZN13sigh_listener1gEiEE
   %.05.i174 = phi i64 [ %240, %.noexc176 ], [ %239, %.lr.ph.preheader.i172 ]
   %240 = add i64 %.05.i174, -1
   %241 = load ptr, ptr %4, align 8, !tbaa !167
-  %242 = getelementptr inbounds nuw %"class.entt::delegate.138", ptr %241, i64 %240
+  %242 = getelementptr inbounds nuw [16 x i8], ptr %241, i64 %240
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 8
   %244 = load ptr, ptr %243, align 8, !tbaa !168
   %245 = load ptr, ptr %242, align 8, !tbaa !170
@@ -12357,7 +12351,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %.010.i.i288 = phi i64 [ %494, %503 ], [ %492, %.lr.ph.preheader.i.i ]
   %494 = add i64 %.010.i.i288, -1
   %495 = load ptr, ptr %485, align 8, !tbaa !167
-  %496 = getelementptr inbounds nuw %"class.entt::delegate.138", ptr %495, i64 %494
+  %496 = getelementptr inbounds nuw [16 x i8], ptr %495, i64 %494
   %497 = load ptr, ptr %496, align 8, !tbaa !170
   %498 = icmp eq ptr %497, %2
   br i1 %498, label %499, label %503
@@ -12731,7 +12725,7 @@ define linkonce_odr hidden void @_ZN4entt4sinkINS_4sighIFbiESaIvEEEE7connectITnD
   %.010.i.i = phi i64 [ %11, %.lr.ph.i.i ], [ %14, %27 ]
   %14 = add i64 %.010.i.i, -1
   %15 = load ptr, ptr %4, align 8, !tbaa !167
-  %16 = getelementptr inbounds nuw %"class.entt::delegate.138", ptr %15, i64 %14
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %14
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !168
   %19 = icmp eq ptr %18, @_ZZN4entt8delegateIFbiEE7connectITnDaXadL_ZN13sigh_listener1gEiEES4_EEvRT0_ENUlPKviE_8__invokeES8_i
@@ -12829,7 +12823,7 @@ _ZNSt6vectorIN4entt8delegateIFbiEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i
 _ZNSt6vectorIN4entt8delegateIFbiEEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %55, %_ZNSt6vectorIN4entt8delegateIFbiEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i
   store ptr %50, ptr %30, align 8, !tbaa !167
   store ptr %54, ptr %31, align 8, !tbaa !164
-  %56 = getelementptr inbounds nuw %"class.entt::delegate.138", ptr %50, i64 %48
+  %56 = getelementptr inbounds nuw [16 x i8], ptr %50, i64 %48
   store ptr %56, ptr %32, align 8, !tbaa !176
   br label %_ZNSt6vectorIN4entt8delegateIFbiEEESaIS3_EE9push_backEOS3_.exit
 
@@ -12864,7 +12858,7 @@ define linkonce_odr hidden void @_ZN4entt4sinkINS_4sighIFbiESaIvEEEE7connectITnD
   %.010.i.i = phi i64 [ %11, %.lr.ph.i.i ], [ %14, %27 ]
   %14 = add i64 %.010.i.i, -1
   %15 = load ptr, ptr %4, align 8, !tbaa !167
-  %16 = getelementptr inbounds nuw %"class.entt::delegate.138", ptr %15, i64 %14
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %14
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !168
   %19 = icmp eq ptr %18, @_ZZN4entt8delegateIFbiEE7connectITnDaXadL_ZN13sigh_listener1gEiEES4_EEvPT0_ENUlPKviE_8__invokeES8_i
@@ -12962,7 +12956,7 @@ _ZNSt6vectorIN4entt8delegateIFbiEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i
 _ZNSt6vectorIN4entt8delegateIFbiEEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %55, %_ZNSt6vectorIN4entt8delegateIFbiEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i
   store ptr %50, ptr %30, align 8, !tbaa !167
   store ptr %54, ptr %31, align 8, !tbaa !164
-  %56 = getelementptr inbounds nuw %"class.entt::delegate.138", ptr %50, i64 %48
+  %56 = getelementptr inbounds nuw [16 x i8], ptr %50, i64 %48
   store ptr %56, ptr %32, align 8, !tbaa !176
   br label %_ZNSt6vectorIN4entt8delegateIFbiEEESaIS3_EE9push_backEOS3_.exit
 
@@ -12997,7 +12991,7 @@ define linkonce_odr hidden void @_ZN4entt4sinkINS_4sighIFbiESaIvEEEE7connectITnD
   %.010.i.i = phi i64 [ %11, %.lr.ph.i.i ], [ %14, %27 ]
   %14 = add i64 %.010.i.i, -1
   %15 = load ptr, ptr %4, align 8, !tbaa !167
-  %16 = getelementptr inbounds nuw %"class.entt::delegate.138", ptr %15, i64 %14
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %14
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !168
   %19 = icmp eq ptr %18, @_ZZN4entt8delegateIFbiEE7connectITnDaXadL_ZNK13sigh_listener1hERKiEES4_EEvRT0_ENUlPKviE_8__invokeESA_i
@@ -13095,7 +13089,7 @@ _ZNSt6vectorIN4entt8delegateIFbiEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i
 _ZNSt6vectorIN4entt8delegateIFbiEEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %55, %_ZNSt6vectorIN4entt8delegateIFbiEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i
   store ptr %50, ptr %30, align 8, !tbaa !167
   store ptr %54, ptr %31, align 8, !tbaa !164
-  %56 = getelementptr inbounds nuw %"class.entt::delegate.138", ptr %50, i64 %48
+  %56 = getelementptr inbounds nuw [16 x i8], ptr %50, i64 %48
   store ptr %56, ptr %32, align 8, !tbaa !176
   br label %_ZNSt6vectorIN4entt8delegateIFbiEEESaIS3_EE9push_backEOS3_.exit
 
@@ -13184,7 +13178,7 @@ define hidden void @_ZN19SigH_Collector_Test8TestBodyEv(ptr nonnull readnone ali
   %.06.i = phi i64 [ %37, %.lr.ph.i ], [ %41, %"_ZZN19SigH_Collector_Test8TestBodyEvENK3$_1clEb.exit.i" ]
   %41 = add i64 %.06.i, -1
   %42 = load ptr, ptr %11, align 8, !tbaa !167
-  %43 = getelementptr inbounds nuw %"class.entt::delegate.138", ptr %42, i64 %41
+  %43 = getelementptr inbounds nuw [16 x i8], ptr %42, i64 %41
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %45 = load ptr, ptr %44, align 8, !tbaa !168
   %46 = load ptr, ptr %43, align 8, !tbaa !170
@@ -14066,7 +14060,7 @@ define hidden void @_ZN23SigH_CollectorVoid_Test8TestBodyEv(ptr nonnull readnone
   %.05.i = phi i64 [ %30, %.noexc ], [ %29, %.lr.ph.preheader.i ]
   %30 = add i64 %.05.i, -1
   %31 = load ptr, ptr %3, align 8, !tbaa !204
-  %32 = getelementptr inbounds nuw %"class.entt::delegate.159", ptr %31, i64 %30
+  %32 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %30
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !205
   %35 = load ptr, ptr %32, align 8, !tbaa !207
@@ -14632,7 +14626,7 @@ define linkonce_odr hidden void @_ZN4entt4sinkINS_4sighIFviESaIvEEEE7connectITnD
   %.010.i.i = phi i64 [ %11, %.lr.ph.i.i ], [ %14, %27 ]
   %14 = add i64 %.010.i.i, -1
   %15 = load ptr, ptr %4, align 8, !tbaa !204
-  %16 = getelementptr inbounds nuw %"class.entt::delegate.159", ptr %15, i64 %14
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %14
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !205
   %19 = icmp eq ptr %18, @_ZZN4entt8delegateIFviEE7connectITnDaXadL_ZN13sigh_listener1gEiEES4_EEvPT0_ENUlPKviE_8__invokeES8_i
@@ -14730,7 +14724,7 @@ _ZNSt6vectorIN4entt8delegateIFviEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i
 _ZNSt6vectorIN4entt8delegateIFviEEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %55, %_ZNSt6vectorIN4entt8delegateIFviEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i
   store ptr %50, ptr %30, align 8, !tbaa !204
   store ptr %54, ptr %31, align 8, !tbaa !201
-  %56 = getelementptr inbounds nuw %"class.entt::delegate.159", ptr %50, i64 %48
+  %56 = getelementptr inbounds nuw [16 x i8], ptr %50, i64 %48
   store ptr %56, ptr %32, align 8, !tbaa !215
   br label %_ZNSt6vectorIN4entt8delegateIFviEEESaIS3_EE9push_backEOS3_.exit
 
@@ -14765,7 +14759,7 @@ define linkonce_odr hidden void @_ZN4entt4sinkINS_4sighIFviESaIvEEEE7connectITnD
   %.010.i.i = phi i64 [ %11, %.lr.ph.i.i ], [ %14, %27 ]
   %14 = add i64 %.010.i.i, -1
   %15 = load ptr, ptr %4, align 8, !tbaa !204
-  %16 = getelementptr inbounds nuw %"class.entt::delegate.159", ptr %15, i64 %14
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %14
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !205
   %19 = icmp eq ptr %18, @_ZZN4entt8delegateIFviEE7connectITnDaXadL_ZNK13sigh_listener1hERKiEES4_EEvRT0_ENUlPKviE_8__invokeESA_i
@@ -14863,7 +14857,7 @@ _ZNSt6vectorIN4entt8delegateIFviEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i
 _ZNSt6vectorIN4entt8delegateIFviEEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %55, %_ZNSt6vectorIN4entt8delegateIFviEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i
   store ptr %50, ptr %30, align 8, !tbaa !204
   store ptr %54, ptr %31, align 8, !tbaa !201
-  %56 = getelementptr inbounds nuw %"class.entt::delegate.159", ptr %50, i64 %48
+  %56 = getelementptr inbounds nuw [16 x i8], ptr %50, i64 %48
   store ptr %56, ptr %32, align 8, !tbaa !215
   br label %_ZNSt6vectorIN4entt8delegateIFviEEESaIS3_EE9push_backEOS3_.exit
 
@@ -14942,7 +14936,7 @@ _ZNK4entt4sighIFvRiESaIvEE7publishES1_.exit.thread: ; preds = %30
   %.05.i = phi i64 [ %39, %.noexc ], [ %38, %.lr.ph.preheader.i ]
   %39 = add i64 %.05.i, -1
   %40 = load ptr, ptr %2, align 8, !tbaa !13
-  %41 = getelementptr inbounds nuw %"class.entt::delegate.108", ptr %40, i64 %39
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %40, i64 %39
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   %43 = load ptr, ptr %42, align 8, !tbaa !14
   %44 = load ptr, ptr %41, align 8, !tbaa !100
@@ -15443,7 +15437,7 @@ _ZNK4entt4sighIFvRiESaIvEE7publishES1_.exit130.thread: ; preds = %_ZN4entt10conn
   %.05.i127 = phi i64 [ %196, %.noexc129 ], [ %195, %.lr.ph.preheader.i125 ]
   %196 = add i64 %.05.i127, -1
   %197 = load ptr, ptr %2, align 8, !tbaa !13
-  %198 = getelementptr inbounds nuw %"class.entt::delegate.108", ptr %197, i64 %196
+  %198 = getelementptr inbounds nuw [16 x i8], ptr %197, i64 %196
   %199 = getelementptr inbounds nuw i8, ptr %198, i64 8
   %200 = load ptr, ptr %199, align 8, !tbaa !14
   %201 = load ptr, ptr %198, align 8, !tbaa !100
@@ -15991,7 +15985,7 @@ _ZNK4entt4sighIFviESaIvEE7publishEi.exit.thread:  ; preds = %26
   %.05.i = phi i64 [ %35, %.noexc ], [ %34, %.lr.ph.preheader.i ]
   %35 = add i64 %.05.i, -1
   %36 = load ptr, ptr %3, align 8, !tbaa !204
-  %37 = getelementptr inbounds nuw %"class.entt::delegate.159", ptr %36, i64 %35
+  %37 = getelementptr inbounds nuw [16 x i8], ptr %36, i64 %35
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load ptr, ptr %38, align 8, !tbaa !205
   %40 = load ptr, ptr %37, align 8, !tbaa !207
@@ -16467,7 +16461,7 @@ _ZNK4entt4sighIFviESaIvEE7publishEi.exit167.thread: ; preds = %_ZN4entt17scoped_
   %.05.i164 = phi i64 [ %188, %.noexc166 ], [ %187, %.lr.ph.preheader.i162 ]
   %188 = add i64 %.05.i164, -1
   %189 = load ptr, ptr %3, align 8, !tbaa !204
-  %190 = getelementptr inbounds nuw %"class.entt::delegate.159", ptr %189, i64 %188
+  %190 = getelementptr inbounds nuw [16 x i8], ptr %189, i64 %188
   %191 = getelementptr inbounds nuw i8, ptr %190, i64 8
   %192 = load ptr, ptr %191, align 8, !tbaa !205
   %193 = load ptr, ptr %190, align 8, !tbaa !207
@@ -16858,7 +16852,7 @@ define linkonce_odr hidden void @_ZN4entt4sinkINS_4sighIFviESaIvEEEE7connectITnD
   %.010.i.i = phi i64 [ %11, %.lr.ph.i.i ], [ %14, %27 ]
   %14 = add i64 %.010.i.i, -1
   %15 = load ptr, ptr %4, align 8, !tbaa !204
-  %16 = getelementptr inbounds nuw %"class.entt::delegate.159", ptr %15, i64 %14
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %14
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !205
   %19 = icmp eq ptr %18, @_ZZN4entt8delegateIFviEE7connectITnDaXadL_ZN13sigh_listener1gEiEES4_EEvRT0_ENUlPKviE_8__invokeES8_i
@@ -16956,7 +16950,7 @@ _ZNSt6vectorIN4entt8delegateIFviEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i
 _ZNSt6vectorIN4entt8delegateIFviEEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %55, %_ZNSt6vectorIN4entt8delegateIFviEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i
   store ptr %50, ptr %30, align 8, !tbaa !204
   store ptr %54, ptr %31, align 8, !tbaa !201
-  %56 = getelementptr inbounds nuw %"class.entt::delegate.159", ptr %50, i64 %48
+  %56 = getelementptr inbounds nuw [16 x i8], ptr %50, i64 %48
   store ptr %56, ptr %32, align 8, !tbaa !215
   br label %_ZNSt6vectorIN4entt8delegateIFviEEESaIS3_EE9push_backEOS3_.exit
 
@@ -17474,7 +17468,7 @@ _ZNKSt14default_deleteINSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE
   %.05.i = phi i64 [ %192, %.noexc ], [ %191, %.lr.ph.preheader.i ]
   %192 = add i64 %.05.i, -1
   %193 = load ptr, ptr %3, align 8, !tbaa !204
-  %194 = getelementptr inbounds nuw %"class.entt::delegate.159", ptr %193, i64 %192
+  %194 = getelementptr inbounds nuw [16 x i8], ptr %193, i64 %192
   %195 = getelementptr inbounds nuw i8, ptr %194, i64 8
   %196 = load ptr, ptr %195, align 8, !tbaa !205
   %197 = load ptr, ptr %194, align 8, !tbaa !207
@@ -18259,7 +18253,7 @@ _ZN4entt17scoped_connectionD2Ev.exit337.thread638: ; preds = %_ZNKSt14default_de
   %.05.i497 = phi i64 [ %443, %.noexc499 ], [ %442, %.lr.ph.preheader.i495 ]
   %443 = add i64 %.05.i497, -1
   %444 = load ptr, ptr %3, align 8, !tbaa !204
-  %445 = getelementptr inbounds nuw %"class.entt::delegate.159", ptr %444, i64 %443
+  %445 = getelementptr inbounds nuw [16 x i8], ptr %444, i64 %443
   %446 = getelementptr inbounds nuw i8, ptr %445, i64 8
   %447 = load ptr, ptr %446, align 8, !tbaa !205
   %448 = load ptr, ptr %445, align 8, !tbaa !207
@@ -18729,7 +18723,7 @@ _ZNK4entt4sighIFviESaIvEE7publishEi.exit.thread:  ; preds = %44
   %.05.i = phi i64 [ %52, %.noexc ], [ %51, %.lr.ph.preheader.i ]
   %52 = add i64 %.05.i, -1
   %53 = load ptr, ptr %3, align 8, !tbaa !204
-  %54 = getelementptr inbounds nuw %"class.entt::delegate.159", ptr %53, i64 %52
+  %54 = getelementptr inbounds nuw [16 x i8], ptr %53, i64 %52
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
   %56 = load ptr, ptr %55, align 8, !tbaa !205
   %57 = load ptr, ptr %54, align 8, !tbaa !207
@@ -19353,7 +19347,7 @@ _ZNK4entt4sighIFviESaIvEE7publishEi.exit342.thread: ; preds = %237
   %.05.i339 = phi i64 [ %245, %.noexc341 ], [ %244, %.lr.ph.preheader.i337 ]
   %245 = add i64 %.05.i339, -1
   %246 = load ptr, ptr %3, align 8, !tbaa !204
-  %247 = getelementptr inbounds nuw %"class.entt::delegate.159", ptr %246, i64 %245
+  %247 = getelementptr inbounds nuw [16 x i8], ptr %246, i64 %245
   %248 = getelementptr inbounds nuw i8, ptr %247, i64 8
   %249 = load ptr, ptr %248, align 8, !tbaa !205
   %250 = load ptr, ptr %247, align 8, !tbaa !207
@@ -19831,7 +19825,7 @@ _ZNK4entt4sighIFviESaIvEE7publishEi.exit419.thread: ; preds = %_ZN4entt17scoped_
   %.05.i416 = phi i64 [ %394, %.noexc418 ], [ %393, %.lr.ph.preheader.i414 ]
   %394 = add i64 %.05.i416, -1
   %395 = load ptr, ptr %3, align 8, !tbaa !204
-  %396 = getelementptr inbounds nuw %"class.entt::delegate.159", ptr %395, i64 %394
+  %396 = getelementptr inbounds nuw [16 x i8], ptr %395, i64 %394
   %397 = getelementptr inbounds nuw i8, ptr %396, i64 8
   %398 = load ptr, ptr %397, align 8, !tbaa !205
   %399 = load ptr, ptr %396, align 8, !tbaa !207
@@ -20304,7 +20298,7 @@ define hidden void @_ZN31SigH_ConstNonConstNoExcept_Test8TestBodyEv(ptr nonnull 
   %.04.i = phi i64 [ %37, %.noexc ], [ %36, %.lr.ph.preheader.i ]
   %37 = add i64 %.04.i, -1
   %38 = load ptr, ptr %2, align 8, !tbaa !132
-  %39 = getelementptr inbounds nuw %"class.entt::delegate.123", ptr %38, i64 %37
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %37
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !133
   %42 = load ptr, ptr %39, align 8, !tbaa !135
@@ -20678,7 +20672,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %.010.i.i = phi i64 [ %155, %.lr.ph.i.i ], [ %158, %171 ]
   %158 = add i64 %.010.i.i, -1
   %159 = load ptr, ptr %148, align 8, !tbaa !132
-  %160 = getelementptr inbounds nuw %"class.entt::delegate.123", ptr %159, i64 %158
+  %160 = getelementptr inbounds nuw [16 x i8], ptr %159, i64 %158
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 8
   %162 = load ptr, ptr %161, align 8, !tbaa !133
   %163 = icmp eq ptr %162, @_ZZN4entt8delegateIFvvEE7connectITnDaXadL_ZN23const_nonconst_noexcept1fEvEES4_EEvRT0_ENUlPKvE_8__invokeES8_
@@ -20717,7 +20711,7 @@ _ZN4entt4sinkINS_4sighIFvvESaIvEEEE10disconnectITnDaXadL_ZN23const_nonconst_noex
   %.010.i.i81 = phi i64 [ %176, %.lr.ph.i.i80 ], [ %179, %192 ]
   %179 = add i64 %.010.i.i81, -1
   %180 = load ptr, ptr %148, align 8, !tbaa !132
-  %181 = getelementptr inbounds nuw %"class.entt::delegate.123", ptr %180, i64 %179
+  %181 = getelementptr inbounds nuw [16 x i8], ptr %180, i64 %179
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 8
   %183 = load ptr, ptr %182, align 8, !tbaa !133
   %184 = icmp eq ptr %183, @_ZZN4entt8delegateIFvvEE7connectITnDaXadL_ZN23const_nonconst_noexcept1gEvEES4_EEvPT0_ENUlPKvE_8__invokeES8_
@@ -20761,7 +20755,7 @@ _ZN4entt4sinkINS_4sighIFvvESaIvEEEE10disconnectITnDaXadL_ZN23const_nonconst_noex
   %.010.i.i85 = phi i64 [ %199, %.lr.ph.i.i84 ], [ %202, %215 ]
   %202 = add i64 %.010.i.i85, -1
   %203 = load ptr, ptr %148, align 8, !tbaa !132
-  %204 = getelementptr inbounds nuw %"class.entt::delegate.123", ptr %203, i64 %202
+  %204 = getelementptr inbounds nuw [16 x i8], ptr %203, i64 %202
   %205 = getelementptr inbounds nuw i8, ptr %204, i64 8
   %206 = load ptr, ptr %205, align 8, !tbaa !133
   %207 = icmp eq ptr %206, @_ZZN4entt8delegateIFvvEE7connectITnDaXadL_ZNK23const_nonconst_noexcept1hEvEEKS4_EEvRT0_ENUlPKvE_8__invokeES9_
@@ -20805,7 +20799,7 @@ _ZN4entt4sinkINS_4sighIFvvESaIvEEEE10disconnectITnDaXadL_ZNK23const_nonconst_noe
   %.010.i.i89 = phi i64 [ %222, %.lr.ph.i.i88 ], [ %225, %238 ]
   %225 = add i64 %.010.i.i89, -1
   %226 = load ptr, ptr %148, align 8, !tbaa !132
-  %227 = getelementptr inbounds nuw %"class.entt::delegate.123", ptr %226, i64 %225
+  %227 = getelementptr inbounds nuw [16 x i8], ptr %226, i64 %225
   %228 = getelementptr inbounds nuw i8, ptr %227, i64 8
   %229 = load ptr, ptr %228, align 8, !tbaa !133
   %230 = icmp eq ptr %229, @_ZZN4entt8delegateIFvvEE7connectITnDaXadL_ZNK23const_nonconst_noexcept1iEvEEKS4_EEvPT0_ENUlPKvE_8__invokeES9_
@@ -20844,7 +20838,7 @@ _ZN4entt4sinkINS_4sighIFvvESaIvEEEE10disconnectITnDaXadL_ZNK23const_nonconst_noe
   %.04.i94 = phi i64 [ %246, %.noexc96 ], [ %245, %.lr.ph.preheader.i92 ]
   %246 = add i64 %.04.i94, -1
   %247 = load ptr, ptr %2, align 8, !tbaa !132
-  %248 = getelementptr inbounds nuw %"class.entt::delegate.123", ptr %247, i64 %246
+  %248 = getelementptr inbounds nuw [16 x i8], ptr %247, i64 %246
   %249 = getelementptr inbounds nuw i8, ptr %248, i64 8
   %250 = load ptr, ptr %249, align 8, !tbaa !133
   %251 = load ptr, ptr %248, align 8, !tbaa !135
@@ -21220,7 +21214,7 @@ define linkonce_odr hidden void @_ZN4entt4sinkINS_4sighIFvvESaIvEEEE7connectITnD
   %.010.i.i = phi i64 [ %11, %.lr.ph.i.i ], [ %14, %27 ]
   %14 = add i64 %.010.i.i, -1
   %15 = load ptr, ptr %4, align 8, !tbaa !132
-  %16 = getelementptr inbounds nuw %"class.entt::delegate.123", ptr %15, i64 %14
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %14
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !133
   %19 = icmp eq ptr %18, @_ZZN4entt8delegateIFvvEE7connectITnDaXadL_ZN23const_nonconst_noexcept1fEvEES4_EEvRT0_ENUlPKvE_8__invokeES8_
@@ -21318,7 +21312,7 @@ _ZNSt6vectorIN4entt8delegateIFvvEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i
 _ZNSt6vectorIN4entt8delegateIFvvEEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %55, %_ZNSt6vectorIN4entt8delegateIFvvEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i
   store ptr %50, ptr %30, align 8, !tbaa !132
   store ptr %54, ptr %31, align 8, !tbaa !129
-  %56 = getelementptr inbounds nuw %"class.entt::delegate.123", ptr %50, i64 %48
+  %56 = getelementptr inbounds nuw [16 x i8], ptr %50, i64 %48
   store ptr %56, ptr %32, align 8, !tbaa !155
   br label %_ZNSt6vectorIN4entt8delegateIFvvEEESaIS3_EE9push_backEOS3_.exit
 
@@ -21353,7 +21347,7 @@ define linkonce_odr hidden void @_ZN4entt4sinkINS_4sighIFvvESaIvEEEE7connectITnD
   %.010.i.i = phi i64 [ %11, %.lr.ph.i.i ], [ %14, %27 ]
   %14 = add i64 %.010.i.i, -1
   %15 = load ptr, ptr %4, align 8, !tbaa !132
-  %16 = getelementptr inbounds nuw %"class.entt::delegate.123", ptr %15, i64 %14
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %14
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !133
   %19 = icmp eq ptr %18, @_ZZN4entt8delegateIFvvEE7connectITnDaXadL_ZN23const_nonconst_noexcept1gEvEES4_EEvPT0_ENUlPKvE_8__invokeES8_
@@ -21451,7 +21445,7 @@ _ZNSt6vectorIN4entt8delegateIFvvEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i
 _ZNSt6vectorIN4entt8delegateIFvvEEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %55, %_ZNSt6vectorIN4entt8delegateIFvvEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i
   store ptr %50, ptr %30, align 8, !tbaa !132
   store ptr %54, ptr %31, align 8, !tbaa !129
-  %56 = getelementptr inbounds nuw %"class.entt::delegate.123", ptr %50, i64 %48
+  %56 = getelementptr inbounds nuw [16 x i8], ptr %50, i64 %48
   store ptr %56, ptr %32, align 8, !tbaa !155
   br label %_ZNSt6vectorIN4entt8delegateIFvvEEESaIS3_EE9push_backEOS3_.exit
 
@@ -21486,7 +21480,7 @@ define linkonce_odr hidden void @_ZN4entt4sinkINS_4sighIFvvESaIvEEEE7connectITnD
   %.010.i.i = phi i64 [ %11, %.lr.ph.i.i ], [ %14, %27 ]
   %14 = add i64 %.010.i.i, -1
   %15 = load ptr, ptr %4, align 8, !tbaa !132
-  %16 = getelementptr inbounds nuw %"class.entt::delegate.123", ptr %15, i64 %14
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %14
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !133
   %19 = icmp eq ptr %18, @_ZZN4entt8delegateIFvvEE7connectITnDaXadL_ZNK23const_nonconst_noexcept1hEvEEKS4_EEvRT0_ENUlPKvE_8__invokeES9_
@@ -21584,7 +21578,7 @@ _ZNSt6vectorIN4entt8delegateIFvvEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i
 _ZNSt6vectorIN4entt8delegateIFvvEEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %55, %_ZNSt6vectorIN4entt8delegateIFvvEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i
   store ptr %50, ptr %30, align 8, !tbaa !132
   store ptr %54, ptr %31, align 8, !tbaa !129
-  %56 = getelementptr inbounds nuw %"class.entt::delegate.123", ptr %50, i64 %48
+  %56 = getelementptr inbounds nuw [16 x i8], ptr %50, i64 %48
   store ptr %56, ptr %32, align 8, !tbaa !155
   br label %_ZNSt6vectorIN4entt8delegateIFvvEEESaIS3_EE9push_backEOS3_.exit
 
@@ -21619,7 +21613,7 @@ define linkonce_odr hidden void @_ZN4entt4sinkINS_4sighIFvvESaIvEEEE7connectITnD
   %.010.i.i = phi i64 [ %11, %.lr.ph.i.i ], [ %14, %27 ]
   %14 = add i64 %.010.i.i, -1
   %15 = load ptr, ptr %4, align 8, !tbaa !132
-  %16 = getelementptr inbounds nuw %"class.entt::delegate.123", ptr %15, i64 %14
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %14
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !133
   %19 = icmp eq ptr %18, @_ZZN4entt8delegateIFvvEE7connectITnDaXadL_ZNK23const_nonconst_noexcept1iEvEEKS4_EEvPT0_ENUlPKvE_8__invokeES9_
@@ -21717,7 +21711,7 @@ _ZNSt6vectorIN4entt8delegateIFvvEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i
 _ZNSt6vectorIN4entt8delegateIFvvEEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %55, %_ZNSt6vectorIN4entt8delegateIFvvEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i
   store ptr %50, ptr %30, align 8, !tbaa !132
   store ptr %54, ptr %31, align 8, !tbaa !129
-  %56 = getelementptr inbounds nuw %"class.entt::delegate.123", ptr %50, i64 %48
+  %56 = getelementptr inbounds nuw [16 x i8], ptr %50, i64 %48
   store ptr %56, ptr %32, align 8, !tbaa !155
   br label %_ZNSt6vectorIN4entt8delegateIFvvEEESaIS3_EE9push_backEOS3_.exit
 
@@ -21777,7 +21771,7 @@ define hidden void @_ZN27SigH_UnboundDataMember_Test8TestBodyEv(ptr nonnull read
   %.05.i = phi i64 [ %19, %.noexc ], [ %18, %.lr.ph.preheader.i ]
   %19 = add i64 %.05.i, -1
   %20 = load ptr, ptr %3, align 8, !tbaa !293
-  %21 = getelementptr inbounds nuw %"class.entt::delegate.197", ptr %20, i64 %19
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %19
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !294
   %24 = load ptr, ptr %21, align 8, !tbaa !296
@@ -22003,7 +21997,7 @@ define linkonce_odr hidden void @_ZN4entt4sinkINS_4sighIFRbR13sigh_listenerESaIv
   %.010.i.i = phi i64 [ %10, %.lr.ph.i.i ], [ %13, %26 ]
   %13 = add i64 %.010.i.i, -1
   %14 = load ptr, ptr %3, align 8, !tbaa !293
-  %15 = getelementptr inbounds nuw %"class.entt::delegate.197", ptr %14, i64 %13
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %13
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !294
   %18 = icmp eq ptr %17, @_ZZN4entt8delegateIFRbR13sigh_listenerEE7connectITnDaXadL_ZNS2_3valEEEEEvvENUlPKvS3_E_8__invokeES8_S3_
@@ -22101,7 +22095,7 @@ _ZNSt6vectorIN4entt8delegateIFRbR13sigh_listenerEEESaIS6_EE11_S_relocateEPS6_S9_
 _ZNSt6vectorIN4entt8delegateIFRbR13sigh_listenerEEESaIS6_EE17_M_realloc_insertIJS6_EEEvN9__gnu_cxx17__normal_iteratorIPS6_S8_EEDpOT_.exit.i.i: ; preds = %54, %_ZNSt6vectorIN4entt8delegateIFRbR13sigh_listenerEEESaIS6_EE11_S_relocateEPS6_S9_S9_RS7_.exit22.i.i.i
   store ptr %49, ptr %29, align 8, !tbaa !293
   store ptr %53, ptr %30, align 8, !tbaa !290
-  %55 = getelementptr inbounds nuw %"class.entt::delegate.197", ptr %49, i64 %47
+  %55 = getelementptr inbounds nuw [16 x i8], ptr %49, i64 %47
   store ptr %55, ptr %31, align 8, !tbaa !298
   br label %_ZNSt6vectorIN4entt8delegateIFRbR13sigh_listenerEEESaIS6_EE9push_backEOS6_.exit
 
@@ -22161,7 +22155,7 @@ _ZNK4entt4sighIFvP13sigh_listeneriESaIvEE7publishES2_i.exit.thread: ; preds = %1
   %.06.i = phi i64 [ %19, %.noexc ], [ %18, %.lr.ph.preheader.i ]
   %19 = add i64 %.06.i, -1
   %20 = load ptr, ptr %3, align 8, !tbaa !311
-  %21 = getelementptr inbounds nuw %"class.entt::delegate.204", ptr %20, i64 %19
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %19
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !312
   %24 = load ptr, ptr %21, align 8, !tbaa !314
@@ -22384,7 +22378,7 @@ define linkonce_odr hidden void @_ZN4entt4sinkINS_4sighIFvP13sigh_listeneriESaIv
   %.010.i.i = phi i64 [ %10, %.lr.ph.i.i ], [ %13, %26 ]
   %13 = add i64 %.010.i.i, -1
   %14 = load ptr, ptr %3, align 8, !tbaa !311
-  %15 = getelementptr inbounds nuw %"class.entt::delegate.204", ptr %14, i64 %13
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %13
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !312
   %18 = icmp eq ptr %17, @_ZZN4entt8delegateIFvP13sigh_listeneriEE7connectITnDaXadL_ZNS1_1gEiEEEEvvENUlPKvS2_iE_8__invokeES7_S2_i
@@ -22482,7 +22476,7 @@ _ZNSt6vectorIN4entt8delegateIFvP13sigh_listeneriEEESaIS5_EE11_S_relocateEPS5_S8_
 _ZNSt6vectorIN4entt8delegateIFvP13sigh_listeneriEEESaIS5_EE17_M_realloc_insertIJS5_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i: ; preds = %54, %_ZNSt6vectorIN4entt8delegateIFvP13sigh_listeneriEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit22.i.i.i
   store ptr %49, ptr %29, align 8, !tbaa !311
   store ptr %53, ptr %30, align 8, !tbaa !308
-  %55 = getelementptr inbounds nuw %"class.entt::delegate.204", ptr %49, i64 %47
+  %55 = getelementptr inbounds nuw [16 x i8], ptr %49, i64 %47
   store ptr %55, ptr %31, align 8, !tbaa !316
   br label %_ZNSt6vectorIN4entt8delegateIFvP13sigh_listeneriEEESaIS5_EE9push_backEOS5_.exit
 
@@ -23050,7 +23044,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %.05.i = phi i64 [ %206, %.noexc155 ], [ %205, %.lr.ph.preheader.i ]
   %206 = add i64 %.05.i, -1
   %207 = load ptr, ptr %3, align 8, !tbaa !13
-  %208 = getelementptr inbounds nuw %"class.entt::delegate.108", ptr %207, i64 %206
+  %208 = getelementptr inbounds nuw [16 x i8], ptr %207, i64 %206
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 8
   %210 = load ptr, ptr %209, align 8, !tbaa !14
   %211 = load ptr, ptr %208, align 8, !tbaa !100
@@ -23550,7 +23544,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
   %.05.i223 = phi i64 [ %365, %.noexc225 ], [ %364, %.lr.ph.preheader.i221 ]
   %365 = add i64 %.05.i223, -1
   %366 = load ptr, ptr %3, align 8, !tbaa !13
-  %367 = getelementptr inbounds nuw %"class.entt::delegate.108", ptr %366, i64 %365
+  %367 = getelementptr inbounds nuw [16 x i8], ptr %366, i64 %365
   %368 = getelementptr inbounds nuw i8, ptr %367, i64 8
   %369 = load ptr, ptr %368, align 8, !tbaa !14
   %370 = load ptr, ptr %367, align 8, !tbaa !100
@@ -24075,7 +24069,7 @@ define linkonce_odr hidden void @_ZN4entt4sinkINS_4sighIFvRiESaIvEEEE7connectITn
   %.010.i.i = phi i64 [ %11, %.lr.ph.i.i ], [ %14, %27 ]
   %14 = add i64 %.010.i.i, -1
   %15 = load ptr, ptr %4, align 8, !tbaa !13
-  %16 = getelementptr inbounds nuw %"class.entt::delegate.108", ptr %15, i64 %14
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %14
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !14
   %19 = icmp eq ptr %18, @_ZZN4entt8delegateIFvRiEE7connectITnDaXadL_Z27connect_and_auto_disconnectRNS_4sighIS2_SaIvEEERKiEES7_EEvRT0_ENUlPKvS1_E_8__invokeESE_S1_
@@ -24173,7 +24167,7 @@ _ZNSt6vectorIN4entt8delegateIFvRiEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.
 _ZNSt6vectorIN4entt8delegateIFvRiEEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i: ; preds = %55, %_ZNSt6vectorIN4entt8delegateIFvRiEEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i
   store ptr %50, ptr %30, align 8, !tbaa !13
   store ptr %54, ptr %31, align 8, !tbaa !10
-  %56 = getelementptr inbounds nuw %"class.entt::delegate.108", ptr %50, i64 %48
+  %56 = getelementptr inbounds nuw [16 x i8], ptr %50, i64 %48
   store ptr %56, ptr %32, align 8, !tbaa !21
   br label %_ZNSt6vectorIN4entt8delegateIFvRiEEESaIS4_EE9push_backEOS4_.exit
 
@@ -24621,7 +24615,7 @@ _ZNSt12_Vector_baseIN4entt8delegateIFviEEESaIS3_EEC2EmRKS4_.exit.i.i: ; preds = 
   %.010.i.i = phi i64 [ %174, %183 ], [ %172, %.lr.ph.preheader.i.i ]
   %174 = add i64 %.010.i.i, -1
   %175 = load ptr, ptr %165, align 8, !tbaa !204
-  %176 = getelementptr inbounds nuw %"class.entt::delegate.159", ptr %175, i64 %174
+  %176 = getelementptr inbounds nuw [16 x i8], ptr %175, i64 %174
   %177 = load ptr, ptr %176, align 8, !tbaa !207
   %178 = icmp eq ptr %177, %11
   br i1 %178, label %179, label %183
@@ -25303,7 +25297,7 @@ _ZN7testing7MessageD2Ev.exit343:                  ; preds = %_ZNKSt14default_del
   %.010.i.i374 = phi i64 [ %405, %414 ], [ %403, %.lr.ph.preheader.i.i372 ]
   %405 = add i64 %.010.i.i374, -1
   %406 = load ptr, ptr %26, align 8, !tbaa !204
-  %407 = getelementptr inbounds nuw %"class.entt::delegate.159", ptr %406, i64 %405
+  %407 = getelementptr inbounds nuw [16 x i8], ptr %406, i64 %405
   %408 = load ptr, ptr %407, align 8, !tbaa !207
   %409 = icmp eq ptr %408, %11
   br i1 %409, label %410, label %414
@@ -26165,7 +26159,7 @@ define linkonce_odr hidden void @_ZN4entt4sinkINS_4sighIFviESaIPS2_EEEE7connectI
   %.010.i.i = phi i64 [ %11, %.lr.ph.i.i ], [ %14, %27 ]
   %14 = add i64 %.010.i.i, -1
   %15 = load ptr, ptr %4, align 8, !tbaa !204
-  %16 = getelementptr inbounds nuw %"class.entt::delegate.159", ptr %15, i64 %14
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %14
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !205
   %19 = icmp eq ptr %18, @_ZZN4entt8delegateIFviEE7connectITnDaXadL_ZN13sigh_listener1gEiEES4_EEvRT0_ENUlPKviE_8__invokeES8_i
@@ -26263,7 +26257,7 @@ _ZNSt6vectorIN4entt8delegateIFviEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i
 _ZNSt6vectorIN4entt8delegateIFviEEESaIS3_EE17_M_realloc_insertIJS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i.i: ; preds = %55, %_ZNSt6vectorIN4entt8delegateIFviEEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22.i.i.i
   store ptr %50, ptr %30, align 8, !tbaa !204
   store ptr %54, ptr %31, align 8, !tbaa !201
-  %56 = getelementptr inbounds nuw %"class.entt::delegate.159", ptr %50, i64 %48
+  %56 = getelementptr inbounds nuw [16 x i8], ptr %50, i64 %48
   store ptr %56, ptr %32, align 8, !tbaa !215
   br label %_ZNSt6vectorIN4entt8delegateIFviEEESaIS3_EE9push_backEOS3_.exit
 
@@ -27829,7 +27823,7 @@ define linkonce_odr hidden void @_ZZN4entt8delegateIFvPvEE7connectITnDaXadL_ZNS_
   %.010.i.i.i.i = phi i64 [ %9, %.lr.ph.i.i.i.i ], [ %12, %25 ]
   %12 = add i64 %.010.i.i.i.i, -1
   %13 = load ptr, ptr %1, align 8, !tbaa !13
-  %14 = getelementptr inbounds nuw %"class.entt::delegate.108", ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %12
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !14
   %17 = icmp eq ptr %16, @_ZZN4entt8delegateIFvRiEE7connectITnDaXadL_ZN13sigh_listener1fES1_EEEEvvENUlPKvS1_E_8__invokeES7_S1_
@@ -27883,7 +27877,7 @@ define linkonce_odr hidden void @_ZZN4entt8delegateIFvRiEE7connectITnDaXadL_Z27c
   %.010.i.i.i.i = phi i64 [ %12, %.lr.ph.i.i.i.i ], [ %15, %28 ]
   %15 = add i64 %.010.i.i.i.i, -1
   %16 = load ptr, ptr %5, align 8, !tbaa !13
-  %17 = getelementptr inbounds nuw %"class.entt::delegate.108", ptr %16, i64 %15
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %15
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !14
   %20 = icmp eq ptr %19, @_ZZN4entt8delegateIFvRiEE7connectITnDaXadL_Z27connect_and_auto_disconnectRNS_4sighIS2_SaIvEEERKiEES7_EEvRT0_ENUlPKvS1_E_8__invokeESE_S1_
@@ -27946,7 +27940,7 @@ define linkonce_odr hidden void @_ZZN4entt8delegateIFvPvEE7connectITnDaXadL_ZNS_
   %.010.i.i.i.i = phi i64 [ %9, %.lr.ph.i.i.i.i ], [ %12, %25 ]
   %12 = add i64 %.010.i.i.i.i, -1
   %13 = load ptr, ptr %1, align 8, !tbaa !13
-  %14 = getelementptr inbounds nuw %"class.entt::delegate.108", ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %12
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !14
   %17 = icmp eq ptr %16, @_ZZN4entt8delegateIFvRiEE7connectITnDaXadL_ZN13sigh_listener1gEiEES5_EEvRT0_ENUlPKvS1_E_8__invokeES9_S1_
@@ -28513,7 +28507,7 @@ define linkonce_odr hidden void @_ZZN4entt8delegateIFvPvEE7connectITnDaXadL_ZNS_
   %.010.i.i.i.i = phi i64 [ %9, %.lr.ph.i.i.i.i ], [ %12, %25 ]
   %12 = add i64 %.010.i.i.i.i, -1
   %13 = load ptr, ptr %1, align 8, !tbaa !132
-  %14 = getelementptr inbounds nuw %"class.entt::delegate.123", ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %12
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !133
   %17 = icmp eq ptr %16, @_ZZN4entt8delegateIFvvEE7connectITnDaXadL_ZN13sigh_listener1fERiEEiEEvRT0_ENUlPKvE_8__invokeES9_
@@ -28567,7 +28561,7 @@ define linkonce_odr hidden void @_ZZN4entt8delegateIFvPvEE7connectITnDaXadL_ZNS_
   %.010.i.i.i.i = phi i64 [ %9, %.lr.ph.i.i.i.i ], [ %12, %25 ]
   %12 = add i64 %.010.i.i.i.i, -1
   %13 = load ptr, ptr %1, align 8, !tbaa !167
-  %14 = getelementptr inbounds nuw %"class.entt::delegate.138", ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %12
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !168
   %17 = icmp eq ptr %16, @_ZZN4entt8delegateIFbiEE7connectITnDaXadL_ZN13sigh_listener1gEiEES4_EEvRT0_ENUlPKviE_8__invokeES8_i
@@ -28621,7 +28615,7 @@ define linkonce_odr hidden void @_ZZN4entt8delegateIFvPvEE7connectITnDaXadL_ZNS_
   %.010.i.i.i.i = phi i64 [ %9, %.lr.ph.i.i.i.i ], [ %12, %25 ]
   %12 = add i64 %.010.i.i.i.i, -1
   %13 = load ptr, ptr %1, align 8, !tbaa !167
-  %14 = getelementptr inbounds nuw %"class.entt::delegate.138", ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %12
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !168
   %17 = icmp eq ptr %16, @_ZZN4entt8delegateIFbiEE7connectITnDaXadL_ZN13sigh_listener1gEiEES4_EEvPT0_ENUlPKviE_8__invokeES8_i
@@ -28674,7 +28668,7 @@ define linkonce_odr hidden void @_ZZN4entt8delegateIFvPvEE7connectITnDaXadL_ZNS_
   %.010.i.i.i.i = phi i64 [ %9, %.lr.ph.i.i.i.i ], [ %12, %25 ]
   %12 = add i64 %.010.i.i.i.i, -1
   %13 = load ptr, ptr %1, align 8, !tbaa !167
-  %14 = getelementptr inbounds nuw %"class.entt::delegate.138", ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %12
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !168
   %17 = icmp eq ptr %16, @_ZZN4entt8delegateIFbiEE7connectITnDaXadL_ZNK13sigh_listener1hERKiEES4_EEvRT0_ENUlPKviE_8__invokeESA_i
@@ -28728,7 +28722,7 @@ define linkonce_odr hidden void @_ZZN4entt8delegateIFvPvEE7connectITnDaXadL_ZNS_
   %.010.i.i.i.i = phi i64 [ %9, %.lr.ph.i.i.i.i ], [ %12, %25 ]
   %12 = add i64 %.010.i.i.i.i, -1
   %13 = load ptr, ptr %1, align 8, !tbaa !204
-  %14 = getelementptr inbounds nuw %"class.entt::delegate.159", ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %12
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !205
   %17 = icmp eq ptr %16, @_ZZN4entt8delegateIFviEE7connectITnDaXadL_ZN13sigh_listener1gEiEES4_EEvPT0_ENUlPKviE_8__invokeES8_i
@@ -28779,7 +28773,7 @@ define linkonce_odr hidden void @_ZZN4entt8delegateIFvPvEE7connectITnDaXadL_ZNS_
   %.010.i.i.i.i = phi i64 [ %9, %.lr.ph.i.i.i.i ], [ %12, %25 ]
   %12 = add i64 %.010.i.i.i.i, -1
   %13 = load ptr, ptr %1, align 8, !tbaa !204
-  %14 = getelementptr inbounds nuw %"class.entt::delegate.159", ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %12
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !205
   %17 = icmp eq ptr %16, @_ZZN4entt8delegateIFviEE7connectITnDaXadL_ZNK13sigh_listener1hERKiEES4_EEvRT0_ENUlPKviE_8__invokeESA_i
@@ -28833,7 +28827,7 @@ define linkonce_odr hidden void @_ZZN4entt8delegateIFvPvEE7connectITnDaXadL_ZNS_
   %.010.i.i.i.i = phi i64 [ %9, %.lr.ph.i.i.i.i ], [ %12, %25 ]
   %12 = add i64 %.010.i.i.i.i, -1
   %13 = load ptr, ptr %1, align 8, !tbaa !204
-  %14 = getelementptr inbounds nuw %"class.entt::delegate.159", ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %12
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !205
   %17 = icmp eq ptr %16, @_ZZN4entt8delegateIFviEE7connectITnDaXadL_ZN13sigh_listener1gEiEES4_EEvRT0_ENUlPKviE_8__invokeES8_i
@@ -28887,7 +28881,7 @@ define linkonce_odr hidden void @_ZZN4entt8delegateIFvPvEE7connectITnDaXadL_ZNS_
   %.010.i.i.i.i = phi i64 [ %9, %.lr.ph.i.i.i.i ], [ %12, %25 ]
   %12 = add i64 %.010.i.i.i.i, -1
   %13 = load ptr, ptr %1, align 8, !tbaa !132
-  %14 = getelementptr inbounds nuw %"class.entt::delegate.123", ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %12
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !133
   %17 = icmp eq ptr %16, @_ZZN4entt8delegateIFvvEE7connectITnDaXadL_ZN23const_nonconst_noexcept1fEvEES4_EEvRT0_ENUlPKvE_8__invokeES8_
@@ -28941,7 +28935,7 @@ define linkonce_odr hidden void @_ZZN4entt8delegateIFvPvEE7connectITnDaXadL_ZNS_
   %.010.i.i.i.i = phi i64 [ %9, %.lr.ph.i.i.i.i ], [ %12, %25 ]
   %12 = add i64 %.010.i.i.i.i, -1
   %13 = load ptr, ptr %1, align 8, !tbaa !132
-  %14 = getelementptr inbounds nuw %"class.entt::delegate.123", ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %12
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !133
   %17 = icmp eq ptr %16, @_ZZN4entt8delegateIFvvEE7connectITnDaXadL_ZN23const_nonconst_noexcept1gEvEES4_EEvPT0_ENUlPKvE_8__invokeES8_
@@ -28995,7 +28989,7 @@ define linkonce_odr hidden void @_ZZN4entt8delegateIFvPvEE7connectITnDaXadL_ZNS_
   %.010.i.i.i.i = phi i64 [ %9, %.lr.ph.i.i.i.i ], [ %12, %25 ]
   %12 = add i64 %.010.i.i.i.i, -1
   %13 = load ptr, ptr %1, align 8, !tbaa !132
-  %14 = getelementptr inbounds nuw %"class.entt::delegate.123", ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %12
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !133
   %17 = icmp eq ptr %16, @_ZZN4entt8delegateIFvvEE7connectITnDaXadL_ZNK23const_nonconst_noexcept1hEvEEKS4_EEvRT0_ENUlPKvE_8__invokeES9_
@@ -29049,7 +29043,7 @@ define linkonce_odr hidden void @_ZZN4entt8delegateIFvPvEE7connectITnDaXadL_ZNS_
   %.010.i.i.i.i = phi i64 [ %9, %.lr.ph.i.i.i.i ], [ %12, %25 ]
   %12 = add i64 %.010.i.i.i.i, -1
   %13 = load ptr, ptr %1, align 8, !tbaa !132
-  %14 = getelementptr inbounds nuw %"class.entt::delegate.123", ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %12
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !133
   %17 = icmp eq ptr %16, @_ZZN4entt8delegateIFvvEE7connectITnDaXadL_ZNK23const_nonconst_noexcept1iEvEEKS4_EEvPT0_ENUlPKvE_8__invokeES9_
@@ -29100,7 +29094,7 @@ define linkonce_odr hidden void @_ZZN4entt8delegateIFvPvEE7connectITnDaXadL_ZNS_
   %.010.i.i.i.i = phi i64 [ %9, %.lr.ph.i.i.i.i ], [ %12, %25 ]
   %12 = add i64 %.010.i.i.i.i, -1
   %13 = load ptr, ptr %1, align 8, !tbaa !293
-  %14 = getelementptr inbounds nuw %"class.entt::delegate.197", ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %12
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !294
   %17 = icmp eq ptr %16, @_ZZN4entt8delegateIFRbR13sigh_listenerEE7connectITnDaXadL_ZNS2_3valEEEEEvvENUlPKvS3_E_8__invokeES8_S3_
@@ -29154,7 +29148,7 @@ define linkonce_odr hidden void @_ZZN4entt8delegateIFvPvEE7connectITnDaXadL_ZNS_
   %.010.i.i.i.i = phi i64 [ %9, %.lr.ph.i.i.i.i ], [ %12, %25 ]
   %12 = add i64 %.010.i.i.i.i, -1
   %13 = load ptr, ptr %1, align 8, !tbaa !311
-  %14 = getelementptr inbounds nuw %"class.entt::delegate.204", ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %12
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !312
   %17 = icmp eq ptr %16, @_ZZN4entt8delegateIFvP13sigh_listeneriEE7connectITnDaXadL_ZNS1_1gEiEEEEvvENUlPKvS2_iE_8__invokeES7_S2_i
@@ -29200,7 +29194,7 @@ define linkonce_odr hidden void @_ZZN4entt8delegateIFvPvEE7connectITnDaXadL_ZNS_
   %.010.i.i.i.i = phi i64 [ %9, %.lr.ph.i.i.i.i ], [ %12, %25 ]
   %12 = add i64 %.010.i.i.i.i, -1
   %13 = load ptr, ptr %1, align 8, !tbaa !13
-  %14 = getelementptr inbounds nuw %"class.entt::delegate.108", ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %12
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !14
   %17 = icmp eq ptr %16, @_ZZN4entt8delegateIFvRiEE7connectITnDaXadL_Z27connect_and_auto_disconnectRNS_4sighIS2_SaIvEEERKiEES7_EEvRT0_ENUlPKvS1_E_8__invokeESE_S1_
@@ -29246,7 +29240,7 @@ define linkonce_odr hidden void @_ZZN4entt8delegateIFvPvEE7connectITnDaXadL_ZNS_
   %.010.i.i.i.i = phi i64 [ %9, %.lr.ph.i.i.i.i ], [ %12, %25 ]
   %12 = add i64 %.010.i.i.i.i, -1
   %13 = load ptr, ptr %1, align 8, !tbaa !204
-  %14 = getelementptr inbounds nuw %"class.entt::delegate.159", ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %12
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !205
   %17 = icmp eq ptr %16, @_ZZN4entt8delegateIFviEE7connectITnDaXadL_ZN13sigh_listener1gEiEES4_EEvRT0_ENUlPKviE_8__invokeES8_i

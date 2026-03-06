@@ -652,12 +652,12 @@ define hidden void @_ZN19OpenColorIO_v2_5dev21GenerateIdentityLut1DEPfii(ptr nou
   %12 = uitofp nneg i32 %11 to float
   %13 = fmul float %7, %12
   %14 = mul nuw nsw i64 %indvars.iv22, %10
-  %invariant.gep = getelementptr inbounds nuw float, ptr %0, i64 %14
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %14
   br label %15
 
 15:                                               ; preds = %.preheader.us, %15
   %indvars.iv = phi i64 [ 0, %.preheader.us ], [ %indvars.iv.next, %15 ]
-  %gep = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   store float %13, ptr %gep, align 4, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -703,12 +703,12 @@ define hidden void @_ZN19OpenColorIO_v2_5dev24GenerateLinearScaleLut1DEPfiiff(pt
   %16 = fptrunc double %15 to float
   %17 = tail call noundef float @llvm.fmuladd.f32(float %10, float %16, float %3)
   %18 = mul nuw nsw i64 %indvars.iv28, %12
-  %invariant.gep = getelementptr inbounds nuw float, ptr %0, i64 %18
+  %invariant.gep = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %18
   br label %19
 
 19:                                               ; preds = %.lr.ph.us, %19
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %19 ]
-  %gep = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   store float %17, ptr %gep, align 4, !tbaa !31
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

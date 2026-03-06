@@ -3,8 +3,6 @@ source_filename = "bench/ninja/original/hash_collision_bench.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"struct.std::pair" = type <{ i64, i32, [4 x i8] }>
-
 $_ZSt16__introsort_loopIPSt4pairImiElN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_T1_ = comdat any
 
 $_ZSt27__unguarded_partition_pivotIPSt4pairImiEN9__gnu_cxx5__ops15_Iter_less_iterEET_S6_S6_T0_ = comdat any
@@ -254,7 +252,7 @@ _ZSt25__unguarded_linear_insertIPSt4pairImiEN9__gnu_cxx5__ops14_Val_less_iterEEv
 
 52:                                               ; preds = %6, %_Z13RandomCommandPPc.exit
   %indvars.iv = phi i64 [ 0, %6 ], [ %indvars.iv.next, %_Z13RandomCommandPPc.exit ]
-  %53 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %54 = tail call i32 @rand() #10
   %55 = sitofp i32 %54 to double
   %56 = fdiv double %55, 0x41DFFFFFFFC00000
@@ -293,7 +291,7 @@ _Z13RandomCommandPPc.exit:                        ; preds = %.lr.ph.i, %52
   store i8 0, ptr %73, align 1, !tbaa !9
   %74 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %62) #12
   %75 = tail call noundef i64 @_ZN8BuildLog8LogEntry11HashCommandE11StringPiece(ptr nonnull %62, i64 %74)
-  %76 = getelementptr inbounds nuw %"struct.std::pair", ptr %2, i64 %indvars.iv
+  %76 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %indvars.iv
   store i64 %75, ptr %76, align 8, !tbaa !12
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
   %78 = trunc nuw nsw i64 %indvars.iv to i32
@@ -309,7 +307,7 @@ _Z13RandomCommandPPc.exit:                        ; preds = %.lr.ph.i, %52
 _ZSt22__final_insertion_sortIPSt4pairImiEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit.preheader: ; preds = %_ZSt25__unguarded_linear_insertIPSt4pairImiEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i11.i, %_ZSt22__final_insertion_sortIPSt4pairImiEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit
   %indvars.iv40 = phi i64 [ %indvars.iv.next41, %_ZSt22__final_insertion_sortIPSt4pairImiEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit ], [ 1, %_ZSt25__unguarded_linear_insertIPSt4pairImiEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i11.i ]
   %.02537 = phi i32 [ %.1, %_ZSt22__final_insertion_sortIPSt4pairImiEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S6_T0_.exit ], [ 0, %_ZSt25__unguarded_linear_insertIPSt4pairImiEN9__gnu_cxx5__ops14_Val_less_iterEEvT_T0_.exit.i11.i ]
-  %81 = getelementptr %"struct.std::pair", ptr %2, i64 %indvars.iv40
+  %81 = getelementptr [16 x i8], ptr %2, i64 %indvars.iv40
   %82 = getelementptr i8, ptr %81, i64 -16
   %83 = load i64, ptr %82, align 8, !tbaa !12
   %84 = load i64, ptr %81, align 8, !tbaa !12
@@ -320,12 +318,12 @@ _ZSt22__final_insertion_sortIPSt4pairImiEN9__gnu_cxx5__ops15_Iter_less_iterEEvT_
   %87 = getelementptr i8, ptr %81, i64 -8
   %88 = load i32, ptr %87, align 8, !tbaa !16
   %89 = sext i32 %88 to i64
-  %90 = getelementptr inbounds ptr, ptr %1, i64 %89
+  %90 = getelementptr inbounds [8 x i8], ptr %1, i64 %89
   %91 = load ptr, ptr %90, align 8, !tbaa !4
   %92 = getelementptr inbounds nuw i8, ptr %81, i64 8
   %93 = load i32, ptr %92, align 8, !tbaa !16
   %94 = sext i32 %93 to i64
-  %95 = getelementptr inbounds ptr, ptr %1, i64 %94
+  %95 = getelementptr inbounds [8 x i8], ptr %1, i64 %94
   %96 = load ptr, ptr %95, align 8, !tbaa !4
   %97 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %91, ptr noundef nonnull dereferenceable(1) %96) #12
   %.not = icmp eq i32 %97, 0
@@ -388,7 +386,7 @@ define linkonce_odr dso_local void @_ZSt16__introsort_loopIPSt4pairImiElN9__gnu_
 
 13:                                               ; preds = %13, %.lr.ph._crit_edge
   %.013.i.i.i = phi i64 [ %12, %.lr.ph._crit_edge ], [ %15, %13 ]
-  %14 = getelementptr inbounds nuw %"struct.std::pair", ptr %0, i64 %.013.i.i.i
+  %14 = getelementptr inbounds nuw [16 x i8], ptr %0, i64 %.013.i.i.i
   %.sroa.01.0.copyload.i.i.i = load i64, ptr %14, align 8
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.sroa.4.0.copyload.i.i.i = load i32, ptr %.sroa.4.0..sroa_idx.i.i.i, align 8
@@ -440,7 +438,7 @@ define linkonce_odr dso_local noundef ptr @_ZSt27__unguarded_partition_pivotIPSt
   %5 = sub i64 %3, %4
   %6 = ashr exact i64 %5, 4
   %7 = sdiv i64 %6, 2
-  %8 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %7
+  %8 = getelementptr inbounds [16 x i8], ptr %0, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = getelementptr inbounds i8, ptr %1, i64 -16
   %11 = load i64, ptr %9, align 8, !tbaa !12
@@ -656,8 +654,8 @@ define linkonce_odr dso_local void @_ZSt13__adjust_heapIPSt4pairImiElS1_N9__gnu_
   %.033 = phi i64 [ %26, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImiES5_EEbT_T0_.exit.thread31 ], [ %1, %5 ]
   %9 = shl i64 %.033, 1
   %10 = add i64 %9, 2
-  %11 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %10
-  %12 = getelementptr %"struct.std::pair", ptr %0, i64 %9
+  %11 = getelementptr inbounds [16 x i8], ptr %0, i64 %10
+  %12 = getelementptr [16 x i8], ptr %0, i64 %9
   %13 = getelementptr i8, ptr %12, i64 16
   %14 = load i64, ptr %11, align 8, !tbaa !12
   %15 = load i64, ptr %13, align 8, !tbaa !12
@@ -685,8 +683,8 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImiES5_EEbT_T0_.exit: ; preds = 
 
 _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImiES5_EEbT_T0_.exit.thread31: ; preds = %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImiES5_EEbT_T0_.exit, %18, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImiES5_EEbT_T0_.exit.thread
   %26 = phi i64 [ %10, %18 ], [ %spec.select, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImiES5_EEbT_T0_.exit ], [ %17, %_ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImiES5_EEbT_T0_.exit.thread ]
-  %27 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %26
-  %28 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.033
+  %27 = getelementptr inbounds [16 x i8], ptr %0, i64 %26
+  %28 = getelementptr inbounds [16 x i8], ptr %0, i64 %.033
   %29 = load i64, ptr %27, align 8, !tbaa !17
   store i64 %29, ptr %28, align 8, !tbaa !12
   %30 = getelementptr inbounds nuw i8, ptr %27, i64 8
@@ -711,8 +709,8 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImiES5_EEbT_T0_.exit.thread31: ;
 40:                                               ; preds = %36
   %41 = shl nsw i64 %.0.lcssa, 1
   %42 = or disjoint i64 %41, 1
-  %43 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %42
-  %44 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.0.lcssa
+  %43 = getelementptr inbounds [16 x i8], ptr %0, i64 %42
+  %44 = getelementptr inbounds [16 x i8], ptr %0, i64 %.0.lcssa
   %45 = load i64, ptr %43, align 8, !tbaa !17
   store i64 %45, ptr %44, align 8, !tbaa !12
   %46 = getelementptr inbounds nuw i8, ptr %43, i64 8
@@ -730,7 +728,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclIPSt4pairImiES5_EEbT_T0_.exit.thread31: ;
   %.01319.i = phi i64 [ %.020.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt4pairImiES4_EEbT_RT0_.exit.thread.i ], [ %.1, %49 ]
   %.020.in.i = add nsw i64 %.01319.i, -1
   %.020.i = sdiv i64 %.020.in.i, 2
-  %51 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.020.i
+  %51 = getelementptr inbounds [16 x i8], ptr %0, i64 %.020.i
   %52 = load i64, ptr %51, align 8, !tbaa !12
   %53 = icmp ult i64 %52, %3
   br i1 %53, label %.lr.ph._ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt4pairImiES4_EEbT_RT0_.exit.thread_crit_edge.i, label %54
@@ -752,7 +750,7 @@ _ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt4pairImiES4_EEbT_RT0_.exit.i: ; preds 
 
 _ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt4pairImiES4_EEbT_RT0_.exit.thread.i: ; preds = %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt4pairImiES4_EEbT_RT0_.exit.i, %.lr.ph._ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt4pairImiES4_EEbT_RT0_.exit.thread_crit_edge.i
   %59 = phi i32 [ %.pre.i, %.lr.ph._ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt4pairImiES4_EEbT_RT0_.exit.thread_crit_edge.i ], [ %57, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt4pairImiES4_EEbT_RT0_.exit.i ]
-  %60 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.01319.i
+  %60 = getelementptr inbounds [16 x i8], ptr %0, i64 %.01319.i
   store i64 %52, ptr %60, align 8, !tbaa !12
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   store i32 %59, ptr %61, align 8, !tbaa !16
@@ -761,7 +759,7 @@ _ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt4pairImiES4_EEbT_RT0_.exit.thread.i: ;
 
 _ZSt11__push_heapIPSt4pairImiElS1_N9__gnu_cxx5__ops14_Iter_less_valEEvT_T0_S7_T1_RT2_.exit: ; preds = %54, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt4pairImiES4_EEbT_RT0_.exit.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt4pairImiES4_EEbT_RT0_.exit.thread.i, %49
   %.013.lcssa.i = phi i64 [ %.1, %49 ], [ %.01319.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt4pairImiES4_EEbT_RT0_.exit.i ], [ %.020.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPSt4pairImiES4_EEbT_RT0_.exit.thread.i ], [ %.01319.i, %54 ]
-  %63 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.013.lcssa.i
+  %63 = getelementptr inbounds [16 x i8], ptr %0, i64 %.013.lcssa.i
   store i64 %3, ptr %63, align 8, !tbaa !12
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i32 %4, ptr %64, align 8, !tbaa !16

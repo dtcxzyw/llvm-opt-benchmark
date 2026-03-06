@@ -7,11 +7,8 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.FmgrInfo = type { ptr, i32, i16, i8, i8, i8, ptr, ptr, ptr }
 %struct.ObjectAddress = type { i32, i32, i32 }
 %struct.ObjectAddressStack = type { ptr, i32, ptr }
-%struct.ObjectAddressExtra = type { i32, %struct.ObjectAddress }
-%struct.ObjectAddressAndFlags = type { %struct.ObjectAddress, i32 }
 %struct.StringInfoData = type { ptr, i32, i32, i32 }
 %struct.find_expr_references_context = type { ptr, ptr }
-%union.ListCell = type { ptr }
 %struct.RangeTblEntry = type { i32, ptr, ptr, i32, i32, i8, i8, i32, i32, ptr, ptr, i8, i32, i32, ptr, ptr, ptr, ptr, ptr, i8, ptr, ptr, ptr, i32, i8, ptr, ptr, ptr, ptr, double, ptr, i8, i8, ptr }
 
 @object_access_hook = external local_unnamed_addr global ptr, align 8
@@ -309,7 +306,7 @@ stack_address_present_add_flags.exit.thread:      ; preds = %7, %stack_address_p
 .lr.ph.split.us.i156:                             ; preds = %79, %.lr.ph.split.us.preheader.i154
   %indvars.iv31.i = phi i64 [ %63, %.lr.ph.split.us.preheader.i154 ], [ %indvars.iv.next32.i, %79 ]
   %.027.us.i = phi i1 [ false, %.lr.ph.split.us.preheader.i154 ], [ %.1.us.i157, %79 ]
-  %64 = getelementptr inbounds nuw %struct.ObjectAddress, ptr %.pre.i155, i64 %indvars.iv31.i
+  %64 = getelementptr inbounds nuw [12 x i8], ptr %.pre.i155, i64 %indvars.iv31.i
   %65 = load i32, ptr %64, align 4
   %66 = icmp eq i32 %.pre33.i, %65
   br i1 %66, label %67, label %79
@@ -343,7 +340,7 @@ stack_address_present_add_flags.exit.thread:      ; preds = %7, %stack_address_p
   %indvars.iv.i = phi i64 [ %63, %.lr.ph.split.preheader.i148 ], [ %indvars.iv.next.i, %102 ]
   %.027.i = phi i1 [ false, %.lr.ph.split.preheader.i148 ], [ %.1.i151, %102 ]
   %81 = load ptr, ptr %4, align 8
-  %82 = getelementptr inbounds nuw %struct.ObjectAddress, ptr %81, i64 %indvars.iv.i
+  %82 = getelementptr inbounds nuw [12 x i8], ptr %81, i64 %indvars.iv.i
   %83 = load i32, ptr %0, align 4
   %84 = load i32, ptr %82, align 4
   %85 = icmp eq i32 %83, %84
@@ -375,7 +372,7 @@ stack_address_present_add_flags.exit.thread:      ; preds = %7, %stack_address_p
   %invariant.op.sink.i = phi i32 [ %1, %91 ], [ %invariant.op.i149, %98 ]
   %.1.ph.i153 = phi i1 [ true, %91 ], [ %.027.i, %98 ]
   %99 = load ptr, ptr %62, align 8
-  %100 = getelementptr inbounds nuw %struct.ObjectAddressExtra, ptr %99, i64 %indvars.iv.i
+  %100 = getelementptr inbounds nuw [16 x i8], ptr %99, i64 %indvars.iv.i
   %101 = load i32, ptr %100, align 4
   %.reass.i = or i32 %101, %invariant.op.sink.i
   store i32 %.reass.i, ptr %100, align 4
@@ -525,7 +522,7 @@ object_address_present_add_flags.exit.thread:     ; preds = %stack_address_prese
 
 170:                                              ; preds = %.critedge.i, %.lr.ph.i159
   %indvars.iv.i160 = phi i64 [ %169, %.lr.ph.i159 ], [ %indvars.iv.next.i161, %.critedge.i ]
-  %171 = getelementptr inbounds nuw %struct.ObjectAddress, ptr %168, i64 %indvars.iv.i160
+  %171 = getelementptr inbounds nuw [12 x i8], ptr %168, i64 %indvars.iv.i160
   %172 = load i32, ptr %171, align 4
   %173 = icmp eq i32 %140, %172
   br i1 %173, label %174, label %.critedge.i
@@ -694,7 +691,7 @@ AcquireDeletionLock.exit:                         ; preds = %215, %216, %217
 .lr.ph.split.us.i195:                             ; preds = %243, %.lr.ph.split.us.preheader.i192
   %indvars.iv31.i196 = phi i64 [ %227, %.lr.ph.split.us.preheader.i192 ], [ %indvars.iv.next32.i199, %243 ]
   %.027.us.i197 = phi i1 [ false, %.lr.ph.split.us.preheader.i192 ], [ %.1.us.i198, %243 ]
-  %228 = getelementptr inbounds nuw %struct.ObjectAddress, ptr %.pre.i193, i64 %indvars.iv31.i196
+  %228 = getelementptr inbounds nuw [12 x i8], ptr %.pre.i193, i64 %indvars.iv31.i196
   %229 = load i32, ptr %228, align 4
   %230 = icmp eq i32 %.pre33.i194, %229
   br i1 %230, label %231, label %243
@@ -728,7 +725,7 @@ AcquireDeletionLock.exit:                         ; preds = %215, %216, %217
   %indvars.iv.i183 = phi i64 [ %227, %.lr.ph.split.preheader.i180 ], [ %indvars.iv.next.i186, %266 ]
   %.027.i184 = phi i1 [ false, %.lr.ph.split.preheader.i180 ], [ %.1.i185, %266 ]
   %245 = load ptr, ptr %4, align 8
-  %246 = getelementptr inbounds nuw %struct.ObjectAddress, ptr %245, i64 %indvars.iv.i183
+  %246 = getelementptr inbounds nuw [12 x i8], ptr %245, i64 %indvars.iv.i183
   %247 = load i32, ptr %0, align 4
   %248 = load i32, ptr %246, align 4
   %249 = icmp eq i32 %247, %248
@@ -760,7 +757,7 @@ AcquireDeletionLock.exit:                         ; preds = %215, %216, %217
   %invariant.op.sink.i189 = phi i32 [ %.0242, %255 ], [ %invariant.op.i181, %262 ]
   %.1.ph.i190 = phi i1 [ true, %255 ], [ %.027.i184, %262 ]
   %263 = load ptr, ptr %226, align 8
-  %264 = getelementptr inbounds nuw %struct.ObjectAddressExtra, ptr %263, i64 %indvars.iv.i183
+  %264 = getelementptr inbounds nuw [16 x i8], ptr %263, i64 %indvars.iv.i183
   %265 = load i32, ptr %264, align 4
   %.reass.i191 = or i32 %265, %invariant.op.sink.i189
   store i32 %.reass.i191, ptr %264, align 4
@@ -995,7 +992,7 @@ AcquireDeletionLock.exit202.thread:               ; preds = %334
   %.2124 = phi ptr [ %359, %355 ], [ %.0122245, %354 ]
   %.2119 = phi i32 [ %356, %355 ], [ %.0117247, %354 ]
   %361 = sext i32 %.0120246 to i64
-  %362 = getelementptr inbounds %struct.ObjectAddressAndFlags, ptr %.2124, i64 %361
+  %362 = getelementptr inbounds [16 x i8], ptr %.2124, i64 %361
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %362, ptr noundef nonnull align 4 dereferenceable(12) %9, i64 12, i1 false)
   %363 = getelementptr inbounds nuw i8, ptr %362, i64 12
   store i32 %.0112, ptr %363, align 4
@@ -1051,7 +1048,7 @@ ReleaseDeletionLock.exit203:                      ; preds = %.thread310, %.threa
 
 .lr.ph255:                                        ; preds = %.lr.ph255.preheader, %.lr.ph255
   %indvars.iv = phi i64 [ 0, %.lr.ph255.preheader ], [ %indvars.iv.next, %.lr.ph255 ]
-  %379 = getelementptr inbounds nuw %struct.ObjectAddressAndFlags, ptr %.1123, i64 %indvars.iv
+  %379 = getelementptr inbounds nuw [16 x i8], ptr %.1123, i64 %indvars.iv
   %380 = getelementptr inbounds nuw i8, ptr %379, i64 12
   %381 = load i32, ptr %380, align 4
   call fastcc void @findDependentObjects(ptr noundef %379, i32 noundef %381, i32 noundef %2, ptr noundef nonnull %12, ptr noundef %4, ptr noundef %5, ptr noundef %6)
@@ -1118,12 +1115,12 @@ add_exact_object_address_extra.exit:              ; preds = %396, %400
   %411 = phi i32 [ %.pre.i205, %400 ], [ %397, %396 ]
   %412 = load ptr, ptr %4, align 8
   %413 = sext i32 %411 to i64
-  %414 = getelementptr inbounds %struct.ObjectAddress, ptr %412, i64 %413
+  %414 = getelementptr inbounds [12 x i8], ptr %412, i64 %413
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %414, ptr noundef nonnull readonly align 4 dereferenceable(12) %0, i64 12, i1 false)
   %415 = load ptr, ptr %388, align 8
   %416 = load i32, ptr %57, align 8
   %417 = sext i32 %416 to i64
-  %418 = getelementptr inbounds %struct.ObjectAddressExtra, ptr %415, i64 %417
+  %418 = getelementptr inbounds [16 x i8], ptr %415, i64 %417
   store i32 %377, ptr %418, align 4
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %418, i64 4
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %.sroa.4.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.4, i64 12, i1 false)
@@ -1169,7 +1166,7 @@ define internal fastcc void @reportDependentObjects(ptr noundef readonly capture
 
 15:                                               ; preds = %.lr.ph, %14
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %14 ]
-  %16 = getelementptr inbounds nuw %struct.ObjectAddressExtra, ptr %13, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4
   %18 = and i32 %17, 144
   %or.cond = icmp eq i32 %18, 128
@@ -1177,7 +1174,7 @@ define internal fastcc void @reportDependentObjects(ptr noundef readonly capture
 
 19:                                               ; preds = %15
   %20 = load ptr, ptr %0, align 8
-  %21 = getelementptr inbounds nuw %struct.ObjectAddress, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [12 x i8], ptr %20, i64 %indvars.iv
   %22 = getelementptr inbounds nuw i8, ptr %16, i64 4
   %23 = tail call ptr @getObjectDescription(ptr noundef nonnull %22, i1 noundef zeroext false) #8
   %24 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
@@ -1218,7 +1215,7 @@ define internal fastcc void @reportDependentObjects(ptr noundef readonly capture
   %.077109.us = phi i32 [ %.178.us, %75 ], [ 0, %.lr.ph113 ]
   %.080108.us = phi i32 [ %.181.us, %75 ], [ 0, %.lr.ph113 ]
   %40 = load ptr, ptr %35, align 8
-  %41 = getelementptr inbounds nuw %struct.ObjectAddressExtra, ptr %40, i64 %indvars.iv127
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %40, i64 %indvars.iv127
   %42 = load i32, ptr %41, align 4
   %43 = and i32 %42, 257
   %or.cond102.us = icmp eq i32 %43, 0
@@ -1226,7 +1223,7 @@ define internal fastcc void @reportDependentObjects(ptr noundef readonly capture
 
 44:                                               ; preds = %.lr.ph113.split.us
   %45 = load ptr, ptr %0, align 8
-  %46 = getelementptr inbounds nuw %struct.ObjectAddress, ptr %45, i64 %indvars.iv127
+  %46 = getelementptr inbounds nuw [12 x i8], ptr %45, i64 %indvars.iv127
   %47 = call ptr @getObjectDescription(ptr noundef %46, i1 noundef zeroext false) #8
   %48 = icmp eq ptr %47, null
   br i1 %48, label %75, label %49
@@ -1314,7 +1311,7 @@ define internal fastcc void @reportDependentObjects(ptr noundef readonly capture
   %.077109 = phi i32 [ %.178, %107 ], [ 0, %.lr.ph113 ]
   %.080108 = phi i32 [ %.181, %107 ], [ 0, %.lr.ph113 ]
   %77 = load ptr, ptr %35, align 8
-  %78 = getelementptr inbounds nuw %struct.ObjectAddressExtra, ptr %77, i64 %indvars.iv124
+  %78 = getelementptr inbounds nuw [16 x i8], ptr %77, i64 %indvars.iv124
   %79 = load i32, ptr %78, align 4
   %80 = and i32 %79, 257
   %or.cond102 = icmp eq i32 %80, 0
@@ -1322,7 +1319,7 @@ define internal fastcc void @reportDependentObjects(ptr noundef readonly capture
 
 81:                                               ; preds = %.lr.ph113.split
   %82 = load ptr, ptr %0, align 8
-  %83 = getelementptr inbounds nuw %struct.ObjectAddress, ptr %82, i64 %indvars.iv124
+  %83 = getelementptr inbounds nuw [12 x i8], ptr %82, i64 %indvars.iv124
   %84 = call ptr @getObjectDescription(ptr noundef %83, i1 noundef zeroext false) #8
   %85 = icmp eq ptr %84, null
   br i1 %85, label %107, label %86
@@ -1507,9 +1504,9 @@ define internal fastcc void @deleteObjectsInList(ptr noundef readonly captures(n
 12:                                               ; preds = %.lr.ph, %21
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
   %13 = load ptr, ptr %0, align 8
-  %14 = getelementptr inbounds nuw %struct.ObjectAddress, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [12 x i8], ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %11, align 8
-  %16 = getelementptr inbounds nuw %struct.ObjectAddressExtra, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %15, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4
   %18 = tail call zeroext i1 @EventTriggerSupportsObject(ptr noundef %14) #8
   br i1 %18, label %19, label %21
@@ -1550,12 +1547,12 @@ define internal fastcc void @deleteObjectsInList(ptr noundef readonly captures(n
   %36 = phi i32 [ %25, %.lr.ph36 ], [ %95, %94 ]
   %indvars.iv38 = phi i64 [ 0, %.lr.ph36 ], [ %indvars.iv.next39, %94 ]
   %37 = load ptr, ptr %0, align 8
-  %38 = getelementptr inbounds nuw %struct.ObjectAddress, ptr %37, i64 %indvars.iv38
+  %38 = getelementptr inbounds nuw [12 x i8], ptr %37, i64 %indvars.iv38
   br i1 %.not32, label %44, label %39
 
 39:                                               ; preds = %35
   %40 = load ptr, ptr %29, align 8
-  %41 = getelementptr inbounds nuw %struct.ObjectAddressExtra, ptr %40, i64 %indvars.iv38
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %40, i64 %indvars.iv38
   %42 = load i32, ptr %41, align 4
   %43 = and i32 %42, 1
   %.not33 = icmp eq i32 %43, 0
@@ -1742,7 +1739,7 @@ define dso_local void @performMultipleDeletions(ptr noundef %0, i32 noundef %1, 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %AcquireDeletionLock.exit.us
   %indvars.iv26 = phi i64 [ %indvars.iv.next27, %AcquireDeletionLock.exit.us ], [ 0, %.lr.ph ]
   %18 = load ptr, ptr %0, align 8
-  %19 = getelementptr inbounds nuw %struct.ObjectAddress, ptr %18, i64 %indvars.iv26
+  %19 = getelementptr inbounds nuw [12 x i8], ptr %18, i64 %indvars.iv26
   %20 = load i32, ptr %19, align 4
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 4
   %22 = load i32, ptr %21, align 4
@@ -1774,7 +1771,7 @@ AcquireDeletionLock.exit.us:                      ; preds = %25, %24, %23
 .lr.ph.split:                                     ; preds = %.lr.ph, %AcquireDeletionLock.exit
   %indvars.iv = phi i64 [ %indvars.iv.next, %AcquireDeletionLock.exit ], [ 0, %.lr.ph ]
   %29 = load ptr, ptr %0, align 8
-  %30 = getelementptr inbounds nuw %struct.ObjectAddress, ptr %29, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [12 x i8], ptr %29, i64 %indvars.iv
   %31 = load i32, ptr %30, align 4
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %33 = load i32, ptr %32, align 4
@@ -1908,7 +1905,7 @@ define dso_local void @recordDependencyOnExpr(ptr noundef %0, ptr noundef %1, pt
   %.031.i = phi ptr [ %23, %.lr.ph.preheader.i ], [ %.1.i, %47 ]
   %.02330.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %.124.i, %47 ]
   %24 = load ptr, ptr %14, align 8
-  %25 = getelementptr inbounds nuw %struct.ObjectAddress, ptr %24, i64 %indvars.iv.i
+  %25 = getelementptr inbounds nuw [12 x i8], ptr %24, i64 %indvars.iv.i
   %26 = load i32, ptr %.031.i, align 4
   %27 = load i32, ptr %25, align 4
   %28 = icmp eq i32 %26, %27
@@ -2053,7 +2050,7 @@ list_length.exit.thread:                          ; preds = %6, %list_length.exi
   %17 = getelementptr i8, ptr %10, i64 16
   %.val = load ptr, ptr %17, align 8
   %18 = sext i32 %8 to i64
-  %19 = getelementptr inbounds %union.ListCell, ptr %.val, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %.val, i64 %18
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %22 = load i32, ptr %21, align 4
@@ -2079,7 +2076,7 @@ list_length.exit483.thread:                       ; preds = %list_length.exit483
   %31 = getelementptr i8, ptr %20, i64 16
   %.val479 = load ptr, ptr %31, align 8
   %32 = zext nneg i32 %22 to i64
-  %33 = getelementptr %union.ListCell, ptr %.val479, i64 %32
+  %33 = getelementptr [8 x i8], ptr %.val479, i64 %32
   %34 = getelementptr i8, ptr %33, i64 -8
   %35 = load ptr, ptr %34, align 8
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2408,7 +2405,7 @@ list_length.exit483.thread:                       ; preds = %list_length.exit483
 .lr.ph579:                                        ; preds = %.lr.ph576, %add_object_address.exit
   %indvars.iv611 = phi i64 [ %indvars.iv.next612, %add_object_address.exit ], [ 0, %.lr.ph576 ]
   %210 = load ptr, ptr %207, align 8
-  %211 = getelementptr inbounds nuw %union.ListCell, ptr %210, i64 %indvars.iv611
+  %211 = getelementptr inbounds nuw [8 x i8], ptr %210, i64 %indvars.iv611
   %212 = load i32, ptr %211, align 8
   %213 = load ptr, ptr %1, align 8
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 16
@@ -2433,7 +2430,7 @@ add_object_address.exit:                          ; preds = %.lr.ph579, %218
   %223 = phi i32 [ %.pre14.i, %218 ], [ %215, %.lr.ph579 ]
   %224 = phi ptr [ %222, %218 ], [ %.pre.i, %.lr.ph579 ]
   %225 = sext i32 %223 to i64
-  %226 = getelementptr inbounds %struct.ObjectAddress, ptr %224, i64 %225
+  %226 = getelementptr inbounds [12 x i8], ptr %224, i64 %225
   store i32 1259, ptr %226, align 4
   %227 = getelementptr inbounds nuw i8, ptr %226, i64 4
   store i32 %202, ptr %227, align 4
@@ -2542,7 +2539,7 @@ add_object_address.exit:                          ; preds = %.lr.ph579, %218
 .lr.ph568:                                        ; preds = %.lr.ph565, %add_object_address.exit488
   %indvars.iv605 = phi i64 [ %indvars.iv.next606, %add_object_address.exit488 ], [ 0, %.lr.ph565 ]
   %280 = load ptr, ptr %277, align 8
-  %281 = getelementptr inbounds nuw %union.ListCell, ptr %280, i64 %indvars.iv605
+  %281 = getelementptr inbounds nuw [8 x i8], ptr %280, i64 %indvars.iv605
   %282 = load i32, ptr %281, align 8
   %283 = load ptr, ptr %1, align 8
   %284 = getelementptr inbounds nuw i8, ptr %283, i64 16
@@ -2567,7 +2564,7 @@ add_object_address.exit488:                       ; preds = %.lr.ph568, %288
   %293 = phi i32 [ %.pre14.i487, %288 ], [ %285, %.lr.ph568 ]
   %294 = phi ptr [ %292, %288 ], [ %.pre.i486, %.lr.ph568 ]
   %295 = sext i32 %293 to i64
-  %296 = getelementptr inbounds %struct.ObjectAddress, ptr %294, i64 %295
+  %296 = getelementptr inbounds [12 x i8], ptr %294, i64 %295
   store i32 2617, ptr %296, align 4
   %297 = getelementptr inbounds nuw i8, ptr %296, i64 4
   store i32 %282, ptr %297, align 4
@@ -2598,7 +2595,7 @@ add_object_address.exit488:                       ; preds = %.lr.ph568, %288
 .lr.ph573:                                        ; preds = %.lr.ph570, %add_object_address.exit492
   %indvars.iv608 = phi i64 [ %indvars.iv.next609, %add_object_address.exit492 ], [ 0, %.lr.ph570 ]
   %310 = load ptr, ptr %307, align 8
-  %311 = getelementptr inbounds nuw %union.ListCell, ptr %310, i64 %indvars.iv608
+  %311 = getelementptr inbounds nuw [8 x i8], ptr %310, i64 %indvars.iv608
   %312 = load i32, ptr %311, align 8
   %313 = load ptr, ptr %1, align 8
   %314 = getelementptr inbounds nuw i8, ptr %313, i64 16
@@ -2623,7 +2620,7 @@ add_object_address.exit492:                       ; preds = %.lr.ph573, %318
   %323 = phi i32 [ %.pre14.i491, %318 ], [ %315, %.lr.ph573 ]
   %324 = phi ptr [ %322, %318 ], [ %.pre.i490, %.lr.ph573 ]
   %325 = sext i32 %323 to i64
-  %326 = getelementptr inbounds %struct.ObjectAddress, ptr %324, i64 %325
+  %326 = getelementptr inbounds [12 x i8], ptr %324, i64 %325
   store i32 2753, ptr %326, align 4
   %327 = getelementptr inbounds nuw i8, ptr %326, i64 4
   store i32 %312, ptr %327, align 4
@@ -2763,7 +2760,7 @@ add_object_address.exit492:                       ; preds = %.lr.ph573, %318
 .lr.ph677:                                        ; preds = %.lr.ph550, %454
   %indvars.iv596676 = phi i64 [ %indvars.iv.next597, %454 ], [ 0, %.lr.ph550 ]
   %393 = load ptr, ptr %389, align 8
-  %394 = getelementptr inbounds nuw %union.ListCell, ptr %393, i64 %indvars.iv596676
+  %394 = getelementptr inbounds nuw [8 x i8], ptr %393, i64 %indvars.iv596676
   %395 = load ptr, ptr %394, align 8
   %396 = getelementptr inbounds nuw i8, ptr %395, i64 24
   %397 = load i32, ptr %396, align 8
@@ -2806,7 +2803,7 @@ add_object_address.exit496:                       ; preds = %401, %409
   %414 = phi i32 [ %.pre14.i495, %409 ], [ %406, %401 ]
   %415 = phi ptr [ %413, %409 ], [ %.pre.i494, %401 ]
   %416 = sext i32 %414 to i64
-  %417 = getelementptr inbounds %struct.ObjectAddress, ptr %415, i64 %416
+  %417 = getelementptr inbounds [12 x i8], ptr %415, i64 %416
   store i32 1259, ptr %417, align 4
   %418 = getelementptr inbounds nuw i8, ptr %417, i64 4
   store i32 %403, ptr %418, align 4
@@ -2847,7 +2844,7 @@ add_object_address.exit496:                       ; preds = %401, %409
   %434 = load ptr, ptr %429, align 8
   %435 = getelementptr i8, ptr %434, i64 16
   %.val480 = load ptr, ptr %435, align 8
-  %436 = getelementptr inbounds nuw %union.ListCell, ptr %.val480, i64 %indvars.iv593
+  %436 = getelementptr inbounds nuw [8 x i8], ptr %.val480, i64 %indvars.iv593
   %437 = load ptr, ptr %436, align 8
   %438 = load i32, ptr %437, align 4
   %439 = icmp eq i32 %438, 6
@@ -2911,7 +2908,7 @@ list_length.exit498.thread:                       ; preds = %462, %list_length.e
   %471 = getelementptr i8, ptr %463, i64 16
   %.val481 = load ptr, ptr %471, align 8
   %472 = zext nneg i32 %460 to i64
-  %473 = getelementptr %union.ListCell, ptr %.val481, i64 %472
+  %473 = getelementptr [8 x i8], ptr %.val481, i64 %472
   %474 = getelementptr i8, ptr %473, i64 -8
   %475 = load ptr, ptr %474, align 8
   %476 = getelementptr inbounds nuw i8, ptr %475, i64 24
@@ -2937,7 +2934,7 @@ list_length.exit498.thread:                       ; preds = %462, %list_length.e
   %487 = phi i32 [ %518, %517 ], [ %485, %.lr.ph554 ]
   %indvars.iv599 = phi i64 [ %indvars.iv.next600, %517 ], [ 0, %.lr.ph554 ]
   %488 = load ptr, ptr %483, align 8
-  %489 = getelementptr inbounds nuw %union.ListCell, ptr %488, i64 %indvars.iv599
+  %489 = getelementptr inbounds nuw [8 x i8], ptr %488, i64 %indvars.iv599
   %490 = load ptr, ptr %489, align 8
   %491 = getelementptr inbounds nuw i8, ptr %490, i64 42
   %492 = load i8, ptr %491, align 2, !range !8, !noundef !9
@@ -2972,7 +2969,7 @@ add_object_address.exit502:                       ; preds = %494, %504
   %509 = phi i32 [ %.pre14.i501, %504 ], [ %501, %494 ]
   %510 = phi ptr [ %508, %504 ], [ %.pre.i500, %494 ]
   %511 = sext i32 %509 to i64
-  %512 = getelementptr inbounds %struct.ObjectAddress, ptr %510, i64 %511
+  %512 = getelementptr inbounds [12 x i8], ptr %510, i64 %511
   store i32 1259, ptr %512, align 4
   %513 = getelementptr inbounds nuw i8, ptr %512, i64 4
   store i32 %495, ptr %513, align 4
@@ -3007,7 +3004,7 @@ add_object_address.exit502:                       ; preds = %494, %504
 .lr.ph562:                                        ; preds = %.lr.ph559, %add_object_address.exit506
   %indvars.iv602 = phi i64 [ %indvars.iv.next603, %add_object_address.exit506 ], [ 0, %.lr.ph559 ]
   %527 = load ptr, ptr %524, align 8
-  %528 = getelementptr inbounds nuw %union.ListCell, ptr %527, i64 %indvars.iv602
+  %528 = getelementptr inbounds nuw [8 x i8], ptr %527, i64 %indvars.iv602
   %529 = load i32, ptr %528, align 8
   %530 = load ptr, ptr %1, align 8
   %531 = getelementptr inbounds nuw i8, ptr %530, i64 16
@@ -3032,7 +3029,7 @@ add_object_address.exit506:                       ; preds = %.lr.ph562, %535
   %540 = phi i32 [ %.pre14.i505, %535 ], [ %532, %.lr.ph562 ]
   %541 = phi ptr [ %539, %535 ], [ %.pre.i504, %.lr.ph562 ]
   %542 = sext i32 %540 to i64
-  %543 = getelementptr inbounds %struct.ObjectAddress, ptr %541, i64 %542
+  %543 = getelementptr inbounds [12 x i8], ptr %541, i64 %542
   store i32 2606, ptr %543, align 4
   %544 = getelementptr inbounds nuw i8, ptr %543, i64 4
   store i32 %529, ptr %544, align 4
@@ -3081,7 +3078,7 @@ add_object_address.exit506:                       ; preds = %.lr.ph562, %535
 .lr.ph540:                                        ; preds = %.lr.ph537, %add_object_address.exit510
   %indvars.iv587 = phi i64 [ %indvars.iv.next588, %add_object_address.exit510 ], [ 0, %.lr.ph537 ]
   %569 = load ptr, ptr %566, align 8
-  %570 = getelementptr inbounds nuw %union.ListCell, ptr %569, i64 %indvars.iv587
+  %570 = getelementptr inbounds nuw [8 x i8], ptr %569, i64 %indvars.iv587
   %571 = load i32, ptr %570, align 8
   %572 = load ptr, ptr %1, align 8
   %573 = getelementptr inbounds nuw i8, ptr %572, i64 16
@@ -3106,7 +3103,7 @@ add_object_address.exit510:                       ; preds = %.lr.ph540, %577
   %582 = phi i32 [ %.pre14.i509, %577 ], [ %574, %.lr.ph540 ]
   %583 = phi ptr [ %581, %577 ], [ %.pre.i508, %.lr.ph540 ]
   %584 = sext i32 %582 to i64
-  %585 = getelementptr inbounds %struct.ObjectAddress, ptr %583, i64 %584
+  %585 = getelementptr inbounds [12 x i8], ptr %583, i64 %584
   store i32 1247, ptr %585, align 4
   %586 = getelementptr inbounds nuw i8, ptr %585, i64 4
   store i32 %571, ptr %586, align 4
@@ -3138,7 +3135,7 @@ add_object_address.exit510:                       ; preds = %.lr.ph540, %577
   %599 = phi i32 [ %623, %622 ], [ %597, %.lr.ph542 ]
   %indvars.iv590 = phi i64 [ %indvars.iv.next591, %622 ], [ 0, %.lr.ph542 ]
   %600 = load ptr, ptr %596, align 8
-  %601 = getelementptr inbounds nuw %union.ListCell, ptr %600, i64 %indvars.iv590
+  %601 = getelementptr inbounds nuw [8 x i8], ptr %600, i64 %indvars.iv590
   %602 = load i32, ptr %601, align 8
   switch i32 %602, label %603 [
     i32 100, label %622
@@ -3169,7 +3166,7 @@ add_object_address.exit514:                       ; preds = %603, %609
   %614 = phi i32 [ %.pre14.i513, %609 ], [ %606, %603 ]
   %615 = phi ptr [ %613, %609 ], [ %.pre.i512, %603 ]
   %616 = sext i32 %614 to i64
-  %617 = getelementptr inbounds %struct.ObjectAddress, ptr %615, i64 %616
+  %617 = getelementptr inbounds [12 x i8], ptr %615, i64 %616
   store i32 3456, ptr %617, align 4
   %618 = getelementptr inbounds nuw i8, ptr %617, i64 4
   store i32 %602, ptr %618, align 4
@@ -3204,7 +3201,7 @@ add_object_address.exit514:                       ; preds = %603, %609
 .lr.ph530:                                        ; preds = %.lr.ph, %add_object_address.exit518
   %indvars.iv = phi i64 [ %indvars.iv.next, %add_object_address.exit518 ], [ 0, %.lr.ph ]
   %633 = load ptr, ptr %630, align 8
-  %634 = getelementptr inbounds nuw %union.ListCell, ptr %633, i64 %indvars.iv
+  %634 = getelementptr inbounds nuw [8 x i8], ptr %633, i64 %indvars.iv
   %635 = load i32, ptr %634, align 8
   %636 = load ptr, ptr %1, align 8
   %637 = getelementptr inbounds nuw i8, ptr %636, i64 16
@@ -3229,7 +3226,7 @@ add_object_address.exit518:                       ; preds = %.lr.ph530, %641
   %646 = phi i32 [ %.pre14.i517, %641 ], [ %638, %.lr.ph530 ]
   %647 = phi ptr [ %645, %641 ], [ %.pre.i516, %.lr.ph530 ]
   %648 = sext i32 %646 to i64
-  %649 = getelementptr inbounds %struct.ObjectAddress, ptr %647, i64 %648
+  %649 = getelementptr inbounds [12 x i8], ptr %647, i64 %648
   store i32 1247, ptr %649, align 4
   %650 = getelementptr inbounds nuw i8, ptr %649, i64 4
   store i32 %635, ptr %650, align 4
@@ -3261,7 +3258,7 @@ add_object_address.exit518:                       ; preds = %.lr.ph530, %641
   %663 = phi i32 [ %687, %686 ], [ %661, %.lr.ph532 ]
   %indvars.iv584 = phi i64 [ %indvars.iv.next585, %686 ], [ 0, %.lr.ph532 ]
   %664 = load ptr, ptr %660, align 8
-  %665 = getelementptr inbounds nuw %union.ListCell, ptr %664, i64 %indvars.iv584
+  %665 = getelementptr inbounds nuw [8 x i8], ptr %664, i64 %indvars.iv584
   %666 = load i32, ptr %665, align 8
   switch i32 %666, label %667 [
     i32 100, label %686
@@ -3292,7 +3289,7 @@ add_object_address.exit522:                       ; preds = %667, %673
   %678 = phi i32 [ %.pre14.i521, %673 ], [ %670, %667 ]
   %679 = phi ptr [ %677, %673 ], [ %.pre.i520, %667 ]
   %680 = sext i32 %678 to i64
-  %681 = getelementptr inbounds %struct.ObjectAddress, ptr %679, i64 %680
+  %681 = getelementptr inbounds [12 x i8], ptr %679, i64 %680
   store i32 3456, ptr %681, align 4
   %682 = getelementptr inbounds nuw i8, ptr %681, i64 4
   store i32 %666, ptr %682, align 4
@@ -3383,7 +3380,7 @@ define dso_local void @recordDependencyOnSingleRelExpr(ptr noundef %0, ptr nound
   %.031.i = phi ptr [ %31, %.lr.ph.preheader.i ], [ %.1.i, %55 ]
   %.02330.i = phi i32 [ 1, %.lr.ph.preheader.i ], [ %.124.i, %55 ]
   %32 = load ptr, ptr %22, align 8
-  %33 = getelementptr inbounds nuw %struct.ObjectAddress, ptr %32, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw [12 x i8], ptr %32, i64 %indvars.iv.i
   %34 = load i32, ptr %.031.i, align 4
   %35 = load i32, ptr %33, align 4
   %36 = icmp eq i32 %34, %35
@@ -3472,7 +3469,7 @@ eliminate_duplicate_dependencies.exit:            ; preds = %6, %._crit_edge.i
   %.045 = phi ptr [ %74, %.lr.ph.preheader ], [ %.1, %101 ]
   %.03743 = phi i32 [ 0, %.lr.ph.preheader ], [ %.138, %101 ]
   %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds nuw %struct.ObjectAddress, ptr %76, i64 %indvars.iv
+  %77 = getelementptr inbounds nuw [12 x i8], ptr %76, i64 %indvars.iv
   %78 = load i32, ptr %77, align 4
   %79 = icmp eq i32 %78, 1259
   br i1 %79, label %80, label %98
@@ -3504,7 +3501,7 @@ add_exact_object_address.exit:                    ; preds = %84, %87
   %92 = phi i32 [ %.pre11.i, %87 ], [ %85, %84 ]
   %93 = phi ptr [ %91, %87 ], [ %.pre.i, %84 ]
   %94 = sext i32 %92 to i64
-  %95 = getelementptr inbounds %struct.ObjectAddress, ptr %93, i64 %94
+  %95 = getelementptr inbounds [12 x i8], ptr %93, i64 %94
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %95, ptr noundef nonnull readonly align 4 dereferenceable(12) %77, i64 12, i1 false)
   %96 = load i32, ptr %66, align 8
   %97 = add i32 %96, 1
@@ -3549,7 +3546,7 @@ add_exact_object_address.exit:                    ; preds = %84, %87
 .lr.ph48:                                         ; preds = %.preheader, %.lr.ph48
   %indvars.iv50 = phi i64 [ %indvars.iv.next51, %.lr.ph48 ], [ 0, %.preheader ]
   %113 = load ptr, ptr %65, align 8
-  %114 = getelementptr inbounds nuw %struct.ObjectAddress, ptr %113, i64 %indvars.iv50
+  %114 = getelementptr inbounds nuw [12 x i8], ptr %113, i64 %indvars.iv50
   call void @recordDependencyOn(ptr noundef %114, ptr noundef %0, i32 noundef %4) #8
   %indvars.iv.next51 = add nuw nsw i64 %indvars.iv50, 1
   %115 = load i32, ptr %66, align 8
@@ -3625,7 +3622,7 @@ define dso_local void @add_exact_object_address(ptr noundef readonly captures(no
   %13 = phi i32 [ %.pre11, %7 ], [ %4, %2 ]
   %14 = phi ptr [ %11, %7 ], [ %.pre, %2 ]
   %15 = sext i32 %13 to i64
-  %16 = getelementptr inbounds %struct.ObjectAddress, ptr %14, i64 %15
+  %16 = getelementptr inbounds [12 x i8], ptr %14, i64 %15
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %16, ptr noundef nonnull align 4 dereferenceable(12) %0, i64 12, i1 false)
   %17 = load i32, ptr %3, align 8
   %18 = add i32 %17, 1
@@ -3660,7 +3657,7 @@ define dso_local noundef zeroext i1 @object_address_present(ptr noundef readonly
 
 11:                                               ; preds = %.lr.ph, %.critedge
   %indvars.iv = phi i64 [ %10, %.lr.ph ], [ %indvars.iv.next, %.critedge ]
-  %12 = getelementptr inbounds nuw %struct.ObjectAddress, ptr %6, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [12 x i8], ptr %6, i64 %indvars.iv
   %13 = load i32, ptr %12, align 4
   %14 = icmp eq i32 %7, %13
   br i1 %14, label %15, label %.critedge
@@ -3712,7 +3709,7 @@ define dso_local void @record_object_address_dependencies(ptr noundef %0, ptr no
   %.031.i = phi ptr [ %.1.i, %34 ], [ %.pre.pre5, %7 ]
   %.02330.i = phi i32 [ %.124.i, %34 ], [ 1, %7 ]
   %11 = load ptr, ptr %1, align 8
-  %12 = getelementptr inbounds nuw %struct.ObjectAddress, ptr %11, i64 %indvars.iv.i
+  %12 = getelementptr inbounds nuw [12 x i8], ptr %11, i64 %indvars.iv.i
   %13 = load i32, ptr %.031.i, align 4
   %14 = load i32, ptr %12, align 4
   %15 = icmp eq i32 %13, %14
@@ -4237,7 +4234,7 @@ define internal fastcc void @add_object_address(i32 noundef range(i32 1247, 3603
   %15 = phi i32 [ %.pre14, %9 ], [ %6, %4 ]
   %16 = phi ptr [ %13, %9 ], [ %.pre, %4 ]
   %17 = sext i32 %15 to i64
-  %18 = getelementptr inbounds %struct.ObjectAddress, ptr %16, i64 %17
+  %18 = getelementptr inbounds [12 x i8], ptr %16, i64 %17
   store i32 %0, ptr %18, align 4
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 4
   store i32 %1, ptr %19, align 4
@@ -4272,7 +4269,7 @@ define internal fastcc void @process_function_rte_ref(ptr noundef readonly captu
 12:                                               ; preds = %.lr.ph69, %._crit_edge75
   %indvars.iv = phi i64 [ 0, %.lr.ph69 ], [ %indvars.iv.next, %._crit_edge75 ]
   %.06067 = phi i32 [ 0, %.lr.ph69 ], [ %18, %._crit_edge75 ]
-  %13 = getelementptr inbounds nuw %union.ListCell, ptr %11, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8
   %15 = icmp sge i32 %.06067, %8
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -4331,7 +4328,7 @@ add_object_address.exit:                          ; preds = %30, %37
   %42 = phi i32 [ %.pre14.i, %37 ], [ %34, %30 ]
   %43 = phi ptr [ %41, %37 ], [ %.pre.i, %30 ]
   %44 = sext i32 %42 to i64
-  %45 = getelementptr inbounds %struct.ObjectAddress, ptr %43, i64 %44
+  %45 = getelementptr inbounds [12 x i8], ptr %43, i64 %44
   store i32 1259, ptr %45, align 4
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
   store i32 %29, ptr %46, align 4

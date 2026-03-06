@@ -1290,7 +1290,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type14auto_type_impl17h863a5c8f316c2
 223:                                              ; preds = %180
   %224 = getelementptr inbounds nuw i8, ptr %182, i64 8
   %225 = load ptr, ptr %224, align 8, !nonnull !10, !noundef !10
-  %226 = getelementptr { i64, [44 x i64] }, ptr %225, i64 %184
+  %226 = getelementptr [360 x i8], ptr %225, i64 %184
   %227 = getelementptr i8, ptr %226, i64 -360
   %228 = icmp eq ptr %227, null
   br i1 %228, label %.thread486, label %.thread488
@@ -2176,7 +2176,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type14auto_type_impl17h863a5c8f316c2
 
 .lr.ph.i.i:                                       ; preds = %"_ZN4core3ptr90drop_in_place$LT$dsl_auto_type..auto_type..expression_type_inference..InferrerSettings$GT$17h81070c5ca689d1c9E.exit295", %"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h9016784f590df9a9E.llvm.566609780180471337.exit.i.i"
   %.09.i.i = phi i64 [ %454, %"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h9016784f590df9a9E.llvm.566609780180471337.exit.i.i" ], [ 0, %"_ZN4core3ptr90drop_in_place$LT$dsl_auto_type..auto_type..expression_type_inference..InferrerSettings$GT$17h81070c5ca689d1c9E.exit295" ]
-  %453 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %449, i64 %.09.i.i
+  %453 = getelementptr inbounds [256 x i8], ptr %449, i64 %.09.i.i
   %454 = add nuw i64 %.09.i.i, 1
   %455 = load i64, ptr %453, align 8, !range !299, !alias.scope !300, !noalias !296, !noundef !10
   %456 = add nsw i64 %455, -39
@@ -2215,7 +2215,7 @@ define hidden void @_ZN13dsl_auto_type9auto_type14auto_type_impl17h863a5c8f316c2
   br label %464
 
 468:                                              ; preds = %464
-  %469 = getelementptr inbounds { { i64, [28 x i64] }, { i32, [1 x i32] }, { [1 x i32] }, { { { [2 x i32], i32 }, { {} } } } }, ptr %449, i64 %.1.i.i
+  %469 = getelementptr inbounds [256 x i8], ptr %449, i64 %.1.i.i
   %470 = add i64 %.1.i.i, 1
   invoke void @"_ZN4core3ptr41drop_in_place$LT$syn..attr..Attribute$GT$17h9016784f590df9a9E.llvm.566609780180471337"(ptr noalias noundef nonnull align 8 dereferenceable(256) %469) #14
           to label %464 unwind label %471, !noalias !296

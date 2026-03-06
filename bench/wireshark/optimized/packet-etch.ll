@@ -266,7 +266,7 @@ define hidden void @proto_reg_handoff_etch() #0 {
 
 .lr.ph.i.i:                                       ; preds = %20, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %.lr.ph.i.i ], [ 0, %20 ]
-  %24 = getelementptr %struct._value_string, ptr %21, i64 %indvars.iv.i.i
+  %24 = getelementptr [16 x i8], ptr %21, i64 %indvars.iv.i.i
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8
   tail call void @g_free(ptr noundef %26)

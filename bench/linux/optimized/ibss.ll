@@ -15,7 +15,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.cpumask = type { [1 x i64] }
 %struct.ieee80211_sta_ht_cap = type <{ i16, i8, i8, i8, %struct.ieee80211_mcs_info, i8 }>
 %struct.ieee80211_mcs_info = type { [10 x i8], i16, i8, [3 x i8] }
-%struct.ieee80211_rate = type { i32, i16, i16, i16 }
 %struct.ieee80211_elems_parse_params = type { ptr, i64, i8, i64, i32, ptr, i32, i8 }
 %struct.ieee80211_ht_cap = type <{ i16, i8, %struct.ieee80211_mcs_info, i16, i32, i8 }>
 %struct.cfg80211_chan_def = type { ptr, i32, i32, i32, %struct.ieee80211_edmg, i16 }
@@ -196,7 +195,7 @@ define internal fastcc ptr @ieee80211_ibss_build_presp(ptr noundef %0, i32 nound
   %42 = load ptr, ptr %5, align 8
   %43 = load i32, ptr %42, align 8
   %44 = zext i32 %43 to i64
-  %45 = getelementptr ptr, ptr %41, i64 %44
+  %45 = getelementptr [8 x i8], ptr %41, i64 %44
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %48 = load i32, ptr %47, align 8
@@ -236,7 +235,7 @@ define internal fastcc ptr @ieee80211_ibss_build_presp(ptr noundef %0, i32 nound
   %67 = phi i64 [ 0, %.split20.us ], [ %80, %66 ]
   %68 = phi i32 [ 0, %.split20.us ], [ %79, %66 ]
   %69 = phi i32 [ 0, %.split20.us ], [ %77, %66 ]
-  %70 = getelementptr %struct.ieee80211_rate, ptr %64, i64 %67
+  %70 = getelementptr [12 x i8], ptr %64, i64 %67
   %71 = load i32, ptr %70, align 4
   %72 = or i32 %71, %63
   %73 = icmp eq i32 %72, -1
@@ -257,7 +256,7 @@ define internal fastcc ptr @ieee80211_ibss_build_presp(ptr noundef %0, i32 nound
   %83 = phi i32 [ %103, %100 ], [ 0, %.split20.preheader ]
   %84 = phi i32 [ %102, %100 ], [ 0, %.split20.preheader ]
   %85 = load ptr, ptr %58, align 8
-  %86 = getelementptr %struct.ieee80211_rate, ptr %85, i64 %82
+  %86 = getelementptr [12 x i8], ptr %85, i64 %82
   %87 = load i32, ptr %86, align 4
   %88 = or i32 %87, %60
   %89 = icmp eq i32 %88, -1
@@ -331,7 +330,7 @@ define internal fastcc ptr @ieee80211_ibss_build_presp(ptr noundef %0, i32 nound
 
 130:                                              ; preds = %123
   %131 = load ptr, ptr %121, align 8
-  %.split = getelementptr %struct.ieee80211_rate, ptr %131, i64 %indvars.iv
+  %.split = getelementptr [12 x i8], ptr %131, i64 %indvars.iv
   %132 = getelementptr i8, ptr %.split, i64 4
   %133 = load i16, ptr %132, align 4
   %134 = zext i16 %133 to i32
@@ -470,7 +469,7 @@ define internal fastcc ptr @ieee80211_ibss_build_presp(ptr noundef %0, i32 nound
 
 218:                                              ; preds = %211
   %219 = load ptr, ptr %208, align 8
-  %.split11 = getelementptr %struct.ieee80211_rate, ptr %219, i64 %213
+  %.split11 = getelementptr [12 x i8], ptr %219, i64 %213
   %220 = getelementptr i8, ptr %.split11, i64 4
   %221 = load i16, ptr %220, align 4
   %222 = zext i16 %221 to i32
@@ -736,12 +735,12 @@ define dso_local void @ieee80211_ibss_rx_no_sta(ptr noundef %0, ptr noundef read
   %45 = load ptr, ptr %44, align 8
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 312
   %47 = sext i32 %40 to i64
-  %48 = getelementptr ptr, ptr %46, i64 %47
+  %48 = getelementptr [8 x i8], ptr %46, i64 %47
   %49 = load ptr, ptr %48, align 8
   %50 = tail call i32 @ieee80211_mandatory_rates(ptr noundef %49) #15
   %51 = or i32 %50, %3
   %52 = getelementptr inbounds nuw i8, ptr %41, i64 2892
-  %53 = getelementptr i32, ptr %52, i64 %47
+  %53 = getelementptr [4 x i8], ptr %52, i64 %47
   store i32 %51, ptr %53, align 4
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 2140
   tail call void @_raw_spin_lock(ptr noundef nonnull %54) #15
@@ -1107,7 +1106,7 @@ define dso_local void @ieee80211_ibss_rx_queued_mgmt(ptr noundef %0, ptr noundef
   %221 = load ptr, ptr %220, align 8
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 312
   %223 = zext i8 %199 to i64
-  %224 = getelementptr ptr, ptr %222, i64 %223
+  %224 = getelementptr [8 x i8], ptr %222, i64 %223
   %225 = load ptr, ptr %224, align 8
   %226 = icmp eq ptr %225, null
   br i1 %226, label %227, label %228, !prof !8
@@ -1134,7 +1133,7 @@ define dso_local void @ieee80211_ibss_rx_queued_mgmt(ptr noundef %0, ptr noundef
 
 .thread:                                          ; preds = %234
   %237 = getelementptr inbounds nuw i8, ptr %230, i64 2892
-  %238 = getelementptr i32, ptr %237, i64 %223
+  %238 = getelementptr [4 x i8], ptr %237, i64 %223
   %239 = load i32, ptr %238, align 4
   %240 = call i32 @ieee80211_mandatory_rates(ptr noundef nonnull %225) #15
   %241 = or i32 %240, %235
@@ -2181,7 +2180,7 @@ define dso_local range(i32 -2147483648, 1) i32 @ieee80211_ibss_join(ptr noundef 
   %64 = load ptr, ptr %6, align 8
   %65 = load i32, ptr %64, align 8
   %66 = zext i32 %65 to i64
-  %67 = getelementptr ptr, ptr %63, i64 %66
+  %67 = getelementptr [8 x i8], ptr %63, i64 %66
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds nuw i8, ptr %68, i64 24
   %70 = load i32, ptr %69, align 8
@@ -2203,7 +2202,7 @@ define dso_local range(i32 -2147483648, 1) i32 @ieee80211_ibss_join(ptr noundef 
   %82 = phi i32 [ %58, %72 ], [ %96, %94 ]
   %83 = phi i64 [ 0, %72 ], [ %97, %94 ]
   %84 = load ptr, ptr %77, align 8
-  %85 = getelementptr %struct.ieee80211_rate, ptr %84, i64 %83
+  %85 = getelementptr [12 x i8], ptr %84, i64 %83
   %86 = load i32, ptr %85, align 4
   %87 = or i32 %86, %79
   %88 = icmp eq i32 %87, -1
@@ -2843,7 +2842,7 @@ define internal fastcc void @ieee80211_sta_join_ibss(ptr noundef %0, ptr noundef
   %42 = load ptr, ptr %4, align 8
   %43 = load i32, ptr %42, align 8
   %44 = zext i32 %43 to i64
-  %45 = getelementptr ptr, ptr %41, i64 %44
+  %45 = getelementptr [8 x i8], ptr %41, i64 %44
   %46 = load ptr, ptr %45, align 8
   %47 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 24
@@ -2872,7 +2871,7 @@ define internal fastcc void @ieee80211_sta_join_ibss(ptr noundef %0, ptr noundef
 
 65:                                               ; preds = %78, %56
   %66 = phi i64 [ %79, %78 ], [ 0, %56 ]
-  %67 = getelementptr %struct.ieee80211_rate, ptr %55, i64 %66
+  %67 = getelementptr [12 x i8], ptr %55, i64 %66
   %68 = load i32, ptr %67, align 4
   %69 = or i32 %68, %53
   %70 = icmp eq i32 %69, -1
@@ -3004,12 +3003,12 @@ define internal fastcc ptr @ieee80211_ibss_add_sta(ptr noundef %0, ptr noundef r
   %48 = load ptr, ptr %47, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 312
   %50 = sext i32 %42 to i64
-  %51 = getelementptr ptr, ptr %49, i64 %50
+  %51 = getelementptr [8 x i8], ptr %49, i64 %50
   %52 = load ptr, ptr %51, align 8
   %53 = tail call i32 @ieee80211_mandatory_rates(ptr noundef %52) #15
   %54 = or i32 %53, %3
   %55 = getelementptr inbounds nuw i8, ptr %43, i64 2892
-  %56 = getelementptr i32, ptr %55, i64 %50
+  %56 = getelementptr [4 x i8], ptr %55, i64 %50
   store i32 %54, ptr %56, align 4
   %57 = tail call fastcc ptr @ieee80211_ibss_finish_sta(ptr noundef nonnull %43)
   br label %58
@@ -3797,7 +3796,7 @@ define internal fastcc i32 @ieee80211_ibss_setup_scan_channels(ptr noundef %0, p
 
 35:                                               ; preds = %33
   %36 = zext nneg i32 %29 to i64
-  %37 = getelementptr ptr, ptr %2, i64 %36
+  %37 = getelementptr [8 x i8], ptr %2, i64 %36
   store ptr %31, ptr %37, align 8
   %38 = add nuw nsw i32 %29, 1
   br label %39
@@ -3815,7 +3814,7 @@ define internal fastcc i32 @ieee80211_ibss_setup_scan_channels(ptr noundef %0, p
 
 45:                                               ; preds = %.loopexit14
   %46 = zext i32 %43 to i64
-  %47 = getelementptr ptr, ptr %2, i64 %46
+  %47 = getelementptr [8 x i8], ptr %2, i64 %46
   %48 = sub i32 8, %43
   %49 = add i32 %23, %22
   %50 = add i32 %25, %23
@@ -3836,7 +3835,7 @@ define internal fastcc i32 @ieee80211_ibss_setup_scan_channels(ptr noundef %0, p
 
 59:                                               ; preds = %57
   %60 = zext i32 %53 to i64
-  %61 = getelementptr ptr, ptr %47, i64 %60
+  %61 = getelementptr [8 x i8], ptr %47, i64 %60
   store ptr %55, ptr %61, align 8
   %62 = add nuw i32 %53, 1
   br label %63

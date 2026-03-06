@@ -235,7 +235,7 @@ check_retval.exit107:                             ; preds = %58
   %75 = fmul nnan double %72, 2.000000e+00
   %76 = call double @exp(double noundef %75) #13, !tbaa !19
   %77 = fmul double %76, %74
-  %78 = getelementptr inbounds nuw double, ptr %68, i64 %indvars.iv.i
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %68, i64 %indvars.iv.i
   store double %77, ptr %78, align 8, !tbaa !16
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 10
   br i1 %exitcond.not.i, label %SetIC.exit, label %69
@@ -329,13 +329,13 @@ check_retval.exit123.preheader:                   ; preds = %check_retval.exit12
   %120 = load ptr, ptr %54, align 8, !tbaa !11
   %121 = load i32, ptr %113, align 4, !tbaa !19
   %122 = sext i32 %121 to i64
-  %123 = getelementptr inbounds double, ptr %120, i64 %122
+  %123 = getelementptr inbounds [8 x i8], ptr %120, i64 %122
   %124 = load double, ptr %123, align 8, !tbaa !16
   store double %124, ptr %118, align 8, !tbaa !16
   %125 = getelementptr inbounds nuw i8, ptr %113, i64 4
   %126 = load i32, ptr %125, align 4, !tbaa !19
   %127 = sext i32 %126 to i64
-  %128 = getelementptr inbounds double, ptr %120, i64 %127
+  %128 = getelementptr inbounds [8 x i8], ptr %120, i64 %127
   %129 = load double, ptr %128, align 8, !tbaa !16
   %130 = getelementptr inbounds nuw i8, ptr %118, i64 8
   store double %129, ptr %130, align 8, !tbaa !16
@@ -581,7 +581,7 @@ define internal noundef i32 @f(double %0, ptr noundef %1, ptr noundef %2, ptr no
 
 17:                                               ; preds = %4, %25
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %25 ]
-  %18 = getelementptr inbounds nuw double, ptr %5, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %19 = load double, ptr %18, align 8, !tbaa !16
   %.not = icmp eq i64 %indvars.iv, 0
   br i1 %.not, label %.thread, label %20
@@ -607,7 +607,7 @@ define internal noundef i32 @f(double %0, ptr noundef %1, ptr noundef %2, ptr no
   %29 = fsub double %.030, %.035
   %30 = fmul double %16, %29
   %31 = fadd double %28, %30
-  %32 = getelementptr inbounds nuw double, ptr %6, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   store double %31, ptr %32, align 8, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10

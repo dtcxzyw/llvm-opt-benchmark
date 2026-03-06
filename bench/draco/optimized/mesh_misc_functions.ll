@@ -17,9 +17,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<std::array<draco::IndexType<unsigned int, draco::VertexIndex_tag_type_>, 3>, std::allocator<std::array<draco::IndexType<unsigned int, draco::VertexIndex_tag_type_>, 3>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"struct.std::array" = type { [3 x %"class.draco::IndexType"] }
 %"class.draco::IndexType" = type { i32 }
-%"struct.std::array.32" = type { [3 x %"class.draco::IndexType.33"] }
-%"class.draco::IndexType.33" = type { i32 }
-%"class.draco::IndexType.34" = type { i32 }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -68,7 +65,7 @@ define void @_ZN5draco30CreateCornerTableFromAttributeEPKNS_4MeshENS_17GeometryA
 .lr.ph.preheader.i.i.i.i.i.i:                     ; preds = %9
   %19 = mul nuw nsw i64 %18, 12
   %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #10
-  %21 = getelementptr inbounds nuw %"struct.std::array", ptr %20, i64 %18
+  %21 = getelementptr inbounds nuw [12 x i8], ptr %20, i64 %18
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %20, i8 0, i64 %19, i1 false)
   %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %20, i64 %19
   br label %_ZNSt12_Vector_baseISt5arrayIN5draco9IndexTypeIjNS1_21VertexIndex_tag_type_EEELm3EESaIS5_EEC2EmRKS6_.exit.thread.i.i
@@ -130,7 +127,7 @@ _ZNSt12_Vector_baseISt5arrayIN5draco9IndexTypeIjNS1_21VertexIndex_tag_type_EEELm
   %indvar = phi i64 [ 0, %.lr.ph.split ], [ %indvar.next, %.split32 ]
   %35 = mul nuw nsw i64 %indvar, 12
   %scevgep = getelementptr i8, ptr %22, i64 %35
-  %36 = getelementptr inbounds nuw %"struct.std::array.32", ptr %13, i64 %indvar
+  %36 = getelementptr inbounds nuw [12 x i8], ptr %13, i64 %indvar
   br label %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit
 
 .split32:                                         ; preds = %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit
@@ -141,12 +138,12 @@ _ZNSt12_Vector_baseISt5arrayIN5draco9IndexTypeIjNS1_21VertexIndex_tag_type_EEELm
 
 _ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit: ; preds = %.split, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit
   %indvars.iv = phi i64 [ 0, %.split ], [ %indvars.iv.next, %_ZNK5draco14PointAttribute12mapped_indexENS_9IndexTypeIjNS_20PointIndex_tag_type_EEE.exit ]
-  %37 = getelementptr inbounds nuw %"class.draco::IndexType.33", ptr %36, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %indvars.iv
   %.sroa.0.0.copyload = load i32, ptr %37, align 4, !tbaa !54
   %38 = zext i32 %.sroa.0.0.copyload to i64
-  %39 = getelementptr inbounds nuw %"class.draco::IndexType.34", ptr %31, i64 %38
+  %39 = getelementptr inbounds nuw [4 x i8], ptr %31, i64 %38
   %40 = load i32, ptr %39, align 4, !tbaa !54
-  %41 = getelementptr inbounds nuw %"class.draco::IndexType", ptr %5, i64 %indvars.iv
+  %41 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   store i32 %40, ptr %41, align 4, !tbaa !17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -214,7 +211,7 @@ define void @_ZN5draco34CreateCornerTableFromAllAttributesEPKNS_4MeshE(ptr dead_
 .lr.ph.preheader.i.i.i.i.i.i:                     ; preds = %2
   %13 = mul nuw nsw i64 %12, 12
   %14 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %13) #10
-  %15 = getelementptr inbounds nuw %"struct.std::array", ptr %14, i64 %12
+  %15 = getelementptr inbounds nuw [12 x i8], ptr %14, i64 %12
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %14, i8 0, i64 %13, i1 false)
   %scevgep.i.i.i.i.i.i = getelementptr i8, ptr %14, i64 %13
   br label %_ZNSt12_Vector_baseISt5arrayIN5draco9IndexTypeIjNS1_21VertexIndex_tag_type_EEELm3EESaIS5_EEC2EmRKS6_.exit.thread.i.i

@@ -110,8 +110,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.CoverageVisitor::ToggleEnt" = type { %"class.std::__cxx11::basic_string", ptr, ptr }
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"struct.std::_Hashtable<int, std::pair<const int, std::set<int>>, std::allocator<std::pair<const int, std::set<int>>>, std::__detail::_Select1st, std::equal_to<int>, std::hash<int>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<false, false, true>>::_Scoped_node" = type { ptr, ptr }
-%"class.std::bitset" = type { %"struct.std::_Base_bitset" }
-%"struct.std::_Base_bitset" = type { [2 x i64] }
 %class.VRestorer.190 = type { ptr, %"class.std::__cxx11::list" }
 %"struct.std::array.208" = type { [2 x %"class.std::set.209"] }
 %"class.std::set.209" = type { %"class.std::_Rb_tree.210" }
@@ -119,7 +117,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Rb_tree<AstVar *, AstVar *, std::_Identity<AstVar *>, std::less<AstVar *>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
 %"struct.std::array.215" = type { [2 x %"class.std::set"] }
 %"struct.std::_Deque_iterator.191" = type { ptr, ptr, ptr, ptr }
-%"struct.CoverageVisitor::CoverTerm" = type { ptr, i8, %"class.std::__cxx11::basic_string" }
 %"struct.V3NumberData::ValueAndX" = type { i32, i32 }
 %"struct.std::_Hashtable<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, unsigned int>, std::allocator<std::pair<const std::__cxx11::basic_string<char>, unsigned int>>, std::__detail::_Select1st, std::equal_to<std::__cxx11::basic_string<char>>, std::hash<string>, std::__detail::_Mod_range_hashing, std::__detail::_Default_ranged_hash, std::__detail::_Prime_rehash_policy, std::__detail::_Hashtable_traits<true, false, true>>::_Scoped_node" = type { ptr, ptr }
 %"class.std::tuple.200" = type { %"struct.std::_Tuple_impl.201" }
@@ -9200,7 +9197,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit13: ; preds = %68,
   %77 = load i64, ptr %42, align 8, !tbaa !99
   %78 = urem i64 %76, %77
   %79 = load ptr, ptr %41, align 8, !tbaa !98
-  %80 = getelementptr inbounds nuw ptr, ptr %79, i64 %78
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %78
   %81 = load ptr, ptr %80, align 8, !tbaa !275
   %.not.i.i.i.i = icmp eq ptr %81, null
   br i1 %.not.i.i.i.i, label %.loopexit.i.i, label %82
@@ -9439,7 +9436,7 @@ _ZN8FileLine9singletonEv.exit:                    ; preds = %1, %4, %7
   unreachable
 
 _ZNK17FileLineSingleton5msgEnEt.exit:             ; preds = %_ZN8FileLine9singletonEv.exit
-  %20 = getelementptr inbounds nuw %"class.std::bitset", ptr %14, i64 %12
+  %20 = getelementptr inbounds nuw [16 x i8], ptr %14, i64 %12
   ret ptr %20
 }
 
@@ -9492,7 +9489,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_
   unreachable
 
 _ZNKSt6vectorISt6bitsetILm121EESaIS1_EE2atEm.exit: ; preds = %2
-  %13 = getelementptr inbounds nuw %"class.std::bitset", ptr %7, i64 %4
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %7, i64 %4
   ret ptr %13
 }
 
@@ -9793,7 +9790,7 @@ _ZNSt11_Deque_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE1
   store ptr %9, ptr %0, align 8, !tbaa !330
   %10 = sub nsw i64 %.sroa.speculated, %7
   %11 = lshr i64 %10, 1
-  %12 = getelementptr inbounds nuw ptr, ptr %9, i64 %11
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %11
   %.idx = shl nuw nsw i64 %7, 3
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 %.idx
   br label %.lr.ph.i
@@ -9887,7 +9884,7 @@ _ZNSt11_Deque_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE1
   store ptr %50, ptr %51, align 8, !tbaa !325
   store ptr %41, ptr %39, align 8, !tbaa !337
   %52 = and i64 %1, 15
-  %53 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %48, i64 %52
+  %53 = getelementptr inbounds nuw [32 x i8], ptr %48, i64 %52
   store ptr %53, ptr %45, align 8, !tbaa !338
   ret void
 
@@ -9929,7 +9926,7 @@ _ZNSt11_Deque_baseI10V3LangCodeSaIS0_EE15_M_allocate_mapEm.exit:
   store ptr %7, ptr %0, align 8, !tbaa !308
   %8 = sub nsw i64 %.sroa.speculated, %3
   %9 = lshr i64 %8, 1
-  %10 = getelementptr inbounds nuw ptr, ptr %7, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %9
   %.idx = shl nuw nsw i64 %3, 3
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 %.idx
   br label %.lr.ph.i
@@ -10023,7 +10020,7 @@ _ZNSt11_Deque_baseI10V3LangCodeSaIS0_EE15_M_create_nodesEPPS0_S4_.exit: ; preds 
   store ptr %48, ptr %49, align 8, !tbaa !342
   store ptr %39, ptr %37, align 8, !tbaa !343
   %50 = and i64 %1, 511
-  %51 = getelementptr inbounds nuw %class.V3LangCode, ptr %46, i64 %50
+  %51 = getelementptr inbounds nuw i8, ptr %46, i64 %50
   store ptr %51, ptr %43, align 8, !tbaa !344
   ret void
 
@@ -10253,7 +10250,7 @@ _ZNSt10_HashtableIiSt4pairIKiSt3setIiSt4lessIiESaIiEEESaIS7_ENSt8__detail10_Sele
 31:                                               ; preds = %_ZNSt10_HashtableIiSt4pairIKiSt3setIiSt4lessIiESaIiEEESaIS7_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit, %5
   %.0 = phi i64 [ %30, %_ZNSt10_HashtableIiSt4pairIKiSt3setIiSt4lessIiESaIiEEESaIS7_ENSt8__detail10_Select1stESt8equal_toIiESt4hashIiENS9_18_Mod_range_hashingENS9_20_Default_ranged_hashENS9_20_Prime_rehash_policyENS9_17_Hashtable_traitsILb0ELb0ELb1EEEE9_M_rehashEmRKm.exit ], [ %1, %5 ]
   %32 = load ptr, ptr %0, align 8, !tbaa !98
-  %33 = getelementptr inbounds nuw ptr, ptr %32, i64 %.0
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %.0
   %34 = load ptr, ptr %33, align 8, !tbaa !275
   %.not.i = icmp eq ptr %34, null
   br i1 %.not.i, label %38, label %35
@@ -10280,7 +10277,7 @@ _ZNSt10_HashtableIiSt4pairIKiSt3setIiSt4lessIiESaIiEEESaIS7_ENSt8__detail10_Sele
   %45 = load i32, ptr %43, align 4, !tbaa !16
   %46 = sext i32 %45 to i64
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %32, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %32, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !275
   br label %49
 
@@ -10374,7 +10371,7 @@ _ZNSt10_HashtableIiSt4pairIKiSt3setIiSt4lessIiESaIiEEESaIS7_ENSt8__detail10_Sele
   %16 = load i32, ptr %15, align 8, !tbaa !16
   %17 = sext i32 %16 to i64
   %18 = urem i64 %17, %1
-  %19 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %18
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %18
   %20 = load ptr, ptr %19, align 8, !tbaa !275
   %.not27 = icmp eq ptr %20, null
   br i1 %.not27, label %21, label %26
@@ -10389,7 +10386,7 @@ _ZNSt10_HashtableIiSt4pairIKiSt3setIiSt4lessIiESaIiEEESaIS7_ENSt8__detail10_Sele
   br i1 %.not28, label %29, label %24
 
 24:                                               ; preds = %21
-  %25 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %25, align 8, !tbaa !275
   br label %29
 
@@ -11013,7 +11010,7 @@ _ZN7AstNode11privateCastI9AstVarRefP11AstNodeExprEEPT_PS_.exit: ; preds = %126
   %129 = getelementptr inbounds nuw i8, ptr %.sroa.0267.0338, i64 8
   %130 = load i8, ptr %129, align 8, !tbaa !179, !range !55, !noundef !56
   %131 = zext nneg i8 %130 to i64
-  %132 = getelementptr inbounds nuw %"class.std::set.209", ptr %10, i64 %131
+  %132 = getelementptr inbounds nuw [48 x i8], ptr %10, i64 %131
   %133 = getelementptr inbounds nuw i8, ptr %125, i64 152
   %134 = load ptr, ptr %133, align 8, !tbaa !227
   %135 = getelementptr inbounds nuw i8, ptr %132, i64 16
@@ -11091,7 +11088,7 @@ _ZNSt8_Rb_treeIP6AstVarS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IS1_N
   %161 = getelementptr inbounds nuw i8, ptr %.sroa.0267.0338, i64 8
   %162 = load i8, ptr %161, align 8, !tbaa !179, !range !55, !noundef !56
   %163 = zext nneg i8 %162 to i64
-  %164 = getelementptr inbounds nuw %"class.std::set", ptr %11, i64 %163
+  %164 = getelementptr inbounds nuw [48 x i8], ptr %11, i64 %163
   %165 = getelementptr inbounds nuw i8, ptr %.sroa.0267.0338, i64 16
   %166 = getelementptr inbounds nuw i8, ptr %164, i64 16
   %167 = getelementptr inbounds nuw i8, ptr %164, i64 8
@@ -11349,7 +11346,7 @@ _ZN7AstNode11privateCastI13AstNodeVarRefP11AstNodeExprEEPT_PS_.exit: ; preds = %
   %249 = getelementptr inbounds nuw i8, ptr %.sroa.0260.0345, i64 8
   %250 = load i8, ptr %249, align 8, !tbaa !179, !range !55, !noundef !56
   %251 = zext nneg i8 %250 to i64
-  %252 = getelementptr inbounds nuw %"class.std::set.209", ptr %10, i64 %251
+  %252 = getelementptr inbounds nuw [48 x i8], ptr %10, i64 %251
   %253 = getelementptr inbounds nuw i8, ptr %245, i64 152
   %254 = load ptr, ptr %253, align 8, !tbaa !227
   %255 = getelementptr inbounds nuw i8, ptr %252, i64 16
@@ -11386,7 +11383,7 @@ _ZNSt3setIP6AstVarSt4lessIS1_ESaIS1_EE4findERKS1_.exit: ; preds = %262, %_ZNSt8_
   %.sroa.0.0.i.i = phi i1 [ true, %_ZN7AstNode11privateCastI13AstNodeVarRefP11AstNodeExprEEPT_PS_.exit ], [ true, %_ZNSt8_Rb_treeIP6AstVarS1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS1_EPSt18_Rb_tree_node_baseRKS1_.exit.i.i ], [ %264, %262 ]
   %265 = xor i8 %250, 1
   %266 = zext nneg i8 %265 to i64
-  %267 = getelementptr inbounds nuw %"class.std::set.209", ptr %10, i64 %266
+  %267 = getelementptr inbounds nuw [48 x i8], ptr %10, i64 %266
   %268 = getelementptr inbounds nuw i8, ptr %267, i64 16
   %269 = load ptr, ptr %268, align 8, !tbaa !102
   %270 = getelementptr inbounds nuw i8, ptr %267, i64 8
@@ -11426,7 +11423,7 @@ _ZNSt3setIP6AstVarSt4lessIS1_ESaIS1_EE4findERKS1_.exit138: ; preds = %275, %_ZNS
   %280 = getelementptr inbounds nuw i8, ptr %.sroa.0260.0345, i64 8
   %281 = load i8, ptr %280, align 8, !tbaa !179, !range !55, !noundef !56
   %282 = zext nneg i8 %281 to i64
-  %283 = getelementptr inbounds nuw %"class.std::set", ptr %11, i64 %282
+  %283 = getelementptr inbounds nuw [48 x i8], ptr %11, i64 %282
   %284 = getelementptr inbounds nuw i8, ptr %.sroa.0260.0345, i64 16
   %285 = getelementptr inbounds nuw i8, ptr %283, i64 16
   %286 = load ptr, ptr %285, align 8, !tbaa !102
@@ -11509,7 +11506,7 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_
   %.sroa.0.0.i.i149 = phi i1 [ true, %279 ], [ true, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE14_M_lower_boundEPSt13_Rb_tree_nodeIS5_EPSt18_Rb_tree_node_baseRKS5_.exit.i.i ], [ %307, %_ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exit.i.i ]
   %308 = xor i8 %281, 1
   %309 = zext nneg i8 %308 to i64
-  %310 = getelementptr inbounds nuw %"class.std::set", ptr %11, i64 %309
+  %310 = getelementptr inbounds nuw [48 x i8], ptr %11, i64 %309
   %311 = getelementptr inbounds nuw i8, ptr %310, i64 16
   %312 = load ptr, ptr %311, align 8, !tbaa !102
   %313 = getelementptr inbounds nuw i8, ptr %310, i64 8
@@ -13519,7 +13516,7 @@ _ZNSt11_Deque_baseIN15CoverageVisitor9CoverTermESaIS1_EE15_M_allocate_mapEm.exit
   store ptr %10, ptr %0, align 8, !tbaa !180
   %11 = sub nsw i64 %.sroa.speculated, %8
   %12 = lshr i64 %11, 1
-  %13 = getelementptr inbounds nuw ptr, ptr %10, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %12
   %.idx = shl nuw nsw i64 %8, 3
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 %.idx
   br label %.lr.ph.i
@@ -13612,7 +13609,7 @@ _ZNSt11_Deque_baseIN15CoverageVisitor9CoverTermESaIS1_EE15_M_create_nodesEPPS1_S
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %51, ptr %52, align 8, !tbaa !183
   store ptr %42, ptr %40, align 8, !tbaa !436
-  %53 = getelementptr inbounds nuw %"struct.CoverageVisitor::CoverTerm", ptr %49, i64 %4
+  %53 = getelementptr inbounds nuw [48 x i8], ptr %49, i64 %4
   store ptr %53, ptr %46, align 8, !tbaa !171
   ret void
 
@@ -16468,7 +16465,7 @@ _ZN12V3NumberData13destroyStringEv.exit.thread.i: ; preds = %11, %_ZN12V3NumberD
   %27 = shl nuw nsw i64 %26, 3
   %28 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %27) #30
   store ptr %28, ptr %0, align 8, !tbaa !496
-  %29 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %28, i64 %26
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %26
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %29, ptr %30, align 8, !tbaa !499
   store i64 0, ptr %28, align 4
@@ -16517,7 +16514,7 @@ _ZN12V3NumberData3numEv.exit:                     ; preds = %.lr.ph, %_ZN12V3Num
   %48 = icmp slt i32 %47, 129
   %49 = load ptr, ptr %0, align 8
   %spec.select.i = select i1 %48, ptr %0, ptr %49
-  %50 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %spec.select.i, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %spec.select.i, i64 %indvars.iv
   store i32 0, ptr %50, align 4, !tbaa !16
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %50, i64 4
   store i32 0, ptr %.sroa.4.0..sroa_idx, align 4, !tbaa !16
@@ -16682,7 +16679,7 @@ define linkonce_odr dso_local void @_ZN12V3NumberData6resizeEi(ptr noundef nonnu
   br i1 %33, label %34, label %.sink.split
 
 34:                                               ; preds = %32
-  %35 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %24, i64 %21
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %21
   %.not.i.i = icmp eq ptr %23, %35
   br i1 %.not.i.i, label %.sink.split, label %36
 
@@ -16719,7 +16716,7 @@ _ZNSt6vectorIN12V3NumberData9ValueAndXESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
   %49 = shl nuw nsw i64 %48, 3
   %50 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %49) #30
   store ptr %50, ptr %0, align 8, !tbaa !496
-  %51 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %50, i64 %48
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %48
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %51, ptr %52, align 8, !tbaa !499
   store i64 0, ptr %50, align 4
@@ -16919,9 +16916,9 @@ _ZNSt6vectorIN12V3NumberData9ValueAndXESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit
 
 _ZNSt12_Vector_baseIN12V3NumberData9ValueAndXESaIS1_EE13_M_deallocateEPS1_m.exit38: ; preds = %_ZNSt6vectorIN12V3NumberData9ValueAndXESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %44
   store ptr %33, ptr %0, align 8, !tbaa !496
-  %46 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %34, i64 %1
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %1
   store ptr %46, ptr %4, align 8, !tbaa !501
-  %47 = getelementptr inbounds nuw %"struct.V3NumberData::ValueAndX", ptr %33, i64 %31
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %31
   store ptr %47, ptr %11, align 8, !tbaa !499
   br label %48
 
@@ -17163,7 +17160,7 @@ _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESa
   %14 = load i64, ptr %13, align 8, !tbaa !96
   %15 = urem i64 %9, %14
   %16 = load ptr, ptr %0, align 8, !tbaa !95
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %15
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %15
   %18 = load ptr, ptr %17, align 8, !tbaa !275
   %.not.i.i = icmp eq ptr %18, null
   br i1 %.not.i.i, label %.loopexit26, label %19
@@ -17321,7 +17318,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %32 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i64 %2, ptr %32, align 8, !tbaa !512
   %33 = load ptr, ptr %0, align 8, !tbaa !95
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.0
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.0
   %35 = load ptr, ptr %34, align 8, !tbaa !275
   %.not.i = icmp eq ptr %35, null
   br i1 %.not.i, label %39, label %36
@@ -17347,7 +17344,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 48
   %46 = load i64, ptr %45, align 8, !tbaa !512
   %47 = urem i64 %46, %44
-  %48 = getelementptr inbounds nuw ptr, ptr %33, i64 %47
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %47
   store ptr %3, ptr %48, align 8, !tbaa !275
   br label %49
 
@@ -17527,7 +17524,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   %15 = getelementptr inbounds nuw i8, ptr %.031, i64 48
   %16 = load i64, ptr %15, align 8, !tbaa !512
   %17 = urem i64 %16, %1
-  %18 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !275
   %.not27 = icmp eq ptr %19, null
   br i1 %.not27, label %20, label %25
@@ -17542,7 +17539,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
   br i1 %.not28, label %28, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %.02530
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %.02530
   store ptr %.031, ptr %24, align 8, !tbaa !275
   br label %28
 
@@ -17896,7 +17893,7 @@ _ZNSt5dequeIN15CoverageVisitor9CoverTermESaIS1_EE15_M_erase_at_endESt15_Deque_it
   br i1 %120, label %121, label %123
 
 121:                                              ; preds = %119
-  %122 = getelementptr inbounds %"struct.CoverageVisitor::CoverTerm", ptr %69, i64 %45
+  %122 = getelementptr inbounds [48 x i8], ptr %69, i64 %45
   br label %_ZStplRKSt15_Deque_iteratorIN15CoverageVisitor9CoverTermERKS1_PS2_El.exit
 
 123:                                              ; preds = %119
@@ -17911,12 +17908,12 @@ _ZNSt5dequeIN15CoverageVisitor9CoverTermESaIS1_EE15_M_erase_at_endESt15_Deque_it
 
 129:                                              ; preds = %125, %123
   %130 = phi i64 [ %124, %123 ], [ %128, %125 ]
-  %131 = getelementptr inbounds ptr, ptr %51, i64 %130
+  %131 = getelementptr inbounds [8 x i8], ptr %51, i64 %130
   %132 = load ptr, ptr %131, align 8, !tbaa !187, !noalias !545
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 480
   %.idx.i.i = mul i64 %130, -480
   %134 = getelementptr i8, ptr %132, i64 %.idx.i.i
-  %135 = getelementptr %"struct.CoverageVisitor::CoverTerm", ptr %134, i64 %117
+  %135 = getelementptr [48 x i8], ptr %134, i64 %117
   br label %_ZStplRKSt15_Deque_iteratorIN15CoverageVisitor9CoverTermERKS1_PS2_El.exit
 
 _ZStplRKSt15_Deque_iteratorIN15CoverageVisitor9CoverTermERKS1_PS2_El.exit: ; preds = %121, %129
@@ -18169,7 +18166,7 @@ define linkonce_odr dso_local void @_ZNSt5dequeIN15CoverageVisitor9CoverTermESaI
   br i1 %70, label %71, label %73
 
 71:                                               ; preds = %69
-  %72 = getelementptr inbounds %"struct.CoverageVisitor::CoverTerm", ptr %61, i64 %66
+  %72 = getelementptr inbounds [48 x i8], ptr %61, i64 %66
   br label %_ZNSt5dequeIN15CoverageVisitor9CoverTermESaIS1_EE28_M_reserve_elements_at_frontEm.exit
 
 73:                                               ; preds = %69
@@ -18184,12 +18181,12 @@ define linkonce_odr dso_local void @_ZNSt5dequeIN15CoverageVisitor9CoverTermESaI
 
 79:                                               ; preds = %75, %73
   %80 = phi i64 [ %74, %73 ], [ %78, %75 ]
-  %81 = getelementptr inbounds ptr, ptr %65, i64 %80
+  %81 = getelementptr inbounds [8 x i8], ptr %65, i64 %80
   %82 = load ptr, ptr %81, align 8, !tbaa !187, !noalias !565
   %83 = getelementptr inbounds nuw i8, ptr %82, i64 480
   %.idx.i.i.i.i = mul i64 %80, -480
   %84 = getelementptr i8, ptr %82, i64 %.idx.i.i.i.i
-  %85 = getelementptr %"struct.CoverageVisitor::CoverTerm", ptr %84, i64 %67
+  %85 = getelementptr [48 x i8], ptr %84, i64 %67
   br label %_ZNSt5dequeIN15CoverageVisitor9CoverTermESaIS1_EE28_M_reserve_elements_at_frontEm.exit
 
 _ZNSt5dequeIN15CoverageVisitor9CoverTermESaIS1_EE28_M_reserve_elements_at_frontEm.exit: ; preds = %71, %79
@@ -18317,7 +18314,7 @@ _ZNSt11_Deque_baseIN15CoverageVisitor9CoverTermESaIS1_EE16_M_destroy_nodesEPPS1_
   br i1 %143, label %144, label %146
 
 144:                                              ; preds = %142
-  %145 = getelementptr inbounds %"struct.CoverageVisitor::CoverTerm", ptr %132, i64 %44
+  %145 = getelementptr inbounds [48 x i8], ptr %132, i64 %44
   br label %_ZNSt5dequeIN15CoverageVisitor9CoverTermESaIS1_EE27_M_reserve_elements_at_backEm.exit
 
 146:                                              ; preds = %142
@@ -18332,12 +18329,12 @@ _ZNSt11_Deque_baseIN15CoverageVisitor9CoverTermESaIS1_EE16_M_destroy_nodesEPPS1_
 
 152:                                              ; preds = %148, %146
   %153 = phi i64 [ %147, %146 ], [ %151, %148 ]
-  %154 = getelementptr inbounds ptr, ptr %136, i64 %153
+  %154 = getelementptr inbounds [8 x i8], ptr %136, i64 %153
   %155 = load ptr, ptr %154, align 8, !tbaa !187, !noalias !579
   %156 = getelementptr inbounds nuw i8, ptr %155, i64 480
   %.idx.i.i.i = mul i64 %153, -480
   %157 = getelementptr i8, ptr %155, i64 %.idx.i.i.i
-  %158 = getelementptr %"struct.CoverageVisitor::CoverTerm", ptr %157, i64 %140
+  %158 = getelementptr [48 x i8], ptr %157, i64 %140
   br label %_ZNSt5dequeIN15CoverageVisitor9CoverTermESaIS1_EE27_M_reserve_elements_at_backEm.exit
 
 _ZNSt5dequeIN15CoverageVisitor9CoverTermESaIS1_EE27_M_reserve_elements_at_backEm.exit: ; preds = %144, %152
@@ -18513,7 +18510,7 @@ define linkonce_odr dso_local void @_ZSt15__copy_move_ditILb0EN15CoverageVisitor
   %28 = sub i64 %26, %27
   %29 = sdiv exact i64 %28, 48
   %.sroa.speculated.i = tail call i64 @llvm.smin.i64(i64 %29, i64 %storemerge12.i)
-  %30 = getelementptr inbounds %"struct.CoverageVisitor::CoverTerm", ptr %.013.i, i64 %.sroa.speculated.i
+  %30 = getelementptr inbounds [48 x i8], ptr %.013.i, i64 %.sroa.speculated.i
   %31 = icmp sgt i64 %28, 0
   br i1 %31, label %.lr.ph.i.i.i.i, label %_ZSt14__copy_move_a1ILb0EPN15CoverageVisitor9CoverTermES2_ET1_T0_S4_S3_.exit.i
 
@@ -18544,7 +18541,7 @@ _ZSt14__copy_move_a1ILb0EPN15CoverageVisitor9CoverTermES2_ET1_T0_S4_S3_.exit.i: 
   br i1 %44, label %45, label %47
 
 45:                                               ; preds = %43
-  %46 = getelementptr inbounds %"struct.CoverageVisitor::CoverTerm", ptr %.sroa.082.0, i64 %.sroa.speculated.i
+  %46 = getelementptr inbounds [48 x i8], ptr %.sroa.082.0, i64 %.sroa.speculated.i
   br label %_ZNSt15_Deque_iteratorIN15CoverageVisitor9CoverTermERS1_PS1_EpLEl.exit.i
 
 47:                                               ; preds = %43
@@ -18559,12 +18556,12 @@ _ZSt14__copy_move_a1ILb0EPN15CoverageVisitor9CoverTermES2_ET1_T0_S4_S3_.exit.i: 
 
 53:                                               ; preds = %49, %47
   %54 = phi i64 [ %48, %47 ], [ %52, %49 ]
-  %55 = getelementptr inbounds ptr, ptr %.sroa.1286.0, i64 %54
+  %55 = getelementptr inbounds [8 x i8], ptr %.sroa.1286.0, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !187, !noalias !590
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 480
   %.idx.i.i = mul i64 %54, -480
   %58 = getelementptr i8, ptr %56, i64 %.idx.i.i
-  %59 = getelementptr %"struct.CoverageVisitor::CoverTerm", ptr %58, i64 %41
+  %59 = getelementptr [48 x i8], ptr %58, i64 %41
   br label %_ZNSt15_Deque_iteratorIN15CoverageVisitor9CoverTermERS1_PS1_EpLEl.exit.i
 
 _ZNSt15_Deque_iteratorIN15CoverageVisitor9CoverTermERS1_PS1_EpLEl.exit.i: ; preds = %53, %45
@@ -18621,7 +18618,7 @@ _ZSt14__copy_move_a1ILb0EPN15CoverageVisitor9CoverTermES1_EN9__gnu_cxx11__enable
   %81 = sub i64 %79, %80
   %82 = sdiv exact i64 %81, 48
   %.sroa.speculated.i12 = tail call i64 @llvm.smin.i64(i64 %82, i64 %storemerge12.i11)
-  %83 = getelementptr inbounds %"struct.CoverageVisitor::CoverTerm", ptr %.013.i10, i64 %.sroa.speculated.i12
+  %83 = getelementptr inbounds [48 x i8], ptr %.013.i10, i64 %.sroa.speculated.i12
   %84 = icmp sgt i64 %81, 0
   br i1 %84, label %.lr.ph.i.i.i.i18, label %_ZSt14__copy_move_a1ILb0EPN15CoverageVisitor9CoverTermES2_ET1_T0_S4_S3_.exit.i13
 
@@ -18652,7 +18649,7 @@ _ZSt14__copy_move_a1ILb0EPN15CoverageVisitor9CoverTermES2_ET1_T0_S4_S3_.exit.i13
   br i1 %97, label %98, label %100
 
 98:                                               ; preds = %96
-  %99 = getelementptr inbounds %"struct.CoverageVisitor::CoverTerm", ptr %.sroa.070.0, i64 %.sroa.speculated.i12
+  %99 = getelementptr inbounds [48 x i8], ptr %.sroa.070.0, i64 %.sroa.speculated.i12
   br label %_ZNSt15_Deque_iteratorIN15CoverageVisitor9CoverTermERS1_PS1_EpLEl.exit.i16
 
 100:                                              ; preds = %96
@@ -18667,12 +18664,12 @@ _ZSt14__copy_move_a1ILb0EPN15CoverageVisitor9CoverTermES2_ET1_T0_S4_S3_.exit.i13
 
 106:                                              ; preds = %102, %100
   %107 = phi i64 [ %101, %100 ], [ %105, %102 ]
-  %108 = getelementptr inbounds ptr, ptr %.sroa.1274.0, i64 %107
+  %108 = getelementptr inbounds [8 x i8], ptr %.sroa.1274.0, i64 %107
   %109 = load ptr, ptr %108, align 8, !tbaa !187, !noalias !595
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 480
   %.idx.i.i15 = mul i64 %107, -480
   %111 = getelementptr i8, ptr %109, i64 %.idx.i.i15
-  %112 = getelementptr %"struct.CoverageVisitor::CoverTerm", ptr %111, i64 %94
+  %112 = getelementptr [48 x i8], ptr %111, i64 %94
   br label %_ZNSt15_Deque_iteratorIN15CoverageVisitor9CoverTermERS1_PS1_EpLEl.exit.i16
 
 _ZNSt15_Deque_iteratorIN15CoverageVisitor9CoverTermERS1_PS1_EpLEl.exit.i16: ; preds = %106, %98
@@ -18705,7 +18702,7 @@ _ZNSt15_Deque_iteratorIN15CoverageVisitor9CoverTermERS1_PS1_EpLEl.exit.i16: ; pr
   %123 = sub i64 %121, %122
   %124 = sdiv exact i64 %123, 48
   %.sroa.speculated.i33 = tail call i64 @llvm.smin.i64(i64 %124, i64 %storemerge12.i32)
-  %125 = getelementptr inbounds %"struct.CoverageVisitor::CoverTerm", ptr %.013.i31, i64 %.sroa.speculated.i33
+  %125 = getelementptr inbounds [48 x i8], ptr %.013.i31, i64 %.sroa.speculated.i33
   %126 = icmp sgt i64 %123, 0
   br i1 %126, label %.lr.ph.i.i.i.i39, label %_ZSt14__copy_move_a1ILb0EPN15CoverageVisitor9CoverTermES2_ET1_T0_S4_S3_.exit.i34
 
@@ -18736,7 +18733,7 @@ _ZSt14__copy_move_a1ILb0EPN15CoverageVisitor9CoverTermES2_ET1_T0_S4_S3_.exit.i34
   br i1 %139, label %140, label %142
 
 140:                                              ; preds = %138
-  %141 = getelementptr inbounds %"struct.CoverageVisitor::CoverTerm", ptr %.sroa.076.0, i64 %.sroa.speculated.i33
+  %141 = getelementptr inbounds [48 x i8], ptr %.sroa.076.0, i64 %.sroa.speculated.i33
   br label %_ZNSt15_Deque_iteratorIN15CoverageVisitor9CoverTermERS1_PS1_EpLEl.exit.i37
 
 142:                                              ; preds = %138
@@ -18751,12 +18748,12 @@ _ZSt14__copy_move_a1ILb0EPN15CoverageVisitor9CoverTermES2_ET1_T0_S4_S3_.exit.i34
 
 148:                                              ; preds = %144, %142
   %149 = phi i64 [ %143, %142 ], [ %147, %144 ]
-  %150 = getelementptr inbounds ptr, ptr %.sroa.11.0, i64 %149
+  %150 = getelementptr inbounds [8 x i8], ptr %.sroa.11.0, i64 %149
   %151 = load ptr, ptr %150, align 8, !tbaa !187, !noalias !598
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 480
   %.idx.i.i36 = mul i64 %149, -480
   %153 = getelementptr i8, ptr %151, i64 %.idx.i.i36
-  %154 = getelementptr %"struct.CoverageVisitor::CoverTerm", ptr %153, i64 %136
+  %154 = getelementptr [48 x i8], ptr %153, i64 %136
   br label %_ZNSt15_Deque_iteratorIN15CoverageVisitor9CoverTermERS1_PS1_EpLEl.exit.i37
 
 _ZNSt15_Deque_iteratorIN15CoverageVisitor9CoverTermERS1_PS1_EpLEl.exit.i37: ; preds = %148, %140
@@ -18808,7 +18805,7 @@ _ZSt14__copy_move_a1ILb0EPN15CoverageVisitor9CoverTermES1_EN9__gnu_cxx11__enable
   %174 = sub i64 %172, %173
   %175 = sdiv exact i64 %174, 48
   %.sroa.speculated.i54 = tail call i64 @llvm.smin.i64(i64 %175, i64 %storemerge12.i53)
-  %176 = getelementptr inbounds %"struct.CoverageVisitor::CoverTerm", ptr %.013.i52, i64 %.sroa.speculated.i54
+  %176 = getelementptr inbounds [48 x i8], ptr %.013.i52, i64 %.sroa.speculated.i54
   %177 = icmp sgt i64 %174, 0
   br i1 %177, label %.lr.ph.i.i.i.i60, label %_ZSt14__copy_move_a1ILb0EPN15CoverageVisitor9CoverTermES2_ET1_T0_S4_S3_.exit.i55
 
@@ -18839,7 +18836,7 @@ _ZSt14__copy_move_a1ILb0EPN15CoverageVisitor9CoverTermES2_ET1_T0_S4_S3_.exit.i55
   br i1 %190, label %191, label %193
 
 191:                                              ; preds = %189
-  %192 = getelementptr inbounds %"struct.CoverageVisitor::CoverTerm", ptr %.sroa.0.0, i64 %.sroa.speculated.i54
+  %192 = getelementptr inbounds [48 x i8], ptr %.sroa.0.0, i64 %.sroa.speculated.i54
   br label %_ZNSt15_Deque_iteratorIN15CoverageVisitor9CoverTermERS1_PS1_EpLEl.exit.i58
 
 193:                                              ; preds = %189
@@ -18854,12 +18851,12 @@ _ZSt14__copy_move_a1ILb0EPN15CoverageVisitor9CoverTermES2_ET1_T0_S4_S3_.exit.i55
 
 199:                                              ; preds = %195, %193
   %200 = phi i64 [ %194, %193 ], [ %198, %195 ]
-  %201 = getelementptr inbounds ptr, ptr %.sroa.12.0, i64 %200
+  %201 = getelementptr inbounds [8 x i8], ptr %.sroa.12.0, i64 %200
   %202 = load ptr, ptr %201, align 8, !tbaa !187, !noalias !602
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 480
   %.idx.i.i57 = mul i64 %200, -480
   %204 = getelementptr i8, ptr %202, i64 %.idx.i.i57
-  %205 = getelementptr %"struct.CoverageVisitor::CoverTerm", ptr %204, i64 %187
+  %205 = getelementptr [48 x i8], ptr %204, i64 %187
   br label %_ZNSt15_Deque_iteratorIN15CoverageVisitor9CoverTermERS1_PS1_EpLEl.exit.i58
 
 _ZNSt15_Deque_iteratorIN15CoverageVisitor9CoverTermERS1_PS1_EpLEl.exit.i58: ; preds = %199, %191
@@ -19012,7 +19009,7 @@ define linkonce_odr dso_local void @_ZNSt5dequeIN15CoverageVisitor9CoverTermESaI
   br i1 %106, label %107, label %109
 
 107:                                              ; preds = %105
-  %108 = getelementptr inbounds %"struct.CoverageVisitor::CoverTerm", ptr %101, i64 %102
+  %108 = getelementptr inbounds [48 x i8], ptr %101, i64 %102
   br label %_ZNSt5dequeIN15CoverageVisitor9CoverTermESaIS1_EE28_M_reserve_elements_at_frontEm.exit
 
 109:                                              ; preds = %105
@@ -19027,12 +19024,12 @@ define linkonce_odr dso_local void @_ZNSt5dequeIN15CoverageVisitor9CoverTermESaI
 
 115:                                              ; preds = %111, %109
   %116 = phi i64 [ %110, %109 ], [ %114, %111 ]
-  %117 = getelementptr inbounds ptr, ptr %98, i64 %116
+  %117 = getelementptr inbounds [8 x i8], ptr %98, i64 %116
   %118 = load ptr, ptr %117, align 8, !tbaa !187, !noalias !608
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 480
   %.idx.i.i.i.i = mul i64 %116, -480
   %120 = getelementptr i8, ptr %118, i64 %.idx.i.i.i.i
-  %121 = getelementptr %"struct.CoverageVisitor::CoverTerm", ptr %120, i64 %103
+  %121 = getelementptr [48 x i8], ptr %120, i64 %103
   br label %_ZNSt5dequeIN15CoverageVisitor9CoverTermESaIS1_EE28_M_reserve_elements_at_frontEm.exit
 
 _ZNSt5dequeIN15CoverageVisitor9CoverTermESaIS1_EE28_M_reserve_elements_at_frontEm.exit: ; preds = %107, %115
@@ -19053,7 +19050,7 @@ _ZNSt5dequeIN15CoverageVisitor9CoverTermESaIS1_EE28_M_reserve_elements_at_frontE
   br i1 %129, label %130, label %132
 
 130:                                              ; preds = %128
-  %131 = getelementptr inbounds nuw %"struct.CoverageVisitor::CoverTerm", ptr %101, i64 %67
+  %131 = getelementptr inbounds nuw [48 x i8], ptr %101, i64 %67
   br label %_ZStplRKSt15_Deque_iteratorIN15CoverageVisitor9CoverTermERS1_PS1_El.exit
 
 132:                                              ; preds = %128
@@ -19068,12 +19065,12 @@ _ZNSt5dequeIN15CoverageVisitor9CoverTermESaIS1_EE28_M_reserve_elements_at_frontE
 
 138:                                              ; preds = %134, %132
   %139 = phi i64 [ %133, %132 ], [ %137, %134 ]
-  %140 = getelementptr inbounds ptr, ptr %98, i64 %139
+  %140 = getelementptr inbounds [8 x i8], ptr %98, i64 %139
   %141 = load ptr, ptr %140, align 8, !tbaa !187, !noalias !611
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 480
   %.idx.i.i = mul i64 %139, -480
   %143 = getelementptr i8, ptr %141, i64 %.idx.i.i
-  %144 = getelementptr %"struct.CoverageVisitor::CoverTerm", ptr %143, i64 %126
+  %144 = getelementptr [48 x i8], ptr %143, i64 %126
   br label %_ZStplRKSt15_Deque_iteratorIN15CoverageVisitor9CoverTermERS1_PS1_El.exit
 
 _ZStplRKSt15_Deque_iteratorIN15CoverageVisitor9CoverTermERS1_PS1_El.exit: ; preds = %130, %138
@@ -19107,7 +19104,7 @@ _ZStplRKSt15_Deque_iteratorIN15CoverageVisitor9CoverTermERS1_PS1_El.exit: ; pred
   br i1 %157, label %158, label %160
 
 158:                                              ; preds = %156
-  %159 = getelementptr inbounds %"struct.CoverageVisitor::CoverTerm", ptr %146, i64 %4
+  %159 = getelementptr inbounds [48 x i8], ptr %146, i64 %4
   br label %_ZStplRKSt15_Deque_iteratorIN15CoverageVisitor9CoverTermERS1_PS1_El.exit36
 
 160:                                              ; preds = %156
@@ -19122,12 +19119,12 @@ _ZStplRKSt15_Deque_iteratorIN15CoverageVisitor9CoverTermERS1_PS1_El.exit: ; pred
 
 166:                                              ; preds = %162, %160
   %167 = phi i64 [ %161, %160 ], [ %165, %162 ]
-  %168 = getelementptr inbounds ptr, ptr %149, i64 %167
+  %168 = getelementptr inbounds [8 x i8], ptr %149, i64 %167
   %169 = load ptr, ptr %168, align 8, !tbaa !187, !noalias !614
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 480
   %.idx.i.i34 = mul i64 %167, -480
   %171 = getelementptr i8, ptr %169, i64 %.idx.i.i34
-  %172 = getelementptr %"struct.CoverageVisitor::CoverTerm", ptr %171, i64 %154
+  %172 = getelementptr [48 x i8], ptr %171, i64 %154
   br label %_ZStplRKSt15_Deque_iteratorIN15CoverageVisitor9CoverTermERS1_PS1_El.exit36
 
 _ZStplRKSt15_Deque_iteratorIN15CoverageVisitor9CoverTermERS1_PS1_El.exit36: ; preds = %158, %166
@@ -19282,7 +19279,7 @@ _ZSt22__uninitialized_move_aISt15_Deque_iteratorIN15CoverageVisitor9CoverTermERS
   br i1 %245, label %246, label %248
 
 246:                                              ; preds = %244
-  %247 = getelementptr inbounds %"struct.CoverageVisitor::CoverTerm", ptr %234, i64 %102
+  %247 = getelementptr inbounds [48 x i8], ptr %234, i64 %102
   br label %_ZStmiRKSt15_Deque_iteratorIN15CoverageVisitor9CoverTermERS1_PS1_El.exit
 
 248:                                              ; preds = %244
@@ -19297,12 +19294,12 @@ _ZSt22__uninitialized_move_aISt15_Deque_iteratorIN15CoverageVisitor9CoverTermERS
 
 254:                                              ; preds = %250, %248
   %255 = phi i64 [ %249, %248 ], [ %253, %250 ]
-  %256 = getelementptr inbounds ptr, ptr %237, i64 %255
+  %256 = getelementptr inbounds [8 x i8], ptr %237, i64 %255
   %257 = load ptr, ptr %256, align 8, !tbaa !187, !noalias !638
   %258 = getelementptr inbounds nuw i8, ptr %257, i64 480
   %.idx.i.i.i = mul i64 %255, -480
   %259 = getelementptr i8, ptr %257, i64 %.idx.i.i.i
-  %260 = getelementptr %"struct.CoverageVisitor::CoverTerm", ptr %259, i64 %242
+  %260 = getelementptr [48 x i8], ptr %259, i64 %242
   br label %_ZStmiRKSt15_Deque_iteratorIN15CoverageVisitor9CoverTermERS1_PS1_El.exit
 
 _ZStmiRKSt15_Deque_iteratorIN15CoverageVisitor9CoverTermERS1_PS1_El.exit: ; preds = %246, %254
@@ -19377,7 +19374,7 @@ _ZStmiRKSt15_Deque_iteratorIN15CoverageVisitor9CoverTermERS1_PS1_El.exit: ; pred
   br i1 %291, label %292, label %294
 
 292:                                              ; preds = %290
-  %293 = getelementptr inbounds %"struct.CoverageVisitor::CoverTerm", ptr %276, i64 %283
+  %293 = getelementptr inbounds [48 x i8], ptr %276, i64 %283
   br label %_ZSt7advanceISt15_Deque_iteratorIN15CoverageVisitor9CoverTermERKS2_PS3_ElEvRT_T0_.exit
 
 294:                                              ; preds = %290
@@ -19392,12 +19389,12 @@ _ZStmiRKSt15_Deque_iteratorIN15CoverageVisitor9CoverTermERS1_PS1_El.exit: ; pred
 
 300:                                              ; preds = %296, %294
   %301 = phi i64 [ %295, %294 ], [ %299, %296 ]
-  %302 = getelementptr inbounds ptr, ptr %282, i64 %301
+  %302 = getelementptr inbounds [8 x i8], ptr %282, i64 %301
   %303 = load ptr, ptr %302, align 8, !tbaa !187
   %304 = getelementptr inbounds nuw i8, ptr %303, i64 480
   %.idx.i.i.i37 = mul i64 %301, -480
   %305 = getelementptr i8, ptr %303, i64 %.idx.i.i.i37
-  %306 = getelementptr %"struct.CoverageVisitor::CoverTerm", ptr %305, i64 %288
+  %306 = getelementptr [48 x i8], ptr %305, i64 %288
   br label %_ZSt7advanceISt15_Deque_iteratorIN15CoverageVisitor9CoverTermERKS2_PS3_ElEvRT_T0_.exit
 
 _ZSt7advanceISt15_Deque_iteratorIN15CoverageVisitor9CoverTermERKS2_PS3_ElEvRT_T0_.exit: ; preds = %300, %292
@@ -19572,7 +19569,7 @@ _ZNSt11_Deque_baseIN15CoverageVisitor9CoverTermESaIS1_EE16_M_destroy_nodesEPPS1_
   br i1 %375, label %376, label %378
 
 376:                                              ; preds = %374
-  %377 = getelementptr inbounds %"struct.CoverageVisitor::CoverTerm", ptr %371, i64 %4
+  %377 = getelementptr inbounds [48 x i8], ptr %371, i64 %4
   br label %_ZNSt5dequeIN15CoverageVisitor9CoverTermESaIS1_EE27_M_reserve_elements_at_backEm.exit
 
 378:                                              ; preds = %374
@@ -19587,12 +19584,12 @@ _ZNSt11_Deque_baseIN15CoverageVisitor9CoverTermESaIS1_EE16_M_destroy_nodesEPPS1_
 
 384:                                              ; preds = %380, %378
   %385 = phi i64 [ %379, %378 ], [ %383, %380 ]
-  %386 = getelementptr inbounds ptr, ptr %368, i64 %385
+  %386 = getelementptr inbounds [8 x i8], ptr %368, i64 %385
   %387 = load ptr, ptr %386, align 8, !tbaa !187, !noalias !662
   %388 = getelementptr inbounds nuw i8, ptr %387, i64 480
   %.idx.i.i.i39 = mul i64 %385, -480
   %389 = getelementptr i8, ptr %387, i64 %.idx.i.i.i39
-  %390 = getelementptr %"struct.CoverageVisitor::CoverTerm", ptr %389, i64 %372
+  %390 = getelementptr [48 x i8], ptr %389, i64 %372
   br label %_ZNSt5dequeIN15CoverageVisitor9CoverTermESaIS1_EE27_M_reserve_elements_at_backEm.exit
 
 _ZNSt5dequeIN15CoverageVisitor9CoverTermESaIS1_EE27_M_reserve_elements_at_backEm.exit: ; preds = %376, %384
@@ -19614,7 +19611,7 @@ _ZNSt5dequeIN15CoverageVisitor9CoverTermESaIS1_EE27_M_reserve_elements_at_backEm
   br i1 %399, label %400, label %402
 
 400:                                              ; preds = %398
-  %401 = getelementptr inbounds %"struct.CoverageVisitor::CoverTerm", ptr %371, i64 %392
+  %401 = getelementptr inbounds [48 x i8], ptr %371, i64 %392
   br label %_ZStmiRKSt15_Deque_iteratorIN15CoverageVisitor9CoverTermERS1_PS1_El.exit46
 
 402:                                              ; preds = %398
@@ -19629,12 +19626,12 @@ _ZNSt5dequeIN15CoverageVisitor9CoverTermESaIS1_EE27_M_reserve_elements_at_backEm
 
 408:                                              ; preds = %404, %402
   %409 = phi i64 [ %403, %402 ], [ %407, %404 ]
-  %410 = getelementptr inbounds ptr, ptr %368, i64 %409
+  %410 = getelementptr inbounds [8 x i8], ptr %368, i64 %409
   %411 = load ptr, ptr %410, align 8, !tbaa !187, !noalias !665
   %412 = getelementptr inbounds nuw i8, ptr %411, i64 480
   %.idx.i.i.i44 = mul i64 %409, -480
   %413 = getelementptr i8, ptr %411, i64 %.idx.i.i.i44
-  %414 = getelementptr %"struct.CoverageVisitor::CoverTerm", ptr %413, i64 %396
+  %414 = getelementptr [48 x i8], ptr %413, i64 %396
   br label %_ZStmiRKSt15_Deque_iteratorIN15CoverageVisitor9CoverTermERS1_PS1_El.exit46
 
 _ZStmiRKSt15_Deque_iteratorIN15CoverageVisitor9CoverTermERS1_PS1_El.exit46: ; preds = %400, %408
@@ -19669,7 +19666,7 @@ _ZStmiRKSt15_Deque_iteratorIN15CoverageVisitor9CoverTermERS1_PS1_El.exit46: ; pr
   br i1 %429, label %430, label %432
 
 430:                                              ; preds = %428
-  %431 = getelementptr inbounds %"struct.CoverageVisitor::CoverTerm", ptr %417, i64 %421
+  %431 = getelementptr inbounds [48 x i8], ptr %417, i64 %421
   br label %_ZStmiRKSt15_Deque_iteratorIN15CoverageVisitor9CoverTermERS1_PS1_El.exit49
 
 432:                                              ; preds = %428
@@ -19684,12 +19681,12 @@ _ZStmiRKSt15_Deque_iteratorIN15CoverageVisitor9CoverTermERS1_PS1_El.exit46: ; pr
 
 438:                                              ; preds = %434, %432
   %439 = phi i64 [ %433, %432 ], [ %437, %434 ]
-  %440 = getelementptr inbounds ptr, ptr %420, i64 %439
+  %440 = getelementptr inbounds [8 x i8], ptr %420, i64 %439
   %441 = load ptr, ptr %440, align 8, !tbaa !187, !noalias !668
   %442 = getelementptr inbounds nuw i8, ptr %441, i64 480
   %.idx.i.i.i47 = mul i64 %439, -480
   %443 = getelementptr i8, ptr %441, i64 %.idx.i.i.i47
-  %444 = getelementptr %"struct.CoverageVisitor::CoverTerm", ptr %443, i64 %426
+  %444 = getelementptr [48 x i8], ptr %443, i64 %426
   br label %_ZStmiRKSt15_Deque_iteratorIN15CoverageVisitor9CoverTermERS1_PS1_El.exit49
 
 _ZStmiRKSt15_Deque_iteratorIN15CoverageVisitor9CoverTermERS1_PS1_El.exit49: ; preds = %430, %438
@@ -19897,7 +19894,7 @@ _ZSt22__uninitialized_move_aISt15_Deque_iteratorIN15CoverageVisitor9CoverTermERS
   br i1 %539, label %540, label %542
 
 540:                                              ; preds = %538
-  %541 = getelementptr inbounds %"struct.CoverageVisitor::CoverTerm", ptr %525, i64 %391
+  %541 = getelementptr inbounds [48 x i8], ptr %525, i64 %391
   br label %_ZSt7advanceISt15_Deque_iteratorIN15CoverageVisitor9CoverTermERKS2_PS3_ElEvRT_T0_.exit75
 
 542:                                              ; preds = %538
@@ -19912,12 +19909,12 @@ _ZSt22__uninitialized_move_aISt15_Deque_iteratorIN15CoverageVisitor9CoverTermERS
 
 548:                                              ; preds = %544, %542
   %549 = phi i64 [ %543, %542 ], [ %547, %544 ]
-  %550 = getelementptr inbounds ptr, ptr %531, i64 %549
+  %550 = getelementptr inbounds [8 x i8], ptr %531, i64 %549
   %551 = load ptr, ptr %550, align 8, !tbaa !187
   %552 = getelementptr inbounds nuw i8, ptr %551, i64 480
   %.idx.i.i.i71 = mul i64 %549, -480
   %553 = getelementptr i8, ptr %551, i64 %.idx.i.i.i71
-  %554 = getelementptr %"struct.CoverageVisitor::CoverTerm", ptr %553, i64 %536
+  %554 = getelementptr [48 x i8], ptr %553, i64 %536
   br label %_ZSt7advanceISt15_Deque_iteratorIN15CoverageVisitor9CoverTermERKS2_PS3_ElEvRT_T0_.exit75
 
 _ZSt7advanceISt15_Deque_iteratorIN15CoverageVisitor9CoverTermERKS2_PS3_ElEvRT_T0_.exit75: ; preds = %548, %540
@@ -20222,7 +20219,7 @@ _ZNSt5dequeIN15CoverageVisitor9CoverTermESaIS1_EE23_M_reserve_map_at_frontEm.exi
 
 _ZNSt11_Deque_baseIN15CoverageVisitor9CoverTermESaIS1_EE16_M_allocate_nodeEv.exit: ; preds = %40
   %42 = sub nsw i64 0, %.01422
-  %43 = getelementptr inbounds ptr, ptr %39, i64 %42
+  %43 = getelementptr inbounds [8 x i8], ptr %39, i64 %42
   store ptr %41, ptr %43, align 8, !tbaa !187
   %44 = add nuw nsw i64 %.01422, 1
   %exitcond = icmp eq i64 %.01422, %32
@@ -20244,7 +20241,7 @@ _ZNSt11_Deque_baseIN15CoverageVisitor9CoverTermESaIS1_EE16_M_allocate_nodeEv.exi
   %.023 = phi i64 [ %54, %.lr.ph25 ], [ 1, %45 ]
   %50 = load ptr, ptr %7, align 8, !tbaa !267
   %51 = sub nsw i64 0, %.023
-  %52 = getelementptr inbounds ptr, ptr %50, i64 %51
+  %52 = getelementptr inbounds [8 x i8], ptr %50, i64 %51
   %53 = load ptr, ptr %52, align 8, !tbaa !187
   tail call void @_ZdlPvm(ptr noundef %53, i64 noundef 480) #25
   %54 = add nuw nsw i64 %.023, 1
@@ -20296,9 +20293,9 @@ define linkonce_odr dso_local void @_ZNSt5dequeIN15CoverageVisitor9CoverTermESaI
   %19 = load ptr, ptr %0, align 8, !tbaa !180
   %20 = sub i64 %15, %13
   %21 = lshr i64 %20, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = select i1 %2, i64 %1, i64 0
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = icmp ult ptr %24, %7
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %26, %7
@@ -20317,12 +20314,12 @@ define linkonce_odr dso_local void @_ZNSt5dequeIN15CoverageVisitor9CoverTermESaI
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPPN15CoverageVisitor9CoverTermES3_ET0_T_S5_S4_.exit, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw ptr, ptr %24, i64 %12
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %12
   %34 = ptrtoint ptr %26 to i64
   %35 = sub i64 %34, %9
   %36 = ashr exact i64 %35, 3
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds ptr, ptr %33, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %33, i64 %37
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %38, ptr align 8 %7, i64 %35, i1 false)
   br label %_ZSt4copyIPPN15CoverageVisitor9CoverTermES3_ET0_T_S5_S4_.exit
 
@@ -20350,9 +20347,9 @@ _ZNSt11_Deque_baseIN15CoverageVisitor9CoverTermESaIS1_EE15_M_allocate_mapEm.exit
   %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #30
   %47 = sub i64 %41, %13
   %48 = lshr i64 %47, 1
-  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %48
   %50 = select i1 %2, i64 %1, i64 0
-  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i25 = icmp eq ptr %52, %7
   br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPPN15CoverageVisitor9CoverTermES3_ET0_T_S5_S4_.exit26, label %53
@@ -20380,7 +20377,7 @@ _ZSt4copyIPPN15CoverageVisitor9CoverTermES3_ET0_T_S5_S4_.exit: ; preds = %32, %3
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 480
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %60, ptr %61, align 8, !tbaa !183
-  %62 = getelementptr inbounds nuw ptr, ptr %.0, i64 %12
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %12
   %63 = getelementptr inbounds i8, ptr %62, i64 -8
   store ptr %63, ptr %4, align 8, !tbaa !184
   %64 = load ptr, ptr %63, align 8, !tbaa !187
@@ -20463,7 +20460,7 @@ _ZNSt5dequeIN15CoverageVisitor9CoverTermESaIS1_EE22_M_reserve_map_at_backEm.exit
           to label %_ZNSt11_Deque_baseIN15CoverageVisitor9CoverTermESaIS1_EE16_M_allocate_nodeEv.exit unwind label %46
 
 _ZNSt11_Deque_baseIN15CoverageVisitor9CoverTermESaIS1_EE16_M_allocate_nodeEv.exit: ; preds = %42
-  %44 = getelementptr inbounds nuw ptr, ptr %41, i64 %.01423
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %.01423
   store ptr %43, ptr %44, align 8, !tbaa !187
   %45 = add nuw nsw i64 %.01423, 1
   %exitcond = icmp eq i64 %.01423, %32
@@ -20484,7 +20481,7 @@ _ZNSt11_Deque_baseIN15CoverageVisitor9CoverTermESaIS1_EE16_M_allocate_nodeEv.exi
 .lr.ph26:                                         ; preds = %46, %.lr.ph26
   %.024 = phi i64 [ %54, %.lr.ph26 ], [ 1, %46 ]
   %51 = load ptr, ptr %5, align 8, !tbaa !268
-  %52 = getelementptr inbounds nuw ptr, ptr %51, i64 %.024
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %.024
   %53 = load ptr, ptr %52, align 8, !tbaa !187
   tail call void @_ZdlPvm(ptr noundef %53, i64 noundef 480) #25
   %54 = add nuw nsw i64 %.024, 1
@@ -20858,7 +20855,7 @@ define linkonce_odr dso_local void @_ZSt14__copy_move_a1ILb1EPN15CoverageVisitor
   %18 = sub i64 %16, %17
   %19 = sdiv exact i64 %18, 48
   %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %19, i64 %storemerge12)
-  %20 = getelementptr inbounds %"struct.CoverageVisitor::CoverTerm", ptr %.013, i64 %.sroa.speculated
+  %20 = getelementptr inbounds [48 x i8], ptr %.013, i64 %.sroa.speculated
   %21 = icmp sgt i64 %18, 0
   br i1 %21, label %.lr.ph.i.i.i, label %_ZSt14__copy_move_a1ILb1EPN15CoverageVisitor9CoverTermES2_ET1_T0_S4_S3_.exit
 
@@ -20979,7 +20976,7 @@ _ZSt14__copy_move_a1ILb1EPN15CoverageVisitor9CoverTermES2_ET1_T0_S4_S3_.exit: ; 
   br i1 %67, label %68, label %70
 
 68:                                               ; preds = %66
-  %69 = getelementptr inbounds %"struct.CoverageVisitor::CoverTerm", ptr %59, i64 %.sroa.speculated
+  %69 = getelementptr inbounds [48 x i8], ptr %59, i64 %.sroa.speculated
   br label %_ZNSt15_Deque_iteratorIN15CoverageVisitor9CoverTermERS1_PS1_EpLEl.exit
 
 70:                                               ; preds = %66
@@ -20995,7 +20992,7 @@ _ZSt14__copy_move_a1ILb1EPN15CoverageVisitor9CoverTermES2_ET1_T0_S4_S3_.exit: ; 
 76:                                               ; preds = %72, %70
   %77 = phi i64 [ %71, %70 ], [ %75, %72 ]
   %78 = load ptr, ptr %12, align 8, !tbaa !184
-  %79 = getelementptr inbounds ptr, ptr %78, i64 %77
+  %79 = getelementptr inbounds [8 x i8], ptr %78, i64 %77
   store ptr %79, ptr %12, align 8, !tbaa !184
   %80 = load ptr, ptr %79, align 8, !tbaa !187
   store ptr %80, ptr %11, align 8, !tbaa !182
@@ -21003,7 +21000,7 @@ _ZSt14__copy_move_a1ILb1EPN15CoverageVisitor9CoverTermES2_ET1_T0_S4_S3_.exit: ; 
   store ptr %81, ptr %10, align 8, !tbaa !183
   %.idx.i = mul i64 %77, -480
   %82 = getelementptr i8, ptr %80, i64 %.idx.i
-  %83 = getelementptr %"struct.CoverageVisitor::CoverTerm", ptr %82, i64 %64
+  %83 = getelementptr [48 x i8], ptr %82, i64 %64
   br label %_ZNSt15_Deque_iteratorIN15CoverageVisitor9CoverTermERS1_PS1_EpLEl.exit
 
 _ZNSt15_Deque_iteratorIN15CoverageVisitor9CoverTermERS1_PS1_EpLEl.exit: ; preds = %68, %76
@@ -21241,7 +21238,7 @@ define linkonce_odr dso_local void @_ZSt23__copy_move_backward_a1ILb1EPN15Covera
   %.09 = phi ptr [ %24, %20 ], [ %15, %13 ]
   %.sroa.speculated = tail call i64 @llvm.smin.i64(i64 %.015, i64 %.01617)
   %26 = sub nsw i64 0, %.sroa.speculated
-  %27 = getelementptr inbounds %"struct.CoverageVisitor::CoverTerm", ptr %.018, i64 %26
+  %27 = getelementptr inbounds [48 x i8], ptr %.018, i64 %26
   %28 = icmp sgt i64 %.sroa.speculated, 0
   br i1 %28, label %.lr.ph.i.i.i, label %_ZSt23__copy_move_backward_a1ILb1EPN15CoverageVisitor9CoverTermES2_ET1_T0_S4_S3_.exit
 
@@ -21363,7 +21360,7 @@ _ZSt23__copy_move_backward_a1ILb1EPN15CoverageVisitor9CoverTermES2_ET1_T0_S4_S3_
   br i1 %71, label %72, label %74
 
 72:                                               ; preds = %70
-  %73 = getelementptr inbounds %"struct.CoverageVisitor::CoverTerm", ptr %67, i64 %26
+  %73 = getelementptr inbounds [48 x i8], ptr %67, i64 %26
   br label %_ZNSt15_Deque_iteratorIN15CoverageVisitor9CoverTermERS1_PS1_EmIEl.exit
 
 74:                                               ; preds = %70
@@ -21379,7 +21376,7 @@ _ZSt23__copy_move_backward_a1ILb1EPN15CoverageVisitor9CoverTermES2_ET1_T0_S4_S3_
 80:                                               ; preds = %76, %74
   %81 = phi i64 [ %75, %74 ], [ %79, %76 ]
   %82 = load ptr, ptr %11, align 8, !tbaa !184
-  %83 = getelementptr inbounds ptr, ptr %82, i64 %81
+  %83 = getelementptr inbounds [8 x i8], ptr %82, i64 %81
   store ptr %83, ptr %11, align 8, !tbaa !184
   %84 = load ptr, ptr %83, align 8, !tbaa !187
   store ptr %84, ptr %10, align 8, !tbaa !182
@@ -21387,7 +21384,7 @@ _ZSt23__copy_move_backward_a1ILb1EPN15CoverageVisitor9CoverTermES2_ET1_T0_S4_S3_
   store ptr %85, ptr %12, align 8, !tbaa !183
   %.idx.i.i = mul i64 %81, -480
   %86 = getelementptr i8, ptr %84, i64 %.idx.i.i
-  %87 = getelementptr %"struct.CoverageVisitor::CoverTerm", ptr %86, i64 %68
+  %87 = getelementptr [48 x i8], ptr %86, i64 %68
   br label %_ZNSt15_Deque_iteratorIN15CoverageVisitor9CoverTermERS1_PS1_EmIEl.exit
 
 _ZNSt15_Deque_iteratorIN15CoverageVisitor9CoverTermERS1_PS1_EmIEl.exit: ; preds = %72, %80
@@ -21973,7 +21970,7 @@ define linkonce_odr dso_local void @_ZN15CoverageVisitor8linesCovB5cxx11ERKNS_10
   %16 = load i64, ptr %15, align 8, !tbaa !99
   %17 = urem i64 %14, %16
   %18 = load ptr, ptr %11, align 8, !tbaa !98
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %17
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %17
   %20 = load ptr, ptr %19, align 8, !tbaa !275
   %.not.i.i.i.i = icmp eq ptr %20, null
   br i1 %.not.i.i.i.i, label %.loopexit.i.i, label %21
@@ -22657,7 +22654,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstNode9privateAsI5AstIfPS_EEPT_S
   %7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull @.str.82)
   %.sroa.0.0.copyload.i.i5 = load i16, ptr %3, align 8, !tbaa !148
   %8 = zext i16 %.sroa.0.0.copyload.i.i5 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr @_ZZNK6VNType5asciiEvE5names, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK6VNType5asciiEvE5names, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !766
   %11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %10)
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull @.str.83)
@@ -22693,7 +22690,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK7AstNode8typeNameEv(ptr noundef n
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %.sroa.0.0.copyload.i = load i16, ptr %2, align 8, !tbaa !148
   %3 = zext i16 %.sroa.0.0.copyload.i to i64
-  %4 = getelementptr inbounds nuw ptr, ptr @_ZZNK6VNType5asciiEvE5names, i64 %3
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK6VNType5asciiEvE5names, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !766
   ret ptr %5
 }
@@ -22707,7 +22704,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstNode15unsafePrivateAsI5AstIfPS
 define linkonce_odr dso_local noundef ptr @_ZNK6VNType5asciiEv(ptr noundef nonnull align 2 dereferenceable(2) %0) #5 comdat align 2 {
   %2 = load i16, ptr %0, align 2, !tbaa !469
   %3 = zext i16 %2 to i64
-  %4 = getelementptr inbounds nuw ptr, ptr @_ZZNK6VNType5asciiEvE5names, i64 %3
+  %4 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK6VNType5asciiEvE5names, i64 %3
   %5 = load ptr, ptr %4, align 8, !tbaa !766
   ret ptr %5
 }
@@ -23852,7 +23849,7 @@ _ZNSt6vectorIP7AstNodeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds
 _ZNSt6vectorIP7AstNodeSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %87, %_ZNSt6vectorIP7AstNodeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
   store ptr %82, ptr %62, align 8, !tbaa !108
   store ptr %86, ptr %63, align 8, !tbaa !779
-  %88 = getelementptr inbounds nuw ptr, ptr %82, i64 %80
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %80
   store ptr %88, ptr %65, align 8, !tbaa !109
   br label %_ZN9VNDeleter11pushDeletepEP7AstNode.exit
 
@@ -24144,7 +24141,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstNode9privateAsI8AstConstP11Ast
   %7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull @.str.82)
   %.sroa.0.0.copyload.i.i5 = load i16, ptr %3, align 8, !tbaa !148
   %8 = zext i16 %.sroa.0.0.copyload.i.i5 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr @_ZZNK6VNType5asciiEvE5names, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK6VNType5asciiEvE5names, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !766
   %11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %10)
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull @.str.83)
@@ -24387,7 +24384,7 @@ _ZNSt6vectorIP7AstNodeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds
 _ZNSt6vectorIP7AstNodeSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %87, %_ZNSt6vectorIP7AstNodeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
   store ptr %82, ptr %62, align 8, !tbaa !108
   store ptr %86, ptr %63, align 8, !tbaa !779
-  %88 = getelementptr inbounds nuw ptr, ptr %82, i64 %80
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %80
   store ptr %88, ptr %65, align 8, !tbaa !109
   br label %_ZN9VNDeleter11pushDeletepEP7AstNode.exit
 
@@ -24815,7 +24812,7 @@ _ZNSt6vectorIP7AstNodeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i: ; preds
 _ZNSt6vectorIP7AstNodeSaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__gnu_cxx17__normal_iteratorIPS1_S3_EEDpOT_.exit.i.i: ; preds = %87, %_ZNSt6vectorIP7AstNodeSaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit16.i.i.i
   store ptr %82, ptr %62, align 8, !tbaa !108
   store ptr %86, ptr %63, align 8, !tbaa !779
-  %88 = getelementptr inbounds nuw ptr, ptr %82, i64 %80
+  %88 = getelementptr inbounds nuw [8 x i8], ptr %82, i64 %80
   store ptr %88, ptr %65, align 8, !tbaa !109
   br label %_ZN9VNDeleter11pushDeletepEP7AstNode.exit
 
@@ -28029,7 +28026,7 @@ _ZN15CoverageVisitor9ToggleEntD2Ev.exit617:       ; preds = %1014, %_ZNKSt7__cxx
   %1027 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1026, ptr noundef nonnull @.str.82)
   %.sroa.0.0.copyload.i.i5.i = load i16, ptr %1024, align 8, !tbaa !148
   %1028 = zext i16 %.sroa.0.0.copyload.i.i5.i to i64
-  %1029 = getelementptr inbounds nuw ptr, ptr @_ZZNK6VNType5asciiEvE5names, i64 %1028
+  %1029 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK6VNType5asciiEvE5names, i64 %1028
   %1030 = load ptr, ptr %1029, align 8, !tbaa !766
   %1031 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1027, ptr noundef %1030)
   %1032 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1031, ptr noundef nonnull @.str.83)
@@ -28687,7 +28684,7 @@ _ZN15CoverageVisitor9ToggleEntD2Ev.exit703:       ; preds = %1257, %_ZNKSt7__cxx
   %1270 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1269, ptr noundef nonnull @.str.82)
   %.sroa.0.0.copyload.i.i5.i707 = load i16, ptr %1267, align 8, !tbaa !148
   %1271 = zext i16 %.sroa.0.0.copyload.i.i5.i707 to i64
-  %1272 = getelementptr inbounds nuw ptr, ptr @_ZZNK6VNType5asciiEvE5names, i64 %1271
+  %1272 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK6VNType5asciiEvE5names, i64 %1271
   %1273 = load ptr, ptr %1272, align 8, !tbaa !766
   %1274 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1270, ptr noundef %1273)
   %1275 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %1274, ptr noundef nonnull @.str.83)
@@ -29711,7 +29708,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstNode9privateAsI13AstBasicDType
   %7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull @.str.82)
   %.sroa.0.0.copyload.i.i5 = load i16, ptr %3, align 8, !tbaa !148
   %8 = zext i16 %.sroa.0.0.copyload.i.i5 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr @_ZZNK6VNType5asciiEvE5names, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK6VNType5asciiEvE5names, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !766
   %11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %10)
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull @.str.83)
@@ -30587,7 +30584,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstNode9privateAsI14AstMemberDTyp
   %7 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull @.str.82)
   %.sroa.0.0.copyload.i.i5 = load i16, ptr %3, align 8, !tbaa !148
   %8 = zext i16 %.sroa.0.0.copyload.i.i5 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr @_ZZNK6VNType5asciiEvE5names, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK6VNType5asciiEvE5names, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !766
   %11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %10)
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull @.str.83)
@@ -31016,7 +31013,7 @@ _ZN7AstNode9privateIsI17AstNodeArrayDTypeP12AstNodeDTypeEEbPKS_.exit: ; preds = 
   %18 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull @.str.82)
   %.sroa.0.0.copyload.i.i5.i = load i16, ptr %13, align 8, !tbaa !148
   %19 = zext i16 %.sroa.0.0.copyload.i.i5.i to i64
-  %20 = getelementptr inbounds nuw ptr, ptr @_ZZNK6VNType5asciiEvE5names, i64 %19
+  %20 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK6VNType5asciiEvE5names, i64 %19
   %21 = load ptr, ptr %20, align 8, !tbaa !766
   %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef %21)
   %23 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull @.str.83)
@@ -31085,7 +31082,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstNode9privateAsI17AstNodeArrayD
   %8 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef nonnull @.str.82)
   %.sroa.0.0.copyload.i.i5 = load i16, ptr %3, align 8, !tbaa !148
   %9 = zext i16 %.sroa.0.0.copyload.i.i5 to i64
-  %10 = getelementptr inbounds nuw ptr, ptr @_ZZNK6VNType5asciiEvE5names, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr @_ZZNK6VNType5asciiEvE5names, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !766
   %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef %11)
   %13 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull @.str.83)

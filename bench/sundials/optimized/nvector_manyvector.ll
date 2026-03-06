@@ -116,7 +116,7 @@ define ptr @N_VNew_ManyVector(i64 noundef %0, ptr noundef readonly captures(none
 .lr.ph78:                                         ; preds = %.lr.ph78.preheader, %.lr.ph78
   %.077 = phi i64 [ %60, %.lr.ph78 ], [ 0, %.lr.ph78.preheader ]
   %.276 = phi i64 [ %61, %.lr.ph78 ], [ 0, %.lr.ph78.preheader ]
-  %57 = getelementptr inbounds nuw ptr, ptr %1, i64 %.276
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.276
   %58 = load ptr, ptr %57, align 8, !tbaa !64
   %59 = tail call i64 @N_VGetLength(ptr noundef %58) #12
   %60 = add nsw i64 %59, %.077
@@ -180,13 +180,13 @@ define void @N_VDestroy_ManyVector(ptr noundef captures(address_is_null) %0) #0 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %14 = phi ptr [ %19, %.lr.ph ], [ %10, %.preheader ]
   %.024 = phi i64 [ %21, %.lr.ph ], [ 0, %.preheader ]
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %.024
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.024
   %16 = load ptr, ptr %15, align 8, !tbaa !64
   tail call void @N_VDestroy(ptr noundef %16) #12
   %17 = load ptr, ptr %0, align 8, !tbaa !56
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !63
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %.024
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.024
   store ptr null, ptr %20, align 8, !tbaa !64
   %21 = add nuw nsw i64 %.024, 1
   %22 = load i64, ptr %17, align 8, !tbaa !57
@@ -238,7 +238,7 @@ define void @N_VSpace_ManyVector(ptr noundef readonly captures(none) %0, ptr nou
   %.011 = phi i64 [ %29, %26 ], [ 0, %3 ]
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !63
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %.011
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %.011
   %14 = load ptr, ptr %13, align 8, !tbaa !64
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !3
@@ -294,17 +294,17 @@ define void @N_VLinearSum_ManyVector(double noundef %0, ptr noundef readonly cap
   %.011 = phi i64 [ %24, %.lr.ph ], [ 0, %5 ]
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !63
-  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %.011
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.011
   %13 = load ptr, ptr %12, align 8, !tbaa !64
   %14 = load ptr, ptr %3, align 8, !tbaa !56
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !63
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %.011
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.011
   %18 = load ptr, ptr %17, align 8, !tbaa !64
   %19 = load ptr, ptr %4, align 8, !tbaa !56
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load ptr, ptr %20, align 8, !tbaa !63
-  %22 = getelementptr inbounds nuw ptr, ptr %21, i64 %.011
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %.011
   %23 = load ptr, ptr %22, align 8, !tbaa !64
   tail call void @N_VLinearSum(double noundef %0, ptr noundef %13, double noundef %2, ptr noundef %18, ptr noundef %23) #12
   %24 = add nuw nsw i64 %.011, 1
@@ -329,7 +329,7 @@ define void @N_VConst_ManyVector(double noundef %0, ptr noundef readonly capture
   %.06 = phi i64 [ %11, %.lr.ph ], [ 0, %2 ]
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !63
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %.06
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.06
   %10 = load ptr, ptr %9, align 8, !tbaa !64
   tail call void @N_VConst(double noundef %0, ptr noundef %10) #12
   %11 = add nuw nsw i64 %.06, 1
@@ -354,17 +354,17 @@ define void @N_VProd_ManyVector(ptr noundef readonly captures(none) %0, ptr noun
   %.09 = phi i64 [ %22, %.lr.ph ], [ 0, %3 ]
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !63
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %.09
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.09
   %11 = load ptr, ptr %10, align 8, !tbaa !64
   %12 = load ptr, ptr %1, align 8, !tbaa !56
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !63
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %.09
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.09
   %16 = load ptr, ptr %15, align 8, !tbaa !64
   %17 = load ptr, ptr %2, align 8, !tbaa !56
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !63
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %.09
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.09
   %21 = load ptr, ptr %20, align 8, !tbaa !64
   tail call void @N_VProd(ptr noundef %11, ptr noundef %16, ptr noundef %21) #12
   %22 = add nuw nsw i64 %.09, 1
@@ -389,17 +389,17 @@ define void @N_VDiv_ManyVector(ptr noundef readonly captures(none) %0, ptr nound
   %.09 = phi i64 [ %22, %.lr.ph ], [ 0, %3 ]
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !63
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %.09
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.09
   %11 = load ptr, ptr %10, align 8, !tbaa !64
   %12 = load ptr, ptr %1, align 8, !tbaa !56
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !63
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %.09
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.09
   %16 = load ptr, ptr %15, align 8, !tbaa !64
   %17 = load ptr, ptr %2, align 8, !tbaa !56
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !63
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %.09
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.09
   %21 = load ptr, ptr %20, align 8, !tbaa !64
   tail call void @N_VDiv(ptr noundef %11, ptr noundef %16, ptr noundef %21) #12
   %22 = add nuw nsw i64 %.09, 1
@@ -424,12 +424,12 @@ define void @N_VScale_ManyVector(double noundef %0, ptr noundef readonly capture
   %.08 = phi i64 [ %17, %.lr.ph ], [ 0, %3 ]
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !63
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %.08
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.08
   %11 = load ptr, ptr %10, align 8, !tbaa !64
   %12 = load ptr, ptr %2, align 8, !tbaa !56
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !63
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %.08
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.08
   %16 = load ptr, ptr %15, align 8, !tbaa !64
   tail call void @N_VScale(double noundef %0, ptr noundef %11, ptr noundef %16) #12
   %17 = add nuw nsw i64 %.08, 1
@@ -454,12 +454,12 @@ define void @N_VAbs_ManyVector(ptr noundef readonly captures(none) %0, ptr nound
   %.07 = phi i64 [ %16, %.lr.ph ], [ 0, %2 ]
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !63
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %.07
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.07
   %10 = load ptr, ptr %9, align 8, !tbaa !64
   %11 = load ptr, ptr %1, align 8, !tbaa !56
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8, !tbaa !63
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %.07
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.07
   %15 = load ptr, ptr %14, align 8, !tbaa !64
   tail call void @N_VAbs(ptr noundef %10, ptr noundef %15) #12
   %16 = add nuw nsw i64 %.07, 1
@@ -484,12 +484,12 @@ define void @N_VInv_ManyVector(ptr noundef readonly captures(none) %0, ptr nound
   %.07 = phi i64 [ %16, %.lr.ph ], [ 0, %2 ]
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !63
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %.07
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.07
   %10 = load ptr, ptr %9, align 8, !tbaa !64
   %11 = load ptr, ptr %1, align 8, !tbaa !56
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8, !tbaa !63
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %.07
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.07
   %15 = load ptr, ptr %14, align 8, !tbaa !64
   tail call void @N_VInv(ptr noundef %10, ptr noundef %15) #12
   %16 = add nuw nsw i64 %.07, 1
@@ -514,12 +514,12 @@ define void @N_VAddConst_ManyVector(ptr noundef readonly captures(none) %0, doub
   %.08 = phi i64 [ %17, %.lr.ph ], [ 0, %3 ]
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !63
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %.08
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.08
   %11 = load ptr, ptr %10, align 8, !tbaa !64
   %12 = load ptr, ptr %2, align 8, !tbaa !56
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !63
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %.08
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.08
   %16 = load ptr, ptr %15, align 8, !tbaa !64
   tail call void @N_VAddConst(ptr noundef %11, double noundef %1, ptr noundef %16) #12
   %17 = add nuw nsw i64 %.08, 1
@@ -545,12 +545,12 @@ define double @N_VDotProdLocal_ManyVector(ptr noundef readonly captures(none) %0
   %.0910 = phi i64 [ %18, %.lr.ph ], [ 0, %2 ]
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !63
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %.0910
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.0910
   %10 = load ptr, ptr %9, align 8, !tbaa !64
   %11 = load ptr, ptr %1, align 8, !tbaa !56
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8, !tbaa !63
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %.0910
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.0910
   %15 = load ptr, ptr %14, align 8, !tbaa !64
   %16 = tail call double @N_VDotProd(ptr noundef %10, ptr noundef %15) #12
   %17 = fadd double %.011, %16
@@ -578,7 +578,7 @@ define double @N_VMaxNormLocal_ManyVector(ptr noundef readonly captures(none) %0
   %.01819 = phi i64 [ %21, %18 ], [ 0, %1 ]
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !63
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.01819
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.01819
   %9 = load ptr, ptr %8, align 8, !tbaa !64
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !3
@@ -623,18 +623,18 @@ define double @N_VWrmsNorm_ManyVector(ptr noundef readonly captures(none) %0, pt
   %.01415.i = phi double [ %25, %.lr.ph.i ], [ 0.000000e+00, %2 ]
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !63
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %.016.i
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.016.i
   %10 = load ptr, ptr %9, align 8, !tbaa !64
   %11 = load ptr, ptr %1, align 8, !tbaa !56
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8, !tbaa !63
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %.016.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.016.i
   %15 = load ptr, ptr %14, align 8, !tbaa !64
   %16 = tail call double @N_VWrmsNorm(ptr noundef %10, ptr noundef %15) #12
   %17 = load ptr, ptr %0, align 8, !tbaa !56
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !63
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %.016.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.016.i
   %21 = load ptr, ptr %20, align 8, !tbaa !64
   %22 = tail call i64 @N_VGetLength(ptr noundef %21) #12
   %23 = fmul double %16, %16
@@ -678,23 +678,23 @@ define double @N_VWrmsNormMask_ManyVector(ptr noundef readonly captures(none) %0
   %.01617.i = phi double [ %31, %.lr.ph.i ], [ 0.000000e+00, %3 ]
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !63
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %.018.i
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.018.i
   %11 = load ptr, ptr %10, align 8, !tbaa !64
   %12 = load ptr, ptr %1, align 8, !tbaa !56
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !63
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %.018.i
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.018.i
   %16 = load ptr, ptr %15, align 8, !tbaa !64
   %17 = load ptr, ptr %2, align 8, !tbaa !56
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !63
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %.018.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.018.i
   %21 = load ptr, ptr %20, align 8, !tbaa !64
   %22 = tail call double @N_VWrmsNormMask(ptr noundef %11, ptr noundef %16, ptr noundef %21) #12
   %23 = load ptr, ptr %0, align 8, !tbaa !56
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8, !tbaa !63
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %.018.i
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.018.i
   %27 = load ptr, ptr %26, align 8, !tbaa !64
   %28 = tail call i64 @N_VGetLength(ptr noundef %27) #12
   %29 = fmul double %22, %22
@@ -738,7 +738,7 @@ define double @N_VMinLocal_ManyVector(ptr noundef readonly captures(none) %0) #0
   %.01819 = phi i64 [ %21, %18 ], [ 0, %1 ]
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !63
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.01819
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.01819
   %9 = load ptr, ptr %8, align 8, !tbaa !64
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !3
@@ -783,18 +783,18 @@ define double @N_VWL2Norm_ManyVector(ptr noundef readonly captures(none) %0, ptr
   %.01415.i = phi double [ %25, %.lr.ph.i ], [ 0.000000e+00, %2 ]
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !63
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %.016.i
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.016.i
   %10 = load ptr, ptr %9, align 8, !tbaa !64
   %11 = load ptr, ptr %1, align 8, !tbaa !56
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8, !tbaa !63
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %.016.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.016.i
   %15 = load ptr, ptr %14, align 8, !tbaa !64
   %16 = tail call double @N_VWrmsNorm(ptr noundef %10, ptr noundef %15) #12
   %17 = load ptr, ptr %0, align 8, !tbaa !56
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !63
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %.016.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.016.i
   %21 = load ptr, ptr %20, align 8, !tbaa !64
   %22 = tail call i64 @N_VGetLength(ptr noundef %21) #12
   %23 = fmul double %16, %16
@@ -832,7 +832,7 @@ define double @N_VL1NormLocal_ManyVector(ptr noundef readonly captures(none) %0)
   %.078 = phi i64 [ %12, %.lr.ph ], [ 0, %1 ]
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !63
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.078
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.078
   %9 = load ptr, ptr %8, align 8, !tbaa !64
   %10 = tail call double @N_VL1Norm(ptr noundef %9) #12
   %11 = fadd double %.09, %10
@@ -859,12 +859,12 @@ define void @N_VCompare_ManyVector(double noundef %0, ptr noundef readonly captu
   %.08 = phi i64 [ %17, %.lr.ph ], [ 0, %3 ]
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !63
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %.08
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.08
   %11 = load ptr, ptr %10, align 8, !tbaa !64
   %12 = load ptr, ptr %2, align 8, !tbaa !56
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !63
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %.08
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.08
   %16 = load ptr, ptr %15, align 8, !tbaa !64
   tail call void @N_VCompare(double noundef %0, ptr noundef %11, ptr noundef %16) #12
   %17 = add nuw nsw i64 %.08, 1
@@ -890,7 +890,7 @@ define range(i32 0, 2) i32 @N_VInvTestLocal_ManyVector(ptr noundef readonly capt
   %.01819 = phi i64 [ %27, %24 ], [ 0, %2 ]
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !63
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %.01819
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.01819
   %10 = load ptr, ptr %9, align 8, !tbaa !64
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !3
@@ -900,7 +900,7 @@ define range(i32 0, 2) i32 @N_VInvTestLocal_ManyVector(ptr noundef readonly capt
   %15 = load ptr, ptr %1, align 8, !tbaa !56
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !63
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %.01819
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.01819
   %19 = load ptr, ptr %18, align 8, !tbaa !64
   br i1 %.not, label %22, label %20
 
@@ -944,7 +944,7 @@ define range(i32 0, 2) i32 @N_VConstrMaskLocal_ManyVector(ptr noundef readonly c
   %.02223 = phi i64 [ %33, %30 ], [ 0, %3 ]
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !63
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %.02223
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.02223
   %11 = load ptr, ptr %10, align 8, !tbaa !64
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !3
@@ -954,12 +954,12 @@ define range(i32 0, 2) i32 @N_VConstrMaskLocal_ManyVector(ptr noundef readonly c
   %16 = load ptr, ptr %0, align 8, !tbaa !56
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8, !tbaa !63
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %.02223
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.02223
   %20 = load ptr, ptr %19, align 8, !tbaa !64
   %21 = load ptr, ptr %2, align 8, !tbaa !56
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !63
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %.02223
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.02223
   %25 = load ptr, ptr %24, align 8, !tbaa !64
   br i1 %.not, label %28, label %26
 
@@ -1003,7 +1003,7 @@ define double @N_VMinQuotientLocal_ManyVector(ptr noundef readonly captures(none
   %.02223 = phi i64 [ %27, %24 ], [ 0, %2 ]
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !63
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %.02223
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.02223
   %10 = load ptr, ptr %9, align 8, !tbaa !64
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !3
@@ -1013,7 +1013,7 @@ define double @N_VMinQuotientLocal_ManyVector(ptr noundef readonly captures(none
   %15 = load ptr, ptr %1, align 8, !tbaa !56
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !63
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %.02223
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.02223
   %19 = load ptr, ptr %18, align 8, !tbaa !64
   br i1 %.not, label %22, label %20
 
@@ -1061,14 +1061,14 @@ define noundef i32 @N_VLinearCombination_ManyVector(i32 noundef %0, ptr noundef 
 
 13:                                               ; preds = %.preheader.us, %13
   %.019.us = phi i64 [ 0, %.preheader.us ], [ %22, %13 ]
-  %14 = getelementptr inbounds nuw ptr, ptr %2, i64 %.019.us
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.019.us
   %15 = load ptr, ptr %14, align 8, !tbaa !64
   %16 = load ptr, ptr %15, align 8, !tbaa !56
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 16
   %18 = load ptr, ptr %17, align 8, !tbaa !63
-  %19 = getelementptr inbounds nuw ptr, ptr %18, i64 %.01820.us
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %.01820.us
   %20 = load ptr, ptr %19, align 8, !tbaa !64
-  %21 = getelementptr inbounds nuw ptr, ptr %7, i64 %.019.us
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.019.us
   store ptr %20, ptr %21, align 8, !tbaa !64
   %22 = add nuw nsw i64 %.019.us, 1
   %exitcond.not = icmp eq i64 %22, %5
@@ -1077,7 +1077,7 @@ define noundef i32 @N_VLinearCombination_ManyVector(i32 noundef %0, ptr noundef 
 ._crit_edge.us:                                   ; preds = %13
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %24 = load ptr, ptr %23, align 8, !tbaa !63
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %.01820.us
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %.01820.us
   %26 = load ptr, ptr %25, align 8, !tbaa !64
   %27 = tail call i32 @N_VLinearCombination(i32 noundef %0, ptr noundef %1, ptr noundef nonnull %7, ptr noundef %26) #12
   %28 = add nuw nsw i64 %.01820.us, 1
@@ -1091,7 +1091,7 @@ define noundef i32 @N_VLinearCombination_ManyVector(i32 noundef %0, ptr noundef 
   %.01820 = phi i64 [ %38, %.preheader ], [ 0, %.preheader.lr.ph ]
   %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %34 = load ptr, ptr %33, align 8, !tbaa !63
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %.01820
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %.01820
   %36 = load ptr, ptr %35, align 8, !tbaa !64
   %37 = tail call i32 @N_VLinearCombination(i32 noundef %0, ptr noundef %1, ptr noundef %7, ptr noundef %36) #12
   %38 = add nuw nsw i64 %.01820, 1
@@ -1127,23 +1127,23 @@ define noundef i32 @N_VScaleAddMulti_ManyVector(i32 noundef %0, ptr noundef %1, 
 
 15:                                               ; preds = %.preheader.us, %15
   %.027.us = phi i64 [ 0, %.preheader.us ], [ %32, %15 ]
-  %16 = getelementptr inbounds nuw ptr, ptr %3, i64 %.027.us
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.027.us
   %17 = load ptr, ptr %16, align 8, !tbaa !64
   %18 = load ptr, ptr %17, align 8, !tbaa !56
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !63
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %.02628.us
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.02628.us
   %22 = load ptr, ptr %21, align 8, !tbaa !64
-  %23 = getelementptr inbounds nuw ptr, ptr %8, i64 %.027.us
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.027.us
   store ptr %22, ptr %23, align 8, !tbaa !64
-  %24 = getelementptr inbounds nuw ptr, ptr %4, i64 %.027.us
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.027.us
   %25 = load ptr, ptr %24, align 8, !tbaa !64
   %26 = load ptr, ptr %25, align 8, !tbaa !56
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %28 = load ptr, ptr %27, align 8, !tbaa !63
-  %29 = getelementptr inbounds nuw ptr, ptr %28, i64 %.02628.us
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %.02628.us
   %30 = load ptr, ptr %29, align 8, !tbaa !64
-  %31 = getelementptr inbounds nuw ptr, ptr %9, i64 %.027.us
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.027.us
   store ptr %30, ptr %31, align 8, !tbaa !64
   %32 = add nuw nsw i64 %.027.us, 1
   %exitcond.not = icmp eq i64 %32, %6
@@ -1152,7 +1152,7 @@ define noundef i32 @N_VScaleAddMulti_ManyVector(i32 noundef %0, ptr noundef %1, 
 ._crit_edge.us:                                   ; preds = %15
   %33 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %34 = load ptr, ptr %33, align 8, !tbaa !63
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %.02628.us
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %.02628.us
   %36 = load ptr, ptr %35, align 8, !tbaa !64
   %37 = tail call i32 @N_VScaleAddMulti(i32 noundef %0, ptr noundef %1, ptr noundef %36, ptr noundef nonnull %8, ptr noundef nonnull %9) #12
   %38 = add nuw nsw i64 %.02628.us, 1
@@ -1166,7 +1166,7 @@ define noundef i32 @N_VScaleAddMulti_ManyVector(i32 noundef %0, ptr noundef %1, 
   %.02628 = phi i64 [ %48, %.preheader ], [ 0, %.preheader.lr.ph ]
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
   %44 = load ptr, ptr %43, align 8, !tbaa !63
-  %45 = getelementptr inbounds nuw ptr, ptr %44, i64 %.02628
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %.02628
   %46 = load ptr, ptr %45, align 8, !tbaa !64
   %47 = tail call i32 @N_VScaleAddMulti(i32 noundef %0, ptr noundef %1, ptr noundef %46, ptr noundef %8, ptr noundef %9) #12
   %48 = add nuw nsw i64 %.02628, 1
@@ -1189,10 +1189,10 @@ define noundef i32 @N_VDotProdMulti_ManyVector(i32 noundef %0, ptr noundef %1, p
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %.08 = phi i64 [ %11, %.lr.ph ], [ 0, %4 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %2, i64 %.08
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.08
   %8 = load ptr, ptr %7, align 8, !tbaa !64
   %9 = tail call double @N_VDotProdLocal(ptr noundef %1, ptr noundef %8) #12
-  %10 = getelementptr inbounds nuw double, ptr %3, i64 %.08
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.08
   store double %9, ptr %10, align 8, !tbaa !69
   %11 = add nuw nsw i64 %.08, 1
   %exitcond.not = icmp eq i64 %11, %5
@@ -1210,12 +1210,12 @@ define noundef i32 @N_VWrmsNormVectorArray_ManyVector(i32 noundef %0, ptr nounde
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %.024 = phi i64 [ %13, %.lr.ph ], [ 0, %4 ]
-  %7 = getelementptr inbounds nuw ptr, ptr %1, i64 %.024
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.024
   %8 = load ptr, ptr %7, align 8, !tbaa !64
-  %9 = getelementptr inbounds nuw ptr, ptr %2, i64 %.024
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.024
   %10 = load ptr, ptr %9, align 8, !tbaa !64
   %11 = tail call double @N_VWSqrSumLocal(ptr noundef %8, ptr noundef %10) #12
-  %12 = getelementptr inbounds nuw double, ptr %3, i64 %.024
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.024
   store double %11, ptr %12, align 8, !tbaa !69
   %13 = add nuw nsw i64 %.024, 1
   %exitcond.not = icmp eq i64 %13, %5
@@ -1223,9 +1223,9 @@ define noundef i32 @N_VWrmsNormVectorArray_ManyVector(i32 noundef %0, ptr nounde
 
 .lr.ph26:                                         ; preds = %.lr.ph, %26
   %.125 = phi i64 [ %28, %26 ], [ 0, %.lr.ph ]
-  %14 = getelementptr inbounds nuw double, ptr %3, i64 %.125
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.125
   %15 = load double, ptr %14, align 8, !tbaa !69
-  %16 = getelementptr inbounds nuw ptr, ptr %1, i64 %.125
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.125
   %17 = load ptr, ptr %16, align 8, !tbaa !64
   %18 = load ptr, ptr %17, align 8, !tbaa !56
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
@@ -1258,12 +1258,12 @@ define noundef i32 @N_VWrmsNormMaskVectorArray_ManyVector(i32 noundef %0, ptr no
 
 .lr.ph:                                           ; preds = %5, %.lr.ph
   %.025 = phi i64 [ %14, %.lr.ph ], [ 0, %5 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %1, i64 %.025
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.025
   %9 = load ptr, ptr %8, align 8, !tbaa !64
-  %10 = getelementptr inbounds nuw ptr, ptr %2, i64 %.025
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.025
   %11 = load ptr, ptr %10, align 8, !tbaa !64
   %12 = tail call double @N_VWSqrSumMaskLocal(ptr noundef %9, ptr noundef %11, ptr noundef %3) #12
-  %13 = getelementptr inbounds nuw double, ptr %4, i64 %.025
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.025
   store double %12, ptr %13, align 8, !tbaa !69
   %14 = add nuw nsw i64 %.025, 1
   %exitcond.not = icmp eq i64 %14, %6
@@ -1271,9 +1271,9 @@ define noundef i32 @N_VWrmsNormMaskVectorArray_ManyVector(i32 noundef %0, ptr no
 
 .lr.ph27:                                         ; preds = %.lr.ph, %27
   %.126 = phi i64 [ %29, %27 ], [ 0, %.lr.ph ]
-  %15 = getelementptr inbounds nuw double, ptr %4, i64 %.126
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.126
   %16 = load double, ptr %15, align 8, !tbaa !69
-  %17 = getelementptr inbounds nuw ptr, ptr %1, i64 %.126
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.126
   %18 = load ptr, ptr %17, align 8, !tbaa !64
   %19 = load ptr, ptr %18, align 8, !tbaa !56
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -1311,18 +1311,18 @@ define double @N_VWSqrSumLocal_ManyVector(ptr noundef readonly captures(none) %0
   %.01415 = phi double [ %25, %.lr.ph ], [ 0.000000e+00, %2 ]
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !63
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %.016
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.016
   %10 = load ptr, ptr %9, align 8, !tbaa !64
   %11 = load ptr, ptr %1, align 8, !tbaa !56
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %13 = load ptr, ptr %12, align 8, !tbaa !63
-  %14 = getelementptr inbounds nuw ptr, ptr %13, i64 %.016
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %.016
   %15 = load ptr, ptr %14, align 8, !tbaa !64
   %16 = tail call double @N_VWrmsNorm(ptr noundef %10, ptr noundef %15) #12
   %17 = load ptr, ptr %0, align 8, !tbaa !56
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !63
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %.016
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.016
   %21 = load ptr, ptr %20, align 8, !tbaa !64
   %22 = tail call i64 @N_VGetLength(ptr noundef %21) #12
   %23 = fmul double %16, %16
@@ -1352,23 +1352,23 @@ define double @N_VWSqrSumMaskLocal_ManyVector(ptr noundef readonly captures(none
   %.01617 = phi double [ %31, %.lr.ph ], [ 0.000000e+00, %3 ]
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !63
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %.018
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.018
   %11 = load ptr, ptr %10, align 8, !tbaa !64
   %12 = load ptr, ptr %1, align 8, !tbaa !56
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !63
-  %15 = getelementptr inbounds nuw ptr, ptr %14, i64 %.018
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %.018
   %16 = load ptr, ptr %15, align 8, !tbaa !64
   %17 = load ptr, ptr %2, align 8, !tbaa !56
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !63
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %.018
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.018
   %21 = load ptr, ptr %20, align 8, !tbaa !64
   %22 = tail call double @N_VWrmsNormMask(ptr noundef %11, ptr noundef %16, ptr noundef %21) #12
   %23 = load ptr, ptr %0, align 8, !tbaa !56
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %25 = load ptr, ptr %24, align 8, !tbaa !63
-  %26 = getelementptr inbounds nuw ptr, ptr %25, i64 %.018
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %.018
   %27 = load ptr, ptr %26, align 8, !tbaa !64
   %28 = tail call i64 @N_VGetLength(ptr noundef %27) #12
   %29 = fmul double %22, %22
@@ -1420,9 +1420,9 @@ define noundef i32 @N_VDotProdMultiLocal_ManyVector(i32 noundef %0, ptr noundef 
 
 19:                                               ; preds = %._crit_edge.us.us, %19
   %indvars.iv52 = phi i64 [ 0, %._crit_edge.us.us ], [ %indvars.iv.next53, %19 ]
-  %20 = getelementptr inbounds nuw double, ptr %8, i64 %indvars.iv52
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv52
   %21 = load double, ptr %20, align 8, !tbaa !69
-  %22 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv52
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv52
   %23 = load double, ptr %22, align 8, !tbaa !69
   %24 = fadd double %21, %23
   store double %24, ptr %22, align 8, !tbaa !69
@@ -1432,14 +1432,14 @@ define noundef i32 @N_VDotProdMultiLocal_ManyVector(i32 noundef %0, ptr noundef 
 
 25:                                               ; preds = %25, %.preheader.us.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %25 ], [ 0, %.preheader.us.us ]
-  %26 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8, !tbaa !64
   %28 = load ptr, ptr %27, align 8, !tbaa !56
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8, !tbaa !63
-  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %.042.us.us
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.042.us.us
   %32 = load ptr, ptr %31, align 8, !tbaa !64
-  %33 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   store ptr %32, ptr %33, align 8, !tbaa !64
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1448,7 +1448,7 @@ define noundef i32 @N_VDotProdMultiLocal_ManyVector(i32 noundef %0, ptr noundef 
 ._crit_edge.us.us:                                ; preds = %25
   %34 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %35 = load ptr, ptr %34, align 8, !tbaa !63
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %.042.us.us
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.042.us.us
   %37 = load ptr, ptr %36, align 8, !tbaa !64
   %38 = tail call i32 @N_VDotProdMultiLocal(i32 noundef %0, ptr noundef %37, ptr noundef nonnull %7, ptr noundef %8) #12
   br label %19
@@ -1465,7 +1465,7 @@ define noundef i32 @N_VDotProdMultiLocal_ManyVector(i32 noundef %0, ptr noundef 
   %.042 = phi i64 [ %49, %.preheader ], [ 0, %.preheader34.thread ]
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   %45 = load ptr, ptr %44, align 8, !tbaa !63
-  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %.042
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %45, i64 %.042
   %47 = load ptr, ptr %46, align 8, !tbaa !64
   %48 = tail call i32 @N_VDotProdMultiLocal(i32 noundef %0, ptr noundef %47, ptr noundef %7, ptr noundef %8) #12
   %49 = add nuw nsw i64 %.042, 1
@@ -1495,7 +1495,7 @@ define noundef i32 @N_VBufSize_ManyVector(ptr noundef readonly captures(none) %0
   %.07 = phi i64 [ %16, %.lr.ph ], [ 0, %2 ]
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !63
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %.07
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.07
   %11 = load ptr, ptr %10, align 8, !tbaa !64
   %12 = call i32 @N_VBufSize(ptr noundef %11, ptr noundef nonnull %3) #12
   %13 = load i64, ptr %3, align 8, !tbaa !67
@@ -1528,13 +1528,13 @@ define noundef i32 @N_VBufPack_ManyVector(ptr noundef readonly captures(none) %0
   %.01011 = phi ptr [ %20, %.lr.ph ], [ %1, %2 ]
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !63
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %.012
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.012
   %11 = load ptr, ptr %10, align 8, !tbaa !64
   %12 = call i32 @N_VBufPack(ptr noundef %11, ptr noundef %.01011) #12
   %13 = load ptr, ptr %0, align 8, !tbaa !56
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !63
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %.012
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.012
   %17 = load ptr, ptr %16, align 8, !tbaa !64
   %18 = call i32 @N_VBufSize(ptr noundef %17, ptr noundef nonnull %3) #12
   %19 = load i64, ptr %3, align 8, !tbaa !67
@@ -1565,13 +1565,13 @@ define noundef i32 @N_VBufUnpack_ManyVector(ptr noundef readonly captures(none) 
   %.01011 = phi ptr [ %20, %.lr.ph ], [ %1, %2 ]
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8, !tbaa !63
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %.012
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.012
   %11 = load ptr, ptr %10, align 8, !tbaa !64
   %12 = call i32 @N_VBufUnpack(ptr noundef %11, ptr noundef %.01011) #12
   %13 = load ptr, ptr %0, align 8, !tbaa !56
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !63
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %.012
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %.012
   %17 = load ptr, ptr %16, align 8, !tbaa !64
   %18 = call i32 @N_VBufSize(ptr noundef %17, ptr noundef nonnull %3) #12
   %19 = load i64, ptr %3, align 8, !tbaa !67
@@ -1599,7 +1599,7 @@ define void @N_VPrint_ManyVector(ptr noundef readonly captures(none) %0) #0 {
   %.04 = phi i64 [ %10, %.lr.ph ], [ 0, %1 ]
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !63
-  %8 = getelementptr inbounds nuw ptr, ptr %7, i64 %.04
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.04
   %9 = load ptr, ptr %8, align 8, !tbaa !64
   tail call void @N_VPrint(ptr noundef %9) #12
   %10 = add nuw nsw i64 %.04, 1
@@ -1624,7 +1624,7 @@ define void @N_VPrintFile_ManyVector(ptr noundef readonly captures(none) %0, ptr
   %.05 = phi i64 [ %11, %.lr.ph ], [ 0, %2 ]
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !63
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %.05
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.05
   %10 = load ptr, ptr %9, align 8, !tbaa !64
   tail call void @N_VPrintFile(ptr noundef %10, ptr noundef %1) #12
   %11 = add nuw nsw i64 %.05, 1
@@ -1647,7 +1647,7 @@ define ptr @N_VGetSubvector_ManyVector(ptr noundef readonly captures(none) %0, i
   %3 = load ptr, ptr %0, align 8, !tbaa !56
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !63
-  %6 = getelementptr inbounds ptr, ptr %5, i64 %1
+  %6 = getelementptr inbounds [8 x i8], ptr %5, i64 %1
   %7 = load ptr, ptr %6, align 8, !tbaa !64
   ret ptr %7
 }
@@ -1657,7 +1657,7 @@ define ptr @N_VGetSubvectorArrayPointer_ManyVector(ptr noundef readonly captures
   %3 = load ptr, ptr %0, align 8, !tbaa !56
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !63
-  %6 = getelementptr inbounds ptr, ptr %5, i64 %1
+  %6 = getelementptr inbounds [8 x i8], ptr %5, i64 %1
   %7 = load ptr, ptr %6, align 8, !tbaa !64
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !3
@@ -1682,7 +1682,7 @@ define noundef i32 @N_VSetSubvectorArrayPointer_ManyVector(ptr noundef %0, ptr n
   %4 = load ptr, ptr %1, align 8, !tbaa !56
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !63
-  %7 = getelementptr inbounds ptr, ptr %6, i64 %2
+  %7 = getelementptr inbounds [8 x i8], ptr %6, i64 %2
   %8 = load ptr, ptr %7, align 8, !tbaa !64
   tail call void @N_VSetArrayPointer(ptr noundef %0, ptr noundef %8) #12
   ret i32 0
@@ -1735,11 +1735,11 @@ define internal fastcc noundef ptr @ManyVectorClone(ptr noundef %0, i32 noundef 
   %18 = load ptr, ptr %0, align 8, !tbaa !56
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !63
-  %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %.132.us
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %.132.us
   %22 = load ptr, ptr %21, align 8, !tbaa !64
   %23 = tail call ptr @N_VClone(ptr noundef %22) #12
   %24 = load ptr, ptr %14, align 8, !tbaa !63
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %.132.us
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %.132.us
   store ptr %23, ptr %25, align 8, !tbaa !64
   %26 = add nuw nsw i64 %.132.us, 1
   %27 = load i64, ptr %7, align 8, !tbaa !57
@@ -1751,11 +1751,11 @@ define internal fastcc noundef ptr @ManyVectorClone(ptr noundef %0, i32 noundef 
   %29 = load ptr, ptr %0, align 8, !tbaa !56
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 16
   %31 = load ptr, ptr %30, align 8, !tbaa !63
-  %32 = getelementptr inbounds nuw ptr, ptr %31, i64 %.132
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %.132
   %33 = load ptr, ptr %32, align 8, !tbaa !64
   %34 = tail call ptr @N_VCloneEmpty(ptr noundef %33) #12
   %35 = load ptr, ptr %14, align 8, !tbaa !63
-  %36 = getelementptr inbounds nuw ptr, ptr %35, i64 %.132
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.132
   store ptr %34, ptr %36, align 8, !tbaa !64
   %37 = add nuw nsw i64 %.132, 1
   %38 = load i64, ptr %7, align 8, !tbaa !57
@@ -1778,7 +1778,7 @@ define i64 @N_VGetSubvectorLocalLength_ManyVector(ptr noundef readonly captures(
   %3 = load ptr, ptr %0, align 8, !tbaa !56
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !63
-  %6 = getelementptr inbounds ptr, ptr %5, i64 %1
+  %6 = getelementptr inbounds [8 x i8], ptr %5, i64 %1
   %7 = load ptr, ptr %6, align 8, !tbaa !64
   %8 = tail call i64 @N_VGetLocalLength(ptr noundef %7) #12
   ret i64 %8
@@ -1869,32 +1869,32 @@ define noundef i32 @N_VLinearSumVectorArray_ManyVector(i32 noundef %0, double no
 
 17:                                               ; preds = %.preheader.us, %17
   %.034.us = phi i64 [ 0, %.preheader.us ], [ %42, %17 ]
-  %18 = getelementptr inbounds nuw ptr, ptr %2, i64 %.034.us
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.034.us
   %19 = load ptr, ptr %18, align 8, !tbaa !64
   %20 = load ptr, ptr %19, align 8, !tbaa !56
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !63
-  %23 = getelementptr inbounds nuw ptr, ptr %22, i64 %.03335.us
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %.03335.us
   %24 = load ptr, ptr %23, align 8, !tbaa !64
-  %25 = getelementptr inbounds nuw ptr, ptr %9, i64 %.034.us
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.034.us
   store ptr %24, ptr %25, align 8, !tbaa !64
-  %26 = getelementptr inbounds nuw ptr, ptr %4, i64 %.034.us
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.034.us
   %27 = load ptr, ptr %26, align 8, !tbaa !64
   %28 = load ptr, ptr %27, align 8, !tbaa !56
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
   %30 = load ptr, ptr %29, align 8, !tbaa !63
-  %31 = getelementptr inbounds nuw ptr, ptr %30, i64 %.03335.us
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %.03335.us
   %32 = load ptr, ptr %31, align 8, !tbaa !64
-  %33 = getelementptr inbounds nuw ptr, ptr %10, i64 %.034.us
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.034.us
   store ptr %32, ptr %33, align 8, !tbaa !64
-  %34 = getelementptr inbounds nuw ptr, ptr %5, i64 %.034.us
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.034.us
   %35 = load ptr, ptr %34, align 8, !tbaa !64
   %36 = load ptr, ptr %35, align 8, !tbaa !56
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %38 = load ptr, ptr %37, align 8, !tbaa !63
-  %39 = getelementptr inbounds nuw ptr, ptr %38, i64 %.03335.us
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %38, i64 %.03335.us
   %40 = load ptr, ptr %39, align 8, !tbaa !64
-  %41 = getelementptr inbounds nuw ptr, ptr %11, i64 %.034.us
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.034.us
   store ptr %40, ptr %41, align 8, !tbaa !64
   %42 = add nuw nsw i64 %.034.us, 1
   %exitcond.not = icmp eq i64 %42, %7
@@ -1950,23 +1950,23 @@ define noundef i32 @N_VScaleVectorArray_ManyVector(i32 noundef %0, ptr noundef %
 
 14:                                               ; preds = %.preheader.us, %14
   %.025.us = phi i64 [ 0, %.preheader.us ], [ %31, %14 ]
-  %15 = getelementptr inbounds nuw ptr, ptr %2, i64 %.025.us
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.025.us
   %16 = load ptr, ptr %15, align 8, !tbaa !64
   %17 = load ptr, ptr %16, align 8, !tbaa !56
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !63
-  %20 = getelementptr inbounds nuw ptr, ptr %19, i64 %.02426.us
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %.02426.us
   %21 = load ptr, ptr %20, align 8, !tbaa !64
-  %22 = getelementptr inbounds nuw ptr, ptr %7, i64 %.025.us
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.025.us
   store ptr %21, ptr %22, align 8, !tbaa !64
-  %23 = getelementptr inbounds nuw ptr, ptr %3, i64 %.025.us
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.025.us
   %24 = load ptr, ptr %23, align 8, !tbaa !64
   %25 = load ptr, ptr %24, align 8, !tbaa !56
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load ptr, ptr %26, align 8, !tbaa !63
-  %28 = getelementptr inbounds nuw ptr, ptr %27, i64 %.02426.us
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %.02426.us
   %29 = load ptr, ptr %28, align 8, !tbaa !64
-  %30 = getelementptr inbounds nuw ptr, ptr %8, i64 %.025.us
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.025.us
   store ptr %29, ptr %30, align 8, !tbaa !64
   %31 = add nuw nsw i64 %.025.us, 1
   %exitcond.not = icmp eq i64 %31, %5
@@ -2020,14 +2020,14 @@ define noundef i32 @N_VConstVectorArray_ManyVector(i32 noundef %0, double nounde
 
 12:                                               ; preds = %.preheader.us, %12
   %.017.us = phi i64 [ 0, %.preheader.us ], [ %21, %12 ]
-  %13 = getelementptr inbounds nuw ptr, ptr %2, i64 %.017.us
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.017.us
   %14 = load ptr, ptr %13, align 8, !tbaa !64
   %15 = load ptr, ptr %14, align 8, !tbaa !56
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %16, align 8, !tbaa !63
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %.01618.us
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %.01618.us
   %19 = load ptr, ptr %18, align 8, !tbaa !64
-  %20 = getelementptr inbounds nuw ptr, ptr %6, i64 %.017.us
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.017.us
   store ptr %19, ptr %20, align 8, !tbaa !64
   %21 = add nuw nsw i64 %.017.us, 1
   %exitcond.not = icmp eq i64 %21, %4

@@ -127,7 +127,7 @@ define hidden noundef i32 @_ZN5ceres8internal12LinearSolver26LinearSolverForZero
 
 switch.lookup:                                    ; preds = %3
   %5 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN5ceres8internal12LinearSolver26LinearSolverForZeroEBlocksENS_16LinearSolverTypeE, i64 %5
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN5ceres8internal12LinearSolver26LinearSolverForZeroEBlocksENS_16LinearSolverTypeE, i64 %5
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %6
 

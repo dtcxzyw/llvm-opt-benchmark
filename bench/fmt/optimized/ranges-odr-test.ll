@@ -50,7 +50,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.anon.30 = type { i8, i8 }
 %class.anon = type { i32, i32, ptr, ptr }
 %"struct.fmt::v11::detail::find_escape_result" = type { ptr, ptr, i32 }
-%"struct.fmt::v11::detail::named_arg_info" = type { ptr, i32 }
 %"class.std::__cxx11::basic_stringstream" = type { %"class.std::basic_iostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_iostream.base" = type { %"class.std::basic_istream.base", %"class.std::basic_ostream.base" }
 %"class.std::basic_istream.base" = type { ptr, i64 }
@@ -1973,7 +1972,7 @@ define linkonce_odr hidden ptr @_ZNK3fmt3v116detail16native_formatterIicLNS1_4ty
   %22 = lshr i32 %21, 10
   %23 = and i32 %22, 3
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr inbounds nuw i32, ptr @__const._ZN3fmt3v116detail18make_write_int_argIiEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4signE.prefixes, i64 %24
+  %25 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZN3fmt3v116detail18make_write_int_argIiEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4signE.prefixes, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !71
   %27 = zext i32 %26 to i64
   %28 = shl nuw i64 %27, 32
@@ -2051,7 +2050,7 @@ _ZN3fmt3v116detail19handle_dynamic_specINS0_7contextEEEvNS0_11arg_id_kindERiRKNS
   %56 = lshr i32 %55, 10
   %57 = and i32 %56, 3
   %58 = zext nneg i32 %57 to i64
-  %59 = getelementptr inbounds nuw i32, ptr @__const._ZN3fmt3v116detail18make_write_int_argIiEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4signE.prefixes, i64 %58
+  %59 = getelementptr inbounds nuw [4 x i8], ptr @__const._ZN3fmt3v116detail18make_write_int_argIiEENS1_13write_int_argINSt11conditionalIXaalecl8num_bitsIT_EELi32EntLi0EEjNS4_IXlecl8num_bitsIS5_EELi64EEmoE4typeEE4typeEEES5_NS0_4signE.prefixes, i64 %58
   %60 = load i32, ptr %59, align 4, !tbaa !71
   %61 = zext i32 %60 to i64
   %62 = shl nuw i64 %61, 32
@@ -3524,7 +3523,7 @@ define linkonce_odr hidden noundef i32 @_ZN3fmt3v116detail16get_dynamic_specINS0
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %15 = load ptr, ptr %14, align 8, !tbaa !28, !noalias !124
   %16 = sext i32 %6 to i64
-  %17 = getelementptr inbounds %"class.fmt::v11::basic_format_arg", ptr %15, i64 %16
+  %17 = getelementptr inbounds [32 x i8], ptr %15, i64 %16
   br label %_ZNK3fmt3v117context3argEi.exit
 
 18:                                               ; preds = %5
@@ -3577,7 +3576,7 @@ define linkonce_odr hidden noundef i32 @_ZN3fmt3v116detail16get_dynamic_specINS0
 
 43:                                               ; preds = %41, %.lr.ph.i.i.i
   %.01115.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %42, %41 ]
-  %44 = getelementptr inbounds nuw %"struct.fmt::v11::detail::named_arg_info", ptr %40, i64 %.01115.i.i.i
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %40, i64 %.01115.i.i.i
   %45 = load ptr, ptr %44, align 8, !tbaa !139, !noalias !129
   %46 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %45) #18, !noalias !129
   %47 = tail call noundef i64 @llvm.umin.i64(i64 %46, i64 %.sroa.2.0.copyload)
@@ -3604,7 +3603,7 @@ _ZNK3fmt3v1117basic_format_argsINS0_7contextEE6get_idIcEEiNS0_17basic_string_vie
 
 58:                                               ; preds = %55
   %59 = zext nneg i32 %51 to i64
-  %60 = getelementptr inbounds nuw %"class.fmt::v11::basic_format_arg", ptr %35, i64 %59
+  %60 = getelementptr inbounds nuw [32 x i8], ptr %35, i64 %59
   br label %_ZNK3fmt3v117context3argEi.exit
 
 61:                                               ; preds = %53
@@ -3642,7 +3641,7 @@ _ZNK3fmt3v117context3argEi.exit.thread39.sink.split: ; preds = %63, %26
   %.sink107 = phi ptr [ %28, %26 ], [ %35, %63 ]
   %.sroa.23.041.ph = phi i32 [ %25, %26 ], [ %68, %63 ]
   %69 = zext nneg i32 %.sink to i64
-  %70 = getelementptr inbounds nuw %"class.fmt::v11::detail::value", ptr %.sink107, i64 %69
+  %70 = getelementptr inbounds nuw [16 x i8], ptr %.sink107, i64 %69
   %.sroa.012.0.copyload27 = load i128, ptr %70, align 16, !tbaa !28
   %.sroa.012.sroa.0.sroa.0.0.extract.trunc = trunc i128 %.sroa.012.0.copyload27 to i32
   %.sroa.012.sroa.0.sroa.11.0.extract.shift103 = lshr i128 %.sroa.012.0.copyload27, 32

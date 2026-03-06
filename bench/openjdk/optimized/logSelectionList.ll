@@ -26,7 +26,7 @@ define hidden noundef zeroext i1 @_ZNK16LogSelectionList17verify_selectionsEP12o
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %8
   %.018.us = phi i64 [ %9, %8 ], [ 0, %.lr.ph ]
-  %6 = getelementptr inbounds %class.LogSelection, ptr %4, i64 %.018.us
+  %6 = getelementptr inbounds [48 x i8], ptr %4, i64 %.018.us
   %7 = tail call noundef i64 @_ZNK12LogSelection17tag_sets_selectedEv(ptr noundef nonnull align 8 dereferenceable(48) %6) #4
   %.not26.not = icmp ne i64 %7, 0
   br i1 %.not26.not, label %8, label %._crit_edge
@@ -40,7 +40,7 @@ define hidden noundef zeroext i1 @_ZNK16LogSelectionList17verify_selectionsEP12o
 .lr.ph.split:                                     ; preds = %.lr.ph, %16
   %.018 = phi i64 [ %17, %16 ], [ 0, %.lr.ph ]
   %.01417 = phi i1 [ %.1, %16 ], [ true, %.lr.ph ]
-  %12 = getelementptr inbounds %class.LogSelection, ptr %4, i64 %.018
+  %12 = getelementptr inbounds [48 x i8], ptr %4, i64 %.018
   %13 = tail call noundef i64 @_ZNK12LogSelection17tag_sets_selectedEv(ptr noundef nonnull align 8 dereferenceable(48) %12) #4
   %14 = icmp eq i64 %13, 0
   br i1 %14, label %15, label %16
@@ -132,7 +132,7 @@ define hidden noundef zeroext i1 @_ZN16LogSelectionList5parseEPKcP12outputStream
   %23 = load i64, ptr %0, align 8
   %24 = add i64 %23, 1
   store i64 %24, ptr %0, align 8
-  %25 = getelementptr inbounds %class.LogSelection, ptr %11, i64 %23
+  %25 = getelementptr inbounds [48 x i8], ptr %11, i64 %23
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %25, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false)
   %26 = getelementptr inbounds nuw i8, ptr %18, i64 1
   br i1 %.not23, label %.loopexit.loopexit, label %12, !llvm.loop !8
@@ -176,7 +176,7 @@ define hidden noundef i32 @_ZNK16LogSelectionList9level_forERK9LogTagSet(ptr nou
 5:                                                ; preds = %.lr.ph, %10
   %.08 = phi i64 [ 0, %.lr.ph ], [ %11, %10 ]
   %.067 = phi i32 [ 8, %.lr.ph ], [ %.1, %10 ]
-  %6 = getelementptr inbounds %class.LogSelection, ptr %4, i64 %.08
+  %6 = getelementptr inbounds [48 x i8], ptr %4, i64 %.08
   %7 = tail call noundef zeroext i1 @_ZNK12LogSelection7selectsERK9LogTagSet(ptr noundef nonnull align 8 dereferenceable(48) %6, ptr noundef nonnull align 8 dereferenceable(112) %1) #4
   br i1 %7, label %8, label %10
 

@@ -209,7 +209,7 @@ define hidden void @SDL_KMSDRM_UnloadSymbols() local_unnamed_addr #0 {
 7:                                                ; preds = %6, %12
   %8 = phi i1 [ true, %6 ], [ false, %12 ]
   %indvars.iv = phi i64 [ 0, %6 ], [ 1, %12 ]
-  %9 = getelementptr inbounds nuw %struct.kmsdrmdynlib, ptr @kmsdrmlibs, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [16 x i8], ptr @kmsdrmlibs, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 16
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %12, label %11
@@ -239,7 +239,7 @@ define hidden noundef zeroext i1 @SDL_KMSDRM_LoadSymbols() local_unnamed_addr #0
 .preheader:                                       ; preds = %0, %10
   %4 = phi i1 [ false, %10 ], [ true, %0 ]
   %indvars.iv = phi i64 [ 1, %10 ], [ 0, %0 ]
-  %5 = getelementptr inbounds nuw %struct.kmsdrmdynlib, ptr @kmsdrmlibs, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [16 x i8], ptr @kmsdrmlibs, i64 %indvars.iv
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %7 = load ptr, ptr %6, align 8
   %.not = icmp eq ptr %7, null
@@ -261,7 +261,7 @@ define hidden noundef zeroext i1 @SDL_KMSDRM_LoadSymbols() local_unnamed_addr #0
 12:                                               ; preds = %18, %11
   %13 = phi i1 [ true, %11 ], [ false, %18 ]
   %indvars.iv.i = phi i64 [ 0, %11 ], [ 1, %18 ]
-  %14 = getelementptr inbounds nuw %struct.kmsdrmdynlib, ptr @kmsdrmlibs, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [16 x i8], ptr @kmsdrmlibs, i64 %indvars.iv.i
   %15 = load ptr, ptr %14, align 16
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %18, label %16
@@ -286,7 +286,7 @@ KMSDRM_GetSym.exit:                               ; preds = %16, %19
 20:                                               ; preds = %26, %KMSDRM_GetSym.exit
   %21 = phi i1 [ true, %KMSDRM_GetSym.exit ], [ false, %26 ]
   %indvars.iv.i68 = phi i64 [ 0, %KMSDRM_GetSym.exit ], [ 1, %26 ]
-  %22 = getelementptr inbounds nuw %struct.kmsdrmdynlib, ptr @kmsdrmlibs, i64 %indvars.iv.i68
+  %22 = getelementptr inbounds nuw [16 x i8], ptr @kmsdrmlibs, i64 %indvars.iv.i68
   %23 = load ptr, ptr %22, align 16
   %.not.i69 = icmp eq ptr %23, null
   br i1 %.not.i69, label %26, label %24
@@ -311,7 +311,7 @@ KMSDRM_GetSym.exit72:                             ; preds = %24, %27
 28:                                               ; preds = %34, %KMSDRM_GetSym.exit72
   %29 = phi i1 [ true, %KMSDRM_GetSym.exit72 ], [ false, %34 ]
   %indvars.iv.i73 = phi i64 [ 0, %KMSDRM_GetSym.exit72 ], [ 1, %34 ]
-  %30 = getelementptr inbounds nuw %struct.kmsdrmdynlib, ptr @kmsdrmlibs, i64 %indvars.iv.i73
+  %30 = getelementptr inbounds nuw [16 x i8], ptr @kmsdrmlibs, i64 %indvars.iv.i73
   %31 = load ptr, ptr %30, align 16
   %.not.i74 = icmp eq ptr %31, null
   br i1 %.not.i74, label %34, label %32
@@ -336,7 +336,7 @@ KMSDRM_GetSym.exit77:                             ; preds = %32, %35
 36:                                               ; preds = %42, %KMSDRM_GetSym.exit77
   %37 = phi i1 [ true, %KMSDRM_GetSym.exit77 ], [ false, %42 ]
   %indvars.iv.i78 = phi i64 [ 0, %KMSDRM_GetSym.exit77 ], [ 1, %42 ]
-  %38 = getelementptr inbounds nuw %struct.kmsdrmdynlib, ptr @kmsdrmlibs, i64 %indvars.iv.i78
+  %38 = getelementptr inbounds nuw [16 x i8], ptr @kmsdrmlibs, i64 %indvars.iv.i78
   %39 = load ptr, ptr %38, align 16
   %.not.i79 = icmp eq ptr %39, null
   br i1 %.not.i79, label %42, label %40
@@ -361,7 +361,7 @@ KMSDRM_GetSym.exit82:                             ; preds = %40, %43
 44:                                               ; preds = %50, %KMSDRM_GetSym.exit82
   %45 = phi i1 [ true, %KMSDRM_GetSym.exit82 ], [ false, %50 ]
   %indvars.iv.i83 = phi i64 [ 0, %KMSDRM_GetSym.exit82 ], [ 1, %50 ]
-  %46 = getelementptr inbounds nuw %struct.kmsdrmdynlib, ptr @kmsdrmlibs, i64 %indvars.iv.i83
+  %46 = getelementptr inbounds nuw [16 x i8], ptr @kmsdrmlibs, i64 %indvars.iv.i83
   %47 = load ptr, ptr %46, align 16
   %.not.i84 = icmp eq ptr %47, null
   br i1 %.not.i84, label %50, label %48
@@ -386,7 +386,7 @@ KMSDRM_GetSym.exit87:                             ; preds = %48, %51
 52:                                               ; preds = %58, %KMSDRM_GetSym.exit87
   %53 = phi i1 [ true, %KMSDRM_GetSym.exit87 ], [ false, %58 ]
   %indvars.iv.i88 = phi i64 [ 0, %KMSDRM_GetSym.exit87 ], [ 1, %58 ]
-  %54 = getelementptr inbounds nuw %struct.kmsdrmdynlib, ptr @kmsdrmlibs, i64 %indvars.iv.i88
+  %54 = getelementptr inbounds nuw [16 x i8], ptr @kmsdrmlibs, i64 %indvars.iv.i88
   %55 = load ptr, ptr %54, align 16
   %.not.i89 = icmp eq ptr %55, null
   br i1 %.not.i89, label %58, label %56
@@ -411,7 +411,7 @@ KMSDRM_GetSym.exit92:                             ; preds = %56, %59
 60:                                               ; preds = %66, %KMSDRM_GetSym.exit92
   %61 = phi i1 [ true, %KMSDRM_GetSym.exit92 ], [ false, %66 ]
   %indvars.iv.i93 = phi i64 [ 0, %KMSDRM_GetSym.exit92 ], [ 1, %66 ]
-  %62 = getelementptr inbounds nuw %struct.kmsdrmdynlib, ptr @kmsdrmlibs, i64 %indvars.iv.i93
+  %62 = getelementptr inbounds nuw [16 x i8], ptr @kmsdrmlibs, i64 %indvars.iv.i93
   %63 = load ptr, ptr %62, align 16
   %.not.i94 = icmp eq ptr %63, null
   br i1 %.not.i94, label %66, label %64
@@ -436,7 +436,7 @@ KMSDRM_GetSym.exit97:                             ; preds = %64, %67
 68:                                               ; preds = %74, %KMSDRM_GetSym.exit97
   %69 = phi i1 [ true, %KMSDRM_GetSym.exit97 ], [ false, %74 ]
   %indvars.iv.i98 = phi i64 [ 0, %KMSDRM_GetSym.exit97 ], [ 1, %74 ]
-  %70 = getelementptr inbounds nuw %struct.kmsdrmdynlib, ptr @kmsdrmlibs, i64 %indvars.iv.i98
+  %70 = getelementptr inbounds nuw [16 x i8], ptr @kmsdrmlibs, i64 %indvars.iv.i98
   %71 = load ptr, ptr %70, align 16
   %.not.i99 = icmp eq ptr %71, null
   br i1 %.not.i99, label %74, label %72
@@ -461,7 +461,7 @@ KMSDRM_GetSym.exit102:                            ; preds = %72, %75
 76:                                               ; preds = %82, %KMSDRM_GetSym.exit102
   %77 = phi i1 [ true, %KMSDRM_GetSym.exit102 ], [ false, %82 ]
   %indvars.iv.i103 = phi i64 [ 0, %KMSDRM_GetSym.exit102 ], [ 1, %82 ]
-  %78 = getelementptr inbounds nuw %struct.kmsdrmdynlib, ptr @kmsdrmlibs, i64 %indvars.iv.i103
+  %78 = getelementptr inbounds nuw [16 x i8], ptr @kmsdrmlibs, i64 %indvars.iv.i103
   %79 = load ptr, ptr %78, align 16
   %.not.i104 = icmp eq ptr %79, null
   br i1 %.not.i104, label %82, label %80
@@ -486,7 +486,7 @@ KMSDRM_GetSym.exit107:                            ; preds = %80, %83
 84:                                               ; preds = %90, %KMSDRM_GetSym.exit107
   %85 = phi i1 [ true, %KMSDRM_GetSym.exit107 ], [ false, %90 ]
   %indvars.iv.i108 = phi i64 [ 0, %KMSDRM_GetSym.exit107 ], [ 1, %90 ]
-  %86 = getelementptr inbounds nuw %struct.kmsdrmdynlib, ptr @kmsdrmlibs, i64 %indvars.iv.i108
+  %86 = getelementptr inbounds nuw [16 x i8], ptr @kmsdrmlibs, i64 %indvars.iv.i108
   %87 = load ptr, ptr %86, align 16
   %.not.i109 = icmp eq ptr %87, null
   br i1 %.not.i109, label %90, label %88
@@ -511,7 +511,7 @@ KMSDRM_GetSym.exit112:                            ; preds = %88, %91
 92:                                               ; preds = %98, %KMSDRM_GetSym.exit112
   %93 = phi i1 [ true, %KMSDRM_GetSym.exit112 ], [ false, %98 ]
   %indvars.iv.i113 = phi i64 [ 0, %KMSDRM_GetSym.exit112 ], [ 1, %98 ]
-  %94 = getelementptr inbounds nuw %struct.kmsdrmdynlib, ptr @kmsdrmlibs, i64 %indvars.iv.i113
+  %94 = getelementptr inbounds nuw [16 x i8], ptr @kmsdrmlibs, i64 %indvars.iv.i113
   %95 = load ptr, ptr %94, align 16
   %.not.i114 = icmp eq ptr %95, null
   br i1 %.not.i114, label %98, label %96
@@ -536,7 +536,7 @@ KMSDRM_GetSym.exit117:                            ; preds = %96, %99
 .backedge386:                                     ; preds = %.backedge386.backedge, %KMSDRM_GetSym.exit117
   %100 = phi i1 [ true, %KMSDRM_GetSym.exit117 ], [ false, %.backedge386.backedge ]
   %indvars.iv.i118 = phi i64 [ 0, %KMSDRM_GetSym.exit117 ], [ 1, %.backedge386.backedge ]
-  %101 = getelementptr inbounds nuw %struct.kmsdrmdynlib, ptr @kmsdrmlibs, i64 %indvars.iv.i118
+  %101 = getelementptr inbounds nuw [16 x i8], ptr @kmsdrmlibs, i64 %indvars.iv.i118
   %102 = load ptr, ptr %101, align 16
   %.not.i119 = icmp eq ptr %102, null
   br i1 %.not.i119, label %105, label %103
@@ -561,7 +561,7 @@ KMSDRM_GetSym.exit122:                            ; preds = %103, %105
 .backedge385:                                     ; preds = %.backedge385.backedge, %KMSDRM_GetSym.exit122
   %106 = phi i1 [ true, %KMSDRM_GetSym.exit122 ], [ false, %.backedge385.backedge ]
   %indvars.iv.i123 = phi i64 [ 0, %KMSDRM_GetSym.exit122 ], [ 1, %.backedge385.backedge ]
-  %107 = getelementptr inbounds nuw %struct.kmsdrmdynlib, ptr @kmsdrmlibs, i64 %indvars.iv.i123
+  %107 = getelementptr inbounds nuw [16 x i8], ptr @kmsdrmlibs, i64 %indvars.iv.i123
   %108 = load ptr, ptr %107, align 16
   %.not.i124 = icmp eq ptr %108, null
   br i1 %.not.i124, label %111, label %109
@@ -586,7 +586,7 @@ KMSDRM_GetSym.exit127:                            ; preds = %109, %111
 .backedge384:                                     ; preds = %.backedge384.backedge, %KMSDRM_GetSym.exit127
   %112 = phi i1 [ true, %KMSDRM_GetSym.exit127 ], [ false, %.backedge384.backedge ]
   %indvars.iv.i128 = phi i64 [ 0, %KMSDRM_GetSym.exit127 ], [ 1, %.backedge384.backedge ]
-  %113 = getelementptr inbounds nuw %struct.kmsdrmdynlib, ptr @kmsdrmlibs, i64 %indvars.iv.i128
+  %113 = getelementptr inbounds nuw [16 x i8], ptr @kmsdrmlibs, i64 %indvars.iv.i128
   %114 = load ptr, ptr %113, align 16
   %.not.i129 = icmp eq ptr %114, null
   br i1 %.not.i129, label %117, label %115
@@ -611,7 +611,7 @@ KMSDRM_GetSym.exit132:                            ; preds = %115, %117
 118:                                              ; preds = %124, %KMSDRM_GetSym.exit132
   %119 = phi i1 [ true, %KMSDRM_GetSym.exit132 ], [ false, %124 ]
   %indvars.iv.i133 = phi i64 [ 0, %KMSDRM_GetSym.exit132 ], [ 1, %124 ]
-  %120 = getelementptr inbounds nuw %struct.kmsdrmdynlib, ptr @kmsdrmlibs, i64 %indvars.iv.i133
+  %120 = getelementptr inbounds nuw [16 x i8], ptr @kmsdrmlibs, i64 %indvars.iv.i133
   %121 = load ptr, ptr %120, align 16
   %.not.i134 = icmp eq ptr %121, null
   br i1 %.not.i134, label %124, label %122
@@ -636,7 +636,7 @@ KMSDRM_GetSym.exit137:                            ; preds = %122, %125
 126:                                              ; preds = %132, %KMSDRM_GetSym.exit137
   %127 = phi i1 [ true, %KMSDRM_GetSym.exit137 ], [ false, %132 ]
   %indvars.iv.i138 = phi i64 [ 0, %KMSDRM_GetSym.exit137 ], [ 1, %132 ]
-  %128 = getelementptr inbounds nuw %struct.kmsdrmdynlib, ptr @kmsdrmlibs, i64 %indvars.iv.i138
+  %128 = getelementptr inbounds nuw [16 x i8], ptr @kmsdrmlibs, i64 %indvars.iv.i138
   %129 = load ptr, ptr %128, align 16
   %.not.i139 = icmp eq ptr %129, null
   br i1 %.not.i139, label %132, label %130
@@ -661,7 +661,7 @@ KMSDRM_GetSym.exit142:                            ; preds = %130, %133
 134:                                              ; preds = %140, %KMSDRM_GetSym.exit142
   %135 = phi i1 [ true, %KMSDRM_GetSym.exit142 ], [ false, %140 ]
   %indvars.iv.i143 = phi i64 [ 0, %KMSDRM_GetSym.exit142 ], [ 1, %140 ]
-  %136 = getelementptr inbounds nuw %struct.kmsdrmdynlib, ptr @kmsdrmlibs, i64 %indvars.iv.i143
+  %136 = getelementptr inbounds nuw [16 x i8], ptr @kmsdrmlibs, i64 %indvars.iv.i143
   %137 = load ptr, ptr %136, align 16
   %.not.i144 = icmp eq ptr %137, null
   br i1 %.not.i144, label %140, label %138
@@ -686,7 +686,7 @@ KMSDRM_GetSym.exit147:                            ; preds = %138, %141
 142:                                              ; preds = %148, %KMSDRM_GetSym.exit147
   %143 = phi i1 [ true, %KMSDRM_GetSym.exit147 ], [ false, %148 ]
   %indvars.iv.i148 = phi i64 [ 0, %KMSDRM_GetSym.exit147 ], [ 1, %148 ]
-  %144 = getelementptr inbounds nuw %struct.kmsdrmdynlib, ptr @kmsdrmlibs, i64 %indvars.iv.i148
+  %144 = getelementptr inbounds nuw [16 x i8], ptr @kmsdrmlibs, i64 %indvars.iv.i148
   %145 = load ptr, ptr %144, align 16
   %.not.i149 = icmp eq ptr %145, null
   br i1 %.not.i149, label %148, label %146
@@ -711,7 +711,7 @@ KMSDRM_GetSym.exit152:                            ; preds = %146, %149
 150:                                              ; preds = %156, %KMSDRM_GetSym.exit152
   %151 = phi i1 [ true, %KMSDRM_GetSym.exit152 ], [ false, %156 ]
   %indvars.iv.i153 = phi i64 [ 0, %KMSDRM_GetSym.exit152 ], [ 1, %156 ]
-  %152 = getelementptr inbounds nuw %struct.kmsdrmdynlib, ptr @kmsdrmlibs, i64 %indvars.iv.i153
+  %152 = getelementptr inbounds nuw [16 x i8], ptr @kmsdrmlibs, i64 %indvars.iv.i153
   %153 = load ptr, ptr %152, align 16
   %.not.i154 = icmp eq ptr %153, null
   br i1 %.not.i154, label %156, label %154
@@ -736,7 +736,7 @@ KMSDRM_GetSym.exit157:                            ; preds = %154, %157
 158:                                              ; preds = %164, %KMSDRM_GetSym.exit157
   %159 = phi i1 [ true, %KMSDRM_GetSym.exit157 ], [ false, %164 ]
   %indvars.iv.i158 = phi i64 [ 0, %KMSDRM_GetSym.exit157 ], [ 1, %164 ]
-  %160 = getelementptr inbounds nuw %struct.kmsdrmdynlib, ptr @kmsdrmlibs, i64 %indvars.iv.i158
+  %160 = getelementptr inbounds nuw [16 x i8], ptr @kmsdrmlibs, i64 %indvars.iv.i158
   %161 = load ptr, ptr %160, align 16
   %.not.i159 = icmp eq ptr %161, null
   br i1 %.not.i159, label %164, label %162
@@ -761,7 +761,7 @@ KMSDRM_GetSym.exit162:                            ; preds = %162, %165
 166:                                              ; preds = %172, %KMSDRM_GetSym.exit162
   %167 = phi i1 [ true, %KMSDRM_GetSym.exit162 ], [ false, %172 ]
   %indvars.iv.i163 = phi i64 [ 0, %KMSDRM_GetSym.exit162 ], [ 1, %172 ]
-  %168 = getelementptr inbounds nuw %struct.kmsdrmdynlib, ptr @kmsdrmlibs, i64 %indvars.iv.i163
+  %168 = getelementptr inbounds nuw [16 x i8], ptr @kmsdrmlibs, i64 %indvars.iv.i163
   %169 = load ptr, ptr %168, align 16
   %.not.i164 = icmp eq ptr %169, null
   br i1 %.not.i164, label %172, label %170
@@ -786,7 +786,7 @@ KMSDRM_GetSym.exit167:                            ; preds = %170, %173
 174:                                              ; preds = %180, %KMSDRM_GetSym.exit167
   %175 = phi i1 [ true, %KMSDRM_GetSym.exit167 ], [ false, %180 ]
   %indvars.iv.i168 = phi i64 [ 0, %KMSDRM_GetSym.exit167 ], [ 1, %180 ]
-  %176 = getelementptr inbounds nuw %struct.kmsdrmdynlib, ptr @kmsdrmlibs, i64 %indvars.iv.i168
+  %176 = getelementptr inbounds nuw [16 x i8], ptr @kmsdrmlibs, i64 %indvars.iv.i168
   %177 = load ptr, ptr %176, align 16
   %.not.i169 = icmp eq ptr %177, null
   br i1 %.not.i169, label %180, label %178
@@ -811,7 +811,7 @@ KMSDRM_GetSym.exit172:                            ; preds = %178, %181
 182:                                              ; preds = %188, %KMSDRM_GetSym.exit172
   %183 = phi i1 [ true, %KMSDRM_GetSym.exit172 ], [ false, %188 ]
   %indvars.iv.i173 = phi i64 [ 0, %KMSDRM_GetSym.exit172 ], [ 1, %188 ]
-  %184 = getelementptr inbounds nuw %struct.kmsdrmdynlib, ptr @kmsdrmlibs, i64 %indvars.iv.i173
+  %184 = getelementptr inbounds nuw [16 x i8], ptr @kmsdrmlibs, i64 %indvars.iv.i173
   %185 = load ptr, ptr %184, align 16
   %.not.i174 = icmp eq ptr %185, null
   br i1 %.not.i174, label %188, label %186
@@ -836,7 +836,7 @@ KMSDRM_GetSym.exit177:                            ; preds = %186, %189
 190:                                              ; preds = %196, %KMSDRM_GetSym.exit177
   %191 = phi i1 [ true, %KMSDRM_GetSym.exit177 ], [ false, %196 ]
   %indvars.iv.i178 = phi i64 [ 0, %KMSDRM_GetSym.exit177 ], [ 1, %196 ]
-  %192 = getelementptr inbounds nuw %struct.kmsdrmdynlib, ptr @kmsdrmlibs, i64 %indvars.iv.i178
+  %192 = getelementptr inbounds nuw [16 x i8], ptr @kmsdrmlibs, i64 %indvars.iv.i178
   %193 = load ptr, ptr %192, align 16
   %.not.i179 = icmp eq ptr %193, null
   br i1 %.not.i179, label %196, label %194
@@ -861,7 +861,7 @@ KMSDRM_GetSym.exit182:                            ; preds = %194, %197
 198:                                              ; preds = %204, %KMSDRM_GetSym.exit182
   %199 = phi i1 [ true, %KMSDRM_GetSym.exit182 ], [ false, %204 ]
   %indvars.iv.i183 = phi i64 [ 0, %KMSDRM_GetSym.exit182 ], [ 1, %204 ]
-  %200 = getelementptr inbounds nuw %struct.kmsdrmdynlib, ptr @kmsdrmlibs, i64 %indvars.iv.i183
+  %200 = getelementptr inbounds nuw [16 x i8], ptr @kmsdrmlibs, i64 %indvars.iv.i183
   %201 = load ptr, ptr %200, align 16
   %.not.i184 = icmp eq ptr %201, null
   br i1 %.not.i184, label %204, label %202
@@ -886,7 +886,7 @@ KMSDRM_GetSym.exit187:                            ; preds = %202, %205
 206:                                              ; preds = %212, %KMSDRM_GetSym.exit187
   %207 = phi i1 [ true, %KMSDRM_GetSym.exit187 ], [ false, %212 ]
   %indvars.iv.i188 = phi i64 [ 0, %KMSDRM_GetSym.exit187 ], [ 1, %212 ]
-  %208 = getelementptr inbounds nuw %struct.kmsdrmdynlib, ptr @kmsdrmlibs, i64 %indvars.iv.i188
+  %208 = getelementptr inbounds nuw [16 x i8], ptr @kmsdrmlibs, i64 %indvars.iv.i188
   %209 = load ptr, ptr %208, align 16
   %.not.i189 = icmp eq ptr %209, null
   br i1 %.not.i189, label %212, label %210
@@ -911,7 +911,7 @@ KMSDRM_GetSym.exit192:                            ; preds = %210, %213
 214:                                              ; preds = %220, %KMSDRM_GetSym.exit192
   %215 = phi i1 [ true, %KMSDRM_GetSym.exit192 ], [ false, %220 ]
   %indvars.iv.i193 = phi i64 [ 0, %KMSDRM_GetSym.exit192 ], [ 1, %220 ]
-  %216 = getelementptr inbounds nuw %struct.kmsdrmdynlib, ptr @kmsdrmlibs, i64 %indvars.iv.i193
+  %216 = getelementptr inbounds nuw [16 x i8], ptr @kmsdrmlibs, i64 %indvars.iv.i193
   %217 = load ptr, ptr %216, align 16
   %.not.i194 = icmp eq ptr %217, null
   br i1 %.not.i194, label %220, label %218
@@ -936,7 +936,7 @@ KMSDRM_GetSym.exit197:                            ; preds = %218, %221
 222:                                              ; preds = %228, %KMSDRM_GetSym.exit197
   %223 = phi i1 [ true, %KMSDRM_GetSym.exit197 ], [ false, %228 ]
   %indvars.iv.i198 = phi i64 [ 0, %KMSDRM_GetSym.exit197 ], [ 1, %228 ]
-  %224 = getelementptr inbounds nuw %struct.kmsdrmdynlib, ptr @kmsdrmlibs, i64 %indvars.iv.i198
+  %224 = getelementptr inbounds nuw [16 x i8], ptr @kmsdrmlibs, i64 %indvars.iv.i198
   %225 = load ptr, ptr %224, align 16
   %.not.i199 = icmp eq ptr %225, null
   br i1 %.not.i199, label %228, label %226
@@ -961,7 +961,7 @@ KMSDRM_GetSym.exit202:                            ; preds = %226, %229
 230:                                              ; preds = %236, %KMSDRM_GetSym.exit202
   %231 = phi i1 [ true, %KMSDRM_GetSym.exit202 ], [ false, %236 ]
   %indvars.iv.i203 = phi i64 [ 0, %KMSDRM_GetSym.exit202 ], [ 1, %236 ]
-  %232 = getelementptr inbounds nuw %struct.kmsdrmdynlib, ptr @kmsdrmlibs, i64 %indvars.iv.i203
+  %232 = getelementptr inbounds nuw [16 x i8], ptr @kmsdrmlibs, i64 %indvars.iv.i203
   %233 = load ptr, ptr %232, align 16
   %.not.i204 = icmp eq ptr %233, null
   br i1 %.not.i204, label %236, label %234
@@ -986,7 +986,7 @@ KMSDRM_GetSym.exit207:                            ; preds = %234, %237
 238:                                              ; preds = %244, %KMSDRM_GetSym.exit207
   %239 = phi i1 [ true, %KMSDRM_GetSym.exit207 ], [ false, %244 ]
   %indvars.iv.i208 = phi i64 [ 0, %KMSDRM_GetSym.exit207 ], [ 1, %244 ]
-  %240 = getelementptr inbounds nuw %struct.kmsdrmdynlib, ptr @kmsdrmlibs, i64 %indvars.iv.i208
+  %240 = getelementptr inbounds nuw [16 x i8], ptr @kmsdrmlibs, i64 %indvars.iv.i208
   %241 = load ptr, ptr %240, align 16
   %.not.i209 = icmp eq ptr %241, null
   br i1 %.not.i209, label %244, label %242
@@ -1011,7 +1011,7 @@ KMSDRM_GetSym.exit212:                            ; preds = %242, %245
 246:                                              ; preds = %252, %KMSDRM_GetSym.exit212
   %247 = phi i1 [ true, %KMSDRM_GetSym.exit212 ], [ false, %252 ]
   %indvars.iv.i213 = phi i64 [ 0, %KMSDRM_GetSym.exit212 ], [ 1, %252 ]
-  %248 = getelementptr inbounds nuw %struct.kmsdrmdynlib, ptr @kmsdrmlibs, i64 %indvars.iv.i213
+  %248 = getelementptr inbounds nuw [16 x i8], ptr @kmsdrmlibs, i64 %indvars.iv.i213
   %249 = load ptr, ptr %248, align 16
   %.not.i214 = icmp eq ptr %249, null
   br i1 %.not.i214, label %252, label %250
@@ -1036,7 +1036,7 @@ KMSDRM_GetSym.exit217:                            ; preds = %250, %253
 254:                                              ; preds = %260, %KMSDRM_GetSym.exit217
   %255 = phi i1 [ true, %KMSDRM_GetSym.exit217 ], [ false, %260 ]
   %indvars.iv.i218 = phi i64 [ 0, %KMSDRM_GetSym.exit217 ], [ 1, %260 ]
-  %256 = getelementptr inbounds nuw %struct.kmsdrmdynlib, ptr @kmsdrmlibs, i64 %indvars.iv.i218
+  %256 = getelementptr inbounds nuw [16 x i8], ptr @kmsdrmlibs, i64 %indvars.iv.i218
   %257 = load ptr, ptr %256, align 16
   %.not.i219 = icmp eq ptr %257, null
   br i1 %.not.i219, label %260, label %258
@@ -1061,7 +1061,7 @@ KMSDRM_GetSym.exit222:                            ; preds = %258, %261
 262:                                              ; preds = %268, %KMSDRM_GetSym.exit222
   %263 = phi i1 [ true, %KMSDRM_GetSym.exit222 ], [ false, %268 ]
   %indvars.iv.i223 = phi i64 [ 0, %KMSDRM_GetSym.exit222 ], [ 1, %268 ]
-  %264 = getelementptr inbounds nuw %struct.kmsdrmdynlib, ptr @kmsdrmlibs, i64 %indvars.iv.i223
+  %264 = getelementptr inbounds nuw [16 x i8], ptr @kmsdrmlibs, i64 %indvars.iv.i223
   %265 = load ptr, ptr %264, align 16
   %.not.i224 = icmp eq ptr %265, null
   br i1 %.not.i224, label %268, label %266
@@ -1086,7 +1086,7 @@ KMSDRM_GetSym.exit227:                            ; preds = %266, %269
 270:                                              ; preds = %276, %KMSDRM_GetSym.exit227
   %271 = phi i1 [ true, %KMSDRM_GetSym.exit227 ], [ false, %276 ]
   %indvars.iv.i228 = phi i64 [ 0, %KMSDRM_GetSym.exit227 ], [ 1, %276 ]
-  %272 = getelementptr inbounds nuw %struct.kmsdrmdynlib, ptr @kmsdrmlibs, i64 %indvars.iv.i228
+  %272 = getelementptr inbounds nuw [16 x i8], ptr @kmsdrmlibs, i64 %indvars.iv.i228
   %273 = load ptr, ptr %272, align 16
   %.not.i229 = icmp eq ptr %273, null
   br i1 %.not.i229, label %276, label %274
@@ -1111,7 +1111,7 @@ KMSDRM_GetSym.exit232:                            ; preds = %274, %277
 278:                                              ; preds = %284, %KMSDRM_GetSym.exit232
   %279 = phi i1 [ true, %KMSDRM_GetSym.exit232 ], [ false, %284 ]
   %indvars.iv.i233 = phi i64 [ 0, %KMSDRM_GetSym.exit232 ], [ 1, %284 ]
-  %280 = getelementptr inbounds nuw %struct.kmsdrmdynlib, ptr @kmsdrmlibs, i64 %indvars.iv.i233
+  %280 = getelementptr inbounds nuw [16 x i8], ptr @kmsdrmlibs, i64 %indvars.iv.i233
   %281 = load ptr, ptr %280, align 16
   %.not.i234 = icmp eq ptr %281, null
   br i1 %.not.i234, label %284, label %282
@@ -1136,7 +1136,7 @@ KMSDRM_GetSym.exit237:                            ; preds = %282, %285
 286:                                              ; preds = %292, %KMSDRM_GetSym.exit237
   %287 = phi i1 [ true, %KMSDRM_GetSym.exit237 ], [ false, %292 ]
   %indvars.iv.i238 = phi i64 [ 0, %KMSDRM_GetSym.exit237 ], [ 1, %292 ]
-  %288 = getelementptr inbounds nuw %struct.kmsdrmdynlib, ptr @kmsdrmlibs, i64 %indvars.iv.i238
+  %288 = getelementptr inbounds nuw [16 x i8], ptr @kmsdrmlibs, i64 %indvars.iv.i238
   %289 = load ptr, ptr %288, align 16
   %.not.i239 = icmp eq ptr %289, null
   br i1 %.not.i239, label %292, label %290
@@ -1161,7 +1161,7 @@ KMSDRM_GetSym.exit242:                            ; preds = %290, %293
 294:                                              ; preds = %300, %KMSDRM_GetSym.exit242
   %295 = phi i1 [ true, %KMSDRM_GetSym.exit242 ], [ false, %300 ]
   %indvars.iv.i243 = phi i64 [ 0, %KMSDRM_GetSym.exit242 ], [ 1, %300 ]
-  %296 = getelementptr inbounds nuw %struct.kmsdrmdynlib, ptr @kmsdrmlibs, i64 %indvars.iv.i243
+  %296 = getelementptr inbounds nuw [16 x i8], ptr @kmsdrmlibs, i64 %indvars.iv.i243
   %297 = load ptr, ptr %296, align 16
   %.not.i244 = icmp eq ptr %297, null
   br i1 %.not.i244, label %300, label %298
@@ -1186,7 +1186,7 @@ KMSDRM_GetSym.exit247:                            ; preds = %298, %301
 302:                                              ; preds = %308, %KMSDRM_GetSym.exit247
   %303 = phi i1 [ true, %KMSDRM_GetSym.exit247 ], [ false, %308 ]
   %indvars.iv.i248 = phi i64 [ 0, %KMSDRM_GetSym.exit247 ], [ 1, %308 ]
-  %304 = getelementptr inbounds nuw %struct.kmsdrmdynlib, ptr @kmsdrmlibs, i64 %indvars.iv.i248
+  %304 = getelementptr inbounds nuw [16 x i8], ptr @kmsdrmlibs, i64 %indvars.iv.i248
   %305 = load ptr, ptr %304, align 16
   %.not.i249 = icmp eq ptr %305, null
   br i1 %.not.i249, label %308, label %306
@@ -1211,7 +1211,7 @@ KMSDRM_GetSym.exit252:                            ; preds = %306, %309
 310:                                              ; preds = %316, %KMSDRM_GetSym.exit252
   %311 = phi i1 [ true, %KMSDRM_GetSym.exit252 ], [ false, %316 ]
   %indvars.iv.i253 = phi i64 [ 0, %KMSDRM_GetSym.exit252 ], [ 1, %316 ]
-  %312 = getelementptr inbounds nuw %struct.kmsdrmdynlib, ptr @kmsdrmlibs, i64 %indvars.iv.i253
+  %312 = getelementptr inbounds nuw [16 x i8], ptr @kmsdrmlibs, i64 %indvars.iv.i253
   %313 = load ptr, ptr %312, align 16
   %.not.i254 = icmp eq ptr %313, null
   br i1 %.not.i254, label %316, label %314
@@ -1236,7 +1236,7 @@ KMSDRM_GetSym.exit257:                            ; preds = %314, %317
 318:                                              ; preds = %324, %KMSDRM_GetSym.exit257
   %319 = phi i1 [ true, %KMSDRM_GetSym.exit257 ], [ false, %324 ]
   %indvars.iv.i258 = phi i64 [ 0, %KMSDRM_GetSym.exit257 ], [ 1, %324 ]
-  %320 = getelementptr inbounds nuw %struct.kmsdrmdynlib, ptr @kmsdrmlibs, i64 %indvars.iv.i258
+  %320 = getelementptr inbounds nuw [16 x i8], ptr @kmsdrmlibs, i64 %indvars.iv.i258
   %321 = load ptr, ptr %320, align 16
   %.not.i259 = icmp eq ptr %321, null
   br i1 %.not.i259, label %324, label %322
@@ -1261,7 +1261,7 @@ KMSDRM_GetSym.exit262:                            ; preds = %322, %325
 326:                                              ; preds = %332, %KMSDRM_GetSym.exit262
   %327 = phi i1 [ true, %KMSDRM_GetSym.exit262 ], [ false, %332 ]
   %indvars.iv.i263 = phi i64 [ 0, %KMSDRM_GetSym.exit262 ], [ 1, %332 ]
-  %328 = getelementptr inbounds nuw %struct.kmsdrmdynlib, ptr @kmsdrmlibs, i64 %indvars.iv.i263
+  %328 = getelementptr inbounds nuw [16 x i8], ptr @kmsdrmlibs, i64 %indvars.iv.i263
   %329 = load ptr, ptr %328, align 16
   %.not.i264 = icmp eq ptr %329, null
   br i1 %.not.i264, label %332, label %330
@@ -1286,7 +1286,7 @@ KMSDRM_GetSym.exit267:                            ; preds = %330, %333
 334:                                              ; preds = %340, %KMSDRM_GetSym.exit267
   %335 = phi i1 [ true, %KMSDRM_GetSym.exit267 ], [ false, %340 ]
   %indvars.iv.i268 = phi i64 [ 0, %KMSDRM_GetSym.exit267 ], [ 1, %340 ]
-  %336 = getelementptr inbounds nuw %struct.kmsdrmdynlib, ptr @kmsdrmlibs, i64 %indvars.iv.i268
+  %336 = getelementptr inbounds nuw [16 x i8], ptr @kmsdrmlibs, i64 %indvars.iv.i268
   %337 = load ptr, ptr %336, align 16
   %.not.i269 = icmp eq ptr %337, null
   br i1 %.not.i269, label %340, label %338
@@ -1311,7 +1311,7 @@ KMSDRM_GetSym.exit272:                            ; preds = %338, %341
 342:                                              ; preds = %348, %KMSDRM_GetSym.exit272
   %343 = phi i1 [ true, %KMSDRM_GetSym.exit272 ], [ false, %348 ]
   %indvars.iv.i273 = phi i64 [ 0, %KMSDRM_GetSym.exit272 ], [ 1, %348 ]
-  %344 = getelementptr inbounds nuw %struct.kmsdrmdynlib, ptr @kmsdrmlibs, i64 %indvars.iv.i273
+  %344 = getelementptr inbounds nuw [16 x i8], ptr @kmsdrmlibs, i64 %indvars.iv.i273
   %345 = load ptr, ptr %344, align 16
   %.not.i274 = icmp eq ptr %345, null
   br i1 %.not.i274, label %348, label %346
@@ -1336,7 +1336,7 @@ KMSDRM_GetSym.exit277:                            ; preds = %346, %349
 350:                                              ; preds = %356, %KMSDRM_GetSym.exit277
   %351 = phi i1 [ true, %KMSDRM_GetSym.exit277 ], [ false, %356 ]
   %indvars.iv.i278 = phi i64 [ 0, %KMSDRM_GetSym.exit277 ], [ 1, %356 ]
-  %352 = getelementptr inbounds nuw %struct.kmsdrmdynlib, ptr @kmsdrmlibs, i64 %indvars.iv.i278
+  %352 = getelementptr inbounds nuw [16 x i8], ptr @kmsdrmlibs, i64 %indvars.iv.i278
   %353 = load ptr, ptr %352, align 16
   %.not.i279 = icmp eq ptr %353, null
   br i1 %.not.i279, label %356, label %354
@@ -1361,7 +1361,7 @@ KMSDRM_GetSym.exit282:                            ; preds = %354, %357
 358:                                              ; preds = %364, %KMSDRM_GetSym.exit282
   %359 = phi i1 [ true, %KMSDRM_GetSym.exit282 ], [ false, %364 ]
   %indvars.iv.i283 = phi i64 [ 0, %KMSDRM_GetSym.exit282 ], [ 1, %364 ]
-  %360 = getelementptr inbounds nuw %struct.kmsdrmdynlib, ptr @kmsdrmlibs, i64 %indvars.iv.i283
+  %360 = getelementptr inbounds nuw [16 x i8], ptr @kmsdrmlibs, i64 %indvars.iv.i283
   %361 = load ptr, ptr %360, align 16
   %.not.i284 = icmp eq ptr %361, null
   br i1 %.not.i284, label %364, label %362
@@ -1386,7 +1386,7 @@ KMSDRM_GetSym.exit287:                            ; preds = %362, %365
 366:                                              ; preds = %372, %KMSDRM_GetSym.exit287
   %367 = phi i1 [ true, %KMSDRM_GetSym.exit287 ], [ false, %372 ]
   %indvars.iv.i288 = phi i64 [ 0, %KMSDRM_GetSym.exit287 ], [ 1, %372 ]
-  %368 = getelementptr inbounds nuw %struct.kmsdrmdynlib, ptr @kmsdrmlibs, i64 %indvars.iv.i288
+  %368 = getelementptr inbounds nuw [16 x i8], ptr @kmsdrmlibs, i64 %indvars.iv.i288
   %369 = load ptr, ptr %368, align 16
   %.not.i289 = icmp eq ptr %369, null
   br i1 %.not.i289, label %372, label %370
@@ -1411,7 +1411,7 @@ KMSDRM_GetSym.exit292:                            ; preds = %370, %373
 374:                                              ; preds = %380, %KMSDRM_GetSym.exit292
   %375 = phi i1 [ true, %KMSDRM_GetSym.exit292 ], [ false, %380 ]
   %indvars.iv.i293 = phi i64 [ 0, %KMSDRM_GetSym.exit292 ], [ 1, %380 ]
-  %376 = getelementptr inbounds nuw %struct.kmsdrmdynlib, ptr @kmsdrmlibs, i64 %indvars.iv.i293
+  %376 = getelementptr inbounds nuw [16 x i8], ptr @kmsdrmlibs, i64 %indvars.iv.i293
   %377 = load ptr, ptr %376, align 16
   %.not.i294 = icmp eq ptr %377, null
   br i1 %.not.i294, label %380, label %378
@@ -1436,7 +1436,7 @@ KMSDRM_GetSym.exit297:                            ; preds = %378, %381
 382:                                              ; preds = %388, %KMSDRM_GetSym.exit297
   %383 = phi i1 [ true, %KMSDRM_GetSym.exit297 ], [ false, %388 ]
   %indvars.iv.i298 = phi i64 [ 0, %KMSDRM_GetSym.exit297 ], [ 1, %388 ]
-  %384 = getelementptr inbounds nuw %struct.kmsdrmdynlib, ptr @kmsdrmlibs, i64 %indvars.iv.i298
+  %384 = getelementptr inbounds nuw [16 x i8], ptr @kmsdrmlibs, i64 %indvars.iv.i298
   %385 = load ptr, ptr %384, align 16
   %.not.i299 = icmp eq ptr %385, null
   br i1 %.not.i299, label %388, label %386
@@ -1461,7 +1461,7 @@ KMSDRM_GetSym.exit302:                            ; preds = %386, %389
 390:                                              ; preds = %396, %KMSDRM_GetSym.exit302
   %391 = phi i1 [ true, %KMSDRM_GetSym.exit302 ], [ false, %396 ]
   %indvars.iv.i303 = phi i64 [ 0, %KMSDRM_GetSym.exit302 ], [ 1, %396 ]
-  %392 = getelementptr inbounds nuw %struct.kmsdrmdynlib, ptr @kmsdrmlibs, i64 %indvars.iv.i303
+  %392 = getelementptr inbounds nuw [16 x i8], ptr @kmsdrmlibs, i64 %indvars.iv.i303
   %393 = load ptr, ptr %392, align 16
   %.not.i304 = icmp eq ptr %393, null
   br i1 %.not.i304, label %396, label %394
@@ -1486,7 +1486,7 @@ KMSDRM_GetSym.exit307:                            ; preds = %394, %397
 398:                                              ; preds = %404, %KMSDRM_GetSym.exit307
   %399 = phi i1 [ true, %KMSDRM_GetSym.exit307 ], [ false, %404 ]
   %indvars.iv.i308 = phi i64 [ 0, %KMSDRM_GetSym.exit307 ], [ 1, %404 ]
-  %400 = getelementptr inbounds nuw %struct.kmsdrmdynlib, ptr @kmsdrmlibs, i64 %indvars.iv.i308
+  %400 = getelementptr inbounds nuw [16 x i8], ptr @kmsdrmlibs, i64 %indvars.iv.i308
   %401 = load ptr, ptr %400, align 16
   %.not.i309 = icmp eq ptr %401, null
   br i1 %.not.i309, label %404, label %402
@@ -1511,7 +1511,7 @@ KMSDRM_GetSym.exit312:                            ; preds = %402, %405
 406:                                              ; preds = %412, %KMSDRM_GetSym.exit312
   %407 = phi i1 [ true, %KMSDRM_GetSym.exit312 ], [ false, %412 ]
   %indvars.iv.i313 = phi i64 [ 0, %KMSDRM_GetSym.exit312 ], [ 1, %412 ]
-  %408 = getelementptr inbounds nuw %struct.kmsdrmdynlib, ptr @kmsdrmlibs, i64 %indvars.iv.i313
+  %408 = getelementptr inbounds nuw [16 x i8], ptr @kmsdrmlibs, i64 %indvars.iv.i313
   %409 = load ptr, ptr %408, align 16
   %.not.i314 = icmp eq ptr %409, null
   br i1 %.not.i314, label %412, label %410
@@ -1536,7 +1536,7 @@ KMSDRM_GetSym.exit317:                            ; preds = %410, %413
 414:                                              ; preds = %420, %KMSDRM_GetSym.exit317
   %415 = phi i1 [ true, %KMSDRM_GetSym.exit317 ], [ false, %420 ]
   %indvars.iv.i318 = phi i64 [ 0, %KMSDRM_GetSym.exit317 ], [ 1, %420 ]
-  %416 = getelementptr inbounds nuw %struct.kmsdrmdynlib, ptr @kmsdrmlibs, i64 %indvars.iv.i318
+  %416 = getelementptr inbounds nuw [16 x i8], ptr @kmsdrmlibs, i64 %indvars.iv.i318
   %417 = load ptr, ptr %416, align 16
   %.not.i319 = icmp eq ptr %417, null
   br i1 %.not.i319, label %420, label %418
@@ -1561,7 +1561,7 @@ KMSDRM_GetSym.exit322:                            ; preds = %418, %421
 422:                                              ; preds = %428, %KMSDRM_GetSym.exit322
   %423 = phi i1 [ true, %KMSDRM_GetSym.exit322 ], [ false, %428 ]
   %indvars.iv.i323 = phi i64 [ 0, %KMSDRM_GetSym.exit322 ], [ 1, %428 ]
-  %424 = getelementptr inbounds nuw %struct.kmsdrmdynlib, ptr @kmsdrmlibs, i64 %indvars.iv.i323
+  %424 = getelementptr inbounds nuw [16 x i8], ptr @kmsdrmlibs, i64 %indvars.iv.i323
   %425 = load ptr, ptr %424, align 16
   %.not.i324 = icmp eq ptr %425, null
   br i1 %.not.i324, label %428, label %426
@@ -1586,7 +1586,7 @@ KMSDRM_GetSym.exit327:                            ; preds = %426, %429
 430:                                              ; preds = %436, %KMSDRM_GetSym.exit327
   %431 = phi i1 [ true, %KMSDRM_GetSym.exit327 ], [ false, %436 ]
   %indvars.iv.i328 = phi i64 [ 0, %KMSDRM_GetSym.exit327 ], [ 1, %436 ]
-  %432 = getelementptr inbounds nuw %struct.kmsdrmdynlib, ptr @kmsdrmlibs, i64 %indvars.iv.i328
+  %432 = getelementptr inbounds nuw [16 x i8], ptr @kmsdrmlibs, i64 %indvars.iv.i328
   %433 = load ptr, ptr %432, align 16
   %.not.i329 = icmp eq ptr %433, null
   br i1 %.not.i329, label %436, label %434
@@ -1611,7 +1611,7 @@ KMSDRM_GetSym.exit332:                            ; preds = %434, %437
 .backedge383:                                     ; preds = %.backedge383.backedge, %KMSDRM_GetSym.exit332
   %438 = phi i1 [ true, %KMSDRM_GetSym.exit332 ], [ false, %.backedge383.backedge ]
   %indvars.iv.i333 = phi i64 [ 0, %KMSDRM_GetSym.exit332 ], [ 1, %.backedge383.backedge ]
-  %439 = getelementptr inbounds nuw %struct.kmsdrmdynlib, ptr @kmsdrmlibs, i64 %indvars.iv.i333
+  %439 = getelementptr inbounds nuw [16 x i8], ptr @kmsdrmlibs, i64 %indvars.iv.i333
   %440 = load ptr, ptr %439, align 16
   %.not.i334 = icmp eq ptr %440, null
   br i1 %.not.i334, label %443, label %441
@@ -1636,7 +1636,7 @@ KMSDRM_GetSym.exit337:                            ; preds = %441, %443
 .backedge382:                                     ; preds = %.backedge382.backedge, %KMSDRM_GetSym.exit337
   %444 = phi i1 [ true, %KMSDRM_GetSym.exit337 ], [ false, %.backedge382.backedge ]
   %indvars.iv.i338 = phi i64 [ 0, %KMSDRM_GetSym.exit337 ], [ 1, %.backedge382.backedge ]
-  %445 = getelementptr inbounds nuw %struct.kmsdrmdynlib, ptr @kmsdrmlibs, i64 %indvars.iv.i338
+  %445 = getelementptr inbounds nuw [16 x i8], ptr @kmsdrmlibs, i64 %indvars.iv.i338
   %446 = load ptr, ptr %445, align 16
   %.not.i339 = icmp eq ptr %446, null
   br i1 %.not.i339, label %449, label %447
@@ -1661,7 +1661,7 @@ KMSDRM_GetSym.exit342:                            ; preds = %447, %449
 .backedge381:                                     ; preds = %.backedge381.backedge, %KMSDRM_GetSym.exit342
   %450 = phi i1 [ true, %KMSDRM_GetSym.exit342 ], [ false, %.backedge381.backedge ]
   %indvars.iv.i343 = phi i64 [ 0, %KMSDRM_GetSym.exit342 ], [ 1, %.backedge381.backedge ]
-  %451 = getelementptr inbounds nuw %struct.kmsdrmdynlib, ptr @kmsdrmlibs, i64 %indvars.iv.i343
+  %451 = getelementptr inbounds nuw [16 x i8], ptr @kmsdrmlibs, i64 %indvars.iv.i343
   %452 = load ptr, ptr %451, align 16
   %.not.i344 = icmp eq ptr %452, null
   br i1 %.not.i344, label %455, label %453
@@ -1686,7 +1686,7 @@ KMSDRM_GetSym.exit347:                            ; preds = %453, %455
 .backedge380:                                     ; preds = %.backedge380.backedge, %KMSDRM_GetSym.exit347
   %456 = phi i1 [ true, %KMSDRM_GetSym.exit347 ], [ false, %.backedge380.backedge ]
   %indvars.iv.i348 = phi i64 [ 0, %KMSDRM_GetSym.exit347 ], [ 1, %.backedge380.backedge ]
-  %457 = getelementptr inbounds nuw %struct.kmsdrmdynlib, ptr @kmsdrmlibs, i64 %indvars.iv.i348
+  %457 = getelementptr inbounds nuw [16 x i8], ptr @kmsdrmlibs, i64 %indvars.iv.i348
   %458 = load ptr, ptr %457, align 16
   %.not.i349 = icmp eq ptr %458, null
   br i1 %.not.i349, label %461, label %459
@@ -1711,7 +1711,7 @@ KMSDRM_GetSym.exit352:                            ; preds = %459, %461
 .backedge:                                        ; preds = %.backedge.backedge, %KMSDRM_GetSym.exit352
   %462 = phi i1 [ true, %KMSDRM_GetSym.exit352 ], [ false, %.backedge.backedge ]
   %indvars.iv.i353 = phi i64 [ 0, %KMSDRM_GetSym.exit352 ], [ 1, %.backedge.backedge ]
-  %463 = getelementptr inbounds nuw %struct.kmsdrmdynlib, ptr @kmsdrmlibs, i64 %indvars.iv.i353
+  %463 = getelementptr inbounds nuw [16 x i8], ptr @kmsdrmlibs, i64 %indvars.iv.i353
   %464 = load ptr, ptr %463, align 16
   %.not.i354 = icmp eq ptr %464, null
   br i1 %.not.i354, label %467, label %465

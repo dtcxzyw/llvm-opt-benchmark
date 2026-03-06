@@ -422,7 +422,7 @@ _ZNSt6vectorIN4dmlc2io8FileInfoESaIS2_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN4d
 125:                                              ; preds = %120
   %126 = sub i64 %113, %122
   %127 = lshr i64 %126, 1
-  %128 = getelementptr inbounds nuw ptr, ptr %114, i64 %127
+  %128 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %127
   %129 = icmp ult ptr %128, %89
   %130 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %.not.i.i.i.i.i.i = icmp eq ptr %130, %89
@@ -441,12 +441,12 @@ _ZNSt6vectorIN4dmlc2io8FileInfoESaIS2_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPN4d
   br i1 %.not.i.i.i.i.i.i, label %.noexc21, label %136
 
 136:                                              ; preds = %135
-  %137 = getelementptr inbounds nuw ptr, ptr %128, i64 %121
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %128, i64 %121
   %138 = ptrtoint ptr %130 to i64
   %139 = sub i64 %138, %91
   %140 = ashr exact i64 %139, 3
   %141 = sub nsw i64 0, %140
-  %142 = getelementptr inbounds ptr, ptr %137, i64 %141
+  %142 = getelementptr inbounds [8 x i8], ptr %137, i64 %141
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %142, ptr align 8 %89, i64 %139, i1 false)
   br label %.noexc21
 
@@ -483,7 +483,7 @@ _ZNSt11_Deque_baseIN4dmlc2io3URIESaIS2_EE15_M_allocate_mapEm.exit.i: ; preds = %
 .noexc25:                                         ; preds = %_ZNSt11_Deque_baseIN4dmlc2io3URIESaIS2_EE15_M_allocate_mapEm.exit.i
   %151 = sub nsw i64 %145, %122
   %152 = lshr i64 %151, 1
-  %153 = getelementptr inbounds nuw ptr, ptr %150, i64 %152
+  %153 = getelementptr inbounds nuw [8 x i8], ptr %150, i64 %152
   %154 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %.not.i.i.i.i.i25.i = icmp eq ptr %154, %89
   br i1 %.not.i.i.i.i.i25.i, label %_ZSt4copyIPPN4dmlc2io3URIES4_ET0_T_S6_S5_.exit26.i, label %155
@@ -508,7 +508,7 @@ _ZSt4copyIPPN4dmlc2io3URIES4_ET0_T_S6_S5_.exit26.i: ; preds = %155, %.noexc25
   store ptr %159, ptr %30, align 8, !tbaa !36
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 480
   store ptr %160, ptr %28, align 8, !tbaa !37
-  %161 = getelementptr inbounds nuw ptr, ptr %.0.i, i64 %121
+  %161 = getelementptr inbounds nuw [8 x i8], ptr %.0.i, i64 %121
   %162 = getelementptr inbounds i8, ptr %161, i64 -8
   store ptr %162, ptr %25, align 8, !tbaa !35
   %163 = load ptr, ptr %162, align 8, !tbaa !41
@@ -3002,7 +3002,7 @@ _ZNSt6vectorIPvSaIS0_EE17_S_check_init_lenEmRKS1_.exit.i: ; preds = %3
           to label %.noexc27 unwind label %22
 
 .noexc27:                                         ; preds = %8
-  %11 = getelementptr inbounds nuw ptr, ptr %10, i64 %2
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %2
   store ptr null, ptr %10, align 8, !tbaa !104
   %12 = add nsw i64 %2, -1
   %13 = icmp eq i64 %12, 0
@@ -3058,7 +3058,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %20, %17
 32:                                               ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %indvars.iv = phi i64 [ %31, %.lr.ph ], [ %indvars.iv.next, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %33 = getelementptr inbounds ptr, ptr %26, i64 %indvars.iv
+  %33 = getelementptr inbounds [8 x i8], ptr %26, i64 %indvars.iv
   %34 = load ptr, ptr %33, align 8, !tbaa !105
   invoke void @_ZN4dmlc8DemangleB5cxx11EPKc(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %5, ptr noundef %34)
           to label %35 unwind label %48
@@ -4100,7 +4100,7 @@ _ZNSt11_Deque_baseIN4dmlc2io3URIESaIS2_EE15_M_allocate_mapEm.exit: ; preds = %2
   store ptr %12, ptr %0, align 8, !tbaa !39
   %13 = sub nsw i64 %.sroa.speculated, %10
   %14 = lshr i64 %13, 1
-  %15 = getelementptr inbounds nuw ptr, ptr %12, i64 %14
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %14
   %.idx = shl nuw nsw i64 %10, 3
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 %.idx
   br label %.lr.ph.i
@@ -4193,7 +4193,7 @@ _ZNSt11_Deque_baseIN4dmlc2io3URIESaIS2_EE15_M_create_nodesEPPS2_S6_.exit: ; pred
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store ptr %53, ptr %54, align 8, !tbaa !37
   store ptr %44, ptr %42, align 8, !tbaa !129
-  %55 = getelementptr inbounds nuw %"struct.dmlc::io::URI", ptr %51, i64 %4
+  %55 = getelementptr inbounds nuw [96 x i8], ptr %51, i64 %4
   store ptr %55, ptr %48, align 8, !tbaa !3
   ret void
 
@@ -4342,9 +4342,9 @@ define linkonce_odr void @_ZNSt5dequeIN4dmlc2io3URIESaIS2_EE17_M_reallocate_mapE
   %19 = load ptr, ptr %0, align 8, !tbaa !39
   %20 = sub i64 %15, %13
   %21 = lshr i64 %20, 1
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %23 = select i1 %2, i64 %1, i64 0
-  %24 = getelementptr inbounds nuw ptr, ptr %22, i64 %23
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %23
   %25 = icmp ult ptr %24, %7
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i = icmp eq ptr %26, %7
@@ -4363,12 +4363,12 @@ define linkonce_odr void @_ZNSt5dequeIN4dmlc2io3URIESaIS2_EE17_M_reallocate_mapE
   br i1 %.not.i.i.i.i.i, label %_ZSt4copyIPPN4dmlc2io3URIES4_ET0_T_S6_S5_.exit, label %32
 
 32:                                               ; preds = %31
-  %33 = getelementptr inbounds nuw ptr, ptr %24, i64 %12
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %12
   %34 = ptrtoint ptr %26 to i64
   %35 = sub i64 %34, %9
   %36 = ashr exact i64 %35, 3
   %37 = sub nsw i64 0, %36
-  %38 = getelementptr inbounds ptr, ptr %33, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %33, i64 %37
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %38, ptr align 8 %7, i64 %35, i1 false)
   br label %_ZSt4copyIPPN4dmlc2io3URIES4_ET0_T_S6_S5_.exit
 
@@ -4396,9 +4396,9 @@ _ZNSt11_Deque_baseIN4dmlc2io3URIESaIS2_EE15_M_allocate_mapEm.exit: ; preds = %39
   %46 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %45) #30
   %47 = sub i64 %41, %13
   %48 = lshr i64 %47, 1
-  %49 = getelementptr inbounds nuw ptr, ptr %46, i64 %48
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %48
   %50 = select i1 %2, i64 %1, i64 0
-  %51 = getelementptr inbounds nuw ptr, ptr %49, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %49, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.not.i.i.i.i.i25 = icmp eq ptr %52, %7
   br i1 %.not.i.i.i.i.i25, label %_ZSt4copyIPPN4dmlc2io3URIES4_ET0_T_S6_S5_.exit26, label %53
@@ -4426,7 +4426,7 @@ _ZSt4copyIPPN4dmlc2io3URIES4_ET0_T_S6_S5_.exit:   ; preds = %32, %31, %28, %27, 
   %60 = getelementptr inbounds nuw i8, ptr %58, i64 480
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store ptr %60, ptr %61, align 8, !tbaa !37
-  %62 = getelementptr inbounds nuw ptr, ptr %.0, i64 %12
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %.0, i64 %12
   %63 = getelementptr inbounds i8, ptr %62, i64 -8
   store ptr %63, ptr %4, align 8, !tbaa !35
   %64 = load ptr, ptr %63, align 8, !tbaa !41
@@ -4841,7 +4841,7 @@ _ZNSt6vectorIN4dmlc2io8FileInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit44: ; p
 _ZNSt12_Vector_baseIN4dmlc2io8FileInfoESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %_ZNSt6vectorIN4dmlc2io8FileInfoESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit44, %123
   store ptr %22, ptr %0, align 8, !tbaa !19
   store ptr %.0.lcssa.i.i.i43, ptr %4, align 8, !tbaa !21
-  %127 = getelementptr inbounds nuw %"struct.dmlc::io::FileInfo", ptr %22, i64 %16
+  %127 = getelementptr inbounds nuw [112 x i8], ptr %22, i64 %16
   store ptr %127, ptr %122, align 8, !tbaa !29
   ret void
 

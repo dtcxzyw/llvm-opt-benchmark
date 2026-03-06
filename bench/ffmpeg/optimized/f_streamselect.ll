@@ -7,8 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.0 = type { i64 }
 %struct.AVFilterPad = type { ptr, i32, i32, %union.anon.1, ptr, ptr, ptr }
 %union.anon.1 = type { ptr }
-%struct.FFFrameSyncIn = type { i32, i32, %struct.AVRational, ptr, ptr, i64, i64, i8, i8, i32, i32 }
-%struct.AVRational = type { i32, i32 }
 
 @.str = private unnamed_addr constant [13 x i8] c"streamselect\00", align 1
 @.str.1 = private unnamed_addr constant [21 x i8] c"Select video streams\00", align 1
@@ -307,7 +305,7 @@ define internal fastcc range(i32 -22, 1) i32 @parse_mapping(ptr noundef %0, ptr 
   %29 = trunc nuw nsw i64 %indvars.iv to i32
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef nonnull %0, i32 noundef 40, ptr noundef nonnull @.str.21, i32 noundef %19, i32 noundef %29) #9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %30 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   store i32 %19, ptr %30, align 4, !tbaa !45
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -364,7 +362,7 @@ define internal i32 @config_output(ptr noundef captures(none) initializes((36, 4
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %20 = load ptr, ptr %19, align 8, !tbaa !57
   %21 = sext i32 %18 to i64
-  %22 = getelementptr inbounds ptr, ptr %20, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !58
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %2, i32 noundef 40, ptr noundef nonnull @.str.16, i32 noundef %13, i32 noundef %18) #9
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -438,10 +436,10 @@ define internal i32 @config_output(ptr noundef captures(none) initializes((36, 4
 
 .lr.ph:                                           ; preds = %62, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %62 ]
-  %67 = getelementptr inbounds nuw %struct.FFFrameSyncIn, ptr %64, i64 %indvars.iv
+  %67 = getelementptr inbounds nuw [64 x i8], ptr %64, i64 %indvars.iv
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 8
   %69 = load ptr, ptr %19, align 8, !tbaa !57
-  %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %indvars.iv
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %indvars.iv
   %71 = load ptr, ptr %70, align 8, !tbaa !58
   %72 = getelementptr inbounds nuw i8, ptr %71, i64 96
   %73 = load i64, ptr %72, align 8
@@ -524,7 +522,7 @@ define internal i32 @process_frame(ptr noundef readonly captures(none) %0) #1 {
 
 24:                                               ; preds = %.lr.ph, %11
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %11 ]
-  %25 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv
   %26 = trunc nuw nsw i64 %indvars.iv to i32
   %27 = tail call i32 @ff_framesync_get_frame(ptr noundef nonnull %10, i32 noundef %26, ptr noundef %25, i32 noundef 0) #9
   %28 = icmp slt i32 %27, 0
@@ -541,7 +539,7 @@ define internal i32 @process_frame(ptr noundef readonly captures(none) %0) #1 {
   br i1 %32, label %.lr.ph116, label %._crit_edge
 
 .lr.ph116:                                        ; preds = %.preheader
-  %33 = getelementptr inbounds nuw ptr, ptr %7, i64 %indvars.iv137
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %indvars.iv137
   br label %34
 
 34:                                               ; preds = %.lr.ph116, %.thread84
@@ -550,10 +548,10 @@ define internal i32 @process_frame(ptr noundef readonly captures(none) %0) #1 {
   %.155113 = phi i32 [ %.054122, %.lr.ph116 ], [ %.45890, %.thread84 ]
   %.261112 = phi i32 [ %.160121, %.lr.ph116 ], [ %.56489, %.thread84 ]
   %36 = load ptr, ptr %16, align 8, !tbaa !79
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv134
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %indvars.iv134
   %38 = load ptr, ptr %37, align 8, !tbaa !58
   %39 = load ptr, ptr %17, align 8, !tbaa !46
-  %40 = getelementptr inbounds nuw i32, ptr %39, i64 %indvars.iv134
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %39, i64 %indvars.iv134
   %41 = load i32, ptr %40, align 4, !tbaa !45
   %42 = zext i32 %41 to i64
   %43 = icmp eq i64 %indvars.iv137, %42
@@ -567,7 +565,7 @@ define internal i32 @process_frame(ptr noundef readonly captures(none) %0) #1 {
 
 46:                                               ; preds = %44
   %47 = load ptr, ptr %19, align 8, !tbaa !36
-  %48 = getelementptr inbounds nuw i64, ptr %47, i64 %indvars.iv137
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %indvars.iv137
   %49 = load i64, ptr %48, align 8, !tbaa !81
   %50 = getelementptr inbounds nuw i8, ptr %.pre, i64 136
   %51 = load i64, ptr %50, align 8, !tbaa !82
@@ -588,7 +586,7 @@ define internal i32 @process_frame(ptr noundef readonly captures(none) %0) #1 {
 59:                                               ; preds = %57
   %60 = load i64, ptr %20, align 8, !tbaa !89
   %61 = load ptr, ptr %16, align 8, !tbaa !79
-  %62 = getelementptr inbounds nuw ptr, ptr %61, i64 %indvars.iv134
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %61, i64 %indvars.iv134
   %63 = load ptr, ptr %62, align 8, !tbaa !58
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 96
   %65 = load i64, ptr %21, align 4
@@ -600,7 +598,7 @@ define internal i32 @process_frame(ptr noundef readonly captures(none) %0) #1 {
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 136
   %71 = load i64, ptr %70, align 8, !tbaa !82
   %72 = load ptr, ptr %19, align 8, !tbaa !36
-  %73 = getelementptr inbounds nuw i64, ptr %72, i64 %indvars.iv137
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %indvars.iv137
   store i64 %71, ptr %73, align 8, !tbaa !81
   %74 = tail call i32 @ff_filter_frame(ptr noundef %63, ptr noundef nonnull %58) #9
   %.fr = freeze i32 %74

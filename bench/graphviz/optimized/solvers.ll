@@ -152,7 +152,7 @@ define range(i32 0, 5) i32 @solve3(ptr noundef readonly captures(none) %0, ptr n
 
 97:                                               ; preds = %96, %97
   %indvars.iv = phi i64 [ 0, %96 ], [ %indvars.iv.next, %97 ]
-  %98 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %99 = load double, ptr %98, align 8, !tbaa !3
   %100 = fsub double %99, %42
   store double %100, ptr %98, align 8, !tbaa !3

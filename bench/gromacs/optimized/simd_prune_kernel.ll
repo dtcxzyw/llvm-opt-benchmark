@@ -6,9 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::array" = type { [2 x %"struct.std::array.48"] }
 %"struct.std::array.48" = type { [3 x %"class.gmx::SimdFloat"] }
 %"class.gmx::SimdFloat" = type { <8 x float> }
-%"struct.gmx::nbnxn_ci_t" = type { i32, i32, i32, i32 }
-%"class.gmx::BasicVector" = type { [3 x float] }
-%"struct.gmx::nbnxn_cj_t" = type { i32, i32 }
 %"struct.std::array.52" = type { [4 x %"struct.std::array.48"] }
 %"struct.std::array.53" = type { [4 x %"class.gmx::SimdFloat"] }
 %"struct.std::array.54" = type { [4 x %"class.gmx::SimdFBool"] }
@@ -92,10 +89,10 @@ define weak_odr void @_ZN3gmx20nbnxmSimdPruneKernelIL12KernelLayout1EEEvPNS_16Nb
   %indvars.iv196 = phi i64 [ 0, %.lr.ph179 ], [ %indvars.iv.next197, %._crit_edge.thread ]
   %.0177 = phi i32 [ 0, %.lr.ph179 ], [ %.1, %._crit_edge.thread ]
   %.0138176 = phi i32 [ 0, %.lr.ph179 ], [ %.1139.lcssa201, %._crit_edge.thread ]
-  %45 = getelementptr inbounds nuw %"struct.gmx::nbnxn_ci_t", ptr %26, i64 %indvars.iv196
+  %45 = getelementptr inbounds nuw [16 x i8], ptr %26, i64 %indvars.iv196
   %46 = load i32, ptr %45, align 4, !tbaa !18
   %47 = sext i32 %.0177 to i64
-  %48 = getelementptr inbounds %"struct.gmx::nbnxn_ci_t", ptr %27, i64 %47
+  %48 = getelementptr inbounds [16 x i8], ptr %27, i64 %47
   store i32 %46, ptr %48, align 4, !tbaa !18
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 4
   %50 = load i32, ptr %49, align 4, !tbaa !21
@@ -105,7 +102,7 @@ define weak_odr void @_ZN3gmx20nbnxmSimdPruneKernelIL12KernelLayout1EEEvPNS_16Nb
   store i32 %.0138176, ptr %52, align 4, !tbaa !22
   %53 = and i32 %50, 127
   %54 = zext nneg i32 %53 to i64
-  %55 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %2, i64 %54
+  %55 = getelementptr inbounds nuw [12 x i8], ptr %2, i64 %54
   %56 = load float, ptr %55, align 4, !tbaa !23
   %57 = insertelement <8 x float> poison, float %56, i64 0
   %58 = shufflevector <8 x float> %57, <8 x float> poison, <8 x i32> zeroinitializer
@@ -120,7 +117,7 @@ define weak_odr void @_ZN3gmx20nbnxmSimdPruneKernelIL12KernelLayout1EEEvPNS_16Nb
   %67 = mul nsw i32 %46, 12
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %68 = sext i32 %67 to i64
-  %69 = getelementptr float, ptr %31, i64 %68
+  %69 = getelementptr [4 x i8], ptr %31, i64 %68
   %70 = getelementptr i8, ptr %69, i64 16
   %71 = getelementptr i8, ptr %69, i64 32
   br label %79
@@ -141,7 +138,7 @@ define weak_odr void @_ZN3gmx20nbnxmSimdPruneKernelIL12KernelLayout1EEEvPNS_16Nb
   %80 = phi i1 [ true, %44 ], [ false, %79 ]
   %indvars.iv.sroa.phi = phi ptr [ %6, %44 ], [ %indvars.iv.sroa.gep208, %79 ]
   %indvars.iv = phi i64 [ 0, %44 ], [ 2, %79 ]
-  %81 = getelementptr inbounds nuw float, ptr %69, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %indvars.iv
   %.val151 = load float, ptr %81, align 1, !tbaa !26
   %82 = getelementptr i8, ptr %81, i64 4
   %.val152 = load float, ptr %82, align 1, !tbaa !26
@@ -150,7 +147,7 @@ define weak_odr void @_ZN3gmx20nbnxmSimdPruneKernelIL12KernelLayout1EEEvPNS_16Nb
   %85 = shufflevector <4 x float> %83, <4 x float> %84, <8 x i32> <i32 0, i32 0, i32 0, i32 0, i32 4, i32 4, i32 4, i32 4>
   %86 = fadd <8 x float> %58, %85
   store <8 x float> %86, ptr %indvars.iv.sroa.phi, align 32, !tbaa !26
-  %87 = getelementptr inbounds nuw float, ptr %70, i64 %indvars.iv
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %70, i64 %indvars.iv
   %.val149 = load float, ptr %87, align 1, !tbaa !26
   %88 = getelementptr i8, ptr %87, i64 4
   %.val150 = load float, ptr %88, align 1, !tbaa !26
@@ -160,7 +157,7 @@ define weak_odr void @_ZN3gmx20nbnxmSimdPruneKernelIL12KernelLayout1EEEvPNS_16Nb
   %92 = fadd <8 x float> %62, %91
   %93 = getelementptr inbounds nuw i8, ptr %indvars.iv.sroa.phi, i64 32
   store <8 x float> %92, ptr %93, align 32, !tbaa !26
-  %94 = getelementptr inbounds nuw float, ptr %71, i64 %indvars.iv
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %indvars.iv
   %.val = load float, ptr %94, align 1, !tbaa !26
   %95 = getelementptr i8, ptr %94, i64 4
   %.val148 = load float, ptr %95, align 1, !tbaa !26
@@ -180,11 +177,11 @@ define weak_odr void @_ZN3gmx20nbnxmSimdPruneKernelIL12KernelLayout1EEEvPNS_16Nb
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.loopexit.critedge
   %indvars.iv193 = phi i64 [ %78, %.lr.ph.preheader ], [ %indvars.iv.next194, %.loopexit.critedge ]
   %.1139174 = phi i32 [ %.0138176, %.lr.ph.preheader ], [ %spec.select, %.loopexit.critedge ]
-  %102 = getelementptr inbounds %"struct.gmx::nbnxn_cj_t", ptr %28, i64 %indvars.iv193
+  %102 = getelementptr inbounds [8 x i8], ptr %28, i64 %indvars.iv193
   %103 = load i32, ptr %102, align 4, !tbaa !29
   %104 = mul nsw i32 %103, 12
   %105 = sext i32 %104 to i64
-  %106 = getelementptr float, ptr %31, i64 %105
+  %106 = getelementptr [4 x i8], ptr %31, i64 %105
   %.val155 = load <4 x float>, ptr %106, align 1, !tbaa !26
   %107 = shufflevector <4 x float> %.val155, <4 x float> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 0, i32 1, i32 2, i32 3>
   %108 = getelementptr i8, ptr %106, i64 16
@@ -227,7 +224,7 @@ define weak_odr void @_ZN3gmx20nbnxmSimdPruneKernelIL12KernelLayout1EEEvPNS_16Nb
   %123 = fcmp olt <8 x float> %.sroa.4204.0..sroa.4204.32..sroa.014.0.copyload.c, %34
   %124 = or <8 x i1> %122, %123
   %125 = sext i32 %.1139174 to i64
-  %126 = getelementptr inbounds %"struct.gmx::nbnxn_cj_t", ptr %29, i64 %125
+  %126 = getelementptr inbounds [8 x i8], ptr %29, i64 %125
   %127 = load i64, ptr %102, align 4
   store i64 %127, ptr %126, align 4
   %128 = bitcast <8 x i1> %124 to i8
@@ -346,9 +343,9 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN3gmx10nbnxn_ci_tES2_NS0_30DefaultInit
 
 _ZNSt12_Vector_baseIN3gmx10nbnxn_ci_tENS0_30DefaultInitializationAllocatorIS1_SaIS1_EEEE13_M_deallocateEPS1_m.exit42.i: ; preds = %33, %_ZSt34__uninitialized_move_if_noexcept_aIPN3gmx10nbnxn_ci_tES2_NS0_30DefaultInitializationAllocatorIS1_SaIS1_EEEET0_T_S7_S6_RT1_.exit.i
   store ptr %29, ptr %0, align 8, !tbaa !10
-  %35 = getelementptr inbounds nuw %"struct.gmx::nbnxn_ci_t", ptr %30, i64 %12
+  %35 = getelementptr inbounds nuw [16 x i8], ptr %30, i64 %12
   store ptr %35, ptr %3, align 8, !tbaa !4
-  %36 = getelementptr inbounds nuw %"struct.gmx::nbnxn_ci_t", ptr %29, i64 %27
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %29, i64 %27
   store ptr %36, ptr %13, align 8, !tbaa !35
   br label %_ZNSt6vectorIN3gmx10nbnxn_ci_tENS0_30DefaultInitializationAllocatorIS1_SaIS1_EEEE17_M_default_appendEm.exit
 
@@ -357,7 +354,7 @@ _ZNSt12_Vector_baseIN3gmx10nbnxn_ci_tENS0_30DefaultInitializationAllocatorIS1_Sa
   br i1 %38, label %39, label %_ZNSt6vectorIN3gmx10nbnxn_ci_tENS0_30DefaultInitializationAllocatorIS1_SaIS1_EEEE17_M_default_appendEm.exit
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw %"struct.gmx::nbnxn_ci_t", ptr %5, i64 %1
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %1
   %.not.i4 = icmp eq ptr %4, %40
   br i1 %.not.i4, label %_ZNSt6vectorIN3gmx10nbnxn_ci_tENS0_30DefaultInitializationAllocatorIS1_SaIS1_EEEE17_M_default_appendEm.exit, label %41
 
@@ -455,9 +452,9 @@ _ZSt34__uninitialized_move_if_noexcept_aIPN3gmx10nbnxn_cj_tES2_NS0_30DefaultInit
 
 _ZNSt12_Vector_baseIN3gmx10nbnxn_cj_tENS0_30DefaultInitializationAllocatorIS1_SaIS1_EEEE13_M_deallocateEPS1_m.exit42.i: ; preds = %34, %_ZSt34__uninitialized_move_if_noexcept_aIPN3gmx10nbnxn_cj_tES2_NS0_30DefaultInitializationAllocatorIS1_SaIS1_EEEET0_T_S7_S6_RT1_.exit.i
   store ptr %29, ptr %0, align 8, !tbaa !14
-  %36 = getelementptr inbounds nuw %"struct.gmx::nbnxn_cj_t", ptr %30, i64 %12
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %12
   store ptr %36, ptr %3, align 8, !tbaa !11
-  %37 = getelementptr inbounds nuw %"struct.gmx::nbnxn_cj_t", ptr %29, i64 %27
+  %37 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %27
   store ptr %37, ptr %13, align 8, !tbaa !39
   br label %_ZNSt6vectorIN3gmx10nbnxn_cj_tENS0_30DefaultInitializationAllocatorIS1_SaIS1_EEEE17_M_default_appendEm.exit
 
@@ -466,7 +463,7 @@ _ZNSt12_Vector_baseIN3gmx10nbnxn_cj_tENS0_30DefaultInitializationAllocatorIS1_Sa
   br i1 %39, label %40, label %_ZNSt6vectorIN3gmx10nbnxn_cj_tENS0_30DefaultInitializationAllocatorIS1_SaIS1_EEEE17_M_default_appendEm.exit
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds nuw %"struct.gmx::nbnxn_cj_t", ptr %5, i64 %1
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %1
   %.not.i4 = icmp eq ptr %4, %41
   br i1 %.not.i4, label %_ZNSt6vectorIN3gmx10nbnxn_cj_tENS0_30DefaultInitializationAllocatorIS1_SaIS1_EEEE17_M_default_appendEm.exit, label %42
 
@@ -542,10 +539,10 @@ define weak_odr void @_ZN3gmx20nbnxmSimdPruneKernelIL12KernelLayout0EEEvPNS_16Nb
   %indvars.iv200 = phi i64 [ 0, %.lr.ph177.preheader ], [ %indvars.iv.next201, %._crit_edge.thread ]
   %.0175 = phi i32 [ 0, %.lr.ph177.preheader ], [ %.1, %._crit_edge.thread ]
   %.0139174 = phi i32 [ 0, %.lr.ph177.preheader ], [ %.1140.lcssa208, %._crit_edge.thread ]
-  %46 = getelementptr inbounds nuw %"struct.gmx::nbnxn_ci_t", ptr %28, i64 %indvars.iv200
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %28, i64 %indvars.iv200
   %47 = load i32, ptr %46, align 4, !tbaa !18
   %48 = sext i32 %.0175 to i64
-  %49 = getelementptr inbounds %"struct.gmx::nbnxn_ci_t", ptr %29, i64 %48
+  %49 = getelementptr inbounds [16 x i8], ptr %29, i64 %48
   store i32 %47, ptr %49, align 4, !tbaa !18
   %50 = getelementptr inbounds nuw i8, ptr %46, i64 4
   %51 = load i32, ptr %50, align 4, !tbaa !21
@@ -555,7 +552,7 @@ define weak_odr void @_ZN3gmx20nbnxmSimdPruneKernelIL12KernelLayout0EEEvPNS_16Nb
   store i32 %.0139174, ptr %53, align 4, !tbaa !22
   %54 = and i32 %51, 127
   %55 = zext nneg i32 %54 to i64
-  %56 = getelementptr inbounds nuw %"class.gmx::BasicVector", ptr %2, i64 %55
+  %56 = getelementptr inbounds nuw [12 x i8], ptr %2, i64 %55
   %57 = load float, ptr %56, align 4, !tbaa !23
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 4
   %59 = load float, ptr %58, align 4, !tbaa !23
@@ -568,11 +565,11 @@ define weak_odr void @_ZN3gmx20nbnxmSimdPruneKernelIL12KernelLayout0EEEvPNS_16Nb
   %66 = or disjoint i32 %64, %65
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %67 = sext i32 %66 to i64
-  %invariant.gep = getelementptr float, ptr %33, i64 %67
+  %invariant.gep = getelementptr [4 x i8], ptr %33, i64 %67
   %68 = sext i32 %66 to i64
-  %invariant.gep209 = getelementptr float, ptr %33, i64 %68
+  %invariant.gep209 = getelementptr [4 x i8], ptr %33, i64 %68
   %69 = sext i32 %66 to i64
-  %invariant.gep211 = getelementptr float, ptr %33, i64 %69
+  %invariant.gep211 = getelementptr [4 x i8], ptr %33, i64 %69
   br label %77
 
 70:                                               ; preds = %77
@@ -589,14 +586,14 @@ define weak_odr void @_ZN3gmx20nbnxmSimdPruneKernelIL12KernelLayout0EEEvPNS_16Nb
 
 77:                                               ; preds = %.lr.ph177, %77
   %indvars.iv = phi i64 [ 0, %.lr.ph177 ], [ %indvars.iv.next, %77 ]
-  %gep = getelementptr float, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   %78 = load float, ptr %gep, align 4, !tbaa !23
   %.scalar = fadd float %57, %78
   %79 = insertelement <8 x float> poison, float %.scalar, i64 0
   %80 = shufflevector <8 x float> %79, <8 x float> poison, <8 x i32> zeroinitializer
-  %81 = getelementptr inbounds nuw %"struct.std::array.48", ptr %6, i64 %indvars.iv
+  %81 = getelementptr inbounds nuw [96 x i8], ptr %6, i64 %indvars.iv
   store <8 x float> %80, ptr %81, align 32, !tbaa !26
-  %gep210 = getelementptr float, ptr %invariant.gep209, i64 %indvars.iv
+  %gep210 = getelementptr [4 x i8], ptr %invariant.gep209, i64 %indvars.iv
   %82 = getelementptr i8, ptr %gep210, i64 32
   %83 = load float, ptr %82, align 4, !tbaa !23
   %.scalar204 = fadd float %59, %83
@@ -604,7 +601,7 @@ define weak_odr void @_ZN3gmx20nbnxmSimdPruneKernelIL12KernelLayout0EEEvPNS_16Nb
   %85 = shufflevector <8 x float> %84, <8 x float> poison, <8 x i32> zeroinitializer
   %86 = getelementptr inbounds nuw i8, ptr %81, i64 32
   store <8 x float> %85, ptr %86, align 32, !tbaa !26
-  %gep212 = getelementptr float, ptr %invariant.gep211, i64 %indvars.iv
+  %gep212 = getelementptr [4 x i8], ptr %invariant.gep211, i64 %indvars.iv
   %87 = getelementptr i8, ptr %gep212, i64 64
   %88 = load float, ptr %87, align 4, !tbaa !23
   %.scalar205 = fadd float %61, %88
@@ -624,11 +621,11 @@ define weak_odr void @_ZN3gmx20nbnxmSimdPruneKernelIL12KernelLayout0EEEvPNS_16Nb
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %127
   %indvars.iv197 = phi i64 [ %76, %.lr.ph.preheader ], [ %indvars.iv.next198, %127 ]
   %.1140172 = phi i32 [ %.0139174, %.lr.ph.preheader ], [ %spec.select, %127 ]
-  %93 = getelementptr inbounds %"struct.gmx::nbnxn_cj_t", ptr %30, i64 %indvars.iv197
+  %93 = getelementptr inbounds [8 x i8], ptr %30, i64 %indvars.iv197
   %94 = load i32, ptr %93, align 4, !tbaa !29
   %95 = mul nsw i32 %94, 24
   %96 = sext i32 %95 to i64
-  %97 = getelementptr float, ptr %33, i64 %96
+  %97 = getelementptr [4 x i8], ptr %33, i64 %96
   %.val150 = load <8 x float>, ptr %97, align 32, !tbaa !26
   %98 = getelementptr i8, ptr %97, i64 32
   %.val149 = load <8 x float>, ptr %98, align 32, !tbaa !26
@@ -643,10 +640,10 @@ define weak_odr void @_ZN3gmx20nbnxmSimdPruneKernelIL12KernelLayout0EEEvPNS_16Nb
 
 101:                                              ; preds = %.lr.ph, %101
   %indvars.iv182 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next183, %101 ]
-  %102 = getelementptr inbounds nuw %"struct.std::array.48", ptr %6, i64 %indvars.iv182
+  %102 = getelementptr inbounds nuw [96 x i8], ptr %6, i64 %indvars.iv182
   %.sroa.037.0.copyload = load <8 x float>, ptr %102, align 32, !tbaa !26
   %103 = fsub <8 x float> %.sroa.037.0.copyload, %.val150
-  %104 = getelementptr inbounds nuw %"struct.std::array.48", ptr %7, i64 %indvars.iv182
+  %104 = getelementptr inbounds nuw [96 x i8], ptr %7, i64 %indvars.iv182
   store <8 x float> %103, ptr %104, align 32, !tbaa !26
   %105 = getelementptr inbounds nuw i8, ptr %102, i64 32
   %.sroa.034.0.copyload = load <8 x float>, ptr %105, align 32, !tbaa !26
@@ -668,7 +665,7 @@ define weak_odr void @_ZN3gmx20nbnxmSimdPruneKernelIL12KernelLayout0EEEvPNS_16Nb
 
 112:                                              ; preds = %100, %112
   %indvars.iv186 = phi i64 [ 0, %100 ], [ %indvars.iv.next187, %112 ]
-  %113 = getelementptr inbounds nuw %"struct.std::array.48", ptr %7, i64 %indvars.iv186
+  %113 = getelementptr inbounds nuw [96 x i8], ptr %7, i64 %indvars.iv186
   %.sroa.022.0.copyload = load <8 x float>, ptr %113, align 32, !tbaa !26
   %114 = getelementptr inbounds nuw i8, ptr %113, i64 32
   %.sroa.021.0.copyload = load <8 x float>, ptr %114, align 32, !tbaa !26
@@ -679,7 +676,7 @@ define weak_odr void @_ZN3gmx20nbnxmSimdPruneKernelIL12KernelLayout0EEEvPNS_16Nb
   %118 = fadd <8 x float> %116, %117
   %119 = fmul <8 x float> %.sroa.020.0.copyload, %.sroa.020.0.copyload
   %120 = fadd <8 x float> %119, %118
-  %121 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %8, i64 %indvars.iv186
+  %121 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 %indvars.iv186
   store <8 x float> %120, ptr %121, align 32, !tbaa !26
   %indvars.iv.next187 = add nuw nsw i64 %indvars.iv186, 1
   %exitcond189.not = icmp eq i64 %indvars.iv.next187, 4
@@ -687,11 +684,11 @@ define weak_odr void @_ZN3gmx20nbnxmSimdPruneKernelIL12KernelLayout0EEEvPNS_16Nb
 
 122:                                              ; preds = %111, %122
   %indvars.iv190 = phi i64 [ 0, %111 ], [ %indvars.iv.next191, %122 ]
-  %123 = getelementptr inbounds nuw %"class.gmx::SimdFloat", ptr %8, i64 %indvars.iv190
+  %123 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 %indvars.iv190
   %.sroa.014.0.copyload = load <8 x float>, ptr %123, align 32, !tbaa !26
   %124 = fcmp olt <8 x float> %.sroa.014.0.copyload, %36
   %125 = sext <8 x i1> %124 to <8 x i32>
-  %126 = getelementptr inbounds nuw %"class.gmx::SimdFBool", ptr %9, i64 %indvars.iv190
+  %126 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 %indvars.iv190
   store <8 x i32> %125, ptr %126, align 32, !tbaa !26
   %indvars.iv.next191 = add nuw nsw i64 %indvars.iv190, 1
   %exitcond193.not = icmp eq i64 %indvars.iv.next191, 4
@@ -699,7 +696,7 @@ define weak_odr void @_ZN3gmx20nbnxmSimdPruneKernelIL12KernelLayout0EEEvPNS_16Nb
 
 127:                                              ; preds = %142
   %128 = sext i32 %.1140172 to i64
-  %129 = getelementptr inbounds %"struct.gmx::nbnxn_cj_t", ptr %31, i64 %128
+  %129 = getelementptr inbounds [8 x i8], ptr %31, i64 %128
   %130 = load i64, ptr %93, align 4
   store i64 %130, ptr %129, align 4
   %.sroa.0.0.copyload162 = load <8 x i32>, ptr %9, align 32, !tbaa !26
@@ -724,7 +721,7 @@ define weak_odr void @_ZN3gmx20nbnxmSimdPruneKernelIL12KernelLayout0EEEvPNS_16Nb
   %139 = shl nuw nsw i32 2, %.0144170
   %140 = zext nneg i32 %139 to i64
   %141 = zext nneg i32 %138 to i64
-  %invariant.gep213 = getelementptr inbounds nuw %"class.gmx::SimdFBool", ptr %9, i64 %141
+  %invariant.gep213 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 %141
   br label %143
 
 142:                                              ; preds = %143
@@ -732,9 +729,9 @@ define weak_odr void @_ZN3gmx20nbnxmSimdPruneKernelIL12KernelLayout0EEEvPNS_16Nb
 
 143:                                              ; preds = %.preheader, %143
   %indvars.iv194 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next195, %143 ]
-  %144 = getelementptr inbounds nuw %"class.gmx::SimdFBool", ptr %9, i64 %indvars.iv194
+  %144 = getelementptr inbounds nuw [32 x i8], ptr %9, i64 %indvars.iv194
   %.sroa.02.0.copyload163 = load <8 x i32>, ptr %144, align 32, !tbaa !26
-  %gep214 = getelementptr inbounds nuw %"class.gmx::SimdFBool", ptr %invariant.gep213, i64 %indvars.iv194
+  %gep214 = getelementptr inbounds nuw [32 x i8], ptr %invariant.gep213, i64 %indvars.iv194
   %.sroa.01.0.copyload164 = load <8 x i32>, ptr %gep214, align 32, !tbaa !26
   %145 = or <8 x i32> %.sroa.01.0.copyload164, %.sroa.02.0.copyload163
   store <8 x i32> %145, ptr %144, align 32, !tbaa !26

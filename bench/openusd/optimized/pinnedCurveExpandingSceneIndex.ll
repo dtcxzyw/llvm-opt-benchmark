@@ -83,112 +83,71 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray.106" = type { %"class.pxrInternal_v0_24__pxrReserved__::Vt_ArrayBase", ptr }
-%"class.pxrInternal_v0_24__pxrReserved__::GfVec4i" = type { [4 x i32] }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray<pxrInternal_v0_24__pxrReserved__::GfVec4i>::_Streamer" = type { ptr }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray.119" = type { %"class.pxrInternal_v0_24__pxrReserved__::Vt_ArrayBase", ptr }
-%"class.pxrInternal_v0_24__pxrReserved__::GfVec3i" = type { [3 x i32] }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray<pxrInternal_v0_24__pxrReserved__::GfVec3i>::_Streamer" = type { ptr }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray.134" = type { %"class.pxrInternal_v0_24__pxrReserved__::Vt_ArrayBase", ptr }
-%"class.pxrInternal_v0_24__pxrReserved__::GfVec2i" = type { [2 x i32] }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray<pxrInternal_v0_24__pxrReserved__::GfVec2i>::_Streamer" = type { ptr }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray.149" = type { %"class.pxrInternal_v0_24__pxrReserved__::Vt_ArrayBase", ptr }
-%"class.pxrInternal_v0_24__pxrReserved__::GfVec4h" = type { [4 x %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half"] }
-%"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half" = type { i16 }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray<pxrInternal_v0_24__pxrReserved__::GfVec4h>::_Streamer" = type { ptr }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray.164" = type { %"class.pxrInternal_v0_24__pxrReserved__::Vt_ArrayBase", ptr }
-%"class.pxrInternal_v0_24__pxrReserved__::GfVec3h" = type { [3 x %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half"] }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray<pxrInternal_v0_24__pxrReserved__::GfVec3h>::_Streamer" = type { ptr }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray.179" = type { %"class.pxrInternal_v0_24__pxrReserved__::Vt_ArrayBase", ptr }
-%"class.pxrInternal_v0_24__pxrReserved__::GfVec2h" = type { [2 x %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half"] }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray<pxrInternal_v0_24__pxrReserved__::GfVec2h>::_Streamer" = type { ptr }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray.194" = type { %"class.pxrInternal_v0_24__pxrReserved__::Vt_ArrayBase", ptr }
-%"class.pxrInternal_v0_24__pxrReserved__::GfVec4f" = type { [4 x float] }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray<pxrInternal_v0_24__pxrReserved__::GfVec4f>::_Streamer" = type { ptr }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray.209" = type { %"class.pxrInternal_v0_24__pxrReserved__::Vt_ArrayBase", ptr }
-%"class.pxrInternal_v0_24__pxrReserved__::GfVec3f" = type { [3 x float] }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray<pxrInternal_v0_24__pxrReserved__::GfVec3f>::_Streamer" = type { ptr }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray.224" = type { %"class.pxrInternal_v0_24__pxrReserved__::Vt_ArrayBase", ptr }
-%"class.pxrInternal_v0_24__pxrReserved__::GfVec2f" = type { [2 x float] }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray<pxrInternal_v0_24__pxrReserved__::GfVec2f>::_Streamer" = type { ptr }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray.239" = type { %"class.pxrInternal_v0_24__pxrReserved__::Vt_ArrayBase", ptr }
-%"class.pxrInternal_v0_24__pxrReserved__::GfVec4d" = type { [4 x double] }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray<pxrInternal_v0_24__pxrReserved__::GfVec4d>::_Streamer" = type { ptr }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray.254" = type { %"class.pxrInternal_v0_24__pxrReserved__::Vt_ArrayBase", ptr }
-%"class.pxrInternal_v0_24__pxrReserved__::GfVec3d" = type { [3 x double] }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray<pxrInternal_v0_24__pxrReserved__::GfVec3d>::_Streamer" = type { ptr }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray.269" = type { %"class.pxrInternal_v0_24__pxrReserved__::Vt_ArrayBase", ptr }
-%"class.pxrInternal_v0_24__pxrReserved__::GfVec2d" = type { [2 x double] }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray<pxrInternal_v0_24__pxrReserved__::GfVec2d>::_Streamer" = type { ptr }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray.284" = type { %"class.pxrInternal_v0_24__pxrReserved__::Vt_ArrayBase", ptr }
-%"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4f" = type { %"class.pxrInternal_v0_24__pxrReserved__::GfMatrixData" }
-%"class.pxrInternal_v0_24__pxrReserved__::GfMatrixData" = type { [16 x float] }
 %"class.pxrInternal_v0_24__pxrReserved__::TfHash" = type { i8 }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray<pxrInternal_v0_24__pxrReserved__::GfMatrix4f>::_Streamer" = type { ptr }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray.299" = type { %"class.pxrInternal_v0_24__pxrReserved__::Vt_ArrayBase", ptr }
-%"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3f" = type { %"class.pxrInternal_v0_24__pxrReserved__::GfMatrixData.311" }
-%"class.pxrInternal_v0_24__pxrReserved__::GfMatrixData.311" = type { [9 x float] }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray<pxrInternal_v0_24__pxrReserved__::GfMatrix3f>::_Streamer" = type { ptr }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray.315" = type { %"class.pxrInternal_v0_24__pxrReserved__::Vt_ArrayBase", ptr }
-%"class.pxrInternal_v0_24__pxrReserved__::GfMatrix2f" = type { %"class.pxrInternal_v0_24__pxrReserved__::GfMatrixData.327" }
-%"class.pxrInternal_v0_24__pxrReserved__::GfMatrixData.327" = type { [4 x float] }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray<pxrInternal_v0_24__pxrReserved__::GfMatrix2f>::_Streamer" = type { ptr }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray.331" = type { %"class.pxrInternal_v0_24__pxrReserved__::Vt_ArrayBase", ptr }
-%"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d" = type { %"class.pxrInternal_v0_24__pxrReserved__::GfMatrixData.343" }
-%"class.pxrInternal_v0_24__pxrReserved__::GfMatrixData.343" = type { [16 x double] }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray<pxrInternal_v0_24__pxrReserved__::GfMatrix4d>::_Streamer" = type { ptr }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray.347" = type { %"class.pxrInternal_v0_24__pxrReserved__::Vt_ArrayBase", ptr }
-%"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3d" = type { %"class.pxrInternal_v0_24__pxrReserved__::GfMatrixData.359" }
-%"class.pxrInternal_v0_24__pxrReserved__::GfMatrixData.359" = type { [9 x double] }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray<pxrInternal_v0_24__pxrReserved__::GfMatrix3d>::_Streamer" = type { ptr }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray.363" = type { %"class.pxrInternal_v0_24__pxrReserved__::Vt_ArrayBase", ptr }
-%"class.pxrInternal_v0_24__pxrReserved__::GfMatrix2d" = type { %"class.pxrInternal_v0_24__pxrReserved__::GfMatrixData.375" }
-%"class.pxrInternal_v0_24__pxrReserved__::GfMatrixData.375" = type { [4 x double] }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray<pxrInternal_v0_24__pxrReserved__::GfMatrix2d>::_Streamer" = type { ptr }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray.379" = type { %"class.pxrInternal_v0_24__pxrReserved__::Vt_ArrayBase", ptr }
-%"class.pxrInternal_v0_24__pxrReserved__::GfRange3f" = type { %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f", %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f" }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray<pxrInternal_v0_24__pxrReserved__::GfRange3f>::_Streamer" = type { ptr }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray.394" = type { %"class.pxrInternal_v0_24__pxrReserved__::Vt_ArrayBase", ptr }
-%"class.pxrInternal_v0_24__pxrReserved__::GfRange3d" = type { %"class.pxrInternal_v0_24__pxrReserved__::GfVec3d", %"class.pxrInternal_v0_24__pxrReserved__::GfVec3d" }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray<pxrInternal_v0_24__pxrReserved__::GfRange3d>::_Streamer" = type { ptr }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray.409" = type { %"class.pxrInternal_v0_24__pxrReserved__::Vt_ArrayBase", ptr }
-%"class.pxrInternal_v0_24__pxrReserved__::GfRange2f" = type { %"class.pxrInternal_v0_24__pxrReserved__::GfVec2f", %"class.pxrInternal_v0_24__pxrReserved__::GfVec2f" }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray<pxrInternal_v0_24__pxrReserved__::GfRange2f>::_Streamer" = type { ptr }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray.424" = type { %"class.pxrInternal_v0_24__pxrReserved__::Vt_ArrayBase", ptr }
-%"class.pxrInternal_v0_24__pxrReserved__::GfRange2d" = type { %"class.pxrInternal_v0_24__pxrReserved__::GfVec2d", %"class.pxrInternal_v0_24__pxrReserved__::GfVec2d" }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray<pxrInternal_v0_24__pxrReserved__::GfRange2d>::_Streamer" = type { ptr }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray.439" = type { %"class.pxrInternal_v0_24__pxrReserved__::Vt_ArrayBase", ptr }
-%"class.pxrInternal_v0_24__pxrReserved__::GfRange1f" = type { float, float }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray<pxrInternal_v0_24__pxrReserved__::GfRange1f>::_Streamer" = type { ptr }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray.454" = type { %"class.pxrInternal_v0_24__pxrReserved__::Vt_ArrayBase", ptr }
-%"class.pxrInternal_v0_24__pxrReserved__::GfRange1d" = type { double, double }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray<pxrInternal_v0_24__pxrReserved__::GfRange1d>::_Streamer" = type { ptr }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray.469" = type { %"class.pxrInternal_v0_24__pxrReserved__::Vt_ArrayBase", ptr }
-%"class.pxrInternal_v0_24__pxrReserved__::GfInterval" = type { %"struct.pxrInternal_v0_24__pxrReserved__::GfInterval::_Bound", %"struct.pxrInternal_v0_24__pxrReserved__::GfInterval::_Bound" }
-%"struct.pxrInternal_v0_24__pxrReserved__::GfInterval::_Bound" = type <{ double, i8, [7 x i8] }>
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray<pxrInternal_v0_24__pxrReserved__::GfInterval>::_Streamer" = type { ptr }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray.484" = type { %"class.pxrInternal_v0_24__pxrReserved__::Vt_ArrayBase", ptr }
-%"class.pxrInternal_v0_24__pxrReserved__::GfRect2i" = type { %"class.pxrInternal_v0_24__pxrReserved__::GfVec2i", %"class.pxrInternal_v0_24__pxrReserved__::GfVec2i" }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray<pxrInternal_v0_24__pxrReserved__::GfRect2i>::_Streamer" = type { ptr }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray.499" = type { %"class.pxrInternal_v0_24__pxrReserved__::Vt_ArrayBase", ptr }
-%"class.pxrInternal_v0_24__pxrReserved__::GfQuath" = type { %"class.pxrInternal_v0_24__pxrReserved__::GfVec3h", %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half" }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray<pxrInternal_v0_24__pxrReserved__::GfQuath>::_Streamer" = type { ptr }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray.514" = type { %"class.pxrInternal_v0_24__pxrReserved__::Vt_ArrayBase", ptr }
-%"class.pxrInternal_v0_24__pxrReserved__::GfQuatf" = type { %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f", float }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray<pxrInternal_v0_24__pxrReserved__::GfQuatf>::_Streamer" = type { ptr }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray.529" = type { %"class.pxrInternal_v0_24__pxrReserved__::Vt_ArrayBase", ptr }
-%"class.pxrInternal_v0_24__pxrReserved__::GfQuatd" = type { %"class.pxrInternal_v0_24__pxrReserved__::GfVec3d", double }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray<pxrInternal_v0_24__pxrReserved__::GfQuatd>::_Streamer" = type { ptr }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray.544" = type { %"class.pxrInternal_v0_24__pxrReserved__::Vt_ArrayBase", ptr }
-%"class.pxrInternal_v0_24__pxrReserved__::GfQuaternion" = type { double, %"class.pxrInternal_v0_24__pxrReserved__::GfVec3d" }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray<pxrInternal_v0_24__pxrReserved__::GfQuaternion>::_Streamer" = type { ptr }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray.559" = type { %"class.pxrInternal_v0_24__pxrReserved__::Vt_ArrayBase", ptr }
-%"class.pxrInternal_v0_24__pxrReserved__::GfDualQuath" = type { %"class.pxrInternal_v0_24__pxrReserved__::GfQuath", %"class.pxrInternal_v0_24__pxrReserved__::GfQuath" }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray<pxrInternal_v0_24__pxrReserved__::GfDualQuath>::_Streamer" = type { ptr }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray.574" = type { %"class.pxrInternal_v0_24__pxrReserved__::Vt_ArrayBase", ptr }
-%"class.pxrInternal_v0_24__pxrReserved__::GfDualQuatf" = type { %"class.pxrInternal_v0_24__pxrReserved__::GfQuatf", %"class.pxrInternal_v0_24__pxrReserved__::GfQuatf" }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray<pxrInternal_v0_24__pxrReserved__::GfDualQuatf>::_Streamer" = type { ptr }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray.589" = type { %"class.pxrInternal_v0_24__pxrReserved__::Vt_ArrayBase", ptr }
-%"class.pxrInternal_v0_24__pxrReserved__::GfDualQuatd" = type { %"class.pxrInternal_v0_24__pxrReserved__::GfQuatd", %"class.pxrInternal_v0_24__pxrReserved__::GfQuatd" }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray<pxrInternal_v0_24__pxrReserved__::GfDualQuatd>::_Streamer" = type { ptr }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray.604" = type { %"class.pxrInternal_v0_24__pxrReserved__::Vt_ArrayBase", ptr }
 %"class.pxrInternal_v0_24__pxrReserved__::VtArray<bool>::_Streamer" = type { ptr }
@@ -4402,7 +4361,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_32HdPrimTypeTokens_Stati
   %219 = and i32 %217, 255
   %220 = lshr i32 %217, 8
   %221 = zext nneg i32 %219 to i64
-  %222 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %221
+  %222 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %221
   %223 = load ptr, ptr %222, align 8
   %224 = mul nuw nsw i32 %220, 24
   %225 = zext nneg i32 %224 to i64
@@ -5640,7 +5599,7 @@ define linkonce_odr void @_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev(ptr 
   %4 = and i32 %2, 255
   %5 = lshr i32 %2, 8
   %6 = zext nneg i32 %4 to i64
-  %7 = getelementptr inbounds nuw ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @_ZN32pxrInternal_v0_24__pxrReserved__8Sdf_PoolINS_15Sdf_PathPrimTagELj24ELj8ELj16384EE13_regionStartsE, i64 %6
   %8 = load ptr, ptr %7, align 8
   %9 = mul nuw nsw i32 %5, 24
   %10 = zext nneg i32 %9 to i64
@@ -11270,8 +11229,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit: ; preds = %22, %3
 
 .noexc35.us:                                      ; preds = %.noexc34.us
   %54 = mul nuw i64 %41, %.023.i.us
-  %55 = getelementptr i32, ptr %53, i64 %54
-  %56 = getelementptr i32, ptr %55, i64 %48
+  %55 = getelementptr [4 x i8], ptr %53, i64 %54
+  %56 = getelementptr [4 x i8], ptr %55, i64 %48
   %57 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiEixEm(ptr noundef nonnull align 8 dereferenceable(40) %1, i64 noundef %48)
           to label %.noexc36.us unwind label %.split.us
 
@@ -11280,12 +11239,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit: ; preds = %22, %3
           to label %.noexc37.us unwind label %.split.us
 
 .noexc37.us:                                      ; preds = %.noexc36.us
-  %59 = getelementptr inbounds i32, ptr %58, i64 %48
+  %59 = getelementptr inbounds [4 x i8], ptr %58, i64 %48
   %60 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %1)
           to label %.noexc38.us unwind label %.split.us
 
 .noexc38.us:                                      ; preds = %.noexc37.us
-  %61 = getelementptr inbounds i32, ptr %60, i64 %52
+  %61 = getelementptr inbounds [4 x i8], ptr %60, i64 %52
   %.not.i.i.i.i.i.i.us = icmp eq ptr %61, %59
   br i1 %.not.i.i.i.i.i.i.us, label %_ZSt4copyIPKiPiET0_T_S4_S3_.exit.i.us, label %62
 
@@ -11335,8 +11294,8 @@ _ZSt4copyIPKiPiET0_T_S4_S3_.exit.i.us:            ; preds = %62, %.noexc38.us
 
 .noexc36:                                         ; preds = %.noexc35
   %79 = mul i64 %41, %.023.i
-  %80 = getelementptr i32, ptr %77, i64 %79
-  %81 = getelementptr i32, ptr %80, i64 %72
+  %80 = getelementptr [4 x i8], ptr %77, i64 %79
+  %81 = getelementptr [4 x i8], ptr %80, i64 %72
   %82 = getelementptr inbounds i8, ptr %81, i64 %.idx.i.i.i
   %83 = load i32, ptr %78, align 4
   br label %.lr.ph.i.i.i.i.i
@@ -11353,12 +11312,12 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.i.loopexit:   ; preds = %.lr.ph.i.i.i.i.i
           to label %.noexc37 unwind label %.split
 
 .noexc37:                                         ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.i.loopexit
-  %86 = getelementptr inbounds i32, ptr %85, i64 %72
+  %86 = getelementptr inbounds [4 x i8], ptr %85, i64 %72
   %87 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %1)
           to label %.noexc38 unwind label %.split
 
 .noexc38:                                         ; preds = %.noexc37
-  %88 = getelementptr inbounds i32, ptr %87, i64 %76
+  %88 = getelementptr inbounds [4 x i8], ptr %87, i64 %76
   %89 = ptrtoint ptr %88 to i64
   %90 = ptrtoint ptr %86 to i64
   %91 = sub i64 %89, %90
@@ -23639,7 +23598,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i: ; preds = %109,
           to label %.noexc42.i unwind label %186
 
 .noexc42.i:                                       ; preds = %135
-  %141 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec4i", ptr %140, i64 %126
+  %141 = getelementptr inbounds [16 x i8], ptr %140, i64 %126
   %142 = icmp eq i64 %139, %119
   br i1 %142, label %143, label %162
 
@@ -23667,12 +23626,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec4iEmS1_ET_S3_T0_RKT1_.exit
           to label %.noexc44.i unwind label %186
 
 .noexc44.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec4iEmS1_ET_S3_T0_RKT1_.exit.i.i
-  %149 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec4i", ptr %148, i64 %123
+  %149 = getelementptr inbounds [16 x i8], ptr %148, i64 %123
   %150 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc45.i unwind label %186
 
 .noexc45.i:                                       ; preds = %.noexc44.i
-  %151 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec4i", ptr %150, i64 %136
+  %151 = getelementptr inbounds [16 x i8], ptr %150, i64 %136
   %152 = ptrtoint ptr %151 to i64
   %153 = ptrtoint ptr %149 to i64
   %154 = sub i64 %152, %153
@@ -23731,12 +23690,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec4iEmS1_ET_S3_T0_RKT1_.exit
           to label %.noexc48.i unwind label %186
 
 .noexc48.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec4iEmS1_ET_S3_T0_RKT1_.exit52.i.i
-  %171 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec4i", ptr %170, i64 %123
+  %171 = getelementptr inbounds [16 x i8], ptr %170, i64 %123
   %172 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc49.i unwind label %186
 
 .noexc49.i:                                       ; preds = %.noexc48.i
-  %173 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec4i", ptr %172, i64 %136
+  %173 = getelementptr inbounds [16 x i8], ptr %172, i64 %136
   %174 = ptrtoint ptr %173 to i64
   %175 = ptrtoint ptr %171 to i64
   %176 = sub i64 %174, %175
@@ -23938,8 +23897,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %21
 
 .noexc35.us.i:                                    ; preds = %.noexc34.us.i
   %240 = mul nuw i64 %.023.i.us.i, %227
-  %241 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfVec4i", ptr %239, i64 %240
-  %242 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfVec4i", ptr %241, i64 %234
+  %241 = getelementptr [16 x i8], ptr %239, i64 %240
+  %242 = getelementptr [16 x i8], ptr %241, i64 %234
   %243 = invoke noundef nonnull align 4 dereferenceable(16) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %11, i64 noundef %234)
           to label %.noexc36.us.i unwind label %.split.us.i
 
@@ -23948,12 +23907,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %21
           to label %.noexc37.us.i unwind label %.split.us.i
 
 .noexc37.us.i:                                    ; preds = %.noexc36.us.i
-  %245 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec4i", ptr %244, i64 %234
+  %245 = getelementptr inbounds [16 x i8], ptr %244, i64 %234
   %246 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.us.i unwind label %.split.us.i
 
 .noexc38.us.i:                                    ; preds = %.noexc37.us.i
-  %247 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec4i", ptr %246, i64 %238
+  %247 = getelementptr inbounds [16 x i8], ptr %246, i64 %238
   %.not.i.i.i.i.i.i.us.i = icmp eq ptr %247, %245
   br i1 %.not.i.i.i.i.i.i.us.i, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4iEPS1_ET0_T_S6_S5_.exit.i.us.i, label %248
 
@@ -24003,8 +23962,8 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4iEPS1_ET0_T_S6_S5_.exit.i.
 
 .noexc36.i:                                       ; preds = %.noexc35.i
   %265 = mul i64 %.023.i.i, %227
-  %266 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfVec4i", ptr %263, i64 %265
-  %267 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfVec4i", ptr %266, i64 %258
+  %266 = getelementptr [16 x i8], ptr %263, i64 %265
+  %267 = getelementptr [16 x i8], ptr %266, i64 %258
   %268 = getelementptr inbounds i8, ptr %267, i64 %.idx.i.i.i.i29
   br label %.lr.ph.i.i.i.i.i.i32
 
@@ -24020,12 +23979,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec4iEmS1_ET_S3_T0_RKT1_.exit
           to label %.noexc37.i unwind label %.split.i
 
 .noexc37.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec4iEmS1_ET_S3_T0_RKT1_.exit.i.loopexit.i
-  %271 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec4i", ptr %270, i64 %258
+  %271 = getelementptr inbounds [16 x i8], ptr %270, i64 %258
   %272 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4iEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.i unwind label %.split.i
 
 .noexc38.i:                                       ; preds = %.noexc37.i
-  %273 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec4i", ptr %272, i64 %262
+  %273 = getelementptr inbounds [16 x i8], ptr %272, i64 %262
   %274 = ptrtoint ptr %273 to i64
   %275 = ptrtoint ptr %271 to i64
   %276 = sub i64 %274, %275
@@ -25019,7 +24978,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i: ; preds = %109,
           to label %.noexc42.i unwind label %186
 
 .noexc42.i:                                       ; preds = %135
-  %141 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3i", ptr %140, i64 %126
+  %141 = getelementptr inbounds [12 x i8], ptr %140, i64 %126
   %142 = icmp eq i64 %139, %119
   br i1 %142, label %143, label %162
 
@@ -25047,12 +25006,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec3iEmS1_ET_S3_T0_RKT1_.exit
           to label %.noexc44.i unwind label %186
 
 .noexc44.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec3iEmS1_ET_S3_T0_RKT1_.exit.i.i
-  %149 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3i", ptr %148, i64 %123
+  %149 = getelementptr inbounds [12 x i8], ptr %148, i64 %123
   %150 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc45.i unwind label %186
 
 .noexc45.i:                                       ; preds = %.noexc44.i
-  %151 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3i", ptr %150, i64 %136
+  %151 = getelementptr inbounds [12 x i8], ptr %150, i64 %136
   %152 = ptrtoint ptr %151 to i64
   %153 = ptrtoint ptr %149 to i64
   %154 = sub i64 %152, %153
@@ -25111,12 +25070,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec3iEmS1_ET_S3_T0_RKT1_.exit
           to label %.noexc48.i unwind label %186
 
 .noexc48.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec3iEmS1_ET_S3_T0_RKT1_.exit52.i.i
-  %171 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3i", ptr %170, i64 %123
+  %171 = getelementptr inbounds [12 x i8], ptr %170, i64 %123
   %172 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc49.i unwind label %186
 
 .noexc49.i:                                       ; preds = %.noexc48.i
-  %173 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3i", ptr %172, i64 %136
+  %173 = getelementptr inbounds [12 x i8], ptr %172, i64 %136
   %174 = ptrtoint ptr %173 to i64
   %175 = ptrtoint ptr %171 to i64
   %176 = sub i64 %174, %175
@@ -25318,8 +25277,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %21
 
 .noexc35.us.i:                                    ; preds = %.noexc34.us.i
   %240 = mul nuw i64 %.023.i.us.i, %227
-  %241 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfVec3i", ptr %239, i64 %240
-  %242 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfVec3i", ptr %241, i64 %234
+  %241 = getelementptr [12 x i8], ptr %239, i64 %240
+  %242 = getelementptr [12 x i8], ptr %241, i64 %234
   %243 = invoke noundef nonnull align 4 dereferenceable(12) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %11, i64 noundef %234)
           to label %.noexc36.us.i unwind label %.split.us.i
 
@@ -25328,12 +25287,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %21
           to label %.noexc37.us.i unwind label %.split.us.i
 
 .noexc37.us.i:                                    ; preds = %.noexc36.us.i
-  %245 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3i", ptr %244, i64 %234
+  %245 = getelementptr inbounds [12 x i8], ptr %244, i64 %234
   %246 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.us.i unwind label %.split.us.i
 
 .noexc38.us.i:                                    ; preds = %.noexc37.us.i
-  %247 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3i", ptr %246, i64 %238
+  %247 = getelementptr inbounds [12 x i8], ptr %246, i64 %238
   %.not.i.i.i.i.i.i.us.i = icmp eq ptr %247, %245
   br i1 %.not.i.i.i.i.i.i.us.i, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3iEPS1_ET0_T_S6_S5_.exit.i.us.i, label %248
 
@@ -25383,8 +25342,8 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3iEPS1_ET0_T_S6_S5_.exit.i.
 
 .noexc36.i:                                       ; preds = %.noexc35.i
   %265 = mul i64 %.023.i.i, %227
-  %266 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfVec3i", ptr %263, i64 %265
-  %267 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfVec3i", ptr %266, i64 %258
+  %266 = getelementptr [12 x i8], ptr %263, i64 %265
+  %267 = getelementptr [12 x i8], ptr %266, i64 %258
   %268 = getelementptr inbounds i8, ptr %267, i64 %.idx.i.i.i.i29
   br label %.lr.ph.i.i.i.i.i.i32
 
@@ -25400,12 +25359,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec3iEmS1_ET_S3_T0_RKT1_.exit
           to label %.noexc37.i unwind label %.split.i
 
 .noexc37.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec3iEmS1_ET_S3_T0_RKT1_.exit.i.loopexit.i
-  %271 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3i", ptr %270, i64 %258
+  %271 = getelementptr inbounds [12 x i8], ptr %270, i64 %258
   %272 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3iEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.i unwind label %.split.i
 
 .noexc38.i:                                       ; preds = %.noexc37.i
-  %273 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3i", ptr %272, i64 %262
+  %273 = getelementptr inbounds [12 x i8], ptr %272, i64 %262
   %274 = ptrtoint ptr %273 to i64
   %275 = ptrtoint ptr %271 to i64
   %276 = sub i64 %274, %275
@@ -26334,7 +26293,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i: ; preds = %109,
           to label %.noexc42.i unwind label %190
 
 .noexc42.i:                                       ; preds = %135
-  %141 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2i", ptr %140, i64 %126
+  %141 = getelementptr inbounds [8 x i8], ptr %140, i64 %126
   %142 = icmp eq i64 %139, %119
   br i1 %142, label %143, label %164
 
@@ -26363,12 +26322,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec2iEmS1_ET_S3_T0_RKT1_.exit
           to label %.noexc44.i unwind label %190
 
 .noexc44.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec2iEmS1_ET_S3_T0_RKT1_.exit.i.i
-  %150 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2i", ptr %149, i64 %123
+  %150 = getelementptr inbounds [8 x i8], ptr %149, i64 %123
   %151 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc45.i unwind label %190
 
 .noexc45.i:                                       ; preds = %.noexc44.i
-  %152 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2i", ptr %151, i64 %136
+  %152 = getelementptr inbounds [8 x i8], ptr %151, i64 %136
   %153 = ptrtoint ptr %152 to i64
   %154 = ptrtoint ptr %150 to i64
   %155 = sub i64 %153, %154
@@ -26429,12 +26388,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec2iEmS1_ET_S3_T0_RKT1_.exit
           to label %.noexc48.i unwind label %190
 
 .noexc48.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec2iEmS1_ET_S3_T0_RKT1_.exit52.i.i
-  %174 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2i", ptr %173, i64 %123
+  %174 = getelementptr inbounds [8 x i8], ptr %173, i64 %123
   %175 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc49.i unwind label %190
 
 .noexc49.i:                                       ; preds = %.noexc48.i
-  %176 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2i", ptr %175, i64 %136
+  %176 = getelementptr inbounds [8 x i8], ptr %175, i64 %136
   %177 = ptrtoint ptr %176 to i64
   %178 = ptrtoint ptr %174 to i64
   %179 = sub i64 %177, %178
@@ -26637,8 +26596,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %22
 
 .noexc35.us.i:                                    ; preds = %.noexc34.us.i
   %244 = mul nuw i64 %.023.i.us.i, %231
-  %245 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfVec2i", ptr %243, i64 %244
-  %246 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfVec2i", ptr %245, i64 %238
+  %245 = getelementptr [8 x i8], ptr %243, i64 %244
+  %246 = getelementptr [8 x i8], ptr %245, i64 %238
   %247 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %11, i64 noundef %238)
           to label %.noexc36.us.i unwind label %.split.us.i
 
@@ -26647,12 +26606,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %22
           to label %.noexc37.us.i unwind label %.split.us.i
 
 .noexc37.us.i:                                    ; preds = %.noexc36.us.i
-  %249 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2i", ptr %248, i64 %238
+  %249 = getelementptr inbounds [8 x i8], ptr %248, i64 %238
   %250 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.us.i unwind label %.split.us.i
 
 .noexc38.us.i:                                    ; preds = %.noexc37.us.i
-  %251 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2i", ptr %250, i64 %242
+  %251 = getelementptr inbounds [8 x i8], ptr %250, i64 %242
   %.not.i.i.i.i.i.i.us.i = icmp eq ptr %251, %249
   br i1 %.not.i.i.i.i.i.i.us.i, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2iEPS1_ET0_T_S6_S5_.exit.i.us.i, label %252
 
@@ -26702,8 +26661,8 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2iEPS1_ET0_T_S6_S5_.exit.i.
 
 .noexc36.i:                                       ; preds = %.noexc35.i
   %269 = mul i64 %.023.i.i, %231
-  %270 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfVec2i", ptr %267, i64 %269
-  %271 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfVec2i", ptr %270, i64 %262
+  %270 = getelementptr [8 x i8], ptr %267, i64 %269
+  %271 = getelementptr [8 x i8], ptr %270, i64 %262
   %272 = getelementptr inbounds i8, ptr %271, i64 %.idx.i.i.i.i29
   br label %.lr.ph.i.i.i.i.i.i32
 
@@ -26720,12 +26679,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec2iEmS1_ET_S3_T0_RKT1_.exit
           to label %.noexc37.i unwind label %.split.i
 
 .noexc37.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec2iEmS1_ET_S3_T0_RKT1_.exit.i.loopexit.i
-  %276 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2i", ptr %275, i64 %262
+  %276 = getelementptr inbounds [8 x i8], ptr %275, i64 %262
   %277 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2iEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.i unwind label %.split.i
 
 .noexc38.i:                                       ; preds = %.noexc37.i
-  %278 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2i", ptr %277, i64 %266
+  %278 = getelementptr inbounds [8 x i8], ptr %277, i64 %266
   %279 = ptrtoint ptr %278 to i64
   %280 = ptrtoint ptr %276 to i64
   %281 = sub i64 %279, %280
@@ -27647,7 +27606,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i: ; preds = %109,
           to label %.noexc42.i unwind label %190
 
 .noexc42.i:                                       ; preds = %135
-  %141 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec4h", ptr %140, i64 %126
+  %141 = getelementptr inbounds [8 x i8], ptr %140, i64 %126
   %142 = icmp eq i64 %139, %119
   br i1 %142, label %143, label %164
 
@@ -27676,12 +27635,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec4hEmS1_ET_S3_T0_RKT1_.exit
           to label %.noexc44.i unwind label %190
 
 .noexc44.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec4hEmS1_ET_S3_T0_RKT1_.exit.i.i
-  %150 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec4h", ptr %149, i64 %123
+  %150 = getelementptr inbounds [8 x i8], ptr %149, i64 %123
   %151 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc45.i unwind label %190
 
 .noexc45.i:                                       ; preds = %.noexc44.i
-  %152 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec4h", ptr %151, i64 %136
+  %152 = getelementptr inbounds [8 x i8], ptr %151, i64 %136
   %153 = ptrtoint ptr %152 to i64
   %154 = ptrtoint ptr %150 to i64
   %155 = sub i64 %153, %154
@@ -27742,12 +27701,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec4hEmS1_ET_S3_T0_RKT1_.exit
           to label %.noexc48.i unwind label %190
 
 .noexc48.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec4hEmS1_ET_S3_T0_RKT1_.exit52.i.i
-  %174 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec4h", ptr %173, i64 %123
+  %174 = getelementptr inbounds [8 x i8], ptr %173, i64 %123
   %175 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc49.i unwind label %190
 
 .noexc49.i:                                       ; preds = %.noexc48.i
-  %176 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec4h", ptr %175, i64 %136
+  %176 = getelementptr inbounds [8 x i8], ptr %175, i64 %136
   %177 = ptrtoint ptr %176 to i64
   %178 = ptrtoint ptr %174 to i64
   %179 = sub i64 %177, %178
@@ -27950,8 +27909,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %22
 
 .noexc35.us.i:                                    ; preds = %.noexc34.us.i
   %244 = mul nuw i64 %.023.i.us.i, %231
-  %245 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfVec4h", ptr %243, i64 %244
-  %246 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfVec4h", ptr %245, i64 %238
+  %245 = getelementptr [8 x i8], ptr %243, i64 %244
+  %246 = getelementptr [8 x i8], ptr %245, i64 %238
   %247 = invoke noundef nonnull align 2 dereferenceable(8) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %11, i64 noundef %238)
           to label %.noexc36.us.i unwind label %.split.us.i
 
@@ -27960,12 +27919,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %22
           to label %.noexc37.us.i unwind label %.split.us.i
 
 .noexc37.us.i:                                    ; preds = %.noexc36.us.i
-  %249 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec4h", ptr %248, i64 %238
+  %249 = getelementptr inbounds [8 x i8], ptr %248, i64 %238
   %250 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.us.i unwind label %.split.us.i
 
 .noexc38.us.i:                                    ; preds = %.noexc37.us.i
-  %251 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec4h", ptr %250, i64 %242
+  %251 = getelementptr inbounds [8 x i8], ptr %250, i64 %242
   %.not.i.i.i.i.i.i.us.i = icmp eq ptr %251, %249
   br i1 %.not.i.i.i.i.i.i.us.i, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4hEPS1_ET0_T_S6_S5_.exit.i.us.i, label %252
 
@@ -28015,8 +27974,8 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4hEPS1_ET0_T_S6_S5_.exit.i.
 
 .noexc36.i:                                       ; preds = %.noexc35.i
   %269 = mul i64 %.023.i.i, %231
-  %270 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfVec4h", ptr %267, i64 %269
-  %271 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfVec4h", ptr %270, i64 %262
+  %270 = getelementptr [8 x i8], ptr %267, i64 %269
+  %271 = getelementptr [8 x i8], ptr %270, i64 %262
   %272 = getelementptr inbounds i8, ptr %271, i64 %.idx.i.i.i.i29
   br label %.lr.ph.i.i.i.i.i.i32
 
@@ -28033,12 +27992,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec4hEmS1_ET_S3_T0_RKT1_.exit
           to label %.noexc37.i unwind label %.split.i
 
 .noexc37.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec4hEmS1_ET_S3_T0_RKT1_.exit.i.loopexit.i
-  %276 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec4h", ptr %275, i64 %262
+  %276 = getelementptr inbounds [8 x i8], ptr %275, i64 %262
   %277 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4hEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.i unwind label %.split.i
 
 .noexc38.i:                                       ; preds = %.noexc37.i
-  %278 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec4h", ptr %277, i64 %266
+  %278 = getelementptr inbounds [8 x i8], ptr %277, i64 %266
   %279 = ptrtoint ptr %278 to i64
   %280 = ptrtoint ptr %276 to i64
   %281 = sub i64 %279, %280
@@ -29029,7 +28988,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i: ; preds = %109,
           to label %.noexc42.i unwind label %186
 
 .noexc42.i:                                       ; preds = %135
-  %141 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3h", ptr %140, i64 %126
+  %141 = getelementptr inbounds [6 x i8], ptr %140, i64 %126
   %142 = icmp eq i64 %139, %119
   br i1 %142, label %143, label %162
 
@@ -29057,12 +29016,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec3hEmS1_ET_S3_T0_RKT1_.exit
           to label %.noexc44.i unwind label %186
 
 .noexc44.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec3hEmS1_ET_S3_T0_RKT1_.exit.i.i
-  %149 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3h", ptr %148, i64 %123
+  %149 = getelementptr inbounds [6 x i8], ptr %148, i64 %123
   %150 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc45.i unwind label %186
 
 .noexc45.i:                                       ; preds = %.noexc44.i
-  %151 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3h", ptr %150, i64 %136
+  %151 = getelementptr inbounds [6 x i8], ptr %150, i64 %136
   %152 = ptrtoint ptr %151 to i64
   %153 = ptrtoint ptr %149 to i64
   %154 = sub i64 %152, %153
@@ -29121,12 +29080,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec3hEmS1_ET_S3_T0_RKT1_.exit
           to label %.noexc48.i unwind label %186
 
 .noexc48.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec3hEmS1_ET_S3_T0_RKT1_.exit52.i.i
-  %171 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3h", ptr %170, i64 %123
+  %171 = getelementptr inbounds [6 x i8], ptr %170, i64 %123
   %172 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc49.i unwind label %186
 
 .noexc49.i:                                       ; preds = %.noexc48.i
-  %173 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3h", ptr %172, i64 %136
+  %173 = getelementptr inbounds [6 x i8], ptr %172, i64 %136
   %174 = ptrtoint ptr %173 to i64
   %175 = ptrtoint ptr %171 to i64
   %176 = sub i64 %174, %175
@@ -29328,8 +29287,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %21
 
 .noexc35.us.i:                                    ; preds = %.noexc34.us.i
   %240 = mul nuw i64 %.023.i.us.i, %227
-  %241 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfVec3h", ptr %239, i64 %240
-  %242 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfVec3h", ptr %241, i64 %234
+  %241 = getelementptr [6 x i8], ptr %239, i64 %240
+  %242 = getelementptr [6 x i8], ptr %241, i64 %234
   %243 = invoke noundef nonnull align 2 dereferenceable(6) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %11, i64 noundef %234)
           to label %.noexc36.us.i unwind label %.split.us.i
 
@@ -29338,12 +29297,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %21
           to label %.noexc37.us.i unwind label %.split.us.i
 
 .noexc37.us.i:                                    ; preds = %.noexc36.us.i
-  %245 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3h", ptr %244, i64 %234
+  %245 = getelementptr inbounds [6 x i8], ptr %244, i64 %234
   %246 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.us.i unwind label %.split.us.i
 
 .noexc38.us.i:                                    ; preds = %.noexc37.us.i
-  %247 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3h", ptr %246, i64 %238
+  %247 = getelementptr inbounds [6 x i8], ptr %246, i64 %238
   %.not.i.i.i.i.i.i.us.i = icmp eq ptr %247, %245
   br i1 %.not.i.i.i.i.i.i.us.i, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3hEPS1_ET0_T_S6_S5_.exit.i.us.i, label %248
 
@@ -29393,8 +29352,8 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3hEPS1_ET0_T_S6_S5_.exit.i.
 
 .noexc36.i:                                       ; preds = %.noexc35.i
   %265 = mul i64 %.023.i.i, %227
-  %266 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfVec3h", ptr %263, i64 %265
-  %267 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfVec3h", ptr %266, i64 %258
+  %266 = getelementptr [6 x i8], ptr %263, i64 %265
+  %267 = getelementptr [6 x i8], ptr %266, i64 %258
   %268 = getelementptr inbounds i8, ptr %267, i64 %.idx.i.i.i.i29
   br label %.lr.ph.i.i.i.i.i.i32
 
@@ -29410,12 +29369,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec3hEmS1_ET_S3_T0_RKT1_.exit
           to label %.noexc37.i unwind label %.split.i
 
 .noexc37.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec3hEmS1_ET_S3_T0_RKT1_.exit.i.loopexit.i
-  %271 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3h", ptr %270, i64 %258
+  %271 = getelementptr inbounds [6 x i8], ptr %270, i64 %258
   %272 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3hEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.i unwind label %.split.i
 
 .noexc38.i:                                       ; preds = %.noexc37.i
-  %273 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3h", ptr %272, i64 %262
+  %273 = getelementptr inbounds [6 x i8], ptr %272, i64 %262
   %274 = ptrtoint ptr %273 to i64
   %275 = ptrtoint ptr %271 to i64
   %276 = sub i64 %274, %275
@@ -30344,7 +30303,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i: ; preds = %109,
           to label %.noexc42.i unwind label %190
 
 .noexc42.i:                                       ; preds = %135
-  %141 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2h", ptr %140, i64 %126
+  %141 = getelementptr inbounds [4 x i8], ptr %140, i64 %126
   %142 = icmp eq i64 %139, %119
   br i1 %142, label %143, label %164
 
@@ -30373,12 +30332,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec2hEmS1_ET_S3_T0_RKT1_.exit
           to label %.noexc44.i unwind label %190
 
 .noexc44.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec2hEmS1_ET_S3_T0_RKT1_.exit.i.i
-  %150 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2h", ptr %149, i64 %123
+  %150 = getelementptr inbounds [4 x i8], ptr %149, i64 %123
   %151 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc45.i unwind label %190
 
 .noexc45.i:                                       ; preds = %.noexc44.i
-  %152 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2h", ptr %151, i64 %136
+  %152 = getelementptr inbounds [4 x i8], ptr %151, i64 %136
   %153 = ptrtoint ptr %152 to i64
   %154 = ptrtoint ptr %150 to i64
   %155 = sub i64 %153, %154
@@ -30439,12 +30398,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec2hEmS1_ET_S3_T0_RKT1_.exit
           to label %.noexc48.i unwind label %190
 
 .noexc48.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec2hEmS1_ET_S3_T0_RKT1_.exit52.i.i
-  %174 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2h", ptr %173, i64 %123
+  %174 = getelementptr inbounds [4 x i8], ptr %173, i64 %123
   %175 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc49.i unwind label %190
 
 .noexc49.i:                                       ; preds = %.noexc48.i
-  %176 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2h", ptr %175, i64 %136
+  %176 = getelementptr inbounds [4 x i8], ptr %175, i64 %136
   %177 = ptrtoint ptr %176 to i64
   %178 = ptrtoint ptr %174 to i64
   %179 = sub i64 %177, %178
@@ -30647,8 +30606,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %22
 
 .noexc35.us.i:                                    ; preds = %.noexc34.us.i
   %244 = mul nuw i64 %.023.i.us.i, %231
-  %245 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfVec2h", ptr %243, i64 %244
-  %246 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfVec2h", ptr %245, i64 %238
+  %245 = getelementptr [4 x i8], ptr %243, i64 %244
+  %246 = getelementptr [4 x i8], ptr %245, i64 %238
   %247 = invoke noundef nonnull align 2 dereferenceable(4) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %11, i64 noundef %238)
           to label %.noexc36.us.i unwind label %.split.us.i
 
@@ -30657,12 +30616,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %22
           to label %.noexc37.us.i unwind label %.split.us.i
 
 .noexc37.us.i:                                    ; preds = %.noexc36.us.i
-  %249 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2h", ptr %248, i64 %238
+  %249 = getelementptr inbounds [4 x i8], ptr %248, i64 %238
   %250 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.us.i unwind label %.split.us.i
 
 .noexc38.us.i:                                    ; preds = %.noexc37.us.i
-  %251 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2h", ptr %250, i64 %242
+  %251 = getelementptr inbounds [4 x i8], ptr %250, i64 %242
   %.not.i.i.i.i.i.i.us.i = icmp eq ptr %251, %249
   br i1 %.not.i.i.i.i.i.i.us.i, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2hEPS1_ET0_T_S6_S5_.exit.i.us.i, label %252
 
@@ -30712,8 +30671,8 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2hEPS1_ET0_T_S6_S5_.exit.i.
 
 .noexc36.i:                                       ; preds = %.noexc35.i
   %269 = mul i64 %.023.i.i, %231
-  %270 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfVec2h", ptr %267, i64 %269
-  %271 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfVec2h", ptr %270, i64 %262
+  %270 = getelementptr [4 x i8], ptr %267, i64 %269
+  %271 = getelementptr [4 x i8], ptr %270, i64 %262
   %272 = getelementptr inbounds i8, ptr %271, i64 %.idx.i.i.i.i29
   br label %.lr.ph.i.i.i.i.i.i32
 
@@ -30730,12 +30689,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec2hEmS1_ET_S3_T0_RKT1_.exit
           to label %.noexc37.i unwind label %.split.i
 
 .noexc37.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec2hEmS1_ET_S3_T0_RKT1_.exit.i.loopexit.i
-  %276 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2h", ptr %275, i64 %262
+  %276 = getelementptr inbounds [4 x i8], ptr %275, i64 %262
   %277 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2hEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.i unwind label %.split.i
 
 .noexc38.i:                                       ; preds = %.noexc37.i
-  %278 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2h", ptr %277, i64 %266
+  %278 = getelementptr inbounds [4 x i8], ptr %277, i64 %266
   %279 = ptrtoint ptr %278 to i64
   %280 = ptrtoint ptr %276 to i64
   %281 = sub i64 %279, %280
@@ -31657,7 +31616,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i: ; preds = %109,
           to label %.noexc42.i unwind label %186
 
 .noexc42.i:                                       ; preds = %135
-  %141 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec4f", ptr %140, i64 %126
+  %141 = getelementptr inbounds [16 x i8], ptr %140, i64 %126
   %142 = icmp eq i64 %139, %119
   br i1 %142, label %143, label %162
 
@@ -31685,12 +31644,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec4fEmS1_ET_S3_T0_RKT1_.exit
           to label %.noexc44.i unwind label %186
 
 .noexc44.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec4fEmS1_ET_S3_T0_RKT1_.exit.i.i
-  %149 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec4f", ptr %148, i64 %123
+  %149 = getelementptr inbounds [16 x i8], ptr %148, i64 %123
   %150 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc45.i unwind label %186
 
 .noexc45.i:                                       ; preds = %.noexc44.i
-  %151 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec4f", ptr %150, i64 %136
+  %151 = getelementptr inbounds [16 x i8], ptr %150, i64 %136
   %152 = ptrtoint ptr %151 to i64
   %153 = ptrtoint ptr %149 to i64
   %154 = sub i64 %152, %153
@@ -31749,12 +31708,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec4fEmS1_ET_S3_T0_RKT1_.exit
           to label %.noexc48.i unwind label %186
 
 .noexc48.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec4fEmS1_ET_S3_T0_RKT1_.exit52.i.i
-  %171 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec4f", ptr %170, i64 %123
+  %171 = getelementptr inbounds [16 x i8], ptr %170, i64 %123
   %172 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc49.i unwind label %186
 
 .noexc49.i:                                       ; preds = %.noexc48.i
-  %173 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec4f", ptr %172, i64 %136
+  %173 = getelementptr inbounds [16 x i8], ptr %172, i64 %136
   %174 = ptrtoint ptr %173 to i64
   %175 = ptrtoint ptr %171 to i64
   %176 = sub i64 %174, %175
@@ -31956,8 +31915,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %21
 
 .noexc35.us.i:                                    ; preds = %.noexc34.us.i
   %240 = mul nuw i64 %.023.i.us.i, %227
-  %241 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfVec4f", ptr %239, i64 %240
-  %242 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfVec4f", ptr %241, i64 %234
+  %241 = getelementptr [16 x i8], ptr %239, i64 %240
+  %242 = getelementptr [16 x i8], ptr %241, i64 %234
   %243 = invoke noundef nonnull align 4 dereferenceable(16) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %11, i64 noundef %234)
           to label %.noexc36.us.i unwind label %.split.us.i
 
@@ -31966,12 +31925,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %21
           to label %.noexc37.us.i unwind label %.split.us.i
 
 .noexc37.us.i:                                    ; preds = %.noexc36.us.i
-  %245 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec4f", ptr %244, i64 %234
+  %245 = getelementptr inbounds [16 x i8], ptr %244, i64 %234
   %246 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.us.i unwind label %.split.us.i
 
 .noexc38.us.i:                                    ; preds = %.noexc37.us.i
-  %247 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec4f", ptr %246, i64 %238
+  %247 = getelementptr inbounds [16 x i8], ptr %246, i64 %238
   %.not.i.i.i.i.i.i.us.i = icmp eq ptr %247, %245
   br i1 %.not.i.i.i.i.i.i.us.i, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4fEPS1_ET0_T_S6_S5_.exit.i.us.i, label %248
 
@@ -32021,8 +31980,8 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4fEPS1_ET0_T_S6_S5_.exit.i.
 
 .noexc36.i:                                       ; preds = %.noexc35.i
   %265 = mul i64 %.023.i.i, %227
-  %266 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfVec4f", ptr %263, i64 %265
-  %267 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfVec4f", ptr %266, i64 %258
+  %266 = getelementptr [16 x i8], ptr %263, i64 %265
+  %267 = getelementptr [16 x i8], ptr %266, i64 %258
   %268 = getelementptr inbounds i8, ptr %267, i64 %.idx.i.i.i.i29
   br label %.lr.ph.i.i.i.i.i.i32
 
@@ -32038,12 +31997,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec4fEmS1_ET_S3_T0_RKT1_.exit
           to label %.noexc37.i unwind label %.split.i
 
 .noexc37.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec4fEmS1_ET_S3_T0_RKT1_.exit.i.loopexit.i
-  %271 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec4f", ptr %270, i64 %258
+  %271 = getelementptr inbounds [16 x i8], ptr %270, i64 %258
   %272 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4fEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.i unwind label %.split.i
 
 .noexc38.i:                                       ; preds = %.noexc37.i
-  %273 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec4f", ptr %272, i64 %262
+  %273 = getelementptr inbounds [16 x i8], ptr %272, i64 %262
   %274 = ptrtoint ptr %273 to i64
   %275 = ptrtoint ptr %271 to i64
   %276 = sub i64 %274, %275
@@ -33045,7 +33004,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i: ; preds = %109,
           to label %.noexc42.i unwind label %186
 
 .noexc42.i:                                       ; preds = %135
-  %141 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f", ptr %140, i64 %126
+  %141 = getelementptr inbounds [12 x i8], ptr %140, i64 %126
   %142 = icmp eq i64 %139, %119
   br i1 %142, label %143, label %162
 
@@ -33073,12 +33032,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec3fEmS1_ET_S3_T0_RKT1_.exit
           to label %.noexc44.i unwind label %186
 
 .noexc44.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec3fEmS1_ET_S3_T0_RKT1_.exit.i.i
-  %149 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f", ptr %148, i64 %123
+  %149 = getelementptr inbounds [12 x i8], ptr %148, i64 %123
   %150 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc45.i unwind label %186
 
 .noexc45.i:                                       ; preds = %.noexc44.i
-  %151 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f", ptr %150, i64 %136
+  %151 = getelementptr inbounds [12 x i8], ptr %150, i64 %136
   %152 = ptrtoint ptr %151 to i64
   %153 = ptrtoint ptr %149 to i64
   %154 = sub i64 %152, %153
@@ -33137,12 +33096,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec3fEmS1_ET_S3_T0_RKT1_.exit
           to label %.noexc48.i unwind label %186
 
 .noexc48.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec3fEmS1_ET_S3_T0_RKT1_.exit52.i.i
-  %171 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f", ptr %170, i64 %123
+  %171 = getelementptr inbounds [12 x i8], ptr %170, i64 %123
   %172 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc49.i unwind label %186
 
 .noexc49.i:                                       ; preds = %.noexc48.i
-  %173 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f", ptr %172, i64 %136
+  %173 = getelementptr inbounds [12 x i8], ptr %172, i64 %136
   %174 = ptrtoint ptr %173 to i64
   %175 = ptrtoint ptr %171 to i64
   %176 = sub i64 %174, %175
@@ -33344,8 +33303,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %21
 
 .noexc35.us.i:                                    ; preds = %.noexc34.us.i
   %240 = mul nuw i64 %.023.i.us.i, %227
-  %241 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f", ptr %239, i64 %240
-  %242 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f", ptr %241, i64 %234
+  %241 = getelementptr [12 x i8], ptr %239, i64 %240
+  %242 = getelementptr [12 x i8], ptr %241, i64 %234
   %243 = invoke noundef nonnull align 4 dereferenceable(12) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %11, i64 noundef %234)
           to label %.noexc36.us.i unwind label %.split.us.i
 
@@ -33354,12 +33313,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %21
           to label %.noexc37.us.i unwind label %.split.us.i
 
 .noexc37.us.i:                                    ; preds = %.noexc36.us.i
-  %245 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f", ptr %244, i64 %234
+  %245 = getelementptr inbounds [12 x i8], ptr %244, i64 %234
   %246 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.us.i unwind label %.split.us.i
 
 .noexc38.us.i:                                    ; preds = %.noexc37.us.i
-  %247 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f", ptr %246, i64 %238
+  %247 = getelementptr inbounds [12 x i8], ptr %246, i64 %238
   %.not.i.i.i.i.i.i.us.i = icmp eq ptr %247, %245
   br i1 %.not.i.i.i.i.i.i.us.i, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3fEPS1_ET0_T_S6_S5_.exit.i.us.i, label %248
 
@@ -33409,8 +33368,8 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3fEPS1_ET0_T_S6_S5_.exit.i.
 
 .noexc36.i:                                       ; preds = %.noexc35.i
   %265 = mul i64 %.023.i.i, %227
-  %266 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f", ptr %263, i64 %265
-  %267 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f", ptr %266, i64 %258
+  %266 = getelementptr [12 x i8], ptr %263, i64 %265
+  %267 = getelementptr [12 x i8], ptr %266, i64 %258
   %268 = getelementptr inbounds i8, ptr %267, i64 %.idx.i.i.i.i29
   br label %.lr.ph.i.i.i.i.i.i32
 
@@ -33426,12 +33385,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec3fEmS1_ET_S3_T0_RKT1_.exit
           to label %.noexc37.i unwind label %.split.i
 
 .noexc37.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec3fEmS1_ET_S3_T0_RKT1_.exit.i.loopexit.i
-  %271 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f", ptr %270, i64 %258
+  %271 = getelementptr inbounds [12 x i8], ptr %270, i64 %258
   %272 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3fEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.i unwind label %.split.i
 
 .noexc38.i:                                       ; preds = %.noexc37.i
-  %273 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3f", ptr %272, i64 %262
+  %273 = getelementptr inbounds [12 x i8], ptr %272, i64 %262
   %274 = ptrtoint ptr %273 to i64
   %275 = ptrtoint ptr %271 to i64
   %276 = sub i64 %274, %275
@@ -34422,7 +34381,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i: ; preds = %109,
           to label %.noexc42.i unwind label %190
 
 .noexc42.i:                                       ; preds = %135
-  %141 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2f", ptr %140, i64 %126
+  %141 = getelementptr inbounds [8 x i8], ptr %140, i64 %126
   %142 = icmp eq i64 %139, %119
   br i1 %142, label %143, label %164
 
@@ -34451,12 +34410,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec2fEmS1_ET_S3_T0_RKT1_.exit
           to label %.noexc44.i unwind label %190
 
 .noexc44.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec2fEmS1_ET_S3_T0_RKT1_.exit.i.i
-  %150 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2f", ptr %149, i64 %123
+  %150 = getelementptr inbounds [8 x i8], ptr %149, i64 %123
   %151 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc45.i unwind label %190
 
 .noexc45.i:                                       ; preds = %.noexc44.i
-  %152 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2f", ptr %151, i64 %136
+  %152 = getelementptr inbounds [8 x i8], ptr %151, i64 %136
   %153 = ptrtoint ptr %152 to i64
   %154 = ptrtoint ptr %150 to i64
   %155 = sub i64 %153, %154
@@ -34517,12 +34476,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec2fEmS1_ET_S3_T0_RKT1_.exit
           to label %.noexc48.i unwind label %190
 
 .noexc48.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec2fEmS1_ET_S3_T0_RKT1_.exit52.i.i
-  %174 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2f", ptr %173, i64 %123
+  %174 = getelementptr inbounds [8 x i8], ptr %173, i64 %123
   %175 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc49.i unwind label %190
 
 .noexc49.i:                                       ; preds = %.noexc48.i
-  %176 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2f", ptr %175, i64 %136
+  %176 = getelementptr inbounds [8 x i8], ptr %175, i64 %136
   %177 = ptrtoint ptr %176 to i64
   %178 = ptrtoint ptr %174 to i64
   %179 = sub i64 %177, %178
@@ -34725,8 +34684,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %22
 
 .noexc35.us.i:                                    ; preds = %.noexc34.us.i
   %244 = mul nuw i64 %.023.i.us.i, %231
-  %245 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfVec2f", ptr %243, i64 %244
-  %246 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfVec2f", ptr %245, i64 %238
+  %245 = getelementptr [8 x i8], ptr %243, i64 %244
+  %246 = getelementptr [8 x i8], ptr %245, i64 %238
   %247 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %11, i64 noundef %238)
           to label %.noexc36.us.i unwind label %.split.us.i
 
@@ -34735,12 +34694,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %22
           to label %.noexc37.us.i unwind label %.split.us.i
 
 .noexc37.us.i:                                    ; preds = %.noexc36.us.i
-  %249 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2f", ptr %248, i64 %238
+  %249 = getelementptr inbounds [8 x i8], ptr %248, i64 %238
   %250 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.us.i unwind label %.split.us.i
 
 .noexc38.us.i:                                    ; preds = %.noexc37.us.i
-  %251 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2f", ptr %250, i64 %242
+  %251 = getelementptr inbounds [8 x i8], ptr %250, i64 %242
   %.not.i.i.i.i.i.i.us.i = icmp eq ptr %251, %249
   br i1 %.not.i.i.i.i.i.i.us.i, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2fEPS1_ET0_T_S6_S5_.exit.i.us.i, label %252
 
@@ -34790,8 +34749,8 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2fEPS1_ET0_T_S6_S5_.exit.i.
 
 .noexc36.i:                                       ; preds = %.noexc35.i
   %269 = mul i64 %.023.i.i, %231
-  %270 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfVec2f", ptr %267, i64 %269
-  %271 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfVec2f", ptr %270, i64 %262
+  %270 = getelementptr [8 x i8], ptr %267, i64 %269
+  %271 = getelementptr [8 x i8], ptr %270, i64 %262
   %272 = getelementptr inbounds i8, ptr %271, i64 %.idx.i.i.i.i29
   br label %.lr.ph.i.i.i.i.i.i32
 
@@ -34808,12 +34767,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec2fEmS1_ET_S3_T0_RKT1_.exit
           to label %.noexc37.i unwind label %.split.i
 
 .noexc37.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec2fEmS1_ET_S3_T0_RKT1_.exit.i.loopexit.i
-  %276 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2f", ptr %275, i64 %262
+  %276 = getelementptr inbounds [8 x i8], ptr %275, i64 %262
   %277 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2fEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.i unwind label %.split.i
 
 .noexc38.i:                                       ; preds = %.noexc37.i
-  %278 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2f", ptr %277, i64 %266
+  %278 = getelementptr inbounds [8 x i8], ptr %277, i64 %266
   %279 = ptrtoint ptr %278 to i64
   %280 = ptrtoint ptr %276 to i64
   %281 = sub i64 %279, %280
@@ -35741,7 +35700,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i: ; preds = %109,
           to label %.noexc42.i unwind label %186
 
 .noexc42.i:                                       ; preds = %135
-  %141 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec4d", ptr %140, i64 %126
+  %141 = getelementptr inbounds [32 x i8], ptr %140, i64 %126
   %142 = icmp eq i64 %139, %119
   br i1 %142, label %143, label %162
 
@@ -35769,12 +35728,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec4dEmS1_ET_S3_T0_RKT1_.exit
           to label %.noexc44.i unwind label %186
 
 .noexc44.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec4dEmS1_ET_S3_T0_RKT1_.exit.i.i
-  %149 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec4d", ptr %148, i64 %123
+  %149 = getelementptr inbounds [32 x i8], ptr %148, i64 %123
   %150 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc45.i unwind label %186
 
 .noexc45.i:                                       ; preds = %.noexc44.i
-  %151 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec4d", ptr %150, i64 %136
+  %151 = getelementptr inbounds [32 x i8], ptr %150, i64 %136
   %152 = ptrtoint ptr %151 to i64
   %153 = ptrtoint ptr %149 to i64
   %154 = sub i64 %152, %153
@@ -35833,12 +35792,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec4dEmS1_ET_S3_T0_RKT1_.exit
           to label %.noexc48.i unwind label %186
 
 .noexc48.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec4dEmS1_ET_S3_T0_RKT1_.exit52.i.i
-  %171 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec4d", ptr %170, i64 %123
+  %171 = getelementptr inbounds [32 x i8], ptr %170, i64 %123
   %172 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc49.i unwind label %186
 
 .noexc49.i:                                       ; preds = %.noexc48.i
-  %173 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec4d", ptr %172, i64 %136
+  %173 = getelementptr inbounds [32 x i8], ptr %172, i64 %136
   %174 = ptrtoint ptr %173 to i64
   %175 = ptrtoint ptr %171 to i64
   %176 = sub i64 %174, %175
@@ -36040,8 +35999,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %21
 
 .noexc35.us.i:                                    ; preds = %.noexc34.us.i
   %240 = mul nuw i64 %.023.i.us.i, %227
-  %241 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfVec4d", ptr %239, i64 %240
-  %242 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfVec4d", ptr %241, i64 %234
+  %241 = getelementptr [32 x i8], ptr %239, i64 %240
+  %242 = getelementptr [32 x i8], ptr %241, i64 %234
   %243 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %11, i64 noundef %234)
           to label %.noexc36.us.i unwind label %.split.us.i
 
@@ -36050,12 +36009,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %21
           to label %.noexc37.us.i unwind label %.split.us.i
 
 .noexc37.us.i:                                    ; preds = %.noexc36.us.i
-  %245 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec4d", ptr %244, i64 %234
+  %245 = getelementptr inbounds [32 x i8], ptr %244, i64 %234
   %246 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.us.i unwind label %.split.us.i
 
 .noexc38.us.i:                                    ; preds = %.noexc37.us.i
-  %247 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec4d", ptr %246, i64 %238
+  %247 = getelementptr inbounds [32 x i8], ptr %246, i64 %238
   %.not.i.i.i.i.i.i.us.i = icmp eq ptr %247, %245
   br i1 %.not.i.i.i.i.i.i.us.i, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4dEPS1_ET0_T_S6_S5_.exit.i.us.i, label %248
 
@@ -36105,8 +36064,8 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec4dEPS1_ET0_T_S6_S5_.exit.i.
 
 .noexc36.i:                                       ; preds = %.noexc35.i
   %265 = mul i64 %.023.i.i, %227
-  %266 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfVec4d", ptr %263, i64 %265
-  %267 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfVec4d", ptr %266, i64 %258
+  %266 = getelementptr [32 x i8], ptr %263, i64 %265
+  %267 = getelementptr [32 x i8], ptr %266, i64 %258
   %268 = getelementptr inbounds i8, ptr %267, i64 %.idx.i.i.i.i29
   br label %.lr.ph.i.i.i.i.i.i32
 
@@ -36122,12 +36081,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec4dEmS1_ET_S3_T0_RKT1_.exit
           to label %.noexc37.i unwind label %.split.i
 
 .noexc37.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec4dEmS1_ET_S3_T0_RKT1_.exit.i.loopexit.i
-  %271 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec4d", ptr %270, i64 %258
+  %271 = getelementptr inbounds [32 x i8], ptr %270, i64 %258
   %272 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec4dEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.i unwind label %.split.i
 
 .noexc38.i:                                       ; preds = %.noexc37.i
-  %273 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec4d", ptr %272, i64 %262
+  %273 = getelementptr inbounds [32 x i8], ptr %272, i64 %262
   %274 = ptrtoint ptr %273 to i64
   %275 = ptrtoint ptr %271 to i64
   %276 = sub i64 %274, %275
@@ -37125,7 +37084,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i: ; preds = %109,
           to label %.noexc42.i unwind label %186
 
 .noexc42.i:                                       ; preds = %135
-  %141 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3d", ptr %140, i64 %126
+  %141 = getelementptr inbounds [24 x i8], ptr %140, i64 %126
   %142 = icmp eq i64 %139, %119
   br i1 %142, label %143, label %162
 
@@ -37153,12 +37112,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec3dEmS1_ET_S3_T0_RKT1_.exit
           to label %.noexc44.i unwind label %186
 
 .noexc44.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec3dEmS1_ET_S3_T0_RKT1_.exit.i.i
-  %149 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3d", ptr %148, i64 %123
+  %149 = getelementptr inbounds [24 x i8], ptr %148, i64 %123
   %150 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc45.i unwind label %186
 
 .noexc45.i:                                       ; preds = %.noexc44.i
-  %151 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3d", ptr %150, i64 %136
+  %151 = getelementptr inbounds [24 x i8], ptr %150, i64 %136
   %152 = ptrtoint ptr %151 to i64
   %153 = ptrtoint ptr %149 to i64
   %154 = sub i64 %152, %153
@@ -37217,12 +37176,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec3dEmS1_ET_S3_T0_RKT1_.exit
           to label %.noexc48.i unwind label %186
 
 .noexc48.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec3dEmS1_ET_S3_T0_RKT1_.exit52.i.i
-  %171 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3d", ptr %170, i64 %123
+  %171 = getelementptr inbounds [24 x i8], ptr %170, i64 %123
   %172 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc49.i unwind label %186
 
 .noexc49.i:                                       ; preds = %.noexc48.i
-  %173 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3d", ptr %172, i64 %136
+  %173 = getelementptr inbounds [24 x i8], ptr %172, i64 %136
   %174 = ptrtoint ptr %173 to i64
   %175 = ptrtoint ptr %171 to i64
   %176 = sub i64 %174, %175
@@ -37424,8 +37383,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %21
 
 .noexc35.us.i:                                    ; preds = %.noexc34.us.i
   %240 = mul nuw i64 %.023.i.us.i, %227
-  %241 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfVec3d", ptr %239, i64 %240
-  %242 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfVec3d", ptr %241, i64 %234
+  %241 = getelementptr [24 x i8], ptr %239, i64 %240
+  %242 = getelementptr [24 x i8], ptr %241, i64 %234
   %243 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %11, i64 noundef %234)
           to label %.noexc36.us.i unwind label %.split.us.i
 
@@ -37434,12 +37393,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %21
           to label %.noexc37.us.i unwind label %.split.us.i
 
 .noexc37.us.i:                                    ; preds = %.noexc36.us.i
-  %245 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3d", ptr %244, i64 %234
+  %245 = getelementptr inbounds [24 x i8], ptr %244, i64 %234
   %246 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.us.i unwind label %.split.us.i
 
 .noexc38.us.i:                                    ; preds = %.noexc37.us.i
-  %247 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3d", ptr %246, i64 %238
+  %247 = getelementptr inbounds [24 x i8], ptr %246, i64 %238
   %.not.i.i.i.i.i.i.us.i = icmp eq ptr %247, %245
   br i1 %.not.i.i.i.i.i.i.us.i, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3dEPS1_ET0_T_S6_S5_.exit.i.us.i, label %248
 
@@ -37489,8 +37448,8 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec3dEPS1_ET0_T_S6_S5_.exit.i.
 
 .noexc36.i:                                       ; preds = %.noexc35.i
   %265 = mul i64 %.023.i.i, %227
-  %266 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfVec3d", ptr %263, i64 %265
-  %267 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfVec3d", ptr %266, i64 %258
+  %266 = getelementptr [24 x i8], ptr %263, i64 %265
+  %267 = getelementptr [24 x i8], ptr %266, i64 %258
   %268 = getelementptr inbounds i8, ptr %267, i64 %.idx.i.i.i.i29
   br label %.lr.ph.i.i.i.i.i.i32
 
@@ -37506,12 +37465,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec3dEmS1_ET_S3_T0_RKT1_.exit
           to label %.noexc37.i unwind label %.split.i
 
 .noexc37.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec3dEmS1_ET_S3_T0_RKT1_.exit.i.loopexit.i
-  %271 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3d", ptr %270, i64 %258
+  %271 = getelementptr inbounds [24 x i8], ptr %270, i64 %258
   %272 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec3dEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.i unwind label %.split.i
 
 .noexc38.i:                                       ; preds = %.noexc37.i
-  %273 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec3d", ptr %272, i64 %262
+  %273 = getelementptr inbounds [24 x i8], ptr %272, i64 %262
   %274 = ptrtoint ptr %273 to i64
   %275 = ptrtoint ptr %271 to i64
   %276 = sub i64 %274, %275
@@ -38499,7 +38458,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i: ; preds = %109,
           to label %.noexc42.i unwind label %186
 
 .noexc42.i:                                       ; preds = %135
-  %141 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2d", ptr %140, i64 %126
+  %141 = getelementptr inbounds [16 x i8], ptr %140, i64 %126
   %142 = icmp eq i64 %139, %119
   br i1 %142, label %143, label %162
 
@@ -38527,12 +38486,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec2dEmS1_ET_S3_T0_RKT1_.exit
           to label %.noexc44.i unwind label %186
 
 .noexc44.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec2dEmS1_ET_S3_T0_RKT1_.exit.i.i
-  %149 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2d", ptr %148, i64 %123
+  %149 = getelementptr inbounds [16 x i8], ptr %148, i64 %123
   %150 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc45.i unwind label %186
 
 .noexc45.i:                                       ; preds = %.noexc44.i
-  %151 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2d", ptr %150, i64 %136
+  %151 = getelementptr inbounds [16 x i8], ptr %150, i64 %136
   %152 = ptrtoint ptr %151 to i64
   %153 = ptrtoint ptr %149 to i64
   %154 = sub i64 %152, %153
@@ -38591,12 +38550,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec2dEmS1_ET_S3_T0_RKT1_.exit
           to label %.noexc48.i unwind label %186
 
 .noexc48.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec2dEmS1_ET_S3_T0_RKT1_.exit52.i.i
-  %171 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2d", ptr %170, i64 %123
+  %171 = getelementptr inbounds [16 x i8], ptr %170, i64 %123
   %172 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc49.i unwind label %186
 
 .noexc49.i:                                       ; preds = %.noexc48.i
-  %173 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2d", ptr %172, i64 %136
+  %173 = getelementptr inbounds [16 x i8], ptr %172, i64 %136
   %174 = ptrtoint ptr %173 to i64
   %175 = ptrtoint ptr %171 to i64
   %176 = sub i64 %174, %175
@@ -38798,8 +38757,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %21
 
 .noexc35.us.i:                                    ; preds = %.noexc34.us.i
   %240 = mul nuw i64 %.023.i.us.i, %227
-  %241 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfVec2d", ptr %239, i64 %240
-  %242 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfVec2d", ptr %241, i64 %234
+  %241 = getelementptr [16 x i8], ptr %239, i64 %240
+  %242 = getelementptr [16 x i8], ptr %241, i64 %234
   %243 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %11, i64 noundef %234)
           to label %.noexc36.us.i unwind label %.split.us.i
 
@@ -38808,12 +38767,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %21
           to label %.noexc37.us.i unwind label %.split.us.i
 
 .noexc37.us.i:                                    ; preds = %.noexc36.us.i
-  %245 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2d", ptr %244, i64 %234
+  %245 = getelementptr inbounds [16 x i8], ptr %244, i64 %234
   %246 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.us.i unwind label %.split.us.i
 
 .noexc38.us.i:                                    ; preds = %.noexc37.us.i
-  %247 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2d", ptr %246, i64 %238
+  %247 = getelementptr inbounds [16 x i8], ptr %246, i64 %238
   %.not.i.i.i.i.i.i.us.i = icmp eq ptr %247, %245
   br i1 %.not.i.i.i.i.i.i.us.i, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2dEPS1_ET0_T_S6_S5_.exit.i.us.i, label %248
 
@@ -38863,8 +38822,8 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfVec2dEPS1_ET0_T_S6_S5_.exit.i.
 
 .noexc36.i:                                       ; preds = %.noexc35.i
   %265 = mul i64 %.023.i.i, %227
-  %266 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfVec2d", ptr %263, i64 %265
-  %267 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfVec2d", ptr %266, i64 %258
+  %266 = getelementptr [16 x i8], ptr %263, i64 %265
+  %267 = getelementptr [16 x i8], ptr %266, i64 %258
   %268 = getelementptr inbounds i8, ptr %267, i64 %.idx.i.i.i.i29
   br label %.lr.ph.i.i.i.i.i.i32
 
@@ -38880,12 +38839,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec2dEmS1_ET_S3_T0_RKT1_.exit
           to label %.noexc37.i unwind label %.split.i
 
 .noexc37.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfVec2dEmS1_ET_S3_T0_RKT1_.exit.i.loopexit.i
-  %271 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2d", ptr %270, i64 %258
+  %271 = getelementptr inbounds [16 x i8], ptr %270, i64 %258
   %272 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfVec2dEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.i unwind label %.split.i
 
 .noexc38.i:                                       ; preds = %.noexc37.i
-  %273 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfVec2d", ptr %272, i64 %262
+  %273 = getelementptr inbounds [16 x i8], ptr %272, i64 %262
   %274 = ptrtoint ptr %273 to i64
   %275 = ptrtoint ptr %271 to i64
   %276 = sub i64 %274, %275
@@ -39810,7 +39769,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i: ; preds = %109,
           to label %.noexc42.i unwind label %186
 
 .noexc42.i:                                       ; preds = %135
-  %141 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4f", ptr %140, i64 %126
+  %141 = getelementptr inbounds [64 x i8], ptr %140, i64 %126
   %142 = icmp eq i64 %139, %119
   br i1 %142, label %143, label %162
 
@@ -39838,12 +39797,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix4fEmS1_ET_S3_T0_RKT1_.
           to label %.noexc44.i unwind label %186
 
 .noexc44.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix4fEmS1_ET_S3_T0_RKT1_.exit.i.i
-  %149 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4f", ptr %148, i64 %123
+  %149 = getelementptr inbounds [64 x i8], ptr %148, i64 %123
   %150 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc45.i unwind label %186
 
 .noexc45.i:                                       ; preds = %.noexc44.i
-  %151 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4f", ptr %150, i64 %136
+  %151 = getelementptr inbounds [64 x i8], ptr %150, i64 %136
   %152 = ptrtoint ptr %151 to i64
   %153 = ptrtoint ptr %149 to i64
   %154 = sub i64 %152, %153
@@ -39902,12 +39861,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix4fEmS1_ET_S3_T0_RKT1_.
           to label %.noexc48.i unwind label %186
 
 .noexc48.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix4fEmS1_ET_S3_T0_RKT1_.exit52.i.i
-  %171 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4f", ptr %170, i64 %123
+  %171 = getelementptr inbounds [64 x i8], ptr %170, i64 %123
   %172 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc49.i unwind label %186
 
 .noexc49.i:                                       ; preds = %.noexc48.i
-  %173 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4f", ptr %172, i64 %136
+  %173 = getelementptr inbounds [64 x i8], ptr %172, i64 %136
   %174 = ptrtoint ptr %173 to i64
   %175 = ptrtoint ptr %171 to i64
   %176 = sub i64 %174, %175
@@ -40109,8 +40068,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %21
 
 .noexc35.us.i:                                    ; preds = %.noexc34.us.i
   %240 = mul nuw i64 %.023.i.us.i, %227
-  %241 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4f", ptr %239, i64 %240
-  %242 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4f", ptr %241, i64 %234
+  %241 = getelementptr [64 x i8], ptr %239, i64 %240
+  %242 = getelementptr [64 x i8], ptr %241, i64 %234
   %243 = invoke noundef nonnull align 4 dereferenceable(64) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %11, i64 noundef %234)
           to label %.noexc36.us.i unwind label %.split.us.i
 
@@ -40119,12 +40078,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %21
           to label %.noexc37.us.i unwind label %.split.us.i
 
 .noexc37.us.i:                                    ; preds = %.noexc36.us.i
-  %245 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4f", ptr %244, i64 %234
+  %245 = getelementptr inbounds [64 x i8], ptr %244, i64 %234
   %246 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.us.i unwind label %.split.us.i
 
 .noexc38.us.i:                                    ; preds = %.noexc37.us.i
-  %247 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4f", ptr %246, i64 %238
+  %247 = getelementptr inbounds [64 x i8], ptr %246, i64 %238
   %.not.i.i.i.i.i.i.us.i = icmp eq ptr %247, %245
   br i1 %.not.i.i.i.i.i.i.us.i, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix4fEPS1_ET0_T_S6_S5_.exit.i.us.i, label %248
 
@@ -40174,8 +40133,8 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix4fEPS1_ET0_T_S6_S5_.exi
 
 .noexc36.i:                                       ; preds = %.noexc35.i
   %265 = mul i64 %.023.i.i, %227
-  %266 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4f", ptr %263, i64 %265
-  %267 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4f", ptr %266, i64 %258
+  %266 = getelementptr [64 x i8], ptr %263, i64 %265
+  %267 = getelementptr [64 x i8], ptr %266, i64 %258
   %268 = getelementptr inbounds i8, ptr %267, i64 %.idx.i.i.i.i29
   br label %.lr.ph.i.i.i.i.i.i32
 
@@ -40191,12 +40150,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix4fEmS1_ET_S3_T0_RKT1_.
           to label %.noexc37.i unwind label %.split.i
 
 .noexc37.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix4fEmS1_ET_S3_T0_RKT1_.exit.i.loopexit.i
-  %271 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4f", ptr %270, i64 %258
+  %271 = getelementptr inbounds [64 x i8], ptr %270, i64 %258
   %272 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4fEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.i unwind label %.split.i
 
 .noexc38.i:                                       ; preds = %.noexc37.i
-  %273 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4f", ptr %272, i64 %262
+  %273 = getelementptr inbounds [64 x i8], ptr %272, i64 %262
   %274 = ptrtoint ptr %273 to i64
   %275 = ptrtoint ptr %271 to i64
   %276 = sub i64 %274, %275
@@ -41354,7 +41313,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i: ; preds = %109,
           to label %.noexc42.i unwind label %186
 
 .noexc42.i:                                       ; preds = %135
-  %141 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3f", ptr %140, i64 %126
+  %141 = getelementptr inbounds [36 x i8], ptr %140, i64 %126
   %142 = icmp eq i64 %139, %119
   br i1 %142, label %143, label %162
 
@@ -41382,12 +41341,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix3fEmS1_ET_S3_T0_RKT1_.
           to label %.noexc44.i unwind label %186
 
 .noexc44.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix3fEmS1_ET_S3_T0_RKT1_.exit.i.i
-  %149 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3f", ptr %148, i64 %123
+  %149 = getelementptr inbounds [36 x i8], ptr %148, i64 %123
   %150 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc45.i unwind label %186
 
 .noexc45.i:                                       ; preds = %.noexc44.i
-  %151 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3f", ptr %150, i64 %136
+  %151 = getelementptr inbounds [36 x i8], ptr %150, i64 %136
   %152 = ptrtoint ptr %151 to i64
   %153 = ptrtoint ptr %149 to i64
   %154 = sub i64 %152, %153
@@ -41446,12 +41405,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix3fEmS1_ET_S3_T0_RKT1_.
           to label %.noexc48.i unwind label %186
 
 .noexc48.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix3fEmS1_ET_S3_T0_RKT1_.exit52.i.i
-  %171 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3f", ptr %170, i64 %123
+  %171 = getelementptr inbounds [36 x i8], ptr %170, i64 %123
   %172 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc49.i unwind label %186
 
 .noexc49.i:                                       ; preds = %.noexc48.i
-  %173 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3f", ptr %172, i64 %136
+  %173 = getelementptr inbounds [36 x i8], ptr %172, i64 %136
   %174 = ptrtoint ptr %173 to i64
   %175 = ptrtoint ptr %171 to i64
   %176 = sub i64 %174, %175
@@ -41653,8 +41612,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %21
 
 .noexc35.us.i:                                    ; preds = %.noexc34.us.i
   %240 = mul nuw i64 %.023.i.us.i, %227
-  %241 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3f", ptr %239, i64 %240
-  %242 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3f", ptr %241, i64 %234
+  %241 = getelementptr [36 x i8], ptr %239, i64 %240
+  %242 = getelementptr [36 x i8], ptr %241, i64 %234
   %243 = invoke noundef nonnull align 4 dereferenceable(36) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %11, i64 noundef %234)
           to label %.noexc36.us.i unwind label %.split.us.i
 
@@ -41663,12 +41622,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %21
           to label %.noexc37.us.i unwind label %.split.us.i
 
 .noexc37.us.i:                                    ; preds = %.noexc36.us.i
-  %245 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3f", ptr %244, i64 %234
+  %245 = getelementptr inbounds [36 x i8], ptr %244, i64 %234
   %246 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.us.i unwind label %.split.us.i
 
 .noexc38.us.i:                                    ; preds = %.noexc37.us.i
-  %247 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3f", ptr %246, i64 %238
+  %247 = getelementptr inbounds [36 x i8], ptr %246, i64 %238
   %.not.i.i.i.i.i.i.us.i = icmp eq ptr %247, %245
   br i1 %.not.i.i.i.i.i.i.us.i, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix3fEPS1_ET0_T_S6_S5_.exit.i.us.i, label %248
 
@@ -41718,8 +41677,8 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix3fEPS1_ET0_T_S6_S5_.exi
 
 .noexc36.i:                                       ; preds = %.noexc35.i
   %265 = mul i64 %.023.i.i, %227
-  %266 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3f", ptr %263, i64 %265
-  %267 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3f", ptr %266, i64 %258
+  %266 = getelementptr [36 x i8], ptr %263, i64 %265
+  %267 = getelementptr [36 x i8], ptr %266, i64 %258
   %268 = getelementptr inbounds i8, ptr %267, i64 %.idx.i.i.i.i29
   br label %.lr.ph.i.i.i.i.i.i32
 
@@ -41735,12 +41694,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix3fEmS1_ET_S3_T0_RKT1_.
           to label %.noexc37.i unwind label %.split.i
 
 .noexc37.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix3fEmS1_ET_S3_T0_RKT1_.exit.i.loopexit.i
-  %271 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3f", ptr %270, i64 %258
+  %271 = getelementptr inbounds [36 x i8], ptr %270, i64 %258
   %272 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3fEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.i unwind label %.split.i
 
 .noexc38.i:                                       ; preds = %.noexc37.i
-  %273 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3f", ptr %272, i64 %262
+  %273 = getelementptr inbounds [36 x i8], ptr %272, i64 %262
   %274 = ptrtoint ptr %273 to i64
   %275 = ptrtoint ptr %271 to i64
   %276 = sub i64 %274, %275
@@ -42775,7 +42734,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i: ; preds = %109,
           to label %.noexc42.i unwind label %186
 
 .noexc42.i:                                       ; preds = %135
-  %141 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix2f", ptr %140, i64 %126
+  %141 = getelementptr inbounds [16 x i8], ptr %140, i64 %126
   %142 = icmp eq i64 %139, %119
   br i1 %142, label %143, label %162
 
@@ -42803,12 +42762,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix2fEmS1_ET_S3_T0_RKT1_.
           to label %.noexc44.i unwind label %186
 
 .noexc44.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix2fEmS1_ET_S3_T0_RKT1_.exit.i.i
-  %149 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix2f", ptr %148, i64 %123
+  %149 = getelementptr inbounds [16 x i8], ptr %148, i64 %123
   %150 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc45.i unwind label %186
 
 .noexc45.i:                                       ; preds = %.noexc44.i
-  %151 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix2f", ptr %150, i64 %136
+  %151 = getelementptr inbounds [16 x i8], ptr %150, i64 %136
   %152 = ptrtoint ptr %151 to i64
   %153 = ptrtoint ptr %149 to i64
   %154 = sub i64 %152, %153
@@ -42867,12 +42826,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix2fEmS1_ET_S3_T0_RKT1_.
           to label %.noexc48.i unwind label %186
 
 .noexc48.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix2fEmS1_ET_S3_T0_RKT1_.exit52.i.i
-  %171 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix2f", ptr %170, i64 %123
+  %171 = getelementptr inbounds [16 x i8], ptr %170, i64 %123
   %172 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc49.i unwind label %186
 
 .noexc49.i:                                       ; preds = %.noexc48.i
-  %173 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix2f", ptr %172, i64 %136
+  %173 = getelementptr inbounds [16 x i8], ptr %172, i64 %136
   %174 = ptrtoint ptr %173 to i64
   %175 = ptrtoint ptr %171 to i64
   %176 = sub i64 %174, %175
@@ -43074,8 +43033,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %21
 
 .noexc35.us.i:                                    ; preds = %.noexc34.us.i
   %240 = mul nuw i64 %.023.i.us.i, %227
-  %241 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix2f", ptr %239, i64 %240
-  %242 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix2f", ptr %241, i64 %234
+  %241 = getelementptr [16 x i8], ptr %239, i64 %240
+  %242 = getelementptr [16 x i8], ptr %241, i64 %234
   %243 = invoke noundef nonnull align 4 dereferenceable(16) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %11, i64 noundef %234)
           to label %.noexc36.us.i unwind label %.split.us.i
 
@@ -43084,12 +43043,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %21
           to label %.noexc37.us.i unwind label %.split.us.i
 
 .noexc37.us.i:                                    ; preds = %.noexc36.us.i
-  %245 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix2f", ptr %244, i64 %234
+  %245 = getelementptr inbounds [16 x i8], ptr %244, i64 %234
   %246 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.us.i unwind label %.split.us.i
 
 .noexc38.us.i:                                    ; preds = %.noexc37.us.i
-  %247 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix2f", ptr %246, i64 %238
+  %247 = getelementptr inbounds [16 x i8], ptr %246, i64 %238
   %.not.i.i.i.i.i.i.us.i = icmp eq ptr %247, %245
   br i1 %.not.i.i.i.i.i.i.us.i, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix2fEPS1_ET0_T_S6_S5_.exit.i.us.i, label %248
 
@@ -43139,8 +43098,8 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix2fEPS1_ET0_T_S6_S5_.exi
 
 .noexc36.i:                                       ; preds = %.noexc35.i
   %265 = mul i64 %.023.i.i, %227
-  %266 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix2f", ptr %263, i64 %265
-  %267 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix2f", ptr %266, i64 %258
+  %266 = getelementptr [16 x i8], ptr %263, i64 %265
+  %267 = getelementptr [16 x i8], ptr %266, i64 %258
   %268 = getelementptr inbounds i8, ptr %267, i64 %.idx.i.i.i.i29
   br label %.lr.ph.i.i.i.i.i.i32
 
@@ -43156,12 +43115,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix2fEmS1_ET_S3_T0_RKT1_.
           to label %.noexc37.i unwind label %.split.i
 
 .noexc37.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix2fEmS1_ET_S3_T0_RKT1_.exit.i.loopexit.i
-  %271 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix2f", ptr %270, i64 %258
+  %271 = getelementptr inbounds [16 x i8], ptr %270, i64 %258
   %272 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2fEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.i unwind label %.split.i
 
 .noexc38.i:                                       ; preds = %.noexc37.i
-  %273 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix2f", ptr %272, i64 %262
+  %273 = getelementptr inbounds [16 x i8], ptr %272, i64 %262
   %274 = ptrtoint ptr %273 to i64
   %275 = ptrtoint ptr %271 to i64
   %276 = sub i64 %274, %275
@@ -44163,7 +44122,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i: ; preds = %109,
           to label %.noexc42.i unwind label %186
 
 .noexc42.i:                                       ; preds = %135
-  %141 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", ptr %140, i64 %126
+  %141 = getelementptr inbounds [128 x i8], ptr %140, i64 %126
   %142 = icmp eq i64 %139, %119
   br i1 %142, label %143, label %162
 
@@ -44191,12 +44150,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dEmS1_ET_S3_T0_RKT1_.
           to label %.noexc44.i unwind label %186
 
 .noexc44.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dEmS1_ET_S3_T0_RKT1_.exit.i.i
-  %149 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", ptr %148, i64 %123
+  %149 = getelementptr inbounds [128 x i8], ptr %148, i64 %123
   %150 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc45.i unwind label %186
 
 .noexc45.i:                                       ; preds = %.noexc44.i
-  %151 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", ptr %150, i64 %136
+  %151 = getelementptr inbounds [128 x i8], ptr %150, i64 %136
   %152 = ptrtoint ptr %151 to i64
   %153 = ptrtoint ptr %149 to i64
   %154 = sub i64 %152, %153
@@ -44255,12 +44214,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dEmS1_ET_S3_T0_RKT1_.
           to label %.noexc48.i unwind label %186
 
 .noexc48.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dEmS1_ET_S3_T0_RKT1_.exit52.i.i
-  %171 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", ptr %170, i64 %123
+  %171 = getelementptr inbounds [128 x i8], ptr %170, i64 %123
   %172 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc49.i unwind label %186
 
 .noexc49.i:                                       ; preds = %.noexc48.i
-  %173 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", ptr %172, i64 %136
+  %173 = getelementptr inbounds [128 x i8], ptr %172, i64 %136
   %174 = ptrtoint ptr %173 to i64
   %175 = ptrtoint ptr %171 to i64
   %176 = sub i64 %174, %175
@@ -44462,8 +44421,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %21
 
 .noexc35.us.i:                                    ; preds = %.noexc34.us.i
   %240 = mul nuw i64 %.023.i.us.i, %227
-  %241 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", ptr %239, i64 %240
-  %242 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", ptr %241, i64 %234
+  %241 = getelementptr [128 x i8], ptr %239, i64 %240
+  %242 = getelementptr [128 x i8], ptr %241, i64 %234
   %243 = invoke noundef nonnull align 8 dereferenceable(128) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %11, i64 noundef %234)
           to label %.noexc36.us.i unwind label %.split.us.i
 
@@ -44472,12 +44431,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %21
           to label %.noexc37.us.i unwind label %.split.us.i
 
 .noexc37.us.i:                                    ; preds = %.noexc36.us.i
-  %245 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", ptr %244, i64 %234
+  %245 = getelementptr inbounds [128 x i8], ptr %244, i64 %234
   %246 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.us.i unwind label %.split.us.i
 
 .noexc38.us.i:                                    ; preds = %.noexc37.us.i
-  %247 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", ptr %246, i64 %238
+  %247 = getelementptr inbounds [128 x i8], ptr %246, i64 %238
   %.not.i.i.i.i.i.i.us.i = icmp eq ptr %247, %245
   br i1 %.not.i.i.i.i.i.i.us.i, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dEPS1_ET0_T_S6_S5_.exit.i.us.i, label %248
 
@@ -44527,8 +44486,8 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dEPS1_ET0_T_S6_S5_.exi
 
 .noexc36.i:                                       ; preds = %.noexc35.i
   %265 = mul i64 %.023.i.i, %227
-  %266 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", ptr %263, i64 %265
-  %267 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", ptr %266, i64 %258
+  %266 = getelementptr [128 x i8], ptr %263, i64 %265
+  %267 = getelementptr [128 x i8], ptr %266, i64 %258
   %268 = getelementptr inbounds i8, ptr %267, i64 %.idx.i.i.i.i29
   br label %.lr.ph.i.i.i.i.i.i32
 
@@ -44544,12 +44503,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dEmS1_ET_S3_T0_RKT1_.
           to label %.noexc37.i unwind label %.split.i
 
 .noexc37.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix4dEmS1_ET_S3_T0_RKT1_.exit.i.loopexit.i
-  %271 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", ptr %270, i64 %258
+  %271 = getelementptr inbounds [128 x i8], ptr %270, i64 %258
   %272 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix4dEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.i unwind label %.split.i
 
 .noexc38.i:                                       ; preds = %.noexc37.i
-  %273 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix4d", ptr %272, i64 %262
+  %273 = getelementptr inbounds [128 x i8], ptr %272, i64 %262
   %274 = ptrtoint ptr %273 to i64
   %275 = ptrtoint ptr %271 to i64
   %276 = sub i64 %274, %275
@@ -45689,7 +45648,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i: ; preds = %109,
           to label %.noexc42.i unwind label %186
 
 .noexc42.i:                                       ; preds = %135
-  %141 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3d", ptr %140, i64 %126
+  %141 = getelementptr inbounds [72 x i8], ptr %140, i64 %126
   %142 = icmp eq i64 %139, %119
   br i1 %142, label %143, label %162
 
@@ -45717,12 +45676,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dEmS1_ET_S3_T0_RKT1_.
           to label %.noexc44.i unwind label %186
 
 .noexc44.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dEmS1_ET_S3_T0_RKT1_.exit.i.i
-  %149 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3d", ptr %148, i64 %123
+  %149 = getelementptr inbounds [72 x i8], ptr %148, i64 %123
   %150 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc45.i unwind label %186
 
 .noexc45.i:                                       ; preds = %.noexc44.i
-  %151 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3d", ptr %150, i64 %136
+  %151 = getelementptr inbounds [72 x i8], ptr %150, i64 %136
   %152 = ptrtoint ptr %151 to i64
   %153 = ptrtoint ptr %149 to i64
   %154 = sub i64 %152, %153
@@ -45781,12 +45740,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dEmS1_ET_S3_T0_RKT1_.
           to label %.noexc48.i unwind label %186
 
 .noexc48.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dEmS1_ET_S3_T0_RKT1_.exit52.i.i
-  %171 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3d", ptr %170, i64 %123
+  %171 = getelementptr inbounds [72 x i8], ptr %170, i64 %123
   %172 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc49.i unwind label %186
 
 .noexc49.i:                                       ; preds = %.noexc48.i
-  %173 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3d", ptr %172, i64 %136
+  %173 = getelementptr inbounds [72 x i8], ptr %172, i64 %136
   %174 = ptrtoint ptr %173 to i64
   %175 = ptrtoint ptr %171 to i64
   %176 = sub i64 %174, %175
@@ -45988,8 +45947,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %21
 
 .noexc35.us.i:                                    ; preds = %.noexc34.us.i
   %240 = mul nuw i64 %.023.i.us.i, %227
-  %241 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3d", ptr %239, i64 %240
-  %242 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3d", ptr %241, i64 %234
+  %241 = getelementptr [72 x i8], ptr %239, i64 %240
+  %242 = getelementptr [72 x i8], ptr %241, i64 %234
   %243 = invoke noundef nonnull align 8 dereferenceable(72) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %11, i64 noundef %234)
           to label %.noexc36.us.i unwind label %.split.us.i
 
@@ -45998,12 +45957,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %21
           to label %.noexc37.us.i unwind label %.split.us.i
 
 .noexc37.us.i:                                    ; preds = %.noexc36.us.i
-  %245 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3d", ptr %244, i64 %234
+  %245 = getelementptr inbounds [72 x i8], ptr %244, i64 %234
   %246 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.us.i unwind label %.split.us.i
 
 .noexc38.us.i:                                    ; preds = %.noexc37.us.i
-  %247 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3d", ptr %246, i64 %238
+  %247 = getelementptr inbounds [72 x i8], ptr %246, i64 %238
   %.not.i.i.i.i.i.i.us.i = icmp eq ptr %247, %245
   br i1 %.not.i.i.i.i.i.i.us.i, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dEPS1_ET0_T_S6_S5_.exit.i.us.i, label %248
 
@@ -46053,8 +46012,8 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dEPS1_ET0_T_S6_S5_.exi
 
 .noexc36.i:                                       ; preds = %.noexc35.i
   %265 = mul i64 %.023.i.i, %227
-  %266 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3d", ptr %263, i64 %265
-  %267 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3d", ptr %266, i64 %258
+  %266 = getelementptr [72 x i8], ptr %263, i64 %265
+  %267 = getelementptr [72 x i8], ptr %266, i64 %258
   %268 = getelementptr inbounds i8, ptr %267, i64 %.idx.i.i.i.i29
   br label %.lr.ph.i.i.i.i.i.i32
 
@@ -46070,12 +46029,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dEmS1_ET_S3_T0_RKT1_.
           to label %.noexc37.i unwind label %.split.i
 
 .noexc37.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix3dEmS1_ET_S3_T0_RKT1_.exit.i.loopexit.i
-  %271 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3d", ptr %270, i64 %258
+  %271 = getelementptr inbounds [72 x i8], ptr %270, i64 %258
   %272 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix3dEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.i unwind label %.split.i
 
 .noexc38.i:                                       ; preds = %.noexc37.i
-  %273 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix3d", ptr %272, i64 %262
+  %273 = getelementptr inbounds [72 x i8], ptr %272, i64 %262
   %274 = ptrtoint ptr %273 to i64
   %275 = ptrtoint ptr %271 to i64
   %276 = sub i64 %274, %275
@@ -47101,7 +47060,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i: ; preds = %109,
           to label %.noexc42.i unwind label %186
 
 .noexc42.i:                                       ; preds = %135
-  %141 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix2d", ptr %140, i64 %126
+  %141 = getelementptr inbounds [32 x i8], ptr %140, i64 %126
   %142 = icmp eq i64 %139, %119
   br i1 %142, label %143, label %162
 
@@ -47129,12 +47088,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix2dEmS1_ET_S3_T0_RKT1_.
           to label %.noexc44.i unwind label %186
 
 .noexc44.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix2dEmS1_ET_S3_T0_RKT1_.exit.i.i
-  %149 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix2d", ptr %148, i64 %123
+  %149 = getelementptr inbounds [32 x i8], ptr %148, i64 %123
   %150 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc45.i unwind label %186
 
 .noexc45.i:                                       ; preds = %.noexc44.i
-  %151 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix2d", ptr %150, i64 %136
+  %151 = getelementptr inbounds [32 x i8], ptr %150, i64 %136
   %152 = ptrtoint ptr %151 to i64
   %153 = ptrtoint ptr %149 to i64
   %154 = sub i64 %152, %153
@@ -47193,12 +47152,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix2dEmS1_ET_S3_T0_RKT1_.
           to label %.noexc48.i unwind label %186
 
 .noexc48.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix2dEmS1_ET_S3_T0_RKT1_.exit52.i.i
-  %171 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix2d", ptr %170, i64 %123
+  %171 = getelementptr inbounds [32 x i8], ptr %170, i64 %123
   %172 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc49.i unwind label %186
 
 .noexc49.i:                                       ; preds = %.noexc48.i
-  %173 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix2d", ptr %172, i64 %136
+  %173 = getelementptr inbounds [32 x i8], ptr %172, i64 %136
   %174 = ptrtoint ptr %173 to i64
   %175 = ptrtoint ptr %171 to i64
   %176 = sub i64 %174, %175
@@ -47400,8 +47359,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %21
 
 .noexc35.us.i:                                    ; preds = %.noexc34.us.i
   %240 = mul nuw i64 %.023.i.us.i, %227
-  %241 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix2d", ptr %239, i64 %240
-  %242 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix2d", ptr %241, i64 %234
+  %241 = getelementptr [32 x i8], ptr %239, i64 %240
+  %242 = getelementptr [32 x i8], ptr %241, i64 %234
   %243 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %11, i64 noundef %234)
           to label %.noexc36.us.i unwind label %.split.us.i
 
@@ -47410,12 +47369,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %21
           to label %.noexc37.us.i unwind label %.split.us.i
 
 .noexc37.us.i:                                    ; preds = %.noexc36.us.i
-  %245 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix2d", ptr %244, i64 %234
+  %245 = getelementptr inbounds [32 x i8], ptr %244, i64 %234
   %246 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.us.i unwind label %.split.us.i
 
 .noexc38.us.i:                                    ; preds = %.noexc37.us.i
-  %247 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix2d", ptr %246, i64 %238
+  %247 = getelementptr inbounds [32 x i8], ptr %246, i64 %238
   %.not.i.i.i.i.i.i.us.i = icmp eq ptr %247, %245
   br i1 %.not.i.i.i.i.i.i.us.i, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix2dEPS1_ET0_T_S6_S5_.exit.i.us.i, label %248
 
@@ -47465,8 +47424,8 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__10GfMatrix2dEPS1_ET0_T_S6_S5_.exi
 
 .noexc36.i:                                       ; preds = %.noexc35.i
   %265 = mul i64 %.023.i.i, %227
-  %266 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix2d", ptr %263, i64 %265
-  %267 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix2d", ptr %266, i64 %258
+  %266 = getelementptr [32 x i8], ptr %263, i64 %265
+  %267 = getelementptr [32 x i8], ptr %266, i64 %258
   %268 = getelementptr inbounds i8, ptr %267, i64 %.idx.i.i.i.i29
   br label %.lr.ph.i.i.i.i.i.i32
 
@@ -47482,12 +47441,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix2dEmS1_ET_S3_T0_RKT1_.
           to label %.noexc37.i unwind label %.split.i
 
 .noexc37.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__10GfMatrix2dEmS1_ET_S3_T0_RKT1_.exit.i.loopexit.i
-  %271 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix2d", ptr %270, i64 %258
+  %271 = getelementptr inbounds [32 x i8], ptr %270, i64 %258
   %272 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfMatrix2dEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.i unwind label %.split.i
 
 .noexc38.i:                                       ; preds = %.noexc37.i
-  %273 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfMatrix2d", ptr %272, i64 %262
+  %273 = getelementptr inbounds [32 x i8], ptr %272, i64 %262
   %274 = ptrtoint ptr %273 to i64
   %275 = ptrtoint ptr %271 to i64
   %276 = sub i64 %274, %275
@@ -48485,7 +48444,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i: ; preds = %109,
           to label %.noexc42.i unwind label %186
 
 .noexc42.i:                                       ; preds = %135
-  %141 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange3f", ptr %140, i64 %126
+  %141 = getelementptr inbounds [24 x i8], ptr %140, i64 %126
   %142 = icmp eq i64 %139, %119
   br i1 %142, label %143, label %162
 
@@ -48513,12 +48472,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__9GfRange3fEmS1_ET_S3_T0_RKT1_.ex
           to label %.noexc44.i unwind label %186
 
 .noexc44.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__9GfRange3fEmS1_ET_S3_T0_RKT1_.exit.i.i
-  %149 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange3f", ptr %148, i64 %123
+  %149 = getelementptr inbounds [24 x i8], ptr %148, i64 %123
   %150 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc45.i unwind label %186
 
 .noexc45.i:                                       ; preds = %.noexc44.i
-  %151 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange3f", ptr %150, i64 %136
+  %151 = getelementptr inbounds [24 x i8], ptr %150, i64 %136
   %152 = ptrtoint ptr %151 to i64
   %153 = ptrtoint ptr %149 to i64
   %154 = sub i64 %152, %153
@@ -48577,12 +48536,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__9GfRange3fEmS1_ET_S3_T0_RKT1_.ex
           to label %.noexc48.i unwind label %186
 
 .noexc48.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__9GfRange3fEmS1_ET_S3_T0_RKT1_.exit52.i.i
-  %171 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange3f", ptr %170, i64 %123
+  %171 = getelementptr inbounds [24 x i8], ptr %170, i64 %123
   %172 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc49.i unwind label %186
 
 .noexc49.i:                                       ; preds = %.noexc48.i
-  %173 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange3f", ptr %172, i64 %136
+  %173 = getelementptr inbounds [24 x i8], ptr %172, i64 %136
   %174 = ptrtoint ptr %173 to i64
   %175 = ptrtoint ptr %171 to i64
   %176 = sub i64 %174, %175
@@ -48784,8 +48743,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %21
 
 .noexc35.us.i:                                    ; preds = %.noexc34.us.i
   %240 = mul nuw i64 %.023.i.us.i, %227
-  %241 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfRange3f", ptr %239, i64 %240
-  %242 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfRange3f", ptr %241, i64 %234
+  %241 = getelementptr [24 x i8], ptr %239, i64 %240
+  %242 = getelementptr [24 x i8], ptr %241, i64 %234
   %243 = invoke noundef nonnull align 4 dereferenceable(24) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %11, i64 noundef %234)
           to label %.noexc36.us.i unwind label %.split.us.i
 
@@ -48794,12 +48753,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %21
           to label %.noexc37.us.i unwind label %.split.us.i
 
 .noexc37.us.i:                                    ; preds = %.noexc36.us.i
-  %245 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange3f", ptr %244, i64 %234
+  %245 = getelementptr inbounds [24 x i8], ptr %244, i64 %234
   %246 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.us.i unwind label %.split.us.i
 
 .noexc38.us.i:                                    ; preds = %.noexc37.us.i
-  %247 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange3f", ptr %246, i64 %238
+  %247 = getelementptr inbounds [24 x i8], ptr %246, i64 %238
   %.not.i.i.i.i.i.i.us.i = icmp eq ptr %247, %245
   br i1 %.not.i.i.i.i.i.i.us.i, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__9GfRange3fEPS1_ET0_T_S6_S5_.exit.i.us.i, label %248
 
@@ -48849,8 +48808,8 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__9GfRange3fEPS1_ET0_T_S6_S5_.exit.
 
 .noexc36.i:                                       ; preds = %.noexc35.i
   %265 = mul i64 %.023.i.i, %227
-  %266 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfRange3f", ptr %263, i64 %265
-  %267 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfRange3f", ptr %266, i64 %258
+  %266 = getelementptr [24 x i8], ptr %263, i64 %265
+  %267 = getelementptr [24 x i8], ptr %266, i64 %258
   %268 = getelementptr inbounds i8, ptr %267, i64 %.idx.i.i.i.i29
   br label %.lr.ph.i.i.i.i.i.i32
 
@@ -48866,12 +48825,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__9GfRange3fEmS1_ET_S3_T0_RKT1_.ex
           to label %.noexc37.i unwind label %.split.i
 
 .noexc37.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__9GfRange3fEmS1_ET_S3_T0_RKT1_.exit.i.loopexit.i
-  %271 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange3f", ptr %270, i64 %258
+  %271 = getelementptr inbounds [24 x i8], ptr %270, i64 %258
   %272 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3fEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.i unwind label %.split.i
 
 .noexc38.i:                                       ; preds = %.noexc37.i
-  %273 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange3f", ptr %272, i64 %262
+  %273 = getelementptr inbounds [24 x i8], ptr %272, i64 %262
   %274 = ptrtoint ptr %273 to i64
   %275 = ptrtoint ptr %271 to i64
   %276 = sub i64 %274, %275
@@ -49856,7 +49815,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i: ; preds = %109,
           to label %.noexc42.i unwind label %186
 
 .noexc42.i:                                       ; preds = %135
-  %141 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange3d", ptr %140, i64 %126
+  %141 = getelementptr inbounds [48 x i8], ptr %140, i64 %126
   %142 = icmp eq i64 %139, %119
   br i1 %142, label %143, label %162
 
@@ -49884,12 +49843,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__9GfRange3dEmS1_ET_S3_T0_RKT1_.ex
           to label %.noexc44.i unwind label %186
 
 .noexc44.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__9GfRange3dEmS1_ET_S3_T0_RKT1_.exit.i.i
-  %149 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange3d", ptr %148, i64 %123
+  %149 = getelementptr inbounds [48 x i8], ptr %148, i64 %123
   %150 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc45.i unwind label %186
 
 .noexc45.i:                                       ; preds = %.noexc44.i
-  %151 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange3d", ptr %150, i64 %136
+  %151 = getelementptr inbounds [48 x i8], ptr %150, i64 %136
   %152 = ptrtoint ptr %151 to i64
   %153 = ptrtoint ptr %149 to i64
   %154 = sub i64 %152, %153
@@ -49948,12 +49907,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__9GfRange3dEmS1_ET_S3_T0_RKT1_.ex
           to label %.noexc48.i unwind label %186
 
 .noexc48.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__9GfRange3dEmS1_ET_S3_T0_RKT1_.exit52.i.i
-  %171 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange3d", ptr %170, i64 %123
+  %171 = getelementptr inbounds [48 x i8], ptr %170, i64 %123
   %172 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc49.i unwind label %186
 
 .noexc49.i:                                       ; preds = %.noexc48.i
-  %173 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange3d", ptr %172, i64 %136
+  %173 = getelementptr inbounds [48 x i8], ptr %172, i64 %136
   %174 = ptrtoint ptr %173 to i64
   %175 = ptrtoint ptr %171 to i64
   %176 = sub i64 %174, %175
@@ -50155,8 +50114,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %21
 
 .noexc35.us.i:                                    ; preds = %.noexc34.us.i
   %240 = mul nuw i64 %.023.i.us.i, %227
-  %241 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfRange3d", ptr %239, i64 %240
-  %242 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfRange3d", ptr %241, i64 %234
+  %241 = getelementptr [48 x i8], ptr %239, i64 %240
+  %242 = getelementptr [48 x i8], ptr %241, i64 %234
   %243 = invoke noundef nonnull align 8 dereferenceable(48) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %11, i64 noundef %234)
           to label %.noexc36.us.i unwind label %.split.us.i
 
@@ -50165,12 +50124,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %21
           to label %.noexc37.us.i unwind label %.split.us.i
 
 .noexc37.us.i:                                    ; preds = %.noexc36.us.i
-  %245 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange3d", ptr %244, i64 %234
+  %245 = getelementptr inbounds [48 x i8], ptr %244, i64 %234
   %246 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.us.i unwind label %.split.us.i
 
 .noexc38.us.i:                                    ; preds = %.noexc37.us.i
-  %247 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange3d", ptr %246, i64 %238
+  %247 = getelementptr inbounds [48 x i8], ptr %246, i64 %238
   %.not.i.i.i.i.i.i.us.i = icmp eq ptr %247, %245
   br i1 %.not.i.i.i.i.i.i.us.i, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__9GfRange3dEPS1_ET0_T_S6_S5_.exit.i.us.i, label %248
 
@@ -50220,8 +50179,8 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__9GfRange3dEPS1_ET0_T_S6_S5_.exit.
 
 .noexc36.i:                                       ; preds = %.noexc35.i
   %265 = mul i64 %.023.i.i, %227
-  %266 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfRange3d", ptr %263, i64 %265
-  %267 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfRange3d", ptr %266, i64 %258
+  %266 = getelementptr [48 x i8], ptr %263, i64 %265
+  %267 = getelementptr [48 x i8], ptr %266, i64 %258
   %268 = getelementptr inbounds i8, ptr %267, i64 %.idx.i.i.i.i29
   br label %.lr.ph.i.i.i.i.i.i32
 
@@ -50237,12 +50196,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__9GfRange3dEmS1_ET_S3_T0_RKT1_.ex
           to label %.noexc37.i unwind label %.split.i
 
 .noexc37.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__9GfRange3dEmS1_ET_S3_T0_RKT1_.exit.i.loopexit.i
-  %271 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange3d", ptr %270, i64 %258
+  %271 = getelementptr inbounds [48 x i8], ptr %270, i64 %258
   %272 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange3dEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.i unwind label %.split.i
 
 .noexc38.i:                                       ; preds = %.noexc37.i
-  %273 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange3d", ptr %272, i64 %262
+  %273 = getelementptr inbounds [48 x i8], ptr %272, i64 %262
   %274 = ptrtoint ptr %273 to i64
   %275 = ptrtoint ptr %271 to i64
   %276 = sub i64 %274, %275
@@ -51221,7 +51180,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i: ; preds = %109,
           to label %.noexc42.i unwind label %186
 
 .noexc42.i:                                       ; preds = %135
-  %141 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange2f", ptr %140, i64 %126
+  %141 = getelementptr inbounds [16 x i8], ptr %140, i64 %126
   %142 = icmp eq i64 %139, %119
   br i1 %142, label %143, label %162
 
@@ -51249,12 +51208,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__9GfRange2fEmS1_ET_S3_T0_RKT1_.ex
           to label %.noexc44.i unwind label %186
 
 .noexc44.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__9GfRange2fEmS1_ET_S3_T0_RKT1_.exit.i.i
-  %149 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange2f", ptr %148, i64 %123
+  %149 = getelementptr inbounds [16 x i8], ptr %148, i64 %123
   %150 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc45.i unwind label %186
 
 .noexc45.i:                                       ; preds = %.noexc44.i
-  %151 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange2f", ptr %150, i64 %136
+  %151 = getelementptr inbounds [16 x i8], ptr %150, i64 %136
   %152 = ptrtoint ptr %151 to i64
   %153 = ptrtoint ptr %149 to i64
   %154 = sub i64 %152, %153
@@ -51313,12 +51272,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__9GfRange2fEmS1_ET_S3_T0_RKT1_.ex
           to label %.noexc48.i unwind label %186
 
 .noexc48.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__9GfRange2fEmS1_ET_S3_T0_RKT1_.exit52.i.i
-  %171 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange2f", ptr %170, i64 %123
+  %171 = getelementptr inbounds [16 x i8], ptr %170, i64 %123
   %172 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc49.i unwind label %186
 
 .noexc49.i:                                       ; preds = %.noexc48.i
-  %173 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange2f", ptr %172, i64 %136
+  %173 = getelementptr inbounds [16 x i8], ptr %172, i64 %136
   %174 = ptrtoint ptr %173 to i64
   %175 = ptrtoint ptr %171 to i64
   %176 = sub i64 %174, %175
@@ -51520,8 +51479,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %21
 
 .noexc35.us.i:                                    ; preds = %.noexc34.us.i
   %240 = mul nuw i64 %.023.i.us.i, %227
-  %241 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfRange2f", ptr %239, i64 %240
-  %242 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfRange2f", ptr %241, i64 %234
+  %241 = getelementptr [16 x i8], ptr %239, i64 %240
+  %242 = getelementptr [16 x i8], ptr %241, i64 %234
   %243 = invoke noundef nonnull align 4 dereferenceable(16) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %11, i64 noundef %234)
           to label %.noexc36.us.i unwind label %.split.us.i
 
@@ -51530,12 +51489,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %21
           to label %.noexc37.us.i unwind label %.split.us.i
 
 .noexc37.us.i:                                    ; preds = %.noexc36.us.i
-  %245 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange2f", ptr %244, i64 %234
+  %245 = getelementptr inbounds [16 x i8], ptr %244, i64 %234
   %246 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.us.i unwind label %.split.us.i
 
 .noexc38.us.i:                                    ; preds = %.noexc37.us.i
-  %247 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange2f", ptr %246, i64 %238
+  %247 = getelementptr inbounds [16 x i8], ptr %246, i64 %238
   %.not.i.i.i.i.i.i.us.i = icmp eq ptr %247, %245
   br i1 %.not.i.i.i.i.i.i.us.i, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__9GfRange2fEPS1_ET0_T_S6_S5_.exit.i.us.i, label %248
 
@@ -51585,8 +51544,8 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__9GfRange2fEPS1_ET0_T_S6_S5_.exit.
 
 .noexc36.i:                                       ; preds = %.noexc35.i
   %265 = mul i64 %.023.i.i, %227
-  %266 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfRange2f", ptr %263, i64 %265
-  %267 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfRange2f", ptr %266, i64 %258
+  %266 = getelementptr [16 x i8], ptr %263, i64 %265
+  %267 = getelementptr [16 x i8], ptr %266, i64 %258
   %268 = getelementptr inbounds i8, ptr %267, i64 %.idx.i.i.i.i29
   br label %.lr.ph.i.i.i.i.i.i32
 
@@ -51602,12 +51561,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__9GfRange2fEmS1_ET_S3_T0_RKT1_.ex
           to label %.noexc37.i unwind label %.split.i
 
 .noexc37.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__9GfRange2fEmS1_ET_S3_T0_RKT1_.exit.i.loopexit.i
-  %271 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange2f", ptr %270, i64 %258
+  %271 = getelementptr inbounds [16 x i8], ptr %270, i64 %258
   %272 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2fEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.i unwind label %.split.i
 
 .noexc38.i:                                       ; preds = %.noexc37.i
-  %273 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange2f", ptr %272, i64 %262
+  %273 = getelementptr inbounds [16 x i8], ptr %272, i64 %262
   %274 = ptrtoint ptr %273 to i64
   %275 = ptrtoint ptr %271 to i64
   %276 = sub i64 %274, %275
@@ -52613,7 +52572,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i: ; preds = %109,
           to label %.noexc42.i unwind label %186
 
 .noexc42.i:                                       ; preds = %135
-  %141 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange2d", ptr %140, i64 %126
+  %141 = getelementptr inbounds [32 x i8], ptr %140, i64 %126
   %142 = icmp eq i64 %139, %119
   br i1 %142, label %143, label %162
 
@@ -52641,12 +52600,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__9GfRange2dEmS1_ET_S3_T0_RKT1_.ex
           to label %.noexc44.i unwind label %186
 
 .noexc44.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__9GfRange2dEmS1_ET_S3_T0_RKT1_.exit.i.i
-  %149 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange2d", ptr %148, i64 %123
+  %149 = getelementptr inbounds [32 x i8], ptr %148, i64 %123
   %150 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc45.i unwind label %186
 
 .noexc45.i:                                       ; preds = %.noexc44.i
-  %151 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange2d", ptr %150, i64 %136
+  %151 = getelementptr inbounds [32 x i8], ptr %150, i64 %136
   %152 = ptrtoint ptr %151 to i64
   %153 = ptrtoint ptr %149 to i64
   %154 = sub i64 %152, %153
@@ -52705,12 +52664,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__9GfRange2dEmS1_ET_S3_T0_RKT1_.ex
           to label %.noexc48.i unwind label %186
 
 .noexc48.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__9GfRange2dEmS1_ET_S3_T0_RKT1_.exit52.i.i
-  %171 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange2d", ptr %170, i64 %123
+  %171 = getelementptr inbounds [32 x i8], ptr %170, i64 %123
   %172 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc49.i unwind label %186
 
 .noexc49.i:                                       ; preds = %.noexc48.i
-  %173 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange2d", ptr %172, i64 %136
+  %173 = getelementptr inbounds [32 x i8], ptr %172, i64 %136
   %174 = ptrtoint ptr %173 to i64
   %175 = ptrtoint ptr %171 to i64
   %176 = sub i64 %174, %175
@@ -52912,8 +52871,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %21
 
 .noexc35.us.i:                                    ; preds = %.noexc34.us.i
   %240 = mul nuw i64 %.023.i.us.i, %227
-  %241 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfRange2d", ptr %239, i64 %240
-  %242 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfRange2d", ptr %241, i64 %234
+  %241 = getelementptr [32 x i8], ptr %239, i64 %240
+  %242 = getelementptr [32 x i8], ptr %241, i64 %234
   %243 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %11, i64 noundef %234)
           to label %.noexc36.us.i unwind label %.split.us.i
 
@@ -52922,12 +52881,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %21
           to label %.noexc37.us.i unwind label %.split.us.i
 
 .noexc37.us.i:                                    ; preds = %.noexc36.us.i
-  %245 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange2d", ptr %244, i64 %234
+  %245 = getelementptr inbounds [32 x i8], ptr %244, i64 %234
   %246 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.us.i unwind label %.split.us.i
 
 .noexc38.us.i:                                    ; preds = %.noexc37.us.i
-  %247 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange2d", ptr %246, i64 %238
+  %247 = getelementptr inbounds [32 x i8], ptr %246, i64 %238
   %.not.i.i.i.i.i.i.us.i = icmp eq ptr %247, %245
   br i1 %.not.i.i.i.i.i.i.us.i, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__9GfRange2dEPS1_ET0_T_S6_S5_.exit.i.us.i, label %248
 
@@ -52977,8 +52936,8 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__9GfRange2dEPS1_ET0_T_S6_S5_.exit.
 
 .noexc36.i:                                       ; preds = %.noexc35.i
   %265 = mul i64 %.023.i.i, %227
-  %266 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfRange2d", ptr %263, i64 %265
-  %267 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfRange2d", ptr %266, i64 %258
+  %266 = getelementptr [32 x i8], ptr %263, i64 %265
+  %267 = getelementptr [32 x i8], ptr %266, i64 %258
   %268 = getelementptr inbounds i8, ptr %267, i64 %.idx.i.i.i.i29
   br label %.lr.ph.i.i.i.i.i.i32
 
@@ -52994,12 +52953,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__9GfRange2dEmS1_ET_S3_T0_RKT1_.ex
           to label %.noexc37.i unwind label %.split.i
 
 .noexc37.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__9GfRange2dEmS1_ET_S3_T0_RKT1_.exit.i.loopexit.i
-  %271 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange2d", ptr %270, i64 %258
+  %271 = getelementptr inbounds [32 x i8], ptr %270, i64 %258
   %272 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange2dEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.i unwind label %.split.i
 
 .noexc38.i:                                       ; preds = %.noexc37.i
-  %273 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange2d", ptr %272, i64 %262
+  %273 = getelementptr inbounds [32 x i8], ptr %272, i64 %262
   %274 = ptrtoint ptr %273 to i64
   %275 = ptrtoint ptr %271 to i64
   %276 = sub i64 %274, %275
@@ -54001,7 +53960,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i: ; preds = %109,
           to label %.noexc42.i unwind label %190
 
 .noexc42.i:                                       ; preds = %135
-  %141 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange1f", ptr %140, i64 %126
+  %141 = getelementptr inbounds [8 x i8], ptr %140, i64 %126
   %142 = icmp eq i64 %139, %119
   br i1 %142, label %143, label %164
 
@@ -54030,12 +53989,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__9GfRange1fEmS1_ET_S3_T0_RKT1_.ex
           to label %.noexc44.i unwind label %190
 
 .noexc44.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__9GfRange1fEmS1_ET_S3_T0_RKT1_.exit.i.i
-  %150 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange1f", ptr %149, i64 %123
+  %150 = getelementptr inbounds [8 x i8], ptr %149, i64 %123
   %151 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc45.i unwind label %190
 
 .noexc45.i:                                       ; preds = %.noexc44.i
-  %152 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange1f", ptr %151, i64 %136
+  %152 = getelementptr inbounds [8 x i8], ptr %151, i64 %136
   %153 = ptrtoint ptr %152 to i64
   %154 = ptrtoint ptr %150 to i64
   %155 = sub i64 %153, %154
@@ -54096,12 +54055,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__9GfRange1fEmS1_ET_S3_T0_RKT1_.ex
           to label %.noexc48.i unwind label %190
 
 .noexc48.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__9GfRange1fEmS1_ET_S3_T0_RKT1_.exit52.i.i
-  %174 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange1f", ptr %173, i64 %123
+  %174 = getelementptr inbounds [8 x i8], ptr %173, i64 %123
   %175 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc49.i unwind label %190
 
 .noexc49.i:                                       ; preds = %.noexc48.i
-  %176 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange1f", ptr %175, i64 %136
+  %176 = getelementptr inbounds [8 x i8], ptr %175, i64 %136
   %177 = ptrtoint ptr %176 to i64
   %178 = ptrtoint ptr %174 to i64
   %179 = sub i64 %177, %178
@@ -54304,8 +54263,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %22
 
 .noexc35.us.i:                                    ; preds = %.noexc34.us.i
   %244 = mul nuw i64 %.023.i.us.i, %231
-  %245 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfRange1f", ptr %243, i64 %244
-  %246 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfRange1f", ptr %245, i64 %238
+  %245 = getelementptr [8 x i8], ptr %243, i64 %244
+  %246 = getelementptr [8 x i8], ptr %245, i64 %238
   %247 = invoke noundef nonnull align 4 dereferenceable(8) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %11, i64 noundef %238)
           to label %.noexc36.us.i unwind label %.split.us.i
 
@@ -54314,12 +54273,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %22
           to label %.noexc37.us.i unwind label %.split.us.i
 
 .noexc37.us.i:                                    ; preds = %.noexc36.us.i
-  %249 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange1f", ptr %248, i64 %238
+  %249 = getelementptr inbounds [8 x i8], ptr %248, i64 %238
   %250 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.us.i unwind label %.split.us.i
 
 .noexc38.us.i:                                    ; preds = %.noexc37.us.i
-  %251 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange1f", ptr %250, i64 %242
+  %251 = getelementptr inbounds [8 x i8], ptr %250, i64 %242
   %.not.i.i.i.i.i.i.us.i = icmp eq ptr %251, %249
   br i1 %.not.i.i.i.i.i.i.us.i, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__9GfRange1fEPS1_ET0_T_S6_S5_.exit.i.us.i, label %252
 
@@ -54369,8 +54328,8 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__9GfRange1fEPS1_ET0_T_S6_S5_.exit.
 
 .noexc36.i:                                       ; preds = %.noexc35.i
   %269 = mul i64 %.023.i.i, %231
-  %270 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfRange1f", ptr %267, i64 %269
-  %271 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfRange1f", ptr %270, i64 %262
+  %270 = getelementptr [8 x i8], ptr %267, i64 %269
+  %271 = getelementptr [8 x i8], ptr %270, i64 %262
   %272 = getelementptr inbounds i8, ptr %271, i64 %.idx.i.i.i.i29
   br label %.lr.ph.i.i.i.i.i.i32
 
@@ -54387,12 +54346,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__9GfRange1fEmS1_ET_S3_T0_RKT1_.ex
           to label %.noexc37.i unwind label %.split.i
 
 .noexc37.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__9GfRange1fEmS1_ET_S3_T0_RKT1_.exit.i.loopexit.i
-  %276 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange1f", ptr %275, i64 %262
+  %276 = getelementptr inbounds [8 x i8], ptr %275, i64 %262
   %277 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1fEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.i unwind label %.split.i
 
 .noexc38.i:                                       ; preds = %.noexc37.i
-  %278 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange1f", ptr %277, i64 %266
+  %278 = getelementptr inbounds [8 x i8], ptr %277, i64 %266
   %279 = ptrtoint ptr %278 to i64
   %280 = ptrtoint ptr %276 to i64
   %281 = sub i64 %279, %280
@@ -55320,7 +55279,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i: ; preds = %109,
           to label %.noexc42.i unwind label %186
 
 .noexc42.i:                                       ; preds = %135
-  %141 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange1d", ptr %140, i64 %126
+  %141 = getelementptr inbounds [16 x i8], ptr %140, i64 %126
   %142 = icmp eq i64 %139, %119
   br i1 %142, label %143, label %162
 
@@ -55348,12 +55307,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__9GfRange1dEmS1_ET_S3_T0_RKT1_.ex
           to label %.noexc44.i unwind label %186
 
 .noexc44.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__9GfRange1dEmS1_ET_S3_T0_RKT1_.exit.i.i
-  %149 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange1d", ptr %148, i64 %123
+  %149 = getelementptr inbounds [16 x i8], ptr %148, i64 %123
   %150 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc45.i unwind label %186
 
 .noexc45.i:                                       ; preds = %.noexc44.i
-  %151 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange1d", ptr %150, i64 %136
+  %151 = getelementptr inbounds [16 x i8], ptr %150, i64 %136
   %152 = ptrtoint ptr %151 to i64
   %153 = ptrtoint ptr %149 to i64
   %154 = sub i64 %152, %153
@@ -55412,12 +55371,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__9GfRange1dEmS1_ET_S3_T0_RKT1_.ex
           to label %.noexc48.i unwind label %186
 
 .noexc48.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__9GfRange1dEmS1_ET_S3_T0_RKT1_.exit52.i.i
-  %171 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange1d", ptr %170, i64 %123
+  %171 = getelementptr inbounds [16 x i8], ptr %170, i64 %123
   %172 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc49.i unwind label %186
 
 .noexc49.i:                                       ; preds = %.noexc48.i
-  %173 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange1d", ptr %172, i64 %136
+  %173 = getelementptr inbounds [16 x i8], ptr %172, i64 %136
   %174 = ptrtoint ptr %173 to i64
   %175 = ptrtoint ptr %171 to i64
   %176 = sub i64 %174, %175
@@ -55619,8 +55578,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %21
 
 .noexc35.us.i:                                    ; preds = %.noexc34.us.i
   %240 = mul nuw i64 %.023.i.us.i, %227
-  %241 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfRange1d", ptr %239, i64 %240
-  %242 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfRange1d", ptr %241, i64 %234
+  %241 = getelementptr [16 x i8], ptr %239, i64 %240
+  %242 = getelementptr [16 x i8], ptr %241, i64 %234
   %243 = invoke noundef nonnull align 8 dereferenceable(16) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %11, i64 noundef %234)
           to label %.noexc36.us.i unwind label %.split.us.i
 
@@ -55629,12 +55588,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %21
           to label %.noexc37.us.i unwind label %.split.us.i
 
 .noexc37.us.i:                                    ; preds = %.noexc36.us.i
-  %245 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange1d", ptr %244, i64 %234
+  %245 = getelementptr inbounds [16 x i8], ptr %244, i64 %234
   %246 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.us.i unwind label %.split.us.i
 
 .noexc38.us.i:                                    ; preds = %.noexc37.us.i
-  %247 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange1d", ptr %246, i64 %238
+  %247 = getelementptr inbounds [16 x i8], ptr %246, i64 %238
   %.not.i.i.i.i.i.i.us.i = icmp eq ptr %247, %245
   br i1 %.not.i.i.i.i.i.i.us.i, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__9GfRange1dEPS1_ET0_T_S6_S5_.exit.i.us.i, label %248
 
@@ -55684,8 +55643,8 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__9GfRange1dEPS1_ET0_T_S6_S5_.exit.
 
 .noexc36.i:                                       ; preds = %.noexc35.i
   %265 = mul i64 %.023.i.i, %227
-  %266 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfRange1d", ptr %263, i64 %265
-  %267 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfRange1d", ptr %266, i64 %258
+  %266 = getelementptr [16 x i8], ptr %263, i64 %265
+  %267 = getelementptr [16 x i8], ptr %266, i64 %258
   %268 = getelementptr inbounds i8, ptr %267, i64 %.idx.i.i.i.i29
   br label %.lr.ph.i.i.i.i.i.i32
 
@@ -55701,12 +55660,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__9GfRange1dEmS1_ET_S3_T0_RKT1_.ex
           to label %.noexc37.i unwind label %.split.i
 
 .noexc37.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__9GfRange1dEmS1_ET_S3_T0_RKT1_.exit.i.loopexit.i
-  %271 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange1d", ptr %270, i64 %258
+  %271 = getelementptr inbounds [16 x i8], ptr %270, i64 %258
   %272 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_9GfRange1dEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.i unwind label %.split.i
 
 .noexc38.i:                                       ; preds = %.noexc37.i
-  %273 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRange1d", ptr %272, i64 %262
+  %273 = getelementptr inbounds [16 x i8], ptr %272, i64 %262
   %274 = ptrtoint ptr %273 to i64
   %275 = ptrtoint ptr %271 to i64
   %276 = sub i64 %274, %275
@@ -56631,7 +56590,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i: ; preds = %109,
           to label %.noexc42.i unwind label %266
 
 .noexc42.i:                                       ; preds = %135
-  %141 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfInterval", ptr %140, i64 %126
+  %141 = getelementptr inbounds [32 x i8], ptr %140, i64 %126
   %142 = icmp eq i64 %139, %119
   br i1 %142, label %143, label %202
 
@@ -56678,8 +56637,8 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__10GfIntervalEmS1_ET_S3_T0_RKT1_.
           to label %.noexc45.i unwind label %266
 
 .noexc45.i:                                       ; preds = %.noexc44.i
-  %162 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfInterval", ptr %160, i64 %123
-  %163 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfInterval", ptr %161, i64 %136
+  %162 = getelementptr inbounds [32 x i8], ptr %160, i64 %123
+  %163 = getelementptr inbounds [32 x i8], ptr %161, i64 %136
   %164 = ptrtoint ptr %163 to i64
   %165 = ptrtoint ptr %162 to i64
   %166 = sub i64 %164, %165
@@ -56795,8 +56754,8 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__10GfIntervalEmS1_ET_S3_T0_RKT1_.
           to label %.noexc49.i unwind label %266
 
 .noexc49.i:                                       ; preds = %.noexc48.i
-  %224 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfInterval", ptr %222, i64 %123
-  %225 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfInterval", ptr %223, i64 %136
+  %224 = getelementptr inbounds [32 x i8], ptr %222, i64 %123
+  %225 = getelementptr inbounds [32 x i8], ptr %223, i64 %136
   %226 = ptrtoint ptr %225 to i64
   %227 = ptrtoint ptr %224 to i64
   %228 = sub i64 %226, %227
@@ -57036,8 +56995,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %29
 
 .noexc35.i:                                       ; preds = %.noexc34.i
   %320 = mul i64 %.023.i.i, %307
-  %321 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfInterval", ptr %319, i64 %320
-  %322 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfInterval", ptr %321, i64 %314
+  %321 = getelementptr [32 x i8], ptr %319, i64 %320
+  %322 = getelementptr [32 x i8], ptr %321, i64 %314
   %323 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_10GfIntervalEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %11, i64 noundef %314)
           to label %.noexc36.i unwind label %382
 
@@ -57080,8 +57039,8 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__10GfIntervalEmS1_ET_S3_T0_RKT1_.
           to label %.noexc38.i unwind label %382
 
 .noexc38.i:                                       ; preds = %.noexc37.i
-  %341 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfInterval", ptr %339, i64 %314
-  %342 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfInterval", ptr %340, i64 %318
+  %341 = getelementptr inbounds [32 x i8], ptr %339, i64 %314
+  %342 = getelementptr inbounds [32 x i8], ptr %340, i64 %318
   %343 = ptrtoint ptr %342 to i64
   %344 = ptrtoint ptr %341 to i64
   %345 = sub i64 %343, %344
@@ -58118,7 +58077,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i: ; preds = %109,
           to label %.noexc42.i unwind label %186
 
 .noexc42.i:                                       ; preds = %135
-  %141 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRect2i", ptr %140, i64 %126
+  %141 = getelementptr inbounds [16 x i8], ptr %140, i64 %126
   %142 = icmp eq i64 %139, %119
   br i1 %142, label %143, label %162
 
@@ -58146,12 +58105,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__8GfRect2iEmS1_ET_S3_T0_RKT1_.exi
           to label %.noexc44.i unwind label %186
 
 .noexc44.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__8GfRect2iEmS1_ET_S3_T0_RKT1_.exit.i.i
-  %149 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRect2i", ptr %148, i64 %123
+  %149 = getelementptr inbounds [16 x i8], ptr %148, i64 %123
   %150 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc45.i unwind label %186
 
 .noexc45.i:                                       ; preds = %.noexc44.i
-  %151 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRect2i", ptr %150, i64 %136
+  %151 = getelementptr inbounds [16 x i8], ptr %150, i64 %136
   %152 = ptrtoint ptr %151 to i64
   %153 = ptrtoint ptr %149 to i64
   %154 = sub i64 %152, %153
@@ -58210,12 +58169,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__8GfRect2iEmS1_ET_S3_T0_RKT1_.exi
           to label %.noexc48.i unwind label %186
 
 .noexc48.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__8GfRect2iEmS1_ET_S3_T0_RKT1_.exit52.i.i
-  %171 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRect2i", ptr %170, i64 %123
+  %171 = getelementptr inbounds [16 x i8], ptr %170, i64 %123
   %172 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc49.i unwind label %186
 
 .noexc49.i:                                       ; preds = %.noexc48.i
-  %173 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRect2i", ptr %172, i64 %136
+  %173 = getelementptr inbounds [16 x i8], ptr %172, i64 %136
   %174 = ptrtoint ptr %173 to i64
   %175 = ptrtoint ptr %171 to i64
   %176 = sub i64 %174, %175
@@ -58417,8 +58376,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %21
 
 .noexc35.us.i:                                    ; preds = %.noexc34.us.i
   %240 = mul nuw i64 %.023.i.us.i, %227
-  %241 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfRect2i", ptr %239, i64 %240
-  %242 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfRect2i", ptr %241, i64 %234
+  %241 = getelementptr [16 x i8], ptr %239, i64 %240
+  %242 = getelementptr [16 x i8], ptr %241, i64 %234
   %243 = invoke noundef nonnull align 4 dereferenceable(16) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %11, i64 noundef %234)
           to label %.noexc36.us.i unwind label %.split.us.i
 
@@ -58427,12 +58386,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %21
           to label %.noexc37.us.i unwind label %.split.us.i
 
 .noexc37.us.i:                                    ; preds = %.noexc36.us.i
-  %245 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRect2i", ptr %244, i64 %234
+  %245 = getelementptr inbounds [16 x i8], ptr %244, i64 %234
   %246 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.us.i unwind label %.split.us.i
 
 .noexc38.us.i:                                    ; preds = %.noexc37.us.i
-  %247 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRect2i", ptr %246, i64 %238
+  %247 = getelementptr inbounds [16 x i8], ptr %246, i64 %238
   %.not.i.i.i.i.i.i.us.i = icmp eq ptr %247, %245
   br i1 %.not.i.i.i.i.i.i.us.i, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__8GfRect2iEPS1_ET0_T_S6_S5_.exit.i.us.i, label %248
 
@@ -58482,8 +58441,8 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__8GfRect2iEPS1_ET0_T_S6_S5_.exit.i
 
 .noexc36.i:                                       ; preds = %.noexc35.i
   %265 = mul i64 %.023.i.i, %227
-  %266 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfRect2i", ptr %263, i64 %265
-  %267 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfRect2i", ptr %266, i64 %258
+  %266 = getelementptr [16 x i8], ptr %263, i64 %265
+  %267 = getelementptr [16 x i8], ptr %266, i64 %258
   %268 = getelementptr inbounds i8, ptr %267, i64 %.idx.i.i.i.i29
   br label %.lr.ph.i.i.i.i.i.i32
 
@@ -58499,12 +58458,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__8GfRect2iEmS1_ET_S3_T0_RKT1_.exi
           to label %.noexc37.i unwind label %.split.i
 
 .noexc37.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__8GfRect2iEmS1_ET_S3_T0_RKT1_.exit.i.loopexit.i
-  %271 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRect2i", ptr %270, i64 %258
+  %271 = getelementptr inbounds [16 x i8], ptr %270, i64 %258
   %272 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8GfRect2iEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.i unwind label %.split.i
 
 .noexc38.i:                                       ; preds = %.noexc37.i
-  %273 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfRect2i", ptr %272, i64 %262
+  %273 = getelementptr inbounds [16 x i8], ptr %272, i64 %262
   %274 = ptrtoint ptr %273 to i64
   %275 = ptrtoint ptr %271 to i64
   %276 = sub i64 %274, %275
@@ -59498,7 +59457,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i: ; preds = %109,
           to label %.noexc42.i unwind label %190
 
 .noexc42.i:                                       ; preds = %135
-  %141 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuath", ptr %140, i64 %126
+  %141 = getelementptr inbounds [8 x i8], ptr %140, i64 %126
   %142 = icmp eq i64 %139, %119
   br i1 %142, label %143, label %164
 
@@ -59527,12 +59486,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfQuathEmS1_ET_S3_T0_RKT1_.exit
           to label %.noexc44.i unwind label %190
 
 .noexc44.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfQuathEmS1_ET_S3_T0_RKT1_.exit.i.i
-  %150 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuath", ptr %149, i64 %123
+  %150 = getelementptr inbounds [8 x i8], ptr %149, i64 %123
   %151 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc45.i unwind label %190
 
 .noexc45.i:                                       ; preds = %.noexc44.i
-  %152 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuath", ptr %151, i64 %136
+  %152 = getelementptr inbounds [8 x i8], ptr %151, i64 %136
   %153 = ptrtoint ptr %152 to i64
   %154 = ptrtoint ptr %150 to i64
   %155 = sub i64 %153, %154
@@ -59593,12 +59552,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfQuathEmS1_ET_S3_T0_RKT1_.exit
           to label %.noexc48.i unwind label %190
 
 .noexc48.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfQuathEmS1_ET_S3_T0_RKT1_.exit52.i.i
-  %174 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuath", ptr %173, i64 %123
+  %174 = getelementptr inbounds [8 x i8], ptr %173, i64 %123
   %175 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc49.i unwind label %190
 
 .noexc49.i:                                       ; preds = %.noexc48.i
-  %176 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuath", ptr %175, i64 %136
+  %176 = getelementptr inbounds [8 x i8], ptr %175, i64 %136
   %177 = ptrtoint ptr %176 to i64
   %178 = ptrtoint ptr %174 to i64
   %179 = sub i64 %177, %178
@@ -59801,8 +59760,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %22
 
 .noexc35.us.i:                                    ; preds = %.noexc34.us.i
   %244 = mul nuw i64 %.023.i.us.i, %231
-  %245 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfQuath", ptr %243, i64 %244
-  %246 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfQuath", ptr %245, i64 %238
+  %245 = getelementptr [8 x i8], ptr %243, i64 %244
+  %246 = getelementptr [8 x i8], ptr %245, i64 %238
   %247 = invoke noundef nonnull align 2 dereferenceable(8) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %11, i64 noundef %238)
           to label %.noexc36.us.i unwind label %.split.us.i
 
@@ -59811,12 +59770,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %22
           to label %.noexc37.us.i unwind label %.split.us.i
 
 .noexc37.us.i:                                    ; preds = %.noexc36.us.i
-  %249 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuath", ptr %248, i64 %238
+  %249 = getelementptr inbounds [8 x i8], ptr %248, i64 %238
   %250 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.us.i unwind label %.split.us.i
 
 .noexc38.us.i:                                    ; preds = %.noexc37.us.i
-  %251 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuath", ptr %250, i64 %242
+  %251 = getelementptr inbounds [8 x i8], ptr %250, i64 %242
   %.not.i.i.i.i.i.i.us.i = icmp eq ptr %251, %249
   br i1 %.not.i.i.i.i.i.i.us.i, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfQuathEPS1_ET0_T_S6_S5_.exit.i.us.i, label %252
 
@@ -59866,8 +59825,8 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfQuathEPS1_ET0_T_S6_S5_.exit.i.
 
 .noexc36.i:                                       ; preds = %.noexc35.i
   %269 = mul i64 %.023.i.i, %231
-  %270 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfQuath", ptr %267, i64 %269
-  %271 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfQuath", ptr %270, i64 %262
+  %270 = getelementptr [8 x i8], ptr %267, i64 %269
+  %271 = getelementptr [8 x i8], ptr %270, i64 %262
   %272 = getelementptr inbounds i8, ptr %271, i64 %.idx.i.i.i.i29
   br label %.lr.ph.i.i.i.i.i.i32
 
@@ -59884,12 +59843,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfQuathEmS1_ET_S3_T0_RKT1_.exit
           to label %.noexc37.i unwind label %.split.i
 
 .noexc37.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfQuathEmS1_ET_S3_T0_RKT1_.exit.i.loopexit.i
-  %276 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuath", ptr %275, i64 %262
+  %276 = getelementptr inbounds [8 x i8], ptr %275, i64 %262
   %277 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuathEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.i unwind label %.split.i
 
 .noexc38.i:                                       ; preds = %.noexc37.i
-  %278 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuath", ptr %277, i64 %266
+  %278 = getelementptr inbounds [8 x i8], ptr %277, i64 %266
   %279 = ptrtoint ptr %278 to i64
   %280 = ptrtoint ptr %276 to i64
   %281 = sub i64 %279, %280
@@ -60882,7 +60841,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i: ; preds = %109,
           to label %.noexc42.i unwind label %186
 
 .noexc42.i:                                       ; preds = %135
-  %141 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuatf", ptr %140, i64 %126
+  %141 = getelementptr inbounds [16 x i8], ptr %140, i64 %126
   %142 = icmp eq i64 %139, %119
   br i1 %142, label %143, label %162
 
@@ -60910,12 +60869,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfQuatfEmS1_ET_S3_T0_RKT1_.exit
           to label %.noexc44.i unwind label %186
 
 .noexc44.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfQuatfEmS1_ET_S3_T0_RKT1_.exit.i.i
-  %149 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuatf", ptr %148, i64 %123
+  %149 = getelementptr inbounds [16 x i8], ptr %148, i64 %123
   %150 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc45.i unwind label %186
 
 .noexc45.i:                                       ; preds = %.noexc44.i
-  %151 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuatf", ptr %150, i64 %136
+  %151 = getelementptr inbounds [16 x i8], ptr %150, i64 %136
   %152 = ptrtoint ptr %151 to i64
   %153 = ptrtoint ptr %149 to i64
   %154 = sub i64 %152, %153
@@ -60974,12 +60933,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfQuatfEmS1_ET_S3_T0_RKT1_.exit
           to label %.noexc48.i unwind label %186
 
 .noexc48.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfQuatfEmS1_ET_S3_T0_RKT1_.exit52.i.i
-  %171 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuatf", ptr %170, i64 %123
+  %171 = getelementptr inbounds [16 x i8], ptr %170, i64 %123
   %172 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc49.i unwind label %186
 
 .noexc49.i:                                       ; preds = %.noexc48.i
-  %173 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuatf", ptr %172, i64 %136
+  %173 = getelementptr inbounds [16 x i8], ptr %172, i64 %136
   %174 = ptrtoint ptr %173 to i64
   %175 = ptrtoint ptr %171 to i64
   %176 = sub i64 %174, %175
@@ -61181,8 +61140,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %21
 
 .noexc35.us.i:                                    ; preds = %.noexc34.us.i
   %240 = mul nuw i64 %.023.i.us.i, %227
-  %241 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfQuatf", ptr %239, i64 %240
-  %242 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfQuatf", ptr %241, i64 %234
+  %241 = getelementptr [16 x i8], ptr %239, i64 %240
+  %242 = getelementptr [16 x i8], ptr %241, i64 %234
   %243 = invoke noundef nonnull align 4 dereferenceable(16) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %11, i64 noundef %234)
           to label %.noexc36.us.i unwind label %.split.us.i
 
@@ -61191,12 +61150,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %21
           to label %.noexc37.us.i unwind label %.split.us.i
 
 .noexc37.us.i:                                    ; preds = %.noexc36.us.i
-  %245 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuatf", ptr %244, i64 %234
+  %245 = getelementptr inbounds [16 x i8], ptr %244, i64 %234
   %246 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.us.i unwind label %.split.us.i
 
 .noexc38.us.i:                                    ; preds = %.noexc37.us.i
-  %247 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuatf", ptr %246, i64 %238
+  %247 = getelementptr inbounds [16 x i8], ptr %246, i64 %238
   %.not.i.i.i.i.i.i.us.i = icmp eq ptr %247, %245
   br i1 %.not.i.i.i.i.i.i.us.i, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfQuatfEPS1_ET0_T_S6_S5_.exit.i.us.i, label %248
 
@@ -61246,8 +61205,8 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfQuatfEPS1_ET0_T_S6_S5_.exit.i.
 
 .noexc36.i:                                       ; preds = %.noexc35.i
   %265 = mul i64 %.023.i.i, %227
-  %266 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfQuatf", ptr %263, i64 %265
-  %267 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfQuatf", ptr %266, i64 %258
+  %266 = getelementptr [16 x i8], ptr %263, i64 %265
+  %267 = getelementptr [16 x i8], ptr %266, i64 %258
   %268 = getelementptr inbounds i8, ptr %267, i64 %.idx.i.i.i.i29
   br label %.lr.ph.i.i.i.i.i.i32
 
@@ -61263,12 +61222,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfQuatfEmS1_ET_S3_T0_RKT1_.exit
           to label %.noexc37.i unwind label %.split.i
 
 .noexc37.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfQuatfEmS1_ET_S3_T0_RKT1_.exit.i.loopexit.i
-  %271 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuatf", ptr %270, i64 %258
+  %271 = getelementptr inbounds [16 x i8], ptr %270, i64 %258
   %272 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatfEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.i unwind label %.split.i
 
 .noexc38.i:                                       ; preds = %.noexc37.i
-  %273 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuatf", ptr %272, i64 %262
+  %273 = getelementptr inbounds [16 x i8], ptr %272, i64 %262
   %274 = ptrtoint ptr %273 to i64
   %275 = ptrtoint ptr %271 to i64
   %276 = sub i64 %274, %275
@@ -62272,7 +62231,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i: ; preds = %109,
           to label %.noexc42.i unwind label %186
 
 .noexc42.i:                                       ; preds = %135
-  %141 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuatd", ptr %140, i64 %126
+  %141 = getelementptr inbounds [32 x i8], ptr %140, i64 %126
   %142 = icmp eq i64 %139, %119
   br i1 %142, label %143, label %162
 
@@ -62300,12 +62259,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfQuatdEmS1_ET_S3_T0_RKT1_.exit
           to label %.noexc44.i unwind label %186
 
 .noexc44.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfQuatdEmS1_ET_S3_T0_RKT1_.exit.i.i
-  %149 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuatd", ptr %148, i64 %123
+  %149 = getelementptr inbounds [32 x i8], ptr %148, i64 %123
   %150 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc45.i unwind label %186
 
 .noexc45.i:                                       ; preds = %.noexc44.i
-  %151 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuatd", ptr %150, i64 %136
+  %151 = getelementptr inbounds [32 x i8], ptr %150, i64 %136
   %152 = ptrtoint ptr %151 to i64
   %153 = ptrtoint ptr %149 to i64
   %154 = sub i64 %152, %153
@@ -62364,12 +62323,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfQuatdEmS1_ET_S3_T0_RKT1_.exit
           to label %.noexc48.i unwind label %186
 
 .noexc48.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfQuatdEmS1_ET_S3_T0_RKT1_.exit52.i.i
-  %171 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuatd", ptr %170, i64 %123
+  %171 = getelementptr inbounds [32 x i8], ptr %170, i64 %123
   %172 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc49.i unwind label %186
 
 .noexc49.i:                                       ; preds = %.noexc48.i
-  %173 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuatd", ptr %172, i64 %136
+  %173 = getelementptr inbounds [32 x i8], ptr %172, i64 %136
   %174 = ptrtoint ptr %173 to i64
   %175 = ptrtoint ptr %171 to i64
   %176 = sub i64 %174, %175
@@ -62571,8 +62530,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %21
 
 .noexc35.us.i:                                    ; preds = %.noexc34.us.i
   %240 = mul nuw i64 %.023.i.us.i, %227
-  %241 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfQuatd", ptr %239, i64 %240
-  %242 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfQuatd", ptr %241, i64 %234
+  %241 = getelementptr [32 x i8], ptr %239, i64 %240
+  %242 = getelementptr [32 x i8], ptr %241, i64 %234
   %243 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %11, i64 noundef %234)
           to label %.noexc36.us.i unwind label %.split.us.i
 
@@ -62581,12 +62540,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %21
           to label %.noexc37.us.i unwind label %.split.us.i
 
 .noexc37.us.i:                                    ; preds = %.noexc36.us.i
-  %245 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuatd", ptr %244, i64 %234
+  %245 = getelementptr inbounds [32 x i8], ptr %244, i64 %234
   %246 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.us.i unwind label %.split.us.i
 
 .noexc38.us.i:                                    ; preds = %.noexc37.us.i
-  %247 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuatd", ptr %246, i64 %238
+  %247 = getelementptr inbounds [32 x i8], ptr %246, i64 %238
   %.not.i.i.i.i.i.i.us.i = icmp eq ptr %247, %245
   br i1 %.not.i.i.i.i.i.i.us.i, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfQuatdEPS1_ET0_T_S6_S5_.exit.i.us.i, label %248
 
@@ -62636,8 +62595,8 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__7GfQuatdEPS1_ET0_T_S6_S5_.exit.i.
 
 .noexc36.i:                                       ; preds = %.noexc35.i
   %265 = mul i64 %.023.i.i, %227
-  %266 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfQuatd", ptr %263, i64 %265
-  %267 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfQuatd", ptr %266, i64 %258
+  %266 = getelementptr [32 x i8], ptr %263, i64 %265
+  %267 = getelementptr [32 x i8], ptr %266, i64 %258
   %268 = getelementptr inbounds i8, ptr %267, i64 %.idx.i.i.i.i29
   br label %.lr.ph.i.i.i.i.i.i32
 
@@ -62653,12 +62612,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfQuatdEmS1_ET_S3_T0_RKT1_.exit
           to label %.noexc37.i unwind label %.split.i
 
 .noexc37.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7GfQuatdEmS1_ET_S3_T0_RKT1_.exit.i.loopexit.i
-  %271 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuatd", ptr %270, i64 %258
+  %271 = getelementptr inbounds [32 x i8], ptr %270, i64 %258
   %272 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7GfQuatdEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.i unwind label %.split.i
 
 .noexc38.i:                                       ; preds = %.noexc37.i
-  %273 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuatd", ptr %272, i64 %262
+  %273 = getelementptr inbounds [32 x i8], ptr %272, i64 %262
   %274 = ptrtoint ptr %273 to i64
   %275 = ptrtoint ptr %271 to i64
   %276 = sub i64 %274, %275
@@ -63658,7 +63617,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i: ; preds = %109,
           to label %.noexc42.i unwind label %186
 
 .noexc42.i:                                       ; preds = %135
-  %141 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuaternion", ptr %140, i64 %126
+  %141 = getelementptr inbounds [32 x i8], ptr %140, i64 %126
   %142 = icmp eq i64 %139, %119
   br i1 %142, label %143, label %162
 
@@ -63686,12 +63645,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__12GfQuaternionEmS1_ET_S3_T0_RKT1
           to label %.noexc44.i unwind label %186
 
 .noexc44.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__12GfQuaternionEmS1_ET_S3_T0_RKT1_.exit.i.i
-  %149 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuaternion", ptr %148, i64 %123
+  %149 = getelementptr inbounds [32 x i8], ptr %148, i64 %123
   %150 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc45.i unwind label %186
 
 .noexc45.i:                                       ; preds = %.noexc44.i
-  %151 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuaternion", ptr %150, i64 %136
+  %151 = getelementptr inbounds [32 x i8], ptr %150, i64 %136
   %152 = ptrtoint ptr %151 to i64
   %153 = ptrtoint ptr %149 to i64
   %154 = sub i64 %152, %153
@@ -63750,12 +63709,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__12GfQuaternionEmS1_ET_S3_T0_RKT1
           to label %.noexc48.i unwind label %186
 
 .noexc48.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__12GfQuaternionEmS1_ET_S3_T0_RKT1_.exit52.i.i
-  %171 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuaternion", ptr %170, i64 %123
+  %171 = getelementptr inbounds [32 x i8], ptr %170, i64 %123
   %172 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc49.i unwind label %186
 
 .noexc49.i:                                       ; preds = %.noexc48.i
-  %173 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuaternion", ptr %172, i64 %136
+  %173 = getelementptr inbounds [32 x i8], ptr %172, i64 %136
   %174 = ptrtoint ptr %173 to i64
   %175 = ptrtoint ptr %171 to i64
   %176 = sub i64 %174, %175
@@ -63957,8 +63916,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %21
 
 .noexc35.us.i:                                    ; preds = %.noexc34.us.i
   %240 = mul nuw i64 %.023.i.us.i, %227
-  %241 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfQuaternion", ptr %239, i64 %240
-  %242 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfQuaternion", ptr %241, i64 %234
+  %241 = getelementptr [32 x i8], ptr %239, i64 %240
+  %242 = getelementptr [32 x i8], ptr %241, i64 %234
   %243 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %11, i64 noundef %234)
           to label %.noexc36.us.i unwind label %.split.us.i
 
@@ -63967,12 +63926,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %21
           to label %.noexc37.us.i unwind label %.split.us.i
 
 .noexc37.us.i:                                    ; preds = %.noexc36.us.i
-  %245 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuaternion", ptr %244, i64 %234
+  %245 = getelementptr inbounds [32 x i8], ptr %244, i64 %234
   %246 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.us.i unwind label %.split.us.i
 
 .noexc38.us.i:                                    ; preds = %.noexc37.us.i
-  %247 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuaternion", ptr %246, i64 %238
+  %247 = getelementptr inbounds [32 x i8], ptr %246, i64 %238
   %.not.i.i.i.i.i.i.us.i = icmp eq ptr %247, %245
   br i1 %.not.i.i.i.i.i.i.us.i, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__12GfQuaternionEPS1_ET0_T_S6_S5_.exit.i.us.i, label %248
 
@@ -64022,8 +63981,8 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__12GfQuaternionEPS1_ET0_T_S6_S5_.e
 
 .noexc36.i:                                       ; preds = %.noexc35.i
   %265 = mul i64 %.023.i.i, %227
-  %266 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfQuaternion", ptr %263, i64 %265
-  %267 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfQuaternion", ptr %266, i64 %258
+  %266 = getelementptr [32 x i8], ptr %263, i64 %265
+  %267 = getelementptr [32 x i8], ptr %266, i64 %258
   %268 = getelementptr inbounds i8, ptr %267, i64 %.idx.i.i.i.i29
   br label %.lr.ph.i.i.i.i.i.i32
 
@@ -64039,12 +63998,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__12GfQuaternionEmS1_ET_S3_T0_RKT1
           to label %.noexc37.i unwind label %.split.i
 
 .noexc37.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__12GfQuaternionEmS1_ET_S3_T0_RKT1_.exit.i.loopexit.i
-  %271 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuaternion", ptr %270, i64 %258
+  %271 = getelementptr inbounds [32 x i8], ptr %270, i64 %258
   %272 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12GfQuaternionEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.i unwind label %.split.i
 
 .noexc38.i:                                       ; preds = %.noexc37.i
-  %273 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfQuaternion", ptr %272, i64 %262
+  %273 = getelementptr inbounds [32 x i8], ptr %272, i64 %262
   %274 = ptrtoint ptr %273 to i64
   %275 = ptrtoint ptr %271 to i64
   %276 = sub i64 %274, %275
@@ -65044,7 +65003,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i: ; preds = %109,
           to label %.noexc42.i unwind label %186
 
 .noexc42.i:                                       ; preds = %135
-  %141 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfDualQuath", ptr %140, i64 %126
+  %141 = getelementptr inbounds [16 x i8], ptr %140, i64 %126
   %142 = icmp eq i64 %139, %119
   br i1 %142, label %143, label %162
 
@@ -65072,12 +65031,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__11GfDualQuathEmS1_ET_S3_T0_RKT1_
           to label %.noexc44.i unwind label %186
 
 .noexc44.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__11GfDualQuathEmS1_ET_S3_T0_RKT1_.exit.i.i
-  %149 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfDualQuath", ptr %148, i64 %123
+  %149 = getelementptr inbounds [16 x i8], ptr %148, i64 %123
   %150 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc45.i unwind label %186
 
 .noexc45.i:                                       ; preds = %.noexc44.i
-  %151 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfDualQuath", ptr %150, i64 %136
+  %151 = getelementptr inbounds [16 x i8], ptr %150, i64 %136
   %152 = ptrtoint ptr %151 to i64
   %153 = ptrtoint ptr %149 to i64
   %154 = sub i64 %152, %153
@@ -65136,12 +65095,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__11GfDualQuathEmS1_ET_S3_T0_RKT1_
           to label %.noexc48.i unwind label %186
 
 .noexc48.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__11GfDualQuathEmS1_ET_S3_T0_RKT1_.exit52.i.i
-  %171 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfDualQuath", ptr %170, i64 %123
+  %171 = getelementptr inbounds [16 x i8], ptr %170, i64 %123
   %172 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc49.i unwind label %186
 
 .noexc49.i:                                       ; preds = %.noexc48.i
-  %173 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfDualQuath", ptr %172, i64 %136
+  %173 = getelementptr inbounds [16 x i8], ptr %172, i64 %136
   %174 = ptrtoint ptr %173 to i64
   %175 = ptrtoint ptr %171 to i64
   %176 = sub i64 %174, %175
@@ -65343,8 +65302,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %21
 
 .noexc35.us.i:                                    ; preds = %.noexc34.us.i
   %240 = mul nuw i64 %.023.i.us.i, %227
-  %241 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfDualQuath", ptr %239, i64 %240
-  %242 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfDualQuath", ptr %241, i64 %234
+  %241 = getelementptr [16 x i8], ptr %239, i64 %240
+  %242 = getelementptr [16 x i8], ptr %241, i64 %234
   %243 = invoke noundef nonnull align 2 dereferenceable(16) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %11, i64 noundef %234)
           to label %.noexc36.us.i unwind label %.split.us.i
 
@@ -65353,12 +65312,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %21
           to label %.noexc37.us.i unwind label %.split.us.i
 
 .noexc37.us.i:                                    ; preds = %.noexc36.us.i
-  %245 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfDualQuath", ptr %244, i64 %234
+  %245 = getelementptr inbounds [16 x i8], ptr %244, i64 %234
   %246 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.us.i unwind label %.split.us.i
 
 .noexc38.us.i:                                    ; preds = %.noexc37.us.i
-  %247 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfDualQuath", ptr %246, i64 %238
+  %247 = getelementptr inbounds [16 x i8], ptr %246, i64 %238
   %.not.i.i.i.i.i.i.us.i = icmp eq ptr %247, %245
   br i1 %.not.i.i.i.i.i.i.us.i, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuathEPS1_ET0_T_S6_S5_.exit.i.us.i, label %248
 
@@ -65408,8 +65367,8 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuathEPS1_ET0_T_S6_S5_.ex
 
 .noexc36.i:                                       ; preds = %.noexc35.i
   %265 = mul i64 %.023.i.i, %227
-  %266 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfDualQuath", ptr %263, i64 %265
-  %267 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfDualQuath", ptr %266, i64 %258
+  %266 = getelementptr [16 x i8], ptr %263, i64 %265
+  %267 = getelementptr [16 x i8], ptr %266, i64 %258
   %268 = getelementptr inbounds i8, ptr %267, i64 %.idx.i.i.i.i29
   br label %.lr.ph.i.i.i.i.i.i32
 
@@ -65425,12 +65384,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__11GfDualQuathEmS1_ET_S3_T0_RKT1_
           to label %.noexc37.i unwind label %.split.i
 
 .noexc37.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__11GfDualQuathEmS1_ET_S3_T0_RKT1_.exit.i.loopexit.i
-  %271 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfDualQuath", ptr %270, i64 %258
+  %271 = getelementptr inbounds [16 x i8], ptr %270, i64 %258
   %272 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuathEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.i unwind label %.split.i
 
 .noexc38.i:                                       ; preds = %.noexc37.i
-  %273 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfDualQuath", ptr %272, i64 %262
+  %273 = getelementptr inbounds [16 x i8], ptr %272, i64 %262
   %274 = ptrtoint ptr %273 to i64
   %275 = ptrtoint ptr %271 to i64
   %276 = sub i64 %274, %275
@@ -66438,7 +66397,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i: ; preds = %109,
           to label %.noexc42.i unwind label %186
 
 .noexc42.i:                                       ; preds = %135
-  %141 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfDualQuatf", ptr %140, i64 %126
+  %141 = getelementptr inbounds [32 x i8], ptr %140, i64 %126
   %142 = icmp eq i64 %139, %119
   br i1 %142, label %143, label %162
 
@@ -66466,12 +66425,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__11GfDualQuatfEmS1_ET_S3_T0_RKT1_
           to label %.noexc44.i unwind label %186
 
 .noexc44.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__11GfDualQuatfEmS1_ET_S3_T0_RKT1_.exit.i.i
-  %149 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfDualQuatf", ptr %148, i64 %123
+  %149 = getelementptr inbounds [32 x i8], ptr %148, i64 %123
   %150 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc45.i unwind label %186
 
 .noexc45.i:                                       ; preds = %.noexc44.i
-  %151 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfDualQuatf", ptr %150, i64 %136
+  %151 = getelementptr inbounds [32 x i8], ptr %150, i64 %136
   %152 = ptrtoint ptr %151 to i64
   %153 = ptrtoint ptr %149 to i64
   %154 = sub i64 %152, %153
@@ -66530,12 +66489,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__11GfDualQuatfEmS1_ET_S3_T0_RKT1_
           to label %.noexc48.i unwind label %186
 
 .noexc48.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__11GfDualQuatfEmS1_ET_S3_T0_RKT1_.exit52.i.i
-  %171 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfDualQuatf", ptr %170, i64 %123
+  %171 = getelementptr inbounds [32 x i8], ptr %170, i64 %123
   %172 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc49.i unwind label %186
 
 .noexc49.i:                                       ; preds = %.noexc48.i
-  %173 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfDualQuatf", ptr %172, i64 %136
+  %173 = getelementptr inbounds [32 x i8], ptr %172, i64 %136
   %174 = ptrtoint ptr %173 to i64
   %175 = ptrtoint ptr %171 to i64
   %176 = sub i64 %174, %175
@@ -66737,8 +66696,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %21
 
 .noexc35.us.i:                                    ; preds = %.noexc34.us.i
   %240 = mul nuw i64 %.023.i.us.i, %227
-  %241 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfDualQuatf", ptr %239, i64 %240
-  %242 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfDualQuatf", ptr %241, i64 %234
+  %241 = getelementptr [32 x i8], ptr %239, i64 %240
+  %242 = getelementptr [32 x i8], ptr %241, i64 %234
   %243 = invoke noundef nonnull align 4 dereferenceable(32) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %11, i64 noundef %234)
           to label %.noexc36.us.i unwind label %.split.us.i
 
@@ -66747,12 +66706,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %21
           to label %.noexc37.us.i unwind label %.split.us.i
 
 .noexc37.us.i:                                    ; preds = %.noexc36.us.i
-  %245 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfDualQuatf", ptr %244, i64 %234
+  %245 = getelementptr inbounds [32 x i8], ptr %244, i64 %234
   %246 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.us.i unwind label %.split.us.i
 
 .noexc38.us.i:                                    ; preds = %.noexc37.us.i
-  %247 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfDualQuatf", ptr %246, i64 %238
+  %247 = getelementptr inbounds [32 x i8], ptr %246, i64 %238
   %.not.i.i.i.i.i.i.us.i = icmp eq ptr %247, %245
   br i1 %.not.i.i.i.i.i.i.us.i, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuatfEPS1_ET0_T_S6_S5_.exit.i.us.i, label %248
 
@@ -66802,8 +66761,8 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuatfEPS1_ET0_T_S6_S5_.ex
 
 .noexc36.i:                                       ; preds = %.noexc35.i
   %265 = mul i64 %.023.i.i, %227
-  %266 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfDualQuatf", ptr %263, i64 %265
-  %267 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfDualQuatf", ptr %266, i64 %258
+  %266 = getelementptr [32 x i8], ptr %263, i64 %265
+  %267 = getelementptr [32 x i8], ptr %266, i64 %258
   %268 = getelementptr inbounds i8, ptr %267, i64 %.idx.i.i.i.i29
   br label %.lr.ph.i.i.i.i.i.i32
 
@@ -66819,12 +66778,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__11GfDualQuatfEmS1_ET_S3_T0_RKT1_
           to label %.noexc37.i unwind label %.split.i
 
 .noexc37.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__11GfDualQuatfEmS1_ET_S3_T0_RKT1_.exit.i.loopexit.i
-  %271 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfDualQuatf", ptr %270, i64 %258
+  %271 = getelementptr inbounds [32 x i8], ptr %270, i64 %258
   %272 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatfEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.i unwind label %.split.i
 
 .noexc38.i:                                       ; preds = %.noexc37.i
-  %273 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfDualQuatf", ptr %272, i64 %262
+  %273 = getelementptr inbounds [32 x i8], ptr %272, i64 %262
   %274 = ptrtoint ptr %273 to i64
   %275 = ptrtoint ptr %271 to i64
   %276 = sub i64 %274, %275
@@ -67863,7 +67822,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i: ; preds = %109,
           to label %.noexc42.i unwind label %186
 
 .noexc42.i:                                       ; preds = %135
-  %141 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfDualQuatd", ptr %140, i64 %126
+  %141 = getelementptr inbounds [64 x i8], ptr %140, i64 %126
   %142 = icmp eq i64 %139, %119
   br i1 %142, label %143, label %162
 
@@ -67891,12 +67850,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__11GfDualQuatdEmS1_ET_S3_T0_RKT1_
           to label %.noexc44.i unwind label %186
 
 .noexc44.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__11GfDualQuatdEmS1_ET_S3_T0_RKT1_.exit.i.i
-  %149 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfDualQuatd", ptr %148, i64 %123
+  %149 = getelementptr inbounds [64 x i8], ptr %148, i64 %123
   %150 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc45.i unwind label %186
 
 .noexc45.i:                                       ; preds = %.noexc44.i
-  %151 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfDualQuatd", ptr %150, i64 %136
+  %151 = getelementptr inbounds [64 x i8], ptr %150, i64 %136
   %152 = ptrtoint ptr %151 to i64
   %153 = ptrtoint ptr %149 to i64
   %154 = sub i64 %152, %153
@@ -67955,12 +67914,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__11GfDualQuatdEmS1_ET_S3_T0_RKT1_
           to label %.noexc48.i unwind label %186
 
 .noexc48.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__11GfDualQuatdEmS1_ET_S3_T0_RKT1_.exit52.i.i
-  %171 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfDualQuatd", ptr %170, i64 %123
+  %171 = getelementptr inbounds [64 x i8], ptr %170, i64 %123
   %172 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc49.i unwind label %186
 
 .noexc49.i:                                       ; preds = %.noexc48.i
-  %173 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfDualQuatd", ptr %172, i64 %136
+  %173 = getelementptr inbounds [64 x i8], ptr %172, i64 %136
   %174 = ptrtoint ptr %173 to i64
   %175 = ptrtoint ptr %171 to i64
   %176 = sub i64 %174, %175
@@ -68162,8 +68121,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %21
 
 .noexc35.us.i:                                    ; preds = %.noexc34.us.i
   %240 = mul nuw i64 %.023.i.us.i, %227
-  %241 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfDualQuatd", ptr %239, i64 %240
-  %242 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfDualQuatd", ptr %241, i64 %234
+  %241 = getelementptr [64 x i8], ptr %239, i64 %240
+  %242 = getelementptr [64 x i8], ptr %241, i64 %234
   %243 = invoke noundef nonnull align 8 dereferenceable(64) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %11, i64 noundef %234)
           to label %.noexc36.us.i unwind label %.split.us.i
 
@@ -68172,12 +68131,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %21
           to label %.noexc37.us.i unwind label %.split.us.i
 
 .noexc37.us.i:                                    ; preds = %.noexc36.us.i
-  %245 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfDualQuatd", ptr %244, i64 %234
+  %245 = getelementptr inbounds [64 x i8], ptr %244, i64 %234
   %246 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.us.i unwind label %.split.us.i
 
 .noexc38.us.i:                                    ; preds = %.noexc37.us.i
-  %247 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfDualQuatd", ptr %246, i64 %238
+  %247 = getelementptr inbounds [64 x i8], ptr %246, i64 %238
   %.not.i.i.i.i.i.i.us.i = icmp eq ptr %247, %245
   br i1 %.not.i.i.i.i.i.i.us.i, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuatdEPS1_ET0_T_S6_S5_.exit.i.us.i, label %248
 
@@ -68227,8 +68186,8 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__11GfDualQuatdEPS1_ET0_T_S6_S5_.ex
 
 .noexc36.i:                                       ; preds = %.noexc35.i
   %265 = mul i64 %.023.i.i, %227
-  %266 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfDualQuatd", ptr %263, i64 %265
-  %267 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::GfDualQuatd", ptr %266, i64 %258
+  %266 = getelementptr [64 x i8], ptr %263, i64 %265
+  %267 = getelementptr [64 x i8], ptr %266, i64 %258
   %268 = getelementptr inbounds i8, ptr %267, i64 %.idx.i.i.i.i29
   br label %.lr.ph.i.i.i.i.i.i32
 
@@ -68244,12 +68203,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__11GfDualQuatdEmS1_ET_S3_T0_RKT1_
           to label %.noexc37.i unwind label %.split.i
 
 .noexc37.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__11GfDualQuatdEmS1_ET_S3_T0_RKT1_.exit.i.loopexit.i
-  %271 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfDualQuatd", ptr %270, i64 %258
+  %271 = getelementptr inbounds [64 x i8], ptr %270, i64 %258
   %272 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_11GfDualQuatdEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.i unwind label %.split.i
 
 .noexc38.i:                                       ; preds = %.noexc37.i
-  %273 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::GfDualQuatd", ptr %272, i64 %262
+  %273 = getelementptr inbounds [64 x i8], ptr %272, i64 %262
   %274 = ptrtoint ptr %273 to i64
   %275 = ptrtoint ptr %271 to i64
   %276 = sub i64 %274, %275
@@ -73008,7 +72967,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i: ; preds = %109,
           to label %.noexc42.i unwind label %190
 
 .noexc42.i:                                       ; preds = %135
-  %141 = getelementptr inbounds i16, ptr %140, i64 %126
+  %141 = getelementptr inbounds [2 x i8], ptr %140, i64 %126
   %142 = icmp eq i64 %139, %119
   br i1 %142, label %143, label %164
 
@@ -73037,12 +72996,12 @@ _ZSt6fill_nIPsmsET_S1_T0_RKT1_.exit.i.i:          ; preds = %.lr.ph.i.i.i.i.i.i,
           to label %.noexc44.i unwind label %190
 
 .noexc44.i:                                       ; preds = %_ZSt6fill_nIPsmsET_S1_T0_RKT1_.exit.i.i
-  %150 = getelementptr inbounds i16, ptr %149, i64 %123
+  %150 = getelementptr inbounds [2 x i8], ptr %149, i64 %123
   %151 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc45.i unwind label %190
 
 .noexc45.i:                                       ; preds = %.noexc44.i
-  %152 = getelementptr inbounds i16, ptr %151, i64 %136
+  %152 = getelementptr inbounds [2 x i8], ptr %151, i64 %136
   %153 = ptrtoint ptr %152 to i64
   %154 = ptrtoint ptr %150 to i64
   %155 = sub i64 %153, %154
@@ -73103,12 +73062,12 @@ _ZSt6fill_nIPsmsET_S1_T0_RKT1_.exit52.i.i:        ; preds = %.lr.ph.i.i.i.i48.i.
           to label %.noexc48.i unwind label %190
 
 .noexc48.i:                                       ; preds = %_ZSt6fill_nIPsmsET_S1_T0_RKT1_.exit52.i.i
-  %174 = getelementptr inbounds i16, ptr %173, i64 %123
+  %174 = getelementptr inbounds [2 x i8], ptr %173, i64 %123
   %175 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc49.i unwind label %190
 
 .noexc49.i:                                       ; preds = %.noexc48.i
-  %176 = getelementptr inbounds i16, ptr %175, i64 %136
+  %176 = getelementptr inbounds [2 x i8], ptr %175, i64 %136
   %177 = ptrtoint ptr %176 to i64
   %178 = ptrtoint ptr %174 to i64
   %179 = sub i64 %177, %178
@@ -73310,8 +73269,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %22
 
 .noexc35.us.i:                                    ; preds = %.noexc34.us.i
   %244 = mul nuw i64 %.023.i.us.i, %231
-  %245 = getelementptr i16, ptr %243, i64 %244
-  %246 = getelementptr i16, ptr %245, i64 %238
+  %245 = getelementptr [2 x i8], ptr %243, i64 %244
+  %246 = getelementptr [2 x i8], ptr %245, i64 %238
   %247 = invoke noundef nonnull align 2 dereferenceable(2) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsEixEm(ptr noundef nonnull align 8 dereferenceable(40) %11, i64 noundef %238)
           to label %.noexc36.us.i unwind label %.split.us.i
 
@@ -73320,12 +73279,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %22
           to label %.noexc37.us.i unwind label %.split.us.i
 
 .noexc37.us.i:                                    ; preds = %.noexc36.us.i
-  %249 = getelementptr inbounds i16, ptr %248, i64 %238
+  %249 = getelementptr inbounds [2 x i8], ptr %248, i64 %238
   %250 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.us.i unwind label %.split.us.i
 
 .noexc38.us.i:                                    ; preds = %.noexc37.us.i
-  %251 = getelementptr inbounds i16, ptr %250, i64 %242
+  %251 = getelementptr inbounds [2 x i8], ptr %250, i64 %242
   %.not.i.i.i.i.i.i.us.i = icmp eq ptr %251, %249
   br i1 %.not.i.i.i.i.i.i.us.i, label %_ZSt4copyIPKsPsET0_T_S4_S3_.exit.i.us.i, label %252
 
@@ -73375,8 +73334,8 @@ _ZSt4copyIPKsPsET0_T_S4_S3_.exit.i.us.i:          ; preds = %252, %.noexc38.us.i
 
 .noexc36.i:                                       ; preds = %.noexc35.i
   %269 = mul i64 %.023.i.i, %231
-  %270 = getelementptr i16, ptr %267, i64 %269
-  %271 = getelementptr i16, ptr %270, i64 %262
+  %270 = getelementptr [2 x i8], ptr %267, i64 %269
+  %271 = getelementptr [2 x i8], ptr %270, i64 %262
   %272 = getelementptr inbounds i8, ptr %271, i64 %231
   %273 = load i16, ptr %268, align 2
   br label %.lr.ph.i.i.i.i.i.i31
@@ -73393,12 +73352,12 @@ _ZSt6fill_nIPsmsET_S1_T0_RKT1_.exit.i.loopexit.i: ; preds = %.lr.ph.i.i.i.i.i.i3
           to label %.noexc37.i unwind label %.split.i
 
 .noexc37.i:                                       ; preds = %_ZSt6fill_nIPsmsET_S1_T0_RKT1_.exit.i.loopexit.i
-  %276 = getelementptr inbounds i16, ptr %275, i64 %262
+  %276 = getelementptr inbounds [2 x i8], ptr %275, i64 %262
   %277 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIsE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.i unwind label %.split.i
 
 .noexc38.i:                                       ; preds = %.noexc37.i
-  %278 = getelementptr inbounds i16, ptr %277, i64 %266
+  %278 = getelementptr inbounds [2 x i8], ptr %277, i64 %266
   %279 = ptrtoint ptr %278 to i64
   %280 = ptrtoint ptr %276 to i64
   %281 = sub i64 %279, %280
@@ -74297,7 +74256,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i: ; preds = %109,
           to label %.noexc42.i unwind label %190
 
 .noexc42.i:                                       ; preds = %135
-  %141 = getelementptr inbounds i16, ptr %140, i64 %126
+  %141 = getelementptr inbounds [2 x i8], ptr %140, i64 %126
   %142 = icmp eq i64 %139, %119
   br i1 %142, label %143, label %164
 
@@ -74326,12 +74285,12 @@ _ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.i.i:          ; preds = %.lr.ph.i.i.i.i.i.i,
           to label %.noexc44.i unwind label %190
 
 .noexc44.i:                                       ; preds = %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.i.i
-  %150 = getelementptr inbounds i16, ptr %149, i64 %123
+  %150 = getelementptr inbounds [2 x i8], ptr %149, i64 %123
   %151 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc45.i unwind label %190
 
 .noexc45.i:                                       ; preds = %.noexc44.i
-  %152 = getelementptr inbounds i16, ptr %151, i64 %136
+  %152 = getelementptr inbounds [2 x i8], ptr %151, i64 %136
   %153 = ptrtoint ptr %152 to i64
   %154 = ptrtoint ptr %150 to i64
   %155 = sub i64 %153, %154
@@ -74392,12 +74351,12 @@ _ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit52.i.i:        ; preds = %.lr.ph.i.i.i.i48.i.
           to label %.noexc48.i unwind label %190
 
 .noexc48.i:                                       ; preds = %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit52.i.i
-  %174 = getelementptr inbounds i16, ptr %173, i64 %123
+  %174 = getelementptr inbounds [2 x i8], ptr %173, i64 %123
   %175 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc49.i unwind label %190
 
 .noexc49.i:                                       ; preds = %.noexc48.i
-  %176 = getelementptr inbounds i16, ptr %175, i64 %136
+  %176 = getelementptr inbounds [2 x i8], ptr %175, i64 %136
   %177 = ptrtoint ptr %176 to i64
   %178 = ptrtoint ptr %174 to i64
   %179 = sub i64 %177, %178
@@ -74599,8 +74558,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %22
 
 .noexc35.us.i:                                    ; preds = %.noexc34.us.i
   %244 = mul nuw i64 %.023.i.us.i, %231
-  %245 = getelementptr i16, ptr %243, i64 %244
-  %246 = getelementptr i16, ptr %245, i64 %238
+  %245 = getelementptr [2 x i8], ptr %243, i64 %244
+  %246 = getelementptr [2 x i8], ptr %245, i64 %238
   %247 = invoke noundef nonnull align 2 dereferenceable(2) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItEixEm(ptr noundef nonnull align 8 dereferenceable(40) %11, i64 noundef %238)
           to label %.noexc36.us.i unwind label %.split.us.i
 
@@ -74609,12 +74568,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %22
           to label %.noexc37.us.i unwind label %.split.us.i
 
 .noexc37.us.i:                                    ; preds = %.noexc36.us.i
-  %249 = getelementptr inbounds i16, ptr %248, i64 %238
+  %249 = getelementptr inbounds [2 x i8], ptr %248, i64 %238
   %250 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.us.i unwind label %.split.us.i
 
 .noexc38.us.i:                                    ; preds = %.noexc37.us.i
-  %251 = getelementptr inbounds i16, ptr %250, i64 %242
+  %251 = getelementptr inbounds [2 x i8], ptr %250, i64 %242
   %.not.i.i.i.i.i.i.us.i = icmp eq ptr %251, %249
   br i1 %.not.i.i.i.i.i.i.us.i, label %_ZSt4copyIPKtPtET0_T_S4_S3_.exit.i.us.i, label %252
 
@@ -74664,8 +74623,8 @@ _ZSt4copyIPKtPtET0_T_S4_S3_.exit.i.us.i:          ; preds = %252, %.noexc38.us.i
 
 .noexc36.i:                                       ; preds = %.noexc35.i
   %269 = mul i64 %.023.i.i, %231
-  %270 = getelementptr i16, ptr %267, i64 %269
-  %271 = getelementptr i16, ptr %270, i64 %262
+  %270 = getelementptr [2 x i8], ptr %267, i64 %269
+  %271 = getelementptr [2 x i8], ptr %270, i64 %262
   %272 = getelementptr inbounds i8, ptr %271, i64 %231
   %273 = load i16, ptr %268, align 2
   br label %.lr.ph.i.i.i.i.i.i31
@@ -74682,12 +74641,12 @@ _ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.i.loopexit.i: ; preds = %.lr.ph.i.i.i.i.i.i3
           to label %.noexc37.i unwind label %.split.i
 
 .noexc37.i:                                       ; preds = %_ZSt6fill_nIPtmtET_S1_T0_RKT1_.exit.i.loopexit.i
-  %276 = getelementptr inbounds i16, ptr %275, i64 %262
+  %276 = getelementptr inbounds [2 x i8], ptr %275, i64 %262
   %277 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayItE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.i unwind label %.split.i
 
 .noexc38.i:                                       ; preds = %.noexc37.i
-  %278 = getelementptr inbounds i16, ptr %277, i64 %266
+  %278 = getelementptr inbounds [2 x i8], ptr %277, i64 %266
   %279 = ptrtoint ptr %278 to i64
   %280 = ptrtoint ptr %276 to i64
   %281 = sub i64 %279, %280
@@ -75585,7 +75544,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i: ; preds = %107,
           to label %.noexc42.i unwind label %188
 
 .noexc42.i:                                       ; preds = %133
-  %139 = getelementptr inbounds i32, ptr %138, i64 %124
+  %139 = getelementptr inbounds [4 x i8], ptr %138, i64 %124
   %140 = icmp eq i64 %137, %117
   br i1 %140, label %141, label %162
 
@@ -75614,12 +75573,12 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.i.i:          ; preds = %.lr.ph.i.i.i.i.i.i,
           to label %.noexc44.i unwind label %188
 
 .noexc44.i:                                       ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit.i.i
-  %148 = getelementptr inbounds i32, ptr %147, i64 %121
+  %148 = getelementptr inbounds [4 x i8], ptr %147, i64 %121
   %149 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %9)
           to label %.noexc45.i unwind label %188
 
 .noexc45.i:                                       ; preds = %.noexc44.i
-  %150 = getelementptr inbounds i32, ptr %149, i64 %134
+  %150 = getelementptr inbounds [4 x i8], ptr %149, i64 %134
   %151 = ptrtoint ptr %150 to i64
   %152 = ptrtoint ptr %148 to i64
   %153 = sub i64 %151, %152
@@ -75680,12 +75639,12 @@ _ZSt6fill_nIPimiET_S1_T0_RKT1_.exit52.i.i:        ; preds = %.lr.ph.i.i.i.i48.i.
           to label %.noexc48.i unwind label %188
 
 .noexc48.i:                                       ; preds = %_ZSt6fill_nIPimiET_S1_T0_RKT1_.exit52.i.i
-  %172 = getelementptr inbounds i32, ptr %171, i64 %121
+  %172 = getelementptr inbounds [4 x i8], ptr %171, i64 %121
   %173 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIiE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %9)
           to label %.noexc49.i unwind label %188
 
 .noexc49.i:                                       ; preds = %.noexc48.i
-  %174 = getelementptr inbounds i32, ptr %173, i64 %134
+  %174 = getelementptr inbounds [4 x i8], ptr %173, i64 %134
   %175 = ptrtoint ptr %174 to i64
   %176 = ptrtoint ptr %172 to i64
   %177 = sub i64 %175, %176
@@ -76323,7 +76282,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i: ; preds = %109,
           to label %.noexc42.i unwind label %190
 
 .noexc42.i:                                       ; preds = %135
-  %141 = getelementptr inbounds i32, ptr %140, i64 %126
+  %141 = getelementptr inbounds [4 x i8], ptr %140, i64 %126
   %142 = icmp eq i64 %139, %119
   br i1 %142, label %143, label %164
 
@@ -76352,12 +76311,12 @@ _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.i.i:          ; preds = %.lr.ph.i.i.i.i.i.i,
           to label %.noexc44.i unwind label %190
 
 .noexc44.i:                                       ; preds = %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.i.i
-  %150 = getelementptr inbounds i32, ptr %149, i64 %123
+  %150 = getelementptr inbounds [4 x i8], ptr %149, i64 %123
   %151 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc45.i unwind label %190
 
 .noexc45.i:                                       ; preds = %.noexc44.i
-  %152 = getelementptr inbounds i32, ptr %151, i64 %136
+  %152 = getelementptr inbounds [4 x i8], ptr %151, i64 %136
   %153 = ptrtoint ptr %152 to i64
   %154 = ptrtoint ptr %150 to i64
   %155 = sub i64 %153, %154
@@ -76418,12 +76377,12 @@ _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit52.i.i:        ; preds = %.lr.ph.i.i.i.i48.i.
           to label %.noexc48.i unwind label %190
 
 .noexc48.i:                                       ; preds = %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit52.i.i
-  %174 = getelementptr inbounds i32, ptr %173, i64 %123
+  %174 = getelementptr inbounds [4 x i8], ptr %173, i64 %123
   %175 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc49.i unwind label %190
 
 .noexc49.i:                                       ; preds = %.noexc48.i
-  %176 = getelementptr inbounds i32, ptr %175, i64 %136
+  %176 = getelementptr inbounds [4 x i8], ptr %175, i64 %136
   %177 = ptrtoint ptr %176 to i64
   %178 = ptrtoint ptr %174 to i64
   %179 = sub i64 %177, %178
@@ -76626,8 +76585,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %22
 
 .noexc35.us.i:                                    ; preds = %.noexc34.us.i
   %244 = mul nuw i64 %.023.i.us.i, %231
-  %245 = getelementptr i32, ptr %243, i64 %244
-  %246 = getelementptr i32, ptr %245, i64 %238
+  %245 = getelementptr [4 x i8], ptr %243, i64 %244
+  %246 = getelementptr [4 x i8], ptr %245, i64 %238
   %247 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjEixEm(ptr noundef nonnull align 8 dereferenceable(40) %11, i64 noundef %238)
           to label %.noexc36.us.i unwind label %.split.us.i
 
@@ -76636,12 +76595,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %22
           to label %.noexc37.us.i unwind label %.split.us.i
 
 .noexc37.us.i:                                    ; preds = %.noexc36.us.i
-  %249 = getelementptr inbounds i32, ptr %248, i64 %238
+  %249 = getelementptr inbounds [4 x i8], ptr %248, i64 %238
   %250 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.us.i unwind label %.split.us.i
 
 .noexc38.us.i:                                    ; preds = %.noexc37.us.i
-  %251 = getelementptr inbounds i32, ptr %250, i64 %242
+  %251 = getelementptr inbounds [4 x i8], ptr %250, i64 %242
   %.not.i.i.i.i.i.i.us.i = icmp eq ptr %251, %249
   br i1 %.not.i.i.i.i.i.i.us.i, label %_ZSt4copyIPKjPjET0_T_S4_S3_.exit.i.us.i, label %252
 
@@ -76691,8 +76650,8 @@ _ZSt4copyIPKjPjET0_T_S4_S3_.exit.i.us.i:          ; preds = %252, %.noexc38.us.i
 
 .noexc36.i:                                       ; preds = %.noexc35.i
   %269 = mul i64 %.023.i.i, %231
-  %270 = getelementptr i32, ptr %267, i64 %269
-  %271 = getelementptr i32, ptr %270, i64 %262
+  %270 = getelementptr [4 x i8], ptr %267, i64 %269
+  %271 = getelementptr [4 x i8], ptr %270, i64 %262
   %272 = getelementptr inbounds i8, ptr %271, i64 %.idx.i.i.i.i29
   %273 = load i32, ptr %268, align 4
   br label %.lr.ph.i.i.i.i.i.i32
@@ -76709,12 +76668,12 @@ _ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.i.loopexit.i: ; preds = %.lr.ph.i.i.i.i.i.i3
           to label %.noexc37.i unwind label %.split.i
 
 .noexc37.i:                                       ; preds = %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.i.loopexit.i
-  %276 = getelementptr inbounds i32, ptr %275, i64 %262
+  %276 = getelementptr inbounds [4 x i8], ptr %275, i64 %262
   %277 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIjE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.i unwind label %.split.i
 
 .noexc38.i:                                       ; preds = %.noexc37.i
-  %278 = getelementptr inbounds i32, ptr %277, i64 %266
+  %278 = getelementptr inbounds [4 x i8], ptr %277, i64 %266
   %279 = ptrtoint ptr %278 to i64
   %280 = ptrtoint ptr %276 to i64
   %281 = sub i64 %279, %280
@@ -77614,7 +77573,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i: ; preds = %109,
           to label %.noexc42.i unwind label %190
 
 .noexc42.i:                                       ; preds = %135
-  %141 = getelementptr inbounds i64, ptr %140, i64 %126
+  %141 = getelementptr inbounds [8 x i8], ptr %140, i64 %126
   %142 = icmp eq i64 %139, %119
   br i1 %142, label %143, label %164
 
@@ -77643,12 +77602,12 @@ _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.i.i:          ; preds = %.lr.ph.i.i.i.i.i.i,
           to label %.noexc44.i unwind label %190
 
 .noexc44.i:                                       ; preds = %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.i.i
-  %150 = getelementptr inbounds i64, ptr %149, i64 %123
+  %150 = getelementptr inbounds [8 x i8], ptr %149, i64 %123
   %151 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc45.i unwind label %190
 
 .noexc45.i:                                       ; preds = %.noexc44.i
-  %152 = getelementptr inbounds i64, ptr %151, i64 %136
+  %152 = getelementptr inbounds [8 x i8], ptr %151, i64 %136
   %153 = ptrtoint ptr %152 to i64
   %154 = ptrtoint ptr %150 to i64
   %155 = sub i64 %153, %154
@@ -77709,12 +77668,12 @@ _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit52.i.i:        ; preds = %.lr.ph.i.i.i.i48.i.
           to label %.noexc48.i unwind label %190
 
 .noexc48.i:                                       ; preds = %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit52.i.i
-  %174 = getelementptr inbounds i64, ptr %173, i64 %123
+  %174 = getelementptr inbounds [8 x i8], ptr %173, i64 %123
   %175 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc49.i unwind label %190
 
 .noexc49.i:                                       ; preds = %.noexc48.i
-  %176 = getelementptr inbounds i64, ptr %175, i64 %136
+  %176 = getelementptr inbounds [8 x i8], ptr %175, i64 %136
   %177 = ptrtoint ptr %176 to i64
   %178 = ptrtoint ptr %174 to i64
   %179 = sub i64 %177, %178
@@ -77917,8 +77876,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %22
 
 .noexc35.us.i:                                    ; preds = %.noexc34.us.i
   %244 = mul nuw i64 %.023.i.us.i, %231
-  %245 = getelementptr i64, ptr %243, i64 %244
-  %246 = getelementptr i64, ptr %245, i64 %238
+  %245 = getelementptr [8 x i8], ptr %243, i64 %244
+  %246 = getelementptr [8 x i8], ptr %245, i64 %238
   %247 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlEixEm(ptr noundef nonnull align 8 dereferenceable(40) %11, i64 noundef %238)
           to label %.noexc36.us.i unwind label %.split.us.i
 
@@ -77927,12 +77886,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %22
           to label %.noexc37.us.i unwind label %.split.us.i
 
 .noexc37.us.i:                                    ; preds = %.noexc36.us.i
-  %249 = getelementptr inbounds i64, ptr %248, i64 %238
+  %249 = getelementptr inbounds [8 x i8], ptr %248, i64 %238
   %250 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.us.i unwind label %.split.us.i
 
 .noexc38.us.i:                                    ; preds = %.noexc37.us.i
-  %251 = getelementptr inbounds i64, ptr %250, i64 %242
+  %251 = getelementptr inbounds [8 x i8], ptr %250, i64 %242
   %.not.i.i.i.i.i.i.us.i = icmp eq ptr %251, %249
   br i1 %.not.i.i.i.i.i.i.us.i, label %_ZSt4copyIPKlPlET0_T_S4_S3_.exit.i.us.i, label %252
 
@@ -77982,8 +77941,8 @@ _ZSt4copyIPKlPlET0_T_S4_S3_.exit.i.us.i:          ; preds = %252, %.noexc38.us.i
 
 .noexc36.i:                                       ; preds = %.noexc35.i
   %269 = mul i64 %.023.i.i, %231
-  %270 = getelementptr i64, ptr %267, i64 %269
-  %271 = getelementptr i64, ptr %270, i64 %262
+  %270 = getelementptr [8 x i8], ptr %267, i64 %269
+  %271 = getelementptr [8 x i8], ptr %270, i64 %262
   %272 = getelementptr inbounds i8, ptr %271, i64 %.idx.i.i.i.i29
   %273 = load i64, ptr %268, align 8
   br label %.lr.ph.i.i.i.i.i.i32
@@ -78000,12 +77959,12 @@ _ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.i.loopexit.i: ; preds = %.lr.ph.i.i.i.i.i.i3
           to label %.noexc37.i unwind label %.split.i
 
 .noexc37.i:                                       ; preds = %_ZSt6fill_nIPlmlET_S1_T0_RKT1_.exit.i.loopexit.i
-  %276 = getelementptr inbounds i64, ptr %275, i64 %262
+  %276 = getelementptr inbounds [8 x i8], ptr %275, i64 %262
   %277 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIlE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.i unwind label %.split.i
 
 .noexc38.i:                                       ; preds = %.noexc37.i
-  %278 = getelementptr inbounds i64, ptr %277, i64 %266
+  %278 = getelementptr inbounds [8 x i8], ptr %277, i64 %266
   %279 = ptrtoint ptr %278 to i64
   %280 = ptrtoint ptr %276 to i64
   %281 = sub i64 %279, %280
@@ -78905,7 +78864,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i: ; preds = %109,
           to label %.noexc42.i unwind label %190
 
 .noexc42.i:                                       ; preds = %135
-  %141 = getelementptr inbounds i64, ptr %140, i64 %126
+  %141 = getelementptr inbounds [8 x i8], ptr %140, i64 %126
   %142 = icmp eq i64 %139, %119
   br i1 %142, label %143, label %164
 
@@ -78934,12 +78893,12 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i:          ; preds = %.lr.ph.i.i.i.i.i.i,
           to label %.noexc44.i unwind label %190
 
 .noexc44.i:                                       ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.i
-  %150 = getelementptr inbounds i64, ptr %149, i64 %123
+  %150 = getelementptr inbounds [8 x i8], ptr %149, i64 %123
   %151 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc45.i unwind label %190
 
 .noexc45.i:                                       ; preds = %.noexc44.i
-  %152 = getelementptr inbounds i64, ptr %151, i64 %136
+  %152 = getelementptr inbounds [8 x i8], ptr %151, i64 %136
   %153 = ptrtoint ptr %152 to i64
   %154 = ptrtoint ptr %150 to i64
   %155 = sub i64 %153, %154
@@ -79000,12 +78959,12 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit52.i.i:        ; preds = %.lr.ph.i.i.i.i48.i.
           to label %.noexc48.i unwind label %190
 
 .noexc48.i:                                       ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit52.i.i
-  %174 = getelementptr inbounds i64, ptr %173, i64 %123
+  %174 = getelementptr inbounds [8 x i8], ptr %173, i64 %123
   %175 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc49.i unwind label %190
 
 .noexc49.i:                                       ; preds = %.noexc48.i
-  %176 = getelementptr inbounds i64, ptr %175, i64 %136
+  %176 = getelementptr inbounds [8 x i8], ptr %175, i64 %136
   %177 = ptrtoint ptr %176 to i64
   %178 = ptrtoint ptr %174 to i64
   %179 = sub i64 %177, %178
@@ -79208,8 +79167,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %22
 
 .noexc35.us.i:                                    ; preds = %.noexc34.us.i
   %244 = mul nuw i64 %.023.i.us.i, %231
-  %245 = getelementptr i64, ptr %243, i64 %244
-  %246 = getelementptr i64, ptr %245, i64 %238
+  %245 = getelementptr [8 x i8], ptr %243, i64 %244
+  %246 = getelementptr [8 x i8], ptr %245, i64 %238
   %247 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImEixEm(ptr noundef nonnull align 8 dereferenceable(40) %11, i64 noundef %238)
           to label %.noexc36.us.i unwind label %.split.us.i
 
@@ -79218,12 +79177,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %22
           to label %.noexc37.us.i unwind label %.split.us.i
 
 .noexc37.us.i:                                    ; preds = %.noexc36.us.i
-  %249 = getelementptr inbounds i64, ptr %248, i64 %238
+  %249 = getelementptr inbounds [8 x i8], ptr %248, i64 %238
   %250 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.us.i unwind label %.split.us.i
 
 .noexc38.us.i:                                    ; preds = %.noexc37.us.i
-  %251 = getelementptr inbounds i64, ptr %250, i64 %242
+  %251 = getelementptr inbounds [8 x i8], ptr %250, i64 %242
   %.not.i.i.i.i.i.i.us.i = icmp eq ptr %251, %249
   br i1 %.not.i.i.i.i.i.i.us.i, label %_ZSt4copyIPKmPmET0_T_S4_S3_.exit.i.us.i, label %252
 
@@ -79273,8 +79232,8 @@ _ZSt4copyIPKmPmET0_T_S4_S3_.exit.i.us.i:          ; preds = %252, %.noexc38.us.i
 
 .noexc36.i:                                       ; preds = %.noexc35.i
   %269 = mul i64 %.023.i.i, %231
-  %270 = getelementptr i64, ptr %267, i64 %269
-  %271 = getelementptr i64, ptr %270, i64 %262
+  %270 = getelementptr [8 x i8], ptr %267, i64 %269
+  %271 = getelementptr [8 x i8], ptr %270, i64 %262
   %272 = getelementptr inbounds i8, ptr %271, i64 %.idx.i.i.i.i29
   %273 = load i64, ptr %268, align 8
   br label %.lr.ph.i.i.i.i.i.i32
@@ -79291,12 +79250,12 @@ _ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.loopexit.i: ; preds = %.lr.ph.i.i.i.i.i.i3
           to label %.noexc37.i unwind label %.split.i
 
 .noexc37.i:                                       ; preds = %_ZSt6fill_nIPmmmET_S1_T0_RKT1_.exit.i.loopexit.i
-  %276 = getelementptr inbounds i64, ptr %275, i64 %262
+  %276 = getelementptr inbounds [8 x i8], ptr %275, i64 %262
   %277 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayImE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.i unwind label %.split.i
 
 .noexc38.i:                                       ; preds = %.noexc37.i
-  %278 = getelementptr inbounds i64, ptr %277, i64 %266
+  %278 = getelementptr inbounds [8 x i8], ptr %277, i64 %266
   %279 = ptrtoint ptr %278 to i64
   %280 = ptrtoint ptr %276 to i64
   %281 = sub i64 %279, %280
@@ -80196,7 +80155,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i: ; preds = %109,
           to label %.noexc42.i unwind label %190
 
 .noexc42.i:                                       ; preds = %135
-  %141 = getelementptr inbounds double, ptr %140, i64 %126
+  %141 = getelementptr inbounds [8 x i8], ptr %140, i64 %126
   %142 = icmp eq i64 %139, %119
   br i1 %142, label %143, label %164
 
@@ -80225,12 +80184,12 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.i.i:          ; preds = %.lr.ph.i.i.i.i.i.i,
           to label %.noexc44.i unwind label %190
 
 .noexc44.i:                                       ; preds = %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.i.i
-  %150 = getelementptr inbounds double, ptr %149, i64 %123
+  %150 = getelementptr inbounds [8 x i8], ptr %149, i64 %123
   %151 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc45.i unwind label %190
 
 .noexc45.i:                                       ; preds = %.noexc44.i
-  %152 = getelementptr inbounds double, ptr %151, i64 %136
+  %152 = getelementptr inbounds [8 x i8], ptr %151, i64 %136
   %153 = ptrtoint ptr %152 to i64
   %154 = ptrtoint ptr %150 to i64
   %155 = sub i64 %153, %154
@@ -80291,12 +80250,12 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit52.i.i:        ; preds = %.lr.ph.i.i.i.i48.i.
           to label %.noexc48.i unwind label %190
 
 .noexc48.i:                                       ; preds = %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit52.i.i
-  %174 = getelementptr inbounds double, ptr %173, i64 %123
+  %174 = getelementptr inbounds [8 x i8], ptr %173, i64 %123
   %175 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc49.i unwind label %190
 
 .noexc49.i:                                       ; preds = %.noexc48.i
-  %176 = getelementptr inbounds double, ptr %175, i64 %136
+  %176 = getelementptr inbounds [8 x i8], ptr %175, i64 %136
   %177 = ptrtoint ptr %176 to i64
   %178 = ptrtoint ptr %174 to i64
   %179 = sub i64 %177, %178
@@ -80499,8 +80458,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %22
 
 .noexc35.us.i:                                    ; preds = %.noexc34.us.i
   %244 = mul nuw i64 %.023.i.us.i, %231
-  %245 = getelementptr double, ptr %243, i64 %244
-  %246 = getelementptr double, ptr %245, i64 %238
+  %245 = getelementptr [8 x i8], ptr %243, i64 %244
+  %246 = getelementptr [8 x i8], ptr %245, i64 %238
   %247 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdEixEm(ptr noundef nonnull align 8 dereferenceable(40) %11, i64 noundef %238)
           to label %.noexc36.us.i unwind label %.split.us.i
 
@@ -80509,12 +80468,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %22
           to label %.noexc37.us.i unwind label %.split.us.i
 
 .noexc37.us.i:                                    ; preds = %.noexc36.us.i
-  %249 = getelementptr inbounds double, ptr %248, i64 %238
+  %249 = getelementptr inbounds [8 x i8], ptr %248, i64 %238
   %250 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.us.i unwind label %.split.us.i
 
 .noexc38.us.i:                                    ; preds = %.noexc37.us.i
-  %251 = getelementptr inbounds double, ptr %250, i64 %242
+  %251 = getelementptr inbounds [8 x i8], ptr %250, i64 %242
   %.not.i.i.i.i.i.i.us.i = icmp eq ptr %251, %249
   br i1 %.not.i.i.i.i.i.i.us.i, label %_ZSt4copyIPKdPdET0_T_S4_S3_.exit.i.us.i, label %252
 
@@ -80564,8 +80523,8 @@ _ZSt4copyIPKdPdET0_T_S4_S3_.exit.i.us.i:          ; preds = %252, %.noexc38.us.i
 
 .noexc36.i:                                       ; preds = %.noexc35.i
   %269 = mul i64 %.023.i.i, %231
-  %270 = getelementptr double, ptr %267, i64 %269
-  %271 = getelementptr double, ptr %270, i64 %262
+  %270 = getelementptr [8 x i8], ptr %267, i64 %269
+  %271 = getelementptr [8 x i8], ptr %270, i64 %262
   %272 = getelementptr inbounds i8, ptr %271, i64 %.idx.i.i.i.i29
   %273 = load double, ptr %268, align 8
   br label %.lr.ph.i.i.i.i.i.i32
@@ -80582,12 +80541,12 @@ _ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.i.loopexit.i: ; preds = %.lr.ph.i.i.i.i.i.i3
           to label %.noexc37.i unwind label %.split.i
 
 .noexc37.i:                                       ; preds = %_ZSt6fill_nIPdmdET_S1_T0_RKT1_.exit.i.loopexit.i
-  %276 = getelementptr inbounds double, ptr %275, i64 %262
+  %276 = getelementptr inbounds [8 x i8], ptr %275, i64 %262
   %277 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIdE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.i unwind label %.split.i
 
 .noexc38.i:                                       ; preds = %.noexc37.i
-  %278 = getelementptr inbounds double, ptr %277, i64 %266
+  %278 = getelementptr inbounds [8 x i8], ptr %277, i64 %266
   %279 = ptrtoint ptr %278 to i64
   %280 = ptrtoint ptr %276 to i64
   %281 = sub i64 %279, %280
@@ -81501,7 +81460,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i: ; preds = %109,
           to label %.noexc42.i unwind label %190
 
 .noexc42.i:                                       ; preds = %135
-  %141 = getelementptr inbounds float, ptr %140, i64 %126
+  %141 = getelementptr inbounds [4 x i8], ptr %140, i64 %126
   %142 = icmp eq i64 %139, %119
   br i1 %142, label %143, label %164
 
@@ -81530,12 +81489,12 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.i.i:          ; preds = %.lr.ph.i.i.i.i.i.i,
           to label %.noexc44.i unwind label %190
 
 .noexc44.i:                                       ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.i.i
-  %150 = getelementptr inbounds float, ptr %149, i64 %123
+  %150 = getelementptr inbounds [4 x i8], ptr %149, i64 %123
   %151 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc45.i unwind label %190
 
 .noexc45.i:                                       ; preds = %.noexc44.i
-  %152 = getelementptr inbounds float, ptr %151, i64 %136
+  %152 = getelementptr inbounds [4 x i8], ptr %151, i64 %136
   %153 = ptrtoint ptr %152 to i64
   %154 = ptrtoint ptr %150 to i64
   %155 = sub i64 %153, %154
@@ -81596,12 +81555,12 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit52.i.i:        ; preds = %.lr.ph.i.i.i.i48.i.
           to label %.noexc48.i unwind label %190
 
 .noexc48.i:                                       ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit52.i.i
-  %174 = getelementptr inbounds float, ptr %173, i64 %123
+  %174 = getelementptr inbounds [4 x i8], ptr %173, i64 %123
   %175 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc49.i unwind label %190
 
 .noexc49.i:                                       ; preds = %.noexc48.i
-  %176 = getelementptr inbounds float, ptr %175, i64 %136
+  %176 = getelementptr inbounds [4 x i8], ptr %175, i64 %136
   %177 = ptrtoint ptr %176 to i64
   %178 = ptrtoint ptr %174 to i64
   %179 = sub i64 %177, %178
@@ -81804,8 +81763,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %22
 
 .noexc35.us.i:                                    ; preds = %.noexc34.us.i
   %244 = mul nuw i64 %.023.i.us.i, %231
-  %245 = getelementptr float, ptr %243, i64 %244
-  %246 = getelementptr float, ptr %245, i64 %238
+  %245 = getelementptr [4 x i8], ptr %243, i64 %244
+  %246 = getelementptr [4 x i8], ptr %245, i64 %238
   %247 = invoke noundef nonnull align 4 dereferenceable(4) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfEixEm(ptr noundef nonnull align 8 dereferenceable(40) %11, i64 noundef %238)
           to label %.noexc36.us.i unwind label %.split.us.i
 
@@ -81814,12 +81773,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %22
           to label %.noexc37.us.i unwind label %.split.us.i
 
 .noexc37.us.i:                                    ; preds = %.noexc36.us.i
-  %249 = getelementptr inbounds float, ptr %248, i64 %238
+  %249 = getelementptr inbounds [4 x i8], ptr %248, i64 %238
   %250 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.us.i unwind label %.split.us.i
 
 .noexc38.us.i:                                    ; preds = %.noexc37.us.i
-  %251 = getelementptr inbounds float, ptr %250, i64 %242
+  %251 = getelementptr inbounds [4 x i8], ptr %250, i64 %242
   %.not.i.i.i.i.i.i.us.i = icmp eq ptr %251, %249
   br i1 %.not.i.i.i.i.i.i.us.i, label %_ZSt4copyIPKfPfET0_T_S4_S3_.exit.i.us.i, label %252
 
@@ -81869,8 +81828,8 @@ _ZSt4copyIPKfPfET0_T_S4_S3_.exit.i.us.i:          ; preds = %252, %.noexc38.us.i
 
 .noexc36.i:                                       ; preds = %.noexc35.i
   %269 = mul i64 %.023.i.i, %231
-  %270 = getelementptr float, ptr %267, i64 %269
-  %271 = getelementptr float, ptr %270, i64 %262
+  %270 = getelementptr [4 x i8], ptr %267, i64 %269
+  %271 = getelementptr [4 x i8], ptr %270, i64 %262
   %272 = getelementptr inbounds i8, ptr %271, i64 %.idx.i.i.i.i29
   %273 = load float, ptr %268, align 4
   br label %.lr.ph.i.i.i.i.i.i32
@@ -81887,12 +81846,12 @@ _ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.i.loopexit.i: ; preds = %.lr.ph.i.i.i.i.i.i3
           to label %.noexc37.i unwind label %.split.i
 
 .noexc37.i:                                       ; preds = %_ZSt6fill_nIPfmfET_S1_T0_RKT1_.exit.i.loopexit.i
-  %276 = getelementptr inbounds float, ptr %275, i64 %262
+  %276 = getelementptr inbounds [4 x i8], ptr %275, i64 %262
   %277 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayIfE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.i unwind label %.split.i
 
 .noexc38.i:                                       ; preds = %.noexc37.i
-  %278 = getelementptr inbounds float, ptr %277, i64 %266
+  %278 = getelementptr inbounds [4 x i8], ptr %277, i64 %266
   %279 = ptrtoint ptr %278 to i64
   %280 = ptrtoint ptr %276 to i64
   %281 = sub i64 %279, %280
@@ -82806,7 +82765,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i: ; preds = %109,
           to label %.noexc42.i unwind label %182
 
 .noexc42.i:                                       ; preds = %135
-  %141 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half", ptr %140, i64 %126
+  %141 = getelementptr inbounds [2 x i8], ptr %140, i64 %126
   %142 = icmp eq i64 %139, %119
   br i1 %142, label %143, label %160
 
@@ -82835,12 +82794,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfEmS2_ET_S4_T0_RKT1
           to label %.noexc44.i unwind label %182
 
 .noexc44.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfEmS2_ET_S4_T0_RKT1_.exit.i.i
-  %148 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half", ptr %147, i64 %123
+  %148 = getelementptr inbounds [2 x i8], ptr %147, i64 %123
   %149 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc45.i unwind label %182
 
 .noexc45.i:                                       ; preds = %.noexc44.i
-  %150 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half", ptr %149, i64 %136
+  %150 = getelementptr inbounds [2 x i8], ptr %149, i64 %136
   %151 = ptrtoint ptr %150 to i64
   %152 = ptrtoint ptr %148 to i64
   %153 = sub i64 %151, %152
@@ -82901,12 +82860,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfEmS2_ET_S4_T0_RKT1
           to label %.noexc48.i unwind label %182
 
 .noexc48.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfEmS2_ET_S4_T0_RKT1_.exit56.i.i
-  %168 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half", ptr %167, i64 %123
+  %168 = getelementptr inbounds [2 x i8], ptr %167, i64 %123
   %169 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc49.i unwind label %182
 
 .noexc49.i:                                       ; preds = %.noexc48.i
-  %170 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half", ptr %169, i64 %136
+  %170 = getelementptr inbounds [2 x i8], ptr %169, i64 %136
   %171 = ptrtoint ptr %170 to i64
   %172 = ptrtoint ptr %168 to i64
   %173 = sub i64 %171, %172
@@ -83108,8 +83067,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %21
 
 .noexc35.us.i:                                    ; preds = %.noexc34.us.i
   %236 = mul nuw i64 %.025.i.us.i, %223
-  %237 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half", ptr %235, i64 %236
-  %238 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half", ptr %237, i64 %230
+  %237 = getelementptr [2 x i8], ptr %235, i64 %236
+  %238 = getelementptr [2 x i8], ptr %237, i64 %230
   %239 = invoke noundef nonnull align 2 dereferenceable(2) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %11, i64 noundef %230)
           to label %.noexc36.us.i unwind label %.split.us.i
 
@@ -83118,12 +83077,12 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %21
           to label %.noexc37.us.i unwind label %.split.us.i
 
 .noexc37.us.i:                                    ; preds = %.noexc36.us.i
-  %241 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half", ptr %240, i64 %230
+  %241 = getelementptr inbounds [2 x i8], ptr %240, i64 %230
   %242 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.us.i unwind label %.split.us.i
 
 .noexc38.us.i:                                    ; preds = %.noexc37.us.i
-  %243 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half", ptr %242, i64 %234
+  %243 = getelementptr inbounds [2 x i8], ptr %242, i64 %234
   %.not.i.i.i.i.i.i.us.i = icmp eq ptr %243, %241
   br i1 %.not.i.i.i.i.i.i.us.i, label %_ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfEPS2_ET0_T_S7_S6_.exit.i.us.i, label %244
 
@@ -83173,8 +83132,8 @@ _ZSt4copyIPKN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfEPS2_ET0_T_S7_S6_.e
 
 .noexc36.i:                                       ; preds = %.noexc35.i
   %261 = mul i64 %.025.i.i, %223
-  %262 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half", ptr %259, i64 %261
-  %263 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half", ptr %262, i64 %254
+  %262 = getelementptr [2 x i8], ptr %259, i64 %261
+  %263 = getelementptr [2 x i8], ptr %262, i64 %254
   %264 = getelementptr inbounds i8, ptr %263, i64 %223
   %.pre.i.i.i.i.i.i31 = load i16, ptr %260, align 2
   br label %.lr.ph.i.i.i.i.i.i32
@@ -83191,12 +83150,12 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfEmS2_ET_S4_T0_RKT1
           to label %.noexc37.i unwind label %.split.i
 
 .noexc37.i:                                       ; preds = %_ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__8pxr_half4halfEmS2_ET_S4_T0_RKT1_.exit.i.loopexit.i
-  %267 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half", ptr %266, i64 %254
+  %267 = getelementptr inbounds [2 x i8], ptr %266, i64 %254
   %268 = invoke noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_8pxr_half4halfEE6cbeginEv(ptr noundef nonnull align 8 dereferenceable(40) %11)
           to label %.noexc38.i unwind label %.split.i
 
 .noexc38.i:                                       ; preds = %.noexc37.i
-  %269 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::pxr_half::half", ptr %268, i64 %258
+  %269 = getelementptr inbounds [2 x i8], ptr %268, i64 %258
   %270 = ptrtoint ptr %269 to i64
   %271 = ptrtoint ptr %267 to i64
   %272 = sub i64 %270, %271
@@ -84108,7 +84067,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i: ; preds = %109,
           to label %.noexc42.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 .noexc42.i:                                       ; preds = %135
-  %141 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %140, i64 %126
+  %141 = getelementptr inbounds [32 x i8], ptr %140, i64 %126
   %142 = icmp eq i64 %139, %119
   br i1 %142, label %143, label %169
 
@@ -84143,8 +84102,8 @@ _ZSt6fill_nIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmS5_ET_S7_T0_RK
           to label %.noexc46.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 .noexc46.i:                                       ; preds = %.noexc45.i
-  %151 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %149, i64 %123
-  %152 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %150, i64 %136
+  %151 = getelementptr inbounds [32 x i8], ptr %149, i64 %123
+  %152 = getelementptr inbounds [32 x i8], ptr %150, i64 %136
   %153 = ptrtoint ptr %152 to i64
   %154 = ptrtoint ptr %151 to i64
   %155 = sub i64 %153, %154
@@ -84224,8 +84183,8 @@ _ZSt6fill_nIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmS5_ET_S7_T0_RK
           to label %.noexc53.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 .noexc53.i:                                       ; preds = %.noexc52.i
-  %180 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %178, i64 %123
-  %181 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %179, i64 %136
+  %180 = getelementptr inbounds [32 x i8], ptr %178, i64 %123
+  %181 = getelementptr inbounds [32 x i8], ptr %179, i64 %136
   %182 = ptrtoint ptr %181 to i64
   %183 = ptrtoint ptr %180 to i64
   %184 = sub i64 %182, %183
@@ -84475,8 +84434,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i23: ; preds = %22
 
 .noexc35.i:                                       ; preds = %.noexc34.i
   %252 = mul i64 %.023.i.i, %239
-  %253 = getelementptr %"class.std::__cxx11::basic_string", ptr %251, i64 %252
-  %254 = getelementptr %"class.std::__cxx11::basic_string", ptr %253, i64 %246
+  %253 = getelementptr [32 x i8], ptr %251, i64 %252
+  %254 = getelementptr [32 x i8], ptr %253, i64 %246
   %255 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %11, i64 noundef %246)
           to label %.noexc36.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
@@ -84507,8 +84466,8 @@ _ZSt6fill_nIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEmS5_ET_S7_T0_RK
           to label %.noexc39.i37 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.i
 
 .noexc39.i37:                                     ; preds = %.noexc38.i
-  %262 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %260, i64 %246
-  %263 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %261, i64 %250
+  %262 = getelementptr inbounds [32 x i8], ptr %260, i64 %246
+  %263 = getelementptr inbounds [32 x i8], ptr %261, i64 %250
   %264 = ptrtoint ptr %263 to i64
   %265 = ptrtoint ptr %262 to i64
   %266 = sub i64 %264, %265
@@ -85484,7 +85443,7 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i: ; preds = %109,
           to label %.noexc42.i unwind label %326
 
 .noexc42.i:                                       ; preds = %135
-  %141 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %140, i64 %126
+  %141 = getelementptr inbounds [8 x i8], ptr %140, i64 %126
   %142 = icmp eq i64 %139, %119
   br i1 %142, label %143, label %232
 
@@ -85559,8 +85518,8 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7TfTokenEmS1_ET_S3_T0_RKT1_.exit
           to label %.noexc45.i unwind label %326
 
 .noexc45.i:                                       ; preds = %.noexc44.i
-  %172 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %170, i64 %123
-  %173 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %171, i64 %136
+  %172 = getelementptr inbounds [8 x i8], ptr %170, i64 %123
+  %173 = getelementptr inbounds [8 x i8], ptr %171, i64 %136
   %174 = ptrtoint ptr %173 to i64
   %175 = ptrtoint ptr %172 to i64
   %176 = sub i64 %174, %175
@@ -85760,8 +85719,8 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7TfTokenEmS1_ET_S3_T0_RKT1_.exit
           to label %.noexc49.i unwind label %326
 
 .noexc49.i:                                       ; preds = %.noexc48.i
-  %264 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %262, i64 %123
-  %265 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %263, i64 %136
+  %264 = getelementptr inbounds [8 x i8], ptr %262, i64 %123
+  %265 = getelementptr inbounds [8 x i8], ptr %263, i64 %136
   %266 = ptrtoint ptr %265 to i64
   %267 = ptrtoint ptr %264 to i64
   %268 = sub i64 %266, %267
@@ -86057,8 +86016,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7GetTextEv.exit.i27: ; preds = %35
 
 .noexc35.i:                                       ; preds = %.noexc34.i
   %380 = mul i64 %.030.i.i, %367
-  %381 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %379, i64 %380
-  %382 = getelementptr %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %381, i64 %374
+  %381 = getelementptr [8 x i8], ptr %379, i64 %380
+  %382 = getelementptr [8 x i8], ptr %381, i64 %374
   %383 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__7VtArrayINS_7TfTokenEEixEm(ptr noundef nonnull align 8 dereferenceable(40) %11, i64 noundef %374)
           to label %.noexc36.i unwind label %472
 
@@ -86129,8 +86088,8 @@ _ZSt6fill_nIPN32pxrInternal_v0_24__pxrReserved__7TfTokenEmS1_ET_S3_T0_RKT1_.exit
           to label %.noexc38.i unwind label %472
 
 .noexc38.i:                                       ; preds = %.noexc37.i
-  %411 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %409, i64 %374
-  %412 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::TfToken", ptr %410, i64 %378
+  %411 = getelementptr inbounds [8 x i8], ptr %409, i64 %374
+  %412 = getelementptr inbounds [8 x i8], ptr %410, i64 %378
   %413 = ptrtoint ptr %412 to i64
   %414 = ptrtoint ptr %411 to i64
   %415 = sub i64 %413, %414
@@ -88346,7 +88305,7 @@ _ZNSt6vectorISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__19HdSampledDataSo
 _ZNSt12_Vector_baseISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__19HdSampledDataSourceEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZNSt6vectorISt10shared_ptrIN32pxrInternal_v0_24__pxrReserved__19HdSampledDataSourceEESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit22, %40
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i21, ptr %4, align 8
-  %44 = getelementptr inbounds nuw %"class.std::shared_ptr.103", ptr %20, i64 %16
+  %44 = getelementptr inbounds nuw [16 x i8], ptr %20, i64 %16
   store ptr %44, ptr %39, align 8
   ret void
 }

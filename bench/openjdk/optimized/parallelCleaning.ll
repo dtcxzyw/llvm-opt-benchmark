@@ -38,7 +38,7 @@ _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.e
 14:                                               ; preds = %.lr.ph, %.backedge.i
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.backedge.i ]
   %15 = load ptr, ptr %12, align 8
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
   %18 = tail call noundef ptr @_ZN9CodeCache10first_blobEP8CodeHeap(ptr noundef %17) #3
   %19 = icmp eq ptr %18, null
@@ -129,7 +129,7 @@ _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.e
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph.i ], [ 0, %.preheader.i ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %19 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv.next.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %indvars.iv.next.i
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 16
   %22 = load ptr, ptr %21, align 8
@@ -170,7 +170,7 @@ _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.e
   %indvars.iv = phi i64 [ %30, %.lr.ph.preheader ], [ %indvars.iv.next, %.backedge.i ]
   %.sroa.015.244 = phi ptr [ %.sroa.015.047, %.lr.ph.preheader ], [ null, %.backedge.i ]
   %31 = load ptr, ptr %28, align 8
-  %32 = getelementptr inbounds ptr, ptr %31, i64 %indvars.iv
+  %32 = getelementptr inbounds [8 x i8], ptr %31, i64 %indvars.iv
   %33 = load ptr, ptr %32, align 8
   %34 = icmp eq ptr %.sroa.015.244, null
   br i1 %34, label %35, label %42
@@ -213,7 +213,7 @@ _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EEC2ENS2_14LivenessFilterEPS0_.e
 _ZN16CodeBlobIteratorI7nmethod13NMethodFilterLb0EE9next_implEv.exit: ; preds = %38, %.lr.ph.i.i
   %.sroa.015.6 = phi ptr [ %.sroa.015.3, %.lr.ph.i.i ], [ %36, %38 ]
   %.sroa.13.14354 = trunc i64 %indvars.iv to i32
-  %52 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv56
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv56
   store ptr %.sroa.015.6, ptr %52, align 8
   %53 = load i32, ptr %2, align 4
   %54 = add nsw i32 %53, 1
@@ -275,7 +275,7 @@ define hidden void @_ZN22CodeCacheUnloadingTask4workEj(ptr noundef nonnull align
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %19 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8
   %21 = load i8, ptr %0, align 8
   %22 = trunc i8 %21 to i1

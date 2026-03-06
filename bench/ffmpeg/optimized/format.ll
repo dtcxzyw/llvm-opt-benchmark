@@ -9,7 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.AVPrimaryCoefficients = type { %struct.AVCIExy, %struct.AVCIExy, %struct.AVCIExy }
 %struct.AVCIExy = type { %struct.AVRational, %struct.AVRational }
 %struct.AVRational = type { i32, i32 }
-%struct.AVHDRPlusPercentile = type { i8, %struct.AVRational }
 
 @format_entries = internal unnamed_addr constant [256 x %struct.FormatEntry] [%struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 1 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 1 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 2 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 2 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry zeroinitializer, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry zeroinitializer, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry zeroinitializer, %struct.FormatEntry { i8 7 }, %struct.FormatEntry { i8 7 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 7 }, %struct.FormatEntry { i8 7 }, %struct.FormatEntry { i8 7 }, %struct.FormatEntry { i8 7 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry zeroinitializer, %struct.FormatEntry zeroinitializer, %struct.FormatEntry zeroinitializer, %struct.FormatEntry zeroinitializer, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 1 }, %struct.FormatEntry { i8 1 }, %struct.FormatEntry { i8 1 }, %struct.FormatEntry { i8 1 }, %struct.FormatEntry { i8 1 }, %struct.FormatEntry { i8 1 }, %struct.FormatEntry { i8 1 }, %struct.FormatEntry { i8 1 }, %struct.FormatEntry { i8 1 }, %struct.FormatEntry { i8 1 }, %struct.FormatEntry { i8 1 }, %struct.FormatEntry { i8 1 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry zeroinitializer, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry zeroinitializer, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry zeroinitializer, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry zeroinitializer, %struct.FormatEntry zeroinitializer, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry zeroinitializer, %struct.FormatEntry zeroinitializer, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry zeroinitializer, %struct.FormatEntry { i8 3 }, %struct.FormatEntry zeroinitializer, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 1 }, %struct.FormatEntry { i8 1 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry zeroinitializer, %struct.FormatEntry { i8 3 }, %struct.FormatEntry zeroinitializer, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 1 }, %struct.FormatEntry { i8 1 }, %struct.FormatEntry zeroinitializer, %struct.FormatEntry zeroinitializer, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry zeroinitializer, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry zeroinitializer, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 1 }, %struct.FormatEntry { i8 1 }, %struct.FormatEntry zeroinitializer, %struct.FormatEntry zeroinitializer, %struct.FormatEntry zeroinitializer, %struct.FormatEntry zeroinitializer, %struct.FormatEntry zeroinitializer, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 3 }, %struct.FormatEntry { i8 1 }, %struct.FormatEntry { i8 1 }, %struct.FormatEntry { i8 1 }, %struct.FormatEntry { i8 1 }, %struct.FormatEntry { i8 1 }, %struct.FormatEntry { i8 1 }, %struct.FormatEntry zeroinitializer, %struct.FormatEntry zeroinitializer, %struct.FormatEntry zeroinitializer, %struct.FormatEntry { i8 1 }, %struct.FormatEntry { i8 1 }, %struct.FormatEntry { i8 1 }, %struct.FormatEntry { i8 1 }], align 16
 @.str = private unnamed_addr constant [30 x i8] c"Assertion %s failed at %s:%d\0A\00", align 1
@@ -27,7 +26,7 @@ define range(i32 0, 2) i32 @sws_isSupportedInput(i32 noundef %0) local_unnamed_a
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw %struct.FormatEntry, ptr @format_entries, i64 %4
+  %5 = getelementptr inbounds nuw i8, ptr @format_entries, i64 %4
   %6 = load i8, ptr %5, align 1
   %7 = and i8 %6, 1
   %8 = zext nneg i8 %7 to i32
@@ -45,7 +44,7 @@ define range(i32 0, 2) i32 @sws_isSupportedOutput(i32 noundef %0) local_unnamed_
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw %struct.FormatEntry, ptr @format_entries, i64 %4
+  %5 = getelementptr inbounds nuw i8, ptr @format_entries, i64 %4
   %6 = load i8, ptr %5, align 1
   %7 = lshr i8 %6, 1
   %8 = and i8 %7, 1
@@ -64,7 +63,7 @@ define range(i32 0, 2) i32 @sws_isSupportedEndiannessConversion(i32 noundef %0) 
 
 3:                                                ; preds = %1
   %4 = zext nneg i32 %0 to i64
-  %5 = getelementptr inbounds nuw %struct.FormatEntry, ptr @format_entries, i64 %4
+  %5 = getelementptr inbounds nuw i8, ptr @format_entries, i64 %4
   %6 = load i8, ptr %5, align 1
   %7 = lshr i8 %6, 2
   %8 = and i8 %7, 1
@@ -482,7 +481,7 @@ av_cmp_q.exit143.thread:                          ; preds = %av_cmp_q.exit143, %
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %av_cmp_q.exit153 ]
   %.sroa.12.2158 = phi i32 [ %.sroa.12.1, %.lr.ph ], [ %.sroa.12.3, %av_cmp_q.exit153 ]
   %.sroa.019.2157 = phi i32 [ %.sroa.019.1, %.lr.ph ], [ %.sroa.019.3, %av_cmp_q.exit153 ]
-  %205 = getelementptr inbounds nuw %struct.AVHDRPlusPercentile, ptr %116, i64 %indvars.iv
+  %205 = getelementptr inbounds nuw [12 x i8], ptr %116, i64 %indvars.iv
   %206 = getelementptr inbounds nuw i8, ptr %205, i64 92
   %.sroa.03.0.copyload = load i64, ptr %206, align 4
   %.sroa.011.0.extract.trunc.i144 = trunc i64 %.sroa.03.0.copyload to i32
@@ -778,7 +777,7 @@ define range(i32 0, 2) i32 @sws_test_format(i32 noundef %0, i32 noundef %1) loca
 
 5:                                                ; preds = %4
   %6 = zext nneg i32 %0 to i64
-  %7 = getelementptr inbounds nuw %struct.FormatEntry, ptr @format_entries, i64 %6
+  %7 = getelementptr inbounds nuw i8, ptr @format_entries, i64 %6
   %8 = load i8, ptr %7, align 1
   %9 = lshr i8 %8, 1
   %10 = and i8 %9, 1
@@ -789,7 +788,7 @@ define range(i32 0, 2) i32 @sws_test_format(i32 noundef %0, i32 noundef %1) loca
 
 12:                                               ; preds = %11
   %13 = zext nneg i32 %0 to i64
-  %14 = getelementptr inbounds nuw %struct.FormatEntry, ptr @format_entries, i64 %13
+  %14 = getelementptr inbounds nuw i8, ptr @format_entries, i64 %13
   %15 = load i8, ptr %14, align 1
   %16 = and i8 %15, 1
   br label %sws_isSupportedOutput.exit
@@ -807,7 +806,7 @@ define range(i32 0, 2) i32 @sws_test_colorspace(i32 noundef %0, i32 noundef %1) 
 
 switch.lookup:                                    ; preds = %2
   %4 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.sws_test_colorspace, i64 %4
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.sws_test_colorspace, i64 %4
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %5
 
@@ -876,7 +875,7 @@ define range(i32 0, 2) i32 @ff_test_fmt(ptr noundef readonly captures(none) %0, 
 
 14:                                               ; preds = %13
   %15 = zext nneg i32 %11 to i64
-  %16 = getelementptr inbounds nuw %struct.FormatEntry, ptr @format_entries, i64 %15
+  %16 = getelementptr inbounds nuw i8, ptr @format_entries, i64 %15
   %17 = load i8, ptr %16, align 1
   %18 = lshr i8 %17, 1
   br label %sws_test_format.exit
@@ -886,7 +885,7 @@ define range(i32 0, 2) i32 @ff_test_fmt(ptr noundef readonly captures(none) %0, 
 
 20:                                               ; preds = %19
   %21 = zext nneg i32 %11 to i64
-  %22 = getelementptr inbounds nuw %struct.FormatEntry, ptr @format_entries, i64 %21
+  %22 = getelementptr inbounds nuw i8, ptr @format_entries, i64 %21
   %23 = load i8, ptr %22, align 1
   br label %sws_test_format.exit
 
@@ -990,7 +989,7 @@ define range(i32 0, 2) i32 @sws_test_frame(ptr noundef %0, i32 noundef %1) local
 
 sws_test_format.exit.i.us:                        ; preds = %17
   %20 = zext nneg i32 %18 to i64
-  %21 = getelementptr inbounds nuw %struct.FormatEntry, ptr @format_entries, i64 %20
+  %21 = getelementptr inbounds nuw i8, ptr @format_entries, i64 %20
   %22 = load i8, ptr %21, align 1
   %.shrunk.i.i.us = and i8 %22, 1
   %.not.i.us = icmp eq i8 %.shrunk.i.i.us, 0
@@ -1057,7 +1056,7 @@ sws_test_transfer.exit.i.us:                      ; preds = %sws_test_colorspace
 
 sws_test_format.exit.i:                           ; preds = %43
   %46 = zext nneg i32 %44 to i64
-  %47 = getelementptr inbounds nuw %struct.FormatEntry, ptr @format_entries, i64 %46
+  %47 = getelementptr inbounds nuw i8, ptr @format_entries, i64 %46
   %48 = load i8, ptr %47, align 1
   %49 = and i8 %48, 2
   %.not.i = icmp eq i8 %49, 0

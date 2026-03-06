@@ -700,7 +700,7 @@ common.resume:                                    ; preds = %137, %134, %123, %.
 "_ZN10num_bigint7biguint7convert89_$LT$impl$u20$core..convert..From$LT$u64$GT$$u20$for$u20$num_bigint..biguint..BigUint$GT$4from17h312c34c49508260fE.llvm.15755512314762197099.exit": ; preds = %.lr.ph.split.us.i
   %.pre.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !152, !noalias !149
   %.pre.i.us.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !152, !noalias !149
-  %141 = getelementptr inbounds i64, ptr %.pre.i, i64 %.pre.i.us.i
+  %141 = getelementptr inbounds [8 x i8], ptr %.pre.i, i64 %.pre.i.us.i
   store i64 %.011.i32, ptr %141, align 8, !noalias !149
   %142 = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !152, !noalias !149, !noundef !5
   %143 = add i64 %142, 1
@@ -796,8 +796,8 @@ default.unreachable.i:                            ; preds = %"_ZN63_$LT$num_bigi
   br i1 %37, label %38, label %"_ZN63_$LT$num_bigint..biguint..BigUint$u20$as$u20$core..cmp..Ord$GT$3cmp17h1a4a4c4905c70a60E.exit.thread30.i"
 
 38:                                               ; preds = %36
-  %39 = getelementptr inbounds i64, ptr %.val.i, i64 %.val22.i
-  %40 = getelementptr inbounds i64, ptr %.val23.i, i64 %.val22.i
+  %39 = getelementptr inbounds [8 x i8], ptr %.val.i, i64 %.val22.i
+  %40 = getelementptr inbounds [8 x i8], ptr %.val23.i, i64 %.val22.i
   %41 = invoke { i1, i8 } @_ZN4core4iter6traits8iterator12iter_compare17h77f9b7420993a187E.llvm.3971154647890252431(ptr noundef nonnull readonly align 8 %.val.i, ptr noundef nonnull readonly %39, ptr noundef nonnull readonly align 8 %.val23.i, ptr noundef nonnull readonly %40)
           to label %"_ZN63_$LT$num_bigint..biguint..BigUint$u20$as$u20$core..cmp..Ord$GT$3cmp17h1a4a4c4905c70a60E.exit.i" unwind label %58, !noalias !170
 
@@ -1140,7 +1140,7 @@ define internal fastcc void @_ZN10num_bigint6bigint6BigInt12from_biguint17hcc6db
   %9 = load i64, ptr %7, align 8, !alias.scope !234, !noundef !5
   %.not.i.i = icmp eq i64 %9, 0
   %10 = load ptr, ptr %8, align 8, !alias.scope !234, !nonnull !5
-  %11 = getelementptr i64, ptr %10, i64 %9
+  %11 = getelementptr [8 x i8], ptr %10, i64 %9
   %12 = getelementptr i8, ptr %11, i64 -8
   %.not1011.i.i = icmp eq ptr %12, null
   %.not10.i.i = select i1 %.not.i.i, i1 true, i1 %.not1011.i.i
@@ -1288,7 +1288,7 @@ common.resume:                                    ; preds = %19, %6
   %10 = sub i64 0, %1
   %.pre.i = load ptr, ptr %.sroa.4.0..sroa_idx.i, align 8, !alias.scope !244, !noalias !241
   %.pre.i.us.i = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !244, !noalias !241
-  %11 = getelementptr inbounds i64, ptr %.pre.i, i64 %.pre.i.us.i
+  %11 = getelementptr inbounds [8 x i8], ptr %.pre.i, i64 %.pre.i.us.i
   store i64 %10, ptr %11, align 8, !noalias !241
   %12 = load i64, ptr %.sroa.5.0..sroa_idx.i, align 8, !alias.scope !244, !noalias !241, !noundef !5
   %13 = add i64 %12, 1
@@ -1344,7 +1344,7 @@ common.resume:                                    ; preds = %19, %6
 "_ZN10num_bigint7biguint7convert89_$LT$impl$u20$core..convert..From$LT$u64$GT$$u20$for$u20$num_bigint..biguint..BigUint$GT$4from17h312c34c49508260fE.llvm.15755512314762197099.exit8": ; preds = %.lr.ph.split.us.i4
   %.pre.i6 = load ptr, ptr %.sroa.4.0..sroa_idx.i2, align 8, !alias.scope !250, !noalias !247
   %.pre.i.us.i7 = load i64, ptr %.sroa.5.0..sroa_idx.i3, align 8, !alias.scope !250, !noalias !247
-  %23 = getelementptr inbounds i64, ptr %.pre.i6, i64 %.pre.i.us.i7
+  %23 = getelementptr inbounds [8 x i8], ptr %.pre.i6, i64 %.pre.i.us.i7
   store i64 %1, ptr %23, align 8, !noalias !247
   %24 = load i64, ptr %.sroa.5.0..sroa_idx.i3, align 8, !alias.scope !250, !noalias !247, !noundef !5
   %25 = add i64 %24, 1
@@ -1377,7 +1377,7 @@ define hidden void @"_ZN10num_bigint7biguint7convert89_$LT$impl$u20$core..conver
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd2273d509b2626aaE.llvm.15755512314762197099.exit.us": ; preds = %.lr.ph.split.us
   %.pre = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !253
   %.pre.i.us = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !253
-  %5 = getelementptr inbounds i64, ptr %.pre, i64 %.pre.i.us
+  %5 = getelementptr inbounds [8 x i8], ptr %.pre, i64 %.pre.i.us
   store i64 %1, ptr %5, align 8
   %6 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !253, !noundef !5
   %7 = add i64 %6, 1
@@ -1513,8 +1513,8 @@ default.unreachable.i.i:                          ; preds = %"_ZN63_$LT$num_bigi
   br i1 %33, label %"_ZN63_$LT$num_bigint..biguint..BigUint$u20$as$u20$core..cmp..Ord$GT$3cmp17h1a4a4c4905c70a60E.exit.i.i", label %"_ZN63_$LT$num_bigint..biguint..BigUint$u20$as$u20$core..cmp..Ord$GT$3cmp17h1a4a4c4905c70a60E.exit.thread35.i.i"
 
 "_ZN63_$LT$num_bigint..biguint..BigUint$u20$as$u20$core..cmp..Ord$GT$3cmp17h1a4a4c4905c70a60E.exit.i.i": ; preds = %32
-  %34 = getelementptr inbounds i64, ptr %.val.i.i, i64 %.val16.i.i
-  %35 = getelementptr inbounds i64, ptr %.val17.i.i, i64 %.val16.i.i
+  %34 = getelementptr inbounds [8 x i8], ptr %.val.i.i, i64 %.val16.i.i
+  %35 = getelementptr inbounds [8 x i8], ptr %.val17.i.i, i64 %.val16.i.i
   %36 = tail call { i1, i8 } @_ZN4core4iter6traits8iterator12iter_compare17h77f9b7420993a187E.llvm.3971154647890252431(ptr noundef nonnull readonly align 8 %.val.i.i, ptr noundef nonnull readonly %34, ptr noundef nonnull readonly align 8 %.val17.i.i, ptr noundef nonnull readonly %35), !noalias !291
   %37 = extractvalue { i1, i8 } %36, 1
   switch i8 %37, label %default.unreachable.i.i [
@@ -1637,7 +1637,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17hd2273d509b2626aaE.ll
   %9 = phi i64 [ %.pre, %7 ], [ %4, %2 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
-  %12 = getelementptr inbounds i64, ptr %11, i64 %9
+  %12 = getelementptr inbounds [8 x i8], ptr %11, i64 %9
   store i64 %1, ptr %12, align 8
   %13 = load i64, ptr %3, align 8, !noundef !5
   %14 = add i64 %13, 1
@@ -1962,8 +1962,8 @@ default.unreachable.i.i.i:                        ; preds = %"_ZN63_$LT$num_bigi
   br i1 %54, label %55, label %"_ZN63_$LT$num_bigint..biguint..BigUint$u20$as$u20$core..cmp..Ord$GT$3cmp17h1a4a4c4905c70a60E.exit.thread25.i.i.i"
 
 55:                                               ; preds = %53
-  %56 = getelementptr inbounds i64, ptr %.val.i.i.i, i64 %.val17.i.i.i
-  %57 = getelementptr inbounds i64, ptr %.val18.i.i.i, i64 %.val17.i.i.i
+  %56 = getelementptr inbounds [8 x i8], ptr %.val.i.i.i, i64 %.val17.i.i.i
+  %57 = getelementptr inbounds [8 x i8], ptr %.val18.i.i.i, i64 %.val17.i.i.i
   %58 = invoke { i1, i8 } @_ZN4core4iter6traits8iterator12iter_compare17h77f9b7420993a187E.llvm.3971154647890252431(ptr noundef nonnull readonly align 8 %.val.i.i.i, ptr noundef nonnull readonly %56, ptr noundef nonnull readonly align 8 %.val18.i.i.i, ptr noundef nonnull readonly %57)
           to label %"_ZN63_$LT$num_bigint..biguint..BigUint$u20$as$u20$core..cmp..Ord$GT$3cmp17h1a4a4c4905c70a60E.exit.i.i.i" unwind label %72, !noalias !407
 
@@ -2440,7 +2440,7 @@ common.resume.i:                                  ; preds = %3
 "_ZN10num_bigint6bigint7convert87_$LT$impl$u20$core..convert..From$LT$i64$GT$$u20$for$u20$num_bigint..bigint..BigInt$GT$4from17h801ca66efb57d57aE.llvm.15755512314762197099.exit": ; preds = %1
   %.pre.i6.i = load ptr, ptr %.sroa.4.0..sroa_idx.i2.i, align 8, !alias.scope !462, !noalias !457
   %.pre.i.us.i7.i = load i64, ptr %.sroa.5.0..sroa_idx.i3.i, align 8, !alias.scope !462, !noalias !457
-  %7 = getelementptr inbounds i64, ptr %.pre.i6.i, i64 %.pre.i.us.i7.i
+  %7 = getelementptr inbounds [8 x i8], ptr %.pre.i6.i, i64 %.pre.i.us.i7.i
   store i64 1, ptr %7, align 8, !noalias !457
   %8 = load i64, ptr %.sroa.5.0..sroa_idx.i3.i, align 8, !alias.scope !462, !noalias !457, !noundef !5
   %9 = add i64 %8, 1
@@ -2721,7 +2721,7 @@ switch.lookup:                                    ; preds = %3
   %21 = icmp slt i64 %20, -9223372036854775804
   %22 = add i64 %20, -9223372036854775807
   %23 = select i1 %21, i64 %22, i64 0
-  %switch.gep = getelementptr inbounds i64, ptr @"switch.table._ZN88_$LT$uu_seq..extendedbigdecimal..ExtendedBigDecimal$u20$as$u20$core..ops..arith..Add$GT$3add17h95e9ba19314a7cb5E", i64 %23
+  %switch.gep = getelementptr inbounds [8 x i8], ptr @"switch.table._ZN88_$LT$uu_seq..extendedbigdecimal..ExtendedBigDecimal$u20$as$u20$core..ops..arith..Add$GT$3add17h95e9ba19314a7cb5E", i64 %23
   %switch.load = load i64, ptr %switch.gep, align 8
   br label %31
 
@@ -2730,7 +2730,7 @@ switch.lookup36:                                  ; preds = %3
   %25 = icmp slt i64 %24, -9223372036854775804
   %26 = add i64 %24, -9223372036854775807
   %27 = select i1 %25, i64 %26, i64 0
-  %switch.gep37 = getelementptr inbounds i64, ptr @"switch.table._ZN88_$LT$uu_seq..extendedbigdecimal..ExtendedBigDecimal$u20$as$u20$core..ops..arith..Add$GT$3add17h95e9ba19314a7cb5E.10", i64 %27
+  %switch.gep37 = getelementptr inbounds [8 x i8], ptr @"switch.table._ZN88_$LT$uu_seq..extendedbigdecimal..ExtendedBigDecimal$u20$as$u20$core..ops..arith..Add$GT$3add17h95e9ba19314a7cb5E.10", i64 %27
   %switch.load38 = load i64, ptr %switch.gep37, align 8
   br label %31
 

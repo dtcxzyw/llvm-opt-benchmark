@@ -97,13 +97,13 @@ define internal range(i32 -1094995529, 1) i32 @ircam_read_header(ptr noundef %0)
 
 6:                                                ; preds = %1, %5
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %5 ]
-  %7 = getelementptr inbounds nuw %struct.endianess, ptr @table, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @table, i64 %indvars.iv
   %8 = load i32, ptr %7, align 8, !tbaa !29
   %9 = icmp eq i32 %4, %8
   br i1 %9, label %10, label %5
 
 10:                                               ; preds = %6
-  %11 = getelementptr inbounds nuw %struct.endianess, ptr @table, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @table, i64 %indvars.iv
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %13 = load i32, ptr %12, align 4, !tbaa !31
   switch i32 %13, label %.thread [

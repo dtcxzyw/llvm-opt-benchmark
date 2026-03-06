@@ -61,7 +61,7 @@ define noundef ptr @readList(ptr noundef %0, ptr noundef %1, i8 noundef signext 
 
 .split.us.i:                                      ; preds = %19, %25
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %25 ], [ 0, %19 ]
-  %22 = getelementptr inbounds nuw %struct.anon, ptr @_ZL16listFileSuffixes, i64 %indvars.iv.i
+  %22 = getelementptr inbounds nuw [16 x i8], ptr @_ZL16listFileSuffixes, i64 %indvars.iv.i
   %23 = load ptr, ptr %22, align 16, !tbaa !9
   %bcmp.us.i = tail call i32 @bcmp(ptr noundef nonnull readonly dereferenceable(4) %21, ptr noundef nonnull dereferenceable(4) %23, i64 4)
   %24 = icmp eq i32 %bcmp.us.i, 0

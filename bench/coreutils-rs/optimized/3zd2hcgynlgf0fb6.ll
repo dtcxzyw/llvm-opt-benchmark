@@ -350,7 +350,7 @@ _ZN5alloc7raw_vec11finish_grow17h50e2bd0c584c93c7E.exit.i.i.i: ; preds = %26, %2
 29:                                               ; preds = %._crit_edge.i, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hd3b55abf378176b8E.exit.i"
   %.pre-phi.i = phi i64 [ %.pre1.i, %._crit_edge.i ], [ %16, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hd3b55abf378176b8E.exit.i" ]
   %30 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %.sroa.012.1.i.i.pn.i.i.i.i, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hd3b55abf378176b8E.exit.i" ]
-  %31 = getelementptr inbounds { { { { ptr, i64 } } }, i8, [7 x i8] }, ptr %30, i64 %7
+  %31 = getelementptr inbounds [24 x i8], ptr %30, i64 %7
   store ptr %2, ptr %31, align 8, !noalias !62
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i64 %3, ptr %.sroa.4.0..sroa_idx, align 8, !noalias !62
@@ -457,7 +457,7 @@ _ZN5alloc7raw_vec11finish_grow17h50e2bd0c584c93c7E.exit.i.i.i: ; preds = %26, %2
 29:                                               ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hec3814f2db0d3a70E.llvm.1636950575687592824.exit.i", %._crit_edge.i
   %.pre-phi.i = phi i64 [ %.pre1.i, %._crit_edge.i ], [ %16, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hec3814f2db0d3a70E.llvm.1636950575687592824.exit.i" ]
   %30 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %.sroa.012.1.i.i.pn.i.i.i.i, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hec3814f2db0d3a70E.llvm.1636950575687592824.exit.i" ]
-  %31 = getelementptr inbounds { { { { ptr, i64 } } } }, ptr %30, i64 %7
+  %31 = getelementptr inbounds [16 x i8], ptr %30, i64 %7
   store ptr %2, ptr %31, align 8, !noalias !94
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i64 %3, ptr %32, align 8, !noalias !78
@@ -690,7 +690,7 @@ _ZN5alloc7raw_vec11finish_grow17h50e2bd0c584c93c7E.exit.i.i.i: ; preds = %26, %2
 29:                                               ; preds = %._crit_edge.i, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hd3b55abf378176b8E.exit.i"
   %.pre-phi.i = phi i64 [ %.pre1.i, %._crit_edge.i ], [ %16, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hd3b55abf378176b8E.exit.i" ]
   %30 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %.sroa.012.1.i.i.pn.i.i.i.i, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hd3b55abf378176b8E.exit.i" ]
-  %31 = getelementptr inbounds { { { { ptr, i64 } } }, i8, [7 x i8] }, ptr %30, i64 %7
+  %31 = getelementptr inbounds [24 x i8], ptr %30, i64 %7
   store ptr %2, ptr %31, align 8, !noalias !105
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 8
   store i64 %3, ptr %.sroa.4.0..sroa_idx, align 8, !noalias !105
@@ -1258,7 +1258,7 @@ _ZN5alloc7raw_vec11finish_grow17h50e2bd0c584c93c7E.exit.i.i: ; preds = %22, %18
 25:                                               ; preds = %._crit_edge, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hec3814f2db0d3a70E.llvm.1636950575687592824.exit"
   %.pre-phi = phi i64 [ %.pre1, %._crit_edge ], [ %12, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hec3814f2db0d3a70E.llvm.1636950575687592824.exit" ]
   %26 = phi ptr [ %.pre, %._crit_edge ], [ %.sroa.012.1.i.i.pn.i.i.i, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$16reserve_for_push17hec3814f2db0d3a70E.llvm.1636950575687592824.exit" ]
-  %27 = getelementptr inbounds { { { { ptr, i64 } } } }, ptr %26, i64 %5
+  %27 = getelementptr inbounds [16 x i8], ptr %26, i64 %5
   store ptr %1, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i64 %2, ptr %28, align 8

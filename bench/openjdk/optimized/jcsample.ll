@@ -65,7 +65,7 @@ define hidden void @jIDownsampler(ptr noundef %0) local_unnamed_addr #0 {
 36:                                               ; preds = %31
   %37 = load i32, ptr %25, align 8
   %.not59 = icmp eq i32 %37, 0
-  %38 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv
   br i1 %.not59, label %40, label %39
 
 39:                                               ; preds = %36
@@ -90,7 +90,7 @@ define hidden void @jIDownsampler(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %48, label %49, label %51
 
 49:                                               ; preds = %44
-  %50 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv
   store ptr @h2v1_downsample, ptr %50, align 8
   br label %75
 
@@ -102,7 +102,7 @@ define hidden void @jIDownsampler(ptr noundef %0) local_unnamed_addr #0 {
 54:                                               ; preds = %51
   %55 = load i32, ptr %25, align 8
   %.not58 = icmp eq i32 %55, 0
-  %56 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv
   br i1 %.not58, label %58, label %57
 
 57:                                               ; preds = %54
@@ -128,7 +128,7 @@ define hidden void @jIDownsampler(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %67, label %68, label %70
 
 68:                                               ; preds = %62
-  %69 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %24, i64 %indvars.iv
   store ptr @int_downsample, ptr %69, align 8
   br label %75
 
@@ -196,17 +196,17 @@ define internal void @sep_downsample(ptr noundef %0, ptr noundef readonly captur
 15:                                               ; preds = %.lr.ph, %15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
   %.01819 = phi ptr [ %10, %.lr.ph ], [ %28, %15 ]
-  %16 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds nuw ptr, ptr %17, i64 %13
-  %19 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %13
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %.01819, i64 12
   %22 = load i32, ptr %21, align 4
   %23 = mul i32 %22, %4
   %24 = zext i32 %23 to i64
-  %25 = getelementptr inbounds nuw ptr, ptr %20, i64 %24
-  %26 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %24
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
   tail call void %27(ptr noundef nonnull %0, ptr noundef %.01819, ptr noundef %18, ptr noundef %25) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -245,7 +245,7 @@ define internal void @fullsize_smooth_downsample(ptr noundef readonly captures(n
 
 .lr.ph.us.i:                                      ; preds = %.lr.ph.us.i, %.lr.ph20.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph20.i ], [ %indvars.iv.next.i, %.lr.ph.us.i ]
-  %19 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 %17
   %22 = getelementptr inbounds i8, ptr %21, i64 -1
@@ -272,14 +272,14 @@ expand_right_edge.exit:                           ; preds = %.lr.ph.us.i, %4
 
 33:                                               ; preds = %.lr.ph, %93
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %93 ]
-  %34 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr i8, ptr %36, i64 -8
   %39 = load ptr, ptr %38, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %40 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.next
   %41 = load ptr, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 1
   %43 = load i8, ptr %39, align 1
@@ -396,7 +396,7 @@ define internal void @fullsize_downsample(ptr noundef readonly captures(none) %0
 
 .lr.ph.us.i:                                      ; preds = %.lr.ph.us.i, %.lr.ph20.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph20.i ], [ %indvars.iv.next.i, %.lr.ph.us.i ]
-  %19 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv.i
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 %17
   %22 = getelementptr inbounds i8, ptr %21, i64 -1
@@ -434,7 +434,7 @@ define internal void @h2v1_downsample(ptr noundef readonly captures(none) %0, pt
 
 .lr.ph.us.i:                                      ; preds = %.lr.ph.us.i, %.lr.ph20.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph20.i ], [ %indvars.iv.next.i, %.lr.ph.us.i ]
-  %18 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 %16
   %21 = getelementptr inbounds i8, ptr %20, i64 -1
@@ -454,9 +454,9 @@ expand_right_edge.exit:                           ; preds = %.lr.ph.us.i, %4
 
 .lr.ph.us:                                        ; preds = %expand_right_edge.exit, %._crit_edge.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge.us ], [ 0, %expand_right_edge.exit ]
-  %26 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   br label %30
 
@@ -519,7 +519,7 @@ define internal void @h2v2_smooth_downsample(ptr noundef readonly captures(none)
 
 .lr.ph.us.i:                                      ; preds = %.lr.ph.us.i, %.lr.ph20.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph20.i ], [ %indvars.iv.next.i, %.lr.ph.us.i ]
-  %20 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv.i
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 %18
   %23 = getelementptr inbounds i8, ptr %22, i64 -1
@@ -547,16 +547,16 @@ expand_right_edge.exit:                           ; preds = %.lr.ph.us.i, %4
 33:                                               ; preds = %.lr.ph, %163
   %indvars.iv125 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next126, %163 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %163 ]
-  %34 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv125
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv125
   %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %37 = load ptr, ptr %36, align 8
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr i8, ptr %36, i64 -8
   %41 = load ptr, ptr %40, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 2
-  %42 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.next
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.next
   %43 = load ptr, ptr %42, align 8
   %44 = load i8, ptr %37, align 1
   %45 = zext i8 %44 to i32
@@ -780,7 +780,7 @@ define internal void @h2v2_downsample(ptr noundef readonly captures(none) %0, pt
 
 .lr.ph.us.i:                                      ; preds = %.lr.ph.us.i, %.lr.ph20.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph20.i ], [ %indvars.iv.next.i, %.lr.ph.us.i ]
-  %18 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 %16
   %21 = getelementptr inbounds i8, ptr %20, i64 -1
@@ -801,9 +801,9 @@ expand_right_edge.exit:                           ; preds = %.lr.ph.us.i, %4
 .lr.ph.us:                                        ; preds = %expand_right_edge.exit, %._crit_edge.us
   %indvars.iv42 = phi i64 [ %indvars.iv.next43, %._crit_edge.us ], [ 0, %expand_right_edge.exit ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %._crit_edge.us ], [ 0, %expand_right_edge.exit ]
-  %26 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv42
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv42
   %27 = load ptr, ptr %26, align 8
-  %28 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %28, i64 8
   %31 = load ptr, ptr %30, align 8
@@ -886,7 +886,7 @@ define internal void @int_downsample(ptr noundef readonly captures(none) %0, ptr
 
 .lr.ph.us.i:                                      ; preds = %.lr.ph.us.i, %.lr.ph20.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph20.i ], [ %indvars.iv.next.i, %.lr.ph.us.i ]
-  %28 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv.i
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 %26
   %31 = getelementptr inbounds i8, ptr %30, i64 -1
@@ -924,9 +924,9 @@ expand_right_edge.exit:                           ; preds = %expand_right_edge.e
 .preheader.lr.ph.us.us.us:                        ; preds = %.preheader.lr.ph.us.us.us.preheader, %._crit_edge.split.us.split.us.us.us.us
   %indvars.iv93 = phi i64 [ 0, %.preheader.lr.ph.us.us.us.preheader ], [ %indvars.iv.next94, %._crit_edge.split.us.split.us.us.us.us ]
   %indvars.iv91 = phi i64 [ 0, %.preheader.lr.ph.us.us.us.preheader ], [ %indvars.iv.next92, %._crit_edge.split.us.split.us.us.us.us ]
-  %38 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv93
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv93
   %39 = load ptr, ptr %38, align 8
-  %invariant.gep = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv91
+  %invariant.gep = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv91
   br label %.preheader.us.us.us.us.us
 
 .preheader.us.us.us.us.us:                        ; preds = %._crit_edge54.split.us.us.us.us.us.us, %.preheader.lr.ph.us.us.us
@@ -939,7 +939,7 @@ expand_right_edge.exit:                           ; preds = %expand_right_edge.e
 .lr.ph.us.us.us.us.us.us:                         ; preds = %._crit_edge.us.us.us.us.us.us, %.preheader.us.us.us.us.us
   %indvars.iv86 = phi i64 [ %indvars.iv.next87, %._crit_edge.us.us.us.us.us.us ], [ 0, %.preheader.us.us.us.us.us ]
   %.052.us.us.us.us.us.us = phi i32 [ %47, %._crit_edge.us.us.us.us.us.us ], [ 0, %.preheader.us.us.us.us.us ]
-  %gep = getelementptr inbounds nuw ptr, ptr %invariant.gep, i64 %indvars.iv86
+  %gep = getelementptr inbounds nuw [8 x i8], ptr %invariant.gep, i64 %indvars.iv86
   %41 = load ptr, ptr %gep, align 8
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 %40
   br label %43
@@ -988,7 +988,7 @@ expand_right_edge.exit:                           ; preds = %expand_right_edge.e
 
 .preheader.lr.ph.us.us:                           ; preds = %.preheader.lr.ph.us.us, %.lr.ph.split.us.split.us.split
   %indvars.iv83 = phi i64 [ %indvars.iv.next84, %.preheader.lr.ph.us.us ], [ 0, %.lr.ph.split.us.split.us.split ]
-  %61 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv83
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv83
   %62 = load ptr, ptr %61, align 8
   tail call void @llvm.memset.p0.i64(ptr align 1 %62, i8 %59, i64 %60, i1 false)
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
@@ -1005,7 +1005,7 @@ expand_right_edge.exit:                           ; preds = %expand_right_edge.e
 
 .preheader.lr.ph.us:                              ; preds = %.preheader.lr.ph.us, %.lr.ph.split.us.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader.lr.ph.us ], [ 0, %.lr.ph.split.us.split ]
-  %69 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %70 = load ptr, ptr %69, align 8
   tail call void @llvm.memset.p0.i64(ptr align 1 %70, i8 %67, i64 %68, i1 false)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1

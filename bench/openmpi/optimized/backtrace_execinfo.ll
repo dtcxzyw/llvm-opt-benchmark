@@ -43,7 +43,7 @@ define range(i32 -5, 1) i32 @prte_backtrace_print(ptr noundef captures(address_i
   %17 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 6, ptr noundef nonnull @.str, i32 noundef %16) #7
   %18 = sext i32 %17 to i64
   %19 = call i64 @write(i32 noundef %.0, ptr noundef nonnull %5, i64 noundef %18) #7
-  %20 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv25
+  %20 = getelementptr inbounds [8 x i8], ptr %4, i64 %indvars.iv25
   call void @backtrace_symbols_fd(ptr noundef nonnull %20, i32 noundef 1, i32 noundef %.0) #7
   %indvars.iv.next26 = add nsw i64 %indvars.iv25, 1
   %exitcond29.not = icmp eq i64 %indvars.iv.next26, %wide.trip.count28
@@ -58,7 +58,7 @@ define range(i32 -5, 1) i32 @prte_backtrace_print(ptr noundef captures(address_i
   %25 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 6, ptr noundef nonnull @.str, i32 noundef %24) #7
   %26 = sext i32 %25 to i64
   %27 = call i64 @write(i32 noundef %.0, ptr noundef nonnull %5, i64 noundef %26) #7
-  %28 = getelementptr inbounds ptr, ptr %4, i64 %indvars.iv
+  %28 = getelementptr inbounds [8 x i8], ptr %4, i64 %indvars.iv
   call void @backtrace_symbols_fd(ptr noundef nonnull %28, i32 noundef 1, i32 noundef %.0) #7
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count28

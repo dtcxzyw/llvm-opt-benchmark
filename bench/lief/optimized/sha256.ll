@@ -134,7 +134,7 @@ define hidden noundef i32 @mbedtls_internal_sha256_process(ptr noundef captures(
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 %14
   %.0.copyload.i = load i32, ptr %15, align 1
   %16 = tail call i32 @llvm.bswap.i32(i32 %.0.copyload.i)
-  %17 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   store i32 %16, ptr %17, align 4, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 16
@@ -174,9 +174,9 @@ define hidden noundef i32 @mbedtls_internal_sha256_process(ptr noundef captures(
   %35 = xor i32 %24, %23
   %36 = and i32 %35, %22
   %37 = xor i32 %36, %23
-  %38 = getelementptr inbounds nuw i32, ptr @K, i64 %indvars.iv169
+  %38 = getelementptr inbounds nuw [4 x i8], ptr @K, i64 %indvars.iv169
   %39 = load i32, ptr %38, align 16, !tbaa !7
-  %40 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv169
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv169
   %41 = load i32, ptr %40, align 4, !tbaa !7
   %42 = add i32 %34, %39
   %43 = add i32 %42, %41
@@ -202,9 +202,9 @@ define hidden noundef i32 @mbedtls_internal_sha256_process(ptr noundef captures(
   %63 = and i32 %55, %62
   %64 = xor i32 %63, %24
   %65 = or disjoint i64 %indvars.iv169, 1
-  %66 = getelementptr inbounds nuw i32, ptr @K, i64 %65
+  %66 = getelementptr inbounds nuw [4 x i8], ptr @K, i64 %65
   %67 = load i32, ptr %66, align 4, !tbaa !7
-  %68 = getelementptr inbounds nuw i32, ptr %5, i64 %65
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %65
   %69 = load i32, ptr %68, align 4, !tbaa !7
   %70 = add i32 %64, %23
   %71 = add i32 %70, %67
@@ -231,9 +231,9 @@ define hidden noundef i32 @mbedtls_internal_sha256_process(ptr noundef captures(
   %92 = and i32 %84, %91
   %93 = xor i32 %92, %22
   %94 = or disjoint i64 %indvars.iv169, 2
-  %95 = getelementptr inbounds nuw i32, ptr @K, i64 %94
+  %95 = getelementptr inbounds nuw [4 x i8], ptr @K, i64 %94
   %96 = load i32, ptr %95, align 8, !tbaa !7
-  %97 = getelementptr inbounds nuw i32, ptr %5, i64 %94
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %94
   %98 = load i32, ptr %97, align 4, !tbaa !7
   %99 = add i32 %96, %24
   %100 = add i32 %99, %98
@@ -260,9 +260,9 @@ define hidden noundef i32 @mbedtls_internal_sha256_process(ptr noundef captures(
   %121 = and i32 %113, %120
   %122 = xor i32 %121, %55
   %123 = or disjoint i64 %indvars.iv169, 3
-  %124 = getelementptr inbounds nuw i32, ptr @K, i64 %123
+  %124 = getelementptr inbounds nuw [4 x i8], ptr @K, i64 %123
   %125 = load i32, ptr %124, align 4, !tbaa !7
-  %126 = getelementptr inbounds nuw i32, ptr %5, i64 %123
+  %126 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %123
   %127 = load i32, ptr %126, align 4, !tbaa !7
   %128 = add i32 %125, %22
   %129 = add i32 %128, %127
@@ -289,9 +289,9 @@ define hidden noundef i32 @mbedtls_internal_sha256_process(ptr noundef captures(
   %150 = and i32 %142, %149
   %151 = xor i32 %150, %84
   %152 = or disjoint i64 %indvars.iv169, 4
-  %153 = getelementptr inbounds nuw i32, ptr @K, i64 %152
+  %153 = getelementptr inbounds nuw [4 x i8], ptr @K, i64 %152
   %154 = load i32, ptr %153, align 16, !tbaa !7
-  %155 = getelementptr inbounds nuw i32, ptr %5, i64 %152
+  %155 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %152
   %156 = load i32, ptr %155, align 4, !tbaa !7
   %157 = add i32 %154, %55
   %158 = add i32 %157, %156
@@ -318,9 +318,9 @@ define hidden noundef i32 @mbedtls_internal_sha256_process(ptr noundef captures(
   %179 = and i32 %171, %178
   %180 = xor i32 %179, %113
   %181 = or disjoint i64 %indvars.iv169, 5
-  %182 = getelementptr inbounds nuw i32, ptr @K, i64 %181
+  %182 = getelementptr inbounds nuw [4 x i8], ptr @K, i64 %181
   %183 = load i32, ptr %182, align 4, !tbaa !7
-  %184 = getelementptr inbounds nuw i32, ptr %5, i64 %181
+  %184 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %181
   %185 = load i32, ptr %184, align 4, !tbaa !7
   %186 = add i32 %183, %84
   %187 = add i32 %186, %185
@@ -347,9 +347,9 @@ define hidden noundef i32 @mbedtls_internal_sha256_process(ptr noundef captures(
   %208 = and i32 %200, %207
   %209 = xor i32 %208, %142
   %210 = or disjoint i64 %indvars.iv169, 6
-  %211 = getelementptr inbounds nuw i32, ptr @K, i64 %210
+  %211 = getelementptr inbounds nuw [4 x i8], ptr @K, i64 %210
   %212 = load i32, ptr %211, align 8, !tbaa !7
-  %213 = getelementptr inbounds nuw i32, ptr %5, i64 %210
+  %213 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %210
   %214 = load i32, ptr %213, align 4, !tbaa !7
   %215 = add i32 %212, %113
   %216 = add i32 %215, %214
@@ -376,9 +376,9 @@ define hidden noundef i32 @mbedtls_internal_sha256_process(ptr noundef captures(
   %237 = and i32 %229, %236
   %238 = xor i32 %237, %171
   %239 = or disjoint i64 %indvars.iv169, 7
-  %240 = getelementptr inbounds nuw i32, ptr @K, i64 %239
+  %240 = getelementptr inbounds nuw [4 x i8], ptr @K, i64 %239
   %241 = load i32, ptr %240, align 4, !tbaa !7
-  %242 = getelementptr inbounds nuw i32, ptr %5, i64 %239
+  %242 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %239
   %243 = load i32, ptr %242, align 4, !tbaa !7
   %244 = add i32 %241, %142
   %245 = add i32 %244, %243
@@ -418,20 +418,20 @@ define hidden noundef i32 @mbedtls_internal_sha256_process(ptr noundef captures(
   %271 = xor i32 %270, %269
   %272 = and i32 %271, %261
   %273 = xor i32 %272, %269
-  %274 = getelementptr inbounds nuw i32, ptr @K, i64 %indvars.iv172
+  %274 = getelementptr inbounds nuw [4 x i8], ptr @K, i64 %indvars.iv172
   %275 = load i32, ptr %274, align 16, !tbaa !7
-  %276 = getelementptr i32, ptr %2, i64 %indvars.iv172
+  %276 = getelementptr [4 x i8], ptr %2, i64 %indvars.iv172
   %277 = load i32, ptr %276, align 4, !tbaa !7
   %278 = tail call i32 @llvm.fshl.i32(i32 %277, i32 %277, i32 15)
   %279 = tail call i32 @llvm.fshl.i32(i32 %277, i32 %277, i32 13)
   %280 = xor i32 %278, %279
   %281 = lshr i32 %277, 10
   %282 = xor i32 %280, %281
-  %283 = getelementptr i32, ptr %5, i64 %indvars.iv172
+  %283 = getelementptr [4 x i8], ptr %5, i64 %indvars.iv172
   %284 = getelementptr i8, ptr %283, i64 -28
   %285 = load i32, ptr %284, align 4, !tbaa !7
   %286 = add i32 %282, %285
-  %287 = getelementptr i32, ptr %5, i64 %indvars.iv172
+  %287 = getelementptr [4 x i8], ptr %5, i64 %indvars.iv172
   %288 = getelementptr i8, ptr %287, i64 -60
   %289 = load i32, ptr %288, align 4, !tbaa !7
   %290 = tail call i32 @llvm.fshl.i32(i32 %289, i32 %289, i32 25)
@@ -439,12 +439,12 @@ define hidden noundef i32 @mbedtls_internal_sha256_process(ptr noundef captures(
   %292 = xor i32 %290, %291
   %293 = lshr i32 %289, 3
   %294 = xor i32 %292, %293
-  %295 = getelementptr i32, ptr %5, i64 %indvars.iv172
+  %295 = getelementptr [4 x i8], ptr %5, i64 %indvars.iv172
   %296 = getelementptr i8, ptr %295, i64 -64
   %297 = load i32, ptr %296, align 4, !tbaa !7
   %298 = add i32 %286, %297
   %299 = add i32 %298, %294
-  %300 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv172
+  %300 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv172
   store i32 %299, ptr %300, align 4, !tbaa !7
   %301 = add i32 %268, %275
   %302 = add i32 %301, %273
@@ -480,9 +480,9 @@ define hidden noundef i32 @mbedtls_internal_sha256_process(ptr noundef captures(
   %330 = and i32 %329, %318
   %331 = xor i32 %330, %327
   %332 = or disjoint i64 %indvars.iv172, 1
-  %333 = getelementptr inbounds nuw i32, ptr @K, i64 %332
+  %333 = getelementptr inbounds nuw [4 x i8], ptr @K, i64 %332
   %334 = load i32, ptr %333, align 4, !tbaa !7
-  %335 = getelementptr i32, ptr %5, i64 %indvars.iv172
+  %335 = getelementptr [4 x i8], ptr %5, i64 %indvars.iv172
   %336 = getelementptr i8, ptr %335, i64 -4
   %337 = load i32, ptr %336, align 4, !tbaa !7
   %338 = tail call i32 @llvm.fshl.i32(i32 %337, i32 %337, i32 15)
@@ -490,11 +490,11 @@ define hidden noundef i32 @mbedtls_internal_sha256_process(ptr noundef captures(
   %340 = xor i32 %338, %339
   %341 = lshr i32 %337, 10
   %342 = xor i32 %340, %341
-  %343 = getelementptr i32, ptr %5, i64 %indvars.iv172
+  %343 = getelementptr [4 x i8], ptr %5, i64 %indvars.iv172
   %344 = getelementptr i8, ptr %343, i64 -24
   %345 = load i32, ptr %344, align 4, !tbaa !7
   %346 = add i32 %342, %345
-  %347 = getelementptr i32, ptr %5, i64 %indvars.iv172
+  %347 = getelementptr [4 x i8], ptr %5, i64 %indvars.iv172
   %348 = getelementptr i8, ptr %347, i64 -56
   %349 = load i32, ptr %348, align 4, !tbaa !7
   %350 = tail call i32 @llvm.fshl.i32(i32 %349, i32 %349, i32 25)
@@ -505,7 +505,7 @@ define hidden noundef i32 @mbedtls_internal_sha256_process(ptr noundef captures(
   %355 = load i32, ptr %288, align 4, !tbaa !7
   %356 = add i32 %346, %355
   %357 = add i32 %356, %354
-  %358 = getelementptr inbounds nuw i32, ptr %5, i64 %332
+  %358 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %332
   store i32 %357, ptr %358, align 4, !tbaa !7
   %359 = add i32 %326, %334
   %360 = add i32 %359, %331
@@ -541,7 +541,7 @@ define hidden noundef i32 @mbedtls_internal_sha256_process(ptr noundef captures(
   %388 = and i32 %387, %376
   %389 = xor i32 %388, %385
   %390 = or disjoint i64 %indvars.iv172, 2
-  %391 = getelementptr inbounds nuw i32, ptr @K, i64 %390
+  %391 = getelementptr inbounds nuw [4 x i8], ptr @K, i64 %390
   %392 = load i32, ptr %391, align 8, !tbaa !7
   %393 = load i32, ptr %300, align 4, !tbaa !7
   %394 = tail call i32 @llvm.fshl.i32(i32 %393, i32 %393, i32 15)
@@ -549,11 +549,11 @@ define hidden noundef i32 @mbedtls_internal_sha256_process(ptr noundef captures(
   %396 = xor i32 %394, %395
   %397 = lshr i32 %393, 10
   %398 = xor i32 %396, %397
-  %399 = getelementptr i32, ptr %5, i64 %indvars.iv172
+  %399 = getelementptr [4 x i8], ptr %5, i64 %indvars.iv172
   %400 = getelementptr i8, ptr %399, i64 -20
   %401 = load i32, ptr %400, align 4, !tbaa !7
   %402 = add i32 %398, %401
-  %403 = getelementptr i32, ptr %5, i64 %indvars.iv172
+  %403 = getelementptr [4 x i8], ptr %5, i64 %indvars.iv172
   %404 = getelementptr i8, ptr %403, i64 -52
   %405 = load i32, ptr %404, align 4, !tbaa !7
   %406 = tail call i32 @llvm.fshl.i32(i32 %405, i32 %405, i32 25)
@@ -564,7 +564,7 @@ define hidden noundef i32 @mbedtls_internal_sha256_process(ptr noundef captures(
   %411 = load i32, ptr %348, align 4, !tbaa !7
   %412 = add i32 %402, %411
   %413 = add i32 %412, %410
-  %414 = getelementptr inbounds nuw i32, ptr %5, i64 %390
+  %414 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %390
   store i32 %413, ptr %414, align 4, !tbaa !7
   %415 = add i32 %384, %392
   %416 = add i32 %415, %389
@@ -600,7 +600,7 @@ define hidden noundef i32 @mbedtls_internal_sha256_process(ptr noundef captures(
   %444 = and i32 %443, %432
   %445 = xor i32 %444, %441
   %446 = or disjoint i64 %indvars.iv172, 3
-  %447 = getelementptr inbounds nuw i32, ptr @K, i64 %446
+  %447 = getelementptr inbounds nuw [4 x i8], ptr @K, i64 %446
   %448 = load i32, ptr %447, align 4, !tbaa !7
   %449 = getelementptr inbounds nuw i8, ptr %300, i64 4
   %450 = load i32, ptr %449, align 4, !tbaa !7
@@ -609,11 +609,11 @@ define hidden noundef i32 @mbedtls_internal_sha256_process(ptr noundef captures(
   %453 = xor i32 %451, %452
   %454 = lshr i32 %450, 10
   %455 = xor i32 %453, %454
-  %456 = getelementptr i32, ptr %5, i64 %indvars.iv172
+  %456 = getelementptr [4 x i8], ptr %5, i64 %indvars.iv172
   %457 = getelementptr i8, ptr %456, i64 -16
   %458 = load i32, ptr %457, align 4, !tbaa !7
   %459 = add i32 %455, %458
-  %460 = getelementptr i32, ptr %5, i64 %indvars.iv172
+  %460 = getelementptr [4 x i8], ptr %5, i64 %indvars.iv172
   %461 = getelementptr i8, ptr %460, i64 -48
   %462 = load i32, ptr %461, align 4, !tbaa !7
   %463 = tail call i32 @llvm.fshl.i32(i32 %462, i32 %462, i32 25)
@@ -624,7 +624,7 @@ define hidden noundef i32 @mbedtls_internal_sha256_process(ptr noundef captures(
   %468 = load i32, ptr %404, align 4, !tbaa !7
   %469 = add i32 %459, %468
   %470 = add i32 %469, %467
-  %471 = getelementptr inbounds nuw i32, ptr %5, i64 %446
+  %471 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %446
   store i32 %470, ptr %471, align 4, !tbaa !7
   %472 = add i32 %440, %448
   %473 = add i32 %472, %445
@@ -660,7 +660,7 @@ define hidden noundef i32 @mbedtls_internal_sha256_process(ptr noundef captures(
   %501 = and i32 %500, %489
   %502 = xor i32 %501, %498
   %503 = or disjoint i64 %indvars.iv172, 4
-  %504 = getelementptr inbounds nuw i32, ptr @K, i64 %503
+  %504 = getelementptr inbounds nuw [4 x i8], ptr @K, i64 %503
   %505 = load i32, ptr %504, align 16, !tbaa !7
   %506 = getelementptr inbounds nuw i8, ptr %300, i64 8
   %507 = load i32, ptr %506, align 4, !tbaa !7
@@ -669,11 +669,11 @@ define hidden noundef i32 @mbedtls_internal_sha256_process(ptr noundef captures(
   %510 = xor i32 %508, %509
   %511 = lshr i32 %507, 10
   %512 = xor i32 %510, %511
-  %513 = getelementptr i32, ptr %5, i64 %indvars.iv172
+  %513 = getelementptr [4 x i8], ptr %5, i64 %indvars.iv172
   %514 = getelementptr i8, ptr %513, i64 -12
   %515 = load i32, ptr %514, align 4, !tbaa !7
   %516 = add i32 %512, %515
-  %517 = getelementptr i32, ptr %5, i64 %indvars.iv172
+  %517 = getelementptr [4 x i8], ptr %5, i64 %indvars.iv172
   %518 = getelementptr i8, ptr %517, i64 -44
   %519 = load i32, ptr %518, align 4, !tbaa !7
   %520 = tail call i32 @llvm.fshl.i32(i32 %519, i32 %519, i32 25)
@@ -684,7 +684,7 @@ define hidden noundef i32 @mbedtls_internal_sha256_process(ptr noundef captures(
   %525 = load i32, ptr %461, align 4, !tbaa !7
   %526 = add i32 %516, %525
   %527 = add i32 %526, %524
-  %528 = getelementptr inbounds nuw i32, ptr %5, i64 %503
+  %528 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %503
   store i32 %527, ptr %528, align 4, !tbaa !7
   %529 = add i32 %497, %505
   %530 = add i32 %529, %502
@@ -720,7 +720,7 @@ define hidden noundef i32 @mbedtls_internal_sha256_process(ptr noundef captures(
   %558 = and i32 %557, %546
   %559 = xor i32 %558, %555
   %560 = or disjoint i64 %indvars.iv172, 5
-  %561 = getelementptr inbounds nuw i32, ptr @K, i64 %560
+  %561 = getelementptr inbounds nuw [4 x i8], ptr @K, i64 %560
   %562 = load i32, ptr %561, align 4, !tbaa !7
   %563 = getelementptr inbounds nuw i8, ptr %300, i64 12
   %564 = load i32, ptr %563, align 4, !tbaa !7
@@ -731,7 +731,7 @@ define hidden noundef i32 @mbedtls_internal_sha256_process(ptr noundef captures(
   %569 = xor i32 %567, %568
   %570 = load i32, ptr %276, align 4, !tbaa !7
   %571 = add i32 %569, %570
-  %572 = getelementptr i32, ptr %5, i64 %indvars.iv172
+  %572 = getelementptr [4 x i8], ptr %5, i64 %indvars.iv172
   %573 = getelementptr i8, ptr %572, i64 -40
   %574 = load i32, ptr %573, align 4, !tbaa !7
   %575 = tail call i32 @llvm.fshl.i32(i32 %574, i32 %574, i32 25)
@@ -742,7 +742,7 @@ define hidden noundef i32 @mbedtls_internal_sha256_process(ptr noundef captures(
   %580 = load i32, ptr %518, align 4, !tbaa !7
   %581 = add i32 %571, %580
   %582 = add i32 %581, %579
-  %583 = getelementptr inbounds nuw i32, ptr %5, i64 %560
+  %583 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %560
   store i32 %582, ptr %583, align 4, !tbaa !7
   %584 = add i32 %554, %562
   %585 = add i32 %584, %559
@@ -778,7 +778,7 @@ define hidden noundef i32 @mbedtls_internal_sha256_process(ptr noundef captures(
   %613 = and i32 %612, %601
   %614 = xor i32 %613, %610
   %615 = or disjoint i64 %indvars.iv172, 6
-  %616 = getelementptr inbounds nuw i32, ptr @K, i64 %615
+  %616 = getelementptr inbounds nuw [4 x i8], ptr @K, i64 %615
   %617 = load i32, ptr %616, align 8, !tbaa !7
   %618 = getelementptr inbounds nuw i8, ptr %300, i64 16
   %619 = load i32, ptr %618, align 4, !tbaa !7
@@ -789,7 +789,7 @@ define hidden noundef i32 @mbedtls_internal_sha256_process(ptr noundef captures(
   %624 = xor i32 %622, %623
   %625 = load i32, ptr %336, align 4, !tbaa !7
   %626 = add i32 %624, %625
-  %627 = getelementptr i32, ptr %5, i64 %indvars.iv172
+  %627 = getelementptr [4 x i8], ptr %5, i64 %indvars.iv172
   %628 = getelementptr i8, ptr %627, i64 -36
   %629 = load i32, ptr %628, align 4, !tbaa !7
   %630 = tail call i32 @llvm.fshl.i32(i32 %629, i32 %629, i32 25)
@@ -800,7 +800,7 @@ define hidden noundef i32 @mbedtls_internal_sha256_process(ptr noundef captures(
   %635 = load i32, ptr %573, align 4, !tbaa !7
   %636 = add i32 %626, %635
   %637 = add i32 %636, %634
-  %638 = getelementptr inbounds nuw i32, ptr %5, i64 %615
+  %638 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %615
   store i32 %637, ptr %638, align 4, !tbaa !7
   %639 = add i32 %609, %617
   %640 = add i32 %639, %614
@@ -836,7 +836,7 @@ define hidden noundef i32 @mbedtls_internal_sha256_process(ptr noundef captures(
   %668 = and i32 %667, %656
   %669 = xor i32 %668, %665
   %670 = or disjoint i64 %indvars.iv172, 7
-  %671 = getelementptr inbounds nuw i32, ptr @K, i64 %670
+  %671 = getelementptr inbounds nuw [4 x i8], ptr @K, i64 %670
   %672 = load i32, ptr %671, align 4, !tbaa !7
   %673 = getelementptr inbounds nuw i8, ptr %300, i64 20
   %674 = load i32, ptr %673, align 4, !tbaa !7
@@ -847,7 +847,7 @@ define hidden noundef i32 @mbedtls_internal_sha256_process(ptr noundef captures(
   %679 = xor i32 %677, %678
   %680 = load i32, ptr %300, align 4, !tbaa !7
   %681 = add i32 %679, %680
-  %682 = getelementptr i32, ptr %5, i64 %indvars.iv172
+  %682 = getelementptr [4 x i8], ptr %5, i64 %indvars.iv172
   %683 = getelementptr i8, ptr %682, i64 -32
   %684 = load i32, ptr %683, align 4, !tbaa !7
   %685 = tail call i32 @llvm.fshl.i32(i32 %684, i32 %684, i32 25)
@@ -858,7 +858,7 @@ define hidden noundef i32 @mbedtls_internal_sha256_process(ptr noundef captures(
   %690 = load i32, ptr %628, align 4, !tbaa !7
   %691 = add i32 %681, %690
   %692 = add i32 %691, %689
-  %693 = getelementptr inbounds nuw i32, ptr %5, i64 %670
+  %693 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %670
   store i32 %692, ptr %693, align 4, !tbaa !7
   %694 = add i32 %664, %672
   %695 = add i32 %694, %669
@@ -887,9 +887,9 @@ define hidden noundef i32 @mbedtls_internal_sha256_process(ptr noundef captures(
 
 714:                                              ; preds = %.preheader, %714
   %indvars.iv175 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next176, %714 ]
-  %715 = getelementptr inbounds nuw i32, ptr %4, i64 %indvars.iv175
+  %715 = getelementptr inbounds nuw [4 x i8], ptr %4, i64 %indvars.iv175
   %716 = load i32, ptr %715, align 4, !tbaa !7
-  %717 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv175
+  %717 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv175
   %718 = load i32, ptr %717, align 4, !tbaa !7
   %719 = add i32 %718, %716
   store i32 %719, ptr %717, align 4, !tbaa !7
@@ -1343,7 +1343,7 @@ mbedtls_sha256_update.exit:                       ; preds = %._crit_edge.thread.
   br i1 %exitcond.not, label %mbedtls_sha256_update.exit64, label %36, !llvm.loop !21
 
 ._crit_edge.thread.i56:                           ; preds = %33
-  %63 = getelementptr inbounds nuw i64, ptr @sha_test_buflen, i64 %indvars.iv
+  %63 = getelementptr inbounds nuw [8 x i8], ptr @sha_test_buflen, i64 %indvars.iv
   %64 = load i64, ptr %63, align 8, !tbaa !22
   %65 = getelementptr inbounds nuw [57 x i8], ptr @sha_test_buf, i64 %indvars.iv
   %66 = trunc i64 %64 to i32

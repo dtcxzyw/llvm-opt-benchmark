@@ -87,8 +87,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.absl::container_internal::HeapPtrs" = type { ptr, %"union.absl::container_internal::MaybeInitializedPtr" }
 %"union.absl::container_internal::MaybeInitializedPtr" = type { ptr }
 %"struct.absl::container_internal::(anonymous namespace)::TypeWithAbslContainerHash" = type { i32, i32 }
-%"union.absl::container_internal::map_slot_type" = type { %"struct.std::pair.368" }
-%"struct.std::pair.368" = type { %"struct.absl::container_internal::(anonymous namespace)::TypeWithAbslContainerHash", i32 }
 %"class.absl::container_internal::HashSetResizeHelper" = type <{ %"union.absl::container_internal::HeapOrSoo", i64, i8, i8, i8, i8, i8, [3 x i8] }>
 %"class.absl::flat_hash_map.395" = type { %"class.absl::container_internal::raw_hash_map.396" }
 %"class.absl::container_internal::raw_hash_map.396" = type { %"class.absl::container_internal::raw_hash_set.397" }
@@ -96,8 +94,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.absl::container_internal::CompressedTuple.398" = type { %"struct.absl::container_internal::internal_compressed_tuple::CompressedTupleImpl.399" }
 %"struct.absl::container_internal::internal_compressed_tuple::CompressedTupleImpl.399" = type { %"struct.absl::container_internal::internal_compressed_tuple::Storage.358" }
 %"struct.absl::container_internal::(anonymous namespace)::TypeWithAbslContainerHashAndEq" = type { i32, i32 }
-%"union.absl::container_internal::map_slot_type.412" = type { %"struct.std::pair.410" }
-%"struct.std::pair.410" = type { %"struct.absl::container_internal::(anonymous namespace)::TypeWithAbslContainerHashAndEq", i32 }
 
 $_ZN7testing8internal16SuiteApiResolverINS_4TestEE19GetSetUpCaseOrSuiteEPKci = comdat any
 
@@ -27213,7 +27209,7 @@ define internal void @_ZN4absl18container_internal12_GLOBAL__N_124HashCord_Rando
   %45 = load i64, ptr %22, align 8, !tbaa !559
   %46 = add i64 %45, 1
   store i64 %46, ptr %22, align 8, !tbaa !559
-  %47 = getelementptr inbounds nuw i64, ptr %21, i64 %45
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %45
   %48 = load i64, ptr %47, align 8, !tbaa !66
   %.0.i.i.i.i = and i64 %48, 4095
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEmc(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef %.0.i.i.i.i, i8 noundef signext 0)
@@ -27251,7 +27247,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6resizeEm.exit: ; preds = %
   %60 = load i64, ptr %22, align 8, !tbaa !559
   %61 = add i64 %60, 1
   store i64 %61, ptr %22, align 8, !tbaa !559
-  %62 = getelementptr inbounds nuw i64, ptr %21, i64 %60
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %21, i64 %60
   %63 = load i64, ptr %62, align 8, !tbaa !66
   %64 = trunc i64 %63 to i8
   store i8 %64, ptr %.sroa.02.06.i, align 1, !tbaa !28
@@ -27988,9 +27984,9 @@ define linkonce_odr dso_local void @_ZN4absl15random_internal13randen_engineImEC
   %.022.i.i = phi i64 [ 60, %2 ], [ %26, %9 ]
   %10 = add nsw i64 %.022.i.i, -4
   %11 = lshr exact i64 %10, 1
-  %12 = getelementptr i32, ptr %3, i64 %.022.i.i
+  %12 = getelementptr [4 x i8], ptr %3, i64 %.022.i.i
   %13 = getelementptr i8, ptr %12, i64 -20
-  %14 = getelementptr i32, ptr %3, i64 %11
+  %14 = getelementptr [4 x i8], ptr %3, i64 %11
   %15 = getelementptr i8, ptr %14, i64 -4
   %16 = load i32, ptr %13, align 4, !tbaa !424
   %17 = load i32, ptr %15, align 4, !tbaa !424
@@ -28009,7 +28005,7 @@ define linkonce_odr dso_local void @_ZN4absl15random_internal13randen_engineImEC
   store i32 %25, ptr %22, align 4, !tbaa !424
   store i32 %24, ptr %23, align 4, !tbaa !424
   %26 = add nsw i64 %.022.i.i, -8
-  %27 = getelementptr inbounds nuw i32, ptr %3, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %26
   %28 = getelementptr i8, ptr %14, i64 -16
   %29 = load i32, ptr %27, align 16, !tbaa !424
   %30 = load i32, ptr %28, align 8, !tbaa !424
@@ -28086,7 +28082,7 @@ _ZN4absl15random_internal15FastUniformBitsIjEclINS0_17NonsecureURBGBaseINS0_13ra
   %25 = load i64, ptr %14, align 8, !tbaa !559
   %26 = add i64 %25, 1
   store i64 %26, ptr %14, align 8, !tbaa !559
-  %27 = getelementptr inbounds nuw i64, ptr %13, i64 %25
+  %27 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %25
   %28 = load i64, ptr %27, align 8, !tbaa !66
   %29 = add i32 %10, 1
   %30 = and i32 %29, %10
@@ -28163,7 +28159,7 @@ _ZN4absl15random_internal15FastUniformBitsIjE8GenerateINS0_17NonsecureURBGBaseIN
   %17 = load i64, ptr %6, align 8, !tbaa !559
   %18 = add i64 %17, 1
   store i64 %18, ptr %6, align 8, !tbaa !559
-  %19 = getelementptr inbounds nuw i64, ptr %5, i64 %17
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %17
   %20 = load i64, ptr %19, align 8, !tbaa !66
   %21 = trunc i64 %20 to i32
   ret i32 %21
@@ -28364,7 +28360,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !20
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !23
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !31
   ret void
 
@@ -29618,7 +29614,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !20
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !23
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !31
   ret void
 }
@@ -82929,7 +82925,7 @@ define internal void @_ZN4absl18container_internal12_GLOBAL__N_150AbslContainerH
   %64 = zext nneg i16 %63 to i64
   %65 = add i64 %.sroa.6.0.i.i.i.i, %64
   %66 = and i64 %65, %.val6.i.i.i
-  %67 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type", ptr %.val.i9.i.i.i, i64 %66
+  %67 = getelementptr inbounds nuw [12 x i8], ptr %.val.i9.i.i.i, i64 %66
   %.val14.i.i.i.i = load i32, ptr %67, align 4, !tbaa !1288
   %68 = icmp eq i32 %.val14.i.i.i.i, 1
   br i1 %68, label %_ZNK4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyINS0_12_GLOBAL__N_125TypeWithAbslContainerHashEiEENS4_19absl_container_hashESt8equal_toIvESaISt4pairIKS4_iEEE8containsIS4_EEbRKT_.exit.thread341, label %70, !prof !540
@@ -83161,7 +83157,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %_ZNK4absl18containe
   %152 = zext nneg i16 %151 to i64
   %153 = add i64 %.sroa.6.0.i.i.i, %152
   %154 = and i64 %153, %.val6.i.i
-  %155 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type", ptr %.val.i9.i.i, i64 %154
+  %155 = getelementptr inbounds nuw [12 x i8], ptr %.val.i9.i.i, i64 %154
   %.val14.i.i.i = load i32, ptr %155, align 4, !tbaa !1288
   %156 = icmp eq i32 %.val14.i.i.i, 1
   br i1 %156, label %.thread35.i.i.i, label %158, !prof !540
@@ -83392,7 +83388,7 @@ _ZN7testing15AssertionResultD2Ev.exit110:         ; preds = %206, %_ZNKSt14defau
   %237 = zext nneg i16 %236 to i64
   %238 = add i64 %.sroa.6.0.i.i.i.i113, %237
   %239 = and i64 %238, %.val7.i.i.i
-  %240 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type", ptr %.val.i8.i.i.i, i64 %239
+  %240 = getelementptr inbounds nuw [12 x i8], ptr %.val.i8.i.i.i, i64 %239
   %.val18.i.i.i.i = load i32, ptr %240, align 4, !tbaa !1288
   %241 = icmp eq i32 %.val18.i.i.i.i, 1
   br i1 %241, label %_ZNK4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyINS0_12_GLOBAL__N_125TypeWithAbslContainerHashEiEENS4_19absl_container_hashESt8equal_toIvESaISt4pairIKS4_iEEE8containsIiEEbRKT_.exit.thread345, label %243, !prof !540
@@ -83624,7 +83620,7 @@ _ZN7testing15AssertionResultD2Ev.exit140:         ; preds = %_ZNK4absl18containe
   %324 = zext nneg i16 %323 to i64
   %325 = add i64 %.sroa.6.0.i.i.i143, %324
   %326 = and i64 %325, %.val7.i.i
-  %327 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type", ptr %.val.i8.i.i, i64 %326
+  %327 = getelementptr inbounds nuw [12 x i8], ptr %.val.i8.i.i, i64 %326
   %.val18.i.i.i = load i32, ptr %327, align 4, !tbaa !1288
   %328 = icmp eq i32 %.val18.i.i.i, 1
   br i1 %328, label %.thread35.i.i.i155, label %330, !prof !540
@@ -83855,7 +83851,7 @@ _ZN7testing15AssertionResultD2Ev.exit177:         ; preds = %378, %_ZNKSt14defau
   %409 = zext nneg i16 %408 to i64
   %410 = add i64 %.sroa.6.0.i.i.i.i183, %409
   %411 = and i64 %410, %.val7.i.i.i178
-  %412 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type", ptr %.val.i8.i.i.i180, i64 %411
+  %412 = getelementptr inbounds nuw [12 x i8], ptr %.val.i8.i.i.i180, i64 %411
   %.val18.i.i.i.i187 = load i32, ptr %412, align 4, !tbaa !1288
   %413 = icmp eq i32 %.val18.i.i.i.i187, 2
   br i1 %413, label %_ZNK4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyINS0_12_GLOBAL__N_125TypeWithAbslContainerHashEiEENS4_19absl_container_hashESt8equal_toIvESaISt4pairIKS4_iEEE8containsIiEEbRKT_.exit196.thread353, label %415, !prof !540
@@ -84087,7 +84083,7 @@ _ZN7testing15AssertionResultD2Ev.exit213:         ; preds = %_ZNK4absl18containe
   %496 = zext nneg i16 %495 to i64
   %497 = add i64 %.sroa.6.0.i.i.i219, %496
   %498 = and i64 %497, %.val7.i.i214
-  %499 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type", ptr %.val.i8.i.i216, i64 %498
+  %499 = getelementptr inbounds nuw [12 x i8], ptr %.val.i8.i.i216, i64 %498
   %.val18.i.i.i223 = load i32, ptr %499, align 4, !tbaa !1288
   %500 = icmp eq i32 %.val18.i.i.i223, 2
   br i1 %500, label %.thread35.i.i.i234, label %502, !prof !540
@@ -84318,7 +84314,7 @@ _ZN7testing15AssertionResultD2Ev.exit257:         ; preds = %550, %_ZNKSt14defau
   %581 = zext nneg i16 %580 to i64
   %582 = add i64 %.sroa.6.0.i.i.i.i263, %581
   %583 = and i64 %582, %.val6.i.i.i258
-  %584 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type", ptr %.val.i9.i.i.i260, i64 %583
+  %584 = getelementptr inbounds nuw [12 x i8], ptr %.val.i9.i.i.i260, i64 %583
   %.val14.i.i.i.i267 = load i32, ptr %584, align 4, !tbaa !1288
   %585 = icmp eq i32 %.val14.i.i.i.i267, 3
   br i1 %585, label %_ZNK4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyINS0_12_GLOBAL__N_125TypeWithAbslContainerHashEiEENS4_19absl_container_hashESt8equal_toIvESaISt4pairIKS4_iEEE8containsIS4_EEbRKT_.exit276.thread361, label %587, !prof !540
@@ -84542,7 +84538,7 @@ _ZN7testing15AssertionResultD2Ev.exit293:         ; preds = %_ZNK4absl18containe
   %665 = zext nneg i16 %664 to i64
   %666 = add i64 %.sroa.6.0.i.i.i.i299, %665
   %667 = and i64 %666, %.val7.i.i.i294
-  %668 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type", ptr %.val.i8.i.i.i296, i64 %667
+  %668 = getelementptr inbounds nuw [12 x i8], ptr %.val.i8.i.i.i296, i64 %667
   %.val18.i.i.i.i303 = load i32, ptr %668, align 4, !tbaa !1288
   %669 = icmp eq i32 %.val18.i.i.i.i303, 3
   br i1 %669, label %_ZNK4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyINS0_12_GLOBAL__N_125TypeWithAbslContainerHashEiEENS4_19absl_container_hashESt8equal_toIvESaISt4pairIKS4_iEEE8containsIiEEbRKT_.exit312.thread369, label %671, !prof !540
@@ -84791,7 +84787,7 @@ define internal fastcc noundef nonnull align 4 dereferenceable(4) ptr @_ZN4absl1
   %17 = tail call noundef i64 @_ZN4absl18container_internal21PrepareInsertAfterSooEmmRNS0_12CommonFieldsE(i64 noundef %16, i64 noundef 12, ptr noundef nonnull align 8 dereferenceable(32) %0), !noalias !1314
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val11.i.i.i.i = load ptr, ptr %18, align 8, !tbaa !28, !noalias !1314
-  %19 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type", ptr %.val11.i.i.i.i, i64 %17
+  %19 = getelementptr inbounds nuw [12 x i8], ptr %.val11.i.i.i.i, i64 %17
   br label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyINS0_12_GLOBAL__N_125TypeWithAbslContainerHashEiEENS4_19absl_container_hashESt8equal_toIvESaISt4pairIKS4_iEEE22find_or_prepare_insertIS4_EES9_INSD_8iteratorEbERKT_.exit.thread.i.i
 
 20:                                               ; preds = %2
@@ -84832,7 +84828,7 @@ define internal fastcc noundef nonnull align 4 dereferenceable(4) ptr @_ZN4absl1
   %41 = zext nneg i16 %40 to i64
   %42 = add i64 %.sroa.7.0.i.i.i.i, %41
   %43 = and i64 %42, %.val.i.i.i
-  %44 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type", ptr %.val23.i.i.i.i, i64 %43
+  %44 = getelementptr inbounds nuw [12 x i8], ptr %.val23.i.i.i.i, i64 %43
   %.val27.i.i.i.i = load i32, ptr %44, align 4, !tbaa !1288, !noalias !1317
   %45 = icmp eq i32 %.val27.i.i.i.i, %.val.i5.i.i.i
   br i1 %45, label %_ZN4absl18container_internal12raw_hash_mapINS0_17FlatHashMapPolicyINS0_12_GLOBAL__N_125TypeWithAbslContainerHashEiEENS4_19absl_container_hashESt8equal_toIvESaISt4pairIKS4_iEEE11try_emplaceIS4_JETnNSt9enable_ifIXntsr3std14is_convertibleIT_NS0_12raw_hash_setIS5_S6_S8_SC_E14const_iteratorEEE5valueEiE4typeELi0EEES9_INSI_8iteratorEbERKSG_DpOT0_.exit, label %.critedge.i.i.i.i, !prof !540
@@ -84856,7 +84852,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyINS0_12_GLOBAL
   %53 = and i64 %52, %.val.i.i.i
   %54 = tail call noundef i64 @_ZN4absl18container_internal19PrepareInsertNonSooERNS0_12CommonFieldsEmNS0_8FindInfoERKNS0_15PolicyFunctionsE(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %25, i64 %53, i64 %.sroa.14.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) @_ZZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyINS0_12_GLOBAL__N_125TypeWithAbslContainerHashEiEENS4_19absl_container_hashESt8equal_toIvESaISt4pairIKS4_iEEE18GetPolicyFunctionsEvE5value), !noalias !1317
   %.val33.i.i.i.i = load ptr, ptr %34, align 8, !tbaa !28, !noalias !1317
-  %55 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type", ptr %.val33.i.i.i.i, i64 %54
+  %55 = getelementptr inbounds nuw [12 x i8], ptr %.val33.i.i.i.i, i64 %54
   br label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyINS0_12_GLOBAL__N_125TypeWithAbslContainerHashEiEENS4_19absl_container_hashESt8equal_toIvESaISt4pairIKS4_iEEE22find_or_prepare_insertIS4_EES9_INSD_8iteratorEbERKT_.exit.thread.i.i
 
 56:                                               ; preds = %.critedge19.i.i.i.i
@@ -84990,7 +84986,7 @@ define internal void @_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashM
   br i1 %41, label %42, label %82
 
 42:                                               ; preds = %36
-  %43 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type", ptr %.sroa.0.0.copyload.i.i, i64 %.045
+  %43 = getelementptr inbounds nuw [12 x i8], ptr %.sroa.0.0.copyload.i.i, i64 %.045
   %.val.i = load i32, ptr %43, align 1
   %44 = zext i32 %.val.i to i64
   %45 = xor i64 %44, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
@@ -85049,7 +85045,7 @@ define internal void @_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashM
   %79 = getelementptr i8, ptr %48, i64 %77
   %80 = getelementptr i8, ptr %79, i64 %78
   store i8 %74, ptr %80, align 1, !tbaa !1330
-  %81 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type", ptr %.val34, i64 %.sroa.011.0.i.i
+  %81 = getelementptr inbounds nuw [12 x i8], ptr %.val34, i64 %.sroa.011.0.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %81, ptr noundef nonnull readonly align 1 dereferenceable(12) %43, i64 12, i1 false)
   %.pre = load i64, ptr %20, align 8, !tbaa !1323
   br label %82
@@ -85605,7 +85601,7 @@ define internal void @_ZN4absl18container_internal12_GLOBAL__N_150AbslContainerH
   %64 = zext nneg i16 %63 to i64
   %65 = add i64 %.sroa.6.0.i.i.i.i, %64
   %66 = and i64 %65, %.val6.i.i.i
-  %67 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type.412", ptr %.val.i9.i.i.i, i64 %66
+  %67 = getelementptr inbounds nuw [12 x i8], ptr %.val.i9.i.i.i, i64 %66
   %.val14.i.i.i.i = load i32, ptr %67, align 4, !tbaa !1352
   %68 = icmp eq i32 %.val14.i.i.i.i, 1
   br i1 %68, label %_ZNK4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyINS0_12_GLOBAL__N_130TypeWithAbslContainerHashAndEqEiEENS4_19absl_container_hashENS4_17absl_container_eqESaISt4pairIKS4_iEEE8containsIS4_EEbRKT_.exit.thread341, label %70, !prof !540
@@ -85837,7 +85833,7 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %_ZNK4absl18containe
   %152 = zext nneg i16 %151 to i64
   %153 = add i64 %.sroa.6.0.i.i.i, %152
   %154 = and i64 %153, %.val6.i.i
-  %155 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type.412", ptr %.val.i9.i.i, i64 %154
+  %155 = getelementptr inbounds nuw [12 x i8], ptr %.val.i9.i.i, i64 %154
   %.val14.i.i.i = load i32, ptr %155, align 4, !tbaa !1352
   %156 = icmp eq i32 %.val14.i.i.i, 1
   br i1 %156, label %.thread35.i.i.i, label %158, !prof !540
@@ -86068,7 +86064,7 @@ _ZN7testing15AssertionResultD2Ev.exit110:         ; preds = %206, %_ZNKSt14defau
   %237 = zext nneg i16 %236 to i64
   %238 = add i64 %.sroa.6.0.i.i.i.i113, %237
   %239 = and i64 %238, %.val7.i.i.i
-  %240 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type.412", ptr %.val.i8.i.i.i, i64 %239
+  %240 = getelementptr inbounds nuw [12 x i8], ptr %.val.i8.i.i.i, i64 %239
   %.val18.i.i.i.i = load i32, ptr %240, align 4, !tbaa !1352
   %241 = icmp eq i32 %.val18.i.i.i.i, 1
   br i1 %241, label %_ZNK4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyINS0_12_GLOBAL__N_130TypeWithAbslContainerHashAndEqEiEENS4_19absl_container_hashENS4_17absl_container_eqESaISt4pairIKS4_iEEE8containsIiEEbRKT_.exit.thread345, label %243, !prof !540
@@ -86300,7 +86296,7 @@ _ZN7testing15AssertionResultD2Ev.exit140:         ; preds = %_ZNK4absl18containe
   %324 = zext nneg i16 %323 to i64
   %325 = add i64 %.sroa.6.0.i.i.i143, %324
   %326 = and i64 %325, %.val7.i.i
-  %327 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type.412", ptr %.val.i8.i.i, i64 %326
+  %327 = getelementptr inbounds nuw [12 x i8], ptr %.val.i8.i.i, i64 %326
   %.val18.i.i.i = load i32, ptr %327, align 4, !tbaa !1352
   %328 = icmp eq i32 %.val18.i.i.i, 1
   br i1 %328, label %.thread35.i.i.i155, label %330, !prof !540
@@ -86531,7 +86527,7 @@ _ZN7testing15AssertionResultD2Ev.exit177:         ; preds = %378, %_ZNKSt14defau
   %409 = zext nneg i16 %408 to i64
   %410 = add i64 %.sroa.6.0.i.i.i.i183, %409
   %411 = and i64 %410, %.val7.i.i.i178
-  %412 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type.412", ptr %.val.i8.i.i.i180, i64 %411
+  %412 = getelementptr inbounds nuw [12 x i8], ptr %.val.i8.i.i.i180, i64 %411
   %.val18.i.i.i.i187 = load i32, ptr %412, align 4, !tbaa !1352
   %413 = icmp eq i32 %.val18.i.i.i.i187, 2
   br i1 %413, label %_ZNK4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyINS0_12_GLOBAL__N_130TypeWithAbslContainerHashAndEqEiEENS4_19absl_container_hashENS4_17absl_container_eqESaISt4pairIKS4_iEEE8containsIiEEbRKT_.exit196.thread353, label %415, !prof !540
@@ -86763,7 +86759,7 @@ _ZN7testing15AssertionResultD2Ev.exit213:         ; preds = %_ZNK4absl18containe
   %496 = zext nneg i16 %495 to i64
   %497 = add i64 %.sroa.6.0.i.i.i219, %496
   %498 = and i64 %497, %.val7.i.i214
-  %499 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type.412", ptr %.val.i8.i.i216, i64 %498
+  %499 = getelementptr inbounds nuw [12 x i8], ptr %.val.i8.i.i216, i64 %498
   %.val18.i.i.i223 = load i32, ptr %499, align 4, !tbaa !1352
   %500 = icmp eq i32 %.val18.i.i.i223, 2
   br i1 %500, label %.thread35.i.i.i234, label %502, !prof !540
@@ -86994,7 +86990,7 @@ _ZN7testing15AssertionResultD2Ev.exit257:         ; preds = %550, %_ZNKSt14defau
   %581 = zext nneg i16 %580 to i64
   %582 = add i64 %.sroa.6.0.i.i.i.i263, %581
   %583 = and i64 %582, %.val6.i.i.i258
-  %584 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type.412", ptr %.val.i9.i.i.i260, i64 %583
+  %584 = getelementptr inbounds nuw [12 x i8], ptr %.val.i9.i.i.i260, i64 %583
   %.val14.i.i.i.i267 = load i32, ptr %584, align 4, !tbaa !1352
   %585 = icmp eq i32 %.val14.i.i.i.i267, 3
   br i1 %585, label %_ZNK4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyINS0_12_GLOBAL__N_130TypeWithAbslContainerHashAndEqEiEENS4_19absl_container_hashENS4_17absl_container_eqESaISt4pairIKS4_iEEE8containsIS4_EEbRKT_.exit276.thread361, label %587, !prof !540
@@ -87218,7 +87214,7 @@ _ZN7testing15AssertionResultD2Ev.exit293:         ; preds = %_ZNK4absl18containe
   %665 = zext nneg i16 %664 to i64
   %666 = add i64 %.sroa.6.0.i.i.i.i299, %665
   %667 = and i64 %666, %.val7.i.i.i294
-  %668 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type.412", ptr %.val.i8.i.i.i296, i64 %667
+  %668 = getelementptr inbounds nuw [12 x i8], ptr %.val.i8.i.i.i296, i64 %667
   %.val18.i.i.i.i303 = load i32, ptr %668, align 4, !tbaa !1352
   %669 = icmp eq i32 %.val18.i.i.i.i303, 3
   br i1 %669, label %_ZNK4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyINS0_12_GLOBAL__N_130TypeWithAbslContainerHashAndEqEiEENS4_19absl_container_hashENS4_17absl_container_eqESaISt4pairIKS4_iEEE8containsIiEEbRKT_.exit312.thread369, label %671, !prof !540
@@ -87467,7 +87463,7 @@ define internal fastcc noundef nonnull align 4 dereferenceable(4) ptr @_ZN4absl1
   %17 = tail call noundef i64 @_ZN4absl18container_internal21PrepareInsertAfterSooEmmRNS0_12CommonFieldsE(i64 noundef %16, i64 noundef 12, ptr noundef nonnull align 8 dereferenceable(32) %0), !noalias !1378
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val11.i.i.i.i = load ptr, ptr %18, align 8, !tbaa !28, !noalias !1378
-  %19 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type.412", ptr %.val11.i.i.i.i, i64 %17
+  %19 = getelementptr inbounds nuw [12 x i8], ptr %.val11.i.i.i.i, i64 %17
   br label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyINS0_12_GLOBAL__N_130TypeWithAbslContainerHashAndEqEiEENS4_19absl_container_hashENS4_17absl_container_eqESaISt4pairIKS4_iEEE22find_or_prepare_insertIS4_EES8_INSC_8iteratorEbERKT_.exit.thread.i.i
 
 20:                                               ; preds = %2
@@ -87508,7 +87504,7 @@ define internal fastcc noundef nonnull align 4 dereferenceable(4) ptr @_ZN4absl1
   %41 = zext nneg i16 %40 to i64
   %42 = add i64 %.sroa.7.0.i.i.i.i, %41
   %43 = and i64 %42, %.val.i.i.i
-  %44 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type.412", ptr %.val23.i.i.i.i, i64 %43
+  %44 = getelementptr inbounds nuw [12 x i8], ptr %.val23.i.i.i.i, i64 %43
   %.val27.i.i.i.i = load i32, ptr %44, align 4, !tbaa !1352, !noalias !1381
   %45 = icmp eq i32 %.val27.i.i.i.i, %.val.i5.i.i.i
   br i1 %45, label %_ZN4absl18container_internal12raw_hash_mapINS0_17FlatHashMapPolicyINS0_12_GLOBAL__N_130TypeWithAbslContainerHashAndEqEiEENS4_19absl_container_hashENS4_17absl_container_eqESaISt4pairIKS4_iEEE11try_emplaceIS4_JETnNSt9enable_ifIXntsr3std14is_convertibleIT_NS0_12raw_hash_setIS5_S6_S7_SB_E14const_iteratorEEE5valueEiE4typeELi0EEES8_INSH_8iteratorEbERKSF_DpOT0_.exit, label %.critedge.i.i.i.i, !prof !540
@@ -87532,7 +87528,7 @@ _ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyINS0_12_GLOBAL
   %53 = and i64 %52, %.val.i.i.i
   %54 = tail call noundef i64 @_ZN4absl18container_internal19PrepareInsertNonSooERNS0_12CommonFieldsEmNS0_8FindInfoERKNS0_15PolicyFunctionsE(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %25, i64 %53, i64 %.sroa.14.0.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(56) @_ZZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyINS0_12_GLOBAL__N_130TypeWithAbslContainerHashAndEqEiEENS4_19absl_container_hashENS4_17absl_container_eqESaISt4pairIKS4_iEEE18GetPolicyFunctionsEvE5value), !noalias !1381
   %.val33.i.i.i.i = load ptr, ptr %34, align 8, !tbaa !28, !noalias !1381
-  %55 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type.412", ptr %.val33.i.i.i.i, i64 %54
+  %55 = getelementptr inbounds nuw [12 x i8], ptr %.val33.i.i.i.i, i64 %54
   br label %_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashMapPolicyINS0_12_GLOBAL__N_130TypeWithAbslContainerHashAndEqEiEENS4_19absl_container_hashENS4_17absl_container_eqESaISt4pairIKS4_iEEE22find_or_prepare_insertIS4_EES8_INSC_8iteratorEbERKT_.exit.thread.i.i
 
 56:                                               ; preds = %.critedge19.i.i.i.i
@@ -87664,7 +87660,7 @@ define internal void @_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashM
   br i1 %41, label %42, label %82
 
 42:                                               ; preds = %36
-  %43 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type.412", ptr %.sroa.0.0.copyload.i.i, i64 %.045
+  %43 = getelementptr inbounds nuw [12 x i8], ptr %.sroa.0.0.copyload.i.i, i64 %.045
   %.val.i = load i32, ptr %43, align 1
   %44 = zext i32 %.val.i to i64
   %45 = xor i64 %44, ptrtoint (ptr @_ZN4absl13hash_internal15MixingHashState5kSeedE to i64)
@@ -87723,7 +87719,7 @@ define internal void @_ZN4absl18container_internal12raw_hash_setINS0_17FlatHashM
   %79 = getelementptr i8, ptr %48, i64 %77
   %80 = getelementptr i8, ptr %79, i64 %78
   store i8 %74, ptr %80, align 1, !tbaa !1330
-  %81 = getelementptr inbounds nuw %"union.absl::container_internal::map_slot_type.412", ptr %.val34, i64 %.sroa.011.0.i.i
+  %81 = getelementptr inbounds nuw [12 x i8], ptr %.val34, i64 %.sroa.011.0.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %81, ptr noundef nonnull readonly align 1 dereferenceable(12) %43, i64 12, i1 false)
   %.pre = load i64, ptr %20, align 8, !tbaa !1323
   br label %82

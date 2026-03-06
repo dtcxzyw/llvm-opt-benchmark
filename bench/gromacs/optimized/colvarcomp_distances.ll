@@ -34,7 +34,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%"class.colvarmodule::atom" = type { i32, i32, double, double, %"class.colvarmodule::rvector", %"class.colvarmodule::rvector", %"class.colvarmodule::rvector", %"class.colvarmodule::rvector" }
 %"class.colvarmodule::matrix2d" = type { i64, i64, %"class.std::vector.59", %"class.std::vector.113", %"class.std::vector.118" }
 %"class.std::vector.59" = type { %"struct.std::_Vector_base.60" }
 %"struct.std::_Vector_base.60" = type { %"struct.std::_Vector_base<colvarmodule::rvector, std::allocator<colvarmodule::rvector>>::_Vector_impl" }
@@ -49,7 +48,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<colvarmodule::rvector *, std::allocator<colvarmodule::rvector *>>::_Vector_impl" = type { %"struct.std::_Vector_base<colvarmodule::rvector *, std::allocator<colvarmodule::rvector *>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<colvarmodule::rvector *, std::allocator<colvarmodule::rvector *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.colvarmodule::vector1d.123" = type { %"class.std::vector.59" }
-%"class.colvarmodule::matrix2d<colvarmodule::rvector>::row" = type { ptr, i64 }
 %"class.colvarmodule::atom_group::group_force_object" = type <{ ptr, ptr, i8, [7 x i8] }>
 %"class.std::vector.64" = type { %"struct.std::_Vector_base.65" }
 %"struct.std::_Vector_base.65" = type { %"struct.std::_Vector_base<unsigned long, std::allocator<unsigned long>>::_Vector_impl" }
@@ -3777,7 +3775,7 @@ define noundef i32 @_ZN6colvar14distance_pairs4initERKNSt7__cxx1112basic_stringI
   br i1 %38, label %39, label %_ZN12colvarmodule8vector1dIdE6resizeEm.exit
 
 39:                                               ; preds = %37
-  %40 = getelementptr inbounds nuw double, ptr %29, i64 %26
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %26
   %.not.i.i.i = icmp eq ptr %28, %40
   br i1 %.not.i.i.i, label %_ZN12colvarmodule8vector1dIdE6resizeEm.exit, label %41
 
@@ -3834,7 +3832,7 @@ define void @_ZN6colvar14distance_pairs10calc_valueEv(ptr noundef nonnull align 
   br i1 %36, label %37, label %_ZN12colvarmodule8vector1dIdE6resizeEm.exit
 
 37:                                               ; preds = %35
-  %38 = getelementptr inbounds nuw double, ptr %27, i64 %24
+  %38 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %24
   %.not.i.i.i = icmp eq ptr %26, %38
   br i1 %.not.i.i.i, label %_ZN12colvarmodule8vector1dIdE6resizeEm.exit, label %39
 
@@ -3879,12 +3877,12 @@ _ZN12colvarmodule8vector1dIdE6resizeEm.exit:      ; preds = %33, %35, %37, %39
 
 .preheader61.us:                                  ; preds = %.preheader61.lr.ph, %._crit_edge.us
   %.065.us = phi i64 [ %98, %._crit_edge.us ], [ 0, %.preheader61.lr.ph ]
-  %64 = getelementptr inbounds nuw %"class.colvarmodule::atom", ptr %49, i64 %.065.us
+  %64 = getelementptr inbounds nuw [120 x i8], ptr %49, i64 %.065.us
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 24
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 32
   %67 = getelementptr inbounds nuw i8, ptr %64, i64 40
   %68 = mul i64 %62, %.065.us
-  %69 = getelementptr double, ptr %63, i64 %68
+  %69 = getelementptr [8 x i8], ptr %63, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %64, i64 96
   %.sroa.450.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %64, i64 104
   %.sroa.551.0..sroa_idx.us = getelementptr inbounds nuw i8, ptr %64, i64 112
@@ -3892,7 +3890,7 @@ _ZN12colvarmodule8vector1dIdE6resizeEm.exit:      ; preds = %33, %35, %37, %39
 
 71:                                               ; preds = %.preheader61.us, %71
   %.02464.us = phi i64 [ 0, %.preheader61.us ], [ %97, %71 ]
-  %72 = getelementptr inbounds nuw %"class.colvarmodule::atom", ptr %58, i64 %.02464.us
+  %72 = getelementptr inbounds nuw [120 x i8], ptr %58, i64 %.02464.us
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 24
   %74 = load double, ptr %73, align 8, !tbaa !95, !noalias !274
   %75 = load double, ptr %65, align 8, !tbaa !95, !noalias !274
@@ -3909,7 +3907,7 @@ _ZN12colvarmodule8vector1dIdE6resizeEm.exit:      ; preds = %33, %35, %37, %39
   %86 = tail call double @llvm.fmuladd.f64(double %76, double %76, double %85)
   %87 = tail call noundef double @llvm.fmuladd.f64(double %84, double %84, double %86)
   %sqrt.i.us = tail call double @llvm.sqrt.f64(double %87)
-  %88 = getelementptr double, ptr %69, i64 %.02464.us
+  %88 = getelementptr [8 x i8], ptr %69, i64 %.02464.us
   store double %sqrt.i.us, ptr %88, align 8, !tbaa !93
   %89 = fcmp ogt double %87, 0.000000e+00
   %90 = fdiv double %76, %sqrt.i.us
@@ -3966,9 +3964,9 @@ _ZN12colvarmodule8vector1dIdE6resizeEm.exit:      ; preds = %33, %35, %37, %39
   %108 = phi ptr [ %123, %.lr.ph ], [ %106, %.preheader ]
   %.02266 = phi i64 [ %165, %.lr.ph ], [ 0, %.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %109 = getelementptr inbounds nuw %"class.colvarmodule::atom", ptr %107, i64 %.02367
+  %109 = getelementptr inbounds nuw [120 x i8], ptr %107, i64 %.02367
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 24
-  %111 = getelementptr inbounds nuw %"class.colvarmodule::atom", ptr %108, i64 %.02266
+  %111 = getelementptr inbounds nuw [120 x i8], ptr %108, i64 %.02266
   %112 = getelementptr inbounds nuw i8, ptr %111, i64 24
   call void @_ZN12colvarmodule17position_distanceERKNS_7rvectorES2_(ptr dead_on_unwind nonnull writable sret(%"class.colvarmodule::rvector") align 8 %2, ptr noundef nonnull align 8 dereferenceable(24) %110, ptr noundef nonnull align 8 dereferenceable(24) %112)
   %113 = load double, ptr %2, align 8, !tbaa !95
@@ -3989,8 +3987,8 @@ _ZN12colvarmodule8vector1dIdE6resizeEm.exit:      ; preds = %33, %35, %37, %39
   %127 = sdiv exact i64 %126, 120
   %128 = mul i64 %127, %.02367
   %129 = load ptr, ptr %3, align 8, !tbaa !273
-  %130 = getelementptr double, ptr %129, i64 %128
-  %131 = getelementptr double, ptr %130, i64 %.02266
+  %130 = getelementptr [8 x i8], ptr %129, i64 %128
+  %131 = getelementptr [8 x i8], ptr %130, i64 %.02266
   store double %sqrt.i29, ptr %131, align 8, !tbaa !93
   %132 = load double, ptr %2, align 8, !tbaa !95, !noalias !279
   %133 = load double, ptr %99, align 8, !tbaa !96, !noalias !279
@@ -4012,7 +4010,7 @@ _ZN12colvarmodule8vector1dIdE6resizeEm.exit:      ; preds = %33, %35, %37, %39
   %148 = load ptr, ptr %4, align 8, !tbaa !269
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 504
   %150 = load ptr, ptr %149, align 8, !tbaa !265
-  %151 = getelementptr inbounds nuw %"class.colvarmodule::atom", ptr %150, i64 %.02367
+  %151 = getelementptr inbounds nuw [120 x i8], ptr %150, i64 %.02367
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 96
   store double %141, ptr %152, align 8, !tbaa !93
   %.sroa.441.0..sroa_idx = getelementptr inbounds nuw i8, ptr %151, i64 104
@@ -4033,7 +4031,7 @@ _ZN12colvarmodule8vector1dIdE6resizeEm.exit:      ; preds = %33, %35, %37, %39
   %.sink4.i35 = select i1 %159, double %160, double 1.000000e+00
   %.sink3.i36 = select i1 %159, double %161, double 0.000000e+00
   %.sink.i37 = select i1 %159, double %162, double 0.000000e+00
-  %163 = getelementptr inbounds nuw %"class.colvarmodule::atom", ptr %123, i64 %.02266
+  %163 = getelementptr inbounds nuw [120 x i8], ptr %123, i64 %.02266
   %164 = getelementptr inbounds nuw i8, ptr %163, i64 96
   store double %.sink4.i35, ptr %164, align 8, !tbaa !93
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %163, i64 104
@@ -4125,12 +4123,12 @@ define void @_ZN6colvar14distance_pairs11apply_forceERK11colvarvalue(ptr noundef
   %29 = phi i64 [ %119, %.lr.ph ], [ %28, %.lr.ph.preheader ]
   %30 = phi ptr [ %115, %.lr.ph ], [ %24, %.lr.ph.preheader ]
   %.02972 = phi i64 [ %110, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %31 = getelementptr inbounds nuw %"class.colvarmodule::atom", ptr %30, i64 %.02972
+  %31 = getelementptr inbounds nuw [120 x i8], ptr %30, i64 %.02972
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
   %33 = load ptr, ptr %9, align 8, !tbaa !269
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 504
   %35 = load ptr, ptr %34, align 8, !tbaa !265
-  %36 = getelementptr inbounds nuw %"class.colvarmodule::atom", ptr %35, i64 %.03073
+  %36 = getelementptr inbounds nuw [120 x i8], ptr %35, i64 %.03073
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
   %38 = load double, ptr %32, align 8, !tbaa !95, !noalias !287
   %39 = load double, ptr %37, align 8, !tbaa !95, !noalias !287
@@ -4165,7 +4163,7 @@ define void @_ZN6colvar14distance_pairs11apply_forceERK11colvarvalue(ptr noundef
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 408
   %65 = sext i32 %63 to i64
   %66 = load ptr, ptr %64, align 8, !tbaa !293
-  %67 = getelementptr inbounds nuw %"class.colvarmodule::rvector", ptr %66, i64 %65
+  %67 = getelementptr inbounds nuw [24 x i8], ptr %66, i64 %65
   %68 = load double, ptr %67, align 8, !tbaa !95
   %69 = fmul double %54, %.sink4.i
   %70 = fsub double %68, %69
@@ -4183,7 +4181,7 @@ define void @_ZN6colvar14distance_pairs11apply_forceERK11colvarvalue(ptr noundef
   %79 = load ptr, ptr %15, align 8, !tbaa !271
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 504
   %81 = load ptr, ptr %80, align 8, !tbaa !265
-  %82 = getelementptr inbounds nuw %"class.colvarmodule::atom", ptr %81, i64 %.02972
+  %82 = getelementptr inbounds nuw [120 x i8], ptr %81, i64 %.02972
   %83 = getelementptr inbounds nuw i8, ptr %79, i64 512
   %84 = load ptr, ptr %83, align 8, !tbaa !264
   %85 = ptrtoint ptr %84 to i64
@@ -4202,7 +4200,7 @@ define void @_ZN6colvar14distance_pairs11apply_forceERK11colvarvalue(ptr noundef
   %98 = getelementptr inbounds nuw i8, ptr %96, i64 408
   %99 = sext i32 %97 to i64
   %100 = load ptr, ptr %98, align 8, !tbaa !293
-  %101 = getelementptr inbounds nuw %"class.colvarmodule::rvector", ptr %100, i64 %99
+  %101 = getelementptr inbounds nuw [24 x i8], ptr %100, i64 %99
   %102 = load double, ptr %101, align 8, !tbaa !95
   %103 = fadd double %93, %102
   store double %103, ptr %101, align 8, !tbaa !95
@@ -4264,15 +4262,15 @@ define void @_ZN6colvar14distance_pairs11apply_forceERK11colvarvalue(ptr noundef
   %140 = load ptr, ptr %9, align 8, !tbaa !269
   %141 = getelementptr inbounds nuw i8, ptr %140, i64 504
   %142 = load ptr, ptr %141, align 8, !tbaa !265
-  %143 = getelementptr inbounds nuw %"class.colvarmodule::atom", ptr %142, i64 %.02877
+  %143 = getelementptr inbounds nuw [120 x i8], ptr %142, i64 %.02877
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 24
-  %145 = getelementptr inbounds nuw %"class.colvarmodule::atom", ptr %139, i64 %.074
+  %145 = getelementptr inbounds nuw [120 x i8], ptr %139, i64 %.074
   %146 = getelementptr inbounds nuw i8, ptr %145, i64 24
   call void @_ZN12colvarmodule17position_distanceERKNS_7rvectorES2_(ptr dead_on_unwind nonnull writable sret(%"class.colvarmodule::rvector") align 8 %3, ptr noundef nonnull align 8 dereferenceable(24) %144, ptr noundef nonnull align 8 dereferenceable(24) %146)
   %147 = load ptr, ptr %9, align 8, !tbaa !269
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 504
   %149 = load ptr, ptr %148, align 8, !tbaa !265
-  %150 = getelementptr inbounds nuw %"class.colvarmodule::atom", ptr %149, i64 %.02877
+  %150 = getelementptr inbounds nuw [120 x i8], ptr %149, i64 %.02877
   %151 = load ptr, ptr %16, align 8, !tbaa !271
   %152 = getelementptr inbounds nuw i8, ptr %151, i64 504
   %153 = getelementptr inbounds nuw i8, ptr %151, i64 512
@@ -4305,7 +4303,7 @@ define void @_ZN6colvar14distance_pairs11apply_forceERK11colvarvalue(ptr noundef
   %176 = getelementptr inbounds nuw i8, ptr %174, i64 408
   %177 = sext i32 %175 to i64
   %178 = load ptr, ptr %176, align 8, !tbaa !293
-  %179 = getelementptr inbounds nuw %"class.colvarmodule::rvector", ptr %178, i64 %177
+  %179 = getelementptr inbounds nuw [24 x i8], ptr %178, i64 %177
   %180 = load double, ptr %179, align 8, !tbaa !95
   %181 = fmul double %163, %.sink4.i36
   %182 = fsub double %180, %181
@@ -4323,7 +4321,7 @@ define void @_ZN6colvar14distance_pairs11apply_forceERK11colvarvalue(ptr noundef
   %191 = load ptr, ptr %16, align 8, !tbaa !271
   %192 = getelementptr inbounds nuw i8, ptr %191, i64 504
   %193 = load ptr, ptr %192, align 8, !tbaa !265
-  %194 = getelementptr inbounds nuw %"class.colvarmodule::atom", ptr %193, i64 %.074
+  %194 = getelementptr inbounds nuw [120 x i8], ptr %193, i64 %.074
   %195 = getelementptr inbounds nuw i8, ptr %191, i64 512
   %196 = load ptr, ptr %195, align 8, !tbaa !264
   %197 = ptrtoint ptr %196 to i64
@@ -4356,7 +4354,7 @@ define void @_ZN6colvar14distance_pairs11apply_forceERK11colvarvalue(ptr noundef
   %220 = getelementptr inbounds nuw i8, ptr %218, i64 408
   %221 = sext i32 %219 to i64
   %222 = load ptr, ptr %220, align 8, !tbaa !293
-  %223 = getelementptr inbounds nuw %"class.colvarmodule::rvector", ptr %222, i64 %221
+  %223 = getelementptr inbounds nuw [24 x i8], ptr %222, i64 %221
   %224 = load double, ptr %223, align 8, !tbaa !95
   %225 = fadd double %224, %215
   store double %225, ptr %223, align 8, !tbaa !95
@@ -4428,7 +4426,7 @@ define noundef double @_ZNK6colvar14distance_pairs5dist2ERK11colvarvalueS3_(ptr 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %.08.i = phi i64 [ %17, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
   %.067.i = phi double [ %16, %.lr.ph.i ], [ 0.000000e+00, %.lr.ph.preheader.i ]
-  %14 = getelementptr inbounds nuw double, ptr %9, i64 %.08.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.08.i
   %15 = load double, ptr %14, align 8, !tbaa !93
   %16 = call double @llvm.fmuladd.f64(double %15, double %15, double %.067.i)
   %17 = add nuw i64 %.08.i, 1
@@ -4553,10 +4551,10 @@ _ZN12colvarmodule8vector1dIdEC2Em.exit.i.i:       ; preds = %_ZNSt6vectorIdSaIdE
 
 40:                                               ; preds = %40, %.lr.ph.i.i
   %.08.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %45, %40 ]
-  %41 = getelementptr inbounds nuw double, ptr %11, i64 %.08.i.i
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.08.i.i
   %42 = load double, ptr %41, align 8, !tbaa !93
   %43 = fmul double %42, 2.000000e+00
-  %44 = getelementptr inbounds nuw double, ptr %34, i64 %.08.i.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %.08.i.i
   store double %43, ptr %44, align 8, !tbaa !93
   %45 = add nuw i64 %.08.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %45, %39
@@ -6375,7 +6373,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit250: ; preds = %20
   br i1 %229, label %230, label %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEm.exit
 
 230:                                              ; preds = %228
-  %231 = getelementptr inbounds nuw %"class.colvarmodule::rvector", ptr %220, i64 %217
+  %231 = getelementptr inbounds nuw [24 x i8], ptr %220, i64 %217
   %.not.i.i = icmp eq ptr %219, %231
   br i1 %.not.i.i, label %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEm.exit, label %232
 
@@ -6650,7 +6648,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit283: ; preds = %31
   %.sroa.17.0527 = phi double [ 0.000000e+00, %.lr.ph ], [ %341, %332 ]
   %.sroa.10503.0526 = phi double [ 0.000000e+00, %.lr.ph ], [ %338, %332 ]
   %.sroa.0499.0525 = phi double [ 0.000000e+00, %.lr.ph ], [ %335, %332 ]
-  %333 = getelementptr inbounds nuw %"class.colvarmodule::rvector", ptr %323, i64 %.078528
+  %333 = getelementptr inbounds nuw [24 x i8], ptr %323, i64 %.078528
   %334 = load double, ptr %333, align 8, !tbaa !95
   %335 = fadd double %.sroa.0499.0525, %334
   %336 = getelementptr inbounds nuw i8, ptr %333, i64 8
@@ -7221,7 +7219,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit363: ; preds = %52
   br i1 %551, label %552, label %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEm.exit366
 
 552:                                              ; preds = %550
-  %553 = getelementptr inbounds nuw %"class.colvarmodule::rvector", ptr %542, i64 %539
+  %553 = getelementptr inbounds nuw [24 x i8], ptr %542, i64 %539
   %.not.i.i364 = icmp eq ptr %541, %553
   br i1 %.not.i.i364, label %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEm.exit366, label %554
 
@@ -7448,7 +7446,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i38
   %640 = phi double [ 0.000000e+00, %.lr.ph537 ], [ %645, %639 ]
   %641 = phi double [ 0.000000e+00, %.lr.ph537 ], [ %648, %639 ]
   %642 = phi double [ 0.000000e+00, %.lr.ph537 ], [ %651, %639 ]
-  %643 = getelementptr inbounds nuw %"class.colvarmodule::rvector", ptr %619, i64 %.075535
+  %643 = getelementptr inbounds nuw [24 x i8], ptr %619, i64 %.075535
   %644 = load double, ptr %643, align 8, !tbaa !95
   %645 = fadd double %644, %640
   store double %645, ptr %45, align 8, !tbaa !95
@@ -7654,7 +7652,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit413: ; preds = %_Z
 
 728:                                              ; preds = %.lr.ph543, %728
   %.074542 = phi i64 [ 0, %.lr.ph543 ], [ %750, %728 ]
-  %729 = getelementptr inbounds nuw %"class.colvarmodule::rvector", ptr %707, i64 %.074542
+  %729 = getelementptr inbounds nuw [24 x i8], ptr %707, i64 %.074542
   %730 = load double, ptr %45, align 8, !tbaa !95
   %731 = load double, ptr %729, align 8, !tbaa !95
   %732 = fsub double %731, %730
@@ -7669,7 +7667,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit413: ; preds = %_Z
   %739 = load double, ptr %738, align 8, !tbaa !97
   %740 = fsub double %739, %737
   store double %740, ptr %738, align 8, !tbaa !97
-  %741 = getelementptr inbounds nuw %"class.colvarmodule::rvector", ptr %708, i64 %.074542
+  %741 = getelementptr inbounds nuw [24 x i8], ptr %708, i64 %.074542
   %742 = load double, ptr %741, align 8, !tbaa !95
   %743 = fsub double %742, %326
   store double %743, ptr %741, align 8, !tbaa !95
@@ -7751,7 +7749,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit413: ; preds = %_Z
 
 805:                                              ; preds = %.lr.ph546, %805
   %.073544 = phi i64 [ 0, %.lr.ph546 ], [ %821, %805 ]
-  %806 = getelementptr inbounds nuw %"class.colvarmodule::rvector", ptr %804, i64 %.073544
+  %806 = getelementptr inbounds nuw [24 x i8], ptr %804, i64 %.073544
   %807 = load double, ptr %806, align 8, !tbaa !95, !noalias !380
   %808 = getelementptr inbounds nuw i8, ptr %806, i64 8
   %809 = load double, ptr %808, align 8, !tbaa !96, !noalias !380
@@ -7864,8 +7862,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit423: ; preds = %85
 
 858:                                              ; preds = %.lr.ph548, %858
   %.072547 = phi i64 [ 0, %.lr.ph548 ], [ %874, %858 ]
-  %859 = getelementptr inbounds nuw %"class.colvarmodule::rvector", ptr %841, i64 %.072547
-  %860 = getelementptr inbounds nuw %"class.colvarmodule::rvector", ptr %842, i64 %.072547
+  %859 = getelementptr inbounds nuw [24 x i8], ptr %841, i64 %.072547
+  %860 = getelementptr inbounds nuw [24 x i8], ptr %842, i64 %.072547
   %861 = load double, ptr %859, align 8, !tbaa !95
   %862 = load double, ptr %860, align 8, !tbaa !95
   %863 = fsub double %862, %861
@@ -7888,7 +7886,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit423: ; preds = %85
 
 875:                                              ; preds = %.lr.ph553, %875
   %.071552 = phi i64 [ 0, %.lr.ph553 ], [ %885, %875 ]
-  %876 = getelementptr inbounds nuw %"class.colvarmodule::rvector", ptr %849, i64 %.071552
+  %876 = getelementptr inbounds nuw [24 x i8], ptr %849, i64 %.071552
   %877 = load double, ptr %876, align 8, !tbaa !95
   %878 = fadd double %326, %877
   store double %878, ptr %876, align 8, !tbaa !95
@@ -7985,7 +7983,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit433: ; preds = %90
 
 915:                                              ; preds = %.lr.ph541, %915
   %.070540 = phi i64 [ 0, %.lr.ph541 ], [ %928, %915 ]
-  %916 = getelementptr inbounds nuw %"class.colvarmodule::rvector", ptr %906, i64 %.070540
+  %916 = getelementptr inbounds nuw [24 x i8], ptr %906, i64 %.070540
   %917 = load double, ptr %45, align 8, !tbaa !95
   %918 = load double, ptr %916, align 8, !tbaa !95
   %919 = fsub double %918, %917
@@ -8037,7 +8035,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit433: ; preds = %90
 940:                                              ; preds = %.lr.ph557, %940
   %.069555 = phi i64 [ 0, %.lr.ph557 ], [ %952, %940 ]
   %941 = phi double [ 0.000000e+00, %.lr.ph557 ], [ %951, %940 ]
-  %942 = getelementptr inbounds nuw %"class.colvarmodule::rvector", ptr %932, i64 %.069555
+  %942 = getelementptr inbounds nuw [24 x i8], ptr %932, i64 %.069555
   %943 = load double, ptr %942, align 8, !tbaa !95
   %944 = getelementptr inbounds nuw i8, ptr %942, i64 8
   %945 = load double, ptr %944, align 8, !tbaa !96
@@ -8133,7 +8131,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit443: ; preds = %97
   %.068563 = phi i64 [ 0, %.lr.ph564 ], [ %993, %981 ]
   %982 = load double, ptr %934, align 8, !tbaa !93
   %983 = call noundef double @sqrt(double noundef %982) #27, !tbaa !266
-  %984 = getelementptr inbounds nuw %"class.colvarmodule::rvector", ptr %972, i64 %.068563
+  %984 = getelementptr inbounds nuw [24 x i8], ptr %972, i64 %.068563
   %985 = load double, ptr %984, align 8, !tbaa !95
   %986 = fmul double %983, %985
   store double %986, ptr %984, align 8, !tbaa !95
@@ -8237,7 +8235,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit453: ; preds = %10
 
 1028:                                             ; preds = %.lr.ph561, %1028
   %.0560 = phi i64 [ 0, %.lr.ph561 ], [ %1038, %1028 ]
-  %1029 = getelementptr inbounds nuw %"class.colvarmodule::rvector", ptr %1017, i64 %.0560
+  %1029 = getelementptr inbounds nuw [24 x i8], ptr %1017, i64 %.0560
   %1030 = load double, ptr %1029, align 8, !tbaa !95
   %1031 = fmul double %1016, %1030
   store double %1031, ptr %1029, align 8, !tbaa !95
@@ -8512,9 +8510,9 @@ define void @_ZN6colvar11eigenvector10calc_valueEv(ptr noundef nonnull align 8 c
 18:                                               ; preds = %.lr.ph, %18
   %.05 = phi i64 [ 0, %.lr.ph ], [ %46, %18 ]
   %19 = phi double [ 0.000000e+00, %.lr.ph ], [ %45, %18 ]
-  %20 = getelementptr inbounds nuw %"class.colvarmodule::atom", ptr %8, i64 %.05
+  %20 = getelementptr inbounds nuw [120 x i8], ptr %8, i64 %.05
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %22 = getelementptr inbounds nuw %"class.colvarmodule::rvector", ptr %14, i64 %.05
+  %22 = getelementptr inbounds nuw [24 x i8], ptr %14, i64 %.05
   %23 = load double, ptr %21, align 8, !tbaa !95, !noalias !397
   %24 = load double, ptr %22, align 8, !tbaa !95, !noalias !397
   %25 = fsub double %23, %24
@@ -8528,7 +8526,7 @@ define void @_ZN6colvar11eigenvector10calc_valueEv(ptr noundef nonnull align 8 c
   %33 = getelementptr inbounds nuw i8, ptr %22, i64 16
   %34 = load double, ptr %33, align 8, !tbaa !97, !noalias !397
   %35 = fsub double %32, %34
-  %36 = getelementptr inbounds nuw %"class.colvarmodule::rvector", ptr %16, i64 %.05
+  %36 = getelementptr inbounds nuw [24 x i8], ptr %16, i64 %.05
   %37 = load double, ptr %36, align 8, !tbaa !95
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %39 = load double, ptr %38, align 8, !tbaa !96
@@ -8565,8 +8563,8 @@ define void @_ZN6colvar11eigenvector14calc_gradientsEv(ptr noundef nonnull reado
   %10 = phi ptr [ %7, %.lr.ph ], [ %20, %9 ]
   %.04 = phi i64 [ 0, %.lr.ph ], [ %15, %9 ]
   %11 = load ptr, ptr %8, align 8, !tbaa !293
-  %12 = getelementptr inbounds nuw %"class.colvarmodule::rvector", ptr %11, i64 %.04
-  %13 = getelementptr inbounds nuw %"class.colvarmodule::atom", ptr %10, i64 %.04
+  %12 = getelementptr inbounds nuw [24 x i8], ptr %11, i64 %.04
+  %13 = getelementptr inbounds nuw [120 x i8], ptr %10, i64 %.04
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 96
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false), !tbaa.struct !94
   %15 = add nuw i64 %.04, 1
@@ -8617,7 +8615,7 @@ define void @_ZN6colvar11eigenvector19calc_force_invgradsEv(ptr noundef nonnull 
 17:                                               ; preds = %.lr.ph, %17
   %.04 = phi i64 [ 0, %.lr.ph ], [ %39, %17 ]
   %18 = phi double [ 0.000000e+00, %.lr.ph ], [ %38, %17 ]
-  %19 = getelementptr inbounds nuw %"class.colvarmodule::atom", ptr %9, i64 %.04
+  %19 = getelementptr inbounds nuw [120 x i8], ptr %9, i64 %.04
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 96
   %21 = load double, ptr %20, align 8, !tbaa !95, !noalias !402
   %22 = fmul double %15, %21
@@ -8908,7 +8906,7 @@ _ZN12colvarmodule8matrix2dINS_7rvectorEED2Ev.exit: ; preds = %_ZNSt6vectorIN12co
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 16
   %152 = load ptr, ptr %151, align 8, !tbaa !425, !noalias !430
   %153 = load ptr, ptr %152, align 8, !tbaa !293, !noalias !435
-  %154 = getelementptr inbounds nuw %"class.colvarmodule::rvector", ptr %153, i64 %.032276
+  %154 = getelementptr inbounds nuw [24 x i8], ptr %153, i64 %.032276
   %155 = load double, ptr %154, align 8, !tbaa !95, !noalias !435
   %156 = getelementptr inbounds nuw i8, ptr %154, i64 8
   %157 = load double, ptr %156, align 8, !tbaa !96, !noalias !435
@@ -9176,7 +9174,7 @@ _ZN12colvarmodule8matrix2dINS_7rvectorEED2Ev.exit: ; preds = %_ZNSt6vectorIN12co
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %309, i64 64
   store double %322, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !93
   %324 = load ptr, ptr %103, align 8, !tbaa !293
-  %325 = getelementptr inbounds nuw %"class.colvarmodule::rvector", ptr %324, i64 %.032276
+  %325 = getelementptr inbounds nuw [24 x i8], ptr %324, i64 %.032276
   %326 = getelementptr inbounds nuw i8, ptr %325, i64 8
   %327 = getelementptr inbounds nuw i8, ptr %325, i64 16
   br label %.preheader
@@ -9184,7 +9182,7 @@ _ZN12colvarmodule8matrix2dINS_7rvectorEED2Ev.exit: ; preds = %_ZNSt6vectorIN12co
 .preheader:                                       ; preds = %163, %.split.us
   %.031274 = phi i64 [ 0, %163 ], [ %365, %.split.us ]
   %.1273 = phi double [ %.033275, %163 ], [ %.us-phi, %.split.us ]
-  %328 = getelementptr inbounds nuw %"class.colvarmodule::matrix2d<colvarmodule::rvector>::row", ptr %264, i64 %.031274
+  %328 = getelementptr inbounds nuw [16 x i8], ptr %264, i64 %.031274
   %329 = load ptr, ptr %328, align 8, !tbaa !452
   %330 = trunc nuw nsw i64 %.031274 to i32
   switch i32 %330, label %.preheader.split [
@@ -9195,7 +9193,7 @@ _ZN12colvarmodule8matrix2dINS_7rvectorEED2Ev.exit: ; preds = %_ZNSt6vectorIN12co
 _ZN12colvarmodule7rvectorixEi.exit.us:            ; preds = %.preheader, %_ZN12colvarmodule7rvectorixEi.exit88.us
   %.0265.us = phi i64 [ %339, %_ZN12colvarmodule7rvectorixEi.exit88.us ], [ 0, %.preheader ]
   %.2264.us = phi double [ %338, %_ZN12colvarmodule7rvectorixEi.exit88.us ], [ %.1273, %.preheader ]
-  %331 = getelementptr inbounds nuw %"class.colvarmodule::rvector", ptr %329, i64 %.0265.us
+  %331 = getelementptr inbounds nuw [24 x i8], ptr %329, i64 %.0265.us
   %332 = load double, ptr %331, align 8, !tbaa !93
   %333 = trunc nuw nsw i64 %.0265.us to i32
   switch i32 %333, label %335 [
@@ -9220,7 +9218,7 @@ _ZN12colvarmodule7rvectorixEi.exit88.us:          ; preds = %335, %334, %_ZN12co
 _ZN12colvarmodule7rvectorixEi.exit.us269:         ; preds = %.preheader, %_ZN12colvarmodule7rvectorixEi.exit88.us270
   %.0265.us267 = phi i64 [ %349, %_ZN12colvarmodule7rvectorixEi.exit88.us270 ], [ 0, %.preheader ]
   %.2264.us268 = phi double [ %348, %_ZN12colvarmodule7rvectorixEi.exit88.us270 ], [ %.1273, %.preheader ]
-  %340 = getelementptr inbounds nuw %"class.colvarmodule::rvector", ptr %329, i64 %.0265.us267
+  %340 = getelementptr inbounds nuw [24 x i8], ptr %329, i64 %.0265.us267
   %341 = getelementptr inbounds nuw i8, ptr %340, i64 8
   %342 = load double, ptr %341, align 8, !tbaa !93
   %343 = trunc nuw nsw i64 %.0265.us267 to i32
@@ -9277,7 +9275,7 @@ _ZN12colvarmodule7rvectorixEi.exit88.us270:       ; preds = %345, %344, %_ZN12co
 _ZN12colvarmodule7rvectorixEi.exit:               ; preds = %.preheader.split, %_ZN12colvarmodule7rvectorixEi.exit88
   %.0265 = phi i64 [ 0, %.preheader.split ], [ %373, %_ZN12colvarmodule7rvectorixEi.exit88 ]
   %.2264 = phi double [ %.1273, %.preheader.split ], [ %372, %_ZN12colvarmodule7rvectorixEi.exit88 ]
-  %gep = getelementptr inbounds nuw %"class.colvarmodule::rvector", ptr %invariant.gep, i64 %.0265
+  %gep = getelementptr inbounds nuw [24 x i8], ptr %invariant.gep, i64 %.0265
   %366 = load double, ptr %gep, align 8, !tbaa !93
   %367 = trunc nuw nsw i64 %.0265 to i32
   switch i32 %367, label %369 [
@@ -10432,7 +10430,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit202: ; preds = %37
   br i1 %399, label %400, label %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEm.exit
 
 400:                                              ; preds = %398
-  %401 = getelementptr inbounds nuw %"class.colvarmodule::rvector", ptr %390, i64 %388
+  %401 = getelementptr inbounds nuw [24 x i8], ptr %390, i64 %388
   %.not.i.i = icmp eq ptr %389, %401
   br i1 %.not.i.i, label %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEm.exit, label %402
 
@@ -11274,10 +11272,10 @@ define void @_ZN6colvar4rmsd10calc_valueEv(ptr noundef nonnull align 8 captures(
   %.027.us = phi i64 [ 0, %.preheader.us ], [ %47, %25 ]
   %.01426.us = phi double [ 0.000000e+00, %.preheader.us ], [ %46, %25 ]
   %.125.us = phi i64 [ %.01636.us, %.preheader.us ], [ %28, %25 ]
-  %26 = getelementptr inbounds nuw %"class.colvarmodule::atom", ptr %7, i64 %.027.us
+  %26 = getelementptr inbounds nuw [120 x i8], ptr %7, i64 %.027.us
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 24
   %28 = add i64 %.125.us, 1
-  %29 = getelementptr inbounds nuw %"class.colvarmodule::rvector", ptr %21, i64 %.125.us
+  %29 = getelementptr inbounds nuw [24 x i8], ptr %21, i64 %.125.us
   %30 = load double, ptr %27, align 8, !tbaa !95, !noalias !484
   %31 = load double, ptr %29, align 8, !tbaa !95, !noalias !484
   %32 = fsub double %30, %31
@@ -11307,9 +11305,9 @@ define void @_ZN6colvar4rmsd10calc_valueEv(ptr noundef nonnull align 8 captures(
 50:                                               ; preds = %.lr.ph, %50
   %.01722 = phi i64 [ 0, %.lr.ph ], [ %72, %50 ]
   %51 = phi double [ 0.000000e+00, %.lr.ph ], [ %71, %50 ]
-  %52 = getelementptr inbounds nuw %"class.colvarmodule::atom", ptr %7, i64 %.01722
+  %52 = getelementptr inbounds nuw [120 x i8], ptr %7, i64 %.01722
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 24
-  %54 = getelementptr inbounds nuw %"class.colvarmodule::rvector", ptr %13, i64 %.01722
+  %54 = getelementptr inbounds nuw [24 x i8], ptr %13, i64 %.01722
   %55 = load double, ptr %53, align 8, !tbaa !95, !noalias !488
   %56 = load double, ptr %54, align 8, !tbaa !95, !noalias !488
   %57 = fsub double %55, %56
@@ -11390,7 +11388,7 @@ define void @_ZN6colvar4rmsd14calc_gradientsEv(ptr noundef nonnull readonly alig
   %26 = mul i64 %.pre-phi22, %25
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 1616
   %28 = load ptr, ptr %27, align 8, !tbaa !293
-  %29 = getelementptr %"class.colvarmodule::rvector", ptr %28, i64 %26
+  %29 = getelementptr [24 x i8], ptr %28, i64 %26
   %umax = tail call i64 @llvm.umax.i64(i64 %.pre-phi22, i64 1)
   br label %30
 
@@ -11399,9 +11397,9 @@ define void @_ZN6colvar4rmsd14calc_gradientsEv(ptr noundef nonnull readonly alig
 
 30:                                               ; preds = %.lr.ph, %30
   %.010 = phi i64 [ 0, %.lr.ph ], [ %51, %30 ]
-  %31 = getelementptr inbounds nuw %"class.colvarmodule::atom", ptr %21, i64 %.010
+  %31 = getelementptr inbounds nuw [120 x i8], ptr %21, i64 %.010
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  %33 = getelementptr %"class.colvarmodule::rvector", ptr %29, i64 %.010
+  %33 = getelementptr [24 x i8], ptr %29, i64 %.010
   %34 = load double, ptr %32, align 8, !tbaa !95, !noalias !492
   %35 = load double, ptr %33, align 8, !tbaa !95, !noalias !492
   %36 = fsub double %34, %35
@@ -11457,7 +11455,7 @@ define void @_ZN6colvar4rmsd19calc_force_invgradsEv(ptr noundef nonnull align 8 
 .lr.ph:                                           ; preds = %1, %.lr.ph
   %.04 = phi i64 [ %35, %.lr.ph ], [ 0, %1 ]
   %17 = phi double [ %34, %.lr.ph ], [ 0.000000e+00, %1 ]
-  %18 = getelementptr inbounds nuw %"class.colvarmodule::atom", ptr %8, i64 %.04
+  %18 = getelementptr inbounds nuw [120 x i8], ptr %8, i64 %.04
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 96
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 72
   %21 = load double, ptr %19, align 8, !tbaa !95
@@ -11744,7 +11742,7 @@ _ZN12colvarmodule8matrix2dINS_7rvectorEED2Ev.exit: ; preds = %_ZNSt6vectorIN12co
   %149 = getelementptr inbounds nuw i8, ptr %148, i64 16
   %150 = load ptr, ptr %149, align 8, !tbaa !425, !noalias !497
   %151 = load ptr, ptr %150, align 8, !tbaa !293, !noalias !502
-  %152 = getelementptr inbounds nuw %"class.colvarmodule::rvector", ptr %151, i64 %.024264
+  %152 = getelementptr inbounds nuw [24 x i8], ptr %151, i64 %.024264
   %153 = load double, ptr %152, align 8, !tbaa !95, !noalias !502
   %154 = getelementptr inbounds nuw i8, ptr %152, i64 8
   %155 = load double, ptr %154, align 8, !tbaa !96, !noalias !502
@@ -12017,7 +12015,7 @@ _ZN12colvarmodule8matrix2dINS_7rvectorEED2Ev.exit: ; preds = %_ZNSt6vectorIN12co
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %284, i64 64
   store double %325, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !93
   %327 = load ptr, ptr %106, align 8, !tbaa !293
-  %328 = getelementptr inbounds nuw %"class.colvarmodule::rvector", ptr %327, i64 %.024264
+  %328 = getelementptr inbounds nuw [24 x i8], ptr %327, i64 %.024264
   %329 = getelementptr inbounds nuw i8, ptr %328, i64 8
   %330 = getelementptr inbounds nuw i8, ptr %328, i64 16
   br label %.preheader
@@ -12036,9 +12034,9 @@ _ZN12colvarmodule8matrix2dINS_7rvectorEED2Ev.exit: ; preds = %_ZNSt6vectorIN12co
 _ZN12colvarmodule7rvectorixEi.exit.us:            ; preds = %.preheader, %_ZN12colvarmodule7rvectorixEi.exit76.us
   %.3253.us = phi double [ %342, %_ZN12colvarmodule7rvectorixEi.exit76.us ], [ %.2263, %.preheader ]
   %.018252.us = phi i64 [ %343, %_ZN12colvarmodule7rvectorixEi.exit76.us ], [ 0, %.preheader ]
-  %333 = getelementptr inbounds nuw %"class.colvarmodule::matrix2d<colvarmodule::rvector>::row", ptr %267, i64 %.018252.us
+  %333 = getelementptr inbounds nuw [16 x i8], ptr %267, i64 %.018252.us
   %334 = load ptr, ptr %333, align 8, !tbaa !452
-  %335 = getelementptr inbounds nuw %"class.colvarmodule::rvector", ptr %334, i64 %.019261
+  %335 = getelementptr inbounds nuw [24 x i8], ptr %334, i64 %.019261
   %336 = load double, ptr %335, align 8, !tbaa !93
   %337 = trunc nuw nsw i64 %.018252.us to i32
   switch i32 %337, label %339 [
@@ -12063,9 +12061,9 @@ _ZN12colvarmodule7rvectorixEi.exit76.us:          ; preds = %339, %338, %_ZN12co
 _ZN12colvarmodule7rvectorixEi.exit.us257:         ; preds = %.preheader, %_ZN12colvarmodule7rvectorixEi.exit76.us258
   %.3253.us255 = phi double [ %354, %_ZN12colvarmodule7rvectorixEi.exit76.us258 ], [ %.2263, %.preheader ]
   %.018252.us256 = phi i64 [ %355, %_ZN12colvarmodule7rvectorixEi.exit76.us258 ], [ 0, %.preheader ]
-  %344 = getelementptr inbounds nuw %"class.colvarmodule::matrix2d<colvarmodule::rvector>::row", ptr %267, i64 %.018252.us256
+  %344 = getelementptr inbounds nuw [16 x i8], ptr %267, i64 %.018252.us256
   %345 = load ptr, ptr %344, align 8, !tbaa !452
-  %346 = getelementptr inbounds nuw %"class.colvarmodule::rvector", ptr %345, i64 %.019261
+  %346 = getelementptr inbounds nuw [24 x i8], ptr %345, i64 %.019261
   %347 = getelementptr inbounds nuw i8, ptr %346, i64 8
   %348 = load double, ptr %347, align 8, !tbaa !93
   %349 = trunc nuw nsw i64 %.018252.us256 to i32
@@ -12116,9 +12114,9 @@ _ZN12colvarmodule7rvectorixEi.exit76.us258:       ; preds = %351, %350, %_ZN12co
 _ZN12colvarmodule7rvectorixEi.exit:               ; preds = %.preheader, %_ZN12colvarmodule7rvectorixEi.exit76
   %.3253 = phi double [ %381, %_ZN12colvarmodule7rvectorixEi.exit76 ], [ %.2263, %.preheader ]
   %.018252 = phi i64 [ %382, %_ZN12colvarmodule7rvectorixEi.exit76 ], [ 0, %.preheader ]
-  %371 = getelementptr inbounds nuw %"class.colvarmodule::matrix2d<colvarmodule::rvector>::row", ptr %267, i64 %.018252
+  %371 = getelementptr inbounds nuw [16 x i8], ptr %267, i64 %.018252
   %372 = load ptr, ptr %371, align 8, !tbaa !452
-  %373 = getelementptr inbounds nuw %"class.colvarmodule::rvector", ptr %372, i64 %.019261
+  %373 = getelementptr inbounds nuw [24 x i8], ptr %372, i64 %.019261
   %374 = getelementptr inbounds nuw i8, ptr %373, i64 %.idx.i
   %375 = load double, ptr %374, align 8, !tbaa !93
   %376 = trunc nuw nsw i64 %.018252 to i32
@@ -12406,7 +12404,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i: ; preds = %45, %_ZN
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i: ; preds = %47, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i
   store ptr %42, ptr %17, align 8, !tbaa !522
   store ptr %46, ptr %19, align 8, !tbaa !531
-  %48 = getelementptr inbounds nuw i64, ptr %42, i64 %40
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %42, i64 %40
   store ptr %48, ptr %26, align 8, !tbaa !525
   br label %_ZNSt6vectorImSaImEE9push_backEOm.exit
 
@@ -12472,7 +12470,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i18: ; preds = %73, %_
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i20: ; preds = %75, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i18
   store ptr %70, ptr %17, align 8, !tbaa !522
   store ptr %74, ptr %19, align 8, !tbaa !531
-  %76 = getelementptr inbounds nuw i64, ptr %70, i64 %68
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %68
   store ptr %76, ptr %54, align 8, !tbaa !525
   br label %_ZNSt6vectorImSaImEE9push_backEOm.exit21
 
@@ -12538,7 +12536,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i26: ; preds = %101, %
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i28: ; preds = %103, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i.i26
   store ptr %98, ptr %17, align 8, !tbaa !522
   store ptr %102, ptr %19, align 8, !tbaa !531
-  %104 = getelementptr inbounds nuw i64, ptr %98, i64 %96
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %96
   store ptr %104, ptr %82, align 8, !tbaa !525
   br label %_ZNSt6vectorImSaImEE9push_backEOm.exit29
 
@@ -12646,7 +12644,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit32: ; preds = %120
   br i1 %156, label %157, label %_ZN12colvarmodule8vector1dIdE6resizeEm.exit
 
 157:                                              ; preds = %155
-  %158 = getelementptr inbounds nuw double, ptr %147, i64 %144
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %147, i64 %144
   %.not.i.i.i = icmp eq ptr %146, %158
   br i1 %.not.i.i.i, label %_ZN12colvarmodule8vector1dIdE6resizeEm.exit, label %159
 
@@ -12692,16 +12690,16 @@ define void @_ZN6colvar9cartesian10calc_valueEv(ptr noundef nonnull readonly ali
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph, %._crit_edge.us
   %.01013.us = phi i64 [ %39, %._crit_edge.us ], [ 0, %.preheader.lr.ph ]
-  %22 = getelementptr inbounds nuw %"class.colvarmodule::atom", ptr %15, i64 %.01013.us
+  %22 = getelementptr inbounds nuw [120 x i8], ptr %15, i64 %.01013.us
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 24
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %25 = mul i64 %.01013.us, %9
-  %26 = getelementptr double, ptr %21, i64 %25
+  %26 = getelementptr [8 x i8], ptr %21, i64 %25
   br label %27
 
 27:                                               ; preds = %.preheader.us, %_ZN12colvarmodule7rvectorixEi.exit.us
   %.012.us = phi i64 [ 0, %.preheader.us ], [ %38, %_ZN12colvarmodule7rvectorixEi.exit.us ]
-  %28 = getelementptr inbounds nuw i64, ptr %5, i64 %.012.us
+  %28 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.012.us
   %29 = load i64, ptr %28, align 8, !tbaa !173
   %30 = trunc i64 %29 to i32
   switch i32 %30, label %32 [
@@ -12721,7 +12719,7 @@ define void @_ZN6colvar9cartesian10calc_valueEv(ptr noundef nonnull readonly ali
 _ZN12colvarmodule7rvectorixEi.exit.us:            ; preds = %32, %31, %27
   %35 = phi ptr [ %34, %32 ], [ %24, %31 ], [ %23, %27 ]
   %36 = load double, ptr %35, align 8, !tbaa !93
-  %37 = getelementptr double, ptr %26, i64 %.012.us
+  %37 = getelementptr [8 x i8], ptr %26, i64 %.012.us
   store double %36, ptr %37, align 8, !tbaa !93
   %38 = add nuw i64 %.012.us, 1
   %exitcond.not = icmp eq i64 %38, %9
@@ -12783,7 +12781,7 @@ define void @_ZN6colvar9cartesian11apply_forceERK11colvarvalue(ptr noundef nonnu
   %.017.us = phi i64 [ %31, %30 ], [ 0, %.preheader.lr.ph ]
   %26 = mul i64 %.017.us, %12
   %27 = load ptr, ptr %24, align 8, !tbaa !273
-  %28 = getelementptr double, ptr %27, i64 %26
+  %28 = getelementptr [8 x i8], ptr %27, i64 %26
   %29 = load ptr, ptr %5, align 8, !tbaa !522
   br label %42
 
@@ -12803,9 +12801,9 @@ define void @_ZN6colvar9cartesian11apply_forceERK11colvarvalue(ptr noundef nonnu
 
 42:                                               ; preds = %.preheader.us, %_ZN12colvarmodule7rvectorixEi.exit.us
   %.01316.us = phi i64 [ 0, %.preheader.us ], [ %52, %_ZN12colvarmodule7rvectorixEi.exit.us ]
-  %43 = getelementptr double, ptr %28, i64 %.01316.us
+  %43 = getelementptr [8 x i8], ptr %28, i64 %.01316.us
   %44 = load double, ptr %43, align 8, !tbaa !93
-  %45 = getelementptr inbounds nuw i64, ptr %29, i64 %.01316.us
+  %45 = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %.01316.us
   %46 = load i64, ptr %45, align 8, !tbaa !173
   %47 = trunc i64 %46 to i32
   switch i32 %47, label %49 [
@@ -12902,7 +12900,7 @@ define noundef double @_ZNK6colvar9cartesian5dist2ERK11colvarvalueS3_(ptr nonnul
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %.08.i = phi i64 [ %17, %.lr.ph.i ], [ 0, %.lr.ph.preheader.i ]
   %.067.i = phi double [ %16, %.lr.ph.i ], [ 0.000000e+00, %.lr.ph.preheader.i ]
-  %14 = getelementptr inbounds nuw double, ptr %9, i64 %.08.i
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.08.i
   %15 = load double, ptr %14, align 8, !tbaa !93
   %16 = call double @llvm.fmuladd.f64(double %15, double %15, double %.067.i)
   %17 = add nuw i64 %.08.i, 1
@@ -13027,10 +13025,10 @@ _ZN12colvarmodule8vector1dIdEC2Em.exit.i.i:       ; preds = %_ZNSt6vectorIdSaIdE
 
 40:                                               ; preds = %40, %.lr.ph.i.i
   %.08.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %45, %40 ]
-  %41 = getelementptr inbounds nuw double, ptr %11, i64 %.08.i.i
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.08.i.i
   %42 = load double, ptr %41, align 8, !tbaa !93
   %43 = fmul double %42, 2.000000e+00
-  %44 = getelementptr inbounds nuw double, ptr %34, i64 %.08.i.i
+  %44 = getelementptr inbounds nuw [8 x i8], ptr %34, i64 %.08.i.i
   store double %43, ptr %44, align 8, !tbaa !93
   %45 = add nuw i64 %.08.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %45, %39
@@ -13988,9 +13986,9 @@ _ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit: ; preds = %_ZSt27__uninitia
 
 _ZNSt12_Vector_baseIdSaIdEE13_M_deallocateEPdm.exit36: ; preds = %_ZNSt6vectorIdSaIdEE11_S_relocateEPdS2_S2_RS0_.exit, %37
   store ptr %30, ptr %0, align 8, !tbaa !273
-  %39 = getelementptr inbounds nuw double, ptr %31, i64 %1
+  %39 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %1
   store ptr %39, ptr %4, align 8, !tbaa !272
-  %40 = getelementptr inbounds nuw double, ptr %30, i64 %28
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %28
   store ptr %40, ptr %11, align 8, !tbaa !305
   br label %41
 
@@ -14196,7 +14194,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit9.i: ; preds = %61
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %69 = sext i32 %1 to i64
   %70 = load ptr, ptr %68, align 8, !tbaa !273
-  %71 = getelementptr inbounds nuw double, ptr %70, i64 %69
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %70, i64 %69
   %72 = load double, ptr %71, align 8, !tbaa !93
   br label %_ZNK12colvarmodule10quaternionixEi.exit
 
@@ -14442,12 +14440,12 @@ _ZN12colvarmodule8vector1dIdEC2Em.exit38:         ; preds = %_ZNSt6vectorIdSaIdE
 
 101:                                              ; preds = %.lr.ph, %101
   %.0111 = phi i64 [ 0, %.lr.ph ], [ %108, %101 ]
-  %102 = getelementptr inbounds nuw double, ptr %94, i64 %.0111
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %.0111
   %103 = load double, ptr %102, align 8, !tbaa !93
-  %104 = getelementptr inbounds nuw double, ptr %99, i64 %.0111
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %.0111
   %105 = load double, ptr %104, align 8, !tbaa !93
   %106 = fsub double %103, %105
-  %107 = getelementptr inbounds nuw double, ptr %100, i64 %.0111
+  %107 = getelementptr inbounds nuw [8 x i8], ptr %100, i64 %.0111
   store double %106, ptr %107, align 8, !tbaa !93
   %108 = add nuw i64 %.0111, 1
   %exitcond.not = icmp eq i64 %108, %98
@@ -15055,7 +15053,7 @@ _ZNSt6vectorIdSaIdEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %12
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !556
 
 _ZNSt6vectorIdSaIdEEC2EmRKdRKS0_.exit:            ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
-  %20 = getelementptr inbounds nuw double, ptr %16, i64 %1
+  %20 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %16, ptr %0, align 8, !tbaa !273
   store ptr %17, ptr %21, align 8, !tbaa !272
@@ -15329,7 +15327,7 @@ _ZNSt12_Vector_baseIN12colvarmodule7rvectorESaIS1_EEC2EmRKS2_.exit.i: ; preds = 
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EEC2EmRKS1_RKS2_.exit, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !557
 
 _ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EEC2EmRKS1_RKS2_.exit: ; preds = %.lr.ph.i.i.i.i.i.i
-  %19 = getelementptr inbounds nuw %"class.colvarmodule::rvector", ptr %16, i64 %1
+  %19 = getelementptr inbounds nuw [24 x i8], ptr %16, i64 %1
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %16, ptr %0, align 8, !tbaa !293
   store ptr %18, ptr %20, align 8, !tbaa !360
@@ -17443,7 +17441,7 @@ _ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i: ; preds = %374, %.noe
 _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i: ; preds = %376, %_ZNSt6vectorImSaImEE11_S_relocateEPmS2_S2_RS0_.exit16.i.i
   store ptr %371, ptr %7, align 8, !tbaa !522
   store ptr %375, ptr %37, align 8, !tbaa !531
-  %377 = getelementptr inbounds nuw i64, ptr %371, i64 %369
+  %377 = getelementptr inbounds nuw [8 x i8], ptr %371, i64 %369
   store ptr %377, ptr %43, align 8, !tbaa !525
   br label %_ZNSt6vectorImSaImEE9push_backERKm.exit.backedge
 
@@ -18114,10 +18112,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit225: ; preds = %_Z
   %609 = phi ptr [ %637, %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE9push_backERKS1_.exit ], [ %.pre, %.lr.ph.preheader ]
   %.0467 = phi i64 [ %638, %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE9push_backERKS1_.exit ], [ 0, %.lr.ph.preheader ]
   %610 = load ptr, ptr %7, align 8, !tbaa !522
-  %611 = getelementptr inbounds nuw i64, ptr %610, i64 %.0467
+  %611 = getelementptr inbounds nuw [8 x i8], ptr %610, i64 %.0467
   %612 = load i64, ptr %611, align 8, !tbaa !173
   %613 = load ptr, ptr %58, align 8, !tbaa !293
-  %614 = getelementptr inbounds nuw %"class.colvarmodule::rvector", ptr %613, i64 %612
+  %614 = getelementptr inbounds nuw [24 x i8], ptr %613, i64 %612
   %615 = load ptr, ptr %60, align 8, !tbaa !357
   %.not.i226 = icmp eq ptr %609, %615
   br i1 %.not.i226, label %619, label %616
@@ -18177,7 +18175,7 @@ _ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE17_M_realloc_insertIJRKS1_EEEvN9__g
   call void @_ZdlPvm(ptr noundef nonnull %613, i64 noundef %622) #28
   store ptr %631, ptr %58, align 8, !tbaa !293
   store ptr %635, ptr %59, align 8, !tbaa !360
-  %636 = getelementptr inbounds nuw %"class.colvarmodule::rvector", ptr %631, i64 %629
+  %636 = getelementptr inbounds nuw [24 x i8], ptr %631, i64 %629
   store ptr %636, ptr %60, align 8, !tbaa !357
   br label %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE9push_backERKS1_.exit
 
@@ -18365,9 +18363,9 @@ _ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit: 
 
 _ZNSt12_Vector_baseIN12colvarmodule7rvectorESaIS1_EE13_M_deallocateEPS1_m.exit37: ; preds = %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE11_S_relocateEPS1_S4_S4_RS2_.exit, %31
   store ptr %26, ptr %0, align 8, !tbaa !293
-  %33 = getelementptr inbounds nuw %"class.colvarmodule::rvector", ptr %27, i64 %1
+  %33 = getelementptr inbounds nuw [24 x i8], ptr %27, i64 %1
   store ptr %33, ptr %4, align 8, !tbaa !360
-  %34 = getelementptr inbounds nuw %"class.colvarmodule::rvector", ptr %26, i64 %24
+  %34 = getelementptr inbounds nuw [24 x i8], ptr %26, i64 %24
   store ptr %34, ptr %11, align 8, !tbaa !357
   br label %35
 
@@ -19741,7 +19739,7 @@ _ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i: 
   %19 = mul nuw nsw i64 %17, 24
   %20 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #30
   store ptr %20, ptr %4, align 8, !tbaa !293
-  %21 = getelementptr inbounds nuw %"class.colvarmodule::rvector", ptr %20, i64 %17
+  %21 = getelementptr inbounds nuw [24 x i8], ptr %20, i64 %17
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %20, i8 0, i64 %19, i1 false)
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %20, i64 %19
   br label %_ZNSt12_Vector_baseIN12colvarmodule7rvectorESaIS1_EEC2EmRKS2_.exit.thread.i
@@ -19772,16 +19770,16 @@ _ZNSt12_Vector_baseIN12colvarmodule7rvectorESaIS1_EEC2EmRKS2_.exit.thread.i: ; p
 
 .lr.ph:                                           ; preds = %.preheader
   %29 = mul i64 %.02959, %2
-  %30 = getelementptr %"class.colvarmodule::rvector", ptr %22, i64 %29
+  %30 = getelementptr [24 x i8], ptr %22, i64 %29
   br label %31
 
 31:                                               ; preds = %.lr.ph, %31
   %32 = phi i64 [ %28, %.lr.ph ], [ %27, %31 ]
   %.02858 = phi i64 [ 0, %.lr.ph ], [ %37, %31 ]
   %33 = mul i64 %32, %.02959
-  %34 = getelementptr %"class.colvarmodule::rvector", ptr %11, i64 %33
-  %35 = getelementptr %"class.colvarmodule::rvector", ptr %34, i64 %.02858
-  %36 = getelementptr %"class.colvarmodule::rvector", ptr %30, i64 %.02858
+  %34 = getelementptr [24 x i8], ptr %11, i64 %33
+  %35 = getelementptr [24 x i8], ptr %34, i64 %.02858
+  %36 = getelementptr [24 x i8], ptr %30, i64 %.02858
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %36, ptr noundef nonnull align 8 dereferenceable(24) %35, i64 24, i1 false), !tbaa.struct !94
   %37 = add nuw i64 %.02858, 1
   %38 = icmp ult i64 %37, %27
@@ -19807,7 +19805,7 @@ _ZNSt12_Vector_baseIN12colvarmodule7rvectorESaIS1_EEC2EmRKS2_.exit.thread.i: ; p
   br i1 %46, label %47, label %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEm.exit
 
 47:                                               ; preds = %45
-  %48 = getelementptr inbounds nuw %"class.colvarmodule::rvector", ptr %11, i64 %17
+  %48 = getelementptr inbounds nuw [24 x i8], ptr %11, i64 %17
   %.not.i.i = icmp eq ptr %10, %48
   br i1 %.not.i.i, label %_ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EE6resizeEm.exit, label %49
 
@@ -19917,7 +19915,7 @@ _ZNSt6vectorIN12colvarmodule8matrix2dINS0_7rvectorEE3rowESaIS4_EE11_S_relocateEP
 _ZNSt12_Vector_baseIN12colvarmodule8matrix2dINS0_7rvectorEE3rowESaIS4_EE13_M_deallocateEPS4_m.exit.i: ; preds = %92, %_ZNSt6vectorIN12colvarmodule8matrix2dINS0_7rvectorEE3rowESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit.i
   store ptr %91, ptr %75, align 8, !tbaa !421
   store ptr %91, ptr %77, align 8, !tbaa !424
-  %93 = getelementptr inbounds nuw %"class.colvarmodule::matrix2d<colvarmodule::rvector>::row", ptr %91, i64 %1
+  %93 = getelementptr inbounds nuw [16 x i8], ptr %91, i64 %1
   store ptr %93, ptr %83, align 8, !tbaa !422
   br label %_ZNSt6vectorIN12colvarmodule8matrix2dINS0_7rvectorEE3rowESaIS4_EE7reserveEm.exit
 
@@ -19979,7 +19977,7 @@ _ZNSt12_Vector_baseIPN12colvarmodule7rvectorESaIS2_EE13_M_deallocateEPS2_m.exit.
   store ptr %114, ptr %94, align 8, !tbaa !419
   %118 = getelementptr inbounds nuw i8, ptr %114, i64 %112
   store ptr %118, ptr %96, align 8, !tbaa !620
-  %119 = getelementptr inbounds nuw ptr, ptr %114, i64 %100
+  %119 = getelementptr inbounds nuw [8 x i8], ptr %114, i64 %100
   store ptr %119, ptr %104, align 8, !tbaa !420
   br label %_ZNSt6vectorIPN12colvarmodule7rvectorESaIS2_EE7reserveEm.exit
 
@@ -19998,7 +19996,7 @@ _ZNSt6vectorIPN12colvarmodule7rvectorESaIS2_EE7reserveEm.exit: ; preds = %103, %
   %125 = load ptr, ptr %7, align 8, !tbaa !293
   %126 = load i64, ptr %71, align 8, !tbaa !418
   %127 = mul i64 %126, %.061
-  %128 = getelementptr inbounds nuw %"class.colvarmodule::rvector", ptr %125, i64 %127
+  %128 = getelementptr inbounds nuw [24 x i8], ptr %125, i64 %127
   %129 = load ptr, ptr %77, align 8, !tbaa !424
   %130 = load ptr, ptr %83, align 8, !tbaa !422
   %.not.i.i45 = icmp eq ptr %129, %130
@@ -20068,7 +20066,7 @@ _ZNSt6vectorIN12colvarmodule8matrix2dINS0_7rvectorEE3rowESaIS4_EE17_M_realloc_in
   %.pre68 = phi ptr [ %.pre68.pre, %151 ], [ %124, %_ZNSt6vectorIN12colvarmodule8matrix2dINS0_7rvectorEE3rowESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i ]
   store ptr %146, ptr %75, align 8, !tbaa !421
   store ptr %150, ptr %77, align 8, !tbaa !424
-  %152 = getelementptr inbounds nuw %"class.colvarmodule::matrix2d<colvarmodule::rvector>::row", ptr %146, i64 %144
+  %152 = getelementptr inbounds nuw [16 x i8], ptr %146, i64 %144
   store ptr %152, ptr %83, align 8, !tbaa !422
   br label %_ZNSt6vectorIN12colvarmodule8matrix2dINS0_7rvectorEE3rowESaIS4_EE9push_backEOS4_.exit
 
@@ -20079,7 +20077,7 @@ _ZNSt6vectorIN12colvarmodule8matrix2dINS0_7rvectorEE3rowESaIS4_EE9push_backEOS4_
   %155 = load ptr, ptr %7, align 8, !tbaa !293
   %156 = load i64, ptr %71, align 8, !tbaa !418
   %157 = mul i64 %156, %.061
-  %158 = getelementptr inbounds nuw %"class.colvarmodule::rvector", ptr %155, i64 %157
+  %158 = getelementptr inbounds nuw [24 x i8], ptr %155, i64 %157
   %.not.i.i47 = icmp eq ptr %154, %153
   br i1 %.not.i.i47, label %161, label %159
 
@@ -20133,7 +20131,7 @@ _ZNSt6vectorIPN12colvarmodule7rvectorESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit1
 _ZNSt6vectorIPN12colvarmodule7rvectorESaIS2_EE17_M_realloc_insertIJS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %179, %_ZNSt6vectorIPN12colvarmodule7rvectorESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i.i
   store ptr %174, ptr %94, align 8, !tbaa !419
   store ptr %178, ptr %96, align 8, !tbaa !620
-  %180 = getelementptr inbounds nuw ptr, ptr %174, i64 %172
+  %180 = getelementptr inbounds nuw [8 x i8], ptr %174, i64 %172
   store ptr %180, ptr %104, align 8, !tbaa !420
   br label %_ZNSt6vectorIPN12colvarmodule7rvectorESaIS2_EE9push_backEOS2_.exit
 

@@ -637,8 +637,8 @@ define hidden { i64, i64 } @_ZN4core5error5Error7type_id17hcf714ffc7cbe1207E(ptr
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$14swap_unchecked17h2ce877de90703340E"(ptr noalias noundef nonnull align 8 captures(none) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #5 {
   %5 = alloca [40 x i8], align 8
-  %6 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, { ptr, ptr } }, ptr %0, i64 %2
-  %7 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, { ptr, ptr } }, ptr %0, i64 %3
+  %6 = getelementptr inbounds [40 x i8], ptr %0, i64 %2
+  %7 = getelementptr inbounds [40 x i8], ptr %0, i64 %3
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %6, i64 40, i1 false)
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %6, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false)
@@ -650,8 +650,8 @@ define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$14swap_uncheck
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$14swap_unchecked17h7cdd9d036605eacaE"(ptr noalias noundef nonnull align 8 captures(none) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #5 {
   %5 = alloca [168 x i8], align 8
-  %6 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, { { i64, [4 x i64] }, { i64, [2 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } } }, ptr %0, i64 %2
-  %7 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, { { i64, [4 x i64] }, { i64, [2 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } } }, ptr %0, i64 %3
+  %6 = getelementptr inbounds [168 x i8], ptr %0, i64 %2
+  %7 = getelementptr inbounds [168 x i8], ptr %0, i64 %3
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef nonnull align 8 dereferenceable(168) %6, i64 168, i1 false)
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %6, ptr noundef nonnull align 8 dereferenceable(168) %7, i64 168, i1 false)
@@ -772,7 +772,7 @@ define void @_ZN4core5slice4sort8unstable8heapsort8heapsort17h23ded77eb432daa5E(
   br label %12
 
 10:                                               ; preds = %.lr.ph21
-  %11 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, { { i64, [4 x i64] }, { i64, [2 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } } }, ptr %0, i64 %7
+  %11 = getelementptr inbounds [168 x i8], ptr %0, i64 %7
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %4, ptr noundef nonnull align 8 dereferenceable(168) %0, i64 168, i1 false)
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef nonnull align 8 dereferenceable(168) %11, i64 168, i1 false)
@@ -805,8 +805,8 @@ _ZN4core3ptr19swap_nonoverlapping7runtime17hcf5e0cbd759ea93cE.exit.loopexit: ; p
   br i1 %21, label %22, label %34
 
 22:                                               ; preds = %.lr.ph
-  %23 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, { { i64, [4 x i64] }, { i64, [2 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } } }, ptr %0, i64 %18
-  %24 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, { { i64, [4 x i64] }, { i64, [2 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } } }, ptr %0, i64 %20
+  %23 = getelementptr inbounds [168 x i8], ptr %0, i64 %18
+  %24 = getelementptr inbounds [168 x i8], ptr %0, i64 %20
   %25 = getelementptr i8, ptr %23, i64 8
   %.val = load ptr, ptr %25, align 8, !nonnull !6, !noundef !6
   %26 = getelementptr i8, ptr %23, i64 16
@@ -827,8 +827,8 @@ _ZN4core3ptr19swap_nonoverlapping7runtime17hcf5e0cbd759ea93cE.exit.loopexit: ; p
 
 34:                                               ; preds = %22, %.lr.ph
   %.sroa.04.0.i = phi i64 [ %33, %22 ], [ %18, %.lr.ph ]
-  %35 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, { { i64, [4 x i64] }, { i64, [2 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } } }, ptr %0, i64 %.sroa.0.0.i18
-  %36 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, { { i64, [4 x i64] }, { i64, [2 x i64] }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } } }, ptr %0, i64 %.sroa.04.0.i
+  %35 = getelementptr inbounds [168 x i8], ptr %0, i64 %.sroa.0.0.i18
+  %36 = getelementptr inbounds [168 x i8], ptr %0, i64 %.sroa.04.0.i
   %37 = getelementptr i8, ptr %35, i64 8
   %.val11 = load ptr, ptr %37, align 8, !nonnull !6, !noundef !6
   %38 = getelementptr i8, ptr %35, i64 16
@@ -848,8 +848,8 @@ _ZN4core3ptr19swap_nonoverlapping7runtime17hcf5e0cbd759ea93cE.exit.loopexit: ; p
 
 .preheader:                                       ; preds = %34, %.preheader
   %.sroa.0.05.i = phi i64 [ %50, %.preheader ], [ 0, %34 ]
-  %46 = getelementptr inbounds nuw i64, ptr %35, i64 %.sroa.0.05.i
-  %47 = getelementptr inbounds nuw i64, ptr %36, i64 %.sroa.0.05.i
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.sroa.0.05.i
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %.sroa.0.05.i
   %48 = load i64, ptr %46, align 8
   %49 = load i64, ptr %47, align 8
   store i64 %49, ptr %46, align 8
@@ -885,7 +885,7 @@ define void @_ZN4core5slice4sort8unstable8heapsort8heapsort17hd4619cd348e9341fE(
   br label %12
 
 10:                                               ; preds = %.lr.ph21
-  %11 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, { ptr, ptr } }, ptr %0, i64 %7
+  %11 = getelementptr inbounds [40 x i8], ptr %0, i64 %7
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull align 8 dereferenceable(40) %0, i64 40, i1 false)
   tail call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(40) %11, i64 40, i1 false)
@@ -918,8 +918,8 @@ _ZN4core3ptr19swap_nonoverlapping7runtime17h53d38f76ccc3f107E.exit.loopexit: ; p
   br i1 %21, label %22, label %34
 
 22:                                               ; preds = %.lr.ph
-  %23 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, { ptr, ptr } }, ptr %0, i64 %18
-  %24 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, { ptr, ptr } }, ptr %0, i64 %20
+  %23 = getelementptr inbounds [40 x i8], ptr %0, i64 %18
+  %24 = getelementptr inbounds [40 x i8], ptr %0, i64 %20
   %25 = getelementptr i8, ptr %23, i64 8
   %.val = load ptr, ptr %25, align 8, !nonnull !6, !noundef !6
   %26 = getelementptr i8, ptr %23, i64 16
@@ -940,8 +940,8 @@ _ZN4core3ptr19swap_nonoverlapping7runtime17h53d38f76ccc3f107E.exit.loopexit: ; p
 
 34:                                               ; preds = %22, %.lr.ph
   %.sroa.04.0.i = phi i64 [ %33, %22 ], [ %18, %.lr.ph ]
-  %35 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, { ptr, ptr } }, ptr %0, i64 %.sroa.0.0.i18
-  %36 = getelementptr inbounds { { { { { i64, ptr, {} }, {} }, i64 } }, { ptr, ptr } }, ptr %0, i64 %.sroa.04.0.i
+  %35 = getelementptr inbounds [40 x i8], ptr %0, i64 %.sroa.0.0.i18
+  %36 = getelementptr inbounds [40 x i8], ptr %0, i64 %.sroa.04.0.i
   %37 = getelementptr i8, ptr %35, i64 8
   %.val11 = load ptr, ptr %37, align 8, !nonnull !6, !noundef !6
   %38 = getelementptr i8, ptr %35, i64 16
@@ -961,8 +961,8 @@ _ZN4core3ptr19swap_nonoverlapping7runtime17h53d38f76ccc3f107E.exit.loopexit: ; p
 
 .preheader:                                       ; preds = %34, %.preheader
   %.sroa.0.05.i = phi i64 [ %50, %.preheader ], [ 0, %34 ]
-  %46 = getelementptr inbounds nuw i64, ptr %35, i64 %.sroa.0.05.i
-  %47 = getelementptr inbounds nuw i64, ptr %36, i64 %.sroa.0.05.i
+  %46 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %.sroa.0.05.i
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %36, i64 %.sroa.0.05.i
   %48 = load i64, ptr %46, align 8
   %49 = load i64, ptr %47, align 8
   store i64 %49, ptr %46, align 8
@@ -2403,7 +2403,7 @@ define hidden void @_ZN8schemars3gen15SchemaGenerator20into_root_schema_for17hd2
   %54 = load ptr, ptr %53, align 8, !nonnull !6, !noundef !6
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %56 = load i64, ptr %55, align 8, !noundef !6
-  %57 = getelementptr inbounds { { { { ptr, ptr } }, {} }, {} }, ptr %54, i64 %56
+  %57 = getelementptr inbounds [16 x i8], ptr %54, i64 %56
   br label %58
 
 58:                                               ; preds = %71, %47

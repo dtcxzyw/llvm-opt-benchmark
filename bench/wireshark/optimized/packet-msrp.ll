@@ -288,7 +288,7 @@ define internal i32 @dissect_msrp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %27 = load ptr, ptr @g_ascii_table, align 8
   %28 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %18)
   %29 = zext i8 %28 to i64
-  %30 = getelementptr i16, ptr %27, i64 %29
+  %30 = getelementptr [2 x i8], ptr %27, i64 %29
   %31 = load i16, ptr %30, align 2
   %32 = and i16 %31, 8
   %.not = icmp eq i16 %32, 0
@@ -298,7 +298,7 @@ define internal i32 @dissect_msrp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %34 = add i32 %16, 2
   %35 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %34)
   %36 = zext i8 %35 to i64
-  %37 = getelementptr i16, ptr %27, i64 %36
+  %37 = getelementptr [2 x i8], ptr %27, i64 %36
   %38 = load i16, ptr %37, align 2
   %39 = and i16 %38, 8
   %.not265 = icmp eq i16 %39, 0
@@ -308,7 +308,7 @@ define internal i32 @dissect_msrp(ptr noundef %0, ptr noundef %1, ptr noundef %2
   %41 = add i32 %16, 3
   %42 = call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %41)
   %43 = zext i8 %42 to i64
-  %44 = getelementptr i16, ptr %27, i64 %43
+  %44 = getelementptr [2 x i8], ptr %27, i64 %43
   %45 = load i16, ptr %44, align 2
   %46 = and i16 %45, 8
   %.not266 = icmp ne i16 %46, 0
@@ -593,7 +593,7 @@ show_setup_info.exit:                             ; preds = %173, %170, %proto_i
 
 204:                                              ; preds = %213, %201
   %indvars.iv.i = phi i64 [ 1, %201 ], [ %indvars.iv.next.i, %213 ]
-  %205 = getelementptr %struct.msrp_header_t, ptr @msrp_headers, i64 %indvars.iv.i
+  %205 = getelementptr [8 x i8], ptr @msrp_headers, i64 %indvars.iv.i
   %206 = load ptr, ptr %205, align 8
   %207 = call i64 @strlen(ptr noundef %206) #10
   %208 = icmp eq i64 %207, %203

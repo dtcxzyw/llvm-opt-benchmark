@@ -3167,7 +3167,7 @@ define range(i32 0, 2) i32 @stbsp__real_to_str(ptr noundef writeonly captures(no
 61:                                               ; preds = %65, %59
   %.084 = phi i32 [ %spec.store.select, %59 ], [ %66, %65 ]
   %62 = zext nneg i32 %.084 to i64
-  %63 = getelementptr inbounds nuw i64, ptr @stbsp__powten, i64 %62
+  %63 = getelementptr inbounds nuw [8 x i8], ptr @stbsp__powten, i64 %62
   %64 = load i64, ptr %63, align 8, !tbaa !27
   %.not111 = icmp ult i64 %51, %64
   br i1 %.not111, label %68, label %65
@@ -3184,7 +3184,7 @@ define range(i32 0, 2) i32 @stbsp__real_to_str(ptr noundef writeonly captures(no
 70:                                               ; preds = %68
   %71 = sub nuw nsw i32 %.084, %57
   %72 = zext nneg i32 %71 to i64
-  %73 = getelementptr inbounds nuw i64, ptr @stbsp__powten, i64 %72
+  %73 = getelementptr inbounds nuw [8 x i8], ptr @stbsp__powten, i64 %72
   %74 = load i64, ptr %73, align 8, !tbaa !27
   %75 = lshr i64 %74, 1
   %76 = add i64 %75, %51
@@ -3594,7 +3594,7 @@ define void @stbsp__raise_to_power10(ptr noundef writeonly captures(none) initia
 
 5:                                                ; preds = %4
   %6 = zext nneg i32 %3 to i64
-  %7 = getelementptr inbounds nuw double, ptr @stbsp__bot, i64 %6
+  %7 = getelementptr inbounds nuw [8 x i8], ptr @stbsp__bot, i64 %6
   %8 = load double, ptr %7, align 8
   %9 = fmul double %2, %8
   %10 = bitcast double %2 to i64
@@ -3629,7 +3629,7 @@ define void @stbsp__raise_to_power10(ptr noundef writeonly captures(none) initia
 29:                                               ; preds = %28
   %30 = add nsw i32 %27, -1
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds double, ptr @stbsp__negbot, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr @stbsp__negbot, i64 %31
   %33 = load double, ptr %32, align 8
   %34 = fmul double %2, %33
   %35 = bitcast double %2 to i64
@@ -3645,7 +3645,7 @@ define void @stbsp__raise_to_power10(ptr noundef writeonly captures(none) initia
   %45 = tail call double @llvm.fmuladd.f64(double %37, double %42, double %44)
   %46 = tail call double @llvm.fmuladd.f64(double %41, double %40, double %45)
   %47 = tail call double @llvm.fmuladd.f64(double %41, double %42, double %46)
-  %48 = getelementptr inbounds double, ptr @stbsp__negboterr, i64 %31
+  %48 = getelementptr inbounds [8 x i8], ptr @stbsp__negboterr, i64 %31
   %49 = load double, ptr %48, align 8, !tbaa !18
   %50 = tail call double @llvm.fmuladd.f64(double %2, double %49, double %47)
   br label %51
@@ -3660,7 +3660,7 @@ define void @stbsp__raise_to_power10(ptr noundef writeonly captures(none) initia
   %54 = fadd double %.1, %52
   %55 = add nsw i32 %spec.store.select, -1
   %56 = zext nneg i32 %55 to i64
-  %57 = getelementptr inbounds nuw double, ptr @stbsp__negtop, i64 %56
+  %57 = getelementptr inbounds nuw [8 x i8], ptr @stbsp__negtop, i64 %56
   %58 = load double, ptr %57, align 8
   %59 = bitcast double %54 to i64
   %60 = and i64 %59, -134217728
@@ -3678,7 +3678,7 @@ define void @stbsp__raise_to_power10(ptr noundef writeonly captures(none) initia
   %72 = tail call double @llvm.fmuladd.f64(double %61, double %69, double %71)
   %73 = tail call double @llvm.fmuladd.f64(double %68, double %64, double %72)
   %74 = tail call double @llvm.fmuladd.f64(double %68, double %69, double %73)
-  %75 = getelementptr inbounds nuw double, ptr @stbsp__negtoperr, i64 %56
+  %75 = getelementptr inbounds nuw [8 x i8], ptr @stbsp__negtoperr, i64 %56
   %76 = load double, ptr %75, align 8, !tbaa !18
   %77 = fmul double %66, %58
   %78 = tail call double @llvm.fmuladd.f64(double %54, double %76, double %77)
@@ -3691,7 +3691,7 @@ define void @stbsp__raise_to_power10(ptr noundef writeonly captures(none) initia
 81:                                               ; preds = %80
   %spec.store.select2 = tail call i32 @llvm.smin.i32(i32 %27, i32 22)
   %82 = sext i32 %spec.store.select2 to i64
-  %83 = getelementptr inbounds double, ptr @stbsp__bot, i64 %82
+  %83 = getelementptr inbounds [8 x i8], ptr @stbsp__bot, i64 %82
   %84 = load double, ptr %83, align 8
   %85 = fmul double %2, %84
   %86 = bitcast double %2 to i64
@@ -3714,7 +3714,7 @@ define void @stbsp__raise_to_power10(ptr noundef writeonly captures(none) initia
   %100 = sub nsw i32 %27, %spec.store.select2
   %101 = fadd double %85, %98
   %102 = zext nneg i32 %100 to i64
-  %103 = getelementptr inbounds nuw double, ptr @stbsp__bot, i64 %102
+  %103 = getelementptr inbounds nuw [8 x i8], ptr @stbsp__bot, i64 %102
   %104 = load double, ptr %103, align 8
   %105 = bitcast double %101 to i64
   %106 = and i64 %105, -134217728
@@ -3745,7 +3745,7 @@ define void @stbsp__raise_to_power10(ptr noundef writeonly captures(none) initia
   %125 = fadd double %.3, %123
   %126 = add nsw i32 %spec.store.select, -1
   %127 = zext nneg i32 %126 to i64
-  %128 = getelementptr inbounds nuw double, ptr @stbsp__top, i64 %127
+  %128 = getelementptr inbounds nuw [8 x i8], ptr @stbsp__top, i64 %127
   %129 = load double, ptr %128, align 8
   %130 = bitcast double %125 to i64
   %131 = and i64 %130, -134217728
@@ -3763,7 +3763,7 @@ define void @stbsp__raise_to_power10(ptr noundef writeonly captures(none) initia
   %143 = tail call double @llvm.fmuladd.f64(double %132, double %140, double %142)
   %144 = tail call double @llvm.fmuladd.f64(double %139, double %135, double %143)
   %145 = tail call double @llvm.fmuladd.f64(double %139, double %140, double %144)
-  %146 = getelementptr inbounds nuw double, ptr @stbsp__toperr, i64 %127
+  %146 = getelementptr inbounds nuw [8 x i8], ptr @stbsp__toperr, i64 %127
   %147 = load double, ptr %146, align 8, !tbaa !18
   %148 = fmul double %137, %129
   %149 = tail call double @llvm.fmuladd.f64(double %125, double %147, double %148)

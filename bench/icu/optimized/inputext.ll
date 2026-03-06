@@ -272,7 +272,7 @@ define void @_ZN6icu_779InputText10MungeInputEa(ptr noundef nonnull align 8 capt
   %52 = getelementptr inbounds nuw i8, ptr %50, i64 %indvars.iv70
   %53 = load i8, ptr %52, align 1, !tbaa !19
   %54 = zext i8 %53 to i64
-  %55 = getelementptr inbounds nuw i16, ptr %.pre80, i64 %54
+  %55 = getelementptr inbounds nuw [2 x i8], ptr %.pre80, i64 %54
   %56 = load i16, ptr %55, align 2, !tbaa !23
   %57 = add i16 %56, 1
   store i16 %57, ptr %55, align 2, !tbaa !23
@@ -290,7 +290,7 @@ define void @_ZN6icu_779InputText10MungeInputEa(ptr noundef nonnull align 8 capt
 
 .preheader:                                       ; preds = %.preheader.preheader, %58
   %indvars.iv75 = phi i64 [ %indvars.iv.next76, %58 ], [ 128, %.preheader.preheader ]
-  %59 = getelementptr inbounds nuw i16, ptr %.pre80, i64 %indvars.iv75
+  %59 = getelementptr inbounds nuw [2 x i8], ptr %.pre80, i64 %indvars.iv75
   %60 = load i16, ptr %59, align 2, !tbaa !23
   %.not42 = icmp eq i16 %60, 0
   br i1 %.not42, label %58, label %61

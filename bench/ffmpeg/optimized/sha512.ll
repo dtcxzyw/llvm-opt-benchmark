@@ -39,28 +39,28 @@ define range(i32 -22, 1) i32 @av_sha512_init(ptr noundef writeonly captures(none
 
 switch.lookup:                                    ; preds = %2
   %8 = zext nneg i32 %6 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.av_sha512_init, i64 %8
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.av_sha512_init, i64 %8
   %switch.load = load i64, ptr %switch.gep, align 8
   %9 = zext nneg i32 %6 to i64
-  %switch.gep51 = getelementptr inbounds nuw i64, ptr @switch.table.av_sha512_init.1, i64 %9
+  %switch.gep51 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.av_sha512_init.1, i64 %9
   %switch.load52 = load i64, ptr %switch.gep51, align 8
   %10 = zext nneg i32 %6 to i64
-  %switch.gep53 = getelementptr inbounds nuw i64, ptr @switch.table.av_sha512_init.2, i64 %10
+  %switch.gep53 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.av_sha512_init.2, i64 %10
   %switch.load54 = load i64, ptr %switch.gep53, align 8
   %11 = zext nneg i32 %6 to i64
-  %switch.gep55 = getelementptr inbounds nuw i64, ptr @switch.table.av_sha512_init.3, i64 %11
+  %switch.gep55 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.av_sha512_init.3, i64 %11
   %switch.load56 = load i64, ptr %switch.gep55, align 8
   %12 = zext nneg i32 %6 to i64
-  %switch.gep57 = getelementptr inbounds nuw i64, ptr @switch.table.av_sha512_init.4, i64 %12
+  %switch.gep57 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.av_sha512_init.4, i64 %12
   %switch.load58 = load i64, ptr %switch.gep57, align 8
   %13 = zext nneg i32 %6 to i64
-  %switch.gep59 = getelementptr inbounds nuw i64, ptr @switch.table.av_sha512_init.5, i64 %13
+  %switch.gep59 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.av_sha512_init.5, i64 %13
   %switch.load60 = load i64, ptr %switch.gep59, align 8
   %14 = zext nneg i32 %6 to i64
-  %switch.gep61 = getelementptr inbounds nuw i64, ptr @switch.table.av_sha512_init.6, i64 %14
+  %switch.gep61 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.av_sha512_init.6, i64 %14
   %switch.load62 = load i64, ptr %switch.gep61, align 8
   %15 = zext nneg i32 %6 to i64
-  %switch.gep63 = getelementptr inbounds nuw i64, ptr @switch.table.av_sha512_init.7, i64 %15
+  %switch.gep63 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.av_sha512_init.7, i64 %15
   %switch.load64 = load i64, ptr %switch.gep63, align 8
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i64 %switch.load, ptr %16, align 8, !tbaa !9
@@ -3084,7 +3084,7 @@ av_sha512_update.exit36:                          ; preds = %39, %av_sha512_upda
 
 51:                                               ; preds = %.lr.ph41, %51
   %storemerge40 = phi i64 [ 0, %.lr.ph41 ], [ %57, %51 ]
-  %52 = getelementptr inbounds nuw i64, ptr %50, i64 %storemerge40
+  %52 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %storemerge40
   %53 = load i64, ptr %52, align 8, !tbaa !9
   %54 = tail call noundef i64 @llvm.bswap.i64(i64 %53)
   %55 = shl nuw nsw i64 %storemerge40, 3
@@ -3103,7 +3103,7 @@ av_sha512_update.exit36:                          ; preds = %39, %av_sha512_upda
 
 63:                                               ; preds = %._crit_edge
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %65 = getelementptr inbounds nuw i64, ptr %64, i64 %57
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %57
   %66 = load i64, ptr %65, align 8, !tbaa !9
   %67 = lshr i64 %66, 32
   %68 = trunc nuw i64 %67 to i32

@@ -7153,7 +7153,7 @@ _ZN5serde2de9MapAccess10next_entry17hfa7e31fd0748a74aE.exit.i: ; preds = %.noexc
   %.sroa.0.0.copyload.i.i = load ptr, ptr %152, align 8, !noalias !1319, !nonnull !9, !noundef !9
   %.sroa.43.0.copyload.i.i = load i64, ptr %.sroa.43.0..sroa_idx.i.i, align 8, !noalias !1319
   %179 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i.i, i64 96
-  %180 = getelementptr inbounds { [3 x i64] }, ptr %179, i64 %.sroa.43.0.copyload.i.i
+  %180 = getelementptr inbounds [24 x i8], ptr %179, i64 %.sroa.43.0.copyload.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %20, ptr noundef nonnull align 8 dereferenceable(24) %180, i64 24, i1 false), !noalias !1327
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %180, ptr noundef nonnull align 8 dereferenceable(24) %21, i64 24, i1 false), !noalias !1326
   %.pr.i = load i64, ptr %20, align 8, !alias.scope !1328, !noalias !1294

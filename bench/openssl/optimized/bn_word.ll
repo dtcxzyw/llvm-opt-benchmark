@@ -37,7 +37,7 @@ define i64 @BN_mod_word(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ %16, %.lr.ph ], [ %indvars.iv.next, %17 ]
   %.02225 = phi i64 [ 0, %.lr.ph ], [ %25, %17 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %18 = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv.next
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv.next
   %19 = load i64, ptr %18, align 8, !tbaa !11
   %20 = tail call i64 @llvm.fshl.i64(i64 %.02225, i64 %19, i64 32)
   %21 = urem i64 %20, %1
@@ -90,13 +90,13 @@ define i64 @BN_div_word(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %indvars.iv = phi i64 [ %16, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %.03239 = phi i64 [ 0, %.lr.ph.preheader ], [ %22, %.lr.ph ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %18 = getelementptr inbounds nuw i64, ptr %17, i64 %indvars.iv.next
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %indvars.iv.next
   %19 = load i64, ptr %18, align 8, !tbaa !11
   %20 = tail call i64 @bn_div_words(i64 noundef %.03239, i64 noundef %19, i64 noundef %11) #3
   %21 = mul i64 %20, %11
   %22 = sub i64 %19, %21
   %23 = load ptr, ptr %0, align 8, !tbaa !10
-  %24 = getelementptr inbounds nuw i64, ptr %23, i64 %indvars.iv.next
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv.next
   store i64 %20, ptr %24, align 8, !tbaa !11
   %25 = icmp samesign ugt i64 %indvars.iv, 1
   br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !15
@@ -109,7 +109,7 @@ define i64 @BN_div_word(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
 27:                                               ; preds = %._crit_edge
   %28 = load ptr, ptr %0, align 8, !tbaa !10
   %29 = zext nneg i32 %.pre41 to i64
-  %30 = getelementptr i64, ptr %28, i64 %29
+  %30 = getelementptr [8 x i8], ptr %28, i64 %29
   %31 = getelementptr i8, ptr %30, i64 -8
   %32 = load i64, ptr %31, align 8, !tbaa !11
   %33 = icmp eq i64 %32, 0
@@ -198,7 +198,7 @@ define i32 @BN_add_word(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
 
 19:                                               ; preds = %18
   %20 = load ptr, ptr %0, align 8, !tbaa !10
-  %21 = getelementptr inbounds nuw i64, ptr %20, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %indvars.iv
   %22 = load i64, ptr %21, align 8, !tbaa !11
   %23 = add i64 %22, %.03446
   store i64 %23, ptr %21, align 8, !tbaa !11
@@ -222,7 +222,7 @@ define i32 @BN_add_word(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   store i32 %32, ptr %10, align 8, !tbaa !3
   %33 = load ptr, ptr %0, align 8, !tbaa !10
   %34 = zext nneg i32 %11 to i64
-  %35 = getelementptr inbounds nuw i64, ptr %33, i64 %34
+  %35 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %34
   store i64 %.03446, ptr %35, align 8, !tbaa !11
   br label %.critedge42
 
@@ -291,7 +291,7 @@ define i32 @BN_sub_word(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   br label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %.lr.ph
-  %22 = getelementptr inbounds nuw i64, ptr %.pre, i64 %indvars.iv.next
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %indvars.iv.next
   %23 = trunc nuw nsw i64 %indvars.iv.next to i32
   br label %._crit_edge
 
@@ -311,10 +311,10 @@ define i32 @BN_sub_word(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %28 = phi i64 [ %21, %.lr.ph.preheader ], [ -1, %.lr.ph ]
-  %29 = getelementptr inbounds nuw i64, ptr %.pre, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %indvars.iv
   store i64 %28, ptr %29, align 8, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %30 = getelementptr inbounds nuw i64, ptr %.pre, i64 %indvars.iv.next
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %.pre, i64 %indvars.iv.next
   %31 = load i64, ptr %30, align 8, !tbaa !11
   %.not45 = icmp eq i64 %31, 0
   br i1 %.not45, label %.lr.ph, label %._crit_edge.loopexit
@@ -366,7 +366,7 @@ define range(i32 0, 2) i32 @BN_mul_word(ptr noundef %0, i64 noundef %1) local_un
   %19 = add nsw i32 %18, 1
   store i32 %19, ptr %3, align 8, !tbaa !3
   %20 = sext i32 %18 to i64
-  %21 = getelementptr inbounds i64, ptr %17, i64 %20
+  %21 = getelementptr inbounds [8 x i8], ptr %17, i64 %20
   store i64 %10, ptr %21, align 8, !tbaa !11
   br label %22
 

@@ -193,7 +193,7 @@ define hidden void @_ZN3p2t5Sweep11SweepPointsERNS_12SweepContextE(ptr noundef n
   tail call void @_ZN3p2t8Triangle19MarkConstrainedEdgeEi(ptr noundef nonnull align 8 dereferenceable(57) %40, i32 noundef %43)
   %45 = getelementptr inbounds nuw i8, ptr %40, i64 32
   %46 = sext i32 %43 to i64
-  %47 = getelementptr inbounds ptr, ptr %45, i64 %46
+  %47 = getelementptr inbounds [8 x i8], ptr %45, i64 %46
   %48 = load ptr, ptr %47, align 8
   %.not14.i.i = icmp eq ptr %48, null
   br i1 %.not14.i.i, label %_ZN3p2t5Sweep9EdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4NodeE.exit, label %49
@@ -1036,7 +1036,7 @@ define hidden void @_ZN3p2t5Sweep9EdgeEventERNS_12SweepContextEPNS_4EdgeEPNS_4No
   tail call void @_ZN3p2t8Triangle19MarkConstrainedEdgeEi(ptr noundef nonnull align 8 dereferenceable(57) %15, i32 noundef %18)
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 32
   %21 = sext i32 %18 to i64
-  %22 = getelementptr inbounds ptr, ptr %20, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %20, i64 %21
   %23 = load ptr, ptr %22, align 8
   %.not14.i = icmp eq ptr %23, null
   br i1 %.not14.i, label %_ZN3p2t5Sweep20IsEdgeSideOfTriangleERNS_8TriangleERNS_5PointES4_.exit.thread, label %24
@@ -1159,7 +1159,7 @@ _ZNSt6vectorIPN3p2t4NodeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; pred
 _ZNSt6vectorIPN3p2t4NodeESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %42, %_ZNSt6vectorIPN3p2t4NodeESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %37, ptr %0, align 8
   store ptr %41, ptr %17, align 8
-  %43 = getelementptr inbounds nuw ptr, ptr %37, i64 %35
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %37, i64 %35
   store ptr %43, ptr %19, align 8
   br label %_ZNSt6vectorIPN3p2t4NodeESaIS2_EE9push_backERKS2_.exit
 
@@ -1326,7 +1326,7 @@ define hidden noundef zeroext i1 @_ZN3p2t5Sweep20IsEdgeSideOfTriangleERNS_8Trian
   tail call void @_ZN3p2t8Triangle19MarkConstrainedEdgeEi(ptr noundef nonnull align 8 dereferenceable(57) %1, i32 noundef %5)
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %8 = sext i32 %5 to i64
-  %9 = getelementptr inbounds ptr, ptr %7, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr %7, i64 %8
   %10 = load ptr, ptr %9, align 8
   %.not14 = icmp eq ptr %10, null
   br i1 %.not14, label %12, label %11
@@ -1500,7 +1500,7 @@ tailrecurse.outer._crit_edge:                     ; preds = %tailrecurse.outer.b
   tail call void @_ZN3p2t8Triangle19MarkConstrainedEdgeEi(ptr noundef nonnull align 8 dereferenceable(57) %.tr84106, i32 noundef %16)
   %18 = getelementptr inbounds nuw i8, ptr %.tr84106, i64 32
   %19 = sext i32 %16 to i64
-  %20 = getelementptr inbounds ptr, ptr %18, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8
   %.not14.i = icmp eq ptr %21, null
   br i1 %.not14.i, label %_ZN3p2t5Sweep20IsEdgeSideOfTriangleERNS_8TriangleERNS_5PointES4_.exit.thread, label %22
@@ -1855,13 +1855,13 @@ define hidden noundef zeroext i1 @_ZN3p2t5Sweep8LegalizeERNS_12SweepContextERNS_
   br i1 %10, label %.thread65, label %11
 
 11:                                               ; preds = %7
-  %12 = getelementptr inbounds nuw ptr, ptr %5, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %.thread65, label %14
 
 14:                                               ; preds = %11
-  %15 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef ptr @_ZN3p2t8Triangle13OppositePointERS0_RKNS_5PointE(ptr noundef nonnull align 8 dereferenceable(57) %13, ptr noundef nonnull align 8 dereferenceable(57) %2, ptr noundef nonnull align 8 dereferenceable(40) %16)
   %18 = tail call noundef i32 @_ZN3p2t8Triangle5IndexEPKNS_5PointE(ptr noundef nonnull align 8 dereferenceable(57) %13, ptr noundef %17)

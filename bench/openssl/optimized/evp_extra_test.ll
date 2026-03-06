@@ -6,14 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.options_st = type { ptr, i32, i32, ptr }
 %struct.TEST_GCM_IV_REINIT_st = type { ptr, ptr, ptr, ptr, ptr, ptr, i64, i64, i64, i64 }
 %struct.anon.7 = type { [5 x i8], [11 x i8] }
-%struct.APK_DATA_st = type { ptr, i64, ptr, i32, i32, i32, i32, i32 }
-%struct.anon = type { i32, ptr }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.ec_der_pub_keys_st = type { ptr, i64, i32 }
-%struct.EVP_INIT_TEST_st = type { ptr, ptr, ptr, ptr, ptr, ptr, i64, i64, i64, i64, i32, i32, i32 }
-%struct.EVP_RESET_TEST_st = type { ptr, ptr, i64, i64, i32 }
-%struct.EVP_UPDATED_IV_TEST_st = type { ptr, i32 }
-%struct.keys_st = type { i32, ptr, ptr, ptr, i32, i32 }
 
 @test_get_options.options = internal constant [11 x %struct.options_st] [%struct.options_st { ptr @OPT_HELP_STR, i32 1, i32 45, ptr @.str }, %struct.options_st { ptr @OPT_HELP_STR, i32 1, i32 45, ptr @.str.1 }, %struct.options_st { ptr @.str.2, i32 500, i32 45, ptr @.str.3 }, %struct.options_st { ptr @.str.4, i32 501, i32 45, ptr @.str.5 }, %struct.options_st { ptr @.str.6, i32 502, i32 115, ptr @.str.7 }, %struct.options_st { ptr @.str.8, i32 503, i32 110, ptr @.str.9 }, %struct.options_st { ptr @.str.10, i32 504, i32 112, ptr @.str.11 }, %struct.options_st { ptr @.str.12, i32 505, i32 110, ptr @.str.13 }, %struct.options_st { ptr @.str.14, i32 1, i32 45, ptr @.str.15 }, %struct.options_st { ptr @.str.16, i32 2, i32 60, ptr @.str.17 }, %struct.options_st zeroinitializer], align 16
 @OPT_HELP_STR = external constant [0 x i8], align 1
@@ -2668,7 +2661,7 @@ define internal range(i32 0, 2) i32 @test_d2i_AutoPrivateKey(i32 noundef %0) #1 
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %3 = sext i32 %0 to i64
-  %4 = getelementptr inbounds %struct.APK_DATA_st, ptr @keydata, i64 %3
+  %4 = getelementptr inbounds [48 x i8], ptr @keydata, i64 %3
   %5 = load ptr, ptr %4, align 16, !tbaa !27
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !29
@@ -2906,7 +2899,7 @@ define internal range(i32 0, 2) i32 @test_EC_keygen_with_enc(i32 noundef %0) #1 
   store ptr null, ptr %3, align 8, !tbaa !21
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = sext i32 %0 to i64
-  %6 = getelementptr inbounds %struct.anon, ptr @ec_encodings, i64 %5
+  %6 = getelementptr inbounds [16 x i8], ptr @ec_encodings, i64 %5
   %7 = load i32, ptr %6, align 16, !tbaa !31
   store i32 %7, ptr %4, align 4, !tbaa !25
   %8 = load ptr, ptr @testctx, align 8, !tbaa !6
@@ -3234,7 +3227,7 @@ define internal range(i32 0, 2) i32 @test_EVP_SM2() #1 {
   %.1108 = phi ptr [ %55, %121 ], [ %163, %176 ]
   %.157107 = phi ptr [ null, %121 ], [ %127, %176 ]
   call void @EVP_PKEY_CTX_free(ptr noundef %.157107) #9
-  %123 = getelementptr inbounds nuw ptr, ptr @__const.test_EVP_SM2.mdnames, i64 %indvars.iv
+  %123 = getelementptr inbounds nuw [8 x i8], ptr @__const.test_EVP_SM2.mdnames, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   %124 = load ptr, ptr %123, align 8, !tbaa !19
   call void @OSSL_PARAM_construct_utf8_string(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %12, ptr noundef nonnull @.str.157, ptr noundef %124, i64 noundef 0) #9
@@ -3539,7 +3532,7 @@ define internal range(i32 0, 2) i32 @test_EVP_PKEY_check(i32 noundef %0) #1 {
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   %5 = sext i32 %0 to i64
-  %6 = getelementptr inbounds %struct.APK_DATA_st, ptr @keycheckdata, i64 %5
+  %6 = getelementptr inbounds [48 x i8], ptr @keycheckdata, i64 %5
   %7 = load ptr, ptr %6, align 16, !tbaa !27
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load i64, ptr %8, align 8, !tbaa !29
@@ -4138,7 +4131,7 @@ define internal range(i32 0, 2) i32 @test_invalide_ec_char2_pub_range_decode(i32
   %3 = alloca i64, align 8
   %4 = alloca ptr, align 8
   %5 = sext i32 %0 to i64
-  %6 = getelementptr inbounds %struct.ec_der_pub_keys_st, ptr @ec_der_pub_keys, i64 %5
+  %6 = getelementptr inbounds [24 x i8], ptr @ec_der_pub_keys, i64 %5
   %7 = load ptr, ptr %6, align 8, !tbaa !47
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -6272,10 +6265,10 @@ define internal i32 @test_evp_iv_des(i32 noundef %0) #1 {
 
 switch.lookup:                                    ; preds = %11
   %13 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.test_evp_iv_des, i64 %13
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.test_evp_iv_des, i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
   %14 = zext nneg i32 %0 to i64
-  %switch.gep41 = getelementptr inbounds nuw ptr, ptr @switch.table.test_evp_iv_des.6, i64 %14
+  %switch.gep41 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.test_evp_iv_des.6, i64 %14
   %switch.load42 = load ptr, ptr %switch.gep41, align 8
   %15 = load ptr, ptr @testctx, align 8, !tbaa !6
   %16 = tail call ptr @EVP_CIPHER_fetch(ptr noundef %15, ptr noundef nonnull %switch.load, ptr noundef null) #9
@@ -6397,7 +6390,7 @@ define internal i32 @test_evp_bf_default_keylen(i32 noundef %0) #1 {
 6:                                                ; preds = %1
   %7 = load ptr, ptr @testctx, align 8, !tbaa !6
   %8 = sext i32 %0 to i64
-  %9 = getelementptr inbounds ptr, ptr @test_evp_bf_default_keylen.algos, i64 %8
+  %9 = getelementptr inbounds [8 x i8], ptr @test_evp_bf_default_keylen.algos, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !19
   %11 = tail call ptr @EVP_CIPHER_fetch(ptr noundef %7, ptr noundef %10, ptr noundef null) #9
   %12 = tail call i32 @test_ptr(ptr noundef nonnull @.str.18, i32 noundef 4410, ptr noundef nonnull @.str.572, ptr noundef %11) #9
@@ -6412,7 +6405,7 @@ define internal i32 @test_evp_bf_default_keylen(i32 noundef %0) #1 {
 
 16:                                               ; preds = %13
   %17 = tail call i32 @EVP_CIPHER_get_iv_length(ptr noundef %11) #9
-  %18 = getelementptr inbounds i32, ptr @__const.test_evp_bf_default_keylen.ivlen, i64 %8
+  %18 = getelementptr inbounds [4 x i8], ptr @__const.test_evp_bf_default_keylen.ivlen, i64 %8
   %19 = load i32, ptr %18, align 4, !tbaa !25
   %20 = tail call i32 @test_int_eq(ptr noundef nonnull @.str.18, i32 noundef 4412, ptr noundef nonnull @.str.575, ptr noundef nonnull @.str.576, i32 noundef %17, i32 noundef %19) #9
   %.not8 = icmp ne i32 %20, 0
@@ -6627,7 +6620,7 @@ define internal i32 @test_ecpub(i32 noundef %0) #1 {
 
 10:                                               ; preds = %1
   %11 = sext i32 %0 to i64
-  %12 = getelementptr inbounds i32, ptr @ecpub_nids, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr @ecpub_nids, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !25
   %14 = tail call ptr @EVP_PKEY_CTX_new_id(i32 noundef 408, ptr noundef null) #9
   %15 = tail call i32 @test_ptr(ptr noundef nonnull @.str.18, i32 noundef 4453, ptr noundef nonnull @.str.177, ptr noundef %14) #9
@@ -6787,7 +6780,7 @@ define internal range(i32 0, 2) i32 @test_evp_init_seq(i32 noundef %0) #1 {
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %6 = sext i32 %0 to i64
-  %7 = getelementptr inbounds %struct.EVP_INIT_TEST_st, ptr @evp_init_tests, i64 %6
+  %7 = getelementptr inbounds [96 x i8], ptr @evp_init_tests, i64 %6
   %8 = tail call ptr @EVP_CIPHER_CTX_new() #9
   %9 = icmp eq ptr %8, null
   br i1 %9, label %evp_init_seq_set_iv.exit.thread, label %10
@@ -6977,7 +6970,7 @@ define internal range(i32 0, 2) i32 @test_evp_reset(i32 noundef %0) #1 {
   %3 = alloca i32, align 4
   %4 = alloca [1024 x i8], align 16
   %5 = sext i32 %0 to i64
-  %6 = getelementptr inbounds %struct.EVP_RESET_TEST_st, ptr @evp_reset_tests, i64 %5
+  %6 = getelementptr inbounds [40 x i8], ptr @evp_reset_tests, i64 %5
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -7108,7 +7101,7 @@ define internal range(i32 0, 2) i32 @test_evp_reinit_seq(i32 noundef %0) #1 {
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = sext i32 %0 to i64
-  %8 = getelementptr inbounds %struct.EVP_INIT_TEST_st, ptr @evp_reinit_tests, i64 %7
+  %8 = getelementptr inbounds [96 x i8], ptr @evp_reinit_tests, i64 %7
   %9 = tail call ptr @EVP_CIPHER_CTX_new() #9
   %10 = tail call i32 @test_ptr(ptr noundef nonnull @.str.18, i32 noundef 4811, ptr noundef nonnull @.str.197, ptr noundef %9) #9
   %.not = icmp eq i32 %10, 0
@@ -7221,7 +7214,7 @@ define internal range(i32 0, 2) i32 @test_gcm_reinit(i32 noundef %0) #1 {
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %7 = sext i32 %0 to i64
-  %8 = getelementptr inbounds %struct.TEST_GCM_IV_REINIT_st, ptr @gcm_reinit_tests, i64 %7
+  %8 = getelementptr inbounds [80 x i8], ptr @gcm_reinit_tests, i64 %7
   %9 = tail call ptr @EVP_CIPHER_CTX_new() #9
   %10 = tail call i32 @test_ptr(ptr noundef nonnull @.str.18, i32 noundef 5067, ptr noundef nonnull @.str.197, ptr noundef %9) #9
   %.not = icmp eq i32 %10, 0
@@ -7408,7 +7401,7 @@ define internal range(i32 0, 2) i32 @test_evp_updated_iv(i32 noundef %0) #1 {
   %4 = alloca [1024 x i8], align 16
   %5 = alloca [16 x i8], align 16
   %6 = sext i32 %0 to i64
-  %7 = getelementptr inbounds %struct.EVP_UPDATED_IV_TEST_st, ptr @evp_updated_iv_tests, i64 %6
+  %7 = getelementptr inbounds [16 x i8], ptr @evp_updated_iv_tests, i64 %6
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -7524,7 +7517,7 @@ define internal range(i32 0, 2) i32 @test_ivlen_change(i32 noundef %0) #1 {
 8:                                                ; preds = %1
   %9 = load ptr, ptr @testctx, align 8, !tbaa !6
   %10 = sext i32 %0 to i64
-  %11 = getelementptr inbounds ptr, ptr @ivlen_change_ciphers, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr @ivlen_change_ciphers, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !19
   %13 = tail call ptr @EVP_CIPHER_fetch(ptr noundef %9, ptr noundef %12, ptr noundef null) #9
   %14 = tail call i32 @test_ptr(ptr noundef nonnull @.str.18, i32 noundef 5183, ptr noundef nonnull @.str.695, ptr noundef %13) #9
@@ -7614,7 +7607,7 @@ define internal i32 @test_keylen_change(i32 noundef %0) #1 {
 13:                                               ; preds = %10
   %14 = load ptr, ptr @testctx, align 8, !tbaa !6
   %15 = sext i32 %0 to i64
-  %16 = getelementptr inbounds ptr, ptr @keylen_change_ciphers, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr @keylen_change_ciphers, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !19
   %18 = tail call ptr @EVP_CIPHER_fetch(ptr noundef %14, ptr noundef %17, ptr noundef null) #9
   %19 = tail call i32 @test_ptr(ptr noundef nonnull @.str.18, i32 noundef 5254, ptr noundef nonnull @.str.702, ptr noundef %18) #9
@@ -8688,7 +8681,7 @@ define internal range(i32 0, 2) i32 @test_ecx_short_keys(i32 noundef %0) #1 {
   store i8 1, ptr %2, align 1, !tbaa !50
   %3 = load ptr, ptr @testctx, align 8, !tbaa !6
   %4 = sext i32 %0 to i64
-  %5 = getelementptr inbounds i32, ptr @ecxnids, i64 %4
+  %5 = getelementptr inbounds [4 x i8], ptr @ecxnids, i64 %4
   %6 = load i32, ptr %5, align 4, !tbaa !25
   %7 = tail call ptr @OBJ_nid2sn(i32 noundef %6) #9
   %8 = call ptr @EVP_PKEY_new_raw_private_key_ex(ptr noundef %3, ptr noundef %7, ptr noundef null, ptr noundef nonnull %2, i64 noundef 1) #9
@@ -8715,7 +8708,7 @@ define internal i32 @test_ecx_not_private_key(i32 noundef %0) #1 {
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i64 0, ptr %3, align 8, !tbaa !15
   %4 = sext i32 %0 to i64
-  %5 = getelementptr inbounds %struct.keys_st, ptr @keys, i64 %4
+  %5 = getelementptr inbounds [40 x i8], ptr @keys, i64 %4
   %6 = load i32, ptr %5, align 8, !tbaa !88
   switch i32 %6, label %9 [
     i32 1034, label %7
@@ -9426,7 +9419,7 @@ define internal range(i32 0, 2) i32 @test_evp_cipher_pipeline() #1 {
 51:                                               ; preds = %49, %67
   %.0152228 = phi i64 [ 0, %49 ], [ %72, %67 ]
   %52 = call noalias ptr @CRYPTO_malloc(i64 noundef 12, ptr noundef nonnull @.str.18, i32 noundef 6381) #9
-  %53 = getelementptr inbounds nuw ptr, ptr %2, i64 %.0152228
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.0152228
   store ptr %52, ptr %53, align 8, !tbaa !19
   %54 = call i32 @test_ptr(ptr noundef nonnull @.str.18, i32 noundef 6381, ptr noundef nonnull @.str.817, ptr noundef %52) #9
   %.not196 = icmp eq i32 %54, 0
@@ -9434,7 +9427,7 @@ define internal range(i32 0, 2) i32 @test_evp_cipher_pipeline() #1 {
 
 55:                                               ; preds = %51
   %56 = call noalias ptr @CRYPTO_malloc(i64 noundef %.0153235, ptr noundef nonnull @.str.18, i32 noundef 6382) #9
-  %57 = getelementptr inbounds nuw ptr, ptr %4, i64 %.0152228
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.0152228
   store ptr %56, ptr %57, align 8, !tbaa !19
   %58 = call i32 @test_ptr(ptr noundef nonnull @.str.18, i32 noundef 6382, ptr noundef nonnull @.str.818, ptr noundef %56) #9
   %.not197 = icmp eq i32 %58, 0
@@ -9442,7 +9435,7 @@ define internal range(i32 0, 2) i32 @test_evp_cipher_pipeline() #1 {
 
 59:                                               ; preds = %55
   %60 = call noalias ptr @CRYPTO_malloc(i64 noundef %50, ptr noundef nonnull @.str.18, i32 noundef 6384) #9
-  %61 = getelementptr inbounds nuw ptr, ptr %5, i64 %.0152228
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.0152228
   store ptr %60, ptr %61, align 8, !tbaa !19
   %62 = call i32 @test_ptr(ptr noundef nonnull @.str.18, i32 noundef 6384, ptr noundef nonnull @.str.819, ptr noundef %60) #9
   %.not198 = icmp eq i32 %62, 0
@@ -9450,7 +9443,7 @@ define internal range(i32 0, 2) i32 @test_evp_cipher_pipeline() #1 {
 
 63:                                               ; preds = %59
   %64 = call noalias ptr @CRYPTO_malloc(i64 noundef 16, ptr noundef nonnull @.str.18, i32 noundef 6385) #9
-  %65 = getelementptr inbounds nuw ptr, ptr %3, i64 %.0152228
+  %65 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.0152228
   store ptr %64, ptr %65, align 8, !tbaa !19
   %66 = call i32 @test_ptr(ptr noundef nonnull @.str.18, i32 noundef 6385, ptr noundef nonnull @.str.820, ptr noundef %64) #9
   %.not199 = icmp eq i32 %66, 0
@@ -9465,13 +9458,13 @@ define internal range(i32 0, 2) i32 @test_evp_cipher_pipeline() #1 {
   %72 = add nuw nsw i64 %.0152228, 1
   %73 = trunc i64 %72 to i8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %71, i8 %73, i64 %.0153235, i1 false)
-  %74 = getelementptr inbounds nuw i64, ptr %11, i64 %.0152228
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.0152228
   store i64 %.0153235, ptr %74, align 8, !tbaa !15
-  %75 = getelementptr inbounds nuw i64, ptr %9, i64 %.0152228
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.0152228
   store i64 0, ptr %75, align 8, !tbaa !15
-  %76 = getelementptr inbounds nuw i64, ptr %10, i64 %.0152228
+  %76 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.0152228
   store i64 0, ptr %76, align 8, !tbaa !15
-  %77 = getelementptr inbounds nuw i64, ptr %8, i64 %.0152228
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.0152228
   store i64 %50, ptr %77, align 8, !tbaa !15
   %exitcond.not = icmp eq i64 %72, %.0154236
   br i1 %exitcond.not, label %78, label %51, !llvm.loop !92
@@ -9540,14 +9533,14 @@ define internal range(i32 0, 2) i32 @test_evp_cipher_pipeline() #1 {
 
 .preheader211:                                    ; preds = %.preheader211.preheader, %.preheader211
   %.1229 = phi i64 [ %121, %.preheader211 ], [ 0, %.preheader211.preheader ]
-  %112 = getelementptr inbounds nuw i64, ptr %9, i64 %.1229
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.1229
   %113 = load i64, ptr %112, align 8, !tbaa !15
-  %114 = getelementptr inbounds nuw ptr, ptr %5, i64 %.1229
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.1229
   %115 = load ptr, ptr %114, align 8, !tbaa !19
   %116 = getelementptr inbounds nuw i8, ptr %115, i64 %113
-  %117 = getelementptr inbounds nuw ptr, ptr %7, i64 %.1229
+  %117 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.1229
   store ptr %116, ptr %117, align 8, !tbaa !19
-  %118 = getelementptr inbounds nuw i64, ptr %8, i64 %.1229
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.1229
   %119 = load i64, ptr %118, align 8, !tbaa !15
   %120 = sub i64 %119, %113
   store i64 %120, ptr %118, align 8, !tbaa !15
@@ -9565,9 +9558,9 @@ define internal range(i32 0, 2) i32 @test_evp_cipher_pipeline() #1 {
 
 .preheader210:                                    ; preds = %122, %.preheader210
   %.2230 = phi i64 [ %132, %.preheader210 ], [ 0, %122 ]
-  %127 = getelementptr inbounds nuw i64, ptr %9, i64 %.2230
+  %127 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.2230
   %128 = load i64, ptr %127, align 8, !tbaa !15
-  %129 = getelementptr inbounds nuw i64, ptr %10, i64 %.2230
+  %129 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.2230
   %130 = load i64, ptr %129, align 8, !tbaa !15
   %131 = add i64 %130, %128
   store i64 %131, ptr %129, align 8, !tbaa !15
@@ -9606,7 +9599,7 @@ define internal range(i32 0, 2) i32 @test_evp_cipher_pipeline() #1 {
 
 146:                                              ; preds = %.preheader208, %144
   %.3231 = phi i64 [ 0, %.preheader208 ], [ %145, %144 ]
-  %147 = getelementptr inbounds nuw ptr, ptr %2, i64 %.3231
+  %147 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.3231
   %148 = load ptr, ptr %147, align 8, !tbaa !19
   %149 = call i32 @EVP_EncryptInit(ptr noundef %29, ptr noundef %26, ptr noundef nonnull %1, ptr noundef %148) #9
   %150 = icmp ne i32 %149, 0
@@ -9616,7 +9609,7 @@ define internal range(i32 0, 2) i32 @test_evp_cipher_pipeline() #1 {
   br i1 %.not189, label %.loopexit, label %153
 
 153:                                              ; preds = %146
-  %154 = getelementptr inbounds nuw ptr, ptr %4, i64 %.3231
+  %154 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.3231
   %155 = load ptr, ptr %154, align 8, !tbaa !19
   %156 = call i32 @EVP_EncryptUpdate(ptr noundef %29, ptr noundef null, ptr noundef nonnull %13, ptr noundef %155, i32 noundef %143) #9
   %157 = icmp ne i32 %156, 0
@@ -9661,16 +9654,16 @@ define internal range(i32 0, 2) i32 @test_evp_cipher_pipeline() #1 {
 180:                                              ; preds = %174
   %181 = sext i32 %175 to i64
   %182 = add nsw i64 %181, %168
-  %183 = getelementptr inbounds nuw ptr, ptr %5, i64 %.3231
+  %183 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.3231
   %184 = load ptr, ptr %183, align 8, !tbaa !19
-  %185 = getelementptr inbounds nuw i64, ptr %10, i64 %.3231
+  %185 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %.3231
   %186 = load i64, ptr %185, align 8, !tbaa !15
   %187 = call i32 @test_mem_eq(ptr noundef nonnull @.str.18, i32 noundef 6460, ptr noundef nonnull @.str.835, ptr noundef nonnull @.str.836, ptr noundef %184, i64 noundef %186, ptr noundef %79, i64 noundef %182) #9
   %.not194 = icmp eq i32 %187, 0
   br i1 %.not194, label %.loopexit, label %188
 
 188:                                              ; preds = %180
-  %189 = getelementptr inbounds nuw ptr, ptr %3, i64 %.3231
+  %189 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.3231
   %190 = load ptr, ptr %189, align 8, !tbaa !19
   %191 = call i32 @test_mem_eq(ptr noundef nonnull @.str.18, i32 noundef 6461, ptr noundef nonnull @.str.837, ptr noundef nonnull @.str.626, ptr noundef %190, i64 noundef 16, ptr noundef %82, i64 noundef 16) #9
   %.not195 = icmp eq i32 %191, 0
@@ -9678,7 +9671,7 @@ define internal range(i32 0, 2) i32 @test_evp_cipher_pipeline() #1 {
 
 .preheader207:                                    ; preds = %144, %.preheader207
   %.4232 = phi i64 [ %193, %.preheader207 ], [ 0, %144 ]
-  %192 = getelementptr inbounds nuw i64, ptr %8, i64 %.4232
+  %192 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.4232
   store i64 %.0153235, ptr %192, align 8, !tbaa !15
   %193 = add nuw nsw i64 %.4232, 1
   %exitcond258.not = icmp eq i64 %193, %.0154236
@@ -9738,14 +9731,14 @@ define internal range(i32 0, 2) i32 @test_evp_cipher_pipeline() #1 {
 
 .preheader206:                                    ; preds = %219, %.preheader206
   %.5233 = phi i64 [ %233, %.preheader206 ], [ 0, %219 ]
-  %224 = getelementptr inbounds nuw ptr, ptr %4, i64 %.5233
+  %224 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.5233
   %225 = load ptr, ptr %224, align 8, !tbaa !19
-  %226 = getelementptr inbounds nuw i64, ptr %9, i64 %.5233
+  %226 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.5233
   %227 = load i64, ptr %226, align 8, !tbaa !15
   %228 = getelementptr inbounds nuw i8, ptr %225, i64 %227
-  %229 = getelementptr inbounds nuw ptr, ptr %7, i64 %.5233
+  %229 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.5233
   store ptr %228, ptr %229, align 8, !tbaa !19
-  %230 = getelementptr inbounds nuw i64, ptr %8, i64 %.5233
+  %230 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.5233
   %231 = load i64, ptr %230, align 8, !tbaa !15
   %232 = sub i64 %231, %227
   store i64 %232, ptr %230, align 8, !tbaa !15
@@ -9770,7 +9763,7 @@ define internal range(i32 0, 2) i32 @test_evp_cipher_pipeline() #1 {
   %240 = add nuw nsw i64 %.6, 1
   %241 = trunc i64 %240 to i8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %85, i8 %241, i64 %.0153235, i1 false)
-  %242 = getelementptr inbounds nuw ptr, ptr %4, i64 %.6
+  %242 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.6
   %243 = load ptr, ptr %242, align 8, !tbaa !19
   %244 = call i32 @test_mem_eq(ptr noundef nonnull @.str.18, i32 noundef 6498, ptr noundef nonnull @.str.841, ptr noundef nonnull @.str.842, ptr noundef %243, i64 noundef %.0153235, ptr noundef nonnull %85, i64 noundef %.0153235) #9
   %.not188 = icmp eq i32 %244, 0
@@ -9778,16 +9771,16 @@ define internal range(i32 0, 2) i32 @test_evp_cipher_pipeline() #1 {
 
 .preheader:                                       ; preds = %.preheader205, %.preheader
   %.7234 = phi i64 [ %253, %.preheader ], [ 0, %.preheader205 ]
-  %245 = getelementptr inbounds nuw ptr, ptr %2, i64 %.7234
+  %245 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.7234
   %246 = load ptr, ptr %245, align 8, !tbaa !19
   call void @CRYPTO_free(ptr noundef %246, ptr noundef nonnull @.str.18, i32 noundef 6503) #9
-  %247 = getelementptr inbounds nuw ptr, ptr %4, i64 %.7234
+  %247 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.7234
   %248 = load ptr, ptr %247, align 8, !tbaa !19
   call void @CRYPTO_free(ptr noundef %248, ptr noundef nonnull @.str.18, i32 noundef 6504) #9
-  %249 = getelementptr inbounds nuw ptr, ptr %5, i64 %.7234
+  %249 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.7234
   %250 = load ptr, ptr %249, align 8, !tbaa !19
   call void @CRYPTO_free(ptr noundef %250, ptr noundef nonnull @.str.18, i32 noundef 6505) #9
-  %251 = getelementptr inbounds nuw ptr, ptr %3, i64 %.7234
+  %251 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.7234
   %252 = load ptr, ptr %251, align 8, !tbaa !19
   call void @CRYPTO_free(ptr noundef %252, ptr noundef nonnull @.str.18, i32 noundef 6506) #9
   %253 = add nuw nsw i64 %.7234, 1
@@ -9818,16 +9811,16 @@ define internal range(i32 0, 2) i32 @test_evp_cipher_pipeline() #1 {
 
 258:                                              ; preds = %.loopexit, %258
   %.8237 = phi i64 [ 0, %.loopexit ], [ %267, %258 ]
-  %259 = getelementptr inbounds nuw ptr, ptr %2, i64 %.8237
+  %259 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.8237
   %260 = load ptr, ptr %259, align 8, !tbaa !19
   call void @CRYPTO_free(ptr noundef %260, ptr noundef nonnull @.str.18, i32 noundef 6519) #9
-  %261 = getelementptr inbounds nuw ptr, ptr %4, i64 %.8237
+  %261 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.8237
   %262 = load ptr, ptr %261, align 8, !tbaa !19
   call void @CRYPTO_free(ptr noundef %262, ptr noundef nonnull @.str.18, i32 noundef 6520) #9
-  %263 = getelementptr inbounds nuw ptr, ptr %5, i64 %.8237
+  %263 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.8237
   %264 = load ptr, ptr %263, align 8, !tbaa !19
   call void @CRYPTO_free(ptr noundef %264, ptr noundef nonnull @.str.18, i32 noundef 6521) #9
-  %265 = getelementptr inbounds nuw ptr, ptr %3, i64 %.8237
+  %265 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.8237
   %266 = load ptr, ptr %265, align 8, !tbaa !19
   call void @CRYPTO_free(ptr noundef %266, ptr noundef nonnull @.str.18, i32 noundef 6522) #9
   %267 = add nuw nsw i64 %.8237, 1
@@ -10114,7 +10107,7 @@ define internal range(i32 0, 2) i32 @ec_export_get_encoding_cb(ptr noundef %0, p
   %12 = phi i1 [ false, %11 ], [ true, %6 ]
   %.012 = phi i64 [ 1, %11 ], [ 0, %6 ]
   %13 = load ptr, ptr %3, align 8, !tbaa !19
-  %14 = getelementptr inbounds nuw %struct.anon, ptr @ec_encodings, i64 %.012
+  %14 = getelementptr inbounds nuw [16 x i8], ptr @ec_encodings, i64 %.012
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !104
   %17 = call i32 @OPENSSL_strcasecmp(ptr noundef %13, ptr noundef %16) #9
@@ -10206,7 +10199,7 @@ define internal fastcc range(i32 0, 2) i32 @test_set_get_raw_keys_int(i32 nounde
 
 13:                                               ; preds = %3
   %14 = sext i32 %0 to i64
-  %15 = getelementptr inbounds %struct.keys_st, ptr @keys, i64 %14
+  %15 = getelementptr inbounds [40 x i8], ptr @keys, i64 %14
   %.not56 = icmp ult i32 %0, 8
   br i1 %.not56, label %19, label %16
 

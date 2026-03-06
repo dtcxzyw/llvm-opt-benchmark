@@ -508,7 +508,7 @@ define hidden i32 @mbedtls_nist_kw_self_test(i32 noundef %0) local_unnamed_addr 
 
 7:                                                ; preds = %1, %59
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %59 ]
-  %.phi.trans.insert = getelementptr inbounds nuw i32, ptr @key_len, i64 %indvars.iv
+  %.phi.trans.insert = getelementptr inbounds nuw [4 x i8], ptr @key_len, i64 %indvars.iv
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !11
   %.pre136 = shl i32 %.pre, 3
   br i1 %.not71, label %._crit_edge, label %8
@@ -551,14 +551,14 @@ mbedtls_nist_kw_setkey.exit.thread:               ; preds = %13, %._crit_edge, %
 
 21:                                               ; preds = %mbedtls_nist_kw_setkey.exit
   %22 = getelementptr inbounds nuw [40 x i8], ptr @kw_msg, i64 %indvars.iv
-  %23 = getelementptr inbounds nuw i64, ptr @kw_msg_len, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [8 x i8], ptr @kw_msg_len, i64 %indvars.iv
   %24 = load i64, ptr %23, align 8, !tbaa !3
   %25 = call i32 @mbedtls_nist_kw_wrap(ptr noundef nonnull %4, i32 noundef 0, ptr noundef nonnull %22, i64 noundef %24, ptr noundef nonnull %5, ptr noundef nonnull %6, i64 noundef 48)
   %.not73 = icmp eq i32 %25, 0
   br i1 %.not73, label %26, label %32
 
 26:                                               ; preds = %21
-  %27 = getelementptr inbounds nuw i64, ptr @kw_out_len, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [8 x i8], ptr @kw_out_len, i64 %indvars.iv
   %28 = load i64, ptr %27, align 8, !tbaa !3
   %29 = load i64, ptr %6, align 8, !tbaa !3
   %.not74 = icmp eq i64 %28, %29
@@ -679,7 +679,7 @@ mbedtls_nist_kw_unwrap.exit:                      ; preds = %.mbedtls_nist_kw_un
 
 .preheader:                                       ; preds = %59, %107
   %indvars.iv128 = phi i64 [ %indvars.iv.next129, %107 ], [ 0, %59 ]
-  %.phi.trans.insert134 = getelementptr inbounds nuw i32, ptr @key_len, i64 %indvars.iv128
+  %.phi.trans.insert134 = getelementptr inbounds nuw [4 x i8], ptr @key_len, i64 %indvars.iv128
   %.pre135 = load i32, ptr %.phi.trans.insert134, align 4, !tbaa !11
   %.pre137 = shl i32 %.pre135, 3
   br i1 %.not71, label %._crit_edge133, label %60
@@ -722,14 +722,14 @@ mbedtls_nist_kw_setkey.exit95.thread:             ; preds = %65, %._crit_edge133
 
 73:                                               ; preds = %mbedtls_nist_kw_setkey.exit95
   %74 = getelementptr inbounds nuw [31 x i8], ptr @kwp_msg, i64 %indvars.iv128
-  %75 = getelementptr inbounds nuw i64, ptr @kwp_msg_len, i64 %indvars.iv128
+  %75 = getelementptr inbounds nuw [8 x i8], ptr @kwp_msg_len, i64 %indvars.iv128
   %76 = load i64, ptr %75, align 8, !tbaa !3
   %77 = call i32 @mbedtls_nist_kw_wrap(ptr noundef nonnull %4, i32 noundef 1, ptr noundef nonnull %74, i64 noundef %76, ptr noundef nonnull %5, ptr noundef nonnull %6, i64 noundef 48)
   %.not63 = icmp eq i32 %77, 0
   br i1 %.not63, label %78, label %84
 
 78:                                               ; preds = %73
-  %79 = getelementptr inbounds nuw i64, ptr @kwp_out_len, i64 %indvars.iv128
+  %79 = getelementptr inbounds nuw [8 x i8], ptr @kwp_out_len, i64 %indvars.iv128
   %80 = load i64, ptr %79, align 8, !tbaa !3
   %81 = load i64, ptr %6, align 8, !tbaa !3
   %.not64 = icmp eq i64 %80, %81

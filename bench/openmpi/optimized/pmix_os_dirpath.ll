@@ -88,7 +88,7 @@ define range(i32 -27, 1) i32 @pmix_os_dirpath_create(ptr noundef %0, i32 noundef
   br label %33
 
 33:                                               ; preds = %32, %27
-  %34 = getelementptr inbounds nuw ptr, ptr %16, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %indvars.iv
   br label %35
 
 35:                                               ; preds = %23, %26, %33

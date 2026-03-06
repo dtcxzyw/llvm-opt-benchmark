@@ -2060,7 +2060,7 @@ _ZNK4llvm6Triple11isOSCygMingEv.exit.thread:      ; preds = %669, %669, %thread-
   br i1 %or.cond, label %676, label %678
 
 676:                                              ; preds = %.preheader67
-  %677 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %677 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   store ptr null, ptr %677, align 8, !tbaa !3
   br label %678
 
@@ -2082,7 +2082,7 @@ _ZNK4llvm6Triple11isOSCygMingEv.exit.thread:      ; preds = %669, %669, %thread-
   br i1 %or.cond3, label %682, label %684
 
 682:                                              ; preds = %.preheader
-  %683 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv74
+  %683 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv74
   store ptr null, ptr %683, align 8, !tbaa !3
   br label %684
 

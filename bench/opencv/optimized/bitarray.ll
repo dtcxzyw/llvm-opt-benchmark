@@ -188,7 +188,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i: ; preds = %17
 
 .noexc5.i12:                                      ; preds = %.noexc3.i.i11
   store ptr %26, ptr %24, align 8, !tbaa !24
-  %27 = getelementptr inbounds nuw i32, ptr %26, i64 %10
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %10
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 32
   store ptr %27, ptr %28, align 8, !tbaa !27
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %26, i8 0, i64 %25, i1 false), !tbaa !28
@@ -231,7 +231,7 @@ _ZNSt6vectorIiSaIiEE17_S_check_init_lenEmRKS0_.exit.i.i.i19: ; preds = %32
 
 .noexc5.i22:                                      ; preds = %.noexc3.i.i21
   store ptr %41, ptr %39, align 8, !tbaa !24
-  %42 = getelementptr inbounds nuw i32, ptr %41, i64 %10
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %41, i64 %10
   %43 = getelementptr inbounds nuw i8, ptr %37, i64 32
   store ptr %42, ptr %43, align 8, !tbaa !27
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %41, i8 0, i64 %40, i1 false), !tbaa !28
@@ -526,7 +526,7 @@ _ZN5zxing12ErrorHandlerD2Ev.exit34:               ; preds = %44, %_ZNKSt7__cxx11
   %61 = load ptr, ptr %60, align 8, !tbaa !23
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %63 = load ptr, ptr %62, align 8, !tbaa !24
-  %64 = getelementptr inbounds nuw i32, ptr %63, i64 %53
+  %64 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %53
   %65 = load i32, ptr %64, align 4, !tbaa !28
   br label %_ZN5zxing8BitArray12getNextUnsetEi.exit
 
@@ -538,7 +538,7 @@ _ZN5zxing12ErrorHandlerD2Ev.exit34:               ; preds = %44, %_ZNKSt7__cxx11
   %69 = load ptr, ptr %68, align 8, !tbaa !23
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 16
   %71 = load ptr, ptr %70, align 8, !tbaa !24
-  %72 = getelementptr inbounds nuw i32, ptr %71, i64 %53
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %53
   %73 = load i32, ptr %72, align 4, !tbaa !28
   br label %_ZN5zxing8BitArray12getNextUnsetEi.exit.thr_comm
 
@@ -596,7 +596,7 @@ define hidden noundef i32 @_ZN5zxing8BitArray12getNextUnsetEi(ptr noundef nonnul
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = sext i32 %1 to i64
   %10 = load ptr, ptr %8, align 8, !tbaa !24
-  %11 = getelementptr inbounds nuw i32, ptr %10, i64 %9
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %9
   %12 = load i32, ptr %11, align 4, !tbaa !28
   br label %13
 
@@ -618,7 +618,7 @@ define hidden noundef i32 @_ZN5zxing8BitArray10getNextSetEi(ptr noundef nonnull 
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = sext i32 %1 to i64
   %10 = load ptr, ptr %8, align 8, !tbaa !24
-  %11 = getelementptr inbounds nuw i32, ptr %10, i64 %9
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %10, i64 %9
   %12 = load i32, ptr %11, align 4, !tbaa !28
   br label %13
 
@@ -685,11 +685,11 @@ define hidden void @_ZN5zxing8BitArray15initAllNextSetsEv(ptr noundef nonnull re
   %20 = trunc nuw i8 %19 to i1
   %. = select i1 %20, ptr %9, ptr %13
   %.35 = select i1 %20, ptr %13, ptr %9
-  %21 = getelementptr inbounds i32, ptr %., i64 %17
+  %21 = getelementptr inbounds [4 x i8], ptr %., i64 %17
   store i32 %16, ptr %21, align 4, !tbaa !28
   %22 = load i32, ptr %14, align 4, !tbaa !10
   %23 = sext i32 %22 to i64
-  %24 = getelementptr i32, ptr %.35, i64 %23
+  %24 = getelementptr [4 x i8], ptr %.35, i64 %23
   %25 = getelementptr i8, ptr %24, i64 -4
   store i32 %22, ptr %25, align 4, !tbaa !28
   %26 = icmp sgt i32 %22, 1
@@ -711,9 +711,9 @@ define hidden void @_ZN5zxing8BitArray15initAllNextSetsEv(ptr noundef nonnull re
   %32 = trunc nuw nsw i64 %indvars.iv to i32
   %.36 = select i1 %31, ptr %9, ptr %13
   %.37 = select i1 %31, ptr %13, ptr %9
-  %33 = getelementptr inbounds nuw i32, ptr %.36, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %.36, i64 %indvars.iv
   store i32 %32, ptr %33, align 4, !tbaa !28
-  %34 = getelementptr inbounds nuw i32, ptr %.37, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %.37, i64 %indvars.iv
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %36 = load i32, ptr %35, align 4, !tbaa !28
   store i32 %36, ptr %34, align 4, !tbaa !28
@@ -758,7 +758,7 @@ define hidden void @_ZN5zxing8BitArray27initAllNextSetsFromCountersESt6vectorIiS
   %.03750 = phi i1 [ %25, %.lr.ph51.preheader ], [ %40, %.loopexit ]
   %.03948 = phi i32 [ 0, %.lr.ph51.preheader ], [ %28, %.loopexit ]
   %.04046 = phi i32 [ 0, %.lr.ph51.preheader ], [ %41, %.loopexit ]
-  %26 = getelementptr inbounds nuw i32, ptr %5, i64 %indvars.iv59
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv59
   %27 = load i32, ptr %26, align 4, !tbaa !28
   %28 = add nsw i32 %27, %.03948
   %29 = icmp sgt i32 %27, 0
@@ -783,10 +783,10 @@ define hidden void @_ZN5zxing8BitArray27initAllNextSetsFromCountersESt6vectorIiS
 .lr.ph45:                                         ; preds = %.lr.ph45.preheader, %.lr.ph45
   %indvars.iv54 = phi i64 [ 0, %.lr.ph45.preheader ], [ %indvars.iv.next55, %.lr.ph45 ]
   %32 = add nsw i64 %indvars.iv54, %31
-  %33 = getelementptr inbounds i32, ptr %14, i64 %32
+  %33 = getelementptr inbounds [4 x i8], ptr %14, i64 %32
   %34 = trunc nsw i64 %32 to i32
   store i32 %34, ptr %33, align 4, !tbaa !28
-  %35 = getelementptr inbounds i32, ptr %18, i64 %32
+  %35 = getelementptr inbounds [4 x i8], ptr %18, i64 %32
   store i32 %28, ptr %35, align 4, !tbaa !28
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond58.not = icmp eq i64 %indvars.iv.next55, %wide.trip.count57
@@ -795,9 +795,9 @@ define hidden void @_ZN5zxing8BitArray27initAllNextSetsFromCountersESt6vectorIiS
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
   %36 = add nsw i64 %indvars.iv, %30
-  %37 = getelementptr inbounds i32, ptr %14, i64 %36
+  %37 = getelementptr inbounds [4 x i8], ptr %14, i64 %36
   store i32 %28, ptr %37, align 4, !tbaa !28
-  %38 = getelementptr inbounds i32, ptr %18, i64 %36
+  %38 = getelementptr inbounds [4 x i8], ptr %18, i64 %36
   %39 = trunc nsw i64 %36 to i32
   store i32 %39, ptr %38, align 4, !tbaa !28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1655,7 +1655,7 @@ define hidden void @_ZN5zxing8BitArray7toBytesEiRNS_8ArrayRefIiEEii(ptr noundef 
   %15 = sext i32 %3 to i64
   %16 = sext i32 %1 to i64
   %wide.trip.count = zext nneg i32 %4 to i64
-  %invariant.gep = getelementptr i32, ptr %14, i64 %15
+  %invariant.gep = getelementptr [4 x i8], ptr %14, i64 %15
   br label %17
 
 ._crit_edge:                                      ; preds = %17, %5
@@ -1669,7 +1669,7 @@ define hidden void @_ZN5zxing8BitArray7toBytesEiRNS_8ArrayRefIiEEii(ptr noundef 
   %.not = icmp ne i8 %19, 0
   %spec.select = zext i1 %.not to i32
   %indvars.iv.next14 = add nsw i64 %indvars.iv13, 1
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   store i32 %spec.select, ptr %gep, align 4, !tbaa !28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

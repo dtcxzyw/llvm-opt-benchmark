@@ -403,7 +403,7 @@ define hidden void @"_ZN10primeorder10projective24ProjectivePoint$LT$C$GT$3mul17
 
 36:                                               ; preds = %"_ZN13crypto_bigint4uint5array100_$LT$impl$u20$crypto_bigint..array..ArrayEncoding$u20$for$u20$crypto_bigint..uint..Uint$LT$_$GT$$GT$16to_le_byte_array17h96e63127e64b49a4E.exit", %36
   %37 = phi i64 [ 0, %"_ZN13crypto_bigint4uint5array100_$LT$impl$u20$crypto_bigint..array..ArrayEncoding$u20$for$u20$crypto_bigint..uint..Uint$LT$_$GT$$GT$16to_le_byte_array17h96e63127e64b49a4E.exit" ], [ %39, %36 ]
-  %38 = getelementptr inbounds nuw { { { [4 x i64] } }, { { [4 x i64] } }, { { [4 x i64] } } }, ptr %21, i64 %37
+  %38 = getelementptr inbounds nuw [96 x i8], ptr %21, i64 %37
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %38, ptr noundef nonnull align 8 dereferenceable(96) @anon.5994e10fffdafa843df54943a4559014.4.llvm.7939504722297667161, i64 96, i1 false)
   %39 = add nuw nsw i64 %37, 1
   %exitcond.not = icmp eq i64 %39, 16
@@ -492,7 +492,7 @@ define hidden void @"_ZN10primeorder10projective24ProjectivePoint$LT$C$GT$3mul17
   %71 = trunc nuw nsw i64 %70 to i8
   %72 = and i8 %71, 1
   %73 = call noundef i8 @_ZN6subtle9black_box17hae95d5a5795b5a0cE(i8 noundef %72)
-  %74 = getelementptr inbounds nuw { { { [4 x i64] } }, { { [4 x i64] } }, { { [4 x i64] } } }, ptr %21, i64 %.sroa.07.033
+  %74 = getelementptr inbounds nuw [96 x i8], ptr %21, i64 %.sroa.07.033
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @"_ZN89_$LT$p256..arithmetic..field..FieldElement$u20$as$u20$subtle..ConditionallySelectable$GT$18conditional_select17hbd522d9cfcc5fc00E"(ptr noalias noundef nonnull sret({ { [4 x i64] } }) align 8 captures(none) dereferenceable(32) %10, ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %17, ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %74, i8 noundef %73), !noalias !17
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 32
@@ -506,13 +506,13 @@ define hidden void @"_ZN10primeorder10projective24ProjectivePoint$LT$C$GT$3mul17
 
 77:                                               ; preds = %47
   %78 = lshr exact i64 %.sroa.0.032, 1
-  %79 = getelementptr inbounds nuw { { { [4 x i64] } }, { { [4 x i64] } }, { { [4 x i64] } } }, ptr %21, i64 %78
+  %79 = getelementptr inbounds nuw [96 x i8], ptr %21, i64 %78
   call fastcc void @"_ZN98_$LT$primeorder..projective..ProjectivePoint$LT$C$GT$$u20$as$u20$elliptic_curve..point..Double$GT$6double17hba3d73f42fc780a6E"(ptr noalias noundef align 8 captures(none) dereferenceable(96) %20, ptr noalias noundef readonly align 8 dereferenceable(96) %79)
   br label %83
 
 80:                                               ; preds = %47
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  %81 = getelementptr { { { [4 x i64] } }, { { [4 x i64] } }, { { [4 x i64] } } }, ptr %21, i64 %.sroa.0.032
+  %81 = getelementptr [96 x i8], ptr %21, i64 %.sroa.0.032
   %82 = getelementptr i8, ptr %81, i64 -96
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %19, ptr noundef nonnull align 8 dereferenceable(96) %82, i64 96, i1 false)
   call void @"_ZN134_$LT$primeorder..point_arithmetic..EquationAIsMinusThree$u20$as$u20$primeorder..point_arithmetic..sealed..PointArithmetic$LT$C$GT$$GT$3add17h8861f87347d024caE.llvm.7939504722297667161"(ptr noalias noundef nonnull sret({ { { [4 x i64] } }, { { [4 x i64] } }, { { [4 x i64] } } }) align 8 captures(none) dereferenceable(96) %20, ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %19, ptr noalias noundef nonnull readonly align 8 dereferenceable(96) %1)
@@ -520,7 +520,7 @@ define hidden void @"_ZN10primeorder10projective24ProjectivePoint$LT$C$GT$3mul17
   br label %83
 
 83:                                               ; preds = %80, %77
-  %84 = getelementptr inbounds nuw { { { [4 x i64] } }, { { [4 x i64] } }, { { [4 x i64] } } }, ptr %21, i64 %.sroa.0.032
+  %84 = getelementptr inbounds nuw [96 x i8], ptr %21, i64 %.sroa.0.032
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %84, ptr noundef nonnull align 8 dereferenceable(96) %20, i64 96, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   %exitcond35.not = icmp eq i64 %48, 16
@@ -853,7 +853,7 @@ _ZN4core4iter6traits8iterator8Iterator3zip17h75fafa2a6bf042f4E.exit.i: ; preds =
   %45 = add nuw nsw i64 %.sroa.12.041.i, 1
   %46 = shl nuw nsw i64 %.sroa.12.041.i, 2
   %47 = getelementptr inbounds nuw i8, ptr %12, i64 %46
-  %48 = getelementptr inbounds nuw i32, ptr %0, i64 %.sroa.12.041.i
+  %48 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %.sroa.12.041.i
   %49 = load i32, ptr %48, align 4, !alias.scope !176, !noalias !184, !noundef !17
   %50 = call i32 @llvm.bswap.i32(i32 %49)
   store i32 %50, ptr %47, align 1, !alias.scope !220, !noalias !224
@@ -1389,10 +1389,10 @@ define hidden noundef i8 @"_ZN13crypto_bigint4uint3cmp89_$LT$impl$u20$subtle..Co
 3:                                                ; preds = %2, %3
   %.0.i4 = phi i64 [ 0, %2 ], [ %14, %3 ]
   %.014.i3 = phi i64 [ 0, %2 ], [ %15, %3 ]
-  %4 = getelementptr inbounds nuw i64, ptr %0, i64 %.014.i3
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.014.i3
   %5 = load i64, ptr %4, align 8, !alias.scope !476, !noalias !481, !noundef !17
   %6 = zext i64 %5 to i128
-  %7 = getelementptr inbounds nuw i64, ptr %1, i64 %.014.i3
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.014.i3
   %8 = load i64, ptr %7, align 8, !alias.scope !479, !noalias !483, !noundef !17
   %9 = zext i64 %8 to i128
   %10 = ashr i64 %.0.i4, 63
@@ -1426,10 +1426,10 @@ define hidden void @"_ZN13crypto_bigint4uint3sub52_$LT$impl$u20$crypto_bigint..u
 8:                                                ; preds = %4, %8
   %.018 = phi i64 [ %3, %4 ], [ %19, %8 ]
   %.01417 = phi i64 [ 0, %4 ], [ %22, %8 ]
-  %9 = getelementptr inbounds nuw i64, ptr %1, i64 %.01417
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %.01417
   %10 = load i64, ptr %9, align 8, !noundef !17
   %11 = zext i64 %10 to i128
-  %12 = getelementptr inbounds nuw i64, ptr %2, i64 %.01417
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %.01417
   %13 = load i64, ptr %12, align 8, !noundef !17
   %14 = zext i64 %13 to i128
   %15 = ashr i64 %.018, 63
@@ -1439,7 +1439,7 @@ define hidden void @"_ZN13crypto_bigint4uint3sub52_$LT$impl$u20$crypto_bigint..u
   %18 = lshr i128 %17, 64
   %19 = trunc nuw i128 %18 to i64
   %20 = trunc i128 %17 to i64
-  %21 = getelementptr inbounds nuw i64, ptr %5, i64 %.01417
+  %21 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.01417
   store i64 %20, ptr %21, align 8
   %22 = add nuw nsw i64 %.01417, 1
   %exitcond.not = icmp eq i64 %22, 4
@@ -1532,10 +1532,10 @@ define hidden void @"_ZN14elliptic_curve6scalar9primitive24ScalarPrimitive$LT$C$
 4:                                                ; preds = %4, %2
   %.0.i4.i = phi i64 [ 0, %2 ], [ %15, %4 ]
   %.014.i3.i = phi i64 [ 0, %2 ], [ %16, %4 ]
-  %5 = getelementptr inbounds nuw i64, ptr %3, i64 %.014.i3.i
+  %5 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %.014.i3.i
   %6 = load i64, ptr %5, align 8, !noundef !17
   %7 = zext i64 %6 to i128
-  %8 = getelementptr inbounds nuw i64, ptr @anon.5994e10fffdafa843df54943a4559014.47.llvm.7939504722297667161, i64 %.014.i3.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr @anon.5994e10fffdafa843df54943a4559014.47.llvm.7939504722297667161, i64 %.014.i3.i
   %9 = load i64, ptr %8, align 8, !alias.scope !497, !noalias !500, !noundef !17
   %10 = zext i64 %9 to i128
   %11 = ashr i64 %.0.i4.i, 63
@@ -1571,10 +1571,10 @@ define hidden void @"_ZN14elliptic_curve6scalar9primitive24ScalarPrimitive$LT$C$
 7:                                                ; preds = %7, %6
   %.0.i4.i.i = phi i64 [ 0, %6 ], [ %18, %7 ]
   %.014.i3.i.i = phi i64 [ 0, %6 ], [ %19, %7 ]
-  %8 = getelementptr inbounds nuw i64, ptr %4, i64 %.014.i3.i.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %.014.i3.i.i
   %9 = load i64, ptr %8, align 8, !noundef !17
   %10 = zext i64 %9 to i128
-  %11 = getelementptr inbounds nuw i64, ptr @anon.5994e10fffdafa843df54943a4559014.47.llvm.7939504722297667161, i64 %.014.i3.i.i
+  %11 = getelementptr inbounds nuw [8 x i8], ptr @anon.5994e10fffdafa843df54943a4559014.47.llvm.7939504722297667161, i64 %.014.i3.i.i
   %12 = load i64, ptr %11, align 8, !alias.scope !508, !noalias !511, !noundef !17
   %13 = zext i64 %12 to i128
   %14 = ashr i64 %.0.i4.i.i, 63
@@ -4166,10 +4166,10 @@ define hidden void @"_ZN6subtle17CtOption$LT$T$GT$3map17h546f3c382ec878ebE.llvm.
 29:                                               ; preds = %29, %2
   %.0.i4.i.i.i = phi i64 [ 0, %2 ], [ %40, %29 ]
   %.014.i3.i.i.i = phi i64 [ 0, %2 ], [ %41, %29 ]
-  %30 = getelementptr inbounds nuw i64, ptr %7, i64 %.014.i3.i.i.i
+  %30 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.014.i3.i.i.i
   %31 = load i64, ptr %30, align 8, !alias.scope !1193, !noalias !1194, !noundef !17
   %32 = zext i64 %31 to i128
-  %33 = getelementptr inbounds nuw i64, ptr %9, i64 %.014.i3.i.i.i
+  %33 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %.014.i3.i.i.i
   %34 = load i64, ptr %33, align 8, !alias.scope !1196, !noalias !1197, !noundef !17
   %35 = zext i64 %34 to i128
   %36 = ashr i64 %.0.i4.i.i.i, 63
@@ -6604,10 +6604,10 @@ define noundef zeroext i1 @"_ZN67_$LT$ockam_vault..error..VaultError$u20$as$u20$
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !1524, !noundef !17
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN67_$LT$ockam_vault..error..VaultError$u20$as$u20$core..fmt..Debug$GT$3fmt17h4c426a33e6efaeaeE", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN67_$LT$ockam_vault..error..VaultError$u20$as$u20$core..fmt..Debug$GT$3fmt17h4c426a33e6efaeaeE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN67_$LT$ockam_vault..error..VaultError$u20$as$u20$core..fmt..Debug$GT$3fmt17h4c426a33e6efaeaeE.27", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN67_$LT$ockam_vault..error..VaultError$u20$as$u20$core..fmt..Debug$GT$3fmt17h4c426a33e6efaeaeE.27", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17hf5c6803265aa79e0E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5

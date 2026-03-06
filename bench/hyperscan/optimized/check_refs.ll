@@ -8,14 +8,14 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.ue2::ConstComponentVisitor" = type { ptr }
 %"class.ue2::flat_detail::iter_wrapper" = type { %"class.boost::container::vec_iterator" }
 %"class.boost::container::vec_iterator" = type { ptr }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
 %"class.std::__cxx11::basic_ostringstream" = type { %"class.std::basic_ostream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_ostream.base" = type { ptr }
 %"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
 %"class.std::basic_streambuf" = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, %"class.std::locale" }
 %"class.std::locale" = type { ptr }
+%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
+%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
+%union.anon = type { i64, [8 x i8] }
 %"class.std::basic_ios" = type { %"class.std::ios_base", ptr, i8, i8, ptr, ptr, ptr, ptr }
 %"class.std::ios_base" = type { ptr, i64, i64, i32, i32, i32, ptr, %"struct.std::ios_base::_Words", [8 x %"struct.std::ios_base::_Words"], i32, ptr, %"class.std::locale" }
 %"struct.std::ios_base::_Words" = type { ptr, i64 }
@@ -138,7 +138,7 @@ define linkonce_odr hidden void @_ZN3ue216ReferenceVisitor3preERKNS_22ComponentB
   %15 = load ptr, ptr %13, align 8, !noalias !5
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %17 = load i64, ptr %16, align 8, !noalias !5
-  %18 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %15, i64 %17
+  %18 = getelementptr inbounds nuw [32 x i8], ptr %15, i64 %17
   %19 = load ptr, ptr %3, align 8
   %.not7 = icmp eq ptr %19, %18
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -193,7 +193,7 @@ define linkonce_odr hidden void @_ZN3ue216ReferenceVisitor3preERKNS_22ComponentC
   %20 = load ptr, ptr %19, align 8, !noalias !12
   %21 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %22 = load i64, ptr %21, align 8, !noalias !12
-  %23 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %20, i64 %22
+  %23 = getelementptr inbounds nuw [32 x i8], ptr %20, i64 %22
   %24 = load ptr, ptr %3, align 8
   %.not7 = icmp eq ptr %24, %23
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -628,7 +628,7 @@ define linkonce_odr hidden void @_ZNK3ue28flat_setINSt7__cxx1112basic_stringIcSt
   %4 = load ptr, ptr %1, align 8, !noalias !33
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i64, ptr %5, align 8, !noalias !36
-  %7 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %4, i64 %6
+  %7 = getelementptr inbounds nuw [32 x i8], ptr %4, i64 %6
   %8 = icmp sgt i64 %6, 0
   br i1 %8, label %_ZSt7advanceIN5boost9container12vec_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EEElEvRT_T0_.exit.lr.ph.i.i, label %_ZSt11lower_boundIN5boost9container12vec_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EEES8_St4lessIS8_EET_SD_SD_RKT0_T1_.exit
 
@@ -642,7 +642,7 @@ _ZSt7advanceIN5boost9container12vec_iteratorIPNSt7__cxx1112basic_stringIcSt11cha
   %12 = phi ptr [ %4, %_ZSt7advanceIN5boost9container12vec_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EEElEvRT_T0_.exit.lr.ph.i.i ], [ %25, %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclIN5boost9container12vec_iteratorIPS8_Lb1EEEKS8_EEbT_RT0_.exit.i.i ]
   %.012.i.i = phi i64 [ %6, %_ZSt7advanceIN5boost9container12vec_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb1EEElEvRT_T0_.exit.lr.ph.i.i ], [ %.1.i.i, %_ZN9__gnu_cxx5__ops14_Iter_comp_valISt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEclIN5boost9container12vec_iteratorIPS8_Lb1EEEKS8_EEbT_RT0_.exit.i.i ]
   %13 = lshr i64 %.012.i.i, 1
-  %14 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 %13
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load i64, ptr %15, align 8, !noalias !41
   %.sroa.speculated.i.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %10, i64 %16)

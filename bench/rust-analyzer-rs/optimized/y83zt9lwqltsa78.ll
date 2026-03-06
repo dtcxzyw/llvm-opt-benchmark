@@ -257,7 +257,7 @@ define { ptr, ptr } @_ZN9text_edit8TextEdit4iter17h7b6465a2cf4a70ffE(ptr noalias
   %3 = load ptr, ptr %2, align 8, !alias.scope !59, !nonnull !16, !noundef !16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !59, !noundef !16
-  %6 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, i32 } }, ptr %3, i64 %5
+  %6 = getelementptr inbounds [32 x i8], ptr %3, i64 %5
   %7 = insertvalue { ptr, ptr } poison, ptr %3, 0
   %8 = insertvalue { ptr, ptr } %7, ptr %6, 1
   ret { ptr, ptr } %8
@@ -418,12 +418,12 @@ define void @_ZN9text_edit8TextEdit5union17hca7b303c320859c6E(ptr noalias nounde
   %9 = load ptr, ptr %8, align 8, !alias.scope !78, !nonnull !16, !noundef !16
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %11 = load i64, ptr %10, align 8, !alias.scope !78, !noundef !16
-  %12 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, i32 } }, ptr %9, i64 %11
+  %12 = getelementptr inbounds [32 x i8], ptr %9, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %14 = load ptr, ptr %13, align 8, !alias.scope !83, !nonnull !16, !noundef !16
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %16 = load i64, ptr %15, align 8, !alias.scope !83, !noundef !16
-  %17 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, i32 } }, ptr %14, i64 %16
+  %17 = getelementptr inbounds [32 x i8], ptr %14, i64 %16
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %9, ptr %7, align 8, !alias.scope !88, !noalias !91
   %.sroa.4.0..sroa_idx.i4 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -585,7 +585,7 @@ define void @"_ZN81_$LT$text_edit..TextEdit$u20$as$u20$core..iter..traits..colle
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !nonnull !16, !noundef !16
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  %3 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, i32 } }, ptr %.sroa.4.0.copyload, i64 %.sroa.5.0.copyload
+  %3 = getelementptr inbounds [32 x i8], ptr %.sroa.4.0.copyload, i64 %.sroa.5.0.copyload
   store ptr %.sroa.4.0.copyload, ptr %0, align 8, !alias.scope !109, !noalias !112
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.0.0.copyload, ptr %4, align 8, !alias.scope !109, !noalias !112
@@ -602,7 +602,7 @@ define { ptr, ptr } @"_ZN85_$LT$$RF$text_edit..TextEdit$u20$as$u20$core..iter..t
   %3 = load ptr, ptr %2, align 8, !nonnull !16, !noundef !16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !16
-  %6 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, i32 } }, ptr %3, i64 %5
+  %6 = getelementptr inbounds [32 x i8], ptr %3, i64 %5
   %7 = insertvalue { ptr, ptr } poison, ptr %3, 0
   %8 = insertvalue { ptr, ptr } %7, ptr %6, 1
   ret { ptr, ptr } %8
@@ -688,7 +688,7 @@ define void @_ZN9text_edit15TextEditBuilder6finish17hc98931e69c83963cE(ptr noali
 .noexc:                                           ; preds = %2
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !139
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !150
-  %13 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, i32 } }, ptr %10, i64 %12
+  %13 = getelementptr inbounds [32 x i8], ptr %10, i64 %12
   store ptr %10, ptr %7, align 8, !noalias !150
   %14 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %13, ptr %14, align 8, !noalias !150
@@ -757,7 +757,7 @@ define noundef zeroext i1 @_ZN9text_edit15TextEditBuilder18invalidates_offset17h
   %4 = load ptr, ptr %3, align 8, !nonnull !16, !noundef !16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i64, ptr %5, align 8, !noundef !16
-  %7 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, i32 } }, ptr %4, i64 %6
+  %7 = getelementptr inbounds [32 x i8], ptr %4, i64 %6
   br label %8
 
 8:                                                ; preds = %10, %2
@@ -819,7 +819,7 @@ define internal fastcc void @_ZN9text_edit15TextEditBuilder5indel17hda8d5c4c2931
   %17 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %8, %2 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %19 = load ptr, ptr %18, align 8, !alias.scope !170, !noalias !173, !nonnull !16, !noundef !16
-  %20 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { i32, i32 } }, ptr %19, i64 %17
+  %20 = getelementptr inbounds [32 x i8], ptr %19, i64 %17
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false)
   %21 = load i64, ptr %7, align 8, !alias.scope !170, !noalias !173, !noundef !16
   %22 = add i64 %21, 1
@@ -834,7 +834,7 @@ define internal fastcc void @_ZN9text_edit15TextEditBuilder5indel17hda8d5c4c2931
   call void @_ZN4core5slice4sort10merge_sort17h5ecb44e5cf9562fdE(ptr noalias noundef nonnull align 8 %25, i64 noundef %22, ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !175
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !186
-  %26 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } }, { i32, i32 } }, ptr %25, i64 %22
+  %26 = getelementptr inbounds nuw [32 x i8], ptr %25, i64 %22
   store ptr %25, ptr %6, align 8, !noalias !186
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %26, ptr %27, align 8, !noalias !186

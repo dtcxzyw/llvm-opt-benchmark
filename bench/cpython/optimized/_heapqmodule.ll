@@ -500,7 +500,7 @@ define internal fastcc range(i32 -1, 1) i32 @siftdown(ptr noundef readonly captu
 
 .lr.ph.preheader:                                 ; preds = %5
   %8 = load ptr, ptr %6, align 8, !tbaa !23
-  %9 = getelementptr ptr, ptr %8, i64 %2
+  %9 = getelementptr [8 x i8], ptr %8, i64 %2
   %10 = load ptr, ptr %9, align 8, !tbaa !3
   br label %.lr.ph
 
@@ -510,7 +510,7 @@ define internal fastcc range(i32 -1, 1) i32 @siftdown(ptr noundef readonly captu
   %.03545 = phi ptr [ %39, %38 ], [ %8, %.lr.ph.preheader ]
   %11 = add nsw i64 %.03347, -1
   %12 = ashr i64 %11, 1
-  %13 = getelementptr ptr, ptr %.03545, i64 %12
+  %13 = getelementptr [8 x i8], ptr %.03545, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !3
   %15 = load i32, ptr %.03446, align 8, !tbaa !22
   %16 = icmp slt i32 %15, 0
@@ -577,9 +577,9 @@ Py_DECREF.exit42:                                 ; preds = %Py_DECREF.exit, %30
 
 38:                                               ; preds = %36
   %39 = load ptr, ptr %6, align 8, !tbaa !23
-  %40 = getelementptr ptr, ptr %39, i64 %12
+  %40 = getelementptr [8 x i8], ptr %39, i64 %12
   %41 = load ptr, ptr %40, align 8, !tbaa !3
-  %42 = getelementptr ptr, ptr %39, i64 %.03347
+  %42 = getelementptr [8 x i8], ptr %39, i64 %.03347
   %43 = load ptr, ptr %42, align 8, !tbaa !3
   store ptr %43, ptr %40, align 8, !tbaa !3
   store ptr %41, ptr %42, align 8, !tbaa !3
@@ -636,9 +636,9 @@ define internal range(i32 -1, 1) i32 @siftup(ptr noundef readonly captures(none)
   br i1 %14, label %15, label %47
 
 15:                                               ; preds = %.lr.ph
-  %16 = getelementptr ptr, ptr %.04661, i64 %12
+  %16 = getelementptr [8 x i8], ptr %.04661, i64 %12
   %17 = load ptr, ptr %16, align 8, !tbaa !3
-  %18 = getelementptr ptr, ptr %.04661, i64 %13
+  %18 = getelementptr [8 x i8], ptr %.04661, i64 %13
   %19 = load ptr, ptr %18, align 8, !tbaa !3
   %20 = load i32, ptr %17, align 8, !tbaa !22
   %21 = icmp slt i32 %20, 0
@@ -711,9 +711,9 @@ Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit56, %
 47:                                               ; preds = %40, %.lr.ph
   %.147 = phi ptr [ %.04661, %.lr.ph ], [ %44, %40 ]
   %.044 = phi i64 [ %12, %.lr.ph ], [ %43, %40 ]
-  %48 = getelementptr ptr, ptr %.147, i64 %.044
+  %48 = getelementptr [8 x i8], ptr %.147, i64 %.044
   %49 = load ptr, ptr %48, align 8, !tbaa !3
-  %50 = getelementptr ptr, ptr %.147, i64 %.04262
+  %50 = getelementptr [8 x i8], ptr %.147, i64 %.04262
   %51 = load ptr, ptr %50, align 8, !tbaa !3
   store ptr %51, ptr %48, align 8, !tbaa !3
   store ptr %49, ptr %50, align 8, !tbaa !3
@@ -746,7 +746,7 @@ define internal fastcc ptr @heappop_internal(ptr noundef %0, ptr noundef readonl
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %9 = load ptr, ptr %8, align 8, !tbaa !23
   %10 = add i64 %.val, -1
-  %11 = getelementptr ptr, ptr %9, i64 %10
+  %11 = getelementptr [8 x i8], ptr %9, i64 %10
   %12 = load ptr, ptr %11, align 8, !tbaa !3
   %13 = load i32, ptr %12, align 8, !tbaa !22
   %14 = icmp slt i32 %13, 0
@@ -938,9 +938,9 @@ define internal range(i32 -1, 1) i32 @siftup_max(ptr noundef readonly captures(n
   br i1 %12, label %13, label %43
 
 13:                                               ; preds = %.lr.ph
-  %14 = getelementptr ptr, ptr %.04663, i64 %11
+  %14 = getelementptr [8 x i8], ptr %.04663, i64 %11
   %15 = load ptr, ptr %14, align 8, !tbaa !3
-  %16 = getelementptr ptr, ptr %.04663, i64 %10
+  %16 = getelementptr [8 x i8], ptr %.04663, i64 %10
   %17 = load ptr, ptr %16, align 8, !tbaa !3
   %18 = load i32, ptr %15, align 8, !tbaa !22
   %19 = icmp slt i32 %18, 0
@@ -1008,9 +1008,9 @@ Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit56, %
 43:                                               ; preds = %38, %.lr.ph
   %.147 = phi ptr [ %.04663, %.lr.ph ], [ %42, %38 ]
   %.044 = phi i64 [ %10, %.lr.ph ], [ %41, %38 ]
-  %44 = getelementptr ptr, ptr %.147, i64 %.044
+  %44 = getelementptr [8 x i8], ptr %.147, i64 %.044
   %45 = load ptr, ptr %44, align 8, !tbaa !3
-  %46 = getelementptr ptr, ptr %.147, i64 %.04264
+  %46 = getelementptr [8 x i8], ptr %.147, i64 %.04264
   %47 = load ptr, ptr %46, align 8, !tbaa !3
   store ptr %47, ptr %44, align 8, !tbaa !3
   store ptr %45, ptr %46, align 8, !tbaa !3
@@ -1028,7 +1028,7 @@ Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit56, %
   br i1 %51, label %.lr.ph.preheader.i, label %.critedge
 
 .lr.ph.preheader.i:                               ; preds = %50
-  %52 = getelementptr ptr, ptr %49, i64 %.042.lcssa
+  %52 = getelementptr [8 x i8], ptr %49, i64 %.042.lcssa
   %53 = load ptr, ptr %52, align 8, !tbaa !3
   br label %.lr.ph.i
 
@@ -1038,7 +1038,7 @@ Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit56, %
   %.03443.i = phi ptr [ %82, %81 ], [ %49, %.lr.ph.preheader.i ]
   %54 = add nsw i64 %.03245.i, -1
   %55 = ashr i64 %54, 1
-  %56 = getelementptr ptr, ptr %.03443.i, i64 %55
+  %56 = getelementptr [8 x i8], ptr %.03443.i, i64 %55
   %57 = load ptr, ptr %56, align 8, !tbaa !3
   %58 = load i32, ptr %57, align 8, !tbaa !22
   %59 = icmp slt i32 %58, 0
@@ -1105,9 +1105,9 @@ Py_DECREF.exit.i:                                 ; preds = %76, %73, %Py_DECREF
 
 81:                                               ; preds = %79
   %82 = load ptr, ptr %5, align 8, !tbaa !23
-  %83 = getelementptr ptr, ptr %82, i64 %55
+  %83 = getelementptr [8 x i8], ptr %82, i64 %55
   %84 = load ptr, ptr %83, align 8, !tbaa !3
-  %85 = getelementptr ptr, ptr %82, i64 %.03245.i
+  %85 = getelementptr [8 x i8], ptr %82, i64 %.03245.i
   %86 = load ptr, ptr %85, align 8, !tbaa !3
   store ptr %86, ptr %83, align 8, !tbaa !3
   store ptr %84, ptr %85, align 8, !tbaa !3

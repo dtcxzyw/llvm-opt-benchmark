@@ -5,7 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.ShutdownInformation = type { ptr, ptr }
 %struct.DumpSignalInformation = type { ptr, ptr, i8, i8 }
-%struct.ParallelSlot = type { i32, ptr, ptr, ptr, i32, i32, i32, i32, i32 }
 %struct.fd_set = type { [16 x i64] }
 %struct.timeval = type { i64, i64 }
 
@@ -75,7 +74,7 @@ define internal void @archive_close_connection(i32 %0, ptr noundef readonly capt
 13:                                               ; preds = %9, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %9 ]
   %14 = load ptr, ptr %8, align 8
-  %15 = getelementptr inbounds nuw %struct.ParallelSlot, ptr %14, i64 %indvars.iv.i
+  %15 = getelementptr inbounds nuw [56 x i8], ptr %14, i64 %indvars.iv.i
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 48
   %17 = load i32, ptr %16, align 8
   %18 = tail call i32 @getpid() #18
@@ -104,7 +103,7 @@ GetMyPSlot.exit.thread:                           ; preds = %9, %5, %GetMyPSlot.
 26:                                               ; preds = %26, %.lr.ph.i19
   %indvars.iv.i20 = phi i64 [ 0, %.lr.ph.i19 ], [ %indvars.iv.next.i21, %26 ]
   %27 = load ptr, ptr %24, align 8
-  %28 = getelementptr inbounds nuw %struct.ParallelSlot, ptr %27, i64 %indvars.iv.i20
+  %28 = getelementptr inbounds nuw [56 x i8], ptr %27, i64 %indvars.iv.i20
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 36
   %30 = load i32, ptr %29, align 4
   %31 = tail call i32 @close(i32 noundef %30) #18
@@ -118,7 +117,7 @@ GetMyPSlot.exit.thread:                           ; preds = %9, %5, %GetMyPSlot.
   %.pr33.i = phi i32 [ %.pr.i, %41 ], [ %32, %.preheader.i ]
   %indvars.iv30.i = phi i64 [ %indvars.iv.next31.i, %41 ], [ 0, %.preheader.i ]
   %35 = load ptr, ptr %24, align 8
-  %36 = getelementptr inbounds nuw %struct.ParallelSlot, ptr %35, i64 %indvars.iv30.i
+  %36 = getelementptr inbounds nuw [56 x i8], ptr %35, i64 %indvars.iv30.i
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 48
   %38 = load i32, ptr %37, align 8
   %.not.i = icmp eq i32 %38, 0
@@ -157,7 +156,7 @@ GetMyPSlot.exit.thread:                           ; preds = %9, %5, %GetMyPSlot.
 
 49:                                               ; preds = %48, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %48 ]
-  %50 = getelementptr inbounds nuw %struct.ParallelSlot, ptr %47, i64 %indvars.iv.i.i.i
+  %50 = getelementptr inbounds nuw [56 x i8], ptr %47, i64 %indvars.iv.i.i.i
   %51 = load i32, ptr %50, align 8
   %52 = add i32 %51, -3
   %switch.i.i.i = icmp ult i32 %52, -2
@@ -179,7 +178,7 @@ HasEveryWorkerTerminated.exit.i.i:                ; preds = %49
 
 60:                                               ; preds = %67, %HasEveryWorkerTerminated.exit.i.i
   %indvars.iv.i.i = phi i64 [ 0, %HasEveryWorkerTerminated.exit.i.i ], [ %indvars.iv.next.i.i, %67 ]
-  %61 = getelementptr inbounds nuw %struct.ParallelSlot, ptr %56, i64 %indvars.iv.i.i
+  %61 = getelementptr inbounds nuw [56 x i8], ptr %56, i64 %indvars.iv.i.i
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 48
   %63 = load i32, ptr %62, align 8
   %64 = icmp eq i32 %63, %53
@@ -201,7 +200,7 @@ HasEveryWorkerTerminated.exit.i.i:                ; preds = %49
   %68 = phi ptr [ %61, %65 ], [ %scevgep.i.i, %67 ]
   store i32 3, ptr %68, align 8
   %69 = load ptr, ptr %45, align 8
-  %70 = getelementptr inbounds nuw ptr, ptr %69, i64 %.pre-phi.i
+  %70 = getelementptr inbounds nuw [8 x i8], ptr %69, i64 %.pre-phi.i
   store ptr null, ptr %70, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %71 = load i32, ptr %21, align 8
@@ -219,7 +218,7 @@ ShutdownWorkersHard.exit:                         ; preds = %.loopexit.i.i, %48,
   br label %85
 
 76:                                               ; preds = %GetMyPSlot.exit
-  %77 = getelementptr inbounds nuw %struct.ParallelSlot, ptr %20, i64 %indvars.iv.i
+  %77 = getelementptr inbounds nuw [56 x i8], ptr %20, i64 %indvars.iv.i
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 24
   %79 = load ptr, ptr %78, align 8
   %.not18 = icmp eq ptr %79, null
@@ -349,7 +348,7 @@ set_archive_cancel_info.exit:                     ; preds = %set_cancel_handler.
   %indvars.iv68 = phi i32 [ 0, %.lr.ph ], [ %indvars.iv.next69, %70 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %70 ]
   %31 = load ptr, ptr %8, align 8
-  %32 = getelementptr inbounds nuw %struct.ParallelSlot, ptr %31, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [56 x i8], ptr %31, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %33 = call i32 @pipe(ptr noundef nonnull %2) #18
@@ -402,12 +401,12 @@ set_archive_cancel_info.exit:                     ; preds = %set_cancel_handler.
 .lr.ph56:                                         ; preds = %.lr.ph56.preheader, %.lr.ph56
   %indvars.iv65 = phi i64 [ 0, %.lr.ph56.preheader ], [ %indvars.iv.next66, %.lr.ph56 ]
   %57 = load ptr, ptr %8, align 8
-  %58 = getelementptr inbounds nuw %struct.ParallelSlot, ptr %57, i64 %indvars.iv65
+  %58 = getelementptr inbounds nuw [56 x i8], ptr %57, i64 %indvars.iv65
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 32
   %60 = load i32, ptr %59, align 8
   %61 = call i32 @close(i32 noundef %60) #18
   %62 = load ptr, ptr %8, align 8
-  %63 = getelementptr inbounds nuw %struct.ParallelSlot, ptr %62, i64 %indvars.iv65
+  %63 = getelementptr inbounds nuw [56 x i8], ptr %62, i64 %indvars.iv65
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 36
   %65 = load i32, ptr %64, align 4
   %66 = call i32 @close(i32 noundef %65) #18
@@ -727,12 +726,12 @@ define dso_local void @ParallelBackupEnd(ptr noundef readnone captures(none) %0,
 8:                                                ; preds = %.lr.ph, %8
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %8 ]
   %9 = load ptr, ptr %7, align 8
-  %10 = getelementptr inbounds nuw %struct.ParallelSlot, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [56 x i8], ptr %9, i64 %indvars.iv
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %12 = load i32, ptr %11, align 8
   %13 = tail call i32 @close(i32 noundef %12) #18
   %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds nuw %struct.ParallelSlot, ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [56 x i8], ptr %14, i64 %indvars.iv
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 36
   %17 = load i32, ptr %16, align 4
   %18 = tail call i32 @close(i32 noundef %17) #18
@@ -764,7 +763,7 @@ define dso_local void @ParallelBackupEnd(ptr noundef readnone captures(none) %0,
 
 27:                                               ; preds = %26, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %26 ]
-  %28 = getelementptr inbounds nuw %struct.ParallelSlot, ptr %25, i64 %indvars.iv.i.i
+  %28 = getelementptr inbounds nuw [56 x i8], ptr %25, i64 %indvars.iv.i.i
   %29 = load i32, ptr %28, align 8
   %30 = add i32 %29, -3
   %switch.i.i = icmp ult i32 %30, -2
@@ -786,7 +785,7 @@ HasEveryWorkerTerminated.exit.i:                  ; preds = %27
 
 38:                                               ; preds = %45, %HasEveryWorkerTerminated.exit.i
   %indvars.iv.i = phi i64 [ 0, %HasEveryWorkerTerminated.exit.i ], [ %indvars.iv.next.i, %45 ]
-  %39 = getelementptr inbounds nuw %struct.ParallelSlot, ptr %34, i64 %indvars.iv.i
+  %39 = getelementptr inbounds nuw [56 x i8], ptr %34, i64 %indvars.iv.i
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 48
   %41 = load i32, ptr %40, align 8
   %42 = icmp eq i32 %41, %31
@@ -808,7 +807,7 @@ HasEveryWorkerTerminated.exit.i:                  ; preds = %27
   %46 = phi ptr [ %39, %43 ], [ %scevgep.i, %45 ]
   store i32 3, ptr %46, align 8
   %47 = load ptr, ptr %23, align 8
-  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %.pre-phi
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %.pre-phi
   store ptr null, ptr %48, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %49 = load i32, ptr %1, align 8
@@ -853,7 +852,7 @@ define dso_local void @DispatchJobForTocEntry(ptr noundef %0, ptr noundef readon
 
 13:                                               ; preds = %17, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %17 ]
-  %14 = getelementptr inbounds nuw %struct.ParallelSlot, ptr %12, i64 %indvars.iv.i
+  %14 = getelementptr inbounds nuw [56 x i8], ptr %12, i64 %indvars.iv.i
   %15 = load i32, ptr %14, align 8
   %16 = icmp eq i32 %15, 1
   br i1 %16, label %GetIdleWorker.exit, label %17
@@ -889,7 +888,7 @@ buildWorkerCommand.exit:                          ; preds = %GetIdleWorker.exit,
   %22 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %7) #20
   %sext = shl i64 %indvars.iv.i, 32
   %23 = ashr exact i64 %sext, 32
-  %24 = getelementptr inbounds %struct.ParallelSlot, ptr %.val, i64 %23
+  %24 = getelementptr inbounds [56 x i8], ptr %.val, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 36
   %26 = load i32, ptr %25, align 4
   %27 = shl i64 %22, 32
@@ -906,19 +905,19 @@ buildWorkerCommand.exit:                          ; preds = %GetIdleWorker.exit,
 
 sendMessageToWorker.exit:                         ; preds = %buildWorkerCommand.exit
   %31 = load ptr, ptr %8, align 8
-  %32 = getelementptr inbounds %struct.ParallelSlot, ptr %31, i64 %23
+  %32 = getelementptr inbounds [56 x i8], ptr %31, i64 %23
   store i32 2, ptr %32, align 8
   %33 = load ptr, ptr %8, align 8
-  %34 = getelementptr inbounds %struct.ParallelSlot, ptr %33, i64 %23
+  %34 = getelementptr inbounds [56 x i8], ptr %33, i64 %23
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
   store ptr %4, ptr %35, align 8
   %36 = load ptr, ptr %8, align 8
-  %37 = getelementptr inbounds %struct.ParallelSlot, ptr %36, i64 %23
+  %37 = getelementptr inbounds [56 x i8], ptr %36, i64 %23
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   store ptr %5, ptr %38, align 8
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds ptr, ptr %40, i64 %23
+  %41 = getelementptr inbounds [8 x i8], ptr %40, i64 %23
   store ptr %2, ptr %41, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
@@ -958,7 +957,7 @@ IsEveryWorkerIdle.exit:                           ; preds = %IsEveryWorkerIdle.e
 17:                                               ; preds = %31, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %31 ]
   %.04664.i.i = phi i32 [ -1, %.lr.ph.i.i ], [ %.147.i.i, %31 ]
-  %18 = getelementptr inbounds nuw %struct.ParallelSlot, ptr %16, i64 %indvars.iv.i.i
+  %18 = getelementptr inbounds nuw [56 x i8], ptr %16, i64 %indvars.iv.i.i
   %19 = load i32, ptr %18, align 8
   %.off.i.i = add i32 %19, -1
   %switch.i.i = icmp ult i32 %.off.i.i, 2
@@ -972,7 +971,7 @@ IsEveryWorkerIdle.exit:                           ; preds = %IsEveryWorkerIdle.e
   %25 = shl nuw i64 1, %24
   %26 = sdiv i32 %22, 64
   %27 = sext i32 %26 to i64
-  %28 = getelementptr inbounds i64, ptr %8, i64 %27
+  %28 = getelementptr inbounds [8 x i8], ptr %8, i64 %27
   %29 = load i64, ptr %28, align 8
   %30 = or i64 %25, %29
   store i64 %30, ptr %28, align 8
@@ -1041,7 +1040,7 @@ select_loop.exit.i.i:                             ; preds = %37, %34
 
 50:                                               ; preds = %85, %.lr.ph67.i.i
   %indvars.iv73.i.i = phi i64 [ 0, %.lr.ph67.i.i ], [ %indvars.iv.next74.i.i, %85 ]
-  %51 = getelementptr inbounds nuw %struct.ParallelSlot, ptr %48, i64 %indvars.iv73.i.i
+  %51 = getelementptr inbounds nuw [56 x i8], ptr %48, i64 %indvars.iv73.i.i
   %52 = load i32, ptr %51, align 8
   %.off53.i.i = add i32 %52, -1
   %switch54.i.i = icmp ult i32 %.off53.i.i, 2
@@ -1052,7 +1051,7 @@ select_loop.exit.i.i:                             ; preds = %37, %34
   %55 = load i32, ptr %54, align 8
   %56 = sdiv i32 %55, 64
   %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds i64, ptr %8, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %8, i64 %57
   %59 = load i64, ptr %58, align 8
   %60 = srem i32 %55, 64
   %61 = zext nneg i32 %60 to i64
@@ -1148,9 +1147,9 @@ sub_1.i:                                          ; preds = %sub_0.i
   %95 = load ptr, ptr %11, align 8
   %sext.i = shl i64 %indvars.iv73.i.i, 32
   %96 = ashr exact i64 %sext.i, 32
-  %97 = getelementptr inbounds %struct.ParallelSlot, ptr %95, i64 %96
+  %97 = getelementptr inbounds [56 x i8], ptr %95, i64 %96
   %98 = load ptr, ptr %12, align 8
-  %99 = getelementptr inbounds ptr, ptr %98, i64 %96
+  %99 = getelementptr inbounds [8 x i8], ptr %98, i64 %96
   %100 = load ptr, ptr %99, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -1199,7 +1198,7 @@ ListenToWorkers.exit:                             ; preds = %.tail.i.i
   call void %111(ptr noundef %0, ptr noundef %100, i32 noundef %109, ptr noundef %113) #18
   store i32 1, ptr %97, align 8
   %114 = load ptr, ptr %12, align 8
-  %115 = getelementptr inbounds ptr, ptr %114, i64 %96
+  %115 = getelementptr inbounds [8 x i8], ptr %114, i64 %96
   store ptr null, ptr %115, align 8
   call void @free(ptr noundef nonnull %.01720.i.i.i) #18
   br i1 %cond, label %125, label %IsEveryWorkerIdle.exit.thread
@@ -1226,7 +1225,7 @@ IsEveryWorkerIdle.exit.backedge:                  ; preds = %124, %130, %116, %L
 
 120:                                              ; preds = %124, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %124 ]
-  %121 = getelementptr inbounds nuw %struct.ParallelSlot, ptr %119, i64 %indvars.iv.i
+  %121 = getelementptr inbounds nuw [56 x i8], ptr %119, i64 %indvars.iv.i
   %122 = load i32, ptr %121, align 8
   %123 = icmp eq i32 %122, 1
   br i1 %123, label %IsEveryWorkerIdle.exit.thread, label %124
@@ -1253,7 +1252,7 @@ IsEveryWorkerIdle.exit.backedge:                  ; preds = %124, %130, %116, %L
 
 130:                                              ; preds = %129, %.lr.ph.i8
   %indvars.iv.i10 = phi i64 [ 0, %.lr.ph.i8 ], [ %indvars.iv.next.i12, %129 ]
-  %131 = getelementptr inbounds nuw %struct.ParallelSlot, ptr %128, i64 %indvars.iv.i10
+  %131 = getelementptr inbounds nuw [56 x i8], ptr %128, i64 %indvars.iv.i10
   %132 = load i32, ptr %131, align 8
   %.not.i11 = icmp eq i32 %132, 1
   br i1 %.not.i11, label %129, label %IsEveryWorkerIdle.exit.backedge
@@ -1276,7 +1275,7 @@ define dso_local noundef zeroext i1 @IsEveryWorkerIdle(ptr noundef readonly capt
 
 6:                                                ; preds = %6, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %6 ]
-  %7 = getelementptr inbounds nuw %struct.ParallelSlot, ptr %5, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [56 x i8], ptr %5, i64 %indvars.iv
   %8 = load i32, ptr %7, align 8
   %.not = icmp eq i32 %8, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1316,7 +1315,7 @@ define internal void @sigTermHandler(i32 %0) #9 {
   %7 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @signal_info, i64 8), align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds nuw %struct.ParallelSlot, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [56 x i8], ptr %9, i64 %indvars.iv
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 48
   %12 = load i32, ptr %11, align 8
   %.not15 = icmp eq i32 %12, 0

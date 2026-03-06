@@ -83,7 +83,7 @@ _ZN8smallvec10infallible17h38e6f267157ad177E.exit:
   %25 = phi i64 [ %.pre.i, %23 ], [ %21, %.lr.ph40 ]
   %.sroa.03.0.i = phi ptr [ %24, %23 ], [ %.sink10.i.i, %.lr.ph40 ]
   %.sroa.04.0.i = phi ptr [ %5, %23 ], [ %.sink9.i.i, %.lr.ph40 ]
-  %26 = getelementptr inbounds { i8, [4 x i8] }, ptr %.sroa.03.0.i, i64 %25
+  %26 = getelementptr inbounds [5 x i8], ptr %.sroa.03.0.i, i64 %25
   store i40 %17, ptr %26, align 1
   %27 = load i64, ptr %.sroa.04.0.i, align 8, !alias.scope !20, !noundef !12
   %28 = add i64 %27, 1
@@ -105,7 +105,7 @@ _ZN8smallvec10infallible17h38e6f267157ad177E.exit:
 33:                                               ; preds = %"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc0949b34350fd64dE.exit"
   %.sroa.017.1.extract.shift = lshr i40 %16, 8
   %.sroa.017.1.extract.trunc = trunc nuw i40 %.sroa.017.1.extract.shift to i32
-  %34 = getelementptr inbounds { i8, [4 x i8] }, ptr %.sink10.i, i64 %storemerge37
+  %34 = getelementptr inbounds [5 x i8], ptr %.sink10.i, i64 %storemerge37
   store i8 %.sroa.017.0.extract.trunc, ptr %34, align 1
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 1
   store i32 %.sroa.017.1.extract.trunc, ptr %.sroa.2.0..sroa_idx, align 1
@@ -231,7 +231,7 @@ common.resume:                                    ; preds = %27, %45
   %34 = phi i64 [ %.pre.i, %30 ], [ %25, %20 ]
   %.sroa.01.0.i = phi ptr [ %7, %30 ], [ %.sink9.i.i, %20 ]
   %.sroa.0.0.i15 = phi ptr [ %31, %30 ], [ %.sink10.i.i, %20 ]
-  %35 = getelementptr inbounds { i8, [15 x i8] }, ptr %.sroa.0.0.i15, i64 %34
+  %35 = getelementptr inbounds [16 x i8], ptr %.sroa.0.0.i15, i64 %34
   store i8 %21, ptr %35, align 8
   %.sroa.338.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.338.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.338, i64 7, i1 false)
@@ -254,7 +254,7 @@ common.resume:                                    ; preds = %27, %45
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.2, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.8.0..sroa_idx28, i64 7, i1 false)
   %.sroa.829.0.copyload31 = load ptr, ptr %.sroa.829.0..sroa_idx30, align 8, !noalias !61
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !41
-  %42 = getelementptr inbounds { i8, [15 x i8] }, ptr %.sink10.i, i64 %.sroa.7.049
+  %42 = getelementptr inbounds [16 x i8], ptr %.sink10.i, i64 %.sroa.7.049
   store i8 %18, ptr %42, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.2.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.2, i64 7, i1 false)
@@ -341,7 +341,7 @@ _ZN8smallvec10infallible17h38e6f267157ad177E.exit:
   %25 = phi i64 [ %.pre.i, %23 ], [ %21, %.lr.ph40 ]
   %.sroa.03.0.i = phi ptr [ %24, %23 ], [ %.sink10.i.i, %.lr.ph40 ]
   %.sroa.04.0.i = phi ptr [ %5, %23 ], [ %.sink9.i.i, %.lr.ph40 ]
-  %26 = getelementptr inbounds { i8, [2 x i8] }, ptr %.sroa.03.0.i, i64 %25
+  %26 = getelementptr inbounds [3 x i8], ptr %.sroa.03.0.i, i64 %25
   store i24 %17, ptr %26, align 1
   %27 = load i64, ptr %.sroa.04.0.i, align 8, !alias.scope !78, !noundef !12
   %28 = add i64 %27, 1
@@ -363,7 +363,7 @@ _ZN8smallvec10infallible17h38e6f267157ad177E.exit:
 33:                                               ; preds = %"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h621ba950cab9062bE.exit"
   %.sroa.017.1.extract.shift = lshr i24 %16, 8
   %.sroa.017.1.extract.trunc = trunc nuw i24 %.sroa.017.1.extract.shift to i16
-  %34 = getelementptr inbounds { i8, [2 x i8] }, ptr %.sink10.i, i64 %storemerge37
+  %34 = getelementptr inbounds [3 x i8], ptr %.sink10.i, i64 %storemerge37
   store i8 %.sroa.017.0.extract.trunc, ptr %34, align 1
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %34, i64 1
   store i16 %.sroa.017.1.extract.trunc, ptr %.sroa.2.0..sroa_idx, align 1

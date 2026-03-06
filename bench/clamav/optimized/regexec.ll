@@ -5,8 +5,6 @@ target triple = "x86_64-pc-linux-gnu"
 
 %struct.lmat = type { ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, i64, ptr, ptr, ptr, ptr, ptr }
 %struct.smat = type { ptr, i32, ptr, ptr, ptr, ptr, ptr, ptr, i64, i64, i64, i64, i64 }
-%struct.regmatch_t = type { i64, i64 }
-%struct.cset = type { ptr, i8, i8 }
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 17) i32 @cli_regexec(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
@@ -265,7 +263,7 @@ define range(i32 0, 17) i32 @cli_regexec(ptr noundef readonly captures(none) %0,
   %131 = load ptr, ptr %130, align 8, !tbaa !38
   %132 = and i32 %.1113.i.i, 255
   %133 = zext nneg i32 %132 to i64
-  %134 = getelementptr inbounds nuw i16, ptr %131, i64 %133
+  %134 = getelementptr inbounds nuw [2 x i8], ptr %131, i64 %133
   %135 = load i16, ptr %134, align 2, !tbaa !40
   %136 = and i16 %135, 8
   %137 = icmp eq i16 %136, 0
@@ -288,7 +286,7 @@ define range(i32 0, 17) i32 @cli_regexec(ptr noundef readonly captures(none) %0,
   %142 = phi ptr [ %.pre.i, %._crit_edge.i.i ], [ %131, %129 ]
   %143 = and i32 %106, 255
   %144 = zext nneg i32 %143 to i64
-  %145 = getelementptr inbounds nuw i16, ptr %142, i64 %144
+  %145 = getelementptr inbounds nuw [2 x i8], ptr %142, i64 %144
   %146 = load i16, ptr %145, align 2, !tbaa !40
   %147 = and i16 %146, 8
   %148 = icmp ne i16 %147, 0
@@ -307,7 +305,7 @@ define range(i32 0, 17) i32 @cli_regexec(ptr noundef readonly captures(none) %0,
   %.pre143.i.i = and i32 %.1113.i.i, 255
   %.pre145.i.i = zext nneg i32 %.pre143.i.i to i64
   %.pre231.i = load ptr, ptr %.pre.i.i, align 8, !tbaa !38
-  %.phi.trans.insert.i = getelementptr inbounds nuw i16, ptr %.pre231.i, i64 %.pre145.i.i
+  %.phi.trans.insert.i = getelementptr inbounds nuw [2 x i8], ptr %.pre231.i, i64 %.pre145.i.i
   %.pre232.i = load i16, ptr %.phi.trans.insert.i, align 2, !tbaa !40
   %.pre236.i = and i16 %.pre232.i, 8
   br label %.thread135.i.i
@@ -332,7 +330,7 @@ define range(i32 0, 17) i32 @cli_regexec(ptr noundef readonly captures(none) %0,
 157:                                              ; preds = %156
   %158 = and i32 %106, 255
   %159 = zext nneg i32 %158 to i64
-  %160 = getelementptr inbounds nuw i16, ptr %151, i64 %159
+  %160 = getelementptr inbounds nuw [2 x i8], ptr %151, i64 %159
   %161 = load i16, ptr %160, align 2, !tbaa !40
   %162 = and i16 %161, 8
   %163 = icmp ne i16 %162, 0
@@ -556,11 +554,11 @@ sfast.exit.i:                                     ; preds = %.thread.thread.i.i
   %indvars.iv.i = phi i64 [ 1, %.preheader.i ], [ %indvars.iv.next.i, %261 ]
   %256 = load i64, ptr %253, align 8, !tbaa !44
   %.not170.i = icmp ult i64 %256, %indvars.iv.i
-  %257 = getelementptr inbounds nuw %struct.regmatch_t, ptr %3, i64 %indvars.iv.i
+  %257 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv.i
   br i1 %.not170.i, label %260, label %258
 
 258:                                              ; preds = %255
-  %259 = getelementptr inbounds nuw %struct.regmatch_t, ptr %254, i64 %indvars.iv.i
+  %259 = getelementptr inbounds nuw [16 x i8], ptr %254, i64 %indvars.iv.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %257, ptr noundef nonnull align 8 dereferenceable(16) %259, i64 16, i1 false), !tbaa.struct !47
   br label %261
 
@@ -852,7 +850,7 @@ smatcher.exit:                                    ; preds = %39, %._crit_edge.i,
   %399 = load ptr, ptr %398, align 8, !tbaa !38
   %400 = and i32 %.1122.i.i, 255
   %401 = zext nneg i32 %400 to i64
-  %402 = getelementptr inbounds nuw i16, ptr %399, i64 %401
+  %402 = getelementptr inbounds nuw [2 x i8], ptr %399, i64 %401
   %403 = load i16, ptr %402, align 2, !tbaa !40
   %404 = and i16 %403, 8
   %405 = icmp eq i16 %404, 0
@@ -875,7 +873,7 @@ smatcher.exit:                                    ; preds = %39, %._crit_edge.i,
   %410 = phi ptr [ %.pre.i53, %._crit_edge.i.i52 ], [ %399, %397 ]
   %411 = and i32 %362, 255
   %412 = zext nneg i32 %411 to i64
-  %413 = getelementptr inbounds nuw i16, ptr %410, i64 %412
+  %413 = getelementptr inbounds nuw [2 x i8], ptr %410, i64 %412
   %414 = load i16, ptr %413, align 2, !tbaa !40
   %415 = and i16 %414, 8
   %416 = icmp ne i16 %415, 0
@@ -894,7 +892,7 @@ smatcher.exit:                                    ; preds = %39, %._crit_edge.i,
   %.pre153.i.i = and i32 %.1122.i.i, 255
   %.pre155.i.i = zext nneg i32 %.pre153.i.i to i64
   %.pre251.i = load ptr, ptr %.pre.i.i49, align 8, !tbaa !38
-  %.phi.trans.insert.i50 = getelementptr inbounds nuw i16, ptr %.pre251.i, i64 %.pre155.i.i
+  %.phi.trans.insert.i50 = getelementptr inbounds nuw [2 x i8], ptr %.pre251.i, i64 %.pre155.i.i
   %.pre252.i = load i16, ptr %.phi.trans.insert.i50, align 2, !tbaa !40
   %.pre255.i = and i16 %.pre252.i, 8
   br label %.thread145.i.i
@@ -919,7 +917,7 @@ smatcher.exit:                                    ; preds = %39, %._crit_edge.i,
 425:                                              ; preds = %424
   %426 = and i32 %362, 255
   %427 = zext nneg i32 %426 to i64
-  %428 = getelementptr inbounds nuw i16, ptr %419, i64 %427
+  %428 = getelementptr inbounds nuw [2 x i8], ptr %419, i64 %427
   %429 = load i16, ptr %428, align 2, !tbaa !40
   %430 = and i16 %429, 8
   %431 = icmp ne i16 %430, 0
@@ -1143,11 +1141,11 @@ lfast.exit.i:                                     ; preds = %.thread.thread.i.i3
   %indvars.iv.i44 = phi i64 [ 1, %.preheader.i43 ], [ %indvars.iv.next.i45, %536 ]
   %531 = load i64, ptr %528, align 8, !tbaa !44
   %.not191.i = icmp ult i64 %531, %indvars.iv.i44
-  %532 = getelementptr inbounds nuw %struct.regmatch_t, ptr %3, i64 %indvars.iv.i44
+  %532 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv.i44
   br i1 %.not191.i, label %535, label %533
 
 533:                                              ; preds = %530
-  %534 = getelementptr inbounds nuw %struct.regmatch_t, ptr %529, i64 %indvars.iv.i44
+  %534 = getelementptr inbounds nuw [16 x i8], ptr %529, i64 %indvars.iv.i44
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %532, ptr noundef nonnull align 8 dereferenceable(16) %534, i64 16, i1 false), !tbaa.struct !47
   br label %536
 
@@ -1322,7 +1320,7 @@ define internal fastcc ptr @sslow(ptr noundef nonnull readonly captures(none) %0
   %68 = load ptr, ptr %67, align 8, !tbaa !38
   %69 = and i32 %.1110, 255
   %70 = zext nneg i32 %69 to i64
-  %71 = getelementptr inbounds nuw i16, ptr %68, i64 %70
+  %71 = getelementptr inbounds nuw [2 x i8], ptr %68, i64 %70
   %72 = load i16, ptr %71, align 2, !tbaa !40
   %73 = and i16 %72, 8
   %74 = icmp eq i16 %73, 0
@@ -1345,7 +1343,7 @@ define internal fastcc ptr @sslow(ptr noundef nonnull readonly captures(none) %0
   %79 = load ptr, ptr %.pre-phi142, align 8, !tbaa !38
   %80 = and i32 %40, 255
   %81 = zext nneg i32 %80 to i64
-  %82 = getelementptr inbounds nuw i16, ptr %79, i64 %81
+  %82 = getelementptr inbounds nuw [2 x i8], ptr %79, i64 %81
   %83 = load i16, ptr %82, align 2, !tbaa !40
   %84 = and i16 %83, 8
   %85 = icmp ne i16 %84, 0
@@ -1370,7 +1368,7 @@ define internal fastcc ptr @sslow(ptr noundef nonnull readonly captures(none) %0
   %.pre-phi = phi ptr [ %.pre, %..thread129_crit_edge ], [ %67, %66 ]
   %.2104132 = phi i32 [ %.2104, %..thread129_crit_edge ], [ %.1103, %66 ]
   %88 = load ptr, ptr %.pre-phi, align 8, !tbaa !38
-  %89 = getelementptr inbounds nuw i16, ptr %88, i64 %.pre-phi140
+  %89 = getelementptr inbounds nuw [2 x i8], ptr %88, i64 %.pre-phi140
   %90 = load i16, ptr %89, align 2, !tbaa !40
   %91 = and i16 %90, 8
   %92 = icmp ne i16 %91, 0
@@ -1389,7 +1387,7 @@ define internal fastcc ptr @sslow(ptr noundef nonnull readonly captures(none) %0
 97:                                               ; preds = %96
   %98 = and i32 %40, 255
   %99 = zext nneg i32 %98 to i64
-  %100 = getelementptr inbounds nuw i16, ptr %88, i64 %99
+  %100 = getelementptr inbounds nuw [2 x i8], ptr %88, i64 %99
   %101 = load i16, ptr %100, align 2, !tbaa !40
   %102 = and i16 %101, 8
   %103 = icmp ne i16 %102, 0
@@ -1443,7 +1441,7 @@ define internal fastcc ptr @sdissect(ptr noundef nonnull %0, ptr noundef %1, ptr
   %.0146168 = phi i64 [ %3, %.lr.ph171 ], [ %25, %94 ]
   %10 = load ptr, ptr %0, align 8, !tbaa !27
   %11 = load ptr, ptr %10, align 8, !tbaa !64
-  %12 = getelementptr inbounds i64, ptr %11, i64 %.0146168
+  %12 = getelementptr inbounds [8 x i8], ptr %11, i64 %.0146168
   %13 = load i64, ptr %12, align 8, !tbaa !45
   %14 = trunc i64 %13 to i32
   %trunc = and i32 %14, -134217728
@@ -1468,7 +1466,7 @@ define internal fastcc ptr @sdissect(ptr noundef nonnull %0, ptr noundef %1, ptr
   %.1145162 = phi i64 [ %21, %.lr.ph ], [ %.0146168, %.preheader156 ]
   %20 = and i64 %19, 134217727
   %21 = add i64 %20, %.1145162
-  %22 = getelementptr inbounds i64, ptr %11, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %11, i64 %21
   %23 = load i64, ptr %22, align 8, !tbaa !45
   %24 = and i64 %23, 4160749568
   %.not = icmp eq i64 %24, 2415919104
@@ -1564,11 +1562,11 @@ define internal fastcc ptr @sdissect(ptr noundef nonnull %0, ptr noundef %1, ptr
 .lr.ph165:                                        ; preds = %58, %.lr.ph165
   %.0137164 = phi i64 [ %spec.select153, %.lr.ph165 ], [ %61, %58 ]
   %64 = add nsw i64 %.0137164, 1
-  %65 = getelementptr inbounds i64, ptr %11, i64 %64
+  %65 = getelementptr inbounds [8 x i8], ptr %11, i64 %64
   %66 = load i64, ptr %65, align 8, !tbaa !45
   %67 = and i64 %66, 134217727
   %68 = add i64 %67, %64
-  %69 = getelementptr inbounds i64, ptr %11, i64 %68
+  %69 = getelementptr inbounds [8 x i8], ptr %11, i64 %68
   %70 = load i64, ptr %69, align 8, !tbaa !45
   %71 = and i64 %70, 4160749568
   %72 = icmp eq i64 %71, 2281701376
@@ -1592,7 +1590,7 @@ define internal fastcc ptr @sdissect(ptr noundef nonnull %0, ptr noundef %1, ptr
   %81 = ptrtoint ptr %79 to i64
   %82 = sub i64 %80, %81
   %83 = load ptr, ptr %8, align 8, !tbaa !31
-  %84 = getelementptr inbounds nuw %struct.regmatch_t, ptr %83, i64 %78
+  %84 = getelementptr inbounds nuw [16 x i8], ptr %83, i64 %78
   store i64 %82, ptr %84, align 8, !tbaa !21
   br label %94
 
@@ -1603,7 +1601,7 @@ define internal fastcc ptr @sdissect(ptr noundef nonnull %0, ptr noundef %1, ptr
   %89 = ptrtoint ptr %87 to i64
   %90 = sub i64 %88, %89
   %91 = load ptr, ptr %8, align 8, !tbaa !31
-  %92 = getelementptr inbounds nuw %struct.regmatch_t, ptr %91, i64 %86
+  %92 = getelementptr inbounds nuw [16 x i8], ptr %91, i64 %86
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 8
   store i64 %90, ptr %93, align 8, !tbaa !23
   br label %94
@@ -1654,7 +1652,7 @@ define internal fastcc ptr @sbackref(ptr noundef nonnull %0, ptr noundef %1, ptr
 19:                                               ; preds = %.lr.ph, %.loopexit273
   %.0231341 = phi ptr [ %.tr267578, %.lr.ph ], [ %.1232, %.loopexit273 ]
   %.0233340 = phi i64 [ %.tr269579, %.lr.ph ], [ %155, %.loopexit273 ]
-  %20 = getelementptr inbounds i64, ptr %16, i64 %.0233340
+  %20 = getelementptr inbounds [8 x i8], ptr %16, i64 %.0233340
   %21 = load i64, ptr %20, align 8, !tbaa !45
   %22 = and i64 %21, 4160749568
   %23 = add nsw i64 %22, -268435456
@@ -1697,7 +1695,7 @@ define internal fastcc ptr @sbackref(ptr noundef nonnull %0, ptr noundef %1, ptr
 37:                                               ; preds = %35
   %38 = load ptr, ptr %18, align 8, !tbaa !65
   %39 = and i64 %21, 134217727
-  %40 = getelementptr inbounds nuw %struct.cset, ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %.0231341, i64 1
   %42 = load i8, ptr %.0231341, align 1, !tbaa !25
   %.val = load ptr, ptr %40, align 8, !tbaa !66
@@ -1779,7 +1777,7 @@ define internal fastcc ptr @sbackref(ptr noundef nonnull %0, ptr noundef %1, ptr
   %86 = load ptr, ptr %85, align 8, !tbaa !38
   %87 = load i8, ptr %.0231341, align 1, !tbaa !25
   %88 = zext i8 %87 to i64
-  %89 = getelementptr inbounds nuw i16, ptr %86, i64 %88
+  %89 = getelementptr inbounds nuw [2 x i8], ptr %86, i64 %88
   %90 = load i16, ptr %89, align 2, !tbaa !40
   %91 = and i16 %90, 8
   %.not253 = icmp ne i16 %91, 0
@@ -1807,7 +1805,7 @@ define internal fastcc ptr @sbackref(ptr noundef nonnull %0, ptr noundef %1, ptr
   %103 = getelementptr inbounds i8, ptr %.0231341, i64 -1
   %104 = load i8, ptr %103, align 1, !tbaa !25
   %105 = zext i8 %104 to i64
-  %106 = getelementptr inbounds nuw i16, ptr %86, i64 %105
+  %106 = getelementptr inbounds nuw [2 x i8], ptr %86, i64 %105
   %107 = load i16, ptr %106, align 2, !tbaa !40
   %108 = and i16 %107, 8
   %.not255 = icmp ne i16 %108, 0
@@ -1845,7 +1843,7 @@ define internal fastcc ptr @sbackref(ptr noundef nonnull %0, ptr noundef %1, ptr
   %125 = tail call ptr @__ctype_b_loc() #15
   %126 = load ptr, ptr %125, align 8, !tbaa !38
   %127 = zext i8 %119 to i64
-  %128 = getelementptr inbounds nuw i16, ptr %126, i64 %127
+  %128 = getelementptr inbounds nuw [2 x i8], ptr %126, i64 %127
   %129 = load i16, ptr %128, align 2, !tbaa !40
   %130 = and i16 %129, 8
   %.not251 = icmp ne i16 %130, 0
@@ -1864,7 +1862,7 @@ define internal fastcc ptr @sbackref(ptr noundef nonnull %0, ptr noundef %1, ptr
   %138 = getelementptr inbounds i8, ptr %.0231341, i64 -1
   %139 = load i8, ptr %138, align 1, !tbaa !25
   %140 = zext i8 %139 to i64
-  %141 = getelementptr inbounds nuw i16, ptr %137, i64 %140
+  %141 = getelementptr inbounds nuw [2 x i8], ptr %137, i64 %140
   %142 = load i16, ptr %141, align 2, !tbaa !40
   %143 = and i16 %142, 8
   %.not252 = icmp ne i16 %143, 0
@@ -1874,7 +1872,7 @@ define internal fastcc ptr @sbackref(ptr noundef nonnull %0, ptr noundef %1, ptr
 
 145:                                              ; preds = %19
   %146 = add nsw i64 %.0233340, 1
-  %147 = getelementptr inbounds i64, ptr %16, i64 %146
+  %147 = getelementptr inbounds [8 x i8], ptr %16, i64 %146
   %148 = load i64, ptr %147, align 8, !tbaa !45
   br label %149
 
@@ -1883,7 +1881,7 @@ define internal fastcc ptr @sbackref(ptr noundef nonnull %0, ptr noundef %1, ptr
   %.0225 = phi i64 [ %148, %145 ], [ %153, %149 ]
   %150 = and i64 %.0225, 134217727
   %151 = add i64 %150, %.1234
-  %152 = getelementptr inbounds i64, ptr %16, i64 %151
+  %152 = getelementptr inbounds [8 x i8], ptr %16, i64 %151
   %153 = load i64, ptr %152, align 8, !tbaa !45
   %154 = and i64 %153, 4160749568
   %.not248 = icmp eq i64 %154, 2415919104
@@ -1906,7 +1904,7 @@ define internal fastcc ptr @sbackref(ptr noundef nonnull %0, ptr noundef %1, ptr
   %158 = add nsw i64 %.0233340, 1
   %159 = load ptr, ptr %0, align 8, !tbaa !27
   %160 = load ptr, ptr %159, align 8, !tbaa !64
-  %161 = getelementptr inbounds i64, ptr %160, i64 %.0233340
+  %161 = getelementptr inbounds [8 x i8], ptr %160, i64 %.0233340
   %162 = load i64, ptr %161, align 8, !tbaa !45
   %163 = and i64 %162, 4160749568
   %164 = add nsw i64 %163, -939524096
@@ -1924,7 +1922,7 @@ define internal fastcc ptr @sbackref(ptr noundef nonnull %0, ptr noundef %1, ptr
 166:                                              ; preds = %157
   %167 = and i64 %162, 134217727
   %168 = load ptr, ptr %12, align 8, !tbaa !31
-  %169 = getelementptr inbounds nuw %struct.regmatch_t, ptr %168, i64 %167
+  %169 = getelementptr inbounds nuw [16 x i8], ptr %168, i64 %167
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 8
   %171 = load i64, ptr %170, align 8, !tbaa !23
   %172 = icmp eq i64 %171, -1
@@ -1961,7 +1959,7 @@ define internal fastcc ptr @sbackref(ptr noundef nonnull %0, ptr noundef %1, ptr
 
 188:                                              ; preds = %188, %.preheader
   %.3 = phi i64 [ %191, %188 ], [ %.0233340, %.preheader ]
-  %189 = getelementptr inbounds i64, ptr %160, i64 %.3
+  %189 = getelementptr inbounds [8 x i8], ptr %160, i64 %.3
   %190 = load i64, ptr %189, align 8, !tbaa !45
   %.not247 = icmp eq i64 %190, %187
   %191 = add nsw i64 %.3, 1
@@ -1986,7 +1984,7 @@ tailrecurse:                                      ; preds = %194
 199:                                              ; preds = %157
   %200 = load ptr, ptr %13, align 8, !tbaa !32
   %201 = add nsw i64 %.tr271.ph588, 1
-  %202 = getelementptr inbounds ptr, ptr %200, i64 %201
+  %202 = getelementptr inbounds [8 x i8], ptr %200, i64 %201
   store ptr %.0231341, ptr %202, align 8, !tbaa !69
   br label %tailrecurse.outer.backedge
 
@@ -1997,7 +1995,7 @@ tailrecurse.outer.backedge:                       ; preds = %199, %209, %216
 
 204:                                              ; preds = %157
   %205 = load ptr, ptr %13, align 8, !tbaa !32
-  %206 = getelementptr inbounds ptr, ptr %205, i64 %.tr271.ph588
+  %206 = getelementptr inbounds [8 x i8], ptr %205, i64 %.tr271.ph588
   %207 = load ptr, ptr %206, align 8, !tbaa !69
   %208 = icmp eq ptr %.0231341, %207
   br i1 %208, label %209, label %211
@@ -2030,7 +2028,7 @@ tailrecurse.outer.backedge:                       ; preds = %199, %209, %216
   %.0228345 = phi i64 [ %spec.select, %229 ], [ %221, %218 ]
   %223 = load ptr, ptr %0, align 8, !tbaa !27
   %224 = load ptr, ptr %223, align 8, !tbaa !64
-  %225 = getelementptr inbounds i64, ptr %224, i64 %.0228345
+  %225 = getelementptr inbounds [8 x i8], ptr %224, i64 %.0228345
   %226 = load i64, ptr %225, align 8, !tbaa !45
   %227 = and i64 %226, 4160749568
   %228 = icmp eq i64 %227, 2415919104
@@ -2039,11 +2037,11 @@ tailrecurse.outer.backedge:                       ; preds = %199, %209, %216
 229:                                              ; preds = %.lr.ph347
   %230 = add nsw i64 %.0228345, 1
   %231 = add nsw i64 %.0228345, 2
-  %232 = getelementptr inbounds i64, ptr %224, i64 %230
+  %232 = getelementptr inbounds [8 x i8], ptr %224, i64 %230
   %233 = load i64, ptr %232, align 8, !tbaa !45
   %234 = and i64 %233, 134217727
   %235 = add i64 %234, %230
-  %236 = getelementptr inbounds i64, ptr %224, i64 %235
+  %236 = getelementptr inbounds [8 x i8], ptr %224, i64 %235
   %237 = load i64, ptr %236, align 8, !tbaa !45
   %238 = and i64 %237, 4160749568
   %239 = icmp eq i64 %238, 2281701376
@@ -2056,7 +2054,7 @@ tailrecurse.outer.backedge:                       ; preds = %199, %209, %216
 242:                                              ; preds = %157
   %243 = and i64 %162, 134217727
   %244 = load ptr, ptr %12, align 8, !tbaa !31
-  %245 = getelementptr inbounds nuw %struct.regmatch_t, ptr %244, i64 %243
+  %245 = getelementptr inbounds nuw [16 x i8], ptr %244, i64 %243
   %246 = load i64, ptr %245, align 8, !tbaa !21
   %247 = load ptr, ptr %11, align 8, !tbaa !33
   %248 = ptrtoint ptr %.0231341 to i64
@@ -2069,14 +2067,14 @@ tailrecurse.outer.backedge:                       ; preds = %199, %209, %216
 
 252:                                              ; preds = %242
   %253 = load ptr, ptr %12, align 8, !tbaa !31
-  %254 = getelementptr inbounds nuw %struct.regmatch_t, ptr %253, i64 %243
+  %254 = getelementptr inbounds nuw [16 x i8], ptr %253, i64 %243
   store i64 %246, ptr %254, align 8, !tbaa !21
   br label %.loopexit
 
 255:                                              ; preds = %157
   %256 = and i64 %162, 134217727
   %257 = load ptr, ptr %12, align 8, !tbaa !31
-  %258 = getelementptr inbounds nuw %struct.regmatch_t, ptr %257, i64 %256
+  %258 = getelementptr inbounds nuw [16 x i8], ptr %257, i64 %256
   %259 = getelementptr inbounds nuw i8, ptr %258, i64 8
   %260 = load i64, ptr %259, align 8, !tbaa !23
   %261 = load ptr, ptr %11, align 8, !tbaa !33
@@ -2090,7 +2088,7 @@ tailrecurse.outer.backedge:                       ; preds = %199, %209, %216
 
 266:                                              ; preds = %255
   %267 = load ptr, ptr %12, align 8, !tbaa !31
-  %268 = getelementptr inbounds nuw %struct.regmatch_t, ptr %267, i64 %256
+  %268 = getelementptr inbounds nuw [16 x i8], ptr %267, i64 %256
   %269 = getelementptr inbounds nuw i8, ptr %268, i64 8
   store i64 %260, ptr %269, align 8, !tbaa !23
   br label %.loopexit
@@ -2127,7 +2125,7 @@ define internal fastcc i64 @sstep(ptr noundef readonly captures(none) %0, i64 no
   %.0135 = phi i64 [ %5, %.lr.ph137 ], [ %.1, %145 ]
   %.0115134 = phi i64 [ %7, %.lr.ph137 ], [ %147, %145 ]
   %.0117133 = phi i64 [ %1, %.lr.ph137 ], [ %146, %145 ]
-  %18 = getelementptr inbounds i64, ptr %8, i64 %.0117133
+  %18 = getelementptr inbounds [8 x i8], ptr %8, i64 %.0117133
   %19 = load i64, ptr %18, align 8, !tbaa !45
   %20 = and i64 %19, 4160749568
   %21 = add nsw i64 %20, -134217728
@@ -2217,7 +2215,7 @@ define internal fastcc i64 @sstep(ptr noundef readonly captures(none) %0, i64 no
 57:                                               ; preds = %56
   %58 = load ptr, ptr %10, align 8, !tbaa !65
   %59 = and i64 %19, 134217727
-  %60 = getelementptr inbounds nuw %struct.cset, ptr %58, i64 %59
+  %60 = getelementptr inbounds nuw [16 x i8], ptr %58, i64 %59
   %.val = load ptr, ptr %60, align 8, !tbaa !66
   %61 = getelementptr i8, ptr %60, i64 8
   %.val128 = load i8, ptr %61, align 8, !tbaa !68
@@ -2316,7 +2314,7 @@ define internal fastcc i64 @sstep(ptr noundef readonly captures(none) %0, i64 no
   %.0114131 = phi i64 [ %122, %.lr.ph ], [ 1, %.preheader ]
   %121 = and i64 %120, 134217727
   %122 = add i64 %121, %.0114131
-  %123 = getelementptr i64, ptr %18, i64 %122
+  %123 = getelementptr [8 x i8], ptr %18, i64 %122
   %124 = load i64, ptr %123, align 8, !tbaa !45
   %125 = and i64 %124, 4160749568
   %.not123 = icmp eq i64 %125, 2415919104
@@ -2337,7 +2335,7 @@ define internal fastcc i64 @sstep(ptr noundef readonly captures(none) %0, i64 no
   %131 = shl i64 %130, 1
   %132 = or i64 %131, %.0135
   %133 = and i64 %19, 134217727
-  %134 = getelementptr i64, ptr %18, i64 %133
+  %134 = getelementptr [8 x i8], ptr %18, i64 %133
   %135 = load i64, ptr %134, align 8, !tbaa !45
   %136 = and i64 %135, 4160749568
   %.not121 = icmp eq i64 %136, 2415919104
@@ -2527,7 +2525,7 @@ define internal fastcc ptr @lslow(ptr noundef nonnull readonly captures(none) %0
   %81 = load ptr, ptr %80, align 8, !tbaa !38
   %82 = and i32 %.1117, 255
   %83 = zext nneg i32 %82 to i64
-  %84 = getelementptr inbounds nuw i16, ptr %81, i64 %83
+  %84 = getelementptr inbounds nuw [2 x i8], ptr %81, i64 %83
   %85 = load i16, ptr %84, align 2, !tbaa !40
   %86 = and i16 %85, 8
   %87 = icmp eq i16 %86, 0
@@ -2550,7 +2548,7 @@ define internal fastcc ptr @lslow(ptr noundef nonnull readonly captures(none) %0
   %92 = load ptr, ptr %.pre-phi152, align 8, !tbaa !38
   %93 = and i32 %44, 255
   %94 = zext nneg i32 %93 to i64
-  %95 = getelementptr inbounds nuw i16, ptr %92, i64 %94
+  %95 = getelementptr inbounds nuw [2 x i8], ptr %92, i64 %94
   %96 = load i16, ptr %95, align 2, !tbaa !40
   %97 = and i16 %96, 8
   %98 = icmp ne i16 %97, 0
@@ -2575,7 +2573,7 @@ define internal fastcc ptr @lslow(ptr noundef nonnull readonly captures(none) %0
   %.pre-phi = phi ptr [ %.pre146, %..thread135_crit_edge ], [ %80, %79 ]
   %.2111138 = phi i32 [ %.2111, %..thread135_crit_edge ], [ %.1110, %79 ]
   %101 = load ptr, ptr %.pre-phi, align 8, !tbaa !38
-  %102 = getelementptr inbounds nuw i16, ptr %101, i64 %.pre-phi150
+  %102 = getelementptr inbounds nuw [2 x i8], ptr %101, i64 %.pre-phi150
   %103 = load i16, ptr %102, align 2, !tbaa !40
   %104 = and i16 %103, 8
   %105 = icmp ne i16 %104, 0
@@ -2594,7 +2592,7 @@ define internal fastcc ptr @lslow(ptr noundef nonnull readonly captures(none) %0
 110:                                              ; preds = %109
   %111 = and i32 %44, 255
   %112 = zext nneg i32 %111 to i64
-  %113 = getelementptr inbounds nuw i16, ptr %101, i64 %112
+  %113 = getelementptr inbounds nuw [2 x i8], ptr %101, i64 %112
   %114 = load i16, ptr %113, align 2, !tbaa !40
   %115 = and i16 %114, 8
   %116 = icmp ne i16 %115, 0
@@ -2656,7 +2654,7 @@ define internal fastcc ptr @ldissect(ptr noundef nonnull %0, ptr noundef %1, ptr
   %.0146168 = phi i64 [ %3, %.lr.ph171 ], [ %25, %100 ]
   %10 = load ptr, ptr %0, align 8, !tbaa !48
   %11 = load ptr, ptr %10, align 8, !tbaa !64
-  %12 = getelementptr inbounds i64, ptr %11, i64 %.0146168
+  %12 = getelementptr inbounds [8 x i8], ptr %11, i64 %.0146168
   %13 = load i64, ptr %12, align 8, !tbaa !45
   %14 = trunc i64 %13 to i32
   %trunc = and i32 %14, -134217728
@@ -2681,7 +2679,7 @@ define internal fastcc ptr @ldissect(ptr noundef nonnull %0, ptr noundef %1, ptr
   %.1145162 = phi i64 [ %21, %.lr.ph ], [ %.0146168, %.preheader156 ]
   %20 = and i64 %19, 134217727
   %21 = add i64 %20, %.1145162
-  %22 = getelementptr inbounds i64, ptr %11, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %11, i64 %21
   %23 = load i64, ptr %22, align 8, !tbaa !45
   %24 = and i64 %23, 4160749568
   %.not = icmp eq i64 %24, 2415919104
@@ -2768,7 +2766,7 @@ define internal fastcc ptr @ldissect(ptr noundef nonnull %0, ptr noundef %1, ptr
 58:                                               ; preds = %.preheader
   %59 = load ptr, ptr %0, align 8, !tbaa !48
   %60 = load ptr, ptr %59, align 8, !tbaa !64
-  %61 = getelementptr inbounds i64, ptr %60, i64 %.0146168
+  %61 = getelementptr inbounds [8 x i8], ptr %60, i64 %.0146168
   %62 = load i64, ptr %61, align 8, !tbaa !45
   %63 = and i64 %62, 134217727
   %64 = add nsw i64 %.0146168, -1
@@ -2783,11 +2781,11 @@ define internal fastcc ptr @ldissect(ptr noundef nonnull %0, ptr noundef %1, ptr
   %68 = add nsw i64 %.0137164, 1
   %69 = load ptr, ptr %0, align 8, !tbaa !48
   %70 = load ptr, ptr %69, align 8, !tbaa !64
-  %71 = getelementptr inbounds i64, ptr %70, i64 %68
+  %71 = getelementptr inbounds [8 x i8], ptr %70, i64 %68
   %72 = load i64, ptr %71, align 8, !tbaa !45
   %73 = and i64 %72, 134217727
   %74 = add i64 %73, %68
-  %75 = getelementptr inbounds i64, ptr %70, i64 %74
+  %75 = getelementptr inbounds [8 x i8], ptr %70, i64 %74
   %76 = load i64, ptr %75, align 8, !tbaa !45
   %77 = and i64 %76, 4160749568
   %78 = icmp eq i64 %77, 2281701376
@@ -2811,7 +2809,7 @@ define internal fastcc ptr @ldissect(ptr noundef nonnull %0, ptr noundef %1, ptr
   %87 = ptrtoint ptr %85 to i64
   %88 = sub i64 %86, %87
   %89 = load ptr, ptr %8, align 8, !tbaa !51
-  %90 = getelementptr inbounds nuw %struct.regmatch_t, ptr %89, i64 %84
+  %90 = getelementptr inbounds nuw [16 x i8], ptr %89, i64 %84
   store i64 %88, ptr %90, align 8, !tbaa !21
   br label %100
 
@@ -2822,7 +2820,7 @@ define internal fastcc ptr @ldissect(ptr noundef nonnull %0, ptr noundef %1, ptr
   %95 = ptrtoint ptr %93 to i64
   %96 = sub i64 %94, %95
   %97 = load ptr, ptr %8, align 8, !tbaa !51
-  %98 = getelementptr inbounds nuw %struct.regmatch_t, ptr %97, i64 %92
+  %98 = getelementptr inbounds nuw [16 x i8], ptr %97, i64 %92
   %99 = getelementptr inbounds nuw i8, ptr %98, i64 8
   store i64 %96, ptr %99, align 8, !tbaa !23
   br label %100
@@ -2873,7 +2871,7 @@ define internal fastcc ptr @lbackref(ptr noundef nonnull %0, ptr noundef %1, ptr
 19:                                               ; preds = %.lr.ph, %.loopexit273
   %.0231341 = phi ptr [ %.tr267578, %.lr.ph ], [ %.1232, %.loopexit273 ]
   %.0233340 = phi i64 [ %.tr269579, %.lr.ph ], [ %155, %.loopexit273 ]
-  %20 = getelementptr inbounds i64, ptr %16, i64 %.0233340
+  %20 = getelementptr inbounds [8 x i8], ptr %16, i64 %.0233340
   %21 = load i64, ptr %20, align 8, !tbaa !45
   %22 = and i64 %21, 4160749568
   %23 = add nsw i64 %22, -268435456
@@ -2916,7 +2914,7 @@ define internal fastcc ptr @lbackref(ptr noundef nonnull %0, ptr noundef %1, ptr
 37:                                               ; preds = %35
   %38 = load ptr, ptr %18, align 8, !tbaa !65
   %39 = and i64 %21, 134217727
-  %40 = getelementptr inbounds nuw %struct.cset, ptr %38, i64 %39
+  %40 = getelementptr inbounds nuw [16 x i8], ptr %38, i64 %39
   %41 = getelementptr inbounds nuw i8, ptr %.0231341, i64 1
   %42 = load i8, ptr %.0231341, align 1, !tbaa !25
   %.val = load ptr, ptr %40, align 8, !tbaa !66
@@ -2998,7 +2996,7 @@ define internal fastcc ptr @lbackref(ptr noundef nonnull %0, ptr noundef %1, ptr
   %86 = load ptr, ptr %85, align 8, !tbaa !38
   %87 = load i8, ptr %.0231341, align 1, !tbaa !25
   %88 = zext i8 %87 to i64
-  %89 = getelementptr inbounds nuw i16, ptr %86, i64 %88
+  %89 = getelementptr inbounds nuw [2 x i8], ptr %86, i64 %88
   %90 = load i16, ptr %89, align 2, !tbaa !40
   %91 = and i16 %90, 8
   %.not253 = icmp ne i16 %91, 0
@@ -3026,7 +3024,7 @@ define internal fastcc ptr @lbackref(ptr noundef nonnull %0, ptr noundef %1, ptr
   %103 = getelementptr inbounds i8, ptr %.0231341, i64 -1
   %104 = load i8, ptr %103, align 1, !tbaa !25
   %105 = zext i8 %104 to i64
-  %106 = getelementptr inbounds nuw i16, ptr %86, i64 %105
+  %106 = getelementptr inbounds nuw [2 x i8], ptr %86, i64 %105
   %107 = load i16, ptr %106, align 2, !tbaa !40
   %108 = and i16 %107, 8
   %.not255 = icmp ne i16 %108, 0
@@ -3064,7 +3062,7 @@ define internal fastcc ptr @lbackref(ptr noundef nonnull %0, ptr noundef %1, ptr
   %125 = tail call ptr @__ctype_b_loc() #15
   %126 = load ptr, ptr %125, align 8, !tbaa !38
   %127 = zext i8 %119 to i64
-  %128 = getelementptr inbounds nuw i16, ptr %126, i64 %127
+  %128 = getelementptr inbounds nuw [2 x i8], ptr %126, i64 %127
   %129 = load i16, ptr %128, align 2, !tbaa !40
   %130 = and i16 %129, 8
   %.not251 = icmp ne i16 %130, 0
@@ -3083,7 +3081,7 @@ define internal fastcc ptr @lbackref(ptr noundef nonnull %0, ptr noundef %1, ptr
   %138 = getelementptr inbounds i8, ptr %.0231341, i64 -1
   %139 = load i8, ptr %138, align 1, !tbaa !25
   %140 = zext i8 %139 to i64
-  %141 = getelementptr inbounds nuw i16, ptr %137, i64 %140
+  %141 = getelementptr inbounds nuw [2 x i8], ptr %137, i64 %140
   %142 = load i16, ptr %141, align 2, !tbaa !40
   %143 = and i16 %142, 8
   %.not252 = icmp ne i16 %143, 0
@@ -3093,7 +3091,7 @@ define internal fastcc ptr @lbackref(ptr noundef nonnull %0, ptr noundef %1, ptr
 
 145:                                              ; preds = %19
   %146 = add nsw i64 %.0233340, 1
-  %147 = getelementptr inbounds i64, ptr %16, i64 %146
+  %147 = getelementptr inbounds [8 x i8], ptr %16, i64 %146
   %148 = load i64, ptr %147, align 8, !tbaa !45
   br label %149
 
@@ -3102,7 +3100,7 @@ define internal fastcc ptr @lbackref(ptr noundef nonnull %0, ptr noundef %1, ptr
   %.0225 = phi i64 [ %148, %145 ], [ %153, %149 ]
   %150 = and i64 %.0225, 134217727
   %151 = add i64 %150, %.1234
-  %152 = getelementptr inbounds i64, ptr %16, i64 %151
+  %152 = getelementptr inbounds [8 x i8], ptr %16, i64 %151
   %153 = load i64, ptr %152, align 8, !tbaa !45
   %154 = and i64 %153, 4160749568
   %.not248 = icmp eq i64 %154, 2415919104
@@ -3125,7 +3123,7 @@ define internal fastcc ptr @lbackref(ptr noundef nonnull %0, ptr noundef %1, ptr
   %158 = add nsw i64 %.0233340, 1
   %159 = load ptr, ptr %0, align 8, !tbaa !48
   %160 = load ptr, ptr %159, align 8, !tbaa !64
-  %161 = getelementptr inbounds i64, ptr %160, i64 %.0233340
+  %161 = getelementptr inbounds [8 x i8], ptr %160, i64 %.0233340
   %162 = load i64, ptr %161, align 8, !tbaa !45
   %163 = and i64 %162, 4160749568
   %164 = add nsw i64 %163, -939524096
@@ -3143,7 +3141,7 @@ define internal fastcc ptr @lbackref(ptr noundef nonnull %0, ptr noundef %1, ptr
 166:                                              ; preds = %157
   %167 = and i64 %162, 134217727
   %168 = load ptr, ptr %12, align 8, !tbaa !51
-  %169 = getelementptr inbounds nuw %struct.regmatch_t, ptr %168, i64 %167
+  %169 = getelementptr inbounds nuw [16 x i8], ptr %168, i64 %167
   %170 = getelementptr inbounds nuw i8, ptr %169, i64 8
   %171 = load i64, ptr %170, align 8, !tbaa !23
   %172 = icmp eq i64 %171, -1
@@ -3180,7 +3178,7 @@ define internal fastcc ptr @lbackref(ptr noundef nonnull %0, ptr noundef %1, ptr
 
 188:                                              ; preds = %188, %.preheader
   %.3 = phi i64 [ %191, %188 ], [ %.0233340, %.preheader ]
-  %189 = getelementptr inbounds i64, ptr %160, i64 %.3
+  %189 = getelementptr inbounds [8 x i8], ptr %160, i64 %.3
   %190 = load i64, ptr %189, align 8, !tbaa !45
   %.not247 = icmp eq i64 %190, %187
   %191 = add nsw i64 %.3, 1
@@ -3205,7 +3203,7 @@ tailrecurse:                                      ; preds = %194
 199:                                              ; preds = %157
   %200 = load ptr, ptr %13, align 8, !tbaa !52
   %201 = add nsw i64 %.tr271.ph588, 1
-  %202 = getelementptr inbounds ptr, ptr %200, i64 %201
+  %202 = getelementptr inbounds [8 x i8], ptr %200, i64 %201
   store ptr %.0231341, ptr %202, align 8, !tbaa !69
   br label %tailrecurse.outer.backedge
 
@@ -3216,7 +3214,7 @@ tailrecurse.outer.backedge:                       ; preds = %199, %209, %216
 
 204:                                              ; preds = %157
   %205 = load ptr, ptr %13, align 8, !tbaa !52
-  %206 = getelementptr inbounds ptr, ptr %205, i64 %.tr271.ph588
+  %206 = getelementptr inbounds [8 x i8], ptr %205, i64 %.tr271.ph588
   %207 = load ptr, ptr %206, align 8, !tbaa !69
   %208 = icmp eq ptr %.0231341, %207
   br i1 %208, label %209, label %211
@@ -3249,7 +3247,7 @@ tailrecurse.outer.backedge:                       ; preds = %199, %209, %216
   %.0228345 = phi i64 [ %spec.select, %229 ], [ %221, %218 ]
   %223 = load ptr, ptr %0, align 8, !tbaa !48
   %224 = load ptr, ptr %223, align 8, !tbaa !64
-  %225 = getelementptr inbounds i64, ptr %224, i64 %.0228345
+  %225 = getelementptr inbounds [8 x i8], ptr %224, i64 %.0228345
   %226 = load i64, ptr %225, align 8, !tbaa !45
   %227 = and i64 %226, 4160749568
   %228 = icmp eq i64 %227, 2415919104
@@ -3258,11 +3256,11 @@ tailrecurse.outer.backedge:                       ; preds = %199, %209, %216
 229:                                              ; preds = %.lr.ph347
   %230 = add nsw i64 %.0228345, 1
   %231 = add nsw i64 %.0228345, 2
-  %232 = getelementptr inbounds i64, ptr %224, i64 %230
+  %232 = getelementptr inbounds [8 x i8], ptr %224, i64 %230
   %233 = load i64, ptr %232, align 8, !tbaa !45
   %234 = and i64 %233, 134217727
   %235 = add i64 %234, %230
-  %236 = getelementptr inbounds i64, ptr %224, i64 %235
+  %236 = getelementptr inbounds [8 x i8], ptr %224, i64 %235
   %237 = load i64, ptr %236, align 8, !tbaa !45
   %238 = and i64 %237, 4160749568
   %239 = icmp eq i64 %238, 2281701376
@@ -3275,7 +3273,7 @@ tailrecurse.outer.backedge:                       ; preds = %199, %209, %216
 242:                                              ; preds = %157
   %243 = and i64 %162, 134217727
   %244 = load ptr, ptr %12, align 8, !tbaa !51
-  %245 = getelementptr inbounds nuw %struct.regmatch_t, ptr %244, i64 %243
+  %245 = getelementptr inbounds nuw [16 x i8], ptr %244, i64 %243
   %246 = load i64, ptr %245, align 8, !tbaa !21
   %247 = load ptr, ptr %11, align 8, !tbaa !53
   %248 = ptrtoint ptr %.0231341 to i64
@@ -3288,14 +3286,14 @@ tailrecurse.outer.backedge:                       ; preds = %199, %209, %216
 
 252:                                              ; preds = %242
   %253 = load ptr, ptr %12, align 8, !tbaa !51
-  %254 = getelementptr inbounds nuw %struct.regmatch_t, ptr %253, i64 %243
+  %254 = getelementptr inbounds nuw [16 x i8], ptr %253, i64 %243
   store i64 %246, ptr %254, align 8, !tbaa !21
   br label %.loopexit
 
 255:                                              ; preds = %157
   %256 = and i64 %162, 134217727
   %257 = load ptr, ptr %12, align 8, !tbaa !51
-  %258 = getelementptr inbounds nuw %struct.regmatch_t, ptr %257, i64 %256
+  %258 = getelementptr inbounds nuw [16 x i8], ptr %257, i64 %256
   %259 = getelementptr inbounds nuw i8, ptr %258, i64 8
   %260 = load i64, ptr %259, align 8, !tbaa !23
   %261 = load ptr, ptr %11, align 8, !tbaa !53
@@ -3309,7 +3307,7 @@ tailrecurse.outer.backedge:                       ; preds = %199, %209, %216
 
 266:                                              ; preds = %255
   %267 = load ptr, ptr %12, align 8, !tbaa !51
-  %268 = getelementptr inbounds nuw %struct.regmatch_t, ptr %267, i64 %256
+  %268 = getelementptr inbounds nuw [16 x i8], ptr %267, i64 %256
   %269 = getelementptr inbounds nuw i8, ptr %268, i64 8
   store i64 %260, ptr %269, align 8, !tbaa !23
   br label %.loopexit
@@ -3341,7 +3339,7 @@ define internal fastcc noundef ptr @lstep(ptr noundef readonly captures(none) %0
   %.0135152 = phi i64 [ %1, %.lr.ph154 ], [ %186, %184 ]
   %.0136151 = phi i64 [ %1, %.lr.ph154 ], [ %185, %184 ]
   %16 = load ptr, ptr %0, align 8, !tbaa !64
-  %17 = getelementptr inbounds i64, ptr %16, i64 %.0136151
+  %17 = getelementptr inbounds [8 x i8], ptr %16, i64 %.0136151
   %18 = load i64, ptr %17, align 8, !tbaa !45
   %19 = and i64 %18, 4160749568
   %20 = add nsw i64 %19, -134217728
@@ -3455,7 +3453,7 @@ define internal fastcc noundef ptr @lstep(ptr noundef readonly captures(none) %0
 74:                                               ; preds = %73
   %75 = load ptr, ptr %8, align 8, !tbaa !65
   %76 = and i64 %18, 134217727
-  %77 = getelementptr inbounds nuw %struct.cset, ptr %75, i64 %76
+  %77 = getelementptr inbounds nuw [16 x i8], ptr %75, i64 %76
   %.val = load ptr, ptr %77, align 8, !tbaa !66
   %78 = getelementptr i8, ptr %77, i64 8
   %.val146 = load i8, ptr %78, align 8, !tbaa !68
@@ -3580,7 +3578,7 @@ define internal fastcc noundef ptr @lstep(ptr noundef readonly captures(none) %0
   %.0149 = phi i64 [ %154, %.lr.ph ], [ 1, %.preheader ]
   %153 = and i64 %152, 134217727
   %154 = add i64 %153, %.0149
-  %155 = getelementptr i64, ptr %17, i64 %154
+  %155 = getelementptr [8 x i8], ptr %17, i64 %154
   %156 = load i64, ptr %155, align 8, !tbaa !45
   %157 = and i64 %156, 4160749568
   %.not141 = icmp eq i64 %157, 2415919104
@@ -3604,8 +3602,8 @@ define internal fastcc noundef ptr @lstep(ptr noundef readonly captures(none) %0
   store i8 %167, ptr %165, align 1, !tbaa !25
   %168 = load ptr, ptr %0, align 8, !tbaa !64
   %169 = and i64 %18, 134217727
-  %170 = getelementptr i64, ptr %168, i64 %.0136151
-  %171 = getelementptr i64, ptr %170, i64 %169
+  %170 = getelementptr [8 x i8], ptr %168, i64 %.0136151
+  %171 = getelementptr [8 x i8], ptr %170, i64 %169
   %172 = load i64, ptr %171, align 8, !tbaa !45
   %173 = and i64 %172, 4160749568
   %.not139 = icmp eq i64 %173, 2415919104

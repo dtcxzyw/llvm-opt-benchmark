@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::DebugLoc" = type { %"class.llvm::TypedTrackingMDRef" }
 %"class.llvm::TypedTrackingMDRef" = type { %"class.llvm::TrackingMDRef" }
 %"class.llvm::TrackingMDRef" = type { ptr }
-%"class.llvm::LLT" = type { i64 }
 %"class.llvm::DstOp" = type <{ %union.anon, i32, [4 x i8] }>
 %union.anon = type { %"struct.llvm::MachineRegisterInfo::VRegAttrs" }
 %"struct.llvm::MachineRegisterInfo::VRegAttrs" = type { %"class.llvm::PointerUnion", %"class.llvm::LLT" }
@@ -16,6 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::pointer_union_detail::PointerUnionMembers.138" = type { %"class.llvm::PointerIntPair.139" }
 %"class.llvm::PointerIntPair.139" = type { %"struct.llvm::detail::PunnedPointer.140" }
 %"struct.llvm::detail::PunnedPointer.140" = type { [8 x i8] }
+%"class.llvm::LLT" = type { i64 }
 %"class.llvm::SrcOp" = type <{ %union.anon.205, i32, [4 x i8] }>
 %union.anon.205 = type { %"class.llvm::MachineInstrBuilder" }
 %"class.llvm::MachineInstrBuilder" = type { ptr, ptr }
@@ -493,7 +493,7 @@ define linkonce_odr hidden i64 @_ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterI
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 448
   %16 = zext nneg i32 %10 to i64
   %17 = load ptr, ptr %15, align 8, !tbaa !55
-  %18 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %17, i64 %16
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %17, i64 %16
   %19 = load i64, ptr %18, align 8, !tbaa !51
   br label %_ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit
 
@@ -1067,7 +1067,7 @@ _ZNK4llvm5SrcOp6getRegEv.exit.sink.split:         ; preds = %33, %46
   %51 = getelementptr inbounds nuw i8, ptr %26, i64 448
   %52 = zext nneg i32 %.sink280 to i64
   %53 = load ptr, ptr %51, align 8, !tbaa !55
-  %54 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %53, i64 %52
+  %54 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %52
   %55 = load i64, ptr %54, align 8, !tbaa !51
   br label %_ZNK4llvm5SrcOp6getRegEv.exit
 
@@ -1225,7 +1225,7 @@ _ZNK4llvm19MachineRegisterInfo7getTypeENS_8RegisterE.exit.sink.split.i92: ; pred
   %134 = getelementptr inbounds nuw i8, ptr %110, i64 448
   %135 = zext nneg i32 %.sink11.i93 to i64
   %136 = load ptr, ptr %134, align 8, !tbaa !55
-  %137 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %136, i64 %135
+  %137 = getelementptr inbounds nuw [8 x i8], ptr %136, i64 %135
   %138 = load i64, ptr %137, align 8, !tbaa !51
   br label %_ZNK4llvm5SrcOp8getLLTTyERKNS_19MachineRegisterInfoE.exit94
 
@@ -1602,7 +1602,7 @@ _ZNSt14_Optional_baseIN4llvm5APIntELb0ELb0EED2Ev.exit117: ; preds = %_ZNK4llvm5S
   %318 = getelementptr inbounds nuw i8, ptr %305, i64 448
   %319 = zext nneg i32 %313 to i64
   %320 = load ptr, ptr %318, align 8, !tbaa !55
-  %321 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %320, i64 %319
+  %321 = getelementptr inbounds nuw [8 x i8], ptr %320, i64 %319
   %322 = load i64, ptr %321, align 8, !tbaa !51
   br label %_ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterInfoE.exit
 
@@ -1820,7 +1820,7 @@ _ZNK4llvm3LLT13getScalarTypeEv.exit:              ; preds = %.lr.ph, %_ZN4llvm15
 426:                                              ; preds = %_ZNK4llvm3LLT13getScalarTypeEv.exit
   %427 = zext i32 %422 to i64
   %428 = load ptr, ptr %17, align 8, !tbaa !55
-  %429 = getelementptr inbounds nuw %"class.llvm::Register", ptr %428, i64 %427
+  %429 = getelementptr inbounds nuw [4 x i8], ptr %428, i64 %427
   store i32 %421, ptr %429, align 4, !tbaa !52
   %430 = load i32, ptr %391, align 8, !tbaa !53
   %431 = add i32 %430, 1
@@ -2157,7 +2157,7 @@ _ZNK4llvm13CSEMIRBuilder19canPerformCSEForOpcEj.exit.thread: ; preds = %3, %_ZNK
   %29 = getelementptr inbounds nuw i8, ptr %18, i64 448
   %30 = zext nneg i32 %24 to i64
   %31 = load ptr, ptr %29, align 8, !tbaa !55
-  %32 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %31, i64 %30
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %30
   br label %_ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterInfoE.exit
 
 33:                                               ; preds = %16
@@ -2366,7 +2366,7 @@ _ZNK4llvm13CSEMIRBuilder19canPerformCSEForOpcEj.exit.thread: ; preds = %3, %_ZNK
   %29 = getelementptr inbounds nuw i8, ptr %18, i64 448
   %30 = zext nneg i32 %24 to i64
   %31 = load ptr, ptr %29, align 8, !tbaa !55
-  %32 = getelementptr inbounds nuw %"class.llvm::LLT", ptr %31, i64 %30
+  %32 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %30
   br label %_ZNK4llvm5DstOp8getLLTTyERKNS_19MachineRegisterInfoE.exit
 
 33:                                               ; preds = %16
@@ -2774,14 +2774,14 @@ _ZN4llvm23SmallVectorTemplateBaseINS_8RegisterELb1EE9push_backES1_.exit: ; preds
   %11 = phi i32 [ %4, %2 ], [ %.pre.i, %7 ]
   %12 = load ptr, ptr %0, align 8, !tbaa !55
   %13 = zext i32 %11 to i64
-  %14 = getelementptr inbounds nuw %"class.llvm::Register", ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %13
   store i32 %.sroa.0.0.copyload, ptr %14, align 1
   %15 = load i32, ptr %3, align 8, !tbaa !53
   %16 = add i32 %15, 1
   store i32 %16, ptr %3, align 8, !tbaa !53
   %17 = load ptr, ptr %0, align 8, !tbaa !55
   %18 = zext i32 %16 to i64
-  %19 = getelementptr inbounds nuw %"class.llvm::Register", ptr %17, i64 %18
+  %19 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %18
   %20 = getelementptr inbounds i8, ptr %19, i64 -4
   ret ptr %20
 }

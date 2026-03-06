@@ -265,7 +265,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %37
 
 .lr.ph:                                           ; preds = %52, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %52 ]
-  %60 = getelementptr inbounds nuw i32, ptr %55, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %indvars.iv
   store i32 -1, ptr %60, align 4, !tbaa !28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %61 = load i32, ptr %17, align 8, !tbaa !4
@@ -275,7 +275,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %37
 
 64:                                               ; preds = %.lr.ph107, %96
   %indvars.iv109 = phi i64 [ 0, %.lr.ph107 ], [ %indvars.iv.next110, %96 ]
-  %65 = getelementptr inbounds nuw i32, ptr %59, i64 %indvars.iv109
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %59, i64 %indvars.iv109
   %66 = load i32, ptr %65, align 4, !tbaa !28
   %67 = add nsw i32 %66, -1
   store i32 %67, ptr %65, align 4, !tbaa !28
@@ -343,7 +343,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %37
 
 81:                                               ; preds = %69
   %82 = zext nneg i32 %67 to i64
-  %83 = getelementptr inbounds nuw i32, ptr %55, i64 %82
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %82
   %84 = load i32, ptr %83, align 4, !tbaa !28
   %85 = icmp sgt i32 %84, -1
   br i1 %85, label %86, label %96
@@ -471,7 +471,7 @@ define internal void @_ZL19init_output_permutePK10gmx_mtop_tP18gmx_ana_selvalue_
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.preheader ]
   %30 = load ptr, ptr %24, align 8, !tbaa !43
-  %31 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4, !tbaa !28
   %33 = add nsw i32 %32, %.024
   %34 = load ptr, ptr %6, align 8, !tbaa !17
@@ -658,12 +658,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %27
   %indvars.iv = phi i64 [ %indvars.iv.next, %74 ], [ 0, %.preheader ]
   %57 = phi i32 [ %76, %74 ], [ %55, %.preheader ]
   %58 = load ptr, ptr %49, align 8, !tbaa !43
-  %59 = getelementptr inbounds nuw i32, ptr %58, i64 %indvars.iv
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %indvars.iv
   %60 = load i32, ptr %59, align 4, !tbaa !28
   %61 = add nsw i32 %60, %.03864
   %62 = load ptr, ptr %50, align 8, !tbaa !47
   %63 = sext i32 %61 to i64
-  %64 = getelementptr inbounds i32, ptr %62, i64 %63
+  %64 = getelementptr inbounds [4 x i8], ptr %62, i64 %63
   %65 = load i32, ptr %64, align 4, !tbaa !28
   %.not44 = icmp eq i32 %65, -1
   br i1 %.not44, label %74, label %66
@@ -673,7 +673,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %27
   %68 = sub i32 %65, %67
   %69 = load ptr, ptr %51, align 8, !tbaa !23
   %70 = sext i32 %67 to i64
-  %71 = getelementptr inbounds i32, ptr %69, i64 %70
+  %71 = getelementptr inbounds [4 x i8], ptr %69, i64 %70
   %72 = load i32, ptr %71, align 4, !tbaa !28
   %73 = add nsw i32 %68, %72
   br label %74

@@ -434,7 +434,7 @@ default.unreachable:                              ; preds = %90, %67, %23
 
 56:                                               ; preds = %53
   %57 = load ptr, ptr %14, align 8, !alias.scope !39, !noalias !43, !nonnull !3, !noundef !3
-  %58 = getelementptr { { { { { i64, ptr, {} }, {} }, i64 } }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { { i64, ptr, {} }, {} }, i64 } }, { i32, [1 x i32] }, { i16, i8, i8, i8, i8, i8, [1 x i8] }, i64, i64, i64, i64, { { i64 } }, { i16, [1 x i16] }, i32, i32, { [1 x i8], i8 }, i8, i8, i8, i8, i8, [5 x i8] }, ptr %57, i64 %54
+  %58 = getelementptr [176 x i8], ptr %57, i64 %54
   %59 = getelementptr i8, ptr %58, i64 -8
   %60 = load i8, ptr %59, align 8, !range !42, !noundef !3
   %61 = trunc nuw i8 %60 to i1
@@ -516,7 +516,7 @@ common.resume:                                    ; preds = %108, %119, %45, %48
 
 .thread70:                                        ; preds = %40
   %82 = load ptr, ptr %14, align 8, !alias.scope !39, !noalias !43, !nonnull !3, !noundef !3
-  %83 = getelementptr { { { { { i64, ptr, {} }, {} }, i64 } }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { { i64, ptr, {} }, {} }, i64 } }, { i32, [1 x i32] }, { i16, i8, i8, i8, i8, i8, [1 x i8] }, i64, i64, i64, i64, { { i64 } }, { i16, [1 x i16] }, i32, i32, { [1 x i8], i8 }, i8, i8, i8, i8, i8, [5 x i8] }, ptr %82, i64 %41
+  %83 = getelementptr [176 x i8], ptr %82, i64 %41
   %84 = getelementptr i8, ptr %83, i64 -128
   %85 = getelementptr inbounds nuw i8, ptr %.sroa.0.048, i64 %.sroa.4.046
   call void @"_ZN132_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$alloc..vec..spec_extend..SpecExtend$LT$$RF$T$C$core..slice..iter..Iter$LT$T$GT$$GT$$GT$11spec_extend17hea52d0694f66c37eE"(ptr noalias noundef align 8 dereferenceable(24) %84, ptr noundef nonnull readonly align 1 %.sroa.0.048, ptr noundef nonnull readonly %85, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c29e402852bcc95957d70e585b81f13e.34), !noalias !39
@@ -861,7 +861,7 @@ define hidden void @"_ZN3zip5write60_$LT$impl$u20$zip..write..zip_writer..ZipWri
 88:                                               ; preds = %83, %76
   %89 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %90 = load ptr, ptr %89, align 8, !alias.scope !89, !noalias !92, !nonnull !3, !noundef !3
-  %91 = getelementptr inbounds nuw { { { { { i64, ptr, {} }, {} }, i64 } }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { { i64, ptr, {} }, {} }, i64 } }, { i32, [1 x i32] }, { i16, i8, i8, i8, i8, i8, [1 x i8] }, i64, i64, i64, i64, { { i64 } }, { i16, [1 x i16] }, i32, i32, { [1 x i8], i8 }, i8, i8, i8, i8, i8, [5 x i8] }, ptr %90, i64 %80
+  %91 = getelementptr inbounds nuw [176 x i8], ptr %90, i64 %80
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(176) %91, ptr noundef nonnull align 8 dereferenceable(176) %11, i64 176, i1 false), !noalias !74
   %92 = add i64 %80, 1
   store i64 %92, ptr %79, align 8, !alias.scope !89, !noalias !92
@@ -1027,7 +1027,7 @@ define internal fastcc void @"_ZN3zip5write60_$LT$impl$u20$zip..write..zip_write
   %.not.i = icmp eq i64 %19, 0
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %21 = load ptr, ptr %20, align 8, !alias.scope !102, !noalias !105, !nonnull !3
-  %22 = getelementptr { { { { { i64, ptr, {} }, {} }, i64 } }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { { i64, ptr, {} }, {} }, i64 } }, { i32, [1 x i32] }, { i16, i8, i8, i8, i8, i8, [1 x i8] }, i64, i64, i64, i64, { { i64 } }, { i16, [1 x i16] }, i32, i32, { [1 x i8], i8 }, i8, i8, i8, i8, i8, [5 x i8] }, ptr %21, i64 %19
+  %22 = getelementptr [176 x i8], ptr %21, i64 %19
   %23 = getelementptr i8, ptr %22, i64 -176
   %.not5264.i = icmp eq ptr %23, null
   %.not52.i = select i1 %.not.i, i1 true, i1 %.not5264.i
@@ -1487,7 +1487,7 @@ default.unreachable:                              ; preds = %"_ZN4core3ptr113dro
   %.not105 = icmp eq i64 %179, 0
   %180 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %181 = load ptr, ptr %180, align 8, !nonnull !3
-  %182 = getelementptr { { { { { i64, ptr, {} }, {} }, i64 } }, { { { i64, ptr, {} }, {} }, i64 }, { { { i64, ptr, {} }, {} }, i64 }, { { { { i64, ptr, {} }, {} }, i64 } }, { i32, [1 x i32] }, { i16, i8, i8, i8, i8, i8, [1 x i8] }, i64, i64, i64, i64, { { i64 } }, { i16, [1 x i16] }, i32, i32, { [1 x i8], i8 }, i8, i8, i8, i8, i8, [5 x i8] }, ptr %181, i64 %179
+  %182 = getelementptr [176 x i8], ptr %181, i64 %179
   %183 = getelementptr i8, ptr %182, i64 -176
   %.not106140 = icmp eq ptr %183, null
   %.not106 = select i1 %.not105, i1 true, i1 %.not106140

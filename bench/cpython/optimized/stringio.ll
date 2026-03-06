@@ -1278,9 +1278,9 @@ define internal ptr @stringio_iternext(ptr noundef %0) #0 {
 30:                                               ; preds = %23
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !21
-  %33 = getelementptr i32, ptr %32, i64 %25
+  %33 = getelementptr [4 x i8], ptr %32, i64 %25
   %34 = sub i64 %27, %25
-  %35 = getelementptr i32, ptr %32, i64 %27
+  %35 = getelementptr [4 x i8], ptr %32, i64 %27
   %36 = load i32, ptr %35, align 4, !tbaa !44
   store i32 0, ptr %35, align 4, !tbaa !44
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 67
@@ -2278,7 +2278,7 @@ define internal ptr @_io_StringIO_read(ptr noundef captures(none) %0, ptr nounde
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %46 = load ptr, ptr %45, align 8, !tbaa !21
   %47 = load i64, ptr %27, align 8, !tbaa !42
-  %48 = getelementptr i32, ptr %46, i64 %47
+  %48 = getelementptr [4 x i8], ptr %46, i64 %47
   %49 = add i64 %47, %.024.i
   store i64 %49, ptr %27, align 8, !tbaa !42
   %50 = call ptr @PyUnicode_FromKindAndData(i32 noundef 4, ptr noundef %48, i64 noundef %.024.i) #6
@@ -2362,12 +2362,12 @@ define internal ptr @_io_StringIO_readline(ptr noundef captures(none) %0, ptr no
 35:                                               ; preds = %28
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %37 = load ptr, ptr %36, align 8, !tbaa !21
-  %38 = getelementptr i32, ptr %37, i64 %30
+  %38 = getelementptr [4 x i8], ptr %37, i64 %30
   %39 = icmp slt i64 %14, 0
   %40 = sub i64 %32, %30
   %41 = call i64 @llvm.smin.i64(i64 %14, i64 %40)
   %spec.select34.i.i = select i1 %39, i64 %40, i64 %41
-  %42 = getelementptr i32, ptr %38, i64 %spec.select34.i.i
+  %42 = getelementptr [4 x i8], ptr %38, i64 %spec.select34.i.i
   %43 = load i32, ptr %42, align 4, !tbaa !44
   store i32 0, ptr %42, align 4, !tbaa !44
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 67
@@ -3425,7 +3425,7 @@ resize_buffer.exit:                               ; preds = %85, %60, %44
 91:                                               ; preds = %resize_buffer.exit
   %92 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %93 = load ptr, ptr %92, align 8, !tbaa !21
-  %94 = getelementptr i32, ptr %93, i64 %88
+  %94 = getelementptr [4 x i8], ptr %93, i64 %88
   %95 = sub i64 %89, %88
   %96 = shl i64 %95, 2
   tail call void @llvm.memset.p0.i64(ptr align 4 %94, i8 0, i64 %96, i1 false)
@@ -3436,7 +3436,7 @@ resize_buffer.exit:                               ; preds = %85, %60, %44
   %98 = phi i64 [ %.pre64, %91 ], [ %89, %resize_buffer.exit ]
   %99 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %100 = load ptr, ptr %99, align 8, !tbaa !21
-  %101 = getelementptr i32, ptr %100, i64 %98
+  %101 = getelementptr [4 x i8], ptr %100, i64 %98
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %103 = load i64, ptr %102, align 8, !tbaa !61
   %104 = sub i64 %103, %98

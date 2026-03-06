@@ -1654,7 +1654,7 @@ if.then5.i.i.i.i18.i:                             ; preds = %.noexc21.i
 invoke.cont1.i:                                   ; preds = %if.then5.i.i.i.i18.i, %.noexc21.i, %call1.i.i.i.i.noexc19.i, %if.then.i.i9.i, %land.lhs.true.i
   %12 = load i8, ptr %type_.i.i.i, align 2, !noalias !18
   %idxprom.i.i = zext i8 %12 to i64
-  %arrayidx.i.i = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %idxprom.i.i
+  %arrayidx.i.i = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %idxprom.i.i
   %13 = load i32, ptr %arrayidx.i.i, align 4, !noalias !18
   %cmp.not.i = icmp eq i32 %13, 10
   br i1 %cmp.not.i, label %invoke.cont1, label %invoke.cont3.i
@@ -1835,7 +1835,7 @@ invoke.cont3:                                     ; preds = %.noexc37, %call1.i.
   %type_.i.i = getelementptr inbounds nuw i8, ptr %field, i64 2
   %40 = load i8, ptr %type_.i.i, align 2
   %idxprom.i = zext i8 %40 to i64
-  %arrayidx.i = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %idxprom.i
   %41 = load i32, ptr %arrayidx.i, align 4
   %cmp = icmp eq i32 %41, 9
   br i1 %cmp, label %if.then5, label %if.else17
@@ -2301,7 +2301,7 @@ if.then5.i.i.i.i114:                              ; preds = %.noexc117
 invoke.cont18:                                    ; preds = %.noexc117, %call1.i.i.i.i.noexc115, %if.then.i.i104, %if.else17, %if.then5.i.i.i.i114
   %113 = load i8, ptr %type_.i.i, align 2
   %idxprom.i110 = zext i8 %113 to i64
-  %arrayidx.i111 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %idxprom.i110
+  %arrayidx.i111 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %idxprom.i110
   %114 = load i32, ptr %arrayidx.i111, align 4
   %cmp20.not = icmp eq i32 %114, 10
   br i1 %cmp20.not, label %lor.lhs.false, label %if.then23
@@ -2393,7 +2393,7 @@ if.then5.i.i.i.i.i151:                            ; preds = %.noexc.i149
 invoke.cont8.i:                                   ; preds = %if.then5.i.i.i.i.i151, %.noexc.i149, %call1.i.i.i.i.noexc.i137, %if.then.i.i.i132, %invoke.cont6.i
   %127 = load i8, ptr %type_.i.i, align 2, !noalias !48
   %idxprom.i.i140 = zext i8 %127 to i64
-  %arrayidx.i.i141 = getelementptr inbounds nuw i32, ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %idxprom.i.i140
+  %arrayidx.i.i141 = getelementptr inbounds nuw [4 x i8], ptr @_ZN6google8protobuf15FieldDescriptor17kTypeToCppTypeMapE, i64 %idxprom.i.i140
   %128 = load i32, ptr %arrayidx.i.i141, align 4, !noalias !48
   %cmp.not.i142 = icmp eq i32 %128, 10
   br i1 %cmp.not.i142, label %invoke.cont25, label %invoke.cont12.i143
@@ -3632,7 +3632,7 @@ for.body.i.i:                                     ; preds = %for.inc.i.i, %for.b
   %conv.i.i = zext nneg i32 %9 to i64
   %add.i.i.i = add i64 %seq.sroa.4.0.i.i, %conv.i.i
   %and.i.i.i = and i64 %add.i.i.i, %2
-  %add.ptr19.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %4, i64 %and.i.i.i
+  %add.ptr19.i.i = getelementptr inbounds [32 x i8], ptr %4, i64 %and.i.i.i
   %call.i.i.i.i.i.i = tail call { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32) %add.ptr19.i.i) #21
   %10 = extractvalue { i64, ptr } %call.i.i.i.i.i.i, 0
   %11 = extractvalue { i64, ptr } %call.i.i.i.i.i.i, 1
@@ -3654,7 +3654,7 @@ if.then.i.i:                                      ; preds = %_ZNSt11char_traitsI
   %12 = load ptr, ptr %this, align 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %12, i64 %and.i.i.i
   %13 = load ptr, ptr %slots_.i.i.i.i, align 8
-  %add.ptr3.i.i.i = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %13, i64 %and.i.i.i
+  %add.ptr3.i.i.i = getelementptr inbounds [32 x i8], ptr %13, i64 %and.i.i.i
   call void @llvm.assume(i1 true) [ "nonnull"(ptr %add.ptr.i.i.i) ]
   %.fca.0.insert.i.i.i = insertvalue { ptr, ptr } poison, ptr %add.ptr.i.i.i, 0
   %.fca.1.insert.i.i.i = insertvalue { ptr, ptr } %.fca.0.insert.i.i.i, ptr %add.ptr3.i.i.i, 1
@@ -3869,7 +3869,7 @@ _ZNSt12_Vector_baseIN6google8protobuf2io7Printer3SubESaIS4_EE13_M_deallocateEPS4
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i18, ptr %_M_finish.i.i, align 8
-  %add.ptr19 = getelementptr inbounds nuw %"class.google::protobuf::io::Printer::Sub", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr19 = getelementptr inbounds nuw [184 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr19, ptr %_M_end_of_storage, align 8
   ret void
 }
@@ -4309,7 +4309,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %_M_end_of_storage = getelementptr inbounds nuw i8, ptr %this, i64 16
   store ptr %call5.i.i.i, ptr %this, align 8
   store ptr %__cur.0.lcssa.i.i.i18, ptr %_M_finish.i.i, align 8
-  %add.ptr19 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %call5.i.i.i, i64 %cond.i
+  %add.ptr19 = getelementptr inbounds nuw [32 x i8], ptr %call5.i.i.i, i64 %cond.i
   store ptr %add.ptr19, ptr %_M_end_of_storage, align 8
   ret void
 }

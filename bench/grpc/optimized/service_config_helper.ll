@@ -63,7 +63,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>>, std::less<std::__cxx11::basic_string<char>>>::_Rb_tree_impl" = type { [8 x i8], %"struct.std::_Rb_tree_header" }
 %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, grpc_core::experimental::Json>>, std::less<std::__cxx11::basic_string<char>>>::_Reuse_or_alloc_node" = type { ptr, ptr, ptr }
 %class.anon = type { ptr }
-%"struct.grpc_core::(anonymous namespace)::ServiceConfigChoice" = type { %"class.std::vector.35", i32, %"class.std::vector.35", %"class.std::map" }
 
 $_ZN4absl12lts_202407226StatusD2Ev = comdat any
 
@@ -3078,7 +3077,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit25, %55
   store ptr %19, ptr %0, align 8, !tbaa !44
   store ptr %.0.lcssa.i.i.i24, ptr %3, align 8, !tbaa !45
-  %59 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %19, i64 %15
+  %59 = getelementptr inbounds nuw [32 x i8], ptr %19, i64 %15
   store ptr %59, ptr %54, align 8, !tbaa !52
   ret void
 }
@@ -3513,7 +3512,7 @@ _ZNSt6vectorIN9grpc_core12_GLOBAL__N_119ServiceConfigChoiceESaIS2_EE11_S_relocat
 _ZNSt6vectorIN9grpc_core12_GLOBAL__N_119ServiceConfigChoiceESaIS2_EE17_M_realloc_insertIJEEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %78, %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_119ServiceConfigChoiceESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit31.i.i
   store ptr %30, ptr %1, align 8, !tbaa !37
   store ptr %77, ptr %3, align 8, !tbaa !40
-  %82 = getelementptr inbounds nuw %"struct.grpc_core::(anonymous namespace)::ServiceConfigChoice", ptr %30, i64 %28
+  %82 = getelementptr inbounds nuw [104 x i8], ptr %30, i64 %28
   store ptr %82, ptr %5, align 8, !tbaa !41
   br label %_ZNSt6vectorIN9grpc_core12_GLOBAL__N_119ServiceConfigChoiceESaIS2_EE12emplace_backIJEEERS2_DpOT_.exit
 

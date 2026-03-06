@@ -510,7 +510,7 @@ define internal i32 @dissect_matter_tlv(ptr noundef %0, ptr noundef %1, ptr noun
   %43 = select i1 %.not71, i32 %42, i32 %41
   %44 = and i32 %38, 3
   %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr i32, ptr @dissect_matter_tlv.elem_sizes, i64 %45
+  %46 = getelementptr [4 x i8], ptr @dissect_matter_tlv.elem_sizes, i64 %45
   %47 = load i32, ptr %46, align 4
   %48 = call ptr @proto_tree_add_item(ptr noundef %17, i32 noundef %43, ptr noundef %0, i32 noundef %.266, i32 noundef %47, i32 noundef -2147483648)
   %49 = add i32 %47, %.266
@@ -519,7 +519,7 @@ define internal i32 @dissect_matter_tlv(ptr noundef %0, ptr noundef %1, ptr noun
 50:                                               ; preds = %37, %37, %37, %37
   %51 = and i32 %38, 3
   %52 = zext nneg i32 %51 to i64
-  %53 = getelementptr i32, ptr @dissect_matter_tlv.elem_sizes, i64 %52
+  %53 = getelementptr [4 x i8], ptr @dissect_matter_tlv.elem_sizes, i64 %52
   %54 = load i32, ptr %53, align 4
   %55 = load i32, ptr @hf_matter_tlv_elem_length, align 4
   %56 = call ptr @proto_tree_add_item_ret_uint64(ptr noundef %17, i32 noundef %55, ptr noundef %0, i32 noundef %.266, i32 noundef %54, i32 noundef -2147483648, ptr noundef nonnull %7)

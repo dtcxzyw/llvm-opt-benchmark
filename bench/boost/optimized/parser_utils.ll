@@ -1667,7 +1667,7 @@ _ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit190: ; preds =
   %275 = add nuw nsw i64 %53, 4
   %276 = ashr exact i64 %275, 2
   %277 = load i64, ptr %2, align 8, !tbaa !24
-  %278 = getelementptr inbounds nuw i32, ptr %55, i64 %277
+  %278 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %277
   %279 = icmp eq ptr %.sroa.0198.1, %278
   br i1 %279, label %280, label %281
 
@@ -1694,7 +1694,7 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5eraseEN9__gnu_cxx17__norma
   %289 = phi ptr [ %286, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5eraseEN9__gnu_cxx17__normal_iteratorIPKwS4_EES9_.exit192 ], [ %55, %157 ], [ %55, %257 ], [ %55, %58 ], [ %55, %59 ], [ %55, %60 ], [ %55, %61 ], [ %55, %63 ], [ %55, %64 ], [ %6, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPwNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEEwET_SA_SA_RKT0_.exit ], [ %55, %65 ], [ %55, %99 ], [ %97, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5eraseEN9__gnu_cxx17__normal_iteratorIPKwS4_EES9_.exit ], [ %55, %switch.early.test316 ], [ %55, %switch.early.test ], [ %155, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5eraseEN9__gnu_cxx17__normal_iteratorIPKwS4_EES9_.exit110 ], [ %55, %switch.early.test320 ], [ %55, %switch.early.test319 ], [ %55, %switch.early.test318 ], [ %55, %switch.early.test317 ], [ %.pre, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit190 ], [ %55, %switch.early.test328 ], [ %55, %switch.early.test327 ], [ %55, %switch.early.test326 ], [ %55, %switch.early.test325 ], [ %55, %switch.early.test324 ], [ %55, %switch.early.test323 ], [ %55, %switch.early.test322 ], [ %55, %switch.early.test321 ]
   %.sroa.0254.1 = phi ptr [ %287, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5eraseEN9__gnu_cxx17__normal_iteratorIPKwS4_EES9_.exit192 ], [ %56, %157 ], [ %56, %257 ], [ %56, %58 ], [ %56, %59 ], [ %56, %60 ], [ %62, %61 ], [ %56, %63 ], [ %56, %64 ], [ %.sroa.08.0.in.sroa.speculated.i.i.i, %_ZSt4findIN9__gnu_cxx17__normal_iteratorIPwNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEEwET_SA_SA_RKT0_.exit ], [ %56, %65 ], [ %56, %99 ], [ %98, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5eraseEN9__gnu_cxx17__normal_iteratorIPKwS4_EES9_.exit ], [ %56, %switch.early.test316 ], [ %56, %switch.early.test ], [ %156, %_ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEE5eraseEN9__gnu_cxx17__normal_iteratorIPKwS4_EES9_.exit110 ], [ %56, %switch.early.test320 ], [ %56, %switch.early.test319 ], [ %56, %switch.early.test318 ], [ %56, %switch.early.test317 ], [ %256, %_ZN5boost3log11v2_mt_posix3aux14char_constantsIwE9to_numberEw.exit190 ], [ %56, %switch.early.test328 ], [ %56, %switch.early.test327 ], [ %56, %switch.early.test326 ], [ %56, %switch.early.test325 ], [ %56, %switch.early.test324 ], [ %56, %switch.early.test323 ], [ %56, %switch.early.test322 ], [ %56, %switch.early.test321 ]
   %290 = load i64, ptr %2, align 8, !tbaa !24
-  %291 = getelementptr inbounds nuw i32, ptr %289, i64 %290
+  %291 = getelementptr inbounds nuw [4 x i8], ptr %289, i64 %290
   %.not = icmp eq ptr %.sroa.0254.1, %291
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 

@@ -95,7 +95,7 @@ _ZNK3ue29CharReach4noneEv.exit26:                 ; preds = %21
 
 .preheader155.split.us.i:                         ; preds = %.preheader155.i, %_ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit.thread.us.i
   %indvars.iv268.i = phi i64 [ %indvars.iv.next269.i, %_ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit.thread.us.i ], [ 1, %.preheader155.i ]
-  %26 = getelementptr %"class.ue2::CharReach", ptr %25, i64 %indvars.iv268.i
+  %26 = getelementptr [32 x i8], ptr %25, i64 %indvars.iv268.i
   %27 = load i64, ptr %26, align 8
   %28 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %27)
   %29 = getelementptr inbounds nuw i8, ptr %26, i64 8
@@ -139,7 +139,7 @@ _ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit.thread.us.i: ; preds = %42, %
 
 .critedge.i:                                      ; preds = %.preheader155.i, %_ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit.thread.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %_ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit.thread.i ], [ 1, %.preheader155.i ]
-  %59 = getelementptr %"class.ue2::CharReach", ptr %25, i64 %indvars.iv.i
+  %59 = getelementptr [32 x i8], ptr %25, i64 %indvars.iv.i
   %60 = getelementptr i8, ptr %59, i64 -32
   %61 = load i64, ptr %59, align 8
   %62 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %61)
@@ -174,7 +174,7 @@ _ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit.thread.us.i: ; preds = %42, %
 
 80:                                               ; preds = %83, %78
   %.0712.i.i.i = phi i64 [ 0, %78 ], [ %84, %83 ]
-  %81 = getelementptr inbounds nuw i64, ptr %26, i64 %.0712.i.i.i
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %.0712.i.i.i
   %82 = load i64, ptr %81, align 8
   %.not.i.i.i = icmp eq i64 %82, 0
   br i1 %.not.i.i.i, label %83, label %85
@@ -199,7 +199,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.i:          ; preds = %83, %85
 
 92:                                               ; preds = %95, %_ZNK3ue29CharReach10find_firstEv.exit.i
   %.0712.i.i87.i = phi i64 [ 0, %_ZNK3ue29CharReach10find_firstEv.exit.i ], [ %96, %95 ]
-  %93 = getelementptr inbounds nuw i64, ptr %75, i64 %.0712.i.i87.i
+  %93 = getelementptr inbounds nuw [8 x i8], ptr %75, i64 %.0712.i.i87.i
   %94 = load i64, ptr %93, align 8
   %.not.i.i88.i = icmp eq i64 %94, 0
   br i1 %.not.i.i88.i, label %95, label %97
@@ -224,7 +224,7 @@ _ZNK3ue29CharReach10find_firstEv.exit90.i:        ; preds = %95, %97
 
 .preheader.i.i:                                   ; preds = %.critedge.i, %106
   %.0712.i.i.i.i = phi i64 [ %107, %106 ], [ 0, %.critedge.i ]
-  %104 = getelementptr inbounds nuw i64, ptr %59, i64 %.0712.i.i.i.i
+  %104 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %.0712.i.i.i.i
   %105 = load i64, ptr %104, align 8
   %.not.i.i.i.i = icmp eq i64 %105, 0
   br i1 %.not.i.i.i.i, label %106, label %_ZNK3ue29CharReach10find_firstEv.exit.i.i
@@ -244,7 +244,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.thread.i.i.preheader: ; preds = %106, %_ZN
 
 _ZNK3ue29CharReach10find_firstEv.exit.thread.i.i: ; preds = %_ZNK3ue29CharReach10find_firstEv.exit.thread.i.i.preheader, %111
   %.0712.i.i4.i.i = phi i64 [ %112, %111 ], [ 0, %_ZNK3ue29CharReach10find_firstEv.exit.thread.i.i.preheader ]
-  %109 = getelementptr inbounds nuw i64, ptr %59, i64 %.0712.i.i4.i.i
+  %109 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %.0712.i.i4.i.i
   %110 = load i64, ptr %109, align 8
   %.not.i.i5.i.i = icmp eq i64 %110, 0
   br i1 %.not.i.i5.i.i, label %111, label %113
@@ -265,7 +265,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.thread.i.i: ; preds = %_ZNK3ue29CharReach1
 _ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit.i: ; preds = %111, %113
   %119 = phi i64 [ %118, %113 ], [ 32, %111 ]
   %120 = lshr i64 %119, 6
-  %121 = getelementptr inbounds nuw i64, ptr %59, i64 %120
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %120
   %122 = load i64, ptr %121, align 8
   %123 = and i64 %119, 63
   %124 = shl nuw i64 1, %123
@@ -295,7 +295,7 @@ _ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit.i: ; preds = %111, %113
 
 .preheader.i91.i:                                 ; preds = %126, %143
   %.0712.i.i.i92.i = phi i64 [ %144, %143 ], [ 0, %126 ]
-  %141 = getelementptr inbounds nuw i64, ptr %60, i64 %.0712.i.i.i92.i
+  %141 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %.0712.i.i.i92.i
   %142 = load i64, ptr %141, align 8
   %.not.i.i.i93.i = icmp eq i64 %142, 0
   br i1 %.not.i.i.i93.i, label %143, label %_ZNK3ue29CharReach10find_firstEv.exit.i94.i
@@ -315,7 +315,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.thread.i96.i.preheader: ; preds = %143, %_
 
 _ZNK3ue29CharReach10find_firstEv.exit.thread.i96.i: ; preds = %_ZNK3ue29CharReach10find_firstEv.exit.thread.i96.i.preheader, %148
   %.0712.i.i4.i97.i = phi i64 [ %149, %148 ], [ 0, %_ZNK3ue29CharReach10find_firstEv.exit.thread.i96.i.preheader ]
-  %146 = getelementptr inbounds nuw i64, ptr %60, i64 %.0712.i.i4.i97.i
+  %146 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %.0712.i.i4.i97.i
   %147 = load i64, ptr %146, align 8
   %.not.i.i5.i98.i = icmp eq i64 %147, 0
   br i1 %.not.i.i5.i98.i, label %148, label %150
@@ -336,7 +336,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.thread.i96.i: ; preds = %_ZNK3ue29CharReac
 _ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit102.i: ; preds = %148, %150
   %156 = phi i64 [ %155, %150 ], [ 32, %148 ]
   %157 = lshr i64 %156, 6
-  %158 = getelementptr inbounds nuw i64, ptr %60, i64 %157
+  %158 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %157
   %159 = load i64, ptr %158, align 8
   %160 = and i64 %156, 63
   %161 = shl nuw i64 1, %160
@@ -357,7 +357,7 @@ _ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit102.i: ; preds = %148, %150
 
 168:                                              ; preds = %171, %166
   %.0712.i.i103.i = phi i64 [ 0, %166 ], [ %172, %171 ]
-  %169 = getelementptr inbounds nuw i64, ptr %59, i64 %.0712.i.i103.i
+  %169 = getelementptr inbounds nuw [8 x i8], ptr %59, i64 %.0712.i.i103.i
   %170 = load i64, ptr %169, align 8
   %.not.i.i104.i = icmp eq i64 %170, 0
   br i1 %.not.i.i104.i, label %171, label %173
@@ -383,7 +383,7 @@ _ZNK3ue29CharReach10find_firstEv.exit106.i:       ; preds = %171, %173
 
 181:                                              ; preds = %184, %_ZNK3ue29CharReach10find_firstEv.exit106.i
   %.0712.i.i107.i = phi i64 [ 0, %_ZNK3ue29CharReach10find_firstEv.exit106.i ], [ %185, %184 ]
-  %182 = getelementptr inbounds nuw i64, ptr %60, i64 %.0712.i.i107.i
+  %182 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %.0712.i.i107.i
   %183 = load i64, ptr %182, align 8
   %.not.i.i108.i = icmp eq i64 %183, 0
   br i1 %.not.i.i108.i, label %184, label %186
@@ -424,7 +424,7 @@ _ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit.thread.i: ; preds = %_ZN3ue2L
 
 .preheader.split.us.i:                            ; preds = %.preheader.i, %_ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit126.thread.us.i
   %indvars.iv276.i = phi i64 [ %indvars.iv.next277.i, %_ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit126.thread.us.i ], [ 0, %.preheader.i ]
-  %194 = getelementptr inbounds nuw %"class.ue2::CharReach", ptr %25, i64 %indvars.iv276.i
+  %194 = getelementptr inbounds nuw [32 x i8], ptr %25, i64 %indvars.iv276.i
   %195 = load i64, ptr %194, align 8
   %196 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %195)
   %197 = getelementptr inbounds nuw i8, ptr %194, i64 8
@@ -449,7 +449,7 @@ _ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit126.thread.us.i: ; preds = %.p
 
 .critedge85.i:                                    ; preds = %.preheader.i, %_ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit126.thread.i
   %indvars.iv272.i = phi i64 [ %indvars.iv.next273.i, %_ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit126.thread.i ], [ 0, %.preheader.i ]
-  %210 = getelementptr inbounds nuw %"class.ue2::CharReach", ptr %25, i64 %indvars.iv272.i
+  %210 = getelementptr inbounds nuw [32 x i8], ptr %25, i64 %indvars.iv272.i
   %211 = load i64, ptr %210, align 8
   %212 = tail call range(i64 0, 65) i64 @llvm.ctpop.i64(i64 %211)
   %213 = getelementptr inbounds nuw i8, ptr %210, i64 8
@@ -480,7 +480,7 @@ _ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit126.thread.us.i: ; preds = %.p
 
 230:                                              ; preds = %233, %228
   %.0712.i.i111.i = phi i64 [ 0, %228 ], [ %234, %233 ]
-  %231 = getelementptr inbounds nuw i64, ptr %194, i64 %.0712.i.i111.i
+  %231 = getelementptr inbounds nuw [8 x i8], ptr %194, i64 %.0712.i.i111.i
   %232 = load i64, ptr %231, align 8
   %.not.i.i112.i = icmp eq i64 %232, 0
   br i1 %.not.i.i112.i, label %233, label %235
@@ -505,7 +505,7 @@ _ZNK3ue29CharReach10find_firstEv.exit114.i:       ; preds = %233, %235
 
 .preheader.i115.i:                                ; preds = %.critedge85.i, %244
   %.0712.i.i.i116.i = phi i64 [ %245, %244 ], [ 0, %.critedge85.i ]
-  %242 = getelementptr inbounds nuw i64, ptr %210, i64 %.0712.i.i.i116.i
+  %242 = getelementptr inbounds nuw [8 x i8], ptr %210, i64 %.0712.i.i.i116.i
   %243 = load i64, ptr %242, align 8
   %.not.i.i.i117.i = icmp eq i64 %243, 0
   br i1 %.not.i.i.i117.i, label %244, label %_ZNK3ue29CharReach10find_firstEv.exit.i118.i
@@ -525,7 +525,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.thread.i120.i.preheader: ; preds = %244, %
 
 _ZNK3ue29CharReach10find_firstEv.exit.thread.i120.i: ; preds = %_ZNK3ue29CharReach10find_firstEv.exit.thread.i120.i.preheader, %249
   %.0712.i.i4.i121.i = phi i64 [ %250, %249 ], [ 0, %_ZNK3ue29CharReach10find_firstEv.exit.thread.i120.i.preheader ]
-  %247 = getelementptr inbounds nuw i64, ptr %210, i64 %.0712.i.i4.i121.i
+  %247 = getelementptr inbounds nuw [8 x i8], ptr %210, i64 %.0712.i.i4.i121.i
   %248 = load i64, ptr %247, align 8
   %.not.i.i5.i122.i = icmp eq i64 %248, 0
   br i1 %.not.i.i5.i122.i, label %249, label %251
@@ -546,7 +546,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.thread.i120.i: ; preds = %_ZNK3ue29CharRea
 _ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit126.i: ; preds = %249, %251
   %257 = phi i64 [ %256, %251 ], [ 32, %249 ]
   %258 = lshr i64 %257, 6
-  %259 = getelementptr inbounds nuw i64, ptr %210, i64 %258
+  %259 = getelementptr inbounds nuw [8 x i8], ptr %210, i64 %258
   %260 = load i64, ptr %259, align 8
   %261 = and i64 %257, 63
   %262 = shl nuw i64 1, %261
@@ -567,7 +567,7 @@ _ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit126.i: ; preds = %249, %251
 
 269:                                              ; preds = %272, %267
   %.0712.i.i127.i = phi i64 [ 0, %267 ], [ %273, %272 ]
-  %270 = getelementptr inbounds nuw i64, ptr %210, i64 %.0712.i.i127.i
+  %270 = getelementptr inbounds nuw [8 x i8], ptr %210, i64 %.0712.i.i127.i
   %271 = load i64, ptr %270, align 8
   %.not.i.i128.i = icmp eq i64 %271, 0
   br i1 %.not.i.i128.i, label %272, label %274
@@ -644,8 +644,8 @@ _ZN3ue2L17lookForEodSchemesERKNS_10RevAccInfoEjP3NFA.exit: ; preds = %.thread141
   %294 = phi i64 [ %.pre.pre.i, %.preheader147.i ], [ %297, %.backedge.i.backedge ]
   %indvars.iv.i28 = phi i64 [ 1, %.preheader147.i ], [ %indvars.iv.i28.be, %.backedge.i.backedge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %295 = getelementptr inbounds nuw %"class.ue2::CharReach", ptr %284, i64 %indvars.iv.i28
-  %296 = getelementptr inbounds nuw %"class.ue2::CharReach", ptr %13, i64 %indvars.iv.i28
+  %295 = getelementptr inbounds nuw [32 x i8], ptr %284, i64 %indvars.iv.i28
+  %296 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 %indvars.iv.i28
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %295, i64 32, i1 false)
   %297 = load i64, ptr %296, align 8, !noalias !16
@@ -719,7 +719,7 @@ _ZN3ue2L17lookForEodSchemesERKNS_10RevAccInfoEjP3NFA.exit: ; preds = %.thread141
 
 344:                                              ; preds = %347, %342
   %.0712.i.i.i48 = phi i64 [ 0, %342 ], [ %348, %347 ]
-  %345 = getelementptr inbounds nuw i64, ptr %5, i64 %.0712.i.i.i48
+  %345 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.0712.i.i.i48
   %346 = load i64, ptr %345, align 8
   %.not.i.i.i49 = icmp eq i64 %346, 0
   br i1 %.not.i.i.i49, label %347, label %349
@@ -744,7 +744,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.i50:        ; preds = %347, %349
 
 356:                                              ; preds = %359, %_ZNK3ue29CharReach10find_firstEv.exit.i50
   %.0712.i.i77.i = phi i64 [ 0, %_ZNK3ue29CharReach10find_firstEv.exit.i50 ], [ %360, %359 ]
-  %357 = getelementptr inbounds nuw i64, ptr %6, i64 %.0712.i.i77.i
+  %357 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.0712.i.i77.i
   %358 = load i64, ptr %357, align 8
   %.not.i.i78.i = icmp eq i64 %358, 0
   br i1 %.not.i.i78.i, label %359, label %361
@@ -769,7 +769,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.i50:        ; preds = %347, %349
 
 .preheader.i.i30:                                 ; preds = %.critedge.i29, %368
   %.0712.i.i.i.i31 = phi i64 [ %369, %368 ], [ 0, %.critedge.i29 ]
-  %366 = getelementptr inbounds nuw i64, ptr %5, i64 %.0712.i.i.i.i31
+  %366 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.0712.i.i.i.i31
   %367 = load i64, ptr %366, align 8
   %.not.i.i.i.i32 = icmp eq i64 %367, 0
   br i1 %.not.i.i.i.i32, label %368, label %_ZNK3ue29CharReach10find_firstEv.exit.i.i33
@@ -789,7 +789,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.thread.i.i35.preheader: ; preds = %368, %_
 
 _ZNK3ue29CharReach10find_firstEv.exit.thread.i.i35: ; preds = %_ZNK3ue29CharReach10find_firstEv.exit.thread.i.i35.preheader, %373
   %.0712.i.i4.i.i36 = phi i64 [ %374, %373 ], [ 0, %_ZNK3ue29CharReach10find_firstEv.exit.thread.i.i35.preheader ]
-  %371 = getelementptr inbounds nuw i64, ptr %5, i64 %.0712.i.i4.i.i36
+  %371 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.0712.i.i4.i.i36
   %372 = load i64, ptr %371, align 8
   %.not.i.i5.i.i37 = icmp eq i64 %372, 0
   br i1 %.not.i.i5.i.i37, label %373, label %375
@@ -810,7 +810,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.thread.i.i35: ; preds = %_ZNK3ue29CharReac
 _ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit.i38: ; preds = %373, %375
   %381 = phi i64 [ %380, %375 ], [ 32, %373 ]
   %382 = lshr i64 %381, 6
-  %383 = getelementptr inbounds nuw i64, ptr %5, i64 %382
+  %383 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %382
   %384 = load i64, ptr %383, align 8
   %385 = and i64 %381, 63
   %386 = shl nuw i64 1, %385
@@ -833,7 +833,7 @@ _ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit.i38: ; preds = %373, %375
 
 .preheader.i81.i:                                 ; preds = %388, %398
   %.0712.i.i.i82.i = phi i64 [ %399, %398 ], [ 0, %388 ]
-  %396 = getelementptr inbounds nuw i64, ptr %6, i64 %.0712.i.i.i82.i
+  %396 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.0712.i.i.i82.i
   %397 = load i64, ptr %396, align 8
   %.not.i.i.i83.i = icmp eq i64 %397, 0
   br i1 %.not.i.i.i83.i, label %398, label %_ZNK3ue29CharReach10find_firstEv.exit.i84.i
@@ -853,7 +853,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.thread.i86.i.preheader: ; preds = %398, %_
 
 _ZNK3ue29CharReach10find_firstEv.exit.thread.i86.i: ; preds = %_ZNK3ue29CharReach10find_firstEv.exit.thread.i86.i.preheader, %403
   %.0712.i.i4.i87.i = phi i64 [ %404, %403 ], [ 0, %_ZNK3ue29CharReach10find_firstEv.exit.thread.i86.i.preheader ]
-  %401 = getelementptr inbounds nuw i64, ptr %6, i64 %.0712.i.i4.i87.i
+  %401 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.0712.i.i4.i87.i
   %402 = load i64, ptr %401, align 8
   %.not.i.i5.i88.i = icmp eq i64 %402, 0
   br i1 %.not.i.i5.i88.i, label %403, label %405
@@ -874,7 +874,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.thread.i86.i: ; preds = %_ZNK3ue29CharReac
 _ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit92.i: ; preds = %403, %405
   %411 = phi i64 [ %410, %405 ], [ 32, %403 ]
   %412 = lshr i64 %411, 6
-  %413 = getelementptr inbounds nuw i64, ptr %6, i64 %412
+  %413 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %412
   %414 = load i64, ptr %413, align 8
   %415 = and i64 %411, 63
   %416 = shl nuw i64 1, %415
@@ -894,7 +894,7 @@ _ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit92.i: ; preds = %403, %405
 
 423:                                              ; preds = %426, %421
   %.0712.i.i93.i = phi i64 [ 0, %421 ], [ %427, %426 ]
-  %424 = getelementptr inbounds nuw i64, ptr %5, i64 %.0712.i.i93.i
+  %424 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.0712.i.i93.i
   %425 = load i64, ptr %424, align 8
   %.not.i.i94.i = icmp eq i64 %425, 0
   br i1 %.not.i.i94.i, label %426, label %428
@@ -920,7 +920,7 @@ _ZNK3ue29CharReach10find_firstEv.exit96.i:        ; preds = %426, %428
 
 436:                                              ; preds = %439, %_ZNK3ue29CharReach10find_firstEv.exit96.i
   %.0712.i.i97.i = phi i64 [ 0, %_ZNK3ue29CharReach10find_firstEv.exit96.i ], [ %440, %439 ]
-  %437 = getelementptr inbounds nuw i64, ptr %6, i64 %.0712.i.i97.i
+  %437 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.0712.i.i97.i
   %438 = load i64, ptr %437, align 8
   %.not.i.i98.i = icmp eq i64 %438, 0
   br i1 %.not.i.i98.i, label %439, label %441
@@ -987,8 +987,8 @@ _ZNK3ue29CharReach10find_firstEv.exit80.i:        ; preds = %439, %359, %441, %3
 .preheader.split.us.i40:                          ; preds = %.preheader.i39, %_ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit116.thread.us.i
   %indvars.iv240.i = phi i64 [ %indvars.iv.next241.i, %_ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit116.thread.us.i ], [ 0, %.preheader.i39 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %452 = getelementptr inbounds nuw %"class.ue2::CharReach", ptr %284, i64 %indvars.iv240.i
-  %453 = getelementptr inbounds nuw %"class.ue2::CharReach", ptr %13, i64 %indvars.iv240.i
+  %452 = getelementptr inbounds nuw [32 x i8], ptr %284, i64 %indvars.iv240.i
+  %453 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 %indvars.iv240.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %452, i64 32, i1 false)
   %454 = load i64, ptr %453, align 8, !noalias !21
@@ -1029,8 +1029,8 @@ _ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit116.thread.us.i: ; preds = %.p
 .critedge75.i:                                    ; preds = %.preheader.i39, %_ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit116.thread.i
   %indvars.iv236.i = phi i64 [ %indvars.iv.next237.i, %_ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit116.thread.i ], [ 0, %.preheader.i39 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %477 = getelementptr inbounds nuw %"class.ue2::CharReach", ptr %284, i64 %indvars.iv236.i
-  %478 = getelementptr inbounds nuw %"class.ue2::CharReach", ptr %13, i64 %indvars.iv236.i
+  %477 = getelementptr inbounds nuw [32 x i8], ptr %284, i64 %indvars.iv236.i
+  %478 = getelementptr inbounds nuw [32 x i8], ptr %13, i64 %indvars.iv236.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, ptr noundef nonnull align 8 dereferenceable(32) %477, i64 32, i1 false)
   %479 = load i64, ptr %478, align 8, !noalias !21
@@ -1079,7 +1079,7 @@ _ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit116.thread.us.i: ; preds = %.p
 
 506:                                              ; preds = %509, %504
   %.0712.i.i101.i = phi i64 [ 0, %504 ], [ %510, %509 ]
-  %507 = getelementptr inbounds nuw i64, ptr %7, i64 %.0712.i.i101.i
+  %507 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.0712.i.i101.i
   %508 = load i64, ptr %507, align 8
   %.not.i.i102.i = icmp eq i64 %508, 0
   br i1 %.not.i.i102.i, label %509, label %511
@@ -1098,7 +1098,7 @@ _ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit116.thread.us.i: ; preds = %.p
 
 .preheader.i105.i:                                ; preds = %.critedge75.i, %518
   %.0712.i.i.i106.i = phi i64 [ %519, %518 ], [ 0, %.critedge75.i ]
-  %516 = getelementptr inbounds nuw i64, ptr %7, i64 %.0712.i.i.i106.i
+  %516 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.0712.i.i.i106.i
   %517 = load i64, ptr %516, align 8
   %.not.i.i.i107.i = icmp eq i64 %517, 0
   br i1 %.not.i.i.i107.i, label %518, label %_ZNK3ue29CharReach10find_firstEv.exit.i108.i
@@ -1118,7 +1118,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.thread.i110.i.preheader: ; preds = %518, %
 
 _ZNK3ue29CharReach10find_firstEv.exit.thread.i110.i: ; preds = %_ZNK3ue29CharReach10find_firstEv.exit.thread.i110.i.preheader, %523
   %.0712.i.i4.i111.i = phi i64 [ %524, %523 ], [ 0, %_ZNK3ue29CharReach10find_firstEv.exit.thread.i110.i.preheader ]
-  %521 = getelementptr inbounds nuw i64, ptr %7, i64 %.0712.i.i4.i111.i
+  %521 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.0712.i.i4.i111.i
   %522 = load i64, ptr %521, align 8
   %.not.i.i5.i112.i = icmp eq i64 %522, 0
   br i1 %.not.i.i5.i112.i, label %523, label %525
@@ -1139,7 +1139,7 @@ _ZNK3ue29CharReach10find_firstEv.exit.thread.i110.i: ; preds = %_ZNK3ue29CharRea
 _ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit116.i: ; preds = %523, %525
   %531 = phi i64 [ %530, %525 ], [ 32, %523 ]
   %532 = lshr i64 %531, 6
-  %533 = getelementptr inbounds nuw i64, ptr %7, i64 %532
+  %533 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %532
   %534 = load i64, ptr %533, align 8
   %535 = and i64 %531, 63
   %536 = shl nuw i64 1, %535
@@ -1160,7 +1160,7 @@ _ZN3ue2L18isPseudoNoCaseCharERKNS_9CharReachE.exit116.i: ; preds = %523, %525
 
 543:                                              ; preds = %546, %541
   %.0712.i.i117.i = phi i64 [ 0, %541 ], [ %547, %546 ]
-  %544 = getelementptr inbounds nuw i64, ptr %7, i64 %.0712.i.i117.i
+  %544 = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %.0712.i.i117.i
   %545 = load i64, ptr %544, align 8
   %.not.i.i118.i = icmp eq i64 %545, 0
   br i1 %.not.i.i118.i, label %546, label %548
@@ -1416,7 +1416,7 @@ _ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS
   %.sroa.075.0.copyload = load ptr, ptr %73, align 8
   %74 = getelementptr inbounds nuw i8, ptr %.sroa.075.0.copyload, i64 16
   %75 = load ptr, ptr %2, align 8
-  %76 = getelementptr inbounds nuw %"class.ue2::CharReach", ptr %75, i64 %indvars.iv112
+  %76 = getelementptr inbounds nuw [32 x i8], ptr %75, i64 %indvars.iv112
   %77 = load i64, ptr %74, align 8
   %78 = load i64, ptr %76, align 8
   %79 = or i64 %78, %77
@@ -1470,7 +1470,7 @@ _ZNSt3setIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS
 .lr.ph102:                                        ; preds = %.preheader, %.lr.ph102
   %indvars.iv109 = phi i64 [ %indvars.iv.next110, %.lr.ph102 ], [ %indvars.iv, %.preheader ]
   %104 = load ptr, ptr %2, align 8
-  %105 = getelementptr inbounds nuw %"class.ue2::CharReach", ptr %104, i64 %indvars.iv109
+  %105 = getelementptr inbounds nuw [32 x i8], ptr %104, i64 %indvars.iv109
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %105, i8 -1, i64 32, i1 false)
   %indvars.iv.next110 = add nuw nsw i64 %indvars.iv109, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next110, 16
@@ -1645,9 +1645,9 @@ define hidden void @_ZN3ue228mergeReverseAccelerationInfoERNS_10RevAccInfoERKS0_
 11:                                               ; preds = %2, %11
   %indvars.iv = phi i64 [ 0, %2 ], [ %indvars.iv.next, %11 ]
   %12 = load ptr, ptr %6, align 8
-  %13 = getelementptr inbounds nuw %"class.ue2::CharReach", ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [32 x i8], ptr %12, i64 %indvars.iv
   %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds nuw %"class.ue2::CharReach", ptr %14, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [32 x i8], ptr %14, i64 %indvars.iv
   %16 = load i64, ptr %13, align 8
   %17 = load i64, ptr %15, align 8
   %18 = or i64 %17, %16
@@ -1671,9 +1671,9 @@ define hidden void @_ZN3ue228mergeReverseAccelerationInfoERNS_10RevAccInfoERKS0_
   %33 = or i64 %32, %30
   store i64 %33, ptr %31, align 8
   %34 = load ptr, ptr %8, align 8
-  %35 = getelementptr inbounds nuw %"class.ue2::CharReach", ptr %34, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [32 x i8], ptr %34, i64 %indvars.iv
   %36 = load ptr, ptr %9, align 8
-  %37 = getelementptr inbounds nuw %"class.ue2::CharReach", ptr %36, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [32 x i8], ptr %36, i64 %indvars.iv
   %38 = load i64, ptr %35, align 8
   %39 = load i64, ptr %37, align 8
   %40 = or i64 %39, %38

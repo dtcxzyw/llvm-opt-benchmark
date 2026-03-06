@@ -140,12 +140,12 @@ define void @ff_ac3dsp_downmix_fixed(ptr noundef captures(none) %0, ptr noundef 
 66:                                               ; preds = %66, %.preheader47.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader47.us.i ], [ %indvars.iv.next.i, %66 ]
   %.151.us.i = phi i64 [ 0, %.preheader47.us.i ], [ %76, %66 ]
-  %67 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i
   %68 = load ptr, ptr %67, align 8, !tbaa !16
-  %69 = getelementptr inbounds nuw i32, ptr %68, i64 %indvars.iv67.i
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %indvars.iv67.i
   %70 = load i32, ptr %69, align 4, !tbaa !18
   %71 = sext i32 %70 to i64
-  %72 = getelementptr inbounds nuw i16, ptr %65, i64 %indvars.iv.i
+  %72 = getelementptr inbounds nuw [2 x i8], ptr %65, i64 %indvars.iv.i
   %73 = load i16, ptr %72, align 2, !tbaa !14
   %74 = sext i16 %73 to i64
   %75 = mul nsw i64 %74, %71
@@ -158,7 +158,7 @@ define void @ff_ac3dsp_downmix_fixed(ptr noundef captures(none) %0, ptr noundef 
   %77 = add nsw i64 %76, 2048
   %78 = lshr i64 %77, 12
   %79 = trunc i64 %78 to i32
-  %80 = getelementptr inbounds nuw i32, ptr %64, i64 %indvars.iv67.i
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %indvars.iv67.i
   store i32 %79, ptr %80, align 4, !tbaa !18
   %indvars.iv.next68.i = add nuw nsw i64 %indvars.iv67.i, 1
   %exitcond71.not.i = icmp eq i64 %indvars.iv.next68.i, %wide.trip.count70.i
@@ -207,17 +207,17 @@ define void @ff_ac3dsp_downmix_fixed(ptr noundef captures(none) %0, ptr noundef 
   %indvars.iv77.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next78.i, %95 ]
   %.055.us.i = phi i64 [ 0, %.preheader.us.i ], [ %110, %95 ]
   %.04054.us.i = phi i64 [ 0, %.preheader.us.i ], [ %105, %95 ]
-  %96 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv77.i
+  %96 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv77.i
   %97 = load ptr, ptr %96, align 8, !tbaa !16
-  %98 = getelementptr inbounds nuw i32, ptr %97, i64 %indvars.iv82.i
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %97, i64 %indvars.iv82.i
   %99 = load i32, ptr %98, align 4, !tbaa !18
   %100 = sext i32 %99 to i64
-  %101 = getelementptr inbounds nuw i16, ptr %93, i64 %indvars.iv77.i
+  %101 = getelementptr inbounds nuw [2 x i8], ptr %93, i64 %indvars.iv77.i
   %102 = load i16, ptr %101, align 2, !tbaa !14
   %103 = sext i16 %102 to i64
   %104 = mul nsw i64 %103, %100
   %105 = add nsw i64 %104, %.04054.us.i
-  %106 = getelementptr inbounds nuw i16, ptr %94, i64 %indvars.iv77.i
+  %106 = getelementptr inbounds nuw [2 x i8], ptr %94, i64 %indvars.iv77.i
   %107 = load i16, ptr %106, align 2, !tbaa !14
   %108 = sext i16 %107 to i64
   %109 = mul nsw i64 %108, %100
@@ -230,12 +230,12 @@ define void @ff_ac3dsp_downmix_fixed(ptr noundef captures(none) %0, ptr noundef 
   %111 = add nsw i64 %105, 2048
   %112 = lshr i64 %111, 12
   %113 = trunc i64 %112 to i32
-  %114 = getelementptr inbounds nuw i32, ptr %91, i64 %indvars.iv82.i
+  %114 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %indvars.iv82.i
   store i32 %113, ptr %114, align 4, !tbaa !18
   %115 = add nsw i64 %110, 2048
   %116 = lshr i64 %115, 12
   %117 = trunc i64 %116 to i32
-  %118 = getelementptr inbounds nuw i32, ptr %90, i64 %indvars.iv82.i
+  %118 = getelementptr inbounds nuw [4 x i8], ptr %90, i64 %indvars.iv82.i
   store i32 %117, ptr %118, align 4, !tbaa !18
   %indvars.iv.next83.i = add nuw nsw i64 %indvars.iv82.i, 1
   %exitcond86.not.i = icmp eq i64 %indvars.iv.next83.i, %wide.trip.count85.i
@@ -243,9 +243,9 @@ define void @ff_ac3dsp_downmix_fixed(ptr noundef captures(none) %0, ptr noundef 
 
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
   %indvars.iv72.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next73.i, %.preheader.i ]
-  %119 = getelementptr inbounds nuw i32, ptr %87, i64 %indvars.iv72.i
+  %119 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %indvars.iv72.i
   store i32 0, ptr %119, align 4, !tbaa !18
-  %120 = getelementptr inbounds nuw i32, ptr %89, i64 %indvars.iv72.i
+  %120 = getelementptr inbounds nuw [4 x i8], ptr %89, i64 %indvars.iv72.i
   store i32 0, ptr %120, align 4, !tbaa !18
   %indvars.iv.next73.i = add nuw nsw i64 %indvars.iv72.i, 1
   %exitcond76.not.i = icmp eq i64 %indvars.iv.next73.i, %wide.trip.count75.i
@@ -284,23 +284,23 @@ define internal void @ac3_downmix_5_to_2_symmetric_c_fixed(ptr noundef readonly 
 
 23:                                               ; preds = %.lr.ph, %23
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
-  %24 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4, !tbaa !18
   %26 = sext i32 %25 to i64
   %27 = mul nsw i64 %26, %12
-  %28 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv
   %29 = load i32, ptr %28, align 4, !tbaa !18
   %30 = sext i32 %29 to i64
   %31 = mul nsw i64 %30, %15
-  %32 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv
   %33 = load i32, ptr %32, align 4, !tbaa !18
   %34 = sext i32 %33 to i64
   %35 = mul nsw i64 %34, %18
-  %36 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv
   %37 = load i32, ptr %36, align 4, !tbaa !18
   %38 = sext i32 %37 to i64
   %39 = mul nsw i64 %38, %12
-  %40 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv
+  %40 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv
   %41 = load i32, ptr %40, align 4, !tbaa !18
   %42 = sext i32 %41 to i64
   %43 = mul nsw i64 %42, %18
@@ -352,20 +352,20 @@ define internal void @ac3_downmix_5_to_1_symmetric_c_fixed(ptr noundef readonly 
 
 23:                                               ; preds = %.lr.ph, %23
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
-  %24 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %25 = load i32, ptr %24, align 4, !tbaa !18
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds nuw i32, ptr %14, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %14, i64 %indvars.iv
   %28 = load i32, ptr %27, align 4, !tbaa !18
   %29 = sext i32 %28 to i64
   %30 = mul nsw i64 %29, %15
-  %31 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv
   %32 = load i32, ptr %31, align 4, !tbaa !18
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds nuw i32, ptr %19, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv
   %35 = load i32, ptr %34, align 4, !tbaa !18
   %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds nuw i32, ptr %22, i64 %indvars.iv
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %22, i64 %indvars.iv
   %38 = load i32, ptr %37, align 4, !tbaa !18
   %39 = sext i32 %38 to i64
   %reass.add = add nsw i64 %39, %36
@@ -518,11 +518,11 @@ define void @ff_ac3dsp_downmix(ptr noundef captures(none) %0, ptr noundef %1, pt
 66:                                               ; preds = %66, %.preheader47.us.i
   %indvars.iv.i = phi i64 [ 0, %.preheader47.us.i ], [ %indvars.iv.next.i, %66 ]
   %.151.us.i = phi float [ 0.000000e+00, %.preheader47.us.i ], [ %73, %66 ]
-  %67 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv.i
   %68 = load ptr, ptr %67, align 8, !tbaa !27
-  %69 = getelementptr inbounds nuw float, ptr %68, i64 %indvars.iv67.i
+  %69 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %indvars.iv67.i
   %70 = load float, ptr %69, align 4, !tbaa !29
-  %71 = getelementptr inbounds nuw float, ptr %65, i64 %indvars.iv.i
+  %71 = getelementptr inbounds nuw [4 x i8], ptr %65, i64 %indvars.iv.i
   %72 = load float, ptr %71, align 4, !tbaa !29
   %73 = tail call nsz float @llvm.fmuladd.f32(float %70, float %72, float %.151.us.i)
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -530,7 +530,7 @@ define void @ff_ac3dsp_downmix(ptr noundef captures(none) %0, ptr noundef %1, pt
   br i1 %exitcond.not.i, label %._crit_edge.us.i, label %66, !llvm.loop !31
 
 ._crit_edge.us.i:                                 ; preds = %66
-  %74 = getelementptr inbounds nuw float, ptr %64, i64 %indvars.iv67.i
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %64, i64 %indvars.iv67.i
   store float %73, ptr %74, align 4, !tbaa !29
   %indvars.iv.next68.i = add nuw nsw i64 %indvars.iv67.i, 1
   %exitcond71.not.i = icmp eq i64 %indvars.iv.next68.i, %wide.trip.count70.i
@@ -579,14 +579,14 @@ define void @ff_ac3dsp_downmix(ptr noundef captures(none) %0, ptr noundef %1, pt
   %indvars.iv77.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next78.i, %89 ]
   %.055.us.i = phi float [ 0.000000e+00, %.preheader.us.i ], [ %99, %89 ]
   %.04054.us.i = phi float [ 0.000000e+00, %.preheader.us.i ], [ %96, %89 ]
-  %90 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv77.i
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv77.i
   %91 = load ptr, ptr %90, align 8, !tbaa !27
-  %92 = getelementptr inbounds nuw float, ptr %91, i64 %indvars.iv82.i
+  %92 = getelementptr inbounds nuw [4 x i8], ptr %91, i64 %indvars.iv82.i
   %93 = load float, ptr %92, align 4, !tbaa !29
-  %94 = getelementptr inbounds nuw float, ptr %87, i64 %indvars.iv77.i
+  %94 = getelementptr inbounds nuw [4 x i8], ptr %87, i64 %indvars.iv77.i
   %95 = load float, ptr %94, align 4, !tbaa !29
   %96 = tail call nsz float @llvm.fmuladd.f32(float %93, float %95, float %.04054.us.i)
-  %97 = getelementptr inbounds nuw float, ptr %88, i64 %indvars.iv77.i
+  %97 = getelementptr inbounds nuw [4 x i8], ptr %88, i64 %indvars.iv77.i
   %98 = load float, ptr %97, align 4, !tbaa !29
   %99 = tail call nsz float @llvm.fmuladd.f32(float %93, float %98, float %.055.us.i)
   %indvars.iv.next78.i = add nuw nsw i64 %indvars.iv77.i, 1
@@ -594,9 +594,9 @@ define void @ff_ac3dsp_downmix(ptr noundef captures(none) %0, ptr noundef %1, pt
   br i1 %exitcond81.not.i, label %._crit_edge.us58.i, label %89, !llvm.loop !33
 
 ._crit_edge.us58.i:                               ; preds = %89
-  %100 = getelementptr inbounds nuw float, ptr %85, i64 %indvars.iv82.i
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %85, i64 %indvars.iv82.i
   store float %96, ptr %100, align 4, !tbaa !29
-  %101 = getelementptr inbounds nuw float, ptr %84, i64 %indvars.iv82.i
+  %101 = getelementptr inbounds nuw [4 x i8], ptr %84, i64 %indvars.iv82.i
   store float %99, ptr %101, align 4, !tbaa !29
   %indvars.iv.next83.i = add nuw nsw i64 %indvars.iv82.i, 1
   %exitcond86.not.i = icmp eq i64 %indvars.iv.next83.i, %wide.trip.count85.i
@@ -604,9 +604,9 @@ define void @ff_ac3dsp_downmix(ptr noundef captures(none) %0, ptr noundef %1, pt
 
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
   %indvars.iv72.i = phi i64 [ 0, %.preheader.preheader.i ], [ %indvars.iv.next73.i, %.preheader.i ]
-  %102 = getelementptr inbounds nuw float, ptr %81, i64 %indvars.iv72.i
+  %102 = getelementptr inbounds nuw [4 x i8], ptr %81, i64 %indvars.iv72.i
   store float 0.000000e+00, ptr %102, align 4, !tbaa !29
-  %103 = getelementptr inbounds nuw float, ptr %83, i64 %indvars.iv72.i
+  %103 = getelementptr inbounds nuw [4 x i8], ptr %83, i64 %indvars.iv72.i
   store float 0.000000e+00, ptr %103, align 4, !tbaa !29
   %indvars.iv.next73.i = add nuw nsw i64 %indvars.iv72.i, 1
   %exitcond76.not.i = icmp eq i64 %indvars.iv.next73.i, %wide.trip.count75.i
@@ -642,20 +642,20 @@ define internal void @ac3_downmix_5_to_2_symmetric_c(ptr noundef readonly captur
 
 20:                                               ; preds = %.lr.ph, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
-  %21 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %22 = load float, ptr %21, align 4, !tbaa !29
-  %23 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv
   %24 = load float, ptr %23, align 4, !tbaa !29
   %25 = fmul nsz float %7, %24
   %26 = tail call nsz float @llvm.fmuladd.f32(float %22, float %5, float %25)
-  %27 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   %28 = load float, ptr %27, align 4, !tbaa !29
   %29 = tail call nsz float @llvm.fmuladd.f32(float %28, float %9, float %26)
-  %30 = getelementptr inbounds nuw float, ptr %17, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv
   %31 = load float, ptr %30, align 4, !tbaa !29
   %32 = fmul nsz float %5, %31
   %33 = tail call nsz float @llvm.fmuladd.f32(float %24, float %7, float %32)
-  %34 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv
+  %34 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv
   %35 = load float, ptr %34, align 4, !tbaa !29
   %36 = tail call nsz float @llvm.fmuladd.f32(float %35, float %9, float %33)
   store float %29, ptr %21, align 4, !tbaa !29
@@ -694,19 +694,19 @@ define internal void @ac3_downmix_5_to_1_symmetric_c(ptr noundef readonly captur
 
 20:                                               ; preds = %.lr.ph, %20
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
-  %21 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv
   %22 = load float, ptr %21, align 4, !tbaa !29
-  %23 = getelementptr inbounds nuw float, ptr %13, i64 %indvars.iv
+  %23 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %indvars.iv
   %24 = load float, ptr %23, align 4, !tbaa !29
   %25 = fmul nsz float %7, %24
   %26 = tail call nsz float @llvm.fmuladd.f32(float %22, float %5, float %25)
-  %27 = getelementptr inbounds nuw float, ptr %15, i64 %indvars.iv
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %indvars.iv
   %28 = load float, ptr %27, align 4, !tbaa !29
   %29 = tail call nsz float @llvm.fmuladd.f32(float %28, float %5, float %26)
-  %30 = getelementptr inbounds nuw float, ptr %17, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv
   %31 = load float, ptr %30, align 4, !tbaa !29
   %32 = tail call nsz float @llvm.fmuladd.f32(float %31, float %9, float %29)
-  %33 = getelementptr inbounds nuw float, ptr %19, i64 %indvars.iv
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %indvars.iv
   %34 = load float, ptr %33, align 4, !tbaa !29
   %35 = tail call nsz float @llvm.fmuladd.f32(float %34, float %9, float %32)
   store float %35, ptr %21, align 4, !tbaa !29
@@ -876,7 +876,7 @@ define internal void @ac3_bit_alloc_calc_bap_c(ptr noundef readonly captures(non
   br i1 %22, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %17
-  %23 = getelementptr inbounds nuw i16, ptr %0, i64 %indvars.iv38
+  %23 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %indvars.iv38
   %24 = load i16, ptr %23, align 2, !tbaa !14
   %25 = sext i16 %24 to i32
   %26 = sub i32 %25, %15
@@ -889,7 +889,7 @@ define internal void @ac3_bit_alloc_calc_bap_c(ptr noundef readonly captures(non
 
 30:                                               ; preds = %.lr.ph, %30
   %indvars.iv = phi i64 [ %29, %.lr.ph ], [ %indvars.iv.next, %30 ]
-  %31 = getelementptr inbounds i16, ptr %1, i64 %indvars.iv
+  %31 = getelementptr inbounds [2 x i8], ptr %1, i64 %indvars.iv
   %32 = load i16, ptr %31, align 2, !tbaa !14
   %33 = sext i16 %32 to i32
   %34 = sub i32 %33, %28
@@ -929,7 +929,7 @@ define internal void @ac3_update_bap_counts_c(ptr noundef captures(none) %0, ptr
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 %indvars.iv.next
   %7 = load i8, ptr %6, align 1, !tbaa !45
   %8 = zext i8 %7 to i64
-  %9 = getelementptr inbounds nuw i16, ptr %0, i64 %8
+  %9 = getelementptr inbounds nuw [2 x i8], ptr %0, i64 %8
   %10 = load i16, ptr %9, align 2, !tbaa !14
   %11 = add i16 %10, 1
   store i16 %11, ptr %9, align 2, !tbaa !14
@@ -947,7 +947,7 @@ define internal range(i32 0, -2147483648) i32 @ac3_compute_mantissa_size_c(ptr n
 2:                                                ; preds = %1, %33
   %indvars.iv27 = phi i64 [ 0, %1 ], [ %indvars.iv.next28, %33 ]
   %.025 = phi i32 [ 0, %1 ], [ %32, %33 ]
-  %3 = getelementptr inbounds nuw [16 x i16], ptr %0, i64 %indvars.iv27
+  %3 = getelementptr inbounds nuw [32 x i8], ptr %0, i64 %indvars.iv27
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %5 = load i16, ptr %4, align 2, !tbaa !14
   %6 = udiv i16 %5, 3
@@ -974,10 +974,10 @@ define internal range(i32 0, -2147483648) i32 @ac3_compute_mantissa_size_c(ptr n
 24:                                               ; preds = %2, %24
   %indvars.iv = phi i64 [ 5, %2 ], [ %indvars.iv.next, %24 ]
   %.123 = phi i32 [ %23, %2 ], [ %32, %24 ]
-  %25 = getelementptr inbounds nuw i16, ptr %3, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [2 x i8], ptr %3, i64 %indvars.iv
   %26 = load i16, ptr %25, align 2, !tbaa !14
   %27 = zext i16 %26 to i32
-  %28 = getelementptr inbounds nuw i16, ptr @ff_ac3_bap_bits, i64 %indvars.iv
+  %28 = getelementptr inbounds nuw [2 x i8], ptr @ff_ac3_bap_bits, i64 %indvars.iv
   %29 = load i16, ptr %28, align 2, !tbaa !14
   %30 = zext i16 %29 to i32
   %31 = mul nuw nsw i32 %30, %27
@@ -1006,7 +1006,7 @@ define internal void @ac3_extract_exponents_c(ptr noundef writeonly captures(non
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %17
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %17 ]
-  %5 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %5 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %6 = load i32, ptr %5, align 4, !tbaa !18
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %17, label %7
@@ -1059,9 +1059,9 @@ define internal void @ac3_sum_square_butterfly_int32_c(ptr noundef writeonly cap
   %11 = phi i64 [ 0, %.lr.ph ], [ %28, %9 ]
   %12 = phi i64 [ 0, %.lr.ph ], [ %25, %9 ]
   %13 = phi i64 [ 0, %.lr.ph ], [ %22, %9 ]
-  %14 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %15 = load i32, ptr %14, align 4, !tbaa !18
-  %16 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4, !tbaa !18
   %18 = add nsw i32 %17, %15
   %19 = sub nsw i32 %15, %17
@@ -1111,9 +1111,9 @@ define internal void @ac3_sum_square_butterfly_float_c(ptr noundef writeonly cap
   %11 = phi float [ 0.000000e+00, %.lr.ph ], [ %22, %9 ]
   %12 = phi float [ 0.000000e+00, %.lr.ph ], [ %21, %9 ]
   %13 = phi float [ 0.000000e+00, %.lr.ph ], [ %20, %9 ]
-  %14 = getelementptr inbounds nuw float, ptr %1, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %15 = load float, ptr %14, align 4, !tbaa !29
-  %16 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %17 = load float, ptr %16, align 4, !tbaa !29
   %18 = fadd nsz float %15, %17
   %19 = fsub nsz float %15, %17

@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.options_st = type { ptr, i32, i32, ptr }
 %struct.evp_test_method_st = type { ptr, ptr, ptr, ptr, ptr }
 %struct.ossl_param_st = type { ptr, i32, ptr, i64, i64 }
-%struct.rand_data_pass_st = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i64, i64, i64, i64, i64, i64, i64, i64, i64, i64 }
 
 @test_get_options.test_options = internal constant [15 x %struct.options_st] [%struct.options_st { ptr @OPT_HELP_STR, i32 1, i32 45, ptr @.str }, %struct.options_st { ptr @OPT_HELP_STR, i32 1, i32 45, ptr @.str.1 }, %struct.options_st { ptr @.str.2, i32 500, i32 45, ptr @.str.3 }, %struct.options_st { ptr @.str.4, i32 501, i32 45, ptr @.str.5 }, %struct.options_st { ptr @.str.6, i32 502, i32 115, ptr @.str.7 }, %struct.options_st { ptr @.str.8, i32 503, i32 110, ptr @.str.9 }, %struct.options_st { ptr @.str.10, i32 504, i32 112, ptr @.str.11 }, %struct.options_st { ptr @.str.12, i32 505, i32 110, ptr @.str.13 }, %struct.options_st { ptr @.str.14, i32 1, i32 60, ptr @.str.15 }, %struct.options_st { ptr @.str.16, i32 2, i32 115, ptr @.str.17 }, %struct.options_st { ptr @.str.18, i32 3, i32 115, ptr @.str.19 }, %struct.options_st { ptr @.str.20, i32 4, i32 115, ptr @.str.21 }, %struct.options_st { ptr @.str.22, i32 5, i32 78, ptr @.str.23 }, %struct.options_st { ptr @OPT_HELP_STR, i32 1, i32 45, ptr @.str.24 }, %struct.options_st zeroinitializer], align 16
 @OPT_HELP_STR = external constant [0 x i8], align 1
@@ -1066,7 +1065,7 @@ key_unsupported.exit:                             ; preds = %160, %167, %172, %1
   %.113.i.i = phi ptr [ %191, %185 ], [ %.012.i.i, %.preheader19.i.i ]
   %186 = load i8, ptr %.113.i.i, align 1, !tbaa !34
   %187 = zext i8 %186 to i64
-  %188 = getelementptr inbounds nuw i16, ptr %184, i64 %187
+  %188 = getelementptr inbounds nuw [2 x i8], ptr %184, i64 %187
   %189 = load i16, ptr %188, align 2, !tbaa !39
   %190 = and i16 %189, 8192
   %.not15.i.i = icmp eq i16 %190, 0
@@ -1081,7 +1080,7 @@ key_unsupported.exit:                             ; preds = %160, %167, %172, %1
   %194 = phi i8 [ %201, %199 ], [ %186, %192 ]
   %.01123.i.i = phi ptr [ %200, %199 ], [ %.113.i.i, %192 ]
   %195 = zext i8 %194 to i64
-  %196 = getelementptr inbounds nuw i16, ptr %184, i64 %195
+  %196 = getelementptr inbounds nuw [2 x i8], ptr %184, i64 %195
   %197 = load i16, ptr %196, align 2, !tbaa !39
   %198 = and i16 %197, 8192
   %.not17.i.i = icmp eq i16 %198, 0
@@ -1140,7 +1139,7 @@ key_unsupported.exit:                             ; preds = %160, %167, %172, %1
   %.113.i193.i = phi ptr [ %223, %217 ], [ %.012.i189.i, %.preheader19.i192.i ]
   %218 = load i8, ptr %.113.i193.i, align 1, !tbaa !34
   %219 = zext i8 %218 to i64
-  %220 = getelementptr inbounds nuw i16, ptr %216, i64 %219
+  %220 = getelementptr inbounds nuw [2 x i8], ptr %216, i64 %219
   %221 = load i16, ptr %220, align 2, !tbaa !39
   %222 = and i16 %221, 8192
   %.not15.i194.i = icmp eq i16 %222, 0
@@ -1155,7 +1154,7 @@ key_unsupported.exit:                             ; preds = %160, %167, %172, %1
   %226 = phi i8 [ %233, %231 ], [ %218, %224 ]
   %.01123.i196.i = phi ptr [ %232, %231 ], [ %.113.i193.i, %224 ]
   %227 = zext i8 %226 to i64
-  %228 = getelementptr inbounds nuw i16, ptr %216, i64 %227
+  %228 = getelementptr inbounds nuw [2 x i8], ptr %216, i64 %227
   %229 = load i16, ptr %228, align 2, !tbaa !39
   %230 = and i16 %229, 8192
   %.not17.i197.i = icmp eq i16 %230, 0
@@ -2049,7 +2048,7 @@ define internal void @rand_test_cleanup(ptr noundef readonly captures(none) %0) 
 
 13:                                               ; preds = %.lr.ph, %13
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %13 ]
-  %14 = getelementptr inbounds nuw %struct.rand_data_pass_st, ptr %12, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [160 x i8], ptr %12, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8, !tbaa !81
   tail call void @CRYPTO_free(ptr noundef %15, ptr noundef nonnull @.str.29, i32 noundef 3477) #10
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
@@ -2123,7 +2122,7 @@ define internal i32 @rand_test_parse(ptr noundef readonly captures(none) %0, ptr
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %sext = shl i64 %9, 32
   %19 = ashr exact i64 %sext, 32
-  %20 = getelementptr inbounds %struct.rand_data_pass_st, ptr %18, i64 %19
+  %20 = getelementptr inbounds [160 x i8], ptr %18, i64 %19
   %21 = tail call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(9) @.str.78, i64 noundef 8) #11
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %26
@@ -2369,7 +2368,7 @@ define internal range(i32 0, 2) i32 @rand_test_run(ptr noundef captures(none) %0
 
 ._crit_edge156:                                   ; preds = %33, %28
   %36 = phi i64 [ 0, %28 ], [ %.pre157, %33 ]
-  %37 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %4, i64 %36
+  %37 = getelementptr inbounds nuw [40 x i8], ptr %4, i64 %36
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 40
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %39 = getelementptr inbounds nuw i8, ptr %21, i64 24
@@ -2438,7 +2437,7 @@ define internal range(i32 0, 2) i32 @rand_test_run(ptr noundef captures(none) %0
 .lr.ph.i:                                         ; preds = %59, %.lr.ph.i
   %.03.i = phi i64 [ %60, %.lr.ph.i ], [ %36, %59 ]
   %60 = add i64 %.03.i, -1
-  %61 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %4, i64 %60
+  %61 = getelementptr inbounds nuw [40 x i8], ptr %4, i64 %60
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 16
   %63 = load ptr, ptr %62, align 8, !tbaa !98
   call void @CRYPTO_free(ptr noundef %63, ptr noundef nonnull @.str.29, i32 noundef 291) #10
@@ -2464,7 +2463,7 @@ ctrl2params_free.exit:                            ; preds = %.lr.ph.i, %59
 
 74:                                               ; preds = %.lr.ph, %211
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %211 ]
-  %75 = getelementptr inbounds nuw %struct.rand_data_pass_st, ptr %68, i64 %indvars.iv
+  %75 = getelementptr inbounds nuw [160 x i8], ptr %68, i64 %indvars.iv
   %76 = load ptr, ptr %75, align 8, !tbaa !81
   %.not107 = icmp eq ptr %76, null
   %spec.select = select i1 %.not107, ptr @.str.103, ptr %76
@@ -2756,7 +2755,7 @@ rand_check_fips_approved.exit.thread:             ; preds = %176, %184, %188
 .lr.ph.i128:                                      ; preds = %.thread, %.lr.ph.i128
   %.03.i129 = phi i64 [ %219, %.lr.ph.i128 ], [ %218, %.thread ]
   %219 = add i64 %.03.i129, -1
-  %220 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %4, i64 %219
+  %220 = getelementptr inbounds nuw [40 x i8], ptr %4, i64 %219
   %221 = getelementptr inbounds nuw i8, ptr %220, i64 16
   %222 = load ptr, ptr %221, align 8, !tbaa !98
   call void @CRYPTO_free(ptr noundef %222, ptr noundef nonnull @.str.29, i32 noundef 291) #10
@@ -2871,7 +2870,7 @@ define internal fastcc range(i32 0, 2) i32 @ctrl2params(ptr noundef writeonly ca
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 1
   store i8 0, ptr %23, align 1, !tbaa !34
   %26 = load i64, ptr %5, align 8, !tbaa !35
-  %27 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %3, i64 %26
+  %27 = getelementptr inbounds nuw [40 x i8], ptr %3, i64 %26
   %28 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %25) #11
   %29 = tail call i32 @OSSL_PARAM_allocate_from_text(ptr noundef nonnull %27, ptr noundef nonnull %spec.store.select, ptr noundef nonnull %18, ptr noundef nonnull %25, i64 noundef %28, ptr noundef null) #10
   %.not35 = icmp eq i32 %29, 0
@@ -2895,7 +2894,7 @@ define internal fastcc range(i32 0, 2) i32 @ctrl2params(ptr noundef writeonly ca
 
 ._crit_edge:                                      ; preds = %31, %.preheader
   %37 = load i64, ptr %5, align 8, !tbaa !35
-  %38 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %3, i64 %37
+  %38 = getelementptr inbounds nuw [40 x i8], ptr %3, i64 %37
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %7) #10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %38, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false), !tbaa.struct !96
@@ -3066,7 +3065,7 @@ define internal void @cipher_test_cleanup(ptr noundef readonly captures(none) %0
 
 15:                                               ; preds = %1, %15
   %indvars.iv = phi i64 [ 0, %1 ], [ %indvars.iv.next, %15 ]
-  %16 = getelementptr inbounds nuw ptr, ptr %14, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %14, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !10
   tail call void @CRYPTO_free(ptr noundef %17, ptr noundef nonnull @.str.29, i32 noundef 990) #10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -3225,15 +3224,15 @@ sub_1:                                            ; preds = %sub_0
 
 73:                                               ; preds = %.preheader, %72
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %72 ]
-  %74 = getelementptr inbounds nuw ptr, ptr %71, i64 %indvars.iv
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %indvars.iv
   %75 = load ptr, ptr %74, align 8, !tbaa !10
   %76 = icmp eq ptr %75, null
   br i1 %76, label %77, label %72
 
 77:                                               ; preds = %73
-  %78 = getelementptr inbounds nuw ptr, ptr %71, i64 %indvars.iv
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %71, i64 %indvars.iv
   %79 = getelementptr inbounds nuw i8, ptr %6, i64 144
-  %80 = getelementptr inbounds nuw i64, ptr %79, i64 %indvars.iv
+  %80 = getelementptr inbounds nuw [8 x i8], ptr %79, i64 %indvars.iv
   %81 = tail call fastcc i32 @parse_bin(ptr noundef %2, ptr noundef nonnull %78, ptr noundef nonnull %80)
   br label %.thread
 
@@ -3585,7 +3584,7 @@ define internal range(i32 0, 2) i32 @cipher_test_run(ptr noundef captures(none) 
 .lr.ph.i:                                         ; preds = %81, %.lr.ph.i
   %.03.i = phi i64 [ %83, %.lr.ph.i ], [ %82, %81 ]
   %83 = add i64 %.03.i, -1
-  %84 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %2, i64 %83
+  %84 = getelementptr inbounds nuw [40 x i8], ptr %2, i64 %83
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
   %86 = load ptr, ptr %85, align 8, !tbaa !98
   call void @CRYPTO_free(ptr noundef %86, ptr noundef nonnull @.str.29, i32 noundef 291) #10
@@ -3604,7 +3603,7 @@ ctrl2params_free.exit:                            ; preds = %.lr.ph.i, %81
 .lr.ph.i79:                                       ; preds = %.split91.us, %.lr.ph.i79
   %.03.i80 = phi i64 [ %88, %.lr.ph.i79 ], [ %87, %.split91.us ]
   %88 = add i64 %.03.i80, -1
-  %89 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %2, i64 %88
+  %89 = getelementptr inbounds nuw [40 x i8], ptr %2, i64 %88
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %91 = load ptr, ptr %90, align 8, !tbaa !98
   call void @CRYPTO_free(ptr noundef %91, ptr noundef nonnull @.str.29, i32 noundef 291) #10
@@ -4163,8 +4162,8 @@ define internal fastcc range(i32 0, 2) i32 @cipher_test_enc(ptr noundef captures
 
 204:                                              ; preds = %.lr.ph506, %.thread459
   %indvars.iv511 = phi i64 [ 0, %.lr.ph506 ], [ %indvars.iv.next512, %.thread459 ]
-  %205 = getelementptr inbounds nuw ptr, ptr %195, i64 %indvars.iv511
-  %206 = getelementptr inbounds nuw i64, ptr %203, i64 %indvars.iv511
+  %205 = getelementptr inbounds nuw [8 x i8], ptr %195, i64 %indvars.iv511
+  %206 = getelementptr inbounds nuw [8 x i8], ptr %203, i64 %indvars.iv511
   %207 = load i64, ptr %206, align 8, !tbaa !35
   br label %208
 
@@ -4191,7 +4190,7 @@ define internal fastcc range(i32 0, 2) i32 @cipher_test_enc(ptr noundef captures
 
 .thread459:                                       ; preds = %217
   %indvars.iv.next512 = add nuw nsw i64 %indvars.iv511, 1
-  %220 = getelementptr inbounds nuw ptr, ptr %195, i64 %indvars.iv.next512
+  %220 = getelementptr inbounds nuw [8 x i8], ptr %195, i64 %indvars.iv.next512
   %221 = load ptr, ptr %220, align 8, !tbaa !10
   %.not366 = icmp eq ptr %221, null
   br i1 %.not366, label %.loopexit497, label %204, !llvm.loop !147
@@ -4200,8 +4199,8 @@ define internal fastcc range(i32 0, 2) i32 @cipher_test_enc(ptr noundef captures
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread463 ]
   %223 = phi ptr [ %201, %.lr.ph ], [ %250, %.thread463 ]
   %.2305502 = phi i64 [ 0, %.lr.ph ], [ %.4307465, %.thread463 ]
-  %224 = getelementptr inbounds nuw ptr, ptr %195, i64 %indvars.iv
-  %225 = getelementptr inbounds nuw i64, ptr %202, i64 %indvars.iv
+  %224 = getelementptr inbounds nuw [8 x i8], ptr %195, i64 %indvars.iv
+  %225 = getelementptr inbounds nuw [8 x i8], ptr %202, i64 %indvars.iv
   %226 = load i64, ptr %225, align 8, !tbaa !35
   %.not370 = icmp eq i64 %226, 0
   br i1 %.not370, label %.thread463, label %227
@@ -4248,7 +4247,7 @@ define internal fastcc range(i32 0, 2) i32 @cipher_test_enc(ptr noundef captures
 .thread463:                                       ; preds = %222, %242, %245
   %.4307465 = phi i64 [ %.4307, %245 ], [ %.4307, %242 ], [ %.2305502, %222 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %249 = getelementptr inbounds nuw ptr, ptr %195, i64 %indvars.iv.next
+  %249 = getelementptr inbounds nuw [8 x i8], ptr %195, i64 %indvars.iv.next
   %250 = load ptr, ptr %249, align 8, !tbaa !10
   %.not369 = icmp eq ptr %250, null
   br i1 %.not369, label %.loopexit497, label %222, !llvm.loop !148
@@ -6314,7 +6313,7 @@ define internal fastcc range(i32 0, 2) i32 @signverify_init(ptr noundef captures
 .lr.ph.i:                                         ; preds = %.thread, %.lr.ph.i
   %.03.i = phi i64 [ %52, %.lr.ph.i ], [ %51, %.thread ]
   %52 = add i64 %.03.i, -1
-  %53 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %3, i64 %52
+  %53 = getelementptr inbounds nuw [40 x i8], ptr %3, i64 %52
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %55 = load ptr, ptr %54, align 8, !tbaa !98
   call void @CRYPTO_free(ptr noundef %55, ptr noundef nonnull @.str.29, i32 noundef 291) #10
@@ -7314,7 +7313,7 @@ memory_err_compare.exit:                          ; preds = %71, %73
 .lr.ph.i:                                         ; preds = %78, %.lr.ph.i
   %.03.i = phi i64 [ %80, %.lr.ph.i ], [ %79, %78 ]
   %80 = add i64 %.03.i, -1
-  %81 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %4, i64 %80
+  %81 = getelementptr inbounds nuw [40 x i8], ptr %4, i64 %80
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %83 = load ptr, ptr %82, align 8, !tbaa !98
   call void @CRYPTO_free(ptr noundef %83, ptr noundef nonnull @.str.29, i32 noundef 291) #10
@@ -8303,7 +8302,7 @@ find_key.exit118:                                 ; preds = %.lr.ph.i114
 .lr.ph.i119:                                      ; preds = %151, %.lr.ph.i119
   %.03.i = phi i64 [ %158, %.lr.ph.i119 ], [ %156, %151 ]
   %158 = add i64 %.03.i, -1
-  %159 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %.376, i64 %158
+  %159 = getelementptr inbounds nuw [40 x i8], ptr %.376, i64 %158
   %160 = getelementptr inbounds nuw i8, ptr %159, i64 16
   %161 = load ptr, ptr %160, align 8, !tbaa !98
   call void @CRYPTO_free(ptr noundef %161, ptr noundef nonnull @.str.29, i32 noundef 291) #10
@@ -8426,7 +8425,7 @@ define internal fastcc range(i32 0, 2) i32 @check_pkey_expected_values(ptr nound
 .lr.ph.i:                                         ; preds = %.thread, %.lr.ph.i
   %.03.i = phi i64 [ %37, %.lr.ph.i ], [ %.pr, %.thread ]
   %37 = add i64 %.03.i, -1
-  %38 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %4, i64 %37
+  %38 = getelementptr inbounds nuw [40 x i8], ptr %4, i64 %37
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %40 = load ptr, ptr %39, align 8, !tbaa !98
   call void @CRYPTO_free(ptr noundef %40, ptr noundef nonnull @.str.29, i32 noundef 291) #10
@@ -8889,7 +8888,7 @@ define internal noundef i32 @mac_test_run(ptr noundef captures(none) %0) #1 {
 68:                                               ; preds = %64
   %69 = add nuw nsw i64 %65, 1
   store i64 %69, ptr %11, align 8, !tbaa !35
-  %70 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %9, i64 %65
+  %70 = getelementptr inbounds nuw [40 x i8], ptr %9, i64 %65
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %71 = getelementptr inbounds nuw i8, ptr %24, i64 120
   %72 = load i64, ptr %71, align 8, !tbaa !258
@@ -8908,7 +8907,7 @@ define internal noundef i32 @mac_test_run(ptr noundef captures(none) %0) #1 {
 77:                                               ; preds = %73
   %78 = add nuw nsw i64 %74, 1
   store i64 %78, ptr %11, align 8, !tbaa !35
-  %79 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %9, i64 %74
+  %79 = getelementptr inbounds nuw [40 x i8], ptr %9, i64 %74
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
   %80 = getelementptr inbounds nuw i8, ptr %24, i64 56
   %81 = load i64, ptr %80, align 8, !tbaa !259
@@ -8926,7 +8925,7 @@ define internal noundef i32 @mac_test_run(ptr noundef captures(none) %0) #1 {
   br i1 %.not165.i, label %.critedge.i, label %87
 
 87:                                               ; preds = %82
-  %88 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %9, i64 %83
+  %88 = getelementptr inbounds nuw [40 x i8], ptr %9, i64 %83
   %89 = call ptr @OSSL_PARAM_locate(ptr noundef nonnull %88, ptr noundef nonnull @.str.230) #10
   %.not166.i = icmp eq ptr %89, null
   br i1 %.not166.i, label %92, label %90
@@ -9338,7 +9337,7 @@ define internal noundef i32 @mac_test_run(ptr noundef captures(none) %0) #1 {
 .lr.ph.i.i:                                       ; preds = %.critedge.i, %.lr.ph.i.i
   %.03.i.i = phi i64 [ %277, %.lr.ph.i.i ], [ %275, %.critedge.i ]
   %277 = add i64 %.03.i.i, -1
-  %278 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %9, i64 %277
+  %278 = getelementptr inbounds nuw [40 x i8], ptr %9, i64 %277
   %279 = getelementptr inbounds nuw i8, ptr %278, i64 16
   %280 = load ptr, ptr %279, align 8, !tbaa !98
   call void @CRYPTO_free(ptr noundef %280, ptr noundef nonnull @.str.29, i32 noundef 291) #10
@@ -10099,7 +10098,7 @@ sub_1.i.i:                                        ; preds = %sub_0.i.i
   %101 = load ptr, ptr %95, align 8, !tbaa !37
   %102 = load i8, ptr %.017.i, align 1, !tbaa !34
   %103 = zext i8 %102 to i64
-  %104 = getelementptr inbounds nuw i16, ptr %101, i64 %103
+  %104 = getelementptr inbounds nuw [2 x i8], ptr %101, i64 %103
   %105 = load i16, ptr %104, align 2, !tbaa !39
   %106 = lshr i16 %105, 11
   %.lobit.i = and i16 %106, 1
@@ -10718,7 +10717,7 @@ define internal fastcc range(i32 0, 2) i32 @pkey_test_run_init(ptr noundef captu
 .lr.ph.i:                                         ; preds = %.thread, %.lr.ph.i
   %.03.i = phi i64 [ %48, %.lr.ph.i ], [ %47, %.thread ]
   %48 = add i64 %.03.i, -1
-  %49 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %2, i64 %48
+  %49 = getelementptr inbounds nuw [40 x i8], ptr %2, i64 %48
   %50 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %51 = load ptr, ptr %50, align 8, !tbaa !98
   call void @CRYPTO_free(ptr noundef %51, ptr noundef nonnull @.str.29, i32 noundef 291) #10
@@ -11580,7 +11579,7 @@ find_key.exit.thread:                             ; preds = %17, %12, %find_key.
 
 81:                                               ; preds = %79
   %82 = add i64 %77, 1
-  %83 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %4, i64 %77
+  %83 = getelementptr inbounds nuw [40 x i8], ptr %4, i64 %77
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %84 = getelementptr inbounds nuw i8, ptr %66, i64 112
   %85 = load i64, ptr %84, align 8, !tbaa !314
@@ -11591,7 +11590,7 @@ find_key.exit.thread:                             ; preds = %17, %12, %find_key.
 
 86:                                               ; preds = %81, %79
   %87 = phi i64 [ %82, %81 ], [ %77, %79 ]
-  %88 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %4, i64 %87
+  %88 = getelementptr inbounds nuw [40 x i8], ptr %4, i64 %87
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @OSSL_PARAM_construct_end(ptr dead_on_unwind nonnull writable sret(%struct.ossl_param_st) align 8 %7) #10
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %88, ptr noundef nonnull align 8 dereferenceable(40) %7, i64 40, i1 false), !tbaa.struct !96
@@ -11729,7 +11728,7 @@ find_key.exit.thread:                             ; preds = %17, %12, %find_key.
 .lr.ph.i.i:                                       ; preds = %146, %.lr.ph.i.i
   %.03.i.i = phi i64 [ %152, %.lr.ph.i.i ], [ %147, %146 ]
   %152 = add i64 %.03.i.i, -1
-  %153 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %4, i64 %152
+  %153 = getelementptr inbounds nuw [40 x i8], ptr %4, i64 %152
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 16
   %155 = load ptr, ptr %154, align 8, !tbaa !98
   call void @CRYPTO_free(ptr noundef %155, ptr noundef nonnull @.str.29, i32 noundef 291) #10
@@ -11906,7 +11905,7 @@ define internal fastcc void @decapsulate(ptr noundef captures(none) %0, ptr noun
 .lr.ph.i:                                         ; preds = %51, %.lr.ph.i
   %.03.i = phi i64 [ %57, %.lr.ph.i ], [ %55, %51 ]
   %57 = add i64 %.03.i, -1
-  %58 = getelementptr inbounds nuw %struct.ossl_param_st, ptr %9, i64 %57
+  %58 = getelementptr inbounds nuw [40 x i8], ptr %9, i64 %57
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 16
   %60 = load ptr, ptr %59, align 8, !tbaa !98
   call void @CRYPTO_free(ptr noundef %60, ptr noundef nonnull @.str.29, i32 noundef 291) #10

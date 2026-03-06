@@ -313,7 +313,7 @@ define internal noundef i32 @monochrome_slice16(ptr noundef readonly captures(no
   %55 = load ptr, ptr %1, align 8, !tbaa !57
   %56 = sext i32 %21 to i64
   %57 = mul nsw i64 %28, %56
-  %58 = getelementptr inbounds i16, ptr %55, i64 %57
+  %58 = getelementptr inbounds [2 x i8], ptr %55, i64 %57
   %wide.trip.count = zext nneg i32 %17 to i64
   br label %.lr.ph.us
 
@@ -323,25 +323,25 @@ define internal noundef i32 @monochrome_slice16(ptr noundef readonly captures(no
   %59 = ashr i32 %.07175.us, %12
   %60 = sext i32 %59 to i64
   %61 = mul nsw i64 %60, %32
-  %62 = getelementptr inbounds i16, ptr %51, i64 %61
+  %62 = getelementptr inbounds [2 x i8], ptr %51, i64 %61
   %63 = mul nsw i64 %60, %36
-  %64 = getelementptr inbounds i16, ptr %53, i64 %63
+  %64 = getelementptr inbounds [2 x i8], ptr %53, i64 %63
   br label %65
 
 65:                                               ; preds = %.lr.ph.us, %envelope.exit.us
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %envelope.exit.us ]
   %66 = trunc nuw nsw i64 %indvars.iv to i32
   %67 = lshr i32 %66, %10
-  %68 = getelementptr inbounds nuw i16, ptr %.076.us, i64 %indvars.iv
+  %68 = getelementptr inbounds nuw [2 x i8], ptr %.076.us, i64 %indvars.iv
   %69 = load i16, ptr %68, align 2, !tbaa !62
   %70 = uitofp i16 %69 to float
   %71 = fmul nsz float %15, %70
   %72 = zext nneg i32 %67 to i64
-  %73 = getelementptr inbounds nuw i16, ptr %62, i64 %72
+  %73 = getelementptr inbounds nuw [2 x i8], ptr %62, i64 %72
   %74 = load i16, ptr %73, align 2, !tbaa !62
   %75 = uitofp i16 %74 to float
   %76 = tail call nsz float @llvm.fmuladd.f32(float %75, float %15, float -5.000000e-01)
-  %77 = getelementptr inbounds nuw i16, ptr %64, i64 %72
+  %77 = getelementptr inbounds nuw [2 x i8], ptr %64, i64 %72
   %78 = load i16, ptr %77, align 2, !tbaa !62
   %79 = uitofp i16 %78 to float
   %80 = tail call nsz float @llvm.fmuladd.f32(float %79, float %15, float -5.000000e-01)
@@ -398,7 +398,7 @@ envelope.exit.us:                                 ; preds = %98, %92
   br i1 %exitcond.not, label %._crit_edge.us, label %65, !llvm.loop !64
 
 ._crit_edge.us:                                   ; preds = %envelope.exit.us
-  %116 = getelementptr inbounds i16, ptr %.076.us, i64 %28
+  %116 = getelementptr inbounds [2 x i8], ptr %.076.us, i64 %28
   %117 = add nsw i32 %.07175.us, 1
   %exitcond82.not = icmp eq i32 %117, %24
   br i1 %exitcond82.not, label %._crit_edge79, label %.lr.ph.us, !llvm.loop !65
@@ -526,16 +526,16 @@ define internal noundef i32 @clear_slice16(ptr noundef readonly captures(none) %
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %._crit_edge.us
   %indvars.iv53 = phi i64 [ %44, %.lr.ph.us.preheader ], [ %indvars.iv.next54, %._crit_edge.us ]
   %45 = mul nsw i64 %indvars.iv53, %28
-  %46 = getelementptr inbounds i16, ptr %39, i64 %45
+  %46 = getelementptr inbounds [2 x i8], ptr %39, i64 %45
   %47 = mul nsw i64 %indvars.iv53, %32
-  %48 = getelementptr inbounds i16, ptr %41, i64 %47
+  %48 = getelementptr inbounds [2 x i8], ptr %41, i64 %47
   br label %49
 
 49:                                               ; preds = %.lr.ph.us, %49
   %indvars.iv = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next, %49 ]
-  %50 = getelementptr inbounds nuw i16, ptr %46, i64 %indvars.iv
+  %50 = getelementptr inbounds nuw [2 x i8], ptr %46, i64 %indvars.iv
   store i16 %43, ptr %50, align 2, !tbaa !62
-  %51 = getelementptr inbounds nuw i16, ptr %48, i64 %indvars.iv
+  %51 = getelementptr inbounds nuw [2 x i8], ptr %48, i64 %indvars.iv
   store i16 %43, ptr %51, align 2, !tbaa !62
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count

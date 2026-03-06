@@ -6,9 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.cm::enum_set" = type { %"class.std::bitset" }
 %"class.std::bitset" = type { %"struct.std::_Base_bitset" }
 %"struct.std::_Base_bitset" = type { i64 }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
 
 $_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev = comdat any
 
@@ -180,7 +177,7 @@ _ZN21cmCursesOptionsWidget10NextOptionEv.exit:    ; preds = %10, %10
   %20 = icmp ugt i64 %14, %19
   %spec.select = select i1 %20, i64 0, i64 %14
   store i64 %spec.select, ptr %12, align 8, !tbaa !30
-  %21 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %6, i64 %spec.select
+  %21 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %spec.select
   %22 = load ptr, ptr %0, align 8, !tbaa !4
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 32
   %24 = load ptr, ptr %23, align 8
@@ -228,7 +225,7 @@ _ZN21cmCursesOptionsWidget10NextOptionEv.exit:    ; preds = %10, %10
   %storemerge.in.i = select i1 %46, i64 %52, i64 %45
   %storemerge.i = add i64 %storemerge.in.i, -1
   store i64 %storemerge.i, ptr %44, align 8, !tbaa !30
-  %53 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %48, i64 %storemerge.i
+  %53 = getelementptr inbounds nuw [32 x i8], ptr %48, i64 %storemerge.i
   %54 = load ptr, ptr %0, align 8, !tbaa !4
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 32
   %56 = load ptr, ptr %55, align 8
@@ -247,7 +244,7 @@ _ZN21cmCursesOptionsWidget10NextOptionEv.exit18:  ; preds = %10, %10
   %65 = icmp ugt i64 %59, %64
   %spec.select24 = select i1 %65, i64 0, i64 %59
   store i64 %spec.select24, ptr %57, align 8, !tbaa !30
-  %66 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %6, i64 %spec.select24
+  %66 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %spec.select24
   %67 = load ptr, ptr %0, align 8, !tbaa !4
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 32
   %69 = load ptr, ptr %68, align 8
@@ -297,7 +294,7 @@ define dso_local void @_ZN21cmCursesOptionsWidget10NextOptionEv(ptr noundef nonn
 
 16:                                               ; preds = %15, %1
   %17 = phi i64 [ 0, %15 ], [ %4, %1 ]
-  %18 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %8, i64 %17
+  %18 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 %17
   %19 = load ptr, ptr %0, align 8, !tbaa !4
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 32
   %21 = load ptr, ptr %20, align 8
@@ -325,7 +322,7 @@ define dso_local void @_ZN21cmCursesOptionsWidget14PreviousOptionEv(ptr noundef 
   %storemerge.in = select i1 %4, i64 %12, i64 %3
   %storemerge = add i64 %storemerge.in, -1
   store i64 %storemerge, ptr %2, align 8, !tbaa !30
-  %13 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %8, i64 %storemerge
+  %13 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 %storemerge
   %14 = load ptr, ptr %0, align 8, !tbaa !4
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %16 = load ptr, ptr %15, align 8
@@ -776,7 +773,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !19
   store ptr %.0.lcssa.i.i.i35, ptr %5, align 8, !tbaa !22
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !27
   ret void
 

@@ -96,14 +96,14 @@ define ptr @cuddZddIsop(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noun
   %40 = inttoptr i64 %39 to ptr
   %41 = load i32, ptr %40, align 8, !tbaa !32
   %42 = zext i32 %41 to i64
-  %43 = getelementptr inbounds nuw i32, ptr %37, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !33
   %45 = ptrtoint ptr %2 to i64
   %46 = and i64 %45, -2
   %47 = inttoptr i64 %46 to ptr
   %48 = load i32, ptr %47, align 8, !tbaa !32
   %49 = zext i32 %48 to i64
-  %50 = getelementptr inbounds nuw i32, ptr %37, i64 %49
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %49
   %51 = load i32, ptr %50, align 4, !tbaa !33
   %.not344 = icmp sgt i32 %44, %51
   br i1 %.not344, label %65, label %52
@@ -505,14 +505,14 @@ define ptr @cuddBddIsop(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %19 = inttoptr i64 %18 to ptr
   %20 = load i32, ptr %19, align 8, !tbaa !32
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw i32, ptr %16, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %21
   %23 = load i32, ptr %22, align 4, !tbaa !33
   %24 = ptrtoint ptr %2 to i64
   %25 = and i64 %24, -2
   %26 = inttoptr i64 %25 to ptr
   %27 = load i32, ptr %26, align 8, !tbaa !32
   %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw i32, ptr %16, i64 %28
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %28
   %30 = load i32, ptr %29, align 4, !tbaa !33
   %.not257 = icmp sgt i32 %23, %30
   br i1 %.not257, label %44, label %31

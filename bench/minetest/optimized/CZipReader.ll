@@ -14,7 +14,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %"struct.irr::io::SZIPFileCentralDirEnd" = type <{ i32, i16, i16, i16, i16, i32, i32, i16 }>
 %"struct.irr::io::SZIPFileCentralDirFileHeader" = type <{ i32, i16, i16, i16, i16, i16, i16, i32, i32, i32, i16, i16, i16, i16, i16, i32, i32 }>
 %struct.z_stream_s = type { ptr, i32, i64, ptr, i32, i64, ptr, ptr, ptr, ptr, ptr, i32, i64, i64 }
-%"struct.irr::io::SFileListEntry" = type <{ %"class.irr::core::string", %"class.irr::core::string", i32, i32, i32, i8, [3 x i8] }>
 
 $_ZN3irr2io14IArchiveLoaderD1Ev = comdat any
 
@@ -1106,7 +1105,7 @@ if.then.i39.i.i.i:                                ; preds = %_ZNSt6vectorIN3irr2
 _ZNSt6vectorIN3irr2io13SZipFileEntryESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %if.then.i39.i.i.i, %_ZNSt6vectorIN3irr2io13SZipFileEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit38.i.i.i
   store ptr %call5.i.i.i.i.i.i, ptr %FileInfo, align 8, !tbaa !60
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8, !tbaa !59
-  %add.ptr19.i.i.i = getelementptr inbounds nuw %"struct.irr::io::SZipFileEntry", ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [36 x i8], ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !56
   br label %_ZN3irr4core5arrayINS_2io13SZipFileEntryEE9push_backERKS3_.exit
 
@@ -1432,7 +1431,7 @@ if.else.i.i:                                      ; preds = %if.then.i
   br i1 %cmp4.i.i, label %if.then5.i.i, label %_ZN3irr4core5arrayINS_2io13SZipFileEntryEE10reallocateEjb.exit
 
 if.then5.i.i:                                     ; preds = %if.else.i.i
-  %add.ptr.i.i = getelementptr inbounds nuw %"struct.irr::io::SZipFileEntry", ptr %49, i64 %conv.i125
+  %add.ptr.i.i = getelementptr inbounds nuw [36 x i8], ptr %49, i64 %conv.i125
   %tobool.not.i.i.i = icmp eq ptr %50, %add.ptr.i.i
   br i1 %tobool.not.i.i.i, label %_ZN3irr4core5arrayINS_2io13SZipFileEntryEE10reallocateEjb.exit, label %if.then.i.i.i
 
@@ -1470,7 +1469,7 @@ _ZNSt12_Vector_baseIN3irr2io13SZipFileEntryESaIS2_EE13_M_deallocateEPS2_m.exit.i
   store ptr %call5.i.i.i.i.i, ptr %FileInfo, align 8, !tbaa !60
   %add.ptr.i17.i = getelementptr inbounds i8, ptr %call5.i.i.i.i.i, i64 %sub.ptr.sub.i32.i.i
   store ptr %add.ptr.i17.i, ptr %_M_finish.i.i14.i, align 8, !tbaa !59
-  %add.ptr21.i.i = getelementptr inbounds nuw %"struct.irr::io::SZipFileEntry", ptr %call5.i.i.i.i.i, i64 %conv.i125
+  %add.ptr21.i.i = getelementptr inbounds nuw [36 x i8], ptr %call5.i.i.i.i.i, i64 %conv.i125
   store ptr %add.ptr21.i.i, ptr %_M_end_of_storage.i.i, align 8, !tbaa !56
   br label %_ZN3irr4core5arrayINS_2io13SZipFileEntryEE10reallocateEjb.exit
 
@@ -1601,7 +1600,7 @@ if.then.i39.i.i.i:                                ; preds = %_ZNSt6vectorIN3irr2
 _ZNSt6vectorIN3irr2io13SZipFileEntryESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i.i: ; preds = %if.then.i39.i.i.i, %_ZNSt6vectorIN3irr2io13SZipFileEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit38.i.i.i
   store ptr %call5.i.i.i.i.i.i, ptr %FileInfo109, align 8, !tbaa !60
   store ptr %incdec.ptr.i.i.i, ptr %_M_finish.i.i, align 8, !tbaa !59
-  %add.ptr19.i.i.i = getelementptr inbounds nuw %"struct.irr::io::SZipFileEntry", ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
+  %add.ptr19.i.i.i = getelementptr inbounds nuw [36 x i8], ptr %call5.i.i.i.i.i.i, i64 %cond.i.i.i.i
   store ptr %add.ptr19.i.i.i, ptr %_M_end_of_storage.i.i134, align 8, !tbaa !56
   br label %_ZN3irr4core5arrayINS_2io13SZipFileEntryEE9push_backERKS3_.exit
 
@@ -2439,12 +2438,12 @@ entry:
   %Files = getelementptr inbounds nuw i8, ptr %add.ptr, i64 48
   %conv.i = zext i32 %index to i64
   %0 = load ptr, ptr %Files, align 8, !tbaa !65
-  %ID.split = getelementptr inbounds nuw %"struct.irr::io::SFileListEntry", ptr %0, i64 %conv.i
+  %ID.split = getelementptr inbounds nuw [80 x i8], ptr %0, i64 %conv.i
   %ID = getelementptr inbounds nuw i8, ptr %ID.split, i64 68
   %1 = load i32, ptr %ID, align 4, !tbaa !91
   %conv.i169 = zext i32 %1 to i64
   %2 = load ptr, ptr %FileInfo, align 8, !tbaa !60
-  %add.ptr.i.i170 = getelementptr inbounds nuw %"struct.irr::io::SZipFileEntry", ptr %2, i64 %conv.i169
+  %add.ptr.i.i170 = getelementptr inbounds nuw [36 x i8], ptr %2, i64 %conv.i169
   call void @llvm.lifetime.start.p0(ptr nonnull %buf)
   %CompressionMethod = getelementptr inbounds nuw i8, ptr %add.ptr.i.i170, i64 12
   %3 = load i16, ptr %CompressionMethod, align 4, !tbaa !52
@@ -2514,7 +2513,7 @@ if.then68:                                        ; preds = %sw.bb13
   %add.ptr108 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset107
   %Files109 = getelementptr inbounds nuw i8, ptr %add.ptr108, i64 48
   %14 = load ptr, ptr %Files109, align 8, !tbaa !65
-  %FullName111.split = getelementptr inbounds nuw %"struct.irr::io::SFileListEntry", ptr %14, i64 %conv.i
+  %FullName111.split = getelementptr inbounds nuw [80 x i8], ptr %14, i64 %conv.i
   %FullName111 = getelementptr inbounds nuw i8, ptr %FullName111.split, i64 32
   %vtable112 = load ptr, ptr %13, align 8, !tbaa !3
   %vfn113 = getelementptr inbounds nuw i8, ptr %vtable112, i64 8
@@ -2530,7 +2529,7 @@ if.then89.critedge:                               ; preds = %sw.bb13
   %add.ptr94 = getelementptr inbounds i8, ptr %this, i64 %vbase.offset93
   %Files95 = getelementptr inbounds nuw i8, ptr %add.ptr94, i64 48
   %16 = load ptr, ptr %Files95, align 8, !tbaa !65
-  %FullName97.split = getelementptr inbounds nuw %"struct.irr::io::SFileListEntry", ptr %16, i64 %conv.i
+  %FullName97.split = getelementptr inbounds nuw [80 x i8], ptr %16, i64 %conv.i
   %FullName97 = getelementptr inbounds nuw i8, ptr %FullName97.split, i64 32
   %17 = load ptr, ptr %FullName97, align 8, !tbaa !21
   %call99 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %buf, i64 noundef 64, ptr noundef nonnull @.str.7, ptr noundef %17) #23
@@ -3005,7 +3004,7 @@ if.then.i.i.i:                                    ; preds = %if.then
   br i1 %cmp.i.i.i.i.i, label %_ZSt27__uninitialized_default_n_aIPN3irr2io13SZipFileEntryEmS2_ET_S4_T0_RSaIT1_E.exit, label %if.end.i.i.i.i.i
 
 if.end.i.i.i.i.i:                                 ; preds = %if.then.i.i.i
-  %add.ptr.i.i.i.i.i = getelementptr %"struct.irr::io::SZipFileEntry", ptr %0, i64 %__n
+  %add.ptr.i.i.i.i.i = getelementptr [36 x i8], ptr %0, i64 %__n
   br label %for.body.i.i.i.i.i.i.i
 
 for.body.i.i.i.i.i.i.i:                           ; preds = %for.body.i.i.i.i.i.i.i, %if.end.i.i.i.i.i
@@ -3041,7 +3040,7 @@ _ZNKSt6vectorIN3irr2io13SZipFileEntryESaIS2_EE12_M_check_lenEmPKc.exit: ; preds 
 
 if.end.i.i.i.i.i64:                               ; preds = %_ZNKSt6vectorIN3irr2io13SZipFileEntryESaIS2_EE12_M_check_lenEmPKc.exit
   %incdec.ptr.i.i.i61 = getelementptr inbounds nuw i8, ptr %add.ptr, i64 36
-  %add.ptr.i.i.i.i.i65 = getelementptr %"struct.irr::io::SZipFileEntry", ptr %add.ptr, i64 %__n
+  %add.ptr.i.i.i.i.i65 = getelementptr [36 x i8], ptr %add.ptr, i64 %__n
   br label %for.body.i.i.i.i.i.i.i66
 
 for.body.i.i.i.i.i.i.i66:                         ; preds = %for.body.i.i.i.i.i.i.i66, %if.end.i.i.i.i.i64
@@ -3069,9 +3068,9 @@ if.then.i73:                                      ; preds = %_ZNSt6vectorIN3irr2
 
 _ZNSt12_Vector_baseIN3irr2io13SZipFileEntryESaIS2_EE13_M_deallocateEPS2_m.exit: ; preds = %if.then.i73, %_ZNSt6vectorIN3irr2io13SZipFileEntryESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit
   store ptr %call5.i.i.i, ptr %this, align 8, !tbaa !60
-  %add.ptr34 = getelementptr inbounds nuw %"struct.irr::io::SZipFileEntry", ptr %add.ptr, i64 %__n
+  %add.ptr34 = getelementptr inbounds nuw [36 x i8], ptr %add.ptr, i64 %__n
   store ptr %add.ptr34, ptr %_M_finish.i, align 8, !tbaa !59
-  %add.ptr37 = getelementptr inbounds nuw %"struct.irr::io::SZipFileEntry", ptr %call5.i.i.i, i64 %3
+  %add.ptr37 = getelementptr inbounds nuw [36 x i8], ptr %call5.i.i.i, i64 %3
   store ptr %add.ptr37, ptr %_M_end_of_storage, align 8, !tbaa !56
   br label %if.end41
 

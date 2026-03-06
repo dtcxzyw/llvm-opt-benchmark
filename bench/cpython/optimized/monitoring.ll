@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.PyVarObject = type { %struct._object, i64 }
 %struct._object = type { %union.anon, ptr }
 %union.anon = type { i64 }
-%struct._PyMonitoringState = type { i8, i8 }
 
 @.str = private unnamed_addr constant [9 x i8] c"CodeLike\00", align 1
 @.str.1 = private unnamed_addr constant [20 x i8] c"monitoring.CodeLike\00", align 1
@@ -185,7 +184,7 @@ Py_DECREF.exit:                                   ; preds = %10, %13, %16
 .lr.ph:                                           ; preds = %.preheader, %21
   %indvars.iv = phi i64 [ %indvars.iv.next, %21 ], [ 0, %.preheader ]
   %25 = load ptr, ptr %2, align 8, !tbaa !6
-  %26 = getelementptr %struct._PyMonitoringState, ptr %25, i64 %indvars.iv
+  %26 = getelementptr [2 x i8], ptr %25, i64 %indvars.iv
   %27 = load i8, ptr %26, align 1, !tbaa !27
   %28 = zext i8 %27 to i32
   %29 = tail call ptr (ptr, ...) @PyUnicode_FromFormat(ptr noundef nonnull @.str.5, i32 noundef %28) #4
@@ -357,7 +356,7 @@ setup_fire.exit:                                  ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !6
   %23 = zext nneg i32 %8 to i64
-  %24 = getelementptr %struct._PyMonitoringState, ptr %22, i64 %23
+  %24 = getelementptr [2 x i8], ptr %22, i64 %23
   %25 = icmp eq ptr %24, null
   br i1 %25, label %40, label %26
 
@@ -455,7 +454,7 @@ setup_fire.exit:                                  ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !6
   %23 = zext nneg i32 %8 to i64
-  %24 = getelementptr %struct._PyMonitoringState, ptr %22, i64 %23
+  %24 = getelementptr [2 x i8], ptr %22, i64 %23
   %25 = icmp eq ptr %24, null
   br i1 %25, label %40, label %26
 
@@ -555,7 +554,7 @@ setup_fire.exit:                                  ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !6
   %24 = zext nneg i32 %9 to i64
-  %25 = getelementptr %struct._PyMonitoringState, ptr %23, i64 %24
+  %25 = getelementptr [2 x i8], ptr %23, i64 %24
   %26 = icmp eq ptr %25, null
   br i1 %26, label %42, label %27
 
@@ -657,7 +656,7 @@ setup_fire.exit:                                  ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !6
   %24 = zext nneg i32 %9 to i64
-  %25 = getelementptr %struct._PyMonitoringState, ptr %23, i64 %24
+  %25 = getelementptr [2 x i8], ptr %23, i64 %24
   %26 = icmp eq ptr %25, null
   br i1 %26, label %42, label %27
 
@@ -759,7 +758,7 @@ setup_fire.exit:                                  ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !6
   %24 = zext nneg i32 %9 to i64
-  %25 = getelementptr %struct._PyMonitoringState, ptr %23, i64 %24
+  %25 = getelementptr [2 x i8], ptr %23, i64 %24
   %26 = icmp eq ptr %25, null
   br i1 %26, label %42, label %27
 
@@ -863,7 +862,7 @@ setup_fire.exit:                                  ; preds = %18
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %24 = load ptr, ptr %23, align 8, !tbaa !6
   %25 = zext nneg i32 %10 to i64
-  %26 = getelementptr %struct._PyMonitoringState, ptr %24, i64 %25
+  %26 = getelementptr [2 x i8], ptr %24, i64 %25
   %27 = icmp eq ptr %26, null
   br i1 %27, label %44, label %28
 
@@ -967,7 +966,7 @@ setup_fire.exit:                                  ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !6
   %24 = zext nneg i32 %9 to i64
-  %25 = getelementptr %struct._PyMonitoringState, ptr %23, i64 %24
+  %25 = getelementptr [2 x i8], ptr %23, i64 %24
   %26 = icmp eq ptr %25, null
   br i1 %26, label %42, label %27
 
@@ -1069,7 +1068,7 @@ setup_fire.exit:                                  ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !6
   %24 = zext nneg i32 %9 to i64
-  %25 = getelementptr %struct._PyMonitoringState, ptr %23, i64 %24
+  %25 = getelementptr [2 x i8], ptr %23, i64 %24
   %26 = icmp eq ptr %25, null
   br i1 %26, label %42, label %27
 
@@ -1171,7 +1170,7 @@ setup_fire.exit:                                  ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !6
   %24 = zext nneg i32 %9 to i64
-  %25 = getelementptr %struct._PyMonitoringState, ptr %23, i64 %24
+  %25 = getelementptr [2 x i8], ptr %23, i64 %24
   %26 = icmp eq ptr %25, null
   br i1 %26, label %42, label %27
 
@@ -1273,7 +1272,7 @@ setup_fire.exit:                                  ; preds = %17
   %22 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %23 = load ptr, ptr %22, align 8, !tbaa !6
   %24 = zext nneg i32 %9 to i64
-  %25 = getelementptr %struct._PyMonitoringState, ptr %23, i64 %24
+  %25 = getelementptr [2 x i8], ptr %23, i64 %24
   %26 = icmp eq ptr %25, null
   br i1 %26, label %42, label %27
 
@@ -1385,7 +1384,7 @@ setup_fire.exit.thread:                           ; preds = %11
   %28 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %29 = load ptr, ptr %28, align 8, !tbaa !6
   %30 = zext nneg i32 %14 to i64
-  %31 = getelementptr %struct._PyMonitoringState, ptr %29, i64 %30
+  %31 = getelementptr [2 x i8], ptr %29, i64 %30
   %.not13.i = icmp eq ptr %12, null
   br i1 %.not13.i, label %setup_fire.exit, label %32
 
@@ -1509,7 +1508,7 @@ setup_fire.exit.thread:                           ; preds = %11
   %28 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %29 = load ptr, ptr %28, align 8, !tbaa !6
   %30 = zext nneg i32 %14 to i64
-  %31 = getelementptr %struct._PyMonitoringState, ptr %29, i64 %30
+  %31 = getelementptr [2 x i8], ptr %29, i64 %30
   %.not13.i = icmp eq ptr %12, null
   br i1 %.not13.i, label %setup_fire.exit, label %32
 
@@ -1633,7 +1632,7 @@ setup_fire.exit.thread:                           ; preds = %11
   %28 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %29 = load ptr, ptr %28, align 8, !tbaa !6
   %30 = zext nneg i32 %14 to i64
-  %31 = getelementptr %struct._PyMonitoringState, ptr %29, i64 %30
+  %31 = getelementptr [2 x i8], ptr %29, i64 %30
   %.not13.i = icmp eq ptr %12, null
   br i1 %.not13.i, label %setup_fire.exit, label %32
 
@@ -1757,7 +1756,7 @@ setup_fire.exit.thread:                           ; preds = %11
   %28 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %29 = load ptr, ptr %28, align 8, !tbaa !6
   %30 = zext nneg i32 %14 to i64
-  %31 = getelementptr %struct._PyMonitoringState, ptr %29, i64 %30
+  %31 = getelementptr [2 x i8], ptr %29, i64 %30
   %.not13.i = icmp eq ptr %12, null
   br i1 %.not13.i, label %setup_fire.exit, label %32
 
@@ -1881,7 +1880,7 @@ setup_fire.exit.thread:                           ; preds = %11
   %28 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %29 = load ptr, ptr %28, align 8, !tbaa !6
   %30 = zext nneg i32 %14 to i64
-  %31 = getelementptr %struct._PyMonitoringState, ptr %29, i64 %30
+  %31 = getelementptr [2 x i8], ptr %29, i64 %30
   %.not13.i = icmp eq ptr %12, null
   br i1 %.not13.i, label %setup_fire.exit, label %32
 
@@ -2005,7 +2004,7 @@ setup_fire.exit.thread:                           ; preds = %11
   %28 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %29 = load ptr, ptr %28, align 8, !tbaa !6
   %30 = zext nneg i32 %14 to i64
-  %31 = getelementptr %struct._PyMonitoringState, ptr %29, i64 %30
+  %31 = getelementptr [2 x i8], ptr %29, i64 %30
   %.not13.i = icmp eq ptr %12, null
   br i1 %.not13.i, label %setup_fire.exit, label %32
 
@@ -2129,7 +2128,7 @@ setup_fire.exit:                                  ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %28 = load ptr, ptr %27, align 8, !tbaa !6
   %29 = zext nneg i32 %14 to i64
-  %30 = getelementptr %struct._PyMonitoringState, ptr %28, i64 %29
+  %30 = getelementptr [2 x i8], ptr %28, i64 %29
   %31 = icmp eq ptr %30, null
   br i1 %31, label %46, label %32
 

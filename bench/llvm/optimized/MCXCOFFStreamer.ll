@@ -320,7 +320,7 @@ define dso_local void @_ZN4llvm15MCXCOFFStreamer21emitXCOFFRefDirectiveEPKNS_8MC
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_7MCFixupELb1EE9push_backERKS1_.exit, label %32, !prof !85
 
 32:                                               ; preds = %18
-  %33 = getelementptr inbounds nuw %"class.llvm::MCFixup", ptr %.pre3.i, i64 %28
+  %33 = getelementptr inbounds nuw [24 x i8], ptr %.pre3.i, i64 %28
   %34 = icmp uge ptr %3, %.pre3.i
   %35 = icmp ult ptr %3, %33
   %spec.select.i.i.i.i.i = and i1 %34, %35
@@ -347,7 +347,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7MCFixupELb1EE9push_backERKS1_.exit: ; pred
   %.016.i.i.i = phi ptr [ %3, %18 ], [ %42, %36 ], [ %3, %.critedge.i.i.i ]
   %45 = load i32, ptr %26, align 8, !tbaa !82
   %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds nuw %"class.llvm::MCFixup", ptr %44, i64 %46
+  %47 = getelementptr inbounds nuw [24 x i8], ptr %44, i64 %46
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %47, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i, i64 24, i1 false)
   %48 = load i32, ptr %26, align 8, !tbaa !82
   %49 = add i32 %48, 1
@@ -568,7 +568,7 @@ _ZN4llvm11SmallVectorINS_7MCFixupELj4EED2Ev.exit: ; preds = %_ZN4llvm11SmallVect
   br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_7MCFixupELb1EE9push_backERKS1_.exit, label %65, !prof !85
 
 65:                                               ; preds = %57
-  %66 = getelementptr inbounds nuw %"class.llvm::MCFixup", ptr %.pre3.i, i64 %62
+  %66 = getelementptr inbounds nuw [24 x i8], ptr %.pre3.i, i64 %62
   %67 = icmp uge ptr %.021, %.pre3.i
   %68 = icmp ult ptr %.021, %66
   %spec.select.i.i.i.i.i = and i1 %67, %68
@@ -593,7 +593,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7MCFixupELb1EE9push_backERKS1_.exit: ; pred
   %.016.i.i.i = phi ptr [ %.021, %57 ], [ %74, %69 ], [ %.021, %.critedge.i.i.i ]
   %76 = load i32, ptr %29, align 8, !tbaa !82
   %77 = zext i32 %76 to i64
-  %78 = getelementptr inbounds nuw %"class.llvm::MCFixup", ptr %75, i64 %77
+  %78 = getelementptr inbounds nuw [24 x i8], ptr %75, i64 %77
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %78, ptr noundef nonnull align 8 dereferenceable(24) %.016.i.i.i, i64 24, i1 false)
   %79 = load i32, ptr %29, align 8, !tbaa !82
   %80 = add i32 %79, 1

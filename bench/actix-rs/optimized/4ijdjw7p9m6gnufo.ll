@@ -946,7 +946,7 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h7ef6c7df66f01971E.ll
   %9 = phi i64 [ %.pre, %._crit_edge ], [ %4, %2 ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %11 = load ptr, ptr %10, align 8, !nonnull !4, !noundef !4
-  %12 = getelementptr inbounds { { { i64, [3 x i64] }, { i64, [7 x i64] }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, i16, i8, [5 x i8] }, { i64, [2 x i64] }, { { { { { ptr, ptr } }, {} }, {} } }, ptr }, ptr %11, i64 %9
+  %12 = getelementptr inbounds [200 x i8], ptr %11, i64 %9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %12, ptr noundef nonnull align 8 dereferenceable(200) %1, i64 200, i1 false)
   %13 = load i64, ptr %3, align 8, !noundef !4
   %14 = add i64 %13, 1
@@ -2240,7 +2240,7 @@ define hidden void @_ZN9actix_web6config10AppService16register_service17h65d7f62
   %34 = phi i64 [ %.pre.i, %._crit_edge.i ], [ %25, %19 ]
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %36 = load ptr, ptr %35, align 8, !alias.scope !507, !noalias !510, !nonnull !4, !noundef !4
-  %37 = getelementptr inbounds { { { i64, [3 x i64] }, { i64, [7 x i64] }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, i16, i8, [5 x i8] }, { i64, [2 x i64] }, { { { { { ptr, ptr } }, {} }, {} } }, ptr }, ptr %36, i64 %34
+  %37 = getelementptr inbounds [200 x i8], ptr %36, i64 %34
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %37, ptr noundef nonnull align 8 dereferenceable(200) %8, i64 200, i1 false)
   %38 = load i64, ptr %24, align 8, !alias.scope !507, !noalias !510, !noundef !4
   %39 = add i64 %38, 1
@@ -2712,7 +2712,7 @@ define void @"_ZN84_$LT$actix_files..files..Files$u20$as$u20$actix_web..service.
   store ptr inttoptr (i64 8 to ptr), ptr %.sroa.2.0..sroa_idx22, align 8
   store i64 0, ptr %13, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %27 = getelementptr inbounds { { { ptr, ptr } }, {}, {} }, ptr %.sroa.2.0.copyload, i64 %14
+  %27 = getelementptr inbounds [16 x i8], ptr %.sroa.2.0.copyload, i64 %14
   store ptr %.sroa.2.0.copyload, ptr %10, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   store ptr %.sroa.2.0.copyload, ptr %.sroa.4.0..sroa_idx, align 8
@@ -2964,7 +2964,7 @@ define void @"_ZN84_$LT$actix_files..files..Files$u20$as$u20$actix_web..service.
   %115 = phi i64 [ %.pre.i.i, %._crit_edge.i.i ], [ %99, %93 ]
   %116 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %117 = load ptr, ptr %116, align 8, !alias.scope !580, !noalias !583, !nonnull !4, !noundef !4
-  %118 = getelementptr inbounds { { { i64, [3 x i64] }, { i64, [7 x i64] }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, i16, i8, [5 x i8] }, { i64, [2 x i64] }, { { { { { ptr, ptr } }, {} }, {} } }, ptr }, ptr %117, i64 %115
+  %118 = getelementptr inbounds [200 x i8], ptr %117, i64 %115
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %118, ptr noundef nonnull align 8 dereferenceable(200) %5, i64 200, i1 false), !noalias !585
   %119 = load i64, ptr %98, align 8, !alias.scope !580, !noalias !583, !noundef !4
   %120 = add i64 %119, 1

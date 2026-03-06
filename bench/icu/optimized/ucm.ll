@@ -49,7 +49,7 @@ define void @ucm_printMapping(ptr noundef readonly captures(none) %0, ptr nounde
   %9 = load ptr, ptr %8, align 8, !tbaa !8
   %10 = load i32, ptr %1, align 4, !tbaa !14
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds i32, ptr %9, i64 %11
+  %12 = getelementptr inbounds [4 x i8], ptr %9, i64 %11
   br label %13
 
 13:                                               ; preds = %3, %7
@@ -87,7 +87,7 @@ define internal fastcc void @_ZL12printMappingP9UCMappingPiPhP8_IO_FILE(ptr noun
 
 .lr.ph:                                           ; preds = %4, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %4 ]
-  %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !18
   %10 = sext i32 %9 to i64
   %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %3, ptr noundef nonnull @.str.24, i64 noundef %10) #16
@@ -164,7 +164,7 @@ define void @ucm_printTable(ptr noundef readonly captures(none) %0, ptr noundef 
   %15 = load ptr, ptr %8, align 8, !tbaa !8
   %16 = load i32, ptr %.022, align 4, !tbaa !14
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds i32, ptr %15, i64 %17
+  %18 = getelementptr inbounds [4 x i8], ptr %15, i64 %17
   br label %19
 
 19:                                               ; preds = %14, %10
@@ -208,10 +208,10 @@ ucm_printMapping.exit:                            ; preds = %24, %26
 
 41:                                               ; preds = %.lr.ph24, %ucm_printMapping.exit19
   %indvars.iv = phi i64 [ 0, %.lr.ph24 ], [ %indvars.iv.next, %ucm_printMapping.exit19 ]
-  %42 = getelementptr inbounds nuw i32, ptr %37, i64 %indvars.iv
+  %42 = getelementptr inbounds nuw [4 x i8], ptr %37, i64 %indvars.iv
   %43 = load i32, ptr %42, align 4, !tbaa !18
   %44 = sext i32 %43 to i64
-  %45 = getelementptr inbounds %struct.UCMapping, ptr %4, i64 %44
+  %45 = getelementptr inbounds [12 x i8], ptr %4, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
   %47 = load i8, ptr %46, align 4, !tbaa !3
   %48 = icmp eq i8 %47, 1
@@ -221,7 +221,7 @@ ucm_printMapping.exit:                            ; preds = %24, %26
   %50 = load ptr, ptr %39, align 8, !tbaa !8
   %51 = load i32, ptr %45, align 4, !tbaa !14
   %52 = sext i32 %51 to i64
-  %53 = getelementptr inbounds i32, ptr %50, i64 %52
+  %53 = getelementptr inbounds [4 x i8], ptr %50, i64 %52
   br label %54
 
 54:                                               ; preds = %49, %41
@@ -298,7 +298,7 @@ define void @ucm_sortTable(ptr noundef %0) local_unnamed_addr #1 {
 
 .lr.ph:                                           ; preds = %22, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %22 ]
-  %26 = getelementptr inbounds nuw i32, ptr %23, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %23, i64 %indvars.iv
   %27 = trunc nuw nsw i64 %indvars.iv to i32
   store i32 %27, ptr %26, align 4, !tbaa !18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -362,7 +362,7 @@ define internal noundef i32 @_ZL27compareMappingsUnicodeFirstPKvS0_S0_(ptr nound
   %16 = load ptr, ptr %15, align 8, !tbaa !8
   %17 = load i32, ptr %1, align 4, !tbaa !14
   %18 = sext i32 %17 to i64
-  %19 = getelementptr inbounds i32, ptr %16, i64 %18
+  %19 = getelementptr inbounds [4 x i8], ptr %16, i64 %18
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.pre.i.i = load i8, ptr %.phi.trans.insert.i.i, align 4, !tbaa !3
   %20 = icmp eq i8 %.pre.i.i, 1
@@ -374,7 +374,7 @@ define internal noundef i32 @_ZL27compareMappingsUnicodeFirstPKvS0_S0_(ptr nound
   %23 = phi i8 [ %.pre.i.i, %.thread.i.i ], [ %9, %..thread.thread.i.i_crit_edge ]
   %24 = load i32, ptr %2, align 4, !tbaa !14
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds i32, ptr %21, i64 %25
+  %26 = getelementptr inbounds [4 x i8], ptr %21, i64 %25
   br label %27
 
 27:                                               ; preds = %.thread.thread.i.i, %.thread.i.i
@@ -396,9 +396,9 @@ define internal noundef i32 @_ZL27compareMappingsUnicodeFirstPKvS0_S0_(ptr nound
 
 .lr.ph.i.i:                                       ; preds = %32, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %32 ]
-  %33 = getelementptr inbounds nuw i32, ptr %28, i64 %indvars.iv.i.i
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %28, i64 %indvars.iv.i.i
   %34 = load i32, ptr %33, align 4, !tbaa !18
-  %35 = getelementptr inbounds nuw i32, ptr %30, i64 %indvars.iv.i.i
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %indvars.iv.i.i
   %36 = load i32, ptr %35, align 4, !tbaa !18
   %37 = sub nsw i32 %34, %36
   %.not32.i.i = icmp eq i32 %37, 0
@@ -517,9 +517,9 @@ define internal noundef i32 @_ZL25compareMappingsBytesFirstPKvS0_S0_(ptr noundef
   %5 = load i32, ptr %2, align 4, !tbaa !18
   %6 = load ptr, ptr %0, align 8, !tbaa !23
   %7 = sext i32 %4 to i64
-  %8 = getelementptr inbounds %struct.UCMapping, ptr %6, i64 %7
+  %8 = getelementptr inbounds [12 x i8], ptr %6, i64 %7
   %9 = sext i32 %5 to i64
-  %10 = getelementptr inbounds %struct.UCMapping, ptr %6, i64 %9
+  %10 = getelementptr inbounds [12 x i8], ptr %6, i64 %9
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 9
   %12 = load i8, ptr %11, align 1, !tbaa !15
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 9
@@ -621,7 +621,7 @@ _ZL12compareBytesP8UCMTablePK9UCMappingS0_S3_a.exit44.i: ; preds = %.lr.ph.i39.i
   %65 = load ptr, ptr %64, align 8, !tbaa !8
   %66 = load i32, ptr %8, align 4, !tbaa !14
   %67 = sext i32 %66 to i64
-  %68 = getelementptr inbounds i32, ptr %65, i64 %67
+  %68 = getelementptr inbounds [4 x i8], ptr %65, i64 %67
   %.phi.trans.insert.i46.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.pre.i47.i = load i8, ptr %.phi.trans.insert.i46.i, align 4, !tbaa !3
   %69 = icmp eq i8 %.pre.i47.i, 1
@@ -633,7 +633,7 @@ _ZL12compareBytesP8UCMTablePK9UCMappingS0_S3_a.exit44.i: ; preds = %.lr.ph.i39.i
   %72 = phi i8 [ %.pre.i47.i, %.thread.i45.i ], [ %58, %..thread.thread.i48.i_crit_edge ]
   %73 = load i32, ptr %10, align 4, !tbaa !14
   %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds i32, ptr %70, i64 %74
+  %75 = getelementptr inbounds [4 x i8], ptr %70, i64 %74
   br label %76
 
 76:                                               ; preds = %.thread.thread.i48.i, %.thread.i45.i
@@ -655,9 +655,9 @@ _ZL12compareBytesP8UCMTablePK9UCMappingS0_S3_a.exit44.i: ; preds = %.lr.ph.i39.i
 
 .lr.ph.i54.i:                                     ; preds = %81, %.lr.ph.preheader.i52.i
   %indvars.iv.i55.i = phi i64 [ 0, %.lr.ph.preheader.i52.i ], [ %indvars.iv.next.i57.i, %81 ]
-  %82 = getelementptr inbounds nuw i32, ptr %77, i64 %indvars.iv.i55.i
+  %82 = getelementptr inbounds nuw [4 x i8], ptr %77, i64 %indvars.iv.i55.i
   %83 = load i32, ptr %82, align 4, !tbaa !18
-  %84 = getelementptr inbounds nuw i32, ptr %79, i64 %indvars.iv.i55.i
+  %84 = getelementptr inbounds nuw [4 x i8], ptr %79, i64 %indvars.iv.i55.i
   %85 = load i32, ptr %84, align 4, !tbaa !18
   %86 = sub nsw i32 %83, %85
   %.not32.i56.i = icmp eq i32 %86, 0
@@ -771,7 +771,7 @@ define void @ucm_moveMappings(ptr noundef captures(none) %0, ptr noundef capture
   %36 = load ptr, ptr %9, align 8, !tbaa !8
   %37 = load i32, ptr %.035, align 4, !tbaa !14
   %38 = sext i32 %37 to i64
-  %39 = getelementptr inbounds i32, ptr %36, i64 %38
+  %39 = getelementptr inbounds [4 x i8], ptr %36, i64 %38
   br label %40
 
 40:                                               ; preds = %31, %35
@@ -948,7 +948,7 @@ define void @ucm_addMapping(ptr noundef captures(none) %0, ptr noundef captures(
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %73 = load ptr, ptr %72, align 8, !tbaa !8
   %74 = sext i32 %63 to i64
-  %75 = getelementptr inbounds i32, ptr %73, i64 %74
+  %75 = getelementptr inbounds [4 x i8], ptr %73, i64 %74
   %76 = zext nneg i8 %58 to i64
   %77 = shl nuw nsw i64 %76, 2
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 4 %75, ptr align 4 %2, i64 %77, i1 false)
@@ -1000,7 +1000,7 @@ define void @ucm_addMapping(ptr noundef captures(none) %0, ptr noundef captures(
 
 103:                                              ; preds = %.lr.ph, %112
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %112 ]
-  %104 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   %105 = load i32, ptr %104, align 4, !tbaa !18
   %106 = icmp sgt i32 %105, 65535
   br i1 %106, label %.sink.split, label %107
@@ -1036,7 +1036,7 @@ define void @ucm_addMapping(ptr noundef captures(none) %0, ptr noundef captures(
   %121 = add nsw i32 %120, 1
   store i32 %121, ptr %5, align 4, !tbaa !24
   %122 = sext i32 %120 to i64
-  %123 = getelementptr inbounds %struct.UCMapping, ptr %119, i64 %122
+  %123 = getelementptr inbounds [12 x i8], ptr %119, i64 %122
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %123, ptr noundef nonnull align 4 dereferenceable(12) %1, i64 12, i1 false)
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 58
   store i8 0, ptr %124, align 2, !tbaa !28
@@ -1100,7 +1100,7 @@ define signext range(i8 0, 2) i8 @ucm_checkValidity(ptr noundef readonly capture
   %34 = load ptr, ptr %10, align 8, !tbaa !8
   %35 = load i32, ptr %.01516, align 4, !tbaa !14
   %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds i32, ptr %34, i64 %36
+  %37 = getelementptr inbounds [4 x i8], ptr %34, i64 %36
   br label %38
 
 38:                                               ; preds = %33, %28
@@ -1178,7 +1178,7 @@ define signext range(i8 0, 2) i8 @ucm_checkBaseExt(ptr noundef readonly captures
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %27 = load i32, ptr %26, align 4, !tbaa !24
   %28 = sext i32 %27 to i64
-  %29 = getelementptr inbounds %struct.UCMapping, ptr %25, i64 %28
+  %29 = getelementptr inbounds [12 x i8], ptr %25, i64 %28
   %30 = icmp eq i32 %22, 0
   br i1 %30, label %_ZL19checkBaseExtUnicodeP9UCMStatesP8UCMTableS2_aa.exit, label %.lr.ph.lr.ph.i
 
@@ -1254,7 +1254,7 @@ define signext range(i8 0, 2) i8 @ucm_checkBaseExt(ptr noundef readonly captures
   %58 = load ptr, ptr %31, align 8, !tbaa !8
   %59 = load i32, ptr %.17816.i, align 4, !tbaa !14
   %60 = sext i32 %59 to i64
-  %61 = getelementptr inbounds i32, ptr %58, i64 %60
+  %61 = getelementptr inbounds [4 x i8], ptr %58, i64 %60
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %.18119.i, i64 8
   %.pre.i.i = load i8, ptr %.phi.trans.insert.i.i, align 4, !tbaa !3
   %62 = icmp eq i8 %.pre.i.i, 1
@@ -1270,7 +1270,7 @@ define signext range(i8 0, 2) i8 @ucm_checkBaseExt(ptr noundef readonly captures
   %65 = phi i8 [ %.pre.i.i, %.thread.i..thread.thread.i_crit_edge.i ], [ %53, %51 ]
   %66 = load ptr, ptr %32, align 8, !tbaa !8
   %67 = sext i32 %63 to i64
-  %68 = getelementptr inbounds i32, ptr %66, i64 %67
+  %68 = getelementptr inbounds [4 x i8], ptr %66, i64 %67
   br label %69
 
 69:                                               ; preds = %.thread.thread.i.i, %.thread.i.i
@@ -1292,9 +1292,9 @@ define signext range(i8 0, 2) i8 @ucm_checkBaseExt(ptr noundef readonly captures
 
 .lr.ph.i.i:                                       ; preds = %74, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %74 ]
-  %75 = getelementptr inbounds nuw i32, ptr %71, i64 %indvars.iv.i.i
+  %75 = getelementptr inbounds nuw [4 x i8], ptr %71, i64 %indvars.iv.i.i
   %76 = load i32, ptr %75, align 4, !tbaa !18
-  %77 = getelementptr inbounds nuw i32, ptr %72, i64 %indvars.iv.i.i
+  %77 = getelementptr inbounds nuw [4 x i8], ptr %72, i64 %indvars.iv.i.i
   %78 = load i32, ptr %77, align 4, !tbaa !18
   %79 = sub nsw i32 %76, %78
   %.not32.i.i = icmp eq i32 %79, 0
@@ -1343,7 +1343,7 @@ _ZL14compareUnicodeP8UCMTablePK9UCMappingS0_S3_.exit.i: ; preds = %.lr.ph.i.i, %
   %99 = load ptr, ptr %31, align 8, !tbaa !8
   %100 = load i32, ptr %.17816.i, align 4, !tbaa !14
   %101 = sext i32 %100 to i64
-  %102 = getelementptr inbounds i32, ptr %99, i64 %101
+  %102 = getelementptr inbounds [4 x i8], ptr %99, i64 %101
   br label %103
 
 103:                                              ; preds = %98, %97
@@ -1355,7 +1355,7 @@ _ZL14compareUnicodeP8UCMTablePK9UCMappingS0_S3_.exit.i: ; preds = %.lr.ph.i.i, %
   %107 = load ptr, ptr %32, align 8, !tbaa !8
   %108 = load i32, ptr %.18119.i, align 4, !tbaa !14
   %109 = sext i32 %108 to i64
-  %110 = getelementptr inbounds i32, ptr %107, i64 %109
+  %110 = getelementptr inbounds [4 x i8], ptr %107, i64 %109
   br label %111
 
 111:                                              ; preds = %106, %103
@@ -1515,10 +1515,10 @@ _ZL19checkBaseExtUnicodeP9UCMStatesP8UCMTableS2_aa.exit: ; preds = %.preheader.i
 
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i29, %209
   %indvars.iv50.i = phi i64 [ %indvars.iv.next51.i, %209 ], [ %198, %.lr.ph.i29 ]
-  %199 = getelementptr inbounds i32, ptr %185, i64 %indvars.iv50.i
+  %199 = getelementptr inbounds [4 x i8], ptr %185, i64 %indvars.iv50.i
   %200 = load i32, ptr %199, align 4, !tbaa !18
   %201 = sext i32 %200 to i64
-  %202 = getelementptr inbounds %struct.UCMapping, ptr %197, i64 %201
+  %202 = getelementptr inbounds [12 x i8], ptr %197, i64 %201
   %203 = getelementptr inbounds nuw i8, ptr %202, i64 9
   %204 = load i8, ptr %203, align 1, !tbaa !15
   %205 = icmp eq i8 %204, 1
@@ -1540,10 +1540,10 @@ _ZL19checkBaseExtUnicodeP9UCMStatesP8UCMTableS2_aa.exit: ; preds = %.preheader.i
 
 .lr.ph.split.i:                                   ; preds = %.lr.ph.i29, %218
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %218 ], [ %198, %.lr.ph.i29 ]
-  %212 = getelementptr inbounds i32, ptr %185, i64 %indvars.iv.i
+  %212 = getelementptr inbounds [4 x i8], ptr %185, i64 %indvars.iv.i
   %213 = load i32, ptr %212, align 4, !tbaa !18
   %214 = sext i32 %213 to i64
-  %215 = getelementptr inbounds %struct.UCMapping, ptr %197, i64 %214
+  %215 = getelementptr inbounds [12 x i8], ptr %197, i64 %214
   %216 = getelementptr inbounds nuw i8, ptr %215, i64 10
   %217 = load i8, ptr %216, align 2, !tbaa !22
   switch i8 %217, label %218 [
@@ -1572,10 +1572,10 @@ _ZL19checkBaseExtUnicodeP9UCMStatesP8UCMTableS2_aa.exit: ; preds = %.preheader.i
 
 224:                                              ; preds = %231, %.lr.ph19.i
   %indvars.iv53.i = phi i64 [ %223, %.lr.ph19.i ], [ %indvars.iv.next54.i, %231 ]
-  %225 = getelementptr inbounds i32, ptr %187, i64 %indvars.iv53.i
+  %225 = getelementptr inbounds [4 x i8], ptr %187, i64 %indvars.iv53.i
   %226 = load i32, ptr %225, align 4, !tbaa !18
   %227 = sext i32 %226 to i64
-  %228 = getelementptr inbounds %struct.UCMapping, ptr %222, i64 %227
+  %228 = getelementptr inbounds [12 x i8], ptr %222, i64 %227
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 10
   %230 = load i8, ptr %229, align 2, !tbaa !22
   switch i8 %230, label %231 [
@@ -1768,11 +1768,11 @@ _ZL12compareBytesP8UCMTablePK9UCMappingS0_S3_a.exit.i: ; preds = %.lr.ph.i.i36, 
   %332 = load ptr, ptr %195, align 8, !tbaa !8
   %333 = load i32, ptr %.us-phi15.i, align 4, !tbaa !14
   %334 = sext i32 %333 to i64
-  %335 = getelementptr inbounds i32, ptr %332, i64 %334
+  %335 = getelementptr inbounds [4 x i8], ptr %332, i64 %334
   %336 = load ptr, ptr %196, align 8, !tbaa !8
   %337 = load i32, ptr %228, align 4, !tbaa !14
   %338 = sext i32 %337 to i64
-  %339 = getelementptr inbounds i32, ptr %336, i64 %338
+  %339 = getelementptr inbounds [4 x i8], ptr %336, i64 %338
   br label %.thread.i
 
 .thread.i:                                        ; preds = %331, %329
@@ -1966,7 +1966,7 @@ ucm_moveMappings.exit:                            ; preds = %388, %369
   %423 = load ptr, ptr %396, align 8, !tbaa !8
   %424 = load i32, ptr %.035.i, align 4, !tbaa !14
   %425 = sext i32 %424 to i64
-  %426 = getelementptr inbounds i32, ptr %423, i64 %425
+  %426 = getelementptr inbounds [4 x i8], ptr %423, i64 %425
   br label %427
 
 427:                                              ; preds = %422, %418
@@ -2138,7 +2138,7 @@ define void @ucm_mergeTables(ptr noundef %0, ptr noundef %1, ptr noundef readonl
   %55 = load ptr, ptr %15, align 8, !tbaa !8
   %56 = load i32, ptr %.0122, align 4, !tbaa !14
   %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds i32, ptr %55, i64 %57
+  %58 = getelementptr inbounds [4 x i8], ptr %55, i64 %57
   %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %.090120, i64 8
   %.pre.i.i = load i8, ptr %.phi.trans.insert.i.i, align 4, !tbaa !3
   %59 = icmp eq i8 %.pre.i.i, 1
@@ -2154,7 +2154,7 @@ define void @ucm_mergeTables(ptr noundef %0, ptr noundef %1, ptr noundef readonl
   %62 = phi i8 [ %.pre.i.i, %.thread.i.i..thread.thread.i.i_crit_edge ], [ %50, %48 ]
   %63 = load ptr, ptr %16, align 8, !tbaa !8
   %64 = sext i32 %60 to i64
-  %65 = getelementptr inbounds i32, ptr %63, i64 %64
+  %65 = getelementptr inbounds [4 x i8], ptr %63, i64 %64
   br label %66
 
 66:                                               ; preds = %.thread.thread.i.i, %.thread.i.i
@@ -2176,9 +2176,9 @@ define void @ucm_mergeTables(ptr noundef %0, ptr noundef %1, ptr noundef readonl
 
 .lr.ph.i.i:                                       ; preds = %71, %.lr.ph.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %71 ]
-  %72 = getelementptr inbounds nuw i32, ptr %68, i64 %indvars.iv.i.i
+  %72 = getelementptr inbounds nuw [4 x i8], ptr %68, i64 %indvars.iv.i.i
   %73 = load i32, ptr %72, align 4, !tbaa !18
-  %74 = getelementptr inbounds nuw i32, ptr %69, i64 %indvars.iv.i.i
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %69, i64 %indvars.iv.i.i
   %75 = load i32, ptr %74, align 4, !tbaa !18
   %76 = sub nsw i32 %73, %75
   %.not32.i.i = icmp eq i32 %76, 0
@@ -2367,7 +2367,7 @@ _ZL15compareMappingsP8UCMTablePK9UCMappingS0_S3_a.exit.thread: ; preds = %.lr.ph
   %173 = load ptr, ptr %16, align 8, !tbaa !8
   %174 = load i32, ptr %.090120, align 4, !tbaa !14
   %175 = sext i32 %174 to i64
-  %176 = getelementptr inbounds i32, ptr %173, i64 %175
+  %176 = getelementptr inbounds [4 x i8], ptr %173, i64 %175
   br label %177
 
 177:                                              ; preds = %.thread, %171
@@ -2394,7 +2394,7 @@ _ZL15compareMappingsP8UCMTablePK9UCMappingS0_S3_a.exit.thread: ; preds = %.lr.ph
   tail call void @ucm_addMapping(ptr noundef nonnull %0, ptr noundef nonnull %.090120, ptr noundef %178, ptr noundef %191)
   %192 = load ptr, ptr %0, align 8, !tbaa !23
   %193 = sext i32 %.093119 to i64
-  %194 = getelementptr inbounds %struct.UCMapping, ptr %192, i64 %193
+  %194 = getelementptr inbounds [12 x i8], ptr %192, i64 %193
   br label %195
 
 195:                                              ; preds = %168, %168, %190
@@ -2501,7 +2501,7 @@ _ZL15compareMappingsP8UCMTablePK9UCMappingS0_S3_a.exit.thread: ; preds = %.lr.ph
   %242 = load ptr, ptr %203, align 8, !tbaa !8
   %243 = load i32, ptr %.292132, align 4, !tbaa !14
   %244 = sext i32 %243 to i64
-  %245 = getelementptr inbounds i32, ptr %242, i64 %244
+  %245 = getelementptr inbounds [4 x i8], ptr %242, i64 %244
   br label %246
 
 246:                                              ; preds = %.thread111, %240
@@ -2600,7 +2600,7 @@ define signext range(i8 0, 2) i8 @ucm_separateMappings(ptr noundef %0, i8 nounde
   %31 = load ptr, ptr %10, align 8, !tbaa !8
   %32 = load i32, ptr %.04859, align 4, !tbaa !14
   %33 = sext i32 %32 to i64
-  %34 = getelementptr inbounds i32, ptr %31, i64 %33
+  %34 = getelementptr inbounds [4 x i8], ptr %31, i64 %33
   br label %35
 
 35:                                               ; preds = %30, %23
@@ -2707,7 +2707,7 @@ ucm_mappingType.exit:                             ; preds = %59
   %93 = load ptr, ptr %10, align 8, !tbaa !8
   %94 = load i32, ptr %.04859, align 4, !tbaa !14
   %95 = sext i32 %94 to i64
-  %96 = getelementptr inbounds i32, ptr %93, i64 %95
+  %96 = getelementptr inbounds [4 x i8], ptr %93, i64 %95
   br label %97
 
 97:                                               ; preds = %ucm_mappingType.exit, %92
@@ -2839,7 +2839,7 @@ ucm_mappingType.exit:                             ; preds = %59
   %157 = load ptr, ptr %130, align 8, !tbaa !8
   %158 = load i32, ptr %.035.i, align 4, !tbaa !14
   %159 = sext i32 %158 to i64
-  %160 = getelementptr inbounds i32, ptr %157, i64 %159
+  %160 = getelementptr inbounds [4 x i8], ptr %157, i64 %159
   br label %161
 
 161:                                              ; preds = %156, %152
@@ -3135,7 +3135,7 @@ thread-pre-split:                                 ; preds = %9, %13
 43:                                               ; preds = %38
   %44 = add nuw nsw i8 %.041, 1
   %45 = zext nneg i8 %.041 to i64
-  %46 = getelementptr inbounds nuw i32, ptr %1, i64 %45
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %45
   store i32 %23, ptr %46, align 4, !tbaa !18
   %47 = getelementptr inbounds nuw i8, ptr %24, i64 1
   br label %9, !llvm.loop !66

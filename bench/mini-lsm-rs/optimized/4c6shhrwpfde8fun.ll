@@ -88,7 +88,7 @@ define hidden noundef i64 @_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load
 define hidden { i64, i32 } @_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17he25c233c4a4a6d0fE(ptr noundef %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = ptrtoint ptr %0 to i64
   %3 = urem i64 %2, 67
-  %4 = getelementptr inbounds nuw { { { i64 } }, [15 x i64] }, ptr @_ZN15crossbeam_utils6atomic11atomic_cell4lock5LOCKS17h7780009823f67c07E, i64 %3
+  %4 = getelementptr inbounds nuw [128 x i8], ptr @_ZN15crossbeam_utils6atomic11atomic_cell4lock5LOCKS17h7780009823f67c07E, i64 %3
   %5 = load atomic i64, ptr %4 acquire, align 8
   %.not = icmp eq i64 %5, 1
   br i1 %.not, label %10, label %6
@@ -171,7 +171,7 @@ define hidden void @"_ZN15crossbeam_utils6atomic11atomic_cell19AtomicCell$LT$T$G
 define hidden void @_ZN15crossbeam_utils6atomic11atomic_cell28atomic_compare_exchange_weak17he0d909c5b3a39140E(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5) unnamed_addr #1 personality ptr @rust_eh_personality {
   %7 = ptrtoint ptr %1 to i64
   %8 = urem i64 %7, 67
-  %9 = getelementptr inbounds nuw { { { i64 } }, [15 x i64] }, ptr @_ZN15crossbeam_utils6atomic11atomic_cell4lock5LOCKS17h7780009823f67c07E, i64 %8
+  %9 = getelementptr inbounds nuw [128 x i8], ptr @_ZN15crossbeam_utils6atomic11atomic_cell4lock5LOCKS17h7780009823f67c07E, i64 %8
   %10 = atomicrmw xchg ptr %9, i64 1 acquire, align 8
   %11 = icmp eq i64 %10, 1
   br i1 %11, label %.lr.ph, label %._crit_edge
@@ -3560,7 +3560,7 @@ common.resume:                                    ; preds = %.body, %425, %.thre
 
 .noexc1.i:                                        ; preds = %"_ZN66_$LT$triomphe..arc..Arc$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hda9220aaa345a177E.exit.i"
   %94 = load ptr, ptr %0, align 8, !noalias !488, !nonnull !4, !align !134, !noundef !4
-  %95 = getelementptr inbounds { { { i64 }, {} }, { i64 } }, ptr %94, i64 %.0.i.i.i
+  %95 = getelementptr inbounds [16 x i8], ptr %94, i64 %.0.i.i.i
   %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
   store ptr %95, ptr %16, align 8, !alias.scope !488
   store ptr %34, ptr %52, align 8, !alias.scope !488
@@ -4517,7 +4517,7 @@ define internal fastcc void @"_ZN4moka4sync17value_initializer33ValueInitializer
 
 "_ZN4moka3cht7segment24HashMap$LT$K$C$V$C$S$GT$16bucket_array_ref17h900422f1314faabcE.exit.i": ; preds = %4
   %19 = load ptr, ptr %0, align 8, !noalias !703, !nonnull !4, !align !134, !noundef !4
-  %20 = getelementptr inbounds { { { i64 }, {} }, { i64 } }, ptr %19, i64 %.0.i.i
+  %20 = getelementptr inbounds [16 x i8], ptr %19, i64 %.0.i.i
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %5, align 8, !alias.scope !700, !noalias !697
@@ -5812,7 +5812,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %15 = icmp samesign ult i64 %.sroa.6.0.lcssa, 11
   tail call void @llvm.assume(i1 %15)
   %16 = getelementptr i8, ptr %.sroa.0.0.lcssa, i64 816
-  %17 = getelementptr ptr, ptr %16, i64 %.sroa.6.0.lcssa
+  %17 = getelementptr [8 x i8], ptr %16, i64 %.sroa.6.0.lcssa
   %18 = load ptr, ptr %17, align 8, !noalias !910, !nonnull !4, !noundef !4
   %19 = add i64 %.sroa.5.0.lcssa, -1
   %.not11.i.i = icmp eq i64 %19, 0
@@ -5906,7 +5906,7 @@ define hidden void @"_ZN5alloc11collections5btree8navigate263_$LT$impl$u20$alloc
   %15 = icmp samesign ult i64 %.sroa.6.0.lcssa, 11
   tail call void @llvm.assume(i1 %15)
   %16 = getelementptr i8, ptr %.sroa.0.0.lcssa, i64 200
-  %17 = getelementptr ptr, ptr %16, i64 %.sroa.6.0.lcssa
+  %17 = getelementptr [8 x i8], ptr %16, i64 %.sroa.6.0.lcssa
   %18 = load ptr, ptr %17, align 8, !noalias !923, !nonnull !4, !noundef !4
   %19 = add i64 %.sroa.5.0.lcssa, -1
   %.not11.i.i = icmp eq i64 %19, 0

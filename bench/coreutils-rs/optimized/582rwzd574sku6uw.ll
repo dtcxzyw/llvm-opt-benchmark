@@ -114,7 +114,7 @@ common.resume:                                    ; preds = %35, %29, %76
   %42 = urem i64 %2, %16
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %44 = load ptr, ptr %43, align 8, !nonnull !4, !noundef !4
-  %45 = getelementptr inbounds { { { { i32 } }, { { i8 } }, [3 x i8], { { { i64, ptr, {} }, i64 } } }, [4 x i64] }, ptr %44, i64 %42
+  %45 = getelementptr inbounds [64 x i8], ptr %44, i64 %42
   call void @"_ZN3std4sync5mutex14Mutex$LT$T$GT$8try_lock17hb691800f6da1eb92E"(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %7, ptr noundef nonnull align 8 %45)
   %46 = load i64, ptr %7, align 8, !range !18, !noundef !4
   %trunc = trunc nuw i64 %46 to i1
@@ -215,7 +215,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.exit.i.i: ; preds = %62, %_ZN3
   tail call void @llvm.assume(i1 %86)
   %87 = getelementptr inbounds nuw i8, ptr %49, i64 16
   %88 = load ptr, ptr %87, align 8, !alias.scope !20, !nonnull !4, !noundef !4
-  %89 = getelementptr inbounds ptr, ptr %88, i64 %84
+  %89 = getelementptr inbounds [8 x i8], ptr %88, i64 %84
   %90 = load ptr, ptr %89, align 8, !noalias !20, !nonnull !4, !align !12, !noundef !4
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %1, ptr %91, align 8

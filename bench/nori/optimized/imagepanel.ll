@@ -6,10 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.NVGpaint = type { [6 x float], [2 x float], float, float, %struct.NVGcolor, %struct.NVGcolor, i32 }
 %struct.NVGcolor = type { %union.anon.10 }
 %union.anon.10 = type { [4 x float] }
-%"struct.std::pair" = type { i32, %"class.std::__cxx11::basic_string" }
-%"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
-%"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
-%union.anon = type { i64, [8 x i8] }
 
 $_ZN7nanogui10ImagePanelD2Ev = comdat any
 
@@ -320,7 +316,7 @@ _ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:       ; preds = %.lr.ph, %70
   %46 = mul nsw i32 %41, %44
   %47 = add nsw i32 %36, %45
   %48 = add nsw i32 %38, %46
-  %49 = getelementptr inbounds %"struct.std::pair", ptr %33, i64 %.092
+  %49 = getelementptr inbounds [40 x i8], ptr %33, i64 %.092
   %50 = load i32, ptr %49, align 8
   call void @nvgImageSize(ptr noundef %1, i32 noundef %50, ptr noundef nonnull %3, ptr noundef nonnull %4)
   %51 = load i32, ptr %3, align 4
@@ -358,7 +354,7 @@ _ZN7nanogui5ArrayIiLm2EEC2Ei.exit.critedge:       ; preds = %.lr.ph, %70
   %73 = sitofp i32 %48 to float
   %74 = fadd float %.038, %73
   %75 = load ptr, ptr %25, align 8
-  %76 = getelementptr inbounds %"struct.std::pair", ptr %75, i64 %.092
+  %76 = getelementptr inbounds [40 x i8], ptr %75, i64 %.092
   %77 = load i32, ptr %76, align 8
   %78 = load i32, ptr %30, align 4
   %79 = icmp eq i32 %78, %42

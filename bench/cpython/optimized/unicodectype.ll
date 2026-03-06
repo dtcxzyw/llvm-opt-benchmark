@@ -2527,21 +2527,21 @@ define dso_local i32 @_PyUnicode_ToTitlecase(i32 noundef %0) local_unnamed_addr 
 3:                                                ; preds = %1
   %4 = lshr i32 %0, 6
   %5 = zext nneg i32 %4 to i64
-  %6 = getelementptr i16, ptr @index1, i64 %5
+  %6 = getelementptr [2 x i8], ptr @index1, i64 %5
   %7 = load i16, ptr %6, align 2, !tbaa !4
   %8 = zext i16 %7 to i32
   %9 = shl nuw nsw i32 %8, 6
   %10 = and i32 %0, 63
   %11 = or disjoint i32 %9, %10
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr i16, ptr @index2, i64 %12
+  %13 = getelementptr [2 x i8], ptr @index2, i64 %12
   %14 = load i16, ptr %13, align 2, !tbaa !4
   %15 = zext i16 %14 to i64
   br label %gettyperecord.exit
 
 gettyperecord.exit:                               ; preds = %1, %3
   %.0.i = phi i64 [ %15, %3 ], [ 0, %1 ]
-  %16 = getelementptr %struct._PyUnicode_TypeRecord, ptr @_PyUnicode_TypeRecords, i64 %.0.i
+  %16 = getelementptr [16 x i8], ptr @_PyUnicode_TypeRecords, i64 %.0.i
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 14
   %18 = load i16, ptr %17, align 2, !tbaa !8
   %19 = and i16 %18, 16384
@@ -2553,7 +2553,7 @@ gettyperecord.exit:                               ; preds = %1, %3
 22:                                               ; preds = %gettyperecord.exit
   %23 = and i32 %21, 65535
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr i32, ptr @_PyUnicode_ExtendedCase, i64 %24
+  %25 = getelementptr [4 x i8], ptr @_PyUnicode_ExtendedCase, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !12
   br label %29
 
@@ -2574,21 +2574,21 @@ define dso_local range(i32 0, 2) i32 @_PyUnicode_IsTitlecase(i32 noundef %0) loc
 3:                                                ; preds = %1
   %4 = lshr i32 %0, 6
   %5 = zext nneg i32 %4 to i64
-  %6 = getelementptr i16, ptr @index1, i64 %5
+  %6 = getelementptr [2 x i8], ptr @index1, i64 %5
   %7 = load i16, ptr %6, align 2, !tbaa !4
   %8 = zext i16 %7 to i32
   %9 = shl nuw nsw i32 %8, 6
   %10 = and i32 %0, 63
   %11 = or disjoint i32 %9, %10
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr i16, ptr @index2, i64 %12
+  %13 = getelementptr [2 x i8], ptr @index2, i64 %12
   %14 = load i16, ptr %13, align 2, !tbaa !4
   %15 = zext i16 %14 to i64
   br label %gettyperecord.exit
 
 gettyperecord.exit:                               ; preds = %1, %3
   %.0.i = phi i64 [ %15, %3 ], [ 0, %1 ]
-  %16 = getelementptr %struct._PyUnicode_TypeRecord, ptr @_PyUnicode_TypeRecords, i64 %.0.i
+  %16 = getelementptr [16 x i8], ptr @_PyUnicode_TypeRecords, i64 %.0.i
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 14
   %18 = load i16, ptr %17, align 2, !tbaa !8
   %19 = lshr i16 %18, 6
@@ -2605,21 +2605,21 @@ define hidden range(i32 0, 2) i32 @_PyUnicode_IsXidStart(i32 noundef %0) local_u
 3:                                                ; preds = %1
   %4 = lshr i32 %0, 6
   %5 = zext nneg i32 %4 to i64
-  %6 = getelementptr i16, ptr @index1, i64 %5
+  %6 = getelementptr [2 x i8], ptr @index1, i64 %5
   %7 = load i16, ptr %6, align 2, !tbaa !4
   %8 = zext i16 %7 to i32
   %9 = shl nuw nsw i32 %8, 6
   %10 = and i32 %0, 63
   %11 = or disjoint i32 %9, %10
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr i16, ptr @index2, i64 %12
+  %13 = getelementptr [2 x i8], ptr @index2, i64 %12
   %14 = load i16, ptr %13, align 2, !tbaa !4
   %15 = zext i16 %14 to i64
   br label %gettyperecord.exit
 
 gettyperecord.exit:                               ; preds = %1, %3
   %.0.i = phi i64 [ %15, %3 ], [ 0, %1 ]
-  %16 = getelementptr %struct._PyUnicode_TypeRecord, ptr @_PyUnicode_TypeRecords, i64 %.0.i
+  %16 = getelementptr [16 x i8], ptr @_PyUnicode_TypeRecords, i64 %.0.i
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 14
   %18 = load i16, ptr %17, align 2, !tbaa !8
   %19 = lshr i16 %18, 8
@@ -2636,21 +2636,21 @@ define hidden range(i32 0, 2) i32 @_PyUnicode_IsXidContinue(i32 noundef %0) loca
 3:                                                ; preds = %1
   %4 = lshr i32 %0, 6
   %5 = zext nneg i32 %4 to i64
-  %6 = getelementptr i16, ptr @index1, i64 %5
+  %6 = getelementptr [2 x i8], ptr @index1, i64 %5
   %7 = load i16, ptr %6, align 2, !tbaa !4
   %8 = zext i16 %7 to i32
   %9 = shl nuw nsw i32 %8, 6
   %10 = and i32 %0, 63
   %11 = or disjoint i32 %9, %10
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr i16, ptr @index2, i64 %12
+  %13 = getelementptr [2 x i8], ptr @index2, i64 %12
   %14 = load i16, ptr %13, align 2, !tbaa !4
   %15 = zext i16 %14 to i64
   br label %gettyperecord.exit
 
 gettyperecord.exit:                               ; preds = %1, %3
   %.0.i = phi i64 [ %15, %3 ], [ 0, %1 ]
-  %16 = getelementptr %struct._PyUnicode_TypeRecord, ptr @_PyUnicode_TypeRecords, i64 %.0.i
+  %16 = getelementptr [16 x i8], ptr @_PyUnicode_TypeRecords, i64 %.0.i
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 14
   %18 = load i16, ptr %17, align 2, !tbaa !8
   %19 = lshr i16 %18, 9
@@ -2667,14 +2667,14 @@ define dso_local range(i32 -1, 256) i32 @_PyUnicode_ToDecimalDigit(i32 noundef %
 gettyperecord.exit:                               ; preds = %1
   %3 = lshr i32 %0, 6
   %4 = zext nneg i32 %3 to i64
-  %5 = getelementptr i16, ptr @index1, i64 %4
+  %5 = getelementptr [2 x i8], ptr @index1, i64 %4
   %6 = load i16, ptr %5, align 2, !tbaa !4
   %7 = zext i16 %6 to i32
   %8 = shl nuw nsw i32 %7, 6
   %9 = and i32 %0, 63
   %10 = or disjoint i32 %8, %9
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr i16, ptr @index2, i64 %11
+  %12 = getelementptr [2 x i8], ptr @index2, i64 %11
   %13 = load i16, ptr %12, align 2, !tbaa !4
   %14 = add i16 %13, -16
   %.not = icmp ult i16 %14, -10
@@ -2682,7 +2682,7 @@ gettyperecord.exit:                               ; preds = %1
 
 15:                                               ; preds = %gettyperecord.exit
   %16 = zext nneg i16 %13 to i64
-  %17 = getelementptr %struct._PyUnicode_TypeRecord, ptr @_PyUnicode_TypeRecords, i64 %16
+  %17 = getelementptr [16 x i8], ptr @_PyUnicode_TypeRecords, i64 %16
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 12
   %19 = load i8, ptr %18, align 4, !tbaa !13
   %20 = zext i8 %19 to i32
@@ -2701,14 +2701,14 @@ define dso_local range(i32 0, 2) i32 @_PyUnicode_IsDecimalDigit(i32 noundef %0) 
 gettyperecord.exit.i:                             ; preds = %1
   %3 = lshr i32 %0, 6
   %4 = zext nneg i32 %3 to i64
-  %5 = getelementptr i16, ptr @index1, i64 %4
+  %5 = getelementptr [2 x i8], ptr @index1, i64 %4
   %6 = load i16, ptr %5, align 2, !tbaa !4
   %7 = zext i16 %6 to i32
   %8 = shl nuw nsw i32 %7, 6
   %9 = and i32 %0, 63
   %10 = or disjoint i32 %8, %9
   %11 = zext nneg i32 %10 to i64
-  %12 = getelementptr i16, ptr @index2, i64 %11
+  %12 = getelementptr [2 x i8], ptr @index2, i64 %11
   %13 = load i16, ptr %12, align 2, !tbaa !4
   %14 = add i16 %13, -16
   %.not.i = icmp ult i16 %14, -10
@@ -2730,21 +2730,21 @@ define dso_local range(i32 -1, 256) i32 @_PyUnicode_ToDigit(i32 noundef %0) loca
 3:                                                ; preds = %1
   %4 = lshr i32 %0, 6
   %5 = zext nneg i32 %4 to i64
-  %6 = getelementptr i16, ptr @index1, i64 %5
+  %6 = getelementptr [2 x i8], ptr @index1, i64 %5
   %7 = load i16, ptr %6, align 2, !tbaa !4
   %8 = zext i16 %7 to i32
   %9 = shl nuw nsw i32 %8, 6
   %10 = and i32 %0, 63
   %11 = or disjoint i32 %9, %10
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr i16, ptr @index2, i64 %12
+  %13 = getelementptr [2 x i8], ptr @index2, i64 %12
   %14 = load i16, ptr %13, align 2, !tbaa !4
   %15 = zext i16 %14 to i64
   br label %gettyperecord.exit
 
 gettyperecord.exit:                               ; preds = %1, %3
   %.0.i = phi i64 [ %15, %3 ], [ 0, %1 ]
-  %16 = getelementptr %struct._PyUnicode_TypeRecord, ptr @_PyUnicode_TypeRecords, i64 %.0.i
+  %16 = getelementptr [16 x i8], ptr @_PyUnicode_TypeRecords, i64 %.0.i
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 14
   %18 = load i16, ptr %17, align 2, !tbaa !8
   %19 = and i16 %18, 4
@@ -2770,21 +2770,21 @@ define dso_local range(i32 0, 2) i32 @_PyUnicode_IsDigit(i32 noundef %0) local_u
 3:                                                ; preds = %1
   %4 = lshr i32 %0, 6
   %5 = zext nneg i32 %4 to i64
-  %6 = getelementptr i16, ptr @index1, i64 %5
+  %6 = getelementptr [2 x i8], ptr @index1, i64 %5
   %7 = load i16, ptr %6, align 2, !tbaa !4
   %8 = zext i16 %7 to i32
   %9 = shl nuw nsw i32 %8, 6
   %10 = and i32 %0, 63
   %11 = or disjoint i32 %9, %10
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr i16, ptr @index2, i64 %12
+  %13 = getelementptr [2 x i8], ptr @index2, i64 %12
   %14 = load i16, ptr %13, align 2, !tbaa !4
   %15 = zext i16 %14 to i64
   br label %gettyperecord.exit.i
 
 gettyperecord.exit.i:                             ; preds = %3, %1
   %.0.i.i = phi i64 [ %15, %3 ], [ 0, %1 ]
-  %16 = getelementptr %struct._PyUnicode_TypeRecord, ptr @_PyUnicode_TypeRecords, i64 %.0.i.i
+  %16 = getelementptr [16 x i8], ptr @_PyUnicode_TypeRecords, i64 %.0.i.i
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 14
   %18 = load i16, ptr %17, align 2, !tbaa !8
   %19 = lshr i16 %18, 2
@@ -2801,21 +2801,21 @@ define dso_local range(i32 0, 2) i32 @_PyUnicode_IsNumeric(i32 noundef %0) local
 3:                                                ; preds = %1
   %4 = lshr i32 %0, 6
   %5 = zext nneg i32 %4 to i64
-  %6 = getelementptr i16, ptr @index1, i64 %5
+  %6 = getelementptr [2 x i8], ptr @index1, i64 %5
   %7 = load i16, ptr %6, align 2, !tbaa !4
   %8 = zext i16 %7 to i32
   %9 = shl nuw nsw i32 %8, 6
   %10 = and i32 %0, 63
   %11 = or disjoint i32 %9, %10
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr i16, ptr @index2, i64 %12
+  %13 = getelementptr [2 x i8], ptr @index2, i64 %12
   %14 = load i16, ptr %13, align 2, !tbaa !4
   %15 = zext i16 %14 to i64
   br label %gettyperecord.exit
 
 gettyperecord.exit:                               ; preds = %1, %3
   %.0.i = phi i64 [ %15, %3 ], [ 0, %1 ]
-  %16 = getelementptr %struct._PyUnicode_TypeRecord, ptr @_PyUnicode_TypeRecords, i64 %.0.i
+  %16 = getelementptr [16 x i8], ptr @_PyUnicode_TypeRecords, i64 %.0.i
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 14
   %18 = load i16, ptr %17, align 2, !tbaa !8
   %19 = lshr i16 %18, 11
@@ -2832,21 +2832,21 @@ define dso_local range(i32 0, 2) i32 @_PyUnicode_IsPrintable(i32 noundef %0) loc
 3:                                                ; preds = %1
   %4 = lshr i32 %0, 6
   %5 = zext nneg i32 %4 to i64
-  %6 = getelementptr i16, ptr @index1, i64 %5
+  %6 = getelementptr [2 x i8], ptr @index1, i64 %5
   %7 = load i16, ptr %6, align 2, !tbaa !4
   %8 = zext i16 %7 to i32
   %9 = shl nuw nsw i32 %8, 6
   %10 = and i32 %0, 63
   %11 = or disjoint i32 %9, %10
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr i16, ptr @index2, i64 %12
+  %13 = getelementptr [2 x i8], ptr @index2, i64 %12
   %14 = load i16, ptr %13, align 2, !tbaa !4
   %15 = zext i16 %14 to i64
   br label %gettyperecord.exit
 
 gettyperecord.exit:                               ; preds = %1, %3
   %.0.i = phi i64 [ %15, %3 ], [ 0, %1 ]
-  %16 = getelementptr %struct._PyUnicode_TypeRecord, ptr @_PyUnicode_TypeRecords, i64 %.0.i
+  %16 = getelementptr [16 x i8], ptr @_PyUnicode_TypeRecords, i64 %.0.i
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 14
   %18 = load i16, ptr %17, align 2, !tbaa !8
   %19 = lshr i16 %18, 10
@@ -2863,21 +2863,21 @@ define dso_local range(i32 0, 2) i32 @_PyUnicode_IsLowercase(i32 noundef %0) loc
 3:                                                ; preds = %1
   %4 = lshr i32 %0, 6
   %5 = zext nneg i32 %4 to i64
-  %6 = getelementptr i16, ptr @index1, i64 %5
+  %6 = getelementptr [2 x i8], ptr @index1, i64 %5
   %7 = load i16, ptr %6, align 2, !tbaa !4
   %8 = zext i16 %7 to i32
   %9 = shl nuw nsw i32 %8, 6
   %10 = and i32 %0, 63
   %11 = or disjoint i32 %9, %10
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr i16, ptr @index2, i64 %12
+  %13 = getelementptr [2 x i8], ptr @index2, i64 %12
   %14 = load i16, ptr %13, align 2, !tbaa !4
   %15 = zext i16 %14 to i64
   br label %gettyperecord.exit
 
 gettyperecord.exit:                               ; preds = %1, %3
   %.0.i = phi i64 [ %15, %3 ], [ 0, %1 ]
-  %16 = getelementptr %struct._PyUnicode_TypeRecord, ptr @_PyUnicode_TypeRecords, i64 %.0.i
+  %16 = getelementptr [16 x i8], ptr @_PyUnicode_TypeRecords, i64 %.0.i
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 14
   %18 = load i16, ptr %17, align 2, !tbaa !8
   %19 = lshr i16 %18, 3
@@ -2894,21 +2894,21 @@ define dso_local range(i32 0, 2) i32 @_PyUnicode_IsUppercase(i32 noundef %0) loc
 3:                                                ; preds = %1
   %4 = lshr i32 %0, 6
   %5 = zext nneg i32 %4 to i64
-  %6 = getelementptr i16, ptr @index1, i64 %5
+  %6 = getelementptr [2 x i8], ptr @index1, i64 %5
   %7 = load i16, ptr %6, align 2, !tbaa !4
   %8 = zext i16 %7 to i32
   %9 = shl nuw nsw i32 %8, 6
   %10 = and i32 %0, 63
   %11 = or disjoint i32 %9, %10
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr i16, ptr @index2, i64 %12
+  %13 = getelementptr [2 x i8], ptr @index2, i64 %12
   %14 = load i16, ptr %13, align 2, !tbaa !4
   %15 = zext i16 %14 to i64
   br label %gettyperecord.exit
 
 gettyperecord.exit:                               ; preds = %1, %3
   %.0.i = phi i64 [ %15, %3 ], [ 0, %1 ]
-  %16 = getelementptr %struct._PyUnicode_TypeRecord, ptr @_PyUnicode_TypeRecords, i64 %.0.i
+  %16 = getelementptr [16 x i8], ptr @_PyUnicode_TypeRecords, i64 %.0.i
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 14
   %18 = load i16, ptr %17, align 2, !tbaa !8
   %19 = lshr i16 %18, 7
@@ -2925,21 +2925,21 @@ define dso_local i32 @_PyUnicode_ToUppercase(i32 noundef %0) local_unnamed_addr 
 3:                                                ; preds = %1
   %4 = lshr i32 %0, 6
   %5 = zext nneg i32 %4 to i64
-  %6 = getelementptr i16, ptr @index1, i64 %5
+  %6 = getelementptr [2 x i8], ptr @index1, i64 %5
   %7 = load i16, ptr %6, align 2, !tbaa !4
   %8 = zext i16 %7 to i32
   %9 = shl nuw nsw i32 %8, 6
   %10 = and i32 %0, 63
   %11 = or disjoint i32 %9, %10
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr i16, ptr @index2, i64 %12
+  %13 = getelementptr [2 x i8], ptr @index2, i64 %12
   %14 = load i16, ptr %13, align 2, !tbaa !4
   %15 = zext i16 %14 to i64
   br label %gettyperecord.exit
 
 gettyperecord.exit:                               ; preds = %1, %3
   %.0.i = phi i64 [ %15, %3 ], [ 0, %1 ]
-  %16 = getelementptr %struct._PyUnicode_TypeRecord, ptr @_PyUnicode_TypeRecords, i64 %.0.i
+  %16 = getelementptr [16 x i8], ptr @_PyUnicode_TypeRecords, i64 %.0.i
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 14
   %18 = load i16, ptr %17, align 2, !tbaa !8
   %19 = and i16 %18, 16384
@@ -2950,7 +2950,7 @@ gettyperecord.exit:                               ; preds = %1, %3
 21:                                               ; preds = %gettyperecord.exit
   %22 = and i32 %20, 65535
   %23 = zext nneg i32 %22 to i64
-  %24 = getelementptr i32, ptr @_PyUnicode_ExtendedCase, i64 %23
+  %24 = getelementptr [4 x i8], ptr @_PyUnicode_ExtendedCase, i64 %23
   %25 = load i32, ptr %24, align 4, !tbaa !12
   br label %28
 
@@ -2971,21 +2971,21 @@ define dso_local i32 @_PyUnicode_ToLowercase(i32 noundef %0) local_unnamed_addr 
 3:                                                ; preds = %1
   %4 = lshr i32 %0, 6
   %5 = zext nneg i32 %4 to i64
-  %6 = getelementptr i16, ptr @index1, i64 %5
+  %6 = getelementptr [2 x i8], ptr @index1, i64 %5
   %7 = load i16, ptr %6, align 2, !tbaa !4
   %8 = zext i16 %7 to i32
   %9 = shl nuw nsw i32 %8, 6
   %10 = and i32 %0, 63
   %11 = or disjoint i32 %9, %10
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr i16, ptr @index2, i64 %12
+  %13 = getelementptr [2 x i8], ptr @index2, i64 %12
   %14 = load i16, ptr %13, align 2, !tbaa !4
   %15 = zext i16 %14 to i64
   br label %gettyperecord.exit
 
 gettyperecord.exit:                               ; preds = %1, %3
   %.0.i = phi i64 [ %15, %3 ], [ 0, %1 ]
-  %16 = getelementptr %struct._PyUnicode_TypeRecord, ptr @_PyUnicode_TypeRecords, i64 %.0.i
+  %16 = getelementptr [16 x i8], ptr @_PyUnicode_TypeRecords, i64 %.0.i
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 14
   %18 = load i16, ptr %17, align 2, !tbaa !8
   %19 = and i16 %18, 16384
@@ -2997,7 +2997,7 @@ gettyperecord.exit:                               ; preds = %1, %3
 22:                                               ; preds = %gettyperecord.exit
   %23 = and i32 %21, 65535
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr i32, ptr @_PyUnicode_ExtendedCase, i64 %24
+  %25 = getelementptr [4 x i8], ptr @_PyUnicode_ExtendedCase, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !12
   br label %29
 
@@ -3018,21 +3018,21 @@ define hidden range(i32 -128, 128) i32 @_PyUnicode_ToLowerFull(i32 noundef %0, p
 4:                                                ; preds = %2
   %5 = lshr i32 %0, 6
   %6 = zext nneg i32 %5 to i64
-  %7 = getelementptr i16, ptr @index1, i64 %6
+  %7 = getelementptr [2 x i8], ptr @index1, i64 %6
   %8 = load i16, ptr %7, align 2, !tbaa !4
   %9 = zext i16 %8 to i32
   %10 = shl nuw nsw i32 %9, 6
   %11 = and i32 %0, 63
   %12 = or disjoint i32 %10, %11
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr i16, ptr @index2, i64 %13
+  %14 = getelementptr [2 x i8], ptr @index2, i64 %13
   %15 = load i16, ptr %14, align 2, !tbaa !4
   %16 = zext i16 %15 to i64
   br label %gettyperecord.exit
 
 gettyperecord.exit:                               ; preds = %2, %4
   %.0.i = phi i64 [ %16, %4 ], [ 0, %2 ]
-  %17 = getelementptr %struct._PyUnicode_TypeRecord, ptr @_PyUnicode_TypeRecords, i64 %.0.i
+  %17 = getelementptr [16 x i8], ptr @_PyUnicode_TypeRecords, i64 %.0.i
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 14
   %19 = load i16, ptr %18, align 2, !tbaa !8
   %20 = and i16 %19, 16384
@@ -3050,14 +3050,14 @@ gettyperecord.exit:                               ; preds = %2, %4
   %26 = and i32 %22, 65535
   %27 = zext nneg i32 %26 to i64
   %wide.trip.count = zext nneg i32 %24 to i64
-  %invariant.gep = getelementptr i32, ptr @_PyUnicode_ExtendedCase, i64 %27
+  %invariant.gep = getelementptr [4 x i8], ptr @_PyUnicode_ExtendedCase, i64 %27
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   %28 = load i32, ptr %gep, align 4, !tbaa !12
-  %29 = getelementptr i32, ptr %1, i64 %indvars.iv
+  %29 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv
   store i32 %28, ptr %29, align 4, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3081,21 +3081,21 @@ define hidden range(i32 -128, 128) i32 @_PyUnicode_ToTitleFull(i32 noundef %0, p
 4:                                                ; preds = %2
   %5 = lshr i32 %0, 6
   %6 = zext nneg i32 %5 to i64
-  %7 = getelementptr i16, ptr @index1, i64 %6
+  %7 = getelementptr [2 x i8], ptr @index1, i64 %6
   %8 = load i16, ptr %7, align 2, !tbaa !4
   %9 = zext i16 %8 to i32
   %10 = shl nuw nsw i32 %9, 6
   %11 = and i32 %0, 63
   %12 = or disjoint i32 %10, %11
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr i16, ptr @index2, i64 %13
+  %14 = getelementptr [2 x i8], ptr @index2, i64 %13
   %15 = load i16, ptr %14, align 2, !tbaa !4
   %16 = zext i16 %15 to i64
   br label %gettyperecord.exit
 
 gettyperecord.exit:                               ; preds = %2, %4
   %.0.i = phi i64 [ %16, %4 ], [ 0, %2 ]
-  %17 = getelementptr %struct._PyUnicode_TypeRecord, ptr @_PyUnicode_TypeRecords, i64 %.0.i
+  %17 = getelementptr [16 x i8], ptr @_PyUnicode_TypeRecords, i64 %.0.i
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 14
   %19 = load i16, ptr %18, align 2, !tbaa !8
   %20 = and i16 %19, 16384
@@ -3113,14 +3113,14 @@ gettyperecord.exit:                               ; preds = %2, %4
   %26 = and i32 %22, 65535
   %27 = zext nneg i32 %26 to i64
   %wide.trip.count = zext nneg i32 %24 to i64
-  %invariant.gep = getelementptr i32, ptr @_PyUnicode_ExtendedCase, i64 %27
+  %invariant.gep = getelementptr [4 x i8], ptr @_PyUnicode_ExtendedCase, i64 %27
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   %28 = load i32, ptr %gep, align 4, !tbaa !12
-  %29 = getelementptr i32, ptr %1, i64 %indvars.iv
+  %29 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv
   store i32 %28, ptr %29, align 4, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3144,21 +3144,21 @@ define hidden range(i32 -128, 128) i32 @_PyUnicode_ToUpperFull(i32 noundef %0, p
 4:                                                ; preds = %2
   %5 = lshr i32 %0, 6
   %6 = zext nneg i32 %5 to i64
-  %7 = getelementptr i16, ptr @index1, i64 %6
+  %7 = getelementptr [2 x i8], ptr @index1, i64 %6
   %8 = load i16, ptr %7, align 2, !tbaa !4
   %9 = zext i16 %8 to i32
   %10 = shl nuw nsw i32 %9, 6
   %11 = and i32 %0, 63
   %12 = or disjoint i32 %10, %11
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr i16, ptr @index2, i64 %13
+  %14 = getelementptr [2 x i8], ptr @index2, i64 %13
   %15 = load i16, ptr %14, align 2, !tbaa !4
   %16 = zext i16 %15 to i64
   br label %gettyperecord.exit
 
 gettyperecord.exit:                               ; preds = %2, %4
   %.0.i = phi i64 [ %16, %4 ], [ 0, %2 ]
-  %17 = getelementptr %struct._PyUnicode_TypeRecord, ptr @_PyUnicode_TypeRecords, i64 %.0.i
+  %17 = getelementptr [16 x i8], ptr @_PyUnicode_TypeRecords, i64 %.0.i
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 14
   %19 = load i16, ptr %18, align 2, !tbaa !8
   %20 = and i16 %19, 16384
@@ -3175,14 +3175,14 @@ gettyperecord.exit:                               ; preds = %2, %4
   %25 = and i32 %21, 65535
   %26 = zext nneg i32 %25 to i64
   %wide.trip.count = zext nneg i32 %23 to i64
-  %invariant.gep = getelementptr i32, ptr @_PyUnicode_ExtendedCase, i64 %26
+  %invariant.gep = getelementptr [4 x i8], ptr @_PyUnicode_ExtendedCase, i64 %26
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   %27 = load i32, ptr %gep, align 4, !tbaa !12
-  %28 = getelementptr i32, ptr %1, i64 %indvars.iv
+  %28 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv
   store i32 %27, ptr %28, align 4, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3206,21 +3206,21 @@ define hidden range(i32 -128, 128) i32 @_PyUnicode_ToFoldedFull(i32 noundef %0, 
 4:                                                ; preds = %2
   %5 = lshr i32 %0, 6
   %6 = zext nneg i32 %5 to i64
-  %7 = getelementptr i16, ptr @index1, i64 %6
+  %7 = getelementptr [2 x i8], ptr @index1, i64 %6
   %8 = load i16, ptr %7, align 2, !tbaa !4
   %9 = zext i16 %8 to i32
   %10 = shl nuw nsw i32 %9, 6
   %11 = and i32 %0, 63
   %12 = or disjoint i32 %10, %11
   %13 = zext nneg i32 %12 to i64
-  %14 = getelementptr i16, ptr @index2, i64 %13
+  %14 = getelementptr [2 x i8], ptr @index2, i64 %13
   %15 = load i16, ptr %14, align 2, !tbaa !4
   %16 = zext i16 %15 to i64
   br label %gettyperecord.exit
 
 gettyperecord.exit:                               ; preds = %2, %4
   %.0.i = phi i64 [ %16, %4 ], [ 0, %2 ]
-  %17 = getelementptr %struct._PyUnicode_TypeRecord, ptr @_PyUnicode_TypeRecords, i64 %.0.i
+  %17 = getelementptr [16 x i8], ptr @_PyUnicode_TypeRecords, i64 %.0.i
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 14
   %19 = load i16, ptr %18, align 2, !tbaa !8
   %20 = and i16 %19, 16384
@@ -3241,14 +3241,14 @@ gettyperecord.exit:                               ; preds = %2, %4
   %29 = add nsw i32 %27, %28
   %30 = sext i32 %29 to i64
   %wide.trip.count = zext nneg i32 %25 to i64
-  %invariant.gep = getelementptr i32, ptr @_PyUnicode_ExtendedCase, i64 %30
+  %invariant.gep = getelementptr [4 x i8], ptr @_PyUnicode_ExtendedCase, i64 %30
   br label %31
 
 31:                                               ; preds = %26, %31
   %indvars.iv = phi i64 [ 0, %26 ], [ %indvars.iv.next, %31 ]
-  %gep = getelementptr i32, ptr %invariant.gep, i64 %indvars.iv
+  %gep = getelementptr [4 x i8], ptr %invariant.gep, i64 %indvars.iv
   %32 = load i32, ptr %gep, align 4, !tbaa !12
-  %33 = getelementptr i32, ptr %1, i64 %indvars.iv
+  %33 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv
   store i32 %32, ptr %33, align 4, !tbaa !12
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -3260,21 +3260,21 @@ gettyperecord.exit:                               ; preds = %2, %4
 35:                                               ; preds = %34
   %36 = lshr i32 %0, 6
   %37 = zext nneg i32 %36 to i64
-  %38 = getelementptr i16, ptr @index1, i64 %37
+  %38 = getelementptr [2 x i8], ptr @index1, i64 %37
   %39 = load i16, ptr %38, align 2, !tbaa !4
   %40 = zext i16 %39 to i32
   %41 = shl nuw nsw i32 %40, 6
   %42 = and i32 %0, 63
   %43 = or disjoint i32 %41, %42
   %44 = zext nneg i32 %43 to i64
-  %45 = getelementptr i16, ptr @index2, i64 %44
+  %45 = getelementptr [2 x i8], ptr @index2, i64 %44
   %46 = load i16, ptr %45, align 2, !tbaa !4
   %47 = zext i16 %46 to i64
   br label %gettyperecord.exit.i
 
 gettyperecord.exit.i:                             ; preds = %35, %34
   %.0.i.i = phi i64 [ %47, %35 ], [ 0, %34 ]
-  %48 = getelementptr %struct._PyUnicode_TypeRecord, ptr @_PyUnicode_TypeRecords, i64 %.0.i.i
+  %48 = getelementptr [16 x i8], ptr @_PyUnicode_TypeRecords, i64 %.0.i.i
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 14
   %50 = load i16, ptr %49, align 2, !tbaa !8
   %51 = and i16 %50, 16384
@@ -3292,14 +3292,14 @@ gettyperecord.exit.i:                             ; preds = %35, %34
   %57 = and i32 %53, 65535
   %58 = zext nneg i32 %57 to i64
   %wide.trip.count.i = zext nneg i32 %55 to i64
-  %invariant.gep.i = getelementptr i32, ptr @_PyUnicode_ExtendedCase, i64 %58
+  %invariant.gep.i = getelementptr [4 x i8], ptr @_PyUnicode_ExtendedCase, i64 %58
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %gep.i = getelementptr i32, ptr %invariant.gep.i, i64 %indvars.iv.i
+  %gep.i = getelementptr [4 x i8], ptr %invariant.gep.i, i64 %indvars.iv.i
   %59 = load i32, ptr %gep.i, align 4, !tbaa !12
-  %60 = getelementptr i32, ptr %1, i64 %indvars.iv.i
+  %60 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv.i
   store i32 %59, ptr %60, align 4, !tbaa !12
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -3323,21 +3323,21 @@ define hidden range(i32 0, 2) i32 @_PyUnicode_IsCased(i32 noundef %0) local_unna
 3:                                                ; preds = %1
   %4 = lshr i32 %0, 6
   %5 = zext nneg i32 %4 to i64
-  %6 = getelementptr i16, ptr @index1, i64 %5
+  %6 = getelementptr [2 x i8], ptr @index1, i64 %5
   %7 = load i16, ptr %6, align 2, !tbaa !4
   %8 = zext i16 %7 to i32
   %9 = shl nuw nsw i32 %8, 6
   %10 = and i32 %0, 63
   %11 = or disjoint i32 %9, %10
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr i16, ptr @index2, i64 %12
+  %13 = getelementptr [2 x i8], ptr @index2, i64 %12
   %14 = load i16, ptr %13, align 2, !tbaa !4
   %15 = zext i16 %14 to i64
   br label %gettyperecord.exit
 
 gettyperecord.exit:                               ; preds = %1, %3
   %.0.i = phi i64 [ %15, %3 ], [ 0, %1 ]
-  %16 = getelementptr %struct._PyUnicode_TypeRecord, ptr @_PyUnicode_TypeRecords, i64 %.0.i
+  %16 = getelementptr [16 x i8], ptr @_PyUnicode_TypeRecords, i64 %.0.i
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 14
   %18 = load i16, ptr %17, align 2, !tbaa !8
   %19 = lshr i16 %18, 13
@@ -3354,21 +3354,21 @@ define hidden range(i32 0, 2) i32 @_PyUnicode_IsCaseIgnorable(i32 noundef %0) lo
 3:                                                ; preds = %1
   %4 = lshr i32 %0, 6
   %5 = zext nneg i32 %4 to i64
-  %6 = getelementptr i16, ptr @index1, i64 %5
+  %6 = getelementptr [2 x i8], ptr @index1, i64 %5
   %7 = load i16, ptr %6, align 2, !tbaa !4
   %8 = zext i16 %7 to i32
   %9 = shl nuw nsw i32 %8, 6
   %10 = and i32 %0, 63
   %11 = or disjoint i32 %9, %10
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr i16, ptr @index2, i64 %12
+  %13 = getelementptr [2 x i8], ptr @index2, i64 %12
   %14 = load i16, ptr %13, align 2, !tbaa !4
   %15 = zext i16 %14 to i64
   br label %gettyperecord.exit
 
 gettyperecord.exit:                               ; preds = %1, %3
   %.0.i = phi i64 [ %15, %3 ], [ 0, %1 ]
-  %16 = getelementptr %struct._PyUnicode_TypeRecord, ptr @_PyUnicode_TypeRecords, i64 %.0.i
+  %16 = getelementptr [16 x i8], ptr @_PyUnicode_TypeRecords, i64 %.0.i
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 14
   %18 = load i16, ptr %17, align 2, !tbaa !8
   %19 = lshr i16 %18, 12
@@ -3385,21 +3385,21 @@ define dso_local range(i32 0, 2) i32 @_PyUnicode_IsAlpha(i32 noundef %0) local_u
 3:                                                ; preds = %1
   %4 = lshr i32 %0, 6
   %5 = zext nneg i32 %4 to i64
-  %6 = getelementptr i16, ptr @index1, i64 %5
+  %6 = getelementptr [2 x i8], ptr @index1, i64 %5
   %7 = load i16, ptr %6, align 2, !tbaa !4
   %8 = zext i16 %7 to i32
   %9 = shl nuw nsw i32 %8, 6
   %10 = and i32 %0, 63
   %11 = or disjoint i32 %9, %10
   %12 = zext nneg i32 %11 to i64
-  %13 = getelementptr i16, ptr @index2, i64 %12
+  %13 = getelementptr [2 x i8], ptr @index2, i64 %12
   %14 = load i16, ptr %13, align 2, !tbaa !4
   %15 = zext i16 %14 to i64
   br label %gettyperecord.exit
 
 gettyperecord.exit:                               ; preds = %1, %3
   %.0.i = phi i64 [ %15, %3 ], [ 0, %1 ]
-  %16 = getelementptr %struct._PyUnicode_TypeRecord, ptr @_PyUnicode_TypeRecords, i64 %.0.i
+  %16 = getelementptr [16 x i8], ptr @_PyUnicode_TypeRecords, i64 %.0.i
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 14
   %18 = load i16, ptr %17, align 2, !tbaa !8
   %19 = and i16 %18, 1

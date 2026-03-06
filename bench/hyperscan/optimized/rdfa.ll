@@ -204,7 +204,7 @@ define hidden void @_ZN3ue27raw_dfa20stripExtraEodReportsEv(ptr noundef nonnull 
   %15 = phi i64 [ %.pre, %.lr.ph ], [ %42, %_ZN3ue28flat_setIjSt4lessIjESaIjEE5eraseERKj.exit ]
   %.sroa.08.017 = phi ptr [ %7, %.lr.ph ], [ %43, %_ZN3ue28flat_setIjSt4lessIjESaIjEE5eraseERKj.exit ]
   %16 = load ptr, ptr %11, align 8, !noalias !22
-  %17 = getelementptr inbounds nuw i32, ptr %16, i64 %15
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %15
   %18 = icmp sgt i64 %15, 0
   br i1 %18, label %_ZSt7advanceIN5boost9container12vec_iteratorIPjLb0EEElEvRT_T0_.exit.i.preheader.i.i.i, label %_ZSt11lower_boundIN5boost9container12vec_iteratorIPjLb0EEEjSt4lessIjEET_S7_S7_RKT0_T1_.exit.i.i
 
@@ -216,7 +216,7 @@ _ZSt7advanceIN5boost9container12vec_iteratorIPjLb0EEElEvRT_T0_.exit.i.i.i.i: ; p
   %20 = phi ptr [ %28, %_ZSt7advanceIN5boost9container12vec_iteratorIPjLb0EEElEvRT_T0_.exit.i.i.i.i ], [ %16, %_ZSt7advanceIN5boost9container12vec_iteratorIPjLb0EEElEvRT_T0_.exit.i.preheader.i.i.i ]
   %.012.i.i.i.i = phi i64 [ %.1.i.i.i.i, %_ZSt7advanceIN5boost9container12vec_iteratorIPjLb0EEElEvRT_T0_.exit.i.i.i.i ], [ %15, %_ZSt7advanceIN5boost9container12vec_iteratorIPjLb0EEElEvRT_T0_.exit.i.preheader.i.i.i ]
   %21 = lshr i64 %.012.i.i.i.i, 1
-  %22 = getelementptr inbounds nuw i32, ptr %20, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %21
   %23 = load i32, ptr %22, align 4, !noalias !25
   %24 = icmp ult i32 %23, %19
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 4

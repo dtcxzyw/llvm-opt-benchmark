@@ -919,8 +919,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon.806 = type { ptr }
 %struct.__sigset_t = type { [16 x i64] }
 %struct.PyStatus = type { i32, ptr, ptr, i32 }
-%struct.faulthandler_user_signal = type { i32, ptr, i32, i32, i32, %struct.sigaction, ptr }
-%struct.fault_handler_t = type { i32, i32, ptr, %struct.sigaction, i32 }
 %struct.rlimit = type { i64, i64 }
 
 @module_def = internal global %struct.PyModuleDef { %struct.PyModuleDef_Base { %struct._object { %union.anon { i64 552977039360 }, ptr null }, ptr null, i64 0, ptr null }, ptr @.str.1, ptr @module_doc, i64 0, ptr @module_methods, ptr @faulthandler_slots, ptr @faulthandler_traverse, ptr null, ptr null }, align 8
@@ -1157,7 +1155,7 @@ define hidden void @_PyFaulthandler_Fini() local_unnamed_addr #0 {
 .preheader:                                       ; preds = %9, %faulthandler_unregister.exit
   %.011 = phi i64 [ %29, %faulthandler_unregister.exit ], [ 0, %9 ]
   %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10096), align 8, !tbaa !183
-  %14 = getelementptr %struct.faulthandler_user_signal, ptr %13, i64 %.011
+  %14 = getelementptr [192 x i8], ptr %13, i64 %.011
   %15 = load i32, ptr %14, align 8, !tbaa !184
   %.not.i = icmp eq i32 %15, 0
   br i1 %.not.i, label %faulthandler_unregister.exit, label %16
@@ -1209,7 +1207,7 @@ faulthandler_unregister.exit:                     ; preds = %.preheader, %Py_DEC
 
 33:                                               ; preds = %faulthandler_disable_fatal_handler.exit.i, %32
   %.010.i = phi i64 [ 0, %32 ], [ %41, %faulthandler_disable_fatal_handler.exit.i ]
-  %34 = getelementptr %struct.fault_handler_t, ptr @faulthandler_handlers, i64 %.010.i
+  %34 = getelementptr [176 x i8], ptr @faulthandler_handlers, i64 %.010.i
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 4
   %36 = load i32, ptr %35, align 4, !tbaa !192
   %.not.i9.i = icmp eq i32 %36, 0
@@ -1356,7 +1354,7 @@ define internal i32 @faulthandler_traverse(ptr readnone captures(none) %0, ptr n
 .preheader:                                       ; preds = %7, %15
   %9 = phi ptr [ %16, %15 ], [ %8, %7 ]
   %.02438 = phi i64 [ %17, %15 ], [ 0, %7 ]
-  %10 = getelementptr %struct.faulthandler_user_signal, ptr %9, i64 %.02438
+  %10 = getelementptr [192 x i8], ptr %9, i64 %.02438
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !199
   %.not31 = icmp eq ptr %12, null
@@ -1506,7 +1504,7 @@ faulthandler_allocate_stack.exit.i:               ; preds = %41, %33
 
 49:                                               ; preds = %55, %faulthandler_allocate_stack.exit.i
   %.0916.i = phi i64 [ 0, %faulthandler_allocate_stack.exit.i ], [ %57, %55 ]
-  %50 = getelementptr %struct.fault_handler_t, ptr @faulthandler_handlers, i64 %.0916.i
+  %50 = getelementptr [176 x i8], ptr @faulthandler_handlers, i64 %.0916.i
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store ptr @faulthandler_fatal_error, ptr %4, align 8, !tbaa !175
   %51 = call i32 @sigemptyset(ptr noundef nonnull %47) #16
@@ -1550,7 +1548,7 @@ define internal noundef nonnull ptr @faulthandler_disable_py(ptr readnone captur
 
 5:                                                ; preds = %faulthandler_disable_fatal_handler.exit.i, %4
   %.010.i = phi i64 [ 0, %4 ], [ %13, %faulthandler_disable_fatal_handler.exit.i ]
-  %6 = getelementptr %struct.fault_handler_t, ptr @faulthandler_handlers, i64 %.010.i
+  %6 = getelementptr [176 x i8], ptr @faulthandler_handlers, i64 %.010.i
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %8 = load i32, ptr %7, align 4, !tbaa !192
   %.not.i9.i = icmp eq i32 %8, 0
@@ -1930,7 +1928,7 @@ define internal ptr @faulthandler_register_py(ptr readnone captures(none) %0, pt
 
 15:                                               ; preds = %13, %11
   %.01014.i = phi i64 [ 0, %11 ], [ %14, %13 ]
-  %16 = getelementptr %struct.fault_handler_t, ptr @faulthandler_handlers, i64 %.01014.i
+  %16 = getelementptr [176 x i8], ptr @faulthandler_handlers, i64 %.01014.i
   %17 = load i32, ptr %16, align 16, !tbaa !194
   %18 = icmp eq i32 %17, %12
   br i1 %18, label %19, label %13
@@ -1985,7 +1983,7 @@ get_thread_state.exit:                            ; preds = %check_signum.exit
   %41 = phi ptr [ %36, %35 ], [ %33, %32 ]
   %42 = load i32, ptr %5, align 4, !tbaa !202
   %43 = sext i32 %42 to i64
-  %44 = getelementptr %struct.faulthandler_user_signal, ptr %41, i64 %43
+  %44 = getelementptr [192 x i8], ptr %41, i64 %43
   %45 = load i32, ptr %44, align 8, !tbaa !184
   %.not21 = icmp eq i32 %45, 0
   br i1 %.not21, label %46, label %71
@@ -2132,7 +2130,7 @@ define internal ptr @faulthandler_unregister_py(ptr readnone captures(none) %0, 
 
 9:                                                ; preds = %7, %5
   %.01014.i = phi i64 [ 0, %5 ], [ %8, %7 ]
-  %10 = getelementptr %struct.fault_handler_t, ptr @faulthandler_handlers, i64 %.01014.i
+  %10 = getelementptr [176 x i8], ptr @faulthandler_handlers, i64 %.01014.i
   %11 = load i32, ptr %10, align 16, !tbaa !194
   %12 = icmp eq i32 %11, %6
   br i1 %12, label %13, label %7
@@ -2159,7 +2157,7 @@ check_signum.exit:                                ; preds = %16
 
 22:                                               ; preds = %check_signum.exit
   %23 = zext nneg i32 %6 to i64
-  %24 = getelementptr %struct.faulthandler_user_signal, ptr %20, i64 %23
+  %24 = getelementptr [192 x i8], ptr %20, i64 %23
   %25 = load i32, ptr %24, align 8, !tbaa !184
   %.not.i = icmp eq i32 %25, 0
   br i1 %.not.i, label %faulthandler_unregister.exit, label %26
@@ -2598,7 +2596,7 @@ define internal void @faulthandler_fatal_error(i32 noundef %0) #0 {
 
 .preheader:                                       ; preds = %1, %7
   %.02024 = phi i64 [ %8, %7 ], [ 0, %1 ]
-  %9 = getelementptr %struct.fault_handler_t, ptr @faulthandler_handlers, i64 %.02024
+  %9 = getelementptr [176 x i8], ptr @faulthandler_handlers, i64 %.02024
   %10 = load i32, ptr %9, align 16, !tbaa !194
   %.not25 = icmp eq i32 %10, %0
   br i1 %.not25, label %11, label %7
@@ -2818,7 +2816,7 @@ define internal void @faulthandler_user(i32 noundef %0) #0 {
   %4 = load i32, ptr %3, align 4, !tbaa !202
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10096), align 8, !tbaa !183
   %6 = sext i32 %0 to i64
-  %7 = getelementptr %struct.faulthandler_user_signal, ptr %5, i64 %6
+  %7 = getelementptr [192 x i8], ptr %5, i64 %6
   %8 = load i32, ptr %7, align 8, !tbaa !184
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %36, label %9

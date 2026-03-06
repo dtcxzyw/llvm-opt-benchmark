@@ -1695,7 +1695,7 @@ define linkonce_odr hidden noundef i64 @_ZN2cv20TiffDecoderBufHelper4readEPvS1_l
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %14 = load ptr, ptr %13, align 8, !tbaa !101
   %15 = zext nneg i32 %10 to i64
-  %16 = getelementptr i64, ptr %14, i64 %15
+  %16 = getelementptr [8 x i8], ptr %14, i64 %15
   %17 = getelementptr i8, ptr %16, i64 -8
   %18 = load i64, ptr %17, align 8, !tbaa !102
   br label %_ZNK2cv3Mat8elemSizeEv.exit
@@ -1744,7 +1744,7 @@ define linkonce_odr hidden noundef i64 @_ZN2cv20TiffDecoderBufHelper4seekEPvmi(p
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %16 = load ptr, ptr %15, align 8, !tbaa !101
   %17 = zext nneg i32 %6 to i64
-  %18 = getelementptr i64, ptr %16, i64 %17
+  %18 = getelementptr [8 x i8], ptr %16, i64 %17
   %19 = getelementptr i8, ptr %18, i64 -8
   %20 = load i64, ptr %19, align 8, !tbaa !102
   %21 = mul i64 %20, %14
@@ -1808,7 +1808,7 @@ define linkonce_odr hidden noundef i64 @_ZN2cv20TiffDecoderBufHelper4sizeEPv(ptr
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %12 = load ptr, ptr %11, align 8, !tbaa !101
   %13 = zext nneg i32 %8 to i64
-  %14 = getelementptr i64, ptr %12, i64 %13
+  %14 = getelementptr [8 x i8], ptr %12, i64 %13
   %15 = getelementptr i8, ptr %14, i64 -8
   %16 = load i64, ptr %15, align 8, !tbaa !102
   br label %_ZNK2cv3Mat8elemSizeEv.exit
@@ -1840,7 +1840,7 @@ define linkonce_odr hidden noundef i32 @_ZN2cv20TiffDecoderBufHelper3mapEPvPS1_P
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %16 = load ptr, ptr %15, align 8, !tbaa !101
   %17 = zext nneg i32 %12 to i64
-  %18 = getelementptr i64, ptr %16, i64 %17
+  %18 = getelementptr [8 x i8], ptr %16, i64 %17
   %19 = getelementptr i8, ptr %18, i64 -8
   %20 = load i64, ptr %19, align 8, !tbaa !102
   br label %_ZNK2cv3Mat8elemSizeEv.exit
@@ -5801,7 +5801,7 @@ _ZSt3minImET_St16initializer_listIS0_E.exit.i:    ; preds = %.lr.ph.i.i.i
   %1525 = trunc i64 %1524 to i16
   %1526 = and i16 %1525, 1023
   %1527 = sub nuw nsw i64 3, %.03961.i
-  %1528 = getelementptr inbounds nuw i16, ptr %.04462.i, i64 %1527
+  %1528 = getelementptr inbounds nuw [2 x i8], ptr %.04462.i, i64 %1527
   store i16 %1526, ptr %1528, align 2, !tbaa !85
   %1529 = lshr i64 %1524, 10
   %1530 = add nuw nsw i64 %.03961.i, 1
@@ -5961,7 +5961,7 @@ _ZSt3minImET_St16initializer_listIS0_E.exit.i1132: ; preds = %.lr.ph.i.i.i1125
   %1583 = phi i32 [ %.promoted.i1142, %.preheader57.i1141 ], [ %1587, %1581 ]
   %1584 = trunc i32 %1583 to i16
   %1585 = and i16 %1584, 4095
-  %1586 = getelementptr inbounds nuw i16, ptr %.04462.i1137, i64 %.03961.i1143
+  %1586 = getelementptr inbounds nuw [2 x i8], ptr %.04462.i1137, i64 %.03961.i1143
   store i16 %1585, ptr %1586, align 2, !tbaa !85
   %1587 = lshr i32 %1583, 12
   br i1 %1582, label %1581, label %1578, !llvm.loop !149
@@ -6116,7 +6116,7 @@ _ZSt3minImET_St16initializer_listIS0_E.exit.i1178: ; preds = %.lr.ph.i.i.i1171
   %1639 = trunc i64 %1638 to i16
   %1640 = and i16 %1639, 16383
   %1641 = sub nuw nsw i64 3, %.03961.i1189
-  %1642 = getelementptr inbounds nuw i16, ptr %.04462.i1183, i64 %1641
+  %1642 = getelementptr inbounds nuw [2 x i8], ptr %.04462.i1183, i64 %1641
   store i16 %1640, ptr %1642, align 2, !tbaa !85
   %1643 = lshr i64 %1638, 14
   %1644 = add nuw nsw i64 %.03961.i1189, 1
@@ -8247,13 +8247,13 @@ _ZN2cv3PtrIvEC2I4tiffPFvPvEEEPT_T0_.exit:         ; preds = %100
 
 .lr.ph.i:                                         ; preds = %_ZN2cv3PtrIvEC2I4tiffPFvPvEEEPT_T0_.exit, %123
   %.0105.i = phi i64 [ %124, %123 ], [ 0, %_ZN2cv3PtrIvEC2I4tiffPFvPvEEEPT_T0_.exit ]
-  %127 = getelementptr inbounds nuw i32, ptr %.val555, i64 %.0105.i
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %.val555, i64 %.0105.i
   %128 = load i32, ptr %127, align 4, !tbaa !64
   %129 = icmp eq i32 %128, 259
   br i1 %129, label %130, label %123
 
 130:                                              ; preds = %.lr.ph.i
-  %131 = getelementptr inbounds nuw i32, ptr %.val555, i64 %.0105.i
+  %131 = getelementptr inbounds nuw [4 x i8], ptr %.val555, i64 %.0105.i
   %132 = getelementptr inbounds nuw i8, ptr %131, i64 4
   %133 = load i32, ptr %132, align 4, !tbaa !64
   br label %_ZN2cvL9readParamERKSt6vectorIiSaIiEEiRi.exit
@@ -8270,13 +8270,13 @@ _ZN2cvL9readParamERKSt6vectorIiSaIiEEiRi.exit:    ; preds = %123, %130
 
 .lr.ph.i557:                                      ; preds = %_ZN2cvL9readParamERKSt6vectorIiSaIiEEiRi.exit, %134
   %.0105.i558 = phi i64 [ %135, %134 ], [ 0, %_ZN2cvL9readParamERKSt6vectorIiSaIiEEiRi.exit ]
-  %138 = getelementptr inbounds nuw i32, ptr %.val555, i64 %.0105.i558
+  %138 = getelementptr inbounds nuw [4 x i8], ptr %.val555, i64 %.0105.i558
   %139 = load i32, ptr %138, align 4, !tbaa !64
   %140 = icmp eq i32 %139, 317
   br i1 %140, label %141, label %134
 
 141:                                              ; preds = %.lr.ph.i557
-  %142 = getelementptr inbounds nuw i32, ptr %.val555, i64 %.0105.i558
+  %142 = getelementptr inbounds nuw [4 x i8], ptr %.val555, i64 %.0105.i558
   %143 = getelementptr inbounds nuw i8, ptr %142, i64 4
   %144 = load i32, ptr %143, align 4, !tbaa !64
   br label %_ZN2cvL9readParamERKSt6vectorIiSaIiEEiRi.exit559
@@ -8293,13 +8293,13 @@ _ZN2cvL9readParamERKSt6vectorIiSaIiEEiRi.exit559: ; preds = %134, %141
 
 .lr.ph.i560:                                      ; preds = %_ZN2cvL9readParamERKSt6vectorIiSaIiEEiRi.exit559, %145
   %.0105.i561 = phi i64 [ %146, %145 ], [ 0, %_ZN2cvL9readParamERKSt6vectorIiSaIiEEiRi.exit559 ]
-  %149 = getelementptr inbounds nuw i32, ptr %.val555, i64 %.0105.i561
+  %149 = getelementptr inbounds nuw [4 x i8], ptr %.val555, i64 %.0105.i561
   %150 = load i32, ptr %149, align 4, !tbaa !64
   %151 = icmp eq i32 %150, 256
   br i1 %151, label %152, label %145
 
 152:                                              ; preds = %.lr.ph.i560
-  %153 = getelementptr inbounds nuw i32, ptr %.val555, i64 %.0105.i561
+  %153 = getelementptr inbounds nuw [4 x i8], ptr %.val555, i64 %.0105.i561
   %154 = getelementptr inbounds nuw i8, ptr %153, i64 4
   %155 = load i32, ptr %154, align 4, !tbaa !64
   br label %_ZN2cvL9readParamERKSt6vectorIiSaIiEEiRi.exit562
@@ -8316,13 +8316,13 @@ _ZN2cvL9readParamERKSt6vectorIiSaIiEEiRi.exit562: ; preds = %145, %152
 
 .lr.ph.i563:                                      ; preds = %_ZN2cvL9readParamERKSt6vectorIiSaIiEEiRi.exit562, %156
   %.0105.i564 = phi i64 [ %157, %156 ], [ 0, %_ZN2cvL9readParamERKSt6vectorIiSaIiEEiRi.exit562 ]
-  %160 = getelementptr inbounds nuw i32, ptr %.val555, i64 %.0105.i564
+  %160 = getelementptr inbounds nuw [4 x i8], ptr %.val555, i64 %.0105.i564
   %161 = load i32, ptr %160, align 4, !tbaa !64
   %162 = icmp eq i32 %161, 257
   br i1 %162, label %163, label %156
 
 163:                                              ; preds = %.lr.ph.i563
-  %164 = getelementptr inbounds nuw i32, ptr %.val555, i64 %.0105.i564
+  %164 = getelementptr inbounds nuw [4 x i8], ptr %.val555, i64 %.0105.i564
   %165 = getelementptr inbounds nuw i8, ptr %164, i64 4
   %166 = load i32, ptr %165, align 4, !tbaa !64
   br label %_ZN2cvL9readParamERKSt6vectorIiSaIiEEiRi.exit565
@@ -8339,13 +8339,13 @@ _ZN2cvL9readParamERKSt6vectorIiSaIiEEiRi.exit565: ; preds = %156, %163
 
 .lr.ph.i566:                                      ; preds = %_ZN2cvL9readParamERKSt6vectorIiSaIiEEiRi.exit565, %167
   %.0105.i567 = phi i64 [ %168, %167 ], [ 0, %_ZN2cvL9readParamERKSt6vectorIiSaIiEEiRi.exit565 ]
-  %171 = getelementptr inbounds nuw i32, ptr %.val555, i64 %.0105.i567
+  %171 = getelementptr inbounds nuw [4 x i8], ptr %.val555, i64 %.0105.i567
   %172 = load i32, ptr %171, align 4, !tbaa !64
   %173 = icmp eq i32 %172, 258
   br i1 %173, label %174, label %167
 
 174:                                              ; preds = %.lr.ph.i566
-  %175 = getelementptr inbounds nuw i32, ptr %.val555, i64 %.0105.i567
+  %175 = getelementptr inbounds nuw [4 x i8], ptr %.val555, i64 %.0105.i567
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 4
   %177 = load i32, ptr %176, align 4, !tbaa !64
   br label %_ZN2cvL9readParamERKSt6vectorIiSaIiEEiRi.exit568
@@ -8394,7 +8394,7 @@ _ZN2cvL9readParamERKSt6vectorIiSaIiEEiRi.exit568: ; preds = %167, %_ZN2cv3PtrIvE
 206:                                              ; preds = %.lr.ph938, %1280
   %207 = phi ptr [ %180, %.lr.ph938 ], [ %1283, %1280 ]
   %.0355936 = phi i64 [ 0, %.lr.ph938 ], [ %1281, %1280 ]
-  %208 = getelementptr inbounds nuw %"class.cv::Mat", ptr %207, i64 %.0355936
+  %208 = getelementptr inbounds nuw [96 x i8], ptr %207, i64 %.0355936
   %209 = invoke noundef zeroext i1 @_ZNK2cv3Mat5emptyEv(ptr noundef nonnull align 8 dereferenceable(96) %208)
           to label %210 unwind label %211
 
@@ -9144,13 +9144,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit611: ; preds = %45
 
 .lr.ph.i612:                                      ; preds = %464, %470
   %.0105.i613 = phi i64 [ %471, %470 ], [ 0, %464 ]
-  %474 = getelementptr inbounds nuw i32, ptr %.val, i64 %.0105.i613
+  %474 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %.0105.i613
   %475 = load i32, ptr %474, align 4, !tbaa !64
   %476 = icmp eq i32 %475, 259
   br i1 %476, label %_ZN2cvL9readParamERKSt6vectorIiSaIiEEiRi.exit614, label %470
 
 _ZN2cvL9readParamERKSt6vectorIiSaIiEEiRi.exit614: ; preds = %.lr.ph.i612
-  %477 = getelementptr inbounds nuw i32, ptr %.val, i64 %.0105.i613
+  %477 = getelementptr inbounds nuw [4 x i8], ptr %.val, i64 %.0105.i613
   %478 = getelementptr inbounds nuw i8, ptr %477, i64 4
   %479 = load i32, ptr %478, align 4, !tbaa !64
   %.not827 = icmp eq i32 %479, 34676
@@ -9264,13 +9264,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit617: ; preds = %49
 
 .lr.ph.i618:                                      ; preds = %501, %513
   %.0105.i619 = phi i64 [ %514, %513 ], [ 0, %501 ]
-  %517 = getelementptr inbounds nuw i32, ptr %.val545, i64 %.0105.i619
+  %517 = getelementptr inbounds nuw [4 x i8], ptr %.val545, i64 %.0105.i619
   %518 = load i32, ptr %517, align 4, !tbaa !64
   %519 = icmp eq i32 %518, 278
   br i1 %519, label %520, label %513
 
 520:                                              ; preds = %.lr.ph.i618
-  %521 = getelementptr inbounds nuw i32, ptr %.val545, i64 %.0105.i619
+  %521 = getelementptr inbounds nuw [4 x i8], ptr %.val545, i64 %.0105.i619
   %522 = getelementptr inbounds nuw i8, ptr %521, i64 4
   %523 = load i32, ptr %522, align 4, !tbaa !64
   br label %_ZN2cvL9readParamERKSt6vectorIiSaIiEEiRi.exit620
@@ -14205,7 +14205,7 @@ _ZNSt12_Vector_baseIN2cv3MatESaIS1_EE13_M_deallocateEPS1_m.exit: ; preds = %_ZNS
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8, !tbaa !66
   store ptr %.0.lcssa.i.i.i.i31, ptr %4, align 8, !tbaa !67
-  %29 = getelementptr inbounds nuw %"class.cv::Mat", ptr %20, i64 %16
+  %29 = getelementptr inbounds nuw [96 x i8], ptr %20, i64 %16
   store ptr %29, ptr %28, align 8, !tbaa !214
   ret void
 

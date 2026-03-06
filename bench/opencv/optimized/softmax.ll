@@ -468,7 +468,7 @@ define hidden void @_ZN2cv3dnn7softmaxERNS_3MatERKS1_i(ptr noundef nonnull align
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %5 = load ptr, ptr %4, align 8, !tbaa !42
   %6 = sext i32 %2 to i64
-  %7 = getelementptr inbounds i32, ptr %5, i64 %6
+  %7 = getelementptr inbounds [4 x i8], ptr %5, i64 %6
   %8 = load i32, ptr %7, align 4, !tbaa !3
   tail call void @_ZN2cv3dnn7softmaxERNS_3MatERKS1_iii(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %2, i32 noundef 0, i32 noundef %8)
   ret void
@@ -481,7 +481,7 @@ define hidden void @_ZN2cv3dnn10logSoftmaxERNS_3MatERKS1_i(ptr noundef nonnull a
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %7 = load ptr, ptr %6, align 8, !tbaa !42
   %8 = sext i32 %2 to i64
-  %9 = getelementptr inbounds i32, ptr %7, i64 %8
+  %9 = getelementptr inbounds [4 x i8], ptr %7, i64 %8
   %10 = load i32, ptr %9, align 4, !tbaa !3
   tail call void @_ZN2cv3dnn7softmaxERNS_3MatERKS1_iii(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull align 8 dereferenceable(96) %1, i32 noundef %2, i32 noundef 0, i32 noundef %10)
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -683,7 +683,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit.i.i.i:       ; preds = %8, %2
   %44 = load i32, ptr %30, align 4, !tbaa !3
   %45 = sext i32 %44 to i64
   %46 = load i64, ptr %32, align 8, !tbaa !22
-  %47 = getelementptr float, ptr %43, i64 %41
+  %47 = getelementptr [4 x i8], ptr %43, i64 %41
   br label %49
 
 ._crit_edge.i.i.i:                                ; preds = %49
@@ -695,9 +695,9 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit.i.i.i:       ; preds = %8, %2
   %.03946.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %55, %49 ]
   %50 = add i64 %.03946.i.i.i, %45
   %51 = mul i64 %50, %46
-  %52 = getelementptr float, ptr %47, i64 %51
+  %52 = getelementptr [4 x i8], ptr %47, i64 %51
   %53 = load float, ptr %52, align 4, !tbaa !57
-  %54 = getelementptr inbounds nuw float, ptr %13, i64 %.03946.i.i.i
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %.03946.i.i.i
   store float %53, ptr %54, align 4, !tbaa !57
   %55 = add nuw i64 %.03946.i.i.i, 1
   %exitcond.not.i.i.i = icmp eq i64 %55, %42
@@ -710,7 +710,7 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit.i.i.i:       ; preds = %8, %2
 .lr.ph51.i.i.i:                                   ; preds = %._crit_edge.i.i.i, %.lr.ph51.i.i.i
   %.03749.i.i.i = phi i64 [ %59, %.lr.ph51.i.i.i ], [ 1, %._crit_edge.i.i.i ]
   %.04348.i.i.i = phi float [ %.sroa.speculated.i.i.i, %.lr.ph51.i.i.i ], [ %48, %._crit_edge.i.i.i ]
-  %56 = getelementptr inbounds nuw float, ptr %13, i64 %.03749.i.i.i
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %.03749.i.i.i
   %57 = load float, ptr %56, align 4, !tbaa !57
   %58 = fcmp olt float %.04348.i.i.i, %57
   %.sroa.speculated.i.i.i = select i1 %58, float %57, float %.04348.i.i.i
@@ -727,13 +727,13 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit.i.i.i:       ; preds = %8, %2
   %61 = load ptr, ptr %34, align 8, !tbaa !24
   %62 = load i32, ptr %30, align 4, !tbaa !3
   %63 = sext i32 %62 to i64
-  %64 = getelementptr float, ptr %61, i64 %41
+  %64 = getelementptr [4 x i8], ptr %61, i64 %41
   br label %79
 
 .lr.ph55.i.i.i:                                   ; preds = %.lr.ph55.i.i.i, %.lr.ph55.preheader.i.i.i
   %.03654.i.i.i = phi i64 [ %70, %.lr.ph55.i.i.i ], [ 0, %.lr.ph55.preheader.i.i.i ]
   %.03853.i.i.i = phi float [ %69, %.lr.ph55.i.i.i ], [ 0.000000e+00, %.lr.ph55.preheader.i.i.i ]
-  %65 = getelementptr inbounds nuw float, ptr %13, i64 %.03654.i.i.i
+  %65 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %.03654.i.i.i
   %66 = load float, ptr %65, align 4, !tbaa !57
   %67 = fsub float %66, %.043.lcssa.ph.i.i.i
   %68 = call float @expf(float noundef %67) #17, !tbaa !3
@@ -755,12 +755,12 @@ _ZN2cv10AutoBufferIfLm264EEC2Em.exit.i.i.i:       ; preds = %8, %2
 
 79:                                               ; preds = %79, %.lr.ph61.i.i.i
   %.059.i.i.i = phi i64 [ 0, %.lr.ph61.i.i.i ], [ %86, %79 ]
-  %80 = getelementptr inbounds nuw float, ptr %13, i64 %.059.i.i.i
+  %80 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %.059.i.i.i
   %81 = load float, ptr %80, align 4, !tbaa !57
   %82 = fmul float %60, %81
   %83 = add i64 %.059.i.i.i, %63
   %84 = mul i64 %83, %46
-  %85 = getelementptr float, ptr %64, i64 %84
+  %85 = getelementptr [4 x i8], ptr %64, i64 %84
   store float %82, ptr %85, align 4, !tbaa !57
   %86 = add nuw i64 %.059.i.i.i, 1
   %exitcond70.not.i.i.i = icmp eq i64 %86, %72

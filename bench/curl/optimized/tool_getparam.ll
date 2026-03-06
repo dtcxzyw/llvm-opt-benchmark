@@ -3,7 +3,6 @@ source_filename = "bench/curl/original/tool_getparam.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.LongShort = type { ptr, i8, i8, i16 }
 %struct.dynbuf = type { ptr, i64, i64, i64 }
 
 @findshortopt.singles = internal unnamed_addr global [96 x ptr] zeroinitializer, align 16
@@ -413,7 +412,7 @@ define dso_local ptr @findshortopt(i8 noundef signext %0) local_unnamed_addr #0 
 
 .preheader:                                       ; preds = %3, %11
   %indvars.iv = phi i64 [ %indvars.iv.next, %11 ], [ 0, %3 ]
-  %4 = getelementptr inbounds nuw %struct.LongShort, ptr @aliases, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [16 x i8], ptr @aliases, i64 %indvars.iv
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 9
   %6 = load i8, ptr %5, align 1, !tbaa !4
   %.not = icmp eq i8 %6, 32
@@ -421,7 +420,7 @@ define dso_local ptr @findshortopt(i8 noundef signext %0) local_unnamed_addr #0 
 
 7:                                                ; preds = %.preheader
   %8 = zext i8 %6 to i64
-  %9 = getelementptr ptr, ptr @findshortopt.singles, i64 %8
+  %9 = getelementptr [8 x i8], ptr @findshortopt.singles, i64 %8
   %10 = getelementptr i8, ptr %9, i64 -256
   store ptr %4, ptr %10, align 8, !tbaa !11
   br label %11
@@ -439,7 +438,7 @@ define dso_local ptr @findshortopt(i8 noundef signext %0) local_unnamed_addr #0 
   %narrow = add nsw i8 %0, -32
   %14 = sext i8 %narrow to i64
   %15 = and i64 %14, 4294967295
-  %16 = getelementptr inbounds nuw ptr, ptr @findshortopt.singles, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr @findshortopt.singles, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !11
   br label %18
 
@@ -887,7 +886,7 @@ findlongopt.exit:                                 ; preds = %45, %60, %14
 
 .preheader.i:                                     ; preds = %292, %300
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %300 ], [ 0, %292 ]
-  %293 = getelementptr inbounds nuw %struct.LongShort, ptr @aliases, i64 %indvars.iv.i
+  %293 = getelementptr inbounds nuw [16 x i8], ptr @aliases, i64 %indvars.iv.i
   %294 = getelementptr inbounds nuw i8, ptr %293, i64 9
   %295 = load i8, ptr %294, align 1, !tbaa !4
   %.not.i = icmp eq i8 %295, 32
@@ -895,7 +894,7 @@ findlongopt.exit:                                 ; preds = %45, %60, %14
 
 296:                                              ; preds = %.preheader.i
   %297 = zext i8 %295 to i64
-  %298 = getelementptr ptr, ptr @findshortopt.singles, i64 %297
+  %298 = getelementptr [8 x i8], ptr @findshortopt.singles, i64 %297
   %299 = getelementptr i8, ptr %298, i64 -256
   store ptr %293, ptr %299, align 8, !tbaa !11
   br label %300
@@ -913,7 +912,7 @@ findshortopt.exit:                                ; preds = %292, %301
   %narrow.i = add nsw i8 %290, -32
   %302 = sext i8 %narrow.i to i64
   %303 = and i64 %302, 4294967295
-  %304 = getelementptr inbounds nuw ptr, ptr @findshortopt.singles, i64 %303
+  %304 = getelementptr inbounds nuw [8 x i8], ptr @findshortopt.singles, i64 %303
   %305 = load ptr, ptr %304, align 8, !tbaa !11
   %.not825 = icmp eq ptr %305, null
   br i1 %.not825, label %.thread985, label %306
@@ -5053,7 +5052,7 @@ define dso_local i32 @parse_args(ptr noundef %0, i32 noundef %1, ptr noundef rea
   %.0107162 = phi i1 [ true, %.lr.ph ], [ %.3110, %67 ]
   %.0111161 = phi i32 [ 1, %.lr.ph ], [ %68, %67 ]
   %12 = sext i32 %.0111161 to i64
-  %13 = getelementptr inbounds ptr, ptr %2, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr %2, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !116
   %15 = tail call noalias ptr @strdup(ptr noundef %14) #15
   %.not126 = icmp eq ptr %15, null
@@ -5108,7 +5107,7 @@ sub_2:                                            ; preds = %sub_1
   %.085 = phi ptr [ %34, %31 ], [ null, %29 ]
   %35 = add nsw i32 %.0111161, 1
   %36 = sext i32 %35 to i64
-  %37 = getelementptr inbounds ptr, ptr %2, i64 %36
+  %37 = getelementptr inbounds [8 x i8], ptr %2, i64 %36
   %38 = load ptr, ptr %37, align 8, !tbaa !116
   %39 = call i32 @getparameter(ptr noundef nonnull %15, ptr noundef %.085, ptr noundef %38, ptr noundef nonnull %4, ptr noundef %0, ptr noundef %.088163)
   %.not129 = icmp eq ptr %.085, null

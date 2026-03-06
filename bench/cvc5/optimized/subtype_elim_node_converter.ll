@@ -193,7 +193,7 @@ _ZN4cvc58internal24SubtypeElimNodeConverter16isRealTypeStrictENS0_8TypeNodeE.exi
   %52 = icmp eq i32 %51, 2
   %53 = getelementptr inbounds nuw i8, ptr %24, i64 24
   %54 = zext i1 %52 to i64
-  %55 = getelementptr inbounds nuw ptr, ptr %53, i64 %54
+  %55 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %54
   %56 = load ptr, ptr %55, align 8, !tbaa !17, !noalias !14
   store ptr %56, ptr %10, align 8, !tbaa !6, !alias.scope !14
   %57 = load i64, ptr %56, align 8, !noalias !14
@@ -250,7 +250,7 @@ _ZN4cvc58internal24SubtypeElimNodeConverter16isRealTypeStrictENS0_8TypeNodeE.exi
   %83 = icmp eq i32 %82, 2
   %spec.select.i.i = select i1 %83, i64 2, i64 1
   %84 = getelementptr inbounds nuw i8, ptr %75, i64 24
-  %85 = getelementptr inbounds nuw ptr, ptr %84, i64 %spec.select.i.i
+  %85 = getelementptr inbounds nuw [8 x i8], ptr %84, i64 %spec.select.i.i
   %86 = load ptr, ptr %85, align 8, !tbaa !17, !noalias !19
   store ptr %86, ptr %12, align 8, !tbaa !6, !alias.scope !19
   %87 = load i64, ptr %86, align 8, !noalias !19
@@ -477,7 +477,7 @@ _ZN4cvc58internal8TypeNodeD2Ev.exit:              ; preds = %41, %35, %_ZN4cvc58
   %184 = load i64, ptr %183, align 8
   %185 = lshr i64 %184, 32
   %186 = and i64 %185, 67108863
-  %187 = getelementptr inbounds nuw ptr, ptr %182, i64 %186
+  %187 = getelementptr inbounds nuw [8 x i8], ptr %182, i64 %186
   %.not168183 = icmp eq ptr %spec.select.i.i117, %187
   br i1 %.not168183, label %.critedge186, label %.lr.ph
 
@@ -2403,7 +2403,7 @@ _ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit: ; pr
 _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit, %58
   store ptr %22, ptr %0, align 8, !tbaa !57
   store ptr %42, ptr %4, align 8, !tbaa !39
-  %62 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %22, i64 %16
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %16
   store ptr %62, ptr %57, align 8, !tbaa !42
   ret void
 
@@ -2691,7 +2691,7 @@ _ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit: ; pr
 _ZNSt12_Vector_baseIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE13_M_deallocateEPS3_m.exit: ; preds = %_ZSt8_DestroyIPN4cvc58internal12NodeTemplateILb1EEES3_EvT_S5_RSaIT0_E.exit, %58
   store ptr %22, ptr %0, align 8, !tbaa !57
   store ptr %42, ptr %4, align 8, !tbaa !39
-  %62 = getelementptr inbounds nuw %"class.cvc5::internal::NodeTemplate", ptr %22, i64 %16
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %22, i64 %16
   store ptr %62, ptr %57, align 8, !tbaa !42
   ret void
 

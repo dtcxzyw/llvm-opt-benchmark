@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %union.inside_t = type { %struct.anon.0 }
 %struct.anon.0 = type { ptr, ptr, ptr, double, ptr, i64, i64, double, double, double, double }
 %struct.pointf_s = type { double, double }
-%struct.arrowtype_t = type { i32, double, ptr, ptr }
 %struct.boxf = type { %struct.pointf_s, %struct.pointf_s }
 %struct.triangle = type { [3 x %struct.pointf_s] }
 
@@ -344,7 +343,7 @@ define noundef i64 @arrowEndClip(ptr noundef %0, ptr noundef captures(none) %1, 
 
 20:                                               ; preds = %18, %.preheader.i
   %.02329.i = phi i64 [ 0, %.preheader.i ], [ %19, %18 ]
-  %21 = getelementptr inbounds nuw %struct.arrowtype_t, ptr @Arrowtypes, i64 %.02329.i
+  %21 = getelementptr inbounds nuw [32 x i8], ptr @Arrowtypes, i64 %.02329.i
   %22 = load i32, ptr %21, align 16, !tbaa !50
   %.not.i = icmp eq i32 %17, %22
   br i1 %.not.i, label %.thread.i, label %18
@@ -372,7 +371,7 @@ arrow_length.exit:                                ; preds = %.loopexit.i, %6
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i32 %5, ptr %32, align 4, !tbaa !56
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %34 = getelementptr %struct.pointf_s, ptr %1, i64 %3
+  %34 = getelementptr [16 x i8], ptr %1, i64 %3
   %35 = getelementptr i8, ptr %34, i64 48
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull align 8 dereferenceable(16) %35, i64 16, i1 false), !tbaa.struct !58
   %36 = icmp ugt i64 %3, %2
@@ -399,7 +398,7 @@ arrow_length.exit:                                ; preds = %.loopexit.i, %6
 51:                                               ; preds = %49, %37, %arrow_length.exit
   %.0 = phi i64 [ %50, %49 ], [ %3, %37 ], [ %3, %arrow_length.exit ]
   %52 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %53 = getelementptr inbounds nuw %struct.pointf_s, ptr %1, i64 %.0
+  %53 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %.0
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %52, ptr noundef nonnull align 8 dereferenceable(16) %53, i64 16, i1 false), !tbaa.struct !58
   %54 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %55 = getelementptr i8, ptr %53, i64 16
@@ -485,7 +484,7 @@ define noundef i64 @arrowStartClip(ptr noundef %0, ptr noundef captures(none) %1
 
 20:                                               ; preds = %18, %.preheader.i
   %.02329.i = phi i64 [ 0, %.preheader.i ], [ %19, %18 ]
-  %21 = getelementptr inbounds nuw %struct.arrowtype_t, ptr @Arrowtypes, i64 %.02329.i
+  %21 = getelementptr inbounds nuw [32 x i8], ptr @Arrowtypes, i64 %.02329.i
   %22 = load i32, ptr %21, align 16, !tbaa !50
   %.not.i = icmp eq i32 %17, %22
   br i1 %.not.i, label %.thread.i, label %18
@@ -513,7 +512,7 @@ arrow_length.exit:                                ; preds = %.loopexit.i, %6
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store i32 %5, ptr %32, align 8, !tbaa !61
   %33 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %34 = getelementptr inbounds nuw %struct.pointf_s, ptr %1, i64 %2
+  %34 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %2
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef nonnull align 8 dereferenceable(16) %34, i64 16, i1 false), !tbaa.struct !58
   %35 = icmp ugt i64 %3, %2
   br i1 %35, label %36, label %51
@@ -521,7 +520,7 @@ arrow_length.exit:                                ; preds = %.loopexit.i, %6
 36:                                               ; preds = %arrow_length.exit
   %37 = load double, ptr %34, align 8, !tbaa !59
   %38 = add i64 %2, 3
-  %39 = getelementptr inbounds nuw %struct.pointf_s, ptr %1, i64 %38
+  %39 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %38
   %40 = load double, ptr %39, align 8, !tbaa !59
   %41 = fsub double %37, %40
   %42 = getelementptr inbounds nuw i8, ptr %34, i64 8
@@ -539,7 +538,7 @@ arrow_length.exit:                                ; preds = %.loopexit.i, %6
 
 51:                                               ; preds = %50, %36, %arrow_length.exit
   %.0 = phi i64 [ %38, %50 ], [ %2, %36 ], [ %2, %arrow_length.exit ]
-  %52 = getelementptr %struct.pointf_s, ptr %1, i64 %.0
+  %52 = getelementptr [16 x i8], ptr %1, i64 %.0
   %53 = getelementptr i8, ptr %52, i64 48
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %53, i64 16, i1 false), !tbaa.struct !58
   %54 = getelementptr inbounds nuw i8, ptr %8, i64 16
@@ -581,7 +580,7 @@ define void @arrowOrthoClip(ptr noundef %0, ptr noundef captures(none) %1, i64 n
   br i1 %or.cond196, label %12, label %87
 
 12:                                               ; preds = %7
-  %13 = getelementptr inbounds nuw %struct.pointf_s, ptr %1, i64 %3
+  %13 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %3
   %.sroa.078.0.copyload = load double, ptr %13, align 8, !tbaa !55
   %.sroa.24.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
   %.sroa.24.0.copyload = load double, ptr %.sroa.24.0..sroa_idx, align 8, !tbaa !55
@@ -611,7 +610,7 @@ define void @arrowOrthoClip(ptr noundef %0, ptr noundef captures(none) %1, i64 n
 
 25:                                               ; preds = %23, %.preheader.i
   %.02329.i = phi i64 [ 0, %.preheader.i ], [ %24, %23 ]
-  %26 = getelementptr inbounds nuw %struct.arrowtype_t, ptr @Arrowtypes, i64 %.02329.i
+  %26 = getelementptr inbounds nuw [32 x i8], ptr @Arrowtypes, i64 %.02329.i
   %27 = load i32, ptr %26, align 16, !tbaa !50
   %.not.i = icmp eq i32 %22, %27
   br i1 %.not.i, label %.thread.i, label %23
@@ -656,7 +655,7 @@ arrow_length.exit:                                ; preds = %.loopexit.i, %12
 
 46:                                               ; preds = %44, %.preheader.i197
   %.02329.i200 = phi i64 [ 0, %.preheader.i197 ], [ %45, %44 ]
-  %47 = getelementptr inbounds nuw %struct.arrowtype_t, ptr @Arrowtypes, i64 %.02329.i200
+  %47 = getelementptr inbounds nuw [32 x i8], ptr @Arrowtypes, i64 %.02329.i200
   %48 = load i32, ptr %47, align 16, !tbaa !50
   %.not.i201 = icmp eq i32 %43, %48
   br i1 %.not.i201, label %.thread.i207, label %44
@@ -770,7 +769,7 @@ arrow_length.exit208:                             ; preds = %.loopexit.i203, %ar
 
 99:                                               ; preds = %97, %.preheader.i209
   %.02329.i212 = phi i64 [ 0, %.preheader.i209 ], [ %98, %97 ]
-  %100 = getelementptr inbounds nuw %struct.arrowtype_t, ptr @Arrowtypes, i64 %.02329.i212
+  %100 = getelementptr inbounds nuw [32 x i8], ptr @Arrowtypes, i64 %.02329.i212
   %101 = load i32, ptr %100, align 16, !tbaa !50
   %.not.i213 = icmp eq i32 %96, %101
   br i1 %.not.i213, label %.thread.i219, label %97
@@ -793,7 +792,7 @@ arrow_length.exit208:                             ; preds = %.loopexit.i203, %ar
 
 arrow_length.exit220:                             ; preds = %.loopexit.i215, %88
   %.0.i218 = phi double [ 0.000000e+00, %88 ], [ %.2.i216, %.loopexit.i215 ]
-  %110 = getelementptr inbounds nuw %struct.pointf_s, ptr %1, i64 %3
+  %110 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %3
   %.sroa.078.0.copyload95 = load double, ptr %110, align 8, !tbaa !55
   %.sroa.24.0..sroa_idx101 = getelementptr inbounds nuw i8, ptr %110, i64 8
   %.sroa.24.0.copyload102 = load double, ptr %.sroa.24.0..sroa_idx101, align 8, !tbaa !55
@@ -881,7 +880,7 @@ arrow_length.exit220:                             ; preds = %.loopexit.i215, %88
 
 147:                                              ; preds = %145, %.preheader.i221
   %.02329.i224 = phi i64 [ 0, %.preheader.i221 ], [ %146, %145 ]
-  %148 = getelementptr inbounds nuw %struct.arrowtype_t, ptr @Arrowtypes, i64 %.02329.i224
+  %148 = getelementptr inbounds nuw [32 x i8], ptr @Arrowtypes, i64 %.02329.i224
   %149 = load i32, ptr %148, align 16, !tbaa !50
   %.not.i225 = icmp eq i32 %144, %149
   br i1 %.not.i225, label %.thread.i231, label %145
@@ -904,7 +903,7 @@ arrow_length.exit220:                             ; preds = %.loopexit.i215, %88
 
 arrow_length.exit232:                             ; preds = %.loopexit.i227, %136
   %.0.i230 = phi double [ 0.000000e+00, %136 ], [ %.2.i228, %.loopexit.i227 ]
-  %158 = getelementptr inbounds nuw %struct.pointf_s, ptr %1, i64 %2
+  %158 = getelementptr inbounds nuw [16 x i8], ptr %1, i64 %2
   %.sroa.078.0.copyload97 = load double, ptr %158, align 8, !tbaa !55
   %.sroa.24.0..sroa_idx105 = getelementptr inbounds nuw i8, ptr %158, i64 8
   %.sroa.24.0.copyload106 = load double, ptr %.sroa.24.0..sroa_idx105, align 8, !tbaa !55
@@ -1083,7 +1082,7 @@ define void @arrow_gen(ptr noundef %0, i32 noundef %1, double %2, double %3, dou
 
 39:                                               ; preds = %37, %35
   %.02227.i = phi i64 [ 0, %35 ], [ %38, %37 ]
-  %40 = getelementptr inbounds nuw %struct.arrowtype_t, ptr @Arrowtypes, i64 %.02227.i
+  %40 = getelementptr inbounds nuw [32 x i8], ptr @Arrowtypes, i64 %.02227.i
   %41 = load i32, ptr %40, align 16, !tbaa !50
   %.not.i = icmp eq i32 %36, %41
   br i1 %.not.i, label %.thread.i, label %37

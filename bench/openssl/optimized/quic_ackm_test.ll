@@ -11,10 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.OSSL_TIME = type { i64 }
 %struct.ossl_quic_frame_ack_st = type { ptr, i64, %struct.OSSL_TIME, i64, i64, i64, i8 }
 %struct.ossl_ackm_probe_info_st = type { i32, i32, [3 x i32] }
-%struct.pkt_info = type { ptr, i32, i32, i32 }
 %struct.ossl_ackm_rx_pkt_st = type { i64, %struct.OSSL_TIME, i8 }
-%struct.ossl_ackm_tx_pkt_st = type { i64, i64, %struct.OSSL_TIME, i64, i8, ptr, ptr, ptr, ptr, %struct.anon, ptr, ptr }
-%struct.anon = type { ptr, ptr }
 
 @.str = private unnamed_addr constant [17 x i8] c"test_tx_ack_case\00", align 1
 @.str.1 = private unnamed_addr constant [24 x i8] c"test_tx_ack_time_script\00", align 1
@@ -163,7 +160,7 @@ define internal range(i32 0, 2) i32 @test_tx_ack_case(i32 noundef %0) #0 {
   %10 = srem i32 %9, 3
   %11 = sdiv i32 %9, 3
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  %12 = getelementptr inbounds nuw ptr, ptr @tx_ack_cases, i64 %7
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @tx_ack_cases, i64 %7
   %13 = load ptr, ptr %12, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
@@ -211,7 +208,7 @@ define internal range(i32 0, 2) i32 @test_tx_ack_case(i32 noundef %0) #0 {
   %.06699.i = phi i64 [ 0, %.lr.ph.i ], [ %30, %29 ]
   %34 = call noalias ptr @CRYPTO_zalloc(i64 noundef 104, ptr noundef nonnull @.str.3, i32 noundef 362) #9
   %35 = load ptr, ptr %26, align 8, !tbaa !25
-  %36 = getelementptr inbounds nuw %struct.pkt_info, ptr %35, i64 %.06699.i
+  %36 = getelementptr inbounds nuw [24 x i8], ptr %35, i64 %.06699.i
   store ptr %34, ptr %36, align 8, !tbaa !26
   %37 = call i32 @test_ptr(ptr noundef nonnull @.str.3, i32 noundef 363, ptr noundef nonnull @.str.7, ptr noundef %34) #9
   %.not89.i = icmp eq i32 %37, 0
@@ -219,7 +216,7 @@ define internal range(i32 0, 2) i32 @test_tx_ack_case(i32 noundef %0) #0 {
 
 38:                                               ; preds = %33
   %39 = load ptr, ptr %13, align 8, !tbaa !29
-  %40 = getelementptr inbounds nuw i64, ptr %39, i64 %.06699.i
+  %40 = getelementptr inbounds nuw [8 x i8], ptr %39, i64 %.06699.i
   %41 = load i64, ptr %40, align 8, !tbaa !30
   store i64 %41, ptr %34, align 8, !tbaa !31
   %42 = getelementptr inbounds nuw i8, ptr %34, i64 32
@@ -238,7 +235,7 @@ define internal range(i32 0, 2) i32 @test_tx_ack_case(i32 noundef %0) #0 {
   %49 = getelementptr inbounds nuw i8, ptr %34, i64 56
   store ptr @on_discarded, ptr %49, align 8, !tbaa !38
   %50 = load ptr, ptr %26, align 8, !tbaa !25
-  %51 = getelementptr inbounds nuw %struct.pkt_info, ptr %50, i64 %.06699.i
+  %51 = getelementptr inbounds nuw [24 x i8], ptr %50, i64 %.06699.i
   %52 = getelementptr inbounds nuw i8, ptr %34, i64 64
   store ptr %51, ptr %52, align 8, !tbaa !39
   %53 = getelementptr inbounds nuw i8, ptr %34, i64 16
@@ -275,7 +272,7 @@ define internal range(i32 0, 2) i32 @test_tx_ack_case(i32 noundef %0) #0 {
 .lr.ph111.i:                                      ; preds = %.preheader.i, %64
   %.1110.i = phi i64 [ %65, %64 ], [ 0, %.preheader.i ]
   %68 = load ptr, ptr %62, align 8, !tbaa !25
-  %69 = getelementptr inbounds nuw %struct.pkt_info, ptr %68, i64 %.1110.i
+  %69 = getelementptr inbounds nuw [24 x i8], ptr %68, i64 %.1110.i
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 12
   %71 = load i32, ptr %70, align 4, !tbaa !41
   %72 = call i32 @test_int_eq(ptr noundef nonnull @.str.3, i32 noundef 390, ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef %71, i32 noundef 0) #9
@@ -284,7 +281,7 @@ define internal range(i32 0, 2) i32 @test_tx_ack_case(i32 noundef %0) #0 {
 
 73:                                               ; preds = %.lr.ph111.i
   %74 = load ptr, ptr %62, align 8, !tbaa !25
-  %75 = getelementptr inbounds nuw %struct.pkt_info, ptr %74, i64 %.1110.i
+  %75 = getelementptr inbounds nuw [24 x i8], ptr %74, i64 %.1110.i
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %77 = load i32, ptr %76, align 8, !tbaa !42
   %78 = call i32 @test_int_eq(ptr noundef nonnull @.str.3, i32 noundef 392, ptr noundef nonnull @.str.12, ptr noundef nonnull @.str.11, i32 noundef %77, i32 noundef 0) #9
@@ -293,7 +290,7 @@ define internal range(i32 0, 2) i32 @test_tx_ack_case(i32 noundef %0) #0 {
 
 79:                                               ; preds = %73
   %80 = load ptr, ptr %62, align 8, !tbaa !25
-  %81 = getelementptr inbounds nuw %struct.pkt_info, ptr %80, i64 %.1110.i
+  %81 = getelementptr inbounds nuw [24 x i8], ptr %80, i64 %.1110.i
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %83 = load i32, ptr %82, align 8, !tbaa !43
   %84 = call i32 @test_int_eq(ptr noundef nonnull @.str.3, i32 noundef 394, ptr noundef nonnull @.str.13, ptr noundef nonnull @.str.6, i32 noundef %83, i32 noundef 1) #9
@@ -340,7 +337,7 @@ define internal range(i32 0, 2) i32 @test_tx_ack_case(i32 noundef %0) #0 {
 103:                                              ; preds = %99, %.lr.ph103.i
   %.2102.i = phi i64 [ 0, %.lr.ph103.i ], [ %100, %99 ]
   %104 = load ptr, ptr %96, align 8, !tbaa !25
-  %105 = getelementptr inbounds nuw %struct.pkt_info, ptr %104, i64 %.2102.i
+  %105 = getelementptr inbounds nuw [24 x i8], ptr %104, i64 %.2102.i
   %106 = getelementptr inbounds nuw i8, ptr %105, i64 12
   %107 = load i32, ptr %106, align 4, !tbaa !41
   %108 = load ptr, ptr %98, align 8, !tbaa !50
@@ -354,7 +351,7 @@ define internal range(i32 0, 2) i32 @test_tx_ack_case(i32 noundef %0) #0 {
 
 114:                                              ; preds = %103
   %115 = load ptr, ptr %96, align 8, !tbaa !25
-  %116 = getelementptr inbounds nuw %struct.pkt_info, ptr %115, i64 %.2102.i
+  %116 = getelementptr inbounds nuw [24 x i8], ptr %115, i64 %.2102.i
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 8
   %118 = load i32, ptr %117, align 8, !tbaa !42
   %119 = load ptr, ptr %98, align 8, !tbaa !50
@@ -369,7 +366,7 @@ define internal range(i32 0, 2) i32 @test_tx_ack_case(i32 noundef %0) #0 {
 
 125:                                              ; preds = %114
   %126 = load ptr, ptr %96, align 8, !tbaa !25
-  %127 = getelementptr inbounds nuw %struct.pkt_info, ptr %126, i64 %.2102.i
+  %127 = getelementptr inbounds nuw [24 x i8], ptr %126, i64 %.2102.i
   %128 = getelementptr inbounds nuw i8, ptr %127, i64 16
   %129 = load i32, ptr %128, align 8, !tbaa !43
   %130 = load ptr, ptr %98, align 8, !tbaa !50
@@ -543,7 +540,7 @@ define internal range(i32 0, 2) i32 @test_tx_ack_time_script(i32 %0) #0 {
   %.06091 = phi i64 [ 0, %.lr.ph ], [ %18, %17 ]
   %23 = call noalias ptr @CRYPTO_zalloc(i64 noundef 104, ptr noundef nonnull @.str.3, i32 noundef 536) #9
   %24 = load ptr, ptr %16, align 8, !tbaa !25
-  %25 = getelementptr inbounds nuw %struct.pkt_info, ptr %24, i64 %.06091
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %24, i64 %.06091
   store ptr %23, ptr %25, align 8, !tbaa !26
   %26 = call i32 @test_ptr(ptr noundef nonnull @.str.3, i32 noundef 537, ptr noundef nonnull @.str.7, ptr noundef %23) #9
   %.not81 = icmp eq i32 %26, 0
@@ -589,8 +586,8 @@ define internal range(i32 0, 2) i32 @test_tx_ack_time_script(i32 %0) #0 {
 39:                                               ; preds = %.lr.ph95, %37
   %.194 = phi i64 [ 0, %.lr.ph95 ], [ %38, %37 ]
   %40 = load ptr, ptr %19, align 8, !tbaa !25
-  %41 = getelementptr %struct.pkt_info, ptr %40, i64 %.065
-  %42 = getelementptr %struct.pkt_info, ptr %41, i64 %.194
+  %41 = getelementptr [24 x i8], ptr %40, i64 %.065
+  %42 = getelementptr [24 x i8], ptr %41, i64 %.194
   %43 = load ptr, ptr %42, align 8, !tbaa !26
   %44 = add i64 %34, %.194
   store i64 %44, ptr %43, align 8, !tbaa !31
@@ -655,7 +652,7 @@ define internal range(i32 0, 2) i32 @test_tx_ack_time_script(i32 %0) #0 {
 75:                                               ; preds = %.lr.ph93, %73
   %.292 = phi i64 [ 0, %.lr.ph93 ], [ %74, %73 ]
   %76 = load ptr, ptr %19, align 8, !tbaa !25
-  %77 = getelementptr inbounds nuw %struct.pkt_info, ptr %76, i64 %.292
+  %77 = getelementptr inbounds nuw [24 x i8], ptr %76, i64 %.292
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 12
   %79 = load i32, ptr %78, align 4, !tbaa !41
   %80 = getelementptr inbounds nuw i8, ptr %30, i64 %.292
@@ -668,7 +665,7 @@ define internal range(i32 0, 2) i32 @test_tx_ack_time_script(i32 %0) #0 {
 
 85:                                               ; preds = %75
   %86 = load ptr, ptr %19, align 8, !tbaa !25
-  %87 = getelementptr inbounds nuw %struct.pkt_info, ptr %86, i64 %.292
+  %87 = getelementptr inbounds nuw [24 x i8], ptr %86, i64 %.292
   %88 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %89 = load i32, ptr %88, align 8, !tbaa !42
   %90 = load i8, ptr %80, align 1, !tbaa !51
@@ -681,7 +678,7 @@ define internal range(i32 0, 2) i32 @test_tx_ack_time_script(i32 %0) #0 {
 
 94:                                               ; preds = %85
   %95 = load ptr, ptr %19, align 8, !tbaa !25
-  %96 = getelementptr inbounds nuw %struct.pkt_info, ptr %95, i64 %.292
+  %96 = getelementptr inbounds nuw [24 x i8], ptr %95, i64 %.292
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 16
   %98 = load i32, ptr %97, align 8, !tbaa !43
   %99 = load i8, ptr %80, align 1, !tbaa !51
@@ -717,7 +714,7 @@ define internal range(i32 0, 2) i32 @test_rx_ack(i32 noundef %0) #0 {
   %8 = ashr i32 %0, 2
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %9 = zext nneg i32 %7 to i64
-  %10 = getelementptr inbounds nuw ptr, ptr @rx_test_scripts, i64 %9
+  %10 = getelementptr inbounds nuw [8 x i8], ptr @rx_test_scripts, i64 %9
   %11 = load ptr, ptr %10, align 8, !tbaa !68
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %3, i8 0, i64 56, i1 false)
@@ -937,7 +934,7 @@ define internal range(i32 0, 2) i32 @test_rx_ack(i32 noundef %0) #0 {
   %.pre-phi.i = phi i32 [ %107, %105 ], [ %8, %.preheader155.i ]
   %112 = load ptr, ptr %2, align 8, !tbaa !15
   %113 = call i64 @ossl_ackm_get_ack_deadline(ptr noundef %112, i32 noundef %.pre-phi.i) #9
-  %114 = getelementptr inbounds nuw %struct.OSSL_TIME, ptr %5, i64 %.3171.i
+  %114 = getelementptr inbounds nuw [8 x i8], ptr %5, i64 %.3171.i
   %115 = load i64, ptr %114, align 8
   %.0.i.i = call range(i32 -1, 2) i32 @llvm.ucmp.i32.i64(i64 %113, i64 %115)
   %116 = call i32 @test_int_eq(ptr noundef nonnull @.str.3, i32 noundef 997, ptr noundef nonnull @.str.64, ptr noundef nonnull @.str.11, i32 noundef %.0.i.i, i32 noundef 0) #9
@@ -978,10 +975,10 @@ define internal range(i32 0, 2) i32 @test_rx_ack(i32 noundef %0) #0 {
 133:                                              ; preds = %129, %.lr.ph.i
   %.4170.i = phi i64 [ 0, %.lr.ph.i ], [ %130, %129 ]
   %134 = load ptr, ptr %119, align 8, !tbaa !45
-  %135 = getelementptr inbounds nuw %struct.ossl_quic_ack_range_st, ptr %134, i64 %.4170.i
+  %135 = getelementptr inbounds nuw [16 x i8], ptr %134, i64 %.4170.i
   %136 = load i64, ptr %135, align 8, !tbaa !63
   %137 = load ptr, ptr %128, align 8, !tbaa !85
-  %138 = getelementptr inbounds nuw %struct.ossl_quic_ack_range_st, ptr %137, i64 %.4170.i
+  %138 = getelementptr inbounds nuw [16 x i8], ptr %137, i64 %.4170.i
   %139 = load i64, ptr %138, align 8, !tbaa !63
   %140 = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.3, i32 noundef 1015, ptr noundef nonnull @.str.68, ptr noundef nonnull @.str.69, i64 noundef %136, i64 noundef %139) #9
   %.not123.i = icmp eq i32 %140, 0
@@ -989,11 +986,11 @@ define internal range(i32 0, 2) i32 @test_rx_ack(i32 noundef %0) #0 {
 
 141:                                              ; preds = %133
   %142 = load ptr, ptr %119, align 8, !tbaa !45
-  %143 = getelementptr inbounds nuw %struct.ossl_quic_ack_range_st, ptr %142, i64 %.4170.i
+  %143 = getelementptr inbounds nuw [16 x i8], ptr %142, i64 %.4170.i
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
   %145 = load i64, ptr %144, align 8, !tbaa !65
   %146 = load ptr, ptr %128, align 8, !tbaa !85
-  %147 = getelementptr inbounds nuw %struct.ossl_quic_ack_range_st, ptr %146, i64 %.4170.i
+  %147 = getelementptr inbounds nuw [16 x i8], ptr %146, i64 %.4170.i
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 8
   %149 = load i64, ptr %148, align 8, !tbaa !65
   %150 = call i32 @test_uint64_t_eq(ptr noundef nonnull @.str.3, i32 noundef 1018, ptr noundef nonnull @.str.70, ptr noundef nonnull @.str.71, i64 noundef %145, i64 noundef %149) #9
@@ -1001,8 +998,8 @@ define internal range(i32 0, 2) i32 @test_rx_ack(i32 noundef %0) #0 {
   br i1 %.not124.i, label %.loopexit154.i, label %129
 
 151:                                              ; preds = %42
-  %152 = getelementptr inbounds nuw %struct.ossl_ackm_tx_pkt_st, ptr %26, i64 %.0108179.i
-  %153 = getelementptr inbounds nuw %struct.pkt_info, ptr %30, i64 %.0108179.i
+  %152 = getelementptr inbounds nuw [104 x i8], ptr %26, i64 %.0108179.i
+  %153 = getelementptr inbounds nuw [24 x i8], ptr %30, i64 %.0108179.i
   store ptr %152, ptr %153, align 8, !tbaa !26
   %154 = getelementptr inbounds nuw i8, ptr %.1180.i, i64 16
   %155 = load i64, ptr %154, align 8, !tbaa !75
@@ -1307,11 +1304,11 @@ define internal fastcc void @helper_destroy(ptr noundef nonnull %0) unnamed_addr
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %19 = phi ptr [ %22, %.lr.ph ], [ %16, %.preheader ]
   %.023 = phi i64 [ %24, %.lr.ph ], [ 0, %.preheader ]
-  %20 = getelementptr inbounds nuw %struct.pkt_info, ptr %19, i64 %.023
+  %20 = getelementptr inbounds nuw [24 x i8], ptr %19, i64 %.023
   %21 = load ptr, ptr %20, align 8, !tbaa !26
   tail call void @CRYPTO_free(ptr noundef %21, ptr noundef nonnull @.str.3, i32 noundef 77) #9
   %22 = load ptr, ptr %15, align 8, !tbaa !25
-  %23 = getelementptr inbounds nuw %struct.pkt_info, ptr %22, i64 %.023
+  %23 = getelementptr inbounds nuw [24 x i8], ptr %22, i64 %.023
   store ptr null, ptr %23, align 8, !tbaa !26
   %24 = add nuw i64 %.023, 1
   %25 = load i64, ptr %17, align 8, !tbaa !92
@@ -1351,7 +1348,7 @@ declare void @ossl_ackm_set_ack_deadline_callback(ptr noundef, ptr noundef, ptr 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define internal void @on_ack_deadline_callback(i64 %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) #3 {
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds %struct.OSSL_TIME, ptr %2, i64 %4
+  %5 = getelementptr inbounds [8 x i8], ptr %2, i64 %4
   store i64 %0, ptr %5, align 8, !tbaa !30
   ret void
 }

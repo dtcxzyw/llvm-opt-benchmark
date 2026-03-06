@@ -194,13 +194,13 @@ define dso_local noundef range(i32 1, 12) i32 @_ZN11SafeOpFlags13flags_to_typeEb
 
 switch.lookup:                                    ; preds = %3
   %7 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN11SafeOpFlags12get_rhs_typeEv, i64 %7
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN11SafeOpFlags12get_rhs_typeEv, i64 %7
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %9
 
 switch.lookup4:                                   ; preds = %5
   %8 = zext nneg i32 %1 to i64
-  %switch.gep5 = getelementptr inbounds nuw i32, ptr @switch.table._ZN11SafeOpFlags12get_rhs_typeEv.3, i64 %8
+  %switch.gep5 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN11SafeOpFlags12get_rhs_typeEv.3, i64 %8
   %switch.load6 = load i32, ptr %switch.gep5, align 4
   br label %9
 
@@ -227,13 +227,13 @@ define dso_local noundef nonnull ptr @_ZN11SafeOpFlags12get_lhs_typeEv(ptr nound
 
 switch.lookup:                                    ; preds = %6
   %10 = zext nneg i32 %5 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN11SafeOpFlags12get_rhs_typeEv, i64 %10
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN11SafeOpFlags12get_rhs_typeEv, i64 %10
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN11SafeOpFlags13flags_to_typeEb10SafeOpSize.exit
 
 switch.lookup2:                                   ; preds = %8
   %11 = zext nneg i32 %5 to i64
-  %switch.gep3 = getelementptr inbounds nuw i32, ptr @switch.table._ZN11SafeOpFlags12get_rhs_typeEv.3, i64 %11
+  %switch.gep3 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN11SafeOpFlags12get_rhs_typeEv.3, i64 %11
   %switch.load4 = load i32, ptr %switch.gep3, align 4
   br label %_ZN11SafeOpFlags13flags_to_typeEb10SafeOpSize.exit
 
@@ -264,13 +264,13 @@ define dso_local noundef nonnull ptr @_ZN11SafeOpFlags12get_rhs_typeEv(ptr nound
 
 switch.lookup:                                    ; preds = %7
   %11 = zext nneg i32 %6 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN11SafeOpFlags12get_rhs_typeEv, i64 %11
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN11SafeOpFlags12get_rhs_typeEv, i64 %11
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN11SafeOpFlags13flags_to_typeEb10SafeOpSize.exit
 
 switch.lookup2:                                   ; preds = %9
   %12 = zext nneg i32 %6 to i64
-  %switch.gep3 = getelementptr inbounds nuw i32, ptr @switch.table._ZN11SafeOpFlags12get_rhs_typeEv.3, i64 %12
+  %switch.gep3 = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN11SafeOpFlags12get_rhs_typeEv.3, i64 %12
   %switch.load4 = load i32, ptr %switch.gep3, align 4
   br label %_ZN11SafeOpFlags13flags_to_typeEb10SafeOpSize.exit
 
@@ -725,7 +725,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %7, %_
 
 switch.lookup:                                    ; preds = %3
   %13 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK11SafeOpFlags9to_stringB5cxx11E10eBinaryOps, i64 %13
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK11SafeOpFlags9to_stringB5cxx11E10eBinaryOps, i64 %13
   %switch.load = load ptr, ptr %switch.gep, align 8
   %14 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %switch.load, i64 noundef 9)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit unwind label %7
@@ -788,7 +788,7 @@ common.resume:                                    ; preds = %108, %13, %_ZNKSt7_
 
 switch.lookup:                                    ; preds = %11
   %19 = zext nneg i32 %2 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK11SafeOpFlags9to_stringB5cxx11E10eBinaryOps, i64 %19
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK11SafeOpFlags9to_stringB5cxx11E10eBinaryOps, i64 %19
   %switch.load = load ptr, ptr %switch.gep, align 8
   %20 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef 0, i64 noundef 0, ptr noundef nonnull %switch.load, i64 noundef 9)
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEPKc.exit.i unwind label %13
@@ -1277,7 +1277,7 @@ define dso_local noundef i32 @_ZN11SafeOpFlags5to_idENSt7__cxx1112basic_stringIc
 
 12:                                               ; preds = %.lr.ph, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread8
   %.0613 = phi i64 [ 0, %.lr.ph ], [ %21, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread8 ]
-  %13 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %4, i64 %.0613
+  %13 = getelementptr inbounds nuw [32 x i8], ptr %4, i64 %.0613
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %15 = load i64, ptr %14, align 8, !tbaa !56
   %16 = icmp eq i64 %15, %10
@@ -1593,7 +1593,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit36, %73
   store ptr %23, ptr %0, align 8, !tbaa !4
   store ptr %.0.lcssa.i.i.i.i35, ptr %5, align 8, !tbaa !10
-  %77 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %77 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %77, ptr %72, align 8, !tbaa !19
   ret void
 

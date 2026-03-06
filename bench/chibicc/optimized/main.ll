@@ -192,13 +192,13 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef readonly captures
 .lr.ph.i:                                         ; preds = %2, %30
   %.0167318.i = phi i32 [ %31, %30 ], [ 1, %2 ]
   %17 = sext i32 %.0167318.i to i64
-  %18 = getelementptr inbounds ptr, ptr %1, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr %1, i64 %17
   %19 = load ptr, ptr %18, align 8, !tbaa !7
   br label %20
 
 20:                                               ; preds = %20, %.lr.ph.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i.i, %20 ]
-  %21 = getelementptr inbounds nuw ptr, ptr @__const.take_arg.x, i64 %indvars.iv.i.i
+  %21 = getelementptr inbounds nuw [8 x i8], ptr @__const.take_arg.x, i64 %indvars.iv.i.i
   %22 = load ptr, ptr %21, align 8, !tbaa !7
   %23 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %22) #19
   %.not.i.i = icmp eq i32 %23, 0
@@ -213,7 +213,7 @@ take_arg.exit.i:                                  ; preds = %20
 24:                                               ; preds = %take_arg.exit.i
   %25 = add nsw i32 %.0167318.i, 1
   %26 = sext i32 %25 to i64
-  %27 = getelementptr inbounds ptr, ptr %1, i64 %26
+  %27 = getelementptr inbounds [8 x i8], ptr %1, i64 %26
   %28 = load ptr, ptr %27, align 8, !tbaa !7
   %.not223.i = icmp eq ptr %28, null
   br i1 %.not223.i, label %29, label %30
@@ -237,7 +237,7 @@ take_arg.exit.i:                                  ; preds = %20
 .lr.ph321.i:                                      ; preds = %define.exit.i, %._crit_edge.i
   %.0166319.i = phi i32 [ %255, %define.exit.i ], [ 1, %._crit_edge.i ]
   %34 = sext i32 %.0166319.i to i64
-  %35 = getelementptr inbounds ptr, ptr %1, i64 %34
+  %35 = getelementptr inbounds [8 x i8], ptr %1, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !7
   %37 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %36, ptr noundef nonnull dereferenceable(5) @.str.7) #19
   %.not.i = icmp eq i32 %37, 0
@@ -287,7 +287,7 @@ sub_1.i:                                          ; preds = %sub_0.i
 51:                                               ; preds = %.tail.i
   %52 = add nsw i32 %.0166319.i, 1
   %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds ptr, ptr %1, i64 %53
+  %54 = getelementptr inbounds [8 x i8], ptr %1, i64 %53
   %55 = load ptr, ptr %54, align 8, !tbaa !7
   store ptr %55, ptr @opt_o, align 8, !tbaa !7
   br label %define.exit.i
@@ -372,7 +372,7 @@ sub_1238.i:                                       ; preds = %sub_0237.i
 81:                                               ; preds = %.tail250.i
   %82 = add nsw i32 %.0166319.i, 1
   %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds ptr, ptr %1, i64 %83
+  %84 = getelementptr inbounds [8 x i8], ptr %1, i64 %83
   %85 = load ptr, ptr %84, align 8, !tbaa !7
   %86 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %85, i32 noundef 61) #19
   %.not.i224.i = icmp eq ptr %86, null
@@ -418,7 +418,7 @@ sub_1238.i:                                       ; preds = %sub_0237.i
 106:                                              ; preds = %.tail259.i
   %107 = add nsw i32 %.0166319.i, 1
   %108 = sext i32 %107 to i64
-  %109 = getelementptr inbounds ptr, ptr %1, i64 %108
+  %109 = getelementptr inbounds [8 x i8], ptr %1, i64 %108
   %110 = load ptr, ptr %109, align 8, !tbaa !7
   call void @undef_macro(ptr noundef %110) #18
   br label %define.exit.i
@@ -440,7 +440,7 @@ sub_1238.i:                                       ; preds = %sub_0237.i
 114:                                              ; preds = %.thread.i, %.tail264.i
   %115 = add nsw i32 %.0166319.i, 1
   %116 = sext i32 %115 to i64
-  %117 = getelementptr inbounds ptr, ptr %1, i64 %116
+  %117 = getelementptr inbounds [8 x i8], ptr %1, i64 %116
   %118 = load ptr, ptr %117, align 8, !tbaa !7
   call void @strarray_push(ptr noundef nonnull @opt_include, ptr noundef %118) #18
   br label %define.exit.i
@@ -460,7 +460,7 @@ sub_0269.i:                                       ; preds = %.tail264.i
 122:                                              ; preds = %.tail268.i
   %123 = add nsw i32 %.0166319.i, 1
   %124 = sext i32 %123 to i64
-  %125 = getelementptr inbounds ptr, ptr %1, i64 %124
+  %125 = getelementptr inbounds [8 x i8], ptr %1, i64 %124
   %126 = load ptr, ptr %125, align 8, !tbaa !7
   %127 = call fastcc i32 @parse_opt_x(ptr noundef %126)
   store i32 %127, ptr @opt_x, align 4, !tbaa !21
@@ -488,7 +488,7 @@ sub_0269.i:                                       ; preds = %.tail264.i
 134:                                              ; preds = %132
   %135 = add nsw i32 %.0166319.i, 1
   %136 = sext i32 %135 to i64
-  %137 = getelementptr inbounds ptr, ptr %1, i64 %136
+  %137 = getelementptr inbounds [8 x i8], ptr %1, i64 %136
   %138 = load ptr, ptr %137, align 8, !tbaa !7
   call void @strarray_push(ptr noundef nonnull @ld_extra_args, ptr noundef %138) #18
   br label %define.exit.i
@@ -532,7 +532,7 @@ sub_1283.i:                                       ; preds = %sub_0282.i
 150:                                              ; preds = %.tail286.thread.i
   %151 = add nsw i32 %.0166319.i, 1
   %152 = sext i32 %151 to i64
-  %153 = getelementptr inbounds ptr, ptr %1, i64 %152
+  %153 = getelementptr inbounds [8 x i8], ptr %1, i64 %152
   %154 = load ptr, ptr %153, align 8, !tbaa !7
   store ptr %154, ptr @opt_MF, align 8, !tbaa !7
   br label %define.exit.i
@@ -556,7 +556,7 @@ sub_1283.i:                                       ; preds = %sub_0282.i
   %162 = icmp eq ptr %161, null
   %163 = add nsw i32 %.0166319.i, 1
   %164 = sext i32 %163 to i64
-  %165 = getelementptr inbounds ptr, ptr %1, i64 %164
+  %165 = getelementptr inbounds [8 x i8], ptr %1, i64 %164
   %166 = load ptr, ptr %165, align 8, !tbaa !7
   br i1 %162, label %167, label %168
 
@@ -588,7 +588,7 @@ sub_1283.i:                                       ; preds = %sub_0282.i
   %177 = icmp eq ptr %176, null
   %178 = add nsw i32 %.0166319.i, 1
   %179 = sext i32 %178 to i64
-  %180 = getelementptr inbounds ptr, ptr %1, i64 %179
+  %180 = getelementptr inbounds [8 x i8], ptr %1, i64 %179
   %181 = load ptr, ptr %180, align 8, !tbaa !7
   %182 = call fastcc ptr @quote_makefile(ptr noundef %181)
   br i1 %177, label %183, label %184
@@ -634,7 +634,7 @@ sub_1283.i:                                       ; preds = %sub_0282.i
 196:                                              ; preds = %194
   %197 = add nsw i32 %.0166319.i, 1
   %198 = sext i32 %197 to i64
-  %199 = getelementptr inbounds ptr, ptr %1, i64 %198
+  %199 = getelementptr inbounds [8 x i8], ptr %1, i64 %198
   %200 = load ptr, ptr %199, align 8, !tbaa !7
   store ptr %200, ptr @base_file, align 8, !tbaa !7
   br label %define.exit.i
@@ -647,7 +647,7 @@ sub_1283.i:                                       ; preds = %sub_0282.i
 203:                                              ; preds = %201
   %204 = add nsw i32 %.0166319.i, 1
   %205 = sext i32 %204 to i64
-  %206 = getelementptr inbounds ptr, ptr %1, i64 %205
+  %206 = getelementptr inbounds [8 x i8], ptr %1, i64 %205
   %207 = load ptr, ptr %206, align 8, !tbaa !7
   store ptr %207, ptr @output_file, align 8, !tbaa !7
   br label %define.exit.i
@@ -701,7 +701,7 @@ sub_1293.i:                                       ; preds = %sub_0292.i
 223:                                              ; preds = %.tail291.i
   %224 = add nsw i32 %.0166319.i, 1
   %225 = sext i32 %224 to i64
-  %226 = getelementptr inbounds ptr, ptr %1, i64 %225
+  %226 = getelementptr inbounds [8 x i8], ptr %1, i64 %225
   %227 = load ptr, ptr %226, align 8, !tbaa !7
   call void @strarray_push(ptr noundef nonnull @ld_extra_args, ptr noundef %227) #18
   br label %define.exit.i
@@ -813,7 +813,7 @@ define.exit.i:                                    ; preds = %sub_0301.i, %sub_03
 .lr.ph323.i:                                      ; preds = %.preheader.i, %.lr.ph323.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.lr.ph323.i ], [ 0, %.preheader.i ]
   %259 = load ptr, ptr %13, align 8, !tbaa !23
-  %260 = getelementptr inbounds nuw ptr, ptr %259, i64 %indvars.iv.i
+  %260 = getelementptr inbounds nuw [8 x i8], ptr %259, i64 %indvars.iv.i
   %261 = load ptr, ptr %260, align 8, !tbaa !7
   call void @strarray_push(ptr noundef nonnull @include_paths, ptr noundef %261) #18
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -855,7 +855,7 @@ parse_args.exit:                                  ; preds = %266, %267
 .lr.ph.i68:                                       ; preds = %268, %.lr.ph.i68
   %indvars.iv.i69 = phi i64 [ %indvars.iv.next.i70, %.lr.ph.i68 ], [ 0, %268 ]
   %275 = load ptr, ptr @include_paths, align 8, !tbaa !23
-  %276 = getelementptr inbounds nuw ptr, ptr %275, i64 %indvars.iv.i69
+  %276 = getelementptr inbounds nuw [8 x i8], ptr %275, i64 %indvars.iv.i69
   %277 = load ptr, ptr %276, align 8, !tbaa !7
   call void @strarray_push(ptr noundef nonnull @std_include_paths, ptr noundef %277) #18
   %indvars.iv.next.i70 = add nuw nsw i64 %indvars.iv.i69, 1
@@ -917,7 +917,7 @@ append_tokens.exit.i:                             ; preds = %295, %289, %must_to
   %indvars.iv.i77 = phi i64 [ %indvars.iv.next.i79, %append_tokens.exit36.i ], [ 0, %add_default_include_paths.exit ]
   %.056.i = phi ptr [ %.010.i35.i, %append_tokens.exit36.i ], [ null, %add_default_include_paths.exit ]
   %298 = load ptr, ptr @opt_include, align 8, !tbaa !23
-  %299 = getelementptr inbounds nuw ptr, ptr %298, i64 %indvars.iv.i77
+  %299 = getelementptr inbounds nuw [8 x i8], ptr %298, i64 %indvars.iv.i77
   %300 = load ptr, ptr %299, align 8, !tbaa !7
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   %301 = call i32 @stat(ptr noundef readonly %300, ptr noundef nonnull %10) #18
@@ -1109,7 +1109,7 @@ replace_extn.exit36.i.i:                          ; preds = %356, %351
 
 371:                                              ; preds = %.critedge.i.i.i, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %.critedge.i.i.i ]
-  %372 = getelementptr inbounds nuw ptr, ptr %370, i64 %indvars.iv.i.i.i
+  %372 = getelementptr inbounds nuw [8 x i8], ptr %370, i64 %indvars.iv.i.i.i
   %373 = load ptr, ptr %372, align 8, !tbaa !7
   %374 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %373) #19
   %sext.i.i.i = shl i64 %374, 32
@@ -1137,7 +1137,7 @@ in_std_include_path.exit.thread.i.i:              ; preds = %.critedge.i.i.i, %3
 in_std_include_path.exit.i.i:                     ; preds = %378, %in_std_include_path.exit.thread.i.i
   %.b2861.i.i = phi i1 [ %.b28.pre.i.i, %in_std_include_path.exit.thread.i.i ], [ true, %378 ]
   %indvars.iv.next.i.i75 = add nuw nsw i64 %indvars.iv.i.i74, 1
-  %383 = getelementptr inbounds nuw ptr, ptr %361, i64 %indvars.iv.next.i.i75
+  %383 = getelementptr inbounds nuw [8 x i8], ptr %361, i64 %indvars.iv.next.i.i75
   %384 = load ptr, ptr %383, align 8, !tbaa !39
   %.not32.i.i = icmp eq ptr %384, null
   br i1 %.not32.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !43
@@ -1161,7 +1161,7 @@ in_std_include_path.exit.i.i:                     ; preds = %378, %in_std_includ
 
 390:                                              ; preds = %.critedge.i42.i.i, %.lr.ph.i38.i.i
   %indvars.iv.i40.i.i = phi i64 [ 0, %.lr.ph.i38.i.i ], [ %indvars.iv.next.i43.i.i, %.critedge.i42.i.i ]
-  %391 = getelementptr inbounds nuw ptr, ptr %389, i64 %indvars.iv.i40.i.i
+  %391 = getelementptr inbounds nuw [8 x i8], ptr %389, i64 %indvars.iv.i40.i.i
   %392 = load ptr, ptr %391, align 8, !tbaa !7
   %393 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %392) #19
   %sext.i41.i.i = shl i64 %393, 32
@@ -1190,7 +1190,7 @@ in_std_include_path.exit45.thread.i.i:            ; preds = %.critedge.i42.i.i, 
 in_std_include_path.exit45.i.i:                   ; preds = %397, %in_std_include_path.exit45.thread.i.i
   %.b2764.i.i = phi i1 [ %.b27.pre.i.i, %in_std_include_path.exit45.thread.i.i ], [ true, %397 ]
   %indvars.iv.next58.i.i = add nuw nsw i64 %indvars.iv57.i.i, 1
-  %403 = getelementptr inbounds nuw ptr, ptr %361, i64 %indvars.iv.next58.i.i
+  %403 = getelementptr inbounds nuw [8 x i8], ptr %361, i64 %indvars.iv.next58.i.i
   %404 = load ptr, ptr %403, align 8, !tbaa !39
   %.not33.i.i = icmp eq ptr %404, null
   br i1 %.not33.i.i, label %print_dependencies.exit.i, label %.lr.ph55.i.i, !llvm.loop !44
@@ -1397,7 +1397,7 @@ sub_0.lr.ph:                                      ; preds = %.thread, %473
 sub_0:                                            ; preds = %sub_0.lr.ph, %.loopexit
   %indvars.iv = phi i64 [ 0, %sub_0.lr.ph ], [ %indvars.iv.next, %.loopexit ]
   %496 = load ptr, ptr @input_paths, align 8, !tbaa !23
-  %497 = getelementptr inbounds nuw ptr, ptr %496, i64 %indvars.iv
+  %497 = getelementptr inbounds nuw [8 x i8], ptr %496, i64 %indvars.iv
   %498 = load ptr, ptr %497, align 8, !tbaa !7
   %499 = load i8, ptr %498, align 1
   %.not153 = icmp eq i8 %499, 45
@@ -1564,7 +1564,7 @@ get_file_type.exit.thread128.thread133:           ; preds = %endswith.exit21.tai
 run_cc1.exit:                                     ; preds = %get_file_type.exit.thread128.thread133
   %542 = call noalias ptr @calloc(i64 noundef %481, i64 noundef 8) #22
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %542, ptr readonly align 8 %1, i64 %483, i1 false)
-  %543 = getelementptr ptr, ptr %542, i64 %482
+  %543 = getelementptr [8 x i8], ptr %542, i64 %482
   store ptr @.str.8, ptr %543, align 8, !tbaa !7
   %544 = getelementptr i8, ptr %543, i64 8
   store ptr @.str.33, ptr %544, align 8, !tbaa !7
@@ -1580,7 +1580,7 @@ run_cc1.exit:                                     ; preds = %get_file_type.exit.
 547:                                              ; preds = %546
   %548 = call noalias ptr @calloc(i64 noundef %481, i64 noundef 8) #22
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %548, ptr readonly align 8 %1, i64 %483, i1 false)
-  %549 = getelementptr ptr, ptr %548, i64 %482
+  %549 = getelementptr [8 x i8], ptr %548, i64 %482
   store ptr @.str.8, ptr %549, align 8, !tbaa !7
   %550 = getelementptr i8, ptr %549, i64 8
   store ptr @.str.33, ptr %550, align 8, !tbaa !7
@@ -1622,7 +1622,7 @@ run_cc1.exit90:                                   ; preds = %547, %552
   call void @strarray_push(ptr noundef nonnull @tmpfiles, ptr noundef %556) #18
   %566 = call noalias ptr @calloc(i64 noundef %481, i64 noundef 8) #22
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %566, ptr readonly align 8 %1, i64 %483, i1 false)
-  %567 = getelementptr ptr, ptr %566, i64 %482
+  %567 = getelementptr [8 x i8], ptr %566, i64 %482
   store ptr @.str.8, ptr %567, align 8, !tbaa !7
   %568 = getelementptr i8, ptr %567, i64 8
   store ptr @.str.33, ptr %568, align 8, !tbaa !7
@@ -1681,7 +1681,7 @@ create_tmpfile.exit95:                            ; preds = %573
   call void @strarray_push(ptr noundef nonnull @tmpfiles, ptr noundef %579) #18
   %588 = call noalias ptr @calloc(i64 noundef %481, i64 noundef 8) #22
   call void @llvm.memcpy.p0.p0.i64(ptr align 8 %588, ptr readonly align 8 %1, i64 %483, i1 false)
-  %589 = getelementptr ptr, ptr %588, i64 %482
+  %589 = getelementptr [8 x i8], ptr %588, i64 %482
   store ptr @.str.8, ptr %589, align 8, !tbaa !7
   %590 = getelementptr i8, ptr %589, i64 8
   store ptr @.str.33, ptr %590, align 8, !tbaa !7
@@ -1753,7 +1753,7 @@ find_libpath.exit.i:                              ; preds = %602, %598
 
 606:                                              ; preds = %616, %find_libpath.exit.i
   %indvars.iv.i.i103 = phi i64 [ 0, %find_libpath.exit.i ], [ %indvars.iv.next.i.i111, %616 ]
-  %607 = getelementptr inbounds nuw ptr, ptr @__const.find_gcc_libpath.paths, i64 %indvars.iv.i.i103
+  %607 = getelementptr inbounds nuw [8 x i8], ptr @__const.find_gcc_libpath.paths, i64 %indvars.iv.i.i103
   %608 = load ptr, ptr %607, align 8, !tbaa !7
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %3, i8 0, i64 72, i1 false)
@@ -1769,7 +1769,7 @@ find_file.exit.thread.i.i:                        ; preds = %606
 
 find_file.exit.i.i:                               ; preds = %606
   %611 = load ptr, ptr %605, align 8, !tbaa !57
-  %612 = getelementptr ptr, ptr %611, i64 %610
+  %612 = getelementptr [8 x i8], ptr %611, i64 %610
   %613 = getelementptr i8, ptr %612, i64 -8
   %614 = load ptr, ptr %613, align 8, !tbaa !7
   %615 = call noalias ptr @strdup(ptr noundef %614) #18
@@ -1834,7 +1834,7 @@ find_gcc_libpath.exit.i:                          ; preds = %find_file.exit.i.i
 .lr.ph.i108:                                      ; preds = %625, %.lr.ph.i108
   %indvars.iv.i109 = phi i64 [ %indvars.iv.next.i110, %.lr.ph.i108 ], [ 0, %625 ]
   %630 = load ptr, ptr @ld_extra_args, align 8, !tbaa !23
-  %631 = getelementptr inbounds nuw ptr, ptr %630, i64 %indvars.iv.i109
+  %631 = getelementptr inbounds nuw [8 x i8], ptr %630, i64 %indvars.iv.i109
   %632 = load ptr, ptr %631, align 8, !tbaa !7
   call void @strarray_push(ptr noundef nonnull %6, ptr noundef %632) #18
   %indvars.iv.next.i110 = add nuw nsw i64 %indvars.iv.i109, 1
@@ -1846,7 +1846,7 @@ find_gcc_libpath.exit.i:                          ; preds = %find_file.exit.i.i
 .lr.ph24.i:                                       ; preds = %.preheader.i105, %.lr.ph24.i
   %indvars.iv26.i = phi i64 [ %indvars.iv.next27.i, %.lr.ph24.i ], [ 0, %.preheader.i105 ]
   %636 = load ptr, ptr %14, align 8, !tbaa !23
-  %637 = getelementptr inbounds nuw ptr, ptr %636, i64 %indvars.iv26.i
+  %637 = getelementptr inbounds nuw [8 x i8], ptr %636, i64 %indvars.iv26.i
   %638 = load ptr, ptr %637, align 8, !tbaa !7
   call void @strarray_push(ptr noundef nonnull %6, ptr noundef %638) #18
   %indvars.iv.next27.i = add nuw nsw i64 %indvars.iv26.i, 1
@@ -1901,7 +1901,7 @@ define internal void @cleanup() #0 {
 .lr.ph:                                           ; preds = %0, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %0 ]
   %3 = load ptr, ptr @tmpfiles, align 8, !tbaa !23
-  %4 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 8, !tbaa !7
   %6 = tail call i32 @unlink(ptr noundef %5) #18
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2165,7 +2165,7 @@ define internal fastcc void @run_subprocess(ptr noundef %0) unnamed_addr #2 {
   %10 = load ptr, ptr @stderr, align 8, !tbaa !37
   %11 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.84, ptr noundef nonnull %9) #24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %12 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv.next
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv.next
   %13 = load ptr, ptr %12, align 8, !tbaa !7
   %.not = icmp eq ptr %13, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !64

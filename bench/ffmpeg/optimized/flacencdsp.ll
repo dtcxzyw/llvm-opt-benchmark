@@ -22,9 +22,9 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !10
-  %10 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   store i32 %9, ptr %10, align 4, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -176,7 +176,7 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
 
 .lr.ph102:                                        ; preds = %.lr.ph102.preheader, %.lr.ph102
   %indvars.iv135 = phi i64 [ 1, %.lr.ph102.preheader ], [ %indvars.iv.next136, %.lr.ph102 ]
-  %89 = getelementptr i32, ptr %1, i64 %indvars.iv135
+  %89 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv135
   %90 = getelementptr i8, ptr %89, i64 -4
   %91 = load i32, ptr %90, align 4, !tbaa !10
   %92 = load i32, ptr %4, align 4, !tbaa !10
@@ -185,14 +185,14 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
   %95 = mul nsw i32 %94, %92
   %96 = ashr i32 %93, %5
   %97 = sub nsw i32 %94, %96
-  %98 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv135
+  %98 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv135
   store i32 %97, ptr %98, align 4, !tbaa !10
   %99 = add nuw nsw i64 %indvars.iv135, 1
-  %100 = getelementptr inbounds nuw i32, ptr %1, i64 %99
+  %100 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %99
   %101 = load i32, ptr %100, align 4, !tbaa !10
   %102 = ashr i32 %95, %5
   %103 = sub nsw i32 %101, %102
-  %104 = getelementptr inbounds nuw i32, ptr %0, i64 %99
+  %104 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %99
   store i32 %103, ptr %104, align 4, !tbaa !10
   %indvars.iv.next136 = add nuw nsw i64 %indvars.iv135, 2
   %105 = icmp samesign ult i64 %indvars.iv.next136, %54
@@ -200,7 +200,7 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
 
 106:                                              ; preds = %.lr.ph100, %106
   %indvars.iv132 = phi i64 [ 2, %.lr.ph100 ], [ %indvars.iv.next133, %106 ]
-  %107 = getelementptr i32, ptr %1, i64 %indvars.iv132
+  %107 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv132
   %108 = getelementptr i8, ptr %107, i64 -8
   %109 = load i32, ptr %108, align 4, !tbaa !10
   %110 = load i32, ptr %51, align 4, !tbaa !10
@@ -216,14 +216,14 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
   %120 = add nsw i32 %119, %114
   %121 = ashr i32 %117, %5
   %122 = sub nsw i32 %118, %121
-  %123 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv132
+  %123 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv132
   store i32 %122, ptr %123, align 4, !tbaa !10
   %124 = or disjoint i64 %indvars.iv132, 1
-  %125 = getelementptr inbounds nuw i32, ptr %1, i64 %124
+  %125 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %124
   %126 = load i32, ptr %125, align 4, !tbaa !10
   %127 = ashr i32 %120, %5
   %128 = sub nsw i32 %126, %127
-  %129 = getelementptr inbounds nuw i32, ptr %0, i64 %124
+  %129 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %124
   store i32 %128, ptr %129, align 4, !tbaa !10
   %indvars.iv.next133 = add nuw nsw i64 %indvars.iv132, 2
   %130 = icmp samesign ult i64 %indvars.iv.next133, %52
@@ -231,7 +231,7 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
 
 131:                                              ; preds = %.lr.ph98, %131
   %indvars.iv129 = phi i64 [ 3, %.lr.ph98 ], [ %indvars.iv.next130, %131 ]
-  %132 = getelementptr i32, ptr %1, i64 %indvars.iv129
+  %132 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv129
   %133 = getelementptr i8, ptr %132, i64 -12
   %134 = load i32, ptr %133, align 4, !tbaa !10
   %135 = load i32, ptr %47, align 4, !tbaa !10
@@ -254,14 +254,14 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
   %152 = add nsw i32 %146, %151
   %153 = ashr i32 %149, %5
   %154 = sub nsw i32 %150, %153
-  %155 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv129
+  %155 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv129
   store i32 %154, ptr %155, align 4, !tbaa !10
   %156 = add nuw nsw i64 %indvars.iv129, 1
-  %157 = getelementptr inbounds nuw i32, ptr %1, i64 %156
+  %157 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %156
   %158 = load i32, ptr %157, align 4, !tbaa !10
   %159 = ashr i32 %152, %5
   %160 = sub nsw i32 %158, %159
-  %161 = getelementptr inbounds nuw i32, ptr %0, i64 %156
+  %161 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %156
   store i32 %160, ptr %161, align 4, !tbaa !10
   %indvars.iv.next130 = add nuw nsw i64 %indvars.iv129, 2
   %162 = icmp samesign ult i64 %indvars.iv.next130, %49
@@ -269,7 +269,7 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
 
 163:                                              ; preds = %.lr.ph96, %163
   %indvars.iv126 = phi i64 [ 4, %.lr.ph96 ], [ %indvars.iv.next127, %163 ]
-  %164 = getelementptr i32, ptr %1, i64 %indvars.iv126
+  %164 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv126
   %165 = getelementptr i8, ptr %164, i64 -16
   %166 = load i32, ptr %165, align 4, !tbaa !10
   %167 = load i32, ptr %42, align 4, !tbaa !10
@@ -299,14 +299,14 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
   %191 = add nsw i32 %185, %190
   %192 = ashr i32 %188, %5
   %193 = sub nsw i32 %189, %192
-  %194 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv126
+  %194 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv126
   store i32 %193, ptr %194, align 4, !tbaa !10
   %195 = or disjoint i64 %indvars.iv126, 1
-  %196 = getelementptr inbounds nuw i32, ptr %1, i64 %195
+  %196 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %195
   %197 = load i32, ptr %196, align 4, !tbaa !10
   %198 = ashr i32 %191, %5
   %199 = sub nsw i32 %197, %198
-  %200 = getelementptr inbounds nuw i32, ptr %0, i64 %195
+  %200 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %195
   store i32 %199, ptr %200, align 4, !tbaa !10
   %indvars.iv.next127 = add nuw nsw i64 %indvars.iv126, 2
   %201 = icmp samesign ult i64 %indvars.iv.next127, %45
@@ -314,7 +314,7 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
 
 202:                                              ; preds = %.lr.ph94, %202
   %indvars.iv123 = phi i64 [ 5, %.lr.ph94 ], [ %indvars.iv.next124, %202 ]
-  %203 = getelementptr i32, ptr %1, i64 %indvars.iv123
+  %203 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv123
   %204 = getelementptr i8, ptr %203, i64 -20
   %205 = load i32, ptr %204, align 4, !tbaa !10
   %206 = load i32, ptr %36, align 4, !tbaa !10
@@ -351,14 +351,14 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
   %237 = add nsw i32 %231, %236
   %238 = ashr i32 %234, %5
   %239 = sub nsw i32 %235, %238
-  %240 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv123
+  %240 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv123
   store i32 %239, ptr %240, align 4, !tbaa !10
   %241 = add nuw nsw i64 %indvars.iv123, 1
-  %242 = getelementptr inbounds nuw i32, ptr %1, i64 %241
+  %242 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %241
   %243 = load i32, ptr %242, align 4, !tbaa !10
   %244 = ashr i32 %237, %5
   %245 = sub nsw i32 %243, %244
-  %246 = getelementptr inbounds nuw i32, ptr %0, i64 %241
+  %246 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %241
   store i32 %245, ptr %246, align 4, !tbaa !10
   %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 2
   %247 = icmp samesign ult i64 %indvars.iv.next124, %40
@@ -366,7 +366,7 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
 
 248:                                              ; preds = %.lr.ph92, %248
   %indvars.iv120 = phi i64 [ 6, %.lr.ph92 ], [ %indvars.iv.next121, %248 ]
-  %249 = getelementptr i32, ptr %1, i64 %indvars.iv120
+  %249 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv120
   %250 = getelementptr i8, ptr %249, i64 -24
   %251 = load i32, ptr %250, align 4, !tbaa !10
   %252 = load i32, ptr %29, align 4, !tbaa !10
@@ -410,14 +410,14 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
   %290 = add nsw i32 %284, %289
   %291 = ashr i32 %287, %5
   %292 = sub nsw i32 %288, %291
-  %293 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv120
+  %293 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv120
   store i32 %292, ptr %293, align 4, !tbaa !10
   %294 = or disjoint i64 %indvars.iv120, 1
-  %295 = getelementptr inbounds nuw i32, ptr %1, i64 %294
+  %295 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %294
   %296 = load i32, ptr %295, align 4, !tbaa !10
   %297 = ashr i32 %290, %5
   %298 = sub nsw i32 %296, %297
-  %299 = getelementptr inbounds nuw i32, ptr %0, i64 %294
+  %299 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %294
   store i32 %298, ptr %299, align 4, !tbaa !10
   %indvars.iv.next121 = add nuw nsw i64 %indvars.iv120, 2
   %300 = icmp samesign ult i64 %indvars.iv.next121, %34
@@ -425,7 +425,7 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
 
 301:                                              ; preds = %.lr.ph90, %301
   %indvars.iv117 = phi i64 [ 7, %.lr.ph90 ], [ %indvars.iv.next118, %301 ]
-  %302 = getelementptr i32, ptr %1, i64 %indvars.iv117
+  %302 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv117
   %303 = getelementptr i8, ptr %302, i64 -28
   %304 = load i32, ptr %303, align 4, !tbaa !10
   %305 = load i32, ptr %21, align 4, !tbaa !10
@@ -476,14 +476,14 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
   %350 = add nsw i32 %344, %349
   %351 = ashr i32 %347, %5
   %352 = sub nsw i32 %348, %351
-  %353 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv117
+  %353 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv117
   store i32 %352, ptr %353, align 4, !tbaa !10
   %354 = add nuw nsw i64 %indvars.iv117, 1
-  %355 = getelementptr inbounds nuw i32, ptr %1, i64 %354
+  %355 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %354
   %356 = load i32, ptr %355, align 4, !tbaa !10
   %357 = ashr i32 %350, %5
   %358 = sub nsw i32 %356, %357
-  %359 = getelementptr inbounds nuw i32, ptr %0, i64 %354
+  %359 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %354
   store i32 %358, ptr %359, align 4, !tbaa !10
   %indvars.iv.next118 = add nuw nsw i64 %indvars.iv117, 2
   %360 = icmp samesign ult i64 %indvars.iv.next118, %27
@@ -491,7 +491,7 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
 
 361:                                              ; preds = %.lr.ph88, %361
   %indvars.iv114 = phi i64 [ 8, %.lr.ph88 ], [ %indvars.iv.next115, %361 ]
-  %362 = getelementptr i32, ptr %1, i64 %indvars.iv114
+  %362 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv114
   %363 = getelementptr i8, ptr %362, i64 -32
   %364 = load i32, ptr %363, align 4, !tbaa !10
   %365 = load i32, ptr %12, align 4, !tbaa !10
@@ -549,14 +549,14 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
   %417 = add nsw i32 %411, %416
   %418 = ashr i32 %414, %5
   %419 = sub nsw i32 %415, %418
-  %420 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv114
+  %420 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv114
   store i32 %419, ptr %420, align 4, !tbaa !10
   %421 = or disjoint i64 %indvars.iv114, 1
-  %422 = getelementptr inbounds nuw i32, ptr %1, i64 %421
+  %422 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %421
   %423 = load i32, ptr %422, align 4, !tbaa !10
   %424 = ashr i32 %417, %5
   %425 = sub nsw i32 %423, %424
-  %426 = getelementptr inbounds nuw i32, ptr %0, i64 %421
+  %426 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %421
   store i32 %425, ptr %426, align 4, !tbaa !10
   %indvars.iv.next115 = add nuw nsw i64 %indvars.iv114, 2
   %427 = icmp samesign ult i64 %indvars.iv.next115, %19
@@ -565,7 +565,7 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
 428:                                              ; preds = %.lr.ph104, %701
   %indvars.iv138 = phi i64 [ %87, %.lr.ph104 ], [ %indvars.iv.next139, %701 ]
   %429 = sub nsw i64 %indvars.iv138, %87
-  %430 = getelementptr inbounds i32, ptr %1, i64 %429
+  %430 = getelementptr inbounds [4 x i8], ptr %1, i64 %429
   %431 = load i32, ptr %430, align 4, !tbaa !10
   switch i32 %3, label %._crit_edge141 [
     i32 32, label %432
@@ -595,14 +595,14 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
   ]
 
 ._crit_edge141:                                   ; preds = %428
-  %.phi.trans.insert = getelementptr inbounds i32, ptr %1, i64 %indvars.iv138
+  %.phi.trans.insert = getelementptr inbounds [4 x i8], ptr %1, i64 %indvars.iv138
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !10
   br label %701
 
 432:                                              ; preds = %428
   %433 = load i32, ptr %56, align 4, !tbaa !10
   %434 = mul nsw i32 %433, %431
-  %435 = getelementptr i32, ptr %1, i64 %indvars.iv138
+  %435 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv138
   %436 = getelementptr i8, ptr %435, i64 -124
   %437 = load i32, ptr %436, align 4, !tbaa !10
   %438 = mul nsw i32 %437, %433
@@ -615,7 +615,7 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
   %440 = load i32, ptr %57, align 4, !tbaa !10
   %441 = mul nsw i32 %440, %.0381.i
   %442 = add nsw i32 %441, %.0382.i
-  %443 = getelementptr i32, ptr %1, i64 %indvars.iv138
+  %443 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv138
   %444 = getelementptr i8, ptr %443, i64 -120
   %445 = load i32, ptr %444, align 4, !tbaa !10
   %446 = mul nsw i32 %445, %440
@@ -629,7 +629,7 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
   %449 = load i32, ptr %58, align 4, !tbaa !10
   %450 = mul nsw i32 %449, %.1.i
   %451 = add nsw i32 %450, %.1383.i
-  %452 = getelementptr i32, ptr %1, i64 %indvars.iv138
+  %452 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv138
   %453 = getelementptr i8, ptr %452, i64 -116
   %454 = load i32, ptr %453, align 4, !tbaa !10
   %455 = mul nsw i32 %454, %449
@@ -643,7 +643,7 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
   %458 = load i32, ptr %59, align 4, !tbaa !10
   %459 = mul nsw i32 %458, %.2.i
   %460 = add nsw i32 %459, %.2384.i
-  %461 = getelementptr i32, ptr %1, i64 %indvars.iv138
+  %461 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv138
   %462 = getelementptr i8, ptr %461, i64 -112
   %463 = load i32, ptr %462, align 4, !tbaa !10
   %464 = mul nsw i32 %463, %458
@@ -657,7 +657,7 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
   %467 = load i32, ptr %60, align 4, !tbaa !10
   %468 = mul nsw i32 %467, %.3.i
   %469 = add nsw i32 %468, %.3385.i
-  %470 = getelementptr i32, ptr %1, i64 %indvars.iv138
+  %470 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv138
   %471 = getelementptr i8, ptr %470, i64 -108
   %472 = load i32, ptr %471, align 4, !tbaa !10
   %473 = mul nsw i32 %472, %467
@@ -671,7 +671,7 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
   %476 = load i32, ptr %61, align 4, !tbaa !10
   %477 = mul nsw i32 %476, %.4.i
   %478 = add nsw i32 %477, %.4386.i
-  %479 = getelementptr i32, ptr %1, i64 %indvars.iv138
+  %479 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv138
   %480 = getelementptr i8, ptr %479, i64 -104
   %481 = load i32, ptr %480, align 4, !tbaa !10
   %482 = mul nsw i32 %481, %476
@@ -685,7 +685,7 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
   %485 = load i32, ptr %62, align 4, !tbaa !10
   %486 = mul nsw i32 %485, %.5.i
   %487 = add nsw i32 %486, %.5387.i
-  %488 = getelementptr i32, ptr %1, i64 %indvars.iv138
+  %488 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv138
   %489 = getelementptr i8, ptr %488, i64 -100
   %490 = load i32, ptr %489, align 4, !tbaa !10
   %491 = mul nsw i32 %490, %485
@@ -699,7 +699,7 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
   %494 = load i32, ptr %63, align 4, !tbaa !10
   %495 = mul nsw i32 %494, %.6.i
   %496 = add nsw i32 %495, %.6388.i
-  %497 = getelementptr i32, ptr %1, i64 %indvars.iv138
+  %497 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv138
   %498 = getelementptr i8, ptr %497, i64 -96
   %499 = load i32, ptr %498, align 4, !tbaa !10
   %500 = mul nsw i32 %499, %494
@@ -713,7 +713,7 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
   %503 = load i32, ptr %64, align 4, !tbaa !10
   %504 = mul nsw i32 %503, %.7.i
   %505 = add nsw i32 %504, %.7389.i
-  %506 = getelementptr i32, ptr %1, i64 %indvars.iv138
+  %506 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv138
   %507 = getelementptr i8, ptr %506, i64 -92
   %508 = load i32, ptr %507, align 4, !tbaa !10
   %509 = mul nsw i32 %508, %503
@@ -727,7 +727,7 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
   %512 = load i32, ptr %65, align 4, !tbaa !10
   %513 = mul nsw i32 %512, %.8.i
   %514 = add nsw i32 %513, %.8390.i
-  %515 = getelementptr i32, ptr %1, i64 %indvars.iv138
+  %515 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv138
   %516 = getelementptr i8, ptr %515, i64 -88
   %517 = load i32, ptr %516, align 4, !tbaa !10
   %518 = mul nsw i32 %517, %512
@@ -741,7 +741,7 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
   %521 = load i32, ptr %66, align 4, !tbaa !10
   %522 = mul nsw i32 %521, %.9.i
   %523 = add nsw i32 %522, %.9391.i
-  %524 = getelementptr i32, ptr %1, i64 %indvars.iv138
+  %524 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv138
   %525 = getelementptr i8, ptr %524, i64 -84
   %526 = load i32, ptr %525, align 4, !tbaa !10
   %527 = mul nsw i32 %526, %521
@@ -755,7 +755,7 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
   %530 = load i32, ptr %67, align 4, !tbaa !10
   %531 = mul nsw i32 %530, %.10.i
   %532 = add nsw i32 %531, %.10392.i
-  %533 = getelementptr i32, ptr %1, i64 %indvars.iv138
+  %533 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv138
   %534 = getelementptr i8, ptr %533, i64 -80
   %535 = load i32, ptr %534, align 4, !tbaa !10
   %536 = mul nsw i32 %535, %530
@@ -769,7 +769,7 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
   %539 = load i32, ptr %68, align 4, !tbaa !10
   %540 = mul nsw i32 %539, %.11.i
   %541 = add nsw i32 %540, %.11393.i
-  %542 = getelementptr i32, ptr %1, i64 %indvars.iv138
+  %542 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv138
   %543 = getelementptr i8, ptr %542, i64 -76
   %544 = load i32, ptr %543, align 4, !tbaa !10
   %545 = mul nsw i32 %544, %539
@@ -783,7 +783,7 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
   %548 = load i32, ptr %69, align 4, !tbaa !10
   %549 = mul nsw i32 %548, %.12.i
   %550 = add nsw i32 %549, %.12394.i
-  %551 = getelementptr i32, ptr %1, i64 %indvars.iv138
+  %551 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv138
   %552 = getelementptr i8, ptr %551, i64 -72
   %553 = load i32, ptr %552, align 4, !tbaa !10
   %554 = mul nsw i32 %553, %548
@@ -797,7 +797,7 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
   %557 = load i32, ptr %70, align 4, !tbaa !10
   %558 = mul nsw i32 %557, %.13.i
   %559 = add nsw i32 %558, %.13395.i
-  %560 = getelementptr i32, ptr %1, i64 %indvars.iv138
+  %560 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv138
   %561 = getelementptr i8, ptr %560, i64 -68
   %562 = load i32, ptr %561, align 4, !tbaa !10
   %563 = mul nsw i32 %562, %557
@@ -811,7 +811,7 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
   %566 = load i32, ptr %71, align 4, !tbaa !10
   %567 = mul nsw i32 %566, %.14.i
   %568 = add nsw i32 %567, %.14396.i
-  %569 = getelementptr i32, ptr %1, i64 %indvars.iv138
+  %569 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv138
   %570 = getelementptr i8, ptr %569, i64 -64
   %571 = load i32, ptr %570, align 4, !tbaa !10
   %572 = mul nsw i32 %571, %566
@@ -825,7 +825,7 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
   %575 = load i32, ptr %72, align 4, !tbaa !10
   %576 = mul nsw i32 %575, %.15.i
   %577 = add nsw i32 %576, %.15397.i
-  %578 = getelementptr i32, ptr %1, i64 %indvars.iv138
+  %578 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv138
   %579 = getelementptr i8, ptr %578, i64 -60
   %580 = load i32, ptr %579, align 4, !tbaa !10
   %581 = mul nsw i32 %580, %575
@@ -839,7 +839,7 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
   %584 = load i32, ptr %73, align 4, !tbaa !10
   %585 = mul nsw i32 %584, %.16.i
   %586 = add nsw i32 %585, %.16398.i
-  %587 = getelementptr i32, ptr %1, i64 %indvars.iv138
+  %587 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv138
   %588 = getelementptr i8, ptr %587, i64 -56
   %589 = load i32, ptr %588, align 4, !tbaa !10
   %590 = mul nsw i32 %589, %584
@@ -853,7 +853,7 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
   %593 = load i32, ptr %74, align 4, !tbaa !10
   %594 = mul nsw i32 %593, %.17.i
   %595 = add nsw i32 %594, %.17399.i
-  %596 = getelementptr i32, ptr %1, i64 %indvars.iv138
+  %596 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv138
   %597 = getelementptr i8, ptr %596, i64 -52
   %598 = load i32, ptr %597, align 4, !tbaa !10
   %599 = mul nsw i32 %598, %593
@@ -867,7 +867,7 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
   %602 = load i32, ptr %75, align 4, !tbaa !10
   %603 = mul nsw i32 %602, %.18.i
   %604 = add nsw i32 %603, %.18400.i
-  %605 = getelementptr i32, ptr %1, i64 %indvars.iv138
+  %605 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv138
   %606 = getelementptr i8, ptr %605, i64 -48
   %607 = load i32, ptr %606, align 4, !tbaa !10
   %608 = mul nsw i32 %607, %602
@@ -881,7 +881,7 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
   %611 = load i32, ptr %76, align 4, !tbaa !10
   %612 = mul nsw i32 %611, %.19.i
   %613 = add nsw i32 %612, %.19401.i
-  %614 = getelementptr i32, ptr %1, i64 %indvars.iv138
+  %614 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv138
   %615 = getelementptr i8, ptr %614, i64 -44
   %616 = load i32, ptr %615, align 4, !tbaa !10
   %617 = mul nsw i32 %616, %611
@@ -895,7 +895,7 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
   %620 = load i32, ptr %77, align 4, !tbaa !10
   %621 = mul nsw i32 %620, %.20.i
   %622 = add nsw i32 %621, %.20402.i
-  %623 = getelementptr i32, ptr %1, i64 %indvars.iv138
+  %623 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv138
   %624 = getelementptr i8, ptr %623, i64 -40
   %625 = load i32, ptr %624, align 4, !tbaa !10
   %626 = mul nsw i32 %625, %620
@@ -909,7 +909,7 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
   %629 = load i32, ptr %78, align 4, !tbaa !10
   %630 = mul nsw i32 %629, %.21.i
   %631 = add nsw i32 %630, %.21403.i
-  %632 = getelementptr i32, ptr %1, i64 %indvars.iv138
+  %632 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv138
   %633 = getelementptr i8, ptr %632, i64 -36
   %634 = load i32, ptr %633, align 4, !tbaa !10
   %635 = mul nsw i32 %634, %629
@@ -923,7 +923,7 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
   %638 = load i32, ptr %79, align 4, !tbaa !10
   %639 = mul nsw i32 %638, %.22.i
   %640 = add nsw i32 %639, %.22404.i
-  %641 = getelementptr i32, ptr %1, i64 %indvars.iv138
+  %641 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv138
   %642 = getelementptr i8, ptr %641, i64 -32
   %643 = load i32, ptr %642, align 4, !tbaa !10
   %644 = mul nsw i32 %643, %638
@@ -991,14 +991,14 @@ define internal void @flac_lpc_encode_c_16(ptr noundef writeonly captures(none) 
   %.23405.i = phi i32 [ 0, %._crit_edge141 ], [ %697, %637 ]
   %703 = ashr i32 %.23405.i, %5
   %704 = sub nsw i32 %702, %703
-  %705 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv138
+  %705 = getelementptr inbounds [4 x i8], ptr %0, i64 %indvars.iv138
   store i32 %704, ptr %705, align 4, !tbaa !10
   %706 = add nsw i64 %indvars.iv138, 1
-  %707 = getelementptr inbounds i32, ptr %1, i64 %706
+  %707 = getelementptr inbounds [4 x i8], ptr %1, i64 %706
   %708 = load i32, ptr %707, align 4, !tbaa !10
   %709 = ashr i32 %.23435.i, %5
   %710 = sub nsw i32 %708, %709
-  %711 = getelementptr inbounds i32, ptr %0, i64 %706
+  %711 = getelementptr inbounds [4 x i8], ptr %0, i64 %706
   store i32 %710, ptr %711, align 4, !tbaa !10
   %indvars.iv.next139 = add nsw i64 %indvars.iv138, 2
   %712 = icmp slt i64 %indvars.iv.next139, %88
@@ -1019,9 +1019,9 @@ define internal void @flac_lpc_encode_c_32(ptr noundef writeonly captures(none) 
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %8 = getelementptr inbounds nuw i32, ptr %1, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %indvars.iv
   %9 = load i32, ptr %8, align 4, !tbaa !10
-  %10 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   store i32 %9, ptr %10, align 4, !tbaa !10
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1182,7 +1182,7 @@ define internal void @flac_lpc_encode_c_32(ptr noundef writeonly captures(none) 
 
 98:                                               ; preds = %.lr.ph137, %98
   %indvars.iv170 = phi i64 [ 1, %.lr.ph137 ], [ %indvars.iv.next171, %98 ]
-  %99 = getelementptr i32, ptr %1, i64 %indvars.iv170
+  %99 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv170
   %100 = getelementptr i8, ptr %99, i64 -4
   %101 = load i32, ptr %100, align 4, !tbaa !10
   %102 = load i32, ptr %4, align 4, !tbaa !10
@@ -1197,17 +1197,17 @@ define internal void @flac_lpc_encode_c_32(ptr noundef writeonly captures(none) 
   %111 = tail call i64 @llvm.smin.i64(i64 %110, i64 2147483647)
   %.0.i104 = trunc nsw i64 %111 to i32
   %112 = sub nsw i32 %106, %.0.i104
-  %113 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv170
+  %113 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv170
   store i32 %112, ptr %113, align 4, !tbaa !10
   %114 = add nuw nsw i64 %indvars.iv170, 1
-  %115 = getelementptr inbounds nuw i32, ptr %1, i64 %114
+  %115 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %114
   %116 = load i32, ptr %115, align 4, !tbaa !10
   %117 = ashr i64 %108, %61
   %118 = tail call i64 @llvm.smax.i64(i64 %117, i64 -2147483648)
   %119 = tail call i64 @llvm.smin.i64(i64 %118, i64 2147483647)
   %.0.i102 = trunc nsw i64 %119 to i32
   %120 = sub nsw i32 %116, %.0.i102
-  %121 = getelementptr inbounds nuw i32, ptr %0, i64 %114
+  %121 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %114
   store i32 %120, ptr %121, align 4, !tbaa !10
   %indvars.iv.next171 = add nuw nsw i64 %indvars.iv170, 2
   %122 = icmp samesign ult i64 %indvars.iv.next171, %62
@@ -1215,7 +1215,7 @@ define internal void @flac_lpc_encode_c_32(ptr noundef writeonly captures(none) 
 
 123:                                              ; preds = %.lr.ph135, %123
   %indvars.iv167 = phi i64 [ 2, %.lr.ph135 ], [ %indvars.iv.next168, %123 ]
-  %124 = getelementptr i32, ptr %1, i64 %indvars.iv167
+  %124 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv167
   %125 = getelementptr i8, ptr %124, i64 -8
   %126 = load i32, ptr %125, align 4, !tbaa !10
   %127 = load i32, ptr %57, align 4, !tbaa !10
@@ -1239,17 +1239,17 @@ define internal void @flac_lpc_encode_c_32(ptr noundef writeonly captures(none) 
   %145 = tail call i64 @llvm.smin.i64(i64 %144, i64 2147483647)
   %.0.i100 = trunc nsw i64 %145 to i32
   %146 = sub nsw i32 %139, %.0.i100
-  %147 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv167
+  %147 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv167
   store i32 %146, ptr %147, align 4, !tbaa !10
   %148 = or disjoint i64 %indvars.iv167, 1
-  %149 = getelementptr inbounds nuw i32, ptr %1, i64 %148
+  %149 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %148
   %150 = load i32, ptr %149, align 4, !tbaa !10
   %151 = ashr i64 %142, %58
   %152 = tail call i64 @llvm.smax.i64(i64 %151, i64 -2147483648)
   %153 = tail call i64 @llvm.smin.i64(i64 %152, i64 2147483647)
   %.0.i98 = trunc nsw i64 %153 to i32
   %154 = sub nsw i32 %150, %.0.i98
-  %155 = getelementptr inbounds nuw i32, ptr %0, i64 %148
+  %155 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %148
   store i32 %154, ptr %155, align 4, !tbaa !10
   %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 2
   %156 = icmp samesign ult i64 %indvars.iv.next168, %59
@@ -1257,7 +1257,7 @@ define internal void @flac_lpc_encode_c_32(ptr noundef writeonly captures(none) 
 
 157:                                              ; preds = %.lr.ph133, %157
   %indvars.iv164 = phi i64 [ 3, %.lr.ph133 ], [ %indvars.iv.next165, %157 ]
-  %158 = getelementptr i32, ptr %1, i64 %indvars.iv164
+  %158 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv164
   %159 = getelementptr i8, ptr %158, i64 -12
   %160 = load i32, ptr %159, align 4, !tbaa !10
   %161 = load i32, ptr %52, align 4, !tbaa !10
@@ -1290,17 +1290,17 @@ define internal void @flac_lpc_encode_c_32(ptr noundef writeonly captures(none) 
   %188 = tail call i64 @llvm.smin.i64(i64 %187, i64 2147483647)
   %.0.i96 = trunc nsw i64 %188 to i32
   %189 = sub nsw i32 %182, %.0.i96
-  %190 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv164
+  %190 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv164
   store i32 %189, ptr %190, align 4, !tbaa !10
   %191 = add nuw nsw i64 %indvars.iv164, 1
-  %192 = getelementptr inbounds nuw i32, ptr %1, i64 %191
+  %192 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %191
   %193 = load i32, ptr %192, align 4, !tbaa !10
   %194 = ashr i64 %185, %54
   %195 = tail call i64 @llvm.smax.i64(i64 %194, i64 -2147483648)
   %196 = tail call i64 @llvm.smin.i64(i64 %195, i64 2147483647)
   %.0.i94 = trunc nsw i64 %196 to i32
   %197 = sub nsw i32 %193, %.0.i94
-  %198 = getelementptr inbounds nuw i32, ptr %0, i64 %191
+  %198 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %191
   store i32 %197, ptr %198, align 4, !tbaa !10
   %indvars.iv.next165 = add nuw nsw i64 %indvars.iv164, 2
   %199 = icmp samesign ult i64 %indvars.iv.next165, %55
@@ -1308,7 +1308,7 @@ define internal void @flac_lpc_encode_c_32(ptr noundef writeonly captures(none) 
 
 200:                                              ; preds = %.lr.ph131, %200
   %indvars.iv161 = phi i64 [ 4, %.lr.ph131 ], [ %indvars.iv.next162, %200 ]
-  %201 = getelementptr i32, ptr %1, i64 %indvars.iv161
+  %201 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv161
   %202 = getelementptr i8, ptr %201, i64 -16
   %203 = load i32, ptr %202, align 4, !tbaa !10
   %204 = load i32, ptr %46, align 4, !tbaa !10
@@ -1350,17 +1350,17 @@ define internal void @flac_lpc_encode_c_32(ptr noundef writeonly captures(none) 
   %240 = tail call i64 @llvm.smin.i64(i64 %239, i64 2147483647)
   %.0.i92 = trunc nsw i64 %240 to i32
   %241 = sub nsw i32 %234, %.0.i92
-  %242 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv161
+  %242 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv161
   store i32 %241, ptr %242, align 4, !tbaa !10
   %243 = or disjoint i64 %indvars.iv161, 1
-  %244 = getelementptr inbounds nuw i32, ptr %1, i64 %243
+  %244 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %243
   %245 = load i32, ptr %244, align 4, !tbaa !10
   %246 = ashr i64 %237, %49
   %247 = tail call i64 @llvm.smax.i64(i64 %246, i64 -2147483648)
   %248 = tail call i64 @llvm.smin.i64(i64 %247, i64 2147483647)
   %.0.i90 = trunc nsw i64 %248 to i32
   %249 = sub nsw i32 %245, %.0.i90
-  %250 = getelementptr inbounds nuw i32, ptr %0, i64 %243
+  %250 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %243
   store i32 %249, ptr %250, align 4, !tbaa !10
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 2
   %251 = icmp samesign ult i64 %indvars.iv.next162, %50
@@ -1368,7 +1368,7 @@ define internal void @flac_lpc_encode_c_32(ptr noundef writeonly captures(none) 
 
 252:                                              ; preds = %.lr.ph129, %252
   %indvars.iv158 = phi i64 [ 5, %.lr.ph129 ], [ %indvars.iv.next159, %252 ]
-  %253 = getelementptr i32, ptr %1, i64 %indvars.iv158
+  %253 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv158
   %254 = getelementptr i8, ptr %253, i64 -20
   %255 = load i32, ptr %254, align 4, !tbaa !10
   %256 = load i32, ptr %39, align 4, !tbaa !10
@@ -1419,17 +1419,17 @@ define internal void @flac_lpc_encode_c_32(ptr noundef writeonly captures(none) 
   %301 = tail call i64 @llvm.smin.i64(i64 %300, i64 2147483647)
   %.0.i88 = trunc nsw i64 %301 to i32
   %302 = sub nsw i32 %295, %.0.i88
-  %303 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv158
+  %303 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv158
   store i32 %302, ptr %303, align 4, !tbaa !10
   %304 = add nuw nsw i64 %indvars.iv158, 1
-  %305 = getelementptr inbounds nuw i32, ptr %1, i64 %304
+  %305 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %304
   %306 = load i32, ptr %305, align 4, !tbaa !10
   %307 = ashr i64 %298, %43
   %308 = tail call i64 @llvm.smax.i64(i64 %307, i64 -2147483648)
   %309 = tail call i64 @llvm.smin.i64(i64 %308, i64 2147483647)
   %.0.i86 = trunc nsw i64 %309 to i32
   %310 = sub nsw i32 %306, %.0.i86
-  %311 = getelementptr inbounds nuw i32, ptr %0, i64 %304
+  %311 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %304
   store i32 %310, ptr %311, align 4, !tbaa !10
   %indvars.iv.next159 = add nuw nsw i64 %indvars.iv158, 2
   %312 = icmp samesign ult i64 %indvars.iv.next159, %44
@@ -1437,7 +1437,7 @@ define internal void @flac_lpc_encode_c_32(ptr noundef writeonly captures(none) 
 
 313:                                              ; preds = %.lr.ph127, %313
   %indvars.iv155 = phi i64 [ 6, %.lr.ph127 ], [ %indvars.iv.next156, %313 ]
-  %314 = getelementptr i32, ptr %1, i64 %indvars.iv155
+  %314 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv155
   %315 = getelementptr i8, ptr %314, i64 -24
   %316 = load i32, ptr %315, align 4, !tbaa !10
   %317 = load i32, ptr %31, align 4, !tbaa !10
@@ -1497,17 +1497,17 @@ define internal void @flac_lpc_encode_c_32(ptr noundef writeonly captures(none) 
   %371 = tail call i64 @llvm.smin.i64(i64 %370, i64 2147483647)
   %.0.i84 = trunc nsw i64 %371 to i32
   %372 = sub nsw i32 %365, %.0.i84
-  %373 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv155
+  %373 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv155
   store i32 %372, ptr %373, align 4, !tbaa !10
   %374 = or disjoint i64 %indvars.iv155, 1
-  %375 = getelementptr inbounds nuw i32, ptr %1, i64 %374
+  %375 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %374
   %376 = load i32, ptr %375, align 4, !tbaa !10
   %377 = ashr i64 %368, %36
   %378 = tail call i64 @llvm.smax.i64(i64 %377, i64 -2147483648)
   %379 = tail call i64 @llvm.smin.i64(i64 %378, i64 2147483647)
   %.0.i82 = trunc nsw i64 %379 to i32
   %380 = sub nsw i32 %376, %.0.i82
-  %381 = getelementptr inbounds nuw i32, ptr %0, i64 %374
+  %381 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %374
   store i32 %380, ptr %381, align 4, !tbaa !10
   %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 2
   %382 = icmp samesign ult i64 %indvars.iv.next156, %37
@@ -1515,7 +1515,7 @@ define internal void @flac_lpc_encode_c_32(ptr noundef writeonly captures(none) 
 
 383:                                              ; preds = %.lr.ph125, %383
   %indvars.iv152 = phi i64 [ 7, %.lr.ph125 ], [ %indvars.iv.next153, %383 ]
-  %384 = getelementptr i32, ptr %1, i64 %indvars.iv152
+  %384 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv152
   %385 = getelementptr i8, ptr %384, i64 -28
   %386 = load i32, ptr %385, align 4, !tbaa !10
   %387 = load i32, ptr %22, align 4, !tbaa !10
@@ -1584,17 +1584,17 @@ define internal void @flac_lpc_encode_c_32(ptr noundef writeonly captures(none) 
   %450 = tail call i64 @llvm.smin.i64(i64 %449, i64 2147483647)
   %.0.i80 = trunc nsw i64 %450 to i32
   %451 = sub nsw i32 %444, %.0.i80
-  %452 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv152
+  %452 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv152
   store i32 %451, ptr %452, align 4, !tbaa !10
   %453 = add nuw nsw i64 %indvars.iv152, 1
-  %454 = getelementptr inbounds nuw i32, ptr %1, i64 %453
+  %454 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %453
   %455 = load i32, ptr %454, align 4, !tbaa !10
   %456 = ashr i64 %447, %28
   %457 = tail call i64 @llvm.smax.i64(i64 %456, i64 -2147483648)
   %458 = tail call i64 @llvm.smin.i64(i64 %457, i64 2147483647)
   %.0.i78 = trunc nsw i64 %458 to i32
   %459 = sub nsw i32 %455, %.0.i78
-  %460 = getelementptr inbounds nuw i32, ptr %0, i64 %453
+  %460 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %453
   store i32 %459, ptr %460, align 4, !tbaa !10
   %indvars.iv.next153 = add nuw nsw i64 %indvars.iv152, 2
   %461 = icmp samesign ult i64 %indvars.iv.next153, %29
@@ -1602,7 +1602,7 @@ define internal void @flac_lpc_encode_c_32(ptr noundef writeonly captures(none) 
 
 462:                                              ; preds = %.lr.ph123, %462
   %indvars.iv149 = phi i64 [ 8, %.lr.ph123 ], [ %indvars.iv.next150, %462 ]
-  %463 = getelementptr i32, ptr %1, i64 %indvars.iv149
+  %463 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv149
   %464 = getelementptr i8, ptr %463, i64 -32
   %465 = load i32, ptr %464, align 4, !tbaa !10
   %466 = load i32, ptr %12, align 4, !tbaa !10
@@ -1680,17 +1680,17 @@ define internal void @flac_lpc_encode_c_32(ptr noundef writeonly captures(none) 
   %538 = tail call i64 @llvm.smin.i64(i64 %537, i64 2147483647)
   %.0.i76 = trunc nsw i64 %538 to i32
   %539 = sub nsw i32 %532, %.0.i76
-  %540 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv149
+  %540 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv149
   store i32 %539, ptr %540, align 4, !tbaa !10
   %541 = or disjoint i64 %indvars.iv149, 1
-  %542 = getelementptr inbounds nuw i32, ptr %1, i64 %541
+  %542 = getelementptr inbounds nuw [4 x i8], ptr %1, i64 %541
   %543 = load i32, ptr %542, align 4, !tbaa !10
   %544 = ashr i64 %535, %19
   %545 = tail call i64 @llvm.smax.i64(i64 %544, i64 -2147483648)
   %546 = tail call i64 @llvm.smin.i64(i64 %545, i64 2147483647)
   %.0.i74 = trunc nsw i64 %546 to i32
   %547 = sub nsw i32 %543, %.0.i74
-  %548 = getelementptr inbounds nuw i32, ptr %0, i64 %541
+  %548 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %541
   store i32 %547, ptr %548, align 4, !tbaa !10
   %indvars.iv.next150 = add nuw nsw i64 %indvars.iv149, 2
   %549 = icmp samesign ult i64 %indvars.iv.next150, %20
@@ -1699,7 +1699,7 @@ define internal void @flac_lpc_encode_c_32(ptr noundef writeonly captures(none) 
 550:                                              ; preds = %.lr.ph139, %888
   %indvars.iv173 = phi i64 [ %96, %.lr.ph139 ], [ %indvars.iv.next174, %888 ]
   %551 = sub nsw i64 %indvars.iv173, %96
-  %552 = getelementptr inbounds i32, ptr %1, i64 %551
+  %552 = getelementptr inbounds [4 x i8], ptr %1, i64 %551
   %553 = load i32, ptr %552, align 4, !tbaa !10
   switch i32 %3, label %._crit_edge176 [
     i32 32, label %554
@@ -1821,7 +1821,7 @@ define internal void @flac_lpc_encode_c_32(ptr noundef writeonly captures(none) 
   br label %806
 
 ._crit_edge176:                                   ; preds = %550
-  %.phi.trans.insert = getelementptr inbounds i32, ptr %1, i64 %indvars.iv173
+  %.phi.trans.insert = getelementptr inbounds [4 x i8], ptr %1, i64 %indvars.iv173
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !10
   br label %888
 
@@ -1830,7 +1830,7 @@ define internal void @flac_lpc_encode_c_32(ptr noundef writeonly captures(none) 
   %556 = sext i32 %555 to i64
   %557 = sext i32 %553 to i64
   %558 = mul nsw i64 %556, %557
-  %559 = getelementptr i32, ptr %1, i64 %indvars.iv173
+  %559 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv173
   %560 = getelementptr i8, ptr %559, i64 -124
   %561 = load i32, ptr %560, align 4, !tbaa !10
   %562 = sext i32 %561 to i64
@@ -1845,7 +1845,7 @@ define internal void @flac_lpc_encode_c_32(ptr noundef writeonly captures(none) 
   %566 = sext i32 %565 to i64
   %567 = mul nsw i64 %.pre-phi, %566
   %568 = add nsw i64 %567, %.0382.i
-  %569 = getelementptr i32, ptr %1, i64 %indvars.iv173
+  %569 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv173
   %570 = getelementptr i8, ptr %569, i64 -120
   %571 = load i32, ptr %570, align 4, !tbaa !10
   %572 = sext i32 %571 to i64
@@ -1861,7 +1861,7 @@ define internal void @flac_lpc_encode_c_32(ptr noundef writeonly captures(none) 
   %577 = sext i32 %576 to i64
   %578 = mul nsw i64 %.pre-phi202, %577
   %579 = add nsw i64 %578, %.1383.i
-  %580 = getelementptr i32, ptr %1, i64 %indvars.iv173
+  %580 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv173
   %581 = getelementptr i8, ptr %580, i64 -116
   %582 = load i32, ptr %581, align 4, !tbaa !10
   %583 = sext i32 %582 to i64
@@ -1877,7 +1877,7 @@ define internal void @flac_lpc_encode_c_32(ptr noundef writeonly captures(none) 
   %588 = sext i32 %587 to i64
   %589 = mul nsw i64 %.pre-phi204, %588
   %590 = add nsw i64 %589, %.2384.i
-  %591 = getelementptr i32, ptr %1, i64 %indvars.iv173
+  %591 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv173
   %592 = getelementptr i8, ptr %591, i64 -112
   %593 = load i32, ptr %592, align 4, !tbaa !10
   %594 = sext i32 %593 to i64
@@ -1893,7 +1893,7 @@ define internal void @flac_lpc_encode_c_32(ptr noundef writeonly captures(none) 
   %599 = sext i32 %598 to i64
   %600 = mul nsw i64 %.pre-phi206, %599
   %601 = add nsw i64 %600, %.3385.i
-  %602 = getelementptr i32, ptr %1, i64 %indvars.iv173
+  %602 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv173
   %603 = getelementptr i8, ptr %602, i64 -108
   %604 = load i32, ptr %603, align 4, !tbaa !10
   %605 = sext i32 %604 to i64
@@ -1909,7 +1909,7 @@ define internal void @flac_lpc_encode_c_32(ptr noundef writeonly captures(none) 
   %610 = sext i32 %609 to i64
   %611 = mul nsw i64 %.pre-phi208, %610
   %612 = add nsw i64 %611, %.4386.i
-  %613 = getelementptr i32, ptr %1, i64 %indvars.iv173
+  %613 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv173
   %614 = getelementptr i8, ptr %613, i64 -104
   %615 = load i32, ptr %614, align 4, !tbaa !10
   %616 = sext i32 %615 to i64
@@ -1925,7 +1925,7 @@ define internal void @flac_lpc_encode_c_32(ptr noundef writeonly captures(none) 
   %621 = sext i32 %620 to i64
   %622 = mul nsw i64 %.pre-phi210, %621
   %623 = add nsw i64 %622, %.5387.i
-  %624 = getelementptr i32, ptr %1, i64 %indvars.iv173
+  %624 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv173
   %625 = getelementptr i8, ptr %624, i64 -100
   %626 = load i32, ptr %625, align 4, !tbaa !10
   %627 = sext i32 %626 to i64
@@ -1941,7 +1941,7 @@ define internal void @flac_lpc_encode_c_32(ptr noundef writeonly captures(none) 
   %632 = sext i32 %631 to i64
   %633 = mul nsw i64 %.pre-phi212, %632
   %634 = add nsw i64 %633, %.6388.i
-  %635 = getelementptr i32, ptr %1, i64 %indvars.iv173
+  %635 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv173
   %636 = getelementptr i8, ptr %635, i64 -96
   %637 = load i32, ptr %636, align 4, !tbaa !10
   %638 = sext i32 %637 to i64
@@ -1957,7 +1957,7 @@ define internal void @flac_lpc_encode_c_32(ptr noundef writeonly captures(none) 
   %643 = sext i32 %642 to i64
   %644 = mul nsw i64 %.pre-phi214, %643
   %645 = add nsw i64 %644, %.7389.i
-  %646 = getelementptr i32, ptr %1, i64 %indvars.iv173
+  %646 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv173
   %647 = getelementptr i8, ptr %646, i64 -92
   %648 = load i32, ptr %647, align 4, !tbaa !10
   %649 = sext i32 %648 to i64
@@ -1973,7 +1973,7 @@ define internal void @flac_lpc_encode_c_32(ptr noundef writeonly captures(none) 
   %654 = sext i32 %653 to i64
   %655 = mul nsw i64 %.pre-phi216, %654
   %656 = add nsw i64 %655, %.8390.i
-  %657 = getelementptr i32, ptr %1, i64 %indvars.iv173
+  %657 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv173
   %658 = getelementptr i8, ptr %657, i64 -88
   %659 = load i32, ptr %658, align 4, !tbaa !10
   %660 = sext i32 %659 to i64
@@ -1989,7 +1989,7 @@ define internal void @flac_lpc_encode_c_32(ptr noundef writeonly captures(none) 
   %665 = sext i32 %664 to i64
   %666 = mul nsw i64 %.pre-phi218, %665
   %667 = add nsw i64 %666, %.9391.i
-  %668 = getelementptr i32, ptr %1, i64 %indvars.iv173
+  %668 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv173
   %669 = getelementptr i8, ptr %668, i64 -84
   %670 = load i32, ptr %669, align 4, !tbaa !10
   %671 = sext i32 %670 to i64
@@ -2005,7 +2005,7 @@ define internal void @flac_lpc_encode_c_32(ptr noundef writeonly captures(none) 
   %676 = sext i32 %675 to i64
   %677 = mul nsw i64 %.pre-phi220, %676
   %678 = add nsw i64 %677, %.10392.i
-  %679 = getelementptr i32, ptr %1, i64 %indvars.iv173
+  %679 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv173
   %680 = getelementptr i8, ptr %679, i64 -80
   %681 = load i32, ptr %680, align 4, !tbaa !10
   %682 = sext i32 %681 to i64
@@ -2021,7 +2021,7 @@ define internal void @flac_lpc_encode_c_32(ptr noundef writeonly captures(none) 
   %687 = sext i32 %686 to i64
   %688 = mul nsw i64 %.pre-phi222, %687
   %689 = add nsw i64 %688, %.11393.i
-  %690 = getelementptr i32, ptr %1, i64 %indvars.iv173
+  %690 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv173
   %691 = getelementptr i8, ptr %690, i64 -76
   %692 = load i32, ptr %691, align 4, !tbaa !10
   %693 = sext i32 %692 to i64
@@ -2037,7 +2037,7 @@ define internal void @flac_lpc_encode_c_32(ptr noundef writeonly captures(none) 
   %698 = sext i32 %697 to i64
   %699 = mul nsw i64 %.pre-phi224, %698
   %700 = add nsw i64 %699, %.12394.i
-  %701 = getelementptr i32, ptr %1, i64 %indvars.iv173
+  %701 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv173
   %702 = getelementptr i8, ptr %701, i64 -72
   %703 = load i32, ptr %702, align 4, !tbaa !10
   %704 = sext i32 %703 to i64
@@ -2053,7 +2053,7 @@ define internal void @flac_lpc_encode_c_32(ptr noundef writeonly captures(none) 
   %709 = sext i32 %708 to i64
   %710 = mul nsw i64 %.pre-phi226, %709
   %711 = add nsw i64 %710, %.13395.i
-  %712 = getelementptr i32, ptr %1, i64 %indvars.iv173
+  %712 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv173
   %713 = getelementptr i8, ptr %712, i64 -68
   %714 = load i32, ptr %713, align 4, !tbaa !10
   %715 = sext i32 %714 to i64
@@ -2069,7 +2069,7 @@ define internal void @flac_lpc_encode_c_32(ptr noundef writeonly captures(none) 
   %720 = sext i32 %719 to i64
   %721 = mul nsw i64 %.pre-phi228, %720
   %722 = add nsw i64 %721, %.14396.i
-  %723 = getelementptr i32, ptr %1, i64 %indvars.iv173
+  %723 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv173
   %724 = getelementptr i8, ptr %723, i64 -64
   %725 = load i32, ptr %724, align 4, !tbaa !10
   %726 = sext i32 %725 to i64
@@ -2085,7 +2085,7 @@ define internal void @flac_lpc_encode_c_32(ptr noundef writeonly captures(none) 
   %731 = sext i32 %730 to i64
   %732 = mul nsw i64 %.pre-phi230, %731
   %733 = add nsw i64 %732, %.15397.i
-  %734 = getelementptr i32, ptr %1, i64 %indvars.iv173
+  %734 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv173
   %735 = getelementptr i8, ptr %734, i64 -60
   %736 = load i32, ptr %735, align 4, !tbaa !10
   %737 = sext i32 %736 to i64
@@ -2101,7 +2101,7 @@ define internal void @flac_lpc_encode_c_32(ptr noundef writeonly captures(none) 
   %742 = sext i32 %741 to i64
   %743 = mul nsw i64 %.pre-phi232, %742
   %744 = add nsw i64 %743, %.16398.i
-  %745 = getelementptr i32, ptr %1, i64 %indvars.iv173
+  %745 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv173
   %746 = getelementptr i8, ptr %745, i64 -56
   %747 = load i32, ptr %746, align 4, !tbaa !10
   %748 = sext i32 %747 to i64
@@ -2117,7 +2117,7 @@ define internal void @flac_lpc_encode_c_32(ptr noundef writeonly captures(none) 
   %753 = sext i32 %752 to i64
   %754 = mul nsw i64 %.pre-phi234, %753
   %755 = add nsw i64 %754, %.17399.i
-  %756 = getelementptr i32, ptr %1, i64 %indvars.iv173
+  %756 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv173
   %757 = getelementptr i8, ptr %756, i64 -52
   %758 = load i32, ptr %757, align 4, !tbaa !10
   %759 = sext i32 %758 to i64
@@ -2133,7 +2133,7 @@ define internal void @flac_lpc_encode_c_32(ptr noundef writeonly captures(none) 
   %764 = sext i32 %763 to i64
   %765 = mul nsw i64 %.pre-phi236, %764
   %766 = add nsw i64 %765, %.18400.i
-  %767 = getelementptr i32, ptr %1, i64 %indvars.iv173
+  %767 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv173
   %768 = getelementptr i8, ptr %767, i64 -48
   %769 = load i32, ptr %768, align 4, !tbaa !10
   %770 = sext i32 %769 to i64
@@ -2149,7 +2149,7 @@ define internal void @flac_lpc_encode_c_32(ptr noundef writeonly captures(none) 
   %775 = sext i32 %774 to i64
   %776 = mul nsw i64 %.pre-phi238, %775
   %777 = add nsw i64 %776, %.19401.i
-  %778 = getelementptr i32, ptr %1, i64 %indvars.iv173
+  %778 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv173
   %779 = getelementptr i8, ptr %778, i64 -44
   %780 = load i32, ptr %779, align 4, !tbaa !10
   %781 = sext i32 %780 to i64
@@ -2165,7 +2165,7 @@ define internal void @flac_lpc_encode_c_32(ptr noundef writeonly captures(none) 
   %786 = sext i32 %785 to i64
   %787 = mul nsw i64 %.pre-phi240, %786
   %788 = add nsw i64 %787, %.20402.i
-  %789 = getelementptr i32, ptr %1, i64 %indvars.iv173
+  %789 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv173
   %790 = getelementptr i8, ptr %789, i64 -40
   %791 = load i32, ptr %790, align 4, !tbaa !10
   %792 = sext i32 %791 to i64
@@ -2181,7 +2181,7 @@ define internal void @flac_lpc_encode_c_32(ptr noundef writeonly captures(none) 
   %797 = sext i32 %796 to i64
   %798 = mul nsw i64 %.pre-phi242, %797
   %799 = add nsw i64 %798, %.21403.i
-  %800 = getelementptr i32, ptr %1, i64 %indvars.iv173
+  %800 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv173
   %801 = getelementptr i8, ptr %800, i64 -36
   %802 = load i32, ptr %801, align 4, !tbaa !10
   %803 = sext i32 %802 to i64
@@ -2197,7 +2197,7 @@ define internal void @flac_lpc_encode_c_32(ptr noundef writeonly captures(none) 
   %808 = sext i32 %807 to i64
   %809 = mul nsw i64 %.pre-phi244, %808
   %810 = add nsw i64 %809, %.22404.i
-  %811 = getelementptr i32, ptr %1, i64 %indvars.iv173
+  %811 = getelementptr [4 x i8], ptr %1, i64 %indvars.iv173
   %812 = getelementptr i8, ptr %811, i64 -32
   %813 = load i32, ptr %812, align 4, !tbaa !10
   %814 = sext i32 %813 to i64
@@ -2285,17 +2285,17 @@ define internal void @flac_lpc_encode_c_32(ptr noundef writeonly captures(none) 
   %892 = tail call i64 @llvm.smin.i64(i64 %891, i64 2147483647)
   %.0.i72 = trunc nsw i64 %892 to i32
   %893 = sub nsw i32 %889, %.0.i72
-  %894 = getelementptr inbounds i32, ptr %0, i64 %indvars.iv173
+  %894 = getelementptr inbounds [4 x i8], ptr %0, i64 %indvars.iv173
   store i32 %893, ptr %894, align 4, !tbaa !10
   %895 = add nsw i64 %indvars.iv173, 1
-  %896 = getelementptr inbounds i32, ptr %1, i64 %895
+  %896 = getelementptr inbounds [4 x i8], ptr %1, i64 %895
   %897 = load i32, ptr %896, align 4, !tbaa !10
   %898 = ashr i64 %.23435.i, %95
   %899 = tail call i64 @llvm.smax.i64(i64 %898, i64 -2147483648)
   %900 = tail call i64 @llvm.smin.i64(i64 %899, i64 2147483647)
   %.0.i70 = trunc nsw i64 %900 to i32
   %901 = sub nsw i32 %897, %.0.i70
-  %902 = getelementptr inbounds i32, ptr %0, i64 %895
+  %902 = getelementptr inbounds [4 x i8], ptr %0, i64 %895
   store i32 %901, ptr %902, align 4, !tbaa !10
   %indvars.iv.next174 = add nsw i64 %indvars.iv173, 2
   %903 = icmp slt i64 %indvars.iv.next174, %97

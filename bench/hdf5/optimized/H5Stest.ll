@@ -224,12 +224,12 @@ define range(i32 -1, 2) i32 @H5S__internal_consistency_test(i64 noundef %0) loca
 
 58:                                               ; preds = %57, %.lr.ph77.i
   %indvars.iv84.i = phi i64 [ 0, %.lr.ph77.i ], [ %indvars.iv.next85.i, %57 ]
-  %59 = getelementptr inbounds nuw i64, ptr %54, i64 %indvars.iv84.i
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %54, i64 %indvars.iv84.i
   %60 = load i64, ptr %59, align 8, !tbaa !10
-  %61 = getelementptr inbounds nuw i64, ptr %55, i64 %indvars.iv84.i
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %55, i64 %indvars.iv84.i
   %62 = load i64, ptr %61, align 8, !tbaa !10
   %63 = add nsw i64 %62, %60
-  %64 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv84.i
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv84.i
   %65 = load i64, ptr %64, align 8, !tbaa !10
   %.not66.i = icmp eq i64 %63, %65
   br i1 %.not66.i, label %70, label %66
@@ -241,10 +241,10 @@ define range(i32 -1, 2) i32 @H5S__internal_consistency_test(i64 noundef %0) loca
   br label %136
 
 70:                                               ; preds = %58
-  %71 = getelementptr inbounds nuw i64, ptr %56, i64 %indvars.iv84.i
+  %71 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv84.i
   %72 = load i64, ptr %71, align 8, !tbaa !10
   %73 = add nsw i64 %72, %62
-  %74 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv84.i
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv84.i
   %75 = load i64, ptr %74, align 8, !tbaa !10
   %.not67.i = icmp eq i64 %73, %75
   br i1 %.not67.i, label %57, label %76
@@ -262,12 +262,12 @@ define range(i32 -1, 2) i32 @H5S__internal_consistency_test(i64 noundef %0) loca
 
 81:                                               ; preds = %80, %.lr.ph75.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph75.i ], [ %indvars.iv.next.i, %80 ]
-  %82 = getelementptr inbounds nuw i64, ptr %51, i64 %indvars.iv.i
+  %82 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %indvars.iv.i
   %83 = load i64, ptr %82, align 8, !tbaa !10
-  %84 = getelementptr inbounds nuw i64, ptr %52, i64 %indvars.iv.i
+  %84 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %indvars.iv.i
   %85 = load i64, ptr %84, align 8, !tbaa !10
   %86 = add nsw i64 %85, %83
-  %87 = getelementptr inbounds nuw i64, ptr %2, i64 %indvars.iv.i
+  %87 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv.i
   %88 = load i64, ptr %87, align 8, !tbaa !10
   %.not63.i = icmp eq i64 %86, %88
   br i1 %.not63.i, label %93, label %89
@@ -280,10 +280,10 @@ define range(i32 -1, 2) i32 @H5S__internal_consistency_test(i64 noundef %0) loca
 
 93:                                               ; preds = %81
   %94 = load ptr, ptr %53, align 8, !tbaa !31
-  %95 = getelementptr inbounds nuw i64, ptr %94, i64 %indvars.iv.i
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %indvars.iv.i
   %96 = load i64, ptr %95, align 8, !tbaa !10
   %97 = add nsw i64 %96, %85
-  %98 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv.i
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv.i
   %99 = load i64, ptr %98, align 8, !tbaa !10
   %.not64.i = icmp eq i64 %97, %99
   br i1 %.not64.i, label %80, label %100

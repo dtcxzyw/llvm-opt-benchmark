@@ -101,14 +101,14 @@ define noundef ptr @_ZN3g2o17csparse_extension17cs_chol_workspaceEPK12cs_di_spar
 
 32:                                               ; preds = %25
   %33 = sext i32 %18 to i64
-  %34 = getelementptr inbounds i32, ptr %2, i64 %33
+  %34 = getelementptr inbounds [4 x i8], ptr %2, i64 %33
   %35 = getelementptr inbounds nuw i8, ptr %27, i64 16
   %36 = load ptr, ptr %35, align 8, !tbaa !20
   %37 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %38 = load ptr, ptr %37, align 8, !tbaa !21
   %39 = getelementptr inbounds nuw i8, ptr %27, i64 32
   %40 = load ptr, ptr %39, align 8, !tbaa !22
-  %41 = getelementptr inbounds i32, ptr %20, i64 %33
+  %41 = getelementptr inbounds [4 x i8], ptr %20, i64 %33
   %42 = load i32, ptr %41, align 4, !tbaa !23
   %43 = tail call ptr @cs_di_spalloc(i32 noundef %18, i32 noundef %18, i32 noundef %42, i32 noundef 1, i32 noundef 0)
   store ptr %43, ptr %19, align 8, !tbaa !15
@@ -135,11 +135,11 @@ define noundef ptr @_ZN3g2o17csparse_extension17cs_chol_workspaceEPK12cs_di_spar
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %52 = getelementptr inbounds nuw i32, ptr %20, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv
   %53 = load i32, ptr %52, align 4, !tbaa !23
-  %54 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   store i32 %53, ptr %54, align 4, !tbaa !23
-  %55 = getelementptr inbounds nuw i32, ptr %46, i64 %indvars.iv
+  %55 = getelementptr inbounds nuw [4 x i8], ptr %46, i64 %indvars.iv
   store i32 %53, ptr %55, align 4, !tbaa !23
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -149,12 +149,12 @@ define noundef ptr @_ZN3g2o17csparse_extension17cs_chol_workspaceEPK12cs_di_spar
   %indvars.iv195 = phi i64 [ 0, %.lr.ph178.preheader ], [ %indvars.iv.next196, %107 ]
   %56 = trunc nuw nsw i64 %indvars.iv195 to i32
   %57 = tail call i32 @cs_di_ereach(ptr noundef nonnull %27, i32 noundef %56, ptr noundef %22, ptr noundef nonnull %34, ptr noundef nonnull %2)
-  %58 = getelementptr inbounds nuw double, ptr %3, i64 %indvars.iv195
+  %58 = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %indvars.iv195
   store double 0.000000e+00, ptr %58, align 8, !tbaa !26
-  %59 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv195
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %indvars.iv195
   %60 = load i32, ptr %59, align 4, !tbaa !23
   %indvars.iv.next196 = add nuw nsw i64 %indvars.iv195, 1
-  %61 = getelementptr inbounds nuw i32, ptr %36, i64 %indvars.iv.next196
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %36, i64 %indvars.iv.next196
   %62 = load i32, ptr %61, align 4, !tbaa !23
   %63 = icmp slt i32 %60, %62
   br i1 %63, label %.lr.ph164.preheader, label %._crit_edge
@@ -166,16 +166,16 @@ define noundef ptr @_ZN3g2o17csparse_extension17cs_chol_workspaceEPK12cs_di_spar
 
 .lr.ph164:                                        ; preds = %.lr.ph164.preheader, %72
   %indvars.iv181 = phi i64 [ %64, %.lr.ph164.preheader ], [ %indvars.iv.next182, %72 ]
-  %65 = getelementptr inbounds i32, ptr %38, i64 %indvars.iv181
+  %65 = getelementptr inbounds [4 x i8], ptr %38, i64 %indvars.iv181
   %66 = load i32, ptr %65, align 4, !tbaa !23
   %67 = sext i32 %66 to i64
   %.not158 = icmp slt i64 %indvars.iv195, %67
   br i1 %.not158, label %72, label %68
 
 68:                                               ; preds = %.lr.ph164
-  %69 = getelementptr inbounds double, ptr %40, i64 %indvars.iv181
+  %69 = getelementptr inbounds [8 x i8], ptr %40, i64 %indvars.iv181
   %70 = load double, ptr %69, align 8, !tbaa !26
-  %71 = getelementptr inbounds double, ptr %3, i64 %67
+  %71 = getelementptr inbounds [8 x i8], ptr %3, i64 %67
   store double %70, ptr %71, align 8, !tbaa !26
   br label %72
 
@@ -201,19 +201,19 @@ define noundef ptr @_ZN3g2o17csparse_extension17cs_chol_workspaceEPK12cs_di_spar
 .lr.ph174:                                        ; preds = %.lr.ph174.preheader, %._crit_edge169
   %indvars.iv190 = phi i64 [ %75, %.lr.ph174.preheader ], [ %indvars.iv.next191, %._crit_edge169 ]
   %.0172 = phi double [ %73, %.lr.ph174.preheader ], [ %101, %._crit_edge169 ]
-  %76 = getelementptr inbounds i32, ptr %34, i64 %indvars.iv190
+  %76 = getelementptr inbounds [4 x i8], ptr %34, i64 %indvars.iv190
   %77 = load i32, ptr %76, align 4, !tbaa !23
   %78 = sext i32 %77 to i64
-  %79 = getelementptr inbounds double, ptr %3, i64 %78
+  %79 = getelementptr inbounds [8 x i8], ptr %3, i64 %78
   %80 = load double, ptr %79, align 8, !tbaa !26
-  %81 = getelementptr inbounds i32, ptr %46, i64 %78
+  %81 = getelementptr inbounds [4 x i8], ptr %46, i64 %78
   %82 = load i32, ptr %81, align 4, !tbaa !23
   %83 = sext i32 %82 to i64
-  %84 = getelementptr inbounds double, ptr %50, i64 %83
+  %84 = getelementptr inbounds [8 x i8], ptr %50, i64 %83
   %85 = load double, ptr %84, align 8, !tbaa !26
   %86 = fdiv double %80, %85
   store double 0.000000e+00, ptr %79, align 8, !tbaa !26
-  %87 = getelementptr inbounds i32, ptr %2, i64 %78
+  %87 = getelementptr inbounds [4 x i8], ptr %2, i64 %78
   %88 = load i32, ptr %87, align 4, !tbaa !23
   %.1140165 = add nsw i32 %82, 1
   %89 = icmp slt i32 %.1140165, %88
@@ -225,12 +225,12 @@ define noundef ptr @_ZN3g2o17csparse_extension17cs_chol_workspaceEPK12cs_di_spar
 
 .lr.ph168:                                        ; preds = %.lr.ph168.preheader, %.lr.ph168
   %indvars.iv186 = phi i64 [ %90, %.lr.ph168.preheader ], [ %indvars.iv.next187, %.lr.ph168 ]
-  %91 = getelementptr inbounds double, ptr %50, i64 %indvars.iv186
+  %91 = getelementptr inbounds [8 x i8], ptr %50, i64 %indvars.iv186
   %92 = load double, ptr %91, align 8, !tbaa !26
-  %93 = getelementptr inbounds i32, ptr %48, i64 %indvars.iv186
+  %93 = getelementptr inbounds [4 x i8], ptr %48, i64 %indvars.iv186
   %94 = load i32, ptr %93, align 4, !tbaa !23
   %95 = sext i32 %94 to i64
-  %96 = getelementptr inbounds double, ptr %3, i64 %95
+  %96 = getelementptr inbounds [8 x i8], ptr %3, i64 %95
   %97 = load double, ptr %96, align 8, !tbaa !26
   %98 = fneg double %92
   %99 = tail call double @llvm.fmuladd.f64(double %98, double %86, double %97)
@@ -246,9 +246,9 @@ define noundef ptr @_ZN3g2o17csparse_extension17cs_chol_workspaceEPK12cs_di_spar
   %102 = add nsw i32 %88, 1
   store i32 %102, ptr %87, align 4, !tbaa !23
   %103 = sext i32 %88 to i64
-  %104 = getelementptr inbounds i32, ptr %48, i64 %103
+  %104 = getelementptr inbounds [4 x i8], ptr %48, i64 %103
   store i32 %56, ptr %104, align 4, !tbaa !23
-  %105 = getelementptr inbounds double, ptr %50, i64 %103
+  %105 = getelementptr inbounds [8 x i8], ptr %50, i64 %103
   store double %86, ptr %105, align 8, !tbaa !26
   %indvars.iv.next191 = add nsw i64 %indvars.iv190, 1
   %exitcond194.not = icmp eq i64 %indvars.iv.next191, %33
@@ -260,22 +260,22 @@ define noundef ptr @_ZN3g2o17csparse_extension17cs_chol_workspaceEPK12cs_di_spar
   br i1 %106, label %107, label %.sink.split
 
 107:                                              ; preds = %._crit_edge175
-  %108 = getelementptr inbounds nuw i32, ptr %2, i64 %indvars.iv195
+  %108 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv195
   %109 = load i32, ptr %108, align 4, !tbaa !23
   %110 = add nsw i32 %109, 1
   store i32 %110, ptr %108, align 4, !tbaa !23
   %111 = sext i32 %109 to i64
-  %112 = getelementptr inbounds i32, ptr %48, i64 %111
+  %112 = getelementptr inbounds [4 x i8], ptr %48, i64 %111
   store i32 %56, ptr %112, align 4, !tbaa !23
   %113 = tail call double @sqrt(double noundef %.0.lcssa) #4, !tbaa !23
-  %114 = getelementptr inbounds double, ptr %50, i64 %111
+  %114 = getelementptr inbounds [8 x i8], ptr %50, i64 %111
   store double %113, ptr %114, align 8, !tbaa !26
   %exitcond199.not = icmp eq i64 %indvars.iv.next196, %wide.trip.count198
   br i1 %exitcond199.not, label %._crit_edge179, label %.lr.ph178
 
 ._crit_edge179:                                   ; preds = %107, %44
   %115 = load i32, ptr %41, align 4, !tbaa !23
-  %116 = getelementptr inbounds i32, ptr %46, i64 %33
+  %116 = getelementptr inbounds [4 x i8], ptr %46, i64 %33
   store i32 %115, ptr %116, align 4, !tbaa !23
   br label %.sink.split
 

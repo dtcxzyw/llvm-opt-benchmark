@@ -727,7 +727,7 @@ define void @_ZN5folly11prettyPrintB5cxx11EdNS_10PrettyTypeEb(ptr dead_on_unwind
   %7 = alloca [100 x i8], align 16
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %8 = zext i32 %2 to i64
-  %9 = getelementptr inbounds nuw ptr, ptr @_ZN5folly12_GLOBAL__N_115kPrettySuffixesE, i64 %8
+  %9 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly12_GLOBAL__N_115kPrettySuffixesE, i64 %8
   %10 = load ptr, ptr %9, align 8, !tbaa !30
   %11 = tail call double @llvm.fabs.f64(double %1)
   %12 = load ptr, ptr %10, align 8, !tbaa !32
@@ -743,13 +743,13 @@ define void @_ZN5folly11prettyPrintB5cxx11EdNS_10PrettyTypeEb(ptr dead_on_unwind
 .lr.ph47:                                         ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv46 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %.lr.ph.preheader ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv46, 1
-  %16 = getelementptr inbounds nuw %"struct.folly::(anonymous namespace)::PrettySuffix", ptr %10, i64 %indvars.iv.next
+  %16 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %indvars.iv.next
   %17 = load ptr, ptr %16, align 8, !tbaa !32
   %.not = icmp eq ptr %17, null
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !36
 
 .lr.ph:                                           ; preds = %.lr.ph47
-  %18 = getelementptr inbounds nuw %"struct.folly::(anonymous namespace)::PrettySuffix", ptr %10, i64 %indvars.iv.next
+  %18 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %indvars.iv.next
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load double, ptr %19, align 8, !tbaa !35
   %21 = fcmp ult double %11, %20
@@ -932,7 +932,7 @@ _ZN5folly5RangeIPKcE7advanceEm.exit:              ; preds = %.lr.ph
 .critedge:                                        ; preds = %.lr.ph, %_ZN5folly5RangeIPKcE7advanceEm.exit, %_ZN5folly2toIdEET_PNS_5RangeIPKcEE.exit
   %.lcssa = phi ptr [ %.sroa.0.0.copyload.i.i.i.i.i, %_ZN5folly2toIdEET_PNS_5RangeIPKcEE.exit ], [ %20, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ %16, %.lr.ph ]
   %22 = zext i32 %1 to i64
-  %23 = getelementptr inbounds nuw ptr, ptr @_ZN5folly12_GLOBAL__N_115kPrettySuffixesE, i64 %22
+  %23 = getelementptr inbounds nuw [8 x i8], ptr @_ZN5folly12_GLOBAL__N_115kPrettySuffixesE, i64 %22
   %24 = load ptr, ptr %23, align 8, !tbaa !30
   %25 = load ptr, ptr %24, align 8, !tbaa !32
   %.not4457 = icmp eq ptr %25, null
@@ -991,7 +991,7 @@ _ZNK5folly5RangeIPKcE10startsWithERKS3_.exit.thread50: ; preds = %38, %35, %_ZNK
   %.240 = phi i32 [ %.03858, %_ZNK5folly5RangeIPKcE10startsWithERKS3_.exit ], [ %spec.select, %35 ], [ %spec.select47, %_ZNK5folly5RangeIPKcE10startsWithERKS3_.exit.thread ], [ %.03858, %38 ]
   %.2 = phi i32 [ %.03560, %_ZNK5folly5RangeIPKcE10startsWithERKS3_.exit ], [ %spec.select46, %35 ], [ %spec.select48, %_ZNK5folly5RangeIPKcE10startsWithERKS3_.exit.thread ], [ %.03560, %38 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %46 = getelementptr inbounds nuw %"struct.folly::(anonymous namespace)::PrettySuffix", ptr %24, i64 %indvars.iv.next
+  %46 = getelementptr inbounds nuw [16 x i8], ptr %24, i64 %indvars.iv.next
   %47 = load ptr, ptr %46, align 8, !tbaa !32
   %.not44 = icmp eq ptr %47, null
   br i1 %.not44, label %._crit_edge, label %31, !llvm.loop !52
@@ -1057,7 +1057,7 @@ _ZN5folly5RangeIPKcE7advanceEm.exit49:            ; preds = %60
   %67 = getelementptr inbounds nuw i8, ptr %.lcssa, i64 %29
   store ptr %67, ptr %0, align 8, !tbaa !49
   %68 = sext i32 %.240 to i64
-  %69 = getelementptr inbounds %"struct.folly::(anonymous namespace)::PrettySuffix", ptr %24, i64 %68
+  %69 = getelementptr inbounds [16 x i8], ptr %24, i64 %68
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %71 = load double, ptr %70, align 8, !tbaa !35
   %72 = fcmp une double %71, 0.000000e+00
@@ -3035,7 +3035,7 @@ _ZNSt6vectorIN5folly5RangeIPKcEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.
 _ZNSt6vectorIN5folly5RangeIPKcEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i.i: ; preds = %41, %_ZNSt6vectorIN5folly5RangeIPKcEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i.i
   store ptr %36, ptr %4, align 8, !tbaa !91
   store ptr %40, ptr %17, align 8, !tbaa !94
-  %42 = getelementptr inbounds nuw %"class.folly::Range", ptr %36, i64 %34
+  %42 = getelementptr inbounds nuw [16 x i8], ptr %36, i64 %34
   store ptr %42, ptr %19, align 8, !tbaa !105
   br label %_ZNSt20back_insert_iteratorISt6vectorIN5folly5RangeIPKcEESaIS5_EEEaSEOS5_.exit
 
@@ -3158,7 +3158,7 @@ _ZNSt6vectorIN5folly5RangeIPKcEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.
 _ZNSt6vectorIN5folly5RangeIPKcEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i.i75: ; preds = %86, %_ZNSt6vectorIN5folly5RangeIPKcEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i.i72
   store ptr %81, ptr %4, align 8, !tbaa !91
   store ptr %85, ptr %46, align 8, !tbaa !94
-  %87 = getelementptr inbounds nuw %"class.folly::Range", ptr %81, i64 %79
+  %87 = getelementptr inbounds nuw [16 x i8], ptr %81, i64 %79
   store ptr %87, ptr %47, align 8, !tbaa !105
   br label %_ZNSt20back_insert_iteratorISt6vectorIN5folly5RangeIPKcEESaIS5_EEEaSEOS5_.exit76
 
@@ -3255,7 +3255,7 @@ _ZNSt6vectorIN5folly5RangeIPKcEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.
 _ZNSt6vectorIN5folly5RangeIPKcEESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i.i99: ; preds = %121, %_ZNSt6vectorIN5folly5RangeIPKcEESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i.i96
   store ptr %116, ptr %4, align 8, !tbaa !91
   store ptr %120, ptr %46, align 8, !tbaa !94
-  %122 = getelementptr inbounds nuw %"class.folly::Range", ptr %116, i64 %114
+  %122 = getelementptr inbounds nuw [16 x i8], ptr %116, i64 %114
   store ptr %122, ptr %47, align 8, !tbaa !105
   br label %_ZNSt20back_insert_iteratorISt6vectorIN5folly5RangeIPKcEESaIS5_EEEaSEOS5_.exit
 

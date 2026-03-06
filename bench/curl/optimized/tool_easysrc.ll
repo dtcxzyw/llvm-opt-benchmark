@@ -209,7 +209,7 @@ easysrc_add.exit:                                 ; preds = %2
 10:                                               ; preds = %easysrc_add.exit, %20
   %11 = phi ptr [ %4, %easysrc_add.exit ], [ %14, %20 ]
   %indvars.iv = phi i64 [ 0, %easysrc_add.exit ], [ %indvars.iv.next, %20 ]
-  %12 = getelementptr inbounds nuw ptr, ptr @srchard, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @srchard, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !9
   %14 = tail call ptr @slist_wc_append(ptr noundef nonnull %11, ptr noundef %13) #5
   %.not.i67 = icmp eq ptr %14, null
@@ -513,7 +513,7 @@ sub_0:
 
 .preheader60:                                     ; preds = %10, %.preheader60
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader60 ], [ 0, %10 ]
-  %12 = getelementptr inbounds nuw ptr, ptr @srchead, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr @srchead, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !9
   %14 = tail call i32 (ptr, ptr, ...) @curl_mfprintf(ptr noundef nonnull %.036, ptr noundef nonnull @.str.9, ptr noundef %13) #5
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -616,7 +616,7 @@ sub_0:
 
 .loopexit:                                        ; preds = %.loopexit.preheader, %.loopexit
   %indvars.iv80 = phi i64 [ %indvars.iv.next81, %.loopexit ], [ 0, %.loopexit.preheader ]
-  %41 = getelementptr inbounds nuw ptr, ptr @srcend, i64 %indvars.iv80
+  %41 = getelementptr inbounds nuw [8 x i8], ptr @srcend, i64 %indvars.iv80
   %42 = load ptr, ptr %41, align 8, !tbaa !9
   %43 = tail call i32 (ptr, ptr, ...) @curl_mfprintf(ptr noundef nonnull %.036, ptr noundef nonnull @.str.9, ptr noundef %42) #5
   %indvars.iv.next81 = add nuw nsw i64 %indvars.iv80, 1

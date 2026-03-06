@@ -671,10 +671,10 @@ define internal noundef zeroext i1 @"_ZN60_$LT$url..parser..ParseError$u20$as$u2
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !189, !noundef !13
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN60_$LT$url..parser..ParseError$u20$as$u20$core..fmt..Debug$GT$3fmt17h0492e26dce8d0787E", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN60_$LT$url..parser..ParseError$u20$as$u20$core..fmt..Debug$GT$3fmt17h0492e26dce8d0787E", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN60_$LT$url..parser..ParseError$u20$as$u20$core..fmt..Debug$GT$3fmt17h0492e26dce8d0787E.47", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN60_$LT$url..parser..ParseError$u20$as$u20$core..fmt..Debug$GT$3fmt17h0492e26dce8d0787E.47", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17ha11c1118505c1ec2E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5
@@ -2003,7 +2003,7 @@ _ZN4core3ops8function6FnOnce9call_once17h7b72d60020c59c6cE.exit.i.i9.i.i: ; pred
 
 140:                                              ; preds = %136
   %141 = load ptr, ptr %128, align 8, !noalias !587, !nonnull !13, !noundef !13
-  %142 = getelementptr inbounds { { { { i32 } }, { { i8 } }, [3 x i8], { { { i64, ptr, {} }, i64 } } }, [4 x i64] }, ptr %141, i64 %127
+  %142 = getelementptr inbounds [64 x i8], ptr %141, i64 %127
   invoke void @"_ZN3std4sync5mutex14Mutex$LT$T$GT$8try_lock17hef26e1ec9db16692E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %13, ptr noundef nonnull align 8 %142)
           to label %144 unwind label %.loopexit.i.i.i, !noalias !587
 
@@ -2050,7 +2050,7 @@ _ZN4core3ops8function6FnOnce9call_once17h7b72d60020c59c6cE.exit.i.i9.i.i: ; pred
 159:                                              ; preds = %154, %146
   %160 = getelementptr inbounds nuw i8, ptr %147, i64 16
   %161 = load ptr, ptr %160, align 8, !alias.scope !590, !noalias !593, !nonnull !13, !noundef !13
-  %162 = getelementptr inbounds ptr, ptr %161, i64 %151
+  %162 = getelementptr inbounds [8 x i8], ptr %161, i64 %151
   store ptr %.sroa.46.0.copyload.i.i, ptr %162, align 8, !noalias !593
   %163 = add i64 %151, 1
   store i64 %163, ptr %150, align 8, !alias.scope !590, !noalias !595
@@ -2340,7 +2340,7 @@ common.resume:                                    ; preds = %"_ZN4core3ptr29drop
 _ZN14regex_automata4util8captures9GroupInfo4slot17h5fff2fb1639722c9E.exit.i: ; preds = %248
   %251 = getelementptr i8, ptr %244, i64 24
   %.val.i.i = load ptr, ptr %251, align 8, !noalias !635, !nonnull !13, !noundef !13
-  %252 = getelementptr inbounds nuw { i32, i32 }, ptr %.val.i.i, i64 %249
+  %252 = getelementptr inbounds nuw [8 x i8], ptr %.val.i.i, i64 %249
   %253 = getelementptr inbounds nuw i8, ptr %252, i64 4
   %254 = load i32, ptr %253, align 4, !noalias !635, !noundef !13
   %255 = zext i32 %254 to i64
@@ -2362,7 +2362,7 @@ _ZN14regex_automata4util8captures9GroupInfo4slot17h5fff2fb1639722c9E.exit.i: ; p
   br i1 %266, label %267, label %302
 
 267:                                              ; preds = %261
-  %268 = getelementptr inbounds nuw i64, ptr %263, i64 %.sroa.039.0.i
+  %268 = getelementptr inbounds nuw [8 x i8], ptr %263, i64 %.sroa.039.0.i
   %269 = load i64, ptr %268, align 8, !noalias !635, !noundef !13
   %270 = icmp ne i64 %269, 0
   %271 = icmp ult i64 %.sroa.041.0.i, %265
@@ -2370,7 +2370,7 @@ _ZN14regex_automata4util8captures9GroupInfo4slot17h5fff2fb1639722c9E.exit.i: ; p
   br i1 %or.cond.i, label %272, label %302
 
 272:                                              ; preds = %267
-  %273 = getelementptr inbounds nuw i64, ptr %263, i64 %.sroa.041.0.i
+  %273 = getelementptr inbounds nuw [8 x i8], ptr %263, i64 %.sroa.041.0.i
   %274 = load i64, ptr %273, align 8, !noalias !635, !noundef !13
   %275 = icmp eq i64 %274, 0
   br i1 %275, label %302, label %279

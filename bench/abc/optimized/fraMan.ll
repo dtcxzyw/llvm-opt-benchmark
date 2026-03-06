@@ -147,7 +147,7 @@ define noundef ptr @Fra_ManStart(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %47 = phi ptr [ %57, %54 ], [ %43, %2 ]
   %48 = getelementptr i8, ptr %47, i64 8
   %.val38 = load ptr, ptr %48, align 8, !tbaa !52
-  %49 = getelementptr inbounds nuw ptr, ptr %.val38, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %.val38, i64 %indvars.iv
   %50 = load ptr, ptr %49, align 8, !tbaa !56
   %51 = icmp eq ptr %50, null
   br i1 %51, label %54, label %52
@@ -195,7 +195,7 @@ define void @Fra_ManClean(ptr noundef captures(none) %0, i32 noundef %1) local_u
   %8 = phi i32 [ %4, %.lr.ph ], [ %17, %16 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
   %9 = load ptr, ptr %6, align 8, !tbaa !61
-  %10 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %11 = load ptr, ptr %10, align 8, !tbaa !62
   %switch = icmp ult ptr %11, inttoptr (i64 2 to ptr)
   br i1 %switch, label %16, label %12
@@ -349,7 +349,7 @@ Abc_UtilStrsav.exit52:                            ; preds = %Abc_UtilStrsav.exit
   %.val46.val50 = load ptr, ptr %35, align 8, !tbaa !55
   %36 = mul nsw i32 %.val46.val, %.val45
   %37 = sext i32 %36 to i64
-  %38 = getelementptr inbounds ptr, ptr %.val46.val50, i64 %37
+  %38 = getelementptr inbounds [8 x i8], ptr %.val46.val50, i64 %37
   store ptr %.val44, ptr %38, align 8, !tbaa !70
   %39 = getelementptr inbounds nuw i8, ptr %7, i64 16
   %40 = load ptr, ptr %39, align 8, !tbaa !71
@@ -371,7 +371,7 @@ Abc_UtilStrsav.exit52:                            ; preds = %Abc_UtilStrsav.exit
   %47 = phi ptr [ %61, %.lr.ph ], [ %40, %Abc_UtilStrsav.exit52 ]
   %48 = getelementptr i8, ptr %47, i64 8
   %.val42 = load ptr, ptr %48, align 8, !tbaa !52
-  %49 = getelementptr inbounds nuw ptr, ptr %.val42, i64 %indvars.iv
+  %49 = getelementptr inbounds nuw [8 x i8], ptr %.val42, i64 %indvars.iv
   %50 = load ptr, ptr %49, align 8, !tbaa !56
   %51 = tail call ptr @Aig_ObjCreateCi(ptr noundef nonnull %6) #16
   %52 = getelementptr i8, ptr %50, i64 36
@@ -384,7 +384,7 @@ Abc_UtilStrsav.exit52:                            ; preds = %Abc_UtilStrsav.exit
   %.val48.val49 = load ptr, ptr %55, align 8, !tbaa !55
   %56 = mul nsw i32 %.val48.val, %.val47
   %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds ptr, ptr %.val48.val49, i64 %57
+  %58 = getelementptr inbounds [8 x i8], ptr %.val48.val49, i64 %57
   store ptr %51, ptr %58, align 8, !tbaa !70
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %59 = load ptr, ptr %2, align 8, !tbaa !34
@@ -401,7 +401,7 @@ Abc_UtilStrsav.exit52:                            ; preds = %Abc_UtilStrsav.exit
   %indvars.iv59 = phi i64 [ %indvars.iv.next60, %.critedge ], [ 0, %.critedge.preheader ]
   %66 = getelementptr i8, ptr %65, i64 8
   %.val41 = load ptr, ptr %66, align 8, !tbaa !52
-  %67 = getelementptr inbounds nuw ptr, ptr %.val41, i64 %indvars.iv59
+  %67 = getelementptr inbounds nuw [8 x i8], ptr %.val41, i64 %indvars.iv59
   %68 = load ptr, ptr %67, align 8, !tbaa !56
   %69 = icmp eq ptr %68, null
   br i1 %69, label %.critedge, label %70
@@ -462,7 +462,7 @@ define void @Fra_ManFinalizeComb(ptr noundef readonly captures(none) %0) local_u
   %10 = phi ptr [ %5, %.lr.ph ], [ %36, %Fra_ObjChild0Fra.exit ]
   %11 = getelementptr i8, ptr %10, i64 8
   %.val7 = load ptr, ptr %11, align 8, !tbaa !52
-  %12 = getelementptr inbounds nuw ptr, ptr %.val7, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %.val7, i64 %indvars.iv
   %13 = load ptr, ptr %12, align 8, !tbaa !56
   %14 = load ptr, ptr %8, align 8, !tbaa !75
   %15 = getelementptr i8, ptr %13, i64 8
@@ -484,7 +484,7 @@ define void @Fra_ManFinalizeComb(ptr noundef readonly captures(none) %0) local_u
   %.val5.val6.i = load ptr, ptr %23, align 8, !tbaa !55
   %24 = mul nsw i32 %.val5.val.i, %.val4.i
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds ptr, ptr %.val5.val6.i, i64 %25
+  %26 = getelementptr inbounds [8 x i8], ptr %.val5.val6.i, i64 %25
   %27 = load ptr, ptr %26, align 8, !tbaa !70
   %28 = and i64 %16, 1
   %29 = ptrtoint ptr %27 to i64

@@ -328,7 +328,7 @@ for.body.preheader.i.i.i.i.i:                     ; preds = %_ZNSt6vectorISt8fun
 
 call5.i.i.i.i2.i.i.noexc:                         ; preds = %for.body.preheader.i.i.i.i.i
   store ptr %call5.i.i.i.i2.i.i26, ptr %stateEvolveFcts_, align 8, !tbaa !50
-  %add.ptr.i.i.i = getelementptr inbounds nuw %"class.std::function", ptr %call5.i.i.i.i2.i.i26, i64 %16
+  %add.ptr.i.i.i = getelementptr inbounds nuw [32 x i8], ptr %call5.i.i.i.i2.i.i26, i64 %16
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %call5.i.i.i.i2.i.i26, i8 0, i64 %mul.i.i.i.i.i.i, i1 false)
   %scevgep.i.i.i.i.i = getelementptr i8, ptr %call5.i.i.i.i2.i.i26, i64 %mul.i.i.i.i.i.i
   br label %invoke.cont
@@ -372,7 +372,7 @@ invoke.cont9:                                     ; preds = %.noexc31, %invoke.c
   %dim_.i = getelementptr inbounds nuw i8, ptr %21, i64 8
   %22 = load i64, ptr %stateDirection_, align 8, !tbaa !46
   %23 = load ptr, ptr %dim_.i, align 8, !tbaa !56
-  %add.ptr.i = getelementptr inbounds nuw i64, ptr %23, i64 %22
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %22
   %24 = load i64, ptr %add.ptr.i, align 8, !tbaa !8
   %cmp = icmp eq i64 %16, %24
   br i1 %cmp, label %for.cond.preheader, label %if.then
@@ -560,7 +560,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
 
 if.then50:                                        ; preds = %for.body
   %51 = load ptr, ptr %stateEvolveFcts_, align 8, !tbaa !50
-  %add.ptr.i48 = getelementptr inbounds nuw %"class.std::function", ptr %51, i64 %i.081
+  %add.ptr.i48 = getelementptr inbounds nuw [32 x i8], ptr %51, i64 %i.081
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i)
   store i64 0, ptr %28, align 8
   store i64 %26, ptr %ref.tmp.i, align 8, !tbaa !58
@@ -601,7 +601,7 @@ if.else:                                          ; preds = %for.body
 
 if.then58:                                        ; preds = %if.else
   %56 = load ptr, ptr %stateEvolveFcts_, align 8, !tbaa !50
-  %add.ptr.i51 = getelementptr inbounds nuw %"class.std::function", ptr %56, i64 %i.081
+  %add.ptr.i51 = getelementptr inbounds nuw [32 x i8], ptr %56, i64 %i.081
   call void @llvm.lifetime.start.p0(ptr nonnull %ref.tmp.i53)
   store i64 0, ptr %27, align 8
   store i64 %26, ptr %ref.tmp.i53, align 8, !tbaa !58
@@ -842,7 +842,7 @@ _ZNK5boost10shared_ptrIN8QuantLib17FdmLinearOpLayoutEEptEv.exit.thread: ; preds 
   %stateDirection_208 = getelementptr inbounds nuw i8, ptr %this, i64 72
   %3 = load i64, ptr %stateDirection_208, align 8, !tbaa !46
   %4 = load ptr, ptr %dim_.i207, align 8, !tbaa !56
-  %add.ptr.i209 = getelementptr inbounds nuw i64, ptr %4, i64 %3
+  %add.ptr.i209 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %3
   %5 = load i64, ptr %add.ptr.i209, align 8, !tbaa !8
   br label %_ZNK5boost10shared_ptrIN8QuantLib9FdmMesherEEptEv.exit33
 
@@ -854,7 +854,7 @@ _ZNK5boost10shared_ptrIN8QuantLib17FdmLinearOpLayoutEEptEv.exit: ; preds = %_ZNK
   %stateDirection_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   %6 = load i64, ptr %stateDirection_, align 8, !tbaa !46
   %7 = load ptr, ptr %dim_.i, align 8, !tbaa !56
-  %add.ptr.i = getelementptr inbounds nuw i64, ptr %7, i64 %6
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %7, i64 %6
   %8 = load i64, ptr %add.ptr.i, align 8, !tbaa !8
   %cmp.not.i30 = icmp eq ptr %.pre, null
   br i1 %cmp.not.i30, label %cond.false.i31, label %_ZNK5boost10shared_ptrIN8QuantLib9FdmMesherEEptEv.exit33, !prof !65
@@ -985,10 +985,10 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
   %27 = phi i64 [ %14, %for.body.lr.ph ], [ %47, %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit ]
   %28 = load i64, ptr %stateDirection_211, align 8, !tbaa !46
   %29 = load ptr, ptr %coordinates_.i.i, align 8, !tbaa !56
-  %add.ptr.i.i = getelementptr inbounds nuw i64, ptr %29, i64 %28
+  %add.ptr.i.i = getelementptr inbounds nuw [8 x i8], ptr %29, i64 %28
   %30 = load i64, ptr %add.ptr.i.i, align 8, !tbaa !8
   %31 = load ptr, ptr %stateEvolveFcts_.i, align 8, !tbaa !50
-  %add.ptr.i3.i = getelementptr inbounds nuw %"class.std::function", ptr %31, i64 %30
+  %add.ptr.i3.i = getelementptr inbounds nuw [32 x i8], ptr %31, i64 %30
   %_M_manager.i.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i3.i, i64 16
   %32 = load ptr, ptr %_M_manager.i.i.i, align 8, !tbaa !62
   %tobool.not.i.i.not.i = icmp eq ptr %32, null
@@ -1017,7 +1017,7 @@ _ZNK5boost10shared_ptrIN8QuantLib23FdmInnerValueCalculatorEEptEv.exit.i: ; preds
 
 call6.i.noexc:                                    ; preds = %_ZNK5boost10shared_ptrIN8QuantLib23FdmInnerValueCalculatorEEptEv.exit.i
   %36 = load ptr, ptr %stateEvolveFcts_.i, align 8, !tbaa !50
-  %add.ptr.i4.i = getelementptr inbounds nuw %"class.std::function", ptr %36, i64 %30
+  %add.ptr.i4.i = getelementptr inbounds nuw [32 x i8], ptr %36, i64 %30
   call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr.i.i)
   store double %call6.i65, ptr %__args.addr.i.i, align 8, !tbaa !80
   %_M_manager.i.i5.i = getelementptr inbounds nuw i8, ptr %add.ptr.i4.i, i64 16
@@ -1047,7 +1047,7 @@ invoke.cont16:                                    ; preds = %call2.i.i.noexc, %f
   %39 = phi i64 [ %.pre172, %call2.i.i.noexc ], [ %27, %for.body ]
   %retval.0.i = phi double [ %call2.i.i67, %call2.i.i.noexc ], [ 0.000000e+00, %for.body ]
   %40 = load ptr, ptr %a, align 8, !tbaa !58
-  %arrayidx.i = getelementptr inbounds nuw double, ptr %40, i64 %39
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %40, i64 %39
   %41 = load double, ptr %arrayidx.i, align 8, !tbaa !80
   %add = fadd double %retval.0.i, %41
   store double %add, ptr %arrayidx.i, align 8, !tbaa !80
@@ -1068,11 +1068,11 @@ for.body.lr.ph.i:                                 ; preds = %invoke.cont16
 
 for.body.i:                                       ; preds = %if.then.i, %for.body.lr.ph.i
   %i.08.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc9.i, %if.then.i ]
-  %add.ptr.i.i70 = getelementptr inbounds nuw i64, ptr %44, i64 %i.08.i
+  %add.ptr.i.i70 = getelementptr inbounds nuw [8 x i8], ptr %44, i64 %i.08.i
   %45 = load i64, ptr %add.ptr.i.i70, align 8, !tbaa !8
   %inc3.i = add i64 %45, 1
   store i64 %inc3.i, ptr %add.ptr.i.i70, align 8, !tbaa !8
-  %add.ptr.i5.i = getelementptr inbounds nuw i64, ptr %43, i64 %i.08.i
+  %add.ptr.i5.i = getelementptr inbounds nuw [8 x i8], ptr %43, i64 %i.08.i
   %46 = load i64, ptr %add.ptr.i5.i, align 8, !tbaa !8
   %cmp6.i = icmp eq i64 %inc3.i, %46
   br i1 %cmp6.i, label %if.then.i, label %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit.loopexit
@@ -1149,7 +1149,7 @@ for.body41:                                       ; preds = %for.body41.lr.ph, %
   %51 = phi i64 [ %23, %for.body41.lr.ph ], [ %92, %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit164 ]
   %52 = load i64, ptr %stateDirection_211, align 8, !tbaa !46
   %53 = load ptr, ptr %coordinates_.i104, align 8, !tbaa !56
-  %add.ptr.i105 = getelementptr inbounds nuw i64, ptr %53, i64 %52
+  %add.ptr.i105 = getelementptr inbounds nuw [8 x i8], ptr %53, i64 %52
   %54 = load i64, ptr %add.ptr.i105, align 8, !tbaa !8
   %cmp = icmp eq i64 %54, 0
   br i1 %cmp, label %if.then, label %if.end
@@ -1228,10 +1228,10 @@ invoke.cont62:                                    ; preds = %.noexc121, %invoke.
 
 invoke.cont65:                                    ; preds = %invoke.cont62
   %62 = load ptr, ptr %a, align 8, !tbaa !58
-  %arrayidx.i123 = getelementptr inbounds nuw double, ptr %62, i64 %call66
+  %arrayidx.i123 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %call66
   %63 = load double, ptr %arrayidx.i123, align 8, !tbaa !80
   %64 = load ptr, ptr %x, align 8, !tbaa !58
-  %arrayidx.i124 = getelementptr inbounds nuw double, ptr %64, i64 %i.0167
+  %arrayidx.i124 = getelementptr inbounds nuw [8 x i8], ptr %64, i64 %i.0167
   store double %63, ptr %arrayidx.i124, align 8, !tbaa !80
   %inc = add nuw i64 %i.0167, 1
   %exitcond.not = icmp eq i64 %inc, %9
@@ -1306,7 +1306,7 @@ lpad81:                                           ; preds = %invoke.cont77
 for.body89:                                       ; preds = %_ZN8QuantLib5ArrayD2Ev.exit, %invoke.cont102
   %i85.0169 = phi i64 [ %inc107, %invoke.cont102 ], [ 0, %_ZN8QuantLib5ArrayD2Ev.exit ]
   %76 = load ptr, ptr %x, align 8, !tbaa !58
-  %arrayidx.i129 = getelementptr inbounds nuw double, ptr %76, i64 %i85.0169
+  %arrayidx.i129 = getelementptr inbounds nuw [8 x i8], ptr %76, i64 %i85.0169
   %77 = load double, ptr %arrayidx.i129, align 8, !tbaa !80
   %78 = load ptr, ptr %mesher_, align 8, !tbaa !48
   %cmp.not.i130 = icmp eq ptr %78, null
@@ -1344,7 +1344,7 @@ invoke.cont98:                                    ; preds = %.noexc139, %invoke.
 
 invoke.cont102:                                   ; preds = %invoke.cont98
   %83 = load ptr, ptr %a, align 8, !tbaa !58
-  %arrayidx.i141 = getelementptr inbounds nuw double, ptr %83, i64 %call103
+  %arrayidx.i141 = getelementptr inbounds nuw [8 x i8], ptr %83, i64 %call103
   store double %77, ptr %arrayidx.i141, align 8, !tbaa !80
   %inc107 = add nuw i64 %i85.0169, 1
   %exitcond171.not = icmp eq i64 %inc107, %9
@@ -1393,11 +1393,11 @@ for.body.lr.ph.i149:                              ; preds = %if.end
 
 for.body.i155:                                    ; preds = %if.then.i161, %for.body.lr.ph.i149
   %i.08.i156 = phi i64 [ 0, %for.body.lr.ph.i149 ], [ %inc9.i162, %if.then.i161 ]
-  %add.ptr.i.i157 = getelementptr inbounds nuw i64, ptr %89, i64 %i.08.i156
+  %add.ptr.i.i157 = getelementptr inbounds nuw [8 x i8], ptr %89, i64 %i.08.i156
   %90 = load i64, ptr %add.ptr.i.i157, align 8, !tbaa !8
   %inc3.i158 = add i64 %90, 1
   store i64 %inc3.i158, ptr %add.ptr.i.i157, align 8, !tbaa !8
-  %add.ptr.i5.i159 = getelementptr inbounds nuw i64, ptr %88, i64 %i.08.i156
+  %add.ptr.i5.i159 = getelementptr inbounds nuw [8 x i8], ptr %88, i64 %i.08.i156
   %91 = load i64, ptr %add.ptr.i5.i159, align 8, !tbaa !8
   %cmp6.i160 = icmp eq i64 %inc3.i158, %91
   br i1 %cmp6.i160, label %if.then.i161, label %_ZN8QuantLib19FdmLinearOpIteratorppEv.exit164.loopexit
@@ -1526,11 +1526,11 @@ entry:
   %stateDirection_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load i64, ptr %stateDirection_, align 8, !tbaa !46
   %1 = load ptr, ptr %coordinates_.i, align 8, !tbaa !56
-  %add.ptr.i = getelementptr inbounds nuw i64, ptr %1, i64 %0
+  %add.ptr.i = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %0
   %2 = load i64, ptr %add.ptr.i, align 8, !tbaa !8
   %stateEvolveFcts_ = getelementptr inbounds nuw i8, ptr %this, i64 136
   %3 = load ptr, ptr %stateEvolveFcts_, align 8, !tbaa !50
-  %add.ptr.i3 = getelementptr inbounds nuw %"class.std::function", ptr %3, i64 %2
+  %add.ptr.i3 = getelementptr inbounds nuw [32 x i8], ptr %3, i64 %2
   %_M_manager.i.i = getelementptr inbounds nuw i8, ptr %add.ptr.i3, i64 16
   %4 = load ptr, ptr %_M_manager.i.i, align 8, !tbaa !62
   %tobool.not.i.i.not = icmp eq ptr %4, null
@@ -1554,7 +1554,7 @@ _ZNK5boost10shared_ptrIN8QuantLib23FdmInnerValueCalculatorEEptEv.exit: ; preds =
   %7 = load ptr, ptr %vfn, align 8
   %call6 = tail call noundef double %7(ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 8 dereferenceable(56) %iter, double noundef %t)
   %8 = load ptr, ptr %stateEvolveFcts_, align 8, !tbaa !50
-  %add.ptr.i4 = getelementptr inbounds nuw %"class.std::function", ptr %8, i64 %2
+  %add.ptr.i4 = getelementptr inbounds nuw [32 x i8], ptr %8, i64 %2
   call void @llvm.lifetime.start.p0(ptr nonnull %__args.addr.i)
   store double %call6, ptr %__args.addr.i, align 8, !tbaa !80
   %_M_manager.i.i5 = getelementptr inbounds nuw i8, ptr %add.ptr.i4, i64 16

@@ -14,7 +14,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.replDataBuf = type { ptr, i64, i64, i64, i64 }
 %struct.aclInfo = type { i64, i64, i64, i64 }
 %struct.redisTLSContextConfig = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i32, i32 }
-%struct.latencySample = type { i32, i32 }
 %struct.latencyStats = type { i32, i32, i32, i32, i32, i32, i64 }
 %struct.hdr_iter = type { ptr, i32, i64, i64, i64, i64, i64, i64, i64, i64, i64, %union.anon, ptr }
 %union.anon = type { %struct.hdr_iter_linear }
@@ -176,7 +175,7 @@ define dso_local void @latencyAddSample(ptr noundef %0, i64 noundef %1) local_un
   %22 = srem i32 %21, 160
   %23 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   %24 = sext i32 %22 to i64
-  %25 = getelementptr inbounds %struct.latencySample, ptr %23, i64 %24
+  %25 = getelementptr inbounds [8 x i8], ptr %23, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !41
   %27 = sext i32 %26 to i64
   %28 = icmp eq i64 %5, %27
@@ -197,7 +196,7 @@ define dso_local void @latencyAddSample(ptr noundef %0, i64 noundef %1) local_un
 36:                                               ; preds = %19
   %37 = trunc i64 %5 to i32
   %38 = sext i32 %20 to i64
-  %39 = getelementptr inbounds %struct.latencySample, ptr %23, i64 %38
+  %39 = getelementptr inbounds [8 x i8], ptr %23, i64 %38
   store i32 %37, ptr %39, align 4, !tbaa !41
   %40 = trunc i64 %1 to i32
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 4
@@ -317,7 +316,7 @@ define dso_local void @analyzeLatencyForEvent(ptr noundef %0, ptr noundef captur
   %18 = phi i32 [ 0, %.preheader ], [ %48, %44 ]
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %44 ]
   %.06581 = phi i64 [ 0, %.preheader ], [ %.1, %44 ]
-  %19 = getelementptr inbounds nuw %struct.latencySample, ptr %13, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %20 = load i32, ptr %19, align 4, !tbaa !41
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %44, label %22
@@ -400,7 +399,7 @@ define dso_local void @analyzeLatencyForEvent(ptr noundef %0, ptr noundef captur
 58:                                               ; preds = %.preheader98, %70
   %indvars.iv85 = phi i64 [ %indvars.iv.next86, %70 ], [ 0, %.preheader98 ]
   %.283 = phi i64 [ %.3, %70 ], [ 0, %.preheader98 ]
-  %59 = getelementptr inbounds nuw %struct.latencySample, ptr %13, i64 %indvars.iv85
+  %59 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv85
   %60 = load i32, ptr %59, align 4, !tbaa !41
   %61 = icmp eq i32 %60, 0
   br i1 %61, label %70, label %62
@@ -1126,7 +1125,7 @@ define dso_local void @latencySpecificCommandsFillCDF(ptr noundef %0) local_unna
   %indvars.iv = phi i64 [ 2, %.lr.ph42 ], [ %indvars.iv.next, %101 ]
   %.040 = phi i32 [ 0, %.lr.ph42 ], [ %.1, %101 ]
   %12 = load ptr, ptr %7, align 8, !tbaa !93
-  %13 = getelementptr inbounds nuw ptr, ptr %12, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %12, i64 %indvars.iv
   %14 = load ptr, ptr %13, align 8, !tbaa !94
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8, !tbaa !95
@@ -1338,7 +1337,7 @@ define dso_local void @latencyCommandReplyWithSamples(ptr noundef %0, ptr nounde
   %7 = add nsw i32 %6, %.01718
   %8 = srem i32 %7, 160
   %9 = sext i32 %8 to i64
-  %10 = getelementptr inbounds %struct.latencySample, ptr %4, i64 %9
+  %10 = getelementptr inbounds [8 x i8], ptr %4, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !41
   %12 = icmp eq i32 %11, 0
   br i1 %12, label %20, label %13
@@ -1397,7 +1396,7 @@ define dso_local void @latencyCommandReplyWithLatestEvents(ptr noundef %0) local
   tail call void @addReplyBulkCString(ptr noundef %0, ptr noundef %12) #15
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %18 = sext i32 %16 to i64
-  %19 = getelementptr inbounds %struct.latencySample, ptr %17, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %17, i64 %18
   %20 = load i32, ptr %19, align 4, !tbaa !41
   %21 = sext i32 %20 to i64
   tail call void @addReplyLongLong(ptr noundef %0, i64 noundef %21) #15
@@ -1437,7 +1436,7 @@ define dso_local ptr @latencyCommandGenSparkeline(ptr noundef %0, ptr noundef re
   %10 = srem i32 %9, 160
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %11 = sext i32 %10 to i64
-  %12 = getelementptr inbounds %struct.latencySample, ptr %6, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %6, i64 %11
   %13 = load i32, ptr %12, align 4, !tbaa !41
   %14 = icmp eq i32 %13, 0
   br i1 %14, label %46, label %15
@@ -1589,7 +1588,7 @@ define dso_local void @latencyCommand(ptr noundef %0) local_unnamed_addr #2 {
   %29 = add nsw i32 %28, %.01718.i
   %30 = srem i32 %29, 160
   %31 = sext i32 %30 to i64
-  %32 = getelementptr inbounds %struct.latencySample, ptr %26, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %26, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !41
   %34 = icmp eq i32 %33, 0
   br i1 %34, label %42, label %35
@@ -1809,7 +1808,7 @@ latencyResetEvent.exit:                           ; preds = %latencyResetEvent.e
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 2, %128 ]
   %.071 = phi i32 [ %147, %.lr.ph ], [ 0, %128 ]
   %141 = load ptr, ptr %4, align 8, !tbaa !93
-  %142 = getelementptr inbounds nuw ptr, ptr %141, i64 %indvars.iv
+  %142 = getelementptr inbounds nuw [8 x i8], ptr %141, i64 %indvars.iv
   %143 = load ptr, ptr %142, align 8, !tbaa !94
   %144 = getelementptr inbounds nuw i8, ptr %143, i64 8
   %145 = load ptr, ptr %144, align 8, !tbaa !95
@@ -1914,7 +1913,7 @@ define dso_local void @durationAddSample(i32 noundef %0, i64 noundef %1) local_u
 
 4:                                                ; preds = %2
   %5 = sext i32 %0 to i64
-  %6 = getelementptr inbounds %struct.durationStats, ptr getelementptr inbounds nuw (i8, ptr @server, i64 6192), i64 %5
+  %6 = getelementptr inbounds [24 x i8], ptr getelementptr inbounds nuw (i8, ptr @server, i64 6192), i64 %5
   %7 = load i64, ptr %6, align 8, !tbaa !108
   %8 = add i64 %7, 1
   store i64 %8, ptr %6, align 8, !tbaa !108

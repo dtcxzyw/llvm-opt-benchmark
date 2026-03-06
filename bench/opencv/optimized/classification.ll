@@ -4550,7 +4550,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %_ZNSt7_
 
 .noexc486:                                        ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit, %.noexc490
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.noexc490 ], [ 0, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit ]
-  %315 = getelementptr inbounds nuw double, ptr %28, i64 %indvars.iv.i
+  %315 = getelementptr inbounds nuw [8 x i8], ptr %28, i64 %indvars.iv.i
   %316 = load double, ptr %315, align 8, !tbaa !90
   %317 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, double noundef %316)
           to label %.noexc489 unwind label %.loopexit.split-lp823.loopexit
@@ -4625,7 +4625,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit493: ; preds = %_ZNS
 
 .noexc497:                                        ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit493, %.noexc501
   %indvars.iv.i494 = phi i64 [ %indvars.iv.next.i495, %.noexc501 ], [ 0, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit493 ]
-  %344 = getelementptr inbounds nuw double, ptr %30, i64 %indvars.iv.i494
+  %344 = getelementptr inbounds nuw [8 x i8], ptr %30, i64 %indvars.iv.i494
   %345 = load double, ptr %344, align 8, !tbaa !90
   %346 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) @_ZSt4cout, double noundef %345)
           to label %.noexc500 unwind label %.loopexit822
@@ -6440,7 +6440,7 @@ _ZN2cv12MatIterator_IfEppEv.exit.i.i:             ; preds = %.noexc685, %846, %.
 
 906:                                              ; preds = %901
   %907 = sext i32 %.2 to i64
-  %908 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %902, i64 %907
+  %908 = getelementptr inbounds nuw [32 x i8], ptr %902, i64 %907
   br label %909
 
 909:                                              ; preds = %905, %906
@@ -7236,7 +7236,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8, !tbaa !56
   store ptr %.0.lcssa.i.i.i.i35, ptr %5, align 8, !tbaa !59
-  %74 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %23, i64 %17
+  %74 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %17
   store ptr %74, ptr %73, align 8, !tbaa !120
   ret void
 
@@ -7289,7 +7289,7 @@ define linkonce_odr hidden void @_ZN2cv16MatConstIteratorC2EPKNS_3MatE(ptr nound
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %11 = load ptr, ptr %10, align 8, !tbaa !180
   %12 = zext nneg i32 %7 to i64
-  %13 = getelementptr i64, ptr %11, i64 %12
+  %13 = getelementptr [8 x i8], ptr %11, i64 %12
   %14 = getelementptr i8, ptr %13, i64 -8
   %15 = load i64, ptr %14, align 8, !tbaa !39
   br label %16

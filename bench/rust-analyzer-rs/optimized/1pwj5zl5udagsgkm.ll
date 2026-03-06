@@ -495,7 +495,7 @@ define hidden void @"_ZN79_$LT$indexmap..map..IndexMap$LT$K$C$V$C$S$GT$$u20$as$u
   %16 = load i64, ptr %15, align 8, !alias.scope !53, !noalias !57, !noundef !21
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8, !alias.scope !53, !noalias !57, !nonnull !21, !noundef !21
-  %19 = getelementptr inbounds { i64, { i32, i16, i16 }, {} }, ptr %18, i64 %16
+  %19 = getelementptr inbounds [16 x i8], ptr %18, i64 %16
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %19, ptr nonnull readonly align 8 %4, i64 %.idx.i.i.i.i, i1 false), !noalias !58
   %20 = load i64, ptr %15, align 8, !alias.scope !53, !noalias !57, !noundef !21
   %21 = add i64 %20, %6
@@ -961,7 +961,7 @@ define hidden void @_ZN5salsa7runtime11local_state10LocalState12active_query17h6
   %.not.i.i = icmp eq i64 %13, 0
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load ptr, ptr %14, align 8, !alias.scope !151, !noalias !153, !nonnull !21
-  %16 = getelementptr { { i64, [6 x i64] }, { i32, i16, i16 }, ptr, i32, i8, [3 x i8] }, ptr %15, i64 %13
+  %16 = getelementptr [80 x i8], ptr %15, i64 %13
   %17 = getelementptr i8, ptr %16, i64 -80
   %18 = icmp eq ptr %17, null
   %19 = select i1 %.not.i.i, i1 true, i1 %18
@@ -1182,7 +1182,7 @@ define hidden void @_ZN5salsa7runtime11local_state10LocalState21report_untracked
   %.not.i.i = icmp eq i64 %13, 0
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8, !alias.scope !196, !noalias !199, !nonnull !21
-  %16 = getelementptr { { i64, [6 x i64] }, { i32, i16, i16 }, ptr, i32, i8, [3 x i8] }, ptr %15, i64 %13
+  %16 = getelementptr [80 x i8], ptr %15, i64 %13
   %17 = getelementptr i8, ptr %16, i64 -80
   %.not56.i.i = icmp eq ptr %17, null
   %.not5.i.i = select i1 %.not.i.i, i1 true, i1 %.not56.i.i
@@ -1500,7 +1500,7 @@ define noundef ptr @_ZN5salsa7runtime11local_state16ActiveQueryGuard10take_cycle
   %.not.i.i = icmp eq i64 %13, 0
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %15 = load ptr, ptr %14, align 8, !alias.scope !258, !nonnull !21
-  %16 = getelementptr { { i64, [6 x i64] }, { i32, i16, i16 }, ptr, i32, i8, [3 x i8] }, ptr %15, i64 %13
+  %16 = getelementptr [80 x i8], ptr %15, i64 %13
   %17 = getelementptr i8, ptr %16, i64 -80
   %18 = icmp eq ptr %17, null
   %19 = select i1 %.not.i.i, i1 true, i1 %18

@@ -2180,7 +2180,7 @@ define void @_ZN18TrafficTableDialog37aggregationSummaryOnlyCheckBoxToggledEb(pt
   %20 = phi i64 [ 0, %.lr.ph ], [ %41, %39 ]
   %.01637 = phi i32 [ 0, %.lr.ph ], [ %40, %39 ]
   %21 = load ptr, ptr %16, align 8
-  %22 = getelementptr i32, ptr %21, i64 %20
+  %22 = getelementptr [4 x i8], ptr %21, i64 %20
   %23 = load i32, ptr %22, align 4
   %24 = invoke ptr @find_protocol_by_id(i32 noundef %23)
           to label %25 unwind label %37

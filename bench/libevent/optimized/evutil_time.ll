@@ -103,12 +103,12 @@ define i32 @evutil_date_rfc1123(ptr noundef %0, i64 noundef %1, ptr noundef read
   %.0.sroa.phi25.sroa.phi60 = getelementptr inbounds nuw i8, ptr %.0.sroa.phi25, i64 24
   %11 = load i32, ptr %.0.sroa.phi25.sroa.phi60, align 8
   %12 = sext i32 %11 to i64
-  %13 = getelementptr inbounds ptr, ptr @evutil_date_rfc1123.DAYS, i64 %12
+  %13 = getelementptr inbounds [8 x i8], ptr @evutil_date_rfc1123.DAYS, i64 %12
   %14 = load ptr, ptr %13, align 8
   %15 = load i32, ptr %.0.sroa.phi25.sroa.phi62, align 4
   %16 = load i32, ptr %.0.sroa.phi25.sroa.phi, align 8
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds ptr, ptr @evutil_date_rfc1123.MONTHS, i64 %17
+  %18 = getelementptr inbounds [8 x i8], ptr @evutil_date_rfc1123.MONTHS, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr %.0.sroa.phi25.sroa.phi67, align 4
   %21 = add nsw i32 %20, 1900

@@ -12,9 +12,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::__cxx11::basic_string" = type { %"struct.std::__cxx11::basic_string<char>::_Alloc_hider", i64, %union.anon }
 %"struct.std::__cxx11::basic_string<char>::_Alloc_hider" = type { ptr }
 %union.anon = type { i64, [8 x i8] }
-%struct.PJ_UNITS = type { ptr, ptr, ptr, double }
-%struct.PJ_PRIME_MERIDIANS = type { ptr, ptr }
-%struct.PJ_LIST = type { ptr, ptr, ptr }
 
 @.str = private unnamed_addr constant [13 x i8] c"No arguments\00", align 1
 @.str.1 = private unnamed_addr constant [15 x i8] c"+proj=pipeline\00", align 1
@@ -872,7 +869,7 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
   %indvars.iv = phi i64 [ 0, %.preheader463.preheader ], [ %indvars.iv.next, %28 ]
   %.0360468 = phi i32 [ 0, %.preheader463.preheader ], [ %.1361, %28 ]
   %.0362467 = phi i32 [ 0, %.preheader463.preheader ], [ %.1363, %28 ]
-  %15 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   %16 = load ptr, ptr %15, align 8, !tbaa !50
   %17 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %16, ptr noundef nonnull dereferenceable(15) @.str.1) #13
   %.not424 = icmp eq i32 %17, 0
@@ -950,7 +947,7 @@ define hidden noundef ptr @_Z32pj_init_ctx_with_allow_init_epsgP6pj_ctxiPPci(ptr
 .lr.ph:                                           ; preds = %.preheader462, %41
   %indvars.iv489 = phi i64 [ %indvars.iv.next490, %41 ], [ 1, %.preheader462 ]
   %.0354471 = phi ptr [ %44, %41 ], [ %38, %.preheader462 ]
-  %42 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv489
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv489
   %43 = load ptr, ptr %42, align 8, !tbaa !50
   %44 = tail call noundef ptr @_Z10pj_mkparamPKc(ptr noundef %43)
   store ptr %44, ptr %.0354471, align 8, !tbaa !51
@@ -1334,7 +1331,7 @@ thread-pre-split:                                 ; preds = %118, %122, %126, %1
 
 235:                                              ; preds = %.lr.ph474
   %indvars.iv.next495 = add nuw nsw i64 %indvars.iv494, 1
-  %236 = getelementptr inbounds nuw %struct.PJ_UNITS, ptr %231, i64 %indvars.iv.next495
+  %236 = getelementptr inbounds nuw [32 x i8], ptr %231, i64 %indvars.iv.next495
   %237 = load ptr, ptr %236, align 8, !tbaa !104
   %.not410 = icmp eq ptr %237, null
   br i1 %.not410, label %.critedge428, label %.lr.ph474, !llvm.loop !106
@@ -1352,7 +1349,7 @@ thread-pre-split:                                 ; preds = %118, %122, %126, %1
   br label %.thread
 
 241:                                              ; preds = %.lr.ph474
-  %242 = getelementptr inbounds nuw %struct.PJ_UNITS, ptr %231, i64 %indvars.iv494
+  %242 = getelementptr inbounds nuw [32 x i8], ptr %231, i64 %indvars.iv494
   %243 = getelementptr inbounds nuw i8, ptr %242, i64 8
   %244 = load ptr, ptr %243, align 8, !tbaa !107
   %.not412 = icmp eq ptr %244, null
@@ -1427,7 +1424,7 @@ thread-pre-split:                                 ; preds = %118, %122, %126, %1
 
 272:                                              ; preds = %.lr.ph477
   %indvars.iv.next498 = add nuw nsw i64 %indvars.iv497, 1
-  %273 = getelementptr inbounds nuw %struct.PJ_UNITS, ptr %231, i64 %indvars.iv.next498
+  %273 = getelementptr inbounds nuw [32 x i8], ptr %231, i64 %indvars.iv.next498
   %274 = load ptr, ptr %273, align 8, !tbaa !104
   %.not415 = icmp eq ptr %274, null
   br i1 %.not415, label %.critedge429, label %.lr.ph477, !llvm.loop !110
@@ -1445,7 +1442,7 @@ thread-pre-split:                                 ; preds = %118, %122, %126, %1
   br label %.thread
 
 278:                                              ; preds = %.lr.ph477
-  %279 = getelementptr inbounds nuw %struct.PJ_UNITS, ptr %231, i64 %indvars.iv497
+  %279 = getelementptr inbounds nuw [32 x i8], ptr %231, i64 %indvars.iv497
   %280 = getelementptr inbounds nuw i8, ptr %279, i64 8
   %281 = load ptr, ptr %280, align 8, !tbaa !107
   %.not417 = icmp eq ptr %281, null
@@ -1527,7 +1524,7 @@ thread-pre-split:                                 ; preds = %118, %122, %126, %1
 
 315:                                              ; preds = %.lr.ph481
   %indvars.iv.next501 = add nuw nsw i64 %indvars.iv500, 1
-  %316 = getelementptr inbounds nuw %struct.PJ_PRIME_MERIDIANS, ptr %310, i64 %indvars.iv.next501
+  %316 = getelementptr inbounds nuw [16 x i8], ptr %310, i64 %indvars.iv.next501
   %317 = load ptr, ptr %316, align 8, !tbaa !113
   %.not420 = icmp eq ptr %317, null
   br i1 %.not420, label %.thread450, label %.lr.ph481, !llvm.loop !115
@@ -1540,7 +1537,7 @@ thread-pre-split:                                 ; preds = %118, %122, %126, %1
   br i1 %320, label %321, label %315
 
 321:                                              ; preds = %.lr.ph481
-  %322 = getelementptr inbounds nuw %struct.PJ_PRIME_MERIDIANS, ptr %310, i64 %indvars.iv500
+  %322 = getelementptr inbounds nuw [16 x i8], ptr %310, i64 %indvars.iv500
   %323 = getelementptr inbounds nuw i8, ptr %322, i64 8
   %324 = load ptr, ptr %323, align 8, !tbaa !116
   %325 = icmp eq ptr %324, null
@@ -1646,7 +1643,7 @@ define internal fastcc noundef ptr @_ZL18locate_constructorPKc(ptr noundef nonnu
 
 4:                                                ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %5 = getelementptr inbounds nuw %struct.PJ_LIST, ptr %2, i64 %indvars.iv.next
+  %5 = getelementptr inbounds nuw [24 x i8], ptr %2, i64 %indvars.iv.next
   %6 = load ptr, ptr %5, align 8, !tbaa !119
   %cond = icmp eq ptr %6, null
   br i1 %cond, label %.loopexit, label %.lr.ph, !llvm.loop !121
@@ -1659,7 +1656,7 @@ define internal fastcc noundef ptr @_ZL18locate_constructorPKc(ptr noundef nonnu
   br i1 %.not10, label %.critedge, label %4
 
 .critedge:                                        ; preds = %.lr.ph
-  %9 = getelementptr inbounds nuw %struct.PJ_LIST, ptr %2, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [24 x i8], ptr %2, i64 %indvars.iv
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8, !tbaa !122
   br label %.loopexit

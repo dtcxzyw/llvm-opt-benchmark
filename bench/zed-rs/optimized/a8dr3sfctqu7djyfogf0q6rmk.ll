@@ -1558,7 +1558,7 @@ define hidden void @"_ZN90_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ite
   %.sroa.4.0.copyload = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !nonnull !17, !noundef !17
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.5.0.copyload = load i64, ptr %.sroa.5.0..sroa_idx, align 8
-  %3 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.sroa.4.0.copyload, i64 %.sroa.5.0.copyload
+  %3 = getelementptr inbounds [24 x i8], ptr %.sroa.4.0.copyload, i64 %.sroa.5.0.copyload
   store ptr %.sroa.4.0.copyload, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.0.0.copyload, ptr %4, align 8
@@ -1685,7 +1685,7 @@ define void @"_ZN108_$LT$dev_server_projects..DevServerProject$u20$as$u20$core..
   %.sroa.46.0.copyload = load ptr, ptr %.sroa.46.0..sroa_idx, align 8, !nonnull !17, !noundef !17
   %.sroa.57.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.sroa.57.0.copyload = load i64, ptr %.sroa.57.0..sroa_idx, align 8
-  %12 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %.sroa.46.0.copyload, i64 %.sroa.57.0.copyload
+  %12 = getelementptr inbounds [24 x i8], ptr %.sroa.46.0.copyload, i64 %.sroa.57.0.copyload
   store ptr %.sroa.46.0.copyload, ptr %4, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %.sroa.46.0.copyload, ptr %.sroa.4.0..sroa_idx, align 8
@@ -2177,7 +2177,7 @@ define void @_ZN19dev_server_projects5Store19projects_for_server17hd29c312056a43
           to label %.loopexit18 unwind label %.loopexit.split-lp
 
 .lr.ph.preheader.i.i.i:                           ; preds = %25
-  %28 = getelementptr inbounds nuw { { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, i64, i64 }, ptr %21, i64 %23
+  %28 = getelementptr inbounds nuw [56 x i8], ptr %21, i64 %23
   %29 = getelementptr inbounds nuw i8, ptr %21, i64 56
   br label %.lr.ph.i.i.i
 
@@ -2269,7 +2269,7 @@ define void @_ZN19dev_server_projects5Store11dev_servers17hf29e09a2990f247eE(ptr
           to label %.loopexit14 unwind label %.loopexit.split-lp
 
 .lr.ph.preheader.i.i.i:                           ; preds = %23
-  %26 = getelementptr inbounds nuw { { { i64, [2 x i64] } }, { i64, [2 x i64] }, i64, i32, [1 x i32] }, ptr %19, i64 %21
+  %26 = getelementptr inbounds nuw [64 x i8], ptr %19, i64 %21
   %27 = getelementptr inbounds nuw i8, ptr %19, i64 64
   br label %.lr.ph.i.i.i
 
@@ -2417,7 +2417,7 @@ define noundef align 8 dereferenceable_or_null(64) ptr @_ZN19dev_server_projects
   %52 = add i64 %.sroa.01.0.i.i.i, %51
   %53 = and i64 %52, %43
   %54 = sub nsw i64 0, %53
-  %55 = getelementptr inbounds { i64, { { { i64, [2 x i64] } }, { i64, [2 x i64] }, i64, i32, [1 x i32] } }, ptr %44, i64 %54
+  %55 = getelementptr inbounds [72 x i8], ptr %44, i64 %54
   %56 = getelementptr inbounds i8, ptr %55, i64 -72
   %.val3.i.i.i = load i64, ptr %56, align 8, !alias.scope !522, !noalias !527, !noundef !17
   %57 = icmp eq i64 %1, %.val3.i.i.i
@@ -2518,7 +2518,7 @@ define void @_ZN19dev_server_projects5Store19dev_server_projects17h70b0f77c76a5f
           to label %.loopexit14 unwind label %.loopexit.split-lp
 
 .lr.ph.preheader.i.i.i:                           ; preds = %23
-  %26 = getelementptr inbounds nuw { { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, i64, i64 }, ptr %19, i64 %21
+  %26 = getelementptr inbounds nuw [56 x i8], ptr %19, i64 %21
   %27 = getelementptr inbounds nuw i8, ptr %19, i64 56
   br label %.lr.ph.i.i.i
 
@@ -2666,7 +2666,7 @@ define noundef align 8 dereferenceable_or_null(56) ptr @_ZN19dev_server_projects
   %52 = add i64 %.sroa.01.0.i.i.i, %51
   %53 = and i64 %52, %43
   %54 = sub nsw i64 0, %53
-  %55 = getelementptr inbounds { i64, { { i64, [1 x i64] }, { { i64, ptr, {} }, i64 }, i64, i64 } }, ptr %44, i64 %54
+  %55 = getelementptr inbounds [64 x i8], ptr %44, i64 %54
   %56 = getelementptr inbounds i8, ptr %55, i64 -64
   %.val3.i.i.i = load i64, ptr %56, align 8, !alias.scope !596, !noalias !601, !noundef !17
   %57 = icmp eq i64 %1, %.val3.i.i.i

@@ -150,7 +150,7 @@ define internal fastcc noundef range(i32 0, 17) i32 @_ieee80211_recalc_chanctx_m
 31:                                               ; preds = %148, %26
   %32 = phi i64 [ 0, %26 ], [ %150, %148 ]
   %33 = phi i32 [ 0, %26 ], [ %149, %148 ]
-  %34 = getelementptr ptr, ptr %28, i64 %32
+  %34 = getelementptr [8 x i8], ptr %28, i64 %32
   %35 = load volatile ptr, ptr %34, align 8
   %36 = icmp eq ptr %35, null
   br i1 %36, label %148, label %37
@@ -215,7 +215,7 @@ define internal fastcc noundef range(i32 0, 17) i32 @_ieee80211_recalc_chanctx_m
 
 65:                                               ; preds = %62, %.preheader41
   %66 = getelementptr inbounds nuw i8, ptr %53, i64 2560
-  %67 = getelementptr ptr, ptr %66, i64 %32
+  %67 = getelementptr [8 x i8], ptr %66, i64 %32
   %68 = load volatile ptr, ptr %67, align 8
   %69 = icmp eq ptr %68, null
   br i1 %69, label %82, label %70
@@ -300,7 +300,7 @@ define internal fastcc noundef range(i32 0, 17) i32 @_ieee80211_recalc_chanctx_m
 
 113:                                              ; preds = %110, %.preheader42
   %114 = getelementptr inbounds nuw i8, ptr %101, i64 2560
-  %115 = getelementptr ptr, ptr %114, i64 %32
+  %115 = getelementptr [8 x i8], ptr %114, i64 %32
   %116 = load volatile ptr, ptr %115, align 8
   %117 = icmp eq ptr %116, null
   br i1 %117, label %130, label %118
@@ -485,7 +485,7 @@ define internal fastcc void @ieee80211_chan_bw_change(ptr noundef %0, ptr nounde
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr %8, align 8
   %10 = zext i32 %9 to i64
-  %11 = getelementptr ptr, ptr %6, i64 %10
+  %11 = getelementptr [8 x i8], ptr %6, i64 %10
   %12 = load ptr, ptr %11, align 8
   tail call void @__rcu_read_lock() #13
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 1560
@@ -510,7 +510,7 @@ define internal fastcc void @ieee80211_chan_bw_change(ptr noundef %0, ptr nounde
 
 26:                                               ; preds = %51, %23
   %27 = phi i64 [ 0, %23 ], [ %52, %51 ]
-  %28 = getelementptr ptr, ptr %24, i64 %27
+  %28 = getelementptr [8 x i8], ptr %24, i64 %27
   %29 = load volatile ptr, ptr %28, align 8
   %30 = icmp eq ptr %29, null
   br i1 %30, label %51, label %31
@@ -522,7 +522,7 @@ define internal fastcc void @ieee80211_chan_bw_change(ptr noundef %0, ptr nounde
   br i1 %34, label %35, label %51
 
 35:                                               ; preds = %31
-  %36 = getelementptr ptr, ptr %25, i64 %27
+  %36 = getelementptr [8 x i8], ptr %25, i64 %27
   %37 = load volatile ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, null
   br i1 %38, label %51, label %39
@@ -695,7 +695,7 @@ define dso_local noundef zeroext i1 @ieee80211_is_radar_required(ptr noundef %0)
 
 8:                                                ; preds = %17, %.preheader
   %9 = phi i64 [ 0, %.preheader ], [ %18, %17 ]
-  %10 = getelementptr ptr, ptr %7, i64 %9
+  %10 = getelementptr [8 x i8], ptr %7, i64 %9
   %11 = load volatile ptr, ptr %10, align 8
   %12 = icmp eq ptr %11, null
   br i1 %12, label %17, label %13
@@ -748,7 +748,7 @@ define dso_local void @ieee80211_recalc_chanctx_chantype(ptr noundef %0, ptr nou
 19:                                               ; preds = %35, %17
   %20 = phi i64 [ %37, %35 ], [ 0, %17 ]
   %21 = phi ptr [ %36, %35 ], [ %8, %17 ]
-  %22 = getelementptr ptr, ptr %18, i64 %20
+  %22 = getelementptr [8 x i8], ptr %18, i64 %20
   %23 = load volatile ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
   br i1 %24, label %35, label %25
@@ -915,7 +915,7 @@ define dso_local void @ieee80211_recalc_smps_chanctx(ptr noundef %0, ptr noundef
   %27 = phi i64 [ 0, %24 ], [ %60, %57 ]
   %28 = phi i8 [ %10, %24 ], [ %59, %57 ]
   %29 = phi i8 [ %11, %24 ], [ %58, %57 ]
-  %30 = getelementptr ptr, ptr %25, i64 %27
+  %30 = getelementptr [8 x i8], ptr %25, i64 %27
   %31 = load volatile ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
   br i1 %32, label %57, label %33
@@ -1118,7 +1118,7 @@ define internal fastcc void @__ieee80211_link_copy_chanctx_to_vlans(ptr noundef 
 24:                                               ; preds = %33, %22
   %25 = phi ptr [ %20, %22 ], [ %34, %33 ]
   %26 = getelementptr i8, ptr %25, i64 3032
-  %27 = getelementptr ptr, ptr %26, i64 %23
+  %27 = getelementptr [8 x i8], ptr %26, i64 %23
   %28 = load volatile ptr, ptr %27, align 8
   %29 = icmp eq ptr %28, null
   br i1 %29, label %30, label %31, !prof !34
@@ -1703,7 +1703,7 @@ define dso_local i32 @ieee80211_link_use_channel(ptr noundef %0, ptr noundef %1,
 .preheader29:                                     ; preds = %26, %38
   %30 = phi ptr [ %39, %38 ], [ %28, %26 ]
   %31 = getelementptr i8, ptr %30, i64 3032
-  %32 = getelementptr ptr, ptr %31, i64 %15
+  %32 = getelementptr [8 x i8], ptr %31, i64 %15
   %33 = load volatile ptr, ptr %32, align 8
   %34 = icmp eq ptr %33, null
   br i1 %34, label %35, label %36, !prof !34
@@ -1898,7 +1898,7 @@ ieee80211_new_chanctx.exit:                       ; preds = %117, %114, %93
 140:                                              ; preds = %149, %138
   %141 = phi ptr [ %136, %138 ], [ %150, %149 ]
   %142 = getelementptr i8, ptr %141, i64 3032
-  %143 = getelementptr ptr, ptr %142, i64 %139
+  %143 = getelementptr [8 x i8], ptr %142, i64 %139
   %144 = load volatile ptr, ptr %143, align 8
   %145 = icmp eq ptr %144, null
   br i1 %145, label %146, label %147, !prof !34
@@ -2362,7 +2362,7 @@ define internal fastcc void @ieee80211_recalc_radar_chanctx(ptr noundef %0, ptr 
 15:                                               ; preds = %32, %13
   %16 = phi i64 [ %35, %32 ], [ 0, %13 ]
   %17 = phi i8 [ %34, %32 ], [ 0, %13 ]
-  %18 = getelementptr ptr, ptr %14, i64 %16
+  %18 = getelementptr [8 x i8], ptr %14, i64 %16
   %19 = load volatile ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
   br i1 %20, label %32, label %21
@@ -2654,7 +2654,7 @@ define internal fastcc i32 @ieee80211_link_use_reserved_reassign(ptr noundef %0)
 67:                                               ; preds = %76, %65
   %68 = phi ptr [ %63, %65 ], [ %77, %76 ]
   %69 = getelementptr i8, ptr %68, i64 3032
-  %70 = getelementptr ptr, ptr %69, i64 %66
+  %70 = getelementptr [8 x i8], ptr %69, i64 %66
   %71 = load volatile ptr, ptr %70, align 8
   %72 = icmp eq ptr %71, null
   br i1 %72, label %73, label %74, !prof !34
@@ -3501,7 +3501,7 @@ define internal fastcc i32 @ieee80211_vif_use_reserved_switch(ptr noundef %0) un
   %189 = load ptr, ptr %166, align 8
   %190 = getelementptr inbounds nuw i8, ptr %189, i64 4056
   %191 = sext i32 %165 to i64
-  %192 = getelementptr %struct.ieee80211_vif_chanctx_switch, ptr %143, i64 %191
+  %192 = getelementptr [32 x i8], ptr %143, i64 %191
   store ptr %190, ptr %192, align 8
   %193 = getelementptr inbounds nuw i8, ptr %192, i64 16
   store ptr %172, ptr %193, align 8
@@ -3772,7 +3772,7 @@ define internal fastcc i32 @ieee80211_vif_use_reserved_switch(ptr noundef %0) un
 347:                                              ; preds = %356, %345
   %348 = phi ptr [ %343, %345 ], [ %357, %356 ]
   %349 = getelementptr i8, ptr %348, i64 3032
-  %350 = getelementptr ptr, ptr %349, i64 %346
+  %350 = getelementptr [8 x i8], ptr %349, i64 %346
   %351 = load volatile ptr, ptr %350, align 8
   %352 = icmp eq ptr %351, null
   br i1 %352, label %353, label %354, !prof !34
@@ -4316,7 +4316,7 @@ define dso_local noundef range(i32 -22, 1) i32 @ieee80211_link_change_bandwidth(
 83:                                               ; preds = %92, %81
   %84 = phi ptr [ %79, %81 ], [ %93, %92 ]
   %85 = getelementptr i8, ptr %84, i64 3032
-  %86 = getelementptr ptr, ptr %85, i64 %82
+  %86 = getelementptr [8 x i8], ptr %85, i64 %82
   %87 = load volatile ptr, ptr %86, align 8
   %88 = icmp eq ptr %87, null
   br i1 %88, label %89, label %90, !prof !34
@@ -4401,7 +4401,7 @@ define dso_local void @ieee80211_link_vlan_copy_chanctx(ptr noundef readonly cap
   tail call void @__rcu_read_lock() #13
   %16 = getelementptr i8, ptr %12, i64 3032
   %17 = zext i32 %4 to i64
-  %18 = getelementptr ptr, ptr %16, i64 %17
+  %18 = getelementptr [8 x i8], ptr %16, i64 %17
   %19 = load volatile ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 768
   %21 = load ptr, ptr %20, align 8

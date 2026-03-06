@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.TupleTableSlotOps = type { i64, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }
-%struct.CompactAttribute = type { i32, i16, i8, i8, i8, i8, i8, i8, i8 }
 
 @TTSOpsVirtual = external constant %struct.TupleTableSlotOps, align 8
 @CurrentMemoryContext = external local_unnamed_addr global ptr, align 8
@@ -53,7 +52,7 @@ define internal void @tstoreStartupReceiver(ptr noundef captures(none) %0, i32 %
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %18
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %18 ]
-  %10 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %8, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [16 x i8], ptr %8, i64 %indvars.iv
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 9
   %12 = load i8, ptr %11, align 1, !range !4, !noundef !5
   %13 = trunc nuw i8 %12 to i1
@@ -251,9 +250,9 @@ slot_getallattrs.exit:                            ; preds = %2, %10
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %45 ]
   %.037 = phi i32 [ 0, %.lr.ph ], [ %.1, %45 ]
   %18 = load ptr, ptr %12, align 8
-  %19 = getelementptr inbounds nuw i64, ptr %18, i64 %indvars.iv
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %18, i64 %indvars.iv
   %20 = load i64, ptr %19, align 8
-  %21 = getelementptr inbounds nuw %struct.CompactAttribute, ptr %13, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %indvars.iv
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 9
   %23 = load i8, ptr %22, align 1, !range !4, !noundef !5
   %24 = trunc nuw i8 %23 to i1
@@ -284,7 +283,7 @@ slot_getallattrs.exit:                            ; preds = %2, %10
   %41 = load ptr, ptr %15, align 8
   %42 = add i32 %.037, 1
   %43 = sext i32 %.037 to i64
-  %44 = getelementptr inbounds i64, ptr %41, i64 %43
+  %44 = getelementptr inbounds [8 x i8], ptr %41, i64 %43
   store i64 %40, ptr %44, align 8
   br label %45
 
@@ -292,7 +291,7 @@ slot_getallattrs.exit:                            ; preds = %2, %10
   %.033 = phi i64 [ %20, %17 ], [ %20, %29 ], [ %40, %38 ], [ %20, %34 ], [ %20, %25 ]
   %.1 = phi i32 [ %.037, %17 ], [ %.037, %29 ], [ %42, %38 ], [ %.037, %34 ], [ %.037, %25 ]
   %46 = load ptr, ptr %16, align 8
-  %47 = getelementptr inbounds nuw i64, ptr %46, i64 %indvars.iv
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv
   store i64 %.033, ptr %47, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -323,7 +322,7 @@ slot_getallattrs.exit:                            ; preds = %2, %10
 59:                                               ; preds = %.lr.ph40, %59
   %indvars.iv43 = phi i64 [ 0, %.lr.ph40 ], [ %indvars.iv.next44, %59 ]
   %60 = load ptr, ptr %58, align 8
-  %61 = getelementptr inbounds nuw i64, ptr %60, i64 %indvars.iv43
+  %61 = getelementptr inbounds nuw [8 x i8], ptr %60, i64 %indvars.iv43
   %62 = load i64, ptr %61, align 8
   %63 = inttoptr i64 %62 to ptr
   tail call void @pfree(ptr noundef %63) #4

@@ -123,7 +123,7 @@ define void @_ZN7glslang14TStringAtomMapC2Ev(ptr noundef nonnull align 8 derefer
 
 .preheader:                                       ; preds = %20, %.preheader
   %.011 = phi i64 [ %28, %.preheader ], [ 0, %20 ]
-  %24 = getelementptr inbounds nuw %struct.anon, ptr @_ZN12_GLOBAL__N_16tokensE, i64 %.011
+  %24 = getelementptr inbounds nuw [16 x i8], ptr @_ZN12_GLOBAL__N_16tokensE, i64 %.011
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %26 = load ptr, ptr %25, align 8
   %27 = load i32, ptr %24, align 16
@@ -232,7 +232,7 @@ _ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocato
   br i1 %48, label %49, label %_ZNSt6vectorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEENS5_IS9_EEE6resizeEmRKS9_.exit
 
 49:                                               ; preds = %47
-  %50 = getelementptr inbounds ptr, ptr %32, i64 %42
+  %50 = getelementptr inbounds [8 x i8], ptr %32, i64 %42
   %.not.i.i = icmp eq ptr %31, %50
   br i1 %.not.i.i, label %_ZNSt6vectorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEENS5_IS9_EEE6resizeEmRKS9_.exit, label %51
 
@@ -244,7 +244,7 @@ _ZNSt6vectorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allo
   %52 = phi ptr [ %32, %51 ], [ %32, %49 ], [ %32, %47 ], [ %.pre, %45 ], [ %32, %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEEiEC2IRPKcRiTnNSt9enable_ifIXaaclsr5_PCCPE22_MoveConstructiblePairIT_T0_EEclsr5_PCCPE30_ImplicitlyMoveConvertiblePairISF_SG_EEEbE4typeELb1EEEOSF_OSG_.exit ]
   %53 = extractvalue { ptr, i8 } %27, 0
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %55 = getelementptr inbounds ptr, ptr %52, i64 %37
+  %55 = getelementptr inbounds [8 x i8], ptr %52, i64 %37
   store ptr %54, ptr %55, align 8
   ret void
 }
@@ -373,7 +373,7 @@ _ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7
 48:                                               ; preds = %_ZNKSt8__detail15_Hash_code_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESt4pairIKS8_iENS_10_Select1stESt4hashIS8_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashELb1EE12_M_hash_codeERSA_.exit
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %50 = load ptr, ptr %49, align 8
-  %51 = getelementptr inbounds nuw ptr, ptr %50, i64 %47
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %50, i64 %47
   %52 = load ptr, ptr %51, align 8
   %.not.i.i12 = icmp eq ptr %52, null
   br i1 %.not.i.i12, label %.thread, label %53
@@ -478,7 +478,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_a
   %26 = getelementptr inbounds nuw i8, ptr %.031.i.i, i64 56
   %27 = load i64, ptr %26, align 8
   %28 = urem i64 %27, %15
-  %29 = getelementptr inbounds ptr, ptr %.0.i.i.i, i64 %28
+  %29 = getelementptr inbounds [8 x i8], ptr %.0.i.i.i, i64 %28
   %30 = load ptr, ptr %29, align 8
   %.not27.i.i = icmp eq ptr %30, null
   br i1 %.not27.i.i, label %31, label %36
@@ -493,7 +493,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_a
   br i1 %.not28.i.i, label %39, label %34
 
 34:                                               ; preds = %31
-  %35 = getelementptr inbounds ptr, ptr %.0.i.i.i, i64 %.02530.i.i
+  %35 = getelementptr inbounds [8 x i8], ptr %.0.i.i.i, i64 %.02530.i.i
   store ptr %.031.i.i, ptr %35, align 8
   br label %39
 
@@ -522,7 +522,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_a
   store i64 %2, ptr %43, align 8
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds ptr, ptr %45, i64 %.0
+  %46 = getelementptr inbounds [8 x i8], ptr %45, i64 %.0
   %47 = load ptr, ptr %46, align 8
   %.not.i = icmp eq ptr %47, null
   br i1 %.not.i, label %53, label %48
@@ -531,7 +531,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_a
   %49 = load ptr, ptr %47, align 8
   store ptr %49, ptr %3, align 8
   %50 = load ptr, ptr %44, align 8
-  %51 = getelementptr inbounds ptr, ptr %50, i64 %.0
+  %51 = getelementptr inbounds [8 x i8], ptr %50, i64 %.0
   %52 = load ptr, ptr %51, align 8
   store ptr %3, ptr %52, align 8
   br label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESt4pairIKS7_iENS5_ISA_EENSt8__detail10_Select1stESt8equal_toIS7_ESt4hashIS7_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE22_M_insert_bucket_beginEmPNSC_10_Hash_nodeISA_Lb1EEE.exit
@@ -551,13 +551,13 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_a
   %60 = getelementptr inbounds nuw i8, ptr %56, i64 56
   %61 = load i64, ptr %60, align 8
   %62 = urem i64 %61, %59
-  %63 = getelementptr inbounds ptr, ptr %58, i64 %62
+  %63 = getelementptr inbounds [8 x i8], ptr %58, i64 %62
   store ptr %3, ptr %63, align 8
   br label %64
 
 64:                                               ; preds = %57, %53
   %65 = load ptr, ptr %44, align 8
-  %66 = getelementptr inbounds ptr, ptr %65, i64 %.0
+  %66 = getelementptr inbounds [8 x i8], ptr %65, i64 %.0
   store ptr %54, ptr %66, align 8
   br label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESt4pairIKS7_iENS5_ISA_EENSt8__detail10_Select1stESt8equal_toIS7_ESt4hashIS7_ENSC_18_Mod_range_hashingENSC_20_Default_ranged_hashENSC_20_Prime_rehash_policyENSC_17_Hashtable_traitsILb1ELb0ELb1EEEE22_M_insert_bucket_beginEmPNSC_10_Hash_nodeISA_Lb1EEE.exit
 
@@ -631,7 +631,7 @@ _ZSt22__uninitialized_move_aIPPKNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7g
 
 _ZSt22__uninitialized_move_aIPPKNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESA_NS5_IS9_EEET0_T_SD_SC_RT1_.exit: ; preds = %_ZSt22__uninitialized_move_aIPPKNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESA_NS5_IS9_EEET0_T_SD_SC_RT1_.exit.loopexit, %20
   %25 = phi ptr [ %.pre, %_ZSt22__uninitialized_move_aIPPKNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESA_NS5_IS9_EEET0_T_SD_SC_RT1_.exit.loopexit ], [ %9, %20 ]
-  %26 = getelementptr inbounds ptr, ptr %25, i64 %2
+  %26 = getelementptr inbounds [8 x i8], ptr %25, i64 %2
   store ptr %26, ptr %8, align 8
   %.not.i.i.i.i.i = icmp eq ptr %21, %1
   br i1 %.not.i.i.i.i.i, label %_ZSt13move_backwardIPPKNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESA_ET0_T_SC_SB_.exit, label %27
@@ -641,7 +641,7 @@ _ZSt22__uninitialized_move_aIPPKNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7g
   %29 = sub i64 %28, %16
   %30 = ashr exact i64 %29, 3
   %31 = sub nsw i64 0, %30
-  %32 = getelementptr inbounds ptr, ptr %9, i64 %31
+  %32 = getelementptr inbounds [8 x i8], ptr %9, i64 %31
   tail call void @llvm.memmove.p0.p0.i64(ptr align 8 %32, ptr align 8 %1, i64 %29, i1 false)
   br label %_ZSt13move_backwardIPPKNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESA_ET0_T_SC_SB_.exit
 
@@ -767,7 +767,7 @@ _ZSt24__uninitialized_fill_n_aIPPKNSt7__cxx1112basic_stringIcSt11char_traitsIcEN
 
 _ZSt34__uninitialized_move_if_noexcept_aIPPKNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESA_NS5_IS9_EEET0_T_SD_SC_RT1_.exit: ; preds = %.lr.ph.i.i73, %_ZSt24__uninitialized_fill_n_aIPPKNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEEmS9_NS5_IS9_EEET_SC_T0_RKT1_RT2_.exit71
   %.0.lcssa.i.i77 = phi ptr [ %66, %_ZSt24__uninitialized_fill_n_aIPPKNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEEmS9_NS5_IS9_EEET_SC_T0_RKT1_RT2_.exit71 ], [ %72, %.lr.ph.i.i73 ]
-  %73 = getelementptr inbounds nuw ptr, ptr %.0.lcssa.i.i77, i64 %2
+  %73 = getelementptr inbounds nuw [8 x i8], ptr %.0.lcssa.i.i77, i64 %2
   %.not8.i.i78 = icmp eq ptr %1, %9
   br i1 %.not8.i.i78, label %_ZSt34__uninitialized_move_if_noexcept_aIPPKNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESA_NS5_IS9_EEET0_T_SD_SC_RT1_.exit84, label %.lr.ph.i.i79
 
@@ -785,7 +785,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPPKNSt7__cxx1112basic_stringIcSt11char_
   %.0.lcssa.i.i83 = phi ptr [ %73, %_ZSt34__uninitialized_move_if_noexcept_aIPPKNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEESA_NS5_IS9_EEET0_T_SD_SC_RT1_.exit ], [ %76, %.lr.ph.i.i79 ]
   store ptr %66, ptr %48, align 8
   store ptr %.0.lcssa.i.i83, ptr %8, align 8
-  %77 = getelementptr inbounds nuw ptr, ptr %66, i64 %59
+  %77 = getelementptr inbounds nuw [8 x i8], ptr %66, i64 %59
   store ptr %77, ptr %6, align 8
   br label %_ZSt4fillIPPKNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEES9_EvT_SB_RKT0_.exit
 

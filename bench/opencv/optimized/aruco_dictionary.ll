@@ -3909,10 +3909,10 @@ define void @_ZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTyp
 
 switch.lookup:                                    ; preds = %222
   %334 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeE, i64 %334
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeE, i64 %334
   %switch.load = load ptr, ptr %switch.gep, align 8
   %335 = zext nneg i32 %1 to i64
-  %switch.gep97 = getelementptr inbounds nuw ptr, ptr @switch.table._ZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeE.1, i64 %335
+  %switch.gep97 = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZN2cv5aruco23getPredefinedDictionaryENS0_24PredefinedDictionaryTypeE.1, i64 %335
   %switch.load98 = load ptr, ptr %switch.gep97, align 8
   br label %336
 

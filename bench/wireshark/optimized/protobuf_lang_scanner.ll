@@ -78,7 +78,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %23 = load i64, ptr %22, align 8
-  %24 = getelementptr ptr, ptr %20, i64 %23
+  %24 = getelementptr [8 x i8], ptr %20, i64 %23
   %25 = load ptr, ptr %24, align 8
   %.not1495 = icmp eq ptr %25, null
   br i1 %.not1495, label %26, label %33
@@ -90,11 +90,11 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
   %29 = load ptr, ptr %19, align 8
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %31 = load i64, ptr %30, align 8
-  %32 = getelementptr ptr, ptr %29, i64 %31
+  %32 = getelementptr [8 x i8], ptr %29, i64 %31
   store ptr %28, ptr %32, align 8
   %.pre = load ptr, ptr %19, align 8
   %.pre2398 = load i64, ptr %30, align 8
-  %.phi.trans.insert2399 = getelementptr ptr, ptr %.pre, i64 %.pre2398
+  %.phi.trans.insert2399 = getelementptr [8 x i8], ptr %.pre, i64 %.pre2398
   %.pre2400 = load ptr, ptr %.phi.trans.insert2399, align 8
   br label %33
 
@@ -102,7 +102,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
   %34 = phi ptr [ %.pre2400, %26 ], [ %25, %21 ]
   %35 = phi i64 [ %.pre2398, %26 ], [ %23, %21 ]
   %36 = phi ptr [ %.pre, %26 ], [ %20, %21 ]
-  %37 = getelementptr ptr, ptr %36, i64 %35
+  %37 = getelementptr [8 x i8], ptr %36, i64 %35
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 28
   %39 = load i32, ptr %38, align 4
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 52
@@ -159,7 +159,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
   %70 = getelementptr i8, ptr @yy_ec, i64 %69
   %71 = load i8, ptr %70, align 1
   %72 = sext i32 %.1 to i64
-  %73 = getelementptr i16, ptr @yy_accept, i64 %72
+  %73 = getelementptr [2 x i8], ptr @yy_accept, i64 %72
   %74 = load i16, ptr %73, align 2
   %.not1496 = icmp eq i16 %74, 0
   br i1 %.not1496, label %76, label %75
@@ -170,12 +170,12 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
   br label %76
 
 76:                                               ; preds = %75, %67
-  %77 = getelementptr i16, ptr @yy_base, i64 %72
+  %77 = getelementptr [2 x i8], ptr @yy_base, i64 %72
   %78 = load i16, ptr %77, align 2
   %79 = sext i16 %78 to i64
   %80 = zext i8 %71 to i64
   %81 = add nsw i64 %79, %80
-  %82 = getelementptr i16, ptr @yy_chk, i64 %81
+  %82 = getelementptr [2 x i8], ptr @yy_chk, i64 %81
   %83 = load i16, ptr %82, align 2
   %84 = sext i16 %83 to i32
   %.not14972209 = icmp eq i32 %.1, %84
@@ -185,7 +185,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
   %85 = phi i64 [ %98, %93 ], [ %80, %76 ]
   %86 = phi i64 [ %94, %93 ], [ %72, %76 ]
   %.014192210 = phi i8 [ %.11420, %93 ], [ %71, %76 ]
-  %87 = getelementptr i16, ptr @yy_def, i64 %86
+  %87 = getelementptr [2 x i8], ptr @yy_def, i64 %86
   %88 = load i16, ptr %87, align 2
   %89 = icmp sgt i16 %88, 186
   br i1 %89, label %90, label %93
@@ -198,19 +198,19 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 93:                                               ; preds = %90, %.lr.ph
   %.11420 = phi i8 [ %92, %90 ], [ %.014192210, %.lr.ph ]
   %94 = sext i16 %88 to i64
-  %95 = getelementptr i16, ptr @yy_base, i64 %94
+  %95 = getelementptr [2 x i8], ptr @yy_base, i64 %94
   %96 = load i16, ptr %95, align 2
   %97 = sext i16 %96 to i64
   %98 = zext i8 %.11420 to i64
   %99 = add nsw i64 %97, %98
-  %100 = getelementptr i16, ptr @yy_chk, i64 %99
+  %100 = getelementptr [2 x i8], ptr @yy_chk, i64 %99
   %101 = load i16, ptr %100, align 2
   %.not1497 = icmp eq i16 %88, %101
   br i1 %.not1497, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
 ._crit_edge:                                      ; preds = %93, %76
   %.lcssa = phi i64 [ %81, %76 ], [ %99, %93 ]
-  %102 = getelementptr i16, ptr @yy_nxt, i64 %.lcssa
+  %102 = getelementptr [2 x i8], ptr @yy_nxt, i64 %.lcssa
   %103 = load i16, ptr %102, align 2
   %104 = sext i16 %103 to i32
   %105 = getelementptr i8, ptr %.11407, i64 1
@@ -228,7 +228,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
   %.21408 = phi ptr [ %106, %.backedge.sink.split2818 ], [ %1802, %.backedge.backedge ]
   %.3 = phi i32 [ %107, %.backedge.sink.split2818 ], [ %.3.be, %.backedge.backedge ]
   %108 = sext i32 %.3 to i64
-  %109 = getelementptr i16, ptr @yy_accept, i64 %108
+  %109 = getelementptr [2 x i8], ptr @yy_accept, i64 %108
   %110 = load i16, ptr %109, align 2
   %111 = sext i16 %110 to i32
   store ptr %.11414, ptr %56, align 8
@@ -268,7 +268,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 128:                                              ; preds = %.lr.ph2212
   %129 = load ptr, ptr %58, align 8
   %130 = load i64, ptr %59, align 8
-  %131 = getelementptr ptr, ptr %129, i64 %130
+  %131 = getelementptr [8 x i8], ptr %129, i64 %130
   %132 = load ptr, ptr %131, align 8
   %133 = getelementptr inbounds nuw i8, ptr %132, i64 44
   %134 = load i32, ptr %133, align 4
@@ -276,7 +276,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
   store i32 %135, ptr %133, align 4
   %136 = load ptr, ptr %58, align 8
   %137 = load i64, ptr %59, align 8
-  %138 = getelementptr ptr, ptr %136, i64 %137
+  %138 = getelementptr [8 x i8], ptr %136, i64 %137
   %139 = load ptr, ptr %138, align 8
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 48
   store i32 0, ptr %140, align 8
@@ -403,7 +403,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 
 163:                                              ; preds = %147
   %164 = load i64, ptr %59, align 8
-  %165 = getelementptr ptr, ptr %162, i64 %164
+  %165 = getelementptr [8 x i8], ptr %162, i64 %164
   %166 = load ptr, ptr %165, align 8
   %.not8.i = icmp eq ptr %166, null
   br i1 %.not8.i, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
@@ -433,7 +433,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 
 183:                                              ; preds = %167
   %184 = load i64, ptr %59, align 8
-  %185 = getelementptr ptr, ptr %182, i64 %184
+  %185 = getelementptr [8 x i8], ptr %182, i64 %184
   %186 = load ptr, ptr %185, align 8
   %.not8.i1567 = icmp eq ptr %186, null
   br i1 %.not8.i1567, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
@@ -463,7 +463,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 
 203:                                              ; preds = %187
   %204 = load i64, ptr %59, align 8
-  %205 = getelementptr ptr, ptr %202, i64 %204
+  %205 = getelementptr [8 x i8], ptr %202, i64 %204
   %206 = load ptr, ptr %205, align 8
   %.not8.i1571 = icmp eq ptr %206, null
   br i1 %.not8.i1571, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
@@ -493,7 +493,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 
 223:                                              ; preds = %207
   %224 = load i64, ptr %59, align 8
-  %225 = getelementptr ptr, ptr %222, i64 %224
+  %225 = getelementptr [8 x i8], ptr %222, i64 %224
   %226 = load ptr, ptr %225, align 8
   %.not8.i1575 = icmp eq ptr %226, null
   br i1 %.not8.i1575, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
@@ -523,7 +523,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 
 243:                                              ; preds = %227
   %244 = load i64, ptr %59, align 8
-  %245 = getelementptr ptr, ptr %242, i64 %244
+  %245 = getelementptr [8 x i8], ptr %242, i64 %244
   %246 = load ptr, ptr %245, align 8
   %.not8.i1579 = icmp eq ptr %246, null
   br i1 %.not8.i1579, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
@@ -553,7 +553,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 
 263:                                              ; preds = %247
   %264 = load i64, ptr %59, align 8
-  %265 = getelementptr ptr, ptr %262, i64 %264
+  %265 = getelementptr [8 x i8], ptr %262, i64 %264
   %266 = load ptr, ptr %265, align 8
   %.not8.i1583 = icmp eq ptr %266, null
   br i1 %.not8.i1583, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
@@ -583,7 +583,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 
 283:                                              ; preds = %267
   %284 = load i64, ptr %59, align 8
-  %285 = getelementptr ptr, ptr %282, i64 %284
+  %285 = getelementptr [8 x i8], ptr %282, i64 %284
   %286 = load ptr, ptr %285, align 8
   %.not8.i1587 = icmp eq ptr %286, null
   br i1 %.not8.i1587, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
@@ -613,7 +613,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 
 303:                                              ; preds = %287
   %304 = load i64, ptr %59, align 8
-  %305 = getelementptr ptr, ptr %302, i64 %304
+  %305 = getelementptr [8 x i8], ptr %302, i64 %304
   %306 = load ptr, ptr %305, align 8
   %.not8.i1591 = icmp eq ptr %306, null
   br i1 %.not8.i1591, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
@@ -643,7 +643,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 
 323:                                              ; preds = %307
   %324 = load i64, ptr %59, align 8
-  %325 = getelementptr ptr, ptr %322, i64 %324
+  %325 = getelementptr [8 x i8], ptr %322, i64 %324
   %326 = load ptr, ptr %325, align 8
   %.not8.i1595 = icmp eq ptr %326, null
   br i1 %.not8.i1595, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
@@ -673,7 +673,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 
 343:                                              ; preds = %327
   %344 = load i64, ptr %59, align 8
-  %345 = getelementptr ptr, ptr %342, i64 %344
+  %345 = getelementptr [8 x i8], ptr %342, i64 %344
   %346 = load ptr, ptr %345, align 8
   %.not8.i1599 = icmp eq ptr %346, null
   br i1 %.not8.i1599, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
@@ -703,7 +703,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 
 363:                                              ; preds = %347
   %364 = load i64, ptr %59, align 8
-  %365 = getelementptr ptr, ptr %362, i64 %364
+  %365 = getelementptr [8 x i8], ptr %362, i64 %364
   %366 = load ptr, ptr %365, align 8
   %.not8.i1603 = icmp eq ptr %366, null
   br i1 %.not8.i1603, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
@@ -733,7 +733,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 
 383:                                              ; preds = %367
   %384 = load i64, ptr %59, align 8
-  %385 = getelementptr ptr, ptr %382, i64 %384
+  %385 = getelementptr [8 x i8], ptr %382, i64 %384
   %386 = load ptr, ptr %385, align 8
   %.not8.i1607 = icmp eq ptr %386, null
   br i1 %.not8.i1607, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
@@ -763,7 +763,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 
 403:                                              ; preds = %387
   %404 = load i64, ptr %59, align 8
-  %405 = getelementptr ptr, ptr %402, i64 %404
+  %405 = getelementptr [8 x i8], ptr %402, i64 %404
   %406 = load ptr, ptr %405, align 8
   %.not8.i1611 = icmp eq ptr %406, null
   br i1 %.not8.i1611, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
@@ -793,7 +793,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 
 423:                                              ; preds = %407
   %424 = load i64, ptr %59, align 8
-  %425 = getelementptr ptr, ptr %422, i64 %424
+  %425 = getelementptr [8 x i8], ptr %422, i64 %424
   %426 = load ptr, ptr %425, align 8
   %.not8.i1615 = icmp eq ptr %426, null
   br i1 %.not8.i1615, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
@@ -823,7 +823,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 
 443:                                              ; preds = %427
   %444 = load i64, ptr %59, align 8
-  %445 = getelementptr ptr, ptr %442, i64 %444
+  %445 = getelementptr [8 x i8], ptr %442, i64 %444
   %446 = load ptr, ptr %445, align 8
   %.not8.i1619 = icmp eq ptr %446, null
   br i1 %.not8.i1619, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
@@ -853,7 +853,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 
 463:                                              ; preds = %447
   %464 = load i64, ptr %59, align 8
-  %465 = getelementptr ptr, ptr %462, i64 %464
+  %465 = getelementptr [8 x i8], ptr %462, i64 %464
   %466 = load ptr, ptr %465, align 8
   %.not8.i1623 = icmp eq ptr %466, null
   br i1 %.not8.i1623, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
@@ -883,7 +883,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 
 483:                                              ; preds = %467
   %484 = load i64, ptr %59, align 8
-  %485 = getelementptr ptr, ptr %482, i64 %484
+  %485 = getelementptr [8 x i8], ptr %482, i64 %484
   %486 = load ptr, ptr %485, align 8
   %.not8.i1627 = icmp eq ptr %486, null
   br i1 %.not8.i1627, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
@@ -913,7 +913,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 
 503:                                              ; preds = %487
   %504 = load i64, ptr %59, align 8
-  %505 = getelementptr ptr, ptr %502, i64 %504
+  %505 = getelementptr [8 x i8], ptr %502, i64 %504
   %506 = load ptr, ptr %505, align 8
   %.not8.i1631 = icmp eq ptr %506, null
   br i1 %.not8.i1631, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
@@ -943,7 +943,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 
 523:                                              ; preds = %507
   %524 = load i64, ptr %59, align 8
-  %525 = getelementptr ptr, ptr %522, i64 %524
+  %525 = getelementptr [8 x i8], ptr %522, i64 %524
   %526 = load ptr, ptr %525, align 8
   %.not8.i1635 = icmp eq ptr %526, null
   br i1 %.not8.i1635, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
@@ -973,7 +973,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 
 543:                                              ; preds = %527
   %544 = load i64, ptr %59, align 8
-  %545 = getelementptr ptr, ptr %542, i64 %544
+  %545 = getelementptr [8 x i8], ptr %542, i64 %544
   %546 = load ptr, ptr %545, align 8
   %.not8.i1639 = icmp eq ptr %546, null
   br i1 %.not8.i1639, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
@@ -1003,7 +1003,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 
 563:                                              ; preds = %547
   %564 = load i64, ptr %59, align 8
-  %565 = getelementptr ptr, ptr %562, i64 %564
+  %565 = getelementptr [8 x i8], ptr %562, i64 %564
   %566 = load ptr, ptr %565, align 8
   %.not8.i1643 = icmp eq ptr %566, null
   br i1 %.not8.i1643, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
@@ -1033,7 +1033,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 
 583:                                              ; preds = %567
   %584 = load i64, ptr %59, align 8
-  %585 = getelementptr ptr, ptr %582, i64 %584
+  %585 = getelementptr [8 x i8], ptr %582, i64 %584
   %586 = load ptr, ptr %585, align 8
   %.not8.i1647 = icmp eq ptr %586, null
   br i1 %.not8.i1647, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
@@ -1063,7 +1063,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 
 603:                                              ; preds = %587
   %604 = load i64, ptr %59, align 8
-  %605 = getelementptr ptr, ptr %602, i64 %604
+  %605 = getelementptr [8 x i8], ptr %602, i64 %604
   %606 = load ptr, ptr %605, align 8
   %.not8.i1651 = icmp eq ptr %606, null
   br i1 %.not8.i1651, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
@@ -1093,7 +1093,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 
 623:                                              ; preds = %607
   %624 = load i64, ptr %59, align 8
-  %625 = getelementptr ptr, ptr %622, i64 %624
+  %625 = getelementptr [8 x i8], ptr %622, i64 %624
   %626 = load ptr, ptr %625, align 8
   %.not8.i1655 = icmp eq ptr %626, null
   br i1 %.not8.i1655, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
@@ -1123,7 +1123,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 
 643:                                              ; preds = %627
   %644 = load i64, ptr %59, align 8
-  %645 = getelementptr ptr, ptr %642, i64 %644
+  %645 = getelementptr [8 x i8], ptr %642, i64 %644
   %646 = load ptr, ptr %645, align 8
   %.not8.i1659 = icmp eq ptr %646, null
   br i1 %.not8.i1659, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
@@ -1153,7 +1153,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 
 663:                                              ; preds = %647
   %664 = load i64, ptr %59, align 8
-  %665 = getelementptr ptr, ptr %662, i64 %664
+  %665 = getelementptr [8 x i8], ptr %662, i64 %664
   %666 = load ptr, ptr %665, align 8
   %.not8.i1663 = icmp eq ptr %666, null
   br i1 %.not8.i1663, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
@@ -1183,7 +1183,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 
 683:                                              ; preds = %667
   %684 = load i64, ptr %59, align 8
-  %685 = getelementptr ptr, ptr %682, i64 %684
+  %685 = getelementptr [8 x i8], ptr %682, i64 %684
   %686 = load ptr, ptr %685, align 8
   %.not8.i1667 = icmp eq ptr %686, null
   br i1 %.not8.i1667, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
@@ -1213,7 +1213,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 
 703:                                              ; preds = %687
   %704 = load i64, ptr %59, align 8
-  %705 = getelementptr ptr, ptr %702, i64 %704
+  %705 = getelementptr [8 x i8], ptr %702, i64 %704
   %706 = load ptr, ptr %705, align 8
   %.not8.i1671 = icmp eq ptr %706, null
   br i1 %.not8.i1671, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
@@ -1243,7 +1243,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 
 723:                                              ; preds = %707
   %724 = load i64, ptr %59, align 8
-  %725 = getelementptr ptr, ptr %722, i64 %724
+  %725 = getelementptr [8 x i8], ptr %722, i64 %724
   %726 = load ptr, ptr %725, align 8
   %.not8.i1675 = icmp eq ptr %726, null
   br i1 %.not8.i1675, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
@@ -1273,7 +1273,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 
 743:                                              ; preds = %727
   %744 = load i64, ptr %59, align 8
-  %745 = getelementptr ptr, ptr %742, i64 %744
+  %745 = getelementptr [8 x i8], ptr %742, i64 %744
   %746 = load ptr, ptr %745, align 8
   %.not8.i1679 = icmp eq ptr %746, null
   br i1 %.not8.i1679, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
@@ -1303,7 +1303,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 
 763:                                              ; preds = %747
   %764 = load i64, ptr %59, align 8
-  %765 = getelementptr ptr, ptr %762, i64 %764
+  %765 = getelementptr [8 x i8], ptr %762, i64 %764
   %766 = load ptr, ptr %765, align 8
   %.not8.i1683 = icmp eq ptr %766, null
   br i1 %.not8.i1683, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
@@ -1333,7 +1333,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 
 783:                                              ; preds = %767
   %784 = load i64, ptr %59, align 8
-  %785 = getelementptr ptr, ptr %782, i64 %784
+  %785 = getelementptr [8 x i8], ptr %782, i64 %784
   %786 = load ptr, ptr %785, align 8
   %.not8.i1687 = icmp eq ptr %786, null
   br i1 %.not8.i1687, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
@@ -1363,7 +1363,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 
 803:                                              ; preds = %787
   %804 = load i64, ptr %59, align 8
-  %805 = getelementptr ptr, ptr %802, i64 %804
+  %805 = getelementptr [8 x i8], ptr %802, i64 %804
   %806 = load ptr, ptr %805, align 8
   %.not8.i1691 = icmp eq ptr %806, null
   br i1 %.not8.i1691, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
@@ -1393,7 +1393,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 
 823:                                              ; preds = %807
   %824 = load i64, ptr %59, align 8
-  %825 = getelementptr ptr, ptr %822, i64 %824
+  %825 = getelementptr [8 x i8], ptr %822, i64 %824
   %826 = load ptr, ptr %825, align 8
   %.not8.i1695 = icmp eq ptr %826, null
   br i1 %.not8.i1695, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
@@ -1423,7 +1423,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 
 843:                                              ; preds = %827
   %844 = load i64, ptr %59, align 8
-  %845 = getelementptr ptr, ptr %842, i64 %844
+  %845 = getelementptr [8 x i8], ptr %842, i64 %844
   %846 = load ptr, ptr %845, align 8
   %.not8.i1699 = icmp eq ptr %846, null
   br i1 %.not8.i1699, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
@@ -1453,7 +1453,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 
 863:                                              ; preds = %847
   %864 = load i64, ptr %59, align 8
-  %865 = getelementptr ptr, ptr %862, i64 %864
+  %865 = getelementptr [8 x i8], ptr %862, i64 %864
   %866 = load ptr, ptr %865, align 8
   %.not8.i1703 = icmp eq ptr %866, null
   br i1 %.not8.i1703, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
@@ -1483,7 +1483,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 
 883:                                              ; preds = %867
   %884 = load i64, ptr %59, align 8
-  %885 = getelementptr ptr, ptr %882, i64 %884
+  %885 = getelementptr [8 x i8], ptr %882, i64 %884
   %886 = load ptr, ptr %885, align 8
   %.not8.i1707 = icmp eq ptr %886, null
   br i1 %.not8.i1707, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
@@ -1513,7 +1513,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 
 903:                                              ; preds = %887
   %904 = load i64, ptr %59, align 8
-  %905 = getelementptr ptr, ptr %902, i64 %904
+  %905 = getelementptr [8 x i8], ptr %902, i64 %904
   %906 = load ptr, ptr %905, align 8
   %.not8.i1711 = icmp eq ptr %906, null
   br i1 %.not8.i1711, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
@@ -1543,7 +1543,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 
 923:                                              ; preds = %907
   %924 = load i64, ptr %59, align 8
-  %925 = getelementptr ptr, ptr %922, i64 %924
+  %925 = getelementptr [8 x i8], ptr %922, i64 %924
   %926 = load ptr, ptr %925, align 8
   %.not8.i1715 = icmp eq ptr %926, null
   br i1 %.not8.i1715, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
@@ -1573,7 +1573,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 
 943:                                              ; preds = %927
   %944 = load i64, ptr %59, align 8
-  %945 = getelementptr ptr, ptr %942, i64 %944
+  %945 = getelementptr [8 x i8], ptr %942, i64 %944
   %946 = load ptr, ptr %945, align 8
   %.not8.i1719 = icmp eq ptr %946, null
   br i1 %.not8.i1719, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
@@ -1603,7 +1603,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 
 963:                                              ; preds = %947
   %964 = load i64, ptr %59, align 8
-  %965 = getelementptr ptr, ptr %962, i64 %964
+  %965 = getelementptr [8 x i8], ptr %962, i64 %964
   %966 = load ptr, ptr %965, align 8
   %.not8.i1723 = icmp eq ptr %966, null
   br i1 %.not8.i1723, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
@@ -1633,7 +1633,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 
 983:                                              ; preds = %967
   %984 = load i64, ptr %59, align 8
-  %985 = getelementptr ptr, ptr %982, i64 %984
+  %985 = getelementptr [8 x i8], ptr %982, i64 %984
   %986 = load ptr, ptr %985, align 8
   %.not8.i1727 = icmp eq ptr %986, null
   br i1 %.not8.i1727, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
@@ -1663,7 +1663,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 
 1003:                                             ; preds = %987
   %1004 = load i64, ptr %59, align 8
-  %1005 = getelementptr ptr, ptr %1002, i64 %1004
+  %1005 = getelementptr [8 x i8], ptr %1002, i64 %1004
   %1006 = load ptr, ptr %1005, align 8
   %.not8.i1731 = icmp eq ptr %1006, null
   br i1 %.not8.i1731, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
@@ -1693,7 +1693,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 
 1023:                                             ; preds = %1007
   %1024 = load i64, ptr %59, align 8
-  %1025 = getelementptr ptr, ptr %1022, i64 %1024
+  %1025 = getelementptr [8 x i8], ptr %1022, i64 %1024
   %1026 = load ptr, ptr %1025, align 8
   %.not8.i1735 = icmp eq ptr %1026, null
   br i1 %.not8.i1735, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
@@ -1723,7 +1723,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 
 1043:                                             ; preds = %1027
   %1044 = load i64, ptr %59, align 8
-  %1045 = getelementptr ptr, ptr %1042, i64 %1044
+  %1045 = getelementptr [8 x i8], ptr %1042, i64 %1044
   %1046 = load ptr, ptr %1045, align 8
   %.not8.i1739 = icmp eq ptr %1046, null
   br i1 %.not8.i1739, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
@@ -1753,7 +1753,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 
 1063:                                             ; preds = %1047
   %1064 = load i64, ptr %59, align 8
-  %1065 = getelementptr ptr, ptr %1062, i64 %1064
+  %1065 = getelementptr [8 x i8], ptr %1062, i64 %1064
   %1066 = load ptr, ptr %1065, align 8
   %.not8.i1743 = icmp eq ptr %1066, null
   br i1 %.not8.i1743, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
@@ -1783,7 +1783,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 
 1083:                                             ; preds = %1067
   %1084 = load i64, ptr %59, align 8
-  %1085 = getelementptr ptr, ptr %1082, i64 %1084
+  %1085 = getelementptr [8 x i8], ptr %1082, i64 %1084
   %1086 = load ptr, ptr %1085, align 8
   %.not8.i1747 = icmp eq ptr %1086, null
   br i1 %.not8.i1747, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
@@ -1813,7 +1813,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 
 1103:                                             ; preds = %1087
   %1104 = load i64, ptr %59, align 8
-  %1105 = getelementptr ptr, ptr %1102, i64 %1104
+  %1105 = getelementptr [8 x i8], ptr %1102, i64 %1104
   %1106 = load ptr, ptr %1105, align 8
   %.not8.i1751 = icmp eq ptr %1106, null
   br i1 %.not8.i1751, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
@@ -1843,7 +1843,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 
 1123:                                             ; preds = %1107
   %1124 = load i64, ptr %59, align 8
-  %1125 = getelementptr ptr, ptr %1122, i64 %1124
+  %1125 = getelementptr [8 x i8], ptr %1122, i64 %1124
   %1126 = load ptr, ptr %1125, align 8
   %.not8.i1755 = icmp eq ptr %1126, null
   br i1 %.not8.i1755, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
@@ -1873,7 +1873,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 
 1143:                                             ; preds = %1127
   %1144 = load i64, ptr %59, align 8
-  %1145 = getelementptr ptr, ptr %1142, i64 %1144
+  %1145 = getelementptr [8 x i8], ptr %1142, i64 %1144
   %1146 = load ptr, ptr %1145, align 8
   %.not8.i1759 = icmp eq ptr %1146, null
   br i1 %.not8.i1759, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
@@ -1903,7 +1903,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 
 1163:                                             ; preds = %1147
   %1164 = load i64, ptr %59, align 8
-  %1165 = getelementptr ptr, ptr %1162, i64 %1164
+  %1165 = getelementptr [8 x i8], ptr %1162, i64 %1164
   %1166 = load ptr, ptr %1165, align 8
   %.not8.i1763 = icmp eq ptr %1166, null
   br i1 %.not8.i1763, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
@@ -1933,7 +1933,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 
 1183:                                             ; preds = %1167
   %1184 = load i64, ptr %59, align 8
-  %1185 = getelementptr ptr, ptr %1182, i64 %1184
+  %1185 = getelementptr [8 x i8], ptr %1182, i64 %1184
   %1186 = load ptr, ptr %1185, align 8
   %.not8.i1767 = icmp eq ptr %1186, null
   br i1 %.not8.i1767, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
@@ -1963,7 +1963,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 
 1203:                                             ; preds = %1187
   %1204 = load i64, ptr %59, align 8
-  %1205 = getelementptr ptr, ptr %1202, i64 %1204
+  %1205 = getelementptr [8 x i8], ptr %1202, i64 %1204
   %1206 = load ptr, ptr %1205, align 8
   %.not8.i1771 = icmp eq ptr %1206, null
   br i1 %.not8.i1771, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
@@ -1993,7 +1993,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 
 1223:                                             ; preds = %1207
   %1224 = load i64, ptr %59, align 8
-  %1225 = getelementptr ptr, ptr %1222, i64 %1224
+  %1225 = getelementptr [8 x i8], ptr %1222, i64 %1224
   %1226 = load ptr, ptr %1225, align 8
   %.not8.i1775 = icmp eq ptr %1226, null
   br i1 %.not8.i1775, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
@@ -2023,7 +2023,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 
 1243:                                             ; preds = %1227
   %1244 = load i64, ptr %59, align 8
-  %1245 = getelementptr ptr, ptr %1242, i64 %1244
+  %1245 = getelementptr [8 x i8], ptr %1242, i64 %1244
   %1246 = load ptr, ptr %1245, align 8
   %.not8.i1779 = icmp eq ptr %1246, null
   br i1 %.not8.i1779, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
@@ -2053,7 +2053,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 
 1263:                                             ; preds = %1247
   %1264 = load i64, ptr %59, align 8
-  %1265 = getelementptr ptr, ptr %1262, i64 %1264
+  %1265 = getelementptr [8 x i8], ptr %1262, i64 %1264
   %1266 = load ptr, ptr %1265, align 8
   %.not8.i1783 = icmp eq ptr %1266, null
   br i1 %.not8.i1783, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
@@ -2083,7 +2083,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 
 1283:                                             ; preds = %1267
   %1284 = load i64, ptr %59, align 8
-  %1285 = getelementptr ptr, ptr %1282, i64 %1284
+  %1285 = getelementptr [8 x i8], ptr %1282, i64 %1284
   %1286 = load ptr, ptr %1285, align 8
   %.not8.i1787 = icmp eq ptr %1286, null
   br i1 %.not8.i1787, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
@@ -2113,7 +2113,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 
 1303:                                             ; preds = %1287
   %1304 = load i64, ptr %59, align 8
-  %1305 = getelementptr ptr, ptr %1302, i64 %1304
+  %1305 = getelementptr [8 x i8], ptr %1302, i64 %1304
   %1306 = load ptr, ptr %1305, align 8
   %.not8.i1791 = icmp eq ptr %1306, null
   br i1 %.not8.i1791, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
@@ -2143,7 +2143,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 
 1323:                                             ; preds = %1307
   %1324 = load i64, ptr %59, align 8
-  %1325 = getelementptr ptr, ptr %1322, i64 %1324
+  %1325 = getelementptr [8 x i8], ptr %1322, i64 %1324
   %1326 = load ptr, ptr %1325, align 8
   %.not8.i1795 = icmp eq ptr %1326, null
   br i1 %.not8.i1795, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
@@ -2173,7 +2173,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 
 1343:                                             ; preds = %1327
   %1344 = load i64, ptr %59, align 8
-  %1345 = getelementptr ptr, ptr %1342, i64 %1344
+  %1345 = getelementptr [8 x i8], ptr %1342, i64 %1344
   %1346 = load ptr, ptr %1345, align 8
   %.not8.i1799 = icmp eq ptr %1346, null
   br i1 %.not8.i1799, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
@@ -2203,7 +2203,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 
 1363:                                             ; preds = %1347
   %1364 = load i64, ptr %59, align 8
-  %1365 = getelementptr ptr, ptr %1362, i64 %1364
+  %1365 = getelementptr [8 x i8], ptr %1362, i64 %1364
   %1366 = load ptr, ptr %1365, align 8
   %.not8.i1803 = icmp eq ptr %1366, null
   br i1 %.not8.i1803, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
@@ -2233,7 +2233,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 
 1383:                                             ; preds = %1367
   %1384 = load i64, ptr %59, align 8
-  %1385 = getelementptr ptr, ptr %1382, i64 %1384
+  %1385 = getelementptr [8 x i8], ptr %1382, i64 %1384
   %1386 = load ptr, ptr %1385, align 8
   %.not8.i1807 = icmp eq ptr %1386, null
   br i1 %.not8.i1807, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
@@ -2263,7 +2263,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 
 1403:                                             ; preds = %1387
   %1404 = load i64, ptr %59, align 8
-  %1405 = getelementptr ptr, ptr %1402, i64 %1404
+  %1405 = getelementptr [8 x i8], ptr %1402, i64 %1404
   %1406 = load ptr, ptr %1405, align 8
   %.not8.i1811 = icmp eq ptr %1406, null
   br i1 %.not8.i1811, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
@@ -2293,7 +2293,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 
 1423:                                             ; preds = %1407
   %1424 = load i64, ptr %59, align 8
-  %1425 = getelementptr ptr, ptr %1422, i64 %1424
+  %1425 = getelementptr [8 x i8], ptr %1422, i64 %1424
   %1426 = load ptr, ptr %1425, align 8
   %.not8.i1815 = icmp eq ptr %1426, null
   br i1 %.not8.i1815, label %.loopexit1863.sink.split, label %.loopexit1863.sink.split.sink.split
@@ -2335,7 +2335,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
   store i8 %1445, ptr %.21408, align 1
   %1446 = load ptr, ptr %58, align 8
   %1447 = load i64, ptr %59, align 8
-  %1448 = getelementptr ptr, ptr %1446, i64 %1447
+  %1448 = getelementptr [8 x i8], ptr %1446, i64 %1447
   %1449 = load ptr, ptr %1448, align 8
   %1450 = getelementptr inbounds nuw i8, ptr %1449, i64 56
   %1451 = load i32, ptr %1450, align 8
@@ -2351,13 +2351,13 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
   store ptr %1456, ptr %1457, align 8
   %1458 = load ptr, ptr %58, align 8
   %1459 = load i64, ptr %59, align 8
-  %1460 = getelementptr ptr, ptr %1458, i64 %1459
+  %1460 = getelementptr [8 x i8], ptr %1458, i64 %1459
   %1461 = load ptr, ptr %1460, align 8
   %1462 = getelementptr inbounds nuw i8, ptr %1461, i64 56
   store i32 1, ptr %1462, align 8
   %.pre2402 = load ptr, ptr %58, align 8
   %.pre2403 = load i64, ptr %59, align 8
-  %.phi.trans.insert2404 = getelementptr ptr, ptr %.pre2402, i64 %.pre2403
+  %.phi.trans.insert2404 = getelementptr [8 x i8], ptr %.pre2402, i64 %.pre2403
   %.pre2405 = load ptr, ptr %.phi.trans.insert2404, align 8
   br label %1463
 
@@ -2404,7 +2404,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 1488:                                             ; preds = %1484, %.lr.ph31.i
   %1489 = phi i8 [ %1487, %1484 ], [ 1, %.lr.ph31.i ]
   %1490 = sext i32 %.02129.i to i64
-  %1491 = getelementptr i16, ptr @yy_accept, i64 %1490
+  %1491 = getelementptr [2 x i8], ptr @yy_accept, i64 %1490
   %1492 = load i16, ptr %1491, align 2
   %.not24.i = icmp eq i16 %1492, 0
   br i1 %.not24.i, label %1494, label %1493
@@ -2415,12 +2415,12 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
   br label %1494
 
 1494:                                             ; preds = %1493, %1488
-  %1495 = getelementptr i16, ptr @yy_base, i64 %1490
+  %1495 = getelementptr [2 x i8], ptr @yy_base, i64 %1490
   %1496 = load i16, ptr %1495, align 2
   %1497 = sext i16 %1496 to i64
   %1498 = zext i8 %1489 to i64
   %1499 = add nsw i64 %1497, %1498
-  %1500 = getelementptr i16, ptr @yy_chk, i64 %1499
+  %1500 = getelementptr [2 x i8], ptr @yy_chk, i64 %1499
   %1501 = load i16, ptr %1500, align 2
   %1502 = sext i16 %1501 to i32
   %.not2526.i = icmp eq i32 %.02129.i, %1502
@@ -2430,7 +2430,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
   %1503 = phi i64 [ %1516, %1511 ], [ %1498, %1494 ]
   %1504 = phi i64 [ %1512, %1511 ], [ %1490, %1494 ]
   %.027.i = phi i8 [ %.1.i, %1511 ], [ %1489, %1494 ]
-  %1505 = getelementptr i16, ptr @yy_def, i64 %1504
+  %1505 = getelementptr [2 x i8], ptr @yy_def, i64 %1504
   %1506 = load i16, ptr %1505, align 2
   %1507 = icmp sgt i16 %1506, 186
   br i1 %1507, label %1508, label %1511
@@ -2443,19 +2443,19 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 1511:                                             ; preds = %1508, %.lr.ph.i
   %.1.i = phi i8 [ %1510, %1508 ], [ %.027.i, %.lr.ph.i ]
   %1512 = sext i16 %1506 to i64
-  %1513 = getelementptr i16, ptr @yy_base, i64 %1512
+  %1513 = getelementptr [2 x i8], ptr @yy_base, i64 %1512
   %1514 = load i16, ptr %1513, align 2
   %1515 = sext i16 %1514 to i64
   %1516 = zext i8 %.1.i to i64
   %1517 = add nsw i64 %1515, %1516
-  %1518 = getelementptr i16, ptr @yy_chk, i64 %1517
+  %1518 = getelementptr [2 x i8], ptr @yy_chk, i64 %1517
   %1519 = load i16, ptr %1518, align 2
   %.not25.i = icmp eq i16 %1506, %1519
   br i1 %.not25.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !10
 
 ._crit_edge.i:                                    ; preds = %1511, %1494
   %.lcssa.i = phi i64 [ %1499, %1494 ], [ %1517, %1511 ]
-  %1520 = getelementptr i16, ptr @yy_nxt, i64 %.lcssa.i
+  %1520 = getelementptr [2 x i8], ptr @yy_nxt, i64 %.lcssa.i
   %1521 = load i16, ptr %1520, align 2
   %1522 = sext i16 %1521 to i32
   %1523 = getelementptr i8, ptr %.02328.i, i64 1
@@ -2465,7 +2465,7 @@ define hidden range(i32 0, 64) i32 @protobuf_lang_lex(ptr noundef %0) local_unna
 yy_get_previous_state.exit:                       ; preds = %._crit_edge.i, %1473
   %.021.lcssa.i = phi i32 [ %1481, %1473 ], [ %1522, %._crit_edge.i ]
   %1524 = sext i32 %.021.lcssa.i to i64
-  %1525 = getelementptr i16, ptr @yy_accept, i64 %1524
+  %1525 = getelementptr [2 x i8], ptr @yy_accept, i64 %1524
   %1526 = load i16, ptr %1525, align 2
   %.not.i1819 = icmp eq i16 %1526, 0
   br i1 %.not.i1819, label %1528, label %1527
@@ -2476,11 +2476,11 @@ yy_get_previous_state.exit:                       ; preds = %._crit_edge.i, %147
   br label %1528
 
 1528:                                             ; preds = %1527, %yy_get_previous_state.exit
-  %1529 = getelementptr i16, ptr @yy_base, i64 %1524
+  %1529 = getelementptr [2 x i8], ptr @yy_base, i64 %1524
   %1530 = load i16, ptr %1529, align 2
   %1531 = sext i16 %1530 to i64
   %1532 = add nsw i64 %1531, 1
-  %1533 = getelementptr i16, ptr @yy_chk, i64 %1532
+  %1533 = getelementptr [2 x i8], ptr @yy_chk, i64 %1532
   %1534 = load i16, ptr %1533, align 2
   %1535 = sext i16 %1534 to i32
   %.not1819.i = icmp eq i32 %.021.lcssa.i, %1535
@@ -2488,21 +2488,21 @@ yy_get_previous_state.exit:                       ; preds = %._crit_edge.i, %147
 
 .lr.ph.i1820:                                     ; preds = %1528, %.lr.ph.i1820
   %1536 = phi i64 [ %1539, %.lr.ph.i1820 ], [ %1524, %1528 ]
-  %1537 = getelementptr i16, ptr @yy_def, i64 %1536
+  %1537 = getelementptr [2 x i8], ptr @yy_def, i64 %1536
   %1538 = load i16, ptr %1537, align 2
   %1539 = sext i16 %1538 to i64
-  %1540 = getelementptr i16, ptr @yy_base, i64 %1539
+  %1540 = getelementptr [2 x i8], ptr @yy_base, i64 %1539
   %1541 = load i16, ptr %1540, align 2
   %1542 = sext i16 %1541 to i64
   %1543 = add nsw i64 %1542, 1
-  %1544 = getelementptr i16, ptr @yy_chk, i64 %1543
+  %1544 = getelementptr [2 x i8], ptr @yy_chk, i64 %1543
   %1545 = load i16, ptr %1544, align 2
   %.not18.i = icmp eq i16 %1538, %1545
   br i1 %.not18.i, label %yy_try_NUL_trans.exit, label %.lr.ph.i1820, !llvm.loop !12
 
 yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i1820, %1528
   %.lcssa.i1822 = phi i64 [ %1532, %1528 ], [ %1543, %.lr.ph.i1820 ]
-  %1546 = getelementptr i16, ptr @yy_nxt, i64 %.lcssa.i1822
+  %1546 = getelementptr [2 x i8], ptr @yy_nxt, i64 %.lcssa.i1822
   %1547 = load i16, ptr %1546, align 2
   %1548 = icmp eq i16 %1547, 186
   %1549 = and i64 %.lcssa.i1822, 9223372036854775807
@@ -2573,7 +2573,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i1820, %1528
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i1826
   %.pre.i = load ptr, ptr %58, align 8
   %.pre175.i = load i64, ptr %59, align 8
-  %.phi.trans.insert.i = getelementptr ptr, ptr %.pre.i, i64 %.pre175.i
+  %.phi.trans.insert.i = getelementptr [8 x i8], ptr %.pre.i, i64 %.pre175.i
   %.pre176.i = load ptr, ptr %.phi.trans.insert.i, align 8
   br label %._crit_edge.i1823
 
@@ -2587,7 +2587,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i1820, %1528
   br i1 %1583, label %1584, label %1586
 
 1584:                                             ; preds = %._crit_edge.i1823
-  %1585 = getelementptr ptr, ptr %1580, i64 %1579
+  %1585 = getelementptr [8 x i8], ptr %1580, i64 %1579
   store i32 0, ptr %60, align 4
   br label %1679
 
@@ -2653,7 +2653,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i1820, %1528
   store ptr %1612, ptr %51, align 8
   %1613 = load ptr, ptr %58, align 8
   %1614 = load i64, ptr %59, align 8
-  %1615 = getelementptr ptr, ptr %1613, i64 %1614
+  %1615 = getelementptr [8 x i8], ptr %1613, i64 %1614
   %1616 = load ptr, ptr %1615, align 8
   %.pn.in.i = getelementptr inbounds nuw i8, ptr %1616, i64 24
   %.pn.i = load i32, ptr %.pn.in.i, align 8
@@ -2689,7 +2689,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i1820, %1528
   %1627 = trunc i32 %1625 to i8
   %1628 = load ptr, ptr %58, align 8
   %1629 = load i64, ptr %59, align 8
-  %1630 = getelementptr ptr, ptr %1628, i64 %1629
+  %1630 = getelementptr [8 x i8], ptr %1628, i64 %1629
   %1631 = load ptr, ptr %1630, align 8
   %1632 = getelementptr inbounds nuw i8, ptr %1631, i64 8
   %1633 = load ptr, ptr %1632, align 8
@@ -2714,7 +2714,7 @@ yy_try_NUL_trans.exit:                            ; preds = %.lr.ph.i1820, %1528
 .thread152.i:                                     ; preds = %.critedge.i
   %1637 = load ptr, ptr %58, align 8
   %1638 = load i64, ptr %59, align 8
-  %1639 = getelementptr ptr, ptr %1637, i64 %1638
+  %1639 = getelementptr [8 x i8], ptr %1637, i64 %1638
   %1640 = load ptr, ptr %1639, align 8
   %1641 = getelementptr inbounds nuw i8, ptr %1640, i64 8
   %1642 = load ptr, ptr %1641, align 8
@@ -2752,7 +2752,7 @@ fread.inline.exit.i:                              ; preds = %1652, %1673
   %1656 = load ptr, ptr %61, align 8
   %1657 = load ptr, ptr %58, align 8
   %1658 = load i64, ptr %59, align 8
-  %1659 = getelementptr ptr, ptr %1657, i64 %1658
+  %1659 = getelementptr [8 x i8], ptr %1657, i64 %1658
   %1660 = load ptr, ptr %1659, align 8
   %1661 = getelementptr inbounds nuw i8, ptr %1660, i64 8
   %1662 = load ptr, ptr %1661, align 8
@@ -2788,7 +2788,7 @@ fread.inline.exit.i:                              ; preds = %1652, %1673
   %1675 = phi i32 [ %.1154.i, %1651 ], [ %1665, %fread.inline.exit.i ], [ 0, %1667 ]
   %1676 = load ptr, ptr %58, align 8
   %1677 = load i64, ptr %59, align 8
-  %1678 = getelementptr ptr, ptr %1676, i64 %1677
+  %1678 = getelementptr [8 x i8], ptr %1676, i64 %1677
   br label %1679
 
 1679:                                             ; preds = %.critedge2.i, %1584
@@ -2813,7 +2813,7 @@ fread.inline.exit.i:                              ; preds = %1652, %1673
 1687:                                             ; preds = %1683
   %1688 = load ptr, ptr %58, align 8
   %1689 = load i64, ptr %59, align 8
-  %1690 = getelementptr ptr, ptr %1688, i64 %1689
+  %1690 = getelementptr [8 x i8], ptr %1688, i64 %1689
   %1691 = load ptr, ptr %1690, align 8
   %1692 = getelementptr inbounds nuw i8, ptr %1691, i64 56
   store i32 2, ptr %1692, align 8
@@ -2825,7 +2825,7 @@ fread.inline.exit.i:                              ; preds = %1652, %1673
   %1695 = add i32 %1694, %1572
   %1696 = load ptr, ptr %58, align 8
   %1697 = load i64, ptr %59, align 8
-  %1698 = getelementptr ptr, ptr %1696, i64 %1697
+  %1698 = getelementptr [8 x i8], ptr %1696, i64 %1697
   %1699 = load ptr, ptr %1698, align 8
   %1700 = getelementptr inbounds nuw i8, ptr %1699, i64 24
   %1701 = load i32, ptr %1700, align 8
@@ -2841,13 +2841,13 @@ fread.inline.exit.i:                              ; preds = %1652, %1673
   %1709 = tail call ptr @realloc(ptr noundef %1707, i64 noundef %1708) #26
   %1710 = load ptr, ptr %58, align 8
   %1711 = load i64, ptr %59, align 8
-  %1712 = getelementptr ptr, ptr %1710, i64 %1711
+  %1712 = getelementptr [8 x i8], ptr %1710, i64 %1711
   %1713 = load ptr, ptr %1712, align 8
   %1714 = getelementptr inbounds nuw i8, ptr %1713, i64 8
   store ptr %1709, ptr %1714, align 8
   %1715 = load ptr, ptr %58, align 8
   %1716 = load i64, ptr %59, align 8
-  %1717 = getelementptr ptr, ptr %1715, i64 %1716
+  %1717 = getelementptr [8 x i8], ptr %1715, i64 %1716
   %1718 = load ptr, ptr %1717, align 8
   %1719 = getelementptr inbounds nuw i8, ptr %1718, i64 8
   %1720 = load ptr, ptr %1719, align 8
@@ -2873,7 +2873,7 @@ yy_get_next_buffer.exit:                          ; preds = %1693, %1722
   %1725 = phi i64 [ %.pre180.i, %1722 ], [ %1697, %1693 ]
   %1726 = phi ptr [ %.pre179.i, %1722 ], [ %1696, %1693 ]
   store i32 %.pre-phi.i, ptr %60, align 4
-  %1727 = getelementptr ptr, ptr %1726, i64 %1725
+  %1727 = getelementptr [8 x i8], ptr %1726, i64 %1725
   %1728 = load ptr, ptr %1727, align 8
   %1729 = getelementptr inbounds nuw i8, ptr %1728, i64 8
   %1730 = load ptr, ptr %1729, align 8
@@ -2882,7 +2882,7 @@ yy_get_next_buffer.exit:                          ; preds = %1693, %1722
   store i8 0, ptr %1732, align 1
   %1733 = load ptr, ptr %58, align 8
   %1734 = load i64, ptr %59, align 8
-  %1735 = getelementptr ptr, ptr %1733, i64 %1734
+  %1735 = getelementptr [8 x i8], ptr %1733, i64 %1734
   %1736 = load ptr, ptr %1735, align 8
   %1737 = getelementptr inbounds nuw i8, ptr %1736, i64 8
   %1738 = load ptr, ptr %1737, align 8
@@ -2893,7 +2893,7 @@ yy_get_next_buffer.exit:                          ; preds = %1693, %1722
   store i8 0, ptr %1742, align 1
   %1743 = load ptr, ptr %58, align 8
   %1744 = load i64, ptr %59, align 8
-  %1745 = getelementptr ptr, ptr %1743, i64 %1744
+  %1745 = getelementptr [8 x i8], ptr %1743, i64 %1744
   %1746 = load ptr, ptr %1745, align 8
   %1747 = getelementptr inbounds nuw i8, ptr %1746, i64 8
   %1748 = load ptr, ptr %1747, align 8
@@ -2905,7 +2905,7 @@ yy_get_next_buffer.exit:                          ; preds = %1693, %1722
   ]
 
 yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread1859_crit_edge: ; preds = %yy_get_next_buffer.exit
-  %1749 = getelementptr ptr, ptr %1743, i64 %1744
+  %1749 = getelementptr [8 x i8], ptr %1743, i64 %1744
   %.pre2406 = load ptr, ptr %1749, align 8
   %.phi.trans.insert2407 = getelementptr inbounds nuw i8, ptr %.pre2406, i64 8
   %.pre2408 = load ptr, ptr %.phi.trans.insert2407, align 8
@@ -2942,7 +2942,7 @@ yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread1859_crit_edge: ; preds = 
 1764:                                             ; preds = %1760, %.lr.ph31.i1829
   %1765 = phi i8 [ %1763, %1760 ], [ 1, %.lr.ph31.i1829 ]
   %1766 = sext i32 %.02129.i1830 to i64
-  %1767 = getelementptr i16, ptr @yy_accept, i64 %1766
+  %1767 = getelementptr [2 x i8], ptr @yy_accept, i64 %1766
   %1768 = load i16, ptr %1767, align 2
   %.not24.i1833 = icmp eq i16 %1768, 0
   br i1 %.not24.i1833, label %1770, label %1769
@@ -2953,12 +2953,12 @@ yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread1859_crit_edge: ; preds = 
   br label %1770
 
 1770:                                             ; preds = %1769, %1764
-  %1771 = getelementptr i16, ptr @yy_base, i64 %1766
+  %1771 = getelementptr [2 x i8], ptr @yy_base, i64 %1766
   %1772 = load i16, ptr %1771, align 2
   %1773 = sext i16 %1772 to i64
   %1774 = zext i8 %1765 to i64
   %1775 = add nsw i64 %1773, %1774
-  %1776 = getelementptr i16, ptr @yy_chk, i64 %1775
+  %1776 = getelementptr [2 x i8], ptr @yy_chk, i64 %1775
   %1777 = load i16, ptr %1776, align 2
   %1778 = sext i16 %1777 to i32
   %.not2526.i1834 = icmp eq i32 %.02129.i1830, %1778
@@ -2968,7 +2968,7 @@ yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread1859_crit_edge: ; preds = 
   %1779 = phi i64 [ %1792, %1787 ], [ %1774, %1770 ]
   %1780 = phi i64 [ %1788, %1787 ], [ %1766, %1770 ]
   %.027.i1836 = phi i8 [ %.1.i1837, %1787 ], [ %1765, %1770 ]
-  %1781 = getelementptr i16, ptr @yy_def, i64 %1780
+  %1781 = getelementptr [2 x i8], ptr @yy_def, i64 %1780
   %1782 = load i16, ptr %1781, align 2
   %1783 = icmp sgt i16 %1782, 186
   br i1 %1783, label %1784, label %1787
@@ -2981,19 +2981,19 @@ yy_get_next_buffer.exit.yy_get_next_buffer.exit.thread1859_crit_edge: ; preds = 
 1787:                                             ; preds = %1784, %.lr.ph.i1835
   %.1.i1837 = phi i8 [ %1786, %1784 ], [ %.027.i1836, %.lr.ph.i1835 ]
   %1788 = sext i16 %1782 to i64
-  %1789 = getelementptr i16, ptr @yy_base, i64 %1788
+  %1789 = getelementptr [2 x i8], ptr @yy_base, i64 %1788
   %1790 = load i16, ptr %1789, align 2
   %1791 = sext i16 %1790 to i64
   %1792 = zext i8 %.1.i1837 to i64
   %1793 = add nsw i64 %1791, %1792
-  %1794 = getelementptr i16, ptr @yy_chk, i64 %1793
+  %1794 = getelementptr [2 x i8], ptr @yy_chk, i64 %1793
   %1795 = load i16, ptr %1794, align 2
   %.not25.i1838 = icmp eq i16 %1782, %1795
   br i1 %.not25.i1838, label %._crit_edge.i1839, label %.lr.ph.i1835, !llvm.loop !10
 
 ._crit_edge.i1839:                                ; preds = %1787, %1770
   %.lcssa.i1840 = phi i64 [ %1775, %1770 ], [ %1793, %1787 ]
-  %1796 = getelementptr i16, ptr @yy_nxt, i64 %.lcssa.i1840
+  %1796 = getelementptr [2 x i8], ptr @yy_nxt, i64 %.lcssa.i1840
   %1797 = load i16, ptr %1796, align 2
   %1798 = sext i16 %1797 to i32
   %1799 = getelementptr i8, ptr %.02328.i1831, i64 1
@@ -3030,7 +3030,7 @@ yy_get_next_buffer.exit.thread1859:               ; preds = %1566, %yy_get_next_
 1810:                                             ; preds = %1806, %.lr.ph31.i1844
   %1811 = phi i8 [ %1809, %1806 ], [ 1, %.lr.ph31.i1844 ]
   %1812 = sext i32 %.02129.i1845 to i64
-  %1813 = getelementptr i16, ptr @yy_accept, i64 %1812
+  %1813 = getelementptr [2 x i8], ptr @yy_accept, i64 %1812
   %1814 = load i16, ptr %1813, align 2
   %.not24.i1848 = icmp eq i16 %1814, 0
   br i1 %.not24.i1848, label %1816, label %1815
@@ -3041,12 +3041,12 @@ yy_get_next_buffer.exit.thread1859:               ; preds = %1566, %yy_get_next_
   br label %1816
 
 1816:                                             ; preds = %1815, %1810
-  %1817 = getelementptr i16, ptr @yy_base, i64 %1812
+  %1817 = getelementptr [2 x i8], ptr @yy_base, i64 %1812
   %1818 = load i16, ptr %1817, align 2
   %1819 = sext i16 %1818 to i64
   %1820 = zext i8 %1811 to i64
   %1821 = add nsw i64 %1819, %1820
-  %1822 = getelementptr i16, ptr @yy_chk, i64 %1821
+  %1822 = getelementptr [2 x i8], ptr @yy_chk, i64 %1821
   %1823 = load i16, ptr %1822, align 2
   %1824 = sext i16 %1823 to i32
   %.not2526.i1849 = icmp eq i32 %.02129.i1845, %1824
@@ -3056,7 +3056,7 @@ yy_get_next_buffer.exit.thread1859:               ; preds = %1566, %yy_get_next_
   %1825 = phi i64 [ %1838, %1833 ], [ %1820, %1816 ]
   %1826 = phi i64 [ %1834, %1833 ], [ %1812, %1816 ]
   %.027.i1851 = phi i8 [ %.1.i1852, %1833 ], [ %1811, %1816 ]
-  %1827 = getelementptr i16, ptr @yy_def, i64 %1826
+  %1827 = getelementptr [2 x i8], ptr @yy_def, i64 %1826
   %1828 = load i16, ptr %1827, align 2
   %1829 = icmp sgt i16 %1828, 186
   br i1 %1829, label %1830, label %1833
@@ -3069,19 +3069,19 @@ yy_get_next_buffer.exit.thread1859:               ; preds = %1566, %yy_get_next_
 1833:                                             ; preds = %1830, %.lr.ph.i1850
   %.1.i1852 = phi i8 [ %1832, %1830 ], [ %.027.i1851, %.lr.ph.i1850 ]
   %1834 = sext i16 %1828 to i64
-  %1835 = getelementptr i16, ptr @yy_base, i64 %1834
+  %1835 = getelementptr [2 x i8], ptr @yy_base, i64 %1834
   %1836 = load i16, ptr %1835, align 2
   %1837 = sext i16 %1836 to i64
   %1838 = zext i8 %.1.i1852 to i64
   %1839 = add nsw i64 %1837, %1838
-  %1840 = getelementptr i16, ptr @yy_chk, i64 %1839
+  %1840 = getelementptr [2 x i8], ptr @yy_chk, i64 %1839
   %1841 = load i16, ptr %1840, align 2
   %.not25.i1853 = icmp eq i16 %1828, %1841
   br i1 %.not25.i1853, label %._crit_edge.i1854, label %.lr.ph.i1850, !llvm.loop !10
 
 ._crit_edge.i1854:                                ; preds = %1833, %1816
   %.lcssa.i1855 = phi i64 [ %1821, %1816 ], [ %1839, %1833 ]
-  %1842 = getelementptr i16, ptr @yy_nxt, i64 %.lcssa.i1855
+  %1842 = getelementptr [2 x i8], ptr @yy_nxt, i64 %.lcssa.i1855
   %1843 = load i16, ptr %1842, align 2
   %1844 = sext i16 %1843 to i32
   %1845 = getelementptr i8, ptr %.02328.i1846, i64 1
@@ -3176,7 +3176,7 @@ define internal fastcc void @protobuf_lang_ensure_buffer_stack(ptr noundef captu
 21:                                               ; preds = %16
   %22 = load i64, ptr %13, align 8
   %.idx = shl i64 %22, 3
-  %23 = getelementptr ptr, ptr %19, i64 %22
+  %23 = getelementptr [8 x i8], ptr %19, i64 %22
   %24 = tail call i64 @llvm.usub.sat.i64(i64 %18, i64 %.idx)
   %25 = tail call ptr @__memset_chk(ptr noundef %23, i32 noundef 0, i64 noundef 64, i64 noundef %24) #27
   store i64 %17, ptr %13, align 8
@@ -3235,7 +3235,7 @@ define hidden nonnull ptr @protobuf_lang__create_buffer(ptr noundef %0, i32 noun
 24:                                               ; preds = %13
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %26 = load i64, ptr %25, align 8
-  %27 = getelementptr ptr, ptr %23, i64 %26
+  %27 = getelementptr [8 x i8], ptr %23, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = icmp eq ptr %4, %28
   br i1 %29, label %30, label %45
@@ -3273,7 +3273,7 @@ protobuf_lang__flush_buffer.exit.i:               ; preds = %13
   store i32 1, ptr %46, align 4
   %47 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %48 = load i64, ptr %47, align 8
-  %49 = getelementptr ptr, ptr %23, i64 %48
+  %49 = getelementptr [8 x i8], ptr %23, i64 %48
   %50 = load ptr, ptr %49, align 8
   %.not14.i = icmp eq ptr %4, %50
   br i1 %.not14.i, label %protobuf_lang__init_buffer.exit, label %.thread
@@ -3321,7 +3321,7 @@ define hidden i32 @protobuf_lang_get_lineno(ptr noundef readonly captures(none) 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr ptr, ptr %3, i64 %6
+  %7 = getelementptr [8 x i8], ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8
   %.not8 = icmp eq ptr %8, null
   br i1 %.not8, label %12, label %9
@@ -3360,7 +3360,7 @@ define hidden void @protobuf_lang_restart(ptr noundef %0, ptr noundef captures(n
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr ptr, ptr %4, i64 %7
+  %8 = getelementptr [8 x i8], ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8
   %.not16 = icmp eq ptr %9, null
   br i1 %.not16, label %10, label %.thread25
@@ -3373,7 +3373,7 @@ define hidden void @protobuf_lang_restart(ptr noundef %0, ptr noundef captures(n
   %14 = load ptr, ptr %3, align 8
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %16 = load i64, ptr %15, align 8
-  %17 = getelementptr ptr, ptr %14, i64 %16
+  %17 = getelementptr [8 x i8], ptr %14, i64 %16
   store ptr %13, ptr %17, align 8
   %.pre = load ptr, ptr %3, align 8
   %.not17 = icmp eq ptr %.pre, null
@@ -3388,7 +3388,7 @@ define hidden void @protobuf_lang_restart(ptr noundef %0, ptr noundef captures(n
   %20 = phi ptr [ %.pre, %10 ], [ %4, %5 ]
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load i64, ptr %21, align 8
-  %23 = getelementptr ptr, ptr %20, i64 %22
+  %23 = getelementptr [8 x i8], ptr %20, i64 %22
   %24 = load ptr, ptr %23, align 8
   %25 = tail call ptr @__errno_location() #28
   %26 = load i32, ptr %25, align 4
@@ -3417,7 +3417,7 @@ define hidden void @protobuf_lang_restart(ptr noundef %0, ptr noundef captures(n
 
 38:                                               ; preds = %27
   %39 = load i64, ptr %21, align 8
-  %40 = getelementptr ptr, ptr %37, i64 %39
+  %40 = getelementptr [8 x i8], ptr %37, i64 %39
   %41 = load ptr, ptr %40, align 8
   %42 = icmp eq ptr %24, %41
   br i1 %42, label %43, label %protobuf_lang__flush_buffer.exit.i
@@ -3457,7 +3457,7 @@ protobuf_lang__flush_buffer.exit.i:               ; preds = %.thread, %43, %38, 
 62:                                               ; preds = %protobuf_lang__flush_buffer.exit.i
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %64 = load i64, ptr %63, align 8
-  %65 = getelementptr ptr, ptr %61, i64 %64
+  %65 = getelementptr [8 x i8], ptr %61, i64 %64
   %66 = load ptr, ptr %65, align 8
   br label %67
 
@@ -3480,7 +3480,7 @@ protobuf_lang__init_buffer.exit:                  ; preds = %67, %69
   %73 = load ptr, ptr %3, align 8
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %75 = load i64, ptr %74, align 8
-  %76 = getelementptr ptr, ptr %73, i64 %75
+  %76 = getelementptr [8 x i8], ptr %73, i64 %75
   %77 = load ptr, ptr %76, align 8
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 28
   %79 = load i32, ptr %78, align 4
@@ -3518,7 +3518,7 @@ define hidden void @protobuf_lang__switch_to_buffer(ptr noundef %0, ptr noundef 
 .thread:                                          ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr ptr, ptr %4, i64 %8
+  %9 = getelementptr [8 x i8], ptr %4, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %10, %0
   br i1 %11, label %54, label %12
@@ -3536,7 +3536,7 @@ define hidden void @protobuf_lang__switch_to_buffer(ptr noundef %0, ptr noundef 
   %18 = load ptr, ptr %16, align 8
   %19 = load ptr, ptr %3, align 8
   %20 = load i64, ptr %7, align 8
-  %21 = getelementptr ptr, ptr %19, i64 %20
+  %21 = getelementptr [8 x i8], ptr %19, i64 %20
   %22 = load ptr, ptr %21, align 8
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store ptr %18, ptr %23, align 8
@@ -3544,7 +3544,7 @@ define hidden void @protobuf_lang__switch_to_buffer(ptr noundef %0, ptr noundef 
   %25 = load i32, ptr %24, align 4
   %26 = load ptr, ptr %3, align 8
   %27 = load i64, ptr %7, align 8
-  %28 = getelementptr ptr, ptr %26, i64 %27
+  %28 = getelementptr [8 x i8], ptr %26, i64 %27
   %29 = load ptr, ptr %28, align 8
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 28
   store i32 %25, ptr %30, align 4
@@ -3555,11 +3555,11 @@ define hidden void @protobuf_lang__switch_to_buffer(ptr noundef %0, ptr noundef 
   %32 = phi ptr [ null, %5 ], [ %.pre, %13 ], [ %4, %12 ]
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %34 = load i64, ptr %33, align 8
-  %35 = getelementptr ptr, ptr %32, i64 %34
+  %35 = getelementptr [8 x i8], ptr %32, i64 %34
   store ptr %0, ptr %35, align 8
   %36 = load ptr, ptr %3, align 8
   %37 = load i64, ptr %33, align 8
-  %38 = getelementptr ptr, ptr %36, i64 %37
+  %38 = getelementptr [8 x i8], ptr %36, i64 %37
   %39 = load ptr, ptr %38, align 8
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 28
   %41 = load i32, ptr %40, align 4
@@ -3604,7 +3604,7 @@ define hidden void @protobuf_lang__delete_buffer(ptr noundef captures(address) %
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %8 = load i64, ptr %7, align 8
-  %9 = getelementptr ptr, ptr %5, i64 %8
+  %9 = getelementptr [8 x i8], ptr %5, i64 %8
   %10 = load ptr, ptr %9, align 8
   %11 = icmp eq ptr %0, %10
   br i1 %11, label %12, label %.critedge
@@ -3665,7 +3665,7 @@ define hidden void @protobuf_lang__flush_buffer(ptr noundef captures(address) %0
 15:                                               ; preds = %3
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %17 = load i64, ptr %16, align 8
-  %18 = getelementptr ptr, ptr %14, i64 %17
+  %18 = getelementptr [8 x i8], ptr %14, i64 %17
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %0, %19
   br i1 %20, label %21, label %.critedge
@@ -3710,7 +3710,7 @@ define hidden void @protobuf_lang_push_buffer_state(ptr noundef %0, ptr noundef 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %9 = load i64, ptr %8, align 8
-  %10 = getelementptr ptr, ptr %6, i64 %9
+  %10 = getelementptr [8 x i8], ptr %6, i64 %9
   %11 = load ptr, ptr %10, align 8
   %.not25 = icmp eq ptr %11, null
   br i1 %.not25, label %.thread31, label %12
@@ -3724,7 +3724,7 @@ define hidden void @protobuf_lang_push_buffer_state(ptr noundef %0, ptr noundef 
   %17 = load ptr, ptr %15, align 8
   %18 = load ptr, ptr %5, align 8
   %19 = load i64, ptr %8, align 8
-  %20 = getelementptr ptr, ptr %18, i64 %19
+  %20 = getelementptr [8 x i8], ptr %18, i64 %19
   %21 = load ptr, ptr %20, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %17, ptr %22, align 8
@@ -3732,7 +3732,7 @@ define hidden void @protobuf_lang_push_buffer_state(ptr noundef %0, ptr noundef 
   %24 = load i32, ptr %23, align 4
   %25 = load ptr, ptr %5, align 8
   %26 = load i64, ptr %8, align 8
-  %27 = getelementptr ptr, ptr %25, i64 %26
+  %27 = getelementptr [8 x i8], ptr %25, i64 %26
   %28 = load ptr, ptr %27, align 8
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 28
   store i32 %24, ptr %29, align 4
@@ -3743,7 +3743,7 @@ define hidden void @protobuf_lang_push_buffer_state(ptr noundef %0, ptr noundef 
 .thread31:                                        ; preds = %7, %12
   %.pr34 = phi ptr [ %.pr.pre, %12 ], [ %6, %7 ]
   %30 = load i64, ptr %8, align 8
-  %31 = getelementptr ptr, ptr %.pr34, i64 %30
+  %31 = getelementptr [8 x i8], ptr %.pr34, i64 %30
   %32 = load ptr, ptr %31, align 8
   %.not27 = icmp eq ptr %32, null
   br i1 %.not27, label %.thread, label %33
@@ -3757,11 +3757,11 @@ define hidden void @protobuf_lang_push_buffer_state(ptr noundef %0, ptr noundef 
   %35 = phi ptr [ %.pr34, %.thread31 ], [ null, %12 ], [ %.pr34, %33 ], [ null, %4 ]
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %37 = load i64, ptr %36, align 8
-  %38 = getelementptr ptr, ptr %35, i64 %37
+  %38 = getelementptr [8 x i8], ptr %35, i64 %37
   store ptr %0, ptr %38, align 8
   %39 = load ptr, ptr %5, align 8
   %40 = load i64, ptr %36, align 8
-  %41 = getelementptr ptr, ptr %39, i64 %40
+  %41 = getelementptr [8 x i8], ptr %39, i64 %40
   %42 = load ptr, ptr %41, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 28
   %44 = load i32, ptr %43, align 4
@@ -3799,7 +3799,7 @@ define hidden void @protobuf_lang_pop_buffer_state(ptr noundef captures(none) %0
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr ptr, ptr %3, i64 %6
+  %7 = getelementptr [8 x i8], ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8
   %.not20 = icmp eq ptr %8, null
   br i1 %.not20, label %41, label %.critedge.i
@@ -3821,7 +3821,7 @@ protobuf_lang__delete_buffer.exit:                ; preds = %.critedge.i, %11
   tail call void @free(ptr noundef nonnull %8) #27
   %14 = load ptr, ptr %2, align 8
   %15 = load i64, ptr %5, align 8
-  %16 = getelementptr ptr, ptr %14, i64 %15
+  %16 = getelementptr [8 x i8], ptr %14, i64 %15
   store ptr null, ptr %16, align 8
   %17 = load i64, ptr %5, align 8
   %.not21 = icmp eq i64 %17, 0
@@ -3839,7 +3839,7 @@ protobuf_lang__delete_buffer.exit:                ; preds = %.critedge.i, %11
   br i1 %.not22, label %41, label %23
 
 23:                                               ; preds = %20
-  %24 = getelementptr ptr, ptr %22, i64 %21
+  %24 = getelementptr [8 x i8], ptr %22, i64 %21
   %25 = load ptr, ptr %24, align 8
   %.not23 = icmp eq ptr %25, null
   br i1 %.not23, label %41, label %26
@@ -3929,7 +3929,7 @@ define hidden noundef ptr @protobuf_lang__scan_buffer(ptr noundef %0, i64 nounde
 .thread.i:                                        ; preds = %16
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %30 = load i64, ptr %29, align 8
-  %31 = getelementptr ptr, ptr %28, i64 %30
+  %31 = getelementptr [8 x i8], ptr %28, i64 %30
   %32 = load ptr, ptr %31, align 8
   %33 = icmp eq ptr %32, %14
   br i1 %33, label %protobuf_lang__switch_to_buffer.exit, label %34
@@ -3947,7 +3947,7 @@ define hidden noundef ptr @protobuf_lang__scan_buffer(ptr noundef %0, i64 nounde
   %40 = load ptr, ptr %38, align 8
   %41 = load ptr, ptr %27, align 8
   %42 = load i64, ptr %29, align 8
-  %43 = getelementptr ptr, ptr %41, i64 %42
+  %43 = getelementptr [8 x i8], ptr %41, i64 %42
   %44 = load ptr, ptr %43, align 8
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   store ptr %40, ptr %45, align 8
@@ -3955,7 +3955,7 @@ define hidden noundef ptr @protobuf_lang__scan_buffer(ptr noundef %0, i64 nounde
   %47 = load i32, ptr %46, align 4
   %48 = load ptr, ptr %27, align 8
   %49 = load i64, ptr %29, align 8
-  %50 = getelementptr ptr, ptr %48, i64 %49
+  %50 = getelementptr [8 x i8], ptr %48, i64 %49
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 28
   store i32 %47, ptr %52, align 4
@@ -3966,11 +3966,11 @@ define hidden noundef ptr @protobuf_lang__scan_buffer(ptr noundef %0, i64 nounde
   %54 = phi ptr [ %28, %34 ], [ %.pre.i, %35 ], [ null, %16 ]
   %55 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %56 = load i64, ptr %55, align 8
-  %57 = getelementptr ptr, ptr %54, i64 %56
+  %57 = getelementptr [8 x i8], ptr %54, i64 %56
   store ptr %14, ptr %57, align 8
   %58 = load ptr, ptr %27, align 8
   %59 = load i64, ptr %55, align 8
-  %60 = getelementptr ptr, ptr %58, i64 %59
+  %60 = getelementptr [8 x i8], ptr %58, i64 %59
   %61 = load ptr, ptr %60, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 28
   %63 = load i32, ptr %62, align 4
@@ -4101,7 +4101,7 @@ define hidden i32 @protobuf_lang_get_column(ptr noundef readonly captures(none) 
 4:                                                ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load i64, ptr %5, align 8
-  %7 = getelementptr ptr, ptr %3, i64 %6
+  %7 = getelementptr [8 x i8], ptr %3, i64 %6
   %8 = load ptr, ptr %7, align 8
   %.not8 = icmp eq ptr %8, null
   br i1 %.not8, label %12, label %9
@@ -4160,7 +4160,7 @@ define hidden void @protobuf_lang_set_lineno(i32 noundef %0, ptr noundef readonl
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr ptr, ptr %4, i64 %7
+  %8 = getelementptr [8 x i8], ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8
   %.not8 = icmp eq ptr %9, null
   br i1 %.not8, label %10, label %11
@@ -4185,7 +4185,7 @@ define hidden void @protobuf_lang_set_column(i32 noundef %0, ptr noundef readonl
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %7 = load i64, ptr %6, align 8
-  %8 = getelementptr ptr, ptr %4, i64 %7
+  %8 = getelementptr [8 x i8], ptr %4, i64 %7
   %9 = load ptr, ptr %8, align 8
   %.not8 = icmp eq ptr %9, null
   br i1 %.not8, label %10, label %11
@@ -4299,7 +4299,7 @@ define hidden noundef i32 @protobuf_lang_lex_destroy(ptr noundef captures(none) 
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %11 = load i64, ptr %2, align 8
-  %12 = getelementptr ptr, ptr %4, i64 %11
+  %12 = getelementptr [8 x i8], ptr %4, i64 %11
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.critedge, label %.critedge.i
@@ -4323,7 +4323,7 @@ protobuf_lang__delete_buffer.exit:                ; preds = %.critedge.i, %19
   tail call void @free(ptr noundef nonnull %15) #27
   %22 = load ptr, ptr %3, align 8
   %23 = load i64, ptr %2, align 8
-  %24 = getelementptr ptr, ptr %22, i64 %23
+  %24 = getelementptr [8 x i8], ptr %22, i64 %23
   store ptr null, ptr %24, align 8
   %25 = load ptr, ptr %3, align 8
   %.not.i20 = icmp eq ptr %25, null
@@ -4331,7 +4331,7 @@ protobuf_lang__delete_buffer.exit:                ; preds = %.critedge.i, %19
 
 26:                                               ; preds = %protobuf_lang__delete_buffer.exit
   %27 = load i64, ptr %2, align 8
-  %28 = getelementptr ptr, ptr %25, i64 %27
+  %28 = getelementptr [8 x i8], ptr %25, i64 %27
   %29 = load ptr, ptr %28, align 8
   %.not20.i = icmp eq ptr %29, null
   br i1 %.not20.i, label %protobuf_lang_pop_buffer_state.exit, label %.critedge.i.i
@@ -4353,7 +4353,7 @@ protobuf_lang__delete_buffer.exit.i:              ; preds = %32, %.critedge.i.i
   tail call void @free(ptr noundef nonnull %29) #27
   %35 = load ptr, ptr %3, align 8
   %36 = load i64, ptr %2, align 8
-  %37 = getelementptr ptr, ptr %35, i64 %36
+  %37 = getelementptr [8 x i8], ptr %35, i64 %36
   store ptr null, ptr %37, align 8
   %38 = load i64, ptr %2, align 8
   %.not21.i = icmp eq i64 %38, 0
@@ -4371,7 +4371,7 @@ protobuf_lang__delete_buffer.exit.i:              ; preds = %32, %.critedge.i.i
   br i1 %.not22.i, label %.critedge, label %44
 
 44:                                               ; preds = %41
-  %45 = getelementptr ptr, ptr %43, i64 %42
+  %45 = getelementptr [8 x i8], ptr %43, i64 %42
   %46 = load ptr, ptr %45, align 8
   %.not23.i = icmp eq ptr %46, null
   br i1 %.not23.i, label %protobuf_lang_pop_buffer_state.exit, label %47
@@ -4396,7 +4396,7 @@ protobuf_lang__delete_buffer.exit.i:              ; preds = %32, %.critedge.i.i
 protobuf_lang_pop_buffer_state.exit:              ; preds = %26, %44, %47
   %56 = phi ptr [ %43, %44 ], [ %25, %26 ], [ %43, %47 ]
   %57 = load i64, ptr %2, align 8
-  %58 = getelementptr ptr, ptr %56, i64 %57
+  %58 = getelementptr [8 x i8], ptr %56, i64 %57
   %59 = load ptr, ptr %58, align 8
   %60 = icmp eq ptr %59, null
   br i1 %60, label %.critedge, label %.critedge.i, !llvm.loop !17

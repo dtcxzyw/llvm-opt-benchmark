@@ -117,16 +117,6 @@ module asm ".previous"
 %"class.glw::detail::ObjectSharedPointer.199" = type { %"class.glw::detail::ObjectSharedPointer.200" }
 %"class.glw::detail::ObjectSharedPointer.200" = type { %"class.glw::detail::ObjectSharedPointer.38" }
 %"class.vcg::Point2.202" = type { [2 x float] }
-%struct.Patch = type <{ ptr, %"class.std::vector.205", %"class.std::vector.205", %"class.std::vector.210", %"class.vcg::Box2", %"class.vcg::Matrix44", i8, [7 x i8] }>
-%"class.std::vector.205" = type { %"struct.std::_Vector_base.206" }
-%"struct.std::_Vector_base.206" = type { %"struct.std::_Vector_base<CFaceO *, std::allocator<CFaceO *>>::_Vector_impl" }
-%"struct.std::_Vector_base<CFaceO *, std::allocator<CFaceO *>>::_Vector_impl" = type { %"struct.std::_Vector_base<CFaceO *, std::allocator<CFaceO *>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<CFaceO *, std::allocator<CFaceO *>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.210" = type { %"struct.std::_Vector_base.211" }
-%"struct.std::_Vector_base.211" = type { %"struct.std::_Vector_base<TriangleUV, std::allocator<TriangleUV>>::_Vector_impl" }
-%"struct.std::_Vector_base<TriangleUV, std::allocator<TriangleUV>>::_Vector_impl" = type { %"struct.std::_Vector_base<TriangleUV, std::allocator<TriangleUV>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<TriangleUV, std::allocator<TriangleUV>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.vcg::Box2" = type { %"class.vcg::Point2.202", %"class.vcg::Point2.202" }
 %"class.glw::detail::ObjectSharedPointer.215" = type { %"class.glw::detail::ObjectSharedPointer.200" }
 %"class.glw::ReadFramebufferBindingParams" = type { %"class.glw::FramebufferBindingParams" }
 %"class.glw::FramebufferBindingParams" = type { %"class.glw::ObjectBindingParams" }
@@ -135,9 +125,6 @@ module asm ".previous"
 %"class.glw::ReadDrawFramebufferBindingParams" = type { %"class.glw::FramebufferBindingParams" }
 %"class.glw::ProgramBindingParams" = type { %"class.glw::ObjectBindingParams" }
 %"class.glw::detail::ObjectSharedPointer.227" = type { %"class.glw::detail::ObjectSharedPointer.38" }
-%"class.vcg::face::vector_ocf<CFaceO>::WedgeTexTypePack" = type { [3 x %"class.vcg::TexCoord2"] }
-%"class.vcg::TexCoord2" = type <{ [1 x %"class.vcg::Point2.202"], [1 x i16], [2 x i8] }>
-%struct.TriangleUV = type { [3 x %"class.vcg::TexCoord2"] }
 %"class.std::vector.293" = type { %"struct.std::_Vector_base.294" }
 %"struct.std::_Vector_base.294" = type { %"struct.std::_Vector_base<glw::detail::ObjectSharedPointer<glw::SafeTexture2D, glw::detail::DefaultDeleter<glw::SafeObject>, glw::SafeTexture>, std::allocator<glw::detail::ObjectSharedPointer<glw::SafeTexture2D, glw::detail::DefaultDeleter<glw::SafeObject>, glw::SafeTexture>>>::_Vector_impl" }
 %"struct.std::_Vector_base<glw::detail::ObjectSharedPointer<glw::SafeTexture2D, glw::detail::DefaultDeleter<glw::SafeObject>, glw::SafeTexture>, std::allocator<glw::detail::ObjectSharedPointer<glw::SafeTexture2D, glw::detail::DefaultDeleter<glw::SafeObject>, glw::SafeTexture>>>::_Vector_impl" = type { %"struct.std::_Vector_base<glw::detail::ObjectSharedPointer<glw::SafeTexture2D, glw::detail::DefaultDeleter<glw::SafeObject>, glw::SafeTexture>, std::allocator<glw::detail::ObjectSharedPointer<glw::SafeTexture2D, glw::detail::DefaultDeleter<glw::SafeObject>, glw::SafeTexture>>>::_Vector_impl_data" }
@@ -6872,7 +6859,7 @@ _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit.i: ; preds = %_ZNSt12_Vector
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %19, ptr %4, align 8
   store ptr %19, ptr %20, align 8
-  %21 = getelementptr inbounds nuw i32, ptr %19, i64 %10
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %10
   store ptr %21, ptr %17, align 8
   br label %_ZNSt6vectorIjSaIjEE7reserveEm.exit
 
@@ -6927,7 +6914,7 @@ _ZNSt6vectorIjSaIjEE7reserveEm.exit:              ; preds = %_ZNSt12_Vector_base
   br i1 %48, label %49, label %_ZNSt6vectorIjSaIjEE6resizeEmRKj.exit
 
 49:                                               ; preds = %47
-  %50 = getelementptr inbounds nuw i32, ptr %35, i64 %43
+  %50 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %43
   %.not.i.i = icmp eq ptr %34, %50
   br i1 %.not.i.i, label %_ZNSt6vectorIjSaIjEE6resizeEmRKj.exit, label %51
 
@@ -6960,7 +6947,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %52, %54
 
 _ZNSt6vectorIjSaIjEE6resizeEmRKj.exit:            ; preds = %._ZNSt6vectorIjSaIjEE6resizeEmRKj.exit_crit_edge, %51, %49, %47, %28
   %55 = phi ptr [ %.pre, %._ZNSt6vectorIjSaIjEE6resizeEmRKj.exit_crit_edge ], [ %35, %51 ], [ %35, %49 ], [ %35, %47 ], [ %35, %28 ]
-  %56 = getelementptr inbounds nuw i32, ptr %55, i64 %40
+  %56 = getelementptr inbounds nuw [4 x i8], ptr %55, i64 %40
   store i32 %33, ptr %56, align 4
   %57 = load i32, ptr %29, align 4
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -7058,7 +7045,7 @@ define linkonce_odr void @_ZNSt6vectorIjSaIjEE14_M_fill_insertEN9__gnu_cxx17__no
 
 _ZSt22__uninitialized_move_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit: ; preds = %23, %20
   %24 = phi ptr [ %.pre, %23 ], [ %9, %20 ]
-  %25 = getelementptr inbounds i32, ptr %24, i64 %2
+  %25 = getelementptr inbounds [4 x i8], ptr %24, i64 %2
   store ptr %25, ptr %8, align 8
   %.not.i.i.i.i.i = icmp eq ptr %21, %1
   br i1 %.not.i.i.i.i.i, label %_ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit, label %26
@@ -7067,7 +7054,7 @@ _ZSt22__uninitialized_move_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit: ; preds = %23, %20
   %27 = sub i64 %22, %16
   %28 = ashr exact i64 %27, 2
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds i32, ptr %9, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %9, i64 %29
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %30, ptr align 4 %1, i64 %27, i1 false)
   br label %_ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit
 
@@ -7178,7 +7165,7 @@ _ZSt24__uninitialized_fill_n_aIPjmjjET_S1_T0_RKT1_RSaIT2_E.exit80: ; preds = %.l
   br label %_ZSt34__uninitialized_move_if_noexcept_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit
 
 _ZSt34__uninitialized_move_if_noexcept_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit: ; preds = %67, %_ZSt24__uninitialized_fill_n_aIPjmjjET_S1_T0_RKT1_RSaIT2_E.exit80
-  %68 = getelementptr inbounds nuw i32, ptr %63, i64 %2
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %2
   %69 = sub i64 %11, %56
   %.not.i.i.i.i.i.i.i.i.i82 = icmp eq ptr %9, %1
   br i1 %.not.i.i.i.i.i.i.i.i.i82, label %71, label %70
@@ -7199,7 +7186,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit: ; pred
 _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit: ; preds = %71, %73
   store ptr %62, ptr %0, align 8
   store ptr %72, ptr %8, align 8
-  %74 = getelementptr inbounds nuw i32, ptr %62, i64 %55
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %55
   store ptr %74, ptr %6, align 8
   br label %_ZSt4fillIPjjEvT_S1_RKT0_.exit
 
@@ -8636,7 +8623,7 @@ _ZNSt12_Vector_baseIN3glw6detail19ObjectSharedPointerINS0_10SafeShaderENS1_14Def
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i.i36, ptr %4, align 8
-  %57 = getelementptr inbounds nuw %"class.glw::detail::ObjectSharedPointer.145", ptr %20, i64 %16
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %57, ptr %56, align 8
   ret void
 }
@@ -9828,7 +9815,7 @@ _ZN3glw6Object7destroyEv.exit:                    ; preds = %2, %9
 .lr.ph:                                           ; preds = %_ZN3glw6Object7destroyEv.exit, %_ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEEcvbEv.exit.thread
   %35 = phi ptr [ %60, %_ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEEcvbEv.exit.thread ], [ %34, %_ZN3glw6Object7destroyEv.exit ]
   %.01938 = phi i64 [ %58, %_ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEEcvbEv.exit.thread ], [ 0, %_ZN3glw6Object7destroyEv.exit ]
-  %36 = getelementptr inbounds %"class.glw::detail::ObjectSharedPointer.145", ptr %35, i64 %.01938
+  %36 = getelementptr inbounds [8 x i8], ptr %35, i64 %.01938
   %37 = load ptr, ptr %36, align 8
   %38 = icmp eq ptr %37, null
   br i1 %38, label %_ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEEcvbEv.exit.thread, label %_ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EENS0_6NoTypeEEcvbEv.exit
@@ -9914,9 +9901,9 @@ _ZNK3glw6detail19ObjectSharedPointerINS_10SafeObjectENS0_14DefaultDeleterIS2_EEN
 .lr.ph46:                                         ; preds = %.lr.ph46.preheader, %.lr.ph46
   %.044 = phi i64 [ %91, %.lr.ph46 ], [ 0, %.lr.ph46.preheader ]
   %87 = load ptr, ptr %19, align 8
-  %88 = getelementptr inbounds %"class.std::__cxx11::basic_string", ptr %87, i64 %.044
+  %88 = getelementptr inbounds [32 x i8], ptr %87, i64 %.044
   %89 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %88) #22
-  %90 = getelementptr inbounds ptr, ptr %86, i64 %.044
+  %90 = getelementptr inbounds [8 x i8], ptr %86, i64 %.044
   store ptr %89, ptr %90, align 8
   %91 = add nuw i64 %.044, 1
   %exitcond.not = icmp eq i64 %91, %82
@@ -12150,7 +12137,7 @@ _ZN7QVectorI5PatchE5beginEv.exit:                 ; preds = %143, %152, %.noexc6
   %175 = getelementptr inbounds nuw i8, ptr %171, i64 4
   %176 = load i32, ptr %175, align 4
   %177 = sext i32 %176 to i64
-  %178 = getelementptr inbounds %struct.Patch, ptr %174, i64 %177
+  %178 = getelementptr inbounds [168 x i8], ptr %174, i64 %177
   %.not = icmp eq ptr %.044, %178
   br i1 %.not, label %217, label %179
 
@@ -12164,12 +12151,12 @@ _ZN7QVectorI5PatchE5beginEv.exit:                 ; preds = %143, %152, %.noexc6
   %indvars.iv15.i.i.i = phi i64 [ 1, %179 ], [ %indvars.iv.next16.i.i.i, %184 ]
   %.idx.i.i.i = shl nuw nsw i64 %indvars.iv15.i.i.i, 4
   %invariant.gep.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i.i.i
-  %invariant.gep20.i.i.i = getelementptr float, ptr %3, i64 %indvars.iv15.i.i.i
+  %invariant.gep20.i.i.i = getelementptr [4 x i8], ptr %3, i64 %indvars.iv15.i.i.i
   br label %181
 
 181:                                              ; preds = %181, %.preheader.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.preheader.i.i.i ], [ %indvars.iv.next.i.i.i, %181 ]
-  %gep.i.i.i = getelementptr inbounds nuw float, ptr %invariant.gep.i.i.i, i64 %indvars.iv.i.i.i
+  %gep.i.i.i = getelementptr inbounds nuw [4 x i8], ptr %invariant.gep.i.i.i, i64 %indvars.iv.i.i.i
   %.idx19.i.i.i = shl i64 %indvars.iv.i.i.i, 4
   %gep21.i.i.i = getelementptr i8, ptr %invariant.gep20.i.i.i, i64 %.idx19.i.i.i
   %182 = load float, ptr %gep.i.i.i, align 4, !alias.scope !93
@@ -12215,7 +12202,7 @@ _ZNK3vcg8Matrix44IfE9transposeEv.exit.i:          ; preds = %184
 
 196:                                              ; preds = %.preheader.preheader, %199
   %indvars.iv104 = phi i64 [ 0, %.preheader.preheader ], [ %indvars.iv.next105, %199 ]
-  %197 = getelementptr inbounds nuw %"class.vcg::Point2.202", ptr %9, i64 %indvars.iv104
+  %197 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv104
   invoke void @glTexCoord2fv(ptr noundef nonnull %197)
           to label %198 unwind label %.loopexit
 
@@ -15142,7 +15129,7 @@ _ZN7QVectorI5PatchE5beginEv.exit:                 ; preds = %374, %383, %.noexc1
   %404 = getelementptr inbounds nuw i8, ptr %.pre171, i64 4
   %405 = load i32, ptr %404, align 4
   %406 = sext i32 %405 to i64
-  %407 = getelementptr inbounds %struct.Patch, ptr %403, i64 %406
+  %407 = getelementptr inbounds [168 x i8], ptr %403, i64 %406
   %.not = icmp eq ptr %.021, %407
   br i1 %.not, label %461, label %.preheader161
 
@@ -15166,7 +15153,7 @@ _ZN7QVectorI5PatchE5beginEv.exit:                 ; preds = %374, %383, %.noexc1
 414:                                              ; preds = %.preheader, %432
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %432 ]
   %415 = load ptr, ptr %408, align 8
-  %416 = getelementptr inbounds nuw ptr, ptr %415, i64 %413
+  %416 = getelementptr inbounds nuw [8 x i8], ptr %415, i64 %413
   %417 = load ptr, ptr %416, align 8
   %418 = load ptr, ptr %417, align 8
   %419 = getelementptr inbounds nuw i8, ptr %418, i64 192
@@ -15176,15 +15163,15 @@ _ZN7QVectorI5PatchE5beginEv.exit:                 ; preds = %374, %383, %.noexc1
   %423 = sub i64 %421, %422
   %424 = sdiv exact i64 %423, 48
   %425 = load ptr, ptr %419, align 8
-  %426 = getelementptr inbounds %"class.vcg::face::vector_ocf<CFaceO>::WedgeTexTypePack", ptr %425, i64 %424
-  %427 = getelementptr inbounds nuw %"class.vcg::TexCoord2", ptr %426, i64 %indvars.iv
+  %426 = getelementptr inbounds [36 x i8], ptr %425, i64 %424
+  %427 = getelementptr inbounds nuw [12 x i8], ptr %426, i64 %indvars.iv
   invoke void @glTexCoord2fv(ptr noundef %427)
           to label %428 unwind label %.loopexit
 
 428:                                              ; preds = %414
   %429 = load ptr, ptr %412, align 8
-  %430 = getelementptr inbounds nuw %struct.TriangleUV, ptr %429, i64 %413
-  %431 = getelementptr inbounds nuw %"class.vcg::TexCoord2", ptr %430, i64 %indvars.iv
+  %430 = getelementptr inbounds nuw [36 x i8], ptr %429, i64 %413
+  %431 = getelementptr inbounds nuw [12 x i8], ptr %430, i64 %indvars.iv
   invoke void @glVertex2fv(ptr noundef %431)
           to label %432 unwind label %.loopexit
 
@@ -19760,7 +19747,7 @@ _ZN3glw6detail19ObjectSharedPointerINS_13SafeTexture2DENS0_14DefaultDeleterINS_1
 .lr.ph67:                                         ; preds = %.lr.ph67.preheader, %236
   %indvars.iv = phi i64 [ %232, %.lr.ph67.preheader ], [ %indvars.iv.next, %236 ]
   %233 = load ptr, ptr %8, align 8
-  %234 = getelementptr inbounds nuw %"class.glw::detail::ObjectSharedPointer", ptr %233, i64 %indvars.iv
+  %234 = getelementptr inbounds nuw [8 x i8], ptr %233, i64 %indvars.iv
   %235 = getelementptr inbounds nuw i8, ptr %234, i64 8
   invoke void @_ZN14TexturePainter4pullERN3glw6detail19ObjectSharedPointerINS0_13SafeTexture2DENS1_14DefaultDeleterINS0_10SafeObjectEEENS0_11SafeTextureEEES9_(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(8) %235, ptr noundef nonnull align 8 dereferenceable(8) %234)
           to label %236 unwind label %.loopexit
@@ -20001,7 +19988,7 @@ _ZNSt12_Vector_baseIN3glw6detail19ObjectSharedPointerINS0_13SafeTexture2DENS1_14
   store ptr %19, ptr %0, align 8
   %42 = getelementptr inbounds i8, ptr %19, i64 %17
   store ptr %42, ptr %14, align 8
-  %43 = getelementptr inbounds nuw %"class.glw::detail::ObjectSharedPointer", ptr %19, i64 %1
+  %43 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %1
   store ptr %43, ptr %6, align 8
   br label %44
 
@@ -20202,9 +20189,9 @@ _ZSt8_DestroyIPN3glw6detail19ObjectSharedPointerINS0_13SafeTexture2DENS1_14Defau
 
 _ZNSt12_Vector_baseIN3glw6detail19ObjectSharedPointerINS0_13SafeTexture2DENS1_14DefaultDeleterINS0_10SafeObjectEEENS0_11SafeTextureEEESaIS8_EE13_M_deallocateEPS8_m.exit46: ; preds = %_ZSt8_DestroyIPN3glw6detail19ObjectSharedPointerINS0_13SafeTexture2DENS1_14DefaultDeleterINS0_10SafeObjectEEENS0_11SafeTextureEEES8_EvT_SA_RSaIT0_E.exit, %49
   store ptr %26, ptr %0, align 8
-  %50 = getelementptr inbounds nuw %"class.glw::detail::ObjectSharedPointer", ptr %27, i64 %1
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %27, i64 %1
   store ptr %50, ptr %4, align 8
-  %51 = getelementptr inbounds nuw %"class.glw::detail::ObjectSharedPointer", ptr %26, i64 %24
+  %51 = getelementptr inbounds nuw [8 x i8], ptr %26, i64 %24
   store ptr %51, ptr %11, align 8
   br label %52
 
@@ -20362,7 +20349,7 @@ _ZNSt12_Vector_baseIN3glw6detail19ObjectSharedPointerINS0_13SafeTexture2DENS1_14
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %20, ptr %0, align 8
   store ptr %.0.lcssa.i.i.i.i.i35, ptr %4, align 8
-  %57 = getelementptr inbounds nuw %"class.glw::detail::ObjectSharedPointer", ptr %20, i64 %16
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %20, i64 %16
   store ptr %57, ptr %56, align 8
   ret void
 }

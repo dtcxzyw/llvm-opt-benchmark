@@ -37,10 +37,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.zfp::internal::Cache.13" = type { i32, ptr, ptr }
 %"class.zfp::internal::dim2::private_const_view" = type { %"class.zfp::internal::dim2::preview", %"class.zfp::internal::BlockCache2" }
 %"class.zfp::internal::dim2::preview" = type { ptr, i64, i64, i64, i64 }
-%"class.zfp::internal::Cache<zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine>::Tag" = type { i32 }
-%"class.zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine" = type { [64 x double] }
-%"class.zfp::internal::Cache<zfp::internal::BlockCache2<double, zfp::internal::BlockStore2<double, zfp::codec::zfp2<double>, zfp::index::implicit> >::CacheLine>::Tag" = type { i32 }
-%"class.zfp::internal::BlockCache2<double, zfp::internal::BlockStore2<double, zfp::codec::zfp2<double>, zfp::index::implicit> >::CacheLine" = type { [16 x double] }
 %struct.zfp_config = type { i32, %union.anon.16 }
 %union.anon.16 = type { double, [8 x i8] }
 
@@ -2233,12 +2229,12 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i: ; preds = %.noexc1696, %80
   %850 = and i32 %848, %849
   %851 = load ptr, ptr %784, align 8, !tbaa !62
   %852 = zext i32 %850 to i64
-  %853 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %851, i64 %852
+  %853 = getelementptr inbounds nuw [4 x i8], ptr %851, i64 %852
   %854 = load i32, ptr %853, align 4, !tbaa !63
   %855 = lshr i32 %854, 1
   %856 = icmp eq i32 %855, %848
   %857 = load ptr, ptr %785, align 8, !tbaa !65
-  %858 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine", ptr %857, i64 %852
+  %858 = getelementptr inbounds nuw [512 x i8], ptr %857, i64 %852
   %859 = shl i32 %848, 1
   %.sink.i.i.v.i.i.i = select i1 %856, i32 %854, i32 %859
   %.sink.i.i.i.i.i = or i32 %.sink.i.i.v.i.i.i, 1
@@ -2394,7 +2390,7 @@ _ZNK3zfp5codec4zfp3IdE12decode_blockEmjPd.exit.i2192._crit_edge: ; preds = %_ZNK
   %963 = phi i64 [ %.pre3183, %_ZNK3zfp5codec4zfp3IdE12decode_blockEmjPd.exit.i2192._crit_edge ], [ %829, %828 ]
   %964 = and i64 %.04922915, 3
   %965 = getelementptr inbounds nuw i8, ptr %858, i64 %.idx.i.i.i.i
-  %966 = getelementptr inbounds nuw double, ptr %965, i64 %964
+  %966 = getelementptr inbounds nuw [8 x i8], ptr %965, i64 %964
   store double %836, ptr %966, align 8, !tbaa !77
   %967 = add nuw i64 %.04922915, 1
   %968 = icmp ult i64 %967, %963
@@ -2628,12 +2624,12 @@ _ZNSolsEm.exit1177.us.us:                         ; preds = %_ZStlsISt11char_tra
   %1077 = and i32 %1075, %1076
   %1078 = load ptr, ptr %1003, align 8, !tbaa !62
   %1079 = zext i32 %1077 to i64
-  %1080 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %1078, i64 %1079
+  %1080 = getelementptr inbounds nuw [4 x i8], ptr %1078, i64 %1079
   %1081 = load i32, ptr %1080, align 4, !tbaa !63
   %1082 = lshr i32 %1081, 1
   %1083 = icmp eq i32 %1082, %1075
   %1084 = load ptr, ptr %1004, align 8, !tbaa !65
-  %1085 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine", ptr %1084, i64 %1079
+  %1085 = getelementptr inbounds nuw [512 x i8], ptr %1084, i64 %1079
   br i1 %1083, label %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i.us.us, label %1086
 
 1086:                                             ; preds = %1055
@@ -2792,7 +2788,7 @@ _ZNK3zfp5codec4zfp3IdE12decode_blockEmjPd.exit.i.us.us: ; preds = %1185, %_ZNK3z
   %1194 = or disjoint i64 %1193, %1191
   %.idx.i.i.i.i.i.us.us = shl nuw nsw i64 %1194, 5
   %1195 = getelementptr inbounds nuw i8, ptr %1085, i64 %.idx.i.i.i.i.i.us.us
-  %1196 = getelementptr inbounds nuw double, ptr %1195, i64 %1190
+  %1196 = getelementptr inbounds nuw [8 x i8], ptr %1195, i64 %1190
   %1197 = load double, ptr %1196, align 8, !tbaa !77
   %1198 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1053, double noundef %1197)
           to label %_ZNSolsEd.exit.us.us unwind label %.split2927.us.split.us
@@ -2819,12 +2815,12 @@ _ZNSolsEd.exit.us.us:                             ; preds = %1189
   %1215 = and i32 %1213, %1214
   %1216 = load ptr, ptr %1003, align 8, !tbaa !62
   %1217 = zext i32 %1215 to i64
-  %1218 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %1216, i64 %1217
+  %1218 = getelementptr inbounds nuw [4 x i8], ptr %1216, i64 %1217
   %1219 = load i32, ptr %1218, align 4, !tbaa !63
   %1220 = lshr i32 %1219, 1
   %1221 = icmp eq i32 %1220, %1213
   %1222 = load ptr, ptr %1004, align 8, !tbaa !65
-  %1223 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine", ptr %1222, i64 %1217
+  %1223 = getelementptr inbounds nuw [512 x i8], ptr %1222, i64 %1217
   br i1 %1221, label %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i1734.us.us, label %1224
 
 1224:                                             ; preds = %1200
@@ -2978,7 +2974,7 @@ _ZNK3zfp5codec4zfp3IdE12decode_blockEmjPd.exit.i2206.us.us: ; preds = %1323, %_Z
 1327:                                             ; preds = %_ZNK3zfp5codec4zfp3IdE12decode_blockEmjPd.exit.i2206.us.us, %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i1734.us.us
   %1328 = and i64 %1201, 3
   %1329 = getelementptr inbounds nuw i8, ptr %1223, i64 %.idx.i.i.i.i.i1736.us.us
-  %1330 = getelementptr inbounds nuw double, ptr %1329, i64 %1328
+  %1330 = getelementptr inbounds nuw [8 x i8], ptr %1329, i64 %1328
   %1331 = load double, ptr %1330, align 8, !tbaa !77
   %1332 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1198, double noundef %1331)
           to label %_ZNSolsEd.exit1187.us.us unwind label %.loopexit2881.split.us.split.us
@@ -3049,12 +3045,12 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i1743.us.us: ; preds = %.noex
   %1373 = and i32 %1371, %1372
   %1374 = load ptr, ptr %1003, align 8, !tbaa !62
   %1375 = zext i32 %1373 to i64
-  %1376 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %1374, i64 %1375
+  %1376 = getelementptr inbounds nuw [4 x i8], ptr %1374, i64 %1375
   %1377 = load i32, ptr %1376, align 4, !tbaa !63
   %1378 = lshr i32 %1377, 1
   %1379 = icmp eq i32 %1378, %1371
   %1380 = load ptr, ptr %1004, align 8, !tbaa !65
-  %1381 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine", ptr %1380, i64 %1375
+  %1381 = getelementptr inbounds nuw [512 x i8], ptr %1380, i64 %1375
   br i1 %1379, label %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i1190.us.us, label %1382
 
 1382:                                             ; preds = %1351
@@ -3228,7 +3224,7 @@ _ZNK3zfp5codec4zfp3IdE12decode_blockEmjPd.exit.i1752.us.us._crit_edge: ; preds =
   %1495 = or disjoint i64 %1494, %1492
   %.idx.i.i.i.i.i1192.us.us = shl nuw nsw i64 %1495, 5
   %1496 = getelementptr inbounds nuw i8, ptr %1381, i64 %.idx.i.i.i.i.i1192.us.us
-  %1497 = getelementptr inbounds nuw double, ptr %1496, i64 %1491
+  %1497 = getelementptr inbounds nuw [8 x i8], ptr %1496, i64 %1491
   %1498 = load double, ptr %1497, align 8, !tbaa !77
   %1499 = add i64 %991, %.04892921.us.us
   %1500 = lshr i64 %1499, 2
@@ -3241,11 +3237,11 @@ _ZNK3zfp5codec4zfp3IdE12decode_blockEmjPd.exit.i1752.us.us._crit_edge: ; preds =
   %1507 = load i32, ptr %1001, align 8, !tbaa !61
   %1508 = and i32 %1506, %1507
   %1509 = zext i32 %1508 to i64
-  %1510 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %1487, i64 %1509
+  %1510 = getelementptr inbounds nuw [4 x i8], ptr %1487, i64 %1509
   %1511 = load i32, ptr %1510, align 4, !tbaa !63
   %1512 = lshr i32 %1511, 1
   %1513 = icmp eq i32 %1512, %1506
-  %1514 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine", ptr %1486, i64 %1509
+  %1514 = getelementptr inbounds nuw [512 x i8], ptr %1486, i64 %1509
   br i1 %1513, label %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i1765.us.us, label %1515
 
 1515:                                             ; preds = %1485
@@ -3399,7 +3395,7 @@ _ZNK3zfp5codec4zfp3IdE12decode_blockEmjPd.exit.i2220.us.us: ; preds = %1614, %_Z
 _ZL6verifydd.exit.us.us:                          ; preds = %_ZNK3zfp5codec4zfp3IdE12decode_blockEmjPd.exit.i2220.us.us, %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i1765.us.us
   %1618 = and i64 %1499, 3
   %1619 = getelementptr inbounds nuw i8, ptr %1514, i64 %.idx.i.i.i.i.i1736.us.us
-  %1620 = getelementptr inbounds nuw double, ptr %1619, i64 %1618
+  %1620 = getelementptr inbounds nuw [8 x i8], ptr %1619, i64 %1618
   %1621 = load double, ptr %1620, align 8, !tbaa !77
   %1622 = fsub double %1498, %1621
   %1623 = call double @llvm.fabs.f64(double %1622)
@@ -3760,12 +3756,12 @@ _ZNSolsEm.exit1234.us.us:                         ; preds = %_ZStlsISt11char_tra
   %1754 = and i32 %1752, %1753
   %1755 = load ptr, ptr %1687, align 8, !tbaa !62
   %1756 = zext i32 %1754 to i64
-  %1757 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %1755, i64 %1756
+  %1757 = getelementptr inbounds nuw [4 x i8], ptr %1755, i64 %1756
   %1758 = load i32, ptr %1757, align 4, !tbaa !63
   %1759 = lshr i32 %1758, 1
   %1760 = icmp eq i32 %1759, %1752
   %1761 = load ptr, ptr %1688, align 8, !tbaa !65
-  %1762 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine", ptr %1761, i64 %1756
+  %1762 = getelementptr inbounds nuw [512 x i8], ptr %1761, i64 %1756
   br i1 %1760, label %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i1237.us.us, label %1763
 
 1763:                                             ; preds = %1740
@@ -3919,7 +3915,7 @@ _ZNK3zfp5codec4zfp3IdE12decode_blockEmjPd.exit.i1803.us.us: ; preds = %1862, %_Z
 1866:                                             ; preds = %_ZNK3zfp5codec4zfp3IdE12decode_blockEmjPd.exit.i1803.us.us, %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i1237.us.us
   %1867 = and i64 %.04862953.us.us, 3
   %1868 = getelementptr inbounds nuw i8, ptr %1762, i64 %.idx.i.i.i.i.i1239.us.us
-  %1869 = getelementptr inbounds nuw double, ptr %1868, i64 %1867
+  %1869 = getelementptr inbounds nuw [8 x i8], ptr %1868, i64 %1867
   %1870 = load double, ptr %1869, align 8, !tbaa !77
   %1871 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1738, double noundef %1870)
           to label %_ZNSolsEd.exit1245.us.us unwind label %.split2960.us.split.us
@@ -3952,12 +3948,12 @@ _ZNSolsEd.exit1245.us.us:                         ; preds = %1866
   %1894 = and i32 %1892, %1893
   %1895 = load ptr, ptr %1687, align 8, !tbaa !62
   %1896 = zext i32 %1894 to i64
-  %1897 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %1895, i64 %1896
+  %1897 = getelementptr inbounds nuw [4 x i8], ptr %1895, i64 %1896
   %1898 = load i32, ptr %1897, align 4, !tbaa !63
   %1899 = lshr i32 %1898, 1
   %1900 = icmp eq i32 %1899, %1892
   %1901 = load ptr, ptr %1688, align 8, !tbaa !65
-  %1902 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine", ptr %1901, i64 %1896
+  %1902 = getelementptr inbounds nuw [512 x i8], ptr %1901, i64 %1896
   br i1 %1900, label %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i1816.us.us, label %1903
 
 1903:                                             ; preds = %1873
@@ -4116,7 +4112,7 @@ _ZNK3zfp5codec4zfp3IdE12decode_blockEmjPd.exit.i2234.us.us: ; preds = %2002, %_Z
   %2011 = or disjoint i64 %2010, %2008
   %.idx.i.i.i.i.i1818.us.us = shl nuw nsw i64 %2011, 5
   %2012 = getelementptr inbounds nuw i8, ptr %1902, i64 %.idx.i.i.i.i.i1818.us.us
-  %2013 = getelementptr inbounds nuw double, ptr %2012, i64 %2007
+  %2013 = getelementptr inbounds nuw [8 x i8], ptr %2012, i64 %2007
   %2014 = load double, ptr %2013, align 8, !tbaa !77
   %2015 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %1871, double noundef %2014)
           to label %_ZNSolsEd.exit1250.us.us unwind label %.loopexit2863.split.us.split.us
@@ -4179,12 +4175,12 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i1825.us.us: ; preds = %.noex
   %2047 = and i32 %2045, %2046
   %2048 = load ptr, ptr %1687, align 8, !tbaa !62
   %2049 = zext i32 %2047 to i64
-  %2050 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %2048, i64 %2049
+  %2050 = getelementptr inbounds nuw [4 x i8], ptr %2048, i64 %2049
   %2051 = load i32, ptr %2050, align 4, !tbaa !63
   %2052 = lshr i32 %2051, 1
   %2053 = icmp eq i32 %2052, %2045
   %2054 = load ptr, ptr %1688, align 8, !tbaa !65
-  %2055 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine", ptr %2054, i64 %2049
+  %2055 = getelementptr inbounds nuw [512 x i8], ptr %2054, i64 %2049
   br i1 %2053, label %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i1253.us.us, label %2056
 
 2056:                                             ; preds = %2034
@@ -4353,7 +4349,7 @@ _ZNK3zfp5codec4zfp3IdE12decode_blockEmjPd.exit.i1834.us.us._crit_edge: ; preds =
   %2164 = phi ptr [ %.pre3221, %_ZNK3zfp5codec4zfp3IdE12decode_blockEmjPd.exit.i1834.us.us._crit_edge ], [ %2035, %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i1253.us.us ]
   %2165 = and i64 %.04862953.us.us, 3
   %2166 = getelementptr inbounds nuw i8, ptr %2055, i64 %.idx.i.i.i.i.i1239.us.us
-  %2167 = getelementptr inbounds nuw double, ptr %2166, i64 %2165
+  %2167 = getelementptr inbounds nuw [8 x i8], ptr %2166, i64 %2165
   %2168 = load double, ptr %2167, align 8, !tbaa !77
   %2169 = add i64 %1698, %.04862953.us.us
   %2170 = urem i64 %2169, %1676
@@ -4372,11 +4368,11 @@ _ZNK3zfp5codec4zfp3IdE12decode_blockEmjPd.exit.i1834.us.us._crit_edge: ; preds =
   %2183 = load i32, ptr %1685, align 8, !tbaa !61
   %2184 = and i32 %2182, %2183
   %2185 = zext i32 %2184 to i64
-  %2186 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %2161, i64 %2185
+  %2186 = getelementptr inbounds nuw [4 x i8], ptr %2161, i64 %2185
   %2187 = load i32, ptr %2186, align 4, !tbaa !63
   %2188 = lshr i32 %2187, 1
   %2189 = icmp eq i32 %2188, %2182
-  %2190 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine", ptr %2160, i64 %2185
+  %2190 = getelementptr inbounds nuw [512 x i8], ptr %2160, i64 %2185
   br i1 %2189, label %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i1847.us.us, label %2191
 
 2191:                                             ; preds = %2159
@@ -4535,7 +4531,7 @@ _ZL6verifydd.exit1267.us.us:                      ; preds = %_ZNK3zfp5codec4zfp3
   %2298 = or disjoint i64 %2297, %2295
   %.idx.i.i.i.i.i1849.us.us = shl nuw nsw i64 %2298, 5
   %2299 = getelementptr inbounds nuw i8, ptr %2190, i64 %.idx.i.i.i.i.i1849.us.us
-  %2300 = getelementptr inbounds nuw double, ptr %2299, i64 %2294
+  %2300 = getelementptr inbounds nuw [8 x i8], ptr %2299, i64 %2294
   %2301 = load double, ptr %2300, align 8, !tbaa !77
   %2302 = fsub double %2168, %2301
   %2303 = call double @llvm.fabs.f64(double %2302)
@@ -4885,12 +4881,12 @@ _ZNSolsEm.exit1298.us.us:                         ; preds = %_ZStlsISt11char_tra
   %2426 = and i32 %2424, %2425
   %2427 = load ptr, ptr %2362, align 8, !tbaa !62
   %2428 = zext i32 %2426 to i64
-  %2429 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %2427, i64 %2428
+  %2429 = getelementptr inbounds nuw [4 x i8], ptr %2427, i64 %2428
   %2430 = load i32, ptr %2429, align 4, !tbaa !63
   %2431 = lshr i32 %2430, 1
   %2432 = icmp eq i32 %2431, %2424
   %2433 = load ptr, ptr %2363, align 8, !tbaa !65
-  %2434 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine", ptr %2433, i64 %2428
+  %2434 = getelementptr inbounds nuw [512 x i8], ptr %2433, i64 %2428
   br i1 %2432, label %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i1301.us.us, label %2435
 
 2435:                                             ; preds = %2412
@@ -5044,7 +5040,7 @@ _ZNK3zfp5codec4zfp3IdE12decode_blockEmjPd.exit.i1874.us.us: ; preds = %2534, %_Z
 2538:                                             ; preds = %_ZNK3zfp5codec4zfp3IdE12decode_blockEmjPd.exit.i1874.us.us, %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i1301.us.us
   %2539 = and i64 %.04832986.us.us, 3
   %2540 = getelementptr inbounds nuw i8, ptr %2434, i64 %.idx.i.i.i.i.i1303.us.us
-  %2541 = getelementptr inbounds nuw double, ptr %2540, i64 %2539
+  %2541 = getelementptr inbounds nuw [8 x i8], ptr %2540, i64 %2539
   %2542 = load double, ptr %2541, align 8, !tbaa !77
   %2543 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %2410, double noundef %2542)
           to label %_ZNSolsEd.exit1309.us.us unwind label %.split2993.us.split.us
@@ -5069,12 +5065,12 @@ _ZNSolsEd.exit1309.us.us:                         ; preds = %2538
   %2558 = and i32 %2556, %2557
   %2559 = load ptr, ptr %2362, align 8, !tbaa !62
   %2560 = zext i32 %2558 to i64
-  %2561 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %2559, i64 %2560
+  %2561 = getelementptr inbounds nuw [4 x i8], ptr %2559, i64 %2560
   %2562 = load i32, ptr %2561, align 4, !tbaa !63
   %2563 = lshr i32 %2562, 1
   %2564 = icmp eq i32 %2563, %2556
   %2565 = load ptr, ptr %2363, align 8, !tbaa !65
-  %2566 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine", ptr %2565, i64 %2560
+  %2566 = getelementptr inbounds nuw [512 x i8], ptr %2565, i64 %2560
   br i1 %2564, label %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i1887.us.us, label %2567
 
 2567:                                             ; preds = %2545
@@ -5227,7 +5223,7 @@ _ZNK3zfp5codec4zfp3IdE12decode_blockEmjPd.exit.i2262.us.us: ; preds = %2666, %_Z
 
 2670:                                             ; preds = %_ZNK3zfp5codec4zfp3IdE12decode_blockEmjPd.exit.i2262.us.us, %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i1887.us.us
   %2671 = getelementptr inbounds nuw i8, ptr %2566, i64 %.idx.i.i.i.i.i1303.us.us
-  %2672 = getelementptr inbounds nuw double, ptr %2671, i64 %2539
+  %2672 = getelementptr inbounds nuw [8 x i8], ptr %2671, i64 %2539
   %2673 = load double, ptr %2672, align 8, !tbaa !77
   %2674 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %2543, double noundef %2673)
           to label %_ZNSolsEd.exit1314.us.us unwind label %.loopexit2845.split.us.split.us
@@ -5290,12 +5286,12 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i1896.us.us: ; preds = %.noex
   %2706 = and i32 %2704, %2705
   %2707 = load ptr, ptr %2362, align 8, !tbaa !62
   %2708 = zext i32 %2706 to i64
-  %2709 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %2707, i64 %2708
+  %2709 = getelementptr inbounds nuw [4 x i8], ptr %2707, i64 %2708
   %2710 = load i32, ptr %2709, align 4, !tbaa !63
   %2711 = lshr i32 %2710, 1
   %2712 = icmp eq i32 %2711, %2704
   %2713 = load ptr, ptr %2363, align 8, !tbaa !65
-  %2714 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine", ptr %2713, i64 %2708
+  %2714 = getelementptr inbounds nuw [512 x i8], ptr %2713, i64 %2708
   br i1 %2712, label %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i1317.us.us, label %2715
 
 2715:                                             ; preds = %2693
@@ -5472,16 +5468,16 @@ _ZNK3zfp5codec4zfp3IdE12decode_blockEmjPd.exit.i1905.us.us._crit_edge: ; preds =
   %2823 = phi ptr [ %.pre3244, %_ZNK3zfp5codec4zfp3IdE12decode_blockEmjPd.exit.i1905.us.us._crit_edge ], [ %2694, %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i1317.us.us ]
   %2824 = and i64 %.04832986.us.us, 3
   %2825 = getelementptr inbounds nuw i8, ptr %2714, i64 %.idx.i.i.i.i.i1303.us.us
-  %2826 = getelementptr inbounds nuw double, ptr %2825, i64 %2824
+  %2826 = getelementptr inbounds nuw [8 x i8], ptr %2825, i64 %2824
   %2827 = load double, ptr %2826, align 8, !tbaa !77
   %2828 = load i32, ptr %2360, align 8, !tbaa !61
   %2829 = and i32 %.pre-phi3288, %2828
   %2830 = zext i32 %2829 to i64
-  %2831 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %2820, i64 %2830
+  %2831 = getelementptr inbounds nuw [4 x i8], ptr %2820, i64 %2830
   %2832 = load i32, ptr %2831, align 4, !tbaa !63
   %2833 = lshr i32 %2832, 1
   %2834 = icmp eq i32 %2833, %.pre-phi3288
-  %2835 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine", ptr %2819, i64 %2830
+  %2835 = getelementptr inbounds nuw [512 x i8], ptr %2819, i64 %2830
   br i1 %2834, label %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i1918.us.us, label %2836
 
 2836:                                             ; preds = %2818
@@ -5634,7 +5630,7 @@ _ZNK3zfp5codec4zfp3IdE12decode_blockEmjPd.exit.i2276.us.us: ; preds = %2935, %_Z
 
 _ZL6verifydd.exit1331.us.us:                      ; preds = %_ZNK3zfp5codec4zfp3IdE12decode_blockEmjPd.exit.i2276.us.us, %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i1918.us.us
   %2939 = getelementptr inbounds nuw i8, ptr %2835, i64 %.idx.i.i.i.i.i1303.us.us
-  %2940 = getelementptr inbounds nuw double, ptr %2939, i64 %2824
+  %2940 = getelementptr inbounds nuw [8 x i8], ptr %2939, i64 %2824
   %2941 = load double, ptr %2940, align 8, !tbaa !77
   %2942 = fsub double %2827, %2941
   %2943 = call double @llvm.fabs.f64(double %2942)
@@ -5829,12 +5825,12 @@ _ZNSolsEm.exit1347:                               ; preds = %_ZStlsISt11char_tra
   %2998 = and i32 %2996, %2997
   %2999 = load ptr, ptr %2963, align 8, !tbaa !62
   %3000 = zext i32 %2998 to i64
-  %3001 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %2999, i64 %3000
+  %3001 = getelementptr inbounds nuw [4 x i8], ptr %2999, i64 %3000
   %3002 = load i32, ptr %3001, align 4, !tbaa !63
   %3003 = lshr i32 %3002, 1
   %3004 = icmp eq i32 %3003, %2996
   %3005 = load ptr, ptr %2964, align 8, !tbaa !65
-  %3006 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine", ptr %3005, i64 %3000
+  %3006 = getelementptr inbounds nuw [512 x i8], ptr %3005, i64 %3000
   br i1 %3004, label %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i1933, label %3007
 
 3007:                                             ; preds = %2982
@@ -5873,7 +5869,7 @@ _ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEEN
   %3023 = or disjoint i64 %3022, %3020
   %.idx.i.i.i.i.i1935 = shl nuw nsw i64 %3023, 5
   %3024 = getelementptr inbounds nuw i8, ptr %3006, i64 %.idx.i.i.i.i.i1935
-  %3025 = getelementptr inbounds nuw double, ptr %3024, i64 %3019
+  %3025 = getelementptr inbounds nuw [8 x i8], ptr %3024, i64 %3019
   %3026 = load double, ptr %3025, align 8, !tbaa !77
   %3027 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %2980, double noundef %3026)
           to label %_ZNSolsEd.exit1353 unwind label %3109
@@ -5914,12 +5910,12 @@ _ZNSolsEd.exit1353:                               ; preds = %3018
   %3058 = and i32 %3056, %3057
   %3059 = load ptr, ptr %2963, align 8, !tbaa !62
   %3060 = zext i32 %3058 to i64
-  %3061 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %3059, i64 %3060
+  %3061 = getelementptr inbounds nuw [4 x i8], ptr %3059, i64 %3060
   %3062 = load i32, ptr %3061, align 4, !tbaa !63
   %3063 = lshr i32 %3062, 1
   %3064 = icmp eq i32 %3063, %3056
   %3065 = load ptr, ptr %2964, align 8, !tbaa !65
-  %3066 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine", ptr %3065, i64 %3060
+  %3066 = getelementptr inbounds nuw [512 x i8], ptr %3065, i64 %3060
   br i1 %3064, label %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i1940, label %3067
 
 3067:                                             ; preds = %3029
@@ -5958,7 +5954,7 @@ _ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEEN
   %3083 = or disjoint i64 %3082, %3080
   %.idx.i.i.i.i.i1942 = shl nuw nsw i64 %3083, 5
   %3084 = getelementptr inbounds nuw i8, ptr %3066, i64 %.idx.i.i.i.i.i1942
-  %3085 = getelementptr inbounds nuw double, ptr %3084, i64 %3079
+  %3085 = getelementptr inbounds nuw [8 x i8], ptr %3084, i64 %3079
   %3086 = load double, ptr %3085, align 8, !tbaa !77
   %3087 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %3027, double noundef %3086)
           to label %_ZNSolsEd.exit1359 unwind label %.loopexit2829
@@ -6050,12 +6046,12 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i1950: ; preds = %.noexc1953,
   %3124 = and i32 %3122, %3123
   %3125 = load ptr, ptr %2963, align 8, !tbaa !62
   %3126 = zext i32 %3124 to i64
-  %3127 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %3125, i64 %3126
+  %3127 = getelementptr inbounds nuw [4 x i8], ptr %3125, i64 %3126
   %3128 = load i32, ptr %3127, align 4, !tbaa !63
   %3129 = lshr i32 %3128, 1
   %3130 = icmp eq i32 %3129, %3122
   %3131 = load ptr, ptr %2964, align 8, !tbaa !65
-  %3132 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine", ptr %3131, i64 %3126
+  %3132 = getelementptr inbounds nuw [512 x i8], ptr %3131, i64 %3126
   br i1 %3130, label %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i1958, label %3133
 
 3133:                                             ; preds = %3111
@@ -6109,7 +6105,7 @@ _ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEEN
   %3154 = or disjoint i64 %3153, %3151
   %.idx.i.i.i.i.i1960 = shl nuw nsw i64 %3154, 5
   %3155 = getelementptr inbounds nuw i8, ptr %3132, i64 %.idx.i.i.i.i.i1960
-  %3156 = getelementptr inbounds nuw double, ptr %3155, i64 %3150
+  %3156 = getelementptr inbounds nuw [8 x i8], ptr %3155, i64 %3150
   %3157 = load double, ptr %3156, align 8, !tbaa !77
   %3158 = load i64, ptr %16, align 8, !tbaa !4
   %3159 = load i64, ptr %17, align 8, !tbaa !4
@@ -6136,11 +6132,11 @@ _ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEEN
   %3180 = load i32, ptr %2961, align 8, !tbaa !61
   %3181 = and i32 %3179, %3180
   %3182 = zext i32 %3181 to i64
-  %3183 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %3146, i64 %3182
+  %3183 = getelementptr inbounds nuw [4 x i8], ptr %3146, i64 %3182
   %3184 = load i32, ptr %3183, align 4, !tbaa !63
   %3185 = lshr i32 %3184, 1
   %3186 = icmp eq i32 %3185, %3179
-  %3187 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine", ptr %3145, i64 %3182
+  %3187 = getelementptr inbounds nuw [512 x i8], ptr %3145, i64 %3182
   br i1 %3186, label %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i1965, label %3188
 
 3188:                                             ; preds = %3144
@@ -6179,7 +6175,7 @@ _ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEEN
   %3204 = or disjoint i64 %3203, %3201
   %.idx.i.i.i.i.i1967 = shl nuw nsw i64 %3204, 5
   %3205 = getelementptr inbounds nuw i8, ptr %3187, i64 %.idx.i.i.i.i.i1967
-  %3206 = getelementptr inbounds nuw double, ptr %3205, i64 %3200
+  %3206 = getelementptr inbounds nuw [8 x i8], ptr %3205, i64 %3200
   %3207 = load double, ptr %3206, align 8, !tbaa !77
   %3208 = fsub double %3157, %3207
   %3209 = call double @llvm.fabs.f64(double %3208)
@@ -6374,12 +6370,12 @@ _ZNSolsEm.exit1396:                               ; preds = %_ZStlsISt11char_tra
   %3281 = and i32 %3279, %3280
   %3282 = load ptr, ptr %3251, align 8, !tbaa !62
   %3283 = zext i32 %3281 to i64
-  %3284 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %3282, i64 %3283
+  %3284 = getelementptr inbounds nuw [4 x i8], ptr %3282, i64 %3283
   %3285 = load i32, ptr %3284, align 4, !tbaa !63
   %3286 = lshr i32 %3285, 1
   %3287 = icmp eq i32 %3286, %3279
   %3288 = load ptr, ptr %3252, align 8, !tbaa !65
-  %3289 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine", ptr %3288, i64 %3283
+  %3289 = getelementptr inbounds nuw [512 x i8], ptr %3288, i64 %3283
   br i1 %3287, label %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i1980, label %3290
 
 3290:                                             ; preds = %3265
@@ -6418,7 +6414,7 @@ _ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEEN
   %3306 = or disjoint i64 %3305, %3303
   %.idx.i.i.i.i.i1982 = shl nuw nsw i64 %3306, 5
   %3307 = getelementptr inbounds nuw i8, ptr %3289, i64 %.idx.i.i.i.i.i1982
-  %3308 = getelementptr inbounds nuw double, ptr %3307, i64 %3302
+  %3308 = getelementptr inbounds nuw [8 x i8], ptr %3307, i64 %3302
   %3309 = load double, ptr %3308, align 8, !tbaa !77
   %3310 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %3263, double noundef %3309)
           to label %_ZNSolsEd.exit1402 unwind label %3389
@@ -6456,12 +6452,12 @@ _ZNSolsEd.exit1402:                               ; preds = %3301
   %3338 = and i32 %3336, %3337
   %3339 = load ptr, ptr %3251, align 8, !tbaa !62
   %3340 = zext i32 %3338 to i64
-  %3341 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %3339, i64 %3340
+  %3341 = getelementptr inbounds nuw [4 x i8], ptr %3339, i64 %3340
   %3342 = load i32, ptr %3341, align 4, !tbaa !63
   %3343 = lshr i32 %3342, 1
   %3344 = icmp eq i32 %3343, %3336
   %3345 = load ptr, ptr %3252, align 8, !tbaa !65
-  %3346 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine", ptr %3345, i64 %3340
+  %3346 = getelementptr inbounds nuw [512 x i8], ptr %3345, i64 %3340
   br i1 %3344, label %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i1987, label %3347
 
 3347:                                             ; preds = %3312
@@ -6500,7 +6496,7 @@ _ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEEN
   %3363 = or disjoint i64 %3362, %3360
   %.idx.i.i.i.i.i1989 = shl nuw nsw i64 %3363, 5
   %3364 = getelementptr inbounds nuw i8, ptr %3346, i64 %.idx.i.i.i.i.i1989
-  %3365 = getelementptr inbounds nuw double, ptr %3364, i64 %3359
+  %3365 = getelementptr inbounds nuw [8 x i8], ptr %3364, i64 %3359
   %3366 = load double, ptr %3365, align 8, !tbaa !77
   %3367 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %3310, double noundef %3366)
           to label %_ZNSolsEd.exit1415 unwind label %.loopexit2818
@@ -6592,12 +6588,12 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i1997: ; preds = %.noexc2000,
   %3404 = and i32 %3402, %3403
   %3405 = load ptr, ptr %3251, align 8, !tbaa !62
   %3406 = zext i32 %3404 to i64
-  %3407 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %3405, i64 %3406
+  %3407 = getelementptr inbounds nuw [4 x i8], ptr %3405, i64 %3406
   %3408 = load i32, ptr %3407, align 4, !tbaa !63
   %3409 = lshr i32 %3408, 1
   %3410 = icmp eq i32 %3409, %3402
   %3411 = load ptr, ptr %3252, align 8, !tbaa !65
-  %3412 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine", ptr %3411, i64 %3406
+  %3412 = getelementptr inbounds nuw [512 x i8], ptr %3411, i64 %3406
   br i1 %3410, label %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i2005, label %3413
 
 3413:                                             ; preds = %3391
@@ -6651,7 +6647,7 @@ _ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEEN
   %3434 = or disjoint i64 %3433, %3431
   %.idx.i.i.i.i.i2007 = shl nuw nsw i64 %3434, 5
   %3435 = getelementptr inbounds nuw i8, ptr %3412, i64 %.idx.i.i.i.i.i2007
-  %3436 = getelementptr inbounds nuw double, ptr %3435, i64 %3430
+  %3436 = getelementptr inbounds nuw [8 x i8], ptr %3435, i64 %3430
   %3437 = load double, ptr %3436, align 8, !tbaa !77
   %3438 = load i64, ptr %10, align 8, !tbaa !4
   %3439 = load i64, ptr %11, align 8, !tbaa !4
@@ -6675,11 +6671,11 @@ _ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEEN
   %3457 = load i32, ptr %3249, align 8, !tbaa !61
   %3458 = and i32 %3456, %3457
   %3459 = zext i32 %3458 to i64
-  %3460 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %3426, i64 %3459
+  %3460 = getelementptr inbounds nuw [4 x i8], ptr %3426, i64 %3459
   %3461 = load i32, ptr %3460, align 4, !tbaa !63
   %3462 = lshr i32 %3461, 1
   %3463 = icmp eq i32 %3462, %3456
-  %3464 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine", ptr %3425, i64 %3459
+  %3464 = getelementptr inbounds nuw [512 x i8], ptr %3425, i64 %3459
   br i1 %3463, label %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i2012, label %3465
 
 3465:                                             ; preds = %3424
@@ -6718,7 +6714,7 @@ _ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEEN
   %3481 = or disjoint i64 %3480, %3478
   %.idx.i.i.i.i.i2014 = shl nuw nsw i64 %3481, 5
   %3482 = getelementptr inbounds nuw i8, ptr %3464, i64 %.idx.i.i.i.i.i2014
-  %3483 = getelementptr inbounds nuw double, ptr %3482, i64 %3477
+  %3483 = getelementptr inbounds nuw [8 x i8], ptr %3482, i64 %3477
   %3484 = load double, ptr %3483, align 8, !tbaa !77
   %3485 = fsub double %3437, %3484
   %3486 = call double @llvm.fabs.f64(double %3485)
@@ -6960,12 +6956,12 @@ _ZNSolsEm.exit1452:                               ; preds = %_ZStlsISt11char_tra
   %3583 = and i32 %3581, %3582
   %3584 = load ptr, ptr %3536, align 8, !tbaa !62
   %3585 = zext i32 %3583 to i64
-  %3586 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %3584, i64 %3585
+  %3586 = getelementptr inbounds nuw [4 x i8], ptr %3584, i64 %3585
   %3587 = load i32, ptr %3586, align 4, !tbaa !63
   %3588 = lshr i32 %3587, 1
   %3589 = icmp eq i32 %3588, %3581
   %3590 = load ptr, ptr %3537, align 8, !tbaa !65
-  %3591 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine", ptr %3590, i64 %3585
+  %3591 = getelementptr inbounds nuw [512 x i8], ptr %3590, i64 %3585
   br i1 %3589, label %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i1455, label %3592
 
 3592:                                             ; preds = %3569
@@ -6999,7 +6995,7 @@ _ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEEN
 3603:                                             ; preds = %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i1455, %3600
   %3604 = and i64 %.02823027, 3
   %3605 = getelementptr inbounds nuw i8, ptr %3591, i64 %.idx.i.i.i.i.i1457
-  %3606 = getelementptr inbounds nuw double, ptr %3605, i64 %3604
+  %3606 = getelementptr inbounds nuw [8 x i8], ptr %3605, i64 %3604
   %3607 = load double, ptr %3606, align 8, !tbaa !77
   %3608 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %3567, double noundef %3607)
           to label %_ZNSolsEd.exit1463 unwind label %3685
@@ -7036,13 +7032,13 @@ _ZNSolsEd.exit1463:                               ; preds = %3603
   %3635 = getelementptr inbounds nuw i8, ptr %3611, i64 160
   %3636 = load ptr, ptr %3635, align 8, !tbaa !62
   %3637 = zext i32 %3634 to i64
-  %3638 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %3636, i64 %3637
+  %3638 = getelementptr inbounds nuw [4 x i8], ptr %3636, i64 %3637
   %3639 = load i32, ptr %3638, align 4, !tbaa !63
   %3640 = lshr i32 %3639, 1
   %3641 = icmp eq i32 %3640, %3632
   %3642 = getelementptr inbounds nuw i8, ptr %3611, i64 168
   %3643 = load ptr, ptr %3642, align 8, !tbaa !65
-  %3644 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine", ptr %3643, i64 %3637
+  %3644 = getelementptr inbounds nuw [512 x i8], ptr %3643, i64 %3637
   br i1 %3641, label %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i2040, label %3645
 
 3645:                                             ; preds = %3610
@@ -7081,7 +7077,7 @@ _ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEEN
   %3661 = or disjoint i64 %3660, %3658
   %.idx.i.i.i.i.i2042 = shl nuw nsw i64 %3661, 5
   %3662 = getelementptr inbounds nuw i8, ptr %3644, i64 %.idx.i.i.i.i.i2042
-  %3663 = getelementptr inbounds nuw double, ptr %3662, i64 %3657
+  %3663 = getelementptr inbounds nuw [8 x i8], ptr %3662, i64 %3657
   %3664 = load double, ptr %3663, align 8, !tbaa !77
   %3665 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %3608, double noundef %3664)
           to label %_ZNSolsEd.exit1469 unwind label %.loopexit2806
@@ -7166,12 +7162,12 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i2050: ; preds = %.noexc2053,
   %3700 = and i32 %3698, %3699
   %3701 = load ptr, ptr %3536, align 8, !tbaa !62
   %3702 = zext i32 %3700 to i64
-  %3703 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %3701, i64 %3702
+  %3703 = getelementptr inbounds nuw [4 x i8], ptr %3701, i64 %3702
   %3704 = load i32, ptr %3703, align 4, !tbaa !63
   %3705 = lshr i32 %3704, 1
   %3706 = icmp eq i32 %3705, %3698
   %3707 = load ptr, ptr %3537, align 8, !tbaa !65
-  %3708 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine", ptr %3707, i64 %3702
+  %3708 = getelementptr inbounds nuw [512 x i8], ptr %3707, i64 %3702
   br i1 %3706, label %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i1472, label %3709
 
 3709:                                             ; preds = %3687
@@ -7205,7 +7201,7 @@ _ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEEN
 3720:                                             ; preds = %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i1472, %3717
   %3721 = and i64 %.02823027, 3
   %3722 = getelementptr inbounds nuw i8, ptr %3708, i64 %.idx.i.i.i.i.i1457
-  %3723 = getelementptr inbounds nuw double, ptr %3722, i64 %3721
+  %3723 = getelementptr inbounds nuw [8 x i8], ptr %3722, i64 %3721
   %3724 = load double, ptr %3723, align 8, !tbaa !77
   %3725 = load ptr, ptr %40, align 8, !tbaa !84, !noalias !100
   %3726 = load i64, ptr %3525, align 8, !tbaa !98, !noalias !100
@@ -7234,13 +7230,13 @@ _ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEEN
   %3749 = getelementptr inbounds nuw i8, ptr %3725, i64 160
   %3750 = load ptr, ptr %3749, align 8, !tbaa !62
   %3751 = zext i32 %3748 to i64
-  %3752 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %3750, i64 %3751
+  %3752 = getelementptr inbounds nuw [4 x i8], ptr %3750, i64 %3751
   %3753 = load i32, ptr %3752, align 4, !tbaa !63
   %3754 = lshr i32 %3753, 1
   %3755 = icmp eq i32 %3754, %3746
   %3756 = getelementptr inbounds nuw i8, ptr %3725, i64 168
   %3757 = load ptr, ptr %3756, align 8, !tbaa !65
-  %3758 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine", ptr %3757, i64 %3751
+  %3758 = getelementptr inbounds nuw [512 x i8], ptr %3757, i64 %3751
   br i1 %3755, label %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i2058, label %3759
 
 3759:                                             ; preds = %3720
@@ -7279,7 +7275,7 @@ _ZL6verifydd.exit1486:                            ; preds = %3767, %_ZN3zfp8inte
   %3774 = or disjoint i64 %3773, %3771
   %.idx.i.i.i.i.i2060 = shl nuw nsw i64 %3774, 5
   %3775 = getelementptr inbounds nuw i8, ptr %3758, i64 %.idx.i.i.i.i.i2060
-  %3776 = getelementptr inbounds nuw double, ptr %3775, i64 %3770
+  %3776 = getelementptr inbounds nuw [8 x i8], ptr %3775, i64 %3770
   %3777 = load double, ptr %3776, align 8, !tbaa !77
   %3778 = fsub double %3724, %3777
   %3779 = call double @llvm.fabs.f64(double %3778)
@@ -7451,12 +7447,12 @@ _ZNSolsEm.exit1498:                               ; preds = %_ZStlsISt11char_tra
   %3842 = and i32 %3840, %3841
   %3843 = load ptr, ptr %3802, align 8, !tbaa !115
   %3844 = zext i32 %3842 to i64
-  %3845 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache2<double, zfp::internal::BlockStore2<double, zfp::codec::zfp2<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %3843, i64 %3844
+  %3845 = getelementptr inbounds nuw [4 x i8], ptr %3843, i64 %3844
   %3846 = load i32, ptr %3845, align 4, !tbaa !116
   %3847 = lshr i32 %3846, 1
   %3848 = icmp eq i32 %3847, %3840
   %3849 = load ptr, ptr %3803, align 8, !tbaa !118
-  %3850 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache2<double, zfp::internal::BlockStore2<double, zfp::codec::zfp2<double>, zfp::index::implicit> >::CacheLine", ptr %3849, i64 %3844
+  %3850 = getelementptr inbounds nuw [128 x i8], ptr %3849, i64 %3844
   br i1 %3848, label %_ZN3zfp8internal5CacheINS0_11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i, label %3851
 
 3851:                                             ; preds = %3832
@@ -7489,8 +7485,8 @@ _ZN3zfp8internal5CacheINS0_11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEEN
 
 3862:                                             ; preds = %_ZN3zfp8internal5CacheINS0_11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i, %3859
   %3863 = and i64 %.02803032, 3
-  %3864 = getelementptr inbounds nuw double, ptr %3850, i64 %3808
-  %3865 = getelementptr inbounds nuw double, ptr %3864, i64 %3863
+  %3864 = getelementptr inbounds nuw [8 x i8], ptr %3850, i64 %3808
+  %3865 = getelementptr inbounds nuw [8 x i8], ptr %3864, i64 %3863
   %3866 = load double, ptr %3865, align 8, !tbaa !77
   %3867 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %3830, double noundef %3866)
           to label %_ZNSolsEd.exit1506 unwind label %3944
@@ -7527,13 +7523,13 @@ _ZNSolsEd.exit1506:                               ; preds = %3862
   %3894 = getelementptr inbounds nuw i8, ptr %3870, i64 160
   %3895 = load ptr, ptr %3894, align 8, !tbaa !62
   %3896 = zext i32 %3893 to i64
-  %3897 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %3895, i64 %3896
+  %3897 = getelementptr inbounds nuw [4 x i8], ptr %3895, i64 %3896
   %3898 = load i32, ptr %3897, align 4, !tbaa !63
   %3899 = lshr i32 %3898, 1
   %3900 = icmp eq i32 %3899, %3891
   %3901 = getelementptr inbounds nuw i8, ptr %3870, i64 168
   %3902 = load ptr, ptr %3901, align 8, !tbaa !65
-  %3903 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine", ptr %3902, i64 %3896
+  %3903 = getelementptr inbounds nuw [512 x i8], ptr %3902, i64 %3896
   br i1 %3900, label %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i2073, label %3904
 
 3904:                                             ; preds = %3869
@@ -7572,7 +7568,7 @@ _ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEEN
   %3920 = or disjoint i64 %3919, %3917
   %.idx.i.i.i.i.i2075 = shl nuw nsw i64 %3920, 5
   %3921 = getelementptr inbounds nuw i8, ptr %3903, i64 %.idx.i.i.i.i.i2075
-  %3922 = getelementptr inbounds nuw double, ptr %3921, i64 %3916
+  %3922 = getelementptr inbounds nuw [8 x i8], ptr %3921, i64 %3916
   %3923 = load double, ptr %3922, align 8, !tbaa !77
   %3924 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %3867, double noundef %3923)
           to label %_ZNSolsEd.exit1512 unwind label %.loopexit2794
@@ -7653,12 +7649,12 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i2083: ; preds = %.noexc2086,
   %3955 = and i32 %3953, %3954
   %3956 = load ptr, ptr %3802, align 8, !tbaa !115
   %3957 = zext i32 %3955 to i64
-  %3958 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache2<double, zfp::internal::BlockStore2<double, zfp::codec::zfp2<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %3956, i64 %3957
+  %3958 = getelementptr inbounds nuw [4 x i8], ptr %3956, i64 %3957
   %3959 = load i32, ptr %3958, align 4, !tbaa !116
   %3960 = lshr i32 %3959, 1
   %3961 = icmp eq i32 %3960, %3953
   %3962 = load ptr, ptr %3803, align 8, !tbaa !118
-  %3963 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache2<double, zfp::internal::BlockStore2<double, zfp::codec::zfp2<double>, zfp::index::implicit> >::CacheLine", ptr %3962, i64 %3957
+  %3963 = getelementptr inbounds nuw [128 x i8], ptr %3962, i64 %3957
   br i1 %3961, label %_ZN3zfp8internal5CacheINS0_11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i1515, label %3964
 
 3964:                                             ; preds = %3946
@@ -7691,8 +7687,8 @@ _ZN3zfp8internal5CacheINS0_11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEEN
 
 3975:                                             ; preds = %_ZN3zfp8internal5CacheINS0_11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i1515, %3972
   %3976 = and i64 %.02803032, 3
-  %3977 = getelementptr inbounds nuw double, ptr %3963, i64 %3808
-  %3978 = getelementptr inbounds nuw double, ptr %3977, i64 %3976
+  %3977 = getelementptr inbounds nuw [8 x i8], ptr %3963, i64 %3808
+  %3978 = getelementptr inbounds nuw [8 x i8], ptr %3977, i64 %3976
   %3979 = load double, ptr %3978, align 8, !tbaa !77
   %3980 = load ptr, ptr %40, align 8, !tbaa !84, !noalias !122
   %3981 = load i64, ptr %3525, align 8, !tbaa !98, !noalias !122
@@ -7721,13 +7717,13 @@ _ZN3zfp8internal5CacheINS0_11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEEN
   %4004 = getelementptr inbounds nuw i8, ptr %3980, i64 160
   %4005 = load ptr, ptr %4004, align 8, !tbaa !62
   %4006 = zext i32 %4003 to i64
-  %4007 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %4005, i64 %4006
+  %4007 = getelementptr inbounds nuw [4 x i8], ptr %4005, i64 %4006
   %4008 = load i32, ptr %4007, align 4, !tbaa !63
   %4009 = lshr i32 %4008, 1
   %4010 = icmp eq i32 %4009, %4001
   %4011 = getelementptr inbounds nuw i8, ptr %3980, i64 168
   %4012 = load ptr, ptr %4011, align 8, !tbaa !65
-  %4013 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine", ptr %4012, i64 %4006
+  %4013 = getelementptr inbounds nuw [512 x i8], ptr %4012, i64 %4006
   br i1 %4010, label %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i2091, label %4014
 
 4014:                                             ; preds = %3975
@@ -7766,7 +7762,7 @@ _ZL6verifydd.exit1528:                            ; preds = %4022, %_ZN3zfp8inte
   %4029 = or disjoint i64 %4028, %4026
   %.idx.i.i.i.i.i2093 = shl nuw nsw i64 %4029, 5
   %4030 = getelementptr inbounds nuw i8, ptr %4013, i64 %.idx.i.i.i.i.i2093
-  %4031 = getelementptr inbounds nuw double, ptr %4030, i64 %4025
+  %4031 = getelementptr inbounds nuw [8 x i8], ptr %4030, i64 %4025
   %4032 = load double, ptr %4031, align 8, !tbaa !77
   %4033 = fsub double %3979, %4032
   %4034 = call double @llvm.fabs.f64(double %4033)
@@ -7920,12 +7916,12 @@ _ZNSolsEm.exit1544:                               ; preds = %_ZStlsISt11char_tra
   %4104 = and i32 %4102, %4103
   %4105 = load ptr, ptr %4060, align 8, !tbaa !62
   %4106 = zext i32 %4104 to i64
-  %4107 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %4105, i64 %4106
+  %4107 = getelementptr inbounds nuw [4 x i8], ptr %4105, i64 %4106
   %4108 = load i32, ptr %4107, align 4, !tbaa !63
   %4109 = lshr i32 %4108, 1
   %4110 = icmp eq i32 %4109, %4102
   %4111 = load ptr, ptr %4061, align 8, !tbaa !65
-  %4112 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine", ptr %4111, i64 %4106
+  %4112 = getelementptr inbounds nuw [512 x i8], ptr %4111, i64 %4106
   br i1 %4110, label %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i1547, label %4113
 
 4113:                                             ; preds = %4090
@@ -7959,7 +7955,7 @@ _ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEEN
 4124:                                             ; preds = %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i1547, %4121
   %4125 = and i64 %.02783037, 3
   %4126 = getelementptr inbounds nuw i8, ptr %4112, i64 %.idx.i.i.i.i.i1549
-  %4127 = getelementptr inbounds nuw double, ptr %4126, i64 %4125
+  %4127 = getelementptr inbounds nuw [8 x i8], ptr %4126, i64 %4125
   %4128 = load double, ptr %4127, align 8, !tbaa !77
   %4129 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %4088, double noundef %4128)
           to label %_ZNSolsEd.exit1555 unwind label %4272
@@ -7986,12 +7982,12 @@ _ZNSolsEd.exit1555:                               ; preds = %4124
   %4146 = and i32 %4144, %4145
   %4147 = load ptr, ptr %4070, align 8, !tbaa !62
   %4148 = zext i32 %4146 to i64
-  %4149 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %4147, i64 %4148
+  %4149 = getelementptr inbounds nuw [4 x i8], ptr %4147, i64 %4148
   %4150 = load i32, ptr %4149, align 4, !tbaa !63
   %4151 = lshr i32 %4150, 1
   %4152 = icmp eq i32 %4151, %4144
   %4153 = load ptr, ptr %4071, align 8, !tbaa !65
-  %4154 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine", ptr %4153, i64 %4148
+  %4154 = getelementptr inbounds nuw [512 x i8], ptr %4153, i64 %4148
   br i1 %4152, label %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i2106, label %4155
 
 4155:                                             ; preds = %4131
@@ -8025,7 +8021,7 @@ _ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEEN
 4166:                                             ; preds = %4163, %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i2106
   %4167 = and i64 %4132, 3
   %4168 = getelementptr inbounds nuw i8, ptr %4154, i64 %.idx.i.i.i.i.i2108
-  %4169 = getelementptr inbounds nuw double, ptr %4168, i64 %4167
+  %4169 = getelementptr inbounds nuw [8 x i8], ptr %4168, i64 %4167
   %4170 = load double, ptr %4169, align 8, !tbaa !77
   %4171 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %4129, double noundef %4170)
           to label %_ZNSolsEd.exit1561 unwind label %.loopexit2783
@@ -8094,12 +8090,12 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i2116: ; preds = %.noexc2119,
   %4204 = and i32 %4202, %4203
   %4205 = load ptr, ptr %4060, align 8, !tbaa !62
   %4206 = zext i32 %4204 to i64
-  %4207 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %4205, i64 %4206
+  %4207 = getelementptr inbounds nuw [4 x i8], ptr %4205, i64 %4206
   %4208 = load i32, ptr %4207, align 4, !tbaa !63
   %4209 = lshr i32 %4208, 1
   %4210 = icmp eq i32 %4209, %4202
   %4211 = load ptr, ptr %4061, align 8, !tbaa !65
-  %4212 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine", ptr %4211, i64 %4206
+  %4212 = getelementptr inbounds nuw [512 x i8], ptr %4211, i64 %4206
   br i1 %4210, label %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i1564, label %4213
 
 4213:                                             ; preds = %4191
@@ -8132,7 +8128,7 @@ _ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEEN
 
 4224:                                             ; preds = %4221, %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i1564
   %4225 = getelementptr inbounds nuw i8, ptr %4212, i64 %.idx.i.i.i.i.i1549
-  %4226 = getelementptr inbounds nuw double, ptr %4225, i64 %4125
+  %4226 = getelementptr inbounds nuw [8 x i8], ptr %4225, i64 %4125
   %4227 = load double, ptr %4226, align 8, !tbaa !77
   %4228 = load ptr, ptr %4067, align 8, !tbaa !48
   %4229 = getelementptr inbounds nuw i8, ptr %4228, i64 80
@@ -8149,12 +8145,12 @@ _ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEEN
   %4240 = and i32 %4238, %4239
   %4241 = load ptr, ptr %4070, align 8, !tbaa !62
   %4242 = zext i32 %4240 to i64
-  %4243 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %4241, i64 %4242
+  %4243 = getelementptr inbounds nuw [4 x i8], ptr %4241, i64 %4242
   %4244 = load i32, ptr %4243, align 4, !tbaa !63
   %4245 = lshr i32 %4244, 1
   %4246 = icmp eq i32 %4245, %4238
   %4247 = load ptr, ptr %4071, align 8, !tbaa !65
-  %4248 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine", ptr %4247, i64 %4242
+  %4248 = getelementptr inbounds nuw [512 x i8], ptr %4247, i64 %4242
   br i1 %4246, label %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i2124, label %4249
 
 4249:                                             ; preds = %4224
@@ -8187,7 +8183,7 @@ _ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEEN
 
 _ZL6verifydd.exit1578:                            ; preds = %4257, %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i2124
   %4260 = getelementptr inbounds nuw i8, ptr %4248, i64 %.idx.i.i.i.i.i2108
-  %4261 = getelementptr inbounds nuw double, ptr %4260, i64 %4167
+  %4261 = getelementptr inbounds nuw [8 x i8], ptr %4260, i64 %4167
   %4262 = load double, ptr %4261, align 8, !tbaa !77
   %4263 = fsub double %4227, %4262
   %4264 = call double @llvm.fabs.f64(double %4263)
@@ -8374,12 +8370,12 @@ _ZNSolsEm.exit1590:                               ; preds = %_ZStlsISt11char_tra
   %4329 = and i32 %4327, %4328
   %4330 = load ptr, ptr %4289, align 8, !tbaa !115
   %4331 = zext i32 %4329 to i64
-  %4332 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache2<double, zfp::internal::BlockStore2<double, zfp::codec::zfp2<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %4330, i64 %4331
+  %4332 = getelementptr inbounds nuw [4 x i8], ptr %4330, i64 %4331
   %4333 = load i32, ptr %4332, align 4, !tbaa !116
   %4334 = lshr i32 %4333, 1
   %4335 = icmp eq i32 %4334, %4327
   %4336 = load ptr, ptr %4290, align 8, !tbaa !118
-  %4337 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache2<double, zfp::internal::BlockStore2<double, zfp::codec::zfp2<double>, zfp::index::implicit> >::CacheLine", ptr %4336, i64 %4331
+  %4337 = getelementptr inbounds nuw [128 x i8], ptr %4336, i64 %4331
   br i1 %4335, label %_ZN3zfp8internal5CacheINS0_11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i1593, label %4338
 
 4338:                                             ; preds = %4319
@@ -8412,8 +8408,8 @@ _ZN3zfp8internal5CacheINS0_11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEEN
 
 4349:                                             ; preds = %_ZN3zfp8internal5CacheINS0_11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i1593, %4346
   %4350 = and i64 %.02763040, 3
-  %4351 = getelementptr inbounds nuw double, ptr %4337, i64 %4295
-  %4352 = getelementptr inbounds nuw double, ptr %4351, i64 %4350
+  %4351 = getelementptr inbounds nuw [8 x i8], ptr %4337, i64 %4295
+  %4352 = getelementptr inbounds nuw [8 x i8], ptr %4351, i64 %4350
   %4353 = load double, ptr %4352, align 8, !tbaa !77
   %4354 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %4317, double noundef %4353)
           to label %_ZNSolsEd.exit1600 unwind label %4431
@@ -8450,13 +8446,13 @@ _ZNSolsEd.exit1600:                               ; preds = %4349
   %4381 = getelementptr inbounds nuw i8, ptr %4357, i64 160
   %4382 = load ptr, ptr %4381, align 8, !tbaa !62
   %4383 = zext i32 %4380 to i64
-  %4384 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %4382, i64 %4383
+  %4384 = getelementptr inbounds nuw [4 x i8], ptr %4382, i64 %4383
   %4385 = load i32, ptr %4384, align 4, !tbaa !63
   %4386 = lshr i32 %4385, 1
   %4387 = icmp eq i32 %4386, %4378
   %4388 = getelementptr inbounds nuw i8, ptr %4357, i64 168
   %4389 = load ptr, ptr %4388, align 8, !tbaa !65
-  %4390 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine", ptr %4389, i64 %4383
+  %4390 = getelementptr inbounds nuw [512 x i8], ptr %4389, i64 %4383
   br i1 %4387, label %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i2139, label %4391
 
 4391:                                             ; preds = %4356
@@ -8495,7 +8491,7 @@ _ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEEN
   %4407 = or disjoint i64 %4406, %4404
   %.idx.i.i.i.i.i2141 = shl nuw nsw i64 %4407, 5
   %4408 = getelementptr inbounds nuw i8, ptr %4390, i64 %.idx.i.i.i.i.i2141
-  %4409 = getelementptr inbounds nuw double, ptr %4408, i64 %4403
+  %4409 = getelementptr inbounds nuw [8 x i8], ptr %4408, i64 %4403
   %4410 = load double, ptr %4409, align 8, !tbaa !77
   %4411 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %4354, double noundef %4410)
           to label %_ZNSolsEd.exit1606 unwind label %.loopexit2772
@@ -8576,12 +8572,12 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i2149: ; preds = %.noexc2152,
   %4442 = and i32 %4440, %4441
   %4443 = load ptr, ptr %4289, align 8, !tbaa !115
   %4444 = zext i32 %4442 to i64
-  %4445 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache2<double, zfp::internal::BlockStore2<double, zfp::codec::zfp2<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %4443, i64 %4444
+  %4445 = getelementptr inbounds nuw [4 x i8], ptr %4443, i64 %4444
   %4446 = load i32, ptr %4445, align 4, !tbaa !116
   %4447 = lshr i32 %4446, 1
   %4448 = icmp eq i32 %4447, %4440
   %4449 = load ptr, ptr %4290, align 8, !tbaa !118
-  %4450 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache2<double, zfp::internal::BlockStore2<double, zfp::codec::zfp2<double>, zfp::index::implicit> >::CacheLine", ptr %4449, i64 %4444
+  %4450 = getelementptr inbounds nuw [128 x i8], ptr %4449, i64 %4444
   br i1 %4448, label %_ZN3zfp8internal5CacheINS0_11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i1609, label %4451
 
 4451:                                             ; preds = %4433
@@ -8614,8 +8610,8 @@ _ZN3zfp8internal5CacheINS0_11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEEN
 
 4462:                                             ; preds = %_ZN3zfp8internal5CacheINS0_11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i1609, %4459
   %4463 = and i64 %.02763040, 3
-  %4464 = getelementptr inbounds nuw double, ptr %4450, i64 %4295
-  %4465 = getelementptr inbounds nuw double, ptr %4464, i64 %4463
+  %4464 = getelementptr inbounds nuw [8 x i8], ptr %4450, i64 %4295
+  %4465 = getelementptr inbounds nuw [8 x i8], ptr %4464, i64 %4463
   %4466 = load double, ptr %4465, align 8, !tbaa !77
   %4467 = load ptr, ptr %40, align 8, !tbaa !84, !noalias !131
   %4468 = load i64, ptr %3525, align 8, !tbaa !98, !noalias !131
@@ -8644,13 +8640,13 @@ _ZN3zfp8internal5CacheINS0_11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEEN
   %4491 = getelementptr inbounds nuw i8, ptr %4467, i64 160
   %4492 = load ptr, ptr %4491, align 8, !tbaa !62
   %4493 = zext i32 %4490 to i64
-  %4494 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %4492, i64 %4493
+  %4494 = getelementptr inbounds nuw [4 x i8], ptr %4492, i64 %4493
   %4495 = load i32, ptr %4494, align 4, !tbaa !63
   %4496 = lshr i32 %4495, 1
   %4497 = icmp eq i32 %4496, %4488
   %4498 = getelementptr inbounds nuw i8, ptr %4467, i64 168
   %4499 = load ptr, ptr %4498, align 8, !tbaa !65
-  %4500 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine", ptr %4499, i64 %4493
+  %4500 = getelementptr inbounds nuw [512 x i8], ptr %4499, i64 %4493
   br i1 %4497, label %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i2157, label %4501
 
 4501:                                             ; preds = %4462
@@ -8689,7 +8685,7 @@ _ZL6verifydd.exit1622:                            ; preds = %4509, %_ZN3zfp8inte
   %4516 = or disjoint i64 %4515, %4513
   %.idx.i.i.i.i.i2159 = shl nuw nsw i64 %4516, 5
   %4517 = getelementptr inbounds nuw i8, ptr %4500, i64 %.idx.i.i.i.i.i2159
-  %4518 = getelementptr inbounds nuw double, ptr %4517, i64 %4512
+  %4518 = getelementptr inbounds nuw [8 x i8], ptr %4517, i64 %4512
   %4519 = load double, ptr %4518, align 8, !tbaa !77
   %4520 = fsub double %4466, %4519
   %4521 = call double @llvm.fabs.f64(double %4520)
@@ -8865,12 +8861,12 @@ _ZNSolsEm.exit1634:                               ; preds = %_ZStlsISt11char_tra
   %4588 = and i32 %4586, %4587
   %4589 = load ptr, ptr %4542, align 8, !tbaa !115
   %4590 = zext i32 %4588 to i64
-  %4591 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache2<double, zfp::internal::BlockStore2<double, zfp::codec::zfp2<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %4589, i64 %4590
+  %4591 = getelementptr inbounds nuw [4 x i8], ptr %4589, i64 %4590
   %4592 = load i32, ptr %4591, align 4, !tbaa !116
   %4593 = lshr i32 %4592, 1
   %4594 = icmp eq i32 %4593, %4586
   %4595 = load ptr, ptr %4543, align 8, !tbaa !118
-  %4596 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache2<double, zfp::internal::BlockStore2<double, zfp::codec::zfp2<double>, zfp::index::implicit> >::CacheLine", ptr %4595, i64 %4590
+  %4596 = getelementptr inbounds nuw [128 x i8], ptr %4595, i64 %4590
   br i1 %4594, label %_ZN3zfp8internal5CacheINS0_11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i1637, label %4597
 
 4597:                                             ; preds = %4578
@@ -8903,8 +8899,8 @@ _ZN3zfp8internal5CacheINS0_11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEEN
 
 4608:                                             ; preds = %_ZN3zfp8internal5CacheINS0_11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i1637, %4605
   %4609 = and i64 %.03045, 3
-  %4610 = getelementptr inbounds nuw double, ptr %4596, i64 %4554
-  %4611 = getelementptr inbounds nuw double, ptr %4610, i64 %4609
+  %4610 = getelementptr inbounds nuw [8 x i8], ptr %4596, i64 %4554
+  %4611 = getelementptr inbounds nuw [8 x i8], ptr %4610, i64 %4609
   %4612 = load double, ptr %4611, align 8, !tbaa !77
   %4613 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %4576, double noundef %4612)
           to label %_ZNSolsEd.exit1644 unwind label %4677
@@ -8931,12 +8927,12 @@ _ZNSolsEd.exit1644:                               ; preds = %4608
   %4630 = and i32 %4628, %4629
   %4631 = load ptr, ptr %4548, align 8, !tbaa !115
   %4632 = zext i32 %4630 to i64
-  %4633 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache2<double, zfp::internal::BlockStore2<double, zfp::codec::zfp2<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %4631, i64 %4632
+  %4633 = getelementptr inbounds nuw [4 x i8], ptr %4631, i64 %4632
   %4634 = load i32, ptr %4633, align 4, !tbaa !116
   %4635 = lshr i32 %4634, 1
   %4636 = icmp eq i32 %4635, %4628
   %4637 = load ptr, ptr %4549, align 8, !tbaa !118
-  %4638 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache2<double, zfp::internal::BlockStore2<double, zfp::codec::zfp2<double>, zfp::index::implicit> >::CacheLine", ptr %4637, i64 %4632
+  %4638 = getelementptr inbounds nuw [128 x i8], ptr %4637, i64 %4632
   br i1 %4636, label %_ZN3zfp8internal5CacheINS0_11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i1647, label %4639
 
 4639:                                             ; preds = %4615
@@ -8971,8 +8967,8 @@ _ZN3zfp8internal5CacheINS0_11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEEN
   %4651 = and i64 %4617, 3
   %4652 = shl i64 %4619, 2
   %4653 = and i64 %4652, 12
-  %4654 = getelementptr inbounds nuw double, ptr %4638, i64 %4653
-  %4655 = getelementptr inbounds nuw double, ptr %4654, i64 %4651
+  %4654 = getelementptr inbounds nuw [8 x i8], ptr %4638, i64 %4653
+  %4655 = getelementptr inbounds nuw [8 x i8], ptr %4654, i64 %4651
   %4656 = load double, ptr %4655, align 8, !tbaa !77
   %4657 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %4613, double noundef %4656)
           to label %_ZNSolsEd.exit1653 unwind label %.loopexit
@@ -9053,12 +9049,12 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i2175: ; preds = %.noexc2178,
   %4688 = and i32 %4686, %4687
   %4689 = load ptr, ptr %4542, align 8, !tbaa !115
   %4690 = zext i32 %4688 to i64
-  %4691 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache2<double, zfp::internal::BlockStore2<double, zfp::codec::zfp2<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %4689, i64 %4690
+  %4691 = getelementptr inbounds nuw [4 x i8], ptr %4689, i64 %4690
   %4692 = load i32, ptr %4691, align 4, !tbaa !116
   %4693 = lshr i32 %4692, 1
   %4694 = icmp eq i32 %4693, %4686
   %4695 = load ptr, ptr %4543, align 8, !tbaa !118
-  %4696 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache2<double, zfp::internal::BlockStore2<double, zfp::codec::zfp2<double>, zfp::index::implicit> >::CacheLine", ptr %4695, i64 %4690
+  %4696 = getelementptr inbounds nuw [128 x i8], ptr %4695, i64 %4690
   br i1 %4694, label %_ZN3zfp8internal5CacheINS0_11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i1656, label %4697
 
 4697:                                             ; preds = %4679
@@ -9091,8 +9087,8 @@ _ZN3zfp8internal5CacheINS0_11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEEN
 
 4708:                                             ; preds = %4705, %_ZN3zfp8internal5CacheINS0_11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i1656
   %4709 = and i64 %.03045, 3
-  %4710 = getelementptr inbounds nuw double, ptr %4696, i64 %4554
-  %4711 = getelementptr inbounds nuw double, ptr %4710, i64 %4709
+  %4710 = getelementptr inbounds nuw [8 x i8], ptr %4696, i64 %4554
+  %4711 = getelementptr inbounds nuw [8 x i8], ptr %4710, i64 %4709
   %4712 = load double, ptr %4711, align 8, !tbaa !77
   %4713 = load i64, ptr %4544, align 8, !tbaa !134, !noalias !141
   %4714 = add i64 %4713, %.03045
@@ -9111,12 +9107,12 @@ _ZN3zfp8internal5CacheINS0_11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEEN
   %4727 = and i32 %4725, %4726
   %4728 = load ptr, ptr %4548, align 8, !tbaa !115
   %4729 = zext i32 %4727 to i64
-  %4730 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache2<double, zfp::internal::BlockStore2<double, zfp::codec::zfp2<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %4728, i64 %4729
+  %4730 = getelementptr inbounds nuw [4 x i8], ptr %4728, i64 %4729
   %4731 = load i32, ptr %4730, align 4, !tbaa !116
   %4732 = lshr i32 %4731, 1
   %4733 = icmp eq i32 %4732, %4725
   %4734 = load ptr, ptr %4549, align 8, !tbaa !118
-  %4735 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache2<double, zfp::internal::BlockStore2<double, zfp::codec::zfp2<double>, zfp::index::implicit> >::CacheLine", ptr %4734, i64 %4729
+  %4735 = getelementptr inbounds nuw [128 x i8], ptr %4734, i64 %4729
   br i1 %4733, label %_ZN3zfp8internal5CacheINS0_11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i1662, label %4736
 
 4736:                                             ; preds = %4708
@@ -9151,8 +9147,8 @@ _ZL6verifydd.exit1673:                            ; preds = %_ZN3zfp8internal5Ca
   %4747 = and i64 %4714, 3
   %4748 = shl i64 %4716, 2
   %4749 = and i64 %4748, 12
-  %4750 = getelementptr inbounds nuw double, ptr %4735, i64 %4749
-  %4751 = getelementptr inbounds nuw double, ptr %4750, i64 %4747
+  %4750 = getelementptr inbounds nuw [8 x i8], ptr %4735, i64 %4749
+  %4751 = getelementptr inbounds nuw [8 x i8], ptr %4750, i64 %4747
   %4752 = load double, ptr %4751, align 8, !tbaa !77
   %4753 = fsub double %4712, %4752
   %4754 = call double @llvm.fabs.f64(double %4753)
@@ -9758,13 +9754,13 @@ _ZNK3zfp8internal4dim28iteratorINS_6array2IdNS_5codec4zfp2IdEENS_5index8implicit
   %84 = getelementptr inbounds nuw i8, ptr %65, i64 160
   %85 = load ptr, ptr %84, align 8, !tbaa !62
   %86 = zext i32 %83 to i64
-  %87 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %85, i64 %86
+  %87 = getelementptr inbounds nuw [4 x i8], ptr %85, i64 %86
   %88 = load i32, ptr %87, align 4, !tbaa !63
   %89 = lshr i32 %88, 1
   %90 = icmp eq i32 %89, %81
   %91 = getelementptr inbounds nuw i8, ptr %65, i64 168
   %92 = load ptr, ptr %91, align 8, !tbaa !65
-  %93 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine", ptr %92, i64 %86
+  %93 = getelementptr inbounds nuw [512 x i8], ptr %92, i64 %86
   br i1 %90, label %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE6accessERPSB_jb.exit.i.i.i.i.i, label %94
 
 94:                                               ; preds = %_ZNK3zfp8internal4dim28iteratorINS_6array2IdNS_5codec4zfp2IdEENS_5index8implicitEEEEneERKSA_.exit.thread
@@ -9803,7 +9799,7 @@ _ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEEN
   %110 = or disjoint i64 %109, %107
   %.idx.i.i.i.i.i = shl nuw nsw i64 %110, 5
   %111 = getelementptr inbounds nuw i8, ptr %93, i64 %.idx.i.i.i.i.i
-  %112 = getelementptr inbounds nuw double, ptr %111, i64 %106
+  %112 = getelementptr inbounds nuw [8 x i8], ptr %111, i64 %106
   %113 = load double, ptr %112, align 8, !tbaa !77
   %114 = load ptr, ptr %48, align 8, !tbaa !103, !noalias !157
   %115 = lshr i64 %.sroa.742.053, 2
@@ -9818,12 +9814,12 @@ _ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEEN
   %124 = and i32 %122, %123
   %125 = load ptr, ptr %46, align 8, !tbaa !115, !noalias !157
   %126 = zext i32 %124 to i64
-  %127 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache2<double, zfp::internal::BlockStore2<double, zfp::codec::zfp2<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %125, i64 %126
+  %127 = getelementptr inbounds nuw [4 x i8], ptr %125, i64 %126
   %128 = load i32, ptr %127, align 4, !tbaa !116, !noalias !157
   %129 = lshr i32 %128, 1
   %130 = icmp eq i32 %129, %122
   %131 = load ptr, ptr %55, align 8, !tbaa !118, !noalias !157
-  %132 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache2<double, zfp::internal::BlockStore2<double, zfp::codec::zfp2<double>, zfp::index::implicit> >::CacheLine", ptr %131, i64 %126
+  %132 = getelementptr inbounds nuw [128 x i8], ptr %131, i64 %126
   %133 = shl i32 %122, 1
   %.sink.i.i.v.i.i.i.i = select i1 %130, i32 %128, i32 %133
   %.sink.i.i.i.i.i.i = or i32 %.sink.i.i.v.i.i.i.i, 1
@@ -9855,8 +9851,8 @@ _ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEEN
   %145 = and i64 %.sroa.742.053, 3
   %146 = shl i64 %.sroa.16.052, 2
   %147 = and i64 %146, 12
-  %148 = getelementptr inbounds nuw double, ptr %132, i64 %147
-  %149 = getelementptr inbounds nuw double, ptr %148, i64 %145
+  %148 = getelementptr inbounds nuw [8 x i8], ptr %132, i64 %147
+  %149 = getelementptr inbounds nuw [8 x i8], ptr %148, i64 %145
   store double %113, ptr %149, align 8, !tbaa !77, !noalias !157
   %150 = load i64, ptr %6, align 8, !tbaa !79
   %151 = load i64, ptr %51, align 8, !tbaa !82
@@ -10151,7 +10147,7 @@ define linkonce_odr dso_local void @_ZN3zfp6array3IdNS_5codec4zfp3IdEENS_5index8
   %29 = and i32 %28, %27
   %30 = load ptr, ptr %17, align 8, !tbaa !62
   %31 = zext i32 %29 to i64
-  %32 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %30, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %31
   %33 = load i32, ptr %32, align 4, !tbaa !63
   %34 = lshr i32 %33, 1
   %35 = icmp eq i32 %34, %27
@@ -10165,7 +10161,7 @@ _ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEEN
   %36 = or i32 %33, 1
   store i32 %36, ptr %32, align 4, !tbaa !63
   %37 = load ptr, ptr %18, align 8, !tbaa !65
-  %38 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine", ptr %37, i64 %31
+  %38 = getelementptr inbounds nuw [512 x i8], ptr %37, i64 %31
   %.not.i.us.us.us = icmp eq ptr %37, null
   %.pre85 = load ptr, ptr %19, align 8, !tbaa !48
   br i1 %.not.i.us.us.us, label %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE6lookupEjb.exit.thread.i.us.us.us, label %39
@@ -10251,15 +10247,15 @@ _ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEEN
 
 95:                                               ; preds = %90
   %96 = add nuw nsw i32 %.03755.i.i.us.us.us, 1
-  %97 = getelementptr inbounds double, ptr %93, i64 %83
-  %98 = getelementptr inbounds nuw double, ptr %94, i64 %57
+  %97 = getelementptr inbounds [8 x i8], ptr %93, i64 %83
+  %98 = getelementptr inbounds nuw [8 x i8], ptr %94, i64 %57
   %exitcond66.not.i.i.us.us.us = icmp eq i32 %96, %80
   br i1 %exitcond66.not.i.i.us.us.us, label %99, label %.preheader.i.i.us.us.us
 
 99:                                               ; preds = %95
   %100 = add nuw nsw i32 %.03858.i.i.us.us.us, 1
-  %101 = getelementptr inbounds double, ptr %97, i64 %86
-  %102 = getelementptr inbounds nuw double, ptr %98, i64 %89
+  %101 = getelementptr inbounds [8 x i8], ptr %97, i64 %86
+  %102 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %89
   %exitcond67.not.i.i.us.us.us = icmp eq i32 %100, %81
   br i1 %exitcond67.not.i.i.us.us.us, label %_ZNK3zfp8internal11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9put_blockEmPKdlll.exit.us.us.us, label %.preheader46.i.i.us.us.us
 
@@ -10289,14 +10285,14 @@ _ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEEN
 
 108:                                              ; preds = %103
   %109 = add nuw nsw i32 %.01729.i.i.i.us.us.us, 1
-  %110 = getelementptr double, ptr %106, i64 %12
+  %110 = getelementptr [8 x i8], ptr %106, i64 %12
   %111 = getelementptr i8, ptr %110, i64 -32
   %exitcond35.not.i.i.i.us.us.us = icmp eq i32 %109, 4
   br i1 %exitcond35.not.i.i.i.us.us.us, label %112, label %.preheader.i.i.i.us.us.us
 
 112:                                              ; preds = %108
   %113 = add nuw nsw i32 %.01832.i.i.i.us.us.us, 1
-  %114 = getelementptr inbounds double, ptr %111, i64 %21
+  %114 = getelementptr inbounds [8 x i8], ptr %111, i64 %21
   %exitcond36.not.i.i.i.us.us.us = icmp eq i32 %113, 4
   br i1 %exitcond36.not.i.i.i.us.us.us, label %_ZNK3zfp8internal11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9put_blockEmPKdlll.exit.us.us.us, label %.preheader23.i.i.i.us.us.us
 
@@ -10382,7 +10378,7 @@ _ZNK3zfp8internal11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8i
   %173 = load i64, ptr %13, align 8, !tbaa !82
   %174 = sub i64 %173, %7
   %175 = mul nsw i64 %22, %174
-  %176 = getelementptr inbounds double, ptr %171, i64 %175
+  %176 = getelementptr inbounds [8 x i8], ptr %171, i64 %175
   %exitcond83.not = icmp eq i64 %172, %9
   br i1 %exitcond83.not, label %.loopexit, label %.preheader35.us.us
 
@@ -10569,13 +10565,13 @@ define linkonce_odr dso_local noundef ptr @_ZNK3zfp6array3IdNS_5codec4zfp3IdEENS
 
 11:                                               ; preds = %10
   %12 = zext i32 %.0.i.i.i.i to i64
-  %13 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %6, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !63, !noalias !165
   %.not10.i.i.i.i = icmp eq i32 %14, 0
   br i1 %.not10.i.i.i.i, label %10, label %.critedge.i.i.i.i
 
 .critedge.i.i.i.i:                                ; preds = %11
-  %15 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine", ptr %4, i64 %12
+  %15 = getelementptr inbounds nuw [512 x i8], ptr %4, i64 %12
   br label %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE5firstEv.exit.i
 
 _ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE5firstEv.exit.i: ; preds = %.critedge.i.i.i.i, %1
@@ -10614,7 +10610,7 @@ _ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEEN
   %34 = sub i64 %32, %33
   %35 = lshr exact i64 %34, 9
   %36 = and i64 %35, 4294967295
-  %37 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %30, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %36
   store i32 0, ptr %37, align 4, !tbaa !63
   %38 = trunc i64 %35 to i32
   %39 = load i32, ptr %2, align 8, !tbaa !61, !noalias !168
@@ -10628,13 +10624,13 @@ _ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEEN
 
 41:                                               ; preds = %40
   %42 = zext i32 %.0.i.i.i to i64
-  %43 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %30, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !63, !noalias !168
   %.not10.i.i.i = icmp eq i32 %44, 0
   br i1 %.not10.i.i.i, label %40, label %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE14const_iteratorppEi.exit.i
 
 _ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE14const_iteratorppEi.exit.i: ; preds = %41
-  %45 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine", ptr %31, i64 %42
+  %45 = getelementptr inbounds nuw [512 x i8], ptr %31, i64 %42
   %.not.i.i = icmp eq ptr %31, null
   br i1 %.not.i.i, label %_ZNK3zfp8internal11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE5flushEv.exit, label %17
 
@@ -11319,7 +11315,7 @@ _ZN3zfp8internal18reallocate_alignedINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5c
 30:                                               ; preds = %30, %_ZN3zfp8internal18reallocate_alignedINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEEEvRPT_mmm.exit
   %.03.i = phi i32 [ 0, %_ZN3zfp8internal18reallocate_alignedINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEEEvRPT_mmm.exit ], [ %33, %30 ]
   %31 = zext i32 %.03.i to i64
-  %32 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %29, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %31
   store i32 0, ptr %32, align 4, !tbaa !63
   %33 = add i32 %.03.i, 1
   %.not.i = icmp ugt i32 %33, %28
@@ -11338,7 +11334,7 @@ define linkonce_odr dso_local void @_ZNK3zfp8internal11BlockCache3IdNS0_11BlockS
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !62
   %13 = zext i32 %10 to i64
-  %14 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %12, i64 %13
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %13
   %15 = load i32, ptr %14, align 4, !tbaa !63
   %16 = lshr i32 %15, 1
   %17 = icmp eq i32 %16, %8
@@ -11349,7 +11345,7 @@ _ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEEN
   store i32 %18, ptr %14, align 4, !tbaa !63
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %20 = load ptr, ptr %19, align 8, !tbaa !65
-  %21 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache3<double, zfp::internal::BlockStore3<double, zfp::codec::zfp3<double>, zfp::index::implicit> >::CacheLine", ptr %20, i64 %13
+  %21 = getelementptr inbounds nuw [512 x i8], ptr %20, i64 %13
   %.not = icmp eq ptr %20, null
   br i1 %.not, label %_ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLineEE6lookupEjb.exit.thread, label %22
 
@@ -11417,13 +11413,13 @@ _ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEEN
 
 68:                                               ; preds = %71
   %69 = add nuw nsw i32 %.01832.i.i, 1
-  %70 = getelementptr inbounds double, ptr %73, i64 %67
+  %70 = getelementptr inbounds [8 x i8], ptr %73, i64 %67
   %exitcond36.not.i.i = icmp eq i32 %69, 4
   br i1 %exitcond36.not.i.i, label %_ZN3zfp8internal11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLine3putEPKdlllj.exit, label %.preheader23.i.i
 
 71:                                               ; preds = %74
   %72 = add nuw nsw i32 %.01729.i.i, 1
-  %73 = getelementptr inbounds double, ptr %77, i64 %65
+  %73 = getelementptr inbounds [8 x i8], ptr %77, i64 %65
   %exitcond35.not.i.i = icmp eq i32 %72, 4
   br i1 %exitcond35.not.i.i, label %68, label %.preheader.i.i
 
@@ -11434,7 +11430,7 @@ _ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEEN
   %75 = load double, ptr %.22224.i.i, align 8, !tbaa !77
   store double %75, ptr %.225.i.i, align 8, !tbaa !77
   %76 = add nuw nsw i32 %.026.i.i, 1
-  %77 = getelementptr inbounds double, ptr %.22224.i.i, i64 %3
+  %77 = getelementptr inbounds [8 x i8], ptr %.22224.i.i, i64 %3
   %78 = getelementptr inbounds nuw i8, ptr %.225.i.i, i64 8
   %exitcond.not.i.i = icmp eq i32 %76, 4
   br i1 %exitcond.not.i.i, label %71, label %74
@@ -11468,15 +11464,15 @@ _ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEEN
 
 92:                                               ; preds = %96
   %93 = add nuw nsw i32 %.03858.i, 1
-  %94 = getelementptr inbounds double, ptr %98, i64 %88
-  %95 = getelementptr inbounds nuw double, ptr %99, i64 %91
+  %94 = getelementptr inbounds [8 x i8], ptr %98, i64 %88
+  %95 = getelementptr inbounds nuw [8 x i8], ptr %99, i64 %91
   %exitcond67.not.i = icmp eq i32 %93, %82
   br i1 %exitcond67.not.i, label %_ZN3zfp8internal11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEENS_5index8implicitEEEE9CacheLine3putEPKdlllj.exit, label %.preheader46.i
 
 96:                                               ; preds = %100
   %97 = add nuw nsw i32 %.03755.i, 1
-  %98 = getelementptr inbounds double, ptr %103, i64 %85
-  %99 = getelementptr inbounds nuw double, ptr %104, i64 %42
+  %98 = getelementptr inbounds [8 x i8], ptr %103, i64 %85
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %104, i64 %42
   %exitcond66.not.i = icmp eq i32 %97, %81
   br i1 %exitcond66.not.i, label %92, label %.preheader.i
 
@@ -11487,7 +11483,7 @@ _ZN3zfp8internal5CacheINS0_11BlockCache3IdNS0_11BlockStore3IdNS_5codec4zfp3IdEEN
   %101 = load double, ptr %.24250.i, align 8, !tbaa !77
   store double %101, ptr %.251.i, align 8, !tbaa !77
   %102 = add nuw nsw i32 %.052.i, 1
-  %103 = getelementptr inbounds double, ptr %.24250.i, i64 %3
+  %103 = getelementptr inbounds [8 x i8], ptr %.24250.i, i64 %3
   %104 = getelementptr inbounds nuw i8, ptr %.251.i, i64 8
   %exitcond.not.i = icmp eq i32 %102, %80
   br i1 %exitcond.not.i, label %96, label %100
@@ -11873,13 +11869,13 @@ define linkonce_odr dso_local noundef ptr @_ZNK3zfp6array2IdNS_5codec4zfp2IdEENS
 
 11:                                               ; preds = %10
   %12 = zext i32 %.0.i.i.i.i to i64
-  %13 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache2<double, zfp::internal::BlockStore2<double, zfp::codec::zfp2<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %6, i64 %12
+  %13 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %12
   %14 = load i32, ptr %13, align 4, !tbaa !116, !noalias !185
   %.not10.i.i.i.i = icmp eq i32 %14, 0
   br i1 %.not10.i.i.i.i, label %10, label %.critedge.i.i.i.i
 
 .critedge.i.i.i.i:                                ; preds = %11
-  %15 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache2<double, zfp::internal::BlockStore2<double, zfp::codec::zfp2<double>, zfp::index::implicit> >::CacheLine", ptr %4, i64 %12
+  %15 = getelementptr inbounds nuw [128 x i8], ptr %4, i64 %12
   br label %_ZN3zfp8internal5CacheINS0_11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEENS_5index8implicitEEEE9CacheLineEE5firstEv.exit.i
 
 _ZN3zfp8internal5CacheINS0_11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEENS_5index8implicitEEEE9CacheLineEE5firstEv.exit.i: ; preds = %.critedge.i.i.i.i, %1
@@ -11918,7 +11914,7 @@ _ZN3zfp8internal5CacheINS0_11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEEN
   %34 = sub i64 %32, %33
   %35 = lshr exact i64 %34, 7
   %36 = and i64 %35, 4294967295
-  %37 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache2<double, zfp::internal::BlockStore2<double, zfp::codec::zfp2<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %30, i64 %36
+  %37 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %36
   store i32 0, ptr %37, align 4, !tbaa !116
   %38 = trunc i64 %35 to i32
   %39 = load i32, ptr %2, align 8, !tbaa !114, !noalias !188
@@ -11932,13 +11928,13 @@ _ZN3zfp8internal5CacheINS0_11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEEN
 
 41:                                               ; preds = %40
   %42 = zext i32 %.0.i.i.i to i64
-  %43 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache2<double, zfp::internal::BlockStore2<double, zfp::codec::zfp2<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %30, i64 %42
+  %43 = getelementptr inbounds nuw [4 x i8], ptr %30, i64 %42
   %44 = load i32, ptr %43, align 4, !tbaa !116, !noalias !188
   %.not10.i.i.i = icmp eq i32 %44, 0
   br i1 %.not10.i.i.i, label %40, label %_ZN3zfp8internal5CacheINS0_11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEENS_5index8implicitEEEE9CacheLineEE14const_iteratorppEi.exit.i
 
 _ZN3zfp8internal5CacheINS0_11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEENS_5index8implicitEEEE9CacheLineEE14const_iteratorppEi.exit.i: ; preds = %41
-  %45 = getelementptr inbounds nuw %"class.zfp::internal::BlockCache2<double, zfp::internal::BlockStore2<double, zfp::codec::zfp2<double>, zfp::index::implicit> >::CacheLine", ptr %31, i64 %42
+  %45 = getelementptr inbounds nuw [128 x i8], ptr %31, i64 %42
   %.not.i.i = icmp eq ptr %31, null
   br i1 %.not.i.i, label %_ZNK3zfp8internal11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEENS_5index8implicitEEEE5flushEv.exit, label %17
 
@@ -12545,7 +12541,7 @@ _ZN3zfp8internal18reallocate_alignedINS0_11BlockCache2IdNS0_11BlockStore2IdNS_5c
 30:                                               ; preds = %30, %_ZN3zfp8internal18reallocate_alignedINS0_11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEENS_5index8implicitEEEE9CacheLineEEEvRPT_mmm.exit
   %.03.i = phi i32 [ 0, %_ZN3zfp8internal18reallocate_alignedINS0_11BlockCache2IdNS0_11BlockStore2IdNS_5codec4zfp2IdEENS_5index8implicitEEEE9CacheLineEEEvRPT_mmm.exit ], [ %33, %30 ]
   %31 = zext i32 %.03.i to i64
-  %32 = getelementptr inbounds nuw %"class.zfp::internal::Cache<zfp::internal::BlockCache2<double, zfp::internal::BlockStore2<double, zfp::codec::zfp2<double>, zfp::index::implicit> >::CacheLine>::Tag", ptr %29, i64 %31
+  %32 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %31
   store i32 0, ptr %32, align 4, !tbaa !116
   %33 = add i32 %.03.i, 1
   %.not.i = icmp ugt i32 %33, %28

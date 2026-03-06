@@ -15,10 +15,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.GrowableArrayView = type { %class.GrowableArrayBase, ptr }
 %class.GrowableArrayBase = type { i32, i32 }
 %struct.__va_list_tag = type { i32, i32, ptr, ptr }
-%class.ZMovableBitMap = type { %class.CHeapBitMap.base, [7 x i8] }
-%class.CHeapBitMap.base = type <{ %class.GrowableBitMap, i8 }>
-%class.GrowableBitMap = type { %class.BitMap }
-%class.BitMap = type { ptr, i64 }
 
 $_ZN7LogImplILN6LogTag4typeE49ELS1_107ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz = comdat any
 
@@ -1131,7 +1127,7 @@ define hidden noundef nonnull ptr @_ZN5ZPage14remset_currentEv(ptr noundef nonnu
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load i32, ptr @_ZN14ZRememberedSet8_currentE, align 4
   %4 = sext i32 %3 to i64
-  %5 = getelementptr inbounds %class.ZMovableBitMap, ptr %2, i64 %4
+  %5 = getelementptr inbounds [24 x i8], ptr %2, i64 %4
   ret ptr %5
 }
 
@@ -1149,7 +1145,7 @@ define hidden void @_ZNK5ZPage12print_on_msgEP12outputStreamPKc(ptr noundef nonn
 
 switch.lookup:                                    ; preds = %3
   %8 = zext nneg i8 %4 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5ZPage5printEv, i64 %8
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5ZPage5printEv, i64 %8
   %switch.load = load ptr, ptr %switch.gep, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %10 = load i64, ptr %9, align 8
@@ -1194,7 +1190,7 @@ define hidden void @_ZNK5ZPage8print_onEP12outputStream(ptr noundef nonnull alig
 
 switch.lookup:                                    ; preds = %2
   %7 = zext nneg i8 %3 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5ZPage5printEv, i64 %7
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5ZPage5printEv, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8
@@ -1236,7 +1232,7 @@ define hidden void @_ZNK5ZPage5printEv(ptr noundef nonnull align 8 dereferenceab
 switch.lookup:                                    ; preds = %1
   %6 = load ptr, ptr @tty, align 8
   %7 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table._ZNK5ZPage5printEv, i64 %7
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table._ZNK5ZPage5printEv, i64 %7
   %switch.load = load ptr, ptr %switch.gep, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %9 = load i64, ptr %8, align 8

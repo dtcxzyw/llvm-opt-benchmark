@@ -2346,7 +2346,7 @@ define noundef ptr @ARKodeButcherTable_ERKIDToName(i32 noundef %0) local_unnamed
 
 switch.lookup:                                    ; preds = %1
   %4 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.ARKodeButcherTable_ERKIDToName, i64 %4
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.ARKodeButcherTable_ERKIDToName, i64 %4
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %5
 

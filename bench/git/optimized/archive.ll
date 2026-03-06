@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.strbuf = type { i64, i64, ptr }
 %struct.archiver_context = type { ptr, ptr, ptr }
 %struct.object_id = type { [32 x i8], i32 }
-%struct.string_list_item = type { ptr, ptr }
 %struct.path_exists_context = type { %struct.pathspec, ptr }
 %struct.pathspec = type { i32, i8, i32, i32, ptr }
 %struct.timeval = type { i64, i64 }
@@ -156,7 +155,7 @@ st_mult.exit:                                     ; preds = %4
   %18 = add nsw i32 %16, 1
   store i32 %18, ptr @nr_archivers, align 4, !tbaa !4
   %19 = sext i32 %16 to i64
-  %20 = getelementptr inbounds ptr, ptr %17, i64 %19
+  %20 = getelementptr inbounds [8 x i8], ptr %17, i64 %19
   store ptr %0, ptr %20, align 8, !tbaa !11
   ret void
 }
@@ -299,7 +298,7 @@ define dso_local i32 @write_archive_entries(ptr noundef %0, ptr noundef %1) loca
 67:                                               ; preds = %.lr.ph86, %64
   %indvars.iv = phi i64 [ 0, %.lr.ph86 ], [ %indvars.iv.next, %64 ]
   %68 = load ptr, ptr %53, align 8, !tbaa !45
-  %69 = getelementptr inbounds nuw %struct.string_list_item, ptr %68, i64 %indvars.iv
+  %69 = getelementptr inbounds nuw [16 x i8], ptr %68, i64 %indvars.iv
   %70 = load ptr, ptr %69, align 8, !tbaa !46
   %71 = getelementptr inbounds nuw i8, ptr %69, i64 8
   %72 = load ptr, ptr %71, align 8, !tbaa !48
@@ -1098,7 +1097,7 @@ copy_array.exit:                                  ; preds = %st_mult.exit, %st_m
 .lr.ph.split.us.i:                                ; preds = %.lr.ph.i, %.lr.ph.split.us.i
   %indvars.iv63.i = phi i64 [ %indvars.iv.next64.i, %.lr.ph.split.us.i ], [ 0, %.lr.ph.i ]
   %180 = load ptr, ptr @archivers, align 8, !tbaa !8
-  %181 = getelementptr inbounds nuw ptr, ptr %180, i64 %indvars.iv63.i
+  %181 = getelementptr inbounds nuw [8 x i8], ptr %180, i64 %indvars.iv63.i
   %182 = load ptr, ptr %181, align 8, !tbaa !11
   %183 = load ptr, ptr %182, align 8, !tbaa !115
   %puts.us.i = call i32 @puts(ptr nonnull dereferenceable(1) %183)
@@ -1118,7 +1117,7 @@ copy_array.exit:                                  ; preds = %st_mult.exit, %st_m
   %190 = phi i32 [ %178, %.lr.ph.split.preheader.i ], [ %200, %199 ]
   %191 = phi ptr [ %.pre66.i, %.lr.ph.split.preheader.i ], [ %201, %199 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.split.preheader.i ], [ %indvars.iv.next.i, %199 ]
-  %192 = getelementptr inbounds nuw ptr, ptr %191, i64 %indvars.iv.i
+  %192 = getelementptr inbounds nuw [8 x i8], ptr %191, i64 %indvars.iv.i
   %193 = load ptr, ptr %192, align 8, !tbaa !11
   %194 = getelementptr inbounds nuw i8, ptr %193, i64 16
   %195 = load i32, ptr %194, align 8, !tbaa !118
@@ -1166,7 +1165,7 @@ copy_array.exit:                                  ; preds = %st_mult.exit, %st_m
 
 214:                                              ; preds = %match_extension.exit.thread.i.i, %.lr.ph.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %indvars.iv.next.i.i, %match_extension.exit.thread.i.i ]
-  %215 = getelementptr inbounds nuw ptr, ptr %212, i64 %indvars.iv.i.i
+  %215 = getelementptr inbounds nuw [8 x i8], ptr %212, i64 %indvars.iv.i.i
   %216 = load ptr, ptr %215, align 8, !tbaa !11
   %217 = load ptr, ptr %216, align 8, !tbaa !115
   %218 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %217) #21
@@ -1235,7 +1234,7 @@ archive_format_from_filename.exit.i:              ; preds = %match_extension.exi
 
 241:                                              ; preds = %240, %.lr.ph.i51.i
   %indvars.iv.i53.i = phi i64 [ 0, %.lr.ph.i51.i ], [ %indvars.iv.next.i54.i, %240 ]
-  %242 = getelementptr inbounds nuw ptr, ptr %239, i64 %indvars.iv.i53.i
+  %242 = getelementptr inbounds nuw [8 x i8], ptr %239, i64 %indvars.iv.i53.i
   %243 = load ptr, ptr %242, align 8, !tbaa !11
   %244 = load ptr, ptr %243, align 8, !tbaa !115
   %245 = call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %234, ptr noundef nonnull dereferenceable(1) %244) #21
@@ -1605,7 +1604,7 @@ define dso_local noundef ptr @archive_format_from_filename(ptr noundef readonly 
 
 6:                                                ; preds = %.lr.ph, %match_extension.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %match_extension.exit.thread ]
-  %7 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %8 = load ptr, ptr %7, align 8, !tbaa !11
   %9 = load ptr, ptr %8, align 8, !tbaa !115
   %10 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %9) #21

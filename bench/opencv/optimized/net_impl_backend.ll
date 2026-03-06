@@ -194,9 +194,9 @@ _ZNSt8_Rb_treeIPvSt4pairIKS0_N2cv3PtrINS3_3dnn14dnn4_v2024122314BackendWrapperEE
 
 51:                                               ; preds = %.lr.ph, %51
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %51 ]
-  %52 = getelementptr inbounds nuw i32, ptr %40, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %40, i64 %indvars.iv
   %53 = load i32, ptr %52, align 4, !tbaa !74
-  %54 = getelementptr inbounds nuw i32, ptr %35, i64 %indvars.iv
+  %54 = getelementptr inbounds nuw [4 x i8], ptr %35, i64 %indvars.iv
   store i32 %53, ptr %54, align 4, !tbaa !74
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1793,7 +1793,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds = 
 
 switch.lookup:                                    ; preds = %switch.early.test
   %74 = zext nneg i32 %1 to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table._ZN2cv3dnn14dnn4_v202412233Net4Impl19setPreferableTargetEi, i64 %74
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table._ZN2cv3dnn14dnn4_v202412233Net4Impl19setPreferableTargetEi, i64 %74
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %75
 

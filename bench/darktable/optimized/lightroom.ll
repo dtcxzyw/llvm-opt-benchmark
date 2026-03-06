@@ -479,7 +479,7 @@ dt_get_lightroom_xmp.exit:                        ; preds = %14, %17
 
 110:                                              ; preds = %73, %110
   %indvars.iv = phi i64 [ 0, %73 ], [ %indvars.iv.next, %110 ]
-  %111 = getelementptr inbounds nuw ptr, ptr @dt_lightroom_import.names, i64 %indvars.iv
+  %111 = getelementptr inbounds nuw [8 x i8], ptr @dt_lightroom_import.names, i64 %indvars.iv
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %112 = load ptr, ptr %111, align 8, !tbaa !55
   %113 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %9, i64 noundef 50, ptr noundef nonnull @.str.23, ptr noundef %112) #11
@@ -734,7 +734,7 @@ dt_image_orientation_to_flip_bits.exit:           ; preds = %122, %122, %124, %1
 
 switch.lookup:                                    ; preds = %252
   %255 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i32, ptr @switch.table.dt_lightroom_import, i64 %255
+  %switch.gep = getelementptr inbounds nuw [4 x i8], ptr @switch.table.dt_lightroom_import, i64 %255
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %dt_image_orientation_to_flip_bits.exit290
 
@@ -868,7 +868,7 @@ dt_image_orientation_to_flip_bits.exit290:        ; preds = %252, %switch.lookup
 
 324:                                              ; preds = %.lr.ph, %324
   %indvars.iv330 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next331, %324 ]
-  %325 = getelementptr inbounds nuw %struct.spot_t, ptr %323, i64 %indvars.iv330
+  %325 = getelementptr inbounds nuw [20 x i8], ptr %323, i64 %indvars.iv330
   %326 = getelementptr inbounds nuw i8, ptr %325, i64 4
   %327 = load float, ptr %326, align 4, !tbaa !89
   %328 = load float, ptr %325, align 4, !tbaa !91
@@ -941,9 +941,9 @@ dt_image_orientation_to_flip_bits.exit290:        ; preds = %252, %switch.lookup
 
 365:                                              ; preds = %352, %365
   %indvars.iv333 = phi i64 [ 0, %352 ], [ %indvars.iv.next334, %365 ]
-  %366 = getelementptr inbounds nuw float, ptr @__const.dt_lightroom_import.linear_ab, i64 %indvars.iv333
+  %366 = getelementptr inbounds nuw [4 x i8], ptr @__const.dt_lightroom_import.linear_ab, i64 %indvars.iv333
   %367 = load float, ptr %366, align 4, !tbaa !77
-  %368 = getelementptr inbounds nuw %struct.dt_iop_tonecurve_node_t, ptr %364, i64 %indvars.iv333
+  %368 = getelementptr inbounds nuw [8 x i8], ptr %364, i64 %indvars.iv333
   store float %367, ptr %368, align 4, !tbaa !97
   %indvars.iv.next334 = add nuw nsw i64 %indvars.iv333, 1
   %exitcond336.not = icmp eq i64 %indvars.iv.next334, 7
@@ -955,9 +955,9 @@ dt_image_orientation_to_flip_bits.exit290:        ; preds = %252, %switch.lookup
 
 .preheader317:                                    ; preds = %365, %.preheader317
   %indvars.iv337 = phi i64 [ %indvars.iv.next338, %.preheader317 ], [ 0, %365 ]
-  %370 = getelementptr inbounds nuw float, ptr @__const.dt_lightroom_import.linear_ab, i64 %indvars.iv337
+  %370 = getelementptr inbounds nuw [4 x i8], ptr @__const.dt_lightroom_import.linear_ab, i64 %indvars.iv337
   %371 = load float, ptr %370, align 4, !tbaa !77
-  %372 = getelementptr inbounds nuw %struct.dt_iop_tonecurve_node_t, ptr %8, i64 %indvars.iv337
+  %372 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv337
   %373 = getelementptr inbounds nuw i8, ptr %372, i64 984
   store float %371, ptr %373, align 8, !tbaa !99
   %indvars.iv.next338 = add nuw nsw i64 %indvars.iv337, 1
@@ -966,9 +966,9 @@ dt_image_orientation_to_flip_bits.exit290:        ; preds = %252, %switch.lookup
 
 374:                                              ; preds = %.preheader316, %374
   %indvars.iv341 = phi i64 [ 0, %.preheader316 ], [ %indvars.iv.next342, %374 ]
-  %375 = getelementptr inbounds nuw float, ptr @__const.dt_lightroom_import.linear_ab, i64 %indvars.iv341
+  %375 = getelementptr inbounds nuw [4 x i8], ptr @__const.dt_lightroom_import.linear_ab, i64 %indvars.iv341
   %376 = load float, ptr %375, align 4, !tbaa !77
-  %377 = getelementptr inbounds nuw %struct.dt_iop_tonecurve_node_t, ptr %369, i64 %indvars.iv341
+  %377 = getelementptr inbounds nuw [8 x i8], ptr %369, i64 %indvars.iv341
   store float %376, ptr %377, align 4, !tbaa !97
   %indvars.iv.next342 = add nuw nsw i64 %indvars.iv341, 1
   %exitcond344.not = icmp eq i64 %indvars.iv.next342, 7
@@ -990,9 +990,9 @@ dt_image_orientation_to_flip_bits.exit290:        ; preds = %252, %switch.lookup
 
 .preheader315:                                    ; preds = %374, %.preheader315
   %indvars.iv345 = phi i64 [ %indvars.iv.next346, %.preheader315 ], [ 0, %374 ]
-  %383 = getelementptr inbounds nuw float, ptr @__const.dt_lightroom_import.linear_ab, i64 %indvars.iv345
+  %383 = getelementptr inbounds nuw [4 x i8], ptr @__const.dt_lightroom_import.linear_ab, i64 %indvars.iv345
   %384 = load float, ptr %383, align 4, !tbaa !77
-  %385 = getelementptr inbounds nuw %struct.dt_iop_tonecurve_node_t, ptr %8, i64 %indvars.iv345
+  %385 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv345
   %386 = getelementptr inbounds nuw i8, ptr %385, i64 1144
   store float %384, ptr %386, align 8, !tbaa !99
   %indvars.iv.next346 = add nuw nsw i64 %indvars.iv345, 1
@@ -1041,12 +1041,12 @@ dt_image_orientation_to_flip_bits.exit290:        ; preds = %252, %switch.lookup
 
 416:                                              ; preds = %.lr.ph326, %416
   %indvars.iv349 = phi i64 [ 0, %.lr.ph326 ], [ %indvars.iv.next350, %416 ]
-  %417 = getelementptr inbounds nuw [2 x i32], ptr %382, i64 %indvars.iv349
+  %417 = getelementptr inbounds nuw [8 x i8], ptr %382, i64 %indvars.iv349
   %418 = load i32, ptr %417, align 4, !tbaa !6
   %419 = sitofp i32 %418 to double
   %420 = fmul reassoc nnan nsz arcp contract afn double %419, 0x3F70101010101010
   %421 = fptrunc reassoc nsz arcp contract afn double %420 to float
-  %422 = getelementptr inbounds nuw %struct.dt_iop_tonecurve_node_t, ptr %379, i64 %indvars.iv349
+  %422 = getelementptr inbounds nuw [8 x i8], ptr %379, i64 %indvars.iv349
   store float %421, ptr %422, align 4, !tbaa !97
   %423 = getelementptr inbounds nuw i8, ptr %417, i64 4
   %424 = load i32, ptr %423, align 8, !tbaa !6
@@ -1147,7 +1147,7 @@ dt_image_orientation_to_flip_bits.exit290:        ; preds = %252, %switch.lookup
 
 .preheader:                                       ; preds = %474, %479
   %indvars.iv358 = phi i64 [ 0, %474 ], [ %indvars.iv.next359, %479 ]
-  %477 = getelementptr inbounds nuw [8 x float], ptr %476, i64 %indvars.iv358
+  %477 = getelementptr inbounds nuw [32 x i8], ptr %476, i64 %indvars.iv358
   br label %480
 
 478:                                              ; preds = %479
@@ -1165,7 +1165,7 @@ dt_image_orientation_to_flip_bits.exit290:        ; preds = %252, %switch.lookup
   %482 = uitofp nneg i32 %481 to double
   %483 = fmul reassoc nnan nsz arcp contract afn double %482, 0x3FC2492492492492
   %484 = fptrunc reassoc nsz arcp contract afn double %483 to float
-  %485 = getelementptr inbounds nuw float, ptr %477, i64 %indvars.iv354
+  %485 = getelementptr inbounds nuw [4 x i8], ptr %477, i64 %indvars.iv354
   store float %484, ptr %485, align 4, !tbaa !77
   %indvars.iv.next355 = add nuw nsw i64 %indvars.iv354, 1
   %exitcond357.not = icmp eq i64 %indvars.iv.next355, 8
@@ -1443,7 +1443,7 @@ define internal fastcc void @_handle_xpath(ptr noundef readonly captures(address
 14:                                               ; preds = %.lr.ph, %.thread49
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.thread49 ]
   %15 = load ptr, ptr %13, align 8, !tbaa !26
-  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %indvars.iv
+  %16 = getelementptr inbounds nuw [8 x i8], ptr %15, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8, !tbaa !27
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !10
@@ -1985,15 +1985,15 @@ define internal fastcc void @_lrop(ptr noundef readonly captures(address_is_null
 82:                                               ; preds = %82, %79
   %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %82 ], [ 0, %79 ]
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %83 = getelementptr inbounds nuw %struct.lr2dt, ptr @__const.lr2dt_blacks.lr2dt_blacks_table, i64 %indvars.iv.next.i.i
+  %83 = getelementptr inbounds nuw [8 x i8], ptr @__const.lr2dt_blacks.lr2dt_blacks_table, i64 %indvars.iv.next.i.i
   %84 = load float, ptr %83, align 8, !tbaa !186
   %85 = fcmp reassoc nsz arcp contract afn olt float %84, %81
   br i1 %85, label %82, label %lr2dt_blacks.exit
 
 lr2dt_blacks.exit:                                ; preds = %82
-  %86 = getelementptr inbounds nuw %struct.lr2dt, ptr @__const.lr2dt_blacks.lr2dt_blacks_table, i64 %indvars.iv.next.i.i
+  %86 = getelementptr inbounds nuw [8 x i8], ptr @__const.lr2dt_blacks.lr2dt_blacks_table, i64 %indvars.iv.next.i.i
   %87 = and i64 %indvars.iv.i.i, 4294967295
-  %88 = getelementptr inbounds nuw %struct.lr2dt, ptr @__const.lr2dt_blacks.lr2dt_blacks_table, i64 %87
+  %88 = getelementptr inbounds nuw [8 x i8], ptr @__const.lr2dt_blacks.lr2dt_blacks_table, i64 %87
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
   %90 = load float, ptr %89, align 4, !tbaa !188
   %91 = load float, ptr %88, align 8, !tbaa !186
@@ -2047,15 +2047,15 @@ lr2dt_blacks.exit:                                ; preds = %82
 118:                                              ; preds = %118, %115
   %indvars.iv.i.i635 = phi i64 [ %indvars.iv.next.i.i636, %118 ], [ 0, %115 ]
   %indvars.iv.next.i.i636 = add nuw nsw i64 %indvars.iv.i.i635, 1
-  %119 = getelementptr inbounds nuw %struct.lr2dt, ptr @__const.lr2dt_vignette_gain.lr2dt_vignette_table, i64 %indvars.iv.next.i.i636
+  %119 = getelementptr inbounds nuw [8 x i8], ptr @__const.lr2dt_vignette_gain.lr2dt_vignette_table, i64 %indvars.iv.next.i.i636
   %120 = load float, ptr %119, align 8, !tbaa !186
   %121 = fcmp reassoc nsz arcp contract afn olt float %120, %117
   br i1 %121, label %118, label %lr2dt_vignette_gain.exit
 
 lr2dt_vignette_gain.exit:                         ; preds = %118
-  %122 = getelementptr inbounds nuw %struct.lr2dt, ptr @__const.lr2dt_vignette_gain.lr2dt_vignette_table, i64 %indvars.iv.next.i.i636
+  %122 = getelementptr inbounds nuw [8 x i8], ptr @__const.lr2dt_vignette_gain.lr2dt_vignette_table, i64 %indvars.iv.next.i.i636
   %123 = and i64 %indvars.iv.i.i635, 4294967295
-  %124 = getelementptr inbounds nuw %struct.lr2dt, ptr @__const.lr2dt_vignette_gain.lr2dt_vignette_table, i64 %123
+  %124 = getelementptr inbounds nuw [8 x i8], ptr @__const.lr2dt_vignette_gain.lr2dt_vignette_table, i64 %123
   %125 = getelementptr inbounds nuw i8, ptr %124, i64 4
   %126 = load float, ptr %125, align 4, !tbaa !188
   %127 = load float, ptr %124, align 8, !tbaa !186
@@ -2085,15 +2085,15 @@ lr2dt_vignette_gain.exit:                         ; preds = %118
 143:                                              ; preds = %143, %139
   %indvars.iv.i.i637 = phi i64 [ %indvars.iv.next.i.i638, %143 ], [ 0, %139 ]
   %indvars.iv.next.i.i638 = add nuw nsw i64 %indvars.iv.i.i637, 1
-  %144 = getelementptr inbounds nuw %struct.lr2dt, ptr @__const.lr2dt_vignette_midpoint.lr2dt_vignette_table, i64 %indvars.iv.next.i.i638
+  %144 = getelementptr inbounds nuw [8 x i8], ptr @__const.lr2dt_vignette_midpoint.lr2dt_vignette_table, i64 %indvars.iv.next.i.i638
   %145 = load float, ptr %144, align 8, !tbaa !186
   %146 = fcmp reassoc nsz arcp contract afn olt float %145, %142
   br i1 %146, label %143, label %lr2dt_vignette_midpoint.exit
 
 lr2dt_vignette_midpoint.exit:                     ; preds = %143
-  %147 = getelementptr inbounds nuw %struct.lr2dt, ptr @__const.lr2dt_vignette_midpoint.lr2dt_vignette_table, i64 %indvars.iv.next.i.i638
+  %147 = getelementptr inbounds nuw [8 x i8], ptr @__const.lr2dt_vignette_midpoint.lr2dt_vignette_table, i64 %indvars.iv.next.i.i638
   %148 = and i64 %indvars.iv.i.i637, 4294967295
-  %149 = getelementptr inbounds nuw %struct.lr2dt, ptr @__const.lr2dt_vignette_midpoint.lr2dt_vignette_table, i64 %148
+  %149 = getelementptr inbounds nuw [8 x i8], ptr @__const.lr2dt_vignette_midpoint.lr2dt_vignette_table, i64 %148
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 4
   %151 = load float, ptr %150, align 4, !tbaa !188
   %152 = load float, ptr %149, align 8, !tbaa !186
@@ -2179,15 +2179,15 @@ lr2dt_vignette_midpoint.exit:                     ; preds = %143
 194:                                              ; preds = %194, %191
   %indvars.iv.i.i639 = phi i64 [ %indvars.iv.next.i.i640, %194 ], [ 0, %191 ]
   %indvars.iv.next.i.i640 = add nuw nsw i64 %indvars.iv.i.i639, 1
-  %195 = getelementptr inbounds nuw %struct.lr2dt, ptr @__const.lr2dt_grain_amount.lr2dt_grain_table, i64 %indvars.iv.next.i.i640
+  %195 = getelementptr inbounds nuw [8 x i8], ptr @__const.lr2dt_grain_amount.lr2dt_grain_table, i64 %indvars.iv.next.i.i640
   %196 = load float, ptr %195, align 8, !tbaa !186
   %197 = fcmp reassoc nsz arcp contract afn olt float %196, %193
   br i1 %197, label %194, label %lr2dt_grain_amount.exit
 
 lr2dt_grain_amount.exit:                          ; preds = %194
-  %198 = getelementptr inbounds nuw %struct.lr2dt, ptr @__const.lr2dt_grain_amount.lr2dt_grain_table, i64 %indvars.iv.next.i.i640
+  %198 = getelementptr inbounds nuw [8 x i8], ptr @__const.lr2dt_grain_amount.lr2dt_grain_table, i64 %indvars.iv.next.i.i640
   %199 = and i64 %indvars.iv.i.i639, 4294967295
-  %200 = getelementptr inbounds nuw %struct.lr2dt, ptr @__const.lr2dt_grain_amount.lr2dt_grain_table, i64 %199
+  %200 = getelementptr inbounds nuw [8 x i8], ptr @__const.lr2dt_grain_amount.lr2dt_grain_table, i64 %199
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 4
   %202 = load float, ptr %201, align 4, !tbaa !188
   %203 = load float, ptr %200, align 8, !tbaa !186
@@ -3106,15 +3106,15 @@ lr2dt_grain_amount.exit:                          ; preds = %194
 694:                                              ; preds = %694, %691
   %indvars.iv.i.i641 = phi i64 [ %indvars.iv.next.i.i642, %694 ], [ 0, %691 ]
   %indvars.iv.next.i.i642 = add nuw nsw i64 %indvars.iv.i.i641, 1
-  %695 = getelementptr inbounds nuw %struct.lr2dt, ptr @__const.lr2dt_splittoning_balance.lr2dt_splittoning_table, i64 %indvars.iv.next.i.i642
+  %695 = getelementptr inbounds nuw [8 x i8], ptr @__const.lr2dt_splittoning_balance.lr2dt_splittoning_table, i64 %indvars.iv.next.i.i642
   %696 = load float, ptr %695, align 8, !tbaa !186
   %697 = fcmp reassoc nsz arcp contract afn olt float %696, %693
   br i1 %697, label %694, label %lr2dt_splittoning_balance.exit
 
 lr2dt_splittoning_balance.exit:                   ; preds = %694
-  %698 = getelementptr inbounds nuw %struct.lr2dt, ptr @__const.lr2dt_splittoning_balance.lr2dt_splittoning_table, i64 %indvars.iv.next.i.i642
+  %698 = getelementptr inbounds nuw [8 x i8], ptr @__const.lr2dt_splittoning_balance.lr2dt_splittoning_table, i64 %indvars.iv.next.i.i642
   %699 = and i64 %indvars.iv.i.i641, 4294967295
-  %700 = getelementptr inbounds nuw %struct.lr2dt, ptr @__const.lr2dt_splittoning_balance.lr2dt_splittoning_table, i64 %699
+  %700 = getelementptr inbounds nuw [8 x i8], ptr @__const.lr2dt_splittoning_balance.lr2dt_splittoning_table, i64 %699
   %701 = getelementptr inbounds nuw i8, ptr %700, i64 4
   %702 = load float, ptr %701, align 4, !tbaa !188
   %703 = load float, ptr %700, align 8, !tbaa !186
@@ -3150,15 +3150,15 @@ lr2dt_splittoning_balance.exit:                   ; preds = %694
 721:                                              ; preds = %721, %718
   %indvars.iv.i.i643 = phi i64 [ %indvars.iv.next.i.i644, %721 ], [ 0, %718 ]
   %indvars.iv.next.i.i644 = add nuw nsw i64 %indvars.iv.i.i643, 1
-  %722 = getelementptr inbounds nuw %struct.lr2dt, ptr @__const.lr2dt_clarity.lr2dt_clarity_table, i64 %indvars.iv.next.i.i644
+  %722 = getelementptr inbounds nuw [8 x i8], ptr @__const.lr2dt_clarity.lr2dt_clarity_table, i64 %indvars.iv.next.i.i644
   %723 = load float, ptr %722, align 8, !tbaa !186
   %724 = fcmp reassoc nsz arcp contract afn olt float %723, %720
   br i1 %724, label %721, label %lr2dt_clarity.exit
 
 lr2dt_clarity.exit:                               ; preds = %721
-  %725 = getelementptr inbounds nuw %struct.lr2dt, ptr @__const.lr2dt_clarity.lr2dt_clarity_table, i64 %indvars.iv.next.i.i644
+  %725 = getelementptr inbounds nuw [8 x i8], ptr @__const.lr2dt_clarity.lr2dt_clarity_table, i64 %indvars.iv.next.i.i644
   %726 = and i64 %indvars.iv.i.i643, 4294967295
-  %727 = getelementptr inbounds nuw %struct.lr2dt, ptr @__const.lr2dt_clarity.lr2dt_clarity_table, i64 %726
+  %727 = getelementptr inbounds nuw [8 x i8], ptr @__const.lr2dt_clarity.lr2dt_clarity_table, i64 %726
   %728 = getelementptr inbounds nuw i8, ptr %727, i64 4
   %729 = load float, ptr %728, align 4, !tbaa !188
   %730 = load float, ptr %727, align 8, !tbaa !186
@@ -3546,7 +3546,7 @@ lr2dt_clarity.exit:                               ; preds = %721
 
 914:                                              ; preds = %910
   %915 = sext i32 %909 to i64
-  %916 = getelementptr inbounds %struct.spot_t, ptr %899, i64 %915
+  %916 = getelementptr inbounds [20 x i8], ptr %899, i64 %915
   %917 = call i32 @g_str_has_prefix(ptr noundef nonnull %.0.i, ptr noundef nonnull @.str.131) #11
   %.not.i = icmp eq i32 %917, 0
   br i1 %.not.i, label %_read_float.exit.thread, label %918
@@ -3851,7 +3851,7 @@ _read_float.exit.thread:                          ; preds = %920, %939, %958, %9
   %1036 = tail call ptr @xmlNodeListGetString(ptr noundef nonnull %1, ptr noundef %1035, i32 noundef 1) #11
   %1037 = load i32, ptr %1028, align 4, !tbaa !210
   %1038 = sext i32 %1037 to i64
-  %1039 = getelementptr inbounds [2 x i32], ptr %1027, i64 %1038
+  %1039 = getelementptr inbounds [8 x i8], ptr %1027, i64 %1038
   %1040 = getelementptr inbounds nuw i8, ptr %1039, i64 4
   %1041 = tail call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %1036, ptr noundef nonnull @.str.137, ptr noundef nonnull %1039, ptr noundef nonnull %1040) #11
   %.not617 = icmp eq i32 %1041, 0
@@ -4021,15 +4021,15 @@ define internal fastcc float @lr2dt_grain_frequency(float noundef %0) unnamed_ad
 2:                                                ; preds = %2, %1
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %2 ], [ 0, %1 ]
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %3 = getelementptr inbounds nuw %struct.lr2dt, ptr @__const.lr2dt_grain_frequency.lr2dt_grain_table, i64 %indvars.iv.next.i
+  %3 = getelementptr inbounds nuw [8 x i8], ptr @__const.lr2dt_grain_frequency.lr2dt_grain_table, i64 %indvars.iv.next.i
   %4 = load float, ptr %3, align 8, !tbaa !186
   %5 = fcmp reassoc nsz arcp contract afn olt float %4, %0
   br i1 %5, label %2, label %get_interpolate.exit
 
 get_interpolate.exit:                             ; preds = %2
-  %6 = getelementptr inbounds nuw %struct.lr2dt, ptr @__const.lr2dt_grain_frequency.lr2dt_grain_table, i64 %indvars.iv.next.i
+  %6 = getelementptr inbounds nuw [8 x i8], ptr @__const.lr2dt_grain_frequency.lr2dt_grain_table, i64 %indvars.iv.next.i
   %7 = and i64 %indvars.iv.i, 4294967295
-  %8 = getelementptr inbounds nuw %struct.lr2dt, ptr @__const.lr2dt_grain_frequency.lr2dt_grain_table, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr @__const.lr2dt_grain_frequency.lr2dt_grain_table, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %10 = load float, ptr %9, align 4, !tbaa !188
   %11 = load float, ptr %8, align 8, !tbaa !186

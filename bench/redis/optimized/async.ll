@@ -89,7 +89,7 @@ dictCreate.exit41.thread.i:                       ; preds = %20, %13
 
 32:                                               ; preds = %29
   %33 = load ptr, ptr %11, align 8, !tbaa !19
-  %34 = getelementptr inbounds nuw ptr, ptr %33, i64 %.028.i.i.i
+  %34 = getelementptr inbounds nuw [8 x i8], ptr %33, i64 %.028.i.i.i
   %35 = load ptr, ptr %34, align 8, !tbaa !29
   %36 = icmp eq ptr %35, null
   br i1 %36, label %.loopexit.i.i.i, label %.preheader.i.i.i
@@ -177,7 +177,7 @@ dictCreate.exit41.thread.i:                       ; preds = %20, %13
 
 73:                                               ; preds = %70
   %74 = load ptr, ptr %18, align 8, !tbaa !19
-  %75 = getelementptr inbounds nuw ptr, ptr %74, i64 %.028.i.i45.i
+  %75 = getelementptr inbounds nuw [8 x i8], ptr %74, i64 %.028.i.i45.i
   %76 = load ptr, ptr %75, align 8, !tbaa !29
   %77 = icmp eq ptr %76, null
   br i1 %77, label %.loopexit.i.i55.i, label %.preheader.i.i47.i
@@ -715,7 +715,7 @@ __redisRunCallback.exit48:                        ; preds = %__redisRunCallback.
 47:                                               ; preds = %43
   %48 = load ptr, ptr %39, align 8, !tbaa !19
   %49 = sext i32 %44 to i64
-  %50 = getelementptr inbounds ptr, ptr %48, i64 %49
+  %50 = getelementptr inbounds [8 x i8], ptr %48, i64 %49
   %storemerge.in.i.sroa.speculate.load. = load ptr, ptr %50, align 8, !tbaa !29
   br label %51
 
@@ -773,7 +773,7 @@ __redisRunCallback.exit48.backedge:               ; preds = %52, %59
 
 76:                                               ; preds = %73
   %77 = load ptr, ptr %67, align 8, !tbaa !19
-  %78 = getelementptr inbounds nuw ptr, ptr %77, i64 %.028.i.i
+  %78 = getelementptr inbounds nuw [8 x i8], ptr %77, i64 %.028.i.i
   %79 = load ptr, ptr %78, align 8, !tbaa !29
   %80 = icmp eq ptr %79, null
   br i1 %80, label %.loopexit.i.i, label %.preheader.i.i
@@ -871,7 +871,7 @@ __redisRunCallback.exit58:                        ; preds = %__redisRunCallback.
 118:                                              ; preds = %114
   %119 = load ptr, ptr %110, align 8, !tbaa !19
   %120 = sext i32 %115 to i64
-  %121 = getelementptr inbounds ptr, ptr %119, i64 %120
+  %121 = getelementptr inbounds [8 x i8], ptr %119, i64 %120
   %storemerge.in.i51.sroa.speculate.load. = load ptr, ptr %121, align 8, !tbaa !29
   br label %122
 
@@ -929,7 +929,7 @@ __redisRunCallback.exit58.backedge:               ; preds = %123, %130
 
 147:                                              ; preds = %144
   %148 = load ptr, ptr %138, align 8, !tbaa !19
-  %149 = getelementptr inbounds nuw ptr, ptr %148, i64 %.028.i.i62
+  %149 = getelementptr inbounds nuw [8 x i8], ptr %148, i64 %.028.i.i62
   %150 = load ptr, ptr %149, align 8, !tbaa !29
   %151 = icmp eq ptr %150, null
   br i1 %151, label %.loopexit.i.i72, label %.preheader.i.i64
@@ -1350,7 +1350,7 @@ __redisShiftCallback.exit.i:                      ; preds = %__redisAsyncCopyErr
   %86 = load ptr, ptr %85, align 8, !tbaa !99
   %87 = load i8, ptr %86, align 1, !tbaa !12
   %88 = sext i8 %87 to i64
-  %89 = getelementptr inbounds i32, ptr %84, i64 %88
+  %89 = getelementptr inbounds [4 x i8], ptr %84, i64 %88
   %90 = load i32, ptr %89, align 4, !tbaa !5
   %91 = icmp eq i32 %90, 112
   %92 = zext i1 %91 to i64
@@ -1528,7 +1528,7 @@ __redisShiftCallback.exit.i42:                    ; preds = %140, %138, %131
   %168 = load ptr, ptr %167, align 8, !tbaa !97
   %169 = load i8, ptr %166, align 1, !tbaa !12
   %170 = sext i8 %169 to i64
-  %171 = getelementptr inbounds i32, ptr %168, i64 %170
+  %171 = getelementptr inbounds [4 x i8], ptr %168, i64 %170
   %172 = load i32, ptr %171, align 4, !tbaa !5
   %173 = icmp eq i32 %172, 112
   %.043.in.i = select i1 %173, ptr %8, ptr %9
@@ -1565,7 +1565,7 @@ __redisShiftCallback.exit.i42:                    ; preds = %140, %138, %131
   %197 = and i32 %193, %196
   %198 = load ptr, ptr %.043.i, align 8, !tbaa !19
   %199 = zext i32 %197 to i64
-  %200 = getelementptr inbounds nuw ptr, ptr %198, i64 %199
+  %200 = getelementptr inbounds nuw [8 x i8], ptr %198, i64 %199
   %201 = getelementptr inbounds nuw i8, ptr %.043.i, i64 40
   %.01620.i.i = load ptr, ptr %200, align 8, !tbaa !29
   %.not21.i.i = icmp eq ptr %.01620.i.i, null
@@ -1685,7 +1685,7 @@ dictFind.exit.thread.i:                           ; preds = %220, %208, %dictFin
   %257 = and i32 %253, %256
   %258 = load ptr, ptr %.043.i, align 8, !tbaa !19
   %259 = zext i32 %257 to i64
-  %260 = getelementptr inbounds nuw ptr, ptr %258, i64 %259
+  %260 = getelementptr inbounds nuw [8 x i8], ptr %258, i64 %259
   %.03244.i.i = load ptr, ptr %260, align 8, !tbaa !29
   %.not45.i.i = icmp eq ptr %.03244.i.i, null
   br i1 %.not45.i.i, label %dictDelete.exit.i, label %.lr.ph.i49.i
@@ -1758,7 +1758,7 @@ dictFind.exit.thread.i:                           ; preds = %220, %208, %dictFin
   %.us-phi4865.i.i = phi ptr [ %.03247.i.i, %.split.us.i..split.us.thread.i_crit_edge.i ], [ %.03244.i.i, %.lr.ph.split.us.i52.i ]
   %286 = getelementptr inbounds nuw i8, ptr %.us-phi4865.i.i, i64 16
   %287 = load ptr, ptr %286, align 8, !tbaa !31
-  %288 = getelementptr inbounds nuw ptr, ptr %285, i64 %259
+  %288 = getelementptr inbounds nuw [8 x i8], ptr %285, i64 %259
   store ptr %287, ptr %288, align 8, !tbaa !29
   br label %289
 
@@ -3005,7 +3005,7 @@ nextArgument.exit:                                ; preds = %16, %10
   %28 = load ptr, ptr %27, align 8, !tbaa !97
   %29 = load i8, ptr %22, align 1, !tbaa !12
   %30 = sext i8 %29 to i64
-  %31 = getelementptr inbounds i32, ptr %28, i64 %30
+  %31 = getelementptr inbounds [4 x i8], ptr %28, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !5
   %33 = icmp eq i32 %32, 112
   %34 = zext i1 %33 to i64
@@ -3073,7 +3073,7 @@ dictFind.exit.thread.thread:                      ; preds = %57
   %71 = and i32 %67, %70
   %72 = load ptr, ptr %.063, align 8, !tbaa !19
   %73 = zext i32 %71 to i64
-  %74 = getelementptr inbounds nuw ptr, ptr %72, i64 %73
+  %74 = getelementptr inbounds nuw [8 x i8], ptr %72, i64 %73
   %75 = getelementptr inbounds nuw i8, ptr %.063, i64 40
   %.01620.i = load ptr, ptr %74, align 8, !tbaa !29
   %.not21.i = icmp eq ptr %.01620.i, null
@@ -3172,7 +3172,7 @@ hi_calloc.exit.i.i.i.i.i:                         ; preds = %_dictNextPower.exit
 
 119:                                              ; preds = %.lr.ph.i.i.i.i.i
   %120 = load ptr, ptr %.063, align 8, !tbaa !19
-  %121 = getelementptr inbounds nuw ptr, ptr %120, i64 %.02937.i.i.i.i.i
+  %121 = getelementptr inbounds nuw [8 x i8], ptr %120, i64 %.02937.i.i.i.i.i
   %122 = load ptr, ptr %121, align 8, !tbaa !29
   %123 = icmp eq ptr %122, null
   br i1 %123, label %.loopexit.i.i.i.i.i, label %.preheader.i.i.i.i.i
@@ -3187,7 +3187,7 @@ hi_calloc.exit.i.i.i.i.i:                         ; preds = %_dictNextPower.exit
   %129 = call i32 %127(ptr noundef %128) #16
   %130 = and i32 %129, 3
   %131 = zext nneg i32 %130 to i64
-  %132 = getelementptr inbounds nuw ptr, ptr %112, i64 %131
+  %132 = getelementptr inbounds nuw [8 x i8], ptr %112, i64 %131
   %133 = load ptr, ptr %132, align 8, !tbaa !29
   store ptr %133, ptr %124, align 8, !tbaa !31
   store ptr %.03036.i.i.i.i.i, ptr %132, align 8, !tbaa !29
@@ -3276,7 +3276,7 @@ hi_calloc.exit.i12.i.i.i.i:                       ; preds = %149
 
 163:                                              ; preds = %160
   %164 = load ptr, ptr %.063, align 8, !tbaa !19
-  %165 = getelementptr inbounds nuw ptr, ptr %164, i64 %.02937.i15.i.i.i.i
+  %165 = getelementptr inbounds nuw [8 x i8], ptr %164, i64 %.02937.i15.i.i.i.i
   %166 = load ptr, ptr %165, align 8, !tbaa !29
   %167 = icmp eq ptr %166, null
   br i1 %167, label %.loopexit.i22.i.i.i.i, label %.preheader.i17.i.i.i.i
@@ -3291,7 +3291,7 @@ hi_calloc.exit.i12.i.i.i.i:                       ; preds = %149
   %173 = call i32 %171(ptr noundef %172) #16
   %174 = and i32 %173, %159
   %175 = zext i32 %174 to i64
-  %176 = getelementptr inbounds nuw ptr, ptr %154, i64 %175
+  %176 = getelementptr inbounds nuw [8 x i8], ptr %154, i64 %175
   %177 = load ptr, ptr %176, align 8, !tbaa !29
   store ptr %177, ptr %168, align 8, !tbaa !31
   store ptr %.03036.i18.i.i.i.i, ptr %176, align 8, !tbaa !29
@@ -3336,7 +3336,7 @@ _dictExpandIfNeeded.exit.i.i.i:                   ; preds = %.critedge.i23.i.i.i
   %194 = and i32 %190, %193
   %195 = load ptr, ptr %.063, align 8, !tbaa !19
   %196 = zext i32 %194 to i64
-  %197 = getelementptr inbounds nuw ptr, ptr %195, i64 %196
+  %197 = getelementptr inbounds nuw [8 x i8], ptr %195, i64 %196
   %198 = getelementptr inbounds nuw i8, ptr %.063, i64 40
   %.024.i.i.i = load ptr, ptr %197, align 8, !tbaa !29
   %.not1825.i.i.i = icmp eq ptr %.024.i.i.i, null
@@ -3400,7 +3400,7 @@ _dictKeyIndex.exit.i.i:                           ; preds = %217, %205, %_dictEx
 224:                                              ; preds = %220
   %225 = load ptr, ptr %.063, align 8, !tbaa !19
   %226 = sext i32 %194 to i64
-  %227 = getelementptr inbounds ptr, ptr %225, i64 %226
+  %227 = getelementptr inbounds [8 x i8], ptr %225, i64 %226
   %228 = load ptr, ptr %227, align 8, !tbaa !29
   %229 = getelementptr inbounds nuw i8, ptr %222, i64 16
   store ptr %228, ptr %229, align 8, !tbaa !31
@@ -3447,7 +3447,7 @@ _dictKeyIndex.exit.i.i:                           ; preds = %217, %205, %_dictEx
   %253 = and i32 %249, %252
   %254 = load ptr, ptr %.063, align 8, !tbaa !19
   %255 = zext i32 %253 to i64
-  %256 = getelementptr inbounds nuw ptr, ptr %254, i64 %255
+  %256 = getelementptr inbounds nuw [8 x i8], ptr %254, i64 %255
   %257 = getelementptr inbounds nuw i8, ptr %.063, i64 40
   %.01620.i.i = load ptr, ptr %256, align 8, !tbaa !29
   %.not21.i.i = icmp eq ptr %.01620.i.i, null
@@ -3612,7 +3612,7 @@ dictReplace.exit:                                 ; preds = %236, %240
   %329 = and i32 %326, %328
   %330 = load ptr, ptr %.164, align 8, !tbaa !19
   %331 = zext i32 %329 to i64
-  %332 = getelementptr inbounds nuw ptr, ptr %330, i64 %331
+  %332 = getelementptr inbounds nuw [8 x i8], ptr %330, i64 %331
   %.01620.i101 = load ptr, ptr %332, align 8, !tbaa !29
   %.not21.i102 = icmp eq ptr %.01620.i101, null
   br i1 %.not21.i102, label %.loopexit183, label %.lr.ph.i103
@@ -3713,7 +3713,7 @@ dictFind.exit116:                                 ; preds = %348, %344, %.lr.ph.
 370:                                              ; preds = %366
   %371 = load ptr, ptr %.164, align 8, !tbaa !19
   %372 = sext i32 %367 to i64
-  %373 = getelementptr inbounds ptr, ptr %371, i64 %372
+  %373 = getelementptr inbounds [8 x i8], ptr %371, i64 %372
   %storemerge.in.i.sroa.speculate.load. = load ptr, ptr %373, align 8, !tbaa !29
   br label %374
 

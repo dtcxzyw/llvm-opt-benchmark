@@ -402,7 +402,7 @@ vp9_raw_reorder_frame_free.exit:                  ; preds = %172, %174
   br i1 %.not68, label %vp9_raw_reorder_clear_slot.exit74, label %210
 
 210:                                              ; preds = %203
-  %211 = getelementptr inbounds nuw ptr, ptr %202, i64 %indvars.iv
+  %211 = getelementptr inbounds nuw [8 x i8], ptr %202, i64 %indvars.iv
   %212 = load ptr, ptr %211, align 8, !tbaa !18
   %.not69 = icmp eq ptr %212, null
   br i1 %.not69, label %vp9_raw_reorder_clear_slot.exit74, label %213
@@ -427,7 +427,7 @@ vp9_raw_reorder_frame_free.exit:                  ; preds = %172, %174
 223:                                              ; preds = %220
   call void (ptr, i32, ptr, ...) @av_log(ptr noundef %0, i32 noundef 16, ptr noundef nonnull @.str.5, i32 noundef %207, i32 noundef %221) #7
   %224 = and i64 %indvars.iv, 4294967295
-  %225 = getelementptr inbounds nuw ptr, ptr %202, i64 %224
+  %225 = getelementptr inbounds nuw [8 x i8], ptr %202, i64 %224
   %226 = load ptr, ptr %225, align 8, !tbaa !18
   %.not.i71 = icmp eq ptr %226, null
   br i1 %.not.i71, label %vp9_raw_reorder_clear_slot.exit, label %227
@@ -482,7 +482,7 @@ vp9_raw_reorder_clear_slot.exit74:                ; preds = %210, %240, %vp9_raw
   br i1 %.not67, label %247, label %245
 
 245:                                              ; preds = %241
-  %246 = getelementptr inbounds nuw ptr, ptr %202, i64 %indvars.iv89
+  %246 = getelementptr inbounds nuw [8 x i8], ptr %202, i64 %indvars.iv89
   store ptr %.pre, ptr %246, align 8, !tbaa !18
   br label %247
 
@@ -564,7 +564,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @vp9_raw_reorder_make_outpu
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %32 ]
   %.078168 = phi ptr [ %2, %3 ], [ %.179, %32 ]
   %.080167 = phi ptr [ %2, %3 ], [ %.181, %32 ]
-  %8 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %9 = load ptr, ptr %8, align 8, !tbaa !18
   %.not91 = icmp eq ptr %9, null
   br i1 %.not91, label %32, label %10
@@ -824,7 +824,7 @@ declare noalias ptr @av_mallocz(i64 noundef) local_unnamed_addr #2
 define internal fastcc void @vp9_raw_reorder_clear_slot(ptr noundef %0, i32 noundef range(i32 -2147483648, 8) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = sext i32 %1 to i64
-  %5 = getelementptr inbounds ptr, ptr %3, i64 %4
+  %5 = getelementptr inbounds [8 x i8], ptr %3, i64 %4
   %6 = load ptr, ptr %5, align 8, !tbaa !18
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %15, label %7

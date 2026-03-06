@@ -984,7 +984,7 @@ _ZNSt12_Vector_baseIN7logging8VlogInfo14VmodulePatternESaIS2_EE13_M_deallocateEP
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %23, ptr %0, align 8, !tbaa !42
   store ptr %.0.lcssa.i.i.i.i35, ptr %5, align 8, !tbaa !38
-  %83 = getelementptr inbounds nuw %"struct.logging::VlogInfo::VmodulePattern", ptr %23, i64 %17
+  %83 = getelementptr inbounds nuw [40 x i8], ptr %23, i64 %17
   store ptr %83, ptr %82, align 8, !tbaa !39
   ret void
 

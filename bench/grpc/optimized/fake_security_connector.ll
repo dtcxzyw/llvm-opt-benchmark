@@ -50,7 +50,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base<absl::lts_20240722::Status, std::allocator<absl::lts_20240722::Status>>::_Vector_impl_data" = type { ptr, ptr, ptr }
 %"class.absl::lts_20240722::AlphaNum" = type { %"class.std::basic_string_view", [32 x i8] }
 %"class.grpc_core::RefCountedPtr.21" = type { ptr }
-%struct.grpc_auth_property = type { ptr, ptr, i64 }
 %"class.std::unique_ptr.36" = type { %"struct.std::__uniq_ptr_data.37" }
 %"struct.std::__uniq_ptr_data.37" = type { %"class.std::__uniq_ptr_impl.38" }
 %"class.std::__uniq_ptr_impl.38" = type { %"class.std::tuple.39" }
@@ -556,7 +555,7 @@ _ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; preds = %2
 _ZNSt6vectorIPFvPvESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %30, %_ZNSt6vectorIPFvPvESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %25, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, align 8, !tbaa !61
   store ptr %29, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 8), align 8, !tbaa !58
-  %31 = getelementptr inbounds nuw ptr, ptr %25, i64 %23
+  %31 = getelementptr inbounds nuw [8 x i8], ptr %25, i64 %23
   store ptr %31, ptr getelementptr inbounds nuw (i8, ptr @_ZZN9grpc_core12arena_detail22BaseArenaContextTraits16RegisteredTraitsEvE17registered_traits, i64 16), align 8, !tbaa !62
   br label %_ZNSt6vectorIPFvPvESaIS2_EE9push_backERKS2_.exit
 
@@ -1114,7 +1113,7 @@ _ZN4absl12lts_2024072212log_internal10LogMessagelsILi2EEERS2_RAT__Kc.exit20.i: ;
 .lr.ph.i:                                         ; preds = %77, %.lr.ph.i
   %.024.i = phi i64 [ %83, %.lr.ph.i ], [ 0, %77 ]
   %80 = load ptr, ptr %8, align 8, !tbaa !71
-  %81 = getelementptr inbounds nuw ptr, ptr %80, i64 %.024.i
+  %81 = getelementptr inbounds nuw [8 x i8], ptr %80, i64 %.024.i
   %82 = load ptr, ptr %81, align 8, !tbaa !74
   call void @gpr_free(ptr noundef %82)
   %83 = add nuw i64 %.024.i, 1
@@ -2534,7 +2533,7 @@ _ZN9grpc_core13RefCountedPtrI17grpc_auth_contextE5resetERKNS_13DebugLocationEPKc
 .lr.ph:                                           ; preds = %.preheader, %15
   %.06 = phi i64 [ %16, %15 ], [ 0, %.preheader ]
   %13 = load ptr, ptr %8, align 8, !tbaa !117
-  %14 = getelementptr inbounds nuw %struct.grpc_auth_property, ptr %13, i64 %.06
+  %14 = getelementptr inbounds nuw [24 x i8], ptr %13, i64 %.06
   invoke void @_Z24grpc_auth_property_resetP18grpc_auth_property(ptr noundef %14)
           to label %15 unwind label %.loopexit
 
@@ -2805,7 +2804,7 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_136grpc_fake_channel
 14:                                               ; preds = %.lr.ph, %20
   %.0104 = phi i64 [ 0, %.lr.ph ], [ %21, %20 ]
   %.0113 = phi i1 [ false, %.lr.ph ], [ %.1, %20 ]
-  %15 = getelementptr inbounds nuw ptr, ptr %8, i64 %.0104
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.0104
   %16 = load ptr, ptr %15, align 8, !tbaa !74
   %.not14 = icmp eq ptr %16, null
   br i1 %.not14, label %20, label %17
@@ -2833,7 +2832,7 @@ define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_136grpc_fake_channel
 .lr.ph6:                                          ; preds = %20, %.lr.ph6
   %.05 = phi i64 [ %26, %.lr.ph6 ], [ 0, %20 ]
   %23 = load ptr, ptr %4, align 8, !tbaa !71
-  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %.05
+  %24 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %.05
   %25 = load ptr, ptr %24, align 8, !tbaa !74
   call void @gpr_free(ptr noundef %25)
   %26 = add nuw i64 %.05, 1

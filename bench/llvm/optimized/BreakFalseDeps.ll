@@ -6,19 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::once_flag" = type { i32 }
 %class.anon = type { ptr, ptr }
 %"class.std::reference_wrapper" = type { ptr }
-%"class.llvm::MachineOperand" = type { i32, %union.anon, ptr, %"union.llvm::MachineOperand::ContentsUnion" }
-%union.anon = type { i32 }
-%"union.llvm::MachineOperand::ContentsUnion" = type { %"class.llvm::ArrayRef.38" }
-%"class.llvm::ArrayRef.38" = type { ptr, i64 }
-%"struct.llvm::MCRegisterDesc" = type { i32, i32, i32, i32, i32, i16, i8, i8 }
-%"struct.llvm::RegisterClassInfo::RCInfo" = type { i32, i32, i8, i8, i16, %"class.std::unique_ptr.254" }
-%"class.std::unique_ptr.254" = type { %"struct.std::__uniq_ptr_data.255" }
-%"struct.std::__uniq_ptr_data.255" = type { %"class.std::__uniq_ptr_impl.256" }
-%"class.std::__uniq_ptr_impl.256" = type { %"class.std::tuple.257" }
-%"class.std::tuple.257" = type { %"struct.std::_Tuple_impl.258" }
-%"struct.std::_Tuple_impl.258" = type { %"struct.std::_Head_base.261" }
-%"struct.std::_Head_base.261" = type { ptr }
-%"struct.std::pair" = type <{ ptr, i32, [4 x i8] }>
 %"class.llvm::df_iterator" = type { %"class.llvm::df_iterator_storage", %"class.std::vector.246" }
 %"class.llvm::df_iterator_storage" = type { ptr }
 %"class.std::vector.246" = type { %"struct.std::_Vector_base.247" }
@@ -30,12 +17,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.llvm::SmallPtrSetImpl.base" = type { %"class.llvm::SmallPtrSetImplBase.base" }
 %"class.llvm::SmallPtrSetImplBase.base" = type <{ ptr, i32, i32, i32, i8 }>
 %"struct.llvm::df_ext_iterator" = type { %"class.llvm::df_iterator" }
-%"struct.std::pair.288" = type { ptr, %"class.std::optional.290" }
-%"class.std::optional.290" = type { %"struct.std::_Optional_base.291" }
-%"struct.std::_Optional_base.291" = type { %"struct.std::_Optional_payload.293" }
-%"struct.std::_Optional_payload.293" = type { %"struct.std::_Optional_payload_base.base.295", [7 x i8] }
-%"struct.std::_Optional_payload_base.base.295" = type <{ %"union.std::_Optional_payload_base<llvm::MachineBasicBlock **>::_Storage", i8 }>
-%"union.std::_Optional_payload_base<llvm::MachineBasicBlock **>::_Storage" = type { ptr }
 
 $_ZN4llvm12LivePhysRegs4initERKNS_18TargetRegisterInfoE = comdat any
 
@@ -199,7 +180,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm14BreakFalseDeps24pickBestRegisterF
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !93
   %7 = zext i32 %2 to i64
-  %8 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %7
   %9 = load i32, ptr %8, align 8
   %10 = and i32 %9, 16777471
   %or.cond.i = icmp eq i32 %10, 0
@@ -226,12 +207,12 @@ define dso_local noundef zeroext i1 @_ZN4llvm14BreakFalseDeps24pickBestRegisterF
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !133, !noalias !130
   %24 = zext i32 %17 to i64
-  %25 = getelementptr inbounds nuw %"struct.llvm::MCRegisterDesc", ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [24 x i8], ptr %23, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
   %27 = load i32, ptr %26, align 4, !tbaa !134, !noalias !130
   %28 = lshr i32 %27, 12
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr inbounds nuw i16, ptr %21, i64 %29
+  %30 = getelementptr inbounds nuw [2 x i8], ptr %21, i64 %29
   %31 = and i32 %27, 4095
   %32 = getelementptr inbounds nuw i8, ptr %19, i64 48
   %33 = load ptr, ptr %32, align 8, !tbaa !136
@@ -241,7 +222,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm14BreakFalseDeps24pickBestRegisterF
   %.sroa.695.0121 = phi ptr [ %30, %.lr.ph ], [ %43, %.critedge ]
   %.sroa.093.0120 = phi i32 [ %31, %.lr.ph ], [ %46, %.critedge ]
   %35 = zext i32 %.sroa.093.0120 to i64
-  %36 = getelementptr inbounds nuw [2 x i16], ptr %33, i64 %35
+  %36 = getelementptr inbounds nuw [4 x i8], ptr %33, i64 %35
   %37 = load i16, ptr %36, align 2, !tbaa !137
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 2
   %39 = load i16, ptr %38, align 2, !tbaa !137
@@ -279,12 +260,12 @@ define dso_local noundef zeroext i1 @_ZN4llvm14BreakFalseDeps24pickBestRegisterF
   %57 = load ptr, ptr %5, align 8, !tbaa !93, !noalias !143
   %58 = tail call noundef i32 @_ZNK4llvm12MachineInstr18getNumExplicitDefsEv(ptr noundef nonnull align 8 dereferenceable(70) %1) #17, !noalias !143
   %59 = zext i32 %58 to i64
-  %60 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %57, i64 %59
+  %60 = getelementptr inbounds nuw [32 x i8], ptr %57, i64 %59
   %61 = load ptr, ptr %5, align 8, !tbaa !93, !noalias !143
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %63 = load i24, ptr %62, align 8, !noalias !143
   %64 = zext i24 %63 to i64
-  %65 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %61, i64 %64
+  %65 = getelementptr inbounds nuw [32 x i8], ptr %61, i64 %64
   %.not1.i.i.i.i.i = icmp eq ptr %60, %65
   br i1 %.not1.i.i.i.i.i, label %_ZN4llvm12MachineInstr8all_usesEv.exit, label %.lr.ph.i.i.i.i.i
 
@@ -370,7 +351,7 @@ _ZN4llvm20filter_iterator_baseIPNS_14MachineOperandEPFbRKS1_ESt26bidirectional_i
   %102 = load i16, ptr %101, align 8, !tbaa !156
   %103 = zext i16 %102 to i64
   %104 = load ptr, ptr %99, align 8, !tbaa !157
-  %105 = getelementptr inbounds nuw %"struct.llvm::RegisterClassInfo::RCInfo", ptr %104, i64 %103
+  %105 = getelementptr inbounds nuw [24 x i8], ptr %104, i64 %103
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %107 = load i32, ptr %106, align 8, !tbaa !158
   %108 = load i32, ptr %105, align 8, !tbaa !159
@@ -443,7 +424,7 @@ define dso_local noundef zeroext i1 @_ZN4llvm14BreakFalseDeps21shouldBreakDepend
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !93
   %7 = zext i32 %2 to i64
-  %8 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %6, i64 %7
+  %8 = getelementptr inbounds nuw [32 x i8], ptr %6, i64 %7
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 4
   %10 = load i32, ptr %9, align 4, !tbaa !113
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 488
@@ -487,7 +468,7 @@ define dso_local void @_ZN4llvm14BreakFalseDeps11processDefsEPNS_12MachineInstrE
   %.05763 = phi i32 [ %7, %.lr.ph ], [ %77, %.critedge ]
   %23 = load ptr, ptr %11, align 8, !tbaa !93
   %24 = zext i32 %.05763 to i64
-  %25 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %23, i64 %24
+  %25 = getelementptr inbounds nuw [32 x i8], ptr %23, i64 %24
   %26 = load i32, ptr %25, align 8
   %27 = and i32 %26, 255
   %28 = icmp eq i32 %27, 0
@@ -518,7 +499,7 @@ define dso_local void @_ZN4llvm14BreakFalseDeps11processDefsEPNS_12MachineInstrE
 
 43:                                               ; preds = %41
   %44 = load ptr, ptr %11, align 8, !tbaa !93
-  %45 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %44, i64 %24
+  %45 = getelementptr inbounds nuw [32 x i8], ptr %44, i64 %24
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
   %47 = load i32, ptr %46, align 4, !tbaa !113
   %48 = load ptr, ptr %14, align 8, !tbaa !49
@@ -593,7 +574,7 @@ _ZNSt6vectorISt4pairIPN4llvm12MachineInstrEjESaIS4_EE11_S_relocateEPS4_S7_S7_RS5
 _ZNSt6vectorISt4pairIPN4llvm12MachineInstrEjESaIS4_EE17_M_realloc_insertIJS4_EEEvN9__gnu_cxx17__normal_iteratorIPS4_S6_EEDpOT_.exit.i.i: ; preds = %75, %_ZNSt6vectorISt4pairIPN4llvm12MachineInstrEjESaIS4_EE11_S_relocateEPS4_S7_S7_RS5_.exit22.i.i.i
   store ptr %70, ptr %15, align 8, !tbaa !284
   store ptr %74, ptr %16, align 8, !tbaa !282
-  %76 = getelementptr inbounds nuw %"struct.std::pair", ptr %70, i64 %68
+  %76 = getelementptr inbounds nuw [16 x i8], ptr %70, i64 %68
   store ptr %76, ptr %17, align 8, !tbaa !283
   br label %.critedge
 
@@ -637,7 +618,7 @@ _ZNSt6vectorISt4pairIPN4llvm12MachineInstrEjESaIS4_EE17_M_realloc_insertIJS4_EEE
 97:                                               ; preds = %.lr.ph67, %.critedge2
   %indvars.iv = phi i64 [ 0, %.lr.ph67 ], [ %indvars.iv.next, %.critedge2 ]
   %98 = load ptr, ptr %92, align 8, !tbaa !93
-  %99 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %98, i64 %indvars.iv
+  %99 = getelementptr inbounds nuw [32 x i8], ptr %98, i64 %indvars.iv
   %100 = load i32, ptr %99, align 8
   %101 = and i32 %100, 255
   %102 = icmp eq i32 %101, 0
@@ -665,7 +646,7 @@ _ZNSt6vectorISt4pairIPN4llvm12MachineInstrEjESaIS4_EE17_M_realloc_insertIJS4_EEE
 
 115:                                              ; preds = %107
   %116 = load ptr, ptr %92, align 8, !tbaa !93
-  %117 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %116, i64 %indvars.iv
+  %117 = getelementptr inbounds nuw [32 x i8], ptr %116, i64 %indvars.iv
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 4
   %119 = load i32, ptr %118, align 4, !tbaa !113
   %120 = load ptr, ptr %95, align 8, !tbaa !49
@@ -770,7 +751,7 @@ _ZN4llvm7reverseIRNS_17MachineBasicBlockEEEDaOT_.exit: ; preds = %_ZNK4llvm14ili
   %41 = getelementptr inbounds nuw i8, ptr %.034, i64 32
   %42 = load ptr, ptr %41, align 8, !tbaa !93
   %43 = zext i32 %.01633 to i64
-  %44 = getelementptr inbounds nuw %"class.llvm::MachineOperand", ptr %42, i64 %43
+  %44 = getelementptr inbounds nuw [32 x i8], ptr %42, i64 %43
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 4
   %46 = load i32, ptr %45, align 4, !tbaa !113
   %47 = trunc i32 %46 to i16
@@ -794,7 +775,7 @@ _ZN4llvm7reverseIRNS_17MachineBasicBlockEEEDaOT_.exit: ; preds = %_ZNK4llvm14ili
 .lr.ph.i.i.i.i.i:                                 ; preds = %40, %55
   %.01422.i.i.i.i.i = phi i32 [ %56, %55 ], [ %52, %40 ]
   %57 = zext i32 %.01422.i.i.i.i.i to i64
-  %58 = getelementptr inbounds nuw i16, ptr %.pre.i.i.i.i.i, i64 %57
+  %58 = getelementptr inbounds nuw [2 x i8], ptr %.pre.i.i.i.i.i, i64 %57
   %59 = load i16, ptr %58, align 2, !tbaa !137
   %.not.i.i.i.i.i = icmp eq i16 %59, %47
   br i1 %.not.i.i.i.i.i, label %_ZNK4llvm12LivePhysRegs8containsEt.exit, label %55
@@ -1843,7 +1824,7 @@ _ZNSt6vectorISt4pairIPN4llvm17MachineBasicBlockESt8optionalIPS3_EESaIS7_EE11_S_r
 _ZNSt6vectorISt4pairIPN4llvm17MachineBasicBlockESt8optionalIPS3_EESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i.i: ; preds = %49, %_ZNSt6vectorISt4pairIPN4llvm17MachineBasicBlockESt8optionalIPS3_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i.i.i
   store ptr %44, ptr %4, align 8, !tbaa !332
   store ptr %48, ptr %24, align 8, !tbaa !329
-  %50 = getelementptr inbounds nuw %"struct.std::pair.288", ptr %44, i64 %42
+  %50 = getelementptr inbounds nuw [24 x i8], ptr %44, i64 %42
   store ptr %50, ptr %26, align 8, !tbaa !335
   br label %_ZNSt6vectorISt4pairIPN4llvm17MachineBasicBlockESt8optionalIPS3_EESaIS7_EE9push_backEOS7_.exit
 
@@ -1884,7 +1865,7 @@ define linkonce_odr hidden void @_ZN4llvm11df_iteratorIPNS_15MachineFunctionENS_
   %19 = load ptr, ptr %16, align 8, !tbaa !354
   %20 = load i32, ptr %17, align 8, !tbaa !381
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw ptr, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [8 x i8], ptr %19, i64 %21
   %.not.not43 = icmp eq ptr %18, %22
   br i1 %.not.not43, label %.thread, label %.lr.ph
 
@@ -1944,7 +1925,7 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i.i: ; preds = %._crit_edge.i
   %47 = load ptr, ptr %16, align 8, !tbaa !354
   %48 = load i32, ptr %17, align 8, !tbaa !381
   %49 = zext i32 %48 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %47, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %49
   %.not.not = icmp eq ptr %46, %50
   br i1 %.not.not, label %.thread, label %.lr.ph
 
@@ -2016,7 +1997,7 @@ _ZNSt6vectorISt4pairIPN4llvm17MachineBasicBlockESt8optionalIPS3_EESaIS7_EE11_S_r
 _ZNSt6vectorISt4pairIPN4llvm17MachineBasicBlockESt8optionalIPS3_EESaIS7_EE17_M_realloc_insertIJS7_EEEvN9__gnu_cxx17__normal_iteratorIPS7_S9_EEDpOT_.exit.i.i: ; preds = %75, %_ZNSt6vectorISt4pairIPN4llvm17MachineBasicBlockESt8optionalIPS3_EESaIS7_EE11_S_relocateEPS7_SA_SA_RS8_.exit22.i.i.i
   store ptr %70, ptr %2, align 8, !tbaa !332
   store ptr %74, ptr %3, align 8, !tbaa !329
-  %76 = getelementptr inbounds nuw %"struct.std::pair.288", ptr %70, i64 %68
+  %76 = getelementptr inbounds nuw [24 x i8], ptr %70, i64 %68
   store ptr %76, ptr %52, align 8, !tbaa !335
   br label %.loopexit
 

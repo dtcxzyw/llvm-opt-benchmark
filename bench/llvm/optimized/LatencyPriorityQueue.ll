@@ -3,15 +3,6 @@ source_filename = "bench/llvm/original/LatencyPriorityQueue.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%"class.llvm::SUnit" = type <{ %union.anon, ptr, ptr, ptr, ptr, %"class.llvm::SmallVector", %"class.llvm::SmallVector", i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i32, i16, i16, i16, i8, i8 }>
-%union.anon = type { ptr }
-%"class.llvm::SmallVector" = type { %"class.llvm::SmallVectorImpl", %"struct.llvm::SmallVectorStorage" }
-%"class.llvm::SmallVectorImpl" = type { %"class.llvm::SmallVectorTemplateBase" }
-%"class.llvm::SmallVectorTemplateBase" = type { %"class.llvm::SmallVectorTemplateCommon" }
-%"class.llvm::SmallVectorTemplateCommon" = type { %"class.llvm::SmallVectorBase" }
-%"class.llvm::SmallVectorBase" = type { ptr, i32, i32 }
-%"struct.llvm::SmallVectorStorage" = type { [64 x i8] }
-
 $_ZN4llvm20LatencyPriorityQueueD2Ev = comdat any
 
 $_ZN4llvm20LatencyPriorityQueueD0Ev = comdat any
@@ -72,7 +63,7 @@ define dso_local noundef zeroext i1 @_ZNK4llvm12latency_sortclEPKNS_5SUnitES3_(p
   %19 = load ptr, ptr %18, align 8, !tbaa !24
   %20 = zext i32 %14 to i64
   %21 = load ptr, ptr %19, align 8, !tbaa !38
-  %22 = getelementptr inbounds nuw %"class.llvm::SUnit", ptr %21, i64 %20
+  %22 = getelementptr inbounds nuw [256 x i8], ptr %21, i64 %20
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 254
   %24 = load i8, ptr %23, align 2
   %25 = and i8 %24, 2
@@ -92,7 +83,7 @@ _ZNK4llvm20LatencyPriorityQueue10getLatencyEj.exit: ; preds = %12, %26
   %28 = getelementptr inbounds nuw i8, ptr %22, i64 244
   %29 = load i32, ptr %28, align 4, !tbaa !40
   %30 = zext i32 %16 to i64
-  %31 = getelementptr inbounds nuw %"class.llvm::SUnit", ptr %27, i64 %30
+  %31 = getelementptr inbounds nuw [256 x i8], ptr %27, i64 %30
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 254
   %33 = load i8, ptr %32, align 2
   %34 = and i8 %33, 2
@@ -117,9 +108,9 @@ _ZNK4llvm20LatencyPriorityQueue10getLatencyEj.exit29: ; preds = %_ZNK4llvm20Late
   %42 = load ptr, ptr %0, align 8, !tbaa !21
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
   %44 = load ptr, ptr %43, align 8, !tbaa !41
-  %45 = getelementptr inbounds nuw i32, ptr %44, i64 %20
+  %45 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %20
   %46 = load i32, ptr %45, align 4, !tbaa !42
-  %47 = getelementptr inbounds nuw i32, ptr %44, i64 %30
+  %47 = getelementptr inbounds nuw [4 x i8], ptr %44, i64 %30
   %48 = load i32, ptr %47, align 4, !tbaa !42
   %49 = icmp ult i32 %46, %48
   br i1 %49, label %53, label %50
@@ -195,7 +186,7 @@ define dso_local void @_ZN4llvm20LatencyPriorityQueue4pushEPNS_5SUnitE(ptr nound
   %11 = load i32, ptr %10, align 8, !tbaa !3
   %12 = zext i32 %11 to i64
   %13 = load ptr, ptr %9, align 8, !tbaa !41
-  %14 = getelementptr inbounds nuw i32, ptr %13, i64 %12
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %13, i64 %12
   store i32 %.0.lcssa, ptr %14, align 4, !tbaa !42
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -255,7 +246,7 @@ _ZNSt6vectorIPN4llvm5SUnitESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i: ; pr
 _ZNSt6vectorIPN4llvm5SUnitESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17__normal_iteratorIPS2_S4_EEDpOT_.exit.i: ; preds = %40, %_ZNSt6vectorIPN4llvm5SUnitESaIS2_EE11_S_relocateEPS2_S5_S5_RS3_.exit16.i.i
   store ptr %35, ptr %15, align 8, !tbaa !48
   store ptr %39, ptr %16, align 8, !tbaa !45
-  %41 = getelementptr inbounds nuw ptr, ptr %35, i64 %33
+  %41 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %33
   store ptr %41, ptr %18, align 8, !tbaa !46
   br label %_ZNSt6vectorIPN4llvm5SUnitESaIS2_EE9push_backERKS2_.exit
 
@@ -534,7 +525,7 @@ define dso_local noundef ptr @_ZN4llvm20LatencyPriorityQueue3popEv(ptr noundef n
   %33 = load ptr, ptr %32, align 8, !tbaa !24
   %34 = zext i32 %28 to i64
   %35 = load ptr, ptr %33, align 8, !tbaa !38
-  %36 = getelementptr inbounds nuw %"class.llvm::SUnit", ptr %35, i64 %34
+  %36 = getelementptr inbounds nuw [256 x i8], ptr %35, i64 %34
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 254
   %38 = load i8, ptr %37, align 2
   %39 = and i8 %38, 2
@@ -554,7 +545,7 @@ _ZNK4llvm20LatencyPriorityQueue10getLatencyEj.exit.i: ; preds = %40, %26
   %42 = getelementptr inbounds nuw i8, ptr %36, i64 244
   %43 = load i32, ptr %42, align 4, !tbaa !40
   %44 = zext i32 %30 to i64
-  %45 = getelementptr inbounds nuw %"class.llvm::SUnit", ptr %41, i64 %44
+  %45 = getelementptr inbounds nuw [256 x i8], ptr %41, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 254
   %47 = load i8, ptr %46, align 2
   %48 = and i8 %47, 2
@@ -579,9 +570,9 @@ _ZNK4llvm20LatencyPriorityQueue10getLatencyEj.exit29.i: ; preds = %49, %_ZNK4llv
   %56 = load ptr, ptr %11, align 8, !tbaa !21
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 24
   %58 = load ptr, ptr %57, align 8, !tbaa !41
-  %59 = getelementptr inbounds nuw i32, ptr %58, i64 %34
+  %59 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %34
   %60 = load i32, ptr %59, align 4, !tbaa !42
-  %61 = getelementptr inbounds nuw i32, ptr %58, i64 %44
+  %61 = getelementptr inbounds nuw [4 x i8], ptr %58, i64 %44
   %62 = load i32, ptr %61, align 4, !tbaa !42
   %63 = icmp ult i32 %60, %62
   br i1 %63, label %_ZNK4llvm12latency_sortclEPKNS_5SUnitES3_.exit.thread, label %_ZNK4llvm12latency_sortclEPKNS_5SUnitES3_.exit
@@ -858,7 +849,7 @@ define linkonce_odr hidden void @_ZN4llvm20LatencyPriorityQueue9initNodesERSt6ve
   br i1 %24, label %25, label %_ZNSt6vectorIjSaIjEE6resizeEmRKj.exit
 
 25:                                               ; preds = %23
-  %26 = getelementptr inbounds nuw i32, ptr %15, i64 %12
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %15, i64 %12
   %.not.i.i = icmp eq ptr %14, %26
   br i1 %.not.i.i, label %_ZNSt6vectorIjSaIjEE6resizeEmRKj.exit, label %27
 
@@ -906,7 +897,7 @@ define linkonce_odr hidden void @_ZN4llvm20LatencyPriorityQueue7addNodeEPKNS_5SU
   br i1 %25, label %26, label %_ZNSt6vectorIjSaIjEE6resizeEmRKj.exit
 
 26:                                               ; preds = %24
-  %27 = getelementptr inbounds nuw i32, ptr %16, i64 %13
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %13
   %.not.i.i = icmp eq ptr %15, %27
   br i1 %.not.i.i, label %_ZNSt6vectorIjSaIjEE6resizeEmRKj.exit, label %28
 
@@ -1006,7 +997,7 @@ define linkonce_odr void @_ZNSt6vectorIjSaIjEE14_M_fill_insertEN9__gnu_cxx17__no
 
 _ZSt22__uninitialized_move_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit: ; preds = %20, %23
   %24 = phi ptr [ %9, %20 ], [ %.pre, %23 ]
-  %25 = getelementptr inbounds nuw i32, ptr %24, i64 %2
+  %25 = getelementptr inbounds nuw [4 x i8], ptr %24, i64 %2
   store ptr %25, ptr %8, align 8, !tbaa !57
   %.not.i.i.i.i.i = icmp eq ptr %21, %1
   br i1 %.not.i.i.i.i.i, label %_ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit, label %26
@@ -1015,7 +1006,7 @@ _ZSt22__uninitialized_move_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit: ; preds = %20, %23
   %27 = sub i64 %22, %16
   %28 = ashr exact i64 %27, 2
   %29 = sub nsw i64 0, %28
-  %30 = getelementptr inbounds i32, ptr %9, i64 %29
+  %30 = getelementptr inbounds [4 x i8], ptr %9, i64 %29
   tail call void @llvm.memmove.p0.p0.i64(ptr align 4 %30, ptr align 4 %1, i64 %27, i1 false)
   br label %_ZSt13move_backwardIPjS0_ET0_T_S2_S1_.exit
 
@@ -1126,7 +1117,7 @@ _ZSt24__uninitialized_fill_n_aIPjmjjET_S1_T0_RKT1_RSaIT2_E.exit62: ; preds = %.l
   br label %_ZSt34__uninitialized_move_if_noexcept_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit
 
 _ZSt34__uninitialized_move_if_noexcept_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit: ; preds = %_ZSt24__uninitialized_fill_n_aIPjmjjET_S1_T0_RKT1_RSaIT2_E.exit62, %67
-  %68 = getelementptr inbounds nuw i32, ptr %63, i64 %2
+  %68 = getelementptr inbounds nuw [4 x i8], ptr %63, i64 %2
   %69 = sub i64 %11, %56
   %.not.i.i.i.i.i.i.i.i.i64 = icmp eq ptr %9, %1
   br i1 %.not.i.i.i.i.i.i.i.i.i64, label %_ZSt34__uninitialized_move_if_noexcept_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit65, label %70
@@ -1148,7 +1139,7 @@ _ZSt34__uninitialized_move_if_noexcept_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit65: ; pr
 _ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit: ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPjS0_SaIjEET0_T_S3_S2_RT1_.exit65, %72
   store ptr %62, ptr %0, align 8, !tbaa !41
   store ptr %71, ptr %8, align 8, !tbaa !57
-  %74 = getelementptr inbounds nuw i32, ptr %62, i64 %55
+  %74 = getelementptr inbounds nuw [4 x i8], ptr %62, i64 %55
   store ptr %74, ptr %6, align 8, !tbaa !55
   br label %_ZSt4fillIPjjEvT_S1_RKT0_.exit
 

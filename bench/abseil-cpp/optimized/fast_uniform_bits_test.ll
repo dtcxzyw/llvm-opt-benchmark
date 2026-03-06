@@ -17515,7 +17515,7 @@ _ZNSt13random_deviceclEv.exit:                    ; preds = %_ZNSt13random_devic
 102:                                              ; preds = %102, %_ZNSt13random_deviceclEv.exit
   %store_forwarded = phi i64 [ %101, %_ZNSt13random_deviceclEv.exit ], [ %108, %102 ]
   %.011.i.i = phi i64 [ 1, %_ZNSt13random_deviceclEv.exit ], [ %109, %102 ]
-  %103 = getelementptr i64, ptr %9, i64 %.011.i.i
+  %103 = getelementptr [8 x i8], ptr %9, i64 %.011.i.i
   %104 = lshr i64 %store_forwarded, 30
   %105 = xor i64 %104, %store_forwarded
   %106 = mul nuw nsw i64 %105, 1812433253
@@ -17845,10 +17845,10 @@ define linkonce_odr dso_local noundef i64 @_ZNSt23mersenne_twister_engineImLm32E
 6:                                                ; preds = %6, %5
   %7 = phi i64 [ %.pre.i, %5 ], [ %12, %6 ]
   %.021.i = phi i64 [ 0, %5 ], [ %10, %6 ]
-  %8 = getelementptr inbounds nuw i64, ptr %0, i64 %.021.i
+  %8 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.021.i
   %9 = and i64 %7, -2147483648
   %10 = add nuw nsw i64 %.021.i, 1
-  %11 = getelementptr inbounds nuw i64, ptr %0, i64 %10
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %10
   %12 = load i64, ptr %11, align 8, !tbaa !10
   %13 = and i64 %12, 2147483646
   %14 = or disjoint i64 %13, %9
@@ -17872,10 +17872,10 @@ define linkonce_odr dso_local noundef i64 @_ZNSt23mersenne_twister_engineImLm32E
 .preheader.i:                                     ; preds = %.preheader.i, %.preheader.preheader.i
   %22 = phi i64 [ %27, %.preheader.i ], [ %.pre24.i, %.preheader.preheader.i ]
   %.01822.i = phi i64 [ %25, %.preheader.i ], [ 227, %.preheader.preheader.i ]
-  %23 = getelementptr inbounds nuw i64, ptr %0, i64 %.01822.i
+  %23 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %.01822.i
   %24 = and i64 %22, -2147483648
   %25 = add nuw nsw i64 %.01822.i, 1
-  %26 = getelementptr inbounds nuw i64, ptr %0, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %25
   %27 = load i64, ptr %26, align 8, !tbaa !10
   %28 = and i64 %27, 2147483646
   %29 = or disjoint i64 %28, %24
@@ -17913,7 +17913,7 @@ _ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm429496
   %51 = phi i64 [ 0, %_ZNSt23mersenne_twister_engineImLm32ELm624ELm397ELm31ELm2567483615ELm11ELm4294967295ELm7ELm2636928640ELm15ELm4022730752ELm18ELm1812433253EE11_M_gen_randEv.exit ], [ %3, %1 ]
   %52 = add nuw nsw i64 %51, 1
   store i64 %52, ptr %2, align 8, !tbaa !256
-  %53 = getelementptr inbounds nuw i64, ptr %0, i64 %51
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %51
   %54 = load i64, ptr %53, align 8, !tbaa !10
   %55 = lshr i64 %54, 11
   %56 = and i64 %55, 4294967295
@@ -18259,7 +18259,7 @@ _ZNSt13random_deviceclEv.exit:                    ; preds = %_ZNSt13random_devic
 102:                                              ; preds = %102, %_ZNSt13random_deviceclEv.exit
   %store_forwarded = phi i64 [ %101, %_ZNSt13random_deviceclEv.exit ], [ %108, %102 ]
   %.011.i.i = phi i64 [ 1, %_ZNSt13random_deviceclEv.exit ], [ %109, %102 ]
-  %103 = getelementptr i64, ptr %9, i64 %.011.i.i
+  %103 = getelementptr [8 x i8], ptr %9, i64 %.011.i.i
   %104 = lshr i64 %store_forwarded, 30
   %105 = xor i64 %104, %store_forwarded
   %106 = mul nuw nsw i64 %105, 1812433253
@@ -18897,7 +18897,7 @@ _ZNSt13random_deviceclEv.exit:                    ; preds = %_ZNSt13random_devic
 102:                                              ; preds = %102, %_ZNSt13random_deviceclEv.exit
   %store_forwarded = phi i64 [ %101, %_ZNSt13random_deviceclEv.exit ], [ %108, %102 ]
   %.011.i.i = phi i64 [ 1, %_ZNSt13random_deviceclEv.exit ], [ %109, %102 ]
-  %103 = getelementptr i64, ptr %9, i64 %.011.i.i
+  %103 = getelementptr [8 x i8], ptr %9, i64 %.011.i.i
   %104 = lshr i64 %store_forwarded, 30
   %105 = xor i64 %104, %store_forwarded
   %106 = mul nuw nsw i64 %105, 1812433253
@@ -19543,7 +19543,7 @@ _ZNSt13random_deviceclEv.exit:                    ; preds = %_ZNSt13random_devic
 102:                                              ; preds = %102, %_ZNSt13random_deviceclEv.exit
   %store_forwarded = phi i64 [ %101, %_ZNSt13random_deviceclEv.exit ], [ %108, %102 ]
   %.011.i.i = phi i64 [ 1, %_ZNSt13random_deviceclEv.exit ], [ %109, %102 ]
-  %103 = getelementptr i64, ptr %9, i64 %.011.i.i
+  %103 = getelementptr [8 x i8], ptr %9, i64 %.011.i.i
   %104 = lshr i64 %store_forwarded, 30
   %105 = xor i64 %104, %store_forwarded
   %106 = mul nuw nsw i64 %105, 1812433253
@@ -20309,7 +20309,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_re
 _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE13_M_deallocateEPS5_m.exit: ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE11_S_relocateEPS5_S8_S8_RS6_.exit26, %69
   store ptr %22, ptr %0, align 8, !tbaa !31
   store ptr %.0.lcssa.i.i.i25, ptr %4, align 8, !tbaa !98
-  %73 = getelementptr inbounds nuw %"class.std::__cxx11::basic_string", ptr %22, i64 %16
+  %73 = getelementptr inbounds nuw [32 x i8], ptr %22, i64 %16
   store ptr %73, ptr %68, align 8, !tbaa !100
   ret void
 }

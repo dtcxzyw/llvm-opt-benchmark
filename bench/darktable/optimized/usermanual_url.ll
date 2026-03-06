@@ -311,7 +311,7 @@ define ptr @dt_get_help_url(ptr noundef readonly captures(address_is_null) %0) l
 
 .preheader:                                       ; preds = %1, %3
   %indvars.iv = phi i64 [ %indvars.iv.next, %3 ], [ 0, %1 ]
-  %4 = getelementptr inbounds nuw %struct._help_url, ptr @urls_db, i64 %indvars.iv
+  %4 = getelementptr inbounds nuw [16 x i8], ptr @urls_db, i64 %indvars.iv
   %5 = load ptr, ptr %4, align 16, !tbaa !6
   %6 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) %0) #2
   %.not = icmp eq i32 %6, 0

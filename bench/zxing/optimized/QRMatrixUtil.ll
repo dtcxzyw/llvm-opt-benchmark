@@ -12,7 +12,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.7" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" }
 %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl" = type { %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<unsigned char, std::allocator<unsigned char>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.ZXing::Trit" = type { i8 }
 
 $_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_OS8_ = comdat any
 
@@ -106,7 +105,7 @@ _ZN5ZXing6MatrixINS_4TritEE5clearES1_.exit:       ; preds = %5, %.lr.ph.preheade
 37:                                               ; preds = %34
   %38 = add nuw nsw i32 %.054.us55.i.us.i, %31
   %39 = zext nneg i32 %38 to i64
-  %40 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %30, i64 %39
+  %40 = getelementptr inbounds nuw i8, ptr %30, i64 %39
   store i8 0, ptr %40, align 1, !tbaa !8
   br label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us63.i.us.i"
 
@@ -128,7 +127,7 @@ _ZN5ZXing6MatrixINS_4TritEE5clearES1_.exit:       ; preds = %5, %.lr.ph.preheade
 45:                                               ; preds = %43
   %46 = add nuw nsw i32 %.054.us55.i.i, %31
   %47 = zext nneg i32 %46 to i64
-  %48 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %30, i64 %47
+  %48 = getelementptr inbounds nuw i8, ptr %30, i64 %47
   store i8 0, ptr %48, align 1, !tbaa !8
   %.pre87.i.i = load i32, ptr %29, align 4
   br label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us60.i.i"
@@ -141,7 +140,7 @@ _ZN5ZXing6MatrixINS_4TritEE5clearES1_.exit:       ; preds = %5, %.lr.ph.preheade
 51:                                               ; preds = %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us60.i.i"
   %52 = mul nuw nsw i32 %.054.us55.i.i, %.fr7.i
   %53 = zext nneg i32 %52 to i64
-  %54 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %30, i64 %53
+  %54 = getelementptr inbounds nuw i8, ptr %30, i64 %53
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 7
   store i8 0, ptr %55, align 1, !tbaa !8
   br label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us63.i.i"
@@ -166,7 +165,7 @@ _ZN5ZXing6MatrixINS_4TritEE5clearES1_.exit:       ; preds = %5, %.lr.ph.preheade
   %64 = zext i1 %63 to i8
   %.reass.i.i = add i32 %27, %60
   %65 = sext i32 %.reass.i.i to i64
-  %66 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %18, i64 %65
+  %66 = getelementptr inbounds nuw i8, ptr %18, i64 %65
   store i8 %64, ptr %66, align 1, !tbaa !8
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 7
@@ -184,7 +183,7 @@ _ZN5ZXing6QRCodeL43EmbedPositionDetectionPatternsAndSeparatorsERNS_6MatrixINS_4T
   %73 = mul nsw i32 %72, %71
   %74 = load ptr, ptr %17, align 8, !tbaa !22
   %75 = sext i32 %73 to i64
-  %76 = getelementptr %"class.ZXing::Trit", ptr %74, i64 %75
+  %76 = getelementptr i8, ptr %74, i64 %75
   %77 = getelementptr i8, ptr %76, i64 8
   store i8 1, ptr %77, align 1, !tbaa !8
   %78 = load i32, ptr %2, align 8, !tbaa !23
@@ -243,7 +242,7 @@ _ZN5ZXing6QRCodeL43EmbedPositionDetectionPatternsAndSeparatorsERNS_6MatrixINS_4T
   %108 = zext i1 %107 to i8
   %109 = add i32 %102, %104
   %110 = sext i32 %109 to i64
-  %111 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %.val21.us.i, i64 %110
+  %111 = getelementptr inbounds nuw i8, ptr %.val21.us.i, i64 %110
   store i8 %108, ptr %111, align 1, !tbaa !8
   %indvars.iv.next.i.us.i = add nuw nsw i64 %indvars.iv.i.us.i, 1
   %exitcond.not.i.us.i = icmp eq i64 %indvars.iv.next.i.us.i, 5
@@ -301,7 +300,7 @@ _ZN5ZXing6QRCodeL30EmbedPositionAdjustmentPatternEiiRNS_6MatrixINS_4TritEEE.exit
   %135 = zext i1 %134 to i8
   %136 = add i32 %127, %131
   %137 = sext i32 %136 to i64
-  %138 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %.val21.i, i64 %137
+  %138 = getelementptr inbounds nuw i8, ptr %.val21.i, i64 %137
   store i8 %135, ptr %138, align 1, !tbaa !8
   %indvars.iv.next.i.i17 = add nuw nsw i64 %indvars.iv.i.i15, 1
   %exitcond.not.i.i18 = icmp eq i64 %indvars.iv.next.i.i17, 5
@@ -324,7 +323,7 @@ _ZN5ZXing6QRCodeL31EmbedPositionAdjustmentPatternsERKNS0_7VersionERNS_6MatrixINS
   %144 = zext nneg i32 %.val to i64
   %145 = zext nneg i32 %143 to i64
   %wide.trip.count.i = zext nneg i32 %142 to i64
-  %invariant.gep.i = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %.val13, i64 %145
+  %invariant.gep.i = getelementptr inbounds nuw i8, ptr %.val13, i64 %145
   br label %146
 
 146:                                              ; preds = %146, %.lr.ph.i20
@@ -332,10 +331,10 @@ _ZN5ZXing6QRCodeL31EmbedPositionAdjustmentPatternsERKNS0_7VersionERNS_6MatrixINS
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %147 = trunc i64 %indvars.iv.next.i to i8
   %148 = and i8 %147, 1
-  %gep.i = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %invariant.gep.i, i64 %indvars.iv.i
+  %gep.i = getelementptr inbounds nuw i8, ptr %invariant.gep.i, i64 %indvars.iv.i
   store i8 %148, ptr %gep.i, align 1, !tbaa !8
   %149 = mul nuw nsw i64 %indvars.iv.i, %144
-  %150 = getelementptr %"class.ZXing::Trit", ptr %.val13, i64 %149
+  %150 = getelementptr i8, ptr %.val13, i64 %149
   %151 = getelementptr i8, ptr %150, i64 6
   store i8 %148, ptr %151, align 1, !tbaa !8
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
@@ -861,7 +860,7 @@ _ZN5ZXing6QRCodeL16MakeTypeInfoBitsENS0_20ErrorCorrectionLevelEi.exit.i: ; preds
   %339 = getelementptr inbounds nuw i8, ptr %323, i64 %336
   %340 = load i8, ptr %339, align 1, !tbaa !40
   %341 = icmp ne i8 %340, 0
-  %342 = getelementptr inbounds nuw %"struct.ZXing::PointT", ptr @__const._ZN5ZXing6QRCodeL13EmbedTypeInfoENS0_20ErrorCorrectionLevelEiRNS_6MatrixINS_4TritEEE.TYPE_INFO_COORDINATES, i64 %indvars.iv.i24
+  %342 = getelementptr inbounds nuw [8 x i8], ptr @__const._ZN5ZXing6QRCodeL13EmbedTypeInfoENS0_20ErrorCorrectionLevelEiRNS_6MatrixINS_4TritEEE.TYPE_INFO_COORDINATES, i64 %indvars.iv.i24
   %.sroa.0.0.copyload.i = load i64, ptr %342, align 8
   %343 = zext i1 %341 to i8
   %.sroa.01.0.extract.trunc.i.i = trunc i64 %.sroa.0.0.copyload.i to i32
@@ -870,7 +869,7 @@ _ZN5ZXing6QRCodeL16MakeTypeInfoBitsENS0_20ErrorCorrectionLevelEi.exit.i: ; preds
   %344 = mul nsw i32 %326, %.sroa.2.0.extract.trunc.i.i
   %345 = add nsw i32 %344, %.sroa.01.0.extract.trunc.i.i
   %346 = sext i32 %345 to i64
-  %347 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %327, i64 %346
+  %347 = getelementptr inbounds nuw i8, ptr %327, i64 %346
   store i8 %343, ptr %347, align 1, !tbaa !8
   %348 = icmp samesign ult i64 %indvars.iv.i24, 8
   br i1 %348, label %349, label %361
@@ -879,7 +878,7 @@ _ZN5ZXing6QRCodeL16MakeTypeInfoBitsENS0_20ErrorCorrectionLevelEi.exit.i: ; preds
   %350 = trunc nsw i64 %335 to i32
   %.reass41.i = add i32 %invariant.op40.i, %350
   %351 = sext i32 %.reass41.i to i64
-  %352 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %327, i64 %351
+  %352 = getelementptr inbounds nuw i8, ptr %327, i64 %351
   store i8 %343, ptr %352, align 1, !tbaa !8
   br label %367
 
@@ -907,7 +906,7 @@ _ZN5ZXing8BitArrayD2Ev.exit20.i:                  ; preds = %356, %353
   %.reass.i = add i32 %invariant.op.i, %362
   %363 = mul nsw i32 %.reass.i, %326
   %364 = sext i32 %363 to i64
-  %365 = getelementptr %"class.ZXing::Trit", ptr %327, i64 %364
+  %365 = getelementptr i8, ptr %327, i64 %364
   %366 = getelementptr i8, ptr %365, i64 8
   store i8 %343, ptr %366, align 1, !tbaa !8
   br label %367
@@ -1246,11 +1245,11 @@ _ZN5ZXing6QRCodeL19MakeVersionInfoBitsERKNS0_7VersionE.exit.i: ; preds = %468
   %474 = mul nsw i32 %.reass.i53, %458
   %475 = add nsw i32 %474, %.01952.i
   %476 = sext i32 %475 to i64
-  %477 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %459, i64 %476
+  %477 = getelementptr inbounds nuw i8, ptr %459, i64 %476
   store i8 %473, ptr %477, align 1, !tbaa !8
   %478 = add nsw i32 %.reass.i53, %460
   %479 = sext i32 %478 to i64
-  %480 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %459, i64 %479
+  %480 = getelementptr inbounds nuw i8, ptr %459, i64 %479
   store i8 %473, ptr %480, align 1, !tbaa !8
   %indvars.iv.next66.i = add nuw nsw i64 %indvars.iv65.i, 1
   %exitcond.not.i54 = icmp eq i64 %indvars.iv.next66.i, 3
@@ -1315,7 +1314,7 @@ _ZN5ZXing6QRCodeL16EmbedVersionInfoERKNS0_7VersionERNS_6MatrixINS_4TritEEE.exit:
   %510 = lshr i32 %509, 1
   %511 = and i32 %509, 1
   %512 = icmp eq i32 %511, 0
-  %invariant.gep.i73 = getelementptr %"class.ZXing::Trit", ptr %491, i64 %502
+  %invariant.gep.i73 = getelementptr i8, ptr %491, i64 %502
   br label %516
 
 513:                                              ; preds = %569
@@ -1328,7 +1327,7 @@ _ZN5ZXing6QRCodeL16EmbedVersionInfoERKNS0_7VersionERNS_6MatrixINS_4TritEEE.exit:
 516:                                              ; preds = %569, %.preheader.i72
   %indvars.iv.i74 = phi i64 [ %499, %.preheader.i72 ], [ %indvars.iv.next.i76, %569 ]
   %.25685.i = phi i32 [ %.15589.i, %.preheader.i72 ], [ %.357.i, %569 ]
-  %gep.i75 = getelementptr %"class.ZXing::Trit", ptr %invariant.gep.i73, i64 %indvars.iv.i74
+  %gep.i75 = getelementptr i8, ptr %invariant.gep.i73, i64 %indvars.iv.i74
   %517 = load i8, ptr %gep.i75, align 1, !tbaa !59
   %518 = icmp eq i8 %517, 2
   br i1 %518, label %519, label %569
@@ -1650,7 +1649,7 @@ define internal fastcc void @_ZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEii
 31:                                               ; preds = %28
   %32 = add nuw nsw i32 %19, %26
   %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %20, i64 %33
+  %34 = getelementptr inbounds nuw i8, ptr %20, i64 %33
   store i8 0, ptr %34, align 1, !tbaa !8
   %.pre89 = load i32, ptr %18, align 4
   br label %35
@@ -1665,7 +1664,7 @@ define internal fastcc void @_ZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEii
 38:                                               ; preds = %35
   %39 = add nuw nsw i32 %23, %26
   %40 = zext nneg i32 %39 to i64
-  %41 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %20, i64 %40
+  %41 = getelementptr inbounds nuw i8, ptr %20, i64 %40
   store i8 0, ptr %41, align 1, !tbaa !8
   %.pre90 = load i32, ptr %18, align 4
   br label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us"
@@ -1683,7 +1682,7 @@ define internal fastcc void @_ZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEii
   %47 = mul nsw i32 %16, %43
   %48 = add nuw nsw i32 %12, %47
   %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %20, i64 %49
+  %50 = getelementptr inbounds nuw i8, ptr %20, i64 %49
   store i8 0, ptr %50, align 1, !tbaa !8
   br label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit33.us"
 
@@ -1701,7 +1700,7 @@ define internal fastcc void @_ZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEii
   %55 = mul nsw i32 %16, %43
   %56 = add nuw nsw i32 %55, %14
   %57 = zext nneg i32 %56 to i64
-  %58 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %20, i64 %57
+  %58 = getelementptr inbounds nuw i8, ptr %20, i64 %57
   store i8 0, ptr %58, align 1, !tbaa !8
   br label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us"
 
@@ -1730,7 +1729,7 @@ define internal fastcc void @_ZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEii
 65:                                               ; preds = %62
   %66 = add nuw nsw i32 %19, %60
   %67 = zext nneg i32 %66 to i64
-  %68 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %20, i64 %67
+  %68 = getelementptr inbounds nuw i8, ptr %20, i64 %67
   store i8 0, ptr %68, align 1, !tbaa !8
   %.pre86 = load i32, ptr %18, align 4
   br label %69
@@ -1745,7 +1744,7 @@ define internal fastcc void @_ZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEii
 72:                                               ; preds = %69
   %73 = add nuw nsw i32 %23, %60
   %74 = zext nneg i32 %73 to i64
-  %75 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %20, i64 %74
+  %75 = getelementptr inbounds nuw i8, ptr %20, i64 %74
   store i8 0, ptr %75, align 1, !tbaa !8
   %.pre87 = load i32, ptr %18, align 4
   br label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us60"
@@ -1763,7 +1762,7 @@ define internal fastcc void @_ZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEii
   %81 = mul nsw i32 %16, %77
   %82 = add nuw nsw i32 %81, %14
   %83 = zext nneg i32 %82 to i64
-  %84 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %20, i64 %83
+  %84 = getelementptr inbounds nuw i8, ptr %20, i64 %83
   store i8 0, ptr %84, align 1, !tbaa !8
   br label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit35.us63"
 
@@ -1794,7 +1793,7 @@ define internal fastcc void @_ZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEii
 92:                                               ; preds = %88
   %93 = add nuw nsw i32 %23, %86
   %94 = zext nneg i32 %93 to i64
-  %95 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %20, i64 %94
+  %95 = getelementptr inbounds nuw i8, ptr %20, i64 %94
   store i8 0, ptr %95, align 1, !tbaa !8
   br label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31.us69"
 
@@ -1819,7 +1818,7 @@ define internal fastcc void @_ZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEii
   %105 = trunc nuw nsw i64 %indvars.iv to i32
   %.reass = add i32 %invariant.op, %105
   %106 = sext i32 %.reass to i64
-  %107 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %6, i64 %106
+  %107 = getelementptr inbounds nuw i8, ptr %6, i64 %106
   store i8 %104, ptr %107, align 1, !tbaa !8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 7
@@ -1844,7 +1843,7 @@ define internal fastcc void @_ZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEii
 114:                                              ; preds = %110
   %115 = add nuw nsw i32 %19, %108
   %116 = zext nneg i32 %115 to i64
-  %117 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %20, i64 %116
+  %117 = getelementptr inbounds nuw i8, ptr %20, i64 %116
   store i8 0, ptr %117, align 1, !tbaa !8
   %.pre = load i32, ptr %18, align 4
   br label %118
@@ -1858,7 +1857,7 @@ define internal fastcc void @_ZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEii
 121:                                              ; preds = %118
   %122 = add nuw nsw i32 %23, %108
   %123 = zext nneg i32 %122 to i64
-  %124 = getelementptr inbounds nuw %"class.ZXing::Trit", ptr %20, i64 %123
+  %124 = getelementptr inbounds nuw i8, ptr %20, i64 %123
   store i8 0, ptr %124, align 1, !tbaa !8
   br label %"_ZZN5ZXing6QRCodeL29EmbedPositionDetectionPatternEiiRNS_6MatrixINS_4TritEEEENK3$_0clEii.exit31"
 

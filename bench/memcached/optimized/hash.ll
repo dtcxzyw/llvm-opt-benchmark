@@ -22,10 +22,10 @@ define dso_local range(i32 -1, 1) i32 @hash_init(i32 noundef %0) local_unnamed_a
 
 switch.lookup:                                    ; preds = %1
   %3 = zext nneg i32 %0 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.hash_init, i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.hash_init, i64 %3
   %switch.load = load ptr, ptr %switch.gep, align 8
   %4 = zext nneg i32 %0 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @switch.table.hash_init.6, i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @switch.table.hash_init.6, i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   store ptr %switch.load, ptr @hash, align 8, !tbaa !4
   store ptr %switch.load3, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 192), align 8, !tbaa !8
@@ -322,9 +322,9 @@ define internal fastcc i64 @XXH3_hashLong_64b_default(ptr noalias noundef readon
 
 14:                                               ; preds = %8, %14
   %.0.i.i21 = phi i64 [ 0, %8 ], [ %30, %14 ]
-  %15 = getelementptr inbounds nuw <2 x i64>, ptr %10, i64 %.0.i.i21
+  %15 = getelementptr inbounds nuw [16 x i8], ptr %10, i64 %.0.i.i21
   %16 = load <2 x i64>, ptr %15, align 1, !tbaa !17, !noalias !27
-  %17 = getelementptr inbounds nuw <2 x i64>, ptr %13, i64 %.0.i.i21
+  %17 = getelementptr inbounds nuw [16 x i8], ptr %13, i64 %.0.i.i21
   %18 = load <2 x i64>, ptr %17, align 8, !tbaa !17, !noalias !27
   %19 = xor <2 x i64> %18, %16
   %20 = bitcast <2 x i64> %19 to <4 x i32>
@@ -334,7 +334,7 @@ define internal fastcc i64 @XXH3_hashLong_64b_default(ptr noalias noundef readon
   %23 = bitcast <4 x i32> %.inner to <2 x i64>
   %24 = mul nuw <2 x i64> %21, %23
   %25 = shufflevector <2 x i64> %16, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  %26 = getelementptr inbounds nuw <2 x i64>, ptr %3, i64 %.0.i.i21
+  %26 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %.0.i.i21
   %27 = load <2 x i64>, ptr %26, align 16, !tbaa !17, !alias.scope !27, !noalias !28
   %28 = add <2 x i64> %27, %25
   %29 = add <2 x i64> %28, %24
@@ -354,10 +354,10 @@ XXH3_accumulate.exit:                             ; preds = %XXH3_accumulate_512
 
 32:                                               ; preds = %XXH3_accumulate.exit, %32
   %.0.i35.i3 = phi i64 [ 0, %XXH3_accumulate.exit ], [ %47, %32 ]
-  %33 = getelementptr inbounds nuw <2 x i64>, ptr %3, i64 %.0.i35.i3
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %.0.i35.i3
   %34 = load <2 x i64>, ptr %33, align 16, !tbaa !17, !alias.scope !38, !noalias !41
   %35 = lshr <2 x i64> %34, splat (i64 47)
-  %36 = getelementptr inbounds nuw <2 x i64>, ptr getelementptr inbounds nuw (i8, ptr @XXH3_kSecret, i64 128), i64 %.0.i35.i3
+  %36 = getelementptr inbounds nuw [16 x i8], ptr getelementptr inbounds nuw (i8, ptr @XXH3_kSecret, i64 128), i64 %.0.i35.i3
   %37 = load <2 x i64>, ptr %36, align 16, !tbaa !17, !noalias !35
   %38 = xor <2 x i64> %37, %35
   %39 = xor <2 x i64> %38, %34
@@ -400,9 +400,9 @@ XXH3_scrambleAcc_sse2.exit.i:                     ; preds = %32
 
 58:                                               ; preds = %.lr.ph8, %58
   %.0.i.i45 = phi i64 [ 0, %.lr.ph8 ], [ %74, %58 ]
-  %59 = getelementptr inbounds nuw <2 x i64>, ptr %54, i64 %.0.i.i45
+  %59 = getelementptr inbounds nuw [16 x i8], ptr %54, i64 %.0.i.i45
   %60 = load <2 x i64>, ptr %59, align 1, !tbaa !17, !noalias !52
-  %61 = getelementptr inbounds nuw <2 x i64>, ptr %57, i64 %.0.i.i45
+  %61 = getelementptr inbounds nuw [16 x i8], ptr %57, i64 %.0.i.i45
   %62 = load <2 x i64>, ptr %61, align 8, !tbaa !17, !noalias !52
   %63 = xor <2 x i64> %62, %60
   %64 = bitcast <2 x i64> %63 to <4 x i32>
@@ -412,7 +412,7 @@ XXH3_scrambleAcc_sse2.exit.i:                     ; preds = %32
   %67 = bitcast <4 x i32> %.inner1 to <2 x i64>
   %68 = mul nuw <2 x i64> %65, %67
   %69 = shufflevector <2 x i64> %60, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  %70 = getelementptr inbounds nuw <2 x i64>, ptr %3, i64 %.0.i.i45
+  %70 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %.0.i.i45
   %71 = load <2 x i64>, ptr %70, align 16, !tbaa !17, !alias.scope !52, !noalias !53
   %72 = add <2 x i64> %71, %69
   %73 = add <2 x i64> %72, %68
@@ -434,9 +434,9 @@ XXH3_accumulate.exit6:                            ; preds = %XXH3_accumulate_512
 
 78:                                               ; preds = %XXH3_accumulate.exit6, %78
   %.0.i.i9 = phi i64 [ 0, %XXH3_accumulate.exit6 ], [ %94, %78 ]
-  %79 = getelementptr inbounds nuw <2 x i64>, ptr %77, i64 %.0.i.i9
+  %79 = getelementptr inbounds nuw [16 x i8], ptr %77, i64 %.0.i.i9
   %80 = load <2 x i64>, ptr %79, align 1, !tbaa !17, !noalias !57
-  %81 = getelementptr inbounds nuw <2 x i64>, ptr getelementptr inbounds nuw (i8, ptr @XXH3_kSecret, i64 121), i64 %.0.i.i9
+  %81 = getelementptr inbounds nuw [16 x i8], ptr getelementptr inbounds nuw (i8, ptr @XXH3_kSecret, i64 121), i64 %.0.i.i9
   %82 = load <2 x i64>, ptr %81, align 1, !tbaa !17, !noalias !57
   %83 = xor <2 x i64> %82, %80
   %84 = bitcast <2 x i64> %83 to <4 x i32>
@@ -446,7 +446,7 @@ XXH3_accumulate.exit6:                            ; preds = %XXH3_accumulate_512
   %87 = bitcast <4 x i32> %.inner2 to <2 x i64>
   %88 = mul nuw <2 x i64> %85, %87
   %89 = shufflevector <2 x i64> %80, <2 x i64> poison, <2 x i32> <i32 1, i32 0>
-  %90 = getelementptr inbounds nuw <2 x i64>, ptr %3, i64 %.0.i.i9
+  %90 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %.0.i.i9
   %91 = load <2 x i64>, ptr %90, align 16, !tbaa !17, !alias.scope !60, !noalias !61
   %92 = add <2 x i64> %91, %89
   %93 = add <2 x i64> %92, %88

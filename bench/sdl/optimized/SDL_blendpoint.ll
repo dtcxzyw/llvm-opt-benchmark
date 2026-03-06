@@ -3,8 +3,6 @@ source_filename = "bench/sdl/original/SDL_blendpoint.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct.SDL_Point = type { i32, i32 }
-
 @.str = private unnamed_addr constant [26 x i8] c"Parameter '%s' is invalid\00", align 1
 @.str.1 = private unnamed_addr constant [22 x i8] c"SDL_BlendPoint(): dst\00", align 1
 @.str.2 = private unnamed_addr constant [45 x i8] c"SDL_BlendPoint(): Unsupported surface format\00", align 1
@@ -1415,7 +1413,7 @@ define internal zeroext i1 @SDL_BlendPoint_RGB(ptr noundef readonly captures(non
   %30 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %31 = load i8, ptr %30, align 4
   %32 = zext i8 %31 to i64
-  %33 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %32
   %34 = load ptr, ptr %33, align 8
   %35 = load i16, ptr %29, align 2
   %36 = zext i16 %35 to i32
@@ -1433,7 +1431,7 @@ define internal zeroext i1 @SDL_BlendPoint_RGB(ptr noundef readonly captures(non
   %48 = getelementptr inbounds nuw i8, ptr %10, i64 25
   %49 = load i8, ptr %48, align 1
   %50 = zext i8 %49 to i64
-  %51 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %50
+  %51 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %50
   %52 = load ptr, ptr %51, align 8
   %53 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %54 = load i32, ptr %53, align 4
@@ -1449,7 +1447,7 @@ define internal zeroext i1 @SDL_BlendPoint_RGB(ptr noundef readonly captures(non
   %64 = getelementptr inbounds nuw i8, ptr %10, i64 26
   %65 = load i8, ptr %64, align 2
   %66 = zext i8 %65 to i64
-  %67 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %66
+  %67 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %66
   %68 = load ptr, ptr %67, align 8
   %69 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %70 = load i32, ptr %69, align 4
@@ -1515,7 +1513,7 @@ define internal zeroext i1 @SDL_BlendPoint_RGB(ptr noundef readonly captures(non
   %121 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %122 = load i8, ptr %121, align 4
   %123 = zext i8 %122 to i64
-  %124 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %123
+  %124 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %123
   %125 = load ptr, ptr %124, align 8
   %126 = load i16, ptr %120, align 2
   %127 = zext i16 %126 to i32
@@ -1533,7 +1531,7 @@ define internal zeroext i1 @SDL_BlendPoint_RGB(ptr noundef readonly captures(non
   %139 = getelementptr inbounds nuw i8, ptr %10, i64 25
   %140 = load i8, ptr %139, align 1
   %141 = zext i8 %140 to i64
-  %142 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %141
+  %142 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %141
   %143 = load ptr, ptr %142, align 8
   %144 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %145 = load i32, ptr %144, align 4
@@ -1549,7 +1547,7 @@ define internal zeroext i1 @SDL_BlendPoint_RGB(ptr noundef readonly captures(non
   %155 = getelementptr inbounds nuw i8, ptr %10, i64 26
   %156 = load i8, ptr %155, align 2
   %157 = zext i8 %156 to i64
-  %158 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %157
+  %158 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %157
   %159 = load ptr, ptr %158, align 8
   %160 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %161 = load i32, ptr %160, align 4
@@ -1618,7 +1616,7 @@ define internal zeroext i1 @SDL_BlendPoint_RGB(ptr noundef readonly captures(non
   %212 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %213 = load i8, ptr %212, align 4
   %214 = zext i8 %213 to i64
-  %215 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %214
+  %215 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %214
   %216 = load ptr, ptr %215, align 8
   %217 = load i16, ptr %211, align 2
   %218 = zext i16 %217 to i32
@@ -1636,7 +1634,7 @@ define internal zeroext i1 @SDL_BlendPoint_RGB(ptr noundef readonly captures(non
   %230 = getelementptr inbounds nuw i8, ptr %10, i64 25
   %231 = load i8, ptr %230, align 1
   %232 = zext i8 %231 to i64
-  %233 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %232
+  %233 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %232
   %234 = load ptr, ptr %233, align 8
   %235 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %236 = load i32, ptr %235, align 4
@@ -1652,7 +1650,7 @@ define internal zeroext i1 @SDL_BlendPoint_RGB(ptr noundef readonly captures(non
   %246 = getelementptr inbounds nuw i8, ptr %10, i64 26
   %247 = load i8, ptr %246, align 2
   %248 = zext i8 %247 to i64
-  %249 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %248
+  %249 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %248
   %250 = load ptr, ptr %249, align 8
   %251 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %252 = load i32, ptr %251, align 4
@@ -1709,7 +1707,7 @@ define internal zeroext i1 @SDL_BlendPoint_RGB(ptr noundef readonly captures(non
   %297 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %298 = load i8, ptr %297, align 4
   %299 = zext i8 %298 to i64
-  %300 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %299
+  %300 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %299
   %301 = load ptr, ptr %300, align 8
   %302 = load i16, ptr %296, align 2
   %303 = zext i16 %302 to i32
@@ -1727,7 +1725,7 @@ define internal zeroext i1 @SDL_BlendPoint_RGB(ptr noundef readonly captures(non
   %315 = getelementptr inbounds nuw i8, ptr %10, i64 25
   %316 = load i8, ptr %315, align 1
   %317 = zext i8 %316 to i64
-  %318 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %317
+  %318 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %317
   %319 = load ptr, ptr %318, align 8
   %320 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %321 = load i32, ptr %320, align 4
@@ -1743,7 +1741,7 @@ define internal zeroext i1 @SDL_BlendPoint_RGB(ptr noundef readonly captures(non
   %331 = getelementptr inbounds nuw i8, ptr %10, i64 26
   %332 = load i8, ptr %331, align 2
   %333 = zext i8 %332 to i64
-  %334 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %333
+  %334 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %333
   %335 = load ptr, ptr %334, align 8
   %336 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %337 = load i32, ptr %336, align 4
@@ -1803,7 +1801,7 @@ define internal zeroext i1 @SDL_BlendPoint_RGB(ptr noundef readonly captures(non
   %382 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %383 = load i8, ptr %382, align 4
   %384 = zext i8 %383 to i64
-  %385 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %384
+  %385 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %384
   %386 = load ptr, ptr %385, align 8
   %387 = load i16, ptr %381, align 2
   %388 = zext i16 %387 to i32
@@ -1821,7 +1819,7 @@ define internal zeroext i1 @SDL_BlendPoint_RGB(ptr noundef readonly captures(non
   %400 = getelementptr inbounds nuw i8, ptr %10, i64 25
   %401 = load i8, ptr %400, align 1
   %402 = zext i8 %401 to i64
-  %403 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %402
+  %403 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %402
   %404 = load ptr, ptr %403, align 8
   %405 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %406 = load i32, ptr %405, align 4
@@ -1837,7 +1835,7 @@ define internal zeroext i1 @SDL_BlendPoint_RGB(ptr noundef readonly captures(non
   %416 = getelementptr inbounds nuw i8, ptr %10, i64 26
   %417 = load i8, ptr %416, align 2
   %418 = zext i8 %417 to i64
-  %419 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %418
+  %419 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %418
   %420 = load ptr, ptr %419, align 8
   %421 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %422 = load i32, ptr %421, align 4
@@ -1981,7 +1979,7 @@ define internal zeroext i1 @SDL_BlendPoint_RGB(ptr noundef readonly captures(non
   %530 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %531 = load i8, ptr %530, align 4
   %532 = zext i8 %531 to i64
-  %533 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %532
+  %533 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %532
   %534 = load ptr, ptr %533, align 8
   %535 = load i32, ptr %529, align 4
   %536 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -1998,7 +1996,7 @@ define internal zeroext i1 @SDL_BlendPoint_RGB(ptr noundef readonly captures(non
   %547 = getelementptr inbounds nuw i8, ptr %10, i64 25
   %548 = load i8, ptr %547, align 1
   %549 = zext i8 %548 to i64
-  %550 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %549
+  %550 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %549
   %551 = load ptr, ptr %550, align 8
   %552 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %553 = load i32, ptr %552, align 4
@@ -2014,7 +2012,7 @@ define internal zeroext i1 @SDL_BlendPoint_RGB(ptr noundef readonly captures(non
   %563 = getelementptr inbounds nuw i8, ptr %10, i64 26
   %564 = load i8, ptr %563, align 2
   %565 = zext i8 %564 to i64
-  %566 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %565
+  %566 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %565
   %567 = load ptr, ptr %566, align 8
   %568 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %569 = load i32, ptr %568, align 4
@@ -2079,7 +2077,7 @@ define internal zeroext i1 @SDL_BlendPoint_RGB(ptr noundef readonly captures(non
   %619 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %620 = load i8, ptr %619, align 4
   %621 = zext i8 %620 to i64
-  %622 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %621
+  %622 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %621
   %623 = load ptr, ptr %622, align 8
   %624 = load i32, ptr %618, align 4
   %625 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -2096,7 +2094,7 @@ define internal zeroext i1 @SDL_BlendPoint_RGB(ptr noundef readonly captures(non
   %636 = getelementptr inbounds nuw i8, ptr %10, i64 25
   %637 = load i8, ptr %636, align 1
   %638 = zext i8 %637 to i64
-  %639 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %638
+  %639 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %638
   %640 = load ptr, ptr %639, align 8
   %641 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %642 = load i32, ptr %641, align 4
@@ -2112,7 +2110,7 @@ define internal zeroext i1 @SDL_BlendPoint_RGB(ptr noundef readonly captures(non
   %652 = getelementptr inbounds nuw i8, ptr %10, i64 26
   %653 = load i8, ptr %652, align 2
   %654 = zext i8 %653 to i64
-  %655 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %654
+  %655 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %654
   %656 = load ptr, ptr %655, align 8
   %657 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %658 = load i32, ptr %657, align 4
@@ -2180,7 +2178,7 @@ define internal zeroext i1 @SDL_BlendPoint_RGB(ptr noundef readonly captures(non
   %708 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %709 = load i8, ptr %708, align 4
   %710 = zext i8 %709 to i64
-  %711 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %710
+  %711 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %710
   %712 = load ptr, ptr %711, align 8
   %713 = load i32, ptr %707, align 4
   %714 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -2197,7 +2195,7 @@ define internal zeroext i1 @SDL_BlendPoint_RGB(ptr noundef readonly captures(non
   %725 = getelementptr inbounds nuw i8, ptr %10, i64 25
   %726 = load i8, ptr %725, align 1
   %727 = zext i8 %726 to i64
-  %728 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %727
+  %728 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %727
   %729 = load ptr, ptr %728, align 8
   %730 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %731 = load i32, ptr %730, align 4
@@ -2213,7 +2211,7 @@ define internal zeroext i1 @SDL_BlendPoint_RGB(ptr noundef readonly captures(non
   %741 = getelementptr inbounds nuw i8, ptr %10, i64 26
   %742 = load i8, ptr %741, align 2
   %743 = zext i8 %742 to i64
-  %744 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %743
+  %744 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %743
   %745 = load ptr, ptr %744, align 8
   %746 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %747 = load i32, ptr %746, align 4
@@ -2269,7 +2267,7 @@ define internal zeroext i1 @SDL_BlendPoint_RGB(ptr noundef readonly captures(non
   %791 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %792 = load i8, ptr %791, align 4
   %793 = zext i8 %792 to i64
-  %794 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %793
+  %794 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %793
   %795 = load ptr, ptr %794, align 8
   %796 = load i32, ptr %790, align 4
   %797 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -2286,7 +2284,7 @@ define internal zeroext i1 @SDL_BlendPoint_RGB(ptr noundef readonly captures(non
   %808 = getelementptr inbounds nuw i8, ptr %10, i64 25
   %809 = load i8, ptr %808, align 1
   %810 = zext i8 %809 to i64
-  %811 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %810
+  %811 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %810
   %812 = load ptr, ptr %811, align 8
   %813 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %814 = load i32, ptr %813, align 4
@@ -2302,7 +2300,7 @@ define internal zeroext i1 @SDL_BlendPoint_RGB(ptr noundef readonly captures(non
   %824 = getelementptr inbounds nuw i8, ptr %10, i64 26
   %825 = load i8, ptr %824, align 2
   %826 = zext i8 %825 to i64
-  %827 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %826
+  %827 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %826
   %828 = load ptr, ptr %827, align 8
   %829 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %830 = load i32, ptr %829, align 4
@@ -2361,7 +2359,7 @@ define internal zeroext i1 @SDL_BlendPoint_RGB(ptr noundef readonly captures(non
   %874 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %875 = load i8, ptr %874, align 4
   %876 = zext i8 %875 to i64
-  %877 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %876
+  %877 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %876
   %878 = load ptr, ptr %877, align 8
   %879 = load i32, ptr %873, align 4
   %880 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -2378,7 +2376,7 @@ define internal zeroext i1 @SDL_BlendPoint_RGB(ptr noundef readonly captures(non
   %891 = getelementptr inbounds nuw i8, ptr %10, i64 25
   %892 = load i8, ptr %891, align 1
   %893 = zext i8 %892 to i64
-  %894 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %893
+  %894 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %893
   %895 = load ptr, ptr %894, align 8
   %896 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %897 = load i32, ptr %896, align 4
@@ -2394,7 +2392,7 @@ define internal zeroext i1 @SDL_BlendPoint_RGB(ptr noundef readonly captures(non
   %907 = getelementptr inbounds nuw i8, ptr %10, i64 26
   %908 = load i8, ptr %907, align 2
   %909 = zext i8 %908 to i64
-  %910 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %909
+  %910 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %909
   %911 = load ptr, ptr %910, align 8
   %912 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %913 = load i32, ptr %912, align 4
@@ -2556,7 +2554,7 @@ define internal zeroext i1 @SDL_BlendPoint_RGBA(ptr noundef readonly captures(no
   %30 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %31 = load i8, ptr %30, align 4
   %32 = zext i8 %31 to i64
-  %33 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %32
+  %33 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %32
   %34 = load ptr, ptr %33, align 8
   %35 = load i32, ptr %29, align 4
   %36 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -2573,7 +2571,7 @@ define internal zeroext i1 @SDL_BlendPoint_RGBA(ptr noundef readonly captures(no
   %47 = getelementptr inbounds nuw i8, ptr %10, i64 25
   %48 = load i8, ptr %47, align 1
   %49 = zext i8 %48 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %49
+  %50 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %49
   %51 = load ptr, ptr %50, align 8
   %52 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %53 = load i32, ptr %52, align 4
@@ -2589,7 +2587,7 @@ define internal zeroext i1 @SDL_BlendPoint_RGBA(ptr noundef readonly captures(no
   %63 = getelementptr inbounds nuw i8, ptr %10, i64 26
   %64 = load i8, ptr %63, align 2
   %65 = zext i8 %64 to i64
-  %66 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %65
+  %66 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %65
   %67 = load ptr, ptr %66, align 8
   %68 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %69 = load i32, ptr %68, align 4
@@ -2605,7 +2603,7 @@ define internal zeroext i1 @SDL_BlendPoint_RGBA(ptr noundef readonly captures(no
   %79 = getelementptr inbounds nuw i8, ptr %10, i64 27
   %80 = load i8, ptr %79, align 1
   %81 = zext i8 %80 to i64
-  %82 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %81
+  %82 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %81
   %83 = load ptr, ptr %82, align 8
   %84 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %85 = load i32, ptr %84, align 4
@@ -2677,7 +2675,7 @@ define internal zeroext i1 @SDL_BlendPoint_RGBA(ptr noundef readonly captures(no
   %140 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %141 = load i8, ptr %140, align 4
   %142 = zext i8 %141 to i64
-  %143 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %142
+  %143 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %142
   %144 = load ptr, ptr %143, align 8
   %145 = load i32, ptr %139, align 4
   %146 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -2694,7 +2692,7 @@ define internal zeroext i1 @SDL_BlendPoint_RGBA(ptr noundef readonly captures(no
   %157 = getelementptr inbounds nuw i8, ptr %10, i64 25
   %158 = load i8, ptr %157, align 1
   %159 = zext i8 %158 to i64
-  %160 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %159
+  %160 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %159
   %161 = load ptr, ptr %160, align 8
   %162 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %163 = load i32, ptr %162, align 4
@@ -2710,7 +2708,7 @@ define internal zeroext i1 @SDL_BlendPoint_RGBA(ptr noundef readonly captures(no
   %173 = getelementptr inbounds nuw i8, ptr %10, i64 26
   %174 = load i8, ptr %173, align 2
   %175 = zext i8 %174 to i64
-  %176 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %175
+  %176 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %175
   %177 = load ptr, ptr %176, align 8
   %178 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %179 = load i32, ptr %178, align 4
@@ -2726,7 +2724,7 @@ define internal zeroext i1 @SDL_BlendPoint_RGBA(ptr noundef readonly captures(no
   %189 = getelementptr inbounds nuw i8, ptr %10, i64 27
   %190 = load i8, ptr %189, align 1
   %191 = zext i8 %190 to i64
-  %192 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %191
+  %192 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %191
   %193 = load ptr, ptr %192, align 8
   %194 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %195 = load i32, ptr %194, align 4
@@ -2802,7 +2800,7 @@ define internal zeroext i1 @SDL_BlendPoint_RGBA(ptr noundef readonly captures(no
   %250 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %251 = load i8, ptr %250, align 4
   %252 = zext i8 %251 to i64
-  %253 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %252
+  %253 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %252
   %254 = load ptr, ptr %253, align 8
   %255 = load i32, ptr %249, align 4
   %256 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -2819,7 +2817,7 @@ define internal zeroext i1 @SDL_BlendPoint_RGBA(ptr noundef readonly captures(no
   %267 = getelementptr inbounds nuw i8, ptr %10, i64 25
   %268 = load i8, ptr %267, align 1
   %269 = zext i8 %268 to i64
-  %270 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %269
+  %270 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %269
   %271 = load ptr, ptr %270, align 8
   %272 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %273 = load i32, ptr %272, align 4
@@ -2835,7 +2833,7 @@ define internal zeroext i1 @SDL_BlendPoint_RGBA(ptr noundef readonly captures(no
   %283 = getelementptr inbounds nuw i8, ptr %10, i64 26
   %284 = load i8, ptr %283, align 2
   %285 = zext i8 %284 to i64
-  %286 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %285
+  %286 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %285
   %287 = load ptr, ptr %286, align 8
   %288 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %289 = load i32, ptr %288, align 4
@@ -2851,7 +2849,7 @@ define internal zeroext i1 @SDL_BlendPoint_RGBA(ptr noundef readonly captures(no
   %299 = getelementptr inbounds nuw i8, ptr %10, i64 27
   %300 = load i8, ptr %299, align 1
   %301 = zext i8 %300 to i64
-  %302 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %301
+  %302 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %301
   %303 = load ptr, ptr %302, align 8
   %304 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %305 = load i32, ptr %304, align 4
@@ -2909,7 +2907,7 @@ define internal zeroext i1 @SDL_BlendPoint_RGBA(ptr noundef readonly captures(no
   %351 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %352 = load i8, ptr %351, align 4
   %353 = zext i8 %352 to i64
-  %354 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %353
+  %354 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %353
   %355 = load ptr, ptr %354, align 8
   %356 = load i32, ptr %350, align 4
   %357 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -2926,7 +2924,7 @@ define internal zeroext i1 @SDL_BlendPoint_RGBA(ptr noundef readonly captures(no
   %368 = getelementptr inbounds nuw i8, ptr %10, i64 25
   %369 = load i8, ptr %368, align 1
   %370 = zext i8 %369 to i64
-  %371 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %370
+  %371 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %370
   %372 = load ptr, ptr %371, align 8
   %373 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %374 = load i32, ptr %373, align 4
@@ -2942,7 +2940,7 @@ define internal zeroext i1 @SDL_BlendPoint_RGBA(ptr noundef readonly captures(no
   %384 = getelementptr inbounds nuw i8, ptr %10, i64 26
   %385 = load i8, ptr %384, align 2
   %386 = zext i8 %385 to i64
-  %387 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %386
+  %387 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %386
   %388 = load ptr, ptr %387, align 8
   %389 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %390 = load i32, ptr %389, align 4
@@ -2958,7 +2956,7 @@ define internal zeroext i1 @SDL_BlendPoint_RGBA(ptr noundef readonly captures(no
   %400 = getelementptr inbounds nuw i8, ptr %10, i64 27
   %401 = load i8, ptr %400, align 1
   %402 = zext i8 %401 to i64
-  %403 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %402
+  %403 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %402
   %404 = load ptr, ptr %403, align 8
   %405 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %406 = load i32, ptr %405, align 4
@@ -3019,7 +3017,7 @@ define internal zeroext i1 @SDL_BlendPoint_RGBA(ptr noundef readonly captures(no
   %452 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %453 = load i8, ptr %452, align 4
   %454 = zext i8 %453 to i64
-  %455 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %454
+  %455 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %454
   %456 = load ptr, ptr %455, align 8
   %457 = load i32, ptr %451, align 4
   %458 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -3036,7 +3034,7 @@ define internal zeroext i1 @SDL_BlendPoint_RGBA(ptr noundef readonly captures(no
   %469 = getelementptr inbounds nuw i8, ptr %10, i64 25
   %470 = load i8, ptr %469, align 1
   %471 = zext i8 %470 to i64
-  %472 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %471
+  %472 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %471
   %473 = load ptr, ptr %472, align 8
   %474 = getelementptr inbounds nuw i8, ptr %10, i64 12
   %475 = load i32, ptr %474, align 4
@@ -3052,7 +3050,7 @@ define internal zeroext i1 @SDL_BlendPoint_RGBA(ptr noundef readonly captures(no
   %485 = getelementptr inbounds nuw i8, ptr %10, i64 26
   %486 = load i8, ptr %485, align 2
   %487 = zext i8 %486 to i64
-  %488 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %487
+  %488 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %487
   %489 = load ptr, ptr %488, align 8
   %490 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %491 = load i32, ptr %490, align 4
@@ -3068,7 +3066,7 @@ define internal zeroext i1 @SDL_BlendPoint_RGBA(ptr noundef readonly captures(no
   %501 = getelementptr inbounds nuw i8, ptr %10, i64 27
   %502 = load i8, ptr %501, align 1
   %503 = zext i8 %502 to i64
-  %504 = getelementptr inbounds nuw ptr, ptr @SDL_expand_byte, i64 %503
+  %504 = getelementptr inbounds nuw [8 x i8], ptr @SDL_expand_byte, i64 %503
   %505 = load ptr, ptr %504, align 8
   %506 = getelementptr inbounds nuw i8, ptr %10, i64 20
   %507 = load i32, ptr %506, align 4
@@ -3307,7 +3305,7 @@ define hidden zeroext i1 @SDL_BlendPoints(ptr noundef %0, ptr noundef readonly c
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %70
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %70 ]
   %.086 = phi i1 [ true, %.lr.ph.preheader ], [ %.1, %70 ]
-  %62 = getelementptr inbounds nuw %struct.SDL_Point, ptr %1, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %1, i64 %indvars.iv
   %63 = load i32, ptr %62, align 4
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 4
   %65 = load i32, ptr %64, align 4

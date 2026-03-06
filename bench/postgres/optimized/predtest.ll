@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.PredIterInfoData = type { ptr, ptr, ptr, ptr, ptr }
-%union.ListCell = type { ptr }
 %struct.OprProofCacheKey = type { i32, i32 }
 %struct.HASHCTL = type { i64, i64, i64, i64, i64, i64, ptr, ptr, ptr, ptr, ptr, ptr }
 %struct.HASH_SEQ_STATUS = type { ptr, i32, ptr, i8, i32 }
@@ -1254,7 +1253,7 @@ define internal ptr @list_next_fn(ptr noundef captures(none) %0) #3 {
   %.val9 = load ptr, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %11 = sext i32 %.val to i64
-  %12 = getelementptr inbounds %union.ListCell, ptr %.val9, i64 %11
+  %12 = getelementptr inbounds [8 x i8], ptr %.val9, i64 %11
   %13 = icmp ult ptr %10, %12
   %..i = select i1 %13, ptr %10, ptr null
   store ptr %..i, ptr %0, align 8
@@ -1394,7 +1393,7 @@ define internal ptr @arrayconst_next_fn(ptr noundef readonly captures(none) %0) 
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 96
   %9 = load ptr, ptr %8, align 8
   %10 = sext i32 %4 to i64
-  %11 = getelementptr inbounds i64, ptr %9, i64 %10
+  %11 = getelementptr inbounds [8 x i8], ptr %9, i64 %10
   %12 = load i64, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store i64 %12, ptr %13, align 8
@@ -1506,7 +1505,7 @@ define internal ptr @arrayexpr_next_fn(ptr noundef readonly captures(none) %0) #
   %.val11 = load ptr, ptr %16, align 8
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %18 = sext i32 %.val10 to i64
-  %19 = getelementptr inbounds %union.ListCell, ptr %.val11, i64 %18
+  %19 = getelementptr inbounds [8 x i8], ptr %.val11, i64 %18
   %20 = icmp ult ptr %17, %19
   %..i = select i1 %20, ptr %17, ptr null
   store ptr %..i, ptr %3, align 8
@@ -1613,7 +1612,7 @@ is_opclause.exit:                                 ; preds = %17
 .lr.ph163:                                        ; preds = %.lr.ph153, %31
   %indvars.iv176 = phi i64 [ %indvars.iv.next177, %31 ], [ 0, %.lr.ph153 ]
   %35 = load ptr, ptr %28, align 8
-  %36 = getelementptr inbounds nuw %union.ListCell, ptr %35, i64 %indvars.iv176
+  %36 = getelementptr inbounds nuw [8 x i8], ptr %35, i64 %indvars.iv176
   %37 = load ptr, ptr %36, align 8
   %38 = tail call fastcc zeroext i1 @clause_is_strict_for(ptr noundef %37, ptr noundef %.077, i1 noundef zeroext false)
   br i1 %38, label %.critedge97, label %31
@@ -1660,7 +1659,7 @@ is_funcclause.exit:                               ; preds = %is_funcclause.exitt
 .lr.ph150:                                        ; preds = %.lr.ph141, %52
   %indvars.iv = phi i64 [ %indvars.iv.next, %52 ], [ 0, %.lr.ph141 ]
   %56 = load ptr, ptr %49, align 8
-  %57 = getelementptr inbounds nuw %union.ListCell, ptr %56, i64 %indvars.iv
+  %57 = getelementptr inbounds nuw [8 x i8], ptr %56, i64 %indvars.iv
   %58 = load ptr, ptr %57, align 8
   %59 = tail call fastcc zeroext i1 @clause_is_strict_for(ptr noundef %58, ptr noundef %.077, i1 noundef zeroext false)
   br i1 %59, label %.critedge97, label %52
@@ -2196,7 +2195,7 @@ define internal fastcc ptr @lookup_proof_cache(i32 noundef %0, i32 noundef %1, i
   %.077200.us213297 = phi i8 [ %.3.us219.ph, %.loopexit ], [ 0, %.lr.ph201.split.split.us.preheader ]
   %indvars.iv245296 = phi i64 [ %indvars.iv.next246258, %.loopexit ], [ 0, %.lr.ph201.split.split.us.preheader ]
   %41 = load ptr, ptr %36, align 8
-  %42 = getelementptr inbounds nuw %union.ListCell, ptr %41, i64 %indvars.iv245296
+  %42 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv245296
   %43 = load ptr, ptr %42, align 8
   %44 = load i32, ptr %43, align 4
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 4
@@ -2217,7 +2216,7 @@ define internal fastcc ptr @lookup_proof_cache(i32 noundef %0, i32 noundef %1, i
   %indvars.iv243 = phi i64 [ %indvars.iv.next244, %.thread113.us.us ], [ 0, %.lr.ph.us ]
   %.2126.us191.us = phi i8 [ %.4.ph.us.us, %.thread113.us.us ], [ %.077200.us213297, %.lr.ph.us ]
   %52 = load ptr, ptr %38, align 8
-  %53 = getelementptr inbounds nuw %union.ListCell, ptr %52, i64 %indvars.iv243
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %52, i64 %indvars.iv243
   %54 = load ptr, ptr %53, align 8
   %55 = load i32, ptr %54, align 4
   %.not103.us.us = icmp eq i32 %44, %55
@@ -2236,8 +2235,8 @@ define internal fastcc ptr @lookup_proof_cache(i32 noundef %0, i32 noundef %1, i
   %66 = getelementptr i8, ptr %65, i64 -7
   %67 = load i8, ptr %66, align 1, !range !14, !noundef !15
   %68 = or i8 %67, %.2126.us191.us
-  %69 = getelementptr [6 x i16], ptr @BT_refute_table, i64 %61
-  %70 = getelementptr i16, ptr %69, i64 %64
+  %69 = getelementptr [12 x i8], ptr @BT_refute_table, i64 %61
+  %70 = getelementptr [2 x i8], ptr %69, i64 %64
   %.0.in.us.us = getelementptr i8, ptr %70, i64 -14
   %.0.us.us = load i16, ptr %.0.in.us.us, align 2
   switch i16 %.0.us.us, label %78 [
@@ -2286,7 +2285,7 @@ define internal fastcc ptr @lookup_proof_cache(i32 noundef %0, i32 noundef %1, i
   %.077200295 = phi i8 [ %.3.ph, %.loopexit283 ], [ 0, %.lr.ph201.split.split.preheader ]
   %indvars.iv241294 = phi i64 [ %indvars.iv.next242271, %.loopexit283 ], [ 0, %.lr.ph201.split.split.preheader ]
   %90 = load ptr, ptr %36, align 8
-  %91 = getelementptr inbounds nuw %union.ListCell, ptr %90, i64 %indvars.iv241294
+  %91 = getelementptr inbounds nuw [8 x i8], ptr %90, i64 %indvars.iv241294
   %92 = load ptr, ptr %91, align 8
   %93 = load i32, ptr %92, align 4
   %94 = getelementptr inbounds nuw i8, ptr %92, i64 4
@@ -2299,7 +2298,7 @@ define internal fastcc ptr @lookup_proof_cache(i32 noundef %0, i32 noundef %1, i
   %indvars.iv = phi i64 [ %indvars.iv.next, %.thread113 ], [ 0, %.lr.ph ]
   %.2126175 = phi i8 [ %.4.ph, %.thread113 ], [ %.077200295, %.lr.ph ]
   %98 = load ptr, ptr %38, align 8
-  %99 = getelementptr inbounds nuw %union.ListCell, ptr %98, i64 %indvars.iv
+  %99 = getelementptr inbounds nuw [8 x i8], ptr %98, i64 %indvars.iv
   %100 = load ptr, ptr %99, align 8
   %101 = load i32, ptr %100, align 4
   %.not103 = icmp eq i32 %93, %101
@@ -2318,8 +2317,8 @@ define internal fastcc ptr @lookup_proof_cache(i32 noundef %0, i32 noundef %1, i
   %112 = getelementptr i8, ptr %111, i64 -7
   %113 = load i8, ptr %112, align 1, !range !14, !noundef !15
   %114 = or i8 %113, %.2126175
-  %115 = getelementptr [6 x i16], ptr @BT_implic_table, i64 %107
-  %116 = getelementptr i16, ptr %115, i64 %110
+  %115 = getelementptr [12 x i8], ptr @BT_implic_table, i64 %107
+  %116 = getelementptr [2 x i8], ptr %115, i64 %110
   %.0.in = getelementptr i8, ptr %116, i64 -14
   %.0 = load i16, ptr %.0.in, align 2
   switch i16 %.0, label %124 [

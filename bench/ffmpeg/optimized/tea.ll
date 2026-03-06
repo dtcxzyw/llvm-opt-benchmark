@@ -23,7 +23,7 @@ define void @av_tea_init(ptr noundef writeonly captures(none) %0, ptr noundef re
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 %5
   %7 = load i32, ptr %6, align 1, !tbaa !4
   %8 = tail call i32 @llvm.bswap.i32(i32 %7)
-  %9 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %0, i64 %indvars.iv
   store i32 %8, ptr %9, align 4, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4

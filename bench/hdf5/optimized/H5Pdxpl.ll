@@ -2651,7 +2651,7 @@ define range(i32 -1, 1) i32 @H5Pset_dataset_io_hyperslab_selection(i64 noundef %
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %65
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %65 ]
-  %62 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   %63 = load i64, ptr %62, align 8, !tbaa !10
   %64 = icmp eq i64 %63, 0
   br i1 %64, label %66, label %65
@@ -2764,7 +2764,7 @@ define range(i32 -1, 1) i32 @H5Pset_dataset_io_hyperslab_selection(i64 noundef %
 
 .lr.ph184:                                        ; preds = %.lr.ph184.preheader, %.lr.ph184
   %indvars.iv189 = phi i64 [ 0, %.lr.ph184.preheader ], [ %indvars.iv.next190, %.lr.ph184 ]
-  %118 = getelementptr inbounds nuw i64, ptr %10, i64 %indvars.iv189
+  %118 = getelementptr inbounds nuw [8 x i8], ptr %10, i64 %indvars.iv189
   store i64 -2, ptr %118, align 8, !tbaa !10
   %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 1
   %exitcond193.not = icmp eq i64 %indvars.iv.next190, %wide.trip.count192

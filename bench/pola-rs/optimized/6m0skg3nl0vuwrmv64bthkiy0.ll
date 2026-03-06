@@ -2170,7 +2170,7 @@ tailrecurse.i:                                    ; preds = %14, %tailrecurse.i
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17ha88b36ef5f58e2dbE.exit": ; preds = %46, %.lr.ph
   %47 = load ptr, ptr %36, align 8, !alias.scope !179, !noalias !182, !nonnull !4, !noundef !4
-  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %40
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %40
   store ptr %41, ptr %48, align 8, !noalias !182
   %49 = add i64 %40, 1
   store i64 %49, ptr %37, align 8
@@ -2227,7 +2227,7 @@ tailrecurse.i:                                    ; preds = %14, %tailrecurse.i
   %62 = load ptr, ptr %36, align 8, !nonnull !4, !noundef !4
   %63 = icmp samesign ult i64 %58, 1152921504606846977
   call void @llvm.assume(i1 %63)
-  %64 = getelementptr inbounds nuw ptr, ptr %62, i64 %59
+  %64 = getelementptr inbounds nuw [8 x i8], ptr %62, i64 %59
   %65 = load ptr, ptr %64, align 8, !nonnull !4, !align !25, !noundef !4
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   store ptr %65, ptr %7, align 8

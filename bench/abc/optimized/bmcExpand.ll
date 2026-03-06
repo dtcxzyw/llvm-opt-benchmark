@@ -108,14 +108,14 @@ Vec_IntFill.exit:                                 ; preds = %Vec_IntGrow.exit.i
 
 45:                                               ; preds = %.lr.ph
   %.val42 = load ptr, ptr %30, align 8, !tbaa !14
-  %46 = getelementptr inbounds nuw i32, ptr %.val42, i64 %indvars.iv
+  %46 = getelementptr inbounds nuw [4 x i8], ptr %.val42, i64 %indvars.iv
   %47 = load i32, ptr %46, align 4, !tbaa !16
   %48 = icmp eq i8 %43, 48
   %49 = zext i1 %48 to i32
   %50 = shl nsw i32 %47, 1
   %51 = or disjoint i32 %50, %49
   %.val44 = load ptr, ptr %15, align 8, !tbaa !14
-  %52 = getelementptr inbounds nuw i32, ptr %.val44, i64 %indvars.iv
+  %52 = getelementptr inbounds nuw [4 x i8], ptr %.val44, i64 %indvars.iv
   store i32 %51, ptr %52, align 4, !tbaa !16
   store i8 45, ptr %42, align 1, !tbaa !15
   br label %53
@@ -138,7 +138,7 @@ Vec_IntFill.exit:                                 ; preds = %Vec_IntGrow.exit.i
 
 .lr.ph57:                                         ; preds = %.lr.ph57.preheader, %64
   %indvars.iv63 = phi i64 [ 0, %.lr.ph57.preheader ], [ %indvars.iv.next64, %64 ]
-  %57 = getelementptr inbounds nuw i32, ptr %.val43.pre, i64 %indvars.iv63
+  %57 = getelementptr inbounds nuw [4 x i8], ptr %.val43.pre, i64 %indvars.iv63
   %58 = load i32, ptr %57, align 4, !tbaa !16
   %.not41 = icmp eq i32 %58, -1
   br i1 %.not41, label %64, label %59
@@ -437,7 +437,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
   %105 = add nsw i32 %87, 1
   store i32 %105, ptr %7, align 4, !tbaa !10
   %106 = sext i32 %87 to i64
-  %107 = getelementptr inbounds i32, ptr %.pre.i4452, i64 %106
+  %107 = getelementptr inbounds [4 x i8], ptr %.pre.i4452, i64 %106
   store i32 %86, ptr %107, align 4, !tbaa !16
   %108 = add nuw nsw i32 %.150, 1
   %exitcond.not = icmp eq i32 %108, %2
@@ -515,7 +515,7 @@ define void @Abc_NtkExpandCubes(ptr noundef %0, ptr noundef %1, i32 noundef %2) 
   %14 = getelementptr i8, ptr %.val2133, i64 8
   %.val22.val = load ptr, ptr %14, align 8, !tbaa !42
   %15 = sext i32 %storemerge30 to i64
-  %16 = getelementptr inbounds ptr, ptr %.val22.val, i64 %15
+  %16 = getelementptr inbounds [8 x i8], ptr %.val22.val, i64 %15
   %17 = load ptr, ptr %16, align 8, !tbaa !43
   %.val23 = load ptr, ptr %17, align 8, !tbaa !44
   %18 = getelementptr i8, ptr %17, i64 32
@@ -526,7 +526,7 @@ define void @Abc_NtkExpandCubes(ptr noundef %0, ptr noundef %1, i32 noundef %2) 
   %20 = getelementptr i8, ptr %.val23.val, i64 8
   %.val23.val.val = load ptr, ptr %20, align 8, !tbaa !42
   %21 = sext i32 %.val24.val to i64
-  %22 = getelementptr inbounds ptr, ptr %.val23.val.val, i64 %21
+  %22 = getelementptr inbounds [8 x i8], ptr %.val23.val.val, i64 %21
   %23 = load ptr, ptr %22, align 8, !tbaa !43
   %24 = getelementptr i8, ptr %23, i64 20
   %.val25 = load i32, ptr %24, align 4

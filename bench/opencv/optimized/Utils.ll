@@ -23,8 +23,6 @@ target triple = "x86_64-pc-linux-gnu"
 %"class.std::basic_ostream.base" = type { ptr }
 %"class.std::__cxx11::basic_stringbuf" = type { %"class.std::basic_streambuf", i32, %"class.std::__cxx11::basic_string" }
 %"class.std::basic_streambuf" = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, %"class.std::locale" }
-%"class.cv::Point_.3" = type { float, float }
-%"class.cv::Point3_" = type { float, float, float }
 %"class.cv::Mat" = type { i32, i32, i32, i32, ptr, ptr, ptr, ptr, ptr, ptr, %"struct.cv::MatSize", %"struct.cv::MatStep" }
 %"struct.cv::MatSize" = type { ptr }
 %"struct.cv::MatStep" = type { ptr, [2 x i64] }
@@ -32,10 +30,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.std::_Vector_base.10" = type { %"struct.std::_Vector_base<std::vector<int>, std::allocator<std::vector<int>>>::_Vector_impl" }
 %"struct.std::_Vector_base<std::vector<int>, std::allocator<std::vector<int>>>::_Vector_impl" = type { %"struct.std::_Vector_base<std::vector<int>, std::allocator<std::vector<int>>>::_Vector_impl_data" }
 %"struct.std::_Vector_base<std::vector<int>, std::allocator<std::vector<int>>>::_Vector_impl_data" = type { ptr, ptr, ptr }
-%"class.std::vector.14" = type { %"struct.std::_Vector_base.15" }
-%"struct.std::_Vector_base.15" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl" = type { %"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" }
-%"struct.std::_Vector_base<int, std::allocator<int>>::_Vector_impl_data" = type { ptr, ptr, ptr }
+%"class.cv::Point3_" = type { float, float, float }
 %"class.cv::MatExpr" = type { ptr, i32, %"class.cv::Mat", %"class.cv::Mat", %"class.cv::Mat", double, double, %"class.cv::Scalar_" }
 %"class.std::__cxx11::basic_istringstream" = type { %"class.std::basic_istream.base", %"class.std::__cxx11::basic_stringbuf", %"class.std::basic_ios" }
 %"class.std::basic_istream.base" = type { ptr, i64 }
@@ -1576,12 +1571,12 @@ define hidden void @_Z10drawPointsN2cv3MatERSt6vectorINS_6Point_IfEESaIS3_EERS1_
   %51 = phi ptr [ %22, %.lr.ph ], [ %225, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit118 ]
   %52 = phi i64 [ 0, %.lr.ph ], [ %223, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit118 ]
   %.0302 = phi i32 [ 0, %.lr.ph ], [ %62, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit118 ]
-  %53 = getelementptr inbounds nuw %"class.cv::Point_.3", ptr %51, i64 %52
+  %53 = getelementptr inbounds nuw [8 x i8], ptr %51, i64 %52
   %54 = load float, ptr %53, align 4
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %53, i64 4
   %55 = load float, ptr %.sroa_idx, align 4
   %56 = load ptr, ptr %2, align 8, !tbaa !68
-  %57 = getelementptr inbounds nuw %"class.cv::Point3_", ptr %56, i64 %52
+  %57 = getelementptr inbounds nuw [12 x i8], ptr %56, i64 %52
   %.sroa.02.0.copyload = load float, ptr %57, align 4, !tbaa !71
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %57, i64 4
   %.sroa.5.0.copyload = load float, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !71
@@ -2377,7 +2372,7 @@ define hidden void @_Z12draw2DPointsN2cv3MatERSt6vectorINS_6Point_IfEESaIS3_EENS
 10:                                               ; preds = %.lr.ph, %10
   %11 = phi ptr [ %7, %.lr.ph ], [ %21, %10 ]
   %.07 = phi i64 [ 0, %.lr.ph ], [ %19, %10 ]
-  %12 = getelementptr inbounds nuw %"class.cv::Point_.3", ptr %11, i64 %.07
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %.07
   %13 = load float, ptr %12, align 4
   %.sroa_idx = getelementptr inbounds nuw i8, ptr %12, i64 4
   %14 = load float, ptr %.sroa_idx, align 4
@@ -2912,7 +2907,7 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev.exit:         ; preds = %_ZSt8_DestroyIPSt6v
 
 46:                                               ; preds = %.lr.ph, %_ZNSt6vectorIiSaIiEED2Ev.exit
   %.0121 = phi i64 [ 0, %.lr.ph ], [ %96, %_ZNSt6vectorIiSaIiEED2Ev.exit ]
-  %47 = getelementptr inbounds nuw %"class.std::vector.14", ptr %.pr.i, i64 %.0121
+  %47 = getelementptr inbounds nuw [24 x i8], ptr %.pr.i, i64 %.0121
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
   %49 = load ptr, ptr %48, align 8, !tbaa !114
   %50 = load ptr, ptr %47, align 8, !tbaa !110
@@ -2961,7 +2956,7 @@ _ZNSt6vectorIiSaIiEEC2ERKS1_.exit:                ; preds = %60, %.noexc45
   %64 = load i32, ptr %59, align 4, !tbaa !97
   %65 = sext i32 %64 to i64
   %66 = load ptr, ptr %31, align 8, !tbaa !68
-  %67 = getelementptr inbounds nuw %"class.cv::Point3_", ptr %66, i64 %65
+  %67 = getelementptr inbounds nuw [12 x i8], ptr %66, i64 %65
   %.sroa.01.0.copyload.i = load <2 x float>, ptr %67, align 4
   %.sroa.22.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %67, i64 8
   %.sroa.22.0.copyload.i = load float, ptr %.sroa.22.0..sroa_idx.i, align 4, !tbaa !71
@@ -2971,7 +2966,7 @@ _ZNSt6vectorIiSaIiEEC2ERKS1_.exit:                ; preds = %60, %.noexc45
   %68 = getelementptr inbounds nuw i8, ptr %59, i64 4
   %69 = load i32, ptr %68, align 4, !tbaa !97
   %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds nuw %"class.cv::Point3_", ptr %66, i64 %70
+  %71 = getelementptr inbounds nuw [12 x i8], ptr %66, i64 %70
   %.sroa.01.0.copyload.i46 = load <2 x float>, ptr %71, align 4
   %.sroa.22.0..sroa_idx.i47 = getelementptr inbounds nuw i8, ptr %71, i64 8
   %.sroa.22.0.copyload.i48 = load float, ptr %.sroa.22.0..sroa_idx.i47, align 4, !tbaa !71
@@ -2981,7 +2976,7 @@ _ZNSt6vectorIiSaIiEEC2ERKS1_.exit:                ; preds = %60, %.noexc45
   %72 = getelementptr inbounds nuw i8, ptr %59, i64 8
   %73 = load i32, ptr %72, align 4, !tbaa !97
   %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds nuw %"class.cv::Point3_", ptr %66, i64 %74
+  %75 = getelementptr inbounds nuw [12 x i8], ptr %66, i64 %74
   %.sroa.01.0.copyload.i51 = load <2 x float>, ptr %75, align 4
   %.sroa.22.0..sroa_idx.i52 = getelementptr inbounds nuw i8, ptr %75, i64 8
   %.sroa.22.0.copyload.i53 = load float, ptr %.sroa.22.0..sroa_idx.i52, align 4, !tbaa !71
@@ -3493,7 +3488,7 @@ define hidden void @_Z9rot2eulerRKN2cv3MatE(ptr dead_on_unwind noalias nonnull w
   %66 = mul i64 %64, %65
   %67 = getelementptr inbounds nuw i8, ptr %44, i64 %66
   %68 = sext i32 %61 to i64
-  %69 = getelementptr inbounds double, ptr %67, i64 %68
+  %69 = getelementptr inbounds [8 x i8], ptr %67, i64 %68
   br label %74
 
 _ZN2cv3Mat2atIdEERT_i.exit28:                     ; preds = %35
@@ -3538,7 +3533,7 @@ _ZN2cv3Mat2atIdEERT_i.exit28:                     ; preds = %35
   %93 = mul i64 %91, %92
   %94 = getelementptr inbounds nuw i8, ptr %44, i64 %93
   %95 = sext i32 %.recomposed to i64
-  %96 = getelementptr inbounds double, ptr %94, i64 %95
+  %96 = getelementptr inbounds [8 x i8], ptr %94, i64 %95
   br label %_ZN2cv3Mat2atIdEERT_i.exit31
 
 _ZN2cv3Mat2atIdEERT_i.exit31:                     ; preds = %84, %78, %.thread37
@@ -3599,7 +3594,7 @@ _ZNK2cv3Mat2atIdEERKT_i.exit.thread55:            ; preds = %2
   %31 = mul i64 %29, %30
   %32 = getelementptr inbounds nuw i8, ptr %.in, i64 %31
   %33 = sext i32 %26 to i64
-  %34 = getelementptr inbounds double, ptr %32, i64 %33
+  %34 = getelementptr inbounds [8 x i8], ptr %32, i64 %33
   br label %38
 
 _ZNK2cv3Mat2atIdEERKT_i.exit50:                   ; preds = %_ZNK2cv3Mat2atIdEERKT_i.exit.thread55, %2
@@ -3637,7 +3632,7 @@ _ZNK2cv3Mat2atIdEERKT_i.exit50:                   ; preds = %_ZNK2cv3Mat2atIdEER
   %58 = mul i64 %56, %57
   %59 = getelementptr inbounds nuw i8, ptr %.in, i64 %58
   %60 = sext i32 %.recomposed to i64
-  %61 = getelementptr inbounds double, ptr %59, i64 %60
+  %61 = getelementptr inbounds [8 x i8], ptr %59, i64 %60
   br label %_ZNK2cv3Mat2atIdEERKT_i.exit53
 
 _ZNK2cv3Mat2atIdEERKT_i.exit53:                   ; preds = %_ZNK2cv3Mat2atIdEERKT_i.exit50, %43, %49

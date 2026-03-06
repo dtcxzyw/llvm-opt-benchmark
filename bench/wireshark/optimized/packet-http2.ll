@@ -664,7 +664,7 @@ define internal fastcc void @dissect_http2_settings(ptr noundef %0, ptr noundef 
   %39 = icmp eq ptr %37, %38
   %40 = load i32, ptr %6, align 4
   %41 = zext i1 %39 to i64
-  %42 = getelementptr i32, ptr %10, i64 %41
+  %42 = getelementptr [4 x i8], ptr %10, i64 %41
   store i32 %40, ptr %42, align 4
   br label %43
 
@@ -787,7 +787,7 @@ define hidden i32 @dissect_http2_pdu(ptr noundef %0, ptr noundef %1, ptr noundef
 
 switch.lookup:                                    ; preds = %53
   %55 = zext nneg i8 %45 to i64
-  %switch.gep = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_http2_pdu, i64 %55
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.dissect_http2_pdu, i64 %55
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %dissect_http2_header_flags.exit
 
@@ -1799,7 +1799,7 @@ define internal fastcc void @adjust_window_size(ptr noundef %0, ptr noundef %1, 
   %25 = tail call noalias dereferenceable_or_null(4) ptr @wmem_alloc0(ptr noundef %24, i64 noundef 4) #7
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %27 = zext i1 %spec.select30 to i64
-  %28 = getelementptr i32, ptr %26, i64 %27
+  %28 = getelementptr [4 x i8], ptr %26, i64 %27
   %29 = load i32, ptr %28, align 4
   store i32 %29, ptr %25, align 4
   %30 = add i32 %29, %14

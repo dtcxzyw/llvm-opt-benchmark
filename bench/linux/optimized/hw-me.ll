@@ -1911,7 +1911,7 @@ define dso_local ptr @mei_me_get_cfg(i64 noundef %0) #5 align 16 {
   br i1 %2, label %6, label %3
 
 3:                                                ; preds = %1
-  %4 = getelementptr ptr, ptr @mei_cfg_list, i64 %0
+  %4 = getelementptr [8 x i8], ptr @mei_cfg_list, i64 %0
   %5 = load ptr, ptr %4, align 8
   br label %6
 
@@ -1933,7 +1933,7 @@ define dso_local noundef ptr @mei_me_dev_init(ptr noundef %0, ptr noundef %1, i1
 
 9:                                                ; preds = %9, %6
   %10 = phi i64 [ 0, %6 ], [ %14, %9 ]
-  %11 = getelementptr i64, ptr %7, i64 %10
+  %11 = getelementptr [8 x i8], ptr %7, i64 %10
   %12 = load i64, ptr %11, align 8
   %.idx = mul nuw nsw i64 %10, 24
   %13 = getelementptr i8, ptr %8, i64 %.idx
@@ -3379,9 +3379,9 @@ define internal i32 @mei_me_fw_status(ptr noundef %0, ptr noundef %1) #0 align 1
 23:                                               ; preds = %16, %13
   %24 = phi i64 [ 0, %13 ], [ %17, %16 ]
   %25 = load ptr, ptr %7, align 8
-  %26 = getelementptr i32, ptr %14, i64 %24
+  %26 = getelementptr [4 x i8], ptr %14, i64 %24
   %27 = load i32, ptr %26, align 4
-  %28 = getelementptr i32, ptr %15, i64 %24
+  %28 = getelementptr [4 x i8], ptr %15, i64 %24
   %29 = tail call i32 %25(ptr noundef %0, i32 noundef %27, ptr noundef %28) #16
   %30 = load ptr, ptr %0, align 8
   %31 = load i32, ptr %26, align 4
@@ -3981,7 +3981,7 @@ define internal range(i32 -90, 1) i32 @mei_me_hbuf_write(ptr noundef %0, ptr nou
 
 40:                                               ; preds = %40, %34
   %41 = phi i64 [ 0, %34 ], [ %45, %40 ]
-  %42 = getelementptr i32, ptr %1, i64 %41
+  %42 = getelementptr [4 x i8], ptr %1, i64 %41
   %43 = load i32, ptr %42, align 4
   %44 = load ptr, ptr %35, align 8
   tail call void @iowrite32(i32 noundef %43, ptr noundef %44) #16
@@ -3991,7 +3991,7 @@ define internal range(i32 -90, 1) i32 @mei_me_hbuf_write(ptr noundef %0, ptr nou
 
 47:                                               ; preds = %47, %38
   %48 = phi i64 [ 0, %38 ], [ %52, %47 ]
-  %49 = getelementptr i32, ptr %3, i64 %48
+  %49 = getelementptr [4 x i8], ptr %3, i64 %48
   %50 = load i32, ptr %49, align 4
   %51 = load ptr, ptr %39, align 8
   tail call void @iowrite32(i32 noundef %50, ptr noundef %51) #16

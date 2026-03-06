@@ -2594,7 +2594,7 @@ define void @_ZN13uv_pypi_types9conflicts9Conflicts4push17hbf8c2b3fd6d310bfE(ptr
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h2947f5a5c44099a5E.exit": ; preds = %._crit_edge.i, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17hbf61f9f175656d7bE.exit.i"
   %36 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %29, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17hbf61f9f175656d7bE.exit.i" ]
-  %37 = getelementptr inbounds { { { { ptr, [1 x i64] }, i64, { {} }, {} } }, i8, [7 x i8] }, ptr %36, i64 %6
+  %37 = getelementptr inbounds [32 x i8], ptr %36, i64 %6
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %37, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 32, i1 false), !noalias !269
   %38 = add i64 %6, 1
   store i64 %38, ptr %5, align 8, !alias.scope !269, !noalias !272
@@ -2607,7 +2607,7 @@ define { ptr, ptr } @_ZN13uv_pypi_types9conflicts9Conflicts4iter17h4c9f488cb08a1
   %3 = load ptr, ptr %2, align 8, !nonnull !6, !noundef !6
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !noundef !6
-  %6 = getelementptr inbounds { { { { ptr, [1 x i64] }, i64, { {} }, {} } }, i8, [7 x i8] }, ptr %3, i64 %5
+  %6 = getelementptr inbounds [32 x i8], ptr %3, i64 %5
   %7 = insertvalue { ptr, ptr } poison, ptr %3, 0
   %8 = insertvalue { ptr, ptr } %7, ptr %6, 1
   ret { ptr, ptr } %8
@@ -2648,7 +2648,7 @@ define void @_ZN13uv_pypi_types9conflicts9Conflicts6append17h2a96798b141b4750E(p
   tail call void @llvm.assume(i1 %14)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load ptr, ptr %15, align 8, !alias.scope !293, !nonnull !6, !noundef !6
-  %17 = getelementptr inbounds nuw { { { { ptr, [1 x i64] }, i64, { {} }, {} } }, i8, [7 x i8] }, ptr %16, i64 %13
+  %17 = getelementptr inbounds nuw [32 x i8], ptr %16, i64 %13
   %18 = shl i64 %6, 5
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %17, ptr nonnull readonly align 8 %4, i64 %18, i1 false), !noalias !293
   %19 = add i64 %13, %6
@@ -3116,7 +3116,7 @@ define void @_ZN13uv_pypi_types9conflicts9Conflicts32expand_transitive_group_inc
   %206 = add i64 %.sroa.01.0.i.i.i, %205
   %207 = and i64 %206, %197
   %208 = sub nsw i64 0, %207
-  %209 = getelementptr inbounds { ptr, i32, [1 x i32] }, ptr %198, i64 %208
+  %209 = getelementptr inbounds [16 x i8], ptr %198, i64 %208
   %210 = getelementptr inbounds i8, ptr %209, i64 -16
   %.val3.i.i.i = load ptr, ptr %210, align 8, !alias.scope !389, !noalias !394, !nonnull !6, !align !31, !noundef !6
   %211 = invoke noundef zeroext i1 @"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.llvm.7989422476702131114"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %179, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %.val3.i.i.i)
@@ -3330,7 +3330,7 @@ define void @_ZN13uv_pypi_types9conflicts9Conflicts32expand_transitive_group_inc
 
 279:                                              ; preds = %270
   %280 = load ptr, ptr %.sroa.439.0..sroa_idx, align 8, !alias.scope !461, !noalias !462, !nonnull !6, !noundef !6
-  %281 = getelementptr inbounds nuw { { { { { { ptr, i64, i64, i64 }, {}, {} }, {} } } }, [2 x i32] }, ptr %280, i64 %277
+  %281 = getelementptr inbounds nuw [40 x i8], ptr %280, i64 %277
   %282 = getelementptr inbounds nuw i8, ptr %281, i64 32
   %.sroa.0.0.copyload.i.i = load i32, ptr %282, align 8, !noalias !463
   br label %602
@@ -4105,7 +4105,7 @@ select.unfold:                                    ; preds = %598, %.noexc214, %.
   %521 = add i64 %.sroa.01.0.i.i.i221, %520
   %522 = and i64 %521, %512
   %523 = sub nsw i64 0, %522
-  %524 = getelementptr inbounds ptr, ptr %513, i64 %523
+  %524 = getelementptr inbounds [8 x i8], ptr %513, i64 %523
   %525 = getelementptr inbounds i8, ptr %524, i64 -8
   %.val3.i.i.i225 = load ptr, ptr %525, align 8, !alias.scope !785, !noalias !790, !nonnull !6, !align !31, !noundef !6
   %526 = invoke noundef zeroext i1 @"_ZN98_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6eb784a03118b3adE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %66, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.val3.i.i.i225)
@@ -4209,7 +4209,7 @@ select.unfold719:                                 ; preds = %._crit_edge.i.i226,
   %560 = add i64 %.sroa.01.0.i.i.i237, %559
   %561 = and i64 %560, %551
   %562 = sub nsw i64 0, %561
-  %563 = getelementptr inbounds { { { { { ptr, [1 x i64] }, i64, { {} }, {} } }, i8, [7 x i8] }, {} }, ptr %552, i64 %562
+  %563 = getelementptr inbounds [32 x i8], ptr %552, i64 %562
   %564 = getelementptr inbounds i8, ptr %563, i64 -32
   %565 = invoke noundef zeroext i1 @"_ZN98_$LT$alloc..collections..btree..map..BTreeMap$LT$K$C$V$C$A$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6eb784a03118b3adE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %66, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %564)
           to label %.noexc246 unwind label %.loopexit
@@ -4526,7 +4526,7 @@ select.unfold722:                                 ; preds = %._crit_edge.i.i242,
   %646 = load ptr, ptr %.sroa.439.0..sroa_idx, align 8, !alias.scope !951, !nonnull !6, !noundef !6
   %647 = load i64, ptr %.sroa.540.0..sroa_idx, align 8, !alias.scope !951, !noundef !6
   %.not = icmp ugt i64 %647, %277
-  %648 = getelementptr inbounds nuw { { { { { { ptr, i64, i64, i64 }, {}, {} }, {} } } }, [2 x i32] }, ptr %646, i64 %277
+  %648 = getelementptr inbounds nuw [40 x i8], ptr %646, i64 %277
   br i1 %.not, label %649, label %.lr.ph946._crit_edge
 
 .lr.ph946._crit_edge:                             ; preds = %.lr.ph946
@@ -4572,7 +4572,7 @@ select.unfold722:                                 ; preds = %._crit_edge.i.i242,
   %667 = add i64 %.sroa.01.0.i.i.i287, %666
   %668 = and i64 %667, %658
   %669 = sub nsw i64 0, %668
-  %670 = getelementptr inbounds { i32, [1 x i32], ptr }, ptr %659, i64 %669
+  %670 = getelementptr inbounds [16 x i8], ptr %659, i64 %669
   %671 = getelementptr inbounds i8, ptr %670, i64 -16
   %.val3.i.i.i291 = load i32, ptr %671, align 4, !alias.scope !970, !noalias !977, !noundef !6
   %672 = icmp eq i32 %645, %.val3.i.i.i291
@@ -4832,7 +4832,7 @@ _ZN5alloc7raw_vec11finish_grow17hf430db8f03429d2eE.exit: ; preds = %747, %750, %
 ._crit_edge.i:                                    ; preds = %_ZN5alloc2rc10RcInnerPtr10inc_strong17hda763cfa379876d6E.exit312, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17ha18c655d803583aaE.exit.i"
   %.pre.i996 = phi ptr [ %.sroa.05.0.i.i.pn.i, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17ha18c655d803583aaE.exit.i" ], [ %.pre.i, %_ZN5alloc2rc10RcInnerPtr10inc_strong17hda763cfa379876d6E.exit312 ]
   %.sroa.0686.5 = phi ptr [ %.sroa.0686.4, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17ha18c655d803583aaE.exit.i" ], [ %.sroa.0686.3940, %_ZN5alloc2rc10RcInnerPtr10inc_strong17hda763cfa379876d6E.exit312 ]
-  %764 = getelementptr inbounds ptr, ptr %.pre.i996, i64 %712
+  %764 = getelementptr inbounds [8 x i8], ptr %.pre.i996, i64 %712
   store ptr %728, ptr %764, align 8, !noalias !1013
   %765 = add i64 %712, 1
   store i64 %765, ptr %234, align 8, !alias.scope !1013
@@ -4904,7 +4904,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17hda763cfa379876d6E.exit317: ; preds = %._c
   store i8 %788, ptr %795, align 1, !noalias !1048
   %796 = load ptr, ptr %775, align 8, !alias.scope !1055, !noalias !1048, !nonnull !6, !noundef !6
   %797 = sub nsw i64 0, %778
-  %798 = getelementptr inbounds { ptr, { { { { { ptr, i64, i64, i64 }, {}, {} }, {} } } } }, ptr %796, i64 %797
+  %798 = getelementptr inbounds [40 x i8], ptr %796, i64 %797
   %799 = and i8 %786, 1
   %800 = zext nneg i8 %799 to i64
   %801 = getelementptr inbounds nuw i8, ptr %775, i64 16
@@ -5029,7 +5029,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17hda763cfa379876d6E.exit322: ; preds = %808
   %853 = phi ptr [ %646, %.lr.ph946._crit_edge ], [ %.pre998, %"_ZN4core3ptr80drop_in_place$LT$alloc..rc..Rc$LT$uv_pypi_types..conflicts..ConflictItem$GT$$GT$17h8cc1d7ef2ff66fecE.exit310" ]
   %.sroa.0686.2 = phi ptr [ %.sroa.0686.1944, %.lr.ph946._crit_edge ], [ %.sroa.0686.3.lcssa, %"_ZN4core3ptr80drop_in_place$LT$alloc..rc..Rc$LT$uv_pypi_types..conflicts..ConflictItem$GT$$GT$17h8cc1d7ef2ff66fecE.exit310" ]
   %.not798 = icmp ugt i64 %852, %.pre-phi
-  %854 = getelementptr inbounds nuw { { { { { { ptr, i64, i64, i64 }, {}, {} }, {} } } }, [2 x i32] }, ptr %853, i64 %.pre-phi
+  %854 = getelementptr inbounds nuw [40 x i8], ptr %853, i64 %.pre-phi
   br i1 %.not798, label %855, label %select.unfold742.invoke
 
 855:                                              ; preds = %851
@@ -5037,7 +5037,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17hda763cfa379876d6E.exit322: ; preds = %808
   %.sroa.4522.0.copyload = load ptr, ptr %233, align 8, !nonnull !6, !noundef !6
   %856 = icmp ult i64 %.sroa.5523.0.copyload, 1152921504606846976
   call void @llvm.assume(i1 %856)
-  %857 = getelementptr inbounds nuw ptr, ptr %.sroa.4522.0.copyload, i64 %.sroa.5523.0.copyload
+  %857 = getelementptr inbounds nuw [8 x i8], ptr %.sroa.4522.0.copyload, i64 %.sroa.5523.0.copyload
   %858 = icmp sgt i64 %.sroa.0521.0.copyload, -1
   call void @llvm.assume(i1 %858)
   call void @llvm.experimental.noalias.scope.decl(metadata !1101)
@@ -5214,7 +5214,7 @@ _ZN5alloc2rc10RcInnerPtr10inc_strong17hda763cfa379876d6E.exit322: ; preds = %808
   %920 = add i64 %.sroa.01.0.i.i.i357, %919
   %921 = and i64 %920, %911
   %922 = sub nsw i64 0, %921
-  %923 = getelementptr inbounds { ptr, i32, [1 x i32] }, ptr %912, i64 %922
+  %923 = getelementptr inbounds [16 x i8], ptr %912, i64 %922
   %924 = getelementptr inbounds i8, ptr %923, i64 -16
   %.val3.i.i.i361 = load ptr, ptr %924, align 8, !alias.scope !1162, !noalias !1167, !nonnull !6, !align !31, !noundef !6
   %925 = invoke noundef zeroext i1 @"_ZN64_$LT$arcstr..arc_str..ArcStr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h669109e18a59e9a8E.llvm.7989422476702131114"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %897, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %.val3.i.i.i361)
@@ -5650,7 +5650,7 @@ thread-pre-split:                                 ; preds = %.thread784, %1059, 
   %1060 = getelementptr inbounds nuw i8, ptr %1051, i64 8
   %1061 = icmp ult i64 %.sroa.4.sroa.4.0.copyload.i.i.i, 11
   call void @llvm.assume(i1 %1061)
-  %1062 = getelementptr inbounds nuw { [3 x i64] }, ptr %1060, i64 %.sroa.4.sroa.4.0.copyload.i.i.i
+  %1062 = getelementptr inbounds nuw [24 x i8], ptr %1060, i64 %.sroa.4.sroa.4.0.copyload.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !1248
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %15, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false), !noalias !1248
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !1248
@@ -7377,7 +7377,7 @@ define void @_ZN13uv_pypi_types9conflicts15SchemaConflicts30to_conflicts_with_pa
 
 130:                                              ; preds = %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h3f1559c8dca090c8E.exit.i", %._crit_edge.i
   %131 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %125, %"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$8grow_one17h3f1559c8dca090c8E.exit.i" ]
-  %132 = getelementptr inbounds { { i64, [1 x i64] }, ptr }, ptr %131, i64 %107
+  %132 = getelementptr inbounds [24 x i8], ptr %131, i64 %107
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %132, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false), !noalias !1520
   %133 = add i64 %107, 1
   store i64 %133, ptr %22, align 8, !alias.scope !1520, !noalias !1523
@@ -7805,10 +7805,10 @@ define internal noundef zeroext i1 @"_ZN76_$LT$uv_pypi_types..conflicts..Conflic
 switch.lookup:
   %2 = load i8, ptr %0, align 1, !range !748, !noundef !6
   %3 = zext nneg i8 %2 to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @"switch.table._ZN76_$LT$uv_pypi_types..conflicts..ConflictError$u20$as$u20$core..fmt..Debug$GT$3fmt17h39c22008bbe7457cE", i64 %3
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN76_$LT$uv_pypi_types..conflicts..ConflictError$u20$as$u20$core..fmt..Debug$GT$3fmt17h39c22008bbe7457cE", i64 %3
   %switch.load = load i64, ptr %switch.gep, align 8
   %4 = zext nneg i8 %2 to i64
-  %switch.gep2 = getelementptr inbounds nuw ptr, ptr @"switch.table._ZN76_$LT$uv_pypi_types..conflicts..ConflictError$u20$as$u20$core..fmt..Debug$GT$3fmt17h39c22008bbe7457cE.44", i64 %4
+  %switch.gep2 = getelementptr inbounds nuw [8 x i8], ptr @"switch.table._ZN76_$LT$uv_pypi_types..conflicts..ConflictError$u20$as$u20$core..fmt..Debug$GT$3fmt17h39c22008bbe7457cE.44", i64 %4
   %switch.load3 = load ptr, ptr %switch.gep2, align 8
   %5 = tail call noundef zeroext i1 @_ZN4core3fmt9Formatter9write_str17haa15194e1d29df39E(ptr noalias noundef nonnull align 8 dereferenceable(64) %1, ptr noalias noundef nonnull readonly align 1 %switch.load3, i64 noundef %switch.load)
   ret i1 %5

@@ -7,7 +7,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.list_head = type { ptr, ptr }
 %struct.strvec = type { ptr, i64, i64 }
 %struct.strbuf = type { i64, i64, ptr }
-%struct.anon.0 = type { ptr, i32 }
 %struct.process_trailer_options = type { i32, i32, i32, i32, i32, i32, i32, i32, ptr, ptr, ptr, ptr }
 %struct.child_process = type { %struct.strvec, %struct.strvec, i32, i32, i64, ptr, ptr, i32, i32, i32, ptr, i16, ptr }
 
@@ -735,7 +734,7 @@ define internal range(i32 -1, 1) i32 @git_trailer_config(ptr noundef %0, ptr nou
 
 17:                                               ; preds = %13, %15
   %.0107 = phi i64 [ 0, %13 ], [ %16, %15 ]
-  %18 = getelementptr inbounds nuw %struct.anon.0, ptr @trailer_config_items, i64 %.0107
+  %18 = getelementptr inbounds nuw [16 x i8], ptr @trailer_config_items, i64 %.0107
   %19 = load ptr, ptr %18, align 16, !tbaa !42
   %20 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull dereferenceable(1) %14) #16
   %.not50 = icmp eq i32 %20, 0
@@ -1563,7 +1562,7 @@ define dso_local ptr @parse_trailers(ptr noundef readonly captures(none) %0, ptr
 15:                                               ; preds = %.lr.ph, %71
   %.022 = phi i64 [ 0, %.lr.ph ], [ %72, %71 ]
   %16 = load ptr, ptr %9, align 8, !tbaa !69
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %.022
+  %17 = getelementptr inbounds nuw [8 x i8], ptr %16, i64 %.022
   %18 = load ptr, ptr %17, align 8, !tbaa !40
   %19 = load ptr, ptr @comment_line_str, align 8, !tbaa !40
   %20 = call i32 @starts_with(ptr noundef %18, ptr noundef %19) #17
@@ -2172,7 +2171,7 @@ st_mult.exit:                                     ; preds = %178
   %.252 = phi ptr [ %185, %st_mult.exit ], [ %.05096, %175 ]
   %.3 = phi i64 [ %., %st_mult.exit ], [ %.04698, %175 ]
   %188 = call ptr @strbuf_detach(ptr noundef %187, ptr noundef null) #17
-  %189 = getelementptr inbounds nuw ptr, ptr %.252, i64 %.04897
+  %189 = getelementptr inbounds nuw [8 x i8], ptr %.252, i64 %.04897
   store ptr %188, ptr %189, align 8, !tbaa !40
   %190 = load ptr, ptr @separators, align 8, !tbaa !40
   %191 = load i8, ptr %188, align 1, !tbaa !19
@@ -2483,7 +2482,7 @@ define dso_local void @trailer_block_release(ptr noundef captures(none) %0) loca
 5:                                                ; preds = %.lr.ph, %5
   %.06 = phi i64 [ 0, %.lr.ph ], [ %9, %5 ]
   %6 = load ptr, ptr %4, align 8, !tbaa !69
-  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %.06
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %.06
   %8 = load ptr, ptr %7, align 8, !tbaa !40
   tail call void @free(ptr noundef %8) #17
   %9 = add nuw i64 %.06, 1
@@ -2898,7 +2897,7 @@ free_trailers.exit:                               ; preds = %.lr.ph.i, %35
 46:                                               ; preds = %46, %.lr.ph.i24
   %.06.i = phi i64 [ 0, %.lr.ph.i24 ], [ %50, %46 ]
   %47 = load ptr, ptr %45, align 8, !tbaa !69
-  %48 = getelementptr inbounds nuw ptr, ptr %47, i64 %.06.i
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %47, i64 %.06.i
   %49 = load ptr, ptr %48, align 8, !tbaa !40
   call void @free(ptr noundef %49) #17
   %50 = add nuw i64 %.06.i, 1
@@ -2958,7 +2957,7 @@ define dso_local range(i32 0, 2) i32 @trailer_iterator_advance(ptr noundef %0) l
   %11 = load ptr, ptr %10, align 8, !tbaa !69
   %12 = add nuw i64 %4, 1
   store i64 %12, ptr %3, align 8, !tbaa !106
-  %13 = getelementptr inbounds nuw ptr, ptr %11, i64 %4
+  %13 = getelementptr inbounds nuw [8 x i8], ptr %11, i64 %4
   %14 = load ptr, ptr %13, align 8, !tbaa !40
   %15 = load ptr, ptr @separators, align 8, !tbaa !40
   %16 = load i8, ptr %14, align 1, !tbaa !19
@@ -3067,7 +3066,7 @@ define dso_local void @trailer_iterator_release(ptr noundef %0) local_unnamed_ad
 7:                                                ; preds = %7, %.lr.ph.i
   %.06.i = phi i64 [ 0, %.lr.ph.i ], [ %11, %7 ]
   %8 = load ptr, ptr %6, align 8, !tbaa !69
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %.06.i
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %.06.i
   %10 = load ptr, ptr %9, align 8, !tbaa !40
   tail call void @free(ptr noundef %10) #17
   %11 = add nuw i64 %.06.i, 1

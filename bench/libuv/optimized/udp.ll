@@ -781,15 +781,15 @@ define internal fastcc void @uv__udp_sendmsg(ptr noundef %0) unnamed_addr #0 {
   %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.be, %.backedge ]
   %.038 = phi ptr [ %6, %.preheader ], [ %.038.be, %.backedge ]
   %11 = getelementptr inbounds nuw i8, ptr %.038, i64 16
-  %12 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv
   store ptr %11, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %.038, i64 144
   %14 = load i32, ptr %13, align 8
-  %15 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   store i32 %14, ptr %15, align 4
   %16 = getelementptr inbounds nuw i8, ptr %.038, i64 152
   %17 = load ptr, ptr %16, align 8
-  %18 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv
   store ptr %17, ptr %18, align 8
   %.038.val = load ptr, ptr %.038, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -1245,17 +1245,17 @@ define internal void @uv__udp_io(ptr readnone captures(none) %0, ptr noundef %1,
   %.05061.i.i = phi i64 [ %50, %.lr.ph.i.i ], [ 0, %36 ]
   %39 = shl nuw i64 %.05061.i.i, 16
   %40 = getelementptr inbounds nuw i8, ptr %27, i64 %39
-  %41 = getelementptr inbounds nuw %struct.iovec, ptr %5, i64 %.05061.i.i
+  %41 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %.05061.i.i
   store ptr %40, ptr %41, align 16
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 8
   store i64 65536, ptr %42, align 8
-  %43 = getelementptr inbounds nuw %struct.mmsghdr, ptr %6, i64 %.05061.i.i
+  %43 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 %.05061.i.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %43, i8 0, i64 56, i1 false)
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
   store ptr %41, ptr %44, align 16
   %45 = getelementptr inbounds nuw i8, ptr %43, i64 24
   store i64 1, ptr %45, align 8
-  %46 = getelementptr inbounds nuw %struct.sockaddr_in6, ptr %4, i64 %.05061.i.i
+  %46 = getelementptr inbounds nuw [28 x i8], ptr %4, i64 %.05061.i.i
   store ptr %46, ptr %43, align 16
   %47 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i32 28, ptr %47, align 8
@@ -1317,13 +1317,13 @@ define internal void @uv__udp_io(ptr readnone captures(none) %0, ptr noundef %1,
   br i1 %.not.i.i, label %uv__udp_recvmmsg.exit.i, label %72
 
 72:                                               ; preds = %.lr.ph64.i.i
-  %73 = getelementptr inbounds nuw %struct.mmsghdr, ptr %6, i64 %.163.i.i
+  %73 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 %.163.i.i
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 48
   %75 = load i32, ptr %74, align 16
   %76 = and i32 %75, 32
   %.not56.i.i = icmp eq i32 %76, 0
   %spec.select.i.i = select i1 %.not56.i.i, i32 8, i32 10
-  %77 = getelementptr inbounds nuw %struct.iovec, ptr %5, i64 %.163.i.i
+  %77 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %.163.i.i
   %78 = load ptr, ptr %77, align 16
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %80 = load i64, ptr %79, align 8
@@ -2299,12 +2299,12 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @uv__udp_sendmsgv
 13:                                               ; preds = %.preheader76, %32
   %indvars.iv110 = phi i64 [ %10, %.preheader76 ], [ %indvars.iv.next111, %32 ]
   %indvars.iv = phi i64 [ 0, %.preheader76 ], [ %indvars.iv.next, %32 ]
-  %14 = getelementptr inbounds nuw %struct.mmsghdr, ptr %6, i64 %indvars.iv
-  %15 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv110
+  %14 = getelementptr inbounds nuw [64 x i8], ptr %6, i64 %indvars.iv
+  %15 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv110
   %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv110
+  %17 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv110
   %18 = load i32, ptr %17, align 4
-  %19 = getelementptr inbounds nuw ptr, ptr %4, i64 %indvars.iv110
+  %19 = getelementptr inbounds nuw [8 x i8], ptr %4, i64 %indvars.iv110
   %20 = load ptr, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %21, i8 0, i64 48, i1 false)

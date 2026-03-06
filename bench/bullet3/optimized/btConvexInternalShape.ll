@@ -115,7 +115,7 @@ define dso_local void @_ZNK21btConvexInternalShape11getAabbSlowERK11btTransformR
 30:                                               ; preds = %4, %30
   %indvars.iv = phi i64 [ 0, %4 ], [ %indvars.iv.next, %30 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %31 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv
+  %31 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, i8 0, i64 16, i1 false)
   store float 1.000000e+00, ptr %31, align 4, !tbaa !7
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -185,10 +185,10 @@ define dso_local void @_ZNK21btConvexInternalShape11getAabbSlowERK11btTransformR
   %.sroa.3.12.vec.insert.i4.i = insertelement <2 x float> <float poison, float 0.000000e+00>, float %82, i64 0
   store <2 x float> %.sroa.0.4.vec.insert.i3.i, ptr %7, align 8
   store <2 x float> %.sroa.3.12.vec.insert.i4.i, ptr %27, align 8
-  %83 = getelementptr inbounds nuw float, ptr %7, i64 %indvars.iv
+  %83 = getelementptr inbounds nuw [4 x i8], ptr %7, i64 %indvars.iv
   %84 = load float, ptr %83, align 4, !tbaa !7
   %85 = fadd float %12, %84
-  %86 = getelementptr inbounds nuw float, ptr %3, i64 %indvars.iv
+  %86 = getelementptr inbounds nuw [4 x i8], ptr %3, i64 %indvars.iv
   store float %85, ptr %86, align 4, !tbaa !7
   store float -1.000000e+00, ptr %31, align 4, !tbaa !7
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -259,7 +259,7 @@ define dso_local void @_ZNK21btConvexInternalShape11getAabbSlowERK11btTransformR
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %138 = load float, ptr %83, align 4, !tbaa !7
   %139 = fsub float %138, %12
-  %140 = getelementptr inbounds nuw float, ptr %2, i64 %indvars.iv
+  %140 = getelementptr inbounds nuw [4 x i8], ptr %2, i64 %indvars.iv
   store float %139, ptr %140, align 4, !tbaa !7
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
@@ -532,17 +532,17 @@ define dso_local void @_ZN32btConvexInternalAabbCachingShape15setLocalScalingERK
 
 28:                                               ; preds = %28, %20
   %indvars.iv.i = phi i64 [ 0, %20 ], [ %indvars.iv.next.i, %28 ]
-  %29 = getelementptr inbounds nuw %class.btVector3, ptr %3, i64 %indvars.iv.i
-  %30 = getelementptr inbounds nuw float, ptr %29, i64 %indvars.iv.i
+  %29 = getelementptr inbounds nuw [16 x i8], ptr %3, i64 %indvars.iv.i
+  %30 = getelementptr inbounds nuw [4 x i8], ptr %29, i64 %indvars.iv.i
   %31 = load float, ptr %30, align 4, !tbaa !7
   %32 = fadd float %25, %31
-  %33 = getelementptr inbounds nuw float, ptr %26, i64 %indvars.iv.i
+  %33 = getelementptr inbounds nuw [4 x i8], ptr %26, i64 %indvars.iv.i
   store float %32, ptr %33, align 4, !tbaa !7
   %34 = getelementptr inbounds nuw i8, ptr %29, i64 48
-  %35 = getelementptr inbounds nuw float, ptr %34, i64 %indvars.iv.i
+  %35 = getelementptr inbounds nuw [4 x i8], ptr %34, i64 %indvars.iv.i
   %36 = load float, ptr %35, align 4, !tbaa !7
   %37 = fsub float %36, %25
-  %38 = getelementptr inbounds nuw float, ptr %27, i64 %indvars.iv.i
+  %38 = getelementptr inbounds nuw [4 x i8], ptr %27, i64 %indvars.iv.i
   store float %37, ptr %38, align 4, !tbaa !7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 3
@@ -603,17 +603,17 @@ define dso_local void @_ZN32btConvexInternalAabbCachingShape15recalcLocalAabbEv(
 
 19:                                               ; preds = %10, %19
   %indvars.iv = phi i64 [ 0, %10 ], [ %indvars.iv.next, %19 ]
-  %20 = getelementptr inbounds nuw %class.btVector3, ptr %2, i64 %indvars.iv
-  %21 = getelementptr inbounds nuw float, ptr %20, i64 %indvars.iv
+  %20 = getelementptr inbounds nuw [16 x i8], ptr %2, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw [4 x i8], ptr %20, i64 %indvars.iv
   %22 = load float, ptr %21, align 4, !tbaa !7
   %23 = fadd float %22, %15
-  %24 = getelementptr inbounds nuw float, ptr %16, i64 %indvars.iv
+  %24 = getelementptr inbounds nuw [4 x i8], ptr %16, i64 %indvars.iv
   store float %23, ptr %24, align 4, !tbaa !7
   %25 = getelementptr inbounds nuw i8, ptr %20, i64 48
-  %26 = getelementptr inbounds nuw float, ptr %25, i64 %indvars.iv
+  %26 = getelementptr inbounds nuw [4 x i8], ptr %25, i64 %indvars.iv
   %27 = load float, ptr %26, align 4, !tbaa !7
   %28 = fsub float %27, %15
-  %29 = getelementptr inbounds nuw float, ptr %17, i64 %indvars.iv
+  %29 = getelementptr inbounds nuw [4 x i8], ptr %17, i64 %indvars.iv
   store float %28, ptr %29, align 4, !tbaa !7
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
@@ -691,9 +691,9 @@ define linkonce_odr dso_local noundef ptr @_ZNK21btConvexInternalShape9serialize
 
 7:                                                ; preds = %7, %3
   %indvars.iv.i = phi i64 [ 0, %3 ], [ %indvars.iv.next.i, %7 ]
-  %8 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv.i
+  %8 = getelementptr inbounds nuw [4 x i8], ptr %5, i64 %indvars.iv.i
   %9 = load float, ptr %8, align 4, !tbaa !7
-  %10 = getelementptr inbounds nuw float, ptr %6, i64 %indvars.iv.i
+  %10 = getelementptr inbounds nuw [4 x i8], ptr %6, i64 %indvars.iv.i
   store float %9, ptr %10, align 4, !tbaa !7
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
@@ -706,9 +706,9 @@ _ZNK9btVector314serializeFloatER18btVector3FloatData.exit: ; preds = %7
 
 13:                                               ; preds = %13, %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit
   %indvars.iv.i8 = phi i64 [ 0, %_ZNK9btVector314serializeFloatER18btVector3FloatData.exit ], [ %indvars.iv.next.i9, %13 ]
-  %14 = getelementptr inbounds nuw float, ptr %11, i64 %indvars.iv.i8
+  %14 = getelementptr inbounds nuw [4 x i8], ptr %11, i64 %indvars.iv.i8
   %15 = load float, ptr %14, align 4, !tbaa !7
-  %16 = getelementptr inbounds nuw float, ptr %12, i64 %indvars.iv.i8
+  %16 = getelementptr inbounds nuw [4 x i8], ptr %12, i64 %indvars.iv.i8
   store float %15, ptr %16, align 4, !tbaa !7
   %indvars.iv.next.i9 = add nuw nsw i64 %indvars.iv.i8, 1
   %exitcond.not.i10 = icmp eq i64 %indvars.iv.next.i9, 4

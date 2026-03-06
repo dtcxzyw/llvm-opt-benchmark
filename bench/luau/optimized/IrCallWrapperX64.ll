@@ -7,11 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 %"struct.Luau::CodeGen::X64::OperandX64" = type { i8, %"struct.Luau::CodeGen::X64::RegisterX64", %"struct.Luau::CodeGen::X64::RegisterX64", i8, i32 }
 %"struct.Luau::CodeGen::X64::RegisterX64" = type { i8 }
 %"struct.std::array.75" = type { [6 x %"struct.Luau::CodeGen::X64::OperandX64"] }
-%"struct.Luau::CodeGen::X64::CallArgument" = type <{ i8, [3 x i8], %"struct.Luau::CodeGen::X64::OperandX64", %"struct.Luau::CodeGen::IrOp", %"struct.Luau::CodeGen::X64::OperandX64", i8, [3 x i8] }>
-%"struct.Luau::CodeGen::IrOp" = type { i32 }
 %"struct.Luau::CodeGen::X64::ScopedRegX64" = type <{ ptr, %"struct.Luau::CodeGen::X64::RegisterX64", [7 x i8] }>
-%"struct.Luau::CodeGen::IrInst" = type <{ i8, [3 x i8], %"struct.Luau::CodeGen::IrOp", %"struct.Luau::CodeGen::IrOp", %"struct.Luau::CodeGen::IrOp", %"struct.Luau::CodeGen::IrOp", %"struct.Luau::CodeGen::IrOp", %"struct.Luau::CodeGen::IrOp", %"struct.Luau::CodeGen::IrOp", i32, i16, %"struct.Luau::CodeGen::X64::RegisterX64", %"struct.Luau::CodeGen::A64::RegisterA64", i8, i8, i8, i8 }>
-%"struct.Luau::CodeGen::A64::RegisterA64" = type { i8 }
 
 @_ZN4Luau7CodeGen3X64L9kXmmOrderE = internal unnamed_addr constant %"struct.std::array.74" { [4 x %"struct.Luau::CodeGen::X64::OperandX64"] [%"struct.Luau::CodeGen::X64::OperandX64" { i8 0, %"struct.Luau::CodeGen::X64::RegisterX64" { i8 -128 }, %"struct.Luau::CodeGen::X64::RegisterX64" { i8 5 }, i8 16, i32 0 }, %"struct.Luau::CodeGen::X64::OperandX64" { i8 0, %"struct.Luau::CodeGen::X64::RegisterX64" { i8 -128 }, %"struct.Luau::CodeGen::X64::RegisterX64" { i8 13 }, i8 16, i32 0 }, %"struct.Luau::CodeGen::X64::OperandX64" { i8 0, %"struct.Luau::CodeGen::X64::RegisterX64" { i8 -128 }, %"struct.Luau::CodeGen::X64::RegisterX64" { i8 21 }, i8 16, i32 0 }, %"struct.Luau::CodeGen::X64::OperandX64" { i8 0, %"struct.Luau::CodeGen::X64::RegisterX64" { i8 -128 }, %"struct.Luau::CodeGen::X64::RegisterX64" { i8 29 }, i8 16, i32 0 }] }, align 4
 @_ZN4Luau7CodeGen3X64L16kWindowsGprOrderE = internal unnamed_addr constant %"struct.std::array.75" { [6 x %"struct.Luau::CodeGen::X64::OperandX64"] [%"struct.Luau::CodeGen::X64::OperandX64" { i8 0, %"struct.Luau::CodeGen::X64::RegisterX64" { i8 -128 }, %"struct.Luau::CodeGen::X64::RegisterX64" { i8 12 }, i8 16, i32 0 }, %"struct.Luau::CodeGen::X64::OperandX64" { i8 0, %"struct.Luau::CodeGen::X64::RegisterX64" { i8 -128 }, %"struct.Luau::CodeGen::X64::RegisterX64" { i8 20 }, i8 16, i32 0 }, %"struct.Luau::CodeGen::X64::OperandX64" { i8 0, %"struct.Luau::CodeGen::X64::RegisterX64" { i8 -128 }, %"struct.Luau::CodeGen::X64::RegisterX64" { i8 68 }, i8 16, i32 0 }, %"struct.Luau::CodeGen::X64::OperandX64" { i8 0, %"struct.Luau::CodeGen::X64::RegisterX64" { i8 -128 }, %"struct.Luau::CodeGen::X64::RegisterX64" { i8 76 }, i8 16, i32 0 }, %"struct.Luau::CodeGen::X64::OperandX64" { i8 1, %"struct.Luau::CodeGen::X64::RegisterX64" { i8 -128 }, %"struct.Luau::CodeGen::X64::RegisterX64" { i8 36 }, i8 16, i32 32 }, %"struct.Luau::CodeGen::X64::OperandX64" { i8 1, %"struct.Luau::CodeGen::X64::RegisterX64" { i8 -128 }, %"struct.Luau::CodeGen::X64::RegisterX64" { i8 36 }, i8 16, i32 40 }] }, align 4
@@ -79,7 +75,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6411addArgumentENS1_7
   %8 = add nsw i32 %7, 1
   store i32 %8, ptr %6, align 4, !tbaa !29
   %9 = sext i32 %7 to i64
-  %10 = getelementptr inbounds nuw %"struct.Luau::CodeGen::X64::CallArgument", ptr %5, i64 %9
+  %10 = getelementptr inbounds nuw [28 x i8], ptr %5, i64 %9
   store i8 %1, ptr %10, align 4, !tbaa !30
   %.sroa.48.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i64 %2, ptr %.sroa.48.0..sroa_idx, align 4
@@ -102,7 +98,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6411addArgumentENS1_7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %14 = load i32, ptr %13, align 4, !tbaa !33
   %15 = sext i32 %14 to i64
-  %16 = getelementptr inbounds nuw %"struct.Luau::CodeGen::X64::OperandX64", ptr @_ZN4Luau7CodeGen3X64L9kXmmOrderE, i64 %15
+  %16 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4Luau7CodeGen3X64L9kXmmOrderE, i64 %15
   %.sroa.59.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %16, i64 2
   %.sroa.59.0.copyload.i = load i8, ptr %.sroa.59.0..sroa_idx.i, align 2, !tbaa !26
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -119,7 +115,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6411addArgumentENS1_7
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %24 = load i32, ptr %23, align 8, !tbaa !66
   %25 = sext i32 %24 to i64
-  %26 = getelementptr inbounds nuw %"struct.Luau::CodeGen::X64::OperandX64", ptr %_ZN4Luau7CodeGen3X64L16kWindowsGprOrderE._ZN4Luau7CodeGen3X64L16kSystemvGprOrderE.i, i64 %25
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %_ZN4Luau7CodeGen3X64L16kWindowsGprOrderE._ZN4Luau7CodeGen3X64L16kSystemvGprOrderE.i, i64 %25
   %.sroa.0.0.copyload5.i = load i8, ptr %26, align 4, !tbaa !31
   %.sroa.5.0..sroa_idx7.i = getelementptr inbounds nuw i8, ptr %26, i64 1
   %.sroa.5.0.copyload8.i = load i8, ptr %.sroa.5.0..sroa_idx7.i, align 1, !tbaa !26
@@ -213,7 +209,7 @@ define dso_local i64 @_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421getNextArgumentTa
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %6 = load i32, ptr %5, align 4, !tbaa !33
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds nuw %"struct.Luau::CodeGen::X64::OperandX64", ptr @_ZN4Luau7CodeGen3X64L9kXmmOrderE, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4Luau7CodeGen3X64L9kXmmOrderE, i64 %7
   %.sroa.59.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 2
   %.sroa.59.0.copyload = load i8, ptr %.sroa.59.0..sroa_idx, align 2, !tbaa !26
   br label %27
@@ -228,7 +224,7 @@ define dso_local i64 @_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421getNextArgumentTa
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %16 = load i32, ptr %15, align 8, !tbaa !66
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds nuw %"struct.Luau::CodeGen::X64::OperandX64", ptr %_ZN4Luau7CodeGen3X64L16kWindowsGprOrderE._ZN4Luau7CodeGen3X64L16kSystemvGprOrderE, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %_ZN4Luau7CodeGen3X64L16kWindowsGprOrderE._ZN4Luau7CodeGen3X64L16kSystemvGprOrderE, i64 %17
   %.sroa.0.0.copyload5 = load i8, ptr %18, align 4, !tbaa !31
   %.sroa.5.0..sroa_idx7 = getelementptr inbounds nuw i8, ptr %18, i64 1
   %.sroa.5.0.copyload8 = load i8, ptr %.sroa.5.0..sroa_idx7, align 1, !tbaa !26
@@ -360,7 +356,7 @@ _ZN4Luau7CodeGen3X6416IrCallWrapperX6414addRegisterUseENS1_11RegisterX64E.exit.i
 
 30:                                               ; preds = %_ZN4Luau7CodeGen3X6416IrCallWrapperX6414addRegisterUseENS1_11RegisterX64E.exit15.i, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZN4Luau7CodeGen3X6416IrCallWrapperX6414addRegisterUseENS1_11RegisterX64E.exit15.i ]
-  %31 = getelementptr inbounds nuw %"struct.Luau::CodeGen::X64::CallArgument", ptr %11, i64 %indvars.iv.i
+  %31 = getelementptr inbounds nuw [28 x i8], ptr %11, i64 %indvars.iv.i
   %32 = getelementptr inbounds nuw i8, ptr %31, i64 6
   %.sroa.03.0.copyload.i = load i8, ptr %32, align 2, !tbaa !26
   %33 = and i8 %.sroa.03.0.copyload.i, 7
@@ -428,7 +424,7 @@ _ZN4Luau7CodeGen3X6416IrCallWrapperX6417countRegisterUsesEv.exit: ; preds = %_ZN
 
 55:                                               ; preds = %.lr.ph, %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN4Luau7CodeGen3X64L22sameUnderlyingRegisterENS1_11RegisterX64ES2_.exit.thread ]
-  %56 = getelementptr inbounds nuw %"struct.Luau::CodeGen::X64::CallArgument", ptr %50, i64 %indvars.iv
+  %56 = getelementptr inbounds nuw [28 x i8], ptr %50, i64 %indvars.iv
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 12
   %58 = load i32, ptr %57, align 4
   %59 = and i32 %58, 15
@@ -449,7 +445,7 @@ _ZN4Luau7CodeGen3X6416IrCallWrapperX6417countRegisterUsesEv.exit: ; preds = %_ZN
 67:                                               ; preds = %60
   %68 = lshr i32 %58, 4
   %69 = zext nneg i32 %68 to i64
-  %70 = getelementptr inbounds nuw %"struct.Luau::CodeGen::IrInst", ptr %66, i64 %69
+  %70 = getelementptr inbounds nuw [44 x i8], ptr %66, i64 %69
   %71 = load i32, ptr %51, align 8, !tbaa !11
   %72 = call noundef zeroext i1 @_ZNK4Luau7CodeGen3X6413IrRegAllocX6412isLastUseRegERKNS0_6IrInstEj(ptr noundef nonnull align 8 dereferenceable(256) %61, ptr noundef nonnull align 4 dereferenceable(43) %70, i32 noundef %71)
   %73 = getelementptr inbounds nuw i8, ptr %70, i64 38
@@ -646,7 +642,7 @@ thread-pre-split:                                 ; preds = %_ZN4Luau7CodeGen3X6
 
 .lr.ph.split.us.i:                                ; preds = %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.thread.us.i, %.lr.ph.split.us.preheader.i
   %indvars.iv.i99 = phi i64 [ 0, %.lr.ph.split.us.preheader.i ], [ %indvars.iv.next.i100, %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.thread.us.i ]
-  %152 = getelementptr inbounds nuw %"struct.Luau::CodeGen::X64::CallArgument", ptr %54, i64 %indvars.iv.i99
+  %152 = getelementptr inbounds nuw [28 x i8], ptr %54, i64 %indvars.iv.i99
   %153 = getelementptr inbounds nuw i8, ptr %152, i64 24
   %154 = load i8, ptr %153, align 4, !tbaa !28, !range !87, !noundef !88
   %155 = trunc nuw i8 %154 to i1
@@ -661,7 +657,7 @@ thread-pre-split:                                 ; preds = %_ZN4Luau7CodeGen3X6
 
 159:                                              ; preds = %.critedge.i.us.i, %.lr.ph.i.us.i
   %indvars.iv.i.us.i = phi i64 [ 0, %.lr.ph.i.us.i ], [ %indvars.iv.next.i.us.i, %.critedge.i.us.i ]
-  %160 = getelementptr inbounds nuw %"struct.Luau::CodeGen::X64::CallArgument", ptr %54, i64 %indvars.iv.i.us.i
+  %160 = getelementptr inbounds nuw [28 x i8], ptr %54, i64 %indvars.iv.i.us.i
   %161 = getelementptr inbounds nuw i8, ptr %160, i64 24
   %162 = load i8, ptr %161, align 4, !tbaa !28, !range !87, !noundef !88
   %163 = trunc nuw i8 %162 to i1
@@ -829,7 +825,7 @@ _ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exi
 .lr.ph134:                                        ; preds = %.loopexit, %248
   %230 = phi i32 [ %249, %248 ], [ %146, %.loopexit ]
   %indvars.iv142 = phi i64 [ %indvars.iv.next143, %248 ], [ 0, %.loopexit ]
-  %231 = getelementptr inbounds nuw %"struct.Luau::CodeGen::X64::CallArgument", ptr %54, i64 %indvars.iv142
+  %231 = getelementptr inbounds nuw [28 x i8], ptr %54, i64 %indvars.iv142
   %232 = getelementptr inbounds nuw i8, ptr %231, i64 4
   %233 = load i8, ptr %232, align 4, !tbaa !84
   %234 = icmp eq i8 %233, 2
@@ -886,7 +882,7 @@ _ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exi
 .lr.ph136:                                        ; preds = %_ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exit104, %264
   %256 = phi i32 [ %265, %264 ], [ %228, %_ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exit104 ]
   %indvars.iv145 = phi i64 [ %indvars.iv.next146, %264 ], [ 0, %_ZN4Luau7CodeGen3X6416IrCallWrapperX6417removeRegisterUseENS1_11RegisterX64E.exit104 ]
-  %257 = getelementptr inbounds nuw %"struct.Luau::CodeGen::X64::CallArgument", ptr %54, i64 %indvars.iv145
+  %257 = getelementptr inbounds nuw [28 x i8], ptr %54, i64 %indvars.iv145
   %258 = getelementptr inbounds nuw i8, ptr %257, i64 16
   %259 = load i8, ptr %258, align 4, !tbaa !85
   %260 = icmp eq i8 %259, 0
@@ -971,7 +967,7 @@ _ZN4Luau7CodeGen3X6416IrCallWrapperX6414addRegisterUseENS1_11RegisterX64E.exit9:
 
 24:                                               ; preds = %.lr.ph, %_ZN4Luau7CodeGen3X6416IrCallWrapperX6414addRegisterUseENS1_11RegisterX64E.exit15
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZN4Luau7CodeGen3X6416IrCallWrapperX6414addRegisterUseENS1_11RegisterX64E.exit15 ]
-  %25 = getelementptr inbounds nuw %"struct.Luau::CodeGen::X64::CallArgument", ptr %5, i64 %indvars.iv
+  %25 = getelementptr inbounds nuw [28 x i8], ptr %5, i64 %indvars.iv
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 6
   %.sroa.03.0.copyload = load i8, ptr %26, align 2, !tbaa !26
   %27 = and i8 %.sroa.03.0.copyload, 7
@@ -1201,7 +1197,7 @@ define dso_local noundef ptr @_ZN4Luau7CodeGen3X6416IrCallWrapperX6426findNonInt
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.thread.us
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next, %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427interferesWithActiveSourcesERKNS1_12CallArgumentEi.exit.thread.us ]
-  %12 = getelementptr inbounds nuw %"struct.Luau::CodeGen::X64::CallArgument", ptr %5, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [28 x i8], ptr %5, i64 %indvars.iv
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load i8, ptr %13, align 4, !tbaa !28, !range !87, !noundef !88
   %15 = trunc nuw i8 %14 to i1
@@ -1216,7 +1212,7 @@ define dso_local noundef ptr @_ZN4Luau7CodeGen3X6416IrCallWrapperX6426findNonInt
 
 19:                                               ; preds = %.critedge.i.us, %.lr.ph.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.i.us ], [ %indvars.iv.next.i.us, %.critedge.i.us ]
-  %20 = getelementptr inbounds nuw %"struct.Luau::CodeGen::X64::CallArgument", ptr %5, i64 %indvars.iv.i.us
+  %20 = getelementptr inbounds nuw [28 x i8], ptr %5, i64 %indvars.iv.i.us
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
   %22 = load i8, ptr %21, align 4, !tbaa !28, !range !87, !noundef !88
   %23 = trunc nuw i8 %22 to i1
@@ -1378,7 +1374,7 @@ define dso_local i8 @_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421findConflictingTar
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit29.thread.us
   %indvars.iv = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next, %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit29.thread.us ]
-  %6 = getelementptr inbounds nuw %"struct.Luau::CodeGen::X64::CallArgument", ptr %5, i64 %indvars.iv
+  %6 = getelementptr inbounds nuw [28 x i8], ptr %5, i64 %indvars.iv
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load i8, ptr %7, align 4, !tbaa !28, !range !87, !noundef !88
   %9 = trunc nuw i8 %8 to i1
@@ -1393,7 +1389,7 @@ define dso_local i8 @_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421findConflictingTar
 
 13:                                               ; preds = %.critedge.i.us, %.lr.ph.i.us
   %indvars.iv.i.us = phi i64 [ 0, %.lr.ph.i.us ], [ %indvars.iv.next.i.us, %.critedge.i.us ]
-  %14 = getelementptr inbounds nuw %"struct.Luau::CodeGen::X64::CallArgument", ptr %5, i64 %indvars.iv.i.us
+  %14 = getelementptr inbounds nuw [28 x i8], ptr %5, i64 %indvars.iv.i.us
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load i8, ptr %15, align 4, !tbaa !28, !range !87, !noundef !88
   %17 = trunc nuw i8 %16 to i1
@@ -1424,7 +1420,7 @@ define dso_local i8 @_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421findConflictingTar
 
 27:                                               ; preds = %.critedge.i23.us, %.lr.ph.i20.us
   %indvars.iv.i22.us = phi i64 [ 0, %.lr.ph.i20.us ], [ %indvars.iv.next.i24.us, %.critedge.i23.us ]
-  %28 = getelementptr inbounds nuw %"struct.Luau::CodeGen::X64::CallArgument", ptr %5, i64 %indvars.iv.i22.us
+  %28 = getelementptr inbounds nuw [28 x i8], ptr %5, i64 %indvars.iv.i22.us
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %30 = load i8, ptr %29, align 4, !tbaa !28, !range !87, !noundef !88
   %31 = trunc nuw i8 %30 to i1
@@ -1462,7 +1458,7 @@ _ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11Regist
 
 42:                                               ; preds = %.critedge.i34, %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit
   %indvars.iv.i33 = phi i64 [ 0, %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11RegisterX64E.exit ], [ %indvars.iv.next.i35, %.critedge.i34 ]
-  %43 = getelementptr inbounds nuw %"struct.Luau::CodeGen::X64::CallArgument", ptr %39, i64 %indvars.iv.i33
+  %43 = getelementptr inbounds nuw [28 x i8], ptr %39, i64 %indvars.iv.i33
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %45 = load i8, ptr %44, align 4, !tbaa !28, !range !87, !noundef !88
   %46 = trunc nuw i8 %45 to i1
@@ -1493,7 +1489,7 @@ _ZNK4Luau7CodeGen3X6416IrCallWrapperX6426interferesWithActiveTargetENS1_11Regist
 
 56:                                               ; preds = %.critedge.i45, %.lr.ph.i42
   %indvars.iv.i44 = phi i64 [ 0, %.lr.ph.i42 ], [ %indvars.iv.next.i46, %.critedge.i45 ]
-  %57 = getelementptr inbounds nuw %"struct.Luau::CodeGen::X64::CallArgument", ptr %39, i64 %indvars.iv.i44
+  %57 = getelementptr inbounds nuw [28 x i8], ptr %39, i64 %indvars.iv.i44
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 24
   %59 = load i8, ptr %58, align 4, !tbaa !28, !range !87, !noundef !88
   %60 = trunc nuw i8 %59 to i1
@@ -1557,7 +1553,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6425renameConflicting
 16:                                               ; preds = %25, %.lr.ph.i
   %17 = phi i32 [ %13, %.lr.ph.i ], [ %26, %25 ]
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %25 ]
-  %18 = getelementptr inbounds nuw %"struct.Luau::CodeGen::X64::CallArgument", ptr %15, i64 %indvars.iv.i
+  %18 = getelementptr inbounds nuw [28 x i8], ptr %15, i64 %indvars.iv.i
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %20 = load i8, ptr %19, align 4, !tbaa !28, !range !87, !noundef !88
   %21 = trunc nuw i8 %20 to i1
@@ -1647,7 +1643,7 @@ define dso_local i8 @_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427suggestNextArgumen
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %6 = load i32, ptr %5, align 4, !tbaa !33
   %7 = sext i32 %6 to i64
-  %8 = getelementptr inbounds nuw %"struct.Luau::CodeGen::X64::OperandX64", ptr @_ZN4Luau7CodeGen3X64L9kXmmOrderE, i64 %7
+  %8 = getelementptr inbounds nuw [8 x i8], ptr @_ZN4Luau7CodeGen3X64L9kXmmOrderE, i64 %7
   %.sroa.59.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 2
   %.sroa.59.0.copyload.i = load i8, ptr %.sroa.59.0..sroa_idx.i, align 2, !tbaa !26
   br label %25
@@ -1662,7 +1658,7 @@ define dso_local i8 @_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427suggestNextArgumen
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %16 = load i32, ptr %15, align 8, !tbaa !66
   %17 = sext i32 %16 to i64
-  %18 = getelementptr inbounds nuw %"struct.Luau::CodeGen::X64::OperandX64", ptr %_ZN4Luau7CodeGen3X64L16kWindowsGprOrderE._ZN4Luau7CodeGen3X64L16kSystemvGprOrderE.i, i64 %17
+  %18 = getelementptr inbounds nuw [8 x i8], ptr %_ZN4Luau7CodeGen3X64L16kWindowsGprOrderE._ZN4Luau7CodeGen3X64L16kSystemvGprOrderE.i, i64 %17
   %.sroa.0.0.copyload5.i = load i8, ptr %18, align 4, !tbaa !31
   %cond = icmp eq i8 %.sroa.0.0.copyload5.i, 0
   br i1 %cond, label %19, label %_ZNK4Luau7CodeGen3X6416IrCallWrapperX6421getNextArgumentTargetENS1_7SizeX64E.exit
@@ -1723,7 +1719,7 @@ define dso_local noundef zeroext i1 @_ZNK4Luau7CodeGen3X6416IrCallWrapperX6427in
 
 12:                                               ; preds = %.lr.ph, %.critedge
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.critedge ]
-  %13 = getelementptr inbounds nuw %"struct.Luau::CodeGen::X64::CallArgument", ptr %7, i64 %indvars.iv
+  %13 = getelementptr inbounds nuw [28 x i8], ptr %7, i64 %indvars.iv
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %15 = load i8, ptr %14, align 4, !tbaa !28, !range !87, !noundef !88
   %16 = trunc nuw i8 %15 to i1
@@ -1811,7 +1807,7 @@ define dso_local noundef zeroext i1 @_ZNK4Luau7CodeGen3X6416IrCallWrapperX6426in
 
 9:                                                ; preds = %.lr.ph, %.critedge
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %.critedge ]
-  %10 = getelementptr inbounds nuw %"struct.Luau::CodeGen::X64::CallArgument", ptr %6, i64 %indvars.iv
+  %10 = getelementptr inbounds nuw [28 x i8], ptr %6, i64 %indvars.iv
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %12 = load i8, ptr %11, align 4, !tbaa !28, !range !87, !noundef !88
   %13 = trunc nuw i8 %12 to i1
@@ -1952,7 +1948,7 @@ define dso_local void @_ZN4Luau7CodeGen3X6416IrCallWrapperX6421renameSourceRegis
 10:                                               ; preds = %.lr.ph, %19
   %11 = phi i32 [ %5, %.lr.ph ], [ %20, %19 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %19 ]
-  %12 = getelementptr inbounds nuw %"struct.Luau::CodeGen::X64::CallArgument", ptr %7, i64 %indvars.iv
+  %12 = getelementptr inbounds nuw [28 x i8], ptr %7, i64 %indvars.iv
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
   %14 = load i8, ptr %13, align 4, !tbaa !28, !range !87, !noundef !88
   %15 = trunc nuw i8 %14 to i1

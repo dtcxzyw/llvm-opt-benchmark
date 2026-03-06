@@ -6,7 +6,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.partition_info_msg = type { i64, i32, ptr }
 %struct.openapi_resp_partitions_info_msg_t = type { ptr, ptr, ptr, ptr, i64 }
 %struct.data_parser_dump_cli_ctxt_t = type { i32, i32, ptr, ptr, ptr }
-%struct.partition_info = type { ptr, ptr, ptr, ptr, ptr, ptr, ptr, i16, i32, i64, i32, ptr, ptr, i32, i32, ptr, ptr, i32, i32, i64, i32, i16, i32, i32, ptr, ptr, ptr, ptr, i16, i16, i16, i16, ptr, i16, i16, i32, i16, i32, i32, ptr }
 
 @scontrol_load_partitions.last_show_flags = internal unnamed_addr global i16 -1, align 2
 @all_flag = external local_unnamed_addr global i32, align 4
@@ -154,8 +153,8 @@ define dso_local void @scontrol_print_part(ptr noundef %0, i32 noundef %1, ptr n
 
 .thread.us:                                       ; preds = %.lr.ph, %.thread.us
   %indvars.iv78 = phi i64 [ %indvars.iv.next79, %.thread.us ], [ 0, %.lr.ph ]
-  %25 = getelementptr inbounds nuw %struct.partition_info, ptr %20, i64 %indvars.iv78
-  %26 = getelementptr inbounds nuw ptr, ptr %23, i64 %indvars.iv78
+  %25 = getelementptr inbounds nuw [232 x i8], ptr %20, i64 %indvars.iv78
+  %26 = getelementptr inbounds nuw [8 x i8], ptr %23, i64 %indvars.iv78
   store ptr %25, ptr %26, align 8
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %27 = load i32, ptr %16, align 8
@@ -165,7 +164,7 @@ define dso_local void @scontrol_print_part(ptr noundef %0, i32 noundef %1, ptr n
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %36
   %indvars.iv = phi i64 [ %indvars.iv.next, %36 ], [ 0, %.lr.ph ]
-  %30 = getelementptr inbounds nuw %struct.partition_info, ptr %20, i64 %indvars.iv
+  %30 = getelementptr inbounds nuw [232 x i8], ptr %20, i64 %indvars.iv
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 152
   %32 = load ptr, ptr %31, align 8
   %33 = tail call i32 @xstrcmp(ptr noundef nonnull %0, ptr noundef %32) #7
@@ -173,7 +172,7 @@ define dso_local void @scontrol_print_part(ptr noundef %0, i32 noundef %1, ptr n
   br i1 %.not53, label %34, label %36
 
 34:                                               ; preds = %.lr.ph.split
-  %35 = getelementptr inbounds nuw %struct.partition_info, ptr %20, i64 %indvars.iv
+  %35 = getelementptr inbounds nuw [232 x i8], ptr %20, i64 %indvars.iv
   store ptr %35, ptr %23, align 8
   br label %.loopexit65
 
@@ -249,8 +248,8 @@ define dso_local void @scontrol_print_part(ptr noundef %0, i32 noundef %1, ptr n
 
 64:                                               ; preds = %.lr.ph71, %64
   %indvars.iv83 = phi i64 [ 0, %.lr.ph71 ], [ %indvars.iv.next84, %64 ]
-  %65 = getelementptr inbounds nuw %struct.partition_info, ptr %62, i64 %indvars.iv83
-  %66 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv83
+  %65 = getelementptr inbounds nuw [232 x i8], ptr %62, i64 %indvars.iv83
+  %66 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv83
   %67 = load ptr, ptr %66, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %65, ptr noundef nonnull align 8 dereferenceable(232) %67, i64 232, i1 false)
   %indvars.iv.next84 = add nuw nsw i64 %indvars.iv83, 1
@@ -319,7 +318,7 @@ define dso_local void @scontrol_print_part(ptr noundef %0, i32 noundef %1, ptr n
 .lr.ph73:                                         ; preds = %.lr.ph73.preheader, %.lr.ph73
   %indvars.iv86 = phi i64 [ 0, %.lr.ph73.preheader ], [ %indvars.iv.next87, %.lr.ph73 ]
   %89 = load ptr, ptr @stdout, align 8
-  %90 = getelementptr inbounds nuw ptr, ptr %41, i64 %indvars.iv86
+  %90 = getelementptr inbounds nuw [8 x i8], ptr %41, i64 %indvars.iv86
   %91 = load ptr, ptr %90, align 8
   %92 = load i32, ptr @one_liner, align 4
   call void @slurm_print_partition_info(ptr noundef %89, ptr noundef %91, i32 noundef %92) #7

@@ -4,7 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %struct.StringInfoData = type { ptr, i32, i32, i32 }
-%union.ListCell = type { ptr }
 
 @.str = private unnamed_addr constant [53 x i8] c"failed to initialize checksum of backup manifest: %s\00", align 1
 @.str.1 = private unnamed_addr constant [18 x i8] c"backup_manifest.c\00", align 1
@@ -370,7 +369,7 @@ define dso_local void @AddWALInfoToBackupManifest(ptr noundef captures(none) %0,
   %.0426673 = phi i1 [ %.143.ph, %47 ], [ true, %.lr.ph ]
   %.06772 = phi i64 [ %.1.ph, %47 ], [ %3, %.lr.ph ]
   %13 = load ptr, ptr %9, align 8
-  %14 = getelementptr inbounds nuw %union.ListCell, ptr %13, i64 %indvars.iv
+  %14 = getelementptr inbounds nuw [8 x i8], ptr %13, i64 %indvars.iv
   %15 = load ptr, ptr %14, align 8
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load i64, ptr %16, align 8

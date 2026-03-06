@@ -580,7 +580,7 @@ st_mult.exit.i:                                   ; preds = %22
   br label %copy_array.exit
 
 copy_array.exit:                                  ; preds = %st_mult.exit, %st_mult.exit.i
-  %26 = getelementptr inbounds nuw %struct.option, ptr %21, i64 %.0.lcssa.i
+  %26 = getelementptr inbounds nuw [88 x i8], ptr %21, i64 %.0.lcssa.i
   %27 = add i64 %.0.lcssa.i1623, 1
   %.not.i19 = icmp eq i64 %27, 0
   br i1 %.not.i19, label %copy_array.exit21, label %28

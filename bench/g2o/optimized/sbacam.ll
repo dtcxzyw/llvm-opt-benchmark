@@ -2635,7 +2635,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen8in
 .preheader:                                       ; preds = %.preheader124, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
   %.078167 = phi i64 [ 0, %.preheader124 ], [ %123, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ]
   %.1166 = phi i64 [ 0, %.preheader124 ], [ %.sroa.speculated, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ]
-  %51 = getelementptr double, ptr %1, i64 %.078167
+  %51 = getelementptr [8 x i8], ptr %1, i64 %.078167
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNSt8ios_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(264) %19) #21
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVSt9basic_iosIcSt11char_traitsIcEE, i64 16), ptr %19, align 8, !tbaa !48
@@ -2943,7 +2943,7 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE4fillEv.exit.split.preheader: ; preds = %_Z
   %177 = load ptr, ptr %159, align 8, !tbaa !85
   %178 = load i64, ptr %160, align 8, !tbaa !83
   %179 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %177, i64 noundef %178)
-  %gep.us.us = getelementptr double, ptr %1, i64 %.0168.us.us
+  %gep.us.us = getelementptr [8 x i8], ptr %1, i64 %.0168.us.us
   %180 = load double, ptr %gep.us.us, align 8, !tbaa !3
   %181 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %0, double noundef %180)
   %182 = add nuw nsw i64 %.0168.us.us, 1
@@ -3059,7 +3059,7 @@ _ZNSt9basic_iosIcSt11char_traitsIcEE4fillEc.exit96: ; preds = %209, %_ZNKSt9basi
   %236 = getelementptr inbounds i8, ptr %0, i64 %235
   %237 = getelementptr inbounds nuw i8, ptr %236, i64 16
   store i64 %.0115, ptr %237, align 8, !tbaa !115
-  %gep = getelementptr double, ptr %1, i64 %.0168
+  %gep = getelementptr [8 x i8], ptr %1, i64 %.0168
   %238 = load double, ptr %gep, align 8, !tbaa !3
   %239 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %0, double noundef %238)
   br i1 %exitcond176.not, label %.split175, label %209, !llvm.loop !119
@@ -3818,7 +3818,7 @@ define linkonce_odr noundef nonnull align 8 dereferenceable(8) ptr @_ZN5Eigen8in
 .preheader:                                       ; preds = %.preheader124, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
   %.078166 = phi i64 [ 0, %.preheader124 ], [ %123, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ]
   %.1165 = phi i64 [ 0, %.preheader124 ], [ %.sroa.speculated, %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ]
-  %51 = getelementptr double, ptr %1, i64 %.078166
+  %51 = getelementptr [8 x i8], ptr %1, i64 %.078166
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNSt8ios_baseC2Ev(ptr noundef nonnull align 8 dereferenceable(264) %19) #21
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVSt9basic_iosIcSt11char_traitsIcEE, i64 16), ptr %19, align 8, !tbaa !48
@@ -4115,7 +4115,7 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE4fillEv.exit.split.us: ; preds = %_ZNKSt9ba
   %169 = load ptr, ptr %158, align 8, !tbaa !85
   %170 = load i64, ptr %159, align 8, !tbaa !83
   %171 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %169, i64 noundef %170)
-  %172 = getelementptr double, ptr %1, i64 %.0167.us.us
+  %172 = getelementptr [8 x i8], ptr %1, i64 %.0167.us.us
   %173 = load double, ptr %172, align 8, !tbaa !3
   %174 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %0, double noundef %173)
   %175 = add nuw nsw i64 %.0167.us.us, 1
@@ -4241,7 +4241,7 @@ _ZNSt9basic_iosIcSt11char_traitsIcEE4fillEc.exit96: ; preds = %210, %_ZNKSt9basi
   %237 = getelementptr inbounds i8, ptr %0, i64 %236
   %238 = getelementptr inbounds nuw i8, ptr %237, i64 16
   store i64 %.0115, ptr %238, align 8, !tbaa !115
-  %239 = getelementptr double, ptr %1, i64 %.0167
+  %239 = getelementptr [8 x i8], ptr %1, i64 %.0167
   %240 = load double, ptr %239, align 8, !tbaa !3
   %241 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %0, double noundef %240)
   %242 = add nuw nsw i64 %.0167, 1
@@ -4503,7 +4503,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev.exit: ; preds = 
           to label %92 unwind label %126
 
 92:                                               ; preds = %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev.exit
-  %gep = getelementptr double, ptr %invariant.gep, i64 %.077165
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %.077165
   %93 = load double, ptr %gep, align 8, !tbaa !3
   %94 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %28, double noundef %93)
           to label %_ZNSolsEd.exit unwind label %126
@@ -4763,13 +4763,13 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i: ; preds = %_ZSt13__check
   %208 = getelementptr inbounds i8, ptr %0, i64 %207
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 16
   store i64 %.0114, ptr %209, align 8, !tbaa !115
-  %210 = getelementptr double, ptr %1, i64 %.072171
+  %210 = getelementptr [8 x i8], ptr %1, i64 %.072171
   %211 = load double, ptr %210, align 8, !tbaa !3
   %212 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %0, double noundef %211)
   br label %.split
 
 .split.us.preheader:                              ; preds = %180
-  %213 = getelementptr double, ptr %1, i64 %.072171
+  %213 = getelementptr [8 x i8], ptr %1, i64 %.072171
   %214 = load double, ptr %213, align 8, !tbaa !3
   %215 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %0, double noundef %214)
   br label %.split.us
@@ -5116,7 +5116,7 @@ _ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev.exit: ; preds = 
           to label %92 unwind label %126
 
 92:                                               ; preds = %_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEEC1Ev.exit
-  %gep = getelementptr double, ptr %invariant.gep, i64 %.077165
+  %gep = getelementptr [8 x i8], ptr %invariant.gep, i64 %.077165
   %93 = load double, ptr %gep, align 8, !tbaa !3
   %94 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %28, double noundef %93)
           to label %_ZNSolsEd.exit unwind label %126
@@ -5376,13 +5376,13 @@ _ZNKSt9basic_iosIcSt11char_traitsIcEE5widenEc.exit.i.i: ; preds = %_ZSt13__check
   %208 = getelementptr inbounds i8, ptr %0, i64 %207
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 16
   store i64 %.0114, ptr %209, align 8, !tbaa !115
-  %210 = getelementptr double, ptr %1, i64 %.072171
+  %210 = getelementptr [8 x i8], ptr %1, i64 %.072171
   %211 = load double, ptr %210, align 8, !tbaa !3
   %212 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %0, double noundef %211)
   br label %.split
 
 .split.us.preheader:                              ; preds = %180
-  %213 = getelementptr double, ptr %1, i64 %.072171
+  %213 = getelementptr [8 x i8], ptr %1, i64 %.072171
   %214 = load double, ptr %213, align 8, !tbaa !3
   %215 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo9_M_insertIdEERSoT_(ptr noundef nonnull align 8 dereferenceable(8) %0, double noundef %214)
   br label %.split.us

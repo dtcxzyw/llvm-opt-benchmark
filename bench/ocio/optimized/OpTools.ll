@@ -4,9 +4,6 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 %"class.std::ios_base::Init" = type { i8 }
-%"class.std::shared_ptr" = type { %"class.std::__shared_ptr" }
-%"class.std::__shared_ptr" = type { ptr, %"class.std::__shared_count" }
-%"class.std::__shared_count" = type { ptr }
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -38,7 +35,7 @@ _ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %4
 _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZNSt6vectorIfSaIfEE17_S_check_init_lenEmRKS0_.exit.i
   %7 = shl i64 %2, 4
   %8 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %7) #10
-  %9 = getelementptr inbounds nuw float, ptr %8, i64 %5
+  %9 = getelementptr inbounds nuw [4 x i8], ptr %8, i64 %5
   store float 0.000000e+00, ptr %8, align 4, !tbaa !3
   %10 = getelementptr i8, ptr %8, i64 4
   %.idx.i.i.i.i.i.i.i = add i64 %7, -4
@@ -105,7 +102,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZNSt6vectorIfSaIfE
 .lr.ph67:                                         ; preds = %.lr.ph67.preheader, %41
   %.03665 = phi i64 [ %42, %41 ], [ 0, %.lr.ph67.preheader ]
   %35 = load ptr, ptr %3, align 8, !tbaa !13
-  %36 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %35, i64 %.03665
+  %36 = getelementptr inbounds nuw [16 x i8], ptr %35, i64 %.03665
   %37 = load ptr, ptr %36, align 8, !tbaa !14
   %38 = load ptr, ptr %37, align 8, !tbaa !19
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 128

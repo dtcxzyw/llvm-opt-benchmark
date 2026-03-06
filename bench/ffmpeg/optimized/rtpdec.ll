@@ -101,7 +101,7 @@ define ptr @ff_rtp_handler_find_by_name(ptr noundef %0, i32 noundef %1) local_un
 
 rtp_handler_iterate.exit:                         ; preds = %8, %6, %3
   %12 = ptrtoint ptr %.111 to i64
-  %13 = getelementptr inbounds nuw ptr, ptr @rtp_dynamic_protocol_handler_list, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr @rtp_dynamic_protocol_handler_list, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !12
   %.not.i = icmp eq ptr %.111, inttoptr (i64 53 to ptr)
   %15 = add i64 %12, 1
@@ -137,7 +137,7 @@ define ptr @ff_rtp_handler_find_by_id(i32 noundef %0, i32 noundef %1) local_unna
 
 rtp_handler_iterate.exit:                         ; preds = %8, %3
   %12 = ptrtoint ptr %.110 to i64
-  %13 = getelementptr inbounds nuw ptr, ptr @rtp_dynamic_protocol_handler_list, i64 %12
+  %13 = getelementptr inbounds nuw [8 x i8], ptr @rtp_dynamic_protocol_handler_list, i64 %12
   %14 = load ptr, ptr %13, align 8, !tbaa !12
   %.not.i = icmp eq ptr %.110, inttoptr (i64 53 to ptr)
   %15 = add i64 %12, 1

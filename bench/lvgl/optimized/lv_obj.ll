@@ -9,10 +9,6 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.lv_grad_dsc_t = type { [2 x %struct.lv_grad_stop_t], i8, i8 }
 %struct.lv_grad_stop_t = type { %struct.lv_color_t, i8, i8 }
 %struct.lv_color_t = type { i8, i8, i8 }
-%struct._lv_obj_style_t = type { ptr, i32 }
-%struct.lv_style_const_prop_t = type { i8, %union.lv_style_value_t }
-%union.lv_style_value_t = type { ptr }
-%struct._lv_obj_style_transition_dsc_t = type { i16, i16, i32, i8, ptr, ptr }
 
 @.str = private unnamed_addr constant [4 x i8] c"obj\00", align 1
 @lv_obj_class = constant { ptr, ptr, ptr, ptr, ptr, ptr, i32, i32, i8, i8, i8, [5 x i8] } { ptr null, ptr @lv_obj_constructor, ptr @lv_obj_destructor, ptr @lv_obj_event, ptr null, ptr @.str, i32 130, i32 130, i8 10, i8 4, i8 0, [5 x i8] zeroinitializer }, align 8
@@ -240,7 +236,7 @@ lv_obj_get_state.exit:                            ; preds = %lv_obj_has_flag.exi
   %indvars.iv282 = phi i64 [ 0, %.lr.ph277 ], [ %indvars.iv.next283, %44 ]
   %45 = load ptr, ptr %43, align 8, !tbaa !20
   %46 = load ptr, ptr %45, align 8, !tbaa !30
-  %47 = getelementptr inbounds nuw ptr, ptr %46, i64 %indvars.iv282
+  %47 = getelementptr inbounds nuw [8 x i8], ptr %46, i64 %indvars.iv282
   %48 = load ptr, ptr %47, align 8, !tbaa !32
   tail call void @lv_obj_mark_layout_as_dirty(ptr noundef %48) #8
   %indvars.iv.next283 = add nuw nsw i64 %indvars.iv282, 1
@@ -568,7 +564,7 @@ lv_obj_remove_state.exit245:                      ; preds = %151, %155
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %178 ]
   %179 = load ptr, ptr %177, align 8, !tbaa !20
   %180 = load ptr, ptr %179, align 8, !tbaa !30
-  %181 = getelementptr inbounds nuw ptr, ptr %180, i64 %indvars.iv
+  %181 = getelementptr inbounds nuw [8 x i8], ptr %180, i64 %indvars.iv
   %182 = load ptr, ptr %181, align 8, !tbaa !32
   tail call void @lv_obj_mark_layout_as_dirty(ptr noundef %182) #8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -722,7 +718,7 @@ lv_obj_remove_state.exit245:                      ; preds = %151, %155
 
 .lr.ph.i:                                         ; preds = %263, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %263 ]
-  %264 = getelementptr inbounds nuw %struct.lv_grad_stop_t, ptr %260, i64 %indvars.iv.i
+  %264 = getelementptr inbounds nuw [5 x i8], ptr %260, i64 %indvars.iv.i
   %265 = getelementptr inbounds nuw i8, ptr %264, i64 3
   %266 = load i8, ptr %265, align 1, !tbaa !46
   %267 = icmp ult i8 %266, -3
@@ -1426,7 +1422,7 @@ define internal fastcc void @update_obj_state(ptr noundef nonnull %0, i16 nounde
   %21 = phi i16 [ %13, %.lr.ph122 ], [ %100, %lv_style_get_prop_inlined.exit.thread ]
   %indvars.iv134 = phi i64 [ 0, %.lr.ph122 ], [ %indvars.iv.next135, %lv_style_get_prop_inlined.exit.thread ]
   %.088120 = phi i32 [ 0, %.lr.ph122 ], [ %.1, %lv_style_get_prop_inlined.exit.thread ]
-  %22 = getelementptr inbounds nuw %struct._lv_obj_style_t, ptr %16, i64 %indvars.iv134
+  %22 = getelementptr inbounds nuw [16 x i8], ptr %16, i64 %indvars.iv134
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %24 = load i32, ptr %23, align 8
   %25 = trunc i32 %24 to i16
@@ -1445,7 +1441,7 @@ define internal fastcc void @update_obj_state(ptr noundef nonnull %0, i16 nounde
 .preheader108:                                    ; preds = %27, %35
   %.026.i = phi i32 [ %36, %35 ], [ 0, %27 ]
   %32 = zext i32 %.026.i to i64
-  %33 = getelementptr inbounds nuw %struct.lv_style_const_prop_t, ptr %31, i64 %32
+  %33 = getelementptr inbounds nuw [16 x i8], ptr %31, i64 %32
   %34 = load i8, ptr %33, align 8, !tbaa !70
   switch i8 %34, label %35 [
     i8 0, label %lv_style_get_prop_inlined.exit.thread
@@ -1480,7 +1476,7 @@ define internal fastcc void @update_obj_state(ptr noundef nonnull %0, i16 nounde
   br i1 %46, label %47, label %43
 
 47:                                               ; preds = %.lr.ph.i
-  %48 = getelementptr inbounds nuw %union.lv_style_value_t, ptr %31, i64 %indvars.iv.i
+  %48 = getelementptr inbounds nuw [8 x i8], ptr %31, i64 %indvars.iv.i
   br label %49
 
 49:                                               ; preds = %47, %37
@@ -1515,7 +1511,7 @@ define internal fastcc void @update_obj_state(ptr noundef nonnull %0, i16 nounde
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %72
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %72 ]
-  %62 = getelementptr inbounds nuw %struct._lv_obj_style_transition_dsc_t, ptr %11, i64 %indvars.iv
+  %62 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 %indvars.iv
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 4
   %64 = load i32, ptr %63, align 4, !tbaa !77
   %65 = trunc i32 %64 to i16
@@ -1544,7 +1540,7 @@ define internal fastcc void @update_obj_state(ptr noundef nonnull %0, i16 nounde
   %75 = load i32, ptr %56, align 8, !tbaa !81
   %76 = trunc i32 %75 to i16
   %77 = zext nneg i32 %.3117 to i64
-  %78 = getelementptr inbounds nuw %struct._lv_obj_style_transition_dsc_t, ptr %11, i64 %77
+  %78 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 %77
   store i16 %76, ptr %78, align 8, !tbaa !82
   %79 = load i32, ptr %57, align 4, !tbaa !83
   %80 = trunc i32 %79 to i16
@@ -1595,7 +1591,7 @@ lv_style_get_prop_inlined.exit.thread:            ; preds = %43, %.preheader108,
 
 .lr.ph125:                                        ; preds = %.lr.ph125.preheader, %.lr.ph125
   %indvars.iv137 = phi i64 [ 0, %.lr.ph125.preheader ], [ %indvars.iv.next138, %.lr.ph125 ]
-  %107 = getelementptr inbounds nuw %struct._lv_obj_style_transition_dsc_t, ptr %11, i64 %indvars.iv137
+  %107 = getelementptr inbounds nuw [32 x i8], ptr %11, i64 %indvars.iv137
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 4
   %109 = load i32, ptr %108, align 4, !tbaa !77
   %110 = and i32 %109, 16711680
@@ -1812,7 +1808,7 @@ define noundef zeroext i1 @lv_obj_is_valid(ptr noundef readnone captures(address
 
 8:                                                ; preds = %.lr.ph, %7
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %7 ]
-  %9 = getelementptr inbounds nuw ptr, ptr %6, i64 %indvars.iv
+  %9 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %indvars.iv
   %10 = load ptr, ptr %9, align 8, !tbaa !32
   %11 = icmp eq ptr %10, %0
   br i1 %11, label %.thread, label %12
@@ -1858,7 +1854,7 @@ define internal fastcc noundef zeroext i1 @obj_valid_child(ptr noundef readonly 
 
 10:                                               ; preds = %.lr.ph, %9
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %9 ]
-  %11 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %11 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   %12 = load ptr, ptr %11, align 8, !tbaa !32
   %13 = icmp eq ptr %12, %1
   br i1 %13, label %.critedge, label %14

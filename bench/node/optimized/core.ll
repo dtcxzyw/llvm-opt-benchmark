@@ -24,7 +24,6 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.uv_passwd_s = type { ptr, i64, i64, ptr, ptr }
 %struct.group = type { ptr, ptr, i32, ptr }
 %struct.passwd = type { ptr, ptr, i32, i32, ptr, ptr, ptr }
-%struct.uv_env_item_s = type { ptr, ptr }
 %struct.utsname = type { [65 x i8], [65 x i8], [65 x i8], [65 x i8], [65 x i8], [65 x i8] }
 %struct.cpu_set_t = type { [16 x i64] }
 
@@ -1378,7 +1377,7 @@ entry:
 
 switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.uv__getsockpeername, i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.uv__getsockpeername, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %fd7 = getelementptr inbounds nuw i8, ptr %handle, i64 %switch.load
   %fd_out.0 = load i32, ptr %fd7, align 8
@@ -1443,11 +1442,11 @@ if.end.i:                                         ; preds = %entry
 
 if.then4.i:                                       ; preds = %if.end.i
   %idxprom.i = zext i32 %2 to i64
-  %arrayidx.i = getelementptr inbounds nuw ptr, ptr %3, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %idxprom.i
   %4 = load ptr, ptr %arrayidx.i, align 8
   %add.i = add nuw i32 %2, 1
   %idxprom9.i = zext i32 %add.i to i64
-  %arrayidx10.i = getelementptr inbounds nuw ptr, ptr %3, i64 %idxprom9.i
+  %arrayidx10.i = getelementptr inbounds nuw [8 x i8], ptr %3, i64 %idxprom9.i
   %5 = load ptr, ptr %arrayidx10.i, align 8
   br label %if.end11.i
 
@@ -1496,10 +1495,10 @@ for.body.preheader.i:                             ; preds = %if.end19.i
 
 for.end.i:                                        ; preds = %for.body.preheader.i, %if.end19.i
   %idxprom25.i = zext i32 %sub.i to i64
-  %arrayidx26.i = getelementptr inbounds nuw ptr, ptr %call15.i, i64 %idxprom25.i
+  %arrayidx26.i = getelementptr inbounds nuw [8 x i8], ptr %call15.i, i64 %idxprom25.i
   store ptr %fake_watcher_list.0.i, ptr %arrayidx26.i, align 8
   %idxprom28.i = zext i32 %or8.i.i to i64
-  %arrayidx29.i = getelementptr inbounds nuw ptr, ptr %call15.i, i64 %idxprom28.i
+  %arrayidx29.i = getelementptr inbounds nuw [8 x i8], ptr %call15.i, i64 %idxprom28.i
   store ptr %fake_watcher_count.0.i, ptr %arrayidx29.i, align 8
   store ptr %call15.i, ptr %watchers2.i, align 8
   store i32 %sub.i, ptr %nwatchers1.i, align 8
@@ -1535,7 +1534,7 @@ if.end6:                                          ; preds = %if.then3, %if.end
   %18 = load ptr, ptr %watchers, align 8
   %19 = load i32, ptr %fd, align 8
   %idxprom = sext i32 %19 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %18, i64 %idxprom
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %18, i64 %idxprom
   %20 = load ptr, ptr %arrayidx, align 8
   %cmp8 = icmp eq ptr %20, null
   br i1 %cmp8, label %if.then9, label %if.end14
@@ -1592,7 +1591,7 @@ if.then7:                                         ; preds = %if.end4
   %6 = load ptr, ptr %watchers, align 8
   %7 = load i32, ptr %fd, align 8
   %idxprom = sext i32 %7 to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %6, i64 %idxprom
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %6, i64 %idxprom
   %8 = load ptr, ptr %arrayidx, align 8
   %cmp11 = icmp eq ptr %w, %8
   br i1 %cmp11, label %if.then12, label %if.end23
@@ -1663,7 +1662,7 @@ if.then7.i:                                       ; preds = %if.end4.i
   %6 = load ptr, ptr %watchers.i, align 8
   %7 = load i32, ptr %fd.i, align 8
   %idxprom.i = sext i32 %7 to i64
-  %arrayidx.i = getelementptr inbounds ptr, ptr %6, i64 %idxprom.i
+  %arrayidx.i = getelementptr inbounds [8 x i8], ptr %6, i64 %idxprom.i
   %8 = load ptr, ptr %arrayidx.i, align 8
   %cmp11.i = icmp eq ptr %w, %8
   br i1 %cmp11.i, label %if.then12.i, label %uv__io_stop.exit
@@ -1760,7 +1759,7 @@ land.rhs:                                         ; preds = %entry
   %watchers = getelementptr inbounds nuw i8, ptr %loop, i64 104
   %1 = load ptr, ptr %watchers, align 8
   %idxprom = sext i32 %fd to i64
-  %arrayidx = getelementptr inbounds ptr, ptr %1, i64 %idxprom
+  %arrayidx = getelementptr inbounds [8 x i8], ptr %1, i64 %idxprom
   %2 = load ptr, ptr %arrayidx, align 8
   %cmp1 = icmp ne ptr %2, null
   %3 = zext i1 %cmp1 to i32
@@ -2243,7 +2242,7 @@ for.body:                                         ; preds = %if.end18, %for.body
   %add28 = add i64 %mem_size.051, 9
   %add29 = add i64 %add28, %call26
   %inc = add nuw nsw i64 %members.050, 1
-  %arrayidx = getelementptr inbounds nuw ptr, ptr %2, i64 %inc
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %inc
   %5 = load ptr, ptr %arrayidx, align 8
   %cmp22.not = icmp eq ptr %5, null
   br i1 %cmp22.not, label %for.end32, label %for.body
@@ -2263,10 +2262,10 @@ if.then36:                                        ; preds = %for.end32
 if.end37:                                         ; preds = %for.end32
   %members38 = getelementptr inbounds nuw i8, ptr %grp, i64 16
   store ptr %call34, ptr %members38, align 8
-  %arrayidx40 = getelementptr inbounds nuw ptr, ptr %call34, i64 %members.0.lcssa
+  %arrayidx40 = getelementptr inbounds nuw [8 x i8], ptr %call34, i64 %members.0.lcssa
   store ptr null, ptr %arrayidx40, align 8
   %6 = load ptr, ptr %members38, align 8
-  %7 = getelementptr inbounds nuw ptr, ptr %6, i64 %members.0.lcssa
+  %7 = getelementptr inbounds nuw [8 x i8], ptr %6, i64 %members.0.lcssa
   %arrayidx43 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %cmp4554.not = icmp eq i64 %members.0.lcssa, 0
   br i1 %cmp4554.not, label %for.end59, label %for.body47
@@ -2275,10 +2274,10 @@ for.body47:                                       ; preds = %if.end37, %for.body
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.body47 ], [ 0, %if.end37 ]
   %gr_mem.055 = phi ptr [ %add.ptr, %for.body47 ], [ %arrayidx43, %if.end37 ]
   %8 = load ptr, ptr %members38, align 8
-  %arrayidx50 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %arrayidx50 = getelementptr inbounds nuw [8 x i8], ptr %8, i64 %indvars.iv
   store ptr %gr_mem.055, ptr %arrayidx50, align 8
   %9 = load ptr, ptr %gr_mem21, align 8
-  %arrayidx53 = getelementptr inbounds nuw ptr, ptr %9, i64 %indvars.iv
+  %arrayidx53 = getelementptr inbounds nuw [8 x i8], ptr %9, i64 %indvars.iv
   %10 = load ptr, ptr %arrayidx53, align 8
   %call54 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %gr_mem.055, ptr noundef nonnull dereferenceable(1) %10) #24
   %call55 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %gr_mem.055) #26
@@ -2453,7 +2452,7 @@ entry:
 for.cond:                                         ; preds = %for.cond, %entry
   %indvars.iv40 = phi i32 [ %indvars.iv.next41, %for.cond ], [ 0, %entry ]
   %indvars.iv = phi i64 [ %indvars.iv.next, %for.cond ], [ 0, %entry ]
-  %arrayidx = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
+  %arrayidx = getelementptr inbounds nuw [8 x i8], ptr %0, i64 %indvars.iv
   %1 = load ptr, ptr %arrayidx, align 8
   %cmp.not = icmp eq ptr %1, null
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -2478,7 +2477,7 @@ for.body6:                                        ; preds = %for.body6.preheader
   %indvars.iv37 = phi i64 [ 0, %for.body6.preheader ], [ %indvars.iv.next38, %for.inc28 ]
   %cnt.031 = phi i32 [ 0, %for.body6.preheader ], [ %cnt.1, %for.inc28 ]
   %2 = load ptr, ptr @environ, align 8
-  %arrayidx8 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv37
+  %arrayidx8 = getelementptr inbounds nuw [8 x i8], ptr %2, i64 %indvars.iv37
   %3 = load ptr, ptr %arrayidx8, align 8
   %cmp9 = icmp eq ptr %3, null
   br i1 %cmp9, label %return.sink.split, label %if.end12
@@ -2509,7 +2508,7 @@ if.end24:                                         ; preds = %if.end19
   store i8 0, ptr %call20, align 1
   %4 = load ptr, ptr %envitems, align 8
   %idxprom25 = sext i32 %cnt.031 to i64
-  %arrayidx26 = getelementptr inbounds %struct.uv_env_item_s, ptr %4, i64 %idxprom25
+  %arrayidx26 = getelementptr inbounds [16 x i8], ptr %4, i64 %idxprom25
   store ptr %call15, ptr %arrayidx26, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %call20, i64 1
   %value = getelementptr inbounds nuw i8, ptr %arrayidx26, i64 8
@@ -2526,7 +2525,7 @@ for.inc28:                                        ; preds = %if.end24, %if.then2
 for.body34:                                       ; preds = %for.body34.lr.ph, %for.body34
   %i.134 = phi i32 [ 0, %for.body34.lr.ph ], [ %inc39, %for.body34 ]
   %5 = load ptr, ptr %envitems, align 8
-  %arrayidx36 = getelementptr inbounds nuw %struct.uv_env_item_s, ptr %5, i64 %idxprom35
+  %arrayidx36 = getelementptr inbounds nuw [16 x i8], ptr %5, i64 %idxprom35
   %6 = load ptr, ptr %arrayidx36, align 8
   tail call void @uv__free(ptr noundef %6) #24
   %inc39 = add nuw nsw i32 %i.134, 1
@@ -2843,7 +2842,7 @@ entry:
 
 switch.lookup:                                    ; preds = %entry
   %2 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw i64, ptr @switch.table.uv__getsockpeername, i64 %2
+  %switch.gep = getelementptr inbounds nuw [8 x i8], ptr @switch.table.uv__getsockpeername, i64 %2
   %switch.load = load i64, ptr %switch.gep, align 8
   %fd7.i = getelementptr inbounds nuw i8, ptr %handle, i64 %switch.load
   %fd_out.0.i = load i32, ptr %fd7.i, align 8

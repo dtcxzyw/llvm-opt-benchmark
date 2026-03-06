@@ -826,7 +826,7 @@ define internal void @h261_encode_mb(ptr noundef initializes((8120, 8124)) %0, p
 10:                                               ; preds = %10, %8
   %indvars.iv.i = phi i64 [ 0, %8 ], [ %indvars.iv.next.i, %10 ]
   %.08.i = phi i32 [ 0, %8 ], [ %.1.i, %10 ]
-  %11 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv.i
+  %11 = getelementptr inbounds nuw [4 x i8], ptr %9, i64 %indvars.iv.i
   %12 = load i32, ptr %11, align 4, !tbaa !65
   %13 = trunc i64 %indvars.iv.i to i32
   %14 = sub i32 5, %13
@@ -1055,7 +1055,7 @@ put_bits.exit83:                                  ; preds = %112, %133
   %.0.i.i82 = sub i32 %.0.i.i.pn, %107
   store i32 %.026.i.i81, ptr %33, align 8, !tbaa !58
   store i32 %.0.i.i82, ptr %44, align 4, !tbaa !59
-  %134 = getelementptr inbounds i16, ptr @ff_h261_mtype_map, i64 %.pre-phi
+  %134 = getelementptr inbounds [2 x i8], ptr @ff_h261_mtype_map, i64 %.pre-phi
   %135 = load i16, ptr %134, align 2, !tbaa !103
   %136 = zext i16 %135 to i32
   store i32 %136, ptr %5, align 8, !tbaa !97
@@ -1323,7 +1323,7 @@ put_bits.exit96:                                  ; preds = %262, %284
   %294 = phi i32 [ %287, %286 ], [ %508, %h261_encode_block.exit ]
   %295 = phi i32 [ %288, %286 ], [ %509, %h261_encode_block.exit ]
   %indvars.iv = phi i64 [ 0, %286 ], [ %indvars.iv.next, %h261_encode_block.exit ]
-  %296 = getelementptr inbounds nuw [64 x i16], ptr %1, i64 %indvars.iv
+  %296 = getelementptr inbounds nuw [128 x i8], ptr %1, i64 %indvars.iv
   %297 = load i32, ptr %6, align 8, !tbaa !98
   %.not.i = icmp eq i32 %297, 0
   %298 = load i16, ptr %296, align 2, !tbaa !103
@@ -1424,7 +1424,7 @@ put_bits.exit96:                                  ; preds = %262, %284
   ]
 
 348:                                              ; preds = %347, %347
-  %349 = getelementptr inbounds nuw i32, ptr %291, i64 %indvars.iv
+  %349 = getelementptr inbounds nuw [4 x i8], ptr %291, i64 %indvars.iv
   %350 = load i32, ptr %349, align 4, !tbaa !65
   %351 = icmp sgt i32 %350, -1
   br i1 %351, label %352, label %376
@@ -1477,7 +1477,7 @@ put_bits.exit96:                                  ; preds = %262, %284
   %377 = phi i32 [ %294, %348 ], [ %294, %347 ], [ %375, %.sink.split ]
   %378 = phi i32 [ %295, %348 ], [ %295, %347 ], [ %.026.i.i63.i.sink, %.sink.split ]
   %.046.i = phi i32 [ 0, %348 ], [ 0, %347 ], [ 1, %.sink.split ]
-  %379 = getelementptr inbounds nuw i32, ptr %291, i64 %indvars.iv
+  %379 = getelementptr inbounds nuw [4 x i8], ptr %291, i64 %indvars.iv
   %380 = load i32, ptr %379, align 4, !tbaa !65
   %.not5581.i = icmp sgt i32 %.046.i, %380
   br i1 %.not5581.i, label %._crit_edge.i, label %.lr.ph.i
@@ -1497,7 +1497,7 @@ put_bits.exit96:                                  ; preds = %262, %284
   %387 = getelementptr inbounds nuw i8, ptr %292, i64 %indvars.iv.i97
   %388 = load i8, ptr %387, align 1, !tbaa !62
   %389 = zext i8 %388 to i64
-  %390 = getelementptr inbounds nuw i16, ptr %296, i64 %389
+  %390 = getelementptr inbounds nuw [2 x i8], ptr %296, i64 %389
   %391 = load i16, ptr %390, align 2, !tbaa !103
   %392 = sext i16 %391 to i32
   %.not56.i = icmp eq i16 %391, 0
@@ -1517,9 +1517,9 @@ put_bits.exit96:                                  ; preds = %262, %284
 
 401:                                              ; preds = %398
   %402 = sext i32 %396 to i64
-  %403 = getelementptr inbounds [32 x %struct.VLCLUT], ptr @vlc_lut, i64 %402
+  %403 = getelementptr inbounds [128 x i8], ptr @vlc_lut, i64 %402
   %404 = zext nneg i32 %399 to i64
-  %405 = getelementptr inbounds nuw %struct.VLCLUT, ptr %403, i64 %404
+  %405 = getelementptr inbounds nuw [4 x i8], ptr %403, i64 %404
   %406 = load i8, ptr %405, align 4, !tbaa !104
   %.not57.i = icmp eq i8 %406, 0
   br i1 %.not57.i, label %435, label %407
@@ -1764,16 +1764,16 @@ define internal void @h261_encode_init_static() #3 {
   %10 = getelementptr inbounds nuw i8, ptr @ff_h261_tcoeff_level, i64 %.04344
   %11 = load i8, ptr %10, align 1, !tbaa !62
   %12 = sext i8 %11 to i32
-  %13 = getelementptr inbounds nuw [2 x i16], ptr @ff_h261_tcoeff_vlc, i64 %.04344
+  %13 = getelementptr inbounds nuw [4 x i8], ptr @ff_h261_tcoeff_vlc, i64 %.04344
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 2
   %15 = load i16, ptr %14, align 2, !tbaa !103
   %16 = trunc i16 %15 to i8
   %17 = load i16, ptr %13, align 4, !tbaa !103
   %18 = zext i32 %9 to i64
-  %19 = getelementptr inbounds nuw [32 x %struct.VLCLUT], ptr @vlc_lut, i64 %18
+  %19 = getelementptr inbounds nuw [128 x i8], ptr @vlc_lut, i64 %18
   %20 = add nsw i32 %12, 15
   %21 = zext i32 %20 to i64
-  %22 = getelementptr inbounds nuw %struct.VLCLUT, ptr %19, i64 %21
+  %22 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %21
   %23 = add i8 %16, 1
   %24 = shl i16 %17, 1
   store i8 %23, ptr %22, align 4, !tbaa !62
@@ -1783,7 +1783,7 @@ define internal void @h261_encode_init_static() #3 {
   store i16 %24, ptr %.sroa.316.0..sroa_idx, align 2, !tbaa !103
   %25 = sub nsw i32 15, %12
   %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw %struct.VLCLUT, ptr %19, i64 %26
+  %27 = getelementptr inbounds nuw [4 x i8], ptr %19, i64 %26
   %28 = or disjoint i16 %24, 1
   store i8 %23, ptr %27, align 4, !tbaa !62
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 1

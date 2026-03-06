@@ -3,9 +3,6 @@ source_filename = "bench/wireshark/original/frame_data_sequence.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-%struct._frame_data = type <{ i32, i32, i32, i32, i32, [4 x i8], i64, ptr, ptr, ptr, i8, i16, [5 x i8], %struct.nstime_t, %struct.nstime_t, i32, i32 }>
-%struct.nstime_t = type { i64, i32 }
-
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define noalias noundef ptr @new_frame_data_sequence() local_unnamed_addr #0 {
   %1 = tail call noalias dereferenceable_or_null(16) ptr @g_malloc(i64 noundef 16) #5
@@ -38,7 +35,7 @@ define noundef ptr @frame_data_sequence_add(ptr noundef captures(none) %0, ptr n
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = zext nneg i32 %3 to i64
-  %14 = getelementptr %struct._frame_data, ptr %12, i64 %13
+  %14 = getelementptr [104 x i8], ptr %12, i64 %13
   br label %148
 
 15:                                               ; preds = %8
@@ -65,7 +62,7 @@ define noundef ptr @frame_data_sequence_add(ptr noundef captures(none) %0, ptr n
   %27 = load ptr, ptr %26, align 8
   %28 = lshr i32 %3, 10
   %29 = zext nneg i32 %28 to i64
-  %30 = getelementptr ptr, ptr %27, i64 %29
+  %30 = getelementptr [8 x i8], ptr %27, i64 %29
   %31 = load ptr, ptr %30, align 8
   %32 = icmp eq ptr %31, null
   br i1 %32, label %33, label %39
@@ -75,7 +72,7 @@ define noundef ptr @frame_data_sequence_add(ptr noundef captures(none) %0, ptr n
   %35 = load i32, ptr %0, align 8
   %36 = lshr i32 %35, 10
   %37 = zext nneg i32 %36 to i64
-  %38 = getelementptr ptr, ptr %27, i64 %37
+  %38 = getelementptr [8 x i8], ptr %27, i64 %37
   store ptr %34, ptr %38, align 8
   %.pre104 = load i32, ptr %0, align 8
   br label %39
@@ -85,7 +82,7 @@ define noundef ptr @frame_data_sequence_add(ptr noundef captures(none) %0, ptr n
   %.091 = phi ptr [ %34, %33 ], [ %31, %25 ]
   %41 = and i32 %40, 1023
   %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr %struct._frame_data, ptr %.091, i64 %42
+  %43 = getelementptr [104 x i8], ptr %.091, i64 %42
   br label %148
 
 44:                                               ; preds = %23
@@ -114,7 +111,7 @@ define noundef ptr @frame_data_sequence_add(ptr noundef captures(none) %0, ptr n
   %57 = load ptr, ptr %56, align 8
   %58 = lshr i32 %3, 20
   %59 = zext nneg i32 %58 to i64
-  %60 = getelementptr ptr, ptr %57, i64 %59
+  %60 = getelementptr [8 x i8], ptr %57, i64 %59
   %61 = load ptr, ptr %60, align 8
   %62 = icmp eq ptr %61, null
   br i1 %62, label %63, label %69
@@ -124,7 +121,7 @@ define noundef ptr @frame_data_sequence_add(ptr noundef captures(none) %0, ptr n
   %65 = load i32, ptr %0, align 8
   %66 = lshr i32 %65, 20
   %67 = zext nneg i32 %66 to i64
-  %68 = getelementptr ptr, ptr %57, i64 %67
+  %68 = getelementptr [8 x i8], ptr %57, i64 %67
   store ptr %64, ptr %68, align 8
   %.pre102 = load i32, ptr %0, align 8
   br label %69
@@ -135,7 +132,7 @@ define noundef ptr @frame_data_sequence_add(ptr noundef captures(none) %0, ptr n
   %71 = lshr i32 %70, 10
   %72 = and i32 %71, 1023
   %73 = zext nneg i32 %72 to i64
-  %74 = getelementptr ptr, ptr %.090, i64 %73
+  %74 = getelementptr [8 x i8], ptr %.090, i64 %73
   %75 = load ptr, ptr %74, align 8
   %76 = icmp eq ptr %75, null
   br i1 %76, label %77, label %84
@@ -146,7 +143,7 @@ define noundef ptr @frame_data_sequence_add(ptr noundef captures(none) %0, ptr n
   %80 = lshr i32 %79, 10
   %81 = and i32 %80, 1023
   %82 = zext nneg i32 %81 to i64
-  %83 = getelementptr ptr, ptr %.090, i64 %82
+  %83 = getelementptr [8 x i8], ptr %.090, i64 %82
   store ptr %78, ptr %83, align 8
   %.pre103 = load i32, ptr %0, align 8
   br label %84
@@ -156,7 +153,7 @@ define noundef ptr @frame_data_sequence_add(ptr noundef captures(none) %0, ptr n
   %.192 = phi ptr [ %78, %77 ], [ %75, %69 ]
   %86 = and i32 %85, 1023
   %87 = zext nneg i32 %86 to i64
-  %88 = getelementptr %struct._frame_data, ptr %.192, i64 %87
+  %88 = getelementptr [104 x i8], ptr %.192, i64 %87
   br label %148
 
 89:                                               ; preds = %53
@@ -183,7 +180,7 @@ define noundef ptr @frame_data_sequence_add(ptr noundef captures(none) %0, ptr n
   %101 = load ptr, ptr %100, align 8
   %102 = lshr i32 %3, 30
   %103 = zext nneg i32 %102 to i64
-  %104 = getelementptr ptr, ptr %101, i64 %103
+  %104 = getelementptr [8 x i8], ptr %101, i64 %103
   %105 = load ptr, ptr %104, align 8
   %106 = icmp eq ptr %105, null
   br i1 %106, label %107, label %113
@@ -193,7 +190,7 @@ define noundef ptr @frame_data_sequence_add(ptr noundef captures(none) %0, ptr n
   %109 = load i32, ptr %0, align 8
   %110 = lshr i32 %109, 30
   %111 = zext nneg i32 %110 to i64
-  %112 = getelementptr ptr, ptr %101, i64 %111
+  %112 = getelementptr [8 x i8], ptr %101, i64 %111
   store ptr %108, ptr %112, align 8
   %.pre = load i32, ptr %0, align 8
   br label %113
@@ -204,7 +201,7 @@ define noundef ptr @frame_data_sequence_add(ptr noundef captures(none) %0, ptr n
   %115 = lshr i32 %114, 20
   %116 = and i32 %115, 1023
   %117 = zext nneg i32 %116 to i64
-  %118 = getelementptr ptr, ptr %.089, i64 %117
+  %118 = getelementptr [8 x i8], ptr %.089, i64 %117
   %119 = load ptr, ptr %118, align 8
   %120 = icmp eq ptr %119, null
   br i1 %120, label %121, label %128
@@ -215,7 +212,7 @@ define noundef ptr @frame_data_sequence_add(ptr noundef captures(none) %0, ptr n
   %124 = lshr i32 %123, 20
   %125 = and i32 %124, 1023
   %126 = zext nneg i32 %125 to i64
-  %127 = getelementptr ptr, ptr %.089, i64 %126
+  %127 = getelementptr [8 x i8], ptr %.089, i64 %126
   store ptr %122, ptr %127, align 8
   %.pre100 = load i32, ptr %0, align 8
   br label %128
@@ -226,7 +223,7 @@ define noundef ptr @frame_data_sequence_add(ptr noundef captures(none) %0, ptr n
   %130 = lshr i32 %129, 10
   %131 = and i32 %130, 1023
   %132 = zext nneg i32 %131 to i64
-  %133 = getelementptr ptr, ptr %.1, i64 %132
+  %133 = getelementptr [8 x i8], ptr %.1, i64 %132
   %134 = load ptr, ptr %133, align 8
   %135 = icmp eq ptr %134, null
   br i1 %135, label %136, label %143
@@ -237,7 +234,7 @@ define noundef ptr @frame_data_sequence_add(ptr noundef captures(none) %0, ptr n
   %139 = lshr i32 %138, 10
   %140 = and i32 %139, 1023
   %141 = zext nneg i32 %140 to i64
-  %142 = getelementptr ptr, ptr %.1, i64 %141
+  %142 = getelementptr [8 x i8], ptr %.1, i64 %141
   store ptr %137, ptr %142, align 8
   %.pre101 = load i32, ptr %0, align 8
   br label %143
@@ -247,7 +244,7 @@ define noundef ptr @frame_data_sequence_add(ptr noundef captures(none) %0, ptr n
   %.2 = phi ptr [ %137, %136 ], [ %134, %128 ]
   %145 = and i32 %144, 1023
   %146 = zext nneg i32 %145 to i64
-  %147 = getelementptr %struct._frame_data, ptr %.2, i64 %146
+  %147 = getelementptr [104 x i8], ptr %.2, i64 %146
   br label %148
 
 148:                                              ; preds = %10, %39, %84, %143, %91, %46, %17, %5
@@ -286,7 +283,7 @@ define ptr @frame_data_sequence_find(ptr noundef readonly captures(address_is_nu
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %12 = load ptr, ptr %11, align 8
   %13 = zext i32 %6 to i64
-  %14 = getelementptr %struct._frame_data, ptr %12, i64 %13
+  %14 = getelementptr [104 x i8], ptr %12, i64 %13
   br label %62
 
 15:                                               ; preds = %8
@@ -298,11 +295,11 @@ define ptr @frame_data_sequence_find(ptr noundef readonly captures(address_is_nu
   %19 = load ptr, ptr %18, align 8
   %20 = lshr i32 %6, 10
   %21 = zext nneg i32 %20 to i64
-  %22 = getelementptr ptr, ptr %19, i64 %21
+  %22 = getelementptr [8 x i8], ptr %19, i64 %21
   %23 = load ptr, ptr %22, align 8
   %24 = and i32 %6, 1023
   %25 = zext nneg i32 %24 to i64
-  %26 = getelementptr %struct._frame_data, ptr %23, i64 %25
+  %26 = getelementptr [104 x i8], ptr %23, i64 %25
   br label %62
 
 27:                                               ; preds = %15
@@ -314,36 +311,36 @@ define ptr @frame_data_sequence_find(ptr noundef readonly captures(address_is_nu
 31:                                               ; preds = %27
   %32 = lshr i32 %6, 20
   %33 = zext nneg i32 %32 to i64
-  %34 = getelementptr ptr, ptr %30, i64 %33
+  %34 = getelementptr [8 x i8], ptr %30, i64 %33
   %35 = load ptr, ptr %34, align 8
   %36 = lshr i32 %6, 10
   %37 = and i32 %36, 1023
   %38 = zext nneg i32 %37 to i64
-  %39 = getelementptr ptr, ptr %35, i64 %38
+  %39 = getelementptr [8 x i8], ptr %35, i64 %38
   %40 = load ptr, ptr %39, align 8
   %41 = and i32 %6, 1023
   %42 = zext nneg i32 %41 to i64
-  %43 = getelementptr %struct._frame_data, ptr %40, i64 %42
+  %43 = getelementptr [104 x i8], ptr %40, i64 %42
   br label %62
 
 44:                                               ; preds = %27
   %45 = lshr i32 %6, 30
   %46 = zext nneg i32 %45 to i64
-  %47 = getelementptr ptr, ptr %30, i64 %46
+  %47 = getelementptr [8 x i8], ptr %30, i64 %46
   %48 = load ptr, ptr %47, align 8
   %49 = lshr i32 %6, 20
   %50 = and i32 %49, 1023
   %51 = zext nneg i32 %50 to i64
-  %52 = getelementptr ptr, ptr %48, i64 %51
+  %52 = getelementptr [8 x i8], ptr %48, i64 %51
   %53 = load ptr, ptr %52, align 8
   %54 = lshr i32 %6, 10
   %55 = and i32 %54, 1023
   %56 = zext nneg i32 %55 to i64
-  %57 = getelementptr ptr, ptr %53, i64 %56
+  %57 = getelementptr [8 x i8], ptr %53, i64 %56
   %58 = load ptr, ptr %57, align 8
   %59 = and i32 %6, 1023
   %60 = zext nneg i32 %59 to i64
-  %61 = getelementptr %struct._frame_data, ptr %58, i64 %60
+  %61 = getelementptr [104 x i8], ptr %58, i64 %60
   br label %62
 
 62:                                               ; preds = %5, %2, %44, %31, %17, %10
@@ -430,7 +427,7 @@ define internal fastcc void @free_frame_data_array(ptr noundef %0, i32 noundef %
 
 18:                                               ; preds = %.lr.ph34, %18
   %indvars.iv38 = phi i64 [ 0, %.lr.ph34 ], [ %indvars.iv.next39, %18 ]
-  %19 = getelementptr ptr, ptr %0, i64 %indvars.iv38
+  %19 = getelementptr [8 x i8], ptr %0, i64 %indvars.iv38
   %20 = load ptr, ptr %19, align 8
   tail call fastcc void @free_frame_data_array(ptr noundef %20, i32 noundef %1, i32 noundef %17, i1 noundef zeroext false)
   %indvars.iv.next39 = add nuw nsw i64 %indvars.iv38, 1
@@ -440,14 +437,14 @@ define internal fastcc void @free_frame_data_array(ptr noundef %0, i32 noundef %
 ._crit_edge:                                      ; preds = %18, %.preheader.._crit_edge_crit_edge
   %.pre-phi44 = phi i32 [ %.pre43, %.preheader.._crit_edge_crit_edge ], [ %17, %18 ]
   %.pre-phi = phi i64 [ 0, %.preheader.._crit_edge_crit_edge ], [ %wide.trip.count41, %18 ]
-  %21 = getelementptr ptr, ptr %0, i64 %.pre-phi
+  %21 = getelementptr [8 x i8], ptr %0, i64 %.pre-phi
   %22 = load ptr, ptr %21, align 8
   tail call fastcc void @free_frame_data_array(ptr noundef %22, i32 noundef %1, i32 noundef %.pre-phi44, i1 noundef zeroext %3)
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %23 = getelementptr %struct._frame_data, ptr %0, i64 %indvars.iv
+  %23 = getelementptr [104 x i8], ptr %0, i64 %indvars.iv
   tail call void @frame_data_destroy(ptr noundef %23)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -484,7 +481,7 @@ define void @find_and_mark_frame_depended_upon(ptr noundef %0, ptr readnone capt
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %15 = load ptr, ptr %14, align 8
   %16 = zext i32 %9 to i64
-  %17 = getelementptr %struct._frame_data, ptr %15, i64 %16
+  %17 = getelementptr [104 x i8], ptr %15, i64 %16
   br label %frame_data_sequence_find.exit
 
 18:                                               ; preds = %11
@@ -496,11 +493,11 @@ define void @find_and_mark_frame_depended_upon(ptr noundef %0, ptr readnone capt
   %22 = load ptr, ptr %21, align 8
   %23 = lshr i32 %9, 10
   %24 = zext nneg i32 %23 to i64
-  %25 = getelementptr ptr, ptr %22, i64 %24
+  %25 = getelementptr [8 x i8], ptr %22, i64 %24
   %26 = load ptr, ptr %25, align 8
   %27 = and i32 %9, 1023
   %28 = zext nneg i32 %27 to i64
-  %29 = getelementptr %struct._frame_data, ptr %26, i64 %28
+  %29 = getelementptr [104 x i8], ptr %26, i64 %28
   br label %frame_data_sequence_find.exit
 
 30:                                               ; preds = %18
@@ -512,36 +509,36 @@ define void @find_and_mark_frame_depended_upon(ptr noundef %0, ptr readnone capt
 34:                                               ; preds = %30
   %35 = lshr i32 %9, 20
   %36 = zext nneg i32 %35 to i64
-  %37 = getelementptr ptr, ptr %33, i64 %36
+  %37 = getelementptr [8 x i8], ptr %33, i64 %36
   %38 = load ptr, ptr %37, align 8
   %39 = lshr i32 %9, 10
   %40 = and i32 %39, 1023
   %41 = zext nneg i32 %40 to i64
-  %42 = getelementptr ptr, ptr %38, i64 %41
+  %42 = getelementptr [8 x i8], ptr %38, i64 %41
   %43 = load ptr, ptr %42, align 8
   %44 = and i32 %9, 1023
   %45 = zext nneg i32 %44 to i64
-  %46 = getelementptr %struct._frame_data, ptr %43, i64 %45
+  %46 = getelementptr [104 x i8], ptr %43, i64 %45
   br label %frame_data_sequence_find.exit
 
 47:                                               ; preds = %30
   %48 = lshr i32 %9, 30
   %49 = zext nneg i32 %48 to i64
-  %50 = getelementptr ptr, ptr %33, i64 %49
+  %50 = getelementptr [8 x i8], ptr %33, i64 %49
   %51 = load ptr, ptr %50, align 8
   %52 = lshr i32 %9, 20
   %53 = and i32 %52, 1023
   %54 = zext nneg i32 %53 to i64
-  %55 = getelementptr ptr, ptr %51, i64 %54
+  %55 = getelementptr [8 x i8], ptr %51, i64 %54
   %56 = load ptr, ptr %55, align 8
   %57 = lshr i32 %9, 10
   %58 = and i32 %57, 1023
   %59 = zext nneg i32 %58 to i64
-  %60 = getelementptr ptr, ptr %56, i64 %59
+  %60 = getelementptr [8 x i8], ptr %56, i64 %59
   %61 = load ptr, ptr %60, align 8
   %62 = and i32 %9, 1023
   %63 = zext nneg i32 %62 to i64
-  %64 = getelementptr %struct._frame_data, ptr %61, i64 %63
+  %64 = getelementptr [104 x i8], ptr %61, i64 %63
   br label %frame_data_sequence_find.exit
 
 frame_data_sequence_find.exit:                    ; preds = %8, %13, %20, %34, %47
